@@ -10,21 +10,22 @@ End
 
 #MOBILES
 #1800
-bootie executive бутявка хозяйственная~
-@eng bootie@rus ~~бутявка~~~
-@eng Executive bootie is very busy by nothing here.@rus Хозяйственная бутявка очень занята ничем.~
+booty executive бутявка хозяйственная~
+@eng booty@rus ~~бутявка~~~
+@eng Executive booty is very busy by nothing here.@rus Хозяйственная бутявка очень занята ничем.~
 .
  \_|_/
 _|{cO{R_{cO{x|_
  |___|
  / | \ ~
 unique~
-0 0 0 0 0 0 0
-0 0 0d0+0 0d0+0 0d0+0 ''
-0 0 0 0
-0
+CILQRTUZe 0 0 AKM ABCDEFGHIJKLMN 0 0
+33 10 70d10+7777 70d10+7777 9d7+33 'kiss'
+-20 -20 -20 -20
+ABCDEFHIJKLMOUZ
 stand stand none 0
-0 0 medium unknown
+AHJMV DIK gargantuan unknown
+g @eng none@rus female~
 #1801
 unicorn white единорог белый~
 @eng a white unicorn@rus ~~белый~~ ~~единорог~~~
@@ -977,7 +978,7 @@ m mob_random mob_random_cast_adept 100~
 #OBJECTS
 #1801
 lamp light лампа свет~
-@eng a ranger's lamp@rus егерская лампа~
+@eng a ranger's lamp@rus ~~егерскаЯ~~ ~~лампа~~~
 @eng A brass ranger's lamp has been left here.@rus латунная егерская лампа оставлена здесь.~
 brass~
 light 0 0 A
@@ -986,7 +987,7 @@ light 0 0 A
 g @rus female~
 #1802
 canteen camper's фляжка туриста~
-@eng a camper's canteen@rus фляжка туриста~
+@eng a camper's canteen@rus ~~флЯжка~~ туриста~
 @eng A camper's canteen is on the floor.@rus На земле лежит туристическая фляжка.~
 steel~
 drink 0 0 A
@@ -994,41 +995,43 @@ drink 0 0 A
 0 20 75 P
 g @rus female~
 #1803
-back backpack pack~
-a ranger's backpack~
-A ranger's backpack sits on the ground.~
+back backpack pack рюкзак егерский~
+@eng a ranger's backpack@rus ~~егерский~~ ~~рюкзак~~~
+@eng A ranger's backpack sits on the ground.@rus Егерский рюкзак (backpack) стоит на земле.~
 canvas~
 container 0 0 AD
 400 0 0 20 100
 1 50 75 P
-g @rus none~
+g @rus male~
 #1804
-first aid kit~
-a first aid kit~
-A white wooden box with a red cross is here.~
+kit аптечка первой помощи first aid~
+@eng a first aid kit@rus ~~аптечка~~ первой помощи~
+@eng A white wooden box with a red cross is here.@rus Белая деревянная коробка с красным крестом (aid kit) лежит тут.~
 wood~
 staff G 0 AO
 40 10 10 'heal' 0
 10 50 12000 P
 E
 box~
-The below the red cross on the white box is a label that says,
+@eng The below the red cross on the white box is a label that says,
               "Brandish to Heal Wounds"
+@rus Под красным крестом на белой коробке табличка:
+             "Взмахни для исцеления ран"
 ~
-g @rus none~
+g @rus female~
 #1805
-wafer~
-a wafer~
-A wafer, food-staple of the rangers, lies here waiting to be eaten.~
+wafer галета~
+@eng a wafer@rus ~~галета~~~
+@eng A wafer, food-staple of the rangers, lies here waiting to be eaten.@rus Галета (wafer), пища рейнджеров, лежит тут и ждет, когда ее съедят.~
 food~
 food 0 0 A
 BCDE ADE 0 0 0
 1 10 2 P
-g @rus none~
+g @rus female~
 #1806
-ivory unicorn sword~
-an ivory unicorn sword~
-A long spiral sword made of ivory rests here.~
+sword ivory unicorn меч единорога костяной~
+@eng an ivory unicorn sword@rus ~~костяной~~ ~~меч~~ единорога~
+@eng A long spiral sword made of ivory rests here.@rus Длинный спиральный меч (sword) сделанный из кости покоится тут.~
 ivory~
 weapon 0 0 AN
 sword 7 7 'pierce' 0
@@ -1040,20 +1043,20 @@ ivory~
 It is unicorn ivory, you can tell from the shape, one time a part of a
 unicorn. The hilt is of ivory, too, as is the handle.
 ~
-g @rus none~
+g @rus male~
 #1807
-swing~
-a rope swing~
-A rope swing hangs from a bough of the great birch tree.~
+swing rope качели веревочные~
+@eng a rope swing@rus ~~веревочные~~ ~~качели~~~
+@eng A rope swing hangs from a bough of the great birch tree.@rus Веревочные качели (swing) свисают с ветвей большой березы~
 wood~
 furniture 0 0 0
 3 1500 BEHKN 100 100
 0 0 0 P
-g @rus none~
+g @rus plural~
 #1808
-ivory mace two~
-an ivory mace~
-A mace made of ivory has been foolishly left behind.~
+mace two ivory дубина палица костяная~
+@eng an ivory mace@rus ~~костяная~~ ~~палица~~~
+@eng A mace made of ivory has been foolishly left behind.@rus Палица, сделанная из кости (mace), неразумно оставлена тут.~
 ivory~
 weapon 0 0 AN
 mace 4 13 'smash' F
@@ -1061,18 +1064,19 @@ mace 4 13 'smash' F
 f object hitroll 2 0
 f object damroll 2 0
 E
-ivory~
-It is unicorn ivory, you can tell from the shape of the handle, one time
+ivory mace палица дубина костяная~
+@eng It is unicorn ivory, you can tell from the shape of the handle, one time
 a part of a unicorn.
+@rus Судя по рукояти, эта кость раньше принадлежала единорогу.
 ~
-g @rus none~
+g @rus female~
 #1809
-red belt~
+belt red пояс красный~
 a red belt~
 A red belt with golden embroidery is here.~
 silk~
-armor E 0 AL
-9 9 9 9 0
+armor E CD AL
+50 9 9 9 0
 47 30 4500 P
 f object wis 1 0
 f object ac -3 0
@@ -1084,9 +1088,9 @@ stars, moons, suns.
 ~
 g @rus none~
 #1810
-orange robe~
-an orange robe~
-An orange robe is here, neatly folded on the floor.~
+robe orange куртка оранжевая~
+@eng an orange robe@rus ~~оранжевая~~ ~~куртка~~~
+@eng An orange robe is here, neatly folded on the floor.@rus Здесь лежит аккуратно сложенная оранжевая куртка (robe).~
 silk~
 armor L 0 AK
 10 10 10 10 0
@@ -1095,26 +1099,28 @@ f object ac -5 0
 f object hitroll 1 0
 f object damroll 1 0
 E
-robe~
-The robe is embroidered in brown thread. The pictures are of various
+robe куртка~
+@eng The robe is embroidered in brown thread. The pictures are of various
 types of leaves. Oak leaves figure the most.
+@rus яьтКуртка вышита коричневой нитью. Рисунок вышивки составляют листья
+разных растений, больше прочих -- листья дуба.
 ~
-g @rus none~
+g @rus female~
 #1811
-golden eye dagger~
-a golden eye dagger~
-A golden dagger with an eye inscribed on its blade seems to glare at you.~
+dagger golden eye кинжал золотой глаз златоглазка~
+@eng a golden eye dagger@rus ~~кинжал~~ Златоглазка~
+@eng A golden dagger with an eye inscribed on its blade seems to glare at you.@rus Золотой кинжал (dagger) с выгравированным на лезвии глазом словно бы смотрит на тебя.~
 gold~
 weapon AHJ 0 AN
 dagger 7 7 'thrust' B
 51 30 4800 P
 f skills 'parry' 30 A
 f object ac -4 0
-g @rus none~
+g @rus male~
 #1812
-witch ring~
-Ring of the Witch~
-A green ring lies here emanating a soft green glow.~
+ring witch кольцо ведьмы~
+@eng Ring of the Witch@rus ~~кольцо~~ ведьмы~
+@eng A green ring lies here emanating a soft green glow.@rus Зеленое кольцо (ring) лежит здесь, окруженное мягким зеленым свечением.~
 malachite~
 armor FG 0 AB
 11 11 11 11 0
@@ -1123,22 +1129,22 @@ f object int 2 0
 f object mana 50 0
 f object ac -5 0
 f object saves -3 0
-g @rus none~
+g @rus neutral~
 #1813
-blue amulet~
-a blue amulet~
-A blue amulet is here.~
+amulet blue амулет голубой~
+@eng a blue amulet@rus ~~голубой~~ ~~амулет~~~
+@eng A blue amulet is here.@rus Голубой амулет (amulet) лежит тут.~
 lapis~
 armor FGI 0 AC
 9 9 9 9 0
 55 30 5600 P
 f object ac -5 0
 f object saves -6 0
-g @rus none~
+g @rus male~
 #1814
-indigo robe~
-an indigo robe~
-An indigo robe adorned with glinting silver moons was left here.~
+robe indigo халат индиго~
+@eng an indigo robe@rus ~~халат~~ индиго~
+@eng An indigo robe adorned with glinting silver moons was left here.@rus Халат цвета индиго (robe) покрытый блестящими серебряными полумесяцами брошен здесь.~
 silk~
 armor IY 0 AK
 14 14 14 14 0
@@ -1147,11 +1153,11 @@ f object ac -7 0
 f object hitroll 3 0
 f object damroll 3 0
 f object saves -3 0
-g @rus none~
+g @rus male~
 #1815
-violet robe~
-a violet robe~
-A skimpy and somewhat ripped violet robe lays neglected on the floor.~
+robe violet платье фиолетовое~
+@eng a violet robe@rus ~~фиолетовое~~ ~~платье~~~
+@eng A skimpy and somewhat ripped violet robe lays neglected on the floor.@rus Укороченное платье с разрезами (robe) небрежно лежит на полу.~
 silk~
 armor EIM 0 AK
 11 11 11 11 0
@@ -1162,21 +1168,25 @@ f object mana 20 0
 f object ac -3 0
 f object saves -4 0
 E
-skimpy~
-Worn by the right person, this robe could cause some major trouble. Or some
+skimpy укороченное~
+@eng Worn by the right person, this robe could cause some major trouble. Or some
 major pleasure, depending on the persons involved and the point of view.
+@rus Одетое нужной персоной, это платье может стать огромной проблемой. Или
+огромным удовольствием, в зависимости от вовлеченных персон и их точки зрения.
 ~
 E
-ripped~
-The robe is ripped in such a way that when worn, the wearer's left leg is
+ripped разрез~
+@eng The robe is ripped in such a way that when worn, the wearer's left leg is
 exposed up to the hip, and if the wearer is wearing panties, you can see
 them, and what color they are.
+@rus Разрезы этого платья открывают взору левую ногу до бедра, и если под
+платьем надето белье, ты можешь видеть его и узнать его цвет.
 ~
-g @rus none~
+g @rus neutral~
 #1816
-oaken staff~
-an oaken staff~
-A finely carved stick made of oak wood was left behind.~
+staff oaken посох дубовый~
+@eng an oaken staff@rus дубовый посох~
+@eng A finely carved stick made of oak wood was left behind.@rus Резная палка из дуба оставлена кем-то.~
 wood~
 staff I 0 AO
 60 5 5 'lightning bolt' 0
@@ -1185,11 +1195,11 @@ f object cha 2 0
 f object mana 20 0
 f object hp 20 0
 f object ac -10 0
-g @rus none~
+g @rus male~
 #1817
-orange boots~
-a pair of orange boots~
-A pair of orange-tinted leather boots is here.~
+boots orange пара ботинок ботинки оранжевые оранжевых~
+@eng a pair of orange boots@rus пара оранжевых ботинок~
+@eng A pair of orange-tinted leather boots is here.@rus Пара оранжевых ботинок (boots) оставлена тут.~
 soft leather~
 armor BGI 0 AG
 11 11 11 11 0
@@ -1199,11 +1209,11 @@ f object int 1 0
 f object hp 20 0
 f object ac -10 0
 f object saves -5 0
-g @rus none~
+g @rus female~
 #1818
-golden eye sword~
-a golden eye sword~
-A sword with an open eye inscribed on its blade seems to glare at you.~
+sword golden eye меч золотой глаз~
+@eng a golden eye sword@rus ~~меч~~ Золотой глаз~
+@eng A sword with an open eye inscribed on its blade seems to glare at you.@rus Меч с изображением открытого глаза на лезвии (sword) как будто уставился на тебя.~
 gold~
 weapon AGY 0 AN
 sword 7 10 'cleave' B
@@ -1212,7 +1222,7 @@ f object str 2 0
 f object dex 1 0
 f object hitroll 4 0
 f object damroll 3 0
-g @rus none~
+g @rus male~
 #1819
 green wristband~
 a green wristband~
@@ -1686,14 +1696,14 @@ on your back.. The worst thing is that you feel nothing at all..
 твою спину.. Плохо одно - ты вообще ничего не чувствуешь..
 {gВ воздухе висит грифельная табличка, на которой что-то нацарапано{x
 ~
-0 0 inside
+0 O swim
 E
 табличка table sign~
 @eng {Gobjects     {W|  {Gtranslated  {W|  {G checked    {W|
 {W------------+--------------+--------------|
 {Grooms       {W| 1801 -- 1897 | 1801 -- 1804 |
 {Gmobs        {W| {w1801 -- 1899 {W| {w1801 -- 1899 {W|
-{Gthings      {W|              |              |{x
+{Gthings      {W| 1801 -- 1811 |              |{x
 @rus {W.----------------.--------------.--------------.
 {W|    {Gобъекты     {W|  {Gпереведены  {W|  {Gпроверены   {W|
 {W|----------------+--------------+--------------|
@@ -1701,7 +1711,7 @@ E
 {W|----------------+--------------+--------------|
 {W|     {Gмобы       {W| {w1801 -- 1899 {W| {w1801 -- 1899 {W|
 {W|----------------+--------------+--------------|
-{W|     {Gвещи       {W|              |              |
+{W|     {Gвещи       {W| 1801 -- 1818 |              |
 {W`----------------`--------------`--------------`{x
 ~
 S
@@ -1798,7 +1808,7 @@ S
 @eng A finely-made wall is to your north, too high to peer over. A thicket of
 shrubs and vines keeps you from touching the wall. The trees are tall. From
 above, you can hear birdsong.
-@rus яьтСработанная на совесть стена видна к северу от тебя, ее заслоняют
+@rus Сработанная на совесть стена видна к северу от тебя, ее заслоняют
 непроходимые заросли кустарника и плюща. Деревья высоки. Сверху доносится
 птичья песня.
 ~
@@ -4477,7 +4487,7 @@ S
 #0
 
 #RESETS
-M 0 1800 1 1800 1	* bootie (Hidden Workplace)
+M 0 1800 1 1800 1	* booty (Hidden Workplace)
 M 0 1830 27 1801 1	* a grey squirrel (Northwest Corner)
 M 0 1839 13 1801 1	* a small white bunny (Northwest Corner)
 M 0 1830 27 1802 1	* a grey squirrel (In the Thick Wood)

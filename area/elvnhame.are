@@ -1,7 +1,7 @@
 #AREADATA
 Ver 7
 Name Elvenhame~
-Builders stark~
+Builders stark lorelea astonix~
 VNUMs 40100 40199
 Credits Xyza~
 Security 9
@@ -11,7 +11,7 @@ End
 #MOBILES
 #40101
 GuildMaster Master наставник мастер~
-@eng the Guildmaster@rus наставник~
+@eng the Guildmaster@rus ~~наставник~~~
 @eng Your Guildmaster stands here, patiently waiting to 
 teach you.@rus Ваш наставник (guildmaster) терпеливо ждет Вас здесь, чтобы учить.~
 @eng G'hirjil D'Umordin regards you, reading your soul.  At  his  side is
@@ -35,7 +35,7 @@ r magic 100
 m mob_fight mob_fight_cast_mage 100~
 #40102
 GuildMaster Master наставник мастер~
-@eng the Guildmaster@rus наставник~
+@eng the Guildmaster@rus ~~наставник~~~
 @eng Your Guildmaster stands here, patiently waiting to 
 teach you.@rus Ваш наставник (guildmaster) терпеливо ожидает Вас для следующего урока.~
 @eng He wears a colorful tunic and patchwork leggings.  In  his  hands is
@@ -56,13 +56,16 @@ r weapon 100
 r magic 100
 #40103
 GuildMaster наставник~
-the Guildmaster~
-Your Guildmaster stands here, glowing with energies
-he is channeling from the floor upon which he stands.~
-You feel a tingling as the Guildmaster summons 
+@eng the Guildmaster@rus ~~наставник~~~
+@eng Your Guildmaster stands here, glowing with energies
+he is channeling from the floor upon which he stands.@rus Твой наставник (guildmaster) стоит тут, сиЯЯ магической энергией.~
+@eng You feel a tingling as the Guildmaster summons 
 forth a Vortex of Mystical Power. His robe sparks 
 with flashing lights as he pulls in more and more 
 energy from the world around him.
+@rus Ты чувствуешь, как наставник заклинает водоворот мистической мощи. 
+Его одежды мерцают огнем, впитываЯ все больше энергии из всего,
+что находится рядом.
 ~
 elf~
 BGJRV 0 J 0 0 -900 0
@@ -76,14 +79,18 @@ r magic 100
 m mob_fight mob_fight_cast_mage 100~
 #40104
 GuildMaster Master WeaponsMaster Weapons~
-the WeaponsMaster~
-Your Guildmaster, the Master of Weapons, stands here, 
-patiently waiting to teach you.~
-Tordril Thedrilson wears light but strong armor. 
+@eng the WeaponsMaster@rus ~~мастер~~ оружия~
+@eng Your Guildmaster, the Master of Weapons, stands here, 
+patiently waiting to teach you.@rus Твой наставник, (weaponmaster) мастер оружиЯ, стоит тут.~
+@eng Tordril Thedrilson wears light but strong armor. 
 On his head is a jeweled helm, a gift from an
 elven queen. At his side is his most prized weapon,
 an enchanted broadsword with a jeweled hilt. He
 stands ready to grab it in a flash.
+@rus Тордрил Тедрилсон закован в легкую, но прочную броню. 
+Его шлем украшен самоцветами - это подарок эльфийской королевы.
+Бесценный заколдованный клинок сверкает рукоятью в его ножнах.
+Тордрил готов мгновенно выхватить оружие.
 ~
 elf~
 BGJTV 0 H 0 0 0 0
@@ -96,13 +103,17 @@ r weapon 100
 r magic 100
 #40105
 GuildMaster Master~
-the Guildmaster~
-Your Guildmaster stands here, morphing constantly.~
-He changes shape so often, you don't really know
+@eng the Guildmaster@rus ~~наставник~~~
+@eng Your Guildmaster stands here, morphing constantly.@rus Твой наставник (guildmaster) стоит тут, хмурЯсь при мысли о Паладинах, наводнивших мир.~
+@eng He changes shape so often, you don't really know
 what he'll be next, or if you're even looking at
 him. Once in a while he looks like something
 recognizable, an elf, or a drow, or a giant, or a
 wererat...
+@rus Он меняет форму так часто, что ты не можешь угадать,
+кем он станет в следующую секунду.
+Время от времени он становится кем-то узнаваемым-
+эльфом, дроу, гигантом, крысой-оборотнем...
 ~
 elf~
 BGJRV 0 H 0 0 0 0
@@ -116,16 +127,22 @@ r magic 100
 m mob_fight mob_fight_cast_mage 100~
 #40106
 GuildMaster Master~
-the Guildmaster~
-Your Guildmaster stands here, scowling at the thought
-of Paladins roaming the world.~
-Your Guildmaster stands here, patiently waiting to 
+@eng the Guildmaster@rus ~~наставник~~~
+@eng Your Guildmaster stands here, scowling at the thought
+of Paladins roaming the world.@rus Твой наставник стоит тут, хмурясь при мысли о Паладинах, {/наводнивших мир.~
+@eng Your Guildmaster stands here, patiently waiting to 
 teach you the dark arts and skills needed to combat
 those cleric-warriors known as Paladins, whose sole
 purpose in life appears to be to destroy all that
 do not walk in the light. He wears dark armor, 
 bloodstained in a few places, and his huge axe is
 within ready reach.
+@rus Твой наставник стоит тут, готовый обучить тебя темным искусствам,
+необходимые для борьбы с этими монахами-воинами, Паладинами,
+которые посвятили свою жизнь уничтожению всего,
+что не принадлежит Свету.
+Наставник закован в темную броню, запятнаную кровью,
+его боевой топор всегда под рукой.
 ~
 elf~
 BGJQV 0 J 0 0 -1000 0
@@ -139,16 +156,21 @@ r magic 100
 m mob_fight mob_fight_cast_cleric 100~
 #40107
 GuildMaster Master Paladin~
-the Guildmaster~
-Your Guildmaster stands here, patiently waiting to 
-teach you.~
-The Guildmaster stands here, patiently waiting to 
+@eng the Guildmaster@rus ~~наставник~~~
+@eng Your Guildmaster stands here, patiently waiting to 
+teach you.@rus Твой наставник (guildmaster) стоит тут, терпеливо ожидаЯ начала занЯтий.~
+@eng The Guildmaster stands here, patiently waiting to 
 teach you spells and skills tried and tested against
 those who would bring darkness upon the world. So 
 bright is his armor that you think it glows of its
 own inner light. His longsword is engraved with
 magical runes of power, its hilt sparkling with
 diamonds and rubies.
+@rus Наставник стоит тут, готовый научить тебя умениям и чарам, 
+давно проверенным в борьбе с темными силами.
+Его доспех так блестит, что, кажется, светится изнутри.
+На длинном мече наставника высечены руны силы,
+его эфес сверкает алмазами и рубинами.
 ~
 elf~
 BGJQV 0 H 0 0 1000 0
@@ -162,13 +184,18 @@ r magic 100
 m mob_fight mob_fight_cast_cleric 100~
 #40108
 GuildMaster Master~
-the Guildmaster~
-Your Guildmaster stands here quietly praying. ~
-The Guildmaster quietly prays to his god that 
+@eng the Guildmaster@rus ~~наставник~~~
+@eng Your Guildmaster stands here quietly praying. @rus Твой наставник (guildmaster) стоит тут, шепча молитвы.~
+@eng The Guildmaster quietly prays to his god that 
 you will learn much and please the powers that 
 be. He wears clerical robes, and on his head is
 a mitre. The beatific look on his face tells you
 at once that he is at one with his god.
+@rus Наставник тихо шепчет молитвы своему богу,
+которому ты вскоре станешь служить.
+Он одет в монашескую рясу, его голову венчает митра.
+Блаженное выражение его лица наводит на мысль,
+что он - одно целое со своим богом.
 ~
 elf~
 BGJQV 0 H 0 0 0 0
@@ -182,14 +209,18 @@ r magic 100
 m mob_fight mob_fight_cast_cleric 100~
 #40109
 GuildMaster Master~
-the Guildmaster~
-Your Guildmaster hovers here.~
-The Guildmaster hovers here, patiently waiting to 
+@eng the Guildmaster@rus ~~наставник~~~
+@eng Your Guildmaster hovers here.@rus Твой наставник (guildmaster) парит в воздухе.~
+@eng The Guildmaster hovers here, patiently waiting to 
 teach you something new in the black arts. You look 
 at him and see that he is nearly entirely cloaked
 from your sight, but you vaguely make out the features
 of the dreaded lichdrow. You will learn... yes, you
 will learn...
+@rus Наставник парит в воздухе, готовый посвятить тебя в черное искусство.
+Он почти полностью скрыт от твоего взгляда,
+но ты смутно различаешь черты жуткого умертвия-дроу.
+Он научит тебя...да, научит...
 ~
 elf~
 BGJRV 0 J 0 0 -1000 0
@@ -203,15 +234,20 @@ r magic 100
 m mob_fight mob_fight_cast_mage 100~
 #40110
 GuildMaster~
-the Guildmaster~
-Your Guildmaster sits with his back against the
-wall.~
-The Guildmaster has learned the wisdom of keeping
+@eng the Guildmaster@rus ~~наставник~~~
+@eng Your Guildmaster sits with his back against the
+wall.@rus Твой наставник (guildmaster) сидит спиной к стене.~
+@eng The Guildmaster has learned the wisdom of keeping
 the wall to his back, for it prevents a backstab.
 He regards you with shifty eyes, one hand absently
 twirling his moustache, knowing at all times who is
 where in his guild. His clothing is fashionable but 
 not gaudy. 
+@rus Наставник давно научился не подставлять свою спину под удары.
+Он приветствует тебя легким движением век,
+пощипывая свои усы с отсутствующим видом.
+Он знает, где находится каждый в его гильдии.
+Наставник облачен в богатые, но не крикливые одежды. 
 ~
 elf~
 BGJV 0 J 0 0 -900 0
@@ -224,13 +260,17 @@ r weapon 100
 r magic 100
 #40111
 GuildMaster~
-the Guildmaster~
-Your Guildmaster adjusts the settings on the telescope.~
-The GuildMaster wears a dark blue robe with silver
+@eng the Guildmaster@rus ~~наставник~~~
+@eng Your Guildmaster adjusts the settings on the telescope.@rus Твой наставник (guildmaster) возитсЯ у телескопа.~
+@eng The GuildMaster wears a dark blue robe with silver
 moons and stars. Partially covering his grey hair
 is a small matching cap. Peeking out from many pockets
 in his robe are scrolls and a compass. A small telescope
 also threatens to fall out of one of his pockets.
+@rus Наставник одет в синий балахон, расшитый серебряными звездами.
+Такая же шапка прикрывает его седые волосы.
+Из многочислинных карманов его одежды выглядывают свитки и компас.
+Небольшой телескоп вот-вот вывалится из-за пазухи наставника.
 ~
 elf~
 BGJRV 0 H 0 0 0 0
@@ -244,13 +284,15 @@ r magic 100
 m mob_fight mob_fight_cast_mage 100~
 #40112
 GuildMaster~
-the Guildmaster~
-Your Guildmaster stands here, patiently waiting to 
-teach you.~
-The Guildmaster stands here, patiently waiting to 
+@eng the Guildmaster@rus ~~наставник~~~
+@eng Your Guildmaster stands here, patiently waiting to 
+teach you.@rus Твой наставник (guildmaster) стоит тут, ожидаЯ начала занЯтий.~
+@eng The Guildmaster stands here, patiently waiting to 
 teach you something new. At his side is his most 
 prized weapon, and his hands are ready to grab it 
 in a flash. 
+@rus Наставник терпеливо ждет тебя, чтобы научить чему-то новому.
+Он готов обнажить свой меч в любую минуту.
 ~
 elf~
 BGJV 0 J 0 0 -900 0
@@ -263,12 +305,15 @@ r weapon 100
 r magic 100
 #40113
 Bank President Banker~
-the President of the Bank~
-The President of the Bank hopes you will deposit more gold.~
-Wearing conservative clothing, the President of the Bank is
+@eng the President of the Bank@rus ~~президент~~ банка~
+@eng The President of the Bank hopes you will deposit more gold.@rus Президент банка (president) с радостью примет твое золото.~
+@eng Wearing conservative clothing, the President of the Bank is
 here to see that the tellers treat the bank customers with
 courtesy (and also that they do not embe401le). He is a grey-
 elf, welcoming all to the bank.
+@rus Консервативно одетый, президент банка следит, дабы кассиры обслуживали
+посетителей обходительно (а также, чтобы они не допускали растрат). Этот                                                                              
+сумеречный эльф радушен к посетителям банка.
 ~
 elf~
 BGJTV 0 Hc 0 0 0 0
@@ -281,11 +326,14 @@ r weapon 100
 r magic 100
 #40114
 cityguard guard captain~
-the Captain of the City Guard~
-The Captain of the City Guard sits at his cluttered desk.~
-Wearing the uniform of a captain of the City Guard, he 
+@eng the Captain of the City Guard@rus ~~капитан~~ городской стражи~
+@eng The Captain of the City Guard sits at his cluttered desk.@rus Капитан городской стражи сидит за столом, по которому раскиданы бумаги.~
+@eng Wearing the uniform of a captain of the City Guard, he 
 looks up from his work and wonders what crime you wish
 to report.
+@rus Эльф. одетый в форму капитана городской стражи, 
+поднимает глаза, интересуясь твоей информацией
+о совершенных преступлениях.
 ~
 elf~
 BGTV 0 0 0 0 0 0
@@ -298,9 +346,10 @@ r bash 33
 r slash 33
 #40115
 cityguard guard~
-the Cityguard~
-The Cityguard stands ready to defend the lawful.~
-He looks watchful and alert. Better be careful.
+@eng the Cityguard@rus ~~стражник~~~
+@eng The Cityguard stands ready to defend the lawful.@rus Стражник готов защитить закон.~
+@eng He looks watchful and alert. Better be careful.
+@rus Он выглядит внимательным и настороженным. Не ищи неприятностей.
 ~
 elf~
 GTV 0 0 0 0 0 0
@@ -313,10 +362,12 @@ r bash 33
 r slash 33
 #40116
 cityguard guard patroller~
-the Cityguard Patroller~
-The Cityguard Patroller searches for criminals.~
-He looks watchful and alert, his eyes icy, his
+@eng the Cityguard Patroller@rus ~~патрульный~~~
+@eng The Cityguard Patroller searches for criminals.@rus Патрульный разыскивает преступников.~
+@eng He looks watchful and alert, his eyes icy, his
 demeanor no-nonsense. 
+@rus Он выглядит внимательным, настороженным и уверенным в себе. 
+Его глаза холодны, как сталь.
 ~
 elf~
 GTV 0 0 0 0 0 0
@@ -329,11 +380,13 @@ r bash 33
 r slash 33
 #40117
 cityguard gate guard gateguard~
-the Gate Guard~
-The Gate Guard stands watch against invaders.~
-He watches the gate and those who enter and leave
+@eng the Gate Guard@rus ~~страж~~~
+@eng The Gate Guard stands watch against invaders.@rus Страж ворот готов защитить город от незваных гостей.~
+@eng He watches the gate and those who enter and leave
 the city, hoping to stop troublemakers before they
 get too far into the city.
+@rus Он наблюдает за теми, кто входит в город и покидает его.
+Злоумышленникам не удастся проникнуть внутрь.
 ~
 elf~
 GTV 0 0 0 0 0 0
