@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm.c,v 1.30 2004-02-22 23:27:16 fjoe Exp $
+ * $Id: comm.c,v 1.31 2004-02-23 01:03:58 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -1037,7 +1037,7 @@ read_from_descriptor(DESCRIPTOR_DATA *d)
 			break;
 
 		case IAC:
-			*p = CODEPAGE(d->codepage).from[*p++];
+			*p++ = CODEPAGE(d->codepage).from[(u_char) IAC];
 			if (d->character != NULL
 			&&  IS_SET(d->character->comm, COMM_NOTELNET))
 				continue;
@@ -1045,6 +1045,11 @@ read_from_descriptor(DESCRIPTOR_DATA *d)
 			break;
 
 		default:
+			if (d->character != NULL
+			&&  IS_SET(d->character->comm, COMM_NOTELNET)) {
+				*p++ = CODEPAGE(d->codepage).from[(u_char) IAC];
+				continue;
+			}
 			q = p + 2;
 			break;
 		}
