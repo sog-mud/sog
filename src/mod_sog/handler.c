@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.101 1998-12-23 16:59:21 fjoe Exp $
+ * $Id: handler.c,v 1.102 1999-02-03 14:03:17 kostik Exp $
  */
 
 /***************************************************************************
@@ -1744,6 +1744,7 @@ void extract_obj_raw(OBJ_DATA *obj, int flags)
 	}
 	else
 		obj->extracted = TRUE;
+	if (IS_SET(obj->extra_flags, ITEM_CLAN)) return;
  
 	for (obj_content = obj->contains; obj_content; obj_content = obj_next) {
 		obj_next = obj_content->next_content;
