@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.18 1998-06-13 11:55:08 fjoe Exp $
+ * $Id: act_obj.c,v 1.19 1998-06-14 06:22:40 efdi Exp $
  */
 
 /***************************************************************************
@@ -2322,6 +2322,10 @@ void do_brandish(CHAR_DATA *ch, char *argument)
 	  OBJ_DATA *staff;
 	  int sn;
 
+	if (IS_SET(ch->act, PLR_GHOST)) {
+		send_to_char("You can't do it while being a ghost.\n\r", ch);
+	}
+
 	  if (ch->clan == CLAN_BATTLE)
 	  {
 	send_to_char("You are not a filthy magician!\n\r", ch);
@@ -2412,23 +2416,25 @@ void do_brandish(CHAR_DATA *ch, char *argument)
 
 void do_zap(CHAR_DATA *ch, char *argument)
 {
-	  char arg[MAX_INPUT_LENGTH];
-	  CHAR_DATA *victim;
-	  OBJ_DATA *wand;
-	  OBJ_DATA *obj;
+	char arg[MAX_INPUT_LENGTH];
+	CHAR_DATA *victim;
+	OBJ_DATA *wand;
+	OBJ_DATA *obj;
 
-	  if (ch->clan == CLAN_BATTLE)
-	  {
-	send_to_char("You'd destroy the magic, not use it!\n\r", ch);
-	return;
-	  }
+	if (IS_SET(ch->act, PLR_GHOST)) {
+		send_to_char("You can't do it while being a ghost.\n\r", ch);
+	}
 
-	  one_argument(argument, arg);
-	  if (arg[0] == '\0' && ch->fighting == NULL)
-	  {
-	send_to_char("Zap whom or what?\n\r", ch);
-	return;
-	  }
+	if (ch->clan == CLAN_BATTLE) {
+		send_to_char("You'd destroy the magic, not use it!\n\r", ch);
+		return;
+	}
+
+	one_argument(argument, arg);
+	if (arg[0] == '\0' && ch->fighting == NULL) {
+		send_to_char("Zap whom or what?\n\r", ch);
+		return;
+	}
 
 	  if ((wand = get_eq_char(ch, WEAR_HOLD)) == NULL)
 	  {
