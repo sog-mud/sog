@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.65 2003-09-29 23:11:41 fjoe Exp $
+ * $Id: olc_race.c,v 1.66 2003-10-10 20:26:21 tatyana Exp $
  */
 
 #include "olc.h"
@@ -58,7 +58,7 @@ DECLARE_OLC_FUN(raceed_bonusskill	);
 DECLARE_OLC_FUN(raceed_stats		);
 DECLARE_OLC_FUN(raceed_maxstats		);
 DECLARE_OLC_FUN(raceed_size		);
-DECLARE_OLC_FUN(raceed_hpbonus		);
+DECLARE_OLC_FUN(raceed_hpstart		);
 DECLARE_OLC_FUN(raceed_manabonus	);
 DECLARE_OLC_FUN(raceed_movesrate	);
 DECLARE_OLC_FUN(raceed_pracbonus	);
@@ -110,7 +110,7 @@ olc_cmd_t olc_cmds_race[] =
 	{ "stats",	raceed_stats,	NULL,		NULL		},
 	{ "maxstats",	raceed_maxstats, NULL,		NULL		},
 	{ "size",	raceed_size,	validate_haspc, size_table	},
-	{ "hpbonus",	raceed_hpbonus,	validate_haspc,	NULL		},
+	{ "hpstart",	raceed_hpstart,	validate_haspc,	NULL		},
 	{ "manabonus",	raceed_manabonus, validate_haspc, NULL		},
 	{ "movesrate",	raceed_movesrate, validate_haspc, NULL		},
 	{ "pracbonus",	raceed_pracbonus, validate_haspc, NULL		},
@@ -395,9 +395,9 @@ OLC_FUN(raceed_show)
 
 	buf_printf(output, BUF_END, "Size:          [%s]\n",
 		   flag_string(size_table, r->race_pcdata->size));
-	if (r->race_pcdata->hp_bonus) {
-		buf_printf(output, BUF_END, "HP bonus:      [%d]\n",
-			   r->race_pcdata->hp_bonus);
+	if (r->race_pcdata->start_hp) {
+		buf_printf(output, BUF_END, "Start HP:      [%d]\n",
+			   r->race_pcdata->start_hp);
 	}
 
 	buf_printf(output, BUF_END, "Hunger Rate:   [%d]%%\n",
@@ -710,11 +710,11 @@ OLC_FUN(raceed_size)
 	return olced_flag(ch, argument, cmd, &race->race_pcdata->size);
 }
 
-OLC_FUN(raceed_hpbonus)
+OLC_FUN(raceed_hpstart)
 {
 	race_t *race;
 	EDIT_RACE(ch, race);
-	return olced_number(ch, argument, cmd, &race->race_pcdata->hp_bonus);
+	return olced_number(ch, argument, cmd, &race->race_pcdata->start_hp);
 }
 
 OLC_FUN(raceed_manabonus)
@@ -991,7 +991,7 @@ save_race_pcdata(pcrace_t *pcr, FILE *fp)
 	fwrite_rstats(fp, "Stats", pcr->mod_stat);
 	fwrite_rstats(fp, "MaxStats", pcr->max_stat);
 	fprintf(fp, "Size %s\n", flag_string(size_table, pcr->size));
-	fwrite_number(fp, "HPBonus", pcr->hp_bonus);
+	fwrite_number(fp, "HPStart", pcr->start_hp);
 	fwrite_number(fp, "ManaBonus", pcr->mana_bonus);
 	fwrite_number(fp, "PracBonus", pcr->prac_bonus);
 	if (pcr->hunger_rate != 100)

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_race.c,v 1.45 2003-09-30 00:31:04 fjoe Exp $
+ * $Id: db_race.c,v 1.46 2003-10-10 20:26:20 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -203,7 +203,7 @@ DBLOAD_FUN(load_pcrace)
 			break;
 
 		case 'H':
-			KEY("HPBonus", pcr->hp_bonus, fread_number(fp));
+			KEY("HPStart", pcr->start_hp, fread_number(fp));
 			KEY("HungerRate", pcr->hunger_rate, fread_number(fp));
 
 			break;

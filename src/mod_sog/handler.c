@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.375 2003-10-10 16:14:54 fjoe Exp $
+ * $Id: handler.c,v 1.376 2003-10-10 20:26:23 tatyana Exp $
  */
 
 /***************************************************************************
@@ -57,8 +57,9 @@
 
 static const char *	format_hmv	(int hp, int mana, int move);
 
+static int		hit_gain	(CHAR_DATA *ch, class_t *cl);
 static int		max_hit_gain	(CHAR_DATA *ch, class_t *cl);
-static int		min_hit_gain	(CHAR_DATA *ch, class_t *cl);
+//static int		min_hit_gain	(CHAR_DATA *ch, class_t *cl);
 static int		max_mana_gain	(CHAR_DATA *ch, class_t *cl);
 static int		min_mana_gain	(CHAR_DATA *ch, class_t *cl);
 static int		max_move_gain	(CHAR_DATA *ch, race_t *r);
@@ -2638,7 +2639,8 @@ advance_level(CHAR_DATA *ch)
 		    ch->name, ch->race);
 		return;
 	}
-	add_hp = number_range(min_hit_gain(ch, cl), max_hit_gain(ch, cl));
+//	add_hp = number_range(min_hit_gain(ch, cl), max_hit_gain(ch, cl));
+	add_hp = hit_gain(ch, cl);
 	add_mana = number_range(min_mana_gain(ch, cl), max_mana_gain(ch, cl));
 	add_move = number_range(min_move_gain(ch, r), max_move_gain(ch, r));
 
@@ -6464,21 +6466,55 @@ format_hmv(int hp, int mana, int move)
  * Following functions assume !IS_NPC(ch).
  */
 static int
-max_hit_gain(CHAR_DATA *ch, class_t *cl)
+hit_gain(CHAR_DATA *ch, class_t *cl)
 {
-	int gain = (con_app[get_max_train(ch, STAT_CON)].hitp + 2) *
-		cl->hp_rate / 100;
+	int gain;
+	int percent = number_percent();
+	int base = get_curr_stat(ch, STAT_CON) / 2 +
+		   get_curr_stat(ch, STAT_CON) % 2 + 1;
+
+	if (get_max_train(ch, STAT_CON) % 2 == 0) {
+		if (percent > 0 && percent <= 5)
+			gain = base + 3;
+		else if (percent > 5 && percent <= 60)
+			gain = base + 2;
+		else if (percent > 60 && percent <= 95)
+			gain = base + 1;
+		else
+			gain = base;
+	} else {
+		if (percent > 0 && percent <= 25)
+			gain = base + 2;
+		else if (percent > 25 && percent <= 95)
+			gain = base + 1;
+		else
+			gain = base;
+	}
+
+	gain *= cl->hp_rate / 100;
 	return UMAX(3, gain);
 }
 
 static int
+max_hit_gain(CHAR_DATA *ch, class_t *cl)
+{
+//	int gain = (con_app[get_max_train(ch, STAT_CON)].hitp + 2) *
+//		cl->hp_rate / 100;
+	int gain = (get_curr_stat(ch, STAT_CON) / 2 + 3) * cl->hp_rate / 100;
+	return UMAX(3, gain);
+}
+
+/*
+static int
 min_hit_gain(CHAR_DATA *ch, class_t *cl)
 {
-	int gain = (con_app[get_curr_stat(ch, STAT_CON)].hitp - 3) *
-		cl->hp_rate / 100;
-
+//	int gain = (con_app[get_curr_stat(ch, STAT_CON)].hitp - 3) *
+//		cl->hp_rate / 100;
+	int gain = (get_curr_stat(ch, STAT_CON) / 2 +
+		   get_curr_stat(ch, STAT_CON) % 2 + 1) * cl->hp_rate / 100;
 	return UMAX(1, gain);
 }
+*/
 
 static int
 max_mana_gain(CHAR_DATA *ch, class_t *cl)

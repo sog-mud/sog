@@ -1,5 +1,5 @@
 /*
- * $Id: nanny.c,v 1.16 2003-09-30 00:31:29 fjoe Exp $
+ * $Id: nanny.c,v 1.17 2003-10-10 20:26:24 tatyana Exp $
  */
 
 /***************************************************************************
@@ -402,7 +402,15 @@ nanny(DESCRIPTOR_DATA *d, const char *argument)
 		ch->race = str_qdup(r->name);
 
 		/* Add race modifiers */
-		SET_HIT(ch, ch->perm_hit + r->race_pcdata->hp_bonus);
+		if (r->race_pcdata->start_hp > 0)
+			SET_HIT(ch, r->race_pcdata->start_hp);
+		else {
+			printlog(LOG_BUG, "no start hp for race %s", r->name);
+			act_puts("This race is unavailable. Choose another.",
+				 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
+			break;
+		}
+
 		SET_MANA(ch, ch->perm_mana + r->race_pcdata->mana_bonus);
 		PC(ch)->practice = r->race_pcdata->prac_bonus;
 		for (i = 0; i < MAX_STAT; i++)

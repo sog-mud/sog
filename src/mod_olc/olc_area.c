@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.116 2003-09-30 00:31:23 fjoe Exp $
+ * $Id: olc_area.c,v 1.117 2003-10-10 20:26:21 tatyana Exp $
  */
 
 #include "olc.h"
@@ -52,11 +52,13 @@ DECLARE_OLC_FUN(areaed_credits		);
 DECLARE_OLC_FUN(areaed_minlevel		);
 DECLARE_OLC_FUN(areaed_maxlevel		);
 DECLARE_OLC_FUN(areaed_clan		);
+DECLARE_OLC_FUN(areaed_adjust		);
 
 DECLARE_VALIDATE_FUN(validate_security	);
 DECLARE_VALIDATE_FUN(validate_minvnum	);
 DECLARE_VALIDATE_FUN(validate_maxvnum	);
 DECLARE_VALIDATE_FUN(validate_move	);
+DECLARE_VALIDATE_FUN(validate_maxlevel	);
 
 olc_cmd_t olc_cmds_area[] =
 {
@@ -84,6 +86,7 @@ olc_cmd_t olc_cmds_area[] =
 	{ "minlevel",	areaed_minlevel, NULL,			NULL	},
 	{ "maxlevel",	areaed_maxlevel, NULL,			NULL	},
 	{ "clan",	areaed_clan,	NULL,		&clans		},
+	{ "adjust",	areaed_adjust,	validate_maxlevel,	NULL	},
 
 	{ "commands",	show_commands,	NULL,			NULL	},
 	{ "version",	show_version,	NULL,			NULL	},
@@ -409,6 +412,66 @@ OLC_FUN(areaed_clan)
 	return olced_foreign_strkey(ch, argument, cmd, &pArea->clan);
 }
 
+OLC_FUN(areaed_adjust)
+{
+	AREA_DATA *pArea;
+	MOB_INDEX_DATA *pMob;
+	char arg[MAX_INPUT_LENGTH];
+	int new_max_level, lev, old_max_level;
+	int vnum;
+
+	EDIT_AREA(ch, pArea);
+
+	argument = one_argument(argument, arg, sizeof(arg));
+
+	if (!is_number(arg))
+		return FALSE;
+
+	new_max_level = atoi(arg);
+
+	old_max_level = 1;
+	for (vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++) {
+		if ((pMob = get_mob_index(vnum)) == NULL)
+			continue;
+
+		if (pMob->level > old_max_level)
+			old_max_level = pMob->level;
+	}
+
+
+	for (vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++) {
+		if ((pMob = get_mob_index(vnum)) == NULL)
+			continue;
+		pMob->level = pMob->level * new_max_level / old_max_level;
+		lev = pMob->level;
+
+		/* AC */
+		if (lev < 10) {
+			pMob->ac[AC_PIERCE] = 100 - 10 * lev;
+			pMob->ac[AC_BASH]   = 100 - 10 * lev;
+			pMob->ac[AC_SLASH]  = 100 - 10 * lev;
+		} else if (lev >=10 && lev < 35) {
+			pMob->ac[AC_PIERCE] = 50 - 5 * lev;
+			pMob->ac[AC_BASH]   = 50 - 5 * lev;
+			pMob->ac[AC_SLASH]  = 50 - 5 * lev;
+		} else {
+			pMob->ac[AC_PIERCE] = - 5 * lev;
+			pMob->ac[AC_BASH]   = - 5 * lev;
+			pMob->ac[AC_SLASH]  = - 5 * lev;
+		}
+
+		pMob->ac[AC_EXOTIC] = 100 - lev / 3 * 10;
+		/* Hitdice: 10dlevel + level * level */
+
+		pMob->hit[0] = 10;
+		pMob->hit[1] = lev;
+		pMob->hit[2] = lev * lev;
+
+		/*Damage*/
+	}
+		return TRUE;
+}
+
 /* Validators */
 
 VALIDATE_FUN(validate_security)
@@ -462,6 +525,20 @@ VALIDATE_FUN(validate_maxvnum)
 			act_char("AreaEd: Range must include only this area.", ch);
 			return FALSE;
 		}
+	}
+	return TRUE;
+}
+
+VALIDATE_FUN(validate_maxlevel)
+{
+	int maxlevel = *(const int *) arg;
+
+	if (!maxlevel)
+		return FALSE;
+
+	if (maxlevel > 50 || maxlevel < 0) {
+		act_char("Stupid! Try to think!", ch);
+		return FALSE;
 	}
 	return TRUE;
 }
