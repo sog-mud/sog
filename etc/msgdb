@@ -2018,11 +2018,11 @@ Quest staff waits patiently to return.~
 @eng Suicide is against your way.@rus Суицид -- это не твой путь.~
 @eng Sun light disturbs you.@rus Солнечный свет раздражает тебя.~
 @eng Sure, this is $N's work!@rus Наверняка, это работа $c1{$N}!~
-@eng Syntax: glist <group>.@rus Синтаксис: glist <group>.~
-@eng Syntax: maxrnd <max_rnd_cnt>.@rus Синтаксис: maxrnd <max_rnd_cnt>.~
-@eng Syntax: password <old> <new>.@rus Синтаксис: password <старый> <новый>.~
-@eng Syntax: school {major|minor} <school name>.@rus Синтаксис: school {major|minor} <название школы>.~
-@eng Syntax: trust {{ group | clan | all | none $}@rus Синтаксис: trust {{ group | clan | all | none $}~
+@eng Usage: glist <group>.@rus Использование: glist <group>.~
+@eng Usage: maxrnd <max_rnd_cnt>.@rus Использование: maxrnd <max_rnd_cnt>.~
+@eng Usage: password <old> <new>.@rus Использование: password <старый> <новый>.~
+@eng Usage: school {major|minor} <school name>.@rus Использование: school {major|minor} <название школы>.~
+@eng Usage: trust {{ group | clan | all | none $}@rus Использование: trust {{ group | clan | all | none $}~
 @eng Take pity on the poor thing.@rus Пожалей это бедное существо.~
 @eng Talking to yourself, eh?@rus Разговариваешь с собой? А?~
 @eng Target is not fighting with you.@rus Указанная цель не сражается с тобой.~
