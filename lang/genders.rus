@@ -1199,6 +1199,12 @@ Form 3 -ли~
 End
 
 #RULE
+Name взламывает~
+BaseLen 8
+Form 3 -ют~
+End
+
+#RULE
 Name вздрогнул~
 BaseLen 8
 Form 1 -ла~
@@ -1466,6 +1472,12 @@ BaseLen 6
 Form 1 -лась~
 Form 2 -лось~
 Form 3 -лись~
+End
+
+#RULE
+Name въезжает~
+BaseLen 6
+Form 3 -ют~
 End
 
 #RULE
@@ -1826,6 +1838,14 @@ Form 3 -ли~
 End
 
 #RULE
+Name темный~
+BaseLen 4
+Form 1 -ая~
+Form 2 -ое~
+Form 3 -ые~
+End
+
+#RULE
 Name снимает~
 BaseLen 5
 Form 1 -ет~
@@ -1903,6 +1923,12 @@ BaseLen 6
 Form 1 -лась~
 Form 2 -лось~
 Form 3 -лись~
+End
+
+#RULE
+Name гуляет~
+BaseLen 4
+Form 3 -ют~
 End
 
 #RULE
@@ -2122,6 +2148,12 @@ BaseLen 4
 Form 1 -ла~
 Form 2 -ло~
 Form 3 -ли~
+End
+
+#RULE
+Name бросает~
+BaseLen 5
+Form 3 -ют~
 End
 
 #RULE
