@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.112 1998-10-15 08:21:37 fjoe Exp $
+ * $Id: comm.c,v 1.113 1998-10-17 16:20:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -865,9 +865,9 @@ void read_from_buffer(DESCRIPTOR_DATA *d)
 			if (++d->repeat >= 100) {
 				log_printf("%s input spamming!", d->host);
 	        		if (d->character != NULL) {
-					wiznet_printf(d->character,NULL,WIZ_SPAM,0,get_trust(d->character), "SPAM SPAM SPAM %s spamming, and OUT!",d->character->name);
+					wiznet_printf(d->character,NULL,WIZ_SPAM,0,d->character->level, "SPAM SPAM SPAM %s spamming, and OUT!",d->character->name);
 
-	    				wiznet_printf(d->character,NULL,WIZ_SPAM,0,get_trust(d->character), "[%s]'s  Inlast:[%s] Incomm:[%s]!", d->character->name,d->inlast,d->incomm);
+	    				wiznet_printf(d->character,NULL,WIZ_SPAM,0,d->character->level, "[%s]'s  Inlast:[%s] Incomm:[%s]!", d->character->name,d->inlast,d->incomm);
 
 					d->repeat = 0;
 
@@ -2201,8 +2201,7 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 		ch->pcdata->questtime = nextquest;
 		/* !quest code */
 
-		wiznet("{W$N{x joins us.", ch, NULL, WIZ_LOGINS, 0, 
-			get_trust(ch));
+		wiznet("{W$N{x joins us.", ch, NULL, WIZ_LOGINS, 0, ch->level);
 
 	    for (i = 0; i < MAX_STATS; i++)
 	{

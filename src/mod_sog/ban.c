@@ -1,5 +1,5 @@
 /*
- * $Id: ban.c,v 1.19 1998-10-06 13:19:50 fjoe Exp $
+ * $Id: ban.c,v 1.20 1998-10-17 16:20:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -283,7 +283,7 @@ void ban_site(CHAR_DATA *ch, const char *argument, bool fPerm)
     {
         if (!str_cmp(name,pban->name))
         {
-	    if (pban->level > get_trust(ch))
+	    if (pban->level > ch->level)
 	    {
             	char_puts("That ban was set by a higher power.\n\r", ch);
             	return;
@@ -301,7 +301,7 @@ void ban_site(CHAR_DATA *ch, const char *argument, bool fPerm)
 
     pban = new_ban();
     pban->name = str_dup(name);
-    pban->level = get_trust(ch);
+    pban->level = ch->level;
 
     /* set ban type */
     pban->ban_flags = type;
@@ -349,7 +349,7 @@ void do_allow(CHAR_DATA *ch, const char *argument)
     {
         if (!str_cmp(arg, curr->name))
         {
-	    if (curr->level > get_trust(ch))
+	    if (curr->level > ch->level)
 	    {
 		char_puts(
 		   "You are not powerful enough to lift that ban.\n\r",ch);
