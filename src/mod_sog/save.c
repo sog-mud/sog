@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.73 1998-10-16 09:37:15 fjoe Exp $
+ * $Id: save.c,v 1.74 1998-10-16 13:27:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -264,7 +264,8 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, bool reboot)
 		else
 			fprintf(fp, "Bankg %d\n", ch->pcdata->bank_g);
 
-		fprintf( fp, "Sec  %d\n", ch->pcdata->security); /* OLC */
+		if (ch->pcdata->security)
+			fprintf(fp, "Sec  %d\n", ch->pcdata->security);
 		fprintf(fp, "Pass %s~\n", ch->pcdata->pwd);
 		if (ch->pcdata->bamfin[0] != '\0')
 			fprintf(fp, "Bin  %s~\n", ch->pcdata->bamfin);
