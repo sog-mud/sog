@@ -152,6 +152,12 @@ char *strings_engl[] =  {
 /* MOVE_CLICK */		"*CLick*\n\r",
 /* MOVE_N_LOCKS_THE_D */	"$n locks the $d.",
 /* MOVE_THE_D_CLICKS */		"The $d clicks.",
+/* MOVE_UNLOCK_WHAT */		"Unlock what?\n\r",
+/* MOVE_IT_CANT_BE_UNLOCKED */	"It can't be unlocked.\n\r",
+/* MOVE_ITS_ALREADY_UNLOCKED */	"It's already unlocked.\n\r",
+/* MOVE_YOU_UNLOCK_P */		"You unlock $p.",
+/* MOVE_N_UNLOCKS_P */		"$n unlocks $p.",
+/* MOVE_N_UNLOCKS_THE_D */	"$n unlocks the $d.",
 
 /*	Here start sex-dependent messages */
 /* INFO_IS_GUSHING_BLOOD */	"{Yis gushing blood{x.",

@@ -2,7 +2,7 @@
 #define _RESOURCE_H_
 
 /*
- * $Id: resource.h,v 1.19 1998-04-26 22:30:00 efdi Exp $
+ * $Id: resource.h,v 1.20 1998-04-26 23:08:09 efdi Exp $
  */
 
 char* msg(int resnum, CHAR_DATA *ch);
@@ -162,6 +162,12 @@ enum {
 	MOVE_CLICK,
 	MOVE_N_LOCKS_THE_D,
 	MOVE_THE_D_CLICKS,
+	MOVE_UNLOCK_WHAT,
+	MOVE_IT_CANT_BE_UNLOCKED,
+	MOVE_ITS_ALREADY_UNLOCKED,
+	MOVE_YOU_UNLOCK_P,
+	MOVE_N_UNLOCKS_P,
+	MOVE_N_UNLOCKS_THE_D,
 
 /*	Here start sex-dependent messages */
 	MSG_SEX_DEPENDENT,
