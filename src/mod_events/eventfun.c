@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: eventfun.c,v 1.42 2002-08-30 09:01:57 avn Exp $
+ * $Id: eventfun.c,v 1.43 2002-09-09 20:14:28 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -451,5 +451,5 @@ EVENT_FUN(event_timeoutchar_bonedragon, ch, af)
 
 EVENT_FUN(event_affectremove_charmperson, ch, af)
 {
-	stop_follower(ch);
+	ch->leader = NULL;
 }
