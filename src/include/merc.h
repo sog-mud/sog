@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.5 1998-04-18 07:11:56 fjoe Exp $
+ * $Id: merc.h,v 1.6 1998-04-19 10:00:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -475,6 +475,7 @@ struct	descriptor_data
     char *		host;
     sh_int		descriptor;
     sh_int		connected;
+    int			wait_for_se;
     bool		fcommand;
     char		inbuf		[4 * MAX_INPUT_LENGTH];
     char		incomm		[MAX_INPUT_LENGTH];

@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.8 1998-04-18 07:11:52 fjoe Exp $
+ * $Id: comm.c,v 1.9 1998-04-19 10:00:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -144,7 +144,11 @@ const	char 	go_ahead_str	[] = { '\0' };
 #include <netdb.h>
 #include <netinet/in.h>
 #include <sys/socket.h>
-#include "telnet.h"
+#ifdef BSD44
+#	include <arpa/telnet.h>
+#else
+#	include "telnet.h"
+#endif
 const	char	echo_off_str	[] = { IAC, WILL, TELOPT_ECHO, '\0' };
 const	char	echo_on_str	[] = { IAC, WONT, TELOPT_ECHO, '\0' };
 const	char 	go_ahead_str	[] = { IAC, GA, '\0' };
@@ -961,6 +965,7 @@ void init_descriptor( int control )
     dnew->showstr_point = NULL;
     dnew->outsize	= 2000;
     dnew->outbuf	= alloc_mem( dnew->outsize );
+    dnew->wait_for_se	= 0;
 
     size = sizeof(sock);
     if ( getpeername( desc, (struct sockaddr *) &sock, &size ) < 0 )
@@ -1015,7 +1020,7 @@ void init_descriptor( int control )
      */
     {
 	extern char * help_greeting;
-        write_to_buffer( dnew, "\033[2J\033[0;0H\033[0;37;40m\n\r", 0 );
+/* write_to_buffer( dnew, "\033[2J\033[0;0H\033[0;37;40m\n\r", 0 ); */
 	if ( help_greeting[0] == '.' )
 	    write_to_buffer( dnew, help_greeting+1, 0 );
 	else
@@ -1094,18 +1099,32 @@ void close_socket( DESCRIPTOR_DATA *dclose )
     return;
 }
 
+#ifdef 0
+int nindex(unsigned char *str, int s, int n)
+{
+	unsigned char *cp;
+	if ((cp = (unsigned char*) memchr(str, s, n)) == NULL)
+		return(-1);
+	return (int)(cp-str);
+}
+#endif
 
 
 bool read_from_descriptor( DESCRIPTOR_DATA *d )
 {
-    int iStart;
+	int iOld;
+	int iStart;
+	unsigned char *p, *q;
+#ifdef 0
+	static int cm_stage = 1;
+#endif
 
     /* Hold horses if pending command already. */
     if ( d->incomm[0] != '\0' )
 	return TRUE;
 
     /* Check for overflow. */
-    iStart = strlen(d->inbuf);
+    iOld = iStart = strlen(d->inbuf);
     if ( iStart >= sizeof(d->inbuf) - 10 )
     {
 	sprintf( log_buf, "%s input overflow!", d->host );
@@ -1133,35 +1152,78 @@ bool read_from_descriptor( DESCRIPTOR_DATA *d )
 #endif
 
 #if defined(MSDOS) || defined(unix)
-    for ( ; ; )
-    {
-	int nRead;
+	for ( ; ; ) {
+		int nRead;
 
-	nRead = read( d->descriptor, d->inbuf + iStart,
-	    sizeof(d->inbuf) - 10 - iStart );
-	if ( nRead > 0 )
-	{
-	    iStart += nRead;
-	    if ( d->inbuf[iStart-1] == '\n' || d->inbuf[iStart-1] == '\r' )
-		break;
+		nRead = read(d->descriptor, d->inbuf + iStart,
+			     sizeof(d->inbuf) - 10 - iStart );
+		if ( nRead > 0 ) {
+			iStart += nRead;
+			if (d->inbuf[iStart-1] == '\n'
+			||  d->inbuf[iStart-1] == '\r')
+				break;
+		}
+		else if ( nRead == 0 ) {
+			log_string( "EOF encountered on read." );
+			return FALSE;
+			break;
+		}
+		else if ( errno == EWOULDBLOCK )
+			break;
+		else {
+			perror( "Read_from_descriptor" );
+			return FALSE;
+		}
 	}
-	else if ( nRead == 0 )
-	{
-	    log_string( "EOF encountered on read." );
-	    return FALSE;
-	    break;
-	}
-	else if ( errno == EWOULDBLOCK )
-	    break;
-	else
-	{
-	    perror( "Read_from_descriptor" );
-	    return FALSE;
-	}
-    }
 #endif
 
-    d->inbuf[iStart] = '\0';
+	d->inbuf[iStart] = '\0';
+	if (iOld == iStart)
+		return TRUE;
+
+	for (p = d->inbuf+iOld; *p; p++) {
+		if (d->wait_for_se)
+			goto wse;
+		if (*p == IAC) {
+			switch (p[1]) {
+			case DONT:
+			case DO:
+			case WONT:
+			case WILL:
+				q = p+3;
+				break;
+
+			wse:
+			case SB:   
+				q = strchr(p, SE);
+				if (q == NULL) {
+					q = strchr(p, '\0');
+					d->wait_for_se = 1; 
+				}
+				else {
+					q++; 
+					d->wait_for_se = 0; 
+				}
+				break;
+
+			case IAC:
+				q = p+1;
+				break;
+
+			default:
+				q = p+2;
+				break;
+			}
+			memcpy(p, q, strlen(q)+1);
+			if (*(p = q) == '\0')
+				break;
+		}
+        } 
+#ifdef 0
+	else 
+	    cm_stage=0;
+#endif
+
     return TRUE;
 }
 
