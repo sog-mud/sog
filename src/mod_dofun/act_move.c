@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.202.2.16 2001-03-11 07:23:44 cs Exp $
+ * $Id: act_move.c,v 1.202.2.17 2001-05-22 18:56:18 kostik Exp $
  */
 
 /***************************************************************************
@@ -3350,7 +3350,7 @@ void do_settraps(CHAR_DATA *ch, const char *argument)
 	char_puts("This skill is used too recently.\n",ch);
 	return;
 	  }
-   
+
 	  af.where     = TO_ROOM_AFFECTS;
 	  af.type      = gsn_settraps;
 	  af.level     = ch->level;
@@ -3467,10 +3467,10 @@ void do_forest(CHAR_DATA* ch, const char* argument)
 		char_puts("Huh?\n", ch);
 		return;
 	}
-	
+
 	one_argument(argument, arg, sizeof(arg));
-	if (arg == '\0') {
-		char_puts("Usage: forest {{ attack|defence|normal}", ch);
+	if (*arg == '\0') {
+		char_puts("Usage: forest {{ attack|defense|normal}", ch);
 		return;
 	}
 
@@ -3488,7 +3488,7 @@ void do_forest(CHAR_DATA* ch, const char* argument)
 		}
 	}
 
-	if (!str_prefix(arg, "defence"))
+	if (!str_prefix(arg, "defense"))
 		attack = FALSE;
 	else if (!str_prefix(arg, "attack"))
 		attack = TRUE;
@@ -3499,10 +3499,10 @@ void do_forest(CHAR_DATA* ch, const char* argument)
 
 	if (is_affected(ch, gsn_forest_fighting))
 		affect_strip(ch, gsn_forest_fighting);
-	
-	af.where 	= TO_AFFECTS;
-	af.type  	= gsn_forest_fighting;
-	af.level 	= ch->level;
+
+	af.where	= TO_AFFECTS;
+	af.type		= gsn_forest_fighting;
+	af.level	= ch->level;
 	af.duration	= -1;
 	af.bitvector	= 0;
 

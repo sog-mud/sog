@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.25 2001-02-25 17:39:11 fjoe Exp $
+ * $Id: fight.c,v 1.202.2.26 2001-05-22 18:56:22 kostik Exp $
  */
 
 /***************************************************************************
@@ -1337,7 +1337,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 	&&  !((dt == gsn_cleave) && (number_percent() < 50)))
 		dam /= 2;
 
-	if (IS_AFFECTED(victim, AFF_BLACK_SHROUD)) 
+	if (IS_AFFECTED(victim, AFF_BLACK_SHROUD))
 		dam = (4*dam)/7;
 
 	if (IS_AFFECTED(victim, AFF_PROTECT_EVIL) && IS_EVIL(ch))
@@ -1345,6 +1345,15 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 
 	if (IS_AFFECTED(victim, AFF_PROTECT_GOOD) && IS_GOOD(ch))
 		dam -= dam / 4;
+
+	if (is_affected(victim, gsn_golden_aura)) {
+		if (IS_GOOD(ch)) /* Goodies shouldn't fight each other */
+			dam /= 8;
+		else if (IS_EVIL(ch))
+			dam -= dam / 5;
+		else
+			dam -= dam / 10;
+	}
 
 	if (is_affected(victim,gsn_resistance))
 		dam = (3 * dam)/5;

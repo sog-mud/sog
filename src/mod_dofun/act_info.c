@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.32 2001-03-09 21:40:01 fjoe Exp $
+ * $Id: act_info.c,v 1.271.2.33 2001-05-22 18:56:17 kostik Exp $
  */
 
 /***************************************************************************
@@ -4116,18 +4116,17 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		if (IS_SET(victim->comm, COMM_AFK))
 			char_puts("{c[AFK]{x ", ch);
 	}
-			
-	
+
 	if (IS_SET(ch->comm, COMM_LONG)) {
 		if (IS_AFFECTED(victim, AFF_INVIS))
 			char_puts("({yInvis{x) ", ch);
-		if (IS_AFFECTED(victim, AFF_HIDE)) 
+		if (IS_AFFECTED(victim, AFF_HIDE))
 			char_puts("({DHidden{x) ", ch);
-		if (IS_AFFECTED(victim, AFF_CHARM)) 
+		if (IS_AFFECTED(victim, AFF_CHARM))
 			char_puts("({mCharmed{x) ", ch);
-		if (IS_AFFECTED(victim, AFF_PASS_DOOR)) 
+		if (IS_AFFECTED(victim, AFF_PASS_DOOR))
 			char_puts("({cTranslucent{x) ", ch);
-		if (IS_AFFECTED(victim, AFF_FAERIE_FIRE)) 
+		if (IS_AFFECTED(victim, AFF_FAERIE_FIRE))
 			char_puts("({MPink Aura{x) ", ch);
 		if (IS_UNDEAD(victim, r) && IS_AFFECTED(ch, AFF_DETECT_UNDEAD))
 			char_puts("({DUndead{x) ", ch);
@@ -4136,16 +4135,18 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		if (IS_AFFECTED(victim,AFF_IMP_INVIS))
 			char_puts("({bImproved{x) ", ch);
 		if (IS_EVIL(victim) && IS_AFFECTED(ch, AFF_DETECT_EVIL))
-			char_puts("({RRed Aura{x) ", ch);
+			char_puts("({DEvil aura{x) ", ch);
 		if (IS_GOOD(victim) && IS_AFFECTED(ch, AFF_DETECT_GOOD))
-			char_puts("({YGolden Aura{x) ", ch);
+			char_puts("({WGood aura{x) ", ch);
 		if (IS_AFFECTED(victim, AFF_SANCTUARY))
 			char_puts("({WWhite Aura{x) ", ch);
 		if (IS_AFFECTED(victim, AFF_BLACK_SHROUD))
 			char_puts("({DBlack Aura{x) ", ch);
-		if (IS_AFFECTED(victim, AFF_FADE)) 
+		if (is_affected(victim, gsn_golden_aura))
+			char_puts("({YGolden aura{x) ", ch);
+		if (IS_AFFECTED(victim, AFF_FADE))
 			char_puts("({yFade{x) ", ch);
-		if (IS_AFFECTED(victim, AFF_CAMOUFLAGE)) 
+		if (IS_AFFECTED(victim, AFF_CAMOUFLAGE))
 			char_puts("({gCamf{x) ", ch);
 		if (IS_AFFECTED(victim, AFF_BLEND))
 			char_puts("({gBlending{x) ", ch);
@@ -4157,7 +4158,7 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 			act_puts("({c$T{x) ", ch, NULL, race_name(victim->race), TO_CHAR | ACT_NOLF, POS_DEAD);
 	}
 	else {
-		static char FLAGS[] = "{x[{y.{D.{m.{c.{M.{D.{G.{b.{R.{Y.{W.{y.{g.{g.{x.{x";
+		static char FLAGS[] = "{x[{y.{D.{m.{c.{M.{D.{G.{b.{x.{Y.{W.{y.{g.{g.{x.{x";
 		char buf[sizeof(FLAGS)];
 		bool diff;
 
@@ -4171,10 +4172,15 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 				  IS_AFFECTED(ch, AFF_DETECT_UNDEAD));
 		FLAG_SET(23, 'R', RIDDEN(victim));
 		FLAG_SET(26, 'I', IS_AFFECTED(victim, AFF_IMP_INVIS));
-		FLAG_SET(29, 'E', IS_EVIL(victim) &&
-				  IS_AFFECTED(ch, AFF_DETECT_EVIL));
-		FLAG_SET(32, 'G', IS_GOOD(victim) &&
-				  IS_AFFECTED(ch, AFF_DETECT_GOOD));
+		if (IS_AFFECTED(ch, AFF_DETECT_EVIL) && IS_EVIL(victim)) {
+			FLAG_SET(28, 'D', TRUE);
+			FLAG_SET(29, 'E', TRUE);
+		} else if (IS_AFFECTED(ch, AFF_DETECT_GOOD)
+		    && IS_GOOD(victim)) {
+			FLAG_SET(28, 'W', TRUE);
+			FLAG_SET(29, 'G', TRUE);
+		}
+		FLAG_SET(32, 'G', is_affected(victim, gsn_golden_aura));
 
 		if (IS_AFFECTED(victim, AFF_SANCTUARY)) {
 			FLAG_SET(35, 'S', TRUE);
@@ -4518,7 +4524,7 @@ static void show_char_to_char(CHAR_DATA *list, CHAR_DATA *ch)
 		||  (!IS_TRUSTED(ch, rch->incog_level) &&
 		     ch->in_room != rch->in_room))
 			continue;
-			
+
 		if (!IS_TRUSTED(ch, rch->invis_level)) {
 			AREA_DATA *pArea;
 

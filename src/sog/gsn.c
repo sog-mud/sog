@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: gsn.c,v 1.32.2.11 2001-02-20 14:33:46 cs Exp $
+ * $Id: gsn.c,v 1.32.2.12 2001-05-22 18:56:23 kostik Exp $
  */
 
 #include <stdio.h>
@@ -253,6 +253,7 @@ int gsn_crypt_thing;
 int gsn_ice_sphere;
 int gsn_fire_sphere;
 int gsn_blur;
+int gsn_golden_aura;
 
 /* special gsns */
 int gsn_qtarget;
@@ -282,7 +283,7 @@ namedp_t gsn_table[] =
 	{ "gsn_poison",			&gsn_poison			},
 	{ "gsn_plague",			&gsn_plague			},
 	{ "gsn_sleep",			&gsn_sleep			},
-	{ "gsn_demand", 		&gsn_demand			},
+	{ "gsn_demand",			&gsn_demand			},
 	{ "gsn_fly",			&gsn_fly			},
 	{ "gsn_fourth_attack",		&gsn_fourth_attack		},
 	{ "gsn_dual_backstab",		&gsn_dual_backstab		},
@@ -468,11 +469,12 @@ namedp_t gsn_table[] =
         { "gsn_deathen",                &gsn_deathen                    },
         { "gsn_death_ripple",           &gsn_death_ripple               },
         { "gsn_death_wave",             &gsn_death_wave                 },
-        { "gsn_notrack",	        &gsn_notrack  	                },
+        { "gsn_notrack",	        &gsn_notrack	                },
 	{ "gsn_crypt_thing",		&gsn_crypt_thing		},
-	{ "gsn_ice_sphere",    	        &gsn_ice_sphere	                },
+	{ "gsn_ice_sphere",	        &gsn_ice_sphere	                },
 	{ "gsn_fire_sphere",            &gsn_fire_sphere                },
 	{ "gsn_blur",			&gsn_blur			},
+	{ "gsn_golden_aura",		&gsn_golden_aura		},
 	{ NULL }
 };
 

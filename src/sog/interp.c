@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.164.2.2 2000-03-28 06:30:10 fjoe Exp $
+ * $Id: interp.c,v 1.164.2.3 2001-05-22 18:56:23 kostik Exp $
  */
 
 /***************************************************************************
@@ -457,7 +457,7 @@ const char *one_argument(const char *argument, char *arg_first, size_t len)
 /*****************************************************************************
  Name:		first_arg
  Purpose:	Pick off one argument from a string and return the rest.
- 		Understands quotes, if fCase then arg_first will be lowercased
+		Understands quotes, if fCase then arg_first will be lowercased
  Called by:	string_add(string.c)
  ****************************************************************************/
 const char *first_arg(const char *argument, char *arg_first, size_t len,
@@ -477,7 +477,7 @@ const char *first_arg(const char *argument, char *arg_first, size_t len,
 
 /* check quotes */
 	if (*argument == '\'' || *argument == '"')
-        	cEnd = *argument++;
+		cEnd = *argument++;
 
 	for (q = arg_first; *argument && q - arg_first + 1 < len; argument++) {
 		if ((!cEnd && isspace(*argument)) || *argument == cEnd) {

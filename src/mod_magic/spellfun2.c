@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.39 2001-05-21 19:01:37 fjoe Exp $
+ * $Id: spellfun2.c,v 1.139.2.40 2001-05-22 18:56:20 kostik Exp $
  */
 
 /***************************************************************************
@@ -1672,43 +1672,34 @@ void spell_golden_aura(int sn, int level, CHAR_DATA *ch, void *vo)
 	AFFECT_DATA af;
 	CHAR_DATA *vch = vo;
 
-	for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room)
-	{
-	  if (!is_same_group(vch, ch)) 
-	continue;
+	for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room) {
+		if (!is_same_group(vch, ch) || !IS_GOOD(vch))
+			continue;
 
-	  if (is_affected(vch, sn) || is_affected(vch, gsn_bless) || 
-	  IS_AFFECTED(vch, AFF_PROTECT_EVIL))
-	{
-	  if (vch == ch)
-	    char_puts("You are already protected by a golden aura.\n",ch);
-	  else
-	    act("$N is already protected by a golden aura.",ch,NULL,vch,TO_CHAR);
-	  continue;
-	}
-	
-	  af.where		= TO_AFFECTS;
-	  af.type      = sn;
-	  af.level	 = level;
-	  af.duration  = 6 + level;
-	  af.modifier  = 0;
-	  af.location  = APPLY_NONE;
-	  af.bitvector = AFF_PROTECT_EVIL;
-	  affect_to_char(vch, &af);
-	  
-	  af.modifier = level/8;
-	  af.location = APPLY_HITROLL;
-	  af.bitvector = 0;
-	  affect_to_char(vch, &af);
-	  
-	  af.modifier = 0 - level/8;
-	  af.location = APPLY_SAVING_SPELL;
-	  affect_to_char(vch, &af);
+		if (is_affected(vch, sn)) {
+			if (vch == ch)
+				char_puts("You are already protected by a golden aura.\n",ch);
+			else
+				act("$N is already protected by a golden aura.",ch,NULL,vch,TO_CHAR);
+			continue;
+		}
+		af.where	= TO_AFFECTS;
+		af.type		= sn;
+		af.level	= level;
+		af.duration	= 6 + level;
 
-	  char_puts("You feel a golden aura around you.\n", vch);
-	  if (ch != vch)
-	act("A golden aura surrounds $N.",ch,NULL,vch,TO_CHAR);
+		af.modifier = level/8;
+		af.location = APPLY_HITROLL;
+		af.bitvector = 0;
+		affect_to_char(vch, &af);
 
+		af.modifier = 0 - level/8;
+		af.location = APPLY_SAVING_SPELL;
+		affect_to_char(vch, &af);
+
+		char_puts("You feel a golden aura around you.\n", vch);
+		if (ch != vch)
+			act("A golden aura surrounds $N.",ch,NULL,vch,TO_CHAR);
 	}
 }
 
@@ -2550,7 +2541,7 @@ void spell_scream(int sn, int level, CHAR_DATA *ch, void *vo)
 		if (is_safe_spell(ch,vch,TRUE))
 			continue;
 
-		if (saves_spell(level,vch,DAM_ENERGY)) {
+		if (saves_spell(level,vch,DAM_SOUND)) {
 			scream_effect(vch,level/2,dam/4,TARGET_CHAR);
 			damage(ch,vch,dam/2,sn,DAM_SOUND,TRUE);
 
