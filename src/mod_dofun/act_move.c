@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.144 1999-02-18 12:01:07 kostik Exp $
+ * $Id: act_move.c,v 1.145 1999-02-18 12:48:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2279,6 +2279,7 @@ void do_blink(CHAR_DATA *ch, const char *argument)
 
 void do_vanish(CHAR_DATA *ch, const char *argument)
 {
+	AREA_DATA *area;
 	int chance;
 	int sn;
 
@@ -2316,8 +2317,9 @@ void do_vanish(CHAR_DATA *ch, const char *argument)
 	}
 
 	act("$n is gone!", ch, NULL, NULL, TO_ROOM);
+	area = ch->in_room->area;
 	char_from_room(ch);
-	char_to_room(ch, get_random_room(ch, ch->in_room->area));
+	char_to_room(ch, get_random_room(ch, area));
 	act("$n appears from nowhere.", ch, NULL, NULL, TO_ROOM);
 	do_look(ch, "auto");
 	stop_fighting(ch, TRUE);
