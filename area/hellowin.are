@@ -1,6 +1,5 @@
 #AREADATA
 Name Небольшой изврат~
-Builders None~
 VNUMs 34000 34499
 Credits Askold~
 Security 7
@@ -219,10 +218,6 @@ S
 0
 
 #OLIMITS
-O 34400 1	* {W0==][ {YHeliacal Fire {W>>{w
-O 34401 1	* {Wfrom Russia with love{x
-O 34403 1	* {DCosily armchair{w
-O 34408 1	* {WThe Real Hero helm of Oleg{x
 O 34410 1	* Pissed Karmael
 S
 

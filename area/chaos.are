@@ -1,6 +1,5 @@
 #AREADATA
 Name Chaos~
-Builders Chaos Schemer~
 VNUMs 36100 36199
 Credits Chaos~
 Security 1
@@ -1490,12 +1489,6 @@ S
 36108 0 1 0 0 0 100 100 0 23
 0
 
-#OLIMITS
-O 36197 1	* {DNinjitsu Gi{x
-O 36198 1	* {DEbony Cloak{x
-O 36199 1	* {Dthe Shadow Sai{x
-S
-
 #MOBPROGS
 #36100
 if rand 97
@@ -1606,7 +1599,7 @@ mob oload 36110
 give vodka $n
 ~
 #36132
-mob c 'flamestrike' $n
+c 'flamestrike' $n
 mob transfer $n 36131
 ~
 #36133

@@ -1,0 +1,152 @@
+#AREADATA
+Name Polygon~
+VNUMs 35200 35300
+Credits Phobos~
+Security 1
+LevelRange 70 85
+End
+
+#MOBILES
+#35260
+Shambler~
+@eng Shambler@rus Шемблер~
+@eng {WShambler{g spreads his hands here.{x
+@rus {WШемблер{g стоит здесь раскинув окровавленные руки.{x
+~
+@eng Gigantic white figure with huge arms crowned by bloody claws. It hasn't eyes on its face. That's why it looks more dead than this dead world. 
+@rus Гигантская белая фигура с широко расставленными огромными "ручищами" увенчанными окровавленными когтями. Душа уходит в пятки при виде огромных зубов в безгубой пасти. На лице этой твари не видно глаз -- от этого она кажется еще мертвее, чем этот мертвый мир. Все ее существо дышит безмолвием и "спокойствием". Однако она легко убедит тебя в том, что спокойствие это лишь твоя мечта. НЕСБЫТОЧНАЯ!!!
+~
+giant~
+ACFT DFHPad -1000 0
+98 100 90d12+25000 9d10+10000 20d10+100 claw
+-90 -90 -90 -50
+CO B G Y
+stand stand none 3000
+Bc U giant unknown
+F res I
+F vul JP
+F for AH
+F par IK
+#35261
+Fiend~
+@eng Fiend@rus Демон~
+@eng Fiend
+@rus Демон
+~
+~
+ghoul~
+AFT JOVhs -1000 0
+70 70 15d200+15000 70d10+100 5d6+90 slash
+-60 -60 -60 -35
+EN A N O
+stand stand either 250
+a NW large unknown
+F par BGJ
+#0
+
+#OBJECTS
+#35250
+bandana~
+@eng Black bandana@rus Черная бандана~
+@eng Black bandana with skull and crossbones lies her. You see the word "Phobos" on the inner side.@rus Черная бандана с черепом и скрещенными костями лежит здесь. С изнанки написано "Фобос".~
+kevlar~
+armor ACR AEI
+-10 -10 -10 -10 0
+98 5 100 P
+#35251
+Stereosystem~
+@eng Huge stereosystem@rus Огромная стереосистема~
+@eng Huge stereosystem stands here. It looks really heavy and powerful@rus Огромная стереосистема стоит тут. Выглядит очень тяжелой и мощной~
+unknown~
+armor C AJ
+-30 -30 -30 -30 0
+98 20 1000 P
+A
+19 250
+#35252
+Smell~
+@eng Smell of death@rus Запах смерти~
+@eng The smell of your death soars here..@rus Запах твоей смерти витает тут..~
+unknown~
+container CE AQ
+1 0 0 0 0
+98 0 0 P
+#35253
+chain~
+@eng Bike chain@rus Цепь от мотоцикла~
+@eng Bike chain lies on the ground. Have you ever seen bike here?@rus Мотоциклетная цепь валяется на земле. ТЫ когда-нибудь видел здесь МОТОЦИКЛ?~
+3x-13~
+weapon ACE AN
+exotic 10 9 none 0
+98 50 0 P
+A
+18 50
+A
+19 50
+#35254
+pants~
+@eng Black leather pants@rus Черные кожаные штаны~
+@eng Black leather pants. And nothing more. @rus Черные штаны из кожи. Просто. Очень потертые.~
+leather~
+armor CY AF
+-20 -20 -20 -20 0
+98 20 0 P
+A
+5 3
+#35255
+Vest~
+@eng Black riveted vest@rus Черный клепанный жилет~
+@eng Rieted vest@rus Черный жилет кто-то оставил...~
+kevlar~
+armor CIY AD
+-50 -50 -50 -50 0
+98 50 0 P
+A
+18 50
+A
+19 50
+#35256
+tattoo~
+@eng {WTattoo "{DI'm your {cGOD{D!{W"{x@rus {WТатуировка "{DЯ твой {cБОГ{D!{W"{x~
+@eng Tatto.@rus Татушка.~
+zircon~
+protect C AR
+0 0 0 0 0
+98 0 0 P
+A
+6 5
+#35257
+key~
+@eng Kalarit key@rus Каларитовый ключ~
+@eng The key which shimmers strange tints of blue, red and green.@rus Ключ, отливающий странными оттенками синего, красного и зеленого.~
+kalarit~
+key AC AC
+0 0 0 0 0
+70 10 20 P
+#0
+
+#ROOMS
+#35200
+@eng Phobos' polygon.@rus Полигон Фобоса.~
+@eng Huge place under the pale violet sky. Nobody. Only you and noise of the wind. There's no grass -- yo  understand here may be nothing alive.
+@rus Громадная пустошь под фиолетовым небом. Никого.. только ты и свист ветра.
+Под ногами не трава -- ты понимаешь, что на этой земле ни хрена расти не может.
+Смотри под ноги  -- если на кого наступишь, тебе этого не простят.
+ 
+ 
+~
+0 CN desert
+O Phobos~
+S
+#0
+
+#SPECIALS
+M 35260 spec_breath_lightning	* Shambler
+M 35261 spec_patrolman	* Fiend
+S
+
+#RESETS
+M 0 35260 1 35200 1	* Shambler (Phobos' polygon.)
+S
+
+#$

@@ -1,6 +1,5 @@
 #AREADATA
 Name Old Midgaard~
-Builders None~
 VNUMs 5300 5499
 Credits Kahn~
 Security 9
@@ -1127,36 +1126,6 @@ map old~
 						  
 *****************************************************************************
 ~
-#5334
-dagger~
-abrazak's dagger~
-You see a very big dagger.~
-energy~
-weapon ABCFGHI AN
-dagger 1000 1000 divine ABCDEGH
-96 0 2147483647 P
-A
-1 50
-A
-18 1000
-A
-19 1000
-#5335
-pill~
-a strange pill~
-You see a strange pill.~
-energy~
-pill ABCGIY AQ
-80 'detect invis' 'detect hidden' 'fear' 'web'
-1 0 10000 P
-A
-13 -200
-A
-5 -20
-A
-3 -20
-A
-1 -20
 #0
 
 #ROOMS
@@ -3758,10 +3727,5 @@ S
 5340 8 30 32 33 0 110 100 0 23
 5346 0 0 0 0 0 100 100 0 23
 0
-
-#OLIMITS
-O 5334 0	* abrazak's dagger
-O 5335 0	* a strange pill
-S
 
 #$

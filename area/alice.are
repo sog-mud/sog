@@ -1,6 +1,5 @@
 #AREADATA
 Name Wonderland~
-Builders None~
 VNUMs 20000 21200
 Credits Yaegar~
 Security 9
@@ -1520,7 +1519,7 @@ axe~
 the executioner's axe~
 The executioner's axe is leaning against one wall here.~
 copper~
-weapon AEGM AP
+weapon AEGM ANP
 exotic 5 10 slice 0
 44 20 440 P
 A

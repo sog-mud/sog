@@ -1,6 +1,5 @@
 #AREADATA
 Name Generic Helps~
-Builders None~
 VNUMs 0 0
 Credits Diku~
 Security 9
@@ -2442,12 +2441,9 @@ see also: PLAYERKILLING
 Player killing on Realms of Muddy is totally permitted. In fact, it is
 encouraged, and since some fine objects have a finite number, you will have
 to kill other players to get them. You can playerkill after you are
-level 5. People you can pk are shown by a (PK) flag in front of their 
+{Clevel 10{x. People you can pk are shown by a {r[{RPK{r]{x flag in front of their 
 names on the who and the where lists.  These people are anyone within a 
 range of your level.( minimum( 4, level / 10 ) level below and above levels)  
-
-Group killing is allowed -- any size group may kill any other size
-group.
 
 Expect to be PK'ed, and don't take it too personally. Remember, there's
 safety in numbers. 
@@ -2458,6 +2454,7 @@ Do not drop link to avoid getting pked.  This is a sure-fire way to get
 yourself killed, not by the attacker but by the immortals.
 
 See also: ROLEPLAYING GROUP ALIGNMENT
+ 
 ~
 0 ALIGNMENT~
 In the interest of attracting the right caliber of followers, the
@@ -3157,12 +3154,7 @@ This help is only for russian win1251 (MS Windows) codepage players.
         Если от вас не приходит буква 'Я' маленькая, то попробуйте сказать
 {Cnotelnet{x. Для того, чтобы маленькая буква 'Я' транслировалась в большую,
 попробуйте {Cnoiac{x.
-~
-0 ALIST~
-Syntax: ALIST
-
-This command gives you a listing of all the areas along with their
-vnum assignments and the builder(s) assigned to editing them.
+ 
 ~
 0 AEDIT~
 Syntax: edit area	 -Enters the editor for the current area.
@@ -3817,6 +3809,90 @@ Black Lords of Justice стали оружием добра, предвестниками его возрождения,
 персонажи с  evil  align,служащие справедливости neutral, и, естественно,
 ethos  должен быть lawful
 Leader : Krut The Great Lord
+~
+0 'OLC ALIST'~
+Syntax: alist area [substr]
+Syntax: alist clan
+Syntax: alist mpcode [all]
+Syntax: alist msgdb [substr]
+Syntax: alist object <all | name | item_type>
+Syntax: alist mobile <all | name>
+Syntax: alist room
+ 
+From OLC editor you can use shortened version of this command ({Clist{x) with
+the same args.
+Default area for 'alist mobile/object' is the currently edit area or the
+area currently edited object is in.
+ 
+~
+0 'OLC ASAVE'~
+Syntax: asave world                 - save all areas
+Syntax: asave changed               - save changed areas
+Syntax: asave clans                 - save changed clans
+Syntax: asave msgdb                 - save msgdb
+ 
+Please note that 'asave world/changed' will save only authorized areas.
+ 
+~
+0 'OLC INTRO'~
+OLC (On-Line Creation) allows to create/edit misc objects on-line.
+There is quite a few OLC commands:
+{Ccreate{x - used for creating different objects
+{Cedit{x   - edit objects
+{Calist{x  - list objects
+{Casave{x  - save objects
+{Cashow{x  - show objects
+{Cresets{x - setting mob/obj resets
+ 
+create/edit commands put you into OLC editor. To see available
+commands within editor use '{Ccommands{x'. Use '{Cdone{x' to exit
+from OLC editor.
+
+SEE ALSO: 'OLC CREATE', 'OLC EDIT', 'OLC ALIST', 'OLC ASAVE', 'OLC RESETS'
+          'OLC ASHOW'.
+ 
+~
+0 'OLC CREATE'~
+Syntax: create area
+Syntax: create object vnum
+Syntax: create mobile vnum
+Syntax: create room vnum
+Syntax: create mpcode vnum
+Syntax: create help keyword
+Syntax: create clan name
+Syntax: create msg message
+ 
+~
+0 'OLC EDIT'~
+Syntax: edit area [vnum]
+Syntax: edit room [vnum]
+Syntax: edit mobile vnum
+Syntax: edit object vnum
+Syntax: edit mpcode vnum
+Syntax: edit help keyword
+Syntax: edit clan name
+Syntax: edit msg substr
+ 
+~
+0 'OLC ASHOW'~
+Syntax: ashow area [vnum]
+Syntax: ashow room [vnum]
+Syntax: ashow mobile [vnum]
+Syntax: ashow object [vnum]
+Syntax: ashow help [[num.]keyword]
+Syntax: ashow clan [name]
+Syntax: ashow msg [msg]
+ 
+The defaults are:
+- currently edited area, the area the char is in (in that order)
+  (for 'ashow area')
+- currently edit room, the room the char is in (in that order)
+  (for 'ashow room')
+- currently edited object for other objects
+ 
+This function is available in shortened form from OLC editors
+(command {Cshow{x, or by pressing enter on empty line)
+ 
 ~
 -1 $~
 

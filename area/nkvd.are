@@ -1,8 +1,7 @@
 #AREADATA
 Name nkvd~
-Builders None~
 VNUMs 35000 35100
-Credits (null)~
+Credits Diablo~
 Security 5
 LevelRange 0 0
 End
@@ -312,6 +311,11 @@ D4
 Z 0 35000
 M 0 H 0
 S
+#35100
+@eng Entrance to polygon.@rus Добро пожаловать  на  полигон.~
+~
+0 C desert
+S
 #0
 
 #SPECIALS
@@ -342,10 +346,6 @@ S
 35002 0 19 17 0 0 100 100 0 23
 35004 0 9 5 11 33 100 100 0 23
 0
-
-#OLIMITS
-O 35000 0	* board of fame
-S
 
 #MOBPROGS
 #35000

@@ -1,8 +1,7 @@
 #AREADATA
 Name BlackLords~
-Builders None~
 VNUMs 46000 46099
-Credits (null)~
+Credits Diablo~
 Security 5
 LevelRange 0 0
 End
@@ -107,10 +106,23 @@ YOU ARE UNDER JUSTICE HERE. DON'T BE AFRAID!!
 έΑΞΣΑ ήΥΦΑΛΑΝ .τω ποδ ϊαύιτοκ σπςαχεδμιχοστι ϊδεσψ. βυδψ σπολοεξ
 ~
 0 N inside
+D0
+~
+~
+Z 0 46002
 D5
 ~
 ~
 Z 0 46000
+S
+#46002
+~
+~
+0 N inside
+D2
+~
+~
+Z 0 46001
 S
 #0
 

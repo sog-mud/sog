@@ -1,0 +1,159 @@
+#AREADATA
+Name Setepios~
+VNUMs 38000 38999
+Credits Setepios~
+Security 1
+LevelRange 0 0
+End
+
+#MOBILES
+#38001
+Коменда~
+~
+~
+~
+human~
+A 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 none
+-100 -100 -100 -100
+0 0 0 0
+stand stand none 32000
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+#0
+
+#OBJECTS
+#38001
+bed~
+@eng big bed@rus {Cбольшую кровать{w~
+@eng Big Bed@rus {CБольшая удобная кровать{w~
+wood~
+furniture G P
+B EIJKN EHK DFGHIJ DFGHIJ
+92 1 1 P
+#38002
+armchair~
+@eng armchair@rus {yудобое кресло{w~
+@eng Armchair@rus {yКресло-качалка{w~
+wood~
+furniture G 0
+A DFGHIJ FI CEFGHI CEFGHI
+92 1 1 P
+#38003
+fountain~
+@eng fountain@rus фонтан.~
+@eng Big fountain@rus {BБольшой фонтан из {Cмрамора{w~
+marble~
+fountain G 0
+1000 1000 'champagne' 0 0
+92 1 1 P
+#38004
+table~
+@eng table@rus письменный стол~
+@eng Big wooden table@rus {yБольшой письменный стол{w~
+wood~
+furniture G 0
+0 EIJKN NO 0 0
+92 1 1 P
+#38095
+{rБольшой пионерский БАРАБАН{w~
+@eng drum@rus барабан~
+@eng Whats that ?@rus Пионерский барабан~
+wood~
+armor G J
+0 0 0 0 0
+92 1 1 P
+#0
+
+#ROOMS
+#38001
+@eng Setepios Room@rus Комната Бога Студентов~
+@eng You are in little room. Walls are glued with Gods & mortals posters.
+On the wall you can see Setepios Photo.
+@rus Типичная общажная комната. Стены оклеены вырезками из журналов с 
+фотографиями богинь и смертных дам. На стене висит портрет вечномолодого
+бога Setepiosa в пожелтевшей рамке.
+~
+0 CK inside
+S
+#38002
+@eng !@rus Приемная~
+~
+0 CJW inside
+S
+#38100
+@eng Sit & wait@rus Приемная~
+@eng You're in small room. 
+@rus Небольшая, но очень уютная приемная. На стене висит гвоздик (наверное
+для одежды). Небольшой факел освешает комнату мерцающим светом.
+Стены мраморные, а двери выполнены из красного дерева.
+~
+0 K inside
+D2
+~
+~
+Z 0 38101
+O ?~
+S
+#38101
+@eng Coridor@rus Коридор~
+@eng Long corridor runs here ...
+@rus Длинный коридор покоев Setepiosa, на север прихожая, на юге спальня, на
+востоке кабинет. Потолки разрисованны фресками величайших художников, на
+стенах портреты богов и зеркала. Пол облицован мрамором.
+~
+0 K inside
+D0
+~
+~
+Z 0 38100
+D1
+~
+~
+Z 0 38103
+D2
+~
+~
+Z 0 38102
+S
+#38102
+@eng Bedroom@rus Спальная команата~
+@eng Large Bedroom of Setepios
+@rus Большая ... Ну очень большая спаьня. Стены оклеены обоями с изображениями
+смертных {YДам{w и {MБогинь{w. Пол покрыт дубовым паркетом, потолок 
+зеркальный.
+~
+0 K inside
+D0
+~
+~
+Z 0 38101
+S
+#38103
+@eng Cabinet@rus Кабинет~
+@eng You're in Setepios cabitenet. Here lots of books & unknown things ... {YBig Golden sphere {w lights this room
+@rus Вы в просторной комнате. Стены обставленны шкафами с книгами и упираются в
+небеса. Пол покрыт дубовым паркетом. Спокойствие и дух вечности царят
+тут. {YЗолотой шар{w освещает комнату мягким светом.
+~
+0 0 inside
+D3
+~
+~
+Z 0 38101
+S
+#0
+
+#RESETS
+O 0 38003 0 38101	* fountain (Coridor)
+O 0 38001 0 38102	* big bed (Bedroom)
+O 0 38002 0 38103	* armchair (Cabinet)
+O 0 38004 0 38103	* table (Cabinet)
+S
+
+#SHOPS
+38001 0 0 0 0 0 1 1 1 23
+0
+
+#$

@@ -1,6 +1,5 @@
 #AREADATA
 Name Heaven~
-Builders None~
 VNUMs 15000 15199
 Credits abrazak~
 Security 7
@@ -18,7 +17,7 @@ You see a huge man. He looks very strong and wise. You'd better never mess with 
 dragon~
 ABGOVXac H 0 0
 200 0 5d5000+5000 1d1+666 5d300+1 none
-0 0 0 0
+6 6 66 66
 0 ABDFGIJLMOPQRTXYZ 0 0
 stand stand male 2147483647
 CIK 0 huge unknown
@@ -156,9 +155,17 @@ unknown~
 fountain O 0
 0 0 'milk' 0 0
 0 0 0 P
+#15006
+bed~
+@eng bed@rus нары~
+@eng A bed is here.@rus Нары здесь.~
+unknown~
+furniture ABCEGIOY 0
+ABE ABCDEFGHIJKLMNOPQRSTUVWXYZabcde BFL DFGHIJ DFGHIJ
+0 0 0 P
 #15010
 eng kosa~
-{DScythe{x~
+@eng {DScythe{x@rus {DКоса{x~
 {DScythe{x~
 unknown~
 weapon RYa ANP
@@ -166,7 +173,7 @@ exotic 1000 1000 none ABCDEGHI
 99 0 0 P
 #15011
 horn~
-{DHorns{x~
+@eng {DHorns{x@rus {DРога{x~
 {DHorns{x~
 unknown~
 armor 0 AEP
@@ -174,7 +181,7 @@ armor 0 AEP
 99 0 0 P
 #15012
 rose~
-{DBlack Rose{x~
+@eng {DBlack Rose{x@rus {DЧерная роза{x~
 {DBlack Rose{x~
 unknown~
 trash 0 AOP
@@ -182,7 +189,7 @@ trash 0 AOP
 99 0 0 P
 #15013
 hoof~
-{DHoofs{x~
+@eng {DHooves{x@rus {DКопыта{x~
 {DHoofs{x~
 unknown~
 armor 0 AGP
@@ -389,18 +396,14 @@ O 0 15005 0 15002	* a fountain with milk (Cell)
 M 0 15001 1 15002 1	* the prisoner (Cell)
 M 0 15002 1 15002 1	* a cockroach (Cell)
 M 0 15003 1 15002 1	* a rat (Cell)
+O 0 15006 0 15002	* bed (Cell)
 M 0 15010 1 15010 1	* {DDevil{x ({DThe room of Death{x)
 S
 
 #OLIMITS
 O 15004 1	* a BIG barrel of beer for Mabutu
-O 15010 0	* {DScythe{x
-O 15011 0	* {DHorns{x
-O 15012 0	* {DBlack Rose{x
-O 15013 0	* {DHoofs{x
 O 15042 1	* gabagaba ring
 O 15100 1	* a dwarven golden ring
-O 15112 1	* {W'{CAenis + Leo{W' ring{w
 S
 
 #MOBPROGS

@@ -1,8 +1,7 @@
 #AREADATA
 Name Scum~
-Builders None~
 VNUMs 40000 40100
-Credits (null)~
+Credits Diablo~
 Security 5
 LevelRange 0 0
 End
@@ -34,16 +33,21 @@ zombie~
 ~
 ~
 zombie~
-ABORTe CDFHJNOVZa -1000 0
+ABORTef CDFHJNOVZalmt -1000 0
 91 100 1d1+25000 1d1+4000 1d1+200 bite
 -10 -10 -10 -10
-ACDEIJKLO A 0 0
+ACDEIJKLO AU 0 0
 stand stand female 0
 I 0 large unknown
 F aff d
 F imm CL
 F res I
+M act 40001 *^\[CLAN\].+: +attack~
+M exall 40002 north~
+M delay 40004 100~
 M grall 40000 100~
+M fight 1 100~
+M exit 40003 4~
 C Scum~
 #40002
 healer~
@@ -158,6 +162,14 @@ altar~
 furniture IRSY 0
 CFG EIJKN HK CDFI CDFI
 0 0 0 P
+#40002
+key~
+a key~
+A HUGE key is here.~
+unknown~
+key 0 A
+0 0 0 0 0
+0 0 0 P
 #40010
 puddle blood~
 @eng {rpuddle of blood{x@rus {rлужа крови{x~
@@ -207,7 +219,7 @@ Aha! Here are the butchers! This day is obviously unfortunate for you.{x
 D0
 ~
 ~
-DZ 0 40002
+DZ 40002 40002
 D4
 ~
 ~
@@ -235,6 +247,10 @@ D2
 ~
 ~
 DZ 0 40001
+D4
+~
+~
+Z 0 40001
 D5
 ~
 ~
@@ -289,7 +305,6 @@ M 40003 spec_cast_adept	* Grand Witch
 S
 
 #RESETS
-M 0 40000 1 40001 1	* Royal Mummy ({DDirty vault{x)
 M 0 40001 1 40001 1	* Large Zombie ({DDirty vault{x)
 O 0 40000 0 40002	* corpse of child ({DDark cave{x)
 M 0 40003 1 40002 1	* Grand Witch ({DDark cave{x)
@@ -297,8 +312,16 @@ O 0 40001 0 40002	* unholy altar ({DDark cave{x)
 M 0 40007 1 40003 1	* Tanatos ({DUnholy treasury{x )
 G 0 40010 0		*	{rpuddle of blood{x
 M 0 40004 1 40003 1	* Blackman ({DUnholy treasury{x )
-M 0 40010 1 40004 1	* girl ({DVampires Lair{x)
 M 0 40011 1 40004 1	* boy ({DVampires Lair{x)
+M 0 40010 8 40004 8	* girl ({DVampires Lair{x)
+M 0 40010 4 40004 4	* girl ({DVampires Lair{x)
+M 0 40011 4 40004 4	* boy ({DVampires Lair{x)
+M 0 40010 4 40004 4	* girl ({DVampires Lair{x)
+M 0 40011 4 40004 4	* boy ({DVampires Lair{x)
+M 0 40010 4 40004 4	* girl ({DVampires Lair{x)
+M 0 40011 4 40004 4	* boy ({DVampires Lair{x)
+M 0 40010 4 40004 4	* girl ({DVampires Lair{x)
+M 0 40011 4 40004 4	* boy ({DVampires Lair{x)
 S
 
 #SHOPS
@@ -314,25 +337,50 @@ end
 endif
 if clan $n scum
 bow $n 
-say Welcome, brother!
 end
 endif
 if ischarm $n 
 say Charmies are not allowed here.
 mob transfer $n 40000
 end
-end if
+endif
 if isghost $n
 giggle
 say Wait a moment, please
 mob transfer $n 40000
-say foo!!
 end
 endif
-yae $n
-clan We are attacked by $n !
-yell $n! Prepare to die!
-mob kill $n
+clan $n is in our clan
+~
+#40001
+cast 'gas breath'
+~
+#40002
+if clan $n scum
+mob transfer $n 40002
+else
+emote blocks your way.
+endif
+~
+#40003
+if clan $n scum 
+mob transfer $n 40000
+else
+say wait a moment, $n
+mob remember $n
+mob delay 3
+endif
+~
+#40004
+say Ok, $q, You may pass.
+mob transfer $q 40000
+~
+#40005
+if clan $n scum
+mob transfer $n 40002
+else
+say You are not allowed here.
+endif
 ~
 #0
 
