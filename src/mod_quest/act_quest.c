@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.171 2004-02-19 15:41:35 fjoe Exp $
+ * $Id: act_quest.c,v 1.172 2004-05-26 06:38:40 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -70,6 +70,7 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 			    int item_vnum, int count_max);
 
 static bool buy_gold(CHAR_DATA *ch, CHAR_DATA *questor);
+static bool buy_restoration(CHAR_DATA *ch, CHAR_DATA *questor);
 
 enum qitem_type {
 	TYPE_ITEM,
@@ -94,6 +95,9 @@ qitem_t qitem_table[] = {
 
 	{ "Bottomless canteen with cranberry juice", 350, NULL,
 	   QUEST_VNUM_CANTEEN, NULL				},
+
+	{ "Restoration",		100, NULL,
+	   0, buy_restoration					},
 
 	{ NULL, 0, NULL, 0, NULL }
 };
@@ -981,8 +985,8 @@ quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor, int item_vnum, int count_max)
 	return TRUE;
 }
 
-static
-bool buy_gold(CHAR_DATA *ch, CHAR_DATA *questor)
+static bool
+buy_gold(CHAR_DATA *ch, CHAR_DATA *questor)
 {
 	PC(ch)->bank_g += 50000;
 	act("$N gives 50,000 gold pieces to $n.", ch, NULL, questor, TO_ROOM);
@@ -990,3 +994,15 @@ bool buy_gold(CHAR_DATA *ch, CHAR_DATA *questor)
 	    ch, NULL, questor, TO_CHAR);
 	return TRUE;
 }
+
+static bool
+buy_restoration(CHAR_DATA *ch, CHAR_DATA *questor)
+{
+	act("$N restores your health.", ch, NULL, questor, TO_CHAR);
+	act("$N restores $n's health.", ch, NULL, questor, TO_ROOM);
+	ch->hit = ch->max_hit;
+	ch->mana = ch->max_mana;
+	ch->move = ch->max_move;
+	return TRUE;
+}
+
