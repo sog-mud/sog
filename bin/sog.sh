@@ -1,5 +1,5 @@
 #!/bin/sh
-# $Id: sog.sh,v 1.4.2.6 2001-01-18 12:00:17 avn Exp $
+# $Id: sog.sh,v 1.4.2.7 2001-11-08 11:08:50 avn Exp $
 
 #
 # determine our home
@@ -95,7 +95,7 @@ do
 		break
 	fi
 
-	if [ $exitcode -ne 0 ]; then
+	if [ $exitcode -gt 0 -a $exitcode -le 128 ]; then
 		break
 	fi
 	sleep 5
