@@ -1,5 +1,5 @@
 /*
- * $Id: olc_act.c,v 1.8 1998-07-14 11:16:06 fjoe Exp $
+ * $Id: olc_act.c,v 1.9 1998-07-18 23:57:28 efdi Exp $
  */
 
 /***************************************************************************
@@ -2569,7 +2569,7 @@ OEDIT(oedit_show)
 		pObj->vnum,
 		flag_string(type_flags, pObj->item_type));
 
-	if (pObj->limit == -1)
+	if (pObj->limit != -1)
 		buf_printf(output, "Limit:       [%5d]\n\r", pObj->limit);
 	else
 		buf_add(output, "Limit:       [none]\n\r");
