@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.399 2004-05-24 18:34:52 tatyana Exp $
+ * $Id: handler.c,v 1.400 2004-05-26 16:28:52 tatyana Exp $
  */
 
 /***************************************************************************
@@ -2003,10 +2003,10 @@ move_char(CHAR_DATA *ch, int door, flag_t flags)
 	}
 
 	if (IS_SET(pexit->exit_info, EX_CLOSED)
-	&&  (!IS_AFFECTED(ch, AFF_PASS_DOOR) ||
+	&&  (!IS_TRANSLUCENT(ch) ||
 	     IS_SET(pexit->exit_info, EX_NOPASS))
 	&&  !IS_TRUSTED(ch, LEVEL_IMMORTAL)) {
-		if (IS_AFFECTED(ch, AFF_PASS_DOOR)
+		if (IS_TRANSLUCENT(ch)
 		&&  IS_SET(pexit->exit_info, EX_NOPASS)) {
 			act_puts("You failed to pass through $d.",
 				 ch, &pexit->short_descr, NULL,

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.304 2004-05-24 18:34:51 tatyana Exp $
+ * $Id: act_move.c,v 1.305 2004-05-26 16:28:50 tatyana Exp $
  */
 
 /***************************************************************************
@@ -2056,7 +2056,7 @@ DO_FUN(do_escape, ch, argument)
 	if ((pexit = was_in->exit[door]) == 0
 	||  pexit->to_room.r == NULL
 	||  (IS_SET(pexit->exit_info, EX_CLOSED) &&
-	     (!IS_AFFECTED(ch, AFF_PASS_DOOR) ||
+	     (!IS_TRANSLUCENT(ch) ||
 	      IS_SET(pexit->exit_info, EX_NOPASS)) &&
 	     !IS_TRUSTED(ch, LEVEL_IMMORTAL))
 	||  IS_SET(pexit->exit_info, EX_NOFLEE)

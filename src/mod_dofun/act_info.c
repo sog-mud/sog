@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.446 2004-04-08 11:48:15 kets Exp $
+ * $Id: act_info.c,v 1.447 2004-05-26 16:28:49 tatyana Exp $
  */
 
 /***************************************************************************
@@ -4017,7 +4017,7 @@ show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		if (IS_AFFECTED(victim, AFF_CHARM)
 		&& (HAS_DETECT(ch, ID_CHARM) || victim->master == ch))
 			buf_append(output, "({mCharmed{x) ");
-		if (IS_AFFECTED(victim, AFF_PASS_DOOR))
+		if (IS_TRANSLUCENT(victim))
 			buf_append(output, "({cTranslucent{x) ");
 		if (IS_AFFECTED(victim, AFF_FAERIE_FIRE))
 			buf_append(output, "({MPink Aura{x) ");
@@ -4058,7 +4058,7 @@ show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		FLAG_SET(11, 'C', IS_AFFECTED(victim, AFF_CHARM)
 				  && (HAS_DETECT(ch, ID_CHARM)
 				  || victim->master == ch));
-		FLAG_SET(14, 'T', IS_AFFECTED(victim, AFF_PASS_DOOR));
+		FLAG_SET(14, 'T', IS_TRANSLUCENT(victim));
 		FLAG_SET(17, 'P', IS_AFFECTED(victim, AFF_FAERIE_FIRE));
 		FLAG_SET(20, 'U', IS_SET(victim->form, FORM_UNDEAD) &&
 				  HAS_DETECT(ch, ID_UNDEAD));

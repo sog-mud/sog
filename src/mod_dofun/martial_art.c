@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.230 2004-02-21 20:03:45 fjoe Exp $
+ * $Id: martial_art.c,v 1.231 2004-05-26 16:28:50 tatyana Exp $
  */
 
 /***************************************************************************
@@ -467,7 +467,7 @@ DO_FUN(do_flee, ch, argument)
 		if ((pexit = was_in->exit[door]) == 0
 		     || pexit->to_room.r == NULL
 		     || (IS_SET(pexit->exit_info, EX_CLOSED)
-		         && (!IS_AFFECTED(ch, AFF_PASS_DOOR)
+		         && (!IS_TRANSLUCENT(ch)
 		             || IS_SET(pexit->exit_info,EX_NOPASS))
 		             && !IS_TRUSTED(ch, LEVEL_IMMORTAL))
 		         || (IS_SET(pexit->exit_info , EX_NOFLEE))
@@ -4300,7 +4300,7 @@ DO_FUN(do_dishonor, ch, argument)
 		if ((pexit = was_in->exit[door]) == 0
 		||  pexit->to_room.r == NULL
 		||  (IS_SET(pexit->exit_info, EX_CLOSED) &&
-		     (!IS_AFFECTED(ch, AFF_PASS_DOOR) ||
+		     (!IS_TRANSLUCENT(ch) ||
 		      IS_SET(pexit->exit_info,EX_NOPASS)) &&
 		     !IS_TRUSTED(ch, LEVEL_IMMORTAL))
 		|| IS_SET(pexit->exit_info, EX_NOFLEE)

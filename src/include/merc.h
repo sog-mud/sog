@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.425 2004-04-08 11:46:45 kets Exp $
+ * $Id: merc.h,v 1.426 2004-05-26 16:28:49 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1332,6 +1332,8 @@ enum {
 	}
 
 #define IS_VAMPIRE(ch)	(get_skill(ch, "vampire"))
+#define IS_TRANSLUCENT(ch) (IS_AFFECTED(ch, AFF_PASS_DOOR) || \
+    (!IS_NPC(ch) && IS_SET(PC(ch)->plr_flags, PLR_GHOST)))
 
 enum {
 	ST_SAY,
