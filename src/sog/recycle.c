@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.154 2002-11-20 20:15:28 fjoe Exp $
+ * $Id: recycle.c,v 1.155 2002-11-30 19:54:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1806,6 +1806,7 @@ free_descriptor(DESCRIPTOR_DATA *d)
 		return;
 	}
 	mem_invalidate(d);
+	mem_untag(d, -1);
 
 	desc_count--;
 	desc_free_count++;
