@@ -109,11 +109,11 @@ She is a huge, grotesque, furry humanoid.
 She moans in passion but gasps as she notices you.
 Her smiles turn into snarls as she screams at you!
 ~
-human~
-BCFG 0 0 G H -800 0
+troll~
+0 0 0 0 0 -800 0
 11 0 2d8+134 5d9+100 1d10+2 'none'
 1 1 1 8
-EFNU
+0
 rest stand female 125
 0 0 medium unknown
 #2806
@@ -212,18 +212,19 @@ and feels bad.
 g @rus none~
 #2803
 ring opal~
-an opal ring~
-A ring of black opal lies here gathering dust.~
+@eng an opal ring@rus ~~кольцо~~ из опала~
+@eng A ring of black opal lies here gathering dust.@rus Черное опаловое кольцо лежит тут.~
 opal~
 jewelry G 0 AB
 0 0 0 0 0
-20 10 1150 P
+10 10 1150 P
 a '' to_object 20 -1 2 19 0
 E
 ring opal~
-It is a full circle of opal, smooth and simple.
+@eng It is a full circle of opal, smooth and simple.
+@rus Простое, гладкое и круглое кольцо.
 ~
-g @rus none~
+g @eng neutral@rus neutral~
 #2804
 leather belt ремень пояс~
 @eng a leather belt@rus кожанный ремень~

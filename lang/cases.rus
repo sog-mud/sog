@@ -3337,6 +3337,17 @@ Form 6 -ого~
 End
 
 #RULE
+Name дровосек~
+BaseLen 6
+Form 1 -ька~
+Form 2 -ьку~
+Form 3 -ек~
+Form 4 -ьком~
+Form 5 -ьке~
+Form 6 -ька~
+End
+
+#RULE
 Name сын~
 BaseLen 3
 Form 1 -а~

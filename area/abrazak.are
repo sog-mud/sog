@@ -320,7 +320,7 @@ a '' to_object 100 -1 10000 19 0
 a '' to_object 100 -1 2000 8 0
 g @rus none~
 R
-deny race !race("lich") && !race("human)~
+deny race !race("lich") && !race("human")~
 end
 #15010
 scythe~
