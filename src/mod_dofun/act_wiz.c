@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.328 2004-02-19 17:16:43 fjoe Exp $
+ * $Id: act_wiz.c,v 1.329 2004-02-19 20:41:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3484,6 +3484,12 @@ DO_FUN(do_mset, ch, argument)
 
 	if (!str_prefix(arg2, "gold")) {
 		victim->gold = value;
+		altered = TRUE;
+		goto cleanup;
+	}
+
+	if (!str_prefix(arg2, "silver")) {
+		victim->silver = value;
 		altered = TRUE;
 		goto cleanup;
 	}
