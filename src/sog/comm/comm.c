@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.200.2.6 1999-12-30 12:42:15 fjoe Exp $
+ * $Id: comm.c,v 1.200.2.7 2000-01-31 09:21:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1328,6 +1328,10 @@ void bust_a_prompt(DESCRIPTOR_DATA *d)
 	        	i = "";
 			break;
 
+		case 'c':
+			i = "\n";
+			break;
+
 		case 't':
 			snprintf(buf2, sizeof(buf2),
 				 "%d%s", (time_info.hour % 12 == 0) ? 
@@ -1378,11 +1382,9 @@ void bust_a_prompt(DESCRIPTOR_DATA *d)
 				if (can_see(ch, victim)) {
 					percent_hp(victim, buf2);
 					i = buf2;
-				}
-				else
+				} else
 					i = "???";
-			}
-			else
+			} else
 				i = "None";
 			break;
 
@@ -1426,8 +1428,7 @@ void bust_a_prompt(DESCRIPTOR_DATA *d)
 				snprintf(buf2, sizeof(buf2), "%d",
 					 exp_to_level(ch));
 				i = buf2;
-			}
-			else
+			} else
 				i = "";
 			break;
 
@@ -1461,8 +1462,7 @@ void bust_a_prompt(DESCRIPTOR_DATA *d)
 				snprintf(buf2, sizeof(buf2), "%d",
 					 ch->in_room->vnum);
 				i = buf2;
-			}
-			else
+			} else
 				i = "";
 			break;
 
@@ -1490,8 +1490,7 @@ void bust_a_prompt(DESCRIPTOR_DATA *d)
 				snprintf(buf2, sizeof(buf2), "Wizi %d ",
 					 ch->invis_level);
 				i = buf2;
-			}
-			else
+			} else
 				i = "";
 			break;
 
