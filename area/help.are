@@ -76,6 +76,7 @@ PROMPT <%%*> where the %%* are the various variables you may set yourself.
         %%z :  Display the area name you are in (IMMORTAL ONLY)
 	%%n :  Display your name
 	%%S :  Display your sex
+	%%t :  Display current MUD time
 
 Example:  PROMPT <%%hhp %%mm %%vmv>
         Will set your prompt to "<10hp 100m 100mv>"
