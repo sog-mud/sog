@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: raffect.h,v 1.3.2.1 1999-12-16 12:39:52 fjoe Exp $
+ * $Id: raffect.h,v 1.3.2.2 2001-02-25 17:23:39 fjoe Exp $
  */
 
 #ifndef _RAFFECTS_H_
@@ -59,7 +59,7 @@ int		rsn_lookup	(int sn);
 ROOM_AFFECT_DATA *raff_new		(void);
 void	 	raff_free		(ROOM_AFFECT_DATA *raf);
 void		check_room_affects	(CHAR_DATA *ch, ROOM_INDEX_DATA *room,
-					 int event);
+					 flag32_t event);
 void		raffect_to_char		(ROOM_INDEX_DATA *room, CHAR_DATA *ch);
 void		raffect_back_char	(ROOM_INDEX_DATA *room, CHAR_DATA *ch);
 bool		is_safe_rspell		(ROOM_AFFECT_DATA *raf, CHAR_DATA *victim);

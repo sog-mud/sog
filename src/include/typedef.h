@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.30.2.1 1999-12-16 12:39:52 fjoe Exp $
+ * $Id: typedef.h,v 1.30.2.2 2001-02-25 17:23:39 fjoe Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -132,13 +132,13 @@ typedef void	EVENT_FUN	(ROOM_INDEX_DATA *room, CHAR_DATA *ch,
  
 /* 64-bit int value is compiler-specific (not a ANSI standard) */
 #if defined (WIN32)
-typedef __int64		flag64_t;	/* For MSVC4.2/5.0 - flags */
-typedef __int32		flag32_t;	/* short flags (less memory usage) */
+typedef __uint64	flag64_t;	/* For MSVC4.2/5.0 - flags */
+typedef __uint32	flag32_t;	/* short flags (less memory usage) */
 typedef unsigned int	u_int;
 typedef unsigned char	u_char;
 #else
 typedef int64_t		flag64_t;	/* For GNU C compilers - flags */
-typedef int32_t		flag32_t;	/* short flags (less memory usage) */
+typedef u_int32_t	flag32_t;	/* short flags (less memory usage) */
 #endif
   
 #define IS_NULLSTR(str)		(!(str) || *(char*)(str) == '\0')
