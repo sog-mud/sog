@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_auction.c,v 1.7 2002-02-07 12:56:59 tatyana Exp $
+ * $Id: act_auction.c,v 1.8 2002-10-16 12:07:09 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -237,7 +237,9 @@ do_auction(CHAR_DATA *ch, const char *argument)
 				 TO_CHAR, POS_SLEEPING);
 			break;
 		}
+		/* FALLTHRU */
 
+	case ITEM_CONTAINER:
 		if (obj->contains) {
 			act_puts("You can auction only empty containers.",
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
@@ -256,6 +258,14 @@ do_auction(CHAR_DATA *ch, const char *argument)
 	case ITEM_JEWELRY:
 	case ITEM_FURNITURE:
 	case ITEM_FOOD:
+	case ITEM_SCROLL:
+	case ITEM_BOAT:
+	case ITEM_POTION:
+	case ITEM_PILL:
+	case ITEM_MAP:
+	case ITEM_CLOTHING:
+	case ITEM_DRINK_CON:
+	case ITEM_WARP_STONE:
 		tax = (auction.starting * 20) / 100;
 		if (PC(ch)->bank_g < tax && ch->gold < tax) {
 			act_puts("You do not have enough gold to pay "
