@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: update.c,v 1.202 2001-08-20 16:47:49 fjoe Exp $
+ * $Id: update.c,v 1.203 2001-08-21 07:02:08 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -87,8 +87,11 @@ void
 uhandler_load(const char *mod_name)
 {
 	module_t *m = mod_lookup(mod_name);
-	if (!m)
+	if (!m) {
+		log(LOG_ERROR, "%s: %s: unknown module",
+		    __FUNCTION__, mod_name);
 		return;
+	}
 	hash_foreach(&uhandlers, uhandler_load_cb, m, m->mod_id);
 }
 

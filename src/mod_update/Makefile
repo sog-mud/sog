@@ -1,9 +1,9 @@
 #
-# $Id: Makefile,v 1.4 2001-07-31 18:15:08 fjoe Exp $
+# $Id: Makefile,v 1.5 2001-08-21 07:02:07 fjoe Exp $
 #
 
 MODULE=		update
 SRCS=		init_update.c update.c act_update.c updfun.c\
-		update_impl.o
+		update_impl.c
 
 .include <bsd.prog.mk>
