@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.22 2000-05-11 13:21:26 fjoe Exp $
+ * $Id: update.c,v 1.157.2.23 2000-05-17 03:52:47 avn Exp $
  */
 
 /***************************************************************************
@@ -1271,6 +1271,16 @@ void char_update(void)
 
 		for (paf = ch->affected; paf != NULL; paf = paf_next) {
 			paf_next = paf->next;
+			/*
+			 * this code will be replaced
+			 * with aff_remove callbacks
+			 */
+			if (paf->type == gsn_bone_dragon) {
+				hatchout_dragon(ch, paf);
+
+				if (IS_EXTRACTED(ch))
+					break;
+			}
 			if (paf->duration > 0) {
 				paf->duration--;
 				if (number_range(0, 4) == 0 && paf->level > 0)
@@ -1288,17 +1298,6 @@ void char_update(void)
 				&&  !IS_NULLSTR(sk->msg_off)) 
 					act_puts(sk->msg_off, ch, NULL, NULL,
 						 TO_CHAR, POS_DEAD);
-
-				/*
-				 * this code will be replaced
-				 * with aff_remove callbacks
-				 */
-				if (paf->type == gsn_bone_dragon) {
-					hatchout_dragon(ch, paf);
-
-					if (IS_EXTRACTED(ch))
-						break;
-				}
 
 				affect_remove(ch, paf);
 			}
@@ -2253,6 +2252,14 @@ void hatchout_dragon(CHAR_DATA *coc, AFFECT_DATA *paf)
 	if (!IS_NPC(coc)
 	||  coc->pMobIndex->vnum != MOB_VNUM_COCOON)
 		return;
+
+	if (paf->duration >= 4)
+		return;
+	if (paf->duration < 4 && paf->duration != 0 && coc->master) {
+		act("You feel your dragon is about to hatch.",
+			coc->master, NULL, NULL, TO_CHAR);
+		return;
+	}
 
 	if ((ch = coc->master) == NULL || ch->in_room != coc->in_room) {
 		act("Cocoon explodes, revealing stinking flesh.",
