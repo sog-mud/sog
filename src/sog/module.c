@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: module.c,v 1.12 1999-12-18 11:01:41 fjoe Exp $
+ * $Id: module.c,v 1.13 2000-01-06 02:45:38 fjoe Exp $
  */
 
 /*
@@ -38,6 +38,7 @@
 #include <string.h>
 #include <dlfcn.h>
 #include <time.h>
+#include <unistd.h>
 #include "merc.h"
 #include "module.h"
 #include "log.h"
@@ -49,6 +50,7 @@ int mod_load(module_t* m)
 	struct stat s;
 	void *dlh;
 	int (*callback)(module_t*);
+	char buf[PATH_MAX];
 
 	/*
 	 * sanity checking
@@ -57,6 +59,22 @@ int mod_load(module_t* m)
 		wizlog("mod_load: %s: %s", m->file_name, strerror(errno));
 		return -1;
 	}
+
+	snprintf(buf, sizeof(buf), "%s~", m->file_name);
+	if (!stat(buf, &s))
+		unlink(buf);
+	if (link(m->file_name, buf) < 0) {
+		wizlog("mod_load: %s: %s", buf, strerror(errno));
+		return -1;
+	}
+
+	dlh = dlopen(buf, RTLD_NOW);
+	unlink(buf);
+	if (dlh == NULL) {
+		wizlog("mod_load: %s", dlerror());
+		return -1;
+	}
+	dlclose(dlh);
 
 	/*
 	 * try to unload previously loaded module

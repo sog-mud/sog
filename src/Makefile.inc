@@ -1,5 +1,5 @@
 #
-# $Id: Makefile.inc,v 1.4 1999-12-11 15:30:58 fjoe Exp $
+# $Id: Makefile.inc,v 1.5 2000-01-06 02:45:37 fjoe Exp $
 #
 
 #
@@ -18,7 +18,7 @@ CFLAGS		= -g -Wall -O -pipe $(INCLUDES)
 LDFLAGS		= -g -export-dynamic
 SO_CFLAGS	= -fPIC
 SO_LDFLAGS	= -shared
-INSTALL_FLAGS	= -c -m 770
+INSTALL_FLAGS	= -m 770
 LIBS		=
 INSTALL_PATH	= ../..
 MAKE		= make

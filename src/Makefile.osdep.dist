@@ -1,5 +1,5 @@
 #
-# $Id: Makefile.osdep.dist,v 1.5 1999-12-11 15:30:58 fjoe Exp $
+# $Id: Makefile.osdep.dist,v 1.6 2000-01-06 02:45:38 fjoe Exp $
 #
 
 .if exists(${.CURDIR}/../Makefile.inc)
@@ -10,6 +10,7 @@
 # for FreeBSD
 #CFLAGS += -DBSD44 -DUSE_MMAP
 #LIBS += -lcrypt
+#INSTALL_FLAGS += -C
 
 #
 # for Linux
@@ -18,16 +19,19 @@
 #SO_LDFLAGS += -rdynamic
 #COMPAT_CFILES = ../compat/fnmatch.c
 #MAKE = pmake
+#INSTALL_FLAGS += -c
 
 #
 # for SunOS 5 (Solaris)
 #CFLAGS	+= -DSUNOS
 #LIBS += -lsocket -lnsl
 #COMPAT_CFILES = ../compat/strsep.c ../compat/snprintf.c
+#INSTALL_FLAGS += -c
 
 #
 # for Unixware 2.x
 #CFLAGS += -DSVR4 -DOLD_RAND
 #LIBS += -lsocket -lnsl -lcrypt
 #COMPAT_CFILES = ../compat/strsep.c
+#INSTALL_FLAGS += -c
 

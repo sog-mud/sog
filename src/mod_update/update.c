@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.182 2000-01-05 07:06:45 fjoe Exp $
+ * $Id: update.c,v 1.183 2000-01-06 02:45:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1850,10 +1850,12 @@ find_aggr_cb(void *vo, va_list ap)
 		return NULL;
 
 	victim = check_guard(victim, ch); 
-	if (get_skill(ch, "backstab"))
+	if (get_skill(ch, "backstab")) {
 		dofun("backstab", ch, victim->name);
-	else
-		multi_hit(ch, victim, NULL);
+		if (IS_EXTRACTED(victim) || ch->fighting != NULL)
+			return NULL;
+	}
+	multi_hit(ch, victim, NULL);
 	return NULL;
 }
 
