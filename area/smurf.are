@@ -181,6 +181,9 @@ EIKU
 stand stand male 2
 0 0 medium unknown
 m mob_fight mob_fight_cast_cleric 100~
+m mob_greet mob_greet_gargamel 30~
+m mob_random mob_random_kill_smurf 100~
+m mob_tell mob_tell_gargamel smurf~
 #112
 azreal cat~
 Azreal~
@@ -960,8 +963,8 @@ Z -1 126
 S
 #128
 Gargamel's Castle~
-This is Gargamel's Castle.  His big black kettle is in the middle of the room.
-Where else would he put it?  The place has only one room.
+This is Gargamel's Castle.  His big black kettle is in the middle of the
+room.  Where else would he put it?  The place has only one room.  
 ~
 0 0 city
 D2

@@ -30,70 +30,77 @@ r wood 100
 r silver 100
 r weapon 100
 r magic 100
-m mob_fight mob_fight_test 100~
 m mob_fight mob_fight_poison_bite 80~
-m mob_random mob_random_test 100~
 #34401
-tank t-34~
-@eng {DTank Abrams A1M1{w@rus {DТанк Т-34{w~
-@eng {DA1M1 {WAbrams{D here rumbles by his egnie.{w@rus {DТанк {WТ-34{D стоит здесь урча мотором.{w~
-@eng You're looking at mighty TANK....
-It's armor is covered by blood and squashed brains.
-@rus Ты смотришь на ТАНК. Он грозен....
-Его броня заляпана мозгами и кровью тех кого он раздавил.
+master undead повелитель~
+@eng Master of Undead@rus ~~Повелитель~~ Нечисти~
+@eng Master of Undead is looking at you not blinking.@rus Повелитель Ночи (Master) смотрит на тебя немигающими глазами.~
+@eng A sinister, eerie figure enshrouded in enormous black cape stands before
+you.  It absorbs all the light around.  Bonechilling cold spreads around it.
+Dead eyes stare at you, paralyzing with horror.  You can't run away, you
+can't even move...  All you are able to is to await your fate lamblikely.  
+@rus Мрачная, закутанная в необьятный черный плащ, фигура. Весь свет она
+всасывает в себя, не оставляя не единого лучика. От нее веет могильным
+холодом. Мертвый остановившийся взгляд... страх, или вернее, ужас пара-
+лизует тебя, не дает двинуться с места, не дает убежать... Не остается 
+ничего иного, как молча, покорно ожидать своей участи.
 ~
-human~
-JUVZ 0 HNORTcd B ABHKLM 0 0
-96 1 1d1+29999 1d1+29999 1d1+0 'blast'
--900 -900 -900 -900
-0
-stand stand either 0
-EIc X giant unknown
-r light -50
-r wood 100
-r silver 100
-r weapon 100
-r magic 100
-#34403
-test~
-test~
-Test is here~
-~
-human~
-G 0 AV 0 0 0 0
-15 0 1d1+99 0d0+0 0d0+0 'none'
+dracolich~
+OTe 0 J 0 0 -1000 0
+100 1000 1d30000+0 10d3000+1 10d400+1 'drain'
 0 0 0 0
-FK
-stand stand none 0
-0 0 medium unknown
-F for AHMV
+CDEFHO
+stand stand male 2524
+0 0 gargantuan unknown
+m mob_fight mob_fight_cast_undead 100~
+#34402
+dragon golden золотистый дракон~
+@eng the golden dragon@rus ~~золотистый~~ ~~дракон~~~
+@eng The golden dragon towers above you.@rus Золотистый дракон (dragon) навис над тобой.~
+@eng Very huge dragon. You notice that he is discontened your
+encroachment.
+@rus Огромный, действительно огромный дракон. Чуть приоткрыв фасеточные
+глаза, он следит за тобой. Судя по нервным взмахам кончика его хвос-
+та, он очень недоволен твоим вторжением.
+~
+dragon~
+BEGJe 0 HNOUVYc 0 ABL 0 0
+150 250 1d1+28000 1d1+25000 50d60+100 'divine'
+-66 -66 -66 -66
+CDEFHIKNO
+stand stand male 0
+0 0 huge unknown
+F for H
+r charm 100
 r weapon 100
 r magic 100
+m mob_fight mob_fight_breath_any 100~
 #0
 
 #OBJECTS
+#34400
+undead control wand~
+@eng Wand of the Authority@rus ~~Жезл~~ Власти~
+@eng Wand of the Authority (control undead) lies here filled with energy.@rus Жезл Власти (undead control), наполненный магической силой и энергией, ярко сверкает, лежа на земле у твоих ног.~
+energy~
+wand A CL AO
+150 1 1 'control undead' 0
+1 1 100 P
 #34401
-russia love tattoo~
-{Wfrom Russia with love{x~
-{WShining tattoo{x~
-unknown~
-armor AJKY BCF AR
+vial life чаша~
+@eng Vial of Life@rus ~~Чаша~~ Жизни~
+@eng The golden vial lies here.@rus Золотая Чаша (Vial) сияет в солнечных лучах.~
+gold~
+treasure A 0 AO
 0 0 0 0 0
-96 0 2147483647 P
-f object cha 50 0
-f object con 50 0
-f object wis 50 0
-f object int 50 0
-f object dex 50 0
-f object str 50 0
-f object saving_breath -200 0
-f object ac -1111 0
-f object saves -200 0
-f object hitroll 200 0
-f object damroll 200 0
-f object saves -200 0
-f object hitroll 200 0
-g @rus none~
+74 1 100 P
+f object level 2 0
+f object saves -10 0
+f object mana 250 0
+f object hp 250 0
+f resists negative 100 0
+f affects hitroll 10 0
+f affects damroll 10 c
 #34402
 abysmality~
 {Babysmality{x~
@@ -139,27 +146,6 @@ drink IU 0 AO
 1 1 'vodka' 0 0
 1 0 1 P
 g @rus none~
-#34408
-hero helm oleg~
-{WThe Real Hero helm of Oleg{x~
-First hero's helm lies here.~
-unknown~
-armor ABKY BCEF AE
-33 33 33 33 0
-91 0 2147483647 P
-f object saves -15 0
-f object hitroll 15 0
-f object damroll 15 0
-g @rus none~
-#34409
-ring portal~
-@eng {Wring of repatriation{w@rus {Wk0льц0 b0зbpaщeHuЯ дomоu{x~
-@eng Abnormal rIng which sucks you in.@rus Ненормальное k0льц0, оно затягивает тебя внутрь.~
-unknown~
-portal AY BCF AB
-A A AB 34400 0
-96 1 2147483647 P
-g @rus none~
 #34410
 karmael statue piss~
 @eng Pissed Karmael@rus {YСтатуя писающего Кармаеля стоит здесь!{\{Y    Он одет в форму штандартенфюрера СС фон{\{Y    Штирлица, глаза дико выпучены!  Он рад!{x~
@@ -187,6 +173,118 @@ food 0 0 AO
 CFG BD 0 0 0
 1 1 10 P
 g @eng none@rus female~
+#34413
+scroll свиток~
+@eng the magic scroll@rus ~~магический~~ ~~свиток~~~
+@eng The scroll emits blue-green radiance.@rus Свиток (scroll), излучающий голубовато-зеленое сияние, лежит здесь.~
+light~
+treasure AGI 0 AO
+0 0 0 0 0
+1 1 15000 P
+#34414
+tablet табличка~
+@eng a tablet@rus табличка~
+@eng The silvery tablet lies on the ground.@rus Табличка (tablet) из серебристого металла лежит на земле.~
+silver~
+treasure A 0 AO
+0 0 0 0 0
+1 1 1000 P
+E
+tablet табличка~
+@eng Tablet with symbol 'А' carved on it.
+@rus Табличка с выгравированным на ней символом 'А'.
+~
+#34415
+tablet табличка~
+@eng a tablet@rus табличка~
+@eng The silvery tablet lies on the ground.@rus Табличка (tablet) из серебристого металла лежит на земле.~
+silver~
+treasure A 0 AO
+0 0 0 0 0
+1 1 1000 P
+E
+tablet табличка~
+@eng Tablet with symbol 'О' carved on it.
+@rus Табличка с выгравированным на ней символом 'О'.
+~
+#34416
+tablet табличка~
+@eng a tablet@rus табличка~
+@eng The silvery tablet lies on the ground.@rus Табличка (tablet) из серебристого металла лежит на земле.~
+silver~
+treasure A 0 AO
+0 0 0 0 0
+1 1 1000 P
+E
+tablet табличка~
+@eng Tablet with symbol 'П' carved on it.
+@rus Табличка с выгравированным на ней символом 'П'.
+~
+#34417
+tablet табличка~
+@eng a tablet@rus табличка~
+@eng The silvery tablet lies on the ground.@rus Табличка (tablet) из серебристого металла лежит на земле.~
+silver~
+treasure A 0 AO
+0 0 0 0 0
+1 1 1000 P
+E
+tablet табличка~
+@eng Tablet with symbol 'Р' carved on it.
+@rus Табличка с выгравированным на ней символом 'Р'.
+~
+#34418
+tablet табличка~
+@eng a tablet@rus табличка~
+@eng The silvery tablet lies on the ground.@rus Табличка (tablet) из серебристого металла лежит на земле.~
+silver~
+treasure A 0 AO
+0 0 0 0 0
+1 1 1000 P
+E
+tablet табличка~
+@eng Tablet with symbol 'Д' carved on it.
+@rus Табличка с выгравированным на ней символом 'Д'.
+~
+#34419
+tablet табличка~
+@eng a tablet@rus табличка~
+@eng The silvery tablet lies on the ground.@rus Табличка (tablet) из серебристого металла лежит на земле.~
+silver~
+treasure A 0 AO
+0 0 0 0 0
+1 1 1000 P
+E
+tablet табличка~
+@eng Tablet with symbol 'Н' carved on it.
+@rus Табличка с выгравированным на ней символом 'Н'.
+~
+#34420
+tablet табличка~
+@eng a tablet@rus табличка~
+@eng The silvery tablet lies on the ground.@rus Табличка (tablet) из серебристого металла лежит на земле.~
+silver~
+treasure A 0 AO
+0 0 0 0 0
+1 1 1000 P
+E
+tablet табличка~
+@eng Tablet with symbol 'У' carved on it.
+@rus Табличка с выгравированным на ней символом 'У'.
+~
+#34421
+tablet табличка~
+@eng a tablet@rus табличка~
+@eng The silvery tablet lies on the ground.@rus Табличка (tablet) из серебристого металла лежит на земле.~
+silver~
+treasure A 0 AO
+0 0 0 0 0
+1 1 1000 P
+E
+tablet табличка~
+@eng Tablet with symbol 'Г' carved on it.
+@rus Табличка с выгравированным на ней символом 'Г'.
+~
 #34450
 claws когти~
 @eng tiger's claws@rus ~~когти~~ тигра~
@@ -244,13 +342,298 @@ f skills 'cure critical wounds' 100 0
 f skills 'heal' 100 0
 g @eng none@rus male~
 #34454
-aura~
-~
-~
-unknown~
-trash 0 0 0
+skin rabbit шкура шкурка~
+@eng Rabbit's skin@rus ~~кроличья~~ ~~шкурка~~~
+@eng Rabbit's skin lies here.@rus Кроличья шкурка (skin) валяется здесь.~
+skin~
+trash A K AG
 0 0 0 0 0
-0 0 0 P
+10 0 0 P
+f affects saves -20 T
+f object damroll 20 0
+f object hitroll 20 0
+f affects mana 100 U
+f invis hp 100 G
+g @rus female~
+#34455
+amulet амулет holy~
+@eng holy amulet@rus ~~священный~~ ~~амулет~~~
+@eng Holy amulet lies here.@rus Светящийся белый амулет (amulet) лежит здесь.~
+magic~
+jewelry GI K AC
+0 0 0 0 0
+10 1 10000 P
+f object mana 250 0
+f object hp 250 0
+f object cha 5 0
+f object level 5 0
+f object saves -25 0
+f skills 'holy word' 100 A
+f skills 'bless' 100 A
+f skills 'benediction' 100 A
+g @rus male~
+#34457
+lock-pick picklock отмычка~
+@eng lock-pick@rus отмычка~
+@eng A small steel needle lies here.@rus Маленькая стальная игла (needle) блестит в пыли.~
+steel~
+trash 0 K AO
+0 0 0 0 0
+10 10 10000 P
+f skills 'perception' 100 A
+f skills 'knock' 100 A
+f skills 'pick lock' 100 A
+g @rus female~
+#34458
+pillow big подушка~
+@eng Big Soft Pillow@rus ~~большая~~ ~~мягкая~~ ~~подушка~~~
+@eng The big soft pillow lies here.@rus Большая подушка (pillow) так и манит к себе.~
+unknown~
+furniture A K A
+1 100 EK 1000 1000
+10 1 10000 P
+g @rus female~
+#34459
+bell small колокольчик~
+@eng Small silver bell@rus ~~маленький~~ ~~серебряный~~ ~~колокольчик~~~
+@eng Small silver bell lies here.@rus В пыли мягким серебрянным светом поблескивает колокольчик (bell).~
+silver~
+jewelry AG K AO
+0 0 0 0 0
+10 0 0 P
+f skills 'summon' 100 A
+g @rus male~
+#34460
+sack sands мешок~
+@eng sack filled with sands@rus ~~мешок~~ с песком~
+@eng Sack filled with sands lies here.@rus Небольшой мешок (sack) из холстины валяется на земле.~
+canvas~
+container 0 K AO
+0 C 0 500 5
+0 100 10000 P
+f skills 'blackjack' 100 A
+g @rus male~
+#34461
+cloud облако~
+@eng the small cloud@rus ~~маленькое~~ ~~облако~~~
+@eng The small cloud is floating around your head.@rus Маленькое облако (cloud) висит в воздухе прямо перед тобой.~
+energy~
+container GIY K AQ
+150 A 0 600 5
+10 5 10000 P
+f skills 'control weather' 100 A
+f skills 'call lightning' 100 A
+f skills 'chain lightning' 100 A
+f skills 'lightning bolt' 100 A
+f skills 'lightning breath' 100 A
+f object hp 100 0
+f object mana 500 0
+f object int 5 0
+f object wis 5 0
+f object level 5 0
+f object saves -10 0
+f object damroll 10 0
+f object hitroll 10 0
+g @rus none~
+#34462
+cloak плащ~
+@eng Cloak of The Lord Protector@rus ~~плащ~~ Лорда-Защитника~
+@eng The beautiful black cloak lies here.@rus Красивый плащ (cloak) из черной кожи лежит здесь.~
+skin~
+armor GIY K AD
+-20 -20 -20 -20 0
+10 100 10000 P
+f skills 'stone skin' 100 A
+f skills 'dragon skin' 100 A
+f skills 'bark skin' 100 A
+f object dex 5 0
+f object mana 100 0
+f object hp 100 0
+f object saves -10 0
+f object damroll 10 0
+f object hitroll 10 0
+f skills 'enhanced armor' 100 A
+f skills 'armor' 100 A
+f skills 'sanctuary' 100 A
+f skills 'shield' 100 A
+f skills 'protection good' 100 A
+f skills 'protection negative' 100 A
+f skills 'protection heat' 100 A
+f skills 'protection cold' 100 A
+f skills 'protection evil' 100 A
+g @rus male~
+#34463
+ring кольцо golden золотое колечко~
+@eng Golden Ring@rus ~~золотое~~ ~~колечко~~~
+@eng The golden ring lies here.@rus Кольцо (ring), сделанное из драгоценного металла, лежит здесь.~
+gold~
+jewelry Y K AB
+0 0 0 0 0
+10 0 10000 P
+f skills 'camouflage move' 100 A
+f invis hp 100 G
+f object mana 100 0
+f skills 'hide' 100 A
+f skills 'camouflage' 100 A
+f skills 'invisibility' 100 A
+g @rus none~
+#34464
+ring кольцо silver серебряное колечко~
+@eng Silver Ring@rus ~~серебряное~~ ~~колечко~~~
+@eng Silver ring lies here.@rus Кольцо (ring), выкованное из серебра, лежит здесь.~
+silver~
+jewelry Y K AB
+0 0 0 0 0
+10 0 0 P
+f detects hp 10 J
+f detects hp 10 F
+f detects hp 10 F
+f detects hp 10 I
+f detects hp 10 D
+f detects hp 10 M
+f detects hp 10 B
+f detects hp 10 A
+f detects hp 10 K
+f detects hp 10 L
+g @rus none~
+#34465
+gloves перчатки~
+@eng black gloves@rus ~~черные~~ ~~перчатки~~~
+@eng Black gloves lie here.@rus Черные перчатки (gloves) валяются на земле.~
+unknown~
+armor Y K AH
+20 20 20 20 0
+10 1 10000 P
+f skills 'peek' 100 A
+f skills 'steal' 100 A
+g @rus plural~
+#34466
+tail dragon хвост~
+@eng Dragon's tail@rus ~~хвост~~ дракона~
+@eng Dragon's tail lies here.@rus Очень странно. Это самый натуральный драконий хвост (tail).~
+flesh~
+clothing Y K AF
+0 0 0 0 0
+10 1 10000 P
+f object damroll 20 0
+f object hitroll 20 0
+f object mana 200 0
+f object hp 200 0
+f skills 'dragon skin' 100 A
+f skills 'dragon breath' 100 A
+f skills 'dragon strength' 100 A
+g @rus male~
+#34467
+mace дубина~
+@eng wooden mace@rus ~~массивная~~ ~~дубина~~~
+@eng Massive wooden mace is here.@rus Массивная дубина (mace) валяется на земле.~
+wood~
+weapon I K AN
+mace 15 1 'crush' I
+10 0 0 P
+f object move 150 0
+f object mana 150 0
+f object hp 150 0
+f object saves -15 0
+f object damroll 15 0
+f object hitroll 15 0
+m obj_wear obj_wear_excalibur 100~
+g @rus female~
+#34468
+aura sanctity аура святости свет~
+@eng Aura of Sanctity@rus ~~Аура~~ Святости~
+@eng Aura of Sanctity is shining.@rus Сияющий белый свет (aura) искрится и переливается прямо перед тобой.~
+unknown~
+armor G K AQ
+-50 -50 -50 -50 0
+1 0 0 P
+f skills 'sanctuary' 100 A
+f object saves -10 0
+f resists negative 100 0
+g @rus female~
+#34469
+darkness аура сгусток тьма aura~
+@eng aura of darkness@rus ~~сгусток~~ тьмы~
+@eng Aura of darkness is here.@rus Сгусток тьмы (darkness) поглощает весь свет в комнате.~
+darkness~
+treasure 0 K AQ
+0 0 0 0 0
+10 1 10000 P
+f resists holy 100 0
+f skills 'black shroud' 100 A
+f object saves -10 0
+g @rus female~
+#34470
+herb травка растение~
+@eng a herb@rus ~~лекарственная~~ ~~трава~~~
+@eng A herb is growing here.@rus Миниатюрное растение (herb) тянется к солнцу.~
+grass~
+pill A K A
+150 'master healing' 'cure poison' 'cure disease' 'mana restore'
+1 1 100 P
+g @rus female~
+#34471
+branch ветка~
+@eng a branch@rus ветка~
+@eng A branch is lying here.@rus На земле лежит ветка (branch), кем-то сломанная.~
+wood~
+armor A K AO
+10 10 10 10 0
+10 1 100 P
+f object move 100 0
+f object mana 100 0
+f object hp 100 0
+f skills 'camp' 100 A
+f skills 'camouflage move' 100 A
+f skills 'camouflage' 100 A
+g @rus female~
+#34472
+wings dragon крылья~
+@eng dragon's wings@rus ~~крылья~~ дракона~
+@eng Dragon's wings is here.@rus Ты видишь крылья (wings) словно сотканные из блестящей пыли.~
+magic~
+armor GI K AD
+-20 -20 -20 -20 0
+10 1 1000 P
+f skills 'acid breath' 100 A
+f skills 'fire breath' 100 A
+f skills 'fireball' 100 A
+f affects none 0 T
+f object mana 50 0
+f object hp 50 0
+f object hitroll 5 0
+f object damroll 5 0
+f object saves -5 0
+f object age 5 0
+g @rus plural~
+#34473
+knife butcher нож мясника~
+@eng butcher's knife@rus ~~нож~~ мясника~
+@eng Massive knife is here.@rus Массивный нож (knife) с рукоятью из кости лежит здесь.~
+steel~
+weapon 0 K AN
+dagger 12 1 'stab' DE
+10 10 1000 P
+f skills 'butcher' 100 A
+f object saves -10 0
+f object damroll 20 0
+f object hitroll 20 0
+m obj_wear obj_wear_excalibur 100~
+g @rus male~
+#34474
+sceptre скипетр~
+@eng knight's sceptre@rus ~~скипетр~~ Рыцаря~
+@eng Knight's sceptre is liying here.@rus Скипетр (sceptre) привлек твое внимание своим сиянием.~
+light~
+wand I K AO
+100 50 50 'holy word' 0
+10 1 10000 P
+f skills 'bless weapon' 100 A
+f skills 'benediction' 100 A
+f object hitroll 15 0
+f object damroll 15 0
+f object saves -10 0
+g @rus male~
 #0
 
 #ROOMS
@@ -266,17 +649,55 @@ trash 0 0 0
 ~
 0 C forest
 S
-#34481
-@eng Forest Kindom Inn@rus Постоялый двор 'Лесное Царство'~
-@rus Ух ты. Как интересно. Только что ты бродил по площади в центре города,
-а тут попал в какой-то лес (по сравнению с тем, что было раньше, коне-
-чно) Неудивительно, что это место пользуется популярностью. Зайдя сюда
-словно переносишься куда-то за город. Даже птички поют, услаждая твой
-слух. Кто бы подумал, что бывают такие постоялые дворы. А вот уже и хо-
-зяин спешит тебе навстречу, чувствуется что они здесь умеют заботиться
-о клиентах.
+#34401
+@eng Near the cave@rus Около входа в пещеру~
+@rus Ты стоишь на склоне горы, около зияющего глаза пещеры. Ни одного
+звука не слышно изнутри. А непонятное сияние, исходящее отовсюду,
+заставляет тебя нервничать. Надо, наконец, принять окончательное ре-
+шение: войти внутрь или отступить...
 ~
 0 0 inside
+D1
+~
+~
+~
+~
+Z 0 34402
+S
+#34402
+@eng In the cave@rus В пещере~
+@rus Эта гора на проверку оказалась огромным кристаллом. Она вся светится,
+ослепляя тебя. Каждый твой шаг гулко звучит под высокими сводами пещеры.
+Задумавшись, ты едва не $gn{воткнулся} носом во что-то большое и жесткое.
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 34403
+D3
+~
+~
+~
+~
+Z 0 34401
+S
+#34403
+@eng Heart of the mountain@rus Сердце горы~
+@rus Вот оно... Ты, преодолев все препятствия на своем пути, $gn{достиг} цели
+своего путешествия. И вот Он -- легендарный алтарь в сердце кристальной
+горы. Вот то, что искали многие поколения до тебя и, видимо, будут искать,
+когда тебя уже не станет.
+~
+0 0 inside
+D2
+~
+~
+~
+~
+Z 0 34402
 S
 #0
 
@@ -284,6 +705,9 @@ S
 O 0 34405 0 34400	* fallen tree ({GClearing in the woods{w)
 O 0 34404 0 34400	* {WSpring with crystal and clear water{w ({GClearing in the woods{w)
 M 0 34400 1 34400 1	* {ysympathetic bear{x ({GClearing in the woods{w)
+M 0 34402 1 34402 1	* the golden dragon (In the cave)
+O 0 34462 0 34403	* Cloak of The Lord Protector (Heart of the mountain)
+P 0 34463 1 0 1	* Cloak of The Lord Protector: Golden Ring
 S
 
 #SHOPS

@@ -24,8 +24,8 @@ BT 0 H 0 ABK 900 0
 CDEFIJKLTU
 stand stand male 1000
 0 0 medium unknown
-m mob_random mob_random_captain 100~
 m mob_fight mob_fight_cast_cleric 100~
+m mob_random mob_random_captain 100~
 #10202
 lieutenant commander~
 Lieutenant Commander~
@@ -1060,6 +1060,7 @@ f object hp 50 0
 f object hitroll 10 0
 f object damroll 10 0
 f object saving_spell -10 0
+m obj_fight obj_fight_shieldbreaker 10~
 E
 sword~
 The blade of the sword is a full meter long, and straight as an arrow, with
@@ -5219,7 +5220,7 @@ S
 0
 
 #OLIMITS
-O 10225 10	* black hilted sword called, "Shieldbreaker"
+O 10225 3	* black hilted sword called, "Shieldbreaker"
 S
 
 #$

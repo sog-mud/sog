@@ -735,8 +735,8 @@ stand stand male 5000
 r charm 100
 r weapon 33
 r magic 33
-m mob_greet mob_greet_apothecary_shopkeeper 100~
 m mob_fight mob_fight_cast_mage 100~
+m mob_greet mob_greet_apothecary_shopkeeper 100~
 #3071
 cityguard guard стражник~
 @eng the cityguard@rus стражник~
@@ -1161,8 +1161,8 @@ CHS 0 0 BG 0 -100 0
 EFJN
 stand stand either 100
 0 0 medium unknown
-m mob_random mob_random_nasty 100~
 m mob_fight mob_fight_nasty 100~
+m mob_random mob_random_nasty 100~
 #3164
 butcher shopkeeper~
 @eng the butcher@rus мясник~

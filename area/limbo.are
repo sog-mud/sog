@@ -556,18 +556,6 @@ weapon AGIKL 0 AN
 mace 9 0 'divine' I
 0 0 0 P
 g @rus male~
-#19
-lock-pick picklock отмычка~
-@eng lock-pick@rus отмычка~
-@eng A small steel needle lies here.@rus Маленькая стальная игла (needle) блестит в пыли.~
-steel~
-trash 0 K AO
-0 0 0 0 0
-10 10 10000 P
-f skills 'perception' 100 A
-f skills 'knock' 100 A
-f skills 'pick lock' 100 A
-g @rus female~
 #20
 mushroom грибок~
 @eng a Magic Mushroom@rus ~~Волшебный~~ ~~Мухомор~~~
@@ -603,22 +591,6 @@ energy~
 container GMPUY E AQ
 0 E 0 0 0
 0 0 0 P
-g @rus male~
-#24
-tail dragon хвост~
-@eng Dragon's tail@rus ~~хвост~~ дракона~
-@eng Dragon's tail lies here.@rus Очень странно. Это самый натуральный драконий хвост (tail).~
-flesh~
-clothing Y K AF
-0 0 0 0 0
-10 1 10000 P
-f object damroll 20 0
-f object hitroll 20 0
-f object mana 200 0
-f object hp 200 0
-f skills 'dragon skin' 100 A
-f skills 'dragon breath' 100 A
-f skills 'dragon strength' 100 A
 g @rus male~
 #25
 gate portal ворота врата~
@@ -661,17 +633,6 @@ m obj_wear obj_wear_ranger_staff 100~
 m obj_fight obj_fight_ranger_staff 100~
 m obj_death obj_death_obj_disappears 100~
 g @rus male~
-#29
-gloves перчатки~
-@eng black gloves@rus ~~черные~~ ~~перчатки~~~
-@eng Black gloves lie here.@rus Черные перчатки (gloves) валяются на земле.~
-unknown~
-armor Y K AH
-20 20 20 20 0
-10 1 10000 P
-f skills 'peek' 100 A
-f skills 'steal' 100 A
-g @rus plural~
 #30
 dummy object~
 a dummy object~
@@ -768,25 +729,6 @@ weapon 0 0 AO
 arrow 1 1 'pierce' GK
 1 5 10 P
 g @rus female~
-#38
-pillow big подушка~
-@eng Big Soft Pillow@rus ~~большая~~ ~~мягкая~~ ~~подушка~~~
-@eng The big soft pillow lies here.@rus Большая подушка (pillow) так и манит к себе.~
-unknown~
-furniture A K A
-1 100 EK 1000 1000
-10 1 10000 P
-g @rus female~
-#39
-bell small колокольчик~
-@eng Small silver bell@rus ~~маленький~~ ~~серебряный~~ ~~колокольчик~~~
-@eng Small silver bell lies here.@rus В пыли мягким серебрянным светом поблескивает колокольчик (bell).~
-silver~
-jewelry AG K AO
-0 0 0 0 0
-10 0 0 P
-f skills 'summon' 100 A
-g @rus male~
 #40
 song hero~
 the %s Song of %s~
@@ -807,16 +749,6 @@ f object mana 150 0
 f object hp 200 0
 m obj_get obj_get_quest_reward 100~
 g @rus female~
-#41
-sack sands мешок~
-@eng sack filled with sands@rus ~~мешок~~ с песком~
-@eng Sack filled with sands lies here.@rus Небольшой мешок (sack) из холстины валяется на земле.~
-canvas~
-container 0 K AO
-0 C 0 500 5
-0 100 10000 P
-f skills 'blackjack' 100 A
-g @rus male~
 #42
 vial potion пузырек~
 @eng a potion vial@rus ~~пустой~~ ~~пузырек~~~
@@ -857,89 +789,6 @@ potion G 0 AO
 1 'bless' '' '' ''
 0 10 0 P
 g @rus female~
-#46
-cloud облако~
-@eng the small cloud@rus ~~маленькое~~ ~~облако~~~
-@eng The small cloud is floating around your head.@rus Маленькое облако (cloud) висит в воздухе прямо перед тобой.~
-energy~
-container GIY K AQ
-150 A 0 600 5
-10 5 10000 P
-f skills 'control weather' 100 A
-f skills 'call lightning' 100 A
-f skills 'chain lightning' 100 A
-f skills 'lightning bolt' 100 A
-f skills 'lightning breath' 100 A
-f object hp 100 0
-f object mana 500 0
-f object int 5 0
-f object wis 5 0
-f object level 5 0
-f object saves -10 0
-f object damroll 10 0
-f object hitroll 10 0
-g @rus none~
-#47
-cloak плащ~
-@eng Cloak of The Lord Protector@rus ~~плащ~~ Лорда-Защитника~
-@eng The beautiful black cloak lies here.@rus Красивый плащ (cloak) из черной кожи лежит здесь.~
-skin~
-armor GIY K AD
--20 -20 -20 -20 0
-10 100 10000 P
-f skills 'stone skin' 100 A
-f skills 'dragon skin' 100 A
-f skills 'bark skin' 100 A
-f object dex 5 0
-f object mana 100 0
-f object hp 100 0
-f object saves -10 0
-f object damroll 10 0
-f object hitroll 10 0
-f skills 'enhanced armor' 100 A
-f skills 'armor' 100 A
-f skills 'sanctuary' 100 A
-f skills 'shield' 100 A
-f skills 'protection good' 100 A
-f skills 'protection negative' 100 A
-f skills 'protection heat' 100 A
-f skills 'protection cold' 100 A
-f skills 'protection evil' 100 A
-g @rus male~
-#48
-ring кольцо golden золотое колечко~
-@eng Golden Ring@rus ~~золотое~~ ~~колечко~~~
-@eng The golden ring lies here.@rus Кольцо (ring), сделанное из драгоценного металла, лежит здесь.~
-gold~
-jewelry Y K AB
-0 0 0 0 0
-10 0 10000 P
-f skills 'camouflage move' 100 A
-f invis hp 100 G
-f object mana 100 0
-f skills 'hide' 100 A
-f skills 'camouflage' 100 A
-f skills 'invisibility' 100 A
-g @rus none~
-#49
-ring кольцо silver серебряное колечко~
-@eng Silver Ring@rus ~~серебряное~~ ~~колечко~~~
-@eng Silver ring lies here.@rus Кольцо (ring), выкованное из серебра, лежит здесь.~
-silver~
-jewelry Y K AB
-0 0 0 0 0
-10 0 0 P
-f detects hp 10 J
-f detects hp 10 F
-f detects hp 10 F
-f detects hp 10 I
-f detects hp 10 D
-f detects hp 10 M
-f detects hp 10 B
-f detects hp 10 A
-f detects hp 10 K
-f detects hp 10 L
-g @rus none~
 #50
 rug коврик~
 @eng a small magic rug@rus ~~магический~~ ~~коврик~~~
@@ -950,189 +799,175 @@ furniture Y BF A
 10 10 0 P
 g @rus male~
 #51
-tattoo atum ra~
-lawful good tattoo of atum-ra~
+tattoo lirail~
+tattoo of Lirail, Goddess of Order and Protection~
 A tattoo flying in the air.~
 energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
+m obj_fight obj_fight_tattoo_lirail 100~
 g @rus none~
 #52
-tattoo zeus~
-neutral good tattoo of zeus~
+tattoo amtinor~
+tattoo of Amtinor, God of Woodlands~
 A tattoo flying in the air.~
 energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
+m obj_fight obj_fight_tattoo_amtinor 100~
 g @rus none~
 #53
-tattoo siebele~
-true neutral tattoo of siebele~
+tattoo aulin~
+tattoo of Aulin, Goddess of Knowlegde~
 A tattoo flying in the air.~
 energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
+m obj_fight obj_fight_tattoo_aulin 100~
 g @rus none~
 #54
-tattoo shamash~
-tattoo of shamash, god of justice~
+tattoo dakkorn~
+tattoo of Dakkorn, God of Justice~
 A tattoo flying in the air.~
 energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
+m obj_fight obj_fight_tattoo_dakkorn 100~
 g @rus none~
 #55
-tattoo ahura mazda~
-chaotic good tattoo of ahuramazda~
+tattoo ulwark~
+tattoo of Ulwark, God of Dreams and Ambitions~
 A tattoo flying in the air.~
 energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
+m obj_fight obj_fight_tattoo_ulwark 100~
 g @rus none~
 #56
-tattoo ehrumen~
-chaotic evil tattoo of ehrumen~
+tattoo moarith~
+tattoo of Moarith, Goddess of Slaughter~
 A tattoo flying in the air.~
 energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
+m obj_fight obj_fight_tattoo_moarith 100~
 g @rus none~
 #57
-tattoo deimos~
-lawful evil tattoo of deimos~
+tattoo ilissa~
+tattoo of Ilissa, Goddess of Tyranny~
 A tattoo flying in the air.~
 energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
+m obj_fight obj_fight_tattoo_ilissa 100~
 g @rus none~
 #58
-tattoo phobos~
-neutral evil tattoo of phobos~
+tattoo hathir~
+tattoo of Hathir, God of Death~
 A tattoo flying in the air.~
 energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
+m obj_fight obj_fight_tattoo_hathir 100~
 g @rus none~
 #59
-tattoo odin~
-lawful neutral tattoo of odin~
+tattoo throrgrim~
+tattoo of Throrgrim, God of Retribution~
 A tattoo flying in the air.~
 energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
+m obj_fight obj_fight_tattoo_throrgrim 100~
 g @rus none~
 #60
-tattoo teshub~
-chaotic neutral tattoo of teshub~
+tattoo irian~
+tattoo of Irian, Goddess of True Chaos~
 A tattoo flying in the air.~
 energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
+m obj_fight obj_fight_tattoo_irian 100~
 g @rus none~
 #61
-tattoo ares~
-tattoo of ares, God of War~
+tattoo stivrosh~
+tattoo of Stivrosh, God of War~
 A tattoo flying in the air.~
 energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
+m obj_fight obj_fight_tattoo_stivrosh 100~
 g @rus none~
 #62
-tattoo goktengri татуировка гоктенгри~
-@eng tattoo of goktengri, God of Honor@rus татуировка Гоктенгри, бога чести~
-@eng A tattoo flying in the air.@rus Татуировка (tattoo) летает по воздуху.~
+tattoo gwinnerai~
+tattoo of Gwinnerai, Goddess of Honor~
+A tattoo flying in the air.~
 energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
+m obj_fight obj_fight_tattoo_gwinnerai 100~
 g @rus female~
 #63
-tattoo hera~
-tattoo of hera, god of hate~
+tattoo trussk~
+tattoo of Trussk, God of Desease and Suffering~
 A tattoo flying in the air.~
 energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
+m obj_fight obj_fight_tattoo_trussk 100~
 g @rus none~
 #64
-tattoo venus~
-tattoo of venus, god of beauty~
+tattoo lessa~
+tattoo of Lessa, Goddess of Magic~
 A tattoo flying in the air.~
 energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
+m obj_fight obj_fight_tattoo_lessa 100~
 g @rus none~
 #65
-tattoo seth~
-tattoo of seth, god of anger~
+tattoo vilirna~
+tattoo of Vilirna, Goddess of Life~
 A tattoo flying in the air.~
 energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
+m obj_fight obj_fight_tattoo_vilirna 100~
 g @rus none~
 #66
-tattoo enki~
-tattoo of enki, god of knowledge~
+tattoo calamir~
+tattoo of Calamir, God of Delusion~
 A tattoo flying in the air.~
 energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
+m obj_fight obj_fight_tattoo_calamir 100~
 g @rus none~
 #67
-tattoo eros татуировка эрос~
-@eng tattoo of eros, god of love@rus татуировка Эроса, бога любви~
-@eng A tattoo flying in the air.@rus Татуировка Эроса (tattoo) летает по воздуху.~
+tattoo cariel~
+tattoo of Cariel, Goddess of Revival~
+A tattoo flying in the air.~
 energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
+m obj_fight obj_fight_tattoo_cariel 100~
 g @rus none~
-#68
-skin rabbit шкура шкурка~
-@eng Rabbit's skin@rus ~~кроличья~~ ~~шкурка~~~
-@eng Rabbit's skin lies here.@rus Кроличья шкурка (skin) валяется здесь.~
-skin~
-trash A K AG
-0 0 0 0 0
-10 0 0 P
-f affects saves -20 T
-f object damroll 20 0
-f object hitroll 20 0
-f affects mana 100 U
-f invis hp 100 G
-g @rus female~
-#69
-amulet амулет holy~
-@eng holy amulet@rus ~~священный~~ ~~амулет~~~
-@eng Holy amulet lies here.@rus Светящийся белый амулет (amulet) лежит здесь.~
-magic~
-jewelry GI K AC
-0 0 0 0 0
-10 1 10000 P
-f object mana 250 0
-f object hp 250 0
-f object cha 5 0
-f object level 5 0
-f object saves -25 0
-f skills 'holy word' 100 A
-f skills 'bless' 100 A
-f skills 'benediction' 100 A
-g @rus male~
 #70
 badge значок~
 @eng silver ruler badge@rus ~~серебрянный~~ ~~значок~~ Охранника Порядка~
@@ -1144,25 +979,27 @@ treasure M ACDE A
 f detects none 0 B
 g @rus male~
 #71
-buckler ruler shield~
+buckler shield enforcer~
 @eng Enforcer's Buckler@rus ~~круглый~~ ~~щит~~ блюстителя порядка~
 @eng A buckler of Enforcer is on the ground.@rus Круглый щит (shield) с гербом клана Enforcers лежит на земле.~
 steel~
 armor GIY BE AJ
 8 8 8 3 0
 0 50 10000 P
+m obj_wear obj_wear_enforcer_shield 100~
 g @rus male~
 #72
-great ruler shield щит~
+great shield щит enforcer~
 @eng Enforcer's Great Shield@rus ~~большой~~ ~~щит~~ блюстителя порядка~
 @eng There is a Great Enforcer's Shield on the ground.@rus Большой щит (shield) с гербом клана Enforcers лежит на земле.~
 steel~
 armor GIY BE AJ
 20 20 20 10 0
 0 300 15000 P
+m obj_wear obj_wear_enforcer_shield 100~
 g @rus male~
 #73
-kite ruler shield щит~
+kite shield щит enforcer~
 Enforcer's Kite Shield~
 You see a large Kite Shield of Enforcer on the ground.~
 steel~
@@ -1172,15 +1009,17 @@ armor GIY BE AJ
 f object ac -10 0
 f object hitroll 3 0
 f object damroll 4 0
-g @rus none~
+m obj_wear obj_wear_enforcer_shield 100~
+g @rus male~
 #74
-tower ruler shield щит~
+tower shield щит enforcer~
 @eng Enforcer's Tower Shield@rus ~~огромный~~ ~~щит~~ блюстителя порядка~
 @eng A very big shield with a symbol of Enforcers covers the ground.@rus ОГРОМНЫЙ щит (shield) с гербом клана Enforcers лежит на земле.~
 steel~
 armor GIY BE AJ
 30 30 30 20 0
 0 450 20000 P
+m obj_wear obj_wear_enforcer_shield 100~
 g @rus male~
 #75
 herb healing травка bunch~

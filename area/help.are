@@ -4780,6 +4780,7 @@ Syntax: {casave implicit{x
 Syntax: {casave lang{x
 Syntax: {casave liquids{x
 Syntax: {casave materials{x
+Syntax: {casave mprog{xx
 Syntax: {casave msgdb{x
 Syntax: {casave races{x
 Syntax: {casave skills{x
@@ -4817,7 +4818,7 @@ Syntax: {ccreate lang{x <name>
 Syntax: {ccreate liquid{x <name>
 Syntax: {ccreate material{x <name>
 Syntax: {ccreate mobile{x <vnum>
-Syntax: {ccreate mpcode{x <vnum>
+Syntax: {ccreate mprog{x <name>
 Syntax: {ccreate msg{x <message>
 Syntax: {ccreate object{x <vnum>
 Syntax: {ccreate race{x <name>
