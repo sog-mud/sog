@@ -1545,6 +1545,7 @@ M 18704 spec_cast_adept	* healer Pepin
 S
 
 #RESETS
+O 0 95408 0 18701	* {DI hate magic{x (Town square)
 O 0 18710 0 18704	* town fountain (Town square)
 M 0 18703 1 18704 1	* ~староста~ ~Кейн~ (Town square)
 M 0 18704 1 18705 1	* healer Pepin (Drugstone)
