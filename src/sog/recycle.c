@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.64.2.5 2000-04-17 06:56:01 fjoe Exp $
+ * $Id: recycle.c,v 1.64.2.6 2001-11-16 05:50:53 avn Exp $
  */
 
 /***************************************************************************
@@ -479,6 +479,72 @@ void reset_free(RESET_DATA *pReset)
 	top_reset--;
 	free(pReset);
 }
+
+void reset_add(ROOM_INDEX_DATA *room, RESET_DATA *reset, RESET_DATA *after)
+{
+	RESET_DATA *r;
+
+	if (after == NULL) {
+		reset->next = NULL;
+		if (room->reset_first == NULL)
+			room->reset_first = reset;
+		if (room->reset_last == NULL)
+			room->reset_last = reset;
+		else
+			room->reset_last = room->reset_last->next = reset;
+		return;
+	}
+
+	for (r = room->reset_first; r != NULL; r = r->next) {
+		if (r == after)
+			break;
+	}
+
+	if (r == NULL) {
+		bug("reset_add: `after' reset not found");
+		return;
+	}
+
+	reset->next = r->next;
+	r->next = reset;
+	if (reset->next == NULL)
+		room->reset_last = reset;
+}
+
+void reset_del(ROOM_INDEX_DATA *room, RESET_DATA *reset)
+{
+	RESET_DATA *r;
+	RESET_DATA *prev = NULL;
+
+	for (r = room->reset_first; r != NULL; r = r->next) {
+		if (r == reset)
+			break;
+		prev = r;
+	}
+
+	if (r == NULL)
+		return;
+
+	if (prev == NULL)
+		room->reset_first = r->next;
+	else
+		prev->next = r->next;
+	if (r->next == NULL)
+		room->reset_last = prev;
+}
+
+RESET_DATA *reset_lookup(ROOM_INDEX_DATA *room, int rnum)
+{
+	RESET_DATA *r;
+
+	for (r = room->reset_first; r != NULL; r = r->next) {
+		if (!--rnum)
+			break;
+	}
+
+	return r;
+}
+
 
 AREA_DATA *new_area(void)
 {

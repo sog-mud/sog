@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.58.2.1 2001-08-02 18:34:27 fjoe Exp $
+ * $Id: db_area.c,v 1.58.2.2 2001-11-16 05:50:55 avn Exp $
  */
 
 /***************************************************************************
@@ -646,7 +646,7 @@ DBLOAD_FUN(load_resets)
 			||  (pRoom = get_room_index(pReset->arg3)) == NULL)
 				break;
 
-			reset_add(pReset, pRoom, 0);
+			reset_add(pRoom, pReset, NULL);
 			pLastRoom = pRoom;
 			break;
 
@@ -656,7 +656,7 @@ DBLOAD_FUN(load_resets)
 				break;
 
 			pObj->reset_num++;
-			reset_add(pReset, pRoom, 0);
+			reset_add(pRoom, pReset, NULL);
 			pLastRoom = pRoom;
 
 			if (IS_SET(pObj->extra_flags, ITEM_OLDSTYLE)) {
@@ -684,7 +684,7 @@ DBLOAD_FUN(load_resets)
 				return;
 			}
 
-			reset_add(pReset, pLastRoom, 0);
+			reset_add(pLastRoom, pReset, NULL);
 			pObj->reset_num++;
 
 			if (IS_SET(pObj->extra_flags, ITEM_OLDSTYLE))
@@ -705,7 +705,7 @@ DBLOAD_FUN(load_resets)
 			}
 
 			pObj->reset_num++;
-			reset_add(pReset, pLastRoom, 0);
+			reset_add(pLastRoom, pReset, NULL);
 
 			if (IS_SET(pObj->extra_flags, ITEM_OLDSTYLE)) {
 				if (!pLastMob) {
@@ -797,7 +797,7 @@ DBLOAD_FUN(load_resets)
 			}
 
 			if (pRoom)
-				reset_add(pReset, pRoom, 0);
+				reset_add(pRoom, pReset, NULL);
 
 			break;
 		}

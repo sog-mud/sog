@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.169.2.19 2001-08-05 17:25:50 fjoe Exp $
+ * $Id: db.c,v 1.169.2.20 2001-11-16 05:50:54 avn Exp $
  */
 
 /***************************************************************************
@@ -460,45 +460,6 @@ void vnum_check(AREA_DATA *area, int vnum)
 		log("%s: %d not in area vnum range",
 			   area->file_name, vnum);
 	}
-}
-
-/*****************************************************************************
- Name:		reset_add
- Purpose:	Inserts a new reset in the given index slot.
- Called by:	do_resets(olc.c).
- ****************************************************************************/
-void reset_add(RESET_DATA *pReset, ROOM_INDEX_DATA *room, int num)
-{
-	RESET_DATA *reset;
-	int iReset = 0;
-
-	if (!room->reset_first) {
-		room->reset_first	= pReset;
-		room->reset_last	= pReset;
-		pReset->next		= NULL;
-		return;
-	}
-
-	num--;
-
-	if (num == 0)	{ /* First slot (1) selected. */
-		pReset->next = room->reset_first;
-		room->reset_first = pReset;
-		return;
-	}
-
-	/*
-	 * If negative slot(<= 0 selected) then this will find the last.
-	 */
-	for (reset = room->reset_first; reset->next; reset = reset->next) {
-		if (++iReset == num)
-			break;
-	}
-
-	pReset->next	= reset->next;
-	reset->next	= pReset;
-	if (!pReset->next)
-		room->reset_last = pReset;
 }
 
 /*

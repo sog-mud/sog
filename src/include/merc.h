@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.234.2.16 2001-07-04 19:42:51 fjoe Exp $
+ * $Id: merc.h,v 1.234.2.17 2001-11-16 05:50:50 avn Exp $
  */
 
 /***************************************************************************
@@ -2199,8 +2199,10 @@ char *	spec_name	(SPEC_FUN *function);
 
 RESET_DATA *	reset_new	(void);
 void		reset_free	(RESET_DATA *pReset);
-void		reset_add	(RESET_DATA *pReset, ROOM_INDEX_DATA *pRoom,
-				 int num);
+void		reset_add	(ROOM_INDEX_DATA *room, RESET_DATA *reset,
+				RESET_DATA *after);
+void		reset_del	(ROOM_INDEX_DATA *room, RESET_DATA *reset);
+RESET_DATA *	reset_lookup	(ROOM_INDEX_DATA *room, int rnum);
 
 AREA_DATA	*new_area		(void);
 AREA_DATA *	area_lookup		(int vnum);
