@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.409 2004-01-26 20:46:18 sg Exp $
+ * $Id: merc.h,v 1.410 2004-02-09 21:16:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1581,7 +1581,8 @@ struct char_data
 	int			slang;		/* spoken language */
 	mlstring		gender;
 
-	avltree_t		vars;		/* var_t		*/
+	avltree_t		vars;		/* var_t */
+	varr			mptrig_affected;/* mptrig_t */
 };
 
 /*
@@ -1780,6 +1781,7 @@ struct obj_data
 	altar_t *		altar;
 	int			water_float;
 	avltree_t		vars;		/* var_t		*/
+	varr			mptrig_affected;/* mptrig_t */
 };
 
 /*
@@ -1890,7 +1892,8 @@ struct room_index_data
 	AFFECT_DATA *		affected;
 	flag_t			affected_by;
 	varr			mp_trigs;
-	avltree_t		vars;		/* var_t		*/
+	avltree_t		vars;		/* var_t */
+	varr			mptrig_affected;/* mptrig_t */
 };
 
 #define GET_HEAL_RATE(r)	((r)->heal_rate + (r)->heal_rate_mod)
@@ -2173,6 +2176,7 @@ extern bool merc_down;
 #define TO_FORMAFFECTS	8
 #define TO_FORMRESISTS	9
 #define TO_RESISTS	10
+#define TO_TRIG		11
 
 struct affect_data
 {

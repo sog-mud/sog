@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.378 2004-01-26 23:21:46 sg Exp $
+ * $Id: handler.c,v 1.379 2004-02-09 21:16:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -54,6 +54,7 @@
 
 #include "comm.h"
 #include "handler_impl.h"
+#include "affects.h"
 
 static const char *	format_hmv	(int hp, int mana, int move);
 
@@ -72,7 +73,6 @@ static OBJ_DATA *get_obj_here_raw(CHAR_DATA *ch, const char *name,
 				  uint *number);
 static CHAR_DATA *get_char_room_raw(CHAR_DATA *ch, const char *name,
 				    uint *number, ROOM_INDEX_DATA *room);
-static void strip_obj_affects(CHAR_DATA *ch, AFFECT_DATA *paf);
 static OBJ_DATA *get_stuck_eq(CHAR_DATA *ch, int wtype);
 static bool has_boat(CHAR_DATA *ch);
 static bool has_key(CHAR_DATA *ch, int key);
@@ -1424,7 +1424,6 @@ void
 equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 {
 	int i;
-	AFFECT_DATA *paf;
 
 	/*
 	 * special WEAR_STUCK_IN handling
@@ -1462,13 +1461,9 @@ equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 	for (i = 0; i < 4; i++)
 		ch->armor[i] -= apply_ac(obj, obj->wear_loc, i);
 
-	if (!IS_OBJ_STAT(obj, ITEM_ENCHANTED)) {
-		for (paf = obj->pObjIndex->affected; paf; paf = paf->next)
-			affect_modify(ch, paf, TRUE);
-	}
-
-	for (paf = obj->affected; paf; paf = paf->next)
-		affect_modify(ch, paf, TRUE);
+	if (!IS_OBJ_STAT(obj, ITEM_ENCHANTED))
+		apply_obj_affects(ch, obj->pObjIndex->affected);
+	apply_obj_affects(ch, obj->affected);
 
 	/*
 	 * adjust light
@@ -1477,15 +1472,6 @@ equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 	&&  INT(obj->value[2]) != 0
 	&&  ch->in_room != NULL)
 		++ch->in_room->light;
-}
-
-static void
-strip_obj_affects(CHAR_DATA *ch, AFFECT_DATA *paf)
-{
-	for (; paf != NULL; paf = paf->next) {
-		affect_modify(ch, paf, FALSE);
-		affect_check(ch, paf->where, paf->bitvector);
-	}
 }
 
 /*

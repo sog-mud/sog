@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.84 2003-09-30 00:31:27 fjoe Exp $
+ * $Id: affects.c,v 1.85 2004-02-09 21:16:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -49,6 +49,8 @@
 
 #include <sog.h>
 
+#include "affects.h"
+
 static bool show_name(CHAR_DATA *ch, BUFFER *output,
 		      AFFECT_DATA *paf, AFFECT_DATA *paf_last);
 static void show_duration(BUFFER *output, AFFECT_DATA *paf);
@@ -60,6 +62,9 @@ static void show_obj_affects(BUFFER *output, AFFECT_DATA *paf);
 static void strip_race_and_form_affects(CHAR_DATA *ch);
 static void reset_affects(CHAR_DATA *ch);
 static void calc_affect_bonus(AFFECT_DATA *paf, int *hi, int *lo);
+
+static void affect_modify_obj(OBJ_DATA *obj, AFFECT_DATA *paf, bool fAdd);
+static void affect_modify_trig(varr *v, AFFECT_DATA *paf, bool fAdd);
 
 /* enchanted stuff for eq */
 void
@@ -82,7 +87,7 @@ affect_enchant(OBJ_DATA *obj)
 /*
  * Apply or remove an affect to a character.
  */
-void
+static void
 affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 {
 	OBJ_DATA *wield;
@@ -140,6 +145,9 @@ affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 				ch->shapeform->res_mod[res] += mod;
 			ch->res_mod[res] += mod;
 		}
+		return;
+	} else if (paf->where == TO_TRIG) {
+		affect_modify_trig(&ch->mptrig_affected, paf, fAdd);
 		return;
 	}
 
@@ -380,17 +388,7 @@ affect_to_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
 	paf_new->next	= obj->affected;
 	obj->affected	= paf_new;
 
-	if (paf->bitvector) {
-		switch (paf->where) {
-		case TO_OBJECT:
-			SET_OBJ_STAT(obj, paf->bitvector);
-			break;
-		case TO_WEAPON:
-			if (obj->item_type == ITEM_WEAPON)
-				SET_BIT(INT(obj->value[4]), paf->bitvector);
-			break;
-		}
-	}
+	affect_modify_obj(obj, paf_new, TRUE);
 }
 
 /*
@@ -477,20 +475,7 @@ affect_remove_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
 	where = paf->where;
 	vector = paf->bitvector;
 	hadowner = (paf->owner != NULL);
-
-	/* remove flags from the object if needed */
-	if (paf->bitvector) {
-		switch(paf->where) {
-		case TO_OBJECT:
-			REMOVE_OBJ_STAT(obj, paf->bitvector);
-			break;
-		case TO_WEAPON:
-			if (obj->item_type == ITEM_WEAPON)
-				REMOVE_BIT(INT(obj->value[4]),
-					   paf->bitvector);
-			break;
-		}
-	}
+	affect_modify_obj(obj, paf, FALSE);
 
 	if (paf == obj->affected)
 		obj->affected = paf->next;
@@ -675,10 +660,15 @@ obj_magic_value(OBJ_DATA *obj)
 /*
  * Apply or remove an affect to a room.
  */
-void
+static void
 affect_modify_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf, bool fAdd)
 {
 	int mod;
+
+	if (paf->where == TO_TRIG) {
+		affect_modify_trig(&room->mptrig_affected, paf, fAdd);
+		return;
+	}
 
 	if (fAdd) {
 		switch (paf->where) {
@@ -859,6 +849,7 @@ strip_raff_owner(CHAR_DATA *ch)
 		    ch, obj);
 	}
 }
+
 /*
  * Strip all affects of a given bitvector
  */
@@ -996,6 +987,26 @@ format_obj_affects(BUFFER *output, AFFECT_DATA *paf, int flags)
 					   paf->duration);
 			buf_append(output, ".\n");
 		}
+	}
+}
+
+/*----------------------------------------------------------------------------
+ * semi-local functions
+ */
+
+void
+apply_obj_affects(CHAR_DATA *ch, AFFECT_DATA *paf)
+{
+	for (; paf != NULL; paf = paf->next)
+		affect_modify(ch, paf, TRUE);
+}
+
+void
+strip_obj_affects(CHAR_DATA *ch, AFFECT_DATA *paf)
+{
+	for (; paf != NULL; paf = paf->next) {
+		affect_modify(ch, paf, FALSE);
+		affect_check(ch, paf->where, paf->bitvector);
 	}
 }
 
@@ -1193,4 +1204,49 @@ calc_affect_bonus(AFFECT_DATA *paf, int *hi, int *lo)
 			hi +=	paf->modifier / 3;
 		}
 	}
+}
+
+static void
+affect_modify_obj(OBJ_DATA *obj, AFFECT_DATA *paf, bool fAdd)
+{
+	if (paf->where == TO_TRIG) {
+		affect_modify_trig(&obj->mptrig_affected, paf, fAdd);
+		return;
+	}
+
+	if (fAdd) {
+		if (paf->bitvector) {
+			switch (paf->where) {
+			case TO_OBJECT:
+				SET_OBJ_STAT(obj, paf->bitvector);
+				break;
+			case TO_WEAPON:
+				if (obj->item_type == ITEM_WEAPON)
+					SET_BIT(INT(obj->value[4]), paf->bitvector);
+				break;
+			}
+		}
+	} else {
+		/* remove flags from the object if needed */
+		if (paf->bitvector) {
+			switch(paf->where) {
+			case TO_OBJECT:
+				REMOVE_OBJ_STAT(obj, paf->bitvector);
+				break;
+			case TO_WEAPON:
+				if (obj->item_type == ITEM_WEAPON)
+					REMOVE_BIT(INT(obj->value[4]),
+						   paf->bitvector);
+				break;
+			}
+		}
+	}
+}
+
+static void
+affect_modify_trig(varr *v, AFFECT_DATA *paf, bool fAdd)
+{
+	UNUSED_ARG(v);
+	UNUSED_ARG(paf);
+	UNUSED_ARG(fAdd);
 }

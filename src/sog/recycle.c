@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.161 2003-10-10 16:15:11 fjoe Exp $
+ * $Id: recycle.c,v 1.162 2004-02-09 21:16:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -452,6 +452,7 @@ new_obj(void)
 	memset(obj, 0, sizeof(*obj));
 	obj->label = str_empty;
 	c_init(&obj->vars, &c_info_vars);
+	trig_init_list(&obj->mptrig_affected);
 	return obj;
 }
 
@@ -658,6 +659,7 @@ char_new(MOB_INDEX_DATA *pMobIndex)
 	c_init(&ch->sk_affected, &c_info_sk_affected);
 
 	c_init(&ch->vars, &c_info_vars);
+	trig_init_list(&ch->mptrig_affected);
 
 	if (pMobIndex) {
 		ch->pMobIndex = pMobIndex;
@@ -1012,6 +1014,7 @@ room_index_init(ROOM_INDEX_DATA *pRoom)
 	pRoom->mana_rate = 100;
 	trig_init_list(&pRoom->mp_trigs);
 	c_init(&pRoom->vars, &c_info_vars);
+	trig_init_list(&pRoom->mptrig_affected);
 }
 
 static void

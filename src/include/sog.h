@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.47 2003-10-10 16:14:10 fjoe Exp $
+ * $Id: sog.h,v 1.48 2004-02-09 21:16:51 fjoe Exp $
  */
 
 #ifndef _SOG_H_
@@ -398,11 +398,6 @@ DECLARE_PROC1(reset_area,
 	      ARG(AREA_DATA), pArea)
 
 /*--- affects.c */
-DECLARE_PROC3(affect_modify,
-	      ARG(CHAR_DATA), ch, ARG(AFFECT_DATA), paf, ARG(bool), fAdd)
-DECLARE_PROC3(affect_modify_room,
-	      ARG(ROOM_INDEX_DATA), room, ARG(AFFECT_DATA), paf,
-	      ARG(bool), fAdd)
 DECLARE_FUN2(AFFECT_DATA, affect_find,
 	     NULLABLE_ARG(AFFECT_DATA), paf, ARG(cchar_t), sn)
 DECLARE_PROC3(affect_check,

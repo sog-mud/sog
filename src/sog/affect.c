@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: affect.c,v 1.68 2001-11-06 07:22:56 kostik Exp $
+ * $Id: affect.c,v 1.69 2004-02-09 21:16:54 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -31,6 +31,7 @@
 #include <string.h>	/* strncmp in w/a in aff_fread */
 
 #include <merc.h>
+#include <mprog.h>
 #include <rwfile.h>
 
 int affect_count;
@@ -51,6 +52,7 @@ aff_new(int where, const char *sn)
 	case TO_SKILLS:
 	case TO_RACE:
 	case TO_FORM:
+	case TO_TRIG:
 		paf->location.s = str_empty;
 		break;
 	default:
@@ -73,6 +75,7 @@ aff_dup(const AFFECT_DATA *paf)
 	case TO_SKILLS:
 	case TO_RACE:
 	case TO_FORM:
+	case TO_TRIG:
 		naf->location.s = str_qdup(paf->location.s);
 		break;
 	default:
@@ -92,6 +95,7 @@ aff_free(AFFECT_DATA *af)
 	case TO_SKILLS:
 	case TO_RACE:
 	case TO_FORM:
+	case TO_TRIG:
 		free_string(af->location.s);
 		break;
 	}
@@ -148,9 +152,11 @@ where_lookup(flag_t where)
 {
 	where_t *wd;
 
-	for (wd = where_table; wd->where != -1; wd++)
+	for (wd = where_table; wd->where != -1; wd++) {
 		if (wd->where == where)
 			return wd;
+	}
+
 	return NULL;
 }
 
@@ -193,6 +199,7 @@ aff_fwrite(AFFECT_DATA *paf, FILE *fp, int w_flags)
 	case TO_SKILLS:
 	case TO_RACE:
 	case TO_FORM:
+	case TO_TRIG:
 		fprintf(fp, "'%s' ", STR(paf->location));
 		break;
 
@@ -236,6 +243,9 @@ aff_fread(rfile_t *fp, int r_flags)
 		break;
 	case TO_FORM:
 		paf->location.s = fread_strkey(fp, &forms);
+		break;
+	case TO_TRIG:
+		paf->location.s = fread_strkey(fp, &mprogs);
 		break;
 	case TO_RESISTS:
 	case TO_FORMRESISTS:
