@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.24 2000-07-27 09:30:34 fjoe Exp $
+ * $Id: spellfun2.c,v 1.139.2.25 2000-10-13 11:04:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -478,7 +478,7 @@ void spell_demon_summon(int sn, int level, CHAR_DATA *ch, void *vo)
 			dofun("say", demon, "You dare disturb me??!!!");
 		else
 			dofun("say", demon, "Who dares disturb me??!!!");
-		dofun("murder", demon, ch->name);
+		multi_hit(demon, ch, TYPE_UNDEFINED);
 	} else {
 		SET_BIT(demon->affected_by, AFF_CHARM);
 		demon->master = demon->leader = ch;
@@ -980,9 +980,9 @@ void spell_confuse(int sn, int level, CHAR_DATA *ch, void *vo)
 	}
 
 	if (rch)
-		dofun("murder", victim, rch->name); 
+		multi_hit(victim, rch, TYPE_UNDEFINED);
 	else
-		dofun("murder", victim, ch->name);
+		multi_hit(victim, ch, TYPE_UNDEFINED);
 }
 
 void spell_terangreal(int sn, int level, CHAR_DATA *ch, void *vo)
@@ -1265,7 +1265,7 @@ void spell_stalker(int sn, int level, CHAR_DATA *ch, void *vo)
 	char_puts("An invisible stalker has been sent.\n", ch);
 
 	char_to_room(stalker,victim->in_room);
-	dofun("murder", stalker, victim->name);
+	multi_hit(stalker, victim, TYPE_UNDEFINED);
 }
 
 static inline void
@@ -1509,7 +1509,7 @@ void spell_shadowlife(int sn, int level, CHAR_DATA *ch, void *vo)
 	affect_to_char(ch, &af);  
 
 	char_to_room(shadow, ch->in_room);
-	dofun("murder", shadow, victim->name);
+	multi_hit(shadow, victim, TYPE_UNDEFINED);
 }  
 
 void spell_enforcer_badge(int sn, int level, CHAR_DATA *ch, void *vo)
