@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.137 1999-11-23 09:11:33 fjoe Exp $
+ * $Id: save.c,v 1.138 1999-11-25 12:26:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -833,7 +833,7 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 				free_string(ch->race);
 				ch->race = fread_strkey(fp, &races, "fread_char");
 				PC(ch)->race = str_qdup(ch->race);
-				race_setstats(ch, ch->race);
+				race_resetstats(ch);
 				fMatch = TRUE;
 			}
 			if (IS_TOKEN(fp, "Room")) {

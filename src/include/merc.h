@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.256 1999-11-24 11:18:40 fjoe Exp $
+ * $Id: merc.h,v 1.257 1999-11-25 12:26:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -889,10 +889,7 @@ struct spec_type
 #define APPLY_SAVING_PETRI	22
 #define APPLY_SAVING_BREATH	23
 #define APPLY_SAVING_SPELL	24
-#define APPLY_SPELL_AFFECT	25
 #define APPLY_SIZE		26
-#define APPLY_CLASS		27
-#define APPLY_RACE		28
 
 /*
  * Skillaffects flags

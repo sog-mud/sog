@@ -1,5 +1,5 @@
 /*
- * $Id: affects.h,v 1.5 1999-11-19 09:07:06 fjoe Exp $
+ * $Id: affects.h,v 1.6 1999-11-25 12:26:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -83,6 +83,7 @@ void saff_destroy(saff_t *sa);
 #define TO_VULN 	4
 #define TO_WEAPON	5
 #define TO_SKILLS	6
+#define TO_RACE		7
 
 typedef struct where_t where_t;
 struct where_t

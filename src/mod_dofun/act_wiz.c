@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.201 1999-11-24 07:22:18 fjoe Exp $
+ * $Id: act_wiz.c,v 1.202 1999-11-25 12:26:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1383,36 +1383,42 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 			   mob_spec_name(victim->pMobIndex->spec_fun));
 
 	for (paf = victim->affected; paf != NULL; paf = paf->next) {
-	    buf_printf(output, "Spell: '{c%s{x' ", paf->type);
-	    buf_printf(output, "modifies '{c%s{x' by {c%d{x for {c%d{x hours ",
-		paf->where == TO_SKILLS ?
-		    STR_VAL(paf->location) :
-		    SFLAGS_VAL(apply_flags, paf->location),
-		paf->modifier,
-		paf->duration);
+		buf_printf(output, "Spell: '{c%s{x'", paf->type);
+		if (paf->where == TO_RACE) {
+			buf_printf(output, " changes race to '{c%s{x'",
+				   STR_VAL(paf->location));
+		} else {
+			buf_printf(output, " modifies '{c%s{x' by {c%d{x",
+				paf->where == TO_SKILLS ?
+					STR_VAL(paf->location) :
+					SFLAGS_VAL(apply_flags, paf->location),
+				paf->modifier);
+		}
+
+		buf_printf(output, " for {c%d{x hours", paf->duration);
 		switch (paf->where) {
-		    case TO_AFFECTS:
-			buf_printf(output, "adding '{c%s{x' affect, ",
+		case TO_AFFECTS:
+			buf_printf(output, " adding '{c%s{x' affect",
 				flag_string(affect_flags, paf->bitvector));
 			break;
-		    case TO_IMMUNE:
-			buf_printf(output, "adding '{c%s{x' immunity, ",
+		case TO_IMMUNE:
+			buf_printf(output, " adding '{c%s{x' immunity",
 				flag_string(imm_flags, paf->bitvector));
 			break;
-		    case TO_RESIST:
-			buf_printf(output, "adding '{c%s{x' resistance, ",
+		case TO_RESIST:
+			buf_printf(output, " adding '{c%s{x' resistance",
 				flag_string(res_flags, paf->bitvector));
 			break;
-		    case TO_VULN:
-			buf_printf(output, "adding '{c%s{x' vulnerability, ",
+		case TO_VULN:
+			buf_printf(output, " adding '{c%s{x' vulnerability",
 				flag_string(vuln_flags, paf->bitvector));
 			break;
-		    case TO_SKILLS:
-			buf_printf(output, "with flags '{c%s{x', ",
+		case TO_SKILLS:
+			buf_printf(output, " with flags '{c%s{x'",
 				flag_string(sk_aff_flags, paf->bitvector));
 			break;
 		}
-	    buf_printf(output, "level {c%d{x.\n", paf->level);
+		buf_printf(output, ", level {c%d{x.\n", paf->level);
 	}
 
 	if (!varr_isempty(&victim->sk_affected)) {
@@ -3630,7 +3636,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 			PC(victim)->race = str_qdup(r->name);
 		}
 			
-		race_setstats(victim, victim->race);
+		race_resetstats(victim);
 		spec_update(victim);
 		PC(victim)->exp = exp_for_level(victim, victim->level);
 		return;

@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.209 1999-11-23 12:14:32 fjoe Exp $
+ * $Id: comm.c,v 1.210 1999-11-25 12:26:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2067,7 +2067,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		SET_HIT(ch, ch->perm_hit + r->race_pcdata->hp_bonus);
 		SET_MANA(ch, ch->perm_mana + r->race_pcdata->mana_bonus);
 		PC(ch)->practice = r->race_pcdata->prac_bonus;
-		race_setstats(ch, ch->race);
+		race_resetstats(ch);
 
 		char_puts("What is your sex (M/F)? ", ch);
 		d->connected = CON_GET_NEW_SEX;

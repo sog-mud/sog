@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.202 1999-11-25 08:14:38 fjoe Exp $
+ * $Id: handler.c,v 1.203 1999-11-25 12:26:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2178,6 +2178,7 @@ void format_obj_affects(BUFFER *output, AFFECT_DATA *paf, int flags)
 		where_t *w;
 
 		if (paf->where != TO_SKILLS
+		&&  paf->where != TO_RACE
 		&&  INT_VAL(paf->location) != APPLY_NONE
 		&&  paf->modifier) { 
 			buf_printf(output, "Affects %s by %d",
@@ -2196,10 +2197,11 @@ void format_obj_affects(BUFFER *output, AFFECT_DATA *paf, int flags)
 		if ((w = where_lookup(paf->where)) == NULL)
 			continue;
 
-		if (paf->where == TO_SKILLS) {
+		if (paf->where == TO_SKILLS
+		||  paf->where == TO_RACE) {
 			buf_add(output, "Affects ");
 			buf_printf(output, w->format,
-				paf->type,
+				STR_VAL(paf->location),
 				paf->modifier,
 				flag_string(w->table, paf->bitvector));
 			buf_add(output, ".\n");

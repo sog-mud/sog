@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.147 1999-11-19 09:07:09 fjoe Exp $
+ * $Id: spellfun2.c,v 1.148 1999-11-25 12:26:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1742,9 +1742,7 @@ void spell_golden_aura(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 void spell_blue_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-#if 0
 	AFFECT_DATA af;
-	int race;
 
 	if (IS_NPC(ch))
 		return;
@@ -1755,19 +1753,17 @@ void spell_blue_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 	
-	race = rn_lookup("blue dragon");
-
 	PC(ch)->form_name = "blue dragon";
 
 	act("$n turns $self into blue dragon.", ch, NULL, NULL, TO_ROOM);
 	act("You turn yourself into blue dragon.", ch, NULL, NULL, TO_CHAR);
 
-	af.where	= TO_AFFECTS;
-	af.type 	= sn;
+	af.where	= TO_RACE;
+	af.type		= sn;
 	af.level 	= level;
 	af.duration	= level/10+8;
-	af.location	= APPLY_RACE;
-	af.modifier	= race;
+	af.location	= "blue dragon";
+	af.modifier	= 0;
 	af.bitvector	= 0;
 	affect_to_char(ch, &af);
 
@@ -1784,15 +1780,13 @@ void spell_blue_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	affect_to_char(ch, &af);
 
 	ch->hit += ch->max_hit/3;
-#endif
+	update_pos(ch);
 }
 
 
 void spell_green_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-#if 0
 	AFFECT_DATA af;
-	int race;
 
 	if (IS_NPC(ch))
 		return;
@@ -1803,19 +1797,17 @@ void spell_green_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 	
-	race = rn_lookup("green dragon");
-
 	PC(ch)->form_name = "green dragon";
 
 	act("$n turns $self into green dragon.", ch, NULL, NULL, TO_ROOM);
 	act("You turn yourself into green dragon.", ch, NULL, NULL, TO_CHAR);
 
-	af.where	= TO_AFFECTS;
+	af.where	= TO_RACE;
 	af.type 	= sn;
 	af.level 	= level;
 	af.duration	= level/10+8;
-	af.location	= APPLY_RACE;
-	af.modifier	= race;
+	af.location	= "green dragon";
+	af.modifier	= 0;
 	af.bitvector	= 0;
 	affect_to_char(ch, &af);
 
@@ -1832,14 +1824,11 @@ void spell_green_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	affect_to_char(ch, &af);
 
 	ch->hit += ch->max_hit/5;
-#endif
 }
 
 void spell_white_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-#if 0
 	AFFECT_DATA af;
-	int race;
 
 	if (IS_NPC(ch))
 		return;
@@ -1850,19 +1839,17 @@ void spell_white_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 	
-	race = rn_lookup("white dragon");
-
 	PC(ch)->form_name = "white dragon";
 
 	act("$n turns $self into white dragon.", ch, NULL, NULL, TO_ROOM);
 	act("You turn yourself into white dragon.", ch, NULL, NULL, TO_CHAR);
 
-	af.where	= TO_AFFECTS;
+	af.where	= TO_RACE;
 	af.type 	= sn;
 	af.level 	= level;
 	af.duration	= level / 10 + 8;
-	af.location	= APPLY_RACE;
-	af.modifier	= race;
+	af.location	= "white dragon";
+	af.modifier	= 0;
 	af.bitvector	= 0;
 	affect_to_char(ch, &af);
 
@@ -1879,14 +1866,11 @@ void spell_white_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	affect_to_char(ch, &af);
 
 	ch->hit += ch->max_hit/4;
-#endif
 }
 
 void spell_black_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-#if 0
 	AFFECT_DATA af;
-	int race;
 
 	if (IS_NPC(ch))
 		return;
@@ -1897,19 +1881,17 @@ void spell_black_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 	
-	race = rn_lookup("black dragon");
-
 	PC(ch)->form_name = "black dragon";
 
 	act("$n turns $self into black dragon.", ch, NULL, NULL, TO_ROOM);
 	act("You turn yourself into black dragon.", ch, NULL, NULL, TO_CHAR);
 
-	af.where	= TO_AFFECTS;
+	af.where	= TO_RACE;
 	af.type 	= sn;
 	af.level 	= level;
 	af.duration	= level/10+8;
-	af.location	= APPLY_RACE;
-	af.modifier	= race;
+	af.location	= "black dragon";
+	af.modifier	= 0;
 	af.bitvector	= 0;
 	affect_to_char(ch, &af);
 
@@ -1926,14 +1908,11 @@ void spell_black_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	affect_to_char(ch, &af);
 
 	ch->hit += ch->max_hit/4;
-#endif
 }
 
 void spell_red_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-#if 0
 	AFFECT_DATA af;
-	int race;
 
 	if (IS_NPC(ch))
 		return;
@@ -1944,19 +1923,17 @@ void spell_red_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 	
-	race = rn_lookup("red dragon");
-
 	PC(ch)->form_name = "red dragon";
 
 	act("$n turns $self into red dragon.", ch, NULL, NULL, TO_ROOM);
 	act("You turn yourself into red dragon.", ch, NULL, NULL, TO_CHAR);
 
-	af.where	= TO_AFFECTS;
+	af.where	= TO_RACE;
 	af.type 	= sn;
 	af.level 	= level;
 	af.duration	= level/10+8;
-	af.location	= APPLY_RACE;
-	af.modifier	= race;
+	af.location	= "red dragon";
+	af.modifier	= 0;
 	af.bitvector	= 0;
 	affect_to_char(ch, &af);
 
@@ -1978,7 +1955,6 @@ void spell_red_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	affect_to_char(ch, &af);
 
 	ch->hit += ch->max_hit/2;
-#endif
 }
 
 void spell_dragonplate(const char *sn, int level, CHAR_DATA *ch, void *vo)	
@@ -4632,9 +4608,7 @@ void spell_mysterious_dream(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 void spell_polymorph(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-#if 0
 	AFFECT_DATA af;
-	int race;
 	race_t *r;
 
 	if (is_affected(ch, sn) || is_affected(ch, "deathen")) {
@@ -4647,8 +4621,7 @@ void spell_polymorph(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	race = rn_lookup(target_name);
-	r = race_lookup(race);
+	r = race_search(target_name);
 	if (!r || !r->race_pcdata || !r->race_pcdata->classes.nused) {
 		char_puts("That is not a valid race to polymorph.\n",ch); 
 		return;
@@ -4658,27 +4631,24 @@ void spell_polymorph(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		char_puts("You posess no necromantic powers to do this.\n",ch);
 		return;
 	}
-	af.where	= TO_AFFECTS;
+
+	af.where	= TO_RACE;
 	af.type		= sn;
 	af.level	= level;
 	af.duration	= level/10;
-	af.location	= APPLY_RACE;
-	af.modifier	= race;
+	af.location	= r->name;
+	af.modifier	= 0;
 	af.bitvector	= 0;
 	affect_to_char(ch, &af);
 
 	act("$n polymorphes $mself to $t.", ch, r->name, NULL, TO_ROOM);
 	act("You polymorph yourself to $t.", ch, r->name, NULL, TO_CHAR);
-#endif
 }
 
 void spell_deathen(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-#if 0
         AFFECT_DATA af;
         CHAR_DATA *victim = (CHAR_DATA *) vo;
-        int race;
-        race_t *r;
 
         if (is_affected(victim, sn)) {
 	        act("$N is already decays.",ch,NULL,victim,TO_CHAR);
@@ -4690,35 +4660,24 @@ void spell_deathen(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	        return;
 	}
 
-        race = rn_lookup("ghoul");
-        r = RACE(race);
- 
-       if (!r->race_pcdata || !IS_SET(r->form, FORM_UNDEAD)) {
-                char_puts("This is not a valid undead type.\n", ch);
-                return;
-        }
- 
-        af.where        = TO_AFFECTS;
+        af.where        = TO_RACE;
         af.type         = sn;
         af.level        = level;
         af.duration     = level/15;
-        af.location     = APPLY_RACE;
-        af.modifier     = race;
+        af.location     = "ghoul";
+        af.modifier     = 0;
         af.bitvector    = 0;
         affect_to_char(victim, &af);
 
         act("$n's flesh starts to decay.", victim, NULL, NULL, TO_ROOM);
         act("Your flesh starts to decay.", victim, NULL, NULL, TO_CHAR);
-#endif
 }
 
 void spell_lich(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-#if 0
 	AFFECT_DATA af;
-	int race;
 	race_t *r;
-	int lev=0;
+	int lev = 0;
 
 	if (is_affected(ch, sn) || is_affected(ch, "deathen")) {
 		act("Your flesh is already dead.", ch, NULL, NULL, TO_CHAR);
@@ -4730,28 +4689,30 @@ void spell_lich(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	race = rn_lookup(target_name);
-	r = RACE(race);
+	r = race_search(target_name);
 	if (!r->race_pcdata || !IS_SET(r->form, FORM_UNDEAD)) {
 		char_puts("This is not a valid undead type.\n", ch);
 		return;
 	}
 
-	if (!strcmp(r->name, "undead")) lev=45;
-	if (!strcmp(r->name, "zombie")) lev=63;
-	if (!strcmp(r->name, "lich"))   lev=81;
+	if (!strcmp(r->name, "undead"))
+		lev = 45;
+	else if (!strcmp(r->name, "zombie"))
+		lev = 63;
+	else if (!strcmp(r->name, "lich"))
+		lev = 81;
 
-	if (ch->level<lev) {
+	if (ch->level < lev) {
 		char_puts("You lack the power to do it.\n", ch);
 		return;
 	}
 
-	af.where	= TO_AFFECTS;
+	af.where	= TO_RACE;
 	af.type		= sn;
 	af.level	= level;
 	af.duration	= level/10;
-	af.location	= APPLY_RACE;
-	af.modifier	= race;
+	af.location	= r->name;
+	af.modifier	= 0;
 	af.bitvector	= 0;
 	affect_to_char(ch, &af);
 
@@ -4759,7 +4720,6 @@ void spell_lich(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	    ch, r->name, NULL, TO_ROOM);
 	act("You deathen yourself, turning into $t.",
 	    ch, r->name, NULL, TO_CHAR);
-#endif
 }
 
 void spell_plant_form(const char *sn, int level, CHAR_DATA *ch, void *vo)

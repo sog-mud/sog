@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.189 1999-11-19 09:07:08 fjoe Exp $
+ * $Id: spellfun.c,v 1.190 1999-11-25 12:26:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1339,7 +1339,8 @@ void spell_enchant_armor(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		for (paf = obj->pObjIndex->affected; 
 	 	     paf != NULL; 
 		     paf = paf->next) {
-			if (paf->where == TO_SKILLS)
+			if (paf->where == TO_SKILLS
+			||  paf->where == TO_RACE)
 				continue;
 
 		    	if (INT_VAL(paf->location) == APPLY_AC) {
@@ -1354,7 +1355,8 @@ void spell_enchant_armor(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		}
  
 	for (paf = obj->affected; paf != NULL; paf = paf->next) {
-		if (paf->where == TO_SKILLS)
+		if (paf->where == TO_SKILLS
+		||  paf->where == TO_RACE)
 			continue;
 
 		if (INT_VAL(paf->location) == APPLY_AC) {
@@ -1434,7 +1436,8 @@ void spell_enchant_armor(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	if (ac_found) {
 		for (paf = obj->affected; paf != NULL; paf = paf->next) {
-			if (paf->where == TO_SKILLS)
+			if (paf->where == TO_SKILLS
+			||  paf->where == TO_RACE)
 				continue;
 
 			if (INT_VAL(paf->location) == APPLY_AC) {
@@ -1460,7 +1463,8 @@ void spell_enchant_armor(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	if (hp_found) {
 		for (paf = obj->affected; paf != NULL; paf = paf->next) {
-			if (paf->where == TO_SKILLS)
+			if (paf->where == TO_SKILLS
+			||  paf->where == TO_RACE)
 				continue;
 
 			if (INT_VAL(paf->location) == APPLY_HIT) {
@@ -1513,7 +1517,8 @@ void spell_enchant_weapon(const char *sn, int level,CHAR_DATA *ch, void *vo)
 
 	if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED))
 		for (paf = obj->pObjIndex->affected; paf != NULL; paf = paf->next) {
-			if (paf->where == TO_SKILLS)
+			if (paf->where == TO_SKILLS
+			||  paf->where == TO_RACE)
 				continue;
 
 			if (INT_VAL(paf->location) == APPLY_HITROLL) {
@@ -1529,7 +1534,8 @@ void spell_enchant_weapon(const char *sn, int level,CHAR_DATA *ch, void *vo)
 		}
  
 	for (paf = obj->affected; paf != NULL; paf = paf->next) {
-		if (paf->where == TO_SKILLS)
+		if (paf->where == TO_SKILLS
+		||  paf->where == TO_RACE)
 			continue;
 
 		if (INT_VAL(paf->location) == APPLY_HITROLL) {
@@ -1611,7 +1617,8 @@ void spell_enchant_weapon(const char *sn, int level,CHAR_DATA *ch, void *vo)
 
 	if (dam_found) {
 		for (paf = obj->affected; paf != NULL; paf = paf->next) {
-			if (paf->where == TO_SKILLS)
+			if (paf->where == TO_SKILLS
+			||  paf->where == TO_RACE)
 				continue;
 
 			if (INT_VAL(paf->location) == APPLY_DAMROLL) {

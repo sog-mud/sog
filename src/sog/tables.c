@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.102 1999-11-23 08:09:37 fjoe Exp $
+ * $Id: tables.c,v 1.103 1999-11-25 12:26:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -646,10 +646,7 @@ flag_t apply_flags[] =
 	{ "savingpetri",	APPLY_SAVING_PETRI,	TRUE	},
 	{ "savingbreath",	APPLY_SAVING_BREATH,	TRUE	},
 	{ "savingspell",	APPLY_SAVING_SPELL,	TRUE	},
-	{ "spellaffect",	APPLY_SPELL_AFFECT,	FALSE	},
 	{ "size",		APPLY_SIZE,		TRUE	},
-	{ "class",		APPLY_CLASS,		TRUE	},
-	{ "race",		APPLY_RACE,		TRUE	},
 
 	{ NULL }
 };
@@ -952,6 +949,7 @@ flag_t apply_types[] =
 	{ "resist",		TO_RESIST,		TRUE	},
 	{ "vuln",		TO_VULN,		TRUE	},
 	{ "skill",		TO_SKILLS,		TRUE	},
+	{ "race",		TO_RACE,		TRUE	},
 /*	{ "weapon",		TO_WEAPON,		TRUE	}, */
 
 	{ NULL }

@@ -1,5 +1,5 @@
 /*
- * $Id: affect.c,v 1.9 1999-11-22 14:54:25 fjoe Exp $
+ * $Id: affect.c,v 1.10 1999-11-25 12:26:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -58,7 +58,15 @@ AFFECT_DATA *aff_dup(const AFFECT_DATA *paf)
 	naf->type	= str_dup(paf->type);
 	naf->level	= paf->level;
 	naf->duration	= paf->duration;
-	naf->location	= paf->location;
+	switch (paf->where) {
+	case TO_RACE:
+	case TO_SKILLS:
+		naf->location = str_dup(paf->location.s);
+		break;
+	default:
+		naf->location = paf->location;
+		break;
+	}
 	naf->modifier	= paf->modifier;
 	naf->bitvector	= paf->bitvector;
 	naf->owner	= paf->owner;
@@ -68,6 +76,12 @@ AFFECT_DATA *aff_dup(const AFFECT_DATA *paf)
 
 void aff_free(AFFECT_DATA *af)
 {
+	switch (af->where) {
+	case TO_RACE:
+	case TO_SKILLS:
+		free_string(af->location.s);
+		break;
+	}
 	free_string(af->type);
 	free(af);
 	top_affect--;
@@ -94,6 +108,7 @@ where_t where_table[] =
 	{ TO_RESIST,	res_flags,	"resistance to '%s'"		},
 	{ TO_VULN,	vuln_flags,	"vulnerability to '%s'"		},
 	{ TO_SKILLS,	sk_aff_flags,	"'%s' skill by %d with flags %s"},
+	{ TO_RACE,	NULL,		"changes race to '%s'"		},
 	{ -1 }
 };
 
@@ -172,6 +187,13 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 			} while (p);
 		}
 		return;
+	} else if (paf->where == TO_RACE) {
+		free_string(ch->race);
+		ch->race = str_dup(fAdd ? paf->location.s : ORG_RACE(ch));
+		race_resetstats(ch);
+		affect_check(ch, -1, -1);
+		spec_update(ch);
+		return;
 	}
 
 	mod = paf->modifier;
@@ -210,13 +232,11 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 
 	switch (INT_VAL(paf->location)) {
 	case APPLY_NONE:
-	case APPLY_CLASS:
 	case APPLY_HEIGHT:
 	case APPLY_WEIGHT:
 	case APPLY_GOLD:
 	case APPLY_EXP:
 	case APPLY_SEX:
-	case APPLY_SPELL_AFFECT:
 		break;
 
 	case APPLY_STR:		ch->mod_stat[STAT_STR]	+= mod; break;
@@ -251,50 +271,6 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 	case APPLY_SAVING_BREATH:	ch->saving_throw	+= mod;	break;
 	case APPLY_SAVING_SPELL:	ch->saving_throw	+= mod;	break;
 
-#if 0		/* XXX */
-	case APPLY_RACE: {
-		int from;
-		int to;
-		race_t *rto;
-		race_t *rfrom;
-
-		if (fAdd) {
-			from = ORG_RACE(ch);
-			to = ch->race = paf->modifier;
-		} else {
-			from = ch->race;
-			to = ch->race = ORG_RACE(ch);
-		}
-
-		rfrom = race_lookup(from);
-		rto = race_lookup(to);
-		if (!rfrom || !rto || !rfrom->race_pcdata || !rto->race_pcdata)
-			return;
-
-		REMOVE_BIT(ch->affected_by, rfrom->aff);
-		SET_BIT(ch->affected_by, rto->aff);
-		affect_check(ch, TO_AFFECTS, rfrom->aff);
-
-		REMOVE_BIT(ch->imm_flags, rfrom->imm);
-		SET_BIT(ch->imm_flags, rto->imm);
-		affect_check(ch, TO_IMMUNE, rfrom->imm);
-
-		REMOVE_BIT(ch->res_flags, rfrom->res);
-		SET_BIT(ch->res_flags, rto->res);
-		affect_check(ch, TO_RESIST, rfrom->res);
-
-		REMOVE_BIT(ch->vuln_flags, rfrom->vuln);
-		SET_BIT(ch->vuln_flags, rto->vuln);
-		affect_check(ch, TO_VULN, rfrom->vuln);
-
-		ch->form = rto->form;
-		ch->parts = rto->parts;
-		ch->size = rto->race_pcdata->size;
-
-		spec_update(ch);
-		break;
-	}
-#endif
 	default:
 		if (IS_NPC(ch)) {
 			log("affect_modify: vnum %d: in room %d: "
@@ -389,7 +365,8 @@ void affect_check(CHAR_DATA *ch, int where, flag64_t vector)
 
 	affect_check_list(ch, ch->affected, where, vector);
 	for (obj = ch->carrying; obj != NULL; obj = obj->next_content) {
-		if (obj->wear_loc == -1 || obj->wear_loc == WEAR_STUCK_IN)
+		if (obj->wear_loc == WEAR_NONE
+		||  obj->wear_loc == WEAR_STUCK_IN)
 			continue;
 		affect_check_list(ch, obj->affected, where, vector);
 
@@ -867,7 +844,8 @@ void show_loc_affect(CHAR_DATA *ch, BUFFER *output,
 		return;
 
 	show_name(ch, output, paf, *ppaf);
-	if (paf->where == TO_SKILLS)
+	if (paf->where == TO_SKILLS
+	||  paf->where == TO_RACE)
 		buf_add(output, ": ");
 	else {
 		buf_printf(output, ": modifies {c%s{x by {c%d{x ",
@@ -884,6 +862,7 @@ void show_bit_affect(BUFFER *output, AFFECT_DATA *paf, AFFECT_DATA **ppaf)
 	where_t *w;
 
 	if (paf->where == TO_SKILLS
+	||  paf->where == TO_RACE
 	||  (w = where_lookup(paf->where)) == NULL
 	||  !paf->bitvector)
 		return;
@@ -900,10 +879,10 @@ void show_obj_affects(CHAR_DATA *ch, BUFFER *output, AFFECT_DATA *paf)
 	AFFECT_DATA *paf_last = NULL;
 
 	for (; paf; paf = paf->next) {
-		if (paf->where == TO_SKILLS)
+		if (paf->where == TO_SKILLS
+		||  paf->where == TO_RACE)
 			continue;
-		if (INT_VAL(paf->location) != APPLY_SPELL_AFFECT)
-			show_bit_affect(output, paf, &paf_last);
+		show_bit_affect(output, paf, &paf_last);
 	}
 }
 
@@ -945,6 +924,7 @@ void fwrite_affect(AFFECT_DATA *paf, FILE *fp)
 
 	switch (paf->where) {
 	case TO_SKILLS:
+	case TO_RACE:
 		fprintf(fp, "'%s' %3d %3d %3d %3d '%s' %s\n",
 			paf->type,
 			paf->where, paf->level, paf->duration, paf->modifier,
@@ -970,6 +950,7 @@ AFFECT_DATA *fread_affect(rfile_t *fp)
 	paf->modifier = fread_number(fp);
 	switch (paf->where) {
 	case TO_SKILLS:
+	case TO_RACE:
 		paf->location = fread_strkey(fp, &skills, "fread_affect");
 		break;
 	default:

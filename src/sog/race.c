@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.c,v 1.10 1999-11-23 12:14:32 fjoe Exp $
+ * $Id: race.c,v 1.11 1999-11-25 12:26:25 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -102,11 +102,11 @@ rclass_lookup(race_t *r, const char *cn)
 	return (rclass_t*) varr_bsearch(&r->race_pcdata->classes, &cn, cmpstr);
 }
 
-void race_setstats(CHAR_DATA *ch, const char *rn)
+void race_resetstats(CHAR_DATA *ch)
 {
 	race_t *r;
 
-	if ((r = race_lookup(rn)) == NULL)
+	if ((r = race_lookup(ch->race)) == NULL)
 		return;
 
 	if (r->race_pcdata != NULL)

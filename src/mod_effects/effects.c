@@ -1,5 +1,5 @@
 /*
- * $Id: effects.c,v 1.21 1999-10-23 10:20:16 fjoe Exp $
+ * $Id: effects.c,v 1.22 1999-11-25 12:26:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -143,7 +143,8 @@ void acid_effect(void *vo, int level, int dam)
 
 	    for ( paf = obj->affected; paf != NULL; paf = paf->next)
             {
-		if (paf->where == TO_SKILLS)
+		if (paf->where == TO_SKILLS
+		||  paf->where == TO_RACE)
 			continue;
 
                 if (INT_VAL(paf->location) == APPLY_AC)
@@ -732,7 +733,8 @@ void sand_effect(void *vo, int level, int dam)
 
 	    for ( paf = obj->affected; paf != NULL; paf = paf->next)
             {
-		if (paf->where == TO_SKILLS)
+		if (paf->where == TO_SKILLS
+		||  paf->where == TO_RACE)
 			continue;
 
                 if (INT_VAL(paf->location) == APPLY_AC)
