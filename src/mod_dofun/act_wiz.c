@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.106 1998-12-23 16:11:13 fjoe Exp $
+ * $Id: act_wiz.c,v 1.107 1999-01-03 14:02:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4260,9 +4260,11 @@ DO_FUN(do_msgstat)
 	BUFFER *output;
 
 	if (argument[0] == '\0') {
-		for (i = 0; i < MAX_MSG_HASH; i++) 
+		for (i = 0; i < MAX_MSG_HASH; i++) {
+			varr *v = msg_hash_table[i];
 			char_printf(ch, "%3d: %d msgs\n",
-				    i, msg_hash_table[i]->nused);
+				    i, v ? v->nused : 0);
+		}
 		return;
 	}
 
