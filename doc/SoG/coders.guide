@@ -5,6 +5,11 @@ Some notes for coders
 		INTRO. COMMON DECLARATIONS AND CONSIDERATIONS.
 		----------------------------------------------
 
+	Never use the following functions:
+		strcpy, strcat, strncat, *sprintf
+	Use strnzcpy, strnzncpy, strnzcat, strnzncat and *snprintf instead.
+
+
 	Formatting style is fully described in 'man 9 style' (FreeBSD).
 
 
@@ -42,6 +47,32 @@ Some notes for coders
 
 str
 ---
+	strings are read-only (with refcount) and hashed.
+
+	const char *
+	str_dup(const char* s);
+
+		`str_dup' puts `s' into the string hash and returns
+	the pointer to allocated string. If the string is already in the
+	hash no actual allocation is made -- `str_dup' will simply
+	increment `refcount' for that string.
+
+
+	const char *
+	str_qdup(const char* s);
+
+		`str_qdup' expects that `s' points to string from
+	the string hash (i.e. already put there by `str_dup' or
+	another `str_qup' call). `str_qdup' simply increments `refcount'
+	for `s' and returns `s'.
+
+
+	void
+	free_string(const char *s);
+
+		`free_string' decrements `refcount' for `s' and removes
+	it from the string hash if `refcount' has become zero.
+
 
 mlstring
 --------
@@ -52,10 +83,58 @@ varr
 	varr is variable size array. varr should never be allocated
 	dynamically.
 
-	struct
-	varr_init(varr* v, size_t nsize, size_t nstep);
 
-		varr_init simply initializes `nsize' and `nstep' fields of `v'.
+	typedef struct varr varr;
+	struct varr {
+		size_t nsize;           /* size of elem */
+		size_t nstep;           /* allocation step */
+
+		void *p;
+
+		size_t nused;           /* elems used */
+		size_t nalloc;          /* elems allocated */
+	};
+
+
+	void
+	varr_init(varr *v, size_t nsize, size_t nstep);
+
+		`varr_init' initializes `nsize' and `nstep' fields of `v'.
+		all the functions expect that `nsize' and 
+
+
+	void
+	varr_destroy(varr *v);
+
+		`varr_destroy' frees all the memory allocated for `v'.
+
+
+	varr_get(v, i);
+
+		`varr_get' is a macro which returns the pointer to
+	i'th element of `v' or NULL such element does not exist
+	(`i' is out of bounds).
+
+
+	VARR_GET(v, i)
+
+		`VARR_GET' is a macro which returns the pointer to
+	i'th element of `v' without any bounds checking. `VARR_GET'
+	never returns NULL and should be used only if it is known that
+	`i' is not out of bounds. e.g.: within iteration
+
+		for (i = 0; i < v.nused; i++) {
+			foo_t* fp = (foo_t*) VARR_GET(&v, i);
+			/* do something */
+		}
+
+
+	void *
+	varr_touch(varr *v, size_t i);
+
+		`varr_touch' returns the pointer to i'th element of `v'.
+	if the number of elems currently allocated for `v' is less than
+	`i' then `v' will be extended accordingly.
 
 
 			PART X. MODULES
@@ -81,4 +160,4 @@ varr
 	where `n' is considered as ABI_VERSION number. When ABI is changed
 	ABI_VERSION should be bumped (e.g.: increased by 1) and appropriate
 	modules should be rebuilt (don't forget to use `make depend'
-	to maintain proper dependancies for make).
+	to maintain proper dependencies for make).
