@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.31 1998-09-23 05:18:26 fjoe Exp $
+ * $Id: obj_prog.c,v 1.32 1998-09-24 06:37:48 kostik Exp $
  */
 
 /***************************************************************************
@@ -370,12 +370,15 @@ int remove_prog_excalibur(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 
 bool death_prog_excalibur(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
-	act_puts("$p starts to glow with a blue aura.",ch,obj,NULL,TO_CHAR,POS_DEAD);
-	act("$p starts to glow with a blue aura,",ch,obj,NULL,TO_ROOM);
-	ch->hit = ch->max_hit;
-	char_puts("You feel much better.",ch);
-	act("$n looks much better.",ch,NULL,NULL,TO_ROOM);
-	return TRUE;
+	if (number_percent()<25) {
+		act_puts("$p starts to glow with a blue aura.",ch,obj,NULL,TO_CHAR,POS_DEAD);
+		act("$p starts to glow with a blue aura,",ch,obj,NULL,TO_ROOM);
+		ch->hit = ch->max_hit;
+		char_puts("You feel much better.",ch);
+		act("$n looks much better.",ch,NULL,NULL,TO_ROOM);
+		return TRUE;
+	}
+	else return FALSE;
 }
 
 int speech_prog_excalibur(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
