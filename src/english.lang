@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.56 1998-06-21 00:32:53 efdi Exp $
+# $Id: english.lang,v 1.57 1998-06-21 20:14:28 efdi Exp $
 #
 
 NOTHING		"Nothing.\n\r"
@@ -783,3 +783,26 @@ YOU_FLOAT_P		"You release $p and it floats next to you."
 N_USES_TATTOO		"$n now uses $p as tattoo of $s religion."
 YOU_USE_TATTOO		"You now use $p as the tattoo of your religion."
 CANT_WEAR_IT		"You can't wear, wield, or hold that.\n\r"
+REMOVE_WHAT		"Remove what?\n\r"
+N_SACS_SELF		"$n offers $mself to gods, who graciously declines."
+YOU_SAC_SELF	"Gods appreciates your offer and may accept it later.\n\r"
+CANT_FIND_IT		"You can't find it.\n\r"
+GODS_WOUDLNT_LIKE_THAT	"Gods wouldn't like that.\n\r"
+P_NOT_ACCEPTABLE_SAC	"$p is not an acceptable sacrifice."
+SAC_GET_ONE_SILVER	"Gods give you one silver coin for your sacrifice.\n\r"
+SAC_GET_D_SILVER	"Gods give you %d silver coins for your sacrifice.\n\r"
+N_SACS_P		"$n sacrifices $p to gods."
+YOUR_SAC_REVEALS_P	"Your sacrifice reveals $p."
+NS_SAC_REVEALS_P	"$p is revealed by $n's sacrifice."
+YOUR_SAC_REVEALS_P_P	"Your sacrifice reveals $p and $P."
+NS_SAC_REVEALS_P_P	"$p and $P are revealed by $n's sacrifice."
+AS_YOU_SAC		"As you sacrifice the corpse, "
+AS_N_SACS		"As $n sacrifices the corpse, "
+FEW_THINGS		"few things "
+BUNCH_OF_OBJECTS	"a bunch of objects "
+MANY_THINGS		"many things "
+LOT_OF_OBJECTS		"a lot of objects "
+ON_IT			"on it, "
+SCATTER_ON_DIRT		"scatter on the dirt."
+SCATTER_OVER_WATER	"scatter over the water."
+SCATTER_AROUND		"scatter around."

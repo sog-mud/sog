@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.28 1998-06-21 00:33:43 efdi Exp $
+ * $Id: act_obj.c,v 1.29 1998-06-21 20:14:47 efdi Exp $
  */
 
 /***************************************************************************
@@ -1941,39 +1941,35 @@ void do_wear(CHAR_DATA *ch, char *argument)
 
 void do_remove(CHAR_DATA *ch, char *argument)
 {
-	  char arg[MAX_INPUT_LENGTH];
-	  OBJ_DATA *obj;
+	char arg[MAX_INPUT_LENGTH];
+	OBJ_DATA *obj;
 
-	  one_argument(argument, arg);
+	one_argument(argument, arg);
 
-	  if (arg[0] == '\0')
-	  {
-	send_to_char("Remove what?\n\r", ch);
+	if (arg[0] == '\0') {
+		char_nputs(REMOVE_WHAT, ch);
+		return;
+	}
+
+
+	if (!str_cmp(arg, "all")) {
+		OBJ_DATA *obj_next;
+
+		for (obj = ch->carrying; obj != NULL; obj = obj_next) {
+			obj_next = obj->next_content;
+			if (obj->wear_loc != WEAR_NONE && can_see_obj(ch, obj))
+				remove_obj(ch, obj->wear_loc, TRUE);
+		}
+		return;
+	}
+
+	if ((obj = get_obj_wear(ch, arg)) == NULL) {
+		char_nputs(DONT_HAVE_ITEM, ch);
+		return;
+	}
+
+	remove_obj(ch, obj->wear_loc, TRUE);
 	return;
-	  }
-
-
-	  if (!str_cmp(arg, "all"))
-	  {
-		  OBJ_DATA *obj_next;
-
-		  for (obj = ch->carrying; obj != NULL; obj = obj_next)
-		  {
-		      obj_next = obj->next_content;
-		      if (obj->wear_loc != WEAR_NONE && can_see_obj(ch, obj))
-		          remove_obj(ch, obj->wear_loc, TRUE);
-		  }
-		  return;
-	  }
-
-	  if ((obj = get_obj_wear(ch, arg)) == NULL)
-	  {
-	send_to_char("You do not have that item.\n\r", ch);
-	return;
-	  }
-
-	  remove_obj(ch, obj->wear_loc, TRUE);
-	  return;
 }
 
 void do_sacrifice(CHAR_DATA *ch, char *argument)
@@ -1985,166 +1981,163 @@ void do_sacrifice(CHAR_DATA *ch, char *argument)
 		    r_cont = r_next_cont) {
 			r_next_cont = r_cont->next_content;
 			do_sacr(ch, r_cont->name);
-	}
-	else
+	} else
 		do_sacr(ch, argument);
 }
 
 void do_sacr(CHAR_DATA *ch, char *argument)
 {
-	  char arg[MAX_INPUT_LENGTH];
-	  char buf[MAX_STRING_LENGTH];
-	  char buf2[MAX_STRING_LENGTH];
-	  OBJ_DATA *obj;
-	  OBJ_DATA *obj_content;
-	  OBJ_DATA *obj_next;
-	  OBJ_DATA *two_objs[2];
-	  int silver;
-	  int iScatter;
-	  bool fScatter;
+	char arg[MAX_INPUT_LENGTH];
+	char buf[MAX_STRING_LENGTH];
+	char buf2[MAX_STRING_LENGTH];
+	OBJ_DATA *obj;
+	OBJ_DATA *obj_content;
+	OBJ_DATA *obj_next;
+	OBJ_DATA *two_objs[2];
+	int silver;
+	int iScatter;
+	bool fScatter;
 
 	  
-	  /* variables for AUTOSPLIT */
-	  CHAR_DATA *gch;
-	  int members;
+	/* variables for AUTOSPLIT */
+	CHAR_DATA *gch;
+	int members;
 
+	one_argument(argument, arg);
 
-	  one_argument(argument, arg);
+	if (arg[0] == '\0' || !str_cmp(arg, ch->name)) {
+		act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, N_SACS_SELF);
+		char_nputs(YOU_SAC_SELF, ch);
+		return;
+	}
 
-	  if (arg[0] == '\0' || !str_cmp(arg, ch->name))
-	  {
-	act("$n offers $mself to gods, who graciously declines.",
-		ch, NULL, NULL, TO_ROOM);
-	send_to_char(
-		"Gods appreciates your offer and may accept it later.\n\r", ch);
-	return;
-	  }
-
-	  obj = get_obj_list(ch, arg, ch->in_room->contents);
-	  if (obj == NULL)
-	  {
-	send_to_char("You can't find it.\n\r", ch);
-	return;
-	  }
+	obj = get_obj_list(ch, arg, ch->in_room->contents);
+	if (obj == NULL) {
+		char_nputs(CANT_FIND_IT, ch);
+		return;
+	}
 
 	if ((obj->item_type == ITEM_CORPSE_PC && ch->level < MAX_LEVEL) 
-	||  (QUEST_OBJ_FIRST <= obj->pIndexData->vnum &&
-		 obj->pIndexData->vnum <= QUEST_OBJ_LAST)) {
-		send_to_char("Gods wouldn't like that.\n\r",ch);
+	||  (QUEST_OBJ_FIRST <= obj->pIndexData->vnum
+	     && obj->pIndexData->vnum <= QUEST_OBJ_LAST)) {
+		char_nputs(GODS_WOUDLNT_LIKE_THAT, ch);
 	   	return;
 	}
 
 
-	  if (!CAN_WEAR(obj, ITEM_TAKE) || CAN_WEAR(obj, ITEM_NO_SAC))
-	  {
-	act("$p is not an acceptable sacrifice.", ch, obj, 0, TO_CHAR);
-	return;
-	  }
+	if (!CAN_WEAR(obj, ITEM_TAKE) || CAN_WEAR(obj, ITEM_NO_SAC)) {
+		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
+			    P_NOT_ACCEPTABLE_SAC);
+		return;
+	}
 
-	  silver = UMAX(1,number_fuzzy(obj->level));
+	silver = UMAX(1, number_fuzzy(obj->level));
 
-	  if (obj->item_type != ITEM_CORPSE_NPC && obj->item_type != ITEM_CORPSE_PC)
-	  	silver = UMIN(silver,obj->cost);
+	if (obj->item_type != ITEM_CORPSE_NPC
+	&&  obj->item_type != ITEM_CORPSE_PC)
+		silver = UMIN(silver, obj->cost);
 
-	  if (silver == 1)
-		  send_to_char("Gods give you one silver coin for your sacrifice.\n\r", ch);
-	  else
-	char_printf(ch,"Gods give you %d silver coins for your sacrifice.\n\r",
-		silver);
+	if (silver == 1)
+		char_nputs(SAC_GET_ONE_SILVER, ch);
+	else
+		char_nprintf(ch, SAC_GET_D_SILVER, silver);
 
-	  ch->silver += silver;
+	ch->silver += silver;
 	  
-	  if (IS_SET(ch->act,PLR_AUTOSPLIT))
-	  { /* AUTOSPLIT code */
-	  	members = 0;
-	for (gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room)
-	  	{
-	  	    if (is_same_group(gch, ch))
-		      members++;
-	  	}
+	if (IS_SET(ch->act,PLR_AUTOSPLIT)) {
+		/* AUTOSPLIT code */
+		members = 0;
+		for (gch = ch->in_room->people; gch != NULL;
+		     gch = gch->next_in_room)
+			if (is_same_group(gch, ch))
+				members++;
 
-	if (members > 1 && silver > 1)
-		doprintf(do_split, ch, "%d", silver);
-	  }
+		if (members > 1 && silver > 1)
+			doprintf(do_split, ch, "%d", silver);
+	}
 
-	  act("$n sacrifices $p to gods.", ch, obj, NULL, TO_ROOM);
+	act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING, N_SACS_P);
 
-	  if (IS_SET(obj->progtypes,OPROG_SAC))
+	if (IS_SET(obj->progtypes, OPROG_SAC))
 		if ((obj->pIndexData->oprogs->sac_prog) (obj,ch))
-		  return;
+			return;
 
-	  wiznet("$N sends up $p as a burnt offering.",
-	   ch,obj,WIZ_SACCING,0,0);
-	  fScatter = TRUE;
-	  if ((obj->item_type == ITEM_CORPSE_NPC) || 
-	  (obj->item_type == ITEM_CORPSE_PC ))
-	  {
+	wiznet("$N sends up $p as a burnt offering.",
+	       ch, obj, WIZ_SACCING, 0, 0);
+	fScatter = TRUE;
+	if (obj->item_type == ITEM_CORPSE_NPC
+	||  obj->item_type == ITEM_CORPSE_PC) {
 		iScatter = 0; 
-		for (obj_content = obj->contains; obj_content; obj_content = obj_next)
-		{
-		obj_next = obj_content->next_content;
-	two_objs[iScatter<1?0:1] = obj_content;
-	obj_from_obj(obj_content);
-	obj_to_room(obj_content, ch->in_room);
-	iScatter++;
+		for (obj_content = obj->contains; obj_content;
+		     obj_content = obj_next) {
+			obj_next = obj_content->next_content;
+			two_objs[iScatter < 1 ? 0 : 1] = obj_content;
+			obj_from_obj(obj_content);
+			obj_to_room(obj_content, ch->in_room);
+			iScatter++;
 		}
 		if (iScatter == 1)  {
-	act("Your sacrifice reveals $p.", ch, two_objs[0], NULL, TO_CHAR);
-	act("$p is revealed by $n's sacrifice.", ch, two_objs[0], NULL, TO_ROOM);
+			act_nprintf(ch, two_objs[0], NULL, TO_CHAR, POS_DEAD,
+				    YOUR_SAC_REVEALS_P);
+			act_nprintf(ch, two_objs[0], NULL, TO_ROOM, POS_RESTING,
+				    NS_SAC_REVEALS_P);
 		}
 		if (iScatter == 2)  {
-	act("Your sacrifice reveals $p and $P.", ch, two_objs[0], two_objs[1], TO_CHAR);
-	act("$p and $P are revealed by $n's sacrifice.", ch, two_objs[0], two_objs[1], TO_ROOM);
+			act_nprintf(ch, two_objs[0], two_objs[1], TO_CHAR,
+				    POS_DEAD, YOUR_SAC_REVEALS_P_P);
+			act_nprintf(ch, two_objs[0], two_objs[1], TO_ROOM,
+				    POS_RESTING, NS_SAC_REVEALS_P);
 		}
-		snprintf(buf, sizeof(buf), "As you sacrifice the corpse, ");
-		snprintf(buf2, sizeof(buf2), "As $n sacrifices the corpse, ");
+		snprintf(buf, sizeof(buf), msg(AS_YOU_SAC, ch));
+		snprintf(buf2, sizeof(buf2), msg(AS_N_SACS, ch));
 		if (iScatter < 3)
-		   fScatter = FALSE; 	
-	else if (iScatter < 5)  {
-		       strcat(buf, "few things ");
-		   strcat(buf2, "few things ");
- 	}
-	else if (iScatter < 9)  {
-		   strcat(buf, "a bunch of objects ");
-		             strcat(buf2, "a bunch of objects ");
-		  }
-	else if (iScatter < 15)  {
-		    strcat(buf, "many things ");
-		              strcat(buf2, "many things ");
-		  }
-	else  {
-		   strcat(buf, "a lot of objects ");
-		             strcat(buf2, "a lot of objects ");
-		  }
-		strcat(buf, "on it, ");
-		strcat(buf2, "on it, ");
+			fScatter = FALSE; 	
+		else if (iScatter < 5)  {
+			strcat(buf, msg(FEW_THINGS, ch));
+			strcat(buf2, msg(FEW_THINGS, ch));
+		} else if (iScatter < 9)  {
+			strcat(buf, msg(BUNCH_OF_OBJECTS, ch));
+			strcat(buf2, msg(BUNCH_OF_OBJECTS, ch));
+		} else if (iScatter < 15)  {
+			strcat(buf, msg(MANY_THINGS, ch));
+			strcat(buf2, msg(MANY_THINGS, ch));
+		} else {
+			strcat(buf, msg(LOT_OF_OBJECTS, ch));
+			strcat(buf2, msg(LOT_OF_OBJECTS, ch));
+		}
+		strcat(buf, msg(ON_IT, ch));
+		strcat(buf2, msg(ON_IT, ch));
 
 		switch(ch->in_room->sector_type)  {
-	case SECT_FIELD: strcat(buf, "scatter on the dirt.");
-		                   strcat(buf2, "scatter on the dirt.");
-		                   break;
-	case SECT_FOREST: strcat(buf, "scatter on the dirt.");
-		                    strcat(buf2, "scatter on the dirt.");
-		                    break;
-	case SECT_WATER_SWIM: strcat(buf, "scatter over the water.");
-		                    strcat(buf2, "scatter over the water.");
-		                    break;
-	case SECT_WATER_NOSWIM: strcat(buf, "scatter over the water.");
-		                    strcat(buf2, "scatter over the water.");
-		                    break;
-	default: strcat(buf, "scatter around.");
-		                strcat(buf2, "scatter around.");
-		                break;
+		case SECT_FIELD:
+			strcat(buf, msg(SCATTER_ON_DIRT, ch));
+			strcat(buf2, msg(SCATTER_ON_DIRT, ch));
+			break;
+		case SECT_FOREST:
+			strcat(buf, msg(SCATTER_ON_DIRT, ch));
+			strcat(buf2, msg(SCATTER_ON_DIRT, ch));
+			break;
+		case SECT_WATER_SWIM:
+			strcat(buf, msg(SCATTER_OVER_WATER, ch));
+			strcat(buf2, msg(SCATTER_OVER_WATER, ch));
+			break;
+		case SECT_WATER_NOSWIM:
+			strcat(buf, msg(SCATTER_OVER_WATER, ch));
+			strcat(buf2, msg(SCATTER_OVER_WATER, ch));
+			break;
+		default:
+			strcat(buf, msg(SCATTER_AROUND,  ch));
+			strcat(buf2, msg(SCATTER_AROUND,  ch));
+			break;
 		}
 		if (fScatter)  {
-	act(buf, ch, NULL, NULL, TO_CHAR);
-	act(buf2, ch, NULL, NULL, TO_ROOM);
+			act(buf, ch, NULL, NULL, TO_CHAR);
+			act(buf2, ch, NULL, NULL, TO_ROOM);
 		}
+	}
 
-	  }
-
-	  extract_obj(obj);
-	  return;
+	extract_obj(obj);
+	return;
 }
 
 
