@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.25 1998-09-01 18:38:01 fjoe Exp $
+ * $Id: obj_prog.c,v 1.26 1998-09-17 10:06:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1636,7 +1636,6 @@ int remove_prog_fire_shield(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 	return 0;
 }
 
-
 int wear_prog_quest_weapon(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	if (strstr(mlstr_mval(obj->short_descr), ch->name) != NULL)  {
@@ -1660,7 +1659,6 @@ int wear_prog_quest_weapon(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 	return 0;
 }
 
-
 int get_prog_quest_reward(OBJ_DATA *obj, CHAR_DATA *ch, void *arg) 
 {
 	if (strstr(mlstr_mval(obj->short_descr), ch->name) != NULL)  {
@@ -1670,6 +1668,7 @@ int get_prog_quest_reward(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 	}
 
 	act("You are zapped by $p and drop it.", ch, obj, NULL, TO_CHAR);
+	act("$n is zapped by $p and drops it.", ch, obj, NULL, TO_ROOM);
 
 	obj_from_char(obj);
 	obj_to_room(obj, ch->in_room);

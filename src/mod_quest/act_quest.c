@@ -1,5 +1,5 @@
 /*
- * $Id: act_quest.c,v 1.66 1998-09-04 05:27:46 fjoe Exp $
+ * $Id: act_quest.c,v 1.67 1998-09-17 10:06:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -644,12 +644,11 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 	}
 
 	ch->pcdata->questgiver = questor->pIndexData->vnum;
-	ch->pcdata->questtime = number_range(15, 30);
+	ch->pcdata->questtime = number_range(10, 20) + ch->level/10;
 	quest_tell(ch, questor, msg(MSG_YOU_HAVE_D_MINUTES, ch), 
 			ch->pcdata->questtime);
 	quest_tell(ch, questor, msg(MSG_MAY_THE_GODS_GO, ch));
 }
-
 
 static void quest_complete(CHAR_DATA *ch, char *arg)
 {
