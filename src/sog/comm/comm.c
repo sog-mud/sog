@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.200.2.17 2001-11-21 07:46:38 avn Exp $
+ * $Id: comm.c,v 1.200.2.18 2001-11-21 18:53:14 avn Exp $
  */
 
 /***************************************************************************
@@ -2660,8 +2660,8 @@ int align_restrict(CHAR_DATA *ch, char resp)
 	flag32_t al, wal = RA_NONE;
 
 	if ((cl = class_lookup(ch->class)) == NULL
-	|| (r = race_lookup(ORG_RACE(ch))) == NULL
-	|| !r->race_pcdata)
+	||  (r = race_lookup(ORG_RACE(ch))) == NULL
+	||  !r->race_pcdata)
 		return 0;
 
 	al = r->race_pcdata->restrict_align & cl->restrict_align;
@@ -2723,8 +2723,8 @@ int ethos_check(CHAR_DATA *ch, char resp)
 	flag32_t eth, weth = ETHOS_NONE;
 
 	if ((cl = class_lookup(ch->class)) == NULL
-	|| (r = race_lookup(ORG_RACE(ch))) == NULL
-	|| !r->race_pcdata)
+	||  (r = race_lookup(ORG_RACE(ch))) == NULL
+	||  !r->race_pcdata)
 		return 0;
 
 	eth = r->race_pcdata->restrict_ethos & cl->restrict_ethos;
