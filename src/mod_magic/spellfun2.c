@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.53 1998-10-17 16:20:11 fjoe Exp $
+ * $Id: spellfun2.c,v 1.54 1998-10-30 06:56:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4381,25 +4381,23 @@ void spell_polymorph(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
 	AFFECT_DATA af;
 	int race;
+	RACE_DATA *r;
 
-	if (is_affected(ch, sn))
-	{
-	 char_puts("You are already polymorphed.\n\r",ch); 
-	 return;
+	if (is_affected(ch, sn)) {
+		char_puts("You are already polymorphed.\n\r",ch); 
+		return;
 	}
 
-	if (target_name == NULL)
-	{
-	 char_puts("Usage: cast 'polymorph' <pcracename>.\n\r",ch); 
-	 return;
+	if (target_name == NULL) {
+		char_puts("Usage: cast 'polymorph' <pcracename>.\n\r",ch); 
+		return;
 	}
 
-	race = race_lookup(target_name);
-
-	if (race == 0 || !race_table[race].pc_race)
-	{
-	 char_puts("That is not a valid race to polymorph.\n\r",ch); 
-	 return;
+	race = rn_lookup(target_name);
+	r = RACE(race);
+	if (!r->pcdata) {
+		char_puts("That is not a valid race to polymorph.\n\r",ch); 
+		return;
 	}
 
 	af.where	= TO_AFFECTS;
@@ -4411,10 +4409,8 @@ void spell_polymorph(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	af.bitvector	= 0;
 	affect_to_char(ch, &af);
 
-	act("$n polymorphes $mself to $t.", 
-		ch, race_table[race].name, NULL, TO_ROOM);
-	act("You polymorph yourself to $t.", 
-		ch, race_table[race].name, NULL, TO_CHAR);
+	act("$n polymorphes $mself to $t.", ch, r->name, NULL, TO_ROOM);
+	act("You polymorph yourself to $t.", ch, r->name, NULL, TO_CHAR);
 }
 
 void spell_plant_form(int sn, int level, CHAR_DATA *ch, void *vo, int target)

@@ -1,10 +1,9 @@
 #
-# $Id: Makefile,v 1.34 1998-10-17 16:20:09 fjoe Exp $
+# $Id: Makefile,v 1.35 1998-10-30 06:56:29 fjoe Exp $
 #
 CC		= gcc
 LD		= gcc
 INCLUDES	= -I . -I ../msgdb
-PROF		=
 .ifdef PROF
 PFLAGS		= -pg
 .else
@@ -41,10 +40,10 @@ COMM_CFILES = comm/ban.c comm/charset.c comm/comm.c comm/resolver.c
 COMM_OFILES = ban.o charset.o comm.o resolver.o
 
 DB_CFILES = db/cmd.c db/db.c db/db_area.c db/db_clan.c db/db_class.c\
-	    db/db_skills.c db/db_lang.c\
+	    db/db_skills.c db/db_lang.c db/db_race.c\
 	    db/gsn.c db/lang.c db/msg.c db/resource.c db/spellfn.c db/word.c
 DB_OFILES = cmd.o db.o db_area.o db_clan.o db_class.o\
-	    db_skills.o db_lang.o\
+	    db_skills.o db_lang.o db_race.o\
 	    gsn.o lang.o msg.o resource.o spellfn.o word.o
 
 OLC_CFILES = olc/olc.c olc/olc_area.c olc/olc_clan.c olc/olc_help.c\
@@ -59,7 +58,7 @@ CFILES = act_comm.c act_info.c act_move.c act_obj.c act_wiz.c auction.c\
 	 effects.c fight.c flag.c handler.c healer.c help.c hometown.c\
 	 hunt.c interp.c log.c lookup.c magic.c magic2.c martial_art.c mem.c\
 	 mlstring.c mob_cmds.c mob_prog.c namedp.c note.c obj_prog.c quest.c\
-	 raffects.c rating.c recycle.c religion.c repair.c\
+	 race.c raffects.c rating.c recycle.c religion.c repair.c\
 	 save.c skills.c special.c str.c string_edit.c\
 	 tables.c update.c util.c varr.c\
 	 $(COMM_CFILES) $(DB_CFILES) $(OLC_CFILES)
@@ -69,7 +68,7 @@ OFILES = act_comm.o act_info.o act_move.o act_obj.o act_wiz.o auction.o\
 	 effects.o fight.o flag.o handler.o healer.o help.o hometown.o\
 	 hunt.o interp.o log.o lookup.o magic.o magic2.o martial_art.o mem.o\
 	 mlstring.o mob_cmds.o mob_prog.o namedp.o note.o obj_prog.o quest.o\
-	 raffects.o rating.o recycle.o religion.o repair.o\
+	 race.o raffects.o rating.o recycle.o religion.o repair.o\
 	 save.o skills.o special.o str.o string_edit.o\
 	 tables.o update.o util.o varr.o\
 	 $(COMM_OFILES) $(DB_OFILES) $(OLC_OFILES)

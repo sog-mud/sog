@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: str.h,v 1.1 1998-10-06 13:18:31 fjoe Exp $
+ * $Id: str.h,v 1.2 1998-10-30 06:56:35 fjoe Exp $
  */
 
 #ifndef _STR_H_
@@ -48,5 +48,7 @@ bool	str_infix	(const char *astr, const char *bstr);
 bool	str_suffix	(const char *astr, const char *bstr);
 
 int hashstr(const char *s, int maxn, int hashs);
+
+int cmpstr(const void*, const void*);
 
 #endif

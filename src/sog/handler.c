@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.82 1998-10-28 06:31:57 fjoe Exp $
+ * $Id: handler.c,v 1.83 1998-10-30 06:56:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -90,7 +90,7 @@ bool is_friend(CHAR_DATA *ch,CHAR_DATA *victim)
 	&&  ch->pIndexData == victim->pIndexData)
 		return TRUE;
 
-	if (IS_SET(ch->off_flags,ASSIST_RACE) && RACE(ch) == RACE(victim))
+	if (IS_SET(ch->off_flags,ASSIST_RACE) && ch->race == victim->race)
 		return TRUE;
 	 
 	if (IS_SET(ch->off_flags,ASSIST_ALIGN)
@@ -805,38 +805,42 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 		{
 			int from;
 			int to;
+			RACE_DATA *rto;
+			RACE_DATA *rfrom;
 
 			if (fAdd) {
 				from = ORG_RACE(ch);
-				to = RACE(ch) = paf->modifier > 0 &&
-						paf->modifier < MAX_PC_RACE ?
-							paf->modifier : 1;	    
+				to = ch->race = paf->modifier;
 			}
 			else {
-				from = RACE(ch);
-				to = RACE(ch) = ORG_RACE(ch);
+				from = ch->race;
+				to = ch->race = ORG_RACE(ch);
 			}
-				
-				
-			REMOVE_BIT(ch->affected_by, race_table[from].aff);
-			SET_BIT(ch->affected_by, race_table[to].aff);
-			affect_check(ch, TO_AFFECTS, race_table[from].aff);
 
-			REMOVE_BIT(ch->imm_flags, race_table[from].imm);
-			SET_BIT(ch->imm_flags, race_table[to].imm);
-			affect_check(ch, TO_IMMUNE, race_table[from].imm);
+			rfrom = race_lookup(from);
+			rto = race_lookup(to);
+			if (!rfrom || !rto || !rfrom->pcdata || !rto->pcdata)
+				return;
 
-			REMOVE_BIT(ch->res_flags, race_table[from].res);
-			SET_BIT(ch->res_flags, race_table[to].res);
-			affect_check(ch, TO_RESIST, race_table[from].res);
+			REMOVE_BIT(ch->affected_by, rfrom->aff);
+			SET_BIT(ch->affected_by, rto->aff);
+			affect_check(ch, TO_AFFECTS, rfrom->aff);
 
-			REMOVE_BIT(ch->vuln_flags, race_table[from].vuln);
-			SET_BIT(ch->vuln_flags, race_table[to].vuln);
-			affect_check(ch, TO_VULN, race_table[from].vuln);
+			REMOVE_BIT(ch->imm_flags, rfrom->imm);
+			SET_BIT(ch->imm_flags, rto->imm);
+			affect_check(ch, TO_IMMUNE, rfrom->imm);
 
-			ch->form = race_table[to].form;
-			ch->parts = race_table[to].parts;
-			update_skills(ch);
+			REMOVE_BIT(ch->res_flags, rfrom->res);
+			SET_BIT(ch->res_flags, rto->res);
+			affect_check(ch, TO_RESIST, rfrom->res);
+
+			REMOVE_BIT(ch->vuln_flags, rfrom->vuln);
+			SET_BIT(ch->vuln_flags, rto->vuln);
+			affect_check(ch, TO_VULN, rfrom->vuln);
+
+			ch->form = rto->form;
+			ch->parts = rto->parts;
+			ch->size = rto->pcdata->size;
 		}
 		break;
 	}

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.103 1998-10-24 09:44:57 fjoe Exp $
+ * $Id: act_comm.c,v 1.104 1998-10-30 06:56:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1631,8 +1631,11 @@ void do_speak(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	int language;
+	RACE_DATA *r;
 
-	if (IS_NPC(ch))
+	if (IS_NPC(ch)
+	||  (r = race_lookup(ch->race)) == NULL
+	||  !r->pcdata)
 		return;
 
 	argument = one_argument(argument,arg);
@@ -1641,8 +1644,7 @@ void do_speak(CHAR_DATA *ch, const char *argument)
 			flag_string(slang_table, ch->slang));
 		char_puts("You can speak :\n\r", ch);
 		char_printf(ch, "       common, %s\n\r",
-			    flag_string(slang_table,
-					pc_race_table[ORG_RACE(ch)].slang));
+			    flag_string(slang_table, r->pcdata->slang));
 		return;
 	}
 
@@ -1652,7 +1654,7 @@ void do_speak(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (language >= SLANG_MAX)
-		ch->slang = pc_race_table[ORG_RACE(ch)].slang;
+		ch->slang = r->pcdata->slang;
 	else
 		ch->slang = language;
 	

@@ -1,5 +1,5 @@
 /*
- * $Id: lookup.h,v 1.11 1998-09-17 15:51:19 fjoe Exp $
+ * $Id: lookup.h,v 1.12 1998-10-30 06:56:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -45,7 +45,6 @@
 
 int	position_lookup	(const char *name);
 int 	size_lookup	(const char *name);
-int	race_lookup	(const char *name);
 int	item_lookup	(const char *name);
 
 int	liq_lookup	(const char *name);

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.155 1998-10-29 07:29:55 fjoe Exp $
+ * $Id: act_info.c,v 1.156 1998-10-30 06:56:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -615,7 +615,7 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 		gain_condition(ch, COND_BLOODLUST, -1);
 
 	if (!IS_IMMORTAL(victim)) {
-		char_printf(ch, "(%s) ", race_table[RACE(victim)].name);
+		char_printf(ch, "(%s) ", race_name(victim->race));
 		if (!IS_NPC(victim)) 
 			char_printf(ch, "(%s) ", class_name(victim->class));
 	}
@@ -1584,8 +1584,10 @@ static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 {
 	CLAN_DATA *clan;
 	CLASS_DATA *cl;
+	RACE_DATA *r;
 
-	if ((cl = class_lookup(wch->class)) == NULL)
+	if ((cl = class_lookup(wch->class)) == NULL
+	||  (r = race_lookup(wch->race)) == NULL)
 		return;
 
 	buf_add(output, "[");
@@ -1616,8 +1618,8 @@ static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 			buf_add(output, "  ");
 	}
 	else {
-		if (RACE(wch) < MAX_PC_RACE)
-			buf_add(output, pc_race_table[RACE(wch)].who_name);
+		if (r && r->pcdata)
+			buf_add(output, r->pcdata->who_name);
 		else 
 			buf_add(output, "     ");
 
@@ -1665,17 +1667,19 @@ void do_who(CHAR_DATA *ch, const char *argument)
 	DESCRIPTOR_DATA *d;
 #if 0
 	int iClass;
-#endif
 	int iRace;
+#endif
 	int iLevelLower;
 	int iLevelUpper;
 	int nNumber;
 	int nMatch;
 	int vnum;
 	int count;
+#if 0
 	bool rgfRace[MAX_PC_RACE];
 	bool fClassRestrict;
 	bool fRaceRestrict;
+#endif
 	bool fImmortalOnly;
 	bool fPKRestrict;
 	bool fTattoo;
@@ -1685,15 +1689,19 @@ void do_who(CHAR_DATA *ch, const char *argument)
 	 */
 	iLevelLower    = 0;
 	iLevelUpper    = MAX_LEVEL;
+#if 0
 	fClassRestrict = FALSE;
 	fRaceRestrict = FALSE;
+#endif
 	fPKRestrict = FALSE;
 	fImmortalOnly  = FALSE;
 	vnum = 0;
 	fTattoo = FALSE;
 
+#if 0
 	for (iRace = 0; iRace < MAX_PC_RACE; iRace++)
 		rgfRace[iRace] = FALSE;
+#endif
 
 	/*
 	 * Parse arguments.
@@ -1740,10 +1748,10 @@ void do_who(CHAR_DATA *ch, const char *argument)
 		if (arg[0] == 'i')
 			fImmortalOnly = TRUE;
 		else {
+#if 0
 			iRace = race_lookup(arg);
 
 			if (iRace == 0 || iRace >= MAX_PC_RACE) {
-#if 0
 				iClass = cln_lookup(arg);
 				if (iClass == -1 || !IS_IMMORTAL(ch)) {
 					char_puts("That's not a "
@@ -1753,12 +1761,12 @@ void do_who(CHAR_DATA *ch, const char *argument)
 				}
 				fClassRestrict = TRUE;
 				rgfClass[iClass] = TRUE;
-#endif
 			}
 			else {
 				fRaceRestrict = TRUE;
 				rgfRace[iRace] = TRUE;
 			}
+#endif
 		}
 	}
 
@@ -1789,10 +1797,10 @@ void do_who(CHAR_DATA *ch, const char *argument)
 		||  (fImmortalOnly && wch->level < LEVEL_HERO)
 #if 0
 		||  (fClassRestrict && !rgfClass[wch->class])
-#endif
 		||  (fClassRestrict && IS_IMMORTAL(wch))
 		||  (fRaceRestrict && !rgfRace[RACE(wch)])
 		||  (fRaceRestrict && IS_IMMORTAL(wch))
+#endif
 		||  (fPKRestrict && !in_PK(ch, wch))
 		||  (fTattoo
 		   && (vnum == get_eq_char(wch,WEAR_TATTOO)->pIndexData->vnum)))
@@ -2825,7 +2833,7 @@ void do_score(CHAR_DATA *ch, const char *argument)
 
 	buf_printf(output,
 "     {G| {RRace :  {x%-11s  {C|  {RInt:  {x%2d(%2d)  {C| {RPractice  :   {x%3d       {G|{x\n\r",
-		race_table[ORG_RACE(ch)].name,
+		race_name(ORG_RACE(ch)),
 		ch->perm_stat[STAT_INT],
 		get_curr_stat(ch, STAT_INT),
 		ch->practice);
@@ -2990,7 +2998,7 @@ void do_oscore(CHAR_DATA *ch, const char *argument)
 	buf_printf(output,
 		"Race: {c%s{x  Sex: {c%s{x  Class: {c%s{x  "
 		"Hometown: {c%s{x\n\r",
-		race_table[ORG_RACE(ch)].name,
+		race_name(ORG_RACE(ch)),
 		ch->sex == 0 ? "sexless" : ch->sex == 1 ? "male" : "female",
 		IS_NPC(ch) ? "mobile" : cl->name,
 		IS_NPC(ch) ? "Midgaard" : hometown_table[ch->hometown].name);
@@ -3665,6 +3673,7 @@ void do_control(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *victim;
 	int chance;
 	int sn;
+	RACE_DATA *r;
 
 	argument = one_argument(argument, arg);
 
@@ -3684,7 +3693,7 @@ void do_control(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (race_table[ORG_RACE(victim)].pc_race) {
+	if ((r = race_lookup(ORG_RACE(victim))) && r->pcdata) {
 		char_puts("You should try this on monsters?\n\r", ch);
 		return;
 	}

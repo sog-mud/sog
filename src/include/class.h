@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.h,v 1.6 1998-10-06 13:18:25 fjoe Exp $
+ * $Id: class.h,v 1.7 1998-10-30 06:56:32 fjoe Exp $
  */
 
 #ifndef _CLASS_H_
@@ -40,7 +40,7 @@ struct class_skill {
 
 struct class_data {
 	const char *	name;			/* full name */
-	const char *	file_name;		/* filename */
+	const char *	file_name;
 	char		who_name[4];		/* three-letter name for 'who' */
 	int		attr_prime;		/* primary stat */
 	int		weapon;			/* school weapon vnum */
@@ -53,7 +53,8 @@ struct class_data {
 	sflag_t		flags;			/* class flags */
 	int		points;			/* cost in exp */
 	int		stats[MAX_STATS];	/* stat modifiers */
-	int		align;			/* alignment restrictions */
+	int		restrict_align;		/* alignment restrictions */
+	int		restrict_sex;		/* sex restrictions */
 	varr		skills;			/* varr of class skills */
 	const char *	titles[MAX_LEVEL+1][2];	/* titles */
 	varr		poses;			/* varr of class poses */

@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.79 1998-10-29 07:24:43 fjoe Exp $
+ * $Id: save.c,v 1.80 1998-10-30 06:56:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -162,7 +162,7 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, bool reboot)
 	if (str_cmp(ch->prompt, DEFAULT_PROMPT)
 	&&  str_cmp(ch->prompt, OLD_DEFAULT_PROMPT))
 		fwrite_string(fp, "Prom", ch->prompt);
-	fwrite_string(fp, "Race", pc_race_table[ORG_RACE(ch)].name);
+	fwrite_string(fp, "Race", race_name(ORG_RACE(ch)));
 	fprintf(fp, "Sex  %d\n", ch->sex);
 	fprintf(fp, "Cla  %d\n", ch->class);
 	fprintf(fp, "Levl %d\n", ch->level);
@@ -346,8 +346,8 @@ fwrite_pet(CHAR_DATA * pet, FILE * fp)
 		mlstr_fwrite(fp, "LnD", pet->short_descr);
 	if (mlstr_cmp(pet->description, pet->pIndexData->description) != 0)
 		mlstr_fwrite(fp, "Desc", pet->short_descr);
-	if (RACE(pet) != pet->pIndexData->race)	/* serdar ORG_RACE */
-		fwrite_string(fp, "Race", race_table[ORG_RACE(pet)].name);
+	if (pet->race != pet->pIndexData->race)	/* serdar ORG_RACE */
+		fwrite_string(fp, "Race", race_name(ORG_RACE(pet)));
 	fprintf(fp, "Sex  %d\n", pet->sex);
 	if (pet->level != pet->pIndexData->level)
 		fprintf(fp, "Levl %d\n", pet->level);
@@ -519,7 +519,7 @@ void load_char_obj(DESCRIPTOR_DATA * d, const char *name)
 	ch->desc = d;
 	ch->name = str_dup(capitalize(name));
 	ch->id = get_pc_id();
-	ch->race = race_lookup("human");
+	ch->race = rn_lookup("human");
 	ch->act = PLR_NOSUMMON | PLR_NOCANCEL;
 	ch->comm = COMM_COMBINE | COMM_PROMPT;
 	ch->prompt = str_dup(DEFAULT_PROMPT);
@@ -579,27 +579,32 @@ void load_char_obj(DESCRIPTOR_DATA * d, const char *name)
 		}
 		fclose(fp);
 	}
+
 	fpReserve = fopen(NULL_FILE, "r");
 	if (fpReserve == NULL)
 		bug("load_char: Can't open null file.", 0);
 
-
 	/* initialize race */
 	if (found) {
+		RACE_DATA *r;
+
 		if (ORG_RACE(ch) == 0)
-			ORG_RACE(ch) = race_lookup("human");
-		if (RACE(ch) == 0)
-			RACE(ch) = race_lookup("human");
+			ORG_RACE(ch) = rn_lookup("human");
+		if (ch->race == 0)
+			ch->race = rn_lookup("human");
 
-		ch->size = pc_race_table[ORG_RACE(ch)].size;
+		r = RACE(ch->race);
+
+		if (!IS_NPC(ch))
+			ch->size = r->pcdata->size;
+
 		ch->dam_type = 17;	/* punch */
-
-		ch->affected_by = ch->affected_by | race_table[RACE(ch)].aff;
-		ch->imm_flags = ch->imm_flags | race_table[RACE(ch)].imm;
-		ch->res_flags = ch->res_flags | race_table[RACE(ch)].res;
-		ch->vuln_flags = ch->vuln_flags | race_table[RACE(ch)].vuln;
-		ch->form = race_table[RACE(ch)].form;
-		ch->parts = race_table[RACE(ch)].parts;
+		ch->affected_by = ch->affected_by | r->aff;
+		ch->imm_flags = ch->imm_flags | r->imm;
+		ch->res_flags = ch->res_flags | r->res;
+		ch->vuln_flags = ch->vuln_flags | r->vuln;
+		ch->form = r->form;
+		ch->parts = r->parts;
 		affect_check(ch, -1, -1);
 
 		if (ch->pcdata->condition[COND_BLOODLUST] < 48
@@ -934,9 +939,9 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 
 			if (!str_cmp(word, "Race")) {
 				const char *race = fread_string(fp);
-				RACE(ch) = race_lookup(race);
+				ch->race = rn_lookup(race);
 				free_string(race);
-				ORG_RACE(ch) = RACE(ch);
+				ORG_RACE(ch) = ch->race;
 				fMatch = TRUE;
 				break;
 			}
@@ -1188,9 +1193,9 @@ fread_pet(CHAR_DATA * ch, FILE * fp)
 		case 'R':
 			if (!str_cmp(word, "Race")) {
 				const char *race = fread_string(fp);
-				RACE(pet) = race_lookup(race);
+				pet->race = rn_lookup(race);
 				free_string(race);
-				ORG_RACE(pet) = RACE(pet);
+				ORG_RACE(pet) = pet->race;
 				fMatch = TRUE;
 				break;
 			}

@@ -1,5 +1,5 @@
 /*
- * $Id: lookup.c,v 1.13 1998-09-01 18:38:00 fjoe Exp $
+ * $Id: lookup.c,v 1.14 1998-10-30 06:56:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -70,22 +70,6 @@ int material_lookup(const char *name)
 {
 	return 0;
 }
-
-/* returns race number */
-int race_lookup (const char *name)
-{
-   int race;
-
-   for (race = 0; race_table[race].name != NULL; race++)
-   {
-		if (LOWER(name[0]) == LOWER(race_table[race].name[0])
-		&&  !str_prefix(name,race_table[race].name))
-		    return race;
-   }
-
-   return 0;
-} 
-
 
 int liq_lookup (const char *name)
 {

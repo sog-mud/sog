@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.13 1998-10-21 05:00:29 fjoe Exp $
+ * $Id: typedef.h,v 1.14 1998-10-30 06:56:35 fjoe Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -70,7 +70,6 @@ typedef struct hometown_data		HOMETOWN_DATA;
 typedef struct varr			varr;
 typedef struct flag			FLAG; 
 typedef struct class_skill		CLASS_SKILL;
-typedef struct race_skill		RACE_SKILL;
 typedef struct clan_skill		CLAN_SKILL;
 typedef struct pc_skill			PC_SKILL;
 typedef struct clan_data		CLAN_DATA;
@@ -82,6 +81,10 @@ typedef struct namedp			NAMEDP;
 typedef struct lang_data		LANG_DATA;
 typedef struct word_data		WORD_DATA;
 typedef struct cmd_data			CMD_DATA;
+typedef struct race_data		RACE_DATA;
+typedef struct race_pcdata		RACE_PCDATA;
+typedef struct race_class_data		RACE_CLASS_DATA;
+typedef struct race_skill		RACE_SKILL;
 
 typedef void	DO_FUN		(CHAR_DATA *ch, const char *argument);
 typedef bool	SPEC_FUN	(CHAR_DATA *ch);

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.94 1998-10-29 07:24:42 fjoe Exp $
+ * $Id: fight.c,v 1.95 1998-10-30 06:56:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -169,13 +169,10 @@ void check_assist(CHAR_DATA *ch,CHAR_DATA *victim)
 {
 	CHAR_DATA *rch, *rch_next;
 
-	for (rch = ch->in_room->people; rch != NULL; rch = rch_next)
-	{
+	for (rch = ch->in_room->people; rch != NULL; rch = rch_next) {
 		rch_next = rch->next_in_room;
 
-		if (IS_AWAKE(rch) && rch->fighting == NULL)
-		{
-
+		if (IS_AWAKE(rch) && rch->fighting == NULL) {
 		    /* quick check for ASSIST_PLAYER */
 		    if (!IS_NPC(ch) && IS_NPC(rch)
 		    && IS_SET(rch->off_flags,ASSIST_PLAYERS)
@@ -205,23 +202,16 @@ void check_assist(CHAR_DATA *ch,CHAR_DATA *victim)
 
 		    /* now check the NPC cases */
 
-		    if (IS_NPC(ch))
-
-		    {
+		    if (IS_NPC(ch)) {
 			if ((IS_NPC(rch) && IS_SET(rch->off_flags,ASSIST_ALL))
-
-			||   (IS_NPC(rch) && RACE(rch) == RACE(ch)
+			||   (IS_NPC(rch) && rch->race == ch->race
 			   && IS_SET(rch->off_flags,ASSIST_RACE))
-
 			||   (IS_NPC(rch) && IS_SET(rch->off_flags,ASSIST_ALIGN)
 			   &&	((IS_GOOD(rch)	  && IS_GOOD(ch))
 			     ||  (IS_EVIL(rch)	  && IS_EVIL(ch))
 			     ||  (IS_NEUTRAL(rch) && IS_NEUTRAL(ch))))
-
 			||   (rch->pIndexData == ch->pIndexData
-			   && IS_SET(rch->off_flags,ASSIST_VNUM)))
-
-			{
+			   && IS_SET(rch->off_flags,ASSIST_VNUM))) {
 			    CHAR_DATA *vch;
 			    CHAR_DATA *target;
 			    int number;

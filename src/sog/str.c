@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: str.c,v 1.2 1998-10-20 19:57:42 fjoe Exp $
+ * $Id: str.c,v 1.3 1998-10-30 06:56:35 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -389,7 +389,14 @@ int hashs;			/* hash table size. */
     return h % hashs;		/* With 16 bit ints h has to be made positive first! */
 }
 
-/* static functions */
+int cmpstr(const void *p1, const void *p2)
+{
+	return -str_cmp(*(char**) p1, *(char**) p2);
+}
+
+/*----------------------------------------------------------------------------
+ * static functions
+ */
 
 #ifdef HASHED_STRINGS
 static str *str_alloc(const char *p, int hash)

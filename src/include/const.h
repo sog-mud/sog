@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: const.h,v 1.11 1998-10-28 19:46:01 fjoe Exp $
+ * $Id: const.h,v 1.12 1998-10-30 06:56:32 fjoe Exp $
  */
 
 #ifndef _CONST_H_
@@ -47,6 +47,7 @@
 #define NOTES_PATH	"notes"
 #define MSGDB_PATH	"msgdb"
 #define ETC_PATH	"etc"
+#define RACES_PATH	"races"
 #define CLASSES_PATH	"classes"
 #define CLANS_PATH	"clans"
 #define AREA_PATH	"area"
@@ -63,6 +64,7 @@
 #define CLAN_LIST	"clan.lst"	/* list of clans */
 #define CLASS_LIST	"class.lst"	/* list of classes */
 #define LANG_LIST	"lang.lst"	/* list of languages */
+#define RACE_LIST	"race.lst"
 
 #define BUG_FILE	"bugs.txt"	/* For 'bug' and bug()*/
 #define TYPO_FILE	"typos.txt"	/* For 'typo'*/
@@ -98,7 +100,6 @@
  * Game parameters.
  */
 #define MAX_SOCIALS		256
-#define MAX_PC_RACE		19	/* 18 */
 #define MAX_RELIGION		18
 #define PK_MIN_LEVEL		10	/* min PK level */
 #define MAX_NEWBIES		120	/* number of newbies allowed */

@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.35 1998-10-28 19:46:02 fjoe Exp $
+ * $Id: skills.c,v 1.36 1998-10-30 06:56:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -57,7 +57,6 @@ DECLARE_DO_FUN(do_help		);
 DECLARE_DO_FUN(do_say		);
 
 int	ch_skill_nok	(CHAR_DATA *ch , int sn);
-int	skill_is_native	(CHAR_DATA *ch , int sn);
 
 /* used to converter of prac and train */
 void do_gain(CHAR_DATA *ch, const char *argument)
@@ -66,7 +65,7 @@ void do_gain(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *trainer;
 
 	if (IS_NPC(ch))
-			return;
+		return;
 
 	/* find a trainer */
 	for (trainer = ch->in_room->people; 
@@ -260,12 +259,18 @@ int base_exp(CHAR_DATA *ch)
 {
 	int expl;
 	CLASS_DATA *cl;
+	RACE_DATA *r;
+	RACE_CLASS_DATA *rcl;
 
-	if (IS_NPC(ch) || (cl = class_lookup(ch->class)) == NULL)
+	if (IS_NPC(ch)
+	||  (cl = class_lookup(ch->class)) == NULL
+	||  (r = race_lookup(ch->pcdata->race)) == NULL
+	||  !r->pcdata
+	||  (rcl = race_class_lookup(r, cl->name)) == NULL)
 		return 1500;
 
-	expl = 1000 + pc_race_table[ORG_RACE(ch)].points + cl->points;
-	return expl * pc_race_table[ORG_RACE(ch)].class_mult[ch->class]/100;
+	expl = 1000 + r->pcdata->points + cl->points;
+	return expl * rcl->mult/100;
 }
 
 int exp_for_level(CHAR_DATA *ch, int level)
@@ -357,10 +362,15 @@ void update_skills(CHAR_DATA *ch)
 {
 	int i;
 	CLASS_DATA *cl;
+	RACE_DATA *r;
 	CLAN_DATA *clan;
+	const char *p;
 
 /* NPCs do not have skills */
-	if (IS_NPC(ch) || (cl = class_lookup(ch->class)) == NULL)
+	if (IS_NPC(ch)
+	||  (cl = class_lookup(ch->class)) == NULL
+	||  (r = race_lookup(ch->race)) == NULL
+	||  !r->pcdata)
 		return;
 
 /* add class skills */
@@ -370,12 +380,26 @@ void update_skills(CHAR_DATA *ch)
 	}
 
 /* add race skills */
-	for (i = 0; i < 5; i++) {
-		int sn = sn_lookup(pc_race_table[ch->pcdata->race].skills[i]);
-		if (sn < 0)
-			continue;
-		set_skill_raw(ch, sn, 100, FALSE);
+	for (i = 0; i < r->pcdata->skills.nused; i++) {
+		RACE_SKILL *rs = VARR_GET(&r->pcdata->skills, i);
+		set_skill_raw(ch, rs->sn, 100, FALSE);
 	}
+
+	if ((p = r->pcdata->bonus_skills))
+		for (;;) {
+			int sn;
+			char name[MAX_STRING_LENGTH];
+
+			p = one_argument(p, name);
+			if (name[0] == '\0')
+				break;
+		
+			sn = sn_lookup(name);
+			if (sn < 0)
+				continue;
+
+			set_skill_raw(ch, sn, 100, FALSE);
+		}
 
 /* add clan skills */
 	if ((clan = clan_lookup(ch->clan))) {
@@ -768,26 +792,6 @@ int get_weapon_skill(CHAR_DATA *ch, int sn)
 	return URANGE(0, sk, 100);
 } 
 
-bool skill_is_native(CHAR_DATA* ch, int sn)
-{
-	int i;
-
-	if (IS_NPC(ch))
-		return 0;
-
-	for (i = 0; i < 5; i++) {
-		int csn;
-
-		csn = sn_lookup(pc_race_table[ch->pcdata->race].skills[i]);
-		if (csn < 0)
-			break;
-		if (csn == sn)
-			return TRUE;
-	}
-
-	return FALSE;
-}
-
 /*
  * Utter mystical words for an sn.
  */
@@ -879,6 +883,8 @@ int skill_level(CHAR_DATA *ch, int sn)
 	CLAN_SKILL *clan_skill;
 	CLASS_DATA *cl;
 	CLASS_SKILL *class_skill;
+	RACE_DATA *r;
+	RACE_SKILL *race_skill;
 
 	if (IS_NPC(ch))
 		return ch->level;
@@ -888,27 +894,28 @@ int skill_level(CHAR_DATA *ch, int sn)
 /* noone can use ill-defined skills */
 /* broken chars can't use any skills */
 	if ((sk = skill_lookup(sn)) == NULL
-	||  (cl = class_lookup(ch->class)) == NULL)
+	||  (cl = class_lookup(ch->class)) == NULL
+	||  (r = race_lookup(ch->race)) == NULL
+	||  !r->pcdata)
 		return slevel;
 
 	if ((clan = clan_lookup(ch->clan))
 	&&  (clan_skill = clan_skill_lookup(clan, sn)))
 		slevel = UMIN(slevel, clan_skill->level);
+
 	if ((class_skill = class_skill_lookup(cl, sn))) {
 		slevel = UMIN(slevel, class_skill->level);
-		if (skill_is_native(ch, sn))
+		if (is_name(sk->name, r->pcdata->bonus_skills))
 			slevel = UMIN(slevel, 1);
 	}
 
-/* spell is not clan, class or race */
-	if (slevel == MAX_LEVEL+1) {
-		if (!IS_IMMORTAL(ch))
-			log_printf("skill_level: skill '%s' is not clan, class "
-				   "or native for '%s'",
-				   sk->name, ch->name);
-		else
-			slevel = 1;
-	}
+	if ((race_skill = race_skill_lookup(r, sn)))
+		slevel = UMIN(slevel, race_skill->level);
+
+/* immortals can have all skills */
+	if (slevel > MAX_LEVEL && IS_IMMORTAL(ch))
+		slevel = 1;
+
 	return slevel;
 }
 

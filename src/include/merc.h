@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.108 1998-10-28 19:46:01 fjoe Exp $
+ * $Id: merc.h,v 1.109 1998-10-30 06:56:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -67,6 +67,7 @@
 #include "lookup.h"
 #include "string_edit.h"
 
+#include "race.h"
 #include "class.h"
 #include "clan.h"
 #include "skills.h"
@@ -277,38 +278,6 @@ struct attack_type
 	char *	name;			/* name */
 	char *	noun;			/* message */
 	int 	damage; 		/* damage class */
-};
-
-struct race_type
-{
-	char *	name;			/* call name of the race */
-	bool	pc_race;		/* can be chosen by pcs  */
-	flag_t	act;			/* act bits for the race */
-	flag_t	aff;			/* aff bits for the race */
-	flag_t	off;			/* off bits for the race */
-	flag_t	imm;			/* imm bits for the race */
-	flag_t	res;			/* res bits for the race */
-	flag_t	vuln;			/* vuln bits for the race */
-	flag_t	form;			/* default form flag for the race */
-	flag_t	parts;			/* default parts for the race */
-};
-
-struct pc_race_type  /* additional data for pc races */
-{
-	char *	name;			/* MUST be in race_type */
-	char	who_name[6];
-	int 	points; 		/* cost in exp of the race */
-		/* FIXX ME */
-	int	class_mult[16];		/* exp multiplier for class, * 100 */
-	char *	skills[5];		/* bonus skills for the race */
-	int	stats[MAX_STATS];	/* starting stats	*/
-	int	max_stats[MAX_STATS];	/* maximum stats	*/
-	flag_t	size;			/* aff bits for the race*/
-	int 	hp_bonus;		/* Initial hp bonus	*/
-	int 	mana_bonus;		/* Initial mana bonus	*/
-	int 	prac_bonus;		/* Initial practice bonus */
-	int	align;			/* Alignment		*/
-	int	slang;			/* spoken language	*/
 };
 
 struct spec_type
@@ -1705,7 +1674,6 @@ struct mpcode
 
 #define IS_PK(ch, vt)		(!IS_NPC((ch)) & !IS_NPC((vt)))
 
-#define RACE(ch)		(ch->race)
 #define ORG_RACE(ch)		(IS_NPC(ch) ? ch->pIndexData->race : ch->pcdata->race)
 
 #define GET_AGE(ch)		((int) (17 + ((ch)->played \
@@ -1804,10 +1772,8 @@ extern	const	struct con_app_type	con_app 	[26];
 
 extern	const	struct wiznet_type	wiznet_table	[];
 extern	const	struct attack_type	attack_table	[];
-extern	const	struct race_type	race_table	[];
-extern	const	struct pc_race_type	pc_race_table	[MAX_PC_RACE];
 extern	const	struct spec_type	spec_table	[];
-extern	const	struct liq_type	liq_table	[];
+extern	const	struct liq_type		liq_table	[];
 extern	const	struct ethos_type	ethos_table	[];
 extern		struct social_type	social_table	[MAX_SOCIALS];
 
@@ -1884,7 +1850,6 @@ int	get_age 	(CHAR_DATA *ch);
 void	reset_char	(CHAR_DATA *ch);
 int	get_curr_stat	(CHAR_DATA *ch, int stat);
 int	get_max_train	(CHAR_DATA *ch, int stat);
-int	get_max_train2	(CHAR_DATA *ch, int stat);
 int	can_carry_n	(CHAR_DATA *ch);
 int	can_carry_w	(CHAR_DATA *ch);
 bool	is_name 	(const char *str, const char *namelist);

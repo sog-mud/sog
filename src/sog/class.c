@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.c,v 1.4 1998-10-06 13:18:25 fjoe Exp $
+ * $Id: class.c,v 1.5 1998-10-30 06:56:32 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -39,6 +39,7 @@ CLASS_DATA *class_new(void)
 	class = varr_enew(&classes);
 	class->skills.nsize = sizeof(CLASS_SKILL);
 	class->skills.nstep = 8;
+	class->restrict_sex = -1;
 	class->poses.nsize = sizeof(POSE_DATA);
 	class->poses.nstep = 4;
 
@@ -130,34 +131,18 @@ int get_curr_stat(CHAR_DATA *ch, int stat)
 int get_max_train(CHAR_DATA *ch, int stat)
 {
 	CLASS_DATA *cl;
+	RACE_DATA *r;
 
 	if (IS_NPC(ch) || ch->level >= LEVEL_IMMORTAL)
 		return 25;
 
-	if ((cl = class_lookup(ch->class)) == NULL)
+	if ((cl = class_lookup(ch->class)) == NULL
+	||  (r = race_lookup(ch->race)) == NULL
+	||  !r->pcdata)
 		return 0;
 
 /* ORG_RACE && RACE serdar*/
-	return UMIN(25, (20 + pc_race_table[ORG_RACE(ch)].stats[stat] +
-			 cl->stats[stat]));
-}
-
-/*   
- * command for returning max training score
- * for do_train and stat2train in comm.c
- */
-int get_max_train2(CHAR_DATA *ch, int stat)
-{
-	CLASS_DATA *cl;
-
-	if (IS_NPC(ch) || ch->level >= LEVEL_IMMORTAL)
-		return 25;
-
-	if ((cl = class_lookup(ch->class)) == NULL)
-		return 0;
-
-	return UMIN(25, (20 + pc_race_table[ORG_RACE(ch)].stats[stat] + 
-			 cl->stats[stat]));
+	return UMIN(25, 20 + r->pcdata->stats[stat] + cl->stats[stat]);
 }
 
 bool clan_ok(CHAR_DATA *ch, int sn) 

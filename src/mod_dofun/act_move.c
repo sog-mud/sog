@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.111 1998-10-26 08:38:17 fjoe Exp $
+ * $Id: act_move.c,v 1.112 1998-10-30 06:56:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1837,17 +1837,17 @@ void do_train(CHAR_DATA *ch, const char *argument)
 	}
 	else {
 		strcpy(buf, MSG("You can train:", ch->lang));
-		if (ch->perm_stat[STAT_STR] < get_max_train2(ch,STAT_STR)) 
+		if (ch->perm_stat[STAT_STR] < get_max_train(ch,STAT_STR)) 
 		    strcat(buf, " str");
-		if (ch->perm_stat[STAT_INT] < get_max_train2(ch,STAT_INT))  
+		if (ch->perm_stat[STAT_INT] < get_max_train(ch,STAT_INT))  
 		    strcat(buf, " int");
-		if (ch->perm_stat[STAT_WIS] < get_max_train2(ch,STAT_WIS)) 
+		if (ch->perm_stat[STAT_WIS] < get_max_train(ch,STAT_WIS)) 
 		    strcat(buf, " wis");
-		if (ch->perm_stat[STAT_DEX] < get_max_train2(ch,STAT_DEX))  
+		if (ch->perm_stat[STAT_DEX] < get_max_train(ch,STAT_DEX))  
 		    strcat(buf, " dex");
-		if (ch->perm_stat[STAT_CON] < get_max_train2(ch,STAT_CON))  
+		if (ch->perm_stat[STAT_CON] < get_max_train(ch,STAT_CON))  
 		    strcat(buf, " con");
-		if (ch->perm_stat[STAT_CHA] < get_max_train2(ch,STAT_CHA))  
+		if (ch->perm_stat[STAT_CHA] < get_max_train(ch,STAT_CHA))  
 		    strcat(buf, " cha");
 
 		if (buf[strlen(buf)-1] != ':') {
@@ -1868,7 +1868,7 @@ void do_train(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (ch->perm_stat[stat] >= get_max_train2(ch,stat)) {
+	if (ch->perm_stat[stat] >= get_max_train(ch,stat)) {
 		act_puts("Your $T is already at maximum.",
 			 ch, NULL, pOutput, TO_CHAR, POS_DEAD);
 		return;
@@ -2415,6 +2415,8 @@ void do_fly(CHAR_DATA *ch, const char *argument)
 	argument = one_argument(argument,arg);
 
 	if (!str_cmp(arg,"up")) {
+		RACE_DATA *r;
+
 		if (is_affected(ch, gsn_thumbling)) {
 			char_puts("Stop jumping like a crazy rabbit first.\n\r",
 				  ch);
@@ -2427,7 +2429,7 @@ void do_fly(CHAR_DATA *ch, const char *argument)
 		}
 
 		if (is_bit_affected(ch, TO_AFFECTS, AFF_FLYING)
-		||  (race_table[RACE(ch)].aff & AFF_FLYING) 
+		||  ((r = race_lookup(ch->race)) && (r->aff & AFF_FLYING))
 		||  has_obj_affect(ch, AFF_FLYING)) {
 			SET_BIT(ch->affected_by, AFF_FLYING);
 			char_puts("You start to fly.\n\r", ch);

@@ -1,5 +1,5 @@
 /*
- * $Id: mem.c,v 1.22 1998-10-23 09:22:24 fjoe Exp $
+ * $Id: mem.c,v 1.23 1998-10-30 06:56:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -238,7 +238,7 @@ MOB_INDEX_DATA *new_mob_index(void)
         pMob = calloc(1, sizeof(*pMob));
 	pMob->name		= str_dup("no name");
 	pMob->act		= ACT_NPC;
-	pMob->race		= race_lookup("human");
+	pMob->race		= rn_lookup("human");
 	pMob->material		= str_dup("unknown");
 	pMob->size		= SIZE_MEDIUM;
 	pMob->start_pos		= POS_STANDING;

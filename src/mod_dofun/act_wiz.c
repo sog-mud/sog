@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.79 1998-10-26 08:38:18 fjoe Exp $
+ * $Id: act_wiz.c,v 1.80 1998-10-30 06:56:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1257,9 +1257,9 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 		(IS_NPC(victim) &&victim->zone) ? victim->zone->name : "?");
 
 	buf_printf(output, 
-		"Vnum: %d  Race: %s(%s)  Group: %d  Sex: %s  Room: %d\n\r",
+		"Vnum: %d  Race: %s (%s)  Group: %d  Sex: %s  Room: %d\n\r",
 		IS_NPC(victim) ? victim->pIndexData->vnum : 0,
-		race_table[RACE(victim)].name,race_table[ORG_RACE(victim)].name,
+		race_name(victim->race), race_name(ORG_RACE(victim)),
 		IS_NPC(victim) ? victim->group : 0, sex_table[victim->sex].name,
 		victim->in_room == NULL    ?        0 : victim->in_room->vnum);
 
@@ -3695,6 +3695,24 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	if (!str_prefix(arg2, "hunger"))
+	{
+		if (IS_NPC(victim))
+		{
+		    char_puts("Not on NPC's.\n\r", ch);
+		    return;
+		}
+
+		if (value < -1 || value > 100)
+		{
+		    char_puts("Hunger range is -1 to 100.\n\r", ch);
+		    return;
+		}
+
+		victim->pcdata->condition[COND_HUNGER] = value;
+		return;
+	}
+
 	if (!str_prefix(arg2, "bloodlust"))
 	{
 		if (IS_NPC(victim))
@@ -3731,24 +3749,22 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (!str_prefix(arg2, "race"))
-	{
+	if (!str_prefix(arg2, "race")) {
 		int race;
 
-		race = race_lookup(arg3);
+		race = rn_lookup(arg3);
 
-		if (race == 0)
-		{
-		    char_puts("That is not a valid race.\n\r",ch);
-		    return;
+		if (race == 0) {
+			char_puts("That is not a valid race.\n\r",ch);
+			return;
 		}
 
-		if (!IS_NPC(victim) && !race_table[race].pc_race) {
-		    char_puts("That is not a valid player race.\n\r",ch);
-		    return;
+		if (!IS_NPC(victim) && !RACE(race)->pcdata) {
+			char_puts("That is not a valid player race.\n\r",ch);
+			return;
 		}
 
-		if (ORG_RACE(victim) == RACE(victim)) RACE(victim) = race;
+		victim->race = race;
 		ORG_RACE(victim) = race;
 		return;
 	}

@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.78 1998-10-28 19:46:02 fjoe Exp $
+ * $Id: update.c,v 1.79 1998-10-30 06:56:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -576,7 +576,7 @@ void mobile_update(void)
 
 		if (IS_AFFECTED(ch, AFF_REGENERATION) && ch->in_room != NULL) {
 			ch->hit = UMIN(ch->hit + ch->level / 10, ch->max_hit);
-			if (RACE(ch) == 18 /* troll */)
+			if (ch->race == 18 /* troll */)
 				ch->hit = UMIN(ch->hit + ch->level / 10,
 					       ch->max_hit);
 			if (ch->hit != ch->max_hit)
@@ -990,8 +990,11 @@ void char_update(void)
 		AFFECT_DATA *paf;
 		AFFECT_DATA *paf_next;
 		int chance;
+		RACE_DATA *r = race_lookup(ch->race);
 
 		ch_next = ch->next;
+		if (!r)
+			continue;
 
 		/* reset path find */
 		if (!IS_NPC(ch) && (chance = get_skill(ch, gsn_path_find))) {
@@ -1005,7 +1008,6 @@ void char_update(void)
 
 		if (!ch->fighting) {
 			flag_t skip = AFF_FLYING;
-			flag_t race_aff = race_table[RACE(ch)].aff;
 
 			affect_check(ch, TO_AFFECTS, -1);
 
@@ -1015,11 +1017,11 @@ void char_update(void)
 
 			if (!MOUNTED(ch)) {
 				if (!IS_AFFECTED(ch, AFF_HIDE) 
-				&&  (race_aff & AFF_HIDE))
+				&&  (r->aff & AFF_HIDE))
 					char_puts("You step back into the shadows.\n\r", ch);
 
 				if (!IS_AFFECTED(ch, AFF_SNEAK)
-				&&  (race_aff & AFF_SNEAK))
+				&&  (r->aff & AFF_SNEAK))
 					char_puts("You move silently again.\n\r", ch);
 			}
 			else
@@ -1027,7 +1029,7 @@ void char_update(void)
 					AFF_IMP_INVIS | AFF_SNEAK |
 					AFF_CAMOUFLAGE;
 
-			SET_BIT(ch->affected_by, race_aff & ~skip);
+			SET_BIT(ch->affected_by, r->aff & ~skip);
 		}
 
 		/* Remove vampire effect when morning. */
