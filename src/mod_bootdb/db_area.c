@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.142 2002-03-20 19:39:30 fjoe Exp $
+ * $Id: db_area.c,v 1.143 2003-03-06 20:07:50 avn Exp $
  */
 
 /***************************************************************************
@@ -651,12 +651,12 @@ DBLOAD_FUN(load_shops)
 
 	for (; ;) {
 		MOB_INDEX_DATA *pMobIndex;
-		int iTrade;
+		int iTrade, keeper;
 
-		pShop			= new_shop();
-		pShop->keeper		= fread_number(fp);
-		if (pShop->keeper == 0)
+		if ((keeper = fread_number(fp)) == 0)
 			break;
+		pShop			= new_shop();
+		pShop->keeper		= keeper;
 		for (iTrade = 0; iTrade < MAX_TRADE; iTrade++)
 			pShop->buy_type[iTrade]	= fread_number(fp);
 		pShop->profit_buy	= fread_number(fp);

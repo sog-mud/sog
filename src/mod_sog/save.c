@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.203 2002-11-28 21:40:29 fjoe Exp $
+ * $Id: save.c,v 1.204 2003-03-06 20:07:51 avn Exp $
  */
 
 /***************************************************************************
@@ -151,14 +151,9 @@ char_save(CHAR_DATA *ch, int flags)
 			goto err;
 		}
 
-#if defined(LINUX)
 		tv[0].tv_sec	= s.st_atime;
 		tv[1].tv_sec	= s.st_mtime;
 		tv[0].tv_usec = tv[1].tv_usec = 0;
-#else
-		TIMESPEC_TO_TIMEVAL(&tv[0], &s.st_atimespec);
-		TIMESPEC_TO_TIMEVAL(&tv[1], &s.st_mtimespec);
-#endif
 
 		snprintf(fname, sizeof(fname), "%s%c%s",
 			 PLAYER_PATH, PATH_SEPARATOR, TMP_FILE);
