@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 # this shell script is intended for debugging purposes
-# do not use autorun to debug mud server and do not use
+# do not use `bin/sog.sh' to debug mud server and do not use
 # this script in production use
 #
 umask 002
