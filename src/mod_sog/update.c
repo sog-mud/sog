@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.150 1999-09-08 10:40:13 fjoe Exp $
+ * $Id: update.c,v 1.151 1999-09-11 12:50:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1796,7 +1796,7 @@ void aggr_update(void)
 			/* Mad mob attacks! */
 			if (npc->last_fought == wch
 			&&  !IS_AFFECTED(ch, AFF_SCREAM)) {
-				act_yell(NULL, ch, "$I! Now you die!", wch);
+				act_yell(ch, "$i! Now you die!", wch, NULL);
 				wch = check_guard(wch, ch); 
 				multi_hit(ch, wch, TYPE_UNDEFINED);
 				continue;
@@ -2120,7 +2120,7 @@ void track_update(void)
 			||  !is_name(vch->name, npc->in_mind))
 				continue;
 
-			act_yell(NULL, ch, "So we meet again, $I!", vch);
+			act_yell(ch, "So we meet again, $i!", vch, NULL);
 			dofun("murder", ch, vch->name);
 			break;
 		}

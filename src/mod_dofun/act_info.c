@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.269 1999-09-08 10:39:48 fjoe Exp $
+ * $Id: act_info.c,v 1.270 1999-09-11 12:49:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -547,9 +547,9 @@ static void do_look_room(CHAR_DATA *ch, int flags)
 		char_puts("\n", ch);
 
  		if (!IS_SET(flags, LOOK_F_NORDESC)) {
-			act_puts("  $b", ch,
-				 mlstr_cval(&ch->in_room->description, ch),
-				 NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
+			char_puts("  ", ch);
+			act_puts(mlstr_cval(&ch->in_room->description, ch),
+				 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 		}
 
 		if (!IS_NPC(ch) && IS_SET(PC(ch)->plr_flags, PLR_AUTOEXIT)) {

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cast.c,v 1.3 1999-09-08 10:39:58 fjoe Exp $
+ * $Id: cast.c,v 1.4 1999-09-11 12:49:56 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -317,7 +317,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 				&&  victim->fighting != ch
 				&&  !is_same_group(ch, victim))
 					yell(victim, ch,
-					     "Die, $I, you sorcerous dog!");
+					     "Die, $i, you sorcerous dog!");
 				break;
 			}
 		}

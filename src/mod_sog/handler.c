@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.176 1999-09-09 13:50:15 osya Exp $
+ * $Id: handler.c,v 1.177 1999-09-11 12:49:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3502,19 +3502,20 @@ void do_tell_raw(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
 	}
 }
 
-void yell(CHAR_DATA *victim, CHAR_DATA* ch, const char* argument)
+void yell(CHAR_DATA *victim, CHAR_DATA* ch, const char* text)
 {
 	if (IS_NPC(victim)
+	||  IS_IMMORTAL(victim)
 	||  victim->in_room == NULL
 	||  victim->position <= POS_SLEEPING
 	||  IS_EXTRACTED(victim)
 	||  IS_SET(PC(victim)->plr_flags, PLR_GHOST))
 		return;
 
-	act_puts3("You yell '{M$b{x'",
-		  victim, argument, NULL, ch, TO_CHAR | ACT_SPEECH(ch),
-		  POS_DEAD);
-	act_yell("$n yells in panic '{M$b{x'", victim, argument, ch);
+	act_puts("You yell '{M$t{x'", victim,
+		 act_speech(victim, ch, text, ch), NULL,
+		 TO_CHAR | ACT_SPEECH(ch), POS_DEAD);
+	act_yell(victim, text, ch, "$n yells in panic '{M$t{x'");
 }
 
 static void drop_objs(CHAR_DATA *ch, OBJ_DATA *obj_list)
@@ -3672,7 +3673,7 @@ void quit_char(CHAR_DATA *ch, int flags)
 			}
 
 			if (vch->pMobIndex->vnum == MOB_VNUM_STALKER) {
-				act_clan(NULL, vch, "$I has left the realm, I have to leave too.", ch);
+				act_clan(vch, "$i has left the realm, I have to leave too.", ch);
 				act("$n slowly fades away.",
 				    vch, NULL, NULL, TO_ROOM);
 				extract_char(vch, 0);
@@ -5359,7 +5360,7 @@ void backstab(CHAR_DATA *ch, CHAR_DATA *victim, int chance)
 		damage(ch, victim, 0, gsn_backstab, DAM_NONE, TRUE);
 	}
 
-	yell(victim, ch, "Die, $I! You are backstabbing scum!");
+	yell(victim, ch, "Die, $i! You are backstabbing scum!");
 }
 
 /*

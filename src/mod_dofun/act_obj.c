@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.164 1999-09-08 10:39:54 fjoe Exp $
+ * $Id: act_obj.c,v 1.165 1999-09-11 12:49:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1664,21 +1664,21 @@ void do_steal(CHAR_DATA * ch, const char *argument)
 
 			switch (number_range(0, 3)) {
 			case 0:
-				msg = "$I is a lousy thief!";
+				msg = "$i is a lousy thief!";
 				break;
 			case 1:
-				msg = "$I couldn't rob $gI{his} way "
+				msg = "$i couldn't rob $gi{his} way "
 				      "out of a paper bag!";
 				break;
 			case 2:
-				msg = "$I tried to rob me!";
+				msg = "$i tried to rob me!";
 				break;
 			default:
-				msg = "Keep your hands out of there, $I!";
+				msg = "Keep your hands out of there, $i!";
 				break;
 			}
 
-			act_yell(NULL, victim, msg, ch);
+			act_yell(victim, msg, ch, NULL);
 		}
 
 		if (!IS_NPC(ch) && IS_NPC(victim)) {
@@ -3065,8 +3065,7 @@ void do_repair(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (obj->cost == 0) {
-		act_say(NULL, NULL, mob,
-			"$P is beyond repair.", obj, NULL);
+		act_say(mob, "$p is beyond repair.", obj);
    		return;
 	}
 
@@ -3138,9 +3137,8 @@ void do_estimate(CHAR_DATA *ch, const char *argument)
 		((obj->cost * (100 - obj->condition)) /100)   );
 	cost /= 100;
 
-	act_say(NULL, NULL, mob,
-		"It will cost you $J gold to fix that item.",
-		NULL, (const void*) cost);
+	act_say(mob, "It will cost you $j gold to fix that item.",
+		(const void*) cost);
 }
 
 void do_restring(CHAR_DATA *ch, const char *argument)
@@ -3314,7 +3312,7 @@ static CHAR_DATA *find_keeper(CHAR_DATA *ch)
 
 	if (IS_WANTED(ch)) {
 		do_say(keeper, "Criminals are not welcome!");
-		act_yell(NULL, keeper, "$I the CRIMINAL is over here!", ch);
+		act_yell(keeper, "$i the CRIMINAL is over here!", ch, NULL);
 		return NULL;
 	}
 

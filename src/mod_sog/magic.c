@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic.c,v 1.6 1999-09-08 10:40:10 fjoe Exp $
+ * $Id: magic.c,v 1.7 1999-09-11 12:50:02 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -236,7 +236,7 @@ void obj_cast_spell(int sn, int level, CHAR_DATA *ch, void *vo)
 			vch_next = vch->next_in_room;
 
 			if (victim == vch)
-				yell(victim, ch, "Help! $lu{$I} is attacking me!");
+				yell(victim, ch, "Help! $lu{$i} is attacking me!");
 
 			if (victim == vch && victim->fighting == NULL) {
 				multi_hit(victim, ch, TYPE_UNDEFINED);

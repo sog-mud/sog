@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.199 1999-09-10 05:34:40 fjoe Exp $
+ * $Id: act_move.c,v 1.200 1999-09-11 12:49:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1658,8 +1658,8 @@ void do_vbite(CHAR_DATA *ch, const char *argument)
 		check_improve(ch, gsn_vampiric_bite, FALSE, 1);
 		damage(ch, victim, 0, gsn_vampiric_bite, DAM_NONE, DAMF_SHOW);
 	}
-	if (!IS_NPC(victim) && victim->position==POS_FIGHTING) 
-		yell(victim, ch, "Help! $lu{$I} tried to bite me!");
+	if (!IS_NPC(victim) && victim->position == POS_FIGHTING) 
+		yell(victim, ch, "Help! $lu{$i} tried to bite me!");
 }
 
 void do_bash_door(CHAR_DATA *ch, const char *argument)
@@ -1946,7 +1946,7 @@ void do_kidnap(CHAR_DATA* ch, const char *argument)
 		transfer_char(victim, NULL, to_room,
 			"$N disappears.", NULL, "$N appears from nowhere.");
 		check_improve(ch, sn, TRUE, 1);
-		yell(victim, ch, "Help! $lu{$I} just kidnapped me!");
+		yell(victim, ch, "Help! $lu{$i} just kidnapped me!");
 		multi_hit(victim, ch, TYPE_UNDEFINED);
 	} else {
 		act("You grab $N, but $E escaped.", 
@@ -1955,7 +1955,7 @@ void do_kidnap(CHAR_DATA* ch, const char *argument)
 			ch, NULL, victim, TO_VICT);
 		act("$n grabs $N, but $E escaped.",
 			ch, NULL, victim, TO_NOTVICT);
-		yell(victim, ch, "Help! $lu{$I} tried to kidnap me!");
+		yell(victim, ch, "Help! $lu{$i} tried to kidnap me!");
 		check_improve(ch, sn, FALSE, 1);
 		multi_hit(victim, ch, TYPE_UNDEFINED);
 	}
@@ -2058,7 +2058,7 @@ void do_vtouch(CHAR_DATA *ch, const char *argument)
 		damage(ch, victim, 0, sn, DAM_NONE, DAMF_SHOW);
 		check_improve(ch, sn, FALSE, 1);
 	}
-	yell(victim, ch, "Help! $lu{$I} tried to touch me!");
+	yell(victim, ch, "Help! $lu{$i} tried to touch me!");
 }
 
 void do_fly(CHAR_DATA *ch, const char *argument)
@@ -2230,8 +2230,8 @@ void do_push(CHAR_DATA *ch, const char *argument)
 		act("$n tried to push $N.", ch, NULL, victim, TO_NOTVICT);
 
 		if (IS_AWAKE(victim))
-			act_yell(NULL, victim,
-				 "Keep your hands out of me, $I!", ch);
+			act_yell(victim, "Keep your hands out of me, $i!",
+				 ch, NULL);
 		if (!IS_NPC(ch) && IS_NPC(victim)) {
 			check_improve(ch, sn, FALSE, 2);
 			multi_hit(victim, ch, TYPE_UNDEFINED);
@@ -2855,7 +2855,7 @@ void do_charge(CHAR_DATA *ch, const char *argument)
 		}
 		WAIT_STATE(ch, SKILL(gsn_charge)->beats*2);
 	}
-	yell(victim, ch, "Help! $lu{$I} is attacking me!");
+	yell(victim, ch, "Help! $lu{$i} is attacking me!");
 }
 
 void do_shoot(CHAR_DATA *ch, const char *argument)
@@ -2969,7 +2969,7 @@ void do_shoot(CHAR_DATA *ch, const char *argument)
 	success = send_arrow(ch, victim, arrow, direction, chance,
 			     dice(wield->value[1],wield->value[2]));
 	check_improve(ch, gsn_bow, TRUE, 1);
-	yell(victim, ch, "Help! $lu{$I} is trying to shoot me!");
+	yell(victim, ch, "Help! $lu{$i} is trying to shoot me!");
 }
 
 void do_human(CHAR_DATA *ch, const char *argument)

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: module.c,v 1.9 1999-07-05 18:18:33 fjoe Exp $
+ * $Id: module.c,v 1.10 1999-09-11 12:50:02 fjoe Exp $
  */
 
 /*
@@ -31,11 +31,13 @@
  */
 
 #include <sys/param.h>
+#include <sys/stat.h>
+#include <errno.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 #include <dlfcn.h>
 #include <time.h>
-
 #include "merc.h"
 #include "module.h"
 #include "log.h"
@@ -44,8 +46,17 @@ varr modules = { sizeof(module_t), 2 };
 
 int mod_load(module_t* m)
 {
+	struct stat s;
 	void *dlh;
 	int (*callback)(module_t*);
+
+	/*
+	 * sanity checking
+	 */
+	if (stat(m->file_name, &s) < 0) {
+		wizlog("mod_load: %s: %s", m->file_name, strerror(errno));
+		return -1;
+	}
 
 	/*
 	 * try to unload previously loaded module

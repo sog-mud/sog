@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.199 1999-09-10 05:34:42 fjoe Exp $
+ * $Id: fight.c,v 1.200 1999-09-11 12:49:57 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2251,7 +2251,7 @@ void raw_kill(CHAR_DATA *ch, CHAR_DATA *victim)
 			}
 
 			if (vch->pMobIndex->vnum == MOB_VNUM_STALKER) {
-				act_clan(NULL, vch, "$I is dead and I can leave the realm.", victim);
+				act_clan(vch, "$i is dead and I can leave the realm.", victim);
 				act("$n slowly fades away.",
 				    vch, NULL, NULL, TO_ROOM);
 				extract_char(vch, 0);

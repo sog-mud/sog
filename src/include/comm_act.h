@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.h,v 1.14 1999-09-08 10:40:02 fjoe Exp $
+ * $Id: comm_act.h,v 1.15 1999-09-11 12:49:57 fjoe Exp $
  */
 
 #ifndef _COMM_ACT_H_
@@ -49,9 +49,7 @@
 #define ACT_FORMSH	(P)	/* call format_short for short descrs */
 #define ACT_NOFIXSH	(Q)	/* do not fix char/obj short descrs */
 #define ACT_NOFIXTEXT	(R)	/* do not call fix_short for text args */
-#define ACT_ASCHAR	(S)	/* can_see is checked against `ch' */
 #define ACT_SPEECH(ch)	(ACT_NODEAF | ACT_STRANS | ACT_NOFIXTEXT |	\
-			 ACT_ASCHAR |					\
 		  	 (!IS_NPC(ch) || IS_AFFECTED(ch, AFF_CHARM) ?	\
 				ACT_NOTRANS : 0))
 
@@ -65,9 +63,7 @@ const char *format_short(mlstring *mshort, const char *name,
 const char *format_long	(mlstring *desc, CHAR_DATA *to);
 
 #define PERS(ch, looker) PERS2(ch, looker, 0)
-#define PERS2(ch, looker, act_flags) PERS3(ch, looker, looker, act_flags)
-const char* PERS3(CHAR_DATA *ch, CHAR_DATA *looker,
-		  CHAR_DATA *to, int act_flags);
+const char* PERS2(CHAR_DATA *ch, CHAR_DATA *looker, int act_flags);
 
 /*
  * act stuff
@@ -98,13 +94,12 @@ void    act_puts3(const char *format, CHAR_DATA *ch,
 /*
  * misc comm act-like functions
  */
-void	act_yell(const char *format, CHAR_DATA *ch,
-		 const void *arg1, const void *arg3);
-void	act_clan(const char *format, CHAR_DATA *ch,
-		 const void *arg1, const void *arg3);
+const char *	act_speech(CHAR_DATA *ch, CHAR_DATA *vch,
+			   const char *text, const void *arg);
 
-void	act_say(const char *format_self, const char *format_others,
-		CHAR_DATA *ch,
-		const void *arg1, const void *arg2, const void *arg3);
+void	act_yell(CHAR_DATA *ch, const char *text, const void *arg,
+		 const char *format);
+void	act_clan(CHAR_DATA *ch, const char *text, const void *arg);
+void	act_say(CHAR_DATA *ch, const char *text, const void *arg);
 
 #endif

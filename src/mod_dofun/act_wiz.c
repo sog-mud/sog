@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.181 1999-09-09 12:22:47 fjoe Exp $
+ * $Id: act_wiz.c,v 1.182 1999-09-11 12:49:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2963,9 +2963,9 @@ void do_invis(CHAR_DATA *ch, const char *argument)
 			    ch, NULL, NULL, TO_ROOM);
 			char_puts("You slowly fade back into existence.\n", ch);
 		} else {
-			ch->invis_level = UMIN(LEVEL_IMMORTAL, trust_level(ch));
 			act("$n slowly fades into thin air.",
 			    ch, NULL, NULL, TO_ROOM);
+			ch->invis_level = UMIN(LEVEL_IMMORTAL, trust_level(ch));
 			char_puts("You slowly vanish into thin air.\n", ch);
 		}
 	} else {
@@ -2978,9 +2978,9 @@ void do_invis(CHAR_DATA *ch, const char *argument)
 				    trust_level(ch));
 			return;
 		} else {
-			ch->invis_level = level;
 			act("$n slowly fades into thin air.",
 			    ch, NULL, NULL, TO_ROOM);
+			ch->invis_level = level;
 			char_puts("You slowly vanish into thin air.\n", ch);
 		}
 	}

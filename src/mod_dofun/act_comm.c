@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.186 1999-09-09 05:12:59 kostik Exp $
+ * $Id: act_comm.c,v 1.187 1999-09-11 12:49:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -215,8 +215,7 @@ void do_say(CHAR_DATA *ch, const char *argument)
 	}
 
 	argument = garble(ch, argument);
-	act_say("You say '{G$t{x'", "$n says '{G$t{x'",
-		ch, argument, NULL, NULL);
+	act_say(ch, argument, NULL);
 
 	if (!IS_NPC(ch)) {
  		CHAR_DATA *mob, *mob_next;
@@ -455,7 +454,7 @@ void do_yell(CHAR_DATA *ch, const char *argument)
 	argument = garble(ch, argument);
 	act_puts("You yell '{M$t{x'",
 		 ch, argument, NULL, TO_CHAR | ACT_SPEECH(ch), POS_DEAD);
-	act_yell("$n yells '{M$t{x'", ch, argument, NULL);
+	act_yell(ch, argument, NULL, NULL);
 }
 
 void do_shout(CHAR_DATA *ch, const char *argument)
@@ -611,7 +610,7 @@ void do_clan(CHAR_DATA *ch, const char *argument)
 	argument = garble(ch, argument);
 	act_puts("[CLAN] $lu{$n}: {C$t{x",
 		 ch, argument, NULL, TO_CHAR | ACT_SPEECH(ch), POS_DEAD);
-	act_clan("[CLAN] $lu{$n}: {C$t{x", ch, argument, NULL);
+	act_clan(ch, argument, NULL);
 }
 
 void do_pray(CHAR_DATA *ch, const char *argument)

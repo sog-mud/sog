@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.110 1999-09-08 10:39:58 fjoe Exp $
+ * $Id: martial_art.c,v 1.111 1999-09-11 12:49:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -207,7 +207,7 @@ void do_murder(CHAR_DATA *ch, const char *argument)
 	}
 
 	multi_hit(ch, victim, TYPE_UNDEFINED);
-	yell(victim, ch, "Help! $lu{$I} is attacking me!");
+	yell(victim, ch, "Help! $lu{$i} is attacking me!");
 }
 
 void do_flee(CHAR_DATA *ch, const char *argument)
@@ -630,7 +630,7 @@ void do_bash(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (attack)
-		yell(victim, ch, "Help! $lu{$I} is bashing me!");
+		yell(victim, ch, "Help! $lu{$i} is bashing me!");
 }
 
 void do_dirt(CHAR_DATA *ch, const char *argument)
@@ -766,7 +766,7 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (attack)
-		yell(victim, ch, "Help! $lu{$I} just kicked dirt into my eyes!");
+		yell(victim, ch, "Help! $lu{$i} just kicked dirt into my eyes!");
 }
 
 void do_trip(CHAR_DATA *ch, const char *argument)
@@ -885,7 +885,7 @@ void do_trip(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (attack)
-		yell(victim, ch, "Help! $lu{$I} just tripped me!");
+		yell(victim, ch, "Help! $lu{$i} just tripped me!");
 }
 
 void do_backstab(CHAR_DATA *ch, const char *argument)
@@ -1003,7 +1003,7 @@ void do_knife(CHAR_DATA *ch, const char *argument)
 		damage(ch, victim, 0, gsn_knife,  DAM_NONE, TRUE);
 		check_improve(ch, gsn_knife, FALSE, 1);
 	}
-	yell(victim, ch, "Die, $I! You're backstabbing scum!");
+	yell(victim, ch, "Die, $i! You're backstabbing scum!");
 }
 
 void do_cleave(CHAR_DATA *ch, const char *argument)
@@ -1081,7 +1081,7 @@ void do_cleave(CHAR_DATA *ch, const char *argument)
 		check_improve(ch, gsn_cleave, FALSE, 1);
 		damage(ch, victim, 0, gsn_cleave, DAM_NONE, TRUE);
 	}
-	yell(victim, ch, "Die, $I, you butchering fool!");
+	yell(victim, ch, "Die, $i, you butchering fool!");
 }
 
 void do_ambush(CHAR_DATA *ch, const char *argument)
@@ -1138,7 +1138,7 @@ void do_ambush(CHAR_DATA *ch, const char *argument)
 		check_improve(ch, gsn_ambush, FALSE, 1);
 		damage(ch, victim, 0, gsn_ambush, DAM_NONE, TRUE);
 	}
-	yell(victim, ch, "Help! I've been ambushed by $I!");
+	yell(victim, ch, "Help! I've been ambushed by $i!");
 }
 
 void do_rescue(CHAR_DATA *ch, const char *argument)
@@ -1470,7 +1470,7 @@ void do_nerve(CHAR_DATA *ch, const char *argument)
 		check_improve(ch, gsn_nerve, FALSE, 1);
 	}
 	if (attack)
-		yell(victim, ch, "Help! $lu{$I} is attacking me!");
+		yell(victim, ch, "Help! $lu{$i} is attacking me!");
 	multi_hit(victim,ch,TYPE_UNDEFINED);
 }
 
@@ -1660,7 +1660,7 @@ void do_assassinate(CHAR_DATA *ch, const char *argument)
 		check_improve(ch, gsn_assassinate, FALSE, 1);
 		damage(ch, victim, 0, gsn_assassinate, DAM_NONE, TRUE);
 	}
-	yell(victim, ch, "Help! $lu{$I} tries to assasinate me!");
+	yell(victim, ch, "Help! $lu{$i} tries to assasinate me!");
 }
 
 void do_caltrops(CHAR_DATA *ch, const char *argument)
@@ -1919,7 +1919,7 @@ void do_strangle(CHAR_DATA *ch, const char *argument)
 	else {
 		damage(ch,victim, 0, gsn_strangle, DAM_NONE, TRUE);
 		check_improve(ch, gsn_strangle, FALSE, 1);
-		yell(victim, ch, "Help! I'm being strangled by $I!");
+		yell(victim, ch, "Help! I'm being strangled by $i!");
 	}
 }
 
@@ -2009,7 +2009,7 @@ void do_blackjack(CHAR_DATA *ch, const char *argument)
 	else {
 		damage(ch, victim, LEVEL(ch)/2, gsn_blackjack, DAM_NONE, TRUE);
 		check_improve(ch, gsn_blackjack, FALSE, 1);
-		yell(victim, ch, "Help! I'm being blackjacked by $I!");
+		yell(victim, ch, "Help! I'm being blackjacked by $i!");
 	}
 }
 
@@ -2540,13 +2540,11 @@ void do_explode(CHAR_DATA *ch, const char *argument)
 		if (vch == victim) { /* full damage */
 			fire_effect(vch, level, dam, TARGET_CHAR);
 			damage(ch, vch, dam, gsn_explode, DAM_FIRE, TRUE);
-			yell(vch, ch, "Help! $lu{$I} tries to burn me!");
-		}
-		else { /* partial damage */
+		} else { /* partial damage */
 			fire_effect(vch, level/2, dam/4, TARGET_CHAR);
 			damage(ch, vch, dam/2, gsn_explode, DAM_FIRE,TRUE);
-			yell(vch, ch, "Help! $lu{$I} tries to burn me!");
 		}
+		yell(vch, ch, "Help! $lu{$i} tries to burn me!");
 	}
 
 	if (number_percent() >= chance) {
@@ -3084,7 +3082,7 @@ void do_tail(CHAR_DATA *ch, const char *argument)
 		WAIT_STATE(ch, SKILL(gsn_tail)->beats * 3/2); 
 	}
 	if (attack)
-		yell(victim, ch, "Help! $lu{$I} tried to hit me with his tail!");
+		yell(victim, ch, "Help! $lu{$i} tried to hit me with his tail!");
 }
 
 void do_concentrate(CHAR_DATA *ch, const char *argument)
@@ -3496,7 +3494,7 @@ void do_poison_smoke(CHAR_DATA *ch, const char *argument)
 		spellfun_call("poison", LEVEL(ch), ch, vch);
 		if (vch != ch) {
 			if (attack) 
-				yell(vch, ch, "$I tries to poison me!");
+				yell(vch, ch, "$i tries to poison me!");
 			multi_hit(vch, ch, TYPE_UNDEFINED);
 		}
 	}
@@ -3548,7 +3546,7 @@ void do_blindness_dust(CHAR_DATA *ch, const char *argument)
 
 			spellfun_call("blindness", LEVEL(ch), ch, vch);
 			if (attack)
-				yell(vch, ch, "Help! $lu{$I} just threw dust into my eyes!");
+				yell(vch, ch, "Help! $lu{$i} just threw dust into my eyes!");
 			if (vch != ch)
 				multi_hit(vch, ch, TYPE_UNDEFINED);
 		}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.39 1999-09-08 10:40:16 fjoe Exp $
+ * $Id: act.c,v 1.40 1999-09-11 12:50:05 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -125,15 +125,12 @@ const char *format_long(mlstring *ml, CHAR_DATA *to)
 
 /*
  * PERS formatting stuff
- *
- * formats `ch' for `to' when `looker' is looking at
  */
-const char *PERS3(CHAR_DATA *ch, CHAR_DATA *looker,
-		  CHAR_DATA *to, int act_flags)
+const char *PERS2(CHAR_DATA *ch, CHAR_DATA *looker, int act_flags)
 {
 	if (is_affected(ch, gsn_doppelganger)
-	&&  (IS_NPC(to) ||
-	     !IS_SET(PC(to)->plr_flags, PLR_HOLYLIGHT)))
+	&&  (IS_NPC(looker) ||
+	     !IS_SET(PC(looker)->plr_flags, PLR_HOLYLIGHT)))
 		ch = ch->doppel;
 
 	if (can_see(looker, ch)) {
@@ -142,29 +139,29 @@ const char *PERS3(CHAR_DATA *ch, CHAR_DATA *looker,
 
 			if (IS_SET(act_flags, ACT_FORMSH)) {
 				return format_short(&ch->short_descr, ch->name,
-						    to, act_flags);
+						    looker, act_flags);
 			}
 
-			descr = mlstr_cval(&ch->short_descr, to);
+			descr = mlstr_cval(&ch->short_descr, looker);
 			if (IS_SET(act_flags, ACT_NOFIXSH))
 				return descr;
 			return fix_short(descr);
 		}
-		else if (IS_AFFECTED(ch, AFF_TURNED) && !IS_IMMORTAL(to)) {
+		else if (IS_AFFECTED(ch, AFF_TURNED) && !IS_IMMORTAL(looker)) {
 			return word_form(GETMSG(PC(ch)->form_name,
-						GET_LANG(to)),
-					 ch->sex, GET_LANG(to),
+						GET_LANG(looker)),
+					 ch->sex, GET_LANG(looker),
 					 RULES_GENDER);
 		}
 		return ch->name;
 	}
 
 	if (IS_IMMORTAL(ch)) {
-		return word_form(GETMSG("an immortal", GET_LANG(to)),
-				 ch->sex, GET_LANG(to), RULES_GENDER);
+		return word_form(GETMSG("an immortal", GET_LANG(looker)),
+				 ch->sex, GET_LANG(looker), RULES_GENDER);
 	}
 
-	return GETMSG("someone", GET_LANG(to));
+	return GETMSG("someone", GET_LANG(looker));
 }
 
 /* common and slang should have the same size */
@@ -245,19 +242,19 @@ act_format_text(const char *text, CHAR_DATA *ch, CHAR_DATA *to,
 }
 	
 static const char *
-act_format_obj(OBJ_DATA *obj, CHAR_DATA *looker, CHAR_DATA *to, int act_flags)
+act_format_obj(OBJ_DATA *obj, CHAR_DATA *looker, int act_flags)
 {
 	const char *descr;
 
 	if (!can_see_obj(looker, obj))
-		return GETMSG("something", GET_LANG(to));
+		return GETMSG("something", GET_LANG(looker));
 
 	if (IS_SET(act_flags, ACT_FORMSH)) {
 		return format_short(&obj->short_descr, obj->name,
-				    to, act_flags);
+				    looker, act_flags);
 	}
 
-	descr = mlstr_cval(&obj->short_descr, to);
+	descr = mlstr_cval(&obj->short_descr, looker);
 	if (IS_SET(act_flags, ACT_NOFIXSH))
 		return descr;
 	return fix_short(descr);
@@ -309,7 +306,7 @@ door_name(const char *name)
 
 #define ACT_FLAGS(flags, sp)	((flags) | ((sp) < 0 ? 0 : ACT_NOFIXSH))
 
-#define CHAR_ARG(ch, vch)						\
+#define CHAR_ARG(vch)							\
 	{								\
 		if (vch == NULL) {					\
 			i = GETMSG("Noone", opt->to_lang);		\
@@ -317,13 +314,11 @@ door_name(const char *name)
 			int flags;					\
 			CHECK_TYPE(vch, MT_CHAR);			\
 			flags = ACT_FLAGS(opt->act_flags, sp);		\
-			i = PERS3(vch,					\
-				IS_SET(flags, ACT_ASCHAR) ? ch : to,	\
-				to, flags);				\
+			i = PERS2(vch, to, flags);			\
 		}							\
 	}
 
-#define OBJ_ARG(ch, obj)						\
+#define OBJ_ARG(obj)							\
 	{								\
 		if (obj == NULL) {					\
 			i = GETMSG("Nothing", opt->to_lang);		\
@@ -331,9 +326,7 @@ door_name(const char *name)
 			int flags;					\
 			CHECK_TYPE(obj, MT_OBJ);			\
 			flags = ACT_FLAGS(opt->act_flags, sp);		\
-			i = act_format_obj(obj,				\
-				IS_SET(flags, ACT_ASCHAR) ? ch : to,	\
-				to, flags);				\
+			i = act_format_obj(obj,	to, flags);		\
 		}							\
 	}
 
@@ -354,8 +347,8 @@ door_name(const char *name)
  *
  * $a
  * $A
- * $b - like $t but text is parsed by act_buf (with the same args)
- * $B - like $T ----- // ----
+ * $b
+ * $B
  * $c - $cn{...} - case number ``n''
  * $C
  * $d - door name (arg2)
@@ -446,7 +439,6 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 
 	struct tdata	tstack[TSTACK_SZ];
 	int		sp = -1;
-	int		old_flags;
 
 	s = format = GETMSG(format, opt->to_lang);
 
@@ -551,26 +543,6 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 				TEXT_ARG(arg3, opt->act_flags & ~ACT_STRANS);
 				break;
 
-			case 'b':
-				CHECK_STRING(arg1);
-				old_flags = opt->act_flags;
-				opt->act_flags |= ACT_NOLF;
-				act_buf(arg1, ch, to, arg1, arg2, arg3, opt,
-					tmp, sizeof(tmp));
-				opt->act_flags = old_flags;
-				i = tmp;
-				break;
-
-			case 'B':
-				CHECK_STRING(arg2);
-				old_flags = opt->act_flags;
-				opt->act_flags |= ACT_NOLF;
-				act_buf(arg2, ch, to, arg1, arg2, arg3, opt,
-					tmp, sizeof(tmp));
-				opt->act_flags = old_flags;
-				i = tmp;
-				break;
-
 /* room arguments */
 			case 'r':
 				CHECK_TYPE(room1, MT_ROOM);
@@ -584,19 +556,19 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 
 /* char arguments */
 			case 'n':
-				CHAR_ARG(ch, ch);
+				CHAR_ARG(ch);
 				break;
 
 			case 'N':
-				CHAR_ARG(ch, vch);
+				CHAR_ARG(vch);
 				break;
 
 			case 'i':
-				CHAR_ARG(ch, vch1);
+				CHAR_ARG(vch1);
 				break;
 
 			case 'I':
-				CHAR_ARG(ch, vch3);
+				CHAR_ARG(vch3);
 				break;
 
 /* numeric arguments */
@@ -643,11 +615,11 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 
 /* obj arguments */
 			case 'p':
-				OBJ_ARG(ch, obj1);
+				OBJ_ARG(obj1);
 				break;
 
 			case 'P':
-				OBJ_ARG(ch, obj2);
+				OBJ_ARG(obj2);
 				break;
 
 /* door arguments */
@@ -955,53 +927,79 @@ void act_puts3(const char *format, CHAR_DATA *ch,
 	}
 }
 
-void act_yell(const char *format, CHAR_DATA *ch,
-	      const void *arg1, const void *arg3)
+const char *
+act_speech(CHAR_DATA *ch, CHAR_DATA *vch, const char *text, const void *arg)
+{
+	static char buf[MAX_STRING_LENGTH];
+
+	if (arg) {
+		actopt_t opt;
+
+		opt.to_lang = GET_LANG(vch);
+		opt.act_flags = ACT_NOUCASE | ACT_NOLF;
+
+		act_buf(text, ch, ch, arg, NULL, NULL, &opt, buf, sizeof(buf));
+		text = buf;
+	}
+
+	return text;
+}
+
+void act_yell(CHAR_DATA *ch, const char *text, const void *arg,
+	      const char *format)
 {
 	DESCRIPTOR_DATA *d;
 
 	if (format == NULL)
-		format = "$n yells '{M$b{x'";
+		format = "$n yells '{M$t{x'";
 
 	for (d = descriptor_list; d; d = d->next) {
-		if (d->connected == CON_PLAYING
-		&&  d->character != ch
-		&&  d->character->in_room != NULL
-		&&  d->character->in_room->area == ch->in_room->area)
-			act_puts3(format, ch, arg1, d->character, arg3,
-	    			  TO_VICT | ACT_SPEECH(ch), POS_DEAD);
+		CHAR_DATA *vch;
+
+		if (d->connected != CON_PLAYING
+		||  (vch = d->character) == NULL
+		||  vch == ch
+		||  vch->in_room == NULL
+		||  vch->in_room->area != ch->in_room->area)
+			continue;
+
+		act_puts(format, ch, act_speech(ch, vch, text, arg), vch,
+	    		 TO_VICT | ACT_SPEECH(ch), POS_DEAD);
 	}
 }
 
-void act_clan(const char *format, CHAR_DATA *ch,
-	      const void *arg1, const void *arg3)
+void act_clan(CHAR_DATA *ch, const char *text, const void *arg)
 {
 	CHAR_DATA *vch;
-	int flags;
 
-	if (format == NULL)
-		format = "[CLAN] $n: {C$b{x";
+	for (vch = char_list; vch; vch = vch->next) {
+		if (vch == ch
+		||  vch->clan != ch->clan
+		||  IS_SET(vch->comm, COMM_NOCLAN))
+			continue;
 
-	flags = TO_VICT | ACT_TOBUF | (ACT_SPEECH(ch) & ~ACT_STRANS);
-	for (vch = char_list; vch; vch = vch->next)
-		if (vch->clan == ch->clan
-		&&  vch != ch
-		&&  !IS_SET(vch->comm, COMM_NOCLAN))
-			act_puts3(format, ch, arg1, vch, arg3, flags, POS_DEAD);
+		act_puts("[CLAN] $lu{$n}: {C$t{x", ch,
+			 act_speech(ch, vch, text, arg), vch,
+			 TO_VICT | ACT_TOBUF | (ACT_SPEECH(ch) & ~ACT_STRANS),
+			 POS_DEAD);
+	}
 }
 
-void act_say(const char *format_self, const char *format_others, CHAR_DATA *ch,
-	     const void *arg1, const void *arg2, const void *arg3)
+void act_say(CHAR_DATA *ch, const char *text, const void *arg)
 {
-	if (format_self == NULL)
-		format_self = "You say '{G$b{x'";
-	if (format_others == NULL)
-		format_others = "$n says '{G$b{x'";
+	CHAR_DATA *vch;
 
-	act_puts3(format_self, ch, arg1, arg2, arg3,
-		  TO_CHAR | ACT_SPEECH(ch), POS_DEAD);
-	act_puts3(format_others, ch, arg1, arg2, arg3,
-		  TO_ROOM | ACT_TOBUF | ACT_NOTWIT | ACT_SPEECH(ch),
-		  POS_RESTING);
+	act_puts("You say '{G$t{x'", ch,
+		 act_speech(ch, ch, text, arg), NULL,
+		 TO_CHAR | ACT_SPEECH(ch), POS_DEAD);
+
+	for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room) {
+		if (vch == ch)
+			continue;
+		act_puts("$n says '{G$t{x'", ch,
+			 act_speech(ch, vch, text, arg), vch,
+		 	 TO_VICT | ACT_TOBUF | ACT_NOTWIT | ACT_SPEECH(ch),
+			 POS_RESTING);
+	}
 }
 
