@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.300 2003-10-10 16:14:25 fjoe Exp $
+ * $Id: act_move.c,v 1.301 2003-12-25 21:16:46 sg Exp $
  */
 
 /***************************************************************************
@@ -2296,7 +2296,7 @@ DO_FUN(do_charge, ch, argument)
 		return;
 	}
 
-	if (ch->mount == NULL) {
+	if (MOUNTED(ch) == NULL) {
 		act_char("You have to be riding.", ch);
 		return;
 	}
