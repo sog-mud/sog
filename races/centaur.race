@@ -15,6 +15,7 @@ Class 'warlock' 100
 Class 'warrior' 100
 Class 'witch' 100
 BonusSkills 'mastering bow'~
+Skill 'kick' 1
 Stats 2 -1 0 -2 2 0 
 MaxStats 22 19 20 18 22 25 
 Size medium

@@ -13,6 +13,7 @@ Class 'ranger' 100
 Class 'thief' 100
 Class 'warrior' 100
 BonusSkills 'camouflage' 'ambush' 'steal'~
+Skill 'kick' 1
 Stats -1 0 0 3 0 0 
 MaxStats 19 23 20 25 18 25 
 Size medium

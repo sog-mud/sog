@@ -1121,7 +1121,7 @@ City Guard Lieutenant Sword is lying here.~
 steel~
 weapon G AN
 sword 4 8 slice 0
-8 100 1000 P
+11 100 1000 P
 A
 18 3
 A
@@ -4353,7 +4353,7 @@ S
 0
 
 #OLIMITS
-O 40118 5	* City Guard Lieutenant Sword
+O 40118 2	* City Guard Lieutenant Sword
 S
 
 #PRACTICERS

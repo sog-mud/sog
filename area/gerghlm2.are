@@ -2774,8 +2774,8 @@ Z -1 6002
 S
 #7557
 @eng Dirt path@rus Грязная дорога~
-You are on a dirt path that leads to a town. (you can tell this because
-a passerby told you.), the path continues north and south.
+@eng You are on a dirt path that leads to a town (you can tell this because
+a passerby told you). The path continues north and south.
 ~
 0 0 city
 D0

@@ -872,11 +872,11 @@ shield spiked~
 a wicked, spiked shield~
 You see a shield here.~
 steel~
-armor AO AJ
+armor A AJ
 5 5 5 1 1
-5 100 1000 G
+15 100 1000 G
 A
-19 5
+19 3
 G none
 #5640
 cloak~
@@ -995,11 +995,11 @@ shield spiked~
 a wicked, spiked shield~
 You see a wicked, spiked shield here.~
 steel~
-armor BO AJ
+armor B AJ
 5 5 5 5 5
-5 100 1000 G
+15 100 1000 G
 A
-19 5
+19 3
 G none
 #5651
 cloak~

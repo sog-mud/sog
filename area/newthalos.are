@@ -1045,14 +1045,13 @@ A horse stands here.
 ~
 You see one of the fine arabian beasts known about the land.
 ~
-human~
+horse~
 ACGHU 0 0 0
 4 0 2d7+46 2d9+100 1d5+1 none
 6 6 6 9
-EFNU 0 0 0
+ENU 0 0 0
 stand stand male 3
-0 0 tiny unknown
-F par GHIJK
+0 0 medium unknown
 #9568
 tourist~
 a tourist~

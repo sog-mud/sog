@@ -1136,7 +1136,7 @@ a can of EC50~
 A can of EC50 is here looking dangerous.~
 unknown~
 wand 0 AO
-20 5 5 'fireball' 0
+10 5 5 'fireball' 0
 10 10 400 P
 G none
 #32067

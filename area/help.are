@@ -3067,7 +3067,7 @@ mages can cause the item act in different ways.
 Заклинание 'ENCHANT WEAPON' магически улучшает оружие, увеличивая его hitroll
 и damroll на 1 или 2. Можно использовать это заклинание несколько раз, но с
 каждым следующим разом все больше и больше вероятность неудачи. Кроме того,
-каждое применение заклинания увеличиваетуровень обьекта.
+каждое применение заклинания увеличивает уровень обьекта.
  
 'ENCHANT ARMOR' улучшает броню вещей посредством магии. Он еще менее надежен,
 чем 'ENCHANT WEAPON'. Говорят, когда сильный маг работает над серьезным предме-
@@ -3515,8 +3515,8 @@ Githyanki   Githy Int,Dex Wis,Con  250  evil, "sword", "dagger", infravision
 Satyr       Satyr   Dex     Int    250  neutral, "camo.","ambush","steal",infra
 Felar       Felar Dex,Con Str,Int  250  "hand to hand", "tail", "claws", infra
 Troll       Troll Str,Con Int,Dex  400  evil, regen,"fast heal","trance", infra
-Wyrm        Wyrm  Con,Wis Int,Dex  600  !good, "claws", "tail",fly, infravision
-Centaur     Centa Str,Con Int,Dex  400  !evil, "mastering bow", invfavision
+Wyrm        Wyrm  Con,Wis Int,Dex  600  evil,neutral,"claws","tail", fly, infra
+Centaur     Centa Str,Con Int,Dex  400  good, neutral, "mastering bow", infra
 ~
 -1 GNOME GNOMES~
 Gnomes are a race of small, wiry, but tough creatures.  They live a very
