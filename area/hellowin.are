@@ -59,6 +59,26 @@ stand stand none 0
 0 0 medium unknown
 F for AHMV
 F par ABCDEFGHIJK
+#34405
+master undead повелитель~
+@eng Master of Undead@rus ~~Повелитель~~ Нечисти~
+@eng Master of Undead looks at you.
+@rus Повелитель Ночи (Master) смотрит на тебя немигающими глазами.
+~
+@rus Мрачная, закутанная в необьятный черный плащ, фигура. Весь свет она
+всасывает в себя, не оставляя не единого лучика. От нее веет могильным
+холодом. Мертвый остановившийся взгляд... страх, или вернее, ужас пара-
+лизует тебя, не дает двинуться с места, не дает убежать... Не остается 
+ничего иного, как молча, покорно ожидать своей участи.
+~
+dracolich~
+AOT 0 -1000 0
+100 1000 10d3000+1 10d3000+1 10d400+1 drain
+0 0 0 0
+D CD 0 0
+stand stand male 100
+0 0 gargantuan unknown
+F vul I
 #0
 
 #OBJECTS
@@ -184,6 +204,24 @@ wand CF AO
 100 1 1 'improved identify' 0
 10 1 5000 P
 G none
+#34412
+wand жезл~
+@eng Wand of the Authority@rus ~~Жезл~~ Власти~
+@eng Wand of the Authority lies here filled with energy.@rus Жезл Власти, наполненный магической силой и энергией, ярко сверкает, лежа на земле у твоих ног.~
+energy~
+wand AT AO
+150 1 1 'control undead' 0
+1 1 100 P
+G male
+#34413
+vial life чаша~
+@eng Vial of Life@rus ~~Чаша~~ Жизни~
+@eng The golden vial lies here.@rus Золотая Чаша (Vial) сияет в солнечных лучах.~
+gold~
+staff AGI AO
+150 10 10 'abolish undead' 0
+1 1 100 P
+G none
 #34450
 claws когти~
 @eng tiger's claws@rus ~~когти~~ тигра~
@@ -243,6 +281,10 @@ G male
 0 C forest
 S
 #0
+
+#SPECIALS
+M 34405 spec_cast_undead	* Master of Undead
+S
 
 #RESETS
 M 0 34400 1 34400 1	* {ysympathetic bear{w ({GClearing in the woods{w)

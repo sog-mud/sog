@@ -356,6 +356,7 @@ EFN AB 0 0
 stand stand none 5300
 0 0 medium unknown
 F aff U
+M greet 32 100~
 #50
 junkseller junk seller~
 Junkseller~
@@ -1646,6 +1647,21 @@ cast nowait 'lightning breath'
 ~
 #2
 clan yes, sir?
+~
+#32
+if isimmort $n
+     break
+else
+     if isspectar $n
+          break
+     else
+          wake $a
+          mob sechoat $a Your thing detects arrives life.
+          if inpk $a $n
+               mob kill $n
+          endif
+     endif
+endif
 ~
 #0
 
