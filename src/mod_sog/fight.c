@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.303 2001-07-04 19:37:30 fjoe Exp $
+ * $Id: fight.c,v 1.304 2001-07-04 19:51:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -695,7 +695,8 @@ handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 		return;
 	}
 
-	group_gain(ch, victim);
+	if (!is_duel)
+		group_gain(ch, victim);
 
 #if 0
 	XXX
