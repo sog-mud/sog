@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.31 2001-02-12 19:12:12 fjoe Exp $
+ * $Id: act_info.c,v 1.271.2.32 2001-03-09 21:40:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -179,7 +179,7 @@ void do_socials(CHAR_DATA *ch, const char *argument)
 		char_puts(", you'll see:\n   ", ch);
 		found = TRUE;
 	}
-	act(soc->noarg_char, ch, NULL, NULL, TO_CHAR);
+	act_puts(soc->noarg_char, ch, NULL, NULL, TO_CHAR, POS_DEAD);
 
 	if (soc->noarg_room) {
 		if (found)
@@ -189,7 +189,7 @@ void do_socials(CHAR_DATA *ch, const char *argument)
 		char_puts("thers will see:\n   ", ch);
 		found = TRUE;
 	}
-	act(soc->noarg_room, ch, NULL, NULL, TO_CHAR);
+	act_puts(soc->noarg_room, ch, NULL, NULL, TO_CHAR, POS_DEAD);
 
 	if (!found)
 		char_puts(" is pointless.\n", ch);
@@ -202,7 +202,7 @@ void do_socials(CHAR_DATA *ch, const char *argument)
 		char_puts(", you'll see:\n   ", ch);
 		found = TRUE;
 	}
-	act(soc->self_char, ch, NULL, ch, TO_CHAR);
+	act_puts(soc->self_char, ch, NULL, ch, TO_CHAR, POS_DEAD);
 
 	if (soc->self_room) {
 		if (found)
@@ -212,7 +212,7 @@ void do_socials(CHAR_DATA *ch, const char *argument)
 		char_puts("thers will see:\n   ", ch);
 		found = TRUE;
 	}
-	act(soc->self_room, ch, NULL, ch, TO_CHAR);
+	act_puts(soc->self_room, ch, NULL, ch, TO_CHAR, POS_DEAD);
 
 	if (!found)
 		char_puts(" is pointless.\n", ch);
@@ -220,7 +220,7 @@ void do_socials(CHAR_DATA *ch, const char *argument)
 	/* notfound */
 	if (soc->notfound_char) {
 		char_puts("\nIf your victim is absent, you'll see:\n   ", ch);
-		act(soc->notfound_char, ch, NULL, NULL, TO_CHAR);
+		act_puts(soc->notfound_char, ch, NULL, NULL, TO_CHAR, POS_DEAD);
 	}
 
 	/* other */
@@ -230,7 +230,7 @@ void do_socials(CHAR_DATA *ch, const char *argument)
 		char_puts(", you'll see:\n   ", ch);
 		found = TRUE;
 	}
-	act(soc->found_char, ch, NULL, ch, TO_CHAR);
+	act_puts(soc->found_char, ch, NULL, ch, TO_CHAR, POS_DEAD);
 
 	if (soc->found_vict) {
 		if (found)
@@ -240,7 +240,7 @@ void do_socials(CHAR_DATA *ch, const char *argument)
 		char_puts("our victim will see:\n   ", ch);
 		found = TRUE;
 	}
-	act(soc->found_vict, ch, NULL, ch, TO_CHAR);
+	act_puts(soc->found_vict, ch, NULL, ch, TO_CHAR, POS_DEAD);
 
 	if (soc->found_notvict) {
 		if (found)
@@ -250,7 +250,7 @@ void do_socials(CHAR_DATA *ch, const char *argument)
 		char_puts("thers will see:\n   ", ch);
 		found = TRUE;
 	}
-	act(soc->found_notvict, ch, NULL, ch, TO_CHAR);
+	act_puts(soc->found_notvict, ch, NULL, ch, TO_CHAR, POS_DEAD);
 
 	if (!found)
 		char_puts(" is pointless.\n", ch);
