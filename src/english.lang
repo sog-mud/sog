@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.35 1998-06-06 01:45:17 efdi Exp $
+# $Id: english.lang,v 1.36 1998-06-06 08:54:30 fjoe Exp $
 #
 
 INFO_NOTHING		"Nothing.\n\r"
@@ -312,11 +312,11 @@ INFO_POS_NAME_DEAD 	"{RDEAD{x"
 INFO_POS_NAME_MORTALLY_WOUNDED 	"{Rmortally wounded{x"
 INFO_POS_NAME_INCAPACITATED 	"{Rincapacitated{x"
 INFO_POS_NAME_STUNNED 	"{Rstunned{x"
-INFO_POS_NAME_SLEEPING 	"{gsleeping{x"
-INFO_POS_NAME_RESTING 	"{gresting{x"
-INFO_POS_NAME_SITTING 	"{gsitting{x"
+INFO_POS_NAME_SLEEPING 	"{csleeping{x"
+INFO_POS_NAME_RESTING 	"{cresting{x"
+INFO_POS_NAME_SITTING 	"{csitting{x"
 INFO_POS_NAME_FIGHTING 	"{Rfighting{x"
-INFO_POS_NAME_STANDING 	"{gstanding{x"
+INFO_POS_NAME_STANDING 	"{cstanding{x"
 MOVE_LEAVES 		"$n leaves."
 MOVE_LEAVES_RIDING_ON 	"$n leaves, riding on %s."
 MOVE_LEAVES_T 		"$n leaves $T."
