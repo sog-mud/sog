@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.89.2.6 2001-06-26 18:02:25 fjoe Exp $
+ * $Id: tables.c,v 1.89.2.7 2001-11-21 19:48:25 avn Exp $
  */
 
 /***************************************************************************
@@ -985,7 +985,6 @@ flag_t skill_groups[] =
 {
 	{ "",			TABLE_BITVAL			},
 
-	{ "none",		GROUP_NONE,		TRUE	},
 	{ "weaponsmaster",	GROUP_WEAPONSMASTER,	TRUE	},
 	{ "attack",		GROUP_ATTACK,		TRUE	},
 	{ "beguiling",		GROUP_BEGUILING,	TRUE	},
