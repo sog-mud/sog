@@ -1,0 +1,19 @@
+/*
+ * $Id: mob_give_fireflash.mpc,v 1.1 2001-09-05 12:43:37 fjoe Exp $
+ */
+
+purge_obj($o);
+
+dofun("say", $n, "What a wonderful rug! Let's see... where shall I put it?");
+dofun("emote", $n, "starts wandering about the room, mumbling to himself.");
+dofun("emote", $n, "sticks his hands in his pockets.");
+dofun("say", $n, "What is it? A key?");
+
+obj o;
+if ((o = get_obj_carry($n, $n, "2438")) == NULL)
+	o = load_obj($n, 2438);
+if (!give_obj($n, $N, o))
+        return 0;
+
+dofun("say", $n, "Here, you can have it.");
+dofun("emote", $n, "absently pushes the rug under a chair.");

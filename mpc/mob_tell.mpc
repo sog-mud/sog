@@ -1,9 +1,9 @@
 /*
- * $Id: mob_tell_mad_hatter.mpc,v 1.2 2001-09-05 12:43:43 fjoe Exp $
+ * $Id: mob_tell.mpc,v 1.1 2001-09-05 12:43:43 fjoe Exp $
  */
 
-dofun("say", $n, "I have no idea!");
- 
+dofun("say", $n, "It's always tea-time!");
+
 obj tea;
 if ((tea = get_obj_carry($n, $n, "21045")) == NULL)
         tea = load_obj($n, 21045);

@@ -1,0 +1,6 @@
+/*
+ * $Id: mob_kill_bamf_self.mpc,v 1.1 2001-09-05 12:43:40 fjoe Exp $
+ */
+
+cast_char("bamf", $n, $n);
+return 1;

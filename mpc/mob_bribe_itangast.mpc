@@ -1,0 +1,11 @@
+/*
+ * $Id: mob_bribe_itangast.mpc,v 1.1 2001-09-05 12:43:37 fjoe Exp $
+ */
+
+room r = get_room_index(22404);
+if (r == NULL)
+       return 0;
+
+dofun("emote", $n, "thinks deeply.");
+dofun("say", $n, "I think that you can visit the Treasure Keep.");
+transfer_char($N, r);

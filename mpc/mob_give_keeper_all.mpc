@@ -1,0 +1,6 @@
+/*
+ * $Id: mob_give_keeper_all.mpc,v 1.1 2001-09-05 12:43:38 fjoe Exp $
+ */
+
+dofun("say", $n, "Why do I need this?");
+give_obj($n, $N, $o);

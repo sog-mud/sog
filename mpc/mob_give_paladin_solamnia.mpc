@@ -1,0 +1,14 @@
+purge_obj($o);
+
+if (get_obj_carry($n, $N, "89"))
+        return 0;
+
+obj o;
+if ((o = get_obj_carry($n, $n, "89")) == NULL)
+        o = load_obj($n, 89);
+
+if (!give_obj($n, $N, o))
+        return 0;
+
+dofun("say", $n, "Here is your reward!");
+dofun("say", $n, "This stone has some special powers, use it well.");

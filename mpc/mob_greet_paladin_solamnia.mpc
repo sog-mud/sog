@@ -1,0 +1,9 @@
+/*
+ * $Id: mob_greet_paladin_solamnia.mpc,v 1.1 2001-09-05 12:43:39 fjoe Exp $
+ */
+
+if (get_obj_carry($n, $N, "2438") == NULL)
+        return 0;
+
+dofun("say", $n, "I think you bring something for me...");
+mob_interpret($n, "smile");

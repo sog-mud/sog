@@ -1,0 +1,5 @@
+/*
+ * $Id: mob_look_executioner.mpc,v 1.1 2001-09-05 12:43:41 fjoe Exp $
+ */
+
+cast_char("shield", $n, $n);

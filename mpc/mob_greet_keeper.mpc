@@ -1,0 +1,5 @@
+/*
+ * $Id: mob_greet_keeper.mpc,v 1.1 2001-09-05 12:43:39 fjoe Exp $
+ */
+
+dofun("say", $n, "What business do you have here? Is it that dress I ordered?");

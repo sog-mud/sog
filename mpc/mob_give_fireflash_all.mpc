@@ -1,0 +1,7 @@
+/*
+ * $Id: mob_give_fireflash_all.mpc,v 1.1 2001-09-05 12:43:37 fjoe Exp $
+ */
+
+dofun("say", $n, "How interesting!.. what's it for?");
+mob_interpret($n, "giggle");
+give_obj($n, $N, $o);

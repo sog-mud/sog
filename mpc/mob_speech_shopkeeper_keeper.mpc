@@ -1,0 +1,17 @@
+/*
+ * $Id: mob_speech_shopkeeper_keeper.mpc,v 1.1 2001-09-05 12:43:42 fjoe Exp $
+ */
+
+if (get_obj_carry($n, $N, "90"))
+        return 0;
+
+dofun("emote", $n, "fashions a white gown for the Keeper.");
+
+obj o;
+if ((o = get_obj_carry($n, $n, "90")) == NULL)
+	o = load_obj($n, 90);
+
+if (!give_obj($n, $N, o))
+        return 0;
+ 
+dofun("say", $n, "Here is a dress for the Keeper.");

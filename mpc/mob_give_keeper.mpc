@@ -1,0 +1,17 @@
+/*
+ * $Id: mob_give_keeper.mpc,v 1.1 2001-09-05 12:43:38 fjoe Exp $
+ */
+
+dofun("say", $n, "Finally, the dress I sent for!");
+dofun("emote", $n, "tucks the dress away under her desk.");
+purge_obj($o);
+ 
+if (get_obj_carry($n, $N, "91")) {
+        dofun("say", $n, "I suppose you'll want to see the FireFlash right now.");
+        dofun("say", $n, "Be careful, he's been in a nasty mood.");
+        unlock_door($n, "door");
+        open_door($n, "door");
+} else {
+        dofun("say", $n, "It doesn't look like you have any business with the FireFlash.");
+        dofun("say", $n, "I suggest you leave and find something before coming here again.");
+}

@@ -1,0 +1,5 @@
+/*
+ * $Id: mob_tell_white_rabbit.mpc,v 1.1 2001-09-05 12:43:43 fjoe Exp $
+ */
+
+tell_char($n, $N, "No time to chat!");
