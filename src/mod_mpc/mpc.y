@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.45 2002-01-21 07:16:16 fjoe Exp $
+ * $Id: mpc.y,v 1.46 2002-06-27 17:21:04 fjoe Exp $
  */
 
 /*
@@ -219,14 +219,6 @@ code3(mpcode_t *mpc,
 		(rv) = MT_INT;						\
 	} while (0)
 
-#define INCDEC_UOP(opname, c_uop_fun, ident, rv)			\
-	do {								\
-		sym_t *sym;						\
-		SYM_LOOKUP(sym, (ident), SYM_VAR);			\
-		INT_UOP((opname), c_uop_fun, sym->s.var.type_tag, (rv));\
-		code(mpc, sym->name);					\
-	} while (0)
-
 #define PUSH_EXPLICIT(addr)						\
 	do {								\
 		int *p = (int *) varr_enew(&mpc->cstack);		\
@@ -287,8 +279,8 @@ code3(mpcode_t *mpc,
 %right L_NOT '~'
 %nonassoc L_INC L_DEC
 
-%type <type_tag> expr comma_expr L_TYPE
-%type <number> expr_list expr_list_ne L_INT int_const var_class
+%type <type_tag> expr comma_expr lvalue L_TYPE
+%type <number> expr_list expr_list_ne int_const var_class L_INT
 %type <string> L_IDENT L_STRING
 %type <cfun> assign
 %type <iter> L_ITER
@@ -380,6 +372,9 @@ stmt:	';'
 		}
 
 		svh = c_get(&mpc->svhs, sym->name);
+		free_string(svh->sym_name);
+		svh->sym_name = str_qdup(sym->name);
+
 		if ((svar = (svar_t *) c_lookup(&svh->svars, $5)) != NULL) {
 			compile_error(mpc,
 			    "%s[%s]: duplicate symbol", $3, $5);
@@ -794,19 +789,16 @@ int_const: L_INT
 	| '~' int_const			{ $$ = ~$2; }
 	;
 
-expr:	L_IDENT assign expr %prec '=' {
-		sym_t *sym;
-
-		SYM_LOOKUP(sym, $1, SYM_VAR);
-		if (sym->s.var.type_tag != $3) {
+expr:	lvalue assign expr %prec '=' {
+		if ($1 != $3) {
 			compile_error(mpc, "type mismatch ('%s' vs. '%s')",
-			    flag_string(mpc_types, sym->s.var.type_tag),
+			    flag_string(mpc_types, $1),
 			    flag_string(mpc_types, $3));
 			YYERROR;
 		}
 
-		code2(mpc, $2, sym->name);
-		$$ = sym->s.var.type_tag;
+		code(mpc, $2);
+		$$ = $1;
 	}
 	| L_IDENT '(' expr_list ')' {
 		int i;
@@ -865,29 +857,8 @@ expr:	L_IDENT assign expr %prec '=' {
 		 */
 		argtype_popn(mpc, $3);
 	}
-	| L_IDENT {
-		sym_t *sym;
-
-		SYM_LOOKUP(sym, $1, SYM_VAR);
-		code2(mpc, c_push_var, sym->name);
-		$$ = sym->s.var.type_tag;
-	}
-	| L_IDENT '[' L_IDENT ']' {
-		sym_t *sym;
-		svh_t *svh;
-		svar_t *svar;
-
-		SYM_LOOKUP(sym, $1, SYM_VAR);
-		if ((svh = c_lookup(&mpc->svhs, sym->name)) == NULL
-		||  (svar = (svar_t *) c_lookup(&svh->svars, $3)) == NULL) {
-			compile_error(mpc,
-			    "%s[%s]: unknown identifier", $1, $3);
-			YYERROR;
-		}
-
-		code3(mpc, c_var_get, sym->name, svar->name);
-		code2(mpc, (void *) svar->type_tag, (void *) svar->var_flags);
-		$$ = svar->type_tag;
+	| lvalue {
+		code(mpc, c_push_lvalue);
 	}
 	| L_STRING {
 		code2(mpc, c_push_const, $1);
@@ -1052,20 +1023,45 @@ expr:	L_IDENT assign expr %prec '=' {
 	| '-' expr %prec L_NOT {
 		INT_UOP("-", c_uop_minus, $2, $$);
 	}
-	| L_IDENT L_INC			/* normal precedence here */ {
-		INCDEC_UOP("++", c_postinc, $1, $$);
+	| lvalue L_INC			/* normal precedence here */ {
+		INT_UOP("++", c_postinc, $1, $$);
 	}
-	| L_IDENT L_DEC			/* normal precedence here */ {
-		INCDEC_UOP("--", c_postdec, $1, $$);
+	| lvalue L_DEC			/* normal precedence here */ {
+		INT_UOP("--", c_postdec, $1, $$);
 	}
-	| L_INC L_IDENT %prec L_NOT	/* note lower precedence here */ {
-		INCDEC_UOP("++", c_preinc, $2, $$);
+	| L_INC lvalue %prec L_NOT	/* note lower precedence here */ {
+		INT_UOP("++", c_preinc, $2, $$);
 	}
-	| L_DEC L_IDENT %prec L_NOT	/* note lower precedence here */ {
-		INCDEC_UOP("--", c_predec, $2, $$);
+	| L_DEC lvalue %prec L_NOT	/* note lower precedence here */ {
+		INT_UOP("--", c_predec, $2, $$);
 	}
 	| '+' expr %prec L_NOT		{ $$ = $2; }
 	;
+
+lvalue: L_IDENT {
+		sym_t *sym;
+
+		SYM_LOOKUP(sym, $1, SYM_VAR);
+		code2(mpc, c_push_var, sym->name);
+		$$ = sym->s.var.type_tag;
+	}
+	| L_IDENT '[' L_IDENT ']' {
+		sym_t *sym;
+		svh_t *svh;
+		svar_t *svar;
+
+		SYM_LOOKUP(sym, $1, SYM_VAR);
+		if ((svh = c_lookup(&mpc->svhs, sym->name)) == NULL
+		||  (svar = (svar_t *) c_lookup(&svh->svars, $3)) == NULL) {
+			compile_error(mpc,
+			    "%s[%s]: unknown identifier", $1, $3);
+			YYERROR;
+		}
+
+		code3(mpc, c_push_svar, sym->name, svar->name);
+		code2(mpc, (void *) svar->type_tag, (void *) svar->var_flags);
+		$$ = svar->type_tag;
+	}
 
 comma_expr: expr	{ $$ = $1; }
 	| comma_expr	{ code(mpc, c_pop);
@@ -1105,7 +1101,9 @@ typedef struct codeinfo_t codeinfo_t;
 struct codeinfo_t codetab[] = {
 	{ c_pop,		"pop",			0 },
 	{ c_push_const,		"push_const",		1 },
+	{ c_push_lvalue,	"push_lvalue",		0 },
 	{ c_push_var,		"push_var",		1 },
+	{ c_push_svar,		"push_svar",		4 },
 	{ c_push_retval,	"push_retval",		3 },
 	{ c_stop,		"stop",			0 },
 	{ c_jmp,		"jmp",			1 },
@@ -1119,7 +1117,6 @@ struct codeinfo_t codetab[] = {
 	{ c_declare_assign,	"declare_assign",	3 },
 	{ c_cleanup_syms,	"cleanup_syms",		1 },
 	{ c_return,		"return",		0 },
-	{ c_var_get,		"var_get",		5 },
 	{ c_bop_lor,		"bop_lor",		1 },
 	{ c_bop_land,		"bop_land",		1 },
 	{ c_bop_or,		"bop_or",		0 },
@@ -1147,17 +1144,17 @@ struct codeinfo_t codetab[] = {
 	{ c_postdec,		"postdec",		1 },
 	{ c_preinc,		"preinc",		1 },
 	{ c_predec,		"predec",		1 },
-	{ c_assign,		"assign",		1 },
-	{ c_add_eq,		"add_eq",		1 },
-	{ c_sub_eq,		"sub_eq",		1 },
-	{ c_div_eq,		"div_eq",		1 },
-	{ c_mul_eq,		"mul_eq",		1 },
-	{ c_mod_eq,		"mod_eq",		1 },
-	{ c_and_eq,		"and_eq",		1 },
-	{ c_or_eq,		"or_eq",		1 },
-	{ c_xor_eq,		"xor_eq",		1 },
-	{ c_shl_eq,		"shl_eq",		1 },
-	{ c_shr_eq,		"shr_eq",		1 },
+	{ c_assign,		"assign",		0 },
+	{ c_add_eq,		"add_eq",		0 },
+	{ c_sub_eq,		"sub_eq",		0 },
+	{ c_div_eq,		"div_eq",		0 },
+	{ c_mul_eq,		"mul_eq",		0 },
+	{ c_mod_eq,		"mod_eq",		0 },
+	{ c_and_eq,		"and_eq",		0 },
+	{ c_or_eq,		"or_eq",		0 },
+	{ c_xor_eq,		"xor_eq",		0 },
+	{ c_shl_eq,		"shl_eq",		0 },
+	{ c_shr_eq,		"shr_eq",		0 },
 };
 
 #define CODETAB_SZ (sizeof(codetab) / sizeof(codeinfo_t))
@@ -1228,6 +1225,13 @@ mpcode_dump(mpcode_t *mpc)
 			fprintf(stderr, " %d", CODE(ip)[1]);
 		} else if (p == c_push_var) {
 			fprintf(stderr, " %s", (const char *) CODE(ip)[1]);
+		} else if (p == c_push_svar) {
+			fprintf(stderr, " %s %s %s[%s]",
+				IS_SET(CODE(ip)[4], VAR_PERSISTENT) ?
+				    "persistent" : "static",
+				flag_string(mpc_types, CODE(ip)[3]),
+				(const char *) CODE(ip)[1],
+				(const char *) CODE(ip)[2]);
 		} else if (p == c_push_retval) {
 			fprintf(stderr, " %s", (const char *) CODE(ip)[1]);
 			ip += CODE(ip)[3];

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_impl.h,v 1.27 2002-01-21 07:16:16 fjoe Exp $
+ * $Id: mpc_impl.h,v 1.28 2002-06-27 17:21:04 fjoe Exp $
  */
 
 #ifndef _MPC_IMPL_H_
@@ -240,6 +240,13 @@ typedef void (*c_fun)(mpcode_t *mpc);
 void	c_pop(mpcode_t *mpc);
 
 /**
+ * Push lvalue on data stack
+ *
+ * Expects lvalue on data stack
+ */
+void	c_push_lvalue(mpcode_t *mpc);
+
+/**
  * Push constant on data stack
  *
  * Expects next opcode to be const value to push.
@@ -252,6 +259,11 @@ void	c_push_const(mpcode_t *mpc);
  * Expects next opcode to be variable name.
  */
 void	c_push_var(mpcode_t *mpc);
+
+/**
+ * Push static variable on data stack
+ */
+void	c_push_svar(mpcode_t *mpc);
 
 /**
  * Push function return value on data stack
@@ -275,7 +287,6 @@ void	c_declare_assign(mpcode_t *mpc);/* declare variable and assign */
 					/* initial value */
 void	c_cleanup_syms(mpcode_t *mpc);	/* cleanup symbols */
 void	c_return(mpcode_t *mpc);	/* return expr */
-void	c_var_get(mpcode_t *mpc);	/* get static var */
 
 /*--------------------------------------------------------------------
  * binary operations

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_c.c,v 1.31 2002-01-21 07:16:16 fjoe Exp $
+ * $Id: mpc_c.c,v 1.32 2002-06-27 17:21:04 fjoe Exp $
  */
 
 #include <assert.h>
@@ -75,16 +75,86 @@ c_push_const(mpcode_t *mpc)
 }
 
 void
+c_push_lvalue(mpcode_t *mpc)
+{
+	vo_t *v;
+
+	v = pop(mpc);
+	push(mpc, *((vo_t *) v->p));
+}
+
+void
 c_push_var(mpcode_t *mpc)
 {
 	sym_t *sym;
+	vo_t v;
 
 	TRACE((LOG_INFO, __FUNCTION__));
 	sym = sym_get(mpc, SYM_VAR);
-	push(mpc, sym->s.var.data);
+	v.p = &sym->s.var.data;
+	push(mpc, v);
 
 	if (IS_SET(mpc->mp->flags, MP_F_TRACE))
 		dumpvar(__FUNCTION__, mpc, sym);
+}
+
+void
+c_push_svar(mpcode_t *mpc)
+{
+	sym_t *sym;
+	const char *name;
+	int type_tag;
+	int var_flags;
+	vo_t v;
+
+	avltree_t *vars = NULL;
+	var_t *var;
+
+	TRACE((LOG_INFO, __FUNCTION__));
+
+	/*
+	 * get holder and var name
+	 */
+	sym = sym_get(mpc, SYM_VAR);
+	name = code_get(mpc);
+	type_tag = CODE_GET(int, mpc);
+	var_flags = CODE_GET(int, mpc);
+
+	/*
+	 * check that holder is not NULL
+	 */
+	mpc_assert(mpc, __FUNCTION__, sym->s.var.data.p != NULL,
+		   "sym->s.var.data.p is NULL");
+
+	switch (sym->s.var.type_tag) {
+	case MT_CHAR:
+		vars = &(sym->s.var.data.ch)->vars;
+		break;
+
+	case MT_OBJ:
+		vars = &(sym->s.var.data.obj)->vars;
+		break;
+
+	case MT_ROOM:
+		vars = &(sym->s.var.data.r)->vars;
+		break;
+
+	default:
+		mpc_assert(mpc, __FUNCTION__, 0,
+			   "invalid holder type '%s' (%s)",
+			   flag_string(mpc_types, sym->s.var.type_tag),
+			   sym->name);
+		/* NOTREACHED */
+	}
+
+	assert(vars != NULL);
+	var = var_get(vars, name, type_tag, var_flags);
+	mpc_assert(mpc, __FUNCTION__, var != NULL,
+		   "static var type mismatch ('%s' required)",
+		   flag_string(mpc_types, type_tag));
+
+	v.p = &var->value;
+	push(mpc, v);
 }
 
 void
@@ -476,63 +546,6 @@ c_return(mpcode_t *mpc)
 	mpc->ip = INVALID_ADDR;
 }
 
-void
-c_var_get(mpcode_t *mpc)
-{
-	sym_t *sym;
-	const char *name;
-	int type_tag;
-	int var_flags;
-
-	avltree_t *vars = NULL;
-	var_t *var;
-
-	TRACE((LOG_INFO, __FUNCTION__));
-
-	/*
-	 * get holder and var name
-	 */
-	sym = sym_get(mpc, SYM_VAR);
-	name = code_get(mpc);
-	type_tag = *(int *) code_get(mpc);
-	var_flags = *(int *) code_get(mpc);
-
-	/*
-	 * check that holder is not NULL
-	 */
-	mpc_assert(mpc, __FUNCTION__, sym->s.var.data.p != NULL,
-		   "division by zero");
-
-	switch (sym->s.var.type_tag) {
-	case MT_CHAR:
-		vars = &(sym->s.var.data.ch)->vars;
-		break;
-
-	case MT_OBJ:
-		vars = &(sym->s.var.data.obj)->vars;
-		break;
-
-	case MT_ROOM:
-		vars = &(sym->s.var.data.r)->vars;
-		break;
-
-	default:
-		mpc_assert(mpc, __FUNCTION__, 0,
-			   "invalid holder type '%s' (%s)",
-			   flag_string(mpc_types, sym->s.var.type_tag),
-			   sym->name);
-		/* NOTREACHED */
-	}
-
-	assert(vars != NULL);
-	var = var_get(vars, name, type_tag, var_flags);
-	mpc_assert(mpc, __FUNCTION__, var != NULL,
-		   "static var type mismatch ('%s' required)",
-		   flag_string(mpc_types, type_tag));
-
-	push(mpc, var->value);
-}
-
 /*--------------------------------------------------------------------
  * binary operations
  */
@@ -552,7 +565,7 @@ c_var_get(mpcode_t *mpc)
 
 #define INT_BOP(c_bop_fun, op)						\
 	void								\
-	c_bop_fun(mpcode_t *mpc)						\
+	c_bop_fun(mpcode_t *mpc)					\
 	{								\
 		INT_BOP_HEAD;						\
 		INT_BOP_TAIL(op);					\
@@ -708,13 +721,13 @@ INT_UOP(c_uop_minus, -)
 	void								\
 	c_incdec_fun(mpcode_t *mpc)					\
 	{								\
-		sym_t *sym;						\
+		vo_t *vp;						\
 		vo_t v;							\
 									\
 		TRACE((LOG_INFO, __FUNCTION__));			\
 									\
-		sym = sym_get(mpc, SYM_VAR);				\
-		v.i = preop sym->s.var.data.i postop;			\
+		vp = pop(mpc);						\
+		v.i = preop ((vo_t *) vp->p)->i postop;			\
 		push(mpc, v);						\
 	}
 
@@ -728,17 +741,17 @@ INT_INCDEC(c_predec, --, )
  */
 
 #define ASSIGN_HEAD							\
-	sym_t *sym;							\
-	vo_t *vo;							\
+	vo_t *vl;							\
+	vo_t *vr;							\
 									\
 	TRACE((LOG_INFO, __FUNCTION__));				\
 									\
-	sym = sym_get(mpc, SYM_VAR);					\
-	vo = pop(mpc)
+	vr = pop(mpc);							\
+	vl = pop(mpc)
 
 #define INT_ASSIGN_TAIL(op)						\
-	sym->s.var.data.i op vo->i;					\
-	push(mpc, sym->s.var.data)
+	((vo_t *) vl->p)->i op vr->i;					\
+	push(mpc, *vl)
 
 #define INT_ASSIGN(c_assign_fun, op)					\
 	void								\
@@ -752,8 +765,7 @@ void
 c_assign(mpcode_t *mpc)
 {
 	ASSIGN_HEAD;
-	sym->s.var.data = *vo;
-	push(mpc, sym->s.var.data);
+	push(mpc, *(vo_t *) vl->p = *vr);
 }
 
 INT_ASSIGN(c_add_eq, +=)
@@ -772,7 +784,7 @@ void
 c_div_eq(mpcode_t *mpc)
 {
 	ASSIGN_HEAD;
-	mpc_assert(mpc, __FUNCTION__, vo->i != 0, "division by zero");
+	mpc_assert(mpc, __FUNCTION__, vr->i != 0, "division by zero");
 	INT_ASSIGN_TAIL(/=);
 }
 
@@ -780,7 +792,7 @@ void
 c_mod_eq(mpcode_t *mpc)
 {
 	ASSIGN_HEAD;
-	mpc_assert(mpc, __FUNCTION__, vo->i != 0, "division by zero");
+	mpc_assert(mpc, __FUNCTION__, vr->i != 0, "division by zero");
 	INT_ASSIGN_TAIL(%=);
 }
 
