@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.143 2003-03-06 20:07:50 avn Exp $
+ * $Id: db_area.c,v 1.144 2003-04-17 11:41:05 tatyana Exp $
  */
 
 /***************************************************************************
@@ -62,6 +62,8 @@ DECLARE_DBLOAD_FUN(load_specials);
 DECLARE_DBLOAD_FUN(load_practicers);
 DECLARE_DBLOAD_FUN(load_resetmsg);
 DECLARE_DBLOAD_FUN(load_aflag);
+DECLARE_DBLOAD_FUN(load_mobprogs);
+DECLARE_DBLOAD_FUN(load_omprogs);
 
 DECLARE_DBINIT_FUN(init_area);
 
@@ -79,6 +81,8 @@ DBFUN dbfun_areas[] = {
 	{ "PRACTICERS",		load_practicers,NULL	},	// notrans
 	{ "RESETMESSAGE",	load_resetmsg,	NULL	},	// notrans
 	{ "FLAG",		load_aflag,	NULL	},	// notrans
+	{ "MOBPROGS",		load_mobprogs,	NULL	},	// notrans
+	{ "OMPROGS",		load_omprogs,	NULL	},	// notrans
 	{ NULL, NULL, NULL }
 };
 
@@ -329,6 +333,13 @@ DBLOAD_FUN(load_areadata)
 				fMatch = TRUE;
 			}
 			break;
+		case 'M':
+			if (pArea->ver == 0) {
+				/* AL */
+				int foo;
+				KEY("ManualRare", foo, fread_number(fp));
+			}
+			break;
 		case 'N':
 			SKEY("Name", pArea->name, fread_string(fp));
 			break;
@@ -337,6 +348,11 @@ DBLOAD_FUN(load_areadata)
 			break;
 		case 'S':
 			KEY("Security", pArea->security, fread_number(fp));
+			if (pArea->ver == 0) {
+				/* AL */
+				int foo;
+				KEY("SkyVnum", foo, fread_number(fp));
+			}
 			break;
 		case 'V':
 			KEY("Ver", pArea->ver, fread_number(fp));
@@ -768,7 +784,7 @@ DBLOAD_FUN(load_specials)
 			    &spec, spec_substs, SPEC_SUBSTS_SZ,
 			    sizeof(spec_subst_t), cmpstr);
 			if (ssubst == NULL) {
-				log(LOG_ERROR, "load_specials: %s: unknown spec", spec);
+				log(LOG_INFO, "load_specials: %s: unknown spec", spec);
 				break;
 			}
 
@@ -1261,13 +1277,19 @@ DBLOAD_FUN(load_mobiles)
 				else if (IS_TOKEN(fp, "for")) {
 					REMOVE_BIT(pMobIndex->form,
 					    fread_flags(fp));
-				} else if (IS_TOKEN(fp, "par"))
+				} else if (IS_TOKEN(fp, "par")) {
 					REMOVE_BIT(pMobIndex->parts,
 					    fread_flags(fp));
-				else {
+				} else {
 					log(LOG_ERROR, "flag remove: flag not found.");
 					return;
 				}
+			} else if (letter == 'R' && area_current->ver == 0) {
+				/* AL resists */
+				fread_to_eol(fp);
+			} else if (letter == 'M') {
+				/* old mobprog specification */
+				fread_to_eol(fp);
 			} else if (letter == 'g')
 				mlstr_fread(fp, &pMobIndex->gender);
 			else if (letter == 'r') {   /* Resists */
@@ -1714,6 +1736,22 @@ DBLOAD_FUN(load_objects)
 				    AFFECT_DATA, pObjIndex->affected, paf);
 				break;
 
+			case 'P':
+				if (area_current->ver == 0) {
+					/* AL */
+					fread_number(fp);
+					fread_number(fp);
+				}
+				break;
+
+			case 'V':
+				if (area_current->ver == 0) {
+					/* AL "variables" */
+					free_string(fread_string(fp));
+					free_string(fread_string(fp));
+				}
+				break;
+
 			default:
 				xungetc(fp);
 				done = TRUE;
@@ -1728,6 +1766,44 @@ DBLOAD_FUN(load_objects)
 		if (vnum > top_vnum_obj)
 			top_vnum_obj = vnum;
 	}
+}
+
+/*
+ * skip #MOBPROGS section (should be converted manually)
+ */
+DBLOAD_FUN(load_mobprogs)
+{
+	log(LOG_INFO, "#MOBPROGS section (start)");
+	for (;;) {
+		int vnum;
+		char letter;
+
+		letter = fread_letter(fp);
+		if (letter != '#') {
+			log(LOG_ERROR, "load_mobprogs: # not found.");
+			return;
+		}
+
+		vnum = fread_number(fp);
+		if (vnum == 0)
+			break;
+
+		free_string(fread_string(fp));
+	}
+	log(LOG_INFO, "#MOBPROGS section (end) - skipped");
+}
+
+/*
+ * skip #OMPROGS section (should be converted manually)
+ */
+DBLOAD_FUN(load_omprogs)
+{
+	char ch;
+
+	log(LOG_INFO, "#OMPROGS section (start)");
+	for (ch = fread_letter(fp); ch != 'S'; ch = fread_letter(fp))
+		fread_to_eol(fp);
+	log(LOG_INFO, "#OMPROGS section (end) - skipped");
 }
 
 /*
