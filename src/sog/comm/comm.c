@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.120 1998-11-02 05:28:40 fjoe Exp $
+ * $Id: comm.c,v 1.121 1998-11-02 05:45:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2326,12 +2326,20 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			do_help(ch, "NEWBIE INFO");
 			char_puts("\n\r", ch);
 		}
-		else if (ch->in_room != NULL) 
-			char_to_room(ch, ch->in_room);
-		else if (IS_IMMORTAL(ch))
-			char_to_room(ch, get_room_index(ROOM_VNUM_CHAT));
-		else
-			char_to_room(ch, get_room_index(ROOM_VNUM_TEMPLE));
+		else {
+			if (ch->in_room
+			&&  (room_is_private(ch->in_room) ||
+			     (ch->in_room->area->clan &&
+			      ch->in_room->area->clan != ch->clan)))
+				ch->in_room = NULL;
+
+			if (ch->in_room) 
+				char_to_room(ch, ch->in_room);
+			else if (IS_IMMORTAL(ch))
+				char_to_room(ch, get_room_index(ROOM_VNUM_CHAT));
+			else
+				char_to_room(ch, get_room_index(ROOM_VNUM_TEMPLE));
+		}
 
 		if (!IS_IMMORTAL(ch)) {
 			act("$n has entered the game.", ch, NULL,NULL, TO_ROOM);
