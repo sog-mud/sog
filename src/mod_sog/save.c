@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.136 1999-11-22 14:54:26 fjoe Exp $
+ * $Id: save.c,v 1.137 1999-11-23 09:11:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -100,6 +100,8 @@ void move_pfile(const char *name, int minvnum, int maxvnum, int delta)
  */
 void delete_player(CHAR_DATA *victim, char* msg)
 {
+	bool touched;
+	AREA_DATA *pArea;
 	clan_t *clan;
 	char *name;
 
@@ -120,6 +122,21 @@ void delete_player(CHAR_DATA *victim, char* msg)
 		clan_update_lists(clan, victim, TRUE);
 		clan_save(clan);
 	}
+
+	/*
+	 * remove char from builder's lists
+	 */
+	touched = FALSE;
+	for (pArea = area_first; pArea != NULL; pArea = pArea->next) {
+		if (!_is_name(victim->name, pArea->builders, str_cmp))
+			continue;
+		name_delete(&pArea->builders, victim->name, NULL, NULL);
+		SET_BIT(pArea->area_flags, AREA_CHANGED);
+		touched = TRUE;
+	}
+
+	if (touched)
+		dofun("asave", NULL, "changed");
 
 	RESET_FIGHT_TIME(victim);
 	name = capitalize(victim->name);
@@ -536,12 +553,12 @@ CHAR_DATA *char_load(const char *name, int flags)
 	rfile_t	*fp = NULL;
 	bool found;
 
-	int             iNest;
+	int iNest;
 
 	name = capitalize(name);
 	snprintf(filename, sizeof(filename), "%s.gz", name);
 	if (dfexist(PLAYER_PATH, filename)) {
-		char buf[PATH_MAX * 2];
+		char buf[PATH_MAX];
 		snprintf(buf, sizeof(buf), "gzip -dfq %s%c%s",
 			 PLAYER_PATH, PATH_SEPARATOR, filename);
 		system(buf);

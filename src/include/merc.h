@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.252 1999-11-22 14:54:23 fjoe Exp $
+ * $Id: merc.h,v 1.253 1999-11-23 09:11:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1787,7 +1787,7 @@ int trust_level(CHAR_DATA *ch);
 #define IS_SWITCHED( ch )       (ch->desc && ch->desc->original)
 #define IS_BUILDER(ch, Area)	(!IS_NPC(ch) && !IS_SWITCHED(ch) &&	      \
 				 (PC(ch)->security >= (Area)->security || \
-				  is_name(ch->name, Area->builders)))
+				  _is_name(ch->name, Area->builders, str_cmp)))
 
 #define MOUNTED(ch)	((!IS_NPC(ch) && ch->mount && ch->riding) ? \
 				ch->mount : NULL)

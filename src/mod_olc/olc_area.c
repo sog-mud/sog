@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.56 1999-11-22 14:54:24 fjoe Exp $
+ * $Id: olc_area.c,v 1.57 1999-11-23 09:11:33 fjoe Exp $
  */
 
 #include "olc.h"
@@ -353,6 +353,8 @@ OLC_FUN(areaed_builders)
 {
 	AREA_DATA *pArea;
 	char name[MAX_STRING_LENGTH];
+	const char *p;
+	char filename[PATH_MAX];
 
 	EDIT_AREA(ch, pArea);
 
@@ -361,6 +363,15 @@ OLC_FUN(areaed_builders)
 		dofun("help", ch, "'OLC AREA BUILDER'");
 		return FALSE;
 	}
+
+	p = capitalize(name);
+	snprintf(filename, sizeof(filename), "%s.gz", p);
+	if (!dfexist(PLAYER_PATH, filename)
+	&&  !dfexist(PLAYER_PATH, p)) {
+		char_printf(ch, "AreaEd: %s: no such player.\n", name);
+		return FALSE;
+	}
+
 	name_toggle(&pArea->builders, name, ch, "AreaEd");
 	return TRUE;
 }
