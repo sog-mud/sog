@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.187.2.17 2000-12-28 05:18:18 osya Exp $
+ * $Id: act_comm.c,v 1.187.2.18 2001-03-11 21:11:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -753,7 +753,11 @@ void do_save(CHAR_DATA *ch, const char *argument)
 		char_puts("You must be at least level 2 for saving.\n",ch);
 		return;
 	}
-	char_save(ch, 0);
+
+	/*
+	 * save_char intentionally omitted
+	 */
+
 	WAIT_STATE(ch, PULSE_VIOLENCE);
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.186.2.24 2000-12-07 07:54:23 avn Exp $
+ * $Id: act_wiz.c,v 1.186.2.25 2001-03-11 21:11:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2370,6 +2370,9 @@ void do_restore(CHAR_DATA *ch, const char *argument)
 		 * cure all
 		 */
 		for (d = descriptor_list; d != NULL; d = d->next) {
+			if (d->connected != CON_PLAYING)
+				continue;
+
 			vch = d->character;
 
 			if (vch == NULL || IS_NPC(vch))
