@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.57 1998-06-24 06:29:48 fjoe Exp $
+ * $Id: act_move.c,v 1.58 1998-06-25 14:28:12 efdi Exp $
  */
 
 /***************************************************************************
@@ -368,7 +368,8 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 	char_to_room(ch, to_room);
 
 	/* room record for tracking */
-	if (!IS_NPC(ch) && ch->in_room)
+	if (!IS_NPC(ch) && ch->in_room 
+	&& !IS_AFFECTED(ch, AFF_FLYING))
 		room_record(ch->name,in_room, door);
 
 
