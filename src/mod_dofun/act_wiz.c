@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.186.2.15 2000-04-03 15:13:54 osya Exp $
+ * $Id: act_wiz.c,v 1.186.2.16 2000-04-03 16:03:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3459,7 +3459,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		altered = TRUE;
 		goto cleanup;
 	}
-	if (!str_cmp(arg2, "questp"))
+	if (!str_cmp(arg2, "qpoints"))
 	{
 		 if (value == -1) value = 0;
 		 if (IS_NPC(victim)) {
@@ -3471,7 +3471,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		goto cleanup;
 	}
 
-	if (!str_cmp(arg2, "questt")) {
+	if (!str_cmp(arg2, "qtime")) {
 		if (IS_NPC(victim)) {
 			char_puts("Not on NPC's.\n", ch);
 			goto cleanup;
@@ -3485,17 +3485,46 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!str_cmp(arg2, "relig")) {
+		int relig;
+		int tattoo_vnum;
+		OBJ_DATA *tattoo;
+
 		if (IS_NPC(victim)) {
 			char_puts("Not on NPC's.\n", ch);
 			goto cleanup;
 		}
 
-		if (value == -1) value = 0;
-		PC(victim)->religion = value;
+		if ((relig = religion_lookup(arg3)) < 0) {
+			int cnt = 0;
+
+			char_puts("Valid religions are:\n", ch);
+			for (relig = 0; relig < MAX_RELIGION; relig++) {
+				char_printf(ch, "%-12s",
+					    religion_table[relig].leader);
+				if (++cnt % 5 == 0)
+					char_puts("\n", ch);
+			}
+			if (cnt % 5 != 0)
+				char_puts("\n", ch);
+
+			goto cleanup;
+		}
+
+		if ((tattoo = get_eq_char(victim, WEAR_TATTOO))) {
+			obj_from_char(tattoo);
+			extract_obj(tattoo, 0);
+		}
+
+		if ((tattoo_vnum = religion_table[relig].vnum)
+		&&  (tattoo = create_obj(get_obj_index(tattoo_vnum), 0))) {
+			obj_to_char(tattoo, victim);
+			equip_char(victim, tattoo, WEAR_TATTOO);
+		}
+
+		PC(victim)->religion = relig;
 		altered = TRUE;
 		goto cleanup;
 	}
-
 
 	if (!str_cmp(arg2, "dex"))
 	{
@@ -3911,6 +3940,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 
 		if (!IS_NPC(victim) && cn != victim->clan) {
 			clan_t *clan;
+			OBJ_DATA *mark;
 
 			if (victim->clan
 			&&  (clan = clan_lookup(victim->clan))) {
@@ -3921,11 +3951,22 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 			victim->clan = cn;
 			PC(victim)->clan_status = CLAN_COMMONER;
 
+			if ((mark = get_eq_char(victim, WEAR_CLANMARK))) {
+				obj_from_char(mark);
+				extract_obj(mark, 0);
+			}
+
 			if (cn) {
 				clan = CLAN(cn);
 				name_add(&clan->member_list, victim->name,
 					 NULL, NULL);
 				clan_save(clan);
+
+				mark = create_obj(get_obj_index(clan->mark_vnum), 0);
+				if (mark != NULL) {
+					obj_to_char(mark, victim);
+					equip_char(victim, mark, WEAR_CLANMARK);
+				}
 			}
 
 			update_skills(victim);

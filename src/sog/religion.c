@@ -1,5 +1,5 @@
 /*
- * $Id: religion.c,v 1.5 1999-04-17 06:56:35 fjoe Exp $
+ * $Id: religion.c,v 1.5.2.1 2000-04-03 16:03:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -65,7 +65,7 @@
 /* God's Name, name of religion, tattoo vnum  */
 const struct religion_type religion_table [] =
 {
-  { str_empty,		"None",			0			},
+  { "none",		"None",			0			},
   { "Atum-Ra",		"Lawful Good",		OBJ_VNUM_TATTOO_ATUM_RA },
   { "Zeus",		"Neutral Good",		OBJ_VNUM_TATTOO_ZEUS	},
   { "Siebele",		"True Neutral",		OBJ_VNUM_TATTOO_SIEBELE },
@@ -85,8 +85,21 @@ const struct religion_type religion_table [] =
   { "Eros",		"God of Love",		OBJ_VNUM_TATTOO_EROS	}
 };
 
-char *religion_name(int religion)
+const char *religion_name(int religion)
 {
 	return religion <= RELIGION_NONE || religion > MAX_RELIGION ?
 			"none" : religion_table[religion].leader;
 }
+
+int religion_lookup(const char *name)
+{
+	int value;
+
+	for (value = 0; value < MAX_RELIGION; value++) {
+		if (!str_prefix(name, religion_table[value].leader))
+			return value;
+	}
+
+	return -1;
+} 
+

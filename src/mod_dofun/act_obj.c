@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.165.2.3 1999-12-02 13:32:21 fjoe Exp $
+ * $Id: act_obj.c,v 1.165.2.4 2000-04-03 16:03:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1949,7 +1949,8 @@ void do_buy(CHAR_DATA * ch, const char *argument)
 		}
 		return;
 	}
-	if (obj->level > ch->level) {
+
+	if (get_wear_level(ch, obj) < obj->level) {
 		act("$n tells you '{GYou can't use $p yet.{x'",
 		    keeper, obj, ch, TO_VICT);
 		return;

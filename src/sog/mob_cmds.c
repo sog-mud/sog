@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.42.2.1 2000-03-27 04:01:31 osya Exp $
+ * $Id: mob_cmds.c,v 1.42.2.2 2000-04-03 16:03:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1158,21 +1158,6 @@ void do_mpremove(CHAR_DATA *ch, const char *argument)
     }
 }
 
-
-int lookup_religion_leader (const char *name)
-{
-   int value;
-
-   for ( value = 0; value < MAX_RELIGION ; value++)
-   {
-	if (LOWER(name[0]) == LOWER(religion_table[value].leader[0])
-	&&  !str_prefix( name,religion_table[value].leader))
-	    return value;
-   }
-
-   return 0;
-} 
-
 void do_mpreligion(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
@@ -1186,7 +1171,7 @@ void do_mpreligion(CHAR_DATA *ch, const char *argument)
 	||  IS_NPC(victim))
 		return;
 
-	if ((chosen = lookup_religion_leader(argument)) == 0)
+	if ((chosen = religion_lookup(argument)) <= 0)
 		return;
 
 	rel = PC(victim)->religion;

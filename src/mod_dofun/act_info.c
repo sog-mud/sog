@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.9 2000-03-31 13:56:45 fjoe Exp $
+ * $Id: act_info.c,v 1.271.2.10 2000-04-03 16:03:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2213,12 +2213,13 @@ void do_identify(CHAR_DATA *ch, const char *argument)
 
 static void format_stat(char *buf, size_t len, CHAR_DATA *ch, int stat)
 {
-	if (ch->level > 20 || IS_NPC(ch))
+	if (ch->level < 20 && !IS_NPC(ch))
+		strnzcpy(buf, len, get_stat_alias(ch, stat));
+	else {
 		snprintf(buf, len, "%2d (%2d)",
 			 ch->perm_stat[stat],
 			 get_curr_stat(ch, stat));
-	else
-		strnzcpy(buf, len, get_stat_alias(ch, stat));
+	}
 }
 
 void do_score(CHAR_DATA *ch, const char *argument)

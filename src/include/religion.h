@@ -1,5 +1,5 @@
 /*
- * $Id: religion.h,v 1.3 1998-11-18 05:20:40 fjoe Exp $
+ * $Id: religion.h,v 1.3.4.1 2000-04-03 16:03:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -43,7 +43,8 @@
 #ifndef _RELIGION_H_
 #define _RELIGION_H_
 
-char *	religion_name(int religion);
+const char *	religion_name(int religion);
+int		religion_lookup(const char *name);
 
 /* To add god, make tattoo in limbo.are, add OBJ_VNUM_TATTOO_(GOD),
  * add here and add to const.c in the religion_table  also increase
