@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.148 1998-10-21 05:00:27 fjoe Exp $
+ * $Id: act_info.c,v 1.149 1998-10-21 07:05:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2165,6 +2165,11 @@ void do_title(CHAR_DATA *ch, const char *argument)
 void do_description(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_STRING_LENGTH];
+
+	if (IS_NPC(ch)) {
+		char_puts("Huh?\n\r", ch);
+		return;
+	}
 
 	one_argument(argument, arg);
 
