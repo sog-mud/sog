@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.200.2.25 2002-02-19 20:43:13 tatyana Exp $
+ * $Id: comm.c,v 1.200.2.26 2002-11-23 21:14:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -163,7 +163,6 @@ char compress_dont	[] = { IAC, DONT, TELOPT_COMPRESS, '\0' };
  * Global variables.
  */
 DESCRIPTOR_DATA *   descriptor_list;	/* All open descriptors		*/
-DESCRIPTOR_DATA *   d_next;		/* Next descriptor in loop	*/
 bool		    merc_down;		/* Shutdown			*/
 bool		    wizlock;		/* Game is wizlocked		*/
 bool		    newlock;		/* Game is newlocked		*/
@@ -612,7 +611,7 @@ void game_loop_unix(void)
 		fd_set in_set;
 		fd_set out_set;
 		fd_set exc_set;
-		DESCRIPTOR_DATA *d;
+		DESCRIPTOR_DATA *d, *d_next;
 		INFO_DESC *id;
 		INFO_DESC *id_next;
 		int maxdesc;
@@ -677,7 +676,7 @@ void game_loop_unix(void)
 		 * Kick out the freaky folks.
 		 */
 		for (d = descriptor_list; d; d = d_next) {
-			d_next = d->next;   
+			d_next = d->next;
 			if (FD_ISSET(d->descriptor, &exc_set)) {
 				FD_CLR(d->descriptor, &in_set );
 				FD_CLR(d->descriptor, &out_set);
@@ -939,17 +938,6 @@ void close_descriptor(DESCRIPTOR_DATA *dclose, int save_flags)
 {
 	DESCRIPTOR_DATA *d;
 
-	if (!outbuf_empty(dclose))
-		process_output(dclose, FALSE);
-
-	if (dclose->snoop_by != NULL) 
-		write_to_buffer(dclose->snoop_by,
-				"Your victim has left the game.\n\r", 0);
-
-	for (d = descriptor_list; d != NULL; d = d->next)
-		if (d->snoop_by == dclose)
-			d->snoop_by = NULL;
-
 	if (dclose->character != NULL) {
 		CHAR_DATA *ch = dclose->original ? dclose->original : dclose->character;
 		if (!IS_SET(save_flags, SAVE_F_NONE))
@@ -960,12 +948,28 @@ void close_descriptor(DESCRIPTOR_DATA *dclose, int save_flags)
 			wiznet("Net death has claimed $N.", ch, NULL,
 			       WIZ_LINKS, 0, 0);
 			dclose->character->desc = NULL;
-		} else 
+		} else
 			char_nuke(ch);
 	}
 
-	if (d_next == dclose)
-		d_next = d_next->next;   
+	if (!outbuf_empty(dclose))
+		process_output(dclose, FALSE);
+
+	if (dclose->snoop_by != NULL) {
+		write_to_buffer(dclose->snoop_by,
+				"Your victim has left the game.\n\r", 0);
+	}
+
+	for (d = descriptor_list; d != NULL; d = d->next) {
+		if (d->snoop_by == dclose)
+			d->snoop_by = NULL;
+	}
+
+	if (dclose->out_compress) {
+		deflateEnd(dclose->out_compress);
+		free(dclose->out_compress_buf);
+		free(dclose->out_compress);
+	}
 
 	if (dclose == descriptor_list)
 		descriptor_list = descriptor_list->next;
@@ -978,12 +982,6 @@ void close_descriptor(DESCRIPTOR_DATA *dclose, int save_flags)
 			d->next = dclose->next;
 		else
 			bug("Close_socket: dclose not found.");
-	}
-
-	if (dclose->out_compress) {
-		deflateEnd(dclose->out_compress);
-		free(dclose->out_compress_buf);
-		free(dclose->out_compress);
 	}
 
 #if !defined( WIN32 )
