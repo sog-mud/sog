@@ -259,6 +259,9 @@ char *strings_engl[MSG_MAX_NUM] =  {
 /* MOVE_THERES_NO_COVER_HERE */	"There's no cover here.\n\r",
 /* MOVE_N_TRIES_TO_CAMOUFLAGE */"$n tries to camouflage $mself against the lone leaf on the ground.",
 /* MOVE_YOU_ATTEMPT_TO_CAMOUFLAGE */"You attempt to camouflage yourself.\n\r", 
+/* MOVE_YOU_FADE_INTO_EXIST */	"You fade into existence.\n\r",
+/* MOVE_N_FADES_INTO_EXIST */	"$n fades into existence.\n\r",
+/* MOVE_YOU_TRAMPLE_AROUND_LOUDLY */"You trample around loudly again.\n\r",
 
 /*	Here start sex-dependent messages */
 /* INFO_IS_GUSHING_BLOOD */	"{Yis gushing blood{x.",

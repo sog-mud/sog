@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.22 1998-04-29 04:11:40 efdi Exp $
+ * $Id: act_move.c,v 1.23 1998-04-29 04:40:06 efdi Exp $
  */
 
 /***************************************************************************
@@ -1908,41 +1908,47 @@ void do_visible( CHAR_DATA *ch, char *argument )
 {
     if (IS_SET(ch->affected_by, AFF_HIDE))
       {
-	send_to_char("You step out of the shadows.\n\r",ch);
+	send_to_char(msg(MOVE_YOU_STEP_OUT_SHADOWS, ch), ch);
 	REMOVE_BIT(ch->affected_by, AFF_HIDE);
-	act("$n steps out of the shadows.", ch, NULL, NULL, TO_ROOM);
+	act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
+			MOVE_N_STEPS_OUT_OF_SHADOWS);
       }
     if (IS_SET(ch->affected_by, AFF_FADE))
       {
-	send_to_char("You step out of the shadows.\n\r",ch);
+	send_to_char(msg(MOVE_YOU_STEP_OUT_SHADOWS, ch), ch);
 	REMOVE_BIT(ch->affected_by, AFF_FADE);
-	act("$n steps out of the shadows.", ch, NULL, NULL, TO_ROOM);
+	act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
+			MOVE_N_STEPS_OUT_OF_SHADOWS);
       }
     if (IS_SET(ch->affected_by, AFF_CAMOUFLAGE))
       {
-	send_to_char("You step out from your cover.\n\r",ch);
+	send_to_char(msg(MOVE_YOU_STEP_OUT_COVER, ch), ch);
 	REMOVE_BIT(ch->affected_by,AFF_CAMOUFLAGE);
-	act("$n steps out from $s cover.",ch,NULL,NULL,TO_ROOM);
+	act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
+			MOVE_N_STEPS_OUT_COVER);
       }
     if (IS_SET(ch->affected_by, AFF_INVISIBLE))
       {
-	send_to_char("You fade into existence.\n\r", ch);
+	send_to_char(msg(MOVE_YOU_FADE_INTO_EXIST, ch), ch);
 	affect_strip(ch, gsn_invis);
 	affect_strip(ch, gsn_mass_invis);
 	REMOVE_BIT(ch->affected_by, AFF_INVISIBLE);
-	act("$n fades into existence.", ch, NULL, NULL, TO_ROOM);
+	act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
+			MOVE_N_FADES_INTO_EXIST);
       }
     if (IS_SET(ch->affected_by, AFF_IMP_INVIS))
       {
-	send_to_char("You fade into existence.\n\r", ch);
+	send_to_char(msg(MOVE_YOU_FADE_INTO_EXIST, ch), ch);
+	affect_strip(ch, gsn_invis);
 	affect_strip(ch, gsn_imp_invis);
 	REMOVE_BIT(ch->affected_by, AFF_IMP_INVIS);
-	act("$n fades into existence.", ch, NULL, NULL, TO_ROOM);
+	act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
+			MOVE_N_FADES_INTO_EXIST);
       }
     if (IS_SET(ch->affected_by, AFF_SNEAK) 
 	&& !IS_NPC(ch) && !IS_SET(race_table[RACE(ch)].aff,AFF_SNEAK) )
       {
-	send_to_char("You trample around loudly again.\n\r", ch);
+	send_to_char(msg(MOVE_YOU_TRAMPLE_AROUND_LOUDLY, ch), ch);
 	affect_strip(ch, gsn_sneak);
 	REMOVE_BIT(ch->affected_by, AFF_SNEAK);
       }

@@ -258,7 +258,10 @@ char *strings_rus[MSG_MAX_NUM] = {
 /* MOVE_YOU_CANT_CAMOUFLAGE_GLOWING */"Ты не можешь замаскироваться пока светишься.\n\r",
 /* MOVE_THERES_NO_COVER_HERE */	"Здесь нет прикрытия.\n\r",
 /* MOVE_N_TRIES_TO_CAMOUFLAGE */"$n пытается замаскироваться под одинокий лист на дороге.",
-/* MOVE_YOU_ATTEMPT_TO_CAMOUFLAGE */"ты пытаешься замаскироваться.\n\r", 
+/* MOVE_YOU_ATTEMPT_TO_CAMOUFLAGE */"Ты пытаешься замаскироваться.\n\r", 
+/* MOVE_YOU_FADE_INTO_EXIST */	"Ты становишься видимым.\n\r",
+/* MOVE_N_FADES_INTO_EXIST */	"Здесь появился $n.\n\r",
+/* MOVE_YOU_TRAMPLE_AROUND_LOUDLY */"Теперь ты опят топаешь как слон.\n\r",
 
 /*	Here start sex-dependent messages */
 /* INFO_IS_GUSHING_BLOOD */	"{Yсерьезно ранено{x.",
