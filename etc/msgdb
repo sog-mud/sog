@@ -465,6 +465,7 @@ The actioneer appears before $n and hands $m $p.~
     сейчас прячут эту вещь.~
 @eng .    But you are already on a quest!@rus .    У тебя уже есть задание!~
 @eng A new item has been received: {Y$p{x.@rus Получен новый лот: {Y$p{x.~
+@eng $n gasps for fresh air, but inhales water.@rus $n судорожно пытается вздохнуть, но только глотает воду.~
 @eng I do not give any quests to folks I can't see.@rus Я не разговариваю с теми, кого не вижу.~
 @eng $p: going $T for $J gold.@rus Лот "$p". Ставка $J $qJ{золотых} -- $T!~
 @eng $n rests.@rus $n $gn{садится} отдыхать.~
@@ -475,6 +476,7 @@ The actioneer appears before $n and hands $m $p.~
 @eng You have completed someone's quest.@rus Ты только что выполнил чье-то задание.~
 @eng You feel poison coursing through your veins.@rus Ты чувствуешь как яд растекается по твоим жилам.~
 @eng You close $p.@rus Ты закрываешь $c3{$p}.~
+@eng screams and attacks!@rus вскрикивает и нападает!~
 @eng Wear, wield, or hold what?@rus Надеть, вооружиться или взять в руку что?~
 @eng You blind $N with your attack!@rus $N $gN{ослеплен} твоим ударом!~
 @eng : adds '%s' affect @rus : '%s' ~
@@ -503,6 +505,7 @@ The actioneer appears before $n and hands $m $p.~
 @eng $d is closed.@rus $d $gd{закрыт}.~
 @eng $N is unaffected by $n's $V!@rus $V $c1{$n} не действует на $c6{$N}!~
 @eng Let it be.@rus Пусть живет.~
+@eng You gasp for fresh air, but inhale water.@rus Ты пытаешься судорожно вздохнуть, но только глотаешь воду.~
 @eng You are already standing.@rus Ты уже стоишь.~
 @eng It's already locked.@rus Тут уже замкнуто.~
 @eng You are completely lost.@rus Ты окончательно потерялся.~
@@ -559,6 +562,7 @@ Get back to questor before your time runs out!@rus Ты ПОЧТИ выполнил свое задани
 @eng mid-day@rus день~
 @eng You release $p and it floats next to you.@rus Ты выпускаешь $c3{$p} и $gp{он} $gp{начинает} летать вокруг тебя.~
 @eng Put what in what?@rus Положить что во что?~
+@eng You are too high for this group.@rus Ты слишком большого уровня, чтобы присоединиться к этой группе.~
 @eng You throw $N to the ground with stunning force.@rus Схватив $c6{$N}, ты бросаешь $gN{его} на землю!~
 @eng ({DHidden{x) @rus ({DСкрыто{x) ~
 @eng $N appears to be using $p.@rus $N $gN{использует} $c3{$p}.~
