@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.18 1998-05-18 14:00:10 efdi Exp $
+ * $Id: act_comm.c,v 1.19 1998-05-19 13:55:14 efdi Exp $
  */
 
 /***************************************************************************
@@ -269,11 +269,11 @@ void do_immtalk(CHAR_DATA *ch, char *argument)
 	REMOVE_BIT(ch->comm,COMM_NOWIZ);
 
 	if (!is_affected(ch, gsn_deafen))
-		act_puts("$n: $t",ch,argument,NULL,TO_CHAR,POS_DEAD);
+		act_puts("{W$n{x: {Y$t{x",ch,argument,NULL,TO_CHAR,POS_DEAD);
 	for (d = descriptor_list; d != NULL; d = d->next) {
 		if (d->connected == CON_PLAYING && IS_IMMORTAL(d->character)
 		&&  !IS_SET(d->character->comm,COMM_NOWIZ))
-			act_puts("$n: $t", ch,argument, d->character,
+			act_puts("{w$n{x: {Y$t{x", ch,argument, d->character,
 				 TO_VICT, POS_DEAD);
 	}
 }

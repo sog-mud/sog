@@ -1,5 +1,5 @@
 /*
- * $Id: quest.c,v 1.16 1998-05-19 10:11:57 efdi Exp $
+ * $Id: quest.c,v 1.17 1998-05-19 13:55:14 efdi Exp $
  */
 
 /***************************************************************************
@@ -928,6 +928,7 @@ void quest_update(void)
 	{
 	    if (--ch->pcdata->countdown <= 0)
 	    {
+		CHAR_DATA *fch;
 		ch->pcdata->nextquest = 0;
 		send_to_char(msg(QUEST_RUN_OUT_TIME, ch), ch);
 		REMOVE_BIT(ch->act, PLR_QUESTOR);
@@ -935,6 +936,12 @@ void quest_update(void)
 		ch->pcdata->countdown = 0;
 		ch->pcdata->questmob = 0;
 		ch->pcdata->questobj = 0;
+		/* here remove mob->hunter */
+		for (fch = char_list; fch; fch = fch->next)
+			if (fch->hunter == ch) {
+				fch->hunter = 0;
+				break;
+			}
 	    }
 	    if (ch->pcdata->countdown > 0 && ch->pcdata->countdown < 6)
 	    {
