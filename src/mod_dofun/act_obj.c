@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.165.2.35 2002-01-31 19:28:01 tatyana Exp $
+ * $Id: act_obj.c,v 1.165.2.36 2002-02-01 02:45:40 tatyana Exp $
  */
 
 /***************************************************************************
@@ -2729,7 +2729,7 @@ void do_crucify(CHAR_DATA *ch, const char *argument)
 	}
 
 	if ((obj = get_obj_here(ch, arg)) == NULL) {
-		char_puts("You do not see that here.", ch);
+		char_puts("You do not see that here.\n", ch);
 		return;
 	}
 
