@@ -11,23 +11,29 @@ End
 #HELPS
 -1 SOG 'SHADES OF GRAY' MUDDY~
 @eng {DShades of Gray{x is based on Anatolia MUD -- see {CHELP ANATOLIA{x.
+
                      Original idea, concept and coding:
-        fjoe                         [{cIluvatar{x] (fjoe@@iclub.nsu.ru)
-        Constantin Svintsoff           [{cNergal{x] (kostik@@iclub.nsu.ru)
+        fjoe                                    (fjoe@@iclub.nsu.ru)
         Alexander Morokhovets            [{cEros{x] (efdi@@iclub.nsu.ru)
         Alexey Neyman                  [{cArborn{x] (avn@@org.chem.msu.su)
 
                      Web page design:
         Denis Petrakov                         (den@@oapmg.sscc.ru)
+ 
+                    Partial message translation:
+        Alexander Morokhovets                   (efdi@@iclub.nsu.ru)
 @rus {DShades of Gray{x составлен на основе MUDа Anatolia -- смотри {CHELP ANATOLIA{x.
+
                  Первоначальная идея, концепция и кодирование:
-        fjoe                         [{cIluvatar{x] (fjoe@@iclub.nsu.ru{x)
+        fjoe                                    (fjoe@@iclub.nsu.ru{x)
         Константин Свинцов             [{cNergal{x] (kostik@@iclub.nsu.ru{x)
-        Александр Мороховец              [{cEros{x] (efdi@@iclub.nsu.ru{x)
         Алексей Нейман                 [{cArborn{x] (avn@@org.chem.msu.su{x)
  
                              Дизайн Web-страницы:
         Денис Петраков                          (den@@oapmg.sscc.ru{x)
+ 
+                              Перевод сообщений:
+        Александр Мороховец                     (efdi@@iclub.nsu.ru)
 ~
 -1 DIKU~
 @eng .                    Original game idea, concept, and design:
@@ -5469,7 +5475,7 @@ Thanks to ...
                    `::             |  \    Russ Taylor. ANATOLIA 2.1 by 1997
                     :::.           |   )    Serdar BULUT, Ibrahim CANPUNAR,
          ,,:,:,::.   ::'`   .-:~~:-._\  (     Murat BICER, Devrim Baris ACAR.
-       ..'      `:.: ::   :'       .|   \,/  SoG code by fjoe, kostik and efdi.
+       ..'      `:.: ::   :'       .|   \,/  SoG code by fjoe, kostik and avn.
       .:        .:``:::  :       .: |   /`\                 _
       .:    ..''     :::.'    :':    \         ___         (_)         ___
        : .''         .:: : : '       `\  /====~~   ~~=====\       /=====~~   ~~====

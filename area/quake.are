@@ -25,9 +25,7 @@ CO B G Y
 stand stand none 3000
 Bc U giant unknown
 F res I
-F vul JP
 F for AH
-F par IK
 #35261
 Fiend~
 @eng Fiend@rus Демон~
@@ -43,7 +41,6 @@ AFT JOVhs -1000 0
 EN A N O
 stand stand either 250
 a NW large unknown
-F par BGJ
 #35262
 chton~
 ~
@@ -56,7 +53,6 @@ AT 0 -1000 0
 0 0 0 0
 stand stand none 1200
 0 0 gargantuan unknown
-F par CHJK
 #0
 
 #OBJECTS

@@ -82,7 +82,6 @@ AB 0 800 0
 EFNU 0 0 0
 sit sit female 505
 0 0 tiny unknown
-F par GHIJK
 #9505
 bartender~
 the withered mage/bartender~
@@ -97,7 +96,6 @@ ABRVXYe D 800 0
 EFNU 0 0 0
 stand stand male 505
 0 0 tiny unknown
-F par GHIJK
 #9506
 john brother singer lead~
 Brother John~
@@ -112,7 +110,6 @@ ABG D 0 0
 EFNU 0 0 0
 stand stand male 250
 0 0 tiny unknown
-F par GHIJK
 #9507
 panhandler~
 a panhandler~
@@ -127,7 +124,6 @@ ACGH 0 -20 0
 EFNU 0 0 0
 rest rest male 1
 0 0 tiny unknown
-F par GHIJK
 #9508
 panhandler~
 a panhandler~
@@ -142,7 +138,6 @@ ACGH 0 -20 0
 EFNU 0 0 0
 rest rest male 2
 0 0 tiny unknown
-F par GHIJK
 #9509
 beggar~
 a beggar~
@@ -157,7 +152,6 @@ ACGHS 0 -20 0
 EFNU 0 0 0
 stand stand male 1
 0 0 tiny unknown
-F par GHIJK
 #9510
 baker~
 the baker~
@@ -172,7 +166,6 @@ ABVYe D 800 0
 EFNU 0 0 0
 stand stand male 505
 0 0 tiny unknown
-F par GHIJK
 #9511
 shopkeeper~
 the shopkeeper~
@@ -187,7 +180,6 @@ ABVYe D 800 0
 EFNU 0 0 0
 stand stand male 505
 0 0 tiny unknown
-F par GHIJK
 M speech 9500 keeper~
 #9512
 Nabil shopkeeper~
@@ -205,7 +197,6 @@ AB D 800 0
 EFNU ABCD 0 0
 stand stand male 505
 0 0 medium unknown
-F par GHIJK
 #9513
 ahkeem tailor~
 Ahkeem the tailor~
@@ -221,7 +212,6 @@ ABVYe D 800 0
 EFNU 0 0 0
 stand stand male 505
 0 0 tiny unknown
-F par GHIJK
 #9514
 vera~
 Vera the veggie lady~
@@ -236,7 +226,6 @@ ABVYe D 800 0
 EFNU 0 0 0
 stand stand female 505
 0 0 tiny unknown
-F par GHIJK
 #9515
 butch~
 Butch the meatcutter~
@@ -252,7 +241,6 @@ ABTVXYe D 800 0
 EFNU 0 0 0
 stand stand male 505
 0 0 tiny unknown
-F par GHIJK
 #9516
 abdul armorer~
 Abdul the armorer~
@@ -268,7 +256,6 @@ ABTVXYe D 800 0
 EFNU 0 0 0
 stand stand male 505
 0 0 tiny unknown
-F par GHIJK
 #9517
 igor weaponsmith~
 Igor the weaponsmith~
@@ -283,7 +270,6 @@ ABTVXYei D 800 0
 EFNU 0 0 0
 stand stand male 505
 0 0 tiny unknown
-F par GHIJK
 M greet 3024 1~
 #9518
 cassandra~
@@ -301,7 +287,6 @@ ABe D 800 0
 EFNU 0 0 0
 stand stand female 505
 0 0 tiny unknown
-F par GHIJK
 #9519
 foreman man~
 the foreman~
@@ -317,7 +302,6 @@ ABGT 0 0 0
 EFNU 0 0 0
 stand stand male 125
 0 0 tiny unknown
-F par GHIJK
 #9520
 construction worker~
 a construction worker~
@@ -332,7 +316,6 @@ ABGT 0 10 0
 EFNU 0 0 0
 stand stand male 45
 0 0 tiny unknown
-F par GHIJK
 #9521
 statue~
 the statue of Nati~
@@ -346,7 +329,6 @@ ABQT 0 1000 0
 EIKU 0 0 0
 stand stand female 1150
 0 0 huge unknown
-F par GHIJK
 #9522
 statue~
 the statue of Alander~
@@ -363,7 +345,6 @@ ABQT 0 1000 0
 EIKU 0 0 0
 stand stand male 1150
 0 0 huge unknown
-F par GHIJK
 #9523
 statue~
 the statue of Zump~
@@ -378,7 +359,6 @@ ABQT 0 1000 0
 EIKU 0 0 0
 stand stand male 1150
 0 0 tiny unknown
-F par GHIJK
 #9524
 statue~
 the statue of Nightshade~
@@ -394,7 +374,6 @@ ABQT 0 1000 0
 EIKU 0 0 0
 stand stand male 1190
 0 0 tiny unknown
-F par GHIJK
 #9525
 statue~
 the statue of Satin~
@@ -410,7 +389,6 @@ ABQT 0 1000 0
 EIKU 0 0 0
 stand stand female 1150
 0 0 tiny unknown
-F par GHIJK
 #9526
 statue~
 the statue of Shandra~
@@ -426,7 +404,6 @@ ABQT 0 1000 0
 EIKU 0 0 0
 stand stand female 1150
 0 0 tiny unknown
-F par GHIJK
 #9527
 statue~
 the statue of Furey~
@@ -441,7 +418,6 @@ ABQRT 0 1000 0
 EIKU 0 0 0
 stand stand male 3250
 0 0 tiny unknown
-F par GHIJK
 #9528
 statue~
 the statue of Landru~
@@ -457,7 +433,6 @@ ABQRTUW 0 1000 0
 EIKU 0 0 0
 stand stand male 3250
 0 0 tiny unknown
-F par GHIJK
 #9529
 aziz~
 Aziz~
@@ -472,7 +447,6 @@ ACGHQR DJ 0 0
 FU 0 0 0
 stand stand male 65
 0 0 tiny unknown
-F par GHIJK
 #9530
 mustafah~
 Mustafah~
@@ -487,7 +461,6 @@ ACGHS DFJ 0 0
 BEFJNU 0 0 0
 stand stand male 11
 0 0 tiny unknown
-F par GHIJK
 #9531
 fatima~
 Fatima~
@@ -502,7 +475,6 @@ ACGHRU DJ 0 0
 FU 0 0 0
 stand stand male 30
 0 0 tiny unknown
-F par GHIJK
 #9532
 kareem~
 Kareem~
@@ -517,7 +489,6 @@ ACGHT DJ 0 0
 CDEIKLU 0 0 0
 stand stand male 60
 0 0 tiny unknown
-F par GHIJK
 #9533
 nomad merchant~
 a nomad merchant~
@@ -533,7 +504,6 @@ ACFHT 0 -100 0
 EFNU 0 0 0
 stand stand male 45
 0 0 tiny unknown
-F par GHIJK
 #9534
 bodyguard rus телохранитель~
 A bodyguard~
@@ -548,7 +518,6 @@ AGT 0 0 0
 EFNU 0 0 0
 stand stand male 60
 0 0 tiny unknown
-F par GHIJK
 #9535
 kid thief~
 the skinny kid~
@@ -563,7 +532,6 @@ ACHS DFJ 100 0
 BEFJNU 0 0 0
 stand stand male 11
 0 0 tiny unknown
-F par GHIJK
 #9536
 dockworker~
 the dockworker~
@@ -579,7 +547,6 @@ AGT 0 0 0
 EFNU 0 0 0
 stand stand male 60
 0 0 tiny unknown
-F par GHIJK
 #9537
 man tax collector~
 the tax collector~
@@ -595,7 +562,6 @@ AGH 0 0 0
 EFNU 0 0 0
 stand stand male 3
 0 0 tiny unknown
-F par GHIJK
 #9538
 gord~
 Gord~
@@ -610,7 +576,6 @@ ACGSTU DF -200 0
 BEFJNU 0 0 0
 stand stand male 615
 0 0 tiny unknown
-F par GHIJK
 #9539
 caramon~
 Caramon~
@@ -625,7 +590,6 @@ AGTU 0 -200 0
 CDEIKLU 0 0 0
 stand stand male 615
 0 0 tiny unknown
-F par GHIJK
 #9540
 raistlin~
 Raistlin~
@@ -640,7 +604,6 @@ ACGHR D 200 0
 FU 0 0 0
 stand stand male 615
 0 0 tiny unknown
-F par GHIJK
 #9541
 curley greenleaf~
 Curley GreenLeaf~
@@ -655,7 +618,6 @@ AGQT D 0 0
 EIKU 0 0 0
 stand stand male 615
 0 0 tiny unknown
-F par GHIJK
 #9542
 man wandering prophet~
 the wandering prophet~
@@ -671,7 +633,6 @@ AHQ 0 0 0
 EIKU 0 0 0
 stand stand male 11
 0 0 tiny unknown
-F par GHIJK
 #9543
 alley cat feline~
 the alley cat~
@@ -686,7 +647,6 @@ ACHU J -10 0
 EFNU 0 0 0
 stand stand male 1
 0 0 tiny unknown
-F par GHIJK
 #9544
 vulture~
 the vulture~
@@ -701,7 +661,6 @@ AGH J -200 0
 EFNU 0 0 0
 stand stand male 0
 0 0 tiny unknown
-F par GHIJK
 #9545
 old man~
 the old man~
@@ -716,7 +675,6 @@ AH 0 200 0
 EFNU 0 0 0
 stand stand male 3
 0 0 tiny unknown
-F par GHIJK
 #9546
 conan librarian~
 Conan the Librarian~
@@ -731,7 +689,6 @@ ABETU 0 300 0
 EFNU 0 0 0
 sit sit male 345
 0 0 tiny unknown
-F par GHIJK
 #9547
 dirt devil~
 the dirt devil~
@@ -746,7 +703,6 @@ ACFU 0 -1000 0
 EFNU 0 0 0
 stand stand male 1
 0 0 tiny unknown
-F par GHIJK
 #9548
 lamia~
 the lamia~
@@ -761,7 +717,6 @@ ACFRT 0 -500 0
 FU 0 0 0
 stand stand female 18
 0 0 tiny unknown
-F par GHIJK
 #9549
 dervish~
 the raggety dervish~
@@ -776,7 +731,6 @@ AEFR U -750 0
 EFNU 0 0 0
 stand stand male 30
 0 0 tiny unknown
-F par GHIJK
 #9550
 sultan~
 The Sultan~
@@ -791,7 +745,6 @@ ABTW D 200 0
 EFNU 0 0 0
 rest rest male 2200
 0 0 tiny unknown
-F par GHIJK
 #9551
 harem girl~
 a harem girl~
@@ -807,7 +760,6 @@ AB 0 0 0
 EFNU 0 0 0
 stand stand female 2
 0 0 tiny unknown
-F par GHIJK
 #9552
 jailer~
 the jailer~
@@ -823,7 +775,6 @@ ABCHT DJ -100 0
 EFNU 0 0 0
 sleep sleep male 250
 0 0 tiny unknown
-F par GHIJK
 #9553
 eunuch~
 a eunuch~
@@ -839,7 +790,6 @@ ABFT D 0 0
 EFNU 0 0 0
 stand stand none 125
 0 0 tiny unknown
-F par GHIJK
 #9554
 sultans favorite girl nichole~
 Nichole, the sultan's favorite~
@@ -855,7 +805,6 @@ AET D 100 0
 EFNU 0 0 0
 rest rest female 345
 0 0 tiny unknown
-F par GHIJK
 #9555
 god~
 GOD~
@@ -870,7 +819,6 @@ ABQRTUWX DHU 1000 0
 EIKU 0 0 0
 rest rest none 1400
 0 0 tiny unknown
-F par GHIJK
 #9556
 mage guildguard~
 the guildguard~
@@ -885,7 +833,6 @@ ABRT D 0 0
 EFNU 0 0 0
 stand stand male 395
 0 0 tiny unknown
-F par GHIJK
 #9557
 cleric guildguard~
 the guildguard~
@@ -900,7 +847,6 @@ ABQT D 0 0
 EFNU 0 0 0
 stand stand male 395
 0 0 tiny unknown
-F par GHIJK
 #9558
 warrior guildguard~
 the guildguard~
@@ -915,7 +861,6 @@ ABTU D 0 0
 EFNU 0 0 0
 stand stand male 395
 0 0 tiny unknown
-F par GHIJK
 #9559
 thief guildguard~
 the guildguard~
@@ -931,7 +876,6 @@ ABST DJ 0 0
 EFNU 0 0 0
 stand stand male 395
 0 0 tiny unknown
-F par GHIJK
 #9560
 servant boy~
 a servant boy~
@@ -946,7 +890,6 @@ AG 0 0 0
 EFNU 0 0 0
 stand stand male 1
 0 0 tiny unknown
-F par GHIJK
 #9561
 sultans guard~
 the sultan's guard~
@@ -961,7 +904,6 @@ AGHT 0 1000 0
 CDEIKLU 0 0 0
 stand stand male 45
 0 0 tiny unknown
-F par GHIJK
 #9562
 sultans guard~
 the sultans guard~
@@ -976,7 +918,6 @@ ABGT 0 1000 0
 CDEIKLU 0 0 0
 stand stand male 45
 0 0 tiny unknown
-F par GHIJK
 #9563
 sultans guard chief~
 The chief guard~
@@ -991,7 +932,6 @@ ABGTU D 1000 0
 EFNU 0 0 0
 stand stand male 345
 0 0 tiny unknown
-F par GHIJK
 #9564
 mercenary~
 the mercenary~
@@ -1006,7 +946,6 @@ ABTU 0 0 0
 CDEIKLU 0 0 0
 stand stand male 3
 0 0 tiny unknown
-F par GHIJK
 #9565
 shipwright captain~
 the shipwright~
@@ -1022,7 +961,6 @@ ABVYe 0 0 0
 EFNU 0 0 0
 stand stand male 1150
 0 0 tiny unknown
-F par GHIJK
 #9566
 blacksmith~
 the blacksmith~
@@ -1038,7 +976,6 @@ ABVYe 0 0 0
 EFNU 0 0 0
 stand stand male 1150
 0 0 tiny unknown
-F par GHIJK
 #9567
 horse~
 a horse~
@@ -1053,7 +990,6 @@ ACGHU 0 0 0
 EFNU 0 0 0
 stand stand male 3
 0 0 tiny unknown
-F par GHIJK
 #9568
 tourist~
 a tourist~
@@ -1070,7 +1006,6 @@ ACGH 0 0 0
 EFNU 0 0 0
 stand stand male 3
 0 0 tiny unknown
-F par GHIJK
 #9569
 shelbye~
 Shelbye~
@@ -1085,7 +1020,6 @@ A 0 -1000 0
 EFNU 0 0 0
 stand stand male 1150
 0 0 tiny unknown
-F par GHIJK
 #9570
 cryohydra~
 the cryohydra~
@@ -1100,7 +1034,6 @@ AFGTW J 0 0
 EFNU 0 0 0
 stand stand none 18
 0 0 tiny unknown
-F par GHIJK
 #9571
 giant minotaur lizard~
 the minotaur lizard~
@@ -1143,7 +1076,6 @@ AFGU J 0 0
 EFNU 0 0 0
 stand stand none 18
 0 0 tiny unknown
-F par GHIJK
 #9574
 behir~
 the behir~
@@ -1158,7 +1090,6 @@ ABFT DJ -300 0
 EFNU 0 0 0
 stand stand male 60
 0 0 tiny unknown
-F par GHIJK
 #9575
 chimera~
 the chimera~
@@ -1175,7 +1106,6 @@ ABFT DJ -500 0
 EFNU 0 0 0
 stand stand male 30
 0 0 tiny unknown
-F par GHIJK
 #9576
 couatl~
 the couatl~
@@ -1191,7 +1121,6 @@ ABEQU BJ 300 0
 EFNU 0 0 0
 stand stand male 125
 0 0 tiny unknown
-F par GHIJK
 #9577
 giant hornet~
 the giant hornet~
@@ -1222,7 +1151,6 @@ ABHU 0 1000 0
 EFNU 0 0 0
 stand stand male 45
 0 0 tiny unknown
-F par GHIJK
 #9579
 elvira~
 Elvira~
@@ -1238,7 +1166,6 @@ ABRVYe 0 0 0
 EFNU 0 0 0
 stand stand female 1190
 0 0 tiny unknown
-F par GHIJK
 #9580
 braheem~
 Braheem~
@@ -1253,7 +1180,6 @@ ABRVYe 0 0 0
 EFNU 0 0 0
 stand stand male 1190
 0 0 tiny unknown
-F par GHIJK
 #9581
 high priest~
 the high priest~
@@ -1268,7 +1194,6 @@ ABEQ DH 1000 0
 EFNU 0 0 0
 stand stand male 1190
 0 0 tiny unknown
-F par GHIJK
 #9582
 royal guard elite~
 The Royal Guard~
@@ -1284,7 +1209,6 @@ AGHTU DH 1000 0
 CDEIKLU 0 0 0
 stand stand male 1250
 0 0 tiny unknown
-F par GHIJK
 #9583
 patch bartender~
 Patch the bartender~
@@ -1300,7 +1224,6 @@ ABHVXYe D -500 0
 EFNU 0 0 0
 stand stand male 345
 0 0 tiny unknown
-F par GHIJK
 #9584
 stitch~
 Stitch, the leather dude.~
@@ -1316,7 +1239,6 @@ ABHVXYe D -500 0
 EFNU 0 0 0
 stand stand male 345
 0 0 tiny unknown
-F par GHIJK
 #9585
 gardener small elf~
 the gardener~
@@ -1332,7 +1254,6 @@ ABU 0 0 0
 EFNU 0 0 0
 stand stand male 345
 0 0 tiny unknown
-F par GHIJK
 #9586
 nightmare demon horse~
 the nightmare~
@@ -1349,7 +1270,6 @@ ABGTU BDU 1000 0
 EFNU 0 0 0
 stand stand female 60
 0 0 tiny unknown
-F par GHIJK
 #9587
 wolverine~
 the wolverine~
@@ -1365,7 +1285,6 @@ ABETUW DJ 0 0
 EFNU 0 0 0
 stand stand female 60
 0 0 tiny unknown
-F par GHIJK
 #9588
 mimic painting~
 the mimic~
@@ -1380,7 +1299,6 @@ ABR 0 0 0
 EFNU 0 0 0
 stand stand male 45
 0 0 tiny unknown
-F par GHIJK
 #9589
 mayor~
 the mayor~
@@ -1395,7 +1313,6 @@ AG 0 1000 0
 EFNU 0 0 0
 stand stand male 345
 0 0 tiny unknown
-F par GHIJK
 #9590
 chef~
 the chef~
@@ -1410,7 +1327,6 @@ AB 0 400 0
 EFNU 0 0 0
 stand stand male 345
 0 0 tiny unknown
-F par GHIJK
 #9591
 ixitxachitl~
 the Ixitxachitl~
@@ -1425,7 +1341,6 @@ ABEQT DJ -500 0
 EFNU 0 0 0
 stand stand none 1190
 0 0 tiny unknown
-F par GHIJK
 #9592
 guard bodyguard~
 the bodyguard~
@@ -1440,7 +1355,6 @@ AT 0 1000 0
 CDEIKLU 0 0 0
 stand stand male 45
 0 0 tiny unknown
-F par GHIJK
 #9593
 healer~
 the healer~

@@ -166,7 +166,7 @@ G none
 hit joint~
 a Hit from the Joint~
 A few of these while playing and you're having more fun than most mudders!~
-~
+unknown~
 potion A A
 40 'heal' 'invisibility' 'sanctuary' ''
 25 1 2000 P
@@ -175,7 +175,7 @@ G none
 brownie weed~
 a Brownie~
 A Brownie cooked with THC oil awaits your bite.~
-~
+unknown~
 pill A A
 30 'armor' 'fly' 'infravision' ''
 25 1 2000 P
@@ -184,7 +184,7 @@ G none
 badge dea~
 a Badge~
 A badge with the letters DEA inscribed.~
-~
+unknown~
 armor G AO
 0 0 0 0 0
 50 2 1300 P
@@ -195,7 +195,7 @@ G none
 bowl~
 a Bowl~
 An ornate bowl with a clear red chamber for resinating bud.~
-~
+unknown~
 weapon AK AN
 exotic 6 9 'suction' 0
 54 6 12000 P
@@ -210,7 +210,7 @@ G none
 joint everburning~
 an Everburning Joint~
 The flame of this joint will never run out~
-~
+unknown~
 light A A
 0 A -1 0 0
 55 5 1200 P
@@ -223,7 +223,7 @@ G none
 plate wings~
 a plate of Buffalo Wings~
 When you've got the munchies, what better snack than buffalo wings.~
-~
+unknown~
 food 0 A
 DE DE 0 0 0
 0 5 10 P

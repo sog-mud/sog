@@ -1121,7 +1121,6 @@ A 0 0 0
 stand stand none 0
 0 0 medium unknown
 F for AHMV
-F par ABCDEFGHIJK
 M fight 36302 100~
 #0
 
@@ -2607,7 +2606,7 @@ G female
 book immortal~
 book of immortal~
 A huge volume stands on the shelf.~
-~
+unknown~
 treasure 0 A
 0 0 0 0 0
 0 0 0 P
@@ -2616,7 +2615,7 @@ G none
 book immortal~
 book of immortal~
 A huge volume stands on the shelf.~
-~
+unknown~
 treasure 0 A
 0 0 0 0 0
 0 0 0 P
@@ -2625,7 +2624,7 @@ G none
 book immortal~
 book of immortal~
 A huge volume stands on the shelf.~
-~
+unknown~
 treasure 0 A
 0 0 0 0 0
 0 0 0 P
@@ -2634,7 +2633,7 @@ G none
 book immortal~
 book of immortal~
 A huge volume stands on the shelf.~
-~
+unknown~
 treasure 0 A
 0 0 0 0 0
 0 0 0 P
@@ -2643,7 +2642,7 @@ G none
 book immortal~
 book of immortal~
 A huge volume stands on the shelf.~
-~
+unknown~
 treasure 0 A
 0 0 0 0 0
 0 0 0 P
@@ -2652,7 +2651,7 @@ G none
 book immortal~
 book of immortal~
 A huge volume stands on the shelf.~
-~
+unknown~
 treasure 0 A
 0 0 0 0 0
 0 0 0 P

@@ -98,7 +98,6 @@ ABf DEFTcglt 0 0
 stand stand none 0
 0 0 medium unknown
 F for AHMV
-F par ABCDEFGHIJK
 M exall 95403 2~
 I 1000
 #95405
@@ -115,7 +114,6 @@ ABf DFTcglmt 0 0
 stand stand none 0
 0 0 medium unknown
 F for AHMV
-F par ABCDEFGHIJK
 M exall 95404 0~
 I 1000
 #0
@@ -152,7 +150,7 @@ G male
 pit~
 the pit for donations~
 A pit for sacrifices is in front of the altar.~
-~
+unknown~
 container O 0
 10000 0 0 1000 100
 0 0 0 P

@@ -9,7 +9,7 @@ End
 #OBJECTS
 #33401
 statuette статуэтка~
-@eng {WDiamond Statuette{x@rus {W~~Алмазная~~ ~~статуэтка~~{x~
+@eng Diamond Statuette@rus ~~Алмазная~~ ~~статуэтка~~~
 @eng Diamond statuette on the white marble pedestal.@rus Алмазная статуэтка (statuette) на белом мраморном постаменте.~
 diamond~
 gem AT 0
@@ -58,7 +58,7 @@ G female
 #33404
 statuette salamander статуэтка саламандра figurine~
 @eng The Figurine of Salamander@rus Статуэтка Саламандры~
-@eng Ruby figurine of Salamander on the gray granite pedestal.@rus Рубиновая статуэтка (figurine) Саламандры на постаменте из серого гранита.~
+@eng Ruby figurine of Salamander on the gray granite pedestal.@rus Рубиновая фигурка (figurine) Саламандры на постаменте из серого гранита.~
 ruby~
 gem A 0
 0 0 0 0 0
@@ -68,6 +68,15 @@ figurine statuette salamander статуэтка саламандра~
 @rus Фигурка ящерицы, выточенная из настоящего целого рубина. Она должно
 быть стоит целое состояние. И не боятся они ее так держать...
 ~
+G female
+#33405
+statuette статуэтка undine ундина~
+~
+~
+saphire~
+gem A 0
+0 0 0 0 0
+0 0 0 P
 G female
 #0
 
@@ -784,6 +793,7 @@ S
 человек стоят у края моста и глядят на медленно текущую воду. Негромкое
 журчание завораживает, хочется смотреть и смотреть на белых барашков на
 верхушках волн.
+  Узкая каменная лесенка ведет к самой воде.
 ~
 0 0 inside
 D0
@@ -794,6 +804,10 @@ D2
 ~
 ~
 Z 0 33439
+D5
+~
+~
+Z 0 33474
 S
 #33441
 @eng The Fire Salamander Street@rus Улица Огненной Саламандры~
@@ -862,6 +876,10 @@ D2
 ~
 ~
 Z 0 33443
+D3
+~
+~
+ABZ 0 33475
 S
 #33445
 @eng The Spirit Square@rus Площадь Духа~
@@ -1119,6 +1137,10 @@ D1
 ~
 ~
 Z 0 33445
+D2
+~
+~
+ABZ 0 33475
 D3
 ~
 ~
@@ -1326,13 +1348,65 @@ D3
 ~
 Z 0 33466
 S
+#33474
+@eng On The RiverSide@rus Берег реки~
+~
+0 0 inside
+D4
+~
+~
+Z 0 33440
+S
+#33475
+@rus Таверна "Распутный Единорог"~
+~
+0 0 inside
+D0
+~
+~
+ABZ 0 33459
+D1
+~
+~
+ABZ 0 33444
+D2
+~
+~
+Z 0 33476
+D3
+~
+~
+Z 0 33477
+S
+#33476
+@eng The Bar@rus Бар~
+~
+0 0 inside
+D0
+~
+~
+Z 0 33475
+S
+#33477
+@rus Обеденный зал таверны "Распутный Единорог"~
+~
+0 0 inside
+D1
+~
+~
+Z 0 33475
+S
 #0
 
 #RESETS
 D 0 33444 1 2	* The Fire Salamander Street: door to the east: closed and locked
+D 0 33444 3 1	* The Fire Salamander Street: door to the west: closed
 D 0 33455 3 2	* The Bank: door to the west: closed and locked
+D 0 33459 2 1	* The Spirit Square: door to the south: closed
+D 0 33475 0 1	* : door to the north: closed
+D 0 33475 1 1	* : door to the east: closed
 O 0 33404 0 33444	* The Figurine of Salamander (The Fire Salamander Street)
-O 0 33401 0 33446	* {WDiamond Statuette{x (The Spririt Square)
+O 0 33401 0 33446	* Diamond Statuette (The Spririt Square)
 O 0 33402 0 33452	* Gray marble fountain (The Spirit Square)
 O 0 33402 0 33453	* Gray marble fountain (The Spirit Square)
 O 0 33403 0 33454	* sign (The Spirit Square)

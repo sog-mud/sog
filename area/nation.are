@@ -169,7 +169,7 @@ stand stand male 10
 sign~
 a sign~
 A floating sign draws your attention.~
-~
+unknown~
 furniture 0 0
 0 0 0 0 0
 0 0 0 P
@@ -184,7 +184,7 @@ G none
 lost quest note~
 a lost quest note~
 A lost quest note is lying here.~
-~
+unknown~
 treasure 0 A
 0 0 0 0 0
 0 1 0 P
@@ -199,7 +199,7 @@ G none
 note reward~
 a reward note~
 A reward note has been dropped here.~
-~
+unknown~
 furniture 0 A
 0 0 0 0 0
 0 1 0 P
@@ -215,7 +215,7 @@ G none
 necklace~
 a Necklace~
 A Necklace lies here.~
-~
+unknown~
 armor 0 AC
 2 2 2 2 0
 5 1 0 P
@@ -227,7 +227,7 @@ G none
 necklace~
 a Necklace~
 A necklace has been dropped here.~
-~
+unknown~
 armor 0 AC
 2 2 2 2 0
 5 5 0 P
@@ -239,7 +239,7 @@ G none
 necklace~
 a Necklace~
 A Necklace lies here.~
-~
+unknown~
 armor 0 AC
 2 2 2 2 2
 5 5 0 P
@@ -251,7 +251,7 @@ G none
 ring elven elf~
 an Elven Ring~
 An Elven ring has been dropped here.~
-~
+unknown~
 armor 0 AB
 0 0 0 0 0
 5 1 0 P
@@ -263,7 +263,7 @@ G none
 ring elven elf~
 an Elven Ring~
 An Elven ring has been dropped here.~
-~
+unknown~
 armor 0 AB
 0 0 0 0 0
 5 1 0 P
@@ -275,7 +275,7 @@ G none
 ring elven elf~
 an Elven Ring~
 An Elven ring is lying here.~
-~
+unknown~
 armor 0 AB
 0 0 0 0 0
 5 5 0 P
@@ -287,7 +287,7 @@ G none
 child childs toy~
 a Childs toy~
 A childs toy lies here.~
-~
+unknown~
 armor 0 AO
 0 0 0 0 0
 5 5 0 P
@@ -299,7 +299,7 @@ G none
 toy child childs~
 a Childs toy~
 A childs toy is lying here.~
-~
+unknown~
 armor 0 AO
 0 0 0 0 0
 5 1 0 P
@@ -311,7 +311,7 @@ G none
 child childs toy~
 a Childs toy~
 A childs toy has been dropped here.~
-~
+unknown~
 armor 0 AO
 0 0 0 0 0
 5 1 0 P
@@ -323,7 +323,7 @@ G none
 loincloth~
 a loincloth~
 A loincloth has been wadded up and dropped here.~
-~
+unknown~
 armor 0 AD
 2 3 2 2 0
 8 5 0 P
@@ -332,7 +332,7 @@ G none
 bangle goblin~
 a pair of Goblin Bangles~
 A pair of Goblin Bangles have been dropped here.~
-~
+unknown~
 armor 0 AM
 3 2 3 2 0
 8 1 0 P

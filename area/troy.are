@@ -719,7 +719,7 @@ stand stand female 1000
 spear~
 a short thrusting spear~
 A short thrusting spear is jabbed in the dirt here.~
-~
+unknown~
 weapon 0 AN
 spear 5 6 'stab' K
 25 5 250 P
@@ -732,7 +732,7 @@ G none
 spear~
 a long throwing spear~
 A long throwing spear has been thrust into the dirt here.~
-~
+unknown~
 warp_stone 0 ANO
 0 0 0 0 0
 25 10 250 P
@@ -743,7 +743,7 @@ G none
 ox hide shield~
 an ox hide shield~
 An ox hide shield rests on the ground here.~
-~
+unknown~
 armor 0 AJ
 8 8 8 0 0
 25 5 250 P
@@ -754,7 +754,7 @@ G none
 boar tusk helm~
 a boar tusk helm~
 A boar tusk helm lies here.~
-~
+unknown~
 armor 0 AE
 8 8 8 0 0
 25 5 250 P
@@ -767,7 +767,7 @@ G none
 leather jerkin~
 a leather jerkin~
 A leather jerkin lies in the dirt here.~
-~
+unknown~
 armor 0 AD
 8 8 8 0 0
 25 7 250 P
@@ -776,7 +776,7 @@ G none
 bronze breastplate~
 a bronze breastplate~
 A bronze breastplate has been left here.~
-~
+unknown~
 armor 0 AD
 8 8 8 0 0
 28 15 280 P
@@ -791,7 +791,7 @@ G none
 goblet wine~
 a goblet of watered wine~
 A goblet of watered wine rests here.~
-~
+unknown~
 drink 0 AO
 5 4 'red wine' 0 0
 30 5 300 P
@@ -800,7 +800,7 @@ G none
 board game~
 a board game~
 A board game rests on a table here.~
-~
+unknown~
 trash 0 AO
 0 0 0 0 0
 30 5 300 P
@@ -811,7 +811,7 @@ G none
 achilles breastplate~
 achilles' breastplate~
 Achilles' breastplate lies here.~
-~
+unknown~
 armor AG AD
 12 12 12 0 0
 45 5 450 P
@@ -824,7 +824,7 @@ G none
 achilles greaves~
 achilles' greaves~
 Achilles' greaves lie here.~
-~
+unknown~
 armor AG AF
 12 12 12 0 0
 45 5 450 P
@@ -837,7 +837,7 @@ G none
 achilles helm~
 achilles' helm~
 Achilles' helm lies here.~
-~
+unknown~
 armor AG AE
 12 12 12 0 0
 45 5 450 P
@@ -850,7 +850,7 @@ G none
 achilles' sword~
 achilles' sword~
 Achilles' sword lies here.~
-~
+unknown~
 weapon A AN
 sword 5 10 'pierce' 0
 45 10 450 P
@@ -863,7 +863,7 @@ G none
 bronze sword~
 a bronze sword~
 A bronze sword lies here.~
-~
+unknown~
 weapon 0 AN
 sword 5 5 'pierce' 0
 20 5 200 P
@@ -876,7 +876,7 @@ G none
 bronze dagger~
 a bronze dagger~
 A bronze dagger with lions carved upon it lies here.~
-~
+unknown~
 weapon 0 AN
 dagger 5 5 'pierce' 0
 20 3 200 P
@@ -885,7 +885,7 @@ G none
 bronze shield~
 a bronze shield~
 A bronze shield has been left here.~
-~
+unknown~
 armor 0 AJ
 8 8 8 0 0
 28 8 280 P
@@ -896,7 +896,7 @@ G none
 achilles' shield~
 achilles' shield~
 Achilles' shield lies here.~
-~
+unknown~
 armor AG AJ
 12 12 12 0 0
 45 5 450 P
@@ -907,7 +907,7 @@ G none
 sandals~
 a pair of sandals~
 A pair of sandals lie here.~
-~
+unknown~
 armor 0 AG
 8 8 8 0 0
 28 3 280 P
@@ -916,7 +916,7 @@ G none
 stone axe~
 a stone axe~
 A stone axe lies here.~
-~
+unknown~
 weapon 0 AN
 axe 5 6 'crush' 0
 25 15 250 P
@@ -925,7 +925,7 @@ G none
 banner~
 a banner~
 A banner is stuck in the ground here.~
-~
+unknown~
 trash 0 AO
 0 0 0 0 0
 28 10 280 P
@@ -934,7 +934,7 @@ G none
 bronze helm~
 a bronze helm~
 A bronze helm with horsehair plume lies here.~
-~
+unknown~
 armor 0 AE
 8 8 8 0 0
 28 10 280 P
@@ -947,7 +947,7 @@ G none
 cot~
 a cot~
 A cot with heavy furs piled on it sits here.~
-~
+unknown~
 furniture 0 A
 0 0 0 0 0
 30 25 300 P

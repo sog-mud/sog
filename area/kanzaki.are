@@ -241,9 +241,12 @@ axe battle urukhay~
 @eng {rUrukhay's battle axe{x@rus {rБоевой топор Урукхая{x~
 A large two-bladed battle axe lies on the ground, humming with might.~
 steel~
-weapon BHPY AN
-axe 11 12 'cleave' DFH
-91 500 100 P
+weapon ABEHPY AN
+axe 11 12 'cleave' ACDEFGH
+45 500 100 P
+F A 0 0 a
+F A 0 0 H
+F A 0 0 V
 A
 19 20
 A
@@ -3051,6 +3054,10 @@ O 0 47119 0 47210	* Chest (Saburo Kanzaki's room)
 O 0 47107 0 47215	* River (Shore of the river)
 O 0 47217 0 47216	* River (Shore of the river)
 O 0 47108 0 47218	* Cave mouth (In the river)
+S
+
+#OLIMITS
+O 47013 1	* {rUrukhay's battle axe{x
 S
 
 #MOBPROGS

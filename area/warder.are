@@ -8,4 +8,397 @@ LevelRange 0 0
 Flags closed noquest~
 End
 
+#MOBILES
+#96000
+biomass mass~
+biomass~
+@eng Something like biomass is here
+@rus Нечто похожее на биомассу стоит здесь
+~
+You understand that you can't describe that
+It looks realy strange. You never see that.
+~
+unique~
+ABJKTVbef DFlmt 0 0
+50 25 2d1+5000 1d1+99 5d6+50 none
+-10 -10 -10 -10
+ACEFIK C 0 0
+stand stand none 0
+0 0 giant unknown
+M grall 96000 100~
+M exall 96001 3~
+#96001
+ancient owl~
+the ancient owl~
+The ancient owl sits here
+~
+~
+unique~
+ABQVWa DFHJVZ 0 0
+92 70 1d100+18000 1d300+900 15d30+40 divine
+-90 -90 -90 -90
+CEFNU C 0 0
+stand stand female 0
+AHM 0 medium unknown
+#0
+
+#OBJECTS
+#96000
+branch broken~
+broken branch~
+A peace of wood lays here.~
+wood~
+key ORYf AOP
+0 0 0 0 0
+0 5 0 P
+G none
+#96001
+leaf лист~
+@eng the Leaf of Great Oak~
+A humming leaf of oak lays here.~
+wood~
+treasure ORe AO
+0 0 0 0 0
+0 1 0 P
+G none
+#96002
+hollow in tree дупло~
+the hollow~
+You see small hollow in the tree~
+wood~
+container ORY P
+10 ABCD 96000 15 100
+0 0 0 P
+G none
+#96003
+waterfall~
+a beautiful waterfall~
+A beautiful waterfall is here~
+water~
+portal 0 0
+0 0 0 96009 0
+0 0 0 P
+G male
+#96004
+~
+@eng spring@rus ручей~
+@eng A small strange spring gushes forth here.@rus Маленький странный ручей~
+unknown~
+fountain AB 0
+0 0 'elvish wine' 0 0
+0 0 0 P
+G none
+#96005
+branch~
+branch~
+Very comfortable branch has groun here.~
+wood~
+furniture IY P
+BD GJOQRST EHKN DGH DGH
+0 1000000 0 P
+G none
+#96010
+~
+cap~
+huge cap of milk is  flying here here~
+wood~
+fountain AB 0
+0 0 'milk' 0 0
+0 0 0 P
+G none
+#0
+
+#ROOMS
+#96000
+@eng Entrance to the Ironwood Citadel~
+~
+0 TX forest
+D0
+~
+~
+Z 0 96001
+S
+#96001
+@eng Between the three Pines~
+You are in the circle of different trees.
+Oops.Three pines. I've been here two minutes ago.
+You understand:first fear - fear of Mother Nature
+You hear the words of ancient song:
+You guess you will never get out this place
+Cause that's never ending defenders live maze
+You feel that two minutes between life and death
+How nature will show you invisible face?
+~
+0 NX forest
+D0
+~
+~
+Z 0 96002
+D1
+~
+~
+Z 0 96001
+D2
+~
+~
+Z 0 96000
+D3
+~
+~
+Z 0 96001
+S
+#96002
+@eng Between the three Pines~
+@eng You are in the circle of different trees.
+Oops.Three pines. I've been here two minutes ago.
+You understand:first fear - fear of Mother Nature
+You hear the words of ancient song:
+You guess you will never get out this place
+Cause that's never ending defenders live maze
+You feel that two minutes between life and death
+How nature will show you invisible face?
+~
+0 NX forest
+D0
+~
+~
+Z 0 96003
+D1
+~
+~
+Z 0 96002
+D2
+~
+~
+Z 0 96001
+D3
+~
+~
+Z 0 96002
+S
+#96003
+@eng Between the three Pines~
+@eng You are in the circle of different trees.
+Oops.Three pines. I've been here two minutes ago.
+You understand:first fear - fear of Mother Nature
+You hear the words of ancient song:
+You guess you will never get out this place
+Cause that's never ending defenders live maze
+You feel that two minutes between life and death
+How nature will show you invisible face?
+~
+0 NX forest
+D0
+~
+~
+Z 0 96004
+D1
+~
+~
+Z 0 96003
+D2
+~
+~
+Z 0 96002
+D3
+~
+~
+Z 0 96003
+S
+#96004
+@eng Between the three Pines~
+@eng You are in the circle of different trees.
+Oops.Three pines. I've been here two minutes ago.
+You understand:first fear - fear of Mother Nature
+You hear the words of ancient song:
+You guess you will never get out this place
+Cause that's never ending defenders live maze
+You feel that two minutes between life and death
+How nature will show you invisible face?
+~
+0 NX forest
+D0
+~
+~
+Z 0 96005
+D1
+~
+~
+Z 0 96004
+D2
+~
+~
+Z 0 96003
+D3
+~
+~
+Z 0 96004
+S
+#96005
+@eng Before Great Oak~
+@eng Now you understand force which bring everyone to his knees
+Oh,greater druids!you were right.
+The song continues:
+You hear a sound of rushing water
+You fell a smell of elven wine
+You know that everything will rotten
+If all intuders never die
+~
+0 NX forest
+D1
+~
+~
+Z 0 96005
+D2
+~
+~
+Z 0 96004
+D3
+~
+~
+Z 0 96005
+D4
+~
+~
+Z 0 96006
+S
+#96006
+@eng The Great Oak~
+@eng Realy huge oak,guess you will never look at the top
+And you will never know singers
+You feel that everything's untrue
+You know between the red and blue
+Is green - the color me and you
+Will paint everything we knew
+~
+0 NX forest
+D1
+~
+~
+Z 0 96007
+D4
+~
+~
+Z 0 96008
+D5
+~
+~
+Z 0 96005
+S
+#96007
+@eng Dark Part of the Great Oak~
+@eng You feel here like at home
+Is this a song or  lullaby ?
+We have hard life and tire to death
+We have nice dreams and need some rest
+But we won't die in own bed
+The law of nature tells us that
+~
+0 NX forest
+D3
+~
+~
+Z 0 96006
+S
+#96008
+@eng The Top of the Great Oak~
+@eng The feeling of complainment fills you
+The Final part of the song is:
+The wisdom of the ancients isn't a cage
+We have a strenght,we have a rage
+But never do before you think
+We'll never loose the nature link
+~
+0 NX forest
+D5
+~
+~
+Z 0 96006
+S
+#96009
+@eng The Room of Silence~
+~
+0 NX forest
+D5
+~
+~
+Z 0 96005
+S
+#96010
+Desert~
+Sands...Sands...Sands...
+~
+0 ACHKNWX desert
+D0
+~
+~
+Z 0 96010
+D1
+~
+~
+Z 0 96010
+D2
+~
+~
+Z 0 96010
+D3
+~
+~
+Z 0 96010
+S
+#0
+
+#RESETS
+M 0 96000 1 96001 1	* biomass (Between the three Pines)
+E 0 96000 0 17		*	broken branch: held in the hands
+O 0 96003 0 96005	* a beautiful waterfall (Before Great Oak)
+O 0 96004 0 96005	* spring (Before Great Oak)
+O 0 96005 0 96007	* branch (Dark Part of the Great Oak)
+M 0 96001 1 96008 1	* the ancient owl (The Top of the Great Oak)
+O 0 96002 0 96009	* the hollow (The Room of Silence)
+P 0 96001 0 96002 1	* the hollow: the Leaf of Great Oak
+O 0 96010 0 96010	* cap (Desert)
+S
+
+#MOBPROGS
+#96000
+if clan $n warders
+mob echoat $n $I jumps around you!
+end
+endif
+if isimmort $n 
+mob echoat $n $I jumps around you!
+end
+endif
+if level $n < 10
+mob transfer $n 96000 
+end
+endif
+if ischarm $n 
+say Charmies are not allowed in this place!
+mob transfer $n 96000
+end
+endif
+if isghost $n
+say Ghosts are not allowed in this place!
+mob slay $n
+end
+endif
+clan We are attacked by $n!
+mob attack $n
+~
+#96001
+if clan $n warders
+or isimmort $n
+mob transfer $n 95402
+end
+endif
+mob attack $n
+~
+#0
+
+#PRACTICERS
+M 96000 clan~	* biomass
+S
+
 #$

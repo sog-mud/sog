@@ -46,7 +46,6 @@ ACEFHJK ABQU CDL 0
 stand stand male 1000000
 0 0 medium unknown
 F for AHMV
-F par ABCDEFGHIJK
 #18702
 ogden огден~
 @eng innkeeper Ogden@rus ~~Трактирщик~~ ~~Огден~~~
@@ -62,7 +61,6 @@ ABLT 0 -1000 0
 stand stand none 0
 0 0 medium unknown
 F for AHMV
-F par ABCDEFGHIJK
 M act 18798 say~
 #18703
 cain кейн~
@@ -78,7 +76,6 @@ EFKT ABEQ CDL 0
 stand stand male 1000
 0 0 medium unknown
 F for AHMV
-F par ABCDEFGHIJK
 #18704
 healer лекарь пепин pepin~
 @eng healer Pepin@rus ~~лекарь~~ ~~Пепин~~~
@@ -94,7 +91,6 @@ AN ABCMNQU DL 0
 stand stand male 1000
 0 0 medium unknown
 F for AHMV
-F par ABCDEFGHIJK
 #18705
 adria ведьма адрия witch~
 @eng Adria witch@rus ~~Ведьма~~ ~~Адрия~~~
@@ -109,7 +105,6 @@ F AB CD M
 stand stand female 0
 0 0 medium unknown
 F for AHMV
-F par ABCDEFGHIJK
 #18706
 farnham алкаш drunk~
 @eng Farnham@rus ~~пьяница~~ Фанхам~
@@ -125,7 +120,6 @@ DFK A CI BPR
 stand rest male 0
 0 0 medium unknown
 F for AHMV
-F par ABCDEFGHIJK
 #18707
 wirt вирт~
 @eng Wirt@rus ~~Вирт~~~
@@ -141,7 +135,6 @@ BFNT ABLQ D ER
 stand stand male 0
 0 0 medium unknown
 F for AHMV
-F par ABCDEFGHIJK
 M grall 18700 666~
 M exall 18702 2~
 M bribe 18701 5000~
@@ -158,7 +151,6 @@ ABe 0 0 0
 stand stand none 0
 0 0 medium unknown
 F for AHMV
-F par ABCDEFGHIJK
 #18710
 mage fire ball~
 @eng {RFire Ball{x@rus {RОгненный шар{x~

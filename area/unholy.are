@@ -267,7 +267,7 @@ stand stand none 0
 monk habit~
 a monk's habit~
 A long brown monk's robe stained with blood lies crumpled on the floor.~
-~
+unknown~
 armor 0 AK
 20 20 20 10 0
 60 5 200 P
@@ -276,7 +276,7 @@ G none
 master robe habit~
 a master's habit~
 A black monk's robe trimmed with silver lies here.~
-~
+unknown~
 armor 0 AK
 21 21 21 11 0
 61 5 36600 P
@@ -287,7 +287,7 @@ G none
 necromancer robes~
 necromancer's robes~
 Some purple robes lie here.~
-~
+unknown~
 armor 0 AK
 21 20 22 10 0
 62 5 40000 P
@@ -313,7 +313,7 @@ G none
 altar~
 a bloodstained altar~
 A large marble bloodstained altar rests in the center of the chapel.~
-~
+unknown~
 furniture 0 0
 0 0 0 0 0
 0 0 0 P
@@ -322,7 +322,7 @@ G none
 abbot ring~
 the abbot's ring~
 A black ring that glows with an unholy light lies here.~
-~
+unknown~
 armor AEJ AB
 0 0 0 0 0
 65 1 30000 P
@@ -337,7 +337,7 @@ G none
 abbot robes~
 the abbot's robes~
 Some crimson robes lie here.~
-~
+unknown~
 armor AEJ AK
 21 22 22 15 0
 65 5 20000 P
@@ -350,7 +350,7 @@ G none
 bracers might~
 bracers of might~
 A pair of sturdy metal bracers lie here, unclaimed.~
-~
+unknown~
 armor AG AI
 22 22 22 18 0
 65 10 20000 P
@@ -365,7 +365,7 @@ G none
 sword elven~
 an elven longsword~
 An ornately-fashioned sword lies here.~
-~
+unknown~
 weapon AG AN
 sword 7 9 'pierce' 0
 63 10 15000 P
@@ -378,7 +378,7 @@ G none
 suit elven chainmail~
 a suit of elven chainmail~
 A suit of well-crafted chain lies here.~
-~
+unknown~
 armor AG AD
 21 21 22 20 0
 63 5 25000 P
@@ -389,7 +389,7 @@ G none
 shield~
 a rune-covered shield~
 A shield covered with mithril runes is propped up against a wall here.~
-~
+unknown~
 armor AG AJ
 20 20 20 20 0
 63 8 15000 P
@@ -402,7 +402,7 @@ G none
 tattered cloak~
 a tattered cloak~
 A tattered old cloak lies here.~
-~
+unknown~
 armor 0 AC
 20 20 20 20 0
 63 1 1000 P
@@ -411,7 +411,7 @@ G none
 scythe~
 a scythe~
 A scythe lies here, glowing.~
-~
+unknown~
 weapon ABEGJ AN
 polearm 7 8 'stab' 0
 66 20 2000 P
@@ -424,7 +424,7 @@ G none
 manacles~
 a pair of manacles~
 A pair of iron manacles lies here.~
-~
+unknown~
 armor M AI
 0 0 0 0 0
 55 15 0 P
@@ -435,7 +435,7 @@ G none
 pick~
 a mining pick~
 A pick is lying here.~
-~
+unknown~
 weapon 0 AN
 axe 6 9 'pierce' 0
 60 5 0 P
@@ -444,7 +444,7 @@ G none
 whip~
 a whip~
 A whip is curled up on the floor here.~
-~
+unknown~
 weapon 0 AN
 whip 7 9 'whip' 0
 61 10 7000 P
@@ -471,7 +471,7 @@ G none
 gold key~
 a gold key~
 A gold key is lying here.~
-~
+unknown~
 key 0 AO
 0 0 0 0 0
 0 1 0 P
@@ -480,7 +480,7 @@ G none
 chest key~
 a chest key~
 A chest key is lying here.~
-~
+unknown~
 key 0 AO
 0 0 0 0 0
 0 1 0 P
@@ -498,7 +498,7 @@ G none
 suit unholy armor~
 a suit of unholy armor~
 A suit of unholy armor lies here.~
-~
+unknown~
 armor ABEGJM AD
 21 21 21 10 0
 63 25 20000 P
@@ -525,7 +525,7 @@ G none
 sack~
 a sack~
 A sack lies here.~
-~
+unknown~
 container 0 AO
 25 0 0 5 100
 60 1 0 P
@@ -534,7 +534,7 @@ G none
 gold~
 some gold~
 Some gold has been scattered here. Quite a lot actually.~
-~
+unknown~
 money 0 A
 25000 0 0 0 0
 0 10 25000 P
@@ -543,7 +543,7 @@ G none
 bellows~
 a bellows~
 A bellows sits here.~
-~
+unknown~
 furniture 0 0
 0 0 0 0 0
 0 4 0 P
@@ -552,7 +552,7 @@ G none
 green amulet~
 a bright green amulet~
 A bright green amulet is lying here.~
-~
+unknown~
 key 0 AC
 0 0 0 0 0
 58 1 0 P
@@ -565,7 +565,7 @@ G none
 portal~
 a glowing green portal~
 A green portal floats here.~
-~
+unknown~
 portal A 0
 0 0 A 30827 0
 0 0 0 P
@@ -574,7 +574,7 @@ G none
 portal~
 a glowing green portal~
 A green portal floats here.~
-~
+unknown~
 portal A 0
 0 0 A 30825 0
 0 0 0 P
@@ -583,7 +583,7 @@ G none
 portal~
 a glowing red portal~
 A red portal floats here.~
-~
+unknown~
 portal A 0
 0 0 A 30839 0
 0 0 0 P
@@ -592,7 +592,7 @@ G none
 sack~
 a sack~
 A sack lies on the floor here.~
-~
+unknown~
 container 0 AO
 15 0 0 10 100
 1 1 0 P
@@ -601,7 +601,7 @@ G none
 lantern~
 a lantern~
 A lantern in excellent condition sits here.~
-~
+unknown~
 light 0 AO
 0 0 100 0 0
 1 1 0 P
@@ -610,7 +610,7 @@ G none
 chest~
 a small chest~
 A small chest sits here.~
-~
+unknown~
 container 0 A
 50 0 0 20 100
 5 5 0 P
@@ -619,7 +619,7 @@ G none
 wineskin~
 a wineskin~
 A wineskin hangs from a hook on one wall.~
-~
+unknown~
 drink 0 AO
 5 5 'red wine' 0 0
 0 2 0 P
@@ -628,7 +628,7 @@ G none
 waterskin~
 a waterskin~
 A waterskin hangs from a hook on one wall.~
-~
+unknown~
 drink 0 AO
 5 5 'water' 0 0
 0 2 0 P
@@ -637,7 +637,7 @@ G none
 iron rations~
 some iron rations~
 Some unopened iron rations sit here.~
-~
+unknown~
 food 0 AO
 DE DE 0 0 0
 0 2 20 P
@@ -646,7 +646,7 @@ G none
 backpack~
 a backpack~
 A backpack sits here.~
-~
+unknown~
 container 0 AD
 25 0 0 10 100
 0 3 0 P
@@ -655,7 +655,7 @@ G none
 hand axe~
 a hand axe~
 A hand axe hangs by a thong from a hook on one wall.~
-~
+unknown~
 weapon 0 AN
 axe 6 8 'chop' 0
 59 5 2500 P
@@ -664,7 +664,7 @@ G none
 throwing axe~
 a throwing axe~
 A throwing axe hangs by a thong from a hook on one wall.~
-~
+unknown~
 weapon 0 AN
 axe 8 9 'chop' K
 60 5 2500 P
@@ -673,7 +673,7 @@ G none
 bo stick~
 a bo stick~
 A bo stick rests against one wall here.~
-~
+unknown~
 weapon 0 AN
 mace 6 8 'pound' 0
 61 5 1500 P
@@ -682,7 +682,7 @@ G none
 jo stick~
 a jo stick~
 A bo stick rests against one wall here.~
-~
+unknown~
 weapon 0 AN
 mace 6 8 'pound' 0
 61 5 1500 P
@@ -691,7 +691,7 @@ G none
 quarterstaff~
 a quarterstaff~
 A quarterstaff is lying on the floor here.~
-~
+unknown~
 weapon 0 AN
 staff 6 8 'crush' 0
 59 5 2500 P
@@ -700,7 +700,7 @@ G none
 crossbow~
 a crossbow~
 A crossbow is resting against one wall here.~
-~
+unknown~
 weapon 0 AN
 bow 6 8 'pierce' 0
 59 10 2350 P
@@ -709,7 +709,7 @@ G none
 quiver~
 a quiver~
 A large quiver is hanging from a hook opposite the door.~
-~
+unknown~
 portal 0 AD
 BEF 0 0 0 0
 3 100 0 P
@@ -718,7 +718,7 @@ G none
 shield~
 a white shield~
 A white shield bearing a white hart on a green field lies here.~
-~
+unknown~
 armor AGIK AJ
 25 25 25 18 0
 75 7 25000 P
@@ -737,7 +737,7 @@ G none
 surcoat~
 a white surcoat~
 A surcoat bearing the coat of arms of Malathar lies here.~
-~
+unknown~
 armor AGIK AD
 25 25 25 20 0
 75 5 15000 P
@@ -752,7 +752,7 @@ G none
 throne~
 a throne~
 A throne sits here.~
-~
+unknown~
 furniture 0 0
 0 0 0 0 0
 0 1000 0 P
@@ -765,7 +765,7 @@ G none
 skeleton~
 a skeleton~
 A skeleton is seated upon the throne.~
-~
+unknown~
 trash 0 0
 0 0 0 0 0
 0 25 0 P
@@ -781,7 +781,7 @@ G none
 sarcophagus~
 a massive sarcophagus~
 A masive sarcophagus rests here.~
-~
+unknown~
 container 0 0
 15000 0 0 0 0
 0 15000 0 P
@@ -790,7 +790,7 @@ G none
 red amulet~
 a glowing red amulet~
 A glowing red amulet lies here.~
-~
+unknown~
 key 0 AC
 0 0 0 0 0
 0 1 0 P
@@ -799,7 +799,7 @@ G none
 portal~
 a glowing red portal~
 A red portal floats here.~
-~
+unknown~
 portal A 0
 0 0 A 30827 0
 0 0 0 P
@@ -808,7 +808,7 @@ G none
 desk~
 a small desk~
 A small desk sits in front of the shelves.~
-~
+unknown~
 furniture 0 0
 0 0 0 0 0
 0 100 0 P
@@ -817,7 +817,7 @@ G none
 letter~
 a partially-drafted letter~
 An unfinished letter lies on the desk.~
-~
+unknown~
 trash 0 AO
 0 0 0 0 0
 0 1 0 P
@@ -835,7 +835,7 @@ G none
 book~
 a book on ritual sacrifice~
 A particularly large book detailing ritual sacrifice sits here.~
-~
+unknown~
 trash EHJM AO
 0 0 0 0 0
 10 25 0 P
@@ -850,7 +850,7 @@ G none
 portal~
 a glowing blue portal~
 A blue portal floats here.~
-~
+unknown~
 portal A 0
 0 0 A 30883 0
 0 0 0 P
@@ -859,7 +859,7 @@ G none
 portal~
 a glowing blue portal~
 A blue portal floats here.~
-~
+unknown~
 portal A 0
 0 0 A 30839 0
 0 0 0 P
@@ -868,7 +868,7 @@ G none
 portal~
 a glowing black portal~
 A black portal floats here.~
-~
+unknown~
 portal A 0
 0 0 A 30819 0
 0 0 0 P
@@ -877,7 +877,7 @@ G none
 bath~
 a bath~
 A bath is slowly filling with natural spring water here.~
-~
+unknown~
 fountain 0 0
 10 10 'water' 0 0
 0 30800 0 P
@@ -886,7 +886,7 @@ G none
 blue amulet~
 a blue amulet~
 A blue amulet glows with an unearthly light here.~
-~
+unknown~
 key 0 AC
 0 0 0 0 0
 0 1 0 P

@@ -22,7 +22,6 @@ ACG X 0 0
 stand stand none 2147483647
 0 0 medium unknown
 F for AHMV
-F par ABCDEFGHIJK
 #38001
 bargan~
 @eng Bargan@rus Барган~
@@ -149,7 +148,6 @@ ACFHJKO BU C 0
 stand stand female 10000
 0 0 medium unknown
 F for AHMV
-F par ABCDEFGHIJK
 #38010
 sheeala~
 @eng {MSheeala{x@rus {MШиала{x~
@@ -165,7 +163,6 @@ ABCGQRST DFTVu -1000 0
 stand stand female 100
 0 0 medium unknown
 F for AHMV
-F par ABCDEFGHIJK
 #38011
 natasha~
 @eng Natasha@rus Наташа~
@@ -182,7 +179,6 @@ ACG 0 0 0
 stand stand female 1
 0 0 medium unknown
 F for AHMV
-F par ABCDEFGHIJK
 #38102
 ded moroz~
 @eng {CFather Frost{x@rus {CДед Мороз{x~
@@ -200,7 +196,6 @@ AGQR 0 1000 0
 stand stand male 0
 0 0 medium unknown
 F for AHMV
-F par ABCDEFGHIJK
 #38200
 barman~
 @eng barman@rus бармэн~
@@ -216,7 +211,6 @@ ABCGV 0 0 0
 stand stand male 1000000
 0 0 medium unknown
 F for AHMV
-F par ABCDEFGHIJK
 #38500
 War-rawan~
 @eng war-rawan@rus Вар-Раван~

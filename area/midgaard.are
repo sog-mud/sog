@@ -212,7 +212,6 @@ ABTVXe CDFJVZ 1000 3000
 ACDEFHIKLNOT ABP CD 0
 stand stand male 0
 0 0 huge unknown
-F vul P
 M greet 3019 10~
 #3012
 healer лекарь~
@@ -1421,7 +1420,7 @@ G male
 pit яма~
 @eng the donation pit@rus ~~яма~~ для жертвоприношений~
 @eng A pit for sacrifices is in front of the altar.@rus Перед алтарем находится яма (pit) для жертвоприношений.~
-~
+unknown~
 container Og 0
 10000 0 0 1000 100
 0 0 0 P
@@ -3194,7 +3193,7 @@ G none
 pit~
 the donation pit~
 A pit for sacrifices is in front of the altar.~
-~
+unknown~
 container O 0
 10000 0 0 1000 100
 0 0 0 P

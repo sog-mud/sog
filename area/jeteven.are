@@ -21,7 +21,6 @@ A 0 0 0
 stand stand none 0
 0 0 medium unknown
 F for AHMV
-F par ABCDEFGHIJK
 #26101
 jet~
 @eng Jet@rus ~~Джет~~~
@@ -35,7 +34,6 @@ A 0 0 0
 stand stand none 0
 0 0 medium unknown
 F for AHMV
-F par ABCDEFGHIJK
 #26102
 keravar master~
 @eng Master Keravar@rus ~~Мастер~~ ~~Керавар~~~
@@ -49,7 +47,6 @@ A 0 0 0
 stand stand none 0
 0 0 medium unknown
 F for AHMV
-F par ABCDEFGHIJK
 #26103
 master pain~
 @eng Master of Pain@rus ~~Мастер~~ Боли ~
@@ -63,7 +60,6 @@ A 0 0 0
 stand stand none 0
 0 0 medium unknown
 F for AHMV
-F par ABCDEFGHIJK
 #26104
 master curses~
 @eng Master of Curses@rus ~~Мастер~~ Проклятий~
@@ -77,7 +73,6 @@ A 0 0 0
 stand stand none 0
 0 0 medium unknown
 F for AHMV
-F par ABCDEFGHIJK
 #26105
 ahae-te~
 @eng Ahae-Te@rus Ахаэ-Тэ~
@@ -91,7 +86,6 @@ A 0 0 0
 stand stand none 0
 0 0 medium unknown
 F for AHMV
-F par ABCDEFGHIJK
 #26106
 soldier imperial~
 @eng imperial soldier@rus ~~солдат~~ имперской гвардии~
@@ -105,7 +99,6 @@ A 0 0 0
 stand stand none 0
 0 0 medium unknown
 F for AHMV
-F par ABCDEFGHIJK
 #26107
 imperial captain~
 @eng imperial captain@rus ~~капитан~~ импермкой гвардии~
@@ -119,7 +112,6 @@ A 0 0 0
 stand stand none 0
 0 0 medium unknown
 F for AHMV
-F par ABCDEFGHIJK
 #26108
 weidian mercenary~
 @eng Weidian mercenary@rus Вейдианский наемник~
@@ -133,7 +125,6 @@ A 0 0 0
 stand stand none 0
 0 0 medium unknown
 F for AHMV
-F par ABCDEFGHIJK
 #26109
 outer guard~
 @eng outer circle guard@rus ~~охранник~~ внешнего круга~
@@ -147,7 +138,6 @@ A 0 0 0
 stand stand none 0
 0 0 medium unknown
 F for AHMV
-F par ABCDEFGHIJK
 #26110
 inner guard~
 @eng inner circle guard@rus ~~охранник~~ внутреннего круга~
@@ -161,7 +151,6 @@ A 0 0 0
 stand stand none 0
 0 0 medium unknown
 F for AHMV
-F par ABCDEFGHIJK
 #0
 
 #OBJECTS

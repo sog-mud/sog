@@ -267,7 +267,6 @@ A BDFHIJMNOPTXl 1000 0
 stand stand none 0
 K 0 small unknown
 F for AHMV
-F par ABCEFGHIJK
 M bribe 32700 100000~
 #0
 
@@ -276,7 +275,7 @@ M bribe 32700 100000~
 pile of gold~
 a pile of gold~
 A small glistening pile of gold catches your eye.~
-~
+unknown~
 money A A
 180 0 0 0 0
 18 0 180 P
@@ -285,7 +284,7 @@ G none
 bone key~
 a key made of bone~
 A hard white key was left on the floor.~
-~
+unknown~
 key 0 AO
 0 0 0 0 0
 0 1 0 P
@@ -294,7 +293,7 @@ G none
 breeding formula~
 breeding formula~
 Special warg breeding formula was left here.~
-~
+unknown~
 potion G A
 35 'giant strength' 'heal' 'heal' ''
 0 0 0 P
@@ -303,7 +302,7 @@ G none
 curved dagger jher's~
 jher's curved dagger~
 Jher's evil curved dagger is here glowing.~
-~
+unknown~
 weapon ABGJ AN
 dagger 5 12 'pierce' 0
 53 3 530 P
@@ -322,7 +321,7 @@ G none
 breeding formula~
 breeding formula~
 Special warg breeding formula was left here.~
-~
+unknown~
 potion G A
 35 'armor' 'heal' 'create food' ''
 0 0 0 P
@@ -331,7 +330,7 @@ G none
 breeding formula~
 breeding formula~
 Special warg breeding formula was left here.~
-~
+unknown~
 potion G AO
 35 'word of recall' 'blindness' 'sleep' ''
 0 0 0 P
@@ -344,7 +343,7 @@ G none
 beorn's fury~
 beorn's fury~
 A huge set of teeth are rotting like a skull in the desert.~
-~
+unknown~
 weapon GKM AN
 exotic 1 7 'bite' 0
 0 2 0 P
@@ -357,7 +356,7 @@ G none
 key~
 large brass key~
 A large brass key shimmers here.~
-~
+unknown~
 key 0 AO
 0 0 0 0 0
 0 1 0 P
@@ -366,7 +365,7 @@ G none
 throne~
 the throne~
 A huge golden throne covered in jewels.~
-~
+unknown~
 furniture A 0
 0 0 0 0 0
 51 5 510 P
@@ -375,7 +374,7 @@ G none
 key jewel topaz~
 a key made of topaz~
 A key made of some fine cut amber colored jewell is on the floor.~
-~
+unknown~
 key AH A
 0 0 0 0 0
 53 5 530 P
@@ -384,7 +383,7 @@ G none
 carved ebony figurine~
 a carved ebony figurine~
 You can barely make out a small black rock under all the dust.~
-~
+unknown~
 key F A
 0 0 0 0 0
 0 0 0 P
@@ -393,7 +392,7 @@ G none
 dusty golden trunk chest~
 the golden chest~
 A large dusty trunk was left in the corner, looks like a good place to sit.~
-~
+unknown~
 container G 0
 100 ABCD 9910 0 0
 35 5 350 P
@@ -402,7 +401,7 @@ G none
 diamond bracelet~
 a diamond bracelet~
 A diamond bracelet sparkles here.~
-~
+unknown~
 armor AFG AM
 10 10 10 0 0
 37 5 370 P
@@ -413,7 +412,7 @@ G none
 broken scroll~
 a broken scroll~
 A bound roll of paper is hidden here.~
-~
+unknown~
 scroll B A
 50 'heal' 'word of recall' 'refresh' ''
 0 5 0 P
@@ -422,7 +421,7 @@ G none
 glowing zapath necklace~
 a glowing zapath necklace~
 A necklace carved from a blood red stone was left here.~
-~
+unknown~
 armor AGJM AC
 10 10 10 0 0
 35 1 350 P
@@ -435,7 +434,7 @@ G none
 gold pill coin~
 a gold coin~
 A small gold coin catches your eye here.~
-~
+unknown~
 pill A A
 0 'detect invis' '' '' ''
 35 5 350 P

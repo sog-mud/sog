@@ -24,7 +24,6 @@ AGHT HN 400 0
 EFNU 0 0 0
 stand stand female 0
 0 0 medium unknown
-F par GHIJK
 M act 21002 looks at you.~
 M kill 21001 100~
 M greet 21000 100~
@@ -116,7 +115,6 @@ ABGT N 400 0
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
-F par GHIJK
 M act 21007 looks at you.~
 M greet 21006 100~
 M act 21027 leaves north.~
@@ -141,7 +139,6 @@ AGHT T 400 0
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
-F par GHIJK
 M act 21010 looks at you.~
 M greet 21009 100~
 M act 21008 tells you~
@@ -167,7 +164,6 @@ ABGT T 400 0
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
-F par GHIJK
 M greet 21011 100~
 M act 21029 leaves north.~
 M act 21029 leaves south.~
@@ -191,7 +187,6 @@ ABGHT T 400 0
 EFNU 0 0 0
 stand stand female 0
 0 0 medium unknown
-F par GHIJK
 M greet 21012 100~
 M act 21030 leaves north.~
 M act 21030 leaves south.~
@@ -215,7 +210,6 @@ ABGT T 400 0
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
-F par GHIJK
 M greet 21013 100~
 #21009
 old crab~
@@ -231,7 +225,6 @@ ABGT N 400 0
 EFNU 0 0 0
 stand stand female 0
 0 0 medium unknown
-F par GHIJK
 M greet 21015 100~
 #21010
 young crab~
@@ -247,7 +240,6 @@ ABGHT N 400 0
 EFNU 0 0 0
 stand stand female 0
 0 0 medium unknown
-F par GHIJK
 M greet 21014 100~
 #21011
 bill lizard~
@@ -323,7 +315,6 @@ ABGHT HJN 400 0
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
-F par GHIJK
 M greet 21031 100~
 M act 21032 looks at you.~
 M act 21033 leaves north.~
@@ -349,7 +340,6 @@ ABFGT T 400 0
 EFNU 0 0 0
 stand stand female 0
 0 0 medium unknown
-F par GHIJK
 M greet 21034 100~
 M act 21035 looks at you.~
 M act 21036 leaves north.~
@@ -393,7 +383,6 @@ ABGT 0 400 0
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
-F par GHIJK
 M act 21039 tells you~
 #21018
 duchess~
@@ -411,7 +400,6 @@ ABDGT N 400 0
 EFNU 0 0 0
 stand stand female 0
 0 0 medium unknown
-F par GHIJK
 M greet 21040 100~
 M random 21041 5~
 M act 21041 tells you~
@@ -448,7 +436,6 @@ ABGT 0 0 0
 EFNU 0 0 0
 stand stand female 0
 0 0 medium unknown
-F par GHIJK
 M greet 21043 100~
 M act 21044 says ~
 M act 21045 leaves north.~
@@ -476,7 +463,6 @@ AGHT HJNU 1000 0
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
-F par GHIJK
 M greet 21046 100~
 M random 21047 5~
 M act 21048 looks at you.~
@@ -512,7 +498,6 @@ ABGT H 400 0
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
-F par GHIJK
 M greet 21050 100~
 M act 21051 looks at you.~
 M act 21052 tells you ~
@@ -539,7 +524,6 @@ ABGT H 400 0
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
-F par GHIJK
 M greet 21050 100~
 M act 21054 leaves north.~
 M act 21054 leaves south.~
@@ -565,7 +549,6 @@ ABGT PR 400 0
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
-F par GHIJK
 M greet 21055 100~
 M random 21056 5~
 #21027
@@ -583,7 +566,6 @@ ABGHT 0 400 0
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
-F par GHIJK
 M greet 21057 100~
 M act 21058 tells you~
 M act 21058 says~
@@ -605,7 +587,6 @@ ABGHT 0 400 0
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
-F par GHIJK
 M greet 21059 100~
 M act 21058 says~
 M act 21058 tells you~
@@ -624,7 +605,6 @@ ABGHT 0 400 0
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
-F par GHIJK
 M greet 21060 100~
 M random 21061 4~
 M act 21062 leaves north.~
@@ -648,7 +628,6 @@ AGT N 400 0
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
-F par GHIJK
 M greet 21063 100~
 M act 21064 looks at you.~
 #21031
@@ -665,7 +644,6 @@ AGT 0 400 0
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
-F par GHIJK
 M greet 21065 100~
 M act 21066 looks at you.~
 M act 21067 leaves north.~
@@ -689,7 +667,6 @@ AGHT 0 400 0
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
-F par GHIJK
 M greet 21068 100~
 #21033
 king hearts~
@@ -707,7 +684,6 @@ AGT HJ 400 0
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
-F par GHIJK
 M greet 21069 100~
 M act 21070 looks at you.~
 M act 21071 leaves north.~
@@ -733,7 +709,6 @@ AGIJLNPQRSTYa JN -400 0
 EFNU 0 0 0
 stand stand female 0
 0 0 medium unknown
-F par GHIJK
 M greet 21072 100~
 M act 21072 leaves north.~
 M act 21072 leaves south.~
@@ -761,7 +736,6 @@ AGHT 0 0 0
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
-F par GHIJK
 M act 21048 looks at you.~
 M greet 21076 100~
 M act 21077 tells you ~
@@ -780,7 +754,6 @@ AGHT 0 0 0
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
-F par GHIJK
 M greet 21078 100~
 #21037
 hedgehog~
@@ -797,7 +770,6 @@ AGHT 0 0 0
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
-F par GHIJK
 #21038
 executioner~
 the executioner~
@@ -816,7 +788,6 @@ AGT HN 0 0
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
-F par GHIJK
 M greet 21079 100~
 M act 21080 tells you ~
 M act 21081 leaves north.~
@@ -843,7 +814,6 @@ ABGT H 500 0
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
-F par GHIJK
 M greet 21083 100~
 #21040
 gryphon~
@@ -862,7 +832,6 @@ ABDGT HJRT 500 0
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
-F par GHIJK
 M greet 21084 100~
 M act 21085 tells you~
 M act 21086 looks at you.~
@@ -884,7 +853,6 @@ ABGHT 0 400 0
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
-F par GHIJK
 M greet 21089 100~
 M act 21090 tells you~
 #21042
@@ -902,7 +870,6 @@ ABGT N 400 0
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
-F par GHIJK
 M greet 21091 100~
 M kill 21092 100~
 #0
