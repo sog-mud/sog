@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.154 1999-02-25 14:27:12 fjoe Exp $
+ * $Id: act_move.c,v 1.155 1999-02-26 03:18:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -390,6 +390,7 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 	 * - CHECK THAT CHAR IS NOT DEAD after char_to_room
 	 * - move all the followers and pull all the triggers
 	 */
+	mount = MOUNTED(ch);
 	char_from_room(ch);
 
 	if (!IS_AFFECTED(ch, AFF_SNEAK) && ch->invis_level < LEVEL_HERO) 
@@ -397,14 +398,11 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 	else
 		act_flags = TO_ALL | ACT_NOMORTAL;
 
-	mount = MOUNTED(ch);
 	if (!is_charge) 
 		act(mount ? "$i has arrived, riding $N." : "$i has arrived.",
 	    	    to_room->people, ch, mount, act_flags);
 
 	char_to_room(ch, to_room);
-	if (!JUST_KILLED(ch))
-		do_look(ch, "auto");
 
 	if (mount) {
 		char_from_room(mount);
@@ -412,6 +410,9 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
   		ch->riding = TRUE;
   		mount->riding = TRUE;
 	}
+
+	if (!JUST_KILLED(ch))
+		do_look(ch, "auto");
 
 	if (in_room == to_room) /* no circular follows */
 		return TRUE;
@@ -3585,6 +3586,7 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 	    "You walk through $p and find yourself somewhere else...",
 	    ch, portal, NULL, TO_CHAR); 
 
+	mount = MOUNTED(ch);
 	char_from_room(ch);
 
 	if (IS_SET(portal->value[2], GATE_GOWITH)) {/* take the gate along */
@@ -3592,21 +3594,18 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 		obj_to_room(portal, location);
 	}
 
-	mount = MOUNTED(ch);
 	if (IS_SET(portal->value[2], GATE_NORMAL_EXIT))
 		act_puts3(mount ? "$i has arrived, riding $I" :
 				  "$i has arrived.",
 			  location->people, ch, portal, mount,
 			  TO_ROOM, POS_RESTING);
 	else
-		act_puts3(mount ? "$i has arrived through $p, riding $I." :
-	        		  "$i has arrived through $p.",
+		act_puts3(mount ? "$i has arrived through $P, riding $I." :
+	        		  "$i has arrived through $P.",
 			  location->people, ch, portal, mount,
 			  TO_ROOM, POS_RESTING);
 
 	char_to_room(ch, location);
-	if (!JUST_KILLED(ch))
-		do_look(ch,"auto");
 
 	if (mount) {
 		char_from_room(mount);
@@ -3614,6 +3613,9 @@ void do_enter(CHAR_DATA *ch, const char *argument)
   		ch->riding = TRUE;
   		mount->riding = TRUE;
 	}
+
+	if (!JUST_KILLED(ch))
+		do_look(ch,"auto");
 
 	/* charges */
 	if (portal->value[0] > 0) {
