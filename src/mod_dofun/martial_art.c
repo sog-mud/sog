@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.132 1999-12-01 09:07:07 fjoe Exp $
+ * $Id: martial_art.c,v 1.133 1999-12-02 09:09:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -98,7 +98,7 @@ bool check_close_contact(CHAR_DATA *ch, CHAR_DATA *victim)
 			chance /= 3;
 		}
 		return TRUE;
-		check_improve(victim, "close combat", 2, TRUE);
+		check_improve(victim, "close combat", TRUE, 2);
 	}
 	return FALSE;
 }
@@ -122,7 +122,7 @@ bool distance_check(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (number_percent() < chance / 6) {
 		act("You fail to reach $N.", ch, NULL, victim, TO_CHAR);
 		act("You stay out of $n's reach.", ch, NULL, victim, TO_VICT);
-		check_improve(victim, "distance", 5, TRUE);
+		check_improve(victim, "distance", TRUE, 5);
 		return TRUE;
 	}
 
@@ -411,7 +411,7 @@ void do_pound(CHAR_DATA *ch, const char *argument)
 	
 	if ((number_percent() > chance) || distance_check(ch, victim)) {
 		damage(ch, victim, 0, "pound", DAM_BASH, DAMF_SHOW); 
-		check_improve(ch, "pound", 3, FALSE);
+		check_improve(ch, "pound", FALSE, 3);
 	} else {
 		int wear_loc;
 		act("You swing at $N with your weapon.", 
@@ -422,7 +422,7 @@ void do_pound(CHAR_DATA *ch, const char *argument)
 		wear_loc = WEAPON_IS(weapon, WEAPON_MACE)? WEAR_WIELD : WEAR_SECOND_WIELD;
 
 		one_hit(ch, victim, "pound", wear_loc);
-		check_improve(ch, "pound", 3, TRUE);
+		check_improve(ch, "pound", TRUE, 3);
 	}
 
 	if (attack) 
@@ -491,7 +491,7 @@ void do_cut(CHAR_DATA *ch, const char *argument)
 	if (WEAPON_IS(weapon, WEAPON_SWORD)) {
 		if ((number_percent() > chance) || distance_check(ch, victim)) {
 			damage(ch, victim, 0, "cut", DAM_SLASH, DAMF_SHOW); 
-			check_improve(ch, "cut", 3, FALSE);
+			check_improve(ch, "cut", FALSE, 3);
 		} else {
 			act("You attempt to cut $N with your weapon.", 
 				ch, NULL, victim, TO_CHAR);
@@ -499,14 +499,14 @@ void do_cut(CHAR_DATA *ch, const char *argument)
 				ch, NULL, victim, TO_VICT);
 		
 			one_hit(ch, victim, "cut", WEAR_WIELD);
-			check_improve(ch, "cut", 3, TRUE);
+			check_improve(ch, "cut", TRUE, 3);
 		}
 	}
 
 	if (second_weap && WEAPON_IS(second_weap, WEAPON_SWORD)) {
 		if ((number_percent() > chance) || distance_check(ch, victim)) {
 			damage(ch, victim, 0, "cut", DAM_SLASH, DAMF_SHOW); 
-			check_improve(ch, "cut", 3, FALSE);
+			check_improve(ch, "cut", FALSE, 3);
 		} else {
 			act("You attempt to cut $N with your weapon.", 
 				ch, NULL, victim, TO_CHAR);
@@ -514,7 +514,7 @@ void do_cut(CHAR_DATA *ch, const char *argument)
 				ch, NULL, victim, TO_VICT);
 		
 			one_hit(ch, victim, "cut", WEAR_WIELD);
-			check_improve(ch, "cut", 3, TRUE);
+			check_improve(ch, "cut", TRUE, 3);
 		}
 	}
 
@@ -571,13 +571,13 @@ void do_feint(CHAR_DATA *ch, const char *argument)
 			SET_BIT(victim->affected_by, AFF_WEAK_STUN);
 			break;
 		}
-		check_improve(ch, "feint", 1, TRUE);
+		check_improve(ch, "feint", TRUE, 1);
 	} else {
 		act("You fail to achieve anything with your fencing.",
 			ch, NULL, NULL, TO_CHAR);
 		act("$n tries to trick you with $s feint, but you ignore it.",
 			ch, NULL, NULL, TO_VICT);
-		check_improve(ch, "feint", 4, FALSE);
+		check_improve(ch, "feint", FALSE, 4);
 	}
 }
 

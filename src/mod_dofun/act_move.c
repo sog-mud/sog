@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.207 1999-12-01 09:07:05 fjoe Exp $
+ * $Id: act_move.c,v 1.208 1999-12-02 09:09:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1246,9 +1246,9 @@ void do_blend(CHAR_DATA *ch, const char *argument)
 		af.modifier	= 0;
 		af.bitvector	= AFF_BLEND;
 		affect_to_char(ch, &af);
-		check_improve(ch, "forest blending", 2, TRUE);
+		check_improve(ch, "forest blending", TRUE, 2);
 	} else {
-		check_improve(ch, "forest blending", 2, FALSE);
+		check_improve(ch, "forest blending", FALSE, 2);
 	}
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.223 1999-12-01 09:07:10 fjoe Exp $
+ * $Id: fight.c,v 1.224 1999-12-02 09:12:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1008,7 +1008,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 		act("$n twists $s dagger in your wound.",
 			ch, NULL, victim, TO_ROOM);
 		one_hit(ch, victim, "twist", loc);
-		check_improve(ch, "twist", 6, TRUE);
+		check_improve(ch, "twist", TRUE, 6);
 	}
 
 	/* vampiric bite gives hp to ch from victim */
@@ -1132,7 +1132,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 			act("$n twists $s dagger in your wound.",
 				ch, NULL, victim, TO_ROOM);
 			one_hit(ch, victim, "twist", loc);
-			check_improve(ch, "twist", 6, TRUE);
+			check_improve(ch, "twist", TRUE, 6);
 		}
 	}
 
@@ -1699,7 +1699,7 @@ bool check_distance(CHAR_DATA *ch, CHAR_DATA *victim, int loc) {
 			" a distance.", ch, NULL, victim, TO_VICT);
 		act("You try to hit $N, but $E didn't allow you to approach.", 
 			ch, NULL, victim, TO_CHAR);
-		check_improve(ch, "distance", 7, TRUE);
+		check_improve(ch, "distance", TRUE, 7);
 		return TRUE;
 	}
 	return FALSE;
@@ -1768,7 +1768,7 @@ bool check_parry(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 		act("$N parries your attack and manages to hit you in a response.",
 			ch, NULL, victim, TO_CHAR);
 		one_hit(victim, ch, "counter strike", WEAR_WIELD);
-		check_improve(victim, "counter strike", 5, TRUE);
+		check_improve(victim, "counter strike", TRUE, 5);
 		return TRUE;
 	}
 
