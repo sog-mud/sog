@@ -2451,31 +2451,25 @@ Syntax: {cstat mp{x   <name>
 Syntax: {cstat obj{x  <name>
 Syntax: {cstat room{x <number>
 Syntax: {cstat desc{x <number>
-Syntax: {cstat msg{x  <number>
 
 The STAT command gives you detailed information on an object, mobile, or room
 within the game.  Without a class argument, the command will return a object
 (if found), a mobile (if no object exists, but a mobile does), or a room 
 (if a number is  given).  STAT ROOM with no argument stats the room you are
 standing in. STAT MP gives detailed information on mobile's mobprog execution.
-STAT DESC shows you information on character's descriptor. STAT MSG with no
-argument shows you message hash table distribution. With a number as an
-argument it shows messages with given hash number.
+STAT DESC shows you information on character's descriptor.
 @rus Синтаксис: {cstat{x      <name>
 Синтаксис: {cstat mob{x  <name>
 Синтаксис: {cstat obj{x  <name>
 Синтаксис: {cstat mp{x   <name>
 Синтаксис: {cstat room{x <number>
 Синтаксис: {cstat desc{x <number>
-Синтаксис: {cstat msg{x  <number>
  
 Команда STAT показывает детальную информацию об обьектах, монстрах или комна-
 тах. Без аргумента-типа команда покажет обьект (если найден), монстра (если не
 найден такой обьект, но найден монстр) или комнату (если аргумент - число).
 STAT ROOM без аргумента выведет информацию о комнате, в которой ты находишься.
-STAT MP выводит информацию об выполнении программы монстром. STAT MSG без аргу-
-мента выводит распределении сообщений по хеш-таблице, при задании аргумента
-выведет все сообщения с таким хеш-номером.
+STAT MP выводит информацию об выполнении программы монстром.
 ~
 immortal 'WIZ MWHERE' MWHERE 'WIZ OWHERE' OWHERE~
 @eng Syntax: {cmwhere{x <name>
@@ -6809,18 +6803,6 @@ object name or room vnum.
  
 FIND ищет путь между твоим текущим положением и указанным местом. Место может
 быть задано именем монстра или обьекта или номером комнаты.
-~
-immortal 'WIZ DISABLE' DISABLE 'WIZ ENABLE' ENABLE~
-@eng Syntax: {cdisable{x <command>
-Syntax: {cenable{x <command>
- 
-These commands are used for blocking usage of some commands temporarily.
-ENABLE command cannot be disabled.
-@rus Синтаксис: {cdisable{x <команда>
-Синтаксис: {cenable{x <команда>
- 
-Данные команды служат для временного блокирования использования каких-либо
-команд. Команда ENABLE не может быть заблокирована.
 ~
 0 'CLAN CHAOS' CHAOS~
 @rus С самого начала мироздания история живых существ несет на себе следы оков
