@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_liquid.c,v 1.8 1999-12-16 12:24:48 fjoe Exp $
+ * $Id: olc_liquid.c,v 1.9 1999-12-18 16:08:38 avn Exp $
  */
 
 #include "olc.h"
@@ -61,7 +61,8 @@ olc_cmd_t olc_cmds_liq[] =
 	{ "affect",	liqed_affect					},
 	{ "sip",	liqed_sip					},
 
-	{ "delete",	liqed_delete					},
+	{ "delete_li",	olced_spell_out					},
+	{ "delete_liq",	liqed_delete					},
 
 	{ "commands",	show_commands					},
 	{ NULL }

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_damtype.c,v 1.9 1999-12-18 11:01:43 fjoe Exp $
+ * $Id: db_damtype.c,v 1.10 1999-12-18 16:08:38 avn Exp $
  */
 
 #include <stdio.h>
@@ -78,21 +78,6 @@ DBLOAD_FUN(load_damtype)
 			break;
 		case 'E':
 			if (IS_TOKEN(fp, "End")) {
-				msg_t *m;
-				const char *dn = gmlstr_mval(&d.dam_noun);
-
-				if (mlstr_nlang(&d.dam_noun.ml) == 0
-				&&  (m = msg_lookup(dn)) != NULL
-				&&  str_cmp(dn, "silver")
-				&&  str_cmp(dn, "gold")) {
-					mlstr_cpy(&d.dam_noun.ml, &m->ml);
-					if (m->gender) {
-						const char **pp = mlstr_convert(&d.dam_noun.gender, 1);
-						free_string(*pp);
-						*pp = str_dup(flag_string(gender_table, m->gender));
-					}
-				}
-
 				if (IS_NULLSTR(d.dam_name)) {
 					db_error("load_damtype",
 						 "damtype name undefined");

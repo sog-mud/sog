@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_material.c,v 1.12 1999-12-16 12:24:48 fjoe Exp $
+ * $Id: olc_material.c,v 1.13 1999-12-18 16:08:38 avn Exp $
  */
 
 #include "olc.h"
@@ -59,7 +59,8 @@ olc_cmd_t olc_cmds_mat[] =
 	{ "damclass",	mated_damclass,	NULL,	dam_classes		},
 	{ "material",	mated_material,	NULL,	material_flags		},
 
-	{ "delete",	mated_delete					},
+	{ "delete_ma",	olced_spell_out					},
+	{ "delete_mat",	mated_delete					},
 
 	{ "commands",	show_commands					},
 	{ NULL }

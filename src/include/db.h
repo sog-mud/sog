@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.h,v 1.66 1999-12-16 12:24:44 fjoe Exp $
+ * $Id: db.h,v 1.67 1999-12-18 16:08:37 avn Exp $
  */
 
 #ifndef _DB_H_
@@ -129,6 +129,7 @@ extern int fBootDb;
 #define CF_SKILL	(D)
 #define CF_MATERIAL	(E)
 #define CF_LIQUID	(F)
+#define CF_DAMT		(G)
 
 extern int changed_flags;
 
