@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.212 2000-04-16 09:21:48 fjoe Exp $
+ * $Id: spellfun.c,v 1.213 2000-04-17 14:08:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3453,6 +3453,7 @@ void spell_summon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 						ROOM_PEACE | ROOM_NOSUMMON)
 	||  IS_SET(ch->in_room->area->area_flags, AREA_CLOSED)
 	||  room_is_private(ch->in_room)
+	||  saves_spell(level, victim, DAM_OTHER)
 	||  (victim->in_room->exit[0] == NULL &&
 	     victim->in_room->exit[1] == NULL &&
 	     victim->in_room->exit[2] == NULL &&
@@ -3462,7 +3463,6 @@ void spell_summon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		failed = TRUE;
 	else if (IS_NPC(victim)) {
 		if (victim->pMobIndex->pShop != NULL
-		||  saves_spell(level, victim, DAM_OTHER)
 		||  IS_SET(victim->pMobIndex->act, ACT_AGGRESSIVE)
 		||  IS_SET(ch->in_room->room_flags, ROOM_NOMOB)
 		||  IS_SET(victim->pMobIndex->act, ACT_IMMSUMMON)
