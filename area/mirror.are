@@ -1,7 +1,7 @@
 #AREADATA
 Name Old Midgaard~
 Builders None~
-VNUMs 5300 5399
+VNUMs 5300 5499
 Credits Kahn~
 Security 9
 LevelRange 1 30
@@ -1077,7 +1077,7 @@ an imperial war banner~
 An imperial war banner is on the floor here.~
 wood~
 light AG A
-0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
+0 0 -1 0 0
 20 10 1440 P
 A
 17 -2
@@ -1445,7 +1445,7 @@ D1
 A small doorway leads into a little humble dwelling.
 ~
 ~
-1 -1 5344
+0 -1 5344
 D2
 ~
 ~
@@ -1502,7 +1502,7 @@ You see what is most definitely city hall.  This building is the most
 elaborate of all the building here in Thalos.
 ~
 ~
-1 -1 5332
+0 -1 5332
 D2
 ~
 ~
@@ -1882,7 +1882,7 @@ A hallway leads to the south wing of the city hall.
 D3
 ~
 ~
-1 -1 5312
+0 -1 5312
 S
 #5333
 East wing of the city hall~
@@ -2448,7 +2448,7 @@ D0
 You see the gateway to Solace.
 ~
 ~
-1 10306 10201
+0 10306 10201
 D2
 ~
 ~
@@ -2734,12 +2734,12 @@ You see a fuzzy portal of some sort and a little green.
 ~
 ~
 0 0 5368
-D3
+D1
 You see stars.
 ~
 ~
 0 0 5378
-D1
+D3
 You see stars.
 ~
 ~
@@ -2759,16 +2759,6 @@ either.  Occasionally, the starry 'sky' fades into a fuzzy, yet bright,
 rainbow then back to its normal state.
 ~
 0 0 3
-D1
-You see stars.
-~
-~
-0 0 5376
-D4
-You see stars.
-~
-~
-0 0 5375
 D3
 You see stars.
 ~
@@ -2779,12 +2769,22 @@ You see stars.
 ~
 ~
 0 0 5375
-D2
+D0
 You see stars.
 ~
 ~
 0 0 5377
-D0
+D4
+You see stars.
+~
+~
+0 0 5375
+D1
+You see stars.
+~
+~
+0 0 5376
+D2
 You see stars.
 ~
 ~
@@ -2799,31 +2799,31 @@ either.  Occasionally, the starry 'sky' fades into a fuzzy, yet bright,
 rainbow then back to its normal state.
 ~
 0 0 3
-D0
-You see stars.
-~
-~
-0 0 5376
 D4
 You see stars.
 ~
 ~
 0 0 5378
+D0
+You see stars.
+~
+~
+0 0 5376
 D2
 You see stars.
 ~
 ~
 0 0 5376
-D1
-You see stars.
-~
-~
-0 0 5377
 D5
 You see stars.
 ~
 ~
 0 0 5378
+D1
+You see stars.
+~
+~
+0 0 5377
 D3
 You see stars.
 ~
@@ -2840,6 +2840,16 @@ rainbow then back to its normal state.  In the middle of this room is
 a ladder standing vertical.
 ~
 0 0 3
+D4
+You see stars.
+~
+~
+0 0 5377
+D2
+You see a fuzzy portal of some sort and a little green.
+~
+~
+0 0 8903
 D3
 You see stars.
 ~
@@ -2850,16 +2860,6 @@ You see stars.
 ~
 ~
 0 0 5375
-D2
-You see a fuzzy portal of some sort and a little green.
-~
-~
-0 0 8903
-D4
-You see stars.
-~
-~
-0 0 5377
 D5
 You see stars.
 ~
@@ -2876,7 +2876,7 @@ picturing Gods, Giants and peasants.
 mound upon which the temple is built and ends on the temple square below.
    You notice that this building is quite new.  A small plaque is on this wall.
 ~
-0 CDK 0
+0 CD 0
 E
 plaque~
 This entire world has been integrated, modified, debugged, and enhanced by
@@ -2941,6 +2941,10 @@ You see the main street.
 ~
 ~
 0 -1 5382
+D2
+The Bank~
+~
+0 0 5400
 D3
 You see the main street.
 ~
@@ -3033,7 +3037,7 @@ D1
 You see the city gate.
 ~
 gate~
-1 3133 5385
+0 3133 5385
 D3
 You see Main Street.~
 ~
@@ -3075,7 +3079,7 @@ D3
 You see the city gate.
 ~
 gate~
-1 3133 5384
+0 3133 5384
 S
 #5386
 By the Temple Altar~
@@ -3395,6 +3399,17 @@ D2
 ~
 ~
 0 -1 5395
+S
+#5400
+The Bank~
+You are in a large hall, nicely lit by big chandeliers hanging from the
+ceilings. A long counter lies through the room.
+~
+0 DKU 0
+D0
+The Bank~
+~
+0 0 5381
 S
 #0
 
