@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.164 1999-10-23 10:20:21 fjoe Exp $
+ * $Id: update.c,v 1.165 1999-10-25 08:23:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1214,7 +1214,7 @@ void char_update(void)
 				     paf_next->type != paf->type ||
 				     paf_next->duration > 0)
 				&&  paf->type > 0
-				&&  (sk = skill_lookup(paf->type))
+				&&  (sk = skill_lookup(paf->type)) != NULL
 				&&  !IS_NULLSTR(sk->msg_off)) 
 					act_puts(sk->msg_off, ch, NULL, NULL,
 						 TO_CHAR, POS_DEAD);
@@ -1307,7 +1307,7 @@ void update_obj_affects(OBJ_DATA *obj)
 			if ((paf_next == NULL || paf_next->type != paf->type ||
 			     paf_next->duration > 0)
 			&&  paf->type > 0
-			&&  (sk = skill_lookup(paf->type))
+			&&  (sk = skill_lookup(paf->type)) != NULL
 			&&  !IS_NULLSTR(sk->msg_obj)) {
 				if (obj->carried_by != NULL) 
 					act(sk->msg_obj, obj->carried_by,

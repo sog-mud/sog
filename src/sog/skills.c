@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.79 1999-10-21 12:52:05 fjoe Exp $
+ * $Id: skills.c,v 1.80 1999-10-25 08:23:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -164,7 +164,7 @@ void _set_skill(CHAR_DATA *ch, const char *sn, int percent, bool replace)
 
 	STRKEY_CHECK(&skills, sn, "_set_skill");
 
-	if ((pc_sk = pc_skill_lookup(ch, sn))) {
+	if ((pc_sk = pc_skill_lookup(ch, sn)) != NULL) {
 		if (replace || pc_sk->percent < percent)
 			pc_sk->percent = percent;
 		return;

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.191 1999-10-23 10:20:17 fjoe Exp $
+ * $Id: handler.c,v 1.192 1999-10-25 08:23:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2317,7 +2317,7 @@ bool check_dispel(int dis_level, CHAR_DATA *victim, const char *sn)
 			skill_t *sk;
 
 	                affect_strip(victim,sn);
-			if ((sk = skill_lookup(sn))
+			if ((sk = skill_lookup(sn)) != NULL
 			&&  !IS_NULLSTR(sk->msg_off))
 				char_printf(victim, "%s\n", sk->msg_off);
 			return TRUE;

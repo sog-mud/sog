@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.279 1999-10-22 13:24:47 fjoe Exp $
+ * $Id: act_info.c,v 1.280 1999-10-25 08:23:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2999,7 +2999,7 @@ void do_learn(CHAR_DATA *ch, const char *argument)
 	argument = one_argument(argument, arg, sizeof(arg));
 	pc_sk = (pc_skill_t*) skill_vsearch(&pc->learned, arg);
 	if (pc_sk == NULL
-	||  skill_lookup(pc_sk->sn) == 0
+	||  skill_lookup(pc_sk->sn) == NULL
 	||  pc_sk->percent == 0
 	||  get_skill(ch, pc_sk->sn) == 0) {
 		char_puts("You can't learn that.\n", ch);

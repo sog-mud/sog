@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.58 1999-10-23 10:20:20 fjoe Exp $
+ * $Id: special.c,v 1.59 1999-10-25 08:23:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1410,7 +1410,7 @@ static void spec_cast(CHAR_DATA *ch, const char *sn, CHAR_DATA *victim)
 	skill_t *sk;
 	char name[MAX_STRING_LENGTH];
 
-	if ((sk = skill_lookup(sn)) < 0)
+	if ((sk = skill_lookup(sn)) == NULL)
 		return;
 
 	if (ch->fighting == victim

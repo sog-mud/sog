@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.53 1999-10-21 12:51:55 fjoe Exp $
+ * $Id: olc_area.c,v 1.54 1999-10-25 08:23:32 fjoe Exp $
  */
 
 #include "olc.h"
@@ -868,7 +868,7 @@ static void save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 	fprintf(fp, "%dd%d+%d ",pMobIndex->damage[DICE_NUMBER], 
 				pMobIndex->damage[DICE_TYPE], 
 				pMobIndex->damage[DICE_BONUS]);
-	fprintf(fp, "%s\n",	pMobIndex->damtype);
+	fprintf(fp, "'%s'\n",	pMobIndex->damtype);
 	fprintf(fp, "%d %d %d %d\n",
 				pMobIndex->ac[AC_PIERCE] / 10, 
 				pMobIndex->ac[AC_BASH]   / 10, 
