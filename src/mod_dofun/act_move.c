@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.86 1998-09-04 05:27:44 fjoe Exp $
+ * $Id: act_move.c,v 1.87 1998-09-11 16:18:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2366,19 +2366,20 @@ void do_bash_door(CHAR_DATA *ch, const char *argument)
 				MSG_N_BASHES_AND_BREAK);
 		char_nputs(MSG_YOU_SUCCESSED_TO_OPEN_DOOR, ch);
 
-		/* open the other side */
+/* open the other side */
 		if ((to_room = pexit->u1.to_room) != NULL
 		&&  (pexit_rev = to_room->exit[rev_dir[door]]) != NULL
 		&&  pexit_rev->u1.to_room == ch->in_room) {
-			CHAR_DATA *rch;
+			ROOM_INDEX_DATA *in_room;
 
 			REMOVE_BIT(pexit_rev->exit_info, EX_CLOSED);
 			REMOVE_BIT(pexit_rev->exit_info, EX_LOCKED);
-			for (rch = to_room->people; rch != NULL;
-							rch = rch->next_in_room)
-				act_nprintf(rch, NULL, pexit_rev->keyword,
-					    TO_CHAR, POS_DEAD,
-					    MSG_THE_D_OPENS);
+
+			in_room = ch->in_room;
+			ch->in_room = to_room;
+			act_nprintf(ch, NULL, pexit->keyword, TO_ROOM,
+				    POS_RESTING, MSG_N_BASHES_AND_BREAK);
+			ch->in_room = in_room;
 		}
 
 		check_improve(ch, gsn_bash_door, TRUE, 1);

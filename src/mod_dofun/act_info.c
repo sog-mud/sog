@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.124 1998-09-10 22:07:52 fjoe Exp $
+ * $Id: act_info.c,v 1.125 1998-09-11 16:18:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2746,7 +2746,7 @@ void do_identify(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (IS_IMMORTAL(ch))
-		act("$n looks at you!\n\r", rch, obj, ch, TO_VICT);
+		act("$n looks at you!", rch, obj, ch, TO_VICT);
 	else if (ch->gold < 1) {
 		act("$n resumes to identify by looking at $p.",
 		       rch, obj, 0, TO_ROOM);
