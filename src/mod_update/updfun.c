@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.63 2004-02-19 17:16:49 fjoe Exp $
+ * $Id: updfun.c,v 1.64 2004-02-20 14:30:39 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -1849,14 +1849,14 @@ save_corpse_contents(OBJ_DATA *corpse)
 	OBJ_DATA *pit;
 	altar_t *altar;
 
-/* in another object */
-	if (corpse->in_obj) {
+	if (corpse->in_obj != NULL) {
+		/* if in another object */
 		contents_to_obj(corpse->contains, corpse->in_obj);
 		return;
 	}
 
-/* carried by */
-	if (corpse->carried_by) {
+	if (corpse->carried_by != NULL) {
+		/* if carried by */
 		for (obj = corpse->contains; obj; obj = obj_next) {
 			obj_next = obj->next_content;
 
@@ -1872,19 +1872,25 @@ save_corpse_contents(OBJ_DATA *corpse)
 		return;
 	}
 
-/* pit lookup */
-	pit = NULL;
-	if ((altar = corpse->altar)) {
-		for (pit = altar->room->contents; pit; pit = pit->next_content)
-			if (pit->pObjIndex == altar->pit)
-				break;
-	} else {
-		printlog(LOG_INFO, "save_corpse_contents: null altar (owner: %s)",
-			   mlstr_mval(&corpse->owner));
+	if ((altar = corpse->altar) == NULL) {
+		/* no altar */
+		printlog(LOG_INFO,
+			 "save_corpse_contents: null altar (owner: %s)",
+			 mlstr_mval(&corpse->owner));
+		for (obj = corpse->contains; obj != NULL; obj = obj_next) {
+			obj_next = obj->next_content;
+			extract_obj(obj, 0);
+		}
+		return;
 	}
 
-/* put contents into altar */
-	if (!pit) {
+	for (pit = altar->room->contents; pit != NULL; pit = pit->next_content) {
+		if (pit->pObjIndex == altar->pit)
+			break;
+	}
+
+	if (pit == NULL) {
+		/* no pit -- put to altar room */
 		for (obj = corpse->contains; obj != NULL; obj = obj_next) {
 			obj_next = obj->next_content;
 			obj_to_room(obj, altar->room);
@@ -1892,7 +1898,7 @@ save_corpse_contents(OBJ_DATA *corpse)
 		return;
 	}
 
-/* put contents into pit */
+	/* put contents into pit */
 	contents_to_obj(corpse->contains, pit);
 }
 
