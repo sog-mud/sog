@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.159 1999-12-16 11:38:43 kostik Exp $
+ * $Id: spellfun2.c,v 1.160 1999-12-17 10:39:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3607,10 +3607,8 @@ void spell_knock(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	if ((door = find_door(ch, arg)) < 0) {
-		char_puts("You can't see that here.\n", ch);
+	if ((door = find_door(ch, arg)) < 0)
 		return;
-	}
 
 	pexit = ch->in_room->exit[door];
 	if (!IS_SET(pexit->exit_info, EX_CLOSED)) {
