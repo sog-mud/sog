@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.78 1998-06-21 11:38:36 fjoe Exp $
+ * $Id: act_info.c,v 1.79 1998-06-21 12:34:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1653,8 +1653,10 @@ void do_help(CHAR_DATA *ch, char *argument)
 				char_puts("\n\r-------------------------------------------------------------------------------\n\r\n\r", ch);
 			found = TRUE;
 
-			if (pHelp->level >= 0 && str_cmp(argall, "imotd"))
-				char_printf(ch, "{C%s{x\n\r", pHelp->keyword);
+			if (pHelp->level > -2
+			&&  str_cmp(pHelp->keyword, "imotd"))
+				char_printf(ch, "{C%s{x\n\r\n\r",
+					    pHelp->keyword);
 
 			/*
 			 * Strip leading '.' to allow initial blanks.
