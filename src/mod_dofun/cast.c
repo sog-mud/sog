@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cast.c,v 1.5.2.2 2001-02-20 14:33:42 cs Exp $
+ * $Id: cast.c,v 1.5.2.3 2001-02-25 12:28:50 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -59,7 +59,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (HAS_SKILL(ch, gsn_spellbane) && !IS_IMMORTAL(ch)) {
-		char_puts("You are Battle Rager, not the filthy magician.\n",
+		char_puts("You are Battle Rager, not a filthy magician!\n",
 			  ch);
 		return;
 	}

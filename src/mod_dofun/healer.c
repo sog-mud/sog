@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: healer.c,v 1.32.2.3 2000-11-30 08:38:11 avn Exp $
+ * $Id: healer.c,v 1.32.2.4 2001-02-25 12:28:50 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -119,7 +119,7 @@ void do_heal(CHAR_DATA *ch, const char *argument)
     cost = get_heal_cost(h, mob, ch);
 
     if (HAS_SKILL(ch, gsn_spellbane) && (h->price > 0)) {
-	char_puts("You are Battle Rager, not the filthy magician\n",ch);
+	char_puts("You are Battle Rager, not a filthy magician!\n",ch);
 	return;
     }
 
