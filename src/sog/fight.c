@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.26 2001-05-22 18:56:22 kostik Exp $
+ * $Id: fight.c,v 1.202.2.27 2001-06-16 18:53:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -72,12 +72,12 @@ void	death_cry		(CHAR_DATA *ch, CHAR_DATA *victim);
 void	group_gain		(CHAR_DATA *ch, CHAR_DATA *victim);
 int	xp_compute		(CHAR_DATA *gch, CHAR_DATA *victim,
 				 int total_levels, int members);
-bool	is_safe 		(CHAR_DATA *ch, CHAR_DATA *victim);
+bool	is_safe			(CHAR_DATA *ch, CHAR_DATA *victim);
 
 OBJ_DATA *make_corpse		(CHAR_DATA *ch, CHAR_DATA *killer);
-void	one_hit 		(CHAR_DATA *ch, CHAR_DATA *victim, int dt,
+void	one_hit			(CHAR_DATA *ch, CHAR_DATA *victim, int dt,
 				 int loc);
-void	mob_hit 		(CHAR_DATA *ch, CHAR_DATA *victim, int dt);
+void	mob_hit			(CHAR_DATA *ch, CHAR_DATA *victim, int dt);
 void	set_fighting		(CHAR_DATA *ch, CHAR_DATA *victim);
 void	disarm			(CHAR_DATA *ch, CHAR_DATA *victim,
 				 int disarm_second);
@@ -2430,7 +2430,8 @@ void group_gain(CHAR_DATA *ch, CHAR_DATA *victim)
  *
  * gch is assumed to be !IS_NPC
  */
-int xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels, int members)
+int
+xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels, int members)
 {
 	PC_DATA *pc = PC(gch);
 	int xp;
@@ -2440,20 +2441,20 @@ int xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels, int members)
 
 /* base exp */
 	switch (level_range) {
-	case -9:	base_exp =   1; 	break;
-	case -8:	base_exp =   2; 	break;
-	case -7:	base_exp =   5; 	break;
-	case -6:	base_exp =   9; 	break;
-	case -5:	base_exp =  11; 	break;
-	case -4:	base_exp =  22; 	break;
-	case -3:	base_exp =  33; 	break;
-	case -2:	base_exp =  43; 	break;
-	case -1:	base_exp =  60; 	break;
-	case  0:	base_exp =  74; 	break;
-	case  1:	base_exp =  84; 	break;
-	case  2:	base_exp =  99; 	break;
-	case  3:	base_exp = 121; 	break;
-	case  4:	base_exp = 143; 	break;
+	case -9:	base_exp =   1;	break;
+	case -8:	base_exp =   2;	break;
+	case -7:	base_exp =   5;	break;
+	case -6:	base_exp =   9;	break;
+	case -5:	base_exp =  11;	break;
+	case -4:	base_exp =  22;	break;
+	case -3:	base_exp =  33;	break;
+	case -2:	base_exp =  43;	break;
+	case -1:	base_exp =  60;	break;
+	case  0:	base_exp =  74;	break;
+	case  1:	base_exp =  84;	break;
+	case  2:	base_exp =  99;	break;
+	case  3:	base_exp = 121;	break;
+	case  4:	base_exp = 143;	break;
 	default:
 		if (level_range > 4)
 			base_exp = 140 + 20 * (level_range - 4);
@@ -2469,13 +2470,13 @@ int xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels, int members)
 #endif
 	if ((IS_EVIL(gch) && IS_GOOD(victim))
 	||  (IS_EVIL(victim) && IS_GOOD(gch)))
-		xp = base_exp * 8/5;
+		xp = base_exp * 8 / 5;
 	else if (IS_GOOD(gch) && IS_GOOD(victim))
 		xp = 0;
 	else if (!IS_NEUTRAL(gch) && IS_NEUTRAL(victim))
-		xp = base_exp * 1.1;
+		xp = base_exp * 11 / 10;
 	else if (IS_NEUTRAL(gch) && !IS_NEUTRAL(victim))
-		xp = base_exp * 1.3;
+		xp = base_exp * 13 / 10;
 	else
 		xp = base_exp;
 

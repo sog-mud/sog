@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.187.2.19 2001-03-11 21:29:53 fjoe Exp $
+ * $Id: act_comm.c,v 1.187.2.20 2001-06-16 18:53:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1155,9 +1155,9 @@ void do_speak(CHAR_DATA *ch, const char *argument)
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		char_printf(ch, "You now speak %s.\n", 
+		char_printf(ch, "You now speak %s.\n",
 			flag_string(slang_table, ch->slang));
-		char_puts("You can speak :\n", ch);
+		char_puts("You can speak:\n", ch);
 		char_printf(ch, "       common, %s\n",
 			    flag_string(slang_table, r->race_pcdata->slang));
 		return;
@@ -1168,13 +1168,17 @@ void do_speak(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (language >= SLANG_MAX)
-		ch->slang = r->race_pcdata->slang;
-	else
-		ch->slang = language;
-	
-	char_printf(ch,"Now you speak %s.\n",
-		    flag_string(slang_table, ch->slang));
+	if (language != SLANG_COMMON
+	&&  (language != r->race_pcdata->slang && !IS_IMMORTAL(ch))) {
+		act("You do not know how to speak $t.",
+		    ch, flag_string(slang_table, r->race_pcdata->slang), NULL,
+		    TO_CHAR);
+		return;
+	}
+
+	ch->slang = language;
+	act("Now you speak $t.\n",
+	    ch, flag_string(slang_table, ch->slang), NULL, TO_CHAR);
 }
 
 void do_twit(CHAR_DATA *ch, const char *argument)

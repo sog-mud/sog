@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.40 2001-05-22 18:56:20 kostik Exp $
+ * $Id: spellfun2.c,v 1.139.2.41 2001-06-16 18:53:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2040,7 +2040,7 @@ void spell_dragon_weapon(int sn, int level, CHAR_DATA *ch, void *vo)
 	sword_vnum = OBJ_VNUM_DRAGONLANCE;
 	else
 	{
-	  char_puts("You can't make a Dragon Weapon like that!", ch);
+	  char_puts("You can't make a Dragon Weapon like that!\n", ch);
 	  return;
 	}
 
