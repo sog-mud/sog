@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: memalloc.h,v 1.20 2001-09-13 16:21:52 fjoe Exp $
+ * $Id: memalloc.h,v 1.21 2003-04-24 12:51:33 fjoe Exp $
  */
 
 #ifndef _MEMALLOC_H_
@@ -85,5 +85,11 @@ void	mem_invalidate(const void *p);
 bool	mem_tagged(const void *p, int f);
 void	mem_tag(const void *p, int f);
 void	mem_untag(const void *p, int f);
+
+/*
+ * zlib hooks
+ */
+void *	zlib_alloc(void *opaque, unsigned int items, unsigned int size);
+void	zlib_free(void *opaque, void *address);
 
 #endif

@@ -8,7 +8,7 @@
  * This code may be freely distributed and used if this copyright notice is
  * retained intact.
  *
- * $Id: mccp.c,v 1.3 2003-04-17 11:25:57 tatyana Exp $
+ * $Id: mccp.c,v 1.4 2003-04-24 12:51:35 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -27,27 +27,10 @@
 
 #include "comm.h"
 
-static const char compress_start  [] = { IAC, SB, TELOPT_COMPRESS, WILL, SE, '\0' };
-static const char compress_start2 [] = { IAC, SB, TELOPT_COMPRESS2, IAC, SE, '\0' };
-
-/*
- * Memory management - zlib uses these hooks to allocate and free memory
- * it needs
- */
-
-void *
-zlib_alloc(void *opaque, unsigned int items, unsigned int size)
-{
-	UNUSED_ARG(opaque);
-	return calloc(items, size);
-}
-
-void 
-zlib_free(void *opaque, void *address)
-{
-	UNUSED_ARG(opaque);
-	free(address);
-}
+static const char compress_start  [] =
+	{ IAC, SB, TELOPT_COMPRESS, WILL, SE, '\0' };
+static const char compress_start2 [] =
+	{ IAC, SB, TELOPT_COMPRESS2, IAC, SE, '\0' };
 
 /*
  * Begin compressing data on `desc'
@@ -56,7 +39,7 @@ bool
 compressStart(DESCRIPTOR_DATA *desc)
 {
 	z_stream *s;
-    
+
 	if (desc->out_compress) /* already compressing */
 		return TRUE;
 
@@ -81,18 +64,23 @@ compressStart(DESCRIPTOR_DATA *desc)
 		return FALSE;
 	}
 
-	if (desc->mccp_support == 2)
-		write_to_descriptor(desc, compress_start2, strlen(compress_start2));
-	else
-		write_to_descriptor(desc, compress_start, strlen(compress_start));
+	if (desc->mccp_support == 2) {
+		write_to_descriptor(
+		    desc, compress_start2, strlen(compress_start2));
+	} else {
+		write_to_descriptor(
+		    desc, compress_start, strlen(compress_start));
+	}
 
 	/* now we're compressing */
 	desc->out_compress = s;
 	return TRUE;
 }
 
-/* Cleanly shut down compression on `desc' */
-bool 
+/*
+ * Cleanly shutdown compression on `desc'
+ */
+bool
 compressEnd(DESCRIPTOR_DATA *desc)
 {
 	unsigned char dummy[1];
@@ -103,7 +91,9 @@ compressEnd(DESCRIPTOR_DATA *desc)
 	desc->out_compress->avail_in = 0;
 	desc->out_compress->next_in = dummy;
 
-	/* No terminating signature is needed - receiver will get Z_STREAM_END */
+	/*
+	 * No terminating signature is needed - receiver will get Z_STREAM_END
+	 */
 	if (deflate(desc->out_compress, Z_FINISH) != Z_STREAM_END)
 		return FALSE;
 
@@ -119,7 +109,9 @@ compressEnd(DESCRIPTOR_DATA *desc)
 	return TRUE;
 }
 
-/* Try to send any pending compressed-but-not-sent data in `desc' */
+/*
+ * Try to send any pending compressed-but-not-sent data in `desc'
+ */
 bool
 processCompressed(DESCRIPTOR_DATA *desc)
 {
@@ -127,7 +119,7 @@ processCompressed(DESCRIPTOR_DATA *desc)
 
 	if (!desc->out_compress)
 		return TRUE;
-    
+
 	/* Try to write out some data.. */
 	len = desc->out_compress->next_out - desc->out_compress_buf;
 	if (len > 0) {
@@ -155,16 +147,20 @@ processCompressed(DESCRIPTOR_DATA *desc)
 			/* We wrote "iStart" bytes */
 			if (iStart < len) {
 				memmove(desc->out_compress_buf,
-					desc->out_compress_buf+iStart, len - iStart);
+				    desc->out_compress_buf + iStart,
+				    len - iStart);
 			}
-			desc->out_compress->next_out = desc->out_compress_buf + len - iStart;
+			desc->out_compress->next_out =
+			    desc->out_compress_buf + len - iStart;
 		}
 	}
 
 	return TRUE;
 }
 
-/* write_to_descriptor, the compressed case */
+/*
+ * write_to_descriptor, the compressed case
+ */
 bool
 writeCompressed(DESCRIPTOR_DATA *desc, const char *txt, int length)
 {
@@ -175,8 +171,8 @@ writeCompressed(DESCRIPTOR_DATA *desc, const char *txt, int length)
 	desc->bytes_income += length;
 
 	while (s->avail_in) {
-		s->avail_out = COMPRESS_BUF_SIZE - (s->next_out - desc->out_compress_buf);
-
+		s->avail_out =
+		    COMPRESS_BUF_SIZE - (s->next_out - desc->out_compress_buf);
 		if (s->avail_out) {
 			int status = deflate(s, Z_SYNC_FLUSH);
 

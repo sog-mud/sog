@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mccp.h,v 1.1 2001-12-15 13:47:47 matrim Exp $
+ * $Id: mccp.h,v 1.2 2003-04-24 12:51:33 fjoe Exp $
  */
 
 /*
@@ -46,8 +46,6 @@
 #define TELOPT_COMPRESS2	86
 #define COMPRESS_BUF_SIZE	16384
 
-void *	zlib_alloc(void *opaque, unsigned int items, unsigned int size);
-void	zlib_free(void *opaque, void *address);
 bool	processCompressed(DESCRIPTOR_DATA *desc);
 bool	writeCompressed(DESCRIPTOR_DATA *desc, const char *txt, int length);
 

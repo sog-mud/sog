@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: memalloc.c,v 1.15 2003-04-17 11:25:59 tatyana Exp $
+ * $Id: memalloc.c,v 1.16 2003-04-24 12:51:38 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -147,4 +147,22 @@ mem_untag(const void *p, int f)
 		return;
 	m = GET_CHUNK(p);
 	REMOVE_BIT(m->mem_tags, f);
+}
+
+/*
+ * Memory management - zlib uses these hooks to allocate and free memory
+ * it needs
+ */
+void *
+zlib_alloc(void *opaque, unsigned int items, unsigned int size)
+{
+	UNUSED_ARG(opaque);
+	return calloc(items, size);
+}
+
+void
+zlib_free(void *opaque, void *address)
+{
+	UNUSED_ARG(opaque);
+	free(address);
 }
