@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.224 1999-12-02 09:12:11 fjoe Exp $
+ * $Id: fight.c,v 1.225 1999-12-02 10:54:10 kostik Exp $
  */
 
 /***************************************************************************
@@ -1000,17 +1000,6 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 
 	result = damage(ch, victim, dam, dt, dam_class, dam_flags);
 
-	if (ch->fighting == victim 
-	&& IS_SKILL(weapon_sn, "dagger") 
-	&& number_percent() < UMIN(get_skill(ch, "twist") / 8, 40)) {
-		act("You twist your dagger in $N's wound.",
-			ch, NULL, victim, TO_CHAR);
-		act("$n twists $s dagger in your wound.",
-			ch, NULL, victim, TO_ROOM);
-		one_hit(ch, victim, "twist", loc);
-		check_improve(ch, "twist", TRUE, 6);
-	}
-
 	/* vampiric bite gives hp to ch from victim */
 	if (!IS_SET(dam_flags, DAMF_HIT) && IS_SKILL(dt, "vampiric bite")) {
 		int hit_ga = UMIN((dam / 2), victim->max_hit);
@@ -1124,9 +1113,9 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 			damage(ch, victim, dam, NULL, DAM_LIGHTNING, DAMF_NONE);
 		}
 
-		if (ch->fighting == victim 
+		if (!IS_EXTRACTED(victim) 
 		&& IS_SKILL(weapon_sn, "dagger") 
-		&& number_percent() < get_skill(ch, "twist") / 8) {
+		&& number_percent() < UMIN(get_skill(ch, "twist") / 8, 40)) {
 			act("You twist your dagger in $N's wound.",
 				ch, NULL, victim, TO_CHAR);
 			act("$n twists $s dagger in your wound.",
@@ -1236,6 +1225,41 @@ void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 	gain_exp(victim, -lost_exp);
 }
 
+int reduce_damage(CHAR_DATA *ch, int dam, int dam_class) 
+{
+	switch(dam_class) {
+	case DAM_BASH:
+		return dam - dam*UMIN(ch->resists[RESIST_BASH],100) / 100;
+	case DAM_SLASH:
+		return dam - dam*UMIN(ch->resists[RESIST_SLASH],100) / 100;
+	case DAM_PIERCE:
+		return dam - dam*UMIN(ch->resists[RESIST_PIERCE],100) / 100;
+	case DAM_FIRE:
+		return dam - dam*UMIN(ch->resists[RESIST_FIRE],100) / 100;
+	case DAM_COLD:
+		return dam - dam*UMIN(ch->resists[RESIST_COLD],100) / 100;
+	case DAM_LIGHTNING:
+		return dam - dam*UMIN(ch->resists[RESIST_LIGHTNING],100) / 100;
+	case DAM_ACID:
+		return dam - dam*UMIN(ch->resists[RESIST_ACID],100) / 100;
+	case DAM_NEGATIVE:
+		return dam - dam*UMIN(ch->resists[RESIST_NEGATIVE],100) / 100;
+	case DAM_HOLY:
+	case DAM_LIGHT:
+		return dam - dam*UMIN(ch->resists[RESIST_HOLY],100) / 100;
+	case DAM_ENERGY:
+		return dam - dam*UMIN(ch->resists[RESIST_ENERGY],100) / 100;
+	case DAM_MENTAL:
+		return dam - dam*UMIN(ch->resists[RESIST_MENTAL],100) / 100;
+	case DAM_DISEASE:
+	case DAM_POISON:
+		return dam - dam*UMIN(ch->resists[RESIST_DISEASE],100) / 100;
+	case DAM_SOUND:
+		return dam - dam*UMIN(ch->resists[RESIST_SOUND],100) / 100;
+	default:
+		return dam;
+	}
+}
 /*
  * Inflict damage from a hit.
  */
@@ -1322,7 +1346,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 	if (IS_AFFECTED(victim, AFF_PROTECT_GOOD) && IS_GOOD(ch))
 		dam -= dam / 4;
 
-	if (is_affected(victim, "resistance"))
+	if (is_affected(victim, "toughen"))
 		dam = (3 * dam) / 5;
 
 	if (is_affected(victim, "protection heat") && (dam_class == DAM_FIRE))
@@ -1380,6 +1404,8 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 		if ((dam2 = critical_strike(ch, victim, dam)) != 0)
 			dam = dam2;
 	}
+
+	dam = reduce_damage(victim, dam, dam_class);
 
 	if (IS_SET(dam_flags, DAMF_SHOW))
 		dam_message(ch, victim, dam, dt, immune, dam_class, dam_flags);

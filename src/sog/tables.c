@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.106 1999-11-30 14:50:34 kostik Exp $
+ * $Id: tables.c,v 1.107 1999-12-02 10:54:12 kostik Exp $
  */
 
 /***************************************************************************
@@ -650,6 +650,19 @@ flag_t apply_flags[] =
 	{ "savingbreath",	APPLY_SAVING_BREATH,	TRUE	},
 	{ "savingspell",	APPLY_SAVING_SPELL,	TRUE	},
 	{ "size",		APPLY_SIZE,		TRUE	},
+	{ "resist_bash",	APPLY_RESIST_BASH,	TRUE	},
+	{ "resist_pierce",	APPLY_RESIST_PIERCE,	TRUE	},
+	{ "resist_slash",	APPLY_RESIST_SLASH,	TRUE	},
+	{ "resist_fire",	APPLY_RESIST_FIRE,	TRUE	},
+	{ "resist_cold",	APPLY_RESIST_COLD,	TRUE	},
+	{ "resist_lightning",	APPLY_RESIST_LIGHTNING, TRUE	},
+	{ "resist_acid",	APPLY_RESIST_ACID,	TRUE	},
+	{ "resist_holy", 	APPLY_RESIST_HOLY,	TRUE	},
+	{ "resist_negative",	APPLY_RESIST_NEGATIVE,	TRUE	},
+	{ "resist_energy",	APPLY_RESIST_ENERGY,	TRUE	},
+	{ "resist_mental",	APPLY_RESIST_MENTAL,	TRUE	},
+	{ "resist_sound",	APPLY_RESIST_SOUND,	TRUE	},
+	{ "resist_disease",	APPLY_RESIST_DISEASE,	TRUE	},
 
 	{ NULL }
 };
@@ -664,6 +677,47 @@ flag_t rapply_flags[] =
 	{ NULL }
 };
 
+flag_t resist_flags[] =
+{
+	{ "",			TABLE_INTVAL			},
+
+	{ "bash",		RESIST_BASH,		TRUE	},	
+	{ "pierce",		RESIST_PIERCE,		TRUE	},	
+	{ "slash",		RESIST_SLASH,		TRUE	},	
+	{ "fire",		RESIST_FIRE,		TRUE	},	
+	{ "cold",		RESIST_COLD,		TRUE	},	
+	{ "lightning",		RESIST_LIGHTNING,	TRUE	},	
+	{ "acid",		RESIST_ACID,		TRUE	},	
+	{ "holy",	 	RESIST_HOLY,		TRUE	},	
+	{ "negative",		RESIST_NEGATIVE,	TRUE	},	
+	{ "energy",		RESIST_ENERGY,		TRUE	},	
+	{ "mental",		RESIST_MENTAL,		TRUE	},	
+	{ "sound",		RESIST_SOUND,		TRUE	},	
+	{ "disease",		RESIST_DISEASE,		TRUE	},	
+
+	{ NULL }
+};
+
+flag_t resist_info_flags[] =
+{
+	{ "",			TABLE_INTVAL			},
+
+	{ "bashing",		RESIST_BASH,		TRUE	},	
+	{ "piercing",		RESIST_PIERCE,		TRUE	},	
+	{ "slashing",		RESIST_SLASH,		TRUE	},	
+	{ "fire attacks",	RESIST_FIRE,		TRUE	},	
+	{ "cold attacks",	RESIST_COLD,		TRUE	},	
+	{ "lightning",		RESIST_LIGHTNING,	TRUE	},	
+	{ "acid",		RESIST_ACID,		TRUE	},	
+	{ "holy energy", 	RESIST_HOLY,		TRUE	},	
+	{ "negative energy",	RESIST_NEGATIVE,	TRUE	},	
+	{ "energy attacks",	RESIST_ENERGY,		TRUE	},	
+	{ "mental attacks",	RESIST_MENTAL,		TRUE	},	
+	{ "sound based attack",	RESIST_SOUND,		TRUE	},	
+	{ "poison and disease",	RESIST_DISEASE,		TRUE	},	
+
+	{ NULL }
+};
 /*
  * What is seen.
  */

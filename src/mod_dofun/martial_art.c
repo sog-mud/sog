@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.133 1999-12-02 09:09:59 fjoe Exp $
+ * $Id: martial_art.c,v 1.134 1999-12-02 10:54:07 kostik Exp $
  */
 
 /***************************************************************************
@@ -499,7 +499,7 @@ void do_cut(CHAR_DATA *ch, const char *argument)
 				ch, NULL, victim, TO_VICT);
 		
 			one_hit(ch, victim, "cut", WEAR_WIELD);
-			check_improve(ch, "cut", TRUE, 3);
+			check_improve(ch, "cut",TRUE, 3);
 		}
 	}
 
@@ -2641,33 +2641,33 @@ void do_bloodthirst(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_resistance(CHAR_DATA *ch, const char *argument)
+void do_toughen(CHAR_DATA *ch, const char *argument)
 {
 	int chance;
 	int mana;
 
-	if ((chance = get_skill(ch, "resistance")) == 0) {
+	if ((chance = get_skill(ch, "toughen")) == 0) {
 		char_puts("Huh?\n", ch);
 		return;
 	}
 
-	if (is_affected(ch, "resistance")) {
+	if (is_affected(ch, "toughen")) {
 		char_puts("You are as resistant as you will get.\n", ch);
 		return;
 	}
 
-	mana = skill_mana(ch, "resistance");
+	mana = skill_mana(ch, "toughen");
 	if (ch->mana < mana) {
 		char_puts("You cannot muster up the energy.\n", ch);
 		return;
 	}
-	WAIT_STATE(ch, skill_beats("resistance"));
+	WAIT_STATE(ch, skill_beats("toughen"));
 
 	if (number_percent() < chance) {
 		AFFECT_DATA af;
 		
 		af.where	= TO_AFFECTS;
-		af.type 	= "resistance";
+		af.type 	= "toughen";
 		af.level 	= ch->level;
 		af.duration	= LEVEL(ch) / 6;
 		INT(af.location)= APPLY_SAVES;
@@ -2679,7 +2679,7 @@ void do_resistance(CHAR_DATA *ch, const char *argument)
 
 		act("You feel tough!", ch, NULL, NULL, TO_CHAR);
 		act("$n looks tougher.", ch, NULL, NULL, TO_ROOM);
-		check_improve(ch, "resistance", TRUE, 1);
+		check_improve(ch, "toughen", TRUE, 1);
 	} else {
 		ch->mana -= mana/2;
 
@@ -2687,7 +2687,7 @@ void do_resistance(CHAR_DATA *ch, const char *argument)
 			  "but you don't feel tougher.\n", ch);
 		act("$n flexes $s muscles, trying to look tough.",
 		    ch, NULL, NULL, TO_ROOM);
-		check_improve(ch, "resistance", FALSE, 1);
+		check_improve(ch, "toughen", FALSE, 1);
 	}
 }
 

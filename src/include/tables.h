@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: tables.h,v 1.22 1999-11-22 14:54:24 fjoe Exp $
+ * $Id: tables.h,v 1.23 1999-12-02 10:54:09 kostik Exp $
  */
 
 #ifndef _TABLES_H_
@@ -98,6 +98,8 @@ extern flag_t	dam_classes[];
 extern flag_t	spec_classes[];
 extern flag_t	cond_table[];
 extern flag_t	cc_order_types[];
+extern flag_t	resist_flags[];
+extern flag_t	resist_info_flags[];
 
 #endif
 

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.261 1999-12-01 09:07:08 fjoe Exp $
+ * $Id: merc.h,v 1.262 1999-12-02 10:54:08 kostik Exp $
  */
 
 /***************************************************************************
@@ -894,6 +894,19 @@ struct spec_type
 #define APPLY_SAVING_BREATH	23
 #define APPLY_SAVING_SPELL	24
 #define APPLY_SIZE		26
+#define APPLY_RESIST_BASH	27
+#define APPLY_RESIST_PIERCE	28
+#define APPLY_RESIST_SLASH	29
+#define APPLY_RESIST_FIRE	30
+#define APPLY_RESIST_COLD	31
+#define APPLY_RESIST_LIGHTNING	32
+#define APPLY_RESIST_ACID	33
+#define APPLY_RESIST_HOLY	34
+#define APPLY_RESIST_NEGATIVE	35
+#define APPLY_RESIST_ENERGY	36
+#define APPLY_RESIST_MENTAL	37
+#define APPLY_RESIST_SOUND	38
+#define APPLY_RESIST_DISEASE	39
 
 /*
  * Skillaffects flags
@@ -1345,6 +1358,9 @@ struct char_data
 	/* stats */
 	int			perm_stat[MAX_STATS];
 	int			mod_stat[MAX_STATS];
+
+	/* resistances */
+	int			resists[MAX_RESIST];
 
 	/* parts stuff */
 	flag32_t		form;

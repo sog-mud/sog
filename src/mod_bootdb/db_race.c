@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_race.c,v 1.14 1999-10-26 13:52:58 fjoe Exp $
+ * $Id: db_race.c,v 1.15 1999-12-02 10:54:12 kostik Exp $
  */
 
 #include <stdio.h>
@@ -66,7 +66,7 @@ DBLOAD_FUN(load_race)
 
 	for (;;) {
 		bool fMatch = FALSE;
-
+		
 		fread_keyword(fp);
 		switch(rfile_tokfl(fp)) {
 		case 'A':
@@ -109,6 +109,12 @@ DBLOAD_FUN(load_race)
 			break;
 		case 'R':
 			KEY("Res", r.res, fread_fstring(res_flags, fp));
+			if (IS_TOKEN(fp, "Resist")) {
+				int res;
+				res = fread_fword(resist_flags, fp);
+				r.resists[res] = fread_number(fp);
+				fMatch = TRUE;
+			}
 			break;
 		case 'V':
 			KEY("Vuln", r.vuln, fread_fstring(vuln_flags, fp));

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.209 1999-12-01 09:07:11 fjoe Exp $
+ * $Id: handler.c,v 1.210 1999-12-02 10:54:11 kostik Exp $
  */
 
 /***************************************************************************
@@ -181,6 +181,9 @@ int check_immune(CHAR_DATA *ch, int dam_type)
 		else
 		    immune = IS_VULNERABLE;
 	}
+
+	if (!reduce_damage(ch, 100, dam_type))
+		return IS_IMMUNE;
 
 	if (!IS_NPC(ch) && get_curr_stat(ch, STAT_CHA) < 18 
 			&& dam_type == DAM_CHARM)

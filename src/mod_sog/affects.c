@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.12 1999-12-01 09:07:10 fjoe Exp $
+ * $Id: affects.c,v 1.13 1999-12-02 10:54:10 kostik Exp $
  */
 
 /***************************************************************************
@@ -271,6 +271,21 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 	case APPLY_SAVING_BREATH:	ch->saving_throw	+= mod;	break;
 	case APPLY_SAVING_SPELL:	ch->saving_throw	+= mod;	break;
 
+	case APPLY_RESIST_BASH:
+	case APPLY_RESIST_PIERCE:
+	case APPLY_RESIST_SLASH:
+	case APPLY_RESIST_FIRE:
+	case APPLY_RESIST_COLD:
+	case APPLY_RESIST_LIGHTNING:
+	case APPLY_RESIST_ACID:
+	case APPLY_RESIST_HOLY:
+	case APPLY_RESIST_NEGATIVE:
+	case APPLY_RESIST_ENERGY:
+	case APPLY_RESIST_MENTAL:
+	case APPLY_RESIST_SOUND:
+	case APPLY_RESIST_DISEASE:
+		ch->resists[INT(paf->location)-APPLY_RESIST_BASH] += mod;
+		break;
 	default:
 		if (IS_NPC(ch)) {
 			log("affect_modify: vnum %d: in room %d: "
@@ -308,8 +323,8 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 		    obj_to_room(wield, ch->in_room);
 
 		if ((obj2 = get_eq_char(ch, WEAR_SECOND_WIELD)) != NULL) {
-			act("You wield his second weapon as your first!",  ch, NULL,NULL,TO_CHAR);
-			act("$n wields his second weapon as first!",  ch, NULL,NULL,TO_ROOM);
+			act("You wield your second weapon as your first!",  ch, NULL,NULL,TO_CHAR);
+			act("$n wields $s second weapon as first!",  ch, NULL,NULL,TO_ROOM);
 		unequip_char(ch, obj2);
 		equip_char(ch, obj2 , WEAR_WIELD);
 		}

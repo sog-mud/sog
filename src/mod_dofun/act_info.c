@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.292 1999-12-01 09:07:03 fjoe Exp $
+ * $Id: act_info.c,v 1.293 1999-12-02 10:54:05 kostik Exp $
  */
 
 /***************************************************************************
@@ -2724,6 +2724,59 @@ void do_raffects(CHAR_DATA *ch, const char *argument)
 		char_puts("\n", ch);
 		paf_last = paf;
 	}
+}
+
+static const char * get_resist_alias(int resist)
+{
+	if (resist < -90) 
+		return "eradicated by";
+	else if (resist < -70)
+		return "oblitirated by";
+	else if (resist < -50)
+		return "massacred by";
+	else if (resist < -30)
+		return "hurt by";
+	else if (resist < 0)
+		return "vulnerable to";
+	else if (resist == 0)
+		return "don't have any resistance against";
+	else if (resist < 10)
+		return "slightly toughened against";
+	else if (resist < 20)
+		return "toughened against";
+	else if (resist < 30)
+		return "slightly resistant against";
+	else if (resist < 50)
+		return "resistant against";
+	else if (resist < 70)
+		return "highly resistant against";
+	else if (resist < 100)
+		return "almost immune to";
+	else
+		return "immune to";
+}
+
+void do_resistances(CHAR_DATA *ch, const char *argument)
+{
+	int i;
+	const flag_t *flp;
+	bool found = FALSE;
+	for (i=0; i < MAX_RESIST; i++) {
+		if (!ch->resists[i])
+			continue;
+		found = TRUE;
+		flp = flag_ilookup(resist_info_flags, i);
+		if (ch->level < 20) 
+			char_printf(ch, "You are %s %s.\n", 
+				get_resist_alias(ch->resists[i]), flp->name);
+		else
+			char_printf(ch, "You are %s %s (%d%%).\n", 
+				get_resist_alias(ch->resists[i]), flp->name,
+				UMIN(ch->resists[i], 100));
+	}
+	if (!found)
+		act("You don't have any resistances and vulnerabilities.",
+			ch, NULL, NULL, TO_CHAR);
 }
 
 void do_lion_call(CHAR_DATA *ch, const char *argument)

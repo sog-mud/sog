@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.c,v 1.11 1999-11-25 12:26:25 fjoe Exp $
+ * $Id: race.c,v 1.12 1999-12-02 10:54:11 kostik Exp $
  */
 
 #include <stdio.h>
@@ -36,6 +36,7 @@ hash_t races;
 void
 race_init(race_t *r)
 {
+	int i;
 	r->name = str_empty;
 	r->act = 0;
 	r->aff = 0;
@@ -46,6 +47,8 @@ race_init(race_t *r)
 	r->form = 0;
 	r->parts = 0;
 	r->race_flags = 0;
+	for (i = 0; i < MAX_RESIST; i++)
+		r->resists[i] = 0;
 	r->race_pcdata = NULL;
 }
 
@@ -55,6 +58,7 @@ race_init(race_t *r)
 race_t *
 race_cpy(race_t *dst, race_t *src)
 {
+	int i;
 	dst->name = str_qdup(src->name);
 	dst->act = src->act;
 	dst->aff = src->aff;
@@ -64,6 +68,8 @@ race_cpy(race_t *dst, race_t *src)
 	dst->vuln = src->vuln;
 	dst->form = src->form;
 	dst->race_flags = src->race_flags;
+	for (i = 0; i < MAX_RESIST; i++)
+		dst->resists[i] = src->resists[i];
 	return dst;
 }
 
@@ -105,6 +111,7 @@ rclass_lookup(race_t *r, const char *cn)
 void race_resetstats(CHAR_DATA *ch)
 {
 	race_t *r;
+	int i;
 
 	if ((r = race_lookup(ch->race)) == NULL)
 		return;
@@ -119,5 +126,9 @@ void race_resetstats(CHAR_DATA *ch)
 	ch->vuln_flags = r->vuln;
 	ch->form = r->form;
 	ch->parts = r->parts;
+
+	for (i=0; i < MAX_RESIST; i++)
+		ch->resists[i] = r->resists[i];
+
 }
 

@@ -1,9 +1,14 @@
 #RACE
 Name lich~
 Off dodge fast~
-Imm charm cold lightning poison disease~
-Res weapon fire~
-Vuln holy~
+Resist cold 100
+Resist bash 50
+Resist pierce 49
+Resist slash 50
+Resist negative 100
+Resist holy -50
+Resist disease 100
+Resist lightning 50
 Form edible sentient undead biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye~
 End

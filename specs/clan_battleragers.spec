@@ -31,7 +31,7 @@ Max 100
 End
 
 #SKILL
-Skill 'resistance'
+Skill 'toughen'
 Level 12
 Rating 1
 Min 1

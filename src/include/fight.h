@@ -1,5 +1,5 @@
 /*
- * $Id: fight.h,v 1.15 1999-10-12 13:56:16 avn Exp $
+ * $Id: fight.h,v 1.16 1999-12-02 10:54:08 kostik Exp $
  */
 
 /***************************************************************************
@@ -53,6 +53,7 @@ void	violence_update (void);
 void	multi_hit	(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt);
 bool	damage		(CHAR_DATA *ch, CHAR_DATA *victim, int dam,
 			 const char *dt, int class, int dam_flags);
+int 	reduce_damage	(CHAR_DATA *ch, int dam, int dam_class);
 void	update_pos	(CHAR_DATA *victim);
 void	set_fighting	(CHAR_DATA *ch, CHAR_DATA *victim);
 void	stop_fighting	(CHAR_DATA *ch, bool fBoth);
