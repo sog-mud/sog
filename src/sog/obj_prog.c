@@ -1,16 +1,16 @@
 /*
- * $Id: obj_prog.c,v 1.66.2.26 2004-05-29 16:19:36 tatyana Exp $
+ * $Id: obj_prog.c,v 1.66.2.27 2004-05-31 13:05:51 sg Exp $
  */
 
 /***************************************************************************
- *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT		           *	
+ *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT		           *
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
  *	 Serdar BULUT {Chronos}		bulut@rorqual.cc.metu.edu.tr       *
- *	 Ibrahim Canpunar  {Mandrake}	canpunar@rorqual.cc.metu.edu.tr    *	
- *	 Murat BICER  {KIO}		mbicer@rorqual.cc.metu.edu.tr	   *	
- *	 D.Baris ACAR {Powerman}	dbacar@rorqual.cc.metu.edu.tr	   *	
+ *	 Ibrahim Canpunar  {Mandrake}	canpunar@rorqual.cc.metu.edu.tr    *
+ *	 Murat BICER  {KIO}		mbicer@rorqual.cc.metu.edu.tr	   *
+ *	 D.Baris ACAR {Powerman}	dbacar@rorqual.cc.metu.edu.tr	   *
  *     By using this code, you have agreed to follow the terms of the      *
- *     ANATOLIA license, in the file Anatolia/anatolia.licence             *	
+ *     ANATOLIA license, in the file Anatolia/anatolia.licence             *
  ***************************************************************************/
 
 /***************************************************************************
@@ -279,7 +279,7 @@ int optype_lookup(const char *name)
 
 	for (i = 0; optype_table[i] != NULL; i++)
 		if (str_cmp(optype_table[i], name) == 0)
-			return i; 
+			return i;
 	return -1;
 }
 
@@ -430,7 +430,7 @@ int speech_prog_excalibur(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	}
 	return 0;
 }
-	
+
 bool sac_prog_excalibur(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	if (IS_NPC(ch))
@@ -482,7 +482,7 @@ bool death_prog_ranger_staff(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	return 0;
 }
 
-int get_prog_spec_weapon(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg) 
+int get_prog_spec_weapon(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	if (IS_OWNER(ch, obj)) {
 		if (IS_AFFECTED(ch, AFF_POISON) && (dice(1,5)==1))  {
@@ -520,7 +520,7 @@ int get_prog_spec_weapon(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	return 0;
 }
 
-int get_prog_quest_obj(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg) 
+int get_prog_quest_obj(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	if (IS_OWNER(ch, obj)) {
 		if (IS_AFFECTED(ch, AFF_POISON) && (dice(1, 5) == 1)) {
@@ -593,7 +593,7 @@ int fight_prog_chaos_blade(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 		act("The chaotic blade trembles violently!",
 		    ch, NULL, NULL, TO_ROOM);
 		char_puts("Your chaotic blade trembles violently!\n", ch);
-		obj_cast_spell(gsn_mirror, LEVEL(ch), ch, ch); 
+		obj_cast_spell(gsn_mirror, LEVEL(ch), ch, ch);
 		WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
 		break;
 
@@ -710,7 +710,7 @@ int fight_prog_tattoo_ulwark(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	case 2:
 		act_puts("The tattoo on your shoulder glows {Cblue{x.",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-		spellfun_call("cure critical", LEVEL(ch), ch, ch); 
+		spellfun_call("cure critical", LEVEL(ch), ch, ch);
 		break;
 	case 3:
 		act_puts("The tattoo on your shoulder glows {Rred{x.",
@@ -912,10 +912,10 @@ int fight_prog_tattoo_stivrosh(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 			af.modifier	= UMAX(5, 2 * LEVEL(ch));
 			af.location	= APPLY_AC;
 			affect_to_char(ch, &af);
-		  
+
 			ch->hit += LEVEL(ch) * 2;
 			ch->hit = UMIN(ch->hit, ch->max_hit);
-		  
+
 			char_puts("Your pulse races as you are consumned "
 				  "by rage!\n", ch);
 			act("$n gets a wild look in $s eyes.",
@@ -926,9 +926,9 @@ int fight_prog_tattoo_stivrosh(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 			if (is_affected(ch, gsn_warcry)) {
 				act_puts("Fighting zeal is already with you.",
-			 		 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+					 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 				return 0;
-			} 	 
+			}
 
 			af.where        = TO_AFFECTS;
 			af.type		= gsn_warcry;
@@ -946,7 +946,7 @@ int fight_prog_tattoo_stivrosh(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 			act_puts("You feel righteous as you yell out your warcry.",
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 			break;
-		}	
+		}
 	}
 	else {
 		switch(number_bits(4)) {
@@ -996,17 +996,17 @@ int fight_prog_tattoo_trussk(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		spellfun_call("slow", LEVEL(ch) + bonus, ch, ch->fighting);
 		break;
-	case 4: 
+	case 4:
 		act_puts("The tattoo on your shoulder glows {Rred{x.",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		spellfun_call("energy drain", LEVEL(ch) + bonus, ch, ch->fighting);
 		break;
-	case 5: 
+	case 5:
 		act_puts("The tattoo on your shoulder glows {Rred{x.",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		spellfun_call("blindness", LEVEL(ch) + bonus, ch, ch->fighting);
 		break;
-	case 6: 
+	case 6:
 		act_puts("The tattoo on your shoulder glows {Rred{x.",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		spellfun_call("curse", LEVEL(ch) + bonus, ch, ch->fighting);
@@ -1062,8 +1062,8 @@ int fight_prog_tattoo_cariel(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		spellfun_call("heal", LEVEL(ch), ch, ch);
 		break;
-	case 2: 
-	case 3: 
+	case 2:
+	case 3:
 		act_puts("The tattoo on your shoulder glows {Cblue{x.",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		spellfun_call("cure critical", LEVEL(ch), ch, ch);
@@ -1101,7 +1101,7 @@ int fight_prog_golden_weapon(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 		{
 		  act("Your $p glows bright blue!\n",ch, obj, NULL, TO_CHAR);
 		  act("$n's $p glows bright blue!",ch,obj,NULL,TO_ROOM);
-		  
+
 		  obj_cast_spell(gsn_cure_critical,LEVEL(ch),ch,ch);
 		 return 0;
 		}
@@ -1109,7 +1109,7 @@ int fight_prog_golden_weapon(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 		{
 		  act("Your $p glows bright blue!\n",ch, obj, NULL, TO_CHAR);
 		  act("$n's $p glows bright blue!",ch,obj,NULL,TO_ROOM);
-		  
+
 		  obj_cast_spell(gsn_cure_serious,LEVEL(ch),ch,ch);
 		}
 	}
@@ -1134,7 +1134,7 @@ int fight_prog_snake(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 			ch->fighting, TO_CHAR);
 		act("A snake from $n's whip strikes out and bites you!", ch, NULL,
 			ch->fighting, TO_VICT);
-		act("One of the snakes from $n's whip strikes at $N!", ch, NULL, 
+		act("One of the snakes from $n's whip strikes at $N!", ch, NULL,
 			ch->fighting, TO_NOTVICT);
 		obj_cast_spell(gsn_poison, LEVEL(ch), ch, ch->fighting);
 		break;
@@ -1158,7 +1158,7 @@ int fight_prog_shockwave(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 		(get_eq_char(ch,WEAR_SECOND_WIELD) == obj))
 	switch(number_bits(6)) {
 	case 0:
-	  act("A bolt of lightning arcs out from your bolt, hitting $N!", ch, 
+	  act("A bolt of lightning arcs out from your bolt, hitting $N!", ch,
 		NULL, ch->fighting, TO_CHAR);
 	  act("A bolt of lightning crackles along $n's bolt and arcs towards you!",
 		ch, NULL, ch->fighting, TO_VICT);
@@ -1189,10 +1189,10 @@ int wear_prog_ranger_staff(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 int wear_prog_coconut(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	act("You start to bang the coconut shells together.",ch,NULL,NULL,TO_CHAR);
-	act("You hear a sound like horses galloping and you mount your steed.", 
+	act("You hear a sound like horses galloping and you mount your steed.",
 		ch, NULL, NULL, TO_CHAR);
 	act("$n pretends to mount an invisible horse.",
-		ch,NULL,NULL,TO_ROOM); 
+		ch,NULL,NULL,TO_ROOM);
 	return 0;
 }
 
@@ -1203,13 +1203,13 @@ int entry_prog_coconut(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	act("$n gallops in on his invisible steed, banging two coconuts together.",
 		obj->carried_by, NULL, NULL, TO_ROOM);
 	return 0;
-}  
+}
 
 int greet_prog_coconut(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	if (obj->carried_by != NULL)
 	{
-	  if (get_eq_char(obj->carried_by, WEAR_HOLD) == obj && 
+	  if (get_eq_char(obj->carried_by, WEAR_HOLD) == obj &&
 			obj->carried_by != ch)
 		act("You hear the sound of galloping horses.", ch, NULL, NULL, TO_CHAR);
 	}
@@ -1346,7 +1346,7 @@ int fight_prog_vorpalblade(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	CHAR_DATA *victim;
 
-	if (IS_NPC(ch)) 
+	if (IS_NPC(ch))
 		return 0;
 
 	if ((get_eq_char(ch, WEAR_WIELD) != obj)
@@ -1540,7 +1540,7 @@ int fight_prog_rose_shield(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 
 	if (get_eq_char(ch, WEAR_SHIELD) != obj)
 		return 0;
-	
+
 	if (number_percent() < 90)
 		return 0;
 
@@ -1590,7 +1590,7 @@ int speech_prog_ring_ra(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	if (ch->wait > 0)
 		return 0;
 
-	if (!!str_cmp(speech, "punish")   
+	if (!!str_cmp(speech, "punish")
 	||  ch->fighting == NULL
 	||  (get_eq_char(ch, WEAR_FINGER_L) != obj &&
 	     get_eq_char(ch, WEAR_FINGER_R) != obj))
@@ -1704,7 +1704,7 @@ int remove_prog_snake(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	return 0;
 }
 
-int get_prog_snake(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg) 
+int get_prog_snake(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	act("You feel as if snakes of whip moved.",ch,obj,NULL,TO_CHAR);
 	return 0;
@@ -1744,7 +1744,7 @@ int wear_prog_fire_shield(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	  af.modifier = 0;
 	  affect_to_char(ch, &af);
 	}
-	}  
+	}
 	return 0;
 }
 
@@ -1752,7 +1752,7 @@ int remove_prog_fire_shield(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	if (is_affected(ch, gsn_fire_shield)) {
 		affect_strip(ch, gsn_fire_shield);
-		if (strstr(mlstr_mval(&obj->ed->description), "cold") != NULL)  
+		if (strstr(mlstr_mval(&obj->ed->description), "cold") != NULL)
 			char_puts("You have become normal to cold attacks.\n", ch);
 		else
 			char_puts("You have become normal to fire attacks.\n", ch);
@@ -1783,7 +1783,7 @@ int wear_prog_quest_weapon(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	return 1;
 }
 
-int get_prog_quest_reward(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg) 
+int get_prog_quest_reward(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	if (IS_OWNER(ch, obj)) {
 		act_puts("Your $p starts glowing.",
@@ -1818,10 +1818,12 @@ int wear_prog_enforcer_shield(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 
 int fight_prog_swordbreaker(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
-  CHAR_DATA *victim;
-  OBJ_DATA *wield;
-  victim = ch->fighting;
-  if((wield = get_eq_char(victim, WEAR_WIELD)) == NULL) return 0 ;
+	CHAR_DATA *victim;
+	OBJ_DATA *wield;
+	victim = ch->fighting;
+	if((wield = get_eq_char(victim, WEAR_WIELD)) == NULL)
+		return 0;
+
         if (
             (wield->value[0] == WEAPON_SWORD)
         &&  (get_eq_char(ch,WEAR_WIELD) == obj
@@ -1921,7 +1923,7 @@ fight_prog_rainbow_amulet(OBJ_DATA *amulet, CHAR_DATA *ch, const void *arg)
 	} else if (number_percent() > 90) {
 		act("Aura of different colors surrounds you.",
 		    ch, NULL, NULL, TO_CHAR);
-		act("Aura of different colors sourronds $n.",
+		act("Aura of different colors surrounds $n.",
 		    ch, NULL, NULL, TO_ROOM);
 		spellfun_call("heal", level, ch, ch);
 		return 0;
