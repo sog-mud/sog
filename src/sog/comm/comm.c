@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.145 1999-02-22 13:30:27 fjoe Exp $
+ * $Id: comm.c,v 1.146 1999-02-22 14:33:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2324,7 +2324,8 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		ch->pcdata->questtime = nextquest;
 		/* !quest code */
 
-		wiznet("{W$N{x joins us.", ch, NULL, WIZ_LOGINS, 0, ch->level);
+		wiznet("{W$N{x has left real life behind.",
+			ch, NULL, WIZ_LOGINS, 0, ch->level);
 
 		for (i = 0; i < MAX_STATS; i++) {
 			int max_stat = get_max_train(ch, i);

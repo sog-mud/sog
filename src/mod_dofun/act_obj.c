@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.125 1999-02-20 16:29:14 fjoe Exp $
+ * $Id: act_obj.c,v 1.126 1999-02-22 14:33:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1321,7 +1321,7 @@ bool remove_obj(CHAR_DATA * ch, int iWear, bool fReplace)
 		}
 		act_puts("You remove $p, in pain.",
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
-		act("$n remove $p, in pain.", ch, obj, NULL, TO_ROOM);
+		act("$n removes $p, in pain.", ch, obj, NULL, TO_ROOM);
 		WAIT_STATE(ch, 4);
 		return TRUE;
 	}
