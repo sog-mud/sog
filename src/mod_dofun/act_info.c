@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.149 1998-10-21 07:05:01 fjoe Exp $
+ * $Id: act_info.c,v 1.150 1998-10-21 10:12:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1039,7 +1039,6 @@ void do_nosummon(CHAR_DATA *ch, const char *argument)
 				  "within your PK range.\n\r", ch);
 		else 
 			char_puts("You may now be summoned by anyone.\n\r", ch);
-			SET_BIT(ch->act,PLR_NOSUMMON);
 	}
 }
 
