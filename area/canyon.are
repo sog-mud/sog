@@ -29,8 +29,9 @@ r cold 33
 r lightning 33
 #9202
 cyclops~
-the cyclops~
-A hungry cyclops snarls at you!
+@eng the cyclops@rus циклоп~
+@eng A hungry cyclops snarls at you!
+@rus Голодный циклоп поглядывает на тебя !
 ~
 He looks like he's about to have dinner (maybe it's you?).
 ~
@@ -73,7 +74,7 @@ stand stand none 0
 0 0 medium unknown
 #9204
 elemental guardian~
-the elemental guardian~
+@eng the elemental guardian@rus Элементал-охранник этих мест~
 The elemental guardian of the canyon.
 ~
 You can't tell which kind of elemental it is, maybe it's a bit o' all of them?
@@ -87,8 +88,9 @@ stand stand none 500
 0 0 medium unknown
 #9205
 small elemental~
-a small elemental~
-A small, rather non-descript elemental.
+@eng a small elemental@rus маленький элементал~
+@eng A small, rather non-descript elemental.
+@rus Маленький элементал.
 ~
 A small elemental, a resident of the canyon.
 ~
@@ -101,8 +103,9 @@ stand stand none 12
 0 0 medium unknown
 #9206
 medium elemental~
-a medium elemental~
-A medium-sized elemental.
+@eng a medium elemental@rus средний элементал~
+@eng A medium-sized elemental.
+@rus Элементал средних размеров.
 ~
 A medium elemental, a resident of the canyon.
 ~
