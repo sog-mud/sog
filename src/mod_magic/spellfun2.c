@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.38 2001-05-21 18:53:52 fjoe Exp $
+ * $Id: spellfun2.c,v 1.139.2.39 2001-05-21 19:01:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4718,7 +4718,7 @@ void spell_lich(int sn, int level, CHAR_DATA *ch, void *vo)
 	}
 
 	if (IS_NULLSTR(target_name)) {
-		char_puts("Usage: cast lich <type>"\n, ch);
+		char_puts("Usage: cast lich <type>\n", ch);
 		return;
 	}
 
