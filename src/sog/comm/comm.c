@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.152 1999-02-27 08:46:50 fjoe Exp $
+ * $Id: comm.c,v 1.153 1999-02-27 10:23:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1046,38 +1046,43 @@ void battle_prompt(CHAR_DATA *ch, CHAR_DATA *victim)
 bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 {
 	extern bool merc_down;
+	bool ga = FALSE;
 
 	/*
 	 * Bust a prompt.
 	 */
-	if (!merc_down)
-		if (d->showstr_point)
+	if (!merc_down) {
+		CHAR_DATA *ch = d->character;
+
+		if (d->showstr_point) {
 			write_to_buffer(d, "[Hit Return to continue]\n\r", 0);
-		else if (fPrompt && d->pString && d->connected == CON_PLAYING)
-			write_to_buffer(d, "  > ", 0);
-		else if (fPrompt && d->connected == CON_PLAYING) {
-   			CHAR_DATA *ch;
-			CHAR_DATA *victim;
-
-			ch = d->character;
-
-			/* battle prompt */
-			if ((victim = ch->fighting) != NULL
-			&&  can_see(ch,victim))
-				battle_prompt(ch, victim);
-
-
-			ch = d->original ? d->original : d->character;
-			if (!IS_SET(ch->comm, COMM_COMPACT))
-				write_to_buffer(d, "\n\r", 2);
-
-			if (IS_SET(ch->comm, COMM_PROMPT))
-				bust_a_prompt(d->character);
-
-			if (IS_SET(ch->comm,COMM_TELNET_GA))
-				write_to_descriptor(d->descriptor,
-						    go_ahead_str, 0);
+			ga = TRUE;
 		}
+		else if (fPrompt && d->connected == CON_PLAYING) {
+			if (d->pString) {
+				write_to_buffer(d, "  > ", 0);
+				ga = TRUE;
+			}
+			else if (ch) {
+				CHAR_DATA *victim;
+
+				/* battle prompt */
+				if ((victim = ch->fighting) != NULL
+				&&  can_see(ch,victim))
+					battle_prompt(ch, victim);
+
+				if (!IS_SET(ch->comm, COMM_COMPACT))
+					write_to_buffer(d, "\n\r", 2);
+
+				if (IS_SET(ch->comm, COMM_PROMPT))
+					bust_a_prompt(d->character);
+				ga = TRUE;
+			}
+		}
+
+		if (ch && ga && !IS_SET(ch->comm, COMM_TELNET_GA))
+			ga = FALSE;
+	}
 
 	/*
 	 * Short-circuit if nothing to write.
@@ -1088,8 +1093,8 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 	/*
 	 * Snoop-o-rama.
 	 */
-	if (d->snoop_by != NULL) {
-		if (d->character != NULL)
+	if (d->snoop_by) {
+		if (d->character)
 			write_to_buffer(d->snoop_by, d->character->name, 0);
 		write_to_buffer(d->snoop_by, "> ", 2);
 		write_to_buffer(d->snoop_by, d->outbuf, d->outtop);
@@ -1103,6 +1108,8 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 		return FALSE;
 	}
 	else {
+		if (ga)
+			write_to_descriptor(d->descriptor, go_ahead_str, 0);
 		d->outtop = 0;
 		return TRUE;
 	}

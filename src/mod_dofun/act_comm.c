@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.151 1999-02-26 13:26:44 fjoe Exp $
+ * $Id: act_comm.c,v 1.152 1999-02-27 10:23:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2010,6 +2010,18 @@ toggle_t toggle_table[] =
 	  "$t removed."
 	},
 
+	{ "nobust",		"do not bust prompt if hp/mana/move changed",
+	  comm_flags,	COMM_NOBUST,
+	  "$t set.",
+	  "$t removed."
+	},
+
+	{ "noeng",		"do not display english obj/mob names",
+	  comm_flags,	COMM_NOENG,
+	  "You will not see english obj/mob names anymore.",
+	  "You will now see english obj/mob names."
+	},
+
 	{ "notelnet",		"no telnet parser",
 	  comm_flags,	COMM_NOTELNET,
 	  "Telnet parser is OFF.",
@@ -2034,16 +2046,10 @@ toggle_t toggle_table[] =
 	  "You will no longer see prompts."
 	},
 
-	{ "nobust",		"do not bust prompt if hp/mana/move changed",
-	  comm_flags,	COMM_NOBUST,
-	  "$t set.",
-	  "$t removed."
-	},
-
-	{ "noeng",		"do not display english obj/mob names",
-	  comm_flags,	COMM_NOENG,
-	  "You will not see english obj/mob names anymore.",
-	  "You will now see english obj/mob names."
+	{ "telnet GA",		"send IAC GA (goahead) after each prompt",
+	  comm_flags,	COMM_TELNET_GA,
+	  "IAC GA will be sent after each prompt.",
+	  "IAC GA will not be sent after prompts.",
 	},
 
 	{ "quiet edit",		"quiet mode in string editor",
