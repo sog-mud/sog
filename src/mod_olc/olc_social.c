@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_social.c,v 1.35 2001-09-13 16:22:15 fjoe Exp $
+ * $Id: olc_social.c,v 1.36 2001-09-13 17:54:14 fjoe Exp $
  */
 
 /* I never wanted to be
@@ -211,10 +211,10 @@ OLC_FUN(soced_show)
 	output = buf_new(0);
 
 	buf_printf(output, BUF_END,
-		   "Name:          [%s]\n",
-		   soc->name);
+		   "[%3d] Name:    [%s]\n",
+		   varr_index(&socials, soc), soc->name);
 	buf_printf(output, BUF_END,
-		   "Min_pos:       [%s]\n",
+		   "Min pos:       [%s]\n",
 		   flag_string(position_table, soc->min_pos));
 
 	SOC_SHOW("Found char   ", &soc->found_char);
@@ -222,9 +222,9 @@ OLC_FUN(soced_show)
 	SOC_SHOW("Found other  ", &soc->found_notvict);
 	SOC_SHOW("Noarg char   ", &soc->noarg_char);
 	SOC_SHOW("Noarg room   ", &soc->noarg_room);
-	SOC_SHOW("Self  char   ", &soc->self_char);
-	SOC_SHOW("Self  room   ", &soc->self_room);
-	SOC_SHOW("Notfound     ", &soc->notfound_char);
+	SOC_SHOW("Self char    ", &soc->self_char);
+	SOC_SHOW("Self room    ", &soc->self_room);
+	SOC_SHOW("Not found    ", &soc->notfound_char);
 	shadow_dump_cmds(output, soc->name);
 
 	page_to_char(buf_string(output), ch);
@@ -365,7 +365,7 @@ OLC_FUN(soced_move)
 	}
 
 	nsoc = *soc;
-	varr_edelete(&socials, soc);	/* XXX VARR */
+	varr_edelete_nd(&socials, soc);
 	soc = (social_t *) varr_insert(&socials, num);
 	*soc = nsoc;
 
@@ -417,18 +417,18 @@ static void *save_social_cb(void *p, va_list ap)
 	FILE *fp = va_arg(ap, FILE *);
 
 	fprintf(fp, "#SOCIAL\n");
-	fprintf(fp, "Name %s\n", soc->name);
-	fprintf(fp, "Min_pos %s\n",
+	fprintf(fp, "name %s\n", soc->name);
+	fprintf(fp, "min_pos %s\n",
 		flag_string(position_table, soc->min_pos));
-	mlstr_fwrite(fp, "Found_char", &soc->found_char);
-	mlstr_fwrite(fp, "Found_vict", &soc->found_vict);
-	mlstr_fwrite(fp, "Found_notvict", &soc->found_notvict);
-	mlstr_fwrite(fp, "Noarg_char", &soc->noarg_char);
-	mlstr_fwrite(fp, "Noarg_room", &soc->noarg_room);
-	mlstr_fwrite(fp, "Self_char", &soc->self_char);
-	mlstr_fwrite(fp, "Self_room", &soc->self_room);
-	mlstr_fwrite(fp, "Notfound_char", &soc->notfound_char);
-	fprintf(fp, "End\n\n");
+	mlstr_fwrite(fp, "found_char", &soc->found_char);
+	mlstr_fwrite(fp, "found_vict", &soc->found_vict);
+	mlstr_fwrite(fp, "found_notvict", &soc->found_notvict);
+	mlstr_fwrite(fp, "noarg_char", &soc->noarg_char);
+	mlstr_fwrite(fp, "noarg_room", &soc->noarg_room);
+	mlstr_fwrite(fp, "self_char", &soc->self_char);
+	mlstr_fwrite(fp, "self_room", &soc->self_room);
+	mlstr_fwrite(fp, "notfound_char", &soc->notfound_char);
+	fprintf(fp, "end\n\n");
 
 	return NULL;
 }

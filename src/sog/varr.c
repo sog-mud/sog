@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.c,v 1.36 2001-09-13 16:22:26 fjoe Exp $
+ * $Id: varr.c,v 1.37 2001-09-13 17:54:16 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -107,10 +107,26 @@ varr_ndelete(varr *v, size_t i)
 	if (v->v_data->e_destroy)
 		v->v_data->e_destroy(VARR_GET(v, i));
 
+	varr_ndelete_nd(v, i);
+}
+
+void
+varr_ndelete_nd(varr *v, size_t i)
+{
+	if (!v->nused || i >= v->nused)
+		return;
+
 	if (i >= --v->nused)
 		return;
 
-	memmove(VARR_GET(v, i), VARR_GET(v, i+1), v->v_data->nsize*(v->nused - i));
+	memmove(
+	    VARR_GET(v, i), VARR_GET(v, i+1), v->v_data->nsize*(v->nused - i));
+}
+
+void
+varr_destroy_nd(varr *v)
+{
+	free(v->p);
 }
 
 void
@@ -269,8 +285,7 @@ varr_destroy(void *c)
 	varr *v = (varr *) c;
 
 	varr_erase(v);
-	v->nalloc = 0;
-	free(v->p);
+	varr_destroy_nd(v);
 }
 
 static

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.c,v 1.37 2001-09-13 16:22:22 fjoe Exp $
+ * $Id: lang.c,v 1.38 2001-09-13 17:54:15 fjoe Exp $
  */
 
 #include <string.h>
@@ -33,9 +33,6 @@
 
 #include <merc.h>
 #include <lang.h>
-
-static void str_init(const char **p);
-static void str_destroy(const char **p);
 
 /*----------------------------------------------------------------------------
  * main language support functions
@@ -179,26 +176,14 @@ cmprule(const void *p1, const void *p2)
 	return -str_cmp(((const rule_t*) p1)->name, ((const rule_t*) p2)->name);
 }
 
-static void
-str_init(const char **p)
-{
-	*p = str_empty;
-}
-
-static void
-str_destroy(const char **p)
-{
-	free_string(*p);
-}
-
 static varrdata_t v_forms =
 {
 	&varr_ops,
 
-	(e_init_t) str_init,
-	(e_init_t) str_destroy,
+	(e_init_t) strkey_init,
+	(e_init_t) strkey_destroy,
 
-	sizeof(char*), 4
+	sizeof(const char *), 4
 };
 
 void
@@ -238,6 +223,7 @@ rule_form_del(rule_t *r, size_t fnum)
 /*----------------------------------------------------------------------------
  * implicit rules operations
  */
+
 rule_t *
 irule_add(rulecl_t *rcl, rule_t *r)
 {
@@ -298,6 +284,7 @@ irule_find(rulecl_t *rcl, const char *word)
 /*----------------------------------------------------------------------------
  * explicit rules operations
  */
+
 rule_t *
 erule_add(rulecl_t *rcl, rule_t *r)
 {
@@ -317,7 +304,8 @@ erule_add(rulecl_t *rcl, rule_t *r)
 	return varr_bsearch(v, r, cmprule);
 }
 
-void erule_del(rulecl_t *rcl, rule_t *r)
+void
+erule_del(rulecl_t *rcl, rule_t *r)
 {
 	varr *v = rcl->expl + rulehash(r->name);
 	varr_edelete(v, r);

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.404 2001-09-13 16:22:02 fjoe Exp $
+ * $Id: act_info.c,v 1.405 2001-09-13 17:54:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4298,6 +4298,18 @@ show_char_to_char(CHAR_DATA *list, CHAR_DATA *ch)
 			 TO_CHAR, POS_DEAD);
 }
 
+static
+FOREACH_CB_FUN(copy_cname_cb, p, ap)
+{
+	cmd_t *cmd = (cmd_t *) p;
+
+	varr *v = va_arg(ap, varr *);
+	cmd_t *ncmd = varr_enew(v);
+
+	*ncmd = *cmd;
+	return NULL;
+};
+
 /*
  * Contributed by Alander.
  */
@@ -4307,8 +4319,8 @@ DO_FUN(do_commands, ch, argument)
 	size_t i;
 	varr v;
 
-	/* XXX VARR varr_init(&v); */
-	/* XXX VARR varr_cpy(&v, &commands); */
+	c_init(&v, &v_commands);
+	c_foreach(&commands, copy_cname_cb, &v);
 	varr_qsort(&v, cmpstr);
 
 	col = 0;
@@ -4329,7 +4341,7 @@ DO_FUN(do_commands, ch, argument)
 	if (col % 6 != 0)
 		send_to_char("\n", ch);
 
-	c_destroy(&v);
+	varr_destroy_nd(&v);
 }
 
 DO_FUN(do_wizhelp, ch, argument)
@@ -4343,8 +4355,8 @@ DO_FUN(do_wizhelp, ch, argument)
 		return;
 	}
 
-	/* XXX VARR varr_init(&v); */
-	/* XXX VARR varr_cpy(&v, &commands); */
+	c_init(&v, &v_commands);
+	c_foreach(&commands, copy_cname_cb, &v);
 	varr_qsort(&v, cmpstr);
 
 	col = 0;
@@ -4368,7 +4380,7 @@ DO_FUN(do_wizhelp, ch, argument)
 	if (col % 6 != 0)
 		send_to_char("\n", ch);
 
-	c_destroy(&v);
+	varr_destroy_nd(&v);
 }
 
 static void

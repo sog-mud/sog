@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_cmd.c,v 1.23 2001-09-13 16:22:11 fjoe Exp $
+ * $Id: olc_cmd.c,v 1.24 2001-09-13 17:54:14 fjoe Exp $
  */
 
 #include "olc.h"
@@ -192,14 +192,15 @@ OLC_FUN(cmded_show)
 	output = buf_new(0);
 
 	buf_printf(output, BUF_END,
-		   "[%3d]Name  [%s]\nDofun      [%s]\n",
+		   "[%3d] Name [%s]\n"
+		   "Dofun      [%s]\n",
 		   varr_index(&commands, cmnd),
 		   cmnd->name, cmnd->dofun_name);
 	buf_printf(output, BUF_END,
-		   "Min_pos    [%s]\n",
+		   "Min pos    [%s]\n",
 		   flag_string(position_table, cmnd->min_pos));
 	if (cmnd->min_level)
-		buf_printf(output, BUF_END, "Min_level  [%s]\n",
+		buf_printf(output, BUF_END, "Min level  [%s]\n",
 			flag_istring(level_table, cmnd->min_level));
 	if (cmnd->cmd_log)
 		buf_printf(output, BUF_END, "Log        [%s]\n",
@@ -328,7 +329,7 @@ OLC_FUN(cmded_move)
 	}
 
 	ncmd = *cmnd;
-	varr_edelete(&commands, cmnd);	/* XXX VARR */
+	varr_edelete_nd(&commands, cmnd);
 	cmnd = (cmd_t *) varr_insert(&commands, num);
 	*cmnd = ncmd;
 

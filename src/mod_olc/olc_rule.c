@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_rule.c,v 1.39 2001-09-13 16:22:14 fjoe Exp $
+ * $Id: olc_rule.c,v 1.40 2001-09-13 17:54:14 fjoe Exp $
  */
 
 #include "olc.h"
@@ -463,6 +463,17 @@ OLC_FUN(eruleed_name)
 	return TRUE;
 }
 
+static
+FOREACH_CB_FUN(copy_form_cb, p, ap)
+{
+	const char **q = (const char **) p;
+	varr *v = va_arg(ap, varr *);
+	const char **r = varr_enew(v);
+
+	*r = str_qdup(*q);
+	return NULL;
+}
+
 OLC_FUN(eruleed_auto)
 {
 	rule_t *r;
@@ -481,8 +492,8 @@ OLC_FUN(eruleed_auto)
 	}
 
 	r->arg = strlen(r->name) + impl->arg;
-	c_destroy(&r->forms);
-	/* XXX VARR varr_cpy(&r->forms, &impl->forms); */
+	c_erase(&r->forms);
+	c_foreach(&impl->forms, copy_form_cb, &r->forms);
 	return TRUE;
 }
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.h,v 1.29 2001-09-13 16:21:55 fjoe Exp $
+ * $Id: varr.h,v 1.30 2001-09-13 17:54:10 fjoe Exp $
  */
 
 #ifndef _VARR_H_
@@ -63,6 +63,11 @@ void *	varr_get(varr *v, size_t i);
 
 void	varr_ndelete	(varr *, size_t i);
 #define varr_edelete(v, p) (varr_ndelete((v), varr_index((v), (p))))
+
+void	varr_ndelete_nd	(varr *, size_t i);
+#define varr_edelete_nd(v, p) (varr_ndelete_nd((v), varr_index((v), (p))))
+
+void	varr_destroy_nd	(varr *);
 
 void	varr_qsort	(const varr *, int (*)(const void *, const void *));
 void *	varr_bsearch	(const varr *, const void *e,
