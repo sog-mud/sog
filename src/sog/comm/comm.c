@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.195 1999-07-01 16:09:39 fjoe Exp $
+ * $Id: comm.c,v 1.196 1999-07-09 09:23:11 kostik Exp $
  */
 
 /***************************************************************************
@@ -2310,7 +2310,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		if (!IS_IMMORTAL(ch)) {
 			for (i = 2; exp_for_level(ch, i) < ch->exp; i++)
 				;
-
+#ifdef 0
 			if (i < ch->level) {
 				int con;
 				int wis;
@@ -2332,6 +2332,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		 		ch->perm_stat[STAT_INT] = inte;
 		 		ch->perm_stat[STAT_DEX] = dex;
 			}
+#endif
 		}
 
 		if (ch->level == 0) {

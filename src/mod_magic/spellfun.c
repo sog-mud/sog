@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.173 1999-07-08 05:11:27 kostik Exp $
+ * $Id: spellfun.c,v 1.174 1999-07-09 09:23:12 kostik Exp $
  */
 
 /***************************************************************************
@@ -1651,6 +1651,7 @@ void spell_enchant_armor(int sn, int level, CHAR_DATA *ch, void *vo)
 	int result, fail;
 	int ac_bonus, added;
 	bool ac_found = FALSE;
+	bool hp_found = FALSE;
 
 	if (obj->pIndexData->item_type != ITEM_ARMOR)
 	{
@@ -1671,17 +1672,20 @@ void spell_enchant_armor(int sn, int level, CHAR_DATA *ch, void *vo)
 	/* find the bonuses */
 
 	if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED))
-		for (paf = obj->pIndexData->affected; paf != NULL; paf = paf->next)
-		{
-		    if (paf->location == APPLY_AC)
-		    {
-		    	ac_bonus = paf->modifier;
-			ac_found = TRUE;
-		    	fail += 5 * (ac_bonus * ac_bonus);
- 	    }
-
-		    else  /* things get a little harder */
-		    	fail += 20;
+		for (paf = obj->pIndexData->affected; 
+	 	     paf != NULL; 
+		     paf = paf->next) {
+		    	if (paf->location == APPLY_AC) {
+		    		ac_bonus = paf->modifier;
+				ac_found = TRUE;
+		    		fail += 5 * (ac_bonus * ac_bonus);
+ 	    		}
+		    	else if (paf->location == APPLY_HIT) {
+		    		fail += 30;
+				hp_found = TRUE;
+			}
+			else 
+				fail += 15;
 		}
  
 	for (paf = obj->affected; paf != NULL; paf = paf->next)
@@ -1809,6 +1813,32 @@ void spell_enchant_armor(int sn, int level, CHAR_DATA *ch, void *vo)
 		paf->duration	= -1;
 		paf->location	= APPLY_AC;
 		paf->modifier	=  added;
+		paf->bitvector  = 0;
+		paf->next	= obj->affected;
+		obj->affected	= paf;
+	}
+	if (hp_found)
+	{
+		for (paf = obj->affected; paf != NULL; paf = paf->next)
+		{
+		    if (paf->location == APPLY_HIT)
+		    {
+			paf->type = sn;
+			paf->modifier -= added;
+			paf->level = UMAX(paf->level,level);
+		    }
+		}
+	}
+	else 
+	{
+ 	paf = aff_new();
+
+		paf->where	= TO_OBJECT;
+		paf->type	= sn;
+		paf->level	= level;
+		paf->duration	= -1;
+		paf->location	= APPLY_HIT;
+		paf->modifier	= -added;
 		paf->bitvector  = 0;
 		paf->next	= obj->affected;
 		obj->affected	= paf;
