@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.54 1998-06-18 04:19:22 efdi Exp $
+# $Id: english.lang,v 1.55 1998-06-20 18:38:32 fjoe Exp $
 #
 
 NOTHING		"Nothing.\n\r"
@@ -557,7 +557,7 @@ AUTOREBOOT_IN    "{*{W*****{R AUTOMATIC REBOOT IN {W%d{R MIN. {W*****{x\n\r",
 P_STRIKES_YOU	"$p strikes you!"
 YOU_P_STRIKES_N	"Your $p strikes $N!"
 N_P_STRIKES_N	"$n's $p strikes $N!"
-TARGET		"{R[TARGET]{x "
+TARGET		"{r[{RTARGET{r]{x "
 INVIS		"({yInvis{x) "
 HIDDEN		"({DHidden{x) "
 CHARMED		"({mCharmed{x) "

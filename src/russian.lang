@@ -683,7 +683,7 @@ AUTOREBOOT_IN	"{*{W*****{R АВТОМАТИЧЕСКАЯ ПЕРЕЗАГРУЗКА ЧЕРЕЗ {W%d{R МИН. {W*****
 P_STRIKES_YOU	"$p strikes you!"
 YOU_P_STRIKES_N	"Твой $p ударяет $N!"
 N_P_STRIKES_N	"$p $n ударяет $N!"
-TARGET		"{R[ЦЕЛЬ]{x "
+TARGET		"{r[{RЦЕЛЬ{r]{x "
 INVIS		"({yНевидимо{x) "
 HIDDEN		"({DСкрыто{x) "
 CHARMED		"({mОчарованно{x) "

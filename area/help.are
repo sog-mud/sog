@@ -1966,7 +1966,7 @@ limited weapons.
 0 INSANITY~
 Syntax: cast 'insanity' <victim>
 
-	Powerful necromencers have the secret of this spell which make 
+	Powerful necromancers have the secret of this spell which make 
 the players aggressive for a while.
 ~
 0 'HEALING LIGHT'~
@@ -2424,8 +2424,8 @@ size increase, they gets damage from light, and their damroll increases. You
 cannot realize a vampire in nights. It is only written "An uggly creature".
 
 ~
--1 NECROMENCER NECROMENCERS~
- Powerful mage.But powerful in necromentic spells. 
+-1 NECROMANCER NECROMANCERS~
+ Powerful mage. But powerful in necromantic spells. 
 
 ~
  -1 
