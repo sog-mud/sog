@@ -1,5 +1,5 @@
 #
-# $Id: mprogs.txt,v 1.8 2001-09-23 17:20:04 fjoe Exp $
+# $Id: mprogs.txt,v 1.9 2001-09-30 20:09:15 fjoe Exp $
 #
 
 MPC code style
@@ -104,7 +104,7 @@ act(string msg, char ch, void arg1, void arg2, int act_flags)
 	     TO_VICT    -- жертве (arg2)
 	     TO_NOTVICT -- всем к комнате кроме чара ch и жертвы (arg2)
 
-act_asound(room r, string text, void arg)
+act_around(room r, string text, void arg)
   text выврдится в соседние с r комнаты, arg может использоваться как параметр
   в text
 
@@ -157,6 +157,9 @@ cast_obj(string sn, char ch, obj p)
 
 string char_clan(char ch)
   возвращает clan чара ch
+
+int char_ethos(char ch)
+  возвращает ethos чара ch
 
 char char_fighting(char ch)
   возвращает чара, с которым дерется ch
@@ -287,8 +290,7 @@ obj get_obj_obj(char ch, obj p, string arg)
 
 obj get_obj_room(char ch, room r, string arg)
   чаром ch смотрится есть ли в комнате r объект c именем arg
-  (ищется на полу)
-  в комнате), arg может быть vnum'ом
+  (ищется на полу), arg может быть vnum'ом
 
 obj get_obj_wear(char ch, char victim, string arg)
   чаром ch смотрится, одет ли на чаре victim объект с именем arg,
