@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.53 1998-07-19 21:19:08 efdi Exp $
+ * $Id: merc.h,v 1.54 1998-07-19 21:57:56 efdi Exp $
  */
 
 /***************************************************************************
@@ -173,16 +173,16 @@ typedef void SPELL_FUN	(int sn, int level, CHAR_DATA *ch, void *vo,
 #define HERO			LEVEL_HERO
 
 
-#define CLAN_NONE	0
-#define CLAN_RULER	1
-#define CLAN_INVADER	2
-#define CLAN_CHAOS	3
-#define CLAN_SHALAFI	4
-#define CLAN_BATTLE	5
-#define CLAN_KNIGHT	6
-#define CLAN_LIONS	7
-#define CLAN_HUNTER	8
-#define CLAN_CONFEDEACY 9
+#define CLAN_NONE 	 0
+#define CLAN_RULER	 1
+#define CLAN_INVADER	 2
+#define CLAN_CHAOS	 3
+#define CLAN_SHALAFI	 4
+#define CLAN_BATTLE	 5
+#define CLAN_KNIGHT	 6
+#define CLAN_LIONS	 7
+#define CLAN_HUNTER	 8
+#define CLAN_CONFEDERACY 9
 
 /*
  * Cabal structure
