@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.183 1999-06-28 10:13:02 fjoe Exp $
+ * $Id: act_comm.c,v 1.184 1999-07-01 11:20:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -402,6 +402,7 @@ void do_pmote(CHAR_DATA *ch, const char *argument)
 void do_immtalk(CHAR_DATA *ch, const char *argument)
 {
 	DESCRIPTOR_DATA *d;
+	int flags;
 
 	if (argument[0] == '\0') {
 		TOGGLE_BIT(ch->comm, COMM_NOWIZ);
@@ -420,8 +421,8 @@ void do_immtalk(CHAR_DATA *ch, const char *argument)
 	if (IS_SET(ch->comm, COMM_NOWIZ))
 		do_immtalk(ch, str_empty);
 
-	act_puts("$n: {C$t{x", ch, argument, NULL, TO_CHAR | ACT_SPEECH(ch),
-		 POS_DEAD);
+	flags = ACT_SPEECH(ch) & ~ACT_STRANS;
+	act_puts("$n: {C$t{x", ch, argument, NULL, TO_CHAR | flags, POS_DEAD);
 	for (d = descriptor_list; d; d = d->next) {
 		CHAR_DATA *victim = d->original ? d->original : d->character;
 
@@ -429,8 +430,7 @@ void do_immtalk(CHAR_DATA *ch, const char *argument)
 		&&  IS_IMMORTAL(victim)
 		&&  !IS_SET(victim->comm, COMM_NOWIZ)) {
 			act_puts("$n: {C$t{x", ch, argument, d->character,
-				 TO_VICT | ACT_TOBUF | ACT_SPEECH(ch),
-				 POS_DEAD);
+				 TO_VICT | ACT_TOBUF | flags, POS_DEAD);
 		}
 	}
 }

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.44 1999-06-30 15:42:26 fjoe Exp $
+ * $Id: olc_area.c,v 1.45 1999-07-01 11:20:02 fjoe Exp $
  */
 
 #include "olc.h"
@@ -1063,7 +1063,7 @@ static void save_object(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
 			fprintf(fp, "S '%s' %d %s\n",
 				skill_name(-pAf->location), pAf->modifier,
 				format_flags(pAf->bitvector));
-		} else if (pAf->where == TO_OBJECT && !pAf->bitvector) {
+		} else if (pAf->where == TO_OBJECT || !pAf->bitvector) {
 			fprintf(fp, "A\n%d %d\n", pAf->location, pAf->modifier);
 		} else {
 			int letter;

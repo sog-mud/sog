@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.63 1999-06-24 20:35:08 fjoe Exp $
+ * $Id: obj_prog.c,v 1.64 1999-07-01 11:20:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -713,13 +713,11 @@ int fight_prog_tattoo_venus(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
 
-	switch(number_bits(7)) {
+	switch(number_bits(6)) {
 	case 0:
 	case 1:
 	case 2:
 		char_puts("The tattoo on your shoulder glows {Cblue{x.\n", ch);
-		act_puts("The tattoo on your shoulder glows blue.",
-			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		spellfun_call("cure light", ch->level, ch, ch);
 		break;
 	case 3:
@@ -728,7 +726,7 @@ int fight_prog_tattoo_venus(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 		break;
 	case 4:
 		char_puts("The tattoo on your shoulder glows {Cblue{x.\n", ch);
-		spellfun_call("bless", ch->level, ch, ch);
+		spellfun_call("bless", ch->level, NULL, ch);
 		break;
 	}
 	return 0;
@@ -794,7 +792,7 @@ int fight_prog_tattoo_teshub(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
 
-	switch(number_bits(7)) {
+	switch(number_bits(6)) {
 	case 0:
 		char_puts("The tattoo on your shoulder glows {Rred{x.\n", ch);
 		spellfun_call("blindness", ch->level, ch, ch->fighting);

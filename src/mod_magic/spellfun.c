@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.171 1999-06-30 15:42:33 fjoe Exp $
+ * $Id: spellfun.c,v 1.172 1999-07-01 11:20:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -86,6 +86,9 @@ void spell_armor(int sn, int level, CHAR_DATA *ch, void *vo)
 		act("$N is protected by your magic.",ch,NULL,victim,TO_CHAR);
 }
 
+/*
+ * can be called with ch == NULL, vo == ch (e.g.: obj prog of tattoo of venus)
+ */
 void spell_bless(int sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim;
@@ -136,30 +139,35 @@ void spell_bless(int sn, int level, CHAR_DATA *ch, void *vo)
 
 	victim = (CHAR_DATA *) vo;
 
-	if (victim->position == POS_FIGHTING || is_affected(victim, sn))
-	{
+	if ((ch && victim->position == POS_FIGHTING)
+	||  is_affected(victim, sn)) {
 		if (victim == ch)
-		  char_puts("You are already blessed.\n",ch);
-		else
-		  act("$N already has divine favor.",ch,NULL,victim,TO_CHAR);
+			char_puts("You are already blessed.\n", ch);
+		else if (ch) {
+			act("$N already has divine favor.",
+			    ch, NULL, victim, TO_CHAR);
+		}
 		return;
 	}
 
-	af.where     = TO_AFFECTS;
-	af.type      = sn;
-	af.level	 = level;
-	af.duration  = (6 + level / 2);
-	af.location  = APPLY_HITROLL;
-	af.modifier  = level / 8;
-	af.bitvector = 0;
+	af.where	= TO_AFFECTS;
+	af.type		= sn;
+	af.level	= level;
+	af.duration	= (6 + level / 2);
+	af.location	= APPLY_HITROLL;
+	af.modifier	= level / 8;
+	af.bitvector	= 0;
 	affect_to_char(victim, &af);
 
-	af.location  = APPLY_SAVING_SPELL;
-	af.modifier  = 0 - level / 8;
+	af.location	= APPLY_SAVING_SPELL;
+	af.modifier	= 0 - level / 8;
+
 	affect_to_char(victim, &af);
 	char_puts("You feel righteous.\n", victim);
-	if (ch != victim)
-		act("You grant $N the favor of your god.",ch,NULL,victim,TO_CHAR);
+	if (ch && ch != victim) {
+		act("You grant $N the favor of your god.",
+		    ch, NULL, victim, TO_CHAR);
+	}
 }
 
 void spell_blindness(int sn, int level, CHAR_DATA *ch, void *vo)

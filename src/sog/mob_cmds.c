@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.39 1999-06-28 09:04:18 fjoe Exp $
+ * $Id: mob_cmds.c,v 1.40 1999-07-01 11:20:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1147,8 +1147,8 @@ void do_mpreligion(CHAR_DATA *ch, const char *argument)
 
 	if (victim->religion > 0 && victim->religion < MAX_RELIGION) {
 		act_say(NULL, NULL, ch,
-			"You are already in the way of $T.",
-			religion_table[victim->religion].leader, NULL);
+			"You are already in the way of $U.",
+			NULL, religion_table[victim->religion].leader);
 		return;
 	}
 
@@ -1199,8 +1199,8 @@ void do_mpreligion(CHAR_DATA *ch, const char *argument)
 
 	victim->religion = chosen;
 	act_say(NULL, NULL, ch,
-		"From now on and forever, you are in the way of $T.",
-		religion_table[victim->religion].leader, NULL);
+		"From now on and forever, you are in the way of $U.",
+		NULL, religion_table[victim->religion].leader);
 }
 
 void do_mpslay(CHAR_DATA *ch, const char *argument)

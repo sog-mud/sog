@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.c,v 1.34 1999-06-28 10:13:03 fjoe Exp $
+ * $Id: comm_act.c,v 1.35 1999-07-01 11:20:03 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -291,8 +291,7 @@ door_name(const char *name)
 		break;						\
 	}
 
-#define ACT_FLAGS(opt, sp)					\
-		(opt->act_flags | (sp < 0 ? 0 : ACT_NOFIXSH))	\
+#define ACT_FLAGS(flags, sp)	((flags) | ((sp) < 0 ? 0 : ACT_NOFIXSH))
 
 #define CHAR_ARG(ch)							\
 	{								\
@@ -300,7 +299,8 @@ door_name(const char *name)
 			i = GETMSG("Noone", opt->to_lang);		\
 		} else {						\
 			CHECK_TYPE(ch, MT_CHAR);			\
-			i = PERS2(ch, to, ACT_FLAGS(opt, sp));		\
+			i = PERS2(ch, to,				\
+				  ACT_FLAGS(opt->act_flags, sp));	\
 		}							\
 	}
 
@@ -311,15 +311,15 @@ door_name(const char *name)
 		} else {						\
 			CHECK_TYPE(obj, MT_OBJ);			\
 			i = act_format_obj(obj, to,			\
-					   ACT_FLAGS(opt, sp));		\
+				ACT_FLAGS(opt->act_flags, sp));		\
 		}							\
 	}
 
-#define TEXT_ARG(text)							\
+#define TEXT_ARG(text, flags)						\
 	{								\
 		CHECK_STRING(text);					\
 		i = act_format_text(text, ch, to, opt->to_lang,		\
-				    ACT_FLAGS(opt, sp));		\
+				    ACT_FLAGS(flags, sp));		\
 	}
 
 /*
@@ -351,9 +351,10 @@ door_name(const char *name)
  *	o	- to
  *	p	- obj1 ($p)
  *	P	- obj2 ($P)
- *	t,u	- msg1 ($t, $u)
+ *	t	- msg1 ($t)
  *	T	- msg2 ($T)
- *	U	- msg3 ($U)
+ *	u	- msg1 ($u), without slang translation
+ *	U	- msg3 ($U), without slang translation
  * G
  * h
  * H
@@ -484,16 +485,19 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 				
 /* text arguments */
 			case 't': 
-			case 'u':
-				TEXT_ARG(arg1);
+				TEXT_ARG(arg1, opt->act_flags);
 				break;
 
 			case 'T':
-				TEXT_ARG(arg2);
+				TEXT_ARG(arg2, opt->act_flags);
+				break;
+
+			case 'u':
+				TEXT_ARG(arg1, opt->act_flags & ~ACT_STRANS);
 				break;
 
 			case 'U':
-				TEXT_ARG(arg3);
+				TEXT_ARG(arg3, opt->act_flags & ~ACT_STRANS);
 				break;
 
 			case 'b':
