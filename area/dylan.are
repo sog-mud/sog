@@ -22,7 +22,7 @@ sharp talons flex as she considers you for her dinner.
 ~
 human~
 ACF DFJP -500 0
-20 0 3d9+333 10d9+100 2d8+5 none
+20 0 3d9+333 10d9+100 2d8+5 'none'
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand female 1525
@@ -43,7 +43,7 @@ her presence.
 ~
 human~
 ABCF DFJP -750 0
-23 0 5d10+450 11d9+100 3d6+6 none
+23 0 5d10+450 11d9+100 3d6+6 'none'
 -6 -6 -6 6
 EFNU 0 0 0
 stand stand female 2125
@@ -61,7 +61,7 @@ because objects behind it seem to waver and are slightly blurred.
 ~
 human~
 ACF DFJPQ 0 0
-25 0 5d10+550 12d9+100 2d10+7 none
+25 0 5d10+550 12d9+100 2d10+7 'none'
 -7 -7 -7 6
 EFNU 0 0 0
 stand stand none 50
@@ -79,14 +79,14 @@ finest ghostly silks and a headdress with an elaborate brooch.
 ~
 human~
 AC DHJP -100 0
-27 0 5d10+650 13d9+100 5d4+7 none
+27 0 5d10+650 13d9+100 5d4+7 'none'
 -8 -8 -8 6
 EFNU 0 0 0
 stand stand none 2500
 0 0 medium unknown
 #9105
 roc~
-@eng the gigantic roc@rus ~
+@eng the gigantic roc~
 @eng The gigantic roc.
 @rus 
 ~
@@ -96,7 +96,7 @@ moves surprisingly fast for something of its size.
 ~
 human~
 AG 0 50 0
-24 0 5d10+500 12d9+100 2d10+6 none
+24 0 5d10+500 12d9+100 2d10+6 'none'
 -6 -6 -6 6
 EFNU 0 0 0
 stand stand female 0
@@ -114,7 +114,7 @@ moves surprisingly fast for something of its size.
 ~
 human~
 AG 0 50 0
-28 0 6d12+703 14d9+100 5d4+8 none
+28 0 6d12+703 14d9+100 5d4+8 'none'
 -8 -8 -8 6
 EFNU 0 0 0
 stand stand male 2000
@@ -134,7 +134,7 @@ they would be quite painful.  Her eyes pierce your very soul.
 ~
 human~
 ABCF DJu -600 0
-31 0 6d12+928 15d9+100 4d6+9 none
+31 0 6d12+928 15d9+100 4d6+9 'none'
 -10 -10 -10 5
 EFNU 0 0 0
 stand stand female 3000
@@ -154,9 +154,8 @@ A
 20 1
 A
 2 2
-F
-A 0 0 T
-G none
+F A 0 0 T
+g none~
 #9102
 bronze bracer бронзовый браслет~
 @eng A carved bronze bracer@rus резной бронзовый браслет~
@@ -165,7 +164,7 @@ bronze~
 armor 0 AM
 3 6 6 2 0
 10 200 820 P
-G none
+g none~
 #9103
 ornate brooch украшенная брошь~
 @eng an ornate brooch@rus украшенная брошь~
@@ -178,7 +177,7 @@ A
 4 1
 A
 3 1
-G none
+g none~
 #9104
 magenta potion фуксиновое зелье~
 @eng magenta potion@rus фуксиновое зелье~
@@ -187,7 +186,7 @@ glass~
 potion J AO
 8 'armor' 'cure light' 'poison' ''
 3 20 320 P
-G none
+g none~
 #9105
 ancient parchment древний пергамент~
 @eng an ancient illustrated parchment@rus древний иллюстрированный пергамент~
@@ -196,7 +195,7 @@ vellum~
 scroll AH AO
 5 'blindness' 'curse' 'poison' ''
 12 50 1330 P
-G none
+g none~
 #0
 
 #ROOMS

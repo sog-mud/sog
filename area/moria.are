@@ -19,7 +19,7 @@ python snake питон толстый~
 ~
 snake~
 ABF D -200 0
-11 2 11d9+110 1d1+99 3d4+2 bite
+11 2 11d9+110 1d1+99 3d4+2 'bite'
 -1 0 3 6
 FHNOR 0 F 0
 stand stand either 0
@@ -35,7 +35,7 @@ garter snake змейка садовая~
 ~
 snake~
 ABU J -100 0
-7 0 7d7+60 1d1+99 1d10+1 bite
+7 0 7d7+60 1d1+99 1d10+1 'bite'
 2 3 5 8
 FHR 0 E 0
 stand stand either 0
@@ -51,7 +51,7 @@ centipede сороконожка~
 ~
 centipede~
 ABU J 100 0
-3 0 3d3+30 1d1+99 1d6+0 sting
+3 0 3d3+30 1d1+99 1d6+0 'sting'
 6 7 9 10
 FR 0 0 0
 stand stand none 0
@@ -67,7 +67,7 @@ kobold кобольд~
 ~
 kobold~
 ACGT 0 -100 0
-4 0 4d4+40 1d1+99 1d4+1 claw
+4 0 4d4+40 1d1+99 1d4+1 'claw'
 7 7 7 10
 R 0 0 0
 stand stand either 18
@@ -83,7 +83,7 @@ orc орк~
 ~
 orc~
 ACFGT 0 -400 0
-5 2 6d5+50 1d1+199 1d6+3 beating
+5 2 6d5+50 1d1+199 1d6+3 'beating'
 7 7 7 10
 CDNR 0 C 0
 stand stand male 60
@@ -99,7 +99,7 @@ large orc большой орк~
 ~
 orc~
 ACGT 0 -500 0
-7 1 6d7+70 1d1+99 1d8+2 punch
+7 1 6d7+70 1d1+99 1d8+2 'punch'
 4 5 5 8
 CJR 0 0 0
 stand stand either 120
@@ -115,7 +115,7 @@ warrior воин высокий~
 ~
 human~
 ABCFT J -300 0
-12 3 10d12+120 1d1+149 1d8+4 punch
+12 3 10d12+120 1d1+149 1d8+4 'punch'
 1 -1 2 5
 CIQR 0 0 0
 stand stand male 300
@@ -132,7 +132,7 @@ to show you what he can do!
 ~
 human~
 ACFT J -400 0
-7 2 8d7+70 1d1+99 1d7+2 punch
+7 2 8d7+70 1d1+99 1d7+2 'punch'
 4 5 4 8
 CIQR 0 0 C
 stand stand male 140
@@ -151,7 +151,7 @@ don't you put it out of its misery?
 ~
 hobgoblin~
 ACGHT 0 -300 0
-6 0 6d6+40 1d1+99 1d6+1 beating
+6 0 6d6+40 1d1+99 1d6+1 'beating'
 6 5 5 8
 N 0 0 C
 stand stand male 12
@@ -168,7 +168,7 @@ snake змея~
 ~
 snake~
 ABFU J -600 0
-10 1 4d10+100 1d1+99 2d6+1 bite
+10 1 4d10+100 1d1+99 2d6+1 'bite'
 0 2 2 5
 FGNR 0 EF 0
 stand stand either 0
@@ -184,7 +184,7 @@ centipede многоножка~
 ~
 centipede~
 ABU J -100 0
-5 0 5d5+50 1d1+99 1d8+0 sting
+5 0 5d5+50 1d1+99 1d8+0 'sting'
 4 7 5 10
 FR 0 0 0
 stand stand none 0
@@ -203,7 +203,7 @@ wonder just how far away you should be.
 ~
 hobgoblin~
 ACGT 0 -500 0
-10 2 2d10+120 1d1+149 2d4+3 punch
+10 2 2d10+120 1d1+149 2d4+3 'punch'
 2 2 1 5
 CDJR 0 C 0
 stand stand male 210
@@ -221,7 +221,7 @@ Care to be dinner?
 ~
 orc~
 ACFGT 0 -800 0
-8 1 3d10+90 1d1+99 1d8+2 beating
+8 1 3d10+90 1d1+99 1d8+2 'beating'
 3 3 2 5
 CNR 0 0 0
 stand stand either 60
@@ -239,7 +239,7 @@ the weary.  Are you next?
 ~
 cat~
 AFG 0 -100 0
-9 2 4d10+100 1d1+99 2d6+1 claw
+9 2 4d10+100 1d1+99 2d6+1 'claw'
 0 0 0 4
 ER 0 E 0
 stand stand either 0
@@ -259,7 +259,7 @@ playmate for you.
 ~
 giant~
 AGT 0 0 0
-13 2 10d10+150 10d10+100 2d6+6 smash
+13 2 10d10+150 10d10+100 2d6+6 'smash'
 0 -2 0 4
 DOR 0 D 0
 stand stand male 500
@@ -277,7 +277,7 @@ knows his way with magic.
 ~
 human~
 ABCFR D -100 0
-13 1 7d5+130 13d10+100 1d6+2 punch
+13 1 7d5+130 13d10+100 1d6+2 'punch'
 -2 -2 -2 2
 FQ 0 C 0
 stand stand male 400
@@ -294,7 +294,7 @@ figure just how tender you are.
 ~
 troll~
 ABCFT 0 -800 0
-12 2 7d10+150 5d10+100 2d7+3 claw
+12 2 7d10+150 5d10+100 2d7+3 'claw'
 0 -3 2 6
 CEOR 0 0 0
 stand stand male 200
@@ -312,7 +312,7 @@ bite your head off!
 ~
 snake~
 ABCF J -700 0
-10 2 4d10+100 1d1+99 2d6+1 bite
+10 2 4d10+100 1d1+99 2d6+1 'bite'
 0 0 2 6
 HMNOR 0 F G
 stand stand either 0
@@ -328,7 +328,7 @@ thief вор~
 ~
 human~
 ACHS JPQ -100 0
-8 1 6d8+80 1d1+99 1d5+1 punch
+8 1 6d8+80 1d1+99 1d5+1 'punch'
 2 4 3 7
 EFJN 0 0 0
 stand stand either 100
@@ -344,7 +344,7 @@ orc орк~
 ~
 orc~
 ACFGHT 0 -200 0
-7 1 7d7+70 1d1+99 1d8+3 punch
+7 1 7d7+70 1d1+99 1d8+3 'punch'
 4 5 5 8
 CJR 0 0 0
 stand stand male 150
@@ -362,7 +362,7 @@ not important.
 ~
 centipede~
 ABU 0 300 0
-6 1 8d5+50 1d1+99 2d4+1 sting
+6 1 8d5+50 1d1+99 2d4+1 'sting'
 3 6 4 10
 FR 0 0 0
 stand stand none 0
@@ -378,7 +378,7 @@ warrior воин~
 ~
 human~
 ACFGT J -300 0
-9 2 4d10+130 1d1+99 1d8+3 punch
+9 2 4d10+130 1d1+99 1d8+3 'punch'
 3 2 4 6
 CJQU 0 0 0
 stand stand male 300
@@ -394,7 +394,7 @@ kobold green кобольд зеленый~
 ~
 kobold~
 ACFGT 0 -100 0
-7 1 8d4+50 1d1+99 2d4+1 claw
+7 1 8d4+50 1d1+99 2d4+1 'claw'
 5 5 5 10
 NR 0 0 0
 stand stand either 25
@@ -410,7 +410,7 @@ bat blue синяя летучая мышь~
 ~
 bat~
 ABF J -100 0
-7 1 3d10+70 1d1+99 1d9+1 shbite
+7 1 3d10+70 1d1+99 1d9+1 'shbite'
 4 4 4 6
 R J 0 RYZ
 stand stand either 0
@@ -427,7 +427,7 @@ bat red красная летучая мышь~
 ~
 bat~
 ABF J -100 0
-7 1 3d10+70 1d1+99 1d9+1 flbite
+7 1 3d10+70 1d1+99 1d9+1 'flbite'
 4 4 4 6
 R H 0 IR
 stand stand either 0
@@ -444,7 +444,7 @@ bat green зеленая летучая мышь~
 ~
 bat~
 ABF J -100 0
-7 1 3d10+70 1d1+99 1d9+1 bite
+7 1 3d10+70 1d1+99 1d9+1 'bite'
 4 4 4 6
 R L 0 0
 stand stand either 0
@@ -461,7 +461,7 @@ bat white белая летучая мышь~
 ~
 bat~
 ABF J -100 0
-7 1 3d10+70 1d1+99 1d9+1 frbite
+7 1 3d10+70 1d1+99 1d9+1 'frbite'
 4 4 4 6
 R I 0 H
 stand stand either 0
@@ -477,7 +477,7 @@ bat black черная летучая мышь~
 ~
 bat~
 ABF J -100 0
-7 1 3d10+70 1d1+99 1d9+1 acbite
+7 1 3d10+70 1d1+99 1d9+1 'acbite'
 4 4 4 6
 R K 0 0
 stand stand either 0
@@ -493,7 +493,7 @@ thief вор~
 ~
 human~
 ACGS BJQ 400 0
-12 2 3d20+130 1d1+99 2d4+3 punch
+12 2 3d20+130 1d1+99 2d4+3 'punch'
 2 0 0 6
 BFJNQU 0 0 0
 stand stand male 500
@@ -509,7 +509,7 @@ troll троль~
 ~
 troll~
 ABCFT 0 -700 0
-14 3 8d20+140 14d4+100 3d4+5 claw
+14 3 8d20+140 14d4+100 3d4+5 'claw'
 -1 -3 -1 4
 CEOR 0 0 C
 stand stand male 1000
@@ -527,7 +527,7 @@ angry should you bother his studies.
 ~
 human~
 ACFGR J -200 0
-11 0 4d10+100 11d12+100 1d6+1 beating
+11 0 4d10+100 11d12+100 1d6+1 'beating'
 0 0 0 2
 QU 0 C 0
 stand stand male 200
@@ -545,7 +545,7 @@ for dinner.
 ~
 snake~
 ABFU J 200 0
-9 1 2d10+100 1d1+99 1d12+1 bite
+9 1 2d10+100 1d1+99 1d12+1 'bite'
 1 3 3 6
 FGNR 0 EF 0
 fight fight either 0
@@ -561,7 +561,7 @@ troll small троль маленький~
 ~
 troll~
 ACFGT 0 -300 0
-8 2 3d10+80 8d4+100 2d5+2 bite
+8 2 3d10+80 8d4+100 2d5+2 'bite'
 3 1 3 6
 EJR 0 0 0
 stand stand male 100
@@ -577,7 +577,7 @@ orc орк~
 ~
 orc~
 ACFGT 0 -200 0
-9 1 3d10+100 1d1+99 1d8+2 beating
+9 1 3d10+100 1d1+99 1d8+2 'beating'
 2 2 1 5
 CJNR 0 0 0
 stand stand either 150
@@ -600,7 +600,7 @@ ring ~
 @eng It feels heavy.
 @rus Судя по весу, ... не из легких.
 ~
-G none
+g none~
 #4001
 corpse труп~
 @eng a corpse@rus труп~
@@ -616,7 +616,7 @@ still clutches a partially digested map...
 @rus Эх. Это, наверное, картограф, который пропал в Мории.
 Его разложившиеся руки до сих пор сжимают остатки карты...
 ~
-G none
+g none~
 #4002
 coins монеты~
 @eng some coins@rus несколько монет~
@@ -625,14 +625,14 @@ silver~
 money 0 A
 200 3 0 0 0
 0 5000 0 P
-G none
+g none~
 #4003
 dagger rusty ржавый кинжал~
 @eng a rusty dagger@rus ржавый кинжал~
 @eng A worn and rusty dagger is here.@rus Источенный старый кинжал (rusty dagger) брошен тут.~
 iron~
 weapon 0 AN
-dagger 1 5 stab 0
+dagger 1 5 'stab' 0
 0 10 165 W
 A
 18 -1
@@ -641,25 +641,25 @@ dagger кинжал~
 @eng It's old and rusted, but it still has a good edge.
 @rus Он очень стар, от чиго и поржавел, но кажется он хорош и так.
 ~
-G none
+g none~
 #4004
 bullwhip whip кнут~
 @eng a bullwhip@rus кнут~
 @eng A coiled length of leather is here...looks like a nasty whip!@rus Свернутая полоска кожи (bullwhip) лежит тут... Похожа на кнут.~
 leather~
 weapon 0 AN
-whip 1 7 whip 0
+whip 1 7 'whip' 0
 3 30 240 G
 A
 18 1
-G none
+g none~
 #4005
 club tree huge палица~
 @eng a huge club@rus громадная палица~
 @eng An uprooted tree leans against the wall.@rus Вырванное с корнем дерево (huge club) прислонено к стене.~
 wood~
 weapon 0 AN
-mace 2 9 crush F
+mace 2 9 'crush' F
 14 250 780 G
 A
 18 -2
@@ -669,7 +669,7 @@ club tree палица~
 trim the roots off the end.
 @rus Эта громадина похоже была выкорчевана с корнем каким-то гигантом.
 ~
-G none
+g none~
 #4006
 furs smelly вонючий мех~
 @eng some smelly furs@rus вонючие меха~
@@ -687,7 +687,7 @@ like good armor.
 @rus Она очень тяжелая, к тому-же очень воняет, но с другой стороны выглядит как
 хорошая броня.
 ~
-G none
+g none~
 #4050
 potion purple фиолетовая микстура~
 @eng a purple potion@rus фиолетовая микстура~
@@ -701,7 +701,7 @@ potion purple фиолетовая микстура~
 @eng It looks rather strange!
 @rus Выглядит как-то странно!
 ~
-G none
+g none~
 #4051
 helmet metal шлем металл~
 @eng a metal helmet@rus металлический шлем~
@@ -712,7 +712,7 @@ armor G AE
 5 40 650 G
 A
 20 -1
-G none
+g none~
 #4052
 mushroom мухомор~
 @eng a mushroom@rus мухомор~
@@ -726,14 +726,14 @@ mushroom мухомор~
 @eng Let's put it this way - I wouldn't eat it !
 @rus На твоем месте я бы его не трогал - пусть растет. И тем более не ел.
 ~
-G none
+g none~
 #4053
 dirk нож~
 @eng a thieves dirk@rus воровской нож~
 @eng A beautifully crafted dirk is lying here.@rus Красиво украшенный нож (thieves dirk) воткнут  тут.~
 steel~
 weapon G AN
-dagger 2 5 stab 0
+dagger 2 5 'stab' 0
 8 20 590 G
 A
 19 1
@@ -747,14 +747,14 @@ thieves weapon.
 @rus Средних размеров, прекрасно изготовлен из серой аллои, двойное лезвие
 причем очень сильно заточеное ... выглядит хорошим оружием для вора.
 ~
-G none
+g none~
 #4054
 axe war топор боевой~
 @eng a war axe@rus боевой топор~
 @eng A razor-sharp war axe rests on the ground.@rus Острый как бритва топор (war axe) лежит на земле.~
 steel~
 weapon G AN
-axe 3 4 chop 0
+axe 3 4 'chop' 0
 12 70 930 P
 A
 19 1
@@ -764,52 +764,52 @@ axe топор~
 @rus Этот топор зточен так, буд-то ты с одного маху смог бы срубить дерево.
 Ты не капельки не жалеешь, что нашел его здеcь.
 ~
-G none
+g none~
 #4055
 sword broad широкий меч~
 @eng a broad sword@rus широкий меч~
 @eng A well-polished broadsword sits here.@rus Хорошо отполированный меч (broad sword) лежит здесь.~
 steel~
 weapon 0 AN
-sword 1 10 chop 0
+sword 1 10 'chop' 0
 6 80 550 G
 E
 sword~
 @eng It's much heavier than a long sword, but not as well balanced.
 @rus Он гораздо тяжелее длинного меча, но его балансировка... Она никуда не годится.
 ~
-G none
+g none~
 #4056
 flail two two-headed цеп двухголовый~
 @eng a two-headed flail@rus двухголовый цеп~
 @eng A flail with two heavy, spiked heads is here.@rus Цеп с двумя тяжелыми, зубчатыми главами (two-headed flail) лежит тут.~
 iron~
 weapon 0 AN
-flail 1 7 smash 0
+flail 1 7 'smash' 0
 3 70 290 A
 A
 17 1
 A
 19 2
-G none
+g none~
 #4057
 mace heavy тяжелая булава~
 @eng a heavy iron mace@rus тяжелая мулава~
 @eng A large iron mace with a wicked head rests on the ground.@rus Большая железная булава (heavy iron mace) со злой головой лежит на земле.~
 iron~
 weapon 0 AN
-mace 2 4 pound 0
+mace 2 4 'pound' 0
 6 100 390 G
 A
 19 1
-G none
+g none~
 #4058
 falchion sword ятаган~
 @eng a falchion@rus ятаган~
 @eng A curved sword with a heavy tip sits here.@rus Изогнутый меч (falchion) с тяжелым наконечником находится здесь.~
 iron~
 weapon 0 AN
-sword 2 4 chop 0
+sword 2 4 'chop' 0
 5 80 490 G
 E
 falchion~
@@ -817,32 +817,32 @@ falchion~
 for piercing as well as slashing.
 @rus Это тяжелое, изогнутое, острое как бритва лезвие.
 ~
-G none
+g none~
 #4059
 voulge polearm алебарда~
 @eng a voulge@rus алебарда~
 @eng A long polearm with a curved blade is here.@rus Длинная алебарда (voulge) с изогнутым режущим диском стоит тут.~
 iron~
 weapon 0 AN
-polearm 2 6 slash F
+polearm 2 6 'slash' F
 10 120 520 A
 A
 17 -1
-G none
+g none~
 #4100
 blade black demon черный клинок демон~
 @eng the black demon blade@rus черный клинок демон~
 @eng An evil black demon blade is here.@rus Здесь лежит излучающий зло черный демонический клинок (black demon blade).~
 adamantite~
 weapon GJL AN
-sword 3 4 cleave CF
+sword 3 4 'cleave' CF
 11 80 940 P
 E
 blade~
 @eng You'll become as evil as the weapon, if you use it!
 @rus Ты станешь таким же злым, как и это оружие, если будешь использовать его!
 ~
-G none
+g none~
 #4101
 gloves перчатки~
 @eng swordsman's gloves@rus боевые перчатки~
@@ -855,7 +855,7 @@ A
 19 1
 A
 18 1
-G none
+g none~
 #4102
 scroll ysafg свиток~
 @eng a scroll which reads "ysafg"@rus свиток с надписью "ysafg"~
@@ -869,7 +869,7 @@ scroll свиток~
 @eng It looks informative.
 @rus Он выглядит многозначительно...
 ~
-G none
+g none~
 #4103
 slime mold комок слизь~
 @eng a green slime mold@rus зеленый комок слизи~
@@ -883,7 +883,7 @@ slime mold комок слизь~
 @eng It wasn't meant to be food, - Certainly not for humans.
 @rus Это НЕ МОЖЕТ БЫТЬ пищей! Во всяком случае, не для человека.
 ~
-G none
+g none~
 #4104
 slime mold комок слизи~
 @eng a green slime mold@rus зеленый комок слизи~
@@ -897,18 +897,18 @@ slime mold комок слизи~
 @eng It wasn't meant to be food, - Certainly not for humans.
 @rus Это НЕ МОЖЕТ БЫТЬ пищей! Во всяком случае, не для человека.
 ~
-G none
+g none~
 #4105
 staff iron iron-shod посох~
 @eng an iron-shod staff@rus посох с железным наконечником~
 @eng A long staff capped with iron leans against a wall.@rus Длинный посох с железным наконечником (iron-shod staff) лежит вдоль стены.~
 iron~
 weapon 0 AN
-spear 2 5 pound F
+spear 2 5 'pound' F
 10 60 630 G
 A
 17 -2
-G none
+g none~
 #4150
 black potion черное зелье~
 @eng a black potion@rus черное зелье~
@@ -922,7 +922,7 @@ potion black черное зелье~
 @eng It looks healthy.
 @rus Оно выглядит...  здоровым, что ли?!
 ~
-G none
+g none~
 #4151
 staff oak тяжелый дубовый посох~
 @eng a heavy oak staff@rus тяжелый дубовый посох~
@@ -941,14 +941,14 @@ E
 staff oak~
 You see it has some sort of runes on it.
 ~
-G none
+g none~
 #4152
 dagger light silver кинжал светлого серебра~
 @eng a light silver dagger@rus кинжал из светлого серебра~
 @eng A light silver dagger is here.@rus Кинжал из светлого серебра (light silver dagger) лежит тут.~
 silver~
 weapon 0 AN
-dagger 2 4 stab 0
+dagger 2 4 'stab' 0
 7 20 660 P
 A
 17 -1
@@ -959,14 +959,14 @@ dagger light silver кинжал~
 @eng It looks like an excellent weapon for thieves.
 @rus Смотрится как превосходное оружие для воров.
 ~
-G none
+g none~
 #4153
 star morning morningstar утренняя звезда~
 @eng a morning star@rus утренняя звезда~
 @eng A heavy, spiked morning star is here.@rus Тяжелая, зубчатая утренняя звезда (morning star) лежит тут.~
 iron~
 weapon 0 AN
-mace 2 6 smash 0
+mace 2 6 'smash' 0
 9 120 270 G
 A
 2 -1
@@ -977,7 +977,7 @@ star morning утренняя звезда~
 It's a huge length of wood studded with iron spikes and bands. You wouldn't
 want to meet this in a dark alley...
 ~
-G none
+g none~
 #4154
 map moria second карта второй уровень мория~
 @eng a map of the second level of Moria@rus карта второго уровня Мории~
@@ -1006,7 +1006,7 @@ Maze--Maze--Maze--Maze
                    *Hole
                   (Map 3)
 ~
-G none
+g none~
 #4155
 map moria third карта третий уровень мория~
 @eng a map of the third level of Moria@rus карта третьего уровня Мории~
@@ -1051,7 +1051,7 @@ map moria third~
                        Maze*
                       (Map 2)
 ~
-G none
+g none~
 #0
 
 #ROOMS
@@ -1300,10 +1300,6 @@ D2
 ~
 ~
 Z 0 3500
-D3
-~
-~
-Z 0 4400
 S
 #4001
 @eng The hills@rus Холмы~
