@@ -1,5 +1,5 @@
 /*
- * $Id: act_quest.c,v 1.44 1998-07-09 12:15:34 fjoe Exp $
+ * $Id: act_quest.c,v 1.45 1998-07-10 12:25:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -73,6 +73,7 @@
 #include "magic.h"
 #include "quest.h"
 #include "lookup.h"
+#include "mlstring.h"
 
 #ifdef SUNOS
 #	include <stdarg.h>
@@ -434,8 +435,8 @@ static void quest_info(CHAR_DATA *ch, char* arg)
 			char_nprintf(ch, QUEST_RECOVER_FABLED, qinfoobj->name);
 			if (ch->pcdata->questroom)
 				char_nprintf(ch, QUEST_INFO_LOCATION,
-					     ch->pcdata->questroom->area->name, 
-					     ch->pcdata->questroom->name);
+					ch->pcdata->questroom->area->name, 
+					ml_string(ch, ch->pcdata->questroom->name));
 		}
 		else 
 			char_nputs(QUEST_ARENT_ON_QUEST, ch);
@@ -450,10 +451,9 @@ static void quest_info(CHAR_DATA *ch, char* arg)
 			char_nprintf(ch, QUEST_SLAY_DREADED,
 				     questinfo->short_descr);
 			if (ch->pcdata->questroom)
-				char_printf(ch, 
-					    msg(QUEST_INFO_LOCATION, ch),
-					    ch->pcdata->questroom->area->name, 
-					    ch->pcdata->questroom->name);
+				char_nprintf(ch, QUEST_INFO_LOCATION,
+					ch->pcdata->questroom->area->name, 
+					ml_string(ch, ch->pcdata->questroom->name));
 		} else 
 			char_nputs(QUEST_ARENT_ON_QUEST, ch);
 		return;
@@ -679,7 +679,8 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 		}
 
 		quest_tell(ch, questor, msg(QUEST_SEEK_S_OUT, ch),
-			   victim->short_descr, victim->in_room->name);
+			   victim->short_descr,
+			   ml_string(ch, victim->in_room->name));
 
 		ch->pcdata->questmob = victim->pIndexData->vnum;
 		victim->hunter = ch;
@@ -691,7 +692,8 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 	 * to comment these next two lines. - Vassago
 	 */
 	quest_tell(ch, questor, msg(QUEST_LOCATION_IS_IN_AREA, ch),
-		   victim->in_room->area->name, victim->in_room->name);
+		   victim->in_room->area->name,
+		   ml_string(ch, victim->in_room->name));
 
 	ch->pcdata->questgiver = questor->pIndexData->vnum;
 	ch->pcdata->questtime = number_range(15, 30);
