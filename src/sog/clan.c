@@ -255,7 +255,8 @@ void do_clanlist(CHAR_DATA *ch, const char *argument)
 	}
 
 	for (d = descriptor_list; d; d = d->next)
-		do_save(d->character, "");
+		if (d->character)
+			do_save(d->character, "");
 
 	char_puts("Now listing members of your clan:\n\r", ch);
 	for (dp = readdir(dirp); dp != NULL; dp = readdir(dirp)) {
