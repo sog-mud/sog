@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.316 2003-04-19 00:26:43 fjoe Exp $
+ * $Id: act_wiz.c,v 1.317 2003-04-19 00:34:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2914,6 +2914,7 @@ DO_FUN(do_sockets, ch, argument)
 
 	for (d = descriptor_list; d; d = d->next) {
 		char buf[MAX_STRING_LENGTH];
+		char tbuf[32];
 		CHAR_DATA *vch = d->original ? d->original : d->character;
 
 		if (vch && !can_see(ch, vch))
@@ -2927,13 +2928,18 @@ DO_FUN(do_sockets, ch, argument)
 			continue;
 
 		count++;
+		if (d->d_type == D_NORMAL) {
+			strlcpy(tbuf,
+			    flag_string(desc_con_table, d->connected),
+			    sizeof(tbuf));
+		} else {
+			snprintf(tbuf, sizeof(tbuf), "%s#%s",
+			    flag_string(descriptor_types, d->d_type),
+			    flag_string(desc_con_table, d->connected));
+		}
 		buf_printf(output, BUF_END,
-			   "[%3d %6s#%12s] %s (%s)",		// notrans
-			   d->descriptor,
-			   flag_string(descriptor_types, d->d_type),
-			   flag_string(desc_con_table, d->connected),
-			   buf,
-			   d->ip);
+			   "[%3d %14s] %s (%s)",		// notrans
+			   d->descriptor, tbuf, buf, d->ip);
 		if (vch && PC(vch)->idle_timer)
 			buf_printf(output, BUF_END, " idle %d", PC(vch)->idle_timer);	// notrans
 		buf_append(output, "\n");
