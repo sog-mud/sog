@@ -276,7 +276,7 @@ if (!found)
 
 act("$n $gn{подскользнулся} на $c5{$p} и $gn{упал}.", $n, $p, NULL, TO_ROOM);
 act("Ты $gn{подскользнулся} на $c5{$p} и $gn{упал}.", $n, $p, NULL, TO_CHAR);
-shock_effect($n, char_level($n), obj_level($p));
+inflict_effect("shock", $n, char_level($n), obj_level($p));
 extract_obj($p, 0);
 
 return 0;

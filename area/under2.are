@@ -2999,7 +2999,7 @@ act("$n's $p burns your face!", $n, $p, victim, TO_VICT);
  
 int dam = number_percent()/2 + 5 * char_level($n);
 damage($n, victim, dam, "demonfire", DAM_F_SHOW);
-fire_effect(victim, obj_level($p), dam);
+inflict_effect("fire", victim, obj_level($p), dam);
 return 0;
 ~
 g @rus none~
