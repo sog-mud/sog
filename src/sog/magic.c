@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic.c,v 1.9 1999-10-21 12:52:03 fjoe Exp $
+ * $Id: magic.c,v 1.10 1999-10-22 11:34:22 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -267,8 +267,9 @@ void spellfun_call(const char *sn_fun, const char *sn, int level,
 		return;
 	}
 
-	if (sk->skill_type != ST_SPELL) {
-		bug("spellfun_call: %s: not a spell", sk->name);
+	if (sk->skill_type != ST_SPELL
+	&&  sk->skill_type != ST_PRAYER) {
+		bug("spellfun_call: %s: not a spell or prayer", sk->name);
 		return;
 	}
 
