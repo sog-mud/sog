@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.66.2.24 2004-04-21 13:27:08 tatyana Exp $
+ * $Id: obj_prog.c,v 1.66.2.25 2004-05-28 18:28:41 tatyana Exp $
  */
 
 /***************************************************************************
@@ -161,6 +161,8 @@ DECLARE_OPROG(fight_prog_rainbow_amulet);
 DECLARE_OPROG(wear_prog_chameleon_poncho);
 DECLARE_OPROG(remove_prog_chameleon_poncho);
 
+DECLARE_OPROG(speech_prog_scarab);
+
 char* optype_table[] = {
 	"wear_prog",
 	"remove_prog",
@@ -176,7 +178,7 @@ char* optype_table[] = {
 	"area_prog",
 	NULL
 };
-	
+
 struct oprog_data {
 	char *name;
 	OPROG_FUN *fn;
@@ -267,6 +269,7 @@ OPROG_DATA oprog_table[] = {
 	{ "fight_prog_rainbow_amulet", fight_prog_rainbow_amulet },
 	{ "wear_prog_chameleon_poncho", wear_prog_chameleon_poncho },
 	{ "remove_prog_chameleon_poncho", remove_prog_chameleon_poncho },
+	{ "speech_prog_scarab", speech_prog_scarab },
 	{ NULL }
 };
 
@@ -1962,3 +1965,55 @@ remove_prog_chameleon_poncho(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	return 0;
 }
 
+#define OBJ_VNUM_PART_LEFT			260
+#define OBJ_VNUM_PART_RIGHT			8712
+#define OBJ_VNUM_SCARAB				34485
+#define OBJ_VNUM_GATEWAY			34486
+
+int
+speech_prog_scarab(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
+{
+        OBJ_DATA *object, *obj_left = NULL, *obj_right = NULL;
+	bool left = FALSE;
+	bool right = FALSE;
+	char *speech = (char*) arg;
+
+	if (ch->wait > 0)
+		return 0;
+
+	if (!str_cmp(speech, "combine")) {
+		for (object = ch->carrying; object; object = object->next_content) {
+			if (object->pObjIndex->vnum == OBJ_VNUM_PART_LEFT) {
+				obj_left = object;
+				left = TRUE;
+			}
+
+			if (object->pObjIndex->vnum == OBJ_VNUM_PART_RIGHT) {
+				obj_right = object;
+				right = TRUE;
+			}
+		}
+
+		if (left && right) {
+			obj_from_char(obj_left);
+			obj_from_char(obj_right);
+			object = create_obj(get_obj_index(OBJ_VNUM_SCARAB), 0);
+			obj_to_char(object, ch);
+			act_char("Mystic scarab materializes into "
+				 "your hands.", ch);
+		}
+
+	} else if (!str_cmp(speech, "find")) {
+		for (object = ch->carrying; object; object = object->next_content) {
+			if (object->pObjIndex->vnum == OBJ_VNUM_SCARAB) {
+				act_char("Mystic scarab dissapears... and you "
+					 "notice glowing portal.", ch);
+				obj_from_char(object);
+				object = create_obj(get_obj_index(OBJ_VNUM_GATEWAY), 0);
+				obj_to_room(object, ch->in_room);
+				return 0;
+			}
+		}
+	}
+	return 0;
+}
