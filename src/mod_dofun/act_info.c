@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.50 1998-05-24 19:38:25 efdi Exp $
+ * $Id: act_info.c,v 1.51 1998-05-24 21:18:06 efdi Exp $
  */
 
 /***************************************************************************
@@ -3342,7 +3342,7 @@ void do_score(CHAR_DATA *ch, char *argument)
 
 	char_printf(ch,
 "     {G| {RWeight Carried:  {x%4d/%-8d      {RArmor vs bash   : {x%4d      {G|{x\n\r",
-	ch->carry_weight, can_carry_w(ch),GET_AC(ch,AC_BASH));
+	get_carry_weight(ch), can_carry_w(ch),GET_AC(ch,AC_BASH));
 
 	char_printf(ch,
 "     {G| {RGold          :   {Y%-10ld        {RArmor vs pierce : {x%4d      {G|{x\n\r",
