@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.266 2001-02-12 19:07:18 fjoe Exp $
+ * $Id: act_wiz.c,v 1.267 2001-02-18 10:20:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -101,7 +101,7 @@ void do_objlist(CHAR_DATA *ch, const char *argument)
 	OBJ_DATA *obj;
 	BUFFER *buf;
 
-	if ((fp = dfopen(TMP_PATH, "objlist.txt", "w+")) == NULL) {
+	if ((fp = dfopen(TMP_PATH, "objlist.txt", "w+")) == NULL) {  // notrans
 	 	act_char("File error.", ch);
 	 	return;
 	}

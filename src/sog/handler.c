@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.282 2001-02-12 19:07:19 fjoe Exp $
+ * $Id: handler.c,v 1.283 2001-02-18 10:20:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1038,7 +1038,7 @@ CHAR_DATA *find_char(CHAR_DATA *ch, const char *argument, int door, int range)
 
 		if ((bExit = dest_room->exit[opdoor]) == NULL
 		||  bExit->to_room.r != back_room) {
-			act_char("The path you choose prevents your power to pass.",ch);
+			act_char("The path you choose prevents your power to pass.", ch);
 			return NULL;
 		}
 		if ((target = get_char_room_raw(ch, arg, &number, dest_room))) 
@@ -3717,7 +3717,8 @@ bool remove_obj(CHAR_DATA * ch, int iWear, bool fReplace)
  */
 void wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 {
-	if (cc_vexpr_check(&obj->pObjIndex->restrictions, "obj_wear", ch)) {
+	if (cc_vexpr_check(&obj->pObjIndex->restrictions,
+	    "obj_wear", ch)) {					// notrans
 		act("You can't use $p.", ch, obj, NULL, TO_CHAR);
 		return;
 	}

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.230 2001-02-11 14:35:41 fjoe Exp $
+ * $Id: spellfun.c,v 1.231 2001-02-18 10:20:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -465,7 +465,7 @@ void spell_continual_light(const char *sn, int level,CHAR_DATA *ch,void *vo)
 
 	light = create_obj(get_obj_index(OBJ_VNUM_LIGHT_BALL), 0);
 	obj_to_room(light, ch->in_room);
-	act("$n twiddles $s thumbs and $p appears.",   ch, light, NULL, TO_ROOM);
+	act("$n twiddles $s thumbs and $p appears.", ch, light, NULL, TO_ROOM);
 	act("You twiddle your thumbs and $p appears.", ch, light, NULL, TO_CHAR);
 }
 
@@ -1247,8 +1247,8 @@ void spell_floating_disc(const char *sn, int level,CHAR_DATA *ch,void *vo)
 	af.owner	= NULL;
 	affect_to_char(ch, &af);
 
-	act("$n has created a floating black disc.", ch, NULL, NULL, TO_ROOM);
-	act_char("You create a floating disc.", ch);
+	act("$n has created $p.", ch, disc, NULL, TO_ROOM);
+	act("You create $p.", ch, disc, NULL, TO_CHAR);
 	obj_to_char(disc, ch);
 	equip_char(ch, disc, WEAR_FLOAT);
 }
@@ -2977,8 +2977,8 @@ void spell_portal(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	obj_to_room(portal,ch->in_room);
 
-	act("$p rises up from the ground.",ch,portal,NULL,TO_ROOM);
-	act("$p rises up before you.",ch,portal,NULL,TO_CHAR);
+	act("$p rises up from the ground.", ch, portal, NULL, TO_ROOM);
+	act("$p rises up before you.", ch, portal, NULL, TO_CHAR);
 }
 
 void spell_nexus(const char *sn, int level, CHAR_DATA *ch, void *vo)
@@ -3020,8 +3020,8 @@ void spell_nexus(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	obj_to_room(portal,from_room);
 
-	act("$p rises up from the ground.",ch,portal,NULL,TO_ROOM);
-	act("$p rises up before you.",ch,portal,NULL,TO_CHAR);
+	act("$p rises up from the ground.", ch, portal, NULL, TO_ROOM);
+	act("$p rises up before you.", ch, portal, NULL,TO_CHAR);
 
 	/* no second portal if rooms are the same */
 	if (to_room == from_room)
@@ -3173,8 +3173,8 @@ void spell_ranger_staff(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	INT(staff->value[1]) = 5 + level / 14;
 	INT(staff->value[2]) = 4 + level / 15;
 
-	act_char("You create a ranger's staff!", ch);
-	act("$n creates a ranger's staff!",ch,NULL,NULL,TO_ROOM);
+	act("You create $p!", ch, staff, NULL, TO_CHAR);
+	act("$n creates $p!", ch, staff, NULL, TO_ROOM);
 
 	tohit.where		 = TO_OBJECT;
 	tohit.type               = sn;
@@ -3938,8 +3938,8 @@ void spell_chaos_blade(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	blade->timer = level * 2;
 	INT(blade->value[2]) = (level / 10) + 3;  
 
-	act_char("You create a blade of chaos!", ch);
-	act("$n creates a blade of chaos!",ch,NULL,NULL,TO_ROOM);
+	act("You create $p!", ch, blade, NULL, TO_CHAR);
+	act("$n creates $p!", ch, blade, NULL, TO_ROOM);
 
 	af.where        = TO_OBJECT;
 	af.type         = sn;
@@ -5988,7 +5988,7 @@ void spell_fire_shield (const char *sn, int level, CHAR_DATA *ch, void *vo)
 	else if (IS_EVIL(ch))
 		SET_OBJ_STAT(fire, ITEM_ANTI_NEUTRAL | ITEM_ANTI_GOOD);
 	obj_to_char(fire, ch);
-	act_char("You create the fire shield.", ch);
+	act("You create $p.", ch, fire, NULL, TO_CHAR);
 }
 
 void spell_witch_curse(const char *sn, int level, CHAR_DATA *ch, void *vo)
@@ -6455,8 +6455,8 @@ void spell_flesh_golem(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	NPC(golem)->dam.dice_type = 10;
 	golem->damroll = level / 2;
 
-	act_char("You created a flesh golem!", ch);
-	act("$n creates a flesh golem!",ch,NULL,NULL,TO_ROOM);
+	act_puts("You created $N!", ch, NULL, golem, TO_CHAR, POS_DEAD);
+	act("$n creates $N!", ch, NULL, golem, TO_ROOM);
 
 	af.where		= TO_AFFECTS;
 	af.type               = sn;
@@ -6521,8 +6521,8 @@ void spell_stone_golem(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	NPC(golem)->dam.dice_type = 4;
 	golem->damroll = level / 2;
 
-	act_char("You created a stone golem!", ch);
-	act("$n creates a stone golem!",ch,NULL,NULL,TO_ROOM);
+	act_puts("You created $N!", ch, NULL, golem, TO_CHAR, POS_DEAD);
+	act("$n creates $N!", ch, NULL, golem, TO_ROOM);
 
 	af.where		= TO_AFFECTS;
 	af.type               = sn;
@@ -6553,7 +6553,7 @@ void spell_iron_golem(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	}
 
 	act_char("You attempt to create an iron golem.", ch);
-	act("$n attempts to create an iron golem.",ch,NULL,NULL,TO_ROOM);
+	act("$n attempts to create an iron golem.", ch, NULL, NULL, TO_ROOM);
 
 	for (gch = npc_list; gch; gch = gch->next) {
 		if (IS_AFFECTED(gch, AFF_CHARM)
@@ -6585,17 +6585,17 @@ void spell_iron_golem(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	NPC(golem)->dam.dice_type = 5;
 	golem->damroll = level / 2 + 10;
 
-	act_char("You created an iron golem!", ch);
-	act("$n creates an iron golem!",ch,NULL,NULL,TO_ROOM);
+	act_puts("You created $N!", ch, NULL, golem, TO_CHAR, POS_DEAD);
+	act("$n creates $N!", ch, NULL, golem, TO_ROOM);
 
 	af.where		= TO_AFFECTS;
-	af.type               = sn;
-	af.level              = level; 
-	af.duration           = 24;
-	af.bitvector          = 0;
-	af.modifier           = 0;
-	INT(af.location)          = APPLY_NONE;
-	af.owner	= NULL;
+	af.type			= sn;
+	af.level		= level; 
+	af.duration		= 24;
+	af.bitvector		= 0;
+	af.modifier		= 0;
+	INT(af.location)	= APPLY_NONE;
+	af.owner		= NULL;
 	affect_to_char(ch, &af);  
 
 	golem->master = golem->leader = ch;
@@ -6649,8 +6649,8 @@ void spell_adamantite_golem(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	NPC(golem)->dam.dice_type = 9;
 	golem->damroll = level / 2 + 10;
 
-	act_char("You created an Adamantite golem!", ch);
-	act("$n creates an Adamantite golem!",ch,NULL,NULL,TO_ROOM);
+	act_puts("You created $N!", ch, NULL, golem, TO_CHAR, POS_DEAD);
+	act("$n creates $N!", ch, NULL, golem, TO_ROOM);
 
 	af.where		= TO_AFFECTS;
 	af.type               = sn;
@@ -7795,11 +7795,13 @@ void spell_phantasmal_force(const char *sn, int level, CHAR_DATA *ch, void *vo)
 				dam_total += dam;
 				act_puts3("$W $u you!",
 					  ch, vp_dam_alias(dam), victim,
-					  "bee bite", TO_VICT, POS_DEAD);
+					  "bee bite",		// notrans
+					  TO_VICT, POS_DEAD);
 			}
 			act_puts3("Your illusionary $W $u $N!",
 				  ch, vp_dam_alias(dam_total), victim,
-				  "bee swarm", TO_CHAR, POS_DEAD);
+				  "bee swarm",			// notrans
+				  TO_CHAR, POS_DEAD);
 			damage(ch, victim, dam_total, NULL, DAM_MENTAL,
 				DAMF_NOREDUCE);
 			return;
@@ -7811,11 +7813,13 @@ void spell_phantasmal_force(const char *sn, int level, CHAR_DATA *ch, void *vo)
 				dam_total += dam;
 				act_puts3("$W $u you!",
 					  ch, vp_dam_alias(dam), victim,
-					  "goblin's punch", TO_VICT, POS_DEAD);
+					  "goblin's punch",	// notrans
+					  TO_VICT, POS_DEAD);
 			}
 			act_puts3("Your illusionary $W $u $N!",
 				  ch, vp_dam_alias(dam_total), victim,
-				  "troop of goblins", TO_CHAR, POS_DEAD);
+				  "troop of goblins",		// notrans
+				  TO_CHAR, POS_DEAD);
 			damage(ch, victim, dam_total, NULL, DAM_MENTAL,
 				DAMF_NOREDUCE);
 			return;
@@ -7828,7 +7832,8 @@ void spell_phantasmal_force(const char *sn, int level, CHAR_DATA *ch, void *vo)
 				dam_total += dam;
 				act_puts3("$W $u you!",
 					  ch, vp_dam_alias(dam), victim,
-					  "troll's smash", TO_VICT, POS_DEAD);
+					  "troll's smash",	// notrans
+					  TO_VICT, POS_DEAD);
 			}
 			act_puts3("Your illusionary $W $u $N!",
 				  ch, vp_dam_alias(dam_total), victim,
@@ -7843,7 +7848,8 @@ void spell_phantasmal_force(const char *sn, int level, CHAR_DATA *ch, void *vo)
 			dam = dice(level, 15);
 			act_puts3("$n's $W $u you!",
 				  ch, vp_dam_alias(dam), victim,
-				  "fire breath", TO_VICT, POS_DEAD);
+				  "fire breath",		// notrans
+				  TO_VICT, POS_DEAD);
 			act("$N believes you turn yourself into dragon and breathe fire at $M.", ch, NULL, victim, TO_CHAR);
 			act_puts3("Your illusionary $W $u $N!",
 				  ch, vp_dam_alias(dam), victim,
@@ -7891,11 +7897,13 @@ void spell_phantasmal_force(const char *sn, int level, CHAR_DATA *ch, void *vo)
 				dam_total += dam;
 				act_puts3("$W $u you!",
 					  ch, vp_dam_alias(dam), victim,
-					  "demon prince", TO_VICT, POS_DEAD);
+					  "demon prince",	// notrans
+					  TO_VICT, POS_DEAD);
 			}
 			act_puts3("Illusionary $W $u $N!",
 				  ch, vp_dam_alias(dam_total), victim,
-				  "demon prince", TO_CHAR, POS_DEAD);
+				  "demon prince",		// notrans
+				  TO_CHAR, POS_DEAD);
 			damage(ch, victim, dam_total, NULL, DAM_MENTAL,
 			       DAMF_NOREDUCE);
 			return;

@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.173 2001-02-11 14:35:39 fjoe Exp $
+ * $Id: martial_art.c,v 1.174 2001-02-18 10:20:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -748,7 +748,7 @@ do_gash(CHAR_DATA *ch, const char *argument)
 						number_range(30, 40));
 					break;
 				case 1:
-					act("Your dagger only scratches  $N's $p.",
+					act("Your dagger only scratches $N's $p.",
 					    ch, gauntlets, victim, TO_CHAR);
 					act("$n's dagger leaves a few scratches on your $p.",
 					    ch, gauntlets, victim, TO_VICT);
@@ -3692,7 +3692,7 @@ void do_tiger(CHAR_DATA *ch, const char *argument)
 		act_char("Huh?", ch);
 		return;
 	}
-	act("$n calls the power of ten tigers!.", ch, NULL, NULL, TO_ROOM);
+	act("$n calls the power of ten tigers!", ch, NULL, NULL, TO_ROOM);
 
 	if (IS_AFFECTED(ch, AFF_BERSERK) || is_affected(ch, "berserk")
 	||  is_affected(ch, "tiger power") || is_affected(ch, "frenzy")) {

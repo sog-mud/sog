@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.367 2001-02-12 19:07:17 fjoe Exp $
+ * $Id: act_info.c,v 1.368 2001-02-18 10:20:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -857,7 +857,7 @@ void do_exits(CHAR_DATA *ch, const char *argument)
 				    show_closed ? "*" : str_empty); // notrans
 			} else {
 				buf_printf(buf, BUF_END,
-				    "{C%-5s%s{x - %s",		// notrans	
+				    "{C%-5s%s{x - %s",		// notrans
 				    capitalize(dir_name[door]),
 				    show_closed ?
 					"*" : str_empty,	// notrans
@@ -3421,7 +3421,7 @@ glist_cb(void *p, va_list ap)
 
 	if (group == sk->group) {
 		const char *sn = gmlstr_mval(&sk->sk_name);
-		act_puts("$t$f-18{$T}", ch,		           // notrans	
+		act_puts("$t$f-18{$T}", ch,		           // notrans
 			 pc_skill_lookup(ch, sn) ?  "*" : " ", sn, // notrans
 			 TO_CHAR | ACT_NOTRANS | ACT_NOLF, POS_DEAD);
 		if (*pcol)
@@ -3632,7 +3632,7 @@ void do_demand(CHAR_DATA *ch, const char *argument)
 
 	if (!can_drop_obj(ch, obj)) {
 		do_say(victim, "It's cursed so, I can't let go of it. "
-			       "Forgive me, my master");
+			       "Forgive me, my master.");
 		return;
 	}
 
@@ -4694,7 +4694,7 @@ void do_commands(CHAR_DATA *ch, const char *argument)
 		if (cmd->min_level < LEVEL_HERO
 		&&  cmd->min_level <= ch->level 
 		&&  !IS_SET(cmd->cmd_flags, CMD_HIDDEN)) {
-			act_puts("$f-12{$t}", ch, cmd->name, NULL,   // notrans	
+			act_puts("$f-12{$t}", ch, cmd->name, NULL,   // notrans
 				 TO_CHAR | ACT_NOTRANS | ACT_NOLF | ACT_NOUCASE,
 				 POS_DEAD);
 			if (++col % 6 == 0)
@@ -4965,7 +4965,8 @@ void do_areas(CHAR_DATA *ch, const char *argument)
 		SKIP_CLOSED(pArea1);
 		SKIP_CLOSED(pArea2);
 
-		buf_printf(output, BUF_END,"{{%2d %3d} {B%-20.20s{x %8.8s ",
+		buf_printf(output, BUF_END,
+			   "{{%2d %3d} {B%-20.20s{x %8.8s ",	  // notrans
 			   pArea1->min_level, pArea1->max_level,
 			   pArea1->name,
 			   pArea1->credits);
