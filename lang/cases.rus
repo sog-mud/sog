@@ -3526,6 +3526,17 @@ Form 6 -ое~
 End
 
 #RULE
+Name единица~
+BaseLen 6
+Form 1 -ы~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ей~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
 Name дикий~
 BaseLen 3
 Form 1 -ого~
