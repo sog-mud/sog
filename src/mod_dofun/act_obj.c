@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.143 1999-05-20 07:27:18 fjoe Exp $
+ * $Id: act_obj.c,v 1.144 1999-05-31 08:17:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,7 +46,6 @@
 #include <string.h>
 #include <stdlib.h>
 #include "merc.h"
-#include "quest.h"
 #include "update.h"
 #include "mob_prog.h"
 #include "obj_prog.h"
@@ -95,9 +94,8 @@ void get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container)
 	int             members;
 
 	if (!CAN_WEAR(obj, ITEM_TAKE)
-	||  (obj->pIndexData->item_type == ITEM_CORPSE_PC &&
-	     (!IS_NPC(ch) || IS_AFFECTED(ch, AFF_CHARM)) &&
-	     !IS_IMMORTAL(ch) &&
+	||  (obj->in_room &&
+	     IS_SET(obj->in_room->room_flags, ROOM_BATTLE_ARENA) &&
 	     !IS_OWNER(ch, obj))) {
 		char_puts("You can't take that.\n", ch);
 		return;
@@ -1863,14 +1861,6 @@ void sac_obj(CHAR_DATA * ch, OBJ_DATA *obj)
 	int             silver;
 	CHAR_DATA      *gch;
 	int             members;
-
-	if ((obj->pIndexData->item_type == ITEM_CORPSE_PC &&
-	     ch->level < MAX_LEVEL)
-	||  (QUEST_OBJ_FIRST <= obj->pIndexData->vnum &&
-	     obj->pIndexData->vnum <= QUEST_OBJ_LAST)) {
-		char_puts("Gods wouldn't like that.\n", ch);
-		return;
-	}
 
 	if (!CAN_WEAR(obj, ITEM_TAKE) || CAN_WEAR(obj, ITEM_NO_SAC)) {
 		act_puts("$p is not an acceptable sacrifice.",

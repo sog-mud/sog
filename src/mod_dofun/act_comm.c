@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.168 1999-05-22 13:37:26 fjoe Exp $
+ * $Id: act_comm.c,v 1.169 1999-05-31 08:17:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -53,7 +53,6 @@
 #endif
 
 #include "merc.h"
-#include "quest.h"
 #include "mob_prog.h"
 #include "obj_prog.h"
 #include "auction.h"
@@ -828,12 +827,51 @@ void do_quit(CHAR_DATA *ch, const char *argument)
 	quit_char(ch, 0);
 }
 
+void drop_objs(CHAR_DATA *ch, OBJ_DATA *obj_list)
+{
+	OBJ_DATA *obj, *obj_next;
+
+	/*
+	 * drop ITEM_QUIT_DROP/ITEM_CHQUEST/ITEM_CLAN items
+	 */
+	for (obj = obj_list; obj != NULL; obj = obj_next) {
+		int cn;
+		obj_next = obj->next_content;
+
+		if (obj->contains)
+			drop_objs(ch, obj->contains);
+
+		if (!IS_SET(obj->pIndexData->extra_flags,
+			    ITEM_CLAN | ITEM_QUIT_DROP | ITEM_CHQUEST))
+			continue;
+
+		if (obj->carried_by)
+			obj_from_char(obj);
+		else if (obj->in_obj)
+			obj_from_obj(obj);
+		else {
+			extract_obj(obj, 0);
+			continue;
+		}
+
+		if (!IS_SET(obj->pIndexData->extra_flags, ITEM_CLAN)) {
+			if (ch->in_room != NULL)
+				obj_to_room(obj, ch->in_room);
+			else
+				extract_obj(obj, 0);
+			continue;
+		}
+
+		for (cn = 0; cn < clans.nused; cn++)
+			if (obj == CLAN(cn)->obj_ptr) 
+				obj_to_room(obj, get_room_index(CLAN(cn)->altar_vnum));
+	}
+}
+
 void quit_char(CHAR_DATA *ch, int flags)
 {
 	DESCRIPTOR_DATA *d, *d_next;
 	CHAR_DATA *vch, *vch_next;
-	OBJ_DATA *obj,*obj_next,*obj_in;
-	int cn;
 	const char *name;
 
 	if (IS_NPC(ch))
@@ -907,53 +945,7 @@ void quit_char(CHAR_DATA *ch, int flags)
 	wiznet("{W$N{x rejoins the real world.",
 		ch, NULL, WIZ_LOGINS, 0, ch->level);
 
-	/*
-	 * remove quest objs for this char, drop quest objs for other chars
-	 */
-	for (obj = object_list; obj != NULL; obj = obj_next) {
-		obj_next = obj->next;
-		if (obj->pIndexData->vnum >= QUEST_OBJ_FIRST
-		&&  obj->pIndexData->vnum <= QUEST_OBJ_LAST)
-			if (obj->ed == NULL ||
-			    strstr(mlstr_mval(obj->ed->description),
-							ch->name) != NULL)
-				extract_obj(obj, 0);
-			else if (obj->carried_by == ch) {
-				obj_from_char(obj);
-				obj_to_room(obj,ch->in_room);
-			}
-		if (IS_SET(obj->pIndexData->extra_flags,
-			   ITEM_CLAN | ITEM_QUIT_DROP | ITEM_CHQUEST)) {
-			if (obj->in_room != NULL)
-				continue;
-
-			if ((obj_in = obj->in_obj) != NULL) {
-				for (;obj_in->in_obj != NULL; obj_in = obj_in->in_obj)
-					;
-				if (obj_in->carried_by != ch)
-					continue;
-			}
-
-			if (obj->carried_by == ch)
-				obj_from_char(obj);
-			else if (obj->carried_by != NULL)
-				continue;
-			else if (obj_in != NULL)
-				obj_from_obj(obj);
-
-			if (IS_SET(obj->pIndexData->extra_flags, ITEM_CLAN)) {
-				for (cn = 0; cn < clans.nused; cn++)
-					if (obj == clan_lookup(cn)->obj_ptr) 
-						obj_to_room(obj, get_room_index(clan_lookup(cn)->altar_vnum));
-			}
-			else {
-				if (ch->in_room != NULL) 
-					obj_to_room(obj, ch->in_room);
-				else 
-					extract_obj(obj, 0);
-			}
-		}
-	}
+	drop_objs(ch, ch->carrying);
 
 	for (vch = char_list; vch; vch = vch_next) {
 		vch_next = vch->next;

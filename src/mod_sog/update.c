@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.134 1999-05-26 12:44:49 fjoe Exp $
+ * $Id: update.c,v 1.135 1999-05-31 08:17:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2066,41 +2066,50 @@ void track_update(void)
 
 void clan_item_update(void)
 {	
-	clan_t *clan;
-	OBJ_DATA *obj;
-	bool put_back;
 	int i;
-	int j;
 
 	if (time_info.hour != 0) 
 		return;
 
-	for (i=0; i<clans.nused; i++) {
-		put_back = FALSE;
-		if ((clan=clan_lookup(i))->obj_ptr == NULL) 
+	for (i = 0; i < clans.nused; i++) {
+		OBJ_DATA *obj;
+		clan_t *clan = CLAN(i);
+
+		if (clan->obj_ptr == NULL) 
 			continue;
-		for (obj=clan->obj_ptr; obj->in_obj; obj=obj->in_obj);
-		if (obj->carried_by) 
-			put_back = TRUE;
 
-		else if (obj->in_room) 
-			for(j=0; j<clans.nused; j++) 
-				if (!(put_back=(obj->in_room->vnum != clan_lookup(j)->altar_vnum)))
+		for (obj = clan->obj_ptr; obj->in_obj; obj = obj->in_obj)
+			;
+
+		/*
+		 * do not move clan items which are in altars
+		 */
+		if (obj->in_room) {
+			int j;
+			bool put_back = TRUE;
+
+			for (j = 0; j < clans.nused; j++) {
+				if (obj->in_room->vnum == CLAN(j)->altar_vnum) {
+					put_back = FALSE;
 					break;
+				}
+			}
 
-		if(put_back) {
-			if(clan->obj_ptr->in_obj)
-				obj_from_obj(clan->obj_ptr);
-			if(clan->obj_ptr->carried_by)
-				obj_from_char(clan->obj_ptr);
-			if(clan->obj_ptr->in_room)
-				obj_from_room(clan->obj_ptr);
-
-			if(clan->altar_ptr) 
-				obj_to_obj(clan->obj_ptr, clan->altar_ptr);
-			else 
-				bug("clan_item_update: no altar_ptr for clan %d", i);
+			if (!put_back)
+				continue;
 		}
+
+		if (clan->obj_ptr->in_obj)
+			obj_from_obj(clan->obj_ptr);
+		if (clan->obj_ptr->carried_by)
+			obj_from_char(clan->obj_ptr);
+		if (clan->obj_ptr->in_room)
+			obj_from_room(clan->obj_ptr);
+
+		if (clan->altar_ptr) 
+			obj_to_obj(clan->obj_ptr, clan->altar_ptr);
+		else 
+			bug("clan_item_update: no altar_ptr for clan %d", i);
 	}
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: auction.c,v 1.34 1999-05-26 12:44:49 fjoe Exp $
+ * $Id: auction.c,v 1.35 1999-05-31 08:17:23 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -179,9 +179,10 @@ int parsebet (const int currentbet, const char *argument)
   return newbet;        /* return the calculated bet */
 }
 
-
-void auction_give_obj(CHAR_DATA* victim, OBJ_DATA *obj)
+void auction_give_obj(CHAR_DATA* victim)
 {
+	OBJ_DATA *obj = auction.item;
+
 	act("The auctioneer appears before you in a puff of smoke "
 	    "and hands you $p.", victim, obj, NULL, TO_CHAR);
 	act("The auctioneer appears before $n and hands $m $p.",
@@ -197,6 +198,7 @@ void auction_give_obj(CHAR_DATA* victim, OBJ_DATA *obj)
 	}
 	else
 		obj_to_char (obj, victim);
+	auction.item = NULL;
 }
 
 void auction_update(void)
@@ -237,7 +239,7 @@ void auction_update(void)
 				     "an immortal" : auction.buyer->name,
 				     auction.bet);
 
-			auction_give_obj(auction.buyer, auction.item);
+			auction_give_obj(auction.buyer);
 
 			tax = (auction.bet * 15) / 100;
 			pay = (auction.bet * 85) / 100;
@@ -254,9 +256,8 @@ void auction_update(void)
 	        	talk_auction("No bets received for %s.",
 				     fix_short(mlstr_mval(auction.item->short_descr)));
 			talk_auction("object has been removed from auction.");
-			auction_give_obj(auction.seller, auction.item);
+			auction_give_obj(auction.seller);
 	        }
-		auction.item = NULL; /* reset item */
         }
 } 
 
@@ -319,8 +320,7 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 			talk_auction("Sale of %s has been stopped "
 				     "by an Immortal.",
 				     fix_short(mlstr_mval(auction.item->short_descr)));
-			auction_give_obj(auction.seller, auction.item);
-			auction.item = NULL;
+			auction_give_obj(auction.seller);
 
 			/* return money to the buyer */
 			if (auction.buyer != NULL) {
@@ -431,6 +431,12 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 				 flag_string(item_types,
 					     obj->pIndexData->item_type),
 				 TO_CHAR, POS_SLEEPING);
+			break;
+		}
+
+		if (obj->contains) {
+			act_puts("You can auction only empty containers.",
+				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 			break;
 		}
 
