@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_rule.c,v 1.20 1999-12-04 15:52:39 avn Exp $
+ * $Id: olc_rule.c,v 1.21 1999-12-04 16:00:43 avn Exp $
  */
 
 #include "olc.h"
@@ -331,11 +331,13 @@ OLC_FUN(ruleed_show)
 	for (i = 0; i < r->f->v.nused; i++) {
 		char **p = VARR_GET(&r->f->v, i);
 
-		if (!IS_NULLSTR(*p) && rops->id == ED_IMPL)
-			char_printf(ch, "Form: [%d] [%s]\n", i, *p);
-		else
-			char_printf(ch, "Form: [%d] [%s] %s\n",
-				i, *p, word_form(r->name, i, l->vnum, rcl->rulecl));
+		if (!IS_NULLSTR(*p)) {
+			if (rops->id == ED_IMPL)
+				char_printf(ch, "Form: [%d] [%s]\n", i, *p);
+			else
+				char_printf(ch, "Form: [%d] [%s] %s\n",
+					i, *p, word_form(r->name, i, l->vnum, rcl->rulecl));
+		}
 	}
 
 	return FALSE;
