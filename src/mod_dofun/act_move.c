@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.25 1998-04-29 06:30:07 efdi Exp $
+ * $Id: act_move.c,v 1.26 1998-04-29 09:42:44 efdi Exp $
  */
 
 /***************************************************************************
@@ -724,7 +724,7 @@ void do_open( CHAR_DATA *ch, char *argument )
 
 	    REMOVE_BIT( pexit_rev->exit_info, EX_CLOSED );
 	    for ( rch = to_room->people; rch != NULL; rch = rch->next_in_room )
-		act_printf(ch, NULL, pexit_rev->keyword, TO_CHAR, POS_RESTING, MOVE_THE_D_OPENS);
+		act_printf(rch, NULL, pexit_rev->keyword, TO_CHAR, POS_RESTING, MOVE_THE_D_OPENS);
 	}
 	return;
     }
