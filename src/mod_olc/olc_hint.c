@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_hint.c,v 1.3 2001-06-22 07:13:44 avn Exp $
+ * $Id: olc_hint.c,v 1.4 2001-06-24 11:02:33 avn Exp $
  */
 
 #include "olc.h"
@@ -54,7 +54,7 @@ olc_cmd_t olc_cmds_hint[] =
 
 	{ "phrase",	hinted_phrase					},
 	{ "mask",	hinted_mask,		NULL, 	hint_levels	},
-	{ "delete_ti",	olced_spell_out					},
+	{ "delete_hin",	olced_spell_out					},
 	{ "delete_hint",hinted_delete					},
 	{ "commands",	show_commands					},
 	{ NULL }
