@@ -8,8 +8,7 @@ End
 
 #HELPS
 -1 WIZLIST~
- 
-        ________            *********************           ________
+________            *********************           ________
       /+_+_+_+_+_\        **  The Gods of Muddy  **       /+_+_+_+_+_\
       \__________/          *********************         \__________/
         |::XXXX|                                            |::XXXX|
@@ -247,7 +246,7 @@ Thanks to Ezra for drawing the originals of several maps on ROM.
 ``.    `:    .'     :           (  `\    ________________/'(_)`\_______________
     :    :   :        :          \   ~~~~~~ ____________   __   __   ____________~~
      :   :   :         :          )>  _               ~~-~~  ~~-~~  ~~-~~
-     :    :   :        :         <(  (_)   @@}--> M U D D Y   R E A L M S <--{@@
+     :    :   :        :         <(  (_)   @@}--> M U D D Y   R E A L M S <--{{@@
       :    :   :..''''``::.        \
        : ...:..'     .''           |      Original DikuMUD by Hans Staerfeldt,
        .'   .'  .::::'             |  Katja Nyboe, Tom Madsen, Michael Seifert,

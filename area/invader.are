@@ -1,13 +1,13 @@
 #AREADATA
 Name Invader~
-VNUMs 560 569
+VNUMs 95600 95609
 Credits Asena~
 Security 9
 LevelRange 90 100
 End
 
 #MOBILES
-#560
+#95600
 keeper guardian invader~
 the invader guardian~
 The invader guardian is here, serving his cabal.
@@ -23,7 +23,7 @@ CEFKNU AB 0 S
 stand stand male 5000
 0 0 medium unknown
 C Invader~
-#561
+#95601
 evil cleric cabal invader~
 the evil cleric~
 The dark cleric is healing and refreshing his invader brothers.
@@ -44,15 +44,15 @@ stand stand male 1000
 #0
 
 #OBJECTS
-#560
+#95600
 gray altar skull container~
 the skull~
 On the altar you see the skull with gray bones.~
 bone~
 container CEORY P
-10 ABCD 562 15 100
+10 ABCD 95602 15 100
 60 2 20 P
-#561
+#95601
 globe sphere~
 the nothing globe~
 A small, sphere shaped unexistance area floats in the air.~
@@ -60,7 +60,7 @@ unknown~
 treasure CEOT AO
 0 0 0 0 0
 60 2 10000 P
-#562
+#95602
 skull grayish jaw~
 grayish jaw of a skull~
 A gray jaw of a skull.~
@@ -68,15 +68,15 @@ bone~
 key CEORY A
 0 0 0 0 0
 40 2 0 P
-#563
+#95603
 white object portal~
 Magical White Portal~
 A magically created white object casts strange shadows across the clearing.~
 energy~
 portal AO 0
-0 0 B 560 0
+0 0 B 95600 0
 0 0 0 P
-#564
+#95604
 dark object portal~
 Dark Portal~
 A magically created dark object casts strange shadows across the clearing.~
@@ -84,7 +84,7 @@ energy~
 portal AO 0
 0 0 E 0 0
 0 0 0 P
-#565
+#95605
 green object portal~
 Magical Green Portal~
 A magically created green object casts strange shadows across the clearing.~
@@ -95,7 +95,7 @@ portal AO 0
 #0
 
 #ROOMS
-#560
+#95600
 The Well~
 You are standing near a ruined stone well blocked by a big boulder on
 the well mouth. A cold breeze of fear, sweeps your face, as you feel the 
@@ -111,9 +111,9 @@ A dim light of a flickering torch hits the southern wall of the well,
 far down the stone pipe.
 ~
 enterance~
-ABGZ -1 561
+ABGZ -1 95601
 S
-#561
+#95601
 Bottom of the Well~
 This place is dimly lit by a flickering torch from a doorway leading north.
 A shadow from fire light dances on the far northern wall, which seems to 
@@ -125,14 +125,14 @@ D0
 The doorway leads to a well lit chamber. On the wall is a huge shadow.
 ~
 ~
-Z -1 562
+Z -1 95602
 D4
 You can only see the opening of the well.
 ~
 enterance~
-ABGZ -1 560
+ABGZ -1 95600
 S
-#562
+#95602
 The bottomless pit~
 You fall, forever downwards into the bottomless pit. About you blackness
 races, with no sign of a wall for support. You look up and see the same
@@ -144,9 +144,9 @@ D5
 Falling further into the black pit
 ~
 ~
-Z 0 564
+Z 0 95604
 S
-#563
+#95603
 The bottomless pit~
 You fall, forever downwards into the bottomless pit. About you blackness
 races, with no sign of a wall for support. You look up and see the same
@@ -158,9 +158,9 @@ D5
 Falling further into the black pit
 ~
 ~
-Z 0 564
+Z 0 95604
 S
-#564
+#95604
 The bottomless pit~
 You fall, forever downwards into the bottomless pit. About you blackness
 races, with no sign of a wall for support. You look up and see the same
@@ -172,9 +172,9 @@ D5
 Falling further into the black pit
 ~
 ~
-Z 0 565
+Z 0 95605
 S
-#565
+#95605
 The bottomless pit~
 You fall, forever downwards into the bottomless pit. About you blackness
 races, with no sign of a wall for support. You look up and see the same
@@ -186,9 +186,9 @@ D5
 Falling further into the black pit
 ~
 ~
-Z 0 566
+Z 0 95606
 S
-#566
+#95606
 The bottomless pit~
 You fall, forever downwards into the bottomless pit. About you blackness
 races, with no sign of a wall for support. You look up and see the same
@@ -201,9 +201,9 @@ D5
 Falling further into the black pit or to the death.
 ~
 ~
-Z 0 567
+Z 0 95607
 S
-#567
+#95607
 Shadowy chambers~
 You are inside chamber, with dancing shadows on the walls. The walls are
 almost black in colour. It's as if it has been burnt by a powerful spell.
@@ -215,24 +215,24 @@ D0
 It's dark to tell anything.
 ~
 ~
-Z -1 568
+Z -1 95608
 D1
 It's dark to tell anything.
 ~
 ~
-Z -1 567
+Z -1 95607
 D2
 It's too dark to tell anything.
 ~
 ~
-Z -1 569
+Z -1 95609
 D3
 It's dark to tell anything.
 ~
 ~
-Z -1 567
+Z -1 95607
 S
-#568
+#95608
 The Pentagram~
 Now, you have stepped into a large chamber hewn of black stone. A black
 altar rises from the space between the line in the center of pentagram. At
@@ -248,10 +248,10 @@ D2
 You see the dark corridor.
 ~
 ~
-Z -1 567
+Z -1 95607
 M 110 H 100
 S
-#569
+#95609
 The Battle Field~
 Most probably you fled here, if you are not a cabal member of INVADERS.
 Thus the darkness of the room horrifies you. While waiting the time
@@ -264,26 +264,26 @@ D0
 You see the dark corridor.
 ~
 ~
-Z -1 567
+Z -1 95607
 M 50 H 50
 S
 #0
 
 #RESETS
-D 0 560 5 1	* The Well: door to the down: closed
-D 0 561 4 1	* Bottom of the Well: door to the up: closed
-M 0 560 1 567 1	* the invader guardian (Shadowy chambers)
-E 0 562 0 17		*	grayish jaw of a skull: held in the hands
-M 0 561 1 568 1	* the evil cleric (The Pentagram)
-O 0 560 0 568	* the skull (The Pentagram)
-P 0 561 1 560 1	* the skull: the nothing globe
-O 0 563 0 568	* Magical White Portal (The Pentagram)
-O 0 564 0 568	* Dark Portal (The Pentagram)
-O 0 565 0 568	* Magical Green Portal (The Pentagram)
+D 0 95600 5 1	* The Well: door to the down: closed
+D 0 95601 4 1	* Bottom of the Well: door to the up: closed
+M 0 95600 1 95607 1	* the invader guardian (Shadowy chambers)
+E 0 95602 0 17		*	grayish jaw of a skull: held in the hands
+M 0 95601 1 95608 1	* the evil cleric (The Pentagram)
+O 0 95600 0 95608	* the skull (The Pentagram)
+P 0 95601 1 95600 1	* the skull: the nothing globe
+O 0 95603 0 95608	* Magical White Portal (The Pentagram)
+O 0 95604 0 95608	* Dark Portal (The Pentagram)
+O 0 95605 0 95608	* Magical Green Portal (The Pentagram)
 S
 
 #PRACTICERS
-M 560 clan~	* the invader guardian
+M 95600 clan~	* the invader guardian
 S
 
 #$

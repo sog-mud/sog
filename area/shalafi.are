@@ -1,13 +1,13 @@
 #AREADATA
 Name Shalafi~
-VNUMs 530 539
+VNUMs 95300 95309
 Credits Asena~
 Security 9
 LevelRange 90 100
 End
 
 #MOBILES
-#530
+#95300
 Seneschal~
 The Seneschal~
 The Seneschal of magic is here.
@@ -25,7 +25,7 @@ stand stand male 0
 0 0 medium unknown
 F aff JP
 C Shalafi~
-#531
+#95301
 healer adept cabal shalafi~
 an adept~
 An adept and healer of the Arcane Arts is here.
@@ -42,7 +42,7 @@ ABQVae DFH 1000 0
 FHIK ABC D 0
 stand stand male 1000
 0 0 medium unknown
-#532
+#95302
 fiery red demon~
 a fiery demon~
 A red, fiery demon is looking around very angry.
@@ -64,15 +64,15 @@ stand stand male 0
 #0
 
 #OBJECTS
-#530
+#95300
 spider altar~
 a huge violet altar carved as a spider~
 A hude spider shaped altar is standing at the center of room.~
 ivory~
 container AORY P
-10 ABCD 532 15 100
+10 ABCD 95302 15 100
 60 1 20 P
-#531
+#95301
 orb~
 Orb of Magic~
 Orb of magic is here.~
@@ -80,7 +80,7 @@ ebony~
 staff A A
 0 0 0 '' 0
 60 1 100000 P
-#532
+#95302
 key~
 a spider shaped key~
 A spider shaped  key is on the ground.~
@@ -88,7 +88,7 @@ steel~
 key ORY AO
 0 0 0 0 0
 40 4 0 P
-#533
+#95303
 white object portal~
 Magical White Portal~
 A magically created white object casts strange shadows across the clearing.
@@ -97,7 +97,7 @@ energy~
 portal AO 0
 0 0 D 9209 0
 0 0 0 P
-#534
+#95304
 black object portal~
 Magical Black Portal~
 A magically created black object casts strange shadows across the clearing.
@@ -109,7 +109,7 @@ portal AO 0
 #0
 
 #ROOMS
-#530
+#95300
 Fifth Level~
 The fifth level of the tower hums with whole magical power of the
 universe. All around, you see many items which have been carried and
@@ -122,17 +122,17 @@ it gives off a soft purple radiance.
 D1
 ~
 ~
-Z -1 537
+Z -1 95307
 D3
 ~
 ~
-Z -1 538
+Z -1 95308
 D5
 ~
 ~
-Z -1 531
+Z -1 95301
 S
-#531
+#95301
 Fourth Level~
 The fourth level is much bigger than the others. All around you see the
 magic. There are many wands and staves which have been created by the
@@ -144,13 +144,13 @@ angry about to it.
 D4
 ~
 ~
-Z -1 530
+Z -1 95300
 D5
 ~
 ~
-Z -1 532
+Z -1 95302
 S
-#532
+#95302
 Third Level~
 Now, you are in a mist that has been suddenly appeared. Swirling mist
 obscures your vision and cloud your mind. You start to wander about the
@@ -160,13 +160,13 @@ eternity and power of the magic. The mist itself thickens to the up.
 D4
 ~
 ~
-Z -1 531
+Z -1 95301
 D5
 ~
 ~
-Z -1 533
+Z -1 95303
 S
-#533
+#95303
 Second Level~
 The second level of the tower of the Arcane Arts is much like the first.
 The walls are blackened and burnt by what you could only imagine to be
@@ -177,13 +177,13 @@ light. A flight of stairs lead up and down.
 D4
 ~
 ~
-Z -1 532
+Z -1 95302
 D5
 ~
 ~
-Z -1 534
+Z -1 95304
 S
-#534
+#95304
 Inside the Tower~
 You stand in the lowest level of the Tower of Arcane Arts. The magical
 walls all around you emit a faint magical glow which provides enough light 
@@ -194,13 +194,13 @@ Arcane Arts.
 D2
 ~
 ~
-Z -1 535
+Z -1 95305
 D4
 ~
 ~
-Z -1 533
+Z -1 95303
 S
-#535
+#95305
 Outside the Tower~
 You are in a long way leading north and south. The magical walls emit a
 faint magical glow which provides enough light to see by. Additionally a
@@ -212,13 +212,13 @@ universe has been used to create this tower.
 D0
 ~
 ~
-Z -1 534
+Z -1 95304
 D2
 ~
 ~
-Z -1 536
+Z -1 95306
 S
-#536
+#95306
 The Mystical Path~
 You start to feel the power of magic. Magical beings from every known
 plane walk amongst you. The path, like everything here, is magically
@@ -229,13 +229,13 @@ Arts.
 D0
 ~
 ~
-Z -1 535
+Z -1 95305
 D2
 ~
 ~
-ABZ -1 1480
+Z 0 1480
 S
-#537
+#95307
 The Mystical Room~
 This room is looks like the third level of the tower. You are in a mist
 that has been suddenly appeared. Swirling mist obscures your vision and
@@ -247,9 +247,9 @@ you to find some materials to create powerful wands and staves.
 D3
 ~
 ~
-Z -1 530
+Z -1 95300
 S
-#538
+#95308
 The Mystical Room~
 This room is looks like the third level of the tower. You are in a mist
 that has been suddenly appeared. Swirling mist obscures your vision and
@@ -261,28 +261,27 @@ you to find some materials to create powerful wands and staves.
 D1
 ~
 ~
-Z -1 530
+Z -1 95300
 S
 #0
 
 #SPECIALS
-M 530 spec_cast_seneschal	* The Seneschal
-M 532 spec_cast_mage	* a fiery demon
+M 95300 spec_cast_seneschal	* The Seneschal
+M 95302 spec_cast_mage	* a fiery demon
 S
 
 #RESETS
-D 0 536 2 1	* The Mystical Path: door to the south: closed
-M 0 531 1 530 1	* an adept (Fifth Level)
-O 0 530 0 530	* a huge violet altar carved as a spider (Fifth Level)
-P 0 531 1 530 1	* a huge violet altar carved as a spider: Orb of Magic
-M 0 530 1 536 1	* The Seneschal (The Mystical Path)
-E 0 532 0 17		*	a spider shaped key: held in the hands
-O 0 533 0 537	* Magical White Portal (The Mystical Room)
-O 0 534 0 538	* Magical Black Portal (The Mystical Room)
+M 0 95301 1 95300 1	* an adept (Fifth Level)
+O 0 95300 0 95300	* a huge violet altar carved as a spider (Fifth Level)
+P 0 95301 1 95300 1	* a huge violet altar carved as a spider: Orb of Magic
+M 0 95300 1 95306 1	* The Seneschal (The Mystical Path)
+E 0 95302 0 17		*	a spider shaped key: held in the hands
+O 0 95303 0 95307	* Magical White Portal (The Mystical Room)
+O 0 95304 0 95308	* Magical Black Portal (The Mystical Room)
 S
 
 #PRACTICERS
-M 530 clan~	* The Seneschal
+M 95300 clan~	* The Seneschal
 S
 
 #$

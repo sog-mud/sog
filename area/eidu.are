@@ -3,7 +3,7 @@ Name Eidu~
 Builders eidu lothar~
 VNUMs 44000 44999
 Credits Eidu~
-Security 1
+Security 3
 LevelRange 0 0
 End
 
@@ -32,7 +32,7 @@ sam~
 ~
 ~
 human~
-AZ 0 0 0
+AZ 0 -1000 0
 20 0 0d0+0 0d0+0 0d0+0 none
 1000 1000 1000 1000
 0 0 0 0
@@ -99,13 +99,37 @@ Statue of Eidu~
 fountain R 0
 0 0 'water' 0 0
 0 0 0 P
+#44005
+axe bloody amputation~
+{RBloody Axe of Amputation{x~
+A large axe is here, its blade stuck in the ground.~
+medicine steel~
+weapon 0 AN
+axe 40 20 chop DEI
+96 0 0 P
+#44006
+hammer great sleep~
+{yGreat Hammer of Sleep{x~
+large wooden hammer hangs here.~
+wooden~
+wand 0 AO
+300 1000000 1000000 'terangreal' 0
+96 0 0 P
+#44007
+kit fighter's first aid~
+{Wfighter's {Rfirst aid {Wkit{x~
+A plastic bag marked with red cross lies here.~
+plastic~
+container 0 AL
+1000000 A 0 100000 1
+0 0 0 P
 #0
 
 #ROOMS
 #44000
 @eng The grand samurai's house@rus Хата главного самурая~
 ~
-0 C forest
+0 CN forest
 D1
 ~
 ~
@@ -149,12 +173,12 @@ S
 #44100
 The 1st Tower.~
 ~
-0 0 inside
+0 C inside
 S
 #44200
 ~
 ~
-0 0 inside
+0 C inside
 S
 #0
 

@@ -4,6 +4,7 @@ VNUMs 33300 33399
 Credits Diablo~
 Security 9
 LevelRange 70 100
+Flags under_construction noquest~
 End
 
 #MOBILES
@@ -100,8 +101,8 @@ spear 10 11 pierce DH
 75 150 1000 P
 #33302
 wings moth~
-@eng a moth wings@rus крылья мотылька~
-@eng A moth wings flying here.@rus Крылья (wings) мотылька парят над землей.~
+@eng a pair of moth wings@rus крылья мотылька~
+@eng A pair of moth wings flying here.@rus Крылья (wings) мотылька парят над землей.~
 unknown~
 light FGIK A
 0 0 -1 0 0
@@ -122,6 +123,36 @@ wood~
 weapon 0 AN
 mace 11 10 pound 0
 75 50 324 P
+#33304
+boots worn~
+@eng a pair of worn boots@rus рваные ботинки~
+@eng A pair of worn boots lies here.@rus Рваные ботинки (boots) никому не нужные валяются тут.~
+кожа~
+armor GHM AG
+-30 -30 -30 -30 0
+85 0 0 P
+A
+12 80
+A
+14 -200
+A
+18 -4
+A
+19 13
+A
+2 -5
+A
+13 120
+A
+20 -2
+A
+24 -2
+A
+23 -2
+A
+22 -2
+A
+21 -2
 #0
 
 #ROOMS
@@ -296,6 +327,10 @@ D4
 ~
 ~
 Z 0 33305
+D5
+~
+~
+Z 0 33310
 S
 #33309
 @eng The subterranean lake@rus Пещерное озеро~
@@ -322,6 +357,15 @@ D3
 ~
 Z 0 33305
 S
+#33310
+@eng The cave os tresure@rus Сокровищница~
+~
+0 AN swim
+D4
+~
+~
+Z 0 33308
+S
 #0
 
 #SPECIALS
@@ -334,11 +378,11 @@ S
 M 0 33300 1 33301 1	* the dirty spider (Grotto)
 E 0 33300 0 17		*	a magic web: held in the hands
 M 0 33301 3 33301 3	* the melancholy moth (Grotto)
-E 0 33302 0 0		*	a moth wings: as a light
+E 0 33302 0 0		*	a pair of moth wings: as a light
 M 0 33301 3 33301 3	* the melancholy moth (Grotto)
-E 0 33302 0 0		*	a moth wings: as a light
+E 0 33302 0 0		*	a pair of moth wings: as a light
 M 0 33301 3 33301 3	* the melancholy moth (Grotto)
-E 0 33302 0 0		*	a moth wings: as a light
+E 0 33302 0 0		*	a pair of moth wings: as a light
 M 0 33302 8 33304 8	* the stupid piranha (The subterranean lake)
 M 0 33302 8 33304 8	* the stupid piranha (The subterranean lake)
 E 0 33301 0 16		*	a tooth of piranha: wielded
@@ -353,6 +397,11 @@ E 0 33301 0 16		*	a tooth of piranha: wielded
 M 0 33304 1 33307 1	* the fisherman (The subterranean lake)
 E 0 33303 0 16		*	a fishing pole: wielded
 M 0 33303 1 33308 1	* the octopus (The cave under water)
+G 0 33304 0		*	a pair of worn boots
+S
+
+#OLIMITS
+O 33304 3	* a pair of worn boots
 S
 
 #$

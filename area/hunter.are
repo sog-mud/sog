@@ -1,13 +1,13 @@
 #AREADATA
 Name Hunter~
-VNUMs 570 579
+VNUMs 95700 95709
 Credits Asena~
 Security 9
 LevelRange 90 100
 End
 
 #MOBILES
-#570
+#95700
 keeper guardian hunter~
 the guardian~
 The guardian of Hunter Palace is here, serving his cabal.
@@ -22,7 +22,7 @@ ABWe DFHJVZ 0 0
 CEFKNU AB 0 S
 stand stand male 5000
 0 0 medium unknown
-#571
+#95701
 neutral cleric cabal hunter~
 the cleric~
 The true neutral cleric is healing his brothers.
@@ -38,7 +38,7 @@ ABQVae DFH 1000 0
 FHIK ABC D 0
 stand stand male 1000
 0 0 medium unknown
-#572
+#95702
 keeper guardian hunter~
 the guardian~
 The guardian of Hunter Palace is here, serving his cabal.
@@ -57,15 +57,15 @@ C Hunter~
 #0
 
 #OBJECTS
-#570
+#95700
 platinum golden altar container~
 the golden sign~
 On the altar you see the sign of hunters with platinum carvings.~
 golden~
 container CEORY P
-10 ABCD 572 15 100
+10 ABCD 95702 15 100
 60 1 20 P
-#571
+#95701
 golden tattoo~
 the golden tattoo~
 A small, golden tattoo floats in the air.
@@ -74,7 +74,7 @@ golden~
 treasure CEOT AO
 0 0 0 0 0
 60 1 10000 P
-#572
+#95702
 gray bone~
 a gray bone~
 An ancient animal's bone is left on the floor here.
@@ -86,7 +86,7 @@ key CEORY A
 #0
 
 #ROOMS
-#570
+#95700
 The Well~
 You are standing near a shiny gold well blocked by a big boulder on
 the well mouth. A golden aura fills your body.
@@ -99,9 +99,9 @@ Z 0 9783
 D4
 ~
 enterance~
-ABGZ -1 571
+ABGZ -1 95701
 S
-#571
+#95701
 Bottom of the Well~
 This place is dimly lit by a flickering torch from a doorway leading north.
 The guardians are  keeping the hunters from enemies.
@@ -110,13 +110,13 @@ The guardians are  keeping the hunters from enemies.
 D0
 ~
 ~
-Z -1 572
+Z -1 95702
 D5
 ~
 enterance~
-ABGZ -1 570
+ABGZ -1 95700
 S
-#572
+#95702
 Golden chambers~
 You are inside well lit chamber, with golden plates on the walls. 
 All three corridors connecting this hall, proves how easy hunters can
@@ -126,21 +126,21 @@ find their way.
 D0
 ~
 ~
-Z -1 573
+Z -1 95703
 D1
 ~
 ~
-Z -1 572
+Z -1 95702
 D2
 ~
 ~
-Z -1 571
+Z -1 95701
 D3
 ~
 ~
-Z -1 572
+Z -1 95702
 S
-#573
+#95703
 Main chambers of Hunt~
 The room is lit by many shiny gold pieces surrounding the room. On the
 north wall is a large skin sheet with blood script on it.
@@ -149,28 +149,28 @@ north wall is a large skin sheet with blood script on it.
 D2
 ~
 ~
-Z -1 572
+Z -1 95702
 M 110 H 100
 S
 #0
 
 #SPECIALS
-M 570 spec_cast_seneschal	* the guardian
+M 95700 spec_cast_seneschal	* the guardian
 S
 
 #RESETS
-D 0 570 4 1	* The Well: door to the up: closed
-D 0 571 5 1	* Bottom of the Well: door to the down: closed
-M 0 570 1 571 1	* the guardian (Bottom of the Well)
-M 0 572 1 571 1	* the guardian (Bottom of the Well)
-E 0 572 0 17		*	a gray bone: held in the hands
-M 0 571 1 573 1	* the cleric (Main chambers of Hunt)
-O 0 570 0 573	* the golden sign (Main chambers of Hunt)
-P 0 571 1 570 1	* the golden sign: the golden tattoo
+D 0 95700 4 1	* The Well: door to the up: closed
+D 0 95701 5 1	* Bottom of the Well: door to the down: closed
+M 0 95700 1 95701 1	* the guardian (Bottom of the Well)
+M 0 95702 1 95701 1	* the guardian (Bottom of the Well)
+E 0 95702 0 17		*	a gray bone: held in the hands
+M 0 95701 1 95703 1	* the cleric (Main chambers of Hunt)
+O 0 95700 0 95703	* the golden sign (Main chambers of Hunt)
+P 0 95701 1 95700 1	* the golden sign: the golden tattoo
 S
 
 #PRACTICERS
-M 572 clan~	* the guardian
+M 95702 clan~	* the guardian
 S
 
 #$

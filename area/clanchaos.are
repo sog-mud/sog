@@ -1,13 +1,13 @@
 #AREADATA
 Name Chaos~
-VNUMs 550 559
+VNUMs 95500 95509
 Credits Asena~
 Security 9
 LevelRange 90 100
 End
 
 #MOBILES
-#550
+#95500
 healer adept~
 a Healer~
 An adept and healer of the Lords of Anatolia is here.
@@ -23,7 +23,7 @@ ABQVae DFH 1000 0
 FHIK ABC D 0
 stand stand male 1000
 0 0 medium unknown
-#551
+#95501
 guardian Chaos Ivan~
 Ivan the guardian of Chaos Realms~
 Ivan, the guardian of Chaos Realms, is guarding the enterance.
@@ -42,7 +42,7 @@ C Chaos~
 #0
 
 #OBJECTS
-#550
+#95500
 key black marble~
 a black marble key~
 A black marble key is on the ground.~
@@ -50,15 +50,15 @@ marble~
 key ORY AO
 0 0 0 0 0
 40 4 0 P
-#551
+#95501
 altar~
 the altar~
 There is a huge black altar in the middle of the room.~
 gold~
 container ORY P
-10 ABCD 550 15 100
+10 ABCD 95500 15 100
 60 1 20 P
-#552
+#95502
 item chaos~
 item of chaos~
 The item of chaos is here.~
@@ -66,7 +66,7 @@ gold~
 treasure O AO
 0 0 0 0 0
 60 1 100000 P
-#553
+#95503
 chaos blade~
 a chaos blade~
 A shiny gold dagger is on the ground.~
@@ -77,7 +77,7 @@ dagger 6 6 pierce D
 #0
 
 #ROOMS
-#550
+#95500
 The Enterance~
 Welcome to Paradise of the Chaos Realms. There is neither rule nor law
 here. 
@@ -86,13 +86,13 @@ here.
 D0
 ~
 ~
-Z -1 551
+Z -1 95501
 D3
 ~
 ~
 Z 0 9786
 S
-#551
+#95501
 Inside the Great Hall~
 There is a long hall covered with the embles of the Lords of the Chaos
 Realms. The smooth wooden floors are well polished. 
@@ -101,21 +101,21 @@ Realms. The smooth wooden floors are well polished.
 D0
 ~
 ~
-Z -1 554
+Z -1 95504
 D1
 ~
 ~
-Z -1 552
+Z -1 95502
 D2
 ~
 ~
-Z -1 550
+Z -1 95500
 D3
 ~
 ~
-Z -1 553
+Z -1 95503
 S
-#552
+#95502
 Squire Barracs~
 This room serves as a barracks of the squires of this chaos realms. The
 room is gloomy, wet and in a state of disorder. 
@@ -124,9 +124,9 @@ room is gloomy, wet and in a state of disorder.
 D3
 ~
 ~
-Z -1 551
+Z -1 95501
 S
-#553
+#95503
 Storage Room~
 You see many boxes before you, apparently this is a storage room some
 sort. This is where the lords of chaos realms store all theirspare
@@ -136,9 +136,9 @@ clothing, armor and weapon.
 D1
 ~
 ~
-Z -1 551
+Z -1 95501
 S
-#554
+#95504
 The Altar~
 There is only one rule: the more powerful you are the longer you live.
 ~
@@ -146,24 +146,24 @@ There is only one rule: the more powerful you are the longer you live.
 D2
 ~
 ~
-Z -1 551
+Z -1 95501
 S
 #0
 
 #SPECIALS
-M 551 spec_cast_seneschal	* Ivan the guardian of Chaos Realms
+M 95501 spec_cast_seneschal	* Ivan the guardian of Chaos Realms
 S
 
 #RESETS
-M 0 551 1 550 1	* Ivan the guardian of Chaos Realms (The Enterance)
-E 0 550 0 17		*	a black marble key: held in the hands
-M 0 550 1 554 1	* a Healer (The Altar)
-O 0 551 0 554	* the altar (The Altar)
-P 0 552 1 551 1	* the altar: item of chaos
+M 0 95501 1 95500 1	* Ivan the guardian of Chaos Realms (The Enterance)
+E 0 95500 0 17		*	a black marble key: held in the hands
+M 0 95500 1 95504 1	* a Healer (The Altar)
+O 0 95501 0 95504	* the altar (The Altar)
+P 0 95502 1 95501 1	* the altar: item of chaos
 S
 
 #PRACTICERS
-M 551 clan~	* Ivan the guardian of Chaos Realms
+M 95501 clan~	* Ivan the guardian of Chaos Realms
 S
 
 #$

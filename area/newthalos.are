@@ -5872,7 +5872,7 @@ Z -1 9684
 D2
 ~
 secret door
-~
+~
 Z -1 9688
 S
 #9690
@@ -6083,7 +6083,7 @@ You are in a cold, cramped chamber with only one exit.
 D0
 ~
 cell
-cell~
+cell~
 ABCFZ 9593 9694
 S
 #9704
@@ -6094,7 +6094,7 @@ You are in a cold, cramped chamber with only one exit.
 D0
 ~
 cell
-cell~
+cell~
 ABCFZ 9593 9695
 S
 #9705
@@ -6619,10 +6619,6 @@ continues as far as the eye can see to the east and west. A large
 expanse of grass spreads out to the south.
 ~
 0 S field
-D0
-~
-~
-Z 0 570
 D2
 ~
 ~
@@ -6679,7 +6675,7 @@ Z -1 9787
 D1
 ~
 ~
-Z 0 550
+Z 0 95500
 D3
 ~
 ~

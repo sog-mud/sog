@@ -2,7 +2,7 @@
 Name Quake castle~
 VNUMs 35200 35300
 Credits Phobos~
-Security 1
+Security 3
 LevelRange 70 85
 End
 
@@ -163,7 +163,7 @@ fountain CNY P
 0 0 0 P
 #35260
 chainsaw~
-@eng chainsaw@rus бензопиза~
+@eng chainsaw@rus бензопила~
 @eng A little stained but very good chainsaw@rus Слегка тронутая ржавчиной, но отлично пилящая бензопила~
 unknown~
 weapon CE AN
@@ -177,6 +177,198 @@ steel~
 weapon 0 AN
 exotic 0 0 none 0
 50 100 300 P
+#35262
+redarmor~
+@eng Red armor of soldier@rus Красная броня солдата~
+@eng Red plate is suspended on the air@rus Красные латы висят в воздухе, медленно поворачиваясь ~
+Star dust~
+armor AC AD
+60 60 60 40 0
+0 100 350 P
+A
+6 2
+A
+13 40
+#35263
+RL~
+@eng Rocket launcher with mark "{DTF{x"@rus Ракетница с эмблемой "{DTF{x"~
+@eng Rocket launcher rotates here @rus Ракетница кружитя в воздухе, распространяя запах пороховой гари~
+titanium~
+weapon CT AN
+exotic 4 5 blast 0
+25 70 400 P
+A
+13 76
+A
+18 20
+A
+19 30
+#35264
+QRing~
+@eng Ring of the Shadows magic@rus Магическое Кольцо Теней~
+@eng A little ring twinkling here spreads fluids of the Shadows magic@rus [Маленькое кольцо блестит тут, распространяя флюиды магии Теней~
+gold~
+treasure ACGI AB
+0 0 0 0 0
+25 20 250 P
+#35265
+Helm~
+@eng The Mighty Helm of Shadow Master@rus The Mighty Helm of Shadow Master~
+@eng The Mighty Helm of Shadow Master hang in the air@rus The Mighty Helm of Shadow Master hang in the air~
+Fog~
+armor ABGI AE
+-90 -90 -90 -90 0
+0 0 0 P
+A
+4 6
+A
+3 6
+A
+13 100
+#35266
+Armor~
+@eng The Mighty Armor of Shadow Master@rus The Mighty Armor of Shadow Master~
+@eng The Mighty Armor of Shadow Master hang in the air@rus The Mighty Armor of Shadow Master hang in the air~
+Fog~
+armor ABGI AD
+-200 -200 -200 -200 0
+0 0 0 P
+A
+18 30
+A
+2 2
+A
+5 6
+#35267
+Orbit~
+@eng The Mighty Orbit of Shadow Master@rus The Mighty Orbit of Shadow Master~
+@eng The Mighty Orbit of Shadow Master hang in the air@rus The Mighty Orbit of Shadow Master hang in the air~
+Fog~
+armor ABGI AQ
+-180 -180 -180 -180 0
+0 0 0 P
+A
+19 30
+A
+18 30
+#35268
+BackPack~
+@eng The Mighty BackPack of Shadow Master@rus The Mighty BackPack of Shadow Master~
+@eng The Mighty BackPack of Shadow Master hang in the air@rus The Mighty BackPack of Shadow Master hang in the air~
+Fog~
+container ABGIR A
+10000 A 0 1000000 10
+0 0 0 P
+#35269
+Ring~
+@eng The Mighty Ring of Shadow Master@rus The Mighty Ring of Shadow Master~
+@eng The Mighty Ring of Shadow Master hang in the air@rus The Mighty Ring of Shadow Master hang in the air~
+Fog~
+weapon ABGI AB
+exotic 50 60 magic I
+0 0 0 P
+A
+13 100
+A
+2 6
+A
+1 6
+A
+18 10
+A
+19 10
+A
+17 -60
+#35270
+Dagger~
+@eng The Mighty Dagger of Shadows@rus Мощнейший Dagger Теней~
+@eng The Mighty Dagger of Shadows@rus Мощнейший Dagger Теней~
+Кристаллический~
+weapon BGHIORa AN
+dagger 20 30 magic H
+37 0 1000 P
+A
+12 200
+A
+5 5
+A
+14 120
+A
+17 -10
+A
+9 10
+A
+13 200
+A
+18 10
+A
+19 10
+#35271
+sword~
+@eng The Mighty Sword of Shadow Master@rus The Mighty Sword of Shadow Master~
+@eng The Mighty Sword of Shadow Master hang in the air@rus The Mighty Sword of Shadow Master hang in the air~
+Steel~
+weapon ABGI AN
+sword 1000 2000 magic H
+0 0 0 P
+A
+18 10000
+A
+19 10000
+#35272
+Armor~
+@eng The Mighty Armor of Shadow Master@rus The Mighty Armor of Shadow Master~
+@eng The Mighty Armor of Shadow Master hang in the air@rus The Mighty Armor of Shadow Master hang in the air~
+Steel~
+armor ABGI AD
+-100 -100 -100 -100 0
+0 0 0 P
+#35273
+ball~
+@eng The Mighty Ball of Shadow Master@rus The Mighty Ball of Shadow Master~
+@eng The Mighty Ball of Shadow Master hang in the air@rus The Mighty Ball of Shadow Master hang in the air~
+Steel~
+light ABGI AB
+0 0 0 0 0
+0 0 0 P
+A
+9 4000
+#35274
+BackPack~
+@eng The Mighty BackPack of Shadow Master@rus The Mighty BackPack of Shadow Master~
+@eng The Mighty BackPack of Shadow Master hang in the air@rus The Mighty BackPack of Shadow Master hang in the air~
+Steel~
+container ABGI A
+2147483647 A 0 0 0
+0 0 0 P
+#35275
+ring~
+@eng The Mighty Ring of Shadow Master@rus The Mighty Ring of Shadow Master~
+@eng The Mighty Ring of Shadow Master hang in the air@rus The Mighty Ring of Shadow Master hang in the air~
+Steel~
+trash ABGI AB
+0 0 0 0 0
+0 0 0 P
+A
+17 -100000
+A
+14 100000
+A
+13 100000
+A
+12 100000
+A
+6 15
+A
+5 15
+A
+2 15
+A
+4 15
+A
+3 15
+A
+1 15
 #0
 
 #ROOMS
@@ -216,7 +408,7 @@ S
 @rus Громадная пустошь под фиолетовым небом. Никого.. только ты и свист ветра.
 Под ногами не трава -- ты понимаешь, что на этой земле ни хрена расти не может.
 ~
-0 N desert
+0 AN desert
 D0
 ~
 ~

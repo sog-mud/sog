@@ -901,7 +901,7 @@ Lionel is covered in blood, and is walking as if stunned. It looks like he
 is going to fall.
 ~
 human~
-AX 0 300 0
+A 0 300 0
 30 0 6d12+853 5d5+1000 4d6+8 pound
 -9 -9 -9 3
 EFNU 0 0 0

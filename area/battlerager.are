@@ -1,13 +1,13 @@
 #AREADATA
 Name Battlerager~
-VNUMs 540 549
+VNUMs 95400 95409
 Credits Chronos~
 Security 9
 LevelRange 90 100
 End
 
 #MOBILES
-#540
+#95400
 Powerman~
 the Powerman~
 The Powerman of martial arts is here.
@@ -25,7 +25,7 @@ ACEFIK AB D 0
 stand stand male 0
 0 0 giant unknown
 C BattleRager~
-#541
+#95401
 Gordall~
 Gordall~
 Gordall the weaponsmith is here to sell his fine works.
@@ -40,7 +40,7 @@ ABTVe DFHVe 800 0
 CDEFIJKN AB D P
 stand stand male 0
 0 0 medium unknown
-#542
+#95402
 wiseman~
 A Wiseman~
 A wiseman is here taking care of the young battleragers.
@@ -59,7 +59,7 @@ stand stand male 5000
 #0
 
 #OBJECTS
-#540
+#95400
 key~
 a bone key~
 A key, made of bone, is lying on the ground.~
@@ -67,7 +67,7 @@ bone~
 key ORY AO
 0 0 0 0 0
 40 4 0 P
-#541
+#95401
 skull~
 @eng Skull of mage@rus þลาละ อมวม~
 An old glowing small skull is sitting on the ground.~
@@ -75,15 +75,15 @@ bone~
 treasure O AO
 0 0 0 0 0
 60 1 100000 P
-#542
+#95402
 white throne~
 A white throne~
 A large white throne made from bones is standing in front of the wall here.~
 bone~
 container ORY P
-10 ABCD 540 15 100
+10 ABCD 95400 15 100
 60 1 20 P
-#543
+#95403
 pit~
 the pit for donations~
 A pit for sacrifices is in front of the altar.~
@@ -95,7 +95,7 @@ E
 pit~
 This pit is for battleragers, in order to donate themselves.
 ~
-#544
+#95404
 water fall waterfall~
 Waterfall~
 You see a beautiful waterfall here.
@@ -104,7 +104,7 @@ water~
 portal AO 0
 0 0 B 5281 0
 0 0 0 P
-#545
+#95405
 dagger fine gordall~
 a fine dagger~
 A fine dagger lies upon the ground.~
@@ -112,7 +112,7 @@ adamantite~
 weapon 0 AN
 dagger 4 7 pierce DE
 32 450 5600 P
-#546
+#95406
 sword fine gordall~
 a fine sword~
 A fine sword lies upon the ground.~
@@ -120,7 +120,7 @@ adamantite~
 weapon 0 AN
 sword 5 6 slash DE
 33 450 5600 P
-#547
+#95407
 axe fine gordall~
 a fine two-handed axe~
 A fine two-handed axe lies upon the ground.~
@@ -131,7 +131,7 @@ axe 6 6 cleave DF
 #0
 
 #ROOMS
-#540
+#95400
 In the caven~
 Beyond the water fall, you are in the caven. Things getting darker. You
 seek for the light but you couldn't find. But the light coming from the
@@ -141,9 +141,9 @@ water fall still can light the enterance of the caven.
 D3
 ~
 ~
-Z -1 541
+Z -1 95401
 S
-#541
+#95401
 The entrance to the Caven of Battlerager~
 You see some sort of light coming thru the west, making the inside of
 the caven more noticable. You see lots of weapon and blood tracks on the
@@ -154,13 +154,13 @@ looking over you before you moving on.
 D1
 ~
 ~
-Z -1 540
+Z -1 95400
 D3
 ~
 ~
-Z -1 542
+Z -1 95402
 S
-#542
+#95402
 Inside the Caven~
 In spite of the low level light, you notice that the caven continues to
 the west. You see lots of bones again on the ground. You observe that
@@ -170,14 +170,14 @@ there seems no way from the west of the caven.
 D1
 ~
 ~
-Z -1 541
+Z -1 95401
 D3
 w
 ~
 ~
-Z -1 543
+Z -1 95403
 S
-#543
+#95403
 Deep in the caven~
 You see that there are two openings more in the caven, one to the north
 and one to the south. To the north you see a large white throne. To the
@@ -188,17 +188,17 @@ the south is something like a donation room.
 D0
 ~
 ~
-Z -1 545
+Z -1 95405
 D1
 ~
 ~
-Z -1 542
+Z -1 95402
 D2
 ~
 ~
-Z -1 544
+Z -1 95404
 S
-#544
+#95404
 The donation room~
 You find lots of weapons and clothings on the floor. You noticed the
 writing on the floor.
@@ -211,9 +211,9 @@ magicians.
 D0
 ~
 ~
-Z -1 543
+Z -1 95403
 S
-#545
+#95405
 Battle Square~
 You see lots of bones on the floor. You think that you are very near to
 the place where martial arts are practiced. There are four openings in
@@ -225,21 +225,21 @@ Gordall's weapon house, to the very south you see the donation room.
 D0
 ~
 ~
-Z -1 548
+Z -1 95408
 D1
 ~
 ~
-Z -1 546
+Z -1 95406
 D2
 ~
 ~
-Z -1 543
+Z -1 95403
 D3
 ~
 ~
-Z -1 547
+Z -1 95407
 S
-#546
+#95406
 Battle House~
 You are in the battle house. You see lots of bones and broken weapons on
 the floor. You read the following on the wall:
@@ -250,9 +250,9 @@ the floor. You read the following on the wall:
 D3
 ~
 ~
-Z -1 545
+Z -1 95405
 S
-#547
+#95407
 Gordall's Weapon House~
 You see the metals hung up on the wall, shining brilliantly. Most
 probably they are the materials that Gordall use to produce his weapons.
@@ -263,9 +263,9 @@ daggers, swords and axes.
 D1
 ~
 ~
-Z -1 545
+Z -1 95405
 S
-#548
+#95408
 The Shrine of Battleragers~
 You are in front of a large white throne made from bones. There are
 shelves line the walls, upon them there are many jars inside of which are
@@ -292,30 +292,30 @@ tablet~
 D2
 ~
 ~
-Z -1 545
+Z -1 95405
 S
 #0
 
 #RESETS
-O 0 544 0 540	* Waterfall (In the caven)
-M 0 540 1 541 1	* the Powerman (The entrance to the Caven of Battlerager)
-E 0 540 0 17		*	a bone key: held in the hands
-O 0 543 0 544	* the pit for donations (The donation room)
-M 0 541 1 547 1	* Gordall (Gordall's Weapon House)
-G 0 545 0		*	a fine dagger
-G 0 546 0		*	a fine sword
-G 0 547 0		*	a fine two-handed axe
-M 0 542 1 548 1	* A Wiseman (The Shrine of Battleragers)
-O 0 542 0 548	* A white throne (The Shrine of Battleragers)
-P 0 541 1 542 1	* A white throne: Skull of mage
+O 0 95404 0 95400	* Waterfall (In the caven)
+M 0 95400 1 95401 1	* the Powerman (The entrance to the Caven of Battlerager)
+E 0 95400 0 17		*	a bone key: held in the hands
+O 0 95403 0 95404	* the pit for donations (The donation room)
+M 0 95401 1 95407 1	* Gordall (Gordall's Weapon House)
+G 0 95405 0		*	a fine dagger
+G 0 95406 0		*	a fine sword
+G 0 95407 0		*	a fine two-handed axe
+M 0 95402 1 95408 1	* A Wiseman (The Shrine of Battleragers)
+O 0 95402 0 95408	* A white throne (The Shrine of Battleragers)
+P 0 95401 1 95402 1	* A white throne: Skull of mage
 S
 
 #SHOPS
-541 1 5 9 11 0 150 70 0 23
+95401 1 5 9 11 0 150 70 0 23
 0
 
 #PRACTICERS
-M 540 clan~	* the Powerman
+M 95400 clan~	* the Powerman
 S
 
 #HELPS

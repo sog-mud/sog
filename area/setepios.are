@@ -168,11 +168,11 @@ armor CG AL
 0 0 0 0 0
 92 1 1 P
 #38009
-visitka визитка~
+vis card висит~
 @eng card of Setepios@rus Карточка Setepiosa~
 @eng Setepos Card@rus Визитная карточка Setepiosa~
 unknown~
-trash R A
+trash NR A
 0 0 0 0 0
 0 1 1 P
 #38010
@@ -200,13 +200,13 @@ A
 A
 18 7
 #38012
-hera boot~
-Heras boots~
-Heras boots are here.~
+eye diamond unicorn~
+Diamond eye of Unicorn~
+Diamond eye of unicorn lies here.~
 unknown~
-armor RT AG
+treasure RT A
 0 0 0 0 0
-110 10 10 P
+110 10 100 P
 #38013
 weapon~
 Third Power~
@@ -239,7 +239,7 @@ A 0 FI DFGHIJ DFGHIJ
 10 1 1 P
 #38015
 tattoo~
-@eng {rHeras Angel Tattoo{x@rus {rТатуровка Ангела Геры{x~
+@eng {rHeras Angel Tattoo{x@rus {rТатуировка Ангела Геры{x~
 tattoo~
 unknown~
 armor CHIM AR
@@ -341,7 +341,7 @@ S
 смертных {YДам{w и {MБогинь{w. Пол покрыт дубовым паркетом, потолок 
 зеркальный.
 ~
-0 K inside
+0 L inside
 D0
 ~
 ~

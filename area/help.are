@@ -220,24 +220,23 @@ Use these commands to walk in a particular direction.
 NAME POLICY:
 In order to create a role-playing and adventure atmosphere throughout the
 realms of Muddy, you must choose a name accordingly explained below:
-
+ 
 ACCEPTABLE:
 1)  Proper names, medieval or modern. i.e  (Takasi, Mitra)
 2)  Created names with a medieval or fictional sound.  (Priatros, Sansoles)
-3)  Compound names which adhere to rules 2 and 3 above, and which do
-     not violate the guidelines that follow.     (Redfang, Whitelord)
-
-UNACCEPTABLE:
+ 
+UNACCEPTABLE:                                                        
 1)  Vulgar or sexually suggestive names.  (No examples needed)
-2)  Well known names from literature or mythology.  (Chronos, Zeus)
-3)  Nouns which are names of animals.  (Horse, Doll)
-4)  Strings of random characters.  (Asdfg, Qwdldkf)
-5)  Titles which imply rank or privelege.   (Lord, Sir,...)
-6)  Scientific phrases, words. (Proof, Logic, Electrics...)
-6)  Object names. (Necklace,Staff,Sword, etc)
-
-If your name fits above restrictions, type Y. Otherwise choose another name. 
-Last decision depends upon Immortals of Realms of Muddy. Do you accept? ~
+2)  Nouns which are names of animals.  (Horse, Doll)          
+3)  Strings of random characters.  (Asdfg, Qwdldkf)                
+4)  Titles which imply rank or privelege.   (Lord, Sir,...)
+5)  Scientific phrases, words. (Proof, Logic, Electrics...)
+6)  Object names. (Necklace, Staff, Sword etc)              
+7)  Compound names. (FarmerJoe, Maryjane etc.)
+ 
+If your name fits above restrictions, type Y. Otherwise choose another name.
+Last decision depends upon Immortals of Realms of Muddy. Do you accept?
+~
 0 CAST~
 Syntax: cast <spell> <target>
 
@@ -507,34 +506,36 @@ WEATHER shows the current game weather.
 ~
 -1 WHO~
 Syntax: who
-Syntax: who <race>
+Syntax: who clan
 Syntax: who pk
+Syntax: who immortals
+Syntax: who tattoo
 Syntax: who <clan name>
-Syntax: who <race> <clan name> pk
-
-WHO shows the people currently in the game.  Some people may choose to
-remain unseen and won't appear on the WHO
+Syntax: who <race name>
+Syntax: who <class name> (IMM ONLY)
+Syntax: who min_level [max_level] (IMM ONLY)
  
-WHO without any arguments shows all of the (visible) people currently playing.
-WHO command will show those players that you can see. When the player is 
-invisible for you, WHO command will not show that player.
-
-With arguments, WHO can show players of certain classes or levels. 
-For example:
+WHO command shows the players currently in game. When the player
+is invisible for you, WHO command will not show that player.
+With {cno arguments{x given WHO command shows all the players you can see.
+'{cwho clan{x' shows only clan players.
+'{cwho pk{x' shows players in your PK range.
+'{cwho immortals{x' shows all immortal players.
+'{cwho tattoo{x' shows players of your religion.
+By specifying clan, race, class (IMM ONLY) names or levels (IMM ONLY)
+you can restrict list of players by specified clan, race, class or levels.
  
-who immortal    lists all immortals playing
-who pk          lists all characters in your PK range
-who elf         lists all elven clerics
-who entropy pk  lists all characters in entropy clan, (if you are a member) 
-                which are in your PK range
-
-Races may be abbreviated.
+WHO arguments can be combined.
+ 
+See also: WHOIS.
+ 
 ~
 -1 WHOIS~
-Syntax: whois <name>
+Syntax: whois name
 
-The whois command identifies any user who matches the name given. For
+WHOIS command identifies any user who matches the name given. For
 example, 'whois a' shows all characters whose name begins with A.
+ 
 ~
 0 WHERE~
 Syntax: where
@@ -1109,7 +1110,7 @@ natural level.
 
 A trust of 0 means to use the character's natural level again.
 ~
-98 ALLOW BAN PERMBAN~
+92 ALLOW BAN PERMBAN~
 Syntax: allow   <site>
         ban     <site> <newbies|all|permit>
         ban
@@ -3370,16 +3371,6 @@ dice-bonus on weapon dice.
        30:     5d7
        50:     5d11
 ~
-0 ITEM_CONTAINER~
-.   value 0    weight capacity
-   value 1    flags: closeable, pickproof, closed, locked            
-   value 2    key vnum
-   value 3    unused
-   value 4    unused
-
-An up-to-date list of flags can be obtained by typing
-? CONTAINTER
-~
 0 ITEM_DRINK~
 .   value0    capacity
    value 1    current quantity
@@ -3965,6 +3956,15 @@ The following help files have already been installed:
     Shalafi, Battleragers É Invader.
  
 See also: PHILOSOPHY
+~
+0 'WIZ GRANT'~
+Syntax: grant victim [command...]
+Syntax: grant victim level
+ 
+Grant command will grant wizard commands with specified names or
+all wizard commands of specified level to victim.
+Given no parameters this command will show current victim's grant list.
+ 
 ~
 -1 $~
 

@@ -125,13 +125,13 @@ stand stand male 0
 0 0 medium unknown
 #18
 undead~
-an undead~
-An undead body is here.
+the undead body of %s~
+The undead body of %s slowly staggers around.
 ~
 You see nothing special about it.
 ~
 undead~
-A 0 0 0
+AO S 0 0
 0 1 1d1+1 1d1+1 3d10+12 punch
 0 0 0 0
 N 0 0 0
@@ -233,7 +233,7 @@ A honoured looking lion is here.
 You see nothing special about it.
 ~
 lion~
-A 0 0 0
+AL 0 0 0
 0 1 1d1+1 1d1+1 3d10+12 claw
 0 0 0 0
 N 0 0 0
@@ -749,7 +749,7 @@ buckler ruler shield~
 Rulers' Buckler~
 A buckler of a Ruler is on the ground.~
 steel~
-armor GIKRYZ AJ
+armor GIRYZ AJ
 8 8 8 3 0
 0 200 10000 P
 #72
@@ -757,7 +757,7 @@ great ruler shield~
 Rulers' Great Shield~
 There is a Great Ruler Shield on the ground.~
 steel~
-armor GIKRYZ AJ
+armor GIRYZ AJ
 20 20 20 10 0
 0 300 15000 P
 #73
@@ -765,7 +765,7 @@ kite ruler shield~
 Rulers' Kite Shield~
 You see a large Kite Shield of Ruler on the ground.~
 steel~
-armor GIKRYZ AJ
+armor GIRYZ AJ
 20 20 20 10 0
 0 310 20000 P
 A
@@ -779,7 +779,7 @@ tower ruler shield~
 Rulers' Tower Shield~
 A very big shield with a symbol of Ruler covers the ground.~
 steel~
-armor GIKRYZ AJ
+armor GIRYZ AJ
 30 30 30 20 0
 0 240 20000 P
 #80

@@ -1091,7 +1091,7 @@ so dashing in them...
 #40118
 lieutenant sword~
 City Guard Lieutenant Sword~
-s Modifier Affects Bitvector      ~
+City Guard Lieutenant Sword is lying here.~
 steel~
 weapon G AN
 sword 4 8 slice 0
@@ -1532,7 +1532,7 @@ You see a short sword lying neglected in the dirt.~
 steel~
 weapon N AN
 sword 8 4 bite 0
-6 50 130 P
+20 50 130 P
 #40162
 long sword longsword~
 a longsword~
@@ -3930,7 +3930,6 @@ S
 
 #OLIMITS
 O 40118 5	* City Guard Lieutenant Sword
-O 40161 3	* a short sword
 S
 
 #$

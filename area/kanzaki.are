@@ -2,8 +2,9 @@
 Name Rising Sun Land~
 VNUMs 47000 47999
 Credits Lothar~
-Security 1
+Security 9
 LevelRange 20 50
+Flags under_construction noquest~
 End
 
 #MOBILES
@@ -244,7 +245,7 @@ flamberge blaze sword~
 {YFlamberge Blaze{x~
 A huge wavy blade lies here, enshrouded in flames.~
 adamantite~
-weapon BHKLP AN
+weapon AHKLP AN
 sword 12 10 flame ADF
 91 500 10000 P
 A

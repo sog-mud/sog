@@ -9,16 +9,14 @@ End
 
 #MOBILES
 #33100
-elven maiden~
-@eng elven maiden@rus elven maiden@rusoff Beautiful elven maid rests here in very challenging poses.~
-@eng elven maiden
-@rus elven maiden
-@rusoff Beautiful elven maid rests here in very challenging poses.
+chaos disintegrator~
+disintegrator~
+Маленький язычок пламени колышется вдали.
 ~
 ~
 elf~
-A 0 1000 0
-100 1000 1d1+5000 1d1+1 1d1+10000 kiss
+AF 0 1000 0
+1 1000 1d1+5000 1d1+1 1d10000+100 kiss
 0 0 0 0
 0 0 0 0
 sleep sleep female 0
@@ -162,10 +160,10 @@ Strange man here, wants to cut you in half!
 ~
 human~
 A 0 0 0
-0 -100 1d1+1 0d0+0 0d0+0 none
+85 -100 1d1+10000 0d0+0 0d0+0 none
 0 0 0 0
 0 D 0 0
-stand stand none 0
+stand stand none 1000
 0 0 medium unknown
 F for AHMV
 F par ABCDEFGHIJK
@@ -262,7 +260,7 @@ pill~
 poisoned pill~
 hope~
 pill 0 A
-100 'sanctuary' 'haste' 'frenzy' 'transform'
+100 'sanctuary' 'haste' 'frenzy' 'disintegrate'
 40 0 1 P
 #33110
 spirt fountain~
@@ -304,6 +302,57 @@ chaos~
 treasure CEMYZ AO
 0 0 0 0 0
 2 0 0 P
+#33120
+ring chaos~
+a chaos ring~
+@eng A shiny ring is on the ground.@rus Что-то переливащееся всеми оттенками окружающего мира лежит здесь.~
+chaos~
+treasure AIPTW AB
+0 0 0 0 0
+21 1 0 P
+A
+23 -2
+A
+21 -2
+A
+22 -2
+A
+20 -2
+A
+24 -2
+A
+12 300
+C Chaos~
+#33121
+chaos bracelet bracer~
+a chaos bracelet~
+@eng A shiny bracer is on the ground.@rus Что-то переливащееся всеми оттенками окружающего мира лежит здесь.~
+chaos~
+armor AIPTW AM
+13 13 13 13 0
+26 1 0 P
+F
+R 13 300 C
+C Chaos~
+#33122
+chaos cloak~
+a cloak of hallucinations~
+@eng An invisible cloak is on the ground.@rus Невидимая мантия Хаося прикрывает как ширма его секреты.~
+chaos~
+weapon FGHIMOPTWZ AK
+exotic 8 6 kiss E
+31 0 0 P
+A
+18 45
+F
+A 6 1 B
+F
+A 6 1 Q
+A
+19 40
+A
+14 500
+C Chaos~
 #33169
 slot empty~
 ~
@@ -889,7 +938,7 @@ D5
 ~
 ~
 Z 0 3054
-M 10000 H 300
+M 300 H 300
 O root~
 S
 #33140
@@ -1080,6 +1129,11 @@ Z 0 33157
 S
 #33150
 @eng Chaos Highway@rus Проспект Хаоса~
+@rus Оглянувшись, Ты находишь себя на здоровенном проспекте.
+Кругом оживленно двигаются разнообразные существа,
+про существование многих из которых ты раньше и не подозревал.
+Эта часть города освещается магическими огоньками, к которым не следует
+относится слишкои пренебрежительно {R(А то они обидятся){x.
 ~
 0 0 inside
 D1
@@ -1645,6 +1699,15 @@ M 0 33104 1 33101 1	* {rChaos Demon{x (Entrance to the ruined city of chaos.)
 M 0 33200 1 33131 1	* Bell (Home , Sweet Home)
 M 0 33201 1 33131 1	* Diam (Home , Sweet Home)
 O 0 33110 0 33131	* The meaning of life (Home , Sweet Home)
+O 0 33120 0 33131	* a chaos ring (Home , Sweet Home)
+O 0 33120 0 33131	* a chaos ring (Home , Sweet Home)
+O 0 33121 0 33131	* a chaos bracelet (Home , Sweet Home)
+O 0 33121 0 33131	* a chaos bracelet (Home , Sweet Home)
+O 0 33120 0 33131	* a chaos ring (Home , Sweet Home)
+O 0 33121 0 33131	* a chaos bracelet (Home , Sweet Home)
+O 0 33122 0 33131	* a cloak of hallucinations (Home , Sweet Home)
+O 0 33122 0 33131	* a cloak of hallucinations (Home , Sweet Home)
+O 0 33122 0 33131	* a cloak of hallucinations (Home , Sweet Home)
 M 0 33103 1 33160 1	* professor Preobrazhenskii ()
 M 0 33105 1 33183 1	* Elder Warlock of Chaos (Science Magic)
 S
@@ -1675,7 +1738,7 @@ wave $n
 mob transfer $n 33100
 ~
 #33102
-if clan $n Entropy
+if clan $n Chaos
 say Welcome Home !
 wave $n
 mob transfer $n 33100
