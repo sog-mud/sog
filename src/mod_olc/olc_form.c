@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_form.c,v 1.9 1999-02-17 07:53:29 fjoe Exp $
+ * $Id: olc_form.c,v 1.10 1999-02-17 09:38:16 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -156,7 +156,6 @@ OLC_FUN(formed_edit)
 	else if (ch->desc->editor == ED_GENDER ||
 		 ch->desc->editor == ED_CASE ||
 		 ch->desc->editor == ED_QTY)
-		EDIT_LANG(ch, l);
 		EDIT_LANG(ch, l);
 
 	if (l == NULL) {
