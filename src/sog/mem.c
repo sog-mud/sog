@@ -1,5 +1,5 @@
 /*
- * $Id: mem.c,v 1.24 1998-12-22 17:59:53 fjoe Exp $
+ * $Id: mem.c,v 1.25 1999-02-25 14:59:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -197,7 +197,7 @@ OBJ_INDEX_DATA *new_obj_index(void)
 
         pObj = calloc(1, sizeof(*pObj));
 
-	pObj->name		= str_dup("no name");
+	pObj->name		= str_dup(str_empty);
 	pObj->item_type		= ITEM_TRASH;
 	pObj->material		= str_dup("unknown");
 	pObj->condition		= 100;
@@ -235,7 +235,7 @@ MOB_INDEX_DATA *new_mob_index(void)
 	MOB_INDEX_DATA *pMob;
 
         pMob = calloc(1, sizeof(*pMob));
-	pMob->name		= str_dup("no name");
+	pMob->name		= str_dup(str_empty);
 	pMob->act		= ACT_NPC;
 	pMob->race		= rn_lookup("human");
 	pMob->material		= str_dup("unknown");
