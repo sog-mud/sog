@@ -254,6 +254,10 @@ A
 F A 18 10000 u
 F I 19 10000 CD
 G none
+R race
+order allow_deny
+allow lich~
+end
 #15010
 scythe~
 @eng {DScythe{x@rus {DКоса{x~

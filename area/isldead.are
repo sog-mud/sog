@@ -85,12 +85,45 @@ A stench of corruption and decay surrounds this sorceror, who has
 clearly risen from the grave to continue his foul plots and schemes .
 ~
 unique~
-ABFGORh DFTUcu 0 0
+ABFGORTh DFTUcu 0 0
 47 35 100d40+3000 100d5+1000 10d7+30 'blast'
 -30 -30 -30 -30
 AFGK BLMQ I HNS
 stand stand none 20000
 BIZc ABCDEFGHU large unknown
+#22305
+guard chu-gun iron statue~
+Chu-gun the Guard of Pa-Ra-Voz~
+A huge iron statue moves toward you.
+~
+A lot of years ago he was a mightly fighter. After his death necromacers had put his soul in
+this golem and had ordered him to guard his master mummy.
+~
+golem~
+ABFT DFVcm 0 0
+45 40 100d50+5000 0d0+0 10d6+60 'thwack'
+-50 -50 -50 -50
+EFK 0 HIK 0
+stand stand none 10000
+0 0 huge unknown
+F vul C
+#22306
+ringwraith adunaphel~
+Adunaphel the Quiet~
+A tall black cloaked Ringwraith.
+~
+A sorceress in life, Adunaphel quickly fell under Sauron's sway and 
+the power of the rings. Now she is set here, guarding the mysteries
+of the dungeon.  Cold radiating from him freezes your breath in the 
+air.
+~
+lich~
+ABFORTe DFNOTm -1000 0
+47 50 100d5+3000 100d2+1000 20d5+50 'drain'
+0 0 0 0
+0 0 0 S
+stand stand female 20000
+0 0 large unknown
 #22399
 as~
 as~
@@ -275,6 +308,139 @@ iron~
 key Uf AO
 0 0 0 0 0
 0 10 10000 P
+G none
+#22312
+bonsai tree pot~
+a Bonsai tree~
+A tiny tree in a tiny pot sits here.~
+clay~
+furniture GSY AO
+A CFG EH CFG CFG
+45 4 30000 P
+S 'perception' 50 0
+A
+4 2
+A
+3 2
+A
+2 2
+G none
+#22313
+black gown death essence~
+a black gown of Death~
+An essence of darkness floats above ground.~
+energy~
+armor BCHMZ AD
+-10 -10 -10 -10 0
+0 0 666 P
+A
+5 -5
+A
+14 -100
+A
+20 -10
+A
+17 -10
+A
+19 -10
+G none
+#22314
+ring demons~
+a ring of demons~
+A black engraved ring has been dropped here.~
+iron~
+armor CEHJMT AB
+7 6 6 15 0
+0 1 6666 P
+A
+19 2
+A
+18 1
+A
+20 -10
+A
+4 -2
+A
+3 -2
+A
+5 -2
+G none
+#22315
+mummy tomb~
+the tomb~
+A withered mummy lies inside a large carved tomb.~
+flesh~
+container RT P
+1000 0 0 100 0
+0 1000 0 P
+G none
+#22316
+ankh wheel~
+the Wheel of Pa-Ra-Voz~
+The huge rusted wheel lies here.~
+iron~
+armor BRTY AC
+15 15 15 15 0
+45 30 50000 P
+A
+23 -10
+A
+18 -4
+A
+19 4
+A
+17 -30
+G none
+#22317
+ankh death~
+the Ankh of Death~
+A small rusted ankh lies here discarded~
+iron~
+treasure CEHM AC
+0 0 0 0 0
+45 1 6666 P
+A
+18 2
+A
+19 2
+A
+14 -66
+A
+17 -17
+A
+5 -2
+G none
+#22318
+pa-ra-voz axel~
+the Axel of Pa-Ra-Voz~
+A huge glowing iron staff lies here.~
+iron~
+weapon ABR AN
+staff 10 5 'flbite' 0
+0 50 50000 P
+A
+18 3
+A
+19 8
+A
+17 -10
+G none
+#22319
+staff death~
+the staff of Death~
+A blackened staff lies in the pool of acid melting the floor around it.~
+energy~
+weapon CEHJMTZ AN
+exotic 5 7 'drain' CH
+45 0 6666 P
+A
+18 3
+A
+17 10
+A
+13 -50
+A
+19 4
 G none
 #22399
 battleaxe dagger sword~
@@ -1326,36 +1492,39 @@ D 0 22356 4 2	* The entrance to the Hall of Ringwraiths: door to the up: closed 
 M 0 22300 1 22302 1	* the Manticore (The Entrance to the Dungeon)
 E 0 22300 0 17		*	key of the crypts: held in the hands
 M 0 22303 12 22303 1	* the Shade (A Crypt)
-G 0 22308 0		*	a bracer of defence
 E 0 22309 0 13		*	a black belt of the 5 flowers: around the waist
 E 0 22310 0 3		*	a midnight cloak: around the neck (1)
 E 0 22311 0 17		*	the key of ringwraiths: held in the hands
+E 0 22308 0 15		*	a bracer of defence: on the right wrist
 M 0 22303 12 22304 1	* the Shade (A Crypt)
-G 0 22308 0		*	a bracer of defence
 E 0 22309 0 13		*	a black belt of the 5 flowers: around the waist
 E 0 22310 0 3		*	a midnight cloak: around the neck (1)
 E 0 22311 0 17		*	the key of ringwraiths: held in the hands
+E 0 22308 0 15		*	a bracer of defence: on the right wrist
 M 0 22303 12 22305 1	* the Shade (A Crypt)
-G 0 22308 0		*	a bracer of defence
 E 0 22309 0 13		*	a black belt of the 5 flowers: around the waist
 E 0 22310 0 3		*	a midnight cloak: around the neck (1)
 E 0 22311 0 17		*	the key of ringwraiths: held in the hands
+E 0 22308 0 15		*	a bracer of defence: on the right wrist
 M 0 22304 1 22306 1	* Faegwath the Undead Sorceror (The Hall of Crypts)
+E 0 22313 0 5		*	a black gown of Death: on the body
+E 0 22314 0 2		*	a ring of demons: on the right finger
+E 0 22319 0 16		*	the staff of Death: wielded
 M 0 22303 12 22307 1	* the Shade (A Crypt)
-G 0 22308 0		*	a bracer of defence
 E 0 22309 0 13		*	a black belt of the 5 flowers: around the waist
 E 0 22310 0 3		*	a midnight cloak: around the neck (1)
 E 0 22311 0 17		*	the key of ringwraiths: held in the hands
+E 0 22308 0 15		*	a bracer of defence: on the right wrist
 M 0 22303 12 22308 1	* the Shade (A Crypt)
-G 0 22308 0		*	a bracer of defence
 E 0 22309 0 13		*	a black belt of the 5 flowers: around the waist
 E 0 22310 0 3		*	a midnight cloak: around the neck (1)
 E 0 22311 0 17		*	the key of ringwraiths: held in the hands
+E 0 22308 0 15		*	a bracer of defence: on the right wrist
 M 0 22303 12 22309 1	* the Shade (A Crypt)
-G 0 22308 0		*	a bracer of defence
 E 0 22309 0 13		*	a black belt of the 5 flowers: around the waist
 E 0 22310 0 3		*	a midnight cloak: around the neck (1)
 E 0 22311 0 17		*	the key of ringwraiths: held in the hands
+E 0 22308 0 15		*	a bracer of defence: on the right wrist
 M 0 22302 1 22310 1	* Cantoras the Skeletal Lord (A Crypt)
 E 0 22301 0 16		*	the Bushido blade: wielded
 E 0 22302 0 6		*	the Kabuto: over the head
@@ -1364,6 +1533,7 @@ E 0 22303 0 5		*	the Hi-Kane-Do battle gown: on the body
 E 0 22305 0 10		*	the Hi-Kane-Do battle sleeves: on the arms
 E 0 22306 0 9		*	the Hi-Kane-Do battle gloves: on the hands
 E 0 22307 0 8		*	the Hi-Kane-Do battle boots: on the feet
+E 0 22312 0 17		*	a Bonsai tree: held in the hands
 M 0 22301 12 22311 2	* Green Glutton Ghost (The End of Passage)
 M 0 22301 12 22312 2	* Green Glutton Ghost (A Narrow Passage)
 M 0 22301 12 22313 2	* Green Glutton Ghost (A Narrow Passage)
@@ -1371,39 +1541,47 @@ O 0 22399 0 22314	* battlaxe  (The Hall of the Crypts)
 M 0 22301 12 22315 2	* Green Glutton Ghost (A Narrow Passage)
 M 0 22301 12 22316 2	* Green Glutton Ghost (A Narrow Passage)
 M 0 22301 12 22317 2	* Green Glutton Ghost (The End of Passage)
+O 0 22315 0 22318	* the tomb (A Crypt)
+P 0 22316 0 22315 1	* the tomb: the Wheel of Pa-Ra-Voz
+P 0 22317 0 22315 1	* the tomb: the Ankh of Death
+M 0 22305 1 22318 1	* Chu-gun the Guard of Pa-Ra-Voz (A Crypt)
+E 0 22318 0 16		*	the Axel of Pa-Ra-Voz: wielded
 M 0 22303 12 22319 1	* the Shade (A Crypt)
-G 0 22308 0		*	a bracer of defence
 E 0 22309 0 13		*	a black belt of the 5 flowers: around the waist
 E 0 22310 0 3		*	a midnight cloak: around the neck (1)
 E 0 22311 0 17		*	the key of ringwraiths: held in the hands
+E 0 22308 0 15		*	a bracer of defence: on the right wrist
 M 0 22303 12 22320 1	* the Shade (A Crypt)
-G 0 22308 0		*	a bracer of defence
 E 0 22309 0 13		*	a black belt of the 5 flowers: around the waist
 E 0 22310 0 3		*	a midnight cloak: around the neck (1)
 E 0 22311 0 17		*	the key of ringwraiths: held in the hands
+E 0 22308 0 15		*	a bracer of defence: on the right wrist
 M 0 22303 12 22321 1	* the Shade (A Crypt)
-G 0 22308 0		*	a bracer of defence
 E 0 22309 0 13		*	a black belt of the 5 flowers: around the waist
 E 0 22310 0 3		*	a midnight cloak: around the neck (1)
 E 0 22311 0 17		*	the key of ringwraiths: held in the hands
+E 0 22308 0 15		*	a bracer of defence: on the right wrist
 M 0 22303 12 22323 1	* the Shade (A Crypt)
-G 0 22308 0		*	a bracer of defence
 E 0 22309 0 13		*	a black belt of the 5 flowers: around the waist
 E 0 22310 0 3		*	a midnight cloak: around the neck (1)
 E 0 22311 0 17		*	the key of ringwraiths: held in the hands
+E 0 22308 0 15		*	a bracer of defence: on the right wrist
 M 0 22303 12 22324 1	* the Shade (A Crypt)
-G 0 22308 0		*	a bracer of defence
 E 0 22309 0 13		*	a black belt of the 5 flowers: around the waist
 E 0 22310 0 3		*	a midnight cloak: around the neck (1)
 E 0 22311 0 17		*	the key of ringwraiths: held in the hands
+E 0 22308 0 15		*	a bracer of defence: on the right wrist
 M 0 22303 12 22325 1	* the Shade (A Crypt)
 G 0 22308 0		*	a bracer of defence
 E 0 22309 0 13		*	a black belt of the 5 flowers: around the waist
 E 0 22310 0 3		*	a midnight cloak: around the neck (1)
 E 0 22311 0 17		*	the key of ringwraiths: held in the hands
+E 0 22308 0 15		*	a bracer of defence: on the right wrist
 S
 
 #OLIMITS
+O 22316 8	* the Wheel of Pa-Ra-Voz
+O 22318 4	* the Axel of Pa-Ra-Voz
 O 22399 0	* battlaxe 
 S
 
