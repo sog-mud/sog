@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.25 1998-06-21 11:38:37 fjoe Exp $
+ * $Id: act_wiz.c,v 1.26 1998-06-21 19:30:04 efdi Exp $
  */
 
 /***************************************************************************
@@ -355,99 +355,71 @@ void do_wiznet(CHAR_DATA *ch, char *argument)
 {
 	int flag;
 	char buf[MAX_STRING_LENGTH];
+	char buf2[MAX_STRING_LENGTH];
 
-	if (argument[0] == '\0')
-	{
+	if (argument[0] == '\0') {
 	  	if (IS_SET(ch->wiznet,WIZ_ON))
-	  	{
-	        send_to_char("Signing off of Wiznet.\n\r",ch);
-	        REMOVE_BIT(ch->wiznet,WIZ_ON);
-	  	}
+			do_wiznet(ch, "off");
 	  	else
-	  	{
-	        send_to_char("Welcome to Wiznet!\n\r",ch);
-	        SET_BIT(ch->wiznet,WIZ_ON);
-	  	}
+			do_wiznet(ch, "on");
 	  	return;
 	}
 
-	if (!str_prefix(argument,"on"))
-	{
-		send_to_char("Welcome to Wiznet!\n\r",ch);
-		SET_BIT(ch->wiznet,WIZ_ON);
+	if (!str_prefix(argument,"on")) {
+		send_to_char("Welcome to Wiznet!\n\r", ch);
+		SET_BIT(ch->wiznet, WIZ_ON);
 		return;
 	}
 
-	if (!str_prefix(argument,"off"))
-	{
-		send_to_char("Signing off of Wiznet.\n\r",ch);
-		REMOVE_BIT(ch->wiznet,WIZ_ON);
+	if (!str_prefix(argument,"off")) {
+		send_to_char("Signing off of Wiznet.\n\r", ch);
+		REMOVE_BIT(ch->wiznet, WIZ_ON);
 		return;
 	}
 
 	/* show wiznet status */
-	if (!str_prefix(argument,"status")) 
-	{
+	if (!str_prefix(argument,"status")) {
 		buf[0] = '\0';
 
-		if (!IS_SET(ch->wiznet,WIZ_ON))
-		    strcat(buf,"off ");
+		if (!IS_SET(ch->wiznet, WIZ_ON))
+			strcat(buf,"off ");
 
-		for (flag = 0; wiznet_table[flag].name != NULL; flag++)
-		    if (IS_SET(ch->wiznet,wiznet_table[flag].flag))
-		    {
-			strcat(buf,wiznet_table[flag].name);
-			strcat(buf," ");
-		    }
-
-		strcat(buf,"\n\r");
-
-		send_to_char("Wiznet status:\n\r",ch);
-		send_to_char(buf,ch);
-		return;
-	}
-
-	if (!str_prefix(argument,"show"))
-	/* list of all wiznet options */
-	{
-		buf[0] = '\0';
-
-		for (flag = 0; wiznet_table[flag].name != NULL; flag++)
-		{
-		    if (wiznet_table[flag].level <= get_trust(ch))
-		    {
-		    	strcat(buf,wiznet_table[flag].name);
-		    	strcat(buf," ");
-		    }
+		strcat(buf, "\n\rchannel    | status");
+		strcat(buf, "\n\r-----------|-------\n\r");
+		for (flag = 0; wiznet_table[flag].name != NULL; flag++) {
+			snprintf(buf2, sizeof(buf2), "%-11s|  ", wiznet_table[flag].name);
+			strcat(buf, buf2);
+			if (wiznet_table[flag].level > get_trust(ch)) {
+				strcat(buf, "N/A");
+				continue;	
+			}
+			if (IS_SET(ch->wiznet,wiznet_table[flag].flag))
+				strcat(buf, "ON\n\r");
+			else
+				strcat(buf, "OFF\n\r");
 		}
-
-		strcat(buf,"\n\r");
-
-		send_to_char("Wiznet options available to you are:\n\r",ch);
-		send_to_char(buf,ch);
+		strcat(buf, "\n\r");
+		send_to_char("Wiznet status:\n\r", ch);
+		page_to_char(buf, ch);
 		return;
 	}
-	 
+
 	flag = wiznet_lookup(argument);
 
-	if (flag == -1 || get_trust(ch) < wiznet_table[flag].level)
-	{
-		send_to_char("No such option.\n\r",ch);
+	if (flag == -1 || get_trust(ch) < wiznet_table[flag].level) {
+		send_to_char("No such option.\n\r", ch);
 		return;
 	}
 	 
-	if (IS_SET(ch->wiznet,wiznet_table[flag].flag))
-	{
+	if (IS_SET(ch->wiznet,wiznet_table[flag].flag)) {
 		char_printf(ch,"You will no longer see %s on wiznet.\n\r",
 		        wiznet_table[flag].name);
-		REMOVE_BIT(ch->wiznet,wiznet_table[flag].flag);
+		REMOVE_BIT(ch->wiznet, wiznet_table[flag].flag);
 		return;
-	}
-	else
-	{
-		char_printf(ch,"You will now see %s on wiznet.\n\r",
+	} else {
+		char_printf(ch, "You will now see %s on wiznet.\n\r",
 			wiznet_table[flag].name);
-		SET_BIT(ch->wiznet,wiznet_table[flag].flag);
+		SET_BIT(ch->wiznet, wiznet_table[flag].flag);
 		return;
 	}
 
