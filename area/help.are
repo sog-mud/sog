@@ -2033,16 +2033,14 @@ can be casted upon you by others. If trust set to all, everyone can
 cast them on you. If trust set to group or (and) clan, your group (clan) 
 members can cast them on you. Trust without parameters shows your
 current trust settings.
-Questionable spells are : 'word of recall', 'cancellation', 'slow',
-'remove curse'
+Questionable spells are : 'word of recall', 'slow', 'remove curse'.
 @rus Синтаксис: {ctrust{x <group | clan | all | none>
  
 Эта команда позволяет определить, кто может читать сомнительные заклинания на
 тебя. Если TRUST установлен как all, то любой игрок может читать на тебя эти
 заклинания. Если установлен group/clan, то читать заклинания могут члены твоей
 группы или твоего клана. TRUST без параметров покажет текущее состояние.
-Сонительные заклинания: 'word of recall', 'cancellation', 'slow',
-'remove curse'
+Сомнительные заклинания: 'word of recall', 'slow', 'remove curse'.
 ~
 immortal 'WIZ REBOOT' REBOOT 'WIZ SHUTDOWN' SHUTDOWN~
 @eng Syntax: {creboot status{x
@@ -5850,7 +5848,7 @@ See also: {CHELP TOGGLE{x
 персонаж. На низких уровнях будет показано только название заклинания, на более
 высоких - длительность и эффект заклинания.
 Заклинания, наложенные на твой персонаж, больше не показываются командой
-'SCORE', но это можно изменить командой 'TOGGLE'.
+'SCORE', но это можно изменить командой 'TOGGLE AFFECTS'.
  
 Команда 'RAFFECT' используется для определения заклинаний, наложенных на ком-
 нату, в которой ты находишься. На низких уровнях ты увидишь только название

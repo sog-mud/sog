@@ -2243,10 +2243,10 @@ S
 whistles among the rocks. You see an altar of some sort built on the shore to
 the south. The shore itself leads east and west. Looking up, you see foothills
 and rocky crags.
-@rus Ты находишься на скалах, которые очерчивают линию побкрежья.
-Колючий ветер мечется и завывает среди скал. Некое подобие алтаря видно
-на юге. Само побережье ведет на запад и на восток. Взглянув
-наверх, ты видишь холмы и обломки скал.
+@rus Ты находишься на скалах, которые очерчивают линию побережья.
+Колючий ветер мечется и завывает среди скал. Некое подобие ал-
+таря видно на юге. Само побережье ведет на запад и на восток.
+Взглянув наверх, ты видишь холмы и обломки скал.
 ~
 0 0 field
 D1
@@ -2407,10 +2407,11 @@ Z 0 2324
 S
 #2326
 @eng Floating in blue light@rus Паря в синем свете~
-@eng You seem to be floating in blue weightlessness. You tumble head over heels and
-finally right yourself. Gaining your bearings, you notice that there are two
-"windows" in the sea of blue here. One to the south shows an image of a snowy
-plain. Another window the the north shows an image of a rocky shore.
+@eng You seem to be floating in blue weightlessness.  You tumble head over
+heels and finally right yourself.  Gaining your bearings, you notice that
+there are two "windows" in the sea of blue here.  One to the south shows an
+image of a snowy plain.  Another window the the north shows an image of a
+rocky shore.  
 @rus Похоже, что ты паришь в океане синего цвета, в полной невесомости.
 Ты переворачиваешься вверх тормашками, но в конце концов нормализуешь 
 свое положение. Сфокусировав свое зрение, ты замечаешь два выхода:
@@ -3191,11 +3192,16 @@ D3
 Z 0 2351
 S
 #2353
-The Glacier Temple~
-You are in a small temple. It appears to be built entirely from ice. The ice
+@eng The Glacier Temple@rus Ледяной храм~
+@eng You are in a small temple. It appears to be built entirely from ice. The ice
 walls are frosted and are opaque. There is a small blue portal here. You can
 go north, to enter the portal. Looking south, you see a world of white outside
 the open doorway. Swirling snow and bright light obscure your view.
+@rus Ты находишься в маленьком храме, построенном полностью изо льда.
+Ледяные стены покрыты инеем и от того непрозрачны. Маленький голу-
+бой портал мерцает, маня войти в него. Он прямо на север от тебя.
+А на юге, сквозь открытую дверь, виден белый снежный мир за стенами
+храма.
 ~
 0 D inside
 D0
@@ -3464,7 +3470,7 @@ D5
 Z 0 2360
 S
 #2362
-Before the gates of Mahn-Tor~
+@eng Before the gates of Mahn-Tor@rus Около ворот Махн-Тора~
 You stand at the edge of a high cliff. Directly south, set back off the
 cliff's edge, you see a huge pair of gates. These gates appear to be carved
 almost completely out of ice. A huge city and keep appear to be on the other
@@ -3605,7 +3611,7 @@ D2
 Z -1 2369
 S
 #2367
-The Square of Mahn-Tor~
+@eng The Square of Mahn-Tor@rus Площадь Махн-Тора~
 This appears to be the main square of Mahn-Tor. A huge fountain graces the
 center of the square, but the extreme cold has turned it into an ice
 sculpture. The water has frozen in arcs through the air. Snow and ice covers

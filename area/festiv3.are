@@ -3132,7 +3132,7 @@ treasure CEHIPUY 0 AG
 a '' to_object 90 -1 50 18 0
 a '' to_object 90 -1 100 17 0
 a '' to_skills 90 -1 24 'settraps' A
-a '' to_skills 90 -1 9 'throwing weapons' A
+a '' to_skills 90 -1 9 'throw weapon' A
 a '' to_skills 90 -1 3 'knife' A
 a '' to_object 90 -1 250 14 0
 a '' to_object 90 -1 8 2 0
