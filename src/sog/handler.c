@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.293 2001-07-04 19:21:21 fjoe Exp $
+ * $Id: handler.c,v 1.294 2001-07-04 20:34:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3059,7 +3059,7 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 		affect_bit_strip(ch, TO_INVIS, ID_BLEND);
 		act_puts("You step out from your cover.",
 			ch, NULL, NULL, TO_CHAR, POS_DEAD);
-		act("$n steps out from $m's cover.",
+		act("$n steps out from $s cover.",
 			ch, NULL, NULL, TO_ROOM);
 	}
 
@@ -3311,7 +3311,7 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 		REMOVE_INVIS(ch, ID_CAMOUFLAGE);
 		act_puts("You step out from your cover.",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-		act("$n steps out from $m's cover.",
+		act("$n steps out from $s cover.",
 		    ch, NULL, NULL, TO_ROOM);
 	}
 
@@ -4593,7 +4593,7 @@ make_visible(CHAR_DATA *ch, bool at_will)
 		affect_bit_strip(ch, TO_INVIS, ID_BLEND);
 		act_puts("You step out from your cover.",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-		act("$n steps out from $m's cover.",
+		act("$n steps out from $s cover.",
 		    ch, NULL, NULL, TO_ROOM);
 	}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.260 2001-07-04 19:21:09 fjoe Exp $
+ * $Id: act_move.c,v 1.261 2001-07-04 20:34:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2300,7 +2300,7 @@ void do_push(CHAR_DATA *ch, const char *argument)
 
 		act_char("Oops.", ch);
 		if (!IS_AFFECTED(victim, AFF_SLEEP)) {
-			victim->position = victim->position == POS_SLEEPING ? 
+			victim->position = victim->position == POS_SLEEPING ?
 					   POS_STANDING : victim->position;
 			act("$n tried to push you.",
 			    ch, NULL, victim, TO_VICT);
@@ -2308,7 +2308,7 @@ void do_push(CHAR_DATA *ch, const char *argument)
 		act("$n tried to push $N.", ch, NULL, victim, TO_NOTVICT);
 
 		if (IS_AWAKE(victim))
-			act_yell(victim, "Keep your hands out of me, $i!",
+			act_yell(victim, "Keep your hands off of me, $i!",
 				 ch, NULL);
 		if (!IS_NPC(ch) && IS_NPC(victim)) {
 			check_improve(ch, "push", FALSE, 2);
