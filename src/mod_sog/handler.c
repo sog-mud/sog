@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.103 1999-02-08 08:48:05 fjoe Exp $
+ * $Id: handler.c,v 1.104 1999-02-08 13:55:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1938,11 +1938,11 @@ void extract_char_org(CHAR_DATA *ch, bool fPull, bool Count)
 /*
  * Find a char in the room.
  */
-CHAR_DATA *get_char_room_raw(CHAR_DATA *ch, ROOM_INDEX_DATA *room,
-			     const char *argument, int *number)
+CHAR_DATA *get_char_room_raw(CHAR_DATA *ch, const char *name, uint *number,
+			     ROOM_INDEX_DATA *room)
 {
 	CHAR_DATA *rch;
-	bool ugly = !str_cmp(argument, "ugly");
+	bool ugly = !str_cmp(name, "ugly");
 
 	for (rch = room->people; rch; rch = rch->next_in_room) {
 		CHAR_DATA *vch;
@@ -1958,10 +1958,10 @@ CHAR_DATA *get_char_room_raw(CHAR_DATA *ch, ROOM_INDEX_DATA *room,
 		vch = (is_affected(rch, gsn_doppelganger) &&
 		       (IS_NPC(ch) || !IS_SET(ch->plr_flags, PLR_HOLYLIGHT))) ?
 					rch->doppel : rch;
-		if (!is_name(argument, vch->name))
+		if (!is_name(name, vch->name))
 			continue;
 
-		if (!--*number)
+		if (!--(*number))
 			return rch;
 	}
 
@@ -1974,31 +1974,33 @@ CHAR_DATA *get_char_room_raw(CHAR_DATA *ch, ROOM_INDEX_DATA *room,
 CHAR_DATA *get_char_room(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
-	int number;
+	uint number;
 
 	number = number_argument(argument, arg);
-	if (arg[0] == '\0')
+	if (!number || arg[0] == '\0')
 		return NULL;
 	if (!str_cmp(arg, "self"))
 		return ch;
 
-	return get_char_room_raw(ch, ch->in_room, arg, &number);
+	return get_char_room_raw(ch, arg, &number, ch->in_room);
 }
 
 CHAR_DATA *get_char_area(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *ach;
-	int number;
+	uint number;
 
 	number = number_argument(argument, arg);
-	if (arg[0] == '\0')
+	if (!number || arg[0] == '\0')
 		return NULL;
+	if (!str_cmp(arg, "self"))
+		return ch;
 
-	if ((ach = get_char_room_raw(ch, ch->in_room, arg, &number)))
+	if ((ach = get_char_room_raw(ch, arg, &number, ch->in_room)))
 		return ach;
 
-	for(ach = char_list; ach; ach = ach->next) { 
+	for (ach = char_list; ach; ach = ach->next) { 
 		if (!ach->in_room
 		||  ach->in_room == ch->in_room)
 			continue;
@@ -2021,13 +2023,15 @@ CHAR_DATA *get_char_world(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *wch;
-	int number;
+	uint number;
 
 	number = number_argument(argument, arg);
-	if (arg[0] == '\0')
+	if (!number || arg[0] == '\0')
 		return NULL;
+	if (!str_cmp(arg, "self"))
+		return ch;
 
-	if ((wch = get_char_room_raw(ch, ch->in_room, arg, &number)))
+	if ((wch = get_char_room_raw(ch, arg, &number, ch->in_room)))
 		return wch;
 
 	for (wch = char_list; wch; wch = wch->next) {
@@ -2067,11 +2071,17 @@ CHAR_DATA *find_char(CHAR_DATA *ch, const char *argument, int door, int range)
 	ROOM_INDEX_DATA *dest_room = ch->in_room;
 	ROOM_INDEX_DATA *back_room;
 	CHAR_DATA *target;
-	int number, opdoor;
+	uint number;
+	int opdoor;
 	char arg[MAX_INPUT_LENGTH];
 
 	number = number_argument(argument, arg);
-	if ((target = get_char_room_raw(ch, dest_room, arg, &number)))
+	if (!number || arg[0] == '\0')
+		return NULL;
+	if (!str_cmp(arg, "self"))
+		return ch;
+
+	if ((target = get_char_room_raw(ch, arg, &number, dest_room)))
 		return target;
 
 	if ((opdoor = opposite_door(door)) == -1) {
@@ -2096,7 +2106,7 @@ CHAR_DATA *find_char(CHAR_DATA *ch, const char *argument, int door, int range)
 				  "to pass.\n",ch);
 			return NULL;
 		}
-		if ((target = get_char_room_raw(ch, dest_room, arg, &number))) 
+		if ((target = get_char_room_raw(ch, arg, &number, dest_room))) 
 			return target;
 	}
 
@@ -2120,26 +2130,86 @@ OBJ_DATA *get_obj_type(OBJ_INDEX_DATA *pObjIndex)
 }
 
 /*
+ * flags for get_obj_list_raw
+ */
+enum {
+	GETOBJ_F_WEAR_ANY,	/* any obj->wear_loc			     */
+	GETOBJ_F_WEAR_NONE,	/* obj->wear_loc == WEAR_NONE (in inventory) */
+	GETOBJ_F_WEAR,		/* obj->wear_loc != WEAR_NONE (worn)	     */
+};
+
+/*
+ * Find an obj in a list.
+ */
+OBJ_DATA *get_obj_list_raw(CHAR_DATA *ch, const char *name, uint *number,
+			   OBJ_DATA *list, int flags)
+{
+	OBJ_DATA *obj;
+
+	for (obj = list; obj; obj = obj->next_content) {
+		if (!can_see_obj(ch, obj)
+		||  !is_name(name, obj->name))
+			continue;
+
+		switch (flags) {
+		case GETOBJ_F_WEAR_NONE:
+			if (obj->wear_loc != WEAR_NONE)
+				continue;
+			break;
+
+		case GETOBJ_F_WEAR:
+			if (obj->wear_loc == WEAR_NONE)
+				continue;
+			break;
+		}
+
+		if (!--(*number))
+			return obj;
+	}
+
+	return NULL;
+}
+
+/*
+ * Find an obj in the room or in eq/inventory.
+ */
+OBJ_DATA *get_obj_here_raw(CHAR_DATA *ch, const char *name, uint *number)
+{
+	OBJ_DATA *obj;
+
+/* search in room contents */
+	obj = get_obj_list_raw(ch, name, number, ch->in_room->contents,
+			       GETOBJ_F_WEAR_ANY);
+	if (obj)
+		return obj;
+
+/* search in player's inventory */
+	obj = get_obj_list_raw(ch, name, number, ch->carrying,
+			       GETOBJ_F_WEAR_NONE);
+	if (obj)
+		return obj;
+
+/* search in player's eq */
+	obj = get_obj_list_raw(ch, name, number, ch->carrying, GETOBJ_F_WEAR);
+	if (obj)
+		return obj;
+
+	return NULL;
+}
+
+/*
  * Find an obj in a list.
  */
 OBJ_DATA *get_obj_list(CHAR_DATA *ch, const char *argument, OBJ_DATA *list)
 {
 	char arg[MAX_INPUT_LENGTH];
-	OBJ_DATA *obj;
-	int number;
-	int count;
-
-	if (IS_NULLSTR(argument))
-		return NULL;
+	uint number;
 
 	number = number_argument(argument, arg);
-	count  = 0;
-	for (obj = list; obj; obj = obj->next_content)
-		if (can_see_obj(ch, obj) && is_name(arg, obj->name))
-			if (++count == number)
-				return obj;
+	if (!number || arg[0] == '\0')
+		return NULL;
 
-	return NULL;
+	return get_obj_list_raw(ch, arg, &number, list, GETOBJ_F_WEAR_ANY);
 }
 
 /*
@@ -2148,23 +2218,14 @@ OBJ_DATA *get_obj_list(CHAR_DATA *ch, const char *argument, OBJ_DATA *list)
 OBJ_DATA *get_obj_carry(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
-	OBJ_DATA *obj;
-	int number;
-	int count;
-
-	if (IS_NULLSTR(argument))
-		return NULL;
+	uint number;
 
 	number = number_argument(argument, arg);
-	count  = 0;
-	for (obj = ch->carrying; obj; obj = obj->next_content)
-		if (obj->wear_loc == WEAR_NONE
-		&&  can_see_obj(ch, obj) 
-		&&  is_name(arg, obj->name)
-		&&  ++count == number) 
-			return obj;
+	if (!number || arg[0] == '\0')
+		return NULL;
 
-	return NULL;
+	return get_obj_list_raw(ch, arg, &number, ch->carrying,
+				GETOBJ_F_WEAR_NONE);
 }
 
 /*
@@ -2173,23 +2234,13 @@ OBJ_DATA *get_obj_carry(CHAR_DATA *ch, const char *argument)
 OBJ_DATA *get_obj_wear(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
-	OBJ_DATA *obj;
-	int number;
-	int count;
-
-	if (IS_NULLSTR(argument))
-		return NULL;
+	uint number;
 
 	number = number_argument(argument, arg);
-	count  = 0;
-	for (obj = ch->carrying; obj; obj = obj->next_content)
-		if (obj->wear_loc != WEAR_NONE
-		&&  can_see_obj(ch, obj)
-		&&  is_name(arg, obj->name)
-		&&  ++count == number)
-			return obj;
+	if (!number || arg[0] == '\0')
+		return NULL;
 
-	return NULL;
+	return get_obj_list_raw(ch, arg, &number, ch->carrying, GETOBJ_F_WEAR);
 }
 
 /*
@@ -2197,40 +2248,45 @@ OBJ_DATA *get_obj_wear(CHAR_DATA *ch, const char *argument)
  */
 OBJ_DATA *get_obj_here(CHAR_DATA *ch, const char *argument)
 {
-	OBJ_DATA *obj;
+	char arg[MAX_INPUT_LENGTH];
+	uint number;
 
-	if (IS_NULLSTR(argument))
+	number = number_argument(argument, arg);
+	if (!number || arg[0] == '\0')
 		return NULL;
 
-	obj = get_obj_list(ch, argument, ch->in_room->contents);
-	if (obj)
-		return obj;
-
-	if ((obj = get_obj_carry(ch, argument)))
-		return obj;
-
-	if ((obj = get_obj_wear(ch, argument)))
-		return obj;
-
-	return NULL;
+	return get_obj_here_raw(ch, arg, &number);
 }
 
 OBJ_DATA *get_obj_room(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *obj;
 	CHAR_DATA *vch;
+	char arg[MAX_INPUT_LENGTH];
+	uint number;
 
-	if (IS_NULLSTR(argument))
+	number = number_argument(argument, arg);
+	if (!number || arg[0] == '\0')
 		return NULL;
 
-	if ((obj = get_obj_here(ch, argument)))
+	if ((obj = get_obj_here_raw(ch, arg, &number)))
 		return obj;
 
 	for (vch = ch->in_room->people; vch; vch = vch->next_in_room) {
-		if ((obj = get_obj_carry(vch, argument)))
+		/*
+		 * search in the vch's inventory
+		 */
+		obj = get_obj_list_raw(ch, arg, &number, vch->carrying,
+				       GETOBJ_F_WEAR_NONE);
+		if (obj)
 			return obj;
 
-		if ((obj = get_obj_wear(vch, argument)))
+		/*
+		 * search in the vch's eq
+		 */
+		obj = get_obj_list_raw(ch, arg, &number, vch->carrying,
+				       GETOBJ_F_WEAR);
+		if (obj)
 			return obj;
 	}
 
@@ -2244,21 +2300,20 @@ OBJ_DATA *get_obj_world(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
-	int number;
-	int count;
-
-	if (IS_NULLSTR(argument))
-		return NULL;
-
-	if ((obj = get_obj_here(ch, argument)) != NULL)
-		return obj;
+	uint number;
 
 	number = number_argument(argument, arg);
-	count  = 0;
+	if (!number || arg[0] == '\0')
+		return NULL;
+
+	if ((obj = get_obj_here_raw(ch, arg, &number)))
+		return obj;
+
 	for (obj = object_list; obj; obj = obj->next)
 		if (can_see_obj(ch, obj)
+		&&  obj->carried_by != ch
 		&&  is_name(arg, obj->name)
-		&&  ++count == number)
+		&&  !--number)
 			return obj;
 
 	return NULL;
@@ -2268,12 +2323,14 @@ OBJ_DATA *get_obj_world(CHAR_DATA *ch, const char *argument)
 
 void deduct_cost(CHAR_DATA *ch, uint cost)
 {
-	uint silver = 0, gold = 0;
-
-	silver = UMIN(ch->silver, cost); 
+	/*
+	 * price in silver. MUST BE signed for proper exchange operations
+	 */
+	int silver = UMIN(ch->silver, cost); 
+	uint gold = 0;
 
 	if (silver < cost) {
-		gold = ((cost - silver + 99) / 100);
+		gold = (cost - silver + 99) / 100;
 		silver = cost - 100 * gold;
 	}
 

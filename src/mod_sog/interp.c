@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.103 1999-02-08 08:48:06 fjoe Exp $
+ * $Id: interp.c,v 1.104 1999-02-08 13:55:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -922,6 +922,11 @@ const char *one_argument(const char *argument, char *arg_first)
 const char *first_arg(const char *argument, char *arg_first, bool fCase)
 {
 	char cEnd = '\0';
+
+	if (IS_NULLSTR(argument)) {
+		arg_first[0] = '\0';
+		return argument;
+	}
 
 /* skip leading spaces */
 	while (isspace(*argument))
