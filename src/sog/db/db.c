@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.94 1998-12-23 16:11:19 fjoe Exp $
+ * $Id: db.c,v 1.95 1999-01-18 05:15:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1489,7 +1489,7 @@ const char *fread_string(FILE *fp)
 			break;
  
 		case EOF:
-			bug("Fread_string: EOF", 0);
+			db_error("fread_string", "EOF");
 			return str_empty;
  
 		case '\r':
