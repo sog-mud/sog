@@ -217,9 +217,9 @@ ABHS DEHPZ -500 2402
 FHKN 0 0 D
 stand stand male 1499
 0 0 medium unknown
-M GREET 2402 100~
 M GIVE 2400 90~
 M GIVE 2401 all~
+M GREET 2402 100~
 #2413
 Fireflash~
 Fireflash~
@@ -234,9 +234,9 @@ AHS DEPZ 1000 2402
 FHKN 0 0 D
 stand stand male 1499
 0 0 small unknown
-M GREET 2405 100~
-M GIVE 2404 91~
 M GIVE 2403 all~
+M GIVE 2404 91~
+M GREET 2405 100~
 #2414
 Pixie~
 A Pixie~
@@ -266,9 +266,9 @@ weapon AGL AN
 sword 4 8 slice 0
 36 20 2700 G
 A
-14 30
-A
 19 2
+A
+14 30
 E
 pixie~
 This elegant sword appears to have served its previous owner very well, but
@@ -346,11 +346,11 @@ armor AGI AC
 BE BE BE AD 0
 40 120 3500 G
 A
-24 -10
+19 1
 A
 18 5
 A
-19 1
+24 -10
 E
 white pendant dragon scale~
 This pendant appears to be very ancient.  It is solid white, with a blue 
@@ -366,11 +366,11 @@ armor AGI AC
 BE BE BE AD 0
 40 120 3500 G
 A
-24 -10
+19 2
 A
 18 5
 A
-19 2
+24 -10
 E
 copper pendant dragon scale~
 The pendant you now own appears to be very new, in fact it looks freshly
@@ -387,11 +387,11 @@ light AG A
 0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 48 60 7500 G
 A
-12 100
+14 125
 A
 13 125
 A
-14 125
+12 100
 E
 pixie wings~
 Just what they are called.  You feel sorry for the pixie who used to own these.
@@ -421,9 +421,9 @@ armor GJ AD
 E E E ABC 0
 40 190 6430 G
 A
-9 5
-A
 24 -10
+A
+9 5
 E
 white dragon scale breast plate~
 This is a very quickly strewn together breast plate.  It looks like it was
@@ -438,11 +438,11 @@ armor GK AD
 BE BE BE D 0
 40 200 6230 G
 A
-17 -10
+9 2
 A
 18 5
 A
-9 2
+17 -10
 E
 copper dragon scale breast plate~
 This is a very hastely strewn together breast plate.  It looks like it was
@@ -479,9 +479,9 @@ weapon AL AN
 mace 5 7 pound D
 35 20 1700 G
 A
-19 3
-A
 18 3
+A
+19 3
 E
 pixie stick~
 This is a Pixie Stick.  While you may be used to eating these "sugar sticks",
@@ -495,9 +495,9 @@ armor A AD
 ABCD ABCD ABCD ABC 0
 37 30 2230 G
 A
-17 -7
-A
 1 -1
+A
+17 -7
 E
 plate pixie breast~
 This is a piece of Pixie armor.  It looks very well crafted, but has an odd
@@ -511,9 +511,9 @@ armor AG AF
 ABCD ABCD ABCD ABC 0
 32 14 1900 G
 A
-3 4
-A
 5 -1
+A
+3 4
 E
 pixie greaves~
 These are VERY small pants....although they do seem fairly stretchy.....
@@ -527,11 +527,11 @@ armor AG AI
 E E E ABC 0
 35 19 2077 G
 A
-19 2
+17 -30
 A
 2 3
 A
-17 -30
+19 2
 E
 pixie arm plates~
 These arm plates would be a tad bit to small for you.....IF YOU WERE A
@@ -545,9 +545,9 @@ light AL A
 0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 38 20 2300 G
 A
-18 3
-A
 19 3
+A
+18 3
 E
 flame wisp dragon fyre fire~
 You aren't quite sure how it is, but the DragonFyre is existing without its
@@ -561,11 +561,11 @@ armor AGJ AE
 E E E D 0
 38 230 2460 G
 A
-4 2
+1 3
 A
 2 -1
 A
-1 3
+4 2
 E
 helm dragon~
 This helm appears to have been created from the scales of a freshly dead dragon.
@@ -579,11 +579,11 @@ armor AGK AE
 E E E AD 0
 38 250 2960 G
 A
-4 2
+5 2
 A
 2 -1
 A
-5 2
+4 2
 E
 helm dragon~
 This helm appears to be made from the scales of a recently dead dragon.
@@ -599,13 +599,13 @@ weapon ABCFGHM AN
 staff 5 11 pound D
 52 400 45780 G
 A
-19 6
-A
-18 6
+13 -50
 A
 12 250
 A
-13 -50
+18 6
+A
+19 6
 E
 staff magius~
 This is the Staff of the Magius.  Rumored to bring untold mystical 
@@ -621,9 +621,9 @@ weapon AGL AN
 dagger 4 8 stab 0
 33 5 647 G
 A
-14 20
-A
 19 4
+A
+14 20
 #2423
 diamond gem~
 a large diamond~

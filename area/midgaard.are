@@ -43,6 +43,7 @@ ABKVe HN 900 0
 CDF AB CD 0
 stand stand male 500
 0 0 medium unknown
+M GREET 3022 100~
 #3002
 grocer~
 the grocer~
@@ -86,6 +87,7 @@ ABVe N 900 0
 CEFJKN AB CD 0
 stand stand male 25000
 0 0 medium unknown
+M GREET 3021 100~
 #3005
 thief~
 the thief~
@@ -8139,7 +8141,28 @@ endif
 , throws back his head and cackles with insane glee!
 ~
 #3021
- 
+if isimmort $n
+break
+endif
+if isvisible $n
+smile
+say Welcome to my Armoury!
+say What can I interest you in?
+say I have the finest armor in my store!
+, beams with pride.
+endif
+~
+#3022
+bow $n
+say Would you like to taste a big pot pie today?
+if sex $n == 2 
+and rand 50
+say You're looking so beutiful today, $n !
+poke $n
+MOB OLOAD 3009
+give pie $n
+say It's tasty.
+endif
 ~
 #0
 
