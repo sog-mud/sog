@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.18 1998-04-29 12:41:15 indra Exp $
+ * $Id: act_info.c,v 1.19 1998-05-04 02:51:01 efdi Exp $
  */
 
 /***************************************************************************
@@ -3216,7 +3216,7 @@ void do_score(CHAR_DATA *ch, char *argument)
 	int ekle = 0;
 	int delta;
 
-	send_to_char("\n\r	{G/~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/~~\\{x\n\r", ch);
+	send_to_char("\n\r     {G/~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/~~\\{x\n\r", ch);
 
 	strcpy(title, IS_NPC(ch) ? "Believer of Chronos." : ch->pcdata->title);
 	delta = strlen(title) - cstrlen(title);
@@ -3224,9 +3224,9 @@ void do_score(CHAR_DATA *ch, char *argument)
 	sprintf(buf2, "     {G|   {W%%-12s{x%%-%ds {Y%%3d years old   {G|____|{x\n\r", 33+delta);
 	char_printf(ch, buf2, ch->name, title, get_age(ch));
 
-	send_to_char("	   {G|{C+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+{G|{x\n\r", ch);
+	send_to_char("     {G|{C+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+{G|{x\n\r", ch);
 
-	char_printf(ch, "     {G| {RLevel:  {x%3d	   {C|	{RStr:	{x%2d(%2d)  {C| {RReligion  :  {x%-10s {G|{x\n\r",
+	char_printf(ch, "     {G| {RLevel:  {x%3d        {C|	{RStr:	{x%2d(%2d)  {C| {RReligion  :  {x%-10s {G|{x\n\r",
 		ch->level,ch->perm_stat[STAT_STR],get_curr_stat(ch,STAT_STR),
 		      (ch->religion <= RELIGION_NONE) ||
 		 (ch->religion > MAX_RELIGION) ? "none" :

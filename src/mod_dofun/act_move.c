@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.29 1998-04-29 23:35:01 efdi Exp $
+ * $Id: act_move.c,v 1.30 1998-05-04 02:51:01 efdi Exp $
  */
 
 /***************************************************************************
@@ -2310,26 +2310,25 @@ void do_vampire( CHAR_DATA *ch, char *argument )
  
     if ( is_affected( ch, gsn_vampire ) )
     {
-     send_to_char("You can't be much more vampire!\n\r",ch);
+     send_to_char(msg(MOVE_YOU_CANT_BE_MORE_VAMPIRE, ch), ch);
      return;
     }
 
     if ( !IS_NPC(ch)
     &&   ch->level < skill_table[gsn_vampire].skill_level[ch->class] )
     {
-	send_to_char(
-	    "You try to show yourself even more uggly.\n\r", ch );
+	send_to_char(msg(MOVE_YOU_SHOW_MORE_UGGLY, ch), ch);
 	return;
     }
 
     if ( get_skill(ch,gsn_vampire) < 100 )
 	{
-	 send_to_char("Go and ask the questor to help you.\n\r",ch);
+	 send_to_char(msg(MOVE_GO_AND_ASK_QUESTOR, ch), ch);
 	 return;
 	}
     if ( is_affected(ch,gsn_vampire) )
 	{
-	 send_to_char("If you wan't to be more vampire go an kill a player.\n\r",ch);
+	 send_to_char(msg(MOVE_GO_KILL_PLAYER, ch), ch);
 	 return;
 	}
 
@@ -2337,8 +2336,7 @@ void do_vampire( CHAR_DATA *ch, char *argument )
     if ( weather_info.sunlight == SUN_LIGHT 
 	||   weather_info.sunlight == SUN_RISE ) 
 	{
-	 send_to_char(
-"You should have waited the evening or night to tranform to a vampire.\n\r",ch);
+	 send_to_char(msg(MOVE_WAIT_NIGHT, ch), ch);
 	}
 
     level = ch->level;
@@ -2405,8 +2403,8 @@ void do_vampire( CHAR_DATA *ch, char *argument )
     af.bitvector = PLR_VAMPIRE;
     affect_to_char( ch, &af );
 
-   send_to_char( "You feel yourself getting greater and greater.\n\r", ch );
-   act("You cannot recognize $n anymore.",ch,NULL,NULL,TO_ROOM);
+   send_to_char(msg(MOVE_FEEL_GREATER, ch), ch);
+   act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MOVE_CANNOT_RECOGNIZE);
    return;
 }
 
@@ -2421,31 +2419,31 @@ void do_vbite( CHAR_DATA *ch, char *argument )
     if ( !IS_NPC(ch)
     &&   ch->level < skill_table[gsn_vampiric_bite].skill_level[ch->class] )
       {
-	send_to_char("You don't know how to bite creatures.\n\r",ch);
+	send_to_char(msg(MOVE_DONT_KNOW_BITE, ch), ch);
 	return;
       }
 
     if (!IS_VAMPIRE(ch))
 	{
-	 send_to_char("You must transform vampire before biting.\n\r",ch);
+	 send_to_char(msg(MOVE_MUST_TRANSFORM_VAMP, ch), ch);
 	 return;
 	}
 
     if ( arg[0] == '\0' )
     {
-	send_to_char( "Bite whom?\n\r", ch );
+	send_to_char(msg(MOVE_BITE_WHOM, ch), ch);
 	return;
     }
 
     if ( ( victim = get_char_room( ch, arg ) ) == NULL )
     {
-	send_to_char( "They aren't here.\n\r", ch );
+	send_to_char(msg(MOVE_THEY_ARENT_HERE, ch), ch);
 	return;
     }
 
     if ( victim->position != POS_SLEEPING )
     {
-	send_to_char( "They must be sleeping.\n\r", ch );
+	send_to_char(msg(MOVE_THEY_MUST_BE_SLEEPING, ch), ch);
 	return;
     }
 
@@ -2455,7 +2453,7 @@ void do_vbite( CHAR_DATA *ch, char *argument )
 
     if ( victim == ch )
     {
-	send_to_char( "How can you sneak up on yourself?\n\r", ch );
+	send_to_char(msg(MOVE_HOW_CAN_YOU_SNEAK_YOU, ch), ch);
 	return;
     }
 
@@ -2464,7 +2462,7 @@ void do_vbite( CHAR_DATA *ch, char *argument )
 
     if ( victim->fighting != NULL )
     {
-	send_to_char( "You can't bite a fighting person.\n\r", ch );
+	send_to_char(msg(MOVE_CANT_BITE_FIGHTING_PERS, ch), ch);
 	return;
     }
 
@@ -2474,15 +2472,13 @@ void do_vbite( CHAR_DATA *ch, char *argument )
     if ( victim->hit < (0.8 * victim->max_hit) &&
 	 (IS_AWAKE(victim) ) )
     {
-	act( "$N is hurt and suspicious ... doesn't worth up.",
-	    ch, NULL, victim, TO_CHAR );
+	act_printf(ch, NULL, victim, TO_CHAR, POS_DEAD, MOVE_DOESNT_WORTH_UP);
 	return;
     }
 
     if ( current_time-victim->last_fight_time<300 && IS_AWAKE(victim) )
     {
-	act( "$N is suspicious ... it doens't worth to do.",
-	    ch, NULL, victim, TO_CHAR );
+	act_printf(ch, NULL, victim, TO_CHAR, POS_DEAD,MOVE_DOESNT_WORTH_TO_DO);
 	return;       
     }
 
@@ -2504,7 +2500,7 @@ void do_vbite( CHAR_DATA *ch, char *argument )
     if (!(IS_NPC(victim)) && !(IS_NPC(ch)) 
 	&& victim->position == POS_FIGHTING )
       {
-  	    sprintf( buf, "Help, an ugly creature tried to bite me!");
+  	    sprintf( buf, msg(MOVE_HELP_TRIED_TO_BITE, victim));
 	    do_yell( victim, buf );
       }
     return;
@@ -2524,7 +2520,7 @@ void do_bash_door( CHAR_DATA *ch, char *argument )
     ||	 (!IS_NPC(ch)
     &&	  ch->level < skill_table[gsn_bash].skill_level[ch->class]))
     {	
-	send_to_char("Bashing? What's that?\n\r",ch);
+	send_to_char(msg(MOVE_BASH_WHATS_THAT, ch), ch);
 	return;
     }
  
