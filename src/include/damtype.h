@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: damtype.h,v 1.13 2001-08-19 18:18:40 fjoe Exp $
+ * $Id: damtype.h,v 1.14 2001-08-20 17:38:19 fjoe Exp $
  */
 
 #ifndef _DAMTYPE_H_
@@ -31,6 +31,9 @@
 
 /*
  * damage classes
+ *
+ * NEVER [re]move enum elements if you want to load areas with
+ * versions 0 < ver < 6
  */
 enum {
 	/* DAM_WEAPON damtypes */
@@ -49,11 +52,12 @@ enum {
 	DAM_ENERGY,
 	DAM_MENTAL,
 	DAM_DISEASE,
+	DAM_FOO0,		/* DAM_DROWNING */
 	DAM_LIGHT,
+	DAM_OTHER,
+	DAM_HARM,
 	DAM_CHARM,
 	DAM_SOUND,
-	DAM_HARM,
-	DAM_OTHER,
 
 	/*
 	 * material damtypes
