@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.214 1999-12-12 20:43:05 avn Exp $
+ * $Id: act_move.c,v 1.215 1999-12-14 06:08:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1583,7 +1583,7 @@ void do_vampire(CHAR_DATA *ch, const char *argument)
 	
 /* sneak */
 	af.where = TO_INVIS;
-	af.bitvector = ID_INFRARED;
+	af.bitvector = ID_SNEAK;
 	affect_to_char(ch, &af);
 
 	PC(ch)->form_name = "an ugly creature";

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.213 1999-12-12 20:43:06 avn Exp $
+ * $Id: handler.c,v 1.214 1999-12-14 06:08:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3050,7 +3050,7 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 	}
 
 	if (HAS_INVIS(ch, ID_BLEND)) {
-		REMOVE_INVIS(ch, ID_CAMOUFLAGE);
+		REMOVE_INVIS(ch, ID_BLEND);
 		affect_bit_strip(ch, TO_INVIS, ID_BLEND);
 		act_puts("You step out from your cover.",
 			ch, NULL, NULL, TO_CHAR, POS_DEAD);

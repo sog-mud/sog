@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.300 1999-12-14 05:24:40 fjoe Exp $
+ * $Id: act_info.c,v 1.301 1999-12-14 06:08:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2012,7 +2012,7 @@ void do_detect_hidden(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (HAS_INVIS(ch, ID_HIDDEN)) {
+	if (HAS_DETECT(ch, ID_HIDDEN)) {
 		char_puts("You are already as alert as you can be. \n",ch);
 		return;
 	}
