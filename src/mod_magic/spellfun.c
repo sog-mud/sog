@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.314 2004-02-11 22:25:29 sg Exp $
+ * $Id: spellfun.c,v 1.315 2004-02-11 23:18:57 sg Exp $
  */
 
 /***************************************************************************
@@ -241,6 +241,7 @@ DECLARE_SPELL_FUN(spell_grease);
 DECLARE_SPELL_FUN(spell_antimagic_aura);
 DECLARE_SPELL_FUN(spell_silence_person);
 DECLARE_SPELL_FUN(spell_silence);
+DECLARE_SPELL_FUN(spell_snake_rune);
 
 SPELL_FUN(generic_damage_spellfun, sn, level, ch, vo)
 {
@@ -8084,3 +8085,28 @@ SPELL_FUN(spell_silence, sn, level, ch, vo)
 	    ch, NULL, NULL, TO_ALL);
 }
 
+SPELL_FUN(spell_snake_rune, sn, level, ch, vo)
+{
+	OBJ_DATA *obj = (OBJ_DATA *) vo;
+	AFFECT_DATA *paf;
+
+	act("You try to write a rune on $p.", ch, obj, NULL, TO_CHAR);
+
+	if (affect_find(obj->affected, sn) != NULL) {
+		act("You write the runes on $p, but they fade away.",
+		    ch, obj, NULL, TO_CHAR);
+		return;
+	}
+
+	paf = aff_new(TO_TRIG, sn);
+	paf->level	= level;
+	paf->duration	= number_fuzzy(level / 4);
+	paf->location.s	= str_dup("obj_get_rune_snake");
+	paf->modifier	= TRIG_OBJ_GET;
+	paf->owner	= ch;
+	affect_to_obj(obj, paf);
+	aff_free(paf);
+	act("Your rune glows for a while, then became invisible.",
+	    ch, obj, NULL, TO_CHAR);
+	act("$p is surrounded by a protective aura.", ch, obj, NULL, TO_ROOM);
+}
