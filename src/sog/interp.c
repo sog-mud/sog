@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.44 1998-07-22 22:21:18 efdi Exp $
+ * $Id: interp.c,v 1.45 1998-07-23 01:25:08 efdi Exp $
  */
 
 /***************************************************************************
@@ -183,6 +183,7 @@ const	struct	cmd_type	cmd_table	[] =
      */
     { "bearcall",       do_bear_call,   POS_FIGHTING,    0,  LOG_NORMAL, 1,0},
     { "clan",		do_clan,	POS_SLEEPING,    0,  LOG_NORMAL, 1, CMD_GHOST },
+    { "clanlist",	do_clanlist,	POS_SLEEPING,    0,  LOG_NORMAL, 1, CMD_GHOST },
     { "clanrecall",	do_crecall,	POS_FIGHTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
     { "deaf",		do_deaf,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "emote",		do_emote,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },

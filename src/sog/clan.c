@@ -2,13 +2,19 @@
  * $Id:
  */
 
+#include <sys/syslimits.h>
 #include <sys/time.h>
 #include <stdio.h>
+#include <dirent.h>
+#include <string.h>
 #include "merc.h"
 #include "comm.h"
 #include "db.h"
 #include "resource.h"
 #include "lookup.h"
+#include "log.h"
+#include "util.h"
+#include "interp.h"
 
 void do_petition(CHAR_DATA *ch, const char *argument)
 {
@@ -85,7 +91,8 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		if (victim->clan == ch->clan) {
+		if (victim->clan == ch->clan
+		&&  victim->pcdata->clan_status != CLAN_LEADER) {
 			victim->clan = CLAN_NONE;
 			victim->pcdata->petition = CLAN_NONE;
 			char_nputs(OK, ch);
@@ -209,4 +216,86 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+}
+
+char *get_status_alias(int status)
+{
+	switch (status) {
+	case CLAN_COMMON:
+		return "commoner";
+	case CLAN_SECOND:
+		return "secondary";
+	case CLAN_LEADER:
+		return "leader";
+	}
+	return "commoner";
+}
+
+void do_clanlist(CHAR_DATA *ch, const char *argument)
+{
+	DESCRIPTOR_DATA *d;
+	FILE *pfile;
+	DIR *dirp;
+	char buf[PATH_MAX];
+	struct dirent *dp;
+	char letter;
+
+	if (IS_NPC(ch))
+		return;
+
+	if (ch->clan == CLAN_NONE || ch->pcdata->clan_status == CLAN_COMMON) {
+		char_nputs(HUH, ch);
+		return;
+	}
+
+                                                                                
+	if ((dirp = opendir(PLAYER_DIR)) == NULL) {
+		bug("Clan_list: unable to open player directory.", 0);
+		exit(1);
+	}
+
+	for (d = descriptor_list; d; d = d->next)
+		do_save(d->character, "");
+
+	char_puts("Now listing members of your clan:\n\r", ch);
+	for (dp = readdir(dirp); dp != NULL; dp = readdir(dirp)) {
+		char name[MAX_STRING_LENGTH];
+		int clan = -1, status = -1;
+		*name = '\0';
+
+		if (dp->d_namlen < 3)
+			continue;
+
+		snprintf(buf, sizeof(buf), "%s%s", PLAYER_DIR, dp->d_name);
+
+		if ((pfile = fopen(buf, "r")) == NULL) {
+			bug("Clan_list: Can't open player file.", 0);
+			continue;
+		}
+
+		for (letter = fread_letter(pfile); letter != EOF;
+						letter = fread_letter(pfile)) {
+			char *word;
+
+			if (letter == 'N'
+			&&  !strcmp(word = fread_word(pfile), "ame")) {
+				strnzcpy(name, fread_word(pfile),
+					 MAX_STRING_LENGTH);
+				name[strlen(name)-1] = '\0';
+				continue;
+			}
+
+			if (letter == 'C'
+			&&  !strcmp(word = fread_word(pfile), "lan"))
+				clan = fread_number(pfile);
+			else if (letter == 'C'
+			&&  !strcmp(word, "lanStatus"))
+				status = fread_number(pfile);
+		}
+
+		if (clan == ch->clan)
+			char_printf(ch, "%s -- %s\n\r", name,
+				    get_status_alias(status));
+		fclose(pfile);
+	}
 }

@@ -2,7 +2,7 @@
 #define _INTERP_H_
 
 /*
- * $Id: interp.h,v 1.12 1998-07-22 22:21:18 efdi Exp $
+ * $Id: interp.h,v 1.13 1998-07-23 01:25:08 efdi Exp $
  */
 
 /***************************************************************************
@@ -123,6 +123,7 @@ DECLARE_DO_FUN( do_clan_scan	);
 DECLARE_DO_FUN(	do_cast		);
 DECLARE_DO_FUN( do_caltrops     );
 DECLARE_DO_FUN(	do_clan		);
+DECLARE_DO_FUN(	do_clanlist	);
 DECLARE_DO_FUN( do_camouflage   );
 DECLARE_DO_FUN( do_camp		);
 DECLARE_DO_FUN( do_changes	);

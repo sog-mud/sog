@@ -1,5 +1,5 @@
 /*
- * $Id: repair.c,v 1.3 1998-07-14 07:47:50 fjoe Exp $
+ * $Id: repair.c,v 1.4 1998-07-23 01:25:08 efdi Exp $
  */
 
 #include <stdio.h>
@@ -14,7 +14,8 @@ void damage_to_obj(CHAR_DATA *ch,OBJ_DATA *wield, OBJ_DATA *worn, int damage)
 {
 
  	if (damage == 0) return;
- 		worn->condition -= damage;
+
+ 	worn->condition -= damage;
 
 	act_puts("{gThe $p inflicts damage on {r$P{g.{x",
 		ch,wield,worn,TO_ROOM,POS_RESTING);
