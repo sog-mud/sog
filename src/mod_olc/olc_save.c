@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.70 1999-05-23 18:07:16 fjoe Exp $
+ * $Id: olc_save.c,v 1.71 1999-05-24 17:22:07 avn Exp $
  */
 
 /**************************************************************************
@@ -351,7 +351,7 @@ void save_object(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
 
     for (pAf = pObjIndex->affected; pAf; pAf = pAf->next)
     {
-	if (pAf->where == TO_OBJECT || pAf->bitvector == 0)
+	if (pAf->where == TO_OBJECT)
 	        fprintf(fp, "A\n%d %d\n",  pAf->location, pAf->modifier);
 	else
 	{

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.152 1999-05-24 07:52:48 fjoe Exp $
+ * $Id: handler.c,v 1.153 1999-05-24 17:22:05 avn Exp $
  */
 
 /***************************************************************************
@@ -731,14 +731,15 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 	default:
 		if (IS_NPC(ch)) {
 			log_printf("affect_modify: vnum %d: in room %d: "
-				   "unknown location %d.",
+				   "unknown location %d, where: %d",
 				   ch->pIndexData->vnum,
 				   ch->in_room ? ch->in_room->vnum : -1,
-				   paf->location);
+				   paf->location, paf->where);
 		}
 		else {
-			log_printf("affect_modify: %s: unknown location %d.",
-				   ch->name, paf->location);
+			log_printf("affect_modify: %s: unknown location %d"
+				"where: %d", ch->name, paf->location,
+				paf->where);
 		}
 		return;
 

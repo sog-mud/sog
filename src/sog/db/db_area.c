@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.41 1999-05-23 18:07:16 fjoe Exp $
+ * $Id: db_area.c,v 1.42 1999-05-24 17:22:06 avn Exp $
  */
 
 /***************************************************************************
@@ -1458,6 +1458,8 @@ DBLOAD_FUN(load_objects)
                 paf->level              = pObjIndex->level;
                 paf->duration           = -1;
                 paf->location           = fread_number(fp);
+		if (paf->location < 0)
+			paf->where	= TO_SKILLS;
                 paf->modifier           = fread_number(fp);
                 paf->bitvector          = 0;
 		SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);
