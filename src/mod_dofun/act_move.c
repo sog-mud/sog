@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.35 1998-05-14 13:00:59 efdi Exp $
+ * $Id: act_move.c,v 1.36 1998-05-15 12:04:24 efdi Exp $
  */
 
 /***************************************************************************
@@ -2612,9 +2612,9 @@ void do_bash_door(CHAR_DATA *ch, char *argument)
 
 		REMOVE_BIT(pexit->exit_info, EX_LOCKED);
 		REMOVE_BIT(pexit->exit_info, EX_CLOSED);
-		act("$n bashes the the $d and breaks the lock.", ch, NULL, 
-			pexit->keyword, TO_ROOM);
-		send_to_char("You successed to open the door.\n\r", ch);
+		act_printf(ch, NULL, pexit->keyword, TO_ROOM, POS_RESTING, 
+				MOVE_N_BASHES_AND_BREAK);
+		send_to_char(msg(MOVE_YOU_SUCCESSED_TO_OPEN_DOOR, ch), ch);
 
 		/* open the other side */
 		if ((to_room   = pexit->u1.to_room           ) != NULL
@@ -2626,7 +2626,8 @@ void do_bash_door(CHAR_DATA *ch, char *argument)
 		    REMOVE_BIT(pexit_rev->exit_info, EX_CLOSED);
 		    REMOVE_BIT(pexit_rev->exit_info, EX_LOCKED);
 		    for (rch = to_room->people; rch != NULL; rch = rch->next_in_room)
-			act("The $d opens.", rch, NULL, pexit_rev->keyword, TO_CHAR);
+			act_printf(rch, NULL, pexit_rev->keyword, TO_CHAR,
+				POS_DEAD, MOVE_THE_D_OPENS);
 		}
 
 
@@ -2635,10 +2636,9 @@ void do_bash_door(CHAR_DATA *ch, char *argument)
 	}
 	else
 	{
-		act("You fall flat on your face!",
-		    ch,NULL,NULL,TO_CHAR);
-		act("$n falls flat on $s face.",
-		    ch,NULL,NULL,TO_ROOM);
+		send_to_char(msg(MOVE_YOU_FALL_ON_FACE, ch), ch);
+		act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
+				MOVE_N_FALLS_ON_FACE);
 		check_improve(ch,gsn_bash,FALSE,1);
 		ch->position = POS_RESTING;
 		WAIT_STATE(ch,skill_table[gsn_bash].beats * 3/2); 
@@ -2653,7 +2653,6 @@ void do_bash_door(CHAR_DATA *ch, char *argument)
 void do_blink(CHAR_DATA *ch, char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
-	char buf[MAX_STRING_LENGTH];
 
 	argument = one_argument(argument , arg);
 
@@ -2666,30 +2665,26 @@ void do_blink(CHAR_DATA *ch, char *argument)
 
 	if (arg[0] == '\0')
 	{
-	 sprintf(buf,"Your current blink status : %s.\n\r",
-		IS_BLINK_ON(ch) ? "ON" : "OFF");
-	 send_to_char(buf,ch);
+	 char_printf(ch, msg(MOVE_CURRENT_BLINK, ch), IS_BLINK_ON(ch) ? 
+							"ON" : "OFF");
 	 return;
 	}
 
 	if (!str_cmp(arg,"ON"))
 		{
 		 SET_BIT(ch->act,PLR_BLINK_ON);
-		 sprintf(buf,"Now ,your current blink status is ON.\n\r");
-		 send_to_char(buf,ch);
+		 send_to_char(msg(MOVE_BLINK_ON, ch), ch);
 		 return;
 		}
 
 	if (!str_cmp(arg,"OFF"))
 		{
 		 REMOVE_BIT(ch->act,PLR_BLINK_ON);
-		 sprintf(buf,"Now ,your current blink status is OFF.\n\r");
-		 send_to_char(buf,ch);
+		 send_to_char(msg(MOVE_BLINK_OFF, ch), ch);
 		 return;
 		}
 
-   sprintf(buf,"What is that?.Is %s a status?\n\r",arg);
-   send_to_char(buf,ch);
+   char_printf(ch, msg(MOVE_IS_S_A_STATUS, ch), arg);
    return;
 }
 

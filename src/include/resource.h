@@ -2,7 +2,7 @@
 #define _RESOURCE_H_
 
 /*
- * $Id: resource.h,v 1.39 1998-05-14 13:00:59 efdi Exp $
+ * $Id: resource.h,v 1.40 1998-05-15 12:04:25 efdi Exp $
  */
 
 #define msg(msgid, ch) vmsg(msgid, ch, ch)
@@ -359,6 +359,15 @@ enum {
 	MOVE_N_SLAMS_TRY_BREAK,
 	TATTOO_GLOWS_BLUE,
 	TATTOO_GLOWS_RED,
+	MOVE_N_BASHES_AND_BREAK,
+	MOVE_YOU_SUCCESSED_TO_OPEN_DOOR,
+	MOVE_YOU_FALL_ON_FACE,
+	MOVE_N_FALLS_ON_FACE,	
+	MOVE_HUH,
+	MOVE_CURRENT_BLINK,
+	MOVE_BLINK_ON,
+	MOVE_BLINK_OFF,
+	MOVE_IS_S_A_STATUS,	
 };
 
 #endif

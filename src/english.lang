@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.5 1998-05-14 13:00:21 efdi Exp $
+# $Id: english.lang,v 1.6 1998-05-15 12:04:02 efdi Exp $
 #
 
 INFO_NOTHING		"Nothing.\n\r"
@@ -353,5 +353,14 @@ MOVE_TRY_TO_OPEN		"Just try to open it."
 MOVE_SHIELD_PROTECTS_EXIT	"A mystical shield protects exit.\n\r"
 MOVE_YOU_SLAM_TRY_BREAK		"You slam into $d, and try to break $d!"
 MOVE_N_SLAMS_TRY_BREAK		"$n slams into $d, and tries to break it!"
-TATTOO_GLOWS_BLUE "The tattoo on your shoulder glows {Bblue{x.\n\r"
-TATTOO_GLOWS_RED "The tattoo on your shoulder glows {Rred{x.\n\r"
+TATTOO_GLOWS_BLUE	"The tattoo on your shoulder glows {Bblue{x.\n\r"
+TATTOO_GLOWS_RED	"The tattoo on your shoulder glows {Rred{x.\n\r"
+MOVE_N_BASHES_AND_BREAK	"$n bashes the $d and breaks the lock."
+MOVE_YOU_SUCCESSED_TO_OPEN_DOOR	"You successed to open the door.\n\r"
+MOVE_YOU_FALL_ON_FACE	"You fall flat on your face!"
+MOVE_N_FALLS_ON_FACE	"$n falls flat on $s face."
+MOVE_HUH		"Huh?\n\r"
+MOVE_CURRENT_BLINK	"Your current blink status : %s.\n\r"
+MOVE_BLINK_ON		"Now, your current blink status is ON.\n\r"
+MOVE_BLINK_OFF		"Now, your current blink status is OFF.\n\r"
+MOVE_IS_S_A_STATUS	"What's that? Is %s a status?\n\r"
