@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.321 2004-05-26 16:28:51 tatyana Exp $
+ * $Id: spellfun.c,v 1.322 2004-06-11 22:00:10 sg Exp $
  */
 
 /***************************************************************************
@@ -242,6 +242,7 @@ DECLARE_SPELL_FUN(spell_antimagic_aura);
 DECLARE_SPELL_FUN(spell_silence_person);
 DECLARE_SPELL_FUN(spell_silence);
 DECLARE_SPELL_FUN(spell_snake_rune);
+DECLARE_SPELL_FUN(spell_firenet);
 
 SPELL_FUN(generic_damage_spellfun, sn, level, ch, vo)
 {
@@ -8113,3 +8114,35 @@ SPELL_FUN(spell_snake_rune, sn, level, ch, vo)
 	    ch, obj, NULL, TO_CHAR);
 	act("$p is surrounded by a protective aura.", ch, obj, NULL, TO_ROOM);
 }
+
+SPELL_FUN(spell_firenet, sn, level, ch, vo)
+{
+	CHAR_DATA *victim = (CHAR_DATA *) vo;
+	AFFECT_DATA *paf;
+
+	if (saves_spell (level, victim, DAM_OTHER))
+		return;
+
+	if (is_sn_affected(victim, sn)) {
+		if (victim == ch)
+			act_char("You are already bound with net of fire.", ch);
+		else
+			act("$N is already bound with net of fire.", ch, NULL, victim, TO_CHAR);
+		return;
+	}
+
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= 1;
+	INT(paf->location)= APPLY_DEX;
+	paf->modifier	= -4;
+	affect_to_char(victim, paf);
+	aff_free(paf);
+
+	act_char("You are caught in a net of fire!", victim);
+	if (ch != victim) {
+		act("You catch $N in a net of fire!",
+		    ch, NULL, victim, TO_CHAR);
+	}
+}
+
