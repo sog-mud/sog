@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.4 1998-04-26 17:08:08 efdi Exp $
+ * $Id: note.c,v 1.5 1998-05-11 19:28:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -852,6 +852,7 @@ void parse_note( CHAR_DATA *ch, char *argument, int type )
 
     if ( !str_prefix( arg, "to" ) )
     {
+/*
 	if (is_name(argument,"all") && 
 		!(IS_IMMORTAL(ch) || IS_SET(ch->act,PLR_CANINDUCT)) )
 	{
@@ -859,6 +860,7 @@ void parse_note( CHAR_DATA *ch, char *argument, int type )
 	"Only immortals and cabal leaders can send notes to all.\n\r",ch);
             return;
 	}
+*/
 	note_attach( ch,type );
         if (ch->pnote->type != type)
         {
