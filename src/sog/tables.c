@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.192 2003-03-16 16:46:09 fjoe Exp $
+ * $Id: tables.c,v 1.193 2003-04-17 11:13:17 tatyana Exp $
  */
 
 /***************************************************************************
@@ -494,6 +494,7 @@ flaginfo_t sector_types[] =
 	{ "underwater",		SECT_UNDERWATER,	TRUE	},
 	{ "air",		SECT_AIR,		TRUE	},
 	{ "desert",		SECT_DESERT,		TRUE	},
+	{ "swamp",		SECT_SWAMP,		TRUE	},
 
 	{ NULL, 0, FALSE }
 };

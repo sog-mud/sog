@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.219 2002-12-03 14:29:20 tatyana Exp $
+ * $Id: martial_art.c,v 1.220 2003-04-17 11:13:04 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1465,6 +1465,7 @@ DO_FUN(do_dirt, ch, argument)
 	case(SECT_WATER_SWIM):		chance  =  0;	break;
 	case(SECT_WATER_NOSWIM):	chance  =  0;	break;
 	case(SECT_AIR):			chance  =  0;	break;
+	case(SECT_SWAMP):		chance  =  0;	break;
 	case(SECT_DESERT):		chance += 10;   break;
 	}
 

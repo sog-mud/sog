@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.396 2003-03-16 16:46:07 fjoe Exp $
+ * $Id: merc.h,v 1.397 2003-04-17 11:12:20 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1104,8 +1104,9 @@ struct wiznet_type
 #define SECT_UNDERWATER		8
 #define SECT_AIR		9
 #define SECT_DESERT		10
+#define SECT_SWAMP		11
 
-#define MAX_SECT		11
+#define MAX_SECT		12
 
 /*
  * Equpiment wear locations.

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.292 2002-11-28 21:40:16 fjoe Exp $
+ * $Id: act_move.c,v 1.293 2003-04-17 11:13:03 tatyana Exp $
  */
 
 /***************************************************************************
@@ -936,6 +936,7 @@ DO_FUN(do_hide, ch, argument)
 	sector = ch->in_room->sector_type;
 	if (sector == SECT_FOREST
 	||  sector == SECT_HILLS
+	||  sector == SECT_SWAMP
 	||  sector == SECT_MOUNTAIN)
 		chance -= 15;
 	else if (sector == SECT_CITY)

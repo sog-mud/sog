@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.363 2002-11-29 10:12:53 tatyana Exp $
+ * $Id: handler.c,v 1.364 2003-04-17 11:13:14 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1569,7 +1569,7 @@ get_eq_char(CHAR_DATA *ch, int iWear)
 
 static int movement_loss[MAX_SECT] =
 {
-	1, 2, 2, 3, 4, 6, 4, 1, 12, 10, 6
+	1, 2, 2, 3, 4, 6, 4, 1, 12, 10, 6, 15,
 };
 
 static
