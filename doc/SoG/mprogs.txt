@@ -1,5 +1,5 @@
 #
-# $Id: mprogs.txt,v 1.19 2003-04-25 12:38:43 fjoe Exp $
+# $Id: mprogs.txt,v 1.20 2003-05-01 07:38:30 fjoe Exp $
 #
 
 MPC code style
@@ -49,6 +49,7 @@ class char {
 	int level;		// уровень (с +lev)
 	int real_level;		// уровень (без +lev)
 
+	string clan;		// клан, или NULL
 	int ethos;		// ethos (ETHOS_LAWFUL, ETHOS_CHAOTIC, etc.)
 	char fighting;		// чар, с которым дерется ch (или NULL)
 	string hometown;	// 'hometown' для !npc,
