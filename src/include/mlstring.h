@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.h,v 1.21 1999-12-15 15:35:37 fjoe Exp $
+ * $Id: mlstring.h,v 1.22 1999-12-16 05:34:35 fjoe Exp $
  */
 
 #ifndef _MLSTRING_H_
@@ -75,5 +75,19 @@ const char *mlstr_foreach(mlstring *mlp,
 			  ...);
 bool	mlstr_addnl	(mlstring *mlp);
 bool	mlstr_stripnl	(mlstring *mlp);
+
+/*
+ * mlstring with gender
+ */
+typedef struct gmlstr_t {
+	mlstring ml;
+	mlstring gender;
+} gmlstr_t;
+
+void		gmlstr_init	(gmlstr_t *);
+gmlstr_t *	gmlstr_cpy	(gmlstr_t *dst, const gmlstr_t *src);
+void		gmlstr_destroy	(gmlstr_t *);
+
+#define gmlstr_mval(gml)	(mlstr_mval(&(gml)->ml))
 
 #endif

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.73 1999-12-15 15:35:39 fjoe Exp $
+ * $Id: olc_obj.c,v 1.74 1999-12-16 05:34:36 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -511,7 +511,7 @@ OLC_FUN(objed_addaffect)
 			return FALSE;
 		}
 
-		location.s = mlstr_mval(&sk->sk_name);
+		location.s = gmlstr_mval(&sk->sk_name);
 		argument = one_argument(argument, arg2, sizeof(arg2));
 		break;
 	}
@@ -1096,7 +1096,7 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 			}
 			buf_add(output, "SPELL TYPE SET.\n");
 			STR_ASSIGN(pObj->value[3],
-				   str_qdup(mlstr_mval(&sk->sk_name)));
+				   str_qdup(gmlstr_mval(&sk->sk_name)));
 			break;
 		}
 		break;
@@ -1126,7 +1126,7 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 			}
 			buf_printf(output, "SPELL TYPE %d SET.\n\n", value_num);
 			STR_ASSIGN(pObj->value[value_num],
-				   str_qdup(mlstr_mval(&sk->sk_name)));
+				   str_qdup(gmlstr_mval(&sk->sk_name)));
 			break;
  		}
 		break;
@@ -1327,7 +1327,7 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 
 			buf_add(output, "LIQUID TYPE SET.\n\n");
 			STR_ASSIGN(pObj->value[2],
-				   str_qdup(mlstr_mval(&liq->lq_name)));
+				   str_qdup(gmlstr_mval(&liq->lq_name)));
 			break;
 		case 3:
 			buf_add(output, "POISON VALUE TOGGLED.\n\n");
@@ -1390,13 +1390,13 @@ static void show_skills(BUFFER *output, int skill_type)
 
 		for (j = 0; j < v->nused; j++) {
 			skill_t *sk = VARR_GET(v, j);
+			const char *sn = gmlstr_mval(&sk->sk_name);
 
-			if (!str_cmp(mlstr_mval(&sk->sk_name), "reserved")
+			if (!str_cmp(sn, "reserved")
 			||  (skill_type >= 0 && sk->skill_type != skill_type))
 				continue;
 
-			buf_printf(output, "%-19.18s",
-				   mlstr_mval(&sk->sk_name));
+			buf_printf(output, "%-19.18s", sn);
 			if (++col % 4 == 0)
 				buf_add(output, "\n");
 		}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_spec.c,v 1.3 1999-12-14 15:31:13 fjoe Exp $
+ * $Id: olc_spec.c,v 1.4 1999-12-16 05:34:36 fjoe Exp $
  */
 
 #include "olc.h"
@@ -223,7 +223,7 @@ OLC_FUN(speced_skill)
 			return FALSE;
 		}
 		ssk = varr_enew(&s->spec_skills);
-		ok = olced_foreign_strkey(ch, argument, cmd, &ssk->sn);
+		ok = olced_foreign_mlstrkey(ch, argument, cmd, &ssk->sn);
 		varr_qsort(&s->spec_skills, cmpstr);
 		return ok;
 	}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic.c,v 1.15 1999-12-15 15:35:43 fjoe Exp $
+ * $Id: magic.c,v 1.16 1999-12-16 05:34:38 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -108,7 +108,7 @@ void obj_cast_spell(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	switch (spell->target) {
 	default:
 		bug("obj_cast_spell: %s: bad target",
-		    mlstr_mval(&spell->sk_name), spell->target);
+		    gmlstr_mval(&spell->sk_name), spell->target);
 		return;
 
 	case TAR_IGNORE:
@@ -273,13 +273,13 @@ void spellfun_call(const char *sn_fun, const char *sn, int level,
 	if (sk->skill_type != ST_SPELL
 	&&  sk->skill_type != ST_PRAYER) {
 		bug("spellfun_call: %s: not a spell or prayer",
-		    mlstr_mval(&sk->sk_name));
+		    gmlstr_mval(&sk->sk_name));
 		return;
 	}
 
 	if (sk->fun == NULL) {
 		bug("spellfun_call: %s: NULL skill function",
-		    mlstr_mval(&sk->sk_name));
+		    gmlstr_mval(&sk->sk_name));
 		return;
 	}
 

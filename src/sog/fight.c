@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.239 1999-12-15 15:35:41 fjoe Exp $
+ * $Id: fight.c,v 1.240 1999-12-16 05:34:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2661,7 +2661,7 @@ void dam_message(CHAR_DATA *ch, CHAR_DATA *victim, int dam,
 	const char *msg_char;
 	const char *msg_vict = NULL;
 	const char *msg_notvict;
-	mlstring *dam_noun = NULL;
+	gmlstr_t *dam_noun = NULL;
 
 	if (dam == 0) {
 		vs = "miss";

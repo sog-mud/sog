@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: damtype.c,v 1.4 1999-12-15 15:35:41 fjoe Exp $
+ * $Id: damtype.c,v 1.5 1999-12-16 05:34:36 fjoe Exp $
  */
 
 #include <string.h>
@@ -37,8 +37,7 @@ hash_t damtypes;
 void damtype_init(damtype_t *d)
 {
 	d->dam_name = str_empty;
-	mlstr_init(&d->dam_noun, str_empty);
-	mlstr_init(&d->dam_gender, str_empty);
+	gmlstr_init(&d->dam_noun);
 	d->dam_class = 0;
 	d->dam_slot = -1;
 }
@@ -46,8 +45,7 @@ void damtype_init(damtype_t *d)
 damtype_t *damtype_cpy(damtype_t *dst, damtype_t *src)
 {
 	dst->dam_name = str_qdup(src->dam_name);
-	mlstr_cpy(&dst->dam_noun, &src->dam_noun);
-	mlstr_cpy(&dst->dam_gender, &src->dam_gender);
+	gmlstr_cpy(&dst->dam_noun, &src->dam_noun);
 	dst->dam_class = src->dam_class;
 	dst->dam_slot = src->dam_slot;
 	return dst;
@@ -56,8 +54,7 @@ damtype_t *damtype_cpy(damtype_t *dst, damtype_t *src)
 void damtype_destroy(damtype_t *d)
 {
 	free_string(d->dam_name);
-	mlstr_destroy(&d->dam_noun);
-	mlstr_destroy(&d->dam_gender);
+	gmlstr_destroy(&d->dam_noun);
 }
 
 static void *
@@ -89,7 +86,7 @@ const char *damtype_slot_lookup(int slot)
 	return str_qdup(dn);
 }
 
-mlstring *
+gmlstr_t *
 damtype_noun(const char *dn)
 {
 	damtype_t *d;

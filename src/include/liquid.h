@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: liquid.h,v 1.4 1999-12-15 15:35:36 fjoe Exp $
+ * $Id: liquid.h,v 1.5 1999-12-16 05:34:34 fjoe Exp $
  */
 
 #ifndef _LIQUID_H_
@@ -32,8 +32,7 @@
 typedef struct liquid_t liquid_t;
 struct liquid_t
 {
-	mlstring	lq_name;
-	mlstring	lq_gender;
+	gmlstr_t	lq_name;
 	mlstring	lq_color;
 	int		affect[MAX_COND];
 	int		sip;

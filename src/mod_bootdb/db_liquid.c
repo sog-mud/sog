@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_liquid.c,v 1.6 1999-12-15 15:35:46 fjoe Exp $
+ * $Id: db_liquid.c,v 1.7 1999-12-16 05:34:39 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -81,23 +81,17 @@ DBLOAD_FUN(load_liquid)
 			break;
 		case 'E':
 			if (IS_TOKEN(fp, "End")) {
-				const char *ln = mlstr_mval(&lq.lq_name);
+				const char *ln = gmlstr_mval(&lq.lq_name);
 				const char *cn = mlstr_mval(&lq.lq_color);
 				msg_t *m;
 
-				if (mlstr_nlang(&lq.lq_name) == 0
+				if (mlstr_nlang(&lq.lq_name.ml) == 0
 				&&  (m = msg_lookup(ln)) != NULL
-				&&  str_cmp(ln, "north")
-				&&  str_cmp(ln, "south")
-				&&  str_cmp(ln, "up")
-				&&  str_cmp(ln, "down")
-				&&  str_cmp(ln, "east")
-				&&  str_cmp(ln, "west")
 				&&  str_cmp(ln, "silver")
 				&&  str_cmp(ln, "gold")) {
-					mlstr_cpy(&lq.lq_name, &m->ml);
+					mlstr_cpy(&lq.lq_name.ml, &m->ml);
 					if (m->gender) {
-						const char **pp = mlstr_convert(&lq.lq_gender, 1);
+						const char **pp = mlstr_convert(&lq.lq_name.gender, 1);
 						free_string(*pp);
 						*pp = str_dup(flag_string(gender_table, m->gender));
 					}
@@ -105,12 +99,6 @@ DBLOAD_FUN(load_liquid)
 
 				if (mlstr_nlang(&lq.lq_color) == 0
 				&&  (m = msg_lookup(cn)) != NULL
-				&&  str_cmp(cn, "north")
-				&&  str_cmp(cn, "south")
-				&&  str_cmp(cn, "up")
-				&&  str_cmp(cn, "down")
-				&&  str_cmp(cn, "east")
-				&&  str_cmp(cn, "west")
 				&&  str_cmp(cn, "silver")
 				&&  str_cmp(cn, "gold"))
 					mlstr_cpy(&lq.lq_color, &m->ml);
@@ -126,10 +114,10 @@ DBLOAD_FUN(load_liquid)
 			}
 			break;
 		case 'G':
-			MLSKEY("Gender", lq.lq_gender);
+			MLSKEY("Gender", lq.lq_name.gender);
 			break;
 		case 'N':
-			MLSKEY("Name", lq.lq_name);
+			MLSKEY("Name", lq.lq_name.ml);
 			break;
 		case 'S':
 			KEY("Sip", lq.sip, fread_number(fp));

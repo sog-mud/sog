@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.63 1999-12-15 15:35:38 fjoe Exp $
+ * $Id: olc.h,v 1.64 1999-12-16 05:34:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -133,6 +133,8 @@ bool olced_name		(CHAR_DATA *ch, const char *argument,
 			 olc_cmd_t *cmd, const char **pStr);
 bool olced_foreign_strkey(CHAR_DATA *ch, const char *argument,
 			 olc_cmd_t *cmd, const char **pStr);
+bool olced_foreign_mlstrkey(CHAR_DATA *ch, const char *argument,
+			    olc_cmd_t *cmd, const char **pStr);
 bool olced_str		(CHAR_DATA *ch, const char *argument,
 			 olc_cmd_t *cmd, const char **pStr);
 bool olced_str_text	(CHAR_DATA *ch, const char *argument,

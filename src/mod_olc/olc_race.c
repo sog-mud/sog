@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.26 1999-12-15 15:35:40 fjoe Exp $
+ * $Id: olc_race.c,v 1.27 1999-12-16 05:34:36 fjoe Exp $
  */
 
 #include "olc.h"
@@ -495,7 +495,7 @@ OLC_FUN(raceed_bonusskill)
 		char_printf(ch, "RaceEd: %s: no such skill.\n", argument);
 		return FALSE;
 	}
-	return olced_name(ch, mlstr_mval(&sk->sk_name), cmd,
+	return olced_name(ch, gmlstr_mval(&sk->sk_name), cmd,
 			  &race->race_pcdata->bonus_skills);
 }
 

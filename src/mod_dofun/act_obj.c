@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.187 1999-12-15 15:35:31 fjoe Exp $
+ * $Id: act_obj.c,v 1.188 1999-12-16 05:34:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2302,7 +2302,7 @@ random_spell(void)
 			break;
 	}
 
-	return mlstr_mval(&sk->sk_name);
+	return gmlstr_mval(&sk->sk_name);
 }
 
 void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)

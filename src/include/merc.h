@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.272 1999-12-15 15:35:36 fjoe Exp $
+ * $Id: merc.h,v 1.273 1999-12-16 05:34:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1517,8 +1517,7 @@ struct exit_data
 	flag_t		size;
 	int		key;
 	const char *	keyword;
-	mlstring	exit_name;
-	mlstring	gender;
+	gmlstr_t	short_descr;
 	mlstring	description;
 	EXIT_DATA *	next;		/* OLC */
 	flag_t		rs_flags;	/* OLC */

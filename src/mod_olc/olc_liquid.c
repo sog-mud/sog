@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_liquid.c,v 1.5 1999-12-15 15:35:39 fjoe Exp $
+ * $Id: olc_liquid.c,v 1.6 1999-12-16 05:34:36 fjoe Exp $
  */
 
 #include "olc.h"
@@ -88,7 +88,7 @@ OLC_FUN(liqed_create)
 	 */
 
 	liquid_init(&lq);
-	mlstr_init(&lq.lq_name, argument);
+	mlstr_init(&lq.lq_name.ml, argument);
 	l = hash_insert(&liquids, argument, &lq);
 	liquid_destroy(&lq);
 
@@ -135,8 +135,8 @@ static void *liquid_save_cb(void *p, va_list ap)
 	int i;
 
 	fprintf(fp, "#LIQUID\n");
-	mlstr_fwrite(fp, "Name", &lq->lq_name);
-	mlstr_fwrite(fp, "Gender", &lq->lq_gender);
+	mlstr_fwrite(fp, "Name", &lq->lq_name.ml);
+	mlstr_fwrite(fp, "Gender", &lq->lq_name.gender);
 	mlstr_fwrite(fp, "Color", &lq->lq_color);
 	fprintf(fp, "Affect");
 	for (i = 0; i < MAX_COND; i++)
@@ -191,8 +191,8 @@ OLC_FUN(liqed_show)
 	}
 	
 	buf = buf_new(-1);
-	mlstr_dump(buf, "Name:   ", &lq->lq_name);
-	mlstr_dump(buf, "Gender: ", &lq->lq_gender);
+	mlstr_dump(buf, "Name:   ", &lq->lq_name.ml);
+	mlstr_dump(buf, "Gender: ", &lq->lq_name.gender);
 	mlstr_dump(buf, "Color:  ", &lq->lq_color);
 	if (lq->sip)
 		buf_printf(buf, "Sip:    [%d]\n", lq->sip);
@@ -226,7 +226,7 @@ OLC_FUN(liqed_gender)
 	liquid_t *lq;
 
 	EDIT_LIQ(ch, lq);
-	return olced_gender(ch, argument, cmd, &lq->lq_gender);
+	return olced_gender(ch, argument, cmd, &lq->lq_name.gender);
 }
 
 OLC_FUN(liqed_color)

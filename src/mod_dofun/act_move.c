@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.217 1999-12-15 15:35:28 fjoe Exp $
+ * $Id: act_move.c,v 1.218 1999-12-16 05:34:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -154,18 +154,18 @@ void do_open(CHAR_DATA *ch, const char *argument)
 
 		if (!IS_SET(pexit->exit_info, EX_CLOSED)) {
 			act("It's already open.",
-			    ch, &pexit->exit_name, NULL, TO_CHAR);
+			    ch, &pexit->short_descr, NULL, TO_CHAR);
 			return;
 		}
 
 		if ( IS_SET(pexit->exit_info, EX_LOCKED)) {
 			act("It's locked.",
-			    ch, &pexit->exit_name, NULL, TO_CHAR);
+			    ch, &pexit->short_descr, NULL, TO_CHAR);
 			return;
 		}
 
 		REMOVE_BIT(pexit->exit_info, EX_CLOSED);
-		act("$n opens $v.", ch, &pexit->exit_name, NULL, TO_ROOM);
+		act("$n opens $v.", ch, &pexit->short_descr, NULL, TO_ROOM);
 		char_puts("Ok.\n", ch);
 
 		/* open the other side */
@@ -178,7 +178,7 @@ void do_open(CHAR_DATA *ch, const char *argument)
 
 			in_room = ch->in_room;
 			ch->in_room = to_room;
-			act("$v opens.", ch, &pexit_rev->exit_name, NULL,
+			act("$v opens.", ch, &pexit_rev->short_descr, NULL,
 			    TO_ROOM);
 			ch->in_room = in_room;
 		}
@@ -245,12 +245,12 @@ void do_close(CHAR_DATA *ch, const char *argument)
 		pexit	= ch->in_room->exit[door];
 		if (IS_SET(pexit->exit_info, EX_CLOSED)) {
 			act("It's already closed.",
-			    ch, &pexit->exit_name, NULL, TO_CHAR);
+			    ch, &pexit->short_descr, NULL, TO_CHAR);
 			return;
 		}
 
 		SET_BIT(pexit->exit_info, EX_CLOSED);
-		act("$n closes $v.", ch, &pexit->exit_name, NULL, TO_ROOM);
+		act("$n closes $v.", ch, &pexit->short_descr, NULL, TO_ROOM);
 		char_puts("Ok.\n", ch);
 
 		/* close the other side */
@@ -262,7 +262,7 @@ void do_close(CHAR_DATA *ch, const char *argument)
 			SET_BIT(pexit_rev->exit_info, EX_CLOSED);
 			in_room = ch->in_room;
 			ch->in_room = to_room;
-			act("$v closes.", ch, &pexit_rev->exit_name, NULL,
+			act("$v closes.", ch, &pexit_rev->short_descr, NULL,
 			    TO_ROOM);
 			ch->in_room = in_room;
 		}
@@ -345,13 +345,13 @@ void do_lock(CHAR_DATA *ch, const char *argument)
 		pexit	= ch->in_room->exit[door];
 		if (!IS_SET(pexit->exit_info, EX_CLOSED)) {
 			act("It's not closed.",
-			    ch, &pexit->exit_name, NULL, TO_CHAR);
+			    ch, &pexit->short_descr, NULL, TO_CHAR);
 			return;
 		}
 
 		if (pexit->key < 0) {
 			act("It can't be locked.",
-			    ch, &pexit->exit_name, NULL, TO_CHAR);
+			    ch, &pexit->short_descr, NULL, TO_CHAR);
 			return;
 		}
 
@@ -363,13 +363,13 @@ void do_lock(CHAR_DATA *ch, const char *argument)
 
 		if (IS_SET(pexit->exit_info, EX_LOCKED)) {
 			act("It's already locked.",
-			    ch, &pexit->exit_name, NULL, TO_ROOM);
+			    ch, &pexit->short_descr, NULL, TO_ROOM);
 			return;
 		}
 
 		SET_BIT(pexit->exit_info, EX_LOCKED);
 		char_puts("*Click*\n", ch);
-		act("$n locks $v.", ch, &pexit->exit_name, NULL, TO_ROOM);
+		act("$n locks $v.", ch, &pexit->short_descr, NULL, TO_ROOM);
 
 		/* lock the other side */
 		if ((to_room   = pexit->to_room.r           ) != NULL
@@ -382,7 +382,7 @@ void do_lock(CHAR_DATA *ch, const char *argument)
 			in_room = ch->in_room;
 			ch->in_room = to_room;
 			act("$v clicks.",
-			    ch, &pexit_rev->exit_name, NULL, TO_ROOM);
+			    ch, &pexit_rev->short_descr, NULL, TO_ROOM);
 			ch->in_room  = in_room;
 		}
 		return;
@@ -465,13 +465,13 @@ void do_unlock(CHAR_DATA *ch, const char *argument)
 
 		if (!IS_SET(pexit->exit_info, EX_CLOSED)) {
 			act("It's not closed.",
-			    ch, &pexit->exit_name, NULL, TO_CHAR);
+			    ch, &pexit->short_descr, NULL, TO_CHAR);
 			return;
 		}
 
 		if (pexit->key < 0) {
 			act("It can't be unlocked.",
-			    ch, &pexit->exit_name, NULL, TO_CHAR);
+			    ch, &pexit->short_descr, NULL, TO_CHAR);
 			return;
 		}
 
@@ -483,13 +483,13 @@ void do_unlock(CHAR_DATA *ch, const char *argument)
 
 		if (!IS_SET(pexit->exit_info, EX_LOCKED)) {
 			act("It's already unlocked.", 
-			    ch, &pexit->exit_name, NULL, TO_CHAR);
+			    ch, &pexit->short_descr, NULL, TO_CHAR);
 			return;
 		}
 
 		REMOVE_BIT(pexit->exit_info, EX_LOCKED);
 		char_puts("*Click*\n", ch);
-		act("$n unlocks $v.", ch, &pexit->exit_name, NULL, TO_ROOM);
+		act("$n unlocks $v.", ch, &pexit->short_descr, NULL, TO_ROOM);
 
 		/* unlock the other side */
 		if ((to_room   = pexit->to_room.r           ) != NULL
@@ -502,7 +502,7 @@ void do_unlock(CHAR_DATA *ch, const char *argument)
 			in_room = ch->in_room;
 			ch->in_room = to_room;
 			act("$v clicks.",
-			    ch, &pexit_rev->exit_name, NULL, TO_ROOM);
+			    ch, &pexit_rev->short_descr, NULL, TO_ROOM);
 			ch->in_room = in_room;
 		}
 		return;
@@ -633,19 +633,19 @@ void do_pick(CHAR_DATA *ch, const char *argument)
 		pexit = ch->in_room->exit[door];
 		if (!IS_SET(pexit->exit_info, EX_CLOSED) && !IS_IMMORTAL(ch)) {
 			act("It's not closed.",
-			    ch, &pexit->exit_name, NULL, TO_CHAR);
+			    ch, &pexit->short_descr, NULL, TO_CHAR);
 			return;
 		}
 		
 		if (pexit->key < 0 && !IS_IMMORTAL(ch)) {
 			act("It can't be picked.",
-			    ch, &pexit->exit_name, NULL, TO_CHAR);
+			    ch, &pexit->short_descr, NULL, TO_CHAR);
 			return;
 		}
 		
 		if (!IS_SET(pexit->exit_info, EX_LOCKED)) {
 			act("It's already unlocked.",
-			    ch, &pexit->exit_name, NULL, TO_CHAR);
+			    ch, &pexit->short_descr, NULL, TO_CHAR);
 			return;
 		}
 
@@ -672,7 +672,7 @@ void do_pick(CHAR_DATA *ch, const char *argument)
 			REMOVE_BIT(pexit_rev->exit_info, EX_LOCKED);
 
 		char_puts("*Click*\n", ch);
-		act("$n picks $v.", ch, &pexit->exit_name, NULL, TO_ROOM);
+		act("$n picks $v.", ch, &pexit->short_descr, NULL, TO_ROOM);
 		check_improve(ch, "pick lock", TRUE, 2);
 	}
 }
@@ -1802,9 +1802,9 @@ void do_bash_door(CHAR_DATA *ch, const char *argument)
 		chance -= 10;
 
 	act_puts("You slam into $v, and try to break it!",
-		 ch, &pexit->exit_name, NULL, TO_CHAR, POS_DEAD);
+		 ch, &pexit->short_descr, NULL, TO_CHAR, POS_DEAD);
 	act("$n slams into $v, and tries to break it!",
-	    ch, &pexit->exit_name, NULL, TO_ROOM);
+	    ch, &pexit->short_descr, NULL, TO_ROOM);
 
 	if (room_dark(ch->in_room))
 		chance /= 2;
@@ -1817,9 +1817,9 @@ void do_bash_door(CHAR_DATA *ch, const char *argument)
 		REMOVE_BIT(pexit->exit_info, EX_LOCKED);
 		REMOVE_BIT(pexit->exit_info, EX_CLOSED);
 		act("$n bashes $v and breaks the lock.",
-		    ch, &pexit->exit_name, NULL, TO_ROOM);
+		    ch, &pexit->short_descr, NULL, TO_ROOM);
 		act_puts("You successed to open $v.",
-			 ch, &pexit->exit_name, NULL, TO_CHAR, POS_DEAD);
+			 ch, &pexit->short_descr, NULL, TO_CHAR, POS_DEAD);
 
 /* open the other side */
 		if ((to_room = pexit->to_room.r) != NULL
@@ -1833,7 +1833,7 @@ void do_bash_door(CHAR_DATA *ch, const char *argument)
 			in_room = ch->in_room;
 			ch->in_room = to_room;
 			act("$n bashes $v and breaks the lock.",
-			    ch, &pexit->exit_name, NULL, TO_ROOM);
+			    ch, &pexit->short_descr, NULL, TO_ROOM);
 			ch->in_room = in_room;
 		}
 

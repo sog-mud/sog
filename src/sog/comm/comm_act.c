@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.c,v 1.47 1999-12-15 15:35:44 fjoe Exp $
+ * $Id: comm_act.c,v 1.48 1999-12-16 05:34:38 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -295,7 +295,7 @@ act_format_obj(OBJ_DATA *obj, CHAR_DATA *to, int to_lang, int act_flags)
 		break;						\
 	}
 
-#define CHECK_MLSTRING(ml)						\
+#define CHECK_MLSTR(ml)							\
 	if (!mlstr_valid(ml)) {						\
 		log("act_buf: format '%s', invalid mlstring arg",	\
 		    format);						\
@@ -303,7 +303,7 @@ act_format_obj(OBJ_DATA *obj, CHAR_DATA *to, int to_lang, int act_flags)
 		break;							\
 	}
 
-#define CHECK_MLSTRING2(ml)						\
+#define CHECK_MLSTR2(ml)						\
 	if (!mlstr_valid(ml)) { 					\
 		log("act_buf: format '%s', invalid mlstring arg",	\
 		    format);						\
@@ -360,7 +360,7 @@ act_format_obj(OBJ_DATA *obj, CHAR_DATA *to, int to_lang, int act_flags)
 
 #define MLTEXT_ARG(mltext, flags)					\
 	{								\
-		CHECK_MLSTRING(mltext);					\
+		CHECK_MLSTR(mltext);					\
 		i = act_format_mltext(mltext, ch, to, opt->to_lang,	\
 				      ACT_FLAGS(flags));		\
 	}
@@ -456,8 +456,8 @@ act_format_obj(OBJ_DATA *obj, CHAR_DATA *to, int to_lang, int act_flags)
 #define ROOM3	((ROOM_INDEX_DATA *) arg3)
 #define OBJ1	((OBJ_DATA *) arg1)
 #define OBJ2	((OBJ_DATA *) arg2)
-#define ML1	((mlstring *) arg1)
-#define ML3	((mlstring *) arg3)
+#define GML1	((gmlstr_t *) arg1)
+#define GML3	((gmlstr_t *) arg3)
 
 void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 	     const void *arg1, const void *arg2, const void *arg3,
@@ -578,11 +578,13 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 				break;
 
 			case 'v':
-				MLTEXT_ARG(ML1, opt->act_flags & ~ACT_STRANS);
+				MLTEXT_ARG(&GML1->ml,
+					   opt->act_flags & ~ACT_STRANS);
 				break;
 
 			case 'V':
-				MLTEXT_ARG(ML3, opt->act_flags & ~ACT_STRANS);
+				MLTEXT_ARG(&GML3->ml,
+					   opt->act_flags & ~ACT_STRANS);
 				break;
 
 /* room arguments */
@@ -768,13 +770,13 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 						break;
 
 					case 'v':
-						CHECK_MLSTRING2(ML1+1);
-						tstack[sp].arg = GET_SEX(ML1+1, opt->to_lang);
+						CHECK_MLSTR2(&GML1->gender);
+						tstack[sp].arg = GET_SEX(&GML1->gender, opt->to_lang);
 						break;
 
 					case 'V':
-						CHECK_MLSTRING2(ML3+1);
-						tstack[sp].arg = GET_SEX(ML3+1, opt->to_lang);
+						CHECK_MLSTR2(&GML3->gender);
+						tstack[sp].arg = GET_SEX(&GML3->gender, opt->to_lang);
 						break;
 
 					case '0':

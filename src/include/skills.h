@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: skills.h,v 1.27 1999-12-15 15:35:37 fjoe Exp $
+ * $Id: skills.h,v 1.28 1999-12-16 05:34:35 fjoe Exp $
  */
 
 #ifndef _SKILLS_H_
@@ -55,8 +55,7 @@
 
 typedef struct skill_t skill_t;
 struct skill_t {
-	mlstring	sk_name;		/* skill name */
-	mlstring	sk_gender;		/* skill gender */
+	gmlstr_t	sk_name;		/* skill name */
 	const char *	fun_name;		/* skill function name */
 	SPELL_FUN *	fun;			/* skill function */
 	flag_t		target;			/* legal target */
@@ -64,7 +63,7 @@ struct skill_t {
 	int		slot;			/* slot for #OBJOLD loading */
 	int		min_mana;		/* min mana used */
 	int		beats;			/* waiting time after use */
-	mlstring	noun_damage;		/* damage message */
+	gmlstr_t	noun_damage;		/* damage message */
 	mlstring	msg_off;		/* wear off message */
 	mlstring 	msg_obj;		/* wear off message for obj */
 	flag_t		skill_flags;		/* skill flags */
@@ -102,7 +101,7 @@ void	check_events	(CHAR_DATA *ch, AFFECT_DATA *list,
 
 /* fast skill lookup by precise name */
 #define skill_lookup(sn)	((skill_t*) strkey_lookup(&skills, (sn)))
-#define skill_search(sn)	((skill_t*) strkey_search(&skills, (sn)))
+#define skill_search(sn)	((skill_t*) mlstrkey_search(&skills, (sn)))
 
 /* lookup skill by prefix in skill list */
 void *		skill_vsearch	(varr *v, const char *sn);

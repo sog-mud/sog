@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.78 1999-12-15 15:35:46 fjoe Exp $
+ * $Id: db_area.c,v 1.79 1999-12-16 05:34:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -625,8 +625,6 @@ DBLOAD_FUN(load_rooms)
 							 "door");
 					}
 
-					mlstr_init(&pexit->gender, "none");
-
 					if ((m = msg_lookup(buf)) != NULL
 					&&  str_cmp(buf, "north")
 					&&  str_cmp(buf, "south")
@@ -637,28 +635,26 @@ DBLOAD_FUN(load_rooms)
 					&&  str_cmp(buf, "silver")
 					&&  str_cmp(buf, "gold")) {
 						const char **p;
-						mlstr_cpy(&pexit->exit_name,
-							  &m->ml);
-						p = mlstr_convert(&pexit->exit_name, 0);
+						mlstr_cpy(&pexit->short_descr.ml, &m->ml);
+						p = mlstr_convert(&pexit->short_descr.ml, 0);
 						snprintf(buf2, sizeof(buf2),
 							 "the %s", *p);
 						free_string(*p);
 						*p = str_dup(buf2);
 
 						if (m->gender) {
-							p = mlstr_convert(&pexit->gender, 1);
+							p = mlstr_convert(&pexit->short_descr.gender, 1);
 							free_string(*p);
 							*p = str_dup(flag_string(gender_table, m->gender));
 						}
 					} else {
 						snprintf(buf2, sizeof(buf2),
 							 "the %s", buf);
-						mlstr_init(&pexit->exit_name,
-							   buf2);
+						mlstr_init(&pexit->short_descr.ml, buf2);
 					}
 				} else {
-					mlstr_fread(fp, &pexit->exit_name);
-					mlstr_fread(fp, &pexit->gender);
+					mlstr_fread(fp, &pexit->short_descr.ml);
+					mlstr_fread(fp, &pexit->short_descr.gender);
 				}
 				pexit->exit_info	= 0;
 				pexit->rs_flags		= 0;	/* OLC */

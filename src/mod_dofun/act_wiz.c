@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.214 1999-12-15 15:35:33 fjoe Exp $
+ * $Id: act_wiz.c,v 1.215 1999-12-16 05:34:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1117,7 +1117,7 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 			break;
 		buf_printf(output, "It holds %s-colored %s.\n",
 			   mlstr_mval(&lq->lq_color),
-			   mlstr_mval(&lq->lq_name));
+			   gmlstr_mval(&lq->lq_name));
 		break;
 	  
 	case ITEM_WEAPON:
@@ -2484,7 +2484,7 @@ sset_cb(void *p, va_list ap)
 	CHAR_DATA *victim = va_arg(ap, CHAR_DATA *);
 	int val = va_arg(ap, int);
 
-	set_skill(victim, mlstr_mval(&sk->sk_name), val);
+	set_skill(victim, gmlstr_mval(&sk->sk_name), val);
 	return NULL;
 }
 
@@ -2546,7 +2546,7 @@ void do_sset(CHAR_DATA *ch, const char *argument)
 			}
 			sn = arg2;
 		} else
-			sn = mlstr_mval(&sk->sk_name);
+			sn = gmlstr_mval(&sk->sk_name);
 
 		set_skill(victim, sn, value);
 		char_printf(ch, "do_sset: '%s': %d%%\n", sn, value);

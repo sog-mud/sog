@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_skill.c,v 1.19 1999-12-15 15:35:46 fjoe Exp $
+ * $Id: db_skill.c,v 1.20 1999-12-16 05:34:39 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -72,7 +72,7 @@ DBLOAD_FUN(load_skill)
 			break;
 		case 'E':
 			if (IS_TOKEN(fp, "End")) {
-				const char *sn = mlstr_mval(&sk.sk_name);
+				const char *sn = gmlstr_mval(&sk.sk_name);
 
 				if (IS_NULLSTR(sn)) {
 					db_error("load_skill",
@@ -114,7 +114,7 @@ DBLOAD_FUN(load_skill)
 		case 'G':
 			KEY("Group", sk.group,
 			    fread_fword(skill_groups, fp));
-			MLSKEY("Gender", sk.sk_gender);
+			MLSKEY("Gender", sk.sk_name.gender);
 			break;
 		case 'M':
 			KEY("MinMana", sk.min_mana, fread_number(fp));
@@ -122,8 +122,9 @@ DBLOAD_FUN(load_skill)
 			    fread_fword(position_table, fp));
 			break;
 		case 'N':
-			MLSKEY("Name", sk.sk_name);
-			MLSKEY("NounDamage", sk.noun_damage);
+			MLSKEY("Name", sk.sk_name.ml);
+			MLSKEY("NounDamage", sk.noun_damage.ml);
+			MLSKEY("NounGender", sk.noun_damage.gender);
 			break;
 		case 'O':
 			MLSKEY("ObjWearOff", sk.msg_obj);

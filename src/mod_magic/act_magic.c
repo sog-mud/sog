@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_magic.c,v 1.14 1999-12-15 15:35:34 fjoe Exp $
+ * $Id: act_magic.c,v 1.15 1999-12-16 05:34:34 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -92,7 +92,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		spell = skill_search(arg1);
 
 	if (spell == NULL
-	||  (chance = get_skill(ch, (sn = mlstr_mval(&spell->sk_name)))) == 0) {
+	||  (chance = get_skill(ch, (sn = gmlstr_mval(&spell->sk_name)))) == 0) {
 		char_puts("You don't know any spells of that name.\n", ch);
 		return;
 	}
@@ -485,7 +485,7 @@ void do_pray(CHAR_DATA *ch, const char *argument)
 		prayer = skill_search(arg1);
 
 	if (prayer == NULL
-	||  (chance = get_skill(ch, (sn = mlstr_mval(&prayer->sk_name)))) == 0) {
+	||  (chance = get_skill(ch, (sn = gmlstr_mval(&prayer->sk_name)))) == 0) {
 		char_puts("You don't know any prayers of that name.\n", ch);
 		return;
 	}

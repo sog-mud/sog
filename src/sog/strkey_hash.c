@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: strkey_hash.c,v 1.6 1999-12-15 15:35:44 fjoe Exp $
+ * $Id: strkey_hash.c,v 1.7 1999-12-16 05:34:38 fjoe Exp $
  */
 
 #include <limits.h>
@@ -109,6 +109,38 @@ strkey_search(hash_t *h, const char *name)
 	return hash_foreach(h, strkey_search_cb, name);
 }
 
+void *
+mlstrkey_search_cb(void *p, va_list ap)
+{
+	const char *key = va_arg(ap, const char *);
+	if (!str_prefix(key, mlstr_mval((mlstring *) p)))
+		return p;
+	return NULL;
+}
+
+/*
+ * mlstrkey_search -- lookup elem by prefix
+ */
+void *
+mlstrkey_search(hash_t *h, const char *name)
+{
+	void *p;
+
+	if (IS_NULLSTR(name))
+		return NULL;
+
+	/*
+	 * try exact match first
+	 */
+	if ((p = hash_lookup(h, name)) != NULL)
+		return p;
+
+	/*
+	 * search by prefix
+	 */
+	return hash_foreach(h, mlstrkey_search_cb, name);
+}
+
 const char *fread_strkey(rfile_t *fp, hash_t *h, const char *id)
 {
 	const char *name = fread_sword(fp);
@@ -132,6 +164,26 @@ void strkey_printall(hash_t *h, BUFFER *buf)
 {
 	int col = 0;
 	hash_foreach(h, print_name_cb, buf, &col);
+	if (col % 4)
+		buf_add(buf, "\n");
+}
+
+static void *
+print_mlname_cb(void *p, va_list ap)
+{
+	BUFFER *buf = va_arg(ap, BUFFER *);
+	int *pcol = va_arg(ap, int *);
+
+	if (++(*pcol) % 4 == 0)
+		buf_add(buf, "\n");
+	buf_printf(buf, "%-19.18s", mlstr_mval((mlstring *) p));
+	return NULL;
+}
+
+void mlstrkey_printall(hash_t *h, BUFFER *buf)
+{
+	int col = 0;
+	hash_foreach(h, print_mlname_cb, buf, &col);
 	if (col % 4)
 		buf_add(buf, "\n");
 }

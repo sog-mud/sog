@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.216 1999-12-15 15:35:42 fjoe Exp $
+ * $Id: handler.c,v 1.217 1999-12-16 05:34:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2011,7 +2011,7 @@ void format_obj(BUFFER *output, OBJ_DATA *obj)
 			break;
 		buf_printf(output, "It holds %s-colored %s.\n",
 			   mlstr_mval(&lq->lq_color),
-			   mlstr_mval(&lq->lq_name));
+			   gmlstr_mval(&lq->lq_name));
 		break;
 
 	case ITEM_CONTAINER:
@@ -3058,9 +3058,9 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 
 	if (ch->size > pexit->size) {
 		act_puts("$v is too narrow for you to pass.",
-			ch, &pexit->exit_name, NULL, TO_CHAR, POS_DEAD);
+			ch, &pexit->short_descr, NULL, TO_CHAR, POS_DEAD);
 		act("$n tries to leave through $v, but almost stucks there.",
-		    ch, &pexit->exit_name, NULL, TO_ROOM);
+		    ch, &pexit->short_descr, NULL, TO_ROOM);
 		return FALSE;
 	}
 
@@ -3084,13 +3084,13 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 		if (IS_AFFECTED(ch, AFF_PASS_DOOR)
 		&&  IS_SET(pexit->exit_info, EX_NOPASS)) {
   			act_puts("You failed to pass through $v.",
-				 ch, &pexit->exit_name, NULL,
+				 ch, &pexit->short_descr, NULL,
 				 TO_CHAR, POS_DEAD);
 			act("$n tries to pass through $v, but $e fails.",
-			    ch, &pexit->exit_name, NULL, TO_ROOM);
+			    ch, &pexit->short_descr, NULL, TO_ROOM);
 		} else {
 			act_puts("$v is closed.",
-				 ch, &pexit->exit_name, NULL,
+				 ch, &pexit->short_descr, NULL,
 				 TO_CHAR, POS_DEAD);
 		}
 		return FALSE;

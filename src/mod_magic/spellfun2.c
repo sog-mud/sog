@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.156 1999-12-15 15:35:46 fjoe Exp $
+ * $Id: spellfun2.c,v 1.157 1999-12-16 05:34:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3616,28 +3616,28 @@ void spell_knock(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	pexit = ch->in_room->exit[door];
 	if (!IS_SET(pexit->exit_info, EX_CLOSED)) {
 		act("It's already open.\n",
-		    ch, &pexit->exit_name, NULL, TO_CHAR);
+		    ch, &pexit->short_descr, NULL, TO_CHAR);
 		return;
 	}
 
 	if (!IS_SET(pexit->exit_info, EX_LOCKED)) {
 		act("Just try to open it.",
-		    ch, &pexit->exit_name, NULL, TO_CHAR);
+		    ch, &pexit->short_descr, NULL, TO_CHAR);
 		return;
 	}
 
 	if (IS_SET(pexit->exit_info, EX_NOPASS)) {
 		act("A mystical shield protects $v.",
-		    ch, &pexit->exit_name, NULL, TO_CHAR);
+		    ch, &pexit->short_descr, NULL, TO_CHAR);
 		return;
 	}
 
 	chance = level / 5 + get_curr_stat(ch, STAT_INT) + get_skill(ch,sn) / 5;
 
 	act("You knock $v, and try to open it.",
-	    ch, &pexit->exit_name, NULL, TO_CHAR);
+	    ch, &pexit->short_descr, NULL, TO_CHAR);
 	act("$n knocks $v, and tries to open it.",
-	    ch, &pexit->exit_name, NULL, TO_ROOM);
+	    ch, &pexit->short_descr, NULL, TO_ROOM);
 
 	if (room_dark(ch->in_room))
 		chance /= 2;
@@ -3650,9 +3650,9 @@ void spell_knock(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		REMOVE_BIT(pexit->exit_info, EX_LOCKED | EX_CLOSED);
 		REMOVE_BIT(pexit->exit_info, EX_CLOSED);
 		act("$n knocks $v and opens the lock.",
-		    ch, &pexit->exit_name, NULL, TO_ROOM);
+		    ch, &pexit->short_descr, NULL, TO_ROOM);
 		act_puts("You successed to open $v.",
-		         ch, &pexit->exit_name, NULL, TO_CHAR, POS_DEAD);
+		         ch, &pexit->short_descr, NULL, TO_CHAR, POS_DEAD);
 
 		/* open the other side */
 		if ((to_room = pexit->to_room.r) != NULL
@@ -3660,13 +3660,13 @@ void spell_knock(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		&&  pexit_rev->to_room.r == ch->in_room) {
 			REMOVE_BIT(pexit_rev->exit_info, EX_CLOSED | EX_LOCKED);
 			act("$v opens.", to_room->people,
-			    &pexit_rev->exit_name, NULL, TO_ROOM);
+			    &pexit_rev->short_descr, NULL, TO_ROOM);
 		}
 	} else {
 		act("You couldn't knock $v.",
-		    ch, &pexit->exit_name, NULL, TO_CHAR);
+		    ch, &pexit->short_descr, NULL, TO_CHAR);
 		act("$n failed to knock $v.",
-		    ch, &pexit->exit_name, NULL, TO_ROOM);
+		    ch, &pexit->short_descr, NULL, TO_ROOM);
 	}
 }
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.c,v 1.45 1999-12-15 15:35:43 fjoe Exp $
+ * $Id: mlstring.c,v 1.46 1999-12-16 05:34:38 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -494,6 +494,28 @@ bool mlstr_stripnl(mlstring *mlp)
 	bool changed = FALSE;
 	mlstr_foreach(mlp, cb_stripnl, &changed);
 	return changed;
+}
+
+void
+gmlstr_init(gmlstr_t *gml)
+{
+	mlstr_init(&gml->ml, str_empty);
+	mlstr_init(&gml->gender, str_empty);
+}
+
+gmlstr_t *
+gmlstr_cpy(gmlstr_t *dst, const gmlstr_t *src)
+{
+	mlstr_cpy(&dst->ml, &src->ml);
+	mlstr_cpy(&dst->gender, &src->gender);
+	return dst;
+}
+
+void
+gmlstr_destroy(gmlstr_t *gml)
+{
+	mlstr_destroy(&gml->ml);
+	mlstr_destroy(&gml->gender);
 }
 
 static const char *smash_a(const char *s, int len)

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.96 1999-12-15 15:35:38 fjoe Exp $
+ * $Id: olc.c,v 1.97 1999-12-16 05:34:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -444,6 +444,47 @@ bool olced_foreign_strkey(CHAR_DATA *ch, const char *argument,
 	}
 
 	if ((p = strkey_search(h, argument)) == NULL) {
+		char_printf(ch, "'%s': unknown %s.\n", argument, cmd->name);
+		return FALSE;
+	}
+
+	free_string(*pStr);
+	*pStr = str_qdup(*(const char**) p);
+	return TRUE;
+}
+
+bool olced_foreign_mlstrkey(CHAR_DATA *ch, const char *argument,
+			    olc_cmd_t *cmd, const char **pStr)
+{
+	hash_t *h;
+	void *p;
+
+	if (IS_NULLSTR(argument)) {
+		char_printf(ch, "Syntax: %s <name>\n"
+				"Use '%s ?' for list of valid %ss.\n"
+				"Use '%s none' to reset %s.\n",
+			    cmd->name, cmd->name, cmd->name,
+			    cmd->name, cmd->name);
+		return FALSE;
+	}
+
+	if (!str_cmp(argument, "none")) {
+		free_string(*pStr);
+		*pStr = str_empty;
+		return TRUE;
+	}
+
+	h = cmd->arg1;
+	if (!str_cmp(argument, "?")) {
+		BUFFER *out = buf_new(-1);
+		buf_printf(out, "Valid %ss are:\n", cmd->name);
+		mlstrkey_printall(h, out);
+		page_to_char(buf_string(out), ch);
+		buf_free(out);
+		return FALSE;
+	}
+
+	if ((p = mlstrkey_search(h, argument)) == NULL) {
 		char_printf(ch, "'%s': unknown %s.\n", argument, cmd->name);
 		return FALSE;
 	}

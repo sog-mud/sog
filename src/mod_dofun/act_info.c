@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.304 1999-12-15 20:12:24 avn Exp $
+ * $Id: act_info.c,v 1.305 1999-12-16 05:34:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -767,11 +767,11 @@ void do_look(CHAR_DATA *ch, const char *argument)
 	&&  pexit->keyword[0] != ' ') {
 		if (IS_SET(pexit->exit_info, EX_CLOSED)) {
 			act_puts("$v is closed.",
-				 ch, &pexit->exit_name, NULL,
+				 ch, &pexit->short_descr, NULL,
 				 TO_CHAR, POS_DEAD);
 		} else if (IS_SET(pexit->exit_info, EX_ISDOOR)) {
 			act_puts("$v is open.",
-				 ch, &pexit->exit_name,
+				 ch, &pexit->short_descr,
 				 NULL, TO_CHAR, POS_DEAD);
 		}
 	}
@@ -3374,7 +3374,7 @@ glist_cb(void *p, va_list ap)
 	int *pcol = va_arg(ap, int *);
 
 	if (group == sk->group) {
-		const char *sn = mlstr_mval(&sk->sk_name);
+		const char *sn = gmlstr_mval(&sk->sk_name);
 		char_printf(ch, "%c%-18s",
 			    pc_skill_lookup(ch, sn) ?  '*' : ' ', sn);
 		if (*pcol)
@@ -3444,7 +3444,7 @@ void do_slook(CHAR_DATA *ch, const char *argument)
 	}
 
 	char_printf(ch, "Skill '%s' in group '%s'.\n",
-		    mlstr_mval(&sk->sk_name),
+		    gmlstr_mval(&sk->sk_name),
 		    flag_string(skill_groups, sk->group));
 }
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_skill.c,v 1.8 1999-12-15 21:40:40 avn Exp $
+ * $Id: olc_skill.c,v 1.9 1999-12-16 05:34:36 fjoe Exp $
  */
 
 #include "olc.h"
@@ -102,7 +102,7 @@ OLC_FUN(skilled_create)
 	 */
 
 	skill_init(&sk);
-	mlstr_init(&sk.sk_name, argument);
+	mlstr_init(&sk.sk_name.ml, argument);
 	s = hash_insert(&skills, argument, &sk);
 	skill_destroy(&sk);
 
@@ -148,8 +148,8 @@ static void *skill_save_cb(void *p, va_list ap)
 	FILE *fp = va_arg(ap, FILE *);
 
 	fprintf(fp, "#SKILL\n");
-	mlstr_fwrite(fp, "Name", &sk->sk_name);
-	mlstr_fwrite(fp, "Gender", &sk->sk_gender);
+	mlstr_fwrite(fp, "Name", &sk->sk_name.ml);
+	mlstr_fwrite(fp, "Gender", &sk->sk_name.gender);
 	fprintf(fp, "Type %s\n", flag_string(skill_types, sk->skill_type));
 	fprintf(fp, "Group %s\n", flag_string(skill_groups, sk->group));
 	fprintf(fp, "MinPos %s\n", flag_string(position_table, sk->min_pos));
@@ -160,7 +160,8 @@ static void *skill_save_cb(void *p, va_list ap)
 		fprintf(fp, "Flags %s~\n", flag_string(skill_flags, sk->skill_flags));
 	if (sk->min_mana)
 		fprintf(fp, "MinMana %d\n", sk->min_mana);
-	mlstr_fwrite(fp, "NounDamage", &sk->noun_damage);
+	mlstr_fwrite(fp, "NounDamage", &sk->noun_damage.ml);
+	mlstr_fwrite(fp, "NounGender", &sk->noun_damage.gender);
 	if (sk->slot)
 		fprintf(fp, "Slot %d\n", sk->slot);
 	if (!IS_NULLSTR(sk->fun_name))
@@ -222,8 +223,8 @@ OLC_FUN(skilled_show)
 	}
 	
 	buf = buf_new(-1);
-	mlstr_dump(buf, "Name       ", &sk->sk_name);
-	mlstr_dump(buf, "Gender:    ", &sk->sk_gender);
+	mlstr_dump(buf, "Name       ", &sk->sk_name.ml);
+	mlstr_dump(buf, "Gender:    ", &sk->sk_name.gender);
 	buf_printf(buf, "Type       [%s]     Group       [%s]\n",
 			flag_string(skill_types, sk->skill_type),
 			flag_string(skill_groups, sk->group));
@@ -237,7 +238,8 @@ OLC_FUN(skilled_show)
 				flag_string(skill_flags, sk->skill_flags));
 	if (sk->min_mana)
 		buf_printf(buf, "MinMana    [%d]\n", sk->min_mana);
-	mlstr_dump(buf, "NounDamage ", &sk->noun_damage);
+	mlstr_dump(buf, "NounDamage ", &sk->noun_damage.ml);
+	mlstr_dump(buf, "NounGender ", &sk->noun_damage.gender);
 	if (sk->slot)
 		buf_printf(buf, "Slot       [%d]\n", sk->slot);
 
@@ -275,7 +277,7 @@ OLC_FUN(skilled_gender)
 	skill_t *sk;
 
 	EDIT_SKILL(ch, sk);
-	return olced_gender(ch, argument, cmd, &sk->sk_gender);
+	return olced_gender(ch, argument, cmd, &sk->sk_name.gender);
 }
 
 OLC_FUN(skilled_funname)
@@ -331,7 +333,15 @@ OLC_FUN(skilled_noun)
 	skill_t *sk;
 
 	EDIT_SKILL(ch, sk);
-	return olced_mlstr(ch, argument, cmd, &sk->noun_damage);
+	return olced_mlstr(ch, argument, cmd, &sk->noun_damage.ml);
+}
+
+OLC_FUN(skilled_noungender)
+{
+	skill_t *sk;
+
+	EDIT_SKILL(ch, sk);
+	return olced_mlstr(ch, argument, cmd, &sk->noun_damage.gender);
 }
 
 OLC_FUN(skilled_msgoff)
