@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_rule.c,v 1.21 1999-12-04 16:00:43 avn Exp $
+ * $Id: olc_rule.c,v 1.22 1999-12-05 10:34:33 avn Exp $
  */
 
 #include "olc.h"
@@ -329,14 +329,24 @@ OLC_FUN(ruleed_show)
 	}
 
 	for (i = 0; i < r->f->v.nused; i++) {
+		int i2;
 		char **p = VARR_GET(&r->f->v, i);
+
+		/* gender shift */
+		if (rcl->rulecl == RULES_GENDER) {
+			if (i == SEX_PLURAL - 1)
+				i2 = i + 1;
+			else
+				i2 = (i + 1) % 3;
+		} else
+			i2 = i;
 
 		if (!IS_NULLSTR(*p)) {
 			if (rops->id == ED_IMPL)
 				char_printf(ch, "Form: [%d] [%s]\n", i, *p);
 			else
 				char_printf(ch, "Form: [%d] [%s] %s\n",
-					i, *p, word_form(r->name, i, l->vnum, rcl->rulecl));
+					i, *p, word_form(r->name, i2, l->vnum, rcl->rulecl));
 		}
 	}
 
