@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.81 1999-11-19 09:07:07 fjoe Exp $
+ * $Id: skills.c,v 1.82 1999-11-19 09:41:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -176,7 +176,13 @@ void set_skill(CHAR_DATA *ch, const char *sn, int percent)
 	_set_skill(ch, sn, percent, TRUE);
 }
 
-void *
+typedef struct apply_sa_t {
+	skill_t *	sk;
+	int		percent;
+	int		mod;
+} apply_sa_t;
+
+static void *
 apply_sa_cb(void *p, void *d)
 {
 	saff_t *sa = (saff_t *) p;
@@ -189,19 +195,32 @@ apply_sa_cb(void *p, void *d)
 	||  (IS_SET(sa->bit, SK_AFF_NOTCLAN) &&
 	     IS_SET(sk->skill_flags, SKILL_CLAN))
 	||  (!IS_SET(sa->bit, SK_AFF_TEACH) &&
-	     !sa_data->skill))
+	     !sa_data->percent))
 		return NULL;
 
 	sa_data->mod += sa->mod;
 	return NULL;
 }
 
+/*
+ * apply skill affect modifiers
+ */
+int get_skill_mod(CHAR_DATA *ch, skill_t *sk, int percent)
+{
+	apply_sa_t sa_data;
+
+	sa_data.sk = sk;
+	sa_data.percent = percent;
+	sa_data.mod = 0;
+	varr_foreach(&ch->sk_affected, apply_sa_cb, &sa_data);
+	return sa_data.mod;
+}
+
 /* for returning skill information */
 int get_skill(CHAR_DATA *ch, const char *sn)
 {
-	int skill;
+	int percent;
 	skill_t *sk;
-	apply_sa_t sa_data;
 
 	if ((sk = skill_lookup(sn)) == NULL
 	||  (IS_SET(sk->skill_flags, SKILL_CLAN) && !clan_item_ok(ch->clan)))
@@ -212,31 +231,23 @@ int get_skill(CHAR_DATA *ch, const char *sn)
 
 		if ((pc_sk = pc_skill_lookup(ch, sn)) == NULL
 		||  skill_level(ch, sn) > ch->level)
-			skill = 0;
+			percent = 0;
 		else
-			skill = pc_sk->percent;
+			percent = pc_sk->percent;
 	} else 
-		skill = get_mob_skill(ch, sk);
+		percent = get_mob_skill(ch, sk);
 
 	if (ch->daze > 0) {
 		if (sk->skill_type == ST_SPELL)
-			skill /= 2;
+			percent /= 2;
 		else
-			skill = 2 * skill / 3;
+			percent = 2 * percent / 3;
 	}
 
 	if (!IS_NPC(ch) && PC(ch)->condition[COND_DRUNK]  > 10)
-		skill = 9 * skill / 10;
+		percent = 9 * percent / 10;
 
-	/*
-	 * apply skill affect modifiers
-	 */
-	sa_data.sk = sk;
-	sa_data.skill = skill;
-	sa_data.mod = 0;
-	varr_foreach(&ch->sk_affected, apply_sa_cb, &sa_data);
-
-	return UMAX(0, skill + sa_data.mod);
+	return UMAX(0, percent + get_skill_mod(ch, sk, percent));
 }
 
 /*

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: skills.h,v 1.22 1999-11-19 09:07:06 fjoe Exp $
+ * $Id: skills.h,v 1.23 1999-11-19 09:41:53 fjoe Exp $
  */
 
 #ifndef _SKILLS_H_
@@ -116,14 +116,7 @@ int		skill_mana	(CHAR_DATA *ch, const char *sn);
 
 const char *	skill_slot_lookup(int slot);
 
-typedef struct apply_sa_t {
-	skill_t *	sk;
-	int		skill;
-	int		mod;
-} apply_sa_t;
-
-void *apply_sa_cb(void *p, void *d);
-
+int		get_skill_mod	(CHAR_DATA *ch, skill_t *sk, int percent);
 int		get_skill	(CHAR_DATA *ch, const char *sn);
 void		set_skill	(CHAR_DATA *ch, const char *sn, int value);
 void		_set_skill	(CHAR_DATA *ch, const char *sn,
