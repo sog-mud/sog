@@ -1,6 +1,15 @@
 #!/bin/sh
 
 #
+# determine our home
+# all other paths are relative to $SOG_HOME
+if ! SOG_HOME=$(expr $0 : "\(/.*\)/bin/sog\.sh\$"); then
+        echo "$0: Cannot determine the SOG_HOME" >&2
+        exit 1
+fi
+export SOG_HOME
+
+#
 # check uid
 uid=`id -P | awk -F: '{ print $1 }'`
 if [ "$uid" != "sog" ]; then
@@ -14,10 +23,6 @@ LANG=ru_RU.KOI8-R; export LANG
 # locale settings for Linux
 #LANG=koi8-r; export LANG
 LC_TIME=en_US.ISO_8859-1; export LC_TIME
-
-#
-# mud home -- all other paths and filenames are relative from $SOG_HOME
-SOG_HOME=/home/sog; export SOG_HOME
 
 #
 # logging control
