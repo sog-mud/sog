@@ -285,7 +285,7 @@ EFIN
 stand stand male 10
 0 0 medium unknown
 r charm 100
-m mob_fight mob_fight_assassinater 100~
+m mob_random mob_random_assassinater 100~
 #0
 
 #OBJECTS

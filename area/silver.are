@@ -141,7 +141,7 @@ stand stand male 0
 0 0 medium unknown
 r wood -50
 r silver -50
-m mob_fight mob_fight_assassinater 100~
+m mob_random mob_random_assassinater 100~
 #4510
 mob vampire nosferatu~
 Nosferatu~

@@ -1204,7 +1204,7 @@ r acid -50
 r poison 100
 r holy 33
 r charm 100
-m mob_fight mob_fight_assassinater 100~
+m mob_random mob_random_assassinater 100~
 #18064
 rat~
 a small rat~

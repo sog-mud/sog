@@ -1650,7 +1650,7 @@ a black flask~
 a black flask of vile has been left here.~
 unknown~
 potion G 0 AO
-33 'curse' '' 'cause critical' ''
+33 'curse' '' 'inflict critical wounds' ''
 0 3 0 P
 #23277
 black flask~
@@ -1658,7 +1658,7 @@ a black flask~
 a black flask of vile has been left here.~
 unknown~
 potion G 0 AO
-40 'cure critical' 'cure critical' 'cure critical' ''
+40 'cure critical wounds' 'cure critical wounds' 'cure critical wounds' ''
 40 3 15000 P
 #23278
 barrel ale~

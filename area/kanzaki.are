@@ -751,7 +751,7 @@ AEFHKN
 stand stand male 0
 0 0 medium unknown
 F for H
-m mob_fight mob_fight_assassinater 100~
+m mob_random mob_random_assassinater 100~
 #47133
 man Тоширо человек Toshiro monk монах~
 @eng brother Toshiro@rus ~~брат~~ Тоширо~

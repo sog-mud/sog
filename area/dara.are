@@ -217,7 +217,7 @@ stand stand either 530
 r pierce 33
 r acid -50
 r poison 33
-m mob_fight mob_fight_assassinater 100~
+m mob_random mob_random_assassinater 100~
 #15411
 thief~
 the thief~
@@ -235,7 +235,7 @@ r pierce 33
 r poison 33
 r disease -50
 r charm 33
-m mob_fight mob_fight_assassinater 100~
+m mob_random mob_random_assassinater 100~
 #15412
 master thief~
 the master thief~
@@ -253,7 +253,7 @@ stand stand male 1700
 r pierce 33
 r poison 33
 r charm 100
-m mob_fight mob_fight_assassinater 100~
+m mob_random mob_random_assassinater 100~
 #15413
 shade guardian~
 the shade guardian~

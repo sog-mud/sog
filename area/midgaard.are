@@ -408,7 +408,7 @@ stand stand male 2000
 r charm 100
 r weapon 33
 r magic 33
-m mob_fight mob_fight_assassinater 100~
+m mob_random mob_random_assassinater 100~
 #3027
 knight рыцарь~
 @eng the knight@rus рыцарь~
