@@ -1,5 +1,5 @@
 /*
- * $Id: auction.c,v 1.36 1999-06-10 18:18:55 fjoe Exp $
+ * $Id: auction.c,v 1.37 1999-06-10 20:05:27 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -249,7 +249,7 @@ void auction_update(void)
 				    "The auctioneer pays you %d gold, "
 				    "charging an auction fee of %d.\n",
 				    pay, tax);
-			auction.seller->gold += pay;
+			auction.seller->pcdata->bank_g += pay;
 		}
 	        else { /* not sold */
 			/* XXX */
@@ -272,7 +272,7 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 
 	argument = one_argument(argument, arg1, sizeof(arg1));
 
-	if (IS_NPC(ch))    /* NPC can't auction cos the can be extracted ! */
+	if (IS_NPC(ch))    /* NPC can't auction cos it can be extracted! */
 		return;
 
 	if (IS_SET(ch->comm, COMM_NOAUCTION)) {
