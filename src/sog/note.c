@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.45 1999-02-17 18:58:04 fjoe Exp $
+ * $Id: note.c,v 1.46 1999-02-18 07:54:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -234,16 +234,14 @@ void save_notes(int type)
 		break;
 	}
 
-	fclose(fpReserve);
 	if ((fp = dfopen(NOTES_PATH, name, "w")) == NULL) {
 		perror(name);
 		return;
 	}
 
-	for (; pnote != NULL; pnote = pnote->next) 
+	for (; pnote; pnote = pnote->next) 
 		fwrite_note(fp, pnote);
 	fclose(fp);
-	fpReserve = fopen(NULL_FILE, "r");
 }
 
 void load_notes(void)
@@ -1047,10 +1045,10 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 
 void fwrite_note(FILE *fp, NOTE_DATA *pnote)
 {
-	fwrite_string(fp, "Sender", pnote->sender);
-	fwrite_string(fp, "Date", pnote->date);
-	fprintf(fp, "Stamp %ld\n", pnote->date_stamp);
-	fwrite_string(fp, "To", pnote->to_list);
-	fwrite_string(fp, "Subject", pnote->subject);
-	fwrite_string(fp, "Text", pnote->text);
+	fprintf(fp, "Sender  %s~\n", pnote->sender);
+	fprintf(fp, "Date    %s~\n", pnote->date);
+	fprintf(fp, "Stamp   %ld\n", pnote->date_stamp);
+	fprintf(fp, "To      %s~\n", pnote->to_list);
+	fprintf(fp, "Subject %s~\n", pnote->subject);
+	fprintf(fp, "Text\n%s~\n",   pnote->text);
 }

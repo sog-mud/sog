@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.114 1999-02-17 18:58:01 fjoe Exp $
+ * $Id: handler.c,v 1.115 1999-02-18 07:54:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -831,83 +831,101 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 	}
 
 	switch (paf->location) {
-	default:
-		bug("Affect_modify: unknown location %d.", paf->location);
-		return;
+	case APPLY_NONE:
+	case APPLY_CLASS:
+	case APPLY_LEVEL:
+	case APPLY_HEIGHT:
+	case APPLY_WEIGHT:
+	case APPLY_GOLD:
+	case APPLY_EXP:
+	case APPLY_SEX:
+	case APPLY_SPELL_AFFECT:
+		break;
 
-	case APPLY_NONE:						break;
-	case APPLY_CLASS:						break;
-	case APPLY_LEVEL:						break;
-	case APPLY_HEIGHT:						break;
-	case APPLY_WEIGHT:						break;
-	case APPLY_GOLD:						break;
-	case APPLY_EXP:						break;
-	case APPLY_STR:           ch->mod_stat[STAT_STR]	+= mod;	break;
-	case APPLY_DEX:           ch->mod_stat[STAT_DEX]	+= mod;	break;
-	case APPLY_INT:           ch->mod_stat[STAT_INT]	+= mod;	break;
-	case APPLY_WIS:           ch->mod_stat[STAT_WIS]	+= mod;	break;
-	case APPLY_CON:           ch->mod_stat[STAT_CON]	+= mod;	break;
-	case APPLY_CHA:	      ch->mod_stat[STAT_CHA]	+= mod; break;
-	case APPLY_AGE:	ch->played += age_to_num(mod);	break;
-	case APPLY_MANA:          ch->max_mana		+= mod;	break;
-	case APPLY_HIT:           ch->max_hit		+= mod;	break;
-	case APPLY_MOVE:          ch->max_move		+= mod;	break;
+	case APPLY_STR:		ch->mod_stat[STAT_STR]	+= mod; break;
+	case APPLY_DEX:		ch->mod_stat[STAT_DEX]	+= mod;	break;
+	case APPLY_INT:		ch->mod_stat[STAT_INT]	+= mod;	break;
+	case APPLY_WIS:		ch->mod_stat[STAT_WIS]	+= mod;	break;
+	case APPLY_CON:		ch->mod_stat[STAT_CON]	+= mod;	break;
+	case APPLY_CHA:		ch->mod_stat[STAT_CHA]	+= mod; break;
+
+	case APPLY_MANA:	ch->max_mana		+= mod;	break;
+	case APPLY_HIT:		ch->max_hit		+= mod;	break;
+	case APPLY_MOVE:	ch->max_move		+= mod;	break;
+
+	case APPLY_HITROLL:	ch->hitroll		+= mod;	break;
+	case APPLY_DAMROLL:	ch->damroll		+= mod;	break;
+
+	case APPLY_SIZE:	ch->size	+= mod;			break;
+	case APPLY_AGE:		ch->played	+= age_to_num(mod);	break;
+
 	case APPLY_AC:
 		for (i = 0; i < 4; i ++)
 			ch->armor[i] += mod;
 		break;
-	case APPLY_HITROLL:       ch->hitroll		+= mod;	break;
-	case APPLY_DAMROLL:       ch->damroll		+= mod;	break;
-	case APPLY_SIZE:		ch->size		+= mod; break;
-	case APPLY_SAVES:   ch->saving_throw		+= mod;	break;
-	case APPLY_SAVING_ROD:    ch->saving_throw		+= mod;	break;
-	case APPLY_SAVING_PETRI:  ch->saving_throw		+= mod;	break;
-	case APPLY_SAVING_BREATH: ch->saving_throw		+= mod;	break;
-	case APPLY_SAVING_SPELL:  ch->saving_throw		+= mod;	break;
-	case APPLY_SPELL_AFFECT:  					break;
-	case APPLY_RACE:
-		{
-			int from;
-			int to;
-			RACE_DATA *rto;
-			RACE_DATA *rfrom;
 
-			if (fAdd) {
-				from = ORG_RACE(ch);
-				to = ch->race = paf->modifier;
-			}
-			else {
-				from = ch->race;
-				to = ch->race = ORG_RACE(ch);
-			}
+	case APPLY_SAVES:		ch->saving_throw	+= mod;	break;
+	case APPLY_SAVING_ROD:		ch->saving_throw	+= mod;	break;
+	case APPLY_SAVING_PETRI:	ch->saving_throw	+= mod;	break;
+	case APPLY_SAVING_BREATH:	ch->saving_throw	+= mod;	break;
+	case APPLY_SAVING_SPELL:	ch->saving_throw	+= mod;	break;
 
-			rfrom = race_lookup(from);
-			rto = race_lookup(to);
-			if (!rfrom || !rto || !rfrom->pcdata || !rto->pcdata)
-				return;
+	case APPLY_RACE: {
+		int from;
+		int to;
+		RACE_DATA *rto;
+		RACE_DATA *rfrom;
 
-			REMOVE_BIT(ch->affected_by, rfrom->aff);
-			SET_BIT(ch->affected_by, rto->aff);
-			affect_check(ch, TO_AFFECTS, rfrom->aff);
-
-			REMOVE_BIT(ch->imm_flags, rfrom->imm);
-			SET_BIT(ch->imm_flags, rto->imm);
-			affect_check(ch, TO_IMMUNE, rfrom->imm);
-
-			REMOVE_BIT(ch->res_flags, rfrom->res);
-			SET_BIT(ch->res_flags, rto->res);
-			affect_check(ch, TO_RESIST, rfrom->res);
-
-			REMOVE_BIT(ch->vuln_flags, rfrom->vuln);
-			SET_BIT(ch->vuln_flags, rto->vuln);
-			affect_check(ch, TO_VULN, rfrom->vuln);
-
-			ch->form = rto->form;
-			ch->parts = rto->parts;
-			ch->size = rto->pcdata->size;
-			update_skills(ch);
+		if (fAdd) {
+			from = ORG_RACE(ch);
+			to = ch->race = paf->modifier;
 		}
+		else {
+			from = ch->race;
+			to = ch->race = ORG_RACE(ch);
+		}
+
+		rfrom = race_lookup(from);
+		rto = race_lookup(to);
+		if (!rfrom || !rto || !rfrom->pcdata || !rto->pcdata)
+			return;
+
+		REMOVE_BIT(ch->affected_by, rfrom->aff);
+		SET_BIT(ch->affected_by, rto->aff);
+		affect_check(ch, TO_AFFECTS, rfrom->aff);
+
+		REMOVE_BIT(ch->imm_flags, rfrom->imm);
+		SET_BIT(ch->imm_flags, rto->imm);
+		affect_check(ch, TO_IMMUNE, rfrom->imm);
+
+		REMOVE_BIT(ch->res_flags, rfrom->res);
+		SET_BIT(ch->res_flags, rto->res);
+		affect_check(ch, TO_RESIST, rfrom->res);
+
+		REMOVE_BIT(ch->vuln_flags, rfrom->vuln);
+		SET_BIT(ch->vuln_flags, rto->vuln);
+		affect_check(ch, TO_VULN, rfrom->vuln);
+
+		ch->form = rto->form;
+		ch->parts = rto->parts;
+		ch->size = rto->pcdata->size;
+		update_skills(ch);
 		break;
+	}
+	default:
+		if (IS_NPC(ch)) {
+			log_printf("affect_modify: vnum %d: in room %d: "
+				   "unknown location %d.",
+				   ch->pIndexData->vnum,
+				   ch->in_room ? ch->in_room->vnum : -1,
+				   paf->location);
+		}
+		else {
+			log_printf("affect_modify: %s: unknown location %d.",
+				   ch->name, paf->location);
+		}
+		return;
+
 	}
 
 	/*
@@ -1513,7 +1531,21 @@ OBJ_DATA * equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 	}
 
 	if (get_eq_char(ch, iWear)) {
-		bug("Equip_char: already equipped (%d).", iWear);
+		if (IS_NPC(ch)) {
+			log_printf("equip_char: vnum %d: in_room %d: "
+				   "obj vnum %d: location %s: "
+				   "already equipped.",
+				   ch->pIndexData->vnum,
+				   ch->in_room ? ch->in_room->vnum : -1,
+				   obj->pIndexData->vnum,
+				   flag_string(wear_loc_flags, iWear));
+		}
+		else {
+			log_printf("equip_char: %s: location %s: "
+				   "already equipped.",
+				   ch->name,
+				   flag_string(wear_loc_flags, iWear));
+		}
 		return NULL;
 	}
 
