@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.45 1998-05-21 11:00:16 efdi Exp $
+ * $Id: act_info.c,v 1.46 1998-05-21 11:30:51 efdi Exp $
  */
 
 /***************************************************************************
@@ -1741,7 +1741,7 @@ static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, char* output)
 		  wch->level >= LEVEL_HERO;
 	sprintf(strend(output), "[{C%s{x %s {Y%s{x] %s{x%s{x%s{x%s{x\n\r",
 		trusted ? level
-			: (get_curr_stat(wch, STAT_CHA) < 18) ? level : "  ",
+			: (get_curr_stat(wch, STAT_CHA) < 18) ? level : "   ",
 		race,
 		class,
 		pk,
