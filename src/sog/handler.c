@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.223 1999-12-18 11:01:40 fjoe Exp $
+ * $Id: handler.c,v 1.224 1999-12-20 12:09:53 kostik Exp $
  */
 
 /***************************************************************************
@@ -3000,10 +3000,18 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 	OBJ_DATA *obj;
 	OBJ_DATA *obj_next;
 	int act_flags;
+	AFFECT_DATA *paf;
 
 	if (RIDDEN(ch) && !IS_NPC(ch->mount)) 
 		return move_char_org(ch->mount,door,follow,is_charge);
-
+	
+	if ((paf = is_affected(ch, "entanglement"))
+	&& (INT(paf->location) == APPLY_DEX)) {
+		act("You are unable to move.", 
+			ch, NULL, NULL, TO_CHAR);
+		return FALSE;
+	}
+	
 	if (IS_AFFECTED(ch, AFF_WEB) 
 	|| (MOUNTED(ch) && IS_AFFECTED(ch->mount, AFF_WEB))) {
 		WAIT_STATE(ch, PULSE_VIOLENCE);

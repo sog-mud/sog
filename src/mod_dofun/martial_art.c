@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.142 1999-12-16 11:38:36 kostik Exp $
+ * $Id: martial_art.c,v 1.143 1999-12-20 12:09:51 kostik Exp $
  */
 
 /***************************************************************************
@@ -531,6 +531,72 @@ void do_pound(CHAR_DATA *ch, const char *argument)
 
 	if (attack) 
 		yell(victim, ch, "Help! $i is attacking me!");
+}
+
+void do_entangle(CHAR_DATA *ch, const char *argument)
+{
+	CHAR_DATA *victim;
+	int chance;
+	OBJ_DATA *whip;
+	AFFECT_DATA af;
+
+
+	if (!(victim = ch->fighting)) {
+		char_puts("You aren't fighting anyone.\n", ch);
+		return;
+	}
+
+	if (!(chance = get_skill(ch, "entanglement"))) {
+		act("You lack the skill to entangle people with your whip.",
+			ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	if ((is_affected(ch, "entanglement")) 
+	|| is_affected(victim, "entanglement")) 
+		return;
+
+	if (!(whip = get_eq_char(ch, WEAR_SECOND_WIELD))
+	|| !(WEAPON_IS(whip, WEAPON_WHIP) || WEAPON_IS(whip, WEAPON_FLAIL))) {
+		act("You need to wield whip or flail in your off-hand.",
+			ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	chance += get_curr_stat(ch, STAT_DEX) - get_curr_stat(victim, STAT_DEX);
+
+	chance = chance * 2 / 3;
+
+	WAIT_STATE(ch, skill_beats("entanglement"));
+
+	if (number_percent() > chance) {
+		act("You entangle $N with your $p.", 
+			ch, whip, victim, TO_CHAR);
+		act("$n entangles you with $s $p.",
+			ch, whip, victim, TO_VICT);
+		af.where	= TO_AFFECTS;
+		af.type		= "entanglement";
+		af.level	= ch->level;
+		af.duration	= -1;
+		af.modifier	= -5;
+		af.bitvector 	= 0;
+		af.owner	= ch;
+		INT(af.location)= APPLY_DEX;
+		affect_to_char(victim, &af);
+	
+		af.owner	= victim;
+		af.modifier	= 0;
+		af.location	= APPLY_NONE;
+		affect_to_char(ch, &af);
+		
+		check_improve(ch, "entanglement", TRUE, 3);
+	} else {
+		act("You fail to entangle $N with your $p.",
+			ch, whip, victim, TO_CHAR);
+		act("$n tries to entangle you but fails.",
+			ch, whip, victim, TO_VICT);
+		check_improve(ch, "entanglement", FALSE, 3);
+	}
 }
 
 static void gash_drop(CHAR_DATA *ch, CHAR_DATA *victim, int loc)

@@ -8,12 +8,8 @@ End
 #PCRACE
 Shortname Githy~
 Points 250
-Class 'assassin' 100
-Class 'necromancer' 100
-Class 'ranger' 100
-Class 'warlock' 100
+Class 'wizard' 100
 Class 'warrior' 100
-Class 'witch' 100
 BonusSkills 'sword' 'dagger'~
 Stats 0 2 -2 3 -1 0 
 MaxStats 20 22 18 23 19 25 

@@ -9,9 +9,8 @@ End
 Shortname Dwarf~
 Points 250
 Class 'cleric' 100
-Class 'warlock' 100
 Class 'warrior' 100
-Class 'witch' 100
+Class 'wizard' 100
 BonusSkills 'berserk'~
 Stats 0 0 1 -4 5 0 
 MaxStats 20 20 21 16 25 25 

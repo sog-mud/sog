@@ -242,6 +242,15 @@ Max 100
 End
 
 #SKILL
+Skill 'dual wield'
+Level 18
+Rating 1
+Min 1
+Adept 75
+Max 100
+End
+
+#SKILL
 Skill 'dodge'
 Level 10
 Rating 1

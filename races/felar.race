@@ -18,7 +18,7 @@ Class 'assassin' 100
 Class 'paladin' 100
 Class 'ranger' 100
 Class 'thief' 100
-Class 'warlock' 100
+Class 'wizard' 100
 Class 'warrior' 100
 SkillSpec race_felar
 BonusSkills 'hand to hand' 'tail'~

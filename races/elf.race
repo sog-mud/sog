@@ -14,9 +14,8 @@ Class 'cleric' 100
 Class 'paladin' 100
 Class 'ranger' 100
 Class 'thief' 100
-Class 'warlock' 100
 Class 'warrior' 100
-Class 'witch' 100
+Class 'wizard' 100
 BonusSkills 'mastering bow'~
 Stats -2 5 0 2 -2 0 
 MaxStats 18 25 21 22 18 25 

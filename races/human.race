@@ -6,7 +6,7 @@ End
 
 #PCRACE
 Shortname Human~
-Class 'witch' 100
+Class 'wizard' 100
 Class 'cleric' 100
 Class 'thief' 100
 Class 'warrior' 100
@@ -14,10 +14,8 @@ Class 'paladin' 100
 Class 'anti-paladin' 100
 Class 'assassin' 100
 Class 'ranger' 100
-Class 'warlock' 100
 Class 'samurai' 100
 Class 'vampire' 100
-Class 'necromancer' 100
 Stats 0 0 0 0 0 0
 MaxStats 20 20 20 20 20 25
 Size medium

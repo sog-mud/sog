@@ -1,0 +1,26 @@
+#CLASS
+Name wizard~
+ShortName Wiz~
+PrimeStat int
+SkillSpec 'class_wizard'
+SchoolWeapon 3701
+GuildRoom 3018
+GuildRoom 3019
+GuildRoom 9618
+GuildRoom 9617
+GuildRoom 9648
+GuildRoom 3073
+GuildRoom 3074
+GuildRoom 9618
+GuildRoom 9617
+GuildRoom 9648
+Thac0_00 18
+Thac0_32 6
+HPRate 60
+ManaRate 100
+Flags magic~
+AddExp 400
+StatMod 0 3 0 0 0 5
+End
+
+#$

@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.118 1999-12-17 12:59:03 fjoe Exp $
+ * $Id: tables.c,v 1.119 1999-12-20 12:09:53 kostik Exp $
  */
 
 /***************************************************************************
@@ -1407,6 +1407,9 @@ flaginfo_t spec_classes[] =
 	{ "race",		SPEC_RACE,			TRUE	},
 	{ "clan",		SPEC_CLAN,			TRUE	},
 	{ "weapon",		SPEC_WEAPON,			TRUE	},
+	{ "major_school",	SPEC_MAJORSCHOOL,		TRUE	},
+	{ "minor_school",	SPEC_MINORSCHOOL,		TRUE	},
+	{ "form",		SPEC_FORM,			TRUE	},
 
 	{ NULL }
 };

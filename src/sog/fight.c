@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.245 1999-12-18 12:25:28 fjoe Exp $
+ * $Id: fight.c,v 1.246 1999-12-20 12:09:52 kostik Exp $
  */
 
 /***************************************************************************
@@ -68,6 +68,7 @@ bool	check_block		(CHAR_DATA *ch, CHAR_DATA *victim, int loc);
 bool	check_distance		(CHAR_DATA *ch, CHAR_DATA *victim, int loc);
 bool	check_blink		(CHAR_DATA *ch, CHAR_DATA *victim);
 bool	check_hand_block	(CHAR_DATA *ch, CHAR_DATA *victim);
+void 	check_stun		(CHAR_DATA *ch, CHAR_DATA *victim);
 void	dam_message		(CHAR_DATA *ch, CHAR_DATA *victim, int dam,
 				 const char *dt, bool immune, int dam_class,
 				 int dam_flags);
@@ -269,7 +270,12 @@ void check_assist(CHAR_DATA *ch, CHAR_DATA *victim)
 void secondary_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt) 
 {
 	int chance;
+	AFFECT_DATA *paf;
 	
+	if ((paf = is_affected(ch, "entanglement")) 
+	&& (INT(paf->location) == APPLY_NONE)) 
+			return;
+		
 	if (get_eq_char(ch, WEAR_SECOND_WIELD) != NULL) {
 		chance = get_skill(ch, "dual wield") / 2;
 		if (number_percent() < chance) {
@@ -694,7 +700,13 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 
 	/* get the weapon skill */
 	weapon_sn = get_weapon_sn(wield);
-	sk = 20 + get_weapon_skill(ch, weapon_sn);
+	if (ch->shapeform)  {
+		weapon_sn = NULL;
+		sk = 120;
+	}
+	else {
+		sk = 20 + get_weapon_skill(ch, weapon_sn);
+	}
 
 	/*
 	 * Calculate to-hit-armor-class-0 versus armor.
@@ -842,21 +854,6 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 			&& number_percent() <= sk2) {
 				check_improve(ch, "master hand", TRUE, 6);
 				dam += dam * 110 /100;
-				if (number_percent() < sk2/5+LEVEL(ch)-LEVEL(victim)) {
-					SET_BIT(victim->affected_by,
-						AFF_WEAK_STUN);
-					act_puts("You hit $N with a stunning "
-						 "force!", ch, NULL, victim,
-						 TO_CHAR, POS_DEAD);
-					act_puts("$n hits you with a stunning "
-						 "force!", ch, NULL, victim,
-						 TO_VICT, POS_DEAD);
-					act_puts("$n hits $N with a stunning "
-						 "force!", ch, NULL, victim,
-						 TO_NOTVICT, POS_RESTING);
-					check_improve(ch, "master hand",
-						      TRUE, 6);
-				}
 			}
 		}
 	}
@@ -1480,6 +1477,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 			return FALSE;
 		if (check_hand_block(ch, victim))
 			return FALSE;
+		check_stun(ch, victim);
 	}
 
 	if (get_resist(victim, dam_class) == 100)
@@ -1773,6 +1771,32 @@ bool is_safe_rspell(AFFECT_DATA *af, CHAR_DATA *victim)
   else return FALSE;
 }
 
+void check_stun(CHAR_DATA *ch, CHAR_DATA *victim)
+{
+	int chance;
+	if (get_eq_char(ch, WEAR_WIELD) 
+	|| !(chance = get_skill(ch, "master hand")))
+		return;
+
+	chance /= 3;
+
+	chance += get_curr_stat(ch, STAT_STR);
+	chance -= get_curr_stat(victim, STAT_CON);
+
+	chance += LEVEL(ch) - LEVEL(victim);
+
+	if (number_percent() < chance) {
+		SET_BIT(victim->affected_by, AFF_WEAK_STUN);
+		act_puts("You hit $N with a stunning force!", 
+			ch, NULL, victim, TO_CHAR, POS_DEAD);
+		act_puts("$n hits you with a stunning force!", 
+			ch, NULL, victim, TO_VICT, POS_DEAD);
+		act_puts("$n hits $N with a stunning force!", 
+			ch, NULL, victim, TO_NOTVICT, POS_RESTING);
+		check_improve(ch, "master hand", TRUE, 6);
+	}
+}
+
 bool check_distance(CHAR_DATA *ch, CHAR_DATA *victim, int loc) {
 	int chance;
 	OBJ_DATA *weapon;
@@ -1783,6 +1807,9 @@ bool check_distance(CHAR_DATA *ch, CHAR_DATA *victim, int loc) {
 		return FALSE;
 
 	if (!(chance = get_skill(victim, "distance")))
+		return FALSE;
+
+	if (is_affected(victim, "entanglement"))
 		return FALSE;
 
 	ch_weapon = get_eq_char(ch, loc);
@@ -1823,6 +1850,7 @@ bool check_parry(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 	int chance;
 	OBJ_DATA *v_weapon;
 	OBJ_DATA *ch_weapon;
+	AFFECT_DATA *paf;
 
 	if (!IS_AWAKE(victim))
 		return FALSE;
@@ -1856,6 +1884,10 @@ bool check_parry(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 			break;
 		}
 	}
+
+	if ((paf = is_affected(victim, "entanglement"))
+	&& (INT(paf->location) == APPLY_DEX))
+		chance /= 3;
 
 	if (ch_weapon && WEAPON_IS(ch_weapon, WEAPON_SWORD)) {
 		if (number_percent() < get_skill(ch, "fence")) {
@@ -1981,6 +2013,9 @@ bool check_block(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 	if (get_eq_char(victim, WEAR_SHIELD) == NULL)
 		return FALSE;
 
+	if (is_affected(victim, "entanglement"))
+		return FALSE;
+
 	if (IS_NPC(victim))
 		chance = 10;
 	else {
@@ -2053,6 +2088,9 @@ bool check_dodge(CHAR_DATA *ch, CHAR_DATA *victim)
 		return FALSE;
 
 	if (MOUNTED(victim))
+		return FALSE;
+
+	if (is_affected(ch, "entanglement"))
 		return FALSE;
 
 	if (IS_NPC(victim))

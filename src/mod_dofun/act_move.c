@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.221 1999-12-20 08:31:16 fjoe Exp $
+ * $Id: act_move.c,v 1.222 1999-12-20 12:09:51 kostik Exp $
  */
 
 /***************************************************************************
@@ -1930,11 +1930,18 @@ void do_kidnap(CHAR_DATA* ch, const char *argument)
 	CHAR_DATA * victim;
 	char arg[MAX_INPUT_LENGTH];
 	ROOM_INDEX_DATA* to_room;
+	AFFECT_DATA af;
 	int chance;
 	int mana;
 
 	if ((chance = get_skill(ch, "kidnap")) == 0) {
 		act("Oh, no. You can't do that.", ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	if (is_affected(ch, "kidnap")) {
+		act("You feel too exhausted from previous kidnap attempt.",
+			ch, NULL, NULL, TO_CHAR);
 		return;
 	}
 
@@ -1976,6 +1983,17 @@ void do_kidnap(CHAR_DATA* ch, const char *argument)
 		return;
 	}
 	ch->mana -= mana;
+
+	af.where 	= TO_AFFECTS;
+	af.type 	= "kidnap";
+	af.level 	= ch->level;
+	af.duration 	= 3;
+	INT(af.location)= APPLY_NONE;
+	af.modifier 	= 0;
+	af.bitvector 	= 0;
+	
+	affect_to_char(ch, &af);
+
 
 	if (IS_SET(ch->in_room->room_flags, ROOM_PEACE | ROOM_SAFE)) 
 		chance = 0;

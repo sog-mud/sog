@@ -15,9 +15,8 @@ Class 'assassin' 100
 Class 'cleric' 100
 Class 'ranger' 100
 Class 'thief' 100
-Class 'warlock' 100
+Class 'wizard' 100
 Class 'warrior' 100
-Class 'witch' 100
 SkillSpec race_rockseer
 BonusSkills 'wand'~
 Stats -1 2 0 4 -2 0 

@@ -1,37 +1,10 @@
 #SPEC
-Name class_thief~
+Name class_wizard~
 Class class
 End
 
 #SKILL
-Skill 'trip'
-Level 3
-Rating 1
-Min 1
-Adept 75
-Max 100
-End
-
-#SKILL
-Skill 'third attack'
-Level 25
-Rating 1
-Min 1
-Adept 75
-Max 100
-End
-
-#SKILL
-Skill 'twist'
-Level 17
-Rating 1
-Min 1
-Adept 75
-Max 100
-End
-
-#SKILL
-Skill 'sword'
+Skill 'whip'
 Level 1
 Rating 1
 Min 1
@@ -40,89 +13,26 @@ Max 100
 End
 
 #SKILL
-Skill 'steal'
-Level 10
-Rating 1
-Min 1
-Adept 75
-Max 100
-End
-
-#SKILL
-Skill 'sneak'
-Level 6
-Rating 1
-Min 1
-Adept 75
-Max 100
-End
-
-#SKILL
-Skill 'close contact'
-Level 29
-Rating 1
-Min 1
-Adept 75
-Max 100
-End
-
-#SKILL
-Skill 'settraps'
-Level 43
-Rating 1
-Min 1
-Adept 75
-Max 100
-End
-
-#SKILL
-Skill 'second attack'
-Level 18
-Rating 1
-Min 1
-Adept 75
-Max 100
-End
-
-#SKILL
-Skill 'scrolls'
-Level 5
-Rating 2
-Min 1
-Adept 75
-Max 100
-End
-
-#SKILL
-Skill 'push'
-Level 35
-Rating 1
-Min 1
-Adept 75
-Max 100
-End
-
-#SKILL
-Skill 'pick lock'
-Level 17
-Rating 1
-Min 1
-Adept 75
-Max 100
-End
-
-#SKILL
-Skill 'perception'
-Level  19
-Rating 1
-Min 1
-Adept 75
-Max 100
-End
-
-#SKILL
-Skill 'peek'
+Skill 'wands'
 Level 1
+Rating 1
+Min 1
+Adept 75
+Max 100
+End
+
+#SKILL
+Skill 'ventriloquate'
+Level 1
+Rating 1
+Min 1
+Adept 75
+Max 100
+End
+
+#SKILL
+Skill 'trance'
+Level 14
 Rating 1
 Min 1
 Adept 75
@@ -131,7 +41,16 @@ End
 
 #SKILL
 Skill 'parry'
-Level 19
+Level 15
+Rating 1
+Min 1
+Adept 75
+Max 90
+End
+
+#SKILL
+Skill 'teleport'
+Level 20
 Rating 1
 Min 1
 Adept 75
@@ -139,8 +58,53 @@ Max 100
 End
 
 #SKILL
-Skill 'dual wield'
-Level 19
+Skill 'staves'
+Level 1
+Rating 2
+Min 1
+Adept 75
+Max 100
+End
+
+#SKILL
+Skill 'staff'
+Level 1
+Rating 1
+Min 1
+Adept 75
+Max 100
+End
+
+#SKILL
+Skill 'spell craft'
+Level 10
+Rating 1
+Min 1
+Adept 75
+Max 100
+End
+
+#SKILL
+Skill 'second attack'
+Level 25
+Rating 1
+Min 1
+Adept 75
+Max 100
+End
+
+#SKILL
+Skill 'scrolls'
+Level 1
+Rating 2
+Min 1
+Adept 75
+Max 100
+End
+
+#SKILL
+Skill 'protective shield'
+Level 10
 Rating 1
 Min 1
 Adept 75
@@ -149,15 +113,15 @@ End
 
 #SKILL
 Skill 'meditation'
-Level 15
-Rating 2
+Level 6
+Rating 1
 Min 1
 Adept 75
 Max 100
 End
 
 #SKILL
-Skill 'mace'
+Skill 'magic missile'
 Level 1
 Rating 1
 Min 1
@@ -166,16 +130,7 @@ Max 100
 End
 
 #SKILL
-Skill 'lore'
-Level 5
-Rating 2
-Min 1
-Adept 75
-Max 100
-End
-
-#SKILL
-Skill 'knife'
+Skill 'infravision'
 Level 10
 Rating 1
 Min 1
@@ -184,17 +139,8 @@ Max 100
 End
 
 #SKILL
-Skill 'kick'
-Level 8
-Rating 1
-Min 1
-Adept 75
-Max 100
-End
-
-#SKILL
-Skill 'hide'
-Level 1
+Skill 'identify'
+Level 12
 Rating 1
 Min 1
 Adept 75
@@ -203,7 +149,7 @@ End
 
 #SKILL
 Skill 'hand to hand'
-Level 4
+Level 25
 Rating 1
 Min 1
 Adept 75
@@ -212,7 +158,7 @@ End
 
 #SKILL
 Skill 'haggle'
-Level 1
+Level 17
 Rating 1
 Min 1
 Adept 75
@@ -221,7 +167,7 @@ End
 
 #SKILL
 Skill 'fast healing'
-Level 10
+Level 19
 Rating 1
 Min 1
 Adept 75
@@ -229,8 +175,8 @@ Max 100
 End
 
 #SKILL
-Skill 'escape'
-Level 24
+Skill 'faerie fog'
+Level 27
 Rating 1
 Min 1
 Adept 75
@@ -238,16 +184,7 @@ Max 100
 End
 
 #SKILL
-Skill 'gash'
-Level 32
-Rating 1
-Min 1
-Adept 75
-Max 100
-End
-
-#SKILL
-Skill 'envenom'
+Skill 'faerie fire'
 Level 15
 Rating 1
 Min 1
@@ -256,17 +193,8 @@ Max 100
 End
 
 #SKILL
-Skill 'enhanced damage'
-Level 20
-Rating 1
-Min 1
-Adept 75
-Max 85
-End
-
-#SKILL
-Skill 'dual backstab'
-Level 38
+Skill 'dispel magic'
+Level 25
 Rating 1
 Min 1
 Adept 75
@@ -274,34 +202,16 @@ Max 100
 End
 
 #SKILL
-Skill 'dodge'
+Skill 'detect magic'
 Level 1
 Rating 1
 Min 1
 Adept 75
-Max 120
-End
-
-#SKILL
-Skill 'disarm'
-Level 22
-Rating 1
-Min 1
-Adept 75
 Max 100
 End
 
 #SKILL
-Skill 'dirt kicking'
-Level 3
-Rating 1
-Min 1
-Adept 75
-Max 100
-End
-
-#SKILL
-Skill 'detect hide'
+Skill 'detect invis'
 Level 5
 Rating 1
 Min 1
@@ -315,12 +225,12 @@ Level 1
 Rating 1
 Min 1
 Adept 75
-Max 120
+Max 100
 End
 
 #SKILL
-Skill 'circle'
-Level 7
+Skill 'cancellation'
+Level 28
 Rating 1
 Min 1
 Adept 75
@@ -328,17 +238,8 @@ Max 100
 End
 
 #SKILL
-Skill 'blackjack'
-Level 21
-Rating 1
-Min 1
-Adept 75
-Max 100
-End
-
-#SKILL
-Skill 'backstab'
-Level 1
+Skill 'armor'
+Level 13
 Rating 1
 Min 1
 Adept 75

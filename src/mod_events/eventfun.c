@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: eventfun.c,v 1.5 1999-12-16 12:24:43 fjoe Exp $
+ * $Id: eventfun.c,v 1.6 1999-12-20 12:09:52 kostik Exp $
  */
 
 
@@ -284,6 +284,34 @@ EVENT_FUN(event_updatechar_poison)
 	act("$n shivers and suffers.", ch, NULL, NULL, TO_ROOM); 
 	char_puts("You shiver and suffer.\n", ch);
 	damage(ch, ch, af->level/10 + 1, "poison", DAM_POISON, DAMF_SHOW);
+}
+
+EVENT_FUN(event_updatefast_entangle)
+{
+	AFFECT_DATA *paf;
+
+	if (!(paf = is_affected(ch, "entanglement"))) 
+		return;
+
+	if (!paf->owner || !ch->fighting) {
+		affect_strip(ch, "entanglement");
+		return;
+	}
+
+	if (paf->owner != ch->fighting) {
+		affect_strip(ch, "entanglement");
+		return;
+	}
+
+	if (INT(paf->location) == APPLY_DEX) {	/* victim case */
+		if (number_percent() < get_curr_stat(ch, STAT_DEX)) {
+			act("You manage to get free.", ch, NULL, NULL, TO_CHAR);
+			act("$n manages to get free.", ch, NULL, NULL, TO_ROOM);
+			if (is_affected(paf->owner, "entanglement")) 
+				affect_strip(paf->owner, "entanglement");
+			affect_strip(ch, "entanglement");
+		}
+	}
 }
 
 EVENT_FUN(event_updatechar_crippled_hands)

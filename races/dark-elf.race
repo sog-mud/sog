@@ -13,11 +13,9 @@ Points 500
 Class 'anti-paladin' 100
 Class 'assassin' 100
 Class 'cleric' 100
-Class 'necromancer' 100
 Class 'thief' 100
-Class 'warlock' 100
+Class 'wizard' 100
 Class 'warrior' 100
-Class 'witch' 100
 Stats -2 4 0 2 -2 0 
 MaxStats 18 24 21 22 18 25 
 Size medium
