@@ -665,7 +665,7 @@ ranger staff посох~
 @eng There is a Ranger's Staff here on the ground.@rus Охотник забыл свой посох (staff) тут.~
 ebony~
 weapon A AN
-staff 0 0 pierce 0
+staff 0 0 pierce F
 0 160 0 P
 G male
 #29

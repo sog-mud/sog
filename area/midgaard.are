@@ -6819,9 +6819,9 @@ S
 directions, stairs lead up, at south to the priestess's chamber, and at 
 west to the temple chamber. This square connect to the park road, at the 
 north.
-@rus Ты стоишь посреди большой Храмовой площади. В двух направлениях ведут ступени:
-на юг (south) - в комнату жрицы, а на запад (west) - в храмовый придел. К северу
-(north) площадь выходит на Парковую аллею.
+@rus Ты стоишь посреди большой Храмовой площади.  В двух направлениях ведут
+ступени: на юг (south) - в комнату жрицы, а на запад (west) - в храмовый
+придел.  К северу (north) площадь выходит на Парковую аллею.  
 ~
 0 S city
 D0
@@ -9570,7 +9570,6 @@ E 0 3350 0 16		*	a standard issue sword: wielded
 E 0 3353 0 5		*	a standard issue vest: on the body
 E 0 3355 0 4		*	a standard issue cloak: around the neck (2)
 O 0 3135 0 3005	* a fountain (The Temple Square)
-O 0 9 0 3005	* Christmas tree (The Temple Square)
 M 0 3061 5 3006 5	* the janitor (Entrance to the Grunting Boar Inn)
 M 0 3040 1 3007 1	* the bartender (The Grunting Boar)
 G 0 3000 0		*	a barrel of beer
