@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.13 1998-07-22 22:21:18 efdi Exp $
+# $Id: Makefile,v 1.14 1998-07-23 01:30:07 efdi Exp $
 #
 CC		= gcc
 LD		= gcc
