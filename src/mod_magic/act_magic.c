@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_magic.c,v 1.18 1999-12-18 11:01:39 fjoe Exp $
+ * $Id: act_magic.c,v 1.19 1999-12-29 12:11:30 kostik Exp $
  */
 
 #include <stdio.h>
@@ -412,6 +412,17 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 			slevel += number_range(1,3);
 			familiar->mana -= mana/2;
 			ch->mana += mana/2;
+		}
+
+		if (IS_SET(spell->skill_flags, SKILL_RANGE)
+		&& victim && is_affected(victim, "blur")
+		&& !HAS_DETECT(ch, ID_TRUESEEING)
+		&& (number_percent() < 50)) {
+			act("You failed to focus your spell properly.",
+				ch, NULL, NULL, TO_CHAR);
+			act("$n fails to focus $s spell properly.",
+				ch, NULL, NULL, TO_ROOM);
+			return;
 		}
 
 		check_improve(ch, sn, TRUE, 1);

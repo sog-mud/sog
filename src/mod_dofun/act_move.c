@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.224 1999-12-22 08:28:56 fjoe Exp $
+ * $Id: act_move.c,v 1.225 1999-12-29 12:11:29 kostik Exp $
  */
 
 /***************************************************************************
@@ -1333,6 +1333,51 @@ void do_blend(CHAR_DATA *ch, const char *argument)
 		check_improve(ch, "forest blending", TRUE, 2);
 	} else 
 		check_improve(ch, "forest blending", FALSE, 2);
+}
+
+void do_acute(CHAR_DATA *ch, const char *argument)
+{
+	AFFECT_DATA af;
+	int chance, mana;
+
+	if (HAS_DETECT(ch, ID_CAMOUFLAGE)) {
+		char_puts("Your vision is already acute. \n",ch);
+		return;
+	}
+
+	if (!(chance = get_skill(ch, "acute vision"))) {
+		char_puts("Huh?\n", ch);
+		return;
+	}
+
+	mana = skill_mana(ch, "acute vision");
+
+	if (ch->mana < mana) {
+		char_puts("You don't have enough mana.\n", ch);
+		return;
+	}
+
+	ch->mana -= mana;
+
+	WAIT_STATE(ch, skill_beats("acute vision"));
+
+	if (number_percent() > chance) {
+		char_puts("You failed to sharpen your vision.\n", ch);
+		check_improve(ch, "acute vision", FALSE, 3);
+		return;
+	}
+
+	af.where	= TO_DETECTS;
+	af.type		= "acute vision";
+	af.level	= LEVEL(ch);
+	af.duration	= 3 + LEVEL(ch) / 5;
+	INT(af.location)= APPLY_NONE;
+	af.modifier	= 0;
+	af.bitvector	= ID_CAMOUFLAGE;
+	affect_to_char(ch, &af);
+	char_puts("Your vision sharpens.\n", ch);
+
+	check_improve(ch, "acute vision", TRUE, 3);
 }
 
 /*

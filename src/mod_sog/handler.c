@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.228 1999-12-24 15:58:48 avn Exp $
+ * $Id: handler.c,v 1.229 1999-12-29 12:11:32 kostik Exp $
  */
 
 /***************************************************************************
@@ -1611,8 +1611,14 @@ bool can_see(CHAR_DATA *ch, CHAR_DATA *victim)
 			return FALSE;
 	}
 
+	if (HAS_DETECT(ch, ID_TRUESEEING))
+		return TRUE;
+
 	if (IS_AFFECTED(ch, AFF_BLIND))
 		return FALSE;
+
+	if (is_affected(ch, "hallucination"))
+		return (number_percent() < 70);
 
 	if (room_is_dark(ch) && !HAS_DETECT(ch, ID_INFRARED))
 		return FALSE;
@@ -1977,6 +1983,47 @@ ROOM_INDEX_DATA  *get_random_room(CHAR_DATA *ch, AREA_DATA *area)
 	return room;
 }
 
+/* Random character generation procedure */
+
+CHAR_DATA *random_char(ROOM_INDEX_DATA *room)
+{
+    	CHAR_DATA *vch, *victim = NULL;
+    	int now = 0, highest = 0;
+
+	if (room != NULL) {
+    		for (vch = room->people; vch; vch = vch->next_in_room) {
+        		if ((now = number_percent()) > highest) {
+            			victim = vch;
+            			highest = now;
+        		}
+    		}
+		return victim;
+	} else {
+		for (vch = char_list; vch; vch = vch->next)  {
+        		if ((now = number_range(1, 20000)) > highest) {
+            			victim = vch;
+            			highest = now;
+        		}
+    		}
+		return victim;
+	}
+}
+
+OBJ_DATA *random_obj()
+{
+	OBJ_DATA *obj;
+	OBJ_DATA *rand_obj;
+	int highest = 0, now = 0;
+
+	for (rand_obj = obj = object_list; obj; obj = obj->next)  {
+       		if ((now = number_range(1, 20000)) > highest) {
+       			rand_obj = obj;
+       			highest = now;
+       		}
+    	}
+	return rand_obj;
+}
+
 void format_obj(BUFFER *output, OBJ_DATA *obj)
 {
 	int i;
@@ -2118,6 +2165,11 @@ bool saves_spell(int level, CHAR_DATA *victim, int dam_type)
 
 	if (IS_AFFECTED(victim, AFF_BERSERK))
 		save += victim->level / 5;
+
+	if (dam_type == DAM_MENTAL) {
+		save += get_curr_stat(victim, STAT_WIS) - 18;
+		save += get_curr_stat(victim, STAT_INT) - 18;
+	}
 	
 	if (get_resist(victim, dam_type) == 100)
 		return TRUE;

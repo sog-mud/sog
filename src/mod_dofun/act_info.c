@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.319 1999-12-23 15:55:34 avn Exp $
+ * $Id: act_info.c,v 1.320 1999-12-29 12:11:28 kostik Exp $
  */
 
 /***************************************************************************
@@ -4115,6 +4115,9 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	&&  (IS_NPC(ch) || !IS_SET(PC(ch)->plr_flags, PLR_HOLYLIGHT)))
 		victim = victim->doppel;
 
+	if (is_affected(ch, "hallucination"))
+		victim = random_char(NULL);
+
 	if (IS_NPC(victim)) {
 		if (!IS_NPC(ch) && PC(ch)->questmob > 0
 		&&  NPC(victim)->hunter == ch)
@@ -4133,7 +4136,8 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 			char_puts("({yInvis{x) ", ch);
 		if (HAS_INVIS(victim, ID_HIDDEN)) 
 			char_puts("({DHidden{x) ", ch);
-		if (IS_AFFECTED(victim, AFF_CHARM)) 
+		if (IS_AFFECTED(victim, AFF_CHARM) 
+		&& HAS_DETECT(ch, ID_CHARM)) 
 			char_puts("({mCharmed{x) ", ch);
 		if (IS_AFFECTED(victim, AFF_PASS_DOOR)) 
 			char_puts("({cTranslucent{x) ", ch);
@@ -4168,7 +4172,8 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		strnzcpy(buf, sizeof(buf), FLAGS);
 		FLAG_SET( 5, 'I', HAS_INVIS(victim, ID_INVIS));
 		FLAG_SET( 8, 'H', HAS_INVIS(victim, ID_HIDDEN));
-		FLAG_SET(11, 'C', IS_AFFECTED(victim, AFF_CHARM));
+		FLAG_SET(11, 'C', IS_AFFECTED(victim, AFF_CHARM) 
+				  && HAS_DETECT(ch, ID_CHARM));
 		FLAG_SET(14, 'T', IS_AFFECTED(victim, AFF_PASS_DOOR));
 		FLAG_SET(17, 'P', IS_AFFECTED(victim, AFF_FAERIE_FIRE));
 		FLAG_SET(20, 'U', IS_NPC(victim) &&
@@ -4395,6 +4400,9 @@ static void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 			    ch, NULL, victim, TO_NOTVICT);
 		}
 	}
+
+	if (is_affected(ch, "hallucination")) 
+		doppel = random_char(NULL);
 
 	if (doppel->shapeform) 
 		desc = mlstr_cval(&doppel->shapeform->index->description, ch);

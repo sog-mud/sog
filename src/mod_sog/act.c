@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.54 1999-12-20 08:31:23 fjoe Exp $
+ * $Id: act.c,v 1.55 1999-12-29 12:11:33 kostik Exp $
  */
 
 #include <stdio.h>
@@ -134,6 +134,9 @@ const char *PERS2(CHAR_DATA *ch, CHAR_DATA *to, int to_lang, int act_flags)
 	&&  (IS_NPC(to) ||
 	     !IS_SET(PC(to)->plr_flags, PLR_HOLYLIGHT)))
 		ch = ch->doppel;
+
+	if (is_affected(to, "hallucination"))
+		ch = random_char(NULL);
 
 	if (can_see(to, ch)) {
 		if (ch->shapeform) {
@@ -281,6 +284,9 @@ static const char *
 act_format_obj(OBJ_DATA *obj, CHAR_DATA *to, int to_lang, int act_flags)
 {
 	const char *descr;
+
+	if (is_affected(to, "hallucination"))
+		obj = random_obj();
 
 	if (!can_see_obj(to, obj))
 		return GETMSG("something", to_lang);

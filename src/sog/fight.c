@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.248 1999-12-22 08:29:08 fjoe Exp $
+ * $Id: fight.c,v 1.249 1999-12-29 12:11:32 kostik Exp $
  */
 
 /***************************************************************************
@@ -215,7 +215,8 @@ void check_assist(CHAR_DATA *ch, CHAR_DATA *victim)
 		 */
 		if (((!IS_NPC(rch) && IS_SET(PC(rch)->plr_flags,
 					     PLR_AUTOASSIST)) ||
-		     IS_AFFECTED(rch, AFF_CHARM))
+		     IS_AFFECTED(rch, AFF_CHARM)
+		     || IS_NPC(rch))
 		&&  is_same_group(ch, rch)
 		&&  !is_safe_nomessage(rch, victim)) {
 			multi_hit (rch, victim, NULL);
@@ -803,6 +804,16 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 	if (diceroll == 0
 	|| (diceroll != 19 && diceroll < thac0 - victim_ac)) {
 		/* Miss. */
+		damage(ch, victim, 0, dt, dam_class, dam_flags);
+		tail_chain();
+		return;
+	}
+
+	if(is_affected(victim, "blur") 
+	&& !HAS_DETECT(victim, ID_TRUESEEING)
+	&& (number_percent() < 50)) {
+		act("You failed to detect true $N's position.",
+			ch, NULL, victim, TO_CHAR);
 		damage(ch, victim, 0, dt, dam_class, dam_flags);
 		tail_chain();
 		return;

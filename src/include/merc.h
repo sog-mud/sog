@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.282 1999-12-22 08:29:06 fjoe Exp $
+ * $Id: merc.h,v 1.283 1999-12-29 12:11:31 kostik Exp $
  */
 
 /***************************************************************************
@@ -575,6 +575,8 @@ struct spec_type
 #define ID_EVIL			(K)
 #define ID_MAGIC		(L)
 #define ID_GOOD			(M)
+#define ID_TRUESEEING		(N)
+#define ID_CHARM		(O)	/* Detect charm */
 
 #define ID_ALL_INVIS	(ID_INVIS | ID_HIDDEN | ID_FADE | \
 			 ID_IMP_INVIS | ID_BLEND | ID_CAMOUFLAGE)
@@ -583,7 +585,7 @@ struct spec_type
 #define SET_INVIS(ch, f)	(SET_BIT((ch)->has_invis, (f)))
 #define REMOVE_INVIS(ch, f)	(REMOVE_BIT((ch)->has_invis, (f)))
 
-#define HAS_DETECT(ch, f)	(IS_SET((ch)->has_detect, (f)))
+#define HAS_DETECT(ch, f)	(IS_SET((ch)->has_detect, ((f)|ID_TRUESEEING)))
 #define SET_DETECT(ch, f)	(SET_BIT((ch)->has_detect, (f)))
 #define REMOVE_DETECT(ch, f)	(REMOVE_BIT((ch)->has_detect, (f)))
 
@@ -1827,6 +1829,8 @@ extern		bool			MOBtrigger;
 void	handle_death(CHAR_DATA *ch, CHAR_DATA *victim);
 
 ROOM_INDEX_DATA  *get_random_room(CHAR_DATA *ch, AREA_DATA *area);
+CHAR_DATA *random_char(ROOM_INDEX_DATA *room);
+OBJ_DATA *random_obj();
 
 /* effect.c */
 void	acid_effect	(void *vo, int level, int dam);

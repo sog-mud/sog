@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.195 1999-12-23 16:12:23 avn Exp $
+ * $Id: act_obj.c,v 1.196 1999-12-29 12:11:30 kostik Exp $
  */
 
 /***************************************************************************
@@ -1060,6 +1060,12 @@ void do_drink(CHAR_DATA * ch, const char *argument)
 	int		i;
 	liquid_t	*lq;
 
+	if (is_affected(ch, "bellyache")) {
+		act("You aren't able to drink anything.",
+			ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
 	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
@@ -1160,6 +1166,13 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 		char_puts("Eat what?\n", ch);
 		return;
 	}
+	
+	if (is_affected(ch, "bellyache")) {
+		act("You cannot force yourself to eat.", 
+			ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
 	if ((obj = get_obj_carry(ch, arg)) == NULL) {
 		char_puts("You do not have that item.\n", ch);
 		return;

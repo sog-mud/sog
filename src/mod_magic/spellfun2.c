@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.164 1999-12-22 08:29:18 fjoe Exp $
+ * $Id: spellfun2.c,v 1.165 1999-12-29 12:11:34 kostik Exp $
  */
 
 /***************************************************************************
@@ -2318,33 +2318,6 @@ void spell_honor_shield(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	act("$n's Honor protects $m.", victim, NULL, NULL, TO_ROOM);
 }
 	
-void spell_acute_vision(const char *sn, int level, CHAR_DATA *ch, void *vo)
-{
-	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
-
-	if (HAS_DETECT(victim, ID_CAMOUFLAGE)) {
-		if (victim == ch)
-			char_puts("Your vision is already acute. \n",ch);
-		else {
-			act("$N already sees acutely.",
-			    ch, NULL, victim, TO_CHAR);
-		}
-		return;
-	}
-
-	af.where	= TO_DETECTS;
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= 3 + level / 5;
-	INT(af.location)= APPLY_NONE;
-	af.modifier	= 0;
-	af.bitvector	= ID_CAMOUFLAGE;
-	affect_to_char(victim, &af);
-	char_puts("Your vision sharpens.\n", victim);
-	if (ch != victim)
-		char_puts("Ok.\n", ch);
-}
 
 void spell_dragons_breath(const char *sn, int level, CHAR_DATA *ch,
 			  void *vo) 
@@ -3668,7 +3641,28 @@ void spell_knock(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 void spell_hallucination(const char *sn, int level, CHAR_DATA *ch, void *vo) 
 {
-	char_puts("That spell is under construction.\n", ch);
+	CHAR_DATA *victim = (CHAR_DATA *) vo;
+	AFFECT_DATA af;
+
+	if (saves_spell(level, victim, DAM_MENTAL)) {
+		act("$N seems to be unaffected.", ch, NULL, victim, TO_CHAR);
+		return;
+	}
+
+	af.where 	= TO_AFFECTS;
+	af.type		= sn;
+	af.level	= level;
+	af.duration	= 7 + level / 5;
+	INT(af.location)= APPLY_AC;
+	af.modifier	= level * 3;
+	af.bitvector	= 0;
+	
+	affect_to_char(victim, &af);
+	char_puts("You start to see things.", victim);
+
+	if (victim != ch) {
+		act("$N starts hallucinating.", ch, NULL, victim, TO_CHAR);
+	}
 }
 
 void spell_wolf(const char *sn, int level, CHAR_DATA *ch, void *vo)	
@@ -5451,6 +5445,28 @@ void spell_free_action(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	char_puts("You can move easier.\n", vch);
 }
 
+void spell_blur(const char *sn, int level, CHAR_DATA *ch, void *vo)
+{
+	AFFECT_DATA af;
+
+	if (is_affected(ch, sn)) {
+		char_puts("Your body is already blurred.\n", ch);
+		return;
+	}
+
+	af.where	= TO_AFFECTS;
+	af.type		= sn;
+	af.level	= level; 
+	af.duration	= level / 12 + 2;
+	INT(af.location)= APPLY_NONE;
+	af.modifier	= 0;
+	af.bitvector	= 0;
+	affect_to_char(ch, &af);
+
+	act("$n's body becomes blurred.", ch, NULL, NULL, TO_ROOM);
+	act("Your body becomes blurred.", ch, NULL, NULL, TO_CHAR);
+}
+
 void spell_find_familiar(const char *sn, int level, CHAR_DATA *ch, void *vo) 
 {	
 	CHAR_DATA *familiar=NULL;
@@ -5608,4 +5624,54 @@ void spell_death_ripple(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		this_room = next_room;
 	}
 }
+
+void spell_illusion(const char *sn, int level, CHAR_DATA *ch, void *vo)
+{
+	CHAR_DATA *victim = (CHAR_DATA *) vo;
+	CHAR_DATA *illusion;
+	CHAR_DATA *gch;
+	AFFECT_DATA af;
+	int count_illusions = 0;
+
+	if (!IS_NPC(victim)) {
+		char_puts("You failed.\n", ch);
+		return;
+	}
+
+	for (gch = npc_list; gch; gch = gch->next) {
+		if (gch->master == ch
+		&& (is_affected(gch, sn) 
+		|| is_affected(gch, "advanced illusion"))) 
+			count_illusions ++;
+	}
+
+	if (count_illusions > LEVEL(ch) / 7) {
+		char_puts("You already control as many illusions as you can.\n",
+			ch);
+		return;
+	}
+
+	illusion = create_mob(victim->pMobIndex);
+
+	illusion->max_hit = illusion->hit = 1;
+
+	illusion->level = level * 3 / 4;
+
+	af.where	= TO_AFFECTS;
+	af.type		= sn;
+	af.level	= level;
+	af.duration	= -1;
+	af.bitvector	= 0;
+	af.modifier	= 0;
+	INT(af.location)= APPLY_NONE;
+
+	affect_to_char(illusion, &af);
+
+	illusion->master = illusion->leader = ch;
+
+	char_to_room(illusion, ch->in_room);
+}
+
+
+
 

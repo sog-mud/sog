@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.122 1999-12-21 14:48:17 kostik Exp $
+ * $Id: tables.c,v 1.123 1999-12-29 12:11:33 kostik Exp $
  */
 
 /***************************************************************************
@@ -213,6 +213,7 @@ flaginfo_t id_flags[] =
 	{ "evil",		ID_EVIL,		TRUE	},
 	{ "magic",		ID_MAGIC,		TRUE	},
 	{ "good",		ID_GOOD,		TRUE	},
+	{ "everything",		ID_TRUESEEING,		TRUE	},
 
 	{ NULL }
 };

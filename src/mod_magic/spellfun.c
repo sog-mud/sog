@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.203 1999-12-23 12:00:18 fjoe Exp $
+ * $Id: spellfun.c,v 1.204 1999-12-29 12:11:33 kostik Exp $
  */
 
 /***************************************************************************
@@ -1203,6 +1203,34 @@ void spell_detect_magic(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.bitvector	= ID_MAGIC;
 	affect_to_char(victim, &af);
 	char_puts("Your eyes tingle.\n", victim);
+	if (ch != victim)
+		char_puts("Ok.\n", ch);
+}
+
+void spell_true_seeing(const char *sn, int level, CHAR_DATA *ch, void *vo)
+{
+	CHAR_DATA *victim = (CHAR_DATA *) vo;
+	AFFECT_DATA af;
+
+	if (HAS_DETECT(victim, ID_TRUESEEING)) {
+		if (victim == ch)
+			char_puts("You can already see everything.\n", ch);
+		else {
+			act("$N can already see invisible things.",
+			    ch, NULL, victim, TO_CHAR);
+		}
+		return;
+	}
+
+	af.where	= TO_DETECTS;
+	af.type		= sn;
+	af.level	= level;
+	af.duration	= (2 + level / 5);
+	af.modifier	= 0;
+	INT(af.location)= APPLY_NONE;
+	af.bitvector	= ID_TRUESEEING;
+	affect_to_char(victim, &af);
+	char_puts("Now you have a god-like sight.\n", victim);
 	if (ch != victim)
 		char_puts("Ok.\n", ch);
 }

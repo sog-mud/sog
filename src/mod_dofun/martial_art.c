@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.146 1999-12-22 08:29:04 fjoe Exp $
+ * $Id: martial_art.c,v 1.147 1999-12-29 12:11:30 kostik Exp $
  */
 
 /***************************************************************************
@@ -3376,7 +3376,7 @@ void do_truesight(CHAR_DATA *ch, const char *argument)
 		af.duration = LEVEL(ch)/2 + 5;
 		INT(af.location) = APPLY_NONE;
 		af.modifier = 0;
-		af.bitvector = ID_HIDDEN | ID_INVIS | ID_IMP_INVIS | ID_CAMOUFLAGE | ID_MAGIC;
+		af.bitvector = ID_INVIS | ID_MAGIC;
 		affect_to_char(ch, &af);
 
 		act("You look around sharply!", ch, NULL, NULL, TO_CHAR);
