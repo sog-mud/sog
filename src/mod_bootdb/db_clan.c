@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_clan.c,v 1.38 2002-03-21 13:54:00 fjoe Exp $
+ * $Id: db_clan.c,v 1.39 2003-04-17 10:08:35 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -51,7 +51,7 @@ DECLARE_DBLOAD_FUN(load_plists);
 DBFUN dbfun_plists[] =
 {
 	{ "PLISTS",	load_plists,	NULL	},		// notrans
-	{ NULL , NULL, NULL}
+	{ NULL , NULL, NULL }
 };
 
 DBDATA db_plists = { dbfun_plists, NULL, 0 };
