@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.76 2004-02-19 17:23:57 fjoe Exp $
+ * $Id: handler.c,v 1.182.2.77 2004-02-19 17:24:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1253,6 +1253,11 @@ void obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch)
 void
 obj_to_char_check(OBJ_DATA *obj, CHAR_DATA *ch)
 {
+	if (IS_OBJ_STAT(obj, ITEM_NODROP)) {
+		obj_to_char(obj, ch);
+		return;
+	}
+
 	if (!can_carry_more_n(ch, get_obj_number(obj))) {
 		act("You have your hands full and drop $p.",
 		    ch, obj, NULL, TO_CHAR);
