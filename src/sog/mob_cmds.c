@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.23 1998-12-17 21:05:43 fjoe Exp $
+ * $Id: mob_cmds.c,v 1.24 1998-12-19 10:16:42 kostik Exp $
  */
 
 /***************************************************************************
@@ -56,6 +56,7 @@ const	struct	mob_cmd_type	mob_cmd_table	[] =
 	{	"gecho",	do_mpgecho	},
 	{	"zecho",	do_mpzecho	},
 	{	"kill",		do_mpkill	},
+	{	"attack",	do_mpattack	},
 	{	"assist",	do_mpassist	},
 	{	"junk",		do_mpjunk	},
 	{	"echo",		do_mpecho	},
@@ -305,6 +306,22 @@ void do_mpkill(CHAR_DATA *ch, const char *argument)
     }
 
     multi_hit(ch, victim, TYPE_UNDEFINED);
+}
+
+void do_mpattack(CHAR_DATA *ch, const char *argument)
+{
+	char arg[MAX_INPUT_LENGTH];
+	CHAR_DATA* victim;
+
+	one_argument (argument,arg);
+
+	if (arg[0] == '\0') return;
+	
+	if ((victim=get_char_room(ch,arg)) == NULL) return;
+	
+	if (victim == ch) return;
+	
+	multi_hit(ch, victim, TYPE_UNDEFINED);
 }
 
 /*

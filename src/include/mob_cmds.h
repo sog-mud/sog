@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.h,v 1.4 1998-09-17 15:51:21 fjoe Exp $
+ * $Id: mob_cmds.h,v 1.5 1998-12-19 10:16:42 kostik Exp $
  */
 
 /***************************************************************************
@@ -59,6 +59,7 @@ DECLARE_DO_FUN(do_mpasound	);
 DECLARE_DO_FUN(do_mpgecho	);
 DECLARE_DO_FUN(do_mpzecho	);
 DECLARE_DO_FUN(do_mpkill	);
+DECLARE_DO_FUN(do_mpattack	);
 DECLARE_DO_FUN(do_mpassist	);
 DECLARE_DO_FUN(do_mpjunk	);
 DECLARE_DO_FUN(do_mpechoaround	);

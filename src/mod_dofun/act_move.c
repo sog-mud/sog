@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.122 1998-12-17 21:05:39 fjoe Exp $
+ * $Id: act_move.c,v 1.123 1998-12-19 10:16:41 kostik Exp $
  */
 
 /***************************************************************************
@@ -2079,6 +2079,9 @@ void do_vbite(CHAR_DATA *ch, const char *argument)
 		check_improve(ch, gsn_vampiric_bite, FALSE, 1);
 		damage(ch, victim, 0, gsn_vampiric_bite, DAM_NONE, DAMF_SHOW);
 	}
+	if (!IS_NPC(victim) && victim->position==POS_FIGHTING) 
+		doprintf(do_yell, victim, 
+			"Help! %s tried to bite me!", PERS(ch, victim));
 }
 
 void do_bash_door(CHAR_DATA *ch, const char *argument)
