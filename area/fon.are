@@ -6,6 +6,7 @@ VNUMs 22450 22699
 Credits Lucer~
 Security 1
 LevelRange 5 45
+Flags closed noquest~
 End
 
 #MOBILES
@@ -894,7 +895,7 @@ A large axe with twin blades lies here.~
 steel~
 weapon AC 0 AN
 axe 8 4 'cleave' ADH
-0 350 15000 P
+27 350 15000 P
 a '' to_object 0 -1 2 30 0
 a '' to_object 0 -1 -5 18 0
 a '' to_object 0 -1 8 19 0

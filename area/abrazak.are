@@ -302,7 +302,7 @@ pill anti invader~
 Anti-invader's pill~
 Someone has left an anti-invader's pill here.~
 energy~
-pill AB AC A
+pill AB ACL A
 45 'detect fade' 'protection evil' 'bless' 'sanctuary'
 0 1 10000 P
 g @rus none~

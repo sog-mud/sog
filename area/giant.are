@@ -343,7 +343,7 @@ huge broadsword огромный широкий меч~
 @eng A powerful weapon of destruction lies here, waiting to be wielded.@rus На полу лежит ждущее своего череда мощное оружие (broadsword).~
 adamantite~
 weapon ABM 0 AN
-sword 10 7 'slice' CF
+sword 10 7 'slice' CFL
 55 350 10000 P
 a '' to_object 55 -1 25 13 0
 a '' to_object 55 -1 1 18 0

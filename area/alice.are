@@ -1147,7 +1147,7 @@ a pigeon egg~
 A pigeon egg sits here.~
 copper~
 pill B 0 AO
-36 'detect hidden' '' '' ''
+36 'detect invis' '' '' ''
 34 1 340 P
 g @rus none~
 #21026

@@ -436,7 +436,7 @@ a blue potion~
 A blue bottle of liquid lies here.~
 glass~
 potion H 0 A
-38 'acid blast' 'acute vision' 'detect hidden' 'detect invis'
+38 'acid arrow' 'faerie fog' 'faerie fog' 'detect invis'
 20 20 3200 P
 g @rus none~
 #13408

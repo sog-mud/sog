@@ -338,7 +338,7 @@ a potion~
 A potion is on the floor.~
 glass~
 potion G 0 A
-10 'detect hidden' 'detect magic' '' ''
+10 'detect invis' 'detect magic' '' ''
 4 10 290 P
 g @rus none~
 #7811

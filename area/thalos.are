@@ -264,7 +264,7 @@ an orange potion~
 A small orange potion lies here.~
 glass~
 potion FG 0 A
-20 'detect hidden' '' '' ''
+20 'faerie fog' 'faerie fog' 'faerie fog' 'faerie fog'
 4 100 400 P
 g @rus none~
 #5214

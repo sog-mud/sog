@@ -1470,13 +1470,18 @@ g @rus none~
 
 #ROOMS
 #14700
-Approaching the Plains of Mount Doom~
-You are heading directly toward Mount Doom, on a narrow path that leads to
+@eng Approaching the Plains of Mount Doom@rus Приближаясь к Горе Судеб~
+@eng You are heading directly toward Mount Doom, on a narrow path that leads to
 the desolate, monster-infested plains that surround it. This is the fell
 domain of Lord Krothgar, whose forbidding black fortress can be seen atop the
 peak of the extinct volcano called by humans Mount Doom. Armies of giants
 patrol the lower slopes, while evil mutants, mages and demons guard the
 fortress itself. Steeling yourself, you push on.
+@rus Ты направляешься прямо к Горе Судеб по пути, ведущему прямо к заброшенной, 
+заселенной чудовищами пустыне, которая окружает Гору. Это владения Лорда 
+Коргтара, чья черная крепость возвышается на вершине погасшего вулкана, 
+который люди называют Горой Судеб. Армии гигантов патрулируют нижние склоны,
+саму же крепость охраняют злобные мутанты, колдуны и демоны.
 ~
 0 AC field
 D0
@@ -1493,13 +1498,19 @@ D2
 Z -1 6154
 S
 #14701
-The Plains of Mount Doom~
-A chill wind blows across the desolate wastes, and you shiver uncomfortably
+@eng The Plains of Mount Doom@rus Пустыня перед Горой Судеб~
+@eng A chill wind blows across the desolate wastes, and you shiver uncomfortably
 as you proceed. The bones of past adventurers lay scattered across the
 hard ground, among rusted weapons and shards of jagged rock that resemble
 teeth. It almost looks as if the very earth had devoured them. But the
 sudden howl of a warg (or a ghoul) alerts you to the very real dangers
 lurking nearby and you press on.
+@rus Пронизывающий до самых костей ветер носится по заброшенной пустыне,
+заставляя тебя дрожать от холода. Кости прежних путешественников разбросаны 
+по твердой земле, вперемешку со сломанным оружием и обломками острых камней,
+напоминающих чьи-то огромные зубы. Кажется, сама земля пожрала твоих
+предшественников. Вдруг чей-то нечеловеческий вой предупреждает о гораздо
+более реальных опасностях, подстерегающих тебя.  
 ~
 0 0 field
 D0
@@ -1516,13 +1527,19 @@ D1
 Z -1 14702
 S
 #14702
-The Plains of Mount Doom~
-A chill wind blows across the desolate wastes, and you shiver uncomfortably
+@eng The Plains of Mount Doom@rus Пустыня перед Горой Судеб~
+@eng A chill wind blows across the desolate wastes, and you shiver uncomfortably
 as you proceed. The bones of past adventurers lay scattered across the
 hard ground, among rusted weapons and shards of jagged rock that resemble
 teeth. It almost looks as if the very earth had devoured them. But the
 sudden howl of a warg (or a ghoul) alerts you to the very real dangers
 lurking nearby and you press on.
+@rus Пронизывающий до самых костей ветер носится по заброшенной пустыне,
+заставляя тебя дрожать от холода. Кости прежних путешественников разбросаны 
+по твердой земле, вперемешку со сломанным оружием и обломками острых камней,
+напоминающих чьи-то огромные зубы. Кажется, сама земля пожрала твоих
+предшественников. Вдруг чей-то нечеловеческий вой предупреждает о гораздо
+более реальных опасностях, подстерегающих тебя.  
 ~
 0 0 field
 D0
@@ -1545,13 +1562,19 @@ D3
 Z -1 14701
 S
 #14703
-The Plains of Mount Doom~
-A chill wind blows across the desolate wastes, and you shiver uncomfortably
+@eng The Plains of Mount Doom@rus Пустыня перед Горой Судеб~
+@eng A chill wind blows across the desolate wastes, and you shiver uncomfortably
 as you proceed. The bones of past adventurers lay scattered across the
 hard ground, among rusted weapons and shards of jagged rock that resemble
 teeth. It almost looks as if the very earth had devoured them. But the
 sudden howl of a warg (or a ghoul) alerts you to the very real dangers
 lurking nearby and you press on.
+@rus Пронизывающий до самых костей ветер носится по заброшенной пустыне,
+заставляя тебя дрожать от холода. Кости прежних путешественников разбросаны 
+по твердой земле, вперемешку со сломанным оружием и обломками острых камней,
+напоминающих чьи-то огромные зубы. Кажется, сама земля пожрала твоих
+предшественников. Вдруг чей-то нечеловеческий вой предупреждает о гораздо
+более реальных опасностях, подстерегающих тебя.  
 ~
 0 0 field
 D0
@@ -1574,13 +1597,19 @@ D3
 Z -1 14702
 S
 #14704
-The Plains of Mount Doom~
-A chill wind blows across the desolate wastes, and you shiver uncomfortably
+@eng The Plains of Mount Doom@rus Пустыня перед Горой Судеб~
+@eng A chill wind blows across the desolate wastes, and you shiver uncomfortably
 as you proceed. The bones of past adventurers lay scattered across the
 hard ground, among rusted weapons and shards of jagged rock that resemble
 teeth. It almost looks as if the very earth had devoured them. But the
 sudden howl of a warg (or a ghoul) alerts you to the very real dangers
 lurking nearby and you press on.
+@rus Пронизывающий до самых костей ветер носится по заброшенной пустыне,
+заставляя тебя дрожать от холода. Кости прежних путешественников разбросаны 
+по твердой земле, вперемешку со сломанным оружием и обломками острых камней,
+напоминающих чьи-то огромные зубы. Кажется, сама земля пожрала твоих
+предшественников. Вдруг чей-то нечеловеческий вой предупреждает о гораздо
+более реальных опасностях, подстерегающих тебя.  
 ~
 0 0 field
 D0
@@ -1609,13 +1638,19 @@ D3
 Z -1 14703
 S
 #14705
-The Plains of Mount Doom~
-A chill wind blows across the desolate wastes, and you shiver uncomfortably
+@eng The Plains of Mount Doom@rus Пустыня перед Горой Судеб~
+@eng A chill wind blows across the desolate wastes, and you shiver uncomfortably
 as you proceed. The bones of past adventurers lay scattered across the
 hard ground, among rusted weapons and shards of jagged rock that resemble
 teeth. It almost looks as if the very earth had devoured them. But the
 sudden howl of a warg (or a ghoul) alerts you to the very real dangers
 lurking nearby and you press on.
+@rus Пронизывающий до самых костей ветер носится по заброшенной пустыне,
+заставляя тебя дрожать от холода. Кости прежних путешественников разбросаны 
+по твердой земле, вперемешку со сломанным оружием и обломками острых камней,
+напоминающих чьи-то огромные зубы. Кажется, сама земля пожрала твоих
+предшественников. Вдруг чей-то нечеловеческий вой предупреждает о гораздо
+более реальных опасностях, подстерегающих тебя.  
 ~
 0 0 field
 D0
@@ -1638,13 +1673,19 @@ D3
 Z -1 14704
 S
 #14706
-The Plains of Mount Doom~
-A chill wind blows across the desolate wastes, and you shiver uncomfortably
+@eng The Plains of Mount Doom@rus Пустыня перед Горой Судеб~
+@eng A chill wind blows across the desolate wastes, and you shiver uncomfortably
 as you proceed. The bones of past adventurers lay scattered across the
 hard ground, among rusted weapons and shards of jagged rock that resemble
 teeth. It almost looks as if the very earth had devoured them. But the
 sudden howl of a warg (or a ghoul) alerts you to the very real dangers
 lurking nearby and you press on.
+@rus Пронизывающий до самых костей ветер носится по заброшенной пустыне,
+заставляя тебя дрожать от холода. Кости прежних путешественников разбросаны 
+по твердой земле, вперемешку со сломанным оружием и обломками острых камней,
+напоминающих чьи-то огромные зубы. Кажется, сама земля пожрала твоих
+предшественников. Вдруг чей-то нечеловеческий вой предупреждает о гораздо
+более реальных опасностях, подстерегающих тебя.  
 ~
 0 0 field
 D0
@@ -1667,13 +1708,19 @@ D3
 Z -1 14705
 S
 #14707
-The Plains of Mount Doom~
-A chill wind blows across the desolate wastes, and you shiver uncomfortably
+@eng The Plains of Mount Doom@rus Пустыня перед Горой Судеб~
+@eng A chill wind blows across the desolate wastes, and you shiver uncomfortably
 as you proceed. The bones of past adventurers lay scattered across the
 hard ground, among rusted weapons and shards of jagged rock that resemble
 teeth. It almost looks as if the very earth had devoured them. But the
 sudden howl of a warg (or a ghoul) alerts you to the very real dangers
 lurking nearby and you press on.
+@rus Пронизывающий до самых костей ветер носится по заброшенной пустыне,
+заставляя тебя дрожать от холода. Кости прежних путешественников разбросаны 
+по твердой земле, вперемешку со сломанным оружием и обломками острых камней,
+напоминающих чьи-то огромные зубы. Кажется, сама земля пожрала твоих
+предшественников. Вдруг чей-то нечеловеческий вой предупреждает о гораздо
+более реальных опасностях, подстерегающих тебя.  
 ~
 0 0 field
 D0
@@ -1690,13 +1737,19 @@ D3
 Z -1 14706
 S
 #14708
-The Plains of Mount Doom~
-A chill wind blows across the desolate wastes, and you shiver uncomfortably
+@eng The Plains of Mount Doom@rus Равнина возле Горы Судьбы~
+@eng A chill wind blows across the desolate wastes, and you shiver uncomfortably
 as you proceed. The bones of past adventurers lay scattered across the
 hard ground, among rusted weapons and shards of jagged rock that resemble
 teeth. It almost looks as if the very earth had devoured them. But the
 sudden howl of a warg (or a ghoul) alerts you to the very real dangers
 lurking nearby and you press on.
+@rus Пронизывающий до самых костей ветер носится по заброшенной пустыне,
+заставляя тебя дрожать от холода. Кости прежних путешественников разбросаны 
+по твердой земле, вперемешку со сломанным оружием и обломками острых камней,
+напоминающих чьи-то огромные зубы. Кажется, сама земля пожрала твоих
+предшественников. Вдруг чей-то нечеловеческий вой предупреждает о гораздо
+более реальных опасностях, подстерегающих тебя.  
 ~
 0 0 field
 D0
@@ -1719,13 +1772,18 @@ D2
 Z -1 14701
 S
 #14709
-The Foothills of Mount Doom~
-You have come to the base of the mountain. From here you may continue to
+@eng The Foothills of Mount Doom@rus Предгорье Горы Судеб~
+@eng You have come to the base of the mountain. From here you may continue to
 slowly make your way up the mountain, or head back to the eerie plains below.
 The ground here is rocky and treacherous, dotted by small crevices in the
 volcanic rock and jagged shards of granite protrustions. The wind is even
 stronger here than on the plains, and you fancy you can hear voices and
 screams.
+@rus Ты $gn{добрался} до основания горы. Отсюда можно либо продолжить медленный
+подъем наверх, либо повернуть назад, к жуткой пустыне. Земля камениста,
+но ненадежна, вся покрыта мелким трещинами в вулканической породе и острыми
+гранитными выступами.  Ветер еще сильнее чем внизу, и в его завываниях
+тебе чудятся чьи-то голоса.
 ~
 0 0 hills
 D0
@@ -1754,13 +1812,18 @@ D3
 Z -1 14708
 S
 #14710
-The Foothills of Mount Doom~
-You have come to the base of the mountain. From here you may continue to
+@eng The Foothills of Mount Doom@rus Предгорье Горы Судеб~
+@eng You have come to the base of the mountain. From here you may continue to
 slowly make your way up the mountain, or head back to the eerie plains below.
 The ground here is rocky and treacherous, dotted by small crevices in the
 volcanic rock and jagged shards of granite protrustions. The wind is even
 stronger here than on the plains, and you fancy you can hear voices and
 screams.
+@rus Ты $gn{добрался} до основания горы. Отсюда можно либо продолжить медленный
+подъем наверх, либо повернуть назад, к жуткой пустыне. Земля камениста,
+но ненадежна, вся покрыта мелким трещинами в вулканической породе и острыми
+гранитными выступами.  Ветер еще сильнее чем внизу, и в его завываниях
+тебе чудятся чьи-то голоса.
 ~
 0 0 hills
 D0
@@ -1789,13 +1852,18 @@ D3
 Z -1 14709
 S
 #14711
-The Foothills of Mount Doom~
-You have come to the base of the mountain. From here you may continue to
+@eng The Foothills of Mount Doom@rus Предгорье Горы Судеб~
+@eng You have come to the base of the mountain. From here you may continue to
 slowly make your way up the mountain, or head back to the eerie plains below.
 The ground here is rocky and treacherous, dotted by small crevices in the
 volcanic rock and jagged shards of granite protrustions. The wind is even
 stronger here than on the plains, and you fancy you can hear voices and
 screams.
+@rus Ты $gn{добрался} до основания горы. Отсюда можно либо продолжить медленный
+подъем наверх, либо повернуть назад, к жуткой пустыне. Земля камениста,
+но ненадежна, вся покрыта мелким трещинами в вулканической породе и острыми
+гранитными выступами.  Ветер еще сильнее чем внизу, и в его завываниях
+тебе чудятся чьи-то голоса.
 ~
 0 0 hills
 D0
@@ -1824,13 +1892,18 @@ D3
 Z -1 14710
 S
 #14712
-The Foothills of Mount Doom~
-You have come to the base of the mountain. From here you may continue to
+@eng The Foothills of Mount Doom@rus Предгорье Горы Судеб~
+@eng You have come to the base of the mountain. From here you may continue to
 slowly make your way up the mountain, or head back to the eerie plains below.
 The ground here is rocky and treacherous, dotted by small crevices in the
 volcanic rock and jagged shards of granite protrustions. The wind is even
 stronger here than on the plains, and you fancy you can hear voices and
 screams.
+@rus Ты $gn{добрался} до основания горы. Отсюда можно либо продолжить медленный
+подъем наверх, либо повернуть назад, к жуткой пустыне. Земля камениста,
+но ненадежна, вся покрыта мелким трещинами в вулканической породе и острыми
+гранитными выступами.  Ветер еще сильнее чем внизу, и в его завываниях
+тебе чудятся чьи-то голоса.
 ~
 0 0 hills
 D0
@@ -1859,13 +1932,18 @@ D3
 Z -1 14711
 S
 #14713
-The Foothills of Mount Doom~
-You have come to the base of the mountain. From here you may continue to
+@eng The Foothills of Mount Doom@rus Предгорье Горы Судеб~
+@eng You have come to the base of the mountain. From here you may continue to
 slowly make your way up the mountain, or head back to the eerie plains below.
 The ground here is rocky and treacherous, dotted by small crevices in the
 volcanic rock and jagged shards of granite protrustions. The wind is even
 stronger here than on the plains, and you fancy you can hear voices and
 screams.
+@rus Ты $gn{добрался} до основания горы. Отсюда можно либо продолжить медленный
+подъем наверх, либо повернуть назад, к жуткой пустыне. Земля камениста,
+но ненадежна, вся покрыта мелким трещинами в вулканической породе и острыми
+гранитными выступами.  Ветер еще сильнее чем внизу, и в его завываниях
+тебе чудятся чьи-то голоса.
 ~
 0 0 hills
 D0
@@ -1894,13 +1972,19 @@ D3
 Z -1 14712
 S
 #14714
-The Plains of Mount Doom~
-A chill wind blows across the desolate wastes, and you shiver uncomfortably
+@eng The Plains of Mount Doom@rus Пустыня перед Горой Судеб~
+@eng A chill wind blows across the desolate wastes, and you shiver uncomfortably
 as you proceed. The bones of past adventurers lay scattered across the
 hard ground, among rusted weapons and shards of jagged rock that resemble
 teeth. It almost looks as if the very earth had devoured them. But the
 sudden howl of a warg (or a ghoul) alerts you to the very real dangers
 lurking nearby and you press on.
+@rus Пронизывающий до самых костей ветер носится по заброшенной пустыне,
+заставляя тебя дрожать от холода. Кости прежних путешественников разбросаны 
+по твердой земле, вперемешку со сломанным оружием и обломками острых камней,
+напоминающих чьи-то огромные зубы. Кажется, сама земля пожрала твоих
+предшественников. Вдруг чей-то нечеловеческий вой предупреждает о гораздо
+более реальных опасностях, подстерегающих тебя.  
 ~
 0 0 field
 D0
@@ -1923,13 +2007,19 @@ D3
 Z -1 14713
 S
 #14715
-The Plains of Mount Doom~
-A chill wind blows across the desolate wastes, and you shiver uncomfortably
+@eng The Plains of Mount Doom@rus Пустыня перед Горой Судеб~
+@eng A chill wind blows across the desolate wastes, and you shiver uncomfortably
 as you proceed. The bones of past adventurers lay scattered across the
 hard ground, among rusted weapons and shards of jagged rock that resemble
 teeth. It almost looks as if the very earth had devoured them. But the
 sudden howl of a warg (or a ghoul) alerts you to the very real dangers
 lurking nearby and you press on.
+@rus Пронизывающий до самых костей ветер носится по заброшенной пустыне,
+заставляя тебя дрожать от холода. Кости прежних путешественников разбросаны 
+по твердой земле, вперемешку со сломанным оружием и обломками острых камней,
+напоминающих чьи-то огромные зубы. Кажется, сама земля пожрала твоих
+предшественников. Вдруг чей-то нечеловеческий вой предупреждает о гораздо
+более реальных опасностях, подстерегающих тебя.  
 ~
 0 0 field
 D0
@@ -1952,13 +2042,18 @@ D2
 Z -1 14708
 S
 #14716
-The Foothills of Mount Doom~
-You have come to the base of the mountain. From here you may continue to
+@eng The Foothills of Mount Doom@rus Предгорье Горы Судеб~
+@eng You have come to the base of the mountain. From here you may continue to
 slowly make your way up the mountain, or head back to the eerie plains below.
 The ground here is rocky and treacherous, dotted by small crevices in the
 volcanic rock and jagged shards of granite protrustions. The wind is even
 stronger here than on the plains, and you fancy you can hear voices and
 screams.
+@rus Ты $gn{добрался} до основания горы. Отсюда можно либо продолжить медленный
+подъем наверх, либо повернуть назад, к жуткой пустыне. Земля камениста,
+но ненадежна, вся покрыта мелким трещинами в вулканической породе и острыми
+гранитными выступами.  Ветер еще сильнее чем внизу, и в его завываниях
+тебе чудятся чьи-то голоса.
 ~
 0 0 hills
 D0
@@ -1987,13 +2082,19 @@ D3
 Z -1 14715
 S
 #14717
-The Upper Slopes of Mount Doom~
-You are steadily drawing near the summit. The ground has become quite smooth
+@eng The Upper Slopes of Mount Doom@rus Высоко на склоне Горы Судеб~
+@eng You are steadily drawing near the summit. The ground has become quite smooth
 here, to the point of sliperiness, and you stop more than once to regain your
 footing on the glassy obsidian that coats the upper slopes. The fortress
 of Lord Krogthar looms closer than ever now, and you mentally prepare
 yourself for the the upcoming battles. The foes you have fought so far have
 been minor compared to those to come.
+@rus Ты неуклонно продвигаешься к вершине. Земля под ногами стала довольно
+гладкой и скользкой, тебе не раз пришлось приостанавливать свой путь, чтобы
+вновь поднятьcя на ноги с вулканического стекла, которое покрывает склоны. 
+Крепость Лорда Крогтара выглядит как никогда близкой, и ты начинаешь
+мысленно готовиться к предстоящим битвам, ведь все те, с кем тебе уже 
+доводилось сражаться, в подметки не годятся врагам, ожидающим в крепости.
 ~
 0 0 mountain
 D0
@@ -2022,8 +2123,8 @@ D3
 Z -1 14716
 S
 #14718
-The Upper Slopes of Mount Doom~
-You are steadily drawing near the summit. The ground has become quite smooth
+@eng The Upper Slopes of Mount Doom@rus Высоко на склоне Горы Судеб~
+@eng You are steadily drawing near the summit. The ground has become quite smooth
 here, to the point of sliperiness, and you stop more than once to regain your
 footing on the glassy obsidian that coats the upper slopes. The fortress
 of Lord Krogthar looms closer than ever now, and you mentally prepare
@@ -2031,10 +2132,19 @@ yourself for the the upcoming battles. The foes you have fought so far have
 been minor compared to those to come.
 
 The fortress lies directly north of here.
+@rus Ты неуклонно продвигаешься к вершине. Земля под ногами стала довольно
+гладкой и скользкой, тебе не раз пришлось приостанавливать свой путь, чтобы
+вновь поднятьcя на ноги с вулканического стекла, которое покрывает склоны. 
+Крепость Лорда Крогтара выглядит как никогда близкой, и ты начинаешь
+мысленно готовиться к предстоящим битвам, ведь все те, с кем тебе уже 
+доводилось сражаться, в подметки не годятся врагам, ожидающим в крепости.
+ 
+Крепость - прямо на севере.
 ~
 0 0 mountain
 D0
-THE FORTRESS
+@eng THE FORTRESS
+@rus КРЕПОСТЬ
 ~
 ~
 ~
@@ -2060,13 +2170,19 @@ D3
 Z -1 14717
 S
 #14719
-The Upper Slopes of Mount Doom~
-You are steadily drawing near the summit. The ground has become quite smooth
+@eng The Upper Slopes of Mount Doom@rus Высоко на склоне Горы Судеб~
+@eng You are steadily drawing near the summit. The ground has become quite smooth
 here, to the point of sliperiness, and you stop more than once to regain your
 footing on the glassy obsidian that coats the upper slopes. The fortress
 of Lord Krogthar looms closer than ever now, and you mentally prepare
 yourself for the the upcoming battles. The foes you have fought so far have
 been minor compared to those to come.
+@rus Ты неуклонно продвигаешься к вершине. Земля под ногами стала довольно
+гладкой и скользкой, тебе не раз пришлось приостанавливать свой путь, чтобы
+вновь поднятьcя на ноги с вулканического стекла, которое покрывает склоны. 
+Крепость Лорда Крогтара выглядит как никогда близкой, и ты начинаешь
+мысленно готовиться к предстоящим битвам, ведь все те, с кем тебе уже 
+доводилось сражаться, в подметки не годятся врагам, ожидающим в крепости.
 ~
 0 0 mountain
 D0
@@ -2095,13 +2211,18 @@ D3
 Z -1 14718
 S
 #14720
-The Foothills of Mount Doom~
-You have come to the base of the mountain. From here you may continue to
+@eng The Foothills of Mount Doom@rus Предгорье Горы Судеб~
+@eng You have come to the base of the mountain. From here you may continue to
 slowly make your way up the mountain, or head back to the eerie plains below.
 The ground here is rocky and treacherous, dotted by small crevices in the
 volcanic rock and jagged shards of granite protrustions. The wind is even
 stronger here than on the plains, and you fancy you can hear voices and
 screams.
+@rus Ты $gn{добрался} до основания горы. Отсюда можно либо продолжить медленный
+подъем наверх, либо повернуть назад, к жуткой пустыне. Земля камениста,
+но ненадежна, вся покрыта мелким трещинами в вулканической породе и острыми
+гранитными выступами.  Ветер еще сильнее чем внизу, и в его завываниях
+тебе чудятся чьи-то голоса.
 ~
 0 0 hills
 D0
@@ -2130,13 +2251,19 @@ D3
 Z -1 14719
 S
 #14721
-The Plains of Mount Doom~
-A chill wind blows across the desolate wastes, and you shiver uncomfortably
+@eng The Plains of Mount Doom@rus Пустыня перед Горой Судеб~
+@eng A chill wind blows across the desolate wastes, and you shiver uncomfortably
 as you proceed. The bones of past adventurers lay scattered across the
 hard ground, among rusted weapons and shards of jagged rock that resemble
 teeth. It almost looks as if the very earth had devoured them. But the
 sudden howl of a warg (or a ghoul) alerts you to the very real dangers
 lurking nearby and you press on.
+@rus Пронизывающий до самых костей ветер носится по заброшенной пустыне,
+заставляя тебя дрожать от холода. Кости прежних путешественников разбросаны 
+по твердой земле, вперемешку со сломанным оружием и обломками острых камней,
+напоминающих чьи-то огромные зубы. Кажется, сама земля пожрала твоих
+предшественников. Вдруг чей-то нечеловеческий вой предупреждает о гораздо
+более реальных опасностях, подстерегающих тебя.  
 ~
 0 0 field
 D0
@@ -2159,13 +2286,19 @@ D3
 Z -1 14720
 S
 #14722
-The Plains of Mount Doom~
-A chill wind blows across the desolate wastes, and you shiver uncomfortably
+@eng The Plains of Mount Doom@rus Пустыня перед Горой Судеб~
+@eng A chill wind blows across the desolate wastes, and you shiver uncomfortably
 as you proceed. The bones of past adventurers lay scattered across the
 hard ground, among rusted weapons and shards of jagged rock that resemble
 teeth. It almost looks as if the very earth had devoured them. But the
 sudden howl of a warg (or a ghoul) alerts you to the very real dangers
 lurking nearby and you press on.
+@rus Пронизывающий до самых костей ветер носится по заброшенной пустыне,
+заставляя тебя дрожать от холода. Кости прежних путешественников разбросаны 
+по твердой земле, вперемешку со сломанным оружием и обломками острых камней,
+напоминающих чьи-то огромные зубы. Кажется, сама земля пожрала твоих
+предшественников. Вдруг чей-то нечеловеческий вой предупреждает о гораздо
+более реальных опасностях, подстерегающих тебя.  
 ~
 0 0 field
 D0
@@ -2188,13 +2321,18 @@ D2
 Z -1 14715
 S
 #14723
-The Foothills of Mount Doom~
-You have come to the base of the mountain. From here you may continue to
+@eng The Foothills of Mount Doom@rus Предгорье Горы Судеб~
+@eng You have come to the base of the mountain. From here you may continue to
 slowly make your way up the mountain, or head back to the eerie plains below.
 The ground here is rocky and treacherous, dotted by small crevices in the
 volcanic rock and jagged shards of granite protrustions. The wind is even
 stronger here than on the plains, and you fancy you can hear voices and
 screams.
+@rus Ты $gn{добрался} до основания горы. Отсюда можно либо продолжить медленный
+подъем наверх, либо повернуть назад, к жуткой пустыне. Земля камениста,
+но ненадежна, вся покрыта мелким трещинами в вулканической породе и острыми
+гранитными выступами.  Ветер еще сильнее чем внизу, и в его завываниях
+тебе чудятся чьи-то голоса.
 ~
 0 0 hills
 D0
@@ -2223,15 +2361,23 @@ D3
 Z -1 14722
 S
 #14724
-The Upper Slopes of Mount Doom~
-You are steadily drawing near the summit. The ground has become quite smooth
+@eng The Upper Slopes of Mount Doom@rus Высоко на склоне Горы Судеб~
+@eng You are steadily drawing near the summit. The ground has become quite smooth
 here, to the point of sliperiness, and you stop more than once to regain your
 footing on the glassy obsidian that coats the upper slopes. The fortress
 of Lord Krogthar looms closer than ever now, and you mentally prepare
 yourself for the the upcoming battles. The foes you have fought so far have
 been minor compared to those to come.
-
+ 
 The Fortress lies directly east of here.
+@rus Ты неуклонно продвигаешься к вершине. Земля под ногами стала довольно
+гладкой и скользкой, тебе не раз пришлось приостанавливать свой путь, чтобы
+вновь поднятьcя на ноги с вулканического стекла, которое покрывает склоны. 
+Крепость Лорда Крогтара выглядит как никогда близкой, и ты начинаешь
+мысленно готовиться к предстоящим битвам, ведь все те, с кем тебе уже 
+доводилось сражаться, в подметки не годятся врагам, ожидающим в крепости.
+ 
+Крепость - прямо на востоке.
 ~
 0 0 mountain
 D0
@@ -2261,11 +2407,15 @@ D3
 Z -1 14723
 S
 #14725
-Outside the Fortress of Lord Korgthar~
-You have finally reached the summit, and are standing beneath the gates of
+@eng Outside the Fortress of Lord Korgthar@rus Перед крепостью Лорда Коргтара~
+@eng You have finally reached the summit, and are standing beneath the gates of
 the Fortress, which you may climb up to by means of an iron staircase. You
 can sense many pairs of eyes upon you, and you wonder how far you will be
 permitted to go before Korgthar's forces combine and crush you.
+@rus Наконец-то ты $gn{достиг} вершины. Ты стоишь под воротами Крепости, до которых
+можно добраться по железной лестнице. Ты чуствуешь, как множество глаз
+внимательно наблюдают за тобой. Интересно, насколько далеко ты сможешь
+забраться, прежде чем армия Лорда Коргтара соберется и уничтожит тебя.
 ~
 0 0 mountain
 D0
@@ -2300,15 +2450,23 @@ D4
 Z 0 14750
 S
 #14726
-The Upper Slopes of Mount Doom~
-You are steadily drawing near the summit. The ground has become quite smooth
+@eng The Upper Slopes of Mount Doom@rus Высоко на склоне Горы Судеб~
+@eng You are steadily drawing near the summit. The ground has become quite smooth
 here, to the point of sliperiness, and you stop more than once to regain your
 footing on the glassy obsidian that coats the upper slopes. The fortress
 of Lord Krogthar looms closer than ever now, and you mentally prepare
 yourself for the the upcoming battles. The foes you have fought so far have
 been minor compared to those to come.
-
+ 
 The Fortress lies due west of here.
+@rus Ты неуклонно продвигаешься к вершине. Земля под ногами стала довольно
+гладкой и скользкой, тебе не раз пришлось приостанавливать свой путь, чтобы
+вновь поднятьcя на ноги с вулканического стекла, которое покрывает склоны. 
+Крепость Лорда Крогтара выглядит как никогда близкой, и ты начинаешь
+мысленно готовиться к предстоящим битвам, ведь все те, с кем тебе уже 
+доводилось сражаться, в подметки не годятся врагам, ожидающим в крепости.
+ 
+Крепость находится на западе отсюда.
 ~
 0 0 mountain
 D0
@@ -2337,13 +2495,18 @@ D3
 Z -1 14725
 S
 #14727
-The Foothills of Mount Doom~
-You have come to the base of the mountain. From here you may continue to
+@eng The Foothills of Mount Doom@rus Предгорье Горы Судеб~
+@eng You have come to the base of the mountain. From here you may continue to
 slowly make your way up the mountain, or head back to the eerie plains below.
 The ground here is rocky and treacherous, dotted by small crevices in the
 volcanic rock and jagged shards of granite protrustions. The wind is even
 stronger here than on the plains, and you fancy you can hear voices and
 screams.
+@rus Ты $gn{добрался} до основания горы. Отсюда можно либо продолжить медленный
+подъем наверх, либо повернуть назад, к жуткой пустыне. Земля камениста,
+но ненадежна, вся покрыта мелким трещинами в вулканической породе и острыми
+гранитными выступами.  Ветер еще сильнее чем внизу, и в его завываниях
+тебе чудятся чьи-то голоса.
 ~
 0 0 hills
 D0
@@ -2372,13 +2535,19 @@ D3
 Z -1 14726
 S
 #14728
-The Plains of Mount Doom~
-A chill wind blows across the desolate wastes, and you shiver uncomfortably
+@eng The Plains of Mount Doom@rus Пустыня перед Горой Судеб~
+@eng A chill wind blows across the desolate wastes, and you shiver uncomfortably
 as you proceed. The bones of past adventurers lay scattered across the
 hard ground, among rusted weapons and shards of jagged rock that resemble
 teeth. It almost looks as if the very earth had devoured them. But the
 sudden howl of a warg (or a ghoul) alerts you to the very real dangers
 lurking nearby and you press on.
+@rus Пронизывающий до самых костей ветер носится по заброшенной пустыне,
+заставляя тебя дрожать от холода. Кости прежних путешественников разбросаны 
+по твердой земле, вперемешку со сломанным оружием и обломками острых камней,
+напоминающих чьи-то огромные зубы. Кажется, сама земля пожрала твоих
+предшественников. Вдруг чей-то нечеловеческий вой предупреждает о гораздо
+более реальных опасностях, подстерегающих тебя.  
 ~
 0 0 field
 D0
@@ -2401,13 +2570,19 @@ D3
 Z -1 14727
 S
 #14729
-The Plains of Mount Doom~
-A chill wind blows across the desolate wastes, and you shiver uncomfortably
+@eng The Plains of Mount Doom@rus Пустыня перед Горой Судеб~
+@eng A chill wind blows across the desolate wastes, and you shiver uncomfortably
 as you proceed. The bones of past adventurers lay scattered across the
 hard ground, among rusted weapons and shards of jagged rock that resemble
 teeth. It almost looks as if the very earth had devoured them. But the
 sudden howl of a warg (or a ghoul) alerts you to the very real dangers
 lurking nearby and you press on.
+@rus Пронизывающий до самых костей ветер носится по заброшенной пустыне,
+заставляя тебя дрожать от холода. Кости прежних путешественников разбросаны 
+по твердой земле, вперемешку со сломанным оружием и обломками острых камней,
+напоминающих чьи-то огромные зубы. Кажется, сама земля пожрала твоих
+предшественников. Вдруг чей-то нечеловеческий вой предупреждает о гораздо
+более реальных опасностях, подстерегающих тебя.  
 ~
 0 0 field
 D0
@@ -2430,13 +2605,18 @@ D2
 Z -1 14722
 S
 #14730
-The Foothills of Mount Doom~
-You have come to the base of the mountain. From here you may continue to
+@eng The Foothills of Mount Doom@rus Предгорье Горы Судеб~
+@eng You have come to the base of the mountain. From here you may continue to
 slowly make your way up the mountain, or head back to the eerie plains below.
 The ground here is rocky and treacherous, dotted by small crevices in the
 volcanic rock and jagged shards of granite protrustions. The wind is even
 stronger here than on the plains, and you fancy you can hear voices and
 screams.
+@rus Ты $gn{добрался} до основания горы. Отсюда можно либо продолжить медленный
+подъем наверх, либо повернуть назад, к жуткой пустыне. Земля камениста,
+но ненадежна, вся покрыта мелким трещинами в вулканической породе и острыми
+гранитными выступами.  Ветер еще сильнее чем внизу, и в его завываниях
+тебе чудятся чьи-то голоса.
 ~
 0 0 hills
 D0
@@ -2465,13 +2645,19 @@ D3
 Z -1 14729
 S
 #14731
-The Upper Slopes of Mount Doom~
-You are steadily drawing near the summit. The ground has become quite smooth
+@eng The Upper Slopes of Mount Doom@rus Высоко на склоне Горы Судеб~
+@eng You are steadily drawing near the summit. The ground has become quite smooth
 here, to the point of sliperiness, and you stop more than once to regain your
 footing on the glassy obsidian that coats the upper slopes. The fortress
 of Lord Krogthar looms closer than ever now, and you mentally prepare
 yourself for the the upcoming battles. The foes you have fought so far have
 been minor compared to those to come.
+@rus Ты неуклонно продвигаешься к вершине. Земля под ногами стала довольно
+гладкой и скользкой, тебе не раз пришлось приостанавливать свой путь, чтобы
+вновь поднятьcя на ноги с вулканического стекла, которое покрывает склоны. 
+Крепость Лорда Крогтара выглядит как никогда близкой, и ты начинаешь
+мысленно готовиться к предстоящим битвам, ведь все те, с кем тебе уже 
+доводилось сражаться, в подметки не годятся врагам, ожидающим в крепости.
 ~
 0 0 mountain
 D0
@@ -2500,15 +2686,23 @@ D3
 Z -1 14730
 S
 #14732
-The Upper Slopes of Mount Doom~
-You are steadily drawing near the summit. The ground has become quite smooth
+@eng The Upper Slopes of Mount Doom@rus Высоко на склоне Горы Судеб~
+@eng You are steadily drawing near the summit. The ground has become quite smooth
 here, to the point of sliperiness, and you stop more than once to regain your
 footing on the glassy obsidian that coats the upper slopes. The fortress
 of Lord Krogthar looms closer than ever now, and you mentally prepare
 yourself for the the upcoming battles. The foes you have fought so far have
 been minor compared to those to come.
-
+ 
 The Fortress lies due south of here.
+@rus Ты неуклонно продвигаешься к вершине. Земля под ногами стала довольно
+гладкой и скользкой, тебе не раз пришлось приостанавливать свой путь, чтобы
+вновь поднятьcя на ноги с вулканического стекла, которое покрывает склоны. 
+Крепость Лорда Крогтара выглядит как никогда близкой, и ты начинаешь
+мысленно готовиться к предстоящим битвам, ведь все те, с кем тебе уже 
+доводилось сражаться, в подметки не годятся врагам, ожидающим в крепости.
+ 
+Крепость находится на юге.
 ~
 0 0 mountain
 D0
@@ -2538,13 +2732,19 @@ D3
 Z -1 14731
 S
 #14733
-The Upper Slopes of Mount Doom~
-You are steadily drawing near the summit. The ground has become quite smooth
+@eng The Upper Slopes of Mount Doom@rus Высоко на склоне Горы Судеб~
+@eng You are steadily drawing near the summit. The ground has become quite smooth
 here, to the point of sliperiness, and you stop more than once to regain your
 footing on the glassy obsidian that coats the upper slopes. The fortress
 of Lord Krogthar looms closer than ever now, and you mentally prepare
 yourself for the the upcoming battles. The foes you have fought so far have
 been minor compared to those to come.
+@rus Ты неуклонно продвигаешься к вершине. Земля под ногами стала довольно
+гладкой и скользкой, тебе не раз пришлось приостанавливать свой путь, чтобы
+вновь поднятьcя на ноги с вулканического стекла, которое покрывает склоны. 
+Крепость Лорда Крогтара выглядит как никогда близкой, и ты начинаешь
+мысленно готовиться к предстоящим битвам, ведь все те, с кем тебе уже 
+доводилось сражаться, в подметки не годятся врагам, ожидающим в крепости.
 ~
 0 0 mountain
 D0
@@ -2573,13 +2773,18 @@ D3
 Z -1 14732
 S
 #14734
-The Foothills of Mount Doom~
-You have come to the base of the mountain. From here you may continue to
+@eng The Foothills of Mount Doom@rus Предгорье Горы Судеб~
+@eng You have come to the base of the mountain. From here you may continue to
 slowly make your way up the mountain, or head back to the eerie plains below.
 The ground here is rocky and treacherous, dotted by small crevices in the
 volcanic rock and jagged shards of granite protrustions. The wind is even
 stronger here than on the plains, and you fancy you can hear voices and
 screams.
+@rus Ты $gn{добрался} до основания горы. Отсюда можно либо продолжить медленный
+подъем наверх, либо повернуть назад, к жуткой пустыне. Земля камениста,
+но ненадежна, вся покрыта мелким трещинами в вулканической породе и острыми
+гранитными выступами.  Ветер еще сильнее чем внизу, и в его завываниях
+тебе чудятся чьи-то голоса.
 ~
 0 0 hills
 D0
@@ -2608,13 +2813,19 @@ D3
 Z -1 14733
 S
 #14735
-The Plains of Mount Doom~
-A chill wind blows across the desolate wastes, and you shiver uncomfortably
+@eng The Plains of Mount Doom@rus Пустыня перед Горой Судеб~
+@eng A chill wind blows across the desolate wastes, and you shiver uncomfortably
 as you proceed. The bones of past adventurers lay scattered across the
 hard ground, among rusted weapons and shards of jagged rock that resemble
 teeth. It almost looks as if the very earth had devoured them. But the
 sudden howl of a warg (or a ghoul) alerts you to the very real dangers
 lurking nearby and you press on.
+@rus Пронизывающий до самых костей ветер носится по заброшенной пустыне,
+заставляя тебя дрожать от холода. Кости прежних путешественников разбросаны 
+по твердой земле, вперемешку со сломанным оружием и обломками острых камней,
+напоминающих чьи-то огромные зубы. Кажется, сама земля пожрала твоих
+предшественников. Вдруг чей-то нечеловеческий вой предупреждает о гораздо
+более реальных опасностях, подстерегающих тебя.  
 ~
 0 0 field
 D0
@@ -2637,13 +2848,19 @@ D3
 Z -1 14734
 S
 #14736
-The Plains of Mount Doom~
-A chill wind blows across the desolate wastes, and you shiver uncomfortably
+@eng The Plains of Mount Doom@rus Пустыня перед Горой Судеб~
+@eng A chill wind blows across the desolate wastes, and you shiver uncomfortably
 as you proceed. The bones of past adventurers lay scattered across the
 hard ground, among rusted weapons and shards of jagged rock that resemble
 teeth. It almost looks as if the very earth had devoured them. But the
 sudden howl of a warg (or a ghoul) alerts you to the very real dangers
 lurking nearby and you press on.
+@rus Пронизывающий до самых костей ветер носится по заброшенной пустыне,
+заставляя тебя дрожать от холода. Кости прежних путешественников разбросаны 
+по твердой земле, вперемешку со сломанным оружием и обломками острых камней,
+напоминающих чьи-то огромные зубы. Кажется, сама земля пожрала твоих
+предшественников. Вдруг чей-то нечеловеческий вой предупреждает о гораздо
+более реальных опасностях, подстерегающих тебя.  
 ~
 0 0 field
 D0
@@ -2666,13 +2883,18 @@ D2
 Z -1 14729
 S
 #14737
-The Foothills of Mount Doom~
-You have come to the base of the mountain. From here you may continue to
+@eng The Foothills of Mount Doom@rus Предгорье Горы Судеб~
+@eng You have come to the base of the mountain. From here you may continue to
 slowly make your way up the mountain, or head back to the eerie plains below.
 The ground here is rocky and treacherous, dotted by small crevices in the
 volcanic rock and jagged shards of granite protrustions. The wind is even
 stronger here than on the plains, and you fancy you can hear voices and
 screams.
+@rus Ты $gn{добрался} до основания горы. Отсюда можно либо продолжить медленный
+подъем наверх, либо повернуть назад, к жуткой пустыне. Земля камениста,
+но ненадежна, вся покрыта мелким трещинами в вулканической породе и острыми
+гранитными выступами.  Ветер еще сильнее чем внизу, и в его завываниях
+тебе чудятся чьи-то голоса.
 ~
 0 0 hills
 D0
@@ -2701,13 +2923,18 @@ D3
 Z -1 14736
 S
 #14738
-The Foothills of Mount Doom~
-You have come to the base of the mountain. From here you may continue to
+@eng The Foothills of Mount Doom@rus Предгорье Горы Судеб~
+@eng You have come to the base of the mountain. From here you may continue to
 slowly make your way up the mountain, or head back to the eerie plains below.
 The ground here is rocky and treacherous, dotted by small crevices in the
 volcanic rock and jagged shards of granite protrustions. The wind is even
 stronger here than on the plains, and you fancy you can hear voices and
 screams.
+@rus Ты $gn{добрался} до основания горы. Отсюда можно либо продолжить медленный
+подъем наверх, либо повернуть назад, к жуткой пустыне. Земля камениста,
+но ненадежна, вся покрыта мелким трещинами в вулканической породе и острыми
+гранитными выступами.  Ветер еще сильнее чем внизу, и в его завываниях
+тебе чудятся чьи-то голоса.
 ~
 0 0 hills
 D0
@@ -2736,13 +2963,18 @@ D3
 Z -1 14737
 S
 #14739
-The Foothills of Mount Doom~
-You have come to the base of the mountain. From here you may continue to
+@eng The Foothills of Mount Doom@rus Предгорье Горы Судеб~
+@eng You have come to the base of the mountain. From here you may continue to
 slowly make your way up the mountain, or head back to the eerie plains below.
 The ground here is rocky and treacherous, dotted by small crevices in the
 volcanic rock and jagged shards of granite protrustions. The wind is even
 stronger here than on the plains, and you fancy you can hear voices and
 screams.
+@rus Ты $gn{добрался} до основания горы. Отсюда можно либо продолжить медленный
+подъем наверх, либо повернуть назад, к жуткой пустыне. Земля камениста,
+но ненадежна, вся покрыта мелким трещинами в вулканической породе и острыми
+гранитными выступами.  Ветер еще сильнее чем внизу, и в его завываниях
+тебе чудятся чьи-то голоса.
 ~
 0 0 hills
 D0
@@ -2771,13 +3003,18 @@ D3
 Z -1 14738
 S
 #14740
-The Foothills of Mount Doom~
-You have come to the base of the mountain. From here you may continue to
+@eng The Foothills of Mount Doom@rus Предгорье Горы Судеб~
+@eng You have come to the base of the mountain. From here you may continue to
 slowly make your way up the mountain, or head back to the eerie plains below.
 The ground here is rocky and treacherous, dotted by small crevices in the
 volcanic rock and jagged shards of granite protrustions. The wind is even
 stronger here than on the plains, and you fancy you can hear voices and
 screams.
+@rus Ты $gn{добрался} до основания горы. Отсюда можно либо продолжить медленный
+подъем наверх, либо повернуть назад, к жуткой пустыне. Земля камениста,
+но ненадежна, вся покрыта мелким трещинами в вулканической породе и острыми
+гранитными выступами.  Ветер еще сильнее чем внизу, и в его завываниях
+тебе чудятся чьи-то голоса.
 ~
 0 0 hills
 D0
@@ -2806,13 +3043,18 @@ D3
 Z -1 14739
 S
 #14741
-The Foothills of Mount Doom~
-You have come to the base of the mountain. From here you may continue to
+@eng The Foothills of Mount Doom@rus Предгорье Горы Судеб~
+@eng You have come to the base of the mountain. From here you may continue to
 slowly make your way up the mountain, or head back to the eerie plains below.
 The ground here is rocky and treacherous, dotted by small crevices in the
 volcanic rock and jagged shards of granite protrustions. The wind is even
 stronger here than on the plains, and you fancy you can hear voices and
 screams.
+@rus Ты $gn{добрался} до основания горы. Отсюда можно либо продолжить медленный
+подъем наверх, либо повернуть назад, к жуткой пустыне. Земля камениста,
+но ненадежна, вся покрыта мелким трещинами в вулканической породе и острыми
+гранитными выступами.  Ветер еще сильнее чем внизу, и в его завываниях
+тебе чудятся чьи-то голоса.
 ~
 0 0 hills
 D0
@@ -2841,13 +3083,19 @@ D3
 Z -1 14740
 S
 #14742
-The Plains of Mount Doom~
-A chill wind blows across the desolate wastes, and you shiver uncomfortably
+@eng The Plains of Mount Doom@rus Пустыня перед Горой Судеб~
+@eng A chill wind blows across the desolate wastes, and you shiver uncomfortably
 as you proceed. The bones of past adventurers lay scattered across the
 hard ground, among rusted weapons and shards of jagged rock that resemble
 teeth. It almost looks as if the very earth had devoured them. But the
 sudden howl of a warg (or a ghoul) alerts you to the very real dangers
 lurking nearby and you press on.
+@rus Пронизывающий до самых костей ветер носится по заброшенной пустыне,
+заставляя тебя дрожать от холода. Кости прежних путешественников разбросаны 
+по твердой земле, вперемешку со сломанным оружием и обломками острых камней,
+напоминающих чьи-то огромные зубы. Кажется, сама земля пожрала твоих
+предшественников. Вдруг чей-то нечеловеческий вой предупреждает о гораздо
+более реальных опасностях, подстерегающих тебя.  
 ~
 0 0 field
 D0
@@ -2870,13 +3118,19 @@ D3
 Z -1 14741
 S
 #14743
-The Plains of Mount Doom~
-A chill wind blows across the desolate wastes, and you shiver uncomfortably
+@eng The Plains of Mount Doom@rus Пустыня перед Горой Судеб~
+@eng A chill wind blows across the desolate wastes, and you shiver uncomfortably
 as you proceed. The bones of past adventurers lay scattered across the
 hard ground, among rusted weapons and shards of jagged rock that resemble
 teeth. It almost looks as if the very earth had devoured them. But the
 sudden howl of a warg (or a ghoul) alerts you to the very real dangers
 lurking nearby and you press on.
+@rus Пронизывающий до самых костей ветер носится по заброшенной пустыне,
+заставляя тебя дрожать от холода. Кости прежних путешественников разбросаны 
+по твердой земле, вперемешку со сломанным оружием и обломками острых камней,
+напоминающих чьи-то огромные зубы. Кажется, сама земля пожрала твоих
+предшественников. Вдруг чей-то нечеловеческий вой предупреждает о гораздо
+более реальных опасностях, подстерегающих тебя.  
 ~
 0 0 field
 D1
@@ -2893,13 +3147,19 @@ D2
 Z -1 14736
 S
 #14744
-The Plains of Mount Doom~
-A chill wind blows across the desolate wastes, and you shiver uncomfortably
+@eng The Plains of Mount Doom@rus Пустыня перед Горой Судеб~
+@eng A chill wind blows across the desolate wastes, and you shiver uncomfortably
 as you proceed. The bones of past adventurers lay scattered across the
 hard ground, among rusted weapons and shards of jagged rock that resemble
 teeth. It almost looks as if the very earth had devoured them. But the
 sudden howl of a warg (or a ghoul) alerts you to the very real dangers
 lurking nearby and you press on.
+@rus Пронизывающий до самых костей ветер носится по заброшенной пустыне,
+заставляя тебя дрожать от холода. Кости прежних путешественников разбросаны 
+по твердой земле, вперемешку со сломанным оружием и обломками острых камней,
+напоминающих чьи-то огромные зубы. Кажется, сама земля пожрала твоих
+предшественников. Вдруг чей-то нечеловеческий вой предупреждает о гораздо
+более реальных опасностях, подстерегающих тебя.  
 ~
 0 0 field
 D1
@@ -2922,13 +3182,19 @@ D3
 Z -1 14743
 S
 #14745
-The Plains of Mount Doom~
-A chill wind blows across the desolate wastes, and you shiver uncomfortably
+@eng The Plains of Mount Doom@rus Пустыня перед Горой Судеб~
+@eng A chill wind blows across the desolate wastes, and you shiver uncomfortably
 as you proceed. The bones of past adventurers lay scattered across the
 hard ground, among rusted weapons and shards of jagged rock that resemble
 teeth. It almost looks as if the very earth had devoured them. But the
 sudden howl of a warg (or a ghoul) alerts you to the very real dangers
 lurking nearby and you press on.
+@rus Пронизывающий до самых костей ветер носится по заброшенной пустыне,
+заставляя тебя дрожать от холода. Кости прежних путешественников разбросаны 
+по твердой земле, вперемешку со сломанным оружием и обломками острых камней,
+напоминающих чьи-то огромные зубы. Кажется, сама земля пожрала твоих
+предшественников. Вдруг чей-то нечеловеческий вой предупреждает о гораздо
+более реальных опасностях, подстерегающих тебя.  
 ~
 0 0 field
 D1
@@ -2951,13 +3217,19 @@ D3
 Z -1 14744
 S
 #14746
-The Plains of Mount Doom~
-A chill wind blows across the desolate wastes, and you shiver uncomfortably
+@eng The Plains of Mount Doom@rus Пустыня перед Горой Судеб~
+@eng A chill wind blows across the desolate wastes, and you shiver uncomfortably
 as you proceed. The bones of past adventurers lay scattered across the
 hard ground, among rusted weapons and shards of jagged rock that resemble
 teeth. It almost looks as if the very earth had devoured them. But the
 sudden howl of a warg (or a ghoul) alerts you to the very real dangers
 lurking nearby and you press on.
+@rus Пронизывающий до самых костей ветер носится по заброшенной пустыне,
+заставляя тебя дрожать от холода. Кости прежних путешественников разбросаны 
+по твердой земле, вперемешку со сломанным оружием и обломками острых камней,
+напоминающих чьи-то огромные зубы. Кажется, сама земля пожрала твоих
+предшественников. Вдруг чей-то нечеловеческий вой предупреждает о гораздо
+более реальных опасностях, подстерегающих тебя.  
 ~
 0 0 field
 D1
@@ -2980,13 +3252,19 @@ D3
 Z -1 14745
 S
 #14747
-The Plains of Mount Doom~
-A chill wind blows across the desolate wastes, and you shiver uncomfortably
+@eng The Plains of Mount Doom@rus Пустыня перед Горой Судеб~
+@eng A chill wind blows across the desolate wastes, and you shiver uncomfortably
 as you proceed. The bones of past adventurers lay scattered across the
 hard ground, among rusted weapons and shards of jagged rock that resemble
 teeth. It almost looks as if the very earth had devoured them. But the
 sudden howl of a warg (or a ghoul) alerts you to the very real dangers
 lurking nearby and you press on.
+@rus Пронизывающий до самых костей ветер носится по заброшенной пустыне,
+заставляя тебя дрожать от холода. Кости прежних путешественников разбросаны 
+по твердой земле, вперемешку со сломанным оружием и обломками острых камней,
+напоминающих чьи-то огромные зубы. Кажется, сама земля пожрала твоих
+предшественников. Вдруг чей-то нечеловеческий вой предупреждает о гораздо
+более реальных опасностях, подстерегающих тебя.  
 ~
 0 0 field
 D1
@@ -3009,13 +3287,19 @@ D3
 Z -1 14746
 S
 #14748
-The Plains of Mount Doom~
-A chill wind blows across the desolate wastes, and you shiver uncomfortably
+@eng The Plains of Mount Doom@rus Пустыня перед Горой Судеб~
+@eng A chill wind blows across the desolate wastes, and you shiver uncomfortably
 as you proceed. The bones of past adventurers lay scattered across the
 hard ground, among rusted weapons and shards of jagged rock that resemble
 teeth. It almost looks as if the very earth had devoured them. But the
 sudden howl of a warg (or a ghoul) alerts you to the very real dangers
 lurking nearby and you press on.
+@rus Пронизывающий до самых костей ветер носится по заброшенной пустыне,
+заставляя тебя дрожать от холода. Кости прежних путешественников разбросаны 
+по твердой земле, вперемешку со сломанным оружием и обломками острых камней,
+напоминающих чьи-то огромные зубы. Кажется, сама земля пожрала твоих
+предшественников. Вдруг чей-то нечеловеческий вой предупреждает о гораздо
+более реальных опасностях, подстерегающих тебя.  
 ~
 0 0 field
 D1
@@ -3038,13 +3322,19 @@ D3
 Z -1 14747
 S
 #14749
-The Plains of Mount Doom~
-A chill wind blows across the desolate wastes, and you shiver uncomfortably
+@eng The Plains of Mount Doom@rus Пустыня перед Горой Судеб~
+@eng A chill wind blows across the desolate wastes, and you shiver uncomfortably
 as you proceed. The bones of past adventurers lay scattered across the
 hard ground, among rusted weapons and shards of jagged rock that resemble
 teeth. It almost looks as if the very earth had devoured them. But the
 sudden howl of a warg (or a ghoul) alerts you to the very real dangers
 lurking nearby and you press on.
+@rus Пронизывающий до самых костей ветер носится по заброшенной пустыне,
+заставляя тебя дрожать от холода. Кости прежних путешественников разбросаны 
+по твердой земле, вперемешку со сломанным оружием и обломками острых камней,
+напоминающих чьи-то огромные зубы. Кажется, сама земля пожрала твоих
+предшественников. Вдруг чей-то нечеловеческий вой предупреждает о гораздо
+более реальных опасностях, подстерегающих тебя.  
 ~
 0 0 field
 D2
@@ -3061,12 +3351,17 @@ D3
 Z -1 14748
 S
 #14750
-Inside the Fell Fortress~
-You are standing inside the gates of the fortress, at a crossroads. The
+@eng Inside the Fell Fortress@rus Внутри горной Крепости~
+@eng You are standing inside the gates of the fortress, at a crossroads. The
 passages are remarkably plain for a den of evil- simply dressed grey flag
 stones on floor and walls, the monotony broken only by the occasional torch
 sconce or tattered tapestry. It is evident that this castle has known many
 inhabitants prior to its current ones.
+@rus Ты внутри ворот крепости, на перекрестке. Проходы - замечательно откровенны
+для этого прибежища Зла - простые плиты из серого камня на полу и стенах, 
+однообразие лишь изредко нарушается встречающимися на стенах кольцами для
+факелов, да обрывками гобеленов. Очевидно, крепость знала множество 
+обитателей, живших здесь раньше.
 ~
 0 D inside
 D0
@@ -3102,10 +3397,13 @@ ABZ -1 14725
 S
 #14751
 The Cell Block~
-Here the prisoner of Krogthar are kept. There are not many cells, as the
+@eng Here the prisoner of Krogthar are kept. There are not many cells, as the
 Lord Korgthar is not fond of taking prisoners (hassles, hassles...). If
 you think security is a little lax, think of what lurks outside to deter
 potentianl escapees...
+@rus Здесь содержатся узники Крогтара. Камер не очень много, поскольку Крогтар
+предпочитает не брать пленников. Если тебе вдруг показалось, что охрана 
+недостаточна, подумай, что поджидает потенциальных беглецов снаружи...
 ~
 0 AD inside
 D0
@@ -3134,9 +3432,11 @@ D3
 Z -1 14750
 S
 #14752
-A Cell~
-A dank, dismal affair with little in the way of bedding or toilet facilities.
+@eng A Cell@rus Клетка~
+@eng A dank, dismal affair with little in the way of bedding or toilet facilities.
 The stench is actually quite horrendous and you find yourself eager to leave.
+@rus Сырое и мрачное место без всяких удобств. Вонь действительно ужасна и тебе 
+не терпится поскорее уйти.
 ~
 0 AD inside
 D2
@@ -3147,9 +3447,11 @@ D2
 ABZ 0 14751
 S
 #14753
-A Cell~
-A dank, dismal affair with little in the way of bedding or toilet facilities.
+@eng A Cell@rus Клетка~
+@eng A dank, dismal affair with little in the way of bedding or toilet facilities.
 The stench is actually quite horrendous and you find yourself eager to leave.
+@rus Сырое и мрачное место без всяких удобств. Вонь действительно ужасна и тебе 
+не терпится поскорее уйти.
 ~
 0 AD inside
 D0
@@ -3161,10 +3463,13 @@ ABZ 0 14751
 S
 #14754
 The Cell Block~
-Here the prisoner of Krogthar are kept. There are not many cells, as the
+@eng Here the prisoner of Krogthar are kept. There are not many cells, as the
 Lord Korgthar is not fond of taking prisoners (hassles, hassles...). If
 you think security is a little lax, think of what lurks outside to deter
 potentianl escapees...
+@rus Здесь содержатся узники Крогтара. Камер не очень много, поскольку Крогтар
+предпочитает не брать пленников. Если тебе вдруг показалось, что охрана 
+недостаточна, подумай, что поджидает потенциальных беглецов снаружи...
 ~
 0 AD inside
 D0
@@ -3193,9 +3498,11 @@ D3
 Z -1 14751
 S
 #14755
-A Cell~
-A dank, dismal affair with little in the way of bedding or toilet facilities.
+@eng A Cell@rus Клетка~
+@eng A dank, dismal affair with little in the way of bedding or toilet facilities.
 The stench is actually quite horrendous and you find yourself eager to leave.
+@rus Сырое и мрачное место без всяких удобств. Вонь действительно ужасна и тебе 
+не терпится поскорее уйти.
 ~
 0 AD inside
 D2
@@ -3206,9 +3513,11 @@ D2
 ABZ 0 14754
 S
 #14756
-A Cell~
-A dank, dismal affair with little in the way of bedding or toilet facilities.
+@eng A Cell@rus Клетка~
+@eng A dank, dismal affair with little in the way of bedding or toilet facilities.
 The stench is actually quite horrendous and you find yourself eager to leave.
+@rus Сырое и мрачное место без всяких удобств. Вонь действительно ужасна и тебе 
+не терпится поскорее уйти.
 ~
 0 AD inside
 D0
@@ -3219,9 +3528,11 @@ D0
 ABZ 0 14754
 S
 #14757
-A Cell~
-A dank, dismal affair with little in the way of bedding or toilet facilities.
+@eng A Cell@rus Клетка~
+@eng A dank, dismal affair with little in the way of bedding or toilet facilities.
 The stench is actually quite horrendous and you find yourself eager to leave.
+@rus Сырое и мрачное место без всяких удобств. Вонь действительно ужасна и тебе 
+не терпится поскорее уйти.
 ~
 0 AD inside
 D3
@@ -3232,9 +3543,11 @@ D3
 ABZ 0 14754
 S
 #14758
-Some Quarters~
-You are standing before a solid wooden door that leads to the quarters of
+@eng Some Quarters@rus Квартиры~
+@eng You are standing before a solid wooden door that leads to the quarters of
 some of the many types of troops that serve Krothgar.
+@rus Ты стоишь перед сплошной деревянной дверью, ведущей в квартиры некоторых 
+из множества видов войск, служащих Коргтару.
 ~
 0 D inside
 D0
@@ -3251,10 +3564,12 @@ D2
 Z -1 14750
 S
 #14759
-An Ante-Room~
-You are standing in a well-furnished anteroom with doors leading in all four
+@eng An Ante-Room@rus Прихожая~
+@eng You are standing in a well-furnished anteroom with doors leading in all four
 directions. No noise comes from behind any- they are quite solid and are
 effectively soundproof.
+@rus Ты в хорошо обставленной прихожей, c дверями, ведущими во все четыре стороны.
+Из-за дверей не слышно не звука - они сплошные и звуконепроницаемые.
 ~
 0 D inside
 D0
@@ -3283,12 +3598,17 @@ D3
 ABZ 0 14760
 S
 #14760
-Assassins' Quarters~
-In this room reside some of the assassins that serve Korthgar. He may not
+@eng Assassins' Quarters@rus Апаратаменты убийц~
+@eng In this room reside some of the assassins that serve Korthgar. He may not
 be the brightest of tyrants, but Krothgar was smart enough to work out it was
 easier to send a single assassin to slay a king and collapse an empire than
 it was to conquer it by brute force. His assassins live in comfort, as he
 values them highly.
+@rus В этой комнате располагаются некоторые из убийц, служащих Коргтару. Будучи,
+возможно и не самым гениальным из диктаторов, Коргтар достаточно умен, чтобы
+понять, что гораздо легче подослать единственного убийцу королю и разрушить
+королевство, чем покорять его грубой силой. Убийцы живут в комфорте, Коргтар
+их весьма ценит.
 ~
 0 D inside
 D1
@@ -3299,11 +3619,15 @@ D1
 ABZ 0 14759
 S
 #14761
-The Chief Assassin's Quarters~
-You have entered the quarters of the Chief of Krothgar's ruthlessly
+@eng The Chief Assassin's Quarters@rus Апартаменты начальницы убийц~
+@eng You have entered the quarters of the Chief of Krothgar's ruthlessly
 efficient assassins, and caught her in flagrante delicto with two naked men
 strapped to racks. She swears and draws her swords, making no attempt to
 cover herself, slaying her slaves before moving to confront you.
+@rus Ты $gn{вошел} в апартаменты начальницы Крогтаровских безжалостных убийц, и
+$gn{застал} ее на месте преступления с двуми обнаженными мужчинами, привязанными 
+к решетке. Изрыгая проклятия, она хватает свои мечи, не пытаясь прикрыть
+наготу, и убивает своих слуг, прежде чем приблизится к тебе.
 ~
 0 D inside
 D2
@@ -3314,12 +3638,17 @@ D2
 ABZ 0 14759
 S
 #14762
-Assassins' Quarters~
-In this room reside some of the assassins that serve Korthgar. He may not
+@eng Assassins' Quarters@rus Апаратаменты убийц~
+@eng In this room reside some of the assassins that serve Korthgar. He may not
 be the brightest of tyrants, but Krothgar was smart enough to work out it was
 easier to send a single assassin to slay a king and collapse an empire than
 it was to conquer it by brute force. His assassins live in comfort, as he
 values them highly.
+@rus В этой комнате располагаются некоторые из убийц, служащих Коргтару. Будучи,
+возможно и не самым гениальным из диктаторов, Коргтар достаточно умен, чтобы
+понять, что гораздо легче подослать единственного убийцу королю и разрушить
+королевство, чем покорять его грубой силой. Убийцы живут в комфорте, Коргтар
+их весьма ценит.
 ~
 0 D inside
 D3
@@ -3330,9 +3659,11 @@ D3
 ABZ 0 14759
 S
 #14763
-Some Quarters~
-You are standing before a solid wooden door that leads to the quarters of
+@eng Some Quarters@rus Квартиры~
+@eng You are standing before a solid wooden door that leads to the quarters of
 some of the many types of troops that serve Krothgar.
+@rus Ты стоишь перед сплошной деревянной дверью, ведущей в квартиры некоторых 
+из множества видов войск, служащих Коргтару.
 ~
 0 D inside
 D1
@@ -3349,9 +3680,11 @@ D3
 ABZ 0 14764
 S
 #14764
-A Corridor~
-You are advancing along a dark corridor that leads to the quarters of Lord
+@eng A Corridor@rus Коридор~
+@eng You are advancing along a dark corridor that leads to the quarters of Lord
 Krothgar's blackguard.
+@rus Ты продвигаешься по темному коридору, ведущему к апартаментам стражи 
+Лорда Коргтара.
 ~
 0 AD inside
 D0
@@ -3374,10 +3707,13 @@ D2
 ABZ 0 14765
 S
 #14765
-The Keeper's Chamber~
-Here resides the keeper of the Mutant Pit, where the failed experiments of
+@eng The Keeper's Chamber@rus Комната Хранителя~
+@eng Here resides the keeper of the Mutant Pit, where the failed experiments of
 the scientist mages are kept to do away with prisoners or insolent guards.
 He likes his job, and isn't about to let you hurt his mutants.
+@rus Здесь располагается хранитель ямы с мутантами, в которой хранятся результаты
+неудачных экспериментов ученых магов. Хранитель любит свою работу, и, похоже,
+не позволит тебе обидеть его мутантов.
 ~
 0 D inside
 D0
@@ -3395,9 +3731,12 @@ ABZ 0 14766
 S
 #14766
 The Mutant Pit~
-Ack! You're in the mutant pit! Surrounded by gore, excrement, mucous, vomit
+@eng Ack! You're in the mutant pit! Surrounded by gore, excrement, mucous, vomit
 and the remains of dying mutants, you gag and choke and struggle to get out,
 only to find your way blocked by several mutants...
+@rus Ты в яме с мутантами! Вокруг кровь, экскременты, слизь и останки мертвых 
+мутантов. Ты чуть не $gn{задохнулся} и $gn{попытался} выйти, но твой путь 
+преградили несколько мутантов...
 ~
 0 ADN inside
 D4
@@ -3408,9 +3747,11 @@ D4
 ABZ 0 14765
 S
 #14767
-A Corridor~
-You are advancing along a dark corridor that leads to the quarters of Lord
+@eng A Corridor@rus Коридор~
+@eng You are advancing along a dark corridor that leads to the quarters of Lord
 Krothgar's blackguard.
+@rus Ты продвигаешься по темному коридору, ведущему к апартаментам стражи 
+Лорда Коргтара.
 ~
 0 AD inside
 D2
@@ -3427,10 +3768,14 @@ D3
 ABZ 0 14768
 S
 #14768
-The Guard Common Room~
-Doors lead in all directions from this messy rec room. Blood, beer and food
+@eng The Guard Common Room@rus Комната отдыха стражи~
+@eng Doors lead in all directions from this messy rec room. Blood, beer and food
 stain the straw-covered floor while decomposing human, orc and ogre corpse
 hang from hooks in the ceiling, evidently used as practice dummies.
+@rus Двери ведут во все стороны. Покрытый соломой и пятнами крови, пива и
+пищи пол. C потолка свисают разлагающиеся человеческие и орчьи трупы,
+которые, очевидно, используются в качестве манекенов для упражнений
+солдат.
 ~
 0 D inside
 D0
@@ -3452,7 +3797,8 @@ D2
 ~
 ABZ 0 14769
 D3
-This door reads- "Upper level access. Authorised personnel only!
+@eng This door reads- "Upper level access. Authorised personnel only!
+@rus На двери написано - "Посторонним вход воспрещен!"
 ~
 door~
 ~
@@ -3466,10 +3812,12 @@ D5
 Z -1 14806
 S
 #14769
-Guard Quarters~
-This rooms is full of messy bunks and snoring guards. Dice and cards are
+@eng Guard Quarters@rus Комната стражи~
+@eng This rooms is full of messy bunks and snoring guards. Dice and cards are
 scattered across the filthy stone floor, and rats gnaw at the boots of the
 guards.
+@rus Комната заполнена грязными койками и храпящей стражей. По грязному каменному
+полу разбросаны кости и карты, обувь стражников грызут крысы.
 ~
 0 AD inside
 D0
@@ -3480,10 +3828,12 @@ D0
 ABZ 0 14768
 S
 #14770
-Guard Quarters~
-This rooms is full of messy bunks and snoring guards. Dice and cards are
+@eng Guard Quarters@rus Комната стражи~
+@eng This rooms is full of messy bunks and snoring guards. Dice and cards are
 scattered across the filthy stone floor, and rats gnaw at the boots of the
 guards.
+@rus Комната заполнена грязными койками и храпящей стражей. По грязному каменному
+полу разбросаны кости и карты, обувь стражников грызут крысы.
 ~
 0 AD inside
 D2
@@ -3494,10 +3844,13 @@ D2
 ABZ 0 14768
 S
 #14771
-Guest Quarters~
-Down this southern corridor lie the guest rooms, where the many emissaries
+@eng Guest Quarters@rus Квартиры для гостей~
+@eng Down this southern corridor lie the guest rooms, where the many emissaries
 from the powerful races Krothgar is attempting to gain as allies currently
 reside. They frown upon intruders...
+@rus В конце этого южного коридора находятся комнаты для гостей, где сейчас 
+проживает множество эмисаров могущественных рас, которые Лорд Коргтар 
+хотел бы получить в союзники. Они не одобряют незванных гостей....
 ~
 0 D inside
 D0
@@ -3514,10 +3867,13 @@ D2
 Z -1 14772
 S
 #14772
-Guest Quarters~
-Down this southern corridor lie the guest rooms, where the many emissaries
+@eng Guest Quarters@rus Квартиры для гостей~
+@eng Down this southern corridor lie the guest rooms, where the many emissaries
 from the powerful races Krothgar is attempting to gain as allies currently
 reside. They frown upon intruders...
+@rus К этому коридору примыкают комнаты для гостей, в настоящий момент занятые
+эмиссарами могущественных рас (Лорд Коргтар хотел бы сделать их своими
+союзниками). Они не одобряют незванных гостей...
 ~
 0 D inside
 D0
@@ -3546,10 +3902,14 @@ D3
 ABZ 0 14773
 S
 #14773
-Guest Quarters~
-These quarters are well-decorated, with well-preserved tapestries and rugs,
+@eng Guest Quarters@rus Квартиры для гостей~
+@eng These quarters are well-decorated, with well-preserved tapestries and rugs,
 and carved wooden furniture. Alliances with other powers are crucial to
 Krothgar's plans, and he is doing his best to impress his diabolical guests.
+@rus Апартаменты прекрасно украшены хорошо сохранившимися коврами и гобеленами,
+обставлены резной деревянной мебелью. Альянс с другими силами необходим
+для осуществления планов Лорда, и он изо всех сил старается угодить своим
+дьявольским гостям.
 ~
 0 D inside
 D1
@@ -3560,10 +3920,14 @@ D1
 ABZ 0 14772
 S
 #14774
-Guest Quarters~
-These quarters are well-decorated, with well-preserved tapestries and rugs,
+@eng Guest Quarters@rus Квартиры для гостей~
+@eng These quarters are well-decorated, with well-preserved tapestries and rugs,
 and carved wooden furniture. Alliances with other powers are crucial to
 Krothgar's plans, and he is doing his best to impress his diabolical guests.
+@rus Апартаменты прекрасно украшены хорошо сохранившимися коврами и гобеленами,
+обставлены резной деревянной мебелью. Альянс с другими силами необходим
+для осуществления планов Лорда, и он изо всех сил старается угодить своим
+дьявольским гостям.
 ~
 0 D inside
 D3
@@ -3574,10 +3938,13 @@ D3
 ABZ 0 14772
 S
 #14775
-Guest Quarters~
-Down this southern corridor lie the guest rooms, where the many emissaries
+@eng Guest Quarters@rus Квартиры для гостей~
+@eng Down this southern corridor lie the guest rooms, where the many emissaries
 from the powerful races Krothgar is attempting to gain as allies currently
 reside. They frown upon intruders...
+@rus К этому коридору примыкают комнаты для гостей, в настоящий момент занятые
+эмиссарами могущественных рас (Лорд Коргтар хотел бы сделать их своими
+союзниками). Они не одобряют незванных гостей...
 ~
 0 D inside
 D0
@@ -3606,10 +3973,14 @@ D3
 ABZ 0 14776
 S
 #14776
-Guest Quarters~
-These quarters are well-decorated, with well-preserved tapestries and rugs,
+@eng Guest Quarters@rus Квартиры для гостей~
+@eng These quarters are well-decorated, with well-preserved tapestries and rugs,
 and carved wooden furniture. Alliances with other powers are crucial to
 Krothgar's plans, and he is doing his best to impress his diabolical guests.
+@rus Апартаменты прекрасно украшены хорошо сохранившимися коврами и гобеленами,
+обставлены резной деревянной мебелью. Альянс с другими силами необходим
+для осуществления планов Лорда, и он изо всех сил старается угодить своим
+дьявольским гостям.
 ~
 0 D inside
 D1
@@ -3620,10 +3991,14 @@ D1
 ABZ 0 14775
 S
 #14777
-Guest Quarters~
-These quarters are well-decorated, with well-preserved tapestries and rugs,
+@eng Guest Quarters@rus Квартиры для гостей~
+@eng These quarters are well-decorated, with well-preserved tapestries and rugs,
 and carved wooden furniture. Alliances with other powers are crucial to
 Krothgar's plans, and he is doing his best to impress his diabolical guests.
+@rus Апартаменты прекрасно украшены хорошо сохранившимися коврами и гобеленами,
+обставлены резной деревянной мебелью. Альянс с другими силами необходим
+для осуществления планов Лорда, и он изо всех сил старается угодить своим
+дьявольским гостям.
 ~
 0 D inside
 D3
@@ -3634,10 +4009,14 @@ D3
 ABZ 0 14775
 S
 #14778
-Guest Quarters~
-These quarters are well-decorated, with well-preserved tapestries and rugs,
+@eng Guest Quarters@rus Квартиры для гостей~
+@eng These quarters are well-decorated, with well-preserved tapestries and rugs,
 and carved wooden furniture. Alliances with other powers are crucial to
 Krothgar's plans, and he is doing his best to impress his diabolical guests.
+@rus Апартаменты прекрасно украшены хорошо сохранившимися коврами и гобеленами,
+обставлены резной деревянной мебелью. Альянс с другими силами необходим
+для осуществления планов Лорда, и он изо всех сил старается угодить своим
+дьявольским гостям.
 ~
 0 D inside
 D0
@@ -3648,9 +4027,11 @@ D0
 ABZ 0 14775
 S
 #14779
-The Fortress~
-You have entered the restricted area. Staircases run up and down from here,
+@eng The Fortress@rus В Крепости~
+@eng You have entered the restricted area. Staircases run up and down from here,
 and a narrow passage stretches away to the west.
+@rus Ты $gn{попал} в приватную часть крепости. Лестницы отсюда ведут вверх и вниз,
+кроме того, на запад тянется узкий проход.
 ~
 0 D inside
 D1
@@ -3679,9 +4060,11 @@ D5
 Z -1 14787
 S
 #14780
-A Narrow Corridor~
-This corridor runs through the center of the Fortress to the mage towers,
+@eng A Narrow Corridor@rus Узкий коридор~
+@eng This corridor runs through the center of the Fortress to the mage towers,
 on the western wall of the fortress. A junction lies to the west.
+@rus Этот коридор ведет от центра Крепости к башням магов, находящимся на западной
+стене крепости. На западе - перекресток.
 ~
 0 D inside
 D1
@@ -3699,29 +4082,45 @@ Z -1 14781
 S
 #14781
 A Junction~
-You may head through doors to the north or south from here, or back east
+@eng You may head through doors to the north or south from here, or back east
 to the outer fortress. There is a sign on the south door, and a plaque on
 the northern.
+@rus Ты можешь направится отсюда на север или на юг, или вернуться на восток к
+внешней крепости. На южной двери знак (sign), на северной тоже висит 
+дощечка (plaque).
 ~
 0 D inside
 E
-sign~
-The sign reads-
+sign знак значок~
+@eng The sign reads-
 
         The Quarters of the Archmage. Please do not enter. Important
         experiment in progress. Leave messages with the guards.
 
         - Axtraxes.
+@rus На знаке написано -
+ 
+    Апартаменты Архимага. Не входить - идет важный эксперимент.
+    Можно передать сообщение через стражу.
+ 
+    -Акстраксес.
 ~
 E
-plaque~
-The plaque reads-
+plaque доска дощечка табличка~
+@eng The plaque reads-
 
        "T H E   E L E M E N T A L   L A B O R A T O R I E S "
 
        Keep out!
 
        - Axtraxes.
+@rus На табличке написано -
+ 
+      "Л А Б О Р А Т О Р И И   С Т И Х И Й."
+ 
+      Не приближаться!
+ 
+      -Акстраксес
 ~
 D0
 ~
@@ -3743,9 +4142,11 @@ D2
 ABZ 0 14782
 S
 #14782
-The Quarters of the Archmage~
-You have barged into the quarters of Axtraxes, arch mage of Krothgar, and
+@eng The Quarters of the Archmage@rus Апартаменты Архимага~
+@eng You have barged into the quarters of Axtraxes, arch mage of Krothgar, and
 ruined his experiment. He's BOUND to be upset.
+@rus Ты $gn{ворвался} в апартаменты Акстраксеса, архимага Кротгара, и загубил его
+эксперимент. Он весьма огорчен.
 ~
 0 D inside
 D0
@@ -3756,11 +4157,15 @@ D0
 ABZ 0 14781
 S
 #14783
-The Elemental Laboratories~
-This vast room extends in all directions. You see vats, urns, beakers, jars,
+@eng The Elemental Laboratories@rus Лаборатория~
+@eng This vast room extends in all directions. You see vats, urns, beakers, jars,
 alembics and a hundred other items scattered about on desks, benches, chairs
 and floors. Everything appears rather damaged, as if someone (or something)
 has recently gone berserk in here...
+@rus Широкая комната тянется во всех направлениях.  Ты видишь баки, урны,
+мензурки, банки, перегонные кубы и сотни других предметов разбосанных по
+столам, лавкам, стульям и просто по полу.  Все выглядит слегка поврежденным,
+как-будто тут недавно кто-то (или что-то) славно побушевало.  
 ~
 0 D inside
 D0
@@ -3789,11 +4194,15 @@ D3
 Z -1 14784
 S
 #14784
-Western End of the Lab~
-This vast room extends in all directions. You see vats, urns, beakers, jars,
+@eng Western End of the Lab@rus Западный конец лабратории~
+@eng This vast room extends in all directions. You see vats, urns, beakers, jars,
 alembics and a hundred other items scattered about on desks, benches, chairs
 and floors. Everything appears rather damaged, as if someone (or something)
 has recently gone berserk in here...
+@rus Широкая комната тянется во всех направлениях.  Ты видишь баки, урны,
+мензурки, банки, перегонные кубы и сотни других предметов разбосанных по
+столам, лавкам, стульям и просто по полу.  Все выглядит слегка поврежденным,
+как-будто тут недавно кто-то (или что-то) славно побушевало.  
 ~
 0 D inside
 D1
@@ -3804,11 +4213,15 @@ D1
 Z -1 14783
 S
 #14785
-Northern End of the Lab~
-This vast room extends in all directions. You see vats, urns, beakers, jars,
+@eng Northern End of The Lab@rus Северный конец лаборатории~
+@eng This vast room extends in all directions. You see vats, urns, beakers, jars,
 alembics and a hundred other items scattered about on desks, benches, chairs
 and floors. Everything appears rather damaged, as if someone (or something)
 has recently gone berserk in here...
+@rus Широкая комната тянется во всех направлениях.  Ты видишь баки, урны,
+мензурки, банки, перегонные кубы и сотни других предметов разбосанных по
+столам, лавкам, стульям и просто по полу.  Все выглядит слегка поврежденным,
+как-будто тут недавно кто-то (или что-то) славно побушевало.  
 ~
 0 D inside
 D2
@@ -3819,11 +4232,15 @@ D2
 Z -1 14783
 S
 #14786
-Eastern End of the Lab~
-This vast room extends in all directions. You see vats, urns, beakers, jars,
+@eng Eastern End of the Lab@rus Восточный конец лаборатории~
+@eng This vast room extends in all directions. You see vats, urns, beakers, jars,
 alembics and a hundred other items scattered about on desks, benches, chairs
 and floors. Everything appears rather damaged, as if someone (or something)
 has recently gone berserk in here...
+@rus Широкая комната тянется во всех направлениях.  Ты видишь баки, урны,
+мензурки, банки, перегонные кубы и сотни других предметов разбосанных по
+столам, лавкам, стульям и просто по полу.  Все выглядит слегка поврежденным,
+как-будто тут недавно кто-то (или что-то) славно побушевало.  
 ~
 0 D inside
 D3
@@ -4439,9 +4856,9 @@ M 0 14709 3 14784 1	* an evil scientist mage (Western End of the Lab)
 E 0 14721 0 12		*	the mage's robes: about the shoulders
 E 0 14722 0 17		*	a magic wand: held in the hands
 G 0 14723 0		*	an elixir of noxious chemicals
-M 0 14727 1 14785 1	* a water elemental (Northern End of the Lab)
+M 0 14727 1 14785 1	* a water elemental (Northern End of The Lab)
 G 0 14738 0		*	a bowl
-M 0 14709 3 14785 1	* an evil scientist mage (Northern End of the Lab)
+M 0 14709 3 14785 1	* an evil scientist mage (Northern End of The Lab)
 E 0 14721 0 12		*	the mage's robes: about the shoulders
 E 0 14722 0 17		*	a magic wand: held in the hands
 G 0 14723 0		*	an elixir of noxious chemicals

@@ -100,6 +100,9 @@ Use 'desc edit' to edit your description.
 @rus Ты прекращаешь отдыхать.
 ~
 @eng You dodge $n's attack.@rus Ты $gN{уклонился} от атаки $c1{$n}.~
+@eng The gods have revoked your channel privileges.
+@rus Боги запретили тебе использовать общие каналы.
+~
 @eng You wake and sit in $p.@rus Ты просыпаешься и садишься в $c3{$p}.~
 @eng A bet of $J gold has been received on $p.@rus Лот "$p". Ставка $J $qJ{золотых} -- принято!~
 @eng $p draws life from $n.@rus $p $gp{вытягивает} жизнь из $c1{$n}.~
@@ -152,6 +155,9 @@ Use 'desc edit' to edit your description.
 @eng $N says '{GDo you feel lucky, punk?{x'.@rus $N $gN{говорит} тебе: "{GЧувствуешь удачу, шпана?{x"~
 @eng That's not edible.
 @rus Это не съедобно.
+~
+@eng Just type delete. No argument.
+@rus Просто "delete". Без аргументов.
 ~
 @eng twice@rus два~
 @eng You wake up and start resting.
@@ -309,6 +315,13 @@ Use 'desc edit' to edit your description.
 @rus Прочитать заклинание на кого?
 ~
 @eng $n wears $p on $s legs.@rus $n $gn{надевает} $c3{$p} на ноги.~
+@eng Type delete again to confirm this command.
+WARNING: this command is irreversible.
+Typing delete with an argument will undo delete status.
+@rus Введи "delete" еще раз для подтверждения.
+Но учти - эта команда - необратима.
+Чтобы отменить статус самоуничтожения просто введи "delete" с аргументом.
+~
 @eng You failed.
 @rus Не получилось.
 ~
@@ -754,6 +767,7 @@ The actioneer appears before $n and hands $m $p.~
 @rus Учись плавать или найди лодку.
 ~
 @eng : adds immunity to '%s' @rus : иммунитет к '%s' ~
+@eng You cannot say anything in this form.@rus Ты не $gn{способен} ничего произнести в этой форме.~
 @eng It's already unlocked.
 @rus Здесь уже разомкнуто.
 ~
@@ -1155,6 +1169,9 @@ Get back to questor before your time runs out!
 ~
 @eng You sit down at $p and rest.@rus Ты садишься отдыхать около $c1{$p}.~
 @eng Try again later - $p is being auctioned right now!@rus Обратитесь к нам позднее. Сейчас идут торги за лот "$p".~
+@eng Say what?
+@rus Что сказать?
+~
 @eng {MDISMEMBERS{x@rus {MРАСЧЛЕНЯЕТ{x~
 @eng You aren't mounted.
 @rus Ты сейчас не верхом.
@@ -1388,6 +1405,9 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 ~
 @eng $n turns blue and shivers.@rus $n вдруг становится синим и мелко дрожит.~
 @eng $n $u $N.@rus $n $u $c6{$N}.~
+@eng You must type the full command to delete yourself.
+@rus Для удаления тебе придется набрать "delete" полностью.
+~
 @eng You can train:@rus Ты можешь тренировать:~
 @eng $n tries to disarm you, but your weapon won't budge!@rus $n $gn{пытается}выбить оружие из твоих рук, но оно даже не двигается!~
 @eng poor@rus плохое~
@@ -1516,6 +1536,9 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng $n stands up.@rus $n $gn{встает}.~
 @eng $n has created $p!@rus $n $gn{создал} $c3{$p}!~
 @eng $n $u you.@rus $n $u тебя.~
+@eng Delete status removed.
+@rus Состояние самоуничтожения отменено.
+~
 Quest staff waits patiently to return.
 ~
 @eng As you sacrifice the corpse, @rus На жертвенном костре осталось лежать ~

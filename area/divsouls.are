@@ -3959,7 +3959,7 @@ a crimson hilted stiletto~
 An adamantite stiletto with a hilt the color of dark blood gleams here.~
 adamantite~
 weapon AC 0 AN
-dagger 10 7 'pierce' CD
+dagger 10 6 'pierce' CD
 45 180 12500 P
 a '' unknown 45 -1 13 18 0
 a '' unknown 45 -1 13 19 0

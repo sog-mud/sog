@@ -953,6 +953,14 @@ Form 3 -ли~
 End
 
 #RULE
+Name добрался~
+BaseLen 6
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
 Name содержит~
 BaseLen 6
 Form 1 -ит~
@@ -997,6 +1005,14 @@ BaseLen 8
 Form 1 -ет~
 Form 2 -ет~
 Form 3 -ют~
+End
+
+#RULE
+Name застал~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
 End
 
 #RULE
@@ -1735,6 +1751,14 @@ BaseLen 5
 Form 1 -ая~
 Form 2 -ое~
 Form 3 -ые~
+End
+
+#RULE
+Name задохнулся~
+BaseLen 8
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
 End
 
 #RULE

@@ -3133,7 +3133,7 @@ arrow 6 7 'pierce' K
 33 10 500 P
 a '' to_object 33 -1 1 18 0
 a '' to_object 33 -1 1 19 0
-g @rus none~
+g @rus female~
 #3094
 arrow silver стрела~
 @eng a silver-headed arrow@rus ~~стрела~~ с серебряным наконечником~

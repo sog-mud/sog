@@ -19,12 +19,15 @@ destroy you with a thought.  Every glance penetrates deep into your soul.
 You now know what true fear is.
 ~
 human~
-BCQ 0 HNT A AB 1000 0
+BCQT 0 HNT A AB 1000 0
 60 30 50d10+4000 60d9+100 8d13+40 'none'
 -30 -30 -30 -3
-EIKU
-stand stand male 5000
-0 0 medium unknown
+AEFHIKU
+stand stand male 50000
+0 0 gargantuan unknown
+r bash 15
+r pierce 15
+r slash 15
 r lightning 100
 r holy 50
 r charm 100
@@ -435,7 +438,7 @@ aegis plate~
 the Aegis~
 A powerful breast plate has been left here.~
 platinum~
-armor FGK 0 AD
+armor FG 0 AK
 15 15 15 15 0
 45 350 8400 P
 a '' unknown 45 -1 2 1 0

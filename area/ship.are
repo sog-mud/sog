@@ -6,12 +6,13 @@ VNUMs 10601 10899
 Credits kami kamimusubi~
 Security 1
 LevelRange 1 45
+ResetMessage @rus с тихим звоном мир содрогнулся~
 End
 
 #MOBILES
 #10601
 канонир gunner~
-@rus Канонир~
+@eng gunner@rus Канонир~
 @rus Канонир стоит здесь.
 ~
 ~
@@ -22,9 +23,10 @@ ghost~
 0
 stand stand male 0
 0 0 medium unknown
+r sound 100
 #10602
 впередсмотрящий матрос~
-@rus ~~призрак~~ спящего матроса~
+@eng sleepman@rus ~~призрак~~ спящего матроса~
 @rus Призрак спящего матроса стоит прислонившись к мачте.
 ~
 @rus Облокотившись на мачту спит полупрозрачный матрос.
@@ -81,6 +83,83 @@ r poison 100
 r charm 100
 r harm 100
 r light 100
+#10604
+rat крыса~
+@eng a rat@rus крыса~
+@eng A small fat rat shrieks and runs around.
+@rus Маленькая толстенькая крыса выглядывает из норы.
+~
+@rus Ты $gn{посмотрел} на маленькую, но вполне упитанную
+крысу. Ее крохотные глазки злобно поблескивают из
+темной норы. Ее острые зубы кажутся великоватыми
+для такой мелкой и злобной на вид твари, а от ее
+запаха тебе хочется выйти на свежий воздух.
+~
+rat~
+B 0 MVX B HJKM -50 0
+5 0 1d16+50 5d10+10 2d3+5 'bite'
+8 5 9 7
+FRX
+stand stand none 50
+AG ACDEKQU small unknown
+g @eng none@rus female~
+r fire -30
+r sound -20
+r poison 50
+r light -75
+#10605
+комар~
+@rus комар~
+@rus Комар надоедливо зудит над твоей головой.
+~
+~
+insect~
+F 0 CTUVY 0 BFGJ 0 0
+1 0 1d3+0 1d1+0 1d4+0 'pierce'
+9 9 9 9
+FH
+stand stand none 1
+0 0 medium unknown
+g @eng none@rus male~
+#10606
+ice demon~
+@eng ice demon@rus ~~ледяной~~ ~~демон~~~
+@rus Ледяной демон, весь покрытый острами кристаллами льда набросился на тебя.
+~
+@rus Огромный ледяной демон мелькает во мгле
+в сопровождении мириад колючих снежинок.
+Его тело похоже на скалу, покрытую острейшими
+уступами. Он кажется покрытым шерстью из за
+острых ледяных игл, которыми усеянно его тело.
+Похожие на кружащиеся вихри, руки его
+оканчиваются острейшими ледяными когтями.
+Глаза его похожи на бесконечные колодцы,
+заполненные чистейшим льдом. Холод этих
+голубых бездн замораживает твою душу.
+~
+frost giant~
+0 0 NOTVac 0 ABCDFGJ 0 0
+50 0 105d10+4500 50d10+100 5d20+45 'cleave'
+-40 -40 -40 -30
+ACDFKZ
+stand stand none 10000
+0 0 gargantuan unknown
+g @eng none@rus male~
+F par BCDEFGHIJ
+r bash 50
+r fire -50
+r cold 100
+r lightning -20
+r acid 30
+r negative 75
+r energy -30
+r mental -20
+r sound -20
+r disease 100
+r poison 100
+r charm 95
+r harm -10
+r light -20
 #0
 
 #OBJECTS
@@ -129,26 +208,108 @@ key ключ white белый~
 @eng white key@rus ~~белый~~ ~~ключ~~~
 @rus Маленький ключ из светлого металла лежит в углу.~
 steel~
-key U L A
+key KLU L A
 0 0 0 0 0
 0 10 10 P
 g @eng none@rus male~
 #10606
-key ключ~
-~
-~
-unknown~
-key U L A
+key ключ gray steel~
+@eng gray key@rus серый ключ~
+@rus Маленький стальной ключ валяется в углу.~
+steel~
+key JKU L A
 0 0 0 0 0
 0 10 10 P
+g @eng none@rus male~
 #10607
-key ключ~
+key ключ black~
+@eng black key@rus черный ключ~
+@rus Маленький ключ из темного металла пылится в углу.~
+steel~
+key JLU L A
+0 0 0 0 0
+0 10 10 P
+g @eng none@rus male~
+#10608
+key ключ bronze~
+@eng bronze key@rus большой бронзовый ключ~
+@rus Ты $gn{увидел} большой бронзовый ключ, прислоненный к стене.~
+bronze~
+key U L A
+0 0 0 0 0
+0 50 100 P
+g @eng none@rus male~
+#10609
+key ключ small~
+@eng small key@rus маленький ключик~
+@rus Небольшой деревянный ключ лежит под кучей мусора.~
+ash~
+key U L A
+0 0 0 0 0
+0 5 5 P
+g @eng none@rus male~
+#10611
+ice heart~
+@eng heart of ice demon@rus ~~сердце~~ ледяного демона~
+@eng Heart of ice demon lies here.@rus Сердце ледяного демона лежит перед тобой.~
+ice~
+key AH 0 A
+0 0 0 0 0
+0 300 0 P
+g @eng none@rus neutral~
+#10612
+wall~
+@eng wall@rus стена~
+@rus Огненная стена на востоке выглядит абсолютно непроходимой.~
+plasma~
+portal Y BCL 0
+CFG ABCFGI B 10899 10611
+0 20000 0 P
+g @eng none@rus female~
+#10613
+void~
+@eng void@rus пустота~
+@rus В твоей голове настойчиво бьется мысль:"лишь в пустоте есть свобода!".~
+unknown~
+portal Y BCL 0
+ABCDEFGHIJKLMNOPQRSTUVWXYZabcde 0 B 10896 0
+0 20000 0 P
+g @eng none@rus female~
+#10614
+claw ice left коготь левый~
+@eng left claw of ice demon@rus ~~левый~~ ~~коготь~~ ледяного демона~
+@rus Перед тобой сверкает левый коготь ледяного демона.~
+ice~
+weapon ABGMU 0 AN
+dagger 3 20 'claw' BCEG
+45 200 1000000 P
+g @eng none@rus male~
+#10615
+claw ice коготь левый right~
+@eng right claw of ice demon@rus ~~правый~~ ~~коготь~~ ледяного демона~
+@rus Перед тобой сверкает правый коготь ледяного демона.~
+ice~
+weapon ABGMU 0 AN
+sword 2 33 'claw' BCDG
+45 250 1000000 P
+g @eng none@rus male~
+#10616
+плащь~
 ~
 ~
 unknown~
+trash 0 0 0
+0 0 0 0 0
+0 0 0 P
+#10810
+key ключ~
+@eng silver key@rus ~~серебрянный~~ ~~ключик~~~
+@rus Серебрянный ключик со сложной резьбой лежит перед тобой.~
+silver~
 key U L A
 0 0 0 0 0
-0 10 10 P
+0 5 5 P
+g @eng none@rus male~
 #0
 
 #ROOMS
@@ -3169,6 +3330,26 @@ D1
 ~
 Z 0 10722
 S
+#10750
+@eng ice@rus ледяная бездна~
+@rus Ты бесконечно падаешь в ледяную бездну.
+Если у нее и есть дно, его не видно из за
+бешенной метели, а глядя на зазубренные
+острия мелькающих по сторонам стен, ты 
+думаешь, что туда тебе попадать не стоит...
+Казавшийся доселе невозможным холод
+замораживает твою кровь, а пурга бросает
+бесчетные легионы острейших ледяных игл
+терзать остатки твоей кожи.
+~
+0 NWX mountain
+D1
+~
+~
+~
+~
+ABFZ 0 10897
+S
 #10751
 @rus Бочка впередсмотрящего~
 @rus Ты находишься в продуваемой всеми ветрами
@@ -5822,7 +6003,7 @@ D0 small
 north door~
 ~
 ~
-ABCFGJZ 10606 10858
+ABCFGZ 10606 10858
 D1 small
 ~
 east door~
@@ -5834,7 +6015,7 @@ D2 small
 south door~
 ~
 ~
-ABCFGIZ 0 10860
+ABCFGIZ 10605 10860
 D3 medium
 ~
 west door~
@@ -5852,7 +6033,7 @@ D5
 люк down door~
 ~
 ~
-ABCFGIZ 0 10862
+ABCFGIZ 10608 10862
 S
 #10858
 @eng k~
@@ -5863,7 +6044,7 @@ D2
 ~
 ~
 ~
-ABCFGJZ 0 10857
+ABCFGZ 0 10857
 S
 #10859
 @eng k~
@@ -5880,12 +6061,18 @@ S
 @eng k~
 ~
 0 NX inside
-D0
+D0 small
 ~
 ~
 ~
 ~
-ABCFGIZ 0 10857
+ABCFGIZ 10605 10857
+D2 small
+~
+~
+~
+~
+ABCFGIZ 10606 10863
 S
 #10861
 @eng k~
@@ -5902,14 +6089,641 @@ S
 @eng k~
 ~
 0 NX inside
+D0
+~
+~
+~
+~
+Z 0 10865
 D4
 ~
 ~
 ~
 ~
-ABCFGIZ 0 10857
+ABCFGIZ 10608 10857
+S
+#10863
+@eng k~
+~
+0 NX inside
+D0
+~
+~
+~
+~
+ABCFGIZ 10606 10860
+D2
+~
+~
+~
+~
+ABCFGIZ 10607 10864
+S
+#10864
+@eng k~
+~
+0 NX inside
+D0 small
+~
+~
+~
+~
+ABCFGIZ 10607 10863
+D2
+~
+~
+~
+~
+Z 0 10857
+S
+#10865
+@eng k~
+~
+0 NX inside
+D0
+~
+~
+~
+~
+Z 0 10884
+D1
+~
+~
+~
+~
+Z 0 10875
+D2
+~
+~
+~
+~
+Z 0 10862
+D3
+~
+~
+~
+~
+Z 0 10866
+S
+#10866
+@eng k~
+~
+0 NX inside
+D0
+~
+~
+~
+~
+ABZ 0 10867
+D1
+~
+~
+~
+~
+Z 0 10865
+D2
+~
+~
+~
+~
+ABZ 0 10868
+D3
+~
+~
+~
+~
+Z 0 10869
+S
+#10867
+@eng k~
+~
+0 NX inside
+D2
+~
+~
+~
+~
+ABZ 0 10866
+S
+#10868
+@eng k~
+~
+0 NX inside
+D0
+~
+~
+~
+~
+ABZ 0 10866
+S
+#10869
+@eng k~
+~
+0 NX inside
+D0
+~
+~
+~
+~
+ABZ 0 10871
+D1
+~
+~
+~
+~
+Z 0 10866
+D2
+~
+~
+~
+~
+ABZ 0 10870
+D3
+~
+~
+~
+~
+ABZ 0 10872
+S
+#10870
+@eng k~
+~
+0 NX inside
+D0
+~
+~
+~
+~
+ABZ 0 10869
+S
+#10871
+@eng k~
+~
+0 NX inside
+D2
+~
+~
+~
+~
+ABZ 0 10869
+S
+#10872
+@eng k~
+~
+0 NX inside
+D1
+~
+~
+~
+~
+ABZ 0 10869
+D3
+~
+~
+~
+~
+ABZ 0 10873
+S
+#10873
+@eng k~
+~
+0 NX inside
+D1
+~
+~
+~
+~
+ABZ 0 10872
+D5
+~
+~
+~
+~
+ABCFGIZ 0 10874
+S
+#10874
+@eng k~
+~
+0 NX inside
+D4
+~
+~
+~
+~
+ABCFGIZ 0 10873
+S
+#10875
+@eng k~
+~
+0 NX inside
+D0
+~
+~
+~
+~
+Z 0 10876
+D1
+~
+~
+~
+~
+Z 0 10877
+D3
+~
+~
+~
+~
+Z 0 10865
+D5
+~
+~
+~
+~
+Z 0 10881
+S
+#10876
+@eng k~
+~
+0 NX inside
+D2
+~
+~
+~
+~
+Z 0 10875
+S
+#10877
+@eng k~
+~
+0 NX inside
+D1
+~
+~
+~
+~
+Z 0 10880
+D2
+~
+~
+~
+~
+Z 0 10878
+D3
+~
+~
+~
+~
+Z 0 10875
+S
+#10878
+@eng k~
+~
+0 NX inside
+D0
+~
+~
+~
+~
+Z 0 10877
+D3
+~
+~
+~
+~
+Z 0 10879
+S
+#10879
+@eng k~
+~
+0 NX inside
+D1
+~
+~
+~
+~
+Z 0 10878
+S
+#10880
+@eng k~
+~
+0 NX inside
+D3
+~
+~
+~
+~
+Z 0 10877
+S
+#10881
+@eng k~
+~
+0 NX inside
+D0
+~
+~
+~
+~
+Z 0 10883
+D1
+~
+~
+~
+~
+Z 0 10882
+D4
+~
+~
+~
+~
+Z 0 10875
+S
+#10882
+@eng k~
+~
+0 NX inside
+D3
+~
+~
+~
+~
+Z 0 10881
+S
+#10883
+@eng k~
+~
+0 NX inside
+D2
+~
+~
+~
+~
+Z 0 10881
+S
+#10884
+@eng k~
+~
+0 NX inside
+D0
+~
+~
+~
+~
+Z 0 10885
+D2
+~
+~
+~
+~
+Z 0 10865
+S
+#10885
+@eng k~
+~
+0 NX inside
+D0
+~
+~
+~
+~
+Z 0 10887
+D2
+~
+~
+~
+~
+Z 0 10884
+D4
+~
+~
+~
+~
+Z 0 10886
+S
+#10886
+@eng k~
+~
+0 NX inside
+D2
+~
+~
+~
+~
+Z 0 10888
+D5
+~
+~
+~
+~
+Z 0 10885
+S
+#10887
+@eng k~
+~
+0 NX inside
+D1
+~
+~
+~
+~
+Z 0 10889
+D2
+~
+~
+~
+~
+Z 0 10885
+S
+#10888
+@eng k~
+~
+0 NX inside
+D0
+~
+~
+~
+~
+Z 0 10886
+S
+#10889
+@eng k~
+~
+0 NX inside
+D3
+~
+~
+~
+~
+Z 0 10887
+D4
+~
+~
+~
+~
+Z 0 10890
+S
+#10890
+@eng k~
+~
+0 NX inside
+D1
+~
+~
+~
+~
+Z 0 10891
+D5
+~
+~
+~
+~
+Z 0 10889
+S
+#10891
+@eng k~
+~
+0 NX inside
+D0
+~
+~
+~
+~
+Z 0 10893
+D2
+~
+~
+~
+~
+ABZ 0 10892
+D3
+~
+~
+~
+~
+Z 0 10890
+S
+#10892
+@eng k~
+~
+0 NX inside
+D0
+~
+~
+~
+~
+ABZ 0 10891
+S
+#10893
+@eng k~
+~
+0 NX inside
+D2
+~
+~
+~
+~
+Z 0 10891
+D4
+~
+~
+~
+~
+Z 0 10895
+D5
+~
+~
+~
+~
+ABZ 0 10894
+S
+#10894
+@eng k~
+~
+0 NX inside
+D4
+~
+~
+~
+~
+ABZ 0 10893
+S
+#10895
+@eng k~
+~
+0 NX inside
+D1
+~
+~
+~
+~
+ABZ 0 10896
+D3
+~
+~
+~
+~
+Z 0 10897
+D5
+~
+~
+~
+~
+Z 0 10893
+S
+#10896
+@eng k~
+~
+0 NX inside
+D3
+~
+~
+~
+~
+ABZ 0 10895
+S
+#10897
+@eng k~
+~
+0 NX inside
+D1
+~
+~
+~
+~
+Z 0 10895
+D3
+~
+~
+~
+~
+ABFZ 0 10750
+D4
+~
+~
+~
+~
+ABCDFGIJZ 0 10898
+S
+#10898
+@eng k~
+~
+0 NX inside
+D5
+~
+~
+~
+~
+ABCDFGIJZ 0 10897
+S
+#10899
+@eng k~
+~
+0 NX inside
 S
 #0
+
+#SPECIALS
+M 10606 spec_breath_frost	* ice demon
+S
 
 #RESETS
 D 0 10614 5 1	* : door to the down: closed
@@ -5927,6 +6741,7 @@ D 0 10700 5 1	* : door to the down: closed
 D 0 10709 4 1	* : door to the up: closed
 D 0 10714 4 1	* : door to the up: closed
 D 0 10720 4 1	* : door to the up: closed
+D 0 10750 1 1	* ice: door to the east: closed
 D 0 10785 5 1	* : door to the down: closed
 D 0 10857 0 2	* k: door to the north: closed and locked
 D 0 10857 1 2	* k: door to the east: closed and locked
@@ -5936,12 +6751,39 @@ D 0 10857 5 2	* k: door to the down: closed and locked
 D 0 10858 2 2	* k: door to the south: closed and locked
 D 0 10859 3 2	* k: door to the west: closed and locked
 D 0 10860 0 2	* k: door to the north: closed and locked
+D 0 10860 2 2	* k: door to the south: closed and locked
 D 0 10861 1 2	* k: door to the east: closed and locked
 D 0 10862 4 2	* k: door to the up: closed and locked
+D 0 10863 0 2	* k: door to the north: closed and locked
+D 0 10863 2 2	* k: door to the south: closed and locked
+D 0 10864 0 2	* k: door to the north: closed and locked
+D 0 10866 0 1	* k: door to the north: closed
+D 0 10866 2 1	* k: door to the south: closed
+D 0 10867 2 1	* k: door to the south: closed
+D 0 10868 0 1	* k: door to the north: closed
+D 0 10869 0 1	* k: door to the north: closed
+D 0 10869 2 1	* k: door to the south: closed
+D 0 10869 3 1	* k: door to the west: closed
+D 0 10870 0 1	* k: door to the north: closed
+D 0 10871 2 1	* k: door to the south: closed
+D 0 10872 1 1	* k: door to the east: closed
+D 0 10872 3 1	* k: door to the west: closed
+D 0 10873 1 1	* k: door to the east: closed
+D 0 10873 5 2	* k: door to the down: closed and locked
+D 0 10874 4 2	* k: door to the up: closed and locked
+D 0 10891 2 1	* k: door to the south: closed
+D 0 10892 0 1	* k: door to the north: closed
+D 0 10893 5 1	* k: door to the down: closed
+D 0 10894 4 1	* k: door to the up: closed
+D 0 10895 1 1	* k: door to the east: closed
+D 0 10896 3 1	* k: door to the west: closed
+D 0 10897 3 1	* k: door to the west: closed
+D 0 10897 4 2	* k: door to the up: closed and locked
+D 0 10898 5 2	* k: door to the down: closed and locked
 O 0 10604 0 10634	* nightmare ()
-M 0 10602 1 10634 1	*  ()
+M 0 10602 1 10634 1	* sleepman ()
 O 0 10602 0 10636	* gun (Porthole)
-M 0 10601 1 10636 1	*  (Porthole)
+M 0 10601 1 10636 1	* gunner (Porthole)
 O 0 10602 0 10637	* gun (Porthole)
 O 0 10602 0 10639	* gun (Porthole)
 O 0 10602 0 10642	* gun (Porthole)
@@ -5962,6 +6804,10 @@ O 0 10602 0 10686	* gun (Porthole)
 O 0 10602 0 10688	* gun (Porthole)
 O 0 10602 0 10689	* gun (Porthole)
 O 0 10602 0 10691	* gun (Porthole)
+M 0 10606 1 10750 1	* ice demon (ice)
+E 0 10615 0 16		*	right claw of ice demon: wielded
+E 0 10614 0 20		*	left claw of ice demon: second wielded
+G 0 10611 0		*	heart of ice demon
 M 0 10603 1 10752 1	* gravity (In air)
 R 0 10792 1	* 1th: randomize
 R 0 10792 2	* 1th: randomize
@@ -6144,11 +6990,39 @@ R 0 10845 5	* 4th: randomize
 R 0 10846 2	* 4th: randomize
 R 0 10846 3	* 4th: randomize
 R 0 10846 5	* 4th: randomize
+M 0 10605 50 10857 5	*  (k)
+M 0 10605 50 10858 5	*  (k)
+O 0 10606 0 10858	* gray key (k)
+M 0 10605 50 10859 5	*  (k)
+O 0 10607 0 10859	* black key (k)
+M 0 10605 50 10860 5	*  (k)
+M 0 10605 50 10861 5	*  (k)
 O 0 10605 0 10861	* white key (k)
+M 0 10605 50 10862 5	*  (k)
+M 0 10605 50 10863 5	*  (k)
+M 0 10605 50 10864 5	*  (k)
+O 0 10608 0 10864	* bronze key (k)
+M 0 10605 50 10865 5	*  (k)
+M 0 10605 50 10866 5	*  (k)
+M 0 10605 50 10867 5	*  (k)
+M 0 10605 50 10868 5	*  (k)
+M 0 10605 50 10869 5	*  (k)
+M 0 10604 1 10870 1	* a rat (k)
+G 0 10609 0		*	small key
+M 0 10605 50 10870 5	*  (k)
+M 0 10605 50 10871 5	*  (k)
+M 0 10605 50 10872 5	*  (k)
+M 0 10605 50 10873 5	*  (k)
+M 0 10605 50 10874 5	*  (k)
+O 0 10612 0 10896	* wall (k)
+O 0 10613 0 10899	* void (k)
+O 0 10810 0 10899	* silver key (k)
 S
 
 #OLIMITS
 O 10602 50	* gun
+O 10614 1	* left claw of ice demon
+O 10615 1	* right claw of ice demon
 S
 
 #MOBPROGS

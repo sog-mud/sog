@@ -477,6 +477,17 @@ Form 6 -у~
 End
 
 #RULE
+Name правый~
+BaseLen 4
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ый~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ого~
+End
+
+#RULE
 Name облезлая~
 BaseLen 6
 Form 1 -ой~
@@ -2433,6 +2444,17 @@ Form 3 -ь~
 Form 4 -ью~
 Form 5 -и~
 Form 6 -ь~
+End
+
+#RULE
+Name пустота~
+BaseLen 6
+Form 1 -ы~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
 End
 
 #RULE
@@ -5120,6 +5142,17 @@ Form 6 -а~
 End
 
 #RULE
+Name ледяной~
+BaseLen 5
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ой~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ого~
+End
+
+#RULE
 Name козленок~
 BaseLen 6
 Form 1 -ка~
@@ -5943,6 +5976,17 @@ Form 6 -ую~
 End
 
 #RULE
+Name левый~
+BaseLen 3
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ый~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ого~
+End
+
+#RULE
 Name алебарда~
 BaseLen 7
 Form 1 -ы~
@@ -6681,6 +6725,17 @@ Form 6 -у~
 End
 
 #RULE
+Name адамантитовые~
+BaseLen 12
+Form 1 -х~
+Form 2 -м~
+Form 3 -е~
+Form 4 -ми~
+Form 5 -х~
+Form 6 -х~
+End
+
+#RULE
 Name часовщик~
 BaseLen 8
 Form 1 -а~
@@ -7321,6 +7376,17 @@ Form 6 -ого~
 End
 
 #RULE
+Name шипастые~
+BaseLen 7
+Form 1 -х~
+Form 2 -м~
+Form 3 -е~
+Form 4 -ми~
+Form 5 -х~
+Form 6 -х~
+End
+
+#RULE
 Name уилл-оу-висп~
 BaseLen 12
 Form 1 -а~
@@ -7615,6 +7681,17 @@ Form 3 -ое~
 Form 4 -ым~
 Form 5 -ом~
 Form 6 -ое~
+End
+
+#RULE
+Name стена~
+BaseLen 4
+Form 1 -ы~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
 End
 
 #RULE
@@ -9774,6 +9851,17 @@ Form 5 -е~
 End
 
 #RULE
+Name продавец~
+BaseLen 6
+Form 1 -ца~
+Form 2 -цу~
+Form 3 -ец~
+Form 4 -цем~
+Form 5 -це~
+Form 6 -ца~
+End
+
+#RULE
 Name ловкий~
 BaseLen 4
 Form 1 -ого~
@@ -11574,6 +11662,17 @@ Form 5 -е~
 End
 
 #RULE
+Name играющий~
+BaseLen 6
+Form 1 -его~
+Form 2 -ему~
+Form 3 -ий~
+Form 4 -им~
+Form 5 -ем~
+Form 6 -его~
+End
+
+#RULE
 Name серебрянный~
 BaseLen 9
 Form 1 -ого~
@@ -11897,6 +11996,17 @@ End
 #RULE
 Name исписанный~
 BaseLen 8
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ый~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ого~
+End
+
+#RULE
+Name главный~
+BaseLen 5
 Form 1 -ого~
 Form 2 -ому~
 Form 3 -ый~
