@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.186.2.10 2000-03-30 06:26:26 osya Exp $
+ * $Id: act_wiz.c,v 1.186.2.11 2000-03-30 06:57:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3871,13 +3871,10 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 	do_mset(ch, str_empty);
 
 cleanup:
-	if (loaded) {
-		if (altered)
-			char_save(victim, SAVE_F_PSCAN);
+	if (altered)
+		char_save(victim, loaded ? SAVE_F_PSCAN : 0);
+	if (loaded)
 		char_nuke(victim);
-	}
-	else
-		dofun("save", victim, str_empty);
 }
 
 void do_smite(CHAR_DATA *ch, const char *argument)
