@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.248 2000-08-04 14:12:46 cs Exp $
+ * $Id: act_wiz.c,v 1.249 2000-08-10 06:56:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3251,40 +3251,44 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 	if (!str_prefix(arg2, "clan")) {
 		clan_t *cl, *clo;
 		OBJ_DATA *mark;
+		bool same_clan;
 
 		if ((cl = clan_search(arg3)) == NULL) {
 			BUFFER *output = buf_new(-1);
-			buf_add(output, "Possible clans are: ");
+			buf_add(output, "Valid clan names are: ");
 			strkey_printall(&clans, output);
 			send_to_char(buf_string(output), ch);
 			buf_free(output);
 			goto cleanup;
 		}
 
-		if (IS_CLAN(victim->clan, cl->name)) {
-			char_puts("Ok.\n", ch);
-			goto cleanup;
-		}
-			
-		if (!IS_NPC(victim)
-		&&  (clo = clan_lookup(victim->clan))
-		&&  !IS_CLAN(clo->name, "none")) {
-			clan_update_lists(clo, victim, TRUE);
-			clan_save(clo);
-		}
+		same_clan = IS_CLAN(victim->clan, cl->name);
+		if (!same_clan) {
+			if (!IS_NPC(victim)
+			&&  (clo = clan_lookup(victim->clan))
+			&&  !IS_CLAN(clo->name, "none")) {
+				clan_update_lists(clo, victim, TRUE);
+				clan_save(clo);
+			}
 
-		free_string(victim->clan);
-		if (IS_CLAN(cl->name, "none"))
-			victim->clan = str_empty;
-		else
-			victim->clan = str_qdup(cl->name);
+			free_string(victim->clan);
+			if (IS_CLAN(cl->name, "none"))
+				victim->clan = str_empty;
+			else
+				victim->clan = str_qdup(cl->name);
+		}
 
 		if ((mark = get_eq_char(victim, WEAR_CLANMARK)) != NULL) {
 			obj_from_char(mark);
 			extract_obj(mark, 0);
 		}
 
-		if (!IS_NPC(victim)) {
+		if (IS_NPC(victim)) {
+			char_puts("Ok.\n", ch);
+			goto cleanup;
+		}
+
+		if (!same_clan) {
 			PC(victim)->clan_status = CLAN_COMMONER;
 			if (!IS_CLAN(cl->name, "none")) {
 				name_add(&cl->member_list, victim->name,
@@ -3294,12 +3298,12 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 
 			spec_update(victim);
 			update_skills(victim);
+		}
 
-			if (cl->mark_vnum
-			&&  (mark = create_obj(get_obj_index(cl->mark_vnum), 0))) {
-				obj_to_char(mark, victim);
-				equip_char(victim, mark, WEAR_CLANMARK);
-			}
+		if (cl->mark_vnum
+		&&  (mark = create_obj(get_obj_index(cl->mark_vnum), 0))) {
+			obj_to_char(mark, victim);
+			equip_char(victim, mark, WEAR_CLANMARK);
 		}
 
 		char_puts("Ok.\n", ch);
