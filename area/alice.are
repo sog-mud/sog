@@ -257,6 +257,7 @@ stand stand male 0
 0 0 medium unknown
 m mob_greet mob_greet_caterpillar 100~
 m mob_exit mob_exit_caterpillar all~
+m mob_look mob_look_caterpillar 100~
 #21015
 pigeon~
 a pigeon~
@@ -290,6 +291,7 @@ BGT 0 0 0 0 400 0
 EFNR
 stand stand male 0
 0 0 medium unknown
+m mob_greet mob_greet_fish_footman 100~
 m mob_look mob_look_fish_footman 100~
 #21017
 frog footman~
@@ -376,6 +378,7 @@ stand stand male 0
 m mob_greet mob_greet_cheshire_cat 100~
 m mob_random mob_random_cheshire_cat 1~
 m mob_exit mob_exit_cheshire_cat all~
+m mob_look mob_look_cast_invis 100~
 #21022
 mad hatter~
 the Mad Hatter~
@@ -564,7 +567,9 @@ EFNU
 stand stand female 0
 0 0 medium unknown
 m mob_greet mob_queen_of_hearts 100~
+m mob_kill mob_kill_queen_of_hearts 100~
 m mob_exit mob_queen_of_hearts all~
+m mob_look mob_look_queen_of_hearts 100~
 #21035
 knave hearts~
 the Knave of Hearts~
@@ -581,6 +586,7 @@ EFNU
 stand stand male 0
 0 0 medium unknown
 m mob_greet mob_greet_knave_of_hearts 100~
+m mob_look mob_look_cast_invis 100~
 #21036
 flamingo~
 a flamingo~
@@ -665,6 +671,7 @@ stand stand male 0
 m mob_death mob_death_gryphon 100~
 m mob_greet mob_greet_gryphon 100~
 m mob_kill mob_kill_gryphon 100~
+m mob_look mob_look_gryphon 100~
 #21041
 juror~
 a juror~
@@ -696,6 +703,7 @@ EFNU
 stand stand male 0
 0 0 medium unknown
 m mob_greet mob_greet_court_officer 100~
+m mob_kill mob_kill_court_officer 100~
 #0
 
 #OBJECTS
