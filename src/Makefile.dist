@@ -1,5 +1,5 @@
 #
-# $Id: Makefile.dist,v 1.2 1999-03-08 13:57:34 fjoe Exp $
+# $Id: Makefile.dist,v 1.3 1999-03-10 17:29:15 fjoe Exp $
 #
 CC		= gcc
 LD		= gcc
@@ -42,12 +42,14 @@ COMM_CFILES = comm/ban.c comm/charset.c comm/comm.c comm/comm_act.c\
 COMM_OFILES = ban.o charset.o comm.o comm_act.o\
 	      comm_colors.o comm_info.o resolver.o
 
-DB_CFILES = db/db.c db/db_area.c db/db_clan.c db/db_class.c\
-	    db/db_skills.c db/db_lang.c db/db_race.c db/db_socials.c\
-	    db/cmd.c db/gsn.c db/lang.c db/msg.c db/spellfn.c db/socials.c
-DB_OFILES = db.o db_area.o db_clan.o db_class.o\
-	    db_skills.o db_lang.o db_race.o db_socials.o\
-	    cmd.o gsn.o lang.o msg.o spellfn.o socials.o
+DB_CFILES = db/db.c db/db_area.c db/db_clan.c db/db_class.c db/db_hometown.c\
+	    db/db_lang.c db/db_race.c db/db_skills.c db/db_socials.c\
+	    db/cmd.c db/gsn.c db/hometown.c db/lang.c db/msg.c db/spellfn.c\
+	    db/socials.c
+DB_OFILES = db.o db_area.o db_clan.o db_class.o db_hometown.o\
+	    db_lang.o db_race.o db_skills.o db_socials.o\
+	    cmd.o gsn.o hometown.o lang.o msg.o spellfn.o\
+	    socials.o
 
 OLC_CFILES = olc/olc.c olc/olc_area.c olc/olc_clan.c olc/olc_help.c\
 	     olc/olc_lang.c olc/olc_mob.c olc/olc_mpcode.c olc/olc_msg.c\
@@ -60,7 +62,7 @@ OLC_OFILES = olc.o olc_area.o olc_clan.o olc_help.o\
 
 CFILES = act_comm.c act_info.c act_move.c act_obj.c act_wiz.c auction.c\
          buffer.c clan.c class.c\
-	 effects.c fight.c flag.c handler.c healer.c help.c hometown.c\
+	 effects.c fight.c flag.c handler.c healer.c help.c\
 	 hunt.c interp.c log.c lookup.c magic.c magic2.c martial_art.c mem.c\
 	 mlstring.c mob_cmds.c mob_prog.c namedp.c note.c obj_prog.c quest.c\
 	 race.c raffects.c rating.c recycle.c religion.c repair.c\
@@ -70,7 +72,7 @@ CFILES = act_comm.c act_info.c act_move.c act_obj.c act_wiz.c auction.c\
 
 OFILES = act_comm.o act_info.o act_move.o act_obj.o act_wiz.o auction.o\
          buffer.o clan.o class.o\
-	 effects.o fight.o flag.o handler.o healer.o help.o hometown.o\
+	 effects.o fight.o flag.o handler.o healer.o help.o\
 	 hunt.o interp.o log.o lookup.o magic.o magic2.o martial_art.o mem.o\
 	 mlstring.o mob_cmds.o mob_prog.o namedp.o note.o obj_prog.o quest.o\
 	 race.o raffects.o rating.o recycle.o religion.o repair.o\
