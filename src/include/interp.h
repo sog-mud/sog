@@ -1,5 +1,5 @@
 /*
- * $Id: interp.h,v 1.43 1999-04-20 05:18:38 kostik Exp $
+ * $Id: interp.h,v 1.44 1999-05-06 10:55:22 kostik Exp $
  */
 
 /***************************************************************************
@@ -319,7 +319,6 @@ DECLARE_DO_FUN(do_speak		);
 DECLARE_DO_FUN(do_socials	);
 DECLARE_DO_FUN(do_south		);
 DECLARE_DO_FUN(do_sockets	);
-DECLARE_DO_FUN(do_spellbane	);
 DECLARE_DO_FUN(do_spells	);
 DECLARE_DO_FUN(do_split		);
 DECLARE_DO_FUN(do_stand		);

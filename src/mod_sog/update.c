@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.120 1999-04-17 06:56:36 fjoe Exp $
+ * $Id: update.c,v 1.121 1999-05-06 10:55:30 kostik Exp $
  */
 
 /***************************************************************************
@@ -54,7 +54,6 @@
 DECLARE_DO_FUN(do_human		);
 DECLARE_DO_FUN(do_murder	);
 DECLARE_DO_FUN(do_rescue	);
-DECLARE_DO_FUN(do_spellbane	);
 DECLARE_DO_FUN(do_stand		);
 DECLARE_DO_FUN(do_track		);
 DECLARE_DO_FUN(do_yell		);
@@ -567,13 +566,14 @@ void mobile_update(void)
 
 		if (ch->position == POS_FIGHTING)
 			SET_FIGHT_TIME(ch);
-
 /* permanent spellbane */
 		if (!IS_NPC(ch)) {
+#if 0
 			if (ch->level < LEVEL_IMMORTAL
 			&&  get_skill(ch, gsn_spellbane)
 			&&  !is_affected(ch, gsn_spellbane))
 				do_spellbane(ch, str_empty);
+#endif
 
 /* update ghost state */
 			if (ch->last_death_time != -1

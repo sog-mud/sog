@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.133 1999-04-20 05:18:36 kostik Exp $
+ * $Id: interp.c,v 1.134 1999-05-06 10:55:18 kostik Exp $
  */
 
 /***************************************************************************
@@ -363,7 +363,6 @@ cmd_t cmd_table[] =
     { "thumbling",	do_thumbling,	POS_FIGHTING,	 0,  LOG_NORMAL, CMD_KEEP_HIDE },
     { "forest",		do_forest,	POS_FIGHTING,	 0,  LOG_NORMAL },
     { "shield",		do_shield,	POS_FIGHTING,	 0,  LOG_NORMAL	},
-    { "spellbane",      do_spellbane,   POS_FIGHTING,    0,  LOG_NORMAL	},
     { "strangle",       do_strangle,    POS_STANDING,    0,  LOG_NORMAL },
     { "surrender",	do_surrender,	POS_FIGHTING,    0,  LOG_NORMAL	},
     { "tame",           do_tame,        POS_FIGHTING,    0,  LOG_NORMAL	},

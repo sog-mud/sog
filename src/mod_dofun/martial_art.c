@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.86 1999-04-23 12:02:25 kostik Exp $
+ * $Id: martial_art.c,v 1.87 1999-05-06 10:55:29 kostik Exp $
  */
 
 /***************************************************************************
@@ -1819,8 +1819,8 @@ void do_bloodthirst(CHAR_DATA *ch, const char *argument)
 		check_improve(ch, gsn_bloodthirst, FALSE, 2);
 	}
 }
-
-
+/* Spellbane - autoskill now */
+#if 0
 void do_spellbane(CHAR_DATA *ch, const char *argument)
 {
 	AFFECT_DATA af;
@@ -1851,7 +1851,7 @@ void do_spellbane(CHAR_DATA *ch, const char *argument)
 	act("$n fills the air with $s hatred of magic.",
 	    ch, NULL, NULL, TO_ROOM);
 }
-
+#endif
 void do_resistance(CHAR_DATA *ch, const char *argument)
 {
 	int chance;

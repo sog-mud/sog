@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.142 1999-04-16 15:52:17 fjoe Exp $
+ * $Id: spellfun.c,v 1.143 1999-05-06 10:55:22 kostik Exp $
  */
 
 /***************************************************************************
@@ -91,7 +91,7 @@ bool check_trust(CHAR_DATA *ch, CHAR_DATA *victim)
  */
 bool spellbane(CHAR_DATA *bch, CHAR_DATA *ch, int bane_chance, int bane_damage)
 {
-	if (is_affected(bch, gsn_spellbane)
+	if (HAS_SKILL(bch, gsn_spellbane)
 	&&  number_percent() < bane_chance) {
 		if (ch == bch) {
 	        	act_puts("Your spellbane deflects the spell!",
