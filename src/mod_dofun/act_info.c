@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.354 2000-10-09 19:16:04 fjoe Exp $
+ * $Id: act_info.c,v 1.355 2000-10-13 09:39:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2869,6 +2869,11 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 		buf_free(output);
 		return;
 	}
+
+	if (!IS_AWAKE(ch)) {
+		act_char("In your dreams, or what?", ch);
+		return;
+	}	
 
 	if (pc->practice <= 0) {
 		act_char("You have no practice sessions left.", ch);
