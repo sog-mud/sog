@@ -4178,7 +4178,7 @@ may be done without warning, notice, or even evidence of sanity.
 без всякого предупреждения, и даже без всякого основания.
 ~
 0 LAWS LAW ~
-@eng The laws of the land that shall be enforced by the Enforcer Clan are as
+@eng The laws of the land that shall be enforced by the Enforcers Clan are as
 follows :
  
     The areas that are defined as protected by the jurisdiction of the Law
@@ -4197,26 +4197,26 @@ are the entirety of Midgaard, New Thalos, Valley of Titans and  New Ofcol.
    Aggressive mobs may not be summoned/brought into any protected area.
 								       
 3. Aiding known criminals in any way by directly giving them equipment,
-   helping them to elude punishment, to kill Enforcer guards, etc.
+   helping them to elude punishment, to kill Enforcers guards, etc.
    will result in a WANTED flag.
 								       
-4. Intrusion into the Enforcer Clan is considered illegal and an attack upon
+4. Intrusion into the Enforcers Clan is considered illegal and an attack upon
    the laws themselves.  
 
 5. A dispersal that teleports the victim from a protected area directly into
    the room of an aggressive mob that causes their death is considered a
    player kill and will result in a WANTED flag on the caster.
 
-6. Garbling Ruler members is against the law, as well as any other offensive
+6. Garbling Enforcers members is against the law, as well as any other offensive
    act against them, including: dispersal, mob summoning, setting traps,
    stealing equipment and inventory.
 
 7. Criminals are outlaw. You can attack criminal in protected area.
 
- Enforcement of these laws will be carried out by Enforcer members. Midgaard,
+ Enforcement of these laws will be carried out by Enforcers members. Midgaard,
 New Thalos, Valley of Titans and New Ofcol are defined by the 'where protector'
 command. Old midgaard is not a holy town.
-@rus Законы, за выполнением которых должен следить клан Enforcer:
+@rus Законы, за выполнением которых должен следить клан Enforcers:
  
 Области в которых действует Закон - Midgaard, New Thalos, Valley of Titans
 и New Ofcol.
@@ -4234,7 +4234,7 @@ command. Old midgaard is not a holy town.
 3. Запрещено помогать криминальному элементу, давать ему вещи, помогать
 избежать наказания, убивать стражников охотящихся за ним.
  
-4. Вторжение в Клан Enforcer запрещено и рассматривается как нарушение закона.
+4. Вторжение в Клан Enforcers запрещено и рассматривается как нарушение закона.
  
 5. Перенос с помощью заклинаний группы transportations жертвы из защищенной
 области непосредственно в комнату с агрессивными мобами, который приведет к
@@ -4253,7 +4253,7 @@ command. Old midgaard is not a holy town.
 @eng Syntax: {cwanted{x <player>
  
 This is clan skill of Enforcers that mark a player as a criminal or removes this
-mark. Enforcer commoner can remove wanted status only if he set it. Leaders and
+mark. Enforcers commoner can remove wanted status only if he set it. Leaders and
 secondaries can always remove wanted status.
 
 Wanted players are denied from the shops, suffer attacks of cityguards. If
@@ -4309,11 +4309,11 @@ offensive spell which can only be used in locations where you can also camo.
 0 PHILOSOPHY ~
 Here is a general philosophy of each of the known clans.
 
-Enforcer:  The enforcement of the laws above all.  The world exists in two
+Enforcers:  The enforcement of the laws above all.  The world exists in two
 	halves: right and wrong.  The law comes first in all respects.
 	They control and decide what is lawful or not.  Their word is law.
 
-BattleRager:  BattleRagers live for combat, and look down on those who need    
+BattleRagers: BattleRagers live for combat, and look down on those who need    
 	      magic to survive.  They have a strong aversion to mage magic,
 	      and are very wary of clerical magic.
 
@@ -4322,7 +4322,7 @@ Chaos:    Chaos wants to spread chaos throughout the land.  Not necessarily
 	  rules hamper freedom, and will go out of their way to see them
 	  broken, or to cause chaos.
 
-Knight:   Honor is valued above all else.  These fighting warriors seek to
+Knights:  Honor is valued above all else.  These fighting warriors seek to
 	  right injustices and correct wrongs.  They follow the ideals of
 	  the paladin. 
 
@@ -4331,11 +4331,11 @@ Shalafi:  In Dark-Elf language, it means 'Master'. Discipline brings power.
           of the Art is their motivation.  They look down on physical combat, 
           preferring to use their magic.
 
-Invader:  Invader is born to invade or massacre.  Establishment of its power 
+Invaders: Invader is born to invade or massacre.  Establishment of its power 
           over all is its goal.  Invader, in short, wants to control the world, 
           but would never do so openly.
 
-Hunter:   Mercenary of Shades of Gray. These pupils  kill any mobile and player
+Hunters:  Mercenary of Shades of Gray. These pupils  kill any mobile and player
 	  with the money that they will want. You may hire any of hunter
 	  for above purpose.
 
@@ -4940,7 +4940,7 @@ chaos blade -- spell - создает мечик который в бою кастит confuse, garble...
 randomizer -- spell - делает в комнате по-настоящему рандомные выходы.
 disperse -- spell - телепортит всех кого может из комнаты.
  
-Invader:
+Invaders:
 evil spirit -- spell - вешает на комнату и людей в ней аффект 'can't quit'.
 nightwalker -- spell - делает моба.
 eyes of intrigue -- spell - делает look в комнате любого player'а.
@@ -4949,7 +4949,7 @@ shadow cloak -- spell - affects AC by -(caster's level).
 nightfall -- spell - гасит лампочки в комнате.
 shadowlife -- spell - делается моб тоакой же (почти) как victim и кидается на него.
  
-Enforcer:
+Enforcers:
 enforcer aura -- spell - make victim immune to charm.
 wanted -- comm  - ставит/снимает флажок wanted с любого игрока.
 judge -- comm  - говорит ethos и align любого игрока.
@@ -4969,7 +4969,7 @@ brew -- spell - из ITEM_TRASH, ITEM_TREASURE и ITEM_KEY делает potions с всякими
 mastering spell -- skill - от +1 до +4 левел к спеллам.
 scourge -- spell - наносит огневой дамадж и пытается повесить posion, blind и weaken..
  
-Hunter:
+Hunters:
 hunt -- skill - самый настоящий hunt.
 find object -- spell - locate object.
 path find -- skill - как-то влияет на endur -- а это - на saves vs spell.
@@ -4978,7 +4978,7 @@ world find -- skill - нужен для hunt'а.
 "armor use"     -- skill - перманентный affect на AC = -level/2 
 take revenge -- spell - телепортит к трупу (после недавней смерти).
  
-Knight:
+Knights:
 golden aura -- spell - немного лучше protectiom evil.
 dragonplate -- spell - делает какую-то шмотку.
 squire -- spell - делает моба.
@@ -5447,7 +5447,7 @@ See "help 'OLC FORMS INTRO"' for more info.
  
 ~
 0 'CLAN KNIGHT' KNIGHT~
-@eng ..Deep chaos fell on the World. Seven Cabals had come to being. Chaos, Terror 
+@eng ..Deep chaos fell on the World. Seven Clans had come to being. Chaos, Terror 
 and Disorder had been fighting with Law, Order, and Justice. The seventh one, 
 somewhat called Equilibrium, obeyed neither the Law, nor the Chaos...
  

@@ -232,7 +232,7 @@ D3
 Z -1 95401
 S
 #95401
-@eng The entrance to the Caven of Battlerager@rus Вход в клан Battlerager~
+@eng The entrance to the Caven of Battleragers@rus Вход в клан Battleragers~
 @eng You see some sort of light coming thru the west, making the inside of
 the caven more noticable. You see lots of weapon and blood tracks on the
 wall. There are several bones on the ground. You notice that the huge man
@@ -301,7 +301,7 @@ S
 writing on the floor.
       "Every battlerager is your brother."
 Then you change your mind, and want to put some good clothing and weapon
-here for all other cabal members to strengthen themselves, and to destroy
+here for all other clan members to strengthen themselves, and to destroy
 magicians.
 @rus На полу лежит множество обмундирования и оружия.  Вы видите надпись:
 "Каждый battlerager твой брат."  У вас появляется желание оставить несколько
@@ -323,7 +323,7 @@ to the north you see the shrine of battleragers, to the west you see the a
 Gordall's weapon house, to the very south you see the donation room.
 @rus На полу лежит множество костей.  Вы понимаете, что именно здесь мастера
 боевых искусств повышают свое мастерство.  На востоке (east) вы также видите
-множество костей, на севере (north) расположена святыня клана Battlerager,
+множество костей, на севере (north) расположена святыня клана Battleragers,
 на западе (west) - оружейный магазин мастера Гордалла, далеко на юге (south)
 находится комната для пожертвований.  
 ~
@@ -381,7 +381,7 @@ D1
 Z -1 95405
 S
 #95408
-@eng The Shrine of Battleragers@rus Святыня клана Battlerager~
+@eng The Shrine of Battleragers@rus Святыня клана Battleragers~
 @eng You are in front of a large white throne made from bones. There are
 shelves line the walls, upon them there are many jars inside of which are
 blood and heads of magicians. 
@@ -447,7 +447,7 @@ S
 #0
 
 #RESETS
-M 0 95400 1 95401 1	* the Powerman (The entrance to the Caven of Battlerager)
+M 0 95400 1 95401 1	* the Powerman (The entrance to the Caven of Battleragers)
 E 0 95400 0 17		*	a bone key: held in the hands
 O 0 95403 0 95404	* the pit for donations (The donation room)
 M 0 95401 1 95407 1	* Gordall (Gordall's Weapon House)

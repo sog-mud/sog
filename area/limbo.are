@@ -1208,8 +1208,8 @@ F A 0 0 F
 G male
 #71
 buckler enforcer shield~
-@eng Enforcers' Buckler@rus ~~круглый~~ ~~щит~~ блюстителя порядка~
-@eng A buckler of a Enforcer is on the ground.@rus Круглый щит (shield) с гербом клана Enforcer лежит на земле.~
+@eng Enforcer's Buckler@rus ~~круглый~~ ~~щит~~ блюстителя порядка~
+@eng A buckler of Enforcer is on the ground.@rus Круглый щит (shield) с гербом клана Enforcers лежит на земле.~
 steel~
 armor GIRYZ AJ
 8 8 8 3 0
@@ -1217,8 +1217,8 @@ armor GIRYZ AJ
 G male
 #72
 great enforcer shield щит~
-@eng Enforcers' Great Shield@rus ~~большой~~ ~~щит~~ блюстителя порядка~
-@eng There is a Great Enforcer Shield on the ground.@rus Большой щит (shield) с гербом клана Enforcer лежит на земле.~
+@eng Enforcer's Great Shield@rus ~~большой~~ ~~щит~~ блюстителя порядка~
+@eng There is a Great Enforcer's Shield on the ground.@rus Большой щит (shield) с гербом клана Enforcers лежит на земле.~
 steel~
 armor GIRYZ AJ
 20 20 20 10 0
@@ -1226,7 +1226,7 @@ armor GIRYZ AJ
 G male
 #73
 kite enforcer shield щит~
-Enforcers' Kite Shield~
+Enforcer's Kite Shield~
 You see a large Kite Shield of Enforcer on the ground.~
 steel~
 armor GIRYZ AJ
@@ -1241,8 +1241,8 @@ A
 G none
 #74
 tower enforcer shield щит~
-@eng Enforcers' Tower Shield@rus ~~огромный~~ ~~щит~~ блюстителя порядка~
-@eng A very big shield with a symbol of Enforcer covers the ground.@rus ОГРОМНЫЙ щит (shield) с гербом клана Enforcer лежит на земле.~
+@eng Enforcer's Tower Shield@rus ~~огромный~~ ~~щит~~ блюстителя порядка~
+@eng A very big shield with a symbol of Enforcers covers the ground.@rus ОГРОМНЫЙ щит (shield) с гербом клана Enforcers лежит на земле.~
 steel~
 armor GIRYZ AJ
 30 30 30 20 0
@@ -1714,10 +1714,10 @@ O 64 fight_prog fight_prog_tattoo_lessa	* `tattoo of Lessa, Goddess of Magic'
 O 65 fight_prog fight_prog_tattoo_vilirna	* `tattoo of Vilirna, Goddess of Life'
 O 66 fight_prog fight_prog_tattoo_calamir	* `tattoo of Calamir, God of Delusion'
 O 67 fight_prog fight_prog_tattoo_cariel	* `tattoo of Cariel, Goddess of Revival'
-O 71 wear_prog wear_prog_enforcer_shield	* `Enforcers' Buckler'
-O 72 wear_prog wear_prog_enforcer_shield	* `Enforcers' Great Shield'
-O 73 wear_prog wear_prog_enforcer_shield	* `Enforcers' Kite Shield'
-O 74 wear_prog wear_prog_enforcer_shield	* `Enforcers' Tower Shield'
+O 71 wear_prog wear_prog_enforcer_shield	* `Enforcer's Buckler'
+O 72 wear_prog wear_prog_enforcer_shield	* `Enforcer's Great Shield'
+O 73 wear_prog wear_prog_enforcer_shield	* `Enforcer's Kite Shield'
+O 74 wear_prog wear_prog_enforcer_shield	* `Enforcer's Tower Shield'
 O 80 fight_prog fight_prog_golden_weapon	* `a golden dagger'
 O 80 death_prog death_prog_golden_weapon	* `a golden dagger'
 O 81 fight_prog fight_prog_golden_weapon	* `a golden mace'

@@ -12,7 +12,7 @@ End
 #95700
 guardian keeper hunter~
 @eng the guardian@rus страж~
-@eng The guardian of Hunter Palace is here, serving his cabal.
+@eng The guardian of Hunters Palace is here, serving his clan.
 @rus Страж (guardian) дворца охотников стоит здесь, охраняя клан от вторжения.
 ~
 @eng After joining so many safaris, the guardian know implements what he
@@ -30,7 +30,7 @@ stand stand male 5000
 F aff c
 F res C
 #95701
-cleric neutral cabal hunter~
+cleric neutral hunter~
 @eng the cleric@rus лекарь~
 @eng The true neutral cleric is healing his brothers.
 @rus Настоящий нейтральный лекарь (cleric) лечит здесь своих братьев.
@@ -52,7 +52,7 @@ C Hunters~
 #95702
 guardian keeper hunter~
 @eng the guardian@rus страж~
-@eng The guardian of Hunter Palace is here, serving his cabal.
+@eng The guardian of Hunters Palace is here, serving his clan.
 @rus Страж (guardian) дворца охотников стоит здесь, охраняя клан от вторжения.
 ~
 @eng After joining so many safaris, the guardian know implements what he

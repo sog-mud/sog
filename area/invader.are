@@ -12,12 +12,12 @@ End
 #95600
 keeper guardian invader~
 @eng the invader guardian@rus ~~страж~~ инвайдеров~
-@eng The invader guardian is here, serving his cabal.
-@rus Страж инвайдеров стоит здесь (guardian), защищая свою кабалу.
+@eng The invader guardian is here, serving his clan.
+@rus Страж инвайдеров стоит здесь (guardian), защищая свой клан.
 ~
-@eng This strong serves as the guardian of the Invader Cabal. His mission is
+@eng This strong serves as the guardian of the Invader Clan. His mission is
 to destroy anyone who dares to penatrate into the chamber.
-@rus Это страж {DКабалы Инвайдеров{x.  Его задача - уничтожить любого, кто
+@rus Это страж {DКлана Инвайдеров{x.  Его задача - уничтожить любого, кто
 попытается проникнуть сюда.  
 ~
 human~
@@ -32,19 +32,19 @@ M exall 95603 0~
 M fight 95605 30~
 C Invaders~
 #95601
-cleric cabal invader~
+cleric invader~
 @eng the evil cleric@rus ~~жрец~~ Зла~
 @eng The dark cleric is healing and refreshing his invader brothers.
 @rus Темный монах (cleric) стоит у входа, готовый помочь своим братьям.
 ~
 @eng This cleric is one most powerful clerics in this realms. He saw all the
 lands being raided. In spite of his old age, he stills serves for his
-cabal. In his way, now he's using his powers to heal and refresh his cabal
+clan. In his way, now he's using his powers to heal and refresh his clan
 mates, waiting the day when he is going to have the chance to invade the
 whole Shades of Gray as in the history.
 @rus Этот монах - один из сильнейших в ремесле лекаря.  Он многое повидал
 путешествуя по миру.  Несмотря на свой преклонный возраст он весьма полезен
-кабале.  Его задача - используя свои знания и мощь лечить братьев, ожидая
+клану.  Его задача - используя свои знания и мощь лечить братьев, ожидая
 того дня, когда весь этот мир склонится перед Инвайдерами.  
 ~
 human~
@@ -428,7 +428,7 @@ DZ -1 95607
 S
 #95609
 @eng The Battle Field@rus Арена~
-@eng Most probably you fled here, if you are not a cabal member of INVADERS.
+@eng Most probably you fled here, if you are not a clan member of INVADERS.
 Thus the darkness of the room horrifies you. While waiting the time
 that your adrenalin will calm down, you want to rest. But you know that
 this place is NOT the safe place to rest. Because it is Battle Field of

@@ -15,9 +15,9 @@ enforcer guard~
 @eng The enforcer is waiting here protecting the enterance.
 @rus Блюститель порядка (enforcer) охраняет вход.
 ~
-@eng He is trained specially to guard and serve the Enforcer Council. Due to the
+@eng He is trained specially to guard and serve the Enforcers Council. Due to the
 decades of devotion and training, he is almost perfect at many skills.
-@rus Он несет свою службу, охраняя клан Enforcer от вторжения. За десятилетия 
+@rus Он несет свою службу, охраняя клан Enforcers от вторжения. За десятилетия 
 службы он отточил свои умения до совершенства.
 ~
 human~
@@ -31,12 +31,12 @@ M grall 95100 100~
 M exall 95101 0~
 C Enforcers~
 #95101
-healer cabal enforcer~
+healer enforcer~
 @eng a healer@rus лекарь~
 @eng The healer with his white robe heals and protects his Enforcers.
 @rus Лекарь в белом халате (healer) лечит и защищает членов своего клана.
 ~
-@eng He is an old, wise cleric serving the Enforcer Council, and praying his
+@eng He is an old, wise cleric serving the Enforcers Council, and praying his
 gods for the balance on Shades of Gray.
 @rus Старый, умудренный жизнью клерик служит делу Закона и молит богов о порядке
 в этом мире.
@@ -115,7 +115,7 @@ G none
 
 #ROOMS
 #95100
-@eng The Enterance@rus Вход в клан Enforcer~
+@eng The Enterance@rus Вход в клан Enforcers~
 @eng   You are in a large hallyway. The walls are decorated with beautiful
 carvings, bright armors and ceramonial shields. On the ceiling you read
 "In the guiding of the enforcers, there is not a problem not to be solved."
