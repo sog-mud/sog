@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cmd.h,v 1.25 2003-10-10 16:14:09 fjoe Exp $
+ * $Id: cmd.h,v 1.26 2004-02-22 14:20:14 fjoe Exp $
  */
 
 #ifndef _CMD_H_
@@ -39,13 +39,14 @@
 /*
  * cmd flags
  */
-#define	CMD_KEEP_HIDE		(A)
-#define CMD_NOORDER		(B)
-#define CMD_CHARMED_OK		(C)
-#define CMD_HIDDEN		(D)
-#define CMD_DISABLED		(E)
-#define CMD_FROZEN_OK		(F)
-#define CMD_STRICT_MATCH	(G)
+#define	CMD_KEEP_HIDE		(A)	/* doesn't strip hidden */
+#define CMD_NOORDER		(B)	/* can't be ordered */
+#define CMD_HARMLESS		(C)	/* ok when charmed or wait > 0 */
+					/* + doesn't strip hidden state */
+#define CMD_HIDDEN		(D)	/* is not show in commands list */
+#define CMD_DISABLED		(E)	/* disabled */
+#define CMD_FROZEN_OK		(F)	/* ok when frozen */
+#define CMD_STRICT_MATCH	(G)	/* can't be matched by prefix */
 
 /*
  * Structure for a command in the command lookup table.

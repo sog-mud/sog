@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.203 2004-02-21 20:03:47 fjoe Exp $
+ * $Id: tables.c,v 1.204 2004-02-22 14:20:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1185,7 +1185,8 @@ flaginfo_t cmd_flags[] =
 
 	{ "keep_hide",		CMD_KEEP_HIDE,		TRUE	},
 	{ "noorder",		CMD_NOORDER,		TRUE	},
-	{ "charmed_ok",		CMD_CHARMED_OK,		TRUE	},
+	{ "harmless",		CMD_HARMLESS,		TRUE	},
+	{ "charmed_ok",		CMD_HARMLESS,		FALSE	},
 	{ "hidden",		CMD_HIDDEN,		TRUE	},
 	{ "disabled",		CMD_DISABLED,		TRUE	},
 	{ "frozen_ok",		CMD_FROZEN_OK,		TRUE	},

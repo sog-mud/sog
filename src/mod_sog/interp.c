@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.202 2003-09-30 00:31:29 fjoe Exp $
+ * $Id: interp.c,v 1.203 2004-02-22 14:20:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -201,7 +201,8 @@ interpret(CHAR_DATA *ch, const char *argument, bool is_order)
 			found = TRUE;
 
 			min_pos = soc->min_pos;
-			cmd_flg = 0;
+			/* socials are harmless unless ch is charmed */
+			cmd_flg = IS_AFFECTED(ch, AFF_CHARM) ? 0 : CMD_HARMLESS;
 			cmd_log = LOG_NORMAL;
 			cmd_name = soc->name;
 			cmd_level = 0;
@@ -235,7 +236,7 @@ interpret(CHAR_DATA *ch, const char *argument, bool is_order)
 		||  cmd_level >= LEVEL_IMMORTAL)
 			return;
 	} else if (IS_AFFECTED(ch, AFF_CHARM)
-	       &&  !IS_SET(cmd_flg, CMD_CHARMED_OK)
+	       &&  !IS_SET(cmd_flg, CMD_HARMLESS)
 	       &&  ch->master != NULL
 	       &&  cmd_level < LEVEL_IMMORTAL
 	       &&  !IS_IMMORTAL(ch)) {
@@ -245,10 +246,13 @@ interpret(CHAR_DATA *ch, const char *argument, bool is_order)
 	}
 
 	if (IS_AFFECTED(ch, AFF_STUN)
-	&&  !IS_SET(cmd_flg, CMD_KEEP_HIDE)) {
+	&&  !IS_SET(cmd_flg, CMD_HARMLESS)) {
 		act_char("You are STUNNED to do that.", ch);
 		return;
 	}
+
+	if (!IS_NPC(ch) && ch->wait > 0 && !IS_SET(cmd_flg, CMD_HARMLESS))
+		return;
 
 	if (IS_SET(cmd_flg, CMD_STRICT_MATCH)
 	&&  !!str_cmp(command, cmd_name)) {
@@ -270,7 +274,8 @@ interpret(CHAR_DATA *ch, const char *argument, bool is_order)
 	if (!IS_NPC(ch)) {
 		/* Come out of hiding for most commands */
 		if (HAS_INVIS(ch, ID_HIDDEN | ID_FADE)
-		&&  !IS_SET(cmd_flg, CMD_KEEP_HIDE)) {
+		&&  !IS_SET(cmd_flg, CMD_HARMLESS | CMD_KEEP_HIDE)
+		&&  cmd_level < LEVEL_IMMORTAL) {
 			REMOVE_INVIS(ch, ID_HIDDEN | ID_FADE);
 			act_puts("You step out of shadows.",
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);

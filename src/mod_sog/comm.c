@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm.c,v 1.25 2004-02-19 23:58:23 fjoe Exp $
+ * $Id: comm.c,v 1.26 2004-02-22 14:20:15 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -736,16 +736,6 @@ RUNGAME_FUN(_run_game_bottom, in_set, out_set, exc_set)
 			}
 		}
 
-		if (d->character != NULL) {
-			if (d->character->daze > 0)
-				--d->character->daze;
-
-			if (d->character->wait > 0) {
-				--d->character->wait;
-				continue;
-			}
-		}
-
 		read_from_buffer(d);
 		if (d->connected != CON_RESOLV && d->incomm[0] != '\0') {
 			d->fcommand = TRUE;
@@ -764,6 +754,14 @@ RUNGAME_FUN(_run_game_bottom, in_set, out_set, exc_set)
 			else
 				nanny(d, d->incomm);
 			d->incomm[0] = '\0';
+		}
+
+		if (d->character != NULL) {
+			if (d->character->daze > 0)
+				--d->character->daze;
+
+			if (d->character->wait > 0)
+				--d->character->wait;
 		}
 	}
 	iter_destroy(descriptor_iter);
