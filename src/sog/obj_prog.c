@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.66.2.30 2004-06-10 09:20:16 tatyana Exp $
+ * $Id: obj_prog.c,v 1.66.2.31 2004-06-10 18:26:42 sg Exp $
  */
 
 /***************************************************************************
@@ -1654,6 +1654,8 @@ int wear_prog_katana_sword(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 			obj->value[2] = 10;
 		else if (LEVEL(ch) > 70 && LEVEL(ch) <= 75)
 			obj->value[2] = 11;
+		else if (LEVEL(ch) > 75 && LEVEL(ch) <= 80)
+			obj->value[2] = 12;
 		else if (LEVEL(ch) > 80 && LEVEL(ch) <= 85)
 			obj->value[2] = 13;
 		else if (LEVEL(ch) > 85 && LEVEL(ch) <= 90)
