@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: dynafun_decl.h,v 1.4 2000-06-05 12:06:16 fjoe Exp $
+ * $Id: dynafun_decl.h,v 1.5 2000-06-08 18:09:12 fjoe Exp $
  */
 
 /* no #ifdef _XXX_H_/#define _XXX_H_/#endif */
@@ -58,9 +58,6 @@
 #include "dynafun.h"
 #include "module_decl.h"
 
-#undef __tag
-#define __tag(name) name##_tag
-
 #if (MODULE_INIT == MODULE_NAME)
 #	undef __mod_tab_name
 #	define __mod_tab_name(name) __mod_tab_##name
@@ -75,42 +72,6 @@
 #	undef __MODULE_END_DECL
 #	define __MODULE_END_DECL	{ NULL } };
 
-#	undef void_tag
-#	define void_tag MT_VOID
-
-#	undef int_tag
-#	define int_tag	MT_INT
-
-#	undef bool_tag
-#	define bool_tag MT_INT
-
-#	undef cchar_t_tag
-#	define cchar_t_tag MT_STR
-
-#	undef va_list_tag
-#	define va_list_tag MT_VA_LIST
-
-#	undef CHAR_DATA_tag
-#	define CHAR_DATA_tag MT_CHAR
-
-#	undef OBJ_DATA_tag
-#	define OBJ_DATA_tag MT_OBJ
-
-#	undef AFFECT_DATA_tag
-#	define AFFECT_DATA_tag MT_AFFECT
-
-#	undef BUFFER_tag
-#	define BUFFER_tag MT_BUFFER
-
-#	undef OBJ_INDEX_DATA_tag
-#	define OBJ_INDEX_DATA_tag MT_OBJ_INDEX
-
-#	undef MOB_INDEX_DATA_tag
-#	define MOB_INDEX_DATA_tag MT_MOB_INDEX
-
-#	undef ROOM_INDEX_DATA_tag
-#	define ROOM_INDEX_DATA_tag MT_ROOM
-
 #else
 
 #	undef __MODULE_START_DECL
@@ -119,43 +80,85 @@
 #	undef __MODULE_END_DECL
 #	define __MODULE_END_DECL
 
-#	undef void_tag
-#	define void_tag void *
-
-#	undef int_tag
-#	define int_tag	int
-
-#	undef bool_tag
-#	define bool_tag bool
-
-#	undef cchar_t_tag
-#	define cchar_t_tag cchar_t
-
-#	undef va_list_tag
-#	define va_list_tag va_list
-
-#	undef CHAR_DATA_tag
-#	define CHAR_DATA_tag CHAR_DATA *
-
-#	undef OBJ_DATA_tag
-#	define OBJ_DATA_tag OBJ_DATA *
-
-#	undef AFFECT_DATA_tag
-#	define AFFECT_DATA_tag AFFECT_DATA *
-
-#	undef BUFFER_tag
-#	define BUFFER_tag BUFFER *
-
-#	undef OBJ_INDEX_DATA_tag
-#	define OBJ_INDEX_DATA_tag OBJ_INDEX_DATA *
-
-#	undef MOB_INDEX_DATA_tag
-#	define MOB_INDEX_DATA_tag MOB_INDEX_DATA *
-
-#	undef ROOM_INDEX_DATA_tag
-#	define ROOM_INDEX_DATA_tag ROOM_INDEX_DATA *
-
 #endif	/* MODULE_INIT */
+
+#undef __tag
+#define __tag(name) name##_tag
+
+#undef __tag_t
+#define __tag_t(name) name##_tag_t
+
+#undef void_tag
+#define void_tag MT_VOID
+
+#undef void_tag_t
+#define void_tag_t void *
+
+#undef int_tag
+#define int_tag	MT_INT
+
+#undef int_tag_t
+#define int_tag_t	int
+
+#undef bool_tag
+#define bool_tag MT_INT
+
+#undef bool_tag_t
+#define bool_tag_t bool
+
+#undef cchar_t_tag
+#define cchar_t_tag MT_STR
+
+#undef cchar_t_tag_t
+#define cchar_t_tag_t cchar_t
+
+#undef va_list_tag
+#define va_list_tag MT_VA_LIST
+
+#undef va_list_tag_t
+#define va_list_tag_t va_list
+
+#undef CHAR_DATA_tag
+#define CHAR_DATA_tag MT_CHAR
+
+#undef CHAR_DATA_tag_t
+#define CHAR_DATA_tag_t CHAR_DATA *
+
+#undef OBJ_DATA_tag
+#define OBJ_DATA_tag MT_OBJ
+
+#undef OBJ_DATA_tag_t
+#define OBJ_DATA_tag_t OBJ_DATA *
+
+#undef AFFECT_DATA_tag
+#define AFFECT_DATA_tag MT_AFFECT
+
+#undef AFFECT_DATA_tag_t
+#define AFFECT_DATA_tag_t AFFECT_DATA *
+
+#undef BUFFER_tag
+#define BUFFER_tag MT_BUFFER
+
+#undef BUFFER_tag_t
+#define BUFFER_tag_t BUFFER *
+
+#undef OBJ_INDEX_DATA_tag
+#define OBJ_INDEX_DATA_tag MT_OBJ_INDEX
+
+#undef OBJ_INDEX_DATA_tag_t
+#define OBJ_INDEX_DATA_tag_t OBJ_INDEX_DATA *
+
+#undef MOB_INDEX_DATA_tag
+#define MOB_INDEX_DATA_tag MT_MOB_INDEX
+
+#undef MOB_INDEX_DATA_tag_t
+#define MOB_INDEX_DATA_tag_t MOB_INDEX_DATA *
+
+#undef ROOM_INDEX_DATA_tag
+#define ROOM_INDEX_DATA_tag MT_ROOM
+
+#undef ROOM_INDEX_DATA_tag_t
+#define ROOM_INDEX_DATA_tag_t ROOM_INDEX_DATA *
 
 #if (MODULE_INIT == MODULE_NAME)
 
@@ -219,31 +222,31 @@
 
 #	undef DECLARE_FUN0
 #	define DECLARE_FUN0(ret, name)	\
-	__tag(ret) name(void);
+	__tag_t(ret) name(void);
 
 #	undef DECLARE_FUN1
 #	define DECLARE_FUN1(ret, name, a1, n1)	\
-	__tag(ret) name(__tag(a1));
+	__tag_t(ret) name(__tag_t(a1));
 
 #	undef DECLARE_FUN2
 #	define DECLARE_FUN2(ret, name, a1, n1, a2, n2)	\
-	__tag(ret) name(__tag(a1), __tag(a2));
+	__tag_t(ret) name(__tag_t(a1), __tag_t(a2));
 
 #	undef DECLARE_FUN3
 #	define DECLARE_FUN3(ret, name, a1, n1, a2, n2, a3, n3)	\
-	__tag(ret) name(__tag(a1), __tag(a2), __tag(a3));
+	__tag_t(ret) name(__tag_t(a1), __tag_t(a2), __tag_t(a3));
 
 #	undef DECLARE_FUN4
 #	define DECLARE_FUN4(ret, name, a1, n1, a2, n2, a3, n3, a4, n4)	\
-	__tag(ret) name(__tag(a1), __tag(a2), __tag(a3), __tag(a4));
+	__tag_t(ret) name(__tag_t(a1), __tag_t(a2), __tag_t(a3), __tag_t(a4));
 
 #	undef DECLARE_FUN5
 #	define DECLARE_FUN5(ret, name, a1, n1, a2, n2, a3, n3, a4, n4, a5, n5)	\
-	__tag(ret) name(__tag(a1), __tag(a2), __tag(a3), __tag(a4), __tag(a5));
+	__tag_t(ret) name(__tag_t(a1), __tag_t(a2), __tag_t(a3), __tag_t(a4), __tag_t(a5));
 
 #	undef DECLARE_FUN6
 #	define DECLARE_FUN6(ret, name, a1, n1, a2, n2, a3, n3, a4, n4, a5, n5, a6, n6)	\
-	__tag(ret) name(__tag(a1), __tag(a2), __tag(a3), __tag(a4), __tag(a5), __tag(a6));
+	__tag_t(ret) name(__tag_t(a1), __tag_t(a2), __tag_t(a3), __tag_t(a4), __tag_t(a5), __tag_t(a6));
 
 #else
 
@@ -253,83 +256,84 @@
 
 #	undef DECLARE_FUN0
 #	define DECLARE_FUN0(ret, name)					\
-		static inline __tag(ret)				\
+		static inline __tag_t(ret)				\
 		name(void)						\
 		{							\
-			__tag(ret) rv;					\
-			rv = (__tag(ret)) dynafun_call(#name, 0);	\
+			__tag_t(ret) rv;				\
+			rv = (__tag_t(ret)) dynafun_call(__tag(ret),	\
+				#name, 0);				\
 			return rv;					\
 		}
 
 #	undef DECLARE_FUN1
 #	define DECLARE_FUN1(ret, name, a1, n1)				\
-		static inline __tag(ret)				\
-		name(__tag(a1) n1)					\
+		static inline __tag_t(ret)				\
+		name(__tag_t(a1) n1)					\
 		{							\
-			__tag(ret) rv;					\
-			rv = (__tag(ret)) dynafun_call(#name, 1,	\
-						n1);			\
+			__tag_t(ret) rv;				\
+			rv = (__tag_t(ret)) dynafun_call(__tag(ret),	\
+				#name, 1, n1);				\
 			return rv;					\
 		}
 
 #	undef DECLARE_FUN2
 #	define DECLARE_FUN2(ret, name, a1, n1, a2, n2)			\
-		static inline __tag(ret)				\
-		name(__tag(a1) n1, __tag(a2) n2)			\
+		static inline __tag_t(ret)				\
+		name(__tag_t(a1) n1, __tag_t(a2) n2)			\
 		{							\
-			__tag(ret) rv;					\
-			rv = (__tag(ret)) dynafun_call(#name, 2,	\
-						n1, n2);		\
+			__tag_t(ret) rv;				\
+			rv = (__tag_t(ret)) dynafun_call(__tag(ret),	\
+				#name, 2, n1, n2);			\
 			return rv;					\
 		}
 
 #	undef DECLARE_FUN3
 #	define DECLARE_FUN3(ret, name, a1, n1, a2, n2, a3, n3)		\
-		static inline __tag(ret)				\
-		name(__tag(a1) n1, __tag(a2) n2, __tag(a3) n3)		\
+		static inline __tag_t(ret)				\
+		name(__tag_t(a1) n1, __tag_t(a2) n2, __tag_t(a3) n3)		\
 		{							\
-			__tag(ret) rv;					\
-			rv = (__tag(ret)) dynafun_call(#name, 3,	\
-						n1, n2, n3);		\
+			__tag_t(ret) rv;				\
+			rv = (__tag_t(ret)) dynafun_call(__tag(ret),	\
+				#name, 3, n1, n2, n3);			\
 			return rv;					\
 		}
 
 #	undef DECLARE_FUN4
 #	define DECLARE_FUN4(ret, name, a1, n1, a2, n2, a3, n3,		\
 				       a4, n4)				\
-		static inline __tag(ret)				\
-		name(__tag(a1) n1, __tag(a2) n2, __tag(a3) n3,		\
-		     __tag(a4) n4)					\
+		static inline __tag_t(ret)				\
+		name(__tag_t(a1) n1, __tag_t(a2) n2, __tag_t(a3) n3,	\
+		     __tag_t(a4) n4)					\
 		{							\
-			__tag(ret) rv;					\
-			rv = (__tag(ret)) dynafun_call(#name, 4,	\
-						n1, n2, n3, n4);	\
+			__tag_t(ret) rv;				\
+			rv = (__tag_t(ret)) dynafun_call(__tag(ret),	\
+				#name, 4, n1, n2, n3, n4);		\
 			return rv;					\
 		}
 
 #	undef DECLARE_FUN5
 #	define DECLARE_FUN5(ret, name, a1, n1, a2, n2, a3, n3,		\
 				       a4, n4, a5, n5)			\
-		static inline __tag(ret)				\
-		name(__tag(a1) n1, __tag(a2) n2, __tag(a3) n3,		\
-		     __tag(a4) n4, __tag(a5) n5)			\
+		static inline __tag_t(ret)				\
+		name(__tag_t(a1) n1, __tag_t(a2) n2, __tag_t(a3) n3,	\
+		     __tag_t(a4) n4, __tag_t(a5) n5)			\
 		{							\
-			__tag(ret) rv;					\
-			rv = (__tag(ret)) dynafun_call(#name, 5,	\
-						n1, n2, n3, n4, n5);	\
+			__tag_t(ret) rv;				\
+			rv = (__tag_t(ret)) dynafun_call(__tag(ret),	\
+				#name, 5, n1, n2, n3, n4, n5);		\
 			return rv;					\
 		}
 
 #	undef DECLARE_FUN6
 #	define DECLARE_FUN6(ret, name, a1, n1, a2, n2, a3, n3,		\
 				       a4, n4, a5, n5, a6, n6)		\
-		static inline __tag(ret)				\
-		name(__tag(a1) n1, __tag(a2) n2, __tag(a3) n3,		\
-		     __tag(a4) n4, __tag(a5) n5, __tag(a6) n6)		\
+		static inline __tag_t(ret)				\
+		name(__tag_t(a1) n1, __tag_t(a2) n2, __tag_t(a3) n3,	\
+		     __tag_t(a4) n4, __tag_t(a5) n5, __tag_t(a6) n6)	\
 		{							\
-			__tag(ret) rv;					\
-			rv = (__tag(ret)) dynafun_call(#name, 6,	\
-						n1, n2, n3, n4, n5, n6);\
+			__tag_t(ret) rv;				\
+			rv = (__tag_t(ret)) dynafun_call(__tag(ret),	\
+				#name, 6, n1, n2, n3, n4, n5, n6);	\
 			return rv;					\
 		}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.345 2000-06-07 08:55:26 fjoe Exp $
+ * $Id: act_info.c,v 1.346 2000-06-08 18:09:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1795,7 +1795,7 @@ void do_request(CHAR_DATA *ch, const char *argument)
 	}
 
 	if ((carry_w = can_carry_w(ch)) >= 0
-	&&  ch->carry_weight + get_obj_weight(obj) > carry_w) {
+	&&  get_carry_weight(ch) + get_obj_weight(obj) > carry_w) {
 		char_puts("You can't carry that much weight.\n", ch);
 		return;
 	}
@@ -3533,7 +3533,7 @@ void do_demand(CHAR_DATA *ch, const char *argument)
 	}
 
 	if ((carry_w = can_carry_w(ch)) >= 0
-	&&  ch->carry_weight + get_obj_weight(obj) > carry_w) {
+	&&  get_carry_weight(ch) + get_obj_weight(obj) > carry_w) {
 		char_puts("You can't carry that much weight.\n", ch);
 		return;
 	}

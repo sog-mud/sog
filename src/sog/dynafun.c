@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: dynafun.c,v 1.4 2000-06-07 08:55:55 fjoe Exp $
+ * $Id: dynafun.c,v 1.5 2000-06-08 18:09:23 fjoe Exp $
  */
 
 #include <stdlib.h>
@@ -110,7 +110,7 @@ init_dynafuns(void)
 }
 
 void *
-dynafun_call(cchar_t name, int nargs, ...)
+dynafun_call(int rv_tag, cchar_t name, int nargs, ...)
 {
 	dynafun_data_t *d;
 	dynafun_args_t args;
@@ -120,6 +120,13 @@ dynafun_call(cchar_t name, int nargs, ...)
 
 	if ((d = (dynafun_data_t *) hash_lookup(&dynafuns, name)) == NULL) {
 		log(LOG_BUG, "dynafun_call: %s: not found", name);
+		return NULL;
+	}
+
+	if (rv_tag != d->rv_tag) {
+		log(LOG_BUG, "dynafun_call: %s: rv type %d does not match "
+			     "requested rv type %d",
+		    d->name, d->rv_tag, rv_tag);
 		return NULL;
 	}
 
@@ -189,9 +196,6 @@ dynafun_call(cchar_t name, int nargs, ...)
 	}
 	va_end(ap);
 
-	/*
-	 * XXX should check rv type (?)
-	 */
 	return d->fun(args);
 }
 
@@ -217,7 +221,7 @@ dynafun_init(dynafun_data_t *d)
 	int i;
 
 	d->name = str_empty;
-	d->rv_type = MT_VOID;
+	d->rv_tag = MT_VOID;
 	d->nargs = 0;
 	for (i = 0; i < DYNAFUN_NARGS; i++)
 		d->argtype[i] = MT_VOID;
@@ -236,7 +240,7 @@ dynafun_cpy(dynafun_data_t *d1, const dynafun_data_t *d2)
 	free_string(d1->name);
 	d1->name = str_dup(d2->name);
 
-	d1->rv_type = d2->rv_type;
+	d1->rv_tag = d2->rv_tag;
 	d1->nargs = d2->nargs;
 	for (i = 0; i < DYNAFUN_NARGS; i++)
 		d1->argtype[i] = d2->argtype[i];

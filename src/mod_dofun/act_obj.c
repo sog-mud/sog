@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.212 2000-06-07 08:55:29 fjoe Exp $
+ * $Id: act_obj.c,v 1.213 2000-06-08 18:09:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -106,7 +106,8 @@ void do_get(CHAR_DATA * ch, const char *argument)
 	if (arg2[0] == '\0') {
 		if (str_cmp(arg1, "all") && str_prefix("all.", arg1)) {
 			/* 'get obj' */
-			obj = get_obj_list(ch, arg1, ch->in_room->contents);
+			obj = get_obj_list(ch, arg1,
+					   ch->in_room->contents, GETOBJ_F_ANY);
 			if (obj == NULL) {
 				act_puts("I see no $T here.",
 					 ch, NULL, arg1, TO_CHAR, POS_DEAD);
@@ -173,7 +174,7 @@ void do_get(CHAR_DATA * ch, const char *argument)
 	}
 	if (str_cmp(arg1, "all") && str_prefix("all.", arg1)) {
 		/* 'get obj container' */
-		obj = get_obj_list(ch, arg1, container->contains);
+		obj = get_obj_list(ch, arg1, container->contains, GETOBJ_F_ANY);
 		if (obj == NULL) {
 			act_puts("I see nothing like that in the $T.",
 				 ch, NULL, arg2, TO_CHAR, POS_DEAD);
@@ -658,7 +659,7 @@ void do_envenom(CHAR_DATA * ch, const char *argument)
 		char_puts("Envenom what item?\n", ch);
 		return;
 	}
-	obj = get_obj_list(ch, argument, ch->carrying);
+	obj = get_obj_list(ch, argument, ch->carrying, GETOBJ_F_ANY);
 
 	if (obj == NULL) {
 		char_puts("You don't have that item.\n", ch);
@@ -1399,7 +1400,7 @@ void do_sacrifice(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	obj = get_obj_list(ch, arg, ch->in_room->contents);
+	obj = get_obj_list(ch, arg, ch->in_room->contents, GETOBJ_F_ANY);
 	if (obj == NULL) {
 		char_puts("You can't find it.\n", ch);
 		return;
@@ -1811,20 +1812,33 @@ void do_steal(CHAR_DATA * ch, const char *argument)
 			char_puts("You couldn't get any coins.\n", ch);
 			return;
 		}
+
+		if ((carry_w = can_carry_w(ch)) >= 0
+		&&  get_carry_weight(ch) +
+		    COINS_WEIGHT(amount_g, amount_s) > carry_w) {
+			char_puts("You can't carry that weight.\n", ch);
+			return;
+		}
+
 		ch->gold += amount_g;
 		victim->gold -= amount_g;
+
 		ch->silver += amount_s;
 		victim->silver -= amount_s;
+
 		char_printf(ch, "Bingo!  You got %d %s coins.\n",
 			    amount_s != 0 ? amount_s : amount_g,
 			    amount_s != 0 ? "silver" : "gold");
 		check_improve(ch, "steal", TRUE, 2);
 		return;
 	}
-	if ((obj = get_obj_carry(victim, arg1)) == NULL) {
+
+	obj = get_obj_list(ch, arg1, victim->carrying, GETOBJ_F_INV);
+	if (obj == NULL) {
 		char_puts("You can't find it.\n", ch);
 		return;
 	}
+
 	if (!can_drop_obj(ch, obj)
 	/* ||   IS_OBJ_STAT(obj, ITEM_INVENTORY) */
 	     /* ||  obj->level > ch->level */ ) {
@@ -1839,7 +1853,7 @@ void do_steal(CHAR_DATA * ch, const char *argument)
 	}
 
 	if ((carry_w = can_carry_w(ch)) >= 0
-	&&  ch->carry_weight + get_obj_weight(obj) > carry_w) {
+	&&  get_carry_weight(ch) + get_obj_weight(obj) > carry_w) {
 		char_puts("You can't carry that much weight.\n", ch);
 		return;
 	}
@@ -2044,7 +2058,7 @@ void do_buy(CHAR_DATA * ch, const char *argument)
 	}
 
 	if ((carry_w = can_carry_w(ch)) >= 0
-	&&  ch->carry_weight + number * get_obj_weight(obj) > carry_w) {
+	&&  get_carry_weight(ch) + number * get_obj_weight(obj) > carry_w) {
 		char_puts("You can't carry that much weight.\n", ch);
 		return;
 	}
@@ -2842,7 +2856,7 @@ void do_withdraw(CHAR_DATA * ch, const char *argument)
 	int	fee;
 	bool	silver = FALSE;
 	char	arg[MAX_INPUT_LENGTH];
-	int carry_w;
+	int	carry_w;
 
 	if (IS_NPC(ch)) {
 		char_puts("You don't have a bank account.\n", ch);
@@ -2883,8 +2897,9 @@ void do_withdraw(CHAR_DATA * ch, const char *argument)
 	fee = UMAX(1, amount * (silver ? 10 : 2) / 100);
 	
 	if ((carry_w = can_carry_w(ch)) >= 0
-	&&  get_carry_weight(ch) + (amount - fee) * (silver ? 4 : 1) / 10 >
-							carry_w) {
+	&&  get_carry_weight(ch) +
+	    COINS_WEIGHT(silver ? 0 : (amount - fee),
+			 silver ? (amount - fee) : 0) > carry_w) {
 		char_puts("You can't carry that weight.\n", ch);
 		return;
 	}
@@ -2892,8 +2907,7 @@ void do_withdraw(CHAR_DATA * ch, const char *argument)
 	if (silver) {
 		ch->silver += amount - fee;
 		PC(ch)->bank_s -= amount;
-	}
-	else {
+	} else {
 		ch->gold += amount - fee;
 		PC(ch)->bank_g -= amount;
 	}

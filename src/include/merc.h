@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.304 2000-06-01 17:57:25 fjoe Exp $
+ * $Id: merc.h,v 1.305 2000-06-08 18:09:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2029,8 +2029,17 @@ CHAR_DATA *	get_char_room	(CHAR_DATA *ch, const char *argument);
 CHAR_DATA *	get_char_world	(CHAR_DATA *ch, const char *argument);
 CHAR_DATA *	get_char_area	(CHAR_DATA *ch, const char *argument);
 
+/*
+ * get_obj_list flags
+ */
+enum {
+	GETOBJ_F_ANY,		/* any obj->wear_loc			     */
+	GETOBJ_F_INV,		/* obj->wear_loc == WEAR_NONE (in inventory) */
+	GETOBJ_F_WORN,		/* obj->wear_loc != WEAR_NONE (worn)	     */
+};
+
 OBJ_DATA *	get_obj_list	(CHAR_DATA *ch, const char *argument,
-				 OBJ_DATA *list);
+				 OBJ_DATA *list, int flags);
 OBJ_DATA *	get_obj_carry	(CHAR_DATA *ch, const char *argument);
 OBJ_DATA *	get_obj_wear	(CHAR_DATA *ch, const char *argument);
 OBJ_DATA *	get_obj_here	(CHAR_DATA *ch, const char *argument);

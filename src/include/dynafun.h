@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: dynafun.h,v 1.3 2000-06-01 17:57:24 fjoe Exp $
+ * $Id: dynafun.h,v 1.4 2000-06-08 18:09:12 fjoe Exp $
  */
 
 #ifndef _DYNAFUN_H_
@@ -39,7 +39,7 @@ typedef void *(*dynafun_t)(dynafun_args_t);
 typedef struct dynafun_data_t dynafun_data_t;
 struct dynafun_data_t {
 	const char *name;
-	int rv_type;
+	int rv_tag;
 	int nargs;
 	int argtype[DYNAFUN_NARGS];
 	dynafun_t fun;
@@ -47,7 +47,7 @@ struct dynafun_data_t {
 
 void	init_dynafuns(void);
 
-void *	dynafun_call(cchar_t, int nargs, ...);
+void *	dynafun_call(int rv_tag, cchar_t, int nargs, ...);
 void	dynafun_tab_register(dynafun_data_t *, module_t *m);
 void	dynafun_tab_unregister(dynafun_data_t *);
 

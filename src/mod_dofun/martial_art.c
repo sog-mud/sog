@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.159 2000-06-01 17:57:34 fjoe Exp $
+ * $Id: martial_art.c,v 1.160 2000-06-08 18:09:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1312,8 +1312,8 @@ void do_bash(CHAR_DATA *ch, const char *argument)
 	/* modifiers */
 
 	/* size  and weight */
-	chance += ch->carry_weight / 25;
-	chance -= victim->carry_weight / 20;
+	chance += get_carry_weight(ch) / 25;
+	chance -= get_carry_weight(victim) / 20;
 
 	if (ch->size < victim->size)
 		chance += (ch->size - victim->size) * 25;
@@ -4110,8 +4110,8 @@ void do_tail(CHAR_DATA *ch, const char *argument)
 	/* modifiers */
 
 	/* size  and weight */
-	chance -= ch->carry_weight / 20;
-	chance += victim->carry_weight / 25;
+	chance -= get_carry_weight(ch) / 20;
+	chance += get_carry_weight(victim) / 25;
 
 	if (ch->size < victim->size)
 		chance += (ch->size - victim->size) * 25;
@@ -4444,8 +4444,8 @@ void do_crush(CHAR_DATA *ch, const char *argument)
 	/* modifiers */
 
 	/* size  and weight */
-	chance += ch->carry_weight / 25;
-	chance -= victim->carry_weight / 20;
+	chance += get_carry_weight(ch) / 25;
+	chance -= get_carry_weight(victim) / 20;
 
 	if (ch->size < victim->size)
 		chance += (ch->size - victim->size) * 25;
