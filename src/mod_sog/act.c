@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.89 2001-09-16 20:04:16 fjoe Exp $
+ * $Id: act.c,v 1.90 2001-09-23 16:24:20 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -1188,6 +1188,21 @@ act_say(CHAR_DATA *ch, const char *text, const void *arg)
 			 act_speech(ch, vch, text, arg), vch,
 			 TO_VICT | ACT_TOBUF | ACT_NOTWIT | ACT_SPEECH(ch),
 			 POS_RESTING);
+	}
+}
+
+void
+act_asound(ROOM_INDEX_DATA *room, const char *text, const void *arg)
+{
+	int door;
+
+	for (door = 0; door < MAX_DIR; door++) {
+		EXIT_DATA *pexit;
+
+		if ((pexit = room->exit[door]) != NULL
+		&&  pexit->to_room.r != NULL
+		&&  pexit->to_room.r != room)
+			act(text, pexit->to_room.r->people, NULL, arg, TO_ALL);
 	}
 }
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_dynafun.h,v 1.14 2001-09-17 18:42:28 fjoe Exp $
+ * $Id: mpc_dynafun.h,v 1.15 2001-09-23 16:24:17 fjoe Exp $
  */
 
 #ifndef _MPC_DYNAFUN_H_
@@ -75,6 +75,20 @@ DECLARE_FUN1(int, room_sector,
 	     ARG(ROOM_INDEX_DATA), room)
 DECLARE_FUN1(int, char_max_hit,
 	     ARG(CHAR_DATA), ch)
+DECLARE_FUN1(int, char_hit,
+	     ARG(CHAR_DATA), ch)
+DECLARE_FUN1(int, char_max_mana,
+	     ARG(CHAR_DATA), ch)
+DECLARE_FUN1(int, char_mana,
+	     ARG(CHAR_DATA), ch)
+DECLARE_PROC2(set_char_mana,
+	     ARG(CHAR_DATA), ch, ARG(int), mana)
+DECLARE_FUN1(int, char_max_moves,
+	     ARG(CHAR_DATA), ch)
+DECLARE_FUN1(int, char_moves,
+	     ARG(CHAR_DATA), ch)
+DECLARE_PROC2(set_char_moves,
+	     ARG(CHAR_DATA), ch, ARG(int), moves)
 DECLARE_FUN1(int, obj_timer,
 	     ARG(OBJ_DATA), obj)
 DECLARE_PROC2(set_obj_timer,
@@ -87,8 +101,6 @@ DECLARE_PROC2(wait_state,
 	      ARG(CHAR_DATA), ch, ARG(int), ws)
 DECLARE_FUN2(bool, is_affected,
 	     ARG(CHAR_DATA), ch, ARG(int), aff)
-DECLARE_FUN1(int, char_hit,
-	     ARG(CHAR_DATA), ch)
 DECLARE_FUN1(int, obj_wear_loc,
 	     ARG(OBJ_DATA), obj)
 DECLARE_FUN1(bool, is_npc,
@@ -136,6 +148,20 @@ DECLARE_FUN2(bool, is_owner_name,
 	     ARG(OBJ_DATA), obj, ARG(cchar_t), name)
 DECLARE_FUN1(int, char_ethos,
 	     ARG(CHAR_DATA), ch)
+DECLARE_FUN1(CHAR_DATA, obj_carried_by,
+	     ARG(OBJ_DATA), obj)
+DECLARE_FUN1(ROOM_INDEX_DATA, obj_room,
+	     ARG(OBJ_DATA), obj)
+DECLARE_FUN1(OBJ_DATA, obj_in,
+	     ARG(OBJ_DATA), obj)
+DECLARE_FUN1(int, room_vnum,
+	     ARG(ROOM_INDEX_DATA), room)
+DECLARE_FUN1(bool, is_pumped,
+	     ARG(CHAR_DATA), ch)
+DECLARE_FUN2(bool, is_mount,
+	     ARG(CHAR_DATA), ch, ARG(CHAR_DATA), mob)
+DECLARE_FUN2(bool, is_act,
+	     ARG(CHAR_DATA), ch, ARG(int), act_flags)
 
 __MODULE_END_DECL
 

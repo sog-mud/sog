@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_dynafun.c,v 1.22 2001-09-17 18:42:28 fjoe Exp $
+ * $Id: mpc_dynafun.c,v 1.23 2001-09-23 16:24:17 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -206,6 +206,48 @@ char_max_hit(CHAR_DATA *ch)
 }
 
 int
+char_hit(CHAR_DATA *ch)
+{
+	return ch->hit;
+}
+
+int
+char_max_mana(CHAR_DATA *ch)
+{
+	return ch->max_mana;
+}
+
+int
+char_mana(CHAR_DATA *ch)
+{
+	return ch->mana;
+}
+
+void
+set_char_mana(CHAR_DATA *ch, int mana)
+{
+	ch->mana = mana;
+}
+
+int
+char_max_moves(CHAR_DATA *ch)
+{
+	return ch->max_move;
+}
+
+int
+char_moves(CHAR_DATA *ch)
+{
+	return ch->move;
+}
+
+void
+set_char_moves(CHAR_DATA *ch, int moves)
+{
+	ch->move = moves;
+}
+
+int
 obj_timer(OBJ_DATA *obj)
 {
 	return obj->timer;
@@ -239,12 +281,6 @@ bool
 is_affected(CHAR_DATA *ch, int aff)
 {
 	return IS_AFFECTED(ch, aff);
-}
-
-int
-char_hit(CHAR_DATA *ch)
-{
-	return ch->hit;
 }
 
 int
@@ -431,6 +467,48 @@ char_ethos(CHAR_DATA *ch)
 		return ETHOS_NONE;
 
 	return PC(ch)->ethos;
+}
+
+CHAR_DATA *
+obj_carried_by(OBJ_DATA *obj)
+{
+	return obj->carried_by;
+}
+
+ROOM_INDEX_DATA *
+obj_room(OBJ_DATA *obj)
+{
+	return obj->in_room;
+}
+
+OBJ_DATA *
+obj_in(OBJ_DATA *obj)
+{
+	return obj->in_obj;
+}
+
+int
+room_vnum(ROOM_INDEX_DATA *room)
+{
+	return room->vnum;
+}
+
+bool
+is_pumped(CHAR_DATA *ch)
+{
+	return IS_PUMPED(ch);
+}
+
+bool
+is_mount(CHAR_DATA *ch, CHAR_DATA *mob)
+{
+	return !IS_NPC(ch) && ch->mount == mob;
+}
+
+bool
+is_act(CHAR_DATA *ch, int act_flags)
+{
+	return IS_NPC(ch) && IS_SET(ch->pMobIndex->act, act_flags);
 }
 
 #else /* !defined(MPC) */

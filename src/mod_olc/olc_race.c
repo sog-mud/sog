@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.58 2001-09-14 10:01:10 fjoe Exp $
+ * $Id: olc_race.c,v 1.59 2001-09-23 16:24:18 fjoe Exp $
  */
 
 #include "olc.h"
@@ -264,18 +264,25 @@ OLC_FUN(raceed_show)
         }
 
 	buf_append(output, "=== race PC data ===\n");
-	if (r->race_pcdata->who_name)
+	if (r->race_pcdata->who_name) {
 		buf_printf(output, BUF_END, "WHO name:      [%s]\n",
 			   r->race_pcdata->who_name);
-	if (r->race_pcdata->points)
+	}
+
+	if (r->race_pcdata->points) {
 		buf_printf(output, BUF_END, "Extra exp:     [%d]\n",
 			   r->race_pcdata->points);
-	if (!IS_NULLSTR(r->race_pcdata->skill_spec))
+	}
+
+	if (!IS_NULLSTR(r->race_pcdata->skill_spec)) {
 		buf_printf(output, BUF_END, "SkillSpec:     [%s]\n",
 			   r->race_pcdata->skill_spec);
-	if (r->race_pcdata->bonus_skills)
+	}
+
+	if (r->race_pcdata->bonus_skills) {
 		buf_printf(output, BUF_END, "Bonus skills:  [%s]\n",
 			   r->race_pcdata->bonus_skills);
+	}
 
 	for (i = 0, found = FALSE; i < MAX_STAT; i++) {
 		if (r->race_pcdata->mod_stat[i])
@@ -307,27 +314,36 @@ OLC_FUN(raceed_show)
 
 	buf_printf(output, BUF_END, "Size:          [%s]\n",
 		   flag_string(size_table, r->race_pcdata->size));
-	if (r->race_pcdata->hp_bonus)
+	if (r->race_pcdata->hp_bonus) {
 		buf_printf(output, BUF_END, "HP bonus:      [%d]\n",
 			   r->race_pcdata->hp_bonus);
+	}
 
-	buf_printf(output, BUF_END, "Hunger Rate:	[%d]%%\n",
+	buf_printf(output, BUF_END, "Hunger Rate:   [%d]%%\n",
 		   r->race_pcdata->hunger_rate);
 
-	if (r->race_pcdata->mana_bonus)
+	if (r->race_pcdata->mana_bonus) {
 		buf_printf(output, BUF_END, "Mana bonus:    [%d]\n",
 			   r->race_pcdata->mana_bonus);
-	if (r->race_pcdata->prac_bonus)
+	}
+
+	if (r->race_pcdata->prac_bonus) {
 		buf_printf(output, BUF_END, "Prac bonus:    [%d]\n",
 			   r->race_pcdata->prac_bonus);
+	}
+
 	buf_printf(output, BUF_END, "Spoken lang:   [%s]\n",
 		   flag_string(slang_table, r->race_pcdata->slang));
-	if (r->race_pcdata->restrict_align)
-		buf_printf(output, BUF_END, "Align restrict:[%s]\n",
+
+	if (r->race_pcdata->restrict_align) {
+		buf_printf(output, BUF_END, "Restrict align:[%s]\n",
 			   flag_string(ralign_names, r->race_pcdata->restrict_align));
-	if (r->race_pcdata->restrict_ethos)
-		buf_printf(output, BUF_END, "Ethos restrict:[%s]\n",
+	}
+	if (r->race_pcdata->restrict_ethos) {
+		buf_printf(output, BUF_END, "Restrict ethos:[%s]\n",
 			   flag_string(ethos_table, r->race_pcdata->restrict_ethos));
+	}
+
 	for (i = 0; i < c_size(&r->race_pcdata->classes); i++) {
 		rclass_t *rc = VARR_GET(&r->race_pcdata->classes, i);
 
@@ -904,13 +920,16 @@ save_race_pcdata(pcrace_t *pcr, FILE *fp)
 	fwrite_number(fp, "HPBonus", pcr->hp_bonus);
 	fwrite_number(fp, "ManaBonus", pcr->mana_bonus);
 	fwrite_number(fp, "PracBonus", pcr->prac_bonus);
-	fwrite_number(fp, "HungerRate", pcr->hunger_rate);
-	if (pcr->restrict_align)
+	if (pcr->hunger_rate != 100)
+		fwrite_number(fp, "HungerRate", pcr->hunger_rate);
+	if (pcr->restrict_align) {
 		fprintf(fp, "RestrictAlign %s~\n",
 			flag_string(ralign_names, pcr->restrict_align));
-	if (pcr->restrict_ethos)
+	}
+	if (pcr->restrict_ethos) {
 		fprintf(fp, "RestrictEthos %s~\n",
 			flag_string(ethos_table, pcr->restrict_ethos));
+	}
 	fprintf(fp, "Slang %s\n", flag_string(slang_table, pcr->slang));
 	fprintf(fp, "End\n\n");
 }
@@ -962,10 +981,11 @@ FOREACH_CB_FUN(save_race_cb, p, ap)
 			flag_string(dam_classes, i), r->resists[i]);
 	}
 
-	if (strcmp(r->damtype, "punch"))
+	if (!!strcmp(r->damtype, "punch"))
 		fprintf(fp, "Damtype %s\n", r->damtype);
 
-	fprintf(fp, "LuckBonus %d\n", r->luck_bonus);
+	if (r->luck_bonus)
+		fprintf(fp, "LuckBonus %d\n", r->luck_bonus);
 
 	aff_fwrite_list("Affc", NULL, r->affected, fp, AFF_X_NOLD);
 

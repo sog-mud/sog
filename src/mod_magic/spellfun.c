@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.269 2001-09-12 19:42:53 fjoe Exp $
+ * $Id: spellfun.c,v 1.270 2001-09-23 16:24:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -5572,7 +5572,7 @@ SPELL_FUN(spell_web, sn, level, ch, vo)
 SPELL_FUN(spell_mend, sn, level, ch, vo)
 {
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
-	int result,skill;
+	int result, skill;
 
 	if (obj->condition > 99) {
 		act_char("That item is not in need of mending.", ch);
@@ -5593,6 +5593,11 @@ SPELL_FUN(spell_mend, sn, level, ch, vo)
 		result += 5;
 
 	if (result >= 50) {
+		if (pull_obj_trigger(TRIG_OBJ_REPAIR, obj, ch, NULL) > 0
+		||  !mem_is(obj, MT_OBJ)
+		||  IS_EXTRACTED(ch))
+			return;
+
 		act("$p glows brightly, and is whole again.  Good Job!",
 		    ch, obj, NULL, TO_CHAR);
 		act("$p glows brightly, and is whole again.",

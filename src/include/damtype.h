@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: damtype.h,v 1.17 2001-09-13 16:21:50 fjoe Exp $
+ * $Id: damtype.h,v 1.18 2001-09-23 16:24:10 fjoe Exp $
  */
 
 #ifndef _DAMTYPE_H_
@@ -35,9 +35,9 @@
 
 /* DAM_WEAPON damtypes */
 
-#define	DAM_BASH	0
+#define DAM_BASH	0
 #define DAM_PIERCE	1
-#define	DAM_SLASH	2
+#define DAM_SLASH	2
 
 /* DAM_MAGIC damtypes */
 #define DAM_FIRE	3

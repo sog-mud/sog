@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.97 2001-09-16 18:14:22 fjoe Exp $
+ * $Id: olc_room.c,v 1.98 2001-09-23 16:24:19 fjoe Exp $
  */
 
 #include "olc.h"
@@ -176,15 +176,14 @@ OLC_FUN(roomed_show)
 	ROOM_INDEX_DATA	*pRoom;
 	BUFFER *	output;
 	int		door;
-	
+
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		if (IS_EDIT(ch, ED_ROOM))
 			EDIT_ROOM(ch, pRoom);
 		else
 			pRoom = ch->in_room;
-	}
-	else if (!is_number(arg))
+	} else if (!is_number(arg))
 		OLC_ERROR(OLCED(ch) ? "'OLC EDIT'" : "'OLC ASHOW'");
 	else if ((pRoom = get_room_index(atoi(arg))) == NULL) {
 		act_char("RoomEd: Vnum does not exist.", ch);
@@ -192,7 +191,7 @@ OLC_FUN(roomed_show)
 	}
 
 	output = buf_new(0);
-	
+
 	buf_printf(output, BUF_END, "Vnum:       [%5d]\n", pRoom->vnum);
 	buf_printf(output, BUF_END, "Area:       [%5d] %s\n",
 		   pRoom->area->vnum, pRoom->area->name);
@@ -204,7 +203,7 @@ OLC_FUN(roomed_show)
 		buf_append(output, "Desc Kwds:  ");
 		for (ed = pRoom->ed; ed != NULL; ed = ed->next)
 			buf_printf(output, BUF_END, "[%s]", ed->keyword);
-		
+
 		buf_append(output, "\n");
 	}
 
@@ -264,7 +263,7 @@ OLC_FUN(roomed_show)
 					   &pexit->short_descr.ml,
 					   DUMP_LEVEL(ch));
 				mlstr_dump(output, "Gender: ",
-				   	   &pexit->short_descr.gender,
+					   &pexit->short_descr.gender,
 					   DUMP_LEVEL(ch));
 			}
 
@@ -289,6 +288,8 @@ OLC_FUN(roomed_show)
 			   "Mana rec  : [%d]\n",
 			   pRoom->heal_rate, pRoom->mana_rate);
 	}
+
+	trig_dump_list(&pRoom->mp_trigs, output);
 
 bamfout:
 	send_to_char(buf_string(output), ch);
@@ -321,7 +322,7 @@ OLC_FUN(roomed_list)
 		}
 	}
 
-	if (!found) 
+	if (!found)
 		act_char("RoomEd: No rooms in this area.", ch);
 	else {
 		if (col % 3 != 0)
@@ -392,14 +393,14 @@ OLC_FUN(roomed_heal)
 	ROOM_INDEX_DATA *pRoom;
 	EDIT_ROOM(ch, pRoom);
 	return olced_number(ch, argument, cmd, &pRoom->heal_rate);
-}       
+}
 
 OLC_FUN(roomed_mana)
 {
 	ROOM_INDEX_DATA *pRoom;
 	EDIT_ROOM(ch, pRoom);
 	return olced_number(ch, argument, cmd, &pRoom->mana_rate);
-}       
+}
 
 OLC_FUN(roomed_room)
 {
@@ -607,8 +608,8 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		}
 
 		if (!pRoom->exit[door]) {
-		   	act_char("Exit does not exist.", ch);
-		   	return FALSE;
+			act_char("Exit does not exist.", ch);
+			return FALSE;
 		}
 		/*   pRoom->exit[door] = new_exit(); */
 
@@ -760,7 +761,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 
 		pRoom->exit[door]->to_room.r = pToRoom;
 		pRoom->exit[door]->orig_door = door;
-		
+
 		door			= rev_dir[door];
 		pExit			= new_exit();
 		pExit->to_room.r	= pRoom;
@@ -770,7 +771,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		act_char("Two-way link established.", ch);
 		return TRUE;
 	}
- 
+
 	if (!str_cmp(command, "dig")) {
 		char buf[MAX_INPUT_LENGTH];
 
@@ -1061,7 +1062,7 @@ DO_FUN(do_resets, ch, argument)
 	}
 
 	if (!str_prefix(arg1, "where")) {
-		int vnum;	
+		int vnum;
 		bool show_mob;
 		AREA_DATA *pArea;
 
@@ -1083,7 +1084,7 @@ DO_FUN(do_resets, ch, argument)
 		pArea = area_vnum_lookup(vnum);
 		if (!IS_BUILDER(ch, pArea)) {
 			act_char("Insufficient security.", ch);
-		       	return;
+			return;
 		}
 
 		if (show_mob)
@@ -1109,7 +1110,7 @@ DO_FUN(do_resets, ch, argument)
 			act_puts("$t: no resets with such num in this room.",
 				 ch, arg2, NULL,
 				 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
-			return;			
+			return;
 		}
 
 		reset_del(room, reset);
@@ -1144,7 +1145,7 @@ DO_FUN(do_resets, ch, argument)
 		pArea = area_vnum_lookup(mob_vnum);
 		if (!IS_BUILDER(ch, pArea)) {
 			act_char("Insufficient security.", ch);
-		       	return;
+			return;
 		}
 
 		mob_reset = reset_new();
@@ -1186,7 +1187,7 @@ DO_FUN(do_resets, ch, argument)
 		pArea = area_vnum_lookup(obj_vnum);
 		if (!IS_BUILDER(ch, pArea)) {
 			act_char("Insufficient security.", ch);
-		       	return;
+			return;
 		}
 
 		if (!str_prefix(arg3, "inside")) {
@@ -1329,7 +1330,7 @@ DO_FUN(do_resets, ch, argument)
 			act_puts("$t: no resets with such num in this room.",
 				 ch, arg1, NULL,
 				 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
-			return;			
+			return;
 		}
 
 		if (!is_number(arg3)

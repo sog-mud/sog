@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.333 2001-09-19 08:38:53 kostik Exp $
+ * $Id: handler.c,v 1.334 2001-09-23 16:24:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1643,6 +1643,10 @@ pull_greet_entry_triggers(CHAR_DATA *ch, ROOM_INDEX_DATA *to_room, int door)
 
 		if (vo_foreach(ch, &iter_obj_char, pull_obj_trigger_cb,
 			       TRIG_OBJ_ENTRY, ch, NULL))
+			return FALSE;
+
+		pull_room_trigger(TRIG_ROOM_GREET, to_room, ch, NULL);
+		if (IS_EXTRACTED(ch))
 			return FALSE;
 	}
 
@@ -4547,6 +4551,12 @@ void
 damage_to_obj(CHAR_DATA *ch, OBJ_DATA *wield, OBJ_DATA *worn, int dmg)
 {
 	if (dmg == 0)
+		return;
+
+	if (pull_obj_trigger(TRIG_OBJ_DAMAGE, worn, ch, NULL) > 0
+	||  !mem_is(worn, MT_OBJ)
+	||  !mem_is(wield, MT_OBJ)
+	||  IS_EXTRACTED(ch))
 		return;
 
 	worn->condition -= dmg;

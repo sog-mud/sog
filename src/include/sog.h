@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.28 2001-09-17 18:42:19 fjoe Exp $
+ * $Id: sog.h,v 1.29 2001-09-23 16:24:10 fjoe Exp $
  */
 
 #ifndef _SOG_H_
@@ -729,6 +729,9 @@ DECLARE_PROC3(act_clan,
 DECLARE_PROC3(act_say,
 	      ARG(CHAR_DATA), ch, ARG(cchar_t), text,
 	      NULLABLE_ARG(pcvoid_t), arg)
+DECLARE_PROC3(act_asound,
+	      ARG(ROOM_INDEX_DATA), room, ARG(cchar_t), text,
+	      NULLABLE_ARG(pcvoid_t), arg)
 
 DECLARE_PROC6(wiznet,
 	      ARG(cchar_t), msg, NULLABLE_ARG(CHAR_DATA), ch,
@@ -814,6 +817,8 @@ DECLARE_PROC2(close_descriptor,
 /*--- mpc_helpers.c */
 DECLARE_PROC2(mob_interpret,
 	      ARG(CHAR_DATA), ch, ARG(cchar_t), argument)
+DECLARE_FUN2(CHAR_DATA, load_mob,
+	     ARG(CHAR_DATA), ch, ARG(int), vnum)
 DECLARE_FUN2(OBJ_DATA, load_obj,
 	     ARG(CHAR_DATA), ch, ARG(int), vnum)
 DECLARE_FUN2(bool, transfer_group,

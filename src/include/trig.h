@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.h,v 1.14 2001-09-16 18:14:11 fjoe Exp $
+ * $Id: trig.h,v 1.15 2001-09-23 16:24:10 fjoe Exp $
  */
 
 #ifndef _TRIG_H_
@@ -70,27 +70,31 @@
 #define TRIG_OBJ_CLOSE		115		/* arg: probability	*/
 #define TRIG_OBJ_LOCK		116		/* arg: probability	*/
 #define TRIG_OBJ_UNLOCK		117		/* arg: probability	*/
+#define TRIG_OBJ_DAMAGE		118		/* arg: probability	*/
+#define TRIG_OBJ_REPAIR		119		/* arg: probability	*/
 
 /* room triggers */
 #define TRIG_ROOM_RANDOM	200		/* arg: probability	*/
 #define TRIG_ROOM_CMD		201		/* arg: cmd		*/
+#define TRIG_ROOM_GREET		202		/* arg: dir (or "all")	*/
 
 /* spec triggers */
 #define TRIG_SPEC		300
 
-#define HAS_TEXT_ARG(trig)	(trig->trig_type == TRIG_MOB_ACT ||	\
-				 trig->trig_type == TRIG_MOB_SPEECH ||	\
-				 trig->trig_type == TRIG_MOB_TELL ||	\
-				 trig->trig_type == TRIG_MOB_YELL ||	\
-				 trig->trig_type == TRIG_OBJ_SPEECH)
-#define HAS_OBJ_ARG(trig)	(trig->trig_type == TRIG_MOB_GIVE ||	\
-				 trig->trig_type == TRIG_MOB_OPEN ||	\
-				 trig->trig_type == TRIG_MOB_GET)
-#define HAS_CMD_ARG(trig)	(trig->trig_type == TRIG_MOB_CMD ||	\
-				 trig->trig_type == TRIG_ROOM_CMD)
-#define HAS_EXIT_ARG(trig)	(trig->trig_type == TRIG_MOB_GREET ||	\
-				 trig->trig_type == TRIG_MOB_EXIT ||	\
-				 trig->trig_type == TRIG_OBJ_GREET)
+#define HAS_TEXT_ARG(trig)	((trig)->trig_type == TRIG_MOB_ACT ||	\
+				 (trig)->trig_type == TRIG_MOB_SPEECH ||\
+				 (trig)->trig_type == TRIG_MOB_TELL ||	\
+				 (trig)->trig_type == TRIG_MOB_YELL ||	\
+				 (trig)->trig_type == TRIG_OBJ_SPEECH)
+#define HAS_OBJ_ARG(trig)	((trig)->trig_type == TRIG_MOB_GIVE ||	\
+				 (trig)->trig_type == TRIG_MOB_OPEN ||	\
+				 (trig)->trig_type == TRIG_MOB_GET)
+#define HAS_CMD_ARG(trig)	((trig)->trig_type == TRIG_MOB_CMD ||	\
+				 (trig)->trig_type == TRIG_ROOM_CMD)
+#define HAS_EXIT_ARG(trig)	((trig)->trig_type == TRIG_MOB_GREET ||	\
+				 (trig)->trig_type == TRIG_MOB_EXIT ||	\
+				 (trig)->trig_type == TRIG_OBJ_GREET ||	\
+				 (trig)->trig_type == TRIG_ROOM_GREET)
 
 #define TRIG_F_CASEDEP	(A)	/* text arg case-dependent	*/
 #define TRIG_F_REGEXP	(B)	/* text arg is regexp		*/

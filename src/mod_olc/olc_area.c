@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.109 2001-09-16 18:14:22 fjoe Exp $
+ * $Id: olc_area.c,v 1.110 2001-09-23 16:24:18 fjoe Exp $
  */
 
 #include "olc.h"
@@ -270,7 +270,7 @@ OLC_FUN(areaed_list)
 			   pArea->vnum, pArea->name,
 			   pArea->min_vnum, pArea->max_vnum,
 			   pArea->file_name, pArea->security, pArea->builders);
-    	}
+	}
 
 	if (output != NULL) {
 		page_to_char(buf_string(output), ch);
@@ -362,7 +362,7 @@ OLC_FUN(areaed_builders)
 
 	EDIT_AREA(ch, pArea);
 
-	one_argument(argument, name, sizeof(name));
+	first_arg(argument, name, sizeof(name), FALSE);
 	if (name[0] == '\0') {
 		act_char("Syntax: builders <name list>", ch);
 		return FALSE;

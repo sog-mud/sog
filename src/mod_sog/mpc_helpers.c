@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_helpers.c,v 1.2 2001-09-15 17:28:54 fjoe Exp $
+ * $Id: mpc_helpers.c,v 1.3 2001-09-23 16:24:23 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -36,6 +36,18 @@ void
 mob_interpret(CHAR_DATA *ch, const char *argument)
 {
 	interpret(ch, argument, FALSE);
+}
+
+CHAR_DATA *
+load_mob(CHAR_DATA *ch, int vnum)
+{
+	CHAR_DATA *mob;
+
+	if ((mob = create_mob(vnum, 0)) == NULL)
+		return NULL;
+
+	char_to_room(mob, ch->in_room);
+	return mob;
 }
 
 OBJ_DATA *

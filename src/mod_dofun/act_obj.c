@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.267 2001-09-17 18:42:23 fjoe Exp $
+ * $Id: act_obj.c,v 1.268 2001-09-23 16:24:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3224,8 +3224,7 @@ DO_FUN(do_repair, ch, argument)
 		return;
 	}
 
-	cost = ((obj->level * 10) +
-		((obj->cost * (100 - obj->condition)) /100)   );
+	cost = obj->level * 10 + obj->cost * (100 - obj->condition) /100;
 	cost /= 100;
 
 	if (cost > ch->gold) {
@@ -3233,10 +3232,16 @@ DO_FUN(do_repair, ch, argument)
 		return;
 	}
 
-	WAIT_STATE(ch,get_pulse("violence"));
+	WAIT_STATE(ch, get_pulse("violence"));
 
 	ch->gold -= cost;
 	mob->gold += cost;
+
+	if (pull_obj_trigger(TRIG_OBJ_REPAIR, obj, ch, NULL) > 0
+	||  !mem_is(obj, MT_OBJ)
+	||  IS_EXTRACTED(ch))
+		return;
+
 	act_puts("$N takes $p from you, repairs it, and returns it back.",
 		 ch, obj, mob, TO_CHAR, POS_RESTING);
 	act_puts("$N takes $p from $n, repairs it, and returns it back.",
@@ -3287,8 +3292,7 @@ DO_FUN(do_estimate, ch, argument)
 		return;
 	}
 
-	cost = ((obj->level * 10) +
-		((obj->cost * (100 - obj->condition)) /100)   );
+	cost = obj->level * 10 + obj->cost * (100 - obj->condition) / 100;
 	cost /= 100;
 
 	act_say(mob, "It will cost you $K gold to fix that item.",
@@ -3341,19 +3345,24 @@ DO_FUN(do_smithing, ch, argument)
 	WAIT_STATE(ch, skill_beats("smithing"));
 	if (number_percent() > chance) {
 		check_improve(ch, "smithing", FALSE, 8);
+
+		if (pull_obj_trigger(TRIG_OBJ_REPAIR, obj, ch, NULL) > 0
+		||  !mem_is(obj, MT_OBJ)
+		||  IS_EXTRACTED(ch))
+			return;
+
 		act_puts("$n tries to repair $p with the hammer but fails.",
 			 ch, obj, NULL, TO_ROOM, POS_RESTING);
 		act_puts("You failed to repair $p.",
 			 ch, obj, NULL, TO_CHAR, POS_RESTING);
 		hammer->condition -= 25;
-	}
-	else {
+	} else {
 		check_improve(ch, "smithing", TRUE, 4);
 		act_puts("$n repairs $p with the hammer.",
 			 ch, obj, NULL, TO_ROOM, POS_RESTING);
 		act_puts("You repair $p.",
 			 ch, obj, NULL, TO_CHAR, POS_RESTING);
-		obj->condition = UMAX(100, obj->condition + (chance / 2));
+		obj->condition = UMAX(100, obj->condition + chance / 2);
 		hammer->condition -= 25;
 	}
 
