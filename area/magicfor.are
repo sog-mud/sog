@@ -102,9 +102,6 @@ BG H 0 0 0 0 0
 AIJKN
 sit sit female 454
 0 0 medium unknown
-M random 1815 5~
-M random 1816 2~
-M random 1817 2~
 r acid 33
 r poison 33
 r negative 33
@@ -322,7 +319,6 @@ BR 0 TU 0 0 -1000 0
 FHU
 stand stand female 200
 0 0 medium unknown
-M random 1812 12~
 r acid 33
 r negative 33
 r holy -50
@@ -346,7 +342,6 @@ BR 0 TU 0 0 -1000 0
 FHU
 stand stand female 250
 0 0 medium unknown
-M random 1813 12~
 r acid 33
 r negative 33
 r holy -50
@@ -371,7 +366,6 @@ BR 0 TU 0 0 -1000 0
 FHU
 stand stand female 300
 0 0 medium unknown
-M random 1814 12~
 r acid 33
 r negative 33
 r holy -50
@@ -462,7 +456,6 @@ BR 0 TU 0 0 -1000 0
 FHU
 stand stand female 440
 0 0 medium unknown
-M grall 1811 100~
 r acid 33
 r negative 33
 r holy -50
@@ -616,7 +609,6 @@ BR 0 TU 0 0 -1000 0
 FHU
 stand stand male 440
 0 0 medium unknown
-M grall 1810 100~
 r acid 33
 r negative 33
 r holy -50
@@ -844,7 +836,6 @@ GU 0 V 0 0 0 0
 0
 stand stand either 0
 O 0 tiny unknown
-M act 1809 gets a small well-woven nest~
 r lightning 33
 r energy -50
 #1837
@@ -862,7 +853,6 @@ GU 0 V 0 0 0 0
 0
 stand stand either 0
 O 0 tiny unknown
-M act 1807 gets a small moss and lichen nest~
 r lightning 33
 r energy -50
 #1838

@@ -22,7 +22,6 @@ BT 0 0 0 AB -1000 0
 DEFIKNORU
 stand stand male 1000
 0 0 medium unknown
-M grall 30001 100~
 r bash -5
 r pierce -5
 r slash -5

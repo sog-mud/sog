@@ -26,8 +26,6 @@ BJRe CDI HT 0 ABCDF 0 0
 FIKN
 stand stand male 0
 0 0 medium unknown
-M grall 95300 100~
-M exall 95302 0~
 C Shalafi
 r bash 33
 r pierce 33
@@ -114,7 +112,6 @@ BGO 0 R 0 0 -1000 0
 CFR
 stand stand male 0
 0 0 huge unknown
-M bribe 95301 5000~
 r poison -100
 r negative -33
 r holy 50

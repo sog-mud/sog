@@ -58,7 +58,6 @@ BJVe D HN 0 0 900 0
 CDF
 stand stand male 500
 0 0 medium unknown
-M greet 3022 100~
 r bash 33
 r pierce 33
 r slash 33
@@ -121,7 +120,6 @@ BJTVe F HN 0 0 900 0
 CEIK
 stand stand male 25000
 0 0 medium unknown
-M greet 3024 1~
 r bash 33
 r pierce 33
 r slash 33
@@ -153,7 +151,6 @@ BJVe F N 0 0 900 0
 CEFJKN
 stand stand male 25000
 0 0 medium unknown
-M greet 3021 100~
 r bash 33
 r pierce 33
 r slash 33
@@ -359,7 +356,6 @@ GJTVe E V 0 ABHK 1000 3000
 ACDEFHIKLNOT
 stand stand male 0
 0 0 huge unknown
-M greet 3019 10~
 r bash 33
 r pierce 33
 r slash 33
@@ -965,7 +961,6 @@ GH 0 0 0 0 900 0
 NU
 stand stand either 10
 0 0 medium unknown
-M random 3026 10~
 V 37000
 r fire -50
 r cold -50
@@ -1024,7 +1019,6 @@ CS 0 0 0 0 -200 0
 BJNQ
 stand stand male 18
 0 0 medium unknown
-M death 3020 100~
 r fire -50
 r cold -50
 r lightning -50
@@ -1081,9 +1075,6 @@ B 0 0 0 0 0 0
 FJNU
 stand stand female 0
 0 0 medium unknown
-M greet 3025 100~
-M bribe 3028 1000~
-M bribe 3027 1~
 r fire -50
 r cold -50
 r lightning -50
@@ -1224,7 +1215,6 @@ BJQRVe 0 HV 0 ABL 1000 0
 FGH
 stand stand male 5000
 0 0 medium unknown
-M greet 3023 100~
 r bash 33
 r pierce 33
 r slash 33

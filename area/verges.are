@@ -81,7 +81,6 @@ dragon~
 0
 stand stand male 40
 0 0 medium unknown
-M random 34103 10~
 r bash -33
 r pierce 50
 r fire -33

@@ -38,8 +38,6 @@ HSe 0 0 G AL 1000 2402
 FHKN
 stand stand male 1499
 0 0 small unknown
-M give 7901 2438~
-M greet 7900 100~
 r bash -50
 r pierce -50
 r slash -50
