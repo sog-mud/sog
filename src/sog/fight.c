@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.36 2001-09-07 07:35:36 kostik Exp $
+ * $Id: fight.c,v 1.202.2.37 2001-09-09 08:26:36 kostik Exp $
  */
 
 /***************************************************************************
@@ -2474,7 +2474,7 @@ xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels, int members)
 	int neg_cha = 0, pos_cha = 0;
 	int ave_victim_hit = victim->pMobIndex->hit[DICE_BONUS] +
 	    (victim->pMobIndex->hit[DICE_TYPE] + 1) *
-	    victim->pMobIndex->hit[DICE_NUMBER];
+	    victim->pMobIndex->hit[DICE_NUMBER] / 2;
 
 	/* Just in case */
 	ave_victim_hit = UMAX(ave_victim_hit, 1);
