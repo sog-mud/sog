@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.46 1998-05-21 11:30:51 efdi Exp $
+ * $Id: act_info.c,v 1.47 1998-05-21 13:09:47 efdi Exp $
  */
 
 /***************************************************************************
@@ -2444,29 +2444,29 @@ void do_description(CHAR_DATA *ch, char *argument)
 					}
 				}
 			}
-		}
-		buf[0] = '\0';
-		free_string(ch->description);
-		ch->description = str_dup(buf);
-		send_to_char("Description cleared.\n\r",ch);
-		return;
-	}
-
-	if (argument[0] == '+') {
-		if (ch->description != NULL)
-			strcat(buf, ch->description);
-		while (isspace(*++argument))
-			argument++;
-
-		if (strlen(buf) + strlen(argument) >= MAX_STRING_LENGTH - 2) {
-			send_to_char("Description too long.\n\r", ch);
+			buf[0] = '\0';
+			free_string(ch->description);
+			ch->description = str_dup(buf);
+			send_to_char("Description cleared.\n\r",ch);
 			return;
 		}
 
-		strcat(buf, argument);
-		strcat(buf, "\n\r");
-		free_string(ch->description);
-		ch->description = str_dup(buf);
+		if (argument[0] == '+') {
+			if (ch->description != NULL)
+				strcat(buf, ch->description);
+			while (isspace(*++argument));
+
+			if (strlen(buf) + strlen(argument) 
+				>= MAX_STRING_LENGTH - 2) {
+				send_to_char("Description too long.\n\r", ch);
+				return;
+			}
+
+			strcat(buf, argument);
+			strcat(buf, "\n\r");
+			free_string(ch->description);
+			ch->description = str_dup(buf);
+		}
 	}
 
 	send_to_char("Your description is:\n\r", ch);
@@ -2502,8 +2502,8 @@ void do_practice(CHAR_DATA *ch, char *argument)
 		for (sn = 0; sn < MAX_SKILL; sn++) {
 			if (skill_table[sn].name == NULL)
 				break;
-			if (ch->level < skill_table[sn].skill_level[ch->class]
-			||  !RACE_OK(ch,sn)
+			if ((ch->level < skill_table[sn].skill_level[ch->class]
+			     &&  !RACE_OK(ch,sn))
 			||  (skill_table[sn].cabal != ch->cabal
 			&&  skill_table[sn].cabal != CABAL_NONE))
 				continue;
