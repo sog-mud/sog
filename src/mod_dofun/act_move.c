@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.11 1998-04-26 21:29:05 efdi Exp $
+ * $Id: act_move.c,v 1.12 1998-04-26 22:30:00 efdi Exp $
  */
 
 /***************************************************************************
@@ -866,7 +866,7 @@ void do_lock( CHAR_DATA *ch, char *argument )
 
     if ( arg[0] == '\0' )
     {
-	send_to_char( "Lock what?\n\r", ch );
+	send_to_char(msg(MOVE_LOCK_WHAT, ch), ch);
 	return;
     }
 
@@ -879,54 +879,54 @@ void do_lock( CHAR_DATA *ch, char *argument )
 	    if (!IS_SET(obj->value[1],EX_ISDOOR)
 	    ||  IS_SET(obj->value[1],EX_NOCLOSE))
 	    {
-		send_to_char("You can't do that.\n\r",ch);
+		send_to_char(msg(MOVE_YOU_CANT_DO_THAT, ch),ch);
 		return;
 	    }
 	    if (!IS_SET(obj->value[1],EX_CLOSED))
 	    {
-		send_to_char("It's not closed.\n\r",ch);
+		send_to_char(msg(MOVE_ITS_NOT_CLOSED, ch),ch);
 	 	return;
 	    }
 
 	    if (obj->value[4] < 0 || IS_SET(obj->value[1],EX_NOLOCK))
 	    {
-		send_to_char("It can't be locked.\n\r",ch);
+		send_to_char(msg(MOVE_IT_CANT_BE_LOCKED, ch), ch);
 		return;
 	    }
 
 	    if (!has_key(ch,obj->value[4]))
 	    {
-		send_to_char("You lack the key.\n\r",ch);
+		send_to_char(msg(MOVE_YOU_LACK_THE_KEY, ch), ch);
 		return;
 	    }
 
 	    if (IS_SET(obj->value[1],EX_LOCKED))
 	    {
-		send_to_char("It's already locked.\n\r",ch);
+		send_to_char(msg(MOVE_ITS_ALREADY_LOCKED, ch), ch);
 		return;
 	    }
 
 	    SET_BIT(obj->value[1],EX_LOCKED);
-	    act("You lock $p.",ch,obj,NULL,TO_CHAR);
-	    act("$n locks $p.",ch,obj,NULL,TO_ROOM);
+	    act_printf(ch, obj, NULL, TO_CHAR, POS_RESTING, MOVE_YOU_LOCK_P);
+	    act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_LOCKS_P);
 	    return;
 	}
 
 	/* 'lock object' */
 	if ( obj->item_type != ITEM_CONTAINER )
-	    { send_to_char( "That's not a container.\n\r", ch ); return; }
+	    { send_to_char(msg(MOVE_THATS_NOT_A_CONTAINER, ch), ch ); return; }
 	if ( !IS_SET(obj->value[1], CONT_CLOSED) )
-	    { send_to_char( "It's not closed.\n\r",        ch ); return; }
+	    { send_to_char(msg(MOVE_ITS_NOT_CLOSED, ch), ch); return; }
 	if ( obj->value[2] < 0 )
-	    { send_to_char( "It can't be locked.\n\r",     ch ); return; }
+	    { send_to_char(msg(MOVE_IT_CANT_BE_LOCKED, ch), ch); return; }
 	if ( !has_key( ch, obj->value[2] ) )
-	    { send_to_char( "You lack the key.\n\r",       ch ); return; }
+	    { send_to_char(msg(MOVE_YOU_LACK_THE_KEY, ch), ch); return; }
 	if ( IS_SET(obj->value[1], CONT_LOCKED) )
-	    { send_to_char( "It's already locked.\n\r",    ch ); return; }
+	    { send_to_char(msg(MOVE_ITS_ALREADY_LOCKED, ch), ch); return; }
 
 	SET_BIT(obj->value[1], CONT_LOCKED);
-	act("You lock $p.",ch,obj,NULL,TO_CHAR);
-	act( "$n locks $p.", ch, obj, NULL, TO_ROOM );
+	act_printf(ch, obj, NULL, TO_CHAR, POS_RESTING, MOVE_YOU_LOCK_P);
+	act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_LOCKS_P);
 	return;
     }
 
@@ -939,18 +939,18 @@ void do_lock( CHAR_DATA *ch, char *argument )
 
 	pexit	= ch->in_room->exit[door];
 	if ( !IS_SET(pexit->exit_info, EX_CLOSED) )
-	    { send_to_char( "It's not closed.\n\r",        ch ); return; }
+	    { send_to_char(msg(MOVE_ITS_NOT_CLOSED, ch), ch); return; }
 	if ( pexit->key < 0 )
-	    { send_to_char( "It can't be locked.\n\r",     ch ); return; }
+	    { send_to_char(msg(MOVE_IT_CANT_BE_LOCKED, ch), ch); return; }
 	if ( !has_key( ch, pexit->key) && 
              !has_key_ground( ch, pexit->key) )
-	    { send_to_char( "You lack the key.\n\r",       ch ); return; }
+	    { send_to_char(msg(MOVE_YOU_LACK_THE_KEY, ch), ch); return; }
 	if ( IS_SET(pexit->exit_info, EX_LOCKED) )
-	    { send_to_char( "It's already locked.\n\r",    ch ); return; }
+	    { send_to_char(msg(MOVE_ITS_ALREADY_LOCKED, ch), ch); return; }
 
 	SET_BIT(pexit->exit_info, EX_LOCKED);
-	send_to_char( "*Click*\n\r", ch );
-	act( "$n locks the $d.", ch, NULL, pexit->keyword, TO_ROOM );
+	send_to_char(msg(MOVE_CLICK, ch), ch);
+	act_printf(ch, NULL, pexit->keyword, TO_ROOM, POS_RESTING, MOVE_N_LOCKS_THE_D);
 
 	/* lock the other side */
 	if ( ( to_room   = pexit->u1.to_room            ) != NULL
@@ -959,7 +959,7 @@ void do_lock( CHAR_DATA *ch, char *argument )
 	{
 	    SET_BIT( pexit_rev->exit_info, EX_LOCKED );
 	    for ( rch = to_room->people; rch != NULL; rch = rch->next_in_room )
-		act( "The $d clicks.", rch, NULL, pexit_rev->keyword, TO_CHAR );
+		act_printf(rch, NULL, pexit_rev->keyword, TO_CHAR, POS_RESTING, MOVE_THE_D_CLICKS);
 
 	}
         return;

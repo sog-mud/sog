@@ -142,6 +142,16 @@ char *strings_rus[] = {
 /* MOVE_N_CLOSES_P */		"$n закрывает $p.",
 /* MOVE_N_CLOSES_THE_D */	"$n закрывает $d.",
 /* MOVE_THE_D_CLOSES */		"$d закрывается.",
+/* MOVE_LOCK_WHAT */		"Замкнуть что?\n\r",
+/* MOVE_ITS_NOT_CLOSED */	"Тут не закрыто.\n\r",
+/* MOVE_IT_CANT_BE_LOCKED */	"Это нельзя закрыть.\n\r",
+/* MOVE_YOU_LACK_THE_KEY */	"У тебя нет ключа.\n\r",
+/* MOVE_ITS_ALREADY_LOCKED */	"Тут уже закрыто.\n\r",
+/* MOVE_YOU_LOCK_P */		"Ты закрываешь $p.",
+/* MOVE_N_LOCKS_P */		"$n закрыает $p.",
+/* MOVE_CLICK */		"*Щелк*\n\r",
+/* MOVE_N_LOCKS_THE_D */	"$n закрывает $d.",
+/* MOVE_THE_D_CLICKS */		"$d щелкает.",
 
 /*	Here start sex-dependent messages */
 /* INFO_IS_GUSHING_BLOOD */	"{Yсерьезно ранено{x.",
