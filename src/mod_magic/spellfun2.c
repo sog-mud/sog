@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.136 1999-09-30 00:23:29 avn Exp $
+ * $Id: spellfun2.c,v 1.137 1999-09-30 09:24:34 osya Exp $
  */
 
 /***************************************************************************
@@ -5685,18 +5685,18 @@ int damage_to_all_in_room(int sn, int level, CHAR_DATA *ch,
 
 void spell_death_ripple(int sn, int level, CHAR_DATA *ch, void *vo)
 {
-	ROOM_INDEX_DATA *dest_room;
+	ROOM_INDEX_DATA *prev_room, *next_room;
 	EXIT_DATA *exit;
 	int v_counter, range, door, i;
 
-	dest_room = ch->in_room;
+	prev_room = ch->in_room;
 	range = level/10;
 
 	act("You feel $n's deadly wave passing through your body.", ch,
 						 NULL, NULL, TO_ROOM);
         act("Deadly wave emanates from you.", ch,
                                                  NULL, NULL, TO_CHAR);
-	v_counter = damage_to_all_in_room(sn, level, ch, dest_room, -1);
+	v_counter = damage_to_all_in_room(sn, level, ch, prev_room, -1);
 
         if (IS_NULLSTR(target_name)||!check_blind(ch))	
 		return;
@@ -5732,17 +5732,21 @@ void spell_death_ripple(int sn, int level, CHAR_DATA *ch, void *vo)
         }
 
         for (i = 1; i <= range; i++) {
-                exit = dest_room->exit[door];
+                exit = prev_room->exit[door];
+		next_room = exit->to_room.r;		
 
                 if (exit == NULL 
-                || exit->to_room.r == NULL
-                || IS_SET(exit->exit_info,EX_CLOSED)
-                || !can_see_room(ch,exit->to_room.r)
+                || next_room == NULL
+                || IS_SET(exit->exit_info, EX_CLOSED)
+                || !can_see_room(ch, next_room)
+		|| next_room->exit[rev_dir[door]]->to_room.r !=  prev_room
 		|| v_counter > level/10) 
                         return;
-		dest_room = exit->to_room.r;
-		act("You feel deadly breathing from the $T", dest_room->people, NULL, from_dir_name[rev_dir[door]], TO_ALL);
-		v_counter += damage_to_all_in_room(sn, level, ch, dest_room, door);	
+
+                prev_room = exit->to_room.r;
+
+		act("You feel breathing from the $T", prev_room->people, NULL, from_dir_name[rev_dir[door]], TO_ALL);
+		v_counter += damage_to_all_in_room(sn, level, ch, next_room, door);	
 	}
 	
 }
