@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.20 2000-04-10 14:07:33 fjoe Exp $
+ * $Id: handler.c,v 1.182.2.21 2000-04-10 14:11:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -747,13 +747,6 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 		    act("$n drops $p.", ch, wield, NULL, TO_ROOM);
 		    obj_from_char(wield);
 		    obj_to_room(wield, ch->in_room);
-
-		if ((obj2 = get_eq_char(ch, WEAR_SECOND_WIELD)) != NULL) {
-			act("You wield his second weapon as your first!",  ch, NULL,NULL,TO_CHAR);
-			act("$n wields his second weapon as first!",  ch, NULL,NULL,TO_ROOM);
-		unequip_char(ch, obj2);
-		equip_char(ch, obj2 , WEAR_WIELD);
-		}
 		    depth--;
 		}
 	}
