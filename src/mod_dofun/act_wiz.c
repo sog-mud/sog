@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.174 1999-07-05 18:18:29 fjoe Exp $
+ * $Id: act_wiz.c,v 1.175 1999-07-05 18:33:57 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4067,9 +4067,9 @@ void do_affrooms(CHAR_DATA *ch, const char *argument)
 		for (raf = room->affected; raf; raf = raf->next) {
 			count++;
 			char_printf(ch,
-				    "{c%d){x [Vnum : %5d] "
+				    "{c%d){x [Vnum: %5d] "
 				    "spell '{c%s{x', owner: %s, level {c%d{x "
-				    "for {c$j{x hours",
+				    "for {c%d{x hours",
 				    count,
 				    room->vnum,
 				    skill_name(raf->type),
