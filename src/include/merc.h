@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.335 2001-07-29 23:39:14 fjoe Exp $
+ * $Id: merc.h,v 1.336 2001-07-30 13:01:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1193,7 +1193,7 @@ enum {
  * this should be used for !IS_NPC only
  */
 #define IS_PUMPED(ch)	(!IS_NPC(ch) &&					\
-			 IS_SET(CPC(ch)->plr_flags, PLR_PUMPED))
+			 IS_SET(PC(ch)->plr_flags, PLR_PUMPED))
 
 #define SET_FIGHT_TIME(ch)						\
 	{								\
@@ -1328,8 +1328,6 @@ struct mob_index_data
 
 #define NPC(ch)	((NPC_DATA *) ((ch) + 1))
 #define PC(ch)	((PC_DATA *) ((ch) + 1))
-#define CNPC(ch)	((const NPC_DATA *) ((ch) + 1))
-#define CPC(ch)		((const PC_DATA *) ((ch) + 1))
 
 CHAR_DATA *	char_new	(MOB_INDEX_DATA *pMobIndex);
 void		char_free	(CHAR_DATA *ch);
@@ -1801,7 +1799,7 @@ struct room_index_data
 
 #define IS_AFFECTED(ch, bit)	(IS_SET((ch)->affected_by, (bit)))
 
-#define ORG_RACE(ch)		(IS_NPC(ch) ? (ch)->pMobIndex->race : CPC(ch)->race)
+#define ORG_RACE(ch)		(IS_NPC(ch) ? (ch)->pMobIndex->race : PC(ch)->race)
 
 #define LEVEL(ch)		((ch)->level + (ch)->add_level)
 
@@ -1855,7 +1853,7 @@ struct room_index_data
 
 #define IS_SWITCHED( ch )       (ch->desc && ch->desc->original)
 #define IS_BUILDER(ch, Area)	(!IS_NPC(ch) && !IS_SWITCHED(ch) &&	      \
-				 (CPC(ch)->security >= (Area)->security || \
+				 (PC(ch)->security >= (Area)->security || \
 				  is_name_strict(ch->name, Area->builders)))
 
 #define MOUNTED(ch)	((!IS_NPC(ch) && ch->mount && ch->riding) ? \
@@ -1930,9 +1928,6 @@ extern		int			reboot_counter;
 #if	defined(NOCRYPT)
 #define crypt(s1, s2)	(s1)
 #endif
-
-int	get_curr_stat	(const CHAR_DATA *ch, int st);
-int	get_max_train	(const CHAR_DATA *ch, int st);
 
 #define IS_OBJ_NAME(obj, _name)	(is_name(_name, (obj)->pObjIndex->name) ||\
 				 is_name(_name, (obj)->label))
@@ -2106,7 +2101,7 @@ typedef struct saff_t {
 	flag_t		bit;		/* with bits ... */
 } saff_t;
 
-AFFECT_DATA *	aff_new		(void);
+AFFECT_DATA *	aff_new		(int where, const char *sn);
 AFFECT_DATA *	aff_dup		(const AFFECT_DATA *af);
 void		aff_free	(AFFECT_DATA *af);
 
@@ -2150,7 +2145,5 @@ where_t *where_lookup(flag_t where);
 
 /* XXX temporary affects w/a */
 void	affect_to_char2(CHAR_DATA *ch, AFFECT_DATA *paf);
-void	affect_to_obj2(OBJ_DATA *obj, AFFECT_DATA *paf);
-void	affect_to_room2(ROOM_INDEX_DATA *room, AFFECT_DATA *paf);
 
 #endif

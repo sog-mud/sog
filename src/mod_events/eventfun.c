@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: eventfun.c,v 1.29 2001-07-29 23:39:21 fjoe Exp $
+ * $Id: eventfun.c,v 1.30 2001-07-30 13:01:55 fjoe Exp $
  */
 
 
@@ -177,10 +177,8 @@ EVENT_FUN(event_update_espirit, ch, af)
 	&&  number_bits(3) == 0) {
 		AFFECT_DATA *paf;
 
-		paf = aff_new();
-		paf->where	= TO_AFFECTS;
+		paf = aff_new(TO_AFFECTS, "evil spirit");
 		paf->level	= af->level;
-		paf->type	= "evil spirit";
 		paf->duration	= number_range(1, af->level/30);
 		affect_join(ch, paf);
 		aff_free(paf);
@@ -268,10 +266,7 @@ EVENT_FUN(event_updatechar_plague, ch, af)
 	if (af->level == 1)
 		return;
 
-	paf = aff_new();
-
-	paf->where	 = TO_AFFECTS;
-	paf->type	 = "plague";
+	paf = aff_new(TO_AFFECTS, "plague");
 	paf->level	 = af->level - 1;
 	paf->duration = number_range(1, 2 * paf->level);
 	INT(paf->location) = APPLY_STR;

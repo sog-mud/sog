@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.242 2001-07-29 23:39:18 fjoe Exp $
+ * $Id: act_obj.c,v 1.243 2001-07-30 13:01:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -660,7 +660,6 @@ void do_give(CHAR_DATA * ch, const char *argument)
 void do_envenom(CHAR_DATA * ch, const char *argument)
 {
 	OBJ_DATA       *obj;
-	AFFECT_DATA     af;
 	int		percent, chance;
 
 	/* find out what */
@@ -732,23 +731,21 @@ void do_envenom(CHAR_DATA * ch, const char *argument)
 		WAIT_STATE(ch, skill_beats("envenom"));
 		percent = number_percent();
 		if (percent < chance) {
-			af.where = TO_WEAPON;
-			af.type = "poison";
-			af.level = LEVEL(ch) * percent / 100;
-			af.duration = LEVEL(ch) * percent / 100;
-			INT(af.location) = 0;
-			af.modifier = 0;
-			af.bitvector = WEAPON_POISON;
-			af.owner	= NULL;
-			affect_to_obj2(obj, &af);
+			AFFECT_DATA *paf;
+
+			paf = aff_new(TO_WEAPON, "poison");
+			paf->level = LEVEL(ch) * percent / 100;
+			paf->duration = LEVEL(ch) * percent / 100;
+			paf->bitvector = WEAPON_POISON;
+			affect_to_obj(obj, paf);
+			aff_free(paf);
 
 			act("$n coats $p with deadly venom.", ch, obj, NULL,
 			    TO_ROOM | (HAS_INVIS(ch, ID_SNEAK) ? ACT_NOMORTAL : 0));
 			act("You coat $p with venom.", ch, obj, NULL, TO_CHAR);
 			check_improve(ch, "envenom", TRUE, 3);
 			return;
-		}
-		else {
+		} else {
 			act("You fail to envenom $p.", ch, obj, NULL, TO_CHAR);
 			check_improve(ch, "envenom", FALSE, 3);
 			return;
@@ -1157,9 +1154,7 @@ void do_drink(CHAR_DATA * ch, const char *argument)
 		act("$n chokes and gags.", ch, NULL, NULL, TO_ROOM);
 		act_char("You choke and gag.", ch);
 
-		paf = aff_new();
-		paf->where = TO_AFFECTS;
-		paf->type = "poison";
+		paf = aff_new(TO_AFFECTS, "poison");
 		paf->level = number_fuzzy(lq->sip);
 		paf->duration = 3 * amount;
 		paf->bitvector = AFF_POISON;
@@ -1248,9 +1243,7 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 			act("$n chokes and gags.", ch, NULL, NULL, TO_ROOM);
 			act_char("You choke and gag.", ch);
 
-			paf = aff_new();
-			paf->where = TO_AFFECTS;
-			paf->type = "poison";
+			paf = aff_new(TO_AFFECTS, "poison");
 			paf->level = number_fuzzy(INT(obj->value[0]));
 			paf->duration = 2 * INT(obj->value[0]);
 			paf->bitvector = AFF_POISON;
@@ -1266,9 +1259,7 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 
 				do_yell(ch, "Oh no! My eyes!");
 
-				paf = aff_new();
-				paf->where = TO_AFFECTS;
-				paf->type = "blindness";
+				paf = aff_new(TO_AFFECTS, "blindness");
 				paf->level = number_fuzzy(obj->level);
 				paf->duration = obj->level / 25 + 1;
 				INT(paf->location) = APPLY_HITROLL;

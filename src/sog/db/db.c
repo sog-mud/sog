@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.249 2001-07-29 20:15:08 fjoe Exp $
+ * $Id: db.c,v 1.250 2001-07-30 13:02:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1509,7 +1509,7 @@ clone_obj(OBJ_DATA *parent)
 	 * affects
 	 */
 	for (paf = parent->affected; paf != NULL; paf = paf->next)
-		affect_to_obj2(clone, paf);
+		affect_to_obj(clone, paf);
 
 	/*
 	 * extended desc

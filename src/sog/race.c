@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.c,v 1.26 2001-07-29 09:43:23 fjoe Exp $
+ * $Id: race.c,v 1.27 2001-07-30 13:02:07 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -133,7 +133,8 @@ rclass_lookup(race_t *r, const char *cn)
 	return (rclass_t*) varr_bsearch(&r->race_pcdata->classes, &cn, cmpstr);
 }
 
-void race_resetstats(CHAR_DATA *ch)
+void
+race_resetstats(CHAR_DATA *ch)
 {
 	race_t *r;
 	int i;
@@ -156,7 +157,8 @@ void race_resetstats(CHAR_DATA *ch)
 }
 
 /* return current stats */
-int get_curr_stat(const CHAR_DATA *ch, int stat)
+int
+get_curr_stat(CHAR_DATA *ch, int stat)
 {
 	int max;
 
@@ -172,14 +174,15 @@ int get_curr_stat(const CHAR_DATA *ch, int stat)
 }
 
 /* return max stats */
-int get_max_train(const CHAR_DATA *ch, int stat)
+int
+get_max_train(CHAR_DATA *ch, int stat)
 {
 	race_t *r;
 
 	if (IS_NPC(ch) || ch->level >= LEVEL_IMMORTAL)
 		return 25;
 
-	if ((r = race_lookup(CPC(ch)->race)) == NULL
+	if ((r = race_lookup(PC(ch)->race)) == NULL
 	||  !r->race_pcdata)
 		return 0;
 

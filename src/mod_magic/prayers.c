@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.9 2001-07-29 20:14:48 fjoe Exp $
+ * $Id: prayers.c,v 1.10 2001-07-30 13:02:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -145,35 +145,28 @@ prayer_refresh(const char *sn, int level, CHAR_DATA *ch, void *vo)
 void
 prayer_restoring_light(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (is_affected_room(ch->in_room, sn)) {
 		act_char("This room is already lit with magic light.", ch);
 		return;
 	}
+
 	if (is_affected(ch, sn)) {
 		act_char("Rest a while, you're tired from previous one.", ch);
 		return;
 	}
-	af.where     = TO_ROOM_AFFECTS;
-	af.type      = sn;
-	af.level     = level;
-	af.duration  = level / 25;
-	INT(af.location) = APPLY_NONE;
-	af.modifier  = 0;
-	af.bitvector = 0;
-	af.owner     = ch;
-	affect_to_room2(ch->in_room, &af);
 
-	af.where	= TO_AFFECTS;
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= level / 10;
-	INT(af.location)= APPLY_NONE;
-	af.modifier	= 0;
-	af.bitvector	= 0;
-	af.owner	= NULL;
-	affect_to_char2(ch, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= level / 10;
+	affect_to_char(ch, paf);
+
+	paf->where	= TO_ROOM_AFFECTS;
+	paf->duration	= level / 25;
+	paf->owner	= ch;
+	affect_to_room(ch->in_room, paf);
+	aff_free(paf);
 
 	act("The room becomes lit with warm light.", ch, NULL, NULL, TO_ROOM);
 	act_char("Ok.", ch);
@@ -562,7 +555,7 @@ group_defense_cb(void *vo, va_list ap)
 }
 
 void
-prayer_group_defense(const char *sn, int level, CHAR_DATA *ch, void *vo ) 
+prayer_group_defense(const char *sn, int level, CHAR_DATA *ch, void *vo )
 {
 	vo_foreach(ch->in_room, &iter_char_room, group_defense_cb, level, ch);
 }
@@ -823,7 +816,7 @@ prayer_sanctify_lands(const char *sn, int level, CHAR_DATA *ch, void *vo)
 void
 prayer_cursed_lands(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (IS_SET(ch->in_room->room_flags, ROOM_LAW)) {
 		act_char("This room is protected by gods.", ch);
@@ -835,17 +828,15 @@ prayer_cursed_lands(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	af.where	= TO_ROOM_AFFECTS;
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= level / 15;
-	INT(af.location)= APPLY_NONE;
-	af.modifier	= 0;
-	af.bitvector	= RAFF_CURSE;
-	af.owner	= ch;
-	affect_to_room2(ch->in_room, &af);
+	paf = aff_new(TO_ROOM_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= level / 15;
+	paf->bitvector	= RAFF_CURSE;
+	paf->owner	= ch;
+	affect_to_room(ch->in_room, paf);
+	aff_free(paf);
 
-	act_char("The gods has forsaken the room.", ch);   
+	act_char("The gods has forsaken the room.", ch);
 	act("The gods has forsaken the room.", ch, NULL, NULL, TO_ROOM);
 }
 
@@ -953,15 +944,15 @@ prayer_wrath(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int dam;
 	AFFECT_DATA af;
-	
+
 	if (!IS_NPC(ch) && IS_EVIL(ch))
 		victim = ch;
-	
+
 	if (IS_GOOD(victim)) {
 		act("The gods protect $N.", ch, NULL, victim, TO_ROOM);
 		return;
 	}
-	
+
 	if (IS_NEUTRAL(victim)) {
 		act("$N does not seem to be affected.",
 		    ch, NULL, victim, TO_CHAR);
@@ -988,7 +979,7 @@ prayer_wrath(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.bitvector = AFF_CURSE;
 	af.owner	= NULL;
 	affect_to_char2(victim, &af);
-	
+
 	INT(af.location) = APPLY_SAVING_SPELL;
 	af.modifier  = level / 8;
 	affect_to_char2(victim, &af);
@@ -1010,44 +1001,39 @@ prayer_bless(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	/* deal with the object case first */
 	if (mem_is(vo, MT_OBJ)) {
 		OBJ_DATA *obj = (OBJ_DATA *) vo;
-		if (IS_OBJ_STAT(obj,ITEM_BLESS))
-		{
-		    act("$p is already blessed.",ch,obj,NULL,TO_CHAR);
-		    return;
+		AFFECT_DATA *paf;
+
+		if (IS_OBJ_STAT(obj,ITEM_BLESS)) {
+			act("$p is already blessed.", ch, obj, NULL, TO_CHAR);
+			return;
 		}
 
-		if (IS_OBJ_STAT(obj,ITEM_EVIL))
-		{
-		    AFFECT_DATA *paf;
-
-		    paf = affect_find(obj->affected, "curse");
-		    if (!saves_dispel(level,paf != NULL ? paf->level : obj->level,0))
-		    {
-			if (paf != NULL)
-			    affect_remove_obj(obj,paf);
-			act("$p glows a pale blue.",ch,obj,NULL,TO_ALL);
-			REMOVE_OBJ_STAT(obj, ITEM_EVIL);
-			return;
-		    }
-		    else
-		    {
-			act("The evil of $p is too powerful for you to overcome.",
-			    ch,obj,NULL,TO_CHAR);
-			return;
-		    }
+		if (IS_OBJ_STAT(obj, ITEM_EVIL)) {
+			paf = affect_find(obj->affected, "curse");
+			if (!saves_dispel(level,paf != NULL ? paf->level : obj->level, 0)) {
+				if (paf != NULL)
+					affect_remove_obj(obj,paf);
+				act("$p glows a pale blue.",
+				    ch, obj, NULL, TO_ALL);
+				REMOVE_OBJ_STAT(obj, ITEM_EVIL);
+				return;
+			} else {
+				act("The evil of $p is too powerful for you to overcome.",
+				    ch, obj, NULL, TO_CHAR);
+				return;
+			}
 		}
 
-		af.where	= TO_OBJECT;
-		af.type		= sn;
-		af.level	= level;
-		af.duration	= (6 + level / 2);
-		INT(af.location)= APPLY_SAVES;
-		af.modifier	= -1;
-		af.bitvector	= ITEM_BLESS;
-		af.owner	= NULL;
-		affect_to_obj2(obj,&af);
+		paf = aff_new(TO_OBJECT, sn);
+		paf->level	= level;
+		paf->duration	= (6 + level / 2);
+		INT(paf->location)= APPLY_SAVES;
+		paf->modifier	= -1;
+		paf->bitvector	= ITEM_BLESS;
+		affect_to_obj(obj, paf);
+		aff_free(paf);
 
-		act("$p glows with a holy aura.",ch,obj,NULL,TO_ALL);
+		act("$p glows with a holy aura.", ch, obj, NULL, TO_ALL);
 		return;
 	}
 
@@ -1281,9 +1267,9 @@ prayer_restoration(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	act("A warm feeling fills your body.", victim, NULL, NULL, TO_CHAR);
 	act("A bleeding wounds on $N's body vanish.", NULL, victim, NULL, TO_NOTVICT);
 
-	af.where 	= TO_AFFECTS;
-	af.type  	= sn;
-	af.level 	= level;
+	af.where	= TO_AFFECTS;
+	af.type		= sn;
+	af.level	= level;
 	af.duration	= 5;
 	af.bitvector	= 0;
 	af.modifier	= 0;
@@ -1299,26 +1285,24 @@ void
 prayer_holy_hammer(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	OBJ_DATA *hammer;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	hammer = create_obj(get_obj_index(OBJ_VNUM_HOLY_HAMMER), 0);
 	hammer->level = ch->level;
 	hammer->timer = level * 3;
 	INT(hammer->value[2]) = (level / 10) + 1;
 
-	af.where	= TO_OBJECT;
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= -1;
-	af.bitvector	= 0;
-	af.modifier	= level/7 +3;
-	af.owner	= NULL;
+	paf = aff_new(TO_OBJECT, sn);
+	paf->level	= level;
+	paf->duration	= -1;
+	paf->modifier	= level/7 +3;
 
-	INT(af.location)= APPLY_HITROLL;
-	affect_to_obj2(hammer, &af);
+	INT(paf->location)= APPLY_HITROLL;
+	affect_to_obj(hammer, paf);
 
-	INT(af.location)= APPLY_DAMROLL;
-	affect_to_obj2(hammer, &af);
+	INT(paf->location)= APPLY_DAMROLL;
+	affect_to_obj(hammer, paf);
+	aff_free(paf);
 
 	obj_to_char(hammer, ch);
 
@@ -1352,7 +1336,7 @@ prayer_hold_person(const char *sn, int level, CHAR_DATA *ch, void *vo)
 void
 prayer_lethargic_mist(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-	 AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (IS_SET(ch->in_room->room_flags, ROOM_LAW)) {
 		act_char("This room is protected by gods.", ch);
@@ -1364,17 +1348,14 @@ prayer_lethargic_mist(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	af.where	= TO_ROOM_AFFECTS;
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= level / 15;
-	INT(af.location)= APPLY_NONE;
-	af.modifier	= 0;
-	af.bitvector	= 0;
-	af.owner	= ch;
-	affect_to_room2(ch->in_room, &af);
+	paf = aff_new(TO_ROOM_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= level / 15;
+	paf->owner	= ch;
+	affect_to_room(ch->in_room, paf);
+	aff_free(paf);
 
-	act_char("The air in the room makes you slowing down.", ch);   
+	act_char("The air in the room makes you slowing down.", ch);
 	act("The air in the room makes you slowing down.",
 	    ch, NULL, NULL, TO_ROOM);
 }
@@ -1450,33 +1431,26 @@ prayer_holy_word(const char *sn, int level, CHAR_DATA *ch, void *vo)
 void
 prayer_healing_light(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-	AFFECT_DATA af2;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (is_affected_room(ch->in_room, sn)) {
 		act_char("This room has already been healed by light.", ch);
 		return;
 	}
 
-	af.where	= TO_ROOM_AFFECTS;
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= level / 10;
-	INT(af.location)= APPLY_ROOM_HEAL;
-	af.modifier	= level * 3 / 2;
-	af.bitvector	= 0;
-	af.owner	= ch;
-	affect_to_room2(ch->in_room, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= level / 10;
+	affect_to_char(ch, paf);
 
-	af2.where	= TO_AFFECTS;
-	af2.type	= sn;
-	af2.level	= level;
-	af2.duration	= level / 10;
-	af2.modifier	= 0;
-	INT(af2.location)= APPLY_NONE;
-	af2.bitvector	= 0;
-	af2.owner	= NULL;
-	affect_to_char2(ch, &af2);
+	paf->where	= TO_ROOM_AFFECTS;
+	paf->duration	= level / 10;
+	INT(paf->location)= APPLY_ROOM_HEAL;
+	paf->modifier	= level * 3 / 2;
+	paf->owner	= ch;
+	affect_to_room(ch->in_room, paf);
+	aff_free(paf);
+
 	act_char("The room starts to be filled with healing light.", ch);
 	act("The room starts to be filled with $n's healing light.",
 	    ch, NULL, NULL, TO_ROOM);
@@ -1573,9 +1547,9 @@ prayer_black_shroud(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		       NULL, DAM_HOLY, DAMF_SHOW);
 		return;
 	}
-	
+
 	if (!IS_EVIL(victim)) {
-		act("Your god does not seems to like $N.", 
+		act("Your god does not seems to like $N.",
 		    ch, NULL, victim, TO_CHAR);
 		return;
 	}
@@ -1622,7 +1596,7 @@ prayer_solar_flight(const char *sn, int level, CHAR_DATA *ch, void *vo)
 void
 prayer_black_death(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (IS_SET(ch->in_room->room_flags, ROOM_LAW)) {
 		act_char("This room is protected by gods.", ch);
@@ -1634,15 +1608,12 @@ prayer_black_death(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	af.where	= TO_ROOM_AFFECTS;
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= level / 15;
-	INT(af.location)= APPLY_NONE;
-	af.modifier	= 0;
-	af.bitvector	= 0;
-	af.owner	= ch;
-	affect_to_room2(ch->in_room, &af);
+	paf = aff_new(TO_ROOM_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= level / 15;
+	paf->owner	= ch;
+	affect_to_room(ch->in_room, paf);
+	aff_free(paf);
 
 	act_char("The room starts to be filled by disease.", ch);
 	act("The room starts to be filled by disease.",
@@ -1772,16 +1743,16 @@ prayer_anathema(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	af.where 	= TO_AFFECTS;
-	af.type  	= sn;
-	af.level 	= level;
+	af.where	= TO_AFFECTS;
+	af.type		= sn;
+	af.level	= level;
 	af.duration	= (8 + level/10);
 	INT(af.location)= APPLY_HITROLL;
 	af.modifier	= -strength;
 	af.bitvector	= AFF_CURSE;
 	af.owner	= NULL;
 	affect_to_char2(victim, &af);
-	
+
 	INT(af.location)= APPLY_SAVING_SPELL;
 	af.modifier	= strength;
 	affect_to_char2(victim, &af);
@@ -1795,7 +1766,7 @@ prayer_anathema(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.modifier	= -strength;
 	af.bitvector	= SK_AFF_ALL;
 	affect_to_char2(victim, &af);
-	
+
 	act("$n looks very uncomfortable.", victim, NULL, NULL, TO_ROOM);
 	act_char("You feel unclean.", victim);
 }
@@ -1915,33 +1886,26 @@ prayer_heat_metal(const char *sn, int level, CHAR_DATA *ch, void *vo)
 void
 prayer_mind_light(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-	AFFECT_DATA af2;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (is_affected_room(ch->in_room, sn)) {
 		act_char("This room has already had booster of mana.", ch);
 		return;
 	}
 
-	af.where	= TO_ROOM_AFFECTS;
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= level / 30;
-	INT(af.location)= APPLY_ROOM_MANA;
-	af.modifier	= level * 3 / 2;
-	af.bitvector	= 0;
-	af.owner	= ch;
-	affect_to_room2(ch->in_room, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= level / 10;
+	affect_to_char(ch, paf);
 
-	af2.where	= TO_AFFECTS;
-	af2.type	= sn;
-	af2.level	= level;
-	af2.duration	= level / 10;
-	af2.modifier	= 0;
-	INT(af2.location)= APPLY_NONE;
-	af2.bitvector	= 0;
-	af.owner	= NULL;
-	affect_to_char2(ch, &af2);
+	paf->where	= TO_ROOM_AFFECTS;
+	paf->duration	= level / 30;
+	INT(paf->location)= APPLY_ROOM_MANA;
+	paf->modifier	= level * 3 / 2;
+	paf->owner	= ch;
+	affect_to_room(ch->in_room, paf);
+	aff_free(paf);
+
 	act_char("The room starts to be filled with mind light.", ch);
 	act("The room starts to be filled with $n's mind light.",
 	    ch, NULL, NULL, TO_ROOM);
@@ -1961,13 +1925,13 @@ prayer_free_action(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	af.where	= TO_SKILLS;
 	af.type		= "free action";
-	af.level	= level; 
+	af.level	= level;
 	af.duration	= level / 12;
-	af.location.s	= "swimming";
+	af.location.s	= str_dup("swimming");
 	af.modifier	= 100;
 	af.bitvector	= SK_AFF_TEACH;
 	af.owner	= NULL;
-	affect_to_char2(vch, &af); 
+	affect_to_char2(vch, &af);
 	act("You can move easier.", vch, NULL, NULL, TO_CHAR);
 	if (ch != vch)
 		act("You help $N to move easier.", ch, NULL, vch, TO_CHAR);
@@ -1976,7 +1940,7 @@ prayer_free_action(const char *sn, int level, CHAR_DATA *ch, void *vo)
 void
 prayer_deadly_venom(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (IS_SET(ch->in_room->room_flags, ROOM_LAW)) {
 		act_char("This room is protected by gods.", ch);
@@ -1988,17 +1952,14 @@ prayer_deadly_venom(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	af.where	= TO_ROOM_AFFECTS;
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= level / 15;
-	INT(af.location)= APPLY_NONE;
-	af.modifier	= 0;
-	af.bitvector	= 0;
-	af.owner	= ch;
-	affect_to_room2(ch->in_room, &af);
+	paf = aff_new(TO_ROOM_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= level / 15;
+	paf->owner	= ch;
+	affect_to_room(ch->in_room, paf);
+	aff_free(paf);
 
-	act_char("The room starts to be filled by poison.", ch);   
+	act_char("The room starts to be filled by poison.", ch);
 	act("The room starts to be filled by poison.", ch, NULL, NULL, TO_ROOM);
 }
 
@@ -2069,7 +2030,7 @@ prayer_aid(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	act("$n looks better.", victim, NULL, NULL, TO_ROOM);
 	if (ch != victim)
 		act_char("Ok.", ch);
-}  
+}
 
 /* added by chronos */
 void
@@ -2101,7 +2062,7 @@ void
 prayer_bless_weapon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (obj->item_type != ITEM_WEAPON) {
 		act_char("That isn't a weapon.", ch);
@@ -2131,15 +2092,12 @@ prayer_bless_weapon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	af.where	= TO_WEAPON;
-	af.type		= sn;
-	af.level	= level / 2;
-	af.duration	= level/8;
-	INT(af.location)= 0;
-	af.modifier	= 0;
-	af.bitvector	= WEAPON_HOLY;
-	af.owner	= NULL;
-	affect_to_obj2(obj,&af);
+	paf = aff_new(TO_WEAPON, sn);
+	paf->level	= level / 2;
+	paf->duration	= level / 8;
+	paf->bitvector	= WEAPON_HOLY;
+	affect_to_obj(obj, paf);
+	aff_free(paf);
 
 	act("$p is prepared for holy attacks.",ch,obj,NULL,TO_ALL);
 }
@@ -2167,27 +2125,27 @@ prayer_benediction(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	int strength = 0;
 	if (is_affected(victim, sn)) {
 		if (victim == ch) {
-			act("You are already blessed.", 
+			act("You are already blessed.",
 				ch, NULL, NULL, TO_CHAR);
 		} else {
-			act("$N is already blessed.", 
+			act("$N is already blessed.",
 				ch, NULL, victim, TO_CHAR);
 		}
 		return;
 	}
-	if (IS_EVIL(victim)) 
+	if (IS_EVIL(victim))
 		strength = IS_EVIL(ch) ? 2 : (IS_GOOD(ch) ? 0 : 1);
 	if (IS_GOOD(victim))
 		strength = IS_GOOD(ch) ? 2 : (IS_EVIL(ch) ? 0 : 1);
-	if (IS_NEUTRAL(victim)) 
+	if (IS_NEUTRAL(victim))
 		strength = IS_NEUTRAL(ch) ? 2 : 1;
 	if (!strength) {
-		act("Your god does not seems to like $N.", 
+		act("Your god does not seems to like $N.",
 			ch, NULL, victim, TO_CHAR);
 		return;
 	}
-	af.where 	= TO_AFFECTS;
-	af.type  	= sn;
+	af.where	= TO_AFFECTS;
+	af.type		= sn;
 	af.level	= level;
 	af.duration	= 5 + level / 2;
 	INT(af.location)= APPLY_HITROLL;
@@ -2205,16 +2163,17 @@ prayer_benediction(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	affect_to_char2(victim, &af);
 	act("You feel righteous.", victim, NULL, NULL, TO_CHAR);
-	if (victim != ch)
-		act("You grant $N favor of your god.", 
+	if (victim != ch) {
+		act("You grant $N favor of your god.",
 			ch, NULL, victim, TO_CHAR);
+	}
 }
 
 void
 prayer_curse(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	/* deal with the object case first */
 	if (mem_is(vo, MT_OBJ)) {
@@ -2242,15 +2201,14 @@ prayer_curse(const char *sn, int level, CHAR_DATA *ch, void *vo)
 			return;
 		}
 
-		af.where        = TO_OBJECT;
-		af.type         = sn;
-		af.level        = level;
-		af.duration     = (8 + level / 5);
-		INT(af.location)= APPLY_SAVES;
-		af.modifier     = +1;
-		af.bitvector    = ITEM_EVIL;
-		af.owner	= NULL;
-		affect_to_obj2(obj,&af);
+		paf = aff_new(TO_OBJECT, sn);
+		paf->level	= level;
+		paf->duration	= (8 + level / 5);
+		INT(paf->location)= APPLY_SAVES;
+		paf->modifier	= 1;
+		paf->bitvector	= ITEM_EVIL;
+		affect_to_obj(obj, paf);
+		aff_free(paf);
 
 		act("$p glows with a malevolent aura.", ch, obj, NULL, TO_ALL);
 		return;
@@ -2263,19 +2221,18 @@ prayer_curse(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	||  saves_spell(level, victim, DAM_NEGATIVE))
 		return;
 
-	af.where	= TO_AFFECTS;
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= (8 + level / 10);
-	INT(af.location)= APPLY_HITROLL;
-	af.modifier	= -1 * (level / 8);
-	af.bitvector	= AFF_CURSE;
-	af.owner	= NULL;
-	affect_to_char2(victim, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= (8 + level / 10);
+	INT(paf->location)= APPLY_HITROLL;
+	paf->modifier	= -(level / 8 + 1);
+	paf->bitvector	= AFF_CURSE;
+	affect_to_char(victim, paf);
 
-	INT(af.location)= APPLY_SAVING_SPELL;
-	af.modifier	= level / 8;
-	affect_to_char2(victim, &af);
+	INT(paf->location)= APPLY_SAVING_SPELL;
+	paf->modifier	= level / 8 + 1;
+	affect_to_char(victim, paf);
+	aff_free(paf);
 
 	act_char("You feel unclean.", victim);
 	if (ch != victim)

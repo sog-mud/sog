@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.76 2001-07-29 20:14:53 fjoe Exp $
+ * $Id: olc_mob.c,v 1.77 2001-07-30 13:02:04 fjoe Exp $
  */
 
 #include "olc.h"
@@ -384,16 +384,17 @@ OLC_FUN(mobed_show)
 	buf_append(buf, "Resist");
 
 	for (i = 0; i < MAX_RESIST; i++) {
-		if (strlen(flag_string(dam_classes, i)) > 7)
-			buf_printf(buf, BUF_END, "\t%s\t%d%%", 
+		if (strlen(flag_string(dam_classes, i)) > 7) {
+			buf_printf(buf, BUF_END, "\t%s\t%d%%",
 				flag_string(dam_classes, i),
 				pMob->resists[i]);
-		else
-			buf_printf(buf, BUF_END, "\t%s\t\t%d%%", 
+		} else {
+			buf_printf(buf, BUF_END, "\t%s\t\t%d%%",
 				flag_string(dam_classes, i),
 			pMob->resists[i]);
-			
-		if (!((i+1) % 3))
+		}
+
+		if ((i + 1) % 3 == 0)
 			buf_append(buf, "\n");
 	}
 	buf_append(buf, "\n");
@@ -972,7 +973,7 @@ OLC_FUN(mobed_race)
 			pMob->form        = r->form;
 			pMob->parts       = r->parts;
 			for (i = 0; i < MAX_RESIST; i++) {
-				if (pMob->resists[i] != MOB_IMMUNE) 
+				if (pMob->resists[i] != MOB_IMMUNE)
 					pMob->resists[i] = r->resists[i];
 			}
 		} else {
@@ -992,7 +993,7 @@ OLC_FUN(mobed_race)
 			for (i = 0; i < MAX_RESIST; i++) {
 				if (pMob->resists[i] != MOB_IMMUNE) {
 					pMob->resists[i] +=
-						r->resists[i] - ro->resists[i];
+					    r->resists[i] - ro->resists[i];
 				}
 			}
 		}

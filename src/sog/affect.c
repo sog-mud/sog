@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: affect.c,v 1.56 2001-07-29 23:39:26 fjoe Exp $
+ * $Id: affect.c,v 1.57 2001-07-30 13:02:06 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -35,22 +35,36 @@
 #include "affects.h"	/* XXX temporary w/a */
 
 AFFECT_DATA *
-aff_new(void)
+aff_new(int where, const char *sn)
 {
 	AFFECT_DATA *paf;
 
 	top_affect++;
 	paf = mem_alloc(MT_AFFECT, sizeof(*paf));
-	memset(paf, 0, sizeof(*paf));
+	paf->next = NULL;
+	paf->where = where;
+	paf->type = str_dup(sn);
+	paf->level = 0;
+	paf->duration = 0;
+	switch (paf->where) {
+	case TO_RACE:
+	case TO_SKILLS:
+		paf->location.s = str_empty;
+		break;
+	default:
+		INT(paf->location) = 0;
+		break;
+	}
+	paf->modifier = 0;
+	paf->bitvector = 0;
+	paf->owner = NULL;
 	return paf;
 }
 
 AFFECT_DATA *
 aff_dup(const AFFECT_DATA *paf)
 {
-	AFFECT_DATA *naf = aff_new();
-	naf->where	= paf->where;
-	naf->type	= str_dup(paf->type);
+	AFFECT_DATA *naf = aff_new(paf->where, paf->type);
 	naf->level	= paf->level;
 	naf->duration	= paf->duration;
 	switch (paf->where) {
@@ -196,7 +210,7 @@ aff_fwrite_list(const char *pre, AFFECT_DATA *paf, FILE *fp)
 AFFECT_DATA *
 aff_fread(rfile_t *fp)
 {
-	AFFECT_DATA *paf = aff_new();
+	AFFECT_DATA *paf = aff_new(TO_AFFECTS, str_empty);
 
 	paf->type = fread_strkey(fp, &skills, "aff_fread");	// notrans
 	paf->where = fread_fword(affect_where_types, fp);
@@ -229,21 +243,5 @@ affect_to_char2(CHAR_DATA *ch, AFFECT_DATA *paf)
 {
 	AFFECT_DATA *af = aff_dup(paf);
 	affect_to_char(ch, af);
-	aff_free(af);
-}
-
-void
-affect_to_obj2(OBJ_DATA *obj, AFFECT_DATA *paf)
-{
-	AFFECT_DATA *af = aff_dup(paf);
-	affect_to_obj(obj, af);
-	aff_free(af);
-}
-
-void
-affect_to_room2(ROOM_INDEX_DATA *room, AFFECT_DATA *paf)
-{
-	AFFECT_DATA *af = aff_dup(paf);
-	affect_to_room(room, af);
 	aff_free(af);
 }

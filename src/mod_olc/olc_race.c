@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.45 2001-07-29 20:14:54 fjoe Exp $
+ * $Id: olc_race.c,v 1.46 2001-07-30 13:02:04 fjoe Exp $
  */
 
 #include "olc.h"
@@ -266,18 +266,20 @@ OLC_FUN(raceed_show)
 		if (r->resists[i]) {
 			if (!j)
 				buf_append(output, "Resists");
-			if (strlen(flag_string(dam_classes, i)) > 7)
+			if (strlen(flag_string(dam_classes, i)) > 7) {
 				buf_printf(output, BUF_END, "\t%s\t%d%%",
 					flag_string(dam_classes, i),
 					r->resists[i]);
-			else
+			} else {
 				buf_printf(output, BUF_END, "\t%s\t\t%d%%",
 					flag_string(dam_classes, i),
 					r->resists[i]);
-			if (!(++j % 3))
+			}
+			if (++j % 3 == 0)
 				buf_append(output, "\n");
 		}
 	}
+
 	if (j)
 		buf_append(output, "\n");
 
@@ -967,15 +969,16 @@ save_race_cb(void *p, va_list ap)
 	if (r->race_flags)
 		fprintf(fp, "Flags %s~\n", flag_string(race_flags, r->race_flags));
 	for (i = 0; i < MAX_RESIST; i++) {
-		if (r->resists[i])
-			fprintf(fp,"Resist %s %d\n", 
+		if (r->resists[i]) {
+			fprintf(fp,"Resist %s %d\n",
 				flag_string(dam_classes, i),
 				r->resists[i]);
+		}
 	}
 
 	if (strcmp(r->damtype, "punch"))
 		fprintf(fp, "Damtype %s\n", r->damtype);
-	
+
 	fprintf(fp, "LuckBonus %d\n", r->luck_bonus);
 
 	aff_fwrite_list("Affc", r->affected, fp);

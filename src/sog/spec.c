@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spec.c,v 1.26 2001-07-04 19:21:22 fjoe Exp $
+ * $Id: spec.c,v 1.27 2001-07-30 13:02:08 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -99,7 +99,8 @@ spec_skill_lookup(spec_t *s, const char *sn)
  * update_skills stuff
  */
 
-static FOREACH_CB_FUN(add_one_skill_cb, p, ap)
+static
+FOREACH_CB_FUN(add_one_skill_cb, p, ap)
 {
 	spec_skill_t *spec_sk = (spec_skill_t *) p;
 
@@ -124,7 +125,8 @@ static FOREACH_CB_FUN(add_one_skill_cb, p, ap)
 	return NULL;
 }
 
-static FOREACH_CB_FUN(add_skills_cb, p, ap)
+static
+FOREACH_CB_FUN(add_skills_cb, p, ap)
 {
 	const char *spn = *(const char **) p;
 
@@ -144,7 +146,8 @@ static FOREACH_CB_FUN(add_skills_cb, p, ap)
 	return NULL;
 }
 
-static FOREACH_CB_FUN(check_one_skill_cb, p, ap)
+static
+FOREACH_CB_FUN(check_one_skill_cb, p, ap)
 {
 	pc_skill_t *pc_sk = (pc_skill_t *) p;
 
@@ -161,7 +164,8 @@ static FOREACH_CB_FUN(check_one_skill_cb, p, ap)
 /*
  * use for adding/updating all skills available for `ch'
  */
-void update_skills(CHAR_DATA *ch)
+void
+update_skills(CHAR_DATA *ch)
 {
 	race_t *r;
 	const char *bonus_skills;
@@ -240,7 +244,8 @@ static FOREACH_CB_FUN(spec_stats_cb, p, ap)
 /*
  * spec_stats -- find spec stats of the skill for char,
  */
-void spec_stats(const CHAR_DATA *ch, spec_skill_t *spec_sk)
+void
+spec_stats(CHAR_DATA *ch, spec_skill_t *spec_sk)
 {
 	race_t *r;
 	skill_t *sk;
@@ -266,7 +271,7 @@ void spec_stats(const CHAR_DATA *ch, spec_skill_t *spec_sk)
 		bonus_skills = r->race_pcdata->bonus_skills;
 	else
 		bonus_skills = NULL;
-	varr_foreach(&CPC(ch)->specs, spec_stats_cb, spec_sk, bonus_skills);
+	varr_foreach(&PC(ch)->specs, spec_stats_cb, spec_sk, bonus_skills);
 
 /* check skill affects */
 	if (get_skill_mod(ch, sk, 1))
@@ -307,7 +312,8 @@ has_spec(CHAR_DATA *ch, const char *spn)
 /*
  * spec_add -- add spec `spn' to `ch'
  */
-bool spec_add(CHAR_DATA *ch, const char *spn)
+bool
+spec_add(CHAR_DATA *ch, const char *spn)
 {
 	const char **pspn;
 
@@ -326,7 +332,8 @@ bool spec_add(CHAR_DATA *ch, const char *spn)
 	return TRUE;
 }
 
-bool spec_del(CHAR_DATA *ch, const char *spn)
+bool
+spec_del(CHAR_DATA *ch, const char *spn)
 {
 	const char **pspn;
 
@@ -348,7 +355,8 @@ bool spec_del(CHAR_DATA *ch, const char *spn)
 #define SU_F_SEEN_CLAN	(C)
 #define SU_F_ALTERED	(D)
 
-static FOREACH_CB_FUN(spec_update_cb, p, ap)
+static
+FOREACH_CB_FUN(spec_update_cb, p, ap)
 {
 	const char **pspn = (const char **) p;
 
@@ -420,7 +428,8 @@ static FOREACH_CB_FUN(spec_update_cb, p, ap)
  * spec_update -- update race, class and clan specs for character
  * Expects: !IS_NPC(ch)
  */
-void spec_update(CHAR_DATA *ch)
+void
+spec_update(CHAR_DATA *ch)
 {
 	int flags;
 	race_t *r = race_lookup(ch->race);
@@ -456,7 +465,8 @@ void spec_update(CHAR_DATA *ch)
 		update_skills(ch);
 }
 
-static const FOREACH_CB_FUN(replace_cb, p, ap)
+static const
+FOREACH_CB_FUN(replace_cb, p, ap)
 {
 #if 0
 	XXX

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: affects.h,v 1.18 2001-07-29 20:14:27 fjoe Exp $
+ * $Id: affects.h,v 1.19 2001-07-30 13:01:45 fjoe Exp $
  */
 
 #ifndef _AFFECTS_H_
@@ -97,5 +97,13 @@ DECLARE_PROC3(format_obj_affects,
 	      ARG(BUFFER), output, ARG(AFFECT_DATA), paf, ARG(int), flags)
 
 __MODULE_END_DECL
+
+#define IS_APPLY_AFFECT(paf)					\
+		((paf)->where == TO_AFFECTS ||			\
+		 (paf)->where == TO_OBJECT ||			\
+		 (paf)->where == TO_WEAPON ||			\
+		 (paf)->where == TO_DETECTS ||			\
+		 (paf)->where == TO_INVIS ||			\
+		 (paf)->where == TO_FORMAFFECTS)
 
 #endif /* _AFFECTS_H_ */

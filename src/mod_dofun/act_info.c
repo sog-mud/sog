@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.381 2001-07-29 20:14:35 fjoe Exp $
+ * $Id: act_info.c,v 1.382 2001-07-30 13:01:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3505,7 +3505,7 @@ void do_slook(CHAR_DATA *ch, const char *argument)
 
 void do_camp(CHAR_DATA *ch, const char *argument)
 {
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 	int chance;
 	int mana;
 
@@ -3548,29 +3548,21 @@ void do_camp(CHAR_DATA *ch, const char *argument)
 	act_char("You succeeded to make your camp.", ch);
 	act("$n succeeded to make $s camp.", ch, NULL, NULL, TO_ROOM);
 
-	af.where	= TO_AFFECTS;
-	af.type 	= "camp";
-	af.level	= ch->level;
-	af.duration	= 12;
-	af.bitvector	= 0;
-	af.modifier	= 0;
-	INT(af.location)= APPLY_NONE;
-	af.owner	= NULL;
-	affect_to_char2(ch, &af);
+	paf = aff_new(TO_AFFECTS, "camp");
+	paf->level	= ch->level;
+	paf->duration	= 12;
+	affect_to_char(ch, paf);
 
-	af.where	= TO_ROOM_AFFECTS;
-	af.type		= "camp";
-	af.level	= ch->level;
-	af.duration	= ch->level / 20;
-	af.bitvector	= 0;
-	af.modifier	= 2 * LEVEL(ch);
-	INT(af.location)= APPLY_ROOM_HEAL;
-	af.owner	= ch;
-	affect_to_room2(ch->in_room, &af);
+	paf->where	= TO_ROOM_AFFECTS;
+	paf->duration	= ch->level / 20;
+	paf->modifier	= 2 * LEVEL(ch);
+	INT(paf->location)= APPLY_ROOM_HEAL;
+	paf->owner	= ch;
+	affect_to_room(ch->in_room, paf);
 
-	af.modifier	= LEVEL(ch);
-	INT(af.location)= APPLY_ROOM_MANA;
-	affect_to_room2(ch->in_room, &af);
+	INT(paf->location)= APPLY_ROOM_MANA;
+	affect_to_room(ch->in_room, paf);
+	aff_free(paf);
 }
 
 void do_demand(CHAR_DATA *ch, const char *argument)
@@ -3749,7 +3741,6 @@ void do_control(CHAR_DATA *ch, const char *argument)
 void do_make_arrow(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *arrow;
-	AFFECT_DATA af;
 	OBJ_INDEX_DATA *pObjIndex;
 	int count, mana, wait;
 	char arg[MAX_INPUT_LENGTH];
@@ -3782,16 +3773,13 @@ void do_make_arrow(CHAR_DATA *ch, const char *argument)
 	else if (!str_prefix(arg, "green")) {
 		color = "green arrow";
 		vnum = OBJ_VNUM_GREEN_ARROW;
-	}
-	else if (!str_prefix(arg, "red")) {
+	} else if (!str_prefix(arg, "red")) {
 		color = "red arrow";
 		vnum = OBJ_VNUM_RED_ARROW;
-	}
-	else if (!str_prefix(arg, "white")) {
+	} else if (!str_prefix(arg, "white")) {
 		color = "white arrow";
 		vnum = OBJ_VNUM_WHITE_ARROW;
-	}
-	else if (!str_prefix(arg, "blue")) {
+	} else if (!str_prefix(arg, "blue")) {
 		color = "blue arrow";
 		vnum = OBJ_VNUM_BLUE_ARROW;
 	}
@@ -3818,6 +3806,8 @@ void do_make_arrow(CHAR_DATA *ch, const char *argument)
 	act("$n starts to make arrows!", ch, NULL, NULL, TO_ROOM);
 	pObjIndex = get_obj_index(vnum);
 	for (count = 0; count < LEVEL(ch) / 5; count++) {
+		AFFECT_DATA *paf;
+
 		if (number_percent() > chance * color_chance / 100) {
 			act_char("You failed to make the arrow, and broke it.", ch);
 			check_improve(ch, "make arrow", FALSE, 3);
@@ -3835,18 +3825,16 @@ void do_make_arrow(CHAR_DATA *ch, const char *argument)
 		INT(arrow->value[1]) = 4 + LEVEL(ch) / 10;
 		INT(arrow->value[2]) = 4 + LEVEL(ch) / 10;
 
-		af.where	 = TO_OBJECT;
-		af.type		 = "make arrow";
-		af.level	 = ch->level;
-		af.duration	 = -1;
-		INT(af.location) = APPLY_HITROLL;
-		af.modifier	 = LEVEL(ch) / 10;
-		af.bitvector 	 = 0;
-		af.owner	 = NULL;
-		affect_to_obj2(arrow, &af);
+		paf = aff_new(TO_OBJECT, "make arrow");
+		paf->level	= ch->level;
+		paf->duration	= -1;
+		INT(paf->location) = APPLY_HITROLL;
+		paf->modifier	= LEVEL(ch) / 10;
+		affect_to_obj(arrow, paf);
 
-		INT(af.location) = APPLY_DAMROLL;
-		affect_to_obj2(arrow, &af);
+		INT(paf->location) = APPLY_DAMROLL;
+		affect_to_obj(arrow, paf);
+		aff_free(paf);
 
 		obj_to_char(arrow, ch);
 		act_puts("You successfully make $p.",
@@ -3859,7 +3847,7 @@ void do_make_arrow(CHAR_DATA *ch, const char *argument)
 void do_make_bow(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *	bow;
-	AFFECT_DATA	af;
+	AFFECT_DATA	*paf;
 	int		mana;
 	int		chance;
 
@@ -3898,18 +3886,16 @@ void do_make_bow(CHAR_DATA *ch, const char *argument)
 	INT(bow->value[1]) = 4 + ch->level / 15;
 	INT(bow->value[2]) = 4 + ch->level / 15;
 
-	af.where	= TO_OBJECT;
-	af.type		= "make bow";
-	af.level	= ch->level;
-	af.duration	= -1;
-	INT(af.location)= APPLY_HITROLL;
-	af.modifier	= LEVEL(ch) / 10;
-	af.bitvector 	= 0;
-	af.owner	= NULL;
-	affect_to_obj2(bow, &af);
+	paf = aff_new(TO_OBJECT, "make bow");
+	paf->level	= ch->level;
+	paf->duration	= -1;
+	INT(paf->location)= APPLY_HITROLL;
+	paf->modifier	= LEVEL(ch) / 10;
+	affect_to_obj(bow, paf);
 
-	INT(af.location)= APPLY_DAMROLL;
-	affect_to_obj2(bow, &af);
+	INT(paf->location)= APPLY_DAMROLL;
+	affect_to_obj(bow, paf);
+	aff_free(paf);
 
 	obj_to_char(bow, ch);
 	act_puts("You successfully make $p.", ch, bow, NULL, TO_CHAR, POS_DEAD);
@@ -3936,7 +3922,7 @@ void do_make(CHAR_DATA *ch, const char *argument)
 /*Added by Osya*/
 void do_homepoint(CHAR_DATA *ch, const char *argument)
 {
-        AFFECT_DATA af;
+        AFFECT_DATA *paf;
         int chance;
         char arg[MAX_INPUT_LENGTH];
 
@@ -3979,20 +3965,16 @@ void do_homepoint(CHAR_DATA *ch, const char *argument)
         act_char("You succeeded to make your homepoint.", ch);
         act("$n succeeded to make $s homepoint. ", ch, NULL, NULL, TO_ROOM);
 
-        af.where        = TO_AFFECTS;
-        af.type         = "homepoint";
-        af.level        = ch->level;
-        af.duration     = 100;
-        af.bitvector    = 0;
-        af.modifier     = 0;
-        INT(af.location)= APPLY_NONE;
-	af.owner	= NULL;
-        affect_to_char2(ch, &af);
+	paf = aff_new(TO_AFFECTS, "homepoint");
+	paf->level	= ch->level;
+	paf->duration	= 100;
+	affect_to_char(ch, paf);
+	aff_free(paf);
 
         argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] && !str_prefix(arg, "motherland"))
 		PC(ch)->homepoint = NULL;
-        else 
+        else
 		PC(ch)->homepoint = ch->in_room;
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.297 2001-07-29 20:14:45 fjoe Exp $
+ * $Id: handler.c,v 1.298 2001-07-30 13:01:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -851,7 +851,7 @@ can_see(CHAR_DATA *ch, CHAR_DATA *victim)
 	&&  ch->in_room != victim->in_room)
 		return FALSE;
 
-	if (!IS_NPC(vch) && IS_SET(CPC(vch)->plr_flags, PLR_HOLYLIGHT))
+	if (!IS_NPC(vch) && IS_SET(PC(vch)->plr_flags, PLR_HOLYLIGHT))
 		return TRUE;
 
 	/*
@@ -888,7 +888,7 @@ can_see(CHAR_DATA *ch, CHAR_DATA *victim)
 bool
 can_see_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 {
-	if (!IS_NPC(ch) && IS_SET(CPC(ch)->plr_flags, PLR_HOLYLIGHT))
+	if (!IS_NPC(ch) && IS_SET(PC(ch)->plr_flags, PLR_HOLYLIGHT))
 		return TRUE;
 
 	if (IS_OBJ_STAT(obj, ITEM_VIS_DEATH))
@@ -1727,9 +1727,9 @@ get_played(const CHAR_DATA *ch, bool add_age)
 	if (IS_NPC(ch))
 		return 0;
 
-	pl = current_time - CPC(ch)->logon + CPC(ch)->played;
+	pl = current_time - PC(ch)->logon + PC(ch)->played;
 	if (add_age)
-		pl += CPC(ch)->add_age;
+		pl += PC(ch)->add_age;
 	return pl;
 }
 
@@ -1775,8 +1775,15 @@ get_resist(CHAR_DATA *ch, int dam_class)
 		break;
 	}
 
-	if (dam_class != DAM_NONE)
-		return URANGE(-100, resists[dam_class] + bonus, 100);
+	if (dam_class != DAM_NONE) {
+		if (dam_class < 0)
+			log(LOG_BUG, "get_resist: dam_class %d < 0", dam_class);
+		else if (dam_class >= MAX_RESIST) {
+			log(LOG_BUG, "get_resist: dam_class %d >= MAX_RESIST",
+			    dam_class);
+		} else
+			return URANGE(-100, resists[dam_class] + bonus, 100);
+	}
 
 	return IS_IMMORTAL(ch)? 100 : 0;
 }
@@ -3488,7 +3495,7 @@ char_in_dark_room(CHAR_DATA *ch)
 {
 	ROOM_INDEX_DATA *pRoomIndex = ch->in_room;
 
-	if (!IS_NPC(ch) && IS_SET(CPC(ch)->plr_flags, PLR_HOLYLIGHT))
+	if (!IS_NPC(ch) && IS_SET(PC(ch)->plr_flags, PLR_HOLYLIGHT))
 		return FALSE;
 
 	if (is_affected(ch, "vampire"))

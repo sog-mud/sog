@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.130 2001-06-25 16:51:22 fjoe Exp $
+ * $Id: olc.c,v 1.131 2001-07-30 13:02:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1186,8 +1186,8 @@ olced_addaffect(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 		return FALSE;
 	}
 
-	paf             = aff_new();
-	switch (where) {
+	paf = aff_new(where, arg);
+	switch (paf->where) {
 	case TO_SKILLS:
 	case TO_RACE:
 		paf->location.s = str_dup(location.s);
@@ -1197,8 +1197,6 @@ olced_addaffect(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 		break;
 	}
 	paf->modifier   = modifier;
-	paf->where	= where;
-	paf->type       = str_dup(arg);
 	paf->duration   = -1;
 	paf->bitvector  = bitvector;
 	paf->level      = level;
@@ -1264,12 +1262,12 @@ olced_resists(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 			 ch, cmd->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
-	
+
 	res = flag_svalue(dam_classes, arg);
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (!is_number(arg) || res < 0 || res == DAM_NONE)
 		return olced_resists(ch, str_empty, cmd, resists);
-	
+
 	resists[res] = atoi(arg);
 	act_char("Resistance set.", ch);
 	return TRUE;

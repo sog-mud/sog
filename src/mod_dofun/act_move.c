@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.264 2001-07-29 23:39:17 fjoe Exp $
+ * $Id: act_move.c,v 1.265 2001-07-30 13:01:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1708,9 +1708,7 @@ void do_vbite(CHAR_DATA *ch, const char *argument)
 					(LEVEL(victim) - LEVEL(ch)))) {
 			AFFECT_DATA *paf;
 
-			paf = aff_new();
-			paf->where	= TO_AFFECTS;
-			paf->type	= "resurrection";
+			paf = aff_new(TO_AFFECTS, "resurrection");
 			paf->level	= LEVEL(ch);
 			paf->duration	= number_fuzzy(4);
 			affect_join(ch, paf);
@@ -2124,9 +2122,7 @@ void do_vtouch(CHAR_DATA *ch, const char *argument)
 
 		check_improve(ch, "vampiric touch", TRUE, 1);
 
-		paf = aff_new();
-		paf->type = "vampiric touch";
-		paf->where = TO_AFFECTS;
+		paf = aff_new(TO_AFFECTS, "vampiric touch");
 		paf->level = ch->level;
 		paf->duration = LEVEL(ch) / 20 + 1;
 		paf->bitvector = AFF_SLEEP;
@@ -2370,10 +2366,9 @@ void do_crecall(CHAR_DATA *ch, const char *argument)
 
 	ch->move /= 2;
 
-	paf = aff_new();
-	paf->type      = "clan recall";
-	paf->level     = ch->level;
-	paf->duration  = skill_beats("clan recall");
+	paf = aff_new(TO_AFFECTS, "clan recall");
+	paf->level	= ch->level;
+	paf->duration	= skill_beats("clan recall");
 	affect_to_char(ch, paf);
 	aff_free(paf);
 
@@ -2708,9 +2703,7 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *arrow,
 				act("$n is poisoned by the venom on $p.",
 				    victim, arrow, NULL, TO_ROOM);
 
-				paf = aff_new();
-		            paf->where     = TO_AFFECTS;
-		            paf->type      = "poison";
+				paf = aff_new(TO_AFFECTS, "poison");
 		            paf->level     = level * 3/4;
 		            paf->duration  = level / 2;
 		            INT(paf->location) = APPLY_STR;
@@ -2745,9 +2738,7 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *arrow,
 			&&  number_percent() < 50) {
 				AFFECT_DATA *paf;
 
-				paf = aff_new();
-				paf->where     = TO_AFFECTS;
-				paf->type      = sn;
+				paf = aff_new(TO_AFFECTS, sn);
 				paf->level     = ch->level;
 				paf->duration  = -1;
 				INT(paf->location) = APPLY_HITROLL;
@@ -3354,50 +3345,38 @@ void do_settraps(CHAR_DATA *ch, const char *argument)
 	WAIT_STATE(ch, skill_beats("settraps"));
 
 	if (IS_NPC(ch) || number_percent() <  chance * 7 / 10) {
-	  AFFECT_DATA af2;
-	  AFFECT_DATA af;
+		AFFECT_DATA *paf;
 
-	  check_improve(ch, "settraps", TRUE, 1);
+		check_improve(ch, "settraps", TRUE, 1);
 
-	  if (is_affected_room(ch->in_room, "settraps"))
-	  {
-	act_char("This room has already trapped.", ch);
-	return;
-	   }
+		if (is_affected_room(ch->in_room, "settraps")) {
+			act_char("This room has already trapped.", ch);
+			return;
+		}
 
-	  if (is_affected(ch, "settraps"))
-	  {
-	act_char("This skill is used too recently.", ch);
-	return;
-	  }
-   
-	  af.where	= TO_ROOM_AFFECTS;
-	  af.type	= "settraps";
-	  af.level	= ch->level;
-	  af.duration	= ch->level / 40;
-	  INT(af.location) = APPLY_NONE;
-	  af.modifier	= 0;
-	  af.bitvector	= 0;
-	  af.owner	= ch;
-	  affect_to_room2(ch->in_room, &af);
+		if (is_affected(ch, "settraps")) {
+			act_char("This skill is used too recently.", ch);
+			return;
+		}
 
-	  af2.where     = TO_AFFECTS;
-	  af2.type      = "settraps";
-	  af2.level	= ch->level;
-	  af2.owner	= NULL;
-	
-	  if (!IS_IMMORTAL(ch) && IS_PUMPED(ch))
-	  	af2.duration  = 1;
-	  else
-		af2.duration = ch->level / 10;
+		paf = aff_new(TO_AFFECTS, "settraps");
+		paf->level	= ch->level;
+		if (!IS_IMMORTAL(ch) && IS_PUMPED(ch))
+			paf->duration = 1;
+		else
+			paf->duration = ch->level / 10;
+		affect_to_char(ch, paf);
 
-	  af2.modifier  = 0;
-	  INT(af2.location) = APPLY_NONE;
-	  af2.bitvector = 0;
-	  affect_to_char2(ch, &af2);
-	  act_char("You set the room with your trap.", ch);
-	  act("$n set the room with $s trap.",ch,NULL,NULL,TO_ROOM);
-	  return;
+		paf->where	= TO_ROOM_AFFECTS;
+		paf->duration	= ch->level / 40;
+		paf->owner	= ch;
+		affect_to_room(ch->in_room, paf);
+
+		aff_free(paf);
+
+		act_char("You set the room with your trap.", ch);
+		act("$n set the room with $s trap.", ch, NULL, NULL, TO_ROOM);
+		return;
 	} else
 		check_improve(ch, "settraps", FALSE, 1);
 }

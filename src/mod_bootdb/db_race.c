@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_race.c,v 1.33 2001-06-24 10:51:02 avn Exp $
+ * $Id: db_race.c,v 1.34 2001-07-30 13:02:12 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -134,7 +134,7 @@ DBLOAD_FUN(load_race)
 			if (IS_TOKEN(fp, "Resist")) {
 				int res = fread_fword(dam_classes, fp);
 				if (res < 0 || res == DAM_NONE) {
-					log(LOG_ERROR, "load_race: unknown resistance name");
+					log(LOG_ERROR, "load_race: unknown resist name");
 					fread_number(fp);
 				} else {
 					r.resists[res] = fread_number(fp);

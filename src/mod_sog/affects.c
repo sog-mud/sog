@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.55 2001-07-29 20:14:32 fjoe Exp $
+ * $Id: affects.c,v 1.56 2001-07-30 13:01:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -138,9 +138,18 @@ affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 			spec_update(ch);
 		return;
 	} else if (paf->where == TO_RESIST || paf->where == TO_FORMRESIST) {
-		if (ch->shapeform && paf->where == TO_FORMRESIST)
-			ch->shapeform->resists[INT(paf->location)] += mod;
-		ch->resists[INT(paf->location)] += mod;
+		int res = INT(paf->location);
+
+		if (res < 0)
+			log(LOG_BUG, "affect_modify: res %d < 0", res);
+		else if (res >= MAX_RESIST) {
+			log(LOG_BUG, "affect_modify: res %d >= MAX_RESIST",
+			    res);
+		} else {
+			if (ch->shapeform && paf->where == TO_FORMRESIST)
+				ch->shapeform->resists[INT(paf->location)] += mod;
+			ch->resists[INT(paf->location)] += mod;
+		}
 		return;
 	}
 

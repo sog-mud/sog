@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.309 2001-07-29 23:39:22 fjoe Exp $
+ * $Id: fight.c,v 1.310 2001-07-30 13:01:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -604,9 +604,7 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 				act("$n is poisoned by the venom on $p.",
 				    victim, wield, NULL, TO_ROOM);
 
-				paf = aff_new();
-				paf->where     = TO_AFFECTS;
-				paf->type      = "poison";
+				paf = aff_new(TO_AFFECTS, "poison");
 				paf->level     = level * 3/4;
 				paf->duration  = level / 2;
 				INT(paf->location) = APPLY_STR;

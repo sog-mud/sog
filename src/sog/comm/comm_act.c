@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.c,v 1.74 2001-07-29 20:15:07 fjoe Exp $
+ * $Id: comm_act.c,v 1.75 2001-07-30 13:02:09 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -57,7 +57,7 @@ PERS_SEX(CHAR_DATA *ch, CHAR_DATA *looker, size_t to_lang)
 	if (ch != looker
 	&&  is_affected(ch, "doppelganger")
 	&&  ch->doppel != NULL
-	&&  (IS_NPC(looker) || !IS_SET(CPC(looker)->plr_flags, PLR_HOLYLIGHT)))
+	&&  (IS_NPC(looker) || !IS_SET(PC(looker)->plr_flags, PLR_HOLYLIGHT)))
 		ch = ch->doppel;
 
 	return GET_SEX(&ch->gender, to_lang);
@@ -163,11 +163,11 @@ PERS2(CHAR_DATA *ch, CHAR_DATA *to, size_t to_lang, int act_flags)
 
 	if (is_affected(ch, "doppelganger")
 	&&  (IS_NPC(to) ||
-	     !IS_SET(CPC(to)->plr_flags, PLR_HOLYLIGHT)))
+	     !IS_SET(PC(to)->plr_flags, PLR_HOLYLIGHT)))
 		ch = ch->doppel;
 
 	if (!IS_NPC(to) && is_affected(to, "hallucination"))
-		ch = nth_char(ch, CPC(to)->random_value);
+		ch = nth_char(ch, PC(to)->random_value);
 
 	if (visible) {
 		if (ch->shapeform) {
@@ -192,7 +192,7 @@ PERS2(CHAR_DATA *ch, CHAR_DATA *to, size_t to_lang, int act_flags)
 			    mlstr_val(&ch->short_descr, to_lang),
 			    act_flags);
 		} else if (IS_AFFECTED(ch, AFF_TURNED) && !IS_IMMORTAL(to)) {
-			return word_form(GETMSG(CPC(ch)->form_name, to_lang),
+			return word_form(GETMSG(PC(ch)->form_name, to_lang),
 					 GET_SEX(&ch->gender, to_lang), to_lang,
 					 RULES_GENDER);
 		}
@@ -220,7 +220,7 @@ char slang[] =
 
 /* ch says, victim hears */
 static char *
-translate(const CHAR_DATA *ch, const CHAR_DATA *victim, const char *i)
+translate(const CHAR_DATA *ch, CHAR_DATA *victim, const char *i)
 {
 	static char trans[MAX_STRING_LENGTH];
 	char *o;
@@ -266,7 +266,7 @@ struct tdata {
 };
 
 static const char *
-act_format_text(const char *text, const CHAR_DATA *ch, const CHAR_DATA *to,
+act_format_text(const char *text, CHAR_DATA *ch, CHAR_DATA *to,
 		size_t to_lang, int act_flags)
 {
 	if (!IS_SET(act_flags, ACT_NOTRANS))
@@ -277,8 +277,8 @@ act_format_text(const char *text, const CHAR_DATA *ch, const CHAR_DATA *to,
 }
 
 static const char *
-act_format_mltext(const mlstring *mltext, const CHAR_DATA *ch,
-		  const CHAR_DATA *to, size_t to_lang, int act_flags)
+act_format_mltext(const mlstring *mltext, CHAR_DATA *ch,
+		  CHAR_DATA *to, size_t to_lang, int act_flags)
 {
 	return act_format_text(mlstr_val(mltext, to_lang),
 			       ch, to, to_lang, act_flags);
@@ -289,7 +289,7 @@ act_format_obj(OBJ_DATA *obj, CHAR_DATA *to, size_t to_lang,
 	       int act_flags)
 {
 	if (!IS_NPC(to) && is_affected(to, "hallucination"))
-		obj = nth_obj(obj, CPC(to)->random_value);
+		obj = nth_obj(obj, PC(to)->random_value);
 
 	if (!can_see_obj(to, obj))
 		return GETMSG("something", to_lang);
@@ -948,7 +948,7 @@ act_skip(CHAR_DATA *ch, CHAR_DATA *vch, CHAR_DATA *to,
 	if (IS_SET(act_flags, ACT_NOTWIT)
 	&&  !IS_NPC(to) && !IS_IMMORTAL(to)
 	&&  !IS_NPC(ch) && !IS_IMMORTAL(ch)
-	&&  is_name(ch->name, CPC(to)->twitlist))
+	&&  is_name(ch->name, PC(to)->twitlist))
 		return TRUE;
 
 /* check "deaf dumb blind" chars */
@@ -985,12 +985,12 @@ act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 	if (!IS_NPC(to)) {
 		if ((IS_SET(to->comm, COMM_AFK) || to->desc == NULL) &&
 		     IS_SET(act_flags, ACT_TOBUF))
-			buf_append(CPC(to)->buffer, tmp);
+			buf_append(PC(to)->buffer, tmp);
 		else if (to->desc) {
 			if (IS_SET(to->comm, COMM_QUIET_EDITOR)
 			&&  to->desc->pString
 			&&  !IS_SET(act_flags, ACT_SEDIT))
-				buf_append(CPC(to)->buffer, tmp);
+				buf_append(PC(to)->buffer, tmp);
 			else
 				write_to_buffer(to->desc, tmp, 0);
 		}

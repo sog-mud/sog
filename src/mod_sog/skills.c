@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.121 2001-07-29 20:15:04 fjoe Exp $
+ * $Id: skills.c,v 1.122 2001-07-30 13:02:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -71,7 +71,7 @@ exp_for_level(const CHAR_DATA *ch, int level)
 int
 exp_to_level(const CHAR_DATA *ch)
 {
-	return exp_for_level(ch, ch->level+1) - CPC(ch)->exp;
+	return exp_for_level(ch, ch->level+1) - PC(ch)->exp;
 }
 
 /* checks for skill improvement */
@@ -252,7 +252,7 @@ int get_skill(const CHAR_DATA *ch, const char *sn)
 			percent = 2 * percent / 3;
 	}
 
-	if (!IS_NPC(ch) && CPC(ch)->condition[COND_DRUNK]  > 10)
+	if (!IS_NPC(ch) && PC(ch)->condition[COND_DRUNK]  > 10)
 		percent = 9 * percent / 10;
 
 	return UMAX(0, percent + get_skill_mod(ch, sk, percent));
@@ -261,7 +261,7 @@ int get_skill(const CHAR_DATA *ch, const char *sn)
 pc_skill_t *
 pc_skill_lookup(const CHAR_DATA *ch, const char *sn)
 {
-	return (pc_skill_t*) varr_bsearch(&CPC(ch)->learned, &sn, cmpstr);
+	return (pc_skill_t*) varr_bsearch(&PC(ch)->learned, &sn, cmpstr);
 }
 
 /* for returning weapon information */

@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.183 2001-07-29 23:39:18 fjoe Exp $
+ * $Id: martial_art.c,v 1.184 2001-07-30 13:01:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2880,9 +2880,7 @@ void do_strangle(CHAR_DATA *ch, const char *argument)
 		    ch, NULL, victim, TO_NOTVICT);
 		check_improve(ch, "strangle", TRUE, 1);
 
-		paf = aff_new();
-		paf->type = "strangle";
-		paf->where = TO_AFFECTS;
+		paf = aff_new(TO_AFFECTS, "strangle");
 		paf->level = ch->level;
 		paf->duration = LEVEL(ch) / 20 + 1;
 		paf->bitvector = AFF_SLEEP;
@@ -2989,9 +2987,7 @@ void do_headcrush(CHAR_DATA *ch, const char *argument)
 		act("$n hits $N's head with $s mace and $N falls asleep.",
 			ch, NULL, victim, TO_NOTVICT);
 
-		paf = aff_new();
-		paf->type	= "head crush";
-		paf->where	= TO_AFFECTS;
+		paf = aff_new(TO_AFFECTS, "head crush");
 		paf->level	= ch->level;
 		paf->duration	= LEVEL(ch) / 20 + 1;
 		paf->bitvector	= AFF_SLEEP;
@@ -3088,9 +3084,7 @@ void do_blackjack(CHAR_DATA *ch, const char *argument)
 		    ch, NULL, victim, TO_NOTVICT);
 		check_improve(ch, "blackjack", TRUE, 1);
 
-		paf = aff_new();
-		paf->type	= "blackjack";
-		paf->where	= TO_AFFECTS;
+		paf = aff_new(TO_AFFECTS, "blackjack");
 		paf->level	= ch->level;
 		paf->duration	= LEVEL(ch) / 15 + 1;
 		paf->bitvector	= AFF_SLEEP;
@@ -3301,6 +3295,8 @@ void do_trophy(CHAR_DATA *ch, const char *argument)
 		affect_to_char2(ch,&af);
 
 		if (trophy_vnum != 0) {
+			AFFECT_DATA *paf;
+
 			level = UMIN(part->level + 5, MAX_LEVEL);
 
 			trophy = create_obj_of(get_obj_index(trophy_vnum),
@@ -3309,48 +3305,47 @@ void do_trophy(CHAR_DATA *ch, const char *argument)
 			trophy->timer	= ch->level * 2;
 			trophy->cost	= 0;
 			ch->mana	-= mana;
-			af.where	= TO_OBJECT;
-			af.type 	= "trophy";
-			af.level	= level;
-			af.duration	= -1;
-			INT(af.location)= APPLY_DAMROLL;
-			af.modifier  = LEVEL(ch) / 5;
-			af.bitvector	= 0;
-			affect_to_obj2(trophy, &af);
 
-			INT(af.location)= APPLY_HITROLL;
-			af.modifier  = LEVEL(ch) / 5;
-			af.bitvector	= 0;
-			affect_to_obj2(trophy, &af);
+			paf = aff_new(TO_OBJECT, "trophy");
+			paf->level	= level;
+			paf->duration	= -1;
+			INT(paf->location)= APPLY_DAMROLL;
+			paf->modifier  = LEVEL(ch) / 5;
+			affect_to_obj(trophy, paf);
 
-			INT(af.location)= APPLY_INT;
-			af.modifier	= level>20?-2:-1;
-			affect_to_obj2(trophy, &af);
+			INT(paf->location)= APPLY_HITROLL;
+			paf->modifier  = LEVEL(ch) / 5;
+			affect_to_obj(trophy, paf);
 
-			INT(af.location)= APPLY_STR;
-			af.modifier	= level>20?2:1;
-			affect_to_obj2(trophy, &af);
+			INT(paf->location)= APPLY_INT;
+			paf->modifier	= level > 20 ? -2 : -1;
+			affect_to_obj(trophy, paf);
+
+			INT(paf->location)= APPLY_STR;
+			paf->modifier	= level > 20 ? 2 : 1;
+			affect_to_obj(trophy, paf);
+			aff_free(paf);
 
 			INT(trophy->value[0]) = LEVEL(ch);
 			INT(trophy->value[1]) = LEVEL(ch);
 			INT(trophy->value[2]) = LEVEL(ch);
 			INT(trophy->value[3]) = LEVEL(ch);
-		
+
 			obj_to_char(trophy, ch);
-			  check_improve(ch, "trophy", TRUE, 1);
-		
+			check_improve(ch, "trophy", TRUE, 1);
+
 			act("You make a poncho from $p!",
 			    ch, part, NULL, TO_CHAR);
 			act("$n makes a poncho from $p!",
 			    ch, part, NULL, TO_ROOM);
-		
+
 			extract_obj(part, 0);
 			return;
 		}
 	} else {
 		act_char("You destroyed it.", ch);
 		extract_obj(part, 0);
-		ch->mana -= mana/2;
+		ch->mana -= mana / 2;
 		check_improve(ch, "trophy", FALSE, 1);
 	}
 }
@@ -3372,17 +3367,14 @@ void do_truesight(CHAR_DATA *ch, const char *argument)
 	WAIT_STATE(ch, skill_beats("truesight"));
 
 	if (number_percent() < chance) {
-		AFFECT_DATA af;
+		AFFECT_DATA *paf;
 
-		af.where    = TO_DETECTS;
-		af.type     = "truesight";
-		af.level    = ch->level;
-		af.duration = LEVEL(ch)/2 + 5;
-		INT(af.location) = APPLY_NONE;
-		af.modifier = 0;
-		af.bitvector = ID_INVIS | ID_MAGIC;
-		af.owner	= NULL;
-		affect_to_char2(ch, &af);
+		paf = aff_new(TO_DETECTS, "truesight");
+		paf->level    = ch->level;
+		paf->duration = LEVEL(ch)/2 + 5;
+		paf->bitvector = ID_INVIS | ID_MAGIC;
+		affect_to_char(ch, paf);
+		aff_free(paf);
 
 		act("You look around sharply!", ch, NULL, NULL, TO_CHAR);
 		act("$n looks more enlightened.", ch, NULL, NULL, TO_ROOM);
@@ -4270,7 +4262,6 @@ void do_bandage(CHAR_DATA *ch, const char *argument)
 void do_katana(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *katana;
-	AFFECT_DATA af;
 	OBJ_DATA *part;
 	char arg[MAX_INPUT_LENGTH];
 	int chance;
@@ -4318,15 +4309,12 @@ void do_katana(CHAR_DATA *ch, const char *argument)
 	WAIT_STATE(ch, skill_beats("katana"));
 
 	if (number_percent() < chance) {
-		af.where	= TO_AFFECTS;
-		af.type		= "katana";
-		af.level	= ch->level;
-		af.duration	= ch->level;
-		af.modifier	= 0;
-		af.bitvector 	= 0;
-		INT(af.location)= 0;
-		af.owner	= NULL;
-		affect_to_char2(ch,&af);
+		AFFECT_DATA *paf;
+
+		paf = aff_new(TO_AFFECTS, "katana");
+		paf->level	= ch->level;
+		paf->duration	= ch->level;
+		affect_to_char(ch, paf);
 
 		katana = create_obj(get_obj_index(OBJ_VNUM_KATANA_SWORD), 0);
 		katana->level = ch->level;
@@ -4334,25 +4322,23 @@ void do_katana(CHAR_DATA *ch, const char *argument)
 		katana->cost  = 0;
 		ch->mana -= mana;
 
-		af.where	= TO_OBJECT;
-		af.type 	= "katana";
-		af.level	= ch->level;
-		af.duration	= -1;
-		INT(af.location)= APPLY_DAMROLL;
-		af.modifier	= ch->level / 10;
-		af.bitvector	= 0;
-		af.owner	= NULL;
-		affect_to_obj2(katana, &af);
+		paf->where	= TO_OBJECT;
+		paf->level	= ch->level;
+		paf->duration	= -1;
+		INT(paf->location)= APPLY_DAMROLL;
+		paf->modifier	= ch->level / 10;
+		affect_to_obj(katana, paf);
 
-		INT(af.location)= APPLY_HITROLL;
-		affect_to_obj2(katana, &af);
+		INT(paf->location)= APPLY_HITROLL;
+		affect_to_obj(katana, paf);
+		aff_free(paf);
 
 		INT(katana->value[2]) = ch->level / 10;
 		katana->ed = ed_new2(katana->pObjIndex->ed, ch->name);
-		
+
 		obj_to_char(katana, ch);
 		check_improve(ch, "katana", TRUE, 1);
-		
+
 		act("You make a katana from $p!",ch,part,NULL,TO_CHAR);
 		act("$n makes a katana from $p!",ch,part,NULL,TO_ROOM);
 		
@@ -4496,17 +4482,14 @@ void do_sense(CHAR_DATA *ch, const char *argument)
 	WAIT_STATE(ch, skill_beats("sense life"));
 
 	if (number_percent() < chance) {
-		AFFECT_DATA af;
+		AFFECT_DATA *paf;
 
-		af.where	= TO_DETECTS;
-		af.type		= "sense life";
-		af.level	= ch->level;
-		af.duration	= ch->level;
-		INT(af.location)= APPLY_NONE;
-		af.modifier	= 0;
-		af.bitvector	= ID_LIFE;
-		af.owner	= NULL;
-		affect_to_char2(ch, &af);
+		paf = aff_new(TO_DETECTS, "sense life");
+		paf->level	= ch->level;
+		paf->duration	= ch->level;
+		paf->bitvector	= ID_LIFE;
+		affect_to_char(ch, paf);
+		aff_free(paf);
 
 		ch->mana -= mana;
 
