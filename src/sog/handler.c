@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.30 2000-06-21 10:35:59 fjoe Exp $
+ * $Id: handler.c,v 1.182.2.31 2000-08-02 14:34:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -5073,9 +5073,15 @@ ROOM_INDEX_DATA *find_location(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
 	OBJ_DATA *obj;
+	int cln;
+	ROOM_INDEX_DATA *room;
 
 	if (is_number(argument))
 		return get_room_index(atoi(argument));
+
+	if ((cln = cln_lookup(argument)) > 0
+	&&  (room = get_room_index(CLAN(cln)->altar_vnum)) != NULL)
+		return room;
 
 	if ((victim = get_char_world(ch, argument)) != NULL)
 		return victim->in_room;
