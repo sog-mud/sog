@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.63 2002-10-24 07:59:33 tatyana Exp $
+ * $Id: handler.c,v 1.182.2.64 2002-10-26 16:51:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3531,10 +3531,11 @@ void do_tell_raw(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
 
 	msg = garble(ch, msg);
 	act_puts("You tell $N '{G$t{x'",
-		 ch, msg, victim, TO_CHAR | ACT_SPEECH(ch), POS_DEAD);
+		 ch, msg, victim,
+		 TO_CHAR | ACTQ_TELL | ACT_SPEECH(ch), POS_DEAD);
 	act_puts("$n tells you '{G$t{x'",
 		 ch, msg, victim,
-		 TO_VICT | ACT_TOBUF | ACT_NOTWIT | ACT_SPEECH(ch),
+		 TO_VICT | ACTQ_TELL | ACT_TOBUF | ACT_NOTWIT | ACT_SPEECH(ch),
 		 POS_SLEEPING);
 
 	if (IS_NPC(ch))

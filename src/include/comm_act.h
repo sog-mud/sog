@@ -23,20 +23,42 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.h,v 1.16.2.4 2002-08-26 16:24:36 fjoe Exp $
+ * $Id: comm_act.h,v 1.16.2.5 2002-10-26 16:51:24 fjoe Exp $
  */
 
 #ifndef _COMM_ACT_H_
 #define _COMM_ACT_H_
 
-/* the following 5 act target flags are exclusive */
-#define TO_ROOM		(A)
-#define TO_NOTVICT	(B)
-#define TO_VICT		(C)
-#define TO_CHAR		(D)
-#define TO_ALL		(E)
+/*
+ * layout of act_flags is:
+ * bits 0..2	-- act target
+ * bits 3..5	-- queue
+ * bits 6..31	-- flags
+ */
 
-#define ACT_TOBUF	(F)	/* append to replay buffer if link-dead */
+/*
+ * act target
+ */
+#define TO_ROOM		(1 << 0)
+#define TO_NOTVICT	(2 << 0)
+#define TO_VICT		(3 << 0)
+#define TO_CHAR		(4 << 0)
+#define TO_ALL		(5 << 0)
+
+/*
+ * act queue specifiers
+ */
+#define ACTQ_SAY	(1 << 3)
+#define ACTQ_TELL	(2 << 3)
+#define ACTQ_GROUP	(3 << 3)
+#define ACTQ_CLAN	(4 << 3)
+#define ACTQ_SOG	(5 << 3)
+#define ACTQ_CHAN	(6 << 3)
+#define ACTQ_IMMTALK	(7 << 3)
+
+/*
+ * act flags
+ */
 #define ACT_NOTRIG	(G)	/* do not pull act triggers */
 #define ACT_NOTWIT	(H)	/* do not perform twit list checking */
 #define ACT_NOTRANS	(I)	/* do not perform $t, $T, $u and $U transl. */
@@ -50,9 +72,13 @@
 #define ACT_NOFIXSH	(Q)	/* do not fix char/obj short descrs */
 #define ACT_NOFIXTEXT	(R)	/* do not call fix_short for text args */
 #define ACT_NOCANSEE	(S)	/* do not perform can_see checks */
+#define ACT_TOBUF	(T)	/* append to replay buffer if link-dead */
 #define ACT_SPEECH(ch)	(ACT_NODEAF | ACT_STRANS | ACT_NOFIXTEXT |	\
 		  	 (!IS_NPC(ch) || IS_AFFECTED(ch, AFF_CHARM) ?	\
 				ACT_NOTRANS : 0))
+
+#define ACT_TO(act_flags)	((act_flags) & (7 << 0))
+#define ACTQ(act_flags)		((act_flags) & (7 << 3))
 
 /*
  * formatting stuff

@@ -23,11 +23,13 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.h,v 1.18.2.2 2002-10-16 11:29:56 tatyana Exp $
+ * $Id: clan.h,v 1.18.2.3 2002-10-26 16:51:24 fjoe Exp $
  */
 
 #ifndef _CLAN_H_
 #define _CLAN_H_
+
+#include "msgq.h"
 
 /*----------------------------------------------------------------------
  * clan stuff (clan.c)
@@ -62,6 +64,8 @@ struct clan_t
 	const char *	leader_list;	/* list of leaders */
 	const char *	member_list;	/* list of members */
 	const char *	second_list;	/* list of secondaries */
+
+	msgq_t		msgq_clan;	/* last clan messages */
 };
 
 /* clan flags */

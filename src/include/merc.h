@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.234.2.35 2002-10-22 21:14:45 tatyana Exp $
+ * $Id: merc.h,v 1.234.2.36 2002-10-26 16:51:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -96,6 +96,7 @@
 #include "raffect.h"
 #include "religion.h"
 #include "mccp.h"
+#include "msgq.h"
 
 /*
  * configuration parameters
@@ -1567,6 +1568,12 @@ struct pc_data
 	int			version;
 
 	dvdata_t *		dvdata;
+
+	msgq_t			msgq_say;
+	msgq_t			msgq_tell;
+	msgq_t			msgq_group;
+	msgq_t			msgq_sog;
+	msgq_t			msgq_chan;
 };
 
 /*

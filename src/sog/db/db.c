@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.169.2.25 2002-10-18 07:11:58 tatyana Exp $
+ * $Id: db.c,v 1.169.2.26 2002-10-26 16:51:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -447,6 +447,8 @@ void boot_db(void)
 	load_notes();
 	load_bans();
 	chquest_start(0);
+
+	msgq_init(&msgq_immtalk, MSGQ_LEN_CHAN);
 }
 
 /*
@@ -1944,7 +1946,7 @@ rip_limited_eq(CHAR_DATA *ch, OBJ_DATA *container)
 
 /*
  * Count all objects in pfiles
- * Remove limited objects (with probability 1/10)
+ * Remove limited objects
  * Update rating list
  */
 void scan_pfiles()

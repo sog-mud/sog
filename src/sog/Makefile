@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.11.2.3 2002-10-16 11:30:02 tatyana Exp $
+# $Id: Makefile,v 1.11.2.4 2002-10-26 16:51:30 fjoe Exp $
 #
 
 MODULE_NAME = sog
@@ -15,8 +15,8 @@ DB_CFILES = db/db.c db/db_area.c db/db_clan.c db/db_class.c db/db_cmd.c\
 CFILES = auction.c buffer.c chquest.c clan.c class.c cmd.c\
 	 effects.c fight.c fishing.c flag.c gsn.c handler.c help.c hometown.c\
 	 interp.c lang.c log.c lookup.c magic.c\
-	 memalloc.c mlstring.c mob_cmds.c mob_prog.c module.c msg.c namedp.c\
-	 note.c obj_prog.c quest.c race.c raffect.c\
+	 memalloc.c mlstring.c mob_cmds.c mob_prog.c module.c msg.c msgq.c\
+	 namedp.c note.c obj_prog.c quest.c race.c raffect.c\
 	 rating.c recycle.c religion.c save.c skills.c\
 	 socials.c special.c str.c string_edit.c tables.c update.c\
 	 util.c varr.c\

@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.64.2.11 2002-10-22 21:15:03 tatyana Exp $
+ * $Id: recycle.c,v 1.64.2.12 2002-10-26 16:51:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -321,6 +321,11 @@ CHAR_DATA *char_new(MOB_INDEX_DATA *pMobIndex)
 		pc->ll_time = current_time;
 		pc->ll_host = str_empty;
 		pc->ll_ip = str_empty;
+		msgq_init(&pc->msgq_say, MSGQ_LEN_PERS);
+		msgq_init(&pc->msgq_tell, MSGQ_LEN_PERS);
+		msgq_init(&pc->msgq_group, MSGQ_LEN_PERS);
+		msgq_init(&pc->msgq_sog, MSGQ_LEN_CHAN);
+		msgq_init(&pc->msgq_chan, MSGQ_LEN_CHAN);
 	}
 	RESET_FIGHT_TIME(ch);
 	return ch;
@@ -370,6 +375,11 @@ void char_free(CHAR_DATA *ch)
 		free_string(pc->ll_host);
 		free_string(pc->ll_ip);
 		dvdata_free(pc->dvdata);
+		msgq_destroy(&pc->msgq_say);
+		msgq_destroy(&pc->msgq_tell);
+		msgq_destroy(&pc->msgq_group);
+		msgq_destroy(&pc->msgq_sog);
+		msgq_destroy(&pc->msgq_chan);
 
 		nuke_pets(ch);
 	}
