@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.149 2002-03-21 13:46:40 fjoe Exp $
+ * $Id: recycle.c,v 1.150 2002-03-21 14:19:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1454,10 +1454,10 @@ const char *
 fread_damtype(const char *ctx, rfile_t *fp)
 {
 	const char *dt = fread_sword(fp);
-	if (IS_NULLSTR(dt)) {
-		free_string(dt);
-		dt = str_dup("+none");
-	} else if (dt[0] != '+') {
+	if (IS_NULLSTR(dt))
+		return dt;
+
+	if (dt[0] != '+') {
 		/*
 		 * normalize damtype: add leading '+'
 		 */
