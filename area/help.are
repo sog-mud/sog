@@ -5729,7 +5729,7 @@ Thanks to ...
       and hours of enjoyment.
 ~
 -1 GREETING~
-           ,   ,
+,   ,
          ,-`{{-`/
       ,-~~ , \ {-~~~~-,
     ,~~  ,   ,`,-~~~~-,`,                                              }/
@@ -8096,9 +8096,11 @@ any light. You can feel any alive person, even invisible.
 @eng   'Resurrection' is the autoskill which works when vampire bites its
 victim. Vampire under affect 'resurrection' is immortal. If this vampire
 dies it will rise from the dead and his health will be fully restored.
+  But they lost their charisma when resurrect.
 @rus   При укусе жертвы вампир имеет шанс обрести кратковременное бессмертие
 (affect resurrection). Если 'убить' такого вампира, то он не умрет, а
 наоборот полностью восстановится. Скилл срабатывает автоматически.
+  Однако у воскресшего вампира уменьшается харизма...
 ~
 -1 $~
 
