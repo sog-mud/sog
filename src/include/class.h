@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.h,v 1.26 1999-12-18 11:01:39 fjoe Exp $
+ * $Id: class.h,v 1.27 1999-12-21 14:48:12 kostik Exp $
  */
 
 #ifndef _CLASS_H_
@@ -61,6 +61,7 @@ struct pose_t {
 /* class flags */
 #define CLASS_MAGIC		(A)	/* magic user */
 #define CLASS_NOCH		(B)	/* can't live in common hometowns */
+#define CLASS_CLOSED		(C)	/* Closed for players */
 #define CLASS_CHANGED		(Z)	/* OLC internal flag */
 
 extern hash_t classes;

@@ -4,6 +4,8 @@ Class class
 End
 
 #R
+deny level_lt !spclass_limit("weapon 1") && level_lt("15")~
+deny level_lt !spclass_limit("weapon 2") && level_lt("35")~
 deny spclass_limit !spclass_limit("weapon 3")~
 end
 

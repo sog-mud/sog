@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.216 1999-12-20 08:31:22 fjoe Exp $
+ * $Id: comm.c,v 1.217 1999-12-21 14:48:17 kostik Exp $
  */
 
 /***************************************************************************
@@ -2104,6 +2104,12 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 		if ((cl = class_search(arg)) == NULL) {
 			char_puts("That's not a class.\n", ch);
+			char_puts("What IS your class? ", ch);
+			return;
+		}
+
+		if (IS_SET(cl->class_flags, CLASS_CLOSED)) {
+			char_puts("This class isn't available yet.\n", ch);
 			char_puts("What IS your class? ", ch);
 			return;
 		}

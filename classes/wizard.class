@@ -18,7 +18,7 @@ Thac0_00 18
 Thac0_32 6
 HPRate 60
 ManaRate 100
-Flags magic~
+Flags magic closed~
 AddExp 400
 StatMod 0 3 0 0 0 5
 End

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.224 1999-12-20 12:09:53 kostik Exp $
+ * $Id: handler.c,v 1.225 1999-12-21 14:48:14 kostik Exp $
  */
 
 /***************************************************************************
@@ -2111,8 +2111,10 @@ bool saves_spell(int level, CHAR_DATA *victim, int dam_type)
 	class_t *vcl;
 	int save;
 
-	save = 40 + (LEVEL(victim) - level) * 4 - 
-		(victim->saving_throw * 50) / UMAX(25, victim->level);
+	save = (LEVEL(victim) - level) * 4 - victim->saving_throw;
+
+	if (IS_NPC(victim))
+		save += 40;
 
 	if (IS_AFFECTED(victim, AFF_BERSERK))
 		save += victim->level / 5;
@@ -3930,6 +3932,12 @@ void wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 			char_puts("Your hands are full.\n", ch);
 			return;
 		}
+		
+		if (is_affected(ch, "crippled hands")) {
+			act("Your crippled hands refuse to hold $p.",
+				ch, obj, NULL, TO_CHAR);
+			return;
+		}
 
 		if (!IS_NPC(ch)
 		&& get_obj_weight(obj) >
@@ -3991,6 +3999,12 @@ void wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 
 		if (!free_hands(ch)) {
 			char_puts("Your hands are full.\n", ch);
+			return;
+		}
+
+		if (is_affected(ch, "crippled hands")) {
+			act("Your crippled hands refuse to hold $p.",
+				ch, obj, NULL, TO_CHAR);
 			return;
 		}
 

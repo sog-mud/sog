@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.200 1999-12-21 06:36:34 fjoe Exp $
+ * $Id: spellfun.c,v 1.201 1999-12-21 14:48:18 kostik Exp $
  */
 
 /***************************************************************************
@@ -3228,7 +3228,7 @@ void spell_slow(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	if (saves_spell(level,victim, DAM_OTHER))
+	if (saves_spell(level,victim, DAM_OTHER) && !check_trust(ch, victim))
 		return;
 
 	if (IS_AFFECTED(victim, AFF_HASTE)) {
@@ -3269,10 +3269,17 @@ void spell_stone_skin(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.type      = sn;
 	af.level     = level;
 	af.duration  = (10 + level / 5);
-	INT(af.location) = APPLY_AC;
-	af.modifier  = -1 * UMAX(40,20 + level / 2);  /*af.modifier=-40;*/ 
 	af.bitvector = 0;
+	INT(af.location) = APPLY_RESIST_BASH;
+	af.modifier  = level / 7;
 	affect_to_char(victim, &af);
+
+	INT(af.location) = APPLY_RESIST_SLASH;
+	affect_to_char(victim, &af);
+
+	INT(af.location) = APPLY_RESIST_PIERCE;
+	affect_to_char(victim, &af);
+
 	act("$n's skin turns to stone.", victim, NULL, NULL, TO_ROOM);
 	char_puts("Your skin turns to stone.\n", victim);
 }

@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.121 1999-12-21 06:36:32 fjoe Exp $
+ * $Id: tables.c,v 1.122 1999-12-21 14:48:17 kostik Exp $
  */
 
 /***************************************************************************
@@ -1090,6 +1090,7 @@ flaginfo_t class_flags[] =
 
 	{ "magic",		CLASS_MAGIC,		TRUE	},
 	{ "noch",		CLASS_NOCH,		TRUE	},
+	{ "closed",		CLASS_CLOSED,		TRUE	},
 	{ "changed",		CLASS_CHANGED,		FALSE	},
 
 	{ NULL }
