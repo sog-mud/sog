@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.22 1998-06-14 11:16:22 efdi Exp $
+ * $Id: act_obj.c,v 1.23 1998-06-15 00:14:39 efdi Exp $
  */
 
 /***************************************************************************
@@ -54,6 +54,7 @@
 #include "quest.h"
 #include "update.h"
 #include "util.h"
+#include "resource.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_split		);
@@ -125,7 +126,7 @@ void get_obj(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *container)
 	int members;
 
 	if (!CAN_WEAR(obj, ITEM_TAKE)) {
-		send_to_char("You can't take that.\n\r", ch);
+		char_nputs(YOU_CANT_TAKE_THAT, ch);
 		return;
 	}
 
@@ -133,24 +134,24 @@ void get_obj(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *container)
 		if ((IS_OBJ_STAT(obj, ITEM_ANTI_EVIL) && IS_EVIL(ch))
 		|| (IS_OBJ_STAT(obj, ITEM_ANTI_GOOD) && IS_GOOD(ch))
 		|| (IS_OBJ_STAT(obj, ITEM_ANTI_NEUTRAL) && IS_NEUTRAL(ch))) {
-			act("You are zapped by $p and drop it.", ch, obj, 
-					NULL, TO_CHAR);
-			act("$n is zapped by $p and drops it.",  ch, obj, 
-					NULL, TO_ROOM);
+			act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
+				    YOU_ZAPPED_BY_P);
+			act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING,
+				    N_ZAPPED_BY_P);
 			return;
 		}
 	}
 
 	if (ch->carry_number + get_obj_number(obj) > can_carry_n(ch)) {
-		act("$d: you can't carry that many items.",
-			ch, NULL, obj->name, TO_CHAR);
+		act_nprintf(ch, NULL, obj->name, TO_CHAR, POS_DEAD,
+			    CANT_CARRY_ITEMS);
 		return;
 	}
 
 
 	if (get_carry_weight(ch) + get_obj_weight(obj) > can_carry_w(ch)) {
-		act("$d: you can't carry that much weight.",
-			ch, NULL, obj->name, TO_CHAR);
+		act_nprintf(ch, NULL, obj->name, TO_CHAR, POS_DEAD,
+			    CANT_CARRY_WEIGHT);
 		return;
 	}
 
@@ -158,8 +159,8 @@ void get_obj(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *container)
 		for (gch = obj->in_room->people; gch != NULL; 	
 		     gch = gch->next_in_room)
 			if (gch->on == obj) {
-				act("$N appears to be using $p.",
-				    ch, obj, gch, TO_CHAR);
+				act_nprintf(ch, obj, gch, TO_CHAR, POS_DEAD,
+					    N_APPEARS_USING);
 				return;
 			}
 	}
@@ -174,10 +175,11 @@ void get_obj(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *container)
 		|| container->pIndexData->vnum == OBJ_VNUM_KNIGHT_ALTAR
 		|| container->pIndexData->vnum == OBJ_VNUM_LIONS_ALTAR
 		|| container->pIndexData->vnum == OBJ_VNUM_HUNTER_ALTAR) {
-			act("You get $p from $P.", ch, obj, container, TO_CHAR);
+			act_nprintf(ch, obj, container, TO_CHAR, POS_DEAD,
+				    YOU_GET_P_FROM_P);
 			if (!IS_AFFECTED(ch,AFF_SNEAK))
-				act("$n gets $p from $P.", ch, obj, 
-				    container, TO_ROOM);
+				act_nprintf(ch, obj, container, TO_ROOM,
+					    POS_RESTING, N_GETS_P_FROM_P);
 			obj_from_obj(obj);
 			act("$p fades to black, then dissapears!", ch, 
 			    container, NULL, TO_ROOM);
@@ -195,23 +197,26 @@ void get_obj(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *container)
 		&& !CAN_WEAR(container, ITEM_TAKE)
 		&& !IS_OBJ_STAT(obj,ITEM_HAD_TIMER))
 			obj->timer = 0;	
-		act("You get $p from $P.", ch, obj, container, TO_CHAR);
+		act_nprintf(ch, obj, container, TO_CHAR, POS_DEAD,
+			    YOU_GET_P_FROM_P);
 		if (!IS_AFFECTED(ch,AFF_SNEAK))
-			act("$n gets $p from $P.", ch, obj, container, TO_ROOM);
+			act_nprintf(ch, obj, container, TO_ROOM,
+				    POS_RESTING, N_GETS_P_FROM_P);
 		REMOVE_BIT(obj->extra_flags,ITEM_HAD_TIMER);
 		obj_from_obj(obj);
 	} else {
-		act("You get $p.", ch, obj, container, TO_CHAR);
+		act_nprintf(ch, obj, container, TO_CHAR, POS_DEAD, YOU_GET_P);
 		if (!IS_AFFECTED(ch,AFF_SNEAK))
-			act("$n gets $p.", ch, obj, container, TO_ROOM);
+			act_nprintf(ch, obj, container, TO_ROOM, POS_RESTING,
+				    N_GETS_P);
 		obj_from_room(obj);
 	}
 
 	if (obj->item_type == ITEM_MONEY) {
 		if (get_carry_weight(ch) + obj->value[0]/10 
 		    + obj->value[1]*2/5 > can_carry_w(ch)) {
-			act("$d: you can't carry that much weight.",
-				ch, NULL, obj->name, TO_CHAR);
+			act_nprintf(ch, NULL, obj->name, TO_CHAR, POS_DEAD,
+				    CANT_CARRY_WEIGHT);
 			return;
 		}
 
@@ -261,7 +266,7 @@ void do_get(CHAR_DATA *ch, char *argument)
 
 	/* Get type. */
 	if (arg1[0] == '\0') {
-		send_to_char("Get what?\n\r", ch);
+		char_nputs(GET_WHAT, ch);
 		return;
 	}
 
@@ -270,8 +275,8 @@ void do_get(CHAR_DATA *ch, char *argument)
 			/* 'get obj' */
 			obj = get_obj_list(ch, arg1, ch->in_room->contents);
 			if (obj == NULL) {
-				act("I see no $T here.",
-				    ch, NULL, arg1, TO_CHAR);
+				act_nprintf(ch, NULL, arg1, TO_CHAR, POS_DEAD,
+					    I_SEE_NO_T_HERE);
 				return;
 			}
 
@@ -293,11 +298,10 @@ void do_get(CHAR_DATA *ch, char *argument)
 
 			if (!found) {
 				if (arg1[3] == '\0')
-					send_to_char("I see nothing here.\n\r",
-						     ch);
+					char_nputs(I_SEE_NOTHING_HERE, ch);
 				else
-					act("I see no $T here.",
-					    ch, NULL, &arg1[4], TO_CHAR);
+					act_nprintf(ch, NULL, &arg1[4], TO_CHAR,
+						    POS_DEAD, I_SEE_NO_T_HERE);
 			}
 		}
 		return;
@@ -305,18 +309,18 @@ void do_get(CHAR_DATA *ch, char *argument)
 
 	/* 'get ... container' */
 	if (!str_cmp(arg2, "all") || !str_prefix("all.", arg2)) {
-		send_to_char("You can't do that.\n\r", ch);
+		char_nputs(YOU_CANT_DO_THAT, ch);
 		return;
 	}
 
 	if ((container = get_obj_here(ch, arg2)) == NULL) {
-		act("I see no $T here.", ch, NULL, arg2, TO_CHAR);
+		act_nprintf(ch, NULL, arg2, TO_CHAR, POS_DEAD, I_SEE_NO_T_HERE);
 		return;
 	}
 
 	switch (container->item_type) {
 	default:
-		send_to_char("That's not a container.\n\r", ch);
+		char_nputs(THATS_NOT_CONTAINER, ch);
 		return;
 
 	case ITEM_CONTAINER:
@@ -331,7 +335,8 @@ void do_get(CHAR_DATA *ch, char *argument)
 	}
 
 	if (IS_SET(container->value[1], CONT_CLOSED)) {
-		act("The $d is closed.", ch, NULL, container->name, TO_CHAR);
+		act_nprintf(ch, NULL, container->name, TO_CHAR, POS_DEAD,
+			    THE_D_IS_CLOSED);
 		return;
 	}
 
@@ -339,8 +344,8 @@ void do_get(CHAR_DATA *ch, char *argument)
 		/* 'get obj container' */
 		obj = get_obj_list(ch, arg1, container->contains);
 		if (obj == NULL) {
-			act("I see nothing like that in the $T.",
-			    ch, NULL, arg2, TO_CHAR);
+			act_nprintf(ch, NULL, arg2, TO_CHAR, POS_DEAD,
+				    DONT_SEE_ANYTHING_LIKE_IN_T);
 			return;
 		}
 		get_obj(ch, obj, container);
@@ -355,8 +360,7 @@ void do_get(CHAR_DATA *ch, char *argument)
 				found = TRUE;
 				if (container->pIndexData->vnum == OBJ_VNUM_PIT
 				&&  !IS_IMMORTAL(ch)) {
-					send_to_char("Don't be so greedy!\n\r",
-						     ch);
+					char_nputs(DONT_BE_SO_GREEDY, ch);
 					return;
 				}
 				get_obj(ch, obj, container);
@@ -365,11 +369,11 @@ void do_get(CHAR_DATA *ch, char *argument)
 
 		if (!found) {
 			if (arg1[3] == '\0')
-				act("I see nothing in the $T.",
-				    ch, NULL, arg2, TO_CHAR);
+				act_nprintf(ch, NULL, arg2, TO_CHAR, POS_DEAD,
+					    I_SEE_NOTHING_IN_T);
 			else
-				act("I see nothing like that in the $T.",
-				    ch, NULL, arg2, TO_CHAR);
+				act_nprintf(ch, NULL, arg2, TO_CHAR, POS_DEAD,
+					    DONT_SEE_ANYTHING_LIKE_IN_T);
 		}
 	}
 }
@@ -390,65 +394,55 @@ void do_put(CHAR_DATA *ch, char *argument)
 	  if (!str_cmp(arg2,"in") || !str_cmp(arg2,"on"))
 	argument = one_argument(argument,arg2);
 
-	  if (arg1[0] == '\0' || arg2[0] == '\0')
-	  {
-	send_to_char("Put what in what?\n\r", ch);
-	return;
+	  if (arg1[0] == '\0' || arg2[0] == '\0') {
+		char_nputs(PUT_WHAT_IN_WHAT, ch);
+		return;
 	  }
 
-	  if (!str_cmp(arg2, "all") || !str_prefix("all.", arg2))
-	  {
-	send_to_char("You can't do that.\n\r", ch);
-	return;
+	  if (!str_cmp(arg2, "all") || !str_prefix("all.", arg2)) {
+		char_nputs(YOU_CANT_DO_THAT, ch);
+		return;
 	  }
 
-	  if ((container = get_obj_here(ch, arg2)) == NULL)
-	  {
-	act("I see no $T here.", ch, NULL, arg2, TO_CHAR);
-	return;
+	  if ((container = get_obj_here(ch, arg2)) == NULL) {
+		act_nprintf(ch, NULL, arg2, TO_CHAR, POS_DEAD, I_SEE_NO_T_HERE);
+		return;
 	  }
 
-	  if (container->item_type != ITEM_CONTAINER)
-	  {
-	send_to_char("That's not a container.\n\r", ch);
-	return;
+	  if (container->item_type != ITEM_CONTAINER) {
+		char_nputs(THATS_NOT_CONTAINER, ch);
+		return;
 	  }
 
-	  if (IS_SET(container->value[1], CONT_CLOSED))
-	  {
-	act("The $d is closed.", ch, NULL, container->name, TO_CHAR);
-	return;
+	  if (IS_SET(container->value[1], CONT_CLOSED)) {
+		act_nprintf(ch, NULL, container->name, TO_CHAR, POS_DEAD,
+			    THE_D_IS_CLOSED);
+		return;
 	  }
 
-	  if (str_cmp(arg1, "all") && str_prefix("all.", arg1))
-	  {
+	  if (str_cmp(arg1, "all") && str_prefix("all.", arg1)) {
 	/* 'put obj container' */
-	if ((obj = get_obj_carry(ch, arg1)) == NULL)
-	{
-	    send_to_char("You do not have that item.\n\r", ch);
-	    return;
-	}
+		if ((obj = get_obj_carry(ch, arg1)) == NULL) {
+		    char_nputs(DONT_HAVE_ITEM, ch);
+		    return;
+		}
 
-	if (obj == container)
-	{
-	    send_to_char("You can't fold it into itself.\n\r", ch);
-	    return;
-	}
+		if (obj == container) {
+		    char_nputs(CANT_FOLD_INTO_SELF, ch);
+		    return;
+		}
 
-	if (!can_drop_obj(ch, obj))
-	{
-	    send_to_char("You can't let go of it.\n\r", ch);
-	    return;
-	}
+		if (!can_drop_obj(ch, obj)) {
+		    char_nputs(CANT_LET_GO_OF_IT, ch);
+		    return;
+		}
 
-	  	if (WEIGHT_MULT(obj) != 100)
-	  	{
-	         send_to_char("You have a feeling that would be a bad idea.\n\r",ch);
-	          return;
-	      }
+	  	if (WEIGHT_MULT(obj) != 100) {
+		    char_nputs(THAT_WOULD_BE_BAD_IDEA, ch);
+	            return;
+	        }
 
-	if (obj->pIndexData->limit != -1)
-	      {
+	if (obj->pIndexData->limit != -1) {
 	  act("This unworthy container won't hold $p.", ch,obj,NULL,TO_CHAR);
 	  return;
 	}
@@ -463,9 +457,8 @@ void do_put(CHAR_DATA *ch, char *argument)
 
 	if (get_obj_weight(obj) + get_true_weight(container)
 	     > (container->value[0] * 10) 
-	||  get_obj_weight(obj) > (container->value[3] * 10))
-	{
-	    send_to_char("It won't fit.\n\r", ch);
+	||  get_obj_weight(obj) > (container->value[3] * 10)) {
+	    char_nputs(IT_WONT_FIT, ch);
 	    return;
 	}
 
@@ -501,19 +494,14 @@ void do_put(CHAR_DATA *ch, char *argument)
 	obj_from_char(obj);
 	obj_to_obj(obj, container);
 
-	if (IS_SET(container->value[1],CONT_PUT_ON))
-	{
-	    act("$n puts $p on $P.",ch,obj,container, TO_ROOM);
-	    act("You put $p on $P.",ch,obj,container, TO_CHAR);
+	if (IS_SET(container->value[1],CONT_PUT_ON)) {
+	    act_nprintf(ch, obj, container, TO_ROOM, POS_RESTING,N_PUTS_P_ON_P);
+	    act_nprintf(ch, obj, container, TO_CHAR, POS_DEAD, YOU_PUT_P_ON_P);
+	} else {
+	    act_nprintf(ch, obj, container, TO_ROOM, POS_RESTING,N_PUTS_P_IN_P);
+	    act_nprintf(ch, obj, container, TO_CHAR, POS_DEAD, YOU_PUT_P_IN_P);
 	}
-	else
-	{
-	    act("$n puts $p in $P.", ch, obj, container, TO_ROOM);
-	    act("You put $p in $P.", ch, obj, container, TO_CHAR);
-	}
-	  }
-	  else
-	  {
+	  } else {
 	      pcount = 0;
 	      for(objc=container->contains; objc!=NULL ; objc=objc->next_content)
 	     pcount++;
@@ -531,8 +519,7 @@ void do_put(CHAR_DATA *ch, char *argument)
 	    &&   can_drop_obj(ch, obj)
 	    &&   get_obj_weight(obj) + get_true_weight(container)
 		 <= (container->value[0] * 10) 
-	    &&   get_obj_weight(obj) < (container->value[3] * 10))
-	    {
+	    &&   get_obj_weight(obj) < (container->value[3] * 10)) {
 	    	if (container->pIndexData->vnum == OBJ_VNUM_PIT
 	    	&&  !CAN_WEAR(obj, ITEM_TAKE))
 	    	    if (obj->timer)
@@ -568,16 +555,13 @@ void do_put(CHAR_DATA *ch, char *argument)
 		obj_from_char(obj);
 		obj_to_obj(obj, container);
 
-	      	if (IS_SET(container->value[1],CONT_PUT_ON))
-	      	{
-	          	    act("$n puts $p on $P.",ch,obj,container, TO_ROOM);
-	          	    act("You put $p on $P.",ch,obj,container, TO_CHAR);
-	      	}
-		else
-		{
-		    act("$n puts $p in $P.", ch, obj, container, TO_ROOM);
-		    act("You put $p in $P.", ch, obj, container, TO_CHAR);
-		}
+	if (IS_SET(container->value[1],CONT_PUT_ON)) {
+	    act_nprintf(ch, obj, container, TO_ROOM, POS_RESTING,N_PUTS_P_ON_P);
+	    act_nprintf(ch, obj, container, TO_CHAR, POS_DEAD, YOU_PUT_P_ON_P);
+	} else {
+	    act_nprintf(ch, obj, container, TO_ROOM, POS_RESTING,N_PUTS_P_IN_P);
+	    act_nprintf(ch, obj, container, TO_CHAR, POS_DEAD, YOU_PUT_P_IN_P);
+	}
 	    }
 	}
 	  }

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.22 1998-06-14 13:42:41 efdi Exp $
+ * $Id: interp.c,v 1.23 1998-06-15 00:14:40 efdi Exp $
  */
 
 /***************************************************************************
@@ -480,73 +480,64 @@ const	struct	cmd_type	cmd_table	[] =
  */
 void interpret( CHAR_DATA *ch, char *argument, bool is_order )
 {
-    char command[MAX_INPUT_LENGTH];
-    char logline[MAX_INPUT_LENGTH];
+	char command[MAX_INPUT_LENGTH];
+	char logline[MAX_INPUT_LENGTH];
 #ifdef IMMORTALS_LOGS
-    char buf[MAX_INPUT_LENGTH];
-    char *strtime;
+	char buf[MAX_INPUT_LENGTH];
+	char *strtime;
 #endif
-    int cmd;
-    int trust;
-    bool found;
+	int cmd;
+	int trust;
+	bool found;
 
-    /*
-     * Strip leading spaces.
-     */
-    smash_tilde(argument);
-    while ( isspace(*argument) )
-	argument++;
-    if ( argument[0] == '\0' )
-	return;
+	/*
+	 * Strip leading spaces.
+	 */
+	smash_tilde(argument);
+	while (isspace(*argument))
+		argument++;
+	if (argument[0] == '\0')
+		return;
 
-    /*
-     * Implement freeze command.
-     */
-    if ( !IS_NPC(ch) && IS_SET(ch->act, PLR_FREEZE) )
-    {
-	send_to_char(msg(FROZEN, ch), ch);
-	return;
-    }
+	/*
+	 * Implement freeze command.
+	 */
+	if (!IS_NPC(ch) && IS_SET(ch->act, PLR_FREEZE)) {
+		send_to_char(msg(FROZEN, ch), ch);
+		return;
+	}
 
-    /*
-     * Grab the command word.
-     * Special parsing so ' can be a command,
-     * also no spaces needed after punctuation.
-     */
-    strcpy( logline, argument );
+	/*
+	 * Grab the command word.
+	 * Special parsing so ' can be a command,
+	 * also no spaces needed after punctuation.
+	 */
+	strcpy(logline, argument);
 
 #ifdef IMMORTALS_LOGS
-    if (IS_IMMORTAL(ch)) 
-	{
-	if ( (imm_log = fopen(IMM_LOG_FILE,"a+")) == NULL )
-	   {
-	    bug("cannot open imm_log_file",0);
-	   }
-	 else
-	 {
-	  strtime = (char *) malloc(100);
-	  strtime = ctime( &current_time);
-	  strtime[strlen(strtime) -1] = '\0';
-	  sprintf(buf,"%s :[%s]:%s\n", strtime,ch->name,logline);
-	  fprintf(imm_log,buf);
-	  fclose(imm_log);
-	  free(strtime);
-	 }
+ 	if (IS_IMMORTAL(ch)) {
+		if ((imm_log = fopen(IMM_LOG_FILE, "a+")) == NULL)
+			bug("cannot open imm_log_file", 0);
+		else {
+			strtime = (char *) malloc(100);
+			strtime = ctime(&current_time);
+			strtime[strlen(strtime) -1] = '\0';
+			sprintf(buf,"%s :[%s]:%s\n", strtime,ch->name, logline);
+			fprintf(imm_log, buf);
+			fclose(imm_log);
+			free(strtime);
+		}
 	}
 #endif
 
-    if ( !isalpha(argument[0]) && !isdigit(argument[0]) )
-    {
-	command[0] = argument[0];
-	command[1] = '\0';
-	argument++;
-	while ( isspace(*argument) )
-	    argument++;
-    }
-    else
-    {
-	argument = one_argument( argument, command );
-    }
+	if (!isalpha(argument[0]) && !isdigit(argument[0])) {
+		command[0] = argument[0];
+		command[1] = '\0';
+		argument++;
+		while (isspace(*argument))
+			argument++;
+	} else
+		argument = one_argument(argument, command);
 
 	/*
 	 * Look for command in command table.
@@ -564,131 +555,126 @@ void interpret( CHAR_DATA *ch, char *argument, bool is_order )
        		 */
 		if (!is_order && IS_AFFECTED(ch,AFF_CHARM)
 		&&  cmd_table[cmd].do_fun != do_return) {
-			send_to_char(msg(ASK_MASTER, ch), ch);
+			char_nputs(ASK_MASTER, ch);
 			return;
 		}
 
-          if ( IS_AFFECTED(ch,AFF_STUN) && 
-		!(cmd_table[cmd].extra & CMD_KEEP_HIDE) ) {
-	   send_to_char(msg(TOO_STUNNED, ch), ch);
-	   return;
-	  }
-          /* Come out of hiding for most commands */
-          if ( IS_AFFECTED(ch, AFF_HIDE) && !IS_NPC(ch)
-          && !(cmd_table[cmd].extra & CMD_KEEP_HIDE) ) {
-              REMOVE_BIT(ch->affected_by, AFF_HIDE);
-              send_to_char(msg(YOU_STEP_OUT_SHADOWS, ch), ch);
-              act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, 
-			  N_STEPS_OUT_OF_SHADOWS);
-          }
+		if ( IS_AFFECTED(ch,AFF_STUN) 
+		&& !(cmd_table[cmd].extra & CMD_KEEP_HIDE)) {
+			char_nputs(TOO_STUNNED, ch);
+			return;
+		}
 
-          if ( IS_AFFECTED(ch, AFF_FADE) && !IS_NPC(ch)
-          && !(cmd_table[cmd].extra & CMD_KEEP_HIDE) ) {
-              REMOVE_BIT(ch->affected_by, AFF_FADE);
-              send_to_char(msg(YOU_STEP_OUT_SHADOWS, ch), ch);
-              act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, 
-			  N_STEPS_OUT_OF_SHADOWS);
-          }
+		/* Come out of hiding for most commands */
+		if ( IS_AFFECTED(ch, AFF_HIDE) && !IS_NPC(ch)
+		&& !(cmd_table[cmd].extra & CMD_KEEP_HIDE)) {
+			REMOVE_BIT(ch->affected_by, AFF_HIDE);
+			char_nputs(YOU_STEP_OUT_SHADOWS, ch);
+			act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, 
+				    N_STEPS_OUT_OF_SHADOWS);
+        	  }
 
-          if ( IS_AFFECTED(ch, AFF_IMP_INVIS) && !IS_NPC(ch)
-          && (cmd_table[cmd].position == POS_FIGHTING) ) {
-	      affect_strip(ch,gsn_imp_invis);
-              REMOVE_BIT(ch->affected_by, AFF_IMP_INVIS);
-              send_to_char(msg(YOU_FADE_INTO_EXIST, ch), ch);
-              act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
-			  N_FADES_INTO_EXIST);
-          }
+		if (IS_AFFECTED(ch, AFF_FADE) && !IS_NPC(ch)
+		&& !(cmd_table[cmd].extra & CMD_KEEP_HIDE)) {
+			REMOVE_BIT(ch->affected_by, AFF_FADE);
+			char_nputs(YOU_STEP_OUT_SHADOWS, ch);
+			act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, 
+				    N_STEPS_OUT_OF_SHADOWS);
+		}
 
-          /* prevent ghosts from doing a bunch of commands */
-          if (IS_SET(ch->act, PLR_GHOST) && !IS_NPC(ch)
-          && !(cmd_table[cmd].extra & CMD_GHOST) )
-          	continue;
+		if (IS_AFFECTED(ch, AFF_IMP_INVIS) && !IS_NPC(ch)
+		&& (cmd_table[cmd].position == POS_FIGHTING)) {
+			affect_strip(ch, gsn_imp_invis);
+			REMOVE_BIT(ch->affected_by, AFF_IMP_INVIS);
+			char_nputs(YOU_FADE_INTO_EXIST, ch);
+			act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
+				    N_FADES_INTO_EXIST);
+		}
 
-	 	found = TRUE;
-		break;
+		/* prevent ghosts from doing a bunch of commands */
+		if (IS_SET(ch->act, PLR_GHOST) && !IS_NPC(ch)
+		&& !(cmd_table[cmd].extra & CMD_GHOST))
+			continue;
+
+			found = TRUE;
+			break;
 	}
 
-    /*
-     * Log and snoop.
-     */
-    if ( cmd_table[cmd].log == LOG_NEVER )
-	strcpy( logline, "" );
-
-    if ( ( ( !IS_NPC(ch) && IS_SET(ch->act, PLR_LOG) )
-    ||   fLogAll
-    ||   cmd_table[cmd].log == LOG_ALWAYS ) && logline[0] != '\0' &&
-	 logline[0] != '\n' )
-    {
-	sprintf( log_buf, "Log %s: %s", ch->name, logline );
-	wiznet(log_buf,ch,NULL,WIZ_SECURE,0,get_trust(ch));
-	log_string( log_buf );
-    }
-
-    if ( ch->desc != NULL && ch->desc->snoop_by != NULL )
-    {
-	write_to_buffer( ch->desc->snoop_by, "# ",    2 );
-	write_to_buffer( ch->desc->snoop_by, logline, 0 );
-	write_to_buffer( ch->desc->snoop_by, "\n\r",  2 );
-    }
-
-    if ( !found )
-    {
 	/*
-	 * Look for command in socials table.
+	 * Log and snoop.
 	 */
-	if ( !check_social( ch, command, argument ) )  {
-	    send_to_char(msg(HUH, ch), ch);
-	    return;
+	if (cmd_table[cmd].log == LOG_NEVER)
+		strcpy(logline, "");
+
+	if (((!IS_NPC(ch) && IS_SET(ch->act, PLR_LOG))
+	||   fLogAll
+	||   cmd_table[cmd].log == LOG_ALWAYS ) && logline[0] != '\0' 
+	&&   logline[0] != '\n' ) {
+		sprintf(log_buf, "Log %s: %s", ch->name, logline);
+		wiznet(log_buf, ch, NULL, WIZ_SECURE, 0, get_trust(ch));
+		log_string(log_buf);
 	}
-	else
-	  return;
-    }
 
-    /*
-     * Character not in position for command?
-     */
-    if ( ch->position < cmd_table[cmd].position )
-    {
-	switch( ch->position )
-	{
-	case POS_DEAD:
-	    send_to_char(msg(YOU_ARE_DEAD, ch), ch);
-	    break;
-
-	case POS_MORTAL:
-	case POS_INCAP:
-	    send_to_char(msg(HURT_FAR_TOO_BAD, ch), ch);
-	    break;
-
-	case POS_STUNNED:
-	    send_to_char(msg(YOU_TOO_STUNNED, ch), ch);
-	    break;
-
-	case POS_SLEEPING:
-	    send_to_char(msg(I_YOUR_DREAMS, ch), ch);
-	    break;
-
-	case POS_RESTING:
-	    send_to_char(msg(TOO_RELAXED, ch), ch);
-	    break;
-
-	case POS_SITTING:
-	    send_to_char(msg(BETTER_STANDUP, ch), ch);
-	    break;
-
-	case POS_FIGHTING:
-	    send_to_char(msg(NO_WAY_FIGHT, ch), ch);
-	    break;
-
+	if (ch->desc != NULL && ch->desc->snoop_by != NULL) {
+		write_to_buffer(ch->desc->snoop_by, "# ", 2);
+		write_to_buffer(ch->desc->snoop_by, logline, 0);
+		write_to_buffer(ch->desc->snoop_by, "\n\r", 2);
 	}
-	return;
-    }
+
+	if (!found) {
+		/*
+		 * Look for command in socials table.
+		 */
+		if (!check_social(ch, command, argument)) {
+			send_to_char(msg(HUH, ch), ch);
+			return;
+		} else
+			return;
+	}
+
+	/*
+	 * Character not in position for command?
+	 */
+	if (ch->position < cmd_table[cmd].position) {
+		switch(ch->position) {
+			case POS_DEAD:
+				char_nputs(YOU_ARE_DEAD, ch);
+				break;
+
+			case POS_MORTAL:
+			case POS_INCAP:
+				char_nputs(HURT_FAR_TOO_BAD, ch);
+				break;
+
+			case POS_STUNNED:
+				char_nputs(YOU_TOO_STUNNED, ch);
+				break;
+
+			case POS_SLEEPING:
+				char_nputs(I_YOUR_DREAMS, ch);
+				break;
+
+			case POS_RESTING:
+				char_nputs(TOO_RELAXED, ch);
+				break;
+
+			case POS_SITTING:
+				char_nputs(BETTER_STANDUP, ch);
+				break;
+
+			case POS_FIGHTING:
+				char_nputs(NO_WAY_FIGHT, ch);
+				break;
+
+		}
+		return;
+	}
 
 	/*
 	 * Dispatch the command.
 	 */
 	smash_percent(argument);
-	(*cmd_table[cmd].do_fun) ( ch, argument );
+	(*cmd_table[cmd].do_fun) (ch, argument);
 
 	tail_chain();
 }
@@ -697,129 +683,121 @@ void interpret( CHAR_DATA *ch, char *argument, bool is_order )
 
 bool check_social( CHAR_DATA *ch, char *command, char *argument )
 {
-    char arg[MAX_INPUT_LENGTH];
-    CHAR_DATA *victim;
-    int cmd;
-    bool found;
-    found  = FALSE;
-    for ( cmd = 0; social_table[cmd].name[0] != '\0'; cmd++ )
-    {
-	if ( command[0] == social_table[cmd].name[0]
-	&&   !str_prefix( command, social_table[cmd].name ) )
-	{
-	    found = TRUE;
-	    break;
+	char arg[MAX_INPUT_LENGTH];
+	CHAR_DATA *victim;
+	int cmd;
+	bool found;
+	found = FALSE;
+	for (cmd = 0; social_table[cmd].name[0] != '\0'; cmd++) {
+		if (command[0] == social_table[cmd].name[0]
+		&&  !str_prefix( command, social_table[cmd].name)) {
+			found = TRUE;
+			break;
+		}
 	}
-    }
 
-    if ( !found )
-	return FALSE;
+	if (!found)
+		return FALSE;
 
-    if ( !IS_NPC(ch) && IS_SET(ch->comm, COMM_NOEMOTE) )
-    {
-	send_to_char( "You are anti-social!\n\r", ch );
-	return TRUE;
-    }
-
-    switch ( ch->position )
-    {
-    case POS_DEAD:
-	send_to_char( "Lie still; you are DEAD.\n\r", ch );
-	return TRUE;
-
-    case POS_INCAP:
-    case POS_MORTAL:
-	send_to_char( "You are hurt far too bad for that.\n\r", ch );
-	return TRUE;
-
-    case POS_STUNNED:
-	send_to_char( "You are too stunned to do that.\n\r", ch );
-	return TRUE;
-
-    case POS_SLEEPING:
-	/*
-	 * I just know this is the path to a 12" 'if' statement.  :(
-	 * But two players asked for it already!  -- Furey
-	 */
-	if ( !str_cmp( social_table[cmd].name, "snore" ) )
-	    break;
-	send_to_char( "In your dreams, or what?\n\r", ch );
-	return TRUE;
-
-    }
-
-    if ( IS_AFFECTED( ch, AFF_HIDE )  )  {
-      REMOVE_BIT( ch->affected_by, AFF_HIDE );
-      send_to_char( "You step out of shadows.\n\r", ch);
-      act( "$n steps out of shadows.", ch, NULL, NULL, TO_ROOM);
-    }
-
-    if ( IS_AFFECTED( ch, AFF_FADE )  )  {
-      REMOVE_BIT( ch->affected_by, AFF_FADE );
-      send_to_char( "You step out of shadows.\n\r", ch);
-      act( "$n steps out of shadows.", ch, NULL, NULL, TO_ROOM);
-    }
-
-   if ( IS_AFFECTED(ch, AFF_IMP_INVIS) && !IS_NPC(ch)
-        && (cmd_table[cmd].position == POS_FIGHTING) )
-    {
-      affect_strip(ch,gsn_imp_invis);
-      REMOVE_BIT(ch->affected_by, AFF_IMP_INVIS);
-      send_to_char("You fade into existence.\n\r", ch);
-      act("$n fades into existence.", ch, NULL, NULL, TO_ROOM);
-   }
-
-    one_argument( argument, arg );
-    victim = NULL;
-    if ( arg[0] == '\0' )
-    {
-	act( social_table[cmd].others_no_arg, ch, NULL, victim, TO_ROOM    );
-	act( social_table[cmd].char_no_arg,   ch, NULL, victim, TO_CHAR    );
-    }
-    else if ( ( victim = get_char_room( ch, arg ) ) == NULL )
-    {
-	send_to_char( "They aren't here.\n\r", ch );
-    }
-    else if ( victim == ch )
-    {
-	act( social_table[cmd].others_auto,   ch, NULL, victim, TO_ROOM    );
-	act( social_table[cmd].char_auto,     ch, NULL, victim, TO_CHAR    );
-    }
-    else
-    {
-	act( social_table[cmd].others_found,  ch, NULL, victim, TO_NOTVICT );
-	act( social_table[cmd].char_found,    ch, NULL, victim, TO_CHAR    );
-	act( social_table[cmd].vict_found,    ch, NULL, victim, TO_VICT    );
-
-	if ( !IS_NPC(ch) && IS_NPC(victim)
-	&&   !IS_AFFECTED(victim, AFF_CHARM)
-	&&   IS_AWAKE(victim) 
-	&&   victim->desc == NULL)
-	{
-	    switch ( number_bits( 4 ) )
-	    {
-	    case 0:
-
-	    case 1: case 2: case 3: case 4:
-	    case 5: case 6: case 7: case 8:
-		act( social_table[cmd].others_found,
-		    victim, NULL, ch, TO_NOTVICT );
-		act( social_table[cmd].char_found,
-		    victim, NULL, ch, TO_CHAR    );
-		act( social_table[cmd].vict_found,
-		    victim, NULL, ch, TO_VICT    );
-		break;
-
-	    case 9: case 10: case 11: case 12:
-		act( "$n slaps $N.",  victim, NULL, ch, TO_NOTVICT );
-		act( "You slap $N.",  victim, NULL, ch, TO_CHAR    );
-		act( "$n slaps you.", victim, NULL, ch, TO_VICT    );
-		break;
-	    }
+	if (!IS_NPC(ch) && IS_SET(ch->comm, COMM_NOEMOTE)) {
+		char_nputs(ANTI_SOCIAL, ch);
+		return TRUE;
 	}
-    }
 
-    return TRUE;
+	switch (ch->position) {
+		case POS_DEAD:
+			char_nputs(YOU_ARE_DEAD, ch);
+			return TRUE;
+
+		case POS_INCAP:
+		case POS_MORTAL:
+			char_nputs(HURT_FAR_TOO_BAD, ch);
+			return TRUE;
+
+		case POS_STUNNED:
+			char_nputs(YOU_TOO_STUNNED, ch);
+			return TRUE;
+
+		case POS_SLEEPING:
+		/*
+		 * I just know this is the path to a 12" 'if' statement.  :(
+		 * But two players asked for it already!  -- Furey
+		 */
+		if (!str_cmp(social_table[cmd].name, "snore"))
+			break;
+		char_nputs(I_YOUR_DREAMS, ch);
+		return TRUE;
+
+	}
+
+	if (IS_AFFECTED(ch, AFF_HIDE)) {
+		REMOVE_BIT(ch->affected_by, AFF_HIDE);
+		char_nputs(YOU_STEP_OUT_SHADOWS, ch);
+		act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, 
+			    N_STEPS_OUT_OF_SHADOWS);
+	}
+
+	if (IS_AFFECTED(ch, AFF_FADE)) {
+		REMOVE_BIT(ch->affected_by, AFF_FADE);
+		char_nputs(YOU_STEP_OUT_SHADOWS, ch);
+		act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, 
+			    N_STEPS_OUT_OF_SHADOWS);
+	}
+
+	if (IS_AFFECTED(ch, AFF_IMP_INVIS) && !IS_NPC(ch)
+	&& (cmd_table[cmd].position == POS_FIGHTING)) {
+		affect_strip(ch, gsn_imp_invis);
+		REMOVE_BIT(ch->affected_by, AFF_IMP_INVIS);
+		char_nputs(YOU_FADE_INTO_EXIST, ch);
+		act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, 
+			    N_FADES_INTO_EXIST);
+	}
+
+	one_argument(argument, arg);
+	victim = NULL;
+	if (arg[0] == '\0') {
+		act(social_table[cmd].others_no_arg, ch, NULL, victim, TO_ROOM);
+		act(social_table[cmd].char_no_arg, ch, NULL, victim, TO_CHAR);
+	} else if (( victim = get_char_room(ch, arg)) == NULL)
+		char_nputs(THEY_ARENT_HERE, ch);
+	else if (victim == ch) {
+		act(social_table[cmd].others_auto, ch, NULL, victim, TO_ROOM);
+		act(social_table[cmd].char_auto, ch, NULL, victim, TO_CHAR);
+	} else {
+		act(social_table[cmd].others_found, ch, NULL, victim, 
+		    TO_NOTVICT);
+		act(social_table[cmd].char_found, ch, NULL, victim, TO_CHAR);
+		act(social_table[cmd].vict_found, ch, NULL, victim, TO_VICT);
+
+		if (!IS_NPC(ch) && IS_NPC(victim) 
+		&&  !IS_AFFECTED(victim, AFF_CHARM)
+		&&  IS_AWAKE(victim) && victim->desc == NULL) {
+			switch (number_bits(4)) {
+				case 0:
+
+				case 1: case 2: case 3: case 4:
+				case 5: case 6: case 7: case 8:
+					act(social_table[cmd].others_found,
+					    victim, NULL, ch, TO_NOTVICT);
+					act(social_table[cmd].char_found,
+					    victim, NULL, ch, TO_CHAR);
+					act(social_table[cmd].vict_found,
+					    victim, NULL, ch, TO_VICT);
+					break;
+
+				case 9: case 10: case 11: case 12:
+					act("$n slaps $N.", victim, NULL, ch, 
+					    TO_NOTVICT);
+					act("You slap $N.", victim, NULL, ch, 
+					    TO_CHAR);
+					act("$n slaps you.", victim, NULL, ch, 
+					    TO_VICT);
+					break;
+			}
+		}
+	}
+
+	return TRUE;
 }
 
 
@@ -987,7 +965,7 @@ void do_wizhelp( CHAR_DATA *ch, char *argument )
 
 void do_reture( CHAR_DATA *ch, char *argument)
 {
-  send_to_char("Ok.\n\r",ch);
+  char_nputs(OK, ch);
   return;
 }
 

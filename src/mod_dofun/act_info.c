@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.72 1998-06-14 13:42:40 efdi Exp $
+ * $Id: act_info.c,v 1.73 1998-06-15 00:14:39 efdi Exp $
  */
 
 /***************************************************************************
@@ -3517,11 +3517,11 @@ void do_affects(CHAR_DATA *ch, char *argument)
 	AFFECT_DATA *paf, *paf_last = NULL;
 
 	if (ch->affected == NULL) {
-		send_to_char("You are not affected by any spells.\n\r",ch);
+		char_nputs(NOT_AFFECTED_SPELLS, ch);
 		return;
 	}
 
-	send_to_char("You are affected by the following spells:\n\r", ch);
+	char_nputs(YOU_ARE_AFFECTED, ch);
 	for (paf = ch->affected; paf != NULL; paf = paf->next) {
 		if (paf_last != NULL && paf->type == paf_last->type)
 			if (ch->level >= 20)
@@ -3529,17 +3529,19 @@ void do_affects(CHAR_DATA *ch, char *argument)
 			else
 				continue;
 		else
-			char_printf(ch, "Spell: {c%-15s{x",
+			char_printf(ch, "%s {c%-15s{x", msg(AFF_SPELL, ch),
 				    skill_table[paf->type].name);
 
 		if (ch->level >= 20) {
-			char_printf(ch, ": modifies {c%s{x by {c%d{x ",
+			char_printf(ch, ": %s {c%s{x %s {c%d{x ",
+				    msg(AFF_MODIFIES, ch),
 				    affect_loc_name(paf->location),
+				    msg(AFF_BY, ch),
 				    paf->modifier);
 			if (paf->duration == -1 || paf->duration == -2)
-				send_to_char("permanently", ch);
+				char_nputs(AFF_PERMANENTLY, ch);
 			else
-				char_printf(ch, "for {c%d{x hours",
+				char_printf(ch, msg(AFF_FOR_D_HOURS, ch),
 					    paf->duration);
 		}
 		send_to_char("\n\r", ch);
@@ -3560,7 +3562,7 @@ void do_lion_call(CHAR_DATA *ch, char *argument)
 
 	if (IS_NPC(ch)
 	||  ch->level < skill_table[gsn_lion_call].skill_level[ch->class]) {
-		send_to_char("Huh?\n\r", ch);
+		char_nputs(HUH, ch);
 		return;
 	}
 
@@ -3693,17 +3695,20 @@ void do_raffects(CHAR_DATA *ch, char *argument)
 			else
 				continue;
 		else
-			char_printf(ch, "Spell: {c%-15s{x",
+			char_printf(ch, "%s {c%-15s{x", msg(AFF_SPELL, ch),
 				    skill_table[paf->type].name);
 
 		if (ch->level >= 20) {
-			char_printf(ch, ": modifies {c%s{x by {c%d{x ",
+			char_printf(ch, ": %s {c%s{x %s {c%d{x ",
+				    msg(AFF_MODIFIES, ch),
 				    raffect_loc_name(paf->location),
+				    msg(AFF_BY, ch),
 				    paf->modifier);
 			if (paf->duration == -1 || paf->duration == -2)
-				char_puts("permanently", ch);
+				char_nputs(AFF_PERMANENTLY, ch);
 			else
-				char_printf(ch, "for {c%d{x hours", paf->duration);
+				char_printf(ch, msg(AFF_FOR_D_HOURS, ch),
+					    paf->duration);
 		}
 		send_to_char("\n\r", ch);
 		paf_last = paf;
@@ -3752,7 +3757,7 @@ void do_practice(CHAR_DATA *ch, char *argument)
 	}
 
 	if (!IS_AWAKE(ch)) {
-		send_to_char("In your dreams, or what?\n\r", ch);
+		char_nputs(I_YOUR_DREAMS, ch);
 		return;
 	}
 
@@ -3835,7 +3840,7 @@ void do_camp(CHAR_DATA *ch, char *argument)
 
 	if (IS_NPC(ch)
 	||  ch->level < skill_table[gsn_camp].skill_level[ch->class]) {
-		send_to_char("Huh?\n\r", ch);
+		char_nputs(HUH, ch);
 		return;
 	}
 
@@ -3916,7 +3921,7 @@ void do_demand(CHAR_DATA *ch, char *argument)
 		return;
 
 	if (ch->class != CLASS_ANTI_PALADIN) {
-		send_to_char("You can't do that.\n\r", ch);
+		char_nputs(YOU_CANT_DO_THAT, ch);
 		return;
 	}
 
@@ -3926,7 +3931,7 @@ void do_demand(CHAR_DATA *ch, char *argument)
 	}
 
 	if ((victim = get_char_room(ch, arg2)) == NULL) {
-		send_to_char("They aren't here.\n\r", ch);
+		char_nputs(THEY_ARENT_HERE, ch);
 		return;
 	}
 
@@ -4010,7 +4015,7 @@ void do_control(CHAR_DATA *ch, char *argument)
 
 	if (IS_NPC(ch)
 	||  ch->level < skill_table[gsn_control_animal].skill_level[ch->class]) {
-		send_to_char("Huh?\n\r", ch);
+		char_nputs(HUH, ch);
 		return;
 	}
 
@@ -4020,7 +4025,7 @@ void do_control(CHAR_DATA *ch, char *argument)
 	}
 
 	if ((victim = get_char_room(ch, arg)) == NULL) {
-		send_to_char("They aren't here.\n\r", ch);
+		char_nputs(THEY_ARENT_HERE, ch);
 		return;
 	}
 
