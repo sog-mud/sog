@@ -34,6 +34,8 @@ r lightning 100
 r acid 33
 r mental 100
 r charm 100
+m mob_death mob_death_grandfather 100~
+m mob_fight mob_fight_grandfather 40~
 #36301
 bowman man green лучник~
 @eng green bowman@rus ~~Зеленый~~ ~~лучник~~~
@@ -262,7 +264,6 @@ CEFIKN
 stand stand male 20000
 0 0 medium unknown
 r charm 100
-m mob_random mob_random_mayor 100~
 #36311
 clerk клерк~
 @eng Clerk@rus клерк~

@@ -48,6 +48,7 @@ r charm 100
 r weapon 33
 r magic 33
 m mob_greet mob_greet_baker all~
+m mob_random mob_random_baker 5~
 #3002
 grocer бакалейщик~
 @eng the grocer@rus бакалейщик~
@@ -65,6 +66,8 @@ stand stand male 1300
 r charm 100
 r weapon 33
 r magic 33
+m mob_greet mob_greet_grocer all~
+m mob_random mob_random_grocer 5~
 #3003
 weaponsmith~
 @eng the weaponsmith@rus оружейник~
@@ -574,6 +577,9 @@ stand stand either 150
 0 0 medium unknown
 V 37001
 r magic 33
+m mob_bribe mob_bribe_cityguard_5000 5000~
+m mob_bribe mob_bribe_cityguard_1000 1000~
+m mob_bribe mob_bribe_cityguard_1 1~
 m mob_random mob_random_guard 100~
 #3061
 janitor дворник~
@@ -623,6 +629,7 @@ stand stand male 18
 0 0 medium unknown
 r magic -50
 m mob_death mob_death_vagabond 100~
+m mob_random mob_random_vagabond 10~
 #3064
 drunk пьяница~
 @eng the drunk@rus пьяница~
@@ -638,6 +645,9 @@ U
 stand stand male 65
 0 0 medium unknown
 r magic -50
+m mob_bribe mob_bribe_drunk 100~
+m mob_greet mob_greet_drunk all~
+m mob_random mob_random_drunk 10~
 #3065
 beggar попрошайка~
 @eng the beggar@rus попрошайка~
@@ -657,6 +667,8 @@ m mob_bribe mob_bribe_beggar_500 500~
 m mob_bribe mob_bribe_beggar_100 100~
 m mob_bribe mob_bribe_beggar_10 10~
 m mob_bribe mob_bribe_beggar_1 1~
+m mob_death mob_death_beggar 100~
+m mob_fight mob_fight_beggar 100~
 m mob_greet mob_greet_beggar all~
 #3066
 cat кот~
@@ -688,6 +700,9 @@ CDEKLTU
 stand stand either 150
 0 0 medium unknown
 r magic 33
+m mob_bribe mob_bribe_cityguard_5000 5000~
+m mob_bribe mob_bribe_cityguard_1000 1000~
+m mob_bribe mob_bribe_cityguard_1 1~
 m mob_random mob_random_guard 100~
 #3068
 cityguard guard стражник~
@@ -704,6 +719,9 @@ CDEKLTU
 stand stand either 150
 0 0 medium unknown
 r magic 33
+m mob_bribe mob_bribe_cityguard_5000 5000~
+m mob_bribe mob_bribe_cityguard_1000 1000~
+m mob_bribe mob_bribe_cityguard_1 1~
 m mob_random mob_random_guard 100~
 #3069
 cityguard guard стражник~
@@ -720,6 +738,9 @@ CDEHKLTU
 stand stand either 500
 0 0 medium unknown
 r magic 33
+m mob_bribe mob_bribe_cityguard_5000 5000~
+m mob_bribe mob_bribe_cityguard_1000 1000~
+m mob_bribe mob_bribe_cityguard_1 1~
 m mob_random mob_random_guard 100~
 #3070
 shopkeeper old man аптекарь~
@@ -755,6 +776,9 @@ CDEKLTU
 stand stand either 150
 0 0 medium unknown
 r magic 33
+m mob_bribe mob_bribe_cityguard_5000 5000~
+m mob_bribe mob_bribe_cityguard_1 1~
+m mob_bribe mob_bribe_cityguard_1000 1000~
 #3072
 cityguard guard стражник~
 @eng the cityguard@rus стражник~
@@ -1064,6 +1088,7 @@ D
 stand stand male 14
 0 0 medium unknown
 r magic -50
+m mob_speech mob_speech_crier ~
 #3150
 esme waitress эсме~
 @eng Esme@rus Эсме~
@@ -1347,6 +1372,7 @@ stand stand male 5000
 0 0 huge unknown
 r weapon 33
 r magic 100
+m mob_greet mob_greet_templeman all~
 m mob_random mob_random_cast_adept 100~
 #0
 

@@ -915,6 +915,7 @@ armor 0 0 AD
 f affects mana 50 0
 f affects hp 50 0
 f affects damroll 10 0
+m obj_wear obj_wear_iron_breastplate 100~
 g @eng none@rus female~
 #14003
 sting locust жало~

@@ -117,6 +117,7 @@ F
 stand stand either 500
 0 0 small unknown
 m mob_death mob_death_water_pixie 100~
+m mob_fight mob_fight_water_pixie 15~
 #35474
 sprite air pixie~
 an air sprite~
@@ -135,6 +136,7 @@ stand stand either 700
 r weapon 33
 r magic 33
 m mob_death mob_death_sprite_wings 100~
+m mob_fight mob_fight_air_sprite_main 15~
 m mob_give mob_give_sprite_leaf 35469~
 m mob_give mob_give_sprite_any all~
 m mob_greet mob_greet_sprite all~
@@ -191,8 +193,9 @@ stand stand none 1000
 0 0 gargantuan unknown
 F for D
 r charm 100
-m mob_death mob_death_tree_guardian 100~
 m mob_death mob_death_tree 100~
+m mob_death mob_death_tree_guardian 100~
+m mob_fight mob_fight_guardian_tree 30~
 m mob_greet mob_greet_guardian_tree north west~
 #0
 

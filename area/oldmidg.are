@@ -693,6 +693,7 @@ stand stand male 5000
 0 0 huge unknown
 r weapon 33
 r magic 100
+m mob_greet mob_greet_templeman all~
 m mob_random mob_random_cast_adept 100~
 #5346
 junkseller junk seller~

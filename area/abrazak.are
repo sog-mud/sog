@@ -235,6 +235,7 @@ f object level 10000 0
 f resists holy 75 0
 f object damroll 10000 0
 f object level 2000 0
+m obj_wear obj_wear_abrazak_mace 100~
 g @rus none~
 #15010
 scythe~

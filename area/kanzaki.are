@@ -1889,6 +1889,7 @@ f resists negative 15 0
 f object saves -10 0
 f object mana 80 0
 f object wis 4 0
+m obj_wear obj_wear_white_robes 100~
 g @eng neutral@rus plural~
 #47170
 chest iron bound сундук окованный~
@@ -1941,6 +1942,7 @@ f resists fire 10 0
 f skills 'hide' 50 A
 f object saves -10 0
 f object dex 3 0
+m obj_wear obj_wear_ninjitsu_gi 100~
 E
 nijitsu gi облачение ниндзя~
 @eng These black clothes conceal most of its wearer's movements,
@@ -2002,6 +2004,7 @@ f object hitroll 9 0
 f object damroll 7 0
 f object dex 2 0
 f object str 2 0
+m obj_wear obj_wear_ancient_sword 100~
 E
 sword ancient ivory меч древний~
 @eng .  Considerably light and extremely well balanced, this

@@ -24,6 +24,7 @@ GHS 0 0 0 AB 100 0
 BEFJNU
 stand stand male 1
 0 0 medium unknown
+m mob_death mob_death_smurf 100~
 m mob_random mob_random_thief 100~
 #102
 smurf смурф~
@@ -40,6 +41,7 @@ BHS 0 0 0 AB 100 0
 BEFJNU
 stand stand male 1
 0 0 medium unknown
+m mob_death mob_death_smurf 100~
 m mob_random mob_random_thief 100~
 #103
 brainy smurf смурф~
@@ -57,6 +59,7 @@ GHS 0 0 0 AB 100 0
 BEFJNU
 stand stand male 1
 0 0 medium unknown
+m mob_death mob_death_smurf 100~
 m mob_random mob_random_thief 100~
 #104
 handy smurf~
@@ -72,6 +75,7 @@ GHS 0 0 0 AB 100 0
 BEFJNU
 stand stand male 1
 0 0 medium unknown
+m mob_death mob_death_smurf 100~
 m mob_random mob_random_thief 100~
 #105
 sleepy smurf смурф~
@@ -88,6 +92,7 @@ GHS 0 0 0 AB 100 0
 BEFJNU
 stand stand male 1
 0 0 medium unknown
+m mob_death mob_death_smurf 100~
 m mob_random mob_random_thief 100~
 #106
 hefty smurf~
@@ -103,6 +108,7 @@ GHS 0 0 0 AB 100 0
 BEFJNU
 stand stand male 1
 0 0 medium unknown
+m mob_death mob_death_smurf 100~
 m mob_random mob_random_thief 100~
 #107
 grumpy smurf~
@@ -117,6 +123,7 @@ GHS 0 0 0 AB 100 0
 BEFJNU
 stand stand male 1
 0 0 medium unknown
+m mob_death mob_death_smurf 100~
 m mob_random mob_random_thief 100~
 #108
 jokey smurf~
@@ -132,9 +139,10 @@ GHS 0 0 0 AB 100 0
 BEFJNU
 stand stand male 1
 0 0 medium unknown
+m mob_death mob_death_smurf 100~
 m mob_random mob_random_thief 100~
 #109
-smurfette смурфетта~
+smurfette смурфетта smurf~
 @eng Smurfette@rus Смурфетта~
 @eng Smurfette is here, looking beautiful.@rus Смурфетта (Smurfette). Она прекрасно выглядит.~
 @eng Smurfette is the cutest little smurf you've ever seen.  If only she were your
@@ -149,6 +157,7 @@ GHS 0 0 0 AB 100 0
 BEFJNU
 stand stand female 1
 0 0 medium unknown
+m mob_death mob_death_smurf 100~
 m mob_random mob_random_thief 100~
 #110
 papa smurf~
@@ -165,6 +174,7 @@ GHR 0 0 0 0 100 0
 FU
 stand stand male 2
 0 0 medium unknown
+m mob_death mob_death_smurf 100~
 m mob_fight mob_fight_cast_mage 100~
 #111
 gargamel~
@@ -181,6 +191,7 @@ EIKU
 stand stand male 2
 0 0 medium unknown
 m mob_fight mob_fight_cast_cleric 100~
+m mob_give mob_give_gargamel_smurf all~
 m mob_greet mob_greet_gargamel all~
 m mob_random mob_random_kill_smurf 100~
 m mob_tell mob_tell_gargamel smurf~
@@ -295,6 +306,25 @@ key 0 0 A
 B 0 0 0 0
 0 20 0 P
 g @rus male~
+#110
+pouch мешочек~
+@eng pouch with coins@rus ~~мешочек~~ с монетами~
+@eng Someone lost here the small pouch with some coins.@rus Кто-то здесь потерял маленький мешочек (pouch), наполненный монетами.~
+unknown~
+container 0 0 A
+1 0 0 1 0
+1 1 150 P
+g @eng none@rus male~
+#111
+coins монеты~
+@eng gold coins@rus ~~золотые~~ ~~монеты~~~
+@eng Some gold coins.@rus Несколько золотых монет.~
+gold~
+money 0 0 A
+0 10 0 0 0
+0 0 0 P
+m obj_get obj_get_coins 100~
+g @eng none@rus plural~
 #0
 
 #ROOMS
