@@ -550,6 +550,14 @@ Form 3 -ли~
 End
 
 #RULE
+Name высадился~
+BaseLen 7
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
 Name погас~
 BaseLen 5
 Form 1 -ла~
@@ -1077,6 +1085,14 @@ BaseLen 5
 Form 1 -на~
 Form 2 -но~
 Form 3 -ны~
+End
+
+#RULE
+Name проплыл~
+BaseLen 6
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
 End
 
 #RULE

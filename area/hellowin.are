@@ -126,7 +126,7 @@ encroachment.
 та, он очень недоволен твоим вторжением.
 ~
 dragon~
-ABGe DEFHNOUVYc 0 0
+ABGe DEFHNOPUVYc 0 0
 150 250 1d1+28000 1d1+25000 50d60+100 divine
 -66 -66 -66 -66
 CDEFHIKNO ABCDU 0 0
@@ -139,6 +139,7 @@ M exall 34410 1~
 M exall 34410 2~
 M exall 34410 3~
 M exall 34410 4~
+M give 34427 34491~
 #34407
 guardian хранитель figure~
 @eng guardian@rus хранитель~
@@ -331,16 +332,6 @@ gold~
 treasure A AO
 0 0 0 0 0
 74 1 100 P
-A
-8 2
-A
-20 -10
-A
-12 250
-A
-13 250
-F I 18 10 M
-F A 19 10 c
 G female
 #34414
 key scarlet алый ключ~
@@ -1225,7 +1216,7 @@ Mystic portal~
 You notice glowing portal here.~
 unknown~
 portal A 0
-0 0 0 34418 0
+0 0 0 34401 0
 0 0 0 P
 E
 portal портал~
@@ -1282,6 +1273,15 @@ potion 0 AO
 100 'sleep' 'reserved' 'reserved' 'reserved'
 0 0 0 P
 G none
+#34492
+cauldron котелок~
+@eng the magic cauldron@rus ~~магический~~ ~~котелок~~~
+@eng The cauldron lies here.@rus Котелок (cauldron) валяется здесь.~
+unknown~
+container 0 A
+1000 0 0 200 0
+0 0 15000 P
+G male
 #0
 
 #ROOMS
@@ -1344,7 +1344,7 @@ stumble over something and it is really big and rigid.
 ослепляя тебя. Каждый твой шаг гулко звучит под высокими сводами пещеры.
 Задумавшись, ты едва не $gn{воткнулся} носом во что-то большое и жесткое.
 ~
-0 0 inside
+0 NTWX inside
 D0
 ~
 ~
@@ -1370,6 +1370,10 @@ D2
 ~
 ~
 Z 0 34402
+D4
+~
+~
+Z 0 3502
 S
 #34404
 @eng Nowhere@rus Нигде~
@@ -1726,8 +1730,10 @@ G 0 34406 0		*	{rHot and tasty bite of roasted meat{w
 G 0 34407 0		*	{WHeeled glass filled with {BKosoruloFF{W vodka{w
 O 0 34405 0 34400	* fallen tree ({GClearing in the woods{x)
 O 0 34404 0 34400	* {WSpring with crystal and clear water{w ({GClearing in the woods{x)
+O 0 34440 0 34401	* door (Near the cave)
 M 0 34406 1 34402 1	* the crystalline dragon (In the cave)
 O 0 34462 0 34403	* altar (Heart of the mountain)
+P 0 34490 100 34462 1	* altar: statuette of crystal dragon
 O 0 34475 0 34404	* scarlet door to unknown (Nowhere)
 O 0 34440 0 34405	* door (Nowhere)
 O 0 34476 0 34406	* orange door to unknown (Nowhere)
@@ -1895,9 +1901,32 @@ mob transfer $n 34424
 #34427
 mob junk all.potion
 mob oload 34490
-drop all
-echo $I quaffs the potion and scatters into many crystals...
+mob echo $I quaffs the potion and scatters into many crystals...
 mob goto 15000
+~
+#34428
+'You need to buy my cauldron! It's very good. And you can use it to brew potion you want!
+'Recipe..
+'As i remember you can find it in the library.. It's simple..
+'Just ask librarian about old recipe...
+~
+#34429
+'Recipe? It's very simple!
+'You need bat's wings, sapphire sigil and black rose.
+'Put them into cauldron and say magic word.
+'Magic word is mumbara or something... Not sure..
+'Go to Alara and ask her. She lives in Keep of the Warlock.
+~
+#34430
+'Recipe.. Recipe..
+'You need pale green egg, pink rose and
+'You need pale green egg, pink and yellow rose and rabbit's foot.
+'Put in into cauldron and say 'mamburu'!
+grin
+~
+#34431
+'You do not know word, do you? It's terrible!
+'Remember 'mamburu'!
 ~
 #34450
 say Если ты мне принесешь сосульку, я тебя награжу... тока поспеши..
@@ -1912,6 +1941,7 @@ O 34439 wear_prog wear_prog_amulet_strangulation	* `golden amulet'
 O 34449 wear_prog wear_prog_excalibur	* `wooden mace'
 O 34459 wear_prog wear_prog_excalibur	* `butcher's knife'
 O 34485 speech_prog speech_prog_scarab	* `{Ymystic scarab{x'
+O 34492 speech_prog speech_prog_cauldron	* `the magic cauldron'
 S
 
 #$

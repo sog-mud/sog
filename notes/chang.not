@@ -3881,7 +3881,6 @@ Stamp   1027168453
 To      imm~
 Subject help.are~
 Text
- 
 Some typo corrections in help claws.
 ~
 Sender  Diogen~
@@ -4158,4 +4157,182 @@ hi, there!
 Happy mudding.
  
 {WTyan{x
+~
+Sender  Tyan~
+Date    Thu Feb 19 04:06:55 2004~
+Stamp   1077152815
+To      all~
+Subject web who~
+Text
+Hi, there!
+ 
+Вампиры через web who больше не показываются.
+ 
+Happy mudding
+ 
+{WTyan{x
+~
+Sender  Tyan~
+Date    Fri Feb 20 00:59:40 2004~
+Stamp   1077227980
+To      all~
+Subject transfer~
+Text
+hi, there!
+ 
+При трансфере игроков (мобами) петы теперь трансферрятся только в том
+случае, если они находятся в одной комнате с хозяином.
+ 
+Happy mudding
+ 
+{WTyan{x
+~
+Sender  Tyan~
+Date    Fri Feb 20 01:53:13 2004~
+Stamp   1077231193
+To      all~
+Subject money~
+Text
+hi, there!
+
+Теперь можно брать деньги кучками с пола и из контейнеров.
+help GET для более подробной информации.
+
+При разложении трупа, который находился в inventory, деньги попадают
+в кошелек игроку, а не остаются у него в inventory в виде объекта.
+ 
+Банкир (withdraw, deposit) теперь понимает coin и coins как синоним silver.
+ 
+Happy mudding
+ 
+{WTyan{x
+~
+Sender  Tyan~
+Date    Fri Feb 20 03:53:01 2004~
+Stamp   1077238381
+To      all~
+Subject rolling~
+Text
+hi, there!
+ 
+Хелпы при роллинге теперь показываются правильно
+(пейджер не перемешивается с вопросами).
+ 
+Happy mudding,
+ 
+{WTyan{x
+~
+Sender  Tyan~
+Date    Sun Feb 22 02:16:15 2004~
+Stamp   1077405375
+To      all~
+Subject more changes~
+Text
+Greetings!
+
+- group больше не проверяет членов группы под чармом на несовместимость
+align и clan с принимаемым в группу чаром
+- master hand не срабатывает, если удар по противнику не нанесен
+(dodge, parry, shield block, etc.)
+ 
+Happy mudding!
+ 
+{WTyan{x
+~
+Sender  Tyan~
+Date    Sun Feb 22 20:02:37 2004~
+Stamp   1077469357
+To      all~
+Subject more changes~
+Text
+Greetings!
+ 
+- некоторые команды теперь доступны, несмотря на WAIT_STATE
+- буфер команд всегда очищается (даже в WAIT_STATE), поэтому проблемы
+с заспамленным буфером больше не должно существовать.
+ 
+Happy mudding,
+ 
+{WTyan{x
+~
+Sender  Tyan~
+Date    Mon Feb 23 02:58:12 2004~
+Stamp   1077494292
+To      all~
+Subject bug fixed~
+Text
+Greetings!
+ 
+Починен баг с circular follow, когда было возможно перейти более чем
+на одну клетку за один ход, используя циклические follow и петов.
+ 
+Happy mudding,
+ 
+{WTyan{x
+~
+Sender  Phrinn~
+Date    Tue Mar  9 19:07:04 2004~
+Stamp   1078848424
+To      all~
+Subject magic jar~
+Text
+Greeting!
+ 
+пофиксено неокончательное уничтожение spirit of XXX
+(создаваемое спеллом "magic jar")
+ 
+{WФринн{x.
+~
+Sender  Phrinn~
+Date    Wed Apr 21 17:33:00 2004~
+Stamp   1082554380
+To      all~
+Subject lost ring of ra, sword excalibur~
+Text
+Greeting!
+ 
+Халява со 'sword of acid' и 'punish' кончилась. Кстати за использование
+багов положено наказание. Так что готовтесь, морально.
+ 
+{WФринн{x.
+~
+Sender  Phrinn~
+Date    Thu May 13 17:05:09 2004~
+Stamp   1084453509
+To      all~
+Subject item_fuzzy~
+Text
+Greeting!
+ 
+Силы аффектов (hp, mana, moves, saves, hr, dr, ac), даваемые шмотками,
+теперь имеют тенденцию колебаться в сторону усиления/ослабления.
+Например, вам может попасться pitch black ring, дающий 205 hp.
+ 
+{WФринн{x.
+~
+Sender  Phrinn~
+Date    Tue May 25 10:56:37 2004~
+Stamp   1085468197
+To      all~
+Subject sync, note delete~
+Text
+Greeting!
+ 
+Новая команда: sync. help sync
+Поправлено удаление чужих записок. Теперь можно удалять только
+свои сообщения.
+ 
+{WФринн{x.
+~
+Sender  Phrinn~
+Date    Wed May 26 10:30:54 2004~
+Stamp   1085553054
+To      all~
+Subject quest buy restoration~
+Text
+Greeting!
+ 
+За 100 qp у квестора можно купить full heal.
+ 
+{WФринн{x.
 ~

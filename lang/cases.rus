@@ -4280,6 +4280,17 @@ Form 5 -ени~
 End
 
 #RULE
+Name статуэтка~
+BaseLen 8
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
 Name проклятый~
 BaseLen 7
 Form 1 -ого~
@@ -6867,6 +6878,17 @@ Form 5 -е~
 End
 
 #RULE
+Name хрустальный~
+BaseLen 9
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ый~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ого~
+End
+
+#RULE
 Name голем~
 BaseLen 5
 Form 1 -а~
@@ -8076,6 +8098,14 @@ Form 3 -у~
 Form 4 -ей~
 Form 5 -е~
 Form 6 -у~
+End
+
+#RULE
+Name {Rр{yа{Yд{Gу{Cж{Bн{Mы{Rй {yа{Yм{Gу{Cл{Bе{Mт{x~
+Form 1 {Rр{yа{Yд{Gу{Cж{Bн{Mо{Rг{yо {Yа{Gм{Cу{Bл{Mе{Rт{yа{x~
+Form 2 {Rр{yа{Yд{Gу{Cж{Bн{Mо{Rм{yу {Yа{Gм{Cу{Bл{Mе{Rт{yу{x~
+Form 4 {Rр{yа{Yд{Gу{Cж{Bн{Mы{Rм {yа{Yм{Gу{Cл{Bе{Mт{Rо{yм{x~
+Form 5 {Rр{yа{Yд{Gу{Cж{Bн{Mо{Rм {yа{Yм{Gу{Cл{Bе{Mт{Rе{x~
 End
 
 #RULE
