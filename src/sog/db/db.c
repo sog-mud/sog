@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.205 1999-12-21 06:36:33 fjoe Exp $
+ * $Id: db.c,v 1.206 1999-12-22 05:51:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2139,17 +2139,15 @@ load_msgdb(void)
 		mlstr_fread(fp, &ml);
 		key = mlstr_mval(&ml);
 
-		if (!strcmp(key, "$")) {
-			mlstr_destroy(&ml);
+		if (!strcmp(key, "$"))
 			break;
-		}
 
 		if (!hash_insert(&msgdb, key, &ml))
 			db_error("load_msgdb", "%s: duplicate msg", key);
 		else  
 			msgcnt++;
-		mlstr_destroy(&ml);
 	}
+	mlstr_destroy(&ml);
 
 	log("load_msgdb: %d msgs loaded", msgcnt);
 	rfile_close(fp);

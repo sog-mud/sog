@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.c,v 1.49 1999-12-20 08:31:21 fjoe Exp $
+ * $Id: mlstring.c,v 1.50 1999-12-22 05:51:26 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -83,14 +83,13 @@ void mlstr_fread(rfile_t *fp, mlstring *mlp)
 	const char *s;
 	int lang;
 
+	mlstr_clear(mlp);
+
 	p = fread_string(fp);
-	if (IS_NULLSTR(p)) {
-		mlstr_init(mlp);
+	if (IS_NULLSTR(p))
 		return;
-	}
 
 	if (*p != '@' || *(p+1) == '@') {
-		mlp->nlang = 0;
 		mlp->u.str = smash_a(p, -1);
 		free_string(p);
 		return;
