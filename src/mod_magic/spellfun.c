@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.181.2.19 2001-04-25 09:49:22 fjoe Exp $
+ * $Id: spellfun.c,v 1.181.2.20 2001-04-25 10:17:26 cs Exp $
  */
 
 /***************************************************************************
@@ -139,8 +139,7 @@ void spell_bless(int sn, int level, CHAR_DATA *ch, void *vo)
 
 	victim = (CHAR_DATA *) vo;
 
-	if ((ch && victim->position == POS_FIGHTING)
-	||  is_affected(victim, sn)) {
+	if (is_affected(victim, sn)) {
 		if (victim == ch)
 			char_puts("You are already blessed.\n", ch);
 		else if (ch) {
@@ -882,7 +881,7 @@ void spell_cure_critical(int sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int heal;
 
-	heal = dice(3, 8) + level / 2 ;
+	heal = dice(3, 8) + level;
 	victim->hit = UMIN(victim->hit + heal, victim->max_hit);
 	update_pos(victim);
 	char_puts("You feel better!\n", victim);
