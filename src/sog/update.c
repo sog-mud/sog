@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.32 2000-10-21 19:44:50 fjoe Exp $
+ * $Id: update.c,v 1.157.2.33 2000-11-16 12:04:38 avn Exp $
  */
 
 /***************************************************************************
@@ -1301,6 +1301,11 @@ void char_update(void)
 			else if (paf->duration == 0) {
 				skill_t *sk;
 
+				if (paf->type == sn_lookup("bone dragon") &&
+				    IS_NPC(ch) && ch->master)
+					act("You feel it is time to feed your dragon!",
+						ch->master, NULL, NULL, TO_CHAR);
+
 				if ((paf_next == NULL ||
 				     paf_next->type != paf->type ||
 				     paf_next->duration > 0)
@@ -2293,7 +2298,7 @@ void hatchout_dragon(CHAR_DATA *coc, AFFECT_DATA *paf)
 		return;
 	}
 
-	dlev = ch->level * 2 / 3 + paf->level / 14;
+	dlev = UMIN(ch->level * 2 / 3 + paf->level / 14, ch->level + 20);
 
 	act("Cocoon explodes and nasty dracolich emerges!",
 	    coc, NULL, NULL, TO_ALL);

@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.165.2.16 2000-10-21 17:08:44 fjoe Exp $
+ * $Id: act_obj.c,v 1.165.2.17 2000-11-16 12:04:37 avn Exp $
  */
 
 /***************************************************************************
@@ -750,15 +750,10 @@ void do_feed(CHAR_DATA *ch, const char *argument)
 	OBJ_DATA *obj;
 	AFFECT_DATA *paf;
 	AFFECT_DATA af;
+	int sn;
 
-	if (get_skill(ch, sn_lookup("bone dragon")) == 0) {
+	if (get_skill(ch, sn = sn_lookup("bone dragon")) == 0) {
 		char_puts("Huh?\n", ch);
-		return;
-	}
-
-	if (is_affected(ch, gsn_bone_dragon)) {
-		act("Your pet might get too fat and clumsy.", 
-		    ch, NULL, NULL, TO_CHAR);
 		return;
 	}
 
@@ -771,6 +766,12 @@ void do_feed(CHAR_DATA *ch, const char *argument)
 
 	if (!vch) {
 		act("Hmmm. Where did that dragon go?", ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	if (is_affected(vch, sn)) {
+		act("Your pet might get too fat and clumsy.", 
+		    ch, NULL, NULL, TO_CHAR);
 		return;
 	}
 
@@ -832,11 +833,12 @@ void do_feed(CHAR_DATA *ch, const char *argument)
 
 		affect_to_char(vch, &af);
 
+		af.type		= sn_lookup("bone dragon");
 		af.where	= TO_AFFECTS;
 		af.bitvector	= 0;
 		af.location	= APPLY_NONE;
 		af.duration	= 3;
-		affect_to_char(ch, &af);
+		affect_to_char(vch, &af);
 		extract_obj(obj, 0);
 		return;
 	}
@@ -856,13 +858,13 @@ void do_feed(CHAR_DATA *ch, const char *argument)
 	    vch, NULL,obj,TO_ROOM);
 
 	af.where	= TO_AFFECTS;
-	af.type		= gsn_bone_dragon;
+	af.type		= sn_lookup("bone dragon");
 	af.level	= ch->level;
 	af.duration	= 2;
 	af.modifier	= 0;
 	af.bitvector	= 0;
 	af.location	= APPLY_NONE;
-	affect_to_char(ch, &af);
+	affect_to_char(vch, &af);
 	extract_obj(obj, 0);
 }
 

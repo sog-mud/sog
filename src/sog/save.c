@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.126.2.9 2000-08-18 09:05:56 avn Exp $
+ * $Id: save.c,v 1.126.2.10 2000-11-16 12:04:38 avn Exp $
  */
 
 /***************************************************************************
@@ -396,10 +396,19 @@ fwrite_pet(CHAR_DATA * pet, FILE * fp, int flags)
 	fprintf(fp, "Pos %d\n", pet->position = POS_FIGHTING ? POS_STANDING : pet->position);
 	if (pet->alignment != pet->pMobIndex->alignment)
 		fprintf(fp, "Alig %d\n", pet->alignment);
+	if (pet->damroll != pet->pMobIndex->damage[DICE_BONUS])
+		fprintf(fp, "Damr %d\n", pet->damroll);
+	if (NPC(pet)->dam.dice_number != pet->pMobIndex->damage[DICE_NUMBER] ||
+	    NPC(pet)->dam.dice_type != pet->pMobIndex->damage[DICE_TYPE])
+		fprintf(fp, "Damd %d %d\n",
+			NPC(pet)->dam.dice_number,
+			NPC(pet)->dam.dice_type);
 	fprintf(fp, "Attr %d %d %d %d %d %d\n",
 		pet->perm_stat[STAT_STR], pet->perm_stat[STAT_INT],
 		pet->perm_stat[STAT_WIS], pet->perm_stat[STAT_DEX],
 		pet->perm_stat[STAT_CON], pet->perm_stat[STAT_CHA]);
+	fprintf(fp, "AC %d %d %d %d\n",
+		pet->armor[0], pet->armor[1], pet->armor[2], pet->armor[3]);
 
 	for (paf = pet->affected; paf != NULL; paf = paf->next)
 		fwrite_affect(paf, fp);
@@ -962,6 +971,15 @@ fread_pet(CHAR_DATA * ch, FILE * fp, int flags)
 		case 'A':
 			KEY("Alig", pet->alignment, fread_number(fp));
 
+			if (!str_cmp(word, "AC")) {
+				pet->armor[0] = fread_number(fp);
+				pet->armor[1] = fread_number(fp);
+				pet->armor[2] = fread_number(fp);
+				pet->armor[3] = fread_number(fp);
+				fMatch = TRUE;
+				break;
+			}
+
 			if (!str_cmp(word, "Affc")) {
 				AFFECT_DATA af;
 				const char *skname = fread_word(fp);
@@ -997,6 +1015,17 @@ fread_pet(CHAR_DATA * ch, FILE * fp, int flags)
 
 		case 'D':
 			MLSKEY("Desc", pet->description);
+			if (!str_cmp(word, "Damr")) {
+				pet->damroll = fread_number(fp);
+				fMatch = TRUE;
+				break;
+			}
+			if (!str_cmp(word, "Damd")) {
+				NPC(pet)->dam.dice_number = fread_number(fp);
+				NPC(pet)->dam.dice_type = fread_number(fp);
+				fMatch = TRUE;
+				break;
+			}
 			break;
 
 		case 'E':
