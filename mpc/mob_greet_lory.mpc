@@ -1,6 +1,0 @@
-/*
- * $Id: mob_greet_lory.mpc,v 1.2 2001-09-12 08:20:21 fjoe Exp $
- */
-
-tell_char($n, $N, "I am older than you, and must know better.");
-return 0;

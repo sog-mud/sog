@@ -191,10 +191,76 @@ EIKU
 stand stand male 2
 0 0 medium unknown
 m mob_fight mob_fight_cast_cleric 100~
-m mob_give mob_give_gargamel_smurf all~
-m mob_greet mob_greet_gargamel all~
-m mob_random mob_random_kill_smurf 100~
-m mob_tell mob_tell_gargamel smurf~
+m mob_give @ all~
+if (char_level($N) > 6)
+	return 0;
+
+if (obj_item_type($p) != ITEM_CORPSE_NPC
+||  (!is_owner_name($p, "smurf") && !is_owner_name($p, "smurfette"))) {
+       extract_obj($p, 0);
+       return 1;
+}
+
+int i;
+char smurf;
+foreach (smurf, npc_in_world()) {
+        if (char_vnum(smurf) >= 101
+        &&  char_vnum(smurf) <= 110)
+                i++;
+}
+
+if (i != 0) {
+        if (i == 1)
+                tell_char($n, $N, "I feel presents of the alive smurf.");
+        else
+                tell_char($n, $N, "I feel presents of the alive smurfs.");
+} else {
+        tell_char($n, $N,
+                  "All smurfs are dead! My dreams have come true!");
+        obj reward = load_obj($n, 110);
+        obj coins = create_obj(111, 0);
+        if (reward != NULL
+        &&  coins != NULL) {
+                obj_to_obj(coins, reward);
+                give_obj($n, $N, reward);
+                tell_char($n, $N, "It's your reward.");
+        }
+}
+ 
+drop_obj($n, $p);
+char azreal = get_char_here($n, "azreal");
+if (azreal == NULL)
+	return 1;
+act("$N eats $p.", $n, $p, azreal, TO_ALL);
+extract_obj($p, XO_F_NORECURSE);
+return 1;
+~
+m mob_greet @ all~
+if (number_percent() < 70)
+	return 0;
+
+dofun("emote", $n, "mutters the words: 'I hate, i hate smurfes!..'");
+dofun("emote", $n, "mutters the words: 'If they all die it will be fine...");
+return 0;
+~
+m mob_random @ 100~
+char ch = get_char_here($n, "smurf");
+if (ch == NULL)
+       return 0;
+ 
+dofun("say", $n, "All smurfes must die!!!");
+multi_hit($n, ch, NULL);
+return 0;
+~
+m mob_tell @ smurf~
+if (char_level($N) > 6)
+	return 0;
+
+tell_char($n, $N, "Don't speak about these silly smurfes!");
+tell_char($n, $N, "I hate them! Kill them all!!");
+tell_char($n, $N, "Bring me corpse of the last smurf, and I'll reward you.");
+return 0;
+~
 #112
 azreal cat~
 Azreal~
@@ -323,7 +389,16 @@ gold~
 money 0 0 A
 0 10 0 0 0
 0 0 0 P
-m obj_get obj_get_coins 100~
+m obj_get @ 100~
+obj pouch = get_obj_carry($n, $n, "110");
+act("$p", $n, pouch, NULL, TO_ALL);
+if (pouch == NULL)
+        return 0;
+ 
+extract_obj(pouch, 0);
+act_char("As you get out coins, pouch dissapears.", $n);
+return 0;
+~
 g @eng none@rus plural~
 #0
 

@@ -24,9 +24,20 @@ GHT 0 HN 0 0 400 0
 EFNU
 stand stand female 0
 0 0 medium unknown
-m mob_greet mob_greet_alice all~
-m mob_kill mob_kill_alice 100~
-m mob_look mob_look_alice 100~
+m mob_greet @ all~
+dofun("emote", $n, "raises her eyebrows quizzically.");
+return 0;
+~
+m mob_kill @ 100~
+dofun("emote", $n, "screams in dismay!");
+dofun("yell", $n, "Help!");
+return 0;
+~
+m mob_look @ 100~
+dofun("say", $n, "Pleased to meet you!");
+mob_interpret($n, "curtsey");
+return 0;
+~
 #21001
 white rabbit~
 a white rabbit~
@@ -48,10 +59,24 @@ r pierce -50
 r cold 33
 r charm 33
 m mob_fight mob_fight_cast_mage 100~
-m mob_give mob_give_white_rabbit 21007~
-m mob_greet mob_greet_white_rabbit all~
-m mob_exit mob_exit_white_rabbit all~
-m mob_tell mob_tell_white_rabbit ~
+m mob_give @ 21007~
+act_say($n, "Thank you $N!", $N);
+extract_obj($p, 0);
+return 0;
+~
+m mob_greet @ all~
+dofun("say", $n, "I'm late! Oh dear!");
+dofun("emote", $n, "looks at his watch.");
+return 0;
+~
+m mob_exit @ all~
+dofun("say", $n, "Bring me my gloves!");
+return 0;
+~
+m mob_tell @ ~
+tell_char($n, $N, "No time to chat!");
+return 0;
+~
 #21002
 mouse~
 a mouse~
@@ -67,8 +92,15 @@ GHT 0 0 0 H 400 0
 ENU
 stand stand male 0
 HM B medium unknown
-m mob_greet mob_greet_mouse all~
-m mob_exit mob_exit_mouse all~
+m mob_greet @ all~
+mob_interpret($n, "growl");
+dofun("say", $n, "Cats! Nasty, low, vulgar things!");
+return 0;
+~
+m mob_exit @ all~
+tell_char($n, $N, "Don't let me hear that name again!");
+return 0;
+~
 #21003
 duck~
 a duck~
@@ -83,8 +115,14 @@ GHT 0 0 0 0 400 0
 EFNU
 stand stand female 0
 HMV B medium unknown
-m mob_greet mob_greet_duck all~
-m mob_exit mob_exit_duck all~
+m mob_greet @ all~
+dofun("say", $n, "QUACK!");
+return 0;
+~
+m mob_exit @ all~
+dofun("emote", $n, "waddles away.");
+return 0;
+~
 #21004
 dodo~
 a dodo~
@@ -100,9 +138,21 @@ BGT 0 N 0 0 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-m mob_greet mob_greet_dodo all~
-m mob_exit mob_exit_dodo all~
-m mob_look mob_look_dodo 100~
+m mob_greet @ all~
+dofun("say", $n, "The best thing to get us dry would be a Caucus race!");
+dofun("emote", $n, "marks out a race course, in a sort of circle.");
+tell_char($n, $N, "The size doesn't matter.");
+return 0;
+~
+m mob_exit @ all~
+dofun("say", $n, "The race is over! But who has won?");
+return 0;
+~
+m mob_look @ 100~
+dofun("emote", $n, "is running about furiously!");
+dofun("say", $n, "Run then!");
+return 0;
+~
 #21005
 lory~
 a lory~
@@ -117,10 +167,22 @@ GHT 0 T 0 0 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-m mob_greet mob_greet_lory all~
-m mob_exit mob_exit_lory all~
-m mob_look mob_look_lory 100~
-m mob_tell mob_tell_lory ~
+m mob_greet @ all~
+tell_char($n, $N, "I am older than you, and must know better.");
+return 0;
+~
+m mob_exit @ all~
+dofun("emote", $n, "sits and sulks.");
+return 0;
+~
+m mob_look @ 100~
+dofun("say", $n, "Don't stare, youngster!");
+return 0;
+~
+m mob_tell @ ~
+tell_char($n, $N, "I'm not telling you how old I am!");
+return 0;
+~
 #21006
 eaglet~
 an eaglet~
@@ -135,8 +197,15 @@ BGT 0 T 0 0 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-m mob_greet mob_greet_eaglet all~
-m mob_exit mob_exit_eaglet all~
+m mob_greet @ all~
+dofun("say", $n, "Speak English!");
+dofun("emote", $n, "stretches its wings and shakes them, soaking everyone!");
+return 0;
+~
+m mob_exit @ all~
+dofun("emote", $n, "starts running around madly!");
+return 0;
+~
 #21007
 magpie~
 an elderly magpie~
@@ -151,9 +220,15 @@ BGHT 0 T 0 0 400 0
 EFNU
 stand stand female 0
 0 0 medium unknown
-m mob_greet mob_greet_magpie all~
+m mob_greet @ all~
+dofun("say", $n, "I really must be getting home. The night air doesn't suit my throat.");
+return 0;
+~
 m mob_kill mob_kill_bamf_self 100~
-m mob_exit mob_exit_magpie all~
+m mob_exit @ all~
+dofun("say", $n, "Farewell!");
+return 0;
+~
 #21008
 owl~
 an owl~
@@ -168,7 +243,10 @@ BGT 0 T 0 0 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-m mob_greet mob_greet_owl all~
+m mob_greet @ all~
+dofun("emote", $n, "runs about in circles.");
+return 0;
+~
 #21009
 old crab~
 an old crab~
@@ -182,7 +260,10 @@ BGT 0 N 0 0 400 0
 EFNU
 stand stand female 0
 0 0 medium unknown
-m mob_greet mob_greet_old_crab all~
+m mob_greet @ all~
+dofun("say", $n, "Ah my dear! Let this be a lesson to you to never lose your temper!");
+return 0;
+~
 #21010
 young crab~
 a young crab~
@@ -196,7 +277,10 @@ BGHT 0 N 0 0 400 0
 EFNU
 stand stand female 0
 0 0 medium unknown
-m mob_greet mob_greet_young_crab all~
+m mob_greet @ all~
+dofun("say", $n, "Hold your tongue, ma! You're enough to try the patience of an oyster!");
+return 0;
+~
 #21011
 bill lizard~
 Bill the lizard~
@@ -211,10 +295,24 @@ BGHT 0 0 0 0 400 0
 EFNU
 stand stand male 0
 HMV B medium unknown
-m mob_death mob_death_lizard_bill 100~
-m mob_greet mob_greet_lizard_bill all~
-m mob_kill mob_kill_lizard_bill 100~
-m mob_look mob_look_lizard_bill 100~
+m mob_death @ 100~
+dofun("yell", $n, "Aieee!");
+return 0;
+~
+m mob_greet @ all~
+dofun("emote", $n, "yelps in surprise.");
+dofun("say", $n, "It's a giant!");
+return 0;
+~
+m mob_kill @ 100~
+act_yell($n, "$lu{$E}'s coming at me like a jack in the box!", $N, NULL);
+return 0;
+~
+m mob_look @ 100~
+if (!is_sn_affected($n, "armor"))
+        cast_char("armor", $n, $n);
+return 0;
+~
 #21012
 guinea pig~
 a guinea pig~
@@ -229,8 +327,24 @@ BGHT 0 0 0 0 400 0
 EFNU
 stand stand male 0
 HM B medium unknown
-m mob_greet mob_greet_guinea_pig all~
-m mob_look mob_look_guinea_pig 100~
+m mob_greet @ all~
+dofun("emote", $n, "looks concerned.");
+return 0;
+~
+m mob_look @ 100~
+if (get_obj_carry($n, $N, "21019"))
+        return 0;
+
+look_char($n, $N);
+tell_char($n, $N, "You don't look too well!");
+ 
+obj o;
+if ((o = get_obj_carry($n, $n, "21019")) == NULL)
+        o = load_obj($n, 21019);
+
+give_obj($n, $N, o);
+return 0;
+~
 #21013
 puppy~
 a puppy dog~
@@ -245,9 +359,18 @@ BGHT 0 0 0 H 400 0
 EFNU
 stand stand male 0
 HM B medium unknown
-m mob_greet mob_greet_puppy all~
-m mob_exit mob_exit_puppy all~
-m mob_tell mob_tell_puppy ~
+m mob_greet @ all~
+dofun("emote", $n, "stares at you sadly.");
+return 0;
+~
+m mob_exit @ all~
+act("$n saldy watches you leave.", $n, NULL, $N, TO_VICT);
+return 0;
+~
+m mob_tell @ ~
+dofun("emote", $n, "wags its tail and jumps up on you.");
+return 0;
+~
 #21014
 caterpillar~
 the caterpillar~
@@ -263,9 +386,21 @@ EFNU
 stand stand male 0
 0 0 medium unknown
 m mob_fight mob_fight_breath_gas 100~
-m mob_greet mob_greet_caterpillar all~
-m mob_exit mob_exit_caterpillar all~
-m mob_look mob_look_caterpillar 100~
+m mob_greet @ all~
+dofun("say", $n, "Who are YOU?");
+dofun("emote", $n, "puffs on its hookah.");
+return 0;
+~
+m mob_exit @ all~
+tell_char($n, $N, "One side will make you stronger, the other will make you weaker.");
+return 0;
+~
+m mob_look @ 100~
+cast_char("fly", $n, $N);
+cast_char("fly", $n, $n);
+dofun("say", $n, "Now everyone's high!");
+return 0;
+~
 #21015
 pigeon~
 a pigeon~
@@ -281,9 +416,19 @@ BFGT 0 T 0 0 400 0
 EFNU
 stand stand female 0
 0 0 medium unknown
-m mob_greet mob_greet_pigeon all~
-m mob_exit mob_exit_pigeon all~
-m mob_look mob_look_pigeon 100~
+m mob_greet @ all~
+dofun("yell", $n, "Serpent!");
+dofun("say", $n, "I've tried every way but nothing seems to suit them!");
+return 0;
+~
+m mob_exit @ all~
+tell_char($n, $N, "Good riddance, snake!");
+return 0;
+~
+m mob_look @ 100~
+dofun("emote", $n, "trembles in rage!");
+return 0;
+~
 #21016
 fish footman~
 a fish-footman~
@@ -299,8 +444,29 @@ BGT 0 0 0 0 400 0
 EFNR
 stand stand male 0
 0 0 medium unknown
-m mob_greet mob_greet_fish_footman all~
-m mob_look mob_look_fish_footman 100~
+m mob_greet @ all~
+if (get_obj_carry($n, $N, "21029") != NULL)
+        return 0;
+ 
+obj o;
+if ((o = get_obj_carry($n, $n, "21029")) == NULL)
+        o = load_obj($n, 21029);
+ 
+if (!give_obj($n, $N, o))
+        return 0;
+ 
+dofun("say", $n, "For the Duchess, an invitation from the Queen to play croquet.");
+ 
+char ch;
+if ((ch = get_char_here($n, "21017")) != NULL) {
+        dofun("say", ch, "For the Duchess, an invitation from the Queen to play croquet.");
+}
+return 0;
+~
+m mob_look @ 100~
+dofun("say", $n, "There's no sense in knocking.");
+return 0;
+~
 #21017
 frog footman~
 a frog-footman~
@@ -316,7 +482,10 @@ BGT 0 0 0 0 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-m mob_tell mob_tell_frog_footman ~
+m mob_tell @ ~
+dofun("say", $n, "I shall sit here. Till tomorrow.");
+return 0;
+~
 #21018
 duchess~
 the Duchess~
@@ -332,8 +501,15 @@ BGT 0 N 0 0 400 0
 EFNU
 stand stand female 0
 0 0 medium unknown
-m mob_greet mob_greet_duchess all~
-m mob_random mob_random_duchess 1~
+m mob_greet @ all~
+dofun("yell", $n, "PIG!");
+dofun("emote", $n, "stares at the baby in her lap.");
+return 0;
+~
+m mob_random @ 1~
+dofun("say", $n, "You don't know much and that's fact!");
+return 0;
+~
 m mob_speech mob_random_duchess ~
 #21019
 pig baby~
@@ -350,7 +526,10 @@ BGT 0 0 0 0 0 0
 EFNR
 stand stand male 0
 0 0 medium unknown
-m mob_greet mob_greet_duchess_baby all~
+m mob_greet @ all~
+dofun("emote", $n, "cries and sneezes a lot.");
+return 0;
+~
 #21020
 cook~
 the cook~
@@ -366,9 +545,19 @@ BGT 0 0 0 0 0 0
 EFNU
 stand stand female 0
 0 0 medium unknown
-m mob_greet mob_greet_cook all~
-m mob_speech mob_speech_cook ~
-m mob_exit mob_exit_cook all~
+m mob_greet @ all~
+dofun("emote", $n, "stirs the soup.");
+return 0;
+~
+m mob_speech @ ~
+dofun("emote", $n, "hurls a plate at the Duchess! *>CRASH<*");
+return 0;
+~
+m mob_exit @ all~
+act("$n hurls a plate at you!", $n, NULL, $N, TO_VICT);
+act("$n hurls a plate at $N! *>CRASH<*", $n, NULL, $N, TO_NOTVICT);
+return 0;
+~
 #21021
 cheshire cat~
 a Cheshire Cat~
@@ -387,10 +576,22 @@ EFNU
 stand stand male 0
 0 0 medium unknown
 m mob_fight mob_fight_cast_mage 100~
-m mob_greet mob_greet_cheshire_cat all~
+m mob_greet @ all~
+act("$n grins at you.", $n, NULL, $N, TO_VICT);
+act("$n grins at $N.", $n, NULL, $N, TO_NOTVICT);
+return 0;
+~
 m mob_kill mob_kill_bamf_self 100~
-m mob_random mob_random_cheshire_cat 1~
-m mob_exit mob_exit_cheshire_cat all~
+m mob_random @ 1~
+dofun("say", $n, "In that direction lives the March Hare.");
+dofun("say", $n, "And in that direction lives the Mad Hatter.");
+return 0;
+~
+m mob_exit @ all~
+tell_char($n, $N, "Do you play croquet with the Queen today? I'll see you there!");
+dofun("emote", $n, "waves its tail and vanishes.");
+return 0;
+~
 m mob_look mob_look_cast_invis 100~
 #21022
 mad hatter~
@@ -418,8 +619,20 @@ stand stand male 0
 0 0 medium unknown
 m mob_greet mob_greet_no_room all~
 m mob_exit mob_exit_stuff_dormouse all~
-m mob_look mob_look_mad_hatter 100~
-m mob_tell mob_tell_mad_hatter ~
+m mob_look @ 100~
+dofun("say", $n, "Why is a raven like a writing desk?");
+return 0;
+~
+m mob_tell @ ~
+dofun("say", $n, "I have no idea!");
+ 
+obj tea;
+if ((tea = get_obj_carry($n, $n, "21045")) == NULL)
+        tea = load_obj($n, 21045);
+ 
+give_obj($n, $N, tea);
+return 0;
+~
 #21023
 march hare~
 the March Hare~
@@ -453,8 +666,14 @@ BGT 0 R G 0 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-m mob_greet mob_greet_dormouse all~
-m mob_random mob_random_dormouse 1~
+m mob_greet @ all~
+dofun("emote", $n, "snores loudly.");
+return 0;
+~
+m mob_random @ 1~
+dofun("say", $n, "Once upon a time there were three little sisters...");
+return 0;
+~
 #21027
 gardener heart five card~
 a gardener~
@@ -469,7 +688,11 @@ BGHT 0 0 0 0 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-m mob_greet mob_greet_gardener_five all~
+m mob_greet @ all~
+dofun("say", $n, "I couldn't help it. Seven jogged my elbow!");
+dofun("emote", $n, "returns to painting the bush.");
+return 0;
+~
 m mob_speech mob_speech_gardener ~
 #21028
 gardener heart seven card~
@@ -485,7 +708,10 @@ BGHT 0 0 0 0 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-m mob_greet mob_greet_gardener_seven all~
+m mob_greet @ all~
+dofun("emote", $n, "returns to painting the bush.");
+return 0;
+~
 m mob_speech mob_speech_gardener ~
 #21029
 gardener heart two card~
@@ -501,9 +727,18 @@ BGHT 0 0 0 0 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-m mob_greet mob_greet_gardener_two all~
-m mob_random mob_random_gardener_two 1~
-m mob_exit mob_exit_gardener_two +all~
+m mob_greet @ all~
+dofun("say", $n, "Look out now, Five! Don't go splashing paint over me like that!");
+return 0;
+~
+m mob_random @ 1~
+dofun("say", $n, "This should have been a red rose tree, but we planted a white by mistake.");
+return 0;
+~
+m mob_exit @ +all~
+dofun("yell", $n, "THE QUEEN! THE QUEEN!");
+return 0;
+~
 #21030
 soldier club card~
 a soldier~
@@ -517,9 +752,15 @@ GT 0 N 0 0 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-m mob_greet mob_greet_soldier_card all~
+m mob_greet @ all~
+dofun("emote", $n, "quickly bends over as someone whacks a hedgehog at him.");
+return 0;
+~
 m mob_random mob_random_guard 100~
-m mob_look mob_look_soldier_card 100~
+m mob_look @ 100~
+tell_char($n, $N, "You lookin' to be clubbed?");
+return 0;
+~
 #21031
 courtier diamond card~
 a courtier~
@@ -533,9 +774,18 @@ GT 0 0 0 0 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-m mob_greet mob_greet_diamond_courtier all~
-m mob_exit mob_exit_diamond_courtier all~
-m mob_look mob_look_diamond_courtier 100~
+m mob_greet @ all~
+dofun("emote", $n, "swings his flamingo and sends a hedgehog scuttling under a soldier card.");
+return 0;
+~
+m mob_exit @ all~
+dofun("emote", $n, "runs off after another hedgehog.");
+return 0;
+~
+m mob_look @ 100~
+dofun("emote", $n, "smiles and nods.");
+return 0;
+~
 #21032
 child card hearts~
 a child of the Queen~
@@ -549,7 +799,10 @@ GHT 0 0 0 0 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-m mob_greet mob_greet_child_of_queen all~
+m mob_greet @ all~
+dofun("say", $n, "Ga Ga Goo Goo!");
+return 0;
+~
 #21033
 king hearts~
 the King of Hearts~
@@ -565,9 +818,18 @@ GT 0 H 0 H 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-m mob_greet mob_greet_king_of_hearts all~
-m mob_exit mob_exit_king_of_hearts all~
-m mob_look mob_look_king_of_hearts 100~
+m mob_greet @ all~
+dofun("say", $n, "Greetings!");
+return 0;
+~
+m mob_exit @ all~
+dofun("emote", $n, "strolls off, flamingo in hand.");
+return 0;
+~
+m mob_look @ 100~
+dofun("say", $n, "Hmph!");
+return 0;
+~
 #21034
 queen hearts~
 @eng the Queen of Hearts@rus ~~Червовая~~ ~~Королева~~~
@@ -583,11 +845,25 @@ GLQRSTY CH N 0 H -400 0
 EFNU
 stand stand female 0
 0 0 medium unknown
-m mob_greet mob_queen_of_hearts all~
-m mob_kill mob_kill_queen_of_hearts 100~
+m mob_greet @ all~
+dofun("yell", $n, "Off with their heads!");
+return 0;
+~
+m mob_kill @ 100~
+dofun("yell", $n, "GUARDS! HELP!");
+cast_char("flamestrike", $n, $N);
+return 0;
+~
 m mob_exit mob_queen_of_hearts all~
-m mob_look mob_look_queen_of_hearts 100~
-m mob_tell mob_tell_queen_of_hearts ~
+m mob_look @ 100~
+tell_char($n, $N, "Off with YOUR head!");
+cast_char("black shroud", $n, $n);
+return 0;
+~
+m mob_tell @ ~
+tell_char($n, $N, "Tsk! Such impertinence!");
+return 0;
+~
 #21035
 knave hearts~
 the Knave of Hearts~
@@ -603,10 +879,16 @@ GHT 0 0 0 0 0 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-m mob_greet mob_greet_knave_of_hearts all~
+m mob_greet @ all~
+dofun("emote", $n, "hurriedly hides a tart behind his back.");
+return 0;
+~
 m mob_random mob_random_thief 100~
 m mob_look mob_look_cast_invis 100~
-m mob_tell mob_tell_knave_of_hearts ~
+m mob_tell @ ~
+dofun("say", $n, "Nothing!");
+return 0;
+~
 #21036
 flamingo~
 a flamingo~
@@ -621,7 +903,10 @@ GHT 0 0 0 0 0 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-m mob_greet mob_greet_flamingo all~
+m mob_greet @ all~
+dofun("emote", $n, "is fleeing madly away from some angry courtiers.");
+return 0;
+~
 #21037
 hedgehog~
 a hedgehog~
@@ -653,12 +938,31 @@ GT 0 HN 0 0 0 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-m mob_greet mob_greet_executioner all~
-m mob_kill mob_kill_bamf 100~
+m mob_greet @ all~
+dofun("say", $n, "You can't chop off a head with no body!");
+return 0;
+~
+m mob_kill @ 100~
+if (char_room($n) == char_room($N)) {
+        cast_char("bamf", $n, $N);
+        return 1;
+}
+ 
+return 0;
+~
 m mob_random mob_random_executioner 100~
-m mob_exit mob_exit_executioner all~
-m mob_look mob_look_executioner 100~
-m mob_tell mob_tell_executioner ~
+m mob_exit @ all~
+dofun("emote", $n, "wanders off muttering to himself.");
+return 0;
+~
+m mob_look @ 100~
+cast_char("shield", $n, $n);
+return 0;
+~
+m mob_tell @ ~
+tell_char($n, $N, "Can YOU?");
+return 0;
+~
 #21039
 mock turtle~
 the Mock Turtle~
@@ -675,7 +979,10 @@ BGT 0 H 0 0 500 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-m mob_greet mob_greet_mock_turtle all~
+m mob_greet @ all~
+dofun("emote", $n, "is far too upset to talk.");
+return 0;
+~
 #21040
 gryphon~
 a Gryphon~
@@ -692,12 +999,27 @@ BGT 0 HRT 0 H 500 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-m mob_death mob_death_gryphon 100~
-m mob_greet mob_greet_gryphon all~
-m mob_kill mob_kill_gryphon 100~
+m mob_death @ 100~
+dofun("yell", $n, "I am slain!");
+return 0;
+~
+m mob_greet @ all~
+dofun("say", $n, "It's so amusing. She never chops anyone's heads off, you know.");
+return 0;
+~
+m mob_kill @ 100~
+dofun("emote", $n, "screeches and attacks!");
+return 0;
+~
 m mob_random mob_random_fido 100~
-m mob_look mob_look_gryphon 100~
-m mob_tell mob_tell_gryphon ~
+m mob_look @ 100~
+cast_char("fly", $n, $N);
+return 0;
+~
+m mob_tell @ ~
+tell_char($n, $N, "The Mock Turtle is east then south of here.");
+return 0;
+~
 #21041
 juror~
 a juror~
@@ -713,8 +1035,16 @@ BGHT 0 0 0 0 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-m mob_greet mob_greet_juror all~
-m mob_tell mob_tell_juror ~
+m mob_greet @ all~
+dofun("emote", $n, "is scribbling furiously away on a slate.");
+return 0;
+~
+m mob_tell @ ~
+dofun("say", $n, "YOU do it!");
+obj o = load_obj($n, 21062);
+give_obj($n, $N, o);
+return 0;
+~
 #21042
 court officer~
 a court officer~
@@ -729,8 +1059,15 @@ BGT 0 N 0 0 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-m mob_greet mob_greet_court_officer all~
-m mob_kill mob_kill_court_officer 100~
+m mob_greet @ all~
+dofun("emote", $n, "glares at you suspiciously.");
+return 0;
+~
+m mob_kill @ 100~
+cast_char("blindness", $n, $N);
+cast_char("web", $n, $N);
+return 0;
+~
 m mob_random mob_random_guard 100~
 #0
 

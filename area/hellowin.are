@@ -118,9 +118,50 @@ gold~
 jewelry AY C AB
 0 0 0 0 0
 10 1 1500 P
-m obj_wear obj_wear_ring_vitality 100~
-m obj_remove obj_remove_ring_vitality 100~
-m obj_random obj_random_ring_vitality 100~
+m obj_wear @ 100~
+if (char_size($n) > SIZE_LARGE) {
+        act("You are too big to use this small ring.",
+            $n, NULL, NULL, TO_CHAR);
+        return 1;
+}
+ 
+act("The $p starts glowing brightly.", $n, $p, NULL, TO_CHAR);
+return 0;
+~
+m obj_remove @ 100~
+act("The $p stops glowing.", $n, $p, NULL, TO_CHAR);
+return 0;
+~
+m obj_random @ 100~
+if (obj_wear_loc($p) == WEAR_NONE)
+        return 0;
+
+char owner = obj_carried_by($p);
+int bonus = umax(10, 2 * char_level(owner));
+
+switch (dice(1, 3)) {
+case 1:
+        act("{CThe $p glows brilliantly blue.{x", owner, $p, NULL, TO_CHAR);
+        int hp = char_hit(owner) + bonus;
+        int max_hp = char_max_hit(owner);
+        set_char_hit(owner, hp < max_hp ? hp : max_hp);
+        break;
+case 2:
+        act("{WThe $p glows brilliantly white.{x", owner, $p, NULL, TO_CHAR);
+        int mana = char_mana(owner) + bonus;
+        int max_mana = char_max_mana(owner);
+        set_char_mana(owner, mana < max_mana ? mana : max_mana);
+        break;
+case 3:
+        act("{YThe $p glows brilliantly yellow.{x", owner, $p, NULL, TO_CHAR);
+        int moves = char_moves(owner) + bonus;
+        int max_moves = char_max_moves(owner);
+        set_char_moves(owner, moves < max_moves ? moves : max_moves);
+        break;
+}
+
+return 0;
+~
 E
 ring~
 You see small beautiful golden ring decorated some colour gems.
@@ -169,7 +210,47 @@ magic~
 treasure 0 0 A
 0 0 0 0 0
 1 1 1500 P
-m obj_look obj_look_magic_chessboard 100~
+m obj_look @ 100~
+if (char_fighting($n) != NULL)
+        return 0;
+
+room rr = char_room($n);
+if (room_vnum(rr) >= 4201
+&&  room_vnum(rr) <= 4264)
+        return 0;
+
+room r = get_room_index(number_range(4201, 4264));
+if (r == NULL)
+        return 0;
+
+act("As you look at $p you feel as darkness enshrouds your.",
+    $n, $p, NULL, TO_CHAR);
+act("When $n looks at $p cloud of darkness enshrouds $gn{him}.",
+    $n, $p, NULL, TO_ROOM);
+act("When cloud of darkness dissapears you find yourself on the chessboard.",
+    $n, NULL, NULL, TO_CHAR);
+act("Then darkness dissapears but $n vanishes.",
+    $n, NULL, NULL, TO_ROOM);
+ 
+char victim;
+ 
+transfer_char($n, r);
+ 
+foreach (victim, char_in_room(rr)) {
+       if (is_same_group($n, victim) && is_npc(victim)) {
+               transfer_char($n, r);
+               continue;
+       }
+     
+       if (is_mount($n, victim)) {
+               transfer_char($n, r);
+               continue;
+       }
+}
+ 
+extract_obj($p, 0);
+return 0;
+~
 g @eng none@rus female~
 #34410
 karmael statue piss~

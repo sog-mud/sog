@@ -1,8 +1,0 @@
-/*
- * $Id: mob_tell_juror.mpc,v 1.2 2001-09-12 08:20:41 fjoe Exp $
- */
-
-dofun("say", $n, "YOU do it!");
-obj o = load_obj($n, 21062);
-give_obj($n, $N, o);
-return 0;

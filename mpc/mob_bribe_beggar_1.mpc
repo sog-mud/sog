@@ -1,6 +1,0 @@
-/*
- * $Id: mob_bribe_beggar_1.mpc,v 1.1 2001-09-16 11:57:31 fjoe Exp $
- */
-
-act_say($n, "Thank you for your kindness, $N.", $N);
-return 1;

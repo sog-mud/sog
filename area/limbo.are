@@ -336,7 +336,21 @@ FH
 stand stand male 0
 0 0 huge unknown
 g @eng male@rus male~
-m mob_fight mob_fight_cast_air_elemental 100~
+m mob_fight @ 100~
+if (number_bits(2) != 0)
+        return 0;
+
+char victim = get_random_fighting($n);
+if (victim == NULL)
+        return 0;
+
+if (char_level($n) > 36)
+	cast_char("lightning breath", $n, victim);
+else
+	cast_char("lightning balt", $n, victim);
+
+return 0;
+~
 #30
 cat black кошка кот~
 @eng a large black cat@rus большая черная кошка~
@@ -719,8 +733,24 @@ ebony~
 weapon A 0 AN
 staff 0 0 'pierce' F
 0 160 0 P
-m obj_wear obj_wear_ranger_staff 100~
-m obj_fight obj_fight_ranger_staff 100~
+m obj_wear @ 100~
+if (is_class($n, "ranger"))
+       return 0;
+
+act("You don't know how to use this thing.", $n, NULL, NULL, TO_CHAR);
+act("$p slides off from your hand.", $n, $p, NULL, TO_CHAR);
+obj_to_room($p, char_room($n));
+return 1;
+~
+m obj_fight @ 100~
+if (number_percent() < 90)
+        return 0;
+ 
+act("Your $p glows blue!", $n, $p, NULL, TO_CHAR);
+act("$n's $p glows blue!", $n, $p, NULL, TO_ROOM);
+spellfun_call("cure critical wounds", NULL, char_level($n), $n, $n);
+return 0;
+~
 m obj_death obj_death_obj_disappears 100~
 g @rus male~
 #30
@@ -896,7 +926,22 @@ energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
-m obj_fight obj_fight_tattoo_lirail 100~
+m obj_fight @ 100~
+switch (number_bits(5)) {
+case 0:
+case 1:
+       act("The tattoo on your shoulder glows {Cblue{x.",
+           $n, NULL, NULL, TO_CHAR);
+       spellfun_call("cure critical wounds", NULL, char_level($n), $n, $n);
+       break;
+case 2:
+       act("The tattoo on your shoulder glows {Rred{x.",
+           $n, NULL, NULL, TO_CHAR);
+       spellfun_call("holy word", NULL, char_level($n), $n, $n);
+       break;
+}
+return 0;
+~
 g @rus none~
 #52
 tattoo amtinor~
@@ -906,7 +951,35 @@ energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
-m obj_fight obj_fight_tattoo_amtinor 100~
+m obj_fight @ 100~
+switch (number_bits(5)) {
+case 0:
+case 1:
+case 2:
+       act("The tattoo on your shoulder glows {Cblue{x.",
+           $n, NULL, NULL, TO_CHAR);
+       spellfun_call("cure critical wounds", NULL, char_level($n), $n, $n);
+       if (is_affected($n, AFF_PLAGUE))
+               spellfun_call("cure disease", NULL, MAX_LEVEL, $n, $n);
+       if (is_affected($n, AFF_POISON))
+               spellfun_call("cure poison", NULL, MAX_LEVEL, $n, $n);
+       break;
+case 3:
+case 4:
+        if (is_affected($n, AFF_PLAGUE)) {
+               act("The tattoo on your shoulder glows {Cblue{x.",
+                   $n, NULL, NULL, TO_CHAR);
+               spellfun_call("cure disease", NULL, MAX_LEVEL, $n, $n);
+        }
+        if (is_affected($n, AFF_POISON)) {
+               act("The tattoo on your shoulder glows {Cblue{x.",
+                   $n, NULL, NULL, TO_CHAR);
+               spellfun_call("cure poison", NULL, MAX_LEVEL, $n, $n);
+        }
+        break;
+}
+return 0;
+~
 g @rus none~
 #53
 tattoo aulin~
@@ -916,7 +989,21 @@ energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
-m obj_fight obj_fight_tattoo_aulin 100~
+m obj_fight @ 100~
+switch (number_bits(4)) {
+case 0:
+       act("The tattoo on your shoulder glows {Cblue{x.",
+           $n, NULL, NULL, TO_CHAR);
+       spellfun_call("cure critical wounds", NULL, char_level($n), $n, $n);
+       break;
+case 1:
+       act("The tattoo on your shoulder glows {Rred{x.",
+           $n, NULL, NULL, TO_CHAR);
+       spellfun_call("bluefire", NULL, char_level($n), $n, char_fighting($n));
+       break;
+}
+return 0;
+~
 g @rus none~
 #54
 tattoo dakkorn~
@@ -926,7 +1013,24 @@ energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
-m obj_fight obj_fight_tattoo_dakkorn 100~
+m obj_fight @ 100~
+switch (number_bits(5)) {
+case 0:
+case 1:
+case 2:
+       act("The tattoo on your shoulder glows {Cblue{x.",
+           $n, NULL, NULL, TO_CHAR);
+       spellfun_call("cure critical wounds", NULL, char_level($n), $n, $n);
+       break;
+case 3:
+       act("The tattoo on your shoulder glows {Rred{x.",
+           $n, NULL, NULL, TO_CHAR);
+       dofun("yell", $n, "And justice for all!....");
+       spellfun_call("scream", NULL, char_level($n), $n, char_fighting($n));
+       break;
+}
+return 0;
+~
 g @rus none~
 #55
 tattoo ulwark~
@@ -936,7 +1040,23 @@ energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
-m obj_fight obj_fight_tattoo_ulwark 100~
+m obj_fight @ 100~
+switch (number_bits(5)) {
+case 0:
+case 1:
+       act("The tattoo on your shoulder glows {Cblue{x.",
+           $n, NULL, NULL, TO_CHAR);
+       spellfun_call("cure critical wounds", NULL, char_level($n), $n, $n);
+       break;
+case 2:
+       act("The tattoo on your shoulder glows {Rred{x.",
+           $n, NULL, NULL, TO_CHAR);
+       spellfun_call("ray of truth", NULL, char_level($n),
+		     $n, char_fighting($n));
+       break;
+}
+return 0;
+~
 g @rus none~
 #56
 tattoo moarith~
@@ -946,7 +1066,18 @@ energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
-m obj_fight obj_fight_tattoo_moarith 100~
+m obj_fight @ 100~
+switch (number_bits(5)) {
+case 0:
+case 1:
+case 2:
+       act("The tattoo on your shoulder glows {Rred{x.",
+           $n, NULL, NULL, TO_CHAR);
+       spellfun_call("demonfire", NULL, char_level($n), $n, char_fighting($n));
+       break;
+}
+return 0;
+~
 g @rus none~
 #57
 tattoo ilissa~
@@ -956,7 +1087,17 @@ energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
-m obj_fight obj_fight_tattoo_ilissa 100~
+m obj_fight @ 100~
+switch (number_bits(5)) {
+case 0:
+       act("The tattoo on your shoulder glows {Rred{x.",
+           $n, NULL, NULL, TO_CHAR);
+       spellfun_call("acid blast", NULL, char_level($n),
+                     $n, char_fighting($n));
+       break;
+}
+return 0;
+~
 g @rus none~
 #58
 tattoo hathir~
@@ -966,7 +1107,19 @@ energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
-m obj_fight obj_fight_tattoo_hathir 100~
+m obj_fight @ 100~
+switch (number_bits(6)) {
+case 0:
+case 1:
+case 2:
+       act("The tattoo on your shoulder glows {Rred{x.",
+           $n, NULL, NULL, TO_CHAR);
+       spellfun_call("fireball", NULL, char_level($n),
+                     $n, char_fighting($n));
+       break;
+}
+return 0;
+~
 g @rus none~
 #59
 tattoo throrgrim~
@@ -976,7 +1129,24 @@ energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
-m obj_fight obj_fight_tattoo_throrgrim 100~
+m obj_fight @ 100~
+switch (number_bits(5)) {
+case 0:
+case 1:
+case 2:
+       act("The tattoo on your shoulder glows {Cblue{x.",
+           $n, NULL, NULL, TO_CHAR);
+       spellfun_call("cure critical wounds", NULL, char_level($n), $n, $n);
+       break;
+case 3:
+       act("The tattoo on your shoulder glows {Rred{x.",
+           $n, NULL, NULL, TO_CHAR);
+       spellfun_call("faerie fire", NULL, char_level($n) + 35,
+		     $n, char_fighting($n));
+       break;
+}
+return 0;
+~
 g @rus none~
 #60
 tattoo irian~
@@ -986,7 +1156,28 @@ energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
-m obj_fight obj_fight_tattoo_irian 100~
+m obj_fight @ 100~
+switch (number_bits(5)) {
+case 0:
+       act("The tattoo on your shoulder glows {Cblue{x.",
+           $n, NULL, NULL, TO_CHAR);
+       spellfun_call("haste", NULL, char_level($n), $n, $n);
+       spellfun_call("shield", NULL, char_level($n), $n, $n);
+       spellfun_call("stone skin", NULL, char_level($n), $n, $n);
+       break;
+case 1:
+       act("The tattoo on your shoulder glows {Cblue{x.",
+           $n, NULL, NULL, TO_CHAR);
+       spellfun_call("bless", NULL, char_level($n), $n, $n);
+       break;
+case 2:
+       act("The tattoo on your shoulder glows {Cblue{x.",
+           $n, NULL, NULL, TO_CHAR);
+       spellfun_call("cure critical wounds", NULL, char_level($n), $n, $n);
+       break;
+}
+return 0;
+~
 g @rus none~
 #61
 tattoo stivrosh~
@@ -996,7 +1187,31 @@ energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
-m obj_fight obj_fight_tattoo_stivrosh 100~
+m obj_fight @ 100~
+switch (number_bits(4)) {
+case 0:
+       if (is_affected($n, AFF_BERSERK)
+           || is_sn_affected($n, "berserk")
+           || is_sn_affected($n, "frenzy")) {
+               act("Tattoo on your shoulder glows {Wwhite{x.",
+                   $n, NULL, NULL, TO_CHAR);
+               act("You get a little madder.", $n, NULL, NULL, TO_CHAR);
+               return 0;
+       }
+       act("Tattoo on your shoulder glows {Wwhite{x.",
+           $n, NULL, NULL, TO_CHAR);
+
+       int level = char_level($n);
+       affect_char($n, TO_AFFECTS, "berserk", level, umax(1, level / 3),
+                   APPLY_HITROLL, umax(1, level / 5), AFF_BERSERK);
+       affect_char($n, TO_AFFECTS, "berserk", level, umax(1, level / 3),
+                   APPLY_DAMROLL, umax(1, level / 5), AFF_BERSERK);
+       affect_char($n, TO_AFFECTS, "berserk", level, umax(1, level / 3),
+                   APPLY_AC, 10 * (level / 10), AFF_BERSERK);
+       break;
+}
+return 0;
+~
 g @rus none~
 #62
 tattoo gwinnerai~
@@ -1006,7 +1221,18 @@ energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
-m obj_fight obj_fight_tattoo_gwinnerai 100~
+m obj_fight @ 100~
+switch (number_bits(4)) {
+case 0:
+case 1:
+       act("The tattoo on your shoulder glows {Wwhite{x.",
+           $n, NULL, NULL, TO_CHAR);
+       dofun("say", $n, "My honour is my life.");
+       one_hit($n, char_fighting($n), NULL, WEAR_WIELD);
+       break;
+}
+return 0;
+~
 g @rus female~
 #63
 tattoo trussk~
@@ -1016,7 +1242,44 @@ energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
-m obj_fight obj_fight_tattoo_trussk 100~
+m obj_fight @ 100~
+int level = char_level($n) + 3;
+char victim = char_fighting($n);
+
+switch (number_bits(5)) {
+case 0:
+       act("The tattoo on your shoulder glows {Rred{x.",
+           $n, NULL, NULL, TO_CHAR);
+       spellfun_call("poison", NULL, level, $n, victim);
+       break;
+case 1:
+       act("The tattoo on your shoulder glows {Rred{x.",
+           $n, NULL, NULL, TO_CHAR);
+       spellfun_call("weaken", NULL, level, $n, victim);
+       break;
+case 2:
+       act("The tattoo on your shoulder glows {Rred{x.",
+           $n, NULL, NULL, TO_CHAR);
+       spellfun_call("slow", NULL, level, $n, victim);
+       break;
+case 3:
+       act("The tattoo on your shoulder glows {Rred{x.",
+           $n, NULL, NULL, TO_CHAR);
+       spellfun_call("energy drain", NULL, level, $n, victim);
+       break;
+case 4:
+       act("The tattoo on your shoulder glows {Rred{x.",
+           $n, NULL, NULL, TO_CHAR);
+       spellfun_call("blindness", NULL, level, $n, victim);
+       break;
+case 5:
+       act("The tattoo on your shoulder glows {Rred{x.",
+           $n, NULL, NULL, TO_CHAR);
+       spellfun_call("curse", NULL, level, $n, victim);
+       break;
+}
+return 0;
+~
 g @rus none~
 #64
 tattoo lessa~
@@ -1026,7 +1289,27 @@ energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
-m obj_fight obj_fight_tattoo_lessa 100~
+m obj_fight @ 100~
+switch (number_bits(5)) {
+case 0:
+case 1:
+       act("The tattoo on your shoulder glows {Cblue{x.",
+           $n, NULL, NULL, TO_CHAR);
+       spellfun_call("cure critical wounds", NULL, char_level($n), $n, $n);
+       break;
+case 2:
+       act("The tattoo on your shoulder glows {Cblue{x.",
+           $n, NULL, NULL, TO_CHAR);
+       spellfun_call("mana restore", NULL, char_level($n), $n, $n);
+       break;
+case 3:
+       act("The tattoo on your shoulder glows {Cblue{x.",
+           $n, NULL, NULL, TO_CHAR);
+       spellfun_call("bless", NULL, char_level($n), $n, $n);
+       break;
+}
+return 0;
+~
 g @rus none~
 #65
 tattoo vilirna~
@@ -1036,7 +1319,24 @@ energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
-m obj_fight obj_fight_tattoo_vilirna 100~
+m obj_fight @ 100~
+switch (number_bits(5)) {
+case 0:
+       act("The tattoo on your shoulder glows {Cblue{x.",
+           $n, NULL, NULL, TO_CHAR);
+       spellfun_call("dragon strength", NULL, char_level($n), $n, $n);
+       break;
+case 1:
+case 2:
+case 3:
+       act("The tattoo on your shoulder glows {Rred{x.",
+           $n, NULL, NULL, TO_CHAR);
+       spellfun_call("dragon breath", NULL, char_level($n),
+		     $n, char_fighting($n));
+       break;
+}
+return 0;
+~
 g @rus none~
 #66
 tattoo calamir~
@@ -1046,7 +1346,23 @@ energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
-m obj_fight obj_fight_tattoo_calamir 100~
+m obj_fight @ 100~
+switch (number_bits(5)) {
+case 0:
+case 1:
+       act("The tattoo on your shoulder glows {Cblue{x.",
+           $n, NULL, NULL, TO_CHAR);
+       spellfun_call("cure critical wounds", NULL, char_level($n), $n, $n);
+       break;
+case 2:
+       act("The tattoo on your shoulder glows {Rred{x.",
+           $n, NULL, NULL, TO_CHAR);
+        spellfun_call("flamestrike", NULL, char_level($n),
+                      $n, char_fighting($n));
+       break;
+}
+return 0;
+~
 g @rus none~
 #67
 tattoo cariel~
@@ -1056,7 +1372,22 @@ energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
-m obj_fight obj_fight_tattoo_cariel 100~
+m obj_fight @ 100~
+switch (number_bits(5)) {
+case 0:
+case 1:
+       act("The tattoo on your shoulder glows {Cblue{x.",
+           $n, NULL, NULL, TO_CHAR);
+       spellfun_call("cure critical wounds", NULL, char_level($n), $n, $n);
+       break;
+case 2:
+       act("The tattoo on your shoulder glows {Cblue{x.",
+           $n, NULL, NULL, TO_CHAR);
+       spellfun_call("heal", NULL, char_level($n), $n, $n);
+       break;
+}
+return 0;
+~
 g @rus none~
 #70
 badge значок~
@@ -1136,8 +1467,24 @@ energy~
 armor GPUY 0 AJ
 20 20 20 20 2
 0 50 10000 P
-m obj_wear obj_wear_cold_shield 100~
-m obj_remove obj_remove_cold_shield 100~
+m obj_wear @ 100~
+if (is_sn_affected($n, "cold shield"))
+        return 0;
+ 
+act("As you wear $p, you became resistive to cold.",
+    $n, $p, NULL, TO_CHAR);
+affect_char($n, TO_RESISTS, "cold shield", char_level($n),
+            -2, DAM_COLD, 50, 0);
+return 0;
+~
+m obj_remove @ 100~
+if (!is_sn_affected($n, "cold shield"))
+       return 0;
+ 
+affect_strip($n, "cold shield");
+act_char("You have become normal to cold attacks.", $n);
+return 0;
+~
 E
 shield energy~
 This shield is resistive to cold.
@@ -1250,8 +1597,56 @@ exotic 10 1 'pierce' D
 15 60 0 P
 f object hitroll 20 0
 f object cha 1 0
-m obj_wear obj_wear_eyed_sword 100~
-m obj_get obj_get_eyed_sword 100~
+m obj_wear @ 100~
+act("$p's eye opens.", $n, $p, NULL, TO_ALL);
+ 
+int level = char_level($n);
+int dice_type;
+if (level <= 10)
+        dice_type = 3;
+else if (level <= 20)
+        dice_type = 4;
+else if (level <= 30)
+        dice_type = 5;
+else if (level <= 40)
+        dice_type = 6;
+else
+        dice_type = 7;
+set_weapon_dice_type($p, dice_type);
+set_obj_level($p, level);
+return 0;
+~
+m obj_get @ 100~
+if (is_owner($p, $n)) {
+        if (is_affected($n , AFF_POISON)
+        &&  dice(1, 5) == 1) {
+                 act("Your $p glows blue.", $n, $p, NULL, TO_CHAR);
+                 spellfun_call("cure poison", NULL, 30, $n, $n);
+                 return 0;
+        }
+        if (is_affected($n , AFF_CURSE)
+        &&  dice(1, 5) == 1) {
+                 act("Your $p glows blue.", $n, $p, NULL, TO_CHAR);
+                 spellfun_call("remove curse", NULL, 30, $n, $n);
+                 return 0;
+        }
+        act("Your $p's humming gets lauder.", $n, $p, NULL, TO_CHAR);
+        return 0;
+}
+ 
+act("You are zapped by $p and drop it.", $n, $p, NULL, TO_CHAR);
+obj_to_room($p, char_room($n));
+ 
+switch (dice(1, 10)) {
+case 1:
+       spellfun_call("curse", NULL, char_level($n), $n, $n);
+       break;
+case 2:
+       spellfun_call("poison", NULL, char_level($n), $n, $n);
+       break;
+}
+return 0;
+~
 E
 sword~
 The letters '%s' is carved on the handle.
@@ -1297,8 +1692,24 @@ energy~
 armor GPUY 0 AJ
 20 20 20 20 2
 0 50 10000 P
-m obj_wear obj_wear_fire_shield 100~
-m obj_remove obj_remove_fire_shield 100~
+m obj_wear @ 100~
+if (is_sn_affected($n, "fire shield"))
+        return 0;
+
+act("As you wear $p, you became resistive to fire.",
+    $n, $p, NULL, TO_CHAR);
+affect_char($n, TO_RESISTS, "fire shield", char_level($n),
+            -2, DAM_FIRE, 50, 0);
+return 0;
+~
+m obj_remove @ 100~
+if (!is_sn_affected($n, "fire shield"))
+       return 0;
+
+affect_strip($n, "fire shield");
+act_char("You have become normal to fire attacks.", $n);
+return 0;
+~
 E
 shield energy~
 This shield is resistive to fire.
@@ -1386,7 +1797,31 @@ weapon AIP CD AN
 dagger 8 1 'pierce' D
 20 200 0 P
 f object cha 2 0
-m obj_fight obj_fight_chaos_blade 100~
+m obj_fight @ 100~
+switch (number_bits(6)) {
+case 0:
+       act("The $p trembles violently!", $n, $p, NULL, TO_ROOM);
+       act("Your $p trembles violently!", $n, $p, NULL, TO_CHAR);
+       spellfun_call("mirror", NULL, char_level($n), $n, $n);
+       wait_state($n, 2 * get_pulse("violence"));
+       break;
+case 1:
+       act("The $p shakes a bit.", $n, $p, NULL, TO_ROOM);
+       act("Your $p shakes a bit.", $n, $p, NULL, TO_CHAR);
+       spellfun_call("garble", NULL, char_level($n), $n,
+                      char_fighting($n));
+       wait_state($n, 2 * get_pulse("violence"));
+       break;
+case 2:
+       act("The $p shivers uncontrollably!", $n, $p, NULL, TO_ROOM);
+       act("Your $p shivers uncontrollably!", $n, $p, NULL, TO_CHAR);
+       spellfun_call("confuse", NULL, char_level($n), $n,
+                      char_fighting($n));
+       wait_state($n, 2 * get_pulse("violence"));
+       break;
+}
+return 0;
+~
 m obj_death obj_death_obj_disappears 100~
 g @rus none~
 #98
@@ -1397,7 +1832,28 @@ iron~
 weapon 0 F AN
 sword 10 1 'slash' D
 15 60 0 P
-m obj_wear obj_wear_katana 100~
+m obj_wear @ 100~
+if (!is_owner($p, $n))
+        return 0;
+ 
+int level = char_level($n);
+int dice_type;
+if (level <= 10)
+        dice_type = 3;
+else if (level <= 20)
+        dice_type = 4;
+else if (level <= 30)
+        dice_type = 5;
+else if (level <= 40)
+        dice_type = 6;
+else
+        dice_type = 7;
+ 
+set_weapon_dice_type($p, dice_type);
+set_obj_level($p, level);
+act("You feel your $p like a part of you!", $n, $p, NULL, TO_CHAR);
+return 0;
+~
 E
 katana~
 The letters '%s' is carved on the handle.

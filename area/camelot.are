@@ -126,7 +126,14 @@ B 0 0 0 AB 0 0
 EFNU
 stand stand male 1000
 0 0 medium unknown
-m mob_greet mob_greet_black_knight all~
+m mob_greet @ all~
+if (is_ghost($N) || is_immortal($N))
+        return 0;
+ 
+dofun("say", $n, "NONE SHALL PASS!");
+multi_hit($n, $N, NULL);
+return 0;
+~
 #17308
 gareth knight гарет рыцарь~
 @eng Sir Gareth@rus ~~Сэр~~ ~~Гарет~~~

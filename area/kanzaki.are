@@ -34,14 +34,77 @@ ACDEFHKOPQT
 stand stand none 0
 0 0 gargantuan unknown
 g @eng none@rus female~
-m mob_greet mob_greet_lothar_warrior all~
+m mob_greet @ all~
+if (is_good($N)) {
+        dofun("say", $n, "Greetings!");
+        social_char("bow", $n, $N);
+} else if (is_neutral($N)) {
+        mob_interpret($n, "yawn");
+        dofun("say", $n, "What have brought you here?");
+} else if (is_evil($N)) {
+        dofun("say", $n, "You must have an awesome reason to come here.");
+        social_char("grin", $n, $N);
+}
+return 0;
+~
 m mob_random mob_random_guard 100~
-m mob_speech mob_speech_lothar_warrior i'm your woman~
-m mob_speech mob_speech_lothar_warrior_password password~
+m mob_speech @ i'm your woman~
+if (is_good($N)) {
+        dofun("say", $n, "You may be invited by my master, but better wait for him.");
+        social_char("smile", $n, $N);
+} else if (is_neutral($N))
+        dofun("say", $n, "Do not test my tolerance. Just wait.");
+else if (is_evil($N)) {
+        dofun("say", $n, "Who are you trying to fool?");
+
+        room r = get_room_index(47002);
+        if (r == NULL)
+                return 0;
+
+        social_char("wave", $n, $N);
+        transfer_char($N, r);
+}
+return 0;
+~
+m mob_speech @ password~
+dofun("say", $n, "Heh heh, what a kid!");
+if (!is_sn_affected($n, "frenzy"))
+        cast_char("frenzy", $n, $n);
+ 
+room r = get_room_index(10495);
+if (r == NULL)
+        return 0;
+ 
+dofun("say", $n, "Have a nice day in hell today.");
+transfer_char($N, r);
+return 0;
+~
 m mob_speech mob_speech_lothar_warrior_password пароль~
 m mob_speech mob_speech_lothar_warrior i'm your man~
-m mob_exit mob_exit_lothar_warrior +west~
-m mob_cmd mob_cmd_lothar_warrior shoes~
+m mob_exit @ +west~
+dofun("emote", $n, "comes to life!");
+act("$n steps forth, forbidding you to enter.", $n, NULL, $N, TO_VICT);
+act("$n steps forth, blocking $N passage.", $n, NULL, $N, TO_NOTVICT);
+dofun("say", $n, "You aren't allowed there, unless you know the password.");
+return 1;
+~
+m mob_cmd @ shoes~
+act("You remove your shoes.", $n, NULL, $N, TO_VICT);
+act("$N removes $s shoes.", $n, NULL, $N, TO_NOTVICT);
+ 
+room r = get_room_index(47000);
+if (r == NULL)
+        return 0;
+
+act_say($n, "Welcome, $N!", $N);
+ 
+act("The statue escorts you to the master's chamber.",
+    $n, NULL, $N, TO_VICT);
+act("The statue opens the west door, letting $N enter.",
+    $n, NULL, $N, TO_NOTVICT);
+transfer_char($N, r);
+return 0;
+~
 #47100
 duck утка~
 @eng a duck@rus ~~утка~~~
@@ -1889,7 +1952,13 @@ f resists negative 15 0
 f object saves -10 0
 f object mana 80 0
 f object wis 4 0
-m obj_wear obj_wear_white_robes 100~
+m obj_wear @ 100~
+if (is_class($n, "cleric"))
+        return 0;
+ 
+act("Your class can't use $p.", $n, $p, NULL, TO_CHAR);
+return 1;
+~
 g @eng neutral@rus plural~
 #47170
 chest iron bound сундук окованный~
@@ -1942,7 +2011,13 @@ f resists fire 10 0
 f skills 'hide' 50 A
 f object saves -10 0
 f object dex 3 0
-m obj_wear obj_wear_ninjitsu_gi 100~
+m obj_wear @ 100~
+if (char_size($n) == SIZE_MEDIUM)
+        return 0;
+ 
+act("$p does not fit you.", $n, $p, NULL, TO_CHAR);
+return 1;
+~
 E
 nijitsu gi облачение ниндзя~
 @eng These black clothes conceal most of its wearer's movements,
@@ -2004,7 +2079,13 @@ f object hitroll 9 0
 f object damroll 7 0
 f object dex 2 0
 f object str 2 0
-m obj_wear obj_wear_ancient_sword 100~
+m obj_wear @ 100~
+if (is_class($n, "warrior"))
+        return 0;
+ 
+act("You are not skilled enough to use $p.", $n, $p, NULL, TO_CHAR);
+return 1;
+~
 E
 sword ancient ivory меч древний~
 @eng .  Considerably light and extremely well balanced, this

@@ -1,7 +1,0 @@
-/*
- * $Id: obj_wear_lumber_axe.mpc,v 1.1 2001-09-23 16:51:13 fjoe Exp $
- */
-
-act("$n's eyes shine brightly as $gn{he} searches for the nearest hapless tree.",
-    $n, NULL, NULL, TO_ROOM);
-return 0;

@@ -1,6 +1,0 @@
-/*
- * $Id: mob_random_githyanki_hunter.mpc,v 1.1 2001-09-23 16:51:12 fjoe Exp $
- */
-
-dofun("emote", $n, "examines this portion of the astral field for signs of the githzerai.");
-return 0;

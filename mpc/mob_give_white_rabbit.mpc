@@ -1,7 +1,0 @@
-/*
- * $Id: mob_give_white_rabbit.mpc,v 1.4 2001-09-15 17:27:41 fjoe Exp $
- */
-
-act_say($n, "Thank you $N!", $N);
-extract_obj($p, 0);
-return 0;

@@ -1,7 +1,0 @@
-/*
- * $Id: mob_bribe_drunk.mpc,v 1.1 2001-09-17 19:18:41 fjoe Exp $
- */
-
-dofun("say", $n, "Ahh! More Spirits! Good Spirits!");
-mob_interpret($n, "sing");
-return 0;

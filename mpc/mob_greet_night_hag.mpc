@@ -1,7 +1,0 @@
-/*
- * $Id: mob_greet_night_hag.mpc,v 1.1 2001-09-23 16:51:11 fjoe Exp $
- */
-
-mob_interpret($n, "cackle");
-dofun("say", $n, "Now your soul shall be mine!");
-return 0;

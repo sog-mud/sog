@@ -1,6 +1,0 @@
-/*
- * $Id: mob_greet_cook.mpc,v 1.2 2001-09-12 08:20:15 fjoe Exp $
- */
-
-dofun("emote", $n, "stirs the soup.");
-return 0;

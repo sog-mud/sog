@@ -338,10 +338,58 @@ whip 6 6 'whip' 0
 24 140 1530 P
 f object damroll 7 0
 f object hitroll 5 0
-m obj_wear obj_wear_snake_whip 100~
-m obj_remove obj_remove_snake_whip 100~
-m obj_fight obj_fight_snake_whip 100~
-m obj_get obj_get_snake_whip 100~
+m obj_wear @ 100~
+act("Snakes of whip starts to breath a poisonous air.", $n, NULL, NULL, TO_ALL);
+
+int level = char_level($n);
+int dice_type;
+if (level <= 10)
+        dice_type = 3;
+else if (level <= 20)
+        dice_type = 4;
+else if (level <= 30)
+        dice_type = 5;
+else if (level <= 40)
+        dice_type = 6;
+else
+        dice_type = 7;
+set_weapon_dice_type($p, dice_type);
+return 0;
+~
+m obj_remove @ 100~
+act("Snakes of whip slowly melds to non-living skin.", $n, NULL, NULL, TO_ALL);
+return 0;
+~
+m obj_fight @ 100~
+char victim = char_fighting($n);
+
+switch (number_bits(7)) {
+case 0:
+        act("One of the snake heads on your whip bites $N!",
+	    $n, NULL, victim, TO_CHAR);
+        act("A snake from $n's whip strikes out and bites you!",
+	    $n, NULL, victim, TO_VICT);
+        act("A snake from $n's whip strikes out and bites $N!",
+	    $n, NULL, victim, TO_NOTVICT);
+        spellfun_call("poison", NULL, char_level($n), $n, victim);
+        break;
+
+case 1:
+        act("One of the snake heads on your whip bites $N!",
+	    $n, NULL, victim, TO_CHAR);
+        act("A snake from $n's whip strikes out and bites you!",
+	    $n, NULL, victim, TO_VICT);
+        act("A snake from $n's whip strikes out and bites $N!",
+	    $n, NULL, victim, TO_NOTVICT);
+        spellfun_call("weaken", NULL, char_level($n), $n, victim);
+        break;
+}
+return 0;
+~
+m obj_get @ 100~
+act("You feel as if snakes of whip moved.", $n, NULL, NULL, TO_ALL);
+return 0;
+~
 g @rus none~
 #0
 

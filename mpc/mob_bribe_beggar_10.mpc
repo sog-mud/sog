@@ -1,6 +1,0 @@
-/*
- * $Id: mob_bribe_beggar_10.mpc,v 1.1 2001-09-16 11:57:31 fjoe Exp $
- */
-
-dofun("say", $n, "Wow! Thank you! Thank you!");
-return 1;

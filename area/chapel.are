@@ -601,7 +601,13 @@ sword 3 11 'slash' AC
 28 200 2200 P
 f object hitroll 2 0
 f object damroll 2 0
-m obj_wear obj_wear_flaming_sword 100~
+m obj_wear @ 100~
+act("Flaming sword flares brightly as $n wields the sorcerous blade.",
+    $n, NULL, NULL, TO_ROOM);
+act("Flaming sword flares brightly as you wield the sorcerous blade.",
+    $n, NULL, NULL, TO_CHAR);
+return 0;
+~
 E
 flaming sword long longsword~
 This sword is amazing! It almost wields itself! As you test it out, the

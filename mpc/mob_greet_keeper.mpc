@@ -1,6 +1,0 @@
-/*
- * $Id: mob_greet_keeper.mpc,v 1.2 2001-09-12 08:20:20 fjoe Exp $
- */
-
-dofun("say", $n, "What business do you have here? Is it that dress I ordered?");
-return 0;

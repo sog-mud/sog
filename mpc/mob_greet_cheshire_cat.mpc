@@ -1,7 +1,0 @@
-/*
- * $Id: mob_greet_cheshire_cat.mpc,v 1.2 2001-09-12 08:20:15 fjoe Exp $
- */
-
-act("$n grins at you.", $n, NULL, $N, TO_VICT);
-act("$n grins at $N.", $n, NULL, $N, TO_NOTVICT);
-return 0;

@@ -1,6 +1,0 @@
-/*
- * $Id: mob_speech_crier.mpc,v 1.1 2001-09-17 19:18:45 fjoe Exp $
- */
-
-dofun("say", $n, "My girlfriend left me...");
-return 0;

@@ -32,11 +32,71 @@ r bash 100
 r weapon 100
 r magic 100
 m mob_death mob_death_tree 100~
-m mob_greet mob_greet_wise_oak all~
-m mob_kill mob_kill_wise_oak 100~
-m mob_tell mob_tell_wise_oak_leaf leaf~
-m mob_tell mob_tell_wise_oak_any ~
-m mob_tell mob_tell_wise_oak_sapling help~
+m mob_greet @ all~
+if (number_percent() < 70)
+	return 0;
+
+if (char_race($N) != "felar")
+        return 0;
+ 
+act("$n tells you:", $n, NULL, $N, TO_VICT);
+act("        Young felar?", $n, NULL, $N, TO_VICT);
+social_char("smile", $n, $N);
+act("$n tells you:", $n, NULL, $N, TO_VICT);
+act("        You can find pretty amulet in this forest. It gives defence",
+    $n, NULL, $N, TO_VICT);
+act("        against fire.  I suppose you need it.  Or has anyone found",
+    $n, NULL, $N, TO_VICT);
+act("        already this amulet? Anyway, you have a chance.",
+    $n, NULL, $N, TO_VICT);
+return 0;
+~
+m mob_kill @ 100~
+if (is_immortal($N))
+        return 0;
+
+act("{RYou have violated Gods' order. You will be punished!!!{x",
+    $N, NULL, NULL, TO_CHAR);
+act("{R$n has violated God's order and will be punished!!!{x",
+    $N, NULL, NULL, TO_ROOM);
+raw_kill($n, $N);
+return 0;
+~
+m mob_tell @ leaf~
+if (get_obj_carry($n, $N, "35469") != NULL
+||  get_obj_carry($n, $N, "35468") != NULL
+||  get_obj_carry($n, $N, "35467") != NULL)
+        return 1;
+ 
+obj leaf = load_obj($n, 35469);
+if (leaf == NULL)
+        return 1;
+ 
+tell_char($n, $N, "You may take it.");
+give_obj($n, $N, leaf);
+return 1;
+~
+m mob_tell @ ~
+if (get_obj_carry($n, $N, "35468") != NULL
+||  get_obj_carry($n, $N, "35469") != NULL
+||  get_obj_carry($n, $N, "35467") != NULL) {
+        tell_char($n, $N, "Good day, adventure.");
+        return 0;
+}
+ 
+tell_char($n, $N, "Ah, adventure! Our forest need help. Evil imp stealed oak sapling and small tree will die, if nobody take it from imp and plant.");
+return 0;
+~
+m mob_tell @ help~
+if (get_obj_carry($n, $N, "35469") != NULL
+||  get_obj_carry($n, $N, "35468") != NULL
+||  get_obj_carry($n, $N, "35467") != NULL)
+        return 1;
+ 
+tell_char($n, $N, "Do you wish to help us?");
+tell_char($n, $N, "It's nice!");
+return 1;
+~
 m mob_tell mob_tell_wise_oak_sapling sapling~
 #35470
 bear forest brown~
@@ -58,8 +118,39 @@ stand stand none 500
 g @eng none@rus male~
 F par BCHJKU
 r charm 100
-m mob_death mob_death_forest_bear 100~
-m mob_fight mob_fight_forest_bear 15~
+m mob_death @ 100~
+act("{WAs $n breathes its last and collapses with a thud,{x",
+    $n, NULL, NULL, TO_ROOM);
+act("{WYou notice one of its long, curved claws has fallen loose.{x",
+    $n, NULL, NULL, TO_ROOM);
+
+obj wear = get_eq_char($n, WEAR_WIELD);
+if (wear != NULL
+&&  obj_vnum(wear) == 35480)
+        return 0;
+ 
+obj claw = create_obj(35471, 0);
+obj_to_room(claw, char_room($n));
+return 0;
+~
+m mob_fight @ 15~
+char victim = get_random_fighting($n);
+obj claw = get_eq_char($n, WEAR_WIELD);
+
+if (victim == NULL)
+        return 0;
+
+act("{W$n spreads its jaws wide and nearly roars you backwards!{x",
+    $n, NULL, victim, TO_VICT);
+ 
+int dam;
+if (claw != NULL)
+        dam = number_range(40, 55);        
+else
+        dam = number_range(15, 25);        
+damage($n, victim, dam, NULL, DAM_SOUND, DAM_F_NONE);
+return 0;
+~
 m mob_random mob_random_fido 100~
 #35471
 sprite air pixie~
@@ -76,9 +167,45 @@ EGJW 0 0 G 0 1000 0
 0
 stand stand either 400
 0 ADEF small unknown
-m mob_death mob_death_air_sprite 100~
-m mob_fight mob_fight_air_sprite 15~
-m mob_random mob_random_air_sprite 2~
+m mob_death @ 100~
+act("{WAs the small creature plunges to the surface, a wing is torn off.{x",
+    $n, NULL, NULL, TO_ROOM);
+obj wings = create_obj(35472, 0);
+obj_to_room(wings, char_room($n));
+return 0;
+~
+m mob_fight @ 15~
+char victim = get_random_fighting($n);
+
+if (number_bits(1) == 0
+&&  victim != NULL) {
+        act("{MSpray of magic dust whirls around you.{x",
+            victim, NULL, NULL, TO_CHAR);
+        act("{MSpray of magic dust whirls around $n.{x",
+            victim, NULL, NULL, TO_ROOM);
+        damage($n, victim, number_range(10, 15),
+               NULL, DAM_MAGIC, DAM_F_NONE);
+} else {
+        act("{W$n shrieks wildly through the air, trying to avoid harm.{x",
+            $n, NULL, NULL, TO_ROOM); 
+        spellfun_call("cure critical wounds",
+                      NULL, char_level($n), $n, $n);
+        spellfun_call("heal", NULL, MAX_LEVEL, $n, $n);
+}
+ 
+return 0;
+~
+m mob_random @ 2~
+if (get_char_here($n, "35469") != NULL)
+        return 0;
+
+if (number_bits(1) == 0)
+        mob_interpret($n, "smile");
+else
+        mob_interpret($n, "giggle");
+ 
+return 0;
+~
 #35472
 imp quasit demon~
 a demonic quasit imp~
@@ -96,12 +223,76 @@ EFJ
 stand stand male 900
 D 0 medium unknown
 r charm 100
-m mob_death mob_death_demonic_imp 100~
-m mob_fight mob_fight_demonic_imp 20~
-m mob_give mob_give_emerald_imp 35468~
-m mob_give mob_give_any_imp all~
-m mob_greet mob_greet_demonic_imp all~
-m mob_tell mob_tell_imp_sapling sapling~
+m mob_death @ 100~
+act("{DAs the foul imp perishes, a small object slips its grasp...{x",
+    $n, NULL, NULL, TO_ROOM);
+ 
+obj wear = get_eq_char($n, WEAR_HOLD);
+if (wear != NULL
+&&  obj_vnum(wear) == 35477) 
+        return 0;
+ 
+obj pearl = create_obj(35470, 0);
+obj_to_room(pearl, char_room($n));
+return 0;
+~
+m mob_fight @ 20~
+char victim = get_random_fighting($n);
+if (victim == NULL)
+       return 0;
+
+act("{DA $n's shriek resounds through the cave!{x",
+    $n, NULL, NULL, TO_ROOM);
+damage($n, victim, number_range(50, 80), NULL, DAM_SOUND, DAM_F_NONE);
+return 0;
+~
+m mob_give @ 35468~
+extract_obj($p, 0);
+ 
+dofun("say", $n, "Is it your payment for oak sapling?");
+dofun("say", $n, "Nice gem... Go and look for the tree in my chest");
+ 
+obj oak = create_obj(35467, 0);
+obj chest = create_obj(35461, 0);
+if (oak == NULL
+||  chest == NULL)
+        return 1;
+
+set_obj_timer(oak, 10);
+set_obj_timer(chest, 3);
+obj_to_room(chest, get_room_index(35482));
+obj_to_obj(oak, chest);
+ 
+return 1;
+~
+m mob_give @ all~
+int type = obj_item_type($p);
+ 
+if (type == ITEM_GEM) {
+        dofun("say", $n, "Nice gem...");
+        dofun("say", $n, "I'll take it, but it's not enough payment for the oak sapling.");
+        extract_obj($p, 0);
+        return 0;
+}
+ 
+dofun("say", $n, "I don't need it. Take it back.");
+give_obj($n, $N, $p);
+return 0;
+~
+m mob_greet @ all~
+if (get_obj_carry($n, $N, "35468") == NULL)
+        return 0;
+ 
+act_say($n, "I see you have nice emerald, $N.", $N);
+dofun("say", $n, "I can change it to sapling if you wish.");
+return 0;
+~
+m mob_tell @ sapling~
+act_say($n, "You want my sapling for nothing, $N?", $N);
+mob_interpret($n, "giggle");
+dofun("say", $n, "I think I cann't you give it, but I can exchange.");
+return 1;
+~
 #35473
 pixie water sprite~
 a water pixie~
@@ -116,8 +307,34 @@ BEGJe 0 V G 0 1000 0
 F
 stand stand either 500
 0 0 small unknown
-m mob_death mob_death_water_pixie 100~
-m mob_fight mob_fight_water_pixie 15~
+m mob_death @ 100~
+act("{B$n collapses into the water, forming a circle of liquid.{x",
+    $n, NULL, NULL, TO_ROOM);
+
+obj wear = get_eq_char($n, WEAR_FINGER_L);
+if (wear != NULL
+&&  obj_vnum(wear) == 35478)
+        return 0;
+ 
+wear = get_eq_char($n, WEAR_FINGER_R);
+if (wear != NULL
+&&  obj_vnum(wear) == 35478)
+        return 0;
+
+obj ring = create_obj(35473, 0);
+obj_to_room(ring, char_room($n));
+return 0;
+~
+m mob_fight @ 15~
+char victim = get_random_fighting($n);
+if (victim == NULL)
+        return 0;
+
+act("{C$n releases a lash of iced-filled water from its outstretched hand!{x",
+    $n, NULL, NULL, TO_ROOM);
+damage($n, victim, number_range(30, 50), NULL, DAM_COLD, DAM_F_NONE);
+return 0;
+~
 #35474
 sprite air pixie~
 an air sprite~
@@ -135,11 +352,63 @@ stand stand either 700
 0 ADEF small unknown
 r weapon 33
 r magic 33
-m mob_death mob_death_sprite_wings 100~
-m mob_fight mob_fight_air_sprite_main 15~
-m mob_give mob_give_sprite_leaf 35469~
-m mob_give mob_give_sprite_any all~
-m mob_greet mob_greet_sprite all~
+m mob_death @ 100~
+act("{WAs the small creature plunges to the surface, a wing is torn off.{x",
+    $n, NULL, NULL, TO_ROOM);
+ 
+obj wear = get_eq_char($n, WEAR_ARMS);
+
+if (wear != NULL
+&&  obj_vnum(wear) == 35479)
+        return 0;
+ 
+obj wings = create_obj(35472, 0);
+obj_to_room(wings, char_room($n));
+return 0;
+~
+m mob_fight @ 15~
+char victim = get_random_fighting($n);
+
+if (victim != NULL
+&&  number_bits(1) == 0) {
+        act("{MSpray of magic dust whirls around $N.{x",
+            $n, NULL, victim, TO_NOTVICT);
+        act("{MSpray of magic dust whirls around you.{x",
+            $n, NULL, victim, TO_VICT);
+        damage($n, victim, number_range(30, 50), NULL,
+               DAM_MAGIC, DAM_F_SHOW);
+        return 0;
+}
+ 
+act("{WBrightly light surrounds $n.{x", $n, NULL, NULL, TO_ROOM);
+spellfun_call("heal", NULL, MAX_LEVEL, $n, $n);
+spellfun_call("cure critical wounds", NULL, char_level($n), $n, $n);
+spellfun_call("cure critical wounds", NULL, char_level($n), $n, $n);
+return 0;
+~
+m mob_give @ 35469~
+room r = get_room_index(35469);
+if (r == NULL)
+        return 1;
+
+mob_interpret($n, "giggle");
+tell_char($n, $N, "I hope you have enough money for greedy leprechaun.");
+transfer_group($N, r);
+dofun("say", $n, "I hope $N has enough gold coins.");
+extract_obj($p, 0);
+return 1;
+~
+m mob_give @ all~
+dofun("say", $n, "Wah! I don't need this silly thing. Take it back.");
+give_obj($n, $N, $p);
+return 0;
+~
+m mob_greet @ all~
+if (get_obj_carry($n, $N, "35469") != NULL)
+        return 0;
+tell_char($n, $N, "Do you have a leaf?");
+return 0;
+~
 #35475
 guard invisible~
 an invisible guard~
@@ -173,8 +442,32 @@ e 0 0 G 0 0 0
 0
 stand stand none 100
 D 0 small unknown
-m mob_bribe mob_bribe_leprechaun 10000~
-m mob_random mob_random_leprechaun 5~
+m mob_bribe @ 10000~
+act("$n puts gold coins into pot", $n, NULL, NULL, TO_ROOM);
+ 
+if (get_obj_carry($n, $N, "35468") != NULL)
+       dofun("say", $n, "You are already have a beautiful gem..");
+else if (number_percent() < 35)
+        dofun("say", $n, "Go away, go away...");
+else {
+        dofun("say", $n, "Gem.. I'll give you nice emerald...");
+        obj emerald = load_obj($n, 35468);
+        give_obj($n, $N, emerald);
+        dofun("say", $n, "Go away now...");
+}
+ 
+int location = number_range(35470, 35487); 
+room r = get_room_index(location);
+if (r == NULL)
+        return 1;
+transfer_group($N, r);
+return 1;
+~
+m mob_random @ 5~
+dofun("say", $n, "Give me 100 gold and I'll transfer you out from here.");
+dofun("say", $n, "And may be I'll preset you a gem.");
+return 0;
+~
 #35477
 tree guardian~
 a guardian tree~
@@ -194,9 +487,76 @@ stand stand none 1000
 F for D
 r charm 100
 m mob_death mob_death_tree 100~
-m mob_death mob_death_tree_guardian 100~
-m mob_fight mob_fight_guardian_tree 30~
-m mob_greet mob_greet_guardian_tree north west~
+m mob_death @ 100~
+act("{y$n dissapears. Only peace of wooden bark remains on the ground.{x",
+    $n, NULL, NULL, TO_ROOM);
+ 
+obj wear = get_eq_char($n, WEAR_BODY);
+if (wear != NULL
+&&  obj_vnum(wear) == 35482)
+        return 0;
+
+obj bark = create_obj(35465, 0);
+obj_to_room(bark, char_room($n));
+ 
+return 0;
+~
+m mob_fight @ 30~
+char victim = get_random_fighting($n);
+int level = char_level($n);
+
+if (is_sn_affected(victim, "hold person")
+&&  is_affected(victim, AFF_SLOW))
+        return 0;
+ 
+act("{y$n's branches wind you and slow down your movements.{x",
+    $n, NULL, victim, TO_VICT);
+act("{y$n's branches wind $N and slow down $gN{his} movements.{x",
+    $n, NULL, victim, TO_NOTVICT);
+
+if (!is_sn_affected(victim, "hold person")) {
+        affect_char(victim, TO_AFFECTS, "hold person", level, 1,
+                    APPLY_DEX, - level / 12, 0);
+}
+
+if (!is_affected(victim, AFF_SLOW)) {
+        affect_char(victim, TO_AFFECTS, "slow", level, 1,
+                    APPLY_DEX, - umax(2, level / 12), AFF_SLOW);
+}
+
+return 0;
+~
+m mob_greet @ north west~
+if (char_room($n) != get_room_index(35477))
+        return 0;
+
+obj object = get_obj_carry($n, $N, "35467");
+if (object == NULL)
+        return 0;
+ 
+obj window = get_obj_room($n, char_room($n), "35462");
+if (window != NULL) {
+	act_say($n,
+		"You have $P, so if you wish you may visit a secret glade.",
+		object);
+	act("$n points at $p.", $n, window, NULL, TO_ROOM);
+	act_say($n, "Go through this $P for it.", window); 
+	return 0;
+}
+
+obj portal = create_obj(35462, 0);
+if (portal == NULL)
+	return 0;
+
+set_obj_timer(portal, 2);
+obj_to_room(portal, char_room($n));
+
+act_say($n, "You have $P, so if you wish you may visit a secret glade.", object);
+act("$n points at $p.", $n, portal, NULL, TO_ROOM);
+act_say($n, "Go through this $P for it.", portal); 
+ 
+return 0;
+~
 #0
 
 #OBJECTS
@@ -217,7 +577,16 @@ magic~
 portal 0 0 0
 A 0 0 35468 0
 0 0 0 P
-m obj_enter obj_enter_green_window 100~
+m obj_enter @ 100~
+obj sapling = get_obj_carry($n, $n, "35467");
+if (sapling != NULL)
+        return 0;
+ 
+act("You haven't sapling, so cann't go trough $p.", $n, $p, NULL, TO_CHAR);
+act("$p dissapears.", $n, $p, NULL, TO_ALL);
+extract_obj($p, 0);
+return 1;
+~
 #35463
 chips wood щепки~
 wooden chips~
@@ -267,7 +636,14 @@ wood~
 key 0 0 A
 0 0 0 0 0
 1 1 100 P
-m obj_get obj_get_sapling 100~
+m obj_get @ 100~
+obj chest = get_obj_room($n, char_room($n), "35461");
+if (chest == NULL)
+        return 0;
+ 
+extract_obj(chest, 0);
+return 0;
+~
 E
 sapling~
 This small oak sapling must grow in the pixie forest.
@@ -388,8 +764,34 @@ armor AGKQ 0 AI
 43 1 780 P
 f object hp 50 0
 f affects none 0 V
-m obj_wear obj_wear_crystal_wings 100~
-m obj_remove obj_remove_crystal_wings 100~
+m obj_wear @ 100~
+if (is_affected($n, AFF_FLYING))
+        return 0;
+
+if (char_size($n) > SIZE_SMALL)
+        act("You are too big and heavy. These small wings can't get you up.",
+            $n, NULL, NULL, TO_CHAR);
+else {
+        act("As you wear $p, you run up. Your are flying!",
+            $n, $p, NULL, TO_CHAR);
+        act("As $n wears $p, $gn{he} runs up. $n is flying!",
+            $n, $p, NULL, TO_ROOM);
+        affect_char($n, TO_AFFECTS, "fly", char_level($n), -2,
+                    0, 0, AFF_FLYING);
+}
+ 
+return 0;
+~
+m obj_remove @ 100~
+if (!is_sn_affected($n, "fly"))
+        return 0;
+ 
+affect_strip($n, "fly");
+act("As you remove $p, you slowly touch down.",
+    $n, $p, NULL, TO_CHAR);
+ 
+return 0;
+~
 #35480
 claw forest bear~
 {Wthe claw of a forest bear{x~
@@ -460,7 +862,27 @@ D1
 ~
 ~
 Z 0 35477
-m room_cmd room_cmd_plant plant~
+m room_cmd @ plant~
+obj sapling = get_obj_carry($n, $n, "35467");
+if (sapling == NULL) {
+        act("You have nothing to plant.", $n, NULL, NULL, TO_CHAR);
+        return 0;
+}
+
+act("You've plant $p successfully.", $n, sapling, NULL, TO_CHAR);
+act("$n plans $p.", $n, sapling, NULL, TO_ROOM);
+extract_obj(sapling, 0);
+
+obj cloak = create_obj(35464, 0);
+if (cloak == NULL)
+        return 0;
+ 
+obj stump = get_obj_room($n, get_room_index(35468), "stump");
+obj_to_obj(cloak, stump);
+act("You hear as someone said: 'Seek your reward in the stump, $n.'",
+    $n, NULL, NULL, TO_CHAR);
+return 0;
+~
 S
 #35469
 The secret glade~

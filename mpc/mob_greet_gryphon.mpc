@@ -1,6 +1,0 @@
-/*
- * $Id: mob_greet_gryphon.mpc,v 1.2 2001-09-12 08:20:19 fjoe Exp $
- */
-
-dofun("say", $n, "It's so amusing. She never chops anyone's heads off, you know.");
-return 0;

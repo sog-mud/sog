@@ -177,8 +177,26 @@ BVYe 0 0 0 A 800 0
 EFNU
 stand stand male 505
 0 0 tiny unknown
-m mob_random mob_random_shopkeeper 3~
-m mob_speech mob_speech_shopkeeper_keeper keeper~
+m mob_random @ 3~
+dofun("say", $n, "Whom am I making this dress for?");
+return 0;
+~
+m mob_speech @ keeper~
+if (get_obj_carry($n, $N, "90"))
+        return 0;
+
+dofun("emote", $n, "fashions a white gown for the Keeper.");
+
+obj o;
+if ((o = get_obj_carry($n, $n, "90")) == NULL)
+	o = load_obj($n, 90);
+
+if (!give_obj($n, $N, o))
+        return 0;
+ 
+dofun("say", $n, "Here is a dress for the Keeper.");
+return 0;
+~
 #9512
 Nabil shopkeeper~
 Nabil~

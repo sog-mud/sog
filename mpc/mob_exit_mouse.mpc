@@ -1,6 +1,0 @@
-/*
- * $Id: mob_exit_mouse.mpc,v 1.2 2001-09-12 08:20:06 fjoe Exp $
- */
-
-tell_char($n, $N, "Don't let me hear that name again!");
-return 0;

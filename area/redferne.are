@@ -41,8 +41,31 @@ stand stand male 1499
 0 0 small unknown
 r weapon -50
 m mob_fight mob_fight_breath_any 100~
-m mob_give mob_give_paladin_solamnia 2438~
-m mob_greet mob_greet_paladin_solamnia all~
+m mob_give @ 2438~
+extract_obj($p, 0);
+
+if (get_obj_carry($n, $N, "89"))
+        return 0;
+
+obj o;
+if ((o = get_obj_carry($n, $n, "89")) == NULL)
+        o = load_obj($n, 89);
+
+if (!give_obj($n, $N, o))
+        return 0;
+
+dofun("say", $n, "Here is your reward!");
+dofun("say", $n, "This stone has some special powers, use it well.");
+return 0;
+~
+m mob_greet @ all~
+if (get_obj_carry($n, $N, "2438") == NULL)
+        return 0;
+
+dofun("say", $n, "I think you bring something for me...");
+mob_interpret($n, "smile");
+return 0;
+~
 #0
 
 #OBJECTS

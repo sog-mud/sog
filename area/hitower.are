@@ -538,7 +538,10 @@ FU
 stand stand male 50
 0 0 medium unknown
 m mob_fight mob_fight_cast_mage 100~
-m mob_kill mob_kill_master_summoner 100~
+m mob_kill @ 100~
+act_yell($n, "Die, $N!", $N, NULL);
+return 0;
+~
 #1338
 master charmer~
 the master charmer~

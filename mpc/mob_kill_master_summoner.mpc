@@ -1,6 +1,0 @@
-/*
- * $Id: mob_kill_master_summoner.mpc,v 1.2 2001-09-05 12:43:41 fjoe Exp $
- */
-
-act_yell($n, "Die, $N!", $N, NULL);
-return 0;

@@ -2990,7 +2990,18 @@ f object ac -15 0
 f object damroll 6 0
 m obj_wear obj_wear_hands_warm 100~
 m obj_remove obj_remove_hands_cool 100~
-m obj_fight obj_fight_demon_fire 15~
+m obj_fight @ 15~
+char victim = char_fighting($n);
+act("A magical hole appears in your $p!", $n, $p, NULL, TO_CHAR);
+act("Your $p burns $N's face!", $n, $p, victim, TO_CHAR);
+act("$n's $p burns $N's face!", $n, $p, victim, TO_NOTVICT);
+act("$n's $p burns your face!", $n, $p, victim, TO_VICT);
+ 
+int dam = number_percent()/2 + 5 * char_level($n);
+damage($n, victim, dam, "demonfire", DAM_FIRE, DAM_F_SHOW);
+fire_effect(victim, obj_level($p), dam);
+return 0;
+~
 g @rus none~
 #16090
 fire gem~

@@ -271,9 +271,31 @@ stand stand male 1499
 0 0 medium unknown
 r weapon -50
 m mob_fight mob_fight_cast_mage 100~
-m mob_give mob_give_keeper 90~
-m mob_give mob_give_keeper_all all~
-m mob_greet mob_greet_keeper all~
+m mob_give @ 90~
+dofun("say", $n, "Finally, the dress I sent for!");
+dofun("emote", $n, "tucks the dress away under her desk.");
+extract_obj($p, 0);
+ 
+if (get_obj_carry($n, $N, "91")) {
+        dofun("say", $n, "I suppose you'll want to see the FireFlash right now.");
+        dofun("say", $n, "Be careful, he's been in a nasty mood.");
+        unlock_door($n, "door");
+        open_door($n, "door");
+} else {
+        dofun("say", $n, "It doesn't look like you have any business with the FireFlash.");
+        dofun("say", $n, "I suggest you leave and find something before coming here again.");
+}
+return 1;
+~
+m mob_give @ all~
+dofun("say", $n, "Why do I need this?");
+give_obj($n, $N, $p);
+return 0;
+~
+m mob_greet @ all~
+dofun("say", $n, "What business do you have here? Is it that dress I ordered?");
+return 0;
+~
 #2413
 Fireflash Повелитель Драконов~
 @eng Fireflash@rus ~~Повелитель~~ Драконов~
@@ -290,9 +312,56 @@ stand stand male 1499
 0 0 small unknown
 r weapon -50
 m mob_fight mob_fight_breath_any 100~
-m mob_give mob_give_fireflash 91~
-m mob_give mob_give_fireflash_all all~
-m mob_greet mob_greet_fireflash all~
+m mob_give @ 91~
+extract_obj($p, 0);
+
+dofun("say", $n, "What a wonderful rug! Let's see... where shall I put it?");
+dofun("emote", $n, "starts wandering about the room, mumbling to himself.");
+dofun("emote", $n, "sticks his hands in his pockets.");
+dofun("say", $n, "What is it? A key?");
+
+obj o;
+if ((o = get_obj_carry($n, $n, "2438")) == NULL)
+	o = load_obj($n, 2438);
+if (!give_obj($n, $N, o))
+        return 1;
+
+dofun("say", $n, "Here, you can have it.");
+dofun("emote", $n, "absently pushes the rug under a chair.");
+return 1;
+~
+m mob_give @ all~
+dofun("say", $n, "How interesting!.. what's it for?");
+mob_interpret($n, "giggle");
+give_obj($n, $N, $p);
+return 0;
+~
+m mob_greet @ all~
+if (get_obj_carry($n, $N, "91") != NULL)
+        return 0;
+
+dofun("say", $n, "I don't see that worthless rug anywhere near me.");
+dofun("say", $n, "Don't you give it to that silly Green sister from Tear?");
+ 
+obj o = get_obj_room($n, char_room($n), "2436");
+if (o == NULL)
+        return 0;
+ 
+obj papers = get_obj_obj($n, o, "2437");
+if (papers == NULL)
+        papers = load_obj($n, 2437);
+else
+        get_obj($n, papers, o, NULL);
+ 
+dofun("say", $n, "These papers might help you.");
+act("$n sneers at you.", $n, NULL, $N, TO_VICT);
+act("You sneer at $N.", $n, NULL, $N, TO_CHAR);
+act("$n sneers at $N.", $n, NULL, $N, TO_NOTVICT);
+give_obj($n, $N, papers);
+close_obj($n, o);
+lock_obj($n, o);
+return 0;
+~
 #2414
 Pixie Сильф~
 @eng A Pixie@rus сильф~

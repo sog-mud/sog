@@ -752,7 +752,19 @@ jewelry BG 0 AB
 40 50 44300 P
 f object damroll 5 0
 f object ac 20 0
-m obj_speech obj_speech_ra punish~
+m obj_speech @ punish~
+char victim = char_fighting($n);
+
+if ((get_eq_char($n, WEAR_FINGER_R) != $p &&
+     get_eq_char($n, WEAR_FINGER_L) != $p)
+||  victim == NULL)
+        return 0;
+
+act("An electrical arc sprays from $p.", $n, $p, NULL, TO_ALL);
+spellfun_call("lightning breath", NULL, char_level($n), $n, victim);
+wait_state($n, 2 * get_pulse("violence"));
+return 0;
+~
 E
 ra ring~
 The ring is bigger than other rings, smooth, metal-colored and shining, 

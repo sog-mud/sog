@@ -1,6 +1,0 @@
-/*
- * $Id: mob_exit_puppy.mpc,v 1.2 2001-09-12 08:20:07 fjoe Exp $
- */
-
-act("$n saldy watches you leave.", $n, NULL, $N, TO_VICT);
-return 0;

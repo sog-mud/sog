@@ -1060,7 +1060,19 @@ f object hp 50 0
 f object hitroll 10 0
 f object damroll 10 0
 f object saving_spell -10 0
-m obj_fight obj_fight_shieldbreaker 10~
+m obj_fight @ 10~
+char victim = char_fighting($n);
+obj shield = get_eq_char(victim, WEAR_SHIELD);
+ 
+if (shield == NULL)
+       return 0;
+ 
+act("You {Wcleaved{x $N's $p into two.", $n, shield, victim, TO_CHAR);
+act("$n {Wcleaved{x your $p into two.", $n, shield, victim, TO_VICT);
+act("$n {Wcleaved{x $N's $p into two.", $n, shield, victim, TO_NOTVICT);
+extract_obj(shield, 0);
+return 0;
+~
 E
 sword~
 The blade of the sword is a full meter long, and straight as an arrow, with

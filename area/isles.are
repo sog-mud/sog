@@ -965,9 +965,25 @@ armor AGQ 0 AI
 25 25 25 25 0
 64 5 1000 P
 f object hp 100 0
-m obj_wear obj_wear_armbands 100~
-m obj_remove obj_remove_armbands 100~
-m obj_fight obj_fight_armbands 20~
+m obj_wear @ 100~
+act("Your arms warm up by $p.", $n, $p, NULL, TO_CHAR);
+return 0;
+~
+m obj_remove @ 100~
+act_char("Your arms cool down again.", $n);
+return 0;
+~
+m obj_fight @ 20~
+char victim = char_fighting($n);
+act("Your $p burns $N's face!", $n, $p, victim, TO_CHAR);
+act("$n's $p burns $N's face!", $n, $p, victim, TO_NOTVICT);
+act("$n's $p burns your face!", $n, $p, victim, TO_VICT);
+ 
+int dam = number_percent()/2 + 30 + 5 * char_level($n);
+damage($n, victim, dam, "burning hands", DAM_FIRE, DAM_F_SHOW);
+fire_effect(victim, obj_level($p)/2, dam);
+return 0;
+~
 E
 fire~
 The armbands are burning brightly.

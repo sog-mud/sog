@@ -23,9 +23,74 @@ BT 0 HN 0 AB 0 0
 EFNU
 stand stand male 5000
 0 0 medium unknown
-m mob_fight mob_fight_astral_guardian 40~
-m mob_greet mob_greet_astral_guardian north~
-m mob_speech mob_speech_astral_guardian i wish to enter the astral plane~
+m mob_fight @ 40~
+char victim = get_random_fighting($n);
+if (victim == NULL)
+        return 0;
+
+if (char_level(victim) < 35) {
+        act_say($n, "You should not have toyed with my powers, $N!", victim);
+        cast("earthquake", $n, "");
+        cast_char("fireball", $n, victim);
+        cast_char("blindness", $n, victim);
+        return 0;
+}
+ 
+act("$n chants a strange phrase and points at you...",
+    $n, NULL, victim, TO_VICT);
+act("$n chants a strange phrase and points at $N...",
+    $n, NULL, victim, TO_NOTVICT);
+
+int dam = 100;
+damage($n, victim, dam, NULL, DAM_NONE, DAM_F_NONE);
+return 0;
+~
+m mob_greet @ north~
+if (is_immortal($N))
+        return 0;
+
+if (char_level($N) < 10) {
+        act_say($n, "You may not pass $N, for you will only find death beyond this gate.", $N);
+        return 0;
+}
+
+if (char_level($N) > 35) {
+        act_say($n, "You are too mighty, $N. I will not allow you to pass and tamper with the balance of the astral plane.", $N);
+        dofun("emote", $n,
+              "firmly grips a pearl wand and points it at you...");
+        return 0;
+}
+ 
+act_say($n, "Though it be foolish, if you wish to enter the astral plane, $N, you have but to say so...", $N);
+return 0;
+~
+m mob_speech @ i wish to enter the astral plane~
+if (is_immortal($N))
+        return 0;
+ 
+if (char_level($N) < 10) {
+        act("$n gives you an irritated glare but makes no action.",
+            $n, NULL, $N, TO_VICT);
+        act("$n gives $N an irritated glare but makes no action.",
+            $n, NULL, $N, TO_NOTVICT);
+        return 0;
+}
+ 
+if (char_level($N) > 35) {
+        dofun("say", $n, "You shall not enter while I exist...");
+        return 0;
+}
+ 
+dofun("say", $n, "So be it!");
+act("A rolling thunder booms as the gate to the astral plane opens!",
+    $n, NULL, NULL, TO_ALL);
+unlock_door($n, "north");
+open_door($n, "north");
+dofun("north", $N, "");
+close_door($n, "north");
+lock_door($n, "north");
+return 0;
+~
 m mob_speech mob_speech_astral_guardian i wish to enter~
 #7701
 nightmare~
@@ -58,7 +123,11 @@ FU
 stand stand female 625
 0 0 medium unknown
 m mob_fight mob_fight_cast_mage 100~
-m mob_greet mob_greet_night_hag all~
+m mob_greet @ all~
+mob_interpret($n, "cackle");
+dofun("say", $n, "Now your soul shall be mine!");
+return 0;
+~
 #7703
 stalker invisible~
 the invisible stalker~
@@ -87,7 +156,10 @@ unique~
 EFNU
 stand stand none 12
 0 0 medium unknown
-m mob_greet mob_greet_soulless all~
+m mob_greet @ all~
+mob_interpret($n, "moan");
+return 0;
+~
 #7705
 githyanki hunter~
 the githyanki hunter~
@@ -104,7 +176,10 @@ BEFJNU
 stand stand male 50
 0 0 medium unknown
 m mob_random mob_random_thief 100~
-m mob_random mob_random_githyanki_hunter 5~
+m mob_random @ 5~
+dofun("emote", $n, "examines this portion of the astral field for signs of the githzerai.");
+return 0;
+~
 #7706
 githyanki warrior~
 the githyanki warrior~
@@ -169,7 +244,14 @@ BF 0 0 0 0 -500 0
 EFNU
 stand stand male 500
 0 0 medium unknown
-m mob_greet mob_greet_githyanki_protector all~
+m mob_greet @ all~
+if (number_bits(1) == 0)
+        return 0;
+ 
+dofun("say", $n, "None may approach the Queen of the Gith!");
+dofun("emote", $n, "sheathes his blade and charges into battle!");
+return 0;
+~
 #7710
 githyanki gish~
 the evil gish~
@@ -220,8 +302,58 @@ FR 0 0 0 AL -500 0
 FU
 stand stand male 500
 0 0 medium unknown
-m mob_death mob_death_githyanki_warlock 100~
-m mob_fight mob_fight_githyanki_warlock 50~
+m mob_death @ 100~
+char victim = get_random_fighting($n);
+if (victim == NULL)
+        return 0;
+
+if (number_percent() < 40) {
+        act("With his dying words, the warlock recites a powerful scroll...",
+            $n, NULL, NULL, TO_ROOM);
+        obj p;
+        foreach (p, obj_of_char($n)) {
+                if (obj_vnum(p) == 7703)
+                        extract_obj(p, 0);
+        }
+        int dam = 100;
+        damage($n, victim, dam, NULL, DAM_LIGHTNING, DAM_F_NONE);
+        return 0;
+}
+ 
+char nightmare = load_mob($n, 7701);
+if (nightmare == NULL)
+        return 0;
+
+act("{DIn a final effort to destroy you, $n slits his wrists in{x",
+    $n, NULL, victim, TO_VICT);
+act("{DIn a final effort to destroy $N, $n slits his wrists in{x",
+    $n, NULL, victim, TO_NOTVICT);
+act("{Da sickening ritual. Coils of dark energy begin to flow along the ground,{x",
+    $n, NULL, NULL, TO_ROOM | ACT_NOUCASE);
+act("{Dforming into $N.{x", $n, NULL, nightmare, TO_ROOM | ACT_NOUCASE);
+
+cast_char("fireball", nightmare, victim);
+return 0;
+~
+m mob_fight @ 50~
+char victim = get_random_fighting($n);
+if (victim == NULL)
+        return 0;
+
+dofun("emote", $n, "prays a mantra to his Queen for aid.");
+act("{BSuddenly, floating haunting eyes appear and gaze at you.{x",
+    $n, NULL, victim, TO_VICT);
+act("{BTwo bolts of blazing blue lightning erupt from them, striking you!{x",
+    $n, NULL, victim, TO_VICT);
+act("{BSuddenly, floating haunting eyes appear and gaze at $N.{x",
+    $n, NULL, victim, TO_NOTVICT);
+act("{BTwo bolts of blazing blue lightning erupt from them, striking $N!{x",
+    $n, NULL, victim, TO_NOTVICT);
+ 
+int dam = 2 * dice(char_level($n), 4) + 24;
+damage($n, victim, dam, NULL, DAM_LIGHTNING, DAM_F_NONE);
+return 0;
+~
 m mob_fight mob_fight_cast_mage 100~
 #7713
 githyanki lich queen~
@@ -239,10 +371,72 @@ BF 0 J 0 ABL -750 0
 ENU
 stand stand female 5000
 DI 0 medium unknown
-m mob_death mob_death_githyanki_queen 100~
+m mob_death @ 100~
+act("{D    As the killing blow destroys the lich-queen's corporeal form, wisps of her spirit arise from the floor. A haunting voice whispers words of a spidery language and the floor suddenly cracks and opens. You fall through the chasm about the altar into a swirling field of blackness, the cackles of a witch following your descent...{x",
+    $n, NULL, NULL, TO_ROOM);
+ 
+room r = get_room_index(7778);
+if (r == NULL)
+       return 0;
+
+char victim;
+foreach (victim, char_in_room(char_room($n))) {
+        if (victim == $n)
+                continue;
+        transfer_char(victim, r);
+}
+ 
+transfer_char($n, r);
+return 0;
+~
 m mob_fight mob_fight_cast_undead 100~
-m mob_fight mob_fight_githyanki_queen 100~
-m mob_greet mob_greet_githyanki_queen all~
+m mob_fight @ 100~
+if (number_percent() <= 10) {
+        dofun("emote", $n, "summons her minions from the lower planes...");
+        char hag = load_mob($n, 7702);
+        char protector = load_mob($n, 7709);
+        if (hag != NULL)
+                multi_hit(hag, get_random_fighting($n), NULL);
+        if (protector != NULL)
+                multi_hit(protector, get_random_fighting($n), NULL);
+        return 0;
+} else if (number_percent() <= 40) {
+        char victim = get_random_fighting($n);
+        if (victim == NULL)
+                return 0;
+
+        obj flail = get_eq_char($n, WEAR_WIELD);
+        if (obj_vnum(flail) != 7711)
+                return 0;
+
+        act("$n curls her $p past $N's defences, mauling $gN{him}!",
+            $n, flail, victim, TO_NOTVICT);
+        act("$n curls her $p past your defences, mauling you!",
+            $n, flail, victim, TO_VICT);
+
+        int dam = 80;
+        damage($n, victim, dam, NULL, DAM_SLASH, DAM_F_NONE);
+        return 0;
+}
+ 
+act("$n sneers at you.", $n, NULL, $N, TO_VICT);
+act("$n sneers at $N.", $n, NULL, $N, TO_NOTVICT);
+cast_char("acid blast", $n, $N);
+return 0;
+~
+m mob_greet @ all~
+if (number_percent() > 60)
+        return 0;
+
+dofun("yell", $n, "Yes...more souls to dine on at my leisure!");
+act("{rDeadly flames erupt from the lich-queen's fingers!{x",
+    $n, NULL, NULL, TO_ROOM);
+ 
+/* damage as in 'burning hands' spell */
+int dam = dice(char_level($n), 2) + 7;
+damage($n, $N, dam, NULL, DAM_FIRE, DAM_F_NONE);
+return 0;
+~
 #7714
 lord gith~
 Lord Gith~
@@ -263,7 +457,19 @@ EFNU
 stand stand male 250
 0 0 medium unknown
 m mob_fight mob_fight_cast_undead 100~
-m mob_fight mob_fight_lord_gith 50~
+m mob_fight @ 50~
+char victim = get_random_fighting($n);
+if (victim == NULL)
+        return 0;
+
+act("{rWith unparalleled rage, $n summons forth a torrent of acid!{x",
+    $n, NULL, NULL, TO_ROOM);
+
+/* damage as in two 'acid blast' */
+int dam = 2 * dice(char_level($n), 12);
+damage($n, victim, dam, NULL, DAM_ACID, DAM_F_NONE);
+return 0;
+~
 #7715
 ghost~
 the insubstantial ghost~

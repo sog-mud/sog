@@ -1,8 +1,0 @@
-/*
- * $Id: mob_greet_sprite.mpc,v 1.1 2001-09-14 18:08:08 fjoe Exp $
- */
-
-if (get_obj_carry($n, $N, "35469") != NULL)
-        return 0;
-tell_char($n, $N, "Do you have a leaf?");
-return 0;

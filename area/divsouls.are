@@ -1707,7 +1707,10 @@ BGJe 0 0 0 AB 0 0
 EFK
 stand stand female 5000
 0 0 medium unknown
-m mob_greet mob_greet_sherayna all~
+m mob_greet @ all~
+dofun("say", $n, "Welcome to Zeinia International!  How may I help you?");
+return 0;
+~
 #11696
 nyvri lady zeinia representative~
 the Zeinia representative~

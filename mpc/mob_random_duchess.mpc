@@ -1,6 +1,0 @@
-/*
- * $Id: mob_random_duchess.mpc,v 1.2 2001-09-12 08:20:36 fjoe Exp $
- */
-
-dofun("say", $n, "You don't know much and that's fact!");
-return 0;

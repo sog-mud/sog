@@ -1,7 +1,0 @@
-/*
- * $Id: mob_look_dodo.mpc,v 1.2 2001-09-12 08:20:30 fjoe Exp $
- */
-
-dofun("emote", $n, "is running about furiously!");
-dofun("say", $n, "Run then!");
-return 0;

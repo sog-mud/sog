@@ -1,6 +1,0 @@
-/*
- * $Id: mob_exit_king_of_hearts.mpc,v 1.2 2001-09-12 08:20:06 fjoe Exp $
- */
-
-dofun("emote", $n, "strolls off, flamingo in hand.");
-return 0;

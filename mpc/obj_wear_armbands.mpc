@@ -1,6 +1,0 @@
-/*
- * $Id: obj_wear_armbands.mpc,v 1.2 2001-09-12 08:20:49 fjoe Exp $
- */
-
-act("Your arms warm up by $p.", $n, $p, NULL, TO_CHAR);
-return 0;

@@ -1,7 +1,0 @@
-/*
- * $Id: mob_bribe_beggar_500.mpc,v 1.1 2001-09-16 11:57:31 fjoe Exp $
- */
-
-mob_interpret($n, "dance");
-social_char("french", $n, $N);
-return 1;

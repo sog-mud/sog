@@ -1,6 +1,0 @@
-/*
- * $Id: mob_speech_cook.mpc,v 1.2 2001-09-12 08:20:38 fjoe Exp $
- */
-
-dofun("emote", $n, "hurls a plate at the Duchess! *>CRASH<*");
-return 0;

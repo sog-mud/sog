@@ -356,7 +356,15 @@ human~
 ADFHJK
 stand stand none 0
 0 0 medium unknown
-m mob_give mob_give_sergeant 22492~
+m mob_give @ 22492~
+dofun("say", $n, "Thanks a lot brave adventurer!");
+dofun("say", $n, "You return my favorite dagger.");
+dofun("say", $n, "And I regard you for it...");
+obj o = load_obj($n, 22494);
+give_obj($n, $N, o);
+extract_obj($p, 0);
+return 0;
+~
 #22473
 troll small rumpelsteelskin~
 rumpelsteelskin~

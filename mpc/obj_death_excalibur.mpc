@@ -1,9 +1,0 @@
-/*
- * $Id: obj_death_excalibur.mpc,v 1.1 2001-09-14 16:48:16 fjoe Exp $
- */
-
-set_char_hit($n, char_max_hit($n));
-act("$p starts to glow with a blue aura.", $n, $p, NULL, TO_ALL);
-act_char("You feel much better.", $n);
-act("$n looks much better.", $n, NULL, NULL, TO_ROOM);
-return 1;

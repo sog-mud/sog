@@ -1,6 +1,0 @@
-/*
- * $Id: mob_greet_apothecary_shopkeeper.mpc,v 1.2 2001-09-12 08:20:11 fjoe Exp $
- */
-
-dofun("say", $n, "Would you like to buy a nice love potion?");
-return 0;
