@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.118 1998-10-30 06:56:49 fjoe Exp $
+ * $Id: comm.c,v 1.119 1998-11-02 03:29:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1721,7 +1721,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	do_help(ch,"class help");
 
 	strcpy(buf, "Select a class:\n\r[ ");
-	sprintf(buf1,"(Continuing:) ");
+	sprintf(buf1,"  (Continuing:) ");
 	for (iClass = 0; iClass < classes.nused; iClass++)
 	{
 	  if (class_ok(ch,iClass))
