@@ -14,8 +14,8 @@ A bat flaps wildly at you!
 ~
 Your typical smelly, blind flying mammal.
 ~
-bat~
-ABF FJ 0 0
+undead~
+ABF 0 0 0
 5 0 2d6+60 2d9+100 1d6+1 none
 5 5 5 9
 ENR 0 0 0
@@ -101,8 +101,8 @@ A skeletal soldier fights in the battle of the underworld.
 Even though he has died in the physical sense of the word, the battle
 continues for him in his charmed state.
 ~
-human~
-ACF J -290 0
+undead~
+ACF 0 -290 0
 11 0 2d8+134 5d9+100 1d10+2 none
 1 1 1 8
 EFNU 0 0 E
@@ -132,8 +132,8 @@ A mysterious ghostly wraith forms before your eyes.
 ~
 Hard to tell much about the mysterious form even upon further inspection.
 ~
-human~
-ACF FJU 0 0
+undead~
+ACF 0 0 0
 12 0 2d10+150 6d9+100 1d10+3 none
 0 0 0 8
 EFNU 0 0 0
@@ -160,7 +160,7 @@ A blank-faced zombie mage joins the battle.
 ~
 He seems to lack real interest in what he is doing.
 ~
-human~
+zombie~
 ACFR J -100 0
 13 0 2d10+150 13d9+100 2d4+2 none
 0 0 0 5
@@ -188,8 +188,8 @@ A bat flaps wildly at you!
 ~
 A rather LARGE "bat" ...
 ~
-bat~
-ABF FJ -100 0
+undead~
+ABF 0 -100 0
 15 0 3d9+208 7d9+100 2d6+3 none
 -2 -2 -2 7
 ENR 0 0 0
@@ -1659,7 +1659,7 @@ S
 #SPECIALS
 M 2007 spec_cast_undead	* a skeleton
 M 2009 spec_cast_undead	* a mysterious wraith
-M 2011 spec_cast_mage	* zombie
+M 2011 spec_cast_undead	* zombie
 M 2013 spec_cast_undead	* The vampire
 M 2014 spec_cast_undead	* the evil necromancer
 M 2016 spec_breath_any	* the prism dragon
@@ -1773,13 +1773,8 @@ M 0 2016 1 2050 1	* the prism dragon (Prism cave)
 E 0 2012 0 5		*	a dragonscale shield: on the body
 E 0 2013 0 17		*	a prism wand: held in the hands
 M 0 2001 6 2052 3	* a bat (Basement)
-M 0 2001 6 2052 3	* a bat (Basement)
-M 0 2001 6 2052 3	* a bat (Basement)
 M 0 2013 1 2052 1	* The vampire (Basement)
 E 0 2004 0 16		*	the neutralizer: wielded
-M 0 2001 6 2052 3	* a bat (Basement)
-M 0 2001 6 2052 3	* a bat (Basement)
-M 0 2001 6 2052 3	* a bat (Basement)
 M 0 2004 4 2053 2	* a graverobber (Fresh graves)
 M 0 2004 4 2053 2	* a graverobber (Fresh graves)
 M 0 2011 4 2053 1	* zombie (Fresh graves)

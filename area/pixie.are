@@ -1,0 +1,1367 @@
+#AREADATA
+Name Pixie Forest~
+VNUMs 35400 35499
+Credits Caine~
+Security 9
+LevelRange 30 45
+ResetMessage A pixie pops into view then flutters away, giggling...~
+End
+
+#MOBILES
+#35469
+oak tree ancient wise~
+an ancient oak~
+An ancient oak leaned its branches over the trail.
+~
+Centures ago this giant spreading oak was a small sprout with several
+leaves. Now it's the oldest tree in this forest and in the world with
+mighty branches and magnificent leaves. You see small hollow and a grey
+squirrel living here. This tree knows about all thing you can find in
+any place and Gods took oak under their protection. So even don't try
+to attack it or cause in any way.
+~
+tree~
+ABGeh CDEFGHJNZclmnoprstx 1000 0
+150 50 5d1000+25000 5d50+5750 3d10+150 thwack
+-50 -50 -50 -50
+E ACDEU 0 0
+stand stand male 10000
+0 0 gargantuan unknown
+M kill 35469 100~
+M act 35468 bows before you.~
+M act 35468 curtseys gracefully for you.~
+M grall 35467 100~
+#35470
+bear forest brown~
+a forest bear~
+A brown forest bear casually strolls through his wooded domain.
+~
+This large fellow, a forest dweller, has brown fur which matches
+his brown eyes - which very nearly match his yellowish-brown teeth,
+which he looks to be interested in matching with your neck, skull
+and other parts. The undisputed ruler of this forest, he is arrogant
+in his disdain of your presence.
+~
+bear~
+AGTYce HVc 0 0
+45 25 10d50+9500 5d50+500 4d10+30 claw
+-25 -25 -25 -5
+A ABU 0 0
+stand stand either 500
+0 0 large unknown
+F par BCHJKU
+M death 35470 100~
+M fight 35471 15~
+#35471
+sprite air pixie~
+an air sprite~
+A minute air sprite darts about upon the currents of clear air.
+~
+You find it difficult to get a good look as the creature flies quickly
+by, streaming what you could swear to be the pixie dust of myth behind
+it as it bobs and darts about.
+~
+unique~
+AGW PT 1000 0
+40 10 10d15+2000 5d15+1200 4d8+12 magic
+-12 -12 -12 -1
+0 ABU 0 HM
+stand stand either 400
+0 ADEF small unknown
+M fight 35472 20~
+M death 35473 100~
+M random 35488 1~
+M random 35488 2~
+#35472
+imp quasit demon~
+a demonic quasit imp~
+A quasit imp lurks through the shadows along the ground.
+~
+This little (relatively) quasit appears to have taken over a small cave
+within the pixie forest.  His leathery grey skin, horns, bony frame and
+spiked tail mark him as a minor demon, perhaps here of his own accord,
+or perhaps to keep a watchful eye on the forest's creatures...
+~
+unique~
+AGY PVu -1000 0
+50 30 25d10+5500 5d50+3350 6d6+33 none
+-15 -15 -15 -15
+EFJ ABU 0 0
+stand stand male 900
+D 0 medium unknown
+M death 35475 100~
+M fight 35474 40~
+M give 35484 35468~
+#35473
+pixie water sprite~
+a water pixie~
+A water pixie frolics and dances along the water.
+~
+A lithe water sprite dances upon the surface here, enjoying your presence
+with a delightful laugh... oblivious to the danger you present.
+~
+unique~
+ABGe PV 1000 0
+40 0 5d10+2250 25d2+2450 6d5+30 magic
+-10 -10 -10 -10
+F ABU 0 0
+stand stand either 500
+D 0 small unknown
+M death 35476 100~
+M fight 35477 40~
+#35474
+sprite air pixie~
+an air sprite~
+A minute air sprite darts about upon the currents of clear air.
+~
+You find it difficult to get a good look as the creature flies quickly
+by, streaming what you could swear to be the pixie dust of myth behind
+it as it bobs and darts about.
+~
+unique~
+ABGH HPTV 1000 0
+43 15 10d15+2000 5d15+1200 4d10+12 magic
+-12 -12 -12 -1
+0 ABU CD HM
+stand stand either 700
+0 ADEF small unknown
+M fight 35478 40~
+M death 35479 100~
+M give 35481 35469~
+#35475
+guard invisible~
+an invisible guard~
+An invisible guard stays here, guarding forest.
+~
+You see only swirling air.
+~
+human~
+ABCGe BDFHZcflmt 0 0
+100 0 1d30000+10000 0d0+0 1d50+50 none
+0 0 0 0
+0 CDE 0 0
+stand stand none 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+M grall 35480 100~
+W 92
+I 92
+#35476
+leprechaun~
+leprechaun~
+The small leprechaun holds pot with golden coins in its hands.
+~
+Someone decide to visit me.. Nice, nice..
+~
+unique~
+Ae P 0 0
+15 2 10d10+250 5d50+150 5d1+1 magic
+-1 -1 -1 -1
+0 0 0 0
+stand stand none 100
+D 0 small unknown
+M random 35482 2~
+M bribe 35483 10000~
+#35477
+tree guardian~
+a guardian tree~
+The giant guardian tree appears before you.
+~
+It's the most beautiful tree in this forest. Its stands here
+guarding one of secret forest meadow. Its mightly branch blocks
+you way. This tree needs something for passing you to the glade.
+But what?..
+~
+tree~
+ABGe DFHZclmt 1000 0
+50 30 50d10+8250 5d50+1225 11d5+35 pound
+0 0 0 0
+0 BU B 0
+stand stand none 1000
+0 0 gargantuan unknown
+M death 35485 100~
+M random 35486 1~
+M give 35487 35467~
+#0
+
+#OBJECTS
+#35464
+cloak green~
+a green cloak~
+A green cloak lies on the ground.~
+leaves~
+armor 0 AK
+10 10 10 10 0
+30 0 0 P
+S 'shrink' 75 A
+S 'enlarge' 75 A
+E
+cloak~
+This cloak was make from green leaves. It's beautiful.
+~
+G none
+#35465
+bark wooden~
+a wooden bark~
+A peace of wooden bark lies here.~
+bark~
+armor 0 AD
+25 25 25 25 0
+40 2 550 P
+A
+13 25
+A
+19 3
+A
+18 3
+G none
+#35466
+stump old~
+an old stump~
+An old stump is here, in the center of glade.~
+wood~
+container 0 0
+50000 0 0 10 10
+1 10 10 P
+G none
+#35467
+branch small~
+a small branch~
+The small branch with several oak leaves on it lies on the ground.~
+wood~
+jewelry 0 A
+0 0 0 0 0
+1 1 100 P
+A
+0 0
+E
+branch~
+It's small oak branch with several leaves on it.
+~
+G none
+#35468
+emerald gem~
+an emerald~
+The sparkling emerald lies on the ground.~
+emerald~
+gem A A
+0 0 0 0 0
+1 1 10000 P
+E
+emerald~
+It's the beautiful sparkling emerald. You realize why demonic imp
+from west caves is looking for that gem.
+~
+G none
+#35469
+leaf oak~
+an oak leaf~
+A small oak leaf lies on the ground.~
+leaf~
+treasure 0 A
+0 0 0 0 0
+0 1 750 P
+E
+leaf oak~
+It's simple green oak leaf. 
+~
+G male
+#35470
+pearl black~
+a black pearl~
+A strange black pearl seems to stare back at you.~
+black pearl~
+gem C AO
+0 0 0 0 0
+40 1 4000 P
+A
+19 3
+A
+13 25
+A
+12 50
+G male
+#35471
+claw forest bear~
+the claw of a forest bear~
+The giant claw of a forest bear draws your curiosity.~
+claw~
+weapon 0 AN
+exotic 6 8 claw D
+45 10 4500 P
+A
+19 5
+A
+18 5
+G male
+#35472
+wing crystal pixie~
+a crystal pixie wing~
+A crystal pixie wing flutters aimlessly.~
+magic~
+armor K AI
+-10 -10 -10 -10 0
+40 1 2000 P
+A
+13 50
+G none
+#35473
+hoop water sprite ring~
+a hoop of flowing water~
+A ring formed from a circle of flowing water lies here.~
+water~
+jewelry A AB
+0 0 0 0 0
+40 1 2500 P
+A
+18 8
+A
+19 1
+A
+13 20
+G none
+#35474
+potion beaker plentiful potions~
+a beaker of plentiful potions~
+A mystical concoction is here waiting to be quaffed.~
+magic~
+potion A AO
+0 'cure critical' 'armor' 'refresh' 'cure light'
+45 1 450 P
+G none
+#35476
+smooth waters water~
+waters smooth as crystal~
+Waters smooth as crystal absorb the ripples of your passage.~
+water~
+warp_stone AGI AO
+0 0 0 0 0
+35 1 1500 P
+G none
+#35477
+pearl black~
+{Da black pearl{x~
+A strange black pearl seems to stare back at you.~
+pearl~
+gem ACQ AO
+0 0 0 0 0
+45 1 7690 P
+A
+13 50
+A
+19 5
+A
+18 5
+A
+12 100
+G none
+#35478
+hoop water sprite ring~
+{ca hoop of flowing water{x~
+A ring formed from a circle of flowing water lies here.~
+water~
+jewelry AQ AB
+0 0 0 0 0
+45 1 2500 P
+A
+13 100
+A
+12 50
+G none
+#35479
+wing crystal pixie zzz~
+{Wa crystal pixie wing{x~
+A crystal pixie wing flutters aimlessly.~
+magic dust~
+armor AGKQ AI
+-10 -10 -10 -10 0
+43 1 780 P
+A
+13 50
+F A 0 0 V
+F A 0 0 T
+G plural
+#35480
+claw forest bear~
+{Wthe claw of a forest bear{x~
+The giant claw of a forest bear draws your curiosity.~
+claw~
+weapon Q AN
+exotic 5 11 claw DE
+45 10 5500 P
+A
+19 10
+A
+18 10
+G male
+#35481
+amulet wooden~
+{ya wooden amulet{x~
+The small wooden amulet lies here.~
+wood~
+armor A AC
+-10 -10 -10 -10 0
+45 1 5000 P
+A
+8 1
+A
+12 50
+A
+20 -5
+F R 0 0 H
+G none
+#35482
+bark wooden~
+{ya wooden bark{x~
+A peace of wooden bark lies here.~
+bark~
+armor Q AD
+25 25 25 25 0
+45 2 550 P
+A
+18 6
+A
+19 6
+A
+13 50
+G none
+#0
+
+#ROOMS
+#35468
+The forest meadow~
+You stand on small glade.  The trees around you are tall and
+lush,  leaving not much room for the sun to enter into these
+sacred lands. There is a fresh breeze in the air and the trees
+are rocking freely.
+~
+0 NX inside
+D1
+~
+~
+Z 0 35477
+S
+#35469
+The secret glade~
+You stand on a small glade in the old deep forest. Small spring
+flows from the ground.  Beautiful flowers have a sweet delicate
+fragrance. The woods around you are flled with deer, birds, and
+other animals. 
+~
+0 NX inside
+S
+#35470
+A small clearing~
+You stand near the southwestern edge of a grassy clearing.  A slight
+breeze blows from the north, bending the blades of dark green grass
+towards you.  The clearing continues to the east and to the north.
+~
+0 0 field
+D0
+A small clearing .
+~
+~
+Z -1 35472
+D1
+A small clearing.
+~
+~
+Z -1 35471
+S
+#35471
+A small clearing~
+You stand close to the southeastern edge of a grassy meadow.  A large
+oak nearby casts a shadow over much of this section of the clearing.
+The clearing continues to the north and to the west.
+~
+0 0 field
+E
+tree oak~
+This ancient oak casts a shadow across much of the southeastern section
+of the clearing.  Upon close inspection you notice that the tree has many
+hollows in it where some of the air sprites make their homes.
+~
+D0
+A small clearing.
+~
+~
+Z -1 35473
+D2
+~
+~
+Z -1 6004
+D3
+A small clearing.
+~
+~
+Z -1 35470
+S
+#35472
+A small clearing~
+You stand near the northwestern edge of the grassy clearing, a small
+gust of wind from the north ruffles your clothing.  The clearing 
+continues to the east and to the south.
+~
+0 0 field
+D1
+A small clearing.
+~
+~
+Z -1 35473
+D2
+A small clearing.
+~
+~
+Z -1 35470
+S
+#35473
+A small clearing~
+You stand near the northeastern part of this grass filled meadow.  To
+the north and east paths lead off into the forest.  The clearing itself
+leads on to the south and west.
+~
+0 0 field
+D0
+A path .
+~
+~
+Z -1 35475
+D1
+A path.
+~
+~
+Z -1 35474
+D2
+A small clearing.
+~
+~
+Z -1 35471
+D3
+A small clearing.
+~
+~
+Z -1 35472
+S
+#35474
+A junction in the forest path~
+You have reached a cross of trails leading in four directions.  A clearing
+can be seen to the west, and pathways wander off into the forest to the
+northeast, southeast and north.  From somewhere above, a beam of light
+shines down.
+~
+0 0 forest
+D0
+A path.
+~
+~
+Z -1 35476
+D1
+~
+~
+Z 0 35499
+D3
+A small clearing.
+~
+~
+Z -1 35473
+S
+#35475
+A path through the forest~
+The dirt path you are following through this light forest continues
+to the east and to the south.
+~
+0 0 forest
+D1
+A path.
+~
+~
+Z -1 35476
+D2
+A small clearing.
+~
+~
+Z -1 35473
+S
+#35476
+A path through the forest~
+The path you are following through the forest leads to the north, south
+and west.  The woods north of here seem a bit darker then the rest of
+the woods.
+~
+0 0 forest
+D0
+A small clearing.
+~
+~
+Z -1 35484
+D2
+A path.
+~
+~
+Z -1 35474
+D3
+A path.
+~
+~
+Z -1 35475
+S
+#35477
+A path through the forest~
+The dirt path through this forest continues to the east and south.  The
+footprint of a large animal can be made out where the creature once 
+stepped in some mud which has now dried.
+~
+0 0 forest
+E
+track~
+You recognize the track as belonging to a brown forest bear, whom
+are normally quite docial in this neck of the woods.
+~
+D1
+An intersection in the path.
+~
+~
+Z -1 35478
+D2
+A path.
+~
+~
+Z -1 35499
+S
+#35478
+An intersection in the path~
+The forest path splits off to the north here.  The original trail 
+leads to the east and west.
+~
+0 0 forest
+D0
+A path.
+~
+~
+Z -1 35486
+D1
+A path.
+~
+~
+Z -1 35479
+D3
+A path.
+~
+~
+Z -1 35477
+S
+#35479
+A path through thicker foliage~
+The path through the forest here is crowded in upon by the density
+of tree growth.  The path leads to the north and west and a small
+opening in a cliff face can be seen to the east.
+~
+0 0 forest
+D0
+A path.
+~
+~
+Z -1 35487
+D1
+Too dark to tell.
+~
+~
+Z -1 35480
+D3
+An intersection in the path.
+~
+~
+Z -1 35478
+S
+#35480
+Within a cave~
+You stand within a crevice that leads out into the forest westwards
+and deeper into the darkness eastwards.  The odor of a predator
+lingers in the air here.
+~
+0 0 forest
+D1
+Too dark to tell.
+~
+~
+Z -1 35481
+D3
+A path.
+~
+~
+Z -1 35479
+S
+#35481
+Within a cozy cave~
+The cave continues to the north and west here with the stone walls showing
+signs of wear from constant claw marks.
+~
+0 AD inside
+D0
+Too dark to tell.
+~
+~
+Z -1 35489
+D3
+Too dark to tell.
+~
+~
+Z -1 35480
+S
+#35482
+Deep inside a damp cave~
+Here, deep within the cave, is the decrepit lair of something small.
+Small and ugly and cruel.  The cave floor is littered with the bones
+of small rodents and other creatures, and a dark presence seems to
+loom over the entire cavern.
+~
+0 AD inside
+D1
+Too dark to tell.
+~
+~
+Z -1 35483
+S
+#35483
+Inside a damp cave~
+The tight, damp cave seems to have no walls, the shadows eagerly devouring
+what little light there is.  The darkness continues to the west, while a
+faint ray of light marks the entrance to the east.
+~
+0 AD inside
+D1
+A dark clearing.
+~
+~
+Z -1 35484
+D3
+Too dark to tell.
+~
+~
+Z -1 35482
+S
+#35484
+A dark clearing outside a cave~
+The grass in this clearing has been trampled down by cloven feet.  The
+cave to the west is dark and emits a putrid stench.  Undoubtedly, there
+is some evil afoot within this sanctuary of peaceful creatures.  Paths
+lead on into the forest to the north and to the south.
+~
+0 0 hills
+D0
+A small pond.
+~
+~
+Z -1 35490
+D2
+A path.
+~
+~
+Z -1 35476
+D3
+Too dark to tell.
+~
+~
+Z -1 35483
+S
+#35485
+A grassy beach~
+The grass of this beach is soft, warm and dry, and the ground seems to
+emanate a natural heat, warming your being.  A small pond spreading to
+the north looks to be an inviting place to relax and bathe, and a path
+enters the forest to the east.
+~
+0 0 field
+D0
+A small pond.
+~
+~
+Z -1 35491
+D1
+A path.
+~
+~
+Z -1 35486
+S
+#35486
+A path through the forest~
+The forest path continues to the north and to the south.  Westwards
+a grassy beach can be seen bordering a small pond.
+~
+0 0 forest
+D0
+A dense forest path.
+~
+~
+Z -1 35492
+D2
+An intersection in the path.
+~
+~
+Z -1 35478
+D3
+A grassy beach.
+~
+~
+Z -1 35485
+S
+#35487
+A path through the forest~
+The trees grow less dense on this north and south bound path. To the
+east a cavern entrance can be seen.
+~
+0 0 forest
+D0
+A path.
+~
+~
+Z -1 35493
+D1
+Before a cave entrance.
+~
+~
+Z -1 35488
+D2
+A path.
+~
+~
+Z -1 35479
+S
+#35488
+Before a cave entrance~
+You stand upon a slab of grey stone.  A path leads into the pixie forest
+to the west and the darker regions of a cave lie to the east.
+~
+0 0 forest
+D1
+Too dark to tell.
+~
+~
+Z -1 35489
+D3
+A path.
+~
+~
+Z -1 35487
+S
+#35489
+Within a cozy cave~
+You stand within a rather comfortable cave.  The cavern leads off to the
+north and south with the entrance to the west.  A few dried fish skeletons
+litter the ground, too frail to pick up.
+~
+0 AD inside
+D0
+Too dark to tell.
+~
+~
+Z -1 35495
+D2
+Too dark to tell.
+~
+~
+Z -1 35481
+D3
+~
+~
+Z -1 35488
+S
+#35490
+On a small pond~
+You stand in the southwestern portion of a small pond, shallow enough
+that the cool water comes only up to your waist even at its deepest.
+The pond leads to the north and east while a path leads to south
+unto higher, green grounds.
+~
+0 0 swim
+D0
+A small pond.
+~
+~
+Z -1 35496
+D1
+A small pond.
+~
+~
+Z -1 35491
+D2
+A dark clearing.
+~
+~
+Z -1 35484
+S
+#35491
+On a small pond~
+You wade just inside the southeastern portion of this small, beautiful
+pond.  To the south a grassy beach sprawls invitingly, while the pond
+itself continues to curve to the north and to west.
+~
+0 0 swim
+D0
+A small pond.
+~
+~
+Z -1 35497
+D2
+A grassy beach.
+~
+~
+Z -1 35485
+D3
+A small pond.
+~
+~
+Z -1 35490
+S
+#35492
+A path through thick foliage~
+The path continues to the north, east and south.  The sound of chimes
+can be heard from the north, enticing you to explore further in that
+direction.
+~
+0 0 forest
+D0
+Too dense to see through the foliage.
+~
+~
+Z -1 35498
+D1
+A path.
+~
+~
+Z -1 35493
+D2
+A path.
+~
+~
+Z -1 35486
+S
+#35493
+A turn in the path~
+The path through the forest continues to the south and to the west.  A
+tree near the path has a number of claw markings upon its surface.
+~
+0 0 forest
+E
+tree claw markings scratches~
+Great gashes have been made vertically in this tree by the claws of a large
+creature.
+~
+D2
+A path.
+~
+~
+Z -1 35487
+D3
+Dense foliage.
+~
+~
+Z -1 35492
+S
+#35494
+The bear's sleeping area~
+You have entered the lair of a family of brown bears.  The atmosphere
+is one of peace an tranquility.  Surprisingly the floor is clean and
+free of any remains from previous dinners.
+~
+0 AD inside
+D1
+Too ark to tell.
+~
+~
+Z -1 35495
+S
+#35495
+A bend in the cave~
+The cave continues to the south and west here.  A small spring runs along
+the northern wall offering clean drinking water.
+~
+0 AD inside
+D2
+Too dark to tell.
+~
+~
+Z -1 35489
+D3
+Too dark to tell.
+~
+~
+Z -1 35494
+S
+#35496
+On a small pond~
+You wade through the northwestern portion of a small pond.  The light blue
+waters seem to make your reflection look somehow more youthful.  The pond
+and its strange, shallow waters continue to the east and south, while a
+small pathway to the northeast meanders to the top of a distant hill.
+~
+0 0 swim
+E
+reflection~
+Your reflection seems to depict you as you were at the age of twenty.
+~
+D1
+A small pond.
+~
+~
+Z -1 35497
+D2
+A small pond.
+~
+~
+Z -1 35490
+D4
+~
+~
+Z 0 2492
+S
+#35497
+On a small pond~
+You stand knee-deep in the northeastern portion of a small pond, stirring
+its sandy bottom into the water, turning it ever murkier with each of your
+footsteps.  The pond curves around to the south and to the west.
+~
+0 0 swim
+D2
+A small pond.
+~
+~
+Z -1 35491
+D3
+A small pond.
+~
+~
+Z -1 35496
+S
+#35498
+The crystaline grove~
+You have entered a truly remarkable portion of the forest for every
+tree, leaf, blade of grass is made of a prismatic crystal.  The light
+from above is separated to form an elegant display of natural colors.
+You fear stepping off the stone path, thinking that you may accidentally
+destroy the fine balance of crystaline beauty.
+~
+0 DV forest
+D2
+Dense foliage.
+~
+~
+Z -1 35492
+S
+#35499
+A bend in the path~
+The forest path turns here leading to the north and to the west.  The
+dirt seems very solid, as if used quite frequently.
+~
+0 0 forest
+D0
+A path.
+~
+~
+Z -1 35477
+D3
+~
+~
+Z 0 35474
+S
+#0
+
+#SPECIALS
+M 35470 spec_fido	* a forest bear
+S
+
+#RESETS
+O 0 35466 0 35468	* an old stump (The forest meadow)
+P 0 35481 5 35466 1	* an old stump: {ya wooden amulet{x
+P 0 35464 -1 35466 1	* an old stump: a green cloak
+M 0 35476 1 35469 1	* leprechaun (The secret glade)
+M 0 35471 20 35471 4	* an air sprite (A small clearing)
+M 0 35471 20 35472 2	* an air sprite (A small clearing)
+M 0 35471 20 35474 1	* an air sprite (A junction in the forest path)
+M 0 35469 1 35475 1	* an ancient oak (A path through the forest)
+M 0 35477 1 35477 1	* a guardian tree (A path through the forest)
+E 0 35482 0 5		*	{ya wooden bark{x: on the body
+M 0 35471 20 35478 1	* an air sprite (An intersection in the path)
+M 0 35472 1 35482 1	* a demonic quasit imp (Deep inside a damp cave)
+E 0 35477 0 17		*	{Da black pearl{x: held in the hands
+M 0 35471 20 35485 1	* an air sprite (A grassy beach)
+M 0 35473 20 35490 2	* a water pixie (On a small pond)
+G 0 35474 0		*	a beaker of plentiful potions
+E 0 35478 0 1		*	{ca hoop of flowing water{x: on the left finger
+O 0 35476 0 35490	* waters smooth as crystal (On a small pond)
+O 0 35476 0 35491	* waters smooth as crystal (On a small pond)
+M 0 35470 1 35494 1	* a forest bear (The bear's sleeping area)
+E 0 35480 0 16		*	{Wthe claw of a forest bear{x: wielded
+O 0 35476 0 35496	* waters smooth as crystal (On a small pond)
+O 0 35476 0 35497	* waters smooth as crystal (On a small pond)
+M 0 35473 20 35497 2	* a water pixie (On a small pond)
+G 0 35474 0		*	a beaker of plentiful potions
+E 0 35478 0 2		*	{ca hoop of flowing water{x: on the right finger
+M 0 35474 1 35498 1	* an air sprite (The crystaline grove)
+E 0 35479 0 10		*	{Wa crystal pixie wing{x: on the arms
+M 0 35471 20 35499 2	* an air sprite (A bend in the path)
+S
+
+#OLIMITS
+O 35477 1	* {Da black pearl{x
+O 35478 4	* {ca hoop of flowing water{x
+O 35479 1	* {Wa crystal pixie wing{x
+O 35480 1	* {Wthe claw of a forest bear{x
+O 35481 3	* {ya wooden amulet{x
+O 35482 1	* {ya wooden bark{x
+S
+
+#MOBPROGS
+#35467
+if rand 50
+if race $n felar
+mob echoat $n $I tells you:
+mob echoat $n {w       Young felar?{x
+smile $n
+mob echoat $n $I tells you:
+mob echoat $n {w       You can find pretty amulet in this forest. It gives defence against{x
+mob echoat $n {w       fire. I suppose you need it. Or has anyone found already this amulet?{x
+mob echoat $n {w       Anyway, you have a chance.{x
+endif
+endif
+~
+#35468
+if carries $n 35469
+mob echoat $n $I tells you:
+mob echoat $n {w       You have already got my leaf. I can't help you anymore.
+else
+if rand 95
+smile $n
+mob echoat $n $I tells you:
+mob echoat $n {w       I see you are nice polite mortal. And i can give you a secret.
+mob echoat $n {w       Take this leaf, $n, and bring it to young sprite living in
+mob echoat $n {w       crystaline grove. It can transfer you to leprechaun for this leaf.
+mob oload 35469
+give leaf to $n
+else
+sigh
+mob echoat $n $I tells you:
+mob echoat $n {w       One more mortal. And do you search solution of forest secret as
+mob echoat $n {w       many adventures did it before you? Heh.. I'm too tired to help.
+mob echoat $n {w       But I can give you my leaf.{x
+mob oload 35469
+give leaf to $n
+endif
+endif
+~
+#35469
+if rand 50
+mob echoat $q {RYou have violated Gods' order. You will be punished!!!{x
+mob echoaround $q {R$q has violated God's order and will be punished!!!{x
+mob slay $q
+else
+mob echoat $q {RYou have violated Gods' order. You will be punished!!!{x
+mob echoaround $q {R$q has violated God's order and will be punished!!!{x
+mob slay $q
+endif
+~
+#35470
+if rand 50
+if wears $i 35480
+mob echo {WAs the bear breathes its last and collapses with a thud.{x
+mob echo {WYou notice one of its long, curved claws has fallen loose.{x
+else
+mob echo {WAs the bear breathes its last and collapses with a thud.{x
+mob echo {WYou notice one of its long, curved claws has fallen loose.{x
+mob oload 35471
+endif
+else
+if wears $i 35480
+mob echo {WAs the bear breathes its last and collapses with a thud.{x
+mob echo {WYou notice one of its long, curved claws has fallen loose.{x
+else
+mob echo {WAs the bear breathes its last and collapses with a thud.{x
+mob echo {WYou notice one of its long, curved claws has fallen loose.{x
+mob oload 35471
+endif
+endif
+~
+#35471
+if rand 50
+if wears $i 'claw forest bear'
+mob echo {WA forest bear spreads its jaws wide and nearly roars you backwards!{x
+mob damage $q 35 55
+else
+mob echo {WA forest bear spreads its jaws wide and nearly roars you backwards!{x
+mob damage $q 10 20
+endif
+else
+mob echo {WA forest bear spreads its jaws wide and nearly roars you backwards!{x
+mob damage $q 10 20
+endif
+~
+#35472
+if rand 50
+mob echoat $q {MSpray of magic dust whirls around you.{x
+mob echoaround $q {MSpray of magic dust whirls around $q.{x
+mob damage 10 15
+else
+mob echo {WAn air sprite shrieks wildly through the air, trying to avoid harm.{x
+cast nowait 'cure critical' self
+endif
+~
+#35473
+mob echo {WAs the small creature plunges to the surface, a wing is torn off.{x
+mob oload 35472
+~
+#35474
+if rand 50
+mob echo {DA demonic quasit imp's shriek resounds through the cave!{x
+mob damage $q 50 80
+endif
+~
+#35475
+if rand 50
+if wears $i 35477
+mob echo {DAs the foul imp perishes, a small object slips its grasp...{x
+else
+mob echo {DAs the foul imp perishes, a small object slips its grasp...{x
+mob oload 35470
+endif
+else
+if wears $i 35477
+mob echo {DAs the foul imp perishes, a small object slips its grasp...{x
+else
+mob echo {DAs the foul imp perishes, a small object slips its grasp...{x
+mob oload 35470
+endif
+endif
+~
+#35476
+if rand 50
+if wears $i 35478
+mob echo {BA water pixie collapses into the water, forming a circle of liquid.{x
+else
+mob echo {BA water pixie collapses into the water, forming a circle of liquid.{x
+mob oload 35473
+endif
+else
+if wears $i 35478
+mob echo {BA water pixie collapses into the water, forming a circle of liquid.{x
+else
+mob echo {BA water pixie collapses into the water, forming a circle of liquid.{x
+mob oload 35473
+endif
+endif
+~
+#35477
+if rand 50
+mob echo {C$I releases a lash of iced-filled water from its outstretched hand!{x
+mob damage $q 30 50
+endif
+~
+#35478
+if rand 50
+mob echo {WBrightly light surrounds $I.{x
+cast nowait heal self
+cast nowait heal self
+cast nowait heal self
+else
+mob echoat $q {MSpray of magic dust whirls around you.{x
+mob echoaround $q {MSpray of magic dust whirls around $q.{x
+mob damage $q 30 50
+endif
+~
+#35479
+if rand 50
+if wears $i 35479
+mob echo {WAs the small creature plunges to the surface, a wing is torn off.{x
+else
+mob echo {WAs the small creature plunges to the surface, a wing is torn off.{x
+mob oload 35472
+endif
+else
+if wears $i 35479
+mob echo {WAs the small creature plunges to the surface, a wing is torn off.{x
+else
+mob echo {WAs the small creature plunges to the surface, a wing is torn off.{x
+mob oload 35472
+endif
+endif
+~
+#35480
+if isimmort $n
+break
+else
+if level $n >= 50
+mob transfer $n 6004
+say There is no room for so advanced travellers.
+tell $n I'm sorry, but you are too strong for travelling here.
+endif
+endif
+~
+#35481
+giggle
+tell $n I hope you have enough money.
+mob echoat $n An air sprite has transfered you.
+mob transfer $n 35469
+mob echo An air sprite has transfered $n.
+'I hope $n has enough money.
+drop leaf
+mob purge
+~
+#35482
+'Good day.. Give me 100 gold coins and I'll transfer you from here. And I'll give you one emerald. Maybe...
+~
+#35483
+mob echo Leprechaun puts coins in its pot.
+if carries $n 35468
+'You have already got a gem. Go away from here...
+mob transfer $n 35479
+else
+if rand 35
+'Today I'll give you a gem. But next time... Who knows...
+mob oload 35468
+give gem to $n
+'Go away now..
+mob transfer $n 35485
+else
+'Go away, go away... I have nothing for you...
+mob transfer $n 35484
+endif
+endif
+drop 250 gold
+drop emerald
+mob purge
+~
+#35484
+'You are so nice. Thank you. Take this branch as reward.
+mob oload 35467
+give branch to $n
+~
+#35485
+if wears $I 35482
+mob echo {yThe guardian tree dissapears. Only peace of wooden bark remains on the ground.{x
+else
+mob echo {yThe guardian tree dissapears. Only peace of wooden bark remains on the ground.{x
+mob oload 35465
+endif
+~
+#35486
+if rand 50
+'Adventure... If you like to visit secret forest meadow bring me the small woooden branch.
+endif
+~
+#35487
+'Thank you, adventure. You may visit secret forest meadow.
+mob transfer $n 35468
+mob otransfer branch 15000
+~
+#35488
+if rand 50
+'Just bow to old oak. Its like polite adventure which don't forget to greet an ancient tree.
+endif
+~
+#0
+
+#OMPROGS
+O 35480 fight_prog fight_prog_lion_claw	* `{Wthe claw of a forest bear{x'
+S
+
+#$

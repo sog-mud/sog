@@ -31,6 +31,7 @@ Skill 'cure light' 5 1 0
 Skill 'cure poison' 33 1 0
 Skill 'cure serious' 10 1 0
 Skill 'anathema' 65 1 0
+Skill 'detect evil' 1 1 0
 Skill 'detect invis' 23 1 0
 Skill 'detect undead' 19 1 0
 Skill 'dispel evil' 35 1 0

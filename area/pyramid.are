@@ -123,8 +123,8 @@ A mummy reaches for you, disturbed by your presence.
 You only see the disfigured, rotting features of decaying human flesh,
 animated by the distempered spirit of a long-deceased person.
 ~
-human~
-AG J -600 0
+undead~
+AG 0 -600 0
 12 0 2d10+150 6d9+100 1d10+3 none
 0 0 0 8
 EFNU 0 0 0
@@ -290,8 +290,8 @@ you, clad only in the raiments he was left in when he last slept.  His hair is
 a soft black, his skin a deep chocolate, and his tall frame is totally still, 
 his chest not even moving to breathe.
 ~
-human~
-ABQ DEHJN 150 0
+undead~
+ABQ EHN 150 0
 38 0 10d10+1600 38d9+100 3d10+12 none
 -13 -13 -13 3
 EIKU 0 0 0

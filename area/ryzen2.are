@@ -30,13 +30,13 @@ A wicked looking wraith stares at you, chilling your soul
 ~
 The wraith floats slowly towards you, searching for a new soul to consume.  
 ~
-human~
-AGO JU -1000 0
+undead~
+AGO 0 -1000 0
 34 0 9d80+1200 34d10+100 4d7+10 claw
 -11 -10 -11 5
-CEFH 0 0 NY
-stand stand none 0
-I 0 medium unknown
+CEFH 0 0 0
+stand stand none 100
+0 0 medium unknown
 #22004
 ghastly spectre~
 a spectre~
@@ -155,13 +155,13 @@ A large undead beast stands here.  Multiple bones stick through its rough
 hide, creating spear like points.  Its skin has decayed away, leaving the
 ribs and organs exposed.  ICK!  
 ~
-unique~
-ABFGO JZ -900 0
+undead~
+ABFGO Z -900 0
 38 0 9d50+1600 38d10+4100 5d6+12 bite
 -13 -13 -13 3
-CDEF 0 0 NY
+CDEF 0 0 0
 stand stand none 454
-AGIV ACDEFJKQV large unknown
+G QV large unknown
 #22012
 cleric holy~
 a Holy Cleric~
@@ -1178,6 +1178,9 @@ S
 #0
 
 #SPECIALS
+M 22003 spec_cast_undead	* a Wicked Wraith
+M 22005 spec_cast_undead	* a ghoul
+M 22009 spec_cast_undead	* the ghoul lord
 M 22010 spec_breath_lightning	* A Deep Dragon
 M 22012 spec_cast_cleric	* a Holy Cleric
 M 22015 spec_cast_mage	* A Powerful Enchantress

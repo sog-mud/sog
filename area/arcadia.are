@@ -1172,6 +1172,18 @@ light A A
 0 0 30 0 0
 50 1 0 G
 A
+14 30
+A
+12 30
+A
+13 30
+A
+20 -5
+A
+19 5
+A
+18 5
+A
 1 4
 G none
 #12023
@@ -6280,6 +6292,7 @@ M 0 12049 1 12157 1	* A BranSidhe (Under the Hill)
 S
 
 #OLIMITS
+O 12022 1	* A fiery ember
 O 12049 1	* night's blood
 O 12070 1	* yew bow
 S

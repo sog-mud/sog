@@ -421,8 +421,8 @@ This lustful demoness is the current concubine of Korgthar, though her
 appetite is insatiable and she is always on the lookout for new prey... err
 ... lovers.
 ~
-unique~
-ABGH DJTu -1000 0
+undead~
+ABGH Tu -1000 0
 49 0 50d10+4000 5d5+1000 4d10+18 pound
 -19 -19 -19 1
 EFIU 0 0 0
@@ -692,8 +692,8 @@ A vampire smiles at you...
 This vamp is treacherous and deadly. You can see why Krothgar likes having
 her around...
 ~
-human~
-ABGH DJTUu -1000 0
+undead~
+ABGH Tu -1000 0
 52 0 50d10+4750 5d5+5000 6d7+20 drain
 -22 -22 -22 0
 EFIKNQ 0 0 0

@@ -12,32 +12,32 @@ End
 @eng {DShades of Gray{x is based on Anatolia MUD -- see {CHELP ANATOLIA{x.
 
                      Original idea, concept and coding:
-        fjoe                                    (fjoe@@iclub.nsu.ru)
-        Constantin Svintsoff           [{cNergal{x] (kostik@@iclub.nsu.ru)
-        Alexey Neyman                  [{cArborn{x] (avn@@org.chem.msu.su)
+        fjoe                           [{cTyan{x]   (fjoe@@plesk.com)
+        Constantin Svintsoff           [{cNergal{x] (cs@@plesk.com)
+        Alexey Neyman                  [{cArborn{x] (avn@@any.ru)
 
                         Web page design:
         Denis Petrakov                          (den@@oapmg.sscc.ru)
  
                         Message translation:
         Alexander Morokhovets                   (efdi@@iclub.nsu.ru)
-        Tatyana Novikova               [{cArwen{x]  (tatyana@@iclub.nsu.ru)
+        Tatyana Novikova               [{cPhrinn{x] (tatyana@@emf.rimusa.org)
 
                         Area translation:
         Rinat Hamidov                  [{cStark{x]  (rony@@dzs.nnn.tstu.ru)
-        Alexey Neyman                  [{cArborn{x] (avn@@org.chem.msu.su)
+        Alexey Neyman                  [{cArborn{x] (avn@@any.ru)
         Viktor Gluhov                  [{cKami{x]   (mibus@@mail.ru)
-        Tatyana Novikova               [{cArwen{x]  (tatyana@@iclub.nsu.ru)
+        Tatyana Novikova               [{cPhrinn{x] (tatyana@@emf.rimusa.org)
         Igor Olekhnovitch              [{cAgrael{x]
  
                         Help translation:
-        Alexey Neyman                  [{cArborn{x] (avn@@org.chem.msu.su)
+        Alexey Neyman                  [{cArborn{x] (avn@@any.ru)
         Andrey Eliseev                 [{cRondor{x] (eliseev@@inorg.chem.msu.ru)
 @rus {DShades of Gray{x составлен на основе MUDа Anatolia -- смотри {CHELP ANATOLIA{x.
 
                  Первоначальная идея, концепция и кодирование:
-        fjoe                                    (fjoe@@iclub.nsu.ru{x)
-        Константин Свинцов             [{cNergal{x] (kostik@@iclub.nsu.ru{x)
+        fjoe                           [{cTyan{x]   (fjoe@@plesk.com)
+        Константин Свинцов             [{cNergal{x] (cs@@plesk.com)
         Алексей Нейман                 [{cArborn{x] (avn@@org.chem.msu.su{x)
  
                       Дизайн Web-страницы:
@@ -45,17 +45,17 @@ End
 
                           Перевод сообщений:
         Александр Мороховец                     (efdi@@iclub.nsu.ru)
-        Татьяна Новикова               [{cArwen{x]  (tatyana@@iclub.nsu.ru)
+        Татьяна Новикова               [{cPhrinn{x] (tatyana@@emf.rimusa.org)
  
                             Перевод арий:
         Ринат Хамидов                  [{cStark{x]  (rony@@dzs.nnn.tstu.ru)
-        Алексей Нейман                 [{cArborn{x] (avn@@org.chem.msu.su)
-        Татьяна Новикова               [{cArwen{x]  (tatyana@@iclub.nsu.ru)
+        Алексей Нейман                 [{cArborn{x] (avn@@any.ru)
+        Татьяна Новикова               [{cPhrinn{x] (tatyana@@emf.rimusa.org)
         Виктор Глухов                  [{cKami{x]   (mibus@@mail.ru)
         Игорь Олехнович                [{cAgrael{x]
  
                           Перевод помощи:
-        Алексей Нейман                 [{cArborn{x] (avn@@org.chem.msu.su)
+        Алексей Нейман                 [{cArborn{x] (avn@@any.ru)
         Андрей Елисеев                 [{cRondor{x] (eliseev@@inorg.chem.msu.su)
  
 ~
@@ -884,7 +884,7 @@ note list можно использовать с расширенным синтаксисом для фильтрования
 Существует еще четыре доски обьявлений, это {cideas{x, {cnews{x, {cchanges{x и 
 {cpenalties{x (только для богов). Они используются точно так же.
 Написание обьявлений на доски news и changes доступно только богам.
-С помощью команды {cunread{x ты можешь сколько непрочитанных у тебя
+С помощью команды {cunread{x ты можешь узнать сколько непрочитанных у тебя
 сообщений.
 ~
 0 SHOUT YELL GOSSIP MUSIC~
@@ -3282,13 +3282,13 @@ This spell makes victim aggressive for a while.
 @eng Syntax: {ccast 'healing light'{x
 Syntax: {ccast 'mind light'{x
  
-These spells increase hp/mana regeneration of all characters in the room you
-caster stands in.
+These spells increase hp (healing light) or mana (mind light) regeneration
+of all characters in the room caster uses it.
 @rus Синтаксис: {ccast 'healing light'{x
 Синтаксис: {ccast 'mind light'{x
  
-Эти заклинания ускоряют восстановление здоровья и маны в комнате, где стоит
-чародей.
+Эти заклинания ускоряют восстановление здоровья (healing light) и маны
+(mind light) в комнате, где они использованы.
 ~
 0 'LIGHTNING SHIELD' 'SHOCKING TRAP' SETTRAPS~
 @eng Syntax: {ccast 'lightning shield'{x
@@ -4100,6 +4100,7 @@ for deletion. For other matters, use common sense.
 4. Do not use charmed pets to PK people who are out of your PK range.
    If a person is not in your pk range, and they do not initiate an attack on
    your group member, then your pets had better not touch them.
+   Do not kill any chars without your pk range in any ways (except clan areas)
 5. Your presence here is a privilege not a right.  Obey any orders from gods,
    and you will be fine.  
 6. MULTICHARRING: You may have more than one character, but you may not use
@@ -4127,7 +4128,7 @@ for deletion. For other matters, use common sense.
   these rules.
 
   Changes  to these rules are at the discretion of the immortals, and
-  may be done withoutwarning, notice, or even evidence of sanity.
+  may be done without warning, notice, or even evidence of sanity.
 ~
 0 LAWS LAW ~
 @eng The laws of the land that shall be enforced by the Enforcer Clan are as
@@ -4719,9 +4720,9 @@ game.
                              {cтяжело ранишь{x
                               {cопустошаешь{x
                                {cкалечишь{x
-                               {MУРОДУЕШЬ{x
-                               {MКАЛЕЧИТ{x
-                              {MРАСЧЛЕНЯЕТ{x
+                               {M РАНИШЬ{x
+                               {MКАЛЕЧИШЬ{x
+                              {MРАСЧЛЕНЯЕШЬ{x
                                {MУРОДУЕШЬ{x
                               {MОПУСТОШАЕШЬ{x
                       {y*** РАЗРЫВАЕШЬ НА ЧАСТИ ***{x
@@ -4754,6 +4755,9 @@ ZMud 3.62a  -- notelnet on, noiac on
 tt++ 1.5pl6 -- notelnet on, noiac on
 tf 4.0g3    -- notelnet off, noiac off
  
+PS. К сожалению, есть проблемы со zmud 5.5, поэтому, если вы его
+используите, следите, чтобы при выходе у вас было notelnet off, noiac off.
+Сорри за неудобство.
 ~
 0 'OLC AEDIT'~
 Syntax: edit area	 -Enters the editor for the current area.
@@ -5308,55 +5312,35 @@ REMEMBER   [victim]                FORGET
 CALL       [vnum] [victim] [target1] [target2]
 ~
 0 'CLAN SHALAFI' SHALAFI~
-@eng   ... and the time has come when High council of mages decided that no  longer 
-disorder  shall  be tolerated.  Mages  slayed  each other, loosing  secrets of 
-ancient art of magic. Council summoned all powerful mages.
-  
-    And  there  were vampires,  warlocks and anti-paladins,  necromancers  and
-witches, clerics and paladins. Children of light and darkness, they laid aside
-their  quarrels  to save what can be saved  in the art  of magic  and  even to 
-invent new spells. No one  knows what had been  said there. Death would be the 
-lightest punishment to those who do not keep these secrets. Masters  of  their
-arts, they found a salvation. They had brought forth Diablo, god of death.  He
-lead them to forge an Order, which was named Shalafi. One of  the best witches
-in this realm, Lilith, Queen of Night, was promoted to lead the Order. 
-  
-No one  outside that Order  knows  what happens  there.  Few  can  undergo the 
-challenges to enter it and even less can withstand trials to stay there. Those
-who fail are never to be adopted in Shalafi. And shall a mage serve any  other
-cause except for the cause of magic, his life will be forfeit as well. All mem-
-bers of the Order will track him down, until that renegade dies.
- 
-@rus И настал день, когда Посвященные черной и белой магии решили, что больше нельзя
-мириться со сложившейся ситуацией -- с тем, что маги убивают друг друга, с тем,
-что древнее искусство становиться все более доступным, с тем, что теряются
-секреты мастерства. И был брошен клич, созваны все, кого волновала судьба
-магического искусства.
-
-Так, на грани миров, между светом и тенью, собрались наиболее искусные и
-преданные своему делу. Пришли антипаладины и варлоки, некромансеры и ведьмы,
-паладины и клерики. Были там и вампиры. Всех их объединяло одно -- все они 
-были настоящими мастерами своего дела. Там, на совете, дети света и дети тени
-забыли о своих личных распрях и вместе искали выход, решали, что делать.
-Никому не ведомо, что говорилось на том совете, ибо это стало той самой
-страшной тайной, за разглашение которой наказание -- смерть. Миру явлен был 
-лишь результат -- вновь вызванный из небытия в мир бог смерти {DДиабло{x,
-ставший отныне и покровителем нового магического ордена -- {WShalafi{x.
-
-Никому в мире неведомо, что происходит в ордене. Известно лишь, что в орден
-принимаются лишь самые искусные в своем деле после сложного испытания,
-проходят которое лишь единицы. (Те же, кто не прошел, теряют навсегда   
-возможность стать одним из Shalafi) И то, что для члена ордена любой маг,
-обративший свою силу на служение кому или чему-либо кроме ордена, является
-отступником и врагом, которого он будет преследовать до своего смертного часа.
-Исключение могут составлять отношения с союзниками ордена, но маг всегда
-должен помнить что тот с кем он общается -- отступник и не злоупотреблять
-этим.
-
-Лидером ордена стала одна из самых прекрасных ведьм сего мира --
-==================== Лилит {DTentatrice{x =====================
- 
-В настоящее время предводительницей Посвященных является Алона.
+@rus Магия... Она лежит в основе всех вещей, но, увы, не всем дано почувствовать,
+осознать и понять это. И находятся существа, стремящиеся уничножить ее, не
+понимая, что это уничтожить мир, в котором они живут.
+  Чтобы этого не произошло, а также чтобы не допустить дилетантов и невежд
+до великого Искусства, на заре времен был создан Орден Истинных Магов, наз-
+ванный Шалафи, что в переводе значит "мастер".
+  Когда создавался Орден был создан совет Семи, в который вошли по одному
+представителю от каждой магической профессии: повелитель нежити некромансер,
+боевой маг варлок, следующие путем света паладин и клерик, адепт темных сил
+антипаладин, вампир и колдунья. Председатель совета Семи являлся и лидером
+Ордена Шалафи, а сами члены совета были его ближайшими сподвижниками, совет-
+никами и помошниками. Этот порядок существует до сих пор, и будет существо-
+вать впредь. Члены совета ищут по миру одаренных молодых существ, способных
+в совершенстве овладеть магическим искусством и стать достойными звания
+Истинного Мага.
+  Многие члены ордена с момента его основания пали жертвами времени, были
+и такие, кто пал от стального клинка, направленного членом так называемого
+"братства воинов", неведающих Что они творят и к чему это может привести,
+если на их пути не будем стоять мы. Но на смену тем, кто ушел, всегда при-
+ходили молодые, более сильные и искуссные.
+  Если ты чувствуешь, что служить Магии это твое призвание, твое предназ-
+начение. Если ты не можешь спокойно смотреть как воины глупо крушат ее
+прекрасные творения. Если ты хочешь противостоять этому и чувствуешь, что
+это твоя судьба, то тебе стоит стать одним из членов Ордена, где старшие
+товарищи обучат тебя своим секретам и умениям, помогут достичь вершин мас-
+терства, чтобы вместе служить единой цели и противостоять грубой силе.
+  Однако, не думай, что вступить в Шалафи просто. Тебя ждут суровые испытания
+и период послушничества. Многие сдаются, но мы верим, если ты в душе Маг, то
+тебе самой судьбой предназначено быть одним (или одной) из нас!
 ~
 0 'CLAN INVADER' INVADER~
 @rus {RВласть{x. Природа власти...
@@ -5811,7 +5795,7 @@ Thanks to ...
 * Added multi-language support command. See '{Clanguage{x' command.
 * Added short mode for flags. See '{CHELP TOGGLE{x'.
 * {CGossip{x and {Cmusic{x channels added.
-* Use '{Cbug{x' command or mail to {Cmud@@iclub.nsu.ru{x for bug reports
+* Use '{Cbug{x' command or mail to {Csog@@any.ru{x for bug reports
   and suggestions.
 * Players who use russian codepages, see '{CHELP RUSSIAN{x'.
 * Check out our homepage at {Chttp://sog.any.ru/{x.
@@ -5837,7 +5821,7 @@ be found by typing {CHELP LAWS{x or {CHELP COMMANDMENTS{x.
  {G*{x Игрокам можно менять плохие имена при помощи команды RENAME
 ~
 92 JOBS~
-This is a partial list of what a god of any given level should be doing. It is
+@eng This is a partial list of what a god of any given level should be doing. It is
 not complete yet.
 
 Angels:(92-94)
@@ -5859,7 +5843,7 @@ punishment.
 Gods:(97-99)
 Gods can run quests just like Deities, and it's nice to do reimbursements too.
 However, the main role of a God is keeping the peace.  Gods can enforce (but
-not create rules), using the various NOTELL-class commands, as well as deny,
+not create) rules, using the various NOTELL-class commands, as well as deny,
 purge, freeze, and ban (but be careful with these commands!)  Gods are expected
 to help make the mud run more smoothly, power trips are strictly verbotten.
 
@@ -6906,7 +6890,7 @@ TITLE устанавливает титул указанного персонажа.
                              . .\_ .\{y|.|{G.._/._/.
                                  . \.{y|@@{G/._/.
                                    .\.{y@@{G./.
-{Y                  Diablo            Arwen       Arborn{G
+{Y                   Phrinn           Arborn        Rakot{G
                .____---__          {y |@@@@@@|{G      __----__..
                ./../. /. \__ .     {y |@@@@@@|{G _ __/..\__.\.\.
                  ./. .. _/. \__    {y |@@@@@@|{G/_/ .\:..\. .\.
@@ -6925,12 +6909,12 @@ TITLE устанавливает титул указанного персонажа.
                                    {y|@@@@@@@@@@|{G    . . . ______------____ . .  
                                    {y|@@@@@@@@@@|{G ... ____/\__.. \_. ..\ ..\___ .
                                    {y|@@@@@@@@@@|{G.___/ . .\__.. ./ \__. .. / ..\.
-{Y          JullyRoger McLoud   {G     {y|@@@@@@@@@@|{G/. .\. ... \. .. . .  .  . . 
+                                   {y|@@@@@@@@@@|{G/. .\. ... \. .. . .  .  . .
        .. .___-----______. . .     {y|@@@@@@@@@@|{G     . .
        . /. ./..__/ .. . \._._ . . {y|@@@@@@@@@@|{G
       . /\ . . /.. .  . _/.. .\.__.{y|@@@@@@@@@@|{G
        ...   ...     . /..  . . ..\/{y@@@@@@@@@@|{G
-                      ..          .{y|@@@@@@@@@@|{G              {Y Shamash{G
+                      ..          .{y|@@@@@@@@@@|{G              {Y        {G
                                    {y|@@@@@@@@@@|{G  ..  . _______--------______  . .
                                    {y|@@@@@@@@@@|{G ..____/. . . .\ ... . \ . . \___ 
                                    {y|@@@@@@@@@@|{G__/.. .\_.. .. .\__. ../\ . . \ .\
@@ -6941,7 +6925,7 @@ TITLE устанавливает титул указанного персонажа.
  ._/\  \..  /. ./. ./.. .. .\_____.{y|@@@@@@@@@@|{G
  . . . /\. .. ./.  .\.     ./ . . \/{y@@@@@@@@@@|{G
       . ..     .    .      ...   . {y|@@@@@@@@@@|{G
-                                   {y|@@@@@@@@@@|               {YVivien Maedhros
+                                   {y|@@@@@@@@@@|               {Y
                                    {y|@@@@@@@@@@|{G      . .  ..______------_____. ..
                                    {y|@@@@@@@@@@|{G.. .. ______/. . . \_ ../ . ./\___
                                    {y|@@@@@@@@@@|{G.____/. \.. \_. . ./ \__ .. .\ .\_
@@ -7321,9 +7305,6 @@ PS: Do not forget about {{x at the end of your description.
 @rus Синтаксис: {cdescription{x
 
 Используй эту команду для ввода описания твоего персонажа.
- 
-PS. Если вы использовали цвета в своем описании, не забывайте
-о {{x в конце.
 ~
 0 PROMOTE~
 @eng Syntax: {cpromote{x <character> <position>
@@ -7531,7 +7512,439 @@ will follow his master when he leaves this realm.
 Вылупившийся дракон будет следовать за своим хозяином и исполнять его приказы,
 он последует за хозяином даже когда хозяин временно покинет этот мир.
 ~
-0 DRAGON~
+1 ABOLISH UNDEAD~
+@eng Syntax: {ccast 'abolish undead' <victim>{x
+ 
+Good aligned high level clerics and paladins have a chance to destroy
+undead instantly. Victim's gear also will be destroyed.
+@rus Синтаксис: {ccast 'abolish undead' <victim>{x
+ 
+Паладины и жрецы высокого уровня, посвятившие свою жизнь служению
+добру, могут в мгновение ока уничтожить нежить. Все вещи, ей при-
+надлежавшие, также уничтожаются.
+~
+1 resilience~
+Syntax: {ccast resilience{x
+ 
+This spell makes you resistive to pure energy attacks.
+~
+92 _RELIGION~
+@eng Syntax: {csay{x <god name>
+
+Find the Templeman in Midgaard or in Old Midgaard and say the name
+of god/goddess you worship. There are following religions available:
+
+   {CGod      Ethos               To you          To enemy{x
+----------------------------------------------------------------------
+{WLirail      {gLawful Good{x         cure critical   holy word
+{WAmtinor     {gNeutral Good{x        cure critical   ---
+                                cure disease    ---
+                                cure poison     ---
+{WUlwark      {gChaotic Good{x        cure critical   ray of truth
+{WThrorgrim   {gLawful Neutral      {xcure critical   faerie fire
+{WAulin       {gTrue Neutral        {xcure critical   bluefire
+{WIrian       {gChaotic Neutral     {xhaste           ---
+                                bless           ---
+                                shield          ---
+                                stone skin      ---
+                                cure critical   ---
+{WIlissa      {gLawful Evil         {x---             acid blast
+{WHathir      {gNeutral Evil        {x---             fireball
+{WMoarith     {gChaotic Evil        {x---             demonfire
+{WDakkorn     {gAny                 {xcure critical   scream
+{WStivrosh    {gAny                 {xberserk         ---
+                                warcry          ---
+{WGwinnerai   {gAny                 {xadditional attack
+{WTrussk      {gNot Good            {x---             poison
+                                ---             blindness
+                                ---             curse
+                                ---             energy drain
+                                ---             slow
+                                ---             weaken
+{WLessa       {gAny                 {xbless           ---
+                                mana restore    ---
+                                cure critical   ---
+{WCalamir     {gAny                 {xcure critical   flamestrike
+{WVilirna     {gAny                 {xdragon strength dragon breath
+{WCariel      {gAny                 {xheal            ---
+                                cure critical   ---
+@rus Синтаксис: {csay{x <имя бога>
+ 
+Найди храмовника в Мидгаарде или в Старом Мидгаарде и скажи ему имя бога,
+которому ты поклоняешься. Доступны следующие религии:
+ 
+{C   Бог      Расположение        Тебе            Врагу{x
+----------------------------------------------------------------------
+{WLirail      {gLawful Good{x         cure critical   holy word
+{WAmtinor     {gNeutral Good{x        cure critical   ---
+                                cure disease    ---
+                                cure poison     ---
+{WUlwark      {gChaotic Good{x        cure critical   ray of truth
+{WThrorgrim   {gLawful Neutral      {xcure critical   faerie fire
+{WAulin       {gTrue Neutral        {xcure critical   bluefire
+{WIrian       {gChaotic Neutral     {xhaste           ---
+                                bless           ---
+                                shield          ---
+                                stone skin      ---
+                                cure critical   ---
+{WIlissa      {gLawful Evil         {x---             acid blast
+{WHathir      {gNeutral Evil        {x---             fireball
+{WMoarith     {gChaotic Evil        {x---             demonfire
+{WDakkorn     {gAny                 {xcure critical   scream
+{WStivrosh    {gAny                 {xberserk         ---
+                                warcry          ---
+{WGwinnerai   {gAny                 {xдополнительная атака
+{WTrussk      {gNot Good            {x---             poison
+                                ---             blindness
+                                ---             curse
+                                ---             energy drain
+                                ---             slow
+                                ---             weaken
+{WLessa       {gAny                 {xbless           ---
+                                mana restore    ---
+                                cure critical   ---
+{WCalamir     {gAny                 {xcure critical   flamestrike
+{WVilirna     {gAny                 {xdragon strength dragon breath
+{WCariel      {gAny                 {xheal            ---
+                                cure critical   ---
+~
+92 LIRAIL~
+{WLirail, Goddess of Order and Protection.{x
+
+  Lirail is lawful good. She promotes Order, Chivalry, Law and Protection.
+All persons following this religion always tell the truth, keep theirs word,
+help those in need and speak out against injustice. They fight evil without
+mercy and protect innocent without hesitaton.
+
+        To you: cure critical
+        To enemy: holy word
+~
+92 AMTINOR~
+{WAmtinor, God of Woodlands.{x
+
+  Amtinor is neutral good. He watches over all people who live in the
+forest and love the woodlands. He is worshiped by rangers. Persons who
+follow this religion are devoted to helping other. Amtinor is protector
+of Animal, Plant and Good.
+
+         To you: cure critical
+         To you: cure poison
+         To you: cure disease
+~
+92 AULIN~
+{WAulin, Goddess of Knowledges.{x
+
+  Aulin is true neutral. As goddess of knowledges she is worshiped by
+any wizards. Chaos, Laws, Good and Evil are uninteresting for goddess
+Aulin. She protects any person who devotes themself only to their art.
+
+          To you: cure critical
+          To enemy: bluefire
+~
+92 DAKKORN~
+{WDakkorn, God of Justice.{x
+
+   Dakkorn promotes Justice, Valor, Chivalry, and Honor. Law and War are
+the main content of this cult. All people who follow this religion live
+for justice triumph and are always ready to die for that.
+
+          To you: cure critical
+          To enemy: scream
+~
+92 MOARITH~
+{WMoarith, Goddess of Slaughter.{x
+
+  Moarith is chaotic evil. She delights in panic and slaughter. Chaos, Evil
+and War are contented this evil cult.
+
+          To enemy: demonfire
+~
+92 ILISSA~
+{WIlissa, Goddess of Tyranny.{x
+
+  Ilissa is lawful evil. She is the goddess of war, conflict, and destruction.
+She sends her followers to commit evil.
+
+          To enemy: acid blast                                                  
+~
+92 HATHIR~
+{WHathir, God of Death.{x
+
+  Hathir is neutral evil. He is the personification of pure evil of this
+world. And Hathir is the patron of whose who seek the greatest evil for
+their own enjoyment or gain. The main contents of this cult are Death and
+Evil. Hathir is worshiped by necromancers, vampires, and anti-paladins.
+
+          To enemy: fireball
+~
+92 THRORGRIM~
+{WThrorgrim, God of Retribution.{x
+
+  Throrgrim is lawful neutral. He exacts revenge and just punishment on
+those who transgress the law.
+
+          To you: cure critical
+          To enemy: faerie fire
+~
+92 IRIAN~
+{WIrian, Goddess of True Chaos.{x
+
+  Irian is chaotic neutral. Irian is the chaos and chaos is Irian.
+Her adepts follow only their whims and value own liberny, but never
+stribe to protect others' freedom.
+
+          To you: cure critical
+          To you: bless
+          To you: haste, shield, stone skin
+~
+92 STIVROSH~
+{WStivrosh, God of War.{x
+
+  Main Stivrosh' passion is combat. He likes wars and lives for them.
+Strong and dexterous, Stivrosh is the first in martial arts.
+
+          To you: berserk
+          To you: warcry
+~
+92 GWINNERAI~
+{WGwinnerai, Goddess of Honor.{x
+
+  As Dakkorn, Gwinneray promotes Justice, Valor, Chivalry, and Honor. These
+two cults resemble each other very much.
+
+          To you: additional attack
+~
+92 TRUSSK~
+{WTrussk, God of Desease and Suffering.{x
+
+  As ussually Trussk followers are evil and never good. Desease, Death,
+Suffenring and Decay are contented this cult.
+
+          To enemy: poison
+          To enemy: blindness
+          To enemy: curse
+          To enemy: energy drain
+          To enemy: slow
+          To enemy: weaken
+~
+92 LESSA~
+{WLessa, Goddess of Magic.{x
+
+  As goddess of magic she is worshiped by any wizards. Lessa is a favourite
+goddess for most of them. She promotes Magic and one more time Magic in the
+world.
+
+          To you: cure critical
+          To you: bless
+          To you: mana restore
+~
+92 VILIRNA~
+{WVilirna, Goddess of Life.{x
+
+  She is protector of the life in this world. People like she for her sage.
+Vilirna is worshiped by cleric.
+
+          To you: dragon strenght
+          To enemy: dragon breath
+~
+92 CALAMIR~
+{WCalamir, God of Delusion.{x
+
+  Calamir is unusial god. Often he protects chaotic characters, but
+it is not rule. He creates different illusion and likes to deceive
+mortals. You can hear his whisper in a forest, or on the sea surf.
+
+          To you: cure critical
+          To enemy: flamstrike
+~
+0 CARIEL~
+{WCariel, Goddess of Revival.{x
+
+  Cariel is the exact opposite of Hathir. She loves life and hates death.
+She promotes Life, Health, Happiness and Luck.
+
+          To you: cure critical
+          To you: heal
+~
+92 ULWARK~
+{WUlwark, God of Dreams and Ambitions.{x
+
+  Ulwark is chaotic good. He is fickle, and he hates any rules or laws.
+Ulwark promotes Good, Chaos, and Personality. He makes you dreams when
+you sleep.
+
+          To you: cure critical
+          To enemy: ray of truth
+~
+-1 BLUR~
+@eng Syntax: {ccast 'blur'{x [self]
+
+The caster's outline appears blurred, shifting and wavering. This
+distortion grants the caster extra chance to slip away enemy attack.
+@rus Синтаксис: {ccast 'blur'{x [self]
+
+Контуры тела мага, прибегнувшего к этому заклинанию, становятся
+неясными, размытыми и находящимися в постоянном движении, из-за
+чего противнику сложнее нанести удар по чародею.
+~
+-1 GROUP HEAL~
+@eng Syntax: {ccast 'group heal'{x
+
+Using this spell caster cures wounds and refreshes the movement points of
+all members his/her group.
+@rus Синтаксис: {ccast 'group heal'{x
+
+Это заклинание заживляет раны и избавляет от усталости состоящих в одной
+группе с чародеем, его использовавшим.
+~
+-1 RESTORING LIGHT~
+@eng Syntax:{c cast 'restoring light'{x
+
+This spell creates special healing environment. All characters entering
+place under 'restoring light' became visible. Blindness, poison, curse
+and disease are healed. Also this light cures battle wounds.
+@rus Синтаксис:{c cast 'restoring light'{x
+
+Это заклинание создает особую атмосферу в месте его использования. У тех,
+кто там оказался, заживают раны. Они избавляются от слепоты, наложенного
+на них проклятия, излечиваются от отравления и болезни. Любой, входящий в
+зону действия заклинания, становится видимым.
+~
+-1 BLESS WEAPON~
+@eng Syntax:{c cast 'bless weapon' <weapon>{x
+
+This spell prepare a weapon for holy attack (powerful against evil creatures
+or characters). Flaming, frost, etc. weapons can't be blessed.
+@rus Синтаксис: {ccast 'bless weapon' <оружие>{x
+
+Оружие, на которое было подействовано этим заклинанием, особо эффективно
+при борьбе с теми, кто служит злу. На оружие, уже обладающее какими-либо
+особыми свойствами (flaming, frost, etc.) это заклинание не действует.
+~
+-1 GROUP DEFENSE~
+@eng Syntax: {ccast 'group defense'{x
+
+Spell 'group defense' gives to caster's group shield and armor affects
+(decrease (improve) armor class).
+@rus Синтаксис:{c cast 'group defense'{x
+
+Это заклинание комбинирует в себе заклинания 'armor' и 'shield', которые
+действуют на всех персонажей группы.
+~
+-1 WRATH~
+@eng Syntax:{c cast 'wrath'{x <target>
+
+This spell decreases hitroll and saving throw versus spell of target
+and makes he/she/it cursed. Also 'wrath' inflicts damage to the victim.
+Good and neutral aligned creatures/players are unaffected by this spell.
+@rus Синтаксис:{c cast 'wrath'{x <жертва>
+
+Это заклинание накладывает проклятие на жертву, уменьшает точность ее
+попаданий в бою и ее защиту от магии. Кроме этого заклинание наносит
+ущерб жертве. Но заклинание действует только на тех, кто служит злу.
+~
+-1 INSPIRE~
+@eng Syntax:{c cast 'inspire'{x
+
+This spell increase hitroll and saving throw versus spell of caster's group.
+@rus Синтаксис:{c cast 'inspire'{x
+
+Это заклинание увеличивает точность попаданий и защиту от магии у тех,
+кто входит в группу использовавшего его.
+~
+-1 DESERT FIST~
+@eng Syntax:{c cast 'desert fist'{x <target>
+
+In mountains, hills and deserts caster can inflict damage to his
+victim using this spell. Sending sand clouds caster have a chance
+to blind victim.
+@rus Синтаксис:{c cast 'desert fist'{x <жертва>
+
+Это заклинание действует в горах, холмах и пустыне (везде, где есть
+пыль или песок) и наносит повреждения жертве. Существует вероятность,
+что жертва будет ослеплена.
+~
+-1 BLADE BARRIER~
+@eng Syntax:{c cast 'blade barrier'{x
+
+This spell creates a spinning disk of razor-sharp blades. These whirl
+and flash around the caster and inflict damage to caster's opponent.
+@rus Синтаксис:{c cast 'blade barrier'{x
+
+Вогруг использовавшего это заклинание появляется множество острых
+лезвий, которые, кружась вокруг него, болезненно ранят противника.
+~
+-1 HUNGER WEAPON~
+@eng Syntax:{c cast 'hunger weapon'{x <weapon>
+
+This spell makes a weapon vampiric. And only evil aligned players
+can use that weapon.
+@rus Синтаксис:{c cast 'hunger weapon'{x <оружие>
+
+После этой процедуры оружие приобретает способность вытягивать жизнь
+из противника и отдавать ее хозяину. Но только те, кто служит злу, мо-
+гут воспользовать оружием, на которое было наложено это заклинание.
+~
+-1 LICH~
+@eng Syntax:{c cast 'lich'{x <undead type>
+
+  This spell turns caster to undead. Caster gains all abilities of his/her
+new race (immunity, resistance, vulnerability, etc.) Some spell from necro-
+mancy group you can use only as undead.
+  Valid undead types: lich, zombie, ghoul, undead.
+@rus Синтаксис:{c cast 'lich'{x <тип нежити>
+
+  С помощью этого заклинания можно превратить себя в один из видов нежити.
+При этом приобретаются расовые способности выбранного типа (иммунитет,
+устойчивости, уязвимости и т.п.) Часть некромансерских заклинаний может
+быть использована только в форме нежити.
+  Типы нежити, в которые можно превратиться: lich, zombie, ghoul, undead.
+~
+0 DEATH RIPPLE DEATH WAVE~
+@eng Syntax:{c cast 'death ripple'{x <direction>
+Syntax:{c cast 'death wave'{x <direction>
+
+  These are necromancers area spells. Death wave are more powerful.
+Deadly waves emanating from caster hurts all living creatures (or
+characters) on its way, but can not pass any doors or walls. Undead
+are unaffected for this waves.
+@rus Синтаксис:{c cast 'death ripple'{x <направление>
+Синтаксис:{c cast 'death wave'{x <направление>
+
+  Эти два заклинания рассылают вокруг волны смерти, ранящие все живое,
+встречающееся на их пути. 'Death wave' наносит более сильный ущерб. Волны
+не могут проникать сквозь двери или стены и не действуют на нежить.
+~
+0 DEATHEN~
+@eng Syntax:{c cast 'deathen' <target>
+
+  This spell turns target into undead. You can turn into undead self
+using this spell.
+@rus Синтаксис:{c cast 'deathen' <цель>
+
+  Это заклинание превращает выбранную цель в нежить. Этой целью ты можешь
+быть сам(а).
+~
+0 CRYPT THING~
+@eng Syntax:{c cast 'crypt thing'{x <corpse>
+
+  Caster can creates the mobile (crypt thing) from the corpse.
+This crypt thing guards you when you are sleeping, and wakes when
+someone enters room you are.
+@rus Синтаксис:{c cast 'crypt thing'{x <труп>
+
+  Из трупа создается монстрик, который будет охранять тебя, когда ты
+спишь и будить, когда кто-либо живой входит к тебе.
+~
+0 CORRUPTION~
+@eng Syntax:{c cast 'corruption'{x <victim>
+
+  Corruption is the slow death for your victim. Its health decreases
+and victim dies.
+@rus Синтаксис:{c cast 'corruption'{x <жертва>
+
+  Это заклинание приносит медленную смерть жертве. Ее здоровье будет
+уменьшаться, пока она не умрет.
 ~
 0 ZEBRA~
 зебра -- это зверь в полоску.

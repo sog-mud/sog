@@ -1,0 +1,389 @@
+#AREADATA
+Name The mystic pond~
+VNUMs 35100 35299
+Credits Semiramiss~
+Security 9
+LevelRange 0 0
+End
+
+#MOBILES
+#35100
+saule pond~
+@eng pond@rus пруд~
+Pond.
+~
+~
+unique~
+AB DFlmntz 0 0
+100 0 100d100+15000 0d0+0 0d0+0 none
+0 0 0 0
+0 0 0 0
+stand stand male 0
+0 0 medium unknown
+M speech 35102 haon dor~
+M speech 35103 arachnos~
+M speech 35104 faerie ring~
+M speech 35105 valley of the elves~
+M speech 35106 troll den~
+M speech 35110 dragon tower~
+M speech 35109 antharia~
+M speech 35108 elemental canyon~
+M speech 35107 greater gerighelm~
+M speech 35111 high tower~
+M speech 35112 village of anon~
+M speech 35113 city of anon~
+M speech 35114 underdark~
+M speech 35115 pyramid~
+M speech 35116 wyvern's tower~
+M speech 35117 aarakocran city~
+M speech 35118 dwarven kingdom~
+M speech 35119 magic forest~
+M speech 35120 drow city~
+M speech 35121 smurf village~
+M speech 35122 gnome village~
+M speech 35126 elvenhame~
+M speech 35127 circus~
+M speech 35128 clock tower~
+M speech 35129 festival town~
+M speech 35132 graveyard~
+M speech 35133 ofcol~
+M speech 35134 new thalos~
+M speech 35136 valley of titans~
+M speech 35136 valley of the titans~
+W 92
+I 92
+#35101
+guardian~
+@eng guardian@rus охранник~
+@eng Guardian is here.
+@rus Охранник на страже.
+~
+~
+human~
+AB DFlmntz 0 0
+100 0 15d15+45000 0d0+0 0d0+0 none
+0 0 0 0
+0 0 0 0
+stand stand none 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+M grall 35101 100~
+W 92
+I 92
+#0
+
+#OBJECTS
+#35100
+pond пруд~
+@eng the mystic pond@rus ~~волшебный~~ ~~пруд~~~
+@eng You see no ripple on silvery-blue pond's surface.@rus Ни малейшей ряби не заметно на серебристо-синей поверхности пруда (pond).~
+water~
+trash 0 0
+0 0 0 0 0
+0 0 0 P
+E
+pond пруд~
+@eng The pond's blue expanse charms and draws inside. When you going to
+enter water you understand if you done it you'll die.
+@rus Его синева завораживает, затягивает внутрь. И вот ты, уже $gn{готовый} вступить
+в воду, понимаешь, что если это сделать -- умрешь.
+~
+G male
+#0
+
+#ROOMS
+#35100
+@eng The mystic pond@rus Волшебный пруд~
+@rus Гладь пруда абсолютно ровная, словно на тебя, не мигая, смотрит синий глаз
+волшебного существа, завораживая и очаровывая. Вода прозрачна, и ты видишь,
+что дно пруда песчаное, и лишь кое-где видны вкрапления мелкой гальки. Бере-
+га поросли высокой травой насыщенного зеленого цвета. Единственное место, где
+можно подойти к воде, это то, где ты сейчас стоишь. Ни малейшего шума, ни ду-
+новения ветерка -- ничто не нарушает покоя и спокойствия этого места.
+  Как-то очень неожиданно, словно кто из вне вложил в тебя эту мысль, ты пони-
+маешь, что это место особенное.  А этот пруд?  Он совершенно необыкновенный. И
+стоит лишь произнести название любой области мира, как на волшебной поверхнос-
+ти появится дорога -- путь, ведущий в эту область.
+~
+0 HKNW inside
+D2
+~
+~
+Z 0 35101
+S
+#35101
+@eng The holy grove@rus Священная роща~
+@rus Высокие стройные деревья неизвестного тебе вида, ковер с рисунком из
+цветов и трав.  Рисунок имеет четко выроженную форму, но тебе, увы, не
+известен этот символ. А, может, это и к счастью? Тропинка, посыпанная
+белым речным песком, проходит под аркой, образованной двумя очень ста-
+рыми тисами, и ведет к пруду. По слухам этот пруд обладает волшебными
+свойствами.
+~
+0 HKNW inside
+D0
+~
+~
+Z 0 35102
+D1
+~
+~
+Z 0 3054
+S
+#35102
+@eng The arch@rus Под аркой~
+@rus Мрак и темнота на мгновение окружают тебя. Затем тьма быстро развеевается,
+а ты обнаруживаешь себя уже не под аркой, а в другом месте.
+~
+0 HKNW inside
+D2
+~
+~
+Z 0 35101
+S
+#0
+
+#RESETS
+O 0 35100 0 35100	* the mystic pond (The mystic pond)
+M 0 35100 1 35100 1	* pond (The mystic pond)
+M 0 35101 1 35102 1	* guardian (The arch)
+S
+
+#MOBPROGS
+#35100
+mob echo {cThe mystic pond ripples and some letters forms on its surfase.{x
+~
+#35101
+mob transfer $n 35100
+~
+#35102
+mob call 35100
+mob echoat $n {w   Haon Dor... If you leave Midgaard through the west gate you'll{x
+mob echoat $n {w find yourself there.{x
+if level $n < 5
+mob echoat $n {w   Be careful. Some aggresive animal lives in the forest.{x
+endif
+mob call 35299
+~
+#35103
+mob call 35100
+mob echoat $n {w   Go 13ws2wnwuwn from Market Square of Midgaard for visiting{x
+mob echoat $n {w spider's kindom Arachnos. Remember you need flying abylity if{x
+mob echoat $n {w you wish to travel there.{x
+if level $n < 20
+mob echoat $n {w   Some spiders are aggresive, be careful.{x
+endif
+mob call 35299
+~
+#35104
+mob call 35100
+mob echoat $n {w   Faerie Ring... It's nice place. Go 2s2e2se from the south gate of the{x
+mob echoat $n {w city Midgaard thought forest of Miden'nir. Then enter door in mushroom{x
+mob echoat $n {w growing on the forest clearing. (down exit){x
+mob call 35299
+~
+#35105
+mob call 35100
+mob echoat $n {w   4e3n2w5nw3n from Market Square of Midgaard and you'll find yourself{x
+mob echoat $n {w in beautiful valley of the elves. This is grassy plain between high{x
+mob echoat $n {w mountains. By the way, valley's citizens guardian theirs home.{x
+mob call 35299
+~
+#35106
+mob call 35100
+mob echoat $n {w   Do you really want to visit aggresive trolls? If it's your wish you need{x
+mob echoat $n {w to go next way -- 3s2e2s6wnes. Of course, it's a direction from Market{x
+mob echoat $n {w Square of Midgaard. You must have a boat or flying abylity becouse part of{x
+mob echoat $n {w you journey goes through the river.{x
+mob call 35299
+~
+#35107
+mob call 35100
+mob echoat $n {w   The Duke of Gerighelm rules this city. He has beautiful wife. And many{x
+mob echoat $n {w strong guards defend the city. Gerighelm's citizen like music, so you can{x
+mob echoat $n {w meet many troubadours there. Most of them play the harps and lutes. The way{x
+mob echoat $n {w is 7wus or 8wds from Midgaard's Market Square. Have a nice journey.{x
+mob call 35299
+~
+#35108
+mob call 35100
+mob echoat $n {w   You can meet any elementals in this canyon. But ugly cyclop lives on{x
+mob echoat $n {w mountain road near canyon's entrance. If you wish to pass cyclop without{x
+mob echoat $n {w problems you need to buy anti-cyclops elixir (the elixir vendor sells it).{w
+mob echoat $n {w Drink it, and you'll become invisible. Direction is 6e4s2es2edsuu. By the{x
+mob echoat $n {w way, The Combat Magician lives dnu from Overlook.{x
+mob call 35299
+~
+#35109
+mob call 35100
+mob echoat $n {w   This is underwater city. Guards with tridents maintain order there.{x
+mob echoat $n {w If you can't swim and breath under water you need to buy aqualung before{x
+mob echoat $n {w beginning you travel. The way is 6e4sd from Market Square in Old Midgaard.{x
+mob call 35299
+~
+#35110
+mob call 35100
+mob echoat $n {w   The Dragon Tower is the home of many draconians. Most of them are evil{x
+mob echoat $n {w and aggressive. In short, be careful and do not forget to look where you{x
+mob echoat $n {w are going. You must find the dragon hatchling in Shadow Grove and go north{x
+mob echoat $n {w from it to visit The Dragon Tower. Way to Shadow Grove is 3s2e2s6wnwn3wnwn.{x
+mob echoat $n {w And in your travel to grove you'll need boat or flying ability.{x
+mob call 35299
+~
+#35111
+mob call 35100
+mob echoat $n {w   Several magic teachers live in High Tower of Sorcery. You can meet the{x
+mob echoat $n {w master illusionist at south side of 4th floor, the master enchanter at west{x
+mob echoat $n {w side of 2nd floor and Grand Mistress of sorcery at top of the tower. There{x
+mob echoat $n {w are aggresive mobiles and very many doors. You need a boat or flying ability{x
+mob echoat $n {w to reach High Tower. The way is 3s2e2s6wnwn3wnwn for Shadow Grove. Find the{x
+mob echoat $n {w lost adventurer and go north from there. (from Market Square of Midgaard).{x
+mob call 35299
+~
+#35112
+mob call 35100
+mob echoat $n {w   Cold and ice wind will meet you there. You can buy some pretty potions{x
+mob echoat $n {w the village brewer, the village witchdoctor and others. The direction is{x
+mob echoat $n {w 6e4s4w3s4wnws11w from Market Square of Midgaard.
+if level $n < 5
+mob echoat $n {w   Be careful with lamia in Old Thalos.{x
+endif
+mob call 35299
+~
+#35113
+mob call 35100
+mob echoat $n {w   This is one of the biggest cities of the world. There are many shops{x
+mob echoat $n {w waiting for your visit. Gath, High Priest and Healer of Anon, will be{x
+mob echoat $n {w happy to help you. (You can find him in Temple) 6e4s4w3s4wnw is the way.{x
+if level $n < 5
+mob echoat $n {w   Be careful with lamia in ruined Thalos{x.
+endif
+mob call 35299
+~
+#35114
+mob call 35100
+mob echoat $n {w   This is large norecall area with one entrance and many exits. You'll find{x
+mob echoat $n {w not many aggressive mobiles there. The way is very easy: 6e10nd from Market{x
+mob echoat $n {w Square of Midgaard.{x
+mob call 35299
+~
+#35115
+mob call 35100
+mob echoat $n {w   Way to The Great Pyramid leads trough sands of sorrow. You need to{x
+mob echoat $n {w find nomad camp and go east from there! 3s2e2s10e, if you do not know{x
+mob echoat $n {w how to reach Sands of Sorrow.{x
+mob call 35299
+~
+#35116
+mob call 35100
+mob echoat $n {w   Gargoyles are main citizens of this tower. Of course, you'll meet wyverns{x
+mob echoat $n {w and others there. Most of creatures living in wyvern's tower are evil and{x
+mob echoat $n {w aggressive. You need a boat or flying abylity for travelling there. The way{x
+mob echoat $n {w is next: 6e4s2es2ed2e from Market Square of Midgaard.{x
+mob call 35299
+~
+#35117
+mob call 35100
+mob echoat $n {w   Flying creatures live there. They are peaceful expect warriors living{x
+mob echoat $n {w in Confusing Corridors. You need flying abylity for traveling there and{x
+mob echoat $n {w the way is 6e4s2es2eds4und4ne3neu from Market Square of Midgaard.{x
+mob call 35299
+~
+#35118
+mob call 35100
+mob echoat $n {w   Creatures living there are good. Most of them. The entrance to the{x
+mob echoat $n {w{w{w kingdom is near crossroad on the east from Midgaard. Something like 3n3en{x
+mob echoat $n {w{w from there.{x
+mob call 35299
+~
+#35119
+mob call 35100
+mob echoat $n {w   Magic forest is one of the most beautiful places of this world. There are{x
+mob echoat $n {w tall trees, bright green grass, many coloured flowers. Birds sings sitting{x
+mob echoat $n {w bushes. Forest lies beyond west gate of Elvenhame. Way is 4n25w from north{x
+mob echoat $n {w gate of Midgaard.{x
+mob call 35299
+~
+#35120
+mob call 35100
+mob echoat $n {w   Dark city. Evil aggressive creatures live there. But there are some{x
+mob echoat $n {w interesting things. You must be very careful travelling in Drow City. The{x
+mob echoat $n {w way is next: 6e4s2es2edws2d. From Market Square of Midgaard, of course.{x
+mob call 35299
+~
+#35121
+mob call 35100
+mob echoat $n {w   You'll meet there many pretty small creatures. Do not eat all you find.{x
+mob echoat $n {w Go 7en fromMarket Square of Midgaard to visit village.{x
+mob call 35299
+~
+#35122
+mob call 35100
+mob echoat $n {w   Small village are home for many good gnomes. But evil hobgoblins live in{x
+mob echoat $n {w abandoned mine and terrorize harmless gnomes. If you kill the king of the{x
+mob echoat $n {w hobgoblins bring his heart to the chief gnome. He will be glad. Way to the{x
+mob echoat $n {w gnome village is 8es from Market Square of Midgaard.{x
+mob call 35299
+~
+#35123
+~
+#35124
+~
+#35125
+~
+#35126
+mob call 35100
+mob echoat $n {w   Go west from Gallow Hills (lied north from Midgaard) and you'll find{x
+mob echoat $n {w yourself in Elvenhame -- city of elves.{x
+mob call 35299
+~
+#35127
+mob call 35100
+mob echoat $n {w   Look entrance in Midgaard park. That's all.
+mob call 35299
+~
+#35128
+mob call 35100
+mob echoat $n {w   Tower's entrance is on the main square of Festival Town.{x
+mob echoat $n {w For travelling there you nee flying abylity.{x.
+mob call 35299
+~
+#35129
+mob call 35100
+mob echoat $n {w   The Festival Town lies north from city Elvenhame. You'll have no trouble to{x
+mob echoat $n {w find the way.{x
+mob call 35299
+~
+#35132
+mob call 35100
+mob echoat $n {w   Entrance is on the elm street of Midgaard. Be careful with zombies.{x
+mob call 35299
+~
+#35133
+mob call 35100
+mob echoat $n {w   Just follow the road beginning north gate of Midgaard and than{x
+mob echoat $n {w go north from the path interseption.{x
+mob call 35299
+~
+#35134
+mob call 35100
+mob echoat $n {w   Wah.. Go east and east and east from Midgaard and you'll come New Thalos.{x
+mob echoat $n {w Btw, old samurai lives near West Gate of New Thalos.{x
+mob call 35299
+~
+#35136
+mob call 35100
+mob echoat $n {w   13w2nen from Market Square of Midgaard. Than follow train and if you{x
+mob echoat $n {w like yourself do not turn north (to the lake).{x
+mob call 35299
+~
+#35199
+mob echo {BPonds water settles down and an inscription disappears.{x
+~
+#35299
+mob echo {cPonds water settles down and the inscription disappears.{x
+~
+#0
+
+#$

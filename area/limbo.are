@@ -367,7 +367,7 @@ A HUGE dragon is here, selling junk.
 This mighty dragon wants to sell some junk to you.
 ~
 dragon~
-Ae DEFHNOUVYc 0 0
+Aef DEFHNOUVYc 0 0
 150 250 1d1+28000 1d1+25000 50d60+100 divine
 -66 -66 -66 -66
 CDEFHIKNO ABCDU 0 0
@@ -568,6 +568,12 @@ steel~
 trash h AO
 0 0 0 0 0
 10 10 10000 P
+A
+14 100
+A
+12 100
+A
+13 100
 S 'perception' 100 A
 S 'knock' 100 A
 S 'pick lock' 100 A
@@ -632,7 +638,7 @@ G male
 gate portal ворота врата~
 @eng a shimmering gate@rus ~~мерцающие~~ ~~врата~~~
 @eng A shimmering black gate rises from the ground, leading to parts unknown.@rus Мерцающие черные врата (gate) ведут в неизвестность.~
-shadow~
+energy~
 portal GOT 0
 0 0 0 0 0
 0 0 0 P

@@ -202,7 +202,7 @@ Questor квестор~
 He knows all the zones of Shades of Gray. It would be a BAD THING to
 commit a crime in his presence. 
 @rus Квестор возвышается над вами как огромная башня. Рост его более 20 футов
-и у него огромные мускулы. Он хорошо знает каждый уголок королевств Анатолии.
+и у него огромные мускулы. Он хорошо знает каждый уголок королевств Мира Серых Теней.
 ~
 giant~
 AGTVXe CDFJVZ 1000 3000
@@ -555,7 +555,7 @@ AGH 0 900 0
 NU 0 0 C
 stand stand either 10
 0 0 medium unknown
-M random 3026 5~
+M random 3026 1~
 V 37000
 #3062
 fido dog собака зверюга~
@@ -1745,7 +1745,7 @@ canoe челнок~
 wood~
 boat 0 A
 0 0 0 0 0
-0 320 900 G
+0 1 900 G
 E
 canoe~
 The canoe is fairly light.
@@ -2702,7 +2702,7 @@ Type "areas" for a complete list with suggested levels and the authors.
 ~
 G none
 #3164
-map southern midgaard~
+map midgaard~
 a map of southern Midgaard~
 A rolled up map is here.~
 paper~
@@ -6340,10 +6340,17 @@ violet-tinged light.
 ~
 0 DS inside
 D0
+@eng You see the alley.
+@rus Ты видишь переулок.
 ~
 ~
-Z 0 3046
-M 150 H 100
+Z -1 3046
+D4
+@eng You see machine dreams and taste violet phosphor.
+@rus Ты видишь обрывки миражей, плавающих в фиолетовом сиянии.
+~
+~
+Z 0 8604
 S
 #3051
 @eng On the Bridge@rus Мост~
@@ -6524,13 +6531,16 @@ D2
 ~
 ~
 Z -1 3001
+D3
+~
+~
+Z 0 35101
 D4
 @eng Bifrost, the Rainbow Bridge, hangs in the sky above you.
 @rus Бифрост, Радужный Мост, висит в небе над вами.
 ~
 ~
 Z -1 1215
-M 150 H 150
 S
 #3056
 @eng The Fountain of Youth Apothecary@rus Аптека "Источник молодости"~
@@ -6797,7 +6807,6 @@ D4
 ~
 ~
 Z 0 3757
-M 110 H 150
 S
 #3069
 @eng Temple Square@rus Храмовая площадь~
@@ -6904,7 +6913,6 @@ D4
 ~
 ~
 Z 0 3757
-M 150 H 150
 S
 #3072
 @eng By the Temple Altar@rus Храмовый алтарь~
@@ -7035,7 +7043,6 @@ D2
 ~
 door~
 Z -1 3054
-M 150 H 100
 S
 #3078
 @eng Underground Chamber@rus Подземная комната~
@@ -8341,7 +8348,6 @@ D4
 ~
 ~
 Z -1 1219
-M 50 H 200
 S
 #3200
 @eng Under the Bridge@rus Под мостом~
@@ -10065,6 +10071,7 @@ endif
 ' Beg $n! Spare some gold?
 ~
 #3026
+if rand 50
 grumble
 ' Litterbugs.
 if rand 90
@@ -10080,6 +10087,7 @@ endif
 ' Day in, day out. This is all I do in 24 hours a day.
 if rand 1
 yell I want a vacation!
+endif
 endif
 endif
 ~

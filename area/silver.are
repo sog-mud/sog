@@ -58,13 +58,13 @@ An Orc-Shaman is here, he has very well developed canines and pale coloration
 Unless your mother raised a moron, you're quite sure this is a vampire...
 I hope you have a wooden stake handy...
 ~
-orc~
-ABCF BD -1000 0
+undead~
+ABCF B -1000 0
 20 0 3d9+333 199d1+1 2d8+5 punch
 -4 -4 -4 7
-0 A 0 XY
+0 A 0 X
 stand stand male 1000
-FIK 0 medium unknown
+FK 0 medium unknown
 #4505
 mob bodyguard orc~
 the Orc Bodyguard~
@@ -87,11 +87,11 @@ The mayor is here grinning evily, His eyes are red and glowing.
 Unless your mother raised a moron, you're quite sure this is a vampire...
 I hope you have a wooden stake handy...
 ~
-human~
-ABCF D -1000 0
+undead~
+ABCF 0 -1000 0
 19 0 3d9+308 189d1+1 2d7+5 punch
 -4 -4 -4 7
-EIJ A 0 XY
+EIJ A 0 X
 stand stand male 1200
 0 0 medium unknown
 #4507
@@ -117,11 +117,11 @@ A provocatively dressed woman is here, her eyes glow red in the darkness.
 Unless your mother raised a moron, you're quite sure this is a vampire...
 I hope you have a wooden stake handy...
 ~
-human~
-ABCF BD -1000 0
+undead~
+ABCF B -1000 0
 23 0 5d10+450 229d1+1 3d6+6 punch
 -6 -6 -6 6
-FHK A 0 XY
+FHK A 0 X
 stand stand male 2600
 0 0 medium unknown
 #4509
@@ -147,11 +147,11 @@ Unless your mother raised a moron, you're quite sure this is a vampire...
 I hope you have a wooden stake handy... In fact I hope you have an army
 handy... (Nosferatu is not to be trifled with)
 ~
-human~
-ABCF BDu -1000 0
+undead~
+ABCF Bu -1000 0
 30 0 6d12+853 299d1+1 4d6+8 punch
 -9 -9 -9 6
-E A 0 XY
+E A 0 X
 stand stand either 5000
 0 0 medium unknown
 #0

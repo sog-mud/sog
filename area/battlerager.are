@@ -66,6 +66,8 @@ ABQVae DFH 1000 0
 FHIK ABC D 0
 stand stand male 2275
 0 0 medium unknown
+M speech 95406 aid me wiseman~
+M speech 95406 вылечи меня мудрец~
 C Battleragers~
 #95403
 urukhay troll~
@@ -126,7 +128,7 @@ key bone~
 @eng a bone key@rus ~~костяной~~ ~~ключ~~~
 @eng A key, made of bone, is lying on the ground.@rus Ключ (key), сделанный из кости, лежит на земле.~
 bone~
-key ORYf AOP
+key RYf AOP
 0 0 0 0 0
 0 4 0 P
 G none
@@ -441,7 +443,6 @@ D3
 ~
 ~
 Z 0 95406
-M 200 H 200
 S
 #0
 
@@ -463,13 +464,20 @@ O 0 95404 0 95411	* soldier's plank bed (Resting room)
 S
 
 #SHOPS
-95401 1 5 9 11 0 150 70 0 23
+95401 1 5 9 11 0 150 70 0 24
 0
 
 #MOBPROGS
 #95400
 if clan $n battleragers
-'Hail, brother!
+if sex $n == 2
+'Hail, Warrioress!
+end
+endif
+if sex $n == 1
+'Hail, Brother!
+end
+endif
 mob echoat $n $I snaps to attention, sharply saluting you!
 end
 endif
@@ -538,6 +546,15 @@ mob transfer $n 95402
 ~
 #95405
 ~
+#95406
+if clan $n battleragers
+if level $n <= 65
+herbs $n
+else
+'You are rich enough to pay for my services. Use 'heal herbs'.
+endif
+endif
+~
 #0
 
 #PRACTICERS
@@ -547,6 +564,47 @@ S
 
 #HELPS
 0 'CLAN BATTLERAGER' BATTLERAGER~
+@eng The law to which all should follow mortal, is those:
+in any dispute by last argument, last means steel is.
+
+  But were found such who, having found itself too weak
+for a fair duel, has decided to resort to the forbidden
+weapon who illegally has appropriated to itself the 
+right to use that is legal only to gods - magic. Also
+have captivated the world of a consequence of worthless
+use of divine force: any dude, decided, that is already
+enough clever, could open road to this world for horror
+demons, or create unknown hither to monsters in attempts
+to assimilate to the creator and to create the artificial
+person; anyone could release destructive force of four
+elements, trying to use it in the fine interests. And then
+the best soldiers - those who trusted by virtue of the
+sword, those who has decided have gathered, that already
+is enough to suffer heretics and has undertaken mission on
+their destruction.
+
+  And for this purpose gods granted to them invulnerability
+to magic, and their weapon - great force. In clan Battleragers
+the best soldiers who have proved the ability to do without
+of magic whom apparent blessings she promised are accepted only.
+
+  The soldier who has not killed any magician, has no right
+to refer to Battleragers.
+ 
+  The internal charter of a clan is simple:
+
+******************************************************************
+*  -- Battlerager is obliged to refuse use of magic in all its   *
+* displays. If any mortal uses spells in presence of Battlerager,*
+* it should be immediately punished.                             *
+*  -- Battlerager is obliged to destroy those who names itself   *
+* Shalafi, where it would not meet them.                         *
+*  -- Only paladins and the priests who are not consisting in    *
+* Shalafi, are worthy to live, until they do not use a spell on  *
+* Battlerager (Or at his presence.)                              *
+*  -- The magicians who are not appropriate to definition, stated*
+* in previous point, also should be destroyed.                   *
+******************************************************************
 @rus {x
 Закон, которому должны следовать все смертные, таков : в любом
 споре последним аргументом, последним средством является сталь.
@@ -584,6 +642,7 @@ S
 *                                                                    *
 *   - Лишь паладины и жрецы, не состоящие в Shalafi, достойны жить,  *
 * до тех пор, пока они не используют заклинания на Battlerager'е.    *
+* Или в его присутствии.                                             *
 *                                                                    *
 *   - Маги, не соответствующие определению, изложенному в предыдущем *
 * пункте, также должны быть уничтожены.                              *

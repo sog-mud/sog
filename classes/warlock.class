@@ -124,8 +124,7 @@ Skill 'trance' 14 1 0
 Skill 'wands' 1 1 0
 Skill 'throwing weapons' 56 3 -5
 Skill 'water breathing' 43 1 0
-Skill 'ice sphere' 36 1 1
-Skill 'fire sphere' 51 1 1
+Skill 'blur' 45 1 0
 End
 
 #POSE

@@ -15,8 +15,8 @@ A bony skeleton is here.
 Brown bones with tufts of clothing still hanging from them.  This
 skeleton looks very mindless but still dangerous ...
 ~
-human~
-AF J 0 0
+undead~
+AF 0 0 0
 1 0 2d6+10 0d9+100 1d4+0 none
 9 9 9 10
 EFNU 0 0 E
@@ -31,7 +31,7 @@ His body is totally white and slowly rotting away.  Each Zombie looks
 quite different from the next because they were, of course, once alive and
 human.
 ~
-human~
+zombie~
 ABF DFJ -100 0
 4 0 2d7+46 2d9+100 1d5+1 none
 6 6 6 9
@@ -62,8 +62,8 @@ The wraith no longer has a material form.  He is wearing a tattered
 black robe which hides all but the darkness of his face and the glimmer
 in his eyes.
 ~
-human~
-ABF BDFJ -750 0
+undead~
+ABF B -750 0
 12 0 2d10+150 6d9+100 1d10+3 none
 0 0 0 8
 EFNU 0 0 0
@@ -77,8 +77,8 @@ A vampire is here hiding his face from your light source.
 The guardian vampire looks quite EVIL.  Just by looking at him the hair on your
 arms raises. He looks mighty tough to be just a minor minion.
 ~
-human~
-ABF DFJ -1000 0
+undead~
+ABF 0 -1000 0
 28 0 6d12+703 14d9+100 5d4+8 none
 -8 -8 -8 6
 EFNU 0 0 0

@@ -248,7 +248,7 @@ A
 G none
 #95210
 aura majesty ореол~
-@eng Aura of {BMajesty{x@rus ~~Ореол~~ {GВеличия{x~
+@eng Aura of {BMajesty{x@rus ~~Ореол~~ {BВеличия{x~
 @eng Something strange is here.@rus Что-то странное здесь.~
 unknown~
 jewelry AIMTYZ AS
@@ -626,7 +626,7 @@ M 0 95200 2 95217 1	* A healer (Altar)
 S
 
 #SHOPS
-95202 0 0 0 0 0 100 100 0 23
+95202 0 0 0 0 0 100 100 0 24
 0
 
 #MOBPROGS

@@ -663,6 +663,17 @@ Form 5 -и~
 End
 
 #RULE
+Name лапка~
+BaseLen 4
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
 Name змееподобная~
 BaseLen 10
 Form 1 -ой~
@@ -6066,6 +6077,17 @@ Form 3 -ое~
 Form 4 -им~
 Form 5 -ом~
 Form 6 -ое~
+End
+
+#RULE
+Name плюшевая~
+BaseLen 6
+Form 1 -ой~
+Form 2 -ой~
+Form 3 -ую~
+Form 4 -ой~
+Form 5 -ой~
+Form 6 -ую~
 End
 
 #RULE

@@ -42,8 +42,8 @@ A wraith is awaiting your first move here.
 ~
 A black, almost transparent wraith.
 ~
-human~
-AB DFJ -900 0
+undead~
+AB 0 -900 0
 29 0 20d20+778 20d20+500 5d17+8 none
 -9 -9 -9 6
 EFNU 0 0 0

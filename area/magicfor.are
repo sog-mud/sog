@@ -3429,7 +3429,7 @@ think you see a building.
 D0
 ~
 ~
-Z -1 1897
+Z 0 1897
 D3
 ~
 ~
@@ -3449,10 +3449,10 @@ refracting the light into rainbows, dazzling to the sight. Peering
 closely at the crystaline columns which form the entrance, you think
 you see movement inside.
 ~
-D0
+D2
 ~
 ~
-Z -1 1896
+Z 0 1896
 S
 #0
 

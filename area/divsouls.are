@@ -514,13 +514,13 @@ A ghastly humanoid form floats here, reeking of death.
 An aura of evil and death hangs about the dark wraith.  It turns its head, 
 and the blood red eyes seem to bore into yours with an insatiable hunger..
 ~
-unique~
-ACGOT JOTUZ -400 0
+undead~
+ACGOT OTZ -400 0
 65 3 65d10+8900 1d10+250 9d6+40 drain
 -37 -38 -36 -27
-DEFK I KM HNO
+DEFK I K HO
 stand stand either 2026
-DHIM 0 medium unknown
+D 0 medium unknown
 #11632
 bloody sadist~
 the Bloody Sadist~
@@ -636,13 +636,13 @@ White fangs gleam in the darkness as a scream of insane rage shatters the air!
 It could almost be a part of the shadows, if it weren't for the telltale
 red eyes gleaming sadistically against the blackness.
 ~
-unique~
-AFG BDFJOTZ -700 0
+undead~
+AFG BOTZ -700 0
 70 0 100d10+10500 1d10+700 7d10+30 drain
 -40 -42 -41 -39
-FG B GJK NO
+FG B GJK O
 stand stand either 2146
-CHI ABCDEFGHIJKU medium unknown
+C U medium unknown
 #11640
 lost dreams~
 some lost dreams~

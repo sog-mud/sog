@@ -737,7 +737,7 @@ the Red DragonOrb~
 A large reddish sphere is in the center of the room.~
 emerald~
 staff GJP AO
-13 2 2 'sanctuary' 0
+13 2 2 'black shroud' 0
 21 50 18600 P
 A
 4 2
@@ -4816,6 +4816,7 @@ S
 
 #OLIMITS
 O 7221 1	* the shield of the rose
+O 7303 2	* the Red DragonOrb
 S
 
 #OMPROGS

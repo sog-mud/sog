@@ -1579,7 +1579,7 @@ guess you're safe. The trees are beginning to look old and dry
 and the ground begins to get muddy. The cries of the heart hounds
 are much closer now and you begin to panic. The trail continues
 to the east and south.
-@rus Ага. А вои и болота, о которых тебе рассказывали. И правда, пренеприятное
+@rus Ага. А вот и болота, о которых тебе рассказывали. И правда, пренеприятное
 местечко. После зеленеющих под ясным солнышком полей, совсем не хочется
 вступать в царство сырости и мрака. Да еще из тумана доносятся завывания
 каких-то весьма недружелюбных тварей. Похоже, это гончие сердца вышли
@@ -1598,7 +1598,6 @@ D2
 ~
 ~
 Z 0 10013
-M 186 H 272
 S
 #10015
 @eng The path at the swamp@rus Тропа через топи~

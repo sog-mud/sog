@@ -145,7 +145,7 @@ too many. Baragar eventually decided undead staff were far more reliable,
 if a little slower, and slew all his staff, turning them subsequently into
 mindless undead. That's what a charming guy he is.
 ~
-undead~
+zombie~
 AG 0 0 0
 15 0 3d9+208 5d5+100 2d6+3 punch
 -2 -2 -2 6
@@ -1566,7 +1566,7 @@ M 15704 spec_cast_mage	* a hawk familiar
 M 15705 spec_fido	* a troll guard
 M 15706 spec_executioner	* a flesh golem
 M 15707 spec_breath_fire	* a fire drake
-M 15708 spec_janitor	* a zombie servant
+M 15708 spec_cast_undead	* a zombie servant
 M 15709 spec_guard	* a keep guard
 M 15710 spec_cast_mage	* an apprentice mage
 M 15713 spec_fido	* a hungry crocodile

@@ -30,7 +30,7 @@ A rotting zombie is staggering towards you with outstretched hands.
 ~
 Maggots crawl all over its decaying body.
 ~
-human~
+zombie~
 ABF J -750 0
 4 0 2d7+46 2d9+100 1d5+1 none
 6 6 6 9
@@ -45,7 +45,7 @@ A ghastly ghoul is here.
 It is a walking corpse with long fangs and long, sharp nails that most of
 resemble claws.  Its eyes are a dark yellow colour and glare hungrily at you.
 ~
-human~
+ghoul~
 ABF J -750 0
 6 0 2d7+71 3d9+100 1d7+1 none
 4 4 4 9
@@ -60,8 +60,8 @@ A dusty skeleton lies here.
 The dusty bones are almost brown.  It must have been buried for a very long
 time.
 ~
-human~
-ABF J -750 0
+undead~
+ABF 0 -750 0
 3 0 2d6+35 1d9+100 1d6+0 none
 7 7 7 10
 EFNU 0 0 E
@@ -75,8 +75,8 @@ A dusty skeleton lies here.
 The dusty bones are almost brown.  It must have been buried for a very long
 time.
 ~
-human~
-AF J -750 0
+undead~
+AF 0 -750 0
 3 0 2d6+35 1d9+100 1d6+0 none
 7 7 7 10
 EFNU 0 0 E
@@ -89,7 +89,7 @@ A rotting zombie is staggering towards you with outstretched hands.
 ~
 Maggots crawl all over its decaying body.
 ~
-human~
+zombie~
 AF J -750 0
 4 0 2d7+46 2d9+100 1d5+1 none
 6 6 6 9

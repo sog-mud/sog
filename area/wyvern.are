@@ -112,8 +112,8 @@ A dark shadow moves about the room.
 ~
 The Shadow is vaguely humanoid. Two glowing pinpoints look at you.
 ~
-human~
-ACFG BDFJ -1000 0
+undead~
+ACFG B -1000 0
 10 0 2d7+121 5d9+100 2d4+2 none
 1 1 1 8
 EFNU 0 0 0
@@ -126,8 +126,8 @@ An evil wight lurks in the shadows!
 ~
 He glares at you savagely and charges!
 ~
-human~
-ABCFG DFJ -1000 0
+undead~
+ABCFG 0 -1000 0
 12 0 2d10+150 6d9+100 1d10+3 none
 0 0 0 8
 EFNU 0 0 0
@@ -224,8 +224,8 @@ A spectre has begun to materialize in front of you!
 ~
 Terror fills your heart as you view this master of the undead.
 ~
-human~
-ACFG BDJu -1000 0
+undead~
+ACFG Bu -1000 0
 19 0 3d9+308 9d9+100 2d7+5 none
 -4 -4 -4 7
 EFNU 0 0 0

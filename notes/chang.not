@@ -3199,3 +3199,175 @@ bless weapon и know alignment
  
 {WTyan{x
 ~
+Sender  Tyan~
+Date    Mon Feb 12 22:17:26 2001~
+Stamp   982005446
+To      all~
+Subject heal herbs~
+Text
+hi, there!
+ 
+`heal herbs' у лекарей видимо починен
+ 
+{WTyan{x
+~
+Sender  Tyan~
+Date    Sun Feb 25 20:34:40 2001~
+Stamp   983122480
+To      all~
+Subject identify, lore~
+Text
+hi, there!
+ 
+теперь identify и lore скорее всего не будут говорить про несуществующие
+флаги на вещах (в основном это относится к клановым вещам, e.g. ключам)
+ 
+{WTyan{x
+~
+Sender  Tyan~
+Date    Tue Feb 27 22:31:21 2001~
+Stamp   983302281
+To      battleragers imm~
+Subject wiseman~
+Text
+hi, there!
+ 
+вроде бы починил
+happy mudding,
+ 
+{WTyan{x
+~
+Sender  Tyan~
+Date    Mon Mar 12 00:19:15 2001~
+Stamp   984345555
+To      all~
+Subject minor fixes~
+Text
+hi, there!
+ 
+несколько небольших изменений:
+control undead больше не работает на sleeping и fighting
+push и butcher на battle аренах (такая исторически только одна --
+Crossroads) не больше не работают
+ 
+{WTyan{x
+ 
+PS по поводу книжек со скиллами и уменьшения количества левелов:
+оно все есть в SoG 2 и уже достаточно давно (где-то с год :) -- времени
+никак нет закончить (в основном не у меня, а у остальных имплементоров)
+Что будет с SoG 2 вопрос открытый, но никакой ясности пока нет.
+~
+Sender  Nergal~
+Date    Thu Mar 15 13:47:21 2001~
+Stamp   984653241
+To      all~
+Subject Небольшие изменения~
+Text
+hi, there!
+ 
+1. Паладины получили 'detect evil'.
+2. Анти-паладины получили 'detect good'.
+3. 'fire sphere' и 'ice sphere' у warlock'ов и witch больше нет.
+4. Warlock'и и witch получили новое заклинание 'blur'.
+5. Слегка изменено заклинание 'witch curse'.
+6. Harakiry теперь снимает только магические эффекты.
+ 
+Happy mudding.
+ 
+/Nergal, the god of death and decay.
+~
+Sender  Tyan~
+Date    Thu Apr 26 22:30:18 2001~
+Stamp   988309818
+To      all~
+Subject web site moved~
+Text
+hi, there!
+ 
+Our web site has moved: http://sog.any.ru/
+ 
+happy mudding,
+{WTyan{x
+~
+Sender  Phrinn~
+Date    Sat May  5 00:21:03 2001~
+Stamp   989007663
+To      all~
+Subject undead monsters~
+Text
+Привет!
+ 
+  Зомби теперь имеют расу зомби, привидения -- расу привидение,
+духи и скелеты -- undead. Словом нежить стала нежитью. О тех, кого
+миновала чаша сия, просьба сообщать. Так же как и о тех, кого
+зачислили в нежить по недорозумению.
+  Написан help abolish undead.
+ 
+{WPhrinn{x, {cthe Goddess of Truth{x.
+~
+Sender  Phrinn~
+Date    Mon May  7 20:11:39 2001~
+Stamp   989251899
+To      all~
+Subject the mystic pond~
+Text
+Доброго всем здоровья!
+ 
+Открылся для тестирования и высказывания мнений волшебный пруд в
+священной роще (на west от алтаря в храме мидгаарда) говорящий
+пути в некоторые места (арии до ~~30 левела)
+в настоящее время туда допускаются все желающие, в дальшейшем
+это будет доступно только для low-level чаров.
+принимаются комментарии и пожелания о том, какие зоны добавить,
+а какие, может, выкинуть. желательно, с аргументацией.
+ 
+{WPhrinn{x.
+~
+Sender  Tyan~
+Date    Wed May  9 18:27:23 2001~
+Stamp   989418443
+To      all~
+Subject minor "haggle" fix~
+Text
+hi, there!
+ 
+косяк с haggle, приводивший к тому, что при покупке вещей и наличии
+"haggle" коряво считались денежки, пофиксен
+ 
+{WTyan{x
+~
+Sender  Phrinn~
+Date    Sat May 12 00:47:11 2001~
+Stamp   989614031
+To      all~
+Subject new help articles~
+Text
+Привет вам, жители Мира Серых Теней.
+ 
+Появились статьи помощи по следующим вещам: group heal, bless weapon,
+hunger weapon, blur, wrath, restoring light, desert fist, inspire,
+blade barrier, group defense.
+И пофиксено русское описание квестора.
+ 
+{WPhrinn{x,{c Goddess of Truth{x.
+~
+Sender  Phrinn~
+Date    Mon May 14 19:08:55 2001~
+Stamp   989852935
+To      all~
+Subject мелкие изменения~
+Text
+  Всем. Всем. Всем. Слушайте и не говорите, что не слышали. За последнее
+время у нас произошло несколько небольших изменений, а именно:
+
+ -- появилась зависимость даваемого hr/dr в 'dragon strength' от уровня
+персонажа;
+ -- больше самураи, воины и ренжеры не должны мучаться в раздумьях,
+съесть ли вперед витаминку с 'bless' или издать боевой клич;
+ -- 'cure critical' приобрело более выраженную зависимость от уровня.
+теперь на hero level 'cure critical' сравнимо с 'heal' или даже лучше
+(если повезет);
+ -- 'scream' теперь помимо всего прочего наносит повреждения;
+ 
+{WPhrinn{x, {cGoddess of Truth{x.
+~

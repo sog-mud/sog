@@ -2753,7 +2753,7 @@ On the Seas Surrounding an Atoll~
 You have sailed into seas surrounding a rocky atoll. The surf crashes
 on the sharp jagged rocks, preventing a landing.
 ~
-0 R noswim
+0 0 noswim
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -2779,7 +2779,7 @@ You have sailed into seas surrounding a rocky atoll. The surf crashes
 on the sharp jagged rocks, preventing a landing. Sharks abound in these
 waters.
 ~
-0 S noswim
+0 0 noswim
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -2831,7 +2831,7 @@ You have sailed into seas surrounding a rocky atoll. The surf crashes
 on the sharp jagged rocks, preventing a landing. Large single clawed
 crabs cover the rocks.
 ~
-0 P noswim
+0 0 noswim
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -2857,7 +2857,7 @@ You have sailed into seas surrounding a rocky atoll. The surf crashes
 on the sharp jagged rocks, preventing a landing. You trail your toe along
 in the water and feel a westerly current.
 ~
-0 S noswim
+0 0 noswim
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -2883,7 +2883,7 @@ You have sailed into seas surrounding a rocky atoll. The surf crashes
 on the sharp jagged rocks, preventing a landing. There on the rocks is
 what remains of a shattered galley.
 ~
-0 P noswim
+0 0 noswim
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -2909,7 +2909,7 @@ You have sailed into seas surrounding a rocky atoll. The surf crashes
 on the sharp jagged rocks, preventing a landing. You watch the gulls
 peck apart some jelly creature on the rocks.
 ~
-0 P noswim
+0 0 noswim
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -2935,7 +2935,7 @@ You have sailed into seas surrounding a rocky atoll. The surf crashes
 on the sharp jagged rocks, preventing a landing. Here the waves are 
 choppy and you taste the salt spray on your lips.
 ~
-0 Q noswim
+0 0 noswim
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -2961,7 +2961,7 @@ You have sailed into seas surrounding a rocky atoll. The surf crashes
 on the sharp jagged rocks, preventing a landing. Refuse floats in the
 water, drifting alongside the boat.
 ~
-0 P noswim
+0 0 noswim
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -3251,7 +3251,7 @@ You soar in the turbulent air beneath the flying mountain. Wind
 whips and whistles in fierce blasting gusts sending you in all 
 directions.
 ~
-0 P air
+0 0 air
 D0
 In the air
 ~
@@ -3289,7 +3289,7 @@ You soar in the turbulent air beneath the flying mountain. Wind
 whips and whistles in fierce blasting gusts sending you in all 
 directions.
 ~
-0 Q air
+0 0 air
 D0
 In the air
 ~
@@ -3327,7 +3327,7 @@ You soar in the turbulent air beneath the flying mountain. Wind
 whips and whistles in fierce blasting gusts sending you in all 
 directions.
 ~
-0 T air
+0 0 air
 D0
 In the air
 ~
@@ -3365,7 +3365,7 @@ You soar in the turbulent air beneath the flying mountain. Wind
 whips and whistles in fierce blasting gusts sending you in all 
 directions.
 ~
-0 R air
+0 0 air
 D0
 In the air
 ~
@@ -3403,7 +3403,7 @@ You soar in the turbulent air beneath the flying mountain. Wind
 whips and whistles in fierce blasting gusts sending you in all 
 directions.
 ~
-0 S air
+0 0 air
 D0
 In the air
 ~
@@ -3441,7 +3441,7 @@ You soar in the turbulent air beneath the flying mountain. Wind
 whips and whistles in fierce blasting gusts sending you in all 
 directions.
 ~
-0 U air
+0 0 air
 D0
 In the air
 ~
@@ -4001,17 +4001,15 @@ ice pressing in on all sides. Far to your east is a huge iceberg.
 The wind whips along unhindered across the flat ice, chilling you 
 to the core.
 ~
-0 R noswim
+0 0 noswim
 D0
-The sea of ice
 ~
 ~
-Z -1 17272
+Z 0 17272
 D2
-The sea of ice
 ~
 ~
-Z -1 3201
+Z 0 5001
 S
 #17272
 Sailing the Sea of Ice~
@@ -4020,7 +4018,7 @@ ice pressing in on all sides. Large footprints lead off towards a
 snowbank. The wind whips along unhindered across the flat ice, 
 chilling you to the core.
 ~
-0 R noswim
+0 0 noswim
 D1
 The sea of ice
 ~
@@ -4077,7 +4075,7 @@ ice pressing in on all sides. Far to your west is a huge iceberg.
 The wind whips along unhindered across the flat ice, chilling you 
 to the core.
 ~
-0 P noswim
+0 0 noswim
 D0
 The sea of ice
 ~
@@ -4096,7 +4094,7 @@ ice pressing in on all sides. The iceberg looms closer with each day.
 The wind whips along unhindered across the flat ice, chilling you 
 to the core.
 ~
-0 P noswim
+0 0 noswim
 D0
 The sea of ice
 ~
@@ -4115,7 +4113,7 @@ to a very large iceberg. Ice shears in sheets from the iceberg to crash
 with a thunderous roar into the frosty sea. You think you can make out 
 a dark watery cave leading into the iceberg.
 ~
-0 Q noswim
+0 0 noswim
 D0
 Into the cave
 ~
@@ -4136,12 +4134,16 @@ anchored at bay. You anchor and hop down onto the hard packed ice,
 following a trail of footprints to a dead end passage. Puzzled, you get on
 your hands and knees, and feel the outline of an ice trap door beneath you.
 ~
-0 R noswim
+0 0 noswim
 D2
 The sea of ice
 ~
 ~
 Z -1 17277
+D3
+~
+~
+Z 0 17299
 D5
 Through the trap door
 ~
@@ -4167,7 +4169,7 @@ WHEEEEEEEEE! You are sliding head over heels down an icy shoot, which winds
 downward in a counterclockwise spiral. There is no stopping and no turning 
 around.
 ~
-0 ADR inside
+0 AD inside
 D2
 The icy shoot
 ~
@@ -4180,7 +4182,7 @@ WHEEEEEEEEE! You are sliding head over heels down an icy shoot, which winds
 downward in a counterclockwise spiral. There is no stopping and no turning 
 around.
 ~
-0 ADQ inside
+0 AD inside
 D1
 The icy shoot
 ~
@@ -4193,7 +4195,7 @@ WHEEEEEEEEE! You are sliding head over heels down an icy shoot, which winds
 downward in a counterclockwise spiral. There is no stopping and no turning 
 around.
 ~
-0 ADFHIMPQ inside
+0 ADFHI inside
 D5
 The icy shoot
 ~
@@ -4206,7 +4208,7 @@ WHEEEEEEEEE! You are sliding head over heels down an icy shoot, which winds
 downward in a counterclockwise spiral. There is no stopping and no turning 
 around.
 ~
-0 ADR inside
+0 AD inside
 D2
 The icy shoot
 ~
@@ -4219,7 +4221,7 @@ WHEEEEEEEEE! You are sliding head over heels down an icy shoot, which winds
 downward in a counterclockwise spiral. There is no stopping and no turning 
 around.
 ~
-0 ADQ inside
+0 AD inside
 D1
 The icy shoot
 ~
@@ -4232,7 +4234,7 @@ WHEEEEEEEEE! You are sliding head over heels down an icy shoot, which winds
 downward in a counterclockwise spiral. There is no stopping and no turning 
 around.
 ~
-0 ADP inside
+0 AD inside
 D0
 The icy shoot
 ~
@@ -4245,7 +4247,7 @@ WHEEEEEEEEE! You are sliding head over heels down an icy shoot, which winds
 downward in a counterclockwise spiral. There is no stopping and no turning 
 around.
 ~
-0 ADU inside
+0 AD inside
 D5
 The icy shoot
 ~
@@ -4258,7 +4260,7 @@ WHEEEEEEEEE! You are sliding head over heels down an icy shoot, which winds
 downward in a counterclockwise spiral. There is no stopping and no turning 
 around.
 ~
-0 ADR inside
+0 AD inside
 D2
 The icy shoot
 ~
@@ -4271,7 +4273,7 @@ WHEEEEEEEEE! You are sliding head over heels down an icy shoot, which winds
 downward in a counterclockwise spiral. There is no stopping and no turning 
 around.
 ~
-0 ADQ inside
+0 AD inside
 D1
 The icy shoot
 ~
@@ -4284,7 +4286,7 @@ WHEEEEEEEEE! You are sliding head over heels down an icy shoot, which winds
 downward in a counterclockwise spiral. There is no stopping and no turning 
 around.
 ~
-0 ADP inside
+0 AD inside
 D0
 The icy shoot
 ~
@@ -4510,10 +4512,9 @@ ladder rope~
 You will kick yourself when you climb this ladder.
 ~
 D1
-Inside the iceberg
 ~
 ~
-Z -1 17278
+Z 0 17278
 D3
 A thin sheet of ice
 ~

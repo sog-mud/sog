@@ -31,8 +31,8 @@ This lab assistant was chosen from amongst the undead for both his knowledge
 of magic, and his rather nasty disposition.  He revels in creating loathesome,
 twisted, warped creatures to serve Ciquala.
 ~
-human~
-ABCFH DFJ -1000 13401
+undead~
+ABCFH 0 -1000 13401
 40 0 15d10+1850 219d1+100 4d8+13 beating
 -13 -13 -13 4
 BCDEH AB T K
@@ -47,8 +47,8 @@ This creature may resemble some kind of serpent, but some parts of it are
 covered with scales, and others with hair.  It's head has 1 large bulbous eye,
 much like that of an insect.  Long talons reach out for you to shred you alive.
 ~
-human~
-AFGH DFJT -1000 0
+undead~
+AFGH T -1000 0
 50 0 50d10+4500 399d1+100 5d8+19 beating
 -20 -20 -20 2
 BCDEH AB T K
@@ -107,8 +107,8 @@ An undead guardian screams at you and attacks!
 This creature is a hovering dark shape.  It does not seem to have a body so
 to speak.  As it approaches you, a harsh chill makes you shiver.
 ~
-human~
-ABF BDJT -1000 0
+undead~
+ABF BT -1000 0
 55 0 50d10+6000 449d1+100 6d8+21 beating
 -25 -25 -25 1
 BEF ABI 0 K
@@ -122,8 +122,8 @@ The ceiling appears rather shiny.  Not like dirt at all.  You suddenly realize
 that it isn't a ceiling, but a LURKER ABOVE!  You had better attack before
 it drops on you!
 ~
-human~
-ABFH J -1000 0
+undead~
+ABFH 0 -1000 0
 37 0 10d10+1500 269d1+100 3d10+12 pierce
 -12 -12 -12 4
 BCDEH AB T K
@@ -138,8 +138,8 @@ This vampire looks very pale and thin.  Ciquala has not been allowing him
 enough time at night to feed properly.  He is VERY happy that you walked in
 on him.
 ~
-human~
-ABF BDFJu -1000 0
+undead~
+ABF Bu -1000 0
 47 0 25d10+3500 369d1+100 6d6+17 none
 -17 -17 -17 2
 BEF AB 0 K
@@ -230,8 +230,8 @@ Ciquala's undead pet dragon is here, snacking on a fresh corpse.
 ~
 This skeletal dragon is an ancient red dragon preserved through arcane magic.
 ~
-dragon~
-ABF DFu -1000 0
+undead~
+ABF u -1000 0
 60 0 50d10+7600 499d1+100 6d8+24 beating
 -30 -30 -30 -10
 B AB 0 K
@@ -277,8 +277,8 @@ With you here, he won't even have to go out hunting for fresh blood tonight.
 The vampire looks incredibly strong.  He is wearing musty clothes, and has
 large fangs that seem to grow longer as he looks back at you.
 ~
-human~
-ABCF BDJT -1000 0
+undead~
+ABCF BT -1000 0
 57 0 50d10+6800 469d1+100 6d8+24 slash
 -27 -27 -27 1
 B AB 0 K
@@ -293,8 +293,8 @@ This lab assistant was chosen from amongst the undead for both his knowledge
 of magic, and his rather nasty disposition.  She revels in creating loathesome,
 twisted, warped creatures to serve Ciquala.
 ~
-human~
-ABCFH DFJ -1000 13401
+undead~
+ABCFH 0 -1000 13401
 32 0 10d10+1000 219d1+100 6d4+9 beating
 -10 -10 -10 5
 BCDEH AB T K

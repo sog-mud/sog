@@ -572,7 +572,6 @@ flesh~
 armor AJ AH
 5 5 5 5 5
 45 50 8000 P
-S 'deathblow' 30 A
 A
 13 20
 A
@@ -2283,7 +2282,6 @@ O 13017 3	* a set of fine copper leggings
 O 13018 3	* a pair of fine copper boots
 O 13019 4	* the Badge of Order
 O 13021 2	* a fine copper bracelet
-O 13022 3	* some bloody gloves of elven skin
 O 13023 2	* Skin of the Giant Lord
 O 13024 6	* fine fur cloak
 O 13025 3	* some spiked adamantite sleeves

@@ -3362,7 +3362,6 @@ By the temple altar.
 ~
 ~
 Z -1 5386
-M 150 H 100
 S
 #5398
 The Main Street~
@@ -3710,7 +3709,6 @@ E 0 3364 0 1		*	a city guard signet ring: on the left finger
 E 0 3350 0 16		*	a standard issue sword: wielded
 E 0 3353 0 5		*	a standard issue vest: on the body
 E 0 3355 0 4		*	a standard issue cloak: around the neck (2)
-M 0 5499 1 5381 1	* janitor (Market Square)
 M 0 5333 3 5382 3	* the beastly fido (The Main Street)
 M 0 5334 1 5384 1	* the cityguard (Inside the East Gate of Midgaard)
 E 0 3365 0 0		*	a war banner: as a light

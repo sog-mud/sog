@@ -31,6 +31,14 @@ Form 3 -ыми~
 End
 
 #RULE
+Name прокричал~
+BaseLen 8
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
 Name доверил~
 BaseLen 6
 Form 1 -ла~
@@ -1229,8 +1237,16 @@ Form 3 -и~
 End
 
 #RULE
-Name обнаоружил~
+Name обнаружил~
 BaseLen 9
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name напал~
+BaseLen 4
 Form 1 -ла~
 Form 2 -ло~
 Form 3 -ли~

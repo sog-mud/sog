@@ -246,6 +246,27 @@ staff AGI AO
 150 10 10 'abolish undead' 0
 1 1 100 P
 G none
+#34449
+mace дубина~
+@eng wooden mace@rus ~~массивная~~ ~~дубина~~~
+@eng Massive wooden mace is here.@rus Массивная дубина (mace) валяется на земле.~
+unknown~
+weapon Ih AN
+mace 15 1 crush I
+10 0 0 P
+A
+14 150
+A
+12 150
+A
+13 150
+A
+20 -15
+A
+19 15
+A
+18 15
+G female
 #34450
 claws когти~
 @eng tiger's claws@rus ~~когти~~ тигра~
@@ -254,10 +275,10 @@ claw~
 clothing Yh AH
 0 0 0 0 0
 10 1 10000 P
-S 'grip' 75 A
-S 'master hand' 50 A
-S 'hand block' 75 A
-S 'disarm' 75 A
+S 'grip' 100 A
+S 'master hand' 100 A
+S 'hand block' 100 A
+S 'disarm' 100 A
 G plural
 #34451
 book справочник энциклопедия old~
@@ -279,14 +300,14 @@ bone~
 staff CGJMZh AO
 70 10 10 'black shroud' 0
 10 1 0 P
+S 'bone dragon' 100 A
+S 'control undead' 100 A
+S 'animate dead' 100 A
+S 'lich' 100 A
 F I 20 -15 M
 F A 19 20 n
-S 'lich' 70 A
-S 'animate dead' 80 A
 S 'draining touch' 100 A
 S 'mana drain' 100 A
-S 'control undead' 50 A
-S 'bone dragon' 80 A
 G male
 #34453
 staff healing посох~
@@ -379,6 +400,22 @@ A
 A
 9 5
 G plural
+#34459
+knife butcher нож мясника~
+@eng butcher's knife@rus ~~нож~~ мясника~
+@eng Massive knife is here.@rus Массивный нож (knife) с рукоятью из кости лежит здесь.~
+steel~
+weapon h AN
+dagger 12 1 stab DE
+10 10 1000 P
+S 'butcher' 100 A
+A
+20 -10
+A
+19 20
+A
+18 20
+G male
 #34460
 shield щит metal~
 @eng metal shield@rus ~~щит~~ из неизвестного металла~
@@ -395,9 +432,12 @@ sceptre скипетр~
 @eng knight's sceptre@rus ~~скипетр~~ Рыцаря~
 @eng Knight's sceptre is liying here.@rus Скипетр (sceptre) привлек твое внимание своим сиянием.~
 light~
-wand I AO
-60 50 50 'pass door' 0
-65 1 10000 P
+wand Ih AO
+100 50 50 'holy word' 0
+10 1 10000 P
+S 'bless weapon' 100 A
+S 'improved benediction' 100 A
+S 'benediction' 100 A
 A
 18 15
 A
@@ -614,5 +654,10 @@ S
 #SHOPS
 34400 0 0 0 0 0 100 100 0 23
 0
+
+#OMPROGS
+O 34449 wear_prog wear_prog_excalibur	* `wooden mace'
+O 34459 wear_prog wear_prog_excalibur	* `butcher's knife'
+S
 
 #$

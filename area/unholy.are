@@ -95,8 +95,8 @@ The necromancers of the abbey have animated the remains of Knights of
 Malathar slain by the monks and transformed them into horrid wights, and
 additionally infusing them with a manic desire to slay everyone they behold.
 ~
-human~
-ABFG J 0 0
+undead~
+ABFG 0 0 0
 63 0 50d10+7500 5d5+5000 7d8+33 none
 -33 -33 -33 -4
 FIJQ 0 0 0

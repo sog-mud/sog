@@ -19,13 +19,13 @@ of it.
  The zombie seems oblivious to you, until you draw close enough for it
 to make its kill.
 ~
-unique~
+zombie~
 AFGO DFJZ -1000 0
 31 7 20d5+1100 1d1+300 5d5+10 bite
 0 0 0 0
 CDEFK A BM HNSY
 stand stand none 50
-ABDIc ABCDEF medium unknown
+BDc 0 medium unknown
 #4601
 zombie~
 the Juju zombie~
@@ -37,13 +37,13 @@ creature. Upon closer examination, you notice that the thing before you
 actually has no eyes, but instead a faint red glow eminates from it's eye
 sockets.
 ~
-unique~
+zombie~
 ABFGHO DFJZ -1000 0
 36 10 20d10+1700 1d1+400 9d3+15 claw
 -5 -5 -5 -5
 DEFKN 0 BM HSY
 stand stand none 296
-ABIc ABCDEF medium unknown
+Bc 0 medium unknown
 #4602
 young vampire~
 a young vampire~
@@ -51,13 +51,13 @@ A young vampire stands here, looking for something to kill.
 ~
 This young lady looks quite famished and pale.
 ~
-unique~
-AFO DFJUZ -1000 0
+undead~
+AFO Z -1000 0
 37 15 100d5+2000 0d0+100 7d4+20 magic
 -5 -5 -5 -5
-DEFIKNV A BIM FHNOSXY
+DEFIKNV A BI FHOX
 stand stand none 986
-ABCDHIKMc ABCDEFGHIJKV medium unknown
+BCDKc V medium unknown
 #4603
 Kharzandra wizardress vampire~
 Kharzandra, the Dark-elf Vampire~
@@ -69,13 +69,13 @@ creature of the undead.
 She looks a bit hungry after having a full day of reanimating corpses,
 perhaps you will be her dinner?
 ~
-elf~
-ABFO DFUZu -1000 0
+undead~
+ABFO Zu -1000 0
 56 30 100d5+6500 100d4+600 7d5+40 magic
 -10 -10 -10 -10
-EFIK AI IM FHNSY
+EFIK AI I FH
 stand stand none 1677
-BCDIc 0 medium unknown
+BCDc 0 medium unknown
 #4604
 vampire shadar lunn~
 the Vampire, Shadar Lunn~
@@ -85,13 +85,13 @@ This large man is clad in high darkened armor, and was probably once
 a lieutenant in the Arkham guard... or else, he just knows good armor
 when he sees it.
 ~
-unique~
-ABFO DFJUZu -1000 0
+undead~
+ABFO Zu -1000 0
 59 50 200d5+8300 100d3+2000 10d5+30 slash
 -40 -40 -40 -30
-AEFIKV AB BIM FHNSXY
+AEFIKV AB BI FHX
 stand stand none 1973
-ABCDHIKMc ABCDEFGHIJKV medium unknown
+BCDKc V medium unknown
 #4605
 ghoul creature~
 a hungry ghoul~
@@ -114,13 +114,13 @@ the hell hound~
 A large mastiff stands here guarding something.
 ~
 ~
-dog~
-AFT BDFJPQZu -1000 0
+undead~
+AFT BPQZu -1000 0
 45 30 10d50+2000 1d1+200 8d3+23 acbite
 -1 -1 -1 -1
-ADEF A BHM IN
+ADEF A BH I
 stand stand none 0
-C B medium unknown
+C 0 medium unknown
 #4608
 bat vampire~
 the vampire bat~
@@ -129,13 +129,13 @@ A pitch-black bat flaps its wings beneath the ceiling.
 A horrible little face looks at you and bares its teeth. Ugh!
 You don't like it.
 ~
-unique~
-AFGH FJPTc -700 0
+undead~
+AFGH PTc -700 0
 20 10 20d10+600 1d1+199 7d5+10 bite
 1 1 1 1
-FHQ L 0 S
+FHQ 0 0 0
 stand stand none 200
-BIV ADFPV medium unknown
+B PV medium unknown
 #4609
 demon familiar~
 the demon familiar~
@@ -144,13 +144,13 @@ A small demon is here, hovering in mid-air.
 This little guy looks very familar... you know it would be a bad thing to
 mess with it.
 ~
-unique~
-ABFGT DFJUZ -1000 0
+undead~
+ABFGT Z -1000 0
 42 15 20d10+3100 1d1+400 7d6+25 drain
 -15 -15 -15 -15
-DEFIJK ABH 0 IN
+DEFIJK ABH 0 I
 stand stand none 493
-ACDG 0 medium unknown
+CDG 0 medium unknown
 #4610
 dracolich~
 the great Dracolich~
@@ -173,13 +173,13 @@ A dark-robed man stands here, praying to his unholy god.
 This dark-priest wears the sign of Loki about his neck, and is seeming
 disturbed by your intrusion during his meditation.
 ~
-unique~
-AGLQ DFJUZ -1000 0
+undead~
+AGLQ Z -1000 0
 46 20 100d3+3500 1d1+500 6d8+25 divine
 -20 -20 -20 -20
 AFIK AB 0 0
 stand stand none 493
-CGI 0 medium unknown
+CG 0 medium unknown
 #4612
 dark spectre~
 the dark spectre~
@@ -188,13 +188,13 @@ A dark spectre is here, feeding off your lifeforce.
 You can see right through this creature, except for the dark patch surrounding
 it's red, glowing eyes... it looks pissed off that you're still alive.
 ~
-unique~
-ABFT BDFJQTUu -1000 0
+undead~
+ABFT BQTu -1000 0
 55 10 100d3+2500 1d1+500 5d8+25 bite
 -15 -15 -15 -10
 FK ABCD 0 H
 stand stand none 0
-ACK 0 medium unknown
+CK 0 medium unknown
 #0
 
 #OBJECTS
@@ -1459,6 +1459,8 @@ S
 #0
 
 #SPECIALS
+M 4600 spec_cast_undead	* a disgusting, rotting Zombie
+M 4601 spec_cast_undead	* the Juju zombie
 M 4603 spec_cast_mage	* Kharzandra, the Dark-elf Vampire
 M 4604 spec_cast_undead	* the Vampire, Shadar Lunn
 M 4605 spec_fido	* a hungry ghoul

@@ -223,8 +223,8 @@ The Grey Mare's fleshless skull seems to laugh at you as it inspects you
 carefully; as it approaches, it lowers its head, pointing its bone horn
 directly at your chest.
 ~
-unique~
-AG DFIP -1000 0
+undead~
+AG IP -1000 0
 45 0 25d10+3000 5d5+1000 8d4+16 magic
 -15 -15 -15 2
 CDFIJ 0 0 0

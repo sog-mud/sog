@@ -456,7 +456,6 @@ ABFGO DJNO -500 0
 I AB 0 0
 stand stand male 10
 0 0 medium unknown
-F res B
 #5763
 vampire~
 an evil Vampire~
@@ -709,8 +708,8 @@ a small leather-bound book~
 A small leather-bound book entitled "The Making and Casting of Dragonfire".~
 paper~
 scroll G AO
-20 'lightning breath' 'gas breath' 'fire breath' 'acid breath'
-12 50 300 P
+10 'lightning breath' 'gas breath' 'fire breath' 'acid breath'
+20 50 300 P
 E
 book~
 This book tells of the life work of the Mage Farrio Di Maggio- the creation
@@ -3742,6 +3741,7 @@ M 5750 spec_poison	* a giant Spider
 M 5752 spec_poison	* a Troll
 M 5753 spec_poison	* a giant Rat
 M 5758 spec_cast_undead	* a Wight
+M 5759 spec_cast_undead	* a Zombie
 M 5760 spec_breath_fire	* a Guard Dog
 M 5761 spec_executioner	* a Werewolf
 M 5762 spec_poison	* a Ghoul
