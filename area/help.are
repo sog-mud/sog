@@ -4776,12 +4776,13 @@ Syntax: {casave world{x     (to save all areas)
 Syntax: {casave areas{x     (to save changed areas)
 Syntax: {casave clans{x
 Syntax: {casave classes{x
+Syntax: {casave commands{x
 Syntax: {casave explicit{x
 Syntax: {casave implicit{x
-Syntax: {casave lang{x
+Syntax: {casave languages{x
 Syntax: {casave liquids{x
 Syntax: {casave materials{x
-Syntax: {casave mprog{xx
+Syntax: {casave mprogs{x
 Syntax: {casave msgdb{x
 Syntax: {casave races{x
 Syntax: {casave skills{x
@@ -4812,6 +4813,7 @@ SEE ALSO: 'OLC CREATE', 'OLC EDIT', 'OLC ALIST', 'OLC ASAVE', 'OLC RESETS'
 Syntax: {ccreate area{x
 Syntax: {ccreate clan{x <name>
 Syntax: {ccreate class{x <name>
+Syntax: {ccreate command{x <name>
 Syntax: {ccreate explicit{x <rule class> <word>
 Syntax: {ccreate help{x <topic>
 Syntax: {ccreate implicit{x <rule class> <num> <word>
@@ -4837,7 +4839,7 @@ appropriately.
 Syntax: {cedit area{x [<vnum>]
 Syntax: {cedit clan{x <name>
 Syntax: {cedit class{x <name>
-Syntax: {cedit cmd {x<name>
+Syntax: {cedit command{x <name>
 Syntax: {cedit explicit{x <rule class> <word>
 Syntax: {cedit help{x [<num>.]<topic>
 Syntax: {cedit implicit{x <rule class> <num>
