@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.c,v 1.36 2004-02-11 22:56:17 fjoe Exp $
+ * $Id: trig.c,v 1.37 2004-02-12 06:29:49 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -72,6 +72,7 @@ trig_cpy(trig_t *dst, trig_t *src)
 	dst->trig_type = src->trig_type;
 	dst->trig_prog = str_qdup(src->trig_prog);
 	trig_set_arg(dst, str_qdup(src->trig_arg));
+	dst->trig_paf = src->trig_paf;
 }
 
 void
