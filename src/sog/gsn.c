@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: gsn.c,v 1.3 1998-10-06 19:09:17 fjoe Exp $
+ * $Id: gsn.c,v 1.4 1998-10-17 16:20:40 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -223,6 +223,7 @@ int gsn_meditation;
 int gsn_frenzy;
 int gsn_riding;
 int gsn_thumbling;
+int gsn_pick;
 
 NAMEDP gsn_table[] =
 {
@@ -409,6 +410,7 @@ NAMEDP gsn_table[] =
 	{ "gsn_frenzy",			&gsn_frenzy			},
 	{ "gsn_riding",			&gsn_riding			},
 	{ "gsn_thumbling",		&gsn_thumbling			},
+	{ "gsn_pick",			&gsn_pick			},
 	{ NULL }
 };
 
