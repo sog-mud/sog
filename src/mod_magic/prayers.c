@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.44 2002-12-03 17:08:38 tatyana Exp $
+ * $Id: prayers.c,v 1.45 2003-04-18 11:51:19 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1135,9 +1135,9 @@ SPELL_FUN(prayer_demonfire, sn, level, ch, vo)
 
 	if (victim != ch) {
 		act("$n calls forth the demons of Hell upon $N!",
-		    ch,NULL,victim,TO_ROOM);
+		    ch, NULL, victim, TO_NOTVICT);
 		act("$n has assailed you with the demons of Hell!",
-		    ch,NULL,victim,TO_VICT);
+		    ch, NULL, victim, TO_VICT);
 		act_char("You conjure forth the demons of hell!", ch);
 	}
 	spellfun_call("curse", NULL, 3 * level / 4, ch, victim);
