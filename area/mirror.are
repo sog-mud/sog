@@ -3223,7 +3223,7 @@ S
 Necromancer's Bar~
 The bar of vampires smell very bad. But the mystic air relaxes you.
 ~
-0 CDSX inside
+0 CDSXY inside
 D1
 You see the laboratories of males..
 ~
@@ -3245,7 +3245,7 @@ partially cleaned, some painful-looking letters faintly visible.  A well in
 the middle of the floor leads down into darkness.  Vile smells waft from the
 depths.
 ~
-0 CDSX inside
+0 CDSXY inside
 D3
 You see the bar.
 ~
@@ -3262,7 +3262,7 @@ S
 Vampires Bar~
 The bar of vampires smell very bad. But the mystic air relaxes you.
 ~
-0 ACDSX inside
+0 ACDSXY inside
 D0
 You see the main street.
 ~
@@ -3284,7 +3284,7 @@ partially cleaned, some painful-looking letters faintly visible. A well in
 the middle of the floor leads down into darkness. Vile smells waft from the
 depths.
 ~
-0 ACDSX inside
+0 ACDSXY inside
 D1
 To the east you see the bar..
 ~

@@ -4409,7 +4409,7 @@ the wall, just above the altar which is set against the western wall.  A well
 in the middle of the floor leads down into darkness.  Vile smells waft from
 the depths.
 ~
-0 CDSX inside
+0 CDSXY inside
 D1
 You see your favorite place, the bar of divination.
 ~
@@ -4427,7 +4427,7 @@ Cleric's Bar~
 The bar is one of the finest in the land, lucky it is members only.  Fine
 furniture is set all around the room.  A small sign is hanging on the wall.
 ~
-0 CDSX inside
+0 CDSXY inside
 E
 sign~
 The sign reads:
@@ -4816,7 +4816,7 @@ Mage's Bar~
 The bar is one of the wierdest in the land.  Mystical images float around
 the air.  Illusions of fine furniture appear all around the room.
 ~
-0 CDSX inside
+0 CDSXY inside
 D0
 You see the lobby.
 ~
@@ -4838,7 +4838,7 @@ partially cleaned, some painful-looking letters faintly visible.  A well in
 the middle of the floor leads down into darkness.  Vile smells waft from the
 depths.
 ~
-0 CDSX inside
+0 CDSXY inside
 D3
 You see the bar.
 ~
@@ -4900,7 +4900,7 @@ The bar of swordsmen, once upon a time beautifully furnished.  But now the
 furniture is all around you in small pieces.  To the south is the yard, and
 to the west is the entrance hall.
 ~
-0 CDSX inside
+0 CDSXY inside
 D2
 You see the practice yard.
 ~
@@ -4917,7 +4917,7 @@ The Tournament and Practice Yard~
 The practice yard of the fighters.  To the north is the bar.  A well leads
 down into darkness.
 ~
-0 CDSX inside
+0 CDSXY inside
 D0
 You see the bar.
 ~
@@ -5044,7 +5044,7 @@ furnished, but now it seems almost empty.  To the south is the yard, and to
 the west is the entrance hall.
    (Maybe the furniture has been stolen?!)
 ~
-0 CDSX inside
+0 CDSXY inside
 E
 furniture~
 As you look at the furniture, the chair you sit on disappears.
@@ -5065,7 +5065,7 @@ The Secret Yard~
 The secret practice yard of thieves and assassins.  To the north is the
 bar.  A well leads down into darkness.
 ~
-0 CDSX inside
+0 CDSXY inside
 D0
 You see the bar.
 ~
@@ -5772,7 +5772,7 @@ evil. This place also does not have any windows, what makes you feel
 strong and safe here. Guildmaster's torture tools are spread all around 
 the room.
 ~
-0 DSX inside
+0 DSXY inside
 D3
 Exit to the tample hall is to the west.
 ~
@@ -5787,7 +5787,7 @@ sometimes.  The floor is compleately covered with wood, naked.  You can
 see some tools hung on the walls and some others carelessly thrown 
 around.
 ~
-0 DSX inside
+0 DSXY inside
 D4
 The trapdoor leads back to the Grubby Inn.
 ~
@@ -5803,7 +5803,7 @@ is a big picture of an old priest.  Two body armors stand like guarding
 the picture. There is a doorway, guarded by  two knights at the  
 enterance, to the east, seems leading to a large room.
 ~
-0 DSX inside
+0 DSXY inside
 D1
 The room seems lead to a large shrine.
 ~
@@ -5822,7 +5822,7 @@ skills.  The walls are decorated with large, valuable tapestries.
 Two bright, (probably polised every day) body armors are standing near 
 the opposite walls.  Big swords and silvery shields are hanging on the wall.
 ~
-0 DSX inside
+0 DSXY inside
 D3
 To the west you see the big hall of temple.
 ~
@@ -6013,7 +6013,7 @@ S
 Warlock's Bar~
 The bar of warlocks smell very bad.But the mystic air relaxes you.
 ~
-0 CDSX inside
+0 CDSXY inside
 D0
 You see the laboratories of males..
 ~
@@ -6035,7 +6035,7 @@ partially cleaned, some painful-looking letters faintly visible.  A well in
 the middle of the floor leads down into darkness.  Vile smells waft from the
 depths.
 ~
-0 CDSX inside
+0 CDSXY inside
 D2
 You see the bar.
 ~
@@ -6053,7 +6053,7 @@ Bar of Samurai's~
 The bar of Samurai's' doors shines.But you can't see a waiter, because
 they don't drink drinks with alcohol.
 ~
-0 CDSX inside
+0 CDSXY inside
 D0
 You see the guarting board..
 ~
@@ -6072,7 +6072,7 @@ skills.  The walls are decorated with large, valuable tapestries.
 Two bright, (probably polised every day) body armors are standing near 
 the opposite walls.  Short swords and light shields are hanging on the 
 wall. ~
-0 CDSX inside
+0 CDSXY inside
 D1
 To the east you see the bar..
 ~

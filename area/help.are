@@ -1099,17 +1099,16 @@ ADVANCE sets a character's level to the specified value.  It is the
 only way to create new immortal characters within the game.  ADVANCE
 may also be used to demote characters.
 ~
-100 TRUST~
-Syntax: trust <character> <level>
-
-TRUST sets a character's trust to the specified level.  This is similar to
-advancing the character for accessing immortal commands, but has no effect
-on combat strength, et cetera.  You can give more trust to mortal (or
-immortal) characters to give them access to more power without messing up
-the character.  You can also restrict a player's trust to less than their
-natural level.
-
-A trust of 0 means to use the character's natural level again.
+0 TRUST~
+Syntax: trust {{ group | clan | all }
+ 
+This command allows you to specify how certain questionable spells 
+can be casted upon you by others. If trust set to all, everyone can 
+cast them on you. If trust set to group or (and) clan, your group (clan) members
+can cast them on you. Trust without parameters shows your current trust set.
+Questionable spells are : 'word of recall', 'cancellation', 'slow',
+'remove curse'
+ 
 ~
 92 ALLOW BAN PERMBAN~
 Syntax: allow   <site>
@@ -3997,6 +3996,15 @@ Syntax : label <object> <label>
  
 This command allows you to give an additional name to an object.
 Labeling an object costs 10 quest points.
+ 
+~
+0 'OLC CLAN SKILL'~
+Syntax: skill add skill_name level percent
+Syntax: skill del skill_name
+ 
+Where 'skill_name' is name of the skill to add, 'level' is the level
+at which skill will be available for clan members and 'percent' is
+initial percent of the skill when it is added to character.
  
 ~
 -1 $~
