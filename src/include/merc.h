@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.234.2.25 2002-01-04 16:39:42 matrim Exp $
+ * $Id: merc.h,v 1.234.2.26 2002-01-05 16:21:56 matrim Exp $
  */
 
 /***************************************************************************
@@ -95,6 +95,7 @@
 #include "skills.h"
 #include "raffect.h"
 #include "religion.h"
+#include "mccp.h"
 
 /*
  * configuration parameters
@@ -245,6 +246,13 @@ struct descriptor_data
 	const char *		showstr_head;
 	const char *		showstr_point;
 	struct codepage*	codepage;
+
+/* mccp data */
+	z_stream *              out_compress;
+	unsigned char *         out_compress_buf;
+	int                     mccp_support;
+	unsigned int            bytes_sent;
+	unsigned int            bytes_income;
 
 /* OLC stuff */
 	olced_t	*		olced;

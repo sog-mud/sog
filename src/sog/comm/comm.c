@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.200.2.22 2002-01-03 21:33:44 tatyana Exp $
+ * $Id: comm.c,v 1.200.2.23 2002-01-05 16:22:00 matrim Exp $
  */
 
 /***************************************************************************
@@ -152,6 +152,12 @@ void    gettimeofday    args( ( struct timeval *tp, void *tzp ) );
 char	echo_off_str	[] = { IAC, WILL, TELOPT_ECHO, '\0' };
 char	echo_on_str	[] = { IAC, WONT, TELOPT_ECHO, '\0' };
 char 	go_ahead_str	[] = { IAC, GA, '\0' };
+char	compress_will	[] = { IAC, WILL, TELOPT_COMPRESS, '\0' };
+char	compress2_will	[] = { IAC, WILL, TELOPT_COMPRESS2, '\0' };
+
+/* mccp compression negotiation strings */
+char compress_do	[] = { IAC, DO, TELOPT_COMPRESS, '\0' };
+char compress_dont	[] = { IAC, DONT, TELOPT_COMPRESS, '\0' };
 
 /*
  * Global variables.
@@ -468,6 +474,12 @@ DESCRIPTOR_DATA *new_descriptor(int fd)
 	d->descriptor = fd;
 	d->connected = CON_GET_CODEPAGE;
 	d->codepage = codepages;
+	/* mccp data init */
+	d->bytes_sent   = 0;
+	d->bytes_income = 0;
+	d->mccp_support = 0;
+	d->out_compress = NULL;
+
 	outbuf_init(&d->out_buf, 1024);
 	outbuf_init(&d->snoop_buf, 0);
 	d->dvdata = dvdata_new();
@@ -731,10 +743,19 @@ void game_loop_unix(void)
 		for (d = descriptor_list; d != NULL; d = d_next) {
 			d_next = d->next;
 
-			if ((d->fcommand || !outbuf_empty(d))
+			if ((d->fcommand || !outbuf_empty(d) || d->out_compress)
 			&&  FD_ISSET(d->descriptor, &out_set)) {
-				if (!process_output(d, TRUE))
+				bool ok = TRUE;
+				if (d->fcommand || !outbuf_empty(d))
+					ok = process_output(d, TRUE);
+
+				if (ok && d->out_compress)
+					ok = processCompressed(d);
+
+				if (!ok) {
+					outbuf_flush(d);
 					close_descriptor(d, SAVE_F_NORMAL);
+				}
 			}
 		}
 
@@ -896,6 +917,12 @@ void init_descriptor(int control)
 	dnew->next		= descriptor_list;
 	descriptor_list		= dnew;
 
+	/* mccp
+	 * tell the client we support compression
+	 */
+	write_to_descriptor(dnew, compress2_will, 0);
+	write_to_descriptor(dnew, compress_will, 0);	
+	
 	/*
 	 * Send the greeting.
 	 */
@@ -953,6 +980,12 @@ void close_descriptor(DESCRIPTOR_DATA *dclose, int save_flags)
 			bug("Close_socket: dclose not found.");
 	}
 
+	if (dclose->out_compress) {
+		deflateEnd(dclose->out_compress);
+		free(dclose->out_compress_buf);
+		free(dclose->out_compress);
+	}
+
 #if !defined( WIN32 )
 	close(dclose->descriptor);
 #else
@@ -977,7 +1010,7 @@ bool read_from_descriptor(DESCRIPTOR_DATA *d)
 	iOld = iStart = strlen(d->inbuf);
 	if (iStart >= sizeof(d->inbuf) - 10) {
 		log("%s input overflow!", d->host);
-		write_to_descriptor(d->descriptor,
+		write_to_descriptor(d,
 				    "\n\r*** PUT A LID ON IT!!! ***\n\r", 0);
 		return FALSE;
 	}
@@ -1023,19 +1056,27 @@ bool read_from_descriptor(DESCRIPTOR_DATA *d)
 	for (p = d->inbuf+iOld; *p;) {
 		unsigned char *r;
 
-		if (*p != IAC
-		||  (d->character != NULL &&
-		     IS_SET(d->character->comm, COMM_NOTELNET))) {
+		if (*p != IAC) {
 			p++;
 			continue;
+			/* NOTREACHED */
 		}
 
 		if (d->wait_for_se)
 			goto wse;
 
 		switch (p[1]) {
-		case DONT:
 		case DO:
+			if (strlen(p) > 2) {
+				if (p[2] == TELOPT_COMPRESS2)
+					d->mccp_support = 2;
+
+				if (p[2] == TELOPT_COMPRESS
+				&& d->mccp_support != 2)
+					d->mccp_support = 1;
+			}
+			/* FALLTHROUGH */
+		case DONT:
 		case WONT:
 		case WILL:
 			q = p+3;
@@ -1055,13 +1096,21 @@ bool read_from_descriptor(DESCRIPTOR_DATA *d)
 			break;
 
 		case IAC:
-			memmove(p, p+1, strlen(p));
+			if (d->character
+			&& !IS_SET(d->character->comm, COMM_NOTELNET))
+				memmove(p, p+1, strlen(p));
 			p++;
 			continue;
 			/* NOTREACHED */
 
 		default:
-			q = p+2;
+			if (d->character
+			&& IS_SET(d->character->comm, COMM_NOTELNET)) {
+				p++;
+				continue;
+				/* NOTREACHED */
+			}
+			q = p + 2;
 			break;
 		}
 		if ((r = strchr(p, '\0')) < q)
@@ -1098,7 +1147,7 @@ void read_from_buffer(DESCRIPTOR_DATA *d)
 	 */
 	for (i = 0, k = 0; d->inbuf[i] != '\n' && d->inbuf[i] != '\r'; i++) {
 		if (k >= MAX_INPUT_LENGTH - 2) {
-			write_to_descriptor(d->descriptor,
+			write_to_descriptor(d,
 					    "Line too long.\n\r", 0);
 
 			/* skip the rest of the line */
@@ -1148,7 +1197,7 @@ void read_from_buffer(DESCRIPTOR_DATA *d)
 				wiznet("[$N]'s $t!",
 					ch, buf, WIZ_SPAM, 0, ch->level);
 
-				write_to_descriptor(d->descriptor, "\n\r*** PUT A LID ON IT!!! ***\n\r", 0);
+				write_to_descriptor(d, "\n\r*** PUT A LID ON IT!!! ***\n\r", 0);
 				d->repeat = 0;
 				if (d->showstr_point) {
 					if (d->showstr_head) {
@@ -1292,7 +1341,7 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 	 * OS-dependent output.
 	 */
 	if (d->out_buf.top > 0) {
-		if (!write_to_descriptor(d->descriptor,
+		if (!write_to_descriptor(d,
 					 d->out_buf.buf, d->out_buf.top)) {
 			retval = FALSE;
 			goto bail_out;
@@ -1300,7 +1349,7 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 	}
 
 	if (ga) {
-		if (!write_to_descriptor(d->descriptor, go_ahead_str, 0)) {
+		if (!write_to_descriptor(d, go_ahead_str, 0)) {
 			retval = FALSE;
 			goto bail_out;
 		}
@@ -1688,14 +1737,23 @@ void write_to_snoop(DESCRIPTOR_DATA *d, const char *txt, size_t len)
  * If this gives errors on very long blocks (like 'ofind all'),
  *   try lowering the max block size.
  */
-bool write_to_descriptor(int desc, const char *txt, uint length)
+bool write_to_descriptor_2(int desc, const char *txt, size_t length)
 {
 	uint iStart;
 	uint nWrite;
 	uint nBlock;
+	DESCRIPTOR_DATA *d;
 
 	if (!length)
 		length = strlen(txt);
+
+	for (d = descriptor_list; d; d = d->next) {
+		if (d->descriptor == desc) {
+			d->bytes_income += length;
+			d->bytes_sent += length;
+			break;
+		}
+	}
 
 	for (iStart = 0; iStart < length; iStart += nWrite) {
 		nBlock = UMIN(length - iStart, 4096);
@@ -1709,6 +1767,15 @@ bool write_to_descriptor(int desc, const char *txt, uint length)
 		}
 	} 
 	return TRUE;
+}
+
+/* mccp: write_to_descriptor wrapper */
+bool write_to_descriptor(DESCRIPTOR_DATA *d, const char *txt, size_t length)
+{
+	if (d->out_compress)
+		return writeCompressed(d, txt, length);
+	else
+		return write_to_descriptor_2(d->descriptor, txt, length);
 }
 
 int search_sockets(DESCRIPTOR_DATA *inp)
@@ -1947,7 +2014,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 		if (!IS_SET(PC(ch)->plr_flags, PLR_NEW)) {
 			/* Old player */
-			write_to_descriptor(d->descriptor, echo_off_str, 0);
+			write_to_descriptor(d, echo_off_str, 0);
  			char_puts("Password: ", ch);
 			d->connected = CON_GET_OLD_PASSWORD;
 			return;
@@ -2020,7 +2087,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			char_puts("New character.\n", ch);
 			char_printf(ch, "Give me a password for %s: ",
 				    ch->name);
-			write_to_descriptor(d->descriptor, echo_off_str, 0);
+			write_to_descriptor(d, echo_off_str, 0);
 			d->connected = CON_GET_NEW_PASSWORD;
 			break;
 
@@ -2062,7 +2129,11 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			return;
 		}
 
-		write_to_descriptor(d->descriptor, (char *) echo_on_str, 0);
+		write_to_descriptor(d, (char *) echo_on_str, 0);
+
+		if (ch->desc->mccp_support)
+			dofun("compress", ch, "on");		
+		
 		char_puts("\n", ch);
 		dofun("help", ch, "RACETABLE");
 		char_puts("What is your race ('help <race>' for more information)? ", ch);
@@ -2288,7 +2359,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			if (ch->endur == 2)
 				close_descriptor(d, SAVE_F_NONE);
 			else {
-				write_to_descriptor(d->descriptor,
+				write_to_descriptor(d,
 						    (char *) echo_off_str, 0);
 				char_puts("Password: ", ch);
 				d->connected = CON_GET_OLD_PASSWORD;
@@ -2302,7 +2373,10 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			char_puts("Type 'password null <new password>' to fix.\n", ch);
 		}
 
-		write_to_descriptor(d->descriptor, (char *) echo_on_str, 0);
+		write_to_descriptor(d, (char *) echo_on_str, 0);
+
+		if (ch->desc->mccp_support)
+			dofun("compress", ch, "on");
 
 		if (check_playing(d, ch->name)
 		||  check_reconnect(d, ch->name, TRUE))

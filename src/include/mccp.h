@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mccp.h,v 1.1 2001-12-15 13:47:47 matrim Exp $
+ * $Id: mccp.h,v 1.1.2.1 2002-01-05 16:21:55 matrim Exp $
  */
 
 /*
@@ -48,6 +48,8 @@
 
 void *	zlib_alloc(void *opaque, unsigned int items, unsigned int size);
 void	zlib_free(void *opaque, void *address);
+bool	compressStart(DESCRIPTOR_DATA *desc);
+bool	compressEnd(DESCRIPTOR_DATA *desc);
 bool	processCompressed(DESCRIPTOR_DATA *desc);
 bool	writeCompressed(DESCRIPTOR_DATA *desc, const char *txt, int length);
 

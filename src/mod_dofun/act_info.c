@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.47 2001-12-18 11:44:43 tatyana Exp $
+ * $Id: act_info.c,v 1.271.2.48 2002-01-05 16:21:57 matrim Exp $
  */
 
 /***************************************************************************
@@ -73,6 +73,7 @@ DECLARE_DO_FUN(do_help		);
 DECLARE_DO_FUN(do_affects	);
 DECLARE_DO_FUN(do_murder	);
 DECLARE_DO_FUN(do_say		);
+DECLARE_DO_FUN(do_compress	);
 
 /*
  * Local functions.
@@ -4976,3 +4977,81 @@ void do_acute_vision(CHAR_DATA *ch, const char *argument)
 	check_improve(ch, sn, TRUE, 1);
 }
 
+void do_compress(CHAR_DATA *ch, const char *argument)
+{
+	char arg1[MAX_INPUT_LENGTH];
+	double crate;
+	const char *status;
+	const char *support;
+	BUFFER *output;
+
+	if (!ch->desc) {
+		char_puts("What descriptor?!", ch);
+		return;
+	}
+
+	one_argument(argument, arg1, sizeof(arg1));
+
+	if (!str_cmp(arg1, "on") && ch->desc->mccp_support) {
+		if (ch->desc->out_compress == NULL) {
+			if (!compressStart(ch->desc))
+				char_puts("Failed.", ch);
+			else
+				char_puts("Ok, compression enabled.", ch);
+		}
+		else
+			char_puts("Compression is already enabled.", ch);
+
+		return;
+	}
+
+	if (!str_cmp(arg1, "off") && ch->desc->mccp_support) {
+		if (ch->desc->out_compress != NULL) {
+			if (!compressEnd(ch->desc))
+				char_puts("Failed.", ch);
+			else
+				char_puts("Ok, compression disabled.", ch);
+		}
+		else
+			char_puts("Compression is already disabled.", ch);
+
+		return;
+	}
+
+	/*
+	 *  Default - show statistics
+	 */
+	output = buf_new(GET_LANG(ch));
+
+	crate = 100 * (1 - (double)ch->desc->bytes_sent/(double)ch->desc->bytes_income);
+
+	switch (ch->desc->mccp_support) {
+	case 1:
+		support = "mccp version 1 is supported by client";
+		break;
+	case 2:
+		support = "mccp version 2 is supported by client";
+		break;
+	default:
+		support = "mccp is not supported by client";
+		break;
+	}
+
+	if (ch->desc->out_compress != NULL)
+		status = "enabled";
+	else
+		status = "disabled";
+
+	buf_printf(output,
+			"Support: %s\n"
+			"Status:  %s\n\n"
+			"Total bytes.........%-d\n"
+			"Sent bytes..........%-d\n"
+			"Compression rate....%-4.2f%%\n",
+			GETMSG(support, GET_LANG(ch)),
+			GETMSG(status, GET_LANG(ch)),
+			ch->desc->bytes_income, ch->desc->bytes_sent, crate);
+
+	page_to_char(buf_string(output), ch);
+	buf_free(output);
+}

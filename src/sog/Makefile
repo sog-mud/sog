@@ -1,12 +1,12 @@
 #
-# $Id: Makefile,v 1.11 1999-09-25 11:29:34 fjoe Exp $
+# $Id: Makefile,v 1.11.2.1 2002-01-05 16:21:59 matrim Exp $
 #
 
 MODULE_NAME = sog
 INSTALL_DIR = bin
 
 COMM_CFILES = comm/ban.c comm/charset.c comm/comm.c comm/comm_act.c\
-	      comm/comm_colors.c comm/comm_info.c comm/resolver.c
+	      comm/comm_colors.c comm/comm_info.c comm/resolver.c comm/mccp.c
 
 DB_CFILES = db/db.c db/db_area.c db/db_clan.c db/db_class.c db/db_cmd.c\
 	    db/db_hometown.c db/db_lang.c db/db_msg.c db/db_race.c\
