@@ -3660,6 +3660,7 @@ Affects hp by 200.
 0 'OLC ALIST'~
 Syntax: alist area [substr]
 Syntax: alist clan
+Syntax: alist help [keyword]
 Syntax: alist mpcode [all]
 Syntax: alist msgdb [substr]
 Syntax: alist object <all | name | item_type>
@@ -3670,6 +3671,10 @@ From OLC editor you can use shortened version of this command ({Clist{x) with
 the same args.
 Default area for 'alist mobile/object' is the currently edited area or the
 area currently edited object is in.
+'alist help' will show all available help topics in the currently edited
+area or the area currently edited object is in. 'alist help keyword'
+will show all available help topics in all areas matching specified
+keyword.
  
 ~
 0 'OLC ASAVE'~
