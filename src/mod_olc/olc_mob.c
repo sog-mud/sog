@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.46 1999-10-21 12:51:56 fjoe Exp $
+ * $Id: olc_mob.c,v 1.47 1999-11-21 15:56:50 fjoe Exp $
  */
 
 #include "olc.h"
@@ -368,14 +368,14 @@ OLC_FUN(mobed_show)
 			pShop->open_hour, pShop->close_hour);
 
 		for (iTrade = 0; iTrade < MAX_TRADE; iTrade++) {
-			if (pShop->buy_type[iTrade] != 0) {
+			if (pShop->buy_type[iTrade] <= 0)
+				continue;
 			if (iTrade == 0) {
 				buf_add(buf, "  Number Trades Type\n");
 				buf_add(buf, "  ------ -----------\n");
 			}
 			buf_printf(buf, "  [%4d] %s\n", iTrade,
 				flag_string(item_types, pShop->buy_type[iTrade]));
-			}
 		}
 	}
 
@@ -628,36 +628,39 @@ OLC_FUN(mobed_shop)
 	}
 
 
-	if (!str_cmp(command, "type"))
-	{
+	if (!str_cmp(command, "type")) {
 		int value;
+		int num;
 
-		if (arg1[0] == '\0' || !is_number(arg1)
-		|| argument[0] == '\0')
-		{
+		if (arg1[0] == '\0'
+		||  !is_number(arg1)
+		||  argument[0] == '\0') {
 			char_puts("Syntax:  shop type [#x0-4] [item type]\n", ch);
 			return FALSE;
 		}
 
-		if (atoi(arg1) >= MAX_TRADE)
-		{
+		if ((num = atoi(arg1)) >= MAX_TRADE) {
 			char_printf(ch, "MobEd:  May sell %d items max.\n", MAX_TRADE);
 			return FALSE;
 		}
 
-		if (!pMob->pShop)
-		{
+		if (!pMob->pShop) {
 			char_puts("MobEd:  Debes crear un shop primero (shop assign).\n", ch);
 			return FALSE;
 		}
 
-		if ((value = flag_value(item_types, argument)) == 0)
-		{
+		if (!str_cmp(argument, "none")) {
+			pMob->pShop->buy_type[num] = value;
+			char_printf(ch, "Shop type %d reset.\n");
+			return TRUE;
+		}
+
+		if ((value = flag_value(item_types, argument)) < 0) {
 			char_puts("MobEd:  That type of item is not known.\n", ch);
 			return FALSE;
 		}
 
-		pMob->pShop->buy_type[atoi(arg1)] = value;
+		pMob->pShop->buy_type[num] = value;
 
 		char_puts("Shop type set.\n", ch);
 		return TRUE;

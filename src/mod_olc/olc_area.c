@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.54 1999-10-25 08:23:32 fjoe Exp $
+ * $Id: olc_area.c,v 1.55 1999-11-21 15:56:50 fjoe Exp $
  */
 
 #include "olc.h"
@@ -1373,12 +1373,8 @@ static void save_shop(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 	pShopIndex = pMobIndex->pShop;
 
 	fprintf(fp, "%d ", pShopIndex->keeper);
-	for (iTrade = 0; iTrade < MAX_TRADE; iTrade++) {
-		if (pShopIndex->buy_type[iTrade] != 0)
-			fprintf(fp, "%d ", pShopIndex->buy_type[iTrade]);
-		else
-			fprintf(fp, "0 ");
-	}
+	for (iTrade = 0; iTrade < MAX_TRADE; iTrade++)
+		fprintf(fp, "%d ", pShopIndex->buy_type[iTrade]);
 	fprintf(fp, "%d %d ", pShopIndex->profit_buy, pShopIndex->profit_sell);
 	fprintf(fp, "%d %d\n", pShopIndex->open_hour, pShopIndex->close_hour);
 }
