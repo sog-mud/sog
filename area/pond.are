@@ -155,7 +155,7 @@ S
 mob echo {cThe mystic pond ripples and some letters forms on its surface.{x
 ~
 #35101
-mob transfer $n 35100
+mob gtransfer $n 35100
 ~
 #35102
 mob call 35100
