@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.165 1999-04-21 14:44:27 kostik Exp $
+ * $Id: act_move.c,v 1.166 1999-05-11 09:49:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2571,6 +2571,7 @@ void do_push(CHAR_DATA *ch, const char *argument)
 	if (victim->position == POS_FIGHTING
 	||  (IS_NPC(victim) && IS_SET(victim->pIndexData->act, ACT_NOTRACK))
 	||  (!IS_NPC(ch) && percent > get_skill(ch, sn))
+	||  pexit->to_room.r == NULL
 	||  pexit->to_room.r->area != ch->in_room->area) {
 		/*
 		 * Failure.
