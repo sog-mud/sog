@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.85 1998-11-11 05:46:57 fjoe Exp $
+ * $Id: update.c,v 1.86 1998-11-11 11:13:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1559,7 +1559,20 @@ OBJ_DATA *last_updated_obj;
 
 void obj_update_list(OBJ_DATA *obj)
 {
+	int i;
 	OBJ_DATA *obj_next;
+
+/* some diagnostics */
+	obj_next = obj;
+	for (i = 0; obj && obj->extracted; obj = obj->next, i++)
+		;
+	if (i)
+		log_printf("obj_update_list: skipped %d extracted objs, "
+			   "object_list == %p, obj == %p, "
+			   "last_updated_obj == %p, "
+			   "last_updated_obj->next == %p",
+			   i, object_list, obj_next,
+			   last_updated_obj, last_updated_obj->next);
 
 	for (; obj; obj = obj_next) {
 		obj_next = obj->next;
