@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.24 1998-07-13 11:46:41 efdi Exp $
+ * $Id: spellfun2.c,v 1.25 1998-07-13 12:32:03 efdi Exp $
  */
 
 /***************************************************************************
@@ -61,6 +61,7 @@
 #include "log.h"
 #include "act_move.h"
 #include "mlstring.h"
+#include "resource.h"
 
 DECLARE_DO_FUN(do_scan2);
 /* command procedures needed */

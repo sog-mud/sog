@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.30 1998-07-13 11:46:41 efdi Exp $
+ * $Id: spellfun.c,v 1.31 1998-07-13 12:32:02 efdi Exp $
  */
 
 /***************************************************************************
@@ -60,6 +60,7 @@
 #include "interp.h"
 #include "act_move.h"
 #include "mlstring.h"
+#include "resource.h"
 
 /*
  * Local functions.
