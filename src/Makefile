@@ -1,9 +1,9 @@
 #
-# $Id: Makefile,v 1.14 1998-07-23 01:30:07 efdi Exp $
+# $Id: Makefile,v 1.15 1998-07-23 19:15:29 fjoe Exp $
 #
 CC		= gcc
 LD		= gcc
-CFLAGS		=  -g -Wall -O
+CFLAGS		=  -g -Wall -O -pipe
 LFLAGS		=  -g
 INSTALL_PATH	= /usr/local/muddy
 

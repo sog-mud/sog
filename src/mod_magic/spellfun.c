@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.35 1998-07-23 12:11:47 efdi Exp $
+ * $Id: spellfun.c,v 1.36 1998-07-23 19:15:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -383,73 +383,74 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		break;
 
 	case TAR_CHAR_OFFENSIVE:
-		if (arg2[0] == '\0')
+		if (arg2[0] == '\0') {
 			if ((victim = ch->fighting) == NULL) {
 				char_nputs(CAST_SPELL_ON_WHOM, ch);
 				return;
-			} else
-				if ((range = allowed_other(ch,sn)) > 0) {
-					if (!(victim = get_char_spell(ch,
-								target_name,
-								&door, range)))
-						return;
+			}
+		}
+		else {
+			if ((range = allowed_other(ch,sn)) > 0) {
+				if (!(victim = get_char_spell(ch, target_name,
+							      &door, range)))
+					return;
 
-					if (IS_NPC(victim)
-					&&  IS_SET(victim->act, ACT_NOTRACK)
-					&&  victim->in_room != ch->in_room) {
-						act_nprintf(ch, NULL, victim,
+				if (IS_NPC(victim)
+				&&  IS_SET(victim->act, ACT_NOTRACK)
+				&&  victim->in_room != ch->in_room) {
+					act_nprintf(ch, NULL, victim,
 						    TO_CHAR, POS_DEAD,
 						    CANT_CAST_SPELL_ON_N_FAR);
-						return;
-					}
-					cast_far = 1;
-				} else if (!(victim = get_char_room(ch,
-							target_name)) == NULL) {
-					char_nputs(THEY_ARENT_HERE, ch);
 					return;
 				}
-
-			if (!IS_NPC(ch) && is_safe(ch, victim))
+				cast_far = 1;
+			} else if (!(victim = get_char_room(ch, target_name))) {
+				char_nputs(THEY_ARENT_HERE, ch);
 				return;
-
-			vo = (void *) victim;
-			target = TARGET_CHAR;
-			if (!IS_NPC(ch) && victim != ch
-			&&  ch->fighting != victim && victim->fighting != ch
-			&&  (IS_SET(victim->affected_by, AFF_CHARM)
-			     || !IS_NPC(victim))) {
-				if (!can_see(victim, ch))
-					do_yell(victim,
-					    "Help someone is attacking me!");
-				else
-					doprintf(do_yell, victim,
-						 "Die, %s, you sorcerous dog!",
-						 ch->name);
 			}
+		}
 
-			if (is_affected(victim, gsn_spellbane)
-			&&  (number_percent()
-				< 2*victim->pcdata->learned[gsn_spellbane]/3) 
-			&&  sn != slot_lookup(524))  {
-				if (ch == victim) {
-					act_nprintf(ch, NULL, NULL, TO_CHAR,
-						    POS_DEAD,
-						    YOUR_SPELLBANE_DEFLECTS);
-					act_nprintf(ch, NULL, NULL, TO_ROOM,
-						    POS_RESTING,
-						    NS_SPELLBANE_DEFLECTS);
-					damage(ch, ch, 3 * ch->level,
-					       gsn_spellbane,
-					       DAM_NEGATIVE, TRUE);
+		if (!IS_NPC(ch) && is_safe(ch, victim))
+			return;
+
+		vo = (void *) victim;
+		target = TARGET_CHAR;
+		if (!IS_NPC(ch) && victim != ch
+		&&  ch->fighting != victim && victim->fighting != ch
+		&&  (IS_SET(victim->affected_by, AFF_CHARM)
+		     || !IS_NPC(victim))) {
+			if (!can_see(victim, ch))
+				do_yell(victim,
+				    "Help someone is attacking me!");
+			else
+				doprintf(do_yell, victim,
+					 "Die, %s, you sorcerous dog!",
+					 ch->name);
+		}
+
+		if (is_affected(victim, gsn_spellbane)
+		&&  (number_percent() < 2*victim->pcdata->learned[gsn_spellbane]/3) 
+		&&  sn != slot_lookup(524))  {
+			if (ch == victim) {
+				act_nprintf(ch, NULL, NULL, TO_CHAR,
+					    POS_DEAD,
+					    YOUR_SPELLBANE_DEFLECTS);
+				act_nprintf(ch, NULL, NULL, TO_ROOM,
+					    POS_RESTING,
+					    NS_SPELLBANE_DEFLECTS);
+				damage(ch, ch, 3 * ch->level,
+				       gsn_spellbane,
+				       DAM_NEGATIVE, TRUE);
 			} else {
-	          act("$N deflects your spell!",ch,NULL,victim,TO_CHAR);
-	          act("You deflect $n's spell!",ch,NULL,victim,TO_VICT);
-	          act("$N deflects $n's spell!",ch,NULL,victim,TO_NOTVICT);
-	          damage(victim,ch,3 * victim->level,gsn_spellbane,DAM_NEGATIVE, TRUE);
-	          multi_hit(victim,ch,TYPE_UNDEFINED);
-	        }
-	        return;
-	      }
+	        		act("$N deflects your spell!",ch,NULL,victim,TO_CHAR);
+	        		act("You deflect $n's spell!",ch,NULL,victim,TO_VICT);
+				act("$N deflects $n's spell!",ch,NULL,victim,
+				    TO_NOTVICT);
+				damage(victim,ch,3 * victim->level,gsn_spellbane,DAM_NEGATIVE, TRUE);
+				multi_hit(victim,ch,TYPE_UNDEFINED);
+	        	}
+			return;
+		}
 		break;
 
 	case TAR_CHAR_DEFENSIVE:
