@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.330 2004-02-19 20:55:50 fjoe Exp $
+ * $Id: act_wiz.c,v 1.331 2004-02-19 21:32:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2770,7 +2770,8 @@ DO_FUN(do_string, ch, argument)
 
 			argument = one_argument(argument, arg3, sizeof(arg3));
 			if (argument == NULL) {
-				act_char("Usage: oset <object> ed <keyword> lang", ch); // notrans
+				act_char("Usage: oset <object> ed <keyword> <lang>", ch); // notrans
+				act_char("Usage: oset <object> ed <keyword> reset", ch); // notrans
 				return;
 			}
 
