@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.30 1998-06-14 13:42:42 efdi Exp $
+ * $Id: update.c,v 1.31 1998-06-16 09:40:59 efdi Exp $
  */
 
 /***************************************************************************
@@ -989,318 +989,295 @@ void char_update(void)
 	if (save_number > 29)
 	save_number = 0;
 
-	for (ch = char_list; ch != NULL; ch = ch_next)
-	{
-	AFFECT_DATA *paf;
-	AFFECT_DATA *paf_next;
+	for (ch = char_list; ch != NULL; ch = ch_next) {
+		AFFECT_DATA *paf;
+		AFFECT_DATA *paf_next;
 
-	ch_next = ch->next;
+		ch_next = ch->next;
 
-	/* reset hunters path find */
-	if (!IS_NPC(ch) && ch->clan == CLAN_HUNTER)
-	{
-	 if (number_percent() < get_skill(ch,gsn_path_find))
-	  {
-	   ch->endur += (get_skill(ch,gsn_path_find) / 2);
-	   check_improve(ch,gsn_path_find,TRUE,8);
-	   }
-	 else 
-	   {
-	    check_improve(ch,gsn_path_find,FALSE,16);
-	   }
-	}
+		/* reset hunters path find */
+		if (!IS_NPC(ch) && ch->clan == CLAN_HUNTER)
+			if (number_percent() < get_skill(ch,gsn_path_find)) {
+				ch->endur += (get_skill(ch,gsn_path_find) / 2);
+				check_improve(ch, gsn_path_find, TRUE, 8);
+			} else
+				check_improve(ch, gsn_path_find, FALSE, 16);
 
-	if (!IS_NPC(ch) && ch->clan == CLAN_BATTLE)
-	{
-	 if (!is_affected(ch,gsn_spellbane)) do_spellbane(ch,"");
-	}
+		if (!IS_NPC(ch) && ch->clan == CLAN_BATTLE)
+			if (!is_affected(ch, gsn_spellbane))
+				do_spellbane(ch, "");
 
-	    /* Remove caltrops effect after fight off */
-	    if (is_affected(ch,gsn_caltrops) && !ch->fighting)
-	      affect_strip(ch,gsn_caltrops);
+		/* Remove caltrops effect after fight off */
+		if (is_affected(ch, gsn_caltrops) && !ch->fighting)
+			affect_strip(ch, gsn_caltrops);
 
-	    /* Remove vampire effect when morning. */
-	    if (IS_VAMPIRE(ch) && 
-	    (weather_info.sunlight == SUN_LIGHT || 
-		weather_info.sunlight == SUN_RISE))
-	      do_human(ch,"");
+		/* Remove vampire effect when morning. */
+		if (IS_VAMPIRE(ch) && (weather_info.sunlight == SUN_LIGHT 
+				      || weather_info.sunlight == SUN_RISE))
+			do_human(ch, "");
 
-	    /* Reset sneak for vampire */
-	    if (!(ch->fighting) && !IS_AFFECTED(ch,AFF_SNEAK) &&
-	        IS_VAMPIRE(ch) && !MOUNTED(ch))
-	{
-	      send_to_char("You begin to sneak again.\n\r",ch);
-	  SET_BIT(ch->affected_by ,AFF_SNEAK);
-	}
-
-	    if (!(ch->fighting) && !IS_AFFECTED(ch,AFF_SNEAK) &&
-	        (race_table[RACE(ch)].aff & AFF_SNEAK) && !MOUNTED(ch))
-	      send_to_char("You begin to sneak again.\n\r",ch);
-
-	    if (!(ch->fighting) && !IS_AFFECTED(ch,AFF_HIDE) &&
-	        (race_table[RACE(ch)].aff & AFF_HIDE) && !MOUNTED(ch))
-	      send_to_char("You step back into the shadows.\n\r",ch);
-
-	    SET_BIT(ch->affected_by, race_table[RACE(ch)].aff);
-
-	if (!IS_NPC(ch) && IS_SET(ch->act,PLR_CHANGED_AFF))
-		REMOVE_BIT(ch->affected_by,AFF_FLYING);
-
-	if (MOUNTED(ch)) REMOVE_BIT(ch->affected_by,(C|D|P|Q));
-
-	    if (ch->timer > 20 && !IS_NPC(ch))
-	        ch_quit = ch;
-
-	if (ch->position >= POS_STUNNED)
-	{
-	        /* check to see if we need to go home */
-	        if (IS_NPC(ch) && ch->zone != NULL && ch->zone != ch->in_room->area
-	        && ch->desc == NULL &&  ch->fighting == NULL && ch->progtypes==0
-	    && !IS_AFFECTED(ch,AFF_CHARM) && ch->last_fought == NULL
-	    && !RIDDEN(ch))
-	        {
-		if (ch->in_mind != NULL
-		    && ch->pIndexData->vnum > 100)
-			back_home(ch);
-		else 
-		{
-	        	 act("$n wanders on home.",ch,NULL,NULL,TO_ROOM);
-	        	 extract_char(ch,TRUE);
+		/* Reset sneak for vampire */
+		if (!(ch->fighting) && !IS_AFFECTED(ch,AFF_SNEAK) 
+		&& IS_VAMPIRE(ch) && !MOUNTED(ch)) {
+			char_nputs(YOU_BEGIN_TO_SNEAK_AGAIN, ch);
+			SET_BIT(ch->affected_by, AFF_SNEAK);
 		}
-	        	continue;
-	        }
 
-	    if (ch->hit  < ch->max_hit)
-		ch->hit  += hit_gain(ch);
-	    else
-		ch->hit = ch->max_hit;
+		if (!(ch->fighting) && !IS_AFFECTED(ch, AFF_SNEAK) 
+		&& (race_table[RACE(ch)].aff & AFF_SNEAK) && !MOUNTED(ch))
+			char_nputs(YOU_BEGIN_TO_SNEAK_AGAIN, ch);
 
-	    if (ch->mana < ch->max_mana)
-		ch->mana += mana_gain(ch);
-	    else
-		ch->mana = ch->max_mana;
+		if (!(ch->fighting) && !IS_AFFECTED(ch, AFF_HIDE) 
+		&& (race_table[RACE(ch)].aff & AFF_HIDE) && !MOUNTED(ch))
+			char_nputs(YOU_STEP_BACK_SHADOWS, ch);
 
-	    if (ch->move < ch->max_move)
-		ch->move += move_gain(ch);
-	    else
-		ch->move = ch->max_move;
-	}
+		SET_BIT(ch->affected_by, race_table[RACE(ch)].aff);
 
-	if (ch->position == POS_STUNNED)
-	    update_pos(ch);
+		if (!IS_NPC(ch) && IS_SET(ch->act, PLR_CHANGED_AFF))
+			REMOVE_BIT(ch->affected_by, AFF_FLYING);
 
-	if (!IS_NPC(ch) && ch->level < LEVEL_IMMORTAL)
-	{
-	    OBJ_DATA *obj;
+		if (MOUNTED(ch))
+			REMOVE_BIT(ch->affected_by, (C | D | P | Q));
 
-	    if ((obj = get_eq_char(ch, WEAR_LIGHT)) != NULL
-	    &&   obj->item_type == ITEM_LIGHT
-	    &&   obj->value[2] > 0)
-	    {
-		if (--obj->value[2] == 0 && ch->in_room != NULL)
-		{
-		    --ch->in_room->light;
-		    act("$p goes out.", ch, obj, NULL, TO_ROOM);
-		    act("$p flickers and goes out.", ch, obj, NULL, TO_CHAR);
-		    extract_obj(obj);
+		if (ch->timer > 20 && !IS_NPC(ch))
+	        	ch_quit = ch;
+
+		if (ch->position >= POS_STUNNED) {
+			/* check to see if we need to go home */
+			if (IS_NPC(ch) && ch->zone != NULL 
+			&& ch->zone != ch->in_room->area && ch->desc == NULL 
+			&&  ch->fighting == NULL && ch->progtypes==0
+			&& !IS_AFFECTED(ch,AFF_CHARM) && ch->last_fought == NULL
+			&& !RIDDEN(ch)) {
+				if (ch->in_mind != NULL 
+				&& ch->pIndexData->vnum > 100)
+					back_home(ch);
+				else {
+					act_nprintf(ch, NULL, NULL, TO_ROOM,
+						POS_RESTING, N_WANDERS_ON_HOME);
+					extract_char(ch, TRUE);
+				}
+				continue;
+			}
+
+			if (ch->hit < ch->max_hit)
+				ch->hit += hit_gain(ch);
+			else
+				ch->hit = ch->max_hit;
+
+			if (ch->mana < ch->max_mana)
+				ch->mana += mana_gain(ch);
+			else
+				ch->mana = ch->max_mana;
+
+			if (ch->move < ch->max_move)
+				ch->move += move_gain(ch);
+			else
+				ch->move = ch->max_move;
 		}
-	 	else if (obj->value[2] <= 5 && ch->in_room != NULL)
-		    act("$p flickers.",ch,obj,NULL,TO_CHAR);
-	    }
 
-	    if (IS_IMMORTAL(ch))
-		ch->timer = 0;
+		if (ch->position == POS_STUNNED)
+			update_pos(ch);
 
-	    if (++ch->timer >= 12)
-	    {
-		if (ch->was_in_room == NULL && ch->in_room != NULL)
-		{
-		    ch->was_in_room = ch->in_room;
-		    if (ch->fighting != NULL)
-			stop_fighting(ch, TRUE);
-		    act("$n disappears into the void.",
-			ch, NULL, NULL, TO_ROOM);
-		    send_to_char("You disappear into the void.\n\r", ch);
-		    if (ch->level > 1 )
-		        save_char_obj(ch);
-		    if (ch->level < 10)  {
-  		      char_from_room(ch);
-		      char_to_room(ch, get_room_index(ROOM_VNUM_LIMBO));
-		    }
+		if (!IS_NPC(ch) && ch->level < LEVEL_IMMORTAL) {
+			OBJ_DATA *obj;
+
+			if ((obj = get_eq_char(ch, WEAR_LIGHT)) != NULL
+			&& obj->item_type == ITEM_LIGHT && obj->value[2] > 0) {
+				if (--obj->value[2] == 0 
+				&& ch->in_room != NULL) {
+					--ch->in_room->light;
+					act_nprintf(ch, obj, NULL, TO_ROOM,
+						POS_RESTING, N_GOES_OUT);
+					act_nprintf(ch, obj, NULL, TO_CHAR,
+						POS_RESTING, N_FLICKERS_OUT);
+					extract_obj(obj);
+				} else if (obj->value[2] <= 5 
+				&& ch->in_room != NULL)
+					act_nprintf(ch, obj, NULL, TO_CHAR, 
+						POS_RESTING, P_FLICKERS);
+			}
+
+			if (IS_IMMORTAL(ch))
+				ch->timer = 0;
+
+			if (++ch->timer >= 12) {
+				if (ch->was_in_room == NULL 
+				&& ch->in_room != NULL) {
+					ch->was_in_room = ch->in_room;
+					if (ch->fighting != NULL)
+						stop_fighting(ch, TRUE);
+					act_nprintf(ch, NULL, NULL, TO_ROOM, 
+						POS_RESTING, N_DISAPPEARS_VOID);
+					char_nputs(YOU_DISAPPEAR_VOID, ch);
+					if (ch->level > 1)
+						save_char_obj(ch);
+					if (ch->level < 10) {
+  						char_from_room(ch);
+						char_to_room(ch, get_room_index(
+							     ROOM_VNUM_LIMBO));
+					}
+				}
+			}
+
+			if (!ch->was_in_room) {
+				gain_condition(ch, COND_DRUNK, -1);
+				if (ch->class == CLASS_VAMPIRE
+				&& ch->level > 10) 
+					gain_condition(ch, COND_BLOODLUST, -1);
+				gain_condition(ch, COND_FULL, 
+					     ch->size > SIZE_MEDIUM ? -4 : -2);
+				if (ch->in_room->sector_type == SECT_DESERT)
+					gain_condition(ch, COND_THIRST, -3);
+				else
+					gain_condition(ch, COND_THIRST, -1);
+				gain_condition(ch, COND_HUNGER, 
+					     ch->size > SIZE_MEDIUM ? -2 : -1);
+			}
 		}
-	    }
 
-		if (!ch->was_in_room) {
-		    gain_condition(ch, COND_DRUNK,  -1);
-		    if (ch->class == CLASS_VAMPIRE && ch->level > 10) 
-			gain_condition(ch,COND_BLOODLUST, -1);
-		    gain_condition(ch, COND_FULL, ch->size>SIZE_MEDIUM ? -4:-2);
-		    if (ch->in_room->sector_type == SECT_DESERT)
-		      gain_condition(ch, COND_THIRST, -3);
-		    else
-		      gain_condition(ch, COND_THIRST, -1);
-		    gain_condition(ch, COND_HUNGER, ch->size>SIZE_MEDIUM?-2:-1);
-		}
-	}
-
-	for (paf = ch->affected; paf != NULL; paf = paf_next)
-	{
-	    paf_next	= paf->next;
-	    if (paf->duration > 0)
-	    {
-		paf->duration--;
-		if (number_range(0,4) == 0 && paf->level > 0)
-		  paf->level--;
-		/* spell strength fades with time */
-	        }
-	    else if (paf->duration < 0)
-		;
-	    else
-	    {
-		if (paf_next == NULL
-		||   paf_next->type != paf->type
-		||   paf_next->duration > 0)
-		{
-		    if (paf->type > 0 && skill_table[paf->type].msg_off)
-		    {
-			send_to_char(skill_table[paf->type].msg_off, ch);
-			send_to_char("\n\r", ch);
-		    }
-		}
+		for (paf = ch->affected; paf != NULL; paf = paf_next) {
+			paf_next = paf->next;
+			if (paf->duration > 0) {
+				paf->duration--;
+				if (number_range(0, 4) == 0 && paf->level > 0)
+					paf->level--;
+				/* spell strength fades with time */
+			} else if (paf->duration < 0);
+			else {
+				if (paf_next == NULL
+				|| paf_next->type != paf->type
+				|| paf_next->duration > 0) {
+					if (paf->type > 0 
+					&& skill_table[paf->type].msg_off) {
+						send_to_char(
+						 skill_table[paf->type].msg_off,
+						 ch);
+						send_to_char("\n\r", ch);
+					}
+				}
 	  
-		affect_remove(ch, paf);
-	    }
-	}
-
-	/*
-	 * Careful with the damages here,
-	 *   MUST NOT refer to ch after damage taken,
-	 *   as it may be lethal damage (on NPC).
-	 */
-
-	if (is_affected(ch, gsn_witch_curse))
-	{
-	  AFFECT_DATA *af,witch;
-	
-	  if (ch->in_room == NULL)
-		continue;
-
-	  act("The witch curse makes $n feel $s life slipping away.\n\r",
-		ch,NULL,NULL,TO_ROOM);
-	  send_to_char("The witch curse makes you feeling your life slipping away.\n\r",ch); 
-	
-	  for(af = ch->affected; af!= NULL; af = af->next)
-		{
-		  if (af->type == gsn_witch_curse)
-			break;
+				affect_remove(ch, paf);
+			}
 		}
 
-	  if (af == NULL)
-		 continue;
+		/*
+		 * Careful with the damages here,
+		 *   MUST NOT refer to ch after damage taken,
+		 *   as it may be lethal damage (on NPC).
+		 */
 
-	  if (af->level == 1)
-		 continue;
-
-	  witch.where = af->where;
-	  witch.type  = af->type;
-	  witch.level = af->level;
-	  witch.duration = af->duration;
-	  witch.location = af->location;
-	  witch.modifier = af->modifier * 2;
-	  witch.bitvector = 0;
+		if (is_affected(ch, gsn_witch_curse)) {
+			AFFECT_DATA *af, witch;
 	
-	  affect_remove(ch, af);
-	  affect_to_char(ch ,&witch);
-	  ch->hit = UMIN(ch->hit,ch->max_hit);
-	  if (ch->hit < 1)
-	   {
-	    affect_strip(ch,gsn_witch_curse);
-	    damage(ch,ch,1,gsn_witch_curse,DAM_NONE,FALSE);
-	   }
-	}
+			if (ch->in_room == NULL)
+				continue;
 
-	    if (IS_AFFECTED(ch, AFF_PLAGUE) && ch != NULL)
-	    {
-	        AFFECT_DATA *af, plague;
-	        CHAR_DATA *vch;
-	        int dam;
+			act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, 
+				    WITCH_CURSE_MAKES_N);
+			char_nputs(WITCH_CURSE_MAKES_YOU, ch); 
+	
+			for (af = ch->affected; af!= NULL; af = af->next)
+				if (af->type == gsn_witch_curse)
+					break;
 
-	    if (ch->in_room == NULL)
-		 continue;
+			if (af == NULL)
+				continue;
+
+			if (af->level == 1)
+				continue;
+
+			witch.where = af->where;
+			witch.type  = af->type;
+			witch.level = af->level;
+			witch.duration = af->duration;
+			witch.location = af->location;
+			witch.modifier = af->modifier * 2;
+			witch.bitvector = 0;
+	
+			affect_remove(ch, af);
+			affect_to_char(ch ,&witch);
+			ch->hit = UMIN(ch->hit, ch->max_hit);
+			if (ch->hit < 1) {
+				affect_strip(ch, gsn_witch_curse);
+				damage(ch, ch, 1, gsn_witch_curse, 
+				       DAM_NONE, FALSE);
+			}
+		}
+
+		if (IS_AFFECTED(ch, AFF_PLAGUE) && ch != NULL) {
+			AFFECT_DATA *af, plague;
+			CHAR_DATA *vch;
+			int dam;
+
+			if (ch->in_room == NULL)
+				continue;
 	        
-	    act("$n writhes in agony as plague sores erupt from $s skin.",
-		ch,NULL,NULL,TO_ROOM);
-	    send_to_char("You writhe in agony from the plague.\n\r",ch);
-	        for (af = ch->affected; af != NULL; af = af->next)
-	        {
-	        	if (af->type == gsn_plague)
-	                break;
-	        }
+			act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
+				    N_WRITHES_PLAGUE);
+			char_nputs(YOU_WRITHE_PLAGUE, ch);
+			for (af = ch->affected; af != NULL; af = af->next)
+				if (af->type == gsn_plague)
+				break;
 	    
-	        if (af == NULL)
-	        {
-	        	REMOVE_BIT(ch->affected_by,AFF_PLAGUE);
-	            continue;
-	        }
+			if (af == NULL) {
+				REMOVE_BIT(ch->affected_by, AFF_PLAGUE);
+				continue;
+			}
 	    
-	        if (af->level == 1)
-		 continue;
+			if (af->level == 1)
+				continue;
 	    
-	    plague.where		= TO_AFFECTS;
-	        plague.type 		= gsn_plague;
-	        plague.level 		= af->level - 1; 
-	        plague.duration 	= number_range(1,2 * plague.level);
-	        plague.location		= APPLY_STR;
-	        plague.modifier 	= -5;
-	        plague.bitvector 	= AFF_PLAGUE;
+			plague.where 	 = TO_AFFECTS;
+			plague.type 	 = gsn_plague;
+			plague.level 	 = af->level - 1; 
+			plague.duration	 = number_range(1,2 * plague.level);
+			plague.location	 = APPLY_STR;
+			plague.modifier	 = -5;
+			plague.bitvector = AFF_PLAGUE;
 	    
-	        for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room)
-	        {
-	            if (!saves_spell(plague.level + 2,vch,DAM_DISEASE) 
-		&&  !IS_IMMORTAL(vch)
-	        	&&  !IS_AFFECTED(vch,AFF_PLAGUE) && number_bits(2) == 0)
-	        	{
-	        	    send_to_char("You feel hot and feverish.\n\r",vch);
-	        	    act("$n shivers and looks very ill.",vch,NULL,NULL,TO_ROOM);
-	        	    affect_join(vch,&plague);
-	        	}
-	        }
+			for (vch = ch->in_room->people; vch != NULL; 
+			     vch = vch->next_in_room) {
+				if (!saves_spell(plague.level + 2, 
+						 vch, DAM_DISEASE) 
+				&& !IS_IMMORTAL(vch) 
+				&& !IS_AFFECTED(vch, AFF_PLAGUE) 
+				&& number_bits(2) == 0) {
+					char_nputs(YOU_FEEL_HOT_FEVERISH, vch);
+					act_nprintf(ch, NULL, NULL, TO_ROOM,
+						POS_RESTING ,N_SHIVERS_ILL);
+					affect_join(vch, &plague);
+				}
+			}
 
-	    dam = UMIN(ch->level,af->level/5+1);
-	    ch->mana -= dam;
-	    ch->move -= dam;
-	    damage(ch, ch, dam, gsn_plague,DAM_DISEASE,FALSE);
-	        if (number_range(1, 100) < 70)
-  	      damage(ch, ch, UMAX(ch->max_hit/20, 50), gsn_plague,DAM_DISEASE,TRUE);
-	    }
-	else if (IS_AFFECTED(ch, AFF_POISON) && ch != NULL
-	     &&   !IS_AFFECTED(ch,AFF_SLOW))
+			dam = UMIN(ch->level, af->level/5 + 1);
+			ch->mana -= dam;
+			ch->move -= dam;
+			damage(ch, ch, dam, gsn_plague, DAM_DISEASE,FALSE);
+			if (number_range(1, 100) < 70)
+				damage(ch, ch, UMAX(ch->max_hit/20, 50), 
+				       gsn_plague, DAM_DISEASE, TRUE);
+		} else if (IS_AFFECTED(ch, AFF_POISON) && ch != NULL
+		&& !IS_AFFECTED(ch, AFF_SLOW)) {
+			AFFECT_DATA *poison;
 
-	{
-	    AFFECT_DATA *poison;
+			poison = affect_find(ch->affected, gsn_poison);
 
-	    poison = affect_find(ch->affected,gsn_poison);
+			if (poison != NULL) {
+				act_nprintf(ch, NULL, NULL, TO_ROOM, 
+					POS_RESTING, N_SHIVERS_SUFFERS);
+				char_nputs(YOU_SHIVER_SUFFER, ch);
+				damage(ch, ch, poison->level/10 + 1, gsn_poison,
+				       DAM_POISON, TRUE);
+			}
+		} else if (ch->position == POS_INCAP 
+		&& number_range(0, 1) == 0)
+			damage(ch, ch, 1, TYPE_UNDEFINED, DAM_NONE, FALSE);
+		else if (ch->position == POS_MORTAL)
+			damage(ch, ch, 1, TYPE_UNDEFINED, DAM_NONE, FALSE);
 
-	    if (poison != NULL)
-	    {
-	        act("$n shivers and suffers.", ch, NULL, NULL, TO_ROOM);
-	        send_to_char("You shiver and suffer.\n\r", ch);
-	        damage(ch,ch,poison->level/10 + 1,gsn_poison,
-		    DAM_POISON,TRUE);
-	    }
-	}
-
-	else if (ch->position == POS_INCAP && number_range(0,1) == 0)
-	{
-	    damage(ch, ch, 1, TYPE_UNDEFINED, DAM_NONE,FALSE);
-	}
-	else if (ch->position == POS_MORTAL)
-	{
-	    damage(ch, ch, 1, TYPE_UNDEFINED, DAM_NONE,FALSE);
-	}
-
-	/* bust a prompt */
-	send_to_char("", ch);
+		/* bust a prompt */
+		send_to_char("", ch);
 
 	} /* global for */
 
@@ -1309,17 +1286,15 @@ void char_update(void)
 	 * Check that these chars still exist.
 	 */
 
-	if (last_save_time == -1 || current_time - last_save_time > 300) 
-	{
-	  last_save_time = current_time;
-	  for (ch = char_list; ch != NULL; ch = ch_next)
-	      {
-	        ch_next = ch->next;
-	    if (!IS_NPC(ch))
-	          save_char_obj(ch);
-	        if (ch == ch_quit || ch->timer > 20)
-	          do_quit(ch, "");
-	      }
+	if (last_save_time == -1 || current_time - last_save_time > 300) {
+		last_save_time = current_time;
+		for (ch = char_list; ch != NULL; ch = ch_next) {
+			ch_next = ch->next;
+			if (!IS_NPC(ch))
+				save_char_obj(ch);
+			if (ch == ch_quit || ch->timer > 20)
+				do_quit(ch, "");
+		}
 	}
 
 	return;
@@ -1506,6 +1481,9 @@ void obj_update(void)
 	        continue;
 	       }
 	}
+	
+	if (obj->item_type == ITEM_KEY)
+		continue;
 
 	if (obj->condition > -1 && (obj->timer <= 0 || --obj->timer > 0))
 	    continue;
