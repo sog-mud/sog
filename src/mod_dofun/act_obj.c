@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.165 1999-09-11 12:49:53 fjoe Exp $
+ * $Id: act_obj.c,v 1.165.2.1 1999-11-27 09:06:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1213,14 +1213,22 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 
 	case ITEM_PILL:
 		obj_cast_spell(obj->value[1], obj->value[0], ch, ch);
+		if (IS_EXTRACTED(ch))
+			break;
+
 		obj_cast_spell(obj->value[2], obj->value[0], ch, ch);
+		if (IS_EXTRACTED(ch))
+			break;
+
 		obj_cast_spell(obj->value[3], obj->value[0], ch, ch);
+		if (IS_EXTRACTED(ch))
+			break;
+
 		obj_cast_spell(obj->value[4], obj->value[0], ch, ch);
 		break;
 	}
 
 	extract_obj(obj, 0);
-	return;
 }
 
 void do_wear(CHAR_DATA * ch, const char *argument)
@@ -1394,14 +1402,26 @@ void do_recite(CHAR_DATA * ch, const char *argument)
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		check_improve(ch, sn, FALSE, 2);
 	} else {
-		obj_cast_spell(scroll->value[1], scroll->value[0], ch, vo);
-		obj_cast_spell(scroll->value[2], scroll->value[0], ch, vo);
-		obj_cast_spell(scroll->value[3], scroll->value[0], ch, vo);
-		obj_cast_spell(scroll->value[4], scroll->value[0], ch, vo);
 		check_improve(ch, sn, TRUE, 2);
 
 		if (IS_PUMPED(ch) || ch->fighting != NULL)
 			WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
+
+		do {
+			obj_cast_spell(scroll->value[1], scroll->value[0], ch, vo);
+			if (IS_EXTRACTED(ch))
+				break;
+
+			obj_cast_spell(scroll->value[2], scroll->value[0], ch, vo);
+			if (IS_EXTRACTED(ch))
+				break;
+
+			obj_cast_spell(scroll->value[3], scroll->value[0], ch, vo);
+			if (IS_EXTRACTED(ch))
+				break;
+
+			obj_cast_spell(scroll->value[4], scroll->value[0], ch, vo);
+		} while (0);
 	}
 
 	extract_obj(scroll, 0);
@@ -1451,6 +1471,8 @@ void do_brandish(CHAR_DATA * ch, const char *argument)
 			if (!spell)
 				return;
 
+			check_improve(ch, sn, TRUE, 2);
+
 			for (vch = ch->in_room->people; vch; vch = vch_next) {
 				vch_next = vch->next_in_room;
 
@@ -1481,10 +1503,10 @@ void do_brandish(CHAR_DATA * ch, const char *argument)
 
 				obj_cast_spell(staff->value[3],
 					       staff->value[0], ch, vch);
-				if (IS_SET(spell->skill_flags, SKILL_AREA_ATTACK))
+				if (IS_EXTRACTED(ch)
+				||  IS_SET(spell->skill_flags, SKILL_AREA_ATTACK))
 					break;
 			}
-			check_improve(ch, sn, TRUE, 2);
 		}
 	}
 
@@ -1568,10 +1590,11 @@ void do_zap(CHAR_DATA * ch, const char *argument)
 			    ch, wand, NULL, TO_ROOM);
 			check_improve(ch, sn, FALSE, 2);
 		} else {
-			obj_cast_spell(wand->value[3], wand->value[0], ch, vo);
 			check_improve(ch, sn, TRUE, 2);
+			obj_cast_spell(wand->value[3], wand->value[0], ch, vo);
 		}
 	}
+
 	if (--wand->value[2] <= 0) {
 		act("$n's $p explodes into fragments.",
 		    ch, wand, NULL, TO_ROOM);
