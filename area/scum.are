@@ -126,6 +126,14 @@ altar~
 furniture IRSY 0
 CFG EIJKN HK CDFI CDFI
 0 0 0 P
+#40010
+puddle blood~
+@eng {rpuddle of blood{x@rus {rлужа крови{x~
+@eng {rThe big puddle of blood is here.{x@rus {rОгромная лужа крови заполнила все вокруг.{x~
+blood~
+trash EY AP
+0 0 0 0 0
+0 0 1 P
 #0
 
 #ROOMS
@@ -214,11 +222,12 @@ O 0 40000 0 40002	* corpse of child ({DDark cave{x)
 M 0 40003 1 40002 1	* Grand Witch ({DDark cave{x)
 O 0 40001 0 40002	* unholy altar ({DDark cave{x)
 M 0 40007 1 40003 1	* Tanatos ({DUnholy treasury{x )
+G 0 40010 0		*	{rpuddle of blood{x
 M 0 40004 1 40003 1	* Blackman ({DUnholy treasury{x )
 S
 
 #SHOPS
-40007 9 5 1 8 3 100 100 0 23
+40007 9 5 1 13 3 100 100 0 23
 0
 
 #MOBPROGS

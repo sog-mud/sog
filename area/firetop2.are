@@ -3732,7 +3732,7 @@ M 0 5738 3 5745 3	* a drunken Orc (A Party)
 E 0 5735 0 8		*	a suit of leather armor: on the feet
 G 0 5737 0		*	a bottle of Orc grog
 O 0 5742 0 5745	* a small wooden box with crude hinges (A Party)
-P 0 5743 -1 5742 1	* a small wooden box with crude hinges: a small leather-bound book
+P 0 5743 1 5742 1	* a small wooden box with crude hinges: a small leather-bound book
 O 0 5748 0 5745	* a staw mattress (A Party)
 M 0 5742 1 5751 1	* A deranged prisoner (A Cell)
 E 0 5751 0 16		*	a chair leg: wielded

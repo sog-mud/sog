@@ -174,9 +174,9 @@ old swordsman~
 ~
 human~
 ABFGQTe DFHVlmnt 0 0
-95 150 100d100+10000 100d100+10000 100d10+500 slash
+100 150 100d100+10000 100d100+10000 100d10+500 slash
 -50 -50 -50 -50
-0 AB 0 0
+AF AB 0 0
 stand stand none 0
 0 0 giant unknown
 F for AHMV
@@ -678,6 +678,10 @@ D3
 ~
 ~
 Z 0 36108
+D5
+~
+~
+Z 0 36152
 S
 #36116
 @eng Chaos street@rus ХаотичнаЯ улица~
@@ -822,6 +826,10 @@ S
 @rus Обычная улица.
 ~
 0 0 inside
+D0
+~
+~
+Z 0 45000
 D2
 ~
 ~
@@ -930,6 +938,10 @@ D1
 ~
 ~
 Z 0 36131
+D2
+~
+~
+Z 0 36152
 D3
 ~
 ~
@@ -1375,7 +1387,7 @@ S
 @eng Island@rus Остров~
 @eng @rus {x
 ~
-0 0 inside
+0 N inside
 D0
 ~
 ~
@@ -1392,6 +1404,24 @@ D3
 ~
 ~
 Z 0 36150
+S
+#36152
+@eng Enterance@rus Вход в подземелье~
+@eng If you are not a Hero, stop here!
+@rus Когда то давным давно великая битва была здесь.
+Великолепные земли, лежавшие здесь, покрылись огнем.
+Говорят, что на острове, посреди огненого озера, душа погибшего воина охраняет древний меч.
+Жаль, что трупы героев, отправившихся за ним, ничего уже нам не расскажут.
+~
+0 Q inside
+D0
+~
+~
+Z 0 36130
+D4
+~
+~
+Z 0 36115
 S
 #0
 
@@ -1422,28 +1452,28 @@ M 0 36111 1 36128 1	* pretty secretary (The Waiting Room)
 R 0 36130 4	* {rLake of flame{x: randomize
 R 0 36131 4	* {rLake of flame{x: randomize
 R 0 36132 4	* {rLake of flame{x: randomize
-M 0 36110 1 36133 1	* {x ({rLake of flame{x)
 R 0 36133 4	* {rLake of flame{x: randomize
+M 0 36110 1 36133 6	* {x ({rLake of flame{x)
 R 0 36134 4	* {rLake of flame{x: randomize
 R 0 36135 4	* {rLake of flame{x: randomize
-M 0 36110 1 36136 1	* {x ({rLake of flame{x)
 R 0 36136 4	* {rLake of flame{x: randomize
+M 0 36110 1 36136 6	* {x ({rLake of flame{x)
 R 0 36137 4	* {rLake of flame{x: randomize
 R 0 36138 4	* {rLake of flame{x: randomize
-M 0 36110 1 36139 1	* {x ({rLake of flame{x)
 R 0 36139 4	* {rLake of flame{x: randomize
+M 0 36110 1 36139 6	* {x ({rLake of flame{x)
 R 0 36140 4	* {rLake of flame{x: randomize
 R 0 36141 4	* {rLake of flame{x: randomize
-M 0 36110 1 36142 1	* {x ({rLake of flame{x)
 R 0 36142 4	* {rLake of flame{x: randomize
+M 0 36110 1 36142 6	* {x ({rLake of flame{x)
 R 0 36143 4	* {rLake of flame{x: randomize
 R 0 36144 4	* {rLake of flame{x: randomize
-M 0 36110 1 36145 1	* {x ({rLake of flame{x)
 R 0 36145 4	* {rLake of flame{x: randomize
+M 0 36110 1 36145 6	* {x ({rLake of flame{x)
 R 0 36146 4	* {rLake of flame{x: randomize
 R 0 36147 4	* {rLake of flame{x: randomize
-M 0 36110 1 36148 1	* {x ({rLake of flame{x)
 R 0 36148 4	* {rLake of flame{x: randomize
+M 0 36110 1 36148 6	* {x ({rLake of flame{x)
 R 0 36149 4	* {rLake of flame{x: randomize
 R 0 36150 4	* {rLake of flame{x: randomize
 M 0 36109 1 36151 1	* Soul of swordsman (Island)
