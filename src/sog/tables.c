@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.198 2003-04-24 12:42:20 fjoe Exp $
+ * $Id: tables.c,v 1.199 2004-01-26 20:46:21 sg Exp $
  */
 
 /***************************************************************************
@@ -890,6 +890,9 @@ flaginfo_t raffect_flags[] =
 	{ "randomizer",		RAFF_RANDOMIZER,	TRUE	},
 	{ "espirit",		RAFF_ESPIRIT,		TRUE	},
 	{ "curse",		RAFF_CURSE,		TRUE	},
+	{ "light",		RAFF_LIGHT,		TRUE	},
+	{ "darkness",		RAFF_DARKNESS,		TRUE	},
+	{ "grease",		RAFF_GREASE,		TRUE	},
 
 	{ NULL, 0, FALSE }
 };

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.309 2003-10-10 14:28:17 fjoe Exp $
+ * $Id: spellfun.c,v 1.310 2004-01-26 20:46:19 sg Exp $
  */
 
 /***************************************************************************
@@ -237,6 +237,7 @@ DECLARE_SPELL_FUN(spell_alarm);
 DECLARE_SPELL_FUN(spell_globe_of_invulnerability);
 DECLARE_SPELL_FUN(spell_cloak_of_leaves);
 DECLARE_SPELL_FUN(spell_deathspell);
+DECLARE_SPELL_FUN(spell_grease);
 
 SPELL_FUN(generic_damage_spellfun, sn, level, ch, vo)
 {
@@ -1473,7 +1474,7 @@ SPELL_FUN(spell_haste, sn, level, ch, vo)
 	AFFECT_DATA *paf;
 
 	if (is_sn_affected(victim, sn)
-	||  IS_AFFECTED(victim,AFF_HASTE)
+	||  IS_AFFECTED(victim, AFF_HASTE)
 	||  (IS_NPC(victim) && IS_SET(victim->pMobIndex->off_flags, OFF_FAST))) {
 		if (victim == ch)
 			act_char("You can't move any faster!", ch);
@@ -2073,7 +2074,7 @@ SPELL_FUN(spell_slow, sn, level, ch, vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA *paf;
 
-	if (is_sn_affected(victim, sn) || IS_AFFECTED(victim,AFF_SLOW)) {
+	if (is_sn_affected(victim, sn) || IS_AFFECTED(victim, AFF_SLOW)) {
 		if (victim == ch)
 			act_char("You can't move any slower!", ch);
 		else {
@@ -2567,7 +2568,7 @@ SPELL_FUN(spell_lightning_shield, sn, level, ch, vo)
 		return;
 	}
 
-	if (is_sn_affected(ch,sn)) {
+	if (is_sn_affected(ch, sn)) {
 		act_char("This spell is used too recently.", ch);
 		return;
 	}
@@ -3537,7 +3538,7 @@ SPELL_FUN(spell_guard_call, sn, level, ch, vo)
 	}
 
 	for (gch = npc_list; gch; gch = gch->next) {
-		if (IS_AFFECTED(gch,AFF_CHARM)
+		if (IS_AFFECTED(gch, AFF_CHARM)
 		&&  gch->master == ch
 		&&  gch->pMobIndex->vnum == MOB_VNUM_SPECIAL_GUARD) {
 			dofun("say", gch, "What? I'm not good enough?");
@@ -4284,7 +4285,7 @@ SPELL_FUN(spell_shadowlife, sn, level, ch, vo)
 		return;
 	}
 
-	if (is_sn_affected(ch,sn)) {
+	if (is_sn_affected(ch, sn)) {
 		act_char("You don't have the strength to raise a Shadow now.", ch);
 		return;
 	}
@@ -4937,7 +4938,7 @@ SPELL_FUN(spell_deafen, sn, level, ch, vo)
 		return;
 	}
 
-	if (is_sn_affected(victim,sn)) {
+	if (is_sn_affected(victim, sn)) {
 		act("$N is already deaf.",ch,NULL,victim,TO_CHAR);
 		return;
 	}
@@ -6827,7 +6828,7 @@ SPELL_FUN(spell_evil_spirit, sn, level, ch, vo)
 	int i;
 
 	if (IS_AFFECTED(ch->in_room, RAFF_ESPIRIT)
-	||  is_sn_affected_room(ch->in_room,sn)) {
+	||  is_sn_affected_room(ch->in_room, sn)) {
 		act_char("The zone is already full of evil spirit.", ch);
 		return;
 	}
@@ -6982,7 +6983,7 @@ SPELL_FUN(spell_summon_shadow, sn, level, ch, vo)
 	AFFECT_DATA *paf;
 	int i;
 
-	if (is_sn_affected(ch,sn)) {
+	if (is_sn_affected(ch, sn)) {
 		act_char("You lack the power to summon another shadow right now.", ch);
 		return;
 	}
@@ -6991,7 +6992,7 @@ SPELL_FUN(spell_summon_shadow, sn, level, ch, vo)
 	act("$n attempts to summon a shadow.",ch,NULL,NULL,TO_ROOM);
 
 	for (gch = npc_list; gch; gch = gch->next) {
-		if (IS_AFFECTED(gch,AFF_CHARM)
+		if (IS_AFFECTED(gch, AFF_CHARM)
 		&&  gch->master == ch
 		&&  gch->pMobIndex->vnum == MOB_VNUM_SUM_SHADOW) {
 			act_char("Two shadows are more than you can control!", ch);
@@ -7903,7 +7904,7 @@ SPELL_FUN(spell_cloak_of_leaves, sn, level, ch, vo)
 	AFFECT_DATA *paf;
 	int hp_to_add;
 
-	if (is_sn_affected(ch,sn)) {
+	if (is_sn_affected(ch, sn)) {
 		act_char("You are already protected.", ch);
 		return;
 	}
@@ -7952,3 +7953,41 @@ SPELL_FUN(spell_deathspell, sn, level, ch, vo)
 		damage(ch, vch, dam, sn, DAM_F_SHOW);
 	} end_foreach(vch);
 }
+
+SPELL_FUN(spell_grease, sn, level, ch, vo)
+{
+	AFFECT_DATA *paf;
+
+	if (IS_AFFECTED(ch->in_room, RAFF_GREASE)) {
+		act_char("This room is already greasy.", ch);
+		return;
+	}
+
+	if (IS_SET(ch->in_room->room_flags, ROOM_LAW)) {
+		act_char("This room is protected by gods.", ch);
+		return;
+	}
+
+	if (is_sn_affected(ch, sn)) {
+		act_char("This spell is used too recently.", ch);
+		return;
+	}
+
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= ch->level;
+	paf->duration	= level / 10;
+	affect_to_char(ch, paf);
+
+	paf->where	= TO_ROOM_AFFECTS;
+	paf->level	= level;
+	paf->duration	= level / 10;
+	paf->bitvector	= RAFF_GREASE;
+	paf->owner	= ch;
+	affect_to_room(ch->in_room, paf);
+	aff_free(paf);
+
+	act_char("The room starts to be filled with grease.", ch);
+	act("The room starts to be filled with grease.",
+	    ch, NULL, NULL, TO_ROOM);
+}
+

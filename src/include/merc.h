@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.408 2003-10-10 16:14:09 fjoe Exp $
+ * $Id: merc.h,v 1.409 2004-01-26 20:46:18 sg Exp $
  */
 
 /***************************************************************************
@@ -826,6 +826,7 @@ enum {
 #define RAFF_CURSE		(C)
 #define	RAFF_LIGHT		(D)
 #define RAFF_DARKNESS		(E)
+#define RAFF_GREASE		(F)
 
 /* AC types */
 #define AC_PIERCE			0
