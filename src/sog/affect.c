@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: affect.c,v 1.69 2004-02-09 21:16:54 fjoe Exp $
+ * $Id: affect.c,v 1.70 2004-02-12 14:57:32 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -31,7 +31,6 @@
 #include <string.h>	/* strncmp in w/a in aff_fread */
 
 #include <merc.h>
-#include <mprog.h>
 #include <rwfile.h>
 
 int affect_count;
@@ -245,7 +244,10 @@ aff_fread(rfile_t *fp, int r_flags)
 		paf->location.s = fread_strkey(fp, &forms);
 		break;
 	case TO_TRIG:
-		paf->location.s = fread_strkey(fp, &mprogs);
+		/*
+		 * XXX do not check mprog name b/c need to strip args
+		 */
+		paf->location.s = fread_sword(fp);
 		break;
 	case TO_RESISTS:
 	case TO_FORMRESISTS:
