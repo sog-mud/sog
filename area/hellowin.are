@@ -1,0 +1,98 @@
+#AREADATA
+Name Небольшой изврат~
+Builders Askold~
+VNUMs 34000 34499
+Credits (null)~
+Security 9
+LevelRange 0 0
+End
+
+
+
+#MOBILES
+#0
+
+
+
+#OBJECTS
+#34400
+sword~
+@eng {W0==][ {YHeliacal Fire {W>>{w@rus {W0==][ {YСолнечный Пламень{W >>{x~
+@eng {WSun ray in form of divine sword.{x@rus {WЛуч света, который принЯл форму необыкновенного меча.{x~
+unknown~
+weapon AIJKRSTYa ANP
+sword 40 15 divine ADEI
+96 100 2147483647 P
+A
+22 -200
+A
+20 -200
+A
+18 200
+#34401
+russia love tattoo~
+{Wfrom Russia with love{x~
+{WShining tattoo{x~
+unknown~
+armor AJKRSTYa APR
+0 0 0 0 0
+96 0 2147483647 P
+A
+23 -200
+A
+17 -1111
+A
+20 -200
+A
+18 200
+A
+19 200
+A
+20 -200
+A
+18 200
+#0
+
+
+
+#ROOMS
+#0
+
+
+
+#SPECIALS
+S
+
+
+
+#RESETS
+S
+
+
+
+#SHOPS
+0
+
+
+
+#OLIMITS
+O 34400 1	* {W0==][ {YHeliacal Fire {W>>{w
+O 34401 1	* {Wfrom Russia with love{x
+S
+
+
+
+#MOBPROGS
+#0
+
+#PRACTICERS
+S
+
+
+
+#OMPROGS
+S
+
+
+
+#$
