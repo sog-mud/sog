@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.111 1998-08-05 10:56:23 fjoe Exp $
+ * $Id: act_info.c,v 1.112 1998-08-05 12:00:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -582,9 +582,11 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 	if (percent < 90 && ch->class == CLASS_VAMPIRE && ch->level > 10)
 		gain_condition(ch, COND_BLOODLUST, -1);
 
-	char_printf(ch, "(%s) %s %s\n\r",
-		    race_table[RACE(victim)].name, PERS(victim, ch),
-		    vmsg(msgnum, ch, victim));
+	if (victim->level <= LEVEL_HERO)
+		char_printf(ch, "(%s) ", race_table[RACE(victim)].name);
+
+	char_printf(ch, "%s %s\n\r",
+		    PERS(victim, ch), vmsg(msgnum, ch, victim));
 
 	found = FALSE;
 	for (i = 0; show_order[i] != -1; i++) {
