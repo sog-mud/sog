@@ -820,6 +820,8 @@ cuendillar~
 treasure AGHNTYZa AO
 0 0 0 0 0
 75 100 0 P
+F V 0 0 D
+S 'spell craft' 100 A
 A
 12 5000
 S 'mastering spell' 100 A

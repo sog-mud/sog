@@ -6791,6 +6791,28 @@ and damroll.
 Умение TIGER POWER дает тебе силу десяти тигров, увеличивая наносимый вред и
 вероятность пробить броню.
 ~
+0 'WATER BREATHING' 'FREE ACTION' 'HOLD BREATH'~
+@eng Syntax: {ccast 'free action'{x <character>
+Syntax: {ccast 'water breathing'{x <character>
+Syntax: {cbreathhold{x
+ 
+All these spells and skills deal with ability to act under water. FREE ACTION
+gives you ability to explore the depths, though it can't help you breath in
+the water. WATER BREATHING gives you magical ability to breath even in the
+water.
+Having received proper training, one can hold his breath to dive for a long
+period of time.
+@rus Синтаксис: {ccast 'water breathing'{x <персонаж>
+Синтаксис: {ccast 'free action'{x <персонаж>
+Синтаксис: {cbreathhold{x
+ 
+Все эти умения и заклинания помогают в исследовании подводных глубин. Заклина-
+ние FREE ACTION поможет тебе плавать, даже если ты не обучен плаванию. Однако,
+чтобы не задыхаться в воде, надо получить заклинание WATER BREATHING - тогда
+ты сможешь дышать даже в воде. И наконец, пройдя соответствующие тренировки,
+ты сможешь задерживать дыхание на достаточно долгое время для исследования
+глубин.
+~
 -1 $~
 
 #$
