@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.102 1999-02-12 18:14:37 fjoe Exp $
+ * $Id: db.c,v 1.103 1999-02-15 12:51:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -59,6 +59,7 @@
 
 #include "merc.h"
 #include "rating.h"
+#include "socials.h"
 #include "update.h"
 #include "db.h"
 
@@ -347,6 +348,7 @@ void boot_db(void)
 
 	db_load_list(&db_langs, LANG_PATH, LANG_LIST);
 	load_msgdb();
+	db_load_file(&db_socials, ETC_PATH, SOCIALS_CONF);
 	db_load_file(&db_skills, ETC_PATH, SKILLS_CONF);
 	namedp_check(gsn_table);
 	namedp_check(spellfn_table);
@@ -1806,7 +1808,7 @@ void do_memory(CHAR_DATA *ch, const char *argument)
 	char_printf(ch, "ExDes    : %d\n", top_ed     );
 	char_printf(ch, "Exits    : %d\n", top_exit   );
 	char_printf(ch, "Helps    : %d\n", top_help   );
-	char_printf(ch, "Socials  : %d\n", social_count);
+	char_printf(ch, "Socials  : %d\n", socials.nused);
 	char_printf(ch, "Mob idx  : %d (%d old, max vnum %d)\n",
 		    top_mob_index, top_mob_index - newmobs, top_vnum_mob); 
 	char_printf(ch, "Mobs     : %d (%d free)\n",

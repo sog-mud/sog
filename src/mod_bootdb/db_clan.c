@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_clan.c,v 1.15 1999-02-15 08:16:29 fjoe Exp $
+ * $Id: db_clan.c,v 1.16 1999-02-15 12:51:11 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -78,10 +78,10 @@ DBLOAD_FUN(load_clan)
 					clans.nused--;
 				}
 				varr_qsort(&clan->skills, cmpint);
-				fBootDb = FALSE;
-				db_load_file(&db_plists,
-					     PLISTS_PATH, clan->file_name);
-				fBootDb = TRUE;
+				if (dfexist(PLISTS_PATH, clan->file_name))
+					db_load_file(&db_plists,
+						     PLISTS_PATH,
+						     clan->file_name);
 				return;
 			}
 			break;

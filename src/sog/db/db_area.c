@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.22 1999-02-12 16:22:41 fjoe Exp $
+ * $Id: db_area.c,v 1.23 1999-02-15 12:51:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -58,7 +58,6 @@ DECLARE_DBLOAD_FUN(load_objects);
 DECLARE_DBLOAD_FUN(load_resets);
 DECLARE_DBLOAD_FUN(load_rooms);
 DECLARE_DBLOAD_FUN(load_shops);
-DECLARE_DBLOAD_FUN(load_socials);
 DECLARE_DBLOAD_FUN(load_omprogs);
 DECLARE_DBLOAD_FUN(load_olimits);
 DECLARE_DBLOAD_FUN(load_specials);
@@ -80,7 +79,6 @@ DBFUN dbfun_areas[] = {
 	{ "RESETS",		load_resets	},
 	{ "ROOMS",		load_rooms	},
 	{ "SHOPS",		load_shops	},
-	{ "SOCIALS",		load_socials	},
 	{ "OMPROGS",		load_omprogs	},
 	{ "OLIMITS",		load_olimits	},
 	{ "SPECIALS",		load_specials	},
@@ -94,9 +92,6 @@ DBDATA db_areas = { dbfun_areas, init_area };
 
 AREA_DATA *		area_current;
 const HELP_DATA *	help_greeting;
-
-struct		social_type	social_table		[MAX_SOCIALS];
-int		social_count;
 
 static int	slot_lookup	(int slot);
 static void	convert_mobile	(MOB_INDEX_DATA *pMobIndex);
@@ -1114,44 +1109,6 @@ DBLOAD_FUN(load_aflag)
 	area_current->flags = fread_flags(fp);
 }
 
-/* snarf a socials file */
-DBLOAD_FUN(load_socials)
-{
-	for (; ;) {
-		struct social_type social;
-		int i;
-
-		if (social_count >= MAX_SOCIALS) {
-			bug("load_socials: social_table overflow", 0);
-			return;
-		}
-
-		for (i = 0; i < SOC_MAX; i++)
-			social.val[i] = NULL;
-
-		social.name = fread_string(fp);
-		if (!strcmp(social.name, "#")) {
-			free_string(social.name);
-			social.name = NULL;
-			return;  /* done */
-		}
-#if defined(social_debug) 
-		else 
-			fprintf(stderr,"%s\n",temp);
-#endif
-		for (i = 0; i < SOC_MAX; i++) {
-			social.val[i] = fread_string(fp);
-
-			if (!strcmp(social.val[i], "#")) {
-				free_string(social.val[i]);
-				social.val[i] = NULL;
-				break;
-			}
-		}
-		social_table[social_count++] = social;
-	}
-}
-    
 /*
  * Snarf a mob section.  new style
  */

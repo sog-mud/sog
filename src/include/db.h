@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.h,v 1.33 1999-02-12 16:22:41 fjoe Exp $
+ * $Id: db.h,v 1.34 1999-02-15 12:51:11 fjoe Exp $
  */
 
 #ifndef _DB_H_
@@ -104,6 +104,7 @@ extern DBDATA db_classes;
 extern DBDATA db_langs;
 extern DBDATA db_skills;
 extern DBDATA db_races;
+extern DBDATA db_socials;
 
 void db_load_file(DBDATA *, const char *path, const char *file);
 void db_set_arg(DBDATA *, const char* name, void *arg);
