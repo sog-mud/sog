@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.237 1999-05-20 19:59:00 fjoe Exp $
+ * $Id: act_info.c,v 1.238 1999-05-21 18:37:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2256,6 +2256,48 @@ void do_password(CHAR_DATA *ch, const char *argument)
 	char_puts("Ok.\n", ch);
 }
 
+void scan_list(ROOM_INDEX_DATA *scan_room, CHAR_DATA *ch, 
+		int depth, int door)
+{
+	CHAR_DATA *rch;
+
+	if (scan_room == NULL) 
+		return;
+
+	for (rch = scan_room->people; rch; rch = rch->next_in_room) {
+		if (rch == ch || !can_see(ch, rch))
+			continue;
+		char_printf(ch, "	%s.\n", PERS(rch, ch));
+	}
+}
+
+void scan_all(CHAR_DATA *ch)
+{
+	EXIT_DATA *pExit;
+	int door;
+
+	act("$n looks all around.", ch, NULL, NULL, TO_ROOM);
+	if (!check_blind(ch))
+		return;
+
+	char_puts("Looking around you see:\n", ch);
+
+	char_puts("{Chere{x:\n", ch);
+	scan_list(ch->in_room, ch, 0, -1);
+	for (door = 0; door < 6; door++) {
+		if ((pExit = ch->in_room->exit[door]) == NULL
+		|| !pExit->to_room.r
+		|| !can_see_room(ch,pExit->to_room.r))
+			continue;
+		char_printf(ch, "{C%s{x:\n", dir_name[door]);
+		if (IS_SET(pExit->exit_info, EX_CLOSED)) {
+			char_puts("	You see closed door.\n", ch);
+			continue;
+		}
+		scan_list(pExit->to_room.r, ch, 1, door);
+	}
+}
+
 void do_scan(CHAR_DATA *ch, const char *argument)
 {
 	char dir[MAX_INPUT_LENGTH];
@@ -2306,7 +2348,10 @@ void do_scan(CHAR_DATA *ch, const char *argument)
 		door = 5;
 		break;
 	case '\0':
-		act("Scan which direction?", ch, NULL, NULL, TO_CHAR);
+		if (IS_IMMORTAL(ch))
+			scan_all(ch);
+		else
+			act("Scan which direction?", ch, NULL, NULL, TO_CHAR);
 		return;
 	default:
 		char_puts("Wrong direction.\n", ch);

@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.37 1999-05-12 18:54:50 avn Exp $
+ * $Id: db_area.c,v 1.38 1999-05-21 18:37:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -843,6 +843,27 @@ DBLOAD_FUN(load_rooms)
 		/* Area number */	  fread_number(fp);
 		pRoomIndex->room_flags	= fread_flags(fp);
  
+		/*
+		 * XXX temp kludge
+		 */
+		if ((vnum >= 3000 && vnum <= 3399)	/* Midgaard  */
+		||  (vnum >= 600 && vnum <= 699)	/* New Ofcol */
+		||  (vnum >= 9500 && vnum <= 9800)	/* New Thalos */
+		||  (vnum >= 18000 && vnum <= 18150)) {	/* Valley of Titans */
+			pRoomIndex->room_flags |= ROOM_LAW;
+			pRoomIndex->area->flags |= AREA_CHANGED;
+		}
+
+		if ((vnum >= 5300 && vnum <= 5499)) {	/* Old MIdgaard */
+			pRoomIndex->room_flags &= ~ROOM_LAW;
+			pRoomIndex->area->flags |= AREA_CHANGED;
+		}
+		
+		if (pRoomIndex->area->clan) {
+			pRoomIndex->room_flags |= ROOM_SAFE;
+			pRoomIndex->area->flags |= AREA_CHANGED;
+		}
+
 		pRoomIndex->sector_type	= fread_fword(sector_types, fp);
 		pRoomIndex->light	= 0;
 		for (door = 0; door <= 5; door++)
