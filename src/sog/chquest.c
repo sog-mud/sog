@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: chquest.c,v 1.7 1999-05-26 15:07:29 fjoe Exp $
+ * $Id: chquest.c,v 1.8 1999-05-27 19:33:11 fjoe Exp $
  */
 
 /*
@@ -279,13 +279,12 @@ static chquest_t *chquest_lookup_obj(OBJ_DATA *obj)
 
 /*
  * chquest_startq - start given chquest
+ *
+ * assumes that !IS_RUNNING(q) check is done
  */
 static void chquest_startq(chquest_t *q)
 {
 	ROOM_INDEX_DATA *room;
-
-	if (IS_RUNNING(q))
-		return;
 
 	log_printf("chquest_startq: started chquest for '%s' (vnum %d)",
 	   	   mlstr_mval(q->obj_index->short_descr), q->obj_index->vnum);
