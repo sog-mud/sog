@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.247 2000-04-10 15:45:51 fjoe Exp $
+ * $Id: handler.c,v 1.248 2000-04-11 01:07:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4190,21 +4190,32 @@ const char *get_cond_alias(OBJ_DATA *obj)
 
 void damage_to_obj(CHAR_DATA *ch, OBJ_DATA *wield, OBJ_DATA *worn, int damage) 
 {
-
- 	if (damage == 0) return;
+ 	if (damage == 0)
+		return;
 
  	worn->condition -= damage;
 
-	act_puts("{gThe $p inflicts damage on {r$P{g.{x",
-		 ch, wield, worn, TO_ROOM, POS_RESTING);
+	if (wield != NULL) {
+		act_puts("{g$p inflicts damage on {r$P{g.{x",
+			 ch, wield, worn, TO_ROOM, POS_RESTING);
+	} else {
+		act_puts("{gYou inflict damage on {r$P{g.{x",
+			 ch, NULL, worn, TO_CHAR, POS_DEAD);
+		act_puts("{g$n inflicts damage on {r$P{g.{x",
+			 ch, NULL, worn, TO_ROOM, POS_DEAD);
+	}
 
 	if (worn->condition < 1) {
-		act_puts("{gThe {r$P{g breaks into pieces.{x",
+		act_puts("{r$P{g breaks into pieces.{x",
 			 ch, wield, worn, TO_ROOM, POS_RESTING);
 		extract_obj(worn, 0);
 		return;
 	}
  
+	if (wield == NULL
+	||  !IS_OBJ_STAT(wield, ITEM_MAGIC))
+		return;
+
 	if (IS_OBJ_STAT(wield, ITEM_ANTI_EVIL) 
 	&&  IS_OBJ_STAT(wield, ITEM_ANTI_NEUTRAL)
 	&&  IS_OBJ_STAT(worn, ITEM_ANTI_EVIL) 
@@ -4221,7 +4232,7 @@ void damage_to_obj(CHAR_DATA *ch, OBJ_DATA *wield, OBJ_DATA *worn, int damage)
 
 	if (IS_OBJ_STAT(wield, ITEM_ANTI_EVIL) 
 	&&  IS_OBJ_STAT(worn, ITEM_ANTI_EVIL)) {
-		act_puts("The $p worries for the damage to $P.",
+		act_puts("$p worries for the damage to $P.",
 			 ch, wield, worn, TO_ROOM, POS_RESTING);
 		return;
 	}
@@ -4236,8 +4247,8 @@ bool make_eq_damage(CHAR_DATA *ch, CHAR_DATA *victim,
 	flag_t wflags, dflags;
 
 	if ((wield = get_eq_char(ch, loc_wield)) == NULL
-	|| (destroy = get_eq_char(victim, loc_destroy)) == NULL
-	|| material_is(destroy, MATERIAL_INDESTRUCT))
+	||  (destroy = get_eq_char(victim, loc_destroy)) == NULL
+	||  material_is(destroy, MATERIAL_INDESTRUCT))
 		return FALSE;
 
 	sn = get_weapon_sn(wield);
@@ -4294,11 +4305,11 @@ bool random_eq_damage(CHAR_DATA *ch, CHAR_DATA *victim, int loc_wield)
 {
 	int i;
 
-	do
+	do {
 		i = number_range(0, MAX_WEAR - 1);
-	while (i == WEAR_WIELD || i == WEAR_SECOND_WIELD ||
-	       i == WEAR_TATTOO || i == WEAR_STUCK_IN ||
-	       i == WEAR_CLANMARK);
+	} while (i == WEAR_WIELD || i == WEAR_SECOND_WIELD ||
+		 i == WEAR_TATTOO || i == WEAR_STUCK_IN ||
+		 i == WEAR_SHIELD || i == WEAR_CLANMARK);
 
 	return make_eq_damage(ch, victim, loc_wield, i);
 }
