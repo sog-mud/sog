@@ -2580,38 +2580,6 @@ Syntax: cast 'dragons breath'
     A warlock can't use dragon breaths, i.e 'fire breath', 'lightning 
 breath'. So he calls the Lord of Dragons to help.
 ~
-0 CLAN CLANS~
-Clans (Pronounced "Kuh-BALL") are clans of characters dedicated to a cause.
-This cause is the sole purpose uniting the clan, and its members strive to
-bring about this purpose.  They also seek to influence the other clans to
-believe that their clan is superior.
-
-The following clans have made their way into this world:
-
-           "Ruler"	       The Rulers of Muddy
-           "Battlerager"       The Masters of Martial Arts
-           "Chaos"             The Barons of Chaos
-           "Knight"            The Knights of Muddy
-           "Shalafi"           The Masters of Arcane Arts
-           "Invader"           ? (No talent is heard about)
-	   "Hunter"	       Mercanary of Muddy
-
-Clans have special hideouts, each with a special item that gives members
-special powers.  Clans whose special item is in another clan's shrine lose
-their special powers!
-
-Joining a clan is meant to be a lifelong occupation.  Those that quit or
-are kicked out of a clan are given a punishment for their leaving.  Clan
-hopping is highly disappoved of.
-
-For more info on individual clans or joining one, ask a clan member or
-post a note to that clan.
-
-e.g, note to <clan name>  {{ clan which you want to join}
-     note subject ????
-     note + ?????????
-     note post    
-~
 
 1 CLEAVE~
 Syntax: cleave <victim>
@@ -3916,7 +3884,6 @@ fin
 
 ~
 
-0 $~
 0 PRICES~
 
 Прайс-лист на клан и все прилагающиеся услуги:
@@ -3958,4 +3925,5 @@ by Askold
    продаваться будет у кланового продавца   |
 ******************************************************
 ~
+0 $~
 #$
