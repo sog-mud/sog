@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.16 1998-05-20 21:21:49 efdi Exp $
+ * $Id: save.c,v 1.17 1998-05-20 21:40:22 efdi Exp $
  */
 
 /***************************************************************************
@@ -163,6 +163,7 @@ void save_char_obj( CHAR_DATA *ch )
     }
     else
     {
+	send_to_char("Saving.\n\r", ch);
 	fwrite_char( ch, fp );
 	if ( ch->carrying != NULL )
 	    fwrite_obj( ch, ch->carrying, fp, 0 );
