@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.86 2000-10-22 17:53:45 fjoe Exp $
+ * $Id: olc_room.c,v 1.87 2001-01-07 17:58:21 fjoe Exp $
  */
 
 #include "olc.h"
@@ -560,8 +560,20 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		ROOM_INDEX_DATA *pToRoom;
 		int rev;
 
+		if (argument[0] == '\0'
+		||  !str_cmp(argument, "?")) {
+			BUFFER *buf = buf_new(-1);
+			buf_printf(buf, BUF_END, "Valid exit flags are:\n");
+			show_flags_buf(buf, exit_flags);
+			page_to_char(buf_string(buf), ch);
+			buf_free(buf);
+			return FALSE;
+		}
+
 		if ((value = flag_value(exit_flags, argument)) == 0) {
-			act_char("RoomEd: %s: no such exit flags.", ch);
+			act_puts("RoomEd: $t: no such exit flags.",
+				 ch, argument, NULL,
+				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			return FALSE;
 		}
 
@@ -657,14 +669,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 	argument = one_argument(argument, arg, sizeof(arg));
 
 	if (command[0] == '?') {
-		BUFFER *output;
-
-		output = buf_new(-1);
-		help_show(ch, output, "'OLC EXITS'");
-		buf_printf(output, BUF_END, "Valid exit flags are:\n");
-		show_flags_buf(output, exit_flags);
-		page_to_char(buf_string(output), ch);
-		buf_free(output);
+		dofun("help", ch, "'OLC EXITS'");
 		return FALSE;
 	}
 
@@ -848,6 +853,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		return olced_flag(ch, arg, cmd, &pRoom->exit[door]->size);
 	}
 
+	olced_exit(ch, "?", cmd, door);
 	return FALSE;
 }
 
@@ -861,6 +867,7 @@ void display_resets(CHAR_DATA *ch)
 	int rnum = 0;
 	static char tab[] = "    ";
 	static char tab2[] = "        ";
+	int d;
 
 	buf = buf_new(-1);
 
@@ -951,7 +958,14 @@ void display_resets(CHAR_DATA *ch)
 			break;
 
 		case 'R':
-			buf_printf(buf, BUF_END, "R[%5d] Randomized exits\n", r->arg1);
+			buf_printf(buf, BUF_END,
+				   "R[%5d] Randomized exits [", r->arg1);
+			for (d = 0; d < r->arg2 && d < MAX_DIR; d++) {
+				if (d != 0)
+					buf_append(buf, " ");
+				buf_append(buf, dir_name[d]);
+			}
+			buf_append(buf, "]\n");
 			break;
 		}
 	}
@@ -1232,7 +1246,12 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 		int exit_num = atoi(arg2);
 		RESET_DATA *rnd_reset;
 
-		if (exit_num < 1 || exit_num >= MAX_DIR) {
+		if (arg2[0] == '\0') {
+			do_resets(ch, "?");
+			return;
+		}
+
+		if (exit_num < 1 || exit_num > MAX_DIR) {
 			act_puts("$t: Invalid argument.",
 				 ch, arg2, NULL,
 				 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
