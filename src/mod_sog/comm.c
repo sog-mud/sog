@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm.c,v 1.16 2002-11-28 22:00:43 fjoe Exp $
+ * $Id: comm.c,v 1.17 2002-11-30 19:43:38 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -423,6 +423,15 @@ close_descriptor(DESCRIPTOR_DATA *dclose, int save_flags)
 {
 	DESCRIPTOR_DATA *d;
 
+	/*
+	 * flush buffer before saving:
+	 * if we are closing descriptor due to outbuf overflow
+	 * flush is needed because char_save etc. will try to output
+	 * something to the buffer and this will lead to endless loop
+	 */
+	if (!outbuf_empty(dclose))
+		process_output(dclose, FALSE);
+
 	if (dclose->character != NULL) {
 		CHAR_DATA *ch = dclose->original ? dclose->original : dclose->character;
 		if (!IS_SET(save_flags, SAVE_F_NONE))
@@ -435,10 +444,13 @@ close_descriptor(DESCRIPTOR_DATA *dclose, int save_flags)
 			dclose->character->desc = NULL;
 		} else
 			char_nuke(ch);
-	}
 
-	if (!outbuf_empty(dclose))
-		process_output(dclose, FALSE);
+		/*
+		 * flush buffer once again so player can see 'Saving.' message
+		 */
+		if (!outbuf_empty(dclose))
+			process_output(dclose, FALSE);
+	}
 
 	if (dclose->out_compress) {
 		deflateEnd(dclose->out_compress);
@@ -748,8 +760,10 @@ RUNGAME_FUN(_run_game_bottom, in_set, out_set, exc_set)
 	/*
 	 * Output.
 	 */
-	for (d = descriptor_list; d != NULL; d = d_next) {
-		d_next = d->next;
+	for (d = vo_foreach_init(NULL, &iter_descriptor, NULL);
+	     (d = vo_foreach_cond(NULL, &iter_descriptor, 1,
+				  d, (void **) &d_next)) != NULL;
+	     d = d_next) {
 		if ((d->fcommand || !outbuf_empty(d) || d->out_compress)
 		&&  FD_ISSET(d->descriptor, out_set)) {
 			bool ok = TRUE;
@@ -1366,15 +1380,15 @@ outbuf_adjust(outbuf_t *o, size_t len)
 		return TRUE;
 
 	if ((newsize = o->size) == 0)
-		newsize = 1024;
+		newsize = 2048;
 
 	while (newsize < len) {
+		newsize <<= 1;
+
 		if (newsize > 32768) {
 			log(LOG_INFO, "outbuf_adjust: buffer overflow, closing");
 			return FALSE;
 		}
-
-		newsize <<= 1;
 	}
 
 	if ((newbuf = realloc(o->buf, newsize)) == NULL) {
