@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.16 1998-09-17 15:51:29 fjoe Exp $
+ * $Id: olc.h,v 1.17 1998-09-20 17:01:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -63,6 +63,7 @@ extern const char ED_MOB	[];
 extern const char ED_MPCODE	[];
 extern const char ED_HELP	[];
 extern const char ED_CLAN	[];
+extern const char ED_MSG	[];
 extern const char ED_CLASS	[];
 
 /*
@@ -75,6 +76,7 @@ extern OLC_CMD_DATA	olc_cmds_mob[];
 extern OLC_CMD_DATA	olc_cmds_mpcode[];
 extern OLC_CMD_DATA	olc_cmds_help[];
 extern OLC_CMD_DATA	olc_cmds_clan[];
+extern OLC_CMD_DATA	olc_cmds_msg[];
 extern OLC_CMD_DATA	olc_cmds_class[];
 
 /*
@@ -126,8 +128,9 @@ void		edit_done	(DESCRIPTOR_DATA *d);
 OLC_CMD_DATA *	olc_cmd_lookup	(CHAR_DATA *ch, OLC_FUN *fun);
 
 #define	SECURITY_CLAN		5
-#define SECURITY_HELP		9
+#define SECURITY_HELP		5
 #define SECURITY_AREA_CREATE	9
+#define SECURITY_MSGDB		5
 
 #endif
 

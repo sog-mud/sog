@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_help.c,v 1.15 1998-09-19 10:39:10 fjoe Exp $
+ * $Id: olc_help.c,v 1.16 1998-09-20 17:01:45 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -36,33 +36,33 @@
 
 #define EDIT_HELP(ch, help)	(help = (HELP_DATA*) ch->desc->pEdit)
 
-DECLARE_OLC_FUN(hedit_create		);
-DECLARE_OLC_FUN(hedit_edit		);
-DECLARE_OLC_FUN(hedit_touch		);
-DECLARE_OLC_FUN(hedit_show		);
+DECLARE_OLC_FUN(helped_create		);
+DECLARE_OLC_FUN(helped_edit		);
+DECLARE_OLC_FUN(helped_touch		);
+DECLARE_OLC_FUN(helped_show		);
 
-DECLARE_OLC_FUN(hedit_level		);
-DECLARE_OLC_FUN(hedit_keyword		);
-DECLARE_OLC_FUN(hedit_text		);
-DECLARE_OLC_FUN(hedit_del		);
+DECLARE_OLC_FUN(helped_level		);
+DECLARE_OLC_FUN(helped_keyword		);
+DECLARE_OLC_FUN(helped_text		);
+DECLARE_OLC_FUN(helped_del		);
 
 OLC_CMD_DATA olc_cmds_help[] =
 {
-	{ "create",	hedit_create	},
-	{ "edit",	hedit_edit	},
-	{ "touch",	hedit_touch	},
-	{ "show",	hedit_show	},
+	{ "create",	helped_create	},
+	{ "edit",	helped_edit	},
+	{ "touch",	helped_touch	},
+	{ "show",	helped_show	},
 
-	{ "level",	hedit_level	},
-	{ "keywords",	hedit_keyword	},
-	{ "text",	hedit_text	},
-	{ "del",	hedit_del	},
+	{ "level",	helped_level	},
+	{ "keywords",	helped_keyword	},
+	{ "text",	helped_text	},
+	{ "del",	helped_del	},
 
 	{ "commands",	show_commands	},
 	{ NULL }
 };
 
-OLC_FUN(hedit_create)
+OLC_FUN(helped_create)
 {
 	HELP_DATA *pHelp;
 	AREA_DATA *pArea;
@@ -105,11 +105,11 @@ OLC_FUN(hedit_create)
 	ch->desc->pEdit		= (void *)pHelp;
 	ch->desc->editor	= ED_HELP;
 	touch_area(pArea);
-	send_to_char("Help created.\n\r",ch);
+	char_puts("Help created.\n\r",ch);
 	return FALSE;
 }
 
-OLC_FUN(hedit_edit)
+OLC_FUN(helped_edit)
 {
 	int num;
 	char keyword[MAX_STRING_LENGTH];
@@ -121,6 +121,11 @@ OLC_FUN(hedit_edit)
 	}
 
 	num = number_argument(argument, keyword);
+	if (keyword[0] == '\0') {
+		do_help(ch, "'OLC EDIT'");
+		return FALSE;
+	}
+
 	if ((pHelp = help_lookup(num, keyword)) == NULL) {
 		char_printf(ch, "HEdit: %s: Help keyword not found.\n\r",
 			    keyword);
@@ -132,14 +137,14 @@ OLC_FUN(hedit_edit)
 	return FALSE;
 }
 
-OLC_FUN(hedit_touch)
+OLC_FUN(helped_touch)
 {
 	HELP_DATA *pHelp;
 	EDIT_HELP(ch, pHelp);
 	return touch_area(pHelp->area);
 }
 
-OLC_FUN(hedit_show)
+OLC_FUN(helped_show)
 {
 	BUFFER *output;
 	HELP_DATA *pHelp;
@@ -157,28 +162,28 @@ OLC_FUN(hedit_show)
 	return FALSE;
 }
 
-OLC_FUN(hedit_level)
+OLC_FUN(helped_level)
 {
 	HELP_DATA *pHelp;
 	EDIT_HELP(ch, pHelp);
-	return olced_number(ch, argument, hedit_level, &pHelp->level);
+	return olced_number(ch, argument, helped_level, &pHelp->level);
 }
 
-OLC_FUN(hedit_keyword)
+OLC_FUN(helped_keyword)
 {
 	HELP_DATA *pHelp;
 	EDIT_HELP(ch, pHelp);
-	return olced_str(ch, argument, hedit_keyword, &pHelp->keyword);
+	return olced_str(ch, argument, helped_keyword, &pHelp->keyword);
 }
 		
-OLC_FUN(hedit_text)
+OLC_FUN(helped_text)
 {
 	HELP_DATA *pHelp;
 	EDIT_HELP(ch, pHelp);
-	return olced_mlstr_text(ch, argument, hedit_text, &pHelp->text);
+	return olced_mlstr_text(ch, argument, helped_text, &pHelp->text);
 }
 
-OLC_FUN(hedit_del)
+OLC_FUN(helped_del)
 {
 	HELP_DATA *pHelp;
 	EDIT_HELP(ch, pHelp);

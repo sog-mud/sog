@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.9 1998-09-19 10:39:10 fjoe Exp $
+ * $Id: olc_room.c,v 1.10 1998-09-20 17:01:45 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -38,70 +38,70 @@
 /*
  * Room Editor Prototypes
  */
-DECLARE_OLC_FUN(redit_create		);
-DECLARE_OLC_FUN(redit_edit		);
-DECLARE_OLC_FUN(redit_touch		);
-DECLARE_OLC_FUN(redit_show		);
+DECLARE_OLC_FUN(roomed_create		);
+DECLARE_OLC_FUN(roomed_edit		);
+DECLARE_OLC_FUN(roomed_touch		);
+DECLARE_OLC_FUN(roomed_show		);
 
-DECLARE_OLC_FUN(redit_name		);
-DECLARE_OLC_FUN(redit_desc		);
-DECLARE_OLC_FUN(redit_exd		);
-DECLARE_OLC_FUN(redit_north		);
-DECLARE_OLC_FUN(redit_south		);
-DECLARE_OLC_FUN(redit_east		);
-DECLARE_OLC_FUN(redit_west		);
-DECLARE_OLC_FUN(redit_up		);
-DECLARE_OLC_FUN(redit_down		);
-DECLARE_OLC_FUN(redit_mreset		);
-DECLARE_OLC_FUN(redit_oreset		);
-DECLARE_OLC_FUN(redit_mlist		);
-DECLARE_OLC_FUN(redit_rlist		);
-DECLARE_OLC_FUN(redit_olist		);
-DECLARE_OLC_FUN(redit_mshow		);
-DECLARE_OLC_FUN(redit_oshow		);
-DECLARE_OLC_FUN(redit_heal		);
-DECLARE_OLC_FUN(redit_mana		);
-DECLARE_OLC_FUN(redit_clan		);
-DECLARE_OLC_FUN(redit_owner		);
-DECLARE_OLC_FUN(redit_room		);
-DECLARE_OLC_FUN(redit_sector		);
-DECLARE_OLC_FUN(redit_reset		);
+DECLARE_OLC_FUN(roomed_name		);
+DECLARE_OLC_FUN(roomed_desc		);
+DECLARE_OLC_FUN(roomed_exd		);
+DECLARE_OLC_FUN(roomed_north		);
+DECLARE_OLC_FUN(roomed_south		);
+DECLARE_OLC_FUN(roomed_east		);
+DECLARE_OLC_FUN(roomed_west		);
+DECLARE_OLC_FUN(roomed_up		);
+DECLARE_OLC_FUN(roomed_down		);
+DECLARE_OLC_FUN(roomed_mreset		);
+DECLARE_OLC_FUN(roomed_oreset		);
+DECLARE_OLC_FUN(roomed_mlist		);
+DECLARE_OLC_FUN(roomed_rlist		);
+DECLARE_OLC_FUN(roomed_olist		);
+DECLARE_OLC_FUN(roomed_mshow		);
+DECLARE_OLC_FUN(roomed_oshow		);
+DECLARE_OLC_FUN(roomed_heal		);
+DECLARE_OLC_FUN(roomed_mana		);
+DECLARE_OLC_FUN(roomed_clan		);
+DECLARE_OLC_FUN(roomed_owner		);
+DECLARE_OLC_FUN(roomed_room		);
+DECLARE_OLC_FUN(roomed_sector		);
+DECLARE_OLC_FUN(roomed_reset		);
 
 OLC_CMD_DATA olc_cmds_room[] =
 {
 /*	{ command	function			}, */
 
-	{ "create",	redit_create			},
-	{ "edit",	redit_edit			},
-	{ "touch",	redit_touch			},
-	{ "show",	redit_show			},
+	{ "create",	roomed_create			},
+	{ "edit",	roomed_edit			},
+	{ "touch",	roomed_touch			},
+	{ "show",	roomed_show			},
 
-	{ "desc",	redit_desc			},
-	{ "exd",	redit_exd			},
-	{ "name",	redit_name			},
-	{ "heal",	redit_heal			},
-	{ "mana",	redit_mana			},
-	{ "clan",	redit_clan			},
+	{ "desc",	roomed_desc			},
+	{ "exd",	roomed_exd			},
+	{ "name",	roomed_name			},
+	{ "heal",	roomed_heal			},
+	{ "mana",	roomed_mana			},
+	{ "clan",	roomed_clan			},
 
-	{ "north",	redit_north			},
-	{ "south",	redit_south			},
-	{ "east",	redit_east			},
-	{ "west",	redit_west			},
-	{ "up",		redit_up			},
-	{ "down",	redit_down			},
+	{ "north",	roomed_north			},
+	{ "south",	roomed_south			},
+	{ "east",	roomed_east			},
+	{ "west",	roomed_west			},
+	{ "up",		roomed_up			},
+	{ "down",	roomed_down			},
 
 /* New reset commands. */
-	{ "mreset",	redit_mreset			},
-	{ "oreset",	redit_oreset			},
-	{ "mlist",	redit_mlist			},
-	{ "rlist",	redit_rlist			},
-	{ "olist",	redit_olist			},
-	{ "mshow",	redit_mshow			},
-	{ "oshow",	redit_oshow			},
-	{ "owner",	redit_owner			},
-	{ "room",	redit_room,	room_flags	},
-	{ "sector",	redit_sector,	sector_types	},
-	{ "reset",	redit_reset			},
+	{ "mreset",	roomed_mreset			},
+	{ "oreset",	roomed_oreset			},
+	{ "mlist",	roomed_mlist			},
+	{ "rlist",	roomed_rlist			},
+	{ "olist",	roomed_olist			},
+	{ "mshow",	roomed_mshow			},
+	{ "oshow",	roomed_oshow			},
+	{ "owner",	roomed_owner			},
+	{ "room",	roomed_room,	room_flags	},
+	{ "sector",	roomed_sector,	sector_types	},
+	{ "reset",	roomed_reset			},
 
 	{ "commands",	show_commands			},
 	{ "version",	show_version			},
@@ -113,7 +113,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		       OLC_FUN *fun, int door);
 static void add_reset(ROOM_INDEX_DATA *room, RESET_DATA *pReset, int index);
 
-OLC_FUN(redit_create)
+OLC_FUN(roomed_create)
 {
 	AREA_DATA *pArea;
 	ROOM_INDEX_DATA *pRoom;
@@ -130,17 +130,17 @@ OLC_FUN(redit_create)
 
 	pArea = area_vnum_lookup(value);
 	if (!pArea) {
-		send_to_char("REdit: Vnum is not assigned an area.\n\r", ch);
+		char_puts("REdit: Vnum is not assigned an area.\n\r", ch);
 		return FALSE;
 	}
 
 	if (!IS_BUILDER(ch, pArea)) {
-        	send_to_char("REdit: Insufficient security.\n\r", ch);
+        	char_puts("REdit: Insufficient security.\n\r", ch);
 		return FALSE;
 	}
 
 	if (get_room_index(value)) {
-		send_to_char("REdit: Vnum already exists.\n\r", ch);
+		char_puts("REdit: Vnum already exists.\n\r", ch);
 		return FALSE;
 	}
 
@@ -162,7 +162,7 @@ OLC_FUN(redit_create)
 	return FALSE;
 }
 
-OLC_FUN(redit_edit)
+OLC_FUN(roomed_edit)
 {
 	char arg[MAX_STRING_LENGTH];
 	ROOM_INDEX_DATA *pRoom;
@@ -187,14 +187,14 @@ OLC_FUN(redit_edit)
 	return FALSE;
 }
 
-OLC_FUN(redit_touch)
+OLC_FUN(roomed_touch)
 {
 	ROOM_INDEX_DATA *pRoom;
 	EDIT_ROOM(ch, pRoom);
 	return touch_vnum(pRoom->vnum);
 }
 
-OLC_FUN(redit_show)
+OLC_FUN(roomed_show)
 {
 	char buf[MAX_STRING_LENGTH];
 	ROOM_INDEX_DATA	*pRoom;
@@ -318,92 +318,92 @@ OLC_FUN(redit_show)
 		}
 	}
 
-	send_to_char(buf_string(output), ch);
+	char_puts(buf_string(output), ch);
 	buf_free(output);
 	return FALSE;
 }
 
-OLC_FUN(redit_north)
+OLC_FUN(roomed_north)
 {
-	return olced_exit(ch, argument, redit_north, DIR_NORTH);
+	return olced_exit(ch, argument, roomed_north, DIR_NORTH);
 }
 
-OLC_FUN(redit_south)
+OLC_FUN(roomed_south)
 {
-	return olced_exit(ch, argument, redit_south, DIR_SOUTH);
+	return olced_exit(ch, argument, roomed_south, DIR_SOUTH);
 }
 
-OLC_FUN(redit_east)
+OLC_FUN(roomed_east)
 {
-	return olced_exit(ch, argument, redit_east, DIR_EAST);
+	return olced_exit(ch, argument, roomed_east, DIR_EAST);
 }
 
-OLC_FUN(redit_west)
+OLC_FUN(roomed_west)
 {
-	return olced_exit(ch, argument, redit_west, DIR_WEST);
+	return olced_exit(ch, argument, roomed_west, DIR_WEST);
 }
 
-OLC_FUN(redit_up)
+OLC_FUN(roomed_up)
 {
-	return olced_exit(ch, argument, redit_up, DIR_UP);
+	return olced_exit(ch, argument, roomed_up, DIR_UP);
 }
 
-OLC_FUN(redit_down)
+OLC_FUN(roomed_down)
 {
-	return olced_exit(ch, argument, redit_down, DIR_DOWN);
+	return olced_exit(ch, argument, roomed_down, DIR_DOWN);
 }
 
-OLC_FUN(redit_exd)
+OLC_FUN(roomed_exd)
 {
 	ROOM_INDEX_DATA *pRoom;
 	EDIT_ROOM(ch, pRoom);
 	return olced_exd(ch, argument, &pRoom->ed);
 }
 
-OLC_FUN(redit_name)
+OLC_FUN(roomed_name)
 {
 	ROOM_INDEX_DATA *pRoom;
 	EDIT_ROOM(ch, pRoom);
-	return olced_mlstr(ch, argument, redit_name, &pRoom->name);
+	return olced_mlstr(ch, argument, roomed_name, &pRoom->name);
 }
 
-OLC_FUN(redit_desc)
+OLC_FUN(roomed_desc)
 {
 	ROOM_INDEX_DATA *pRoom;
 	EDIT_ROOM(ch, pRoom);
-	return olced_mlstr_text(ch, argument, redit_desc, &pRoom->description);
+	return olced_mlstr_text(ch, argument, roomed_desc, &pRoom->description);
 }
 
-OLC_FUN(redit_heal)
+OLC_FUN(roomed_heal)
 {
 	ROOM_INDEX_DATA *pRoom;
 	EDIT_ROOM(ch, pRoom);
-	return olced_number(ch, argument, redit_heal, &pRoom->heal_rate);
+	return olced_number(ch, argument, roomed_heal, &pRoom->heal_rate);
 }       
 
-OLC_FUN(redit_mana)
+OLC_FUN(roomed_mana)
 {
 	ROOM_INDEX_DATA *pRoom;
 	EDIT_ROOM(ch, pRoom);
-	return olced_number(ch, argument, redit_mana, &pRoom->mana_rate);
+	return olced_number(ch, argument, roomed_mana, &pRoom->mana_rate);
 }       
 
-OLC_FUN(redit_clan)
+OLC_FUN(roomed_clan)
 {
-	send_to_char("This option temporarily disabled.\n\r", ch);
+	char_puts("This option temporarily disabled.\n\r", ch);
 	return FALSE;
 /*
 	ROOM_INDEX_DATA *pRoom;
 	EDIT_ROOM(ch, pRoom);
 	pRoom->clan = clan_lookup(argument);
-	send_to_char ("Clan set.\n\r", ch);
+	char_puts ("Clan set.\n\r", ch);
 	return TRUE;
 */
 }
 	  
 #define MAX_MOB	1		/* Default maximum number for resetting mobs */
 
-OLC_FUN(redit_mreset)
+OLC_FUN(roomed_mreset)
 {
 	ROOM_INDEX_DATA	*pRoom;
 	MOB_INDEX_DATA	*pMobIndex;
@@ -420,18 +420,18 @@ OLC_FUN(redit_mreset)
 	argument = one_argument(argument, arg2);
 
 	if (arg[0] == '\0' || !is_number(arg)) {
-		send_to_char ("Syntax:  mreset <vnum> <max #x> <mix #x>\n\r", ch);
+		char_puts ("Syntax:  mreset <vnum> <max #x> <mix #x>\n\r", ch);
 		return FALSE;
 	}
 
 	if (!(pMobIndex = get_mob_index(atoi(arg)))) {
-		send_to_char("REdit: No mobile has that vnum.\n\r", ch);
+		char_puts("REdit: No mobile has that vnum.\n\r", ch);
 		return FALSE;
 	}
 
 	pArea = area_vnum_lookup(pMobIndex->vnum);
 	if (pArea != pRoom->area) {
-		send_to_char("REdit: No such mobile in this area.\n\r", ch);
+		char_puts("REdit: No such mobile in this area.\n\r", ch);
 		return FALSE;
 	}
 
@@ -461,7 +461,7 @@ OLC_FUN(redit_mreset)
 	return TRUE;
 }
 
-OLC_FUN(redit_rlist)
+OLC_FUN(roomed_rlist)
 {
 	ROOM_INDEX_DATA	*pRoomIndex;
 	AREA_DATA		*pArea;
@@ -489,7 +489,7 @@ OLC_FUN(redit_rlist)
 	}
 
 	if (!found) {
-		send_to_char("Room(s) not found in this area.\n\r", ch);
+		char_puts("Room(s) not found in this area.\n\r", ch);
 		return FALSE;
 	}
 
@@ -501,7 +501,7 @@ OLC_FUN(redit_rlist)
 	return FALSE;
 }
 
-OLC_FUN(redit_mlist)
+OLC_FUN(roomed_mlist)
 {
 	MOB_INDEX_DATA	*pMobIndex;
 	AREA_DATA	*pArea;
@@ -513,7 +513,7 @@ OLC_FUN(redit_mlist)
 
 	one_argument(argument, arg);
 	if (arg[0] == '\0') {
-		send_to_char("Syntax:  mlist <all/name>\n\r", ch);
+		char_puts("Syntax:  mlist <all/name>\n\r", ch);
 		return FALSE;
 	}
 
@@ -536,7 +536,7 @@ OLC_FUN(redit_mlist)
 	}
 
 	if (!found) {
-		send_to_char("Mobile(s) not found in this area.\n\r", ch);
+		char_puts("Mobile(s) not found in this area.\n\r", ch);
 		return FALSE;
 	}
 
@@ -548,7 +548,7 @@ OLC_FUN(redit_mlist)
 	return FALSE;
 }
 
-OLC_FUN(redit_olist)
+OLC_FUN(roomed_olist)
 {
 	OBJ_INDEX_DATA	*pObjIndex;
 	AREA_DATA	*pArea;
@@ -560,7 +560,7 @@ OLC_FUN(redit_olist)
 
 	one_argument(argument, arg);
 	if (arg[0] == '\0') {
-		send_to_char("Syntax:  olist <all/name/item_type>\n\r", ch);
+		char_puts("Syntax:  olist <all/name/item_type>\n\r", ch);
 		return FALSE;
 	}
 
@@ -584,7 +584,7 @@ OLC_FUN(redit_olist)
 	}
 
 	if (!found) {
-		send_to_char("Object(s) not found in this area.\n\r", ch);
+		char_puts("Object(s) not found in this area.\n\r", ch);
 		return FALSE;
 	}
 
@@ -596,38 +596,38 @@ OLC_FUN(redit_olist)
 	return FALSE;
 }
 
-OLC_FUN(redit_mshow)
+OLC_FUN(roomed_mshow)
 {
 	MOB_INDEX_DATA *pMob;
 	int value;
 
 	if (argument[0] == '\0' || !is_number(argument)) {
-		send_to_char("Syntax: mshow vnum\n\r", ch);
+		char_puts("Syntax: mshow vnum\n\r", ch);
 		return FALSE;
 	}
 
 	value = atoi(argument);
 	if (!(pMob = get_mob_index(value))) {
-		send_to_char("REdit: vnum not found.\n\r", ch);
+		char_puts("REdit: vnum not found.\n\r", ch);
 		return FALSE;
 	}
 	show_mob(ch, pMob);
 	return FALSE; 
 }
 
-OLC_FUN(redit_oshow)
+OLC_FUN(roomed_oshow)
 {
 	OBJ_INDEX_DATA *pObj;
 	int value;
 
 	if (argument[0] == '\0' || !is_number(argument)) {
-		send_to_char("Syntax:  oshow <vnum>\n\r", ch);
+		char_puts("Syntax:  oshow <vnum>\n\r", ch);
 		return FALSE;
 	}
 
 	value = atoi(argument);
 	if (!(pObj = get_obj_index(value))) {
-		send_to_char("REdit:  That object does not exist.\n\r", ch);
+		char_puts("REdit:  That object does not exist.\n\r", ch);
 		return FALSE;
 	}
 	show_obj(ch, pObj);
@@ -668,7 +668,7 @@ const struct wear_type wear_table[] =
  Name:		wear_loc
  Purpose:	Returns the location of the bit that matches the count.
  		1 = first match, 2 = second match etc.
- Called by:	oedit_reset(olc_act.c).
+ Called by:	objed_reset(olc_act.c).
  ****************************************************************************/
 int wear_loc(int bits, int count)
 {
@@ -685,7 +685,7 @@ int wear_loc(int bits, int count)
 /*****************************************************************************
  Name:		wear_bit
  Purpose:	Converts a wear_loc into a bit.
- Called by:	redit_oreset(olc_act.c).
+ Called by:	roomed_oreset(olc_act.c).
  ****************************************************************************/
 int wear_bit(int loc)
 {
@@ -699,7 +699,7 @@ int wear_bit(int loc)
 	return 0;
 }
 
-OLC_FUN(redit_oreset)
+OLC_FUN(roomed_oreset)
 {
 	ROOM_INDEX_DATA	*pRoom;
 	OBJ_INDEX_DATA	*pObjIndex;
@@ -720,21 +720,21 @@ OLC_FUN(redit_oreset)
 	argument = one_argument(argument, arg2);
 
 	if (arg1[0] == '\0' || !is_number(arg1)) {
-		send_to_char ("Syntax:  oreset <vnum> <args>\n\r", ch);
-		send_to_char ("        -no_args               = into room\n\r", ch);
-		send_to_char ("        -<obj_name>            = into obj\n\r", ch);
-		send_to_char ("        -<mob_name> <wear_loc> = into mob\n\r", ch);
+		char_puts ("Syntax:  oreset <vnum> <args>\n\r", ch);
+		char_puts ("        -no_args               = into room\n\r", ch);
+		char_puts ("        -<obj_name>            = into obj\n\r", ch);
+		char_puts ("        -<mob_name> <wear_loc> = into mob\n\r", ch);
 		return FALSE;
 	}
 
 	if (!(pObjIndex = get_obj_index(atoi(arg1)))) {
-		send_to_char("REdit: No object has that vnum.\n\r", ch);
+		char_puts("REdit: No object has that vnum.\n\r", ch);
 		return FALSE;
 	}
 
 	pArea = area_vnum_lookup(pObjIndex->vnum);
 	if (pArea != pRoom->area) {
-		send_to_char("REdit: No such object in this area.\n\r", ch);
+		char_puts("REdit: No such object in this area.\n\r", ch);
 		return FALSE;
 	}
 
@@ -797,7 +797,7 @@ OLC_FUN(redit_oreset)
 		 */
 		if ((wear_loc = flag_value(wear_loc_flags, argument)) < 0)
 		{
-			send_to_char("REdit: Invalid wear_loc.  '? wear-loc'\n\r", ch);
+			char_puts("REdit: Invalid wear_loc.  '? wear-loc'\n\r", ch);
 			return FALSE;
 		}
 
@@ -819,7 +819,7 @@ OLC_FUN(redit_oreset)
 		 */
 		if (get_eq_char(to_mob, wear_loc))
 		{
-			send_to_char("REdit:  Object already equipped.\n\r", ch);
+			char_puts("REdit:  Object already equipped.\n\r", ch);
 			return FALSE;
 		}
 
@@ -873,11 +873,11 @@ OLC_FUN(redit_oreset)
 			flag_string(wear_loc_strings, pReset->arg3),
 			mlstr_mval(to_mob->short_descr),
 			to_mob->pIndexData->vnum);
-		send_to_char(output, ch);
+		char_puts(output, ch);
 	}
 	else	/* Display Syntax */
 	{
-		send_to_char("REdit:  That mobile isn't here.\n\r", ch);
+		char_puts("REdit:  That mobile isn't here.\n\r", ch);
 		return FALSE;
 	}
 
@@ -885,28 +885,28 @@ OLC_FUN(redit_oreset)
 	return TRUE;
 }
 
-OLC_FUN(redit_room)
+OLC_FUN(roomed_room)
 {
 	ROOM_INDEX_DATA *room;
 	EDIT_ROOM(ch, room);
-	return olced_flag(ch, argument, redit_room, &room->room_flags);
+	return olced_flag(ch, argument, roomed_room, &room->room_flags);
 }
 
-OLC_FUN(redit_sector)
+OLC_FUN(roomed_sector)
 {
 	ROOM_INDEX_DATA *room;
 	EDIT_ROOM(ch, room);
-	return olced_flag(ch, argument, redit_sector, &room->sector_type);
+	return olced_flag(ch, argument, roomed_sector, &room->sector_type);
 }
 
-OLC_FUN(redit_owner)
+OLC_FUN(roomed_owner)
 {
 	ROOM_INDEX_DATA *pRoom;
 	EDIT_ROOM(ch, pRoom);
 
 	if (argument[0] == '\0') {
-		send_to_char("Syntax:  owner [owner]\n\r", ch);
-		send_to_char("         owner none\n\r", ch);
+		char_puts("Syntax:  owner [owner]\n\r", ch);
+		char_puts("         owner none\n\r", ch);
 		return FALSE;
 	}
 
@@ -916,11 +916,11 @@ OLC_FUN(redit_owner)
 	else
 		pRoom->owner = str_dup(argument);
 
-	send_to_char("Owner set.\n\r", ch);
+	char_puts("Owner set.\n\r", ch);
 	return TRUE;
 }
 
-OLC_FUN(redit_reset)
+OLC_FUN(roomed_reset)
 {
 	ROOM_INDEX_DATA *pRoom;
 	EDIT_ROOM(ch, pRoom);
@@ -952,7 +952,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		int rev;                                    /* ROM OLC */
 
 		if (!pRoom->exit[door]) {
-		   	send_to_char("Exit does not exist.\n\r",ch);
+		   	char_puts("Exit does not exist.\n\r",ch);
 		   	return FALSE;
 		}
 		 /*   pRoom->exit[door] = new_exit(); */
@@ -975,7 +975,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 			TOGGLE_BIT(pToRoom->exit[rev]->exit_info, value);
 		}
 
-		send_to_char("Exit flag toggled.\n\r", ch);
+		char_puts("Exit flag toggled.\n\r", ch);
 		return TRUE;
 	}
 
@@ -1007,7 +1007,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		int rev;                                     /* ROM OLC */
 		
 		if (!pRoom->exit[door]) {
-			send_to_char("REdit:  Cannot delete a null exit.\n\r", ch);
+			char_puts("REdit:  Cannot delete a null exit.\n\r", ch);
 			return FALSE;
 		}
 
@@ -1028,7 +1028,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		free_exit(pRoom->exit[door]);
 		pRoom->exit[door] = NULL;
 
-		send_to_char("Exit unlinked.\n\r", ch);
+		char_puts("Exit unlinked.\n\r", ch);
 		return TRUE;
 	}
 
@@ -1044,19 +1044,19 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 
 		if (!get_room_index(value))
 		{
-			send_to_char("REdit:  Cannot link to non-existant room.\n\r", ch);
+			char_puts("REdit:  Cannot link to non-existant room.\n\r", ch);
 			return FALSE;
 		}
 
 		if (!IS_BUILDER(ch, get_room_index(value)->area))
 		{
-			send_to_char("REdit:  Cannot link to that area.\n\r", ch);
+			char_puts("REdit:  Cannot link to that area.\n\r", ch);
 			return FALSE;
 		}
 
 		if (get_room_index(value)->exit[rev_dir[door]])
 		{
-			send_to_char("REdit:  Remote side's exit already exists.\n\r", ch);
+			char_puts("REdit:  Remote side's exit already exists.\n\r", ch);
 			return FALSE;
 		}
 
@@ -1078,7 +1078,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		pExit->orig_door	= door;
 		pRoom->exit[door]       = pExit;
 
-		send_to_char("Two-way link established.\n\r", ch);
+		char_puts("Two-way link established.\n\r", ch);
 		return TRUE;
 	}
 		 
@@ -1093,7 +1093,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 			return FALSE;
 		}
 		
-		redit_create(ch, arg);
+		roomed_create(ch, arg);
 		snprintf(buf, sizeof(buf), "link %s", arg);
 		olced_exit(ch, buf, fun, door);
 		return TRUE;
@@ -1117,7 +1117,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 
 		if (!get_room_index(value))
 		{
-			send_to_char("REdit:  Cannot link to non-existant room.\n\r", ch);
+			char_puts("REdit:  Cannot link to non-existant room.\n\r", ch);
 			return FALSE;
 		}
 
@@ -1125,7 +1125,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		pRoom->exit[door]->orig_door = door;
 /*	pRoom->exit[door]->vnum = value;                 Can't set vnum in ROM */
 
-		send_to_char("One-way link established.\n\r", ch);
+		char_puts("One-way link established.\n\r", ch);
 		return TRUE;
 	}
 
@@ -1140,7 +1140,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 
 		if (!pRoom->exit[door])
 		   {
-		   	send_to_char("Salida no existe.\n\r",ch);
+		   	char_puts("Salida no existe.\n\r",ch);
 		   	return FALSE;
 		   }
 
@@ -1153,19 +1153,19 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 
 		if (!get_obj_index(value))
 		{
-			send_to_char("REdit:  Item doesn't exist.\n\r", ch);
+			char_puts("REdit:  Item doesn't exist.\n\r", ch);
 			return FALSE;
 		}
 
 		if (get_obj_index(atoi(argument))->item_type != ITEM_KEY)
 		{
-			send_to_char("REdit:  Key doesn't exist.\n\r", ch);
+			char_puts("REdit:  Key doesn't exist.\n\r", ch);
 			return FALSE;
 		}
 
 		pRoom->exit[door]->key = value;
 
-		send_to_char("Exit key set.\n\r", ch);
+		char_puts("Exit key set.\n\r", ch);
 		return TRUE;
 	}
 
@@ -1181,7 +1181,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 
 		if (!pRoom->exit[door])
 		   {
-		   	send_to_char("Salida no existe.\n\r",ch);
+		   	char_puts("Salida no existe.\n\r",ch);
 		   	return FALSE;
 		   }
 
@@ -1196,13 +1196,13 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		else
 			pRoom->exit[door]->keyword = str_dup("");
 
-		send_to_char("Exit name set.\n\r", ch);
+		char_puts("Exit name set.\n\r", ch);
 		return TRUE;
 	}
 
 	if (!str_prefix(command, "description")) {
 		if (!pRoom->exit[door]) {
-		   	send_to_char("Salida no existe.\n\r",ch);
+		   	char_puts("Salida no existe.\n\r",ch);
 		   	return FALSE;
 		}
 
@@ -1224,13 +1224,12 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 
 void display_resets(CHAR_DATA *ch)
 {
-    ROOM_INDEX_DATA	*pRoom;
+    ROOM_INDEX_DATA	*pRoom = ch->in_room;
     RESET_DATA		*pReset;
     MOB_INDEX_DATA	*pMob = NULL;
     BUFFER *		buf;
     int 		iReset = 0;
 
-    EDIT_ROOM(ch, pRoom);
     buf = buf_new(0);
     
     buf_add(buf,
@@ -1400,7 +1399,7 @@ void display_resets(CHAR_DATA *ch)
 	    break;
 	}
     }
-    send_to_char(buf_string(buf), ch);
+    char_puts(buf_string(buf), ch);
     buf_free(buf);
 }
 
@@ -1425,7 +1424,7 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 
     if (!IS_BUILDER(ch, ch->in_room->area))
     {
-	send_to_char("Resets: Invalid security for editing this area.\n\r",
+	char_puts("Resets: Invalid security for editing this area.\n\r",
                       ch);
 	return;
     }
@@ -1438,13 +1437,13 @@ void do_resets(CHAR_DATA *ch, const char *argument)
     {
 	if (ch->in_room->reset_first)
 	{
-	    send_to_char(
+	    char_puts(
 		"Resets: M = mobile, R = room, O = object, "
 		"P = pet, S = shopkeeper\n\r", ch);
 	    display_resets(ch);
 	}
 	else
-	    send_to_char("No resets in this room.\n\r", ch);
+	    char_puts("No resets in this room.\n\r", ch);
     }
 
 
@@ -1466,7 +1465,7 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 
 	    if (!ch->in_room->reset_first)
 	    {
-		send_to_char("No resets in this area.\n\r", ch);
+		char_puts("No resets in this area.\n\r", ch);
 		return;
 	    }
 
@@ -1493,7 +1492,7 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 
 		if (!pReset)
 		{
-		    send_to_char("Reset not found.\n\r", ch);
+		    char_puts("Reset not found.\n\r", ch);
 		    return;
 		}
 
@@ -1508,7 +1507,7 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 	    }
 
 	    free_reset_data(pReset);
-	    send_to_char("Reset deleted.\n\r", ch);
+	    char_puts("Reset deleted.\n\r", ch);
 	}
 	else
 	/*
@@ -1526,7 +1525,7 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 	    {
 		if (get_mob_index(is_number(arg3) ? atoi(arg3) : 1) == NULL)
 		  {
-		    send_to_char("Mob no existe.\n\r",ch);
+		    char_puts("Mob no existe.\n\r",ch);
 		    return;
 		  }
 		pReset = new_reset_data();
@@ -1557,7 +1556,7 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 		    if ((temp->item_type != ITEM_CONTAINER) &&
 		         (temp->item_type != ITEM_CORPSE_NPC))
 		     {
-		       send_to_char("Objeto 2 no es container.\n\r", ch);
+		       char_puts("Objeto 2 no es container.\n\r", ch);
 		       return;
 		     }
 		    pReset->command = 'P';
@@ -1574,7 +1573,7 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 		{
 		    if (get_obj_index(atoi(arg3)) == NULL)
 		      {
-		         send_to_char("Vnum no existe.\n\r",ch);
+		         char_puts("Vnum no existe.\n\r",ch);
 		         return;
 		      }
 		    pReset->command  = 'O';
@@ -1590,12 +1589,12 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 		{
 		    if (flag_value(wear_loc_flags, arg4) < 0)
 		    {
-			send_to_char("Resets: '? wear-loc'\n\r", ch);
+			char_puts("Resets: '? wear-loc'\n\r", ch);
 			return;
 		    }
 		    if (get_obj_index(atoi(arg3)) == NULL)
 		      {
-		         send_to_char("Vnum no existe.\n\r",ch);
+		         char_puts("Vnum no existe.\n\r",ch);
 		         return;
 		      }
 		    pReset->arg1 = atoi(arg3);
@@ -1608,14 +1607,14 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 	    }
 	    add_reset(ch->in_room, pReset, atoi(arg1));
 	    touch_area(ch->in_room->area);
-	    send_to_char("Reset added.\n\r", ch);
+	    char_puts("Reset added.\n\r", ch);
 	}
 	else
 	if (!str_cmp(arg2, "random") && is_number(arg3))
 	{
 		if (atoi(arg3) < 1 || atoi(arg3) > 6)
 			{
-				send_to_char("Invalid argument.\n\r", ch);
+				char_puts("Invalid argument.\n\r", ch);
 				return;
 			}
 		pReset = new_reset_data ();
@@ -1624,16 +1623,16 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 		pReset->arg2 = atoi(arg3);
 		add_reset(ch->in_room, pReset, atoi(arg1));
 		touch_area(ch->in_room->area);
-		send_to_char("Random exits reset added.\n\r", ch);
+		char_puts("Random exits reset added.\n\r", ch);
 	}
 	else
 	{
-	send_to_char("Syntax: RESET <number> OBJ <vnum> <wear_loc>\n\r", ch);
-	send_to_char("        RESET <number> OBJ <vnum> inside <vnum> [limit] [count]\n\r", ch);
-	send_to_char("        RESET <number> OBJ <vnum> room\n\r", ch);
-	send_to_char("        RESET <number> MOB <vnum> [max #x area] [max #x room]\n\r", ch);
-	send_to_char("        RESET <number> DELETE\n\r", ch);
-	send_to_char("        RESET <number> RANDOM [#x exits]\n\r", ch);
+	char_puts("Syntax: RESET <number> OBJ <vnum> <wear_loc>\n\r", ch);
+	char_puts("        RESET <number> OBJ <vnum> inside <vnum> [limit] [count]\n\r", ch);
+	char_puts("        RESET <number> OBJ <vnum> room\n\r", ch);
+	char_puts("        RESET <number> MOB <vnum> [max #x area] [max #x room]\n\r", ch);
+	char_puts("        RESET <number> DELETE\n\r", ch);
+	char_puts("        RESET <number> RANDOM [#x exits]\n\r", ch);
 	}
     }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: olc_mpcode.c,v 1.13 1998-09-19 10:39:10 fjoe Exp $
+ * $Id: olc_mpcode.c,v 1.14 1998-09-20 17:01:45 fjoe Exp $
  */
 
 /* The following code is based on ILAB OLC by Jason Dinkel */
@@ -18,32 +18,32 @@
 #define EDIT_MPCODE(ch, mpcode)   (mpcode = (MPCODE*) ch->desc->pEdit)
 
 /* Mobprog editor */
-DECLARE_OLC_FUN(mpedit_create		);
-DECLARE_OLC_FUN(mpedit_edit		);
-DECLARE_OLC_FUN(mpedit_touch		);
-DECLARE_OLC_FUN(mpedit_show		);
+DECLARE_OLC_FUN(mped_create		);
+DECLARE_OLC_FUN(mped_edit		);
+DECLARE_OLC_FUN(mped_touch		);
+DECLARE_OLC_FUN(mped_show		);
 
-DECLARE_OLC_FUN(mpedit_code		);
-DECLARE_OLC_FUN(mpedit_list		);
+DECLARE_OLC_FUN(mped_code		);
+DECLARE_OLC_FUN(mped_list		);
 
 OLC_CMD_DATA olc_cmds_mpcode[] =
 {
 /*	{ command	function	}, */
 
-	{ "create",	mpedit_create	},
-	{ "edit",	mpedit_edit	},
-	{ "touch",	mpedit_touch	},
-	{ "show",	mpedit_show	},
+	{ "create",	mped_create	},
+	{ "edit",	mped_edit	},
+	{ "touch",	mped_touch	},
+	{ "show",	mped_show	},
 
-	{ "code",	mpedit_code	},
-	{ "list",	mpedit_list	},
+	{ "code",	mped_code	},
+	{ "list",	mped_list	},
 
 	{ "commands",	show_commands	},
 
 	{ NULL }
 };
 
-OLC_FUN(mpedit_create)
+OLC_FUN(mped_create)
 {
 	MPCODE *mpcode;
 	int value;
@@ -84,7 +84,7 @@ OLC_FUN(mpedit_create)
 	return FALSE;
 }
 
-OLC_FUN(mpedit_edit)
+OLC_FUN(mped_edit)
 {
 	MPCODE *mpcode;
 	AREA_DATA *pArea;
@@ -92,9 +92,13 @@ OLC_FUN(mpedit_edit)
 	char arg[MAX_STRING_LENGTH];
 
 	argument = one_argument(argument, arg);
+	if (arg[0] == '\0') {
+		do_help(ch, "'OLC EDIT'");
+		return FALSE;
+	}
+
 	value = atoi(arg);
 	mpcode = mpcode_lookup(value);
-
 	if (!mpcode) {
 		char_puts("MPEdit: Vnum does not exist.\n\r", ch);
 		return FALSE;
@@ -111,14 +115,14 @@ OLC_FUN(mpedit_edit)
 	return FALSE;
 }
 
-OLC_FUN(mpedit_touch)
+OLC_FUN(mped_touch)
 {
 	MPCODE *mpcode;
 	EDIT_MPCODE(ch, mpcode);
 	return touch_vnum(mpcode->vnum);
 }
 
-OLC_FUN(mpedit_show)
+OLC_FUN(mped_show)
 {
 	MPCODE *mpcode;
 	EDIT_MPCODE(ch, mpcode);
@@ -129,14 +133,14 @@ OLC_FUN(mpedit_show)
 	return FALSE;
 }
 
-OLC_FUN(mpedit_code)
+OLC_FUN(mped_code)
 {
 	MPCODE *mpcode;
 	EDIT_MPCODE(ch, mpcode);
-	return olced_str_text(ch, argument, mpedit_code, &mpcode->code);
+	return olced_str_text(ch, argument, mped_code, &mpcode->code);
 }
 
-OLC_FUN(mpedit_list)
+OLC_FUN(mped_list)
 {
 	int count = 1;
 	MPCODE *mpcode;

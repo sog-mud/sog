@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_clan.c,v 1.7 1998-09-19 10:39:10 fjoe Exp $
+ * $Id: olc_clan.c,v 1.8 1998-09-20 17:01:45 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -35,45 +35,45 @@
 
 #define EDIT_CLAN(ch, clan)	(clan = (CLAN_DATA*) ch->desc->pEdit)
 
-DECLARE_OLC_FUN(cedit_create		);
-DECLARE_OLC_FUN(cedit_edit		);
-DECLARE_OLC_FUN(cedit_touch		);
-DECLARE_OLC_FUN(cedit_show		);
+DECLARE_OLC_FUN(claned_create		);
+DECLARE_OLC_FUN(claned_edit		);
+DECLARE_OLC_FUN(claned_touch		);
+DECLARE_OLC_FUN(claned_show		);
 
-DECLARE_OLC_FUN(cedit_name		);
-DECLARE_OLC_FUN(cedit_filename		);
-DECLARE_OLC_FUN(cedit_recall		);
-DECLARE_OLC_FUN(cedit_msg_prays		);
-DECLARE_OLC_FUN(cedit_msg_vanishes	);
-DECLARE_OLC_FUN(cedit_flags		);
-DECLARE_OLC_FUN(cedit_skill		);
+DECLARE_OLC_FUN(claned_name		);
+DECLARE_OLC_FUN(claned_filename		);
+DECLARE_OLC_FUN(claned_recall		);
+DECLARE_OLC_FUN(claned_msg_prays		);
+DECLARE_OLC_FUN(claned_msg_vanishes	);
+DECLARE_OLC_FUN(claned_flags		);
+DECLARE_OLC_FUN(claned_skill		);
 
-DECLARE_OLC_FUN(cedit_skill_add		);
-DECLARE_OLC_FUN(cedit_skill_del		);
+DECLARE_OLC_FUN(claned_skill_add		);
+DECLARE_OLC_FUN(claned_skill_del		);
 DECLARE_VALIDATE_FUN(validate_name	);
 
 static bool touch_clan(CLAN_DATA *clan);
 
 OLC_CMD_DATA olc_cmds_clan[] =
 {
-	{ "create",	cedit_create				},
-	{ "edit",	cedit_edit				},
-	{ "touch",	cedit_touch				},
-	{ "show",	cedit_show				},
+	{ "create",	claned_create				},
+	{ "edit",	claned_edit				},
+	{ "touch",	claned_touch				},
+	{ "show",	claned_show				},
 
-	{ "name",	cedit_name,	validate_name	 	},
-	{ "filename",	cedit_filename,	validate_filename	},
-	{ "recall",	cedit_recall,	validate_room_vnum	},
-	{ "msgp",	cedit_msg_prays				},
-	{ "msgv",	cedit_msg_vanishes			},
-	{ "flags",	cedit_flags,	clan_flags		},
-	{ "skill",	cedit_skill				},
+	{ "name",	claned_name,	validate_name	 	},
+	{ "filename",	claned_filename,	validate_filename	},
+	{ "recall",	claned_recall,	validate_room_vnum	},
+	{ "msgp",	claned_msg_prays				},
+	{ "msgv",	claned_msg_vanishes			},
+	{ "flags",	claned_flags,	clan_flags		},
+	{ "skill",	claned_skill				},
 
 	{ "commands",	show_commands				},
 	{ NULL }
 };
 
-OLC_FUN(cedit_create)
+OLC_FUN(claned_create)
 {
 	int cn;
 	CLAN_DATA *clan;
@@ -104,11 +104,11 @@ OLC_FUN(cedit_create)
 	ch->desc->pEdit		= (void *)clan;
 	ch->desc->editor	= ED_CLAN;
 	touch_clan(clan);
-	send_to_char("Clan created.\n\r",ch);
+	char_puts("Clan created.\n\r",ch);
 	return FALSE;
 }
 
-OLC_FUN(cedit_edit)
+OLC_FUN(claned_edit)
 {
 	int cn;
 	char arg[MAX_STRING_LENGTH];
@@ -119,6 +119,12 @@ OLC_FUN(cedit_edit)
 	}
 
 	one_argument(argument, arg);
+
+	if (arg[0] == '\0') {
+		do_help(ch, "'OLC EDIT'");
+		return FALSE;
+	}
+
 	if ((cn = cn_lookup(arg)) < 0) {
 		char_printf(ch, "CEdit: %s: No such clan.\n\r", argument);
 		return FALSE;
@@ -129,14 +135,14 @@ OLC_FUN(cedit_edit)
 	return FALSE;
 }
 
-OLC_FUN(cedit_touch)
+OLC_FUN(claned_touch)
 {
 	CLAN_DATA *clan;
 	EDIT_CLAN(ch, clan);
 	return touch_clan(clan);
 }
 
-OLC_FUN(cedit_show)
+OLC_FUN(claned_show)
 {
 	int i;
 	BUFFER *output;
@@ -177,63 +183,63 @@ OLC_FUN(cedit_show)
 	return FALSE;
 }
 
-OLC_FUN(cedit_name)
+OLC_FUN(claned_name)
 {
 	CLAN_DATA *clan;
 	EDIT_CLAN(ch, clan);
-	return olced_str(ch, argument, cedit_name, &clan->name);
+	return olced_str(ch, argument, claned_name, &clan->name);
 }
 
-OLC_FUN(cedit_filename)
+OLC_FUN(claned_filename)
 {
 	CLAN_DATA *clan;
 	EDIT_CLAN(ch, clan);
-	return olced_str(ch, argument, cedit_filename, &clan->file_name);
+	return olced_str(ch, argument, claned_filename, &clan->file_name);
 }
 
-OLC_FUN(cedit_recall)
+OLC_FUN(claned_recall)
 {
 	CLAN_DATA *clan;
 	EDIT_CLAN(ch, clan);
-	return olced_number(ch, argument, cedit_recall, &clan->recall_vnum);
+	return olced_number(ch, argument, claned_recall, &clan->recall_vnum);
 }
 
-OLC_FUN(cedit_msg_prays)
+OLC_FUN(claned_msg_prays)
 {
 	CLAN_DATA *clan;
 	EDIT_CLAN(ch, clan);
-	return olced_mlstr(ch, argument, cedit_msg_prays, &clan->msg_prays);
+	return olced_mlstr(ch, argument, claned_msg_prays, &clan->msg_prays);
 }
 
-OLC_FUN(cedit_msg_vanishes)
+OLC_FUN(claned_msg_vanishes)
 {
 	CLAN_DATA *clan;
 	EDIT_CLAN(ch, clan);
-	return olced_mlstr(ch, argument, cedit_msg_vanishes, &clan->msg_vanishes);
+	return olced_mlstr(ch, argument, claned_msg_vanishes, &clan->msg_vanishes);
 }
 
-OLC_FUN(cedit_flags)
+OLC_FUN(claned_flags)
 {
 	CLAN_DATA *clan;
 	EDIT_CLAN(ch, clan);
-	return olced_flag(ch, argument, cedit_flags, &clan->flags);
+	return olced_flag(ch, argument, claned_flags, &clan->flags);
 }
 
-OLC_FUN(cedit_skill)
+OLC_FUN(claned_skill)
 {
 	char arg[MAX_STRING_LENGTH];
 
 	argument = one_argument(argument, arg);
 	if (!str_prefix(arg, "add")) 
-		return cedit_skill_add(ch, argument);
+		return claned_skill_add(ch, argument);
 	else if (!str_prefix(arg, "delete"))
-		return cedit_skill_del(ch, argument);
+		return claned_skill_del(ch, argument);
 
 	do_help(ch, "'OLC CLAN SKILL'");
 	return FALSE;
 }
 
-OLC_FUN(cedit_skill_add)
+OLC_FUN(claned_skill_add)
 {
 	int sn;
 	CLAN_SKILL *clan_skill;
@@ -275,7 +281,7 @@ OLC_FUN(cedit_skill_add)
 	return TRUE;
 }
 
-OLC_FUN(cedit_skill_del)
+OLC_FUN(claned_skill_del)
 {
 	char	arg[MAX_STRING_LENGTH];
 	CLAN_SKILL *clan_skill;

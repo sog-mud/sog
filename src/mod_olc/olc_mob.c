@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.8 1998-09-19 10:39:10 fjoe Exp $
+ * $Id: olc_mob.c,v 1.9 1998-09-20 17:01:45 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -38,90 +38,90 @@
 /*
  * Mobile Editor Prototypes
  */
-DECLARE_OLC_FUN(medit_create		);
-DECLARE_OLC_FUN(medit_edit		);
-DECLARE_OLC_FUN(medit_touch		);
-DECLARE_OLC_FUN(medit_show		);
+DECLARE_OLC_FUN(mobed_create		);
+DECLARE_OLC_FUN(mobed_edit		);
+DECLARE_OLC_FUN(mobed_touch		);
+DECLARE_OLC_FUN(mobed_show		);
 
-DECLARE_OLC_FUN(medit_name		);
-DECLARE_OLC_FUN(medit_short		);
-DECLARE_OLC_FUN(medit_long		);
-DECLARE_OLC_FUN(medit_shop		);
-DECLARE_OLC_FUN(medit_desc		);
-DECLARE_OLC_FUN(medit_level		);
-DECLARE_OLC_FUN(medit_align		);
-DECLARE_OLC_FUN(medit_spec		);
+DECLARE_OLC_FUN(mobed_name		);
+DECLARE_OLC_FUN(mobed_short		);
+DECLARE_OLC_FUN(mobed_long		);
+DECLARE_OLC_FUN(mobed_shop		);
+DECLARE_OLC_FUN(mobed_desc		);
+DECLARE_OLC_FUN(mobed_level		);
+DECLARE_OLC_FUN(mobed_align		);
+DECLARE_OLC_FUN(mobed_spec		);
 
-DECLARE_OLC_FUN(medit_sex		);  /* ROM */
-DECLARE_OLC_FUN(medit_act		);  /* ROM */
-DECLARE_OLC_FUN(medit_affect		);  /* ROM */
-DECLARE_OLC_FUN(medit_ac		);  /* ROM */
-DECLARE_OLC_FUN(medit_form		);  /* ROM */
-DECLARE_OLC_FUN(medit_part		);  /* ROM */
-DECLARE_OLC_FUN(medit_imm		);  /* ROM */
-DECLARE_OLC_FUN(medit_res		);  /* ROM */
-DECLARE_OLC_FUN(medit_vuln		);  /* ROM */
-DECLARE_OLC_FUN(medit_material		);  /* ROM */
-DECLARE_OLC_FUN(medit_off		);  /* ROM */
-DECLARE_OLC_FUN(medit_size		);  /* ROM */
-DECLARE_OLC_FUN(medit_hitdice		);  /* ROM */
-DECLARE_OLC_FUN(medit_manadice		);  /* ROM */
-DECLARE_OLC_FUN(medit_damdice		);  /* ROM */
-DECLARE_OLC_FUN(medit_race		);  /* ROM */
-DECLARE_OLC_FUN(medit_startpos		);  /* ROM */
-DECLARE_OLC_FUN(medit_defaultpos	);  /* ROM */
-DECLARE_OLC_FUN(medit_gold		);  /* ROM */
-DECLARE_OLC_FUN(medit_hitroll		);  /* ROM */
-DECLARE_OLC_FUN(medit_damtype		);  /* ROM */
-DECLARE_OLC_FUN(medit_group		);  /* ROM */
-DECLARE_OLC_FUN(medit_trigadd		);  /* ROM */
-DECLARE_OLC_FUN(medit_trigdel		);  /* ROM */
-DECLARE_OLC_FUN(medit_prac		); 
-DECLARE_OLC_FUN(medit_clan		);
+DECLARE_OLC_FUN(mobed_sex		);  /* ROM */
+DECLARE_OLC_FUN(mobed_act		);  /* ROM */
+DECLARE_OLC_FUN(mobed_affect		);  /* ROM */
+DECLARE_OLC_FUN(mobed_ac		);  /* ROM */
+DECLARE_OLC_FUN(mobed_form		);  /* ROM */
+DECLARE_OLC_FUN(mobed_part		);  /* ROM */
+DECLARE_OLC_FUN(mobed_imm		);  /* ROM */
+DECLARE_OLC_FUN(mobed_res		);  /* ROM */
+DECLARE_OLC_FUN(mobed_vuln		);  /* ROM */
+DECLARE_OLC_FUN(mobed_material		);  /* ROM */
+DECLARE_OLC_FUN(mobed_off		);  /* ROM */
+DECLARE_OLC_FUN(mobed_size		);  /* ROM */
+DECLARE_OLC_FUN(mobed_hitdice		);  /* ROM */
+DECLARE_OLC_FUN(mobed_manadice		);  /* ROM */
+DECLARE_OLC_FUN(mobed_damdice		);  /* ROM */
+DECLARE_OLC_FUN(mobed_race		);  /* ROM */
+DECLARE_OLC_FUN(mobed_startpos		);  /* ROM */
+DECLARE_OLC_FUN(mobed_defaultpos	);  /* ROM */
+DECLARE_OLC_FUN(mobed_gold		);  /* ROM */
+DECLARE_OLC_FUN(mobed_hitroll		);  /* ROM */
+DECLARE_OLC_FUN(mobed_damtype		);  /* ROM */
+DECLARE_OLC_FUN(mobed_group		);  /* ROM */
+DECLARE_OLC_FUN(mobed_trigadd		);  /* ROM */
+DECLARE_OLC_FUN(mobed_trigdel		);  /* ROM */
+DECLARE_OLC_FUN(mobed_prac		); 
+DECLARE_OLC_FUN(mobed_clan		);
 
 OLC_CMD_DATA olc_cmds_mob[] =
 {
 /*	{ command	function		args		}, */
-	{ "create",	medit_create				},
-	{ "edit",	medit_edit				},
-	{ "touch",	medit_touch				},
-	{ "show",	medit_show				},
+	{ "create",	mobed_create				},
+	{ "edit",	mobed_edit				},
+	{ "touch",	mobed_touch				},
+	{ "show",	mobed_show				},
 
-	{ "alignment",	medit_align				},
-	{ "desc",	medit_desc				},
-	{ "level",	medit_level				},
-	{ "long",	medit_long				},
-	{ "name",	medit_name				},
-	{ "shop",	medit_shop				},
-	{ "short",	medit_short				},
-	{ "spec",	medit_spec				},
+	{ "alignment",	mobed_align				},
+	{ "desc",	mobed_desc				},
+	{ "level",	mobed_level				},
+	{ "long",	mobed_long				},
+	{ "name",	mobed_name				},
+	{ "shop",	mobed_shop				},
+	{ "short",	mobed_short				},
+	{ "spec",	mobed_spec				},
 
-	{ "sex",	medit_sex,		sex_table	},
-	{ "act",	medit_act,		act_flags	},
-	{ "affect",	medit_affect,		affect_flags	},
-	{ "prac",	medit_prac,		skill_groups	},
-	{ "armor",	medit_ac				},
-	{ "form",	medit_form,		form_flags	},
-	{ "part",	medit_part,		part_flags	},
-	{ "imm",	medit_imm,		imm_flags	},
-	{ "res",	medit_res,		res_flags	},
-	{ "vuln",	medit_vuln,		vuln_flags	},
-	{ "material",	medit_material				},
-	{ "off",	medit_off,		off_flags	},
-	{ "size",	medit_size,		size_table	},
-	{ "hitdice",	medit_hitdice				},
-	{ "manadice",	medit_manadice				},
-	{ "damdice",	medit_damdice				},
-	{ "race",	medit_race				},
-	{ "startpos",	medit_startpos,		position_table	},
-	{ "defaultpos",	medit_defaultpos,	position_table	},
-	{ "wealth",	medit_gold				},
-	{ "hitroll",	medit_hitroll				},
-	{ "damtype",	medit_damtype				},
-	{ "group",	medit_group				},
-	{ "clan",	medit_clan				},
-	{ "trigadd",	medit_trigadd				},
-	{ "trigdel",	medit_trigdel				},
+	{ "sex",	mobed_sex,		sex_table	},
+	{ "act",	mobed_act,		act_flags	},
+	{ "affect",	mobed_affect,		affect_flags	},
+	{ "prac",	mobed_prac,		skill_groups	},
+	{ "armor",	mobed_ac				},
+	{ "form",	mobed_form,		form_flags	},
+	{ "part",	mobed_part,		part_flags	},
+	{ "imm",	mobed_imm,		imm_flags	},
+	{ "res",	mobed_res,		res_flags	},
+	{ "vuln",	mobed_vuln,		vuln_flags	},
+	{ "material",	mobed_material				},
+	{ "off",	mobed_off,		off_flags	},
+	{ "size",	mobed_size,		size_table	},
+	{ "hitdice",	mobed_hitdice				},
+	{ "manadice",	mobed_manadice				},
+	{ "damdice",	mobed_damdice				},
+	{ "race",	mobed_race				},
+	{ "startpos",	mobed_startpos,		position_table	},
+	{ "defaultpos",	mobed_defaultpos,	position_table	},
+	{ "wealth",	mobed_gold				},
+	{ "hitroll",	mobed_hitroll				},
+	{ "damtype",	mobed_damtype				},
+	{ "group",	mobed_group				},
+	{ "clan",	mobed_clan				},
+	{ "trigadd",	mobed_trigadd				},
+	{ "trigdel",	mobed_trigdel				},
 
 	{ "commands",	show_commands				},
 	{ "version",	show_version				},
@@ -131,7 +131,7 @@ OLC_CMD_DATA olc_cmds_mob[] =
 
 static void show_spec_cmds(CHAR_DATA *ch);
 
-OLC_FUN(medit_create)
+OLC_FUN(mobed_create)
 {
 	MOB_INDEX_DATA *pMob;
 	AREA_DATA *pArea;
@@ -176,11 +176,11 @@ OLC_FUN(medit_create)
 	ch->desc->pEdit		= (void *)pMob;
 	ch->desc->editor	= ED_MOB;
 	touch_area(pArea);
-	send_to_char("MEdit: Mobile created.\n\r", ch);
+	char_puts("MEdit: Mobile created.\n\r", ch);
 	return FALSE;
 }
 
-OLC_FUN(medit_edit)
+OLC_FUN(mobed_edit)
 {
 	MOB_INDEX_DATA *pMob;
 	AREA_DATA *pArea;
@@ -188,6 +188,12 @@ OLC_FUN(medit_edit)
 	char arg[MAX_STRING_LENGTH];
 
 	argument = one_argument(argument, arg);
+
+	if (arg[0] == '\0') {
+		do_help(ch, "'OLC EDIT'");
+		return FALSE;
+	}
+
 	value = atoi(arg);
 	if (!(pMob = get_mob_index(value))) {
 		char_puts("MEdit: Vnum does not exist.\n\r", ch);
@@ -205,27 +211,27 @@ OLC_FUN(medit_edit)
 	return FALSE;
 }
 
-OLC_FUN(medit_touch)
+OLC_FUN(mobed_touch)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
 	return touch_vnum(pMob->vnum);
 }
 
-OLC_FUN(medit_show)
+OLC_FUN(mobed_show)
 {
 	MOB_INDEX_DATA	*pMob;
 	EDIT_MOB(ch, pMob);
 	return show_mob(ch, pMob);
 }
 
-OLC_FUN(medit_spec)
+OLC_FUN(mobed_spec)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
 
 	if (argument[0] == '\0') {
-		send_to_char("Syntax:  spec [special function]\n\r", ch);
+		char_puts("Syntax:  spec [special function]\n\r", ch);
 		return FALSE;
 	}
 
@@ -237,13 +243,13 @@ OLC_FUN(medit_spec)
 	if (!str_cmp(argument, "none")) {
 		 pMob->spec_fun = NULL;
 
-		 send_to_char("Spec removed.\n\r", ch);
+		 char_puts("Spec removed.\n\r", ch);
 		 return TRUE;
 	}
 
 	if (spec_lookup(argument)) {
 		pMob->spec_fun = spec_lookup(argument);
-		send_to_char("Spec set.\n\r", ch);
+		char_puts("Spec set.\n\r", ch);
 		return TRUE;
 	}
 
@@ -251,7 +257,7 @@ OLC_FUN(medit_spec)
 	return FALSE;
 }
 
-OLC_FUN(medit_damtype)
+OLC_FUN(mobed_damtype)
 {
 	MOB_INDEX_DATA *pMob;
 
@@ -259,59 +265,59 @@ OLC_FUN(medit_damtype)
 
 	if (argument[0] == '\0')
 	{
-		send_to_char("Syntax:  damtype [damage message]\n\r", ch);
-		send_to_char("Para ver una lista de tipos de mensajes, pon '? weapon'.\n\r", ch);
+		char_puts("Syntax:  damtype [damage message]\n\r", ch);
+		char_puts("Para ver una lista de tipos de mensajes, pon '? weapon'.\n\r", ch);
 		return FALSE;
 	}
 
 	pMob->dam_type = attack_lookup(argument);
-	send_to_char("Damage type set.\n\r", ch);
+	char_puts("Damage type set.\n\r", ch);
 	return TRUE;
 }
 
-OLC_FUN(medit_align)
+OLC_FUN(mobed_align)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_number(ch, argument, medit_align, &pMob->alignment);
+	return olced_number(ch, argument, mobed_align, &pMob->alignment);
 }
 
-OLC_FUN(medit_level)
+OLC_FUN(mobed_level)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_number(ch, argument, medit_level, &pMob->level);
+	return olced_number(ch, argument, mobed_level, &pMob->level);
 }
 
-OLC_FUN(medit_desc)
+OLC_FUN(mobed_desc)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_mlstr_text(ch, argument, medit_desc, &pMob->description);
+	return olced_mlstr_text(ch, argument, mobed_desc, &pMob->description);
 }
 
-OLC_FUN(medit_long)
+OLC_FUN(mobed_long)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_mlstrnl(ch, argument, medit_long, &pMob->long_descr);
+	return olced_mlstrnl(ch, argument, mobed_long, &pMob->long_descr);
 }
 
-OLC_FUN(medit_short)
+OLC_FUN(mobed_short)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_mlstr(ch, argument, medit_short, &pMob->short_descr);
+	return olced_mlstr(ch, argument, mobed_short, &pMob->short_descr);
 }
 
-OLC_FUN(medit_name)
+OLC_FUN(mobed_name)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_str(ch, argument, medit_name, &pMob->name);
+	return olced_str(ch, argument, mobed_name, &pMob->name);
 }
 
-OLC_FUN(medit_shop)
+OLC_FUN(mobed_shop)
 {
 	MOB_INDEX_DATA *pMob;
 	char command[MAX_INPUT_LENGTH];
@@ -324,11 +330,11 @@ OLC_FUN(medit_shop)
 
 	if (command[0] == '\0')
 	{
-		send_to_char("Syntax:  shop hours [#xopening] [#xclosing]\n\r", ch);
-		send_to_char("         shop profit [#xbuying%] [#xselling%]\n\r", ch);
-		send_to_char("         shop type [#x0-4] [item type]\n\r", ch);
-		send_to_char("         shop assign\n\r", ch);
-		send_to_char("         shop remove\n\r", ch);
+		char_puts("Syntax:  shop hours [#xopening] [#xclosing]\n\r", ch);
+		char_puts("         shop profit [#xbuying%] [#xselling%]\n\r", ch);
+		char_puts("         shop type [#x0-4] [item type]\n\r", ch);
+		char_puts("         shop assign\n\r", ch);
+		char_puts("         shop remove\n\r", ch);
 		return FALSE;
 	}
 
@@ -338,20 +344,20 @@ OLC_FUN(medit_shop)
 		if (arg1[0] == '\0' || !is_number(arg1)
 		|| argument[0] == '\0' || !is_number(argument))
 		{
-			send_to_char("Syntax:  shop hours [#xopening] [#xclosing]\n\r", ch);
+			char_puts("Syntax:  shop hours [#xopening] [#xclosing]\n\r", ch);
 			return FALSE;
 		}
 
 		if (!pMob->pShop)
 		{
-			send_to_char("MEdit:  Debes crear un shop primero (shop assign).\n\r", ch);
+			char_puts("MEdit:  Debes crear un shop primero (shop assign).\n\r", ch);
 			return FALSE;
 		}
 
 		pMob->pShop->open_hour = atoi(arg1);
 		pMob->pShop->close_hour = atoi(argument);
 
-		send_to_char("Shop hours set.\n\r", ch);
+		char_puts("Shop hours set.\n\r", ch);
 		return TRUE;
 	}
 
@@ -361,20 +367,20 @@ OLC_FUN(medit_shop)
 		if (arg1[0] == '\0' || !is_number(arg1)
 		|| argument[0] == '\0' || !is_number(argument))
 		{
-			send_to_char("Syntax:  shop profit [#xbuying%] [#xselling%]\n\r", ch);
+			char_puts("Syntax:  shop profit [#xbuying%] [#xselling%]\n\r", ch);
 			return FALSE;
 		}
 
 		if (!pMob->pShop)
 		{
-			send_to_char("MEdit:  Debes crear un shop primero (shop assign).\n\r", ch);
+			char_puts("MEdit:  Debes crear un shop primero (shop assign).\n\r", ch);
 			return FALSE;
 		}
 
 		pMob->pShop->profit_buy     = atoi(arg1);
 		pMob->pShop->profit_sell    = atoi(argument);
 
-		send_to_char("Shop profit set.\n\r", ch);
+		char_puts("Shop profit set.\n\r", ch);
 		return TRUE;
 	}
 
@@ -386,7 +392,7 @@ OLC_FUN(medit_shop)
 		if (arg1[0] == '\0' || !is_number(arg1)
 		|| argument[0] == '\0')
 		{
-			send_to_char("Syntax:  shop type [#x0-4] [item type]\n\r", ch);
+			char_puts("Syntax:  shop type [#x0-4] [item type]\n\r", ch);
 			return FALSE;
 		}
 
@@ -398,19 +404,19 @@ OLC_FUN(medit_shop)
 
 		if (!pMob->pShop)
 		{
-			send_to_char("MEdit:  Debes crear un shop primero (shop assign).\n\r", ch);
+			char_puts("MEdit:  Debes crear un shop primero (shop assign).\n\r", ch);
 			return FALSE;
 		}
 
 		if ((value = flag_value(item_types, argument)) == 0)
 		{
-			send_to_char("MEdit:  That type of item is not known.\n\r", ch);
+			char_puts("MEdit:  That type of item is not known.\n\r", ch);
 			return FALSE;
 		}
 
 		pMob->pShop->buy_type[atoi(arg1)] = value;
 
-		send_to_char("Shop type set.\n\r", ch);
+		char_puts("Shop type set.\n\r", ch);
 		return TRUE;
 	}
 
@@ -420,7 +426,7 @@ OLC_FUN(medit_shop)
 	{
 		if (pMob->pShop)
 		{
-		 	send_to_char("Mob already has a shop assigned to it.\n\r", ch);
+		 	char_puts("Mob already has a shop assigned to it.\n\r", ch);
 		 	return FALSE;
 		}
 
@@ -433,7 +439,7 @@ OLC_FUN(medit_shop)
 
 		pMob->pShop->keeper	= pMob->vnum;
 
-		send_to_char("New shop assigned to mobile.\n\r", ch);
+		char_puts("New shop assigned to mobile.\n\r", ch);
 		return TRUE;
 	}
 
@@ -475,43 +481,43 @@ OLC_FUN(medit_shop)
 
 		free_shop(pShop);
 
-		send_to_char("Mobile is no longer a shopkeeper.\n\r", ch);
+		char_puts("Mobile is no longer a shopkeeper.\n\r", ch);
 		return TRUE;
 	}
 
-	medit_shop(ch, "");
+	mobed_shop(ch, "");
 	return FALSE;
 }
 
-OLC_FUN(medit_sex)
+OLC_FUN(mobed_sex)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_flag(ch, argument, medit_sex, &pMob->sex);
+	return olced_flag(ch, argument, mobed_sex, &pMob->sex);
 }
 
-OLC_FUN(medit_act)
+OLC_FUN(mobed_act)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_flag(ch, argument, medit_act, &pMob->act);
+	return olced_flag(ch, argument, mobed_act, &pMob->act);
 }
 
-OLC_FUN(medit_affect)
+OLC_FUN(mobed_affect)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_flag(ch, argument, medit_affect, &pMob->affected_by);
+	return olced_flag(ch, argument, mobed_affect, &pMob->affected_by);
 }
 
-OLC_FUN(medit_prac) 
+OLC_FUN(mobed_prac) 
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_flag(ch, argument, medit_prac, &pMob->practicer);
+	return olced_flag(ch, argument, mobed_prac, &pMob->practicer);
 }
 
-OLC_FUN(medit_ac)
+OLC_FUN(mobed_ac)
 {
 	MOB_INDEX_DATA *pMob;
 	char arg[MAX_INPUT_LENGTH];
@@ -559,93 +565,93 @@ OLC_FUN(medit_ac)
 		pMob->ac[AC_SLASH]  = slash;
 		pMob->ac[AC_EXOTIC] = exotic;
 		
-		send_to_char("Ac set.\n\r", ch);
+		char_puts("Ac set.\n\r", ch);
 		return TRUE;
 	} while (FALSE);    /* Just do it once.. */
 
-	send_to_char("Syntax:  ac [ac-pierce [ac-bash [ac-slash [ac-exotic]]]]\n\r"
+	char_puts("Syntax:  ac [ac-pierce [ac-bash [ac-slash [ac-exotic]]]]\n\r"
 			  "help MOB_AC  gives a list of reasonable ac-values.\n\r", ch);
 	return FALSE;
 }
 
-OLC_FUN(medit_form)
+OLC_FUN(mobed_form)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_flag(ch, argument, medit_form, &pMob->form);
+	return olced_flag(ch, argument, mobed_form, &pMob->form);
 }
 
-OLC_FUN(medit_part)
+OLC_FUN(mobed_part)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_flag(ch, argument, medit_part, &pMob->parts);
+	return olced_flag(ch, argument, mobed_part, &pMob->parts);
 }
 
-OLC_FUN(medit_imm)
+OLC_FUN(mobed_imm)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_flag(ch, argument, medit_imm, &pMob->imm_flags);
+	return olced_flag(ch, argument, mobed_imm, &pMob->imm_flags);
 }
 
-OLC_FUN(medit_res)
+OLC_FUN(mobed_res)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_flag(ch, argument, medit_res, &pMob->res_flags);
+	return olced_flag(ch, argument, mobed_res, &pMob->res_flags);
 }
 
-OLC_FUN(medit_vuln)
+OLC_FUN(mobed_vuln)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_flag(ch, argument, medit_vuln, &pMob->vuln_flags);
+	return olced_flag(ch, argument, mobed_vuln, &pMob->vuln_flags);
 }
 
-OLC_FUN(medit_material)
+OLC_FUN(mobed_material)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_str(ch, argument, medit_material, &pMob->material);
+	return olced_str(ch, argument, mobed_material, &pMob->material);
 }
 
-OLC_FUN(medit_off)
+OLC_FUN(mobed_off)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_flag(ch, argument, medit_off, &pMob->off_flags);
+	return olced_flag(ch, argument, mobed_off, &pMob->off_flags);
 }
 
-OLC_FUN(medit_size)
+OLC_FUN(mobed_size)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_flag(ch, argument, medit_size, &pMob->size);
+	return olced_flag(ch, argument, mobed_size, &pMob->size);
 }
 
-OLC_FUN(medit_hitdice)
+OLC_FUN(mobed_hitdice)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_dice(ch, argument, medit_hitdice, pMob->hit);
+	return olced_dice(ch, argument, mobed_hitdice, pMob->hit);
 }
 
-OLC_FUN(medit_manadice)
+OLC_FUN(mobed_manadice)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_dice(ch, argument, medit_manadice, pMob->mana);
+	return olced_dice(ch, argument, mobed_manadice, pMob->mana);
 }
 
-OLC_FUN(medit_damdice)
+OLC_FUN(mobed_damdice)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_dice(ch, argument, medit_damdice, pMob->damage);
+	return olced_dice(ch, argument, mobed_damdice, pMob->damage);
 }
 
-OLC_FUN(medit_race)
+OLC_FUN(mobed_race)
 {
 	MOB_INDEX_DATA *pMob;
 	int race;
@@ -664,20 +670,20 @@ OLC_FUN(medit_race)
 		pMob->form        |= race_table[race].form;
 		pMob->parts       |= race_table[race].parts;
 
-		send_to_char("Race set.\n\r", ch);
+		char_puts("Race set.\n\r", ch);
 		return TRUE;
 	}
 
 	if (argument[0] == '?') {
-		send_to_char("Available races are:", ch);
+		char_puts("Available races are:", ch);
 
 		for (race = 0; race_table[race].name != NULL; race++) {
 			if ((race % 3) == 0)
-			send_to_char("\n\r", ch);
+			char_puts("\n\r", ch);
 			char_printf(ch, " %-15s", race_table[race].name);
 		}
 
-		send_to_char("\n\r", ch);
+		char_puts("\n\r", ch);
 		return FALSE;
 	}
 
@@ -686,35 +692,35 @@ OLC_FUN(medit_race)
 	return FALSE;
 }
 
-OLC_FUN(medit_startpos)
+OLC_FUN(mobed_startpos)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_flag(ch, argument, medit_startpos, &pMob->start_pos);
+	return olced_flag(ch, argument, mobed_startpos, &pMob->start_pos);
 }
 
-OLC_FUN(medit_defaultpos)
+OLC_FUN(mobed_defaultpos)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_flag(ch, argument, medit_defaultpos, &pMob->default_pos);
+	return olced_flag(ch, argument, mobed_defaultpos, &pMob->default_pos);
 }
 
-OLC_FUN(medit_gold)
+OLC_FUN(mobed_gold)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_number(ch, argument, medit_gold, &pMob->wealth);
+	return olced_number(ch, argument, mobed_gold, &pMob->wealth);
 }
 
-OLC_FUN(medit_hitroll)
+OLC_FUN(mobed_hitroll)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_number(ch, argument, medit_hitroll, &pMob->hitroll);
+	return olced_number(ch, argument, mobed_hitroll, &pMob->hitroll);
 }
 
-OLC_FUN(medit_group)
+OLC_FUN(mobed_group)
 {
 	MOB_INDEX_DATA *pMob;
 	MOB_INDEX_DATA *pMTemp;
@@ -726,15 +732,15 @@ OLC_FUN(medit_group)
 	EDIT_MOB(ch, pMob);
 	
 	if (argument[0] == '\0') {
-		send_to_char("Syntax: group [number]\n\r", ch);
-		send_to_char("        group show [number]\n\r", ch);
+		char_puts("Syntax: group [number]\n\r", ch);
+		char_puts("        group show [number]\n\r", ch);
 		return FALSE;
 	}
 	
 	if (is_number(argument))
 	{
 		pMob->group = atoi(argument);
-		send_to_char("Group set.\n\r", ch);
+		char_puts("Group set.\n\r", ch);
 		return TRUE;
 	}
 	
@@ -742,7 +748,7 @@ OLC_FUN(medit_group)
 	
 	if (!strcmp(arg, "show") && is_number(argument)) {
 		if (atoi(argument) == 0) {
-			send_to_char("Are you crazy?\n\r", ch);
+			char_puts("Are you crazy?\n\r", ch);
 			return FALSE;
 		}
 
@@ -760,7 +766,7 @@ OLC_FUN(medit_group)
 		if (found)
 			page_to_char(buf_string(buffer), ch);
 		else
-			send_to_char("No mobs in that group.\n\r", ch);
+			char_puts("No mobs in that group.\n\r", ch);
 
 		buf_free(buffer);
 		return FALSE;
@@ -769,14 +775,14 @@ OLC_FUN(medit_group)
 	return FALSE;
 }
 
-OLC_FUN(medit_clan)
+OLC_FUN(mobed_clan)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_clan(ch, argument, medit_clan, &pMob->clan);
+	return olced_clan(ch, argument, mobed_clan, &pMob->clan);
 }
 
-OLC_FUN(medit_trigadd)
+OLC_FUN(mobed_trigadd)
 {
 	int value;
 	MOB_INDEX_DATA *pMob;
@@ -802,23 +808,23 @@ OLC_FUN(medit_trigadd)
 	}
 
 	if ((value = flag_value(mptrig_types, trigger)) < 0) {
-		send_to_char("Invalid trigger type.\n\r"
+		char_puts("Invalid trigger type.\n\r"
 			     "Use 'trigadd ?' for list of triggers.\n\r", ch);
 		return FALSE;
 	}
 
 	if ((mpcode = mpcode_lookup(atoi(num))) == NULL) {
-		 send_to_char("No such MOBProgram.\n\r", ch);
+		 char_puts("No such MOBProgram.\n\r", ch);
 		 return FALSE;
 	}
 
 	mptrig = mptrig_new(value, phrase, atoi(num));
 	mptrig_add(pMob, mptrig);
-	send_to_char("Trigger.\n\r",ch);
+	char_puts("Trigger.\n\r",ch);
 	return TRUE;
 }
 
-OLC_FUN(medit_trigdel)
+OLC_FUN(mobed_trigdel)
 {
 	MOB_INDEX_DATA *pMob;
 	MPTRIG *mptrig;
@@ -831,7 +837,7 @@ OLC_FUN(medit_trigdel)
 
 	one_argument(argument, mprog);
 	if (!is_number(mprog) || mprog[0] == '\0') {
-		send_to_char("Syntax:  trigdel [#mprog]\n\r",ch);
+		char_puts("Syntax:  trigdel [#mprog]\n\r",ch);
 		return FALSE;
 	}
 
@@ -843,7 +849,7 @@ OLC_FUN(medit_trigdel)
 	}
 
 	if (!(mptrig = pMob->mptrig_list)) {
-		 send_to_char("MEdit:  Nonexistent trigger.\n\r",ch);
+		 char_puts("MEdit:  Nonexistent trigger.\n\r",ch);
 		 return FALSE;
 	}
 
@@ -863,12 +869,12 @@ OLC_FUN(medit_trigdel)
 			mptrig_free(mptrig_next);
 		}
 		else {
-		        send_to_char("No such trigger.\n\r",ch);
+		        char_puts("No such trigger.\n\r",ch);
 		        return FALSE;
 		}
 	}
 
-	send_to_char("Trigger removed.\n\r", ch);
+	char_puts("Trigger removed.\n\r", ch);
 	return TRUE;
 }
 
@@ -892,7 +898,7 @@ static void show_spec_cmds(CHAR_DATA *ch)
 	if (col % 4 != 0)
 		buf_add(output, "\n\r");
 
-	send_to_char(buf_string(output), ch);
+	char_puts(buf_string(output), ch);
 	buf_free(output);
 }
 

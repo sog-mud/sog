@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.27 1998-09-19 10:39:10 fjoe Exp $
+ * $Id: olc_save.c,v 1.28 1998-09-20 17:01:45 fjoe Exp $
  */
 
 /**************************************************************************
@@ -1025,6 +1025,39 @@ void save_clans(CHAR_DATA *ch)
 		save_print(ch, "    None.");
 }
 
+void save_msgdb(CHAR_DATA *ch)
+{
+	int i;
+	FILE *fp;
+	int sec = ch ? (IS_NPC(ch) ? 0 : ch->pcdata->security) : 9;
+
+	if (sec < SECURITY_MSGDB) {
+		save_print(ch, "Insufficient security to save msgdb.");
+		return;
+	}
+
+	fp = dfopen(ETC_PATH, MSG_FILE, "w");
+	if (fp == NULL) {
+		save_print(ch, "%s: %s", MSG_FILE, strerror(errno));
+		return;
+	}
+
+	for (i = 0; i < MAX_MSG_HASH; i++) {
+		varr *v = msg_hash_table[i];
+		int j;
+
+		if (v == NULL)
+			continue;
+
+		for (j = 0; j < v->nused; j++)
+			mlstr_fwrite(fp, NULL, *(mlstring**) VARR_GET(v, j));
+	}
+
+	fprintf(fp, "$~\n");
+	fclose(fp);
+	save_print(ch, "Saved msgdb.");
+}
+
 void do_asave_raw(CHAR_DATA *ch, int flags)
 {
 	AREA_DATA *pArea;
@@ -1041,7 +1074,7 @@ void do_asave_raw(CHAR_DATA *ch, int flags)
 	save_area_list();
 
 	if (ch)
-		send_to_char("Saved zones:\n\r", ch);
+		char_puts("Saved zones:\n\r", ch);
 	else
 		log("Saved zones:");
 
@@ -1092,7 +1125,7 @@ void do_asave(CHAR_DATA *ch, const char *argument)
 	if (!str_cmp("world", argument)) {
 		do_asave_raw(ch, 0);
 		if (ch)
-			send_to_char("You saved the world.\n\r", ch);
+			char_puts("You saved the world.\n\r", ch);
 		else
 			log("Saved the world");
 		return;
@@ -1103,7 +1136,7 @@ void do_asave(CHAR_DATA *ch, const char *argument)
 	if (!str_cmp("changed", argument)) {
 		do_asave_raw(ch, AREA_CHANGED);
 		if (ch)
-			send_to_char("You saved changed areas.\n\r", ch);
+			char_puts("You saved changed areas.\n\r", ch);
 		else
 			log("Saved changed areas");
 		return;
@@ -1112,7 +1145,7 @@ void do_asave(CHAR_DATA *ch, const char *argument)
 	if (!str_cmp("skills", argument)) {
 		save_skills(ch);
 		if (ch)
-			send_to_char("You saved skills table.\n\r", ch);
+			char_puts("You saved skills table.\n\r", ch);
 		else
 			log("Saved skills table");
 		return;
@@ -1120,6 +1153,11 @@ void do_asave(CHAR_DATA *ch, const char *argument)
 
 	if (!str_cmp("clans", argument)) {
 		save_clans(ch);
+		return;
+	}
+
+	if (!str_cmp("msgdb", argument)) {
+		save_msgdb(ch);
 		return;
 	}
 

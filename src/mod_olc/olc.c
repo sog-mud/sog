@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.20 1998-09-19 10:39:10 fjoe Exp $
+ * $Id: olc.c,v 1.21 1998-09-20 17:01:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -81,17 +81,19 @@ const char ED_MOB[]	= "mobile";
 const char ED_MPCODE[]	= "mpcode";
 const char ED_HELP[]	= "help";
 const char ED_CLAN[]	= "clan";
+const char ED_MSG[]	= "msgdb";
 const char ED_CLASS[]	= "class";
 
 OLCED_DATA olced_table[] = {
-	{ ED_AREA,	"AEdit",	olc_cmds_area	},
-	{ ED_ROOM,	"REdit",	olc_cmds_room	},
-	{ ED_OBJ,	"OEdit",	olc_cmds_obj	},
-	{ ED_MOB,	"MEdit",	olc_cmds_mob	},
-	{ ED_MPCODE,	"MPEdit",	olc_cmds_mpcode	},
-	{ ED_HELP,	"HEdit",	olc_cmds_help	},
-	{ ED_CLAN,	"CEdit",	olc_cmds_clan	},
-/*	{ ED_CLASS,	"ClEdit",	olc_cmds_class	}, */
+	{ ED_AREA,	"AreaEd",	olc_cmds_area	},
+	{ ED_ROOM,	"RoomEd",	olc_cmds_room	},
+	{ ED_OBJ,	"ObjEd",	olc_cmds_obj	},
+	{ ED_MOB,	"MobEd",	olc_cmds_mob	},
+	{ ED_MPCODE,	"MPEd",		olc_cmds_mpcode	},
+	{ ED_HELP,	"HelpEd",	olc_cmds_help	},
+	{ ED_MSG,	"MsgEd",	olc_cmds_msg	},
+	{ ED_CLAN,	"ClanEd",	olc_cmds_clan	},
+/*	{ ED_CLASS,	"ClassEd",	olc_cmds_class	}, */
 	{ NULL }
 };
 
@@ -306,14 +308,14 @@ bool olced_exd(CHAR_DATA *ch, const char* argument, ED_DATA **ped)
 			return FALSE;
 		}
 
-		send_to_char("Extra description added.\n\r", ch);
+		char_puts("Extra description added.\n\r", ch);
 		return TRUE;
 	}
 
 	if (!str_cmp(command, "edit")) {
 		ed = ed_lookup(keyword, *ped);
 		if (ed == NULL) {
-			send_to_char("Extra description keyword not found.\n\r", ch);
+			char_puts("Extra description keyword not found.\n\r", ch);
 			return FALSE;
 		}
 
@@ -334,7 +336,7 @@ bool olced_exd(CHAR_DATA *ch, const char* argument, ED_DATA **ped)
 		}
 
 		if (ed == NULL) {
-			send_to_char("Extra description keyword not found.\n\r", ch);
+			char_puts("Extra description keyword not found.\n\r", ch);
 			return FALSE;
 		}
 
@@ -345,7 +347,7 @@ bool olced_exd(CHAR_DATA *ch, const char* argument, ED_DATA **ped)
 
 		ed_free(ed);
 
-		send_to_char("Extra description deleted.\n\r", ch);
+		char_puts("Extra description deleted.\n\r", ch);
 		return TRUE;
 	}
 
@@ -353,12 +355,12 @@ bool olced_exd(CHAR_DATA *ch, const char* argument, ED_DATA **ped)
 	if (!str_cmp(command, "format")) {
 		ed = ed_lookup(keyword, *ped);
 		if (ed == NULL) {
-			send_to_char("REdit:  Extra description keyword not found.\n\r", ch);
+			char_puts("REdit:  Extra description keyword not found.\n\r", ch);
 			return FALSE;
 		}
 
 		mlstr_format(&ed->description);
-		send_to_char("Extra description formatted.\n\r", ch);
+		char_puts("Extra description formatted.\n\r", ch);
 		return TRUE;
 	}
 
@@ -639,7 +641,7 @@ void do_alist(CHAR_DATA *ch, const char *argument)
     	}
 
 	if (output != NULL) {
-		char_puts(buf_string(output), ch);
+		send_to_char(buf_string(output), ch);
 		buf_free(output);
 	}
 	else

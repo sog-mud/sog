@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.8 1998-09-19 10:39:10 fjoe Exp $
+ * $Id: olc_obj.c,v 1.9 1998-09-20 17:01:45 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -38,35 +38,35 @@
 
 #define EDIT_OBJ(ch, obj)	(obj = (OBJ_INDEX_DATA*) ch->desc->pEdit)
 
-DECLARE_OLC_FUN(oedit_create		);
-DECLARE_OLC_FUN(oedit_edit		);
-DECLARE_OLC_FUN(oedit_touch		);
-DECLARE_OLC_FUN(oedit_show		);
+DECLARE_OLC_FUN(objed_create		);
+DECLARE_OLC_FUN(objed_edit		);
+DECLARE_OLC_FUN(objed_touch		);
+DECLARE_OLC_FUN(objed_show		);
 
-DECLARE_OLC_FUN(oedit_name		);
-DECLARE_OLC_FUN(oedit_short		);
-DECLARE_OLC_FUN(oedit_long		);
-DECLARE_OLC_FUN(oedit_addaffect		);
-DECLARE_OLC_FUN(oedit_addapply		);
-DECLARE_OLC_FUN(oedit_delaffect		);
-DECLARE_OLC_FUN(oedit_value0		);
-DECLARE_OLC_FUN(oedit_value1		);
-DECLARE_OLC_FUN(oedit_value2		);
-DECLARE_OLC_FUN(oedit_value3		);
-DECLARE_OLC_FUN(oedit_value4		);
-DECLARE_OLC_FUN(oedit_weight		);
-DECLARE_OLC_FUN(oedit_limit		);
-DECLARE_OLC_FUN(oedit_cost		);
-DECLARE_OLC_FUN(oedit_exd		);
+DECLARE_OLC_FUN(objed_name		);
+DECLARE_OLC_FUN(objed_short		);
+DECLARE_OLC_FUN(objed_long		);
+DECLARE_OLC_FUN(objed_addaffect		);
+DECLARE_OLC_FUN(objed_addapply		);
+DECLARE_OLC_FUN(objed_delaffect		);
+DECLARE_OLC_FUN(objed_value0		);
+DECLARE_OLC_FUN(objed_value1		);
+DECLARE_OLC_FUN(objed_value2		);
+DECLARE_OLC_FUN(objed_value3		);
+DECLARE_OLC_FUN(objed_value4		);
+DECLARE_OLC_FUN(objed_weight		);
+DECLARE_OLC_FUN(objed_limit		);
+DECLARE_OLC_FUN(objed_cost		);
+DECLARE_OLC_FUN(objed_exd		);
 
-DECLARE_OLC_FUN(oedit_extra		);
-DECLARE_OLC_FUN(oedit_wear		);
-DECLARE_OLC_FUN(oedit_type		);
-DECLARE_OLC_FUN(oedit_affect		);
-DECLARE_OLC_FUN(oedit_material		);
-DECLARE_OLC_FUN(oedit_level		);
-DECLARE_OLC_FUN(oedit_condition		);
-DECLARE_OLC_FUN(oedit_clan		);
+DECLARE_OLC_FUN(objed_extra		);
+DECLARE_OLC_FUN(objed_wear		);
+DECLARE_OLC_FUN(objed_type		);
+DECLARE_OLC_FUN(objed_affect		);
+DECLARE_OLC_FUN(objed_material		);
+DECLARE_OLC_FUN(objed_level		);
+DECLARE_OLC_FUN(objed_condition		);
+DECLARE_OLC_FUN(objed_clan		);
 
 DECLARE_VALIDATE_FUN(validate_condition);
 
@@ -74,34 +74,34 @@ OLC_CMD_DATA olc_cmds_obj[] =
 {
 /*	{ command	function		arg			}, */
 
-	{ "create",	oedit_create					},
-	{ "edit",	oedit_edit					},
-	{ "touch",	oedit_touch					},
-	{ "show",	oedit_show					},
+	{ "create",	objed_create					},
+	{ "edit",	objed_edit					},
+	{ "touch",	objed_touch					},
+	{ "show",	objed_show					},
 
-	{ "addaffect",	oedit_addaffect					},
-	{ "addapply",	oedit_addapply					},
-	{ "cost",	oedit_cost					},
-	{ "delaffect",	oedit_delaffect					},
-	{ "exd",	oedit_exd					},
-	{ "long",	oedit_long					},
-	{ "name",	oedit_name					},
-	{ "short",	oedit_short					},
-	{ "v0",		oedit_value0					},
-	{ "v1",		oedit_value1					},
-	{ "v2",		oedit_value2					},
-	{ "v3",		oedit_value3					},
-	{ "v4",		oedit_value4					},
-	{ "weight",	oedit_weight					},
-	{ "limit",	oedit_limit					},
+	{ "addaffect",	objed_addaffect					},
+	{ "addapply",	objed_addapply					},
+	{ "cost",	objed_cost					},
+	{ "delaffect",	objed_delaffect					},
+	{ "exd",	objed_exd					},
+	{ "long",	objed_long					},
+	{ "name",	objed_name					},
+	{ "short",	objed_short					},
+	{ "v0",		objed_value0					},
+	{ "v1",		objed_value1					},
+	{ "v2",		objed_value2					},
+	{ "v3",		objed_value3					},
+	{ "v4",		objed_value4					},
+	{ "weight",	objed_weight					},
+	{ "limit",	objed_limit					},
 
-	{ "extra",	oedit_extra,		extra_flags		},
-	{ "wear",	oedit_wear,		wear_flags		},
-	{ "type",	oedit_type,		item_types		},
-	{ "material",	oedit_material 					},
-	{ "level",	oedit_level					},
-	{ "condition",	oedit_condition,	validate_condition	},
-	{ "clan",	oedit_clan					},
+	{ "extra",	objed_extra,		extra_flags		},
+	{ "wear",	objed_wear,		wear_flags		},
+	{ "type",	objed_type,		item_types		},
+	{ "material",	objed_material 					},
+	{ "level",	objed_level					},
+	{ "condition",	objed_condition,	validate_condition	},
+	{ "clan",	objed_clan					},
 
 	{ "version",	show_version					},
 	{ "commands",	show_commands					},
@@ -114,7 +114,7 @@ static bool set_obj_values(CHAR_DATA *ch, OBJ_INDEX_DATA *pObj,
 			   int value_num, const char *argument);
 static void show_skill_cmds(CHAR_DATA *ch, int tar);
 
-OLC_FUN(oedit_create)
+OLC_FUN(objed_create)
 {
 	OBJ_INDEX_DATA *pObj;
 	AREA_DATA *pArea;
@@ -136,12 +136,12 @@ OLC_FUN(oedit_create)
 	}
 
 	if (!IS_BUILDER(ch, pArea)) {
-		send_to_char("OEdit: Insufficient security.\n\r", ch);
+		char_puts("OEdit: Insufficient security.\n\r", ch);
 		return FALSE;
 	}
 
 	if (get_obj_index(value)) {
-		send_to_char("OEdit: Object vnum already exists.\n\r", ch);
+		char_puts("OEdit: Object vnum already exists.\n\r", ch);
 		return FALSE;
 	}
 		 
@@ -158,11 +158,11 @@ OLC_FUN(oedit_create)
 	ch->desc->pEdit		= (void *)pObj;
 	ch->desc->editor	= ED_OBJ;
 	touch_area(pArea);
-	send_to_char("OEdit: Object created.\n\r", ch);
+	char_puts("OEdit: Object created.\n\r", ch);
 	return FALSE;
 }
 
-OLC_FUN(oedit_edit)
+OLC_FUN(objed_edit)
 {
 	char arg[MAX_STRING_LENGTH];
 	int value;
@@ -170,9 +170,13 @@ OLC_FUN(oedit_edit)
 	AREA_DATA *pArea;
 
 	one_argument(argument, arg);
+	if (arg[0] == '\0') {
+		do_help(ch, "'OLC EDIT'");
+		return FALSE;
+	}
+
 	value = atoi(arg);
 	pObj = get_obj_index(value);
-
 	if (!pObj) {
 		char_puts("OEdit: Vnum does not exist.\n\r", ch);
 		return FALSE;
@@ -189,14 +193,14 @@ OLC_FUN(oedit_edit)
 	return FALSE;
 }
 
-OLC_FUN(oedit_touch)
+OLC_FUN(objed_touch)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
 	return touch_vnum(pObj->vnum);
 }
 
-OLC_FUN(oedit_show)
+OLC_FUN(objed_show)
 {
 	OBJ_INDEX_DATA	*pObj;
 	EDIT_OBJ(ch, pObj);
@@ -206,7 +210,7 @@ OLC_FUN(oedit_show)
 /*
  * Need to issue warning if flag isn't valid. -- does so now -- Hugin.
  */
-OLC_FUN(oedit_addaffect)
+OLC_FUN(objed_addaffect)
 {
 	int value;
 	OBJ_INDEX_DATA *pObj;
@@ -220,12 +224,12 @@ OLC_FUN(oedit_addaffect)
 	one_argument(argument, mod);
 
 	if (loc[0] == '\0' || mod[0] == '\0' || !is_number(mod)) {
-		send_to_char("Syntax:  addaffect [location] [#xmod]\n\r", ch);
+		char_puts("Syntax:  addaffect [location] [#xmod]\n\r", ch);
 		return FALSE;
 	}
 
 	if ((value = flag_value(apply_flags, loc)) < 0) {
-		send_to_char("Valid affects are:\n\r", ch);
+		char_puts("Valid affects are:\n\r", ch);
 		show_flags(ch, apply_flags);
 		return FALSE;
 	}
@@ -241,11 +245,11 @@ OLC_FUN(oedit_addaffect)
 	pAf->next       =   pObj->affected;
 	pObj->affected  =   pAf;
 
-	send_to_char("Affect added.\n\r", ch);
+	char_puts("Affect added.\n\r", ch);
 	return TRUE;
 }
 
-OLC_FUN(oedit_addapply)
+OLC_FUN(objed_addapply)
 {
 	int location, bv, where;
 	OBJ_INDEX_DATA *pObj;
@@ -304,7 +308,7 @@ OLC_FUN(oedit_addapply)
 	pAf->next       = pObj->affected;
 	pObj->affected  = pAf;
 
-	send_to_char("Apply added.\n\r", ch);
+	char_puts("Apply added.\n\r", ch);
 	return TRUE;
 }
 
@@ -312,7 +316,7 @@ OLC_FUN(oedit_addapply)
  * My thanks to Hans Hvidsten Birkeland and Noam Krendel(Walker)
  * for really teaching me how to manipulate pointers.
  */
-OLC_FUN(oedit_delaffect)
+OLC_FUN(objed_delaffect)
 {
 	OBJ_INDEX_DATA *pObj;
 	AFFECT_DATA *pAf;
@@ -327,7 +331,7 @@ OLC_FUN(oedit_delaffect)
 
 	if (!is_number(affect) || affect[0] == '\0')
 	{
-		send_to_char("Syntax:  delaffect [#xaffect]\n\r", ch);
+		char_puts("Syntax:  delaffect [#xaffect]\n\r", ch);
 		return FALSE;
 	}
 
@@ -335,13 +339,13 @@ OLC_FUN(oedit_delaffect)
 
 	if (value < 0)
 	{
-		send_to_char("Only non-negative affect-numbers allowed.\n\r", ch);
+		char_puts("Only non-negative affect-numbers allowed.\n\r", ch);
 		return FALSE;
 	}
 
 	if (!(pAf = pObj->affected))
 	{
-		send_to_char("OEdit:  Non-existant affect.\n\r", ch);
+		char_puts("OEdit:  Non-existant affect.\n\r", ch);
 		return FALSE;
 	}
 
@@ -363,34 +367,34 @@ OLC_FUN(oedit_delaffect)
 		}
 		else                                 /* Doesn't exist */
 		{
-			 send_to_char("No such affect.\n\r", ch);
+			 char_puts("No such affect.\n\r", ch);
 			 return FALSE;
 		}
 	}
 
-	send_to_char("Affect removed.\n\r", ch);
+	char_puts("Affect removed.\n\r", ch);
 	return TRUE;
 }
 
-OLC_FUN(oedit_name)
+OLC_FUN(objed_name)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
-	return olced_str(ch, argument, oedit_name, &pObj->name);
+	return olced_str(ch, argument, objed_name, &pObj->name);
 }
 
-OLC_FUN(oedit_short)
+OLC_FUN(objed_short)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
-	return olced_mlstr(ch, argument, oedit_short, &pObj->short_descr);
+	return olced_mlstr(ch, argument, objed_short, &pObj->short_descr);
 }
 
-OLC_FUN(oedit_long)
+OLC_FUN(objed_long)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
-	return olced_mlstr(ch, argument, oedit_long, &pObj->description);
+	return olced_mlstr(ch, argument, objed_long, &pObj->description);
 }
 
 bool set_value(CHAR_DATA *ch, OBJ_INDEX_DATA *pObj, const char *argument, int value)
@@ -409,11 +413,11 @@ bool set_value(CHAR_DATA *ch, OBJ_INDEX_DATA *pObj, const char *argument, int va
 
 
 /*****************************************************************************
- Name:		oedit_values
+ Name:		objed_values
  Purpose:	Finds the object and sets its value.
  Called by:	The four valueX functions below. (now five -- Hugin)
  ****************************************************************************/
-bool oedit_values(CHAR_DATA *ch, const char *argument, int value)
+bool objed_values(CHAR_DATA *ch, const char *argument, int value)
 {
 	OBJ_INDEX_DATA *pObj;
 
@@ -425,79 +429,79 @@ bool oedit_values(CHAR_DATA *ch, const char *argument, int value)
 	return FALSE;
 }
 
-OLC_FUN(oedit_value0)
+OLC_FUN(objed_value0)
 {
-	return oedit_values(ch, argument, 0);
+	return objed_values(ch, argument, 0);
 }
 
-OLC_FUN(oedit_value1)
+OLC_FUN(objed_value1)
 {
-	return oedit_values(ch, argument, 1);
+	return objed_values(ch, argument, 1);
 }
 
-OLC_FUN(oedit_value2)
+OLC_FUN(objed_value2)
 {
-	return oedit_values(ch, argument, 2);
+	return objed_values(ch, argument, 2);
 }
 
-OLC_FUN(oedit_value3)
+OLC_FUN(objed_value3)
 {
-	return oedit_values(ch, argument, 3);
+	return objed_values(ch, argument, 3);
 }
 
-OLC_FUN(oedit_value4)
+OLC_FUN(objed_value4)
 {
-	return oedit_values(ch, argument, 4);
+	return objed_values(ch, argument, 4);
 }
 
-OLC_FUN(oedit_weight)
-{
-	OBJ_INDEX_DATA *pObj;
-	EDIT_OBJ(ch, pObj);
-	return olced_number(ch, argument, oedit_weight, &pObj->weight);
-}
-
-OLC_FUN(oedit_limit)
+OLC_FUN(objed_weight)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
-	return olced_number(ch, argument, oedit_limit, &pObj->limit);
+	return olced_number(ch, argument, objed_weight, &pObj->weight);
 }
 
-OLC_FUN(oedit_cost)
+OLC_FUN(objed_limit)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
-	return olced_number(ch, argument, oedit_cost, &pObj->cost);
+	return olced_number(ch, argument, objed_limit, &pObj->limit);
 }
 
-OLC_FUN(oedit_exd)
+OLC_FUN(objed_cost)
+{
+	OBJ_INDEX_DATA *pObj;
+	EDIT_OBJ(ch, pObj);
+	return olced_number(ch, argument, objed_cost, &pObj->cost);
+}
+
+OLC_FUN(objed_exd)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
 	return olced_exd(ch, argument, &pObj->ed);
 }
 
-OLC_FUN(oedit_extra)
+OLC_FUN(objed_extra)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
-	return olced_flag(ch, argument, oedit_extra, &pObj->extra_flags);
+	return olced_flag(ch, argument, objed_extra, &pObj->extra_flags);
 }
 
-OLC_FUN(oedit_wear)
+OLC_FUN(objed_wear)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
-	return olced_flag(ch, argument, oedit_wear, &pObj->wear_flags);
+	return olced_flag(ch, argument, objed_wear, &pObj->wear_flags);
 }
 
-OLC_FUN(oedit_type)
+OLC_FUN(objed_type)
 {
 	bool changed;
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
-	changed = olced_flag(ch, argument, oedit_type, &pObj->item_type);
+	changed = olced_flag(ch, argument, objed_type, &pObj->item_type);
 	if (changed) {
 		pObj->value[0] = 0;
 		pObj->value[1] = 0;
@@ -508,32 +512,32 @@ OLC_FUN(oedit_type)
 	return changed;
 }
 
-OLC_FUN(oedit_material)
+OLC_FUN(objed_material)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
-	return olced_str(ch, argument, oedit_material, &pObj->material);
+	return olced_str(ch, argument, objed_material, &pObj->material);
 }
 
-OLC_FUN(oedit_level)
+OLC_FUN(objed_level)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
-	return olced_number(ch, argument, oedit_level, &pObj->level);
+	return olced_number(ch, argument, objed_level, &pObj->level);
 }
 
-OLC_FUN(oedit_condition)
+OLC_FUN(objed_condition)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
-	return olced_number(ch, argument, oedit_condition, &pObj->condition);
+	return olced_number(ch, argument, objed_condition, &pObj->condition);
 }
 
-OLC_FUN(oedit_clan)
+OLC_FUN(objed_clan)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
-	return olced_clan(ch, argument, oedit_clan, &pObj->clan);
+	return olced_clan(ch, argument, objed_clan, &pObj->clan);
 }
 
 void show_obj_values(BUFFER *output, OBJ_INDEX_DATA *obj)
@@ -1011,7 +1015,7 @@ bool set_obj_values(CHAR_DATA *ch, OBJ_INDEX_DATA *pObj,
 
 	show_obj_values(output, pObj);
 
-	char_puts(buf_string(output), ch);
+	send_to_char(buf_string(output), ch);
 	buf_free(output);
 
 	return TRUE;
@@ -1049,7 +1053,7 @@ static void show_skill_cmds(CHAR_DATA *ch, int tar)
 	if (col % 4 != 0)
 		buf_add(output, "\n\r");
 
-	send_to_char(buf_string(output), ch);
+	char_puts(buf_string(output), ch);
 	buf_free(output);
 }
 
