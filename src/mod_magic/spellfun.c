@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.318 2004-02-19 15:19:30 fjoe Exp $
+ * $Id: spellfun.c,v 1.319 2004-02-19 15:36:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3217,9 +3217,6 @@ SPELL_FUN(spell_ranger_staff, sn, level, ch, vo)
 	INT(staff->value[1]) = 5 + level / 14;
 	INT(staff->value[2]) = 4 + level / 15;
 
-	act("You create $p!", ch, staff, NULL, TO_CHAR);
-	act("$n creates $p!", ch, staff, NULL, TO_ROOM);
-
 	paf = aff_new(TO_OBJECT, sn);
 	paf->level              = ch->level;
 	paf->duration           = -1;
@@ -3234,6 +3231,8 @@ SPELL_FUN(spell_ranger_staff, sn, level, ch, vo)
 	staff->timer = level;
 	staff->level = ch->level;
 
+	act("You create $p!", ch, staff, NULL, TO_CHAR);
+	act("$n creates $p!", ch, staff, NULL, TO_ROOM);
 	obj_to_char_check(staff, ch);
 }
 
@@ -3507,9 +3506,9 @@ SPELL_FUN(spell_shield_of_ruler, sn, level, ch, vo)
 	affect_to_obj(shield, paf);
 	aff_free(paf);
 
-	obj_to_char_check(shield, ch);
 	act("You create $p!", ch, shield, NULL, TO_CHAR);
 	act("$n creates $p!", ch, shield, NULL, TO_ROOM);
+	obj_to_char_check(shield, ch);
 }
 
 #define MOB_VNUM_SPECIAL_GUARD		11
@@ -3968,9 +3967,6 @@ SPELL_FUN(spell_chaos_blade, sn, level, ch, vo)
 	blade->timer = level * 2;
 	INT(blade->value[2]) = (level / 10) + 3;
 
-	act("You create $p!", ch, blade, NULL, TO_CHAR);
-	act("$n creates $p!", ch, blade, NULL, TO_ROOM);
-
 	paf = aff_new(TO_OBJECT, sn);
 	paf->level        = level;
 	paf->duration     = -1;
@@ -3983,6 +3979,8 @@ SPELL_FUN(spell_chaos_blade, sn, level, ch, vo)
 	affect_to_obj(blade, paf);
 	aff_free(paf);
 
+	act("You create $p!", ch, blade, NULL, TO_CHAR);
+	act("$n creates $p!", ch, blade, NULL, TO_ROOM);
 	obj_to_char_check(blade, ch);
 }
 
@@ -4384,11 +4382,16 @@ SPELL_FUN(spell_ruler_badge, sn, level, ch, vo)
 	aff_free(paf);
 
 	badge->timer = 200;
+
+	act("$n has created $p.", ch, badge, NULL, TO_ROOM);
+	act("You create $p.", ch, badge, NULL, TO_CHAR);
+	obj_to_char_check(badge, ch);
+	if (badge->carried_by != ch)
+		return;
+
+	equip_char(ch, badge, WEAR_NECK);
 	act("You wear $p!",ch, NULL, NULL, TO_CHAR);
 	act("$n wears $s $p!", ch, NULL, NULL, TO_ROOM);
-
-	obj_to_char_check(badge, ch);
-	equip_char(ch, badge, WEAR_NECK);
 }
 
 SPELL_FUN(spell_remove_badge, sn, level, ch, vo)
@@ -4686,9 +4689,9 @@ SPELL_FUN(spell_dragon_plate, sn, level, ch, vo)
 	affect_to_obj(plate, paf);
 	aff_free(paf);
 
-	obj_to_char_check(plate, ch);
 	act("You create $p!", ch, plate, NULL, TO_CHAR);
 	act("$n creates $p!", ch, plate, NULL, TO_ROOM);
+	obj_to_char_check(plate, ch);
 }
 
 #define MOB_VNUM_SQUIRE			16
@@ -4817,10 +4820,10 @@ SPELL_FUN(spell_dragon_weapon, sn, level, ch, vo)
 		SET_OBJ_STAT(sword, ITEM_ANTI_GOOD | ITEM_ANTI_EVIL);
 	else if (IS_EVIL(ch))
 		SET_OBJ_STAT(sword, ITEM_ANTI_NEUTRAL | ITEM_ANTI_GOOD);
-	obj_to_char_check(sword, ch);
 
 	act("You create $p!", ch, sword, NULL, TO_CHAR);
 	act("$n creates $p!", ch, sword, NULL, TO_ROOM);
+	obj_to_char_check(sword, ch);
 }
 
 SPELL_FUN(spell_entangle, sn, level, ch, vo)
@@ -5634,8 +5637,8 @@ SPELL_FUN(spell_eyed_sword, sn, level, ch, vo)
 	eyed->ed = ed_new2(eyed->pObjIndex->ed, ch->name);
 	INT(eyed->value[2]) = (ch->level / 10) + 3;
 	eyed->cost = 0;
-	obj_to_char_check(eyed, ch);
 	act_char("You create YOUR sword with your name.", ch);
+	obj_to_char_check(eyed, ch);
 /*
 	act_char("Don't forget that you won't be able to create this weapon anymore.", ch);
 */
@@ -5780,13 +5783,13 @@ SPELL_FUN(spell_magic_jar, sn, level, ch, vo)
 	fire->cost = 0;
 
 	extract_obj(vial, 0);
-	obj_to_char_check(fire, ch);
 	SET_BIT(PC(victim)->plr_flags, PLR_NOEXP);
 
 	act_puts("You catch $N's spirit into your vial.",
 		 ch, NULL, victim, TO_CHAR, POS_DEAD);
 	act_puts("$n catches your spirit into vial.",
 		 ch, NULL, victim, TO_VICT, POS_DEAD);
+	obj_to_char_check(fire, ch);
 }
 
 SPELL_FUN(spell_fear, sn, level, ch, vo)
@@ -5934,8 +5937,9 @@ SPELL_FUN(spell_fire_shield, sn, level, ch, vo)
 		SET_OBJ_STAT(fire, ITEM_ANTI_GOOD | ITEM_ANTI_EVIL);
 	else if (IS_EVIL(ch))
 		SET_OBJ_STAT(fire, ITEM_ANTI_NEUTRAL | ITEM_ANTI_GOOD);
-	obj_to_char_check(fire, ch);
 	act("You create $p.", ch, fire, NULL, TO_CHAR);
+	act("$n has created $p.", ch, fire, NULL, TO_ROOM);
+	obj_to_char_check(fire, ch);
 }
 
 #define OBJ_VNUM_COLD_SHIELD		79
@@ -5959,8 +5963,9 @@ SPELL_FUN(spell_cold_shield, sn, level, ch, vo)
 		SET_OBJ_STAT(cold, ITEM_ANTI_GOOD | ITEM_ANTI_EVIL);
 	else if (IS_EVIL(ch))
 		SET_OBJ_STAT(cold, ITEM_ANTI_NEUTRAL | ITEM_ANTI_GOOD);
-	obj_to_char_check(cold, ch);
 	act("You create $p.", ch, cold, NULL, TO_CHAR);
+	act("$n has created $p.", ch, cold, NULL, TO_ROOM);
+	obj_to_char_check(cold, ch);
 }
 
 SPELL_FUN(spell_witch_curse, sn, level, ch, vo)
