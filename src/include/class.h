@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.h,v 1.16 1999-04-16 15:52:16 fjoe Exp $
+ * $Id: class.h,v 1.17 1999-06-10 14:33:25 fjoe Exp $
  */
 
 #ifndef _CLASS_H_
@@ -51,7 +51,7 @@ struct class_t {
 	int		thac0_32;	/* thac0 for level 32 */
 	int		hp_rate;	/* hp rate (when gaining level) */
 	int		mana_rate;	/* mana rate (when gaining level */
-	flag32_t	flags;			/* class flags */
+	flag32_t	class_flags;	/* class flags */
 	int		points;			/* cost in exp */
 	int		stats[MAX_STATS];	/* stat modifiers */
 	flag32_t	restrict_align;		/* alignment restrictions */

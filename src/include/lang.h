@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.h,v 1.12 1999-06-03 10:24:06 fjoe Exp $
+ * $Id: lang.h,v 1.13 1999-06-10 14:33:35 fjoe Exp $
  */
 
 #ifndef _LANG_H_
@@ -90,7 +90,7 @@ struct rulecl_t {
 	const char *file_impl;		/* implicit rules file		*/
 	varr expl[MAX_RULE_HASH];	/* explicit rules (hashed)	*/
 	varr impl;			/* implicit rules		*/
-	flag32_t flags;
+	flag32_t rcl_flags;
 };
 
 #define RULES_EXPL_CHANGED (Y)	/* explicit rules changed */
@@ -125,7 +125,7 @@ struct lang_t {
 	int		vnum;
 	const char *	file_name;
 
-	flag32_t	flags;
+	flag32_t	lang_flags;
 	int		slang_of;		/* id of base lang */
 
 	rulecl_t	rules[MAX_RULECL];

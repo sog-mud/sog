@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.108 1999-05-26 15:07:29 fjoe Exp $
+ * $Id: act_quest.c,v 1.109 1999-06-10 14:33:31 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -535,7 +535,7 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 			    ROOM_PRIVATE | ROOM_SOLITARY))
 		||  !str_cmp(victim->in_room->area->name,
 			     hometown_name(ch->hometown))
-		||  IS_SET(victim->in_room->area->flags,
+		||  IS_SET(victim->in_room->area->area_flags,
 			   AREA_CLOSED | AREA_NOQUEST))
 			continue;
 		mobs[mob_count++] = victim;

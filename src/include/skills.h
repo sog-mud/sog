@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: skills.h,v 1.13 1999-04-16 15:52:21 fjoe Exp $
+ * $Id: skills.h,v 1.14 1999-06-10 14:33:32 fjoe Exp $
  */
 
 #ifndef _SKILLS_H_
@@ -50,7 +50,7 @@ struct skill_t {
 	const char *	noun_damage;		/* damage message */
 	const char *	msg_off;		/* wear off message */
 	const char *	msg_obj;		/* wear off message for obj */
-	flag32_t	flags;			/* skill flags */
+	flag32_t	skill_flags;		/* skill flags */
 	const char *	restrict_race;		/* race restrictions */
 	flag32_t	group;			/* skill group */
 };

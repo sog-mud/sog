@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.157 1999-06-10 11:47:28 fjoe Exp $
+ * $Id: handler.c,v 1.158 1999-06-10 14:33:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2855,7 +2855,7 @@ bool can_gate(CHAR_DATA *ch, CHAR_DATA *victim)
 					    ROOM_PEACE | ROOM_NOSUMMON)
 	||  IS_SET(victim->in_room->room_flags, ROOM_SAFE | ROOM_NORECALL |
 						ROOM_PEACE | ROOM_NOSUMMON)
-	||  IS_SET(ch->in_room->area->flags, AREA_CLOSED)
+	||  IS_SET(ch->in_room->area->area_flags, AREA_CLOSED)
 	||  room_is_private(victim->in_room)
 	||  IS_SET(victim->imm_flags, IMM_SUMMON))
 		return FALSE;
@@ -2956,7 +2956,7 @@ ROOM_INDEX_DATA  *get_random_room(CHAR_DATA *ch, AREA_DATA *area)
 
 		if (!room_is_private(room)
 		&&  !IS_SET(room->room_flags, ROOM_SAFE | ROOM_PEACE) 
-		&&  (area || !IS_SET(room->area->flags, AREA_CLOSED)))
+		&&  (area || !IS_SET(room->area->area_flags, AREA_CLOSED)))
 			break;
 	}
 
@@ -3111,7 +3111,7 @@ int get_wear_level(CHAR_DATA *ch, OBJ_DATA *obj)
 	&&  (obj->pIndexData->limit < 0 || obj->pIndexData->limit > 1))
 		wear_level += pk_range(wear_level);
 
-	if (IS_SET(cl->flags, CLASS_MAGIC)) {
+	if (IS_SET(cl->class_flags, CLASS_MAGIC)) {
 		if (obj->pIndexData->item_type == ITEM_ARMOR)
 			wear_level += 3;
 	}
@@ -3147,7 +3147,7 @@ bool saves_spell(int level, CHAR_DATA *victim, int dam_type)
 	}
 
 	if (!IS_NPC(victim) && (vcl = class_lookup(victim->class))
-	&&  IS_SET(vcl->flags, CLASS_MAGIC))
+	&&  IS_SET(vcl->class_flags, CLASS_MAGIC))
 		save = 9 * save / 10;
 	save = URANGE(5, save, 95);
 	return number_percent() < save;

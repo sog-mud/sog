@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.38 1999-05-23 18:07:16 fjoe Exp $
+ * $Id: olc_mob.c,v 1.39 1999-06-10 14:33:36 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -397,7 +397,7 @@ OLC_FUN(mobed_show)
 			buf_printf(buf, "[%5d] %4d %7s %s [%s]\n", cnt,
 			mptrig->vnum, flag_string(mptrig_types, mptrig->type),
 			mptrig->phrase,
-			flag_string(mptrig_flags, mptrig->flags));
+			flag_string(mptrig_flags, mptrig->mptrig_flags));
 			cnt++;
 		}
 	}

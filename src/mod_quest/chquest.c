@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: chquest.c,v 1.9 1999-06-10 11:47:27 fjoe Exp $
+ * $Id: chquest.c,v 1.10 1999-06-10 14:33:25 fjoe Exp $
  */
 
 /*
@@ -295,7 +295,7 @@ static void chquest_startq(chquest_t *q)
 
 	do {
 		room = get_random_room(NULL, NULL);
-	} while (IS_SET(room->area->flags, AREA_NOQUEST));
+	} while (IS_SET(room->area->area_flags, AREA_NOQUEST));
 
 	obj_to_room(q->obj, room);
 }

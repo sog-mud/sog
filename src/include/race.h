@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.h,v 1.7 1999-04-16 15:52:21 fjoe Exp $
+ * $Id: race.h,v 1.8 1999-06-10 14:33:31 fjoe Exp $
  */
 
 #ifndef _RACE_H_
@@ -44,7 +44,7 @@ struct race_t
 	flag32_t	vuln;		/* vuln bits			*/
 	flag32_t	form;		/* default form flag		*/
 	flag32_t	parts;		/* default body parts		*/
-	flag32_t	flags;		/* race flags			*/
+	flag32_t	race_flags;	/* race flags			*/
 	pcrace_t *	pcdata;		/* additional data for pc races */
 };
 

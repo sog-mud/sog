@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_class.c,v 1.19 1999-04-16 15:52:23 fjoe Exp $
+ * $Id: db_class.c,v 1.20 1999-06-10 14:33:35 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -85,7 +85,7 @@ DBLOAD_FUN(load_class)
 				return;
 			}
 		case 'F':
-			KEY("Flags", class->flags,
+			KEY("Flags", class->class_flags,
 			    fread_fstring(class_flags, fp));
 			break;
 		case 'G':

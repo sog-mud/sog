@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.197 1999-05-24 07:52:49 fjoe Exp $
+ * $Id: merc.h,v 1.198 1999-06-10 14:33:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1631,7 +1631,7 @@ struct area_data
 	int		clan;
 	const char *	builders;	/* name list of builders	*/
 	int		vnum;		/* area vnum			*/
-	flag32_t	flags;
+	flag32_t	area_flags;
 	int		security;	/* area security (1..9)		*/
 	uint		count;
 	mlstring *	resetmsg;	/* reset message		*/
@@ -1702,7 +1702,7 @@ struct mptrig
 {
 	int		type;
 	const char *	phrase;
-	flag32_t	flags;
+	flag32_t	mptrig_flags;
 	int		vnum;		/* mob prog code vnum */
 	void *		extra;
 	MPTRIG * 	next;

@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.147 1999-06-10 07:04:24 osya Exp $
+ * $Id: act_obj.c,v 1.148 1999-06-10 14:33:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2171,7 +2171,7 @@ void do_brandish(CHAR_DATA * ch, const char *argument)
 
 				obj_cast_spell(staff->value[3],
 					       staff->value[0], ch, vch, NULL);
-				if (IS_SET(spell->flags, SKILL_AREA_ATTACK))
+				if (IS_SET(spell->skill_flags, SKILL_AREA_ATTACK))
 					break;
 			}
 			check_improve(ch, sn, TRUE, 2);

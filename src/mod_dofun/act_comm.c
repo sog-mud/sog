@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.170 1999-06-10 11:47:22 fjoe Exp $
+ * $Id: act_comm.c,v 1.171 1999-06-10 14:33:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1573,7 +1573,7 @@ DO_FUN(do_lang)
 		char_puts("Usage: lang [ ", ch);
 		for (lang = 0; lang < langs.nused; lang++) {
 			l = VARR_GET(&langs, lang);
-			if (IS_SET(l->flags, LANG_HIDDEN))
+			if (IS_SET(l->lang_flags, LANG_HIDDEN))
 				continue;
 			char_printf(ch, "%s%s",
 				    lang == 0 ? str_empty : " | ", l->name);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cmd.h,v 1.2 1999-04-16 15:52:22 fjoe Exp $
+ * $Id: cmd.h,v 1.3 1999-06-10 14:33:33 fjoe Exp $
  */
 
 #ifndef _CMD_H_
@@ -39,7 +39,7 @@ struct cmd_t
 	int		position;
 	int		level;
 	int		log;
-	int		flags;
+	int		cmd_flags;
 };
 
 cmd_t *	cmd_lookup(const char *name);

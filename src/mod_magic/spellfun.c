@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.162 1999-06-06 05:44:07 kostik Exp $
+ * $Id: spellfun.c,v 1.163 1999-06-10 14:33:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -59,7 +59,7 @@ DECLARE_DO_FUN(do_stand		);
  */
 int allowed_other(CHAR_DATA *ch, int sn)
 {
-	if (IS_SET(SKILL(sn)->flags, SKILL_RANGE))
+	if (IS_SET(SKILL(sn)->skill_flags, SKILL_RANGE))
 		return ch->level / 20 + 1;
 	return 0;
 }
@@ -194,7 +194,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	
 	if (HAS_SKILL(ch, gsn_vampire)
 	&&  !is_affected(ch, gsn_vampire)
-	&&  !IS_SET(spell->flags, SKILL_CLAN)) {
+	&&  !IS_SET(spell->skill_flags, SKILL_CLAN)) {
 		char_puts("You must transform to vampire before casting!\n",
 			  ch);
 		return;
@@ -381,7 +381,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		switch (spell->target) {
 		case TAR_CHAR_DEFENSIVE:
 		case TAR_OBJ_CHAR_DEF:
-			if (IS_SET(spell->flags, SKILL_QUESTIONABLE)
+			if (IS_SET(spell->skill_flags, SKILL_QUESTIONABLE)
 			&&  !check_trust(ch, victim)) {
 				char_puts("They do not trust you enough "
 					  "for this spell.\n", ch);
@@ -392,7 +392,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		case TAR_CHAR_OFFENSIVE:
 		case TAR_OBJ_CHAR_OFF:
 			offensive = TRUE;
-			if (IS_SET(spell->flags, SKILL_QUESTIONABLE))
+			if (IS_SET(spell->skill_flags, SKILL_QUESTIONABLE))
 				offensive = !check_trust(ch, victim);
 
 			if (offensive) {
@@ -427,7 +427,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		if (cast_far) cast_far = FALSE;
 	}
 	else {
-		if (IS_SET(cl->flags, CLASS_MAGIC))
+		if (IS_SET(cl->class_flags, CLASS_MAGIC))
 			slevel = LEVEL(ch) - UMAX(0, (LEVEL(ch) / 20));
 		else
 			slevel = LEVEL(ch) - UMAX(5, (LEVEL(ch) / 10));
@@ -621,7 +621,7 @@ void obj_cast_spell(int sn, int level,
 		switch (spell->target) {
 		case TAR_CHAR_DEFENSIVE:
 		case TAR_OBJ_CHAR_DEF:
-			if (IS_SET(spell->flags, SKILL_QUESTIONABLE)
+			if (IS_SET(spell->skill_flags, SKILL_QUESTIONABLE)
 			&&  !check_trust(ch, victim)) {
 				char_puts("They do not trust you enough "
 					  "for this spell.\n", ch);
@@ -632,7 +632,7 @@ void obj_cast_spell(int sn, int level,
 		case TAR_CHAR_OFFENSIVE:
 		case TAR_OBJ_CHAR_OFF:
 			offensive = TRUE;
-			if (IS_SET(spell->flags, SKILL_QUESTIONABLE))
+			if (IS_SET(spell->skill_flags, SKILL_QUESTIONABLE))
 				offensive = !check_trust(ch, victim);
 
 			if (offensive) {
@@ -4418,7 +4418,7 @@ void spell_summon(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 					    ROOM_PEACE | ROOM_NOSUMMON)
 	||  IS_SET(victim->in_room->room_flags, ROOM_SAFE | ROOM_NORECALL |
 						ROOM_PEACE | ROOM_NOSUMMON)
-	||  IS_SET(ch->in_room->area->flags, AREA_CLOSED)
+	||  IS_SET(ch->in_room->area->area_flags, AREA_CLOSED)
 	||  room_is_private(ch->in_room)
 	||  IS_SET(victim->imm_flags, IMM_SUMMON)
 	||  (victim->in_room->exit[0] == NULL &&

@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.64 1999-05-18 15:04:26 fjoe Exp $
+ * $Id: skills.c,v 1.65 1999-06-10 14:33:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -636,7 +636,7 @@ int get_skill(CHAR_DATA *ch, int sn)
 
 
 	if ((sk = skill_lookup(sn)) == NULL
-	||  (IS_SET(sk->flags, SKILL_CLAN) && !clan_item_ok(ch->clan)))
+	||  (IS_SET(sk->skill_flags, SKILL_CLAN) && !clan_item_ok(ch->clan)))
 		return 0;
 
 	if (!IS_NPC(ch)) {
@@ -751,7 +751,7 @@ int get_skill(CHAR_DATA *ch, int sn)
 		||  (!IS_SET(paf->bitvector, SK_AFF_ALL) &&
 		     paf->location != -sn)
 		||  (IS_SET(paf->bitvector, SK_AFF_NOTCLAN &&
-		     IS_SET(skill_lookup(sn)->flags, SKILL_CLAN))))
+		     IS_SET(skill_lookup(sn)->skill_flags, SKILL_CLAN))))
 			continue;
 
 		add += paf->modifier;

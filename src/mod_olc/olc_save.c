@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.73 1999-06-10 11:47:35 fjoe Exp $
+ * $Id: olc_save.c,v 1.74 1999-06-10 14:33:36 fjoe Exp $
  */
 
 /**************************************************************************
@@ -887,7 +887,7 @@ void save_area(AREA_DATA *pArea)
 		pArea->min_level, pArea->max_level);
 	if (!mlstr_null(pArea->resetmsg))
 		mlstr_fwrite(fp, "ResetMessage", pArea->resetmsg);
-	flags = pArea->flags & ~AREA_CHANGED;
+	flags = pArea->area_flags & ~AREA_CHANGED;
 	if (flags)
 		fwrite_string(fp, "Flags", flag_string(area_flags, flags));
 	if (pArea->clan)
@@ -942,10 +942,10 @@ void save_clan(CHAR_DATA *ch, clan_t *clan)
 	if (clan->altar_vnum)
 		fprintf(fp, "Altar %d\n", clan->altar_vnum);
 
-	REMOVE_BIT(clan->flags, CLAN_CHANGED);
-	if (clan->flags)
+	REMOVE_BIT(clan->clan_flags, CLAN_CHANGED);
+	if (clan->clan_flags)
 		fprintf(fp, "Flags %s~\n",
-			flag_string(clan_flags, clan->flags));
+			flag_string(clan_flags, clan->clan_flags));
 
 	for (i = 0; i < clan->skills.nused; i++) {
 		clskill_t *cs = VARR_GET(&clan->skills, i);
@@ -1003,7 +1003,7 @@ void save_clans(CHAR_DATA *ch)
 
 	for (i = 0; i < clans.nused; i++) {
 		fprintf(fp, "%s\n", CLAN(i)->file_name);
-		if (IS_SET(CLAN(i)->flags, CLAN_CHANGED)) {
+		if (IS_SET(CLAN(i)->clan_flags, CLAN_CHANGED)) {
 			save_clan(ch, CLAN(i));
 			found = TRUE;
 		}
@@ -1076,7 +1076,7 @@ bool save_lang(CHAR_DATA *ch, lang_t *l)
 		    "Name %s\n", l->name);
 	if ((sl = varr_get(&langs, l->slang_of)))
 		fprintf(fp, "SlangOf %s\n", sl->name);
-	flags = l->flags & ~LANG_CHANGED;
+	flags = l->lang_flags & ~LANG_CHANGED;
 	if (flags)
 		fprintf(fp, "Flags %s~\n", flag_string(lang_flags, flags));
 	fprintf(fp, "End\n\n");
@@ -1114,12 +1114,12 @@ void save_langs(CHAR_DATA *ch)
 	for (lang = 0; lang < langs.nused; lang++) {
 		lang_t *l = VARR_GET(&langs, lang);
 
-		if (IS_SET(l->flags, LANG_CHANGED)
+		if (IS_SET(l->lang_flags, LANG_CHANGED)
 		&&  save_lang(ch, l)) {
 			save_print(ch, "Language '%s' saved (%s%c%s).",
 				   l->name, LANG_PATH, PATH_SEPARATOR,
 				   l->file_name);
-			l->flags &= ~LANG_CHANGED;
+			l->lang_flags &= ~LANG_CHANGED;
 			list = TRUE;
 		}
 	}
@@ -1165,7 +1165,7 @@ void save_expl(CHAR_DATA *ch, lang_t *l, rulecl_t *rcl)
 	int i;
 	FILE *fp;
 
-	if (!IS_SET(rcl->flags, RULES_EXPL_CHANGED))
+	if (!IS_SET(rcl->rcl_flags, RULES_EXPL_CHANGED))
 		return;
 
 	if ((fp = dfopen(LANG_PATH, rcl->file_expl, "w")) == NULL) {
@@ -1191,7 +1191,7 @@ void save_expl(CHAR_DATA *ch, lang_t *l, rulecl_t *rcl)
 		       "(lang '%s', rules type '%s').",
 		   LANG_PATH, PATH_SEPARATOR, rcl->file_expl,
 		   l->name, flag_string(rulecl_names, rcl->rulecl));
-	rcl->flags &= ~RULES_EXPL_CHANGED;
+	rcl->rcl_flags &= ~RULES_EXPL_CHANGED;
 }
 
 void save_impl(CHAR_DATA *ch, lang_t *l, rulecl_t *rcl)
@@ -1199,7 +1199,7 @@ void save_impl(CHAR_DATA *ch, lang_t *l, rulecl_t *rcl)
 	int i;
 	FILE *fp;
 
-	if (!IS_SET(rcl->flags, RULES_IMPL_CHANGED))
+	if (!IS_SET(rcl->rcl_flags, RULES_IMPL_CHANGED))
 		return;
 
 	if ((fp = dfopen(LANG_PATH, rcl->file_impl, "w")) == NULL) {
@@ -1221,7 +1221,7 @@ void save_impl(CHAR_DATA *ch, lang_t *l, rulecl_t *rcl)
 		       "(lang '%s', rules type '%s').",
 		   LANG_PATH, PATH_SEPARATOR, rcl->file_impl,
 		   l->name, flag_string(rulecl_names, rcl->rulecl));
-	rcl->flags &= ~RULES_IMPL_CHANGED;
+	rcl->rcl_flags &= ~RULES_IMPL_CHANGED;
 }
 
 void save_rules(CHAR_DATA *ch)
@@ -1313,7 +1313,7 @@ void save_areas(CHAR_DATA *ch, int flags)
 		if (ch && !IS_BUILDER(ch, pArea))
 			continue;
 
-		if (flags && !IS_SET(pArea->flags, flags))
+		if (flags && !IS_SET(pArea->area_flags, flags))
 			continue;
 
 		found = TRUE;
@@ -1325,7 +1325,7 @@ void save_areas(CHAR_DATA *ch, int flags)
 		else
 			log("    %s (%s)",
 				   pArea->name, pArea->file_name);
-		REMOVE_BIT(pArea->flags, flags);
+		REMOVE_BIT(pArea->area_flags, flags);
 	}
 
 	if (!found) {

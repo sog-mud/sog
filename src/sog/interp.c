@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.149 1999-06-10 11:47:29 fjoe Exp $
+ * $Id: interp.c,v 1.150 1999-06-10 14:33:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -569,10 +569,10 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 		 */
 		if (!IS_NPC(ch)
 		&&  IS_SET(ch->plr_flags, PLR_FREEZE)
-		&&  !IS_SET(cmd->flags, CMD_FROZEN_OK))
+		&&  !IS_SET(cmd->cmd_flags, CMD_FROZEN_OK))
 			continue;
 
-		if (IS_SET(cmd->flags, CMD_DISABLED)) {
+		if (IS_SET(cmd->cmd_flags, CMD_DISABLED)) {
 			char_puts("Sorry, this command is temporarily disabled.\n", ch);
 			return;
 		}
@@ -589,13 +589,13 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 			continue;
 
 		if (is_order) {
-			if (IS_SET(cmd->flags, CMD_NOORDER)
+			if (IS_SET(cmd->cmd_flags, CMD_NOORDER)
 			||  cmd->level >= LEVEL_IMMORTAL)
 				return;
 		}
 		else {
 			if (IS_AFFECTED(ch, AFF_CHARM)
-			&&  !IS_SET(cmd->flags, CMD_CHARMED_OK)
+			&&  !IS_SET(cmd->cmd_flags, CMD_CHARMED_OK)
 			&&  cmd->level < LEVEL_IMMORTAL 
 			&&  !IS_IMMORTAL(ch)) {
 				char_puts("First ask your beloved master!\n",
@@ -605,7 +605,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 		}
 
 		if (IS_AFFECTED(ch, AFF_STUN) 
-		&&  !(cmd->flags & CMD_KEEP_HIDE)) {
+		&&  !(cmd->cmd_flags & CMD_KEEP_HIDE)) {
 			char_puts("You are STUNNED to do that.\n", ch);
 			return;
 		}
@@ -659,7 +659,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	}
 	else {
 		min_pos = cmd->position;
-		cmd_flags = cmd->flags;
+		cmd_flags = cmd->cmd_flags;
 	}
 
 	if (!IS_NPC(ch)) {
@@ -926,7 +926,7 @@ void do_commands(CHAR_DATA *ch, const char *argument)
 	for (cmd = cmd_table; cmd->name; cmd++) {
 		if (cmd->level < LEVEL_HERO
 		&&  cmd->level <= ch->level 
-		&&  !IS_SET(cmd->flags, CMD_HIDDEN)) {
+		&&  !IS_SET(cmd->cmd_flags, CMD_HIDDEN)) {
 			char_printf(ch, "%-12s", cmd->name);
 			if (++col % 6 == 0)
 				char_puts("\n", ch);

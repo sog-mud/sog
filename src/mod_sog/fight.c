@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.176 1999-06-10 11:47:27 fjoe Exp $
+ * $Id: fight.c,v 1.177 1999-06-10 14:33:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -982,7 +982,8 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 	if (result && wield != NULL && ch->fighting == victim) {
 		int dam;
 
-		if (IS_WEAPON_STAT(wield, WEAPON_VORPAL)) {
+		if (IS_WEAPON_STAT(wield, WEAPON_VORPAL)
+		&&  wield->value[0] == WEAPON_SWORD) {
 			int chance;
 
 			chance = get_skill(ch, get_weapon_sn(wield)) +

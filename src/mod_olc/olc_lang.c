@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_lang.c,v 1.15 1999-04-16 15:52:24 fjoe Exp $
+ * $Id: olc_lang.c,v 1.16 1999-06-10 14:33:36 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -94,7 +94,7 @@ OLC_FUN(langed_create)
 	ch->desc->pEdit	= l;
 	OLCED(ch)	= olced_lookup(ED_LANG);
 	char_puts("LangEd: lang created.\n", ch);
-	SET_BIT(l->flags, LANG_CHANGED);
+	SET_BIT(l->lang_flags, LANG_CHANGED);
 	return FALSE;
 }
 
@@ -128,7 +128,7 @@ OLC_FUN(langed_touch)
 {
 	lang_t *l;
 	EDIT_LANG(ch, l);
-	SET_BIT(l->flags, LANG_CHANGED);
+	SET_BIT(l->lang_flags, LANG_CHANGED);
 	return FALSE;
 }
 
@@ -163,9 +163,9 @@ OLC_FUN(langed_show)
 		    l->name, l->file_name);
 	if ((sl = varr_get(&langs, l->slang_of)))
 		char_printf(ch, "Slang of: [%s]\n", sl->name);
-	if (l->flags) {
+	if (l->lang_flags) {
 		char_printf(ch, "Flags:    [%s]\n",
-			    flag_string(lang_flags, l->flags)); 
+			    flag_string(lang_flags, l->lang_flags)); 
 	}
 
 	for (i = 0; i < MAX_RULECL; i++) {
@@ -182,7 +182,7 @@ OLC_FUN(langed_show)
 			    flag_string(rulecl_names, i),
 			    rcl->file_expl,
 			    rcl->file_impl,
-			    flag_string(rulecl_flags, rcl->flags));
+			    flag_string(rulecl_flags, rcl->rcl_flags));
 	}
 
 	return FALSE;
@@ -217,7 +217,7 @@ OLC_FUN(langed_flags)
 {
 	lang_t *l;
 	EDIT_LANG(ch, l);
-	return olced_flag32(ch, argument, cmd, &l->flags);
+	return olced_flag32(ch, argument, cmd, &l->lang_flags);
 }
 
 OLC_FUN(langed_slangof)

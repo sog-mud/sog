@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.c,v 1.41 1999-05-22 00:08:50 fjoe Exp $
+ * $Id: clan.c,v 1.42 1999-06-10 14:33:25 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -61,7 +61,7 @@ void clan_free(clan_t *clan)
 
 void clan_save(clan_t *clan)
 {
-	SET_BIT(clan->flags, CLAN_CHANGED);
+	SET_BIT(clan->clan_flags, CLAN_CHANGED);
 	do_asave(NULL, "clans");
 }
 

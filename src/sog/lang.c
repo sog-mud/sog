@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.c,v 1.14 1999-06-03 12:13:36 fjoe Exp $
+ * $Id: lang.c,v 1.15 1999-06-10 14:33:35 fjoe Exp $
  */
 
 #include <string.h>
@@ -111,7 +111,7 @@ word_form_lookup(lang_t *l, rulecl_t *rcl, const char *word, int fnum)
 		 */
 		erule_create(&e, rule, word);
 		rule = erule_add(rcl, &e);
-		SET_BIT(rcl->flags, RULES_EXPL_CHANGED);
+		SET_BIT(rcl->rcl_flags, RULES_EXPL_CHANGED);
 	}
 
 	if ((p = varr_get(&rule->f->v, fnum)) == NULL

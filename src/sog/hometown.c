@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hometown.c,v 1.4 1999-04-17 06:56:39 fjoe Exp $
+ * $Id: hometown.c,v 1.5 1999-06-10 14:33:35 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -68,10 +68,10 @@ bool hometown_restrict(hometown_t *h, CHAR_DATA *ch)
 	||  (cl = class_lookup(ch->class)) == NULL)
 		return TRUE;
 
-	if (IS_SET(r->flags, RACE_NOCH))
+	if (IS_SET(r->race_flags, RACE_NOCH))
 		return !is_name(r->name, h->restrict_race);
 
-	if (IS_SET(cl->flags, CLASS_NOCH))
+	if (IS_SET(cl->class_flags, CLASS_NOCH))
 		return !is_name(cl->name, h->restrict_class);
 
 	if (h->restrict_race

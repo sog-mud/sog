@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.151 1999-06-10 11:47:33 fjoe Exp $
+ * $Id: db.c,v 1.152 1999-06-10 14:33:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -551,7 +551,7 @@ void area_update(void)
 		 */
 		if ((pArea->empty || (pArea->nplayer != 0 && pArea->age < 15))
 		&&  pArea->age < 31
-		&&  !IS_SET(pArea->flags, AREA_UPDATE_ALWAYS))
+		&&  !IS_SET(pArea->area_flags, AREA_UPDATE_ALWAYS))
 			continue;
 
 		/*
@@ -594,7 +594,7 @@ void area_update(void)
 		print_resetmsg(pArea);
 
 		pArea->age = number_range(0, 3);
-		if (IS_SET(pArea->flags, AREA_UPDATE_FREQUENTLY))
+		if (IS_SET(pArea->area_flags, AREA_UPDATE_FREQUENTLY))
 			pArea->age = 15 - 2;
 		else if (pArea->nplayer == 0) 
 			pArea->empty = TRUE;
@@ -1695,7 +1695,7 @@ void *alloc_perm(int sMem)
 
 #define SKIP_CLOSED(pArea)						\
 	{								\
-		while (pArea && IS_SET(pArea->flags, AREA_CLOSED))	\
+		while (pArea && IS_SET(pArea->area_flags, AREA_CLOSED))	\
 			pArea = pArea->next;				\
 	}
 
@@ -1717,7 +1717,7 @@ void do_areas(CHAR_DATA *ch, const char *argument)
 	 * count total number of areas, skipping closed ones
 	 */
 	for (pArea1 = area_first; pArea1 != NULL; pArea1 = pArea1->next)
-		if (!IS_SET(pArea1->flags, AREA_CLOSED))
+		if (!IS_SET(pArea1->area_flags, AREA_CLOSED))
 			maxArea++;
 
 	/*

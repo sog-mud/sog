@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_rule.c,v 1.10 1999-06-03 12:13:36 fjoe Exp $
+ * $Id: olc_rule.c,v 1.11 1999-06-10 14:33:36 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -160,7 +160,7 @@ OLC_FUN(ruleed_create)
 	ch->desc->pEdit = impl ? irule_insert(rcl, atoi(arg2), &rnew) :
 				 erule_add(rcl, &rnew);
 	ch->desc->pEdit2= rcl; 
-	SET_BIT(rcl->flags, rops->bit);
+	SET_BIT(rcl->rcl_flags, rops->bit);
 	char_puts("RuleEd: rule created.\n", ch);
 	return FALSE;
 }
@@ -212,7 +212,7 @@ OLC_FUN(ruleed_touch)
 
 	EDIT_RCL(ch, rcl);
 	EDIT_ROPS(ch, rops);
-	SET_BIT(rcl->flags, rops->bit);
+	SET_BIT(rcl->rcl_flags, rops->bit);
 	return FALSE;
 }
 
@@ -453,7 +453,7 @@ OLC_FUN(ruleed_delete)
 		return FALSE;
 
 	rops->rule_del(rcl, r);
-	SET_BIT(rcl->flags, rops->bit);
+	SET_BIT(rcl->rcl_flags, rops->bit);
 	edit_done(ch->desc);
 
 	return FALSE;

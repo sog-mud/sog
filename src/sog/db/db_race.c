@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_race.c,v 1.7 1999-04-16 15:52:23 fjoe Exp $
+ * $Id: db_race.c,v 1.8 1999-06-10 14:33:35 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -81,7 +81,7 @@ DBLOAD_FUN(load_race)
 		case 'F':
 			KEY("Form", race->form,
 			    fread_fstring(form_flags, fp));
-			KEY("Flags", race->flags,
+			KEY("Flags", race->race_flags,
 			    fread_fstring(race_flags, fp));
 			break;
 		case 'I':

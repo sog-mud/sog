@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.244 1999-06-10 13:39:19 fjoe Exp $
+ * $Id: act_info.c,v 1.245 1999-06-10 14:33:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1597,7 +1597,7 @@ void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 
 	if (wch->clan
 	&&  (clan = clan_lookup(wch->clan))
-	&&  (!IS_SET(clan->flags, CLAN_HIDDEN) ||
+	&&  (!IS_SET(clan->clan_flags, CLAN_HIDDEN) ||
 	     (ch && (wch->clan == ch->clan || IS_IMMORTAL(ch)))))
 		buf_printf(output, "[{c%s{x] ", clan->name);
 
@@ -3475,7 +3475,7 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 
 		found = TRUE;
 
-		if (IS_SET(sk->flags, SKILL_CLAN)) {
+		if (IS_SET(sk->skill_flags, SKILL_CLAN)) {
 			if (ch->clan == mob->clan)
 				break;
 			continue;

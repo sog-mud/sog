@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.47 1999-06-10 11:47:35 fjoe Exp $
+ * $Id: db_area.c,v 1.48 1999-06-10 14:33:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -135,7 +135,7 @@ DBLOAD_FUN(load_area)
 	pArea->empty		= FALSE;
 	pArea->count		= 0;
 	pArea->resetmsg		= NULL;
-	pArea->flags		= 0;
+	pArea->area_flags	= 0;
 
 	if (area_first == NULL)
 		area_first = pArea;
@@ -175,7 +175,7 @@ DBLOAD_FUN(load_areadata)
 	pArea->security		= 9;                    /* 9 -- Hugin */
 	pArea->min_vnum		= 0;
 	pArea->max_vnum		= 0;
-	pArea->flags		= 0;
+	pArea->area_flags	= 0;
 	pArea->min_level	= 0;
 	pArea->max_level	= 0;          
 	pArea->resetmsg		= NULL;
@@ -207,7 +207,7 @@ DBLOAD_FUN(load_areadata)
 			}
 			break;
 		case 'F':
-			KEY("Flags", pArea->flags,
+			KEY("Flags", pArea->area_flags,
 			    fread_fstring(area_flags, fp));
 			break;
 		case 'L':
@@ -1093,7 +1093,7 @@ DBLOAD_FUN(load_resetmsg)
 
 DBLOAD_FUN(load_aflag)
 {
-	area_current->flags = fread_flags(fp);
+	area_current->area_flags = fread_flags(fp);
 }
 
 /*

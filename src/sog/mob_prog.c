@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.47 1999-06-10 11:47:29 fjoe Exp $
+ * $Id: mob_prog.c,v 1.48 1999-06-10 14:33:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1142,9 +1142,9 @@ void mp_act_trigger(const char *argument, CHAR_DATA *mob, CHAR_DATA *ch,
 			continue;
 
 		match = FALSE;
-		if (IS_SET(mptrig->flags, TRIG_REGEXP)) 
+		if (IS_SET(mptrig->mptrig_flags, TRIG_REGEXP)) 
 			match = !regexec(mptrig->extra, argument, 0, NULL, 0);
-		else if (strstr(IS_SET(mptrig->flags, TRIG_CASEDEP) ?
+		else if (strstr(IS_SET(mptrig->mptrig_flags, TRIG_CASEDEP) ?
 				argument : l, mptrig->phrase))
 			match = TRUE;
 

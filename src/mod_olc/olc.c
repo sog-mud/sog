@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.59 1999-06-03 11:17:11 fjoe Exp $
+ * $Id: olc.c,v 1.60 1999-06-10 14:33:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -656,7 +656,8 @@ bool olced_rulecl(CHAR_DATA *ch, const char *argument,
 
 	if (!str_prefix(arg2, "flags")) {
 		cmd->arg1 = rulecl_flags;
-		return olced_flag32(ch, argument, cmd, &l->rules[rulecl].flags);
+		return olced_flag32(ch, argument, cmd,
+				    &l->rules[rulecl].rcl_flags);
 	}
 
 	do_help(ch, "'OLC RULECLASS'");
@@ -791,7 +792,7 @@ AREA_DATA *get_edited_area(CHAR_DATA *ch)
 bool touch_area(AREA_DATA *pArea)
 {
 	if (pArea)
-		SET_BIT(pArea->flags, AREA_CHANGED);
+		SET_BIT(pArea->area_flags, AREA_CHANGED);
 	return FALSE;
 }
 

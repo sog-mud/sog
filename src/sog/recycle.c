@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.50 1999-06-10 11:47:31 fjoe Exp $
+ * $Id: recycle.c,v 1.51 1999-06-10 14:33:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -380,7 +380,7 @@ MPTRIG *mptrig_new(int type, const char *phrase, int vnum)
 
 	for (p = mptrig->phrase; *p; p++)
 		if (ISUPPER(*p)) {
-			SET_BIT(mptrig->flags, TRIG_CASEDEP);
+			SET_BIT(mptrig->mptrig_flags, TRIG_CASEDEP);
 			break;
 		}
 
@@ -388,8 +388,8 @@ MPTRIG *mptrig_new(int type, const char *phrase, int vnum)
 		int errcode;
 		int cflags = REG_EXTENDED | REG_NOSUB;
 
-		SET_BIT(mptrig->flags, TRIG_REGEXP);
-		if (!IS_SET(mptrig->flags, TRIG_CASEDEP))
+		SET_BIT(mptrig->mptrig_flags, TRIG_REGEXP);
+		if (!IS_SET(mptrig->mptrig_flags, TRIG_CASEDEP))
 			cflags |= REG_ICASE;
 
 		mptrig->extra = malloc(sizeof(regex_t));
@@ -425,7 +425,7 @@ void mptrig_free(MPTRIG *mp)
 	if (!mp)
 		return;
 
-	if (IS_SET(mp->flags, TRIG_REGEXP)) {
+	if (IS_SET(mp->mptrig_flags, TRIG_REGEXP)) {
 		regfree(mp->extra);
 		free(mp->extra);
 	}

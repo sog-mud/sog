@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.111 1999-06-06 17:26:59 fjoe Exp $
+ * $Id: spellfun2.c,v 1.112 1999-06-10 14:33:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4591,7 +4591,7 @@ void spell_polymorph(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		return;
 	}
 
-	if (IS_SET(r->flags, RACE_UNDEAD)) {
+	if (IS_SET(r->race_flags, RACE_UNDEAD)) {
 		char_puts("You posess no necromantic powers to do this.\n",ch);
 		return;
 	}
@@ -4627,7 +4627,7 @@ void spell_lich(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 
 	race = rn_lookup(target_name);
 	r = RACE(race);
-	if (!r->pcdata || !IS_SET(r->flags, RACE_UNDEAD)) {
+	if (!r->pcdata || !IS_SET(r->race_flags, RACE_UNDEAD)) {
 	    char_puts("This is not an undead type.\n",ch);
 	    return;
 	}
@@ -4879,7 +4879,7 @@ void spell_control_undead(int sn, int level, CHAR_DATA *ch, void *vo, int target
  	r=RACE(victim->race);
   
  	if  ((!IS_NPC(victim) || !IS_SET(victim->pIndexData->act, ACT_UNDEAD)) 
-             && (!IS_SET(r->flags, RACE_UNDEAD))) {
+             && (!IS_SET(r->race_flags, RACE_UNDEAD))) {
   		act("$N doesn't seem to be an undead.",ch,NULL,victim,TO_CHAR);
   		return;
   	}

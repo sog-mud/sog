@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_clan.c,v 1.27 1999-05-22 00:08:50 fjoe Exp $
+ * $Id: olc_clan.c,v 1.28 1999-06-10 14:33:36 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -175,9 +175,9 @@ OLC_FUN(claned_show)
 		   "Filename:    [%s]\n",
 		   clan->name,
 		   clan->file_name);
-	if (clan->flags)
+	if (clan->clan_flags)
 		buf_printf(output, "Flags:       [%s]\n",
-			   flag_string(clan_flags, clan->flags));
+			   flag_string(clan_flags, clan->clan_flags));
 	if (clan->recall_vnum)
 		buf_printf(output, "Recall:      [%d]\n",
 			   clan->recall_vnum);
@@ -263,7 +263,7 @@ OLC_FUN(claned_flags)
 {
 	clan_t *clan;
 	EDIT_CLAN(ch, clan);
-	return olced_flag32(ch, argument, cmd, &clan->flags);
+	return olced_flag32(ch, argument, cmd, &clan->clan_flags);
 }
 
 OLC_FUN(claned_skill)
@@ -357,7 +357,7 @@ OLC_FUN(claned_skill_add)
 		return FALSE;
 	}
 
-	if (!IS_SET(SKILL(sn)->flags, SKILL_CLAN)) {
+	if (!IS_SET(SKILL(sn)->skill_flags, SKILL_CLAN)) {
 		char_printf(ch, "ClanEd: %s: not a clan skill.\n",
 			    SKILL(sn)->name);
 		return FALSE;
@@ -410,7 +410,7 @@ OLC_FUN(claned_skill_del)
 
 bool touch_clan(clan_t *clan)
 {
-	SET_BIT(clan->flags, CLAN_CHANGED);
+	SET_BIT(clan->clan_flags, CLAN_CHANGED);
 	return FALSE;
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.137 1999-06-10 11:47:32 fjoe Exp $
+ * $Id: update.c,v 1.138 1999-06-10 14:33:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -315,7 +315,7 @@ int mana_gain(CHAR_DATA *ch)
 				check_improve(ch, gsn_trance, TRUE, 8);
 		}
 
-		if (!IS_SET(cl->flags, CLASS_MAGIC))
+		if (!IS_SET(cl->class_flags, CLASS_MAGIC))
 			gain /= 2;
 
 		switch (ch->position) {

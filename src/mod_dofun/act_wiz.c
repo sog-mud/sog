@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.152 1999-06-10 11:47:25 fjoe Exp $
+ * $Id: act_wiz.c,v 1.153 1999-06-10 14:33:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4561,7 +4561,7 @@ DO_FUN(do_disable)
 	if (!str_cmp(arg, "?")) {
 		char_puts("Disabled commands:\n", ch);
 		for (cmd = cmd_table; cmd->name; cmd++)
-			if (IS_SET(cmd->flags, CMD_DISABLED))
+			if (IS_SET(cmd->cmd_flags, CMD_DISABLED))
 				char_printf(ch, "%s\n", cmd->name);
 		return;
 	}
@@ -4578,7 +4578,7 @@ DO_FUN(do_disable)
 			return;
 		}
 
-		SET_BIT(cmd->flags, CMD_DISABLED);
+		SET_BIT(cmd->cmd_flags, CMD_DISABLED);
 		char_printf(ch, "%s: command disabled.\n", cmd->name);
 	}
 }
@@ -4600,7 +4600,7 @@ DO_FUN(do_enable)
 			continue;
 		}
 
-		REMOVE_BIT(cmd->flags, CMD_DISABLED);
+		REMOVE_BIT(cmd->cmd_flags, CMD_DISABLED);
 		char_printf(ch, "%s: command enabled.\n", cmd->name);
 	}
 }

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.39 1999-04-16 15:52:24 fjoe Exp $
+ * $Id: olc_area.c,v 1.40 1999-06-10 14:33:35 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -181,7 +181,7 @@ OLC_FUN(areaed_show)
 		char_printf(ch, "Builders: [%s]\n", pArea->builders);
 	char_printf(ch, "Credits:  [%s]\n", pArea->credits);
 	char_printf(ch, "Flags:    [%s]\n",
-			flag_string(area_flags, pArea->flags));
+			flag_string(area_flags, pArea->area_flags));
 	return FALSE;
 }
 
@@ -260,7 +260,7 @@ OLC_FUN(areaed_flags)
 {
 	AREA_DATA *pArea;
 	EDIT_AREA(ch, pArea);
-	return olced_flag32(ch, argument, cmd, &pArea->flags);
+	return olced_flag32(ch, argument, cmd, &pArea->area_flags);
 }
 
 OLC_FUN(areaed_security)
@@ -450,7 +450,7 @@ VALIDATE_FUN(validate_move)
 		char_puts("AreaEd: Changed clans:\n", ch);
 		for (i = 0; i < clans.nused; i++) {
 			clan = CLAN(i);
-			if (IS_SET(clan->flags, CLAN_CHANGED))
+			if (IS_SET(clan->clan_flags, CLAN_CHANGED))
 				char_printf(ch, "- %s\n", clan->name);
 		}
 	}
@@ -563,7 +563,7 @@ VALIDATE_FUN(validate_move)
 
 	char_puts("AreaEd: Changed areas:\n", ch);
 	for (pArea = area_first; pArea; pArea = pArea->next)
-		if (IS_SET(pArea->flags, AREA_CHANGED))
+		if (IS_SET(pArea->area_flags, AREA_CHANGED))
 			char_printf(ch, "[%3d] %s (%s)\n",
 				    pArea->vnum, pArea->name, pArea->file_name);
 	return TRUE;
