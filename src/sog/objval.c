@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: objval.c,v 1.17 2001-09-13 16:22:23 fjoe Exp $
+ * $Id: objval.c,v 1.18 2001-09-17 19:44:11 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -273,7 +273,7 @@ fwrite_objval(flag_t item_type, vo_t *v, FILE *fp)
 		break;
 
 	case ITEM_BOOK:
-		fprintf(fp, "%s %s %d %s '%s'\n",
+		fprintf(fp, "%s '%s' %d %s '%s'\n",
 			SFLAGS(book_class, v[0]),
 			STR(v[1]),
 			INT(v[2]),
