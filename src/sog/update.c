@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.135 1999-05-31 08:17:23 fjoe Exp $
+ * $Id: update.c,v 1.136 1999-06-04 14:54:43 avn Exp $
  */
 
 /***************************************************************************
@@ -236,7 +236,7 @@ int hit_gain(CHAR_DATA *ch)
 
 		if (number < get_skill(ch, gsn_trance)) {
 			gain += number * gain / 150;
-			if (ch->mana < ch->max_mana)
+			if (ch->hit < ch->max_hit)
 				check_improve(ch, gsn_trance, TRUE, 8);
 		}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.146 1999-06-03 11:17:11 fjoe Exp $
+ * $Id: db.c,v 1.147 1999-06-04 14:54:44 avn Exp $
  */
 
 /***************************************************************************
@@ -1699,6 +1699,7 @@ void do_areas(CHAR_DATA *ch, const char *argument)
 	AREA_DATA *pArea2;
 	int iArea;
 	int iAreaHalf;
+	int maxArea = 0;
 	BUFFER *output;
 
 	if (argument[0] != '\0') {
@@ -1706,11 +1707,16 @@ void do_areas(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	iAreaHalf = (top_area + 1) / 2;
+	for (pArea1 = area_first; pArea1 != NULL; pArea1 = pArea1->next)
+		if (!IS_SET(pArea1->flags, AREA_CLOSED)) maxArea++;
+	log_printf("maxArea: %d", maxArea);
+
+	iAreaHalf = (maxArea + 1) / 2;
 	pArea1    = area_first;
 	pArea2    = area_first;
 	for (iArea = 0; iArea < iAreaHalf; iArea++)
-		pArea2 = pArea2->next;
+		for (pArea2 = pArea2->next; IS_SET(pArea2->flags, AREA_CLOSED);
+			pArea2 = pArea2->next);
 
 	output = buf_new(-1);
 	buf_add(output, "Current areas of Shades of Gray: \n");
@@ -1727,9 +1733,13 @@ void do_areas(CHAR_DATA *ch, const char *argument)
 				pArea2->credits);
 		buf_add(output, "\n");
 
-		pArea1 = pArea1->next;
+		for (pArea1 = pArea1->next; IS_SET(pArea1->flags, AREA_CLOSED);
+			pArea1 = pArea1->next);
 		if (pArea2 != NULL)
-			pArea2 = pArea2->next;
+			for (pArea2 = pArea2->next;
+				IS_SET(pArea2->flags, AREA_CLOSED);
+				pArea2 = pArea2->next)
+					if (pArea2->next == NULL) break;
 	}
 
 	buf_add(output,"\n");	
