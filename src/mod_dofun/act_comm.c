@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.185 1999-09-08 10:39:46 fjoe Exp $
+ * $Id: act_comm.c,v 1.186 1999-09-09 05:12:59 kostik Exp $
  */
 
 /***************************************************************************
@@ -257,7 +257,7 @@ void do_tell(CHAR_DATA *ch, const char *argument)
 
 void do_reply(CHAR_DATA *ch, const char *argument)
 {
-	if (!IS_NPC(ch)) {
+	if (IS_NPC(ch)) {
 		char_puts("Huh?\n", ch);
 		return;
 	}
