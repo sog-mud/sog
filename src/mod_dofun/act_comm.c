@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.201 2000-03-21 08:54:01 osya Exp $
+ * $Id: act_comm.c,v 1.202 2000-03-30 07:00:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1521,6 +1521,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 		PC_DATA *vpc;
 		char arg2[MAX_STRING_LENGTH];
 		bool loaded = FALSE;
+		bool v_changed = FALSE;
 		bool changed;
 
 		if (pc->clan_status != CLAN_LEADER
@@ -1574,6 +1575,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 			clan_save(clan);
 
 			char_puts("Greet new member!\n", ch);
+			v_changed = TRUE;
 			if (!loaded)
 				act("Your petition to $t has been accepted.",
 				    victim, clan->name, NULL, TO_CHAR);
@@ -1611,6 +1613,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 
 			act("They are not a member of $t anymore.",
 			    ch, clan->name, NULL, TO_CHAR);
+			v_changed = TRUE;
 			if (!loaded)
 				act("You are not a member of $t anymore.",
 				    victim, clan->name, NULL, TO_CHAR);
@@ -1627,6 +1630,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 			free_string(vpc->petition);
 			vpc->petition = str_empty;
 			char_puts("Petition was rejected.\n", ch);
+			v_changed = TRUE;
 			if (!loaded)
 				act("Your petition to $t was rejected.",
 				    victim, clan->name, NULL, TO_CHAR);
@@ -1658,11 +1662,10 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 		char_puts("They didn't petition.\n", ch);
 
 	cleanup:
-		if (loaded) {
-			char_save(victim, SAVE_F_PSCAN);
+		if (v_changed)
+			char_save(victim, loaded ? SAVE_F_PSCAN : 0);
+		if (loaded) 
 			char_nuke(victim);
-		}
-				
 		return;
 	}
 

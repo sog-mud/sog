@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.158 2000-03-25 17:38:17 avn Exp $
+ * $Id: save.c,v 1.159 2000-03-30 07:01:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -591,16 +591,15 @@ CHAR_DATA *char_load(const char *name, int flags)
 		if (IS_TOKEN(fp, "PLAYER")) {
 			fread_char(ch, fp, flags);
 			obj_to = ch;
-		}
-		else if (IS_TOKEN(fp, "OBJECT"))
+		} else if (IS_TOKEN(fp, "OBJECT"))
 			fread_obj(ch, fp, flags);
 		else if (IS_TOKEN(fp, "O"))
 			fread_obj(ch, fp, flags);
 		else if (IS_TOKEN(fp, "PET")) {
 			fread_pet(ch, fp, flags);
-			obj_to = GET_PET(ch);
-		}
-		else if (IS_TOKEN(fp, "END"))
+			if (GET_PET(ch))
+				obj_to = GET_PET(ch);
+		} else if (IS_TOKEN(fp, "END"))
 			break;
 		else {
 			log(LOG_INFO, "char_load: %s: %s: bad section.", 
