@@ -1,4 +1,5 @@
 mpc.c
 mpc.h
 mpc
+mpc_const.c
 mod_mpc.so.*

@@ -1,0 +1,4 @@
+int i = ACT_FAMILIAR | ACT_SCAVENGER;
+i;
+int j = i + 2;
+j <<= 1;

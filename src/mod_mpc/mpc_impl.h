@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_impl.h,v 1.1 2001-06-16 18:20:37 fjoe Exp $
+ * $Id: mpc_impl.h,v 1.2 2001-06-18 15:05:34 fjoe Exp $
  */
 
 #ifndef _MPC_CODE_H_
@@ -95,8 +95,8 @@ typedef enum symtype_t symtype_t;
  * Symbol
  */
 struct sym_t {
-	symtype_t type;
 	const char *name;
+	symtype_t type;
 	union {
 		struct {
 			int type_tag;
@@ -106,6 +106,8 @@ struct sym_t {
 	} s;
 };
 typedef struct sym_t sym_t;
+
+extern hash_t glob_syms;		/* (sym_t) */
 
 /**
  * Lookup symbol by name
@@ -186,5 +188,24 @@ void	c_bop_div(prog_t *prog);	/* / */
 
 void	c_bop_ne_string(prog_t *prog);	/* == for strings (case-sensitive) */
 void	c_bop_eq_string(prog_t *prog);	/* != for strings (case-sensitive) */
+
+/*--------------------------------------------------------------------
+ * assign operations
+ *
+ * all of them pop one argument from data stack and push the result back
+ * next op is expected to be symbol
+ */
+
+void	c_assign(prog_t *prog);		/* = */
+void	c_add_eq(prog_t *prog);		/* += */
+void	c_sub_eq(prog_t *prog);		/* -= */
+void	c_div_eq(prog_t *prog);		/* /= */
+void	c_mul_eq(prog_t *prog);		/* *= */
+void	c_mod_eq(prog_t *prog);		/* %= */
+void	c_and_eq(prog_t *prog);		/* &= */
+void	c_or_eq(prog_t *prog);		/* |= */
+void	c_xor_eq(prog_t *prog);		/* ^= */
+void	c_shl_eq(prog_t *prog);		/* <<= */
+void	c_shr_eq(prog_t *prog);		/* >>= */
 
 #endif /* _MPC_OP_H_ */

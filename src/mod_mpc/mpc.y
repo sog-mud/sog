@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.2 2001-06-16 18:50:02 fjoe Exp $
+ * $Id: mpc.y,v 1.3 2001-06-18 15:05:35 fjoe Exp $
  */
 
 /*
@@ -45,6 +45,10 @@
 #include <stdio.h>
 #include <string.h>
 
+#if defined(MPC)
+#include <dlfcn.h>
+#endif
+
 #include <typedef.h>
 #include <varr.h>
 #include <hash.h>
@@ -54,7 +58,12 @@
 #include <strkey_hash.h>
 #include <log.h>
 
+#if defined(MPC)
+#include <module.h>
+#endif
+
 #include "_mpc.h"
+#include "mpc_const.h"
 
 #define YYPARSE_PARAM prog
 #define YYPARSE_PARAM_TYPE prog_t *
@@ -202,9 +211,10 @@ alloc_string(prog_t *prog, const char *s)
 	int number;
 	const char *string;
 	int type_tag;
+	c_fun cfun;
 }
 
-%token L_IDENT L_INT L_STRING
+%token L_IDENT L_TYPE L_INT L_STRING
 %token L_IF L_ELSE L_FOREACH L_CONTINUE L_BREAK
 %token L_ADD_EQ L_SUB_EQ L_DIV_EQ L_MUL_EQ L_MOD_EQ L_AND_EQ L_OR_EQ L_XOR_EQ
 %token L_SHL_EQ L_SHR_EQ
@@ -223,18 +233,78 @@ alloc_string(prog_t *prog, const char *s)
 %right L_NOT '~'
 %nonassoc L_INC L_DEC
 
-%type <type_tag> expr
-%type <number> expr_list L_INT
+%type <type_tag> expr L_TYPE
+%type <number> expr_list expr_list_ne L_INT
 %type <string> L_IDENT L_STRING
+%type <cfun> assign
 
 %%
 
 stmt_list:	/* empty */
-	| stmt stmt_list
-	| error ';'
+	| stmt_list stmt
+	| stmt_list error ';'
 	;
 
-stmt:	  ';'
+stmt:	';'
+	| L_TYPE L_IDENT ';' {
+		const void *p;
+		sym_t sym;
+
+		/*
+		 * simply copy $2 here -- no need for str_dup($2) and
+		 * free_string($2)
+		 */
+		sym.type = SYM_VAR;
+		sym.name = $2;
+		sym.s.var.type_tag = $1;
+		sym.s.var.is_const = FALSE;
+
+		switch ($1) {
+		case MT_STR:
+			sym.s.var.data.s = 0;
+			break;
+
+		case MT_INT:
+		default:
+			sym.s.var.data.i = 0;
+			break;
+		};
+
+		if ((p = hash_insert(&glob_syms, sym.name, &sym)) == NULL) {
+			sym_destroy(&sym);
+			compile_error(prog, "%s: duplicate symbol", sym.name);
+			YYERROR;
+		}
+		sym_destroy(&sym);
+	}
+	| L_TYPE L_IDENT '=' expr ';' {
+		const void *p;
+		sym_t sym;
+
+		if ($1 != $4) {
+			compile_error(prog, "type mismatch (%d vs. %d)",
+				      $1, $4);
+			YYERROR;
+		}
+
+		/*
+		 * simply copy $2 here -- no need for str_dup($2) and
+		 * free_string($2)
+		 */
+		sym.type = SYM_VAR;
+		sym.name = $2;
+		sym.s.var.type_tag = $1;
+		sym.s.var.is_const = FALSE;
+
+		if ((p = hash_insert(&glob_syms, sym.name, &sym)) == NULL) {
+			sym_destroy(&sym);
+			compile_error(prog, "%s: duplicate symbol", sym.name);
+			YYERROR;
+		}
+
+		code2(prog, c_assign, sym.name);
+		sym_destroy(&sym);
+	}
 	| expr ';' {
 		/*
 		 * pop calculated value from stack
@@ -243,7 +313,34 @@ stmt:	  ';'
 	}
 	;
 
-expr:	  L_IDENT '(' expr_list ')' {
+expr:	  L_IDENT assign expr %prec '=' {
+		sym_t *sym;
+
+		/*
+		 * lookup symbol
+		 */
+		if ((sym = sym_lookup(prog, $1)) == 0) {
+			free_string($1);
+			compile_error(prog, "%s: unknown identifier", $1);
+			YYERROR;
+		}
+		free_string($1);
+
+		if (sym->type != SYM_VAR) {
+			compile_error(prog, "%s: not a variable", $1);
+			YYERROR;
+		}
+
+		if (sym->s.var.type_tag != $3) {
+			compile_error(prog, "type mismatch (%d vs. %d",
+			    sym->s.var.type_tag, $3);
+			YYERROR;
+		}
+
+		code2(prog, $2, sym->name);
+		$$ = sym->s.var.type_tag;
+	}
+	| L_IDENT '(' expr_list ')' {
 		int i;
 		sym_t *sym;
 		dynafun_data_t *d;
@@ -252,9 +349,12 @@ expr:	  L_IDENT '(' expr_list ')' {
 		 * lookup symbol
 		 */
 		if ((sym = sym_lookup(prog, $1)) == 0) {
+			free_string($1);
 			compile_error(prog, "%s: unknown identifier", $1);
 			YYERROR;
 		}
+		free_string($1);
+
 		if (sym->type != SYM_FUNC) {
 			compile_error(prog, "%s: not a function", $1);
 			YYERROR;
@@ -277,6 +377,9 @@ expr:	  L_IDENT '(' expr_list ')' {
 		/*
 		 * check argument types
 		 */
+		code2(prog, c_push_retval, sym->name);
+		code2(prog, (const void *) d->rv_tag, (const void *) d->nargs);
+
 		for (i = 0; i < d->nargs; i++) {
 			int got_type = argtype_get(prog, $3, i);
 			if (got_type != d->argtype[i]) {
@@ -285,9 +388,9 @@ expr:	  L_IDENT '(' expr_list ')' {
 				    $1, i+1, got_type, d->argtype[i]);
 				YYERROR;
 			}
+			code(prog, (const void *) d->argtype[i]);
 		}
 
-		code2(prog, c_push_retval, sym);
 		$$ = d->rv_tag;
 
 		/*
@@ -302,15 +405,18 @@ expr:	  L_IDENT '(' expr_list ')' {
 		 * lookup symbol
 		 */
 		if ((sym = sym_lookup(prog, $1)) == 0) {
+			free_string($1);
 			compile_error(prog, "%s: unknown identifier", $1);
 			YYERROR;
 		}
+		free_string($1);
+
 		if (sym->type != SYM_VAR) {
 			compile_error(prog, "%s: not a variable", $1);
 			YYERROR;
 		}
 
-		code2(prog, c_push_var, sym);
+		code2(prog, c_push_var, sym->name);
 		$$ = sym->s.var.type_tag;
 	}
 	| L_STRING {
@@ -414,9 +520,24 @@ expr:	  L_IDENT '(' expr_list ')' {
 	| '(' expr ')'		{ $$ = $2; }
 	;
 
+assign:	'='		{ $$ = c_assign; }
+	| L_ADD_EQ	{ $$ = c_add_eq; }
+	| L_SUB_EQ	{ $$ = c_sub_eq; }
+	| L_DIV_EQ	{ $$ = c_div_eq; }
+	| L_MUL_EQ	{ $$ = c_mul_eq; }
+	| L_MOD_EQ	{ $$ = c_mod_eq; }
+	| L_AND_EQ	{ $$ = c_and_eq; }
+	| L_OR_EQ	{ $$ = c_or_eq; }
+	| L_XOR_EQ	{ $$ = c_xor_eq; }
+	| L_SHL_EQ	{ $$ = c_shl_eq; }
+	| L_SHR_EQ	{ $$ = c_shr_eq; }
+	;
+
 expr_list:	/* empty */	{ $$ = 0; }
-	| expr			{ argtype_push(prog, $1); $$ = 1; }
-	| expr_list ',' expr	{ argtype_push(prog, $3); $$ = $1 + 1; }
+	| expr_list_ne		{ $$ = $1; }
+
+expr_list_ne: expr		{ argtype_push(prog, $1); $$ = 1; }
+	| expr_list_ne ',' expr	{ argtype_push(prog, $3); $$ = $1 + 1; }
 
 %%
 
@@ -521,6 +642,33 @@ keyword_lookup(const char *keyword)
 	return bsearch(&keyword, ktab, KTAB_SIZE, sizeof(keyword_t), cmpstr);
 }
 
+struct type_t {
+	const char *name;
+	int type_tag;
+};
+
+typedef struct type_t type_t;
+
+static type_t ttab[] = {
+	{ "int",	MT_INT },
+	{ "string",	MT_STR },
+};
+
+#define TTAB_SIZE (sizeof(ttab) / sizeof(type_t))
+
+static type_t *
+type_lookup(const char *typename)
+{
+	static bool ttab_initialized;
+
+	if (!ttab_initialized) {
+		qsort(ttab, TTAB_SIZE, sizeof(type_t), cmpstr);
+		ttab_initialized = TRUE;
+	}
+
+	return bsearch(&typename, ttab, TTAB_SIZE, sizeof(type_t), cmpstr);
+}
+
 int
 mp_lex(prog_t *prog)
 {
@@ -531,6 +679,7 @@ mp_lex(prog_t *prog)
 		bool is_hex;
 		char *yyp;
 		keyword_t *k;
+		type_t *t;
 
 		switch ((ch = mp_getc(prog))) {
 		case EOF:
@@ -633,10 +782,10 @@ mp_lex(prog_t *prog)
 		case '{':
 		case '}':
 		case '~':
+		case ',':
 			return ch;
 			/* NOTREACHED */
 
-		case ',':
 		case '[':
 		case ']':
 		case '?':
@@ -693,7 +842,7 @@ mp_lex(prog_t *prog)
 			STORE(ch);
 			for (; ;) {
 				ch = mp_getc(prog);
-				if (!IS_IDENT_CH(ch))
+				if (!IS_IDENT_CH(ch) && !isnumber(ch))
 					break;
 
 				STORE(ch);
@@ -704,7 +853,12 @@ mp_lex(prog_t *prog)
 			if ((k = keyword_lookup(yytext)) != NULL)
 				return k->lexval;
 
-			yylval.string = yytext;
+			if ((t = type_lookup(yytext)) != NULL) {
+				yylval.type_tag = t->type_tag;
+				return L_TYPE;
+			}
+
+			yylval.string = str_dup(yytext);
 			return L_IDENT;
 			/* NOTREACHED */
 		}
@@ -719,8 +873,8 @@ badch:
 static void
 sym_init(sym_t *sym)
 {
-	sym->type = SYM_KEYWORD;
 	sym->name = NULL;
+	sym->type = SYM_KEYWORD;
 }
 
 static
@@ -741,8 +895,8 @@ sym_destroy(sym_t *sym)
 static sym_t *
 sym_cpy(sym_t *dst, const sym_t *src)
 {
-	dst->type = src->type;
 	dst->name = str_qdup(src->name);
+	dst->type = src->type;
 
 	switch (src->type) {
 	case SYM_KEYWORD:
@@ -761,7 +915,11 @@ sym_cpy(sym_t *dst, const sym_t *src)
 sym_t *
 sym_lookup(prog_t *prog, const char *name)
 {
-	/* XXX */
+	sym_t *sym;
+
+	if ((sym = (sym_t *) hash_lookup(&glob_syms, name)) != NULL)
+		return sym;
+
 	return (sym_t *) hash_lookup(&prog->syms, name);
 }
 
@@ -873,6 +1031,100 @@ compile_error(prog_t *prog, const char *fmt, ...)
 		   prog->name, prog->lineno, buf);
 }
 
+hash_t glob_syms;
+
+#if defined(MPC)
+void
+print(int i)
+{
+	fprintf(stderr, "===> %s: %d\n", __FUNCTION__, i);
+}
+
+void
+print2(int i, int j)
+{
+	fprintf(stderr, "===> %s: %d, %d\n", __FUNCTION__, i, j);
+}
+
+static dynafun_data_t mpc_dynafun_tab[] = {
+	{ "number_range",	MT_INT, 2,
+		{ MT_INT, MT_INT } },
+	{ "print",		MT_VOID, 1,
+		{ MT_INT } },
+	{ "print2",		MT_VOID, 2,
+		{ MT_INT, MT_INT } },
+	{ NULL }
+};
+
+const char *mpc_dynafuns[] = {
+	"number_range",
+	"print",
+	"print2",
+	NULL
+};
+#endif
+
+void
+mpc_init()
+{
+	int_const_t *ic;
+	const char **pp;
+#if defined(MPC)
+	module_t m;
+#endif
+
+	hash_init(&glob_syms, &h_syms);
+
+	/*
+	 * add consts to global symbol table
+	 */
+	for (ic = ic_tab; ic->name != NULL; ic++) {
+		const void *p;
+		sym_t sym;
+
+		sym.type = SYM_VAR;
+		sym.name = str_dup(ic->name);
+		sym.s.var.type_tag = MT_INT;
+		sym.s.var.data.i = ic->value;
+		sym.s.var.is_const = TRUE;
+
+		if ((p = hash_insert(&glob_syms, sym.name, &sym)) == NULL) {
+			log(LOG_ERROR, "%s: duplicate symbol (const)",
+			    sym.name);
+		}
+		sym_destroy(&sym);
+	}
+
+	/*
+	 * add dynafuns to global symbol table
+	 */
+	for (pp = mpc_dynafuns; *pp != NULL; pp++) {
+		const void *p;
+		sym_t sym;
+
+		sym.type = SYM_FUNC;
+		sym.name = str_dup(*pp);
+
+		if ((p = hash_insert(&glob_syms, sym.name, &sym)) == NULL) {
+			log(LOG_ERROR, "%s: duplicate symbol (func)",
+			    sym.name);
+		}
+		sym_destroy(&sym);
+	}
+
+#if defined(MPC)
+	init_dynafuns();
+
+	m.dlh = dlopen(NULL, 0);
+	if (m.dlh == NULL) {
+		fprintf(stderr, "dlopen: %s", dlerror());
+		exit(1);
+	}
+
+	dynafun_tab_register(mpc_dynafun_tab, &m);
+#endif
+}
+
 #if defined(MPC)
 static void
 usage()
@@ -892,6 +1144,11 @@ main(int argc, char *argv[])
 
 	if (argc != 2)
 		usage();
+
+	/*
+	 * initialize mpc
+	 */
+	mpc_init();
 
 	prog_init(&prog);
 	prog.name = argv[1];
