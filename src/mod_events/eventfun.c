@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: eventfun.c,v 1.11 2000-02-10 14:08:40 fjoe Exp $
+ * $Id: eventfun.c,v 1.12 2000-02-19 14:28:29 avn Exp $
  */
 
 
@@ -167,6 +167,7 @@ EVENT_FUN(event_update_espirit)
 		INT(af2.location) = APPLY_NONE;
 		af2.modifier	= 0;
 		af2.bitvector	= 0;
+		af2.owner	= NULL;
 		affect_join(ch, &af2);
 		char_puts("You feel worse than ever.\n", ch);
 		act("$n looks more evil.", ch, NULL, NULL, TO_ROOM);
@@ -254,6 +255,7 @@ EVENT_FUN(event_updatechar_plague)
 	INT(plague.location) = APPLY_STR;
 	plague.modifier	 = -5;
 	plague.bitvector = AFF_PLAGUE;
+	plague.owner	= NULL;
 	    
 	for (vch = ch->in_room->people; vch; vch = vch->next_in_room) {
 		if (!saves_spell(plague.level + 2, vch, DAM_DISEASE) 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.231 2000-02-02 09:58:24 kostik Exp $
+ * $Id: act_move.c,v 1.232 2000-02-19 14:26:56 avn Exp $
  */
 
 /***************************************************************************
@@ -1188,6 +1188,7 @@ void do_sneak(CHAR_DATA *ch, const char *argument)
 		INT(af.location) = APPLY_NONE;
 		af.modifier  = 0;
 		af.bitvector = ID_SNEAK;
+		af.owner	= NULL;
 		affect_to_char(ch, &af);
 	} else
 		check_improve(ch, "sneak", FALSE, 3);
@@ -1329,6 +1330,7 @@ void do_blend(CHAR_DATA *ch, const char *argument)
 		INT(af.location)= APPLY_NONE;
 		af.modifier	= 0;
 		af.bitvector	= ID_BLEND;
+		af.owner	= NULL;
 		affect_to_char(ch, &af);
 		check_improve(ch, "forest blending", TRUE, 2);
 	} else 
@@ -1374,6 +1376,7 @@ void do_acute(CHAR_DATA *ch, const char *argument)
 	INT(af.location)= APPLY_NONE;
 	af.modifier	= 0;
 	af.bitvector	= ID_CAMOUFLAGE;
+	af.owner	= NULL;
 	affect_to_char(ch, &af);
 	char_puts("Your vision sharpens.\n", ch);
 
@@ -1625,6 +1628,7 @@ void do_vampire(CHAR_DATA *ch, const char *argument)
 	af.type      = "vampire";
 	af.level     = level;
 	af.duration  = duration;
+	af.owner     = NULL;
 
 /* negative immunity */
 	af.where = TO_AFFECTS;
@@ -1748,6 +1752,7 @@ void do_vbite(CHAR_DATA *ch, const char *argument)
 			INT(af.location)= APPLY_NONE;
 			af.modifier	= 0;
 			af.bitvector	= 0;
+			af.owner	= NULL;
 			affect_join(ch, &af);
 			char_puts("You gain power of undead!\n", ch);
 			check_improve(ch, "resurrection", TRUE, 1);
@@ -1919,6 +1924,7 @@ void do_blink(CHAR_DATA *ch, const char *argument)
 		af.modifier	= 0;
 		af.bitvector	= 0;
 		af.duration	= -1;
+		af.owner	= NULL;
 		affect_to_char(ch, &af);
 	}
 }
@@ -2031,7 +2037,7 @@ void do_kidnap(CHAR_DATA* ch, const char *argument)
 	INT(af.location)= APPLY_NONE;
 	af.modifier 	= 0;
 	af.bitvector 	= 0;
-	
+	af.owner	= NULL;
 	affect_to_char(ch, &af);
 
 
@@ -2162,6 +2168,7 @@ void do_vtouch(CHAR_DATA *ch, const char *argument)
 		INT(af.location) = APPLY_NONE;
 		af.modifier = 0;
 		af.bitvector = AFF_SLEEP;
+		af.owner	= NULL;
 		affect_join(victim,&af);
 
 		if (IS_AWAKE(victim))
@@ -2407,6 +2414,7 @@ void do_crecall(CHAR_DATA *ch, const char *argument)
 	INT(af.location) = APPLY_NONE;
 	af.modifier  = 0;
 	af.bitvector = 0;
+	af.owner     = NULL;
 	affect_to_char(ch, &af);
 
 	pet = GET_PET(ch);
@@ -2541,7 +2549,8 @@ void do_layhands(CHAR_DATA *ch, const char *argument)
 	af.duration = 2;
 	INT(af.location) = APPLY_NONE;
 	af.modifier = 0;
-	af.bitvector = 0;
+	af.bitvector= 0;
+	af.owner    = NULL;
 	affect_to_char (ch, &af);
 
 	victim->hit = UMIN(victim->hit + ch->level * 2, victim->max_hit);
@@ -2766,6 +2775,7 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *arrow,
 		            INT(af.location) = APPLY_STR;
 		            af.modifier  = -1;
 		            af.bitvector = AFF_POISON;
+			    af.owner	 = NULL;
 		            affect_join(victim, &af);
 		      	 }
 
@@ -2803,7 +2813,7 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *arrow,
 				af.bitvector = 0;
 			  else
 				af.bitvector = AFF_CORRUPTION;
-
+			  af.owner	= NULL;
 			  affect_join(victim, &af);
 
 			  obj_to_char(arrow,victim);
@@ -3109,8 +3119,6 @@ void do_revert(CHAR_DATA *ch, const char *argument)
 
 	if (ch->shapeform)
 		revert(ch);
-
-
 }
 
 void do_throw_weapon(CHAR_DATA *ch, const char *argument)
@@ -3434,6 +3442,7 @@ void do_settraps(CHAR_DATA *ch, const char *argument)
 	  af2.where     = TO_AFFECTS;
 	  af2.type      = "settraps";
 	  af2.level	= ch->level;
+	  af2.owner	= NULL;
 	
 	  if (!IS_IMMORTAL(ch) && IS_PUMPED(ch))
 	  	af2.duration  = 1;
@@ -3506,6 +3515,7 @@ void do_thumbling(CHAR_DATA *ch, const char *argument)
 	af.level	= ch->level;
 	af.duration	= -1;
 	af.bitvector	= 0;
+	af.owner	= NULL;
 
 	if (attack) {
 		af.modifier	= ch->level / 3;
@@ -3554,7 +3564,7 @@ void do_forest(CHAR_DATA* ch, const char* argument)
 		}
 	}
 
-	if (!str_prefix(arg, "defence"))
+	if (!str_prefix(arg, "defense"))
 		attack = FALSE;
 	else if (!str_prefix(arg, "attack"))
 		attack = TRUE;
@@ -3571,6 +3581,7 @@ void do_forest(CHAR_DATA* ch, const char* argument)
 	af.level 	= ch->level;
 	af.duration	= -1;
 	af.bitvector	= 0;
+	af.owner	= NULL;
 
 	if (attack) {
 		af.modifier	= ch->level/8;
@@ -3620,6 +3631,7 @@ void do_breathhold(CHAR_DATA *ch, const char *argument)
 		INT(af.location)= APPLY_NONE;
 		af.modifier	= 0;
 		af.bitvector	= 0;
+		af.owner	= NULL;
 		affect_to_char(ch, &af); 
 	}
 	else {

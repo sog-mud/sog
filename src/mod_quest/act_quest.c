@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.135 2000-01-31 08:23:31 kostik Exp $
+ * $Id: act_quest.c,v 1.136 2000-02-19 14:26:59 avn Exp $
  */
 
 #include <sys/types.h>
@@ -1030,6 +1030,7 @@ static bool buy_katana(CHAR_DATA *ch, CHAR_DATA *questor)
 	af.modifier	= 0;
 	af.bitvector	= WEAPON_KATANA;
 	INT(af.location)= APPLY_NONE;
+	af.owner	= NULL;
 	affect_to_obj(katana, &af);
 	act_puts("    As you wield it, you will feel that its power will "
 		 "increase continuosly.", questor, NULL, ch, TO_VICT, POS_DEAD);

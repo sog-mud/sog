@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.203 2000-02-10 14:08:34 fjoe Exp $
+ * $Id: act_obj.c,v 1.204 2000-02-19 14:26:57 avn Exp $
  */
 
 /***************************************************************************
@@ -727,6 +727,7 @@ void do_envenom(CHAR_DATA * ch, const char *argument)
 			INT(af.location) = 0;
 			af.modifier = 0;
 			af.bitvector = WEAPON_POISON;
+			af.owner	= NULL;
 			affect_to_obj(obj, &af);
 
 			act("$n coats $p with deadly venom.", ch, obj, NULL,
@@ -803,6 +804,7 @@ void do_feed(CHAR_DATA *ch, const char *argument)
 		af.level	= obj->level;
 		af.modifier	= 0;
 		INT(af.location)= 0;
+		af.owner	= NULL;
 
 		if (what < 10) {
 			af.where	= TO_AFFECTS;
@@ -879,6 +881,7 @@ void do_feed(CHAR_DATA *ch, const char *argument)
 	af.modifier	= 0;
 	af.bitvector	= 0;
 	INT(af.location)= APPLY_NONE;
+	af.owner	= NULL;
 	affect_to_char(ch, &af);
 	extract_obj(obj, 0);
 }
@@ -1150,6 +1153,7 @@ void do_drink(CHAR_DATA * ch, const char *argument)
 		INT(af.location) = APPLY_NONE;
 		af.modifier = 0;
 		af.bitvector = AFF_POISON;
+		af.owner	= NULL;
 		affect_join(ch, &af);
 	}
 	if (INT(obj->value[0]) > 0)
@@ -1227,6 +1231,7 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 			INT(af.location) = APPLY_NONE;
 			af.modifier = 0;
 			af.bitvector = AFF_POISON;
+			af.owner	= NULL;
 			affect_join(ch, &af);
 		}
 		if (IS_OBJ_STAT(obj, ITEM_MAGIC)) {
@@ -1244,6 +1249,7 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 				INT(af.location) = APPLY_HITROLL;
 				af.modifier = -4;
 				af.bitvector = AFF_BLIND;
+				af.owner	= NULL;
 				affect_join(ch, &af);
 			}
 		}
@@ -2298,6 +2304,7 @@ void do_herbs(CHAR_DATA * ch, const char *argument)
 		INT(af.location) = APPLY_NONE;
 		af.modifier = 0;
 		af.bitvector = 0;
+		af.owner	= NULL;
 
 		if (!IS_NPC(ch)) affect_to_char(ch, &af);
 
@@ -2751,6 +2758,7 @@ void do_crucify(CHAR_DATA *ch, const char *argument)
 		af.duration	= 15;
 		af.modifier	= UMAX(1, obj->level/8);
 		af.bitvector	= AFF_BERSERK;
+		af.owner	= NULL;
 
 		INT(af.location)= APPLY_HITROLL;
 		affect_to_char(ch, &af);

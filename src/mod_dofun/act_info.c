@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.328 2000-02-10 14:08:32 fjoe Exp $
+ * $Id: act_info.c,v 1.329 2000-02-19 14:26:55 avn Exp $
  */
 
 /***************************************************************************
@@ -583,6 +583,7 @@ void do_look(CHAR_DATA *ch, const char *argument)
 			af.duration =  number_fuzzy(victim->level / 4);
 			af.bitvector = AFF_CHARM;
 			af.modifier = 0;
+			af.owner = NULL;
 			INT(af.location) = 0;
 			affect_to_char(ch, &af);
 
@@ -1833,6 +1834,7 @@ void do_request(CHAR_DATA *ch, const char *argument)
 	INT(af.location) = APPLY_NONE;
 	af.modifier = 0;
 	af.bitvector = 0;
+	af.owner = NULL;
 	affect_to_char(ch, &af);
 }
 
@@ -1937,6 +1939,7 @@ void do_detect_hidden(CHAR_DATA *ch, const char *argument)
 	INT(af.location) = APPLY_NONE;
 	af.modifier  = 0;
 	af.bitvector = ID_HIDDEN;
+	af.owner     = NULL;
 	affect_to_char(ch, &af);
 	char_puts("Your awareness improves.\n", ch);
 	check_improve(ch, "detect hide", TRUE, 1);
@@ -1971,6 +1974,7 @@ void do_awareness(CHAR_DATA *ch, const char *argument)
 	INT(af.location) = APPLY_NONE;
 	af.modifier  = 0;
 	af.bitvector = ID_BLEND | ID_CAMOUFLAGE;
+	af.owner     = NULL;
 	affect_to_char(ch, &af);
 
 	affect_to_char(ch, &af);
@@ -2078,6 +2082,7 @@ void do_bear_call(CHAR_DATA *ch, const char *argument)
 	af.bitvector	= 0;
 	af.modifier	= 0;
 	INT(af.location)= APPLY_NONE;
+	af.owner	= NULL;
 	affect_to_char(ch, &af);
 
 	char_to_room(bear, ch->in_room);
@@ -2778,6 +2783,7 @@ void do_lion_call(CHAR_DATA *ch, const char *argument)
 	af.bitvector	= 0;
 	af.modifier	= 0;
 	INT(af.location)= APPLY_NONE;
+	af.owner	= NULL;
 	affect_to_char(ch, &af);
 
 	char_to_room(lion, ch->in_room);
@@ -3424,6 +3430,7 @@ void do_camp(CHAR_DATA *ch, const char *argument)
 	af.bitvector	= 0;
 	af.modifier	= 0;
 	INT(af.location)= APPLY_NONE;
+	af.owner	= NULL;
 	affect_to_char(ch, &af);
 
 	af.where	= TO_ROOM_CONST;
@@ -3706,6 +3713,7 @@ void do_make_arrow(CHAR_DATA *ch, const char *argument)
 		INT(af.location) = APPLY_HITROLL;
 		af.modifier	 = LEVEL(ch) / 10;
 		af.bitvector 	 = 0;
+		af.owner	 = NULL;
 		affect_to_obj(arrow, &af);
 
 		INT(af.location) = APPLY_DAMROLL;
@@ -3768,6 +3776,7 @@ void do_make_bow(CHAR_DATA *ch, const char *argument)
 	INT(af.location)= APPLY_HITROLL;
 	af.modifier	= LEVEL(ch) / 10;
 	af.bitvector 	= 0;
+	af.owner	= NULL;
 	affect_to_obj(bow, &af);
 
 	INT(af.location)= APPLY_DAMROLL;
@@ -3850,6 +3859,7 @@ void do_homepoint(CHAR_DATA *ch, const char *argument)
         af.bitvector    = 0;
         af.modifier     = 0;
         INT(af.location)= APPLY_NONE;
+	af.owner	= NULL;
         affect_to_char(ch, &af);
 
         argument = one_argument(argument, arg, sizeof(arg));

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.228 2000-02-10 14:08:36 fjoe Exp $
+ * $Id: act_wiz.c,v 1.229 2000-02-19 14:26:58 avn Exp $
  */
 
 /***************************************************************************
@@ -2333,6 +2333,7 @@ void do_peace(CHAR_DATA *ch, const char *argument)
 			INT(af.location) = APPLY_NONE;
 			af.modifier = 0;
 			af.bitvector = AFF_CALM;
+			af.owner	= NULL;
 			affect_to_char(rch, &af);
 		}
 	}
@@ -3884,18 +3885,24 @@ void do_noaffect(CHAR_DATA *ch, const char *argument)
 void do_affrooms(CHAR_DATA *ch, const char *argument)
 {
 	ROOM_INDEX_DATA *room;
-	ROOM_INDEX_DATA *room_next;
+	CHAR_DATA	*rch;
+	OBJ_DATA	*obj;
+	BUFFER		*buf;
+	
 	AFFECT_DATA *af;
 	int count = 0;
 
-	if (!top_affected_room) 
-		char_puts("No affected rooms.\n", ch);
+	buf = buf_new(-1);
 
-	for (room = top_affected_room; room ; room = room_next) {
-		room_next = room->aff_next;
+	if (!top_affected_room) 
+		buf_add(buf, "No affected rooms.\n");
+	else
+		buf_add(buf, "Affected rooms:\n");
+
+	for (room = top_affected_room; room ; room = room->aff_next)
 		for (af = room->affected; af; af = af->next) {
 			count++;
-			char_printf(ch,
+			buf_printf(buf,
 				    "%d) [Vnum: %5d] "
 				    "spell '{c%s{x', owner: %s, level {c%d{x "
 				    "for {c%d{x hours.\n",
@@ -3906,7 +3913,52 @@ void do_affrooms(CHAR_DATA *ch, const char *argument)
 				    af->level,
 				    af->duration);
 		}
-	}
+
+	count = 0;
+	if (!top_affected_char) 
+		buf_add(buf, "No characters under owned affects.\n");
+	else
+		buf_add(buf, "Characters under owned affects:\n");
+
+	for (rch = top_affected_char; rch ; rch = rch->aff_next)
+		for (af = rch->affected; af; af = af->next) {
+			if (!af->owner)
+				continue;
+			count++;
+			buf_printf(buf,
+				    "%d) [%s] "
+				    "spell '{c%s{x', owner: %s, level {c%d{x "
+				    "for {c%d{x hours.\n",
+				    count,
+				    mlstr_mval(&rch->short_descr),
+				    af->type,
+				    mlstr_mval(&af->owner->short_descr),
+				    af->level,
+				    af->duration);
+		}
+
+	count = 0;
+	if (!top_affected_obj) 
+		buf_add(buf, "No objects under owned affects.\n");
+	else
+		buf_add(buf, "Objects under owned affects:\n");
+
+	for (obj = top_affected_obj; obj ; obj = obj->aff_next)
+		for (af = obj->affected; af; af = af->next) {
+			count++;
+			buf_printf(buf,
+				    "%d) [Vnum: %5d] "
+				    "spell '{c%s{x', owner: %s, level {c%d{x "
+				    "for {c%d{x hours.\n",
+				    count,
+				    obj->pObjIndex->vnum,
+				    af->type,
+				    mlstr_mval(&af->owner->short_descr),
+				    af->level,
+				    af->duration);
+		}
+	page_to_char(buf_string(buf), ch);
+	buf_free(buf);
 }
 
 void do_grant(CHAR_DATA *ch, const char *argument)
@@ -4087,6 +4139,7 @@ void do_qtarget(CHAR_DATA *ch, const char *argument)
 	af.modifier	= high;
 	af.bitvector	= AFF_QUESTTARGET;
 	INT(af.location)= APPLY_NONE;
+	af.owner	= NULL;
 	affect_to_char(vch, &af);
 }
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_magic.c,v 1.23 2000-02-10 14:08:39 fjoe Exp $
+ * $Id: act_magic.c,v 1.24 2000-02-19 14:26:58 avn Exp $
  */
 
 #include <stdio.h>
@@ -471,6 +471,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 			af.duration	= 0;
 			af.modifier	= 0;
 			INT(af.location)= APPLY_NONE;
+			af.owner	= NULL;
 			af.bitvector	= 0;
 
 			affect_to_char(ch, &af);
