@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.71 1998-10-13 12:38:08 fjoe Exp $
+ * $Id: save.c,v 1.72 1998-10-14 11:04:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -445,12 +445,14 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 
 	fprintf(fp, "Nest %d\n", iNest);
 
-	if (str_cmp(obj->name, obj->pIndexData->name) != 0)
-		fprintf(fp, "Name %s~\n", obj->name);
-	if (mlstr_cmp(obj->short_descr, obj->pIndexData->short_descr) != 0)
-		mlstr_fwrite(fp, "ShD", obj->short_descr);
-	if (mlstr_cmp(obj->description, obj->pIndexData->description) != 0)
-		mlstr_fwrite(fp, "Desc", obj->description);
+	if (obj->pIndexData->limit < 0) {
+		if (str_cmp(obj->name, obj->pIndexData->name))
+			fprintf(fp, "Name %s~\n", obj->name);
+		if (mlstr_cmp(obj->short_descr, obj->pIndexData->short_descr))
+			mlstr_fwrite(fp, "ShD", obj->short_descr);
+		if (mlstr_cmp(obj->description, obj->pIndexData->description))
+			mlstr_fwrite(fp, "Desc", obj->description);
+	}
 
 	if (obj->extra_flags != obj->pIndexData->extra_flags)
 		fprintf(fp, "ExtF %d\n", obj->extra_flags);

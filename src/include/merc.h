@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.98 1998-10-13 12:38:07 fjoe Exp $
+ * $Id: merc.h,v 1.99 1998-10-14 11:04:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1870,6 +1870,8 @@ extern		bool			MOBtrigger;
  * Our function prototypes.
  * One big lump ... this is every function in Merc.
  */
+
+void	handle_death(CHAR_DATA *ch, CHAR_DATA *victim);
 
 /* act_hera.c */
 /* enter.c */

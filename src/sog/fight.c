@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.85 1998-10-13 12:38:05 fjoe Exp $
+ * $Id: fight.c,v 1.86 1998-10-14 11:04:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -92,7 +92,7 @@ int	critical_strike		(CHAR_DATA *ch, CHAR_DATA *victim, int dam);
 void	check_shield_destroyed	(CHAR_DATA *ch, CHAR_DATA *victim, bool second);
 void	check_weapon_destroyed	(CHAR_DATA *ch, CHAR_DATA *victim, bool second);
 
-static void handle_death	(CHAR_DATA *ch, CHAR_DATA *victim);
+void	handle_death		(CHAR_DATA *ch, CHAR_DATA *victim);
 
 /*
  * Gets all money from the corpse.
@@ -861,6 +861,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool secondary)
 			char_puts("You have been KILLED!\n\r", victim);
 			act("$n is DEAD!", victim, NULL, NULL, TO_ROOM);
 			WAIT_STATE(ch, 2);
+			victim->position = POS_DEAD;
 			handle_death(ch, victim);
 			return;
 		}
@@ -881,6 +882,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool secondary)
 			char_puts("You have been KILLED!\n\r", victim);
 			act("$n is DEAD!", victim, NULL, victim, TO_ROOM);
 			check_improve(ch, gsn_assassinate, TRUE, 1);
+			victim->position = POS_DEAD;
 			handle_death(ch, victim);
 			return;
 		}
@@ -1034,7 +1036,7 @@ void delete_player(CHAR_DATA *victim, char* msg)
 /*
  * handle_death - called from `damage' if `ch' has killed `victim'
  */
-static void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
+void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	bool vnpc = IS_NPC(victim);
 	OBJ_DATA *corpse;

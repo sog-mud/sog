@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.74 1998-10-10 06:25:05 fjoe Exp $
+ * $Id: act_wiz.c,v 1.75 1998-10-14 11:04:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2773,6 +2773,11 @@ void do_string(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 		
+		if (obj->pIndexData->limit >= 0) {
+			char_puts("You cannot string limited objs.\n\r", ch);
+			return;
+		}
+
 		if (!str_prefix(arg2, "name")) {
 			free_string(obj->name);
 			obj->name = str_dup(arg3);
