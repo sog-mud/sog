@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.28 2000-11-21 16:47:03 osya Exp $
+ * $Id: act_info.c,v 1.271.2.29 2000-11-22 08:50:08 osya Exp $
  */
 
 /***************************************************************************
@@ -4829,7 +4829,7 @@ void do_acute_vision(CHAR_DATA *ch, const char *argument)
 	int		chance;
 	int		sn;
 
-	if ((sn = sn_lookup("acute vision")) < 0
+	if ((sn = sn_lookup("acute eye")) < 0
 	||  (chance = get_skill(ch, sn)) == 0) {
 		char_puts("Huh?\n", ch);
 		return;
