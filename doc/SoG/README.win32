@@ -2,30 +2,30 @@
 
 (Note: this text is in russian windows-1251 encoding)
 
-Данный порт Muddy Realms под WIN32 (Windows95/98/NT - not 3.11!) сделан
+Данный порт Shades of Gray Realms под WIN32 (Windows95/98/NT - not 3.11!) сделан
 Tim Yunaev (tyunaev@usa.net), оптимизирован под Microsoft (suxx) Visual
 C++ 4.0 (4.2 recommended), либо 5.0. Теоретически, без особых проблем
 должен перенестись под любой другой полноценный WIN32 компилятор, умеющий
 создавать console application (Watcom, Borland и т.д.). Единственное, что,
 возможно, придется изменить - это определение int64 в файле typedef.h
 
-Что надо сделать, чтобы собрать Muddy Realms с помощью MSVC:
+Что надо сделать, чтобы собрать Shades of Gray Realms с помощью MSVC:
 
-1. Создать пустой проект (console application), назвать muddy. Все установки
+1. Создать пустой проект (console application), назвать sog. Все установки
 	 оставить по умолчанию.
-2. Скопировать в каталог Projects\muddy все файлы (и каталоги) из каталога
+2. Скопировать в каталог Projects\sog все файлы (и каталоги) из каталога
    src.
 3. Залезть в меню Tools/Options и добавить в список Directories сам каталог 
-   muddy и его подкаталоги olc, msg, comm, compat.
+   sog и его подкаталоги olc, msg, comm, compat.
 4. Залезть в меню Build / Project Settings и во вкладке Link в списке
    подключаемых библиотек дописать wsock32.lib
 5. Залезть в меню Build / Set default configuration и поставить Release 
    default-конфигурацией (можно собрать и Debug - exe-шник будет вдвое больше
 	 и вдесятеро тормознее, впрочем, хозяин - барин) 
-6. Скопировать файл resource.h из каталога msdgb в каталог muddy.
+6. Скопировать файл resource.h из каталога msdgb в каталог sog.
 7. Запустить компиляцию, мысленно пожелав мне побольше хорошего пива.
-8. Готовый exe-шник перенести в каталог muddy родного дистрибутива.
-   Запустить можно так: muddy.exe 9000 
+8. Готовый exe-шник перенести в каталог sog родного дистрибутива.
+   Запустить можно так: sog.exe 
 	 (9000 - порт, на котором будет висеть муд).
 9. Все.
 
