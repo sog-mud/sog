@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_damtype.c,v 1.7 2001-08-14 16:07:02 fjoe Exp $
+ * $Id: olc_damtype.c,v 1.8 2001-08-25 04:46:53 fjoe Exp $
  */
 
 /*
@@ -38,7 +38,7 @@
 
 #include "olc.h"
 
-#define EDIT_DAMT(ch, d)	(d = (damtype_t*) ch->desc->pEdit)
+#define EDIT_DAMT(ch, d)	(d = (damtype_t *) ch->desc->pEdit)
 
 DECLARE_OLC_FUN(damted_create		);
 DECLARE_OLC_FUN(damted_edit		);

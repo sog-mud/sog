@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.96 2001-08-22 20:45:49 fjoe Exp $
+ * $Id: olc_obj.c,v 1.97 2001-08-25 04:46:55 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -34,7 +34,7 @@
 
 #include <quest.h>
 
-#define EDIT_OBJ(ch, obj)	(obj = (OBJ_INDEX_DATA*) ch->desc->pEdit)
+#define EDIT_OBJ(ch, obj)	(obj = (OBJ_INDEX_DATA *) ch->desc->pEdit)
 
 DECLARE_OLC_FUN(objed_create		);
 DECLARE_OLC_FUN(objed_edit		);

@@ -23,12 +23,12 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_skill.c,v 1.24 2001-08-14 16:07:06 fjoe Exp $
+ * $Id: olc_skill.c,v 1.25 2001-08-25 04:46:57 fjoe Exp $
  */
 
 #include "olc.h"
 
-#define EDIT_SKILL(ch, sk)	(sk = (skill_t*) ch->desc->pEdit)
+#define EDIT_SKILL(ch, sk)	(sk = (skill_t *) ch->desc->pEdit)
 
 DECLARE_OLC_FUN(skilled_create		);
 DECLARE_OLC_FUN(skilled_edit		);

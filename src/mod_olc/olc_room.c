@@ -23,12 +23,12 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.93 2001-08-20 16:47:35 fjoe Exp $
+ * $Id: olc_room.c,v 1.94 2001-08-25 04:46:56 fjoe Exp $
  */
 
 #include "olc.h"
 
-#define EDIT_ROOM(ch, room)	(room = (ROOM_INDEX_DATA*) ch->desc->pEdit)
+#define EDIT_ROOM(ch, room)	(room = (ROOM_INDEX_DATA *) ch->desc->pEdit)
 
 DECLARE_DO_FUN(do_resets);
 

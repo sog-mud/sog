@@ -23,12 +23,12 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_spec.c,v 1.13 2001-08-22 20:45:49 fjoe Exp $
+ * $Id: olc_spec.c,v 1.14 2001-08-25 04:46:57 fjoe Exp $
  */
 
 #include "olc.h"
 
-#define EDIT_SPEC(ch, spec)	(spec = (spec_t*) ch->desc->pEdit)
+#define EDIT_SPEC(ch, spec)	(spec = (spec_t *) ch->desc->pEdit)
 
 DECLARE_OLC_FUN(speced_create		);
 DECLARE_OLC_FUN(speced_edit		);

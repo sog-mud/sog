@@ -23,12 +23,12 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_material.c,v 1.19 2001-08-14 16:07:03 fjoe Exp $
+ * $Id: olc_material.c,v 1.20 2001-08-25 04:46:54 fjoe Exp $
  */
 
 #include "olc.h"
 
-#define EDIT_MAT(ch, mat)	(mat = (material_t*) ch->desc->pEdit)
+#define EDIT_MAT(ch, mat)	(mat = (material_t *) ch->desc->pEdit)
 
 DECLARE_OLC_FUN(mated_create		);
 DECLARE_OLC_FUN(mated_edit		);

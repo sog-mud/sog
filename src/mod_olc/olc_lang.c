@@ -23,14 +23,14 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_lang.c,v 1.33 2001-08-22 12:43:13 fjoe Exp $
+ * $Id: olc_lang.c,v 1.34 2001-08-25 04:46:53 fjoe Exp $
  */
 
 #include "olc.h"
 
 #include <lang.h>
 
-#define EDIT_LANG(ch, l)	(l = (lang_t*) (ch->desc->pEdit))
+#define EDIT_LANG(ch, l)	(l = (lang_t *) (ch->desc->pEdit))
 
 DECLARE_OLC_FUN(langed_create	);
 DECLARE_OLC_FUN(langed_edit	);

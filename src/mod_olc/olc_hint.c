@@ -23,14 +23,14 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_hint.c,v 1.6 2001-08-14 16:07:03 fjoe Exp $
+ * $Id: olc_hint.c,v 1.7 2001-08-25 04:46:53 fjoe Exp $
  */
 
 #include "olc.h"
 
 #include <lang.h>
 
-#define EDIT_HINT(ch, hint)	(hint = (hint_t*) ch->desc->pEdit)
+#define EDIT_HINT(ch, hint)	(hint = (hint_t *) ch->desc->pEdit)
 
 DECLARE_OLC_FUN(hinted_create		);
 DECLARE_OLC_FUN(hinted_edit		);

@@ -23,12 +23,12 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_liquid.c,v 1.17 2001-08-14 16:07:03 fjoe Exp $
+ * $Id: olc_liquid.c,v 1.18 2001-08-25 04:46:54 fjoe Exp $
  */
 
 #include "olc.h"
 
-#define EDIT_LIQ(ch, lq)	(lq = (liquid_t*) ch->desc->pEdit)
+#define EDIT_LIQ(ch, lq)	(lq = (liquid_t *) ch->desc->pEdit)
 
 DECLARE_OLC_FUN(liqed_create		);
 DECLARE_OLC_FUN(liqed_edit		);

@@ -23,12 +23,12 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.82 2001-08-22 20:45:48 fjoe Exp $
+ * $Id: olc_mob.c,v 1.83 2001-08-25 04:46:54 fjoe Exp $
  */
 
 #include "olc.h"
 
-#define EDIT_MOB(ch, mob)	(mob = (MOB_INDEX_DATA*) ch->desc->pEdit)
+#define EDIT_MOB(ch, mob)	(mob = (MOB_INDEX_DATA *) ch->desc->pEdit)
 
 /*
  * Mobile Editor Prototypes

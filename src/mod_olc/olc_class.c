@@ -23,12 +23,12 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_class.c,v 1.29 2001-08-14 16:07:02 fjoe Exp $
+ * $Id: olc_class.c,v 1.30 2001-08-25 04:46:52 fjoe Exp $
  */
 
 #include "olc.h"
 
-#define EDIT_CLASS(ch, class)	(class = (class_t*) ch->desc->pEdit)
+#define EDIT_CLASS(ch, class)	(class = (class_t *) ch->desc->pEdit)
 
 DECLARE_OLC_FUN(classed_create		);
 DECLARE_OLC_FUN(classed_edit		);

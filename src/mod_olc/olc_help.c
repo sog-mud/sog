@@ -23,12 +23,12 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_help.c,v 1.47 2001-08-14 16:07:02 fjoe Exp $
+ * $Id: olc_help.c,v 1.48 2001-08-25 04:46:53 fjoe Exp $
  */
 
 #include "olc.h"
 
-#define EDIT_HELP(ch, help)	(help = (HELP_DATA*) ch->desc->pEdit)
+#define EDIT_HELP(ch, help)	(help = (HELP_DATA *) ch->desc->pEdit)
 
 DECLARE_OLC_FUN(helped_create		);
 DECLARE_OLC_FUN(helped_edit		);

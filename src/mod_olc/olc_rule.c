@@ -23,16 +23,16 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_rule.c,v 1.35 2001-08-14 16:07:06 fjoe Exp $
+ * $Id: olc_rule.c,v 1.36 2001-08-25 04:46:56 fjoe Exp $
  */
 
 #include "olc.h"
 
 #include <lang.h>
 
-#define EDIT_RULE(ch, r)	(r = (rule_t*) ch->desc->pEdit)
-#define EDIT_RCL(ch, rcl)	(rcl = (rulecl_t*) ch->desc->pEdit2)
-#define EDIT_ROPS(ch, rops)	(rops = (ruleops_t*) cmd->arg1)
+#define EDIT_RULE(ch, r)	(r = (rule_t *) ch->desc->pEdit)
+#define EDIT_RCL(ch, rcl)	(rcl = (rulecl_t *) ch->desc->pEdit2)
+#define EDIT_ROPS(ch, rops)	(rops = (ruleops_t *) cmd->arg1)
 #define EDIT_LANG(ch, l)						\
 	{								\
 		if ((l = varr_get(&langs, GET_LANG(ch))) == NULL) {	\

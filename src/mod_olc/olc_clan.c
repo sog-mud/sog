@@ -23,12 +23,12 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_clan.c,v 1.49 2001-08-20 16:47:34 fjoe Exp $
+ * $Id: olc_clan.c,v 1.50 2001-08-25 04:46:52 fjoe Exp $
  */
 
 #include "olc.h"
 
-#define EDIT_CLAN(ch, clan)	(clan = (clan_t*) ch->desc->pEdit)
+#define EDIT_CLAN(ch, clan)	(clan = (clan_t *) ch->desc->pEdit)
 
 DECLARE_OLC_FUN(claned_create		);
 DECLARE_OLC_FUN(claned_edit		);
