@@ -792,6 +792,24 @@ A
 A
 19 4
 G none
+#36196
+~
+~
+~
+unknown~
+container 0 0
+0 0 0 0 0
+0 0 0 P
+G none
+#36197
+pill green healing~
+{Ggreen pill{x~
+Bright yellow pill has been forgotten here.~
+unknown~
+pill 0 A
+300 'master healing' 'mana restore' 'mana restore' 'assist'
+10 0 0 P
+G none
 #36198
 pill yellow detection~
 {Yyellow pill{x~
