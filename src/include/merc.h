@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.234.2.34 2002-10-18 09:12:56 tatyana Exp $
+ * $Id: merc.h,v 1.234.2.35 2002-10-22 21:14:45 tatyana Exp $
  */
 
 /***************************************************************************
@@ -2396,6 +2396,7 @@ extern bool (*olc_interpret)(DESCRIPTOR_DATA *d, const char *argument);
 void	gain_condition	(CHAR_DATA *ch, int iCond, int value);
 void	update_handler	(void);
 void	char_update	(void);
+void	bmlist_update	(void);
 void	area_update	(void);
 void	room_update	(void);
 void	track_update	(void);

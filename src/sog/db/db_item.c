@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_item.c,v 1.1.2.1 2002-10-16 11:30:06 tatyana Exp $
+ * $Id: db_item.c,v 1.1.2.2 2002-10-22 21:15:09 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -132,6 +132,9 @@ DBLOAD_FUN(load_black_market)
 			}
 			break;
 
+		case 'I':
+			KEY("ItemTimer", item->timer, fread_number(fp));
+			break;
 		case 'L':
 			KEY("Lev", obj->level, fread_number(fp));
 			break;

@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.64.2.10 2002-10-18 09:13:02 tatyana Exp $
+ * $Id: recycle.c,v 1.64.2.11 2002-10-22 21:15:03 tatyana Exp $
  */
 
 /***************************************************************************
@@ -813,6 +813,7 @@ bmitem_new(void)
 	item->buyer = str_empty;
 	item->seller = str_empty;
 	item->bet = 100;
+	item->timer = 0;
 	return item;
 }
 

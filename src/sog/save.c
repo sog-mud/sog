@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.126.2.15 2002-10-16 11:30:03 tatyana Exp $
+ * $Id: save.c,v 1.126.2.16 2002-10-22 21:15:03 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1349,6 +1349,7 @@ void save_black_market()
 		fwrite_string(fp, "Seller", item->seller);
 		fwrite_string(fp, "Buyer", item->buyer);
 		fprintf(fp, "Bet %d\n", item->bet);
+		fprintf(fp, "ItemTimer %d\n", item->timer);
 		fprintf(fp, "End\n\n");
 	}
 	fprintf(fp, "#$\n");

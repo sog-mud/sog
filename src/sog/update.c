@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.46 2002-09-09 19:26:38 tatyana Exp $
+ * $Id: update.c,v 1.157.2.47 2002-10-22 21:15:04 tatyana Exp $
  */
 
 /***************************************************************************
@@ -51,6 +51,7 @@
 #include "chquest.h"
 #include "auction.h"
 #include "quest.h"
+#include "bm.h"
 
 void	hatchout_dragon		(CHAR_DATA *ch, AFFECT_DATA *paf);
 
@@ -61,16 +62,16 @@ int	hit_gain	(CHAR_DATA *ch);
 int	mana_gain	(CHAR_DATA *ch);
 int	move_gain	(CHAR_DATA *ch);
 void	mobile_update	(void);
-void	weather_update	(void);
-void	char_update	(void);
-void	obj_update	(void);
 void	aggr_update	(void);
-void 	clan_item_update(void);
 int	potion_cure_level	(OBJ_DATA *potion);
 int	potion_arm_level	(OBJ_DATA *potion);
 bool	potion_cure_blind	(OBJ_DATA *potion);
 bool	potion_cure_poison	(OBJ_DATA *potion);
 bool	potion_cure_disease	(OBJ_DATA *potion);
+
+/* black market functions */
+void	bmlist_update	(void);
+void	sell_item(bmitem_t *item);
 
 /* below done by chronos */
 void    quest_update    args((void));
@@ -2046,9 +2047,10 @@ void update_handler(void)
 
 		wiznet("CHAR TICK!", NULL, NULL, WIZ_TICKS, 0, 0);
 		pulse_point = PULSE_TICK;
+		bmlist_update();
 		weather_update();
 		char_update();
-		quest_update(); 
+		quest_update();
 		obj_update();
 		if (time_info.hour == 0)
 			clan_item_update();
@@ -2408,6 +2410,109 @@ void check_fishing()
 			char_puts("You feel a very solid pull on your line!\n", ch);
 			SET_BIT(PC(ch)->plr_flags, PLR_FISH_ON);
 			SET_FIGHT_TIME(ch);
+		}
+	}
+}
+
+void
+bmlist_update(void)
+{
+	bmitem_t *item, *item_next, *item_prev = NULL;
+
+	for (item = bmitem_list; item != NULL; item = item_next) {
+		item_next = item->next;
+
+		if (++item->timer < TIME_FINISH) {
+			item_prev = item;
+			continue;
+		} else if (!IS_NULLSTR(item->buyer) &&
+			   item->bet >= FINISH_PRICE(item->obj)) {
+			sell_item(item);
+			if (item_prev == NULL)
+				bmitem_list = bmitem_list->next;
+			else
+				item_prev->next = item->next;
+			bmitem_free(item);
+			save_black_market();
+			continue;
+		}
+
+		if (item->timer < TIME_HASBET) {
+			item_prev = item;
+			continue;
+		} else if (!IS_NULLSTR(item->buyer)) {
+			sell_item(item);
+			if (item_prev == NULL)
+				bmitem_list = bmitem_list->next;
+			else
+				item_prev->next = item->next;
+			bmitem_free(item);
+			save_black_market();
+			continue;
+		}
+
+		if (item->timer < TIME_NOBET) {
+			item_prev = item;
+			continue;
+		} else {
+			sell_item(item);
+			if (item_prev == NULL)
+				bmitem_list = bmitem_list->next;
+			else
+				item_prev->next = item->next;
+			bmitem_free(item);
+			save_black_market();
+		}
+	}
+}
+void
+sell_item(bmitem_t *item)
+{
+
+	CHAR_DATA *seller, *buyer;
+	bool no_seller, no_buyer, loaded_seller, loaded_buyer;
+
+	no_seller = no_buyer = loaded_seller = loaded_buyer = FALSE;
+
+	if (IS_NULLSTR(item->buyer)) {
+		if ((seller = get_char_world(NULL, item->seller)) == NULL) {
+			if ((seller = char_load(item->seller, LOAD_F_NOCREATE)) == NULL)
+				no_seller = TRUE;
+			else
+				loaded_seller = TRUE;
+		}
+		if (!no_seller && !IS_NPC(seller))
+			send_notice(seller, item, NOTICE_SELLER);
+		extract_obj(item->obj, 0);
+	} else {
+		if ((seller = get_char_world(NULL, item->seller)) == NULL) {
+			if ((seller = char_load(item->seller, LOAD_F_NOCREATE)) == NULL)
+				no_seller = TRUE;
+			else
+				loaded_seller = TRUE;
+		}
+		if ((buyer = get_char_world(NULL, item->buyer)) == NULL) {
+			if ((buyer = char_load(item->buyer, LOAD_F_NOCREATE)) == NULL)
+				no_buyer = TRUE;
+			else
+				loaded_buyer = TRUE;
+		}
+		if (!no_seller && !IS_NPC(seller)) {
+			PC(seller)->bank_g += item->bet;
+			send_notice(seller, item, NOTICE_SELLER);
+			if (loaded_seller) {
+				char_save(seller, SAVE_F_PSCAN);
+				char_nuke(seller);
+			}
+		}
+
+		if (!no_buyer && !IS_NPC(buyer)) {
+			send_notice(buyer, item, NOTICE_BUYER);
+			obj_to_char(item->obj, buyer);
+			if (loaded_buyer) {
+				char_save(buyer, SAVE_F_PSCAN);
+				char_nuke(buyer);
+			}
 		}
 	}
 }

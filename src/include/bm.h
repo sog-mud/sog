@@ -31,7 +31,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: bm.h,v 1.1.2.1 2002-10-16 11:29:56 tatyana Exp $
+ * $Id: bm.h,v 1.1.2.2 2002-10-22 21:14:44 tatyana Exp $
  */
 
 #ifndef _BM_H_
@@ -44,13 +44,26 @@ struct bmitem_t
 	const char	*seller;
 	const char	*buyer;
 	int		bet;
+	int		timer;
 	bmitem_t	*next;
 };
 
 bmitem_t *bmitem_new(void);
 void bmitem_free(bmitem_t *item);
 void save_black_market(void);
+void send_notice(CHAR_DATA *victim, bmitem_t *item, int type);
 
 extern bmitem_t *bmitem_list;
+
+#define FINISH_PRICE(obj)		((obj->level + 9) * 100)
+#define START_PRICE(obj)		((obj->level + 9) * 20)
+
+#define TIME_NOBET		1500
+#define TIME_HASBET		500
+#define TIME_FINISH		50
+
+#define NOTICE_BUYER		1
+#define NOTICE_BET		2
+#define NOTICE_SELLER		3
 
 #endif /* _BM_H_ */

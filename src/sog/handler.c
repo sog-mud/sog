@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.61 2002-09-25 06:13:11 tatyana Exp $
+ * $Id: handler.c,v 1.182.2.62 2002-10-22 21:14:56 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1895,6 +1895,20 @@ CHAR_DATA *get_char_world(CHAR_DATA *ch, const char *argument)
 	number = number_argument(argument, arg, sizeof(arg));
 	if (!number)
 		return NULL;
+
+	if (ch == NULL) {
+		if (arg[0] == '\0')
+			return NULL;
+		for (wch = char_list; wch; wch = wch->next) {
+			if (!wch->in_room
+			||  !is_name(arg, wch->name))
+				continue;
+
+			if (!--number)
+				return wch;
+		}
+		return NULL;
+	}
 
 	if ((wch = get_char_room_raw(ch, arg, &number, ch->in_room)))
 		return wch;

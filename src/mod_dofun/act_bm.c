@@ -31,7 +31,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_bm.c,v 1.1.2.5 2002-10-22 08:39:32 tatyana Exp $
+ * $Id: act_bm.c,v 1.1.2.6 2002-10-22 21:14:48 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -46,11 +46,6 @@
 DECLARE_DO_FUN(do_help);
 
 int advatoi (const char *);
-
-static void send_notice(CHAR_DATA *victim, bmitem_t *item, int type);
-
-#define NOTICE_BUYER		1
-#define NOTICE_BET		2
 
 /*
 	Main black market function.
@@ -95,7 +90,7 @@ void do_bm(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		for (item = bmitem_list; item != NULL && item->obj != NULL; item = item->next) {
+		for (item = bmitem_list; item != NULL; item = item->next) {
 			counter++;
 			act("[$j] ", ch, (const void *) counter, NULL,
 			    TO_CHAR | ACT_NOLF);
@@ -113,13 +108,16 @@ void do_bm(CHAR_DATA *ch, const char *argument)
 					  IS_NULLSTR(item->seller) ? "nobody" : item->seller,
 					  IS_NULLSTR(item->buyer) ? "nobody" : item->buyer,
 					  (const void *) item->bet,
-					  TO_CHAR, POS_DEAD);
+					  TO_CHAR | ACT_NOLF, POS_DEAD);
+				act_puts3(" {RTimer: $J{x.", ch, NULL, NULL,
+				    (const void *) item->timer,
+				    TO_CHAR, POS_DEAD);
 			} else if (IS_HUNTER(ch)) {
 				act_puts3("	current bet - {C$J{x; "
 					  "seller - $t. $lu{$T}.",
 					  ch,
 					  IS_NULLSTR(item->seller) ? "nobody" : item->seller,
-					  IS_NULLSTR(item->buyer) ? "no buyer" : "{Rhas buyer{x",
+					  IS_NULLSTR(item->buyer) ? "no buyer" : "{RHas buyer{x",
 					  (const void *) item->bet,
 					  TO_CHAR, POS_DEAD);
 			} else {
@@ -171,7 +169,7 @@ void do_bm(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		for (item = bmitem_list; item != NULL && item->obj != NULL; item = item->next) {
+		for (item = bmitem_list; item != NULL; item = item->next) {
 			if ((arg1[0] == '\0' ||
 			     is_name(arg1, item->obj->name))
 			&&  !--number) {
@@ -221,7 +219,7 @@ void do_bm(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		if ((buyer = get_char_world(ch, item->buyer)) == NULL) {
+		if ((buyer = get_char_world(NULL, item->buyer)) == NULL) {
 			if ((buyer = char_load(item->buyer, LOAD_F_NOCREATE)) == NULL)
 				no_buyer = TRUE;
 			else
@@ -269,13 +267,14 @@ void do_bm(CHAR_DATA *ch, const char *argument)
 		argument = one_argument(argument, arg, sizeof(arg));
 		number = number_argument(arg, arg1, sizeof(arg1));
 
-		for (item = bmitem_list; item != NULL && item->obj != NULL; prev = item, item = item->next)
+		for (item = bmitem_list; item != NULL; prev = item, item = item->next) {
 			if ((arg1[0] == '\0' ||
 			     is_name(arg1, item->obj->name))
 			&&  !--number) {
 				found  = TRUE;
 				break;
 			}
+		}
 
 		if (!found) {
 			act ("{D[BLACK MARKET]{x There is no such item in "
@@ -298,7 +297,7 @@ void do_bm(CHAR_DATA *ch, const char *argument)
 
 		PC(ch)->bank_g += item->bet;
 
-		if ((buyer = get_char_world(ch, item->buyer)) == NULL) {
+		if ((buyer = get_char_world(NULL, item->buyer)) == NULL) {
 			if ((buyer = char_load(item->buyer, LOAD_F_NOCREATE)) == NULL)
 				no_buyer = TRUE;
 			else
@@ -314,7 +313,6 @@ void do_bm(CHAR_DATA *ch, const char *argument)
 		    TO_CHAR | ACT_NOCANSEE);
 
 		if (!loaded_buyer) {
-			send_notice(buyer, item, NOTICE_BUYER);
 			act("{D[BLACK MARKET]{x You bought {D$p{x at black "
 			    "market.", buyer, item->obj, NULL,
 			    TO_CHAR | ACT_NOCANSEE);
@@ -395,6 +393,12 @@ void do_bm(CHAR_DATA *ch, const char *argument)
 				return;
 			}
 
+			if (obj->timer != 0) {
+				act("You can't propose this object for sale.",
+				    ch, NULL, NULL, TO_CHAR);
+				return;
+			}
+
 			if (obj->contains) {
 				act_puts("You can sell only empty containers.",
 					 ch, NULL, NULL, TO_CHAR, POS_DEAD);
@@ -407,16 +411,20 @@ void do_bm(CHAR_DATA *ch, const char *argument)
 				 flag_string(item_types,
 					     obj->pObjIndex->item_type),
 				 TO_CHAR, POS_SLEEPING);
-			break;
+			return;
 		}
 
-		price = advatoi(argument);
+		if (argument[0] == '\0')
+			price = START_PRICE(obj);
+		else
+			price = advatoi(argument);
+
 		if (price == 0) {
 			act("Incorrect price.", ch, NULL, NULL, TO_CHAR);
 			return;
 		}
 
-		price = ((obj->level * 20) >= price ? price : obj->level * 20);
+		price = (START_PRICE(obj) >= price ? price : START_PRICE(obj));
 		act_puts3("{D[BLACK MARKET]{x You propose {D$P{x for sale. "
 			  "Starting price is $J gold.",
 			  ch, NULL, obj, (const void *) price,
@@ -444,8 +452,7 @@ void do_bm(CHAR_DATA *ch, const char *argument)
 		argument = one_argument(argument, arg, sizeof(arg));
 		number = number_argument(arg, arg1, sizeof(arg1));
 
-		for (item = bmitem_list; item != NULL && item->obj != NULL;
-				item = item->next)
+		for (item = bmitem_list; item != NULL; item = item->next)
 			if ((arg1[0] == '\0' ||
 			     is_name(arg1, item->obj->name))
 			&&  !--number) {
@@ -482,47 +489,8 @@ void do_bm(CHAR_DATA *ch, const char *argument)
 			act("You can't stop selling.", ch, NULL, NULL, TO_CHAR);
 			return;
 		}
-
-		for (item = bmitem_list; item != NULL && item->obj != NULL;
-				item = item->next) {
-
-		}
-		return;
 	}
 	do_help(ch, "'BLACK MARKET'");
 
 }
 
-static void
-send_notice(CHAR_DATA *victim, bmitem_t *item, int type)
-{
-	note_t *note;
-	OBJ_DATA *obj = item->obj;
-
-	note = new_note();
-	note->sender = str_dup("{DShrouded figure{x");
-	note->to_list = str_dup(victim->name);
-	switch (type) {
-	case NOTICE_BET:
-		note->subject = str_dup("Participation in tenders");
-		note->text = str_printf(
-		    "Greeting!\n\n"
-		    "   We inform you that your bet on {D%s{x\n"
-		    "was exceeded.\n",
-		    format_short(&obj->short_descr, obj->name, victim));
-		break;
-	case NOTICE_BUYER:
-		note->subject = str_dup("Your new item");
-		note->text = str_printf(
-		    "Greeting!\n\n"
-		    "   We are glad to inform you that black market bagrain\n"
-		    "is striked and you are now owner of {D%s{x.\n",
-		    format_short(&obj->short_descr, obj->name, victim));
-		break;
-	default:
-		log("[*****] BUG: Unknown type of notice on black market.");
-		return;
-	}
-	note->type = NOTE_NOTE;
-	note_post(note);
-}

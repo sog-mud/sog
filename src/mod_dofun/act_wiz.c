@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.186.2.32 2002-08-24 15:15:43 tatyana Exp $
+ * $Id: act_wiz.c,v 1.186.2.33 2002-10-22 21:14:50 tatyana Exp $
  */
 
 /***************************************************************************
@@ -450,6 +450,12 @@ void do_tick(CHAR_DATA *ch, const char *argument)
 	if (!str_prefix(arg, "weather")) {
 		weather_update();
 		char_puts("Weather updated.\n", ch);
+		return;
+	}
+
+	if (!str_prefix(arg, "bmitem")) {
+		bmlist_update();
+		char_puts("Bmlist updated.\n", ch);
 		return;
 	}
 

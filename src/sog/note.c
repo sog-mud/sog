@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.61.2.1 2002-10-16 11:30:02 tatyana Exp $
+ * $Id: note.c,v 1.61.2.2 2002-10-22 21:15:02 tatyana Exp $
  */
 
 /***************************************************************************
@@ -47,6 +47,7 @@
 #include "merc.h"
 #include "db.h"
 #include "note.h"
+#include "bm.h"
 
 static void load_thread(const char *name, note_t **list,
 			int type, time_t free_time);
@@ -264,3 +265,61 @@ static void load_thread(const char *name, note_t **list,
 	db_error("load_notes", "%s: bad keyword '%s'", name, p);
 }
 
+void
+send_notice(CHAR_DATA *victim, bmitem_t *item, int type)
+{
+	note_t *note;
+	OBJ_DATA *obj = item->obj;
+	DESCRIPTOR_DATA *d;
+
+	note = new_note();
+	note->sender = str_dup("{DShrouded figure{x");
+	note->to_list = str_dup(victim->name);
+	switch (type) {
+	case NOTICE_BET:
+		note->subject = str_dup("Participation in tenders");
+		note->text = str_printf(
+		    "Greeting!\n\n"
+		    "   We inform you that your bet on {D%s{x\n"
+		    "was exceeded.\n",
+		    format_short(&obj->short_descr, obj->name, victim));
+		break;
+	case NOTICE_BUYER:
+		note->subject = str_dup("Your new item");
+		note->text = str_printf(
+		    "Greeting!\n\n"
+		    "   We are glad to inform you that black market bagrain\n"
+		    "is striked and you are now owner of {D%s{x.\n",
+		    format_short(&obj->short_descr, obj->name, victim));
+		break;
+	case NOTICE_SELLER:
+		note->subject = "Black market";
+		if (IS_NULLSTR(item->buyer)) {
+			note->text = str_printf(
+			    "Greeting!\n\n"
+			    "   Object {D%s{x has no buyer for too long time.\n"
+			    "Today it was destroyed.",
+			    format_short(&obj->short_descr, obj->name, victim));
+		} else {
+			note->text = str_printf(
+			    "Greeting!\n\n"
+			    "   Object %s was sold for %d gold coins.\n",
+			    format_short(&obj->short_descr, obj->name, victim),
+			    item->bet);
+		}
+		break;
+	default:
+		log("[*****] BUG: Unknown type of notice on black market.");
+		return;
+	}
+	note->type = NOTE_NOTE;
+	note_post(note);
+
+	for (d = descriptor_list; d; d = d->next) {
+		CHAR_DATA *fch = d->character;
+		if (fch != NULL
+		&&  (is_name_raw(fch->name, note->to_list, str_cmp))
+		&&  d->connected == CON_PLAYING)
+			dofun("unread", fch, "login");
+	}
+}
