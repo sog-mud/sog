@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_help.c,v 1.19 1998-10-17 09:45:29 fjoe Exp $
+ * $Id: olc_help.c,v 1.20 1998-10-17 11:29:46 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -149,8 +149,9 @@ OLC_FUN(helped_show)
 	HELP_DATA *pHelp;
 
 	if (argument[0] == '\0') {
-		EDIT_HELP(ch, pHelp);
-		if (!pHelp) {
+		if (ch->desc->editor == ED_HELP)
+			EDIT_HELP(ch, pHelp);
+		else {
 			do_help(ch, "'OLC ASHOW'");
 			return FALSE;
 		}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_clan.c,v 1.11 1998-10-17 09:45:29 fjoe Exp $
+ * $Id: olc_clan.c,v 1.12 1998-10-17 11:29:46 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -151,8 +151,9 @@ OLC_FUN(claned_show)
 
 	one_argument(argument, arg);
 	if (arg[0] == '\0') {
-		EDIT_CLAN(ch, clan);
-		if (!clan) {
+		if (ch->desc->editor == ED_CLAN)
+			EDIT_CLAN(ch, clan);
+		else {
 			do_help(ch, "'OLC ASHOW'");
 			return FALSE;
 		}

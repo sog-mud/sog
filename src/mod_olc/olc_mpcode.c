@@ -1,5 +1,5 @@
 /*
- * $Id: olc_mpcode.c,v 1.18 1998-10-17 09:45:30 fjoe Exp $
+ * $Id: olc_mpcode.c,v 1.19 1998-10-17 11:29:46 fjoe Exp $
  */
 
 /* The following code is based on ILAB OLC by Jason Dinkel */
@@ -129,8 +129,9 @@ OLC_FUN(mped_show)
 
 	one_argument(argument, arg);
 	if (arg[0] == '\0') {
-		EDIT_MPCODE(ch, mpcode);
-		if (!mpcode) {
+		if (ch->desc->editor == ED_MPCODE)
+			EDIT_MPCODE(ch, mpcode);
+		else {
 			do_help(ch, "'OLC ASHOW'");
 			return FALSE;
 		}

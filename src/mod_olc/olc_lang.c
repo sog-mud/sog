@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_lang.c,v 1.3 1998-10-17 09:45:29 fjoe Exp $
+ * $Id: olc_lang.c,v 1.4 1998-10-17 11:29:46 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -142,8 +142,9 @@ OLC_FUN(langed_show)
 
 	one_argument(argument, arg);
 	if (arg[0] == '\0') {
-		EDIT_LANG(ch, l);
-		if (!l) {
+		if (ch->desc->editor == ED_LANG)
+			EDIT_LANG(ch, l);
+		else {
 			do_help(ch, "'OLC ASHOW'");
 			return FALSE;
 		}

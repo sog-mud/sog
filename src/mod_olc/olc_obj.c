@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.14 1998-10-17 09:45:30 fjoe Exp $
+ * $Id: olc_obj.c,v 1.15 1998-10-17 11:29:46 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -210,8 +210,9 @@ OLC_FUN(objed_show)
 
 	one_argument(argument, arg);
 	if (arg[0] == '\0') {
-		EDIT_OBJ(ch, pObj);
-		if (!pObj) {
+		if (ch->desc->editor == ED_OBJ)
+			EDIT_OBJ(ch, pObj);
+		else {
 			do_help(ch, "'OLC EDIT'");
 			return FALSE;
 		}
@@ -244,11 +245,9 @@ OLC_FUN(objed_list)
 		return FALSE;
 	}
 
-	EDIT_OBJ(ch, pObjIndex);
-	if (!pObjIndex)
-		pArea   = ch->in_room->area;
-	else
-		pArea	= area_vnum_lookup(pObjIndex->vnum);
+	if ((pArea = get_edited_area(ch)) == NULL)
+		pArea = ch->in_room->area;
+
 	buffer  = buf_new(0);
 	fAll    = !str_cmp(arg, "all");
 	found   = FALSE;

@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.22 1998-10-17 09:45:29 fjoe Exp $
+ * $Id: olc.h,v 1.23 1998-10-17 11:29:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -129,6 +129,8 @@ bool	show_version	(CHAR_DATA *ch, const char *argument);
 
 bool	show_mob	(CHAR_DATA *ch, MOB_INDEX_DATA *pMob);
 bool	show_obj	(CHAR_DATA *ch, OBJ_INDEX_DATA *pObj);
+
+AREA_DATA *get_edited_area(CHAR_DATA *ch);
 
 bool	touch_area	(AREA_DATA*);
 bool	touch_vnum	(int vnum);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.18 1998-10-17 10:46:10 fjoe Exp $
+ * $Id: olc_area.c,v 1.19 1998-10-17 11:29:46 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -150,8 +150,9 @@ OLC_FUN(areaed_show)
 
 	one_argument(argument, arg);
 	if (arg[0] == '\0') {
-		EDIT_AREA(ch, pArea);
-		if (!pArea)
+		if (ch->desc->editor == ED_AREA)
+			EDIT_AREA(ch, pArea);
+		else
 			pArea = ch->in_room->area;
 	}
 	else if (!is_number(arg) || (pArea = area_lookup(atoi(arg))) == NULL) {

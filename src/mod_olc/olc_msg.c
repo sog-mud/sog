@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.9 1998-10-17 09:45:30 fjoe Exp $
+ * $Id: olc_msg.c,v 1.10 1998-10-17 11:29:46 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -123,8 +123,9 @@ OLC_FUN(msged_show)
 	mlstring **mlp;
 
 	if (argument[0] == '\0') {
-		EDIT_MSG(ch, mlp);
-		if (!mlp) {
+		if (ch->desc->editor == ED_MSG)
+			EDIT_MSG(ch, mlp);
+		else {
 			do_help(ch, "'OLC ASHOW'");
 			return FALSE;
 		}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.18 1998-10-17 09:45:30 fjoe Exp $
+ * $Id: olc_room.c,v 1.19 1998-10-17 11:29:46 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -209,8 +209,9 @@ OLC_FUN(roomed_show)
 	
 	one_argument(argument, arg);
 	if (arg[0] == '\0') {
-		EDIT_ROOM(ch, pRoom);
-		if (!pRoom)
+		if (ch->desc->editor == ED_ROOM)
+			EDIT_ROOM(ch, pRoom);
+		else
 			pRoom = ch->in_room;
 	}
 	else if (!is_number(arg)) {

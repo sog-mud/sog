@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.18 1998-10-17 10:46:10 fjoe Exp $
+ * $Id: olc_mob.c,v 1.19 1998-10-17 11:29:46 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -227,8 +227,9 @@ OLC_FUN(mobed_show)
 
 	one_argument(argument, arg);
 	if (arg[0] == '\0') {
-		EDIT_MOB(ch, pMob);
-		if (!pMob) {
+		if (ch->desc->editor == ED_MOB)
+			EDIT_MOB(ch, pMob);
+		else {
 			do_help(ch, "'OLC ASHOW'");
 			return FALSE;
 		}
@@ -260,12 +261,10 @@ OLC_FUN(mobed_list)
 		return FALSE;
 	}
 
-	buffer = buf_new(0);
-	EDIT_MOB(ch, pMobIndex);
-	if (!pMobIndex)
+	if ((pArea = get_edited_area(ch)) == NULL)
 		pArea = ch->in_room->area;
-	else
-		pArea = area_vnum_lookup(pMobIndex->vnum);
+
+	buffer = buf_new(0);
 	fAll    = !str_cmp(arg, "all");
 	found   = FALSE;
 

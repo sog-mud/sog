@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.29 1998-10-17 10:46:10 fjoe Exp $
+ * $Id: olc.c,v 1.30 1998-10-17 11:29:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -601,6 +601,30 @@ bool show_version(CHAR_DATA *ch, const char *argument)
 
 	return FALSE;
 }    
+
+AREA_DATA *get_edited_area(CHAR_DATA *ch)
+{
+	int vnum;
+	const char *id = ch->desc->editor;
+	void *p = ch->desc->pEdit;
+
+	if (id == ED_HELP)
+		return ((HELP_DATA*) p)->area;
+
+	if (id == ED_ROOM)
+		return ch->in_room->area;
+
+	if (id == ED_OBJ)
+		vnum = ((OBJ_INDEX_DATA*) p)->vnum;
+	else if (id == ED_MOB)
+		vnum = ((MOB_INDEX_DATA*) p)->vnum;
+	else if (id == ED_MPCODE)
+		vnum = ((MPCODE*) p)->vnum;
+	else
+		return NULL;
+		
+	return area_vnum_lookup(vnum);
+}
 
 bool touch_area(AREA_DATA *pArea)
 {
