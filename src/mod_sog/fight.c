@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.16 1998-05-27 08:47:23 fjoe Exp $
+ * $Id: fight.c,v 1.17 1998-05-27 18:28:53 efdi Exp $
  */
 
 /***************************************************************************
@@ -1571,6 +1571,13 @@ bool is_safe_nomessage(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (victim->in_room != NULL
 	&&  IS_SET(victim->in_room->room_flags, ROOM_SAFE))
 		return TRUE;
+
+	/* Experimental vampires' coffins handle */
+	if (victim->on && IS_SET(victim->on->value[2], SLEEP_IN)
+	    && victim->on->pIndexData->vnum == 1200
+	    && time_info.hour >= 5 && time_info.hour <= 20)
+		return TRUE;
+
 
   /* link dead players whose adrenalin is not gushing are safe */
   if (!IS_NPC(victim) && ((victim->last_fight_time == -1) ||
