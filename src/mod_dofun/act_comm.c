@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.272 2002-11-28 21:40:15 fjoe Exp $
+ * $Id: act_comm.c,v 1.273 2002-12-11 13:31:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -355,6 +355,7 @@ DO_FUN(do_reply, ch, argument)
 
 	if (IS_SET(ch->in_room->room_flags, ROOM_SILENT)
 	&&  !IS_IMMORTAL(ch)
+	&&  PC(ch)->reply != NULL
 	&&  !IS_IMMORTAL(PC(ch)->reply)) {
 		act_char("You are in silent room, you can't tell.", ch);
 		return;
@@ -2476,6 +2477,7 @@ DO_FUN(do_retell, ch, argument)
 
 	if (IS_SET(ch->in_room->room_flags, ROOM_SILENT)
 	&&  !IS_IMMORTAL(ch)
+	&&  PC(ch)->retell != NULL
 	&&  !IS_IMMORTAL(PC(ch)->retell)) {
 		act_char("You are in silent room, you can't tell.", ch);
 		return;
