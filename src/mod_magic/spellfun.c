@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.96 1998-12-19 10:16:42 kostik Exp $
+ * $Id: spellfun.c,v 1.97 1998-12-19 10:19:27 kostik Exp $
  */
 
 /***************************************************************************
@@ -336,7 +336,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		&&  victim != ch
 		&&  ch->fighting != victim
 		&&  victim->fighting != ch
-		&&  !IS_AFFECTED(victim, AFF_CHARM))) 
+		&&  !IS_AFFECTED(victim, AFF_CHARM)) 
 			doprintf(do_yell, victim,
 				 "Die, %s, you sorcerous dog!",
 				 PERS(ch,victim));
