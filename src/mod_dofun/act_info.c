@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.66 1998-06-11 11:45:52 efdi Exp $
+ * $Id: act_info.c,v 1.67 1998-06-12 12:21:55 efdi Exp $
  */
 
 /***************************************************************************
@@ -1457,12 +1457,12 @@ void do_exits(CHAR_DATA *ch, char *argument)
 		return;
 
 	if (fAuto)
-		sprintf(buf,"{C[Exits:");
+		sprintf(buf, msg(INFO_EXITS, ch));
 	else if (IS_IMMORTAL(ch))
-		sprintf(buf,"Obvious exits from room %d:\n\r",
+		sprintf(buf, msg(INFO_OBVIOUS_EXITS_IMM, ch),
 			ch->in_room->vnum);
 	else
-		sprintf(buf,"Obvious exits:\n\r");
+		sprintf(buf, msg(INFO_OBVIOUS_EXITS, ch));
 
 	found = FALSE;
 	for (door = 0; door <= 5; door++) {
@@ -1481,11 +1481,11 @@ void do_exits(CHAR_DATA *ch, char *argument)
 				sprintf(strchr(buf, '\0'), "{C%-5s{x - %s",
 					capitalize(dir_name[door]),
 					room_dark(pexit->u1.to_room) ?
-					"Too dark to tell" :
+					msg(INFO_TOO_DARK_TO_TELL, ch) :
 					pexit->u1.to_room->name);
 				p = strend(buf);
 				if (IS_IMMORTAL(ch))
-					sprintf(p, " (room %d)\n\r",
+					sprintf(p, msg(INFO_ROOM_D, ch),
 						pexit->u1.to_room->vnum);
 				else
 					sprintf(p, "\n\r");
@@ -1510,7 +1510,7 @@ void do_exits(CHAR_DATA *ch, char *argument)
 
 				p = strend(buf);
 				if (IS_IMMORTAL(ch))
-					sprintf(p, " (room %d)\n\r",
+					sprintf(p, msg(INFO_ROOM_D, ch),
 						pexit->u1.to_room->vnum);
 				else
 					sprintf(p, "\n\r");
@@ -1519,7 +1519,7 @@ void do_exits(CHAR_DATA *ch, char *argument)
 	}
 
 	if (!found)
-		strcat(buf, fAuto ? " none" : "None.\n\r");
+		strcat(buf, fAuto ? msg(INFO_NONE, ch) : msg(INFO_CAPNONE, ch));
 
 	if (fAuto)
 		strcat(buf, "]{x\n\r");
