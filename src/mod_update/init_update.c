@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_update.c,v 1.4 2000-06-02 16:41:03 fjoe Exp $
+ * $Id: init_update.c,v 1.5 2000-06-05 12:06:25 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -62,7 +62,7 @@ int _module_load(module_t *m)
 	hash_init(&uhandlers, &h_uhandlers);
 	db_load_file(&db_uhandlers, ETC_PATH, UHANDLERS_CONF);
 
-	varr_foreach(&commands, cmd_load_cb, MODULE_IMPL, m);
+	varr_foreach(&commands, cmd_load_cb, MODULE, m);
 	uhandler_load(m->name);
 	update_register(m);
 	return 0;
@@ -72,7 +72,7 @@ int _module_unload(module_t *m)
 {
 	update_unregister();
 	uhandler_unload(m->name);
-	varr_foreach(&commands, cmd_unload_cb, MODULE_IMPL, m);
+	varr_foreach(&commands, cmd_unload_cb, MODULE, m);
 	hash_destroy(&uhandlers);
 	return 0;
 }

@@ -1,5 +1,7 @@
 Makefile.osdep
 abi_version.h
+module_decl.h
+module_decl.c
 GTAGS
 GPATHS
 GRTAGS

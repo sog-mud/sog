@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: dynafun_decl.h,v 1.3 2000-06-02 16:40:40 fjoe Exp $
+ * $Id: dynafun_decl.h,v 1.4 2000-06-05 12:06:16 fjoe Exp $
  */
 
 /* no #ifdef _XXX_H_/#define _XXX_H_/#endif */
@@ -45,9 +45,10 @@
  * MOD_XXX should be defined in "module_decl.h"
  * do not use ';' after DECLARE_FUNX(...) "declarations"
  *
- * additionally module implementation .c file (where dynafuns are
- * actually implemented) should #define MODULE_IMPL to `xxx'
- * (the same as MODULE_NAME in main header)
+ * additionally module implementation .c files (where dynafuns are
+ * actually implemented) should #define MODULE to `xxx'
+ * (the same as MODULE_NAME in main header, this is done
+ *  via Makefile's now)
  * and module init .c file should #define MODULE_INIT to `xxx'
  * before including main dynafun header
  *
@@ -89,7 +90,7 @@
 #	undef va_list_tag
 #	define va_list_tag MT_VA_LIST
 
-#	undef CHAR_DATA_TAG
+#	undef CHAR_DATA_tag
 #	define CHAR_DATA_tag MT_CHAR
 
 #	undef OBJ_DATA_tag
@@ -133,7 +134,7 @@
 #	undef va_list_tag
 #	define va_list_tag va_list
 
-#	undef CHAR_DATA_TAG
+#	undef CHAR_DATA_tag
 #	define CHAR_DATA_tag CHAR_DATA *
 
 #	undef OBJ_DATA_tag
@@ -210,7 +211,7 @@
 	  { __tag(a1), __tag(a2), __tag(a3), __tag(a4), __tag(a5), __tag(a6) } \
 	},
 
-#elif (MODULE_IMPL == MODULE_NAME)
+#elif (MODULE == MODULE_NAME)
 
 /*
  * module implementation declarations

@@ -1,11 +1,11 @@
 #
-# $Id: Makefile.inc,v 1.7 2000-06-02 16:40:37 fjoe Exp $
+# $Id: Makefile.inc,v 1.8 2000-06-05 12:06:14 fjoe Exp $
 #
 
 #
 # core version
 #
-ABI_VERSION = 8
+ABI_VERSION=	8
 
 #
 # common defines
@@ -32,7 +32,7 @@ INSTDIR=	../..
 .if defined(MODULE)
 PROG=		${MODULE}.so.${ABI_VERSION}
 MODULE_ID!=	echo MOD_${MODULE} | tr '[a-z]' '[A-Z]'
-CFLAGS+=	${MOD_CFLAGS} -DMODULE_IMPL=${MODULE_ID}
+CFLAGS+=	${MOD_CFLAGS} -DMODULE=${MODULE_ID}
 LDFLAGS+=	${MOD_LDFLAGS}
 BINDIR=		${INSTDIR}/modules
 .else

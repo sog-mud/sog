@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.141 2000-06-01 17:57:56 fjoe Exp $
+ * $Id: tables.c,v 1.142 2000-06-05 12:06:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1188,22 +1188,6 @@ flaginfo_t cmd_logtypes[] =
 	{ "normal",		LOG_NORMAL,		TRUE	},
 	{ "always",		LOG_ALWAYS,		TRUE	},
 	{ "never",		LOG_NEVER,		TRUE	},
-
-	{ NULL }
-};
-
-flaginfo_t module_names[] =
-{
-	{ "",			TABLE_INTVAL			},
-
-	{ "core",		MOD_CORE,		TRUE	},
-	{ "dofun",		MOD_DOFUN,		TRUE	},
-	{ "effects",		MOD_EFFECTS,		TRUE	},
-	{ "fight",		MOD_FIGHT,		TRUE	},
-	{ "magic",		MOD_MAGIC,		TRUE	},
-	{ "olc",		MOD_OLC,		TRUE	},
-	{ "quest",		MOD_QUEST,		TRUE	},
-	{ "update",		MOD_UPDATE,		TRUE	},
 
 	{ NULL }
 };

@@ -1,5 +1,5 @@
 /*
- * $Id: effects.c,v 1.33 2000-06-01 17:57:38 fjoe Exp $
+ * $Id: effects.c,v 1.34 2000-06-05 12:06:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -51,7 +51,6 @@
 #include "update.h"
 
 #include "module.h"
-#define MODULE_IMPL MOD_EFFECTS
 #include "effects.h"
 
 void *

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_quest.c,v 1.1 2000-06-02 16:41:01 fjoe Exp $
+ * $Id: init_quest.c,v 1.2 2000-06-05 12:06:24 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -34,6 +34,8 @@
 #include "varr.h"
 #include "cmd.h"
 
+#include "update.h"
+
 #include "module.h"
 #define MODULE_INIT MOD_QUEST
 #include "quest.h"
@@ -41,16 +43,18 @@
 int
 _module_load(module_t *m)
 {
-	varr_foreach(&commands, cmd_load_cb, MODULE_IMPL, m);
-	dynafun_tab_register(__mod_tab(MODULE_IMPL), m);
+	varr_foreach(&commands, cmd_load_cb, MODULE, m);
+	dynafun_tab_register(__mod_tab(MODULE), m);
+	uhandler_load(m->name);
 	return 0;
 }
 
 int
 _module_unload(module_t *m)
 {
-	dynafun_tab_unregister(__mod_tab(MODULE_IMPL));
-	varr_foreach(&commands, cmd_unload_cb, MODULE_IMPL);
+	uhandler_unload(m->name);
+	dynafun_tab_unregister(__mod_tab(MODULE));
+	varr_foreach(&commands, cmd_unload_cb, MODULE);
 	return 0;
 }
 
