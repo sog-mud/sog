@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.28 2000-10-10 15:32:15 fjoe Exp $
+ * $Id: update.c,v 1.157.2.29 2000-10-10 15:33:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1678,7 +1678,7 @@ void update_one_obj(OBJ_DATA *obj)
 	if (t_obj->carried_by != NULL
 	&&  t_obj->carried_by->desc != NULL
 	&&  t_obj->carried_by->desc->connected != CON_PLAYING)
-		return NULL;
+		return;
 
 	update_obj_affects(obj);
 
