@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.46 2000-02-10 14:08:50 fjoe Exp $
+ * $Id: mob_cmds.c,v 1.47 2000-04-03 14:24:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -80,7 +80,6 @@ const	struct	mob_cmd_type	mob_cmd_table	[] =
 	{	"call",		do_mpcall	},
 	{	"flee",		do_mpflee	},
 	{	"remove",	do_mpremove	},
-	{	"religion",	do_mpreligion	},
 	{	"slay",		do_mpslay	},
 	{	str_empty,		0	}
 };
@@ -1115,94 +1114,6 @@ void do_mpremove(CHAR_DATA *ch, const char *argument)
 	     extract_obj(obj, 0);
 	}
     }
-}
-
-
-int lookup_religion_leader (const char *name)
-{
-   int value;
-
-   for ( value = 0; value < MAX_RELIGION ; value++)
-   {
-	if (LOWER(name[0]) == LOWER(religion_table[value].leader[0])
-	&&  !str_prefix( name,religion_table[value].leader))
-	    return value;
-   }
-
-   return 0;
-} 
-
-void do_mpreligion(CHAR_DATA *ch, const char *argument)
-{
-	CHAR_DATA *victim;
-	char name[MAX_STRING_LENGTH];
-	int chosen = 0;
-	bool correct = TRUE;
-	int rel;
-
-	argument = one_argument(argument, name, sizeof(name));
-	if ((victim = get_char_room(ch, name)) == NULL
-	||  IS_NPC(victim))
-		return;
-
-	if ((chosen = lookup_religion_leader(argument)) == 0)
-		return;
-
-	rel = PC(victim)->religion;
-	if (rel > 0 && rel < MAX_RELIGION) {
-		act_say(ch, "You are already in the way of $t.",
-			religion_table[rel].leader);
-		return;
-	}
-
-	switch(chosen) {
-	case RELIGION_ATUM_RA:
-		if (!IS_GOOD(victim) || victim->ethos != ETHOS_LAWFUL)
-			correct = FALSE;
-		break;
-	case RELIGION_ZEUS:
-		if (!IS_GOOD(victim) || victim->ethos != ETHOS_NEUTRAL)
-			correct = FALSE;
-		break;
-	case RELIGION_SIEBELE:
-		if (!IS_NEUTRAL(victim) || victim->ethos != ETHOS_NEUTRAL)
-			correct = FALSE;
-		break;
-	case RELIGION_AHURAMAZDA:
-		if (!IS_GOOD(victim) || victim->ethos != ETHOS_CHAOTIC)
-			correct = FALSE;
-		break;
-	case RELIGION_EHRUMEN:
-		if (!IS_EVIL(victim) || victim->ethos != ETHOS_CHAOTIC)
-			correct = FALSE;
-		break;
-	case RELIGION_DEIMOS:
-		if (!IS_EVIL(victim) || victim->ethos != ETHOS_LAWFUL)
-			correct = FALSE;
-		break;
-	case RELIGION_PHOBOS:
-		if (!IS_EVIL(victim) || victim->ethos != ETHOS_NEUTRAL)
-			correct = FALSE;
-		break;
-	case RELIGION_ODIN:
-		if (!IS_NEUTRAL(victim) || victim->ethos != ETHOS_LAWFUL)
-			correct = FALSE;
-		break;
-	case RELIGION_TESHUB:
-		if (!IS_NEUTRAL(victim) || victim->ethos != ETHOS_CHAOTIC)
-			correct = FALSE;
-		break;
-	}
-
-	if (!correct) {
-		dofun("say", ch,
-		      "That religion doesn't match your ethos and alignment.");
-		return;
-	}
-
-	PC(victim)->religion = chosen;
-	act_say(ch, "From now on and forever, you are in the way of $t.",
-		religion_table[chosen].leader);
 }
 
 void do_mpslay(CHAR_DATA *ch, const char *argument)

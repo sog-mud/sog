@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.139 2000-03-31 13:20:57 fjoe Exp $
+ * $Id: tables.c,v 1.140 2000-04-03 14:24:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1415,7 +1415,6 @@ flaginfo_t www_flags_table[] =
 	{ "clan",		WSHOW_CLAN				},
 	{ "level",		WSHOW_LEVEL				},
 	{ "align",		WSHOW_ALIGN				},
-	{ "religion",		WSHOW_RELIGION				},
 	{ "ethos",		WSHOW_ETHOS				},
 	{ "sex",		WSHOW_SEX				},
 	{ "language",		WSHOW_SLANG				},

@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.159 2000-03-30 07:01:02 fjoe Exp $
+ * $Id: save.c,v 1.160 2000-04-03 14:24:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -320,7 +320,6 @@ fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 		else 
 			fwrite_word(fp, "Peti", pc->petition);
 
-		fprintf(fp, "Relig %d\n", pc->religion);
 		if (pc->practice != 0)
 			fprintf(fp, "Prac %d\n", pc->practice);
 		if (pc->train != 0)
@@ -841,7 +840,6 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 			break;
 
 		case 'R':
-			KEY("Relig", PC(ch)->religion, fread_number(fp));
 			if (IS_TOKEN(fp, "Race")) {
 				free_string(ch->race);
 				ch->race = fread_strkey(fp, &races, "fread_char");

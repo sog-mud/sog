@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.29 2000-03-29 07:24:37 fjoe Exp $
+# $Id: Makefile,v 1.30 2000-04-03 14:24:28 fjoe Exp $
 #
 
 MODULE_NAME = sog
@@ -19,7 +19,7 @@ CFILES = auction.c affect.c buffer.c cc_expr.c chquest.c clan.c class.c cmd.c\
 	 hometown.c interp.c lang.c liquid.c log.c magic.c material.c\
 	 memalloc.c mlstring.c mob_cmds.c mob_prog.c module.c\
 	 namelist.c note.c obj_prog.c objval.c quest.c race.c\
-	 rating.c recycle.c religion.c rfile.c save.c skills.c\
+	 rating.c recycle.c rfile.c save.c skills.c\
 	 socials.c spec.c special.c str.c string_edit.c strkey_hash.c\
 	 tables.c update.c util.c varr.c vo_iter.c\
 	 $(COMM_CFILES) $(DB_CFILES) $(COMPAT_CFILES)

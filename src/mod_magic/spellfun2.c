@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.182 2000-03-25 17:01:36 avn Exp $
+ * $Id: spellfun2.c,v 1.183 2000-04-03 14:24:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1132,67 +1132,6 @@ void spell_chaos_blade(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	obj_to_char(blade,ch);
 }    
-
-void spell_tattoo(const char *sn, int level, CHAR_DATA *ch, void *vo)
-{
-	OBJ_DATA *tattoo;
-	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	int i;
-
-	if (IS_NPC(victim))
-	{
-	  act("$N is too dumb to worship you!", ch, NULL, victim, TO_CHAR);
-	  return;
-	}
-
-	for (i = 0; i < MAX_RELIGION; i++)
-	{
-	  if (!str_cmp(ch->name, religion_table[i].leader))
-	{
-		  tattoo = get_eq_char(victim, WEAR_TATTOO);
-	 	  if (tattoo != NULL)
-		    {
-	 	      act("$N is already tattooed!  You'll have to remove it first.",
-		ch, NULL, victim, TO_CHAR);
-	  	      act("$n tried to give you another tattoo but failed.",
-		ch, NULL, victim, TO_VICT);
-	          act("$n tried to give $N another tattoo but failed.",
-		ch, NULL, victim, TO_NOTVICT);
-	  	      return;
-		    }
-		  else
-		    { 
-	  	      tattoo = create_obj(get_obj_index(religion_table[i].vnum),0);
-	   	      act("You tattoo $N with $p!",ch, tattoo, victim, TO_CHAR);
-	  	      act("$n tattoos $N with $p!",ch,tattoo,victim,TO_NOTVICT);
-	  	      act("$n tattoos you with $p!",ch,tattoo,victim,TO_VICT);
-
-	  	      obj_to_char(tattoo,victim);
-	  	      equip_char(victim, tattoo, WEAR_TATTOO);
-	      return;
-	    }
-	}    
-	}
-	char_puts("You don't have a religious tattoo.\n", ch);
-}
-
-void spell_remove_tattoo(const char *sn, int level, CHAR_DATA *ch, void *vo)
-{
-	OBJ_DATA *tattoo;
-	CHAR_DATA *victim = (CHAR_DATA *) vo;
- 
-	tattoo = get_eq_char(victim, WEAR_TATTOO);
-	if (tattoo != NULL)
-	{
-	  extract_obj(tattoo, 0);
-	  act("Through a painful process, your tattoo has been destroyed by $n.",
-	ch, NULL, victim, TO_VICT);
-	  act("You remove the tattoo from $N.", ch, NULL, victim, TO_CHAR);
-	  act("$N's tattoo is destroyed by $n.", ch, NULL, victim, TO_NOTVICT);
-	}
-	else
-	act("$N doesn't have any tattoos.", ch, NULL, victim, TO_CHAR);
-}
 
 void spell_wrath(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {

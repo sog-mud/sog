@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_info.c,v 1.16 2000-02-10 14:08:57 fjoe Exp $
+ * $Id: comm_info.c,v 1.17 2000-04-03 14:24:30 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -326,14 +326,13 @@ void	cmd_show(const char *argument)
 	buf[0] = '\0';
 
 	output = buf_new(-1);
-	buf_printf(output, "%s\n%s\n%s %s\n%d\n%s\n%s\n%s\n%s\n%s\n%d\n%d %d\n%d\n%s\n%s\n%d\n%s\n",
+	buf_printf(output, "%s\n%s\n%s %s\n%d\n%s\n%s\n%s\n%s\n%d\n%d %d\n%d\n%s\n%s\n%d\n%s\n",
 		IS_SET(PC(ch)->www_show_flags, WSHOW_RACE) ? PC(ch)->race : "Unknown",
 		IS_SET(PC(ch)->www_show_flags, WSHOW_CLASS) ? ch->class : "Unknown",
 		(IS_SET(PC(ch)->www_show_flags, WSHOW_CLAN) && !IS_NULLSTR(ch->clan)) ? ch->clan : "Unknown",
 		(IS_SET(PC(ch)->www_show_flags, WSHOW_CLAN) && !IS_NULLSTR(ch->clan)) ? flag_string(clan_status_table, PC(ch)->clan_status) : "",
 		IS_SET(PC(ch)->www_show_flags, WSHOW_LEVEL) ? ch->level : -1,
 		IS_SET(PC(ch)->www_show_flags, WSHOW_ALIGN) ? flag_string(align_names, NALIGN(ch)) : "Unknown",
-		IS_SET(PC(ch)->www_show_flags, WSHOW_RELIGION) ? religion_name(GET_RELIGION(ch)) : "Unknown",
 		IS_SET(PC(ch)->www_show_flags, WSHOW_ETHOS) ? flag_string(ethos_table, ch->ethos) : "Unknown",
 		IS_SET(PC(ch)->www_show_flags, WSHOW_SEX) ? mlstr_mval(&ch->gender) : "Unknown",
 		IS_SET(PC(ch)->www_show_flags, WSHOW_SLANG) ? flag_string(slang_table, ch->slang) : "Unknown",

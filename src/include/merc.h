@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.298 2000-03-31 13:00:46 fjoe Exp $
+ * $Id: merc.h,v 1.299 2000-04-03 14:24:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -96,7 +96,6 @@
 #include "clan.h"
 #include "spec.h"
 #include "skills.h"
-#include "religion.h"
 #include "damtype.h"
 #include "material.h"
 #include "liquid.h"
@@ -1026,7 +1025,6 @@ enum {
 #define WSHOW_CLAN		(C)
 #define WSHOW_LEVEL		(D)
 #define WSHOW_ALIGN		(E)
-#define WSHOW_RELIGION		(F)
 #define WSHOW_ETHOS		(G)
 #define WSHOW_SEX		(H)
 #define WSHOW_SLANG		(I)
@@ -1426,8 +1424,6 @@ struct pc_data
 
 	int			idle_timer;
 
-	int	 		religion;
-
 	ROOM_INDEX_DATA *	was_in_room;
 	CHAR_DATA * 		pet;
 	CHAR_DATA *	 	guarding;
@@ -1731,7 +1727,6 @@ int trust_level(CHAR_DATA *ch);
 #define GET_EXP(ch)		(IS_NPC(ch) ? 0 : PC(ch)->exp)
 #define GET_PET(ch)		(IS_NPC(ch) ? NULL : PC(ch)->pet)
 #define GET_LANG(ch)		(ch->desc ? ch->desc->dvdata->lang : 0)
-#define GET_RELIGION(ch)	(IS_NPC(ch) ? 0 : PC(ch)->religion)
 
 #define IS_GOOD(ch)		((ch)->alignment >= 350)
 #define IS_EVIL(ch)		((ch)->alignment <= -350)

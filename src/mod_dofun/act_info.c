@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.337 2000-04-03 08:54:04 fjoe Exp $
+ * $Id: act_info.c,v 1.338 2000-04-03 14:24:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2124,12 +2124,13 @@ void do_identify(CHAR_DATA *ch, const char *argument)
 
 static void format_stat(char *buf, size_t len, CHAR_DATA *ch, int stat)
 {
-	if (ch->level > 20 || IS_NPC(ch))
+	if (ch->level < 20 && !IS_NPC(ch))
+		strnzcpy(buf, len, get_stat_alias(ch, stat));
+	else {
 		snprintf(buf, len, "%2d (%2d)",
 			 ch->perm_stat[stat],
 			 get_curr_stat(ch, stat));
-	else
-		strnzcpy(buf, len, get_stat_alias(ch, stat));
+	}
 }
 
 void do_score(CHAR_DATA *ch, const char *argument)
@@ -2157,11 +2158,11 @@ void do_score(CHAR_DATA *ch, const char *argument)
 	buf_add(output, "     {G|{C+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+{G|{x\n");
 
 	format_stat(buf2, sizeof(buf2), ch, STAT_STR);
-	buf_printf(output, "     {G| {RLevel: {x%-3d (%+3d)    {C| {RStr: {x%-11.11s {C| {RReligion  : {x%-10.10s {G|{x\n",
+	buf_printf(output, "     {G| {RLevel: {x%-3d (%+3d)    {C| {RStr: {x%-11.11s {C| {RAvatara   : {x%-10.10s {G|{x\n",
 		   ch->level,
 		   ch->add_level,
 		   buf2,
-		   religion_name(GET_RELIGION(ch)));
+		   "");
 
 	format_stat(buf2, sizeof(buf2), ch, STAT_INT);
 	buf_printf(output,
@@ -2566,12 +2567,13 @@ void do_oscore(CHAR_DATA *ch, const char *argument)
 			buf_add(output, ".\n");
 	}
 
-	i = GET_RELIGION(ch);
+/*
 	if (i <= RELIGION_NONE || i > MAX_RELIGION)
 		buf_add(output, "You don't believe any religion.\n");
 	else
 		buf_printf(output,"Your religion is the way of %s.\n",
 			   religion_table[i].leader);
+*/
 
 	if (IS_SET(ch->comm, COMM_SHOWAFF))
 		show_affects(ch, output);

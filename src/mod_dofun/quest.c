@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.136 2000-02-19 14:26:59 avn Exp $
+ * $Id: quest.c,v 1.137 2000-04-03 14:24:23 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -69,10 +69,6 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 			    int item_vnum, int count_max);
 
 static bool buy_gold(CHAR_DATA *ch, CHAR_DATA *questor);
-static bool buy_tattoo(CHAR_DATA *ch, CHAR_DATA *questor);
-static bool buy_death(CHAR_DATA *ch, CHAR_DATA *questor);
-static bool buy_katana(CHAR_DATA *ch, CHAR_DATA *questor);
-static bool buy_vampire(CHAR_DATA *ch, CHAR_DATA *questor);
 
 enum qitem_type {
 	TYPE_ITEM,
@@ -94,18 +90,6 @@ qitem_t qitem_table[] = {
 
 	{ "50,000 gold pieces",		 500, NULL,
 	   0, buy_gold						},
-
-	{ "tattoo of your religion",	 200, NULL,
-	   0, buy_tattoo					},
-
-	{ "Decrease number of deaths",	  50, "samurai",
-	   0, buy_death						},
-
-	{ "Katana quest",		 100, "samurai",
-	   0, buy_katana					},
-
-	{ "Vampire skill",		  50, "vampire",
-	   0, buy_vampire					},
 
 	{ "Bottomless canteen with cranberry juice", 350, NULL,
 	   QUEST_VNUM_CANTEEN, NULL				},
@@ -968,82 +952,6 @@ static bool buy_gold(CHAR_DATA *ch, CHAR_DATA *questor)
 	PC(ch)->bank_g += 50000;
 	act("$N gives 50,000 gold pieces to $n.", ch, NULL, questor, TO_ROOM);
 	act("$N transfers 50,000 gold pieces to your bank account.",ch, NULL, questor, TO_CHAR);
-	return TRUE;
-}
-
-static bool buy_tattoo(CHAR_DATA *ch, CHAR_DATA *questor)
-{
-	OBJ_DATA *tattoo;
-	int rel = PC(ch)->religion;
-
-	if (!rel) {
-		char_puts("You don't have a religion to have a tattoo.\n", ch);
-		return FALSE;
-	}
-
-	tattoo = get_eq_char(ch, WEAR_TATTOO);
-	if (tattoo != NULL) {
-		char_puts("But you have already your tattoo!\n", ch);
-		return FALSE;
-	}
-
-	tattoo = create_obj(get_obj_index(religion_table[rel].vnum), 0);
-
-	obj_to_char(tattoo, ch);
-	equip_char(ch, tattoo, WEAR_TATTOO);
-	act("$N tattoos $n with {W$p{x!", ch, tattoo, questor, TO_ROOM);
-	act_puts("$N tattoos you with {W$p{x!",
-		 ch, tattoo, questor, TO_CHAR, POS_DEAD);
-	return TRUE;
-}
-
-static bool buy_death(CHAR_DATA *ch, CHAR_DATA *questor)
-{
-	if (PC(ch)->death < 1) {
-		QUESTOR_TELLS_YOU(questor, ch);
-		act_puts("    Sorry, $N, but you haven't got any deaths yet.",
-			 questor, NULL, ch, TO_VICT, POS_DEAD);
-		return FALSE;
-	}
-
-	PC(ch)->death -= 1;
-	return TRUE;
-}
-
-static bool buy_katana(CHAR_DATA *ch, CHAR_DATA *questor)
-{
-	AFFECT_DATA af;
-	OBJ_DATA *katana;
-
-	QUESTOR_TELLS_YOU(questor, ch);
-
-	if ((katana = get_obj_list(ch, "katana", ch->carrying)) == NULL) {
-		act_puts("    Sorry, $N, but you don't have your katana "
-			 "with you.", questor, NULL, ch, TO_VICT, POS_DEAD);
-		return FALSE;
-	}
-
-	af.where	= TO_WEAPON;
-	af.type 	= "katana";
-	af.level	= 100;
-	af.duration	= -1;
-	af.modifier	= 0;
-	af.bitvector	= WEAPON_KATANA;
-	INT(af.location)= APPLY_NONE;
-	af.owner	= NULL;
-	affect_to_obj(katana, &af);
-	act_puts("    As you wield it, you will feel that its power will "
-		 "increase continuosly.", questor, NULL, ch, TO_VICT, POS_DEAD);
-	return TRUE;
-}
-
-static bool buy_vampire(CHAR_DATA *ch, CHAR_DATA *questor)
-{
-	set_skill(ch, "vampire", 100);
-	act("$N gives secret of undead to $n.", ch, NULL, questor, TO_ROOM);
-	act_puts("$N gives you SECRET of undead.",
-		 ch, NULL, questor, TO_CHAR, POS_DEAD);
-	act("Lightning flashes in the sky.", ch, NULL, NULL, TO_ALL);
 	return TRUE;
 }
 

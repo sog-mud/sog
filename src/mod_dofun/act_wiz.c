@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.236 2000-03-31 13:20:41 fjoe Exp $
+ * $Id: act_wiz.c,v 1.237 2000-04-03 14:24:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1183,9 +1183,10 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 	if (IS_NPC(victim))
 		snprintf(buf, sizeof(buf), "%d", victim->alignment);
 	else  {
+/*
 		buf_printf(output, "It belives the religion of %s.\n",
 			religion_table[PC(victim)->religion].leader);
-
+*/
 		snprintf(buf, sizeof(buf), "%s-%s", 
 			 flag_string(ethos_table, victim->ethos),
 			 flag_string(align_names, NALIGN(victim)));
@@ -3175,20 +3176,22 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		altered = TRUE;
 		goto cleanup;
 	}
-	if (!str_cmp(arg2, "questp"))
-	{
-		 if (value == -1) value = 0;
-		 if (IS_NPC(victim)) {
+
+	if (!str_cmp(arg2, "qpoints")) {
+		if (value == -1)
+			value = 0;
+
+		if (IS_NPC(victim)) {
 			char_puts("Not on NPC's.\n", ch);
 			goto cleanup;
-		 }
+		}
 
-		 PC(victim)->questpoints = value;
-		 altered = TRUE;
+		PC(victim)->questpoints = value;
+		altered = TRUE;
 		goto cleanup;
 	}
 
-	if (!str_cmp(arg2, "questt")) {
+	if (!str_cmp(arg2, "qtime")) {
 		if (IS_NPC(victim)) {
 			char_puts("Not on NPC's.\n", ch);
 			goto cleanup;
@@ -3197,22 +3200,9 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		if (value == -1)
 			value = 30;
 		PC(victim)->questtime = value;
-		 altered = TRUE;
+		altered = TRUE;
 		goto cleanup;
 	}
-
-	if (!str_cmp(arg2, "relig")) {
-		if (IS_NPC(victim)) {
-			char_puts("Not on NPC's.\n", ch);
-			goto cleanup;
-		}
-
-		if (value == -1) value = 0;
-		PC(victim)->religion = value;
-		 altered = TRUE;
-		goto cleanup;
-	}
-
 
 	if (!str_cmp(arg2, "dex"))
 	{
@@ -3312,6 +3302,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 
 	if (!str_prefix(arg2, "clan")) {
 		clan_t *cl, *clo;
+		OBJ_DATA *mark;
 
 		if ((cl = clan_search(arg3)) == NULL) {
 			BUFFER *output = buf_new(-1);
@@ -3323,14 +3314,19 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		}
 
 		if (!IS_NPC(victim)
-		&&  !IS_NULLSTR(victim->clan)
-		&& (clo = clan_lookup(victim->clan))) {
+		&&  (clo = clan_lookup(victim->clan))) {
 			clan_update_lists(clo, victim, TRUE);
 			clan_save(clo);
 		}
 
 		free_string(victim->clan);
 		victim->clan = str_qdup(cl->name);
+
+		if ((mark = get_eq_char(victim, WEAR_CLANMARK)) != NULL) {
+			obj_from_char(mark);
+			extract_obj(mark, 0);
+		}
+
 		if (!IS_NPC(victim)) {
 			PC(victim)->clan_status = CLAN_COMMONER;
 			name_add(&cl->member_list, victim->name, NULL, NULL);
@@ -3338,6 +3334,13 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 
 			spec_update(victim);
 			update_skills(victim);
+
+			if (cl->mark_vnum
+			&&  (mark = create_obj(get_obj_index(cl->mark_vnum), 0))) {
+				obj_to_char(mark, victim);
+				equip_char(victim, mark, WEAR_CLANMARK);
+			};
+
 			altered = TRUE;
 		}
 		goto cleanup;
