@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: str.c,v 1.11 1999-02-23 22:06:47 fjoe Exp $
+ * $Id: str.c,v 1.12 1999-05-18 17:52:03 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -94,7 +94,7 @@ void free_string(const char *p)
 	str *s, *q;
 	int hash;
 
-	if (p == NULL || p == str_empty)
+	if (IS_NULLSTR(p))
 		return;
 
 	str_count--;

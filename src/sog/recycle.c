@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.46 1999-05-15 10:32:42 fjoe Exp $
+ * $Id: recycle.c,v 1.47 1999-05-18 17:52:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -303,6 +303,7 @@ PC_DATA *new_pcdata(void)
 	pcdata->title = str_empty;
 	pcdata->twitlist = str_empty;
 	pcdata->granted = str_empty;
+	pcdata->wanted_by = str_empty;
 	return pcdata;
 }
 	

@@ -1,5 +1,5 @@
 /*
- * $Id: healer.c,v 1.20 1999-05-17 20:05:29 avn Exp $
+ * $Id: healer.c,v 1.21 1999-05-18 17:52:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -116,7 +116,7 @@ void do_heal(CHAR_DATA *ch, const char *argument)
     for (h = heal_table; h->keyword; h++)
 	if (!str_prefix(arg, h->keyword)) break;
 
-    if (h->name == NULL)	
+    if (h->keyword == NULL)	
     {
 	act("$N does not offer that spell.  Type 'heal' for a list.",
 	    ch,NULL,mob,TO_CHAR);
