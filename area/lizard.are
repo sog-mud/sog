@@ -1321,6 +1321,138 @@ A
 A
 13 20
 G none
+#22148
+obsidian helm~
+obsidian helm~
+Helm with short horns lays here.~
+obsidian~
+armor BE AE
+10 10 10 6 0
+40 100 2000 P
+A
+17 -5
+A
+3 3
+A
+19 1
+A
+18 1
+A
+13 20
+G none
+#22149
+obsidian boots~
+obsidian boots~
+Boots with sixty spikes are here.~
+obsidian~
+armor BE AG
+10 10 10 6 0
+40 100 2000 P
+A
+5 3
+A
+19 1
+A
+18 1
+A
+13 20
+G none
+#22150
+obsidian leggins~
+obsidian leggins~
+Leggins made of obsidian lays here.~
+obsidian~
+armor BE AF
+10 10 10 6 0
+40 100 2000 P
+A
+17 -2
+A
+5 3
+A
+19 1
+A
+18 1
+A
+13 20
+G none
+#22151
+apron~
+apron~
+Gray apron of Fat Ko lays here.~
+snakeskin~
+armor B AF
+18 18 18 10 0
+60 100 10000 P
+A
+4 -2
+A
+13 50
+A
+19 1
+A
+18 1
+G none
+#22152
+bracelet~
+bracelet of ko~
+Very strange bracelet with letters Ko lays here.~
+snakeskin~
+armor B AM
+18 18 18 10 0
+60 100 10000 P
+A
+4 -2
+A
+13 50
+A
+19 1
+A
+18 1
+G none
+#22153
+tie~
+tie of sa~
+Small black tie which belongs Sa hangs here.~
+snakeskin~
+armor B AC
+18 18 18 10 0
+60 10 1000 P
+A
+3 -1
+A
+1 -1
+A
+14 100
+A
+12 100
+G none
+#22154
+bracelet~
+bracelet of sa~
+Very strange bracelet with letters Sa lays here.~
+snakeskin~
+armor B AM
+18 18 18 10 0
+60 10 1000 P
+A
+3 -1
+A
+1 -1
+A
+14 100
+A
+12 100
+G none
+#22155
+hammer~
+hammer of vi~
+Huge hammer belongs Vi lays here.~
+unknown~
+weapon ABI AN
+exotic 0 0 '' 0
+60 0 0 P
+G none
 #0
 
 #ROOMS
@@ -4300,6 +4432,14 @@ O 22144 10	* large obsidian shield
 O 22145 10	* obsidian vest
 O 22146 10	* obsidian gauntlets
 O 22147 10	* obsidian armguards
+O 22148 10	* obsidian helm
+O 22149 10	* obsidian boots
+O 22150 10	* obsidian leggins
+O 22151 1	* apron
+O 22152 1	* bracelet of ko
+O 22153 1	* tie of sa
+O 22154 1	* bracelet of sa
+O 22155 1	* hammer of vi
 S
 
 #$

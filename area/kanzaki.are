@@ -2718,6 +2718,15 @@ Z 0 47180
 S
 #47180
 @eng The mountain@rus На горе~
+@eng You cannot see neither forest, nor village from here
+anymore - lifeless rocky slopes rise up to the clouds
+concealing mountain tops wherever your eyes can reach.
+Icy, piercing wind seems to be the only living creature
+here, breaking the silence with its wailing.
+@rus Отсюда уже не видно ни леса, ни деревни, ни храма - лишь
+безжизненные скалистые склоны ступенями поднимаются к обла-
+кам, скрывающим вершины. Холодный, порывистый ветер гуляет
+вокруг, нарушая безмолвие своим воем.
 ~
 0 0 mountain
 D0
@@ -2731,6 +2740,16 @@ Z 0 47181
 S
 #47181
 @eng The mountain@rus На горе~
+@eng You cannot see neither forest, nor village from here
+anymore - lifeless rocky slopes rise up to the clouds
+concealing mountain tops wherever your eyes can reach.
+Icy, piercing wind seems to be the only living creature
+here, breaking the silence with its wailing.
+@rus Отсюда уже не видно ни леса, ни деревни, ни храма - без-
+жизненные скалистые склоны ступенями поднимаются к облакам,
+скрывающим вершины повсюду где только хватает глаз. Лишь
+холодный, порывистый ветер гуляет вокруг, нарушая безмолвие
+своими стонами.
 ~
 0 0 mountain
 D0
@@ -2744,6 +2763,17 @@ Z 0 47182
 S
 #47182
 @eng The mountain@rus На горе~
+@eng You cannot see neither forest, nor village from here
+anymore - lifeless rocky slopes rise up to the clouds
+concealing mountain tops wherever your eyes can reach.
+Icy, piercing wind and a huge bird, slowly circling in
+the skies, seem to be the only living creatures here.
+@rus Отсюда уже не видно ни леса, ни деревни, ни храма - без-
+жизненные скалистые склоны ступенями поднимаются к облакам,
+скрывающим вершины повсюду где только хватает глаз. Лишь
+холодный, порывистый ветер гуляет вокруг, нарушая безмолвие
+своими стонами, да какая-то большая птица описывает в небе
+круги, широко раскинув крылья.
 ~
 0 0 mountain
 D2
@@ -2757,6 +2787,17 @@ Z 0 47181
 S
 #47183
 @eng The mountain@rus На горе~
+@eng You cannot see neither forest, nor village from here
+anymore - lifeless rocky slopes rise up to the clouds
+concealing mountain tops wherever your eyes can reach.
+Icy, piercing wind and a huge bird, slowly circling in
+the skies, seem to be the only living creatures here.
+@rus Отсюда уже не видно ни леса, ни деревни, ни храма - без-
+жизненные скалистые склоны ступенями поднимаются к облакам,
+скрывающим вершины повсюду где только хватает глаз. Лишь
+холодный, порывистый ветер гуляет вокруг, нарушая безмолвие
+своими стонами, да какая-то большая птица описывает в небе
+круги, широко раскинув крылья.
 ~
 0 0 mountain
 D0
@@ -2770,6 +2811,23 @@ Z 0 47184
 S
 #47184
 @eng The mountain@rus На горе~
+@eng Narrow cornice cuts short rught under your feet and you
+stare at the place where you were going to step in amaze-
+ment. Unable to believe that your  ascent might end here,
+you pull your head off the stone as far as you can and
+attentively observe the slope once again. A small inden-
+tation appears to be a little bit higher than you think
+you could reach... but the recklessness suddenly takes
+over everything else, forcing you to jump forth to cling
+to it with your hands.
+@rus Узкий карниз внезапно обрывается и ты ошалело смотришь вниз,
+туда, куда только что собирался поставить ногу. Не веря в то,
+что твое восхождение может закончиться прямо здесь, ты отни-
+маешь голову от камня настолько, насколько это возможно и еще
+раз внимательно осматриваешь склон. Небольшой выступ в скале
+оказывается чуть выше, чем ты, кажется, можешь дотянуться..
+и тут безрассудство берет верх над осторожностью, заставляя
+тебя едва ли не прыгнуть, чтобы уцепиться за этот выступ руками.
 ~
 0 0 mountain
 D3
@@ -2783,6 +2841,20 @@ Z 0 47185
 S
 #47185
 @eng Further up the mountain@rus Поднимаясь выше~
+@eng Having enough of hanging on your hands, now injured to the blood
+and finally pulled up, you nestle to the rock and close your eyes,
+unable to stop shivering and believe in what you've just done. As
+enough time passes, your self-control is back and you realize that
+staying here, after performing SUCH a stunt, would be even more
+mindless and stupid. You wind clean rags around your hands, stretch
+gloves over it and move further.
+@rus Достаточно повисев на руках, содрав в кровь ладони и в конце
+концов подтянувшись, ты прижимаешься к скале спиной и закрываешь
+глаза, не в силах совладать с предательской дрожью во всем теле
+и поверить в то что только что сделал. По прошествии достаточ-
+ного времени самообладание возвращается и ты понимаешь, что ос-
+тановиться тут, после ТАКОГО трюка было бы еще глупее. Обмотав
+руки тряпьем почище и натянув перчатки, ты двигаешься дальше.
 ~
 0 0 mountain
 D0
@@ -2796,6 +2868,16 @@ Z 0 47184
 S
 #47186
 @eng The mountain@rus На горе~
+@eng The slope here is less steep than before and ascending
+could be even easier, if it wasn't for the wind that starts
+attacking you fiercely, as if trying to drop you down at any
+cost. Suddenly you notice that the stone surface is absolute-
+ly bare - there isn't even moss growing at it.
+@rus На этой высоте склон уже менее крут и пробираться дальше не так
+опасно... если не смотреть вниз и не обращать внимания на усилив-
+шийся ветер, словно решивший во что бы то ни стало сбросить тебя
+вниз. Неожиданно для себя ты замечаешь что поверхность камня со-
+вершенно чиста - на ней не растет даже  лишайник.
 ~
 0 0 mountain
 D0
@@ -2809,6 +2891,16 @@ Z 0 47185
 S
 #47187
 @eng The mountain@rus На горе~
+@eng The slope here is less steep than before and ascending could
+be even easier, if it wasn't for the wind that now attacks you
+fiercely, as if trying to drop you down at any cost. Suddenly
+you notice that the stone surface is absolutely bare - there
+isn't even moss growing at it.
+@rus На этой высоте склон уже менее крут и пробираться дальше не так
+опасно... если не смотреть вниз и не обращать внимания на усилив-
+шийся ветер, словно решивший во что бы то ни стало сбросить тебя
+вниз. Неожиданно для себя ты замечаешь что поверхность камня со-
+вершенно чиста - на ней не растет даже  лишайник.
 ~
 0 0 mountain
 D2
