@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.17 1998-05-24 11:11:35 efdi Exp $
+ * $Id: update.c,v 1.18 1998-05-24 16:11:52 efdi Exp $
  */
 
 /***************************************************************************
@@ -568,7 +568,7 @@ void mobile_update(void)
 				ch->pcdata->adr_stops_shown = 0;
 			else if (!ch->pcdata->adr_stops_shown) {
 				ch->pcdata->adr_stops_shown = 1;
-				send_to_char("You're slowly calming down.\n\r",
+				send_to_char(msg(UPDATE_CALMING_DOWN, ch),
 						 ch);
 			}
 
@@ -984,6 +984,7 @@ void char_update(void)
 
 	ch_next = ch->next;
 
+	send_to_char("", ch);
 	/* reset hunters path find */
 	if (!IS_NPC(ch) && ch->cabal == CABAL_HUNTER)
 	{
