@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.89.2.13 2002-01-04 16:38:12 matrim Exp $
+ * $Id: tables.c,v 1.89.2.14 2002-01-31 19:28:03 tatyana Exp $
  */
 
 /***************************************************************************
@@ -593,6 +593,7 @@ flag_t extra_flags[] =
 	{ "nofind",		ITEM_NOFIND,		TRUE	},
 	{ "enchanted",		ITEM_ENCHANTED,		FALSE	},
 	{ "noident",		ITEM_NOIDENT,		TRUE	},
+	{ "kept",		ITEM_KEEP,		FALSE	},
 	{ "oldstyle",		ITEM_OLDSTYLE,		FALSE	},
 
 	{ NULL }

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.234.2.26 2002-01-05 16:21:56 matrim Exp $
+ * $Id: merc.h,v 1.234.2.27 2002-01-31 19:27:57 tatyana Exp $
  */
 
 /***************************************************************************
@@ -853,11 +853,13 @@ where_t *where_lookup(flag32_t where);
 #define ITEM_QUEST		(cc)
 #define ITEM_ENCHANTED		(dd)	/* obj is enchanted */
 #define ITEM_CLAN		(ee)
+
 #define ITEM_QUIT_DROP		(ff)
 #define ITEM_PIT		(gg)
 #define ITEM_CHQUEST		(hh)
 #define ITEM_NOFIND		(ii)
 #define ITEM_NOIDENT		(jj)
+#define ITEM_KEEP		(kk)	/* kept obj */
 #define ITEM_OLDSTYLE		(zz)	/* obj is in oldstyle format */
 
 /*
@@ -1654,7 +1656,7 @@ struct obj_data
 	const char *		name;
 	mlstring		short_descr;
 	mlstring		description;
-	flag32_t 		extra_flags;
+	flag64_t 		extra_flags;
 	flag32_t 		wear_flags;
 	flag32_t		wear_loc;
 	int			weight;

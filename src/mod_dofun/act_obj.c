@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.165.2.34 2002-01-08 20:31:42 tatyana Exp $
+ * $Id: act_obj.c,v 1.165.2.35 2002-01-31 19:28:01 tatyana Exp $
  */
 
 /***************************************************************************
@@ -417,7 +417,8 @@ void do_drop(CHAR_DATA * ch, const char *argument)
 			if ((arg[3] == '\0' || is_name(&arg[4], obj->name))
 			&&  can_see_obj(ch, obj)
 			&&  obj->wear_loc == WEAR_NONE
-			&&  can_drop_obj(ch, obj)) {
+			&&  can_drop_obj(ch, obj)
+			&&  !IS_SET(obj->extra_flags, ITEM_KEEP)) {
 				found = TRUE;
 				drop_obj(ch, obj);
 			}
@@ -681,7 +682,8 @@ void do_envenom(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	if (obj->pObjIndex->item_type == ITEM_FOOD || obj->pObjIndex->item_type == ITEM_DRINK_CON) {
+	if (obj->pObjIndex->item_type == ITEM_FOOD
+	||  obj->pObjIndex->item_type == ITEM_DRINK_CON) {
 		if (IS_OBJ_STAT(obj, ITEM_BLESS)
 		||  IS_OBJ_STAT(obj, ITEM_BURN_PROOF)) {
 			act("You fail to poison $p.", ch, obj, NULL, TO_CHAR);
@@ -1338,6 +1340,8 @@ void do_sacrifice(CHAR_DATA * ch, const char *argument)
 	if (!strcmp(argument, "all")) {
 		for (obj = ch->in_room->contents; obj; obj = r_next_cont) {
 			r_next_cont = obj->next_content;
+			if (IS_SET(obj->extra_flags, ITEM_KEEP))
+				continue;
 			sac_obj(ch, obj);
 		}
 		return;
@@ -2178,6 +2182,12 @@ void do_sell(CHAR_DATA * ch, const char *argument)
 		act("$n looks uninterested in $p.", keeper, obj, ch, TO_VICT);
 		return;
 	}
+
+	if (IS_SET(obj->extra_flags, ITEM_KEEP)) {
+		char_puts("Unkeep it first.\n", ch);
+		return;
+	}
+
 	if (cost > (keeper->silver + 100 * keeper->gold)) {
 		act("$n tells you '{GI'm afraid I don't have enough wealth to buy $p.{x'",
 		    keeper, obj, ch, TO_VICT);
@@ -2752,6 +2762,7 @@ void do_crucify(CHAR_DATA *ch, const char *argument)
 	else {
 		cross = create_obj_of(get_obj_index(OBJ_VNUM_CROSS),
 				      &obj->owner);
+		cross->timer = 10 * ch->level; 
 		obj_to_room(cross, ch->in_room);
 		act("With a crunch of bone and splash of blood you nail "
 		    "$p to a sacrificial cross.", ch, obj, NULL, TO_CHAR);
@@ -4017,6 +4028,11 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	if (IS_SET(obj->extra_flags, ITEM_KEEP)) {
+		char_puts("Unkeep it first!\n", ch);
+		return;
+	}
+
 	argument = one_argument(argument, starting, sizeof(starting));
 	if (starting[0] == '\0')
 		auction.starting = MIN_START_PRICE;
@@ -4088,4 +4104,59 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 			    obj, NULL, NULL, ACT_FORMSH, POS_RESTING);
 		break;
 	} /* switch */
+}
+
+void do_keep(CHAR_DATA *ch, const char *argument)
+{
+	char            arg[MAX_INPUT_LENGTH];
+	OBJ_DATA       *obj;
+
+	one_argument(argument, arg, sizeof(arg));
+	if (arg[0] == '\0') {
+		char_puts("Keep what?\n", ch);
+		return;
+	}
+
+	if (is_number(arg)) {
+		char_puts("You can't keep coins.\n", ch);
+		return;
+	}
+
+	if ((obj = get_obj_carry(ch, arg)) == NULL) {
+		char_puts("You do not have that item.\n", ch);
+		return;
+	}
+
+	if (IS_SET(obj->extra_flags, ITEM_KEEP)) {
+		act("$p is already kept.", ch, obj, NULL, TO_CHAR);
+		return;
+	}
+
+	SET_BIT(obj->extra_flags, ITEM_KEEP);
+	act("You keep $p.", ch, obj, NULL, TO_CHAR);
+}
+
+void do_unkeep(CHAR_DATA *ch, const char *argument)
+{
+	char		arg[MAX_INPUT_LENGTH];
+	OBJ_DATA	*obj;
+
+	one_argument(argument, arg, sizeof(arg));
+	if (arg[0] == '\0') {
+		char_puts("Unkeep what?\n", ch);
+		return;
+	}
+
+	if ((obj = get_obj_carry(ch, arg)) == NULL) {
+		char_puts("You do not have that item.\n", ch);
+		return;
+	}
+
+	if (!IS_SET(obj->extra_flags, ITEM_KEEP)) {
+		act("$p is not kept.", ch, obj, NULL, TO_CHAR);
+		return;
+	}
+
+	REMOVE_BIT(obj->extra_flags, ITEM_KEEP);
+	act("You unkeep $p.", ch, obj, NULL, TO_CHAR);
 }

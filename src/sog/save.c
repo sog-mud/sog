@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.126.2.11 2000-11-17 12:49:36 avn Exp $
+ * $Id: save.c,v 1.126.2.12 2002-01-31 19:28:03 tatyana Exp $
  */
 
 /***************************************************************************
@@ -479,7 +479,7 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 	}
 
 	if (obj->extra_flags != obj->pObjIndex->extra_flags)
-		fprintf(fp, "ExtF %d\n", obj->extra_flags);
+		fprintf(fp, "ExtF %s\n", format_flags(obj->extra_flags));
 
 	fprintf(fp, "Wear %d\n", obj->wear_loc);
 	if (obj->level != obj->pObjIndex->level)
@@ -1160,7 +1160,7 @@ fread_obj(CHAR_DATA * ch, FILE * fp, int flags)
 			break;
 
 		case 'E':
-			KEY("ExtF", obj->extra_flags, fread_number(fp));
+			KEY("ExtF", obj->extra_flags, fread_flags(fp));
 
 			if (!str_cmp(word, "ExDe")) {
 				ed_fread(fp, &obj->ed);

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.51 2002-01-11 20:35:09 tatyana Exp $
+ * $Id: act_info.c,v 1.271.2.52 2002-01-31 19:27:59 tatyana Exp $
  */
 
 /***************************************************************************
@@ -3986,6 +3986,9 @@ static char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 	}
 
 	if (fShort) {
+		if (IS_SET(obj->extra_flags, ITEM_KEEP))
+			strnzcat(buf, sizeof(buf), "* ");
+
 		strnzcat(buf, sizeof(buf),
 			 format_short(&obj->short_descr, obj->name, ch));
 		if (obj->pObjIndex->vnum > 5 /* not money, gold, etc */
