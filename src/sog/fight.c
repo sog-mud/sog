@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.44 2001-12-08 00:04:08 tatyana Exp $
+ * $Id: fight.c,v 1.202.2.45 2001-12-08 00:06:42 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1213,7 +1213,8 @@ void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 				get_gold_corpse(ch, corpse);
 		}
 
-		if (IS_SET(plr_flags, PLR_AUTOSAC))
+		if (IS_SET(plr_flags, PLR_AUTOSAC)
+	        &&  can_see_obj(ch, corpse))
 			dofun("sacrifice", ch, "corpse");
 	}
 
