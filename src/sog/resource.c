@@ -1,5 +1,5 @@
 /*
- * $Id: resource.c,v 1.19 1998-06-18 03:37:57 efdi Exp $
+ * $Id: resource.c,v 1.20 1998-06-21 19:34:25 fjoe Exp $
  */
 
 #include <limits.h>
@@ -234,6 +234,7 @@ lang_load(int langnum, char* fname)
 	}
 
 	ilang_table[langnum] = alloc_perm(nmsgid * sizeof(**ilang_table));
+	memset(ilang_table[langnum], 0, nmsgid * sizeof(**ilang_table));
 
 	while (fgets(buf, sizeof(buf), f)) {
 		char* p;
@@ -271,6 +272,12 @@ lang_load(int langnum, char* fname)
 			}
 			curr = ilang_table[langnum] + msgid;
 
+			if (curr->p != NULL) {
+				fprintf(stderr, "%s:%d: '%s' redefined\n",
+					fname, line, name);
+				exit(EX_DATAERR);
+			}
+		
 			if (p != NULL) {
 				while (*p && strchr(WS, *p) != NULL)
 					p++;
@@ -388,16 +395,9 @@ lang_load(int langnum, char* fname)
 					undefined = 1;
 					break;
 				}
-/*				else
-					fprintf(stderr, "'%s': '%s'\n",
-						name_lookup(i), m->p[j]);
-*/		}
+		}
 		else if (m->p == NULL) 
 			undefined = 1;
-/*		else
-			fprintf(stderr, "'%s': '%s'\n",
-				name_lookup(i), (char*) m->p);
-*/
 		if (undefined) {
 			fprintf(stderr, "%s: %s undefined\n",
 				fname, name_lookup(i));

@@ -35,13 +35,5 @@ void bug(const char *str, int param)
 	strcpy(buf, "[*****] BUG: ");
 	sprintf(buf + strlen(buf), str, param);
 	log(buf);
-/* RT removed due to bug-file spamming 
-	fclose(fpReserve);
-	if ((fp = fopen(BUG_FILE, "a")) != NULL) {
-		fprintf(fp, "%s\n", buf);
-		fclose(fp);
-	}
-	fpReserve = fopen(NULL_FILE, "r");
-*/
 }
 

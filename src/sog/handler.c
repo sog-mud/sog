@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.21 1998-06-21 11:38:38 fjoe Exp $
+ * $Id: handler.c,v 1.22 1998-06-21 19:34:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2992,22 +2992,18 @@ bool can_see(CHAR_DATA *ch, CHAR_DATA *victim)
 	&&   !CAN_DETECT(ch, DETECT_IMP_INVIS))
 		return FALSE;
 
-/* sneaking 
-
 	if (IS_AFFECTED(victim, AFF_SNEAK)
-	&&   !CAN_DETECT(ch,DETECT_HIDDEN)
-	&&   victim->fighting == NULL)
-	{
+	&&  !CAN_DETECT(ch,DETECT_HIDDEN)
+	&&  victim->fighting == NULL) {
 		int chance;
 		chance = get_skill(victim,gsn_sneak);
 		chance += get_curr_stat(ch,STAT_DEX) * 3/2;
- 	chance -= get_curr_stat(ch,STAT_INT) * 2;
+ 		chance -= get_curr_stat(ch,STAT_INT) * 2;
 		chance += ch->level - victim->level * 3/2;
 
 		if (number_percent() < chance)
 		    return FALSE;
 	}
-*/
 
 	if (IS_AFFECTED(victim,AFF_CAMOUFLAGE) &&
 	    !CAN_DETECT(ch,ACUTE_VISION))

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.79 1998-06-21 12:34:37 fjoe Exp $
+ * $Id: act_info.c,v 1.80 1998-06-21 19:34:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2252,12 +2252,12 @@ void do_where(CHAR_DATA *ch, char *argument)
 		found = FALSE;
 		for (d = descriptor_list; d; d = d->next) {
 			if (d->connected == CON_PLAYING
-			&& (victim = d->character) != NULL
-			&&   !IS_NPC(victim)
-			&& !(fPKonly && in_PK(ch, victim))
-			&&   victim->in_room != NULL
-			&&   victim->in_room->area == ch->in_room->area
-			&&   can_see(ch, victim)) {
+			&&  (victim = d->character) != NULL
+			&&  !IS_NPC(victim)
+			&&  !(fPKonly && in_PK(ch, victim))
+			&&  victim->in_room != NULL
+			&&  victim->in_room->area == ch->in_room->area
+			&&  can_see(ch, victim)) {
 				found = TRUE;
 				char_printf(ch, "%s%-28s %s\n\r",
 					    (in_PK(ch, victim) &&
@@ -2275,12 +2275,9 @@ void do_where(CHAR_DATA *ch, char *argument)
 		for (victim = char_list;
 		     victim != NULL; victim = victim->next) {
 			if (victim->in_room != NULL
-			&&   victim->in_room->area == ch->in_room->area
-			&&   !IS_AFFECTED(victim, AFF_HIDE)
-			&&   !IS_AFFECTED(victim, AFF_FADE)
-			&&   !IS_AFFECTED(victim, AFF_SNEAK)
-			&&   can_see(ch, victim)
-			&&   is_name(arg, victim->name)) {
+			&&  victim->in_room->area == ch->in_room->area
+			&&  can_see(ch, victim)
+			&&  is_name(arg, victim->name)) {
 				found = TRUE;
 				char_printf(ch, "%-28s %s\n\r",
 					    PERS(victim, ch),

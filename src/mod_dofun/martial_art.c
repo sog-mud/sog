@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.12 1998-06-20 20:53:27 fjoe Exp $
+ * $Id: martial_art.c,v 1.13 1998-06-21 19:34:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -426,7 +426,7 @@ void do_dirt(CHAR_DATA *ch, char *argument)
 	}
 
 	if (IS_AFFECTED(ch,AFF_FLYING)) {
-		 send_to_char("While flying?.\n\r",ch);
+		 send_to_char("While flying?\n\r",ch);
 		 return;
 	}
 
