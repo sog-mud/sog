@@ -83,6 +83,8 @@ char *strings_engl[] =  {
 /* UPDATE_WEATHER_LIGHTNING_STOPPED */	"The lightning has stopped.\n\r",
 
 /* QUEST_QUESTOR_TELLS_YOU */	"{W%s{x tells you '{G%s{x'\n\r",
+/* QUEST_YOU_HAVE_D_MINUTES */	"You have %d minutes to complete this quest.",
+/* QUEST_MAY_THE_GODS_GO */	"May the gods go with you!",
 
 /* COMM_ORDERS_YOU_TO */	"$n orders you to '%s', you do.",
 /* COMM_YOU_PUSH */		"You push $N to %s.",

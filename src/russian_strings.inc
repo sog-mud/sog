@@ -83,6 +83,8 @@ char *strings_rus[] = {
 /* UPDATE_WEATHER_LIGHTNING_STOPPED */	"Гроза кончилась.\n\r",
 
 /* QUEST_QUESTOR_TELLS_YOU */	"{W%s{x говорит тебе '{G%s{x'\n\r",
+/* QUEST_YOU_HAVE_D_MINUTES */	"У тебя есть %d на выполнение этого задания.",
+/* QUEST_MAY_THE_GODS_GO */	"И пусть боги помогут тебе!",
 
 /* COMM_ORDERS_YOU_TO */	"$n приказывает тебе '%s', ты повинуешься.",
 /* COMM_YOU_PUSH */		"Ты выталкиваешь $N на %s.",

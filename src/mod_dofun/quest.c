@@ -1,5 +1,5 @@
 /*
- * $Id: quest.c,v 1.4 1998-04-21 22:03:55 efdi Exp $
+ * $Id: quest.c,v 1.5 1998-04-22 06:12:49 efdi Exp $
  */
 
 /***************************************************************************
@@ -520,9 +520,9 @@ To buy an item, type 'QUEST BUY <item>'.\n\r",
 	{
             ch->pcdata->countdown = number_range(15,30);
 	    SET_BIT(ch->act, PLR_QUESTOR);
-	    sprintf(buf, "You have %d minutes to complete this quest.",ch->pcdata->countdown);
+	    sprintf(buf, msg(QUEST_YOU_HAVE_D_MINUTES, ch), ch->pcdata->countdown);
 	    do_tell_quest(ch,questman,buf);
-	    sprintf(buf, "May the gods go with you!");
+	    sprintf(buf, msg(QUEST_MAY_THE_GODS_GO, ch));
 	    do_tell_quest(ch,questman,buf);
 	}
 	return;

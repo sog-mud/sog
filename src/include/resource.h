@@ -2,7 +2,7 @@
 #define _RESOURCE_H_
 
 /*
- * $Id: resource.h,v 1.11 1998-04-21 22:03:57 efdi Exp $
+ * $Id: resource.h,v 1.12 1998-04-22 06:12:49 efdi Exp $
  */
 
 char* msg(int resnum, CHAR_DATA *ch);
@@ -93,6 +93,8 @@ enum {
 	UPDATE_WEATHER_LIGHTNING_STOPPED,
 
 	QUEST_QUESTOR_TELLS_YOU,
+	QUEST_YOU_HAVE_D_MINUTES,
+	QUEST_MAY_THE_GODS_GO,
 
 	COMM_ORDERS_YOU_TO,
 	COMM_YOU_PUSH,
