@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.17 1998-05-27 18:28:53 efdi Exp $
+ * $Id: fight.c,v 1.18 1998-05-27 18:32:54 efdi Exp $
  */
 
 /***************************************************************************
@@ -1575,7 +1575,8 @@ bool is_safe_nomessage(CHAR_DATA *ch, CHAR_DATA *victim)
 	/* Experimental vampires' coffins handle */
 	if (victim->on && IS_SET(victim->on->value[2], SLEEP_IN)
 	    && victim->on->pIndexData->vnum == 1200
-	    && time_info.hour >= 5 && time_info.hour <= 20)
+	    && time_info.hour >= 5 && time_info.hour <= 20
+	    && victim->class == CLASS_VAMPIRE)
 		return TRUE;
 
 
