@@ -1,0 +1,15 @@
+#RACE
+Name kender~
+Act scavenger thief~
+Inv sneak~
+Det hidden sneak~
+Off disarm dodge dirt_kick parry assist_race~
+Form mammal~
+Parts head arms legs heart brains guts hands feet fingers ear eye~
+Resist cold -10
+Resist lightning -15
+Damtype none
+LuckBonus 30
+End
+
+#$

@@ -1,12 +1,11 @@
 #RACE
 Name ghost~
 Aff flying pass_door~
-Form undead intangible~
-Parts head arms legs heart brains guts hands feet fingers ear eye~
-Resist holy -50
-Resist negative 100
-Resist disease 100
+Form instant_decay undead intangible~
 Resist poison 100
+Resist negative 100
+Resist holy -50
+Resist disease 100
 Resist weapon 33
 End
 
