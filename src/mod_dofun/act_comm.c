@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.118 1998-12-01 10:53:48 fjoe Exp $
+ * $Id: act_comm.c,v 1.119 1998-12-02 09:08:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1650,7 +1650,7 @@ void do_speak(CHAR_DATA *ch, const char *argument)
 	RACE_DATA *r;
 
 	if (IS_NPC(ch)
-	||  (r = race_lookup(ch->race)) == NULL
+	||  (r = race_lookup(ch->pcdata->race)) == NULL
 	||  !r->pcdata)
 		return;
 
