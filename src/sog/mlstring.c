@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.c,v 1.29 1999-02-17 18:58:04 fjoe Exp $
+ * $Id: mlstring.c,v 1.30 1999-02-18 15:13:13 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -493,4 +493,3 @@ static mlstring *mlstr_split(mlstring *ml)
 		res->u.lstr[lang] = str_qdup(ml->u.lstr[lang]);
 	return res;
 }
-

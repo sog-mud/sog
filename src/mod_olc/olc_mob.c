@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.32 1999-02-17 07:53:29 fjoe Exp $
+ * $Id: olc_mob.c,v 1.33 1999-02-18 15:13:13 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -81,6 +81,9 @@ DECLARE_OLC_FUN(mobed_prac		);
 DECLARE_OLC_FUN(mobed_clan		);
 DECLARE_OLC_FUN(mobed_clone		);
 DECLARE_OLC_FUN(mobed_invis		);
+DECLARE_OLC_FUN(mobed_fvnum		);
+
+DECLARE_VALIDATE_FUN(validate_fvnum	);
 
 OLC_CMD_DATA olc_cmds_mob[] =
 {
@@ -128,6 +131,7 @@ OLC_CMD_DATA olc_cmds_mob[] =
 	{ "trigdel",	mobed_trigdel				},
 	{ "clone",	mobed_clone				},
 	{ "invis",	mobed_invis				},
+	{ "fvnum",	mobed_fvnum,		validate_fvnum	},
 
 	{ "commands",	show_commands				},
 	{ "version",	show_version				},
@@ -333,6 +337,9 @@ OLC_FUN(mobed_show)
 
 	if (pMob->invis_level)
 		buf_printf(buf, "Invis level: [%d]\n", pMob->invis_level);
+
+	if (pMob->fvnum)
+		buf_printf(buf, "Female vnum: [%d]\n", pMob->invis_level);
 
 /* ROM values end */
 
@@ -1169,6 +1176,8 @@ OLC_FUN(mobed_clone)
 	pMob->size		= pFrom->size;
 	pMob->practicer		= pFrom->practicer;
 	pMob->clan		= pFrom->clan;
+	pMob->invis_level	= pFrom->invis_level;
+	pMob->fvnum		= pFrom->fvnum;
 
 	for (i = 0; i < 3; i++)
 		pMob->hit[i]	= pFrom->hit[i];
@@ -1187,6 +1196,13 @@ OLC_FUN(mobed_invis)
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
 	return olced_number(ch, argument, mobed_invis, &pMob->invis_level);
+}
+
+OLC_FUN(mobed_fvnum)
+{
+	MOB_INDEX_DATA *pMob;
+	EDIT_MOB(ch, pMob);
+	return olced_number(ch, argument, mobed_fvnum, &pMob->fvnum);
 }
 
 /* Local functions */
@@ -1213,3 +1229,14 @@ static void show_spec_cmds(CHAR_DATA *ch)
 	buf_free(output);
 }
 
+VALIDATE_FUN(validate_fvnum)
+{
+	int fvnum = *(int*) arg;
+
+	if (!get_mob_index(fvnum)) {
+		char_printf(ch, "MobEd: %d: no such vnum.\n", fvnum);
+		return FALSE;
+	}
+
+	return TRUE;
+}

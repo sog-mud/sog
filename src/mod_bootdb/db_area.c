@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.28 1999-02-18 13:34:32 fjoe Exp $
+ * $Id: db_area.c,v 1.29 1999-02-18 15:13:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1238,6 +1238,8 @@ DBLOAD_FUN(load_mobiles)
 	    }
 	    else if (letter == 'I') 
 		pMobIndex->invis_level = fread_number(fp);
+	    else if (letter == 'V') 
+		pMobIndex->fvnum = fread_number(fp);
             else if (letter == 'F') {
 		char *word;
 		long vector;

@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.57 1999-02-18 13:34:33 fjoe Exp $
+ * $Id: olc_save.c,v 1.58 1999-02-18 15:13:14 fjoe Exp $
  */
 
 /**************************************************************************
@@ -184,6 +184,8 @@ void save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 		fwrite_string(fp, "C", clan_name(pMobIndex->clan));
     if (pMobIndex->invis_level)
 		fprintf(fp, "I %d\n", pMobIndex->invis_level);
+    if (pMobIndex->fvnum)
+		fprintf(fp, "V %d\n", pMobIndex->fvnum);
 }
 
 /*****************************************************************************

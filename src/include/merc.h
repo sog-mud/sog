@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.152 1999-02-18 09:57:32 fjoe Exp $
+ * $Id: merc.h,v 1.153 1999-02-18 15:13:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1200,6 +1200,7 @@ struct mob_index_data
 	MPTRIG *		mptrig_list;
 	int			mptrig_types;
 	int			vnum;
+	int			fvnum;
 	int			group;
 	int			count;
 	int			killed;

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.108 1999-02-18 09:57:32 fjoe Exp $
+ * $Id: db.c,v 1.109 1999-02-18 15:13:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -954,11 +954,9 @@ CHAR_DATA *create_mob_org(MOB_INDEX_DATA *pMobIndex, int flags)
 	mob->pIndexData		= pMobIndex;
 
 	mob->name		= str_qdup(pMobIndex->name);
-	if (!IS_SET(flags, CREATE_NAMED)) {
-		mob->short_descr	= mlstr_dup(pMobIndex->short_descr);
-		mob->long_descr		= mlstr_dup(pMobIndex->long_descr);
-		mob->description	= mlstr_dup(pMobIndex->description);
-	}
+	mob->short_descr	= mlstr_dup(pMobIndex->short_descr);
+	mob->long_descr		= mlstr_dup(pMobIndex->long_descr);
+	mob->description	= mlstr_dup(pMobIndex->description);
 	mob->id			= get_mob_id();
 	mob->spec_fun		= pMobIndex->spec_fun;
 	mob->class		= CLASS_CLERIC;
@@ -1001,8 +999,17 @@ CHAR_DATA *create_mob_org(MOB_INDEX_DATA *pMobIndex, int flags)
 		}
 
 	mob->sex		= pMobIndex->sex;
-	if (mob->sex == SEX_EITHER) /* random sex */
-		mob->sex = number_range(1,2);
+	if (mob->sex == SEX_EITHER) { /* random sex */
+		MOB_INDEX_DATA *fmob;
+		mob->sex = number_range(SEX_MALE, SEX_FEMALE);
+		if (mob->sex == SEX_FEMALE
+		&&  (fmob = get_mob_index(pMobIndex->fvnum))) {
+			mob->name	= str_qdup(fmob->name);
+			mob->short_descr= mlstr_dup(fmob->short_descr);
+			mob->long_descr	= mlstr_dup(fmob->long_descr);
+			mob->description= mlstr_dup(fmob->description);
+		}
+	}
 
 	for (i = 0; i < MAX_STATS; i ++)
 		mob->perm_stat[i] = UMIN(25, 11 + mob->level/4);
@@ -1113,11 +1120,22 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 CHAR_DATA *create_named_mob(MOB_INDEX_DATA *pMobIndex, const char *name)
 {
 	CHAR_DATA *res;
+	mlstring *ml;
 
-	res = create_mob_org(pMobIndex, CREATE_NAMED);
-	res->short_descr	= mlstr_printf(pMobIndex->short_descr, name);
-	res->long_descr		= mlstr_printf(pMobIndex->long_descr, name);
-	res->description	= mlstr_printf(pMobIndex->description, name);
+	res = create_mob_org(pMobIndex, 0);
+
+	ml = mlstr_printf(res->short_descr, name);
+	mlstr_free(res->short_descr);
+	res->short_descr	= ml;
+
+	ml = mlstr_printf(res->long_descr, name);
+	mlstr_free(res->long_descr);
+	res->long_descr		= ml;
+
+	ml = mlstr_printf(res->description, name);
+	mlstr_free(res->description);
+	res->description	= ml;
+
 	return res;
 }
 
