@@ -1,0 +1,87 @@
+#AREADATA
+Name The Battle Arena~
+VNUMs 35300 35399
+Security 1
+LevelRange 1 100
+Flags closed~
+End
+
+#ROOMS
+#35300
+The Safe Room~
+You are in a safe place. Down -- return to world.
+Up -- enter battle arena.
+~
+0 BDHKNSW inside
+D4
+~
+~
+Z 0 35301
+D5
+~
+~
+Z 0 3502
+S
+#35301
+The Battle Arena~
+You are on a battle arena. All places are the same!
+~
+0 NZ inside
+D0
+~
+~
+Z 0 35302
+D1
+~
+~
+Z 0 35304
+D5
+~
+~
+Z 0 35300
+S
+#35302
+The Battle Arena~
+You are on a battle arena. All places are the same!
+~
+0 NZ inside
+D1
+~
+~
+Z 0 35303
+D2
+~
+~
+Z 0 35301
+S
+#35303
+The Battle Arena~
+You are on a battle arena. All places are the same!
+~
+0 NZ inside
+D2
+~
+~
+Z 0 35304
+D3
+~
+~
+Z 0 35302
+S
+#35304
+The Battle Arena~
+You are on a battle arena. All places are the same!
+~
+0 NZ inside
+D0
+~
+~
+Z 0 35303
+D3
+~
+~
+Z 0 35301
+S
+#0
+
+#$
