@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.325 2003-10-10 16:14:27 fjoe Exp $
+ * $Id: act_wiz.c,v 1.326 2004-02-19 10:53:10 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1327,10 +1327,11 @@ DO_FUN(do_mstat, ch, argument)
 			   flag_string(off_flags, pMobIndex->off_flags));
 	}
 
-	buf_printf(output, BUF_END, "Fighting: %s Deaths: %d Carry number: %d  Carry weight: %d\n", // notrans
+	buf_printf(output, BUF_END, "Fighting: %s Deaths: %d Carry number: %d (%d) Carry weight: %d (%d)\n", // notrans
 		   victim->fighting ? victim->fighting->name : "(none)" , // notrans
 		   IS_NPC(victim) ? 0 : PC(victim)->death,
-		   victim->carry_number, get_carry_weight(victim) / 10);
+		   victim->carry_number, can_carry_n(victim),
+		   get_carry_weight(victim), can_carry_w(victim));
 
 	if (!IS_NPC(victim)) {
 		buf_printf(output, BUF_END,
