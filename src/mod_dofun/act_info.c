@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.21 1998-05-04 10:06:12 fjoe Exp $
+ * $Id: act_info.c,v 1.22 1998-05-05 03:22:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3218,7 +3218,7 @@ void do_score(CHAR_DATA *ch, char *argument)
 	char_printf(ch, "     {G| {RAlign:  {x%-11s  {C|                |{x %-7s %-19s {G|{x\n\r",
 		IS_GOOD(ch) ? "good" : IS_EVIL(ch) ? "evil" : "neutral",
 		msg(INFO_YOU_ARE, ch),
-		msg(INFO_POS_NAME_DEAD + ch->position*3, ch));
+		msg(INFO_POS_NAME_DEAD + ch->position, ch));
 
 	send_to_char("     {G|{C+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+{G|{x{x\n\r", ch);
 
@@ -3433,7 +3433,7 @@ void do_oscore(CHAR_DATA *ch, char *argument)
 
 	char_printf(ch, "%s %s.\n\r",
 		msg(INFO_YOU_ARE, ch),
-		msg(INFO_POS_NAME_DEAD + ch->position*3, ch));
+		msg(INFO_POS_NAME_DEAD + ch->position, ch));
 
 	if ((ch->position == POS_SLEEPING || ch->position == POS_RESTING ||
 	     ch->position == POS_FIGHTING || ch->position == POS_STANDING)

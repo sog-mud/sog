@@ -1,5 +1,5 @@
 /*
- * $Id: resource.c,v 1.10 1998-05-05 01:18:45 fjoe Exp $
+ * $Id: resource.c,v 1.11 1998-05-05 03:22:19 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -19,11 +19,17 @@ static int nlang;
 static int nmsgid;
 static struct msg** lang_table;
 
-#define FIX_SEX(ch) (ch->sex >= SEX_FEMALE  ?	SEX_FEMALE : \
-		     ch->sex <= SEX_NEUTRAL ?	SEX_NEUTRAL : \
+enum {
+	DEP_NONE,
+	DEP_CHAR,
+	DEP_VICTIM
+};
+
+#define FIX_SEX(ch) ((ch)->sex >= SEX_FEMALE  ?	SEX_FEMALE : \
+		     (ch)->sex <= SEX_NEUTRAL ?	SEX_NEUTRAL : \
 						SEX_MALE)
 
-char *msg(int msgid, CHAR_DATA *ch)
+char *vmsg(int msgid, CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	struct msg *m;
 
@@ -31,8 +37,11 @@ char *msg(int msgid, CHAR_DATA *ch)
 		return BLANK_STRING;
 
 	m = lang_table[ch->i_lang]+msgid;
-	if (m->sexdep)
+	if (m->sexdep) {
+		if (m->sexdep == DEP_VICTIM)
+			ch = victim;
 		return m->p[FIX_SEX(ch)];
+	}
 	else
 		return (char*)m->p;
 }
@@ -236,19 +245,33 @@ lang_load(int langnum, char* fname)
 				curr->p = NULL;
 			}
 			else {
-				curr->sexdep = 1;
-				ncurr = 0;
-				curr->p = alloc_perm((SEX_MAX+1)*sizeof(char*));
-				for (i = 0; i <= SEX_MAX; i++)
-					curr->p[i] = NULL;
+				char* depname;
 
-				strsep(&p, WS);
+				depname = strsep(&p, WS);
+				if (strcmp(depname, "sexdep") == 0)
+					curr->sexdep = DEP_CHAR;
+				else if (strcmp(depname, "vsexdep") == 0)
+					curr->sexdep = DEP_VICTIM;
+				else {
+					fprintf(stderr,
+						"%s:%d: invalid "
+						"sex dependancy\n",
+						name, line);
+					exit(EX_DATAERR);
+				}
+					
 				if (p != NULL) {
 					while (*p && strchr(WS, *p) != NULL)
 						p++;
 					if (*p == '\0')
 						p = NULL;
 				}
+
+				ncurr = 0;
+				curr->p = alloc_perm((SEX_MAX+1)*sizeof(char*));
+				for (i = 0; i <= SEX_MAX; i++)
+					curr->p[i] = NULL;
+
 			}
 			if (p == NULL)
 				continue;
@@ -267,9 +290,31 @@ lang_load(int langnum, char* fname)
 
 			for(q = p+1; *q; q++) 
 				if (*q == '\\') {
-					q++;
-					if (*q == '\0')
+					int c;
+
+					if (*++q == '\0')
 						break;
+
+					switch (*q) {
+					case 'n':
+						c = '\n';
+						break;
+					case 'r':
+						c = '\r';
+						break;
+					case 'a':
+						c = '\a';
+						break;
+					default:
+						c = '\0';
+						break;
+					}
+
+					if (c) {
+						memcpy(q, q+1, strlen(q+1) + 1);
+						*--q = c;
+					}
+
 					continue;
 				}
 				else if (*q == '"')

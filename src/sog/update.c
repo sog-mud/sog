@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.11 1998-04-28 10:38:18 efdi Exp $
+ * $Id: update.c,v 1.12 1998-05-05 03:22:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -183,7 +183,7 @@ void gain_exp(CHAR_DATA *ch, int gain)
 	ch->exp = UMAX(base_exp(ch, ch->pcdata->points), ch->exp + gain);
 	while (ch->level < LEVEL_HERO &&
 	       exp_to_level(ch, ch->pcdata->points) <= 0) {
-		send_to_char("You raise a level!!", ch);
+		send_to_char("\a{CYou raise a level!!{x  ", ch);
 		ch->level += 1;
 
 		/* added for samurais by chronos */

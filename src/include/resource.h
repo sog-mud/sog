@@ -2,10 +2,11 @@
 #define _RESOURCE_H_
 
 /*
- * $Id: resource.h,v 1.35 1998-05-05 01:18:45 fjoe Exp $
+ * $Id: resource.h,v 1.36 1998-05-05 03:22:19 fjoe Exp $
  */
 
-char* msg(int resnum, CHAR_DATA *ch);
+#define msg(msgid, ch) vmsg(msgid, ch, ch)
+char* vmsg(int msgid, CHAR_DATA *ch, CHAR_DATA *victim);
 void msgdb_load();
 
 #define LANG_ENG 0

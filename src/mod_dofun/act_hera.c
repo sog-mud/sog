@@ -1,5 +1,5 @@
 /*
- * $Id: act_hera.c,v 1.6 1998-04-26 17:08:01 efdi Exp $
+ * $Id: act_hera.c,v 1.7 1998-05-05 03:22:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,7 +47,7 @@
 ***************************************************************************/
 
 /*
- * $Id: act_hera.c,v 1.6 1998-04-26 17:08:01 efdi Exp $
+ * $Id: act_hera.c,v 1.7 1998-05-05 03:22:15 fjoe Exp $
  */
 #include <sys/types.h>
 #include <sys/time.h>
@@ -1216,18 +1216,17 @@ void hunt_victim_old( CHAR_DATA *ch )
 void damage_to_obj(CHAR_DATA *ch,OBJ_DATA *wield, OBJ_DATA *worn, int damage) 
 {
 
- if ( damage == 0) return;
- worn->condition -= damage;
+ 	if ( damage == 0) return;
+ 		worn->condition -= damage;
 
- act_puts("The $p inflicts damage on $P.",
-	ch,wield,worn,TO_ROOM,POS_RESTING);
+	act_puts("{gThe $p inflicts damage on $P.{x",
+		ch,wield,worn,TO_ROOM,POS_RESTING);
 
- if (worn->condition < 1)
-	{
- act_puts("The $P breaks into pieces.",
-	ch,wield,worn,TO_ROOM,POS_RESTING);
-	extract_obj( worn );
-	return;
+	if (worn->condition < 1) {
+		act_puts("{gThe {W$P{g breaks into pieces.{x",
+			ch,wield,worn,TO_ROOM,POS_RESTING);
+		extract_obj(worn);
+		return;
 	}
  
 	if (IS_SET(wield->extra_flags,ITEM_ANTI_EVIL) 

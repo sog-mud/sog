@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.19 1998-05-05 01:18:43 fjoe Exp $
+ * $Id: comm.c,v 1.20 1998-05-05 03:22:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3024,7 +3024,7 @@ void act_puts(const char *format, CHAR_DATA *ch, const void *arg1,
 }
 
 void act_printf(CHAR_DATA *ch, const void *arg1, 
-	      const void *arg2, int type, int min_pos, int msg_num, ...)
+	      const void *arg2, int type, int min_pos, int msgid, ...)
 {
     static char * const he_she  [] = { "it",  "he",  "she" };
     static char * const him_her [] = { "it",  "him", "her" };
@@ -3064,7 +3064,7 @@ void act_printf(CHAR_DATA *ch, const void *arg1,
         to = vch->in_room->people;
     }
  
-    va_start(ap, msg_num);
+    va_start(ap, msgid);
 
     for( ; to ; to = to->next_in_room )
     {
@@ -3081,7 +3081,7 @@ void act_printf(CHAR_DATA *ch, const void *arg1,
             continue;
  
         point   = buf;
-        vsprintf(str, msg(msg_num, to), ap);
+        vsprintf(str, vmsg(msgid, to, vch), ap);
         while( *str )
         {
             if( *str != '$' && *str != '{' )
