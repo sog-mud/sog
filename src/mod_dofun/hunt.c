@@ -1,5 +1,5 @@
 /*
- * $Id: hunt.c,v 1.51 2003-09-30 00:31:11 fjoe Exp $
+ * $Id: hunt.c,v 1.52 2004-02-19 22:15:18 fjoe Exp $
  */
 
 /*
@@ -349,7 +349,7 @@ hunt_victim(CHAR_DATA *ch)
 		if (get_char_area(ch, ch->hunting->name) != NULL) {
 			char buf[MAX_INPUT_LENGTH];
 
-			snprintf(buf, sizeof(buf), "portal %s",	// notrans
+			snprintf(buf, sizeof(buf), "portal '%s'", // notrans
 				 ch->hunting->name);
 			dofun("cast", ch, buf);
 			dofun("enter", ch, "portal");
@@ -369,7 +369,7 @@ hunt_victim(CHAR_DATA *ch)
 		&&  ch->level > 35) {
 			char buf[MAX_INPUT_LENGTH];
 
-			snprintf(buf, sizeof(buf), "portal %s",	// notrans
+			snprintf(buf, sizeof(buf), "portal '%s'", // notrans
 				 ch->hunting->name);
 			dofun("cast", ch, buf);
 			dofun("enter", ch, "portal");
