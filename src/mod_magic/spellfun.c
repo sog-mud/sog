@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.114 1999-02-11 17:16:54 fjoe Exp $
+ * $Id: spellfun.c,v 1.115 1999-02-12 10:16:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -577,9 +577,13 @@ void obj_cast_spell(int sn, int level,
 			}
 		}
 
-		target = victim ? TARGET_CHAR : TARGET_OBJ;
-		bch = victim;
-		bane_damage = 3*bch->level;
+		if (victim) {
+			target = TARGET_CHAR;
+			bch = victim;
+			bane_damage = 3*bch->level;
+		}
+		else
+			target = TARGET_OBJ;
 		break;
 
 	case TAR_OBJ_CHAR_DEF:
@@ -592,8 +596,11 @@ void obj_cast_spell(int sn, int level,
 		}
 		else 
 			target = TARGET_OBJ;
-		bch = victim;
-		bane_damage = 3*bch->level;
+
+		if (victim) {
+			bch = victim;
+			bane_damage = 3*bch->level;
+		}
 		break;
 	}
 
