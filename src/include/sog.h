@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.53 2004-02-19 15:19:28 fjoe Exp $
+ * $Id: sog.h,v 1.54 2004-02-20 16:25:25 fjoe Exp $
  */
 
 #ifndef _SOG_H_
@@ -500,6 +500,7 @@ DECLARE_PROC4(inflict_effect,
 #define DAM_F_THIRST	(E)	/* damage by thirst */
 #define DAM_F_LIGHT_V	(F)	/* light in room */
 #define DAM_F_TRAP_ROOM	(G)	/* room trap damage */
+#define DAM_F_STUN	(H)	/* master hand damage */
 
 DECLARE_PROC4(one_hit,
 	      ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim,

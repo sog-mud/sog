@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.364 2004-02-19 17:16:47 fjoe Exp $
+ * $Id: fight.c,v 1.365 2004-02-20 16:25:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -364,9 +364,10 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 			dam = number_range(1 + 4 * sk / 100,
 					   2 * LEVEL(ch) / 3 * sk / 100);
 			if ((sk2 = get_skill(ch, "master hand"))
-			&& number_percent() <= sk2) {
+			&&  number_percent() <= sk2) {
 				check_improve(ch, "master hand", TRUE, 6);
 				dam += dam * 110 /100;
+				SET_BIT(dam_flags, DAM_F_STUN);
 			}
 		}
 	}
@@ -2197,15 +2198,13 @@ static void
 check_stun(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	int chance;
-	if (get_eq_char(ch, WEAR_WIELD)
-	|| !(chance = get_skill(ch, "master hand")))
+
+	if ((chance = get_skill(ch, "master hand")) == 0)
 		return;
 
 	chance /= 3;
-
 	chance += get_curr_stat(ch, STAT_STR);
 	chance -= get_curr_stat(victim, STAT_CON);
-
 	chance += LEVEL(ch) - LEVEL(victim);
 
 	if (number_percent() < chance) {
@@ -3451,7 +3450,8 @@ damage2(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 			return FALSE;
 		if (check_hand_block(ch, victim))
 			return FALSE;
-		check_stun(ch, victim);
+		if (IS_SET(dam_flags, DAM_F_STUN))
+			check_stun(ch, victim);
 	}
 
 	if ((res = get_resist(victim, dam_class, TRUE)) == 100)
