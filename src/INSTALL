@@ -18,9 +18,9 @@ To run mud server
    system
  - use ./startup for debugging
 
-NOTE: if you are using FreeBSD 3.x/4.x do not forget to put bin/rndcontrol.sh
-to /usr/local/etc/rc.d so that /dev/urandom will get enough randomness.
-Do not forget to change irq numbers to match your system. Good randomness
-sources are network card, keyboard and mouse irqs
+NOTE: if you are using FreeBSD 3.x/4.x do not forget to configure random number
+generator (rand_irqs=x y z" in /etc/rc.conf) so that /dev/urandom will get
+enough randomness. Good randomness sources are network cards, keyboard and
+mouse irqs.
 
 /fjoe
