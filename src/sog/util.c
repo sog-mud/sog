@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: util.c,v 1.35 2001-08-28 16:37:43 avn Exp $
+ * $Id: util.c,v 1.36 2001-09-09 12:52:34 kostik Exp $
  */
 
 #include <sys/types.h>
@@ -540,14 +540,18 @@ dice_wlb(int number, int size, CHAR_DATA *ch, CHAR_DATA *victim)
 			num = luck_diff / 20 + 1 +
 				(number_range(0, 19) < luck_diff % 20) ? 1 : 0;
 
-			for (cand = 0; num; num--)
-				cand = UMAX(cand, number_range(1, size));
+			for (cand = number_range(1, size); num > 0; num--) {
+				int this_die = number_range(1, size);
+				cand = UMAX(cand, this_die);
+			}
 		} else {
 			num = (-luck_diff) / 20 + 1 +
 				(number_range(0, 19) < (-luck_diff) % 20) ? 1 : 0;
 
-			for (cand = 0; num; num--)
-				cand = UMIN(cand, number_range(1, size));
+			for (cand = number_range(1, size); num > 0; num--) {
+				int this_die = number_range(1, size);
+				cand = UMIN(cand, this_die);
+			}
 		}
 		sum += cand;
 	}

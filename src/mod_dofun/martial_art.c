@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.198 2001-09-07 19:34:32 fjoe Exp $
+ * $Id: martial_art.c,v 1.199 2001-09-09 12:52:32 kostik Exp $
  */
 
 /***************************************************************************
@@ -448,6 +448,7 @@ DO_FUN(do_flee, ch, argument)
 	ROOM_INDEX_DATA *now_in;
 	CHAR_DATA *victim;
 	int attempt;
+	int num_attempts;
 
 	if (RIDDEN(ch)) {
 		act_char("You should ask to your rider!", ch);
@@ -470,7 +471,8 @@ DO_FUN(do_flee, ch, argument)
 	}
 
 	was_in = ch->in_room;
-	for (attempt = 0; attempt < dice_wlb(3, 2, ch, NULL); attempt++) {
+	num_attempts = dice_wlb(3, 2, ch, NULL);
+	for (attempt = 0; attempt < num_attempts; attempt++) {
 		EXIT_DATA *pexit;
 		int door;
 
