@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.37 2002-03-21 15:47:31 fjoe Exp $
+ * $Id: sog.h,v 1.38 2002-03-26 14:35:05 kostik Exp $
  */
 
 #ifndef _SOG_H_
@@ -491,6 +491,12 @@ DECLARE_PROC3(multi_hit,
 DECLARE_FUN5(bool, damage,
 	     ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim, ARG(int), dam,
 	     NULLABLE_ARG(cchar_t), dt, ARG(int), dam_flags)
+DECLARE_PROC4(inflict_spell_damage,
+	      ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim, ARG(int), level,
+	      ARG(cchar_t), sn)
+DECLARE_FUN3(int, calc_spell_damage,
+	      ARG(CHAR_DATA), ch, ARG(int), level,
+	      ARG(cchar_t), sn)
 DECLARE_PROC1(update_pos,
 	      ARG(CHAR_DATA), victim)
 DECLARE_PROC2(set_fighting,

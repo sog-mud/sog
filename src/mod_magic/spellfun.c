@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.290 2002-03-21 14:05:54 fjoe Exp $
+ * $Id: spellfun.c,v 1.291 2002-03-26 14:35:06 kostik Exp $
  */
 
 /***************************************************************************
@@ -53,10 +53,10 @@
 #include <magic.h>
 #include "magic_impl.h"
 
-DECLARE_SPELL_FUN(spell_acid_blast);
+DECLARE_SPELL_FUN(generic_damage_spellfun);
+
 DECLARE_SPELL_FUN(spell_armor);
 DECLARE_SPELL_FUN(spell_blindness);
-DECLARE_SPELL_FUN(spell_burning_hands);
 DECLARE_SPELL_FUN(spell_dispel_magic);
 DECLARE_SPELL_FUN(spell_chain_lightning);
 DECLARE_SPELL_FUN(spell_charm_person);
@@ -75,9 +75,7 @@ DECLARE_SPELL_FUN(spell_enchant_weapon);
 DECLARE_SPELL_FUN(spell_energy_drain);
 DECLARE_SPELL_FUN(spell_mana_drain);
 DECLARE_SPELL_FUN(spell_draining_touch);
-DECLARE_SPELL_FUN(spell_hellfire);
 DECLARE_SPELL_FUN(spell_iceball);
-DECLARE_SPELL_FUN(spell_fireball);
 DECLARE_SPELL_FUN(spell_fireproof);
 DECLARE_SPELL_FUN(spell_faerie_fire);
 DECLARE_SPELL_FUN(spell_faerie_fog);
@@ -115,7 +113,6 @@ DECLARE_SPELL_FUN(spell_lightning_breath);
 DECLARE_SPELL_FUN(spell_find_object);
 DECLARE_SPELL_FUN(spell_lightning_shield);
 DECLARE_SPELL_FUN(spell_shocking_trap);
-DECLARE_SPELL_FUN(spell_acid_arrow);
 DECLARE_SPELL_FUN(spell_spectral_furor);
 DECLARE_SPELL_FUN(spell_disruption);
 DECLARE_SPELL_FUN(spell_sonic_resonance);
@@ -165,7 +162,6 @@ DECLARE_SPELL_FUN(spell_shadowlife);
 DECLARE_SPELL_FUN(spell_ruler_badge);
 DECLARE_SPELL_FUN(spell_remove_badge);
 DECLARE_SPELL_FUN(spell_dragon_strength);
-DECLARE_SPELL_FUN(spell_dragon_breath);
 DECLARE_SPELL_FUN(spell_golden_aura);
 DECLARE_SPELL_FUN(spell_blue_dragon);
 DECLARE_SPELL_FUN(spell_green_dragon);
@@ -207,7 +203,6 @@ DECLARE_SPELL_FUN(spell_witch_curse);
 DECLARE_SPELL_FUN(spell_knock);
 DECLARE_SPELL_FUN(spell_hallucination);
 DECLARE_SPELL_FUN(spell_wolf);
-DECLARE_SPELL_FUN(spell_vampiric_blast);
 DECLARE_SPELL_FUN(spell_dragon_skin);
 DECLARE_SPELL_FUN(spell_insanity);
 DECLARE_SPELL_FUN(spell_power_stun);
@@ -247,15 +242,10 @@ DECLARE_SPELL_FUN(spell_alarm);
 DECLARE_SPELL_FUN(spell_globe_of_invulnerability);
 DECLARE_SPELL_FUN(spell_cloak_of_leaves);
 
-SPELL_FUN(spell_acid_blast, sn, level, ch, vo)
+SPELL_FUN(generic_damage_spellfun, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	int dam;
-
-	dam = dice(level, 12);
-	if (saves_spell(level, victim, DAM_ACID))
-		dam /= 2;
-	damage(ch, victim, dam, sn, DAM_F_SHOW);
+	inflict_spell_damage(ch, victim, level, sn);
 }
 
 SPELL_FUN(spell_armor, sn, level, ch, vo)
@@ -311,17 +301,6 @@ SPELL_FUN(spell_blindness, sn, level, ch, vo)
 
 	act_char("You are blinded!", victim);
 	act("$n appears to be blinded.", victim, NULL, NULL, TO_ROOM);
-}
-
-SPELL_FUN(spell_burning_hands, sn, level, ch, vo)
-{
-	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	int dam;
-
-	dam = dice(level , 2) + 7;
-	if (saves_spell(level, victim, DAM_FIRE))
-		dam /= 2;
-	damage(ch, victim, dam, sn, DAM_F_SHOW);
 }
 
 typedef struct spell_dispel_t spell_dispel_t;
@@ -463,7 +442,8 @@ chain_lightning_cb(void *vo, va_list ap)
 	act("The bolt arcs to $n!", vch, NULL, NULL, TO_ROOM);
 	act("The bolt hits you!", vch, NULL, NULL, TO_CHAR);
 
-	dam = dice(*plevel, 6);
+	dam = calc_spell_damage(ch, *plevel, sn);
+	dam = dam * 2 / 3;
 	if (saves_spell(*plevel, vch, DAM_LIGHTNING))
 		dam /= 3;
 	damage(ch, vch, dam, sn, DAM_F_SHOW);
@@ -491,7 +471,8 @@ SPELL_FUN(spell_chain_lightning, sn, level, ch, vo)
 	act("A lightning bolt leaps from $n's hand and hits you!",
 	    ch, NULL, victim, TO_VICT);
 
-	dam = dice(level, 6);
+	dam = calc_spell_damage(ch, level, sn);
+	dam = dam * 2 / 3;
 	if (saves_spell(level, victim, DAM_LIGHTNING))
 		dam /= 3;
 	damage(ch, victim, dam, sn, DAM_F_SHOW);
@@ -521,7 +502,8 @@ SPELL_FUN(spell_chain_lightning, sn, level, ch, vo)
 		last_vict = ch;
 		act("The bolt arcs to $n...whoops!", ch, NULL, NULL, TO_ROOM);
 		act_char("You are struck by your own lightning!", ch);
-		dam = dice(level, 6);
+		dam = calc_spell_damage(ch, level, sn);
+		dam = dam * 2 / 3;
 		if (saves_spell(level, ch, DAM_LIGHTNING))
 			dam /= 3;
 		damage(ch, ch, dam, sn, DAM_F_SHOW);
@@ -597,7 +579,7 @@ SPELL_FUN(spell_chill_touch, sn, level, ch, vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int dam;
 
-	dam = dice(level, level / 6 + 1);
+	dam = calc_spell_damage(ch, level, sn);
 
 	if (!saves_spell(level, victim, DAM_COLD)) {
 		AFFECT_DATA *paf;
@@ -622,7 +604,7 @@ SPELL_FUN(spell_colour_spray, sn, level, ch, vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int dam;
 
-	dam = dice(level,3) + 13;
+	dam = calc_spell_damage(ch, level, sn);
 	if (saves_spell(level, victim, DAM_LIGHT))
 		dam /= 2;
 	else
@@ -1283,12 +1265,6 @@ SPELL_FUN(spell_draining_touch, sn, level, ch, vo)
 	}
 }
 
-SPELL_FUN(spell_hellfire, sn, level, ch, vo)
-{
-	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	damage(ch, victim, dice(level, 7), sn, DAM_F_SHOW);
-}
-
 static void *
 iceball_cb(void *vo, va_list ap)
 {
@@ -1315,20 +1291,10 @@ iceball_cb(void *vo, va_list ap)
 
 SPELL_FUN(spell_iceball, sn, level, ch, vo)
 {
-	int dam = dice(level, 12);
+	int dam = calc_spell_damage(ch, level, sn);
+	dam = dam * 4 / 5;
 	vo_foreach(ch->in_room, &iter_char_room, iceball_cb,
 		   sn, level, ch, &dam, number_range(level, 2 * level));
-}
-
-SPELL_FUN(spell_fireball, sn, level, ch, vo)
-{
-	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	int dam;
-
-	dam = dice(level, 11);
-	if (saves_spell(level, victim, DAM_FIRE))
-		dam /= 2;
-	damage(ch, victim, dam, sn, DAM_F_SHOW);
 }
 
 SPELL_FUN(spell_fireproof, sn, level, ch, vo)
@@ -2394,7 +2360,7 @@ SPELL_FUN(spell_acid_breath, sn, level, ch, vo)
 
 	hpch = UMAX(12,ch->hit);
 	hp_dam = number_range(hpch/11 + 1, hpch/6);
-	dice_dam = dice(level,16);
+	dice_dam = calc_spell_damage(ch, level, sn);
 
 	dam = UMAX(hp_dam + dice_dam/10,dice_dam + hp_dam/10);
 
@@ -2449,7 +2415,7 @@ SPELL_FUN(spell_fire_breath, sn, level, ch, vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int hpch = UMAX(10, ch->hit);
 	int hp_dam  = number_range(hpch/9 + 1, hpch/5);
-	int dice_dam = dice(level, 20);
+	int dice_dam = calc_spell_damage(ch, level, sn);
 	int dam = UMAX(hp_dam + dice_dam /10, dice_dam + hp_dam / 10);
 
 	act("$n breathes forth a cone of fire.", ch, NULL, victim, TO_NOTVICT);
@@ -2504,7 +2470,7 @@ SPELL_FUN(spell_frost_breath, sn, level, ch, vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int hpch = UMAX(12, ch->hit);
 	int hp_dam = number_range(hpch/11 + 1, hpch/6);
-	int dice_dam = dice(level, 16);
+	int dice_dam = calc_spell_damage(ch, level, sn);
 	int dam = UMAX(hp_dam + dice_dam/10, dice_dam + hp_dam/10);
 
 	act("$n breathes out a freezing cone of frost!",
@@ -2549,7 +2515,7 @@ SPELL_FUN(spell_gas_breath, sn, level, ch, vo)
 {
 	int hpch = UMAX(16, ch->hit);
 	int hp_dam = number_range(hpch/15 + 1, 8);
-	int dice_dam = dice(level, 12);
+	int dice_dam = calc_spell_damage(ch, level, sn);
 	int dam = UMAX(hp_dam + dice_dam/10, dice_dam + hp_dam/10);
 
 	act("$n breathes out a cloud of poisonous gas!",
@@ -2566,7 +2532,7 @@ SPELL_FUN(spell_lightning_breath, sn, level, ch, vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int hpch = UMAX(10, ch->hit);
 	int hp_dam = number_range(hpch/9 + 1, hpch/5);
-	int dice_dam = dice(level, 20);
+	int dice_dam = calc_spell_damage(ch, level, sn);
 	int dam = UMAX(hp_dam + dice_dam/10, dice_dam + hp_dam/10);
 
 	act("$n breathes a bolt of lightning at $N.",
@@ -2713,134 +2679,88 @@ SPELL_FUN(spell_shocking_trap, sn, level, ch, vo)
 	    ch, NULL, NULL, TO_ROOM);
 }
 
-SPELL_FUN(spell_acid_arrow, sn, level, ch, vo)
-{
-	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	int dam;
-
-	dam = dice(level, 8);
-	if (saves_spell(level, victim, DAM_ACID))
-		dam /= 2;
-	damage(ch, victim, dam, sn, DAM_F_SHOW);
-}
-
 SPELL_FUN(spell_spectral_furor, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	int dam;
 
-	dam = dice(level, 6);
-	if (saves_spell(level, victim, DAM_LIGHT))
-		dam /= 2;
 	act("The fabric of the cosmos strains in fury about $N!",
 	    ch, NULL, victim, TO_NOTVICT);
-	damage(ch, victim, dam, sn, DAM_F_SHOW);
+
+	inflict_spell_damage(ch, victim, level, sn);
 }
 
 SPELL_FUN(spell_disruption, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	int dam;
 
-	dam = dice(level, 7);
-	if (saves_spell(level, victim, DAM_NEGATIVE))
-		dam /= 2;
 	act("A weird energy encompasses $N, causing you to question $S continued existence.",
 	    ch, NULL, victim, TO_NOTVICT);
-	damage(ch, victim, dam, sn, DAM_F_SHOW);
+	inflict_spell_damage(ch, victim, level, sn);
 }
 
 SPELL_FUN(spell_sonic_resonance, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	int dam;
 
-	dam = dice(level, 6);
-	if (saves_spell(level, victim, DAM_SOUND))
-		dam /= 2;
 	act("A cylinder of kinetic energy enshrouds $N causing $S to resonate.",
 	    ch, NULL, victim, TO_NOTVICT);
-	damage(ch, victim, dam, sn, DAM_F_SHOW);
+	inflict_spell_damage(ch, victim, level, sn);
 }
 
 /* acid */
 SPELL_FUN(spell_sulfurus_spray, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	int dam;
 
-	dam = dice(level, 7);
-	if (saves_spell(level, victim, DAM_ACID))
-		dam /= 2;
 	act("A stinking spray of sulfurous liquid rains down on $N." ,
 	    ch, NULL, victim, TO_NOTVICT);
-	damage(ch, victim, dam, sn, DAM_F_SHOW);
+	inflict_spell_damage(ch, victim, level, sn);
 }
 
 SPELL_FUN(spell_caustic_font, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	int dam;
 
-	dam = dice(level, 9);
-	if (saves_spell(level, victim, DAM_ACID))
-		dam /= 2;
 	act("A fountain of caustic liquid forms below $N. The smell of $S degenerating tissues is revolting!",
 	    ch, NULL, victim, TO_NOTVICT);
-	damage(ch, victim, dam, sn, DAM_F_SHOW);
+	inflict_spell_damage(ch, victim, level, sn);
 }
 
 SPELL_FUN(spell_acetum_primus, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	int dam;
 
-	dam = dice(level, 8);
-	if (saves_spell(level, victim, DAM_ACID))
-		dam /= 2;
 	act("A cloak of primal acid enshrouds $N, sparks form as it consumes all it touches.",
 	    ch, NULL, victim, TO_NOTVICT);
-	damage(ch, victim, dam, sn, DAM_F_SHOW);
+	inflict_spell_damage(ch, victim, level, sn);
 }
 
 /*  Electrical  */
 SPELL_FUN(spell_galvanic_whip, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	int dam;
 
-	dam = dice(level, 7);
-	if (saves_spell(level, victim, DAM_LIGHTNING))
-		dam /= 2;
 	act("$n conjures a whip of ionized particles, which lashes ferociously at $N.",
 	    ch, NULL, victim, TO_NOTVICT);
-	damage(ch, victim, dam, sn, DAM_F_SHOW);
+	inflict_spell_damage(ch, victim, level, sn);
 }
 
 SPELL_FUN(spell_magnetic_thrust, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	int dam;
 
-	dam = dice(level, 8);
-	if (saves_spell(level, victim, DAM_LIGHTNING))
-		dam /= 2;
 	act("An unseen energy moves nearby, causing your hair to stand on end!",
 	    ch, NULL, victim, TO_NOTVICT);
-	damage(ch, victim, dam, sn, DAM_F_SHOW);
+	inflict_spell_damage(ch, victim, level, sn);
 }
 
 SPELL_FUN(spell_quantum_spike, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	int dam;
 
-	dam = dice(level, 9);
-	if (saves_spell(level, victim, DAM_LIGHTNING))
-		dam /= 2;
 	act("$N seems to dissolve into tiny unconnected particles, then is painfully reassembled.",
 	    ch, NULL, victim, TO_NOTVICT);
-	damage(ch, victim, dam, sn, DAM_F_SHOW);
+	inflict_spell_damage(ch, victim, level, sn);
 }
 
 /* negative */
@@ -2862,7 +2782,8 @@ SPELL_FUN(spell_hand_of_undead, sn, level, ch, vo)
 	if (victim->level <= 2)
 		dam		 = ch->hit + 1;
 	else {
-		dam = dice(level, 10);
+		dam = calc_spell_damage(ch, level, sn) * 2 / 3;
+
 		victim->mana	/= 2;
 		victim->move	/= 2;
 		ch->hit		+= dam / 2;
@@ -3026,7 +2947,7 @@ SPELL_FUN(spell_hurricane, sn, level, ch, vo)
 {
 	int hpch = UMAX(16, ch->hit);
 	int hp_dam = number_range(hpch/15 + 1, 8);
-	int dice_dam = dice(level, 12);
+	int dice_dam = calc_spell_damage(ch, level, sn);
 	int dam = UMAX(hp_dam + dice_dam/10, dice_dam + hp_dam/10);
 
 	act("$n prays the gods of the storm for help.",
@@ -3253,7 +3174,7 @@ SPELL_FUN(spell_disintegrate, sn, level, ch, vo)
 	||  IS_IMMORTAL(victim)
 	||  IS_CLAN_GUARD(victim)
 	||  IS_SET(victim->in_room->room_flags, ROOM_BATTLE_ARENA)) {
-		dam = dice(level, 20) ;
+		dam = calc_spell_damage(ch, level, sn);
 		damage(ch, victim, dam, sn, DAM_F_SHOW);
 		return;
 	}
@@ -3586,6 +3507,7 @@ scourge_cb(void *vo, va_list ap)
 
 SPELL_FUN(spell_scourge, sn, level, ch, vo)
 {
+/*	dam = calc_spell_damage(ch, level, sn); */
 	int dam = ch->level < MAX_LEVEL / 2 ? dice(level, 6) :
 		  ch->level < MAX_LEVEL * 2 / 3 ? dice(level, 9) :
 				   dice(level, 12);
@@ -4100,7 +4022,7 @@ SPELL_FUN(spell_matandra, sn, level, ch, vo)
 	affect_to_char(ch, paf);
 	aff_free(paf);
 
-	dam = dice(level, 7);
+	dam = calc_spell_damage(ch, level, sn);
 
 	damage(ch, victim, dam, sn, DAM_F_SHOW);
 }
@@ -4591,19 +4513,6 @@ SPELL_FUN(spell_dragon_strength, sn, level, ch, vo)
 
 	act_char("The strength of the dragon enters you.", ch);
 	act("$n looks a bit meaner now.", ch, NULL, NULL, TO_ROOM);
-}
-
-SPELL_FUN(spell_dragon_breath, sn, level, ch, vo)
-{
-	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	int dam;
-
-	dam = dice(level , 6);
-	if (!is_safe_spell(ch, victim, TRUE)) {
-		if (saves_spell(level, victim, DAM_FIRE))
-			dam /= 2;
-		damage(ch, victim, dam, sn, DAM_F_SHOW);
-	}
 }
 
 SPELL_FUN(spell_golden_aura, sn, level, ch, vo)
@@ -5323,7 +5232,7 @@ SPELL_FUN(spell_sand_storm, sn, level, ch, vo)
 
 	hpch = UMAX(10, ch->hit);
 	hp_dam  = number_range(hpch/9 + 1, hpch/5);
-	dice_dam = dice(level, 15);
+	dice_dam = calc_spell_damage(ch, level, sn);
 
 	dam = UMAX(hp_dam + dice_dam /10, dice_dam + hp_dam / 10);
 	inflict_effect("sand", ch->in_room, level, dam/2);
@@ -5358,7 +5267,7 @@ SPELL_FUN(spell_scream, sn, level, ch, vo)
 {
 	int hpch = UMAX(10, ch->hit);
 	int hp_dam = number_range(hpch/9 + 1, hpch/5);
-	int dice_dam = dice(level, 15);
+	int dice_dam = calc_spell_damage(ch, level, sn);
 	int dam = UMAX(hp_dam + dice_dam /10, dice_dam + hp_dam /10);
 
 	act("$n screams with a disturbing NOISE!", ch, NULL, NULL, TO_ROOM);
@@ -5831,7 +5740,7 @@ SPELL_FUN(spell_power_word_kill, sn, level, ch, vo)
 		act("You are not affected by the power word of $n.",
 			ch, NULL, victim, TO_VICT);
 	} else if (saves_mental || saves_nega) {
-		dam = dice(level , 20) ;
+		dam = calc_spell_damage(ch, level, sn);
 		damage(ch, victim, dam,
 		       saves_nega ? "+pwk mental" : sn,  DAM_F_SHOW);
 	} else
@@ -6194,7 +6103,7 @@ SPELL_FUN(spell_witch_curse, sn, level, ch, vo)
 
 	if (IS_IMMORTAL(victim)
 	||  IS_CLAN_GUARD(victim)) {
-		damage(ch, victim, dice(level, 8), sn, DAM_F_SHOW);
+		inflict_spell_damage(ch, victim, level, sn);
 		return;
 	}
 
@@ -6406,17 +6315,6 @@ SPELL_FUN(spell_wolf, sn, level, ch, vo)
 
 	demon->master = demon->leader = ch;
 	char_to_room(demon, ch->in_room);
-}
-
-SPELL_FUN(spell_vampiric_blast, sn, level, ch, vo)
-{
-	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	int dam;
-
-	dam = dice(level, 12);
-	if (saves_spell(level, victim, DAM_ACID))
-		dam /= 2;
-	damage(ch, victim, dam, sn, DAM_F_SHOW);
 }
 
 SPELL_FUN(spell_dragon_skin, sn, level, ch, vo)
@@ -7780,7 +7678,7 @@ SPELL_FUN(spell_death_ripple, sn, level, ch, vo)
 	    ch, NULL, NULL, TO_ROOM);
         act("Deadly wave emanates from you.",
 	    ch, NULL, NULL, TO_CHAR);
-	dam = dice(level, 9);
+	dam = calc_spell_damage(ch, level, sn);
 	vo_foreach(this_room, &iter_char_room, death_ripple_cb,
 		   sn, level, ch, dam, -1, &v_counter);
 

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.352 2002-03-21 13:30:40 fjoe Exp $
+ * $Id: fight.c,v 1.353 2002-03-26 14:35:09 kostik Exp $
  */
 
 /***************************************************************************
@@ -99,6 +99,7 @@ static void	secondary_hit	(CHAR_DATA *ch, CHAR_DATA *victim,
 				 const char *dt);
 static void	dam_alias	(int dam, const char **pvs, const char **pvp);
 static bool	is_safe_rspell_nom(AFFECT_DATA *af, CHAR_DATA *victim);
+static int	calc_spell_damage_org(CHAR_DATA *ch, int level, skill_t *sk);
 
 #define DAM_F_HIT	(Z)	/* damage by hit */
 
@@ -1852,6 +1853,42 @@ focus_negative_energy(CHAR_DATA *ch, CHAR_DATA *victim,
 }
 
 int
+calc_spell_damage(CHAR_DATA *ch, int level, const char *sn)
+{
+	skill_t *sk = skill_lookup(sn);
+	if (sk == NULL) {
+		log(LOG_BUG, "%s: unknown skill in calc_spell_damage", sn);
+		return 0;
+	}
+	return calc_spell_damage_org(ch, level, sk);
+}
+
+void
+inflict_spell_damage(CHAR_DATA *ch, CHAR_DATA *victim, int level,
+		     const char *sn)
+{
+	int dam;
+	skill_t *sk = skill_lookup(sn);
+
+	if (sk == NULL) {
+		log(LOG_BUG, "%s: unknown skill in inflict_spell_damage", sn);
+		return;
+	}
+
+	dam = calc_spell_damage_org(ch, level, sk);
+	if (saves_spell(level, victim, sk->dam_class)) {
+		level /= 2;
+		dam /= 2;
+	}
+
+	if (sk->effect != NULL) {
+		inflict_effect(sk->effect, victim, level, dam);
+	}
+
+	damage(ch, victim, dam, sn, DAM_F_SHOW);
+}
+
+int
 backstab_chance(CHAR_DATA *ch)
 {
 	int chance;
@@ -3527,4 +3564,22 @@ damage2(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 
 
 	return TRUE;
+}
+
+static int spell_rank_dices_types[8] = {
+	0, 1, 2, 4, 6, 8, 12, 15
+};
+
+static int
+calc_spell_damage_org(CHAR_DATA *ch, int level, skill_t *sk)
+{
+	/* It's a good place to make some tuning and to implement */
+	/* spell damage boosting/reducing skills or affects */
+	UNUSED_ARG(ch);
+
+	if (sk->rank < 0 || sk->rank > 7) {
+		log(LOG_BUG, "%d: invalid skill rank", sk->rank);
+		sk->rank = 0;
+	}
+	return dice(level, spell_rank_dices_types[8]);
 }
