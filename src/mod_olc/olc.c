@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.55 1999-04-16 15:52:24 fjoe Exp $
+ * $Id: olc.c,v 1.56 1999-05-22 15:46:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -326,11 +326,9 @@ bool olced_exd(CHAR_DATA *ch, const char* argument,
 	ED_DATA *ed;
 	char command[MAX_INPUT_LENGTH];
 	char keyword[MAX_INPUT_LENGTH];
-	char arg[MAX_INPUT_LENGTH];
 
 	argument = one_argument(argument, command, sizeof(command));
 	argument = one_argument(argument, keyword, sizeof(keyword));
-	argument = one_argument(argument, arg, sizeof(arg));
 
 	if (command[0] == '\0' || keyword[0] == '\0') {
 		do_help(ch, "'OLC EXD'");
@@ -341,7 +339,7 @@ bool olced_exd(CHAR_DATA *ch, const char* argument,
 		ed		= ed_new();
 		ed->keyword	= str_dup(keyword);
 
-		if (!mlstr_append(ch, &ed->description, arg)) {
+		if (!mlstr_append(ch, &ed->description, argument)) {
 			ed_free(ed);
 			do_help(ch, "'OLC EXD'");
 			return FALSE;
@@ -354,20 +352,33 @@ bool olced_exd(CHAR_DATA *ch, const char* argument,
 	}
 
 	if (!str_cmp(command, "name")) {
+		bool changed;
+		char arg[MAX_INPUT_LENGTH];
+
 		ed = ed_lookup(keyword, *ped);
 		if (ed == NULL) {
 			char_printf(ch, "%s: Extra description keyword not found.\n", OLCED(ch)->name);
 			return FALSE;
 		}
 
-		if (!str_cmp(arg, "none")
-		||  !str_cmp(arg, "all")) {
-			char_printf(ch, "%s: %s: Illegal keyword.\n",
-				    OLCED(ch)->name, arg);
-			return FALSE;
+		changed = FALSE;
+		while (TRUE) {
+			argument = one_argument(argument, arg, sizeof(arg));
+			if (arg[0] == '\0')
+				break;
+
+			if (!str_cmp(arg, "none")
+			||  !str_cmp(arg, "all")) {
+				char_printf(ch, "%s: %s: Illegal keyword.\n",
+					    OLCED(ch)->name, arg);
+				continue;
+			}
+
+			changed = TRUE;
+			name_toggle(&ed->keyword, arg, ch, OLCED(ch)->name);
 		}
-		name_toggle(&ed->keyword, arg, ch, OLCED(ch)->name);
-		return TRUE;
+
+		return changed;
 	}
 
 	if (!str_cmp(command, "edit")) {
@@ -377,7 +388,7 @@ bool olced_exd(CHAR_DATA *ch, const char* argument,
 			return FALSE;
 		}
 
-		if (!mlstr_append(ch, &ed->description, arg)) {
+		if (!mlstr_append(ch, &ed->description, argument)) {
 			do_help(ch, "'OLC EXD'");
 			return FALSE;
 		}
@@ -386,11 +397,20 @@ bool olced_exd(CHAR_DATA *ch, const char* argument,
 
 	if (!str_cmp(command, "delete")) {
 		ED_DATA *prev = NULL;
+		int num;
+		char arg[MAX_INPUT_LENGTH];
 
-		for (ed = *ped; ed; ed = ed->next) {
-			if (is_name(keyword, ed->keyword))
+		num = number_argument(argument, arg, sizeof(arg));
+		for (ed = *ped; ed != NULL; prev = ed, ed = ed->next) {
+			if (arg[0] == '\0') {
+				if (!IS_NULLSTR(ed->keyword))
+					continue;
+			} else {
+				if (!is_name(arg, ed->keyword))
+					continue;
+			}
+			if (!--num)
 				break;
-			prev = ed;
 		}
 
 		if (ed == NULL) {

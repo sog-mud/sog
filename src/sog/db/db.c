@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.139 1999-05-22 13:37:31 fjoe Exp $
+ * $Id: db.c,v 1.140 1999-05-22 15:46:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1322,8 +1322,19 @@ void clone_obj(OBJ_DATA *parent, OBJ_DATA *clone)
  */
 ED_DATA *ed_lookup(const char *name, ED_DATA *ed)
 {
+	int num;
+	char arg[MAX_INPUT_LENGTH];
+
+	num = number_argument(name, arg, sizeof(arg));
 	for (; ed != NULL; ed = ed->next) {
-		if (is_name(name, ed->keyword))
+		if (arg[0] == '\0') {
+			if (!IS_NULLSTR(ed->keyword))
+				continue;
+		} else {
+			if (!is_name(arg, ed->keyword))
+				continue;
+		}
+		if (!--num)
 			return ed;
 	}
 	return NULL;

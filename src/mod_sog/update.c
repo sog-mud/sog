@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.129 1999-05-22 13:37:30 fjoe Exp $
+ * $Id: update.c,v 1.130 1999-05-22 15:46:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -49,6 +49,7 @@
 #include "mob_prog.h"
 #include "obj_prog.h"
 #include "fight.h"
+#include "chquest.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_human		);
