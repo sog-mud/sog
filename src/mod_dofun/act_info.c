@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.44 1998-05-21 10:16:37 efdi Exp $
+ * $Id: act_info.c,v 1.45 1998-05-21 11:00:16 efdi Exp $
  */
 
 /***************************************************************************
@@ -1677,6 +1677,7 @@ void do_help(CHAR_DATA *ch, char *argument)
 
 static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, char* output)
 {
+	char const *race;
 	char const *class;
 	char *pk;
 /*	char *cabal; */
@@ -1690,17 +1691,23 @@ static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, char* output)
 	 */
 	class = class_table[wch->class].who_name;
 	switch (wch->level) {
-	case MAX_LEVEL - 0: class = "IMP"; break;
-	case MAX_LEVEL - 1: class = "CRE"; break;
-	case MAX_LEVEL - 2: class = "SUP"; break;
-	case MAX_LEVEL - 3: class = "DEI"; break;
-	case MAX_LEVEL - 4: class = "GOD"; break;
-	case MAX_LEVEL - 5: class = "IMM"; break;
-	case MAX_LEVEL - 6: class = "DEM"; break;
-	case MAX_LEVEL - 7: class = "ANG"; break;
-	case MAX_LEVEL - 8: class = "AVA"; break;
+		case MAX_LEVEL - 0: class = " IMP    "; break;
+		case MAX_LEVEL - 1: class = " CRE    "; break;
+		case MAX_LEVEL - 2: class = " SUP    "; break;
+		case MAX_LEVEL - 3: class = " DEI    "; break;
+		case MAX_LEVEL - 4: class = " GOD    "; break;
+		case MAX_LEVEL - 5: class = " IMM    "; break;
+		case MAX_LEVEL - 6: class = " DEM    "; break;
+		case MAX_LEVEL - 7: class = " ANG    "; break;
+		case MAX_LEVEL - 8: class = " AVA    "; break;
 	}
 
+	if (IS_IMMORTAL(wch))
+		race = "";
+	else if (RACE(wch) < MAX_PC_RACE)
+		race = pc_race_table[RACE(wch)].who_name;
+	else 
+		race = "     ";
 /*
 	if ((wch->cabal && ch->cabal ==  wch->cabal)
 	||  IS_IMMORTAL(ch)
@@ -1729,18 +1736,17 @@ static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, char* output)
 	/*
 	 * Format it up.
 	 */
-	sprintf(level, "%2d", wch->level);
+	sprintf(level, "%3d", wch->level);
 	trusted = IS_TRUSTED(ch, LEVEL_IMMORTAL) || ch == wch ||
 		  wch->level >= LEVEL_HERO;
 	sprintf(strend(output), "[{C%s{x %s {Y%s{x] %s{x%s{x%s{x%s{x\n\r",
 		trusted ? level
 			: (get_curr_stat(wch, STAT_CHA) < 18) ? level : "  ",
-		RACE(wch) < MAX_PC_RACE ? pc_race_table[RACE(wch)].who_name
-					: "     ",
+		race,
 		class,
 		pk,
 		act,
-		/* IS_IMMORTAL(wch) ? "Chronos" : */ wch->name,
+		wch->name,
 		title);
 }
 
