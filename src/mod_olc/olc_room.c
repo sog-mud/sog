@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.91 2001-07-31 18:15:02 fjoe Exp $
+ * $Id: olc_room.c,v 1.92 2001-08-14 16:07:05 fjoe Exp $
  */
 
 #include "olc.h"
@@ -31,6 +31,8 @@
 #include <handler.h>
 
 #define EDIT_ROOM(ch, room)	(room = (ROOM_INDEX_DATA*) ch->desc->pEdit)
+
+DECLARE_DO_FUN(do_resets);
 
 /*
  * Room Editor Prototypes
@@ -61,37 +63,37 @@ olc_cmd_t olc_cmds_room[] =
 {
 /*	{ command	function					}, */
 
-	{ "create",	roomed_create					},
-	{ "edit",	roomed_edit					},
-	{ "",		NULL						},
-	{ "touch",	roomed_touch					},
-	{ "show",	roomed_show					},
-	{ "list",	roomed_list					},
+	{ "create",	roomed_create,	NULL,		NULL		},
+	{ "edit",	roomed_edit,	NULL,		NULL		},
+	{ "",		NULL,		NULL,		NULL		},
+	{ "touch",	roomed_touch,	NULL,		NULL		},
+	{ "show",	roomed_show,	NULL,		NULL		},
+	{ "list",	roomed_list,	NULL,		NULL		},
 
-	{ "desc",	roomed_desc					},
-	{ "exd",	roomed_exd					},
-	{ "name",	roomed_name					},
-	{ "heal",	roomed_heal					},
-	{ "mana",	roomed_mana					},
-	{ "clone",	roomed_clone					},
+	{ "desc",	roomed_desc,	NULL,		NULL		},
+	{ "exd",	roomed_exd,	NULL,		NULL		},
+	{ "name",	roomed_name,	NULL,		NULL		},
+	{ "heal",	roomed_heal,	NULL,		NULL		},
+	{ "mana",	roomed_mana,	NULL,		NULL		},
+	{ "clone",	roomed_clone,	NULL,		NULL		},
 
-	{ "north",	roomed_north					},
-	{ "south",	roomed_south					},
-	{ "east",	roomed_east					},
-	{ "west",	roomed_west					},
-	{ "up",		roomed_up					},
-	{ "down",	roomed_down					},
+	{ "north",	roomed_north,	NULL,		NULL		},
+	{ "south",	roomed_south,	NULL,		NULL		},
+	{ "east",	roomed_east,	NULL,		NULL		},
+	{ "west",	roomed_west,	NULL,		NULL		},
+	{ "up",		roomed_up,	NULL,		NULL		},
+	{ "down",	roomed_down,	NULL,		NULL		},
 
 	{ "room",	roomed_room,	NULL,		room_flags	},
 	{ "sector",	roomed_sector,	NULL,		sector_types	},
 
-	{ "delete_roo",	olced_spell_out					},
-	{ "delete_room",roomed_del					},
+	{ "delete_roo",	olced_spell_out, NULL,		NULL		},
+	{ "delete_room", roomed_del,	NULL,		NULL		},
 
-	{ "commands",	show_commands					},
-	{ "version",	show_version					},
+	{ "commands",	show_commands,	NULL,		NULL		},
+	{ "version",	show_version,	NULL,		NULL		},
 
-	{ NULL }
+	{ NULL, NULL, NULL, NULL }
 };
 
 static bool olced_exit(CHAR_DATA *ch, const char *argument,
@@ -102,7 +104,7 @@ OLC_FUN(roomed_create)
 {
 	ROOM_INDEX_DATA *pRoom;
 	char arg[MAX_STRING_LENGTH];
-	
+
 	one_argument(argument, arg, sizeof(arg));
 	if ((pRoom = roomed_create_room(ch, arg)) == NULL)
 		return FALSE;
@@ -743,7 +745,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		act_char("Two-way link established.", ch);
 		return TRUE;
 	}
-		 
+ 
 	if (!str_cmp(command, "dig")) {
 		char buf[MAX_INPUT_LENGTH];
 
@@ -753,7 +755,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			return FALSE;
 		}
-		
+
 		if (roomed_create_room(ch, arg) == NULL)
 			return FALSE;
 		snprintf(buf, sizeof(buf), "link %s", arg);
@@ -859,7 +861,8 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 	return FALSE;
 }
 
-void display_resets(CHAR_DATA *ch)
+static void
+display_resets(CHAR_DATA *ch)
 {
 	ROOM_INDEX_DATA	*in_room = ch->in_room;
 	RESET_DATA *r;
@@ -989,7 +992,7 @@ void display_resets(CHAR_DATA *ch)
 	buf_free(buf);
 }
 
-void do_resets(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_resets, ch, argument)
 {
 	char arg1[MAX_INPUT_LENGTH];
 	char arg2[MAX_INPUT_LENGTH];
@@ -1381,7 +1384,7 @@ roomed_create_room(CHAR_DATA *ch, const char *arg)
 	}
 
 	if (!IS_BUILDER(ch, pArea)) {
-        	act_char("RoomEd: Insufficient security.", ch);
+		act_char("RoomEd: Insufficient security.", ch);
 		return NULL;
 	}
 

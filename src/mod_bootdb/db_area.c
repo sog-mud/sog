@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.114 2001-08-05 16:36:25 fjoe Exp $
+ * $Id: db_area.c,v 1.115 2001-08-14 16:06:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -635,8 +635,9 @@ DBLOAD_FUN(load_rooms)
 		iHash			= vnum % MAX_KEY_HASH;
 		pRoomIndex->next	= room_index_hash[iHash];
 		room_index_hash[iHash]	= pRoomIndex;
-		top_vnum_room = top_vnum_room < vnum ? vnum : top_vnum_room;
 		vnum_check(area_current, vnum);			/* OLC */
+		if (vnum > top_vnum_room)
+			top_vnum_room = vnum;
 	}
 }
 
@@ -1302,8 +1303,9 @@ DBLOAD_FUN(load_mobiles)
 		iHash                   = vnum % MAX_KEY_HASH;
 		pMobIndex->next         = mob_index_hash[iHash];
 		mob_index_hash[iHash]   = pMobIndex;
-		top_vnum_mob = top_vnum_mob < vnum ? vnum : top_vnum_mob;
 		vnum_check(area_current, vnum);
+		if (vnum > top_vnum_mob)
+			top_vnum_mob = vnum;
 	}
 }
 
@@ -1720,8 +1722,9 @@ DBLOAD_FUN(load_objects)
 		iHash                   = vnum % MAX_KEY_HASH;
 		pObjIndex->next         = obj_index_hash[iHash];
 		obj_index_hash[iHash]   = pObjIndex;
-		top_vnum_obj = UMAX(top_vnum_obj, vnum);
 		vnum_check(area_current, vnum);
+		if (vnum > top_vnum_obj)
+			top_vnum_obj = vnum;
 	}
 }
 

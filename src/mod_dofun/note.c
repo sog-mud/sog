@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.23 2001-08-13 18:23:30 fjoe Exp $
+ * $Id: note.c,v 1.24 2001-08-14 16:06:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -56,8 +56,16 @@ DECLARE_DO_FUN(do_penalty);
 DECLARE_DO_FUN(do_news);
 DECLARE_DO_FUN(do_changes);
 
-static int count_spool(CHAR_DATA *ch, note_t *spool);
+static void note_show(BUFFER *buf, note_t *pnote, int vnum);
+static const char *note_quote(note_t *pnote);
+static void append_note(note_t *pnote);
+static void update_read(CHAR_DATA *ch, note_t *pnote);
+static bool is_note_to(CHAR_DATA *ch, note_t *pnote);
+static bool note_attach(CHAR_DATA *ch, int type);
+static void note_remove(CHAR_DATA *ch, note_t *pnote, bool delete);
+static bool hide_note(CHAR_DATA *ch, note_t *pnote);
 static void parse_note(CHAR_DATA *ch, const char *argument, int type);
+static int count_spool(CHAR_DATA *ch, note_t *spool);
 
 DO_FUN(do_unread, ch, argument)
 {
@@ -130,17 +138,8 @@ DO_FUN(do_changes, ch, argument)
  * static functions
  */
 
-static void note_show(BUFFER *buf, note_t *pnote, int vnum);
-static const char *note_quote(note_t *pnote);
-static void append_note(note_t *pnote);
-static void update_read(CHAR_DATA *ch, note_t *pnote);
-static bool is_note_to(CHAR_DATA *ch, note_t *pnote);
-static bool note_attach(CHAR_DATA *ch, int type);
-static void note_remove(CHAR_DATA *ch, note_t *pnote, bool delete);
-static bool hide_note(CHAR_DATA *ch, note_t *pnote);
-static void parse_note(CHAR_DATA *ch, const char *argument, int type);
-
-static void update_read(CHAR_DATA *ch, note_t *pnote)
+static void
+update_read(CHAR_DATA *ch, note_t *pnote)
 {
 	time_t stamp;
 
@@ -170,7 +169,8 @@ static void update_read(CHAR_DATA *ch, note_t *pnote)
 	}
 }
 
-static void note_show(BUFFER *buf, note_t *pnote, int vnum)
+static void
+note_show(BUFFER *buf, note_t *pnote, int vnum)
 {
 	buf_printf(buf, BUF_END, "{x[%3d] From: %s, {x%s\n"
 			"{x      To  : %s\n"
@@ -182,7 +182,8 @@ static void note_show(BUFFER *buf, note_t *pnote, int vnum)
 		   pnote->text);
 }
 
-static const char *note_quote(note_t *pnote)
+static const char *
+note_quote(note_t *pnote)
 {
 	const char *p;
 	char *q;
@@ -199,7 +200,7 @@ static const char *note_quote(note_t *pnote)
 
 	q = strchr(buf, '\0');
 	need_quote = TRUE;
-	for (p = pnote->text; *p && q-buf < sizeof(buf); p++) {
+	for (p = pnote->text; *p && (size_t) (q-buf) < sizeof(buf); p++) {
 		if (need_quote) {
 			*q++ = '>';
 			*q++ = ' ';
@@ -216,7 +217,8 @@ static const char *note_quote(note_t *pnote)
 	return str_dup(buf);
 }
 
-static void append_note(note_t *pnote)
+static void
+append_note(note_t *pnote)
 {
 	FILE *fp;
 	const char *name;
@@ -261,7 +263,8 @@ static void append_note(note_t *pnote)
         fclose(fp);
 }
 
-static bool is_note_to(CHAR_DATA *ch, note_t *pnote)
+static bool
+is_note_to(CHAR_DATA *ch, note_t *pnote)
 {
 	clan_t *clan;
 
@@ -293,7 +296,8 @@ static bool is_note_to(CHAR_DATA *ch, note_t *pnote)
  * Returns: TRUE  - everything is ok, note attached
  *	    FALSE - char is working on different kind of note right now
  */
-static bool note_attach(CHAR_DATA *ch, int type)
+static bool
+note_attach(CHAR_DATA *ch, int type)
 {
 	note_t *pnote;
 	PC_DATA *pc = PC(ch);
@@ -322,7 +326,8 @@ static bool note_attach(CHAR_DATA *ch, int type)
 	return TRUE;
 }
 
-static void note_remove(CHAR_DATA *ch, note_t *pnote, bool delete)
+static void
+note_remove(CHAR_DATA *ch, note_t *pnote, bool delete)
 {
 	char to_new[MAX_INPUT_LENGTH];
 	char to_one[MAX_INPUT_LENGTH];
@@ -393,7 +398,8 @@ static void note_remove(CHAR_DATA *ch, note_t *pnote, bool delete)
 	free_note(pnote);
 }
 
-static bool hide_note(CHAR_DATA *ch, note_t *pnote)
+static bool
+hide_note(CHAR_DATA *ch, note_t *pnote)
 {
 	time_t last_read;
 
@@ -432,12 +438,13 @@ static bool hide_note(CHAR_DATA *ch, note_t *pnote)
 	return FALSE;
 }
 
-static void parse_note(CHAR_DATA *ch, const char *argument, int type)
+static void
+parse_note(CHAR_DATA *ch, const char *argument, int type)
 {
 	char arg[MAX_INPUT_LENGTH];
 	note_t *pnote;
 	note_t **list;
-	char *list_name;
+	const char *list_name;
 	int vnum;
 	int anum;
 	DESCRIPTOR_DATA *d;
@@ -928,7 +935,8 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 	act_char("You can't do that.", ch);
 }
 
-static int count_spool(CHAR_DATA *ch, note_t *spool)
+static int
+count_spool(CHAR_DATA *ch, note_t *spool)
 {
 	int count = 0;
 	note_t *pnote;

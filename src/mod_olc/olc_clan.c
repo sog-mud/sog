@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_clan.c,v 1.47 2001-08-05 16:36:50 fjoe Exp $
+ * $Id: olc_clan.c,v 1.48 2001-08-14 16:07:01 fjoe Exp $
  */
 
 #include "olc.h"
@@ -52,24 +52,26 @@ olced_strkey_t strkey_clans = { &clans, CLANS_PATH, CLAN_EXT };
 
 olc_cmd_t olc_cmds_clan[] =
 {
-	{ "create",	claned_create					},
-	{ "edit",	claned_edit					},
-	{ "",		claned_save					},
-	{ "touch",	claned_touch					},
-	{ "show",	claned_show					},
-	{ "list",	claned_list					},
+	{ "create",	claned_create,	NULL,		NULL		},
+	{ "edit",	claned_edit,	NULL,		NULL		},
+	{ "",		claned_save,	NULL,		NULL		},
+	{ "touch",	claned_touch,	NULL,		NULL		},
+	{ "show",	claned_show,	NULL,		NULL		},
+	{ "list",	claned_list,	NULL,		NULL		},
 
-	{ "name",	olced_strkey,	NULL,		&strkey_clans 	},
-	{ "recall",	claned_recall,	validate_room_vnum		},
+	{ "name",	olced_strkey,	NULL,		&strkey_clans	},
+	{ "recall",	claned_recall,	validate_room_vnum, NULL	},
 	{ "flags",	claned_flags,	NULL,		clan_flags	},
-	{ "item",	claned_item					},
-	{ "mark",	claned_mark					},
-	{ "altar", 	claned_altar					},
-	{ "skillspec",	claned_skillspec,validate_skill_spec		},
-	{ "plist",	claned_plist					},
+	{ "item",	claned_item,	NULL,		NULL		},
+	{ "mark",	claned_mark,	NULL,		NULL		},
+	{ "altar",	claned_altar,	NULL,		NULL		},
+	{ "skillspec",	claned_skillspec, validate_skill_spec, NULL	},
+	{ "plist",	claned_plist,	NULL,		NULL		},
 
-	{ "commands",	show_commands					},
-	{ NULL }
+	{ "commands",	show_commands,	NULL,		NULL		},
+	{ "version",	show_version,	NULL,		NULL		},
+
+	{ NULL, NULL, NULL, NULL }
 };
 
 static void *save_clan_cb(void *p, va_list ap);

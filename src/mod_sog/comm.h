@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm.h,v 1.1 2001-08-13 18:23:37 fjoe Exp $
+ * $Id: comm.h,v 1.2 2001-08-14 16:06:54 fjoe Exp $
  */
 
 #ifndef _COMM_H_
@@ -31,8 +31,8 @@
 
 struct codepage {
 	const char *name;
-	unsigned char *from;
-	unsigned char *to;
+	u_char *from;
+	u_char *to;
 };
 
 extern struct codepage codepages[];

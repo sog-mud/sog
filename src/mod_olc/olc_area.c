@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.94 2001-08-13 18:23:49 fjoe Exp $
+ * $Id: olc_area.c,v 1.95 2001-08-14 16:07:01 fjoe Exp $
  */
 
 #include "olc.h"
@@ -76,15 +76,15 @@ olc_cmd_t olc_cmds_area[] =
 	{ "area",	areaed_flags,	NULL,		area_flags	},
 	{ "age",	areaed_age,	NULL,			NULL	},
 	{ "reset",	areaed_reset,	NULL,			NULL	},
-	{ "security",	areaed_security,validate_security,	NULL	},
-	{ "builders",	areaed_builders,NULL,			NULL	},
-	{ "resetmsg",	areaed_resetmsg,NULL,			NULL	},
+	{ "security",	areaed_security, validate_security,	NULL	},
+	{ "builders",	areaed_builders, NULL,			NULL	},
+	{ "resetmsg",	areaed_resetmsg, NULL,			NULL	},
 	{ "minvnum",	areaed_minvnum,	validate_minvnum,	NULL	},
 	{ "maxvnum",	areaed_maxvnum,	validate_maxvnum,	NULL	},
 	{ "move",	areaed_move,	validate_move,		NULL	},
 	{ "credits",	areaed_credits,	NULL,			NULL	},
-	{ "minlevel",	areaed_minlevel,NULL,			NULL	},
-	{ "maxlevel",	areaed_maxlevel,NULL,			NULL	},
+	{ "minlevel",	areaed_minlevel, NULL,			NULL	},
+	{ "maxlevel",	areaed_maxlevel, NULL,			NULL	},
 	{ "clan",	areaed_clan,	NULL,		&clans		},
 
 	{ "commands",	show_commands,	NULL,			NULL	},

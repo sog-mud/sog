@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_hint.c,v 1.5 2001-08-05 16:36:50 fjoe Exp $
+ * $Id: olc_hint.c,v 1.6 2001-08-14 16:07:03 fjoe Exp $
  */
 
 #include "olc.h"
@@ -45,20 +45,22 @@ DECLARE_OLC_FUN(hinted_delete		);
 
 olc_cmd_t olc_cmds_hint[] =
 {
-	{ "create",	hinted_create					},
-	{ "edit",	hinted_edit					},
-	{ "",		hinted_save					},
-	{ "touch",	hinted_touch					},
-	{ "show",	hinted_show					},
-	{ "list",	hinted_list					},
+	{ "create",	hinted_create,		NULL,	NULL		},
+	{ "edit",	hinted_edit,		NULL,	NULL		},
+	{ "",		hinted_save,		NULL,	NULL		},
+	{ "touch",	hinted_touch,		NULL,	NULL		},
+	{ "show",	hinted_show,		NULL,	NULL		},
+	{ "list",	hinted_list,		NULL,	NULL		},
 
+	{ "phrase",	hinted_phrase,		NULL,	NULL		},
+	{ "mask",	hinted_mask,		NULL,	hint_levels	},
+	{ "delete_hin",	olced_spell_out,	NULL,	NULL		},
+	{ "delete_hint",hinted_delete,		NULL,	NULL		},
 
-	{ "phrase",	hinted_phrase					},
-	{ "mask",	hinted_mask,		NULL, 	hint_levels	},
-	{ "delete_hin",	olced_spell_out					},
-	{ "delete_hint",hinted_delete					},
-	{ "commands",	show_commands					},
-	{ NULL }
+	{ "commands",	show_commands,		NULL,	NULL		},
+	{ "version",	show_version,		NULL,	NULL		},
+
+	{ NULL, NULL, NULL, NULL }
 };
 
 static void *save_hint_cb(void *p, va_list ap);

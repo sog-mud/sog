@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.287 2001-08-13 18:23:27 fjoe Exp $
+ * $Id: act_wiz.c,v 1.288 2001-08-14 16:06:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -457,7 +457,7 @@ DO_FUN(do_smote, ch, argument)
 	CHAR_DATA *vch;
 	const char *letter, *name;
 	char last[MAX_INPUT_LENGTH], temp[MAX_STRING_LENGTH];
-	int matches = 0;
+	size_t matches = 0;
 
 	if (!IS_NPC(ch) && IS_SET(ch->comm, COMM_NOEMOTE)) {
 		act_char("You can't show your emotions.", ch);
@@ -1013,7 +1013,7 @@ DO_FUN(do_rstat, ch, argument)
 		return;
 	}
 
-	if (ch->in_room != location 
+	if (ch->in_room != location
 	&&  room_is_private(location) && !IS_TRUSTED(ch, LEVEL_IMP)) {
 		act_char("That room is private right now.", ch);
 		return;
@@ -2056,7 +2056,7 @@ DO_FUN(do_clone, ch, argument)
 		return;
 	} else if (mob != NULL) {
 		CHAR_DATA *clone;
-		OBJ_DATA *new_obj;
+		OBJ_DATA *nobj;
 
 		if (!IS_NPC(mob)) {
 		    act_char("You can only clone mobiles.", ch);
@@ -2066,10 +2066,10 @@ DO_FUN(do_clone, ch, argument)
 		clone = clone_mob(mob);
 
 		for (obj = mob->carrying; obj != NULL; obj = obj->next_content) {
-			new_obj = clone_obj(obj);
-			recursive_clone(ch, obj, new_obj);
-			obj_to_char(new_obj, clone);
-			new_obj->wear_loc = obj->wear_loc;
+			nobj = clone_obj(obj);
+			recursive_clone(ch, obj, nobj);
+			obj_to_char(nobj, clone);
+			nobj->wear_loc = obj->wear_loc;
 		}
 		act("$n has created $N.", ch, NULL, clone, TO_ROOM);
 		act("You clone $N.", ch, NULL, clone, TO_CHAR);
@@ -3079,8 +3079,9 @@ DO_FUN(do_invis, ch, argument)
 		 */
 		level = atoi(arg);
 		if (level < 2 || level > trust_level(ch)) {
+			int tlevel = trust_level(ch);
 			act_puts("Invis level must be in range 2..$j.",
-				 ch, (const void *) trust_level(ch), NULL,
+				 ch, (const void *) tlevel, NULL,
 				 TO_CHAR, POS_DEAD);
 			return;
 		} else {
@@ -3120,8 +3121,9 @@ DO_FUN(do_incognito, ch, argument)
 		 */
 		level = atoi(arg);
 		if (level < 2 || level > ch->level) {
+			int tlevel = trust_level(ch);
 			act_puts("Incog level must be in range 2..$j.",
-				 ch, (const void *) trust_level(ch), NULL,
+				 ch, (const void *) tlevel, NULL,
 				 TO_CHAR, POS_DEAD);
 			return;
 		} else {
@@ -4268,7 +4270,7 @@ DO_FUN(do_grant, ch, argument)
 	}
 
 	if (is_number(arg2)) {
-		int i;
+		size_t i;
 		int lev = atoi(arg2);
 
 		if (lev < LEVEL_IMMORTAL) {
@@ -4283,7 +4285,7 @@ DO_FUN(do_grant, ch, argument)
 			goto cleanup;
 		}
 
-		for (i = 0; i < commands.nused; i++) {
+		for (i = 0; i < varr_size(&commands); i++) {
 			cmd = VARR_GET(&commands, i);
 
 			if (cmd->min_level < LEVEL_IMMORTAL
@@ -4430,22 +4432,21 @@ DO_FUN(do_memory, ch, argument)
 
 	buf = buf_new(0);
 	buf_printf(buf, BUF_END, "Affects  : %d (%d bytes)\n",	// notrans
-		    top_affect, top_affect * sizeof(AFFECT_DATA));
+		   affect_count, affect_count * sizeof(AFFECT_DATA));
 	buf_printf(buf, BUF_END, "Areas    : %d (%d bytes)\n",	// notrans
-		    top_area, top_area * sizeof(AREA_DATA));
+		   area_count, area_count * sizeof(AREA_DATA));
 	buf_printf(buf, BUF_END, "ExDes    : %d (%d bytes)\n",	// notrans
-		    top_ed, top_ed * sizeof(ED_DATA));
+		   ed_count, ed_count * sizeof(ED_DATA));
 	buf_printf(buf, BUF_END, "Exits    : %d (%d bytes)\n",	// notrans
-		    top_exit, top_exit * sizeof(EXIT_DATA));
+		   exit_count, exit_count * sizeof(EXIT_DATA));
 	buf_printf(buf, BUF_END, "Helps    : %d (%d bytes)\n",	// notrans
-		    top_help, top_help * sizeof(HELP_DATA));
+		   help_count, help_count * sizeof(HELP_DATA));
 	buf_printf(buf, BUF_END, "Socials  : %d (%d bytes)\n",	// notrans
-		    socials.nused, socials.nused * sizeof(social_t));
-	buf_printf(buf, BUF_END, "Mob idx  : %d (%d bytes, max vnum %d)\n",  // notrans
-		    top_mob_index, top_mob_index * sizeof(MOB_INDEX_DATA),
-		    top_vnum_mob);
+		   socials.nused, socials.nused * sizeof(social_t));
+	buf_printf(buf, BUF_END, "Mob idx  : %d (%d bytes)\n",  // notrans
+		   mob_index_count, mob_index_count * sizeof(MOB_INDEX_DATA));
 	buf_printf(buf, BUF_END, "Mobs     : %d (%d (%d) bytes), "  // notrans
-			"%d free (%d (%d) bytes)\n",		// notrans
+			"%d free (%d (%d) bytes), max vnum %d\n", // notrans
 		    npc_count,
 		    npc_count * (sizeof(CHAR_DATA) + sizeof(NPC_DATA)),
 		    npc_count * (sizeof(CHAR_DATA) + sizeof(NPC_DATA) +
@@ -4453,7 +4454,8 @@ DO_FUN(do_memory, ch, argument)
 		    npc_free_count,
 		    npc_free_count * (sizeof(CHAR_DATA) + sizeof(NPC_DATA)),
 		    npc_free_count * (sizeof(CHAR_DATA) + sizeof(NPC_DATA) +
-				      sizeof(memchunk_t)));
+				      sizeof(memchunk_t)),
+		    top_vnum_mob);
 	buf_printf(buf, BUF_END, "Players  : %d (%d (%d) bytes), " // notrans
 			         "%d free (%d (%d) bytes)\n",	// notrans
 		    pc_count,
@@ -4465,8 +4467,8 @@ DO_FUN(do_memory, ch, argument)
 		    pc_free_count * (sizeof(CHAR_DATA) + sizeof(PC_DATA) +
 				      sizeof(memchunk_t)));
 	buf_printf(buf, BUF_END,
-		   "Obj idx  : %d (%d bytes, max vnum %d)\n",	// notrans
-		    top_obj_index, top_obj_index * sizeof(OBJ_INDEX_DATA),
+		   "Obj idx  : %d (%d bytes), max vnum %d\n",	// notrans
+		    obj_index_count, obj_index_count * sizeof(OBJ_INDEX_DATA),
 		    top_vnum_obj);
 	buf_printf(buf, BUF_END,
 		   "Objs     : %d (%d (%d) bytes, %d free)\n",	// notrans
@@ -4475,15 +4477,15 @@ DO_FUN(do_memory, ch, argument)
 		    obj_count * (sizeof(OBJ_DATA) + sizeof(memchunk_t)),
 		    obj_free_count);
 	buf_printf(buf, BUF_END, "Resets   : %d (%d bytes)\n",	// notrans
-		    top_reset, top_reset * sizeof(RESET_DATA));
+		   reset_count, reset_count * sizeof(RESET_DATA));
 	buf_printf(buf, BUF_END,
 		   "Rooms    : %d (%d (%d) bytes, max vnum %d)\n", // notrans
-		    top_room,
-		    top_room * sizeof(ROOM_INDEX_DATA),
-		    top_room * (sizeof(ROOM_INDEX_DATA) + sizeof(memchunk_t)),
-		    top_vnum_room);
+		   room_count,
+		   room_count * sizeof(ROOM_INDEX_DATA),
+		   room_count * (sizeof(ROOM_INDEX_DATA) + sizeof(memchunk_t)),
+		   top_vnum_room);
 	buf_printf(buf, BUF_END, "Shops    : %d (%d bytes)\n",	// notrans
-		    top_shop, top_shop * sizeof(SHOP_DATA));
+		   shop_count, shop_count * sizeof(SHOP_DATA));
 	buf_printf(buf, BUF_END, "Buffers  : %d (%d bytes)\n",	// notrans
 					nAllocBuf, sAllocBuf);
 	buf_printf(buf, BUF_END,
@@ -4507,91 +4509,62 @@ DO_FUN(do_memory, ch, argument)
 
 DO_FUN(do_dump, ch, argument)
 {
-	int count,count2,num_pcs,aff_count;
-	CHAR_DATA *fch;
-	MOB_INDEX_DATA *pMobIndex;
-	OBJ_DATA *obj;
-	OBJ_INDEX_DATA *pObjIndex;
-	ROOM_INDEX_DATA *room;
-	EXIT_DATA *exit;
-	PC_DATA *pc;
-	DESCRIPTOR_DATA *d;
-	AFFECT_DATA *af;
+	int i;
 	FILE *fp;
-	int vnum,nMatch = 0;
 
 	if ((fp = dfopen(TMP_PATH, "mem.dmp", "w")) == NULL)	// notrans
 		return;
 
-	/* report use of data structures */
-
-	num_pcs = 0;
-	aff_count = 0;
+	/* areas */
+	fprintf(fp, "Areas      %d (%d bytes)\n",		// notrans
+		area_count, area_count * sizeof(AREA_DATA));
+	/* helps */
+	fprintf(fp, "Helps      %d (%d bytes)\n",		// notrans
+		help_count, help_count * sizeof(HELP_DATA));
+	fprintf(fp, "Resets     %d (%d bytes)\n",		// notrans
+		reset_count, reset_count * sizeof(RESET_DATA));
 
 	/* mobile prototypes */
-	fprintf(fp,"MobProt	%4d (%8d bytes)\n",		// notrans
-		top_mob_index, top_mob_index * (sizeof(*pMobIndex)));
+	fprintf(fp, "MobProt    %d (%d bytes)\n",		// notrans
+		mob_index_count, mob_index_count * sizeof(MOB_INDEX_DATA));
+	fprintf(fp, "Mobs       %d (%d bytes), %d free (%d bytes)\n", // notrans
+		npc_count,
+		npc_count * (sizeof(CHAR_DATA) + sizeof(NPC_DATA)),
+		npc_free_count,
+		npc_free_count * (sizeof(CHAR_DATA) + sizeof(NPC_DATA)));
 
-	/* mobs */
-	count = 0;
-	for (fch = char_list; fch != NULL; fch = fch->next) {
-		count++;
-		if (!IS_NPC(fch))
-			num_pcs++;
-		for (af = fch->affected; af != NULL; af = af->next)
-			aff_count++;
-	}
+	fprintf(fp, "Players    %d (%d bytes), %d free (%d bytes)\n", // notrans
+		pc_count,
+		pc_count * (sizeof(CHAR_DATA) + sizeof(PC_DATA)),
+		pc_free_count,
+		pc_free_count * (sizeof(CHAR_DATA) + sizeof(PC_DATA)));
+	fprintf(fp, "Descs      %d (%d bytes), %d free (%d bytes)\n", // notrans
+		desc_count, desc_count * sizeof(DESCRIPTOR_DATA),
+		desc_free_count, desc_free_count * sizeof(DESCRIPTOR_DATA));
+	fprintf(fp, "Dvdata     %d (%d bytes)\n",
+		dvdata_real_count, dvdata_real_count * sizeof(dvdata_t));
 
-	fprintf(fp,"Mobs	%4d (%8d bytes)\n",		// notrans
-		count, count * (sizeof(*fch)));
-
-	fprintf(fp,"Pcdata	%4d (%8d bytes)\n",		// notrans
-		num_pcs, num_pcs * (sizeof(*pc)));
-
-	/* descriptors */
-	count = 0; count2 = 0;
-	for (d = descriptor_list; d != NULL; d = d->next)
-		count++;
-	for (d= descriptor_free; d != NULL; d = d->next)
-		count2++;
-
-	fprintf(fp, "Descs	%4d (%8d bytes), %2d free (%d bytes)\n", // notrans
-		count, count * (sizeof(*d)), count2, count2 * (sizeof(*d)));
-
-	/* object prototypes */
-	for (vnum = 0; nMatch < top_obj_index; vnum++)
-		if ((pObjIndex = get_obj_index(vnum)) != NULL)
-		{
-		    for (af = pObjIndex->affected; af != NULL; af = af->next)
-			aff_count++;
-		    nMatch++;
-		}
-
-	fprintf(fp,"ObjProt	%4d (%8d bytes)\n",		// notrans
-		top_obj_index, top_obj_index * (sizeof(*pObjIndex)));
-
-	/* objects */
-	count = 0;
-	for (obj = object_list; obj != NULL; obj = obj->next) {
-		count++;
-		for (af = obj->affected; af != NULL; af = af->next)
-		    aff_count++;
-	}
-
-	fprintf(fp,"Objs	%4d (%8d bytes)\n",		// notrans
-		count, count * (sizeof(*obj)));
-
-	/* affects */
-	fprintf(fp,"Affects	%4d (%8d bytes)\n",		// notrans
-		aff_count, aff_count * (sizeof(*af)));
+	fprintf(fp, "ObjProt    %d (%d bytes)\n",		// notrans
+		obj_index_count, obj_index_count * (sizeof(OBJ_INDEX_DATA)));
+	fprintf(fp, "Objs       %d (%d bytes)\n",		// notrans
+		obj_count, obj_count * sizeof(OBJ_DATA));
 
 	/* rooms */
-	fprintf(fp,"Rooms	%4d (%8d bytes)\n",		// notrans
-		top_room, top_room * (sizeof(*room)));
-
+	fprintf(fp,"Rooms       %d (%d bytes)\n",		// notrans
+		room_count, room_count * (sizeof(ROOM_INDEX_DATA)));
 	 /* exits */
-	fprintf(fp,"Exits	%4d (%8d bytes)\n",		// notrans
-		top_exit, top_exit * (sizeof(*exit)));
+	fprintf(fp,"Exits	%d (%d bytes)\n",		// notrans
+		exit_count, exit_count * (sizeof(EXIT_DATA)));
+	/* shops */
+	fprintf(fp,"Shops       %d (%d bytes)\n",		// notrans
+		shop_count, shop_count * (sizeof(EXIT_DATA)));
+
+	/* affects */
+	fprintf(fp, "Affects    %d (%d bytes)\n",		// notrans
+		affect_count, affect_count * (sizeof(AFFECT_DATA)));
+	/* extra descriptions */
+	fprintf(fp, "Exds       %d (%d bytes)\n",
+		ed_count, ed_count * sizeof(ED_DATA));
 
 	fclose(fp);
 
@@ -4601,15 +4574,19 @@ DO_FUN(do_dump, ch, argument)
 
 	fprintf(fp,"\nMobile Analysis\n");			// notrans
 	fprintf(fp,  "---------------\n");			// notrans
-	nMatch = 0;
-	for (vnum = 0; nMatch < top_mob_index; vnum++)
-		if ((pMobIndex = get_mob_index(vnum)) != NULL)
-		{
-		    nMatch++;
-		    fprintf(fp,"#%-4d %3d active %3d killed     %s\n", // notrans
-			pMobIndex->vnum,pMobIndex->count,
-			pMobIndex->killed,mlstr_mval(&pMobIndex->short_descr));
+
+	for (i = 0; i < MAX_KEY_HASH; i++) {
+		MOB_INDEX_DATA *pMobIndex;
+
+		for (pMobIndex = mob_index_hash[i]; pMobIndex != NULL;
+		     pMobIndex = pMobIndex->next) {
+			fprintf(fp, "#%d %d active %d killed     %s\n", // notrans
+				pMobIndex->vnum,
+				pMobIndex->count,
+				pMobIndex->killed,
+				mlstr_mval(&pMobIndex->short_descr));
 		}
+	}
 	fclose(fp);
 
 	/* start printing out object data */
@@ -4618,18 +4595,20 @@ DO_FUN(do_dump, ch, argument)
 
 	fprintf(fp,"\nObject Analysis\n");			// notrans
 	fprintf(fp,  "---------------\n");			// notrans
-	nMatch = 0;
-	for (vnum = 0; nMatch < top_obj_index; vnum++)
-		if ((pObjIndex = get_obj_index(vnum)) != NULL)
-		{
-		    nMatch++;
-		    fprintf(fp,"#%-4d %3d active %3d reset      %s\n", // notrans
-			pObjIndex->vnum,pObjIndex->count,
-			pObjIndex->reset_num,
-			mlstr_mval(&pObjIndex->short_descr));
-		}
 
-	/* close file */
+	for (i = 0; i < MAX_KEY_HASH; i++) {
+		OBJ_INDEX_DATA *pObjIndex;
+
+		for (pObjIndex = obj_index_hash[i]; pObjIndex != NULL;
+		     pObjIndex = pObjIndex->next) {
+			fprintf(fp, "#%-4d %3d active %3d reset      %s\n", // notrans
+				pObjIndex->vnum,
+				pObjIndex->count,
+				pObjIndex->reset_num,
+				mlstr_mval(&pObjIndex->short_descr));
+		}
+	}
+
 	fclose(fp);
 }
 
@@ -4866,7 +4845,7 @@ DO_FUN(do_modules, ch, argument)
 
 	if (!str_prefix(arg, "list")
 	||  !str_prefix(arg, "status")) {
-		int i;
+		size_t i;
 		BUFFER *buf;
 
 		if (modules.nused == 0) {
@@ -4877,7 +4856,7 @@ DO_FUN(do_modules, ch, argument)
 		buf = buf_new(GET_LANG(ch));
 		buf_append(buf, "  Module  Prio          Load time         Deps\n");
 		buf_append(buf, "--------- ---- -------------------------- -----------------------------------\n");	// notrans
-		for (i = 0; i < modules.nused; i++) {
+		for (i = 0; i < varr_size(&modules); i++) {
 			module_t *m = VARR_GET(&modules, i);
 			buf_printf(buf, BUF_END, "%9s %4d [%24s] %s\n", // notrans
 				   m->name,

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_skill.c,v 1.23 2001-08-05 16:36:52 fjoe Exp $
+ * $Id: olc_skill.c,v 1.24 2001-08-14 16:07:06 fjoe Exp $
  */
 
 #include "olc.h"
@@ -56,39 +56,41 @@ DECLARE_OLC_FUN(skilled_rank		);
 
 static DECLARE_VALIDATE_FUN(validate_skill_rank);
 
-olced_strkey_t strkey_skills = { &skills, NULL };
+olced_strkey_t strkey_skills = { &skills, NULL, NULL };
 
 olc_cmd_t olc_cmds_skill[] =
 {
-	{ "create",	skilled_create					},
-	{ "edit",	skilled_edit					},
-	{ "",		skilled_save					},
-	{ "touch",	skilled_touch					},
-	{ "show",	skilled_show					},
-	{ "list",	skilled_list					},
+	{ "create",	skilled_create,	NULL,	NULL			},
+	{ "edit",	skilled_edit,	NULL,	NULL			},
+	{ "",		skilled_save,	NULL,	NULL			},
+	{ "touch",	skilled_touch,	NULL,	NULL			},
+	{ "show",	skilled_show,	NULL,	NULL			},
+	{ "list",	skilled_list,	NULL,	NULL			},
 
 	{ "name",	olced_mlstrkey,	NULL,	&strkey_skills		},
 	{ "gender",	skilled_gender,	NULL,	gender_table		},
-	{ "funname",	skilled_funname, validate_funname		},
+	{ "funname",	skilled_funname, validate_funname, NULL		},
 	{ "target",	skilled_target, NULL,	skill_targets		},
 	{ "minpos",	skilled_minpos, NULL,	position_table		},
-	{ "minmana",	skilled_minmana					},
-	{ "beats",	skilled_beats					},
-	{ "noun",	skilled_noun					},
+	{ "minmana",	skilled_minmana, NULL,	NULL			},
+	{ "beats",	skilled_beats,	NULL,	NULL			},
+	{ "noun",	skilled_noun,	NULL,	NULL			},
 	{ "noungender",	skilled_noungender, NULL, gender_table		},
-	{ "msgoff",	skilled_msgoff					},
-	{ "msgobjoff",	skilled_msgobj					},
+	{ "msgoff",	skilled_msgoff,	NULL,	NULL			},
+	{ "msgobjoff",	skilled_msgobj,	NULL,	NULL			},
 	{ "flags",	skilled_flags,	NULL,	skill_flags		},
 	{ "group",	skilled_group,	NULL,	skill_groups		},
 	{ "type",	skilled_type,	NULL,	skill_types		},
 	{ "event",	skilled_event, validate_funname, events_classes	},
-	{ "rank",	skilled_rank, validate_skill_rank		},
-	{ "delete_skil",olced_spell_out					},
-	{ "delete_skill",skilled_delete					},
+	{ "rank",	skilled_rank, validate_skill_rank, NULL		},
+	{ "delete_skil", olced_spell_out, NULL,	NULL			},
+	{ "delete_skill", skilled_delete, NULL,	NULL			},
 
 
-	{ "commands",	show_commands					},
-	{ NULL }
+	{ "commands",	show_commands,	NULL,	NULL			},
+	{ "version",	show_version,	NULL,	NULL			},
+
+	{ NULL, NULL, NULL, NULL }
 };
 
 OLC_FUN(skilled_create)
@@ -347,7 +349,7 @@ OLC_FUN(skilled_beats)
 
 static VALIDATE_FUN(validate_skill_rank)
 {
-	int val = *(int*) arg;
+	int val = *(const int *) arg;
 
 	if (val < 0 || val > 7) {
 		act_char("SkillEd: skill rank should be in [0..7].", ch);

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.306 2001-08-13 18:23:38 fjoe Exp $
+ * $Id: handler.c,v 1.307 2001-08-14 16:06:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4033,7 +4033,7 @@ clan_item_ok(const char *cln)
 bool
 pc_name_ok(const char *name)
 {
-	const unsigned char *pc;
+	const u_char *pc;
 	bool fIll,adjcaps = FALSE,cleancaps = FALSE;
 	uint total_caps = 0;
 
@@ -4345,7 +4345,7 @@ money_form(size_t lang, char *buf, size_t len, int num, const char *name)
 
 	strnzcpy(tmp, sizeof(tmp),
 		 word_form(GETMSG(name, lang), 1, lang, RULES_CASE));
-	strnzcpy(buf, len, word_form(tmp, (unsigned) num, lang, RULES_QTY));
+	strnzcpy(buf, len, word_form(tmp, (size_t) num, lang, RULES_QTY));
 }
 
 static MLSTR_FOREACH_FUN(money_descr_cb, lang, p, ap)
@@ -4957,7 +4957,7 @@ get_char_spell(CHAR_DATA *ch, const char *argument, int *door, int range)
 		return get_char_room(ch, argument);
 	}
 
-	strnzncpy(buf, sizeof(buf), argument, (unsigned)(p-argument));
+	strnzncpy(buf, sizeof(buf), argument, (size_t) (p-argument));
 	if ((*door = exit_lookup(buf)) < 0)
 		return get_char_room(ch, argument);
 

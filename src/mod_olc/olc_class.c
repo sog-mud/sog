@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_class.c,v 1.28 2001-08-03 11:27:44 fjoe Exp $
+ * $Id: olc_class.c,v 1.29 2001-08-14 16:07:02 fjoe Exp $
  */
 
 #include "olc.h"
@@ -64,36 +64,39 @@ olced_strkey_t strkey_classes = { &classes, CLASSES_PATH, CLASS_EXT };
 
 olc_cmd_t olc_cmds_class[] =
 {
-	{ "create",	classed_create					},
-	{ "edit",	classed_edit					},
-	{ "",		classed_save					},
-	{ "touch",	classed_touch					},
-	{ "show",	classed_show					},
-	{ "list",	classed_list					},
+	{ "create",	classed_create,		NULL,	NULL		},
+	{ "edit",	classed_edit,		NULL,	NULL		},
+	{ "",		classed_save,		NULL,	NULL		},
+	{ "touch",	classed_touch,		NULL,	NULL		},
+	{ "show",	classed_show,		NULL,	NULL		},
+	{ "list",	classed_list,		NULL,	NULL		},
 
 	{ "name",	olced_strkey,		NULL,	&strkey_classes	},
-	{ "whoname",	classed_whoname,	validate_whoname	},
+	{ "whoname",	classed_whoname,	validate_whoname, NULL	},
 	{ "primary",	classed_primary,	NULL,	stat_aliases	},
-	{ "weapon",	classed_weapon					},
-	{ "thac00",	classed_thac00					},
-	{ "thac32",	classed_thac32					},
-	{ "hprate",	classed_hprate					},
-	{ "manarate",	classed_manarate				},
-	{ "points",	classed_points					},
-	{ "deaths",	classed_deaths					},
+	{ "weapon",	classed_weapon,		NULL,	NULL		},
+	{ "thac00",	classed_thac00,		NULL,	NULL		},
+	{ "thac32",	classed_thac32,		NULL,	NULL		},
+	{ "hprate",	classed_hprate,		NULL,	NULL		},
+	{ "manarate",	classed_manarate,	NULL,	NULL		},
+	{ "points",	classed_points,		NULL,	NULL		},
+	{ "deaths",	classed_deaths,		NULL,	NULL		},
 	{ "flags",	classed_flags,		NULL,	class_flags	},
 	{ "align",	classed_align,		NULL,	ralign_names	},
 	{ "ethos",	classed_ethos,		NULL,	ethos_table	},
 	{ "sex",	classed_sex,		NULL,	sex_table	},
-	{ "stats",	classed_stats					},
-	{ "poses",	classed_poses					},
-	{ "skillspec",	classed_skillspec,	validate_skill_spec	},
-	{ "guilds",	classed_guilds					},
-	{ "luckbonus", 	classed_luckbonus				},
+	{ "stats",	classed_stats,		NULL,	NULL		},
+	{ "poses",	classed_poses,		NULL,	NULL		},
+	{ "skillspec",	classed_skillspec,	validate_skill_spec, NULL },
+	{ "guilds",	classed_guilds,		NULL,	NULL		},
+	{ "luckbonus",	classed_luckbonus,	NULL,	NULL		},
 
-	{ "update",	olc_skill_update				},
-	{ "commands",	show_commands					},
-	{ NULL }
+	{ "update",	olc_skill_update,	NULL,	NULL		},
+
+	{ "commands",	show_commands,		NULL,	NULL		},
+	{ "version",	show_version,		NULL,	NULL		},
+
+	{ NULL, NULL, NULL, NULL }
 };
 
 static void * save_class_cb(void *p, va_list ap);
@@ -414,12 +417,12 @@ OLC_FUN(classed_poses)
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0' || !str_prefix(arg, "list")) {
-		int i;
+		size_t i;
 		BUFFER	*buffer;
 		bool st = FALSE;
 
 		buffer = buf_new(0);
-		for (i = 0; i < class->poses.nused; i++) {
+		for (i = 0; i < varr_size(&class->poses); i++) {
 			pose = VARR_GET(&class->poses, i);
 			if (IS_NULLSTR(pose->self) && IS_NULLSTR(pose->others))
 				continue;
@@ -517,12 +520,12 @@ OLC_FUN(classed_guilds)
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0' || !str_prefix(arg, "list")) {
-		int i;
+		size_t i;
 		BUFFER	*buffer;
 		bool st = FALSE;
 
 		buffer = buf_new(0);
-		for (i = 0; i < class->guilds.nused; i++) {
+		for (i = 0; i < varr_size(&class->guilds); i++) {
 			vnum = *(int*) VARR_GET(&class->guilds, i);
 			if (!vnum)
 				continue;
@@ -643,7 +646,7 @@ save_class_cb(void *p, va_list ap)
 	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
 	bool *pfound = va_arg(ap, bool *);
 
-	int i;
+	size_t i;
 	FILE *fp;
 	const char *filename;
 
@@ -662,17 +665,21 @@ save_class_cb(void *p, va_list ap)
 	if (!IS_NULLSTR(cl->skill_spec))
 		fprintf(fp, "SkillSpec '%s'\n", cl->skill_spec);
 	fprintf(fp, "SchoolWeapon %d\n", cl->weapon);
-	for (i = 0; i < cl->guilds.nused; i++)
-		if (*(int*)VARR_GET(&cl->guilds, i) != 0)
-			fprintf(fp, "GuildRoom %d\n", *(int*)VARR_GET(&cl->guilds, i));
+	for (i = 0; i < varr_size(&cl->guilds); i++) {
+		if (*(int*)VARR_GET(&cl->guilds, i) != 0) {
+			fprintf(fp, "GuildRoom %d\n",
+				*(int*)VARR_GET(&cl->guilds, i));
+		}
+	}
 	fprintf(fp, "Thac0_00 %d\n", cl->thac0_00);
 	fprintf(fp, "Thac0_32 %d\n", cl->thac0_32);
 	fprintf(fp, "HPRate %d\n", cl->hp_rate);
 	fprintf(fp, "LuckBonus %d\n", cl->luck_bonus);
 	fprintf(fp, "ManaRate %d\n", cl->mana_rate);
-	if (cl->class_flags)
+	if (cl->class_flags) {
 		fprintf(fp, "Flags %s~\n",
 			flag_string(class_flags, cl->class_flags));
+	}
 	if (cl->points)
 		fprintf(fp, "AddExp %d\n", cl->points);
 	fprintf(fp, "StatMod");
@@ -690,7 +697,7 @@ save_class_cb(void *p, va_list ap)
 		fprintf(fp, "DeathLimit %d\n", cl->death_limit);
 	fprintf(fp, "End\n\n");
 
-	for (i = 0; i < cl->poses.nused; i++) {
+	for (i = 0; i < varr_size(&cl->poses); i++) {
 		pose_t *pose = VARR_GET(&cl->poses, i);
 		if (IS_NULLSTR(pose->self) && IS_NULLSTR(pose->others))
 			continue;

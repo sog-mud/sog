@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.52 2001-08-05 16:36:51 fjoe Exp $
+ * $Id: olc_msg.c,v 1.53 2001-08-14 16:07:04 fjoe Exp $
  */
 
 #include "olc.h"
@@ -44,23 +44,25 @@ DECLARE_OLC_FUN(msged_del	);
 
 DECLARE_VALIDATE_FUN(validate_msg);
 
-olced_strkey_t strkey_msgdb = { &msgdb, NULL };
+olced_strkey_t strkey_msgdb = { &msgdb, NULL, NULL };
 
 olc_cmd_t olc_cmds_msg[] =
 {
-	{ "create",	msged_create				},
-	{ "edit",	msged_edit				},
-	{ "",		msged_save				},
-	{ "touch",	msged_touch				},
-	{ "show",	msged_show				},
-	{ "list",	msged_list				},
+	{ "create",	msged_create,	NULL,		NULL		},
+	{ "edit",	msged_edit,	NULL,		NULL		},
+	{ "",		msged_save,	NULL,		NULL		},
+	{ "touch",	msged_touch,	NULL,		NULL		},
+	{ "show",	msged_show,	NULL,		NULL		},
+	{ "list",	msged_list,	NULL,		NULL		},
 
-	{ "msg",	msged_msg, validate_msg, &strkey_msgdb	},
-	{ "delete_ms",	olced_spell_out				},
-	{ "delete_msg",	msged_del				},
+	{ "msg",	msged_msg,	validate_msg,	&strkey_msgdb	},
+	{ "delete_ms",	olced_spell_out, NULL,		NULL		},
+	{ "delete_msg",	msged_del,	NULL,		NULL		},
 
-	{ "commands",	show_commands				},
-	{ NULL }
+	{ "commands",	show_commands,	NULL,		NULL		},
+	{ "version",	show_version,	NULL,		NULL		},
+
+	{ NULL, NULL, NULL, NULL }
 };
 
 /* case-sensitive substring search with [num.]name syntax */
@@ -152,7 +154,8 @@ msged_save_cb(void *p, va_list ap)
 }
 
 static varrdata_t v_msgdb = {
-	sizeof(const char *), 64
+	sizeof(const char *), 64,
+	NULL, NULL, NULL
 };
 
 OLC_FUN(msged_save)
@@ -316,7 +319,7 @@ static const char *atomsg(const char *argument)
 {
 	static char buf[MAX_STRING_LENGTH];
 	const char *i;
-	int o;
+	size_t o;
 
 	if (argument[0] == '.')
 		argument++;

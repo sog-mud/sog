@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.c,v 1.34 2001-08-05 16:36:59 fjoe Exp $
+ * $Id: lang.c,v 1.35 2001-08-14 16:07:10 fjoe Exp $
  */
 
 #include <string.h>
@@ -62,7 +62,7 @@ word_form_lookup(lang_t *l, rulecl_t *rcl, const char *word, uint fnum)
 		char *r;
 
 		/* copy prefix */
-		strnzncpy(buf2, sizeof(buf2), word, (unsigned)(q-word));
+		strnzncpy(buf2, sizeof(buf2), word, (size_t) (q-word));
 
 		/*
 		 * translate infix, translation must be done
@@ -72,8 +72,7 @@ word_form_lookup(lang_t *l, rulecl_t *rcl, const char *word, uint fnum)
 		r = strchr(q+1, '~');
 		if (!r)
 			r = strchr(q+1, '\0');
-		strnzncpy(buf3, sizeof(buf3), q+1,
-			(unsigned)(*r ? r-q-1 : r-q));
+		strnzncpy(buf3, sizeof(buf3), q+1, (size_t) (*r ? r-q-1 : r-q));
 		strnzcat(buf2, sizeof(buf2),
 			 word_form_lookup(l, rcl, buf3, fnum));
 

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.347 2001-08-13 18:23:16 fjoe Exp $
+ * $Id: merc.h,v 1.348 2001-08-14 16:06:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2366,21 +2366,16 @@ extern int changed_flags;
 extern MOB_INDEX_DATA *	mob_index_hash	[MAX_KEY_HASH];
 extern OBJ_INDEX_DATA *	obj_index_hash	[MAX_KEY_HASH];
 extern ROOM_INDEX_DATA *room_index_hash [MAX_KEY_HASH];
-extern int		top_mob_index;
-extern int		top_obj_index;
-extern int		top_vnum_mob;
-extern int		top_vnum_obj;
-extern int		top_vnum_room;
-extern int		top_affect;
-extern int		top_ed;
-extern int		top_area;
-extern int		top_exit;
-extern int		top_help;
-extern int		top_reset;
-extern int		top_room;
-extern int		top_mprog_index;
-extern int		top_shop;
-extern int		social_count;
+extern int		mob_index_count;
+extern int		obj_index_count;
+extern int		affect_count;
+extern int		ed_count;
+extern int		area_count;
+extern int		exit_count;
+extern int		help_count;
+extern int		reset_count;
+extern int		room_count;
+extern int		shop_count;
 extern int		str_count;
 extern int		str_real_count;
 #if STR_ALLOC_MEM
@@ -2390,9 +2385,14 @@ extern int		npc_count;
 extern int		npc_free_count;
 extern int		pc_count;
 extern int		pc_free_count;
+extern int		desc_count;
+extern int		desc_free_count;
 extern int		dvdata_count;
 extern int		dvdata_real_count;
 extern int		top_player;
+extern int		top_vnum_mob;
+extern int		top_vnum_obj;
+extern int		top_vnum_room;
 extern int		rebooter;
 extern AREA_DATA *	area_first;
 extern AREA_DATA *	area_last;

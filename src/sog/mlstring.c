@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.c,v 1.64 2001-08-03 11:27:51 fjoe Exp $
+ * $Id: mlstring.c,v 1.65 2001-08-14 16:07:11 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -114,7 +114,7 @@ mlstr_fread(rfile_t *fp, mlstring *mlp)
 			return;
 		}
 
-		if ((l = lang_nlookup(s, (unsigned)(q-s))) == NULL) {
+		if ((l = lang_nlookup(s, (size_t) (q-s))) == NULL) {
 			log(LOG_ERROR, "mlstr_fread: %s: unknown language", s);
 			return;
 		}
@@ -544,7 +544,7 @@ smash_a(const char *s, int len, bool smashdot)
 	char *p = buf;
 	const char *q = s;
 
-	if (len < 0 || (unsigned)(len + 1) > sizeof(buf))
+	if (len < 0 || (size_t) (len + 1) > sizeof(buf))
 		len = sizeof(buf)-1;
 
 	if (smashdot && *q == '.')

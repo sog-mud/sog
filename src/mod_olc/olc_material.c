@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_material.c,v 1.18 2001-06-22 07:13:44 avn Exp $
+ * $Id: olc_material.c,v 1.19 2001-08-14 16:07:03 fjoe Exp $
  */
 
 #include "olc.h"
@@ -43,27 +43,29 @@ DECLARE_OLC_FUN(mated_material		);
 
 DECLARE_OLC_FUN(mated_delete		);
 
-olced_strkey_t strkey_materials = { &materials, NULL };
+olced_strkey_t strkey_materials = { &materials, NULL, NULL };
 
 olc_cmd_t olc_cmds_mat[] =
 {
-	{ "create",	mated_create					},
-	{ "edit",	mated_edit					},
-	{ "",		mated_save					},
-	{ "touch",	mated_touch					},
-	{ "show",	mated_show					},
-	{ "list",	mated_list					},
+	{ "create",	mated_create,	NULL,	NULL			},
+	{ "edit",	mated_edit,	NULL,	NULL			},
+	{ "",		mated_save,	NULL,	NULL			},
+	{ "touch",	mated_touch,	NULL,	NULL			},
+	{ "show",	mated_show,	NULL,	NULL			},
+	{ "list",	mated_list,	NULL,	NULL			},
 
 	{ "name",	olced_strkey,	NULL,	&strkey_materials	},
-	{ "float",	mated_float					},
+	{ "float",	mated_float,	NULL,	NULL			},
 	{ "damclass",	mated_damclass,	NULL,	dam_classes		},
 	{ "material",	mated_material,	NULL,	material_flags		},
 
-	{ "delete_ma",	olced_spell_out					},
-	{ "delete_mat",	mated_delete					},
+	{ "delete_ma",	olced_spell_out, NULL, NULL			},
+	{ "delete_mat", mated_delete,	NULL, NULL			},
 
-	{ "commands",	show_commands					},
-	{ NULL }
+	{ "commands",	show_commands,	NULL,	NULL			},
+	{ "version",	show_version,	NULL,	NULL			},
+
+	{ NULL, NULL, NULL, NULL }
 };
 
 static void *material_save_cb(void *p, va_list ap);

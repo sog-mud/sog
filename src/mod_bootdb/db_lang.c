@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_lang.c,v 1.32 2001-08-05 16:36:28 fjoe Exp $
+ * $Id: db_lang.c,v 1.33 2001-08-14 16:06:48 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -163,7 +163,7 @@ DBLOAD_FUN(load_rulecl)
 				if (s) {
 					strnzncpy(path, sizeof(path),
 					    bootdb_filename,
-					    (unsigned)(s - bootdb_filename));
+					    (size_t) (s - bootdb_filename));
 				} else
 					path[0] = '\0';
 

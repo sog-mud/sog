@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: reset.c,v 1.2 2001-08-05 16:36:43 fjoe Exp $
+ * $Id: reset.c,v 1.3 2001-08-14 16:06:55 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -192,6 +192,7 @@ reset_room(ROOM_INDEX_DATA *pRoom, int flags)
 			 * returned not NULL
 			 */
 			last_obj = create_obj(pObjIndex->vnum, 0);
+			pObjIndex->reset_num++;
 			if (pReset->command == 'G'
 			&&  last_mob->pMobIndex->pShop) /* Shop-keeper? */
 				SET_OBJ_STAT(last_obj, ITEM_INVENTORY);
@@ -236,6 +237,7 @@ reset_room(ROOM_INDEX_DATA *pRoom, int flags)
 			 * returned not NULL
 			 */
 			last_obj = create_obj(pObjIndex->vnum, 0);
+			pObjIndex->reset_num++;
 			last_obj->cost = 0;
 			lobj = TRUE;
 			obj_to_room(last_obj, pRoom);
@@ -289,6 +291,7 @@ reset_room(ROOM_INDEX_DATA *pRoom, int flags)
 					 * get_obj_index returned not NULL
 					 */
 					obj = create_obj(pObjIndex->vnum, 0);
+					pObjIndex->reset_num++;
 					clan->obj_ptr = obj;
 					clan->altar_ptr = obj;
 					obj_to_obj(obj, last_obj);
@@ -297,7 +300,7 @@ reset_room(ROOM_INDEX_DATA *pRoom, int flags)
 			}
 
 			count = count_obj_list(pObjIndex, last_obj->contains);
-			for (;;) {
+			for (; ;) {
 				if (count >= pReset->arg4
 				||  (pObjIndex->count >= limit &&
 				     number_range(0, 4) != 0)
@@ -310,6 +313,7 @@ reset_room(ROOM_INDEX_DATA *pRoom, int flags)
 				 * get_obj_index returned not NULL
 				 */
 				obj = create_obj(pObjIndex->vnum, 0);
+				pObjIndex->reset_num++;
 				obj_to_obj(obj, last_obj);
 				count++;
 			}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: healer.c,v 1.54 2001-08-13 18:23:28 fjoe Exp $
+ * $Id: healer.c,v 1.55 2001-08-14 16:06:50 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -41,9 +41,9 @@
 DECLARE_DO_FUN(do_heal);
 
 typedef struct {
-	char * const	keyword;
-	char * const	name;
-	char * const	spellname;
+	const char *	keyword;
+	const char *	name;
+	const char *	spellname;
 	int		level;
 	int		price;
 } heal_t;
@@ -93,7 +93,7 @@ heal_t heal_table[] =
     { "herbs",							// notrans
       "ranger's healing",	"herbs",		0, -10000	},
 
-    { NULL }
+    { NULL, NULL, NULL, 0, 0 }
 };
 
 static int

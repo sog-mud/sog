@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_social.c,v 1.31 2001-07-31 18:15:02 fjoe Exp $
+ * $Id: olc_social.c,v 1.32 2001-08-14 16:07:07 fjoe Exp $
  */
 
 /* I never wanted to be
@@ -61,33 +61,35 @@ static DECLARE_VALIDATE_FUN(validate_soc_name);
 
 olc_cmd_t olc_cmds_soc[] =
 {
-	{ "create",	soced_create					},
-	{ "edit",	soced_edit					},
-	{ "",		soced_save					},
-	{ "touch",	soced_touch					},
-	{ "show",	soced_show					},
-	{ "list",	soced_list					},
+	{ "create",	soced_create,		NULL,	NULL		},
+	{ "edit",	soced_edit,		NULL,	NULL		},
+	{ "",		soced_save,		NULL,	NULL		},
+	{ "touch",	soced_touch,		NULL,	NULL		},
+	{ "show",	soced_show,		NULL,	NULL		},
+	{ "list",	soced_list,		NULL,	NULL		},
 
-	{ "name",	soced_name,	validate_soc_name 		},
-	{ "minpos",	soced_minpos,	NULL,		position_table	},
+	{ "name",	soced_name,		validate_soc_name, NULL	},
+	{ "minpos",	soced_minpos,		NULL,	position_table	},
 
-	{ "fchar",	soced_found_char				},
-	{ "fvict",	soced_found_vict				},
-	{ "fnvict",	soced_found_notvict				},
+	{ "found_char",	soced_found_char,	NULL,	NULL		},
+	{ "found_vict",	soced_found_vict,	NULL,	NULL		},
+	{ "found_notvict", soced_found_notvict,	NULL,	NULL		},
 
-	{ "nchar",	soced_noarg_char				},
-	{ "nroom",	soced_noarg_room				},
+	{ "noarg_char",	soced_noarg_char,	NULL,	NULL		},
+	{ "noarg_room",	soced_noarg_room,	NULL,	NULL		},
 
-	{ "schar",	soced_self_char					},
-	{ "sroom",	soced_self_room					},
+	{ "self_char",	soced_self_char,	NULL,	NULL		},
+	{ "self_room",	soced_self_room,	NULL,	NULL		},
 
-	{ "nfchar",	soced_notfound_char				},
+	{ "notfound_char", soced_notfound_char, NULL,	NULL		},
 
-	{ "move",	soced_move					},
-	{ "delete_so",	olced_spell_out					},
-	{ "delete_soc",	soced_delete					},
-	{ "commands",	show_commands					},
-	{ NULL }
+	{ "move",	soced_move,		NULL,	NULL		},
+	{ "delete_so",	olced_spell_out,	NULL,	NULL		},
+	{ "delete_soc",	soced_delete,		NULL,	NULL		},
+	{ "commands",	show_commands,		NULL,	NULL		},
+	{ "version",	show_version,		NULL,	NULL		},
+
+	{ NULL, NULL, NULL, NULL }
 };
 
 static void *save_social_cb(void *fp, va_list ap);
@@ -233,7 +235,7 @@ OLC_FUN(soced_show)
 
 OLC_FUN(soced_list)
 {
-	int i;
+	size_t i;
 	int col = 0;
 	char arg[MAX_STRING_LENGTH];
 	BUFFER *output;
@@ -241,7 +243,7 @@ OLC_FUN(soced_list)
 	one_argument(argument, arg, sizeof(arg));
 	output = buf_new(0);
 
-	for (i = 0; i < socials.nused; i++) {
+	for (i = 0; i < varr_size(&socials); i++) {
 		social_t *soc = (social_t*) VARR_GET(&socials, i);
 
 		if (arg[0] && str_prefix(arg, soc->name))
@@ -349,8 +351,12 @@ OLC_FUN(soced_move)
 	if (!is_number(arg))
 		OLC_ERROR("'OLC SOCIALS'");
 
-	if ((num = atoi(arg)) > socials.nused)
-		num = socials.nused;
+	if ((num = atoi(arg)) >= (int) varr_size(&socials))
+		num = varr_size(&socials) - 1;
+	if (num < 0) {
+		act_char("SocEd: move: num should be >= 0.", ch);
+		return FALSE;
+	}
 
 	num2 = varr_index(&socials, soc);
 	if (num == num2) {

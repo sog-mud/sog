@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_help.c,v 1.46 2001-06-22 07:13:43 avn Exp $
+ * $Id: olc_help.c,v 1.47 2001-08-14 16:07:02 fjoe Exp $
  */
 
 #include "olc.h"
@@ -43,21 +43,23 @@ DECLARE_OLC_FUN(helped_text		);
 
 olc_cmd_t olc_cmds_help[] =
 {
-	{ "create",	helped_create					},
-	{ "edit",	helped_edit					},
-	{ "",		NULL						},
-	{ "touch",	helped_touch					},
-	{ "show",	helped_show					},
-	{ "list",	helped_list					},
-	{ "delete_hel",	olced_spell_out					},
-	{ "delete_help",helped_del					},
+	{ "create",	helped_create,	NULL,	NULL		},
+	{ "edit",	helped_edit,	NULL,	NULL		},
+	{ "",		NULL,		NULL,	NULL		},
+	{ "touch",	helped_touch,	NULL,	NULL		},
+	{ "show",	helped_show,	NULL,	NULL		},
+	{ "list",	helped_list,	NULL,	NULL		},
+	{ "delete_hel",	olced_spell_out, NULL,	NULL		},
+	{ "delete_help",helped_del,	NULL,	NULL		},
 
-	{ "level",	helped_level,	NULL,		level_table	},
-	{ "keywords",	helped_keyword					},
-	{ "text",	helped_text					},
+	{ "level",	helped_level,	NULL,	level_table	},
+	{ "keywords",	helped_keyword,	NULL,	NULL		},
+	{ "text",	helped_text,	NULL,	NULL		},
 
-	{ "commands",	show_commands					},
-	{ NULL }
+	{ "commands",	show_commands,	NULL,	NULL		},
+	{ "version",	show_version,	NULL,	NULL		},
+
+	{ NULL, NULL, NULL, NULL }
 };
 
 OLC_FUN(helped_create)

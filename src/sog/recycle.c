@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.122 2001-08-13 18:24:02 fjoe Exp $
+ * $Id: recycle.c,v 1.123 2001-08-14 16:07:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -69,10 +69,10 @@ int		rebooter = 0;
 
 int		changed_flags;		/* changed object flags for OLC */
 
-int		top_vnum_room;
+int		top_player;
 int		top_vnum_mob;
 int		top_vnum_obj;
-int		top_player;
+int		top_vnum_room;
 
 ban_t *		ban_list;
 
@@ -184,14 +184,14 @@ const int rev_dir[] =
  * ED_DATA
  */
 
-int top_ed;
+int ed_count;
 
 ED_DATA *
 ed_new(void)
 {
 	ED_DATA *ed;
 	ed = calloc(1, sizeof(*ed));
-	top_ed++;
+	ed_count++;
 	return ed;
 }
 
@@ -215,7 +215,7 @@ ed_free(ED_DATA *ed)
 		free_string(ed->keyword);
 		mlstr_destroy(&ed->description);
 		free(ed);
-		top_ed--;
+		ed_count--;
 	}
 }
 
@@ -410,8 +410,7 @@ char_new(MOB_INDEX_DATA *pMobIndex)
 		*free_list = (*free_list)->next;
 		(*free_count)--;
 		mem_validate(ch);
-	}
-	else {
+	} else {
 		ch = mem_alloc(MT_CHAR, size);
 		(*count)++;
 	}
@@ -570,7 +569,7 @@ char_free(CHAR_DATA *ch)
  * RESET_DATA
  */
 
-int top_reset;
+int reset_count;
 
 RESET_DATA *
 reset_new(void)
@@ -580,7 +579,7 @@ reset_new(void)
 	pReset = calloc(1, sizeof(*pReset));
 	pReset->command = 'X';
 
-	top_reset++;
+	reset_count++;
 	return pReset;
 }
 
@@ -589,7 +588,7 @@ reset_free(RESET_DATA *pReset)
 {
 	if (!pReset)
 		return;
-	top_reset--;
+	reset_count--;
 	free(pReset);
 }
 
@@ -669,7 +668,7 @@ reset_lookup(ROOM_INDEX_DATA *room, int rnum)
  * AREA_DATA
  */
 
-int top_area;
+int area_count;
 AREA_DATA *area_first;
 AREA_DATA *area_last;
 
@@ -680,14 +679,14 @@ new_area(void)
 
 	pArea = mem_alloc(MT_AREA, sizeof(*pArea));
 	memset(pArea, 0, sizeof(*pArea));
-	pArea->vnum		= top_area;
+	pArea->vnum		= area_count;
 	pArea->file_name	= str_printf("area%d.are", pArea->vnum);
 	pArea->builders		= str_empty;
 	pArea->name		= str_dup("New area");		// notrans
 	pArea->empty		= TRUE;              /* ROM patch */
 	pArea->security		= 1;
 
-	top_area++;
+	area_count++;
 	return pArea;
 }
 
@@ -698,7 +697,7 @@ free_area(AREA_DATA *pArea)
 	free_string(pArea->file_name);
 	free_string(pArea->builders);
 	free_string(pArea->credits);
-	top_area--;
+	area_count--;
 	mem_free(pArea);
 }
 
@@ -732,7 +731,7 @@ area_vnum_lookup(int vnum)
  * EXIT_DATA
  */
 
-int top_exit;
+int exit_count;
 
 EXIT_DATA *
 new_exit(void)
@@ -744,7 +743,7 @@ new_exit(void)
 	gmlstr_init(&pExit->short_descr);
 	pExit->size = SIZE_GARGANTUAN;
 
-        top_exit++;
+        exit_count++;
 	return pExit;
 }
 
@@ -757,7 +756,7 @@ free_exit(EXIT_DATA *pExit)
 	free_string(pExit->keyword);
 	gmlstr_destroy(&pExit->short_descr);
 
-	top_exit--;
+	exit_count--;
 	free(pExit);
 }
 
@@ -765,7 +764,7 @@ free_exit(EXIT_DATA *pExit)
  * ROOM_INDEX_DATA
  */
 
-int top_room;
+int room_count;
 ROOM_INDEX_DATA *room_index_hash[MAX_KEY_HASH];
 
 ROOM_INDEX_DATA *
@@ -778,7 +777,7 @@ new_room_index(void)
 	pRoom->heal_rate = 100;
 	pRoom->mana_rate = 100;
 
-        top_room++;
+        room_count++;
 	return pRoom;
 }
 
@@ -804,7 +803,7 @@ free_room_index(ROOM_INDEX_DATA *pRoom)
 	for (pReset = pRoom->reset_first; pReset; pReset = pReset->next)
 		reset_free(pReset);
 
-	top_room--;
+	room_count--;
 	mem_free(pRoom);
 }
 
@@ -832,7 +831,7 @@ get_room_index(int vnum)
  * SHOP_DATA
  */
 
-int top_shop;
+int shop_count;
 SHOP_DATA *shop_first;
 SHOP_DATA *shop_last;
 
@@ -846,7 +845,7 @@ new_shop(void)
 	pShop->profit_sell  =   100;
 	pShop->close_hour   =   23;
 
-        top_shop++;
+        shop_count++;
 	return pShop;
 }
 
@@ -855,7 +854,7 @@ free_shop(SHOP_DATA *pShop)
 {
 	if (!pShop)
 		return;
-	top_shop--;
+	shop_count--;
 	free(pShop);
 }
 
@@ -863,7 +862,7 @@ free_shop(SHOP_DATA *pShop)
  * OBJ_INDEX_DATA
  */
 
-int top_obj_index;
+int obj_index_count;
 OBJ_INDEX_DATA *obj_index_hash[MAX_KEY_HASH];
 
 OBJ_INDEX_DATA *
@@ -881,7 +880,7 @@ new_obj_index(void)
 	pObj->condition		= 100;
 	pObj->limit		= -1;
 	mlstr_init2(&pObj->gender, flag_string(gender_table, SEX_NEUTRAL));
-        top_obj_index++;
+        obj_index_count++;
 	return pObj;
 }
 
@@ -901,7 +900,7 @@ free_obj_index(OBJ_INDEX_DATA *pObj)
 	ed_free(pObj->ed);
 	objval_destroy(pObj->item_type, pObj->value);
 
-	top_obj_index--;
+	obj_index_count--;
 	mem_free(pObj);
 }
 
@@ -929,7 +928,7 @@ get_obj_index(int vnum)
  * MOB_INDEX_DATA
  */
 
-int top_mob_index;
+int mob_index_count;
 MOB_INDEX_DATA *mob_index_hash[MAX_KEY_HASH];
 
 MOB_INDEX_DATA *
@@ -948,7 +947,7 @@ new_mob_index(void)
 	pMob->default_pos	= POS_STANDING;
 	pMob->damtype		= str_empty;
 	mlstr_init2(&pMob->gender, flag_string(gender_table, SEX_NEUTRAL));
-	top_mob_index++;
+	mob_index_count++;
 	return pMob;
 }
 
@@ -970,7 +969,7 @@ free_mob_index(MOB_INDEX_DATA *pMob)
 	free_shop(pMob->pShop);
 	aff_free_list(pMob->affected);
 
-	top_mob_index--;
+	mob_index_count--;
 	mem_free(pMob);
 }
 
@@ -1502,6 +1501,9 @@ hashdata_t h_glob_gmlstr =
 DESCRIPTOR_DATA *descriptor_list;	/* All open descriptors		*/
 DESCRIPTOR_DATA *descriptor_free;
 
+int desc_count;
+int desc_free_count;
+
 static void outbuf_init(outbuf_t *o, size_t size);
 static void outbuf_destroy(outbuf_t *o);
 
@@ -1510,14 +1512,16 @@ new_descriptor(int fd)
 {
 	DESCRIPTOR_DATA *d;
 
-	if (descriptor_free == NULL)
+	if (descriptor_free == NULL) {
 		d = mem_alloc(MT_DESCRIPTOR, sizeof(*d));
-	else {
+	} else {
 		d = descriptor_free;
 		descriptor_free = descriptor_free->next;
 		mem_validate(d);
+		desc_free_count--;
 	}
 
+	desc_count++;
 	memset(d, 0, sizeof(*d));
 	d->descriptor = fd;
 	d->connected = CON_GET_CODEPAGE;
@@ -1540,6 +1544,9 @@ free_descriptor(DESCRIPTOR_DATA *d)
 		return;
 	}
 	mem_invalidate(d);
+
+	desc_count--;
+	desc_free_count++;
 
 	free_string(d->host);
 	free_string(d->ip);

@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.21 2001-08-05 16:36:48 fjoe Exp $
+ * $Id: mpc.y,v 1.22 2001-08-14 16:06:58 fjoe Exp $
  */
 
 /*
@@ -114,9 +114,9 @@ argtype_popn(prog_t *prog, size_t n)
  * Get argument type from argument type stack
  */
 static int
-argtype_get(prog_t *prog, int n, int index)
+argtype_get(prog_t *prog, int n, int idx)
 {
-	int *t = varr_get(&prog->args, varr_size(&prog->args) - n + index);
+	int *t = varr_get(&prog->args, varr_size(&prog->args) - n + idx);
 	if (t == NULL)
 		return MT_NONE;
 	return *t;
@@ -165,7 +165,7 @@ code3(prog_t *prog,
 		/*							\
 		 * lookup symbol					\
 		 */							\
-		if ((sym = sym_lookup(prog, (ident))) == 0) {		\
+		if ((sym = sym_lookup(prog, (ident))) == NULL) {	\
 			compile_error(prog,				\
 			    "%s: unknown identifier", (ident));		\
 			YYERROR;					\
@@ -421,7 +421,7 @@ if:	L_IF {
 		POP_ADDR(addr);
 		CODE(addr)[0] = varr_size(&prog->code);
 
-		code2(prog, c_cleanup_syms, (void *) prog->curr_block + 1);
+		code2(prog, c_cleanup_syms, (void *) (prog->curr_block + 1));
 	}
 	;
 
@@ -510,7 +510,7 @@ switch:	L_SWITCH {
 
 		/* store next addr */
 		CODE(addr)[0] = varr_size(&prog->code);
-		code2(prog, c_cleanup_syms, (void *) prog->curr_block + 1);
+		code2(prog, c_cleanup_syms, (void *) (prog->curr_block + 1));
 	}
 	;
 
@@ -637,7 +637,7 @@ foreach: L_FOREACH {
 
 		id = (iterdata_t *) varr_enew(&prog->iterdata);
 		id->iter = $6;
-		code2(prog, c_cleanup_syms, (void *) prog->curr_block + 1);
+		code2(prog, c_cleanup_syms, (void *) (prog->curr_block + 1));
 		code(prog, c_foreach_next);
 		code3(prog, (void *) INVALID_ADDR, sym->name, id);
 
@@ -673,7 +673,7 @@ foreach: L_FOREACH {
 		CODE(addr)[0] = varr_size(&prog->code);
 		CODE(body_addr)[3] = varr_size(&prog->code);
 
-		code2(prog, c_cleanup_syms, (void *) prog->curr_block + 1);
+		code2(prog, c_cleanup_syms, (void *) (prog->curr_block + 1));
 	}
 	;
 
@@ -1084,7 +1084,7 @@ struct codeinfo_t codetab[] = {
 
 #define CODETAB_SZ (sizeof(codetab) / sizeof(codeinfo_t))
 
-codeinfo_t *
+static codeinfo_t *
 codeinfo_lookup(void *p)
 {
 	static bool codetab_initialized = FALSE;
@@ -1100,7 +1100,7 @@ codeinfo_lookup(void *p)
 
 int	mpc_parse(prog_t *prog);
 
-int
+static int
 mpc_error(prog_t *prog, const char *errmsg)
 {
 	compile_error(prog, "%s", errmsg);
@@ -1132,7 +1132,8 @@ sym_cpy(sym_t *dst, const sym_t *src)
 }
 
 varrdata_t v_swjumps = {
-	sizeof(swjump_t), 4
+	sizeof(swjump_t), 4,
+	NULL, NULL, NULL
 };
 
 static void
@@ -1142,7 +1143,8 @@ jumptab_init(varr *v)
 }
 
 varrdata_t v_ints = {
-	sizeof(int), 8
+	sizeof(int), 8,
+	NULL, NULL, NULL
 };
 
 varrdata_t v_jumptabs = {
@@ -1154,7 +1156,8 @@ varrdata_t v_jumptabs = {
 };
 
 varrdata_t v_iterdata = {
-	sizeof(iterdata_t), 4
+	sizeof(iterdata_t), 4,
+	NULL, NULL, NULL
 };
 
 hashdata_t h_strings = {
@@ -1182,7 +1185,8 @@ hashdata_t h_syms = {
 };
 
 varrdata_t v_vos = {
-	sizeof(vo_t), 4
+	sizeof(vo_t), 4,
+	NULL, NULL, NULL
 };
 
 void
@@ -1224,7 +1228,7 @@ prog_destroy(prog_t *prog)
 {
 	free_string(prog->name);
 
-	free((void *) prog->text);
+	free((void *) (uintptr_t) prog->text);
 
 	buf_free(prog->errbuf);
 
@@ -1337,8 +1341,8 @@ prog_execute(prog_t *prog, int *errcode)
 	return sym->s.var.data.i;
 }
 
-void *
-print_swjump_cb(void *p, va_list ap)
+static
+FOREACH_CB_FUN(print_swjump_cb, p, ap)
 {
 	swjump_t *sw = (swjump_t *) p;
 
@@ -1349,7 +1353,7 @@ print_swjump_cb(void *p, va_list ap)
 void
 prog_dump(prog_t *prog)
 {
-	int ip;
+	size_t ip;
 
 	for (ip = 0; ip < varr_size(&prog->code); ip++) {
 		void *p = (void *) CODE(ip)[0];
@@ -1511,7 +1515,10 @@ main(int argc, char *argv[])
 	/*
 	 * initialize mpc
 	 */
-	mpc_init();
+	if (mpc_init() < 0) {
+		fprintf(stderr, "mpc_init() failed\n");
+		exit(2);
+	}
 
 	prog_init(&prog);
 	prog.name = argv[1];

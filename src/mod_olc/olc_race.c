@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.47 2001-07-31 18:15:01 fjoe Exp $
+ * $Id: olc_race.c,v 1.48 2001-08-14 16:07:05 fjoe Exp $
  */
 
 #include "olc.h"
@@ -75,18 +75,18 @@ DECLARE_OLC_FUN(raceed_hungerrate	);
 DECLARE_OLC_FUN(olc_skill_update	);
 
 static DECLARE_VALIDATE_FUN(validate_whoname);
-static DECLARE_VALIDATE_FUN(validate_haspcdata);
+static DECLARE_VALIDATE_FUN(validate_haspc);
 
 olced_strkey_t strkey_races = { &races, RACES_PATH, RACE_EXT };
 
 olc_cmd_t olc_cmds_race[] =
 {
-	{ "create",	raceed_create					},
-	{ "edit",	raceed_edit					},
-	{ "",		raceed_save					},
-	{ "touch",	raceed_touch					},
-	{ "show",	raceed_show					},
-	{ "list",	raceed_list					},
+	{ "create",	raceed_create,	NULL,		NULL		},
+	{ "edit",	raceed_edit,	NULL,		NULL		},
+	{ "",		raceed_save,	NULL,		NULL		},
+	{ "touch",	raceed_touch,	NULL,		NULL		},
+	{ "show",	raceed_show,	NULL,		NULL		},
+	{ "list",	raceed_list,	NULL,		NULL		},
 
 	{ "name",	olced_strkey,	NULL,		&strkey_races	},
 	{ "act",	raceed_act,	NULL,		mob_act_flags	},
@@ -98,38 +98,41 @@ olc_cmd_t olc_cmds_race[] =
 	{ "parts",	raceed_parts,	NULL,		part_flags	},
 	{ "flags",	raceed_flags,	NULL,		race_flags	},
 
-	{ "resists",	raceed_resists					},
-	{ "damtype",	raceed_damtype					},
+	{ "resists",	raceed_resists,	NULL,		NULL		},
+	{ "damtype",	raceed_damtype,	NULL,		NULL		},
 
-	{ "addpcdata",	raceed_addpcdata,validate_whoname		},
-	{ "delpcdata",	raceed_delpcdata				},
+	{ "addpcdata",	raceed_addpcdata, validate_whoname, NULL	},
+	{ "delpcdata",	raceed_delpcdata, NULL,		NULL		},
 
-	{ "whoname",	raceed_whoname,	validate_whoname		},
-	{ "points",	raceed_points,	validate_haspcdata		},
-	{ "skillspec",	raceed_skillspec,validate_skill_spec		},
-	{ "bonusskill",	raceed_bonusskill,validate_haspcdata		},
-	{ "stats",	raceed_stats,					},
-	{ "maxstats",	raceed_maxstats,				},
-	{ "size",	raceed_size,	validate_haspcdata,size_table	},
-	{ "hpbonus",	raceed_hpbonus,	validate_haspcdata		},
-	{ "manabonus",	raceed_manabonus,validate_haspcdata		},
-	{ "pracbonus",	raceed_pracbonus,validate_haspcdata		},
-	{ "luckbonus",	raceed_luckbonus				},
-	{ "slang",	raceed_slang,	validate_haspcdata, slang_table	},
-	{ "align",	raceed_align,	validate_haspcdata, ralign_names},
-	{ "ethos",	raceed_ethos,	validate_haspcdata, ethos_table	},
-	{ "class",	raceed_class					},
-	{ "addaffect",	raceed_addaffect				},
-	{ "delaffect",	raceed_delaffect				},
-	{ "hungerrate",	raceed_hungerrate,validate_haspcdata		},
+	{ "whoname",	raceed_whoname,	validate_whoname, NULL		},
+	{ "points",	raceed_points,	validate_haspc,	NULL		},
+	{ "skillspec",	raceed_skillspec, validate_skill_spec, NULL	},
+	{ "bonusskill",	raceed_bonusskill, validate_haspc, NULL		},
+	{ "stats",	raceed_stats,	NULL,		NULL		},
+	{ "maxstats",	raceed_maxstats, NULL,		NULL		},
+	{ "size",	raceed_size,	validate_haspc, size_table	},
+	{ "hpbonus",	raceed_hpbonus,	validate_haspc,	NULL		},
+	{ "manabonus",	raceed_manabonus, validate_haspc, NULL		},
+	{ "pracbonus",	raceed_pracbonus, validate_haspc, NULL		},
+	{ "luckbonus",	raceed_luckbonus, NULL,		NULL		},
+	{ "slang",	raceed_slang,	validate_haspc,	slang_table	},
+	{ "align",	raceed_align,	validate_haspc,	ralign_names	},
+	{ "ethos",	raceed_ethos,	validate_haspc,	ethos_table	},
+	{ "class",	raceed_class,	NULL,		NULL		},
+	{ "addaffect",	raceed_addaffect, NULL,		NULL		},
+	{ "delaffect",	raceed_delaffect, NULL,		NULL		},
+	{ "hungerrate",	raceed_hungerrate, validate_haspc, NULL		},
 
-	{ "update",	olc_skill_update				},
-	{ "commands",	show_commands					},
-	{ NULL }
+	{ "update",	olc_skill_update, NULL,		NULL		},
+
+	{ "commands",	show_commands,	NULL,		NULL		},
+	{ "version",	show_version,	NULL,		NULL		},
+
+	{ NULL, NULL, NULL, NULL }
 };
 
-static void * save_race_cb(void *p, va_list ap);
-static void * print_race_cb(void *p, va_list ap);
+static DECLARE_FOREACH_CB_FUN(save_race_cb);
+static DECLARE_FOREACH_CB_FUN(print_race_cb);
 
 OLC_FUN(raceed_create)
 {
@@ -212,7 +215,8 @@ OLC_FUN(raceed_touch)
 
 OLC_FUN(raceed_show)
 {
-	int i, j;
+	int j;
+	size_t i;
 	BUFFER *output;
 	race_t *r;
 	bool found;
@@ -348,7 +352,7 @@ OLC_FUN(raceed_show)
 	if (r->race_pcdata->restrict_ethos)
 		buf_printf(output, BUF_END, "Ethos restrict:[%s]\n",
 			   flag_string(ethos_table, r->race_pcdata->restrict_ethos));
-	for (i = 0; i < r->race_pcdata->classes.nused; i++) {
+	for (i = 0; i < varr_size(&r->race_pcdata->classes); i++) {
 		rclass_t *rc = VARR_GET(&r->race_pcdata->classes, i);
 
 		if (rc->name == NULL)
@@ -711,6 +715,7 @@ OLC_FUN(raceed_damtype)
 	return TRUE;
 }
 
+static
 OLC_FUN(raceed_addclass)
 {
 	class_t *cl;
@@ -751,6 +756,7 @@ OLC_FUN(raceed_addclass)
 	return TRUE;
 }
 
+static
 OLC_FUN(raceed_delclass)
 {
 	char arg[MAX_INPUT_LENGTH];
@@ -821,7 +827,8 @@ OLC_FUN(raceed_hungerrate)
 	return olced_number(ch, argument, cmd, &race->race_pcdata->hunger_rate);
 }
 
-bool touch_race(race_t *race)
+bool
+touch_race(race_t *race)
 {
 	SET_BIT(race->race_flags, RACE_CHANGED);
 	return FALSE;
@@ -831,7 +838,7 @@ static void *
 search_whoname_cb(void *p, va_list ap)
 {
 	race_t *r = (race_t *) p;
-	
+
 	const char *arg = va_arg(ap, const char *);
 
 	if (r->race_pcdata
@@ -840,7 +847,8 @@ search_whoname_cb(void *p, va_list ap)
 	return NULL;
 }
 
-static VALIDATE_FUN(validate_whoname)
+static
+VALIDATE_FUN(validate_whoname)
 {
 	race_t *r;
 	race_t *r2;
@@ -861,12 +869,14 @@ static VALIDATE_FUN(validate_whoname)
 	return TRUE;
 }
 
-static VALIDATE_FUN(validate_haspcdata)
+static
+VALIDATE_FUN(validate_haspc)
 {
 	race_t *race;
 	EDIT_RACE(ch, race);
 
-	if (race->race_pcdata != NULL) return TRUE;
+	if (race->race_pcdata != NULL)
+		return TRUE;
 	act_char("Add race PC data first.", ch);
 	return FALSE;
 }

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_rule.c,v 1.34 2001-08-05 16:36:52 fjoe Exp $
+ * $Id: olc_rule.c,v 1.35 2001-08-14 16:07:06 fjoe Exp $
  */
 
 #include "olc.h"
@@ -93,43 +93,47 @@ DECLARE_OLC_FUN(iruleed_name	);
 
 olc_cmd_t olc_cmds_expl[] =
 {
-	{ "create",	ruleed_create,	NULL,		&rops_expl	},
-	{ "edit",	ruleed_edit,	NULL,		&rops_expl	},
-	{ "",		ruleed_save,	NULL,		&rops_expl	},
-	{ "touch",	ruleed_touch,	NULL,		&rops_expl	},
-	{ "show",	ruleed_show,	NULL,		&rops_expl	},
-	{ "list",	ruleed_list,	NULL,		&rops_expl	},
+	{ "create",	ruleed_create,	NULL,	&rops_expl	},
+	{ "edit",	ruleed_edit,	NULL,	&rops_expl	},
+	{ "",		ruleed_save,	NULL,	&rops_expl	},
+	{ "touch",	ruleed_touch,	NULL,	&rops_expl	},
+	{ "show",	ruleed_show,	NULL,	&rops_expl	},
+	{ "list",	ruleed_list,	NULL,	&rops_expl	},
 
-	{ "name",	eruleed_name					},
-	{ "auto",	eruleed_auto					},
-	{ "base",	ruleed_base					},
-	{ "add",	ruleed_add					},
-	{ "del",	ruleed_del					},
-	{ "delete_rul",	olced_spell_out					},
-	{ "delete_rule",ruleed_delete,	NULL,		&rops_expl	},
+	{ "name",	eruleed_name,	NULL,	NULL		},
+	{ "auto",	eruleed_auto,	NULL,	NULL		},
+	{ "base",	ruleed_base,	NULL,	NULL		},
+	{ "add",	ruleed_add,	NULL,	NULL		},
+	{ "del",	ruleed_del,	NULL,	NULL		},
+	{ "delete_rul",	olced_spell_out, NULL,	NULL		},
+	{ "delete_rule",ruleed_delete,	NULL,	&rops_expl	},
 
-	{ "commands",	show_commands					},
-	{ NULL }
+	{ "commands",	show_commands,	NULL,	NULL		},
+	{ "version",	show_version,	NULL,	NULL		},
+
+	{ NULL, NULL, NULL, NULL }
 };
 
 olc_cmd_t olc_cmds_impl[] =
 {
-	{ "create",	ruleed_create,	NULL,		&rops_impl	},
-	{ "edit",	ruleed_edit,	NULL,		&rops_impl	},
-	{ "",		ruleed_save,	NULL,		&rops_impl	},
-	{ "touch",	ruleed_touch,	NULL,		&rops_impl	},
-	{ "show",	ruleed_show,	NULL,		&rops_impl	},
-	{ "list",	ruleed_list,	NULL,		&rops_impl	},
+	{ "create",	ruleed_create,	NULL,	&rops_impl	},
+	{ "edit",	ruleed_edit,	NULL,	&rops_impl	},
+	{ "",		ruleed_save,	NULL,	&rops_impl	},
+	{ "touch",	ruleed_touch,	NULL,	&rops_impl	},
+	{ "show",	ruleed_show,	NULL,	&rops_impl	},
+	{ "list",	ruleed_list,	NULL,	&rops_impl	},
 
-	{ "name",	iruleed_name					},
-	{ "arg",	ruleed_arg					},
-	{ "add",	ruleed_add					},
-	{ "del",	ruleed_del					},
-	{ "delete_rul",	olced_spell_out					},
-	{ "delete_rule",ruleed_delete,	NULL,		&rops_impl	},
+	{ "name",	iruleed_name,	NULL,	NULL		},
+	{ "arg",	ruleed_arg,	NULL,	NULL		},
+	{ "add",	ruleed_add,	NULL,	NULL		},
+	{ "del",	ruleed_del,	NULL,	NULL		},
+	{ "delete_rul",	olced_spell_out, NULL,	NULL		},
+	{ "delete_rule",ruleed_delete,	NULL,	&rops_impl	},
 
-	{ "commands",	show_commands					},
-	{ NULL }
+	{ "commands",	show_commands,	NULL,	NULL		},
+	{ "version",	show_version,	NULL,	NULL		},
+
+	{ NULL, NULL, NULL, NULL }
 };
 
 OLC_FUN(ruleed_create)
@@ -229,7 +233,7 @@ OLC_FUN(ruleed_edit)
 
 OLC_FUN(ruleed_save)
 {
-	int lang;
+	size_t lang;
 	ruleops_t *rops;
 
 	if (!olc_trusted(ch, SECURITY_MSGDB) < 0) {
@@ -238,7 +242,7 @@ OLC_FUN(ruleed_save)
 	}
 
 	EDIT_ROPS(ch, rops);
-	for (lang = 0; lang < langs.nused; lang++) {
+	for (lang = 0; lang < varr_size(&langs); lang++) {
 		int i;
 		lang_t *l = VARR_GET(&langs, lang);
 
@@ -262,7 +266,7 @@ OLC_FUN(ruleed_touch)
 
 OLC_FUN(ruleed_show)
 {
-	int i;
+	size_t i;
 	rule_t *r;
 	rulecl_t *rcl;
 	ruleops_t *rops;
@@ -278,8 +282,7 @@ OLC_FUN(ruleed_show)
 		}
 		else
 			OLC_ERROR("'OLC ASHOW'");
-	}
-	else {
+	} else {
 		int rulecl;
 		char arg[MAX_INPUT_LENGTH];
 
@@ -315,13 +318,13 @@ OLC_FUN(ruleed_show)
 	} else {
 		char buf[MAX_STRING_LENGTH];
 
-		strnzncpy(buf, sizeof(buf), r->name, r->arg);
+		strnzncpy(buf, sizeof(buf), r->name, (size_t) r->arg);
 		act_puts("Base: [$T] ($j)",
 			 ch, (const void *) r->arg, buf,
 			 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 	}
 
-	for (i = 0; i < r->forms.nused; i++) {
+	for (i = 0; i < varr_size(&r->forms); i++) {
 		int i2;
 		char **p = VARR_GET(&r->forms, i);
 
@@ -355,7 +358,7 @@ OLC_FUN(ruleed_show)
 
 OLC_FUN(ruleed_list)
 {
-	int i;
+	size_t i;
 	rulecl_t *rcl;
 	ruleops_t *rops;
 	lang_t *l;
@@ -372,8 +375,7 @@ OLC_FUN(ruleed_list)
 			EDIT_RCL(ch, rcl);
 		else
 			OLC_ERROR("'OLC ALIST'");
-	}
-	else {
+	} else {
 		int rulecl;
 		char arg[MAX_INPUT_LENGTH];
 
@@ -393,20 +395,19 @@ OLC_FUN(ruleed_list)
 	if (rops->id == ED_IMPL) {
 		if (rcl->impl.nused) {
 			output = buf_new(0);
-			for (i = 0; i < rcl->impl.nused; i++) {
+			for (i = 0; i < varr_size(&rcl->impl); i++) {
 				rule_t *r = VARR_GET(&rcl->impl, i);
 				buf_printf(output, BUF_END, "%3d. %s\n", i, r->name);
 			}
 		}
-	}
-	else {
+	} else {
 		if (argument[0] == '\0')
 			OLC_ERROR("'OLC ALIST'");
-	
-		for (i = 0; i < MAX_RULE_HASH; i++) {
-			int j;
 
-			for (j = 0; j < rcl->expl[i].nused; j++) {
+		for (i = 0; i < MAX_RULE_HASH; i++) {
+			size_t j;
+
+			for (j = 0; j < varr_size(rcl->expl + i); j++) {
 				rule_t *r = VARR_GET(rcl->expl+i, j);
 
 				if (!str_prefix(argument, r->name)) {
@@ -551,15 +552,16 @@ OLC_FUN(ruleed_delete)
  * local functions
  */
 
-static void rule_save(FILE *fp, rule_t *r)
+static void
+rule_save(FILE *fp, rule_t *r)
 {
-	int i;
+	size_t i;
 
 	fprintf(fp, "#RULE\n"
 		    "Name %s~\n", r->name);
 	if (r->arg)
 		fprintf(fp, "BaseLen %d\n", r->arg);
-	for (i = 0; i < r->forms.nused; i++) {
+	for (i = 0; i < varr_size(&r->forms); i++) {
 		char **p = VARR_GET(&r->forms, i);
 		if (IS_NULLSTR(*p))
 			continue;
@@ -568,7 +570,8 @@ static void rule_save(FILE *fp, rule_t *r)
 	fprintf(fp, "End\n\n");
 }
 
-static void rcl_save_expl(CHAR_DATA *ch, lang_t *l, rulecl_t *rcl)
+static void
+rcl_save_expl(CHAR_DATA *ch, lang_t *l, rulecl_t *rcl)
 {
 	int i;
 	FILE *fp;
@@ -587,9 +590,9 @@ static void rcl_save_expl(CHAR_DATA *ch, lang_t *l, rulecl_t *rcl)
 		return;
 
 	for (i = 0; i < MAX_RULE_HASH; i++) {
-		int j;
+		size_t j;
 
-		for (j = 0; j < rcl->expl[i].nused; j++) {
+		for (j = 0; j < varr_size(rcl->expl + i); j++) {
 			rule_t *r = VARR_GET(rcl->expl+i, j);
 			rule_save(fp, r);
 		}
@@ -605,9 +608,10 @@ static void rcl_save_expl(CHAR_DATA *ch, lang_t *l, rulecl_t *rcl)
 	REMOVE_BIT(rcl->rcl_flags, RULES_EXPL_CHANGED);
 }
 
-static void rcl_save_impl(CHAR_DATA *ch, lang_t *l, rulecl_t *rcl)
+static void
+rcl_save_impl(CHAR_DATA *ch, lang_t *l, rulecl_t *rcl)
 {
-	int i;
+	size_t i;
 	FILE *fp;
 
 	if (!IS_SET(rcl->rcl_flags, RULES_IMPL_CHANGED))
@@ -623,7 +627,7 @@ static void rcl_save_impl(CHAR_DATA *ch, lang_t *l, rulecl_t *rcl)
 	if ((fp = olc_fopen(LANG_PATH, rcl->file_impl, ch, -1)) == NULL)
 		return;
 
-	for (i = 0; i < rcl->impl.nused; i++) {
+	for (i = 0; i < varr_size(&rcl->impl); i++) {
 		rule_t *r = VARR_GET(&rcl->impl, i);
 		rule_save(fp, r);
 	}
@@ -637,4 +641,3 @@ static void rcl_save_impl(CHAR_DATA *ch, lang_t *l, rulecl_t *rcl)
 		   l->name, flag_string(rulecl_names, rcl->rulecl));
 	REMOVE_BIT(rcl->rcl_flags, RULES_IMPL_CHANGED);
 }
-

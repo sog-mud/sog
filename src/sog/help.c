@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: help.c,v 1.23 2001-08-13 18:24:01 fjoe Exp $
+ * $Id: help.c,v 1.24 2001-08-14 16:07:09 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -32,14 +32,14 @@
 
 #include <merc.h>
 
-int top_help;
+int help_count;
 HELP_DATA *help_first;
 HELP_DATA *help_last;
 
 HELP_DATA *
 help_new(void)
 {
-	top_help++;
+	help_count++;
 	return calloc(1, sizeof(HELP_DATA));
 }
 
@@ -198,5 +198,5 @@ help_free(HELP_DATA *pHelp)
 	free_string(pHelp->keyword);
 	mlstr_destroy(&pHelp->text);
 	free(pHelp);
-	top_help--;
+	help_count--;
 }

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.78 2001-07-31 18:15:00 fjoe Exp $
+ * $Id: olc_mob.c,v 1.79 2001-08-14 16:07:04 fjoe Exp $
  */
 
 #include "olc.h"
@@ -77,7 +77,7 @@ XXX
 DECLARE_OLC_FUN(mobed_trigadd		);  /* ROM */
 DECLARE_OLC_FUN(mobed_trigdel		);  /* ROM */
 #endif
-DECLARE_OLC_FUN(mobed_prac		); 
+DECLARE_OLC_FUN(mobed_prac		);
 DECLARE_OLC_FUN(mobed_clan		);
 DECLARE_OLC_FUN(mobed_clone		);
 DECLARE_OLC_FUN(mobed_wizi		);
@@ -94,21 +94,21 @@ DECLARE_VALIDATE_FUN(validate_fvnum	);
 olc_cmd_t olc_cmds_mob[] =
 {
 /*	{ command	function	validator	args		}, */
-	{ "create",	mobed_create					},
-	{ "edit",	mobed_edit					},
-	{ "",		NULL						},
-	{ "touch",	mobed_touch					},
-	{ "show",	mobed_show					},
-	{ "list",	mobed_list					},
+	{ "create",	mobed_create,	NULL,		NULL		},
+	{ "edit",	mobed_edit,	NULL,		NULL		},
+	{ "",		NULL,		NULL,		NULL		},
+	{ "touch",	mobed_touch,	NULL,		NULL		},
+	{ "show",	mobed_show,	NULL,		NULL		},
+	{ "list",	mobed_list,	NULL,		NULL		},
 
-	{ "alignment",	mobed_align					},
-	{ "desc",	mobed_desc					},
-	{ "level",	mobed_level					},
-	{ "long",	mobed_long					},
-	{ "name",	mobed_name					},
-	{ "shop",	mobed_shop					},
-	{ "short",	mobed_short					},
-	{ "spec",	mobed_spec					},
+	{ "alignment",	mobed_align,	NULL,		NULL		},
+	{ "desc",	mobed_desc,	NULL,		NULL		},
+	{ "level",	mobed_level,	NULL,		NULL		},
+	{ "long",	mobed_long,	NULL,		NULL		},
+	{ "name",	mobed_name,	NULL,		NULL		},
+	{ "shop",	mobed_shop,	NULL,		NULL		},
+	{ "short",	mobed_short,	NULL,		NULL		},
+	{ "spec",	mobed_spec,	NULL,		NULL		},
 
 	{ "gender",	mobed_gender,	NULL,		sex_table	},
 	{ "act",	mobed_act,	NULL,		mob_act_flags	},
@@ -117,44 +117,44 @@ olc_cmd_t olc_cmds_mob[] =
 	{ "invis",	mobed_invis,	NULL,		id_flags	},
 	{ "detect",	mobed_detect,	NULL,		id_flags	},
 	{ "prac",	mobed_prac,	NULL,		skill_groups	},
-	{ "armor",	mobed_ac					},
+	{ "armor",	mobed_ac,	NULL,		NULL		},
 	{ "form",	mobed_form,	NULL,		form_flags	},
 	{ "part",	mobed_part,	NULL,		part_flags	},
-	{ "material",	mobed_material					},
+	{ "material",	mobed_material,	NULL,		NULL		},
 	{ "off",	mobed_off,	NULL,		off_flags	},
 	{ "size",	mobed_size,	NULL,		size_table	},
-	{ "hitdice",	mobed_hitdice					},
-	{ "manadice",	mobed_manadice					},
-	{ "damdice",	mobed_damdice					},
-	{ "race",	mobed_race					},
+	{ "hitdice",	mobed_hitdice,	NULL,		NULL		},
+	{ "manadice",	mobed_manadice,	NULL,		NULL		},
+	{ "damdice",	mobed_damdice,	NULL,		NULL		},
+	{ "race",	mobed_race,	NULL,		NULL		},
 	{ "startpos",	mobed_startpos,	NULL,		position_table	},
-	{ "defaultpos",	mobed_defaultpos,NULL,		position_table	},
-	{ "wealth",	mobed_gold					},
-	{ "hitroll",	mobed_hitroll					},
-	{ "damtype",	mobed_damtype					},
-	{ "group",	mobed_group					},
+	{ "defaultpos",	mobed_defaultpos, NULL,		position_table	},
+	{ "wealth",	mobed_gold,	NULL,		NULL		},
+	{ "hitroll",	mobed_hitroll,	NULL,		NULL		},
+	{ "damtype",	mobed_damtype,	NULL,		NULL		},
+	{ "group",	mobed_group,	NULL,		NULL		},
 	{ "clan",	mobed_clan,	NULL,		&clans		},
 #if 0
 	XXX
-	{ "trigadd",	mobed_trigadd					},
-	{ "trigdel",	mobed_trigdel					},
+	{ "trigadd",	mobed_trigadd,	NULL,		NULL		},
+	{ "trigdel",	mobed_trigdel,	NULL,		NULL		},
 #endif
-	{ "clone",	mobed_clone					},
-	{ "wizi",	mobed_wizi					},
-	{ "incog",	mobed_incog					},
-	{ "fvnum",	mobed_fvnum,	validate_fvnum			},
-	{ "resist",	mobed_resist					},
-	{ "addaffect",	mobed_addaffect					},
-	{ "delaffect",	mobed_delaffect					},
+	{ "clone",	mobed_clone,	NULL,		NULL		},
+	{ "wizi",	mobed_wizi,	NULL,		NULL		},
+	{ "incog",	mobed_incog,	NULL,		NULL		},
+	{ "fvnum",	mobed_fvnum,	validate_fvnum,	NULL		},
+	{ "resist",	mobed_resist,	NULL,		NULL		},
+	{ "addaffect",	mobed_addaffect, NULL,		NULL		},
+	{ "delaffect",	mobed_delaffect, NULL,		NULL		},
 
-	{ "where",	mobed_where					},
-	{ "delete_mo",	olced_spell_out					},
-	{ "delete_mob", mobed_del					},
+	{ "where",	mobed_where,	NULL,		NULL		},
+	{ "delete_mo",	olced_spell_out, NULL,		NULL		},
+	{ "delete_mob", mobed_del,	NULL,		NULL		},
 
-	{ "commands",	show_commands					},
-	{ "version",	show_version					},
+	{ "commands",	show_commands,	NULL,		NULL		},
+	{ "version",	show_version,	NULL,		NULL		},
 
-	{ NULL }
+	{ NULL, NULL, NULL, NULL }
 };
 
 static void show_spec_cmds(CHAR_DATA *ch);
@@ -190,9 +190,9 @@ OLC_FUN(mobed_create)
 
 	pMob			= new_mob_index();
 	pMob->vnum		= value;
-		 
+
 	if (value > top_vnum_mob)
-		top_vnum_mob = value;        
+		top_vnum_mob = value;
 
 	iHash			= value % MAX_KEY_HASH;
 	pMob->next		= mob_index_hash[iHash];
@@ -1412,7 +1412,7 @@ static void show_spec_cmds(CHAR_DATA *ch)
 		if (++col % 4 == 0)
 			buf_append(output, "\n");
 	}
- 
+
 	if (col % 4 != 0)
 		buf_append(output, "\n");
 
@@ -1422,7 +1422,7 @@ static void show_spec_cmds(CHAR_DATA *ch)
 
 VALIDATE_FUN(validate_fvnum)
 {
-	int fvnum = *(int*) arg;
+	int fvnum = *(const int *) arg;
 
 	if (!get_mob_index(fvnum)) {
 		act_puts("MobEd: $j: no such vnum.",

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: affect.c,v 1.59 2001-08-02 18:20:15 fjoe Exp $
+ * $Id: affect.c,v 1.60 2001-08-14 16:07:09 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -31,14 +31,14 @@
 #include <merc.h>
 #include <rwfile.h>
 
-int top_affect;
+int affect_count;
 
 AFFECT_DATA *
 aff_new(int where, const char *sn)
 {
 	AFFECT_DATA *paf;
 
-	top_affect++;
+	affect_count++;
 	paf = mem_alloc(MT_AFFECT, sizeof(*paf));
 	paf->next = NULL;
 	paf->where = where;
@@ -92,7 +92,7 @@ aff_free(AFFECT_DATA *af)
 	}
 	free_string(af->type);
 	mem_free(af);
-	top_affect--;
+	affect_count--;
 }
 
 AFFECT_DATA *

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rwfile.c,v 1.21 2001-08-05 16:37:03 fjoe Exp $
+ * $Id: rwfile.c,v 1.22 2001-08-14 16:07:11 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -62,7 +62,7 @@ count_lf(const char *p, off_t len)
 
 	while (len--)
 	for (;;) {
-		char *q = memchr(p, '\n', (size_t)len);
+		char *q = memchr(p, '\n', (size_t) len);
 		if (q == NULL)
 			return count;
 
@@ -123,14 +123,14 @@ rfile_open(const char *dir, const char *file)
 		return NULL;
 	}
 
-	if ((p = mmap(NULL, (size_t)s.st_size, PROT_READ, 0, fd, (off_t)0)) == MAP_FAILED) {
+	if ((p = mmap(NULL, (size_t) s.st_size, PROT_READ, 0, fd, (off_t) 0)) == MAP_FAILED) {
 		close(fd);
 		log(LOG_INFO, "%s: %s", name, strerror(errno));
 		return NULL;
 	}
 
 #if !defined(LINUX)
-	if (madvise(p, (size_t)s.st_size, MADV_SEQUENTIAL) < 0)
+	if (madvise(p, (size_t) s.st_size, MADV_SEQUENTIAL) < 0)
 		log(LOG_INFO, "%s: %s", name, strerror(errno));
 #endif
 
@@ -147,7 +147,7 @@ rfile_open(const char *dir, const char *file)
 void
 rfile_close(rfile_t *fp)
 {
-	munmap((void *)(uintptr_t)fp->p, (size_t)fp->len);
+	munmap((void *)(uintptr_t)fp->p, (size_t) fp->len);
 	close(fp->fd);
 	free(fp);
 }
@@ -169,7 +169,7 @@ const char *
 rfile_tok(rfile_t *fp)
 {
 	static char buf[MAX_STRING_LENGTH];
-	strnzncpy(buf, sizeof(buf), fp->tok, (size_t)fp->tok_len);
+	strnzncpy(buf, sizeof(buf), fp->tok, (size_t) fp->tok_len);
 	return buf;
 }
 
@@ -203,7 +203,7 @@ fread_word(rfile_t *fp)
 		 * find closing quote
 		 */
 		fp->tok = fp->p + fp->pos;
-		p = memchr(fp->tok, cEnd, (size_t)(fp->len - fp->pos));
+		p = memchr(fp->tok, cEnd, (size_t) (fp->len - fp->pos));
 
 		/*
 		 * calculate fp->tok_len and advance fp->pos

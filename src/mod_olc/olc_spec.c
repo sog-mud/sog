@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_spec.c,v 1.11 2001-07-08 17:22:00 fjoe Exp $
+ * $Id: olc_spec.c,v 1.12 2001-08-14 16:07:07 fjoe Exp $
  */
 
 #include "olc.h"
@@ -51,26 +51,28 @@ olced_strkey_t strkey_specs = { &specs, SPEC_PATH, SPEC_EXT };
 
 olc_cmd_t olc_cmds_spec[] =
 {
-	{ "create",	speced_create					},
-	{ "edit",	speced_edit					},
-	{ "",		speced_save					},
-	{ "touch",	speced_touch					},
-	{ "show",	speced_show					},
-	{ "list",	speced_list					},
+	{ "create",	speced_create,	NULL,		NULL		},
+	{ "edit",	speced_edit,	NULL,		NULL		},
+	{ "",		speced_save,	NULL,		NULL		},
+	{ "touch",	speced_touch,	NULL,		NULL		},
+	{ "show",	speced_show,	NULL,		NULL		},
+	{ "list",	speced_list,	NULL,		NULL		},
 
 	{ "name",	olced_strkey,	NULL,		&strkey_specs	},
 	{ "class",	speced_class,	NULL,		spec_classes	},
 	{ "skill",	speced_skill,	NULL,		&skills		},
 #if 0
 	XXX
-	{ "depend",	speced_depend					},
+	{ "depend",	speced_depend,	NULL,		NULL		},
 #endif
 	{ "flags",	speced_flags,	NULL,		spec_flags	},
 
-	{ "update",	olc_skill_update				},
-	{ "commands",	show_commands					},
+	{ "update",	olc_skill_update, NULL,		NULL		},
 
-	{ NULL }
+	{ "commands",	show_commands,	NULL,		NULL		},
+	{ "version",	show_version,	NULL,		NULL		},
+
+	{ NULL, NULL, NULL, NULL }
 };
 
 static void * save_spec_cb(void *p, va_list ap);

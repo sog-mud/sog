@@ -23,26 +23,26 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: charset.h,v 1.4 1999-12-16 12:24:53 fjoe Exp $
+ * $Id: charset.h,v 1.5 2001-08-14 16:06:54 fjoe Exp $
  */
 
 #ifndef _CHARSET_H_
 #define _CHARSET_H_
 
-extern unsigned char koi8_koi8[256];
+extern u_char koi8_koi8[256];
 
-extern unsigned char alt_koi8[256];
-extern unsigned char koi8_alt[256];
+extern u_char alt_koi8[256];
+extern u_char koi8_alt[256];
 
-extern unsigned char win_koi8[256];
-extern unsigned char koi8_win[256];
+extern u_char win_koi8[256];
+extern u_char koi8_win[256];
 
-extern unsigned char iso_koi8[256];
-extern unsigned char koi8_iso[256];
+extern u_char iso_koi8[256];
+extern u_char koi8_iso[256];
 
-extern unsigned char mac_koi8[256];
-extern unsigned char koi8_mac[256];
+extern u_char mac_koi8[256];
+extern u_char koi8_mac[256];
 
-extern unsigned char koi8_vola[256];
+extern u_char koi8_vola[256];
 
 #endif

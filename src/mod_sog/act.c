@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.80 2001-08-13 18:23:34 fjoe Exp $
+ * $Id: act.c,v 1.81 2001-08-14 16:06:53 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -147,7 +147,7 @@ format_long(mlstring *ml, CHAR_DATA *to)
 	if (p != s && *(p-1) == ' ')
 		p--;
 
-	strnzncpy(buf, sizeof(buf), s, (unsigned)(p-s));
+	strnzncpy(buf, sizeof(buf), s, (size_t) (p-s));
 	strnzcat(buf, sizeof(buf), q+1);
 	return buf;
 }
@@ -549,7 +549,7 @@ act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 				strnzcpy(tstack[sp].p,
 					 buf_len - 3 - (tstack[sp].p - buf),
 					 word_form(tstack[sp].p,
-						   (unsigned)tstack[sp].arg,
+						   (size_t) tstack[sp].arg,
 						   opt->to_lang, rulecl));
 				point = strchr(tstack[sp].p, '\0');
 				inside_wform--;

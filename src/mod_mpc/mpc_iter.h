@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_iter.h,v 1.1 2001-06-23 13:07:35 fjoe Exp $
+ * $Id: mpc_iter.h,v 1.2 2001-08-14 16:06:59 fjoe Exp $
  */
 
 #ifndef _MPC_ITER_H_
@@ -32,8 +32,7 @@
 typedef struct iterdata_t iterdata_t;
 
 struct iter_t {
-	dynafun_data_t	init;			/* initialize iterdata */
-
+	dynafun_data_t init;			/* init */
 	bool	(*cond)(vo_t *, iterdata_t *);	/* loop condition */
 	void	(*next)(vo_t *, iterdata_t *);	/* get next */
 };
@@ -44,6 +43,7 @@ struct iterdata_t {
 	vo_t	v;
 };
 
+int		iter_init(module_t *m);
 iter_t *	iter_lookup(const char *name);
 
 #endif /* _MPC_ITER_H_ */

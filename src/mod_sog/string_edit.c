@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.c,v 1.48 2001-08-03 11:27:39 fjoe Exp $
+ * $Id: string_edit.c,v 1.49 2001-08-14 16:06:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,9 +46,10 @@ string_replace(const char *orig, const char *old, const char *new, int flags)
 		/*
 		 * cat prefix
 		 */
-		if (p > orig)
+		if (p > orig) {
 			strnzncat(xbuf, sizeof(xbuf),
-				orig, (unsigned)(p - orig));
+				orig, (size_t) (p - orig));
+		}
 
 		/*
 		 * cat replacement
@@ -553,7 +554,7 @@ getline(const char *str, char *buf, size_t len)
 	if (!p)
 		p = strchr(str, '\0');
 
-	strnzncpy(buf, len, str, (unsigned)(p - str));
+	strnzncpy(buf, len, str, (size_t) (p - str));
 
 	if (*p == '\n') {
 		p++;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hash.c,v 1.17 2001-08-05 16:36:58 fjoe Exp $
+ * $Id: hash.c,v 1.18 2001-08-14 16:07:09 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -136,10 +136,10 @@ hash_random_item(hash_t *h)
 		return NULL;
 
 	for (;;) {
-		varr *v = h->v + number_range(0, (signed)h->h_data->hsize - 1);
+		varr *v = h->v + number_range(0, h->h_data->hsize - 1);
 		if (v->nused == 0)
 			continue;
-		return VARR_GET(v, number_range(0, (signed)v->nused - 1));
+		return VARR_GET(v, number_range(0, varr_size(v) - 1));
 	}
 }
 #endif

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_iter.c,v 1.2 2001-07-29 20:14:52 fjoe Exp $
+ * $Id: mpc_iter.c,v 1.3 2001-08-14 16:06:59 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -36,21 +36,37 @@
 #include <dynafun.h>
 #include <str.h>
 
+#undef MODULE_NAME
+#define MODULE_NAME MOD_MPC
+#define MODULE_INIT MOD_MPC
+#include <dynafun_decl.h>
+
 #include "mpc_iter.h"
 
-static void	range_init(int, int, vo_t *v, iterdata_t *id);
+/* range */
+void		range_init(int, int, vo_t *v, iterdata_t *id);
 static bool	range_cond(vo_t *v, iterdata_t *);
 static void	range_next(vo_t *v, iterdata_t *);
 
 iter_t itertab[] = {
-	{ { "range",	MT_INT,	2,	{ { MT_INT }, { MT_INT } },
-	  (dynafun_t) range_init },
-	  range_cond, range_next },
+	{
+	  DECLARE_FUN2(int, range,
+		       ARG(int), from, ARG(int), to)
+	  range_cond, range_next
+	},
 #if !defined(MPC)
 #endif
 };
 
 #define ITERTAB_SZ	(sizeof(itertab) / sizeof(iter_t))
+
+int
+iter_init(module_t *m)
+{
+	/* XXX */
+	m = m;
+	return 0;
+}
 
 iter_t *
 iter_lookup(const char *name)
@@ -67,20 +83,20 @@ iter_lookup(const char *name)
 }
 
 void
-range_init(int from, int to, vo_t *v, iterdata_t *id)
+range_init(int from, int to, vo_t *v, iterdata_t *id __attribute__((unused)))
 {
 	v->i = from;
 	id->v.i = to;
 }
 
 bool
-range_cond(vo_t *v, iterdata_t *id)
+range_cond(vo_t *v, iterdata_t *id __attribute__((unused)))
 {
 	return v->i <= id->v.i;
 }
 
 void
-range_next(vo_t *v, iterdata_t *id)
+range_next(vo_t *v, iterdata_t *id __attribute__((unused)))
 {
 	v->i++;
 }

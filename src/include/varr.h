@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.h,v 1.24 2001-08-13 18:23:17 fjoe Exp $
+ * $Id: varr.h,v 1.25 2001-08-14 16:06:46 fjoe Exp $
  */
 
 #ifndef _VARR_H_
@@ -87,6 +87,7 @@ void *	varr_rnforeach	(const varr *, size_t i, foreach_cb_t *, ...);
 void *	varr_arnforeach	(const varr *, size_t i, foreach_cb_t *, va_list ap);
 
 #define varr_size(v)	((v)->nused)
+#define varr_esize(v)	((v)->v_data->nsize)
 #define varr_enew(v)	(varr_touch((v), varr_size(v)))
 #define VARR_GET(v, i)	((void *) (((char *) (v)->p) + (i)*(v)->v_data->nsize))
 

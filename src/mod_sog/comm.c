@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm.c,v 1.1 2001-08-13 18:23:36 fjoe Exp $
+ * $Id: comm.c,v 1.2 2001-08-14 16:06:54 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -484,7 +484,7 @@ write_to_buffer(DESCRIPTOR_DATA *d, const char *txt, size_t len)
 		size_t i;
 
 		for (i = 0; i < len; i++) {
-			if (CODEPAGE(d->codepage).to[(unsigned char) txt[i]] == IAC)
+			if (CODEPAGE(d->codepage).to[(u_char) txt[i]] == IAC)
 				size++;
 		}
 	}
@@ -497,9 +497,9 @@ write_to_buffer(DESCRIPTOR_DATA *d, const char *txt, size_t len)
 
 	/* copy */
 	while (len--) {
-		unsigned char c;
+		u_char c;
 
-		c = CODEPAGE(d->codepage).to[(unsigned char) *txt++];
+		c = CODEPAGE(d->codepage).to[(u_char) *txt++];
 		d->out_buf.buf[d->out_buf.top] = c;
 		if (c == IAC) {
 			if (noiac)
@@ -819,7 +819,7 @@ read_from_descriptor(DESCRIPTOR_DATA *d)
 {
 	size_t iOld;
 	size_t iStart;
-	unsigned char *p, *q;
+	u_char *p, *q;
 
 	/*
 	 * Hold horses if pending command already
@@ -875,7 +875,7 @@ read_from_descriptor(DESCRIPTOR_DATA *d)
 		return TRUE;
 
 	for (p = d->inbuf+iOld; *p;) {
-		unsigned char *r;
+		u_char *r;
 
 		if (*p != IAC
 		||  (d->character != NULL &&
@@ -968,9 +968,9 @@ read_from_buffer(DESCRIPTOR_DATA *d)
 
 		if (d->inbuf[i] == '\b' && k > 0)
 			--k;
-		else if ((unsigned)d->inbuf[i] >= ' ')
+		else if ((u_char) d->inbuf[i] >= ' ')
 			d->incomm[k++] =
-			    CODEPAGE(d->codepage).from[(unsigned char) d->inbuf[i]];
+			    CODEPAGE(d->codepage).from[(u_char) d->inbuf[i]];
 	}
 
 	/*

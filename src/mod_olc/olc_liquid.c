@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_liquid.c,v 1.16 2001-06-22 07:13:44 avn Exp $
+ * $Id: olc_liquid.c,v 1.17 2001-08-14 16:07:03 fjoe Exp $
  */
 
 #include "olc.h"
@@ -44,28 +44,30 @@ DECLARE_OLC_FUN(liqed_sip		);
 
 DECLARE_OLC_FUN(liqed_delete		);
 
-olced_strkey_t strkey_liquids = { &liquids, NULL };
+olced_strkey_t strkey_liquids = { &liquids, NULL, NULL };
 
 olc_cmd_t olc_cmds_liq[] =
 {
-	{ "create",	liqed_create					},
-	{ "edit",	liqed_edit					},
-	{ "",		liqed_save					},
-	{ "touch",	liqed_touch					},
-	{ "show",	liqed_show					},
-	{ "list",	liqed_list					},
+	{ "create",	liqed_create,	NULL,		NULL		},
+	{ "edit",	liqed_edit,	NULL,		NULL		},
+	{ "",		liqed_save,	NULL,		NULL		},
+	{ "touch",	liqed_touch,	NULL,		NULL		},
+	{ "show",	liqed_show,	NULL,		NULL		},
+	{ "list",	liqed_list,	NULL,		NULL		},
 
-	{ "name",	olced_mlstrkey,	NULL,	&strkey_liquids		},
-	{ "gender",	liqed_gender,	NULL,	gender_table		},
-	{ "color",	liqed_color					},
-	{ "affect",	liqed_affect					},
-	{ "sip",	liqed_sip					},
+	{ "name",	olced_mlstrkey,	NULL,		&strkey_liquids	},
+	{ "gender",	liqed_gender,	NULL,		gender_table	},
+	{ "color",	liqed_color,	NULL,		NULL		},
+	{ "affect",	liqed_affect,	NULL,		NULL		},
+	{ "sip",	liqed_sip,	NULL,		NULL		},
 
-	{ "delete_li",	olced_spell_out					},
-	{ "delete_liq",	liqed_delete					},
+	{ "delete_li",	olced_spell_out, NULL,		NULL		},
+	{ "delete_liq", liqed_delete,	NULL,		NULL		},
 
-	{ "commands",	show_commands					},
-	{ NULL }
+	{ "commands",	show_commands,	NULL,		NULL		},
+	{ "version",	show_version,	NULL,		NULL		},
+
+	{ NULL, NULL, NULL, NULL }
 };
 
 static void *liquid_save_cb(void *p, va_list ap);

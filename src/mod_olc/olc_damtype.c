@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_damtype.c,v 1.6 2001-06-22 07:13:43 avn Exp $
+ * $Id: olc_damtype.c,v 1.7 2001-08-14 16:07:02 fjoe Exp $
  */
 
 /*
@@ -54,28 +54,30 @@ DECLARE_OLC_FUN(damted_slot		);
 
 DECLARE_OLC_FUN(damted_delete		);
 
-olced_strkey_t strkey_damtypes = { &damtypes, NULL };
+olced_strkey_t strkey_damtypes = { &damtypes, NULL, NULL };
 
 olc_cmd_t olc_cmds_damt[] =
 {
-	{ "create",	damted_create					},
-	{ "edit",	damted_edit					},
-	{ "",		damted_save					},
-	{ "touch",	damted_touch					},
-	{ "show",	damted_show					},
-	{ "list",	damted_list					},
+	{ "create",	damted_create,	NULL,	NULL			},
+	{ "edit",	damted_edit,	NULL,	NULL			},
+	{ "",		damted_save,	NULL,	NULL			},
+	{ "touch",	damted_touch,	NULL,	NULL			},
+	{ "show",	damted_show,	NULL,	NULL			},
+	{ "list",	damted_list,	NULL,	NULL			},
 
 	{ "name",	olced_strkey,	NULL,	&strkey_damtypes	},
 	{ "gender",	damted_gender,	NULL,	gender_table		},
-	{ "noundamage",	damted_noun					},
+	{ "noundamage",	damted_noun,	NULL,	NULL			},
 	{ "class",	damted_class,	NULL,	dam_classes		},
-	{ "slot",	damted_slot					},
+	{ "slot",	damted_slot,	NULL,	NULL			},
 
-	{ "delete_dam",	olced_spell_out					},
-	{ "delete_damt",damted_delete					},
+	{ "delete_dam",	olced_spell_out, NULL,	NULL			},
+	{ "delete_damt",damted_delete,	NULL,	NULL			},
 
-	{ "commands",	show_commands					},
-	{ NULL }
+	{ "commands",	show_commands,	NULL,	NULL			},
+	{ "version",	show_version,	NULL,	NULL			},
+
+	{ NULL, NULL, NULL, NULL }
 };
 
 static void *damt_save_cb(void *p, va_list ap);

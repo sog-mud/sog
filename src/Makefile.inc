@@ -1,5 +1,5 @@
 #
-# $Id: Makefile.inc,v 1.23 2001-08-13 18:23:08 fjoe Exp $
+# $Id: Makefile.inc,v 1.24 2001-08-14 16:06:42 fjoe Exp $
 #
 
 #
@@ -23,7 +23,7 @@ CFLAGS+=	-W -Wbad-function-cast -Wcast-align -Wcast-qual\
 		-Wchar-subscripts -Winline -Wmissing-prototypes\
 		-Wnested-externs -Wpointer-arith -Wredundant-decls\
 		-Wshadow -Wstrict-prototypes -Wwrite-strings
-#CFLAGS+=	-Werror
+CFLAGS+=	-Werror
 
 #
 # debug flags

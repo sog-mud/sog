@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_mpc.c,v 1.11 2001-08-13 18:23:47 fjoe Exp $
+ * $Id: init_mpc.c,v 1.12 2001-08-14 16:06:58 fjoe Exp $
  */
 
 #include <sys/stat.h>
@@ -47,26 +47,37 @@
 #include <module.h>
 #include <rwfile.h>
 
+#undef MODULE_NAME
+#define MODULE_NAME MOD_MPC
+#define MODULE_INIT MOD_MPC
+#include <dynafun_decl.h>
+
 #include "mpc_impl.h"
 #include "mpc_const.h"
+#include "mpc_iter.h"
 
 #if !defined(MPC)
-static void load_mudprogs();
+DECLARE_MODINIT_FUN(_module_load);
+DECLARE_MODINIT_FUN(_module_unload);
+
+static void load_mudprogs(void);
 
 static dynafun_data_t local_dynafun_tab[] = {
-	{ "has_sp",		MT_INT, 4,
-	  { { MT_CHAR }, { MT_STR }, { MT_STR }, { MT_STR } }		},
-	{ "level",		MT_INT, 1,
-	  { { MT_CHAR }	}						},
-	{ "spclass_count",	MT_INT, 4,
-	  { { MT_CHAR }, { MT_STR }, { MT_STR }, { MT_STR } }		},
-	{ NULL }
+	DECLARE_FUN4(int, has_sp,
+		     ARG(CHAR_DATA), ch, ARG(cchar_t), spn,
+		     ARG(cchar_t), spn_add, ARG(cchar_t), spn_rm)
+	DECLARE_FUN1(int, level,
+		     ARG(CHAR_DATA), ch)
+	DECLARE_FUN4(int, spclass_count,
+		     ARG(CHAR_DATA), ch, ARG(cchar_t), spn,
+		     ARG(cchar_t), spn_add, ARG(cchar_t), spn_rm)
+	NULL_DYNAFUN_DATA
 };
 #endif
 
 static dynafun_data_t core_dynafun_tab[] = {
-	{ "number_range",	MT_INT, 2,
-	  { { MT_INT }, { MT_INT } }					},
+	DECLARE_FUN2(int, number_range,
+		     ARG(int), from, ARG(int), to)
 #if defined(MPC)
 	{ "print",		MT_VOID, 1,
 	  { { MT_INT } }						},
@@ -76,7 +87,7 @@ static dynafun_data_t core_dynafun_tab[] = {
 	  { { MT_STR } }						},
 	{ "nonexistent",	MT_VOID, 0				},
 #endif
-	{ NULL }
+	NULL_DYNAFUN_DATA
 };
 
 #if !defined(MPC)
@@ -96,7 +107,12 @@ hash_t progs;
 
 MODINIT_FUN(_module_load, m)
 {
-	mpc_init();
+	if (iter_init(m) < 0)
+		return -1;
+
+	if (mpc_init() < 0)
+		return -1;
+
 	dynafun_tab_register(local_dynafun_tab, m);
 
 	hash_init(&progs, &h_progs);
@@ -134,8 +150,8 @@ const char *mpc_dynafuns[] = {
 	NULL
 };
 
-void
-mpc_init()
+int
+mpc_init(void)
 {
 	int_const_t *ic;
 	const char **pp;
@@ -191,12 +207,12 @@ mpc_init()
 		exit(1);
 #else
 		log(LOG_ERROR, "%s: dlopen: %s", __FUNCTION__, dlerror());
-		return;
+		return -1;
 #endif
-
 	}
 
 	dynafun_tab_register(core_dynafun_tab, &m);
+	return 0;
 }
 
 void
@@ -299,8 +315,8 @@ load_mp(const char *name)
 		goto bailout;
 	}
 
-	rfile_fread((void *) prog.text, prog.textlen, 1, fp);
-	((char *) prog.text)[prog.textlen] = '\0';
+	rfile_fread((void *) (uintptr_t) prog.text, prog.textlen, 1, fp);
+	((char *) (uintptr_t) prog.text)[prog.textlen] = '\0';
 
 	if ((p = (prog_t *) hash_insert(&progs, prog.name, &prog)) == NULL) {
 		fprintf(stderr, "load_mp: %s: duplicate mp", name);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.93 2001-07-31 18:15:01 fjoe Exp $
+ * $Id: olc_obj.c,v 1.94 2001-08-14 16:07:04 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -69,10 +69,6 @@ DECLARE_OLC_FUN(objed_level		);
 DECLARE_OLC_FUN(objed_condition		);
 DECLARE_OLC_FUN(objed_clone		);
 DECLARE_OLC_FUN(objed_gender		);
-#if 0
-XXX
-DECLARE_OLC_FUN(objed_restrictions	);
-#endif
 DECLARE_OLC_FUN(objed_where		);
 
 DECLARE_VALIDATE_FUN(validate_condition);
@@ -81,49 +77,45 @@ olc_cmd_t olc_cmds_obj[] =
 {
 /*	{ command	function	validator	arg		}, */
 
-	{ "create",	objed_create					},
-	{ "edit",	objed_edit					},
-	{ "",		NULL						},
-	{ "touch",	objed_touch					},
-	{ "show",	objed_show					},
-	{ "list",	objed_list					},
-	{ "delete_ob",	olced_spell_out					},
-	{ "delete_obj",	objed_del					},
+	{ "create",	objed_create,	NULL,		NULL		},
+	{ "edit",	objed_edit,	NULL,		NULL		},
+	{ "",		NULL,		NULL,		NULL		},
+	{ "touch",	objed_touch,	NULL,		NULL		},
+	{ "show",	objed_show,	NULL,		NULL		},
+	{ "list",	objed_list,	NULL,		NULL		},
+	{ "delete_ob",	olced_spell_out, NULL,		NULL		},
+	{ "delete_obj",	objed_del,	NULL,		NULL		},
 
-	{ "addaffect",	objed_addaffect					},
-	{ "delaffect",	objed_delaffect					},
-	{ "cost",	objed_cost					},
-	{ "exd",	objed_exd					},
-	{ "long",	objed_long					},
-	{ "name",	objed_name					},
-	{ "short",	objed_short					},
-	{ "v0",		objed_value0					},
-	{ "v1",		objed_value1					},
-	{ "v2",		objed_value2					},
-	{ "v3",		objed_value3					},
-	{ "v4",		objed_value4					},
-	{ "weight",	objed_weight					},
-	{ "limit",	objed_limit					},
+	{ "addaffect",	objed_addaffect, NULL,		NULL		},
+	{ "delaffect",	objed_delaffect, NULL,		NULL		},
+	{ "cost",	objed_cost,	NULL,		NULL		},
+	{ "exd",	objed_exd,	NULL,		NULL		},
+	{ "long",	objed_long,	NULL,		NULL		},
+	{ "name",	objed_name,	NULL,		NULL		},
+	{ "short",	objed_short,	NULL,		NULL		},
+	{ "v0",		objed_value0,	NULL,		NULL		},
+	{ "v1",		objed_value1,	NULL,		NULL		},
+	{ "v2",		objed_value2,	NULL,		NULL		},
+	{ "v3",		objed_value3,	NULL,		NULL		},
+	{ "v4",		objed_value4,	NULL,		NULL		},
+	{ "weight",	objed_weight,	NULL,		NULL		},
+	{ "limit",	objed_limit,	NULL,		NULL		},
 
 	{ "stat",	objed_stat,	NULL,		stat_flags	},
 	{ "obj",	objed_obj,	NULL,		obj_flags	},
 	{ "wear",	objed_wear,	NULL,		wear_flags	},
 	{ "type",	objed_type,	NULL,		item_types	},
 	{ "material",	objed_material, NULL,		&materials	},
-	{ "level",	objed_level					},
-	{ "condition",	objed_condition,validate_condition		},
-	{ "clone",	objed_clone					},
+	{ "level",	objed_level,	NULL,		NULL		},
+	{ "condition",	objed_condition, validate_condition, NULL	},
+	{ "clone",	objed_clone,	NULL,		NULL		},
 	{ "gender",	objed_gender,	NULL,		gender_table	},
-#if 0
-	XXX
-	{ "restrictions",objed_restrictions,				},
-#endif
-	{ "where",	objed_where					},
+	{ "where",	objed_where,	NULL,		NULL		},
 
-	{ "version",	show_version					},
-	{ "commands",	show_commands					},
+	{ "commands",	show_commands,	NULL,		NULL		},
+	{ "version",	show_version,	NULL,		NULL		},
 
-	{ NULL }
+	{ NULL, NULL, NULL, NULL }
 };
 
 OLC_FUN(objed_create)
@@ -154,10 +146,10 @@ OLC_FUN(objed_create)
 		act_char("ObjEd: Object vnum already exists.", ch);
 		return FALSE;
 	}
-		 
+
 	pObj			= new_obj_index();
 	pObj->vnum		= value;
-		 
+
 	if (value > top_vnum_obj)
 		top_vnum_obj = value;
 
@@ -453,7 +445,8 @@ OLC_FUN(objed_long)
  Purpose:	Finds the object and sets its value.
  Called by:	The four valueX functions below. (now five -- Hugin)
  ****************************************************************************/
-bool objed_values(CHAR_DATA *ch, const char *argument, int val_num)
+static bool
+objed_values(CHAR_DATA *ch, const char *argument, int val_num)
 {
 	BUFFER *output;
 	int errcode = 1;
@@ -674,7 +667,7 @@ OLC_FUN(objed_where)
 
 VALIDATE_FUN(validate_condition)
 {
-	int val = *(int*) arg;
+	int val = *(const int *) arg;
 
 	if (val < 0 || val > 100) {
 		act_char("ObjEd: condition can range from 0 (ruined) to 100 (perfect).", ch);

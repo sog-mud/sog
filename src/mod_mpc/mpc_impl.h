@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_impl.h,v 1.14 2001-08-05 16:36:49 fjoe Exp $
+ * $Id: mpc_impl.h,v 1.15 2001-08-14 16:06:59 fjoe Exp $
  */
 
 #ifndef _MPC_IMPL_H_
@@ -167,16 +167,22 @@ int
 prog_execute(prog_t *prog, int *errcode);
 
 /**
- * Initialize mpc
+ * Dump program
  */
 void
-mpc_init();
+prog_dump(prog_t *prog);
+
+/**
+ * Initialize mpc
+ */
+int
+mpc_init(void);
 
 /**
  * Destroy mpc environment
  */
 void
-mpc_fini();
+mpc_fini(void);
 
 /**
  * Lexer

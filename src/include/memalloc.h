@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: memalloc.h,v 1.17 2001-08-13 18:23:16 fjoe Exp $
+ * $Id: memalloc.h,v 1.18 2001-08-14 16:06:45 fjoe Exp $
  */
 
 #ifndef _MEMALLOC_H_
@@ -67,7 +67,7 @@ enum {
 typedef struct memchunk_t {
 	char		mem_type;	/* memory chunk type		*/
 	char		mem_sign;	/* memory chunk signature	*/
-	unsigned char	mem_prealloc;	/* preallocated data size	*/
+	u_char		mem_prealloc;	/* preallocated data size	*/
 	char		mem_tags;
 } memchunk_t;
 

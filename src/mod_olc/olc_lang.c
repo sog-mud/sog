@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_lang.c,v 1.31 2001-08-05 16:36:51 fjoe Exp $
+ * $Id: olc_lang.c,v 1.32 2001-08-14 16:07:03 fjoe Exp $
  */
 
 #include "olc.h"
@@ -49,21 +49,23 @@ static DECLARE_VALIDATE_FUN(validate_langname);
 
 olc_cmd_t olc_cmds_lang[] =
 {
-	{ "create",	langed_create					},
-	{ "edit",	langed_edit					},
-	{ "",		langed_save					},
-	{ "touch",	langed_touch					},
-	{ "show",	langed_show					},
-	{ "list",	langed_list					},
+	{ "create",	langed_create,	NULL,		NULL		},
+	{ "edit",	langed_edit,	NULL,		NULL		},
+	{ "",		langed_save,	NULL,		NULL		},
+	{ "touch",	langed_touch,	NULL,		NULL		},
+	{ "show",	langed_show,	NULL,		NULL		},
+	{ "list",	langed_list,	NULL,		NULL		},
 
-	{ "name",	langed_name,	validate_langname		},
+	{ "name",	langed_name,	validate_langname, NULL		},
 	{ "flags",	langed_flags,	NULL,		lang_flags	},
-	{ "slangof",	langed_slangof					},
-	{ "filename",	langed_filename,validate_filename		},
+	{ "slangof",	langed_slangof,	NULL,		NULL		},
+	{ "filename",	langed_filename, validate_filename, NULL	},
 	{ "ruleclass",	langed_rulecl,	validate_filename, rulecl_flags	},
 
-	{ "commands",	show_commands					},
-	{ NULL }
+	{ "commands",	show_commands,	NULL,		NULL		},
+	{ "version",	show_version,	NULL,		NULL		},
+
+	{ NULL, NULL, NULL, NULL }
 };
 
 static bool save_lang(CHAR_DATA *ch, lang_t *l);
@@ -123,14 +125,14 @@ OLC_FUN(langed_edit)
 
 OLC_FUN(langed_save)
 {
-	int lang;
+	size_t lang;
 	FILE *fp;
 
 	fp = olc_fopen(LANG_PATH, LANG_LIST, ch, SECURITY_LANG);
 	if (fp == NULL)
 		return FALSE;
 
-	for (lang = 0; lang < langs.nused; lang++) {
+	for (lang = 0; lang < varr_size(&langs); lang++) {
 		lang_t *l = VARR_GET(&langs, lang);
 
 		fprintf(fp, "%s\n", l->file_name);
@@ -216,9 +218,9 @@ OLC_FUN(langed_show)
 
 OLC_FUN(langed_list)
 {
-	int lang;
+	size_t lang;
 
-	for (lang = 0; lang < langs.nused; lang++) {
+	for (lang = 0; lang < varr_size(&langs); lang++) {
 		lang_t *l = VARR_GET(&langs, lang);
 		act_puts("[$j] $T",
 			 ch, (const void *) lang, l->name,
@@ -284,7 +286,8 @@ OLC_FUN(langed_rulecl)
 
 /* local functions */
 
-static VALIDATE_FUN(validate_langname)
+static
+VALIDATE_FUN(validate_langname)
 {
 	if (lang_lookup(arg) == NULL) {
 		act_puts("$t: language already exists.",
@@ -295,12 +298,8 @@ static VALIDATE_FUN(validate_langname)
 	return TRUE;
 }
 
-bool touch_lang(lang_t *l)
-{
-	return FALSE;
-}
-
-static bool save_lang(CHAR_DATA *ch, lang_t *l)
+static bool
+save_lang(CHAR_DATA *ch, lang_t *l)
 {
 	int i;
 	FILE *fp;
@@ -337,4 +336,3 @@ static bool save_lang(CHAR_DATA *ch, lang_t *l)
 	fclose(fp);
 	return TRUE;
 }
-

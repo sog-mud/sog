@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.52 2001-08-13 18:23:17 fjoe Exp $
+ * $Id: typedef.h,v 1.53 2001-08-14 16:06:46 fjoe Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -141,7 +141,8 @@ typedef void	RUNGAME_FUN	(struct fd_set *, struct fd_set *,	\
 #define DECLARE_RUNGAME_FUN(fun)	RUNGAME_FUN fun
 
 #define DO_FUN(fun, ch, argument)					\
-	void fun(CHAR_DATA *ch, const char *argument __attribute__((unused)))
+	void fun(CHAR_DATA *ch __attribute__((unused)),			\
+		 const char *argument __attribute__((unused)))
 #define SPEC_FUN(fun, ch)						\
 	bool fun(CHAR_DATA *ch)
 #define EVENT_FUN(fun, ch, af)						\
@@ -215,9 +216,9 @@ typedef void	RUNGAME_FUN	(struct fd_set *, struct fd_set *,	\
 #define URANGE(a, b, c)		((b) < (a) ? (a) : ((b) > (c) ? (c) : (b)))
 #define ENTRE(min, num, max)	((min) < (num) && (num) < (max))
 
-#define ISLOWER(c)		(islower((unsigned char) (c)))
-#define ISUPPER(c)		(isupper((unsigned char) (c)))
-#define LOWER(c)		(tolower((unsigned char) (c)))
-#define UPPER(c)		(toupper((unsigned char) (c)))
+#define ISLOWER(c)		(islower((u_char) (c)))
+#define ISUPPER(c)		(isupper((u_char) (c)))
+#define LOWER(c)		(tolower((u_char) (c)))
+#define UPPER(c)		(toupper((u_char) (c)))
 
 #endif

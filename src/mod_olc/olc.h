@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.79 2001-08-13 18:23:48 fjoe Exp $
+ * $Id: olc.h,v 1.80 2001-08-14 16:07:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -40,10 +40,12 @@ typedef bool VALIDATE_FUN(CHAR_DATA *ch, const void *arg);
 #define DECLARE_VALIDATE_FUN(fun)	VALIDATE_FUN	fun
 
 #define OLC_FUN(fun)							\
-	bool fun(CHAR_DATA *ch,						\
+	bool fun(CHAR_DATA *ch __attribute__((unused)),			\
 		 const char *argument __attribute__((unused)),		\
 		 olc_cmd_t *cmd __attribute__((unused)))
-#define VALIDATE_FUN(fun)	bool fun(CHAR_DATA *ch, const void *arg)
+#define VALIDATE_FUN(fun)						\
+	bool fun(CHAR_DATA *ch,						\
+		 const void *arg __attribute__((unused)))
 
 /* functions all cmd tables must have */
 enum {

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_dynafun.c,v 1.4 2001-08-03 11:27:42 fjoe Exp $
+ * $Id: mpc_dynafun.c,v 1.5 2001-08-14 16:06:58 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -32,10 +32,14 @@
 
 #include <merc.h>
 
-#include <handler.h>
+int has_sp(CHAR_DATA *ch, const char *spn,
+	   const char *spn_rm, const char *spn_add);
+int level(CHAR_DATA *ch);
+int spclass_count(CHAR_DATA *ch, const char *spclass_name,
+		  const char *spn_rm, const char *spn_add);
 
-static void *
-has_sp_cb(void *p, va_list ap)
+static
+FOREACH_CB_FUN(has_sp_cb, p, ap)
 {
 	const char **pspn = (const char **) p;
 
@@ -66,8 +70,8 @@ level(CHAR_DATA *ch)
 	return ch->level;
 }
 
-static void *
-spclass_count_cb(void *p, va_list ap)
+static
+FOREACH_CB_FUN(spclass_count_cb, p, ap)
 {
 	const char **pspn = (const char **) p;
 

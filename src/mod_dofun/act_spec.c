@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_spec.c,v 1.22 2001-08-13 18:23:27 fjoe Exp $
+ * $Id: act_spec.c,v 1.23 2001-08-14 16:06:49 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -105,11 +105,11 @@ DO_FUN(do_specialize, ch, argument)
 {
 	CHAR_DATA *mob;
 	bool found = FALSE;
-	char *weapon;
-	char *output;
+	const char *weapon;
+	const char *output;
 
 	for (mob = ch->in_room->people; mob; mob = mob->next_in_room) {
-		if (IS_NPC(mob)  
+		if (IS_NPC(mob)
 		&&  MOB_IS(mob, MOB_PRACTICE)
 		&&  IS_SET(mob->pMobIndex->practicer, GROUP_WEAPONSMASTER)) {
 			found = TRUE;
@@ -174,10 +174,9 @@ DO_FUN(do_specialize, ch, argument)
 
 DO_FUN(do_magicschool, ch, argument)
 {
-
-	char *major_school = NULL;
-	char *minor_school;
-	char *school_name;
+	const char *major_school = NULL;
+	const char *minor_school;
+	const char *school_name;
 
 	bool major = FALSE;
 
@@ -206,25 +205,25 @@ DO_FUN(do_magicschool, ch, argument)
 	}
 
 	if (!str_prefix(argument, "abjuration")) {
-		major_school 	= "major_abjuration";
-		minor_school 	= "minor_abjuration";
-		school_name 	= "abjuration";			// notrans
+		major_school	= "major_abjuration";
+		minor_school	= "minor_abjuration";
+		school_name	= "abjuration";			// notrans
 	} else if (!str_prefix(argument, "alteration")
 		|| !str_prefix(argument, "transmutation")) {
-		major_school 	= "major_alteration";
-		minor_school 	= "minor_alteration";
+		major_school	= "major_alteration";
+		minor_school	= "minor_alteration";
 		school_name	= "alteration";			// notrans
 	} else if (!str_prefix(argument, "divination")) {
-		minor_school 	= "minor_divination";
+		minor_school	= "minor_divination";
 		if (major) {
 			act("You cannot choose divination as major school.",
 				ch, NULL, NULL, TO_CHAR);
 			return;
 		}
-		school_name	= "divination"; 	 	// notrans
+		school_name	= "divination";			// notrans
 	} else if (!str_prefix(argument, "charm")
 		|| !str_prefix(argument, "enchantment")) {
-		minor_school 	= "minor_charm";
+		minor_school	= "minor_charm";
 		major_school	= "major_charm";
 		school_name	= "enchantment/charm";		// notrans
 	} else if (!str_prefix(argument, "conjuration")
@@ -237,7 +236,7 @@ DO_FUN(do_magicschool, ch, argument)
 		major_school	= "major_illusion";
 		school_name	= "illusion";			// notrans
 	} else if (!str_prefix(argument, "necromancy")) {
-		minor_school 	= "minor_necromancy";
+		minor_school	= "minor_necromancy";
 		major_school	= "major_necromancy";
 		school_name	= "necromancy";			// notrans
 	} else {
@@ -246,7 +245,8 @@ DO_FUN(do_magicschool, ch, argument)
 	}
 
 	if (major) {
-		char *repl = has_spec(ch, minor_school) ? minor_school : NULL;
+		const char *repl =
+		    has_spec(ch, minor_school) ? minor_school : NULL;
 		if (has_spec(ch, major_school)) {
 			act("$T is already your major school.",
 				ch, NULL, school_name, TO_CHAR);

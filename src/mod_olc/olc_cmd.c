@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_cmd.c,v 1.19 2001-08-13 18:23:49 fjoe Exp $
+ * $Id: olc_cmd.c,v 1.20 2001-08-14 16:07:02 fjoe Exp $
  */
 
 #include "olc.h"
@@ -53,26 +53,29 @@ static DECLARE_VALIDATE_FUN(validate_cmd_name);
 
 olc_cmd_t olc_cmds_cmd[] =
 {
-	{ "create",	cmded_create					},
-	{ "edit",	cmded_edit					},
-	{ "",		cmded_save					},
-	{ "touch",	cmded_touch					},
-	{ "show",	cmded_show					},
-	{ "list",	cmded_list					},
+	{ "create",	cmded_create,	NULL,		NULL		},
+	{ "edit",	cmded_edit,	NULL,		NULL		},
+	{ "",		cmded_save,	NULL,		NULL		},
+	{ "touch",	cmded_touch,	NULL,		NULL		},
+	{ "show",	cmded_show,	NULL,		NULL		},
+	{ "list",	cmded_list,	NULL,		NULL		},
 
-	{ "name",	cmded_name,	validate_cmd_name		},
+	{ "name",	cmded_name,	validate_cmd_name, NULL		},
 	{ "minpos",	cmded_minpos,	NULL,		position_table	},
 	{ "minlevel",	cmded_minlevel, NULL,		level_table	},
-	{ "dofun",	cmded_dofun,	validate_funname				},
+	{ "dofun",	cmded_dofun,	validate_funname, NULL		},
 	{ "flags",	cmded_flags,	NULL,		cmd_flags	},
 	{ "log",	cmded_log,	NULL,		cmd_logtypes	},
 	{ "module",	cmded_module,	NULL,		module_names	},
-	{ "move",	cmded_move					},
+	{ "move",	cmded_move,	NULL,		NULL		},
 
-	{ "delete_cm",	olced_spell_out					},
-	{ "delete_cmd",	cmded_delete					},
-	{ "commands",	show_commands					},
-	{ NULL }
+	{ "delete_cm",	olced_spell_out, NULL,		NULL		},
+	{ "delete_cmd",	cmded_delete,	NULL,		NULL		},
+
+	{ "commands",	show_commands,	NULL,		NULL		},
+	{ "version",	show_version,	NULL,		NULL		},
+
+	{ NULL, NULL, NULL, NULL }
 };
 
 static void *save_cmd_cb(void *fp, va_list ap);
@@ -216,7 +219,7 @@ OLC_FUN(cmded_show)
 
 OLC_FUN(cmded_list)
 {
-	int i;
+	size_t i;
 	int col = 0;
 	char arg[MAX_STRING_LENGTH];
 	BUFFER *output;
@@ -224,7 +227,7 @@ OLC_FUN(cmded_list)
 	one_argument(argument, arg, sizeof(arg));
 	output = buf_new(0);
 
-	for (i = 0; i < commands.nused; i++) {
+	for (i = 0; i < varr_size(&commands); i++) {
 		cmd_t *cmnd = (cmd_t*) VARR_GET(&commands, i);
 
 		if (arg[0] && str_prefix(arg, cmnd->name))
@@ -311,8 +314,12 @@ OLC_FUN(cmded_move)
 	if (!is_number(arg))
 		OLC_ERROR("'OLC CMDS'");
 
-	if ((num = atoi(arg)) >= commands.nused)
-		num = commands.nused - 1;
+	if ((num = atoi(arg)) >= (int) varr_size(&commands))
+		num = varr_size(&commands) - 1;
+	if (num < 0) {
+		act_char("CmdEd: move: num should be >= 0.", ch);
+		return FALSE;
+	}
 
 	num2 = varr_index(&commands, cmnd);
 	if (num2 == num) {
@@ -330,7 +337,7 @@ OLC_FUN(cmded_move)
 	ncmnd.min_level		= cmnd->min_level;
 
 	varr_edelete(&commands, cmnd);
-	cmnd = (cmd_t *)varr_insert(&commands, num);
+	cmnd = (cmd_t *) varr_insert(&commands, num);
 
 	cmnd->name		= ncmnd.name;
 	cmnd->dofun_name	= ncmnd.dofun_name;
@@ -340,7 +347,7 @@ OLC_FUN(cmded_move)
 	cmnd->cmd_flags		= ncmnd.cmd_flags;
 	cmnd->min_pos		= ncmnd.min_pos;
 	cmnd->min_level		= ncmnd.min_level;
-	
+
 	ch->desc->pEdit	= cmnd;
 	act_puts("CmdEd: '$T' moved to $j position.",
 		 ch, (const void *) varr_index(&commands, cmnd), cmnd->name,
@@ -419,12 +426,12 @@ static void check_shadow(CHAR_DATA *ch, const char *name)
 {
 	BUFFER *output;
 	social_t *soc;
-	int i;
+	size_t i;
 	bool found = FALSE;
 
 	output = buf_new(0);
 
-	for (i = 0; i < socials.nused; i++) {
+	for (i = 0; i < varr_size(&socials); i++) {
 		soc = (social_t *)VARR_GET(&socials, i);
 		if (str_prefix(soc->name, name))
 			continue;
@@ -435,7 +442,7 @@ static void check_shadow(CHAR_DATA *ch, const char *name)
 	}
 	if (!found)
 		buf_append(output, "This name will not shadow anything.\n");
-	
+
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
 }

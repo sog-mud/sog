@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_lex.c,v 1.10 2001-08-05 16:36:49 fjoe Exp $
+ * $Id: mpc_lex.c,v 1.11 2001-08-14 16:07:00 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -57,7 +57,7 @@ mpc_getc(prog_t *prog)
 }
 
 static void
-mpc_ungetc(int ch, prog_t *prog)
+mpc_ungetc(int ch __attribute__((unused)), prog_t *prog)
 {
 	if (prog->cp > prog->text)
 		prog->cp--;

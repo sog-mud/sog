@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.189 2001-08-13 18:23:29 fjoe Exp $
+ * $Id: martial_art.c,v 1.190 2001-08-14 16:06:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -274,7 +274,8 @@ downstrike_cb(void *vo, va_list ap)
 #define check_downstrike(vch)	\
 	vo_foreach((vch)->in_room, &iter_char_room, downstrike_cb, (vch));
 
-bool distance_check(CHAR_DATA *ch, CHAR_DATA *victim)
+static bool
+distance_check(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	OBJ_DATA * v_weapon;
 
@@ -1101,7 +1102,8 @@ DO_FUN(do_feint, ch, argument)
  * Disarm a creature.
  * Caller must check for successful attack.
  */
-void disarm(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj)
+static void
+disarm(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj)
 {
 	int skill;
 
@@ -1230,7 +1232,7 @@ DO_FUN(do_breath, ch, argument)
 {
 	CHAR_DATA *victim;
 	int chance;
-	char *spell;
+	const char *spell;
 	int mana;
 
 	if ((chance = get_skill(ch, "breath")) == 0) {
@@ -3325,8 +3327,6 @@ DO_FUN(do_trophy, ch, argument)
 
 		if (trophy_vnum != 0
 		&&  (trophy = create_obj_of(trophy_vnum, &part->owner)) != NULL) {
-			AFFECT_DATA *paf;
-
 			level = UMIN(part->level + 5, MAX_LEVEL);
 
 			trophy->level	= ch->level;

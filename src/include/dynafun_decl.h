@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: dynafun_decl.h,v 1.16 2001-08-13 18:23:15 fjoe Exp $
+ * $Id: dynafun_decl.h,v 1.17 2001-08-14 16:06:45 fjoe Exp $
  */
 
 /* no #ifdef _XXX_H_/#define _XXX_H_/#endif */
@@ -71,19 +71,21 @@
 #	undef __mod_tab
 #	define __mod_tab(name) __mod_tab_name(name)
 
-#	undef __MODULE_START_DECL
-#	define __MODULE_START_DECL \
-		static dynafun_data_t __mod_tab(MODULE_NAME)[] = {
-
 #	define NULL_ARG		{ 0, FALSE }
-
-#	undef __MODULE_END_DECL
-#	define __MODULE_END_DECL					\
+#	define NULL_DYNAFUN_DATA					\
 		{ NULL, 0, 0,						\
 		  { NULL_ARG, NULL_ARG, NULL_ARG, NULL_ARG, NULL_ARG,	\
 		    NULL_ARG, NULL_ARG, NULL_ARG, NULL_ARG },		\
 		  NULL							\
 		}							\
+
+#	undef __MODULE_START_DECL
+#	define __MODULE_START_DECL \
+		static dynafun_data_t __mod_tab(MODULE_NAME)[] = {
+
+#	undef __MODULE_END_DECL
+#	define __MODULE_END_DECL					\
+		NULL_DYNAFUN_DATA					\
 	};
 
 #else
@@ -385,7 +387,7 @@
 #	define DECLARE_FUN7(ret, name, a1, n1, a2, n2, a3, n3, a4, n4,	\
 			    a5, n5, a6, n6, a7, n7)			\
 	{								\
-	  #name, __tag(ret), 6,						\
+	  #name, __tag(ret), 7,						\
 	  { a1, a2, a3, a4, a5, a6, a7, NULL_ARG, NULL_ARG },		\
 	  NULL,								\
 	},
@@ -394,7 +396,7 @@
 #	define DECLARE_PROC7(name, a1, n1, a2, n2, a3, n3, a4, n4,	\
 			     a5, n5, a6, n6, a7, n7)			\
 	{								\
-	  #name, __tag(void), 6,					\
+	  #name, __tag(void), 7,					\
 	  { a1, a2, a3, a4, a5, a6, a7, NULL_ARG, NULL_ARG },		\
 	  NULL,								\
 	},
@@ -403,7 +405,7 @@
 #	define DECLARE_FUN8(ret, name, a1, n1, a2, n2, a3, n3, a4, n4,	\
 			    a5, n5, a6, n6, a7, n7, a8, n8)		\
 	{								\
-	  #name, __tag(ret), 6,						\
+	  #name, __tag(ret), 8,						\
 	  { a1, a2, a3, a4, a5, a6, a7, a8, NULL_ARG },			\
 	  NULL,								\
 	},
@@ -412,7 +414,7 @@
 #	define DECLARE_PROC8(name, a1, n1, a2, n2, a3, n3, a4, n4,	\
 			     a5, n5, a6, n6, a7, n7, a8, n8)		\
 	{								\
-	  #name, __tag(void), 6,					\
+	  #name, __tag(void), 8,					\
 	  { a1, a2, a3, a4, a5, a6, a7, a8, NULL_ARG },			\
 	  NULL,								\
 	},
@@ -421,7 +423,7 @@
 #	define DECLARE_FUN9(ret, name, a1, n1, a2, n2, a3, n3, a4, n4,	\
 			    a5, n5, a6, n6, a7, n7, a8, n8, a9, n9)	\
 	{								\
-	  #name, __tag(ret), 6,						\
+	  #name, __tag(ret), 9,						\
 	  { a1, a2, a3, a4, a5, a6, a7, a8, a9 },			\
 	  NULL,								\
 	},
@@ -430,7 +432,7 @@
 #	define DECLARE_PROC9(name, a1, n1, a2, n2, a3, n3, a4, n4,	\
 			     a5, n5, a6, n6, a7, n7, a8, n8, a9, n9)	\
 	{								\
-	  #name, __tag(void), 6,					\
+	  #name, __tag(void), 9,					\
 	  { a1, a2, a3, a4, a5, a6, a7, a8, a9 },			\
 	  NULL,								\
 	},
@@ -722,7 +724,7 @@
 			__tag_t(ret) rv;				\
 			void *v;					\
 			v = dynafun_call(__tag(ret),			\
-			    #name, 6, n1, n2, n3, n4, n5, n6, n7);	\
+			    #name, 7, n1, n2, n3, n4, n5, n6, n7);	\
 			rv = (__tag_t(ret)) v;				\
 			return rv;					\
 		}
@@ -734,7 +736,7 @@
 		extern inline void					\
 		name(a1 n1, a2 n2, a3 n3, a4 n4, a5 n5, a6 n6, a7 n7)	\
 		{							\
-			dynaproc_call(#name, 6,				\
+			dynaproc_call(#name, 7,				\
 			    n1, n2, n3, n4, n5, n6, n7);		\
 		}
 
@@ -749,7 +751,7 @@
 			__tag_t(ret) rv;				\
 			void *v;					\
 			v = dynafun_call(__tag(ret),			\
-			    #name, 6, n1, n2, n3, n4, n5, n6, n7, n8);	\
+			    #name, 8, n1, n2, n3, n4, n5, n6, n7, n8);	\
 			rv = (__tag_t(ret)) v;				\
 			return rv;					\
 		}
@@ -762,7 +764,7 @@
 		name(a1 n1, a2 n2, a3 n3, a4 n4, a5 n5, a6 n6, a7 n7,	\
 		     a8 n8)						\
 		{							\
-			dynaproc_call(#name, 6,				\
+			dynaproc_call(#name, 8,				\
 			    n1, n2, n3, n4, n5, n6, n7, n8);		\
 		}
 
@@ -777,7 +779,7 @@
 			__tag_t(ret) rv;				\
 			void *v;					\
 			v = dynafun_call(__tag(ret),			\
-			    #name, 6, n1, n2, n3, n4, n5, n6, n7, n8, n9);\
+			    #name, 9, n1, n2, n3, n4, n5, n6, n7, n8, n9);\
 			rv = (__tag_t(ret)) v;				\
 			return rv;					\
 		}
@@ -790,7 +792,7 @@
 		name(a1 n1, a2 n2, a3 n3, a4 n4, a5 n5, a6 n6, a7 n7,	\
 		     a8 n8, a9 n9)					\
 		{							\
-			dynaproc_call(#name, 6,				\
+			dynaproc_call(#name, 9,				\
 			    n1, n2, n3, n4, n5, n6, n7, n8, n9);	\
 		}
 

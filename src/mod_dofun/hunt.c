@@ -1,5 +1,5 @@
 /*
- * $Id: hunt.c,v 1.39 2001-08-13 18:23:28 fjoe Exp $
+ * $Id: hunt.c,v 1.40 2001-08-14 16:06:50 fjoe Exp $
  */
 
 /* Kak zovut sobaku Gejtsa?
@@ -201,7 +201,7 @@ static hashdata_t h_room = {
 
 static int
 find_path(int in_room_vnum, int out_room_vnum,
-	  CHAR_DATA *ch, int depth, int in_zone)
+	  CHAR_DATA *ch __attribute__((unused)), int depth, int in_zone)
 {
 	room_q *q_head, *q_tail, *tmp_q;
 	hash_t x_room;
