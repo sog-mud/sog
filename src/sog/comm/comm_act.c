@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.c,v 1.40.2.12 2002-11-20 19:13:20 fjoe Exp $
+ * $Id: comm_act.c,v 1.40.2.13 2002-11-28 17:20:17 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -827,11 +827,12 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 			msgq = &PC(to)->msgq_chan;
 		else if (actq == ACTQ_IMMTALK)
 			msgq = &msgq_immtalk;
-
-		if (msgq == NULL) {
+		else {
 			log("act_buf: %d: invalid actq (act_flags = 0x%08x)\n",
 			    actq, opt->act_flags);
-		} else
+		}
+
+		if (msgq != NULL)
 			msgq_add(msgq, buf);
 	}
 }
