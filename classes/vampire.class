@@ -13,11 +13,10 @@ Thac0_00 18
 Thac0_32 -6
 HPRate 80
 ManaRate 70
-Flags magic~
+Flags magic noch~
 AddExp 300
 StatMod 1 2 0 0 0 5
 RestrictAlign evil~
-Flags noch~
 Skill 'animate dead' 42 1
 Skill 'armor' 13 1
 Skill 'blindness' 20 1

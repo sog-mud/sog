@@ -13,11 +13,10 @@ Thac0_00 18
 Thac0_32 6
 HPRate 60
 ManaRate 100
-Flags magic~
+Flags magic noch~
 AddExp 200
 StatMod 0 2 1 0 0 5
 RestrictAlign evil~
-Flags noch~
 Skill 'acid arrow' 48 1
 Skill 'acid blast' 63 1
 Skill 'adamantite golem' 71 1
