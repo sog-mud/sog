@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.173 1999-05-23 14:09:20 fjoe Exp $
+ * $Id: act_move.c,v 1.174 1999-05-26 10:30:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -254,7 +254,9 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 			}
 
 			if (IS_PUMPED(ch)
-			&&  IS_SET(to_room->room_flags, ROOM_PEACE | ROOM_GUILD)) {
+			&&  IS_SET(to_room->room_flags, ROOM_PEACE | ROOM_GUILD)
+			&&  !IS_SET(in_room->room_flags,
+				    ROOM_PEACE | ROOM_GUILD)) {
 				act_puts("You feel too bloody to go in there now.",
 					 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 				return FALSE;
