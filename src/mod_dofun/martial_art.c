@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.114.2.5 2000-04-18 08:34:02 fjoe Exp $
+ * $Id: martial_art.c,v 1.114.2.6 2000-04-24 11:28:20 osya Exp $
  */
 
 /***************************************************************************
@@ -1913,7 +1913,8 @@ void do_strangle(CHAR_DATA *ch, const char *argument)
 
 	if (number_percent() < chance * 6 /10
 	&&  !IS_CLAN_GUARD(victim)
-	&&  !IS_IMMORTAL(victim)) {
+	&&  !IS_IMMORTAL(victim)
+	&& victim->position != POS_FIGHTING) {
 		act("You grab hold of $N's neck and put $M to sleep.",
 		    ch, NULL, victim, TO_CHAR);
 		act("$n grabs hold of your neck and puts you to sleep.",
@@ -2005,7 +2006,8 @@ void do_blackjack(CHAR_DATA *ch, const char *argument)
  
 	if (number_percent() < chance
 	&&  !IS_CLAN_GUARD(victim)
-	&&  !IS_IMMORTAL(victim)) {
+	&&  !IS_IMMORTAL(victim)
+	&& victim->position != POS_FIGHTING) {
 		act("You hit $N's head with a lead filled sack.",
 		    ch, NULL, victim, TO_CHAR);
 		act("You feel a sudden pain erupts through your skull!",
