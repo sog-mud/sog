@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.378 2001-06-26 17:58:35 fjoe Exp $
+ * $Id: act_info.c,v 1.379 2001-06-27 08:14:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4495,9 +4495,26 @@ show_obj_to_char(CHAR_DATA *ch, const OBJ_DATA *obj, flag_t wear_loc)
 {
 	bool can_see;
 
-	if (obj == NULL
-	&&  (wear_loc == WEAR_TATTOO || wear_loc == WEAR_CLANMARK))
-		return;
+	if (obj == NULL) {
+		switch (wear_loc) {
+		case WEAR_TATTOO:
+		case WEAR_CLANMARK:
+			return;
+			/* NOTREACHED */
+
+		case WEAR_SECOND_WIELD:
+			if (get_skill(ch, "dual wield") == 0)
+				return;
+			/* FALLTHRU */
+
+		case WEAR_SHIELD:
+		case WEAR_HOLD:
+		case WEAR_WIELD:
+			if (!free_hands(ch))
+				return;
+			break;
+		}
+	}
 
 	can_see = obj == NULL ? FALSE : can_see_obj(ch, obj);
 	act(wear_loc_names[wear_loc], ch,
