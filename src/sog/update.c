@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.93 1998-12-02 13:32:12 fjoe Exp $
+ * $Id: update.c,v 1.94 1998-12-10 13:52:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -494,22 +494,22 @@ void gain_condition(CHAR_DATA *ch, int iCond, int value)
 
 		case COND_BLOODLUST:
 			fdone = 0;
-			char_puts("You are suffering "
-				     "from thrist of blood!\n",ch);
+			char_puts("You are suffering from thrist of blood!\n",
+				  ch);
 			act("$n is suffering from thirst of blood!",
 			    ch, NULL, NULL, TO_ROOM);
 			if (ch->in_room && ch->in_room->people
 			&&  ch->fighting == NULL) {
-				if (!IS_AWAKE(ch)) do_stand(ch,str_empty);
+				if (!IS_AWAKE(ch)) do_stand(ch, str_empty);
 			        for (vch = ch->in_room->people;
 			       	     vch != NULL && ch->fighting == NULL;
 				     vch = vch_next) {
 			        	vch_next = vch->next_in_room;
-			        	if (ch != vch && can_see(ch,vch)
-					&&  !is_safe_nomessage(ch,vch)) {
+			        	if (ch != vch && can_see(ch, vch)
+					&&  !is_safe_nomessage(ch, vch)) {
 						do_yell(ch,
 						        "BLOOD! I NEED BLOOD!");
-						do_murder(ch,vch->name);
+						do_murder(ch, vch->name);
 						fdone = 1;
 					}
 			         }

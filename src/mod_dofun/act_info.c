@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.174 1998-12-03 14:08:10 fjoe Exp $
+ * $Id: act_info.c,v 1.175 1998-12-10 13:52:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -637,6 +637,7 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 		char_printf(ch, "(%s) ", race_name(doppel->race));
 		if (!IS_NPC(doppel)) 
 			char_printf(ch, "(%s) ", class_name(doppel));
+		char_printf(ch, "(%s) ", flag_string(sex_table, doppel->sex));
 	}
 
 	char_printf(ch, "%s%s%s %s\n",
@@ -2919,40 +2920,42 @@ void do_score(CHAR_DATA *ch, const char *argument)
 			    ch->guarded_by->name);
 	}
 
-	if (!IS_NPC(ch) && ch->pcdata->condition[COND_DRUNK] > 10) {
-		ekle = 1;
-		buf_printf(output,
+	if (!IS_NPC(ch)) {
+		if (ch->pcdata->condition[COND_DRUNK] > 10) {
+			ekle = 1;
+			buf_printf(output,
 "     {G| {GYou are drunk.                                                  {G|{x\n");
-	}
+		}
 
-	if (!IS_NPC(ch) && ch->pcdata->condition[COND_THIRST] <= 0) {
-		ekle = 1;
-		buf_printf(output,
+		if (ch->pcdata->condition[COND_THIRST] <= 0) {
+			ekle = 1;
+			buf_printf(output,
 "     {G| {YYou are thirsty.                                                {G|{x\n");
-	}
-/*    if (!IS_NPC(ch) && ch->pcdata->condition[COND_FULL]   ==	0) */
-	if (!IS_NPC(ch) && ch->pcdata->condition[COND_HUNGER] <= 0) {
-		ekle = 1;
-		buf_printf(output,
+		}
+/*		if (ch->pcdata->condition[COND_FULL]   ==	0) */
+		if (ch->pcdata->condition[COND_HUNGER] <= 0) {
+			ekle = 1;
+			buf_printf(output,
 "     {G| {YYou are hungry.                                                 {G|{x\n");
-	}
+		}
 
-	if (!IS_NPC(ch) && IS_SET(ch->act, PLR_GHOST)) {
-		ekle = 1;
-		buf_add(output,
+		if (IS_SET(ch->act, PLR_GHOST)) {
+			ekle = 1;
+			buf_add(output,
 "     {G| {cYou are ghost.                                                  {G|{x\n");
-	}
+		}
 
-	if (!IS_NPC(ch) && ch->pcdata->condition[COND_BLOODLUST] <= 0) {
-		ekle = 1;
-		buf_printf(output,
+		if (ch->pcdata->condition[COND_BLOODLUST] <= 0) {
+			ekle = 1;
+			buf_printf(output,
 "     {G| {YYou are hungry for blood.                                       {G|{x\n");
-	}
+		}
 
-	if (!IS_NPC(ch) && ch->pcdata->condition[COND_DESIRE] <=  0) {
-		ekle = 1;
-		buf_printf(output,
+		if (ch->pcdata->condition[COND_DESIRE] <=  0) {
+			ekle = 1;
+			buf_printf(output,
 "     {G| {YYou are desiring your home.                                     {G|{x\n");
+		}
 	}
 
 	if (!IS_IMMORTAL(ch) && IS_PUMPED(ch)) {
