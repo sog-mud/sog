@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.366 2004-02-25 18:37:26 tatyana Exp $
+ * $Id: fight.c,v 1.367 2004-02-27 16:55:56 tatyana Exp $
  */
 
 /***************************************************************************
@@ -977,6 +977,25 @@ handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 
 	if (!IS_NPC(ch) && vnpc && vroom == ch->in_room) {
 		flag_t f_plr = PC(ch)->plr_flags;
+
+		if (get_skill(ch, "death knell") > number_percent()) {
+			int gain = UMIN(ch->level, victim->level);
+
+			ch->hit += gain;
+			ch->hit  = UMIN(ch->hit, ch->max_hit);
+
+			ch->mana += gain;
+			ch->mana  = UMIN(ch->mana, ch->max_mana);
+
+			ch->move += gain;
+			ch->move  = UMIN(ch->move, ch->max_move);
+			update_pos(ch);
+
+			act_char("When soul leaves your victim you feel "
+				 "power filling you!", ch);
+			act("$n drain power from $N death body",
+			    ch, NULL, victim, TO_ROOM);
+		}
 
 		if (IS_VAMPIRE(ch) && !IS_IMMORTAL(ch)) {
 			act_puts("$n sucks {Rblood{x from $p!",
