@@ -1,5 +1,5 @@
 #
-# $Id: Makefile.osdep.dist,v 1.10 2001-08-05 16:36:14 fjoe Exp $
+# $Id: Makefile.osdep.dist,v 1.11 2001-08-28 16:37:28 avn Exp $
 #
 
 #
@@ -20,6 +20,14 @@ BINGRP!=	id -gn
 #SO_LDFLAGS+=	-rdynamic
 #COMPAT_SRCS=	fnmatch.c
 #MAKE=		pmake
+#MKDEPCMD=	${.CURDIR}/../mkdep/mkdep
+
+#
+# for Linux RedHat 7.1
+#CFLAGS+=	-DLINUX
+#LDADD+=	-lcrypt -ldl
+#SO_LDFLAGS+=	-rdynamic
+#MAKE=		pmake -m ${.CURDIR}/mk
 #MKDEPCMD=	${.CURDIR}/../mkdep/mkdep
 
 #

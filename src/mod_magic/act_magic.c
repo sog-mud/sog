@@ -23,10 +23,11 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_magic.c,v 1.38 2001-08-20 16:47:30 fjoe Exp $
+ * $Id: act_magic.c,v 1.39 2001-08-28 16:37:35 avn Exp $
  */
 
 #include <stdio.h>
+#include <string.h>
 
 #include <merc.h>
 

@@ -23,13 +23,16 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.56 2001-08-26 05:49:08 fjoe Exp $
+ * $Id: typedef.h,v 1.57 2001-08-28 16:37:30 avn Exp $
  */
 
 #ifndef _TYPEDEF_H_
 #define _TYPEDEF_H_
 
 #include <sys/types.h>
+#if defined(LINUX)
+#include <stdint.h>
+#endif
 
 #if	!defined(FALSE)
 #define FALSE	 0
@@ -136,8 +139,7 @@ typedef void	SPELL_FUN	(const char *, int, CHAR_DATA *, void *);
 typedef void	EVENT_FUN	(CHAR_DATA *, AFFECT_DATA *);
 typedef void	UPDATE_FUN	(void);
 typedef int	MODINIT_FUN	(module_t *);
-typedef void	RUNGAME_FUN	(struct fd_set *, struct fd_set *,	\
-				 struct fd_set *);
+typedef void	RUNGAME_FUN	(fd_set *, fd_set *, fd_set *);
 
 #define DECLARE_SPEC_FUN(fun)		SPEC_FUN  fun
 #define DECLARE_DO_FUN(fun)		DO_FUN fun
@@ -164,8 +166,8 @@ typedef void	RUNGAME_FUN	(struct fd_set *, struct fd_set *,	\
 #define MODINIT_FUN(fun, m)						\
 	int fun(module_t *m __attribute__((unused)))
 #define RUNGAME_FUN(fun, in_set, out_set, exc_set)			\
-	void fun(struct fd_set *in_set, struct fd_set *out_set,		\
-		 struct fd_set *exc_set __attribute__((unused)))
+	void fun(fd_set *in_set, fd_set *out_set,			\
+		 fd_set *exc_set __attribute__((unused)))
 
 /* WIN32 Microsoft specific definitions */
 #if defined (WIN32)

@@ -23,10 +23,11 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: skills.c,v 1.127 2001-08-20 16:47:46 fjoe Exp $
+ * $Id: skills.c,v 1.128 2001-08-28 16:37:40 avn Exp $
  */
 
 #include <stdio.h>
+#include <string.h>
 
 #include <merc.h>
 

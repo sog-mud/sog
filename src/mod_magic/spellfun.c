@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.257 2001-08-21 16:07:05 kostik Exp $
+ * $Id: spellfun.c,v 1.258 2001-08-28 16:37:35 avn Exp $
  */
 
 /***************************************************************************
@@ -3466,9 +3466,9 @@ SPELL_FUN(spell_demon_summon, sn, level, ch, vo)
 
 	if (number_percent() < 40) {
 		if (can_see(demon, ch))
-			dofun("say", demon, "You dare disturb me??!!!");
+			dofun("say", demon, "You dare disturb me?" "?!!!");
 		else
-			dofun("say", demon, "Who dares disturb me??!!!");
+			dofun("say", demon, "Who dares disturb me?" "?!!!");
 		multi_hit(demon, ch, NULL);
 	} else {
 		SET_BIT(demon->affected_by, AFF_CHARM);

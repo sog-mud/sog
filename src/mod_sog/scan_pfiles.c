@@ -23,12 +23,13 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: scan_pfiles.c,v 1.4 2001-08-20 16:47:45 fjoe Exp $
+ * $Id: scan_pfiles.c,v 1.5 2001-08-28 16:37:39 avn Exp $
  */
 
 #include <sys/stat.h>
 #include <errno.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 #if	defined (WIN32)

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: util.c,v 1.34 2001-08-05 16:37:04 fjoe Exp $
+ * $Id: util.c,v 1.35 2001-08-28 16:37:43 avn Exp $
  */
 
 #include <sys/types.h>
@@ -589,8 +589,11 @@ init_mm(void)
 		                & ((1 << 30) - 1);
 	}
 #else
-//	srandom(time(NULL)^getpid());
+#if defined(BSD44)
 	srandomdev();
+#else
+	srandom(time(NULL)^getpid());
+#endif
 #endif
 	return;
 }

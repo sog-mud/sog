@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.319 2001-08-26 16:17:30 fjoe Exp $
+ * $Id: fight.c,v 1.320 2001-08-28 16:37:39 avn Exp $
  */
 
 /***************************************************************************
@@ -43,6 +43,7 @@
 #include <sys/types.h>
 #include <limits.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <signal.h>
 #include <time.h>
@@ -331,6 +332,7 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 	if (IS_SKILL(weapon_sn, "sword")
 	&&  (sk2 = get_skill(ch, "mastering sword"))
 	&&  number_percent() <= sk2) {
+		const char *p;
 		OBJ_DATA *katana;
 
 		check_improve(ch, "mastering sword", TRUE, 6);
@@ -339,7 +341,8 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 		if (((katana = get_eq_char(ch,WEAR_WIELD)) ||
 		     (katana = get_eq_char(ch, WEAR_SECOND_WIELD)))
 		&&  IS_WEAPON_STAT(katana, WEAPON_KATANA)
-		&&  strstr(mlstr_mval(&katana->ed->description), ch->name)) {
+		&&  (p = mlstr_mval(&katana->ed->description)) != NULL
+		&&  strstr(p, ch->name)) {
 			AFFECT_DATA *paf;
 
 			if ((katana->cost = ++katana->cost % 250) == 0

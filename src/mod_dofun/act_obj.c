@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.252 2001-08-26 16:17:22 fjoe Exp $
+ * $Id: act_obj.c,v 1.253 2001-08-28 16:37:32 avn Exp $
  */
 
 /***************************************************************************
@@ -2519,7 +2519,7 @@ do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 				number_range(obj->weight / 2, 2 * obj->weight),
 			   chance < 60 ?
 				number_range(obj->cost / 2, 2 * obj->cost) :
-				obj->cost,
+				(signed)obj->cost,
 			   obj->material);
 		check_improve(ch, "lore", TRUE, 7);
 		return;
@@ -2533,7 +2533,7 @@ do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 			   obj->weight,
 			   chance < 60 ?
 				number_range(obj->cost / 2, 2 * obj->cost) :
-				obj->cost,
+				(signed)obj->cost,
 			   chance < 60 ?
 				obj->level :
 				number_range(obj->level / 2, 2 * obj->level),
@@ -2553,7 +2553,7 @@ do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 			   obj->weight,
 			   chance < 60 ?
 				number_range(obj->cost / 2, 2 * obj->cost) :
-				obj->cost,
+				(signed)obj->cost,
 			   chance < 60 ?
 				obj->level :
 				number_range(obj->level / 2, 2 * obj->level),

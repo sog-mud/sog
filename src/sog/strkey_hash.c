@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: strkey_hash.c,v 1.18 2001-08-02 18:20:19 fjoe Exp $
+ * $Id: strkey_hash.c,v 1.19 2001-08-28 16:37:43 avn Exp $
  */
 
 #include <limits.h>
@@ -59,7 +59,7 @@ strkey_destroy(void *p)
 void *
 strkey_cpy(void *dst, const void *src)
 {
-	*(const char **) dst = str_dup(*(const char **) src);
+	*(const char **) dst = str_dup(*(char * const *) src);
 	return dst;
 }
 #endif
@@ -73,7 +73,7 @@ k_hash_str(const void *k, size_t hsize)
 int
 ke_cmp_str(const void *k, const void *e)
 {
-	return str_cmp((const char *) k, *(const char**) e);
+	return str_cmp((const char *) k, *(char * const *) e);
 }
 
 int
@@ -85,7 +85,7 @@ k_hash_csstr(const void *k, size_t hsize)
 int
 ke_cmp_csstr(const void *k, const void *e)
 {
-	return str_cscmp((const char *) k, *(const char **) e);
+	return str_cscmp((const char *) k, *(char * const *) e);
 }
 
 #if !defined(HASHTEST) && !defined(MPC)

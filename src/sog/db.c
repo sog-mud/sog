@@ -23,12 +23,11 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.c,v 1.2 2001-08-05 16:36:57 fjoe Exp $
+ * $Id: db.c,v 1.3 2001-08-28 16:37:41 avn Exp $
  */
 
 #include <errno.h>
 #include <dirent.h>
-#include <fnmatch.h>
 #include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>

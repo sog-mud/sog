@@ -6,7 +6,8 @@ To build SoG you must take the following steps:
 4) make all
 5) make install
 
-You need pmake to build SoG under Linux
+You need pmake to build SoG under Linux (you may need to invoke it with
+`pmake -m mk')
 `mkdep' can be found in mkdep/ (it is needed to run `make depend') --
 just copy it into any directory in your $PATH.
 

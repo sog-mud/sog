@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_lex.c,v 1.12 2001-08-25 04:53:56 fjoe Exp $
+ * $Id: mpc_lex.c,v 1.13 2001-08-28 16:37:37 avn Exp $
  */
 
 #include <ctype.h>
@@ -380,7 +380,7 @@ mpc_lex(mpcode_t *mpc)
 			STORE(ch);
 			for (; ;) {
 				ch = mpc_getc(mpc);
-				if (!IS_IDENT_CH(ch) && !isnumber(ch))
+				if (!IS_IDENT_CH(ch) && !isdigit(ch))
 					break;
 
 				STORE(ch);

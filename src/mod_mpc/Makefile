@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.8 2001-07-04 19:21:17 fjoe Exp $
+# $Id: Makefile,v 1.9 2001-08-28 16:37:37 avn Exp $
 #
 
 SRCS=		mpc.y mpc_dynafun.c mpc_iter.c mpc_lex.c mpc_c.c mpc_const.c
@@ -23,6 +23,10 @@ CFLAGS+=	-DMPC
 MODULE=		mpc
 SRCS+=		init_mpc.c
 .endif
+
+afterdepend:
+	sed 's/int yygrowstack()/int yygrowstack(void)/' mpc.c > .mpc.c && \
+	mv -f .mpc.c mpc.c
 
 .include <bsd.prog.mk>
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_bootdb.c,v 1.5 2001-08-26 05:49:10 fjoe Exp $
+ * $Id: init_bootdb.c,v 1.6 2001-08-28 16:37:32 avn Exp $
  */
 
 #include <sys/stat.h>
@@ -31,6 +31,7 @@
 #include <errno.h>
 #include <dirent.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 #if defined(BSD44)

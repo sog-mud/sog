@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: resolver.c,v 1.18 2001-08-20 17:09:55 fjoe Exp $
+ * $Id: resolver.c,v 1.19 2001-08-28 16:37:42 avn Exp $
  */
 
 #include <sys/types.h>
@@ -34,6 +34,7 @@
 #include <netdb.h>
 #include <unistd.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <signal.h>
 #include <errno.h>
@@ -77,7 +78,9 @@ resolver_init(void)
 			exit(1);
 		}
 
+#if defined(BSD44)
 		setproctitle("resolver");			// notrans
+#endif
 
 		signal(SIGINT, SIG_IGN);
 		signal(SIGTRAP, SIG_IGN);

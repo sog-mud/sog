@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.127 2001-08-25 04:53:59 fjoe Exp $
+ * $Id: recycle.c,v 1.128 2001-08-28 16:37:42 avn Exp $
  */
 
 /***************************************************************************
@@ -87,9 +87,9 @@ RUNGAME_FUN *run_game_bottom;
 
 bool (*olc_interpret)(DESCRIPTOR_DATA *d, const char *argument);
 
-struct fd_set	in_set;
-struct fd_set	out_set;
-struct fd_set	exc_set;
+fd_set	in_set;
+fd_set	out_set;
+fd_set	exc_set;
 
 /*
  * Log-all switch.

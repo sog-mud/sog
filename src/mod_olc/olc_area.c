@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.101 2001-08-25 04:46:52 fjoe Exp $
+ * $Id: olc_area.c,v 1.102 2001-08-28 16:37:38 avn Exp $
  */
 
 #include "olc.h"
@@ -255,7 +255,8 @@ OLC_FUN(areaed_list)
 	one_argument(argument, arg, sizeof(arg));
 
 	for (pArea = area_first; pArea; pArea = pArea->next) {
-		if (arg[0] != '\0' && !strstr(strlwr(pArea->name), arg))
+		if (arg[0] != '\0'
+		&& !strstr((const char *)strlwr(pArea->name), arg))
 			continue;
 
 		if (output == NULL) {
@@ -1021,8 +1022,8 @@ save_objects(FILE *fp, AREA_DATA *pArea)
 static int
 exitcmp(const void *p1, const void *p2)
 {
-	return (*(const EXIT_DATA**)p1)->orig_door -
-	    (*(const EXIT_DATA**)p2)->orig_door;
+	return (*(EXIT_DATA * const *)p1)->orig_door -
+	    (*(EXIT_DATA * const *)p2)->orig_door;
 }
 
 static void

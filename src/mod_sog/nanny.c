@@ -1,5 +1,5 @@
 /*
- * $Id: nanny.c,v 1.2 2001-08-20 16:47:44 fjoe Exp $
+ * $Id: nanny.c,v 1.3 2001-08-28 16:37:39 avn Exp $
  */
 
 /***************************************************************************
@@ -50,6 +50,8 @@
 #include <arpa/telnet.h>
 #include <unistd.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 #include <merc.h>
 #include <resolver.h>
@@ -59,6 +61,10 @@
 
 #include "handler_impl.h"
 #include "comm.h"
+
+#if defined(LINUX)
+extern char *crypt(const char *key, const char *salt);
+#endif
 
 static bool	check_reconnect(DESCRIPTOR_DATA *d, bool fConn);
 static bool	check_playing(DESCRIPTOR_DATA *d, const char *name);
