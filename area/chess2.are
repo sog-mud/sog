@@ -544,18 +544,18 @@ sword 2 7 pierce 0
 10 100 750 G
 G none
 #4228
-kris black pawn~
-a Black Pawn's Kris~
-The kris of a Black Pawn lies here.~
+kris black pawn кинжал~
+@eng a Black Pawn's Kris@rus ~~кривой~~ ~~кинжал~~ черной пешки~
+@eng The kris of a Black Pawn lies here.@rus Кривой кинжал (kris) из черного металла валяется на земле.~
 steel~
 weapon J AN
 dagger 2 7 pierce 0
 10 100 750 G
 G none
 #4229
-kris white pawn~
-a White Pawn's Kris~
-The kris of a White Pawn lies here.~
+kris white pawn кинжал~
+@eng a White Pawn's Kris@rus ~~кривой~~ ~~кинжал~~ белой пешки~
+@eng The kris of a White Pawn lies here.@rus Кривой кинжал (kris) из светлого металла валяется на земле.~
 steel~
 weapon K AN
 dagger 2 7 pierce 0

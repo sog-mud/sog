@@ -172,9 +172,9 @@ stand stand male 75
 
 #OBJECTS
 #2800
-corpse cadaver~
-the cadaver-toy~
-A half eaten corpse is laying here~
+corpse cadaver труп~
+@eng the cadaver-toy@rus труп~
+@eng A half eaten corpse is laying here@rus Полусъеденный труп (corpse) лежит тут~
 flesh~
 container 0 A
 30 0 0 30 100
@@ -182,8 +182,8 @@ container 0 A
 G none
 #2801
 pile rotting heap bed~
-the heap of carnage~
-There is a bed made of carnage here.~
+@eng the heap of carnage@rus ~~куча~~ гниющих останков~
+@eng There is a bed made of carnage here.@rus На полу постель (bed) из кровавых останков.~
 unknown~
 container 0 0
 30 0 0 30 100
@@ -221,9 +221,9 @@ It is a full circle of opal, smooth and simple.
 ~
 G none
 #2804
-leather belt~
-a leather belt~
-An old leather belt is left on the floor.~
+leather belt ремень пояс~
+@eng a leather belt@rus кожанный ремень~
+@eng An old leather belt is left on the floor.@rus Кто-то выкинул старый кожанный ремень.~
 leather~
 armor G AL
 6 6 6 0 0
@@ -279,11 +279,14 @@ You find the stench is stronger inside.
 Z 0 2803
 S
 #2802
-Troll's Larder~
-This room has blood and grime all over the walls.  You see maggots and other
+@eng Troll's Larder@rus Кладовая~
+@eng This room has blood and grime all over the walls.  You see maggots and other
 insects crawling up them.  The resident is definitely uncivilized.  Half-eaten
 and rotting body parts scatter the floor, each having its own colony of flies,
 worms, and maggots.
+@rus Стены комнаты залиты кровью и грязью, по которой ползают отвратительные
+насекомые. По полу разбросаны гниющие недоеденные трупы, обжитые мухами, 
+червями и личинками. Судя по всему, здесь живут настоящие варвары.
 ~
 0 AD inside
 E
@@ -298,7 +301,7 @@ the stench bears down on you once more.
 Z 0 2803
 S
 #2803
-Troll's Living Room~
+@eng Troll's Living Room@rus Жилая комната~
 @eng This small cave opens to the north, south, east, and west.  You are
 overcome by the stench and consider turning around.
 @rus Эта маленькая пещерка продолжается во все стороны света. Ты начинаешь
@@ -306,7 +309,8 @@ overcome by the stench and consider turning around.
 ~
 0 AD inside
 D0
-There is a trail of bone shards and fragments leading north.
+@eng There is a trail of bone shards and fragments leading north.
+@rus На север ведет путь, покрытый костяными обломками.
 ~
 ~
 Z 0 2801
@@ -330,10 +334,13 @@ as they bore new holes into a corpse laying on the far wall of the west room.
 Z 0 2802
 S
 #2804
-The Playpen~
-The walls are covered with blood (and body parts!?!?).  Plastered on the far
+@eng The Playpen@rus Детская~
+@eng The walls are covered with blood (and body parts!?!?).  Plastered on the far
 wall you see what looks like a human arm.  A half-eaten body lies here with
 its chest ripped out.  The predator seems disinterested in it.
+@rus Стены залиты кровью, на дальней стене размазано нечто, отдаленно
+напоминающее человеческую руку. На полу лежит разодранное полусъеденное 
+тело, которое навряд ли заинтересует даже самого голодного стервятника.
 ~
 0 AD inside
 E
@@ -349,12 +356,15 @@ the stench bears down on you once more.
 Z 0 2803
 S
 #2805
-Troll's Bedroom~
-Obviously something REALLY big lives here.  The stench is quite unbearable.
+@eng Troll's Bedroom@rus Спальня~
+@eng Obviously something REALLY big lives here.  The stench is quite unbearable.
 There are piles and piles of rotten and half-eaten body parts of animals,
 orcs, (and humans?) strewn across the floor.  There is a larger, more
 prominent pile of rotten parts over in a corner.  It seems to have been
 flattened by something.
+@rus Очевидно, что здесь живет кто-то весьма большой. Кучи гнилых недоеденных
+трупов валяются повсюду, запах абсолютно невыносим. В углу можно заметить
+выделяющуюся кучу останков, чем-то расплющенную.
 ~
 0 ACD mountain
 D0

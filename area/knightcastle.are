@@ -146,6 +146,23 @@ furniture AB 0
 0 0 0 0 0
 50 50000 0 P
 G none
+#95205
+fountain knight~
+@eng fountain@rus фонтан~
+@eng Marble fountain depicting a noble Knight who tears Invader's mouth stands here.@rus Мраморная скульптура Рыцаря, разрывающего пасть Захватчика.~
+marble~
+fountain R 0
+100000 100000 'mead' 0 0
+0 100000 0 P
+E
+fountain knight~
+@eng A beautiful sculpture serves not only to aesthetics. From the torn mouth
+of beastly looking invader a spring of sweet mead belches forth.
+@rus Прекрасная скульптура не только украшает это место. Из разверзнутой пасти
+звероподобного Захватчика бьет ключом сладкий мед. Утоли свой голод и
+жажду, добрый путник.
+~
+G male
 #95209
 holy lance~
 {WHoly blessed Lance{x~
@@ -270,7 +287,7 @@ You're crossing a small garden. Surrounded by evergreen trees and bushes,
 you hear bird songs and feel that you can stay in this paradise forever. But,
 your duties call you for struggle with the evil ones!
 ~
-0 KX forest
+0 X forest
 D2
 ~
 ~
@@ -293,6 +310,7 @@ M 0 95202 1 95205 1	* the stable keeper (Stables)
 M 0 95203 1 95206 1	* the grey horse (Horse room)
 M 0 95204 1 95206 1	* the white horse (Horse room)
 M 0 95205 1 95206 1	* the great white horse (Horse room)
+O 0 95205 0 95207	* fountain (Winter garden)
 O 0 95204 0 95207	* statue of King Arthur (Winter garden)
 S
 

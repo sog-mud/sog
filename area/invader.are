@@ -17,10 +17,10 @@ This strong serves as the guardian of the Invader Cabal. His mission is
 to destroy anyone who dares to penatrate into the chamber.
 ~
 human~
-ABJKWef DFJVZlmtu -1000 0
+ABJKWef DFJTVZclmtu -1000 0
 92 40 2d500+25000 1d200+600 10d40+40 slash
 -77 -77 -77 -42
-CEFKNU AB 0 S
+ACEFKNU AB 0 S
 stand stand male 5000
 0 0 medium unknown
 M grall 95600 100~
@@ -37,10 +37,10 @@ mates, waiting the day when he is going to have the chance to invade the
 whole Realms of Anatolia as in the history.
 ~
 human~
-ABQVae DFH 1000 0
+ABQVae DFmu -1000 0
 90 0 1d1+28999 1d1+999 2d14+30 magic
 -85 -85 -85 -15
-FHIK ABC D 0
+AFHIKQ ABCE D 0
 stand stand male 1000
 0 0 medium unknown
 C Invader~
@@ -277,11 +277,10 @@ Thus the darkness of the room horrifies you. While waiting the time
 that your adrenalin will calm down, you want to rest. But you know that
 this place is NOT the safe place to rest. Because it is Battle Field of
 INVADERS!
-@rus Вероятно тебе удалось сбежать сюда, если не адепт братства ИНВАЙДЕРОВ.
-Абсолютная тьма этой комнаты ужасает тебя. Ты может быть сел отдохнуть,
-стараясь отдышаться и убраться отсюда. Ho ты должен помнить, что это
-НЕ очень удачное место для отдыха. Потому что это Арена для схваток
-ИНВАЙДЕРОВ!
+@rus Вероятно тебе удалось сбежать сюда, если ты не адепт братства ИНВАЙДЕРОВ.
+Абсолютная тьма этой комнаты ужасает. Ты может быть сел отдохнуть, стараясь
+отдышаться и убраться отсюда. Ho помни, это НЕ очень удачное место для
+отдыха. Потому что это место сражений ИНВАЙДЕРОВ!
 ~
 0 AD inside
 D0
@@ -292,6 +291,11 @@ Z -1 95607
 M 50 H 50
 S
 #0
+
+#SPECIALS
+M 95600 spec_cast_undead	* the invader guardian
+M 95601 spec_cast_undead	* the evil cleric
+S
 
 #RESETS
 D 0 95600 5 1	* The Well: door to the down: closed

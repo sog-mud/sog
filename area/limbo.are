@@ -94,7 +94,7 @@ human~
 AOTc DFJS -750 0
 20 3 16d15+240 1d1+152 5d3+20 punch
 0 0 0 0
-DEJ G AB M
+DEJ GM AB N
 stand stand male 0
 0 0 medium unknown
 #15
@@ -108,7 +108,7 @@ storm giant~
 ATc FHJNVf 1000 0
 20 3 16d15+160 1d1+149 4d9+15 slash
 0 0 0 0
-QT 0 AB M
+0 0 AB M
 stand stand male 0
 0 0 medium unknown
 #16

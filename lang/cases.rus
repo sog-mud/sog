@@ -225,6 +225,17 @@ Form 6 -ую~
 End
 
 #RULE
+Name куча~
+BaseLen 3
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -e~
+Form 5 -ей~
+Form 6 -у~
+End
+
+#RULE
 Name тролль~
 BaseLen 5
 Form 1 -я~
@@ -482,6 +493,17 @@ Form 6 -у~
 End
 
 #RULE
+Name магический~
+BaseLen 8
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ий~
+Form 4 -им~
+Form 5 -ом~
+Form 6 -ого~
+End
+
+#RULE
 Name шейный~
 BaseLen 4
 Form 1 -ого~
@@ -490,6 +512,17 @@ Form 3 -ый~
 Form 4 -ым~
 Form 5 -ом~
 Form 6 -ого~
+End
+
+#RULE
+Name золотая~
+BaseLen 5
+Form 1 -ой~
+Form 2 -ой~
+Form 3 -ую~
+Form 4 -ой~
+Form 5 -ой~
+Form 6 -ую~
 End
 
 #RULE
@@ -825,6 +858,17 @@ Form 3 -ую~
 Form 4 -ой~
 Form 5 -ой~
 Form 6 -ую~
+End
+
+#RULE
+Name скала~
+BaseLen 4
+Form 1 -ы~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
 End
 
 #RULE
@@ -1516,6 +1560,17 @@ Form 6 -а~
 End
 
 #RULE
+Name длиннохвостый~
+BaseLen 11
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ый~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ого~
+End
+
+#RULE
 Name большая~
 BaseLen 5
 Form 1 -ой~
@@ -1588,6 +1643,17 @@ Form 1 -а~
 Form 2 -у~
 Form 4 -ом~
 Form 5 -е~
+End
+
+#RULE
+Name кривой~
+BaseLen 4
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ой~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ого~
 End
 
 #RULE
@@ -1808,6 +1874,17 @@ Form 3 -ю~
 Form 4 -ей~
 Form 5 -е~
 Form 6 -ю~
+End
+
+#RULE
+Name зеленая~
+BaseLen 5
+Form 1 -ой~
+Form 2 -ой~
+Form 3 -ую~
+Form 4 -ой~
+Form 5 -ой~
+Form 6 -ую~
 End
 
 #RULE

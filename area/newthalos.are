@@ -2413,10 +2413,14 @@ G none
 #ROOMS
 #9500
 @eng The Entrance to the Dancing Daemon Inn@rus Вход в гостиницу Танцующий Демон~
-You find yourself in an entrance foyer to the Dancing Daemon Inn. Chrome
+@eng You find yourself in an entrance foyer to the Dancing Daemon Inn. Chrome
 plated stairs spiral up to the reception area. To the south you hear the
 sounds of merriment and drinking and from the west you hear the bustling
 activity of New Thalos.
+@rus Вы находитесь в фойе гостиницы Танцующий Демон.  Винтовая хромированная
+лестница поднимается вверх (up) в гостиную.  С юга (south) до вас доносятся
+звуки веселья и застолья, с запада (west) звуки деловой активности Нового
+Талоса.  
 ~
 0 DS inside
 D2
@@ -2436,12 +2440,18 @@ The spiral stairs lead up to the reception area.
 Z -1 9501
 S
 #9501
-The Reception Area~
-You are now standing in the reception of New Thalos. A huge mahogany
+@eng The Reception Area@rus Гостиная~
+@eng You are now standing in the reception of New Thalos. A huge mahogany
 desk is here along with two sofas and a coffee table covered in magazines.
 The plush carpeting under your feet is a nice change from the rugged paths
 you are used to travelling. A chrome stairway spirals downstairs to the
 tavern of the Dancing Daemon Inn, and your future adventures in New Thalos.
+@rus Теперь вы стоите в гостиной Нового Талоса.  Здесь находится огромный стол
+из красного дерева вместе с двумя диванами и покрытым журналами столиком для
+кофе.  Шикарный ковер под вашими ногами прекрасная замена неровным путям по
+которым вы путешествовали.  Винтовая хромированная лестница ведет вниз
+(down) в таверну гостиницы Танцующий Демон и к вашим будущим приключениям в
+Новом Талосе.  
 ~
 0 CDEFGS inside
 E
@@ -2472,14 +2482,21 @@ The stairs lead down to the Daemon.
 Z -1 9500
 S
 #9502
-The Dancing Daemon Inn~
-A huge circling wet-bar takes up most of the east end of the Daemon. An
+@eng The Dancing Daemon Inn@rus Гостиница Танцующий Демон.~
+@eng A huge circling wet-bar takes up most of the east end of the Daemon. An
 old mage reclines against the mirror behind the bar absentmindedly pouring
 several drinks at once with his refined telekinesis. The Lokettes, a local
 band, are playing their usual gig on the stage. The large booths along the
 wall are filled with people drinking and having a grand time. You feel like
 partying here.
 The only obvious exit is to the north.
+@rus Огромный вращающийся бар (bar) со спиртными напитками занимает большую
+часть восточной стороны Демона.  Перед зеркалом, позади бара, поллулежит
+старый маг, рассеяно, одновременно наливая несколько спиртных напитков при
+помощи чистого телекинеза.  Локетес, местная группа, играет на сцене их
+народный танец.  Большие кабины вдоль стены заполнены пьющими и отдыхающими
+людьми.  Вы чуствуете себя здесь, как на вечеринке.  Единственный очевидный
+выход ведет на север (north).  
 ~
 0 DS inside
 E
@@ -2494,10 +2511,13 @@ You see the entrance to the Daemon.
 Z -1 9500
 S
 #9503
-The Medina~
-You stand on the Medina, on the larger open areas in New Thalos. People
+@eng The Medina@rus Медина~
+@eng You stand on the Medina, on the larger open area in New Thalos. People
 walk to and fro carrying on their day to day business. The Common Square
-of the people opens up to the south and the Medina continues north.
+opens up to the south and the Medina continues north.
+@rus Вы стоите на Медине, на самой большой открытой площади в Новом Талосе.
+Люди идут, туда и сюда продолжая их повседневный бизнес.  Общая площадь
+открывается на юге (south), Медина продолжается на север (north).  
 ~
 0 S city
 D0
@@ -2512,11 +2532,15 @@ You see the Common square.
 Z -1 9510
 S
 #9504
-The Medina~
-You are walking along a wide open expanse of road connecting the market
+@eng The Medina@rus Медина~
+@eng You are walking along a wide open expanse of road connecting the market
 square to the common square. Panhandlers, beggars, and other such riff-
 raff wander about hoping to catch those few who with open hearts.
 The medina continues to the south and the market spreads out to the north.
+@rus Вы идете по широкому открытому пути, соединяющему рыночныю площадь с
+общей площадью.  Попрошайки, нищие и другая такая же шушера блуждает рядом в
+надежде поймать тех немногих у кого доброе, открытое сердце.  Медина
+продолжается на юг (south), рынок распологается на севере (north).  
 ~
 0 S city
 D0
@@ -2560,8 +2584,9 @@ S
 @eng You are standing on the Center of Market Square, the famous square of
 New Thalos. A large, peculiar looking statue is standing in the middle
 of the square. The square extends in every direction.
-@rus Ты стоишь в центре Рыночной Площади, самой известной площади Нового Талоса.
-Большая, странного вида статуя  находится в центре площади. Площадь видна во всех направлениях.
+@rus Ты стоишь в центре Рыночной Площади, самой известной площади Нового
+Талоса.  Большая, странного вида статуя находится в центре площади.  Площадь
+продолжается во всех направлениях.  
 ~
 0 S inside
 E
@@ -2694,9 +2719,12 @@ D3
 Z -1 9536
 S
 #9511
-Outside the Southern Gate of New Thalos~
-You see before you the expanse of the Sands of Sorrow.  The shifting sands 
+@eng Outside the Southern Gate of New Thalos@rus Перед Южными воротами Нового Талоса~
+@eng You see before you the expanse of the Sands of Sorrow.  The shifting sands 
 stretch on endlessly to the south, hiding treasure and adventure.
+@rus Вы видите перед собой пустыню Пески Горя.  Перемещающиеся пески
+простираются на юг (south) до бесконечности, скрывая сокровища и
+приключения.
 ~
 0 S city
 D0
@@ -2748,8 +2776,9 @@ S
 New Thalos. To the north lies the humble store of the merchant Ahkeem, his
 weavings known to be the best in the city. West of here is the entrance
 to Bank.
-@rus Этот угол Рыночной площади наиболее цивилизованный в Новом Талосе. На севере отсюда находится
-небольшая лавка портного Акима, известного на весь город своими товарами. На западе вход в Банк города
+@rus Этот угол Рыночной площади наиболее цивилизованный в Новом Талосе.  На
+севере отсюда находится небольшая лавка торговца Акима, известного на весь
+город своими товарами.  На западе вход в Банк города 
 ~
 0 S city
 D0
@@ -2983,13 +3012,14 @@ gate~
 ABZ 9501 9669
 S
 #9524
-@eng West Main Street@rus Западная Главная Улица~
+@eng West Main Street@rus Главная западная улица~
 @eng This is the main road traveling though the city. To the south you hear
 the hammering of the repair shop and to the north is the grassy field
 known as the temple square. Main street continues east and west.
-@rus Это главная улица, тянущаяся через весь город. На юге вы слышите перезвон молотков из
-ремонтного магазина, а на севере виднеется поросшее травой поле известное, как храмовая площадь.
-Главная улица продолжается на восток и на запад.
+@rus Это главная улица, тянущаяся через весь город.  На юге (south) вы слышите
+перезвон молотков из ремонтной мастерской, а на севере (north) виднеется
+поросшее травой поле известное, как храмовая площадь.  Главная улица
+продолжается на восток (east) и на запад (west).  
 ~
 0 S city
 D0
@@ -3010,7 +3040,7 @@ D3
 Z -1 9523
 S
 #9525
-@eng West Main Street@rus ЗападнаЯ ГлавнаЯ Улица~
+@eng West Main Street@rus Главная западная улица~
 @eng A foreman stands stand here watching over two construction workers
 fixing a pothole. The road here branches off north and south into
 two alleys behind the stores of the market. The main street continues
@@ -3037,7 +3067,7 @@ D3
 Z -1 9524
 S
 #9526
-@eng West Main Street@rus ЗападнаЯ ГлавнаЯ Улица~
+@eng West Main Street@rus Главная западная улица~
 @eng You are strolling on the street between Bank and the general store. To 
 the west you hear a roadcrew at work and to the East, the sounds of 
 commerce taking place.  The air is filled with the smell of gold and riches.
@@ -4777,7 +4807,7 @@ D5
 Z -1 9603
 S
 #9620
-The Temple Square~
+@eng The Temple Square@rus Храмовая площадь~
 You are standing on the meeting grounds of those with holy intentions.
 Monks, bards, paladins and clerics mill around either preaching or
 listening to their fellows preach. Huge marble steps lead up to the
@@ -4907,7 +4937,7 @@ D2
 Z -1 9633
 S
 #9627
-The Repair Shop~
+@eng The Repair Shop@rus Ремонтная мастерская~
 One of the most popular shops in New Thalos, this shop is always a hive
 of activity. It is almost inhuman the way one man can fix all the area's
 armor singlehandedly. If you have an item in need of repair simply give
@@ -5592,7 +5622,7 @@ D3
 Z -1 9531
 S
 #9669
-Outside the West Gate of New Thalos~
+@eng Outside the West Gate of New Thalos@rus Перед западными воротами Нового Талоса.~
 You stand outside the city walls, the iron gate to the east. The city lies
 in that direction and the road to Midgaard lies west.
 ~

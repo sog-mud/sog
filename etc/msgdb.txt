@@ -358,6 +358,7 @@ Use 'desc edit' to edit your description.
 @eng You can't cast this spell to $N at this distance.@rus Ты не можешь читать заклинания на $N на таком расстоянии.~
 @eng $p strikes you!@rus $p попадает в тебя!~
 @eng water@rus вода~
+@eng But you'd rather follow $N!@rus Неа... Лучше идти за $c4{$N}!~
 @eng dawn@rus рассветает~
 @eng You don't see that here.
 @rus Ты не видишь этого тут.
@@ -1102,7 +1103,7 @@ Get back to questor before your time runs out!
 @rus Ты застрял в паутине, и ты еще ЧТО-ТО хочешь сделать?!?
 ~
 @eng $n sits down in $p and rests.@rus $n садится отдыхать в $c3{$p}.~
-@eng $N looks just as disinterested as you.@rus $n так же не $gN{заинтересован} тобой, как и ты $gN{им}.~
+@eng $N looks just as disinterested as you.@rus $N так же не $gN{заинтересован} тобой, как и ты $gN{им}.@rusoff $N так же не $gN{заинтересован} тобой, как и ты $gN{им}.~
 @eng {Yis gushing blood{x.@rus {Yистекает кровью{x.~
 @eng {*{W*****{R rEBOOT IN {W%d{R MIN. {W*****{x
 @rus {*{W*****{R ПЕРЕЗАГРУЗКА ЧЕРЕЗ {W%d{R МИН. {W*****{x
