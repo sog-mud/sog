@@ -1,5 +1,5 @@
 *default host=iclub.nsu.ru
-*default base=/home/fjoe/projects
+*default base=/home/fjoe/muddy
 *default release=cvs tag=.
 *default delete use-rel-suffix
 muddy
