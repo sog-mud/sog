@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.390 2004-02-19 17:16:47 fjoe Exp $
+ * $Id: handler.c,v 1.391 2004-02-19 20:10:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -5643,7 +5643,7 @@ create_money(int gold, int silver)
 			obj->weight	= gold/5;
 		}
 	} else if (gold == 0) {
-		if ((obj = create_obj(OBJ_VNUM_SILVER_ONE, 0)) != NULL) {
+		if ((obj = create_obj(OBJ_VNUM_SILVER_SOME, 0)) != NULL) {
 			money_descr(&obj->short_descr,
 			    silver, "silver coins", -1, NULL);
 			INT(obj->value[0]) = silver;
