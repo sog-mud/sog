@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.62 1999-10-21 12:51:58 fjoe Exp $
+ * $Id: olc_room.c,v 1.63 1999-11-25 08:03:05 fjoe Exp $
  */
 
 #include "olc.h"
@@ -644,7 +644,8 @@ OLC_FUN(roomed_oreset)
 		/*
 		 * Can't load into same position.
 		 */
-		if (get_eq_char(to_mob, wear_loc)) {
+		if (wear_loc != WEAR_NONE
+		&&  get_eq_char(to_mob, wear_loc)) {
 			char_puts("RoomEd: Object already equipped.\n", ch);
 			return FALSE;
 		}
