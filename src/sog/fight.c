@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.57 2002-01-12 08:59:58 tatyana Exp $
+ * $Id: fight.c,v 1.202.2.58 2002-01-23 13:55:58 avn Exp $
  */
 
 /***************************************************************************
@@ -741,20 +741,15 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 		thac0 = -5 + (thac0 + 5) / 2;
 
 	thac0 -= GET_HITROLL(ch) * sk / 100;
-	thac0 += 5 * (100 - sk) / 100;
+	thac0 += (100 - sk) / 20;
 
-	if (dt == gsn_backstab)
-		thac0 -= 10 * (100 - get_skill(ch, gsn_backstab));
-	else if (dt == gsn_dual_backstab)
-		thac0 -= 10 * (100 - get_skill(ch, gsn_dual_backstab));
-	else if (dt == gsn_cleave)
-		thac0 -= 10 * (100 - get_skill(ch, gsn_cleave));
-	else if (dt == gsn_ambush)
-		thac0 -= 10 * (100 - get_skill(ch, gsn_ambush));
-	else if (dt == gsn_vampiric_bite)
-		thac0 -= 10 * (100 - get_skill(ch, gsn_vampiric_bite));
-	else if (dt == gsn_charge)
-		thac0 -= 10 * (100 - get_skill(ch, gsn_charge));
+	if (dt == gsn_backstab
+	||  dt == gsn_dual_backstab
+	||  dt == gsn_cleave
+	||  dt == gsn_ambush
+	||  dt == gsn_vampiric_bite
+	||  dt == gsn_charge)
+		thac0 += (100 - get_skill(ch, gsn_backstab)) / 10;
 
 	switch(dam_type) {
 	case DAM_PIERCE:victim_ac = GET_AC(victim,AC_PIERCE)/10; break;
@@ -766,7 +761,8 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 	if (victim_ac < -15)
 		victim_ac = (victim_ac + 15) / 5 - 15;
 
-	if (get_skill(victim, gsn_armor_use) > 70) {
+	if ((sk2 = get_skill(victim, gsn_armor_use))
+	||  number_percent() > sk2 * 7 / 10) {
 		check_improve(victim, gsn_armor_use, TRUE, 8);
 		victim_ac -= (victim->level) / 2;
 	}
