@@ -1,5 +1,5 @@
 #
-# $Id: mprogs.txt,v 1.20 2003-05-01 07:38:30 fjoe Exp $
+# $Id: mprogs.txt,v 1.21 2003-07-21 19:10:15 fjoe Exp $
 #
 
 MPC code style
@@ -91,7 +91,7 @@ class room {
 	int vnum;		// vnum
 };
 
-Properties are read-only by default. 'multable' properties can be changed.
+Properties are read-only by default. 'mutable' properties can be changed.
 Properties are accessed using '->' operator:
 
 char owner;
