@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.152 1999-05-20 05:04:25 kostik Exp $
+ * $Id: spellfun.c,v 1.153 1999-05-20 06:55:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4322,7 +4322,8 @@ void spell_summon(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		if (victim->pIndexData->pShop != NULL
 		||  saves_spell(level, victim, DAM_OTHER)
 		||  IS_SET(victim->pIndexData->act, ACT_AGGRESSIVE)
-		||  IS_SET(ch->in_room->room_flags, ROOM_NOMOB))
+		||  IS_SET(ch->in_room->room_flags, ROOM_NOMOB)
+		||  victim->hunter)
 			failed = TRUE;
 	}
 	else {

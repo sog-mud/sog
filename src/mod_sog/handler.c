@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.141 1999-05-20 01:39:25 avn Exp $
+ * $Id: handler.c,v 1.142 1999-05-20 06:55:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3021,8 +3021,11 @@ bool can_gate(CHAR_DATA *ch, CHAR_DATA *victim)
 	||  IS_SET(victim->imm_flags, IMM_SUMMON))
 		return FALSE;
 
-	if (IS_NPC(victim))
+	if (IS_NPC(victim)) {
+		if (victim->hunter)
+			return FALSE;
 		return TRUE;
+	}
 
 	if (((!in_PK(ch, victim) ||
 	      ch->in_room->area != victim->in_room->area) &&

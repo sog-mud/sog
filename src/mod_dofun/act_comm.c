@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.164 1999-05-19 15:00:31 kostik Exp $
+ * $Id: act_comm.c,v 1.165 1999-05-20 06:55:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -550,23 +550,29 @@ void yell(CHAR_DATA *victim, CHAR_DATA* ch, const char* argument)
 	char buf[MAX_INPUT_LENGTH];
 
 	if (IS_NPC(victim)
-	|| victim->in_room == NULL
-	|| victim->position <= POS_SLEEPING
-	|| IS_EXTRACTED(victim)
-	|| IS_SET(victim->plr_flags, PLR_GHOST))
+	||  victim->in_room == NULL
+	||  victim->position <= POS_SLEEPING
+	||  IS_EXTRACTED(victim)
+	||  IS_SET(victim->plr_flags, PLR_GHOST))
 		return;
+
 	snprintf(buf, sizeof(buf), argument, PERS(ch, victim));
 	act_puts("You yell '{M$t{x'",
 		victim, buf, NULL, TO_CHAR | ACT_NODEAF, POS_DEAD);
+
 	for (d = descriptor_list; d; d = d->next) {
+		CHAR_DATA *vch = d->character;
+
 		if (d->connected == CON_PLAYING
-		&& d->character != victim
-		&& d->character->in_room != NULL
-		&& d->character->in_room->area == ch->in_room->area)
+		&&  vch != victim
+		&&  vch->in_room != NULL
+		&&  vch->in_room->area == victim->in_room->area) {
+			snprintf(buf, sizeof(buf), argument, PERS(ch, vch));
 			act_puts("$n yells in panic '{M$t{x'", 
 			victim, buf, d->character, 
 			TO_VICT | ACT_STRANS | ACT_NODEAF,
 			POS_RESTING);
+		}
 	}
 }
 
