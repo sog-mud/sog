@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.93 1998-12-16 10:21:35 fjoe Exp $
+ * $Id: spellfun.c,v 1.94 1998-12-16 11:02:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -192,39 +192,36 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		break;
 
 	case TAR_CHAR_OFFENSIVE:
-		if (target_name[0] == '\0'
-		&&  (victim = ch->fighting) == NULL) {
-			char_puts("Cast the spell on whom?\n", ch);
-			return;
-		}
-
-		if ((range = allowed_other(ch, sn)) > 0) {
-			if (!(victim = get_char_spell(ch, target_name,
-						      &door, range)))
+		if (target_name[0] == '\0') {
+			if ((victim = ch->fighting) == NULL) {
+				char_puts("Cast the spell on whom?\n", ch);
 				return;
-
-			if (IS_NPC(victim)
-			&&  victim->in_room != ch->in_room) {
-				if (room_is_private(ch->in_room)) {
-					char_puts("You can't cast this spell "
-						  "from private room "
-						  "right now.\n", ch);
-					return;
-				}
-
-				if (IS_SET(victim->act, ACT_NOTRACK)) {
-					act_puts("You can't cast this spell to "
-						 "$N at this distance.",
-						 ch, NULL, victim, TO_CHAR,
-						 POS_DEAD);
-					return;
-				}
 			}
-			cast_far = TRUE;
 		}
-		else if (!(victim = get_char_room(ch, target_name))) {
-			char_puts("They aren't here.\n", ch);
-			return;
+		else {
+			if ((range = allowed_other(ch, sn)) > 0) {
+				if (!(victim = get_char_spell(ch, target_name,
+							      &door, range)))
+					return;
+
+				if (IS_NPC(victim)
+				&&  victim->in_room != ch->in_room) {
+					if (room_is_private(ch->in_room)) {
+						char_puts("You can't cast this spell from private room right now.\n", ch);
+						return;
+					}
+
+					if (IS_SET(victim->act, ACT_NOTRACK)) {
+						act_puts("You can't cast this spell to $N at this distance.", ch, NULL, victim, TO_CHAR, POS_DEAD);
+						return;
+					}
+				}
+				cast_far = TRUE;
+			}
+			else if (!(victim = get_char_room(ch, target_name))) {
+				char_puts("They aren't here.\n", ch);
+				return;
+			}
 		}
 
 		vo = (void *) victim;
@@ -286,7 +283,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 			}
 			target = TARGET_CHAR;
 		}
-		else if ((victim = get_char_room(ch,target_name)))
+		else if ((victim = get_char_room(ch, target_name)))
 			target = TARGET_CHAR;
 
 		if (target == TARGET_CHAR) {
