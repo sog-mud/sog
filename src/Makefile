@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.87 2003-09-08 16:27:07 fjoe Exp $
+# $Id: Makefile,v 1.88 2004-01-27 22:52:21 fjoe Exp $
 #
 
 .include "${.CURDIR}/Makefile.modules"
@@ -25,6 +25,12 @@ ctags:
 
 gtags:
 	gtags -co .
+
+exctags:
+	exctags -RB \
+		--regex-c='/^(DO_FUN|SPELL_FUN)\(([a-z_]+)/\2/' \
+		--c-types=-p \
+		--regex-c='/^DECLARE_(DO_FUN|SPELL_FUN)\(([a-z_]+)/\2/p,regex/'
 
 CHECKTRANS_FILES!=	ls mod_*/*.c sog/*.c ../mpc/*.mpc |\
 	egrep -v '^sog/tables.c$$|^mod_sog/info.c$$|/_depend.c$$' |\
