@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.22 1998-12-03 14:08:23 fjoe Exp $
+ * $Id: olc_obj.c,v 1.23 1998-12-07 08:06:47 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -603,7 +603,7 @@ bool objed_values(CHAR_DATA *ch, const char *argument, int value)
 	EDIT_OBJ(ch, pObj);
 
 	output = buf_new(-1);
-	if (argument[0]
+	if (argument[0] == '\0'
 	||  (errcode = set_obj_values(output, pObj, argument, value)) < 2)
 		show_obj_values(output, pObj);
 	page_to_char(buf_string(output), ch);
