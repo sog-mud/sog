@@ -1,5 +1,5 @@
 /*
- * $Id: olc_help.c,v 1.12 1998-09-16 09:50:59 fjoe Exp $
+ * $Id: olc_help.c,v 1.13 1998-09-17 05:49:22 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -49,7 +49,7 @@ OLC_FUN(hedit_create)
 		return FALSE;
 	}
 
-	one_argument(argument, arg);
+	first_arg(argument, arg, FALSE);
 	if (arg[0] == '\0') {
 		do_help(ch, "'OLC CREATE'");
 		return FALSE;
