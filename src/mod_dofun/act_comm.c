@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.41 1998-06-12 14:25:57 fjoe Exp $
+ * $Id: act_comm.c,v 1.42 1998-06-13 18:45:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1499,64 +1499,55 @@ void do_group(CHAR_DATA *ch, char *argument)
 
 	one_argument(argument, arg);
 
-	if (arg[0] == '\0')
-	{
-	CHAR_DATA *gch;
-	CHAR_DATA *leader;
+	if (arg[0] == '\0') {
+		CHAR_DATA *gch;
+		CHAR_DATA *leader;
 
-	leader = (ch->leader != NULL) ? ch->leader : ch;
-	char_printf(ch, "%s's group:\n\r", PERS(leader, ch));
+		leader = (ch->leader != NULL) ? ch->leader : ch;
+		char_printf(ch, "%s's group:\n\r", PERS(leader, ch));
 
-	for (gch = char_list; gch != NULL; gch = gch->next) {
-		if (is_same_group(gch, ch))
-		  char_printf(ch,
-		  "[%2d %s] %-16s %d/%d hp %d/%d mana %d/%d mv   %5d xp\n\r",
-		    gch->level,
+		for (gch = char_list; gch != NULL; gch = gch->next) {
+			if (is_same_group(gch, ch))
+				char_printf(ch, "[%2d %s] %-16s %d/%d hp %d/%d mana %d/%d mv   %5d xp\n\r",
+					    gch->level,
 		    IS_NPC(gch) ? "Mob" : class_table[gch->class].who_name,
 		    capitalize(PERS(gch, ch)),
 		    gch->hit,   gch->max_hit,
 		    gch->mana,  gch->max_mana,
 		    gch->move,  gch->max_move,
 		    gch->exp);
-	}
-	return;
-	}
-
-	if ((victim = get_char_room(ch, arg)) == NULL)
-	{
-	send_to_char("They aren't here.\n\r", ch);
-	return;
+		}
+		return;
 	}
 
-	if (ch->master != NULL || (ch->leader != NULL && ch->leader != ch))
-	{
-	send_to_char("But you are following someone else!\n\r", ch);
-	return;
+	if ((victim = get_char_room(ch, arg)) == NULL) {
+		send_to_char("They aren't here.\n\r", ch);
+		return;
 	}
 
-	if (victim->master != ch && ch != victim)
-	{
-	act("$N isn't following you.", ch, NULL, victim, TO_CHAR);
-	return;
+	if (ch->master != NULL || (ch->leader != NULL && ch->leader != ch)) {
+		send_to_char("But you are following someone else!\n\r", ch);
+		return;
+	}
+
+	if (victim->master != ch && ch != victim) {
+		act("$N isn't following you.", ch, NULL, victim, TO_CHAR);
+		return;
 	}
 	
-	if (IS_AFFECTED(victim,AFF_CHARM))
-	{
+	if (IS_AFFECTED(victim, AFF_CHARM)) {
 		send_to_char("You can't remove charmed mobs from your group.\n\r",ch);
 		return;
 	}
 	
-	if (IS_AFFECTED(ch,AFF_CHARM))
-	{
+	if (IS_AFFECTED(ch,AFF_CHARM)) {
 		act("You like your master too much to leave $m!",ch,NULL,victim,TO_VICT);
 		return;
 	}
 
 
-	if (is_same_group(victim, ch) && ch != victim)
-	{
-		 if (ch->guarding == victim || victim->guarded_by == ch)
-		{
+	if (is_same_group(victim, ch) && ch != victim) {
+		if (ch->guarding == victim || victim->guarded_by == ch) {
 		  act("You stop guarding $N.", ch, NULL, victim, TO_CHAR);
 		  act("$n stops guarding you.", ch, NULL, victim, TO_VICT);
 		  act("$n stops guarding $N.", ch, NULL, victim, TO_NOTVICT);
@@ -1564,7 +1555,7 @@ void do_group(CHAR_DATA *ch, char *argument)
 		  ch->guarding       = NULL;
 		}
 
-		 victim->leader = NULL;
+		victim->leader = NULL;
 act_puts("$n removes $N from $s group.",   ch, NULL, victim, 
 		TO_NOTVICT,POS_SLEEPING);
 act_puts("$n removes you from $s group.",  ch, NULL, victim, 
@@ -1572,21 +1563,18 @@ act_puts("$n removes you from $s group.",  ch, NULL, victim,
 act_puts("You remove $N from your group.", ch, NULL, victim, 
 		TO_CHAR,POS_SLEEPING);
 
-		 if (victim->guarded_by != NULL &&
-		  !is_same_group(victim,victim->guarded_by))
-		{
+		if (victim->guarded_by != NULL
+		&&  !is_same_group(victim,victim->guarded_by)) {
 		  act("You stop guarding $N.",victim->guarded_by,NULL,victim,TO_CHAR);
 		  act("$n stops guarding you.",victim->guarded_by,NULL,victim,TO_VICT);
 		  act("$n stops guarding $N.",victim->guarded_by,NULL,victim,TO_NOTVICT);
 		  victim->guarded_by->guarding = NULL;
 		  victim->guarded_by           = NULL;
 		}
-		 return;
+		return;
 	}
 
-	if (ch->level - victim->level < -8
-		 ||   ch->level - victim->level > 8)
-	{
+	if (ch->level - victim->level < -8 || ch->level - victim->level > 8) {
 act_puts("$N cannot join $n's group.",     ch, NULL, victim, 
 		TO_NOTVICT,POS_SLEEPING);
 act_puts("You cannot join $n's group.",    ch, NULL, victim, 
@@ -1596,22 +1584,20 @@ act_puts("$N cannot join your group.",     ch, NULL, victim,
 		 return;
 	}
 
-	if (IS_GOOD(ch) && IS_EVIL(victim))
-	{
-act_puts("You are too evil for $n's group.", ch, NULL, victim, 
-	TO_VICT,POS_SLEEPING);
-act_puts("$N is too evil for your group!", ch, NULL, victim, 
-	TO_CHAR,POS_SLEEPING);
-		 return;
+	if (IS_GOOD(ch) && IS_EVIL(victim)) {
+		act_puts("You are too evil for $n's group.", ch, NULL, victim, 
+			 TO_VICT, POS_SLEEPING);
+		act_puts("$N is too evil for your group!", ch, NULL, victim, 
+			 TO_CHAR, POS_SLEEPING);
+		return;
 	}
 
-	if (IS_GOOD(victim) && IS_EVIL(ch))
-	{
-act_puts("You are too pure to join $n's group!", ch, NULL, victim, 
-	TO_VICT,POS_SLEEPING);
-act_puts("$N is too pure for your group!", ch, NULL, victim, 
-	TO_CHAR,POS_SLEEPING);
-		 return;
+	if (IS_GOOD(victim) && IS_EVIL(ch)) {
+		act_puts("You are too pure to join $n's group!", ch, NULL,
+			 victim, TO_VICT, POS_SLEEPING);
+		act_puts("$N is too pure for your group!", ch, NULL, victim, 
+			 TO_CHAR,POS_SLEEPING);
+		return;
 	}
 
 	if ((ch->clan == CLAN_RULER  && victim->clan == CLAN_CHAOS) ||
@@ -1619,25 +1605,22 @@ act_puts("$N is too pure for your group!", ch, NULL, victim,
 	(ch->clan == CLAN_KNIGHT  && victim->clan == CLAN_INVADER) ||
 	(ch->clan == CLAN_INVADER  && victim->clan == CLAN_KNIGHT) ||
 	(ch->clan == CLAN_SHALAFI  && victim->clan == CLAN_BATTLE) ||
-	(ch->clan == CLAN_BATTLE  && victim->clan == CLAN_SHALAFI))
-	{
-act_puts("You hate $n's clan, how can you join $n's group?!", ch,
-		NULL, victim,TO_VICT,POS_SLEEPING);
-act_puts("You hate $N's clan, how can you want $N to join your group?!",
+	(ch->clan == CLAN_BATTLE  && victim->clan == CLAN_SHALAFI)) {
+		act_puts("You hate $n's clan, how can you join $n's group?!",
+			 ch, NULL, victim,TO_VICT,POS_SLEEPING);
+		act_puts("You hate $N's clan, how can you want $N to join your group?!",
 		ch, NULL, victim, TO_CHAR,POS_SLEEPING);
-		 return;
+		return;
 	}
 
 
 	victim->leader = ch;
-act_puts("$N joins $n's group.", ch, NULL, victim,TO_NOTVICT,
-	POS_SLEEPING);
-act_puts("You join $n's group.", ch, NULL, victim,TO_VICT,
-	POS_SLEEPING);
-act_puts("$N joins your group.", ch, NULL, victim, TO_CHAR,
-	POS_SLEEPING);
-	return;
-
+	act_puts("$N joins $n's group.", ch, NULL, victim,TO_NOTVICT,
+		 POS_SLEEPING);
+	act_puts("You join $n's group.", ch, NULL, victim,TO_VICT,
+		 POS_SLEEPING);
+	act_puts("$N joins your group.", ch, NULL, victim, TO_CHAR,
+		 POS_SLEEPING);
 }
 
 
@@ -1804,10 +1787,10 @@ void do_gtell(CHAR_DATA *ch, char *argument)
  * (2) if A ~ B then B ~ A
  * (3) if A ~ B  and B ~ C, then A ~ C
  */
-bool is_same_group_old(CHAR_DATA *ach, CHAR_DATA *bch)
+bool is_same_group(CHAR_DATA *ach, CHAR_DATA *bch)
 {
 	if (ach == NULL || bch == NULL)
-	return FALSE;
+		return FALSE;
 
 	if (ach->leader != NULL) ach = ach->leader;
 	if (bch->leader != NULL) bch = bch->leader;
@@ -1815,10 +1798,11 @@ bool is_same_group_old(CHAR_DATA *ach, CHAR_DATA *bch)
 }
 
 
+#ifdef 0
 /*
  * New is_same_group by chronos
  */
-bool is_same_group(CHAR_DATA *ach, CHAR_DATA *bch)
+bool is_same_group_new(CHAR_DATA *ach, CHAR_DATA *bch)
 {
 	CHAR_DATA *ch, *vch;
 
@@ -1829,6 +1813,7 @@ bool is_same_group(CHAR_DATA *ach, CHAR_DATA *bch)
 
 	return FALSE;
 }
+#endif
 
 
 void do_cb(CHAR_DATA *ch, char *argument)
