@@ -584,6 +584,7 @@ ABTVe H 900 0
 CEIK AB CD 0
 stand stand male 25000
 0 0 medium unknown
+M greet 3024 1~
 #5339
 armourer armorer~
 the armourer~
@@ -599,6 +600,7 @@ ABVe 0 900 0
 CEFJKN AB CD 0
 stand stand male 25000
 0 0 medium unknown
+M greet 3024 1~
 #5340
 jeweller~
 the jeweller~

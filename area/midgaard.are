@@ -70,6 +70,7 @@ ABTVe HN 900 0
 CEIK AB CD 0
 stand stand male 25000
 0 0 medium unknown
+M greet 3024 1~
 #3004
 armourer armorer~
 the armourer~
@@ -456,6 +457,7 @@ AGH 0 900 0
 NU 0 0 C
 stand stand either 10
 0 0 medium unknown
+M random 3026 10~
 #3062
 fido dog~
 the beastly fido~
@@ -514,6 +516,7 @@ AB 0 0 0
 FJNU 0 0 C
 stand stand female 0
 0 0 medium unknown
+M greet 3025 100~
 #3066
 cat~
 an alley cat~
@@ -8196,12 +8199,13 @@ endif
 if isimmort $n
 break
 endif
-if isvisible $n
 smile
 say Welcome to my Armoury!
 say What can I interest you in?
 say I have the finest armor in my store!
 , beams with pride.
+if rand 1
+mob call 3024
 endif
 ~
 #3022
@@ -8220,6 +8224,33 @@ endif
 #3023
 if isvisible $n
 say Would you like to buy a nice love potion?
+endif
+~
+#3024
+if isvisible $n
+say Now it's time to repair the equipment
+endif
+~
+#3025
+' Beg $n! Spare some gold?
+~
+#3026
+grumble
+' Litterbugs.
+if rand 80
+end
+endif
+' I do not get paid enough
+if rand 20
+' All I do each day is cleanup other people's messes.
+else
+if rand 80
+end
+endif
+' Day in, day out. This is all I do in 24 hours a day.
+if rand 10
+yell I want a vacation!
+endif
 endif
 ~
 #0

@@ -286,6 +286,7 @@ EFNU 0 0 0
 stand stand male 505
 0 0 tiny unknown
 F par GHIJK
+M greet 3024 1~
 #9518
 oldstyle cassandra~
 Cassandra~

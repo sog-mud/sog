@@ -29,7 +29,7 @@ M speech 15001 shadow~
 M speech 15002 demon~
 #15001
 prisoner~
-@eng The prisoner@rus Узник~
+@eng the prisoner@rus узник~
 @eng Another prisoner is here.
 @rus Другой узник сидит с тобой и не дает тебе скучать...
 ~
@@ -50,14 +50,14 @@ M random 15005 5~
 M bribe 15005 1~
 #15002
 cockroach~
-@eng Cockroach@rus Таракан~
+@eng a cockroach@rus таракан~
 @eng A little cockroach is crawling here.
 @rus Маленький таракан ползает тут.
 ~
 @rus Вполне обычный рыжий таракан.
 ~
 song bird~
-A 0 1000 0
+AZ 0 1000 0
 1 0 1d1+1 0d0+0 1d1+1 bite
 0 0 0 0
 0 B 0 0
@@ -66,7 +66,7 @@ stand stand either 0
 F aff T
 #15003
 rat~
-@eng Rat@rus Крыса~
+@eng a rat@rus крыса~
 @eng An evil rat is here.
 @rus Злобная крыса тут, она хочет покусать тебя.
 ~
@@ -150,10 +150,10 @@ drink AGHIOTYZa AOP
 0 0 0 P
 #15005
 fountain~
-@eng Fountain with milk@rus Фонтан с молоком~
+@eng a fountain with milk@rus фонтан с молоком~
 @eng Fountain with milk is here.@rus Тут зачем-то еще и фонтан с молоком.~
 unknown~
-fountain 0 0
+fountain O 0
 0 0 'milk' 0 0
 0 0 0 P
 #15010
@@ -348,7 +348,7 @@ A
 @eng You are in Abrazak's office..  Hmmm...  It's very strange place.  
 @rus Ты попал в офис абразака..... Достаточно странное место... 
 ~
-0 CD forest
+0 0 forest
 D2
 ~
 ~
@@ -385,10 +385,10 @@ S
 M 0 15000 1 15000 1	* Avatar of abrazak (Abrazak's Office)
 M 0 15000 1 15000 1	* Avatar of abrazak (Abrazak's Office)
 O 0 15002 0 15000	* a fountain (Abrazak's Office)
-O 0 15005 0 15002	* Fountain with milk (Cell)
-M 0 15001 1 15002 1	* The prisoner (Cell)
-M 0 15002 1 15002 1	* Cockroach (Cell)
-M 0 15003 1 15002 1	* Rat (Cell)
+O 0 15005 0 15002	* a fountain with milk (Cell)
+M 0 15001 1 15002 1	* the prisoner (Cell)
+M 0 15002 1 15002 1	* a cockroach (Cell)
+M 0 15003 1 15002 1	* a rat (Cell)
 M 0 15010 1 15010 1	* {DDevil{x ({DThe room of Death{x)
 S
 
@@ -408,9 +408,6 @@ S
 if mobexists junkseller
 else
 mob mload 50
-mob vforce 50 mob oload 15000
-mob vforce 50 mob goto 11740
-mob vforce 50 cast 'teleport'
 endif
 mob vforce 50 mob oload 15000
 mob vforce 50 say I'm very sorry but I must go to other places.....
@@ -431,9 +428,11 @@ mob transfer $q 15002
 say Ну вот. так просто ты от меня не избавишься.
 ~
 #15004
+if ispc $n
 say Умер :(
 mob remember $n
 mob delay 1
+endif
 ~
 #15005
 if rand 50

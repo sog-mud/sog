@@ -103,6 +103,7 @@ ABTe CDEFJ -500 0
 EIK ABCDL N K
 stand stand male 200000
 0 0 large unknown
+M greet 3024 1~
 #18007
 shop shopkeeper pet girl~
 the young pet-shop girl~
@@ -171,6 +172,7 @@ ABTe CDEFJ 0 0
 CDEFIKN ABDL N K
 stand stand male 200000
 0 0 large unknown
+M greet 3024 1~
 #18011
 magic library shopkeeper~
 the librarian~

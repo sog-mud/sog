@@ -262,7 +262,7 @@ This mighty dragon wants to sell some junk to you.
 ~
 dragon~
 Ae DEFHNOUVYc 0 0
-150 250 1d1+28000 1d1+1 50d60+100 divine
+150 250 1d1+28000 1d1+25000 50d60+100 divine
 -66 -66 -66 -66
 CDEFHIKNO ABU 0 0
 stand stand male 100000
@@ -1096,6 +1096,86 @@ S
 #SHOPS
 50 0 26 0 0 0 100 100 0 23
 0
+
+#MOBPROGS
+#1
+if affected $n 'sanctuary'
+cast 'dispel magic' $n
+end
+endif
+if rand 25
+if rand 10 
+cast 'plague' $n
+end
+endif
+if rand 11
+cast 'poison' $n
+end 
+endif
+if rand 14
+if affected $n 'blindness'
+else
+cast 'blindness' $n
+end
+endif
+endif
+if rand 16
+if affected 'weaken' $n
+else
+cast 'weaken' $n
+end
+endif
+endif
+if rand 18
+if affected 'slow' $n
+else
+cast 'slow' $n
+endif
+endif
+if rand 18
+if affected 'curse' $n
+else
+cast 'curse' $n
+end
+endif
+endif
+if rand 18
+if affected 'corruption' $n
+else
+cast 'corruption' $n
+end
+endif
+endif
+if rand 18
+if affected 'faerie fire' $n
+else
+cast 'faerie fire' $n
+end
+endif
+endif
+endif
+if rand 25 
+cast 'acid blast' $n
+end
+endif
+if rand 25 
+cast 'fireball' $n
+end
+endif
+if rand 25
+cast 'frost breath' $n
+end
+endif
+if rand 30 
+cast 'heat metal' $n
+end
+endif
+cast 'lightning breath' $n
+~
+#2
+clan yes, sir?
+~
+#0
 
 #OMPROGS
 O 28 wear_prog wear_prog_ranger_staff	* `a ranger staff'

@@ -107,6 +107,38 @@ stand stand male 2147483647
 0 0 medium unknown
 F for AHMV
 F par ABCDEFGHIJK
+#40010
+girl~
+@eng girl@rus маленькая школьница~
+@eng Small girl is here.
+@rus Маленькая испуганая школьница забилась в угол клетки.
+~
+~
+human~
+ABGH 0 1000 0
+1 0 1d1+100 0d0+0 0d0+0 pound
+-10 -10 -10 -10
+0 AB 0 0
+stand stand female 0
+0 0 small unknown
+F for HMV
+F par EFHJ
+#40011
+boy~
+@eng boy@rus упитаный подросток~
+@eng Small boy is here.
+@rus Довольно упитаный подросток спит в клетке.
+~
+~
+human~
+ABGH 0 0 0
+1 0 1d1+100 0d0+0 0d0+0 pound
+0 0 0 0
+0 AB 0 0
+stand stand male 0
+0 0 small unknown
+F for HMV
+F par FHJ
 #0
 
 #OBJECTS
@@ -139,6 +171,11 @@ trash EY AP
 #ROOMS
 #40000
 @eng {DGrave{x@rus {DМогила{x~
+@eng {DYou found yourself in a place that casts a feeling of horror and freezes
+your blood even by its name. The smell of rot stroke you and strange
+shadows surrounded you. You feel Her Magesty Death touched your soul
+with her glacial fingers. Before it's too late, think of escaping from here
+and forgetting this road forever!
 @rus {DТы очутился в месте которое одним только названием навевает  на тебя
 ужас и леденит кровь.  В нос  тебе  ударил запах гнили,  странные тени
 окружили тебя.  Ты чувствуешь  как ее величество  смерть  прикоснулась
@@ -157,6 +194,10 @@ Z 0 40001
 S
 #40001
 @eng {DDirty vault{x@rus {DГрязное подземелье{x~
+@eng {DProbably you haven't made such a mistake before as when you decided
+to come down here. Some slime drips down the walls. Piles of decomposed
+bodies around. Apparently they were as stupid as you to come here.
+Aha! Here are the butchers! This day is obviously unfortunate for you.{x
 @rus {DСкорее всего, большей ошибки в своей жизни ты не совершал, чем решив
 спуститься сюда. Со стен капает какая-то слизь. Горы разложившихся тел
 по  всюду. Видимо  все они были на столько же глупы как ты, что пришли
@@ -174,6 +215,11 @@ Z 0 40000
 S
 #40002
 @eng {DDark cave{x@rus {DТемная пещера{x~
+@eng {DYou entered the cave which is an accumulation of all kinds of evil spirits.
+Dark mages make their horrible orgies exactly here. The air is literally
+saturated with sorcery. Bloody, half-eaten bodies are lying around -
+the remains of a recent feast. Strange creatures are constantly appearing and
+disappearing in the air whose names are the same - {REVIL SPIRITS!{x
 @rus {DТы попал в пещеру, являющуюся  скоплением  всевозможной нечисти. Именно
 здесь темные маги устраивают свои жуткие оргии. Воздух буквально пропитан
 колдовством. Кругом валяются окровавленные, полуобъеденные тела - остатки
@@ -181,6 +227,10 @@ S
 существа имя которым может быть только одно - {RНЕЧИСТЬ!{x
 ~
 0 AN inside
+D0
+~
+~
+Z 0 40004
 D2
 ~
 ~
@@ -192,7 +242,12 @@ Z 0 40003
 S
 #40003
 @eng {DUnholy treasury{x @rus {DТемная сокровищница{x~
-@eng none
+@eng {DHaving found yourself in this huge cave you look around with a great
+amazement, unable to look aside the fantastic treasures scattered about
+in disorder. You realize that you got into the legendary underground
+treasury of dark mages - and the awful horror seizes you as you remember
+that no man who saw these treasures returned back to tell about them!
+Fearful tales are afloat about the curse of this cave...{x
 @rus {DОчутившись в этой огромной пещере, ты с изумлением оглядываешься по сторонам,
 не в силах оторвать взгляд  от сказочных  богатств,  в  беспорядке разбросанных 
 вокруг тебя.  Ты понимаешь,  что попал  в  легендарную  подземную  сокровищницу 
@@ -207,15 +262,22 @@ D4
 Z 0 40002
 S
 #40004
-@eng Temple of Ancient Chaos@rus Храм древнего хаоса~
+@eng {DVampires Lair{x@rus {DЛогово вампиров{x~
 @eng null
-@rus Ты находишься в необьятном зале, заполненном мельчайшими обломками прекрасных 
-миров. В центре зала бушуют две изначальные стихии, принявшие человеческий 
-облик
-- Созидание и Разрушение. Создавая миры из звездной пыли, и обращая их в прах, 
-они дают начало жизни в самом устойчивом ее проявлении - Хаосу.   
+@rus {DГде-то далеко, за толстыми стенами, в цветные витражи окон яростно бьется 
+солнечный свет. Но запутавшись в густых переплетах рам и обессилев в
+в тщетной борьбе, он устало склоняется перед тьмой, гнездящейся в высоких
+арках потолка, и в зале царит полумрак.
+Стены увешанные дорогим оружием, и полки с гнущиеся под грузом древних
+фолиантов внушают глубокое почтение любому посетителю.
+Гобелены на стенах заставят краснеть даже сатиров,и несколько двусмысленна
+маленькая золоченая клетка, с сидящими в ней детишками.. ДЛЯ ЧЕГО они здесь?!{x
 ~
-0 CN inside
+0 AN inside
+D2
+~
+~
+Z 0 40002
 S
 #0
 
@@ -235,6 +297,8 @@ O 0 40001 0 40002	* unholy altar ({DDark cave{x)
 M 0 40007 1 40003 1	* Tanatos ({DUnholy treasury{x )
 G 0 40010 0		*	{rpuddle of blood{x
 M 0 40004 1 40003 1	* Blackman ({DUnholy treasury{x )
+M 0 40010 1 40004 1	* girl ({DVampires Lair{x)
+M 0 40011 1 40004 1	* boy ({DVampires Lair{x)
 S
 
 #SHOPS

@@ -10,8 +10,8 @@ End
 #MOBILES
 #45000
 healer~
-@eng Chaos'es Sight@rus Взор Хаоса~
-@eng Chaos'es Sight
+@eng Sight of Chaos@rus Взор Хаоса~
+@eng Sight of Chaos.
 @rus Безразмерные красные глаза смотрят на тебя из темноты.
 ~
 @eng null
@@ -26,6 +26,7 @@ stand stand none 0
 0 0 medium unknown
 F for AHMV
 F par ABCDEFGHIJK
+C Entropy~
 #45001
 Creation~
 @eng Creation@rus Созидатель~
@@ -194,7 +195,7 @@ S
 
 #RESETS
 M 0 45005 1 45002 1	* Entrophy (Rest of the Chaos.)
-M 0 45000 1 45003 1	* Chaos'es Sight (Undimensional Chaos.)
+M 0 45000 1 45003 1	* Sight of Chaos (Undimensional Chaos.)
 M 0 45001 1 45004 1	* Creation (Temple of Ancient Chaos)
 M 0 45002 1 45004 1	* Destruction (Temple of Ancient Chaos)
 S
