@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.154 1999-06-10 22:29:50 fjoe Exp $
+ * $Id: db.c,v 1.155 1999-06-10 23:39:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -174,6 +174,7 @@ AREA_DATA *		area_first;
 AREA_DATA *		area_last;
 
 int			top_affect;
+int			top_raffect;
 int			top_area;
 int			top_ed;
 int			top_exit;
@@ -1766,6 +1767,7 @@ void do_memory(CHAR_DATA *ch, const char *argument)
 	extern int str_real_count;
 
 	char_printf(ch, "Affects  : %d\n", top_affect );
+	char_printf(ch, "RAffects : %d\n", top_raffect );
 	char_printf(ch, "Areas    : %d\n", top_area   );
 	char_printf(ch, "ExDes    : %d\n", top_ed     );
 	char_printf(ch, "Exits    : %d\n", top_exit   );

@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.50 1999-06-10 22:29:52 fjoe Exp $
+ * $Id: db_area.c,v 1.51 1999-06-10 23:39:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -137,8 +137,6 @@ DBLOAD_FUN(load_area)
 	area_last	= pArea;
 	pArea->next	= NULL;
 	area_current	= pArea;
-
-	top_area++;
 }
 
 /* OLC
@@ -159,6 +157,7 @@ DBLOAD_FUN(load_areadata)
 
 	pArea			= new_area();
 	pArea->age		= 15;
+	pArea->empty		= FALSE;
 	free_string(pArea->file_name);
 	pArea->file_name	= get_filename(filename);
 	pArea->security		= 9;                    /* 9 -- Hugin */
@@ -185,7 +184,6 @@ DBLOAD_FUN(load_areadata)
 				area_last	= pArea;
 				pArea->next	= NULL;
 				area_current	= pArea;
-				top_area++;
 				return;
 			}
 			break;
@@ -380,7 +378,6 @@ DBLOAD_FUN(load_old_mob)
 		iHash			= vnum % MAX_KEY_HASH;
 		pMobIndex->next		= mob_index_hash[iHash];
 		mob_index_hash[iHash]	= pMobIndex;
-		top_mob_index++;
 							/* OLC */
 		top_vnum_mob = top_vnum_mob < vnum ? vnum : top_vnum_mob;
 		vnum_check(area_current, vnum);			/* OLC */
@@ -517,7 +514,6 @@ DBLOAD_FUN(load_old_obj)
 				paf->bitvector	= 0;
 				SLIST_ADD(AFFECT_DATA,
 					  pObjIndex->affected, paf);
-				top_affect++;
 			}
 
 			else if (letter == 'E') 
@@ -556,8 +552,6 @@ DBLOAD_FUN(load_old_obj)
 		iHash			= vnum % MAX_KEY_HASH;
 		pObjIndex->next		= obj_index_hash[iHash];
 		obj_index_hash[iHash]	= pObjIndex;
-		top_obj_index++;
-								/* OLC */
 		top_vnum_obj = top_vnum_obj < vnum ? vnum : top_vnum_obj;
 		vnum_check(area_current, vnum);			/* OLC */
 	}
@@ -894,7 +888,6 @@ DBLOAD_FUN(load_rooms)
 				}
 	
 				pRoomIndex->exit[door] = pexit;
-				top_exit++;
 			}
 			else if (letter == 'E') 
 				ed_fread(fp, &pRoomIndex->ed);
@@ -926,8 +919,6 @@ DBLOAD_FUN(load_rooms)
 		iHash			= vnum % MAX_KEY_HASH;
 		pRoomIndex->next	= room_index_hash[iHash];
 		room_index_hash[iHash]	= pRoomIndex;
-		top_room++;
-								/* OLC */
 		top_vnum_room = top_vnum_room < vnum ? vnum : top_vnum_room;
 		vnum_check(area_current, vnum);			/* OLC */
 	}
@@ -965,10 +956,7 @@ DBLOAD_FUN(load_shops)
 
 		shop_last	= pShop;
 		pShop->next	= NULL;
-		top_shop++;
 	}
-
-	return;
 }
 
 /*
@@ -1284,7 +1272,6 @@ DBLOAD_FUN(load_mobiles)
         iHash                   = vnum % MAX_KEY_HASH;
         pMobIndex->next         = mob_index_hash[iHash];
         mob_index_hash[iHash]   = pMobIndex;
-        top_mob_index++;
         top_vnum_mob = top_vnum_mob < vnum ? vnum : top_vnum_mob;  /* OLC */
         vnum_check(area_current, vnum);                            /* OLC */
     }
@@ -1430,7 +1417,6 @@ DBLOAD_FUN(load_objects)
                 paf->modifier           = fread_number(fp);
                 paf->bitvector          = 0;
 		SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);
-                top_affect++;
             } else if (letter == 'C') {
 		if (pObjIndex->clan) {
 		    db_error("load_objects", "duplicate clan.");
@@ -1450,7 +1436,6 @@ DBLOAD_FUN(load_objects)
                 paf->modifier = fread_number(fp);
                 paf->bitvector = fread_flags(fp);
 		SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);
-                top_affect++;
 	    } else if (letter == 'F') {
                 AFFECT_DATA *paf;
  
@@ -1486,7 +1471,6 @@ DBLOAD_FUN(load_objects)
                 paf->modifier           = fread_number(fp);
                 paf->bitvector          = fread_flags(fp);
 		SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);
-                top_affect++;
             }
  
             else if (letter == 'E')
@@ -1501,7 +1485,6 @@ DBLOAD_FUN(load_objects)
         iHash                   = vnum % MAX_KEY_HASH;
         pObjIndex->next         = obj_index_hash[iHash];
         obj_index_hash[iHash]   = pObjIndex;
-        top_obj_index++;
         top_vnum_obj = top_vnum_obj < vnum ? vnum : top_vnum_obj; /* OLC */
         vnum_check(area_current, vnum);				  /* OLC */
 

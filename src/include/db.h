@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.h,v 1.44 1999-06-10 18:19:05 fjoe Exp $
+ * $Id: db.h,v 1.45 1999-06-10 23:39:53 fjoe Exp $
  */
 
 #ifndef _DB_H_
@@ -189,6 +189,7 @@ extern int		top_vnum_mob;
 extern int		top_vnum_obj;
 extern int		top_vnum_room;
 extern int  		top_affect;
+extern int		top_raffect;
 extern int		top_ed; 
 extern int		top_area;
 extern int		top_exit;
