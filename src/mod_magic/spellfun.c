@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.181.2.5 2000-04-17 10:58:21 fjoe Exp $
+ * $Id: spellfun.c,v 1.181.2.6 2000-04-19 10:59:18 osya Exp $
  */
 
 /***************************************************************************
@@ -430,19 +430,19 @@ void spell_cancellation(int sn, int level, CHAR_DATA *ch, void *vo)
 	if (check_dispel(level,victim,sn_lookup("pass door")))
 		found = TRUE;
 
-	if (check_dispel(level,victim,sn_lookup("protection evil")))
+	if (check_dispel(level, victim,sn_lookup("protection evil")))
 		found = TRUE;
 
-	if (check_dispel(level,victim,sn_lookup("protection good")))
+	if (check_dispel(level, victim, sn_lookup("protection good")))
 		found = TRUE;
 
-	if (check_dispel(level,victim,sn_lookup("sanctuary"))) {
+	if (check_dispel(level, victim, sn_lookup("sanctuary"))) {
 		act("The white aura around $n's body vanishes.",
 		    victim,NULL,NULL,TO_ROOM);
 		found = TRUE;
 	}
 
-	if (check_dispel(level, victim, gsn_black_shroud)) {
+	if (check_dispel(level, victim, sn_lookup("black shroud"))) {
 		act("The black aura around $n's body vanishes.",
 		    victim, NULL, NULL, TO_ROOM);
 		found = TRUE;
@@ -3474,13 +3474,26 @@ void spell_sanctuary(int sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	if (is_affected(victim, gsn_black_shroud)) {
+	if (IS_AFFECTED(victim, AFF_BLACK_SHROUD)) {
 		if (victim == ch)
-	 		char_puts("But you are surrounded by black shroud.\n",
-				  ch);
+	 		act_puts("But you are surrounded by black shroud.",
+				  ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		else
 			act("But $N is surrounded by black shroud.\n",
 			    ch, NULL, victim, TO_CHAR);
+		return;
+	}
+
+	if (IS_EVIL(ch)) {
+		act_puts("The gods are infuriated!", ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		damage(ch, ch, dice(level, IS_EVIL(ch) ? 2 : 1),
+			TYPE_HIT, DAM_HOLY, TRUE);
+		return;
+	}
+
+	if (IS_EVIL(victim)) {
+		act("Your god does not seems to like $N",
+			ch, NULL, victim, TO_CHAR);
 		return;
 	}
 
@@ -3522,7 +3535,7 @@ void spell_black_shroud(int sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	if (is_affected(victim, sn)) {
+	if (IS_AFFECTED(victim, AFF_BLACK_SHROUD)) {
 		if (victim == ch)
 			char_puts("You are already protected.\n", ch);
 		else
