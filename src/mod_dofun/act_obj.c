@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.303 2004-02-19 20:43:08 fjoe Exp $
+ * $Id: act_obj.c,v 1.304 2004-06-28 19:21:00 tatyana Exp $
  */
 
 /***************************************************************************
@@ -3849,7 +3849,7 @@ static bool put_obj(CHAR_DATA *ch, OBJ_DATA *container,
 DO_FUN(do_outfit, ch, argument)
 {
 	OBJ_DATA *obj;
-	class_t *cl = class_lookup(ch->class);
+	class_t *cl = class_lookup(ch->ch_class);
 
 	if ((ch->level > 5 && !IS_IMMORTAL(ch))
 	||  IS_NPC(ch) || cl == NULL) {

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.287 2004-06-09 08:24:37 tatyana Exp $
+ * $Id: act_comm.c,v 1.288 2004-06-28 19:20:59 tatyana Exp $
  */
 
 /***************************************************************************
@@ -751,7 +751,7 @@ DO_FUN(do_pose, ch, argument)
 	pose_t *pose;
 
 	if (IS_NPC(ch)
-	||  (cl = class_lookup(ch->class)) == NULL
+	||  (cl = class_lookup(ch->ch_class)) == NULL
 	||  c_isempty(&cl->poses))
 		return;
 
@@ -1324,7 +1324,7 @@ DO_FUN(do_lang, ch, argument)
 	if ((l = lang_lookup(arg)) == NULL) {
 		act_puts("Usage: lang [ ",
 			 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
-		C_FOREACH(l, &langs) {
+		C_FOREACH (lang_t *, l, &langs) {
 			if (IS_SET(l->lang_flags, LANG_HIDDEN))
 				continue;
 			act_puts(" $T$t",			// notrans

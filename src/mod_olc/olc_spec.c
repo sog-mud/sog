@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_spec.c,v 1.23 2003-05-14 20:05:00 fjoe Exp $
+ * $Id: olc_spec.c,v 1.24 2004-06-28 19:21:05 tatyana Exp $
  */
 
 #include "olc.h"
@@ -130,7 +130,7 @@ OLC_FUN(speced_save)
 
 	olc_printf(ch, "Saved specs:");
 
-	C_FOREACH(spec, &specs) {
+	C_FOREACH (spec_t *, spec, &specs) {
 		FILE *fp;
 		const char *filename;
 		spec_skill_t *spec_sk;
@@ -166,7 +166,7 @@ OLC_FUN(speced_save)
 		}
 		fprintf(fp, "End\n");
 
-		C_FOREACH(spec_sk, &spec->spec_skills) {
+		C_FOREACH (spec_skill_t *, spec_sk, &spec->spec_skills) {
 			if (IS_NULLSTR(spec_sk->sn))
 				continue;
 
@@ -238,7 +238,7 @@ OLC_FUN(speced_show)
 		buf_printf(output, BUF_END, "Num   Skill name          Level  Rate    Min    Adept   Max\n");
 		buf_printf(output, BUF_END, "--------------------------------------------------------------\n");
 
-		C_FOREACH(spec_sk, &spec->spec_skills) {
+		C_FOREACH (spec_skill_t *, spec_sk, &spec->spec_skills) {
 			if (IS_NULLSTR(spec_sk->sn))
 				continue;
 

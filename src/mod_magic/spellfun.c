@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.322 2004-06-11 22:00:10 sg Exp $
+ * $Id: spellfun.c,v 1.323 2004-06-28 19:21:02 tatyana Exp $
  */
 
 /***************************************************************************
@@ -3946,7 +3946,7 @@ SPELL_FUN(spell_amnesia, sn, level, ch, vo)
 	if (IS_NPC(victim))
 		return;
 
-	C_FOREACH(pc_sk, &PC(victim)->learned)
+	C_FOREACH (pc_skill_t *, pc_sk, &PC(victim)->learned)
 		pc_sk->percent = UMAX(pc_sk->percent / 2, 1);
 
 	act("You feel your memories slip away.", victim, NULL, NULL, TO_CHAR);

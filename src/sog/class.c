@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.c,v 1.39 2003-09-30 00:31:38 fjoe Exp $
+ * $Id: class.c,v 1.40 2004-06-28 19:21:10 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -122,12 +122,12 @@ guild_ok(CHAR_DATA *ch, ROOM_INDEX_DATA *room)
 	||  IS_IMMORTAL(ch))
 		return TRUE;
 
-	C_FOREACH(cl, &classes) {
+	C_FOREACH (class_t *, cl, &classes) {
 		int *pvnum;
 
-		C_FOREACH(pvnum, &cl->guilds) {
+		C_FOREACH (int *, pvnum, &cl->guilds) {
 			if (room->vnum == *pvnum) {
-				if (IS_CLASS(cl->name, ch->class))
+				if (IS_CLASS(cl->name, ch->ch_class))
 					return TRUE;
 				cn_found = cl->name;
 			}
@@ -152,7 +152,7 @@ class_who_name(CHAR_DATA *ch)
 {
 	class_t *cl;
 
-	if (IS_NPC(ch) || (cl = class_lookup(ch->class)) == NULL)
+	if (IS_NPC(ch) || (cl = class_lookup(ch->ch_class)) == NULL)
 		return "Mob";					// notrans
 	return cl->who_name;
 }
@@ -163,7 +163,7 @@ can_flee(CHAR_DATA *ch)
 	class_t *cl;
 
 	if (ch->level < LEVEL_PK
-	||  (cl = class_lookup(ch->class)) == NULL
+	||  (cl = class_lookup(ch->ch_class)) == NULL
 	||  cl->death_limit < 0)
 		return TRUE;
 

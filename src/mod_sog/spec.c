@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spec.c,v 1.35 2003-09-30 00:31:30 fjoe Exp $
+ * $Id: spec.c,v 1.36 2004-06-28 19:21:08 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -99,7 +99,7 @@ spec_stats(CHAR_DATA *ch, spec_skill_t *spec_sk)
 	else
 		bonus_skills = NULL;
 
-	C_FOREACH(pspn, &PC(ch)->specs) {
+	C_FOREACH (const char **, pspn, &PC(ch)->specs) {
 		spec_t *spec;
 		spec_skill_t *spec_sk2;
 
@@ -169,7 +169,7 @@ update_skills(CHAR_DATA *ch)
 	else
 		bonus_skills = NULL;
 
-	C_FOREACH(pspn, &PC(ch)->specs) {
+	C_FOREACH (const char **, pspn, &PC(ch)->specs) {
 		spec_t *spec = spec_lookup(*pspn);
 		spec_skill_t *spec_sk;
 
@@ -181,7 +181,7 @@ update_skills(CHAR_DATA *ch)
 			continue;
 		}
 
-		C_FOREACH(spec_sk, &spec->spec_skills) {
+		C_FOREACH (spec_skill_t *, spec_sk, &spec->spec_skills) {
 			int percent;
 			int level;
 
@@ -203,7 +203,7 @@ update_skills(CHAR_DATA *ch)
 	if (IS_IMMORTAL(ch))
 		return;
 
-	C_FOREACH(pc_sk, &PC(ch)->learned) {
+	C_FOREACH (pc_skill_t *, pc_sk, &PC(ch)->learned) {
 		spec_skill_t spec_sk;
 
 		spec_sk.sn = pc_sk->sn;
@@ -232,7 +232,7 @@ spec_update(CHAR_DATA *ch)
 {
 	int flags = 0;
 	race_t *r = race_lookup(ch->race);
-	class_t *cl = class_lookup(ch->class);
+	class_t *cl = class_lookup(ch->ch_class);
 	clan_t *clan = clan_lookup(ch->clan);
 	const char **pspn = NULL;
 
@@ -393,7 +393,7 @@ spec_replace(CHAR_DATA *ch, const char *spn_rm, const char *spn_add)
 	&&  pull_spec_trigger(spec, ch, spn_rm, spn_add) > 0)
 		return FALSE;
 
-	C_FOREACH(pspn, &PC(ch)->specs) {
+	C_FOREACH (const char **, pspn, &PC(ch)->specs) {
 		if (!str_cmp(*pspn, spn_rm))
 			continue;
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm.c,v 1.37 2004-02-25 22:29:14 fjoe Exp $
+ * $Id: comm.c,v 1.38 2004-06-28 19:21:07 tatyana Exp $
  */
 
 #include <sys/types.h>
@@ -832,7 +832,7 @@ add_fds(varr *v, fd_set *in_set, int *maxdesc)
 {
 	int *pfd;
 
-	C_FOREACH(pfd, v) {
+	C_FOREACH (int *, pfd, v) {
 		FD_SET(*pfd, in_set);
 		if (*maxdesc < *pfd)
 			*maxdesc = *pfd;
@@ -844,7 +844,7 @@ check_fds(varr *v, fd_set *in_set, int d_type)
 {
 	int *pfd;
 
-	C_FOREACH(pfd, v) {
+	C_FOREACH (int *, pfd, v) {
 		if (FD_ISSET(*pfd, in_set))
 			init_descriptor(*pfd, d_type);
 	}

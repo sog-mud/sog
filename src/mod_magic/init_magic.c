@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_magic.c,v 1.23 2004-03-01 18:35:05 tatyana Exp $
+ * $Id: init_magic.c,v 1.24 2004-06-28 19:21:02 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -41,7 +41,7 @@ MODINIT_FUN(_module_load, m)
 {
 	skill_t *sk;
 
-	C_FOREACH(sk, &skills) {
+	C_FOREACH (skill_t *, sk, &skills) {
 		if (sk->skill_type == ST_SPELL
 		||  sk->skill_type == ST_PRAYER) {
 			sk->fun = dlsym(m->dlh, sk->fun_name);
@@ -59,7 +59,7 @@ MODINIT_FUN(_module_unload, m)
 {
 	skill_t *sk;
 
-	C_FOREACH(sk, &skills) {
+	C_FOREACH (skill_t *, sk, &skills) {
 		if (sk->skill_type == ST_SPELL
 		||  sk->skill_type == ST_PRAYER)
 			sk->fun = NULL;

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.426 2004-05-26 16:28:49 tatyana Exp $
+ * $Id: merc.h,v 1.427 2004-06-28 19:20:58 tatyana Exp $
  */
 
 /***************************************************************************
@@ -139,18 +139,18 @@ enum {
 #define DAM_EVIL	22
 
 /* material damtypes */
-#define DAM_IRON	22
-#define DAM_WOOD	23
-#define DAM_SILVER	24
+#define DAM_IRON	23
+#define DAM_WOOD	24
+#define DAM_SILVER	25
 
 /*
  * special damtypes (used ONLY as defaults for corresponding
  * damtype groups)
  */
-#define DAM_WEAPON	25
-#define DAM_MAGIC	26
+#define DAM_WEAPON	26
+#define DAM_MAGIC	27
 
-#define DAM_NONE	27	/* should be the last */
+#define DAM_NONE	28	/* should be the last */
 
 #define MAX_RESIST	DAM_NONE
 
@@ -1148,6 +1148,7 @@ enum {
 #define EX_CLOSED	(B)
 #define EX_LOCKED	(C)
 #define EX_NOFLEE	(D)
+
 #define EX_PICKPROOF	(F)
 #define EX_NOPASS	(G)
 #define EX_EASY		(H)
@@ -1539,7 +1540,7 @@ struct char_data
 	mlstring		short_descr;
 	mlstring		long_descr;
 	mlstring		description;
-	const char *		class;
+	const char *		ch_class;
 	const char *		race;
 	const char *		clan;
 	int			level;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: avltree.c,v 1.16 2004-02-17 23:17:53 fjoe Exp $
+ * $Id: avltree.c,v 1.17 2004-06-28 19:21:10 tatyana Exp $
  */
 
 #include <assert.h>
@@ -191,7 +191,7 @@ avltree_move_prepare(void *c, varr *v)
 {
 	void **p;
 
-	C_FOREACH (p, v)
+	C_FOREACH (void **, p, v)
 		avlnode_delete(c, *p, FALSE);
 }
 
@@ -200,7 +200,7 @@ avltree_move_fixate(void *c, varr *v)
 {
 	void **p;
 
-	C_FOREACH (p, v) {
+	C_FOREACH (void **, p, v) {
 		avlnode_t *node = GET_AVLNODE(*p);
 
 		if (avlnode_add(c, *p, CA_F_NOUPDATE, node) == NULL)

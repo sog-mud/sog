@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.93 2004-03-01 18:55:57 tatyana Exp $
+ * $Id: affects.c,v 1.94 2004-06-28 19:21:07 tatyana Exp $
  */
 
 /***************************************************************************
@@ -102,11 +102,11 @@ affect_find(AFFECT_DATA *paf, const char *sn)
 }
 
 void
-affect_check_list(CHAR_DATA *ch, AFFECT_DATA *paf, int where, flag_t vector)
+affect_check_list(CHAR_DATA *ch, AFFECT_DATA *paf, int where, flag_t bitvec)
 {
 	for (; paf; paf = paf->next) {
 		if ((where < 0 || paf->where == where)
-		&&  (paf->bitvector & vector)) {
+		&&  (paf->bitvector & bitvec)) {
 			switch (paf->where) {
 			case TO_AFFECTS:
 				SET_BIT(ch->affected_by, paf->bitvector);
@@ -124,26 +124,26 @@ affect_check_list(CHAR_DATA *ch, AFFECT_DATA *paf, int where, flag_t vector)
 
 /* fix object affects when removing one */
 void
-affect_check(CHAR_DATA *ch, int where, flag_t vector)
+affect_check(CHAR_DATA *ch, int where, flag_t bitvec)
 {
 	OBJ_DATA *obj;
 
 	if (where == TO_OBJECT
 	||  where == TO_WEAPON
-	||  vector == 0)
+	||  bitvec == 0)
 		return;
 
-	affect_check_list(ch, ch->affected, where, vector);
+	affect_check_list(ch, ch->affected, where, bitvec);
 	for (obj = ch->carrying; obj != NULL; obj = obj->next_content) {
 		if (obj->wear_loc == WEAR_NONE
 		||  obj->wear_loc == WEAR_STUCK_IN)
 			continue;
-		affect_check_list(ch, obj->affected, where, vector);
+		affect_check_list(ch, obj->affected, where, bitvec);
 
 		if (IS_OBJ_STAT(obj, ITEM_ENCHANTED))
 			continue;
 
-		affect_check_list(ch, obj->pObjIndex->affected, where, vector);
+		affect_check_list(ch, obj->pObjIndex->affected, where, bitvec);
 	}
 }
 
@@ -213,7 +213,7 @@ void
 affect_remove(CHAR_DATA *ch, AFFECT_DATA *paf)
 {
 	int where;
-	int vector;
+	int bitvec;
 	AFFECT_DATA *paf2;
 	bool hadowner;
 
@@ -224,7 +224,7 @@ affect_remove(CHAR_DATA *ch, AFFECT_DATA *paf)
 
 	affect_modify(ch, paf, FALSE);
 	where = paf->where;
-	vector = paf->bitvector;
+	bitvec = paf->bitvector;
 	hadowner = (paf->owner != NULL);
 
 	if (paf == ch->affected)
@@ -273,13 +273,13 @@ affect_remove(CHAR_DATA *ch, AFFECT_DATA *paf)
 		ch->leader = NULL;
 	check_one_event(ch, paf, EVENT_CHAR_AFF_REMOVE);
 	aff_free(paf);
-	affect_check(ch, where, vector);
+	affect_check(ch, where, bitvec);
 }
 
 void
 affect_remove_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
 {
-	int where, vector;
+	int where, bitvec;
 	AFFECT_DATA *paf2;
 	bool hadowner;
 
@@ -290,7 +290,7 @@ affect_remove_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
 		affect_modify(obj->carried_by, paf, FALSE);
 
 	where = paf->where;
-	vector = paf->bitvector;
+	bitvec = paf->bitvector;
 	hadowner = (paf->owner != NULL);
 	affect_modify_obj(obj, paf, FALSE);
 
@@ -339,7 +339,7 @@ affect_remove_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
 	aff_free(paf);
 
 	if (obj->carried_by != NULL && obj->wear_loc != -1)
-		affect_check(obj->carried_by, where, vector);
+		affect_check(obj->carried_by, where, bitvec);
 }
 
 /*
@@ -443,7 +443,7 @@ is_bit_affected(CHAR_DATA *ch, int where, flag_t bits)
 }
 
 bool
-has_obj_affect(CHAR_DATA *ch, flag_t vector)
+has_obj_affect(CHAR_DATA *ch, flag_t bitvec)
 {
 	OBJ_DATA *obj;
 
@@ -454,14 +454,14 @@ has_obj_affect(CHAR_DATA *ch, flag_t vector)
 			continue;
 
 		for (paf = obj->affected; paf; paf = paf->next)
-			if (paf->bitvector & vector)
+			if (paf->bitvector & bitvec)
 				return TRUE;
 
 		if (IS_OBJ_STAT(obj, ITEM_ENCHANTED))
 			continue;
 
 		for (paf = obj->pObjIndex->affected; paf; paf = paf->next)
-			if (paf->bitvector & vector)
+			if (paf->bitvector & bitvec)
 				return TRUE;
 	}
 	return FALSE;

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.211 2004-03-21 20:40:02 fjoe Exp $
+ * $Id: interp.c,v 1.212 2004-06-28 19:21:08 tatyana Exp $
  */
 
 /***************************************************************************
@@ -134,7 +134,7 @@ interpret(CHAR_DATA *ch, const char *argument, bool is_order)
 	/*
 	 * Look for command in command table.
 	 */
-	C_FOREACH(cmd, &commands) {
+	C_FOREACH (cmd_t *, cmd, &commands) {
 		if (!!str_prefix(command, cmd->name)
 		&&  !is_name(command, cmd->aliases))
 			continue;

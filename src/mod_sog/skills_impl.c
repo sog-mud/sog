@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: skills_impl.c,v 1.8 2003-04-19 16:12:41 fjoe Exp $
+ * $Id: skills_impl.c,v 1.9 2004-06-28 19:21:08 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -42,7 +42,7 @@ get_skill_mod(CHAR_DATA *ch, skill_t *sk, int percent)
 	saff_t *sa;
 	int mod = 0;
 
-	C_FOREACH(sa, &ch->sk_affected) {
+	C_FOREACH (saff_t *, sa, &ch->sk_affected) {
 		if ((!IS_SET(sa->bit, SK_AFF_ALL) &&
 		     !IS_SKILL(sa->sn, gmlstr_mval(&sk->sk_name)))
 		||  (IS_SET(sa->bit, SK_AFF_NOTCLAN) &&

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: container.c,v 1.8 2003-09-29 23:11:54 fjoe Exp $
+ * $Id: container.c,v 1.9 2004-06-28 19:21:10 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -52,7 +52,7 @@ c_random_elem_foreach(void *c)
 		return NULL;
 
 	num = number_range(1, size);
-	C_FOREACH(elem, c) {
+	C_FOREACH (void *, elem, c) {
 		if (!--num)
 			return elem;
 	}
@@ -130,7 +130,7 @@ c_strkey_search(void *c, const char *name)
 	/*
 	 * search by prefix
 	 */
-	C_FOREACH(elem, c) {
+	C_FOREACH (void *, elem, c) {
 		if (!str_prefix(name, *(const char **) elem))
 			return elem;
 	}
@@ -156,7 +156,7 @@ c_mlstrkey_search(void *c, const char *name)
 	/*
 	 * search by prefix
 	 */
-	C_FOREACH(elem, c) {
+	C_FOREACH (void *, elem, c) {
 		if (!str_prefix(name, mlstr_mval((mlstring *) elem)))
 			return elem;
 	}
@@ -170,7 +170,7 @@ c_strkey_dump(void *c, BUFFER *buf)
 	int col = 0;
 	const char **p;
 
-	C_FOREACH(p, c) {
+	C_FOREACH (const char **, p, c) {
 		buf_printf(buf, BUF_END, "%-19.18s", *p);	// notrans
 
 		if (++col % 4 == 0)
@@ -187,7 +187,7 @@ c_mlstrkey_dump(void *c, BUFFER *buf)
 	int col = 0;
 	mlstring *ml;
 
-	C_FOREACH(ml, c) {
+	C_FOREACH (mlstring *, ml, c) {
 		buf_printf(buf, BUF_END, "%-19.18s",		// notrans
 			   mlstr_mval(ml));
 		if (++col % 4 == 0)

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_hint.c,v 1.10 2001-12-03 22:28:33 fjoe Exp $
+ * $Id: olc_hint.c,v 1.11 2004-06-28 19:21:04 tatyana Exp $
  */
 
 #include "olc.h"
@@ -119,7 +119,7 @@ OLC_FUN(hinted_save)
 	if (fp == NULL)
 		return FALSE;
 
-	C_FOREACH(hint, &hints) {
+	C_FOREACH (hint_t *, hint, &hints) {
 		if (mlstr_null(&hint->phrase))
 			continue;
 
@@ -178,7 +178,7 @@ OLC_FUN(hinted_list)
 
 	output = buf_new(0);
 
-	C_FOREACH(hint, &hints) {
+	C_FOREACH (hint_t *, hint, &hints) {
 		const char *name = mlstr_mval(&hint->phrase);
 
 		if (IS_NULLSTR(name))

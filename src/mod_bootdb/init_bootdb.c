@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_bootdb.c,v 1.29 2004-06-09 08:24:37 tatyana Exp $
+ * $Id: init_bootdb.c,v 1.30 2004-06-28 19:20:59 tatyana Exp $
  */
 
 #include <sys/stat.h>
@@ -281,7 +281,7 @@ fix_exits()
 {
 	ROOM_INDEX_DATA *room;
 
-	C_FOREACH (room, &rooms) {
+	C_FOREACH (ROOM_INDEX_DATA *, room, &rooms) {
 		int door;
 
 		for (door = 0; door < MAX_DIR; door++) {
@@ -421,7 +421,7 @@ trig_lookup_v(varr *v, const char *name, int *ptrigvnum)
 {
 	trig_t *trig;
 
-	C_FOREACH(trig, v) {
+	C_FOREACH (trig_t *, trig, v) {
 		if (!strcmp(trig->trig_prog, name)) {
 			*ptrigvnum = varr_index(v, trig);
 			return trig;
@@ -438,7 +438,7 @@ trig_lookup_mob(const char *name, int *pvnum, int *ptrigvnum)
 	trig_t *rv = NULL;
 	MOB_INDEX_DATA *mob;
 
-	C_FOREACH (mob, &mobiles) {
+	C_FOREACH (MOB_INDEX_DATA *, mob, &mobiles) {
 		trig_t *trig;
 
 		trig = trig_lookup_v(&mob->mp_trigs, name, ptrigvnum);
@@ -461,7 +461,7 @@ trig_lookup_obj(const char *name, int *pvnum, int *ptrigvnum)
 	trig_t *rv = NULL;
 	OBJ_INDEX_DATA *obj;
 
-	C_FOREACH (obj, &objects) {
+	C_FOREACH (OBJ_INDEX_DATA *, obj, &objects) {
 		trig_t *trig;
 
 		trig = trig_lookup_v(&obj->mp_trigs, name, ptrigvnum);
@@ -483,7 +483,7 @@ trig_lookup_room(const char *name, int *pvnum, int *ptrigvnum)
 	ROOM_INDEX_DATA *room;
 	trig_t *rv = NULL;
 
-	C_FOREACH (room, &rooms) {
+	C_FOREACH (ROOM_INDEX_DATA *, room, &rooms) {
 		trig_t *trig;
 
 		trig = trig_lookup_v(&room->mp_trigs, name, ptrigvnum);
@@ -513,7 +513,7 @@ fix_mprogs(void)
 	}
 
 	do {
-		C_FOREACH(mp, &mprogs) {
+		C_FOREACH (mprog_t *, mp, &mprogs) {
 			trig_t *trig;
 			spec_t *spec = NULL;
 			int vnum = 0;
@@ -537,7 +537,7 @@ fix_mprogs(void)
 				break;
 
 			case MP_T_SPEC:
-				C_FOREACH(spec, &specs) {
+				C_FOREACH (spec_t *, spec, &specs) {
 					if (!strcmp(spec->mp_trig.trig_prog, mp->name))
 						break;
 				}

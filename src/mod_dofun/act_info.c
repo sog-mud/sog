@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.447 2004-05-26 16:28:49 tatyana Exp $
+ * $Id: act_info.c,v 1.448 2004-06-28 19:20:59 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1216,7 +1216,7 @@ DO_FUN(do_who, ch, argument)
 			continue;
 
 		if (IS_SET(flags, WHO_F_RCLASS)
-		&&  !is_name_strict(wch->class, class_names))
+		&&  !is_name_strict(wch->ch_class, class_names))
 			continue;
 
 		count++;
@@ -2261,7 +2261,7 @@ DO_FUN(do_score, ch, argument)
 	format_stat(buf2, sizeof(buf2), ch, STAT_DEX);
 	buf_printf(output, BUF_END,
 "     {G| {RClass: {x%-12.12s {C| {RDex: {x%-11.11s {C| {RQuest Pnts: {x%-5d      {G|{x\n",
-		IS_NPC(ch) ? "mobile" : ch->class,		// notrans
+		IS_NPC(ch) ? "mobile" : ch->ch_class,		// notrans
 		buf2,
 		IS_NPC(ch) ? 0 : PC(ch)->questpoints);
 
@@ -2419,7 +2419,7 @@ DO_FUN(do_oscore, ch, argument)
 		"Hometown: {c%s{x\n",
 		ch->race,
 		mlstr_mval(&ch->gender),
-		IS_NPC(ch) ? "mobile" : ch->class,
+		IS_NPC(ch) ? "mobile" : ch->ch_class,
 		IS_NPC(ch) ? "Midgaard" : hometown_name(PC(ch)->hometown));
 
 	buf_printf(output, BUF_END,
@@ -2901,7 +2901,7 @@ DO_FUN(do_practice, ch, argument)
 
 		output = buf_new(GET_LANG(ch));
 
-		C_FOREACH(pc_sk, &pc->learned) {
+		C_FOREACH (pc_skill_t *, pc_sk, &pc->learned) {
 			spec_sk.sn = pc_sk->sn;
 			spec_stats(ch, &spec_sk);
 
@@ -3257,7 +3257,7 @@ list_spells(flag_t type, CHAR_DATA *ch,
 	for (lev = 0; lev <= LEVEL_IMMORTAL; lev++)
 		list[lev] = NULL;
 
-	C_FOREACH(pc_sk, &PC(ch)->learned) {
+	C_FOREACH (pc_skill_t *, pc_sk, &PC(ch)->learned) {
 		skill_t *sk;
 		spec_skill_t spec_sk;
 		const char *knowledge;
@@ -3331,7 +3331,7 @@ list_form_skills(CHAR_DATA *ch, BUFFER *output)
 
 		buf_printf(output, BUF_END, "Your form skills:\n");
 
-		C_FOREACH(spec_sk, &fsp->spec_skills) {
+		C_FOREACH (spec_skill_t *, spec_sk, &fsp->spec_skills) {
 			if (!IS_NULLSTR(spec_sk->sn)) {
 				buf_printf(output, BUF_END, "%s\n",
 					   spec_sk->sn);
@@ -3363,7 +3363,7 @@ DO_FUN(do_skills, ch, argument)
 		skill_list[lev] = NULL;
 	}
 
-	C_FOREACH(pc_sk, &PC(ch)->learned) {
+	C_FOREACH (pc_skill_t *, pc_sk, &PC(ch)->learned) {
 		skill_t *sk;
 		spec_skill_t spec_sk;
 		const char *knowledge;
@@ -3452,7 +3452,7 @@ DO_FUN(do_glist, ch, argument)
 		 ch, flag_string(skill_groups, group), NULL,
 		 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 
-	C_FOREACH(sk, &skills) {
+	C_FOREACH (skill_t *, sk, &skills) {
 		const char *sn;
 
 		if (group != sk->group)
@@ -4299,7 +4299,7 @@ show_aliases(CHAR_DATA *ch, const char *argument, bool wiz)
 	CHAR_DATA *vch = wiz ? GET_ORIGINAL(ch) : ch;
 
 	one_argument(argument, arg, sizeof(arg));
-	C_FOREACH(cmd, &commands) {
+	C_FOREACH (cmd_t *, cmd, &commands) {
 		char a[MAX_INPUT_LENGTH];
 		const char *p;
 
@@ -4350,7 +4350,7 @@ show_commands(CHAR_DATA *ch, const char *argument, bool wiz)
 	}
 
 	c_init(&v, &c_info_commands);
-	C_FOREACH(cmd, &commands) {
+	C_FOREACH (cmd_t *, cmd, &commands) {
 		if (wiz ? WIZCMD_ALLOWED(cmd, vch) :
 			  CMD_ALLOWED(cmd, vch) &&
 			  !IS_SET(cmd->cmd_flags, CMD_HIDDEN)) {
@@ -4361,7 +4361,7 @@ show_commands(CHAR_DATA *ch, const char *argument, bool wiz)
 	varr_qsort(&v, cmpstr);
 
 	col = 0;
-	C_FOREACH(cmd, &v) {
+	C_FOREACH (cmd_t *, cmd, &v) {
 		act_puts("$f-12{$t}", ch, cmd->name, NULL,   // notrans
 			 TO_CHAR | ACT_NOTRANS | ACT_NOLF | ACT_NOUCASE,
 			 POS_DEAD);
@@ -4416,7 +4416,7 @@ show_clanlist(CHAR_DATA *ch, clan_t *clan,
 
 		cnt++;
 		r = race_lookup(vch->race);
-		cl = class_lookup(vch->class);
+		cl = class_lookup(vch->ch_class);
 		buf_printf(output, BUF_END, "%-8s  %3d  %-5s  %-3s  %7s-%-7s %s\n", // notrans
 			flag_string(clan_status_table, PC(vch)->clan_status),
 			vch->level,
@@ -4516,7 +4516,7 @@ DO_FUN(do_item, ch, argument)
 		act_puts3("$p is in $R.",
 			  ch, clan->obj_ptr, NULL, in_obj->in_room,
 			  TO_CHAR, POS_DEAD);
-		C_FOREACH(clan, &clans) {
+		C_FOREACH (clan_t *, clan, &clans) {
 			if (in_obj->in_room->vnum == clan->altar_vnum) {
 				act_puts("It is altar of $t.",
 				    ch, clan->name, NULL, TO_CHAR, POS_DEAD);

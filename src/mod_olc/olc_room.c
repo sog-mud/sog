@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.111 2004-02-19 21:14:13 fjoe Exp $
+ * $Id: olc_room.c,v 1.112 2004-06-28 19:21:04 tatyana Exp $
  */
 
 #include "olc.h"
@@ -507,7 +507,7 @@ OLC_FUN(roomed_del)
 	}
 
 /* remove from exits */
-	C_FOREACH (r, &rooms) {
+	C_FOREACH (ROOM_INDEX_DATA *, r, &rooms) {
 		int door;
 
 		for (door = 0; door < MAX_DIR; door++) {

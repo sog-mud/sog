@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_lang.c,v 1.36 2001-12-03 22:28:33 fjoe Exp $
+ * $Id: olc_lang.c,v 1.37 2004-06-28 19:21:04 tatyana Exp $
  */
 
 #include "olc.h"
@@ -132,7 +132,7 @@ OLC_FUN(langed_save)
 	if (fp == NULL)
 		return FALSE;
 
-	C_FOREACH(l, &langs) {
+	C_FOREACH (lang_t *, l, &langs) {
 		fprintf(fp, "%s\n", l->file_name);
 		if (IS_SET(l->lang_flags, LANG_CHANGED)
 		&&  save_lang(ch, l)) {
@@ -217,7 +217,7 @@ OLC_FUN(langed_list)
 {
 	lang_t *l;
 
-	C_FOREACH(l, &langs) {
+	C_FOREACH (lang_t *, l, &langs) {
 		act_puts("[$j] $T",
 			 ch, (const void *) varr_index(&langs, l), l->name,
 			 TO_CHAR | ACT_NOTRANS, POS_DEAD);

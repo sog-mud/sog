@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.331 2004-02-19 21:32:26 fjoe Exp $
+ * $Id: act_wiz.c,v 1.332 2004-06-28 19:21:00 tatyana Exp $
  */
 
 /***************************************************************************
@@ -244,7 +244,7 @@ DO_FUN(do_limited, ch, argument)
 		nMatch = 0;
 
 		buf = buf_new(0);
-		C_FOREACH (obj_index, &objects) {
+		C_FOREACH (OBJ_INDEX_DATA *, obj_index, &objects) {
 			nMatch++;
 			if (obj_index->limit == -1)
 				continue;
@@ -1294,7 +1294,7 @@ DO_FUN(do_mstat, ch, argument)
 		"Lv: [%d + %d]  Class: [%s]  Align: [%s]  Gold: [%d]  Silver: [%d]  Exp: [%d]\n", // notrans
 		victim->level,
 		victim->add_level,
-		victim->class,
+		victim->ch_class,
 		buf,
 		victim->gold, victim->silver, GET_EXP(victim));
 
@@ -1415,7 +1415,7 @@ DO_FUN(do_mstat, ch, argument)
 
 		buf_append(output, "Skill affects:\n");		// notrans
 
-		C_FOREACH(sa, &victim->sk_affected) {
+		C_FOREACH (saff_t *, sa, &victim->sk_affected) {
 			buf_printf(output, BUF_END,
 			    "        '%s' by %d",		// notrans
 			    sa->sn, sa->mod);
@@ -1617,7 +1617,7 @@ DO_FUN(do_mfind, ch, argument)
 		return;
 	}
 
-	C_FOREACH (mob_index, &mobiles) {
+	C_FOREACH (MOB_INDEX_DATA *, mob_index, &mobiles) {
 		if (!is_name(argument, mob_index->name))
 			continue;
 
@@ -1649,7 +1649,7 @@ DO_FUN(do_ofind, ch, argument)
 		return;
 	}
 
-	C_FOREACH (obj_index, &objects) {
+	C_FOREACH (OBJ_INDEX_DATA *, obj_index, &objects) {
 		if (!is_name(argument, obj_index->name))
 			continue;
 
@@ -2635,7 +2635,7 @@ DO_FUN(do_sset, ch, argument)
 	if (!str_cmp(arg2, "all")) {
 		skill_t *sk;
 
-		C_FOREACH(sk, &skills)
+		C_FOREACH (skill_t *, sk, &skills)
 			set_skill(victim, gmlstr_mval(&sk->sk_name), value);
 
 		act_char("Ok.", ch);
@@ -3399,8 +3399,8 @@ DO_FUN(do_mset, ch, argument)
 			goto cleanup;
 		}
 
-		free_string(victim->class);
-		victim->class = str_qdup(cl->name);
+		free_string(victim->ch_class);
+		victim->ch_class = str_qdup(cl->name);
 		spec_update(victim);
 		PC(victim)->exp = exp_for_level(victim, victim->level);
 		altered = TRUE;
@@ -4285,7 +4285,7 @@ DO_FUN(do_grant, ch, argument)
 			goto cleanup;
 		}
 
-		C_FOREACH(cmd, &commands) {
+		C_FOREACH (cmd_t *, cmd, &commands) {
 			if (cmd->min_level < LEVEL_IMMORTAL
 			||  cmd->min_level > lev)
 				continue;
@@ -4594,7 +4594,7 @@ DO_FUN(do_dump, ch, argument)
 	fprintf(fp,"\nMobile Analysis\n");			// notrans
 	fprintf(fp,  "---------------\n");			// notrans
 
-	C_FOREACH (pMobIndex, &mobiles) {
+	C_FOREACH (MOB_INDEX_DATA *, pMobIndex, &mobiles) {
 		fprintf(fp, "#%d %d active %d killed     %s\n", // notrans
 			pMobIndex->vnum,
 			pMobIndex->count,
@@ -4610,7 +4610,7 @@ DO_FUN(do_dump, ch, argument)
 	fprintf(fp,"\nObject Analysis\n");			// notrans
 	fprintf(fp,  "---------------\n");			// notrans
 
-	C_FOREACH (pObjIndex, &objects) {
+	C_FOREACH (OBJ_INDEX_DATA *, pObjIndex, &objects) {
 		fprintf(fp, "#%-4d %3d active %3d reset      %s\n", // notrans
 			pObjIndex->vnum,
 			pObjIndex->count,
@@ -4856,7 +4856,7 @@ DO_FUN(do_modules, ch, argument)
 		buf = buf_new(GET_LANG(ch));
 		buf_append(buf, "  Module  Prio          Load time         Deps\n");
 		buf_append(buf, "--------- ---- -------------------------- -----------------------------------\n");	// notrans
-		C_FOREACH(m, &modules) {
+		C_FOREACH (module_t *, m, &modules) {
 			buf_printf(buf, BUF_END,
 			    "%9s %4d [%24s] %s\n", // notrans
 			    m->name,
@@ -4992,7 +4992,7 @@ DO_FUN(do_settick, ch, argument)
 		buf = buf_new(0);
 		buf_append(buf, "    Name       Module     Iterator    Max   Cur     Function\n");	// notrans
 		buf_append(buf, "----------- ----------- ------------ ----- ----- ---------------\n");	// notrans
-		C_FOREACH(hdlr, &uhandlers) {
+		C_FOREACH (uhandler_t *, hdlr, &uhandlers) {
 			buf_printf(buf, BUF_END,
 			    "[%9s] [%9s] [%10s] %5d %5d %c%s\n", // notrans
 			    hdlr->name,
@@ -5016,7 +5016,7 @@ DO_FUN(do_settick, ch, argument)
 		return;
 	}
 
-	C_FOREACH(hdlr, &uhandlers) {
+	C_FOREACH (uhandler_t *, hdlr, &uhandlers) {
 		if (!str_cmp(arg, hdlr->name)) {
 			hdlr->ticks = val;
 			return;

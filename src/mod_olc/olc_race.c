@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.67 2004-02-19 20:55:52 fjoe Exp $
+ * $Id: olc_race.c,v 1.68 2004-06-28 19:21:04 tatyana Exp $
  */
 
 #include "olc.h"
@@ -191,7 +191,7 @@ OLC_FUN(raceed_save)
 	bool found = FALSE;
 
 	olc_printf(ch, "Saved races:");
-	C_FOREACH(r, &races) {
+	C_FOREACH (race_t *, r, &races) {
 		int i;
 		FILE *fp;
 		const char *filename;
@@ -428,7 +428,7 @@ OLC_FUN(raceed_show)
 			   flag_string(ethos_table, r->race_pcdata->restrict_ethos));
 	}
 
-	C_FOREACH(rcl, &r->race_pcdata->classes) {
+	C_FOREACH (rclass_t *, rcl, &r->race_pcdata->classes) {
 		if (rcl->name == NULL)
 			continue;
 		buf_printf(output, BUF_END, "Class '%s' (exp %d%%)",
@@ -450,7 +450,7 @@ OLC_FUN(raceed_list)
 	int col = 0;
 	BUFFER *output = buf_new(0);
 
-	C_FOREACH(r, &races) {
+	C_FOREACH (race_t *, r, &races) {
 		char buf[256];
 
 		snprintf(buf, sizeof(buf), "%s%s",
@@ -927,7 +927,7 @@ VALIDATE_FUN(validate_whoname)
 		return FALSE;
 	}
 
-	C_FOREACH(r2, &races) {
+	C_FOREACH (race_t *, r2, &races) {
 		if (r->race_pcdata != NULL
 		&&  !str_cmp(r->race_pcdata->who_name, arg)
 		&&  r2 != r) {
@@ -980,7 +980,7 @@ save_race_pcdata(pcrace_t *pcr, FILE *fp)
 	fprintf(fp, "#PCRACE\n");
 	fwrite_string(fp, "Shortname", pcr->who_name);
 	fwrite_number(fp, "Points", pcr->points);
-	C_FOREACH(rcl, &pcr->classes) {
+	C_FOREACH (rclass_t *, rcl, &pcr->classes) {
 		if (IS_NULLSTR(rcl->name))
 			continue;
 

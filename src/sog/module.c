@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: module.c,v 1.35 2003-09-30 00:31:38 fjoe Exp $
+ * $Id: module.c,v 1.36 2004-06-28 19:21:10 tatyana Exp $
  */
 
 /*
@@ -92,7 +92,7 @@ mod_reload(module_t *m, time_t curr_time)
 		(*mp)->dlh = NULL;
 	}
 
-	C_FOREACH(mp, &v) {
+	C_FOREACH (module_t **, mp, &v) {
 		MODINIT_FUN *callback;
 		void *dlh;
 		const char *_depend;
@@ -153,7 +153,7 @@ mod_unload(module_t *m)
 {
 	module_t *m_dep;
 
-	C_FOREACH(m_dep, &modules) {
+	C_FOREACH (module_t *, m_dep, &modules) {
 		/*
 		 * skip self and not loaded modules
 		 */
@@ -180,7 +180,7 @@ mod_lookup(const char *name)
 {
 	module_t *m;
 
-	C_FOREACH(m, &modules) {
+	C_FOREACH (module_t *, m, &modules) {
 		if (!str_prefix(name, m->name))
 			return m;
 	}
@@ -286,7 +286,7 @@ boot_modules()
 	/*
 	 * load all modules
 	 */
-	C_FOREACH(m, &modules) {
+	C_FOREACH (module_t *, m, &modules) {
 		if (mod_reload(m, curr_time) < 0)
 			exit(1);
 	}
@@ -294,7 +294,7 @@ boot_modules()
 	/*
 	 * call module initializers
 	 */
-	C_FOREACH(m, &modules) {
+	C_FOREACH (module_t *, m, &modules) {
 		MODINIT_FUN *callback;
 
 		if (m->dlh == NULL
@@ -353,7 +353,7 @@ modset_add(varr *v, module_t *m, time_t curr_time)
 	mp = (module_t **) varr_enew(v);
 	*mp = m;
 
-	C_FOREACH(m_dep, &modules) {
+	C_FOREACH (module_t *, m_dep, &modules) {
 		if (is_name_strict(m->name, m_dep->mod_deps)
 		&&  !modset_search(v, m_dep->name)
 		&&  m_dep->dlh != NULL
@@ -370,7 +370,7 @@ modset_search(varr *v, const char *name)
 {
 	module_t **mp;
 
-	C_FOREACH(mp, v) {
+	C_FOREACH (module_t **, mp, v) {
 		if (!str_cmp(name, (*mp)->name))
 			return *mp;
 	}

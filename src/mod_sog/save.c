@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.209 2004-03-07 21:23:38 tatyana Exp $
+ * $Id: save.c,v 1.210 2004-06-28 19:21:08 tatyana Exp $
  */
 
 /***************************************************************************
@@ -185,7 +185,7 @@ fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 	fwrite_word(fp, "Clan", ch->clan);
 	fwrite_string(fp, "Desc", mlstr_mval(&ch->description));
 	mlstr_fwrite(fp, "SSex", &ch->gender);
-	fwrite_word(fp, "Class", ch->class);
+	fwrite_word(fp, "Class", ch->ch_class);
 	fprintf(fp, "Levl %d\n", ch->level);
 	fprintf(fp, "Room %d\n",
 		(ch->in_room == get_room_index(ROOM_VNUM_LIMBO) &&
@@ -329,14 +329,14 @@ fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 		/* write pc_killed */
 		fprintf(fp, "PC_Killed %d\n", pc->pc_killed);
 
-		C_FOREACH(pspn, &pc->specs) {
+		C_FOREACH (const char **, pspn, &pc->specs) {
 			if (IS_NULLSTR(*pspn))
 				continue;
 
 			fprintf(fp, "Spec '%s'\n", *pspn);
 		}
 
-		C_FOREACH(pc_sk, &pc->learned) {
+		C_FOREACH (pc_skill_t *, pc_sk, &pc->learned) {
 			if (pc_sk->percent == 0)
 				continue;
 
@@ -684,7 +684,7 @@ fread_char(CHAR_DATA *ch, rfile_t *fp, int flags)
 			break;
 
 		case 'C':
-			KEY("Class", ch->class, fread_strkey(fp, &classes));
+			KEY("Class", ch->ch_class, fread_strkey(fp, &classes));
 			KEY("Clan", ch->clan, fread_strkey(fp, &clans));
 			KEY("ClanStatus", PC(ch)->clan_status,
 			    fread_number(fp));

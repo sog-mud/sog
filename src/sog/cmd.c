@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cmd.c,v 1.31 2004-03-01 18:35:05 tatyana Exp $
+ * $Id: cmd.c,v 1.32 2004-06-28 19:21:10 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -78,7 +78,7 @@ cmd_mod_load(module_t *m)
 {
 	cmd_t *cmd;
 
-	C_FOREACH(cmd, &commands) {
+	C_FOREACH (cmd_t *, cmd, &commands) {
 		if (m->mod_id != cmd->cmd_mod)
 			continue;
 
@@ -95,7 +95,7 @@ cmd_mod_unload(module_t *m)
 {
 	cmd_t *cmd;
 
-	C_FOREACH(cmd, &commands) {
+	C_FOREACH (cmd_t *, cmd, &commands) {
 		if (m->mod_id == cmd->cmd_mod)
 			cmd->do_fun = NULL;
 	}

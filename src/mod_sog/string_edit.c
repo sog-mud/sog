@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.c,v 1.59 2004-02-19 21:14:14 fjoe Exp $
+ * $Id: string_edit.c,v 1.60 2004-06-28 19:21:08 tatyana Exp $
  */
 
 /***************************************************************************
@@ -37,16 +37,17 @@ static char *numlines(const char *, int dump_level);
  Purpose:	Substitutes one string for another.
  ****************************************************************************/
 const char *
-string_replace(const char *orig, const char *old, const char *new, int flags)
+string_replace(const char *orig,
+	       const char *old_text, const char *new_text, int flags)
 {
 	char xbuf[MAX_STRING_LENGTH];
 	char *p;
 
-	if (IS_NULLSTR(old) || !str_cscmp(old, new))
+	if (IS_NULLSTR(old_text) || !str_cscmp(old_text, new_text))
 		return orig;
 
 	xbuf[0] = '\0';
-	while ((p = strstr(orig, old)) != NULL) {
+	while ((p = strstr(orig, old_text)) != NULL) {
 		/*
 		 * cat prefix
 		 */
@@ -56,12 +57,12 @@ string_replace(const char *orig, const char *old, const char *new, int flags)
 		/*
 		 * cat replacement
 		 */
-		strlcat(xbuf, new, sizeof(xbuf));
+		strlcat(xbuf, new_text, sizeof(xbuf));
 
 		/*
 		 * move pointers
 		 */
-		orig = p + strlen(old);
+		orig = p + strlen(old_text);
 		if (!IS_SET(flags, SR_F_ALL))
 			break;
 	}

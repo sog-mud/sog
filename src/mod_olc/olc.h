@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.90 2003-05-14 19:20:04 fjoe Exp $
+ * $Id: olc.h,v 1.91 2004-06-28 19:21:04 tatyana Exp $
  */
 
 /***************************************************************************
@@ -216,6 +216,10 @@ void		show_resets(CHAR_DATA *ch, int vnum, const char *xxx,
 const char *	format_dice(int *pdice);
 
 void		dump_resists(BUFFER *output, int16_t *resets);
+
+#ifdef WITH_LIBODBCXX
+bool		dump_world(void);
+#endif
 
 #define SECURITY_MATERIAL	2
 #define SECURITY_RACE		3

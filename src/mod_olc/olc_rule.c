@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_rule.c,v 1.46 2004-02-19 20:55:52 fjoe Exp $
+ * $Id: olc_rule.c,v 1.47 2004-06-28 19:21:04 tatyana Exp $
  */
 
 #include "olc.h"
@@ -245,7 +245,7 @@ OLC_FUN(ruleed_save)
 	}
 
 	EDIT_ROPS(ch, rops);
-	C_FOREACH(l, &langs) {
+	C_FOREACH (lang_t *, l, &langs) {
 		int i;
 
 		for (i = 0; i < MAX_RULECL; i++)
@@ -326,7 +326,7 @@ OLC_FUN(ruleed_show)
 			 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 	}
 
-	C_FOREACH(p, &r->forms) {
+	C_FOREACH (const char **, p, &r->forms) {
 		size_t i = varr_index(&r->forms, p);
 		int i2;
 
@@ -399,7 +399,7 @@ OLC_FUN(ruleed_list)
 
 			output = buf_new(0);
 
-			C_FOREACH(r, &rcl->impl) {
+			C_FOREACH (rule_t *, r, &rcl->impl) {
 				buf_printf(output, BUF_END,
 				    "%3d. %s\n", varr_index(&rcl->impl, r),
 				    r->name);
@@ -411,7 +411,7 @@ OLC_FUN(ruleed_list)
 		if (argument[0] == '\0')
 			OLC_ERROR("'OLC ALIST'");
 
-		C_FOREACH(r, &rcl->expl) {
+		C_FOREACH (rule_t *, r, &rcl->expl) {
 			if (!!str_prefix(argument, r->name))
 				continue;
 
@@ -481,7 +481,7 @@ OLC_FUN(eruleed_auto)
 
 	r->arg = strlen(r->name) + impl->arg;
 	c_erase(&r->forms);
-	C_FOREACH(p, &impl->forms) {
+	C_FOREACH (const char **, p, &impl->forms) {
 		const char **q = varr_enew(&r->forms);
 		*q = str_qdup(*p);
 	}
@@ -567,7 +567,7 @@ rule_save(FILE *fp, rule_t *r)
 	if (r->arg)
 		fprintf(fp, "BaseLen %d\n", r->arg);
 
-	C_FOREACH(p, &r->forms) {
+	C_FOREACH (const char **, p, &r->forms) {
 		if (IS_NULLSTR(*p))
 			continue;
 		fprintf(fp, "Form %d %s~\n", varr_index(&r->forms, p), *p);
@@ -595,7 +595,7 @@ rcl_save_expl(CHAR_DATA *ch, lang_t *l, rulecl_t *rcl)
 	if ((fp = olc_fopen(LANG_PATH, rcl->file_expl, ch, -1)) == NULL)
 		return;
 
-	C_FOREACH(r, &rcl->expl)
+	C_FOREACH (rule_t *, r, &rcl->expl)
 		rule_save(fp, r);
 
 	fprintf(fp, "#$\n");
@@ -627,7 +627,7 @@ rcl_save_impl(CHAR_DATA *ch, lang_t *l, rulecl_t *rcl)
 	if ((fp = olc_fopen(LANG_PATH, rcl->file_impl, ch, -1)) == NULL)
 		return;
 
-	C_FOREACH(r, &rcl->impl)
+	C_FOREACH (rule_t *, r, &rcl->impl)
 		rule_save(fp, r);
 
 	fprintf(fp, "#$\n");

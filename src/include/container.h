@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: container.h,v 1.9 2003-09-30 00:31:01 fjoe Exp $
+ * $Id: container.h,v 1.10 2004-06-28 19:20:58 tatyana Exp $
  */
 
 #ifndef _CONTAINER_H_
@@ -70,10 +70,10 @@ struct c_ops_t {
 #define c_size(c)		(C_OPS(c)->c_size(c))
 #define c_isempty(c)		(C_OPS(c)->c_isempty(c))
 
-#define C_FOREACH(elem, cont)					\
-	for ((elem) = C_OPS(cont)->c_first(cont);		\
+#define C_FOREACH(type, elem, cont)				\
+	for ((elem) = (type) C_OPS(cont)->c_first(cont);	\
 	     C_OPS(cont)->c_cond((cont), (elem));		\
-	     (elem) = C_OPS(cont)->c_next((cont), (elem)))
+	     (elem) = (type) C_OPS(cont)->c_next((cont), (elem)))
 
 #define c_random_elem(c)	(C_OPS(c)->c_random_elem(c))
 void *	c_random_elem_foreach(void *c);

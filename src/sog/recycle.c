@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.167 2004-03-01 18:35:05 tatyana Exp $
+ * $Id: recycle.c,v 1.168 2004-06-28 19:21:10 tatyana Exp $
  */
 
 /***************************************************************************
@@ -401,7 +401,7 @@ fwrite_vars(avltree_t *vars, FILE *fp)
 {
 	var_t *var;
 
-	C_FOREACH(var, vars) {
+	C_FOREACH (var_t *, var, vars) {
 		if (!IS_SET(var->var_flags, VAR_PERSISTENT))
 			continue;
 
@@ -784,8 +784,8 @@ char_free(CHAR_DATA *ch)
 	free_string(ch->race);
 	ch->race = str_empty;
 
-	free_string(ch->class);
-	ch->class = str_empty;
+	free_string(ch->ch_class);
+	ch->ch_class = str_empty;
 
 	free_string(ch->clan);
 	ch->clan = str_empty;
@@ -1356,7 +1356,7 @@ uhandler_mod_load(module_t *m)
 {
 	uhandler_t *hdlr;
 
-	C_FOREACH(hdlr, &uhandlers) {
+	C_FOREACH (uhandler_t *, hdlr, &uhandlers) {
 		if (m->mod_id != hdlr->mod)
 			continue;
 
@@ -1373,7 +1373,7 @@ uhandler_mod_unload(module_t *m)
 {
 	uhandler_t *hdlr;
 
-	C_FOREACH(hdlr, &uhandlers) {
+	C_FOREACH (uhandler_t *, hdlr, &uhandlers) {
 		if (m->mod_id == hdlr->mod)
 			hdlr->fun = NULL;
 	}
@@ -1473,7 +1473,7 @@ skill_search(const char *sn, int skill_type)
 	/*
 	 * search by prefix
 	 */
-	C_FOREACH(sk, &skills) {
+	C_FOREACH (skill_t *, sk, &skills) {
 		if (!str_prefix(sn, gmlstr_mval(&sk->sk_name))
 		&&  IS_SET(sk->skill_type, skill_type))
 			return sk;
@@ -1488,7 +1488,7 @@ skills_dump(BUFFER *output, int skill_type)
 	skill_t *sk;
 	int col = 0;
 
-	C_FOREACH(sk, &skills) {
+	C_FOREACH (skill_t *, sk, &skills) {
 		const char *sn = gmlstr_mval(&sk->sk_name);
 
 		if (!str_cmp(sn, "reserved")

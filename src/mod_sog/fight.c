@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.373 2004-06-09 14:49:24 tatyana Exp $
+ * $Id: fight.c,v 1.374 2004-06-28 19:21:07 tatyana Exp $
  */
 
 /***************************************************************************
@@ -230,7 +230,7 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 	} else {
 		class_t *cl;
 
-		if ((cl = class_lookup(ch->class)) == NULL)
+		if ((cl = class_lookup(ch->ch_class)) == NULL)
 			return;
 
 		thac0_00 = cl->thac0_00;

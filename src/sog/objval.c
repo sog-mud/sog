@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: objval.c,v 1.22 2003-09-08 15:17:29 fjoe Exp $
+ * $Id: objval.c,v 1.23 2004-06-28 19:21:10 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -281,8 +281,6 @@ fwrite_objval(flag_t item_type, vo_t *v, FILE *fp)
 		break;
 
 	case ITEM_LIGHT:
-	case ITEM_TATTOO:
-	case ITEM_TREASURE:
 		fprintf(fp, "%s %s %d %s %s\n",
 			FLAGS(v[0]),
 			FLAGS(v[1]),

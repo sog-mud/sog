@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.57 2004-02-13 14:48:14 fjoe Exp $
+ * $Id: mpc.y,v 1.58 2004-06-28 19:21:03 tatyana Exp $
  */
 
 /*
@@ -1317,7 +1317,7 @@ mpcode_dump(mpcode_t *mpc)
 			if (jumptab != NULL) {
 				swjump_t *sw;
 
-				C_FOREACH(sw, jumptab) {
+				C_FOREACH (swjump_t *, sw, jumptab) {
 					fprintf(stderr, "\n\t%d:\t0x%08x",
 						sw->val.i, sw->addr);
 				}
@@ -1388,7 +1388,7 @@ cleanup_syms(mpcode_t *mpc, int block)
 		sym_t *sym;
 		bool found = FALSE;
 
-		C_FOREACH(sym, &mpc->syms) {
+		C_FOREACH (sym_t *, sym, &mpc->syms) {
 			if (sym->type == SYM_VAR
 			&&  sym->s.var.block >= block) {
 				found = TRUE;
@@ -1407,7 +1407,7 @@ cleanup_syms(mpcode_t *mpc, int block)
 		c_delete(&mpc->syms, sym->name);
 	}
 
-	C_FOREACH(i, &mpc->iters) {
+	C_FOREACH (vo_iter_t *, i, &mpc->iters) {
 		if (i->u.mpc.block >= block && i->mtag > 0) {
 			i->u.mpc.iter->destroy(i);
 			i->mtag = -1;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_class.c,v 1.39 2004-02-19 20:55:51 fjoe Exp $
+ * $Id: olc_class.c,v 1.40 2004-06-28 19:21:04 tatyana Exp $
  */
 
 #include "olc.h"
@@ -159,7 +159,7 @@ OLC_FUN(classed_save)
 
 	olc_printf(ch, "Saved classes:");
 
-	C_FOREACH(cl, &classes) {
+	C_FOREACH (class_t *, cl, &classes) {
 		size_t i;
 		FILE *fp;
 		const char *filename;
@@ -182,7 +182,7 @@ OLC_FUN(classed_save)
 		if (!IS_NULLSTR(cl->skill_spec))
 			fprintf(fp, "SkillSpec '%s'\n", cl->skill_spec);
 		fprintf(fp, "SchoolWeapon %d\n", cl->weapon);
-		C_FOREACH(pvnum, &cl->guilds) {
+		C_FOREACH (int *, pvnum, &cl->guilds) {
 			if (!*pvnum)
 				continue;
 
@@ -214,7 +214,7 @@ OLC_FUN(classed_save)
 			fprintf(fp, "DeathLimit %d\n", cl->death_limit);
 		fprintf(fp, "End\n\n");
 
-		C_FOREACH(pose, &cl->poses) {
+		C_FOREACH (pose_t *, pose, &cl->poses) {
 			if (IS_NULLSTR(pose->self) && IS_NULLSTR(pose->others))
 				continue;
 
@@ -491,7 +491,7 @@ OLC_FUN(classed_poses)
 
 		buffer = buf_new(0);
 
-		C_FOREACH(pose, &class->poses) {
+		C_FOREACH (pose_t *, pose, &class->poses) {
 			if (IS_NULLSTR(pose->self) && IS_NULLSTR(pose->others))
 				continue;
 			st = TRUE;
@@ -599,7 +599,7 @@ OLC_FUN(classed_guilds)
 
 		buffer = buf_new(0);
 
-		C_FOREACH(pvnum, &class->guilds) {
+		C_FOREACH (int *, pvnum, &class->guilds) {
 			if (!*pvnum)
 				continue;
 
@@ -696,7 +696,7 @@ VALIDATE_FUN(validate_whoname)
 		return FALSE;
 	}
 
-	C_FOREACH(cl2, &classes) {
+	C_FOREACH (class_t *, cl2, &classes) {
 		if (!str_cmp(cl2->who_name, arg)
 		&&  cl2 != cl) {
 			act_puts("ClassEd: $t: duplicate class whoname.",

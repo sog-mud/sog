@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.96 2004-02-19 20:55:52 fjoe Exp $
+ * $Id: olc_mob.c,v 1.97 2004-06-28 19:21:04 tatyana Exp $
  */
 
 #include "olc.h"
@@ -354,7 +354,7 @@ OLC_FUN(mobed_show)
 	    pMob->xp_multiplier);
 
         found = FALSE;
-	C_FOREACH(gr, &pMob->practicer) {
+	C_FOREACH (int *, gr, &pMob->practicer) {
 		if (!found) {
 			buf_printf(buf, BUF_END, "Practicer:   [");
 			found = TRUE;

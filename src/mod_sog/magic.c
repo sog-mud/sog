@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic.c,v 1.43 2004-06-09 14:49:24 tatyana Exp $
+ * $Id: magic.c,v 1.44 2004-06-28 19:21:08 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -410,7 +410,7 @@ saves_spell(int level, CHAR_DATA *victim, int dam_type)
 
 	save += get_resist(victim, dam_type, TRUE) / 7;
 
-	if (!IS_NPC(victim) && (vcl = class_lookup(victim->class))
+	if (!IS_NPC(victim) && (vcl = class_lookup(victim->ch_class))
 	&&  IS_SET(vcl->class_flags, CLASS_MAGIC))
 		save = 9 * save / 10;
 	save = URANGE(5, save, 95);
@@ -944,7 +944,7 @@ cast_spell(CHAR_DATA *ch, cpdata_t *cp, sptarget_t *spt)
 			if (cp->sk->skill_type == ST_SPELL) {
 				class_t *cl;
 
-				if ((cl = class_lookup(ch->class)) != NULL
+				if ((cl = class_lookup(ch->ch_class)) != NULL
 				&&  IS_SET(cl->class_flags, CLASS_MAGIC))
 					slevel -= UMAX(0, (LEVEL(ch) / 20));
 				else

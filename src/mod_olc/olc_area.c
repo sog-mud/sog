@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.119 2004-02-19 20:55:51 fjoe Exp $
+ * $Id: olc_area.c,v 1.120 2004-06-28 19:21:04 tatyana Exp $
  */
 
 #include "olc.h"
@@ -53,6 +53,7 @@ DECLARE_OLC_FUN(areaed_minlevel		);
 DECLARE_OLC_FUN(areaed_maxlevel		);
 DECLARE_OLC_FUN(areaed_clan		);
 DECLARE_OLC_FUN(areaed_adjust		);
+DECLARE_OLC_FUN(areaed_dump		);
 
 DECLARE_VALIDATE_FUN(validate_security	);
 DECLARE_VALIDATE_FUN(validate_minvnum	);
@@ -90,6 +91,7 @@ olc_cmd_t olc_cmds_area[] =
 
 	{ "commands",	show_commands,	NULL,			NULL	},
 	{ "version",	show_version,	NULL,			NULL	},
+	{ "dump",	areaed_dump,	NULL,			NULL	},
 
 	{ NULL, NULL, NULL, NULL }
 };
@@ -102,6 +104,24 @@ static void save_area(CHAR_DATA *ch, AREA_DATA *pArea);
 /*
  * Area Editor Functions.
  */
+OLC_FUN(areaed_dump)
+{
+	bool success;
+
+#ifdef WITH_LIBODBCXX
+	success = dump_world();
+#else
+	success = FALSE;
+#endif
+
+	if (success)
+		act_char("Success!", ch);
+	else
+		act_char("Failed!", ch);
+
+	return FALSE;
+}
+
 OLC_FUN(areaed_create)
 {
 	AREA_DATA *pArea;
@@ -563,15 +583,15 @@ varr_info_t c_info_p =
 	sizeof(void *), 1024
 };
 
-#define MOVE_OBJECTS(c, o)						\
+#define MOVE_OBJECTS(c, type, o)					\
 	do {								\
 		void **p;						\
 									\
 		c_init(&v_##c, &c_info_p);				\
-		C_FOREACH (o, &c)					\
+		C_FOREACH (type, o, &c)					\
 			move_##o(&v_##c, o, pArea, delta);		\
 		avltree_move_prepare(&c, &v_##c);			\
-		C_FOREACH (p, &v_##c) {					\
+		C_FOREACH (void **, p, &v_##c) {			\
 			o = *p;						\
 			o->vnum += delta;				\
 			if (top_vnum_##o < o->vnum)			\
@@ -623,7 +643,7 @@ VALIDATE_FUN(validate_move)
 /* everything is ok -- change vnums of all rooms, objs, mobs in area */
 
 /* fix clan recall, item and altar vnums */
-	C_FOREACH(clan, &clans) {
+	C_FOREACH (clan_t *, clan, &clans) {
 		bool clan_touched = FALSE;
 
 		MOVE2(clan->altar_vnum, clan_touched);
@@ -639,7 +659,7 @@ VALIDATE_FUN(validate_move)
 
 	if (touched) {
 		act_char("AreaEd: Changed clans:", ch);
-		C_FOREACH(clan, &clans) {
+		C_FOREACH (clan_t *, clan, &clans) {
 			if (!IS_SET(clan->clan_flags, CLAN_CHANGED))
 				continue;
 
@@ -649,9 +669,9 @@ VALIDATE_FUN(validate_move)
 	}
 
 /* fix mobiles, objects and rooms */
-	MOVE_OBJECTS(mobiles, mob);
-	MOVE_OBJECTS(objects, obj);
-	MOVE_OBJECTS(rooms, room);
+	MOVE_OBJECTS(mobiles, MOB_INDEX_DATA *, mob);
+	MOVE_OBJECTS(objects, OBJ_INDEX_DATA *, obj);
+	MOVE_OBJECTS(rooms, ROOM_INDEX_DATA *, room);
 
 	pArea->max_vnum += delta;
 	TOUCH_AREA(pArea);
@@ -1197,7 +1217,7 @@ save_resets_room(FILE *fp, ROOM_INDEX_DATA *pRoomIndex, bool *pfound)
 
 		case 'E':
 			obj = get_obj_index(r->arg1);
-			fprintf(fp, "E %d %d 0 %d\t\t*\t%s<%s>: %s\n",
+			fprintf(fp, "E %d %d 0 %d\t\t*\t%s <%s>: %s\n",
 				r->arg0,
 				r->arg1,
 				r->arg3,
@@ -1358,7 +1378,7 @@ save_practicers(FILE *fp, AREA_DATA *pArea)
 		if ((pMobIndex = get_mob_index(i)) == NULL)
 			continue;
 
-		C_FOREACH(gr, &pMobIndex->practicer) {
+		C_FOREACH (int *, gr, &pMobIndex->practicer) {
 			if (!found) {
 				fprintf(fp, "#PRACTICERS\n");
 				found = TRUE;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: reset.c,v 1.8 2003-09-30 00:31:29 fjoe Exp $
+ * $Id: reset.c,v 1.9 2004-06-28 19:21:08 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -263,7 +263,7 @@ reset_room(ROOM_INDEX_DATA *pRoom, int flags)
 			if (IS_SET(pObjIndex->obj_flags, OBJ_CLAN)) {
 				clan_t *clan;
 
-				C_FOREACH(clan, &clans) {
+				C_FOREACH (clan_t *, clan, &clans) {
 					if (clan->obj_ptr == NULL
 					||  pObjIndex->vnum != clan->obj_vnum)
 						continue;

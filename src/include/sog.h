@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.56 2004-06-09 08:24:37 tatyana Exp $
+ * $Id: sog.h,v 1.57 2004-06-28 19:20:58 tatyana Exp $
  */
 
 #ifndef _SOG_H_
@@ -418,10 +418,10 @@ DECLARE_PROC1(reset_area,
 DECLARE_FUN2(AFFECT_DATA, affect_find,
 	     NULLABLE_ARG(AFFECT_DATA), paf, ARG(cchar_t), sn)
 DECLARE_PROC3(affect_check,
-	      ARG(CHAR_DATA), ch, ARG(int), where, ARG(flag_t), vector)
+	      ARG(CHAR_DATA), ch, ARG(int), where, ARG(flag_t), bitvec)
 DECLARE_PROC4(affect_check_list,
 	      ARG(CHAR_DATA), ch, ARG(AFFECT_DATA), paf, ARG(int), where,
-	      ARG(flag_t), vector)
+	      ARG(flag_t), bitvec)
 DECLARE_PROC1(affect_enchant,
 	      ARG(OBJ_DATA), obj)
 
@@ -449,7 +449,7 @@ DECLARE_FUN2(bool, is_sn_affected_obj,
 DECLARE_FUN3(AFFECT_DATA, is_bit_affected,
 	     ARG(CHAR_DATA), ch, ARG(int), where, ARG(flag_t), bits)
 DECLARE_FUN2(bool, has_obj_affect,
-	     ARG(CHAR_DATA), ch, ARG(flag_t), vector)
+	     ARG(CHAR_DATA), ch, ARG(flag_t), bitvec)
 
 #define MV_HI(mv)	((mv) >> sizeof(int) * 8 / 2)
 #define MV_LO(mv)	((mv) - MV_HI(mv))
@@ -809,7 +809,7 @@ DECLARE_FUN2(cchar_t, garble,
 #define SR_F_ALL	(A)	/* replace all occurences */
 
 DECLARE_FUN4(cchar_t, string_replace,
-	     ARG(cchar_t), orig, ARG(cchar_t), old, ARG(cchar_t), new,
+	     ARG(cchar_t), orig, ARG(cchar_t), old_text, ARG(cchar_t), new_text,
 	     ARG(int), flags)
 DECLARE_FUN1(cchar_t, format_string,
 	     ARG(cchar_t), oldstring)

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.c,v 1.43 2003-09-30 00:31:38 fjoe Exp $
+ * $Id: lang.c,v 1.44 2004-06-28 19:21:10 tatyana Exp $
  */
 
 #include <string.h>
@@ -261,7 +261,7 @@ irule_find(rulecl_t *rcl, const char *word)
 {
 	rule_t *r;
 
-	C_FOREACH(r, &rcl->impl) {
+	C_FOREACH (rule_t *, r, &rcl->impl) {
 		if (r->name[0] == '-'
 		&&  !strchr(word, ' ')
 		&&  !str_suffix(r->name+1, word))
@@ -379,7 +379,7 @@ lang_nlookup(const char *name, size_t len)
 	if (IS_NULLSTR(name))
 		return NULL;
 
-	C_FOREACH(l, &langs) {
+	C_FOREACH (lang_t *, l, &langs) {
 		if (str_ncmp(l->name, name, len) == 0)
 			return l;
 	}

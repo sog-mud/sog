@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.400 2004-05-26 16:28:52 tatyana Exp $
+ * $Id: handler.c,v 1.401 2004-06-28 19:21:07 tatyana Exp $
  */
 
 /***************************************************************************
@@ -312,7 +312,7 @@ create_mob(int vnum, int flags)
 	mlstr_cpy(&mob->short_descr, &pMobIndex->short_descr);
 	mlstr_cpy(&mob->long_descr, &pMobIndex->long_descr);
 	mlstr_cpy(&mob->description, &pMobIndex->description);
-	mob->class = str_empty;
+	mob->ch_class = str_empty;
 
 	if (pMobIndex->wealth) {
 		long wealth;
@@ -546,8 +546,8 @@ clone_mob(CHAR_DATA *parent)
 	mlstr_cpy(&clone->long_descr, &parent->long_descr);
 	mlstr_cpy(&clone->description, &parent->description);
 	mlstr_cpy(&clone->gender, &parent->gender);
-	free_string(clone->class);
-	clone->class		= str_qdup(parent->class);
+	free_string(clone->ch_class);
+	clone->ch_class		= str_qdup(parent->ch_class);
 	free_string(clone->race);
 	clone->race		= str_qdup(parent->race);
 	clone->level		= parent->level;
@@ -2743,7 +2743,7 @@ gain_exp(CHAR_DATA *ch, int gain)
 			 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 		ch->level++;
 
-		if ((cl = class_lookup(ch->class)) != NULL
+		if ((cl = class_lookup(ch->ch_class)) != NULL
 		&&  cl->death_limit != 0
 		&&  ch->level == LEVEL_PK)
 			ch->wimpy = 0;
@@ -2777,9 +2777,9 @@ advance_level(CHAR_DATA *ch)
 		return;
 	}
 
-	if ((cl = class_lookup(ch->class)) == NULL) {
+	if ((cl = class_lookup(ch->ch_class)) == NULL) {
 		printlog(LOG_INFO, "advance_level: %s: unknown class %s",
-		    ch->name, ch->class);
+		    ch->name, ch->ch_class);
 		return;
 	}
 
@@ -2829,9 +2829,9 @@ delevel(CHAR_DATA *ch)
 		return;
 	}
 
-	if ((cl = class_lookup(ch->class)) == NULL) {
+	if ((cl = class_lookup(ch->ch_class)) == NULL) {
 		printlog(LOG_INFO, "delevel: %s: unknown class %s",
-		    ch->name, ch->class);
+		    ch->name, ch->ch_class);
 		return;
 	}
 
@@ -4268,7 +4268,7 @@ look_char(CHAR_DATA *ch, CHAR_DATA *victim)
 			 TO_CHAR | ACT_NOTRANS | ACT_NOLF, POS_DEAD);
 		if (!IS_NPC(doppel)) {
 			act_puts("($t) ($T) ", ch,		// notrans
-				 doppel->class, mlstr_mval(&doppel->gender),
+				 doppel->ch_class, mlstr_mval(&doppel->gender),
 				 TO_CHAR | ACT_NOTRANS | ACT_NOLF, POS_DEAD);
 		}
 	}
@@ -5322,7 +5322,7 @@ clan_item_ok(const char *cln)
 	if (room_in == clan->altar_vnum)
 		return TRUE;
 
-	C_FOREACH(clan, &clans) {
+	C_FOREACH (clan_t *, clan, &clans) {
 		if (clan->altar_vnum == room_in)
 			return FALSE;
 	}
@@ -5394,7 +5394,7 @@ pc_name_ok(const char *name)
 	/*
 	 * Prevent players from naming themselves after mobs.
 	 */
-	C_FOREACH (pMobIndex, &mobiles) {
+	C_FOREACH (MOB_INDEX_DATA *, pMobIndex, &mobiles) {
 		if (is_name(name, pMobIndex->name))
 			return FALSE;
 	}
@@ -5426,7 +5426,7 @@ do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 	class_t *cl;
 	race_t *r;
 
-	if ((cl = class_lookup(wch->class)) == NULL
+	if ((cl = class_lookup(wch->ch_class)) == NULL
 	||  (r = race_lookup(wch->race)) == NULL
 	||  !r->race_pcdata)
 		return;
@@ -6274,7 +6274,7 @@ hometown_print_avail(CHAR_DATA *ch)
 	int col = 0;
 	hometown_t *h;
 
-	C_FOREACH(h, &hometowns) {
+	C_FOREACH (hometown_t *, h, &hometowns) {
 		if (hometown_restrict(h, ch))
 			continue;
 
@@ -6783,7 +6783,7 @@ drop_objs(CHAR_DATA *ch, OBJ_DATA *obj_list)
 			continue;
 		}
 
-		C_FOREACH(clan, &clans) {
+		C_FOREACH (clan_t *, clan, &clans) {
 			if (obj != clan->obj_ptr)
 				continue;
 

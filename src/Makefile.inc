@@ -1,5 +1,5 @@
 #
-# $Id: Makefile.inc,v 1.27 2003-09-19 13:38:33 fjoe Exp $
+# $Id: Makefile.inc,v 1.28 2004-06-28 19:20:57 tatyana Exp $
 #
 
 #
@@ -11,10 +11,11 @@ ABI_VERSION=	10
 # common defines
 #
 CC=		gcc
+CXX=		g++
 INCLUDES=	-I../include -I..
 
 COPTS=		${INCLUDES}
-CFLAGS=		-O -pipe -Wall
+CFLAGS=		-O -pipe -Wall $(COMPAT_CFLAGS)
 LDFLAGS=	-export-dynamic
 
 #
@@ -24,7 +25,7 @@ LDFLAGS=	-export-dynamic
 #
 # BDECFLAGS minus -Wconversion, -ansi and -pedantic
 CFLAGS+=	-W -Wbad-function-cast -Wcast-align\
-		-Wcast-qual -Wchar-subscripts -Winline\
+		-Wcast-qual -Wchar-subscripts\
 		-Wmissing-prototypes -Wnested-externs -Wpointer-arith\
 		-Wredundant-decls -Wshadow -Wstrict-prototypes -Wwrite-strings
 CFLAGS+=	-Werror
@@ -88,4 +89,8 @@ NOMAN=		yes
 
 .if exists(${.CURDIR}/../Makefile.osdep)
 .include "${.CURDIR}/../Makefile.osdep"
+.endif
+
+.if defined(WITH_LIBODBCXX)
+CFLAGS+=	$(PTHREAD_CFLAGS)
 .endif

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_mpc.c,v 1.58 2004-02-13 14:48:14 fjoe Exp $
+ * $Id: init_mpc.c,v 1.59 2004-06-28 19:21:03 tatyana Exp $
  */
 
 #include <dlfcn.h>
@@ -229,7 +229,7 @@ mpcode_destroy(mpcode_t *mpc)
 
 	c_destroy(&mpc->jumptabs);
 	c_destroy(&mpc->iters);
-	C_FOREACH(paf, &mpc->affects)
+	C_FOREACH (AFFECT_DATA **, paf, &mpc->affects)
 		aff_free(*paf);
 	c_destroy(&mpc->affects);
 
@@ -267,7 +267,7 @@ MODINIT_FUN(_module_load, m)
 	dynafun_tab_register(__mod_tab(MODULE), m);
 
 	c_init(&mpcodes, &c_info_mpcodes);
-	C_FOREACH(mp, &mprogs) {
+	C_FOREACH (mprog_t *, mp, &mprogs) {
 		if (mprog_compile(mp) < 0) {
 			char *errmsg = buf_string(mp->errbuf);
 			int len = strlen(errmsg);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_material.c,v 1.25 2001-12-03 22:28:34 fjoe Exp $
+ * $Id: olc_material.c,v 1.26 2004-06-28 19:21:04 tatyana Exp $
  */
 
 #include "olc.h"
@@ -134,7 +134,7 @@ OLC_FUN(mated_save)
 	if (fp == NULL)
 		return FALSE;
 
-	C_FOREACH(mat, &materials) {
+	C_FOREACH (material_t *, mat, &materials) {
 		fprintf(fp, "#MATERIAL\n");
 		fprintf(fp, "Name %s~\n", mat->name);
 		if (mat->float_time)

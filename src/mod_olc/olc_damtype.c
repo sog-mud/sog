@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_damtype.c,v 1.17 2004-02-19 20:55:51 fjoe Exp $
+ * $Id: olc_damtype.c,v 1.18 2004-06-28 19:21:04 tatyana Exp $
  */
 
 /*
@@ -149,7 +149,7 @@ OLC_FUN(damted_save)
 	if (fp == NULL)
 		return FALSE;
 
-	C_FOREACH(sk, &skills) {
+	C_FOREACH (skill_t *, sk, &skills) {
 		if (IS_SET(sk->skill_type, ST_ALL))
 			continue;
 

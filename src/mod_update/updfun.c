@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.69 2004-03-07 21:57:57 tatyana Exp $
+ * $Id: updfun.c,v 1.70 2004-06-28 19:21:10 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -681,7 +681,7 @@ UPDATE_FOREACH_FUN(char_update_foreach, vo)
 		// Adjust luck
 		class_t* cl;
 		int nominal_luck = 50 + r->luck_bonus;
-		if ((cl = class_lookup(ch->class)) != NULL)
+		if ((cl = class_lookup(ch->ch_class)) != NULL)
 			nominal_luck += cl->luck_bonus;
 
 		if (ch->luck > nominal_luck)
@@ -1324,7 +1324,7 @@ UPDATE_FUN(clan_update)
 	if (time_info.hour != 0)
 		return;
 
-	C_FOREACH(clan, &clans) {
+	C_FOREACH (clan_t *, clan, &clans) {
 		OBJ_DATA *obj;
 
 		if (clan->obj_ptr == NULL)
@@ -1348,7 +1348,7 @@ UPDATE_FUN(clan_update)
 		if (obj->in_room != NULL) {
 			clan_t *clan2;
 
-			C_FOREACH(clan2, &clans) {
+			C_FOREACH (clan_t *, clan2, &clans) {
 				if (obj->in_room->vnum == clan2->altar_vnum)
 					continue;
 			}
@@ -1541,7 +1541,7 @@ hit_gain(CHAR_DATA *ch)
 	} else {
 		class_t *cl;
 
-		if ((cl = class_lookup(ch->class)) == NULL)
+		if ((cl = class_lookup(ch->ch_class)) == NULL)
 			return 0;
 
 		gain = UMAX(3, 2 * get_curr_stat(ch, STAT_CON) +
@@ -1617,7 +1617,7 @@ mana_gain(CHAR_DATA *ch)
 	} else {
 		class_t *cl;
 
-		if ((cl = class_lookup(ch->class)) == NULL)
+		if ((cl = class_lookup(ch->ch_class)) == NULL)
 			return 0;
 
 		gain = get_curr_stat(ch, STAT_WIS) +

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_clan.c,v 1.56 2001-12-03 22:28:32 fjoe Exp $
+ * $Id: olc_clan.c,v 1.57 2004-06-28 19:21:04 tatyana Exp $
  */
 
 #include "olc.h"
@@ -134,7 +134,7 @@ OLC_FUN(claned_save)
 
 	olc_printf(ch, "Saved clans:");
 
-	C_FOREACH(clan, &clans) {
+	C_FOREACH (clan_t *, clan, &clans) {
 		FILE *fp;
 		const char *filename;
 

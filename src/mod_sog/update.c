@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: update.c,v 1.212 2003-10-10 16:14:55 fjoe Exp $
+ * $Id: update.c,v 1.213 2004-06-28 19:21:08 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -41,7 +41,7 @@ update_handler(void)
 {
 	uhandler_t *hdlr;
 
-	C_FOREACH(hdlr, &uhandlers) {
+	C_FOREACH (uhandler_t *, hdlr, &uhandlers) {
 		if (--hdlr->cnt == 0) {
 			hdlr->cnt = hdlr->ticks;
 			uhandler_update(hdlr);

@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.83 2004-06-11 21:57:35 sg Exp $
+ * $Id: prayers.c,v 1.84 2004-06-28 19:21:02 tatyana Exp $
  */
 
 /***************************************************************************
@@ -317,7 +317,7 @@ SPELL_FUN(prayer_word_of_recall, sn, level, ch, vo)
 			act_char("Your honour doesn't let you recall!", ch);
 		else {
 			act_puts("You can't cast this spell to a honourable fighting $t!",
-				 ch, victim->class, NULL,
+				 ch, victim->ch_class, NULL,
 				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		}
 		return;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.76 2004-02-13 14:48:14 fjoe Exp $
+ * $Id: typedef.h,v 1.77 2004-06-28 19:20:58 tatyana Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -46,7 +46,9 @@
 /*
  * mpc and dynafun code relies on this to be the same width as int
  */
+#ifndef __cplusplus
 typedef int bool;
+#endif
 typedef int flag_t;
 
 #if defined (WIN32)

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_cmd.c,v 1.30 2004-02-10 14:15:52 fjoe Exp $
+ * $Id: olc_cmd.c,v 1.31 2004-06-28 19:21:04 tatyana Exp $
  */
 
 #include "olc.h"
@@ -156,7 +156,7 @@ OLC_FUN(cmded_save)
 	if (fp == NULL)
 		return FALSE;
 
-	C_FOREACH(cmnd, &commands) {
+	C_FOREACH (cmd_t *, cmnd, &commands) {
 		fprintf(fp, "#CMD\n");
 		fwrite_string(fp, "name", cmnd->name);
 		fwrite_string(fp, "aliases", cmnd->aliases);
@@ -272,7 +272,7 @@ OLC_FUN(cmded_list)
 	one_argument(argument, arg, sizeof(arg));
 	output = buf_new(0);
 
-	C_FOREACH(cmnd, &commands) {
+	C_FOREACH (cmd_t *, cmnd, &commands) {
 		if (arg[0] && str_prefix(arg, cmnd->name))
 			continue;
 
@@ -449,7 +449,7 @@ static VALIDATE_FUN(validate_cmd_alias)
 		return FALSE;
 	}
 
-	C_FOREACH(cmnd2, &commands) {
+	C_FOREACH (cmd_t *, cmnd2, &commands) {
 		if (is_name_strict(alias, cmnd2->aliases)) {
 			act_puts("CmdEd: $t: command '$T' already have such alias.",
 			    ch, alias, cmnd2->name,
@@ -471,7 +471,7 @@ check_shadow(CHAR_DATA *ch, const char *name)
 
 	output = buf_new(0);
 
-	C_FOREACH(soc, &socials) {
+	C_FOREACH (social_t *, soc, &socials) {
 		if (str_prefix(soc->name, name))
 			continue;
 

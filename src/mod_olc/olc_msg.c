@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.61 2001-12-03 22:28:35 fjoe Exp $
+ * $Id: olc_msg.c,v 1.62 2004-06-28 19:21:04 tatyana Exp $
  */
 
 #include "olc.h"
@@ -141,7 +141,7 @@ OLC_FUN(msged_save)
 	if ((fp = olc_fopen(ETC_PATH, MSGDB_FILE, ch, SECURITY_MSGDB)) == NULL)
 		return FALSE;
 
-	C_FOREACH(ml, &msgdb)
+	C_FOREACH (mlstring *, ml, &msgdb)
 		mlstr_fwrite(fp, NULL, ml);
 
 	fprintf(fp, "$~\n");
@@ -193,7 +193,7 @@ OLC_FUN(msged_list)
 	argument = atomsg(argument);
 	output = buf_new(0);
 
-	C_FOREACH(ml, &msgdb) {
+	C_FOREACH (mlstring *, ml, &msgdb) {
 		const char *name = mlstr_mval(ml);
 
 		if (IS_NULLSTR(name))
@@ -255,7 +255,7 @@ msg_search(const char *argument)
 	if ((ml = msg_lookup(argument)) != NULL)
 		return ml;
 
-	C_FOREACH(ml, &msgdb) {
+	C_FOREACH (mlstring *, ml, &msgdb) {
 		const char *name = mlstr_mval(ml);
 
 		if (IS_NULLSTR(name))

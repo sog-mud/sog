@@ -11,6 +11,7 @@ else
 	ports="-p 6666 -i 6667 -f 6668"
 fi
 sog=bin/sog
+#sog="valgrind --error-limit=no --logfile=sog bin/sog"
 index=1000
 cd ..
 

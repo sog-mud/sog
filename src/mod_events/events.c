@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: events.c,v 1.16 2004-03-01 18:35:06 tatyana Exp $
+ * $Id: events.c,v 1.17 2004-06-28 19:21:01 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -39,10 +39,10 @@ MODINIT_FUN(_module_load, m)
 {
 	skill_t *sk;
 
-	C_FOREACH(sk, &skills) {
+	C_FOREACH (skill_t *, sk, &skills) {
 		evf_t *evf;
 
-		C_FOREACH(evf, &sk->events) {
+		C_FOREACH (evf_t *, evf, &sk->events) {
 			evf->fun = dlsym(m->dlh, evf->fun_name);
 			if (evf->fun == NULL) {
 				printlog(LOG_INFO,
@@ -58,10 +58,10 @@ MODINIT_FUN(_module_unload, m)
 {
 	skill_t *sk;
 
-	C_FOREACH(sk, &skills) {
+	C_FOREACH (skill_t *, sk, &skills) {
 		evf_t *evf;
 
-		C_FOREACH(evf, &sk->events)
+		C_FOREACH (evf_t *, evf, &sk->events)
 			evf->fun = NULL;
 	}
 	return 0;

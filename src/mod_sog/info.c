@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: info.c,v 1.37 2003-09-29 23:11:49 fjoe Exp $
+ * $Id: info.c,v 1.38 2004-06-28 19:21:08 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -176,7 +176,7 @@ SERVICE_FUN(cmd_show)
 	output = buf_new(-1);
 	buf_printf(output, BUF_END, "%s\n%s\n%s %s\n%d\n%s\n%s\n%s\n%s\n%d\n%d %d\n%d\n%s\n%s\n%d\n%s\n",
 		IS_SET(PC(ch)->www_show_flags, WSHOW_RACE) ? PC(ch)->race : "Unknown",
-		IS_SET(PC(ch)->www_show_flags, WSHOW_CLASS) ? ch->class : "Unknown",
+		IS_SET(PC(ch)->www_show_flags, WSHOW_CLASS) ? ch->ch_class : "Unknown",
 		(IS_SET(PC(ch)->www_show_flags, WSHOW_CLAN) && !IS_NULLSTR(ch->clan)) ? ch->clan : "Unknown",
 		(IS_SET(PC(ch)->www_show_flags, WSHOW_CLAN) && !IS_NULLSTR(ch->clan)) ? flag_string(clan_status_table, PC(ch)->clan_status) : "",
 		IS_SET(PC(ch)->www_show_flags, WSHOW_LEVEL) ? ch->level : -1,

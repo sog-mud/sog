@@ -1,5 +1,5 @@
 /*
- * $Id: hashtest.c,v 1.8 2003-04-24 13:36:53 fjoe Exp $
+ * $Id: hashtest.c,v 1.9 2004-06-28 19:20:58 tatyana Exp $
  */
 
 #include <sys/time.h>
@@ -163,7 +163,7 @@ search_varr(const char *p)
 		const char **pp;
 		bool found = FALSE;
 
-		C_FOREACH(pp, &v) {
+		C_FOREACH (const char *, pp, &v) {
 			if (!strcmp(*pp, p)) {
 				found = TRUE;
 				break;

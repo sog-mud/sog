@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_social.c,v 1.37 2001-12-03 22:28:36 fjoe Exp $
+ * $Id: olc_social.c,v 1.38 2004-06-28 19:21:05 tatyana Exp $
  */
 
 /* I never wanted to be
@@ -167,7 +167,7 @@ OLC_FUN(soced_save)
 	if (fp == NULL)
 		return FALSE;
 
-	C_FOREACH(soc, &socials) {
+	C_FOREACH (social_t *, soc, &socials) {
 		fprintf(fp, "#SOCIAL\n");
 		fprintf(fp, "name %s\n", soc->name);
 		fprintf(fp, "min_pos %s\n",
@@ -257,7 +257,7 @@ OLC_FUN(soced_list)
 	one_argument(argument, arg, sizeof(arg));
 	output = buf_new(0);
 
-	C_FOREACH(soc, &socials) {
+	C_FOREACH (social_t *, soc, &socials) {
 		if (arg[0] && str_prefix(arg, soc->name))
 			continue;
 
@@ -433,7 +433,7 @@ shadow_dump_cmds(BUFFER *output, const char *name)
 		return;
 
 	buf_append(output, "[*** SHADOWED BY FOLLOWING COMMANDS ***]\n");
-	C_FOREACH(cmd, &commands) {
+	C_FOREACH (cmd_t *, cmd, &commands) {
 		if (!str_prefix(name, cmd->name))
 			buf_printf(output, BUF_END, "   [%s]\n", cmd->name);
 	}

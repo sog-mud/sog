@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_liquid.c,v 1.25 2004-02-19 20:55:51 fjoe Exp $
+ * $Id: olc_liquid.c,v 1.26 2004-06-28 19:21:04 tatyana Exp $
  */
 
 #include "olc.h"
@@ -132,7 +132,7 @@ OLC_FUN(liqed_save)
 	if (fp == NULL)
 		return FALSE;
 
-	C_FOREACH(lq, &liquids) {
+	C_FOREACH (liquid_t *, lq, &liquids) {
 		int i;
 
 		fprintf(fp, "#LIQUID\n");

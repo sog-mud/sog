@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.172 2004-05-26 06:38:40 tatyana Exp $
+ * $Id: act_quest.c,v 1.173 2004-06-28 19:21:06 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -460,7 +460,7 @@ DO_FUN(quest_list, ch, arg)
 	act_char("Current Quest Items available for purchase:", ch);
 	for (qitem = qitem_table; qitem->name; qitem++) {
 		if (qitem->restrict_class != NULL
-		&&  !is_name(ch->class, qitem->restrict_class))
+		&&  !is_name(ch->ch_class, qitem->restrict_class))
 			continue;
 
 		if (arg[0] != '\0' && !is_name(arg, qitem->name))
@@ -492,7 +492,7 @@ DO_FUN(quest_buy, ch, arg)
 			bool buy_ok = FALSE;
 
 			if (qitem->restrict_class != NULL
-			&&  !is_name(ch->class, qitem->restrict_class))
+			&&  !is_name(ch->ch_class, qitem->restrict_class))
 				continue;
 
 			if (PC(ch)->questpoints < qitem->price) {
@@ -781,7 +781,7 @@ DO_FUN(quest_trouble, ch, arg)
 
 	for (qitem = qitem_table; qitem->name; qitem++) {
 		if (qitem->restrict_class != NULL
-		&&  !is_name(ch->class, qitem->restrict_class))
+		&&  !is_name(ch->ch_class, qitem->restrict_class))
 			continue;
 
 		if (qitem->vnum && is_name(arg, qitem->name)) {

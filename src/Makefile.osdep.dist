@@ -1,6 +1,9 @@
 #
-# $Id: Makefile.osdep.dist,v 1.19 2003-09-30 01:32:30 fjoe Exp $
+# $Id: Makefile.osdep.dist,v 1.20 2004-06-28 19:20:57 tatyana Exp $
 #
+
+.ifndef (_MAKEFILE_OSDEP_INCLUDED)
+_MAKEFILE_OSDEP_INCLUDED=	yes
 
 #
 # owner/group for sog binaries
@@ -9,32 +12,45 @@ BINOWN!=	id -un
 BINGRP!=	id -gn
 
 #
+# CFLAGS for building with threads
+PTHREAD_CFLAGS=	-D_THREAD_SAFE
+
+#
+# build with libodbc++
+#WITH_LIBODBCXX=	yes
+
+#
 # for FreeBSD
-#CFLAGS+=	-DBSD44
-#LDADD+=		-lcrypt
+#COMPAT_CFLAGS=	-DBSD44
+#COMPAT_LIBS=	-lcrypt
 #COMPAT_SRCS=	${DLMALLOC_SRCS}
+#PTHREAD_LIBS=	-pthread
 
 #
 # for Linux
-#CFLAGS+=	-DLINUX
-#LDADD+=		-lcrypt -ldl
+#COMPAT_CFLAGS=	-DLINUX
+#COMPAT_LIBS=	-lcrypt -ldl
 #SO_LDFLAGS+=	-rdynamic
 #COMPAT_SRCS=	fnmatch.c strlcat.c strlcpy.c
+#PTHREAD_LIBS=	-lpthread
 #MAKE=		pmake
 #MKDEPCMD=	${.CURDIR}/../mkdep/mkdep
 
 #
 # for SunOS 5 (Solaris)
-#CFLAGS+=	-DSUNOS
-#LDADD+=		-lsocket -lnsl
+#COMPAT_CFLAGS=	-DSUNOS
+#COMPAT_LIBS=	-lsocket -lnsl -lpthread
 #COMPAT_SRCS=	strsep.c snprintf.c strlcat.c strlcpy.c
+#PTHREAD_LIBS=	-lpthread
 #MAKE=		pmake
 #MKDEPCMD=	${.CURDIR}/../mkdep/mkdep
 
 #
 # for Unixware 2.x
-#CFLAGS+=	-DSVR4 -DOLD_RAND
-#LDADD+=		-lsocket -lnsl -lcrypt
+#COMPAT_CFLAGS=	-DSVR4 -DOLD_RAND
+#COMPAT_LIBS=	-lsocket -lnsl -lcrypt -lpthread
 #COMPAT_SRCS=	strsep.c strlcat.c strlcpy.c
 #MAKE=		pmake
+#PTHREAD_LIBS=	-lpthread
 #MKDEPCMD=	${.CURDIR}/../mkdep/mkdep
+.endif # _MAKEFILE_OSDEP_INCLUDED

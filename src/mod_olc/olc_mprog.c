@@ -1,5 +1,5 @@
 /*
- * $Id: olc_mprog.c,v 1.17 2003-09-29 23:11:41 fjoe Exp $
+ * $Id: olc_mprog.c,v 1.18 2004-06-28 19:21:04 tatyana Exp $
  */
 
 #include <ctype.h>
@@ -131,7 +131,7 @@ OLC_FUN(mped_save)
 
 	olc_printf(ch, "Saved mprogs:");
 
-	C_FOREACH(mp, &mprogs) {
+	C_FOREACH (mprog_t *, mp, &mprogs) {
 		FILE *fp;
 		const char *filename;
 
@@ -214,7 +214,7 @@ OLC_FUN(mped_list)
 	int col = 0;
 	const char **p;
 
-	C_FOREACH(p, &mprogs) {
+	C_FOREACH (const char **, p, &mprogs) {
 		if ((*p)[0] == '@')
 			continue;
 
@@ -291,15 +291,15 @@ OLC_FUN(mped_where)
 	buf = buf_new(-1);
 	switch (mp->type) {
 	case MP_T_MOB:
-		C_FOREACH (pMob, &mobiles)
+		C_FOREACH (MOB_INDEX_DATA *, pMob, &mobiles)
 			mptrig_dump(buf, mp, &pMob->mp_trigs, pMob);
 		break;
 	case MP_T_OBJ:
-		C_FOREACH (pObj, &objects)
+		C_FOREACH (OBJ_INDEX_DATA *, pObj, &objects)
 			mptrig_dump(buf, mp, &pObj->mp_trigs, pObj);
 		break;
 	case MP_T_ROOM:
-		C_FOREACH (pRoom, &rooms)
+		C_FOREACH (ROOM_INDEX_DATA *, pRoom, &rooms)
 			mptrig_dump(buf, mp, &pRoom->mp_trigs, pRoom);
 		break;
 
@@ -375,7 +375,7 @@ mptrig_dump(BUFFER *buf, mprog_t *mp, varr *v, void *vo)
 	trig_t *t;
 	bool found = FALSE;
 
-	C_FOREACH(t, v) {
+	C_FOREACH (trig_t *, t, v) {
 		if (!!strcmp(t->trig_prog, mp->name))
 			continue;
 

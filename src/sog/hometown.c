@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hometown.c,v 1.25 2003-09-29 23:11:54 fjoe Exp $
+ * $Id: hometown.c,v 1.26 2004-06-28 19:21:10 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -48,7 +48,7 @@ htn_lookup(const char *name)
 {
 	hometown_t *h;
 
-	C_FOREACH(h, &hometowns) {
+	C_FOREACH (hometown_t *, h, &hometowns) {
 		if (!str_prefix(name, h->area))
 			return varr_index(&hometowns, h);
 	}
@@ -73,7 +73,7 @@ hometown_restrict(hometown_t *h, CHAR_DATA *ch)
 
 	if ((r = race_lookup(ORG_RACE(ch))) == NULL
 	||  !r->race_pcdata
-	||  (cl = class_lookup(ch->class)) == NULL)
+	||  (cl = class_lookup(ch->ch_class)) == NULL)
 		return TRUE;
 
 	if (IS_SET(r->race_flags, RACE_NOCH))
@@ -103,7 +103,7 @@ hometown_permanent(CHAR_DATA *ch)
 	int htn_perm = -1;
 	hometown_t *h;
 
-	C_FOREACH(h, &hometowns) {
+	C_FOREACH (hometown_t *, h, &hometowns) {
 		if (hometown_restrict(h, ch))
 			continue;
 

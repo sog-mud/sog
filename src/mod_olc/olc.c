@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.168 2004-02-21 18:58:45 fjoe Exp $
+ * $Id: olc.c,v 1.169 2004-06-28 19:21:04 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1803,7 +1803,7 @@ show_mob_resets(int vnum)
 	BUFFER *buf = NULL;
 	ROOM_INDEX_DATA *room;
 
-	C_FOREACH (room, &rooms) {
+	C_FOREACH (ROOM_INDEX_DATA *, room, &rooms) {
 		int j = 0;
 		RESET_DATA *reset;
 
@@ -1831,7 +1831,7 @@ show_obj_resets(int vnum)
 	BUFFER *buf = NULL;
 	ROOM_INDEX_DATA *room;
 
-	C_FOREACH (room, &rooms) {
+	C_FOREACH (ROOM_INDEX_DATA *, room, &rooms) {
 		int j = 0;
 		RESET_DATA *reset;
 

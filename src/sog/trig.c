@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.c,v 1.40 2004-02-21 18:58:46 fjoe Exp $
+ * $Id: trig.c,v 1.41 2004-06-28 19:21:11 tatyana Exp $
  */
 
 #include <sys/types.h>
@@ -179,7 +179,7 @@ trig_fwrite_list(const char *pre, varr *v, FILE *fp)
 {
 	trig_t *trig;
 
-	C_FOREACH(trig, v)
+	C_FOREACH (trig_t *, trig, v)
 		trig_fwrite(pre, trig, fp);
 }
 
@@ -189,7 +189,7 @@ trig_dump_list(varr *v, BUFFER *buf)
 	int cnt = 0;
 	trig_t *trig;
 
-	C_FOREACH(trig, v) {
+	C_FOREACH (trig_t *, trig, v) {
 		char buf2[MAX_INPUT_LENGTH];
 		const char *trig_prog;
 
@@ -229,7 +229,7 @@ trig_new(varr *v, int trig_type)
 	int idx = 0;
 	trig_t *t;
 
-	C_FOREACH(t, v) {
+	C_FOREACH (trig_t *, t, v) {
 		if (t->trig_type > trig_type) {
 			idx = varr_index(v, t);
 			break;
@@ -598,7 +598,7 @@ pull_trigger_list(int trig_type, varr *v, int mp_type,
 		trig_cpy(n, trig);
 	}
 
-	C_FOREACH(trig, &vc) {
+	C_FOREACH (trig_t *, trig, &vc) {
 		rv = pull_one_trigger(trig, mp_type, arg1, arg2, arg3);
 		if (rv > 0)
 			break;

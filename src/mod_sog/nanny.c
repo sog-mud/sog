@@ -1,5 +1,5 @@
 /*
- * $Id: nanny.c,v 1.18 2004-02-19 23:58:23 fjoe Exp $
+ * $Id: nanny.c,v 1.19 2004-06-28 19:21:08 tatyana Exp $
  */
 
 /***************************************************************************
@@ -382,7 +382,7 @@ nanny(DESCRIPTOR_DATA *d, const char *argument)
 			act_char("The following races are available:", ch);
 			send_to_char("  ", ch);			// notrans
 			col = 0;
-			C_FOREACH(r, &races) {
+			C_FOREACH (race_t *, r, &races) {
 				if (r->race_pcdata == NULL
 				||  c_isempty(&r->race_pcdata->classes))
 					continue;
@@ -440,7 +440,7 @@ nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 		act_char("The following classes are available:", ch);
 		col = 0;
-		C_FOREACH(cl, &classes) {
+		C_FOREACH (class_t *, cl, &classes) {
 			if (!class_ok(ch, cl))
 				continue;
 
@@ -486,7 +486,7 @@ nanny(DESCRIPTOR_DATA *d, const char *argument)
 			return;
 		}
 
-		ch->class = str_qdup(cl->name);
+		ch->ch_class = str_qdup(cl->name);
 		for (i = 0; i < MAX_STAT; i++)
 			ch->perm_stat[i] += cl->mod_stat[i];
 		act("You are now $t.", ch, cl->name, NULL, TO_CHAR);
@@ -935,7 +935,7 @@ align_restrict(CHAR_DATA *ch)
 	class_t *cl;
 	race_t *r;
 
-	if ((cl = class_lookup(ch->class)) == NULL
+	if ((cl = class_lookup(ch->ch_class)) == NULL
 	||  (r = race_lookup(ORG_RACE(ch))) == NULL
 	||  !r->race_pcdata)
 		return RA_NONE;
@@ -969,7 +969,7 @@ ethos_check(CHAR_DATA *ch)
 {
 	class_t *cl;
 
-	if ((cl = class_lookup(ch->class))) {
+	if ((cl = class_lookup(ch->ch_class))) {
 		/*
 		 * temporary workaround for paladins
 		 */
@@ -1006,7 +1006,7 @@ print_hometown(CHAR_DATA *ch)
 
 	if ((r = race_lookup(ORG_RACE(ch))) == NULL
 	||  !r->race_pcdata
-	||  (cl = class_lookup(ch->class)) == NULL) {
+	||  (cl = class_lookup(ch->ch_class)) == NULL) {
 		act_char("You should create your character anew.", ch);
 		close_descriptor(ch->desc, SAVE_F_NONE);
 		return;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.c,v 1.42 2003-04-24 13:37:01 fjoe Exp $
+ * $Id: varr.c,v 1.43 2004-06-28 19:21:11 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -238,7 +238,7 @@ varr_erase(void *c)
 	if (v->v_data->e_destroy) {
 		void *elem;
 
-		C_FOREACH(elem, v)
+		C_FOREACH (void *, elem, v)
 			v->v_data->e_destroy(elem);
 	}
 
@@ -255,7 +255,7 @@ varr_lookup(void *c, const void *k)
 	if (IS_NULLSTR(name))
 		return NULL;
 
-	C_FOREACH(elem, v) {
+	C_FOREACH (void *, elem, v) {
 		if (!str_cmp(name, *(const char **) elem))
 			return elem;
 	}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.c,v 1.12 2003-09-30 00:31:39 fjoe Exp $
+ * $Id: sog.c,v 1.13 2004-06-28 19:21:10 tatyana Exp $
  */
 
 #include <sys/time.h>
@@ -301,7 +301,7 @@ open_sockets(varr *v, const char *logm)
 	size_t j = 0;
 	int *pport;
 
-	C_FOREACH(pport, v) {
+	C_FOREACH (int *, pport, v) {
 		int sock;
 		int *pport2;
 
@@ -322,7 +322,7 @@ close_sockets(varr *v)
 {
 	int *pfd;
 
-	C_FOREACH(pfd, v) {
+	C_FOREACH (int *, pfd, v) {
 #if defined (WIN32)
 		closesocket(*pfd);
 #else
