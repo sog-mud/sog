@@ -374,7 +374,7 @@ EFNU 0 0 0
 stand stand male 50
 0 0 medium unknown
 #623
-oldstyle cityguard guard~
+cityguard guard~
 the Ofcol cityguard~
 An Ofcol cityguard is posted here to guard the gate.
 ~
@@ -391,7 +391,7 @@ CDEIKLU 0 0 0
 stand stand male 50
 0 0 medium unknown
 #624
-oldstyle bard~
+bard~
 a bard~
 A bard is here, singing of the glories of Ofcol.
 ~
@@ -407,7 +407,7 @@ EFNU 0 0 0
 stand stand male 50
 0 0 medium unknown
 #625
-oldstyle servant~
+servant~
 a servant~
 A servant is here, carrying the duties of the Keeper of the Golden Citadel.
 ~
@@ -421,7 +421,7 @@ EFNU 0 0 0
 stand stand male 5
 0 0 medium unknown
 #626
-oldstyle squire~
+squire~
 a squire~
 A squire is here, scurrying from duty to duty.
 ~
@@ -435,7 +435,7 @@ EFNU 0 0 0
 stand stand male 5
 0 0 medium unknown
 #627
-oldstyle page~
+page~
 a page~
 A page is here, sending a message to his knight.
 ~
@@ -449,7 +449,7 @@ EFNU 0 0 0
 stand stand male 5
 0 0 medium unknown
 #628
-oldstyle priestess~
+priestess~
 the Priestess of Ofcol~
 The Priestess of Ofcol is here, blessing you 
 with her beatific smile.
@@ -466,7 +466,7 @@ EFNU ABCD 0 0
 stand stand female 50
 0 0 medium unknown
 #629
-oldstyle chaplain Jerrold~
+chaplain Jerrold~
 Chaplain Jerrold~
 Jerrold, the chaplain of this Citadel, is here 
 directing the activities of the people around here.
@@ -483,7 +483,7 @@ CDEIKLU 0 0 0
 stand stand male 50
 0 0 medium unknown
 #630
-oldstyle dragonlord lord dragon~
+dragonlord lord dragon~
 a Dragonlord~
 A knight wearing the scales of a dragon stands here.
 ~
@@ -516,7 +516,7 @@ EFNR 0 0 0
 stand stand male 5000
 0 0 medium unknown
 #632
-oldstyle attendant~
+attendant~
 an attendant of the dragon~
 A person robed in gold is attending to the Keeper of the Citadel.
 ~
@@ -531,7 +531,7 @@ FU 0 0 0
 stand stand male 250
 0 0 medium unknown
 #633
-oldstyle dragonknight knight dragon~
+dragonknight knight dragon~
 a Dragonknight~
 A person dressed in the scales of a gold dragon 
 stands here, guarding the Golden Citadel.
@@ -547,7 +547,7 @@ EFNU 0 0 0
 stand stand male 250
 0 0 medium unknown
 #634
-oldstyle cityguard guard~
+cityguard guard~
 the Ofcol cityguard~
 An Ofcol cityguard is posted here to guard the gate.
 ~

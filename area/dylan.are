@@ -8,7 +8,7 @@ End
 
 #MOBILES
 #9101
-oldstyle harpy~
+harpy~
 the screaming, filthy harpy~
 The screaming, filthy harpy claws madly at your face!
 ~
@@ -24,7 +24,7 @@ EFNU 0 0 0
 stand stand female 1525
 0 0 medium unknown
 #9102
-oldstyle harpy leader~
+harpy leader~
 the screaming harpy leader~
 The screaming harpy leader tries to scratch your eyes out!
 ~
@@ -41,7 +41,7 @@ EFNU 0 0 0
 stand stand female 2125
 0 0 medium unknown
 #9103
-oldstyle air elemental~
+air elemental~
 the ghostly air elemental~
 The ghostly air elemental.
 ~
@@ -56,7 +56,7 @@ EFNU 0 0 0
 stand stand none 50
 0 0 medium unknown
 #9104
-oldstyle mysterious efreeti~
+mysterious efreeti~
 the mysterious efreeti~
 The mysterious efreeti grins in delight at its new prey.
 ~
@@ -71,7 +71,7 @@ EFNU 0 0 0
 stand stand none 2500
 0 0 medium unknown
 #9105
-oldstyle roc~
+roc~
 the gigantic roc~
 The gigantic roc.
 ~
@@ -85,7 +85,7 @@ EFNU 0 0 0
 stand stand female 0
 0 0 medium unknown
 #9106
-oldstyle roc~
+roc~
 the gigantic roc~
 The gigantic roc stares menacingly at you.
 ~
@@ -100,7 +100,7 @@ EFNU 0 0 0
 stand stand male 2000
 0 0 medium unknown
 #9107
-oldstyle wicked witch~
+wicked witch~
 the ugly, wicked witch~
 The ugly, wicked witch cackles maniacally.
 ~

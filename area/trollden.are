@@ -8,7 +8,7 @@ End
 
 #MOBILES
 #2800
-oldstyle guardian beast~
+guardian beast~
 the guardian beast~
 A guardian beast stares at you and snarls in rage.
 ~
@@ -24,7 +24,7 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 #2801
-oldstyle young troll~
+young troll~
 the young troll~
 A young troll is sitting down, chewing on a bone.
 ~
@@ -40,7 +40,7 @@ EFNU 0 0 0
 sit stand male 25
 0 0 medium unknown
 #2802
-oldstyle medium troll~
+medium troll~
 the medium troll~
 A troll is grooming his pet, a guardian beast.
 ~
@@ -56,7 +56,7 @@ EFNU 0 0 0
 stand stand male 75
 0 0 medium unknown
 #2803
-oldstyle baby troll~
+baby troll~
 a baby troll~
 A baby troll is playing Doctor with a cadaver.
 ~
@@ -72,7 +72,7 @@ EFNU 0 0 0
 sit stand male 12
 0 0 medium unknown
 #2804
-oldstyle giant troll~
+giant troll~
 the giant troll~
 A giant troll is lying on a pile of carnage, pleasing his mistress.
 ~
@@ -88,7 +88,7 @@ EFNR 0 0 0
 rest stand male 150
 0 0 medium unknown
 #2805
-oldstyle large troll female~
+large troll female~
 the large female troll~
 A large female troll is lying on the pile of carnage, blissfully writhing.
 ~
@@ -104,7 +104,7 @@ EFNU 0 0 0
 rest stand female 125
 0 0 medium unknown
 #2806
-oldstyle fat worm~
+fat worm~
 a fat worm~
 A fat worm scurries around, looking for food.
 ~
@@ -119,7 +119,7 @@ EFNU 0 0 0
 stand stand none 0
 0 0 medium unknown
 #2807
-oldstyle roving beast~
+roving beast~
 the roving beast~
 A roving beast is searching for prey.
 ~
@@ -136,7 +136,7 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 #2808
-oldstyle medium troll~
+medium troll~
 the medium troll~
 A troll is wandering around, attending to his duties.
 ~

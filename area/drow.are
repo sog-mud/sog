@@ -8,7 +8,7 @@ End
 
 #MOBILES
 #5100
-oldstyle goblin slave~
+goblin slave~
 the goblin slave~
 A goblin slave lies here asleep.
 ~
@@ -22,7 +22,7 @@ EFNR 0 0 0
 sleep sleep male 0
 0 0 medium unknown
 #5101
-oldstyle drow commoner~
+drow commoner~
 the drow commoner~
 A drow commoner walks on guard duty.
 ~
@@ -36,7 +36,7 @@ EFNU 0 0 0
 stand stand male 15
 0 0 medium unknown
 #5102
-oldstyle drow noble warrior~
+drow noble warrior~
 the drow warrior noble~
 The drow warrior noble stands here guarding his home.
 ~
@@ -50,7 +50,7 @@ EFNU 0 0 0
 stand stand male 50
 0 0 medium unknown
 #5103
-oldstyle drow noble mage~
+drow noble mage~
 the drow mage noble~
 The drow mage noble is here protecting his home.
 ~
@@ -64,7 +64,7 @@ FU 0 0 0
 stand stand male 100
 0 0 medium unknown
 #5104
-oldstyle drow priestess~
+drow priestess~
 the drow priestess~
 The drow priestess is here shouting orders.
 ~
@@ -78,7 +78,7 @@ EIKU 0 0 0
 stand stand female 200
 0 0 medium unknown
 #5105
-oldstyle drow master~
+drow master~
 The drow master~
 The drow master stares at you angrily.
 ~
@@ -92,7 +92,7 @@ EFNU 0 0 0
 stand stand male 500
 0 0 medium unknown
 #5106
-oldstyle drow weapons master~
+drow weapons master~
 The weapons master~
 The drow weapons master is here shadow boxing.
 ~
@@ -106,7 +106,7 @@ EFNU 0 0 0
 stand stand male 750
 0 0 medium unknown
 #5107
-oldstyle drow matron mother~
+drow matron mother~
 the matron mother~
 The matron mother of the house is standing here.
 ~
@@ -120,7 +120,7 @@ EFNU 0 0 0
 stand stand female 1500
 0 0 medium unknown
 #5108
-oldstyle drow matron mother~
+drow matron mother~
 the matron mother~
 The matron mother of the 1st house is waiting for you.
 ~
@@ -134,7 +134,7 @@ EIKU 0 0 0
 stand stand female 1500
 0 0 medium unknown
 #5109
-oldstyle yochlol~
+yochlol~
 the yochlol~
 A yochlol forms out of a swirling mist.
 ~
@@ -148,7 +148,7 @@ EFNU 0 0 0
 stand stand female 1500
 0 0 medium unknown
 #5110
-oldstyle drow guard~
+drow guard~
 the drow guard~
 The drow guard is here staring at you ominously.
 ~
@@ -162,7 +162,7 @@ EFNU 0 0 0
 stand stand male 250
 0 0 medium unknown
 #5111
-oldstyle drow scout~
+drow scout~
 the drow scout~
 The drow scout is here sneaking among the shadows.
 ~

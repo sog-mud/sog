@@ -9,7 +9,7 @@ End
 
 #MOBILES
 #5300
-oldstyle baby beholder~
+baby beholder~
 the baby beholder~
 You meet a baby beholder's cute gaze!
 ~
@@ -25,7 +25,7 @@ FU 0 0 0
 stand stand none 11
 0 0 medium unknown
 #5301
-oldstyle lamia pet~
+lamia pet~
 the pet lamia~
 A pet lamia stands here waiting for her next command.
 ~
@@ -40,7 +40,7 @@ EFNU 0 0 0
 stand stand female 2
 0 0 medium unknown
 #5302
-oldstyle citizen man~
+citizen man~
 a citizen of Thalos~
 A citizen of Thalos is here, conversing with everyone.
 ~
@@ -55,7 +55,7 @@ EFNU 0 0 0
 stand stand male 5
 0 0 medium unknown
 #5303
-oldstyle guard imperial cityguard~
+guard imperial cityguard~
 an imperial cityguard~
 An imperial cityguard is here, keeping the peace of Thalos.
 ~
@@ -70,7 +70,7 @@ CDEIKLU 0 0 0
 stand stand male 75
 0 0 medium unknown
 #5304
-oldstyle citizen woman female~
+citizen woman female~
 a female citizen of Thalos~
 A female citizen of Thalos is here, showing off her new dress.
 ~
@@ -86,7 +86,7 @@ EFNU 0 0 0
 stand stand female 5
 0 0 medium unknown
 #5305
-oldstyle gordon defender~
+gordon defender~
 Gordon the Brave~
 Gordon the Brave, the Defender of Thalos, is here, looking at no
 one but you, the only stranger in town.
@@ -103,7 +103,7 @@ CDEIKLU 0 0 0
 stand stand male 500
 0 0 medium unknown
 #5306
-oldstyle priest~
+priest~
 the fanatic priest~
 A fanatic priest is here, foretelling the destruction of Thalos.
 ~
@@ -120,7 +120,7 @@ EIKU 0 0 0
 stand stand male 5
 0 0 medium unknown
 #5307
-oldstyle priest~
+priest~
 the priest of Thalos~
 The priest of Thalos tells you of the glories of this city.
 ~
@@ -135,7 +135,7 @@ EIKU 0 0 0
 stand stand male 5
 0 0 medium unknown
 #5308
-oldstyle golem stone~
+golem stone~
 the stone golem~
 In the corner you see a large, stone golem faithfully standing watch.
 ~
@@ -150,7 +150,7 @@ EFNU 0 0 0
 stand stand none 212
 0 0 medium unknown
 #5309
-oldstyle mayor~
+mayor~
 the mayor of Thalos~
 The mayor of Thalos is sitting here, doing his paperwork.
 ~
@@ -165,7 +165,7 @@ EFNU 0 0 0
 stand stand female 50
 0 0 medium unknown
 #5310
-oldstyle dan barkeep~
+dan barkeep~
 Dan the Barkeep~
 Dan the Barkeep stands by the counter wiping a glass.
 ~
@@ -179,7 +179,7 @@ EFNU 0 0 0
 stand stand male 50
 0 0 medium unknown
 #5311
-oldstyle george butcher~
+george butcher~
 George the Butcher~
 George the Butcher is here whacking away at a side of beef.
 ~
@@ -194,7 +194,7 @@ EFNU 0 0 0
 stand stand male 50
 0 0 medium unknown
 #5312
-oldstyle farmer betty~
+farmer betty~
 Farmer Betty~
 Farmer Betty looks at you sweetly offering you some apples.
 ~
@@ -208,7 +208,7 @@ EFNU 0 0 0
 stand stand female 50
 0 0 medium unknown
 #5313
-oldstyle thaellor dwarf~
+thaellor dwarf~
 Thaellor the dwarf~
 Thaellor is here selling his metal wares.
 ~
@@ -223,7 +223,7 @@ EFNU 0 0 0
 stand stand female 50
 0 0 medium unknown
 #5314
-oldstyle ben smith~
+ben smith~
 Ben the Smith~
 Ben the Smith sells metal odds and ends to anyone interested.
 ~
@@ -237,7 +237,7 @@ EFNU 0 0 0
 stand stand male 50
 0 0 medium unknown
 #5315
-oldstyle librarian~
+librarian~
 the librarian~
 The librarian is here shelving books away neatly.
 ~
@@ -251,7 +251,7 @@ EFNU 0 0 0
 stand stand female 0
 0 0 medium unknown
 #5316
-oldstyle scholar boy~
+scholar boy~
 a young scholar~
 A young scholar studies quietly in the corner.
 ~
@@ -265,7 +265,7 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 #5317
-oldstyle wizard~
+wizard~
 an old wizard~
 An old wizard sits quietly at the counter waiting for a sale.
 ~
@@ -279,7 +279,7 @@ FU 0 0 0
 stand stand male 50
 0 0 medium unknown
 #5318
-oldstyle masseuse woman~
+masseuse woman~
 a beautiful masseuse~
 A beautiful woman is here offering you a massage.
 ~
@@ -295,7 +295,7 @@ EFNU 0 0 0
 stand stand female 2
 0 0 medium unknown
 #5319
-oldstyle bather man~
+bather man~
 a man~
 A man is here bathing.
 ~
@@ -310,7 +310,7 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 #5320
-oldstyle guard imperial cityguard~
+guard imperial cityguard~
 An imperial cityguard~
 An imperial cityguard overseeing patrols in the city.
 ~
@@ -326,7 +326,7 @@ CDEIKLU 0 0 0
 stand stand male 75
 0 0 medium unknown
 #5321
-oldstyle guard cityguard~
+guard cityguard~
 an imperial cityguard~
 An imperial cityguard guards the Grand Gate.
 ~
@@ -341,7 +341,7 @@ CDEIKLU 0 0 0
 stand stand male 75
 0 0 medium unknown
 #5322
-oldstyle doe~
+doe~
 a doe~
 A doe munches on grass.
 ~
@@ -356,7 +356,7 @@ EFNU 0 0 0
 stand stand female 0
 0 0 medium unknown
 #5323
-oldstyle deer~
+deer~
 a deer~
 A deer stares back at you.
 ~
@@ -371,7 +371,7 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 #5324
-oldstyle stag deer~
+stag deer~
 a stag~
 A large deer stag protects his territory.
 ~
@@ -385,7 +385,7 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 #5325
-oldstyle bunny rabbit~
+bunny rabbit~
 a small bunny~
 A small bunny pokes from bush to bush.
 ~
@@ -399,7 +399,7 @@ EFNU 0 0 0
 stand stand none 0
 0 0 medium unknown
 #5326
-oldstyle snake~
+snake~
 a harmless snake~
 A small snake slithers between the grass.
 ~
@@ -413,7 +413,7 @@ EFNR 0 0 0
 stand stand none 0
 0 0 medium unknown
 #5327
-oldstyle druid~
+druid~
 a druid~
 A druid is here in meditation.
 ~
@@ -427,7 +427,7 @@ EIKU 0 0 0
 stand stand male 2
 0 0 medium unknown
 #5328
-oldstyle druidess~
+druidess~
 a druidess~
 A druidess peers at you.
 ~
@@ -441,7 +441,7 @@ EIKU 0 0 0
 stand stand female 2
 0 0 medium unknown
 #5329
-oldstyle musician bard~
+musician bard~
 bard of Thalos~
 A bard sings of the glory of Thalos.
 ~
@@ -455,7 +455,7 @@ EFNU 0 0 0
 stand stand male 5
 0 0 medium unknown
 #5330
-oldstyle musician bard~
+musician bard~
 bard of Thalos~
 This bard merrily skips along singing of the glory of Thalos.
 ~
@@ -469,7 +469,7 @@ EFNU 0 0 0
 stand stand male 7
 0 0 medium unknown
 #5331
-oldstyle cityguard guard~
+cityguard guard~
 the cityguard~
 A cityguard stands here.
 ~
@@ -483,7 +483,7 @@ CDEIKLU 0 0 0
 stand stand male 25
 0 0 medium unknown
 #5332
-oldstyle janitor~
+janitor~
 the janitor~
 A janitor is walking around, cleaning up.
 ~
@@ -496,7 +496,7 @@ EFNU 0 0 0
 stand stand male 1
 0 0 medium unknown
 #5333
-oldstyle fido dog~
+fido dog~
 the beastly fido~
 Beastly Fido is here.
 ~
@@ -511,7 +511,7 @@ EN 0 0 0
 stand stand male 0
 0 0 medium unknown
 #5334
-oldstyle cityguard guard~
+cityguard guard~
 the cityguard~
 A cityguard is here, guarding the gate.
 ~

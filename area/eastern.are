@@ -8,7 +8,7 @@ End
 
 #MOBILES
 #5000
-oldstyle dervish raggity~
+dervish raggity~
 The dervish~
 The raggity dervish walks on aimlessly.
 ~
@@ -23,7 +23,7 @@ EFNU 0 0 0
 stand stand male 3
 0 0 medium unknown
 #5001
-oldstyle dervish large~
+dervish large~
 The dervish~
 The large dervish watches for signs of trouble.
 ~
@@ -38,7 +38,7 @@ EFNU 0 0 0
 stand stand male 7
 0 0 medium unknown
 #5002
-oldstyle snake coral~
+snake coral~
 The coral snake~
 A brightly colored snake slithers along the sands.
 ~
@@ -53,7 +53,7 @@ EFNR 0 0 0
 stand stand none 0
 0 0 medium unknown
 #5003
-oldstyle scorpion small~
+scorpion small~
 The small scorpion~
 A small, red scorpion scuttles away at your approach.
 ~
@@ -67,7 +67,7 @@ EFNU 0 0 0
 stand stand none 0
 0 0 medium unknown
 #5004
-oldstyle worm giant purple~
+worm giant purple~
 The giant, purple sand worm~
 A giant, purple sand worm thrusts up out of the sand and attacks!
 ~
@@ -95,7 +95,7 @@ EFNR 0 0 0
 stand stand female 275
 0 0 medium unknown
 #5006
-oldstyle nomad leader~
+nomad leader~
 The nomad leader~
 The nomad leader sits silently in prayer.
 ~
@@ -111,7 +111,7 @@ EFNU 0 0 0
 sit sit male 50
 0 0 medium unknown
 #5007
-oldstyle nomad commander~
+nomad commander~
 The nomad commander~
 The nomad commander stands here staring suspiciously at you.
 ~
@@ -126,7 +126,7 @@ EFNU 0 0 0
 stand stand male 30
 0 0 medium unknown
 #5008
-oldstyle nomad warrior~
+nomad warrior~
 The nomad warrior~
 A proud nomad warrior stands here.
 ~
@@ -139,7 +139,7 @@ EFNU 0 0 0
 stand stand male 15
 0 0 medium unknown
 #5009
-oldstyle slave young~
+slave young~
 The slave~
 A young slave sits here staring at you with pleading eyes.
 ~
@@ -152,7 +152,7 @@ EFNU 0 0 0
 rest rest female 0
 0 0 medium unknown
 #5010
-oldstyle dracolich lich~
+dracolich lich~
 The dracolich~
 A pile of bones rises up to form a skeletal dracolich.
 ~
@@ -167,7 +167,7 @@ EFNU 0 0 0
 stand stand none 3750
 0 0 medium unknown
 #5011
-oldstyle drider drow~
+drider drow~
 The drider~
 The drider looks at you viciously while it draws its sword.
 ~
@@ -181,7 +181,7 @@ EFNU 0 0 0
 stand stand female 10
 0 0 medium unknown
 #5012
-oldstyle duergar dwarf~
+duergar dwarf~
 The dark dwarf~
 A duergar is here mining precious stones with his pick.
 ~
@@ -195,7 +195,7 @@ EFNU 0 0 0
 stand stand male 8
 0 0 medium unknown
 #5013
-oldstyle myconoid~
+myconoid~
 the myconoid~
 A myconoid lumbers along peacefully.
 ~
@@ -210,7 +210,7 @@ EFNU 0 0 0
 stand stand male 2
 0 0 medium unknown
 #5014
-oldstyle myconoid shaman~
+myconoid shaman~
 The myconoid shaman~
 A rather large myconoid stands here chanting in a strange tongue.
 ~
@@ -224,7 +224,7 @@ EIKU 0 0 0
 stand stand male 75
 0 0 medium unknown
 #5015
-oldstyle dustdigger~
+dustdigger~
 The dustdigger~
 A small oasis invites you to dive in.
 ~
@@ -237,7 +237,7 @@ EFNU 0 0 0
 stand stand none 22
 0 0 medium unknown
 #5017
-oldstyle camel~
+camel~
 The rabid camel~
 A very dangerous rabid camel snorts at you.
 ~

@@ -36,7 +36,7 @@ ACDIO AB CD 0
 stand stand male 600
 0 0 huge unknown
 #9203
-oldstyle tiny elemental~
+tiny elemental~
 a tiny elemental~
 A tiny elemental form wanders about.
 ~
@@ -50,7 +50,7 @@ EFNU 0 0 0
 stand stand none 0
 0 0 medium unknown
 #9204
-oldstyle elemental guardian~
+elemental guardian~
 the elemental guardian~
 The elemental guardian of the canyon.
 ~
@@ -64,7 +64,7 @@ EFNU 0 0 0
 stand stand none 500
 0 0 medium unknown
 #9205
-oldstyle small elemental~
+small elemental~
 a small elemental~
 A small, rather non-descript elemental.
 ~
@@ -78,7 +78,7 @@ EFNU 0 0 0
 stand stand none 12
 0 0 medium unknown
 #9206
-oldstyle medium elemental~
+medium elemental~
 a medium elemental~
 A medium-sized elemental.
 ~
@@ -92,7 +92,7 @@ EFNU 0 0 0
 stand stand none 37
 0 0 medium unknown
 #9207
-oldstyle large elemental~
+large elemental~
 a large elemental~
 A large elemental.
 ~
@@ -105,7 +105,7 @@ EFNU 0 0 0
 stand stand none 100
 0 0 medium unknown
 #9208
-oldstyle earth elemental ruler~
+earth elemental ruler~
 the Earth Ruler~
 The Ruler of the earth elementals.
 ~
@@ -121,7 +121,7 @@ EIKU AB 0 0
 stand stand none 5000
 0 0 medium unknown
 #9209
-oldstyle fire elemental ruler~
+fire elemental ruler~
 the Fire Ruler~
 The Ruler of the fire elementals.
 ~
@@ -135,7 +135,7 @@ EFNU AB 0 0
 stand stand none 5000
 0 0 medium unknown
 #9210
-oldstyle air elemental ruler~
+air elemental ruler~
 The Air Ruler~
 The Ruler of the air elementals.
 ~
@@ -149,7 +149,7 @@ EFNU AB 0 0
 stand stand none 5000
 0 0 medium unknown
 #9211
-oldstyle lightning elemental ruler~
+lightning elemental ruler~
 The Lightning Ruler~
 The Ruler of the lightning elementals.
 ~
@@ -164,7 +164,7 @@ EFNU AB 0 0
 stand stand none 5000
 0 0 medium unknown
 #9212
-oldstyle water elemental ruler~
+water elemental ruler~
 The Water Ruler~
 The Ruler of the water elementals.
 ~
@@ -179,7 +179,7 @@ EFNR AB 0 0
 stand stand none 5000
 0 0 medium unknown
 #9214
-oldstyle water puddle elemental~
+water puddle elemental~
 a puddle~
 A small puddle of water elemental.
 ~
@@ -193,7 +193,7 @@ EFNR 0 0 0
 stand stand none 11
 0 0 medium unknown
 #9215
-oldstyle fire flame elemental~
+fire flame elemental~
 a flame~
 A small flickering flame elemental.
 ~
@@ -207,7 +207,7 @@ EFNU 0 0 0
 stand stand none 7
 0 0 medium unknown
 #9216
-oldstyle snowflake snow flake ice elemental~
+snowflake snow flake ice elemental~
 a small snowflake~
 A frozen snowflake water elemental.
 ~
@@ -221,7 +221,7 @@ EFNU 0 0 0
 stand stand none 0
 0 0 medium unknown
 #9217
-oldstyle pebble rock earth stone elemental~
+pebble rock earth stone elemental~
 a small rock~
 A small rock.
 ~
@@ -235,7 +235,7 @@ EFNU 0 0 0
 stand stand none 4
 0 0 medium unknown
 #9218
-oldstyle spark lightning energy elemental~
+spark lightning energy elemental~
 a small spark~
 A small spark of electricity fizzles here.
 ~
@@ -249,7 +249,7 @@ EFNU 0 0 0
 stand stand none 7
 0 0 medium unknown
 #9219
-oldstyle acid blob elemental~
+acid blob elemental~
 a small blob of acid~
 A small blob of acid aimlessly eats away at the stone.
 ~
@@ -263,7 +263,7 @@ EFNU 0 0 0
 stand stand none 50
 0 0 medium unknown
 #9220
-oldstyle lava elemental~
+lava elemental~
 a lava beast~
 A lava beast spews from place to place.
 ~
@@ -277,7 +277,7 @@ EFNU 0 0 0
 stand stand none 15
 0 0 medium unknown
 #9221
-oldstyle mud elemental~
+mud elemental~
 a mud monster~
 A mud monster slops around.
 ~
@@ -291,7 +291,7 @@ EFNU 0 0 0
 stand stand none 20
 0 0 medium unknown
 #9222
-oldstyle mist elemental~
+mist elemental~
 an elemental mist~
 The air is magically misty here.
 ~
@@ -305,7 +305,7 @@ EFNU 0 0 0
 stand stand none 15
 0 0 medium unknown
 #9223
-oldstyle particle elemental~
+particle elemental~
 a particle~
 A sub-atomic particle is too small for you to see.
 ~
@@ -319,7 +319,7 @@ EFNU 0 0 0
 stand stand none 0
 0 0 medium unknown
 #9224
-oldstyle dust elemental~
+dust elemental~
 a dust cloud~
 A dust cloud blowing by makes you sneeze.
 ~
@@ -333,7 +333,7 @@ BEFJNU 0 0 0
 stand stand none 5
 0 0 medium unknown
 #9225
-oldstyle eddie elemental~
+eddie elemental~
 an eddie~
 A small eddie current swirls junk around here.
 ~
@@ -347,7 +347,7 @@ BEFJNU 0 0 0
 stand stand none 1
 0 0 medium unknown
 #9226
-oldstyle blue flame~
+blue flame~
 the Blue Flame~
 The Blue Flame burns mysteriously here.
 ~
@@ -362,7 +362,7 @@ EFNU 0 0 0
 stand stand none 1250
 0 0 medium unknown
 #9227
-oldstyle magneto~
+magneto~
 the Magneto~
 The Magneto considers zapping you for the heck of it.
 ~
@@ -376,7 +376,7 @@ EFNU 0 0 0
 stand stand none 500
 0 0 medium unknown
 #9228
-oldstyle ice bandit~
+ice bandit~
 the Ice Bandit~
 The Ice Bandit strikes cold fear in your heart.
 ~
@@ -390,7 +390,7 @@ EFNU 0 0 0
 stand stand none 1500
 0 0 medium unknown
 #9229
-oldstyle rock monster~
+rock monster~
 the Rock Monster~
 The Rock Monster considers you in stoney silence.
 ~
@@ -404,7 +404,7 @@ EFNU 0 0 0
 stand stand none 950
 0 0 medium unknown
 #9230
-oldstyle hurricane~
+hurricane~
 the Hurricane~
 A Hurricane rages across the sky.
 ~
@@ -418,7 +418,7 @@ EFNU 0 0 0
 stand stand none 2054
 0 0 medium unknown
 #9231
-oldstyle magician~
+magician~
 an elemental magician~
 An elemental magician seeks magical stones for a spell.
 ~
@@ -433,7 +433,7 @@ FU 0 0 0
 stand stand none 400
 0 0 medium unknown
 #9232
-oldstyle rainbow warrior~
+rainbow warrior~
 a rainbow warrior~
 A warrior of the Rainbow Cult swears his loyalty.
 ~
@@ -448,7 +448,7 @@ EIKU 0 0 0
 stand stand none 400
 0 0 medium unknown
 #9233
-oldstyle illusionist~
+illusionist~
 an illusionist~
 The illusionist seeks the aid of the elemental forces.
 ~
@@ -463,7 +463,7 @@ FU 0 0 0
 stand stand none 95
 0 0 medium unknown
 #9234
-oldstyle alchemist~
+alchemist~
 an alchemist~
 An alchemist wanders by in search of magical herbs.
 ~
@@ -477,7 +477,7 @@ BEFJNU 0 0 0
 stand stand none 95
 0 0 medium unknown
 #9235
-oldstyle baby rainbow dragon~
+baby rainbow dragon~
 a baby rainbow dragon~
 A baby rainbow dragon plays among the elements here.
 ~
@@ -491,7 +491,7 @@ EFNU 0 0 0
 stand stand none 500
 0 0 medium unknown
 #9236
-oldstyle imp~
+imp~
 a little imp~
 A little imp runs along being annoying.
 ~
@@ -505,7 +505,7 @@ EFNU 0 0 0
 stand stand none 0
 0 0 medium unknown
 #9237
-oldstyle HUGE elemental~
+HUGE elemental~
 a HUGE elemental~
 A HUGE elemental form stands here.
 ~
@@ -519,7 +519,7 @@ EFNU 0 0 0
 stand stand none 500
 0 0 medium unknown
 #9238
-oldstyle vendor~
+vendor~
 the elixir vendor~
 A vendor is willing to sell you elixirs.
 ~
@@ -554,7 +554,7 @@ stand stand none 400
 ring earth~
 the earth ring~
 A dark ring which seems to absorb all the light around it lies here.~
-oldstyle~
+unknown~
 furniture I AB
 0 0 0 0 0
 7 50 1140 P
@@ -770,7 +770,7 @@ A
 lava lamp~
 a lava lamp~
 A lantern which glows with a red glowing light has been dumped.~
-oldstyle~
+unknown~
 light A A
 0 0 1000 0 0
 0 40 250 P

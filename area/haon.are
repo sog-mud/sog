@@ -8,7 +8,7 @@ End
 
 #MOBILES
 #6000
-oldstyle john lumberjack~
+john lumberjack~
 John the Lumberjack~
 John the Lumberjack is here, looking for some trees to chop down.
 ~
@@ -24,7 +24,7 @@ EFNU 0 0 0
 stand stand male 2
 0 0 medium unknown
 #6002
-oldstyle bear~
+bear~
 the brown bear~
 A big, brown, angry-looking bear is here.
 ~
@@ -39,7 +39,7 @@ FNR 0 0 0
 sleep stand none 0
 0 0 medium unknown
 #6003
-oldstyle rabbit~
+rabbit~
 the ferocious rabbit~
 A ferocious rabbit is here, glaring hungrily at you.
 ~
@@ -55,7 +55,7 @@ ENR 0 0 0
 sleep stand none 0
 0 0 medium unknown
 #6004
-oldstyle deer~
+deer~
 the fallow deer~
 A fallow deer is grazing peacefully here.
 ~
@@ -70,7 +70,7 @@ EFNU 0 0 0
 stand stand female 0
 0 0 medium unknown
 #6005
-oldstyle fox~
+fox~
 the brown fox~
 A brown fox is here, looking for some rabbits to chew up.
 ~
@@ -84,7 +84,7 @@ ENR 0 0 0
 stand stand none 0
 0 0 medium unknown
 #6100
-oldstyle warg vicious~
+warg vicious~
 the vicious warg~
 A vicious warg is here, snarling angrily at you.
 ~
@@ -99,7 +99,7 @@ EFNU 0 0 0
 stand stand none 0
 0 0 medium unknown
 #6101
-oldstyle warg ferocious~
+warg ferocious~
 the ferocious warg~
 A ferocious warg is here, snarling angrily at you.
 ~
@@ -114,7 +114,7 @@ EFNU 0 0 0
 stand stand none 0
 0 0 medium unknown
 #6102
-oldstyle wolf grey~
+wolf grey~
 the large, grey wolf~
 A large, grey wolf is here, glaring hungrily at you.
 ~
@@ -128,7 +128,7 @@ ENR 0 0 0
 stand stand none 0
 0 0 medium unknown
 #6103
-oldstyle wolf black~
+wolf black~
 the large, black wolf~
 A large, black wolf is here, glaring hungrily at you.
 ~
@@ -159,7 +159,7 @@ EFNR 0 0 0
 stand stand none 2500
 0 0 medium unknown
 #6115
-oldstyle shargugh brownie~
+shargugh brownie~
 Shargugh~
 Shargugh the Forest Brownie is here, grinning broadly at you.
 ~
@@ -175,7 +175,7 @@ EFNU 0 0 0
 stand stand male 50
 0 0 medium unknown
 #6116
-oldstyle elder druid~
+elder druid~
 the elder druid~
 The elder druid is here ... he looks very upset at your presence in his home.
 ~

@@ -8,7 +8,7 @@ End
 
 #MOBILES
 #3400
-oldstyle skeleton bony~
+skeleton bony~
 the bony skeleton~
 A bony skeleton is here.
 ~
@@ -23,7 +23,7 @@ EFNU 0 0 E
 stand stand male 0
 0 0 medium unknown
 #3401
-oldstyle undead zombie~
+undead zombie~
 the undead zombie~
 An undead zombie sits here munching on something ...
 ~
@@ -39,7 +39,7 @@ EFNU 0 0 0
 stand stand male 2
 0 0 medium unknown
 #3402
-oldstyle undead ghoul~
+undead ghoul~
 The ghoul~
 A ghoul is here staring at you hungrily.
 ~
@@ -54,7 +54,7 @@ EFNU 0 0 0
 stand stand male 7
 0 0 medium unknown
 #3403
-oldstyle undead wraith~
+undead wraith~
 The wraith~
 You spot a wraith advancing towards you from the shadows.
 ~
@@ -70,7 +70,7 @@ EFNU 0 0 0
 stand stand male 50
 0 0 medium unknown
 #3404
-oldstyle undead guardian vampire~
+undead guardian vampire~
 The guardian vampire~
 A vampire is here hiding his face from your light source.
 ~
@@ -85,7 +85,7 @@ EFNU 0 0 0
 stand stand male 750
 0 0 medium unknown
 #3405
-oldstyle priest~
+priest~
 the priest~
 A priest of God stands here solemnly speaking words of praise.
 ~
@@ -101,7 +101,7 @@ EIKU 0 0 0
 stand stand male 20
 0 0 medium unknown
 #3406
-oldstyle Mi-Go Fungi~
+Mi-Go Fungi~
 the Mi-Go~
 A Mi-Go is crawling here.
 ~
@@ -119,7 +119,7 @@ EFNU 0 0 0
 stand stand none 32
 0 0 medium unknown
 #3407
-oldstyle nightgaunt~
+nightgaunt~
 The nightgaunt~
 A nightgaunt is standing here
 ~
@@ -137,7 +137,7 @@ EFNU 0 0 0
 stand stand none 7
 0 0 medium unknown
 #3408
-oldstyle hunting horror~
+hunting horror~
 The hunting horror~
 The hunting horror is here in wait of an unwary traveler.
 ~
@@ -155,7 +155,7 @@ EFNU 0 0 0
 stand stand none 100
 0 0 medium unknown
 #3409
-oldstyle weeds~
+weeds~
 some cave weeds~
 Some weeds are creeping across the floor.
 ~
@@ -169,7 +169,7 @@ EFNU 0 0 0
 stand stand none 4
 0 0 medium unknown
 #3410
-oldstyle snapper joe~
+snapper joe~
 Snapper Joe~
 Snapper Joe is standing here leering at you chillingly.
 ~
@@ -185,7 +185,7 @@ EFNU 0 0 0
 stand stand male 111
 0 0 medium unknown
 #3411
-oldstyle X-ist eater~
+X-ist eater~
 The X-ist flesh eater~
 An X-ist flesh eater is sitting here munching on some coffin remains
 ~
@@ -203,7 +203,7 @@ EFNU 0 0 0
 stand stand male 78
 0 0 medium unknown
 #3412
-oldstyle spirit ghost king crotus~
+spirit ghost king crotus~
 the spirit of King Crotus~
 The spirit of King Crotus is floating lazily above the floor.
 ~
@@ -222,7 +222,7 @@ FU 0 0 0
 stand stand male 2
 0 0 medium unknown
 #3413
-oldstyle rock slug~
+rock slug~
 the rock slug~
 A rock slug is slowly creeping along, leaving a slime trail behind it.
 ~
@@ -236,7 +236,7 @@ EFNU 0 0 0
 stand stand none 0
 0 0 medium unknown
 #3414
-oldstyle etcher~
+etcher~
 The mad etcher~
 The mad etcher is sitting here babbling to himself and working on the wall.
 ~
@@ -258,7 +258,7 @@ FU 0 0 0
 sit sit male 2
 0 0 medium unknown
 #3415
-oldstyle wife ghost specter~
+wife ghost specter~
 The spectral etcher's wife~
 The spectral wife of the etcher is very faintly floating here.
 ~
@@ -276,7 +276,7 @@ EFNU 0 0 0
 stand stand female 6
 0 0 medium unknown
 #3416
-oldstyle body~
+body~
 The half-decomposed body~
 A half-decomposed body is lying in the corner here.
 ~
@@ -338,7 +338,7 @@ Yuck, mossy and wet.  It looks like some sort of webbing.
 rod key~
 a queerly shaped rod~
 A queerly shaped rod is lying here.~
-oldstyle~
+unknown~
 key 0 A
 0 0 0 0 0
 0 50 0 P

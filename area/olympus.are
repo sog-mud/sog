@@ -8,7 +8,7 @@ End
 
 #MOBILES
 #901
-oldstyle zeus god~
+zeus god~
 Zeus~
 Zeus sits here on a throne.
 ~
@@ -24,7 +24,7 @@ EIKU B B 0
 stand stand male 5000
 0 0 medium unknown
 #902
-oldstyle prometheus~
+prometheus~
 Prometheus~
 Prometheus is here, playing with a match.
 ~
@@ -39,7 +39,7 @@ EFNU B B 0
 stand stand male 2000
 0 0 medium unknown
 #903
-oldstyle hermes~
+hermes~
 Hermes~
 Hermes is busy, delivering a message.
 ~
@@ -55,7 +55,7 @@ BEFJNU 0 0 0
 stand stand male 2500
 0 0 medium unknown
 #904
-oldstyle poseidon~
+poseidon~
 Poseidon~
 Poseidon is dining here.
 ~
@@ -71,7 +71,7 @@ FU B B 0
 sit stand male 5000
 0 0 medium unknown
 #905
-oldstyle apollo~
+apollo~
 Apollo~
 Apollo is here, playing a tune.
 ~
@@ -87,7 +87,7 @@ EFNU B B 0
 stand stand male 2000
 0 0 medium unknown
 #906
-oldstyle ares~
+ares~
 Ares~
 Ares is here, kicking your ass.
 ~
@@ -102,7 +102,7 @@ EFNU B B 0
 stand stand male 2500
 0 0 medium unknown
 #907
-oldstyle athena~
+athena~
 Athena~
 Athena is relaxing here.
 ~
@@ -117,7 +117,7 @@ EFNU 0 0 0
 stand stand female 3000
 0 0 medium unknown
 #908
-oldstyle hephaestus smith~
+hephaestus smith~
 Hephaestus~
 Hephaestus the Smith is here, crafting a fine weapon.
 ~
@@ -133,7 +133,7 @@ EFNU 0 0 0
 stand stand male 3000
 0 0 medium unknown
 #909
-oldstyle handmaid golden~
+handmaid golden~
 A Golden Maiden~
 A Handmaid of gold is here, assisting the smith.
 ~
@@ -148,7 +148,7 @@ CDEIKLU 0 0 0
 stand stand female 50
 0 0 medium unknown
 #910
-oldstyle soldier~
+soldier~
 A Soldier~
 A soldier is here, assisting Ares.
 ~
@@ -163,7 +163,7 @@ EFNU 0 0 0
 stand stand male 250
 0 0 medium unknown
 #911
-oldstyle musician apprentice~
+musician apprentice~
 an apprentice musician~
 A musician is here, learning from Apollo.
 ~
@@ -178,7 +178,7 @@ EFNU 0 0 0
 stand stand male 125
 0 0 medium unknown
 #912
-oldstyle boy serving servant~
+boy serving servant~
 A serving boy~
 A servant is here, feeding Athena her grapes.
 ~
@@ -192,7 +192,7 @@ EFNU 0 0 0
 stand stand male 25
 0 0 medium unknown
 #913
-oldstyle hound dog war~
+hound dog war~
 A hound of war~
 A large hound snarls at you.
 ~
@@ -207,7 +207,7 @@ EFNU 0 0 0
 stand stand none 0
 0 0 medium unknown
 #914
-oldstyle Odin~
+Odin~
 Odin~
 Odin is resting here.
 ~
@@ -223,7 +223,7 @@ EFNU 0 0 0
 stand stand male 5000
 0 0 medium unknown
 #915
-oldstyle grocer greengrocer julius~
+grocer greengrocer julius~
 Julius the Green Grocer~
 Julius the Green Grocer stands here.
 ~
@@ -240,7 +240,7 @@ EFNU 0 0 0
 stand stand male 500
 0 0 medium unknown
 #916
-oldstyle alchemist~
+alchemist~
 the Alchemist~
 The ancient, wizened Alchemist stands here.
 ~
@@ -256,7 +256,7 @@ EFNU 0 0 0
 stand stand male 500
 0 0 medium unknown
 #917
-oldstyle clive~
+clive~
 Clive the Weapons Master~
 Clive the Weapons Master is practicing with his bow and axe.
 ~
@@ -271,7 +271,7 @@ EFNU 0 0 0
 stand stand male 2000
 0 0 medium unknown
 #918
-oldstyle armourer samuel~
+armourer samuel~
 Samuel the Armourer~
 Samuel the Armourer glares at you.
 ~
@@ -286,7 +286,7 @@ EFNU 0 0 0
 stand stand male 500
 0 0 medium unknown
 #919
-oldstyle ra sun god~
+ra sun god~
 Ra the Sun God~
 Ra the Egyptian Sun God is resting here.
 ~
@@ -302,7 +302,7 @@ ENR B B 0
 stand stand male 5000
 0 0 medium unknown
 #920
-oldstyle chimera~
+chimera~
 a chimera~
 A chimera prowls the cell.
 ~
@@ -317,7 +317,7 @@ EFNU 0 0 0
 stand stand male 50
 0 0 medium unknown
 #921
-oldstyle hera~
+hera~
 Hera~
 Hera is here.
 ~
@@ -332,7 +332,7 @@ EIKU B B 0
 stand stand female 5000
 0 0 medium unknown
 #922
-oldstyle roc~
+roc~
 a roc~
 A roc is here.
 ~
@@ -347,7 +347,7 @@ EFNU 0 0 0
 stand stand none 250
 0 0 medium unknown
 #923
-oldstyle citizen resident~
+citizen resident~
 A citizen~
 A citizen of this town is strolling down the street here.
 ~
@@ -361,7 +361,7 @@ BEFJNU 0 0 0
 stand stand male 3
 0 0 medium unknown
 #924
-oldstyle pegasus horse~
+pegasus horse~
 a pegasus~
 A large horse with wings is here.
 ~
@@ -376,7 +376,7 @@ EFNU 0 0 0
 stand stand none 40
 0 0 medium unknown
 #925
-oldstyle cook~
+cook~
 A Cook~
 A cook is here, hard at work.
 ~
@@ -390,7 +390,7 @@ EFNU 0 0 0
 stand stand male 5
 0 0 medium unknown
 #926
-oldstyle jailer~
+jailer~
 The Jailer~
 The jailer is here, watching for intruders.
 ~

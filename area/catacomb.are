@@ -8,7 +8,7 @@ End
 
 #MOBILES
 #2001
-oldstyle bat~
+bat~
 a bat~
 A bat flaps wildly at you!
 ~
@@ -22,7 +22,7 @@ ENR 0 0 0
 stand stand none 0
 0 0 medium unknown
 #2002
-oldstyle page templar~
+page templar~
 a templar page~
 A templar page in training is here looking mildly confused.
 ~
@@ -36,7 +36,7 @@ EFNU 0 0 0
 stand stand male 30
 0 0 medium unknown
 #2003
-oldstyle spelunker explorer~
+spelunker explorer~
 a spelunker~
 A spelunker knows his way around these tunnels.
 ~
@@ -53,7 +53,7 @@ EFNU 0 0 0
 stand stand male 40
 0 0 medium unknown
 #2004
-oldstyle gravedigger digger robber graverobber~
+gravedigger digger robber graverobber~
 a graverobber~
 A graverobber uncovers dead bodies.
 ~
@@ -68,7 +68,7 @@ EFNU 0 0 0
 stand stand male 5
 0 0 medium unknown
 #2005
-oldstyle mist swirling~
+mist swirling~
 some mist~
 Some mist swirls about you here ... it seems ALIVE!
 ~
@@ -82,7 +82,7 @@ EFNU 0 0 0
 stand stand none 10
 0 0 medium unknown
 #2006
-oldstyle ~
+~
 It~
 ~
 ~
@@ -94,7 +94,7 @@ EFNU 0 0 0
 stand stand none 50
 0 0 medium unknown
 #2007
-oldstyle skeleton skeletal soldier~
+skeleton skeletal soldier~
 a skeleton~
 A skeletal soldier fights in the battle of the underworld.
 ~
@@ -109,7 +109,7 @@ EFNU 0 0 E
 stand stand male 55
 0 0 medium unknown
 #2008
-oldstyle templar~
+templar~
 a templar~
 A templar shouts "AKK! SLAY THE INFIDEL!"
 ~
@@ -126,7 +126,7 @@ EFNU 0 0 0
 stand stand male 25
 0 0 medium unknown
 #2009
-oldstyle wraith~
+wraith~
 a mysterious wraith~
 A mysterious ghostly wraith forms before your eyes.
 ~
@@ -140,7 +140,7 @@ EFNU 0 0 0
 stand stand male 30
 0 0 medium unknown
 #2010
-oldstyle officer templar~
+officer templar~
 the templar officer~
 A templar officer keeps an eye on things here.
 ~
@@ -154,7 +154,7 @@ EFNU 0 0 0
 stand stand male 30
 0 0 medium unknown
 #2011
-oldstyle zombie mage~
+zombie mage~
 zombie~
 A blank-faced zombie mage joins the battle.
 ~
@@ -168,7 +168,7 @@ FU 0 0 0
 stand stand male 27
 0 0 medium unknown
 #2012
-oldstyle shadow shadows~
+shadow shadows~
 the shadow~
 Eerie shadows fill the room.
 ~
@@ -182,7 +182,7 @@ EFNU 0 0 0
 stand stand none 40
 0 0 medium unknown
 #2013
-oldstyle bat vampire~
+bat vampire~
 The vampire~
 A bat flaps wildly at you!
 ~
@@ -196,7 +196,7 @@ ENR 0 0 0
 stand stand male 50
 0 0 medium unknown
 #2014
-oldstyle necromancer necro cleric~
+necromancer necro cleric~
 the evil necromancer~
 The evil necromancer makes undead soldiers from corpses.
 ~
@@ -211,7 +211,7 @@ EFNU 0 0 0
 stand stand male 55
 0 0 medium unknown
 #2015
-oldstyle grand templar leader~
+grand templar leader~
 the grand templar~
 The grand templar stands here quietly observing your actions
 ~
@@ -226,7 +226,7 @@ EFNU 0 0 0
 stand stand male 75
 0 0 medium unknown
 #2016
-oldstyle prism dragon prismdragon~
+prism dragon prismdragon~
 the prism dragon~
 The light shines off a beautiful but dangerous dragon lurking here.
 ~
@@ -240,7 +240,7 @@ EFNU 0 0 0
 stand stand male 1500
 0 0 medium unknown
 #2017
-oldstyle darken dark beast darkenbeast~
+darken dark beast darkenbeast~
 The DarkenBeast~
 You hear and smell the presence of the darkenbeast.
 ~

@@ -8,7 +8,7 @@ End
 
 #MOBILES
 #2300
-oldstyle knight ethereal dark~
+knight ethereal dark~
 the Dark Ethereal Knight~
 A dark ethereal knight hovers over the bloody clearing.
 ~
@@ -24,7 +24,7 @@ EFNU 0 0 0
 stand stand male 1250
 0 0 medium unknown
 #2301
-oldstyle treant tree~
+treant tree~
 the Old Treant~
 A huge, gnarled tree stands here, battered by age and nature.
 ~
@@ -40,7 +40,7 @@ EFNU 0 0 0
 stand stand none 250
 0 0 medium unknown
 #2302
-oldstyle dweller cave creature~
+dweller cave creature~
 the Cave Dweller~
 A slimy, gross creature is here munching on a corpse.
 ~
@@ -56,7 +56,7 @@ EFNU 0 0 0
 stand stand none 125
 0 0 medium unknown
 #2303
-oldstyle toad rock~
+toad rock~
 the Rock Toad~
 A rather large rock toad sits here, croaking loudly.
 ~
@@ -70,7 +70,7 @@ EFNU 0 0 0
 sit sit none 127
 0 0 medium unknown
 #2304
-oldstyle weeping willow tree~
+weeping willow tree~
 the Weeping Willow~
 A large willow tree stands here, weeping.
 ~
@@ -85,7 +85,7 @@ EFNU 0 0 0
 stand stand female 1000
 0 0 medium unknown
 #2305
-oldstyle mist mistling~
+mist mistling~
 the Mistling~
 A mistling emerges from the mist surrounding you.
 ~
@@ -99,7 +99,7 @@ EFNU 0 0 0
 stand stand none 50
 0 0 medium unknown
 #2306
-oldstyle swamp wraith~
+swamp wraith~
 the Swamp Wraith~
 A swamp wraith emerges from the mist here.
 ~
@@ -115,7 +115,7 @@ EFNU 0 0 0
 stand stand male 1250
 0 0 medium unknown
 #2307
-oldstyle ogre villager~
+ogre villager~
 the Ogre Villager~
 The ogre villager is here, going about its chores.
 ~
@@ -130,7 +130,7 @@ EFNU 0 0 0
 stand stand none 10
 0 0 medium unknown
 #2308
-oldstyle warrior ogre~
+warrior ogre~
 the Ogre Warrior~
 The ogre warrior stands here, growling fiercely.
 ~
@@ -145,7 +145,7 @@ EFNU 0 0 0
 stand stand male 250
 0 0 medium unknown
 #2309
-oldstyle guard ogre~
+guard ogre~
 the Ogre Guard~
 The ogre guard is here manning his post faithfully.
 ~
@@ -160,7 +160,7 @@ EFNU 0 0 0
 stand stand male 500
 0 0 medium unknown
 #2310
-oldstyle shaman ogre~
+shaman ogre~
 The Ogre Shaman~
 The ogre shaman is here chanting arcane words and waving his arms.
 ~
@@ -175,7 +175,7 @@ EIKU 0 0 0
 stand stand male 2500
 0 0 medium unknown
 #2311
-oldstyle chief chieftain ogre~
+chief chieftain ogre~
 the Ogre Chieftain~
 The ogre chieftain is here, observing his subjects.
 ~
@@ -190,7 +190,7 @@ EFNU 0 0 0
 stand stand male 2500
 0 0 medium unknown
 #2312
-oldstyle barbarian~
+barbarian~
 the Plains Barbarian~
 A plains barbarian is here, clad in heavy furs.
 ~
@@ -205,7 +205,7 @@ EFNU 0 0 0
 stand stand male 250
 0 0 medium unknown
 #2313
-oldstyle yeti white~
+yeti white~
 the White Yeti~
 The white yeti crouches here snarling.
 ~
@@ -220,7 +220,7 @@ EFNU 0 0 0
 stand stand none 50
 0 0 medium unknown
 #2314
-oldstyle worm ice iceworm~
+worm ice iceworm~
 the Ice Worm~
 A huge ice worm burrows through the ice and snow here. It rears up and
 attacks!
@@ -236,7 +236,7 @@ EFNU 0 0 0
 stand stand none 175
 0 0 medium unknown
 #2315
-oldstyle citizen minotaur~
+citizen minotaur~
 the Minotaur Citizen~
 A minotaur citizen is here, hurrying through the icy streets.
 ~
@@ -251,7 +251,7 @@ EFNU 0 0 0
 stand stand none 500
 0 0 medium unknown
 #2316
-oldstyle guard minotaur~
+guard minotaur~
 the Minotaur Guard~
 A minotaur guard catches you trespassing and attacks!
 ~
@@ -266,7 +266,7 @@ EFNU 0 0 0
 stand stand male 1250
 0 0 medium unknown
 #2317
-oldstyle warrior minotaur~
+warrior minotaur~
 the Minotaur Warrior~
 A minotaur warrior is here looking for intruders.
 ~
@@ -281,7 +281,7 @@ EFNU 0 0 0
 stand stand male 1250
 0 0 medium unknown
 #2318
-oldstyle minotaur gatekeeper~
+minotaur gatekeeper~
 the Minotaur Gatekeeper~
 A minotaur is here guarding the Keep of Mahn-Tor.
 ~
@@ -296,7 +296,7 @@ EFNU 0 0 0
 stand stand none 1250
 0 0 medium unknown
 #2319
-oldstyle minotaur high guard~
+minotaur high guard~
 the High Minotaur Guard~
 The minotaur high guard is here guarding the Keep.
 ~
@@ -311,7 +311,7 @@ EFNU 0 0 0
 stand stand male 2250
 0 0 medium unknown
 #2320
-oldstyle minotaur royal guard~
+minotaur royal guard~
 the Royal Minotaur Guard~
 The royal minotaur guard considers you an intruder and attacks!
 ~
@@ -326,7 +326,7 @@ EFNU 0 0 0
 stand stand male 2500
 0 0 medium unknown
 #2321
-oldstyle guard minotaur elite~
+guard minotaur elite~
 the Elite Minotaur Guard~
 The elite minotaur guard sees you and attacks!
 ~
@@ -341,7 +341,7 @@ EFNU 0 0 0
 stand stand male 3750
 0 0 medium unknown
 #2322
-oldstyle girl haremgirl harem slave~
+girl haremgirl harem slave~
 the Harem Girl~
 A harem girl cowers here in fear.
 ~
@@ -356,7 +356,7 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 #2323
-oldstyle butler minotaur~
+butler minotaur~
 the Minotaur Butler~
 A minotaur butler stands here rigidly, awaiting orders.
 ~
@@ -370,7 +370,7 @@ EFNU 0 0 0
 stand stand male 250
 0 0 medium unknown
 #2324
-oldstyle keeper minotaur ring-keeper~
+keeper minotaur ring-keeper~
 the Minotaur Ring-Keeper~
 The minotaur ring-keeper stands guarding his post.
 ~
@@ -385,7 +385,7 @@ FU 0 0 0
 stand stand male 2500
 0 0 medium unknown
 #2325
-oldstyle gorak minotaur warrior master~
+gorak minotaur warrior master~
 Gorak~
 Gorak, the Minotaur Master Warrior, is here practicing his skills.
 ~
@@ -400,7 +400,7 @@ EFNU 0 0 0
 stand stand male 5000
 0 0 medium unknown
 #2326
-oldstyle darkoth minotaur anti-paladin master~
+darkoth minotaur anti-paladin master~
 Darkoth~
 Darkoth, the minotaur anti-paladin, stands here grinning wickedly.
 ~
@@ -415,7 +415,7 @@ EFNU 0 0 0
 stand stand male 5000
 0 0 medium unknown
 #2327
-oldstyle tyrgoth minotaur paladin master~
+tyrgoth minotaur paladin master~
 Tyrgoth~
 Tyrgoth, the minotaur paladin, is here worshipping silently.
 ~
@@ -430,7 +430,7 @@ EFNU 0 0 0
 stand stand male 5000
 0 0 medium unknown
 #2328
-oldstyle amyrok minotaur mage master~
+amyrok minotaur mage master~
 Amyrok~
 Amyrok, the minotaur archmage, is here chanting arcane spells.
 ~
@@ -446,7 +446,7 @@ FU 0 0 0
 stand stand male 5000
 0 0 medium unknown
 #2329
-oldstyle sumaron minotaur cleric master~
+sumaron minotaur cleric master~
 Sumaron~
 Sumaron, master cleric of Mahn-Tor, is here looking holy.
 ~
@@ -461,7 +461,7 @@ EIKU 0 0 0
 stand stand male 5000
 0 0 medium unknown
 #2330
-oldstyle nasturn minotaur druid master~
+nasturn minotaur druid master~
 Nasturn~
 Nasturn, the minotaur druid, is here studying the arts of nature.
 ~
@@ -476,7 +476,7 @@ EIKU 0 0 0
 stand stand male 5000
 0 0 medium unknown
 #2331
-oldstyle belrak minotaur ranger master~
+belrak minotaur ranger master~
 Belrak~
 Belrak, the minotaur ranger, looks unhappy about having visitors.
 ~
@@ -491,7 +491,7 @@ EFNU 0 0 0
 stand stand male 5000
 0 0 medium unknown
 #2332
-oldstyle dorgar minotaur thief master~
+dorgar minotaur thief master~
 Dorgar~
 Dorgar, the minotaur thief, is here hiding in the shadows.
 ~
@@ -506,7 +506,7 @@ EFNU 0 0 0
 stand stand male 5000
 0 0 medium unknown
 #2333
-oldstyle mahn-tor minotaur grand master~
+mahn-tor minotaur grand master~
 Mahn-Tor~
 Mahn-Tor, the minotaur grand master, is here looking down at you.
 ~

@@ -8,7 +8,7 @@ End
 
 #MOBILES
 #7800
-oldstyle dog cooshee~
+dog cooshee~
 a cooshee~
 A rather large dog is here, wandering the valley.
 ~
@@ -24,7 +24,7 @@ EFNR 0 0 0
 stand stand none 0
 0 0 medium unknown
 #7801
-oldstyle elf valley~
+elf valley~
 a valley elf~
 A valley elf wanders here, cautious of your intrusion.
 ~
@@ -41,7 +41,7 @@ EFNR 0 0 0
 stand stand male 0
 0 0 medium unknown
 #7802
-oldstyle elf valley~
+elf valley~
 a valley elf~
 A female valley elf wanders here, skirting between the tall grasses.
 ~
@@ -56,7 +56,7 @@ EFNR 0 0 0
 stand stand female 0
 0 0 medium unknown
 #7803
-oldstyle elf sentry valley~
+elf sentry valley~
 a valley elf sentry~
 A valley elf sentry stands here, then noticing you, attacks quickly!
 ~
@@ -71,7 +71,7 @@ EFNR 0 0 0
 stand stand male 0
 0 0 medium unknown
 #7804
-oldstyle elf sentry valley~
+elf sentry valley~
 a valley elf sentry~
 A valley elf sentry stands here, then noticing you, attacks quickly!
 ~
@@ -86,7 +86,7 @@ EFNR 0 0 0
 stand stand female 0
 0 0 medium unknown
 #7805
-oldstyle elf scout valley~
+elf scout valley~
 a valley elf scout~
 A valley elf scout wanders the valley, searching for intruders like you!
 ~
@@ -100,7 +100,7 @@ EFNR 0 0 0
 stand stand male 0
 0 0 medium unknown
 #7806
-oldstyle elf valley~
+elf valley~
 a valley elf~
 A valley elf is here, doing her duties.
 ~
@@ -115,7 +115,7 @@ EFNR 0 0 0
 stand stand female 0
 0 0 medium unknown
 #7807
-oldstyle elf elder valley~
+elf elder valley~
 a valley elf elder~
 A valley elf elder is here, studying.  He notices you.
 A valley elf elder shouts 'You have intruded wrongly.  Be prepared to die!'
@@ -131,7 +131,7 @@ EIKR 0 0 0
 stand stand male 0
 0 0 medium unknown
 #7808
-oldstyle elf elder valley~
+elf elder valley~
 a valley elf elder~
 A valley elf elder is here, studying.  She notices you.
 A valley elf elder says 'Your arrogance will be your end, human.'
@@ -147,7 +147,7 @@ FR 0 0 0
 stand stand female 0
 0 0 medium unknown
 #7809
-oldstyle pyrohydra pyro hydra~
+pyrohydra pyro hydra~
 the pyrohydra~
 A big beast with many heads, each breathing fire, stares at you with malice.
 ~
@@ -162,7 +162,7 @@ EFNU 0 0 0
 stand stand none 0
 0 0 medium unknown
 #7810
-oldstyle hermit man old~
+hermit man old~
 an old hermit~
 An old hermit sits here, smoking a pipe.
 ~
@@ -176,7 +176,7 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 #7811
-oldstyle talemon wizard mage~
+talemon wizard mage~
 Talemon~
 An old mage busies himself with some chemicals.
 ~
@@ -190,7 +190,7 @@ FU 0 0 0
 stand stand male 50
 0 0 medium unknown
 #7812
-oldstyle guardian daemon~
+guardian daemon~
 the guardian daemon~
 A huge guardian daemon is here, watching the treasure.
 ~
@@ -205,7 +205,7 @@ EFNU 0 0 0
 stand stand none 0
 0 0 medium unknown
 #7813
-oldstyle wolf~
+wolf~
 a wolf~
 A wolf is here, looking for small prey.
 ~
@@ -219,7 +219,7 @@ ENR 0 0 0
 stand stand none 0
 0 0 medium unknown
 #7814
-oldstyle antelope~
+antelope~
 an antelope~
 An antelope is here, peacefully munching on grass.
 ~

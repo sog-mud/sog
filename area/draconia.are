@@ -8,7 +8,7 @@ End
 
 #MOBILES
 #2200
-oldstyle hatchling dragon baby~
+hatchling dragon baby~
 the dragon hatchling~
 A dragon hatchling is here, chewing on a bone.
 ~
@@ -25,7 +25,7 @@ stand stand none 100
 F res H
 F vul I
 #2201
-oldstyle draconian~
+draconian~
 the Draconian~
 The Draconian is standing here.
 ~
@@ -41,7 +41,7 @@ EFNU 0 0 0
 stand stand male 100
 0 0 medium unknown
 #2202
-oldstyle lord crypt master~
+lord crypt master~
 the dragon master~
 The lord of this crypt is here.
 ~
@@ -55,7 +55,7 @@ EFNU 0 0 0
 stand stand male 1750
 0 0 medium unknown
 #2203
-oldstyle man mage wizard~
+man mage wizard~
 a powerful mage~
 A man is here, studying some books.
 ~
@@ -71,7 +71,7 @@ FU 0 0 0
 stand stand male 30
 0 0 medium unknown
 #2204
-oldstyle cleric draconian~
+cleric draconian~
 the holy Draconian~
 A Draconian is here, deep in thought.          
 ~
@@ -86,7 +86,7 @@ EIKU 0 0 0
 stand stand male 20
 0 0 medium unknown
 #2205
-oldstyle king draconian~
+king draconian~
 the Draconian King~
 A Draconian wearing fine clothes is here, pondering his greatness.          
 ~
@@ -102,7 +102,7 @@ EFNU 0 0 0
 stand stand male 40
 0 0 medium unknown
 #2206
-oldstyle concubine draconian~
+concubine draconian~
 a concubine~
 A concubine is resting here. 
 ~
@@ -118,7 +118,7 @@ EFNU 0 0 0
 stand stand female 5
 0 0 medium unknown
 #2207
-oldstyle bodyguard draconian~
+bodyguard draconian~
 A bodyguard~
 A bodyguard is here, staring at you menacingly. 
 ~
@@ -133,7 +133,7 @@ EFNU 0 0 0
 stand stand male 250
 0 0 medium unknown
 #2220
-oldstyle tiamat dragon~
+tiamat dragon~
 Tiamat~
 A five headed dragon hisses at you as you enter this room.
 ~
@@ -217,7 +217,7 @@ stand stand female 1000
 F res H
 F vul I
 #2226
-oldstyle hydra~
+hydra~
 a large hydra~
 A hydra is here, blocking the doorway. 
 ~
@@ -232,7 +232,7 @@ EFNU 0 0 0
 stand stand none 250
 0 0 medium unknown
 #2227
-oldstyle slave human~
+slave human~
 A human slave~
 A Human slave is here, hard at work.          
 ~
@@ -247,7 +247,7 @@ BEFJNU 0 0 0
 stand stand male 5
 0 0 medium unknown
 #2240
-oldstyle zombie draconian~
+zombie draconian~
 a Draconian zombie~
 A Draconian zombie is here, staring at nothing in particular.
 ~
@@ -262,7 +262,7 @@ EFNU 0 0 0
 stand stand none 75
 0 0 medium unknown
 #2241
-oldstyle dragon phase~
+dragon phase~
 the phase dragon~
 A Phase Dragon is darting around the room.          
 ~
@@ -276,7 +276,7 @@ EFNR 0 0 0
 stand stand male 250
 0 0 medium unknown
 #2242
-oldstyle fool draconian~
+fool draconian~
 the draconian fool~
 A Fool is here, making fun of you.          
 ~
@@ -291,7 +291,7 @@ BEFJNU 0 0 0
 stand stand male 25
 0 0 medium unknown
 #2243
-oldstyle queen draconian~
+queen draconian~
 the Draconian Queen~
 A Female Draconian sits, here, looking very important.          
 ~

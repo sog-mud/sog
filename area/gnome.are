@@ -8,7 +8,7 @@ End
 
 #MOBILES
 #1500
-oldstyle child gnome~
+child gnome~
 a gnome child~
 A gnome child is playing around here.
 ~
@@ -23,7 +23,7 @@ EFNU 0 0 0
 stand stand male 2
 0 0 medium unknown
 #1501
-oldstyle woman gnome~
+woman gnome~
 a gnome woman~
 A gnome woman is standing here, trying to look beautiful.
 ~
@@ -38,7 +38,7 @@ EFNU 0 0 0
 stand stand female 25
 0 0 medium unknown
 #1502
-oldstyle man gnome~
+man gnome~
 a gnome man~
 A gnome man is walking here, on his way to work.
 ~
@@ -53,7 +53,7 @@ EFNU 0 0 0
 stand stand male 22
 0 0 medium unknown
 #1503
-oldstyle scientist gnome~
+scientist gnome~
 a gnome scientist~
 A scientist wanders around deep in thought.
 ~
@@ -68,7 +68,7 @@ FU 0 0 0
 stand stand male 50
 0 0 medium unknown
 #1504
-oldstyle guard gnome~
+guard gnome~
 a gnome guard~
 A gnome guard stands here guarding something.
 ~
@@ -83,7 +83,7 @@ EFNU 0 0 0
 stand stand male 75
 0 0 medium unknown
 #1505
-oldstyle chief gnome~
+chief gnome~
 the chief gnome~
 A powerful looking gnome stands here wearing ornate clothes.
 ~
@@ -98,7 +98,7 @@ EIKU 0 0 0
 stand stand male 400
 0 0 medium unknown
 #1507
-oldstyle troll small~
+troll small~
 a small troll~
 A small troll grunts as he takes a swing at you.
 ~
@@ -113,7 +113,7 @@ EFNR 0 0 0
 stand stand male 40
 0 0 medium unknown
 #1508
-oldstyle mouse field~
+mouse field~
 a field mouse~
 A small mouse runs across your foot.
 ~
@@ -127,7 +127,7 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 #1509
-oldstyle rat~
+rat~
 a rat~
 A small rat shrieks and runs around.
 ~
@@ -141,7 +141,7 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 #1510
-oldstyle rat large~
+rat large~
 a large rat~
 A large rat runs up to you and nibbles on your boots.
 ~
@@ -155,7 +155,7 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 #1511
-oldstyle rat giant~
+rat giant~
 a giant rat~
 A giant rat growls at you and prepares to attack.
 ~
@@ -169,7 +169,7 @@ EFNU 0 0 0
 stand stand male 1
 0 0 medium unknown
 #1512
-oldstyle troll~
+troll~
 the troll~
 A giant troll lumbers around.
 ~
@@ -184,7 +184,7 @@ EFNR 0 0 0
 stand stand male 450
 0 0 medium unknown
 #1513
-oldstyle bat black~
+bat black~
 a black bat~
 A black bat hangs from the ceiling.
 ~
@@ -198,7 +198,7 @@ ENR 0 0 0
 stand stand none 0
 0 0 medium unknown
 #1514
-oldstyle zombie gnome~
+zombie gnome~
 the zombie gnome~
 A zombie gnome shuffles his way towards you.
 ~
@@ -213,7 +213,7 @@ EFNU 0 0 0
 stand stand none 34
 0 0 medium unknown
 #1515
-oldstyle bat fire~
+bat fire~
 the fire bat~
 The fire bat flames brightly and prepares to attack.
 ~
@@ -228,7 +228,7 @@ ENR 0 0 0
 stand stand male 300
 0 0 medium unknown
 #1516
-oldstyle guard hobgoblin~
+guard hobgoblin~
 the hobgoblin guard~
 The hobgoblin guard attacks first, thinks later.
 ~
@@ -243,7 +243,7 @@ EFNU 0 0 0
 stand stand male 37
 0 0 medium unknown
 #1517
-oldstyle soldier hobgoblin~
+soldier hobgoblin~
 the hobgoblin soldier~
 A hobgoblin soldier stands here.
 ~
@@ -258,7 +258,7 @@ EFNU 0 0 0
 stand stand male 10
 0 0 medium unknown
 #1518
-oldstyle bodyguard hobgoblin~
+bodyguard hobgoblin~
 the hobgoblin bodyguard~
 A hobgoblin bodyguard guards the king with his life.
 ~
@@ -273,7 +273,7 @@ EFNU 0 0 0
 stand stand male 30
 0 0 medium unknown
 #1519
-oldstyle king hobgoblin~
+king hobgoblin~
 the king of the hobgoblins~
 There is a great king here, sitting in his throne.
 ~
@@ -288,7 +288,7 @@ FU 0 0 0
 sit stand male 300
 0 0 medium unknown
 #1520
-oldstyle miner hobgoblin~
+miner hobgoblin~
 a hobgoblin miner~
 A hobgoblin miner stands here looking for gold.
 ~
@@ -302,7 +302,7 @@ EFNU 0 0 0
 stand stand male 35
 0 0 medium unknown
 #1521
-oldstyle treasurer hobgoblin~
+treasurer hobgoblin~
 the treasurer~
 A treasurer is here counting out money.
 ~
@@ -317,7 +317,7 @@ EFNU 0 0 0
 stand stand male 250
 0 0 medium unknown
 #1522
-oldstyle prisoner gnome~
+prisoner gnome~
 a gnome prisoner~
 A gnome prisoner is here resting in the straw.
 ~
@@ -331,7 +331,7 @@ EFNU 0 0 0
 rest stand male 0
 0 0 medium unknown
 #1523
-oldstyle prisoner human~
+prisoner human~
 a human prisoner~
 A human prisoner is here resting in the straw.
 ~
@@ -345,7 +345,7 @@ EFNU 0 0 0
 rest stand female 0
 0 0 medium unknown
 #1524
-oldstyle hermit crab~
+hermit crab~
 a hermit~
 A hermit crab crawls towards you.
 ~
@@ -360,7 +360,7 @@ EFNU 0 0 0
 stand stand male 10
 0 0 medium unknown
 #1526
-oldstyle cook hobgoblin~
+cook hobgoblin~
 the cook~
 A hobgoblin cook stands here cooking something.
 ~

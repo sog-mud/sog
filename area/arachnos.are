@@ -8,7 +8,7 @@ End
 
 #MOBILES
 #6301
-oldstyle spider young~
+spider young~
 the young spider~
 The young spider is ballooning by you.
 ~
@@ -23,7 +23,7 @@ EFNU 0 0 0
 stand stand female 5
 0 0 medium unknown
 #6302
-oldstyle dragon Yevaud~
+dragon Yevaud~
 Yevaud~
 Yevaud the Usurper of Midgaard is here, grinning evilly at you.
 ~
@@ -37,7 +37,7 @@ EFNR 0 0 0
 stand stand male 500
 0 0 medium unknown
 #6303
-oldstyle spider wolf~
+spider wolf~
 the Wolf Spider~
 The Wolf Spider is here, licking its bloody fangs.
 ~
@@ -51,7 +51,7 @@ EFNU 0 0 0
 stand stand female 62
 0 0 medium unknown
 #6304
-oldstyle orc~
+orc~
 the orc~
 The orc is stuck in the web and he can't get out.
 ~
@@ -65,7 +65,7 @@ EFNR 0 0 0
 stand stand male 5
 0 0 medium unknown
 #6305
-oldstyle wasp queen~
+wasp queen~
 the Queen Wasp~
 The Queen Wasp is here, thinking that you would make a tasty offering
 to her master.
@@ -80,7 +80,7 @@ EFNU 0 0 0
 stand stand female 75
 0 0 medium unknown
 #6306
-oldstyle spider drone~
+spider drone~
 the drone spider~
 The drone spider walks around doing her master's bidding.
 ~
@@ -94,7 +94,7 @@ EFNU 0 0 0
 stand stand male 10
 0 0 medium unknown
 #6307
-oldstyle spider ethereal~
+spider ethereal~
 the ethereal spider~
 The ethereal spider strides here, traveling to different worlds.
 ~
@@ -108,7 +108,7 @@ EFNU 0 0 0
 stand stand female 62
 0 0 medium unknown
 #6308
-oldstyle slave human~
+slave human~
 the slave of Arachnos~
 The slave works here relentlessly.
 ~
@@ -122,7 +122,7 @@ EFNU 0 0 0
 stand stand male 25
 0 0 medium unknown
 #6309
-oldstyle quasit~
+quasit~
 the quasit~
 The quasit blinks in and out, grinning at you.
 ~
@@ -137,7 +137,7 @@ EFNU 0 0 0
 stand stand male 50
 0 0 medium unknown
 #6310
-oldstyle spider bird~
+spider bird~
 the Bird Spider~
 The Bird Spider snaps its powerful jaws.
 ~
@@ -151,7 +151,7 @@ EFNU 0 0 0
 stand stand female 87
 0 0 medium unknown
 #6311
-oldstyle hermit~
+hermit~
 the Hermit~
 The Hermit sits here and warns, "Go back before it's too late!"
 ~
@@ -166,7 +166,7 @@ EFNU 0 0 0
 stand stand male 37
 0 0 medium unknown
 #6312
-oldstyle donjonkeeper~
+donjonkeeper~
 the Donjonkeeper~
 The Donjonkeeper eyes you and wonders how pure your soul is.
 ~
@@ -180,7 +180,7 @@ EFNU 0 0 0
 stand stand male 300
 0 0 medium unknown
 #6313
-oldstyle guardian~
+guardian~
 The guardian~
 The guardian is obviously not doing his job.
 ~
@@ -194,7 +194,7 @@ EFNU 0 0 0
 sleep sleep male 80
 0 0 medium unknown
 #6314
-oldstyle spider empress arachnos~
+spider empress arachnos~
 Arachnos~
 Arachnos the Empress of Spiders welcomes you with an evil smile.
 ~
@@ -211,7 +211,7 @@ EFNU 0 0 0
 stand stand female 500
 0 0 medium unknown
 #6315
-oldstyle ki-rin~
+ki-rin~
 the Ki-Rin~
 The Ki-Rin smiles good-naturedly to you.
 ~
@@ -226,7 +226,7 @@ EFNU 0 0 0
 stand stand female 750
 0 0 medium unknown
 #6316
-oldstyle dragon wormkin young~
+dragon wormkin young~
 the young dragon wormkin~
 A wormkin with no teeth plays here.
 ~
@@ -240,7 +240,7 @@ EFNR 0 0 0
 stand stand male 50
 0 0 medium unknown
 #6317
-oldstyle dragon wormkin medium~
+dragon wormkin medium~
 the medium dragon wormkin~
 A wormkin that has grown a bit stares at you inquisitively.
 ~
@@ -254,7 +254,7 @@ EFNR 0 0 0
 stand stand male 250
 0 0 medium unknown
 #6318
-oldstyle spider poisonous~
+spider poisonous~
 the huge, poisonous spider~
 A huge, poisonous spider is here.
 ~
@@ -270,7 +270,7 @@ EFNU 0 0 0
 stand stand none 0
 0 0 medium unknown
 #6319
-oldstyle queen spider~
+queen spider~
 the Queen Spider~
 The huge, bulky Queen Spider is here.
 ~

@@ -8,7 +8,7 @@ End
 
 #MOBILES
 #9401
-oldstyle fido mutant dog~
+fido mutant dog~
 The mutant beastly fido~
 The mutant beastly fido is here, his eyes glowing green!
 ~
@@ -23,7 +23,7 @@ EN 0 0 0
 stand stand male 0
 0 0 medium unknown
 #9402
-oldstyle foreman floyd~
+foreman floyd~
 Foreman Floyd~
 Foreman Floyd is here, making plans for the factory's future.
 ~
@@ -39,7 +39,7 @@ EFNU 0 0 0
 sit stand male 50
 0 0 medium unknown
 #9403
-oldstyle cityguard guard head~
+cityguard guard head~
 The Cityguard head~
 The Cityguard head floats around aimlessly.
 ~
@@ -55,7 +55,7 @@ EFNU 0 0 0
 stand stand none 0
 AHV AEJK medium unknown
 #9404
-oldstyle revolving drunk~
+revolving drunk~
 The revolving drunk~
 The Revolving drunk is here, spinning in place.
 ~
@@ -70,7 +70,7 @@ EFNU 0 0 0
 stand stand male 2
 0 0 medium unknown
 #9405
-oldstyle toxic slime~
+toxic slime~
 The toxic slime~
 A pool of toxic slime lies on  the floor.
 ~
@@ -85,7 +85,7 @@ EFNU 0 0 0
 sit sit none 0
 0 0 medium unknown
 #9406
-oldstyle worker~
+worker~
 The factory worker~
 A Mob Factory worker is standing here, looking bored.
 ~
@@ -100,7 +100,7 @@ EFNU 0 0 0
 stand stand male 2
 0 0 medium unknown
 #9407
-oldstyle worker~
+worker~
 The factory worker~
 A Mob Factory worker is here, asleep in a chair.
 ~

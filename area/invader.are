@@ -106,10 +106,11 @@ ACD 0 HK DGH DGH
 
 #ROOMS
 #95600
-The Well~
-You are standing near a ruined stone well blocked by a big boulder on
+@eng The Well@rus Колодец~
+@eng You are standing near a ruined stone well blocked by a big boulder on
 the well mouth. A cold breeze of fear, sweeps your face, as you feel the 
 shadows watching you!
+@rus Вы стоите возле разрушенного каменного колодца, вход в который прегрождает огромный валун. Вы испытываете страх, понимая что призраки сдедят за вами.
 ~
 0 ACDK inside
 D0
@@ -124,7 +125,7 @@ enterance~
 ABGZ -1 95601
 S
 #95601
-Bottom of the Well~
+@eng Bottom of the Well@rus На дне колодца~
 This place is dimly lit by a flickering torch from a doorway leading north.
 A shadow from fire light dances on the far northern wall, which seems to 
 belong a strong human. Better consider going further, and climb back the 
@@ -143,7 +144,7 @@ enterance~
 ABGZ -1 95600
 S
 #95602
-The bottomless pit~
+@eng The bottomless pit@rus Бездонная яма~
 You fall, forever downwards into the bottomless pit. About you blackness
 races, with no sign of a wall for support. You look up and see the same
 nothingness as you do downward. What awaits you at the bottom? Will you
@@ -171,7 +172,7 @@ Falling further into the black pit
 Z 0 95604
 S
 #95604
-The bottomless pit~
+@eng The bottomless pit@rus Бездонная яма~
 You fall, forever downwards into the bottomless pit. About you blackness
 races, with no sign of a wall for support. You look up and see the same
 nothingness as you do downward. What awaits you at the bottom? Will you
@@ -185,7 +186,7 @@ Falling further into the black pit
 Z 0 95605
 S
 #95605
-The bottomless pit~
+@eng The bottomless pit@rus Бездонная яма~
 You fall, forever downwards into the bottomless pit. About you blackness
 races, with no sign of a wall for support. You look up and see the same
 nothingness as you do downward. What awaits you at the bottom? Will you
@@ -199,7 +200,7 @@ Falling further into the black pit
 Z 0 95606
 S
 #95606
-The bottomless pit~
+@eng The bottomless pit@rus Бездонная яма~
 You fall, forever downwards into the bottomless pit. About you blackness
 races, with no sign of a wall for support. You look up and see the same
 nothingness as you do downward. What awaits you at the bottom? Will you

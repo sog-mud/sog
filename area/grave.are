@@ -8,7 +8,7 @@ End
 
 #MOBILES
 #3600
-oldstyle henry gardener~
+henry gardener~
 Henry the Gardener~
 Henry the Gardener is sitting here, looking drunk.
 ~
@@ -24,7 +24,7 @@ EFNU 0 0 0
 sit sit male 2
 0 0 medium unknown
 #3601
-oldstyle zombie~
+zombie~
 the rotting zombie~
 A rotting zombie is staggering towards you with outstretched hands.
 ~
@@ -38,7 +38,7 @@ EFNU 0 0 0
 stand stand male 2
 0 0 medium unknown
 #3602
-oldstyle ghoul~
+ghoul~
 the ghastly ghoul~
 A ghastly ghoul is here.
 ~
@@ -53,7 +53,7 @@ EFNU 0 0 0
 stand stand male 5
 0 0 medium unknown
 #3603
-oldstyle skeleton~
+skeleton~
 a dusty skeleton~
 A dusty skeleton lies here.
 ~
@@ -68,7 +68,7 @@ EFNU 0 0 E
 stand stand male 0
 0 0 medium unknown
 #3604
-oldstyle skeleton~
+skeleton~
 a dusty skeleton~
 A dusty skeleton lies here.
 ~
@@ -83,7 +83,7 @@ EFNU 0 0 E
 stand stand male 0
 0 0 medium unknown
 #3605
-oldstyle zombie~
+zombie~
 the rotting zombie~
 A rotting zombie is staggering towards you with outstretched hands.
 ~

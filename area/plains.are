@@ -8,7 +8,7 @@ End
 
 #MOBILES
 #300
-oldstyle druid Aruncus~
+druid Aruncus~
 Aruncus the Druid~
 Aruncus the Druid is walking around here, searching for herbs.
 ~
@@ -23,7 +23,7 @@ EFNU 0 0 0
 stand stand male 25
 0 0 medium unknown
 #301
-oldstyle hermit sorbus~
+hermit sorbus~
 Sorbus the Hermit~
 Sorbus the Hermit is sitting here, roasting a rabbit.
 ~
@@ -39,7 +39,7 @@ EFNU 0 0 0
 sit sit male 0
 0 0 medium unknown
 #303
-oldstyle citizen~
+citizen~
 the citizen~
 There is a citizen of Ofcol here glaring at you ... stranger!
 ~
@@ -54,7 +54,7 @@ EFNU 0 0 0
 stand stand male 10
 0 0 medium unknown
 #304
-oldstyle citizen~
+citizen~
 the citizen~
 There is a citizen of Ofcol here glaring at you ... stranger!
 ~
@@ -69,7 +69,7 @@ EFNU 0 0 0
 stand stand female 5
 0 0 medium unknown
 #305
-oldstyle worm Shudde-M'ell~
+worm Shudde-M'ell~
 Shudde-M'ell~
 Shudde-M'ell the Giant worm of G'harne is guarding his treasure.
 ~
@@ -85,7 +85,7 @@ EFNU 0 0 0
 stand stand male 683
 0 0 medium unknown
 #306
-oldstyle luxan shopkeeper~
+luxan shopkeeper~
 Luxan~
 Luxan the Shopkeeper is here, eager to sell you anything.
 ~
@@ -102,7 +102,7 @@ EFNU 0 0 0
 stand stand male 400
 0 0 medium unknown
 #308
-oldstyle keeper innkeeper~
+keeper innkeeper~
 the Innkeeper~
 An Innkeeper is here waiting for your order.
 ~
@@ -117,7 +117,7 @@ EFNU 0 0 0
 stand stand male 5
 0 0 medium unknown
 #309
-oldstyle rabbit~
+rabbit~
 the cute rabbit~
 A cute rabbit is here.
 ~
@@ -131,7 +131,7 @@ ENR 0 0 0
 stand stand none 0
 0 0 medium unknown
 #350
-oldstyle dragon pet~
+dragon pet~
 the pet dragon~
 Ravan's pet dragon is bouncing around here flapping her cute wings.
 ~

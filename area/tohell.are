@@ -8,7 +8,7 @@ End
 
 #MOBILES
 #10401
-oldstyle Guardian guard~
+Guardian guard~
 the Guardian of Hell~
 A Guardian of Hell stands here, keeping you the Hell out.
 ~
@@ -25,7 +25,7 @@ EFNU 0 0 0
 stand stand none 5000
 0 0 medium unknown
 #10402
-oldstyle pile coins~
+pile coins~
 the pile of gold coins~
 A pile of gold coins lies on the ground.
 ~
@@ -39,7 +39,7 @@ BEFJNU 0 0 0
 stand stand none 5000
 0 0 medium unknown
 #10403
-oldstyle male dee demon~
+male dee demon~
 the male Dee~
 The male demon Dee lies on the bed, waiting to please you.
 ~
@@ -54,7 +54,7 @@ EFNU 0 0 0
 stand stand male 5000
 0 0 medium unknown
 #10404
-oldstyle female dee demon~
+female dee demon~
 the female Dee~
 The female demon Dee lies on the bed, waiting to please you.
 ~
@@ -69,7 +69,7 @@ EFNU 0 0 0
 stand stand female 5000
 0 0 medium unknown
 #10405
-oldstyle bar gold~
+bar gold~
 the gold bar~
 A shiny gold bar lies on the ground.
 ~
@@ -83,7 +83,7 @@ BEFJNU 0 0 0
 stand stand none 5000
 0 0 medium unknown
 #10406
-oldstyle chicken pot pie~
+chicken pot pie~
 a scrumptious chicken pot pie~
 A yummy looking chicken pot pie is here.
 ~
@@ -97,7 +97,7 @@ EFNU 0 0 0
 stand stand none 5000
 0 0 medium unknown
 #10407
-oldstyle beef pot pie~
+beef pot pie~
 a yummy beef pot pie~
 A yummy looking beef pot pie is here.
 ~
@@ -111,7 +111,7 @@ EFNU 0 0 0
 stand stand none 5000
 0 0 medium unknown
 #10408
-oldstyle vegetable pot pie~
+vegetable pot pie~
 a yummy vegetable pot pie~
 A yummy looking vegetable pot pie is here.
 ~
@@ -125,7 +125,7 @@ EFNU 0 0 0
 stand stand none 5000
 0 0 medium unknown
 #10409
-oldstyle damned soul~
+damned soul~
 a damned soul~
 A damned soul wanders aimlessly here.
 ~
@@ -140,7 +140,7 @@ EIKU 0 0 0
 stand stand none 5000
 0 0 medium unknown
 #10410
-oldstyle tortured soul~
+tortured soul~
 a tortured soul~
 A tortured soul screams out in pain.
 ~
@@ -155,7 +155,7 @@ FU 0 0 0
 stand stand none 5000
 0 0 medium unknown
 #10411
-oldstyle half-eaten person~
+half-eaten person~
 the half-eaten person~
 A half-eaten person lies here, writhing in agony.
 ~
@@ -171,7 +171,7 @@ EFNU 0 0 0
 stand stand none 5000
 0 0 medium unknown
 #10412
-oldstyle living wall~
+living wall~
 the living wall~
 A wall stands here. Its surface seems to move and come to life...
 ~
@@ -187,7 +187,7 @@ EFNU 0 0 0
 stand stand none 5000
 0 0 medium unknown
 #10413
-oldstyle skeletal warrior~
+skeletal warrior~
 skeletal warrior~
 A skeletal warrior wanders the planes of Hell.
 ~
@@ -203,7 +203,7 @@ EFNU 0 0 E
 stand stand none 5000
 0 0 medium unknown
 #10414
-oldstyle bloody severed arm~
+bloody severed arm~
 bloody severed arm~
 A bloody severed arm lies here.
 ~
@@ -218,7 +218,7 @@ EFNU 0 0 0
 stand stand none 5000
 0 0 medium unknown
 #10415
-oldstyle bloody severed foot~
+bloody severed foot~
 bloody severed foot~
 A bloody severed foot lies here.
 ~
@@ -232,7 +232,7 @@ EFNU 0 0 0
 stand stand none 5000
 0 0 medium unknown
 #10416
-oldstyle bloody severed nose~
+bloody severed nose~
 bloody severed nose~
 A bloody severed nose lies here.
 ~
@@ -247,7 +247,7 @@ EFNU 0 0 0
 stand stand none 5000
 0 0 medium unknown
 #10417
-oldstyle blood~
+blood~
 the blood from the fountain~
 The blood in the fountain gurgles merrily.
 ~
@@ -261,7 +261,7 @@ EFNU 0 0 0
 stand stand none 5000
 0 0 medium unknown
 #10418
-oldstyle Lost soul~
+Lost soul~
 the lost soul~
 A lost soul stands here looking lost.
 ~
@@ -276,7 +276,7 @@ FU 0 0 0
 stand stand none 5000
 0 0 medium unknown
 #10419
-oldstyle crispy critter~
+crispy critter~
 the crispy critter~
 A crispy critter is here, being burned to death.
 ~
@@ -292,7 +292,7 @@ EFNU 0 0 0
 stand stand none 5000
 0 0 medium unknown
 #10420
-oldstyle pile bones skeleton~
+pile bones skeleton~
 pile of bones~
 A decaying pile of bones lies on the ground.
 ~
@@ -307,7 +307,7 @@ EFNU 0 0 E
 stand stand none 5000
 0 0 medium unknown
 #10421
-oldstyle manes sub-demon~
+manes sub-demon~
 the manes~
 A manes wanders the planes of Hell, looking for something to kill.
 ~
@@ -325,7 +325,7 @@ EFNU 0 0 0
 stand stand none 5000
 0 0 medium unknown
 #10422
-oldstyle prisoner raiden~
+prisoner raiden~
 the prisoner Raiden~
 The prisoner of Hell, Raiden sits here for eternity.
 ~
@@ -341,7 +341,7 @@ EFNU 0 0 0
 stand stand male 5000
 0 0 medium unknown
 #10423
-oldstyle prisoner hell~
+prisoner hell~
 a prisoner in Hell~
 A sad looking individual sits here, awaiting torture.
 ~
@@ -357,7 +357,7 @@ EFNU 0 0 0
 stand stand female 5000
 0 0 medium unknown
 #10424
-oldstyle prisoner hell~
+prisoner hell~
 a prisoner in Hell~
 A sad looking individual sits here ,awaiting torture.
 ~
@@ -373,7 +373,7 @@ EFNU 0 0 0
 stand stand male 5000
 0 0 medium unknown
 #10425
-oldstyle demonguard demon guard~
+demonguard demon guard~
 demonguard~
 A demonguard patrols the planes of Hell.
 ~
@@ -388,7 +388,7 @@ EFNU 0 0 0
 stand stand none 5000
 0 0 medium unknown
 #10426
-oldstyle burning fool~
+burning fool~
 the burning fool~
 A burning fool is here, crisping away.
 ~
@@ -403,7 +403,7 @@ EFNU 0 0 0
 stand stand none 5000
 0 0 medium unknown
 #10427
-oldstyle construction worker male~
+construction worker male~
 male construction worker~
 A construction worker is here, welding pipework.
 ~
@@ -419,7 +419,7 @@ EFNU 0 0 0
 stand stand male 5000
 0 0 medium unknown
 #10428
-oldstyle construction worker female~
+construction worker female~
 the female construction worker~
 A construction worker, is here working riviting framework.
 ~
@@ -435,7 +435,7 @@ EFNU 0 0 0
 stand stand female 5000
 0 0 medium unknown
 #10430
-oldstyle fire devil~
+fire devil~
 the fire devil~
 A fire devil stands here with a box of matches, lighting up poor souls.
 ~
@@ -452,7 +452,7 @@ EFNU 0 0 0
 stand stand none 5000
 0 0 medium unknown
 #10431
-oldstyle wall fire~
+wall fire~
 the wall of fire~
 A wall of fire is here, creeping slowly across the room.
 ~
@@ -468,7 +468,7 @@ EFNU 0 0 0
 stand stand none 5000
 0 0 medium unknown
 #10432
-oldstyle hell hound~
+hell hound~
 the hell hound~
 A hell hound runs freely through the halls of hell.
 ~
@@ -484,7 +484,7 @@ EFNU 0 0 0
 stand stand none 5000
 0 0 medium unknown
 #10433
-oldstyle frozen body~
+frozen body~
 the frozen body~
 A frozen body lies on the ground.
 ~
@@ -500,7 +500,7 @@ EFNU 0 0 0
 stand stand none 5000
 0 0 medium unknown
 #10434
-oldstyle ice devil~
+ice devil~
 the ice devil~
 A Greater Ice Devil stands here, cheerfully freezing souls.
 ~
@@ -518,7 +518,7 @@ EFNU 0 0 0
 stand stand none 5000
 0 0 medium unknown
 #10435
-oldstyle trapped soul ice~
+trapped soul ice~
 the trapped soul~
 A soul trapped under the ice gasps desperately for air.
 ~
@@ -535,7 +535,7 @@ EFNU 0 0 0
 stand stand none 5000
 0 0 medium unknown
 #10436
-oldstyle half frozen body~
+half frozen body~
 the half frozen body~
 A half frozen body hangs on a meat hook.
 ~
@@ -551,7 +551,7 @@ EFNU 0 0 0
 stand stand none 5000
 0 0 medium unknown
 #10437
-oldstyle killer penguin~
+killer penguin~
 the killer penguin~
 A small penguin waddles around on the ice.
 ~
@@ -566,7 +566,7 @@ FU 0 0 0
 stand stand none 5000
 0 0 medium unknown
 #10438
-oldstyle I-scream worker~
+I-scream worker~
 the I-scream worker~
 An I-scream worker runs from machine to machine.
 ~
@@ -584,7 +584,7 @@ EFNU 0 0 0
 stand stand none 5000
 0 0 medium unknown
 #10439
-oldstyle Ice Screamer~
+Ice Screamer~
 the Ice Screamer~
 An Ice Screamer is yelling into empty cartons.
 ~
@@ -602,7 +602,7 @@ EFNU 0 0 0
 stand stand none 5000
 0 0 medium unknown
 #10440
-oldstyle Construction Foreman Demonic~
+Construction Foreman Demonic~
 the Demonic Foreman~
 A Demonic Foreman sits here, looking at blueprints.
 ~
@@ -621,7 +621,7 @@ EFNU 0 0 0
 stand stand male 5000
 0 0 medium unknown
 #10441
-oldstyle Secretary of Hell~
+Secretary of Hell~
 Secretary of Hell~
 The Secretary of Hell sits here, watching the phones ring.
 ~
@@ -637,7 +637,7 @@ EFNU 0 0 0
 stand stand female 5000
 0 0 medium unknown
 #10442
-oldstyle office worker hell~
+office worker hell~
 office worker from Hell~
 An office worker from Hell is looking for a boss to piss off.
 ~
@@ -652,7 +652,7 @@ BEFJNU 0 0 0
 stand stand none 5000
 0 0 medium unknown
 #10443
-oldstyle records worker~
+records worker~
 records worker~
 A records worker is here, filing bad reports.
 ~
@@ -667,7 +667,7 @@ EFNU 0 0 0
 stand stand none 5000
 0 0 medium unknown
 #10444
-oldstyle santa claus~
+santa claus~
 Santa Claus~
 Santa Claus is here, checking on who has been naughty...
 ~
@@ -682,7 +682,7 @@ EFNU 0 0 0
 stand stand male 5000
 0 0 medium unknown
 #10445
-oldstyle high priest ell~
+high priest ell~
 High Priest of Hell~
 The High Priest of Hell is here, eating 'I Scream'.
 ~
@@ -697,7 +697,7 @@ EIKU 0 0 0
 stand stand male 5000
 0 0 medium unknown
 #10446
-oldstyle bowl blood~
+bowl blood~
 a bowl of blood~
 A bowl of blood sits on the altar.
 ~
@@ -711,7 +711,7 @@ EFNU 0 0 0
 stand stand none 5000
 0 0 medium unknown
 #10447
-oldstyle jury member~
+jury member~
 jury member~
 A jury member sits here with a "Guilty" sign, waiting for the trial to begin.
 ~
@@ -725,7 +725,7 @@ EFNU 0 0 0
 stand stand none 5000
 0 0 medium unknown
 #10448
-oldstyle Judge Whopper~
+Judge Whopper~
 Judge Whopper~
 Judge Whopper sits here, trying to think of a painful sentence.
 ~
@@ -740,7 +740,7 @@ EFNU 0 0 0
 stand stand none 5000
 0 0 medium unknown
 #10449
-oldstyle lawyer hell~
+lawyer hell~
 Lawyer from Hell~
 The Lawyer from Hell sits here, playing games on his laptop computer.
 ~
@@ -754,7 +754,7 @@ EFNU 0 0 0
 stand stand none 5000
 0 0 medium unknown
 #10450
-oldstyle complaints officer~
+complaints officer~
 Complaints Officer~
 The Complaints Officer is here, watching her favorite soap opera.
 ~
@@ -770,7 +770,7 @@ EFNU 0 0 0
 stand stand female 5000
 0 0 medium unknown
 #10451
-oldstyle bastard hiramoto~
+bastard hiramoto~
 bastard hiramoto~
 The Bastard Hiramoto stands here, trying to learn Kung Fu from a book.
 ~
@@ -787,7 +787,7 @@ EFNU 0 0 0
 stand stand male 5000
 0 0 medium unknown
 #10452
-oldstyle maintenance worker~
+maintenance worker~
 maintenance worker~
 A maintenance worker is here, fixing stuff.
 ~
@@ -801,7 +801,7 @@ EFNU 0 0 0
 stand stand none 5000
 0 0 medium unknown
 #10453
-oldstyle weeds~
+weeds~
 weeds~
 A weed is growing out of the cement.
 ~
@@ -815,7 +815,7 @@ EFNU 0 0 0
 stand stand none 5000
 0 0 medium unknown
 #10454
-oldstyle stanley~
+stanley~
 Stanley~
 Stanley stands here, waiting to sell you one of his wonderful figurines. 
 ~
@@ -831,7 +831,7 @@ EFNU 0 0 0
 stand stand male 5000
 0 0 medium unknown
 #10455
-oldstyle half eaten horse carcass~
+half eaten horse carcass~
 horse carcass~
 A half-eaten horse carcass is here being digested. 
 ~
@@ -846,7 +846,7 @@ EFNU 0 0 0
 stand stand none 5000
 0 0 medium unknown
 #10456
-oldstyle stomach dragon~
+stomach dragon~
 stomach dragon~
 A stomach dragon is here, digesting Big Mouth's food.
 ~
@@ -861,7 +861,7 @@ EFNU 0 0 0
 stand stand none 5000
 0 0 medium unknown
 #10457
-oldstyle rancid turkey leg~
+rancid turkey leg~
 rancid turkey leg~
 A rancid turkey leg sits in a pool of slime.
 ~
@@ -876,7 +876,7 @@ EFNU 0 0 0
 stand stand none 5000
 0 0 medium unknown
 #10458
-oldstyle reactor specialist~
+reactor specialist~
 reactor specialist~
 A reactor specialist sits here, checking on the reactor core.
 ~
@@ -891,7 +891,7 @@ EFNU 0 0 0
 stand stand male 5000
 0 0 medium unknown
 #10459
-oldstyle reactor worker~
+reactor worker~
 reactor worker~
 A reactor worker sits here, monitoring various screens.
 ~
@@ -906,7 +906,7 @@ EFNU 0 0 0
 stand stand male 5000
 0 0 medium unknown
 #10460
-oldstyle homer simpson~
+homer simpson~
 Homer Simpson~
 Homer Simpson sits here, eating donuts.
 ~
@@ -925,7 +925,7 @@ EFNU 0 0 0
 stand stand male 5000
 0 0 medium unknown
 #10461
-oldstyle devil's food cake~
+devil's food cake~
 devil's food cake~
 A nice slice of devil's food cake is here, waiting to be eaten.
 ~
@@ -939,7 +939,7 @@ EFNU 0 0 0
 stand stand none 5000
 0 0 medium unknown
 #10462
-oldstyle mad cook~
+mad cook~
 mad cook~
 A mad cook is here, cooking up a storm.
 ~
@@ -953,7 +953,7 @@ EFNU 0 0 0
 stand stand male 5000
 0 0 medium unknown
 #10463
-oldstyle frantic lady~
+frantic lady~
 frantic lady~
 A frantic lady is here, looking in vain for a sale and tearing her hair out.
 ~
@@ -966,7 +966,7 @@ EFNU 0 0 0
 stand stand female 5000
 0 0 medium unknown
 #10464
-oldstyle nuclear technician~
+nuclear technician~
 nuclear technician~
 A nuclear technician is here, fiddling with his rad suit.
 ~
@@ -979,7 +979,7 @@ EFNU 0 0 0
 stand stand male 5000
 0 0 medium unknown
 #10465
-oldstyle stray proton~
+stray proton~
 stray proton~
 A stray proton is here, whizzing about.
 ~
@@ -992,7 +992,7 @@ EFNU 0 0 0
 stand stand none 5000
 0 0 medium unknown
 #10466
-oldstyle radiation~
+radiation~
 radiation~
 The radiation in the room does unknown things to you.
 ~
@@ -1005,7 +1005,7 @@ EFNU 0 0 0
 stand stand none 5000
 0 0 medium unknown
 #10467
-oldstyle chief engineer hell~
+chief engineer hell~
 the Chief Engineer of Hell~
 The Chief Engineer of Hell is here, playing with the panic button.
 ~
@@ -1022,7 +1022,7 @@ EFNU 0 0 0
 stand stand male 5000
 0 0 medium unknown
 #10468
-oldstyle Greater Fire Demon~
+Greater Fire Demon~
 the Greater Fire Demon~
 A Greater Fire Demon stands here, laughing at each scream he hears..
 ~
@@ -1040,7 +1040,7 @@ EFNU 0 0 0
 stand stand none 5000
 0 0 medium unknown
 #10469
-oldstyle frozen side beef~
+frozen side beef~
 side of frozen beef~
 A frozen side of beef hangs on a hook.
 ~
@@ -1055,7 +1055,7 @@ EFNU 0 0 0
 stand stand none 5000
 0 0 medium unknown
 #10470
-oldstyle guard dog~
+guard dog~
 guard dog~
 A guard dog sits here, guarding the break room.
 ~
@@ -1069,7 +1069,7 @@ EFNU 0 0 0
 stand stand none 5000
 0 0 medium unknown
 #10471
-oldstyle juicy steak~
+juicy steak~
 juicy steak~
 A mouth-watering, juicy steak is here, steaming.
 ~
@@ -1089,7 +1089,7 @@ stand stand none 5000
 wicked trident two-handed~
 a wicked-looking trident~
 A wicked-looking trident is stuck into the ground.~
-oldstyle~
+unknown~
 weapon AEGJ AN
 spear 4 12 stab F
 45 70 3100 P
@@ -1103,7 +1103,7 @@ A
 black leather whip~
 a black leather whip~
 A black leather whip lies on the ground.~
-oldstyle~
+unknown~
 weapon BEJ AN
 whip 6 6 whip 0
 35 70 2100 P
@@ -1113,7 +1113,7 @@ A
 hickey maker~
 a hickey maker~
 A hickey maker lies on the ground, making a soft sucking sound.~
-oldstyle~
+unknown~
 weapon 0 AN
 mace 4 10 suction 0
 37 70 6300 P
@@ -1127,7 +1127,7 @@ A
 sword farslayer two-handed~
 a black-hilted sword called "Farslayer"~
 A black-hilted sword with engravings on the blade lies here.~
-oldstyle~
+unknown~
 weapon BFGHM AN
 sword 6 10 pierce F
 53 70 15300 P
@@ -1155,7 +1155,7 @@ Upon the blade is engraved a poem:
 angel's skull~
 the angel's skull~
 An angel's skull lies here on the ground.~
-oldstyle~
+unknown~
 armor 0 AE
 15 15 15 8 0
 45 40 6900 P
@@ -1167,7 +1167,7 @@ A
 rotting flesh~
 some rotting flesh~
 Some rotting flesh lies here in a pile.~
-oldstyle~
+unknown~
 armor 0 AD
 8 8 8 0 0
 25 30 3900 P
@@ -1175,7 +1175,7 @@ armor 0 AD
 sword vorpal blade two-handed~
 the Vorpal Blade~
 A magnificently crafted blade lies here, humming softly.~
-oldstyle~
+unknown~
 weapon 0 AN
 sword 4 9 slice F
 33 60 4800 P
@@ -1185,7 +1185,7 @@ A
 flaming claw~
 a flaming claw~
 A flaming claw lies here, burning brightly.~
-oldstyle~
+unknown~
 weapon 0 AN
 exotic 7 6 claw A
 46 40 9400 P
@@ -1199,7 +1199,7 @@ A
 demonskin~
 a demonskin~
 A black, scaley pile of demonskin lies here.~
-oldstyle~
+unknown~
 armor 0 AD
 11 12 12 5 0
 35 40 10000 P
@@ -1213,7 +1213,7 @@ A
 demon teeth~
 demon teeth~
 A bunch of very sharp, slimey teeth lie here.~
-oldstyle~
+unknown~
 weapon 0 AN
 exotic 7 5 bite 0
 36 10 7600 P
@@ -1223,7 +1223,7 @@ A
 burning flesh~
 some burning flesh~
 A pile of burning flesh lies here.~
-oldstyle~
+unknown~
 armor 0 AI
 12 11 11 10 0
 35 50 10000 P
@@ -1231,7 +1231,7 @@ armor 0 AI
 rivet gun~
 a rivet gun~
 A rivet gun loaded with hot rivets lies here.~
-oldstyle~
+unknown~
 staff 0 AO
 46 10 10 'general purpose' 0
 17 70 100000 P
@@ -1239,7 +1239,7 @@ staff 0 AO
 circular saw~
 a circular saw~
 A circular saw lies here.~
-oldstyle~
+unknown~
 weapon B AN
 axe 6 6 slice 0
 43 70 7300 P
@@ -1251,7 +1251,7 @@ A
 box matches~
 a box of matches~
 A box of matches lies here, ready to light something.~
-oldstyle~
+unknown~
 staff A AO
 48 10 10 'sleep' 0
 9 20 15000 P
@@ -1259,7 +1259,7 @@ staff A AO
 bloody black talon~
 a bloody black talon~
 A severed bloody, black talon lies here.~
-oldstyle~
+unknown~
 weapon EG AN
 dagger 5 9 claw C
 46 60 7500 P
@@ -1273,7 +1273,7 @@ A
 jar of blood~
 jar of blood~
 A dark jar of blood lies here.~
-oldstyle~
+unknown~
 potion 0 A
 50 'teleport' 'remove curse' 'refresh' ''
 11 10 5170 P
@@ -1281,7 +1281,7 @@ potion 0 A
 hell hound teeth~
 hell hound teeth~
 The bloody teeth of a hell hound sit here.~
-oldstyle~
+unknown~
 weapon 0 AN
 dagger 8 5 bite A
 43 20 7500 P
@@ -1293,7 +1293,7 @@ A
 icy bottle~
 an icy bottle~
 An icy bottle sits on the floor.~
-oldstyle~
+unknown~
 potion 0 A
 47 '' 'create spring' 'faerie fog' ''
 8 10 2970 P
@@ -1301,7 +1301,7 @@ potion 0 A
 ice spear two-handed~
 an ice spear~
 A spear made out of ice lies here.~
-oldstyle~
+unknown~
 weapon 0 AN
 spear 6 8 pierce BF
 48 50 1330 P
@@ -1309,7 +1309,7 @@ spear 6 8 pierce BF
 large meat hook two-handed~
 a large meat hook~
 A large meat hook is stuck into the ground.~
-oldstyle~
+unknown~
 weapon 0 AN
 polearm 9 5 stab BF
 47 30 2400 P
@@ -1319,7 +1319,7 @@ A
 meat~
 some meat~
 A chunk of meat lies here.~
-oldstyle~
+unknown~
 food 0 A
 BCDE BCDE 0 0 0
 0 20 20 P
@@ -1327,7 +1327,7 @@ BCDE BCDE 0 0 0
 blueprint~
 the blueprint~
 A construction blueprint lies on the ground.~
-oldstyle~
+unknown~
 food 0 AO
 ABCDE ABCDE 0 0 0
 0 10 100 P
@@ -1335,7 +1335,7 @@ ABCDE ABCDE 0 0 0
 electric eraser~
 an electric eraser~
 A electric eraser lies on the ground, waiting for an erasermate.~
-oldstyle~
+unknown~
 weapon 0 AN
 mace 4 11 grep 0
 44 10 7400 P
@@ -1347,7 +1347,7 @@ A
 spectacles~
 spectacles~
 A set of spectacles lies here on the ground. Don't step on them.~
-oldstyle~
+unknown~
 clothing 0 AE
 0 0 0 0 0
 17 10 5500 P
@@ -1359,7 +1359,7 @@ A
 unholy symbol~
 an unholy symbol~
 A sinister-looking symbol of evil lies here smoldering.~
-oldstyle~
+unknown~
 wand 0 AO
 53 10 10 'cure poison' 0
 12 20 5300 P
@@ -1367,7 +1367,7 @@ wand 0 AO
 unholy robes pile cloth~
 unholy robes~
 A stinking pile of cloth lies here.~
-oldstyle~
+unknown~
 armor EJ AK
 16 16 16 8 0
 47 40 18300 P
@@ -1377,7 +1377,7 @@ A
 sharp teeth lawyer~
 the sharp teeth of a lawyer~
 A set of sharp, evil-looking teeth lie here. Probably a lawyer's.~
-oldstyle~
+unknown~
 weapon G AN
 exotic 5 11 none C
 52 20 11800 P
@@ -1389,7 +1389,7 @@ A
 golden ring~
 a golden ring~
 A golden ring lies on the ground.~
-oldstyle~
+unknown~
 jewelry 0 AB
 0 0 0 0 0
 31 10 2900 P
@@ -1401,7 +1401,7 @@ A
 engagement ring~
 an engagement ring~
 An engagement ring lies here.~
-oldstyle~
+unknown~
 jewelry 0 AB
 0 0 0 0 0
 33 10 7700 P
@@ -1415,7 +1415,7 @@ A
 prenuptual agreement~
 a prenuptual agreement~
 A prenuptual agreement lies here.~
-oldstyle~
+unknown~
 scroll 0 A
 51 'cure blindness' 'detect evil' 'shield' ''
 11 10 2400 P
@@ -1423,7 +1423,7 @@ scroll 0 A
 ionic torque wrench~
 an ionic torque wrench~
 You see an ionic torque wrench on the ground.~
-oldstyle~
+unknown~
 weapon 0 AN
 mace 6 8 pound 0
 49 30 6500 P
@@ -1435,7 +1435,7 @@ A
 figurine horse~
 a figurine of a horse~
 You see a small figurine of a horse on the ground.~
-oldstyle~
+unknown~
 treasure AG AO
 0 0 0 0 0
 45 30 11800 P
@@ -1445,7 +1445,7 @@ A
 figurine winged horse pegasus~
 a figurine of a winged horse~
 You see a small figurine of a winged horse on the ground.~
-oldstyle~
+unknown~
 wand AG AO
 54 50 50 'summon' 0
 19 30 16600 P
@@ -1453,7 +1453,7 @@ wand AG AO
 figurine dark horse nightmare~
 a figurine of a nightmare~
 You see a small figurine of a dark horse on the ground.~
-oldstyle~
+unknown~
 wand AG AO
 54 50 50 'teleport' 0
 19 30 18900 P
@@ -1461,7 +1461,7 @@ wand AG AO
 figurine black dragon~
 a figurine of a black dragon~
 You see a small figurine of a black dragon on the ground.~
-oldstyle~
+unknown~
 wand AG AO
 54 10 10 'weaken' 0
 10 30 3900 P
@@ -1469,7 +1469,7 @@ wand AG AO
 figurine red dragon~
 a figurine of a red dragon~
 You see a small figurine of a red dragon on the ground.~
-oldstyle~
+unknown~
 wand AG AO
 54 10 10 'mass invis' 0
 18 30 11000 P
@@ -1477,7 +1477,7 @@ wand AG AO
 figurine white dragon~
 a figurine of a white dragon~
 You see a small figurine of a white dragon on the ground.~
-oldstyle~
+unknown~
 wand AG AO
 35 10 10 'acid blast' 0
 33 30 57600 P
@@ -1485,7 +1485,7 @@ wand AG AO
 figurine green dragon~
 a figurine of a green dragon~
 You see a small figurine of a green dragon on the ground.~
-oldstyle~
+unknown~
 wand AG AO
 44 5 5 'gas breath' 0
 41 30 87800 P
@@ -1493,7 +1493,7 @@ wand AG AO
 figurine blue dragon~
 a figurine of a blue dragon~
 You see a small figurine of a blue dragon on the ground.~
-oldstyle~
+unknown~
 wand AG AO
 54 10 10 'faerie fire' 0
 4 30 1840 P
@@ -1501,7 +1501,7 @@ wand AG AO
 geiger counter~
 a geiger counter~
 You see a Geiger counter here.~
-oldstyle~
+unknown~
 wand A AO
 52 10 10 'remove curse' 0
 16 20 8500 P
@@ -1511,7 +1511,7 @@ A
 photon displacement matrix~
 a photon-displacement matrix~
 You see a photon-displacement matrix on the ground.~
-oldstyle~
+unknown~
 weapon AB AN
 axe 5 9 blast 0
 45 70 6700 P
@@ -1525,8 +1525,7 @@ A
 black jumpsuit~
 a black jumpsuit~
 You see a black jumpsuit on the ground.~
-A
-oldstyle~
+unknown~
 armor A AD
 16 16 16 10 0
 50 40 13700 P
@@ -1536,7 +1535,7 @@ A
 antacid pill~
 an antacid pill~
 You see an antacid pill here.~
-oldstyle~
+unknown~
 pill 0 A
 54 'pass door' 'refresh' '' ''
 14 10 1520 P
@@ -1544,7 +1543,7 @@ pill 0 A
 manes claws~
 a manes' claws~
 The severed claws of a sub-demon lie here, twitching.~
-oldstyle~
+unknown~
 weapon 0 AN
 dagger 2 16 claw 0
 32 40 2900 P
@@ -1554,7 +1553,7 @@ A
 welding torch~
 a welding torch~
 A welding torch sits on the ground.~
-oldstyle~
+unknown~
 weapon 0 AN
 mace 5 9 flame 0
 47 70 6400 P
@@ -1566,7 +1565,7 @@ A
 blond wig~
 a blond wig~
 A blond wig lies on the ground.~
-oldstyle~
+unknown~
 armor 0 AE
 16 16 16 8 0
 46 20 6100 P
@@ -1578,7 +1577,7 @@ A
 yellow jumpsuit nuclear symbol~
 a yellow jumpsuit~
 You see a yellow jumpsuit with a nuclear-warning symbol.~
-oldstyle~
+unknown~
 armor 0 AD
 16 16 16 16 0
 48 30 13700 P
@@ -1590,7 +1589,7 @@ A
 cleaver~
 a cleaver~
 You see a nasty-looking cleaver stuck in the ground.~
-oldstyle~
+unknown~
 weapon 0 AN
 axe 5 9 cleave 0
 45 60 6400 P
@@ -1602,7 +1601,7 @@ A
 fire opal gem~
 a precious fire opal~
 A flaming red gem lies on the ground.~
-oldstyle~
+unknown~
 warp_stone T AO
 0 0 0 0 0
 0 10 5000 P
@@ -1616,7 +1615,7 @@ from whence it came.
 hellstone hell stone~
 a hellstone~
 An evil black gem rests here, hoping to seduce you with its evil.~
-oldstyle~
+unknown~
 warp_stone ET AO
 0 0 0 0 0
 0 10 10000 P

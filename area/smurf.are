@@ -8,7 +8,7 @@ End
 
 #MOBILES
 #101
-oldstyle smurf~
+smurf~
 a smurf~
 A smurf is singing and walking along.
 ~
@@ -23,7 +23,7 @@ BEFJNU 0 0 0
 stand stand male 1
 0 0 medium unknown
 #102
-oldstyle smurf~
+smurf~
 a smurf~
 A smurf is here, picking berries.
 ~
@@ -37,7 +37,7 @@ BEFJNU 0 0 0
 stand stand male 1
 0 0 medium unknown
 #103
-oldstyle brainy smurf~
+brainy smurf~
 Brainy Smurf~
 Brainy Smurf is here, mumbling something to himself.
 ~
@@ -52,7 +52,7 @@ BEFJNU 0 0 0
 stand stand male 1
 0 0 medium unknown
 #104
-oldstyle handy smurf~
+handy smurf~
 Handy Smurf~
 Handy Smurf is building something here.
 ~
@@ -67,7 +67,7 @@ BEFJNU 0 0 0
 stand stand male 1
 0 0 medium unknown
 #105
-oldstyle sleepy smurf~
+sleepy smurf~
 Sleepy Smurf~
 Sleepy Smurf is sleep walking here.
 ~
@@ -82,7 +82,7 @@ BEFJNU 0 0 0
 stand stand male 1
 0 0 medium unknown
 #106
-oldstyle hefty smurf~
+hefty smurf~
 Hefty Smurf~
 Hefty Smurf is lifting weights here.
 ~
@@ -97,7 +97,7 @@ BEFJNU 0 0 0
 stand stand male 1
 0 0 medium unknown
 #107
-oldstyle grumpy smurf~
+grumpy smurf~
 Grumpy Smurf~
 Grumpy Smurf is here, swearing.
 ~
@@ -111,7 +111,7 @@ BEFJNU 0 0 0
 stand stand male 1
 0 0 medium unknown
 #108
-oldstyle jokey smurf~
+jokey smurf~
 Jokey Smurf~
 Jokey Smurf is here, holding a present.
 ~
@@ -126,7 +126,7 @@ BEFJNU 0 0 0
 stand stand male 1
 0 0 medium unknown
 #109
-oldstyle smurfette~
+smurfette~
 Smurfette~
 Smurfette is here, looking beautiful.
 ~
@@ -141,7 +141,7 @@ BEFJNU 0 0 0
 stand stand female 1
 0 0 medium unknown
 #110
-oldstyle papa smurf~
+papa smurf~
 Papa Smurf~
 Papa Smurf is practicing magic here.
 ~
@@ -157,7 +157,7 @@ FU 0 0 0
 stand stand male 2
 0 0 medium unknown
 #111
-oldstyle gargamel~
+gargamel~
 Gargamel~
 Gargamel is here, cursing out the smurfs.
 ~
@@ -172,7 +172,7 @@ EIKU 0 0 0
 stand stand male 2
 0 0 medium unknown
 #112
-oldstyle azreal cat~
+azreal cat~
 Azreal~
 Azreal is here, licking himself.
 ~

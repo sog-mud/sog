@@ -5245,6 +5245,10 @@ You see a chapel in the distance.
 ~
 ~
 Z 0 289
+D4
+~
+~
+Z 0 3757
 S
 #291
 The Dead Moors~
@@ -5659,6 +5663,7 @@ E 0 234 0 17		*	the TianCanShenGong manual: held in the hands
 O 0 274 0 287	* a cactus (Yun Fei Yang's humble abode)
 O 0 235 0 289	* the Bible (The Chapel of Saint Sebastian)
 M 0 299 1 289 1	* priest (The Chapel of Saint Sebastian)
+O 0 3010 0 289	* the donation pit (The Chapel of Saint Sebastian)
 M 0 226 1 290 1	* a Knight (Outside the Wall of the Monastery)
 E 0 215 0 16		*	a Crusader's Sword: wielded
 E 0 216 0 3		*	a wooden cross: around the neck (1)

@@ -8,7 +8,7 @@ End
 
 #MOBILES
 #1601
-oldstyle killer frog~
+killer frog~
 a killer frog~
 A killer frog rises up out of the water.
 ~
@@ -22,7 +22,7 @@ EFNU 0 0 0
 stand stand none 1
 0 0 medium unknown
 #1602
-oldstyle stone gargoyle~
+stone gargoyle~
 the stone gargoyle~
 A stone gargoyle looms over you.
 ~
@@ -36,7 +36,7 @@ EFNU 0 0 0
 stand stand male 20
 0 0 medium unknown
 #1603
-oldstyle angry gargoyle~
+angry gargoyle~
 an angry gargoyle~
 An angry gargoyle glares at you.
 ~
@@ -50,7 +50,7 @@ EFNU 0 0 0
 stand stand male 25
 0 0 medium unknown
 #1604
-oldstyle elite gargoyle~
+elite gargoyle~
 the elite gargoyle~
 An elite gargoyle guards this room against intrusion.
 ~
@@ -64,7 +64,7 @@ EFNU 0 0 0
 stand stand male 40
 0 0 medium unknown
 #1605
-oldstyle gargoyle shaman~
+gargoyle shaman~
 the gargoyle shaman~
 The gargoyle shaman is here, preparing to do battle.
 ~
@@ -78,7 +78,7 @@ EIKU 0 0 0
 stand stand female 150
 0 0 medium unknown
 #1606
-oldstyle carnivorous plant~
+carnivorous plant~
 a carnivorous plant~
 Amidst the jungle here, a huge Carnivorous plant reaches out to grab you!
 ~
@@ -92,7 +92,7 @@ EFNU 0 0 0
 stand stand none 0
 0 0 medium unknown
 #1607
-oldstyle gruesome ogre~
+gruesome ogre~
 a gruesome ogre~
 A huge, gruesome ogre is sprawled here, gnawing some strange meat.
 ~
@@ -106,7 +106,7 @@ EFNU 0 0 0
 sit stand none 60
 0 0 medium unknown
 #1608
-oldstyle shadow~
+shadow~
 a shadow~
 A dark shadow moves about the room.
 ~
@@ -120,7 +120,7 @@ EFNU 0 0 0
 stand stand none 45
 0 0 medium unknown
 #1609
-oldstyle evil wight~
+evil wight~
 an evil wight~
 An evil wight lurks in the shadows!
 ~
@@ -134,7 +134,7 @@ EFNU 0 0 0
 stand stand male 110
 0 0 medium unknown
 #1610
-oldstyle burly minotaur~
+burly minotaur~
 A burly minotaur~
 A burly minotaur watches you solemnly.
 ~
@@ -148,7 +148,7 @@ EFNU 0 0 0
 stand stand male 75
 0 0 medium unknown
 #1612
-oldstyle savage minotaur~
+savage minotaur~
 the savage minotaur~
 A bloodthirsty minotaur slowly counts his loot
 ~
@@ -162,7 +162,7 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 #1613
-oldstyle minotaur captain~
+minotaur captain~
 the captain~
 Sitting here in this room is the Minotaur Captain.
 ~
@@ -176,7 +176,7 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 #1614
-oldstyle black pudding~
+black pudding~
 the black pudding~
 A huge black pudding fills the center of the room!!
 ~
@@ -190,7 +190,7 @@ EFNU 0 0 0
 stand stand none 0
 0 0 medium unknown
 #1615
-oldstyle lesser golem~
+lesser golem~
 a lesser golem~
 A lesser Golem stands guarding the entrance.
 ~
@@ -204,7 +204,7 @@ EFNU 0 0 0
 stand stand none 0
 0 0 medium unknown
 #1616
-oldstyle ancient wyvern~
+ancient wyvern~
 the ancient wyvern~
 An enormous, ancient wyvern stares down at your tiny form...
 ~
@@ -218,7 +218,7 @@ EFNU 0 0 0
 stand rest male 0
 0 0 medium unknown
 #1617
-oldstyle spectre~
+spectre~
 the spectre~
 A spectre has begun to materialize in front of you!
 ~
@@ -232,7 +232,7 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 #1702
-oldstyle trapper~
+trapper~
 a trapper~
 A trapper stands here, bartering his pelts.
 ~
@@ -246,7 +246,7 @@ EFNU 0 0 0
 stand stand male 6
 0 0 medium unknown
 #1704
-oldstyle hunter~
+hunter~
 a hunter~
 A hunter rests in here, carrying a fresh kill.
 ~
@@ -260,7 +260,7 @@ EFNU 0 0 0
 rest stand male 6
 0 0 medium unknown
 #1706
-oldstyle ranger~
+ranger~
 a ranger~
 A grim ranger reclines at a table.
 ~
@@ -274,7 +274,7 @@ EFNU 0 0 0
 rest stand male 0
 0 0 medium unknown
 #1707
-oldstyle ranger leader~
+ranger leader~
 a ranger leader~
 A leader of the Rangers is watching you solemnly.
 ~
@@ -288,7 +288,7 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 #1708
-oldstyle ranger lord~
+ranger lord~
 the Lord of the Rangers~
 The Lord of the Rangers catches your eye.
 ~
@@ -301,7 +301,7 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 #1710
-oldstyle male centaur~
+male centaur~
 a centaur~
 A male centaur wanders about this area.
 ~
@@ -315,7 +315,7 @@ EFNU 0 0 0
 stand stand male 6
 0 0 medium unknown
 #1711
-oldstyle female centaur~
+female centaur~
 a centaur~
 A female centaur wanders about this area.
 ~
@@ -329,7 +329,7 @@ EFNU 0 0 0
 stand stand female 5
 0 0 medium unknown
 #1712
-oldstyle old centaur~
+old centaur~
 an old centaur~
 An old centaur is resting in a corner.
 ~
@@ -343,7 +343,7 @@ EFNU 0 0 0
 rest rest male 5
 0 0 medium unknown
 #1714
-oldstyle centaur elder~
+centaur elder~
 an elder centaur~
 One of the centaur elders is here, watching you.
 ~
@@ -357,7 +357,7 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 #1715
-oldstyle centaur guard~
+centaur guard~
 a centaur guard~
 A strong centaur is standing guard here.
 ~
@@ -371,7 +371,7 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 #1716
-oldstyle centaur chief~
+centaur chief~
 the centaur chief~
 The chief of the centaur villagers reclines here.
 ~
@@ -386,7 +386,7 @@ EFNU 0 0 0
 rest stand male 0
 0 0 medium unknown
 #1720
-oldstyle displacer beast~
+displacer beast~
 a displacer beast~
 A displacer beast is grazing nearby.
 ~
@@ -537,7 +537,7 @@ drink 0 A
 key twin towers~
 the twin towers key~
 There is a shiny skeleton key on the ground here.~
-oldstyle~
+unknown~
 key 0 A
 A 0 0 0 0
 0 10 0 P
@@ -545,7 +545,7 @@ A 0 0 0 0
 strange key~
 a strange key~
 There is a very strange-looking key on the ground here.~
-oldstyle~
+unknown~
 key AG AO
 B 0 0 0 0
 12 10 750 P

@@ -8,7 +8,7 @@ End
 
 #MOBILES
 #8900
-oldstyle hierophant~
+hierophant~
 The Hierophant~
 The old Hierophant of the holy grove is here, gathering hollies.
 ~
@@ -24,7 +24,7 @@ EIKU AB 0 0
 stand stand male 2
 0 0 medium unknown
 #8901
-oldstyle hierophant~
+hierophant~
 The Hierophant~
 The old Hierophant of the holy grove is here, gathering ivy.
 ~
@@ -40,7 +40,7 @@ EIKU 0 0 0
 stand stand female 2
 0 0 medium unknown
 #8902
-oldstyle elder druid~
+elder druid~
 an elder druid~
 An elder druid stands here, watching the local flora and wildlife.
 ~
@@ -55,7 +55,7 @@ EIKU 0 0 0
 stand stand male 2
 0 0 medium unknown
 #8903
-oldstyle elder druidess~
+elder druidess~
 an elder druidess~
 An elder druidess stands here, watching the local fauna and feeding rabbits.
 ~
@@ -69,7 +69,7 @@ EIKU 0 0 0
 stand stand female 2
 0 0 medium unknown
 #8904
-oldstyle doe~
+doe~
 a doe~
 A doe is here, munching on grass.
 ~
@@ -84,7 +84,7 @@ EFNU 0 0 0
 stand stand female 0
 0 0 medium unknown
 #8905
-oldstyle deer~
+deer~
 a deer~
 A deer is here, staring back at you.
 ~
@@ -99,7 +99,7 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 #8906
-oldstyle stag deer large~
+stag deer large~
 a stag~
 A large deer stag is here, protecting his territory.
 ~
@@ -113,7 +113,7 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 #8907
-oldstyle bunny rabbit~
+bunny rabbit~
 a small bunny~
 A small bunny is here, poking from bush to bush.
 ~
@@ -127,7 +127,7 @@ EFNU 0 0 0
 stand stand none 0
 0 0 medium unknown
 #8908
-oldstyle snake~
+snake~
 a harmless snake~
 A small snake slithers between the grass.
 ~
@@ -141,7 +141,7 @@ EFNR 0 0 0
 stand stand none 0
 0 0 medium unknown
 #8909
-oldstyle druid~
+druid~
 a druid~
 A druid is here in meditation.
 ~
@@ -155,7 +155,7 @@ EIKU 0 0 0
 stand stand male 2
 0 0 medium unknown
 #8910
-oldstyle druidess~
+druidess~
 a druidess~
 A druidess is here, peering at you.
 ~

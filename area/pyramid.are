@@ -8,7 +8,7 @@ End
 
 #MOBILES
 #8700
-oldstyle asp snake~
+asp snake~
 A horrible asp~
 A small, poisonous asp slithers over your feet.
 ~
@@ -23,7 +23,7 @@ EFNU 0 0 0
 stand stand none 0
 0 0 medium unknown
 #8701
-oldstyle cobra snake~
+cobra snake~
 A hooded cobra snake~
 A cobra snake rears up and opens its fearsome hood.
 ~
@@ -38,7 +38,7 @@ EFNU 0 0 0
 stand stand none 1
 0 0 medium unknown
 #8702
-oldstyle mongoose~
+mongoose~
 A wily little mongoose~
 A small mongoose slinks along the ground, hunting snakes.
 ~
@@ -53,7 +53,7 @@ EFNU 0 0 0
 stand stand female 5
 0 0 medium unknown
 #8703
-oldstyle pyramid watcher~
+pyramid watcher~
 A pyramid watcher~
 The pyramid watcher protects the tombs from intruders.
 ~
@@ -69,7 +69,7 @@ EFNU 0 0 0
 stand stand male 10
 0 0 medium unknown
 #8704
-oldstyle thief tomb~
+thief tomb~
 A tomb thief~
 A sneaky tomb thief moves about in search of treasure.
 ~
@@ -83,7 +83,7 @@ BEFJNU 0 0 0
 stand stand male 25
 0 0 medium unknown
 #8705
-oldstyle ali baba thief~
+ali baba thief~
 Ali Baba~
 Ali Baba is here, hunting for the pharoah's tomb.
 ~
@@ -100,7 +100,7 @@ BEFJNU 0 0 0
 stand stand male 50
 0 0 medium unknown
 #8706
-oldstyle magic carpet~
+magic carpet~
 The magic carpet~
 A small woven carpet lies under your feet.
 ~
@@ -116,7 +116,7 @@ EFNU 0 0 0
 stand stand none 12
 0 0 medium unknown
 #8707
-oldstyle mummy corpse~
+mummy corpse~
 A mummy~
 A mummy reaches for you, disturbed by your presence.
 ~
@@ -131,7 +131,7 @@ EFNU 0 0 0
 stand stand none 37
 0 0 medium unknown
 #8708
-oldstyle sand man sandman~
+sand man sandman~
 A sandman~
 A sandman rises up from the desert floor.
 ~
@@ -147,7 +147,7 @@ EFNU 0 0 0
 stand stand male 75
 0 0 medium unknown
 #8709
-oldstyle efreeti efreet~
+efreeti efreet~
 The efreeti~
 The efreeti stands here, sheathed in a column of fire.
 ~
@@ -162,7 +162,7 @@ EFNU 0 0 0
 stand stand male 550
 0 0 medium unknown
 #8710
-oldstyle caryatid column~
+caryatid column~
 A caryatid~
 A sandstone column stands here, carved into a feminine figure.
 ~
@@ -178,7 +178,7 @@ EFNU 0 0 0
 stand stand female 1750
 0 0 medium unknown
 #8711
-oldstyle djinn genie~
+djinn genie~
 The djinn~
 The djinn issues forth from the confines of a small lamp.
 ~
@@ -195,7 +195,7 @@ FU 0 0 0
 stand stand male 3000
 0 0 medium unknown
 #8712
-oldstyle hieracosphinx sphinx~
+hieracosphinx sphinx~
 A hieracosphinx~
 A hieracosphinx looks at you cunningly.
 ~
@@ -212,7 +212,7 @@ EFNU 0 0 0
 stand stand none 375
 0 0 medium unknown
 #8713
-oldstyle gynosphinx sphinx~
+gynosphinx sphinx~
 A gynosphinx~
 A gynosphinx sits here, befuddled by a riddle.
 ~
@@ -229,7 +229,7 @@ EIKU 0 0 0
 stand stand female 500
 0 0 medium unknown
 #8714
-oldstyle criosphinx sphinx~
+criosphinx sphinx~
 A criosphinx~
 A criosphinx calmly watches you.
 ~
@@ -245,7 +245,7 @@ EIKU 0 0 0
 stand stand male 1250
 0 0 medium unknown
 #8715
-oldstyle androsphinx sphinx~
+androsphinx sphinx~
 An androsphinx~
 A mighty androsphinx tosses its lion-like mane.
 ~
@@ -262,7 +262,7 @@ EIKU 0 0 0
 stand stand none 2500
 0 0 medium unknown
 #8716
-oldstyle great sphinx~
+great sphinx~
 The great sphinx~
 A mighty sphinx rests here in the sand, dormant now for centuries.
 The great sphinx appears to be indestructible!
@@ -280,7 +280,7 @@ EFNU 0 0 0
 stand stand none 6250
 0 0 medium unknown
 #8717
-oldstyle ramses mummy~
+ramses mummy~
 Ramses the Damned~
 You have awakened the mighty servant to the pharoahs, Ramses.
 ~
@@ -298,7 +298,7 @@ EIKU 0 0 0
 stand stand male 4400
 0 0 medium unknown
 #8718
-oldstyle caryatid column~
+caryatid column~
 A caryatid~
 A sandstone column stands here, carved into a feminine figure.
 ~

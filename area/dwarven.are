@@ -8,7 +8,7 @@ End
 
 #MOBILES
 #6500
-oldstyle dwarf guard~
+dwarf guard~
 the dwarven guard~
 A dwarven guard is here.
 ~
@@ -22,7 +22,7 @@ EFNR 0 0 0
 stand stand male 500
 0 0 medium unknown
 #6501
-oldstyle dwarf worker miner~
+dwarf worker miner~
 the dwarven worker~
 A dwarven mining worker is here.
 ~
@@ -36,7 +36,7 @@ EFNR 0 0 0
 stand stand male 175
 0 0 medium unknown
 #6502
-oldstyle wraith~
+wraith~
 the wraith~
 A wraith is awaiting your first move here.
 ~
@@ -50,7 +50,7 @@ EFNU 0 0 0
 stand stand male 2500
 0 0 medium unknown
 #6503
-oldstyle storekeeper~
+storekeeper~
 the storekeeper~
 There is the Hide & Tooth storekeeper standing here, waiting patiently.
 ~
@@ -64,7 +64,7 @@ EFNU 0 0 0
 stand stand male 5000
 0 0 medium unknown
 #6504
-oldstyle baker~
+baker~
 the baker~
 Granite Head, the baker, is waiting for a customer here.
 ~
@@ -78,7 +78,7 @@ EFNU 0 0 0
 stand stand male 50
 0 0 medium unknown
 #6505
-oldstyle lizard~
+lizard~
 the giant lizard~
 A giant lizard is here.
 ~
@@ -93,7 +93,7 @@ EFNR 0 0 0
 stand stand male 60
 0 0 medium unknown
 #6506
-oldstyle giant~
+giant~
 the giant~
 A giant is here.
 ~
@@ -107,7 +107,7 @@ EFNR 0 0 0
 stand stand male 100
 0 0 medium unknown
 #6507
-oldstyle dwarf miner~
+dwarf miner~
 the dwarven miner~
 A dwarven miner is here.
 ~
@@ -121,7 +121,7 @@ EFNR 0 0 0
 stand stand male 2
 0 0 medium unknown
 #6508
-oldstyle dwarf leader~
+dwarf leader~
 the dwarven mine leader~
 A dwarven mine leader is here.
 ~
@@ -135,7 +135,7 @@ EFNR 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #6509
-oldstyle dwarf doctor~
+dwarf doctor~
 the dwarven doctor~
 The dwarven doctor is here.
 ~
@@ -149,7 +149,7 @@ EFNR 0 0 0
 stand stand male 75
 0 0 medium unknown
 #6510
-oldstyle dwarf peon~
+dwarf peon~
 the dwarven peon~
 A dwarven peon is awaiting help here.
 ~
@@ -162,7 +162,7 @@ EFNR 0 0 0
 stand stand male 3
 0 0 medium unknown
 #6511
-oldstyle dwarf~
+dwarf~
 the dwarf~
 A grinning dwarf is here.
 ~
@@ -175,7 +175,7 @@ EFNR 0 0 0
 stand stand male 62
 0 0 medium unknown
 #6512
-oldstyle dwarf son~
+dwarf son~
 the unwanted son~
 An unwanted son is here.  You feel sorry for the guy.
 ~
@@ -188,7 +188,7 @@ EFNR 0 0 0
 stand stand male 2
 0 0 medium unknown
 #6513
-oldstyle dwarf daughter~
+dwarf daughter~
 the unwanted daughter~
 An unwanted daughter is here.  You feel sorry for her.
 ~
@@ -201,7 +201,7 @@ EFNR 0 0 0
 stand stand female 2
 0 0 medium unknown
 #6514
-oldstyle dwarf guard~
+dwarf guard~
 the barracks guard~
 A barrack guard is here.
 ~
@@ -214,7 +214,7 @@ EFNR 0 0 0
 stand stand male 150
 0 0 medium unknown
 #6515
-oldstyle man~
+man~
 the man in waiting~
 A man in waiting is here.  He looks nervous and unsure of himself.
 ~
@@ -227,7 +227,7 @@ EFNU 0 0 0
 stand stand male 348
 0 0 medium unknown
 #6516
-oldstyle mazekeeper~
+mazekeeper~
 the mazekeeper~
 A mazekeeper is here.
 ~
@@ -241,7 +241,7 @@ EFNU 0 0 0
 stand stand male 4000
 0 0 medium unknown
 #6517
-oldstyle snake~
+snake~
 the giant snake~
 There is a giant snake here.
 ~
@@ -254,7 +254,7 @@ EFNR 0 0 0
 stand stand male 150
 0 0 medium unknown
 #6518
-oldstyle dwarf seller~
+dwarf seller~
 the dwarven worker~
 A dwarven mining worker is here.
 ~

@@ -67,7 +67,7 @@ BEFHJKN ABCD 0 0
 stand stand male 35000
 0 0 medium unknown
 #9504
-oldstyle receptionist~
+receptionist~
 the receptionist~
 A dark skinned, veiled woman greets you from behind the desk.
 ~
@@ -84,7 +84,7 @@ sit sit female 505
 0 0 tiny unknown
 F par GHIJK
 #9505
-oldstyle bartender~
+bartender~
 the withered mage/bartender~
 An old withered mage/bartender leans against the bar.
 ~
@@ -99,7 +99,7 @@ stand stand male 505
 0 0 tiny unknown
 F par GHIJK
 #9506
-oldstyle john brother singer lead~
+john brother singer lead~
 Brother John~
 Brother John, lead singer for the Lokettes, stands on stage.
 ~
@@ -114,7 +114,7 @@ stand stand male 250
 0 0 tiny unknown
 F par GHIJK
 #9507
-oldstyle panhandler~
+panhandler~
 a panhandler~
 A panhandler rests here.
 ~
@@ -129,7 +129,7 @@ rest rest male 1
 0 0 tiny unknown
 F par GHIJK
 #9508
-oldstyle panhandler~
+panhandler~
 a panhandler~
 A panhandler rests here.
 ~
@@ -144,7 +144,7 @@ rest rest male 2
 0 0 tiny unknown
 F par GHIJK
 #9509
-oldstyle beggar~
+beggar~
 a beggar~
 A grubby beggar sits here in the filth.
 ~
@@ -159,7 +159,7 @@ stand stand male 1
 0 0 tiny unknown
 F par GHIJK
 #9510
-oldstyle baker~
+baker~
 the baker~
 The baker stands here playing solitaire.
 ~
@@ -174,7 +174,7 @@ stand stand male 505
 0 0 tiny unknown
 F par GHIJK
 #9511
-oldstyle shopkeeper~
+shopkeeper~
 the shopkeeper~
 The shopkeeper stands here.
 ~
@@ -190,7 +190,7 @@ stand stand male 505
 F par GHIJK
 M speech 9500 keeper~
 #9512
-oldstyle Nabil shopkeeper~
+Nabil shopkeeper~
 Nabil~
 Nabil, purveyor of exotic pets, is waiting to serve you.
 ~
@@ -207,7 +207,7 @@ stand stand male 505
 0 0 medium unknown
 F par GHIJK
 #9513
-oldstyle ahkeem tailor~
+ahkeem tailor~
 Ahkeem the tailor~
 Ahkeem the tailor welcomes you to his store.
 ~
@@ -223,7 +223,7 @@ stand stand male 505
 0 0 tiny unknown
 F par GHIJK
 #9514
-oldstyle vera~
+vera~
 Vera the veggie lady~
 Vera the veggie lady beams as you look over her stand.
 ~
@@ -238,7 +238,7 @@ stand stand female 505
 0 0 tiny unknown
 F par GHIJK
 #9515
-oldstyle butch~
+butch~
 Butch the meatcutter~
 Butch the meatcutter stands here in his bloodied apron.
 ~
@@ -254,7 +254,7 @@ stand stand male 505
 0 0 tiny unknown
 F par GHIJK
 #9516
-oldstyle abdul armorer~
+abdul armorer~
 Abdul the armorer~
 Abdul stands here, waiting to help you.
 ~
@@ -270,8 +270,7 @@ stand stand male 505
 0 0 tiny unknown
 F par GHIJK
 #9517
-oldstyle igor 
-weaponsmith~
+igor weaponsmith~
 Igor the weaponsmith~
 Igor stands here doing... something.
 ~
@@ -287,7 +286,7 @@ stand stand male 505
 F par GHIJK
 M greet 3024 1~
 #9518
-oldstyle cassandra~
+cassandra~
 Cassandra~
 Cassandra stands proudly over her selection.
 ~
@@ -304,7 +303,7 @@ stand stand female 505
 0 0 tiny unknown
 F par GHIJK
 #9519
-oldstyle foreman man~
+foreman man~
 the foreman~
 The foreman stands here screaming at the workers.
 ~
@@ -320,7 +319,7 @@ stand stand male 125
 0 0 tiny unknown
 F par GHIJK
 #9520
-oldstyle construction worker~
+construction worker~
 a construction worker~
 A construction worker steadily works here.
 ~
@@ -335,7 +334,7 @@ stand stand male 45
 0 0 tiny unknown
 F par GHIJK
 #9521
-oldstyle statue~
+statue~
 the statue of Nati~
 The statue of Nati stands here.
 ~
@@ -349,7 +348,7 @@ stand stand female 1150
 0 0 huge unknown
 F par GHIJK
 #9522
-oldstyle statue~
+statue~
 the statue of Alander~
 The statue of Alander stands here.
 ~
@@ -366,7 +365,7 @@ stand stand male 1150
 0 0 huge unknown
 F par GHIJK
 #9523
-oldstyle statue~
+statue~
 the statue of Zump~
 The statue of Zump stands here.
 ~
@@ -381,7 +380,7 @@ stand stand male 1150
 0 0 tiny unknown
 F par GHIJK
 #9524
-oldstyle statue~
+statue~
 the statue of Nightshade~
 The statue of Nightshade stands here.
 ~
@@ -397,7 +396,7 @@ stand stand male 1190
 0 0 tiny unknown
 F par GHIJK
 #9525
-oldstyle statue~
+statue~
 the statue of Satin~
 The statue of Satin stands here.
 ~
@@ -413,7 +412,7 @@ stand stand female 1150
 0 0 tiny unknown
 F par GHIJK
 #9526
-oldstyle statue~
+statue~
 the statue of Shandra~
 The statue of Shandra stands here.
 ~
@@ -429,7 +428,7 @@ stand stand female 1150
 0 0 tiny unknown
 F par GHIJK
 #9527
-oldstyle statue~
+statue~
 the statue of Furey~
 There a statue of Furey standing here.
 ~
@@ -444,7 +443,7 @@ stand stand male 3250
 0 0 tiny unknown
 F par GHIJK
 #9528
-oldstyle statue~
+statue~
 the statue of Landru~
 The statue of Landru stands here.
 ~
@@ -460,7 +459,7 @@ stand stand male 3250
 0 0 tiny unknown
 F par GHIJK
 #9529
-oldstyle aziz~
+aziz~
 Aziz~
 Aziz the Human Canon stands here.
 ~
@@ -475,7 +474,7 @@ stand stand male 65
 0 0 tiny unknown
 F par GHIJK
 #9530
-oldstyle mustafah~
+mustafah~
 Mustafah~
 Mustafah the Human Robber stands here.
 ~
@@ -490,7 +489,7 @@ stand stand male 11
 0 0 tiny unknown
 F par GHIJK
 #9531
-oldstyle fatima~
+fatima~
 Fatima~
 Fatima the Elven Invoker stands here.
 ~
@@ -505,7 +504,7 @@ stand stand male 30
 0 0 tiny unknown
 F par GHIJK
 #9532
-oldstyle kareem~
+kareem~
 Kareem~
 Kareem the Dwarven Mercenary stands here.
 ~
@@ -520,7 +519,7 @@ stand stand male 60
 0 0 tiny unknown
 F par GHIJK
 #9533
-oldstyle nomad merchant~
+nomad merchant~
 a nomad merchant~
 A nomad merchant looks you over.
 ~
@@ -536,7 +535,7 @@ stand stand male 45
 0 0 tiny unknown
 F par GHIJK
 #9534
-oldstyle bodyguard~
+bodyguard~
 A bodyguard~
 A bodyguard sizes you up.
 ~
@@ -551,7 +550,7 @@ stand stand male 60
 0 0 tiny unknown
 F par GHIJK
 #9535
-oldstyle kid thief~
+kid thief~
 the skinny kid~
 A skinny kid wanders around.
 ~
@@ -566,7 +565,7 @@ stand stand male 11
 0 0 tiny unknown
 F par GHIJK
 #9536
-oldstyle dockworker~
+dockworker~
 the dockworker~
 A strong dockworker walks by moving crates.
 ~
@@ -582,7 +581,7 @@ stand stand male 60
 0 0 tiny unknown
 F par GHIJK
 #9537
-oldstyle man tax collector~
+man tax collector~
 the tax collector~
 A small man walks around scribbling in a notebook.
 ~
@@ -598,7 +597,7 @@ stand stand male 3
 0 0 tiny unknown
 F par GHIJK
 #9538
-oldstyle gord~
+gord~
 Gord~
 Gord the Rogue stands here.
 ~
@@ -613,7 +612,7 @@ stand stand male 615
 0 0 tiny unknown
 F par GHIJK
 #9539
-oldstyle caramon~
+caramon~
 Caramon~
 Caramon the Knight stands here.
 ~
@@ -628,7 +627,7 @@ stand stand male 615
 0 0 tiny unknown
 F par GHIJK
 #9540
-oldstyle raistlin~
+raistlin~
 Raistlin~
 Raistlin, the Arch-Magician stands here.
 ~
@@ -643,7 +642,7 @@ stand stand male 615
 0 0 tiny unknown
 F par GHIJK
 #9541
-oldstyle curley greenleaf~
+curley greenleaf~
 Curley GreenLeaf~
 Curley GreenLeaf stands here.
 ~
@@ -658,7 +657,7 @@ stand stand male 615
 0 0 tiny unknown
 F par GHIJK
 #9542
-oldstyle man wandering prophet~
+man wandering prophet~
 the wandering prophet~
 A small grey-haired man walks around spouting gospel.
 ~
@@ -674,7 +673,7 @@ stand stand male 11
 0 0 tiny unknown
 F par GHIJK
 #9543
-oldstyle alley cat feline~
+alley cat feline~
 the alley cat~
 A small harmless feline searches for food.
 ~
@@ -689,7 +688,7 @@ stand stand male 1
 0 0 tiny unknown
 F par GHIJK
 #9544
-oldstyle vulture~
+vulture~
 the vulture~
 A vulture circles above you.
 ~
@@ -704,7 +703,7 @@ stand stand male 0
 0 0 tiny unknown
 F par GHIJK
 #9545
-oldstyle old man~
+old man~
 the old man~
 An old man sits here playing chess.
 ~
@@ -719,7 +718,7 @@ stand stand male 3
 0 0 tiny unknown
 F par GHIJK
 #9546
-oldstyle conan librarian~
+conan librarian~
 Conan the Librarian~
 Conan the Librarian sits behind a desk.
 ~
@@ -734,7 +733,7 @@ sit sit male 345
 0 0 tiny unknown
 F par GHIJK
 #9547
-oldstyle dirt devil~
+dirt devil~
 the dirt devil~
 The wind kicks up some dust.
 ~
@@ -749,7 +748,7 @@ stand stand male 1
 0 0 tiny unknown
 F par GHIJK
 #9548
-oldstyle lamia~
+lamia~
 the lamia~
 A lamia stands here.
 ~
@@ -764,7 +763,7 @@ stand stand female 18
 0 0 tiny unknown
 F par GHIJK
 #9549
-oldstyle dervish~
+dervish~
 the raggety dervish~
 A raggety dervish stands here.
 ~
@@ -779,7 +778,7 @@ stand stand male 30
 0 0 tiny unknown
 F par GHIJK
 #9550
-oldstyle sultan~
+sultan~
 The Sultan~
 The Sultan rests here on his throne.
 ~
@@ -794,7 +793,7 @@ rest rest male 2200
 0 0 tiny unknown
 F par GHIJK
 #9551
-oldstyle harem girl~
+harem girl~
 a harem girl~
 A lovely, veiled harem girl stands here.
 ~
@@ -810,7 +809,7 @@ stand stand female 2
 0 0 tiny unknown
 F par GHIJK
 #9552
-oldstyle jailer~
+jailer~
 the jailer~
 The Jailer sleeps here, snoring loudly.
 ~
@@ -826,7 +825,7 @@ sleep sleep male 250
 0 0 tiny unknown
 F par GHIJK
 #9553
-oldstyle eunuch~
+eunuch~
 a eunuch~
 A eunuch stands here watching over the girls.
 ~
@@ -842,7 +841,7 @@ stand stand none 125
 0 0 tiny unknown
 F par GHIJK
 #9554
-oldstyle sultans favorite girl nichole~
+sultans favorite girl nichole~
 Nichole, the sultan's favorite~
 Nichole, the sultan's favorite girl rests on a mound of pillows.
 ~
@@ -858,7 +857,7 @@ rest rest female 345
 0 0 tiny unknown
 F par GHIJK
 #9555
-oldstyle god~
+god~
 GOD~
 GOD is here.
 ~
@@ -873,7 +872,7 @@ rest rest none 1400
 0 0 tiny unknown
 F par GHIJK
 #9556
-oldstyle mage guildguard~
+mage guildguard~
 the guildguard~
 The Guard for the Guild of Mages stand here.
 ~
@@ -888,7 +887,7 @@ stand stand male 395
 0 0 tiny unknown
 F par GHIJK
 #9557
-oldstyle cleric guildguard~
+cleric guildguard~
 the guildguard~
 The Guard for the Guild of Clerics stands here.
 ~
@@ -903,7 +902,7 @@ stand stand male 395
 0 0 tiny unknown
 F par GHIJK
 #9558
-oldstyle warrior guildguard~
+warrior guildguard~
 the guildguard~
 The Guard for the Guild of Warriors stands here.
 ~
@@ -918,7 +917,7 @@ stand stand male 395
 0 0 tiny unknown
 F par GHIJK
 #9559
-oldstyle thief guildguard~
+thief guildguard~
 the guildguard~
 The Guard for the Guild of theives stands here.
 ~
@@ -934,7 +933,7 @@ stand stand male 395
 0 0 tiny unknown
 F par GHIJK
 #9560
-oldstyle servant boy~
+servant boy~
 a servant boy~
 A servant boy is here running errands.
 ~
@@ -949,7 +948,7 @@ stand stand male 1
 0 0 tiny unknown
 F par GHIJK
 #9561
-oldstyle sultans guard~
+sultans guard~
 the sultan's guard~
 A guard stands here, protecting the innocent.
 ~
@@ -964,7 +963,7 @@ stand stand male 45
 0 0 tiny unknown
 F par GHIJK
 #9562
-oldstyle sultans guard~
+sultans guard~
 the sultans guard~
 A guard stands here, watching the gate.
 ~
@@ -979,7 +978,7 @@ stand stand male 45
 0 0 tiny unknown
 F par GHIJK
 #9563
-oldstyle sultans guard chief~
+sultans guard chief~
 The chief guard~
 The chief of the sultan's guard stands here.
 ~
@@ -994,7 +993,7 @@ stand stand male 345
 0 0 tiny unknown
 F par GHIJK
 #9564
-oldstyle mercenary~
+mercenary~
 the mercenary~
 A mercenary stands here waiting for a job.
 ~
@@ -1009,7 +1008,7 @@ stand stand male 3
 0 0 tiny unknown
 F par GHIJK
 #9565
-oldstyle shipwright captain~
+shipwright captain~
 the shipwright~
 An old captain rests here carving on a stick.
 ~
@@ -1025,7 +1024,7 @@ stand stand male 1150
 0 0 tiny unknown
 F par GHIJK
 #9566
-oldstyle blacksmith~
+blacksmith~
 the blacksmith~
 The blacksmith stands here pumping air into his fire.
 ~
@@ -1041,7 +1040,7 @@ stand stand male 1150
 0 0 tiny unknown
 F par GHIJK
 #9567
-oldstyle horse~
+horse~
 a horse~
 A horse stands here.
 ~
@@ -1056,7 +1055,7 @@ stand stand male 3
 0 0 tiny unknown
 F par GHIJK
 #9568
-oldstyle tourist~
+tourist~
 a tourist~
 A tourist stands here looking lost.
 ~
@@ -1073,7 +1072,7 @@ stand stand male 3
 0 0 tiny unknown
 F par GHIJK
 #9569
-oldstyle shelbye~
+shelbye~
 Shelbye~
 Shelbye stands here.
 ~
@@ -1088,7 +1087,7 @@ stand stand male 1150
 0 0 tiny unknown
 F par GHIJK
 #9570
-oldstyle cryohydra~
+cryohydra~
 the cryohydra~
 The cryohydra stands here.
 ~
@@ -1103,7 +1102,7 @@ stand stand none 18
 0 0 tiny unknown
 F par GHIJK
 #9571
-oldstyle giant minotaur lizard~
+giant minotaur lizard~
 the minotaur lizard~
 The minotaur lizard stands here.
 ~
@@ -1117,7 +1116,7 @@ EFNR 0 0 0
 stand stand none 18
 0 0 tiny unknown
 #9572
-oldstyle dog death~
+dog death~
 the death dog~
 The death dog stands here.
 ~
@@ -1131,7 +1130,7 @@ EFNR 0 0 0
 stand stand none 18
 0 0 tiny unknown
 #9573
-oldstyle lion spotted~
+lion spotted~
 the spotted lion~
 The spotted lion stands here.
 ~
@@ -1146,7 +1145,7 @@ stand stand none 18
 0 0 tiny unknown
 F par GHIJK
 #9574
-oldstyle behir~
+behir~
 the behir~
 A behir slithers on the ground.
 ~
@@ -1161,7 +1160,7 @@ stand stand male 60
 0 0 tiny unknown
 F par GHIJK
 #9575
-oldstyle chimera~
+chimera~
 the chimera~
 A creature with three heads: lion, goat, and dragon stands here.
 ~
@@ -1178,7 +1177,7 @@ stand stand male 30
 0 0 tiny unknown
 F par GHIJK
 #9576
-oldstyle couatl~
+couatl~
 the couatl~
 A couatl hovers here.
 ~
@@ -1194,7 +1193,7 @@ stand stand male 125
 0 0 tiny unknown
 F par GHIJK
 #9577
-oldstyle giant hornet~
+giant hornet~
 the giant hornet~
 The giant hornet hovers here.
 ~
@@ -1209,7 +1208,7 @@ EFNR 0 0 0
 stand stand male 3
 0 0 tiny unknown
 #9578
-oldstyle pegasus~
+pegasus~
 the pegasus~
 The pegasus stands here, flexing its wings.
 ~
@@ -1225,7 +1224,7 @@ stand stand male 45
 0 0 tiny unknown
 F par GHIJK
 #9579
-oldstyle elvira~
+elvira~
 Elvira~
 Elvira stands here mixing a love potion.
 ~
@@ -1241,7 +1240,7 @@ stand stand female 1190
 0 0 tiny unknown
 F par GHIJK
 #9580
-oldstyle braheem~
+braheem~
 Braheem~
 Braheem stands here talking to the walls.
 ~
@@ -1256,7 +1255,7 @@ stand stand male 1190
 0 0 tiny unknown
 F par GHIJK
 #9581
-oldstyle high priest~
+high priest~
 the high priest~
 The high priest rests here meditating, well he WAS meditating.
 ~
@@ -1271,7 +1270,7 @@ stand stand male 1190
 0 0 tiny unknown
 F par GHIJK
 #9582
-oldstyle royal guard elite~
+royal guard elite~
 The Royal Guard~
 An Elite Royal Guard stands here smiling happily.
 ~
@@ -1287,7 +1286,7 @@ stand stand male 1250
 0 0 tiny unknown
 F par GHIJK
 #9583
-oldstyle patch bartender~
+patch bartender~
 Patch the bartender~
 A large half-orc with a patch over one eye pours beer behind the counter
 ~
@@ -1303,7 +1302,7 @@ stand stand male 345
 0 0 tiny unknown
 F par GHIJK
 #9584
-oldstyle stitch~
+stitch~
 Stitch, the leather dude.~
 Stitch, the leather dude reclines in his chair.
 ~
@@ -1319,7 +1318,7 @@ stand stand male 345
 0 0 tiny unknown
 F par GHIJK
 #9585
-oldstyle gardener small elf~
+gardener small elf~
 the gardener~
 A small elf stands here tending the garden.
 ~
@@ -1335,7 +1334,7 @@ stand stand male 345
 0 0 tiny unknown
 F par GHIJK
 #9586
-oldstyle nightmare demon horse~
+nightmare demon horse~
 the nightmare~
 A large horse, black as night, stands here.
 ~
@@ -1352,7 +1351,7 @@ stand stand female 60
 0 0 tiny unknown
 F par GHIJK
 #9587
-oldstyle wolverine~
+wolverine~
 the wolverine~
 A large wolf like creature leaps out from the darkness.
 ~
@@ -1368,7 +1367,7 @@ stand stand female 60
 0 0 tiny unknown
 F par GHIJK
 #9588
-oldstyle mimic painting~
+mimic painting~
 the mimic~
 You see an incredibly life-like painting of the Sultan's mother.
 ~
@@ -1383,7 +1382,7 @@ stand stand male 45
 0 0 tiny unknown
 F par GHIJK
 #9589
-oldstyle mayor~
+mayor~
 the mayor~
 The Mayor of New Thalos stands here.
 ~
@@ -1398,7 +1397,7 @@ stand stand male 345
 0 0 tiny unknown
 F par GHIJK
 #9590
-oldstyle chef~
+chef~
 the chef~
 The chef stands here making dinner.
 ~
@@ -1413,7 +1412,7 @@ stand stand male 345
 0 0 tiny unknown
 F par GHIJK
 #9591
-oldstyle ixitxachitl~
+ixitxachitl~
 the Ixitxachitl~
 A very large ray with a wicked looking tail swims here.
 ~
@@ -1428,7 +1427,7 @@ stand stand none 1190
 0 0 tiny unknown
 F par GHIJK
 #9592
-oldstyle guard bodyguard~
+guard bodyguard~
 the bodyguard~
 A bodyguard stands here.
 ~

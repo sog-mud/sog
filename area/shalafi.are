@@ -10,12 +10,14 @@ End
 #MOBILES
 #95300
 Seneschal~
-The Seneschal~
-The Seneschal of magic is here.
+@eng The Seneschal@rus Сенешаль~
+@eng The Seneschal of magic is here.
+@rus Сенешаль (Seneschal) магии стоит тут.
 ~
-A ghostly figure floats above you, ready to unleash magical death on all
+@eng A ghostly figure floats above you, ready to unleash magical death on all
 that are against his lords. The creature is formed entirely of flames and
 some other magical materials. 
+@rus Призрачная фигура плавает перед тобой и готова направить магическую смерть на всех, кто противостоит ее повелителям. Она создана из огня и некоторых других магических материалов.
 ~
 elf~
 ABJKRef DFHlmt 0 0
@@ -29,13 +31,15 @@ M grall 95300 100~
 C Shalafi~
 #95301
 healer adept cabal shalafi~
-an adept~
-An adept and healer of the Arcane Arts is here.
+@eng an adept@rus Адепт~
+@eng An adept and healer of the Arcane Arts is here.
+@rus Адепт и лекарь (adept) искусств Аркана стоит здесь.
 ~
-He is an old, wise cleric blessing his old friends of the Maters of Five 
+@eng He is an old, wise cleric blessing his old friends of the Maters of Five 
 Magic to destroy all undisciplined heros at Realms of Anatolia. He has
 beatiful long white hair and is wearing a white dress that reaches down to
 the floor. He has a nice smile on his face.
+@rus Мудрый клерик благословляет повелителей пяти магий уничтожать злобных героев королевств Анатолии. Он одет в белые одежды, достигающие пола, и у него красивые белые волосы. На его лице застыла прекрасная улыбка. 
 ~
 human~
 ABQVae DFH 1000 0
@@ -68,8 +72,8 @@ stand stand male 0
 #OBJECTS
 #95300
 spider altar~
-a huge violet altar carved as a spider~
-A hude spider shaped altar is standing at the center of room.~
+@eng a huge violet altar carved as a spider@rus Огромный фиолетовый алтарь (spider altar), похожий на паука~
+@eng A hude spider shaped altar is standing at the center of room.@rus Алтарь (spider altar), похожий на огромного паука, стоит в центре комнаты.~
 ivory~
 container AORY P
 10 ABCD 95302 15 100
@@ -92,26 +96,26 @@ key ORYf AO
 40 4 0 P
 #95303
 white object portal~
-Magical White Portal~
-A magically created white object casts strange shadows across the clearing.
-~
+@eng Magical White Portal@rus Белый магический портал (White portal)~
+@eng A magically created white object casts strange shadows across the clearing.
+@rus Белый объект (white portal), созданный при помощи магии, отбрасывает странные тени.~
 energy~
 portal AO 0
 0 0 D 9209 0
 0 0 0 P
 #95304
 black object portal~
-Magical Black Portal~
-A magically created black object casts strange shadows across the clearing.
-~
+@eng Magical Black Portal@rus Черный магический портал (black portal)~
+@eng A magically created black object casts strange shadows across the clearing.
+@rus Черный объект (black portal), созданный при помощи магии, отбрасывает странные тени.~
 energy~
 portal AO 0
 0 0 E 0 0
 0 0 0 P
 #95305
 sofa~
-sofa of meditation~
-Sofa of meditation is here.~
+@eng sofa of meditation@rus Софа для медитации~
+@eng Sofa of meditation is here.@rus Софа (sofa) для медитации стоит в углу комнаты.~
 unknown~
 furniture GRT P
 BD 0 HK DGH DGH
@@ -121,12 +125,13 @@ BD 0 HK DGH DGH
 #ROOMS
 #95300
 @eng Fifth Level@rus Пятый этаж~
-The fifth level of the tower hums with whole magical power of the
+@eng The fifth level of the tower hums with whole magical power of the
 universe. All around, you see many items which have been carried and
 transported from different lands. Probably they have been used to reached
 the secret of the magical worlds; the stones sing and glow magically.
 Before you is an altar shaped like a huge spider. Carved from diamond,
 it gives off a soft purple radiance.
+@rus Пятый этаж башни гудит от переполняющей его магической силы вселенной. Вокруг вы видите множество вещей принесенных и перемещенных сюда из различных земель. Возможно, они будут использованы для нахождения секрета магических миров; камни поют и излучают магический свет. Перед вами находится алтарь, формой напоминающий огромного паука. Вырезанный из алмаза, он излучает багровое сияние.
 ~
 0 DK inside
 D1
@@ -144,11 +149,12 @@ Z -1 95301
 S
 #95301
 @eng Fourth Level@rus Четвертый этаж~
-The fourth level is much bigger than the others. All around you see the
+@eng The fourth level is much bigger than the others. All around you see the
 magic. There are many wands and staves which have been created by the
 the Arcane Arts magicians and used to destroy undisciplined heros at
 Realms of Anatolia. You see some red demons summoned and they are quite
 angry about to it.
+@rus Четвертый этаж намного больше чем все остальные. Все, что вы видите вокруг - магия. Здесь находится множество жезлов и посохов, созданных магами искусств Аркана и использующихся для уничтожения враждебных героев королевств Анатолии. Вы замечаете несколько вызванных красных демонов и они очень сердятся на вас.
 ~
 0 DK inside
 D4
@@ -162,9 +168,10 @@ Z -1 95302
 S
 #95302
 @eng Third Level@rus Третий этаж~
-Now, you are in a mist that has been suddenly appeared. Swirling mist
+@eng Now, you are in a mist that has been suddenly appeared. Swirling mist
 obscures your vision and cloud your mind. You start to wander about the
 eternity and power of the magic. The mist itself thickens to the up.  
+@rus Вас окружает внезапно появившийся туман, который ухудшает ваше зрение и омрачает разум. Вы начинаете задумываться о вечности и силе магии.
 ~
 0 DK inside
 D4
@@ -178,10 +185,14 @@ Z -1 95303
 S
 #95303
 @eng Second Level@rus Второй этаж~
-The second level of the tower of the Arcane Arts is much like the first.
+@eng The second level of the tower of the Arcane Arts is much like the first.
 The walls are blackened and burnt by what you could only imagine to be
 magical fire. A large globe of magical energy floats overhead, providing
 light. A flight of stairs lead up and down.
+@rus Второй уровень башни очень похож на первый. Стены здесь черны и обуглены,
+возможно от очень сильного магического огня - но об этом ты можешь только 
+догадываться. Огромный шар чистой энергии освещает это мрачное место. 
+Лестница ведет вверх (up) и вниз (down).
 ~
 0 DK inside
 D4
@@ -218,7 +229,7 @@ faint magical glow which provides enough light to see by. Additionally a
 large globe of magical energy floats overhead, providing light. The tower
 is created by pure magic and you feel that the whole magical power of the
 universe has been used to create this tower.
-@rus Вы находитесь на длинной дороге, простирающейся на север и юг. Стены выделяют слабое магическое свечение, которое создает достаточно света чтобы видеть. Кроме этого, большой шар магической энергии плавает над головой, создавая освещение. Башня была создана при помощи чистой магии и вы чуствуете, что вся магическая сила вселенной была использована при создании этой башни.
+@rus Вы находитесь на длинной дороге, простирающейся на север (north) и юг (south). Стены выделяют слабое магическое свечение, которое создает достаточно света чтобы видеть. Кроме этого, большой шар магической энергии плавает над головой создавая освещение. Башня была создана при помощи чистой магии и вы чуствуете, что вся магическая сила вселенной была использована при создании этой башни.
 ~
 0 DK inside
 D0
@@ -250,11 +261,12 @@ Z 0 1480
 S
 #95307
 @eng The Mystical Room@rus Мистическая комната~
-This room is looks like the third level of the tower. You are in a mist
+@eng This room is looks like the third level of the tower. You are in a mist
 that has been suddenly appeared. Swirling mist obscures your vision and
 cloud your mind. You start to wander about the eternity and power of the
 magic. The mist itself thickens to the up. You see a portal that may help
 you to find some materials to create powerful wands and staves.  
+@rus Эта комната напоминает третий этаж башни. Вас окружает внезапно появившийся туман, который ухудшает ваше зрение и омрачает разум. Вы начинаете задумываться о вечности и силе магии. Вы видите портал, который может помочь вам разыскать необходимые материалы для создания мощных жезлов и посохов.
 ~
 0 DK inside
 D3
@@ -264,11 +276,12 @@ Z -1 95300
 S
 #95308
 @eng The Mystical Room@rus Мистическая комната~
-This room is looks like the third level of the tower. You are in a mist
+@eng This room is looks like the third level of the tower. You are in a mist
 that has been suddenly appeared. Swirling mist obscures your vision and
 cloud your mind. You start to wander about the eternity and power of the
 magic. The mist itself thickens to the up. You see a portal that may help
 you to find some materials to create powerful wands and staves.  
+@rus Эта комната напоминает третий этаж башни. Вас окружает внезапно появившийся туман, который ухудшает ваше зрение и омрачает разум. Вы начинаете задумываться о вечности и силе магии. Вы видите портал, который может помочь вам разыскать необходимые материалы для создания мощных жезлов и посохов.
 ~
 0 DK inside
 D1

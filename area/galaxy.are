@@ -8,7 +8,7 @@ End
 
 #MOBILES
 #9301
-oldstyle poor mudder~
+poor mudder~
 a poor mudder~
 A poor mudder, lost in this place.
 ~
@@ -22,7 +22,7 @@ BEFJNU 0 0 0
 stand stand male 5
 0 0 medium unknown
 #9302
-oldstyle star~
+star~
 a beautiful star~
 A beautiful white star smiles at you.
 ~
@@ -36,7 +36,7 @@ EFNU 0 0 0
 stand stand female 25
 0 0 medium unknown
 #9303
-oldstyle nebula young~
+nebula young~
 a young nebula~
 A young nebula, waiting to become a star.
 ~
@@ -50,7 +50,7 @@ EFNU 0 0 0
 stand stand female 50
 0 0 medium unknown
 #9304
-oldstyle comet speedy~
+comet speedy~
 a speedy comet~
 A speedy comet is waiting to crush your head in.
 ~
@@ -64,7 +64,7 @@ EFNU 0 0 0
 stand stand male 75
 0 0 medium unknown
 #9305
-oldstyle red supergiant~
+red supergiant~
 a red supergiant~
 An enormous, red supergiant is forced to protect the galaxy.
 ~
@@ -79,7 +79,7 @@ EFNU 0 0 0
 sleep sleep male 100
 0 0 medium unknown
 #9306
-oldstyle white dwarf~
+white dwarf~
 a white dwarf~
 A tiny white dwarf is trying to sneak away from duty. 
 ~
@@ -94,7 +94,7 @@ EFNU 0 0 0
 stand stand male 100
 0 0 medium unknown
 #9307
-oldstyle horsehead nebula~
+horsehead nebula~
 a horsehead nebula~
 A huge nebula is here, resembling a horsehead.
 ~
@@ -109,7 +109,7 @@ EFNU 0 0 0
 sit sit male 300
 0 0 medium unknown
 #9308
-oldstyle andromeda~
+andromeda~
 poor Andromeda~
 The poor Andromeda is chained to the wall, suffering ...
 ~
@@ -124,7 +124,7 @@ EFNU 0 0 0
 stand stand female 375
 0 0 medium unknown
 #9309
-oldstyle hercules~
+hercules~
 the mighty Hercules~
 The Mighty Hercules is working hard on his extra Labours for the Gods.
 ~
@@ -140,7 +140,7 @@ EFNU 0 0 0
 stand stand male 375
 0 0 medium unknown
 #9310
-oldstyle pegasus~
+pegasus~
 the wild Pegasus~
 The wild pegasus is grazing peacefully.
 ~
@@ -154,7 +154,7 @@ EFNU 0 0 0
 stand stand none 250
 0 0 medium unknown
 #9311
-oldstyle orion~
+orion~
 Orion the hunter~
 Orion is still hunting for Scorpio.
 ~
@@ -171,7 +171,7 @@ EFNU 0 0 0
 stand stand male 375
 0 0 medium unknown
 #9312
-oldstyle pleiades~
+pleiades~
 the Pleiades~
 The Pleiades are here, weeping for the loss of their sisters.
 ~
@@ -186,7 +186,7 @@ EFNU 0 0 0
 stand stand female 150
 0 0 medium unknown
 #9313
-oldstyle draco head~
+draco head~
 the Head of Draco~
 The gigantic Head of Draco lurks out from beneath and prepares to roast you.
 ~
@@ -202,7 +202,7 @@ EFNU 0 0 0
 stand stand none 750
 0 0 medium unknown
 #9314
-oldstyle draco baby~
+draco baby~
 a baby draco~
 A baby draco is crawling on the Draco's body.
 ~
@@ -218,7 +218,7 @@ EFNU 0 0 0
 stand stand none 200
 0 0 medium unknown
 #9315
-oldstyle aries~
+aries~
 Aries~
 Aries is sitting here, welcoming you.
 ~
@@ -233,7 +233,7 @@ EIKU 0 0 0
 sit sit male 500
 0 0 medium unknown
 #9316
-oldstyle taurus~
+taurus~
 Taurus~
 Taurus wants to leave, but has been forced to stay as a guardian here.
 ~
@@ -248,7 +248,7 @@ EIKU 0 0 0
 stand stand male 500
 0 0 medium unknown
 #9317
-oldstyle gemini~
+gemini~
 Gemini~
 Gemini is looking for his brother; have you seen him?
 ~
@@ -263,7 +263,7 @@ EIKU 0 0 0
 stand stand male 500
 0 0 medium unknown
 #9318
-oldstyle gemini~
+gemini~
 Gemini~
 Gemini is hiding from his brother, grinning evilly at you.
 ~
@@ -278,7 +278,7 @@ EIKU 0 0 0
 stand stand male 250
 0 0 medium unknown
 #9319
-oldstyle cancer~
+cancer~
 Cancer~
 Cancer the crab is here, hoarding the treasure away from you.
 ~
@@ -294,7 +294,7 @@ EIKU 0 0 0
 stand stand male 600
 0 0 medium unknown
 #9320
-oldstyle leo~
+leo~
 Leo~
 Leo the lion is roaring at you, ready for a strike!
 ~
@@ -310,7 +310,7 @@ EIKU 0 0 0
 stand stand male 500
 0 0 medium unknown
 #9321
-oldstyle virgo~
+virgo~
 Virgo~
 Virgo is sitting here, winking at you suggestively ... you are alarmed!
 ~
@@ -326,7 +326,7 @@ EIKU 0 0 0
 sit sit female 500
 0 0 medium unknown
 #9322
-oldstyle libra~
+libra~
 Libra~
 Libra, the fair and just, is staring at you, weighing up the sins of your past.
 ~
@@ -341,7 +341,7 @@ EIKU 0 0 0
 stand stand male 500
 0 0 medium unknown
 #9323
-oldstyle scorpio~
+scorpio~
 Scorpio~
 Scorpio is moving his tail towards you, waiting to put an end to some mortals.
 ~
@@ -356,7 +356,7 @@ EIKU 0 0 0
 stand stand male 500
 0 0 medium unknown
 #9324
-oldstyle sagittarius~
+sagittarius~
 Sagittarius~
 Sagittarius the centaur is waiting to let go of his well aimed arrow ...
 ~
@@ -370,7 +370,7 @@ EIKU 0 0 0
 stand stand male 500
 0 0 medium unknown
 #9325
-oldstyle capricorn~
+capricorn~
 Capricorn~
 Capricorn is here, feeling bored ... he wants a fight!
 ~
@@ -386,7 +386,7 @@ EIKU 0 0 0
 stand stand male 500
 0 0 medium unknown
 #9326
-oldstyle aquarius~
+aquarius~
 Aquarius~
 The beautiful Aquarius is standing here, holding THE vessel.
 ~
@@ -401,7 +401,7 @@ EIKU 0 0 0
 stand stand female 500
 0 0 medium unknown
 #9327
-oldstyle pisces mermaid~
+pisces mermaid~
 Pisces the mermaid~
 Pisces the mermaid is sitting here, waiting for your help.
 ~
@@ -416,7 +416,7 @@ EIKU 0 0 0
 sit sit female 500
 0 0 medium unknown
 #9328
-oldstyle pisces fish~
+pisces fish~
 Pisces the fish~
 Pisces the fish, is jealous of your approach...
 ~
@@ -431,7 +431,7 @@ EIKU 0 0 0
 stand stand male 500
 0 0 medium unknown
 #9329
-oldstyle bear ursa major~
+bear ursa major~
 Ursa Major the bear~
 Ursa Major the bear is the last defense against any intruders.
 ~
@@ -446,7 +446,7 @@ IKR 0 0 0
 stand stand none 750
 0 0 medium unknown
 #9330
-oldstyle cassiopeia queen~
+cassiopeia queen~
 Cassiopeia the Queen~
 Cassiopeia, the queen of the Universe, is sitting on her throne.
 ~
@@ -460,7 +460,7 @@ FU 0 0 0
 sit sit female 600
 0 0 medium unknown
 #9331
-oldstyle cepheus king~
+cepheus king~
 Cepheus the King~
 Cepheus, the king of the Universe, is sitting on his throne.
 ~
@@ -475,7 +475,7 @@ FU 0 0 0
 sit sit male 600
 0 0 medium unknown
 #9332
-oldstyle polaris polar star~
+polaris polar star~
 Polaris, the polar star~
 Polaris, the polar star, who commands the whole Universe, stands before you!
 ~

@@ -8,7 +8,7 @@ End
 
 #MOBILES
 #5200
-oldstyle beholder~
+beholder~
 The mighty beholder~
 You meet a beholder's deadly gaze!
 ~
@@ -24,7 +24,7 @@ F ABC 0 0
 stand stand none 1128
 0 0 medium unknown
 #5201
-oldstyle lamia beast~
+lamia beast~
 The lamia~
 A strange lamia stands here waiting for her next meal.
 ~
@@ -39,7 +39,7 @@ EFNU 0 0 0
 stand stand female 50
 0 0 medium unknown
 #5202
-oldstyle mimic chest~
+mimic chest~
 The mimic~
 A strong chest lies in one corner of the room.
 ~
@@ -54,7 +54,7 @@ EFNU 0 0 0
 stand stand none 0
 0 0 medium unknown
 #5203
-oldstyle mimic boulder~
+mimic boulder~
 The mimic~
 Two skeletons lie crushed under a large boulder.
 ~
@@ -67,7 +67,7 @@ EFNU 0 0 0
 stand stand none 0
 0 0 medium unknown
 #5204
-oldstyle mimic floor~
+mimic floor~
 The mimic~
 The stone floor of this house has been ripped apart.
 ~
@@ -80,7 +80,7 @@ EFNU 0 0 0
 stand stand none 0
 0 0 medium unknown
 #5205
-oldstyle mimic pottery~
+mimic pottery~
 The mimic~
 Some broken shards of pottery lie strewn about the floor.
 ~
@@ -93,7 +93,7 @@ EFNU 0 0 0
 stand stand none 0
 0 0 medium unknown
 #5206
-oldstyle mimic planks~
+mimic planks~
 The mimic~
 A few wooden planks lie stacked on a low shelf.
 ~
@@ -106,7 +106,7 @@ EFNU 0 0 0
 stand stand none 0
 0 0 medium unknown
 #5207
-oldstyle lizard horned~
+lizard horned~
 The horned lizard~
 A small horned lizard flicks his tongue and slithers away.
 ~
@@ -120,7 +120,7 @@ EFNR 0 0 0
 stand stand none 0
 0 0 medium unknown
 #5208
-oldstyle golem stone~
+golem stone~
 The stone golem~
 In the corner you see a large, stone golem faithfully standing watch.
 ~

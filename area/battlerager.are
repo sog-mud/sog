@@ -150,7 +150,7 @@ D3
 Z -1 95401
 S
 #95401
-The entrance to the Caven of Battlerager~
+@eng The entrance to the Caven of Battlerager@rus Вход в клан Battlerager~
 You see some sort of light coming thru the west, making the inside of
 the caven more noticable. You see lots of weapon and blood tracks on the
 wall. There are several bones on the ground. You notice that the huge man
@@ -167,7 +167,7 @@ D3
 Z -1 95402
 S
 #95402
-Inside the Caven~
+@eng Inside the Caven@rus В пещере~
 In spite of the low level light, you notice that the caven continues to
 the west. You see lots of bones again on the ground. You observe that
 there seems no way from the west of the caven.
@@ -184,7 +184,7 @@ w
 Z -1 95403
 S
 #95403
-Deep in the caven~
+@eng Deep in the caven@rus Глубоко в пещере~
 You see that there are two openings more in the caven, one to the north
 and one to the south. To the north you see a large white throne. To the
 south you see some clothes and weapons left on the ground. It seems that
@@ -205,13 +205,16 @@ D2
 Z -1 95404
 S
 #95404
-The donation room~
-You find lots of weapons and clothings on the floor. You noticed the
+@eng The donation room@rus Комната для пожертвований~
+@eng You find lots of weapons and clothings on the floor. You noticed the
 writing on the floor.
       "Every battlerager is your brother."
 Then you change your mind, and want to put some good clothing and weapon
 here for all other cabal members to strengten themselves, and to destroy
 magicians.
+@rus На полу лежит множество обмундирования и оружия. Вы видите надпись:
+       "Каждый battlerager твой брат."
+У вас появляется желание оставить несколько хороших вещей и оружия для других членов клана, чтобы они могли увеличить свою мощь и уничтожать магов.
 ~
 0 KWX city
 D0
@@ -220,7 +223,7 @@ D0
 Z -1 95403
 S
 #95405
-Battle Square~
+@eng Battle Square@rus Площадь для сражений~
 You see lots of bones on the floor. You think that you are very near to
 the place where martial arts are practiced. There are four openings in
 all directions. To the east you see the continuing of bones on the floor,
@@ -246,11 +249,13 @@ D3
 Z -1 95407
 S
 #95406
-Battle House~
-You are in the battle house. You see lots of bones and broken weapons on
+@eng Battle House@rus Военное здание~
+@eng You are in the battle house. You see lots of bones and broken weapons on
 the floor. You read the following on the wall:
     "After you kill your first magician, you become a BattleRager."
 
+@rus Вы находитесь в военном здании. На полу вы видите множество костей и сломанного оружия. На одной из стен написано:
+       "Ты становишся членом клана BattleRager после того, как ты убил своего первого мага."
 ~
 0 KWX city
 D3
@@ -259,7 +264,7 @@ D3
 Z -1 95405
 S
 #95407
-Gordall's Weapon House~
+@eng Gordall's Weapon House@rus Оружейный магазин Гордалла~
 You see the metals hung up on the wall, shining brilliantly. Most
 probably they are the materials that Gordall use to produce his weapons.
 And to the higher portion of the wall you see the newly finished weapons,
@@ -272,7 +277,7 @@ D1
 Z -1 95405
 S
 #95408
-The Shrine of Battleragers~
+@eng The Shrine of Battleragers@rus Святыня клана Battlerager~
 You are in front of a large white throne made from bones. There are
 shelves line the walls, upon them there are many jars inside of which are
 blood and heads of magicians. 

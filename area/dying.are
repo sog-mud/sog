@@ -1729,7 +1729,7 @@ E 0 24300 0 10		*	a pair of centaur armguards: on the arms
 M 0 24301 18 24342 4	* a centaur guardian (Within the Dying Forest)
 E 0 24300 0 10		*	a pair of centaur armguards: on the arms
 E 0 24301 0 14		*	a steel centaur bracer: on the left wrist
-E 0 24301 0 14		*	a steel centaur bracer: on the left wrist
+E 0 24301 0 15		*	a steel centaur bracer: on the right wrist
 E 0 24302 0 6		*	a centaur helm: over the head
 M 0 24314 12 24342 3	* a centaur (Within the Dying Forest)
 M 0 24301 18 24344 4	* a centaur guardian (Within the Dying Forest)

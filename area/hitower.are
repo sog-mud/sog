@@ -8,7 +8,7 @@ End
 
 #MOBILES
 #1300
-oldstyle shadow guardian~
+shadow guardian~
 a shadow guardian~
 A shadow guardian screams a challenge and attacks.
 ~
@@ -22,7 +22,7 @@ EFNU 0 0 0
 stand stand none 5
 0 0 medium unknown
 #1301
-oldstyle adventurer~
+adventurer~
 a lost adventurer~
 An emaciated adventurer is here looking lost and hopeless.
 ~
@@ -36,7 +36,7 @@ EIKU 0 0 0
 sit stand male 14
 0 0 medium unknown
 #1302
-oldstyle edgar~
+edgar~
 Edgar~
 Edgar the Human Swordpupil
 ~
@@ -52,7 +52,7 @@ EFNU 0 0 0
 stand stand male 1
 0 0 medium unknown
 #1303
-oldstyle diamond golem~
+diamond golem~
 the golem~
 A huge diamond golem is standing guard here.
 ~
@@ -66,7 +66,7 @@ EFNU 0 0 0
 stand stand none 49
 0 0 medium unknown
 #1304
-oldstyle mage young~
+mage young~
 a mage~
 A young mage wanders about, oblivious to all.
 ~
@@ -81,7 +81,7 @@ FU 0 0 0
 stand stand male 21
 0 0 medium unknown
 #1305
-oldstyle strick bartender~
+strick bartender~
 Strick the bartender~
 Strick is here levitating drinks to his customers.
 ~
@@ -95,7 +95,7 @@ EFNU 0 0 0
 stand stand male 100
 0 0 medium unknown
 #1306
-oldstyle tatorious wizard~
+tatorious wizard~
 Tatorious~
 Tatorious the wizard is here counting his earnings.
 ~
@@ -109,7 +109,7 @@ FU 0 0 0
 stand stand male 250
 0 0 medium unknown
 #1307
-oldstyle ezmerelda cook~
+ezmerelda cook~
 Ezmerelda~
 Ezmerelda the cook is here stirring a large pot of something.
 ~
@@ -122,7 +122,7 @@ FU 0 0 0
 stand stand female 54
 0 0 medium unknown
 #1308
-oldstyle assistant mage~
+assistant mage~
 The cook's assistant~
 The cook's assistant is here assisting the cook.
 ~
@@ -135,7 +135,7 @@ FU 0 0 0
 stand stand male 5
 0 0 medium unknown
 #1309
-oldstyle prisoner~
+prisoner~
 The prisoner~
 A prisoner is chained to the wall here.
 ~
@@ -153,7 +153,7 @@ FU 0 0 0
 stand stand male 0
 0 0 medium unknown
 #1310
-oldstyle jailor mage~
+jailor mage~
 the Jailor~
 The Jailor is here enjoying a comfortable nap.
 ~
@@ -167,7 +167,7 @@ FU 0 0 0
 sleep sleep male 66
 0 0 medium unknown
 #1311
-oldstyle broom~
+broom~
 a broom~
 A straw broom is here leaning against the wall.
 ~
@@ -181,7 +181,7 @@ BEFJNU 0 0 0
 stand stand none 0
 0 0 medium unknown
 #1312
-oldstyle lesser guardian hands~
+lesser guardian hands~
 a pair of disembodied hands~
 A pair of disembodied hands floats in the air here.
 ~
@@ -195,7 +195,7 @@ EFNU 0 0 0
 stand stand none 0
 0 0 medium unknown
 #1313
-oldstyle guardian greater eyes~
+guardian greater eyes~
 a pair of disembodied eyes~
 A pair of disembodied eyes floats here glaring at you.
 ~
@@ -209,7 +209,7 @@ EFNU 0 0 0
 stand stand none 0
 0 0 medium unknown
 #1314
-oldstyle mage visitor~
+mage visitor~
 the mage~
 A visiting mage is here snoring away in peaceful slumber.
 ~
@@ -223,7 +223,7 @@ FU 0 0 0
 sleep sleep male 36
 0 0 medium unknown
 #1315
-oldstyle apprentice young~
+apprentice young~
 a young apprentice magic user~
 A young apprentice magic user is here doing magical studies.
 ~
@@ -237,7 +237,7 @@ FU 0 0 0
 sit sit female 18
 0 0 medium unknown
 #1316
-oldstyle apprentice young~
+apprentice young~
 a young apprentice~
 A young apprentice is here mumbling words of magic to himself.
 ~
@@ -251,7 +251,7 @@ FU 0 0 0
 stand stand male 24
 0 0 medium unknown
 #1317
-oldstyle apprentice young~
+apprentice young~
 a young apprentice~
 A young apprentice is sleeping here.
 ~
@@ -265,7 +265,7 @@ FU 0 0 0
 sleep sleep male 10
 0 0 medium unknown
 #1318
-oldstyle apprentice young~
+apprentice young~
 A young apprentice~
 A young apprentice is here teasing a cornered kitten.
 ~
@@ -279,7 +279,7 @@ FU 0 0 0
 stand stand male 19
 0 0 medium unknown
 #1319
-oldstyle kitten~
+kitten~
 a small kitten~
 A small kitten is here meowing in terror.
 ~
@@ -294,7 +294,7 @@ EFNU 0 0 0
 stand stand female 0
 0 0 medium unknown
 #1320
-oldstyle student~
+student~
 a student~
 A student of spells is here looking quite bored
 ~
@@ -308,7 +308,7 @@ FU 0 0 0
 sit sit male 13
 0 0 medium unknown
 #1321
-oldstyle instructor teacher mage~
+instructor teacher mage~
 an instructor of magic~
 The instructor screams at your interruption and attacks you.
 ~
@@ -322,7 +322,7 @@ FU 0 0 0
 stand stand male 44
 0 0 medium unknown
 #1322
-oldstyle student~
+student~
 a student of spells~
 A student of spells is here trying to master invisibility.
 ~
@@ -336,7 +336,7 @@ FU 0 0 0
 stand stand male 9
 0 0 medium unknown
 #1323
-oldstyle teacher mage~
+teacher mage~
 a spell teacher~
 A spell teacher screams at your interruption and attacks.
 ~
@@ -349,7 +349,7 @@ FU 0 0 0
 stand stand male 62
 0 0 medium unknown
 #1324
-oldstyle student~
+student~
 a student of spells~
 A student of spells has fallen asleep at her desk here.
 ~
@@ -363,7 +363,7 @@ FU 0 0 0
 sleep sleep female 28
 0 0 medium unknown
 #1325
-oldstyle wizard speaker mage~
+wizard speaker mage~
 a wizard~
 An old wizard is here making a speech
 ~
@@ -376,7 +376,7 @@ FU 0 0 0
 stand stand male 123
 0 0 medium unknown
 #1326
-oldstyle mage young~
+mage young~
 a young mage~
 A young mage is here learning hand to hand combat.
 ~
@@ -389,7 +389,7 @@ FU 0 0 0
 stand stand male 34
 0 0 medium unknown
 #1327
-oldstyle mistress battle~
+mistress battle~
 the battle mistress~
 The battle mistress is here teaching the fine uses of a dagger.
 ~
@@ -404,7 +404,7 @@ FU 0 0 0
 stand stand female 160
 0 0 medium unknown
 #1328
-oldstyle mage teacher~
+mage teacher~
 a spell teacher~
 A spell teacher is here relaxing.
 ~
@@ -417,7 +417,7 @@ FU 0 0 0
 rest rest male 50
 0 0 medium unknown
 #1329
-oldstyle wizard~
+wizard~
 an aged wizard~
 An aged wizard is sleeping here.
 ~
@@ -430,7 +430,7 @@ FU 0 0 0
 sleep sleep male 78
 0 0 medium unknown
 #1330
-oldstyle scribe mage~
+scribe mage~
 a scribe~
 A scribe is here working on some manuscripts.
 ~
@@ -443,7 +443,7 @@ FU 0 0 0
 stand stand male 15
 0 0 medium unknown
 #1331
-oldstyle scribe mage~
+scribe mage~
 a scribe~
 A scribe is here working diligently on some translations.
 ~
@@ -458,7 +458,7 @@ FU 0 0 0
 stand stand female 34
 0 0 medium unknown
 #1332
-oldstyle master scribe~
+master scribe~
 the master scribe~
 The master scribe is here looking a little upset
 ~
@@ -473,7 +473,7 @@ FU 0 0 0
 stand stand male 281
 0 0 medium unknown
 #1333
-oldstyle assistant scribe~
+assistant scribe~
 the scribe's assistant~
 The scribe's assistant is here folding parchments.
 ~
@@ -486,7 +486,7 @@ FU 0 0 0
 stand stand male 52
 0 0 medium unknown
 #1334
-oldstyle master enchanter mage~
+master enchanter mage~
 the Enchanter~
 The Enchanter is here placing a dweomer upon well made sword.
 ~
@@ -499,7 +499,7 @@ F AB 0 0
 stand stand male 340
 0 0 medium unknown
 #1335
-oldstyle sword dancing~
+sword dancing~
 a dancing sword~
 A well crafted sword lies on the work table here.
 ~
@@ -513,7 +513,7 @@ EFNU 0 0 0
 stand stand none 0
 0 0 medium unknown
 #1336
-oldstyle alchemist~
+alchemist~
 the Mad Alchemist~
 The Mad Alchemist babbles something incomprehensible and attacks.
 ~
@@ -529,7 +529,7 @@ FU 0 0 0
 stand stand male 117
 0 0 medium unknown
 #1337
-oldstyle master summoner~
+master summoner~
 the master summoner~
 The master summoner is here holding gateways open to other planes.
 ~
@@ -543,7 +543,7 @@ stand stand male 50
 0 0 medium unknown
 M kill 1300 100~
 #1338
-oldstyle master charmer~
+master charmer~
 the master charmer~
 The master charmer utters the words, 'uuuzzldctz'.
 ~
@@ -557,7 +557,7 @@ FU 0 0 0
 stand stand male 233
 0 0 medium unknown
 #1339
-oldstyle golem wooden~
+golem wooden~
 a wooden golem~
 A wooden golem stands a silent vigil here, guarding the stairs.
 ~
@@ -571,7 +571,7 @@ EFNU 0 0 0
 stand stand none 50
 0 0 medium unknown
 #1340
-oldstyle master binder~
+master binder~
 the master spell binder~
 The master spell binder is here re-charging a blackened wand.
 ~
@@ -585,7 +585,7 @@ FU 0 0 0
 stand stand male 115
 0 0 medium unknown
 #1341
-oldstyle master maker~
+master maker~
 the golem maker~
 The golem maker is here chiseling some stone.
 ~
@@ -598,7 +598,7 @@ FU 0 0 0
 stand stand male 133
 0 0 medium unknown
 #1342
-oldstyle golem granite~
+golem granite~
 a granite golem~
 A granite golem stands here waiting to do its master's bidding.
 ~
@@ -612,7 +612,7 @@ EFNU 0 0 0
 stand stand none 0
 0 0 medium unknown
 #1343
-oldstyle golem bronze~
+golem bronze~
 a bronze golem~
 A bronze golem stands here shining in the light.
 ~
@@ -626,7 +626,7 @@ EFNU 0 0 0
 stand stand none 0
 0 0 medium unknown
 #1344
-oldstyle golem flesh~
+golem flesh~
 a flesh golem~
 A flesh golem stands guard here
 ~
@@ -641,7 +641,7 @@ EFNU 0 0 0
 stand stand none 0
 0 0 medium unknown
 #1345
-oldstyle golem cloth~
+golem cloth~
 a cloth golem~
 A cloth golem wanders around here.
 ~
@@ -655,7 +655,7 @@ EFNU 0 0 0
 stand stand none 0
 0 0 medium unknown
 #1346
-oldstyle golem adamantite~
+golem adamantite~
 an adamantite golem~
 An adamantite golem stands here looking very dangerous.
 ~
@@ -670,7 +670,7 @@ EFNU 0 0 0
 stand stand none 500
 0 0 medium unknown
 #1347
-oldstyle golem clay~
+golem clay~
 a clay golem~
 A clay golem stands guard here.
 ~
@@ -683,7 +683,7 @@ EFNU 0 0 0
 stand stand none 0
 0 0 medium unknown
 #1348
-oldstyle master illusionist mage~
+master illusionist mage~
 the master of illusions~
 An enormous multi-colored three-headed dragon growls at you.
 ~
@@ -698,7 +698,7 @@ F ABC 0 0
 stand stand male 117
 0 0 medium unknown
 #1349
-oldstyle necromancer master~
+necromancer master~
 the Necromancer~
 The Necromancer is here raising undead servants
 ~
@@ -715,7 +715,7 @@ FU 0 0 0
 stand stand male 584
 0 0 medium unknown
 #1350
-oldstyle skeleton undead~
+skeleton undead~
 an animated skeleton~
 An animated skeleton screams silently and attacks.
 ~
@@ -729,7 +729,7 @@ EFNU 0 0 E
 stand stand none 0
 0 0 medium unknown
 #1351
-oldstyle undead giant~
+undead giant~
 an undead giant~
 An undead giant lumbers towards you.
 ~
@@ -742,7 +742,7 @@ EFNU 0 0 0
 stand stand none 0
 0 0 medium unknown
 #1352
-oldstyle witch hag~
+witch hag~
 an ugly witch~
 An ugly witch is here scrying out secrets.
 ~
@@ -758,7 +758,7 @@ FU 0 0 0
 stand stand female 107
 0 0 medium unknown
 #1353
-oldstyle librarian mage~
+librarian mage~
 the Librarian~
 The Librarian has fallen asleep at his desk here.
 ~
@@ -772,7 +772,7 @@ FU 0 0 0
 sleep sleep male 64
 0 0 medium unknown
 #1354
-oldstyle apprentice~
+apprentice~
 the master's apprentice~
 The master's apprentice leaps to halt your passage.
 ~
@@ -789,7 +789,7 @@ FU 0 0 0
 stand stand male 336
 0 0 medium unknown
 #1355
-oldstyle cat grey familiar~
+cat grey familiar~
 a grey cat~
 A grey cat is lounging lazily here.
 ~
@@ -804,7 +804,7 @@ R 0 0 0
 stand stand female 0
 0 0 medium unknown
 #1356
-oldstyle master guildmaster grey~
+master guildmaster grey~
 the master of Neutrality~
 The master of Neutrality stands here contemplating the balance of the universe.
 ~
@@ -818,7 +818,7 @@ FU 0 0 0
 stand stand male 767
 0 0 medium unknown
 #1357
-oldstyle apprentice black~
+apprentice black~
 a black robed apprentice~
 A black robed apprentice jumps from the shadows and attacks.
 ~
@@ -834,7 +834,7 @@ FU 0 0 0
 stand stand female 693
 0 0 medium unknown
 #1358
-oldstyle cat black familiar~
+cat black familiar~
 a black cat~
 A black cat with its fur up hisses at you.
 ~
@@ -849,7 +849,7 @@ R 0 0 0
 stand stand none 0
 0 0 medium unknown
 #1359
-oldstyle master guildmaster black~
+master guildmaster black~
 the master of the black robes~
 The master of the black robes is here plotting vile deeds.
 ~
@@ -863,7 +863,7 @@ FU 0 0 0
 stand stand male 1105
 0 0 medium unknown
 #1360
-oldstyle apprentice white~
+apprentice white~
 a white robed apprentice~
 A white robed apprentice screams at your desecration of goodness.
 ~
@@ -878,7 +878,7 @@ FU 0 0 0
 stand stand male 370
 0 0 medium unknown
 #1361
-oldstyle cat white familiar~
+cat white familiar~
 a white cat~
 A white cat is here preening its fur.
 ~
@@ -892,7 +892,7 @@ R 0 0 0
 stand stand none 0
 0 0 medium unknown
 #1362
-oldstyle master guildmaster white~
+master guildmaster white~
 The master of goodness~
 The master of goodness is here frowning at your intrusion.
 ~
@@ -906,7 +906,7 @@ FU 0 0 0
 stand stand male 1095
 0 0 medium unknown
 #1363
-oldstyle cat calico familiar~
+cat calico familiar~
 A calico cat~
 A large calico cat is here
 ~
@@ -921,7 +921,7 @@ R 0 0 0
 stand stand female 0
 0 0 medium unknown
 #1364
-oldstyle guildmaster grand mistress~
+guildmaster grand mistress~
 The Grand Mistress~
 The Grand Mistress of Magic is sitting here.
 ~
@@ -938,7 +938,7 @@ FU AB 0 0
 stand stand female 2500
 0 0 medium unknown
 #1365
-oldstyle wizard~
+wizard~
 a wizard~
 A wandering wizard is here mumbling to himself.
 ~

@@ -8,7 +8,7 @@ End
 
 #MOBILES
 #1100
-oldstyle elven wizard~
+elven wizard~
 the Elven Wizard~
 An Elven Wizard is here, creating fireworks for the festivities.
 ~
@@ -26,7 +26,7 @@ FU 0 0 0
 stand stand male 105
 0 0 medium unknown
 #1101
-oldstyle ring keeper~
+ring keeper~
 the Keeper of the Ring~
 The Keeper of the Ring is here, guarding his treasure jealously.
 ~
@@ -44,7 +44,7 @@ BEFJNU 0 0 0
 stand stand male 61
 0 0 medium unknown
 #1102
-oldstyle farmer gamgee~
+farmer gamgee~
 Farmer Gamgee~
 Farmer Gamgee sniffs the air, wondering if harvest time is near.
 ~
@@ -60,7 +60,7 @@ EFNU 0 0 0
 rest rest male 0
 0 0 medium unknown
 #1103
-oldstyle toddler~
+toddler~
 a toddler~
 A toddler crawls about, looking for something to chew on.
 ~
@@ -75,7 +75,7 @@ EFNU 0 0 0
 sit sit male 0
 0 0 medium unknown
 #1104
-oldstyle nursemaid~
+nursemaid~
 a nursemaid~
 A nursemaid wanders about, trying to keep track of all the toddlers.
 ~
@@ -91,7 +91,7 @@ EFNU 0 0 0
 stand stand female 1
 0 0 medium unknown
 #1105
-oldstyle cow~
+cow~
 a cow~
 A cow is here, chewing her cud.
 ~
@@ -107,7 +107,7 @@ EFNU 0 0 0
 rest rest none 0
 0 0 medium unknown
 #1106
-oldstyle pig~
+pig~
 a pig~
 A pig wallows in the mud and oinks in contentment.
 ~
@@ -123,7 +123,7 @@ EFNR 0 0 0
 rest rest none 0
 0 0 medium unknown
 #1107
-oldstyle chicken~
+chicken~
 a chicken~
 A chicken sits on her nest.
 ~
@@ -137,7 +137,7 @@ EFNU 0 0 0
 sit sit female 0
 0 0 medium unknown
 #1108
-oldstyle bull~
+bull~
 a bull~
 A bull scratches at the ground and lowers his head.
 ~
@@ -153,7 +153,7 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 #1109
-oldstyle horse~
+horse~
 a horse~
 A horse becomes frightened by your presence.
 ~
@@ -167,7 +167,7 @@ EFNU 0 0 0
 stand stand none 0
 0 0 medium unknown
 #1110
-oldstyle shiriff~
+shiriff~
 a shiriff~
 A shiriff of the Shire looks for signs of trouble.
 ~
@@ -184,7 +184,7 @@ CDEIKLU 0 0 0
 sit sit male 2
 0 0 medium unknown
 #1111
-oldstyle shiriff~
+shiriff~
 a shiriff~
 A shiriff of the Shire looks for signs of trouble.
 ~
@@ -201,7 +201,7 @@ CDEIKLU 0 0 0
 sit sit male 2
 0 0 medium unknown
 #1112
-oldstyle thain~
+thain~
 the Thain~
 The Thain commands respect from all Shire folk.
 ~
@@ -218,7 +218,7 @@ CDEIKLU 0 0 0
 sit sit male 25
 0 0 medium unknown
 #1113
-oldstyle innkeeper~
+innkeeper~
 the Innkeeper~
 The Innkeeper stands here awaiting your order.
 ~
@@ -233,7 +233,7 @@ EFNU 0 0 0
 stand stand male 35
 0 0 medium unknown
 #1114
-oldstyle miller~
+miller~
 the Miller~
 The Miller is here, overseeing his busy mill workers.
 ~
@@ -249,7 +249,7 @@ EFNU 0 0 0
 stand stand male 10
 0 0 medium unknown
 #1115
-oldstyle mill worker~
+mill worker~
 the mill worker~
 The mill worker runs to and from.
 ~
@@ -265,7 +265,7 @@ EFNU 0 0 0
 stand stand male 2
 0 0 medium unknown
 #1116
-oldstyle elven warrior~
+elven warrior~
 the elven warrior~
 The elven warrior watches you solemnly.
 ~
@@ -281,7 +281,7 @@ FU 0 0 0
 sit sit male 25
 0 0 medium unknown
 #1117
-oldstyle dwarven prince~
+dwarven prince~
 the dwarven prince~
 The dwarven prince sits here patiently for the return of his king.
 ~
@@ -297,7 +297,7 @@ EIKU 0 0 0
 sit sit male 35
 0 0 medium unknown
 #1118
-oldstyle shopkeeper~
+shopkeeper~
 the shopkeeper~
 The shopkeeper smiles and patiently waits for you to buy something.
 ~
@@ -312,7 +312,7 @@ EFNU 0 0 0
 stand stand male 600
 0 0 medium unknown
 #1119
-oldstyle grocer~
+grocer~
 the grocer~
 The grocer offers you the finest breads in all the land.
 ~
@@ -328,7 +328,7 @@ EFNU 0 0 0
 stand stand male 75
 0 0 medium unknown
 #1120
-oldstyle blacksmith~
+blacksmith~
 the blacksmith~
 The blacksmith bids you welcome to his humble store.
 ~
@@ -343,7 +343,7 @@ EFNU 0 0 0
 stand stand male 900
 0 0 medium unknown
 #1121
-oldstyle battle master~
+battle master~
 the battle master~
 The battle master offers you the services of his fine trainees.
 ~
@@ -357,7 +357,7 @@ CDEIKLU 0 0 0
 stand stand male 75
 0 0 medium unknown
 #1122
-oldstyle halfling youth~
+halfling youth~
 a halfling youth~
 A halfling youth stands here, waiting for nothing in particular.
 ~
@@ -372,7 +372,7 @@ BEFJNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 #1123
-oldstyle seasoned adventurer~
+seasoned adventurer~
 a seasoned adventurer~
 A seasoned adventurer sits here, telling tales of fame and fortune.
 ~
@@ -388,7 +388,7 @@ EFNU 0 0 0
 sit sit male 8
 0 0 medium unknown
 #1124
-oldstyle local gossip~
+local gossip~
 a local gossip~
 A local gossip asks you, "Have you heard the latest?"
 ~
@@ -403,7 +403,7 @@ EFNU 0 0 0
 sit sit female 1
 0 0 medium unknown
 #1125
-oldstyle halfling beauty~
+halfling beauty~
 a halfling beauty~
 A halfling beauty stares dreamily into your eyes.
 ~
@@ -420,7 +420,7 @@ EFNU 0 0 0
 stand stand female 3
 0 0 medium unknown
 #1126
-oldstyle trainee~
+trainee~
 a trainee~
 A trainee screams a death cry as he delivers the fatal blow to a dummy.
 ~
@@ -436,7 +436,7 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 #1127
-oldstyle chic urbanite~
+chic urbanite~
 a chic urbanite~
 A chic urbanite sits here, enjoying his class status.
 ~
@@ -452,7 +452,7 @@ EFNU 0 0 0
 sit sit male 5
 0 0 medium unknown
 #1128
-oldstyle country bumpkin~
+country bumpkin~
 a country bumpkin~
 A country bumpkin dreams of pipeweed and its many uses.
 ~
@@ -466,7 +466,7 @@ EFNU 0 0 0
 sleep sleep male 3
 0 0 medium unknown
 #1130
-oldstyle innkeeper~
+innkeeper~
 the Innkeeper~
 The Innkeeper stands here awaiting your order.
 ~
@@ -481,7 +481,7 @@ EFNU 0 0 0
 stand stand male 50
 0 0 medium unknown
 #1131
-oldstyle receptionist~
+receptionist~
 the receptionist~
 The receptionist sits here, signing forms.
 ~
@@ -495,7 +495,7 @@ EFNU 0 0 0
 stand stand male 3
 0 0 medium unknown
 #1132
-oldstyle shiriff~
+shiriff~
 a shiriff~
 A shiriff of the Shire looks for the lost halfling youth.
 ~

@@ -8,7 +8,7 @@ End
 
 #MOBILES
 #8000
-oldstyle juve~
+juve~
 a juve~
 A juve is standing here plotting mischief.
 ~
@@ -24,7 +24,7 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 #8001
-oldstyle punk~
+punk~
 a punk~
 A punk is here plotting a crime wave.
 ~
@@ -39,7 +39,7 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 #8002
-oldstyle Futsie~
+Futsie~
 a Futsie~
 A Futsie is here reciting Monty Python sketches.
 ~
@@ -55,7 +55,7 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 #8003
-oldstyle Citi-Def Militiaman~
+Citi-Def Militiaman~
 a Citi-Def Militiaman~
 A Citi-Def Militiaman is here contemplating a Block War.
 ~
@@ -70,7 +70,7 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 #8004
-oldstyle dunk~
+dunk~
 a dunk~
 A dunk is here blending into the crowd.
 ~
@@ -84,7 +84,7 @@ BEFJNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 #8005
-oldstyle tap~
+tap~
 a tap~
 A tap is here eyeing your belongings.
 ~
@@ -99,7 +99,7 @@ EFNU 0 0 0
 stand stand female 0
 0 0 medium unknown
 #8006
-oldstyle rookie judge~
+rookie judge~
 a rookie judge~
 A Rookie judge is on his first beat here.
 ~
@@ -115,7 +115,7 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 #8007
-oldstyle Wallaby Gleep~
+Wallaby Gleep~
 Wallaby Gleep~
 Mr. Gleep is here wanting to know what you want.
 ~
@@ -130,7 +130,7 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 #8008
-oldstyle Pinkerton Throt~
+Pinkerton Throt~
 Pinkerton Throt~
 Pinky Throt is here Wringing his hands.
 ~
@@ -146,7 +146,7 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 #8009
-oldstyle Ernie Ramirez~
+Ernie Ramirez~
 Ernie Ramirez~
 Ernie Ramirez is here collecting for the mob.
 ~
@@ -162,7 +162,7 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 #8010
-oldstyle Judge Eckersely~
+Judge Eckersely~
 Judge Eckersely~
 Judge Eckersely is here shaking down a Perp.
 ~
@@ -177,7 +177,7 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 #8011
-oldstyle Judge Beddows~
+Judge Beddows~
 Judge Beddows~
 Judge Beddows is here calling Resyk.
 ~
@@ -193,7 +193,7 @@ EFNU 0 0 0
 stand stand female 0
 0 0 medium unknown
 #8012
-oldstyle bite fighter~
+bite fighter~
 a bite fighter~
 A bite fighter is here sharpening his teeth.
 ~
