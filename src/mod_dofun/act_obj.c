@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.165.2.44 2002-11-06 13:48:09 tatyana Exp $
+ * $Id: act_obj.c,v 1.165.2.45 2002-11-23 15:36:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2701,7 +2701,7 @@ void do_butcher(CHAR_DATA * ch, const char *argument)
 }
 
 void do_crucify(CHAR_DATA *ch, const char *argument)
-{	
+{
 	OBJ_DATA *obj;
 	char arg[MAX_STRING_LENGTH];
 	OBJ_DATA *obj2, *next;
@@ -2729,13 +2729,12 @@ void do_crucify(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (IS_AFFECTED(ch, AFF_BERSERK)
-	|| is_affected(ch, gsn_frenzy)) {
+	||  is_affected(ch, gsn_frenzy)) {
 		char_puts("Calm down first.\n", ch);
 		return;
 	}
 
 	one_argument(argument, arg, sizeof(arg));
-
 	if (arg == '\0') {
 		char_puts("Crucify what?\n", ch);
 		return;
@@ -2747,10 +2746,10 @@ void do_crucify(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (obj->pObjIndex->item_type != ITEM_CORPSE_PC
-	 && obj->pObjIndex->item_type != ITEM_CORPSE_NPC) {
+	&&  obj->pObjIndex->item_type != ITEM_CORPSE_NPC) {
 		char_puts("You cannot crucify that.\n", ch);
 		return;
-	 }
+	}
 
 	if (obj->carried_by != NULL) {
 		char_puts("Put it down first.\n", ch);
@@ -2763,8 +2762,8 @@ void do_crucify(CHAR_DATA *ch, const char *argument)
 		obj_from_obj(obj2);
 		obj_to_room(obj2, ch->in_room);
 	}
-	
-	if (number_percent() > chance) {
+
+	if (number_percent() >= chance) {
 		act("You attempt a ritual crucification of $p, "
 		   "but fail and ruin it.", ch, obj, NULL, TO_CHAR);
 		act("$n attempts to crucify $p, but fails and ruins it.",

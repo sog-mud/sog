@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.74.2.10 2002-10-26 18:38:28 tatyana Exp $
+ * $Id: skills.c,v 1.74.2.11 2002-11-23 15:36:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -362,7 +362,7 @@ int get_skill(CHAR_DATA *ch, int sn)
 			skill = 2 * skill / 3;
 	}
 
-	if (!IS_NPC(ch) && PC(ch)->condition[COND_DRUNK]  > 10)
+	if (!IS_NPC(ch) && PC(ch)->condition[COND_DRUNK] > 10)
 		skill = 9 * skill / 10;
 	skill = URANGE(0, skill, 100);
 

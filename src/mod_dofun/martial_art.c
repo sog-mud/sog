@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.114.2.30 2002-10-03 15:47:50 tatyana Exp $
+ * $Id: martial_art.c,v 1.114.2.31 2002-11-23 15:36:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -338,6 +338,7 @@ void disarm(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj)
 void do_berserk(CHAR_DATA *ch, const char *argument)
 {
 	int chance, hp_percent;
+	int mana;
 
 	if ((chance = get_skill(ch, gsn_berserk)) == 0) {
 		char_puts("You turn red in the face, but nothing happens.\n",
@@ -357,7 +358,8 @@ void do_berserk(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (ch->mana < 50) {
+	mana = SKILL(gsn_berserk)->min_mana;
+	if (ch->mana < mana) {
 		char_puts("You can't get up enough energy.\n", ch);
 		return;
 	}
@@ -369,14 +371,14 @@ void do_berserk(CHAR_DATA *ch, const char *argument)
 		chance += 10;
 
 	/* damage -- below 50% of hp helps, above hurts */
-	hp_percent = 100 * ch->hit/ch->max_hit;
-	chance += 25 - hp_percent/2;
+	hp_percent = 100 * ch->hit / ch->max_hit;
+	chance += 25 - hp_percent / 2;
 
 	if (number_percent() < chance) {
 		AFFECT_DATA af;
 
 		WAIT_STATE(ch,PULSE_VIOLENCE);
-		ch->mana -= 50;
+		ch->mana -= mana;
 		ch->move /= 2;
 
 		/* heal a little damage */
@@ -394,7 +396,7 @@ void do_berserk(CHAR_DATA *ch, const char *argument)
 		af.level	= ch->level;
 		af.duration	= number_fuzzy(ch->level / 8);
 		af.modifier	= UMAX(1, LEVEL(ch) / 5);
-		af.bitvector 	= AFF_BERSERK;
+		af.bitvector	= AFF_BERSERK;
 
 		af.location	= APPLY_HITROLL;
 		affect_to_char(ch,&af);
@@ -405,14 +407,12 @@ void do_berserk(CHAR_DATA *ch, const char *argument)
 		af.modifier	= UMAX(10, 2 * LEVEL(ch));
 		af.location	= APPLY_AC;
 		affect_to_char(ch,&af);
-	}
-	else {
+	} else {
 		WAIT_STATE(ch,2 * PULSE_VIOLENCE);
-		ch->mana -= 25;
+		ch->mana -= mana / 2;
 		ch->move /= 2;
 
-		char_puts("Your pulse speeds up, but nothing happens.\n",
-			  ch);
+		char_puts("Your pulse speeds up, but nothing happens.\n", ch);
 		check_improve(ch, gsn_berserk, FALSE, 2);
 	}
 }
@@ -450,14 +450,12 @@ void do_breath(CHAR_DATA *ch, const char *argument)
 		act("You are not a dragon.", ch, NULL, NULL, TO_CHAR);
 		return;
 	}
-	
-	mana = SKILL(sn)->min_mana;
 
+	mana = SKILL(sn)->min_mana;
 	if (ch->mana < mana) {
 		act("You do not have enough energy.", ch, NULL, NULL, TO_CHAR);
 		return;
 	}
-
 	WAIT_STATE(ch, SKILL(sn)->beats);
 
 	if (number_percent() > chance) {
@@ -1072,7 +1070,7 @@ void do_cleave(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if ((victim->hit < (0.9 * victim->max_hit))
+	if ((victim->hit < victim->max_hit * 9 / 10)
 	&&  (IS_AWAKE(victim))) {
 		act("$N is hurt and suspicious ... you can't sneak up.",
 		    ch, NULL, victim, TO_CHAR);
@@ -1212,7 +1210,7 @@ void do_rescue(CHAR_DATA *ch, const char *argument)
 	if (is_safe(ch, fch))
 		return;
 
-	if (number_percent() > get_skill(ch,gsn_rescue)) {
+	if (number_percent() >= get_skill(ch,gsn_rescue)) {
 		char_puts("You fail the rescue.\n", ch);
 		check_improve(ch, gsn_rescue, FALSE, 1);
 		return;
@@ -2878,7 +2876,7 @@ void do_shield(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (axe->value[0] == WEAPON_AXE)
-		chance *= 1.2;
+		chance = chance * 12 / 10;
 	else if (axe->value[0] != WEAPON_SWORD) {
 		char_puts("Your weapon must be an axe or a sword.\n", ch);
 		return;
@@ -2961,7 +2959,7 @@ void do_weapon(CHAR_DATA *ch, const char *argument)
 
 
 	if (axe->value[0] == WEAPON_AXE)
-		chance *= 1.2;
+		chance = chance * 12 / 10;
 	else if (axe->value[0] != WEAPON_SWORD) {
 		char_puts("Your weapon must be an axe or a sword.\n",ch);
 		return;
@@ -2973,12 +2971,12 @@ void do_weapon(CHAR_DATA *ch, const char *argument)
 	/* two-handed swords and axes are hard to break */
 	if (wield->value[0] == WEAPON_SWORD
 	&& IS_WEAPON_STAT(wield, WEAPON_TWO_HANDS))
-		chance /= 1.2;
+		chance = chance * 10 / 12;
 	if (wield->value[0] == WEAPON_AXE) {
 		if (IS_WEAPON_STAT(wield, WEAPON_TWO_HANDS))
 			chance /= 2;
 		else
-			chance /= 1.2;
+			chance = chance * 10 / 12;
 	}
 
 	/* find weapon skills */

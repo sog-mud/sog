@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.202.2.26 2002-11-22 15:23:24 fjoe Exp $
+ * $Id: act_move.c,v 1.202.2.27 2002-11-23 15:36:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1723,15 +1723,13 @@ void do_bash_door(CHAR_DATA *ch, const char *argument)
 	EXIT_DATA *pexit;
 	EXIT_DATA *pexit_rev;
 
-	one_argument(argument, arg, sizeof(arg));
- 
 	if ((chance = get_skill(ch, gsn_bash_door)) == 0) {
 		char_puts("Bashing? What's that?\n", ch);
 		return;
 	}
- 
+
 	if (MOUNTED(ch)) {
-        	char_puts("You can't bash doors while mounted.\n", ch);
+		char_puts("You can't bash doors while mounted.\n", ch);
 		return;
 	}
 
@@ -1740,12 +1738,13 @@ void do_bash_door(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		char_puts("Bash wich door or direction?\n", ch);
+		char_puts("Bash which door or direction?\n", ch);
 		return;
 	}
 
-	if (ch->fighting) {	
+	if (ch->fighting) {
 		char_puts("Wait until the fight finishes.\n", ch);
 		return;
 	}
@@ -1831,15 +1830,14 @@ void do_bash_door(CHAR_DATA *ch, const char *argument)
 
 		check_improve(ch, gsn_bash_door, TRUE, 1);
 		WAIT_STATE(ch, beats);
-	}
-	else {
+	} else {
 		act_puts("You fall flat on your face!",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		act_puts("$n falls flat on $s face.",
 			 ch, NULL, NULL, TO_ROOM, POS_RESTING);
 		check_improve(ch, gsn_bash_door, FALSE, 1);
 		ch->position = POS_RESTING;
-		WAIT_STATE(ch, beats * 3 / 2); 
+		WAIT_STATE(ch, beats * 3 / 2);
 		damage_bash = ch->damroll +
 			      number_range(4,4 + 4* ch->size + chance/5);
 		damage(ch, ch, damage_bash, gsn_bash_door, DAM_BASH, DAMF_SHOW);
@@ -2457,18 +2455,18 @@ void do_escape(CHAR_DATA *ch, const char *argument)
 	||  IS_SET(pexit->exit_info, EX_NOFLEE)
 	||  (IS_NPC(ch) &&
 	     IS_SET(pexit->to_room.r->room_flags, ROOM_NOMOB))) {
-		char_puts("Something prevents you to escape that direction.\n", ch); 
+		char_puts("Something prevents you to escape that direction.\n", ch);
 		return;
 	}
 
-	if (number_percent() > chance) {
+	if (number_percent() >= chance) {
 		act_puts("You failed to escape.",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-		check_improve(ch, sn, FALSE, 1);	
+		check_improve(ch, sn, FALSE, 1);
 		return;
 	}
 
-	check_improve(ch, sn, TRUE, 1);	
+	check_improve(ch, sn, TRUE, 1);
 	move_char(ch, door, FALSE);
 	if ((now_in = ch->in_room) == was_in) {
 		char_puts("It's pointless to escape there.\n", ch);
