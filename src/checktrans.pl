@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: checktrans.pl,v 1.13 2001-12-10 21:42:03 fjoe Exp $
+# $Id: checktrans.pl,v 1.14 2002-08-02 07:27:37 fjoe Exp $
 #
 # Usage: checktrans.pl [-u] [-d] [-F] files...
 # Options:
@@ -355,7 +355,7 @@ close(IN);
 
 #
 # read damtype.conf (all damtype names will be skipped)
-open(IN, "<$sog_root/etc/damtype.conf");
+open(IN, "<$sog_root/etc/damtypes.conf");
 while (<IN>) {
 	chomp;
 	$skip{$_} = 1 if (s/^Name (.*)$/$1/);
