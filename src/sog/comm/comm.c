@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.4 1998-04-16 14:29:29 efdi Exp $
+ * $Id: comm.c,v 1.5 1998-04-17 09:45:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1212,7 +1212,8 @@ void read_from_buffer( DESCRIPTOR_DATA *d )
 
 	if ( d->inbuf[i] == '\b' && k > 0 )
 	    --k;
-	else if ( isascii(d->inbuf[i]) && isprint(d->inbuf[i]) )
+	else if ((unsigned)d->inbuf[i] >= ' ')
+	/*isascii(d->inbuf[i]) && isprint(d->inbuf[i])) */
 	    d->incomm[k++] = d->inbuf[i];
     }
 
