@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.117 1999-02-18 20:09:24 fjoe Exp $
+ * $Id: handler.c,v 1.118 1999-02-18 20:15:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -53,6 +53,7 @@
 #include "quest.h"
 #include "db/db.h"
 #include "olc/olc.h"
+#include "db/word.h"
 
 DECLARE_DO_FUN(do_raffects	);
 DECLARE_DO_FUN(do_return	);
