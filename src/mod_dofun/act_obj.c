@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.295 2004-02-18 22:17:49 fjoe Exp $
+ * $Id: act_obj.c,v 1.296 2004-02-18 22:48:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2360,7 +2360,8 @@ DO_FUN(do_sell, ch, argument)
 	gold = cost / 100;
 
 	if ((carry_w = can_carry_w(ch)) >= 0
-	&&  get_carry_weight(ch) + SILVER_WEIGHT(silver) + GOLD_WEIGHT(gold)) {
+	&&  get_carry_weight(ch) + SILVER_WEIGHT(silver) +
+	    GOLD_WEIGHT(gold) > (uint) carry_w) {
 		tell_char(keeper, ch, "I'm afraid you can't carry that weight.");
 		return;
 	}
