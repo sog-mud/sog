@@ -177,6 +177,8 @@ BVYe 0 0 0 A 800 0
 EFNU
 stand stand male 505
 0 0 tiny unknown
+m mob_random mob_random_shopkeeper 3~
+m mob_speech mob_speech_shopkeeper_keeper keeper~
 #9512
 Nabil shopkeeper~
 Nabil~

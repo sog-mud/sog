@@ -447,6 +447,8 @@ BCTU 0 H 0 ABCD 0 0
 AGK
 stand stand male 0
 0 0 gargantuan unknown
+m mob_bribe mob_bribe_itangast 1000~
+m mob_give mob_give_itangast 22352~
 #22328
 lord evil tiamat dragon~
 Tiamat, Celestial Dragon of Evil~
@@ -3637,12 +3639,6 @@ that many peoples were killed here. Also you noticed that wall are covered
 by thick layer of soot.
 ~
 0 AX inside
-D5
-~
-~
-~
-~
-ABCFGZ 22351 22404
 S
 #22392
 The North-West Coner of Treasure Keep~

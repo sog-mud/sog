@@ -262,6 +262,9 @@ FHKN
 stand stand male 1499
 0 0 medium unknown
 r weapon -50
+m mob_give mob_give_keeper 90~
+m mob_give mob_give_keeper_all all~
+m mob_greet mob_greet_keeper 100~
 #2413
 Fireflash Повелитель Драконов~
 @eng Fireflash@rus ~~Повелитель~~ Драконов~
@@ -277,6 +280,9 @@ FHKN
 stand stand male 1499
 0 0 small unknown
 r weapon -50
+m mob_give mob_give_fireflash 91~
+m mob_give mob_give_fireflash_all all~
+m mob_greet mob_greet_fireflash 100~
 #2414
 Pixie Сильф~
 @eng A Pixie@rus сильф~
