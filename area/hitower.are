@@ -522,7 +522,6 @@ BGHR D 0 0 A -200 0
 FU
 stand stand male 50
 0 0 medium unknown
-M kill 1300 100~
 r bash 90
 r pierce 90
 r slash 88

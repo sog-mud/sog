@@ -631,7 +631,6 @@ BJTVe 0 H 0 0 900 0
 CEIK
 stand stand male 25000
 0 0 medium unknown
-M greet 3024 1~
 r bash 33
 r pierce 33
 r slash 33
@@ -663,7 +662,6 @@ BJVe 0 0 0 0 900 0
 CEFJKN
 stand stand male 25000
 0 0 medium unknown
-M greet 3024 1~
 r bash 33
 r pierce 33
 r slash 33

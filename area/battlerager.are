@@ -27,8 +27,6 @@ BJTVe BCDI 0 0 ABCDF 0 0
 ACEFIK
 stand stand male 0
 0 0 giant unknown
-M grall 95400 100~
-M exall 95401 3~
 C Battleragers
 r bash 33
 r pierce 33
@@ -106,7 +104,6 @@ BJTe ABCDI TV 0 ABCDFKLM -1000 0
 ACEFJK
 stand stand male 0
 0 0 large unknown
-M grall 95402 100~
 C Battleragers
 r bash -20
 r pierce 33
@@ -128,7 +125,6 @@ B I Tc C ABDFL 0 0
 stand stand none 0
 0 0 medium unknown
 F for AHMV
-M exall 95403 2~
 I 1000
 r bash 999
 r pierce 999
@@ -160,7 +156,6 @@ B I Tc C ABCDF 0 0
 stand stand none 0
 0 0 medium unknown
 F for AHMV
-M exall 95404 0~
 I 1000
 r bash 999
 r pierce 999

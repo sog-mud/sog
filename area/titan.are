@@ -132,7 +132,6 @@ BJTe F 0 0 ABHKL -500 0
 EIK
 stand stand male 200000
 0 0 large unknown
-M greet 3024 1~
 r bash 999
 r pierce 999
 r slash 999
@@ -253,7 +252,6 @@ BJTe F 0 0 ABHKL 0 0
 CDEFIKN
 stand stand male 200000
 0 0 large unknown
-M greet 3024 1~
 r bash 999
 r pierce 999
 r slash 999
