@@ -5,7 +5,7 @@ VNUMs 18000 18150
 Credits Xavier~
 Security 9
 LevelRange 25 50
-Flags A
+Flags hometown
 End
 
 #MOBILES
@@ -1616,7 +1616,7 @@ potion AB A
 20 100 19000 P
 #18032
 potion cure battle wounds~
-A Magical Potion to Cure Battle Wounds.~
+a Magical Potion to Cure Battle Wounds~
 A potion lies here in the dirt.~
 glass~
 potion AB A
@@ -5082,7 +5082,7 @@ G 0 18029 0		*	a Magical Potion of Teleportation.
 G 0 18030 0		*	a Magical Potion of The Holy Touch.
 G 0 18099 0		*	a Magical Potion of Cure Sickness.
 G 0 18031 0		*	a Magical Potion of Deadly Combat.
-G 0 18032 0		*	A Magical Potion to Cure Battle Wounds.
+G 0 18032 0		*	a Magical Potion to Cure Battle Wounds
 M 0 18051 2 18069 2	* a sleeping patrol guard (The Garden in Front of The House)
 M 0 18009 1 18071 1	* the produce grocer (The Produce Section)
 G 0 18038 0		*	a Titan grown carrot

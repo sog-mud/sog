@@ -64,6 +64,29 @@ stand stand none 0
 0 0 medium unknown
 F par BCDEFGHI
 M greet 33000 100~
+#33010
+grey master~
+@eng grey master@rus серый мастер~
+@eng Tall Matser in grey cloak stays here ready to help you in practice.
+@rus Высокая фигура Мастера в сером плаще стоит здесь, готовый помочь тебе попрактиковаться.
+~
+@eng Tall silent figure in grey cloak... You feel great aura of Power around him.
+You begin to shiver when you see him. You see, that power of this strange man 
+almost equal to the god's. 
+@rus  
+Высокая безмолвная серая фигура в сером плаще... Ее окутывает невидимая но
+ясно чувствуемая аура Силы. Ты не можешь слержать дрожи, когда смотришь на
+на нее. Ты понимаешь, что по силе этот странный человек с повязкой на глазу
+уступает разве что лишь богам.
+~
+human~
+ABGK J -1000 0
+0 0 1d1+10000 0d0+0 1d1+10000 pound
+0 0 0 0
+0 ABCD 0 0
+stand stand male 0
+0 0 medium unknown
+C Confederacy~
 #0
 
 #OBJECTS
@@ -191,6 +214,7 @@ S
 #RESETS
 M 0 33001 1 33001 1	* {BFafhrd{x ({DVery Dark Room{x)
 M 0 33002 1 33001 1	* {DGrey MouseCatcher{w ({DVery Dark Room{x)
+M 0 33010 1 33002 1	* grey master (Spacious Hall of Confederacy)
 O 0 33000 0 33003	* {Wa white fountain{x (Rest Room of Confederacy)
 M 0 33000 1 33003 1	* the healer (Rest Room of Confederacy)
 O 0 33003 0 33003	* cosy sofa (Rest Room of Confederacy)
@@ -218,5 +242,9 @@ mob kill $n
 endif
 ~
 #0
+
+#PRACTICERS
+M 33010 clan	* grey master
+S
 
 #$

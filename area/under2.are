@@ -2757,8 +2757,8 @@ pill I A
 5 2 100 P
 #16058
 dirty root~
-A dirty root~
-A dirty root lies on the ground~
+a dirty root~
+A dirty root lies on the ground.~
 food~
 pill I A
 15 'armor' 'shield' 'stone skin' ''
@@ -16112,7 +16112,7 @@ M 0 16077 1 16360 1	* Jiestis (The Darkened Root)
 G 0 16055 0		*	A brown mushroom
 G 0 16056 0		*	A large mushroom
 G 0 16057 0		*	Red moss
-G 0 16058 0		*	A dirty root
+G 0 16058 0		*	a dirty root
 G 0 16093 0		*	merchant's gold
 M 0 16078 2 16364 1	* The svirfneblin (Svirfneblin Chamber)
 E 0 16062 0 7		*	Svirfneblin leggings: on the legs

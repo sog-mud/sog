@@ -19,7 +19,7 @@ zombie~
 ABORTe DFHNOVZa -1000 0
 91 100 1d1+25000 1d1+4000 1d1+200 bite
 -10 -10 -10 -10
-ACEFJKLNOQSU A 0 NSY
+ACEFJKLNO A 0 NSY
 stand stand male 0
 I 0 large unknown
 M grall 40000 100~
@@ -88,6 +88,23 @@ ABGK 0 -1000 0
 stand stand male 0
 0 0 medium unknown
 C Scum~
+#40007
+tanatos~
+@eng Tanatos@rus Танатос~
+@eng Tanatos God of Death is here.
+@rus Танатос распростер здесь свои черные ледяные крылья.
+~
+Темная фигура с размытыми очертании, от которой веет могильным холодом.
+~
+human~
+ABGe 0 -1000 0
+100 0 1d1+1000000 0d0+0 1d1+1000000 pound
+0 0 0 0
+0 AB 0 0
+stand stand male 2147483647
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
 #0
 
 #OBJECTS
@@ -158,6 +175,26 @@ D2
 ~
 ~
 Z 0 40001
+D5
+~
+~
+Z 0 40003
+S
+#40003
+@eng {DUnholy treasury{x @rus {DТемная сокровищница{x~
+@eng none
+@rus {DОчутившись в этой огромной пещере, ты с изумлением оглядываешься по сторонам,
+не в силах оторвать взгляд  от сказочных  богатств,  в  беспорядке разбросанных 
+вокруг тебя.  Ты понимаешь,  что попал  в  легендарную  подземную  сокровищницу 
+темных магов - и тебя охватывает жуткий страх, ведь еще  никто  из видевших эти 
+темные сокровища людей не вернулся обратно живым, чтобы рассказать о них!     
+Страшные легенды ходят о проклятье этой пещеры...{x
+~
+0 AN inside
+D4
+~
+~
+Z 0 40002
 S
 #0
 
@@ -174,8 +211,13 @@ M 0 40001 1 40001 1	* Large Zombie ({DDirty vault{x)
 O 0 40000 0 40002	* corpse of child ({DDark cave{x)
 M 0 40003 1 40002 1	* Grand Witch ({DDark cave{x)
 O 0 40001 0 40002	* unholy altar ({DDark cave{x)
-M 0 40004 1 40002 1	* Blackman ({DDark cave{x)
+M 0 40007 1 40003 1	* Tanatos ({DUnholy treasury{x )
+M 0 40004 1 40003 1	* Blackman ({DUnholy treasury{x )
 S
+
+#SHOPS
+40007 9 5 1 8 3 100 100 0 23
+0
 
 #MOBPROGS
 #40000

@@ -521,8 +521,7 @@ stand stand male 300
 #10001
 warden mace boundary~
 A Boundary Warden's Mace~
-A large powerful mace is resting against the wall here.
-~
+A large powerful mace is resting against the wall here.~
 unknown~
 weapon ABG AN
 mace 12 7 blast 0
@@ -543,8 +542,7 @@ the use of killing. This truly is a strong weapon.
 #10002
 bone necklace~
 The Bone Woman's Necklace.~
-A Beautiful necklace lies here on the ground.
-~
+A Beautiful necklace lies here on the ground.~
 stone~
 armor AB AC
 30 30 30 20 0
@@ -563,8 +561,7 @@ neck. It must be very powerful since the kill took awhile.
 #10003
 gripper teeth~
 Some grippers teeth~
-Here are the teeth of the Gripper monster.
-~
+Here are the teeth of the Gripper monster.~
 stone~
 armor ABM AC
 26 26 27 16 0
@@ -576,8 +573,7 @@ A
 #10004
 jug beer~
 A Jug 'o Beer.~
-There is a jug of beer on the ground here.
-~
+There is a jug of beer on the ground here.~
 glass~
 drink BC A
 20 20 'water' 0 0
@@ -585,8 +581,7 @@ drink BC A
 #10005
 thief boot boots black~
 A Pair of Black Boots~
-A dark pair of boots lie here soaking up the sun.
-~
+A dark pair of boots lie here soaking up the sun.~
 leather~
 armor BC AG
 20 20 20 10 0
@@ -600,8 +595,7 @@ A
 #10006
 boundary glove warden gloves~
 Boundary Warden Gloves~
-A pair of gloves have been left here, waiting to be picked up.
-~
+A pair of gloves have been left here, waiting too be picked up.~
 unknown~
 armor BC AH
 20 20 20 9 0
@@ -615,8 +609,7 @@ A
 #10007
 boundary boot warden boots~
 Boundary Warden Boots~
-A pair of boots have been left here.
-~
+A pair of boots have been left here.~
 unknown~
 armor BC AG
 21 19 19 10 0
@@ -630,8 +623,7 @@ A
 #10008
 boundary sleeves warden~
 Boundary Warden Sleeves~
-A pair of sleeves have been left resting against a tree.
-~
+A pair of sleeves have been left resting against a tree.~
 unknown~
 armor BC AI
 21 20 19 10 0
@@ -645,8 +637,7 @@ A
 #10009
 boundary shield warden~
 Boundary Warden's Shield~
-A shield made from the finest metal has been left here.
-~
+A shield made from the finest metal has been left here.~
 unknown~
 armor BC AJ
 20 21 20 15 0
@@ -658,8 +649,7 @@ A
 #10010
 boundary tunic warden~
 Boundary Warden's Tunic~
-A tunic made from good leather has been left here. 
-~
+A tunic made from good leather has been left here.~
 unknown~
 armor BC AK
 20 20 20 10 0
@@ -669,8 +659,7 @@ A
 #10011
 boundary helmet warden~
 A Boundary Warden Helmet~
-A large helmet has been left by its owner...such a shame.
-~
+A large helmet has been left by its owner...such a shame.~
 unknown~
 armor BC AE
 20 20 20 10 0
@@ -682,8 +671,7 @@ A
 #10012
 boundary ring warden~
 A Boundary Warden Ring~
-A bright silver ring has been left in the dust.
-~
+A bright silver ring has been left in the dust.~
 unknown~
 treasure BC AB
 0 0 0 0 0
@@ -693,8 +681,7 @@ A
 #10013
 boundary legging warden leggings~
 Boundary Warden Leggings~
-A pair of leggings have been left here.
-~
+A pair of leggings have been left here.~
 unknown~
 armor BC AF
 20 20 20 10 0
@@ -705,9 +692,8 @@ A
 14 30
 #10014
 robe dark~
-A Dark Robe~
-A robe has been left in the shade of a tree here.
-~
+a Dark Robe~
+A robe has been left in the shade of a tree here.~
 cloth~
 armor BC AD
 23 23 22 11 0
@@ -718,10 +704,8 @@ A
 12 50
 #10015
 collar heart hound~
-A Heart Hound Collar~
-A collar has been left sitting in the sun in the middle of a
-field.
-~
+a Heart Hound Collar~
+A collar has been left sitting in the sun in the middle of a field.~
 unknown~
 armor BC AC
 23 22 22 16 0
@@ -734,18 +718,16 @@ A
 12 50
 #10016
 pouch magical leather~
-A Magical Leather Pouch~
-A pouch has been left here in the mud.
-~
+a Magical Leather Pouch~
+A pouch has been left here in the mud.~
 leather~
 container BC A
 700 A 0 350 72
 70 50 1000 P
 #10017
 cookie~
-A BIG cookie!~
-There is a cookie on the ground, what a shame.
-~
+a BIG cookie!~
+There is a cookie on the ground, what a shame.~
 unknown~
 food B A
 DF 0 0 0 0
@@ -753,17 +735,15 @@ DF 0 0 0 0
 #10018
 cake~
 a BIG piece of cake!~
-A Big Yummy piece of CAKE has been left here.
-~
+A Big Yummy piece of CAKE has been left here.~
 unknown~
 food B A
 BD 0 0 0 0
 1 10 0 P
 #10019
 boundary sword warden~
-A Boundary Warden Sword~
-A well made sword has been left here.
-~
+a Boundary Warden Sword~
+A well made sword has been left here.~
 unknown~
 weapon ABCEJL AN
 sword 9 5 slash 0
@@ -778,9 +758,8 @@ This is a boundary warden sword that is made just for their use.
 ~
 #10020
 boundary flail warden~
-A Boundary Warden Flail~
-A flail has been left here.
-~
+a Boundary Warden Flail~
+A flail has been left here.~
 unknown~
 weapon ABCEJL AN
 flail 7 7 pound 0
@@ -791,9 +770,8 @@ A
 18 4
 #10021
 boundary mace warden~
-A Boundary Warden Mace~
-A mace has been left here.
-~
+a Boundary Warden Mace~
+A mace has been left here.~
 unknown~
 weapon ABCEIJ AN
 mace 7 7 pound 0
@@ -804,9 +782,8 @@ A
 18 3
 #10022
 boundary dagger warden~
-A Boundary Warden Dagger~
-A dagger has been left here.
-~
+a Boundary Warden Dagger~
+A dagger has been left here.~
 steel~
 weapon ABCEIJ AN
 dagger 5 10 pierce 0
@@ -817,9 +794,8 @@ A
 18 3
 #10023
 agiel sword weapon~
-A Mord-Sith's Agiel~
-A magical weapon has been left here.
-~
+a Mord-Sith's Agiel~
+A magical weapon has been left here.~
 unknown~
 weapon ABCEGM AN
 sword 18 7 slash 0
@@ -834,9 +810,8 @@ A
 12 20
 #10024
 bracer power~
-The Bracer of Power~
-There is a bracer in the mud here.
-~
+the Bracer of Power~
+There is a bracer in the mud here.~
 unknown~
 armor ABC AM
 32 32 33 25 0
@@ -851,9 +826,8 @@ A
 12 50
 #10025
 westland ~
-A Sign~
-There is a sign that contains the map of Westlands here.
-~
+a sign~
+There is a sign that contains the map of Westlands here.~
 wood~
 furniture A 0
 0 0 0 0 0
@@ -906,9 +880,8 @@ stop all magic from  going into the other land.
 ~
 #10026
 sign~
-A little sign~
-There is a little sign here showing a map of D'Hara.
-~
+a little sign~
+There is a little sign here showing a map of D'Hara.~
 wood~
 furniture A 0
 0 0 0 0 0
@@ -1867,8 +1840,8 @@ M 10031 spec_cast_undead	* The Evil Darken Rahl
 S
 
 #RESETS
-O 0 10025 0 10001	* A Sign (Path By a Lake.)
-O 0 10026 0 10001	* A little sign (Path By a Lake.)
+O 0 10025 0 10001	* a sign (Path By a Lake.)
+O 0 10026 0 10001	* a little sign (Path By a Lake.)
 M 0 10007 1 10003 1	* a young lady (Welcome to Westands!)
 M 0 10008 1 10003 1	* a fisherman (Welcome to Westands!)
 M 0 10009 1 10003 1	* a little boy (Welcome to Westands!)
@@ -1900,7 +1873,7 @@ M 0 10002 2 10015 1	* a long-tailed gar (The Path at the swamp.)
 M 0 10004 4 10015 1	* a blood fly (The Path at the swamp.)
 M 0 10010 4 10015 1	* a heart hound (The Path at the swamp.)
 M 0 10010 4 10015 1	* a heart hound (The Path at the swamp.)
-E 0 10015 0 1		*	A Heart Hound Collar: on the left finger
+E 0 10015 0 1		*	a Heart Hound Collar: on the left finger
 M 0 10026 4 10016 1	* A yellow snake (Over the Swamp Waters.)
 M 0 10026 4 10016 1	* A yellow snake (Over the Swamp Waters.)
 M 0 10026 4 10016 1	* A yellow snake (Over the Swamp Waters.)
@@ -1913,18 +1886,18 @@ E 0 10008 0 10		*	Boundary Warden Sleeves: on the arms
 E 0 10009 0 11		*	Boundary Warden's Shield: as a shield
 E 0 10010 0 5		*	Boundary Warden's Tunic: on the body
 E 0 10011 0 6		*	A Boundary Warden Helmet: over the head
-G 0 10020 0		*	A Boundary Warden Flail
-G 0 10021 0		*	A Boundary Warden Mace
-G 0 10022 0		*	A Boundary Warden Dagger
-G 0 10019 0		*	A Boundary Warden Sword
+G 0 10020 0		*	a Boundary Warden Flail
+G 0 10021 0		*	a Boundary Warden Mace
+G 0 10022 0		*	a Boundary Warden Dagger
+G 0 10019 0		*	a Boundary Warden Sword
 M 0 10025 1 10022 1	* A little thief (The Road Along the Village.)
-G 0 10014 0		*	A Dark Robe
+G 0 10014 0		*	a Dark Robe
 E 0 10005 0 8		*	A Pair of Black Boots: on the feet
 M 0 10028 1 10022 1	* A dopey little cat (The Road Along the Village.)
-G 0 10017 0		*	A BIG cookie!
+G 0 10017 0		*	a BIG cookie!
 M 0 10023 1 10023 1	* The bar tender (The Bar.)
 G 0 10004 0		*	A Jug 'o Beer.
-G 0 10016 0		*	A Magical Leather Pouch
+G 0 10016 0		*	a Magical Leather Pouch
 M 0 10024 4 10023 1	* A drunken villager (The Bar.)
 G 0 10004 0		*	A Jug 'o Beer.
 M 0 10024 4 10023 1	* A drunken villager (The Bar.)
@@ -1952,11 +1925,11 @@ M 0 10022 4 10034 1	* An evil shadow person (The Azrith Plains.)
 M 0 10022 4 10034 1	* An evil shadow person (The Azrith Plains.)
 M 0 10021 1 10035 1	* The Great Red Dragon (At the BIG scary DRaGoN!)
 M 0 10029 2 10038 1	* A Evil Mord-Sith (The Long Hallway.)
-E 0 10023 0 16		*	A Mord-Sith's Agiel: wielded
+E 0 10023 0 16		*	a Mord-Sith's Agiel: wielded
 M 0 10029 2 10040 1	* A Evil Mord-Sith (The Room of the Mord-Siths.)
 M 0 10030 2 10041 1	* A Devoter of Darken Rahl (The End of The Hallway.)
 M 0 10031 1 10042 1	* The Evil Darken Rahl (The Garden of Life.)
-E 0 10024 0 14		*	The Bracer of Power: on the left wrist
+E 0 10024 0 14		*	the Bracer of Power: on the left wrist
 S
 
 #SHOPS

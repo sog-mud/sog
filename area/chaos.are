@@ -1,6 +1,6 @@
 #AREADATA
 Name Chaos~
-Builders Chaos~
+Builders Chaos Schemer~
 VNUMs 36100 36199
 Credits Chaos~
 Security 1
@@ -17,11 +17,11 @@ demon~
 @eng {x
 @rus ~
 human~
-AGQ DFHVZc 0 0
+ABGQe DFHVZc 0 0
 95 300 1d1+25000 10d10+200 10d10+3000 none
 -100 -100 -100 -100
 0 AB CD 0
-stand stand none 0
+stand stand male 0
 C PW medium unknown
 F for AHMV
 F par ABDEFHIJK
@@ -43,6 +43,22 @@ stand stand female 0
 F for AHMV
 F par ABCDEFGHIJK
 M greet 36101 100~
+#36103
+Bartender~
+@eng {gChaos bartender{x@rus {gРаздолбай бармен.{x~
+~
+@eng Drunk
+@rus Обычный бухарик.
+~
+human~
+ABGe DFHVZcmot 0 0
+95 300 300d300+30000 300d300+30000 100d10+300 none
+-50 -50 -50 -50
+H 0 0 0
+stand stand male 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
 #0
 
 #OBJECTS
@@ -54,6 +70,50 @@ chaos~
 treasure 0 0
 0 0 0 0 0
 0 1000000 1000000 P
+#36101
+eng Board~
+@eng A bar board is here.@rus Стойка бара уютно расположилась здесь.~
+@eng A bar board is here.@rus Стойка бара уютно расположилась здесь.~
+Доска~
+furniture R 0
+AB 0 AGJ B B
+0 10000000 0 P
+#36102
+sign~
+@eng NO BEER IS NOW!@rus ПЫВА НЭТ!~
+@eng A sign over the board. {\ NO BEER IS NOW!@rus Вывеска висит над стойкой. {\ ПЫВА НЭТ!~
+unknown~
+trash R 0
+0 0 0 0 0
+0 1 0 P
+#36103
+sign~
+@eng All came to drink.@rus Все ушли бухать.~
+@eng A sign with write: "All came drink" is here.@rus Вывеска с надписью: "Все ушли бухать" висит здесь.~
+unknown~
+map R 0
+0 0 0 0 0
+0 0 0 P
+#36199
+shadow sai~
+@eng {Dthe Shadow Sai{x@rus {Dthe Shadow Sai{x~
+@eng {Dthe Shadow Sai{x@rus {Dthe Shadow Sai{x~
+titanium~
+weapon CFMT AN
+dagger 50 50 slice ACD
+92 20 100000 P
+A
+17 20000
+A
+14 100000
+A
+12 5000
+A
+13 5000
+A
+18 200
+A
+19 200
 #0
 
 #ROOMS
@@ -66,16 +126,371 @@ treasure 0 0
 {g             Но будь осторожен, играя с огнем!{x
 ~
 0 C inside
+D0
+~
+~
+Z 0 36101
+D1
+~
+~
+Z 0 36103
 D2
 ~
 ~
 Z 0 3077
+D3
+~
+~
+Z 0 36105
+S
+#36101
+@eng Temple Square@rus Храмовая площадь~
+@eng You stand on a square, big square... 
+ 
+On the north you can see a town. It's a Chaos town.
+No law is in the this town. You may be killed or smth stealed from you here.
+@rus Ты стоишь на площади, большой площади...
+ 
+На севере ты видишь большой город. Это город Хаоса.
+В нем есть только один закон, никакого закона.
+Там можно убивать и воровать, никто вас не осудит и никто не спасет.
+И врядли стоит расстраиваться если вас обворовали или убили в нем.
+~
+0 0 inside
+D0
+~
+~
+Z 0 36106
+D1
+~
+~
+Z 0 36102
+D2
+~
+~
+Z 0 36100
+D3
+~
+~
+Z 0 36104
+S
+#36102
+@eng Temple Square@rus ХрамоваЯ площадь~
+@eng You stand on a square, big square...
+@rus Ты стоишь на площади, большой площади...
+~
+0 0 inside
+D2
+~
+~
+Z 0 36103
+D3
+~
+~
+Z 0 36101
+S
+#36103
+@eng Temple Square@rus ХрамоваЯ площадь~
+@eng You stand on a square, big square...
+@rus Ты стоишь на площади, большой площади...
+~
+0 0 inside
+D0
+~
+~
+Z 0 36102
+D3
+~
+~
+Z 0 36100
+S
+#36104
+@eng Temple Square@rus ХрамоваЯ площадь~
+@eng You stand on a square, big square...
+@rus Ты стоишь на площади, большой площади...
+~
+0 0 inside
+D1
+~
+~
+Z 0 36101
+D2
+~
+~
+Z 0 36105
+S
+#36105
+@eng Temple Square@rus ХрамоваЯ площадь~
+@eng You stand on a square, big square...
+@rus Ты стоишь на площади, большой площади...
+~
+0 0 inside
+D0
+~
+~
+Z 0 36104
+D1
+~
+~
+Z 0 36100
+S
+#36106
+@eng Chaos street@rus Хаотичная улица~
+@eng You see a bar on the west, and the book shop on the east.
+@rus Направо пойдешь, пыво найдешь, налево пойдешь, чтива прикупишь.
+~
+0 0 inside
+D0
+~
+~
+Z 0 36107
+D1
+~
+~
+Z 0 36111
+D2
+~
+~
+Z 0 36101
+D3
+~
+~
+Z 0 36109
+S
+#36107
+@eng Chaos street@rus ХаотичнаЯ улица~
+@eng You can see an armory on the east, and weaponry on the west.
+@rus Направо оружием торгуют, налево одежкой, а прямо улочка вьется.
+~
+0 0 inside
+D0
+~
+~
+Z 0 36108
+D1
+~
+~
+Z 0 36113
+D2
+~
+~
+Z 0 36106
+D3
+~
+~
+Z 0 36112
+S
+#36108
+@eng Chaos street@rus ХаотичнаЯ улица~
+@eng A magic is here.
+@rus Странный аромат магии вьется вокруг.
+~
+0 0 inside
+D0
+~
+~
+Z 0 36116
+D1
+~
+~
+Z 0 36115
+D2
+~
+~
+Z 0 36107
+D3
+~
+~
+Z 0 36114
+S
+#36109
+@eng Bar@rus Бар~
+@eng Here you can rest and drink a beer.
+@rus Здесь в тишине и покое можно расслабится, да пивка попить.
+~
+0 N inside
+D1
+~
+~
+Z 0 36106
+M 120 H 2
+S
+#36110
+@eng Rest room@rus Комната отдыха~
+~
+0 C inside
+S
+#36111
+@eng Book shop@rus Книжный киоск~
+@eng You can buy a books, newspapers, maps etc here.
+@rus Здесь можно купить книжек, газет и всякой прочей муры.
+~
+0 0 inside
+D3
+~
+~
+Z 0 36106
+S
+#36112
+@eng Weapon Shop@rus Оружейная~
+@eng A weapon, a more weapon, and a more weapon...
+@rus Оружие, много оружия, очень много оружия...
+~
+0 0 inside
+D1
+~
+~
+Z 0 36107
+S
+#36113
+@eng Armory@rus Магазин доспехов~
+@eng An armors of some heroes is on the shells here.
+@rus Доспехи героев из разных веков разлеглись по разным полкам.
+~
+0 0 inside
+D3
+~
+~
+Z 0 36107
+S
+#36114
+@eng Magic Shop@rus Магический магазин.~
+@eng Hmm.. A potions, scrolls, wands, staves, what may it mean?
+@rus Куча склянок, книжек, свитков, и еще всяческой чертовщины навалено здесь.
+~
+0 0 inside
+D1
+~
+~
+Z 0 36108
+S
+#36115
+@eng A strange place.@rus Странное место.~
+@eng Hmm.. Strange place.
+@rus Ну и местечко.
+~
+0 0 inside
+D3
+~
+~
+Z 0 36108
+S
+#36116
+@eng Chaos street@rus ХаотичнаЯ улица~
+@eng An averege street, you can see a square at the north.
+@rus Обычная улица с видом на площадь.
+~
+0 0 inside
+D0
+~
+~
+Z 0 36119
+D1
+~
+~
+Z 0 36117
+D2
+~
+~
+Z 0 36108
+D3
+~
+~
+Z 0 36118
+S
+#36117
+@eng Chaos street@rus ХаотичнаЯ улица~
+@eng An averege street.
+@rus Обычная улица.
+~
+0 0 inside
+D0
+~
+~
+Z 0 36121
+D3
+~
+~
+Z 0 36116
+S
+#36118
+@eng Chaos street@rus ХаотичнаЯ улица~
+@eng An averege street.
+@rus Обычная улица.
+~
+0 0 inside
+D0
+~
+~
+Z 0 36120
+D1
+~
+~
+Z 0 36116
+S
+#36119
+@eng Chaos Square@rus Площадь хаоса.~
+@eng A big square with many people.
+You can see all town from here.
+@rus Оживленная площадь кажется очень огромной.
+Сплохи пламени пробегающие иногда по ней скрывают ее границы.
+И все же отсюда можно увидеть почти весь город.
+~
+0 0 inside
+D1
+~
+~
+Z 0 36121
+D2
+~
+~
+Z 0 36116
+D3
+~
+~
+Z 0 36120
+S
+#36120
+@eng Bank@rus Банк~
+@eng You can see no money here, money is in a safes.
+@rus Вполне понятно, что деньги здесь увидишь редко, они надежно укрыты в сейфах.
+За сохранность ваших вложений банк ответственности не несет.
+~
+0 U inside
+D1
+~
+~
+Z 0 36119
+D2
+~
+~
+Z 0 36118
+S
+#36121
+@eng White House.@rus Белый Дом.~
+@eng Wow! This town has a goverment!
+@rus Вот это да! Здесь есть правительство!
+~
+0 0 inside
+D2
+~
+~
+Z 0 36117
+D3
+~
+~
+Z 0 36119
 S
 #0
 
 #RESETS
 O 0 36100 0 36100	* {rFlaming Altar{x ({x      {gTemple of Chaos      {x)
 M 0 36100 1 36100 1	* {rChaos Demon{x ({x      {gTemple of Chaos      {x)
+O 0 36101 0 36109	* A bar board is here. (Bar)
+S
+
+#OLIMITS
+O 36199 1	* {Dthe Shadow Sai{x
 S
 
 #MOBPROGS
@@ -105,7 +520,7 @@ if rand 97
 mob cast 'curse' $n
 endif
 if rand 97
-mob cast 'demonfire' $n
+mob cast 'dragonfire' $n
 endif
 if rand 97
 mob cast 'giant strength' $n
