@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_cmd.c,v 1.27 2002-11-21 09:34:11 fjoe Exp $
+ * $Id: olc_cmd.c,v 1.28 2002-11-21 09:40:54 fjoe Exp $
  */
 
 #include "olc.h"
@@ -157,8 +157,8 @@ OLC_FUN(cmded_save)
 	C_FOREACH(cmnd, &commands) {
 		fprintf(fp, "#CMD\n");
 		fwrite_string(fp, "name", cmnd->name);
-		fwrite_string(fp, "dofun", cmnd->dofun_name);
 		fwrite_string(fp, "aliases", cmnd->aliases);
+		fwrite_string(fp, "dofun", cmnd->dofun_name);
 		fprintf(fp, "min_pos %s\n",
 			flag_string(position_table, cmnd->min_pos));
 		if (cmnd->min_level) {
@@ -223,12 +223,12 @@ OLC_FUN(cmded_show)
 
 	buf_printf(output, BUF_END,
 		   "[%3d] Name [%s]\n"
+		   "Aliases    [%s]\n"
 		   "Dofun      [%s]\n",
 		   varr_index(&commands, cmnd),
-		   cmnd->name, cmnd->dofun_name);
-	buf_printf(output, BUF_END,
-		   "Aliases    [%s]\n",
-		   cmnd->aliases);
+		   cmnd->name,
+		   cmnd->aliases,
+		   cmnd->dofun_name);
 	buf_printf(output, BUF_END,
 		   "Min pos    [%s]\n",
 		   flag_string(position_table, cmnd->min_pos));
