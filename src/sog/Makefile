@@ -1,8 +1,6 @@
 #
-# $Id: Makefile,v 1.9 1999-09-11 13:09:12 fjoe Exp $
+# $Id: Makefile,v 1.10 1999-09-23 18:25:31 kostik Exp $
 #
-
-.include "../Makefile.inc"
 
 MODULE_NAME = sog
 INSTALL_DIR = bin
@@ -24,4 +22,4 @@ CFILES = auction.c buffer.c chquest.c clan.c class.c cmd.c\
 	 util.c varr.c\
 	 $(COMM_CFILES) $(DB_CFILES) $(COMPAT_CFILES)
 
-.include "../Makefile.rules"
+.include "../Makefile.osdep"

@@ -1,11 +1,27 @@
 #
-# $Id: Makefile.rules,v 1.10 1999-09-15 10:57:45 fjoe Exp $
+# $Id: Makefile.inc,v 1.1 1999-09-23 18:25:31 kostik Exp $
 #
 
 #
 # core version
 #
 ABI_VERSION = 7
+
+#
+# common defines
+#
+CC		= gcc
+LD		= gcc
+INCLUDES	= -I ../include -I ..
+
+CFLAGS		= -g -Wall -O -pipe $(INCLUDES)
+LFLAGS		= -g -export-dynamic
+SO_CFLAGS	= -fPIC
+SO_LFLAGS	= -shared
+INSTALL_FLAGS	= -c -m 770
+LIBS		=
+INSTALL_PATH	= ../..
+MAKE		= make
 
 #
 # common rules

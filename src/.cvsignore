@@ -1,4 +1,4 @@
-Makefile.inc
+Makefile.osdep
 abi_version.h
 GTAGS
 GPATHS

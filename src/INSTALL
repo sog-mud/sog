@@ -1,7 +1,7 @@
 To build SoG you must take the following steps:
 
-1) cp Makefile.inc.dist Makefile.inc
-2) edit Makefile.inc (at least uncomment options for your system)
+1) cp Makefile.osdep.dist Makefile.osdep
+2) uncomment options for your system in Makefile.osdep
 3) make depend
 4) make all
 5) make install

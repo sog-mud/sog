@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.231 1999-09-15 10:57:45 fjoe Exp $
+ * $Id: merc.h,v 1.232 1999-09-23 18:25:31 kostik Exp $
  */
 
 /***************************************************************************
@@ -48,7 +48,7 @@
 #if !defined(WIN32)
 #if !defined(SUNOS)
 #if !defined(SVR4)
-#error "You must uncomment options for your system in Makefile"
+#error "You must uncomment options for your system in Makefile.osdep"
 #endif
 #endif
 #endif

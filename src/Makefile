@@ -1,8 +1,6 @@
 #
-# $Id: Makefile,v 1.57 1999-09-11 13:09:12 fjoe Exp $
+# $Id: Makefile,v 1.58 1999-09-23 18:25:31 kostik Exp $
 #
-
-.include "Makefile.inc"
 
 SUBDIR = core dofun sog spellfun olc rspells
 
@@ -17,8 +15,8 @@ clean: _SUBDIRUSE
 
 module_clean: _SUBDIRUSE
 
-abi_version.h: Makefile.rules
-	echo "#define" `grep ^ABI_VERSION Makefile.rules | sed s/=//` > abi_version.h
+abi_version.h: Makefile.inc
+	echo "#define" `grep ^ABI_VERSION Makefile.inc | sed s/=//` > abi_version.h
 
 ctags:
 	ctags -dtw include/*.h sog/comm/*.[ch] sog/db/*.[ch] sog/*.[ch]\
