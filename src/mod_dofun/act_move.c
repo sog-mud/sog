@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.191 1999-07-13 05:18:31 kostik Exp $
+ * $Id: act_move.c,v 1.192 1999-07-19 07:42:49 kostik Exp $
  */
 
 /***************************************************************************
@@ -3054,7 +3054,7 @@ void do_throw_weapon(CHAR_DATA *ch, const char *argument)
 
 	chance = (chance + chance2 - 20)/2;
 
-	WAIT_STATE(ch, SKILL(sn)->beats);
+	WAIT_STATE(ch, gsn_throw_weapon->beats);
 
 	chance = (chance - 50) * 2;
 	if (ch->position == POS_SLEEPING)
