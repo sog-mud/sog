@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.40 1999-02-11 18:36:28 fjoe Exp $
+ * $Id: note.c,v 1.41 1999-02-11 19:00:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -771,7 +771,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 					continue;
 
 				char_printf(ch, "[%3d%c] %s: %s\n{x",
-					    vnum,
+					    vnum-1,
 					    hide_note(ch, pnote) ? ' ' : 'N', 
 					    pnote->sender, pnote->subject);
 			}
