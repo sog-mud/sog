@@ -4636,6 +4636,7 @@ them...)
 0 'OLC RESETS'~
 Syntax: {creset{x
 Syntax: {creset{x ?
+Syntax: {creset{x where <mob | obj> <vnum>
 Syntax: {creset{x mob <vnum> [<total_lim>] [<room_lim>]
 Syntax: {creset{x obj <vnum> inside <reset_num> [<total_lim>] [<inobj_lim>]
 Syntax: {creset{x obj <vnum> room
