@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.74 1999-03-17 15:27:36 kostik Exp $
+ * $Id: martial_art.c,v 1.75 1999-03-18 12:36:58 kostik Exp $
  */
 
 /***************************************************************************
@@ -3320,6 +3320,7 @@ void do_blindness_dust(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *vch;
 	CHAR_DATA *vch_next;
 	int chance;
+	char arg[MAX_INPUT_LENGTH];
 	int mana;
 
 	if ((chance = get_skill(ch, gsn_blindness_dust)) == 0) {
@@ -3341,17 +3342,35 @@ void do_blindness_dust(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	char_puts("A cloud of dust fills in the room.\n", ch);
-	act("A cloud of dust fills the room.", ch, NULL, NULL, TO_ROOM);
+	one_argument(argument, arg, sizeof(arg));
 
-	check_improve(ch, gsn_blindness_dust, TRUE, 1);
+	if (arg[0] == '\0') {
+		char_puts("A cloud of dust fills in the room.\n", ch);
+		act("A cloud of dust fills the room.", ch, NULL, NULL, TO_ROOM);
 
-	for (vch = ch->in_room->people; vch; vch = vch_next) {
-		vch_next = vch->next_in_room;
+		check_improve(ch, gsn_blindness_dust, TRUE, 1);
 
-		if (is_safe_spell(ch, vch, TRUE)) 
-			continue;
+		for (vch = ch->in_room->people; vch; vch = vch_next) {
+			vch_next = vch->next_in_room;
 
+			if (is_safe_spell(ch, vch, TRUE)) 
+				continue;
+
+			spell_blindness(gsn_blindness, LEVEL(ch), ch, vch, TARGET_CHAR);
+			if (vch != ch)
+				multi_hit(vch, ch, TYPE_UNDEFINED);
+		}
+	}
+	else {
+		if ((vch = get_char_room(ch, arg)) == NULL) {
+			char_puts("They aren't here.\n", ch);
+			return;
+		}
+		if (is_safe(ch, vch))
+			return;
+		act("You throw some dust into $N's eyes.", ch, NULL, vch, TO_CHAR);
+		act("$n throws some dust into $N's eyes.", ch, NULL, vch, TO_CHAR);
+		act("$n throws some dust into your eyes.", ch, NULL, vch, TO_VICT);
 		spell_blindness(gsn_blindness, LEVEL(ch), ch, vch, TARGET_CHAR);
 		if (vch != ch)
 			multi_hit(vch, ch, TYPE_UNDEFINED);
