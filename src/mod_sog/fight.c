@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.54 1998-07-19 21:19:07 efdi Exp $
+ * $Id: fight.c,v 1.55 1998-07-20 21:19:20 efdi Exp $
  */
 
 /***************************************************************************
@@ -2669,8 +2669,8 @@ void do_kill(CHAR_DATA *ch, const char *argument)
 	WAIT_STATE(ch, 1 * PULSE_VIOLENCE);
 
 	if (SKILL_OK(ch, gsn_mortal_strike)
-	&&  (wield = get_eq_char(ch,WEAR_WIELD)) != NULL
-	&&  wield->level > (victim->level - 5)
+	&&  get_eq_char(ch, WEAR_WIELD)
+	&&  ch->level > (victim->level - 5)
 	&&  clan_ok(ch,gsn_mortal_strike)) {
 	  int chance = 1 + get_skill(ch,gsn_mortal_strike) / 30;
 	  chance += (ch->level - victim->level) / 2;
