@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.34 1998-06-12 14:25:59 fjoe Exp $
+ * $Id: fight.c,v 1.35 1998-06-13 11:55:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1178,7 +1178,8 @@ void delete_player(CHAR_DATA *victim, char* msg)
 	victim->last_fight_time = -1;
 	victim->hit = 1;
 	victim->position = POS_STANDING;
-	sprintf(strsave, "%s%s", PLAYER_DIR, capitalize(victim->name));
+	snprintf(strsave, sizeof(strsave),
+		 "%s%s", PLAYER_DIR, capitalize(victim->name));
 	wiznet_printf(victim, NULL, 0, 0, 0, "$N is deleted due to %s.", msg);
 	do_quit_count(victim, "");
 	unlink(strsave);
@@ -1944,7 +1945,6 @@ void stop_fighting(CHAR_DATA *ch, bool fBoth)
  */
 void make_corpse(CHAR_DATA *ch)
 {
-	char buf[MAX_STRING_LENGTH];
 	OBJ_DATA *corpse;
 	OBJ_DATA *obj;
 	OBJ_DATA *obj_next;
@@ -1996,13 +1996,8 @@ void make_corpse(CHAR_DATA *ch)
 
 	corpse->level = ch->level;
 
-	snprintf(buf, sizeof(buf), corpse->short_descr, name);
-	free_string(corpse->short_descr);
-	corpse->short_descr = str_dup(buf);
-
-	snprintf(buf, sizeof(buf), corpse->description, name);
-	free_string(corpse->description);
-	corpse->description = str_dup(buf);
+	str_printf(&corpse->short_descr, corpse->short_descr, name);
+	str_printf(&corpse->description, corpse->description, name);
 
 	for (obj = ch->carrying; obj != NULL; obj = obj_next)
 	{
@@ -2060,64 +2055,57 @@ void death_cry_org(CHAR_DATA *ch, int part)
 	if (part == -1)
 	  part = number_bits(4);
 
-	switch (part)
-	{
-
-	case  0: msg  = "$n hits the ground ... DEAD.";			break;
+	switch (part) {
+	case  0:
+		msg  = "$n hits the ground ... DEAD.";
+		break;
 	case  1:
-		if (ch->material == 0)
-		{
+		if (ch->material == 0) {
 		    msg  = "$n splatters blood on your armor.";
 		    break;
 		}
+		/* FALLTHRU */
 	case  2:
-		if (IS_SET(ch->parts,PART_GUTS))
-		{
-		    msg = "$n spills $s guts all over the floor.";
-		    vnum = OBJ_VNUM_GUTS;
+		if (IS_SET(ch->parts,PART_GUTS)) {
+			msg = "$n spills $s guts all over the floor.";
+			vnum = OBJ_VNUM_GUTS;
 		}
 		break;
 	case  3:
-		if (IS_SET(ch->parts,PART_HEAD))
-		{
-		    msg  = "$n's severed head plops on the ground.";
-		    vnum = OBJ_VNUM_SEVERED_HEAD;
+		if (IS_SET(ch->parts,PART_HEAD)) {
+			msg  = "$n's severed head plops on the ground.";
+			vnum = OBJ_VNUM_SEVERED_HEAD;
 		}
 		break;
 	case  4:
-		if (IS_SET(ch->parts,PART_HEART))
-		{
-		    msg  = "$n's heart is torn from $s chest.";
-		    vnum = OBJ_VNUM_TORN_HEART;
+		if (IS_SET(ch->parts,PART_HEART)) {
+			msg  = "$n's heart is torn from $s chest.";
+			vnum = OBJ_VNUM_TORN_HEART;
 		}
 		break;
 	case  5:
-		if (IS_SET(ch->parts,PART_ARMS))
-		{
-		    msg  = "$n's arm is sliced from $s dead body.";
-		    vnum = OBJ_VNUM_SLICED_ARM;
+		if (IS_SET(ch->parts,PART_ARMS)) {
+			msg  = "$n's arm is sliced from $s dead body.";
+			vnum = OBJ_VNUM_SLICED_ARM;
 		}
 		break;
 	case  6:
-		if (IS_SET(ch->parts,PART_LEGS))
-		{
-		    msg  = "$n's leg is sliced from $s dead body.";
-		    vnum = OBJ_VNUM_SLICED_LEG;
+		if (IS_SET(ch->parts,PART_LEGS)) {
+			msg  = "$n's leg is sliced from $s dead body.";
+			vnum = OBJ_VNUM_SLICED_LEG;
 		}
 		break;
 	case 7:
-		if (IS_SET(ch->parts,PART_BRAINS))
-		{
-		    msg = "$n's head is shattered, and $s brains splash all over you.";
-		    vnum = OBJ_VNUM_BRAINS;
+		if (IS_SET(ch->parts,PART_BRAINS)) {
+			msg = "$n's head is shattered, and $s brains splash all over you.";
+			vnum = OBJ_VNUM_BRAINS;
 		}
+		break;
 	}
 
 	act(msg, ch, NULL, NULL, TO_ROOM);
 
-	if (vnum != 0)
-	{
-		char buf[MAX_STRING_LENGTH];
+	if (vnum != 0) {
 		OBJ_DATA *obj;
 		char *name;
 
@@ -2125,22 +2113,16 @@ void death_cry_org(CHAR_DATA *ch, int part)
 		obj		= create_object(get_obj_index(vnum), 0);
 		obj->timer	= number_range(4, 7);
 
-		snprintf(buf, sizeof(buf), obj->short_descr, name);
-		free_string(obj->short_descr);
-		obj->short_descr = str_dup(buf);
-
-		snprintf(buf, sizeof(buf), obj->description, name);
-		free_string(obj->description);
-		obj->description = str_dup(buf);
+		str_printf(&obj->short_descr, obj->short_descr, name);
+		str_printf(&obj->description, obj->description, name);
 
 		obj->from = str_dup(name);
 
-		if (obj->item_type == ITEM_FOOD)
-		{
-		    if (IS_SET(ch->form,FORM_POISON))
-			obj->value[3] = 1;
-		    else if (!IS_SET(ch->form,FORM_EDIBLE))
-			obj->item_type = ITEM_TRASH;
+		if (obj->item_type == ITEM_FOOD) {
+			if (IS_SET(ch->form,FORM_POISON))
+				obj->value[3] = 1;
+			else if (!IS_SET(ch->form,FORM_EDIBLE))
+				obj->item_type = ITEM_TRASH;
 		}
 
 		obj_to_room(obj, ch->in_room);
@@ -2152,16 +2134,14 @@ void death_cry_org(CHAR_DATA *ch, int part)
 		msg = "You hear someone's death cry.";
 
 	was_in_room = ch->in_room;
-	for (door = 0; door <= 5; door++)
-	{
+	for (door = 0; door <= 5; door++) {
 		EXIT_DATA *pexit;
 
 		if ((pexit = was_in_room->exit[door]) != NULL
 		&&   pexit->u1.to_room != NULL
-		&&   pexit->u1.to_room != was_in_room)
-		{
-		    ch->in_room = pexit->u1.to_room;
-		    act(msg, ch, NULL, NULL, TO_ROOM);
+		&&   pexit->u1.to_room != was_in_room) {
+			ch->in_room = pexit->u1.to_room;
+			act(msg, ch, NULL, NULL, TO_ROOM);
 		}
 	}
 	ch->in_room = was_in_room;

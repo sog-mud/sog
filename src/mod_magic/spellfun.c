@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.14 1998-06-12 14:25:59 fjoe Exp $
+ * $Id: spellfun.c,v 1.15 1998-06-13 11:55:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1807,35 +1807,24 @@ void spell_create_water(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
 	int water;
 
-	if (obj->item_type != ITEM_DRINK_CON)
-	{
+	if (obj->item_type != ITEM_DRINK_CON) {
 		send_to_char("It is unable to hold water.\n\r", ch);
 		return;
 	}
 
-	if (obj->value[2] != LIQ_WATER && obj->value[1] != 0)
-	{
+	if (obj->value[2] != LIQ_WATER && obj->value[1] != 0) {
 		send_to_char("It contains some other liquid.\n\r", ch);
 		return;
 	}
 
-	water = UMIN(
-			level * (weather_info.sky >= SKY_RAINING ? 4 : 2),
-			obj->value[0] - obj->value[1]
-			);
+	water = UMIN(level * (weather_info.sky >= SKY_RAINING ? 4 : 2),
+		     obj->value[0] - obj->value[1]);
 
-	if (water > 0)
-	{
+	if (water > 0) {
 		obj->value[2] = LIQ_WATER;
 		obj->value[1] += water;
 		if (!is_name("water", obj->name))
-		{
-		    char buf[MAX_STRING_LENGTH];
-
-		    snprintf(buf, sizeof(buf), "%s water", obj->name);
-		    free_string(obj->name);
-		    obj->name = str_dup(buf);
-		}
+			str_printf(&obj->name, "%s water", obj->name);
 		act("$p is filled.", ch, obj, NULL, TO_CHAR);
 	}
 

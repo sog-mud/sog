@@ -1,5 +1,5 @@
 /*
- * $Id: act_hera.c,v 1.17 1998-06-12 14:25:57 fjoe Exp $
+ * $Id: act_hera.c,v 1.18 1998-06-13 11:55:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,13 +47,14 @@
 ***************************************************************************/
 
 /*
- * $Id: act_hera.c,v 1.17 1998-06-12 14:25:57 fjoe Exp $
+ * $Id: act_hera.c,v 1.18 1998-06-13 11:55:08 fjoe Exp $
  */
 #include <sys/types.h>
 #include <sys/time.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <stdarg.h>
 #include <ctype.h>
 #include <time.h>
 #include "merc.h"
@@ -62,52 +63,58 @@
 #include "interp.h"
 #include "resource.h"
 #include "util.h"
+#include "magic.h"
 
-/* for bzero, bcopy */
-#if defined(SUNOS) || defined(SVR4)
-#include <strings.h>
+/* for bzero, bcopy, vsnprintf */
+#ifdef SUNOS
+#	include <strings.h>
+#	include "compat.h"
+#endif
+
+#ifdef SVR4
+#	include <strings.h>
 #endif
 
 /* random room generation procedure */
 ROOM_INDEX_DATA  *get_random_room(CHAR_DATA *ch)
 {
-    ROOM_INDEX_DATA *room;
+	ROOM_INDEX_DATA *room;
 
-    for ( ; ; )
-    {
-        room = get_room_index( number_range( 0, 65535 ) );
-        if ( room != NULL )
-        if ( can_see_room(ch,room)
+	for (; ;)
+	{
+	    room = get_room_index(number_range(0, 65535));
+	    if (room != NULL)
+	    if (can_see_room(ch,room)
 	&&   !room_is_private(room)
-        &&   !IS_SET(room->room_flags, ROOM_PRIVATE)
-        &&   !IS_SET(room->room_flags, ROOM_SOLITARY) 
+	    &&   !IS_SET(room->room_flags, ROOM_PRIVATE)
+	    &&   !IS_SET(room->room_flags, ROOM_SOLITARY) 
 	&&   !IS_SET(room->room_flags, ROOM_SAFE) 
 	&&   (IS_NPC(ch) || IS_SET(ch->act,ACT_AGGRESSIVE) 
 	||   !IS_SET(room->room_flags,ROOM_LAW | ROOM_SAFE)))
-            break;
-    }
+	        break;
+	}
 
-    return room;
+	return room;
 }
 
 /* RT Enter portals */
-void do_enter( CHAR_DATA *ch, char *argument)
+void do_enter(CHAR_DATA *ch, char *argument)
 {    
-    ROOM_INDEX_DATA *location; 
+	ROOM_INDEX_DATA *location; 
 
-    if ( ch->fighting != NULL ) 
+	if (ch->fighting != NULL) 
 	return;
 
-    /* nifty portal stuff */
-    if (argument[0] != '\0')
-    {
-        ROOM_INDEX_DATA *old_room;
+	/* nifty portal stuff */
+	if (argument[0] != '\0')
+	{
+	    ROOM_INDEX_DATA *old_room;
 	OBJ_DATA *portal;
 	CHAR_DATA *fch, *fch_next, *mount;
 
-        old_room = ch->in_room;
+	    old_room = ch->in_room;
 
-	portal = get_obj_list( ch, argument,  ch->in_room->contents );
+	portal = get_obj_list(ch, argument,  ch->in_room->contents);
 	
 	if (portal == NULL)
 	{
@@ -116,7 +123,7 @@ void do_enter( CHAR_DATA *ch, char *argument)
 	}
 
 	if (portal->item_type != ITEM_PORTAL 
-        ||  (IS_SET(portal->value[1],EX_CLOSED) && !IS_TRUSTED(ch,ANGEL)))
+	    ||  (IS_SET(portal->value[1],EX_CLOSED) && !IS_TRUSTED(ch,ANGEL)))
 	{
 	    send_to_char("You can't seem to find a way in.\n\r",ch);
 	    return;
@@ -125,7 +132,7 @@ void do_enter( CHAR_DATA *ch, char *argument)
 	if (!IS_TRUSTED(ch,ANGEL) && !IS_SET(portal->value[2],GATE_NOCURSE)
 	&&  (IS_AFFECTED(ch,AFF_CURSE) 
 	||   IS_SET(old_room->room_flags,ROOM_NO_RECALL) 
-	||   IS_RAFFECTED(old_room,AFF_ROOM_CURSE) ))
+	||   IS_RAFFECTED(old_room,AFF_ROOM_CURSE)))
 	{
 	    send_to_char("Something prevents you from leaving...\n\r",ch);
 	    return;
@@ -150,12 +157,12 @@ void do_enter( CHAR_DATA *ch, char *argument)
 	   return;
 	}
 
-        if (IS_NPC(ch) && IS_SET(ch->act,ACT_AGGRESSIVE)
-        &&  IS_SET(location->room_flags, ROOM_LAW | ROOM_SAFE))
-        {
-            send_to_char("Something prevents you from leaving...\n\r",ch);
-            return;
-        }
+	    if (IS_NPC(ch) && IS_SET(ch->act,ACT_AGGRESSIVE)
+	    &&  IS_SET(location->room_flags, ROOM_LAW | ROOM_SAFE))
+	    {
+	        send_to_char("Something prevents you from leaving...\n\r",ch);
+	        return;
+	    }
 
 	act_nprintf(ch, portal, NULL, TO_ROOM, POS_RESTING,
 		   MOUNTED(ch) ? HERA_STEPS_INTO_RIDING_ON :
@@ -187,9 +194,9 @@ void do_enter( CHAR_DATA *ch, char *argument)
 
 	do_look(ch,"auto");
 
-        if (mount) {
-	  char_from_room( mount );
-	  char_to_room( mount, location);
+	    if (mount) {
+	  char_from_room(mount);
+	  char_to_room(mount, location);
   	  ch->riding = TRUE;
   	  mount->riding = TRUE;
 	 }
@@ -205,33 +212,33 @@ void do_enter( CHAR_DATA *ch, char *argument)
 	if (old_room == location)
 	    return;
 
-    	for ( fch = old_room->people; fch != NULL; fch = fch_next ) {
-            fch_next = fch->next_in_room;
+		for (fch = old_room->people; fch != NULL; fch = fch_next) {
+	        fch_next = fch->next_in_room;
 
-            if (portal == NULL || portal->value[0] == -1) 
+	        if (portal == NULL || portal->value[0] == -1) 
 	    /* no following through dead portals */
-                continue;
+	            continue;
  
-            if ( fch->master == ch && IS_AFFECTED(fch,AFF_CHARM)
-            &&   fch->position < POS_STANDING)
-            	do_stand(fch,"");
+	        if (fch->master == ch && IS_AFFECTED(fch,AFF_CHARM)
+	        &&   fch->position < POS_STANDING)
+	        	do_stand(fch,"");
 
-            if ( fch->master == ch && fch->position == POS_STANDING)
-            {
+	        if (fch->master == ch && fch->position == POS_STANDING)
+	        {
  
-                if (IS_SET(ch->in_room->room_flags,ROOM_LAW)
-                &&  (IS_NPC(fch) && IS_SET(fch->act,ACT_AGGRESSIVE))) {
-                    act("You can't bring $N into the city.",
-                    	ch,NULL,fch,TO_CHAR);
-                    act("You aren't allowed in the city.",
-                    	fch,NULL,NULL,TO_CHAR);
-                    continue;
-            	}
+	            if (IS_SET(ch->in_room->room_flags,ROOM_LAW)
+	            &&  (IS_NPC(fch) && IS_SET(fch->act,ACT_AGGRESSIVE))) {
+	                act("You can't bring $N into the city.",
+	                	ch,NULL,fch,TO_CHAR);
+	                act("You aren't allowed in the city.",
+	                	fch,NULL,NULL,TO_CHAR);
+	                continue;
+	        	}
  
-            	act( "You follow $N.", fch, NULL, ch, TO_CHAR );
+	        	act("You follow $N.", fch, NULL, ch, TO_CHAR);
 		do_enter(fch,argument);
-            }
-    	}
+	        }
+		}
 
  	if (portal != NULL && portal->value[0] == -1)
 	{
@@ -248,13 +255,13 @@ void do_enter( CHAR_DATA *ch, char *argument)
 	    extract_obj(portal);
 	}
 	return;
-    }
+	}
 
-    send_to_char("Nope, can't do it.\n\r",ch);
-    return;
+	send_to_char("Nope, can't do it.\n\r",ch);
+	return;
 }
 
-void do_settraps( CHAR_DATA *ch, char *argument )
+void do_settraps(CHAR_DATA *ch, char *argument)
 {
 	int chance;
 
@@ -263,60 +270,60 @@ void do_settraps( CHAR_DATA *ch, char *argument )
 		return;
 	}
 
-    if (!ch->in_room)	return;
+	if (!ch->in_room)	return;
 
-    if ( IS_SET(ch->in_room->room_flags, ROOM_LAW) )
+	if (IS_SET(ch->in_room->room_flags, ROOM_LAW))
 	{
 	 send_to_char("A mystical power protects the room.\n\r",ch);
 	 return;
 	}
 
-    WAIT_STATE( ch, skill_table[gsn_settraps].beats );
+	WAIT_STATE(ch, skill_table[gsn_settraps].beats);
 
 	if (IS_NPC(ch) || number_percent() <  chance * 7 / 10) {
-      AFFECT_DATA af,af2;
+	  AFFECT_DATA af,af2;
 
-      check_improve(ch,gsn_settraps,TRUE,1);
+	  check_improve(ch,gsn_settraps,TRUE,1);
 
-      if ( is_affected_room( ch->in_room, gsn_settraps ))
-      {
+	  if (is_affected_room(ch->in_room, gsn_settraps))
+	  {
 	send_to_char("This room has already trapped.\n\r",ch);
 	return;
-       }
+	   }
 
-      if ( is_affected(ch,gsn_settraps))
-      {
+	  if (is_affected(ch,gsn_settraps))
+	  {
 	send_to_char("This skill is used too recently.\n\r",ch);
 	return;
-      }
+	  }
    
-      af.where     = TO_ROOM_AFFECTS;
-      af.type      = gsn_settraps;
-      af.level     = ch->level;
-      af.duration  = ch->level / 40;
-      af.location  = APPLY_NONE;
-      af.modifier  = 0;
-      af.bitvector = AFF_ROOM_THIEF_TRAP;
-      affect_to_room( ch->in_room, &af );
+	  af.where     = TO_ROOM_AFFECTS;
+	  af.type      = gsn_settraps;
+	  af.level     = ch->level;
+	  af.duration  = ch->level / 40;
+	  af.location  = APPLY_NONE;
+	  af.modifier  = 0;
+	  af.bitvector = AFF_ROOM_THIEF_TRAP;
+	  affect_to_room(ch->in_room, &af);
 
-      af2.where     = TO_AFFECTS;
-      af2.type      = gsn_settraps;
-      af2.level	    = ch->level;
+	  af2.where     = TO_AFFECTS;
+	  af2.type      = gsn_settraps;
+	  af2.level	    = ch->level;
 	
-      if ( ch->last_fight_time != -1 && !IS_IMMORTAL(ch) &&
-        	(current_time - ch->last_fight_time)<FIGHT_DELAY_TIME) 
-         af2.duration  = 1;
-      else af2.duration = ch->level / 10;
+	  if (ch->last_fight_time != -1 && !IS_IMMORTAL(ch) &&
+	    	(current_time - ch->last_fight_time)<FIGHT_DELAY_TIME) 
+	     af2.duration  = 1;
+	  else af2.duration = ch->level / 10;
 
-      af2.modifier  = 0;
-      af2.location  = APPLY_NONE;
-      af2.bitvector = 0;
-      affect_to_char( ch, &af2 );
-      send_to_char( "You set the room with your trap.\n\r", ch );
-      act("$n set the room with $s trap.",ch,NULL,NULL,TO_ROOM);
-      return;
-    }
-    else check_improve(ch,gsn_settraps,FALSE,1);
+	  af2.modifier  = 0;
+	  af2.location  = APPLY_NONE;
+	  af2.bitvector = 0;
+	  affect_to_char(ch, &af2);
+	  send_to_char("You set the room with your trap.\n\r", ch);
+	  act("$n set the room with $s trap.",ch,NULL,NULL,TO_ROOM);
+	  return;
+	}
+	else check_improve(ch,gsn_settraps,FALSE,1);
 
    return;
 }
@@ -375,7 +382,7 @@ struct nodes
 };
 
 #define IS_DIR		(get_room_index(q_head->room_nr)->exit[i])
-#define GO_OK		(!IS_SET( IS_DIR->exit_info, EX_CLOSED ))
+#define GO_OK		(!IS_SET(IS_DIR->exit_info, EX_CLOSED))
 #define GO_OK_SMARTER	1
 
 
@@ -395,33 +402,33 @@ void init_world(ROOM_INDEX_DATA *room_db[])
   bzero((char *)room_db,sizeof(ROOM_INDEX_DATA *)*WORLD_SIZE);
 }
 
-CHAR_DATA *get_char_area( CHAR_DATA *ch, char *argument )
+CHAR_DATA *get_char_area(CHAR_DATA *ch, char *argument)
 {
    char arg[MAX_INPUT_LENGTH];
    CHAR_DATA *ach;
    int number;
    int count;
 
-   if( argument[0] == '\0' )
-     return NULL;
+   if(argument[0] == '\0')
+	 return NULL;
 
-   number = number_argument( argument, arg );
+   number = number_argument(argument, arg);
 /*    if (arg[0] == NULL) return NULL; */
    if (arg[0] == '\0') return NULL;
    count = 0;     
 
-   if( ( ach = get_char_room( ch, argument ) ) != NULL )
-     return ach;
+   if((ach = get_char_room(ch, argument)) != NULL)
+	 return ach;
 
 
 
-   for( ach = char_list; ach != NULL; ach = ach->next )
+   for(ach = char_list; ach != NULL; ach = ach->next)
    { 
-     if( ach->in_room && (ach->in_room->area != ch->in_room->area
-	|| !can_see( ch, ach ) || !is_name( arg, ach->name )) )
+	 if(ach->in_room && (ach->in_room->area != ch->in_room->area
+	|| !can_see(ch, ach) || !is_name(arg, ach->name)))
 	continue;
-     if( ++count == number )
-       return ach;
+	 if(++count == number)
+	   return ach;
    }
    return NULL;
 }
@@ -433,13 +440,13 @@ void destroy_hash_table(struct hash_header *ht,void (*gman)())
   struct hash_link	*scan,*temp;
 
   for(i=0;i<ht->table_size;i++)
-    for(scan=ht->buckets[i];scan;)
-      {
+	for(scan=ht->buckets[i];scan;)
+	  {
 	temp = scan->next;
 	(*gman)(scan->data);
 	free(scan);
 	scan = temp;
-      }
+	  }
   free(ht->buckets);
   free(ht->keylist);
 }
@@ -456,19 +463,19 @@ void _hash_enter(struct hash_header *ht,int key,void *data)
   temp->data	= data;
   ht->buckets[HASH_KEY(ht,key)] = temp;
   if(ht->klistlen>=ht->klistsize)
-    {
-      ht->keylist = (void*)realloc(ht->keylist,sizeof(*ht->keylist)*
+	{
+	  ht->keylist = (void*)realloc(ht->keylist,sizeof(*ht->keylist)*
 				   (ht->klistsize*=2));
-    }
+	}
   for(i=ht->klistlen;i>=0;i--)
-    {
-      if(ht->keylist[i-1]<key)
+	{
+	  if(ht->keylist[i-1]<key)
 	{
 	  ht->keylist[i] = key;
 	  break;
 	}
-      ht->keylist[i] = ht->keylist[i-1];
-    }
+	  ht->keylist[i] = ht->keylist[i-1];
+	}
   ht->klistlen++;
 }
 
@@ -484,7 +491,7 @@ void *hash_find(struct hash_header *ht,int key)
   scan = ht->buckets[HASH_KEY(ht,key)];
 
   while(scan && scan->key!=key)
-    scan = scan->next;
+	scan = scan->next;
 
   return scan ? scan->data : NULL;
 }
@@ -520,7 +527,7 @@ ROOM_INDEX_DATA *room_find_or_create(ROOM_INDEX_DATA *rb[],int key)
 
   rv = (ROOM_INDEX_DATA *)malloc(sizeof(ROOM_INDEX_DATA));
   rb[key] = rv;
-    
+	
   return rv;
 }
 
@@ -543,10 +550,10 @@ int room_remove(ROOM_INDEX_DATA *rb[],int key)
 
   tmp = room_find(rb,key);
   if(tmp)
-    {
-      rb[key] = 0;
-      free(tmp);
-    }
+	{
+	  rb[key] = 0;
+	  free(tmp);
+	}
   return(0);
 }
 
@@ -557,31 +564,31 @@ void *hash_remove(struct hash_header *ht,int key)
   scan = ht->buckets+HASH_KEY(ht,key);
 
   while(*scan && (*scan)->key!=key)
-    scan = &(*scan)->next;
+	scan = &(*scan)->next;
 
   if(*scan)
-    {
-      int		i;
-      struct hash_link	*temp, *aux;
+	{
+	  int		i;
+	  struct hash_link	*temp, *aux;
 
-      temp	= (*scan)->data;
-      aux	= *scan;
-      *scan	= aux->next;
-      free(aux);
+	  temp	= (*scan)->data;
+	  aux	= *scan;
+	  *scan	= aux->next;
+	  free(aux);
 
-      for(i=0;i<ht->klistlen;i++)
+	  for(i=0;i<ht->klistlen;i++)
 	if(ht->keylist[i]==key)
 	  break;
 
-      if(i<ht->klistlen)
+	  if(i<ht->klistlen)
 	{
 	  bcopy((char *)ht->keylist+i+1,(char *)ht->keylist+i,(ht->klistlen-i)
 		*sizeof(*ht->keylist));
 	  ht->klistlen--;
 	}
 
-      return temp;
-    }
+	  return temp;
+	}
 
   return NULL;
 }
@@ -591,12 +598,12 @@ void room_iterate(ROOM_INDEX_DATA *rb[],void (*func)(),void *cdata)
   register int i;
 
   for(i=0;i<WORLD_SIZE;i++)
-    {
-      ROOM_INDEX_DATA *temp;
+	{
+	  ROOM_INDEX_DATA *temp;
   
-      temp = room_find(rb,i);
-      if(temp) (*func)(i,temp,cdata);
-    }
+	  temp = room_find(rb,i);
+	  if(temp) (*func)(i,temp,cdata);
+	}
 }
 
 void hash_iterate(struct hash_header *ht,void (*func)(),void *cdata)
@@ -604,27 +611,27 @@ void hash_iterate(struct hash_header *ht,void (*func)(),void *cdata)
   int i;
 
   for(i=0;i<ht->klistlen;i++)
-    {
-      void		*temp;
-      register int	key;
+	{
+	  void		*temp;
+	  register int	key;
 
-      key = ht->keylist[i];
-      temp = hash_find(ht,key);
-      (*func)(key,temp,cdata);
-      if(ht->keylist[i]!=key) /* They must have deleted this room */
+	  key = ht->keylist[i];
+	  temp = hash_find(ht,key);
+	  (*func)(key,temp,cdata);
+	  if(ht->keylist[i]!=key) /* They must have deleted this room */
 	i--;		      /* Hit this slot again. */
-    }
+	}
 }
 
 
 
-int exit_ok( EXIT_DATA *pexit )
+int exit_ok(EXIT_DATA *pexit)
 {
   ROOM_INDEX_DATA *to_room;
 
-  if ( ( pexit == NULL )
-  ||   ( to_room = pexit->u1.to_room ) == NULL )
-    return 0;
+  if ((pexit == NULL)
+  ||   (to_room = pexit->u1.to_room) == NULL)
+	return 0;
 
   return 1;
 }
@@ -634,8 +641,8 @@ void donothing()
   return;
 }
 
-int find_path( int in_room_vnum, int out_room_vnum, CHAR_DATA *ch, 
-	       int depth, int in_zone )
+int find_path(int in_room_vnum, int out_room_vnum, CHAR_DATA *ch, 
+	       int depth, int in_zone)
 {
   struct room_q		*tmp_q, *q_head, *q_tail;
   struct hash_header	x_room;
@@ -644,20 +651,20 @@ int find_path( int in_room_vnum, int out_room_vnum, CHAR_DATA *ch,
   ROOM_INDEX_DATA	*startp;
   EXIT_DATA		*exitp;
 
-  if ( depth <0 )
-    {
-      thru_doors = TRUE;
-      depth = -depth;
-    }
+  if (depth <0)
+	{
+	  thru_doors = TRUE;
+	  depth = -depth;
+	}
   else
-    {
-      thru_doors = FALSE;
-    }
+	{
+	  thru_doors = FALSE;
+	}
 
-  startp = get_room_index( in_room_vnum );
+  startp = get_room_index(in_room_vnum);
 
-  init_hash_table( &x_room, sizeof(int), 2048 );
-  hash_enter( &x_room, in_room_vnum, (void *) - 1 );
+  init_hash_table(&x_room, sizeof(int), 2048);
+  hash_enter(&x_room, in_room_vnum, (void *) - 1);
 
   /* initialize queue */
   q_head = (struct room_q *) malloc(sizeof(struct room_q));
@@ -666,28 +673,28 @@ int find_path( int in_room_vnum, int out_room_vnum, CHAR_DATA *ch,
   q_tail->next_q = 0;
 
   while(q_head)
-    {
-      herep = get_room_index( q_head->room_nr );
-      /* for each room test all directions */
-      if (herep==NULL) fprintf(stderr,"BUG:  Null herep in hunt.c, room #%d",q_head->room_nr);
-      if( herep && (herep->area == startp->area || !in_zone) )
+	{
+	  herep = get_room_index(q_head->room_nr);
+	  /* for each room test all directions */
+	  if (herep==NULL) fprintf(stderr,"BUG:  Null herep in hunt.c, room #%d",q_head->room_nr);
+	  if(herep && (herep->area == startp->area || !in_zone))
 		{
 	  /* only look in this zone...
 	     saves cpu time and  makes world safer for players  */
-	  for( i = 0; i <= 5; i++ )
+	  for(i = 0; i <= 5; i++)
 	    {
 	      exitp = herep->exit[i];
-	      if( exit_ok(exitp) && ( thru_doors ? GO_OK_SMARTER : GO_OK ) )
+	      if(exit_ok(exitp) && (thru_doors ? GO_OK_SMARTER : GO_OK))
 		{
 		  /* next room */
 		  tmp_room = herep->exit[i]->u1.to_room->vnum;
-		  if( tmp_room != out_room_vnum )
+		  if(tmp_room != out_room_vnum)
 		    {
 		      /* shall we add room to queue ?
 			 count determines total breadth and depth */
-		      if( !hash_find( &x_room, tmp_room )
-			 && ( count < depth ) )
-			/* && !IS_SET( RM_FLAGS(tmp_room), DEATH ) ) */
+		      if(!hash_find(&x_room, tmp_room)
+			 && (count < depth))
+			/* && !IS_SET(RM_FLAGS(tmp_room), DEATH)) */
 			{
 			  count++;
 			  /* mark room as visted and put on queue */
@@ -700,7 +707,7 @@ int find_path( int in_room_vnum, int out_room_vnum, CHAR_DATA *ch,
 			  q_tail = tmp_q;
 	      
 			  /* ancestor for first layer is the direction */
-			  hash_enter( &x_room, tmp_room,
+			  hash_enter(&x_room, tmp_room,
 				     ((int)hash_find(&x_room,q_head->room_nr)
 				      == -1) ? (void*)(i+1)
 				     : hash_find(&x_room,q_head->room_nr));
@@ -736,31 +743,31 @@ int find_path( int in_room_vnum, int out_room_vnum, CHAR_DATA *ch,
 			      /* junk left over from a previous track */
 			      destroy_hash_table(&x_room, donothing);
 			    }
-			  return( -1+i);
+			  return(-1+i);
 			}
 		    }
 		}
 	    }
 	}
-      
-      /* free queue head and point to next entry */
-      tmp_q = q_head->next_q;
-      free(q_head);
-      q_head = tmp_q;
-    }
+	  
+	  /* free queue head and point to next entry */
+	  tmp_q = q_head->next_q;
+	  free(q_head);
+	  q_head = tmp_q;
+	}
 
   /* couldn't find path */
-  if( x_room.buckets )
-    {
-      /* junk left over from a previous track */
-      destroy_hash_table( &x_room, donothing );
-    }
+  if(x_room.buckets)
+	{
+	  /* junk left over from a previous track */
+	  destroy_hash_table(&x_room, donothing);
+	}
   return -1;
 }
 
 
 
-void do_hunt( CHAR_DATA *ch, char *argument )
+void do_hunt(CHAR_DATA *ch, char *argument)
 {
 	char arg[MAX_STRING_LENGTH];
 	CHAR_DATA *victim;
@@ -772,27 +779,27 @@ void do_hunt( CHAR_DATA *ch, char *argument )
 
 	if (!clan_ok(ch,gsn_hunt)) return;
 
-    if ( !IS_NPC(ch)
-    &&   ch->level < skill_table[gsn_hunt].skill_level[ch->class] )
-    {
-	send_to_char("Huh?\n\r", ch );
+	if (!IS_NPC(ch)
+	&&   ch->level < skill_table[gsn_hunt].skill_level[ch->class])
+	{
+	send_to_char("Huh?\n\r", ch);
 	return;
-    }
+	}
 
-  one_argument( argument, arg );
+  one_argument(argument, arg);
 
-  if( arg[0] == '\0' )
-    {
-      send_to_char( "Whom are you trying to hunt?\n\r", ch );
-      return;
-    }
+  if(arg[0] == '\0')
+	{
+	  send_to_char("Whom are you trying to hunt?\n\r", ch);
+	  return;
+	}
 
-/*  fArea = ( get_trust(ch) < MAX_LEVEL ); */
+/*  fArea = (get_trust(ch) < MAX_LEVEL); */
   fArea = !(IS_IMMORTAL(ch));
 
-  if ( ch->level >= skill_table[gsn_world_find].skill_level[ch->class] )
+  if (ch->level >= skill_table[gsn_world_find].skill_level[ch->class])
 	{
-	 if (number_percent() < get_skill(ch,gsn_world_find) )
+	 if (number_percent() < get_skill(ch,gsn_world_find))
 	  {
 	   fArea = 0;
 	   check_improve(ch,gsn_world_find,TRUE,1);
@@ -800,28 +807,28 @@ void do_hunt( CHAR_DATA *ch, char *argument )
 	 check_improve(ch,gsn_world_find,FALSE,1);
 	}
 
-  if( fArea )
-    victim = get_char_area( ch, arg);
+  if(fArea)
+	victim = get_char_area(ch, arg);
   else
-    victim = get_char_world( ch, arg);
+	victim = get_char_world(ch, arg);
 
-  if( victim == NULL )
-    {
-      send_to_char("No-one around by that name.\n\r", ch );
-      return;
-    }
+  if(victim == NULL)
+	{
+	  send_to_char("No-one around by that name.\n\r", ch);
+	  return;
+	}
 
-  if( ch->in_room == victim->in_room )
-    {
-      act( "$N is here!", ch, NULL, victim, TO_CHAR );
-      return;
-    }
+  if(ch->in_room == victim->in_room)
+	{
+	  act("$N is here!", ch, NULL, victim, TO_CHAR);
+	  return;
+	}
 
-  if( IS_NPC( ch  ) )
+  if(IS_NPC(ch ))
   {
-    ch->hunting = victim;
-    hunt_victim( ch );
-    return;
+	ch->hunting = victim;
+	hunt_victim(ch);
+	return;
   }
 
 
@@ -830,56 +837,56 @@ void do_hunt( CHAR_DATA *ch, char *argument )
    */
   if (!IS_IMMORTAL(ch))
 {
-  if( ch->endur > 2 )
-    ch->endur -= 3;
+  if(ch->endur > 2)
+	ch->endur -= 3;
   else
-    {
-      send_to_char( "You're too exhausted to hunt anyone!\n\r", ch );
-      return;
-    }
+	{
+	  send_to_char("You're too exhausted to hunt anyone!\n\r", ch);
+	  return;
+	}
 }
 
-  act( "$n stares intently at the ground.", ch, NULL, NULL, TO_ROOM );
+  act("$n stares intently at the ground.", ch, NULL, NULL, TO_ROOM);
 
-  WAIT_STATE( ch, skill_table[gsn_hunt].beats );
-  direction = find_path( ch->in_room->vnum, victim->in_room->vnum,
-			ch, -40000, fArea );
+  WAIT_STATE(ch, skill_table[gsn_hunt].beats);
+  direction = find_path(ch->in_room->vnum, victim->in_room->vnum,
+			ch, -40000, fArea);
 
-  if( direction == -1 )
-    {
-      act( "You couldn't find a path to $N from here.",
-	  ch, NULL, victim, TO_CHAR );
-      return;
-    }
+  if(direction == -1)
+	{
+	  act("You couldn't find a path to $N from here.",
+	  ch, NULL, victim, TO_CHAR);
+	  return;
+	}
 
-  if( direction < 0 || direction > 5 )
-    {
-      send_to_char( "Hmm... Something seems to be wrong.\n\r", ch );
-      return;
-    }
+  if(direction < 0 || direction > 5)
+	{
+	  send_to_char("Hmm... Something seems to be wrong.\n\r", ch);
+	  return;
+	}
 
   /*
    * Give a random direction if the player misses the die roll.
    */
-  if ( IS_NPC (ch) && number_percent () > 75)        /* NPC @ 25% */
-    {
-    log_string("Do PC hunt");
-    ok=FALSE;
-    for(i=0;i<6;i++) {
-    	if (ch->in_room->exit[direction]!=NULL) {
-    		ok=TRUE;
-    		break;
-    		}
-    	}
-    if (ok)	
-    {
-      do
+  if (IS_NPC (ch) && number_percent () > 75)        /* NPC @ 25% */
+	{
+	log_string("Do PC hunt");
+	ok=FALSE;
+	for(i=0;i<6;i++) {
+		if (ch->in_room->exit[direction]!=NULL) {
+			ok=TRUE;
+			break;
+			}
+		}
+	if (ok)	
+	{
+	  do
 	{
 	  direction = number_door();
 	}
-      while( ( ch->in_room->exit[direction] == NULL )
-	    || ( ch->in_room->exit[direction]->u1.to_room == NULL) );
-    }
+	  while((ch->in_room->exit[direction] == NULL)
+	    || (ch->in_room->exit[direction]->u1.to_room == NULL));
+	}
 else {
 	  log_string("Do hunt, player hunt, no exits from room!");
   	  ch->hunting=NULL;
@@ -896,272 +903,239 @@ else {
 }
 
 
+void hunt_victim_attack(CHAR_DATA* ch)
+{
+	if (ch->in_room == NULL || ch->hunting == NULL)
+		return;
+
+	if (ch->in_room == ch->hunting->in_room) {
+		act("$n glares at $N and says, '{GYe shall DIE!{x'.",
+		    ch, NULL, ch->hunting, TO_NOTVICT);
+		act("$n glares at you and says, '{GYe shall DIE!{x'.",
+		    ch, NULL, ch->hunting, TO_VICT);
+		act("You glare at $N and say, '{GYe shall DIE!{x'.",
+		    ch, NULL, ch->hunting, TO_CHAR);
+		multi_hit(ch, ch->hunting, TYPE_UNDEFINED);
+		ch->hunting = NULL;
+	}  
+}
+
 /*
  * revised by chronos.
  */
-void hunt_victim( CHAR_DATA *ch )
+void hunt_victim(CHAR_DATA *ch)
 {
-  int		dir;
-  bool		found;
-  CHAR_DATA	*tmp;
-  char		tBuf[MAX_INPUT_LENGTH];
+	int		dir;
+	bool		found;
+	CHAR_DATA	*tmp;
 
-  /*
-   * Make sure the victim still exists.
-   */
-  for( found = 0, tmp = char_list; tmp && !found; tmp = tmp->next )
-    if( ch->hunting == tmp )
-      found = 1;
+	/*
+	 * Make sure the victim still exists.
+	 */
+	for(found = FALSE, tmp = char_list; tmp && !found; tmp = tmp->next)
+		if (ch->hunting == tmp)
+			found = TRUE;
 
-  if( !found || !can_see( ch, ch->hunting ) )
-    {
-     if( get_char_area( ch, ch->hunting->name) != NULL )
-        {
-           sprintf( tBuf, "portal %s", ch->hunting->name );
-           log_string("mob portal");
-           do_cast( ch, tBuf );
-           log_string("do_enter1");
-           do_enter( ch, "portal" );
-	   if (ch->in_room==NULL || ch->hunting==NULL) return;
-	   if( ch->in_room == ch->hunting->in_room )
-	    {
-	      act( "$n glares at $N and says, 'Ye shall DIE!'",
-		  ch, NULL, ch->hunting, TO_NOTVICT );
-	      act( "$n glares at you and says, 'Ye shall DIE!'",
-		  ch, NULL, ch->hunting, TO_VICT );
-	      act( "You glare at $N and say, 'Ye shall DIE!",
-		  ch, NULL, ch->hunting, TO_CHAR);
-	      multi_hit( ch, ch->hunting, TYPE_UNDEFINED );
-	      ch->hunting = NULL;
-	      return;
-	    }  
-	   log_string("done1");  
-	   return;
-        } 
-       else 
-	{ 
-         do_say( ch, "Ahhhh!  My prey is gone!!" );
-         ch->hunting = NULL;
-         return;
-        }  
-    }   /* end if !found or !can_see */ 
+	if(!found || !can_see(ch, ch->hunting)) {
+		if (get_char_area(ch, ch->hunting->name) != NULL) {
+	    		log_string("mob portal");
+	    		doprintf(do_cast, ch, "portal %s", ch->hunting->name);
+	    		log_string("do_enter1");
+	    		do_enter(ch, "portal");
+			hunt_victim_attack(ch);
+			log_string("done1");  
+		} 
+		else { 
+			do_say(ch, "Ahhhh!  My prey is gone!!");
+			ch->hunting = NULL;
+		}  
+		return;
+	}   /* end if !found or !can_see */ 
 
+ 	dir = find_path(ch->in_room->vnum, ch->hunting->in_room->vnum,
+			ch, -40000, TRUE);
 
-
-  dir = find_path( ch->in_room->vnum, ch->hunting->in_room->vnum,
-		  ch, -40000, TRUE );
-
-  if( dir < 0 || dir > 5 )
-  {
-/* 1 */ 
-    if( get_char_area( ch, ch->hunting->name) != NULL  
-        && ch-> level > 35 )
-    {
-      sprintf( tBuf, "portal %s", ch->hunting->name );
-      log_string("mob portal");
-      do_cast( ch, tBuf );
-      log_string("do_enter2");
-      do_enter( ch, "portal" );
-      if (ch->in_room==NULL || ch->hunting==NULL) return;
-      if( ch->in_room == ch->hunting->in_room )
-       {
-      	act( "$n glares at $N and says, 'Ye shall DIE!'",
-		  ch, NULL, ch->hunting, TO_NOTVICT );
-	act( "$n glares at you and says, 'Ye shall DIE!'",
-		  ch, NULL, ch->hunting, TO_VICT );
-        act( "You glare at $N and say, 'Ye shall DIE!",
-		  ch, NULL, ch->hunting, TO_CHAR);
-        multi_hit( ch, ch->hunting, TYPE_UNDEFINED );
-        ch->hunting = NULL;
-        return;
-       }  
-      log_string("done2"); 
-      return;
-    }
-    else
-    { 
-      act( "$n says 'I have lost $M!'", ch, NULL, ch->hunting, TO_ROOM );
-      ch->hunting = NULL;
-      return;
-    }
-   } /* if dir < 0 or > 5 */  
+	if(dir < 0 || dir > 5) {
+		/* 1 */ 
+		if (get_char_area(ch, ch->hunting->name) != NULL  
+		&&  ch->level > 35) {
+			log_string("mob portal");
+			doprintf(do_cast, ch, "portal %s", ch->hunting->name);
+			log_string("do_enter2");
+			do_enter(ch, "portal");
+			hunt_victim_attack(ch);
+			log_string("done2"); 
+			}
+		else { 
+			doprintf(do_say, ch,
+				 "I have lost %s!", ch->hunting->name);
+			ch->hunting = NULL;
+		}
+		return;
+	} /* if dir < 0 or > 5 */  
 
 
-  if( ch->in_room->exit[dir] && IS_SET( ch->in_room->exit[dir]->exit_info, EX_CLOSED ) )
-    {
-      do_open( ch,(char *)dir_name[dir]);
-      return;
-    }
-  if (!ch->in_room->exit[dir]) {
+	if (ch->in_room->exit[dir]
+	&&  IS_SET(ch->in_room->exit[dir]->exit_info, EX_CLOSED)) {
+		do_open(ch,(char *)dir_name[dir]);
+		return;
+	}
+
+	if (!ch->in_room->exit[dir]) {
 		log_string("BUG:  hunt through null door");
 		ch->hunting = NULL;
 		return;
-		}
-  move_char( ch, dir, FALSE );
-  if (ch->in_room==NULL || ch->hunting==NULL) return;
-  if( ch->in_room == ch->hunting->in_room )
-    {
-      act( "$n glares at $N and says, 'Ye shall DIE!'",
-	  ch, NULL, ch->hunting, TO_NOTVICT );
-      act( "$n glares at you and says, 'Ye shall DIE!'",
-	  ch, NULL, ch->hunting, TO_VICT );
-      act( "You glare at $N and say, 'Ye shall DIE!",
-	  ch, NULL, ch->hunting, TO_CHAR);
-      multi_hit( ch, ch->hunting, TYPE_UNDEFINED );
-      ch->hunting = NULL;
-      return;
-    }  
-  return;
+	}
+	move_char(ch, dir, FALSE);
+	hunt_victim_attack(ch);
 }
 
-void hunt_victim_old( CHAR_DATA *ch )
+#ifdef 0
+void hunt_victim_old(CHAR_DATA *ch)
 {
   int		dir,i;
   bool		found,ok;
   CHAR_DATA	*tmp;
-  char		tBuf[MAX_INPUT_LENGTH];
 
-  if( ch == NULL || ch->hunting == NULL || !IS_NPC(ch) ) 
+  if(ch == NULL || ch->hunting == NULL || !IS_NPC(ch)) 
    {
-    if (IS_NPC(ch))
-      {
-    	if ((ROOM_INDEX_DATA*)ch->logon!=ch->in_room)
-    	log_string("HUNT: Return creature to original home!");
-       	act("\n\rA glowing portal appears.",ch,NULL,NULL,TO_ROOM);	    	
-    	act("$n steps through a glowing portal.\n\r",ch,NULL,NULL,TO_ROOM);
-       	char_from_room(ch);
-    	char_to_room(ch,(ROOM_INDEX_DATA*)ch->logon);
-        }
-    return;
+	if (IS_NPC(ch))
+	  {
+		if ((ROOM_INDEX_DATA*)ch->logon!=ch->in_room)
+		log_string("HUNT: Return creature to original home!");
+	   	act("\n\rA glowing portal appears.",ch,NULL,NULL,TO_ROOM);	    	
+		act("$n steps through a glowing portal.\n\r",ch,NULL,NULL,TO_ROOM);
+	   	char_from_room(ch);
+		char_to_room(ch,(ROOM_INDEX_DATA*)ch->logon);
+	    }
+	return;
    }
 
   /*
    * Make sure the victim still exists.
    */
-  for( found = 0, tmp = char_list; tmp && !found; tmp = tmp->next )
-    if( ch->hunting == tmp )
-      found = 1;
+  for(found = 0, tmp = char_list; tmp && !found; tmp = tmp->next)
+	if(ch->hunting == tmp)
+	  found = 1;
 
-  if( !found || !can_see( ch, ch->hunting ) )
-    {
-/*1 */  if( get_char_world( ch, ch->hunting->name) != NULL  
-            && ch-> level > 35 )
-        {
-           sprintf( tBuf, "portal %s", ch->hunting->name );
-           log_string("mob portal");
-           do_cast( ch, tBuf );
-           log_string("do_enter1");
-           do_enter( ch, "portal" );
+  if(!found || !can_see(ch, ch->hunting))
+	{
+/*1 */  if(get_char_world(ch, ch->hunting->name) != NULL  
+	        && ch-> level > 35)
+	    {
+	       log_string("mob portal");
+	       doprintf(do_cast, ch, "portal %s", ch->hunting->name);
+	       log_string("do_enter1");
+	       do_enter(ch, "portal");
   /* Deth...this shouldn't have to be here..but it got
   here in a core file with ch->hunting==null.. */
   if (ch->in_room==NULL || ch->hunting==NULL) return;
-  if( ch->in_room == ch->hunting->in_room )
-    {
-      act( "$n glares at $N and says, 'Ye shall DIE!'",
-	  ch, NULL, ch->hunting, TO_NOTVICT );
-      act( "$n glares at you and says, 'Ye shall DIE!'",
-	  ch, NULL, ch->hunting, TO_VICT );
-      act( "You glare at $N and say, 'Ye shall DIE!",
+  if(ch->in_room == ch->hunting->in_room)
+	{
+	  act("$n glares at $N and says, 'Ye shall DIE!'",
+	  ch, NULL, ch->hunting, TO_NOTVICT);
+	  act("$n glares at you and says, 'Ye shall DIE!'",
+	  ch, NULL, ch->hunting, TO_VICT);
+	  act("You glare at $N and say, 'Ye shall DIE!",
 	  ch, NULL, ch->hunting, TO_CHAR);
-      multi_hit( ch, ch->hunting, TYPE_UNDEFINED );
-      ch->hunting = NULL;
-      return;
-    }  
+	  multi_hit(ch, ch->hunting, TYPE_UNDEFINED);
+	  ch->hunting = NULL;
+	  return;
+	}  
 	   log_string("done1");  
 	   	return;
-        } 
-       else { 
-       if (IS_NPC(ch)) 
+	    } 
+	   else { 
+	   if (IS_NPC(ch)) 
 	 {
-          if ( (ROOM_INDEX_DATA*)ch->logon!=ch->in_room) 
-          {
-     	   log_string("HUNT: Send mob home");
-    	   act("\n\rA glowing portal appears.",ch,NULL,NULL,TO_ROOM);	    	
-    	   act("$n steps through a glowing portal.\n\r",ch,NULL,NULL,TO_ROOM); 
-       	   char_from_room(ch);
-    	   char_to_room(ch,(ROOM_INDEX_DATA*)ch->logon);
-    	  }
-         }
+	      if ((ROOM_INDEX_DATA*)ch->logon!=ch->in_room) 
+	      {
+	 	   log_string("HUNT: Send mob home");
+		   act("\n\rA glowing portal appears.",ch,NULL,NULL,TO_ROOM);	    	
+		   act("$n steps through a glowing portal.\n\r",ch,NULL,NULL,TO_ROOM); 
+	   	   char_from_room(ch);
+		   char_to_room(ch,(ROOM_INDEX_DATA*)ch->logon);
+		  }
+	     }
 
-         do_say( ch, "Ahhhh!  My prey is gone!!" );
-         ch->hunting = NULL;
-         return;
-        }  
-    }   /* end if !found or !can_see */ 
+	     do_say(ch, "Ahhhh!  My prey is gone!!");
+	     ch->hunting = NULL;
+	     return;
+	    }  
+	}   /* end if !found or !can_see */ 
 
 
 
-  dir = find_path( ch->in_room->vnum, ch->hunting->in_room->vnum,
-		  ch, -40000, TRUE );
+  dir = find_path(ch->in_room->vnum, ch->hunting->in_room->vnum,
+		  ch, -40000, TRUE);
 
-  if( dir < 0 || dir > 5 )
+  if(dir < 0 || dir > 5)
   {
 /* 1 */ 
-    if( get_char_area( ch, ch->hunting->name) != NULL  
-        && ch-> level > 35 )
-    {
-      sprintf( tBuf, "portal %s", ch->hunting->name );
-      log_string("mob portal");
-      do_cast( ch, tBuf );
-      log_string("do_enter2");
-      do_enter( ch, "portal" );
+	if(get_char_area(ch, ch->hunting->name) != NULL  
+	    && ch-> level > 35)
+	{
+	  log_string("mob portal");
+	  doprintf(do_cast, ch, "portal %s", ch->hunting->name);
+	  log_string("do_enter2");
+	  do_enter(ch, "portal");
   /* Deth...this shouldn't have to be here..but it got
   here in a core file with ch->hunting==null.. */
   if (ch->in_room==NULL || ch->hunting==NULL) return;
-  if( ch->in_room == ch->hunting->in_room )
-    {
-      act( "$n glares at $N and says, 'Ye shall DIE!'",
-	  ch, NULL, ch->hunting, TO_NOTVICT );
-      act( "$n glares at you and says, 'Ye shall DIE!'",
-	  ch, NULL, ch->hunting, TO_VICT );
-      act( "You glare at $N and say, 'Ye shall DIE!",
+  if(ch->in_room == ch->hunting->in_room)
+	{
+	  act("$n glares at $N and says, 'Ye shall DIE!'",
+	  ch, NULL, ch->hunting, TO_NOTVICT);
+	  act("$n glares at you and says, 'Ye shall DIE!'",
+	  ch, NULL, ch->hunting, TO_VICT);
+	  act("You glare at $N and say, 'Ye shall DIE!",
 	  ch, NULL, ch->hunting, TO_CHAR);
-      multi_hit( ch, ch->hunting, TYPE_UNDEFINED );
-      ch->hunting = NULL;
-      return;
-    }  
-      log_string("done2"); 
-      return;
-    }
-    else
-    { 
-     if (IS_NPC(ch)) 
-       {
-    	if ((ROOM_INDEX_DATA*)ch->logon!=ch->in_room)
-        {  
-          log_string("HUNT: return creature to original room");
+	  multi_hit(ch, ch->hunting, TYPE_UNDEFINED);
+	  ch->hunting = NULL;
+	  return;
+	}  
+	  log_string("done2"); 
+	  return;
+	}
+	else
+	{ 
+	 if (IS_NPC(ch)) 
+	   {
+		if ((ROOM_INDEX_DATA*)ch->logon!=ch->in_room)
+	    {  
+	      log_string("HUNT: return creature to original room");
 	  act("\n\rA glowing portal appears.",ch,NULL,NULL,TO_ROOM);	    	
 	  act("$n steps through a glowing portal.\n\r",ch,NULL,NULL,TO_ROOM);
 	  char_from_room(ch);
-    	  char_to_room(ch,(ROOM_INDEX_DATA*)ch->logon);
-    	}
-      }   
+		  char_to_room(ch,(ROOM_INDEX_DATA*)ch->logon);
+		}
+	  }   
 
-      act( "$n says 'I have lost $M!'", ch, NULL, ch->hunting, TO_ROOM );
-      ch->hunting = NULL;
-      return;
-    }
+	  act("$n says 'I have lost $M!'", ch, NULL, ch->hunting, TO_ROOM);
+	  ch->hunting = NULL;
+	  return;
+	}
    } /* if dir < 0 or > 5 */  
 
   /*
    * Give a random direction if the mob misses the die roll.
    */
-  if( number_percent () > 75 )        /* @ 25% */
-    {
-    	ok=FALSE;
-        for(i=0;i<6;i++) {
-    	if (ch->in_room->exit[dir]!=NULL) {
-    		ok=TRUE;
-    		break;
-    		}
-    	}
+  if(number_percent () > 75)        /* @ 25% */
+	{
+		ok=FALSE;
+	    for(i=0;i<6;i++) {
+		if (ch->in_room->exit[dir]!=NULL) {
+			ok=TRUE;
+			break;
+			}
+		}
 	if(ok) {
-      do
-        {
+	  do
+	    {
 	  dir = number_door();
-        }
-      while( ( ch->in_room->exit[dir] == NULL )
-	    || ( ch->in_room->exit[dir]->u1.to_room == NULL ) );
+	    }
+	  while((ch->in_room->exit[dir] == NULL)
+	    || (ch->in_room->exit[dir]->u1.to_room == NULL));
 	   }
 	  else {
 	  log_string("Do hunt, player hunt, no exits from room!");
@@ -1169,38 +1143,38 @@ void hunt_victim_old( CHAR_DATA *ch )
   	  send_to_char("Your room has not exits!!!!\n\r",ch);
   	  return;
   	}	    
-    }
-    
+	}
+	
 
 
-  if( ch->in_room->exit[dir] && IS_SET( ch->in_room->exit[dir]->exit_info, EX_CLOSED ) )
-    {
-      do_open( ch,(char *)dir_name[dir]);
-      return;
-    }
+  if(ch->in_room->exit[dir] && IS_SET(ch->in_room->exit[dir]->exit_info, EX_CLOSED))
+	{
+	  do_open(ch,(char *)dir_name[dir]);
+	  return;
+	}
 	if (!ch->in_room->exit[dir]) {
 		log_string("BUG:  hunt through null door");
 		return;
 		}
-  move_char( ch, dir, FALSE );
+  move_char(ch, dir, FALSE);
   /* Deth...this shouldn't have to be here..but it got
   here in a core file with ch->hunting==null.. */
   if (ch->in_room==NULL || ch->hunting==NULL) return;
-  if( ch->in_room == ch->hunting->in_room )
-    {
-      act( "$n glares at $N and says, 'Ye shall DIE!'",
-	  ch, NULL, ch->hunting, TO_NOTVICT );
-      act( "$n glares at you and says, 'Ye shall DIE!'",
-	  ch, NULL, ch->hunting, TO_VICT );
-      act( "You glare at $N and say, 'Ye shall DIE!",
+  if(ch->in_room == ch->hunting->in_room)
+	{
+	  act("$n glares at $N and says, 'Ye shall DIE!'",
+	  ch, NULL, ch->hunting, TO_NOTVICT);
+	  act("$n glares at you and says, 'Ye shall DIE!'",
+	  ch, NULL, ch->hunting, TO_VICT);
+	  act("You glare at $N and say, 'Ye shall DIE!",
 	  ch, NULL, ch->hunting, TO_CHAR);
-      multi_hit( ch, ch->hunting, TYPE_UNDEFINED );
-      ch->hunting = NULL;
-      return;
-    }  
+	  multi_hit(ch, ch->hunting, TYPE_UNDEFINED);
+	  ch->hunting = NULL;
+	  return;
+	}  
   return;
 }
-
+#endif
 
 /***************************************************************************
  ************************      repair.c       ******************************
@@ -1209,7 +1183,7 @@ void hunt_victim_old( CHAR_DATA *ch )
 void damage_to_obj(CHAR_DATA *ch,OBJ_DATA *wield, OBJ_DATA *worn, int damage) 
 {
 
- 	if ( damage == 0) return;
+ 	if (damage == 0) return;
  		worn->condition -= damage;
 
 	act_puts("{gThe $p inflicts damage on {r$P{g.{x",
@@ -1229,7 +1203,7 @@ void damage_to_obj(CHAR_DATA *ch,OBJ_DATA *wield, OBJ_DATA *worn, int damage)
 		act_puts("$p doesn't want to fight against $P.", ch, wield, worn, TO_ROOM, POS_RESTING);
 		act_puts("$p removes itself from you!", ch, wield, worn, TO_CHAR, POS_RESTING);
 		act_puts("$p removes itself from $n.", ch, wield, worn, TO_ROOM, POS_RESTING);
-		unequip_char( ch, wield );
+		unequip_char(ch, wield);
 		return;
  	}
 
@@ -1246,26 +1220,26 @@ void check_weapon_destroy(CHAR_DATA *ch, CHAR_DATA *victim,bool second)
  OBJ_DATA *wield,*destroy;
  int skill,chance=0,sn,i;
 
- if (IS_NPC(victim) || number_percent() < 94 )  return;
+ if (IS_NPC(victim) || number_percent() < 94)  return;
 
  if (!second)
 	{
-	 if ( (wield = get_eq_char(ch,WEAR_WIELD)) == NULL)
+	 if ((wield = get_eq_char(ch,WEAR_WIELD)) == NULL)
 	 return;
  	 sn = get_weapon_sn(ch);
- 	 skill = get_skill(ch, sn );
+ 	 skill = get_skill(ch, sn);
 	}
   else  {
-	 if ( (wield = get_eq_char(ch,WEAR_SECOND_WIELD)) == NULL)
+	 if ((wield = get_eq_char(ch,WEAR_SECOND_WIELD)) == NULL)
 	 return;
  	 sn = get_second_sn(ch);
- 	 skill = get_skill(ch, sn );
+ 	 skill = get_skill(ch, sn);
 	}
  if (is_metal(wield))
-      {
+	  {
 	for (i=0;i < MAX_WEAR; i++) 
 	{
-	 if ( ( destroy = get_eq_char(victim,i) ) == NULL 
+	 if ((destroy = get_eq_char(victim,i)) == NULL 
 		|| number_percent() > 95
 		|| number_percent() > 94
 	 	|| number_percent() > skill
@@ -1273,45 +1247,45 @@ void check_weapon_destroy(CHAR_DATA *ch, CHAR_DATA *victim,bool second)
 		|| check_material(destroy,"platinum") 
 		|| destroy->pIndexData->limit != -1
 		|| (i == WEAR_WIELD || i== WEAR_SECOND_WIELD 
-			|| i == WEAR_TATTOO || i == WEAR_STUCK_IN) )
+			|| i == WEAR_TATTOO || i == WEAR_STUCK_IN))
 	 continue;
 	
 	 chance += 20;
-	 if ( check_material(wield, "platinium") ||
-	      check_material(wield, "titanium") )
+	 if (check_material(wield, "platinium") ||
+	      check_material(wield, "titanium"))
 	 chance += 5;
 
-	 if ( is_metal(destroy) )  chance -= 20;
+	 if (is_metal(destroy))  chance -= 20;
 	 else 			chance += 20; 
 
-	 chance += ( (ch->level - victim->level) / 5);
+	 chance += ((ch->level - victim->level) / 5);
 
-	 chance += ( (wield->level - destroy->level) / 2 );
+	 chance += ((wield->level - destroy->level) / 2);
 
 	/* sharpness	*/
-	 if ( IS_WEAPON_STAT(wield,WEAPON_SHARP) )
+	 if (IS_WEAPON_STAT(wield,WEAPON_SHARP))
 		chance += 10;
 
-	 if ( sn == gsn_axe ) chance += 10;
+	 if (sn == gsn_axe) chance += 10;
 	/* spell affects */
-	 if ( IS_OBJ_STAT( destroy, ITEM_BLESS) ) chance -= 10;
-	 if ( IS_OBJ_STAT( destroy, ITEM_MAGIC) ) chance -= 20;
+	 if (IS_OBJ_STAT(destroy, ITEM_BLESS)) chance -= 10;
+	 if (IS_OBJ_STAT(destroy, ITEM_MAGIC)) chance -= 20;
 	 
 	 chance += skill - 85 ;
-	 chance += get_curr_stat( ch, STAT_STR);
+	 chance += get_curr_stat(ch, STAT_STR);
 
 /*	 chance /= 2;	*/
 	 if (number_percent() < chance && chance > 50)
 		{
-		 damage_to_obj(ch,wield,destroy, (chance / 5) );
+		 damage_to_obj(ch,wield,destroy, (chance / 5));
 		 break;
 		}
 	}
-      }
+	  }
  else {
 	for (i=0;i < MAX_WEAR;i++) 
 	{
-	 if ( ( destroy = get_eq_char(victim,i) ) == NULL 
+	 if ((destroy = get_eq_char(victim,i)) == NULL 
 		|| number_percent() > 95
 		|| number_percent() > 94
 	 	|| number_percent() < skill
@@ -1319,38 +1293,38 @@ void check_weapon_destroy(CHAR_DATA *ch, CHAR_DATA *victim,bool second)
 		|| check_material(destroy,"platinum") 
 		|| destroy->pIndexData->limit != -1
 		|| (i == WEAR_WIELD || i== WEAR_SECOND_WIELD 
-			|| i == WEAR_TATTOO || i == WEAR_STUCK_IN ) )
+			|| i == WEAR_TATTOO || i == WEAR_STUCK_IN))
 	 continue;
 	
 	 chance += 10;
 
-	 if ( is_metal(destroy) )  chance -= 20;
+	 if (is_metal(destroy))  chance -= 20;
 
 	 chance += (ch->level - victim->level);
 
 	 chance += (wield->level - destroy->level);
 
 	/* sharpness	*/
-	 if ( IS_WEAPON_STAT(wield,WEAPON_SHARP) )
+	 if (IS_WEAPON_STAT(wield,WEAPON_SHARP))
 		chance += 10;
 
-	 if ( sn == gsn_axe ) chance += 10;
+	 if (sn == gsn_axe) chance += 10;
 
 	/* spell affects */
-	 if ( IS_OBJ_STAT( destroy, ITEM_BLESS) ) chance -= 10;
-	 if ( IS_OBJ_STAT( destroy, ITEM_MAGIC) ) chance -= 20;
+	 if (IS_OBJ_STAT(destroy, ITEM_BLESS)) chance -= 10;
+	 if (IS_OBJ_STAT(destroy, ITEM_MAGIC)) chance -= 20;
 	 
 	 chance += skill - 85 ;
-	 chance += get_curr_stat( ch, STAT_STR);
+	 chance += get_curr_stat(ch, STAT_STR);
 
 /*	 chance /= 2;	*/
 	 if (number_percent() < chance && chance > 50)
 		{
-		 damage_to_obj(ch,wield,destroy, chance / 5 );
+		 damage_to_obj(ch,wield,destroy, chance / 5);
 		 break;
 		}
 	}
-      }
+	  }
 
  return;
 }
@@ -1358,160 +1332,155 @@ void check_weapon_destroy(CHAR_DATA *ch, CHAR_DATA *victim,bool second)
 
 void do_repair(CHAR_DATA *ch, char *argument)
 {
-    CHAR_DATA *mob;
-    char arg[MAX_INPUT_LENGTH];
-    char buf[MAX_INPUT_LENGTH];
-    OBJ_DATA *obj;
-    int cost;
+	CHAR_DATA *mob;
+	char arg[MAX_INPUT_LENGTH];
+	OBJ_DATA *obj;
+	int cost;
 
-    for ( mob = ch->in_room->people; mob; mob = mob->next_in_room )
-    {
-        if (!IS_NPC(mob)) continue;
-	if (mob->spec_fun == spec_lookup("spec_repairman") )
-            break;
-    }
+	for (mob = ch->in_room->people; mob; mob = mob->next_in_room)
+	{
+	    if (!IS_NPC(mob)) continue;
+	if (mob->spec_fun == spec_lookup("spec_repairman"))
+	        break;
+	}
  
-    if ( mob == NULL )
-    {
-        send_to_char( "You can't do that here.\n\r", ch );
-        return;
-    }
+	if (mob == NULL)
+	{
+	    send_to_char("You can't do that here.\n\r", ch);
+	    return;
+	}
 
-    one_argument(argument,arg);
+	one_argument(argument,arg);
 
-    if (arg[0] == '\0')
-    {
+	if (arg[0] == '\0') {
 	do_say(mob,"I will repair a weapon for you, for a price.");
 	send_to_char("Type estimate <weapon> to be assessed for damage.\n\r",ch);
 	return;
-    }
-    if (( obj = get_obj_carry(ch, arg)) == NULL)
-    {
+	}
+	if ((obj = get_obj_carry(ch, arg)) == NULL)
+	{
 	do_say(mob,"You don't have that item");
 	return;
-    }
+	}
 
-    if (obj->pIndexData->vnum == OBJ_VNUM_HAMMER)
-    {
-     do_say(mob,"That hammer is beyond my power.");
-     return;
-    }
+	if (obj->pIndexData->vnum == OBJ_VNUM_HAMMER)
+	{
+	 do_say(mob,"That hammer is beyond my power.");
+	 return;
+	}
 
-    if (obj->condition >= 100)
-    {
+	if (obj->condition >= 100) {
 	do_say(mob,"But that item is not broken.");
-        return;
-    }
+	    return;
+	}
 
-    if (obj->cost == 0) {
+	if (obj->cost == 0) {
 	doprintf(do_say, mob, "%s is beyond repair.\n\r", obj->short_descr);
    	return;
-    }
+	}
 
-    cost = ( (obj->level * 10) +
-		((obj->cost * (100 - obj->condition)) /100)    );
-    cost /= 100;
+	cost = ((obj->level * 10) +
+		((obj->cost * (100 - obj->condition)) /100)   );
+	cost /= 100;
 
-    if (cost > ch->gold)
-    {
+	if (cost > ch->gold) {
 	do_say(mob,"You do not have enough gold for my services.");
 	return;
-    }
+	}
 
-    WAIT_STATE(ch,PULSE_VIOLENCE);
+	WAIT_STATE(ch,PULSE_VIOLENCE);
 
-    ch->gold -= cost;
-    mob->gold += cost;
-    sprintf(buf, "$N takes %s from $n, repairs it, and returns it to $n", obj->short_descr); 
-    act(buf,ch,NULL,mob,TO_ROOM);
-    sprintf(buf, "%s takes %s, repairs it, and returns it\n\r", mob->short_descr, obj->short_descr);
-    send_to_char(buf, ch);
-    obj->condition = 100;
+	ch->gold -= cost;
+	mob->gold += cost;
+	act_printf(ch, NULL, mob, TO_ROOM, POS_RESTING,
+			   "$N takes %s from $n, repairs it, and returns it to $n",
+		   obj->short_descr); 
+	char_printf(ch, "%s takes %s, repairs it, and returns it\n\r",
+		    mob->short_descr, obj->short_descr);
+	obj->condition = 100;
 }
 
 void do_estimate(CHAR_DATA *ch, char *argument)
 {
-    OBJ_DATA *obj;
-    CHAR_DATA *mob; 
-    char arg[MAX_INPUT_LENGTH];
-    int cost;
-    
-    for ( mob = ch->in_room->people; mob; mob = mob->next_in_room )
-    {
-        if (!IS_NPC(mob)) continue;
-	if (mob->spec_fun == spec_lookup("spec_repairman") )
-            break;
-    }
+	OBJ_DATA *obj;
+	CHAR_DATA *mob; 
+	char arg[MAX_INPUT_LENGTH];
+	int cost;
+	
+	for (mob = ch->in_room->people; mob; mob = mob->next_in_room)
+	{
+	    if (!IS_NPC(mob)) continue;
+	if (mob->spec_fun == spec_lookup("spec_repairman"))
+	        break;
+	}
  
-    if ( mob == NULL )
-    {
-        send_to_char( "You can't do that here.\n\r", ch );
-        return;
-    }
-    
-    one_argument(argument, arg);
-    
-    if (arg[0] == '\0')
-    {
+	if (mob == NULL)
+	{
+	    send_to_char("You can't do that here.\n\r", ch);
+	    return;
+	}
+	
+	one_argument(argument, arg);
+	
+	if (arg[0] == '\0')
+	{
 	do_say(mob,"Try estimate <item>");
    	return; 
-    } 
-    if ((obj = (get_obj_carry(ch, arg))) == NULL)
-    {
+	} 
+	if ((obj = (get_obj_carry(ch, arg))) == NULL)
+	{
 	do_say(mob,"You don't have that item");
 	return;
-    }
-    if (obj->pIndexData->vnum == OBJ_VNUM_HAMMER)
+	}
+	if (obj->pIndexData->vnum == OBJ_VNUM_HAMMER)
 	{
 	    do_say(mob,"That hammer is beyond my power.");
 	    return;
 	}
-    if (obj->condition >= 100)
-    {
+	if (obj->condition >= 100)
+	{
 	do_say(mob,"But that item's not broken");
 	return;
-    }
-    if (obj->cost == 0)
-    {
+	}
+	if (obj->cost == 0)
+	{
 	do_say(mob,"That item is beyond repair");
-    	return;
-    } 
-    
-    cost = ( (obj->level * 10) +
-		((obj->cost * (100 - obj->condition)) /100)    );
-    cost /= 100;
+		return;
+	} 
+	
+	cost = ((obj->level * 10) +
+		((obj->cost * (100 - obj->condition)) /100)   );
+	cost /= 100;
 
 	doprintf(do_say, mob, "It will cost %d to fix that item", cost);
 }
 
-void do_restring( CHAR_DATA *ch, char *argument )
+void do_restring(CHAR_DATA *ch, char *argument)
 {
-    char buf  [MAX_INPUT_LENGTH];
-    char arg  [MAX_INPUT_LENGTH];
-    char arg1 [MAX_INPUT_LENGTH];
-    char arg2 [MAX_INPUT_LENGTH];
-    CHAR_DATA *mob;
-    OBJ_DATA *obj;
-    int cost = 2000;
+	char arg  [MAX_INPUT_LENGTH];
+	char arg1 [MAX_INPUT_LENGTH];
+	char arg2 [MAX_INPUT_LENGTH];
+	CHAR_DATA *mob;
+	OBJ_DATA *obj;
+	int cost = 2000;
 
-    for ( mob = ch->in_room->people; mob; mob = mob->next_in_room )
-    {
-        if ( IS_NPC(mob) && IS_SET(mob->act, ACT_IS_HEALER) )
-            break;
-    }
+	for (mob = ch->in_room->people; mob; mob = mob->next_in_room)
+	{
+	    if (IS_NPC(mob) && IS_SET(mob->act, ACT_IS_HEALER))
+	        break;
+	}
  
-    if ( mob == NULL )
-    {
-        send_to_char( "You can't do that here.\n\r", ch );
-        return;
-    }
+	if (mob == NULL) {
+	    send_to_char("You can't do that here.\n\r", ch);
+	    return;
+	}
 
-    smash_tilde( argument );
-    argument = one_argument( argument, arg );
-    argument = one_argument( argument, arg1 );
-    strcpy( arg2, argument );
+	smash_tilde(argument);
+	argument = one_argument(argument, arg);
+	argument = one_argument(argument, arg1);
+	strcpy(arg2, argument);
 
-	if ( arg[0] == '\0' || arg1[0] == '\0' || arg2[0] == '\0' )
+	if (arg[0] == '\0' || arg1[0] == '\0' || arg2[0] == '\0')
 	{
 		send_to_char("Syntax:\n\r",ch);
 		send_to_char("  restring <obj> <field> <string>\n\r",ch);
@@ -1519,37 +1488,37 @@ void do_restring( CHAR_DATA *ch, char *argument )
 		return;
 	}
 
-    if ((obj = (get_obj_carry(ch, arg))) == NULL)
-    {
+	if ((obj = (get_obj_carry(ch, arg))) == NULL)
+	{
 		send_to_char("The Stringer says '`sYou don't have that item``.'\n\r", ch);
 		return;
-    }
+	}
 
 	cost += (obj->level * 1500);
 
-    if (cost > ch->gold)
-    {
+	if (cost > ch->gold)
+	{
 		act("$N says 'You do not have enough gold for my services.'",
 		  ch,NULL,mob,TO_CHAR);
 		return;
-    }
-    
-	if ( !str_prefix( arg1, "name" ) )
+	}
+	
+	if (!str_prefix(arg1, "name"))
 	{
-		free_string( obj->name );
-		obj->name = str_dup( arg2 );
+		free_string(obj->name);
+		obj->name = str_dup(arg2);
 	}
 	else
-	if ( !str_prefix( arg1, "short" ) )
+	if (!str_prefix(arg1, "short"))
 	{
-		free_string( obj->short_descr );
-        obj->short_descr = str_dup(arg2);
+		free_string(obj->short_descr);
+	    obj->short_descr = str_dup(arg2);
 	}
 	else
-	if ( !str_prefix( arg1, "long" ) )
+	if (!str_prefix(arg1, "long"))
 	{
-		free_string( obj->description );
-		obj->description = str_dup( arg2 );
+		free_string(obj->description);
+		obj->description = str_dup(arg2);
 	}
 	else
 	{
@@ -1557,16 +1526,15 @@ void do_restring( CHAR_DATA *ch, char *argument )
 		return;
 	}
 	
-    WAIT_STATE(ch,PULSE_VIOLENCE);
+	WAIT_STATE(ch,PULSE_VIOLENCE);
 
-    ch->gold -= cost;
-    mob->gold += cost;
-    sprintf(buf, "$N takes $n's item, tinkers with it, and returns it to $n.");
-	act(buf,ch,NULL,mob,TO_ROOM);
-  sprintf(buf,"%s takes your item, tinkers with it, and returns %s to you.\n\r", mob->short_descr, obj->short_descr);
-  send_to_char(buf,ch);
-  send_to_char("Remember, if we find your new string offensive, we will not be happy.\n\r", ch);
-  send_to_char(" This is your ONE AND ONLY Warning.\n\r", ch);
+	ch->gold -= cost;
+	mob->gold += cost;
+	act_printf(ch, NULL, mob, TO_ROOM, POS_RESTING,
+		  "$N takes $n's item, tinkers with it, and returns it to $n.");
+	char_printf(ch, "%s takes your item, tinkers with it, and returns %s to you.\n\r", mob->short_descr, obj->short_descr);
+	send_to_char("Remember, if we find your new string offensive, we will not be happy.\n\r", ch);
+	send_to_char(" This is your ONE AND ONLY Warning.\n\r", ch);
 }
 
 void check_shield_destroyed(CHAR_DATA *ch, CHAR_DATA *victim,bool second)
@@ -1574,101 +1542,101 @@ void check_shield_destroyed(CHAR_DATA *ch, CHAR_DATA *victim,bool second)
  OBJ_DATA *wield,*destroy;
  int skill,chance=0,sn;
 
- if (IS_NPC(victim) || number_percent() < 94 )  return;
+ if (IS_NPC(victim) || number_percent() < 94)  return;
 
  if (!second)
 	{
-	 if ( (wield = get_eq_char(ch,WEAR_WIELD)) == NULL)
+	 if ((wield = get_eq_char(ch,WEAR_WIELD)) == NULL)
 	 return;
  	 sn = get_weapon_sn(ch);
- 	 skill = get_skill(ch, sn );
+ 	 skill = get_skill(ch, sn);
 	}
   else  {
-	 if ( (wield = get_eq_char(ch,WEAR_SECOND_WIELD)) == NULL)
+	 if ((wield = get_eq_char(ch,WEAR_SECOND_WIELD)) == NULL)
 	 return;
  	 sn = get_second_sn(ch);
- 	 skill = get_skill(ch, sn );
+ 	 skill = get_skill(ch, sn);
 	}
 
  destroy = get_eq_char(victim,WEAR_SHIELD);
  if (destroy == NULL) return; 
 
  if (is_metal(wield))
-      {
-	 if (   number_percent() > 94
+	  {
+	 if (  number_percent() > 94
 	 	|| number_percent() > skill
 		|| ch->level < (victim->level - 10) 
 		|| check_material(destroy,"platinum") 
-		|| destroy->pIndexData->limit != -1 )
+		|| destroy->pIndexData->limit != -1)
 	 return;
 	
 	 chance += 20;
-	 if ( check_material(wield, "platinium") ||
-	      check_material(wield, "titanium") )
+	 if (check_material(wield, "platinium") ||
+	      check_material(wield, "titanium"))
 	 chance += 5;
 
-	 if ( is_metal(destroy) )  chance -= 20;
+	 if (is_metal(destroy))  chance -= 20;
 	 else 			chance += 20; 
 
-	 chance += ( (ch->level - victim->level) / 5);
+	 chance += ((ch->level - victim->level) / 5);
 
-	 chance += ( (wield->level - destroy->level) / 2 );
+	 chance += ((wield->level - destroy->level) / 2);
 
 	/* sharpness	*/
-	 if ( IS_WEAPON_STAT(wield,WEAPON_SHARP) )
+	 if (IS_WEAPON_STAT(wield,WEAPON_SHARP))
 		chance += 10;
 
-	 if ( sn == gsn_axe ) chance += 10;
+	 if (sn == gsn_axe) chance += 10;
 	/* spell affects */
-	 if ( IS_OBJ_STAT( destroy, ITEM_BLESS) ) chance -= 10;
-	 if ( IS_OBJ_STAT( destroy, ITEM_MAGIC) ) chance -= 20;
+	 if (IS_OBJ_STAT(destroy, ITEM_BLESS)) chance -= 10;
+	 if (IS_OBJ_STAT(destroy, ITEM_MAGIC)) chance -= 20;
 	 
 	 chance += skill - 85 ;
-	 chance += get_curr_stat( ch, STAT_STR);
+	 chance += get_curr_stat(ch, STAT_STR);
 
 /* 	 chance /= 2;	*/
-	 if (number_percent() < chance && chance > 20 )
+	 if (number_percent() < chance && chance > 20)
 		{
-		 damage_to_obj(ch,wield,destroy, (chance / 4) );
+		 damage_to_obj(ch,wield,destroy, (chance / 4));
 		 return;
 		}
-      }
+	  }
  else {
-	 if (   number_percent() > 94
+	 if (  number_percent() > 94
 	 	|| number_percent() < skill
 		|| ch->level < (victim->level - 10) 
 		|| check_material(destroy,"platinum") 
-		|| destroy->pIndexData->limit != -1 )
+		|| destroy->pIndexData->limit != -1)
 	 return;
 	
 	 chance += 10;
 
-	 if ( is_metal(destroy) )  chance -= 20;
+	 if (is_metal(destroy))  chance -= 20;
 
 	 chance += (ch->level - victim->level);
 
 	 chance += (wield->level - destroy->level);
 
 	/* sharpness	*/
-	 if ( IS_WEAPON_STAT(wield,WEAPON_SHARP) )
+	 if (IS_WEAPON_STAT(wield,WEAPON_SHARP))
 		chance += 10;
 
-	 if ( sn == gsn_axe ) chance += 10;
+	 if (sn == gsn_axe) chance += 10;
 
 	/* spell affects */
-	 if ( IS_OBJ_STAT( destroy, ITEM_BLESS) ) chance -= 10;
-	 if ( IS_OBJ_STAT( destroy, ITEM_MAGIC) ) chance -= 20;
+	 if (IS_OBJ_STAT(destroy, ITEM_BLESS)) chance -= 10;
+	 if (IS_OBJ_STAT(destroy, ITEM_MAGIC)) chance -= 20;
 	 
 	 chance += skill - 85 ;
-	 chance += get_curr_stat( ch, STAT_STR);
+	 chance += get_curr_stat(ch, STAT_STR);
 
 /*	 chance /= 2;	*/
 	 if (number_percent() < chance && chance > 20)
 		{
-		 damage_to_obj(ch,wield,destroy, (chance / 4) );
+		 damage_to_obj(ch,wield,destroy, (chance / 4));
 		 return;
 		}
-      }
+	  }
  return;
 }
 
@@ -1677,181 +1645,179 @@ void check_weapon_destroyed(CHAR_DATA *ch, CHAR_DATA *victim,bool second)
  OBJ_DATA *wield,*destroy;
  int skill,chance=0,sn;
 
- if (IS_NPC(victim) || number_percent() < 94 )  return;
+ if (IS_NPC(victim) || number_percent() < 94)  return;
 
  if (!second)
 	{
-	 if ( (wield = get_eq_char(ch,WEAR_WIELD)) == NULL)
+	 if ((wield = get_eq_char(ch,WEAR_WIELD)) == NULL)
 	 return;
  	 sn = get_weapon_sn(ch);
- 	 skill = get_skill(ch, sn );
+ 	 skill = get_skill(ch, sn);
 	}
   else  {
-	 if ( (wield = get_eq_char(ch,WEAR_SECOND_WIELD)) == NULL)
+	 if ((wield = get_eq_char(ch,WEAR_SECOND_WIELD)) == NULL)
 	 return;
  	 sn = get_second_sn(ch);
- 	 skill = get_skill(ch, sn );
+ 	 skill = get_skill(ch, sn);
 	}
 
   destroy = get_eq_char(victim,WEAR_WIELD);
-  if (destroy == NULL ) return;
+  if (destroy == NULL) return;
 
  if (is_metal(wield))
-      {
-	 if (   number_percent() > 94
+	  {
+	 if (  number_percent() > 94
 	 	|| number_percent() > skill
 		|| ch->level < (victim->level - 10) 
 		|| check_material(destroy,"platinum") 
-		|| destroy->pIndexData->limit != -1 )
+		|| destroy->pIndexData->limit != -1)
 	 return;
 	
 	 chance += 20;
-	 if ( check_material(wield, "platinium") ||
-	      check_material(wield, "titanium") )
+	 if (check_material(wield, "platinium") ||
+	      check_material(wield, "titanium"))
 	 chance += 5;
 
-	 if ( is_metal(destroy) )  chance -= 20;
+	 if (is_metal(destroy))  chance -= 20;
 	 else 			chance += 20; 
 
-	 chance += ( (ch->level - victim->level) / 5);
+	 chance += ((ch->level - victim->level) / 5);
 
-	 chance += ( (wield->level - destroy->level) / 2 );
+	 chance += ((wield->level - destroy->level) / 2);
 
 	/* sharpness	*/
-	 if ( IS_WEAPON_STAT(wield,WEAPON_SHARP) )
+	 if (IS_WEAPON_STAT(wield,WEAPON_SHARP))
 		chance += 10;
 
-	 if ( sn == gsn_axe ) chance += 10;
+	 if (sn == gsn_axe) chance += 10;
 	/* spell affects */
-	 if ( IS_OBJ_STAT( destroy, ITEM_BLESS) ) chance -= 10;
-	 if ( IS_OBJ_STAT( destroy, ITEM_MAGIC) ) chance -= 20;
+	 if (IS_OBJ_STAT(destroy, ITEM_BLESS)) chance -= 10;
+	 if (IS_OBJ_STAT(destroy, ITEM_MAGIC)) chance -= 20;
 	 
 	 chance += skill - 85 ;
-	 chance += get_curr_stat( ch, STAT_STR);
+	 chance += get_curr_stat(ch, STAT_STR);
 
 /*	 chance /= 2;	*/
-	 if (number_percent() < (chance / 2) && chance > 20 )
+	 if (number_percent() < (chance / 2) && chance > 20)
 		{
-		 damage_to_obj(ch,wield,destroy, (chance / 4) );
+		 damage_to_obj(ch,wield,destroy, (chance / 4));
 		 return;
 		}
-      }
+	  }
  else {
-	 if (   number_percent() > 94
+	 if (  number_percent() > 94
 	 	|| number_percent() < skill
 		|| ch->level < (victim->level - 10) 
 		|| check_material(destroy,"platinum") 
-		|| destroy->pIndexData->limit != -1 )
+		|| destroy->pIndexData->limit != -1)
 	 return;
 	
 	 chance += 10;
 
-	 if ( is_metal(destroy) )  chance -= 20;
+	 if (is_metal(destroy))  chance -= 20;
 
 	 chance += (ch->level - victim->level);
 
 	 chance += (wield->level - destroy->level);
 
 	/* sharpness	*/
-	 if ( IS_WEAPON_STAT(wield,WEAPON_SHARP) )
+	 if (IS_WEAPON_STAT(wield,WEAPON_SHARP))
 		chance += 10;
 
-	 if ( sn == gsn_axe ) chance += 10;
+	 if (sn == gsn_axe) chance += 10;
 
 	/* spell affects */
-	 if ( IS_OBJ_STAT( destroy, ITEM_BLESS) ) chance -= 10;
-	 if ( IS_OBJ_STAT( destroy, ITEM_MAGIC) ) chance -= 20;
+	 if (IS_OBJ_STAT(destroy, ITEM_BLESS)) chance -= 10;
+	 if (IS_OBJ_STAT(destroy, ITEM_MAGIC)) chance -= 20;
 	 
 	 chance += skill - 85 ;
-	 chance += get_curr_stat( ch, STAT_STR);
+	 chance += get_curr_stat(ch, STAT_STR);
 
 /*	 chance /= 2;	*/
-	 if (number_percent() < (chance / 2) && chance > 20 )
+	 if (number_percent() < (chance / 2) && chance > 20)
 		{
-		 damage_to_obj(ch,wield,destroy, chance / 4 );
+		 damage_to_obj(ch,wield,destroy, chance / 4);
 		 return;
 		}
-      }
+	  }
  return;
 }
 
 
 void do_smithing(CHAR_DATA *ch, char *argument)
 {
-    char arg[MAX_INPUT_LENGTH];
-    char buf[MAX_INPUT_LENGTH];
-    OBJ_DATA *obj;
-    OBJ_DATA *hammer;
+	char arg[MAX_INPUT_LENGTH];
+	OBJ_DATA *obj;
+	OBJ_DATA *hammer;
 
-    if ( IS_NPC(ch)
-    ||   ch->level < skill_table[gsn_smithing].skill_level[ch->class] )
-    {
-	send_to_char("Huh?\n\r", ch );
+	if (IS_NPC(ch)
+	||   ch->level < skill_table[gsn_smithing].skill_level[ch->class])
+	{
+	send_to_char("Huh?\n\r", ch);
 	return;
-    }
+	}
 
 
-    if ( ch->fighting )
-    {
-        send_to_char( "Wait until the fight finishes.\n\r", ch );
-        return;
-    }
+	if (ch->fighting)
+	{
+	    send_to_char("Wait until the fight finishes.\n\r", ch);
+	    return;
+	}
 
-    one_argument(argument,arg);
+	one_argument(argument,arg);
 
-    if (arg[0] == '\0')
-    {
+	if (arg[0] == '\0')
+	{
 	send_to_char("Which object do you want to repair.\n\r",ch);
 	return;
-    }
+	}
 
-    if (( obj = get_obj_carry(ch, arg)) == NULL)
-    {
+	if ((obj = get_obj_carry(ch, arg)) == NULL)
+	{
 	send_to_char("You are not carrying that.\n\r",ch);
 	return;
-    }
+	}
 
    if (obj->condition >= 100)
-    {
+	{
 	send_to_char("But that item is not broken.\n\r",ch);
 	return;
-    }
+	}
 
-    if (( hammer = get_eq_char(ch, WEAR_HOLD)) == NULL)
-    {
+	if ((hammer = get_eq_char(ch, WEAR_HOLD)) == NULL)
+	{
 	send_to_char("You are not holding a hammer.\n\r",ch);
 	return;
-    }
+	}
 
-    if ( hammer->pIndexData->vnum != OBJ_VNUM_HAMMER )
-    {
+	if (hammer->pIndexData->vnum != OBJ_VNUM_HAMMER)
+	{
 	send_to_char("That is not the correct hammer.\n\r",ch);
 	return;
-    }
+	}
 
-    WAIT_STATE(ch,2 * PULSE_VIOLENCE);
-    if ( number_percent() > get_skill(ch,gsn_smithing) )    
-     {
-      check_improve(ch,gsn_smithing,FALSE,8);
-    sprintf(buf, "$n try to repair %s with the hammer.But $n fails.", obj->short_descr); 
-    act(buf,ch,NULL,obj,TO_ROOM);
-    sprintf(buf, "You failed to repair %s\n\r", obj->short_descr);
-    send_to_char(buf, ch);
-    hammer->condition -= 25;
-     }
-    else
-     {
-    check_improve(ch,gsn_smithing,TRUE,4);
-    sprintf(buf, "$n repairs %s with the hammer.", obj->short_descr); 
-    act(buf,ch,NULL,NULL,TO_ROOM);
-    sprintf(buf, "You repair %s\n\r", obj->short_descr);
-    send_to_char(buf, ch);
-    obj->condition = UMAX( 100 , 
-	 obj->condition + ( get_skill(ch,gsn_smithing) / 2) );
-    hammer->condition -= 25;
-     }
-   if (hammer->condition < 1)  extract_obj( hammer );
-   return;
+	WAIT_STATE(ch,2 * PULSE_VIOLENCE);
+	if (number_percent() > get_skill(ch,gsn_smithing)) {
+		check_improve(ch, gsn_smithing, FALSE, 8);
+		act_printf(ch, NULL, obj, TO_ROOM, POS_RESTING,
+			   "$n tries to repair %s with the hammer but fails.",
+			   obj->short_descr); 
+		char_printf(ch, "You failed to repair %s\n\r",
+			    obj->short_descr);
+		hammer->condition -= 25;
+	}
+	else {
+		check_improve(ch, gsn_smithing, TRUE, 4);
+		act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
+			   "$n repairs %s with the hammer.", obj->short_descr); 
+		char_printf(ch, "You repair %s\n\r", obj->short_descr);
+		obj->condition = UMAX(100, obj->condition +
+					   (get_skill(ch,gsn_smithing) / 2));
+		hammer->condition -= 25;
+	}
+
+	if (hammer->condition < 1)
+		extract_obj(hammer);
 }
 
 /***************************************************************************
@@ -1864,23 +1830,25 @@ void do_smithing(CHAR_DATA *ch, char *argument)
  *  Adopted to Anatolia MUD by chronos.                                    *
  ***************************************************************************/
 
-DECLARE_SPELL_FUN(	spell_identify	);
-
-void talk_auction(char *argument)
+void talk_auction(const char *fmt, ...)
 {
-    DESCRIPTOR_DATA *d;
-    char buf[MAX_STRING_LENGTH];
-    CHAR_DATA *original;
+	va_list ap;
+	char buf[MAX_STRING_LENGTH];
+	DESCRIPTOR_DATA *d;
+	CHAR_DATA *original;
 
-    sprintf (buf,"AUCTION: %s", argument);
+	va_start(ap, fmt);
+	vsnprintf(buf, sizeof(buf), fmt, ap);
+	va_end(ap);
 
-    for (d = descriptor_list; d != NULL; d = d->next)
-    {
-        original = d->original ? d->original : d->character; /* if switched */
-        if ((d->connected == CON_PLAYING) && !IS_SET(original->comm,COMM_NOAUCTION) )
-            act (buf, original, NULL, NULL, TO_CHAR);
-
-    }
+	for (d = descriptor_list; d != NULL; d = d->next) {
+		/* if switched */
+		original = d->original ? d->original : d->character;
+		if (d->connected == CON_PLAYING
+		&&  !IS_SET(original->comm, COMM_NOAUCTION))
+	        	act_printf(original, NULL, NULL, TO_CHAR, POS_RESTING,
+				   "AUCTION: %s", buf);
+	}
 }
 
 
@@ -1956,31 +1924,31 @@ int advatoi (const char *s)
 
   strcpy (string,s);        /* working copy */
 
-  while ( isdigit (*stringptr)) /* as long as the current character is a digit */
+  while (isdigit (*stringptr)) /* as long as the current character is a digit */
   {
-      strncpy (tempstring,stringptr,1);           /* copy first digit */
-      number = (number * 10) + atoi (tempstring); /* add to current number */
-      stringptr++;                                /* advance */
+	  strncpy (tempstring,stringptr,1);           /* copy first digit */
+	  number = (number * 10) + atoi (tempstring); /* add to current number */
+	  stringptr++;                                /* advance */
   }
 
   switch (UPPER(*stringptr)) {
-      case 'K'  : multiplier = 1000;    number *= multiplier; stringptr++; break;
-      case 'M'  : multiplier = 1000000; number *= multiplier; stringptr++; break;
-      case '\0' : break;
-      default   : return 0; /* not k nor m nor NUL - return 0! */
+	  case 'K'  : multiplier = 1000;    number *= multiplier; stringptr++; break;
+	  case 'M'  : multiplier = 1000000; number *= multiplier; stringptr++; break;
+	  case '\0' : break;
+	  default   : return 0; /* not k nor m nor NUL - return 0! */
   }
 
-  while ( isdigit (*stringptr) && (multiplier > 1)) /* if any digits follow k/m, add those too */
+  while (isdigit (*stringptr) && (multiplier > 1)) /* if any digits follow k/m, add those too */
   {
-      strncpy (tempstring,stringptr,1);           /* copy first digit */
-      multiplier = multiplier / 10;  /* the further we get to right, the less are the digit 'worth' */
-      number = number + (atoi (tempstring) * multiplier);
-      stringptr++;
+	  strncpy (tempstring,stringptr,1);           /* copy first digit */
+	  multiplier = multiplier / 10;  /* the further we get to right, the less are the digit 'worth' */
+	  number = number + (atoi (tempstring) * multiplier);
+	  stringptr++;
   }
 
   if (*stringptr != '\0' && !isdigit(*stringptr)) /* a non-digit character was found, other than NUL */
-    return 0; /* If a digit is found, it means the multiplier is 1 - i.e. extra
-                 digits that just have to be ignore, liked 14k4443 -> 3 is ignored */
+	return 0; /* If a digit is found, it means the multiplier is 1 - i.e. extra
+	             digits that just have to be ignore, liked 14k4443 -> 3 is ignored */
 
 
   return (number);
@@ -1993,7 +1961,6 @@ int parsebet (const int currentbet, const char *argument)
   int newbet = 0;                /* a variable to temporarily hold the new bet */
   char string[MAX_INPUT_LENGTH]; /* a buffer to modify the bet string */
   char *stringptr = string;      /* a pointer we can move around */
-  char buf2[MAX_STRING_LENGTH];
 
   strcpy (string,argument);      /* make a work copy of argument */
 
@@ -2001,26 +1968,25 @@ int parsebet (const int currentbet, const char *argument)
   if (*stringptr)               /* check for an empty string */
   {
 
-    if (isdigit (*stringptr)) /* first char is a digit assume e.g. 433k */
-      newbet = advatoi (stringptr); /* parse and set newbet to that value */
+	if (isdigit (*stringptr)) /* first char is a digit assume e.g. 433k */
+	  newbet = advatoi (stringptr); /* parse and set newbet to that value */
 
-    else
-      if (*stringptr == '+') /* add ?? percent */
-      {
-        if (strlen (stringptr) == 1) /* only + specified, assume default */
-          newbet = (currentbet * 125) / 100; /* default: add 25% */
-        else
-          newbet = (currentbet * (100 + atoi (++stringptr))) / 100; /* cut off the first char */
-      }
-      else
-        {
-        sprintf (buf2,"considering: * x \n\r");
-        if ((*stringptr == '*') || (*stringptr == 'x')) /* multiply */
-          if (strlen (stringptr) == 1) /* only x specified, assume default */
-            newbet = currentbet * 2 ; /* default: twice */
-          else /* user specified a number */
-            newbet = currentbet * atoi (++stringptr); /* cut off the first char */
-        }
+	else
+	  if (*stringptr == '+') /* add ?? percent */
+	  {
+	    if (strlen (stringptr) == 1) /* only + specified, assume default */
+	      newbet = (currentbet * 125) / 100; /* default: add 25% */
+	    else
+	      newbet = (currentbet * (100 + atoi (++stringptr))) / 100; /* cut off the first char */
+	  }
+	  else
+	    {
+	    if ((*stringptr == '*') || (*stringptr == 'x')) /* multiply */
+	      if (strlen (stringptr) == 1) /* only x specified, assume default */
+	        newbet = currentbet * 2 ; /* default: twice */
+	      else /* user specified a number */
+	        newbet = currentbet * atoi (++stringptr); /* cut off the first char */
+	    }
   }
 
   return newbet;        /* return the calculated bet */
@@ -2030,75 +1996,70 @@ int parsebet (const int currentbet, const char *argument)
 
 void auction_update (void)
 {
-    char buf[MAX_STRING_LENGTH];
+	if (auction->item == NULL)
+		return;
 
-    if (auction->item != NULL)
-        if (--auction->pulse <= 0) /* decrease pulse */
-        {
-            auction->pulse = PULSE_AUCTION;
-            switch (++auction->going) /* increase the going state */
-            {
-            case 1 : /* going once */
-            case 2 : /* going twice */
-            if (auction->bet > 0)
-                sprintf (buf, "%s: going %s for %d.", auction->item->short_descr,
-                     ((auction->going == 1) ? "once" : "twice"), auction->bet);
-            else
-                sprintf (buf, "%s: going %s (not bet received yet).", auction->item->short_descr,
-                     ((auction->going == 1) ? "once" : "twice"));
-            talk_auction (buf);
-            break;
+	if (--auction->pulse > 0)
+		return;
 
-            case 3 : /* SOLD! */
+	auction->pulse = PULSE_AUCTION;
+	switch (++auction->going) { /* increase the going state */
+	case 1 : /* going once */
+	case 2 : /* going twice */
+	        if (auction->bet > 0)
+			talk_auction("%s: going %s for %d.",
+				auction->item->short_descr,
+	                	((auction->going == 1) ? "once" : "twice"),
+				auction->bet);
+	        else
+	        	talk_auction("%s: going %s (not bet received yet).",
+				auction->item->short_descr,
+	                	((auction->going == 1) ? "once" : "twice"));
+	        break;
 
-            if (auction->bet > 0)
-            {
-                sprintf (buf, "%s sold to %s for %d.",
-                    auction->item->short_descr,
-                    IS_NPC(auction->buyer) ? auction->buyer->short_descr : auction->buyer->name,
-                    auction->bet);
-                talk_auction(buf);
-                obj_to_char (auction->item,auction->buyer);
-                act ("The auctioneer appears before you in a puff of smoke and hands you $p.",
-                     auction->buyer,auction->item,NULL,TO_CHAR);
-                act ("The auctioneer appears before $n, and hands $m $p",
-                     auction->buyer,auction->item,NULL,TO_ROOM);
+	 case 3 : /* SOLD! */
+	        if (auction->bet > 0) {
+	        	talk_auction("%s sold to %s for %d.",
+				    auction->item->short_descr,
+	                	    IS_NPC(auction->buyer) ?
+					auction->buyer->short_descr :
+					auction->buyer->name,
+				    auction->bet);
 
-                auction->seller->gold += auction->bet; /* give him the money */
+			obj_to_char (auction->item,auction->buyer);
+			act ("The auctioneer appears before you in a puff of smoke and hands you $p.",
+			auction->buyer,auction->item,NULL,TO_CHAR);
+			act ("The auctioneer appears before $n, and hands $m $p",
+	                auction->buyer,auction->item,NULL,TO_ROOM);
 
-                auction->item = NULL; /* reset item */
+			 /* give him the money */
+			auction->seller->gold += auction->bet;
 
-            }
-            else /* not sold */
-            {
-                sprintf (buf, "No bets received for %s - object has been removed.",auction->item->short_descr);
-                talk_auction(buf);
-                talk_auction("The auctioneer puts the unsold item to his pit.");
-                extract_obj(auction->item);
-                auction->item = NULL; /* clear auction */
+	        }
+	        else { /* not sold */
+	            talk_auction("No bets received for %s - object has been removed.",auction->item->short_descr);
+	            talk_auction("The auctioneer puts the unsold item to his pit.");
+	            extract_obj(auction->item);
 
-            } /* else */
-
-            } /* switch */
-        } /* if */
-} /* func */
+	        }
+		auction->item = NULL; /* reset item */
+        }
+} 
 
 
 void do_auction (CHAR_DATA *ch, char *argument)
 {
-    OBJ_DATA *obj;
-    char arg1[MAX_INPUT_LENGTH];
-    char buf[MAX_STRING_LENGTH];
-    char betbuf[MAX_STRING_LENGTH];
+	OBJ_DATA *obj;
+	char arg1[MAX_INPUT_LENGTH];
 
-    argument = one_argument (argument, arg1);
+	argument = one_argument (argument, arg1);
 
 	if (IS_NPC(ch))    /* NPC extracted can't auction! */
 		return;
 
-    if (IS_SET(ch->comm,COMM_NOAUCTION))
+	if (IS_SET(ch->comm,COMM_NOAUCTION))
 	{
-    	 if (!str_cmp(arg1,"on") )
+		 if (!str_cmp(arg1,"on"))
 	 {
 	  send_to_char("Auction channel is now ON.\n\r",ch);
 	  REMOVE_BIT(ch->comm,COMM_NOAUCTION);
@@ -2129,136 +2090,131 @@ void do_auction (CHAR_DATA *ch, char *argument)
 			return;
 		}
 
-    if (!str_cmp(arg1,"off") )
+	if (!str_cmp(arg1,"off"))
 	{
 	 send_to_char("Auction channel is now OFF.\n\r",ch);
 	 SET_BIT(ch->comm,COMM_NOAUCTION);
 	 return;
 	}
 
-    if (IS_IMMORTAL(ch) && !str_cmp(arg1,"stop"))
-    if (auction->item == NULL)
-    {
-        send_to_char ("There is no auction going on you can stop.\n\r",ch);
-        return;
-    }
-    else /* stop the auction */
-    {
-        sprintf(buf,"Sale of %s has been stopped by God. Item confiscated.",
-                        auction->item->short_descr);
-        talk_auction(buf);
-        obj_to_char(auction->item, auction->seller);
-        auction->item = NULL;
-        if (auction->buyer != NULL) /* return money to the buyer */
-        {
-            auction->buyer->gold += auction->bet;
-            send_to_char ("Your money has been returned.\n\r",auction->buyer);
-        }
-        return;
-    }
+	if (IS_IMMORTAL(ch) && !str_cmp(arg1,"stop"))
+	if (auction->item == NULL)
+	{
+	    send_to_char ("There is no auction going on you can stop.\n\r",ch);
+	    return;
+	}
+	else /* stop the auction */
+	{
+	    talk_auction("Sale of %s has been stopped by God. Item confiscated.",
+	                 auction->item->short_descr);
+	    obj_to_char(auction->item, auction->seller);
+	    auction->item = NULL;
+	    if (auction->buyer != NULL) /* return money to the buyer */
+	    {
+	        auction->buyer->gold += auction->bet;
+	        send_to_char ("Your money has been returned.\n\r",auction->buyer);
+	    }
+	    return;
+	}
 
-    if  (!str_cmp(arg1,"bet") ) 
+	if  (!str_cmp(arg1,"bet")) 
 	if (auction->item != NULL)
-        {
-            int newbet;
+	    {
+	        int newbet;
 
-	if ( ch == auction->seller )
+	if (ch == auction->seller)
 		{
 	send_to_char("You cannot bet on your own selling equipment...:)\n\r",ch);
 	return;
 		}
-            /* make - perhaps - a bet now */
-            if (argument[0] == '\0')
-            {
-                send_to_char ("Bet how much?\n\r",ch);
-                return;
-            }
+	        /* make - perhaps - a bet now */
+	        if (argument[0] == '\0')
+	        {
+	            send_to_char ("Bet how much?\n\r",ch);
+	            return;
+	        }
 
-            newbet = parsebet (auction->bet, argument);
-            sprintf (betbuf,"Bet: %d\n\r",newbet);
+	        newbet = parsebet (auction->bet, argument);
 
-            if (newbet < (auction->bet + 1))
-            {
-                send_to_char ("You must at least bid 1 gold over the current bet.\n\r",ch);
-                return;
-            }
+	        if (newbet < (auction->bet + 1))
+	        {
+	            send_to_char ("You must at least bid 1 gold over the current bet.\n\r",ch);
+	            return;
+	        }
 
-            if (newbet > ch->gold)
-            {
-                send_to_char ("You don't have that much money!\n\r",ch);
-                return;
-            }
+	        if (newbet > ch->gold)
+	        {
+	            send_to_char ("You don't have that much money!\n\r",ch);
+	            return;
+	        }
 
-            /* the actual bet is OK! */
+	        /* the actual bet is OK! */
 
-            /* return the gold to the last buyer, if one exists */
-            if (auction->buyer != NULL)
-                auction->buyer->gold += auction->bet;
+	        /* return the gold to the last buyer, if one exists */
+	        if (auction->buyer != NULL)
+	            auction->buyer->gold += auction->bet;
 
-            ch->gold -= newbet; /* substract the gold - important :) */
-            auction->buyer = ch;
-            auction->bet   = newbet;
-            auction->going = 0;
-            auction->pulse = PULSE_AUCTION; /* start the auction over again */
+	        ch->gold -= newbet; /* substract the gold - important :) */
+	        auction->buyer = ch;
+	        auction->bet   = newbet;
+	        auction->going = 0;
+	        auction->pulse = PULSE_AUCTION; /* start the auction over again */
 
-            sprintf (buf,"A bet of %d gold has been received on %s.\n\r",newbet,auction->item->short_descr);
-            talk_auction (buf);
-            return;
+	        talk_auction("A bet of %d gold has been received on %s.\n\r",newbet,auction->item->short_descr);
+	        return;
 
 
-        }
-        else
-        {
-            send_to_char ("There isn't anything being auctioned right now.\n\r",ch);
-            return;
-        }
+	    }
+	    else
+	    {
+	        send_to_char ("There isn't anything being auctioned right now.\n\r",ch);
+	        return;
+	    }
 
-    /* finally... */
+	/* finally... */
 
-    obj = get_obj_carry (ch, arg1 ); /* does char have the item ? */ 
+	obj = get_obj_carry (ch, arg1); /* does char have the item ? */ 
 
-    if (obj == NULL)
-    {
-        send_to_char ("You aren't carrying that.\n\r",ch);
-        return;
-    }
+	if (obj == NULL)
+	{
+	    send_to_char ("You aren't carrying that.\n\r",ch);
+	    return;
+	}
 
-    if (auction->item == NULL)
-    switch (obj->item_type)
-    {
+	if (auction->item == NULL)
+	switch (obj->item_type)
+	{
 
-    default:
-        act_puts ("You cannot auction $Ts.",ch, NULL, item_type_name(obj), 
+	default:
+	    act_puts ("You cannot auction $Ts.",ch, NULL, item_type_name(obj), 
 		TO_CHAR,POS_SLEEPING);
-        return;
+	    return;
 
-    case ITEM_LIGHT:
-    case ITEM_WEAPON:
-    case ITEM_ARMOR:
-    case ITEM_STAFF:
-    case ITEM_WAND:
-    case ITEM_GEM:
-    case ITEM_TREASURE:
-    case ITEM_JEWELRY:
-        obj_from_char (obj);
-        auction->item = obj;
-        auction->bet = 0; 	/* obj->cost / 100 */
-        auction->buyer = NULL;
-        auction->seller = ch;
-        auction->pulse = PULSE_AUCTION;
-        auction->going = 0;
+	case ITEM_LIGHT:
+	case ITEM_WEAPON:
+	case ITEM_ARMOR:
+	case ITEM_STAFF:
+	case ITEM_WAND:
+	case ITEM_GEM:
+	case ITEM_TREASURE:
+	case ITEM_JEWELRY:
+	    obj_from_char (obj);
+	    auction->item = obj;
+	    auction->bet = 0; 	/* obj->cost / 100 */
+	    auction->buyer = NULL;
+	    auction->seller = ch;
+	    auction->pulse = PULSE_AUCTION;
+	    auction->going = 0;
 
-        sprintf(buf, "A new item has been received: {Y%s{x.", obj->short_descr);
-        talk_auction(buf);
+	    talk_auction("A new item has been received: {Y%s{x.", obj->short_descr);
+	    return;
 
-        return;
-
-    } /* switch */
-    else
-    {
-        act ("Try again later - $p is being auctioned right now!",ch,auction->item,NULL,TO_CHAR);
-        return;
-    }
+	} /* switch */
+	else
+	{
+	    act ("Try again later - $p is being auctioned right now!",ch,auction->item,NULL,TO_CHAR);
+	    return;
+	}
 }
 
 

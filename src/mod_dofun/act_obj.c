@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.17 1998-06-12 14:25:58 fjoe Exp $
+ * $Id: act_obj.c,v 1.18 1998-06-13 11:55:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2878,44 +2878,32 @@ int get_cost(CHAR_DATA *keeper, OBJ_DATA *obj, bool fBuy)
 }
 
 
-
-void do_buy(CHAR_DATA *ch, char *argument)
+void do_buy_pet(CHAR_DATA *ch, char *argument)
 {
-	  int cost,roll;
-
-	  if (argument[0] == '\0')
-	  {
-	send_to_char("Buy what?\n\r", ch);
-	return;
-	  }
-
-	  if (IS_SET(ch->in_room->room_flags, ROOM_PET_SHOP))
-	  {
+	int cost, roll;
 	char arg[MAX_INPUT_LENGTH];
-	char buf[MAX_STRING_LENGTH];
 	CHAR_DATA *pet;
 	ROOM_INDEX_DATA *pRoomIndexNext;
 	ROOM_INDEX_DATA *in_room;
 
+	if (IS_NPC(ch))
+		return;
+
 	/* added by kio */
 	smash_tilde(argument);
 
-	if (IS_NPC(ch))
-	    return;
-
-	argument = one_argument(argument,arg);
+	argument = one_argument(argument, arg);
 
 	/* hack to make new thalos pets work */
-
 	if (ch->in_room->vnum == 9621)
-	    pRoomIndexNext = get_room_index(9706);
+		pRoomIndexNext = get_room_index(9706);
 	else
-	    pRoomIndexNext = get_room_index(ch->in_room->vnum + 1);
-	if (pRoomIndexNext == NULL)
-	{
-	    bug("Do_buy: bad pet shop at vnum %d.", ch->in_room->vnum);
-	    send_to_char("Sorry, you can't buy that here.\n\r", ch);
-	    return;
+		pRoomIndexNext = get_room_index(ch->in_room->vnum + 1);
+
+	if (pRoomIndexNext == NULL) {
+		bug("Do_buy: bad pet shop at vnum %d.", ch->in_room->vnum);
+		send_to_char("Sorry, you can't buy that here.\n\r", ch);
+		return;
 	}
 
 	in_room     = ch->in_room;
@@ -2923,90 +2911,76 @@ void do_buy(CHAR_DATA *ch, char *argument)
 	pet         = get_char_room(ch, arg);
 	ch->in_room = in_room;
 
-	if (pet == NULL || !IS_SET(pet->act, ACT_PET) || !IS_NPC(pet))
-	{
-	    send_to_char("Sorry, you can't buy that here.\n\r", ch);
-	    return;
+	if (pet == NULL || !IS_SET(pet->act, ACT_PET) || !IS_NPC(pet)) {
+		send_to_char("Sorry, you can't buy that here.\n\r", ch);
+		return;
 	}
 
-	if (IS_SET(pet->act,ACT_RIDEABLE) 
-		&& ch->clan == CLAN_KNIGHT
-		&& !MOUNTED(ch))
-	{
- 	 cost = 10 * pet->level * pet->level;
+	if (IS_SET(pet->act, ACT_RIDEABLE)
+	&&  ch->clan == CLAN_KNIGHT && !MOUNTED(ch)) {
+ 		cost = 10 * pet->level * pet->level;
 
-	 if ((ch->silver + 100 * ch->gold) < cost)
-	 {
-	    send_to_char("You can't afford it.\n\r", ch);
-	    return;
-	 }
+		if ((ch->silver + 100 * ch->gold) < cost) {
+			send_to_char("You can't afford it.\n\r", ch);
+			return;
+		}
 
-	 if (ch->level < pet->level + 5)
-	 {
-	    send_to_char(
-		"You're not powerful enough to master this pet.\n\r", ch);
-	    return;
-	 }
+		if (ch->level < pet->level + 5) {
+			send_to_char("You're not powerful enough "
+				     "to master this pet.\n\r", ch);
+			return;
+		}
 
-	 deduct_cost(ch,cost);
-	 pet = create_mobile(pet->pIndexData);
-	 pet->comm = COMM_NOTELL|COMM_NOSHOUT|COMM_NOCHANNELS;
+		deduct_cost(ch,cost);
+		pet = create_mobile(pet->pIndexData);
+		pet->comm = COMM_NOTELL|COMM_NOSHOUT|COMM_NOCHANNELS;
 
-	 char_to_room(pet, ch->in_room);
-	 do_mount(ch, pet->name);
-	 send_to_char("Enjoy your mount.\n\r", ch);
-	 act("$n bought $N as a mount.", ch, NULL, pet, TO_ROOM);
-	 return;
+		char_to_room(pet, ch->in_room);
+		do_mount(ch, pet->name);
+		send_to_char("Enjoy your mount.\n\r", ch);
+		act("$n bought $N as a mount.", ch, NULL, pet, TO_ROOM);
+		return;
 	}
 
-	if (ch->pet != NULL)
-	{
+	if (ch->pet != NULL) {
 	    send_to_char("You already own a pet.\n\r",ch);
 	    return;
 	}
 
  	cost = 10 * pet->level * pet->level;
 
-	if ((ch->silver + 100 * ch->gold) < cost)
-	{
-	    send_to_char("You can't afford it.\n\r", ch);
-	    return;
+	if ((ch->silver + 100 * ch->gold) < cost) {
+		send_to_char("You can't afford it.\n\r", ch);
+		return;
 	}
 
-	if (ch->level < pet->level)
-	{
-	    send_to_char(
-		"You're not powerful enough to master this pet.\n\r", ch);
-	    return;
+	if (ch->level < pet->level) {
+		send_to_char("You're not powerful enough "
+			     "to master this pet.\n\r", ch);
+		return;
 	}
 
 	/* haggle */
 	roll = number_percent();
-	if (roll < get_skill(ch,gsn_haggle))
-	{
-	    cost -= cost / 2 * roll / 100;
-	    char_printf(ch,"You haggle the price down to %d coins.\n\r",cost);
-	    check_improve(ch,gsn_haggle,TRUE,4);
+	if (roll < get_skill(ch, gsn_haggle)) {
+		cost -= cost / 2 * roll / 100;
+		char_printf(ch, "You haggle the price down to %d coins.\n\r",
+			    cost);
+		check_improve(ch, gsn_haggle, TRUE, 4);
 	}
 
-	deduct_cost(ch,cost);
-	pet			= create_mobile(pet->pIndexData);
+	deduct_cost(ch, cost);
+	pet = create_mobile(pet->pIndexData);
 	SET_BIT(pet->act, ACT_PET);
 	SET_BIT(pet->affected_by, AFF_CHARM);
 	pet->comm = COMM_NOTELL|COMM_NOSHOUT|COMM_NOCHANNELS;
 
 	argument = one_argument(argument, arg);
-	if (arg[0] != '\0')
-	{
-	    snprintf(buf, sizeof(buf), "%s %s", pet->name, arg);
-	    free_string(pet->name);
-	    pet->name = str_dup(buf);
-	}
+	if (arg[0] != '\0') 
+		str_printf(&pet->name, "%s %s", pet->name, arg);
 
-	snprintf(buf, sizeof(buf), "%sA neck tag says 'I belong to %s'.\n\r",
-	    pet->description, ch->name);
-	free_string(pet->description);
-	pet->description = str_dup(buf);
+	str_printf(&pet->description, "%sA neck tag says 'I belong to %s'.\n\r",
+		   pet->description, ch->name);
 
 	char_to_room(pet, ch->in_room);
 	add_follower(pet, ch);
@@ -3015,14 +2989,25 @@ void do_buy(CHAR_DATA *ch, char *argument)
 	send_to_char("Enjoy your pet.\n\r", ch);
 	act("$n bought $N as a pet.", ch, NULL, pet, TO_ROOM);
 	return;
-	  }
-	  else
-	  {
+}
+
+void do_buy(CHAR_DATA *ch, char *argument)
+{
+	int cost, roll;
 	CHAR_DATA *keeper;
 	OBJ_DATA *obj,*t_obj;
 	char arg[MAX_INPUT_LENGTH];
 	int number, count = 1;
 
+	if (argument[0] == '\0') {
+		send_to_char("Buy what?\n\r", ch);
+		return;
+	}
+
+	if (IS_SET(ch->in_room->room_flags, ROOM_PET_SHOP)) {
+		do_buy_pet(ch, argument);
+		return;
+	}
 	if ((keeper = find_keeper(ch)) == NULL)
 	    return;
 
@@ -3030,115 +3015,101 @@ void do_buy(CHAR_DATA *ch, char *argument)
 	obj  = get_obj_keeper(ch,keeper, arg);
 	cost = get_cost(keeper, obj, TRUE);
 
-	if (cost <= 0 || !can_see_obj(ch, obj))
-	{
-	    act("$n tells you 'I don't sell that -- try 'list''.",
-		keeper, NULL, ch, TO_VICT);
-	    ch->reply = keeper;
-	    return;
+	if (cost <= 0 || !can_see_obj(ch, obj)) {
+		act("$n tells you '{GI don't sell that -- try 'list'{x'.",
+			keeper, NULL, ch, TO_VICT);
+		ch->reply = keeper;
+		return;
 	}
 
-	if (!IS_OBJ_STAT(obj,ITEM_INVENTORY))
-	{
-	    for (t_obj = obj->next_content;
-	     	 count < number && t_obj != NULL; 
-	     	 t_obj = t_obj->next_content) 
-	    {
-	    	if (t_obj->pIndexData == obj->pIndexData
-	    	&&  !str_cmp(t_obj->short_descr,obj->short_descr))
-		    count++;
-	    	else
-		    break;
-	    }
+	if (!IS_OBJ_STAT(obj, ITEM_INVENTORY)) {
+		for (t_obj = obj->next_content; count < number && t_obj != NULL;
+	     	     t_obj = t_obj->next_content) {
+	    		if (t_obj->pIndexData == obj->pIndexData
+	    		&&  !str_cmp(t_obj->short_descr,obj->short_descr))
+				count++;
+			else
+				break;
+		}
 
-	    if (count < number)
-	    {
-	    	act("$n tells you 'I don't have that many in stock.",
-		    keeper,NULL,ch,TO_VICT);
-	    	ch->reply = keeper;
-	    	return;
-	    }
+		if (count < number) {
+	    		act("$n tells you '{GI don't have that many in stock{x.",
+			    keeper, NULL, ch, TO_VICT);
+	    		ch->reply = keeper;
+	    		return;
+		}
 	}
 
-	if ((ch->silver + ch->gold * 100) < cost * number)
-	{
-	    if (number > 1)
-		act("$n tells you 'You can't afford to buy that many.",
-		    keeper,obj,ch,TO_VICT);
-	    else
-	    	act("$n tells you 'You can't afford to buy $p'.",
-		    keeper, obj, ch, TO_VICT);
-	    ch->reply = keeper;
-	    return;
+	if ((ch->silver + ch->gold * 100) < cost * number) {
+		if (number > 1)
+			act("$n tells you '{GYou can't afford to buy that many.{x",
+			    keeper, obj, ch, TO_VICT);
+		else
+	    		act("$n tells you '{GYou can't afford to buy $p{x'.",
+			    keeper, obj, ch, TO_VICT);
+			ch->reply = keeper;
+		return;
 	}
 	
-	if (obj->level > ch->level)
-	{
-	    act("$n tells you 'You can't use $p yet'.",
-		keeper, obj, ch, TO_VICT);
-	    ch->reply = keeper;
-	    return;
+	if (obj->level > ch->level) {
+		act("$n tells you '{GYou can't use $p yet{x'.",
+		    keeper, obj, ch, TO_VICT);
+		ch->reply = keeper;
+		return;
 	}
 
-	if (ch->carry_number +  number * get_obj_number(obj) > can_carry_n(ch))
-	{
-	    send_to_char("You can't carry that many items.\n\r", ch);
-	    return;
+	if (ch->carry_number + number * get_obj_number(obj) > can_carry_n(ch)) {
+		send_to_char("You can't carry that many items.\n\r", ch);
+		return;
 	}
 
-	if (ch->carry_weight + number * get_obj_weight(obj) > can_carry_w(ch))
-	{
-	    send_to_char("You can't carry that much weight.\n\r", ch);
-	    return;
+	if (ch->carry_weight + number * get_obj_weight(obj) > can_carry_w(ch)) {
+		send_to_char("You can't carry that much weight.\n\r", ch);
+		return;
 	}
 
 	/* haggle */
 	roll = number_percent();
-	if (!IS_OBJ_STAT(obj,ITEM_SELL_EXTRACT) 
-	&& roll < get_skill(ch,gsn_haggle))
-	{
-	    cost -= obj->cost / 2 * roll / 100;
-	    act("You haggle with $N.",ch,NULL,keeper,TO_CHAR);
-	    check_improve(ch,gsn_haggle,TRUE,4);
+	if (!IS_OBJ_STAT(obj,ITEM_SELL_EXTRACT)
+	&&  roll < get_skill(ch,gsn_haggle)) {
+		cost -= obj->cost / 2 * roll / 100;
+		act("You haggle with $N.", ch, NULL, keeper, TO_CHAR);
+		check_improve(ch, gsn_haggle, TRUE, 4);
 	}
 
-	if (number > 1)
-	{
-	    act_printf(ch,obj,NULL,TO_ROOM, POS_RESTING,
-			"$n buys $p[%d].",number);
-	    act_printf(ch,obj,NULL,TO_CHAR, POS_RESTING,
-			"You buy $p[%d] for %d silver.",
-			number,cost * number);
+	if (number > 1) {
+		act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING,
+			   "$n buys $p[%d].",number);
+		act_printf(ch, obj, NULL, TO_CHAR, POS_RESTING,
+			   "You buy $p[%d] for %d silver.",
+			   number,cost * number);
 	}
-	else
-	{
-	    act("$n buys $p.", ch, obj, NULL, TO_ROOM);
-	    act_printf(ch, obj, NULL, TO_CHAR, POS_RESTING,
-	    		"You buy $p for %d silver.",cost);
+	else {
+		act("$n buys $p.", ch, obj, NULL, TO_ROOM);
+		act_printf(ch, obj, NULL, TO_CHAR, POS_RESTING,
+	    		   "You buy $p for %d silver.",cost);
 	}
+
 	deduct_cost(ch,cost * number);
 	keeper->gold += cost * number/100;
 	keeper->silver += cost * number - (cost * number/100) * 100;
 
-	for (count = 0; count < number; count++)
-	{
-	    if (IS_SET(obj->extra_flags, ITEM_INVENTORY))
-	    	t_obj = create_object(obj->pIndexData, obj->level);
-	    else
-	    {
-		t_obj = obj;
-		obj = obj->next_content;
-	    	obj_from_char(t_obj);
-	    }
+	for (count = 0; count < number; count++) {
+		if (IS_SET(obj->extra_flags, ITEM_INVENTORY))
+	    		t_obj = create_object(obj->pIndexData, obj->level);
+		else {
+			t_obj = obj;
+			obj = obj->next_content;
+	    		obj_from_char(t_obj);
+		}
 
-	    if (t_obj->timer > 0 && !IS_OBJ_STAT(t_obj,ITEM_HAD_TIMER))
-	    	t_obj->timer = 0;
-	    REMOVE_BIT(t_obj->extra_flags,ITEM_HAD_TIMER);
-	    obj_to_char(t_obj, ch);
-	    if (cost < t_obj->cost)
-	    	t_obj->cost = cost;
+		if (t_obj->timer > 0 && !IS_OBJ_STAT(t_obj,ITEM_HAD_TIMER))
+	    		t_obj->timer = 0;
+		REMOVE_BIT(t_obj->extra_flags,ITEM_HAD_TIMER);
+		obj_to_char(t_obj, ch);
+		if (cost < t_obj->cost)
+			t_obj->cost = cost;
 	}
-	  }
 }
 
 
@@ -3857,97 +3828,85 @@ void do_butcher(CHAR_DATA *ch, char *argument)
 	OBJ_DATA *tmp_next;
 
 	if (IS_NPC(ch))
-	  return;
+		return;
 
 	one_argument(argument,arg);
-	if (arg[0]=='\0')
-	{
-	  send_to_char("Butcher what?\n\r", ch);
-	  return;
+	if (arg[0]=='\0') {
+		send_to_char("Butcher what?\n\r", ch);
+		return;
 	}
-	if ((obj = get_obj_here(ch,arg)) == NULL)
-	  {
-	    send_to_char("You do not see that here.\n\r",ch);
-	    return;
-	  }
 
-	if (obj->item_type != ITEM_CORPSE_PC && obj->item_type != ITEM_CORPSE_NPC)
-	  {
-	    send_to_char("You can't butcher that.\n\r",ch);
-	    return;
-	  }
+	if ((obj = get_obj_here(ch,arg)) == NULL) {
+		send_to_char("You do not see that here.\n\r",ch);
+		return;
+	}
 
-	if (obj->carried_by != NULL)
-	  {
-	    send_to_char("Put it down first.\n\r",ch);
-	    return;
-	  }
+	if (obj->item_type != ITEM_CORPSE_PC
+	&&  obj->item_type != ITEM_CORPSE_NPC) {
+		send_to_char("You can't butcher that.\n\r",ch);
+		return;
+	}
 
-	if (!IS_NPC(ch) && get_skill(ch,gsn_butcher) < 1)
-	  {
-	    send_to_char("You don't have the precision instruments for that.", ch);
-	    return;
-	  }
+	if (obj->carried_by != NULL) {
+		send_to_char("Put it down first.\n\r",ch);
+		return;
+	}
+
+	if (!IS_NPC(ch) && get_skill(ch,gsn_butcher) < 1) {
+		send_to_char("You don't have the precision instruments "
+			     "for that.", ch);
+		return;
+	}
 
 	obj_from_room(obj);
 	
-	for (tmp_obj = obj->contains;tmp_obj != NULL;
-	     tmp_obj = tmp_next)
-	  {
-	    tmp_next = tmp_obj->next_content;
-	    obj_from_obj(tmp_obj);
-	    obj_to_room(tmp_obj,ch->in_room);
-	  }
+	for (tmp_obj = obj->contains; tmp_obj != NULL; tmp_obj = tmp_next) {
+		tmp_next = tmp_obj->next_content;
+		obj_from_obj(tmp_obj);
+		obj_to_room(tmp_obj, ch->in_room);
+	}
 	
 
-	if (IS_NPC(ch) || number_percent() < get_skill(ch,gsn_butcher))
-	  {
-	    int numsteaks;
-	    int i;
-	    OBJ_DATA *steak;
+	if (IS_NPC(ch) || number_percent() < get_skill(ch,gsn_butcher)) {
+		int numsteaks;
+		int i;
+		OBJ_DATA *steak;
 	      
-	    numsteaks = number_bits(2) + 1; 
+		numsteaks = number_bits(2) + 1; 
 	    
-	    if (numsteaks > 1) {
-	  act_printf(ch,obj,NULL,TO_ROOM, POS_RESTING,
-	  		"$n butchers $p and creates %i steaks.",numsteaks);
-	  act_printf(ch,obj,NULL,TO_CHAR, POS_RESTING,
-			"You butcher $p and create %i steaks.",numsteaks);
+		if (numsteaks > 1) {
+			act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING,
+	  			   "$n butchers $p and creates %i steaks.",
+				   numsteaks);
+			act_printf(ch, obj, NULL, TO_CHAR, POS_RESTING,
+				   "You butcher $p and create %i steaks.",
+				   numsteaks);
+		}
+		else {
+			act("$n butchers $p and creates a steak.",
+			    ch, obj, NULL, TO_ROOM);
+			act("You butcher $p and create a steak.",
+			    ch, obj, NULL, TO_CHAR);
+		}
+		check_improve(ch,gsn_butcher,TRUE,1);
+
+		for (i=0; i < numsteaks; i++) {
+			steak = create_object(get_obj_index(OBJ_VNUM_STEAK), 0);
+	
+			str_printf(&steak->short_descr,
+				   steak->short_descr, obj->short_descr);
+			str_printf(&steak->description,
+				   steak->description, obj->short_descr);
+	  		obj_to_room(steak,ch->in_room);
+		}
+	}	
+	else {
+		act("You fail and destroy $p.", ch, obj, NULL, TO_CHAR);
+		act("$n fails to butcher $p and destroys it.",
+		    ch, obj, NULL, TO_ROOM);
+
+		check_improve(ch, gsn_butcher, FALSE, 1);
 	}
-
-	    else 
-	{
-	  act("$n butchers $p and creates a steak."
-	      ,ch,obj,NULL,TO_ROOM);
-
-	  act("You butcher $p and create a steak."
-	      ,ch,obj,NULL,TO_CHAR);
-	}
-	    check_improve(ch,gsn_butcher,TRUE,1);
-
-	    for (i=0; i < numsteaks; i++) {
-		char buf[MAX_STRING_LENGTH];
-
-	  steak = create_object(get_obj_index(OBJ_VNUM_STEAK),0);
-	  snprintf(buf, sizeof(buf), steak->short_descr, obj->short_descr);
-	  free_string(steak->short_descr);
-	  steak->short_descr = str_dup(buf);
-
-	  snprintf(buf, sizeof(buf), steak->description, obj->short_descr);
-	  free_string(steak->description);
-	  steak->description = str_dup(buf);
-
-	  obj_to_room(steak,ch->in_room);
-	}
-	  }	
-	else 
-	  {
-	    act("You fail and destroy $p.",ch,obj,NULL,TO_CHAR);
-	    act("$n fails to butcher $p and destroys it.",
-	  ch,obj,NULL,TO_ROOM);
-
-	    check_improve(ch,gsn_butcher,FALSE,1);
-	  }
 	extract_obj(obj);
 }
 

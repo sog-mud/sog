@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.11 1998-06-12 14:25:59 fjoe Exp $
+ * $Id: spellfun2.c,v 1.12 1998-06-13 11:55:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1917,7 +1917,6 @@ void spell_shadowlife(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	CHAR_DATA *shadow;
 	AFFECT_DATA af;
 	int i;
-	char buf[MAX_STRING_LENGTH];
 	char *name;
 
 	if (IS_NPC(victim))
@@ -1957,17 +1956,9 @@ void spell_shadowlife(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	shadow->gold = 0;
 
 	name		= IS_NPC(victim) ? victim->short_descr : victim->name;
-	snprintf(buf, sizeof(buf), shadow->short_descr, name);
-	free_string(shadow->short_descr);
-	shadow->short_descr = str_dup(buf);
-
-	snprintf(buf, sizeof(buf), shadow->long_descr, name);
-	free_string(shadow->long_descr);
-	shadow->long_descr = str_dup(buf);
-	
-	snprintf(buf, sizeof(buf), shadow->description, name);
-	free_string(shadow->description);
-	shadow->description = str_dup(buf);
+	str_printf(&shadow->short_descr, shadow->short_descr, name);
+	str_printf(&shadow->long_descr, shadow->long_descr, name);
+	str_printf(&shadow->description, shadow->description, name);
 	
 	char_to_room(shadow,ch->in_room);
 
@@ -2223,7 +2214,6 @@ void spell_squire(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	CHAR_DATA *squire;
 	AFFECT_DATA af;
 	int i;
-	char buf[MAX_STRING_LENGTH];
 
 	if (is_affected(ch,sn))
 	{
@@ -2262,17 +2252,9 @@ void spell_squire(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	squire->armor[3] = interpolate(squire->level,100,0);
 	squire->gold = 0;
 
-	snprintf(buf, sizeof(buf), squire->short_descr, ch->name);
-	free_string(squire->short_descr);
-	squire->short_descr = str_dup(buf);
-
-	snprintf(buf, sizeof(buf), squire->long_descr, ch->name);
-	free_string(squire->long_descr);
-	squire->long_descr = str_dup(buf);
-	
-	snprintf(buf, sizeof(buf), squire->description, ch->name);
-	free_string(squire->description);
-	squire->description = str_dup(buf); 
+	str_printf(&squire->short_descr, squire->short_descr, ch->name);
+	str_printf(&squire->long_descr, squire->long_descr, ch->name);
+	str_printf(&squire->description, squire->description, ch->name);
 	
 	squire->damage[DICE_NUMBER] = number_range(level/20, level/15);   
 	squire->damage[DICE_TYPE] = number_range(level/4, level/3);
@@ -2953,15 +2935,15 @@ void spell_vampire(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 
 
 void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo,int target)
- {
+{
 	CHAR_DATA *victim;
 	CHAR_DATA *undead;
 	OBJ_DATA *obj,*obj2,*next;
 	AFFECT_DATA af;
-	char buf[MAX_STRING_LENGTH];
 	char buf2[MAX_STRING_LENGTH];
 	char buf3[MAX_STRING_LENGTH];
-	char *argument,*arg;
+	char *argument;
+	char arg[MAX_STRING_LENGTH];
 	int i;
 
 	/* deal with the object case first */
@@ -2998,12 +2980,10 @@ void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo,int target)
 
 	if (IS_SET(ch->in_room->room_flags, ROOM_SAFE)      ||
 	   IS_SET(ch->in_room->room_flags, ROOM_PRIVATE)   ||
-	   IS_SET(ch->in_room->room_flags, ROOM_SOLITARY) )
-	{
+	   IS_SET(ch->in_room->room_flags, ROOM_SOLITARY)) {
 	send_to_char("You can't animate here.\n\r", ch);
 	return;
 	}
-	undead = alloc_perm(sizeof (*undead));
 	undead = create_mobile(get_mob_index(MOB_VNUM_UNDEAD));
 	char_to_room(undead,ch->in_room);
 	for (i=0;i < MAX_STATS; i++)
@@ -3029,17 +3009,14 @@ void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo,int target)
 	undead->master = ch;
 	undead->leader = ch;
 
-	snprintf(buf, sizeof(buf), "%s body undead", obj->name);
-	undead->name = str_dup(buf);
+	str_printf(&undead->name, "%s body undead", obj->name);
+
 	strcpy(buf2, obj->short_descr);
-	argument = alloc_perm (MAX_STRING_LENGTH);
-	arg = alloc_perm (MAX_STRING_LENGTH);
 	argument = buf2;
 	buf3[0] = '\0';
-	while (argument[0] != '\0')
-	{
-	argument = one_argument(argument, arg);
-	if (!(!str_cmp(arg,"The") || !str_cmp(arg,"undead") || !str_cmp(arg,"body") ||
+	while (argument[0] != '\0') {
+		argument = one_argument(argument, arg);
+		if (!(!str_cmp(arg,"The") || !str_cmp(arg,"undead") || !str_cmp(arg,"body") ||
 	!str_cmp(arg,"corpse") || !str_cmp(arg,"of")))
 	 {
 	  if (buf3[0] == '\0')   strcat(buf3,arg);
@@ -3049,10 +3026,10 @@ void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo,int target)
 		}
 	 }
 	}
-	snprintf(buf, sizeof(buf), "The undead body of %s", buf3);
-	undead->short_descr = str_dup(buf);
-	snprintf(buf, sizeof(buf), "The undead body of %s slowly staggers around.\n\r", buf3);
-	undead->long_descr = str_dup(buf);
+
+	str_printf(&undead->short_descr, "The undead body of %s", buf3);
+	str_printf(&undead->long_descr,
+		   "The undead body of %s slowly staggers around.\n\r", buf3);
 
 	for(obj2 = obj->contains;obj2;obj2=next)
 	{
@@ -3082,10 +3059,9 @@ void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo,int target)
 
 	victim = (CHAR_DATA *) vo;
 
-	if (victim == ch)
-	{
-	send_to_char("But you aren't dead!!\n\r", ch);
-	return;
+	if (victim == ch) {
+		send_to_char("But you aren't dead!!\n\r", ch);
+		return;
 	}
 
 	send_to_char("But it ain't dead!!\n\r", ch);
@@ -3470,7 +3446,6 @@ void spell_power_kill(int sn, int level, CHAR_DATA *ch, void *vo , int target)
 
 void spell_eyed_sword (int sn, int level, CHAR_DATA *ch, void *vo , int target) 
 {
-	char buf[MAX_STRING_LENGTH];
 	OBJ_DATA *eyed;
 	int i;
 /*
@@ -3494,28 +3469,23 @@ void spell_eyed_sword (int sn, int level, CHAR_DATA *ch, void *vo , int target)
 	eyed->pit = hometown_table[ch->hometown].pit[i];
 	eyed->level = ch->level;
 
-	snprintf(buf, sizeof(buf), eyed->short_descr, ch->name);
-	free_string(eyed->short_descr);
-	eyed->short_descr = str_dup(buf);
+	str_printf(&eyed->short_descr, eyed->short_descr, ch->name);
+	str_printf(&eyed->description, eyed->description, ch->name);
 
-	snprintf(buf, sizeof(buf), eyed->description, ch->name	);
-	free_string(eyed->description);
-	eyed->description = str_dup(buf);
+	eyed->extra_descr = new_extra_descr();
+	str_printf(&eyed->extra_descr->description,
+		   eyed->pIndexData->extra_descr->description, ch->name);
+	eyed->extra_descr->keyword = 
+			str_dup(eyed->pIndexData->extra_descr->keyword);
+	eyed->extra_descr->next = NULL;
 
-	    snprintf(buf, sizeof(buf), eyed->pIndexData->extra_descr->description, ch->name);
-	    eyed->extra_descr = new_extra_descr();
-	    eyed->extra_descr->keyword = 
-	              str_dup(eyed->pIndexData->extra_descr->keyword);
-	    eyed->extra_descr->description = str_dup(buf);
-	    eyed->extra_descr->next = NULL;
-
-		eyed->value[2] = (ch->level / 10) + 3;  
-		eyed->level = ch->level;
+	eyed->value[2] = (ch->level / 10) + 3;  
+	eyed->level = ch->level;
 	eyed->cost = 0;
 	obj_to_char(eyed, ch);
 	send_to_char("You create YOUR sword with your name.\n\r",ch);
 	send_to_char("Don't forget that you won't be able to create this weapon anymore.\n\r",ch);
- return;
+	return;
 }
 
 void spell_lion_help (int sn, int level, CHAR_DATA *ch, void *vo , int target) 
@@ -3627,7 +3597,6 @@ void spell_magic_jar (int sn, int level, CHAR_DATA *ch, void *vo , int target)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	OBJ_DATA *vial;
 	OBJ_DATA *fire;
-	char buf[MAX_STRING_LENGTH];
 	int i;
 
 	if (victim == ch)
@@ -3671,26 +3640,18 @@ void spell_magic_jar (int sn, int level, CHAR_DATA *ch, void *vo , int target)
 	fire->pit = hometown_table[ch->hometown].pit[i];
 	fire->level = ch->level;
 
-	snprintf(buf, sizeof(buf), fire->name, victim->name);
-	free_string(fire->name);
-	fire->name = str_dup(buf);
+	str_printf(&fire->name, fire->name, victim->name);
+	str_printf(&fire->short_descr, fire->short_descr, victim->name);
+	str_printf(&fire->description, fire->description, victim->name);
 
-	snprintf(buf, sizeof(buf), fire->short_descr, victim->name);
-	free_string(fire->short_descr);
-	fire->short_descr = str_dup(buf);
+	fire->extra_descr = new_extra_descr();
+	str_printf(&fire->extra_descr->description,
+		   fire->pIndexData->extra_descr->description, victim->name);
+	fire->extra_descr->keyword = 
+			str_dup(fire->pIndexData->extra_descr->keyword);
+	fire->extra_descr->next = NULL;
 
-	snprintf(buf, sizeof(buf), fire->description, victim->name);
-	free_string(fire->description);
-	fire->description = str_dup(buf);
-
-	    snprintf(buf, sizeof(buf), fire->pIndexData->extra_descr->description, victim->name);
-	    fire->extra_descr = new_extra_descr();
-	    fire->extra_descr->keyword = 
-	              str_dup(fire->pIndexData->extra_descr->keyword);
-	    fire->extra_descr->description = str_dup(buf);
-	    fire->extra_descr->next = NULL;
-
-		fire->level = ch->level;
+	fire->level = ch->level;
 	fire->cost = 0;
 	obj_to_char(fire , ch);    
  SET_BIT(victim->act,PLR_NO_EXP);
@@ -3926,24 +3887,24 @@ void spell_protection_cold (int sn, int level, CHAR_DATA *ch, void *vo , int tar
 	return;
 }
 
-void spell_fire_shield (int sn, int level, CHAR_DATA *ch, void *vo , int target) 
+void spell_fire_shield (int sn, int level, CHAR_DATA *ch, void *vo , int target)
 {
-	char buf[MAX_STRING_LENGTH];
 	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *fire;
 	int i;
 
 	target_name = one_argument(target_name, arg);
-	if (!(!str_cmp(arg,"cold") || !str_cmp(arg,"fire")))
-	{
-	send_to_char("You must specify the type.\n\r",ch);
-	return;
+	if (!(!str_cmp(arg,"cold") || !str_cmp(arg,"fire"))) {
+		send_to_char("You must specify the type.\n\r",ch);
+		return;
 	}
+
 	if (IS_GOOD(ch))
-		i=0;
+		i = 0;
 	else if (IS_EVIL(ch))
-		i=2;
-	else i = 1;
+		i = 2;
+	else
+		i = 1;
 	
 	fire	= create_object(get_obj_index(OBJ_VNUM_FIRE_SHIELD), 0);
 	fire->owner = str_dup(ch->name);
@@ -3952,57 +3913,49 @@ void spell_fire_shield (int sn, int level, CHAR_DATA *ch, void *vo , int target)
 	fire->pit = hometown_table[ch->hometown].pit[i];
 	fire->level = ch->level;
 
-	snprintf(buf, sizeof(buf), fire->short_descr, arg);
-	free_string(fire->short_descr);
-	fire->short_descr = str_dup(buf);
+	str_printf(&fire->short_descr, fire->short_descr, arg);
+	str_printf(&fire->description, fire->description, arg);
 
-	snprintf(buf, sizeof(buf), fire->description, arg	);
-	free_string(fire->description);
-	fire->description = str_dup(buf);
+	fire->extra_descr = new_extra_descr();
+	str_printf(&fire->extra_descr->description,
+		   fire->pIndexData->extra_descr->description, arg);
+	fire->extra_descr->keyword = 
+			str_dup(fire->pIndexData->extra_descr->keyword);
+	fire->extra_descr->next = NULL;
 
-	    snprintf(buf, sizeof(buf), fire->pIndexData->extra_descr->description, arg);
-	    fire->extra_descr = new_extra_descr();
-	    fire->extra_descr->keyword = 
-	              str_dup(fire->pIndexData->extra_descr->keyword);
-	    fire->extra_descr->description = str_dup(buf);
-	    fire->extra_descr->next = NULL;
-
-		fire->level = ch->level;
+	fire->level = ch->level;
 	fire->cost = 0;
 	fire->timer = 5 * ch->level ;
 	if (IS_GOOD(ch))
-	 SET_BIT(fire->extra_flags,(ITEM_ANTI_NEUTRAL | ITEM_ANTI_EVIL));
+		SET_BIT(fire->extra_flags,(ITEM_ANTI_NEUTRAL | ITEM_ANTI_EVIL));
 	else if (IS_NEUTRAL(ch))
-	 SET_BIT(fire->extra_flags,(ITEM_ANTI_GOOD | ITEM_ANTI_EVIL));
+		SET_BIT(fire->extra_flags,(ITEM_ANTI_GOOD | ITEM_ANTI_EVIL));
 	else if (IS_EVIL(ch))
-	 SET_BIT(fire->extra_flags,(ITEM_ANTI_NEUTRAL | ITEM_ANTI_GOOD));	
+		SET_BIT(fire->extra_flags,(ITEM_ANTI_NEUTRAL | ITEM_ANTI_GOOD));
 	obj_to_char(fire, ch);
- send_to_char("You create the fire shield.\n\r",ch);
- return;
+	send_to_char("You create the fire shield.\n\r",ch);
 }
 
-void spell_witch_curse (int sn, int level, CHAR_DATA *ch, void *vo , int target) 
+void spell_witch_curse (int sn, int level, CHAR_DATA *ch, void *vo , int target)
 {
 	AFFECT_DATA af;
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (is_affected(victim,gsn_witch_curse))
-	{
-	  send_to_char("It has already underflowing with health.\n\r",ch);
-	  return;
+	if (is_affected(victim,gsn_witch_curse)) {
+		send_to_char("It has already underflowing with health.\n\r",ch);
+		return;
 	}
 
-	ch->hit -=(2 * level);
+	ch->hit -= (2 * level);
 
-	af.where		= TO_AFFECTS;
-	af.type               = gsn_witch_curse;
-	af.level              = level; 
-	af.duration           = 24;
-	af.location           = APPLY_HIT;
-	af.modifier           = - level;
-	af.bitvector          = 0;
-	affect_to_char(victim,&af);
-
+	af.where	= TO_AFFECTS;
+	af.type         = gsn_witch_curse;
+	af.level        = level; 
+	af.duration     = 24;
+	af.location     = APPLY_HIT;
+	af.modifier     = - level;
+	af.bitvector    = 0;
+	affect_to_char(victim, &af);
 
 	send_to_char("Now he got the path to death.\n\r",ch);
 }

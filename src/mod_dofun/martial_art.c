@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.9 1998-06-12 14:26:00 fjoe Exp $
+ * $Id: martial_art.c,v 1.10 1998-06-13 11:55:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2130,21 +2130,18 @@ void do_trophy(CHAR_DATA *ch, char *argument)
 		af.location	= 0;
 		affect_to_char(ch,&af);
 	
-		if (trophy_vnum != 0)
-		{
-			char buf[MAX_STRING_LENGTH];
+		if (trophy_vnum != 0) {
 			level = UMIN(part->level + 5, MAX_LEVEL);
  
-			trophy = create_object(get_obj_index(trophy_vnum), level);
+			trophy = create_object(get_obj_index(trophy_vnum),
+					       level);
 			trophy->timer = ch->level * 2;
 
-			sprintf(buf, trophy->short_descr, part->from);
-			free_string(trophy->short_descr);
-			trophy->short_descr = str_dup(buf);
-			
-			sprintf(buf, trophy->description, part->from);
-			free_string(trophy->description);
-			trophy->description = str_dup(buf);    
+			str_printf(&trophy->short_descr,
+				   trophy->short_descr, part->from);
+			str_printf(&trophy->description,
+				   trophy->description, part->from);
+
 			trophy->cost  = 0;
 			trophy->level = ch->level;
 			ch->mana -= 30;
@@ -3344,7 +3341,6 @@ void do_katana(CHAR_DATA *ch, char *argument)
 	AFFECT_DATA af;
 	OBJ_DATA *part;
 	char arg[MAX_INPUT_LENGTH];
-	char buf[MAX_STRING_LENGTH];
 
 	one_argument(argument, arg);
 	
@@ -3393,8 +3389,7 @@ void do_katana(CHAR_DATA *ch, char *argument)
 
 	WAIT_STATE(ch, skill_table[gsn_katana].beats);
 
-		if (!IS_NPC(ch) && number_percent() < get_skill(ch,gsn_katana))
-	{
+	if (!IS_NPC(ch) && number_percent() < get_skill(ch,gsn_katana)) {
 		af.where  = TO_AFFECTS;
 		af.type	= gsn_katana;
 		af.level	= ch->level;
@@ -3421,25 +3416,26 @@ void do_katana(CHAR_DATA *ch, char *argument)
 		af.location	= APPLY_HITROLL;
 		affect_to_obj(katana, &af);
 
-			katana->value[2] = ch->level / 10;
+		katana->value[2] = ch->level / 10;
 
-			  sprintf(buf,katana->pIndexData->extra_descr->description,ch->name);
-			  katana->extra_descr = new_extra_descr();
-			  katana->extra_descr->keyword =str_dup(katana->pIndexData->extra_descr->keyword);
-			  katana->extra_descr->description = str_dup(buf);
-			  katana->extra_descr->next = NULL;
+		katana->extra_descr = new_extra_descr();
+		str_printf(&katana->extra_descr->description,
+			   katana->pIndexData->extra_descr->description,
+			   ch->name);
+		katana->extra_descr->keyword =
+			str_dup(katana->pIndexData->extra_descr->keyword);
+		katana->extra_descr->next = NULL;
 			
-			obj_to_char(katana, ch);
-			  check_improve(ch, gsn_katana, TRUE, 1);
+		obj_to_char(katana, ch);
+		check_improve(ch, gsn_katana, TRUE, 1);
 			
-			act("You make a katana from $p!",ch,part,NULL,TO_CHAR);
-			act("$n makes a katana from $p!",ch,part,NULL,TO_ROOM);
+		act("You make a katana from $p!",ch,part,NULL,TO_CHAR);
+		act("$n makes a katana from $p!",ch,part,NULL,TO_ROOM);
 			
-			extract_obj(part);
-			return;
+		extract_obj(part);
+		return;
 	}
-	else
-	{
+	else {
 		send_to_char("You destroyed it.\n\r", ch);
 		extract_obj(part);
 		ch->mana -= 150;

@@ -1,5 +1,5 @@
 /*
- * $Id: quest.c,v 1.30 1998-06-09 09:46:22 efdi Exp $
+ * $Id: quest.c,v 1.31 1998-06-13 11:55:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -787,16 +787,14 @@ void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
 		eyed->pit = hometown_table[ch->hometown].pit[i];
 		eyed->level = ch->level;
 
-		snprintf(buf, sizeof(buf), eyed->description, ch->name);
-		free_string(eyed->description);
-		eyed->description = str_dup(buf);
+		str_printf(&eyed->description, eyed->description, ch->name);
 
-		snprintf(buf, sizeof(buf),
-			eyed->pIndexData->extra_descr->description, ch->name);
 		eyed->extra_descr = new_extra_descr();
+		str_printf(&eyed->extra_descr->description,
+			   eyed->pIndexData->extra_descr->description,
+			   ch->name);
 		eyed->extra_descr->keyword =
-			str_dup(eyed->pIndexData->extra_descr->keyword);
-		eyed->extra_descr->description = str_dup(buf);
+				str_dup(eyed->pIndexData->extra_descr->keyword);
 		eyed->extra_descr->next = NULL;
 
 		eyed->cost = 0;

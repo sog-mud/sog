@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.11 1998-06-12 14:26:00 fjoe Exp $
+ * $Id: mob_prog.c,v 1.12 1998-06-13 11:55:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -911,16 +911,13 @@ void greet_prog_hunter(CHAR_DATA *mob, CHAR_DATA *ch)
 	eyed->pit = hometown_table[ch->hometown].pit[i];
 	eyed->level = ch->level;
 
-	snprintf(buf, sizeof(buf), eyed->short_descr, ch->name );
-	free_string( eyed->short_descr );
-	eyed->short_descr = str_dup( buf );
+	str_printf(&eyed->short_descr, eyed->short_descr, ch->name);
 
-        snprintf(buf, sizeof(buf),
-		eyed->pIndexData->extra_descr->description, ch->name );
         eyed->extra_descr = new_extra_descr();
+	str_printf(&eyed->extra_descr->description,
+		   eyed->pIndexData->extra_descr->description, ch->name);
         eyed->extra_descr->keyword = 
-                  str_dup( eyed->pIndexData->extra_descr->keyword );
-        eyed->extra_descr->description = str_dup( buf );
+        		str_dup(eyed->pIndexData->extra_descr->keyword);
         eyed->extra_descr->next = NULL;
 
   	eyed->value[2] = (ch->level / 10) + 3;  
@@ -1239,9 +1236,8 @@ void area_prog_grocer(CHAR_DATA *mob)
 
 void speech_prog_hunter_cleric(CHAR_DATA *mob, CHAR_DATA *ch, char *speech)
 {
- char buf[MAX_STRING_LENGTH];
- OBJ_DATA *obj,*in_obj;
- int matched,i;
+	OBJ_DATA *obj,*in_obj;
+	int matched,i;
 
     if (str_cmp(speech,"trouble"))	return;
  
@@ -1323,17 +1319,14 @@ void speech_prog_hunter_cleric(CHAR_DATA *mob, CHAR_DATA *ch, char *speech)
     obj->pit = hometown_table[ch->hometown].pit[i];
     obj->level = ch->level;
 
-    snprintf(buf, sizeof(buf), obj->short_descr, ch->name );
-    free_string( obj->short_descr );
-    obj->short_descr = str_dup( buf );
+	str_printf(&obj->short_descr, obj->short_descr, ch->name);
 
-    snprintf(buf, sizeof(buf),
-		obj->pIndexData->extra_descr->description, ch->name );
-    obj->extra_descr = new_extra_descr();
-    obj->extra_descr->keyword = 
-                  str_dup( obj->pIndexData->extra_descr->keyword );
-    obj->extra_descr->description = str_dup( buf );
-    obj->extra_descr->next = NULL;
+    	obj->extra_descr = new_extra_descr();
+	str_printf(&obj->extra_descr->description,
+		   obj->pIndexData->extra_descr->description, ch->name);
+	obj->extra_descr->keyword = 
+        		str_dup(obj->pIndexData->extra_descr->keyword);
+	obj->extra_descr->next = NULL;
 
     obj->value[2] = (ch->level / 10) + 3;  
     obj->level = ch->level;
