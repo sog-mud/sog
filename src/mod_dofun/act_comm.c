@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.187.2.15 2000-08-17 11:39:16 fjoe Exp $
+ * $Id: act_comm.c,v 1.187.2.16 2000-10-22 17:58:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2126,7 +2126,7 @@ static void toggle_print(CHAR_DATA *ch, toggle_t *t)
 	char buf[MAX_STRING_LENGTH];
 	flag64_t *bits;
 
-	if ((bits = toggle_bits(ch, t)) < 0)
+	if ((bits = toggle_bits(ch, t)) == NULL)
 		return;
 
 	snprintf(buf, sizeof(buf), "  %-11.11s - %-3.3s ($t)",

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.32 2000-08-11 10:05:21 cs Exp $
+ * $Id: handler.c,v 1.182.2.33 2000-10-22 17:58:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -518,11 +518,6 @@ bool name_toggle(const char **nl, const char *name,
 		if (ch)
 			char_printf(ch, "%s: name list reset.\n", editor_name);
 		return TRUE;
-	}
-
-	if (!str_cmp(*nl, "all")) {
-		free_string(*nl);
-		*nl = str_empty;
 	}
 
 	return name_edit(nl, name, NE_F_ADD | NE_F_DELETE, ch, editor_name);
