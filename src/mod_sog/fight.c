@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.327 2001-09-09 09:46:47 kostik Exp $
+ * $Id: fight.c,v 1.328 2001-09-09 12:01:00 kostik Exp $
  */
 
 /***************************************************************************
@@ -2747,6 +2747,10 @@ xpc_compute(CHAR_DATA *ch, CHAR_DATA *victim, xpc_t *xpc)
 	xpc->members = 0;
 	xpc->group_levels = 0;
 
+
+	if (!IS_NPC(victim) || victim == ch)
+		return;
+
 	xpc->multiplier = victim->pMobIndex->xp_multiplier;
 	xpc->divisor = 100;
 
@@ -2754,9 +2758,6 @@ xpc_compute(CHAR_DATA *ch, CHAR_DATA *victim, xpc_t *xpc)
 	xpc->divisor *= victim->pMobIndex->hit[DICE_BONUS] +
 	    (victim->pMobIndex->hit[DICE_TYPE] + 1) *
 	    victim->pMobIndex->hit[DICE_NUMBER] / 2;
-
-	if (!IS_NPC(victim) || victim == ch)
-		return;
 
 	if (IS_SET(victim->pMobIndex->act, ACT_PET)
 	||  victim->pMobIndex->vnum < 100
@@ -2815,7 +2816,7 @@ group_gain(CHAR_DATA *ch, xpc_t *xpc)
 			act_puts("You receive $j experience points.",
 				 gch, (const void *) xp, NULL,
 				 TO_CHAR, POS_DEAD);
-		} else {
+		} else if (xp < 0) {
 			act_puts("You loose $j experience points.",
 				 gch, (const void *) -xp, NULL,
 				 TO_CHAR, POS_DEAD);
