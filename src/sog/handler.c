@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.145 1999-05-22 13:37:27 fjoe Exp $
+ * $Id: handler.c,v 1.146 1999-05-22 13:55:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3216,8 +3216,7 @@ void show_duration(BUFFER *output, AFFECT_DATA *paf)
 		opt.to_lang = buf_lang(output);
 		opt.act_flags = ACT_NOUCASE;
 
-		act_buf(GETMSG("for {c$j{x $qj{hours}.", opt.to_lang),
-			NULL, NULL,
+		act_buf("for {c$j{x $qj{hours}.", NULL, NULL,
 			(const void*) paf->duration, NULL, NULL,
 			&opt, buf, sizeof(buf));
 		buf_add(output, buf);

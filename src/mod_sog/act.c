@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.21 1999-05-21 22:49:34 fjoe Exp $
+ * $Id: act.c,v 1.22 1999-05-22 13:55:59 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -334,7 +334,7 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 	char 		tmp	[MAX_STRING_LENGTH];
 
 	char *		point = buf;
-	const char *	s = format;
+	const char *	s = GETMSG(format, opt->to_lang);
 
 	struct tdata	tstack[TSTACK_SZ];
 	int		sp = -1;
@@ -700,7 +700,7 @@ act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 	opt.to_sex = to->sex;
 	opt.act_flags = act_flags;
 
-	act_buf(GETMSG(format, to->lang), ch, to, arg1, arg2, arg3,
+	act_buf(format, ch, to, arg1, arg2, arg3,
 		&opt, buf, sizeof(buf));
 	parse_colors(buf, tmp, sizeof(tmp), OUTPUT_FORMAT(to));
 
