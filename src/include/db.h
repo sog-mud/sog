@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.h,v 1.80 2001-06-25 16:50:57 fjoe Exp $
+ * $Id: db.h,v 1.81 2001-07-08 17:18:42 fjoe Exp $
  */
 
 #ifndef _DB_H_
@@ -33,11 +33,11 @@
  *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
  *	 Serdar BULUT {Chronos}		bulut@rorqual.cc.metu.edu.tr       *
- *	 Ibrahim Canpunar  {Asena}	canpunar@rorqual.cc.metu.edu.tr    *	
- *	 Murat BICER  {KIO}		mbicer@rorqual.cc.metu.edu.tr	   *	
- *	 D.Baris ACAR {Powerman}	dbacar@rorqual.cc.metu.edu.tr	   *	
+ *	 Ibrahim Canpunar  {Asena}	canpunar@rorqual.cc.metu.edu.tr    *
+ *	 Murat BICER  {KIO}		mbicer@rorqual.cc.metu.edu.tr	   *
+ *	 D.Baris ACAR {Powerman}	dbacar@rorqual.cc.metu.edu.tr	   *
  *     By using this code, you have agreed to follow the terms of the      *
- *     ANATOLIA license, in the file Anatolia/anatolia.licence             *	
+ *     ANATOLIA license, in the file Anatolia/anatolia.licence             *
  ***************************************************************************/
 
 /***************************************************************************
@@ -56,7 +56,7 @@
  *  benefitting.  We hope that you share your changes too.  What goes	   *
  *  around, comes around.						   *
  ***************************************************************************/
- 
+
 /***************************************************************************
 *	ROM 2.4 is copyright 1993-1995 Russ Taylor			   *
 *	ROM has been brought to you by the ROM consortium		   *
@@ -67,7 +67,7 @@
 *	ROM license, in the file Rom24/doc/rom.license			   *
 ***************************************************************************/
 
-#include "rfile.h"
+#include <rfile.h>
 
 #define MAX_KEY_HASH		1024
 
@@ -194,8 +194,8 @@ extern int		top_obj_index;
 extern int		top_vnum_mob;
 extern int		top_vnum_obj;
 extern int		top_vnum_room;
-extern int  		top_affect;
-extern int		top_ed; 
+extern int		top_affect;
+extern int		top_ed;
 extern int		top_area;
 extern int		top_exit;
 extern int		top_help;
@@ -271,4 +271,3 @@ extern const char AREASTAT_FILE	[];
 extern const char IMMLOG_FILE	[];
 
 #endif
-

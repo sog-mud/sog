@@ -23,13 +23,11 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: socials.h,v 1.8 1999-12-21 00:27:51 avn Exp $
+ * $Id: socials.h,v 1.9 2001-07-08 17:18:47 fjoe Exp $
  */
 
 #ifndef _SOCIALS_H_
 #define _SOCIALS_H_
-
-#include "mlstring.h"
 
 /*
  * Structure for a social in the socials table.

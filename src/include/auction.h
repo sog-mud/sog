@@ -1,16 +1,16 @@
 /*
- * $Id: auction.h,v 1.5 2000-02-20 10:39:37 avn Exp $
+ * $Id: auction.h,v 1.6 2001-07-08 17:18:40 fjoe Exp $
  */
 
 /***************************************************************************
- *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *	
+ *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
  *	 Serdar BULUT {Chronos}		bulut@rorqual.cc.metu.edu.tr       *
- *	 Ibrahim Canpunar  {Asena}	canpunar@rorqual.cc.metu.edu.tr    *	
- *	 Murat BICER  {KIO}		mbicer@rorqual.cc.metu.edu.tr	   *	
- *	 D.Baris ACAR {Powerman}	dbacar@rorqual.cc.metu.edu.tr	   *	
+ *	 Ibrahim Canpunar  {Asena}	canpunar@rorqual.cc.metu.edu.tr    *
+ *	 Murat BICER  {KIO}		mbicer@rorqual.cc.metu.edu.tr	   *
+ *	 D.Baris ACAR {Powerman}	dbacar@rorqual.cc.metu.edu.tr	   *
  *     By using this code, you have agreed to follow the terms of the      *
- *     ANATOLIA license, in the file Anatolia/anatolia.licence             *	
+ *     ANATOLIA license, in the file Anatolia/anatolia.licence             *
  ***************************************************************************/
 
 /***************************************************************************
@@ -53,7 +53,7 @@ struct auction_data
 	CHAR_DATA * seller;	/* a pointer to the seller (may NOT quit) */
 	CHAR_DATA * buyer;	/* a pointer to the buyer (may NOT quit) */
 	int	starting;
-	int 	bet;		/* last bet - or 0 if noone has bet anything */
+	int	bet;		/* last bet - or 0 if noone has bet anything */
 	int	going;		/* 1,2, sold */
 };
 

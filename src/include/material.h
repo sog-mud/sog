@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: material.h,v 1.7 1999-12-18 11:01:39 fjoe Exp $
+ * $Id: material.h,v 1.8 2001-07-08 17:18:45 fjoe Exp $
  */
 
 #ifndef _MATERIAL_H_
@@ -46,7 +46,7 @@ struct material_t {
 
 extern hash_t materials;
 
-void 		material_init	(material_t *sk);
+void		material_init	(material_t *sk);
 material_t *	material_cpy	(material_t *dst, const material_t *src);
 void		material_destroy(material_t *sk);
 

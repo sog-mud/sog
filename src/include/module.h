@@ -23,13 +23,13 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: module.h,v 1.10 2000-06-07 08:55:20 fjoe Exp $
+ * $Id: module.h,v 1.11 2001-07-08 17:18:46 fjoe Exp $
  */
 
 #ifndef _MODULE_H_
 #define _MODULE_H_
 
-#include "module_decl.h"
+#include <module_decl.h>
 
 struct module_t {
 	const char *name;	/* module name				*/

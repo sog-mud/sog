@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: tables.h,v 1.38 2001-06-25 16:51:05 fjoe Exp $
+ * $Id: tables.h,v 1.39 2001-07-08 17:18:48 fjoe Exp $
  */
 
 #ifndef _TABLES_H_
@@ -109,4 +109,3 @@ extern flaginfo_t	hint_levels[];
 extern flaginfo_t	olc_flags[];
 
 #endif
-

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.h,v 1.29 2000-08-04 14:12:45 cs Exp $
+ * $Id: class.h,v 1.30 2001-07-08 17:18:41 fjoe Exp $
  */
 
 #ifndef _CLASS_H_
@@ -37,7 +37,7 @@ struct class_t {
 	char		who_name[4];	/* three-letter name for 'who' */
 	int		attr_prime;	/* primary stat */
 	int		weapon;		/* school weapon vnum */
-	varr 		guilds;		/* guild room list */
+	varr		guilds;		/* guild room list */
 	int		thac0_00;	/* thac0 for level 0 */
 	int		thac0_32;	/* thac0 for level 32 */
 	int		hp_rate;	/* hp rate (when gaining level) */

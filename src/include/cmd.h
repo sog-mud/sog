@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cmd.h,v 1.13 2000-10-22 17:53:38 fjoe Exp $
+ * $Id: cmd.h,v 1.14 2001-07-08 17:18:41 fjoe Exp $
  */
 
 #ifndef _CMD_H_
@@ -51,7 +51,7 @@
  */
 struct cmd_t
 {
-	const char * 	name;		/* cmd name */
+	const char *	name;		/* cmd name */
 	const char *	dofun_name;	/* name of do_function */
 	int		min_pos;	/* min position for cmd */
 	int		min_level;	/* min level for cmd */
@@ -76,4 +76,3 @@ void	dofun		(const char *name, CHAR_DATA *ch, const char *fmt, ...);
 extern varr commands;
 
 #endif
-

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: damtype.h,v 1.10 2000-03-03 04:09:08 avn Exp $
+ * $Id: damtype.h,v 1.11 2001-07-08 17:18:42 fjoe Exp $
  */
 
 #ifndef _DAMTYPE_H_
@@ -47,7 +47,7 @@ enum {
 	DAM_MENTAL,
 	DAM_DISEASE,
 	DAM_DROWNING,
-	DAM_LIGHT, 
+	DAM_LIGHT,
 	DAM_OTHER,
 	DAM_HARM,
 	DAM_CHARM,
@@ -84,4 +84,3 @@ gmlstr_t *	damtype_noun(const char *dn);
 int		damtype_class(const char *dn);
 
 #endif
-

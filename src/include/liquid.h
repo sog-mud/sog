@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: liquid.h,v 1.7 1999-12-19 00:21:08 avn Exp $
+ * $Id: liquid.h,v 1.8 2001-07-08 17:18:44 fjoe Exp $
  */
 
 #ifndef _LIQUID_H_
@@ -40,7 +40,7 @@ struct liquid_t
 
 extern hash_t liquids;
 
-void 		liquid_init	(liquid_t *sk);
+void		liquid_init	(liquid_t *sk);
 liquid_t *	liquid_cpy	(liquid_t *dst, const liquid_t *src);
 void		liquid_destroy	(liquid_t *sk);
 

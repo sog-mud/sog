@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: namelist.h,v 1.5 2000-10-22 17:53:38 fjoe Exp $
+ * $Id: namelist.h,v 1.6 2001-07-08 17:18:46 fjoe Exp $
  */
 
 #ifndef _NAMELIST_H_
@@ -42,4 +42,3 @@ bool	name_toggle	(const char **namelist, const char *name,
 			 CHAR_DATA *ch, const char *editor_name);
 
 #endif
-

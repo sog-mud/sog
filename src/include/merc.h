@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.332 2001-07-04 19:21:07 fjoe Exp $
+ * $Id: merc.h,v 1.333 2001-07-08 17:18:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -115,37 +115,37 @@ enum {
 };
 
 /* basic types */
-#include "buffer.h"
-#include "str.h"
-#include "namelist.h"
-#include "mlstring.h"
-#include "varr.h"
-#include "hash.h"
-#include "strkey_hash.h"
-#include "flag.h"
-#include "cmd.h"
+#include <buffer.h>
+#include <str.h>
+#include <namelist.h>
+#include <mlstring.h>
+#include <varr.h>
+#include <hash.h>
+#include <strkey_hash.h>
+#include <flag.h>
+#include <cmd.h>
 
-#include "tables.h"
-#include "comm.h"
-#include "comm_act.h"
-#include "hometown.h"
+#include <tables.h>
+#include <comm.h>
+#include <comm_act.h>
+#include <hometown.h>
 
 /* utils */
-#include "log.h"
-#include "util.h"
-#include "memalloc.h"
+#include <log.h>
+#include <util.h>
+#include <memalloc.h>
 
-#include "race.h"
-#include "affect.h"
-#include "class.h"
-#include "clan.h"
-#include "spec.h"
-#include "skills.h"
-#include "damtype.h"
-#include "material.h"
-#include "liquid.h"
-#include "forms.h"
-#include "vo_iter.h"
+#include <race.h>
+#include <affect.h>
+#include <class.h>
+#include <clan.h>
+#include <spec.h>
+#include <skills.h>
+#include <damtype.h>
+#include <material.h>
+#include <liquid.h>
+#include <forms.h>
+#include <vo_iter.h>
 
 #define PFILE_VERSION	12
 #define AREA_VERSION	5

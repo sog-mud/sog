@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: dynafun_decl.h,v 1.8 2001-06-20 09:54:25 avn Exp $
+ * $Id: dynafun_decl.h,v 1.9 2001-07-08 17:18:43 fjoe Exp $
  */
 
 /* no #ifdef _XXX_H_/#define _XXX_H_/#endif */
@@ -35,7 +35,7 @@
  *
  *	#undef MODULE_NAME
  *	#define MODULE_NAME MOD_XXX
- *	#include "dynafun_decl.h"
+ *	#include <dynafun_decl.h>
  *
  *	__MODULE_START_DECL
  *	DECLARE_FUNX(...)
@@ -55,8 +55,8 @@
  * macro __mod_tab(MOD_XXX) can be used in module init .c file
  */
 
-#include "dynafun.h"
-#include "module_decl.h"
+#include <dynafun.h>
+#include <module_decl.h>
 
 #if (MODULE_INIT == MODULE_NAME)
 #	undef __mod_tab_name

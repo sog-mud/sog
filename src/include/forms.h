@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: forms.h,v 1.4 2000-01-18 13:25:41 kostik Exp $
+ * $Id: forms.h,v 1.5 2001-07-08 17:18:43 fjoe Exp $
  */
 
 #ifndef _FORMS_H_
@@ -41,8 +41,8 @@ struct form_index_t
 	mlstring	description;	/* description of the form	*/
 	mlstring	short_desc;
 	mlstring	long_desc;
-	const char * 	damtype;
-	int 		damage[3];
+	const char *	damtype;
+	int		damage[3];
 	int		hitroll;
 	int		num_attacks;	/* Number of attacks		*/
 	const char *	skill_spec;	/* Skill spec for this form	*/
@@ -51,12 +51,12 @@ struct form_index_t
 };
 
 struct form_t {
-	form_index_t * 	index;
-	int 		damroll;
+	form_index_t *	index;
+	int		damroll;
 	int		hitroll;
-	int16_t 	resists[MAX_RESIST];
+	int16_t		resists[MAX_RESIST];
 };
-	
+
 extern hash_t forms;
 
 #define form_lookup(fn)		((form_index_t*) strkey_lookup(&forms, (fn)))

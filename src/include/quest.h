@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.h,v 1.14 2000-06-08 19:43:50 fjoe Exp $
+ * $Id: quest.h,v 1.15 2001-07-08 17:18:47 fjoe Exp $
  */
 
 #ifndef _QUEST_H_
@@ -33,7 +33,7 @@
 
 #undef MODULE_NAME
 #define MODULE_NAME MOD_QUEST
-#include "dynafun_decl.h"
+#include <dynafun_decl.h>
 
 /* flags for chquest_start */
 #define CHQUEST_F_NODELAY	(A)

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: memalloc.h,v 1.12 2001-06-21 16:16:55 avn Exp $
+ * $Id: memalloc.h,v 1.13 2001-07-08 17:18:45 fjoe Exp $
  */
 
 #ifndef _MEMALLOC_H_
@@ -71,4 +71,3 @@ void	mem_tag(const void *p, int f);
 void	mem_untag(const void *p, int f);
 
 #endif
-

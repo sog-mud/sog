@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.h,v 1.29 2001-06-24 21:12:43 avn Exp $
+ * $Id: mlstring.h,v 1.30 2001-07-08 17:18:46 fjoe Exp $
  */
 
 #ifndef _MLSTRING_H_
@@ -56,7 +56,7 @@ void		mlstr_init2	(mlstring *ml, const char *mval);
 void		mlstr_destroy	(mlstring *ml);
 void		mlstr_clear	(mlstring *ml);
 
-void	 	mlstr_fread	(rfile_t *fp, mlstring *ml);
+void		mlstr_fread	(rfile_t *fp, mlstring *ml);
 void		mlstr_fwrite	(FILE *fp, const char* name,
 				 const mlstring *ml);
 mlstring *	mlstr_cpy	(mlstring *dst, const mlstring *src);
