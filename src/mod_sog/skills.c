@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.91 1999-12-03 22:33:09 avn Exp $
+ * $Id: skills.c,v 1.92 1999-12-10 11:55:10 kostik Exp $
  */
 
 /***************************************************************************
@@ -648,6 +648,7 @@ static mob_skill_t mob_skill_tab[] =
 	{ "grip",		mob_grip		},
 	{ "berserk",		mob_berserk		},
 	{ "tiger power",	mob_tiger_power		},
+	{ "dual wield",		mob_dual_wield		},
 	{ "rescue",		mob_rescue		},
 	{ "crush",		mob_crush		},
 	{ "sword",		mob_weapon		},
@@ -758,6 +759,11 @@ MOB_SKILL(mob_spellbane)
 	if (IS_SET(mob->pMobIndex->off_flags, OFF_SPELLBANE))
 		return 65 + mob->level;
 	return 0;
+}
+
+MOB_SKILL(mob_dual_wield)
+{	
+	return 100;
 }
 
 MOB_SKILL(mob_dirt_kicking)
