@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.89 2001-11-09 16:09:15 kostik Exp $
+ * $Id: olc_mob.c,v 1.90 2001-11-28 18:41:50 fjoe Exp $
  */
 
 #include "olc.h"
@@ -724,7 +724,7 @@ OLC_FUN(mobed_detect)
 	return olced_flag(ch, argument, cmd, &pMob->has_detect);
 }
 
-OLC_FUN(mobed_prac) 
+OLC_FUN(mobed_prac)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
