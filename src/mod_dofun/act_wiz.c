@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.186.2.19 2000-07-27 08:11:53 fjoe Exp $
+ * $Id: act_wiz.c,v 1.186.2.20 2000-08-10 06:57:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3887,19 +3887,23 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 
 	if (!str_prefix(arg2, "clan")) {
 		int cn;
+		bool same_clan;
+		clan_t *clan;
+		OBJ_DATA *mark;
 
 		if ((cn = cln_lookup(arg3)) < 0) {
 			char_puts("Incorrect clan name.\n", ch);
 			goto cleanup;
 		}
 
-		if (IS_NPC(victim))
+		if (IS_NPC(victim)) {
 			victim->clan = cn;
+			char_puts("Ok.\n", ch);
+			goto cleanup;
+		}
 
-		if (!IS_NPC(victim) && cn != victim->clan) {
-			clan_t *clan;
-			OBJ_DATA *mark;
-
+		same_clan = (victim->clan == cn);
+		if (!same_clan) {
 			if (victim->clan
 			&&  (clan = clan_lookup(victim->clan))) {
 				clan_update_lists(clan, victim, TRUE);
@@ -3908,26 +3912,29 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 
 			victim->clan = cn;
 			PC(victim)->clan_status = CLAN_COMMONER;
+		}
 
-			if ((mark = get_eq_char(victim, WEAR_CLANMARK))) {
-				obj_from_char(mark);
-				extract_obj(mark, 0);
-			}
+		if ((mark = get_eq_char(victim, WEAR_CLANMARK))) {
+			obj_from_char(mark);
+			extract_obj(mark, 0);
+		}
 
+		if (!same_clan) {
 			if (cn) {
 				clan = CLAN(cn);
-				name_add(&clan->member_list, victim->name,
-					 NULL, NULL);
+				name_add(&clan->member_list, victim->name, NULL, NULL);
 				clan_save(clan);
-
-				mark = create_obj(get_obj_index(clan->mark_vnum), 0);
-				if (mark != NULL) {
-					obj_to_char(mark, victim);
-					equip_char(victim, mark, WEAR_CLANMARK);
-				}
 			}
 
 			update_skills(victim);
+		}
+
+		if (cn) {
+			mark = create_obj(get_obj_index(CLAN(cn)->mark_vnum), 0);
+			if (mark != NULL) {
+				obj_to_char(mark, victim);
+				equip_char(victim, mark, WEAR_CLANMARK);
+			}
 		}
 
 		char_puts("Ok.\n", ch);
