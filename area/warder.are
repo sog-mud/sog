@@ -97,6 +97,37 @@ jewelry ORTe A
 0 0 0 0 0
 0 0 0 P
 G none
+#96008
+skin~
+dragon skin~
+The skin of black dragon is here.~
+dragonskin~
+armor P AD
+0 0 0 0 0
+95 0 0 P
+A
+12 10000
+A
+13 10000
+A
+6 10
+A
+5 10
+A
+2 10
+A
+4 10
+A
+3 10
+A
+1 10
+F A 0 0 V
+F A 0 0 U
+F A 0 0 u
+F A 0 0 y
+A
+28 19
+G none
 #96011
 cap milk~
 cap of milk~
@@ -342,6 +373,10 @@ O 0 96003 0 96005	* Very nice waterfall is here (Before the Last Oak)
 O 0 96004 0 96007	* Very comforable branch is here (Dark Part of the Last Oak)
 O 0 96006 0 96009	* You see small hollow here. (Silent Place)
 O 0 96011 0 96011	* cap of milk (Before the point of no return)
+S
+
+#OLIMITS
+O 96008 1	* dragon skin
 S
 
 #PRACTICERS

@@ -418,7 +418,7 @@ G female
 #24312
 bark ebon ebonwood кора~
 @eng a casing of ebonwood bark@rus ~~древесная~~ ~~кора~~~
-@eng A pile of darkened bark lies on the ground.@rus Кучка тёмной древесной коры (casing) лежит здесь.~
+@eng A pile of darkened bark lies on the ground.@rus Кучка темной древесной коры (casing) лежит здесь.~
 wood~
 armor CEHJ AD
 100 6 7 0 0
@@ -440,7 +440,7 @@ look there is decay and rot. There are sounds of normal wildlife, but they
 seem muted and scarce. Further to the west you can see the faint glow of
 orange that seems to be from fires.
 @rus Лес вокруг тебя находится в последней стадии жизни. Куда не посмотришь --
-всё гниет и разлагается. Здесь есть еще отзвуки нормальной жизни, но они  
+все гниет и разлагается. Здесь есть еще отзвуки нормальной жизни, но они  
 тихи и незаметны. На западе ты замечаешь багровые отблески пожара.
 ~
 0 A forest
