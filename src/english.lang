@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.23 1998-05-26 12:35:59 efdi Exp $
+# $Id: english.lang,v 1.24 1998-05-27 00:14:10 efdi Exp $
 #
 
 INFO_NOTHING		"Nothing.\n\r"
@@ -511,3 +511,21 @@ UPDATE_CALMING_DOWN	"You're sowly calming down.\n\r"
 COMM_N_SAYS	"{W$n{x says '{G$t{x'"
 COMM_YOU_SAY	"You say '{G$T{x'"
 QUEST_INFO_LOCATION	"That location is in general area of {W%s{x for {W%s{x.\n\r"
+MOVE_CANT_PRAY_NOW	"You can't pray now.\n\r"
+MOVE_PRAYS_UPPER_LORD	"$n prays upper lord for transportation!"
+MOVE_ARENT_FIGHTING	"You aren't fighting anyone.\n\r"
+MOVE_ESCAPE_WHAT_DIR	"Escape to what diretion?\n\r"
+MOVE_CANT_ESCAPE_MOUNTED	"You can't escape while mounted.\n\r"
+MOVE_CANT_ESCAPE_RIDDEN		"You can't escape while being ridden.\n\r"
+MOVE_TRY_FLEE	"Try flee. It may fit better to you.\n\r"
+MOVE_SOMETHING_PREVENTS_ESCAPE	"Something prevents you to escape that direction.\n\r"
+MOVE_ESCAPE_FAILED	"You failed to escape.\n\r"
+MOVE_N_ESCAPED	"$n has escaped!"
+MOVE_ESCAPED_FROM_COMBAT    "You escaped from combat!  You lose 10 exps.\n\r"
+MOVE_WRONG_DIRECTION	"Wrong direction.\n\r"
+MOVE_COULDNT_ESCAPE	"PANIC! You couldn't escape!\n\r"
+MOVE_CANT_LAY_HANDS	"You lack the skill to heal others with touching.\n\r"
+MOVE_CANT_CONCENTRATE_ENOUGH	"You can't concentrate enough.\n\r"
+MOVE_WARM_FEELING	"A warm feeling fills your body.\n\r"
+MOVE_ALREADY_HUMAN	"You are already a human.\n\r"
+MOVE_RETURN_TO_SIZE	"You return to your original size.\n\r"

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.40 1998-05-21 14:55:55 efdi Exp $
+ * $Id: act_move.c,v 1.41 1998-05-27 00:13:14 efdi Exp $
  */
 
 /***************************************************************************
@@ -3062,28 +3062,24 @@ void do_crecall(CHAR_DATA *ch, char *argument)
 	if (!cabal_ok(ch,gsn_cabal_recall))
 		return;
 
-	if (is_affected(ch, gsn_cabal_recall))
-	{
-		send_to_char("You can't pray now.\n\r",ch);
+	if (is_affected(ch, gsn_cabal_recall)) {
+		send_to_char(msg(MOVE_CANT_PRAY_NOW, ch), ch);
 	}
 
 	if (ch->desc != NULL && current_time - ch->last_fight_time
-		< FIGHT_DELAY_TIME) 
-		{
-		send_to_char("You are too pumped to pray now.\n\r",ch);
+		< FIGHT_DELAY_TIME) {
+		send_to_char(msg(MOVE_TOO_PUMPED_TO_PRAY, ch), ch);
 		return;
-		}
+	}
 
-	if (ch->desc == NULL && !IS_NPC(ch))
-		{
+	if (ch->desc == NULL && !IS_NPC(ch)) {
 		point =	ROOM_VNUM_BATTLE;
-		}
+	}
 
-	act("$n prays upper lord of Battleragers for transportation!", ch, 0,0, TO_ROOM);
+	act_printf(ch, 0, 0, TO_ROOM, POS_RESTING, MOVE_PRAYS_UPPER_LORD);
 	
-	if ((location = get_room_index(point))== NULL)
-	{
-		send_to_char("You are completely lost.\n\r", ch);
+	if ((location = get_room_index(point))== NULL) {
+		send_to_char(msg(MOVE_YOU_ARE_COMPLETELY_LOST, ch), ch);
 		return;
 	}
 
@@ -3092,37 +3088,35 @@ void do_crecall(CHAR_DATA *ch, char *argument)
 
 	if (IS_SET(ch->in_room->room_flags, ROOM_NO_RECALL)
 	||   IS_AFFECTED(ch, AFF_CURSE) 
-	||   IS_RAFFECTED(ch->in_room, AFF_ROOM_CURSE))
-	{
-		send_to_char("The gods have forsaken you.\n\r", ch);
+	||   IS_RAFFECTED(ch->in_room, AFF_ROOM_CURSE)) {
+		send_to_char(msg(MOVE_GODS_FORSAKEN_YOU, ch), ch);
 		return;
 	}
 
-	if ((victim = ch->fighting) != NULL)
-		{
-		send_to_char("You are still fighting!.\n\r",ch);
+	if ((victim = ch->fighting) != NULL) {
+		send_to_char(msg(MOVE_YOU_ARE_STILL_FIGHTING, ch),ch);
 		return;
-		}
-   if (ch->mana < (ch->max_mana * 0.3))
-		{
-		send_to_char("You don't have enough power to pray now.\n\r",ch);
+	}
+
+	if (ch->mana < (ch->max_mana * 0.3)) {
+		send_to_char(msg(MOVE_DONT_HAVE_POWER, ch), ch);
 		return;
-		}
+	}
 
 	ch->move /= 2;
 	ch->mana /= 10;
-	act("$n disappears.", ch, NULL, NULL, TO_ROOM);
+	act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MOVE_N_DISAPPEARS);
 	char_from_room(ch);
 	char_to_room(ch, location);
-	act("$n appears in the room.", ch, NULL, NULL, TO_ROOM);
+	act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, 
+			MOVE_N_APPEARS_IN_THE_ROOM);
 	do_look(ch, "auto");
 	
-	if (ch->pet != NULL)
-		{
- 	char_from_room(ch->pet);
+	if (ch->pet != NULL) {
+	 	char_from_room(ch->pet);
 		char_to_room(ch->pet, location);
 		do_look(ch->pet, "auto");
-		}
+	}
 
 	af.type      = gsn_cabal_recall;
 	af.level     = ch->level;
@@ -3144,91 +3138,85 @@ void do_escape(CHAR_DATA *ch, char *argument)
 	int door;
 
 
-	if ((victim = ch->fighting) == NULL)
-	{
+	if ((victim = ch->fighting) == NULL) {
 		  if (ch->position == POS_FIGHTING)
 		      ch->position = POS_STANDING;
-		send_to_char("You aren't fighting anyone.\n\r", ch);
+		send_to_char(msg(MOVE_ARENT_FIGHTING, ch), ch);
 		return;
 	}
 
 	argument = one_argument(argument, arg);
 
-	if (arg[0] == '\0')
-	{
-		send_to_char("Escape to what diretion?\n\r", ch);
+	if (arg[0] == '\0') {
+		send_to_char(msg(MOVE_ESCAPE_WHAT_DIR, ch), ch);
 		return;
 	}
 
-	if (MOUNTED(ch)) 
-	{
-		  send_to_char("You can't escape while mounted.\n\r", ch);
+	if (MOUNTED(ch)) {
+		  send_to_char(msg(MOVE_CANT_ESCAPE_MOUNTED, ch), ch);
 		  return;
 	}
-	if (RIDDEN(ch)) 
-	{
-		  send_to_char("You can't escape while being ridden.\n\r", ch);
+	if (RIDDEN(ch)) {
+		  send_to_char(msg(MOVE_CANT_ESCAPE_RIDDEN, ch), ch);
 		  return;
 	}
 
 	if (!IS_NPC(ch) && ch->level <
-				skill_table[gsn_escape].skill_level[ch->class]) 
-	{
-		send_to_char("Try flee. It may fit better to you.\n\r", ch);
+			skill_table[gsn_escape].skill_level[ch->class]) {
+		send_to_char(msg(MOVE_TRY_FLEE, ch), ch);
 		return;
 	}
 
 	was_in = ch->in_room;
-	while (1)
-	{
-	 if ((door = find_exit(ch, arg)) >= 0)
-	 {
+	while (1) {
+	 if ((door = find_exit(ch, arg)) >= 0) {
 		EXIT_DATA *pexit;
 
 		if ((pexit = was_in->exit[door]) == 0
 		||   pexit->u1.to_room == NULL
 		|| (IS_SET(pexit->exit_info, EX_CLOSED) 
-		&& (!IS_AFFECTED(ch, AFF_PASS_DOOR) || IS_SET(pexit->exit_info,EX_NOPASS))
+		&& (!IS_AFFECTED(ch, AFF_PASS_DOOR) 
+		|| IS_SET(pexit->exit_info,EX_NOPASS))
 		&&   !IS_TRUSTED(ch,ANGEL))
 		|| (IS_SET(pexit->exit_info , EX_NOFLEE))
 		|| (IS_NPC(ch)
-		&&   IS_SET(pexit->u1.to_room->room_flags, ROOM_NO_MOB)))
-		{
-		 send_to_char("Something prevents you to escape that direction.\n\r", ch);
-		 return;
+		&&   IS_SET(pexit->u1.to_room->room_flags, ROOM_NO_MOB))) {
+			send_to_char(msg(MOVE_SOMETHING_PREVENTS_ESCAPE, ch), 
+					ch);
+			return;
 		}
 
-		if (number_percent() > get_skill(ch,gsn_escape))
-		{
-		 send_to_char("You failed to escape.\n\r", ch);
-		 check_improve(ch,gsn_escape,FALSE,1);	
-		 return;
+		if (number_percent() > get_skill(ch,gsn_escape)) {
+			send_to_char(msg(MOVE_ESCAPE_FAILED, ch), ch);
+			check_improve(ch,gsn_escape,FALSE,1);	
+			return;
 		}
 
 		check_improve(ch,gsn_escape,TRUE,1);	
 		move_char(ch, door, FALSE);
 		if ((now_in = ch->in_room) == was_in)
-		    continue;
+			continue;
 
 		ch->in_room = was_in;
-		act("$n has escaped!", ch, NULL, NULL, TO_ROOM);
+		act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
+				MOVE_N_ESCAPED);
 		ch->in_room = now_in;
 
-		if (!IS_NPC(ch))
-		{
-		    send_to_char("You escaped from combat!  You lose 10 exps.\n\r", ch);
-		    gain_exp(ch, -10);
+		if (!IS_NPC(ch)) {
+			send_to_char(msg(MOVE_ESCAPED_FROM_COMBAT, ch), ch);
+			gain_exp(ch, -10);
 		}
 		else
-		  ch->last_fought = NULL;  /* Once fled, the mob will not go after */
+			ch->last_fought = NULL;  /* Once fled, 
+						    the mob will not go after */
 
 		stop_fighting(ch, TRUE);
 		return;
-	 }
-	 else send_to_char("Wrong direction.\n\r",ch);
-	 break;
+	 } else 
+		send_to_char(msg(MOVE_WRONG_DIRECTION, ch),ch);
+		break;
 	}
-	send_to_char("PANIC! You couldn't escape!\n\r", ch);
+	send_to_char(msg(MOVE_COULDNT_ESCAPE, ch), ch);
 	return;
 }
 
@@ -3238,23 +3226,20 @@ void do_layhands(CHAR_DATA *ch, char *argument)
 	AFFECT_DATA af;
 
 	if (IS_NPC(ch) ||
-		 ch->level < skill_table[gsn_lay_hands].skill_level[ch->class])
-	{
-		send_to_char("You lack the skill to heal others with touching.\n\r",ch);
+	    ch->level < skill_table[gsn_lay_hands].skill_level[ch->class]) {
+		send_to_char(msg(MOVE_CANT_LAY_HANDS, ch), ch);
 		return;
 	}
 
-	if ((victim = get_char_room(ch,argument)) == NULL)
-		{
-		send_to_char("You do not see that person here.\n\r",ch);
+	if ((victim = get_char_room(ch,argument)) == NULL) {
+		send_to_char(msg(MOVE_THEY_ARENT_HERE, ch), ch);
 		return;
-		}
+	}
 
-	if (is_affected(ch, gsn_lay_hands))
-		{
-		 send_to_char("You can't concentrate enough.\n\r",ch);
+	if (is_affected(ch, gsn_lay_hands)) {
+		 send_to_char(msg(MOVE_CANT_CONCENTRATE_ENOUGH, ch), ch);
 		 return;
-		}
+	}
 	WAIT_STATE(ch,skill_table[gsn_lay_hands].beats);
 
 	af.type = gsn_lay_hands;
@@ -3268,9 +3253,9 @@ void do_layhands(CHAR_DATA *ch, char *argument)
 
 	victim->hit = UMIN(victim->hit + ch->level * 2, victim->max_hit);
 	update_pos(victim);
-	send_to_char("A warm feeling fills your body.\n\r", victim);
+	send_to_char(msg(MOVE_WARM_FEELING, victim), victim);
 	if (ch != victim)
-		send_to_char("Ok.\n\r", ch);
+		send_to_char(msg(MOVE_OK, ch), ch);
 	check_improve(ch,gsn_lay_hands,TRUE,1);
 
 }
@@ -3749,19 +3734,19 @@ void do_human(CHAR_DATA *ch, char *argument)
 {
 	if (ch->class != CLASS_VAMPIRE)
 	{
-	 send_to_char("Huh?\n\r",ch);
+	 send_to_char(msg(MOVE_HUH, ch), ch);
 	 return;
 	}
 	 
 	if (!IS_VAMPIRE(ch))
 	{
-	 send_to_char("You are already a human.\n\r",ch);
+	 send_to_char(msg(MOVE_ALREADY_HUMAN, ch), ch);
 	 return;
 	}
 
    affect_strip(ch, gsn_vampire);
    REMOVE_BIT(ch->act,PLR_VAMPIRE);
-   send_to_char("You return to your original size.\n\r", ch);
+   send_to_char(msg(MOVE_RETURN_TO_SIZE, ch), ch);
    return;
 }
 
