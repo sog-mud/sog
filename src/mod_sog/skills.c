@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.33 1998-10-17 16:20:12 fjoe Exp $
+ * $Id: skills.c,v 1.34 1998-10-26 08:38:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -724,31 +724,29 @@ int char_sn_lookup(CHAR_DATA *ch, const char *name)
 }
 
 /* for returning weapon information */
-int get_weapon_sn(CHAR_DATA *ch, int type)
+int get_weapon_sn(OBJ_DATA *wield)
 {
-	OBJ_DATA *wield;
 	int sn;
 
-	if (type != WEAR_WIELD && type != WEAR_SECOND_WIELD)
+	if (wield == NULL)
+		return gsn_hand_to_hand;
+
+	if (wield->pIndexData->item_type != ITEM_WEAPON)
 		return 0;
 
-	wield = get_eq_char(ch, type);
-	if (wield == NULL || wield->pIndexData->item_type != ITEM_WEAPON)
-		sn = (type == WEAR_WIELD) ? gsn_hand_to_hand : 0;
-	else
-		switch (wield->value[0]) {
-			default :               sn = -1;		break;
-			case(WEAPON_SWORD):     sn = gsn_sword;		break;
-			case(WEAPON_DAGGER):    sn = gsn_dagger;	break;
-			case(WEAPON_SPEAR):     sn = gsn_spear;		break;
-			case(WEAPON_MACE):      sn = gsn_mace;		break;
-			case(WEAPON_AXE):       sn = gsn_axe;		break;
-			case(WEAPON_FLAIL):     sn = gsn_flail;		break;
-			case(WEAPON_WHIP):      sn = gsn_whip;		break;
-			case(WEAPON_POLEARM):   sn = gsn_polearm;	break;
-			case(WEAPON_BOW):	sn = gsn_bow;		break;
-			case(WEAPON_ARROW):	sn = gsn_arrow;		break;
-			case(WEAPON_LANCE):	sn = gsn_lance;		break;
+	switch (wield->value[0]) {
+	default :               sn = -1;		break;
+	case(WEAPON_SWORD):     sn = gsn_sword;		break;
+	case(WEAPON_DAGGER):    sn = gsn_dagger;	break;
+	case(WEAPON_SPEAR):     sn = gsn_spear;		break;
+	case(WEAPON_MACE):      sn = gsn_mace;		break;
+	case(WEAPON_AXE):       sn = gsn_axe;		break;
+	case(WEAPON_FLAIL):     sn = gsn_flail;		break;
+	case(WEAPON_WHIP):      sn = gsn_whip;		break;
+	case(WEAPON_POLEARM):   sn = gsn_polearm;	break;
+	case(WEAPON_BOW):	sn = gsn_bow;		break;
+	case(WEAPON_ARROW):	sn = gsn_arrow;		break;
+	case(WEAPON_LANCE):	sn = gsn_lance;		break;
 	}
 	return sn;
 }

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.h,v 1.28 1998-10-21 05:00:29 fjoe Exp $
+ * $Id: interp.h,v 1.29 1998-10-26 08:38:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -170,6 +170,7 @@ DECLARE_DO_FUN(do_help		);
 DECLARE_DO_FUN(do_herbs		);
 DECLARE_DO_FUN(do_hide		);
 DECLARE_DO_FUN(do_holylight	);
+DECLARE_DO_FUN(do_hometown	);
 DECLARE_DO_FUN(do_human		);
 DECLARE_DO_FUN(do_hunt		);
 DECLARE_DO_FUN(do_idea		);
@@ -203,7 +204,6 @@ DECLARE_DO_FUN(do_mwhere	);
 DECLARE_DO_FUN(do_mob		);
 DECLARE_DO_FUN(do_motd		);
 DECLARE_DO_FUN(do_mpstat	);
-DECLARE_DO_FUN(do_mpdump	);
 DECLARE_DO_FUN(do_mount		);
 DECLARE_DO_FUN(do_dismount	);
 DECLARE_DO_FUN(do_murde		);

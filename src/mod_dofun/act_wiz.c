@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.78 1998-10-17 16:49:40 fjoe Exp $
+ * $Id: act_wiz.c,v 1.79 1998-10-26 08:38:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -96,7 +96,7 @@ void do_objlist(CHAR_DATA *ch, const char *argument)
 	 	return;
 	}
 
-	buf = buf_new(0);
+	buf = buf_new(-1);
 	for(obj = object_list; obj != NULL; obj = obj->next) {
 		if (obj->pIndexData->affected == NULL)
 			continue;
@@ -184,7 +184,7 @@ void do_wiznet(CHAR_DATA *ch, const char *argument)
 		/* show wiznet status */
 		BUFFER *output;
 
-		output = buf_new(0);
+		output = buf_new(-1);
 		buf_printf(output, "Wiznet status: %s\n\r",
 			   IS_SET(ch->wiznet, WIZ_ON) ? "ON" : "OFF");
 
@@ -304,7 +304,7 @@ void do_tick(CHAR_DATA *ch, const char *argument)
 }
 
 /* equips a character */
-void do_outfit (CHAR_DATA *ch, const char *argument)
+void do_outfit(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *obj;
 	CLASS_DATA *cl = class_lookup(ch->class);
@@ -359,7 +359,6 @@ void do_outfit (CHAR_DATA *ch, const char *argument)
 	char_puts("You have been equipped by gods.\n\r",ch);
 }
 
-	 
 /* RT nochannels command, for those spammers */
 void do_nochannels(CHAR_DATA *ch, const char *argument)
 {
@@ -378,7 +377,7 @@ void do_nochannels(CHAR_DATA *ch, const char *argument)
 	    return;
 	}
 	
-	if (victim->level >= ch->level) {
+	if (!IS_NPC(victim) && victim->level >= ch->level) {
 	    char_puts("You failed.\n\r", ch);
 	    return;
 	}
@@ -401,7 +400,6 @@ void do_nochannels(CHAR_DATA *ch, const char *argument)
 	
 	return;
 }
-
 
 void do_smote(CHAR_DATA *ch, const char *argument)
 {
@@ -524,8 +522,6 @@ void do_bamfout(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-
-
 void do_deny(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
@@ -561,8 +557,6 @@ void do_deny(CHAR_DATA *ch, const char *argument)
 	stop_fighting(victim, TRUE);
 	do_quit(victim, str_empty);
 }
-
-
 
 void do_disconnect(CHAR_DATA *ch, const char *argument)
 {
@@ -611,7 +605,6 @@ void do_disconnect(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-
 void do_echo(CHAR_DATA *ch, const char *argument)
 {
 	DESCRIPTOR_DATA *d;
@@ -628,8 +621,6 @@ void do_echo(CHAR_DATA *ch, const char *argument)
 			char_printf(d->character, "%s\n\r", argument);
 		}
 }
-
-
 
 void do_recho(CHAR_DATA *ch, const char *argument)
 {
@@ -692,7 +683,6 @@ void do_pecho(CHAR_DATA *ch, const char *argument)
 	char_printf(ch, "personal> %s\n\r", argument);
 }
 
-
 ROOM_INDEX_DATA *find_location(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
@@ -709,8 +699,6 @@ ROOM_INDEX_DATA *find_location(CHAR_DATA *ch, const char *argument)
 
 	return NULL;
 }
-
-
 
 void do_transfer(CHAR_DATA *ch, const char *argument)
 {
@@ -776,8 +764,6 @@ void do_transfer(CHAR_DATA *ch, const char *argument)
 	do_look(victim, "auto");
 	char_puts("Ok.\n\r", ch);
 }
-
-
 
 void do_at(CHAR_DATA *ch, const char *argument)
 {
@@ -979,7 +965,6 @@ void do_stat (CHAR_DATA *ch, const char *argument)
 	char_puts("Nothing by that name found anywhere.\n\r",ch);
 }
 
-
 void do_rstat(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
@@ -1004,7 +989,7 @@ void do_rstat(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	output = buf_new(0);
+	output = buf_new(-1);
 
 	if (ch->in_room->affected_by)
 		buf_printf(output, "Affected by %s\n\r", 
@@ -1103,7 +1088,7 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	output = buf_new(0);
+	output = buf_new(-1);
 	buf_printf(output, "Name(s): %s\n\r", obj->name);
 	if (!IS_NULLSTR(obj->owner))
 		buf_printf(output, "Owner: [%s]\n\r", obj->owner);
@@ -1266,7 +1251,7 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	output = buf_new(0);
+	output = buf_new(-1);
 
 	buf_printf(output, "Name: [%s] Reset Zone: %s\n\r", victim->name,
 		(IS_NPC(victim) &&victim->zone) ? victim->zone->name : "?");
@@ -1506,7 +1491,6 @@ void do_vnum(CHAR_DATA *ch, const char *argument)
 	do_ofind(ch, argument);
 }
 
-
 void do_mfind(CHAR_DATA *ch, const char *argument)
 {
 	extern int top_mob_index;
@@ -1544,8 +1528,6 @@ void do_mfind(CHAR_DATA *ch, const char *argument)
 	if (!found)
 		char_puts("No mobiles by that name.\n\r", ch);
 }
-
-
 
 void do_ofind(CHAR_DATA *ch, const char *argument)
 {
@@ -1585,7 +1567,6 @@ void do_ofind(CHAR_DATA *ch, const char *argument)
 		char_puts("No objects by that name.\n\r", ch);
 }
 
-
 void do_owhere(CHAR_DATA *ch, const char *argument)
 {
 	BUFFER *buffer = NULL;
@@ -1604,7 +1585,7 @@ void do_owhere(CHAR_DATA *ch, const char *argument)
 	        	continue;
 	
 		if (buffer == NULL)
-			buffer = buf_new(0);
+			buffer = buf_new(-1);
 		number++;
 	
 		for (in_obj = obj; in_obj->in_obj != NULL;
@@ -1642,7 +1623,6 @@ void do_owhere(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-
 void do_mwhere(CHAR_DATA *ch, const char *argument)
 {
 	BUFFER *buffer;
@@ -1654,7 +1634,7 @@ void do_mwhere(CHAR_DATA *ch, const char *argument)
 
 		/* show characters logged */
 
-		buffer = buf_new(0);
+		buffer = buf_new(-1);
 		for (d = descriptor_list; d != NULL; d = d->next)
 		{
 		    if (d->character != NULL && d->connected == CON_PLAYING
@@ -1687,7 +1667,7 @@ void do_mwhere(CHAR_DATA *ch, const char *argument)
 		if (victim->in_room != NULL
 		&&  is_name(argument, victim->name)) {
 			if (buffer == NULL)
-				buffer = buf_new(0);
+				buffer = buf_new(-1);
 
 			count++;
 			buf_printf(buffer, "%3d) [%5d] %-28s [%5d] %s\n\r",
@@ -1701,11 +1681,10 @@ void do_mwhere(CHAR_DATA *ch, const char *argument)
 	if (buffer) {
 		page_to_char(buf_string(buffer),ch);
 		buf_free(buffer);
-	} else
+	}
+	else
 		act("You didn't find any $T.", ch, NULL, argument, TO_CHAR);
 }
-
-
 
 void do_reboo(CHAR_DATA *ch, const char *argument)
 {
@@ -1745,7 +1724,8 @@ void do_protect(CHAR_DATA *ch, const char *argument)
 			 TO_CHAR, POS_DEAD);
 		char_puts("Your snoop-proofing was just removed.\n\r", victim);
 		REMOVE_BIT(victim->comm, COMM_SNOOP_PROOF);
-	} else {
+	}
+	else {
 		act_puts("$N is now snoop-proof.", ch, NULL, victim, TO_CHAR,
 			 POS_DEAD);
 		char_puts("You are now immune to snooping.\n\r", victim);
@@ -1753,8 +1733,6 @@ void do_protect(CHAR_DATA *ch, const char *argument)
 	}
 }
 	
-
-
 void do_snoop(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
@@ -1802,7 +1780,7 @@ void do_snoop(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (victim->level >= ch->level 
-	||   IS_SET(victim->comm, COMM_SNOOP_PROOF)) {
+	||  IS_SET(victim->comm, COMM_SNOOP_PROOF)) {
 		char_puts("You failed.\n\r", ch);
 		return;
 	}
@@ -1821,8 +1799,6 @@ void do_snoop(CHAR_DATA *ch, const char *argument)
 			  mlstr_mval(victim->short_descr) : victim->name));
 	char_puts("Ok.\n\r", ch);
 }
-
-
 
 void do_switch(CHAR_DATA *ch, const char *argument)
 {
@@ -2071,7 +2047,6 @@ void do_load(CHAR_DATA *ch, const char *argument)
 	do_load(ch,str_empty);
 }
 
-
 void do_mload(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
@@ -2097,7 +2072,6 @@ void do_mload(CHAR_DATA *ch, const char *argument)
 		      "$N loads %s.", mlstr_mval(victim->short_descr));
 	char_puts("Ok.\n\r", ch);
 }
-
 
 void do_oload(CHAR_DATA *ch, const char *argument)
 {
@@ -2273,7 +2247,6 @@ void do_restore(CHAR_DATA *ch, const char *argument)
 	      IS_NPC(victim) ? mlstr_mval(victim->short_descr) : victim->name);
 	char_puts("Ok.\n\r", ch);
 }
-
 		
 void do_freeze(CHAR_DATA *ch, const char *argument)
 {
@@ -2308,7 +2281,8 @@ void do_freeze(CHAR_DATA *ch, const char *argument)
 		char_puts("FREEZE removed.\n\r", ch);
 		sprintf(buf,"$N thaws %s.",victim->name);
 		wiznet(buf,ch,NULL,WIZ_PENALTIES,WIZ_SECURE,0);
-	} else {
+	}
+	else {
 		SET_BIT(victim->act, PLR_FREEZE);
 		char_puts("You can't do ANYthing!\n\r", victim);
 		char_puts("FREEZE set.\n\r", ch);
@@ -2317,8 +2291,6 @@ void do_freeze(CHAR_DATA *ch, const char *argument)
 	}
 	save_char_obj(victim, FALSE);
 }
-
-
 
 void do_log(CHAR_DATA *ch, const char *argument)
 {
@@ -2359,13 +2331,12 @@ void do_log(CHAR_DATA *ch, const char *argument)
 	if (IS_SET(victim->act, PLR_LOG)) {
 		REMOVE_BIT(victim->act, PLR_LOG);
 		char_puts("LOG removed.\n\r", ch);
-	} else {
+	}
+	else {
 		SET_BIT(victim->act, PLR_LOG);
 		char_puts("LOG set.\n\r", ch);
 	}
 }
-
-
 
 void do_noemote(CHAR_DATA *ch, const char *argument)
 {
@@ -2384,8 +2355,7 @@ void do_noemote(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-
-	if (victim->level >= ch->level) {
+	if (!IS_NPC(victim) && victim->level >= ch->level) {
 		char_puts("You failed.\n\r", ch);
 		return;
 	}
@@ -2447,8 +2417,6 @@ void do_noshout(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-
-
 void do_notell(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH],buf[MAX_STRING_LENGTH];
@@ -2466,7 +2434,7 @@ void do_notell(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (victim->level >= ch->level) {
+	if (!IS_NPC(victim) && victim->level >= ch->level) {
 		char_puts("You failed.\n\r", ch);
 		return;
 	}
@@ -2477,7 +2445,8 @@ void do_notell(CHAR_DATA *ch, const char *argument)
 		char_puts("NOTELL removed.\n\r", ch);
 		sprintf(buf,"$N restores tells to %s.",victim->name);
 		wiznet(buf,ch,NULL,WIZ_PENALTIES,WIZ_SECURE,0);
-	} else {
+	}
+	else {
 		SET_BIT(victim->comm, COMM_NOTELL);
 		char_puts("You can't tell!\n\r", victim);
 		char_puts("NOTELL set.\n\r", ch);
@@ -2485,8 +2454,6 @@ void do_notell(CHAR_DATA *ch, const char *argument)
 		wiznet(buf,ch,NULL,WIZ_PENALTIES,WIZ_SECURE,0);
 	}
 }
-
-
 
 void do_peace(CHAR_DATA *ch, const char *argument)
 {
@@ -2511,14 +2478,14 @@ void do_wizlock(CHAR_DATA *ch, const char *argument)
 	if (wizlock) {
 		wiznet("$N has wizlocked the game.",ch,NULL,0,0,0);
 		char_puts("Game wizlocked.\n\r", ch);
-	} else {
+	}
+	else {
 		wiznet("$N removes wizlock.",ch,NULL,0,0,0);
 		char_puts("Game un-wizlocked.\n\r", ch);
 	}
 }
 
 /* RT anti-newbie code */
-
 void do_newlock(CHAR_DATA *ch, const char *argument)
 {
 	extern bool newlock;
@@ -2527,16 +2494,14 @@ void do_newlock(CHAR_DATA *ch, const char *argument)
 	if (newlock) {
 		wiznet("$N locks out new characters.",ch,NULL,0,0,0);
 		char_puts("New characters have been locked out.\n\r", ch);
-	} else {
+	}
+	else {
 		wiznet("$N allows new characters back in.",ch,NULL,0,0,0);
 		char_puts("Newlock removed.\n\r", ch);
 	}
-	
-	return;
 }
 
 /* RT set replaces sset, mset, oset, and rset */
-
 void do_set(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
@@ -2575,7 +2540,6 @@ void do_set(CHAR_DATA *ch, const char *argument)
 	/* echo syntax */
 	do_set(ch,str_empty);
 }
-
 
 void do_sset(CHAR_DATA *ch, const char *argument)
 {
@@ -2637,7 +2601,6 @@ void do_sset(CHAR_DATA *ch, const char *argument)
 		set_skill(victim, sn, value);
 	char_puts("Ok.\n\r", ch);
 }
-
 
 void do_string(CHAR_DATA *ch, const char *argument)
 {
@@ -2862,8 +2825,6 @@ void do_oset(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-
-
 void do_rset(CHAR_DATA *ch, const char *argument)
 {
 	char arg1 [MAX_INPUT_LENGTH];
@@ -2924,8 +2885,6 @@ void do_rset(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-
-
 void do_sockets(CHAR_DATA *ch, const char *argument)
 {
 	char buf[2 * MAX_STRING_LENGTH];
@@ -2961,7 +2920,6 @@ void do_sockets(CHAR_DATA *ch, const char *argument)
 	strcat(buf,buf2);
 	page_to_char(buf, ch);
 }
-
 
 /*
  * Thanks to Grodyn for pointing out bugs in this function.
@@ -3065,16 +3023,16 @@ void do_force(CHAR_DATA *ch, const char *argument)
 	        return;
 	    }
 
-		if (victim->level >= ch->level)
-		{
-		    char_puts("Do it yourself!\n\r", ch);
-		    return;
-		}
+		if (!IS_NPC(victim)) {
+			if (victim->level >= ch->level) {
+				char_puts("Do it yourself!\n\r", ch);
+				return;
+			}
 
-		if (!IS_NPC(victim) && ch->level < MAX_LEVEL -3)
-		{
-		    char_puts("Not at your level!\n\r",ch);
-		    return;
+			if (ch->level < MAX_LEVEL -3) {
+				char_puts("Not at your level!\n\r",ch);
+				return;
+			}
 		}
 
 		act(buf, ch, NULL, victim, TO_VICT);
@@ -3084,8 +3042,6 @@ void do_force(CHAR_DATA *ch, const char *argument)
 	char_puts("Ok.\n\r", ch);
 	return;
 }
-
-
 
 /*
  * New routines by Dionysos.
@@ -3130,10 +3086,7 @@ void do_invis(CHAR_DATA *ch, const char *argument)
 	      char_puts("You slowly vanish into thin air.\n\r", ch);
 	  }
 	}
-
-	return;
 }
-
 
 void do_incognito(CHAR_DATA *ch, const char *argument)
 {
@@ -3182,18 +3135,9 @@ void do_holylight(CHAR_DATA *ch, const char *argument)
 	if (IS_NPC(ch))
 		return;
 
-	if (IS_SET(ch->act, PLR_HOLYLIGHT))
-	{
-		REMOVE_BIT(ch->act, PLR_HOLYLIGHT);
-		char_puts("Holy light mode off.\n\r", ch);
-	}
-	else
-	{
-		SET_BIT(ch->act, PLR_HOLYLIGHT);
-		char_puts("Holy light mode on.\n\r", ch);
-	}
-
-	return;
+	TOGGLE_BIT(ch->act, PLR_HOLYLIGHT);
+	char_printf(ch, "Holy light mode %s.\n\r",
+		    IS_SET(ch->act, PLR_HOLYLIGHT) ? "on" : "off");
 }
 
 /* prefix command: it will put the string typed on each line typed */
@@ -3533,7 +3477,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		if (cl < 0) {
 			BUFFER *output;
 
-			output = buf_new(0);
+			output = buf_new(-1);
 
 			buf_add(output, "Possible classes are: ");
 	    		for (cl = 0; cl < classes.nused; cl++) {
@@ -3939,7 +3883,7 @@ void do_popularity(CHAR_DATA *ch, const char *argument)
 	extern AREA_DATA *area_first;
 	int i;
 
-	output = buf_new(0);
+	output = buf_new(-1);
 	buf_add(output, "Area popularity statistics (in char * ticks)\n\r");
 
 	for (area = area_first,i=0; area != NULL; area = area->next,i++) {
@@ -4110,7 +4054,6 @@ void do_notitle(CHAR_DATA *ch, const char *argument)
 	}
 }
 	   
-
 void do_noaffect(CHAR_DATA *ch, const char *argument)
 {
 	AFFECT_DATA *paf,*paf_next;
@@ -4127,7 +4070,6 @@ void do_noaffect(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 	 
-	
 	for (paf = victim->affected; paf != NULL; paf = paf_next) {
 		paf_next = paf->next;
 		if (paf->duration >= 0) {
@@ -4181,7 +4123,6 @@ void do_find(CHAR_DATA *ch, const char *argument)
 		   ch->in_room->vnum, location->vnum, path);
 	return;
 }
-
 
 void do_reboot(CHAR_DATA *ch, const char *argument)
 {
@@ -4271,7 +4212,7 @@ DO_FUN(do_msgstat)
 	}
 
 	v = msg_hash_table[i];
-	output = buf_new(0);
+	output = buf_new(-1);
 	buf_printf(output, "Dumping msgs with hash #%d\n\r", i);
 	for (i = 0; i < v->nused; i++) {
 		mlp = VARR_GET(v, i);

@@ -1,5 +1,5 @@
 /*
- * $Id: buffer.c,v 1.6 1998-09-17 15:51:18 fjoe Exp $
+ * $Id: buffer.c,v 1.7 1998-10-26 08:38:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -49,10 +49,12 @@
 #include "const.h"
 #include "buffer.h"
 #include "log.h"
+#include "db/msg.h"
 
 struct buf_data
 {
 	BUFFER *	next;
+	int		lang;	/* buffer language, -1 == none */
 	int		state;	/* error state of the buffer */
 	int		size;	/* buffer size in bytes */
 	char *		string; /* buffer's string */
@@ -73,26 +75,10 @@ enum {
 
 BUFFER *free_list;
 
-/* buffer sizes */
-const int buf_size[BUF_LIST_MAX] =
-{
-	16, 32, 64, 128, 256, 1024, 2048, 4096, 8192, 16384
-};
+static bool buf_cat(BUFFER *buffer, const char *string);
+static int get_size (int val);
 
-/* local procedure for finding the next acceptable size */
-/* -1 indicates out-of-boundary error */
-int get_size (int val)
-{
-	int i;
-
-	for (i = 0; i < BUF_LIST_MAX; i++)
-		if (buf_size[i] >= val)
-			return buf_size[i];
-    
-	return -1;
-}
-
-BUFFER *buf_new(int size)
+BUFFER *buf_new(int lang)
 {
 	BUFFER *buffer;
  
@@ -105,21 +91,14 @@ BUFFER *buf_new(int size)
 		free_list	= free_list->next;
 	}
  
-	if (size == 0)
-		size = BUF_DEFAULT_SIZE;
-
 	buffer->next		= NULL;
+	buffer->lang		= lang;
 	buffer->state		= BUFFER_SAFE;
-	buffer->size		= get_size(size);
-	if (buffer->size == -1) {
-		log_printf("new_buf: buffer size %d: too large", size);
-		exit(1);
-	}
+	buffer->size		= BUF_DEFAULT_SIZE;
 	buffer->string		= malloc(buffer->size);
 	buffer->string[0]	= '\0';
  
 	sAllocBuf += buffer->size;
-
 	return buffer;
 }
 
@@ -137,6 +116,60 @@ void buf_free(BUFFER *buffer)
 }
 
 bool buf_add(BUFFER *buffer, const char *string)
+{
+	return buf_cat(buffer,
+		       buffer->lang < 0 ? string : MSG(string, buffer->lang));
+}
+
+bool buf_printf(BUFFER *buffer, const char *format, ...)
+{
+	char buf[MAX_STRING_LENGTH];
+	va_list ap;
+
+	va_start(ap, format);
+	vsnprintf(buf, sizeof(buf),
+		  buffer->lang < 0 ? format : MSG(format, buffer->lang),
+		  ap);
+	va_end(ap);
+
+	return buf_cat(buffer, buf);
+}
+
+void buf_clear(BUFFER *buffer)
+{
+	buffer->string[0]	= '\0';
+	buffer->state		= BUFFER_SAFE;
+}
+
+char* buf_string(BUFFER *buffer)
+{
+	return buffer->string;
+}
+
+/*----------------------------------------------------------------------------
+ * local functions
+ */
+
+/* buffer sizes */
+const int buf_size[BUF_LIST_MAX] =
+{
+	16, 32, 64, 128, 256, 1024, 2048, 4096, 8192, 16384
+};
+
+/* local procedure for finding the next acceptable size */
+/* -1 indicates out-of-boundary error */
+static int get_size (int val)
+{
+	int i;
+
+	for (i = 0; i < BUF_LIST_MAX; i++)
+		if (buf_size[i] >= val)
+			return buf_size[i];
+    
+	return -1;
+}
+
+static bool buf_cat(BUFFER *buffer, const char *string)
 {
 	int len;
 	char *oldstr;
@@ -178,28 +211,5 @@ bool buf_add(BUFFER *buffer, const char *string)
 
 	strcat(buffer->string, string);
 	return TRUE;
-}
-
-void buf_clear(BUFFER *buffer)
-{
-	buffer->string[0]	= '\0';
-	buffer->state		= BUFFER_SAFE;
-}
-
-bool buf_printf(BUFFER *buffer, const char *format, ...)
-{
-	char buf[MAX_STRING_LENGTH];
-	va_list ap;
-
-	va_start(ap, format);
-	vsnprintf(buf, sizeof(buf), format, ap);
-	va_end(ap);
-
-	return buf_add(buffer, buf);
-}
-
-char* buf_string(BUFFER *buffer)
-{
-	return buffer->string;
 }
 

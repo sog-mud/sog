@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.74 1998-10-23 09:22:23 fjoe Exp $
+ * $Id: spellfun.c,v 1.75 1998-10-26 08:38:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -212,7 +212,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 
 		vo = (void *) victim;
 		target = TARGET_CHAR;
-		bane_chance = 2*get_skill(ch, gsn_spellbane)/3;
+		bane_chance = 2*get_skill(victim, gsn_spellbane)/3;
 		break;
 
 	case TAR_CHAR_DEFENSIVE:
@@ -451,7 +451,7 @@ void obj_cast_spell(int sn, int level,
 		}
 		vo = (void *) victim;
 		target = TARGET_CHAR;
-		bane_chance = 2 * get_skill(ch, gsn_spellbane) / 3;
+		bane_chance = 2 * get_skill(victim, gsn_spellbane) / 3;
 		break;
 
 	case TAR_CHAR_DEFENSIVE:
@@ -3143,7 +3143,7 @@ void spell_identify(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
 	BUFFER *output;
 
-	output = buf_new(0);
+	output = buf_new(-1);
 	format_obj(output, obj);
 	if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED))
 		format_obj_affects(output, obj->pIndexData->affected, FALSE);
@@ -3288,7 +3288,7 @@ void spell_locate_object(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 			continue;
 
 		if (buffer == NULL)
-			buffer = buf_new(0);
+			buffer = buf_new(-1);
 		number++;
 
 		for (in_obj = obj; in_obj->in_obj != NULL;
@@ -4523,7 +4523,7 @@ void spell_find_object(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 		    continue;
 
 		if (buffer == NULL)
-			buffer = buf_new(0);
+			buffer = buf_new(-1);
 		number++;
 
 		for (in_obj = obj; in_obj->in_obj != NULL;

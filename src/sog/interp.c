@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.86 1998-10-21 05:00:28 fjoe Exp $
+ * $Id: interp.c,v 1.87 1998-10-26 08:38:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -271,6 +271,7 @@ CMD_DATA cmd_table[] =
     { "hara",           do_hara,        POS_STANDING,    0,  LOG_NORMAL	},
 
     { "hide",		do_hide,	POS_RESTING,	 0,  LOG_NORMAL, CMD_KEEP_HIDE },
+    { "hometown",	do_hometown,	POS_STANDING,	0,	LOG_NORMAL },
     { "human",          do_human,       POS_STANDING,    0,  LOG_NORMAL	},
     { "hunt",           do_hunt,        POS_STANDING,    0,  LOG_NORMAL	},
     { "leave", 		do_enter, 	POS_STANDING,	 0,  LOG_NORMAL	},
@@ -472,7 +473,6 @@ CMD_DATA cmd_table[] =
     { "ititle",		do_ititle,	POS_DEAD,	IM,  LOG_NORMAL },
     { "sense",          do_sense,       POS_RESTING,     0,  LOG_NORMAL	},
 
-    { "mpdump",		do_mpdump,	POS_DEAD,	IM,  LOG_NEVER	},
     { "mpstat",		do_mpstat,	POS_DEAD,	IM,  LOG_NEVER	},
 
 

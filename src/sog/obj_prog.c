@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.42 1998-10-22 08:48:12 fjoe Exp $
+ * $Id: obj_prog.c,v 1.43 1998-10-26 08:38:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1296,7 +1296,7 @@ int fight_prog_vorpalblade(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 		     ch, NULL, victim, TO_ROOM);
 		act("$n is DEAD!!", victim, NULL, NULL, TO_ROOM);
 		act("$n is DEAD!!", victim, NULL, NULL, TO_CHAR);
-		raw_kill_org(ch, victim, 3);
+		handle_death(ch, victim);
 		char_puts("You have been KILLED!!\n\r", victim);
 		}
 	}
@@ -1490,10 +1490,10 @@ int fight_prog_lion_claw(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	char_puts("The nails of your claw appears from its fingers.\n\r",ch);
 	act_puts("the nails of $n's claw appears for an instant.",
 			ch,NULL,NULL,TO_ROOM,POS_DEAD);
-	one_hit(ch,ch->fighting,TYPE_HIT,FALSE);
-	one_hit(ch,ch->fighting,TYPE_HIT,FALSE);
-	one_hit(ch,ch->fighting,TYPE_HIT,FALSE);
-	one_hit(ch,ch->fighting,TYPE_HIT,FALSE);
+	one_hit(ch, ch->fighting, TYPE_HIT, WEAR_WIELD);
+	one_hit(ch, ch->fighting, TYPE_HIT, WEAR_WIELD);
+	one_hit(ch, ch->fighting, TYPE_HIT, WEAR_WIELD);
+	one_hit(ch, ch->fighting, TYPE_HIT, WEAR_WIELD);
 	char_puts("The nails of your claw disappears.\n\r",ch);
 	act_puts("the nails of $n's claw disappears suddenly.",
 		ch,NULL,NULL,TO_ROOM,POS_DEAD);
@@ -1572,7 +1572,7 @@ int fight_prog_tattoo_goktengri(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	  act_puts("The tattoo on your shoulder glows white.",
 			   ch,NULL,NULL,TO_CHAR,POS_DEAD);
 	  do_say(ch,"My honour is my life.");
-	  one_hit(ch,ch->fighting,TYPE_UNDEFINED,FALSE);
+	  one_hit(ch, ch->fighting, TYPE_UNDEFINED, WEAR_WIELD);
 	  break;
 	}
 	return 0;

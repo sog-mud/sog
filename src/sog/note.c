@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.33 1998-10-23 09:22:24 fjoe Exp $
+ * $Id: note.c,v 1.34 1998-10-26 08:38:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -626,7 +626,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 			vnum = 0;
 			for (pnote = *list; pnote; pnote = pnote->next) {
 				if (!hide_note(ch, pnote)) {
-					output = buf_new(0);
+					output = buf_new(-1);
 					buf_printf(output, "[%3d] %s: %s\n\r"
 							   "{x%s\n\r"
 							   "{xTo: %s\n\r"
@@ -661,7 +661,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 		vnum = 0;
 		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
 			if (is_note_to(ch, pnote) && (vnum++ == anum || fAll)) {
-				output = buf_new(0);
+				output = buf_new(-1);
 				buf_printf(output, "[%3d] %s: %s\n\r"
 						   "{x%s\n\r"
 						   "{xTo: %s\n\r"
@@ -830,7 +830,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 			return;
 		}
 
-		output = buf_new(0);
+		output = buf_new(-1);
 		buf_printf(output, "{x%s: %s\n\r"
 				   "{xTo: %s\n\r"
 				   "{x%s\n\r"

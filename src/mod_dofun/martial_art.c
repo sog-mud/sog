@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.47 1998-10-17 16:49:41 fjoe Exp $
+ * $Id: martial_art.c,v 1.48 1998-10-26 08:38:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -51,32 +51,17 @@
 #	include "compat/compat.h"
 #endif
 
-void	one_hit		(CHAR_DATA *ch, CHAR_DATA *victim,
-			 int dt, bool secondary); 
+void	one_hit		(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc); 
 void	set_fighting	(CHAR_DATA *ch, CHAR_DATA *victim);
 
 /*
  * Disarm a creature.
  * Caller must check for successful attack.
  */
-void disarm(CHAR_DATA *ch, CHAR_DATA *victim ,int disarm_second)
+void disarm(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj)
 {
-	OBJ_DATA *obj;
 	OBJ_DATA *obj2;
 	int skill;
-
-	if (disarm_second) {
-		if ((obj = get_eq_char(victim, WEAR_SECOND_WIELD)) == NULL) {
-			bug("Disarm second with NULL WEAR_SECOND_WIELD", 0);
-			return;
-		}
-	}
-	else {
-		if ((obj = get_eq_char(victim, WEAR_WIELD)) == NULL) {
-			bug("Disarm first with NULL WEAR_WIELD",0);
-			return;
-		}
-	}
 
 	if (IS_OBJ_STAT(obj, ITEM_NOREMOVE)) {
 		act("$S weapon won't budge!", ch, NULL, victim, TO_CHAR);
@@ -110,7 +95,7 @@ void disarm(CHAR_DATA *ch, CHAR_DATA *victim ,int disarm_second)
 	act_puts("$n disarms $N!", ch, NULL, victim, TO_NOTVICT, POS_FIGHTING);
 
 	obj_from_char(obj);
-	if (IS_OBJ_STAT(obj,ITEM_NODROP) || IS_OBJ_STAT(obj,ITEM_INVENTORY))
+	if (IS_OBJ_STAT(obj, ITEM_NODROP) || IS_OBJ_STAT(obj,ITEM_INVENTORY))
 		obj_to_char(obj, victim);
 	else {
 		obj_to_room(obj, victim->in_room);
@@ -128,7 +113,7 @@ void disarm(CHAR_DATA *ch, CHAR_DATA *victim ,int disarm_second)
 		act_puts("$N wields his second weapon as first!",
 			 ch, NULL, victim, TO_NOTVICT, POS_FIGHTING);
 		unequip_char(victim, obj2);
-		equip_char(victim, obj2 , WEAR_WIELD);
+		equip_char(victim, obj2, WEAR_WIELD);
 	}
 }
 
@@ -668,8 +653,8 @@ void do_backstab(CHAR_DATA *ch, const char *argument)
 		&&  number_percent() <
 				(get_skill(ch, gsn_dual_backstab)/10)*8) {
 			check_improve(ch, gsn_dual_backstab, TRUE, 1);
-			one_hit(ch, victim, gsn_backstab, FALSE);
-			one_hit(ch, victim, gsn_dual_backstab, FALSE);
+			one_hit(ch, victim, gsn_backstab, WEAR_WIELD);
+			one_hit(ch, victim, gsn_dual_backstab, WEAR_WIELD);
 		}
 		else {
 			check_improve(ch, gsn_dual_backstab, FALSE, 1);
@@ -961,7 +946,7 @@ void do_circle(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (number_percent() < chance) {
-		one_hit(ch, victim, gsn_circle, FALSE);
+		one_hit(ch, victim, gsn_circle, WEAR_WIELD);
 		check_improve(ch, gsn_circle, TRUE, 1);
 	}
 	else {
@@ -973,17 +958,12 @@ void do_circle(CHAR_DATA *ch, const char *argument)
 void do_disarm(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
-	OBJ_DATA *obj;
-	int chance, hth, ch_weapon, vict_weapon, ch_vict_weapon;
-	int disarm_second = 0;
+	OBJ_DATA *wield;
+	OBJ_DATA *vwield;
+	int chance, ch_weapon, vict_weapon;
+	int loc = WEAR_WIELD;
 	char arg[MAX_INPUT_LENGTH];
-/*
-	if (MOUNTED(ch)) {
-			char_puts("You can't disarm while riding!\n\r", ch);
-			return;
-	}
-*/
-	hth = 0;
+	int hth = 0;
 
 	if (ch->master != NULL && IS_NPC(ch))
 		return;
@@ -993,7 +973,7 @@ void do_disarm(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (get_eq_char(ch, WEAR_WIELD) == NULL 
+	if ((wield = get_eq_char(ch, WEAR_WIELD)) == NULL 
 	&&  (hth = get_skill(ch, gsn_hand_to_hand)) == 0) {
 		char_puts("You must wield a weapon to disarm.\n\r", ch);
 		return;
@@ -1004,42 +984,28 @@ void do_disarm(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if ((obj = get_eq_char(victim, WEAR_WIELD)) == NULL) {
+	argument = one_argument(argument, arg);
+	if (!str_prefix(arg, "second"))
+		loc = WEAR_SECOND_WIELD;
+
+	if ((vwield = get_eq_char(victim, loc)) == NULL) {
 		char_puts("Your opponent is not wielding a weapon.\n\r", ch);
 		return;
 	}
 
-	argument = one_argument(argument, arg);
-	if (!IS_NPC(ch) && arg[0] != '\0') {
-		if (!str_prefix(arg, "second"))
-			disarm_second = 1;
-		else
-			disarm_second = 0;    
-	}
 	/* find weapon skills */
-	ch_weapon = get_weapon_skill(ch, get_weapon_sn(ch, WEAR_WIELD));
+	ch_weapon = get_weapon_skill(ch, get_weapon_sn(wield));
+	vict_weapon = get_weapon_skill(victim, get_weapon_sn(vwield));
 
-	if (disarm_second) {
-		vict_weapon = get_weapon_skill(victim,
-				      get_weapon_sn(victim, WEAR_SECOND_WIELD));
-		ch_vict_weapon = get_weapon_skill(ch,
-				      get_weapon_sn(victim, WEAR_SECOND_WIELD));
-	}
-	else {
-		vict_weapon = get_weapon_skill(victim,
-					get_weapon_sn(victim, WEAR_WIELD));
-		ch_vict_weapon = get_weapon_skill(ch,
-					get_weapon_sn(victim, WEAR_WIELD));
-	}
 	/* modifiers */
 
 	/* skill */
-	if (get_eq_char(ch,WEAR_WIELD) == NULL)
+	if (wield == NULL)
 		chance = chance * hth/150;
 	else
 		chance = chance * ch_weapon/100;
 
-	chance += (ch_vict_weapon/2 - vict_weapon) / 2; 
+	chance += (ch_weapon/2 - vict_weapon) / 2; 
 
 	/* dex vs. strength */
 	chance += get_curr_stat(ch,STAT_DEX);
@@ -1051,7 +1017,7 @@ void do_disarm(CHAR_DATA *ch, const char *argument)
 	/* and now the attack */
 	WAIT_STATE(ch, SKILL(gsn_disarm)->beats);
 	if (number_percent() < chance) {
-		disarm(ch, victim, disarm_second);
+		disarm(ch, victim, vwield);
 		check_improve(ch, gsn_disarm, TRUE, 1);
 	}
 	else {
@@ -2483,20 +2449,24 @@ int critical_strike(CHAR_DATA *ch, CHAR_DATA *victim, int dam)
 
 	diceroll = number_percent();
 	if (diceroll <= 75) {  
-		act_puts("$n takes you down with a weird judo move!", 
-		         ch, NULL, victim, TO_VICT, POS_RESTING);
 		act_puts("You take $N down with a weird judo move!", 
-			 ch, NULL, victim, TO_CHAR, POS_RESTING);
+			 ch, NULL, victim, TO_CHAR, POS_DEAD);
+		act("$n takes you down with a weird judo move!", 
+		    ch, NULL, victim, TO_VICT);
+		act("$n takes $N down with a weird judo move!", 
+		    ch, NULL, victim, TO_NOTVICT);
 		check_improve(ch, gsn_critical, TRUE, 3);
 		WAIT_STATE(victim, 2 * PULSE_VIOLENCE);
 		dam += (dam * number_range(2, 5)) / 5;
 		return dam;
 	}   
 	else if (diceroll > 75 && diceroll < 95) {   
-		act_puts("You are blinded by $n's attack!", ch, NULL, victim, 
-			TO_VICT, POS_RESTING);
-		act_puts("You blind $N with your attack!", ch, NULL, victim, 
-			TO_CHAR, POS_RESTING);
+		act_puts("You blind $N with your attack!",
+			 ch, NULL, victim, TO_CHAR, POS_DEAD);
+		act("You are blinded by $n's attack!",
+		    ch, NULL, victim, TO_VICT);
+		act("$N is blinded by $n's attack!",
+		    ch, NULL, victim, TO_NOTVICT);
 		check_improve(ch, gsn_critical, TRUE, 4);
 		if (!IS_AFFECTED(victim, AFF_BLIND)) {
 			baf.where = TO_AFFECTS;
@@ -2504,7 +2474,7 @@ int critical_strike(CHAR_DATA *ch, CHAR_DATA *victim, int dam)
 			baf.level = ch->level; 
 			baf.location = APPLY_HITROLL; 
 			baf.modifier = -4;
-			baf.duration = number_range(1, 5); 
+			baf.duration = number_range(1, 3); 
 			baf.bitvector = AFF_BLIND;
 			affect_to_char(victim, &baf);
 		}  
@@ -2512,10 +2482,12 @@ int critical_strike(CHAR_DATA *ch, CHAR_DATA *victim, int dam)
 		return dam;
 	} 
 
-	act_puts("$n cuts out your heart! OUCH!!",  
-		 ch, NULL, victim, TO_VICT ,POS_RESTING); 
-	act_puts("You cut out $N's heart!  I bet that hurt!",  
+	act_puts("You cut out $N's {Rheart{x! I bet that hurt!",  
 		 ch, NULL, victim, TO_CHAR ,POS_RESTING);
+	act_puts("$n cuts out your {Rheart{x! OUCH!!",  
+		 ch, NULL, victim, TO_VICT ,POS_RESTING); 
+	act_puts("$n cuts out $N's {Rheart{x! I bet that hurt!",  
+		 ch, NULL, victim, TO_NOTVICT ,POS_RESTING); 
 	check_improve(ch, gsn_critical, TRUE, 5);
 	dam += dam * number_range(2, 5);			
 	return dam;
@@ -2563,7 +2535,7 @@ void do_shield(CHAR_DATA *ch, const char *argument)
 	}
 
 	/* find weapon skills */
-	ch_weapon = get_weapon_skill(ch, get_weapon_sn(ch, WEAR_WIELD));
+	ch_weapon = get_weapon_skill(ch, get_weapon_sn(axe));
 	vict_shield = get_skill(ch, gsn_shield_block);
 	/* modifiers */
 
@@ -2645,8 +2617,8 @@ void do_weapon(CHAR_DATA *ch, const char *argument)
 	}
 
 	/* find weapon skills */
-	ch_weapon = get_weapon_skill(ch, get_weapon_sn(ch, WEAR_WIELD));
-	vict_weapon = get_weapon_skill(victim, get_weapon_sn(victim, WEAR_WIELD));
+	ch_weapon = get_weapon_skill(ch, get_weapon_sn(axe));
+	vict_weapon = get_weapon_skill(victim, get_weapon_sn(wield));
 	/* modifiers */
 
 	/* skill */

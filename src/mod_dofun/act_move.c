@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.110 1998-10-19 13:21:54 fjoe Exp $
+ * $Id: act_move.c,v 1.111 1998-10-26 08:38:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2079,11 +2079,11 @@ void do_vbite(CHAR_DATA *ch, const char *argument)
 	     number_percent() < ((chance * 7 / 10) +
 		(2 * (ch->level - victim->level)) ))) {
 		check_improve(ch,gsn_vampiric_bite,TRUE,1);
-		one_hit(ch, victim, gsn_vampiric_bite, FALSE);
+		one_hit(ch, victim, gsn_vampiric_bite, WEAR_WIELD);
 	}
 	else {
 		check_improve(ch, gsn_vampiric_bite, FALSE, 1);
-		damage(ch, victim, 0, gsn_vampiric_bite, DAM_NONE, TRUE);
+		damage(ch, victim, 0, gsn_vampiric_bite, DAM_NONE, DAMF_SHOW);
 	}
 }
 
@@ -2216,7 +2216,7 @@ void do_bash_door(CHAR_DATA *ch, const char *argument)
 		WAIT_STATE(ch, beats * 3 / 2); 
 		damage_bash = ch->damroll +
 			      number_range(4,4 + 4* ch->size + chance/5);
-		damage(ch, ch, damage_bash, gsn_bash_door, DAM_BASH, TRUE);
+		damage(ch, ch, damage_bash, gsn_bash_door, DAM_BASH, DAMF_SHOW);
 	}
 }
 
@@ -2400,7 +2400,7 @@ void do_vtouch(CHAR_DATA *ch, const char *argument)
 		if (IS_AWAKE(victim))
 			victim->position = POS_SLEEPING;
 	} else {
-		damage(ch, victim, 0, sn, DAM_NONE, TRUE);
+		damage(ch, victim, 0, sn, DAM_NONE, DAMF_SHOW);
 		check_improve(ch, sn, FALSE, 1);
 	}
 }
@@ -2567,7 +2567,7 @@ void do_push(CHAR_DATA *ch, const char *argument)
 
 		if (IS_AWAKE(victim))
 			doprintf(do_yell, victim,
-				 MSG("Keep your hands out of me, %s!", ch->lang),
+				 "Keep your hands out of me, %s!",
 				 ch->name);
 		if (!IS_NPC(ch) && IS_NPC(victim)) {
 			check_improve(ch, sn, FALSE, 2);
@@ -2844,7 +2844,7 @@ int mount_success(CHAR_DATA *ch, CHAR_DATA *mount, int canattack)
 				MSG_YOU_SNARL_N);  
 
 		damage(mount, ch, number_range(1, mount->level),
-			gsn_kick, DAM_BASH, TRUE);
+			gsn_kick, DAM_BASH, DAMF_SHOW);
 	}
 	return FALSE;
 }
@@ -3069,7 +3069,7 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim,OBJ_DATA *arrow,
 			}
 		        else obj_to_room(arrow,victim->in_room); 
 
-			damage(ch, victim,dam,sn,DAM_PIERCE,TRUE);
+			damage(ch, victim, dam, sn, DAM_PIERCE, DAMF_SHOW);
 			path_to_track(ch,victim,door);
 
 		    }

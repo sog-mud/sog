@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.85 1998-10-21 05:00:27 fjoe Exp $
+ * $Id: act_obj.c,v 1.86 1998-10-26 08:38:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1533,7 +1533,7 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 		return;
 	}
 	if (CAN_WEAR(obj, ITEM_WIELD)) {
-		int             sn, skill;
+		int             skill;
 		OBJ_DATA       *dual;
 		if ((dual = get_eq_char(ch, WEAR_SECOND_WIELD)) != NULL)
 			unequip_char(ch, dual);
@@ -1560,16 +1560,14 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 		}
 		act("$n wields $p.", ch, obj, NULL, TO_ROOM);
 		act_puts("You wield $p", ch, obj, NULL, TO_CHAR, POS_DEAD);
-		equip_char(ch, obj, WEAR_WIELD);
+		obj = equip_char(ch, obj, WEAR_WIELD);
 		if (dual)
 			equip_char(ch, dual, WEAR_SECOND_WIELD);
 
-		sn = get_weapon_sn(ch, WEAR_WIELD);
-
-		if (sn == gsn_hand_to_hand)
+		if (obj == NULL)
 			return;
 
-		skill = get_weapon_skill(ch, sn);
+		skill = get_weapon_skill(ch, get_weapon_sn(obj));
 
 		if (skill >= 100)
 			act_puts("$p feels like a part of you!",
@@ -3152,7 +3150,7 @@ void do_lore(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	output = buf_new(0);
+	output = buf_new(-1);
 	do_lore_raw(ch, obj, output);
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
@@ -3398,8 +3396,8 @@ void do_deposit(CHAR_DATA * ch, const char *argument)
 /* wear object as a secondary weapon */
 void do_second_wield(CHAR_DATA * ch, const char *argument)
 {
-	OBJ_DATA       *obj;
-	int             sn, skill;
+	OBJ_DATA *	obj;
+	int		skill;
 	int		wear_lev;
 
 	if (get_skill(ch, gsn_second_weapon) == 0) {
@@ -3449,28 +3447,27 @@ void do_second_wield(CHAR_DATA * ch, const char *argument)
 
 	act("$n wields $p in $s off-hand.", ch, obj, NULL, TO_ROOM);
 	act("You wield $p in your off-hand.", ch, obj, NULL, TO_CHAR);
-	equip_char(ch, obj, WEAR_SECOND_WIELD);
+	obj = equip_char(ch, obj, WEAR_SECOND_WIELD);
+	if (obj == NULL)
+		return;
 
-	sn = get_weapon_sn(ch, WEAR_SECOND_WIELD);
-	if (sn) {
-		skill = get_weapon_skill(ch, sn);
+	skill = get_weapon_skill(ch, get_weapon_sn(obj));
 
-		if (skill >= 100)
-			act("$p feels like a part of you!", ch, obj, NULL, TO_CHAR);
-		else if (skill > 85)
-			act("You feel quite confident with $p.", ch, obj, NULL, TO_CHAR);
-		else if (skill > 70)
-			act("You are skilled with $p.", ch, obj, NULL, TO_CHAR);
-		else if (skill > 50)
-			act("Your skill with $p is adequate.", ch, obj, NULL, TO_CHAR);
-		else if (skill > 25)
-			act("$p feels a little clumsy in your hands.", ch, obj, NULL, TO_CHAR);
-		else if (skill > 1)
-			act("You fumble and almost drop $p.", ch, obj, NULL, TO_CHAR);
-		else
-			act("You don't even know which end is up on $p.",
-			    ch, obj, NULL, TO_CHAR);
-	}
+	if (skill >= 100)
+		act("$p feels like a part of you!", ch, obj, NULL, TO_CHAR);
+	else if (skill > 85)
+		act("You feel quite confident with $p.", ch, obj, NULL, TO_CHAR);
+	else if (skill > 70)
+		act("You are skilled with $p.", ch, obj, NULL, TO_CHAR);
+	else if (skill > 50)
+		act("Your skill with $p is adequate.", ch, obj, NULL, TO_CHAR);
+	else if (skill > 25)
+		act("$p feels a little clumsy in your hands.", ch, obj, NULL, TO_CHAR);
+	else if (skill > 1)
+		act("You fumble and almost drop $p.", ch, obj, NULL, TO_CHAR);
+	else
+		act("You don't even know which end is up on $p.",
+		    ch, obj, NULL, TO_CHAR);
 }
 
 void do_enchant(CHAR_DATA * ch, const char *argument)

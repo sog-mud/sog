@@ -1,5 +1,5 @@
 /*
- * $Id: raffect.c,v 1.15 1998-10-23 09:22:24 fjoe Exp $
+ * $Id: raffect.c,v 1.16 1998-10-26 08:38:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -459,7 +459,7 @@ void do_raffects(CHAR_DATA *ch, const char *argument)
 			if (paf->duration == -1 || paf->duration == -2)
 				char_puts("permanently.", ch);
 			else
-				char_printf(ch, MSG("for {c%d{x hours.", ch->lang),
+				char_printf(ch, "for {c%d{x hours.",
 					    paf->duration);
 		}
 		char_puts("\n\r", ch);

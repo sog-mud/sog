@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.80 1998-10-23 09:22:23 fjoe Exp $
+ * $Id: handler.c,v 1.81 1998-10-26 08:38:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1427,21 +1427,21 @@ OBJ_DATA *get_eq_char(CHAR_DATA *ch, int iWear)
 }
 
 /*
- * Equip a char with an obj.
+ * Equip a char with an obj. Return obj on success. Otherwise returns NULL.
  */
-void equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
+OBJ_DATA * equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 {
 	AFFECT_DATA *paf;
 	int i;
 
 	if (iWear == WEAR_STUCK_IN) {
 		obj->wear_loc = iWear;
-		return;
+		return obj;
 	}
 
-	if (get_eq_char(ch, iWear) != NULL) {
+	if (get_eq_char(ch, iWear)) {
 		bug("Equip_char: already equipped (%d).", iWear);
-		return;
+		return NULL;
 	}
 
 	if ((IS_OBJ_STAT(obj, ITEM_ANTI_EVIL)    && IS_EVIL(ch)   )
@@ -1454,7 +1454,7 @@ void equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 		act("$n is zapped by $p and drops it.",  ch, obj, NULL, TO_ROOM);
 		obj_from_char(obj);
 		obj_to_room(obj, ch->in_room);
-		return;
+		return NULL;
 	}
 
 	for (i = 0; i < 4; i++)
@@ -1477,6 +1477,7 @@ void equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 		++ch->in_room->light;
 
 	oprog_call(OPROG_WEAR, obj, ch, NULL);
+	return obj;
 }
 
 void strip_obj_affects(CHAR_DATA *ch, OBJ_DATA *obj, AFFECT_DATA *paf)
@@ -3202,8 +3203,7 @@ void show_affects(CHAR_DATA *ch, BUFFER *output)
 	OBJ_DATA *obj;
 	AFFECT_DATA *paf, *paf_last = NULL;
 
-	buf_add(output, MSG("You are affected by the following spells:\n\r",
-			    ch->lang));
+	buf_add(output, "You are affected by the following spells:\n\r");
 	for (paf = ch->affected; paf; paf = paf->next) {
 		show_loc_affect(ch, output, paf, &paf_last);
 		if (ch->level < 20)

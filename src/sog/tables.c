@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.18 1998-10-24 09:44:57 fjoe Exp $
+ * $Id: tables.c,v 1.19 1998-10-26 08:38:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -367,7 +367,6 @@ FLAG exit_flags[] =
 	{ "infuriating",	EX_INFURIATING,		TRUE	},
 	{ "noclose",		EX_NOCLOSE,		TRUE	},
 	{ "nolock",		EX_NOLOCK,		TRUE	},
-	{ "bitval",		EX_BITVAL,		FALSE	},
 	{ NULL }
 };
 

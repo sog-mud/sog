@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.34 1998-10-23 09:22:24 fjoe Exp $
+ * $Id: recycle.c,v 1.35 1998-10-26 08:38:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -252,7 +252,7 @@ PC_DATA *new_pcdata(void)
 {
 	PC_DATA *pcdata;
 	pcdata = calloc(1, sizeof(*pcdata));
-	pcdata->buffer = buf_new(0);
+	pcdata->buffer = buf_new(-1);
 	pcdata->learned.nsize = sizeof(PC_SKILL);
 	pcdata->learned.nstep = 8;
 	pcdata->pwd = str_empty;

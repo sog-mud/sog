@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.18 1998-10-17 16:20:12 fjoe Exp $
+ * $Id: mob_cmds.c,v 1.19 1998-10-26 08:38:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -161,7 +161,8 @@ void do_mpstat(CHAR_DATA *ch, const char *argument)
 	return;
     }
 
-    char_printf(ch, "Mobile #%-6d [%s]\n\r", mlstr_mval(victim->short_descr));
+    char_printf(ch, "Mobile #%-6d [%s]\n\r",
+		victim->pIndexData->vnum, mlstr_mval(victim->short_descr));
 
     char_printf(ch, "Delay   %-6d [%s]\n\r",
 		victim->mprog_delay,
@@ -180,25 +181,6 @@ void do_mpstat(CHAR_DATA *ch, const char *argument)
 	      flag_string(mptrig_types, mptrig->type),
 	      mptrig->vnum,
 	      mptrig->phrase);
-}
-
-/*
- * Displays the source code of a given MOBprogram
- *
- * Syntax: mpdump [vnum]
- */
-void do_mpdump(CHAR_DATA *ch, const char *argument)
-{
-   char buf[ MAX_INPUT_LENGTH ];
-   MPCODE *mpcode;
-
-   one_argument(argument, buf);
-   if ((mpcode = mpcode_lookup(atoi(buf))) == NULL)
-   {
-	char_puts("No such MOBprogram.\n\r", ch);
-	return;
-   }
-   page_to_char(mpcode->code, ch);
 }
 
 /*

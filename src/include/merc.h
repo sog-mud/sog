@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.106 1998-10-24 09:44:57 fjoe Exp $
+ * $Id: merc.h,v 1.107 1998-10-26 08:38:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1936,7 +1936,7 @@ void	obj_to_char	(OBJ_DATA *obj, CHAR_DATA *ch);
 void	obj_from_char	(OBJ_DATA *obj);
 int	apply_ac	(OBJ_DATA *obj, int iWear, int type);
 OBJ_DATA *	get_eq_char	(CHAR_DATA *ch, int iWear);
-void	equip_char	(CHAR_DATA *ch, OBJ_DATA *obj, int iWear);
+OBJ_DATA *	equip_char	(CHAR_DATA *ch, OBJ_DATA *obj, int iWear);
 void	unequip_char	(CHAR_DATA *ch, OBJ_DATA *obj);
 int	count_obj_list	(OBJ_INDEX_DATA *obj, OBJ_DATA *list);
 void	obj_from_room	(OBJ_DATA *obj);

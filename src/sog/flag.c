@@ -1,5 +1,5 @@
 /*
- * $Id: flag.c,v 1.15 1998-09-29 01:06:38 fjoe Exp $
+ * $Id: flag.c,v 1.16 1998-10-26 08:38:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -227,7 +227,7 @@ void show_flags(CHAR_DATA *ch, const FLAG *flag_table)
 {
 	BUFFER *output;
 
-	output = buf_new(0);
+	output = buf_new(-1);
 	show_flags_buf(output, flag_table);
 	page_to_char(buf_string(output), ch);
 	buf_free(output);

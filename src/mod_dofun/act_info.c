@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.152 1998-10-23 09:33:14 fjoe Exp $
+ * $Id: act_info.c,v 1.153 1998-10-26 08:38:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -225,7 +225,7 @@ void show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch,
 	/*
 	 * Alloc space for output lines.
 	 */
-	output = buf_new(0);
+	output = buf_new(-1);
 
 	count = 0;
 	for (obj = list; obj != NULL; obj = obj->next_content)
@@ -311,16 +311,16 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 {
 	BUFFER *output;
 
-	output = buf_new(0);
+	output = buf_new(ch->lang);
 
 	if (IS_NPC(victim)) {
 		if (!IS_NPC(ch) && ch->pcdata->questmob > 0
 		&&  victim->hunter == ch)
-			buf_add(output, MSG("{r[{RTARGET{r]{x ", ch->lang));
+			buf_add(output, "{r[{RTARGET{r]{x ");
 	}
 	else {
 		if (IS_SET(victim->act, PLR_WANTED))
-			buf_add(output, MSG("({RWanted{x) ", ch->lang));
+			buf_add(output, "({RWanted{x) ");
 
 		if (IS_SET(victim->comm, COMM_AFK))
 			buf_add(output, "{c[AFK]{x ");
@@ -328,32 +328,32 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 
 	if (IS_SET(ch->comm, COMM_LONG)) {
 		if (IS_AFFECTED(victim, AFF_INVISIBLE))
-			buf_add(output, MSG("({yInvis{x) ", ch->lang));
+			buf_add(output, "({yInvis{x) ");
 		if (IS_AFFECTED(victim, AFF_HIDE)) 
-			buf_add(output, MSG("({DHidden{x) ", ch->lang));
+			buf_add(output, "({DHidden{x) ");
 		if (IS_AFFECTED(victim, AFF_CHARM)) 
-			buf_add(output, MSG("({mCharmed{x) ", ch->lang));
+			buf_add(output, "({mCharmed{x) ");
 		if (IS_AFFECTED(victim, AFF_PASS_DOOR)) 
-			buf_add(output, MSG("({cTranslucent{x) ", ch->lang));
+			buf_add(output, "({cTranslucent{x) ");
 		if (IS_AFFECTED(victim, AFF_FAERIE_FIRE)) 
-			buf_add(output, MSG("({MPink Aura{x) ", ch->lang));
+			buf_add(output, "({MPink Aura{x) ");
 		if (IS_NPC(victim) && IS_SET(victim->act,ACT_UNDEAD)
 		&&  IS_AFFECTED(ch, AFF_DETECT_UNDEAD))
-			buf_add(output, MSG("({DUndead{x) ", ch->lang));
+			buf_add(output, "({DUndead{x) ");
 		if (RIDDEN(victim))
-			buf_add(output, MSG("({GRidden{x) ", ch->lang));
+			buf_add(output, "({GRidden{x) ");
 		if (IS_AFFECTED(victim,AFF_IMP_INVIS))
-			buf_add(output, MSG("({bImproved{x) ", ch->lang));
+			buf_add(output, "({bImproved{x) ");
 		if (IS_EVIL(victim) && IS_AFFECTED(ch, AFF_DETECT_EVIL))
-			buf_add(output, MSG("({RRed Aura{x) ", ch->lang));
+			buf_add(output, "({RRed Aura{x) ");
 		if (IS_GOOD(victim) && IS_AFFECTED(ch, AFF_DETECT_GOOD))
-			buf_add(output, MSG("({YGolden Aura{x) ", ch->lang));
+			buf_add(output, "({YGolden Aura{x) ");
 		if (IS_AFFECTED(victim, AFF_SANCTUARY))
-			buf_add(output, MSG("({WWhite Aura{x) ", ch->lang));
+			buf_add(output, "({WWhite Aura{x) ");
 		if (IS_AFFECTED(victim, AFF_FADE)) 
-			buf_add(output, MSG("({yFade{x) ", ch->lang));
+			buf_add(output, "({yFade{x) ");
 		if (IS_AFFECTED(victim, AFF_CAMOUFLAGE)) 
-			buf_add(output, MSG("({gCamf{x) ", ch->lang));
+			buf_add(output, "({gCamf{x) ");
 	}
 	else {
 		static char FLAGS[] = "{x[{y.{D.{m.{c.{M.{D.{G.{b.{R.{Y.{W.{y.{g.{x] ";
@@ -413,11 +413,11 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 			break;
 	
 		case POS_MORTAL:
-			buf_add(output, MSG(" is mortally wounded.", victim->lang));
+			buf_add(output, " is mortally wounded.");
 			break;
 	
 		case POS_INCAP:
-			buf_add(output, MSG(" is incapacitated.", victim->lang));
+			buf_add(output, " is incapacitated.");
 			break;
 	
 		case POS_STUNNED:
@@ -426,7 +426,7 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	
 		case POS_SLEEPING:
 			if (victim->on == NULL) {
-				buf_add(output, MSG(" is sleeping here.", ch->lang));
+				buf_add(output, " is sleeping here.");
 				break;
 			}
 	
@@ -437,13 +437,13 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 			else
 				msg = " is sleeping in %s.";
 	
-			buf_printf(output, MSG(msg, ch->lang),
+			buf_printf(output, msg,
 				   mlstr_cval(victim->on->short_descr, ch));
 			break;
 	
 		case POS_RESTING:
 			if (victim->on == NULL) {
-				buf_add(output, MSG(" is resting here.", ch->lang));
+				buf_add(output, " is resting here.");
 				break;
 			}
 	
@@ -453,13 +453,13 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 				msg = " is resting on %s.";
 			else
 				msg = " is resting in %s.";
-			buf_printf(output, MSG(msg, ch->lang),
+			buf_printf(output, msg,
 				mlstr_cval(victim->on->short_descr, ch));
 			break;
 	
 		case POS_SITTING:
 			if (victim->on == NULL) {
-				buf_add(output, MSG(" is sitting here.", ch->lang));
+				buf_add(output, " is sitting here.");
 				break;
 			}
 	
@@ -469,7 +469,7 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 				msg = " is sitting on %s.";
 			else
 				msg = " is sitting in %s.";
-			buf_printf(output, MSG(msg, ch->lang),
+			buf_printf(output, msg,
 				mlstr_cval(victim->on->short_descr, ch));
 			break;
 	
@@ -477,11 +477,10 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 			if (victim->on == NULL) {
 				if (MOUNTED(victim))
 					buf_printf(output,
-						MSG(" is here, riding %s.", ch->lang),
-						PERS(MOUNTED(victim),ch));
+						   " is here, riding %s.",
+						   PERS(MOUNTED(victim),ch));
 				else
-					buf_add(output,
-						MSG(" is here. ", ch->lang));
+					buf_add(output, " is here.");
 				break;
 			}
 	
@@ -491,16 +490,16 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 				msg = " is standing on %s.";
 			else
 				msg = " is standing here.";
-			buf_printf(output, MSG(msg, ch->lang),
+			buf_printf(output, msg,
 				mlstr_cval(victim->on->short_descr, ch));
 			break;
 	
 		case POS_FIGHTING:
-			buf_add(output, MSG(" is here, fighting with ", ch->lang));
+			buf_add(output, " is here, fighting with ");
 			if (victim->fighting == NULL)
 				buf_add(output, "thin air??");
 			else if (victim->fighting == ch)
-				buf_add(output, MSG("YOU!", ch->lang));
+				buf_add(output, "YOU!");
 			else if (victim->in_room == victim->fighting->in_room)
 				buf_printf(output, "%s.",
 					   PERS(victim->fighting, ch));
@@ -1574,7 +1573,7 @@ void do_weather(CHAR_DATA *ch, const char *argument)
 void do_help(CHAR_DATA *ch, const char *argument)
 {
 	BUFFER *output;
-	output = buf_new(0);
+	output = buf_new(ch->lang);
 	help_show(ch, output, argument);
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
@@ -1766,7 +1765,7 @@ void do_who(CHAR_DATA *ch, const char *argument)
 	 * Now show matching chars.
 	 */
 	nMatch = 0;
-	output = buf_new(0);
+	output = buf_new(ch->lang);
 	for (d = descriptor_list; d != NULL; d = d->next) {
 		CHAR_DATA *wch;
 
@@ -1807,7 +1806,8 @@ void do_who(CHAR_DATA *ch, const char *argument)
 		count += (d->connected == CON_PLAYING);
 
 	max_on = UMAX(count, max_on);
-	buf_printf(output, MSG("\n\rPlayers found: %d. Most so far today: %d.\n\r", ch->lang), nMatch, max_on);
+	buf_printf(output, "\n\rPlayers found: %d. Most so far today: %d.\n\r",
+		   nMatch, max_on);
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
 }
@@ -1843,7 +1843,7 @@ void do_whois(CHAR_DATA *ch, const char *argument)
 
 		if (!str_prefix(arg,wch->name)) {
 			if (output == NULL)
-				output = buf_new(0);
+				output = buf_new(-1);
 			do_who_raw(ch, wch, output);
 		}
 	}
@@ -2559,16 +2559,25 @@ void do_hometown(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	amount = (ch->level * ch->level * 250) + 1000;
+	amount = (ch->level * 250) + 1000;
 
 	if (argument[0] == '\0') {
-		char_printf(ch, "It will cost you %d gold.\n\r", amount);
+		char_puts("Choose from", ch);
+		for (i = 0; hometown_table[i].name; i++) {
+			static char* comma = ", ";
+
+			char_printf(ch, "%s%s", i == 0 ? comma+1 : comma,
+				    hometown_table[i].name);
+		}
+		char_puts(".\n\r", ch);
+		char_printf(ch, "The change of hometown "
+				"will cost you %d gold.\n\r", amount);
 		return;
 	}
 
-	if (ch->gold < amount) {
-		char_puts("You don't have enough money "
-			     "to change hometowns!\n\r", ch);
+	if (ch->pcdata->bank_g < amount) {
+		char_puts("You don't have enough money in bank "
+			  "to change hometowns!\n\r", ch);
 		return;
 	}
 
@@ -2586,26 +2595,19 @@ void do_hometown(CHAR_DATA *ch, const char *argument)
 
 		restrict_msg = hometown_table[i].check_fn(ch);
 		if (restrict_msg != NULL) {
-			char_printf(ch, "%s.\n\r");
+			char_printf(ch, "%s.\n\r", restrict_msg);
 			return;
 		}
 
-		ch->gold -= amount;
+		ch->pcdata->bank_g -= amount;
 		char_printf(ch, "Your hometown is changed to %s.\n\r",
 			    hometown_table[i].name);
 		ch->hometown = i;
 		return;
 	}
 
-	char_puts("That is not a valid choice.\n\r"
-		     "Choose from", ch);
-	for (i = 0; hometown_table[i].name; i++) {
-		static char* comma = ", ";
-
-		char_printf(ch, "%s%s", i == 0 ? comma+1 : comma,
-			    hometown_table[i].name);
-	}
-	char_puts(".\n\r", ch);
+	char_puts("Unknown hometown.\n\r", ch);
+	do_hometown(ch, "");
 }
 
 void do_detect_hidden(CHAR_DATA *ch, const char *argument)
@@ -2802,7 +2804,7 @@ void do_score(CHAR_DATA *ch, const char *argument)
 	if ((cl = class_lookup(ch->class)) == NULL)
 		return;
 
-	output = buf_new(0);
+	output = buf_new(ch->lang);
 	buf_add(output, "\n\r      {G/~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/~~\\{x\n\r");
 
 	strnzcpy(title, IS_NPC(ch) ? "Believer of Chronos." : ch->pcdata->title,
@@ -2974,7 +2976,7 @@ void do_oscore(CHAR_DATA *ch, const char *argument)
 	if ((cl = class_lookup(ch->class)) == NULL)
 		return;
 
-	output = buf_new(0);
+	output = buf_new(ch->lang);
 
 	buf_printf(output,
 		"%s {W%s{x%s, level {c%d{x, {c%d{x years old "
@@ -3222,7 +3224,7 @@ void do_affects(CHAR_DATA *ch, const char *argument)
 {
 	BUFFER *output;
 
-	output = buf_new(0);
+	output = buf_new(ch->lang);
 	show_affects(ch, output);
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
@@ -3379,7 +3381,7 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 		int col = 0;
 		int i;
 
-		output = buf_new(0);
+		output = buf_new(-1);
 
 		for (i = 0; i < ch->pcdata->learned.nused; i++) {
 			ps = VARR_GET(&ch->pcdata->learned, i);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: help.c,v 1.7 1998-10-17 16:20:11 fjoe Exp $
+ * $Id: help.c,v 1.8 1998-10-26 08:38:19 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -121,7 +121,7 @@ void help_show(CHAR_DATA *ch, BUFFER *output, const char *keyword)
 
 	if (pFirst == NULL) {
 		buf_printf(output,
-			   MSG("%s: no help on that word.\n\r", ch->lang),
+			   "%s: no help on that word.\n\r",
 			   keyword);
 		return;
 	}
@@ -132,7 +132,7 @@ void help_show(CHAR_DATA *ch, BUFFER *output, const char *keyword)
 		if (pFirst->level > -2
 		&&  str_cmp(pFirst->keyword, "imotd"))
 			buf_printf(output, "{C%s{x\n\r\n\r",
-				 pFirst->keyword);
+				   pFirst->keyword);
 
 		text = mlstr_cval(pFirst->text, ch);
 
