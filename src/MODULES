@@ -1,5 +1,5 @@
 #
-# $Id: MODULES,v 1.4 2002-03-29 08:32:46 fjoe Exp $
+# $Id: MODULES,v 1.5 2002-03-29 08:35:39 fjoe Exp $
 #
 
 Some notes on modules implementation:
