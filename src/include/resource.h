@@ -2,7 +2,7 @@
 #define _RESOURCE_H_
 
 /*
- * $Id: resource.h,v 1.71 1998-06-15 00:14:40 efdi Exp $
+ * $Id: resource.h,v 1.72 1998-06-15 15:15:01 efdi Exp $
  */
 
 #define msg(msgid, ch) vmsg(msgid, ch, ch)
@@ -712,6 +712,12 @@ enum {
 	YOU_PUT_P_ON_P,
 	N_PUTS_P_IN_P,
 	YOU_PUT_P_IN_P,
+	DROP_WHAT,
+	DONT_HAVE_MUCH_SILVER,
+	DONT_HAVE_MUCH_GOLD,
+	N_DROPS_SOME_COINS,
+	N_DROPS_P,
+	YOU_DROP_P,
 };
 
 #endif

@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.23 1998-06-15 00:14:39 efdi Exp $
+ * $Id: act_obj.c,v 1.24 1998-06-15 15:15:01 efdi Exp $
  */
 
 /***************************************************************************
@@ -527,9 +527,9 @@ void do_put(CHAR_DATA *ch, char *argument)
 	    	    else
 	    	    	obj->timer = number_range(100,200);
 
-		if (obj->pIndexData->limit != -1)
-		{
-		  act("This unworthy container won't hold $p.", ch,obj,NULL,TO_CHAR);
+		if (obj->pIndexData->limit != -1) {
+		  act("This unworthy container won't hold $p.", ch,obj,
+			NULL,TO_CHAR);
 		  continue;
 		}
 
@@ -562,9 +562,9 @@ void do_put(CHAR_DATA *ch, char *argument)
 	    act_nprintf(ch, obj, container, TO_ROOM, POS_RESTING,N_PUTS_P_IN_P);
 	    act_nprintf(ch, obj, container, TO_CHAR, POS_DEAD, YOU_PUT_P_IN_P);
 	}
-	    }
-	}
-	  }
+    }
+   }
+  }
 
 	  return;
 }
@@ -573,53 +573,44 @@ void do_put(CHAR_DATA *ch, char *argument)
 
 void do_drop(CHAR_DATA *ch, char *argument)
 {
-	  char arg[MAX_INPUT_LENGTH];
-	  OBJ_DATA *obj;
-	  OBJ_DATA *obj_next;
-	  bool found;
+	char arg[MAX_INPUT_LENGTH];
+	OBJ_DATA *obj;
+	OBJ_DATA *obj_next;
+	bool found;
 
 
-	  argument = one_argument(argument, arg);
-
-	  if (arg[0] == '\0')
-	  {
-	send_to_char("Drop what?\n\r", ch);
-	return;
-	  }
-
-	  if (is_number(arg))
-	  {
-	/* 'drop NNNN coins' */
-	int amount, gold = 0, silver = 0;
-
-	amount   = atoi(arg);
 	argument = one_argument(argument, arg);
-	if (amount <= 0
-	|| (str_cmp(arg, "coins") && str_cmp(arg, "coin") && 
-	     str_cmp(arg, "gold" ) && str_cmp(arg, "silver")))
-	{
-	    send_to_char("Sorry, you can't do that.\n\r", ch);
+
+	if (arg[0] == '\0') {
+		char_nputs(DROP_WHAT, ch);
+		return;
+	}
+
+	if (is_number(arg)) {
+		/* 'drop NNNN coins' */
+		int amount, gold = 0, silver = 0;
+
+		amount = atoi(arg);
+		argument = one_argument(argument, arg);
+		if (amount <= 0
+		|| (str_cmp(arg, "coins") && str_cmp(arg, "coin") 
+		&&  str_cmp(arg, "gold" ) && str_cmp(arg, "silver"))) {
+			char_nputs(YOU_CANT_DO_THAT, ch);
 	    return;
 	}
 
 	if (!str_cmp(arg, "coins") || !str_cmp(arg,"coin") 
-	||   !str_cmp(arg, "silver"))
-	{
-	    if (ch->silver < amount)
-	    {
-		send_to_char("You don't have that much silver.\n\r",ch);
-		return;
-	    }
+	||   !str_cmp(arg, "silver")) {
+		if (ch->silver < amount) {
+			char_nputs(DONT_HAVE_MUCH_SILVER, ch);
+			return;
+		}
 
-	    ch->silver -= amount;
-	    silver = amount;
-	}
-
-	else
-	{
-	    if (ch->gold < amount)
-	    {
-		send_to_char("You don't have that much gold.\n\r",ch);
+		ch->silver -= amount;
+		silver = amount;
+	} else {
+		if (ch->gold < amount) {
+			char_nputs(DONT_HAVE_MUCH_GOLD, ch);
 		return;
 	    }
 
@@ -664,9 +655,10 @@ void do_drop(CHAR_DATA *ch, char *argument)
 	obj = create_money(gold, silver);
 	obj_to_room(obj, ch->in_room);
 	if (!IS_AFFECTED(ch, AFF_SNEAK))
-	  act("$n drops some coins.", ch, NULL, NULL, TO_ROOM);
-	send_to_char("OK.\n\r", ch);
-	if (IS_WATER(ch->in_room))   {
+		act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, 
+			    N_DROPS_SOME_COINS);
+	char_nputs(OK, ch);
+	if (IS_WATER(ch->in_room)) {
 	  extract_obj(obj);
 	  if (!IS_AFFECTED(ch, AFF_SNEAK))
 	    act("The coins sink down, and disapear in the water.", ch, NULL, NULL, TO_ROOM);
@@ -678,23 +670,21 @@ void do_drop(CHAR_DATA *ch, char *argument)
 	  if (str_cmp(arg, "all") && str_prefix("all.", arg))
 	  {
 	/* 'drop obj' */
-	if ((obj = get_obj_carry(ch, arg)) == NULL)
-	{
-	    send_to_char("You do not have that item.\n\r", ch);
+	if ((obj = get_obj_carry(ch, arg)) == NULL) {
+	    char_nputs(DONT_HAVE_ITEM, ch);
 	    return;
 	}
 
-	if (!can_drop_obj(ch, obj))
-	{
-	    send_to_char("You can't let go of it.\n\r", ch);
+	if (!can_drop_obj(ch, obj)) {
+	    char_nputs(CANT_LET_GO_OF_IT, ch);
 	    return;
 	}
 
 	obj_from_char(obj);
 	obj_to_room(obj, ch->in_room);
 	if (!IS_AFFECTED(ch, AFF_SNEAK))
-		  act("$n drops $p.", ch, obj, NULL, TO_ROOM);
-	act("You drop $p.", ch, obj, NULL, TO_CHAR);
+		  act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING, N_DROPS_P);
+	act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, YOU_DROP_P);
 	if (obj->pIndexData->vnum == OBJ_VNUM_POTION_VIAL &&
 	            number_percent() < 40)  
 	  if (!IS_SET(ch->in_room->sector_type, SECT_FOREST) &&
@@ -743,8 +733,8 @@ void do_drop(CHAR_DATA *ch, char *argument)
 		obj_from_char(obj);
 		obj_to_room(obj, ch->in_room);
 	  	if (!IS_AFFECTED(ch, AFF_SNEAK))
-		  act("$n drops $p.", ch, obj, NULL, TO_ROOM);
-		act("You drop $p.", ch, obj, NULL, TO_CHAR);
+		   act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING, N_DROPS_P);
+		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, YOU_DROP_P);
 	        if (obj->pIndexData->vnum == OBJ_VNUM_POTION_VIAL &&
 		     number_percent()  < 70)
 		  if (!IS_SET(ch->in_room->sector_type, SECT_FOREST) &&

@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.49 1998-06-15 00:14:55 efdi Exp $
+# $Id: english.lang,v 1.50 1998-06-15 15:15:15 efdi Exp $
 #
 
 NOTHING		"Nothing.\n\r"
@@ -710,3 +710,9 @@ N_PUTS_P_ON_P	"$n puts $p on $P."
 YOU_PUT_P_ON_P	"You put $p on $P."
 N_PUTS_P_IN_P	"$n puts $p in $P."
 YOU_PUT_P_IN_P	"You put $p in $P."
+DROP_WHAT	"Drop what?\n\r"
+DONT_HAVE_MUCH_SILVER	"You don't have that much silver.\n\r"
+DONT_HAVE_MUCH_GOLD	"You don't have that much gold.\n\r"
+N_DROPS_SOME_COINS	"$n drops some coins."
+N_DROPS_P	"$n drops $p."
+YOU_DROP_P	"You drop $p."
