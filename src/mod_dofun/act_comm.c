@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.187.2.20 2001-06-16 18:53:06 fjoe Exp $
+ * $Id: act_comm.c,v 1.187.2.21 2001-06-16 18:57:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1177,7 +1177,7 @@ void do_speak(CHAR_DATA *ch, const char *argument)
 	}
 
 	ch->slang = language;
-	act("Now you speak $t.\n",
+	act("Now you speak $t.",
 	    ch, flag_string(slang_table, ch->slang), NULL, TO_CHAR);
 }
 
