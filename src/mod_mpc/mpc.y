@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.19 2001-07-31 18:14:57 fjoe Exp $
+ * $Id: mpc.y,v 1.20 2001-08-03 11:27:42 fjoe Exp $
  */
 
 /*
@@ -789,7 +789,8 @@ expr:	L_IDENT assign expr %prec '=' {
 
 		for (i = 0; i < d->nargs; i++) {
 			int got_type = argtype_get(prog, $3, i);
-			if (got_type != d->argtype[i].type_tag) {
+			if (got_type != d->argtype[i].type_tag
+			&&  d->argtype[i].type_tag != MT_PVOID) {
 				compile_error(prog,
 				    "%s: invalid arg %d type %d (%d expected)",
 				    $1, i+1, got_type, d->argtype[i].type_tag);

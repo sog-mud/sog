@@ -1,5 +1,5 @@
 /*
- * $Id: buffer.c,v 1.32 2001-08-02 18:20:15 fjoe Exp $
+ * $Id: buffer.c,v 1.33 2001-08-03 11:27:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -53,7 +53,6 @@
 #include <hash.h>
 #include <buffer.h>
 #include <log.h>
-#include <comm_act.h>
 #include <str.h>
 #include <memalloc.h>
 #include <lang.h>
@@ -76,7 +75,6 @@ int	sAllocBuf;
 BUFFER *free_list;
 
 static bool buf_resize(BUFFER *buffer, const char *string);
-static bool buf_copy(BUFFER *buffer, int where, const char *string);
 static size_t get_size (size_t val);
 
 BUFFER *
@@ -118,6 +116,21 @@ buf_free(BUFFER *buffer)
 }
 
 bool
+buf_copy(BUFFER *buffer, int where, const char *string)
+{
+	if (!buf_resize(buffer, string))
+		return FALSE;
+
+	if (where == BUF_START) {
+		memmove(buffer->string + strlen(string), buffer->string,
+			strlen(buffer->string) + 1);
+		memcpy(buffer->string, string, strlen(string));
+	} else
+		strcat(buffer->string, string);
+	return TRUE;
+}
+
+bool
 buf_prepend(BUFFER *buffer, const char *string)
 {
 	if (IS_NULLSTR(string))
@@ -155,22 +168,6 @@ buf_vprintf(BUFFER *buffer, int where, const char *format, va_list ap)
 	vsnprintf(buf, sizeof(buf), GETMSG(format, buffer->lang), ap);
 	return buf_copy(buffer, where, buf);
 }
-
-#if !defined(MPC)
-bool
-buf_act3(BUFFER *buffer, int where, const char *format, CHAR_DATA *ch,
-	 const void *arg1, const void *arg2, const void *arg3, int act_flags)
-{
-	actopt_t opt;
-	char tmp[MAX_STRING_LENGTH];
-
-	opt.to_lang = buffer->lang;
-	opt.act_flags = act_flags;
-
-	act_buf(format, ch, ch, arg1, arg2, arg3, &opt, tmp, sizeof(tmp));
-	return buf_copy(buffer, where, tmp);
-}
-#endif
 
 void
 buf_clear(BUFFER *buffer)
@@ -259,20 +256,5 @@ buf_resize(BUFFER *buffer, const char *string)
 		sAllocBuf += buffer->size - oldsize;
 	}
 
-	return TRUE;
-}
-
-static bool
-buf_copy(BUFFER *buffer, int where, const char *string)
-{
-	if (!buf_resize(buffer, string))
-		return FALSE;
-
-	if (where == BUF_START) {
-		memmove(buffer->string + strlen(string), buffer->string,
-			strlen(buffer->string) + 1);
-		memcpy(buffer->string, string, strlen(string));
-	} else
-		strcat(buffer->string, string);
 	return TRUE;
 }

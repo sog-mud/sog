@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: dynafun.c,v 1.10 2001-07-29 20:15:00 fjoe Exp $
+ * $Id: dynafun.c,v 1.11 2001-08-03 11:27:50 fjoe Exp $
  */
 
 #include <stdlib.h>
@@ -248,9 +248,15 @@ dynafun_build_args(const char *name, dynafun_args_t *args, int nargs, va_list ap
 			continue;
 			/* NOTREACHED */
 
+		case MT_SIZE_T:
+			*(size_t *) args_ap = va_arg(ap, size_t);
+			arg = (const void *) va_arg(args_ap, size_t);
+			continue;
+			/* NOTREACHED */
+
 		case MT_STR:
-			*(cchar_t *) args_ap = va_arg(ap, cchar_t);
-			arg = (const void *) va_arg(args_ap, cchar_t);
+			*(const char **) args_ap = va_arg(ap, const char *);
+			arg = (const void *) va_arg(args_ap, const char *);
 			continue;
 			/* NOTREACHED */
 

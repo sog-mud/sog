@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.385 2001-08-02 18:20:02 fjoe Exp $
+ * $Id: act_info.c,v 1.386 2001-08-03 11:27:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -54,7 +54,6 @@
 
 #include <merc.h>
 #include <rating.h>
-#include <string_edit.h>
 #include <lang.h>
 
 #include <handler.h>
@@ -4017,8 +4016,8 @@ format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 
 	if (fShort) {
 		strnzcat(buf, sizeof(buf),
-			 format_short(&obj->short_descr,
-				      obj->pObjIndex->name, ch));
+			 format_short(&obj->short_descr, obj->pObjIndex->name,
+				      ch, GET_LANG(ch), 0));
 		if (obj->pObjIndex->vnum > 5 /* not money, gold, etc */
 		&&  (obj->condition < COND_EXCELLENT ||
 		     !IS_SET(ch->comm, COMM_NOVERBOSE))) {
@@ -4035,8 +4034,8 @@ format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 
 		p = strchr(buf, '\0');
 		strnzcat(buf, sizeof(buf),
-			 format_short(&obj->short_descr,
-				      obj->pObjIndex->name, ch));
+			 format_short(&obj->short_descr, obj->pObjIndex->name,
+				      ch, GET_LANG(ch), 0));
 		p[0] = UPPER(p[0]);
 		switch(number_range(1, 3)) {
 		case 1:
@@ -4580,7 +4579,7 @@ show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 		}
 	}
 
-	strnzcpy(buf, sizeof(buf), PERS(victim, ch));
+	strnzcpy(buf, sizeof(buf), PERS(victim, ch, GET_LANG(ch), ACT_FORMSH));
 	buf[0] = UPPER(buf[0]);
 	if (IS_IMMORTAL(victim))
 		send_to_char("{W", ch);				// notrans

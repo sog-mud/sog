@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.78 2001-08-02 18:20:21 fjoe Exp $
+ * $Id: act.c,v 1.79 2001-08-03 11:27:38 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -33,10 +33,9 @@
 #include <merc.h>
 #include <lang.h>
 #include <memalloc.h>
+#include <colors.h>
 
 #include <handler.h>
-
-#include "comm_colors.h"
 
 /*
  * char/mob short/long formatting
@@ -91,8 +90,8 @@ smash_tilde(const char *s, int act_flags)
  * if ACT_NOENG is not set
  */
 const char *
-_format_short(const mlstring *mlshort, const char *name, const CHAR_DATA *to,
-	      size_t to_lang, int act_flags)
+format_short(mlstring *mlshort, const char *name, CHAR_DATA *to,
+	     size_t to_lang, int act_flags)
 {
         const char *sshort;
 
@@ -130,13 +129,13 @@ _format_short(const mlstring *mlshort, const char *name, const CHAR_DATA *to,
  * if ACT_NOENG is set
  */
 const char *
-_format_long(const mlstring *ml, const CHAR_DATA *to, size_t to_lang)
+format_long(mlstring *ml, CHAR_DATA *to)
 {
 	const char *s;
 	const char *p, *q;
 	static char buf[MAX_STRING_LENGTH];
 
-	s = mlstr_val(ml, to_lang);
+	s = mlstr_val(ml, GET_LANG(to));
 	if (IS_NULLSTR(s)
 	||  !IS_SET(to->comm, COMM_NOENG)
 	||  (p = strchr(s, '(')) == NULL
@@ -155,7 +154,7 @@ _format_long(const mlstring *ml, const CHAR_DATA *to, size_t to_lang)
  * PERS formatting stuff
  */
 const char *
-PERS2(CHAR_DATA *ch, CHAR_DATA *to, size_t to_lang, int act_flags)
+PERS(CHAR_DATA *ch, CHAR_DATA *to, size_t to_lang, int act_flags)
 {
 	bool visible = can_see(to, ch);
 
@@ -170,7 +169,7 @@ PERS2(CHAR_DATA *ch, CHAR_DATA *to, size_t to_lang, int act_flags)
 	if (visible) {
 		if (ch->shapeform) {
 			if (IS_SET(act_flags, ACT_FORMSH)) {
-				return _format_short(
+				return format_short(
 					&ch->shapeform->index->short_desc,
 					ch->shapeform->index->name,
 					to, to_lang, act_flags);
@@ -182,8 +181,8 @@ PERS2(CHAR_DATA *ch, CHAR_DATA *to, size_t to_lang, int act_flags)
 		}
 		if (IS_NPC(ch)) {
 			if (IS_SET(act_flags, ACT_FORMSH)) {
-				return _format_short(&ch->short_descr, ch->name,
-						     to, to_lang, act_flags);
+				return format_short(&ch->short_descr, ch->name,
+						    to, to_lang, act_flags);
 			}
 
 			return smash_tilde(
@@ -293,8 +292,8 @@ act_format_obj(OBJ_DATA *obj, CHAR_DATA *to, size_t to_lang,
 		return GETMSG("something", to_lang);
 
 	if (IS_SET(act_flags, ACT_FORMSH)) {
-		return _format_short(&obj->short_descr, obj->pObjIndex->name,
-				     to, to_lang, act_flags);
+		return format_short(&obj->short_descr, obj->pObjIndex->name,
+				    to, to_lang, act_flags);
 	}
 
 	return smash_tilde(mlstr_val(&obj->short_descr, to_lang), act_flags);
@@ -366,8 +365,8 @@ act_format_door(const gmlstr_t *gml)
 			i = GETMSG("somebody", opt->to_lang);		\
 		} else {						\
 			CHECK_TYPE(vch, MT_CHAR);			\
-			i = PERS2(vch, to, opt->to_lang,		\
-				  ACT_FLAGS(opt->act_flags));		\
+			i = PERS(vch, to, opt->to_lang,			\
+				 ACT_FLAGS(opt->act_flags));		\
 		}							\
 	}
 
@@ -1061,6 +1060,54 @@ act_mlputs3(mlstring *mlformat, CHAR_DATA *ch,
 	}
 }
 
+void
+act(const char *format, CHAR_DATA *ch,
+    const void *arg1, const void *arg2, int act_flags)
+{
+	act_puts(format, ch, arg1, arg2, act_flags, POS_RESTING);
+}
+
+void
+act_char(const char *format, CHAR_DATA *ch)
+{
+	act_puts(format, ch, NULL, NULL, TO_CHAR | ACT_NOUCASE, POS_DEAD);
+}
+
+void
+act_puts(const char *format, CHAR_DATA *ch, const void *arg1, const void *arg2,
+	 int act_flags, int min_pos)
+{
+	act_puts3(format, ch, arg1, arg2, NULL, act_flags, min_pos);
+}
+
+void
+act_mlputs(mlstring *mlformat, CHAR_DATA *ch,
+	   const void *arg1, const void *arg2, int act_flags, int min_pos)
+{
+	act_mlputs3(mlformat, ch, arg1, arg2, NULL, act_flags, min_pos);
+}
+
+bool
+buf_act3(BUFFER *buffer, int where, const char *format, CHAR_DATA *ch,
+	 const void *arg1, const void *arg2, const void *arg3, int act_flags)
+{
+	actopt_t opt;
+	char tmp[MAX_STRING_LENGTH];
+
+	opt.to_lang = buf_lang(buffer);
+	opt.act_flags = act_flags;
+
+	act_buf(format, ch, ch, arg1, arg2, arg3, &opt, tmp, sizeof(tmp));
+	return buf_copy(buffer, where, tmp);
+}
+
+bool
+buf_act(BUFFER *buffer, int where, const char *format, CHAR_DATA *ch,
+	const void *arg1, const void *arg2, int act_flags)
+{
+	return buf_act3(buffer, where, format, ch, arg1, arg2, NULL, act_flags);
+}
+
 const char *
 act_speech(CHAR_DATA *ch, CHAR_DATA *vch, const char *text, const void *arg)
 {
@@ -1074,8 +1121,8 @@ act_speech(CHAR_DATA *ch, CHAR_DATA *vch, const char *text, const void *arg)
 	return buf;
 }
 
-void act_yell(CHAR_DATA *ch, const char *text, const void *arg,
-	      const char *format)
+void
+act_yell(CHAR_DATA *ch, const char *text, const void *arg, const char *format)
 {
 	DESCRIPTOR_DATA *d;
 
@@ -1097,7 +1144,8 @@ void act_yell(CHAR_DATA *ch, const char *text, const void *arg,
 	}
 }
 
-void act_clan(CHAR_DATA *ch, const char *text, const void *arg)
+void
+act_clan(CHAR_DATA *ch, const char *text, const void *arg)
 {
 	CHAR_DATA *vch;
 

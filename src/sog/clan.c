@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.c,v 1.55 2001-07-29 09:43:17 fjoe Exp $
+ * $Id: clan.c,v 1.56 2001-08-03 11:27:49 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -31,7 +31,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "merc.h"
+#include <merc.h>
+
+#include <handler.h>
 
 hash_t clans;
 
@@ -80,7 +82,8 @@ clan_destroy(clan_t *clan)
 	free_string(clan->second_list);
 }
 
-void clan_save(clan_t *clan)
+void
+clan_save(clan_t *clan)
 {
 	SET_BIT(clan->clan_flags, CLAN_CHANGED);
 	dofun("asave", NULL, "clans");				// notrans
@@ -91,7 +94,8 @@ void clan_save(clan_t *clan)
  *		       if memb is TRUE 'victim' will be deleted from members
  *		       list
  */
-void clan_update_lists(clan_t *clan, CHAR_DATA *victim, bool memb)
+void
+clan_update_lists(clan_t *clan, CHAR_DATA *victim, bool memb)
 {
 	const char **nl = NULL;
 
@@ -123,7 +127,8 @@ item_ok_cb(void *p, va_list ap)
 	return NULL;
 }
 
-bool clan_item_ok(const char *cln)
+bool
+clan_item_ok(const char *cln)
 {
 	clan_t* clan;
 	OBJ_DATA* obj;

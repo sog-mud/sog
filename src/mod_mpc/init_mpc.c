@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_mpc.c,v 1.9 2001-08-02 18:38:42 fjoe Exp $
+ * $Id: init_mpc.c,v 1.10 2001-08-03 11:27:42 fjoe Exp $
  */
 
 #include <sys/stat.h>
@@ -54,8 +54,6 @@
 static void load_mudprogs();
 
 static dynafun_data_t local_dynafun_tab[] = {
-	{ "act_char",		MT_VOID, 2,
-	  { { MT_STR }, { MT_CHAR } }					},
 	{ "has_sp",		MT_INT, 4,
 	  { { MT_CHAR }, { MT_STR }, { MT_STR }, { MT_STR } }		},
 	{ "level",		MT_INT, 1,

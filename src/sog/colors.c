@@ -23,15 +23,15 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: colors.c,v 1.12 2001-06-24 10:50:57 avn Exp $
+ * $Id: colors.c,v 1.13 2001-08-03 11:27:49 fjoe Exp $
  */
 
 #include <stdio.h>
 #include <string.h>
 
-#include "typedef.h"
-#include "comm_colors.h"
-#include "str.h"
+#include <typedef.h>
+#include <colors.h>
+#include <str.h>
 
 static const char* color(int type, int format);
 

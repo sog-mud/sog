@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.49 2001-08-02 14:21:30 fjoe Exp $
+ * $Id: typedef.h,v 1.50 2001-08-03 11:27:30 fjoe Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -44,9 +44,6 @@
  */
 typedef int bool;
 typedef int flag_t;
-
-typedef const char *cchar_t;
-typedef void *pvoid_t;
 
 #if defined (WIN32)
 typedef unsigned int	u_int;
@@ -75,6 +72,7 @@ typedef struct room_history_data	ROOM_HISTORY_DATA;
 typedef struct auction_data		AUCTION_DATA;
 typedef struct qtrouble_t		qtrouble_t;
 typedef struct flaginfo_t		flaginfo_t;
+typedef struct actopt_t			actopt_t;
 
 typedef struct class_t			class_t;
 typedef struct race_t			race_t;

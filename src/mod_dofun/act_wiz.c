@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.283 2001-08-02 18:38:39 fjoe Exp $
+ * $Id: act_wiz.c,v 1.284 2001-08-03 11:27:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -64,7 +64,6 @@
 #include <merc.h>
 #include <cmd.h>
 #include <ban.h>
-#include <string_edit.h>
 #include <rwfile.h>
 
 #include <handler.h>
@@ -1639,11 +1638,10 @@ void do_owhere(CHAR_DATA *ch, const char *argument)
 		&&  can_see(ch,in_obj->carried_by)
 		&&  in_obj->carried_by->in_room != NULL)
 			buf_printf(buffer, BUF_END,
-				   "%3d) %s is carried by %s [Room %d]\n", // notrans
-				number,
-				mlstr_mval(&obj->short_descr),
-				PERS(in_obj->carried_by, ch),
-				in_obj->carried_by->in_room->vnum);
+			    "%3d) %s is carried by %s [Room %d]\n", // notrans
+			    number, mlstr_mval(&obj->short_descr),
+			    PERS(in_obj->carried_by, ch, GET_LANG(ch), ACT_FORMSH),
+			    in_obj->carried_by->in_room->vnum);
 		else if (in_obj->in_room != NULL
 		     &&  can_see_room(ch, in_obj->in_room))
 			buf_printf(buffer, BUF_END, "%3d) %s is in %s [Room %d]\n", // notrans

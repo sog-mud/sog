@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.c,v 1.47 2001-06-24 10:50:53 avn Exp $
+ * $Id: string_edit.c,v 1.48 2001-08-03 11:27:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -21,31 +21,12 @@
 #include <string.h>
 #include <time.h>
 
-#include "merc.h"
-#include "string_edit.h"
+#include <merc.h>
+#include <lang.h>
 
-char *numlines(const char *, int dump_level);
+#include <handler.h>
 
-/*****************************************************************************
- Name:		string_append
- Purpose:	Puts player into append mode for given string.
- ****************************************************************************/
-void string_append(CHAR_DATA *ch, const char **pString)
-{
-	if (*pString == NULL)
-		*pString = str_dup(str_empty);
-
-	ch->desc->pString = pString;
-	ch->desc->backup = str_dup(*pString);
-
-	act_puts("-=======- Entering APPEND Mode -========-\n"
-		 "    Type :h on a new line for help\n"
-		 " Terminate with a ~ or @ on a blank line.\n"
-		 "-=======================================-\n"
-		 "$t",
-		 ch, numlines(*pString, DL_COLOR), NULL,
-		 TO_CHAR | ACT_SEDIT | ACT_NOTRANS | ACT_NOLF, POS_DEAD);
-}
+static char *numlines(const char *, int dump_level);
 
 /*****************************************************************************
  Name:		string_replace
@@ -91,24 +72,138 @@ string_replace(const char *orig, const char *old, const char *new, int flags)
 	return str_dup(xbuf);
 }
 
-void string_add_exit(CHAR_DATA *ch, bool save)
+/*
+ * Thanks to Kalgen for the new procedure (no more bug!)
+ * Original wordwrap() written by Surreality.
+ */
+/*****************************************************************************
+ Name:		format_string
+ Purpose:	Special string formating and word-wrapping.
+ ****************************************************************************/
+const char *
+format_string(const char *oldstring)
 {
-	DESCRIPTOR_DATA *d = ch->desc;
+	char xbuf[MAX_STRING_LENGTH];
+	char xbuf2[MAX_STRING_LENGTH];
+	const char *rdesc;
+	uint i = 0;
+	bool cap = TRUE;
 
-	if (!save) {
-		act_puts("No changes saved.",
-			 ch, NULL, NULL, TO_CHAR | ACT_SEDIT, POS_DEAD);
-		free_string(*d->pString);
-		*d->pString = d->backup;
-	} else {
-		free_string(d->backup);
-		if (OLCED(ch) && olc_interpret)
-			olc_interpret(d, "touch");
+	if (IS_NULLSTR(oldstring))
+		return oldstring;
+
+	xbuf[0] = xbuf2[0] = 0;
+
+	for (rdesc = oldstring; *rdesc; rdesc++) {
+		if (*rdesc == '\n') {
+			if (xbuf[i-1] != ' ') {
+				xbuf[i] = ' ';
+				i++;
+			}
+		} else if (*rdesc == '\r')
+			;
+		else if (*rdesc == ' ') {
+			if (xbuf[i-1] != ' ') {
+				xbuf[i] = ' ';
+				i++;
+			}
+		} else if (*rdesc == ')') {
+			if (xbuf[i-1] == ' ' && xbuf[i-2] == ' '
+			&&  (xbuf[i-3] == '.' || xbuf[i-3] == '?' ||
+			     xbuf[i-3] == '!')) {
+				xbuf[i-2] = *rdesc;
+				xbuf[i-1]  = ' ';
+				xbuf[i] = ' ';
+				i++;
+			} else {
+				xbuf[i] = *rdesc;
+				i++;
+			}
+		} else if (*rdesc == '.' || *rdesc == '?' || *rdesc == '!') {
+			if (xbuf[i-1] == ' ' && xbuf[i-2] == ' '
+			&&  (xbuf[i-3] == '.' || xbuf[i-3] == '?' ||
+			     xbuf[i-3] == '!')) {
+				xbuf[i-2] = *rdesc;
+				if (*(rdesc+1) != '\"') {
+					xbuf[i-1]=' ';
+					xbuf[i]=' ';
+					i++;
+				} else {
+					xbuf[i-1]='\"';
+					xbuf[i]=' ';
+					xbuf[i+1]=' ';
+					i+=2;
+					rdesc++;
+				}
+			} else {
+				xbuf[i] = *rdesc;
+				if (*(rdesc+1) != '\"') {
+					xbuf[i+1] = ' ';
+					xbuf[i+2] = ' ';
+					i += 3;
+				} else {
+					xbuf[i+1] = '\"';
+					xbuf[i+2] = ' ';
+					xbuf[i+3] = ' ';
+					i += 4;
+					rdesc++;
+				}
+			}
+			cap = TRUE;
+		} else {
+			xbuf[i] = *rdesc;
+			if (cap) {
+				cap = FALSE;
+				xbuf[i] = UPPER(xbuf[i]);
+			}
+			i++;
+		}
 	}
 
-	d->pString = NULL;
-	if (IS_SET(ch->comm, COMM_QUIET_EDITOR))
-		dofun("replay", ch, str_empty);
+	xbuf[i] = 0;
+	strnzcpy(xbuf2, sizeof(xbuf2), xbuf);
+
+	rdesc = xbuf2;
+	xbuf[0] = 0;
+
+	for (; ;) {
+		for (i = 0; i < 77; i++) {
+			if (!*(rdesc+i))
+				break;
+		}
+
+		if (i < 77)
+			break;
+
+		for (i = (xbuf[0] ? 76 : 73); i; i--) {
+			if (*(rdesc+i) == ' ')
+				break;
+		}
+
+		if (i) {
+			strnzncat(xbuf, sizeof(xbuf), rdesc, i);
+			strnzcat(xbuf, sizeof(xbuf), "\n");
+			rdesc += i+1;
+			while (*rdesc == ' ')
+				rdesc++;
+		} else {
+			log(LOG_WARN, "format_string: no spaces");
+			strnzncat(xbuf, sizeof(xbuf), rdesc, 75);
+			strnzcat(xbuf, sizeof(xbuf), "-\n");	// notrans
+			rdesc += 76;
+		}
+	}
+
+	while (*(rdesc+i) &&
+	       (*(rdesc+i) == ' '|| *(rdesc+i) == '\n'|| *(rdesc+i) == '\r'))
+		i--;
+
+	strnzncat(xbuf, sizeof(xbuf), rdesc, i+1);
+	if (xbuf[strlen(xbuf)-2] != '\n')
+		strnzcat(xbuf, sizeof(xbuf), "\n");
+
+	free_string(oldstring);
+	return str_dup(xbuf);
 }
 
 /*****************************************************************************
@@ -116,7 +211,8 @@ void string_add_exit(CHAR_DATA *ch, bool save)
  Purpose:	Interpreter for string editing.
  Called by:	game_loop_xxxx(comm.c).
  ****************************************************************************/
-void string_add(CHAR_DATA *ch, const char *argument)
+void
+string_add(CHAR_DATA *ch, const char *argument)
 {
 	const char *p;
 	size_t len;
@@ -325,163 +421,29 @@ void string_add(CHAR_DATA *ch, const char *argument)
 	free_string(p);
 }
 
-/*
- * Thanks to Kalgen for the new procedure (no more bug!)
- * Original wordwrap() written by Surreality.
- */
-/*****************************************************************************
- Name:		format_string
- Purpose:	Special string formating and word-wrapping.
- ****************************************************************************/
-const char *format_string(const char *oldstring /*, bool fSpace */)
+void
+string_add_exit(CHAR_DATA *ch, bool save)
 {
-  char xbuf[MAX_STRING_LENGTH];
-  char xbuf2[MAX_STRING_LENGTH];
-  const char *rdesc;
-  uint i=0;
-  bool cap=TRUE;
-  
-	if (IS_NULLSTR(oldstring))
-		return oldstring;
+	DESCRIPTOR_DATA *d = ch->desc;
 
-  xbuf[0]=xbuf2[0]=0;
-  
-  i=0;
-  
-  for (rdesc = oldstring; *rdesc; rdesc++)
-  {
-    if (*rdesc=='\n')
-    {
-      if (xbuf[i-1] != ' ')
-      {
-        xbuf[i]=' ';
-        i++;
-      }
-    }
-    else if (*rdesc=='\r') ;
-    else if (*rdesc==' ')
-    {
-      if (xbuf[i-1] != ' ')
-      {
-        xbuf[i]=' ';
-        i++;
-      }
-    }
-    else if (*rdesc==')')
-    {
-      if (xbuf[i-1]==' ' && xbuf[i-2]==' ' && 
-          (xbuf[i-3]=='.' || xbuf[i-3]=='?' || xbuf[i-3]=='!'))
-      {
-        xbuf[i-2]=*rdesc;
-        xbuf[i-1]=' ';
-        xbuf[i]=' ';
-        i++;
-      }
-      else
-      {
-        xbuf[i]=*rdesc;
-        i++;
-      }
-    }
-    else if (*rdesc=='.' || *rdesc=='?' || *rdesc=='!') {
-      if (xbuf[i-1]==' ' && xbuf[i-2]==' ' && 
-          (xbuf[i-3]=='.' || xbuf[i-3]=='?' || xbuf[i-3]=='!')) {
-        xbuf[i-2]=*rdesc;
-        if (*(rdesc+1) != '\"')
-        {
-          xbuf[i-1]=' ';
-          xbuf[i]=' ';
-          i++;
-        }
-        else
-        {
-          xbuf[i-1]='\"';
-          xbuf[i]=' ';
-          xbuf[i+1]=' ';
-          i+=2;
-          rdesc++;
-        }
-      }
-      else
-      {
-        xbuf[i]=*rdesc;
-        if (*(rdesc+1) != '\"')
-        {
-          xbuf[i+1]=' ';
-          xbuf[i+2]=' ';
-          i += 3;
-        }
-        else
-        {
-          xbuf[i+1]='\"';
-          xbuf[i+2]=' ';
-          xbuf[i+3]=' ';
-          i += 4;
-          rdesc++;
-        }
-      }
-      cap = TRUE;
-    }
-    else
-    {
-      xbuf[i]=*rdesc;
-      if (cap)
-        {
-          cap = FALSE;
-          xbuf[i] = UPPER(xbuf[i]);
-        }
-      i++;
-    }
-  }
-  xbuf[i]=0;
-  strnzcpy(xbuf2, sizeof(xbuf2), xbuf);
-  
-  rdesc=xbuf2;
-  
-  xbuf[0]=0;
-  
-  for (; ;)
-  {
-    for (i=0; i<77; i++)
-    {
-      if (!*(rdesc+i)) break;
-    }
-    if (i<77)
-    {
-      break;
-    }
-    for (i=(xbuf[0]?76:73) ; i ; i--)
-    {
-      if (*(rdesc+i)==' ') break;
-    }
-    if (i)
-    {
-      strnzncat(xbuf, sizeof(xbuf), rdesc, i);
-      strnzcat(xbuf, sizeof(xbuf), "\n");
-      rdesc += i+1;
-      while (*rdesc == ' ') rdesc++;
-    }
-    else
-    {
-      log(LOG_WARN, "format_string: no spaces");
-      strnzncat(xbuf, sizeof(xbuf), rdesc, 75);
-      strnzcat(xbuf, sizeof(xbuf), "-\n");			// notrans
-      rdesc += 76;
-    }
-  }
-  while (*(rdesc+i) && (*(rdesc+i)==' '||
-                        *(rdesc+i)=='\n'||
-                        *(rdesc+i)=='\r'))
-    i--;
-  strnzncat(xbuf, sizeof(xbuf), rdesc, i+1);
-  if (xbuf[strlen(xbuf)-2] != '\n')
-    strnzcat(xbuf, sizeof(xbuf), "\n");
+	if (!save) {
+		act_puts("No changes saved.",
+			 ch, NULL, NULL, TO_CHAR | ACT_SEDIT, POS_DEAD);
+		free_string(*d->pString);
+		*d->pString = d->backup;
+	} else {
+		free_string(d->backup);
+		if (OLCED(ch) && olc_interpret)
+			olc_interpret(d, "touch");
+	}
 
-  free_string(oldstring);
-  return(str_dup(xbuf));
+	d->pString = NULL;
+	if (IS_SET(ch->comm, COMM_QUIET_EDITOR))
+		dofun("replay", ch, str_empty);
 }
 
-const char *string_linedel(const char *string, int line)
+const char *
+string_linedel(const char *string, int line)
 {
 	const char *strtmp = string;
 	char buf[MAX_STRING_LENGTH];
@@ -503,7 +465,8 @@ const char *string_linedel(const char *string, int line)
 	return str_dup(buf);
 }
 
-const char *string_lineadd(const char *string, char *newstr, int line)
+const char *
+string_lineadd(const char *string, const char *newstr, int line)
 {
 	const char *strtmp = string;
 	int cnt = 1, tmp = 0;
@@ -539,15 +502,55 @@ const char *string_lineadd(const char *string, char *newstr, int line)
 	return str_dup(buf);
 }
 
+/*****************************************************************************
+ Name:		string_append
+ Purpose:	Puts player into append mode for given string.
+ ****************************************************************************/
+void
+string_append(CHAR_DATA *ch, const char **pString)
+{
+	if (*pString == NULL)
+		*pString = str_dup(str_empty);
+
+	ch->desc->pString = pString;
+	ch->desc->backup = str_dup(*pString);
+
+	act_puts("-=======- Entering APPEND Mode -========-\n"
+		 "    Type :h on a new line for help\n"
+		 " Terminate with a ~ or @ on a blank line.\n"
+		 "-=======================================-\n"
+		 "$t",
+		 ch, numlines(*pString, DL_COLOR), NULL,
+		 TO_CHAR | ACT_SEDIT | ACT_NOTRANS | ACT_NOLF, POS_DEAD);
+}
+
+bool
+mlstr_append(CHAR_DATA *ch, mlstring *mlp, const char *arg)
+{
+	lang_t *lang;
+
+	lang = lang_lookup(arg);
+	if (lang == NULL && str_cmp(arg, "all"))
+		return FALSE;
+
+	string_append(ch, mlstr_convert(mlp, lang));
+	return TRUE;
+}
+
+/*--------------------------------------------------------------------
+ * local functions
+ */
+
 /*
  * getline -- copy str to buf up to '\n', len is buf size
  */
-static const char *getline(const char *str, char *buf, size_t len)
+static const char *
+getline(const char *str, char *buf, size_t len)
 {
 	const char *p;
 
 	p = strchr(str, '\n');
-	if (!p) 
+	if (!p)
 		p = strchr(str, '\0');
 
 	strnzncpy(buf, len, str, (unsigned)(p - str));
@@ -561,7 +564,8 @@ static const char *getline(const char *str, char *buf, size_t len)
 	return p;
 }
 
-char *numlines(const char *string, int dump_level)
+static char *
+numlines(const char *string, int dump_level)
 {
 	int cnt = 1;
 	static char buf[MAX_STRING_LENGTH*2];

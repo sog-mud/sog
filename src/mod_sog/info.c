@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: info.c,v 1.26 2001-08-02 18:20:22 fjoe Exp $
+ * $Id: info.c,v 1.27 2001-08-03 11:27:56 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -50,9 +50,9 @@
 #include <lang.h>
 
 #include <handler.h>
+#include <colors.h>
 
 #include "comm_info.h"
-#include "comm_colors.h"
 
 INFO_DESC *	id_list;
 int		top_id;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: util.h,v 1.22 2001-08-02 18:19:53 fjoe Exp $
+ * $Id: util.h,v 1.23 2001-08-03 11:27:30 fjoe Exp $
  */
 
 #ifndef _UTIL_H_
@@ -58,6 +58,11 @@ char *		format_flags	(flag_t flags);
 const char *	strdump		(const char *argument, int dump_level);
 
 bool		is_number	(const char *argument);
+
+bool	_is_name		(const char *str, const char *namelist,
+				 int (*cmpfun)(const char*, const char*));
+#define is_name(s, nl)		(_is_name((s), (nl), str_prefix))
+#define is_name_strict(s, nl)	(_is_name((s), (nl), str_cmp))
 
 char *		strtime		(time_t);
 

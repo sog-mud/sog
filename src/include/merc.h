@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.343 2001-08-02 18:19:53 fjoe Exp $
+ * $Id: merc.h,v 1.344 2001-08-03 11:27:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -115,7 +115,6 @@ enum {
 /* basic types */
 #include <buffer.h>
 #include <str.h>
-#include <namelist.h>
 #include <mlstring.h>
 #include <varr.h>
 #include <hash.h>
@@ -125,7 +124,6 @@ enum {
 
 #include <tables.h>
 #include <comm.h>
-#include <comm_act.h>
 #include <hometown.h>
 
 /* utils */

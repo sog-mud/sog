@@ -23,11 +23,10 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_class.c,v 1.27 2001-06-22 07:13:42 avn Exp $
+ * $Id: olc_class.c,v 1.28 2001-08-03 11:27:44 fjoe Exp $
  */
 
 #include "olc.h"
-#include "string_edit.h"
 
 #define EDIT_CLASS(ch, class)	(class = (class_t*) ch->desc->pEdit)
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_dynafun.c,v 1.3 2001-07-08 20:16:33 fjoe Exp $
+ * $Id: mpc_dynafun.c,v 1.4 2001-08-03 11:27:42 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -32,14 +32,7 @@
 
 #include <merc.h>
 
-#undef act_char
-void
-act_char(const char *format, CHAR_DATA *ch)
-{
-	act_puts3(format, ch, NULL, NULL, NULL,
-		  TO_CHAR | ACT_NOUCASE, POS_DEAD);
-
-}
+#include <handler.h>
 
 static void *
 has_sp_cb(void *p, va_list ap)

@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.246 2001-08-02 14:21:34 fjoe Exp $
+ * $Id: act_obj.c,v 1.247 2001-08-03 11:27:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2130,10 +2130,10 @@ void do_list(CHAR_DATA * ch, const char *argument)
 					buf_append(buf, "Pets for sale:\n");
 				}
 				buf_printf(buf, BUF_END,
-					   "[%2d] %8d - %s\n",	// notrans
-					   pet->level,
-					   10 * pet->level * pet->level,
-					   PERS(pet, ch));
+				    "[%2d] %8d - %s\n",	// notrans
+				    pet->level,
+				    10 * pet->level * pet->level,
+				    PERS(pet, ch, GET_LANG(ch), ACT_FORMSH));
 			}
 		}
 
@@ -2171,7 +2171,7 @@ void do_list(CHAR_DATA * ch, const char *argument)
 					buf_printf(buf, BUF_END,
 						   "[%2d %5d -- ] %s\n", // notrans
 						   obj->level, cost,
-						   format_short(&obj->short_descr, obj->pObjIndex->name, ch));
+						   format_short(&obj->short_descr, obj->pObjIndex->name, ch, GET_LANG(ch), 0));
 				else {
 					count = 1;
 
@@ -2187,7 +2187,8 @@ void do_list(CHAR_DATA * ch, const char *argument)
 					    "[%2d %5d %2d ] %s\n", // notrans
 					    obj->level, cost, count,
 					    format_short(&obj->short_descr,
-						obj->pObjIndex->name, ch));
+						obj->pObjIndex->name, ch,
+						GET_LANG(ch), 0));
 				}
 			}
 		}

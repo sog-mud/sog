@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.238 2001-08-02 14:21:33 fjoe Exp $
+ * $Id: act_comm.c,v 1.239 2001-08-03 11:27:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -887,15 +887,15 @@ void do_group(CHAR_DATA *ch, const char *argument)
 
 		for (gch = char_list; gch; gch = gch->next) {
 			if (is_same_group(gch, ch)) {
-				buf_printf(buf, BUF_END, 
-					   "[%2d %s] %-16s %d/%d hp %d/%d mana %d/%d mv %d xp\n",
-					    gch->level,
-					    class_who_name(gch),
-					    PERS(gch, ch),
-					    gch->hit,   gch->max_hit,
-					    gch->mana,  gch->max_mana,
-					    gch->move,  gch->max_move,
-					    GET_EXP(gch));
+				buf_printf(buf, BUF_END,
+				    "[%2d %s] %-16s %d/%d hp %d/%d mana %d/%d mv %d xp\n",
+				    gch->level,
+				    class_who_name(gch),
+				    PERS(gch, ch, GET_LANG(ch), ACT_FORMSH),
+				    gch->hit,   gch->max_hit,
+				    gch->mana,  gch->max_mana,
+				    gch->move,  gch->max_move,
+				    GET_EXP(gch));
 			}
 		}
 

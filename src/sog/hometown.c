@@ -23,12 +23,14 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hometown.c,v 1.15 2001-07-31 18:15:12 fjoe Exp $
+ * $Id: hometown.c,v 1.16 2001-08-03 11:27:50 fjoe Exp $
  */
 
 #include <stdio.h>
 
 #include <merc.h>
+
+#include <handler.h>
 
 static hometown_t *	get_hometown	(int htn);
 

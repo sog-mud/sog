@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: memalloc.h,v 1.14 2001-07-29 20:14:29 fjoe Exp $
+ * $Id: memalloc.h,v 1.15 2001-08-03 11:27:27 fjoe Exp $
  */
 
 #ifndef _MEMALLOC_H_
@@ -46,6 +46,7 @@ enum {
 
 	/* only for dynafuns */
 	MT_VA_LIST,
+	MT_SIZE_T,
 };
 
 #define MEM_VALID	0x5a	/* valid chunk signature	*/

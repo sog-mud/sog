@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_spec.c,v 1.20 2001-08-02 18:20:04 fjoe Exp $
+ * $Id: act_spec.c,v 1.21 2001-08-03 11:27:36 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -39,7 +39,6 @@
 #include <ctype.h>
 
 #include <merc.h>
-#include <string_edit.h>
 
 #include <handler.h>
 #include <quest.h>

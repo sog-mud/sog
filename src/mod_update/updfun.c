@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.34 2001-08-02 18:20:14 fjoe Exp $
+ * $Id: updfun.c,v 1.35 2001-08-03 11:27:47 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -137,7 +137,7 @@ mobile_update_cb(void *vo, va_list ap)
 	OBJ_DATA *obj;
 
 	bool bust_prompt = FALSE;
-	flag_t act;
+	flag_t f_act;
 
 	if (ch->position == POS_FIGHTING)
 		SET_FIGHT_TIME(ch);
@@ -224,15 +224,15 @@ mobile_update_cb(void *vo, va_list ap)
 	||  IS_AFFECTED(ch, AFF_CHARM))
 		return NULL;
 
-	act = ch->pMobIndex->act;
-	if (IS_SET(act, ACT_HUNTER) && ch->hunting) {
+	f_act = ch->pMobIndex->act;
+	if (IS_SET(f_act, ACT_HUNTER) && ch->hunting) {
 		dofun("hunt", ch, str_empty);
 		if (IS_EXTRACTED(ch))
 			return NULL;
 	}
 
 	if (ch->in_room->area->empty
-	&&  !IS_SET(act, ACT_UPDATE_ALWAYS))
+	&&  !IS_SET(f_act, ACT_UPDATE_ALWAYS))
 		return NULL;
 
 	/* Examine call for special procedure */
@@ -365,7 +365,7 @@ mobile_update_cb(void *vo, va_list ap)
 		return NULL;
 
 /* Scavenge */
-	if (IS_SET(act, ACT_SCAVENGER)
+	if (IS_SET(f_act, ACT_SCAVENGER)
 	&&  ch->in_room->contents != NULL
 	&&  number_bits(6) == 0) {
 		OBJ_DATA *obj;
@@ -386,7 +386,7 @@ mobile_update_cb(void *vo, va_list ap)
 	}
 
 /* Wander */
-	if (!IS_SET(act, ACT_SENTINEL)
+	if (!IS_SET(f_act, ACT_SENTINEL)
 	&&  number_bits(3) == 0
 	&&  (door = number_bits(5)) <= 5
 	&&  !RIDDEN(ch)
@@ -394,13 +394,13 @@ mobile_update_cb(void *vo, va_list ap)
 	&&  pexit->to_room.r != NULL
 	&&  !IS_SET(pexit->exit_info, EX_CLOSED)
 	&&  !IS_SET(pexit->to_room.r->room_flags, ROOM_NOMOB | ROOM_GUILD)
-	&&  (!IS_SET(act, ACT_STAY_AREA) ||
+	&&  (!IS_SET(f_act, ACT_STAY_AREA) ||
 	     pexit->to_room.r->area == ch->in_room->area)
-	&&  (!IS_SET(act, ACT_AGGRESSIVE) ||
+	&&  (!IS_SET(f_act, ACT_AGGRESSIVE) ||
 	     !IS_SET(pexit->to_room.r->room_flags, ROOM_PEACE))
-	&&  (!IS_SET(act, ACT_OUTDOORS) ||
+	&&  (!IS_SET(f_act, ACT_OUTDOORS) ||
 	     !IS_SET(pexit->to_room.r->room_flags, ROOM_INDOORS))
-	&&  (!IS_SET(act, ACT_INDOORS) ||
+	&&  (!IS_SET(f_act, ACT_INDOORS) ||
 	     IS_SET(pexit->to_room.r->room_flags, ROOM_INDOORS)))
 		move_char(ch, door, 0);
 

@@ -23,13 +23,14 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest_impl.c,v 1.4 2001-08-02 14:21:40 fjoe Exp $
+ * $Id: quest_impl.c,v 1.5 2001-08-03 11:27:46 fjoe Exp $
  */
 
 #include <stdio.h>
 
 #include <merc.h>
 
+#include <handler.h>
 #include <quest.h>
 #include "quest_impl.h"
 

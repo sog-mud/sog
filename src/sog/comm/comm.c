@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.248 2001-08-02 18:20:21 fjoe Exp $
+ * $Id: comm.c,v 1.249 2001-08-03 11:27:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -89,16 +89,15 @@
 #include <merc.h>
 #include <ban.h>
 #include <lang.h>
-#include <string_edit.h>
 #include <note.h>
 #include <module.h>
+#include <colors.h>
 
 #include "handler.h"
 #include "quest.h"
 #include "update.h"
 
 #include "charset.h"
-#include "comm_colors.h"
 #include "comm_info.h"
 #include "resolver.h"
 

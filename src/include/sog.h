@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.8 2001-08-02 18:19:52 fjoe Exp $
+ * $Id: sog.h,v 1.9 2001-08-03 11:27:27 fjoe Exp $
  */
 
 #ifndef _HANDLER_H_
@@ -546,6 +546,163 @@ DECLARE_FUN2(bool, spec_del,
 DECLARE_FUN3(cchar_t, spec_replace,
 	     ARG(CHAR_DATA), ch, ARG(cchar_t), spn_rm, ARG(cchar_t), spn_add)
 
+/*--- act.c */
+
+DECLARE_FUN5(cchar_t, format_short,
+	     ARG(mlstring), mshort, ARG(cchar_t), name,
+	     ARG(CHAR_DATA), to, ARG(size_t), to_lang, ARG(int), act_flags)
+DECLARE_FUN2(cchar_t, format_long,
+	     ARG(mlstring), desc, ARG(CHAR_DATA), to)
+DECLARE_FUN4(cchar_t, PERS,
+	     ARG(CHAR_DATA), ch, ARG(CHAR_DATA), to, ARG(size_t), to_lang,
+	     ARG(int), act_flags)
+
+/* the following 5 act target flags are exclusive */
+#define TO_ROOM		(A)
+#define TO_NOTVICT	(B)
+#define TO_VICT		(C)
+#define TO_CHAR		(D)
+#define TO_ALL		(E)
+
+#define ACT_TOBUF	(F)	/* append to replay buffer if link-dead	    */
+#define ACT_NOTRIG	(G)	/* do not pull act triggers		    */
+#define ACT_NOTWIT	(H)	/* do not perform twit list checking	    */
+#define ACT_NOTRANS	(I)	/* do not perform $t, $T, $u and $U transl. */
+#define ACT_NODEAF	(J)	/* skip is_affected(to, "deafen") chars     */
+#define ACT_STRANS	(K)	/* do $t and $T slang translation (from ch) */
+#define ACT_NOMORTAL	(L)	/* skip mortals				    */
+#define ACT_VERBOSE	(M)	/* skip if (!IS_SET(to->comm, COMM_VERBOSE))*/
+#define ACT_NOLF	(N)	/* do not append lf			    */
+#define ACT_NOUCASE	(O)	/* do not uppercase first letter	    */
+#define ACT_FORMSH	(P)	/* call format_short for short descrs	    */
+#define ACT_SEDIT	(Q)	/* string editor message		    */
+				/* (do not buffer it)			    */
+#define ACT_NOFIXSH	(Z)	/* do not fix char/obj short descrs	    */
+				/* (used internally in comm_act.c for not   */
+				/* stripping '~' when short descrs are      */
+				/* used inside $xx{}			    */
+#define ACT_SPEECH(ch)	(ACT_NODEAF | ACT_STRANS |			\
+			 (!IS_NPC(ch) || IS_AFFECTED(ch, AFF_CHARM) ?	\
+				ACT_NOTRANS : 0))
+
+/*
+ * ->to must not be NULL for all char/obj formatting or if ACT_STRANS is set
+ * other formatting functions use opt->to_lang/opt->to_sex instead
+ */
+DECLARE_PROC9(act_buf,
+	      ARG(pcchar_t), format, NULLABLE_ARG(CHAR_DATA), ch,
+	      NULLABLE_ARG(CHAR_DATA), to,
+	      NULLABLE_ARG(pcvoid_t), arg1, NULLABLE_ARG(pcvoid_t), arg2,
+	      NULLABLE_ARG(pcvoid_t), arg3,
+	      ARG(actopt_t), opt, ARG(pchar_t), buf, ARG(size_t), buf_len)
+DECLARE_PROC7(act_puts3,
+	      ARG(pcchar_t), format, NULLABLE_ARG(CHAR_DATA), ch,
+	      NULLABLE_ARG(pcvoid_t), arg1, NULLABLE_ARG(pcvoid_t), arg2,
+	      NULLABLE_ARG(pcvoid_t), arg3,
+	      ARG(int), act_flags, ARG(int), min_pos)
+DECLARE_PROC7(act_mlputs3,
+	      ARG(mlstring), mlformat, NULLABLE_ARG(CHAR_DATA), ch,
+	      NULLABLE_ARG(pcvoid_t), arg1, NULLABLE_ARG(pcvoid_t), arg2,
+	      NULLABLE_ARG(pcvoid_t), arg3,
+	      ARG(int), act_flags, ARG(int), min_pos)
+DECLARE_PROC5(act,
+	      ARG(pcchar_t), format, NULLABLE_ARG(CHAR_DATA), ch,
+	      NULLABLE_ARG(pcvoid_t), arg1, NULLABLE_ARG(pcvoid_t), arg2,
+	      ARG(int), act_flags)
+DECLARE_PROC2(act_char,
+	      ARG(pcchar_t), format, ARG(CHAR_DATA), ch)
+DECLARE_PROC6(act_puts,
+	      ARG(pcchar_t), format, NULLABLE_ARG(CHAR_DATA), ch,
+	      NULLABLE_ARG(pcvoid_t), arg1, NULLABLE_ARG(pcvoid_t), arg2,
+	      ARG(int), act_flags, ARG(int), min_pos)
+DECLARE_PROC6(act_mlputs,
+	      ARG(mlstring), mlformat, NULLABLE_ARG(CHAR_DATA), ch,
+	      NULLABLE_ARG(pcvoid_t), arg1, NULLABLE_ARG(pcvoid_t), arg2,
+	      ARG(int), act_flags, ARG(int), min_pos)
+
+/*
+ * act to BUFFER
+ */
+DECLARE_FUN8(bool, buf_act3,
+	     ARG(BUFFER), buffer, ARG(int), where, ARG(pcchar_t), format,
+	     ARG(CHAR_DATA), ch,
+	     NULLABLE_ARG(pcvoid_t), arg1, NULLABLE_ARG(pcvoid_t), arg2,
+	     NULLABLE_ARG(pcvoid_t), arg3,
+	     ARG(int), act_flags)
+DECLARE_FUN7(bool, buf_act,
+	     ARG(BUFFER), buffer, ARG(int), where, ARG(pcchar_t), format,
+	     ARG(CHAR_DATA), ch,
+	     NULLABLE_ARG(pcvoid_t), arg1, NULLABLE_ARG(pcvoid_t), arg2,
+	     ARG(int), act_flags)
+
+/*
+ * misc comm act-like functions
+ */
+DECLARE_FUN4(cchar_t, act_speech,
+	     ARG(CHAR_DATA), ch, ARG(CHAR_DATA), vch,
+	     ARG(pcchar_t), text, NULLABLE_ARG(pcvoid_t), arg)
+
+DECLARE_PROC4(act_yell,
+	      ARG(CHAR_DATA), ch, ARG(pcchar_t), text,
+	      NULLABLE_ARG(pcvoid_t), arg, ARG(pcchar_t), format)
+DECLARE_PROC3(act_clan,
+	      ARG(CHAR_DATA), ch, ARG(pcchar_t), text,
+	      NULLABLE_ARG(pcvoid_t), arg)
+DECLARE_PROC3(act_say,
+	      ARG(CHAR_DATA), ch, ARG(pcchar_t), text,
+	      NULLABLE_ARG(pcvoid_t), arg)
+
+DECLARE_PROC6(wiznet,
+	      ARG(pcchar_t), msg, NULLABLE_ARG(CHAR_DATA), ch,
+	      NULLABLE_ARG(pcvoid_t), arg,
+	      ARG(flag_t), flag, ARG(flag_t), flag_skip, ARG(int), min_level)
+DECLARE_PROC3(yell,
+	      ARG(CHAR_DATA), victim, ARG(CHAR_DATA), ch,
+	      ARG(pcchar_t), argument)
+DECLARE_PROC3(tell_char,
+	      ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim, ARG(pcchar_t), msg)
+DECLARE_FUN2(cchar_t, garble,
+	     ARG(CHAR_DATA), ch, ARG(pcchar_t), txt)
+
+/*--- string_edit.c */
+
+/*
+ * string_replace flags
+ */
+#define SR_F_ALL	(A)	/* replace all occurences */
+
+DECLARE_FUN4(cchar_t, string_replace,
+	     ARG(cchar_t), orig, ARG(pcchar_t), old, ARG(pcchar_t), new,
+	     ARG(int), flags)
+DECLARE_FUN1(cchar_t, format_string,
+	     ARG(cchar_t), oldstring)
+
+DECLARE_PROC2(string_add,
+	      ARG(CHAR_DATA), ch, ARG(pcchar_t), argument)
+DECLARE_PROC2(string_add_exit,
+	      ARG(CHAR_DATA), ch, ARG(bool), save)
+
+DECLARE_FUN2(cchar_t, string_linedel,
+	     ARG(cchar_t), oldstring, ARG(int), linenum)
+DECLARE_FUN3(cchar_t, string_lineadd,
+	     ARG(cchar_t), oldstring, ARG(pcchar_t), str, ARG(int), linenum)
+
+DECLARE_PROC2(string_append,
+	     ARG(CHAR_DATA), ch, ARG(ppcchar_t), pString)
+DECLARE_FUN3(bool, mlstr_append,
+	     ARG(CHAR_DATA), ch, ARG(mlstring), mlp, ARG(pcchar_t), arg)
+
+/*--- name_edit.c */
+DECLARE_FUN4(bool, name_add,
+	     ARG(ppcchar_t), namelist, ARG(pcchar_t), name,
+	     NULLABLE_ARG(CHAR_DATA), ch, NULLABLE_ARG(pcchar_t), editor_name)
+DECLARE_FUN4(bool, name_delete,
+	     ARG(ppcchar_t), namelist, ARG(pcchar_t), name,
+	     NULLABLE_ARG(CHAR_DATA), ch, NULLABLE_ARG(pcchar_t), editor_name)
+DECLARE_FUN4(bool, name_toggle,
+	     ARG(ppcchar_t), namelist, ARG(pcchar_t), name,
+	     NULLABLE_ARG(CHAR_DATA), ch, NULLABLE_ARG(pcchar_t), editor_name)
+
 __MODULE_END_DECL
 
 /*
@@ -555,6 +712,16 @@ enum {
 	GETOBJ_F_ANY,		/* any obj->wear_loc			     */
 	GETOBJ_F_INV,		/* obj->wear_loc == WEAR_NONE (in inventory) */
 	GETOBJ_F_WORN,		/* obj->wear_loc != WEAR_NONE (worn)	     */
+};
+
+/*
+ * act stuff
+ */
+
+struct actopt_t {
+	size_t to_lang;
+	int to_sex;
+	int act_flags;
 };
 
 #endif /* _HANDLER_H_ */

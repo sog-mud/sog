@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: util.c,v 1.32 2001-08-02 18:38:44 fjoe Exp $
+ * $Id: util.c,v 1.33 2001-08-03 11:27:52 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -263,6 +263,46 @@ is_number(const char *argument)
 	}
 
 	return TRUE;
+}
+
+/*
+ * See if a string is one of the names of an object.
+ */
+bool
+_is_name(const char *str, const char *namelist,
+	 int (*cmpfun)(const char *, const char *))
+{
+	char name[MAX_INPUT_LENGTH], part[MAX_INPUT_LENGTH];
+	const char *list, *string;
+
+	if (IS_NULLSTR(namelist) || IS_NULLSTR(str))
+		return FALSE;
+
+	if (!str_cmp(namelist, "all"))
+		return TRUE;
+
+	string = str;
+	/* we need ALL parts of string to match part of namelist */
+	for (; ;) { /* start parsing string */
+		str = one_argument(str, part, sizeof(part));
+
+		if (part[0] == '\0')
+			return TRUE;
+
+		/* check to see if this is part of namelist */
+		list = namelist;
+		for (; ;) { /* start parsing namelist */
+			list = one_argument(list, name, sizeof(name));
+			if (name[0] == '\0')  /* this name was not found */
+				return FALSE;
+
+			if (!cmpfun(string, name))
+				return TRUE; /* full pattern match */
+
+			if (!cmpfun(part, name))
+				break;
+		}
+	}
 }
 
 char *
