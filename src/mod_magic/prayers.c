@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.42 2002-12-03 14:29:34 tatyana Exp $
+ * $Id: prayers.c,v 1.43 2002-12-03 16:01:41 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1746,7 +1746,9 @@ SPELL_FUN(prayer_heat_metal, sn, level, ch, vo)
 					act("You yelp and drop $p before it burns you.",
 					    victim, obj_lose, NULL, TO_CHAR);
 					dam += number_range(1,obj_lose->level) / 6;
-					obj_to_room(obj_lose, victim->in_room);
+					if (!IS_SET(victim->in_room->room_flags,
+						    ROOM_BATTLE_ARENA))
+						obj_to_room(obj_lose, victim->in_room);
 				} else { /* cannot drop */
 					act("Your skin is seared by $p!",
 					    victim, obj_lose, NULL, TO_CHAR);
@@ -1766,7 +1768,9 @@ SPELL_FUN(prayer_heat_metal, sn, level, ch, vo)
 				act("You remove and drop $p before it burns you.",
 				    victim, obj_lose, NULL, TO_CHAR);
 				dam += number_range(1,obj_lose->level) / 3;
-				obj_to_room(obj_lose, victim->in_room);
+				if (!IS_SET(victim->in_room->room_flags,
+					    ROOM_BATTLE_ARENA))
+					obj_to_room(obj_lose, victim->in_room);
 			} else { /* stuck on the body! ouch! */
 				act("Your skin is seared by $p!",
 				    victim, obj_lose, NULL, TO_CHAR);
@@ -1786,7 +1790,9 @@ SPELL_FUN(prayer_heat_metal, sn, level, ch, vo)
 					act("You yelp and drop $p before it burns you.",
 					    victim, obj_lose, NULL, TO_CHAR);
 					dam += number_range(1, obj_lose->level) / 6;
-					obj_to_room(obj_lose, victim->in_room);
+					if (!IS_SET(victim->in_room->room_flags,
+						    ROOM_BATTLE_ARENA))
+						obj_to_room(obj_lose, victim->in_room);
 				} else { /* cannot drop */
 					act("Your skin is seared by $p!",
 					    victim, obj_lose, NULL, TO_CHAR);
@@ -1800,7 +1806,9 @@ SPELL_FUN(prayer_heat_metal, sn, level, ch, vo)
 				    victim, obj_lose, NULL, TO_ROOM);
 				act_char("You throw your red-hot weapon to the ground!", victim);
 				dam += 1;
-				obj_to_room(obj_lose, victim->in_room);
+				if (!IS_SET(victim->in_room->room_flags,
+					    ROOM_BATTLE_ARENA))
+					obj_to_room(obj_lose, victim->in_room);
 			} else { /* YOWCH! */
 				act_char("Your weapon sears your flesh!", victim);
 				dam += number_range(1,obj_lose->level);
