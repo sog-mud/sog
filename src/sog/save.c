@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.126.2.24 2004-02-18 22:22:54 fjoe Exp $
+ * $Id: save.c,v 1.126.2.25 2004-03-07 20:53:09 tatyana Exp $
  */
 
 /***************************************************************************
@@ -503,7 +503,10 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 		extract_obj(obj, 0);
 		return;
 	}
-	
+
+	if (obj->pObjIndex->vnum == OBJ_VNUM_MAGIC_JAR)
+		return;
+
 	if (IS_SET(obj->pObjIndex->extra_flags,
 		   ITEM_CLAN | ITEM_QUIT_DROP | ITEM_CHQUEST))
 		return;
