@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.c,v 1.38 2004-02-13 14:48:16 fjoe Exp $
+ * $Id: trig.c,v 1.39 2004-02-19 00:29:35 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -307,46 +307,60 @@ int
 pull_mob_trigger(int trig_type,
 		 CHAR_DATA *ch, CHAR_DATA *victim, void *arg)
 {
-	int rv;
+	int rv = MPC_ERR_NOTFOUND, err;
 
 	if (IS_NPC(ch)) {
-		rv = pull_trigger_list(
+		rv = err = pull_trigger_list(
 		    trig_type, &ch->pMobIndex->mp_trigs, MP_T_MOB,
 		    ch, victim, arg);
-		if (rv > 0)
-			return rv;
+		if (err > 0)
+			return err;
 	}
 
-	return pull_trigger_list(
+	err = pull_trigger_list(
 	    trig_type, &ch->mptrig_affected, MP_T_MOB, ch, victim, arg);
+	if (err > 0)
+		return err;
+
+	return rv == 0 ? rv : err;
 }
 
 int
 pull_obj_trigger(int trig_type,
 		 OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
-	int rv;
+	int rv, err;
 
-	rv = pull_trigger_list(
+	rv = err = pull_trigger_list(
 	    trig_type, &obj->pObjIndex->mp_trigs, MP_T_OBJ, obj, ch, arg);
-	if (rv > 0)
-		return rv;
-	return pull_trigger_list(
+	if (err > 0)
+		return err;
+
+	err = pull_trigger_list(
 	    trig_type, &obj->mptrig_affected, MP_T_OBJ, obj, ch, arg);
+	if (err > 0)
+		return err;
+
+	return rv == 0 ? rv : err;
 }
 
 int
 pull_room_trigger(int trig_type,
 		  ROOM_INDEX_DATA *room, CHAR_DATA *ch, void *arg)
 {
-	int rv;
+	int rv, err;
 
-	rv = pull_trigger_list(
+	rv = err = pull_trigger_list(
 	    trig_type, &room->mp_trigs, MP_T_ROOM, room, ch, arg);
-	if (rv > 0)
-		return rv;
-	return pull_trigger_list(
+	if (err > 0)
+		return err;
+
+	err = pull_trigger_list(
 	    trig_type, &room->mptrig_affected, MP_T_ROOM, room, ch, arg);
+	if (err > 0)
+		return err;
+
+	return rv == 0 ? rv : err;
 }
 
 int
