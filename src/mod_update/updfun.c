@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.66 2004-02-24 11:07:11 fjoe Exp $
+ * $Id: updfun.c,v 1.67 2004-02-27 19:27:08 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -1171,7 +1171,12 @@ UPDATE_FUN(room_update)
 				if (number_range(0,4) == 0 && paf->level > 0)
 					paf->level--;
 			} else if (paf->duration == 0) {
-				check_one_event(NULL, paf, EVENT_ROOM_TIMEOUT);
+				CHAR_DATA *vch;
+
+				foreach (vch, char_in_room(room)) {
+					check_events(
+					    vch, paf, EVENT_ROOM_TIMEOUT);
+				} end_foreach(vch);
 				affect_remove_room(room, paf);
 			}
 		}
