@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: util.c,v 1.43 2003-04-17 11:25:59 tatyana Exp $
+ * $Id: util.c,v 1.44 2003-06-19 07:56:45 fjoe Exp $
  */
 
 #include <sys/stat.h>
@@ -125,8 +125,8 @@ cstrlen(const char *cstr)
 		return 0;
 
 	res = strlen(cstr);
-	while ((cstr = strchr(cstr, '{')) != NULL) {
-		if (*(cstr+1) == '{')
+	while ((cstr = strchr(cstr, '{')) != NULL && *(cstr + 1) != '\0') {
+		if (*(cstr + 1) == '{')
 			res--;
 		else
 			res -= 2;
@@ -142,9 +142,10 @@ cstrfirst(const char *cstr)
 	if (cstr == NULL)
 		return NULL;
 
-	for (; *cstr == '{'; cstr++)
-		if (*(cstr+1))
+	for (; *cstr == '{'; cstr++) {
+		if (*(cstr + 1) != '\0')
 			cstr++;
+	}
 	return cstr;
 }
 
