@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.57 2004-02-25 20:04:34 tatyana Exp $
+ * $Id: prayers.c,v 1.58 2004-02-26 11:26:25 tatyana Exp $
  */
 
 /***************************************************************************
@@ -144,6 +144,7 @@ DECLARE_SPELL_FUN(prayer_cone_of_cold);
 DECLARE_SPELL_FUN(prayer_power_word_fear);
 DECLARE_SPELL_FUN(prayer_windwall);
 DECLARE_SPELL_FUN(prayer_wail_of_the_banshee);
+DECLARE_SPELL_FUN(prayer_sunbeam);
 
 static void
 hold(CHAR_DATA *ch, CHAR_DATA *victim, int duration, int dex_modifier, int
@@ -3286,4 +3287,62 @@ SPELL_FUN(prayer_wail_of_the_banshee, sn, level, ch, vo)
 			continue;
 		damage(ch, vch, dam, sn, DAM_F_SHOW);
 	} end_foreach(vch);
+}
+/* domen: sun
+ * This prayer inform priest about all invisible person in room.
+ * Prayer do not make them visible and request sunlight for work.
+ */
+SPELL_FUN(prayer_sunbeam, sn, level, ch, vo)
+{
+	CHAR_DATA *vch;
+	int i = 0;
+
+	if (IS_AFFECTED(ch, AFF_BLIND)) {
+		act_char("You are blind and can't see any shadows.", ch);
+		return;
+	}
+
+	if (ch->in_room->sector_type == SECT_INSIDE) {
+		act_char("You need sun light to use this ability.", ch);
+		return;
+	}
+
+	switch (weather_info.sunlight) {
+	case SUN_DARK:
+		act_char("Try to use this prayer in the morning.", ch);
+		return;
+	case SUN_RISE:
+	case SUN_SET:
+	case SUN_LIGHT:
+		break;
+	default:
+		act_char("You need sun light to use this ability.", ch);
+		return;
+	}
+
+	act("Sun lights all around you!", ch, NULL, NULL, TO_CHAR);
+	act("Sun lights all around!", ch, NULL, NULL, TO_ROOM);
+
+	foreach (vch, char_in_room(ch->in_room)) {
+		if (IS_IMMORTAL(vch))
+			continue;
+		if (can_see(ch, vch)
+		||  !saves_spell(level, vch, DAM_LIGHT)) {
+			act("    You notice $N's shadow besides you.",
+			    ch, NULL, vch, TO_CHAR | ACT_NOCANSEE);
+			act("    You see $N's shadow besides $n.",
+			    ch, NULL, vch, TO_NOTVICT | ACT_NOCANSEE);
+			act("    You see your own shadow besides $n.",
+			    ch, NULL, vch, TO_VICT | ACT_NOCANSEE);
+			i++;
+		} else {
+			act_char("    You notice dark shadow besides you.", ch);
+			act("    You see dark shadow besides $n.",
+			    ch, NULL, NULL, TO_ROOM);
+			i++;
+		}
+	} end_foreach(vch);
+
+	if (i == 0)
+		act("    No shadows here.", ch, NULL, NULL, TO_ALL);
 }
