@@ -1295,7 +1295,7 @@ pit яма~
 @eng the donation pit@rus ~~яма~~ для жертвоприношений~
 @eng A pit for sacrifices is in front of the altar.@rus Перед алтарем находится яма (pit) для жертвоприношений.~
 ~
-container O 0
+container NO 0
 10000 0 0 1000 100
 0 0 0 P
 E
@@ -4285,7 +4285,7 @@ Affects strength by 1.
 E
 old book~
 In this book you would find some short information about the limited
-items of Shades of Gray Realms. For further information, try read page1, read
+items of Shades of Gray. For further information, try read page1, read
 page2, read page3, etc.
 Note that: Most of the informations are based on legends and tales,
 therefore there can be some mistaken points and ofcourse there can be many

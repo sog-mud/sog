@@ -1021,6 +1021,7 @@ Get back to questor before your time runs out!
 @eng $n's durability increases!@rus Стойкость $n увеличивается!~
 @eng You wake and sit on $p.@rus Ты просыпаешься и садишься на $c3{$p}.~
 @eng You put $p in $P.@rus Ты кладешь $c3{$p} в $c3{$P}.~
+@eng You fade into existence.@rus Ты становишься $c4{$gn{видимый}}.~
 @eng I do not have that item, {W%s{z.@rus У меня этого нет, {W%s{z.~
 @eng $d: you can't carry that many items.@rus $d: ты не можешь унести так много вещей.~
 @eng ({bImproved{x) @rus ({bУл. Невидимость{x) ~
@@ -1220,9 +1221,6 @@ Get back to questor before your time runs out!
 ~
 @eng Bite whom?
 @rus Укусить кого?
-~
-@eng You fade into existence.
-@rus Ты становишься видимым.
 ~
 @eng You can train:@rus Ты можешь тренировать:~
 @eng You can't wear, wield, or hold that.

@@ -223,7 +223,7 @@ Use these commands to walk in a particular direction.
 -2 NAME~
 NAME POLICY:
 In order to create a role-playing and adventure atmosphere throughout the
-Shades of Gray Realms, you must choose a name accordingly explained below:
+Shades of Gray, you must choose a name accordingly explained below:
  
 ACCEPTABLE:
 1)  Proper names, medieval or modern. i.e  (Takasi, Mitra)
@@ -394,7 +394,7 @@ even if you can't see the player, and without revealing their identity.  This
 is handy for talking to invisible or switched immortal players.
 ~
 -1 NOTE NOTES CHANGES NEWS PENALTY IDEA UNREAD~
-The notes in Shades of Gray Realms replace the bulletin boards and mail systems
+The notes in Shades of Gray replace the bulletin boards and mail systems
 found on many other muds. The following options are usable:
 
 {creading notes{x:
@@ -2452,7 +2452,7 @@ a better playing environment.
 see also: PLAYERKILLING
 ~
 0 PLAYERKILL PLAYERKILLING PK PKING~
-Player killing in Shades of Gray Realms is totally permitted. In fact, it is
+Player killing in Shades of Gray is totally permitted. In fact, it is
 encouraged, and since some fine objects have a finite number, you will have
 to kill other players to get them. You can playerkill after you are
 {Clevel 10{x. People you can pk are shown by a {r[{RPK{r]{x flag in front of their 
@@ -2560,7 +2560,7 @@ followers.  No one can follow you when this toggle is set.
 
 ~
 0 RULES~
-These are the rules of the Shades of Gray Realms. Disobeying is grounds
+These are the rules of the Shades of Gray. Disobeying is grounds
 for deletion. For other matters, use common sense.
 
 1. Remember that this is a roleplaying atmosphere.  If an immortal imposes

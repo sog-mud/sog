@@ -192,6 +192,17 @@ Form 6 -е~
 End
 
 #RULE
+Name видимый~
+BaseLen 5
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ый~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ого~
+End
+
+#RULE
 Name трактирщик~
 BaseLen 10
 Form 1 -а~
@@ -263,17 +274,6 @@ BaseLen 9
 Form 1 -а~
 Form 2 -у~
 Form 3 -~
-Form 4 -ом~
-Form 5 -е~
-Form 6 -а~
-End
-
-#RULE
-Name Даркен~
-BaseLen 6
-Form 1 -а~
-Form 2 -у~
-Form 3 -а~
 Form 4 -ом~
 Form 5 -е~
 Form 6 -а~
@@ -364,6 +364,17 @@ Form 3 -ый~
 Form 4 -ым~
 Form 5 -ом~
 Form 6 -ого~
+End
+
+#RULE
+Name видимая~
+BaseLen 5
+Form 1 -ой~
+Form 2 -ой~
+Form 3 -ую~
+Form 4 -ой~
+Form 5 -ой~
+Form 6 -ую~
 End
 
 #RULE
@@ -880,6 +891,17 @@ Form 3 -я~
 Form 4 -ем~
 Form 5 -е~
 Form 6 -я~
+End
+
+#RULE
+Name сельский~
+BaseLen 6
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ий~
+Form 4 -им~
+Form 5 -ом~
+Form 6 -ого~
 End
 
 #RULE

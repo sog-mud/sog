@@ -91,9 +91,6 @@ stand stand male 1000
 0 0 medium unknown
 F for AHMV
 F par ABCDEFGHIJK
-M speech 18700 aid me~
-M speech 18701 haste~
-M act 18705 say~
 #18705
 adria ведьма адрия witch~
 @eng Adria witch@rus ~~Ведьма~~ ~~Адрия~~~
@@ -166,7 +163,7 @@ axe huge flaming fire orrin~
 @eng {YHuge Flaming Axe{x@rus {Y~~Пылающая~~ ~~секира~~{x~
 @eng Huge {YFlaming{x Axe has been left here.@rus Orrin забыл здесь свою секиру (axe), может стоит вернуть?~
 fire~
-weapon ABJKRSTac ANP
+weapon ABKLRSTac ANP
 axe 1 9999 flame ADF
 95 600 2147483647 P
 F
@@ -188,8 +185,8 @@ energy~
 treasure BSTYa AB
 0 0 0 0 0
 103 0 0 P
-F
-A 8 54 H
+A
+8 -40
 F
 A 12 1000000 G
 F
@@ -252,7 +249,7 @@ pill~
 pill~
 unknown~
 pill 0 A
-2147483647 'restoring light' 'cure disease' 'cure blindness' 'remove curse'
+2147483647 'refresh' 'cure disease' 'cure blindness' 'remove curse'
 0 0 100 P
 G none
 #18706
@@ -1537,7 +1534,7 @@ S
 хозяина этого зала - великого {WОрина{x - бога-покровителя войнов.
  
 ~
-0 UZ forest
+0 UZb forest
 M 2147483555 H 2147483463
 S
 #0
