@@ -151,6 +151,33 @@ lately; and some random variation.
 ~
 
 
+0 COLOUR COLOR ANSI~
+Syntax: color              Toggles color mode on/off
+
+You may also talk in colour; the format is like this: the 'escape character'
+to specify a colour is the left handed brace '{{', following that you should
+use one of the following numbers,
+
+         {x{{0     reset, returns to default
+
+         {r{{1     red     {m{{5     magenta
+         {g{{2     green   {c{{6     cyan
+         {y{{3     yellow  {w{{7     white
+         {b{{4     blue    {D{{8     grey{x
+
+For brighter colours, use the shifted numbers: {R!{G@{Y#{B${M%{C^{W&{x
+When using colour, it looks better if you finish the line with whatever
+color it would normally be in, such as a gossip, the colour is magenta, so:
+                {mLope gossips '{ghello,{r world{m'{x
+        looks better than:
+                {mLope gossips '{ghello,{r world'{x
+
+Color is courtesy of Lope from Loping Through The MUD.
+Direct questions to ant@solace.mh.se or leave at note at Loping
+Through The MUD, current site lttm.westside.net port 23 or 9000
+~
+
+
 0 PET PETS~
 You can buy pets in the pet shop.  You may own only one pet at a time, after 
 the old one dies you may purchase a replacement.
@@ -2568,7 +2595,7 @@ hopping is highly disappoved of.
 For more info on individual cabals or joining one, ask a cabal member or
 post a note to that cabal.
 
-e.g, note to <cabal name>  { cabal which you want to join}
+e.g, note to <cabal name>  {{ cabal which you want to join}
      note subject ????
      note + ?????????
      note post    

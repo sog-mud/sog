@@ -3234,27 +3234,27 @@ map 0 A
 E
 map newbie~
 .                     
-        --->Zoo of midgaard 		 { 1 - 15}
+        --->Zoo of midgaard 		 {{ 1 - 15}
 		from MSM   :>>>> 8s e s u................................
-        --->Plains of The North 	 { 1 - 20}
+        --->Plains of The North 	 {{ 1 - 20}
 		from MSM   :>>>> 4e 3n 2w n..............................
-	--->Dwarven Day Care :>>>> 	 { 1 - 5 }
+	--->Dwarven Day Care :>>>> 	 {{ 1 - 5 }
 		from MSM   :>>>> 6e 3n 2e s..............................
-	--->Gnome Village		 { 1 - 15}
+	--->Gnome Village		 {{ 1 - 15}
 		from MSM  :>>>> 6e s......................................
-	--->Graveyard 			 { 5 - 10}
+	--->Graveyard 			 {{ 5 - 10}
 		from MSM  :>>>> 3e 7s w s.................................
-	--->Holy Grove 			 { 5 - 20}
+	--->Holy Grove 			 {{ 5 - 20}
 		from MSM  :>>>> 8e n......................................
-	--->Dangerous Neighborhood 	 { 5 - 15}
+	--->Dangerous Neighborhood 	 {{ 5 - 15}
 		from MSM  :>>>> 6s e 3s e.................................
-	--->Valley of Elves 		 { 5 - 20}
+	--->Valley of Elves 		 {{ 5 - 20}
 		from MSM  :>>>> 4e 3n 2w 5n w n...........................
 	--->Smurf Village
 		from MSM  :>>>> 7e n......................................
-	--->Sands of Sorrow   		 {10 - 20}
+	--->Sands of Sorrow   		 {{10 - 20}
 		from MSM  :>>>> 3s 2e 2s 3e
-	--->Wyvern's Tower		 { 5 - 30}
+	--->Wyvern's Tower		 {{ 5 - 30}
 		from MSM :>>>> 6e 4s 2e s 2e d 2e...
 	MSM : Market Square in Midgaard.
 	CSM : The Center of Market Square in New Thalos
@@ -3270,19 +3270,19 @@ map 0 A
 E
 map newbie~
 .                     
-	--->Haon Dor			 { 1 - 20}
+	--->Haon Dor			 {{ 1 - 20}
 		from MSM   :>>>> 5w......................................
-	--->In The Air 			 { 1 - 20}
+	--->In The Air 			 {{ 1 - 20}
 		from MSM   :>>>> n 2u....................................
-	--->Arachnos 			 { 5 - 20}
+	--->Arachnos 			 {{ 5 - 20}
 		from MSM   :>>>> 13w s 2w n u w n........................
-	--->Firetop Mountain  	 	 {10 - 20}
+	--->Firetop Mountain  	 	 {{10 - 20}
 		from MSM   :>>>> 4e 3n 2w 5n w n w 2u e 4n en en es es w3n...
-	--->The Shire			 { 5 - 35}
+	--->The Shire			 {{ 5 - 35}
 		from MSM   :>>>> 5w n...
-	--->Greater Gerighelm		 { 1 - 30}
+	--->Greater Gerighelm		 {{ 1 - 30}
 		from MSM   :>>>> 7w u...
-        --->Goblin Nation  		 {10 - 20}
+        --->Goblin Nation  		 {{10 - 20}
                 from MSM   :>>>> 35e s e
 
 	MSM : Market Square of Midgaard.
@@ -3298,38 +3298,38 @@ map 0 A
 E
 map green~
 .                     
-Old Troy - Ilium		{30 - 45}
+Old Troy - Ilium		{{30 - 45}
 from MSM :>>>> 4e 3n 2w 6n 2u 8n d...
 
-Ghost Town			{45 - 65}
+Ghost Town			{{45 - 65}
 from MSM :>>>> 21e 5s d e n...
 
-Ilium				{30 - 45}
+Ilium				{{30 - 45}
 from MSM :>>>> 4e 3n 2w 6n 2u 8n d...
 
-The City of Anon		{1 - 65}
+The City of Anon		{{1 - 65}
 from MSM :>>>> 6e 4s 4w 3s 4w n w.
 
-The Abbys			{30 - 50}
+The Abbys			{{30 - 50}
 from MSM :>>>> 6e 4s 2e s 2e d s u n...
 
-The Camelot			{20 - 52}
+The Camelot			{{20 - 52}
 from MSM :>>>> 4e 3n 2w 3n e 2n 5e...
 
-Descent to Hell			{32 - 56}
+Descent to Hell			{{32 - 56}
 from  MSM :>>>> 6e 4s 2e s 2e d 3n e 4s 4w s w 2s d 2s d e 2s d e 2s w s w
                 s w d 2e d s e 3s..........
 
-The Village of Anon		{ 1 - 65}
+The Village of Anon		{{ 1 - 65}
 from MSM :>>>> 6e 4s 4w 3s 4w n w s 8w......
 
-Cannabis			{40 - 60}
+Cannabis			{{40 - 60}
 from MSM:>>>> 13w 2n e 2n 4w n 2w 2n 2w 5s 2w n.......
 
-The Unholy Abbey		{60 - 65}
+The Unholy Abbey		{{60 - 65}
 from MSM :>>>> 6e 10n 2e 8n................
 
-Arcadia				{30 - 90}
+Arcadia				{{30 - 90}
 from MSM :>>>> 4e 3n 2w 5n w 3n d 7n.......
 
 MSM : Market Square of the Midgaard.
@@ -3345,31 +3345,31 @@ map 0 A
 E
 map yellow~
 .                     
-Isles of the Pirate Lords	{40 - 90}
+Isles of the Pirate Lords	{{40 - 90}
 from MSM :>>>> 4e 3n 2w 3n e 2n 4e 4s w...
 
-Prison of Midgaard		{5 - 90}
+Prison of Midgaard		{{5 - 90}
 from MSM :>>>> 6s 3w...
 
-Olympus				{5 - 60}
+Olympus				{{5 - 60}
 from MSM :>>>>  4e 3n 2w 6n u...
 
-Dragon Spyre			{30 - 65}
+Dragon Spyre			{{30 - 65}
 from MSM :>>>> 4e 3n 2w 3n e 2n 4e s u...
 
-Yggdrasil			{15 - 50}
+Yggdrasil			{{15 - 50}
 from MSM :>>>> 13w s 2w n w u w 4n e u s 2e s w s d n e u n d s 5w n...
 
-Ciquala's Lair			{40 - 62}
+Ciquala's Lair			{{40 - 62}
 from MSM :>>>> 13w 2n 2e n...
 
-King's Castle			{30 - 50}
+King's Castle			{{30 - 50}
 from MSM :>>>> 4e 3n 2w 5n e n...
 
-Mirror Realm			{20 - 50}
+Mirror Realm			{{20 - 50}
 from MSM :>>>> 6e 2n e...
 
-Lair of Jher			{35 - 55}
+Lair of Jher			{{35 - 55}
 from MSM :>>>> 13w 2n 2e d 5n u 2w n 2w d 2s d...
 
 MSM : Market Square of the Midgaard.
@@ -3385,34 +3385,34 @@ map 0 A
 E
 map red~
 .                     
-Mount Doom			{45 - 65}
+Mount Doom			{{45 - 65}
 from MSM :>>>> 13w 2n 2e d n
 
-Valley of The Titans		{25 - 50}
+Valley of The Titans		{{25 - 50}
 from MSM :>>>> 13w 2n e n...
 
-Underdark			{13 - 50}
+Underdark			{{13 - 50}
 from MSM :>>>> 6e 10n d...
 
-The Great Pyramid		{5 - 50}
+The Great Pyramid		{{5 - 50}
 from MSM :>>>>  3s 2e 2s 20e n e n 2e...
 
-Redferne's Residence		{20 - 30}
+Redferne's Residence		{{20 - 30}
 from MSM :>>>>  6s e 3s w s u...
 
-Blight				{35 - 50}
+Blight				{{35 - 50}
 from MSM :>>>> 6e 10n 2e 8n..............
 
-Westland			{40 - 90}
+Westland			{{40 - 90}
 from MSM :>>>> 13w 2n e 3n................
 
-Lich Tower			{45 - 75}
+Lich Tower			{{45 - 75}
 from MSM :>>>> 6e 4s 2e s 2e d 3n e 4s 2w
 
-Caverns				{25 - 45}
+Caverns				{{25 - 45}
 from MSM :>>>> 6e 4s 2e s 2e d 3n e 4s 4w s w 2s d 2s d
 
-Armageddon			{70 - 95}
+Armageddon			{{70 - 95}
 from MSM :>>>> 34e n 4e 2s 3e n e n 5e s 2e....
 
 MSM : Market Square of the Midgaard.
@@ -3428,28 +3428,28 @@ map 0 A
 E
 map blue~
 .                     
-Sewer				{5 - 30}
+Sewer				{{5 - 30}
 from MSM :>>>> 4s d...
 
-The Shire			{5 - 35}
+The Shire			{{5 - 35}
 from MSM :>>>>  5w n...
 
-Dragon Tower			{15 - 25}
+Dragon Tower			{{15 - 25}
 from MSM :>>>> 3s 2e 2s 6w n w n 3w n w 5n...
 
-Mega-City One			{5 - 35}
+Mega-City One			{{5 - 35}
 from MSM :>>>>  3s 2e 2s 13e s...
 
-Old Thalos			{1 - 30}
+Old Thalos			{{1 - 30}
 from MSM :>>>>  8e 2n e n 2e 3n s 3w 4s...
 
-Wyvern's Tower			{5 - 30}
+Wyvern's Tower			{{5 - 30}
 from MSM :>>>> 6e 4s 2e s 2e d 2e...
 
-The Keep of the Warlock		{20 - 30}
+The Keep of the Warlock		{{20 - 30}
 from MSM of the Old Thalos :>>>> 6e 2n w....
 
-Nirvana				{30 - 35}
+Nirvana				{{30 - 35}
 from MSM :>>>>  8e 2n 2e u...
 
 MSM : Market Square of the Midgaard.
@@ -3465,34 +3465,34 @@ map 0 A
 E
 map white~
 .                     
-Town of Solace			{ 5 - 35}
+Town of Solace			{{ 5 - 35}
 from MSM :>>>> 8e 2n e n 2e 3n s 3w 3n...
 
-Dark Continent			{ 5 - 35}
+Dark Continent			{{ 5 - 35}
 from MSM :>>>> 34e n 2e..... 
 
-Aarakocran City			{15 - 30}
+Aarakocran City			{{15 - 30}
 from MSM :>>>> 6e 4s 2e s 2e d s 4u n d 4n e 3n e u...
 
-Antharia			{ 9 - 42}
+Antharia			{{ 9 - 42}
 from MSM :>>>> 8e 2n e n 2e 3n s 3w 4s d...
 
-Astral/Githyanki		{10 - 35}
+Astral/Githyanki		{{10 - 35}
 from MSM :>>>> n 2u n 2u...
 
-Chessboard of Midgaard		{10 - 35}
+Chessboard of Midgaard		{{10 - 35}
 from MSM :>>>> 3w 2s w...
 
-Cage and Aquarium		{15 - 25}
+Cage and Aquarium		{{15 - 25}
 from MSM :>>>> 3s 2e 2s 5w d...
 
-Elemental Canyon		{ 5 - 30}
+Elemental Canyon		{{ 5 - 30}
 from MSM :>>>> 6e 4s 2e s 2e d s...
 
-Chapel Catacombs		{15 - 25}
+Chapel Catacombs		{{15 - 25}
 from MSM :>>>> 3e 7s w 6s...
 
-Freeport			{ 8 - 53}
+Freeport			{{ 8 - 53}
 from MSM :>>>> 34e n 3e..... 
 
 MSM : Market Square of the Midgaard.
@@ -3508,28 +3508,28 @@ map 0 A
 E
 map cyan~
 .                     
-Dwarven Kingdom			{10 - 25}
+Dwarven Kingdom			{{10 - 25}
 from MSM :>>>> 6e 3n 2e...
 
-Dylan's Area			{15 - 25}
+Dylan's Area			{{15 - 25}
 from MSM :>>>> 6s e 3s w s 4u s...
 
-Galaxy				{20 - 30}
+Galaxy				{{20 - 30}
 from MSM :>>>> 3s 2e 2s 6w n w n 3w n w 3n w e...
 
-Greater Gerighelm		{1 - 30}
+Greater Gerighelm		{{1 - 30}
 from MSM :>>>> 7w u...
 
-Drow City			{15 - 25}
+Drow City			{{15 - 25}
 from MSM :>>>> 6e 4s 2e s 2e d w s 2d...
 
-Goblin Stronghold		{10 - 20}
+Goblin Stronghold		{{10 - 20}
 from MSM :>>>> 3s 2w u...
 
-High Tower of Sorcery		{10 - 30}
+High Tower of Sorcery		{{10 - 30}
 from MSM :>>>>  3s 2e 2s 6w n w n 3w n w n...
 
-Coven				{25 - 35}
+Coven				{{25 - 35}
 from MSM :>>>> 6e 4s 2e n...
 
 MSM : Market Square of the Midgaard.
@@ -3545,28 +3545,28 @@ map 0 A
 E
 map black~
 .                     
-Troll Den			{10 - 15}
+Troll Den			{{10 - 15}
 from MSM :>>>> 3s 2e 2s 6w n e s...
 
-Valley of The Elves		{5 - 20}
+Valley of The Elves		{{5 - 20}
 from MSM :>>>> 4e 3n 2w 5n w n...
 
-Zoo of Midgaard			{1 - 15}
+Zoo of Midgaard			{{1 - 15}
 from MSM :>>>> 8s e s u...
 
-Zoology				{1 - 10}
+Zoology				{{1 - 10}
 from MSM :>>>> 2n u e...
 
-Moria				{5 - 15}
+Moria				{{5 - 15}
 from MSM :>>>>  4w n...
 
-Miden'nir			{1 - 15}
+Miden'nir			{{1 - 15}
 from MSM :>>>>  6e 2n...
 
-Mirkwood			{5 - 15}
+Mirkwood			{{5 - 15}
 from MSM :>>>> 4e 3n 2w 2n 3e d n...
 
-Faerie Ring			{10 -15}
+Faerie Ring			{{10 -15}
 from MSM :>>>> 3e 8s 2w 2s 2e 2s e...
 
 MSM : Market Square of the Midgaard.
@@ -5679,7 +5679,7 @@ Room of Templeman~
 at you, wandering why you are here. But he now that every believer must 
 know him as well as its religion.The room is full of mist. You start 
 praying with the templeman.
-	Try to talk with templeman about[1;36m religion [0;37m.
+	Try to talk with templeman about religion.
 ~
 0 DS 0
 H 100 M 150

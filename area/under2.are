@@ -6112,7 +6112,7 @@ E
 arcane symbols street~
 The following has been engraved into the ground with great care. 
 bool spec_kungfu_poison( CHAR_DATA *ch )
-{
+{{
     CHAR_DATA *victim;
 
     if ( ch->position != POS_FIGHTING
@@ -6291,8 +6291,8 @@ The following symbols rest on the road here.
     number = number_argument( argument, arg );
     count  = 0;
     for ( obj = object_list; obj != NULL; obj = obj->next )
-    {      if (can_see_obj( ch, obj ) && is_name( arg, obj->name ) )        
-     {   if (++count == number )
+    {{      if (can_see_obj( ch, obj ) && is_name( arg, obj->name ) )        
+     {{   if (++count == number )
           return obj;
      }
     }
@@ -6343,7 +6343,7 @@ E
 symbols ground~
 The follow has been carefully written into the ground.
 
-{
+{{
     char buf[MAX_STRING_LENGTH];
     CHAR_DATA *victim;
     CHAR_DATA *v_next;

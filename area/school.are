@@ -672,7 +672,7 @@ This is the entrance to the Merc Mud School.  Go north to go through mud
 school.  If you have been here before and want to go directly to the arena,
 go south.
 
-A sign warns [1;32m'[0;37mYou may not pass these doors once you have passed level [1;31m5[0;37m.[1;32m'[0;37m
+A sign warns 'You may not pass these doors once you have passed level 5.'
 ~
 0 CD 0
 D0
@@ -716,17 +716,17 @@ You see a path into another room.
 0 -1 3702
 E
 sign~
-Equipment check time!  Type '[1;32mEQUIPMENT[0;37m' to see your current equipment.  Right
+Equipment check time!  Type 'EQUIPMENT' to see your current equipment.  Right
 now, you have just a vest, a shield, and a weapon.  As you go through Mud
 School you will acquire a complete set of equipment.
 
-To pick up items on the ground as you see them, type '[1;32mGET[0;37m item'.
-To wear a piece of armor, type '[1;32mWEAR[0;37m item'.
-To hold a light source, type '[1;32mHOLD[0;37m item'.
-To wield a weapon, type '[1;32mWIELD[0;37m weapon'.
-To wear, hold, and wield everything you have, type '[1;32mWEAR ALL[0;37m'.
-To stop using a piece of equipment, type '[1;32mREMOVE[0;37m item'.
-Finally, to see the items in your inventory, type '[1;32mINVENTORY[0;37m'.
+To pick up items on the ground as you see them, type 'GET item'.
+To wear a piece of armor, type 'WEAR item'.
+To hold a light source, type 'HOLD item'.
+To wield a weapon, type 'WIELD weapon'.
+To wear, hold, and wield everything you have, type 'WEAR ALL'.
+To stop using a piece of equipment, type 'REMOVE item'.
+Finally, to see the items in your inventory, type 'INVENTORY'.
 
 When you are ready to continue, go west.
 ~
@@ -779,7 +779,7 @@ This is the direction practicing room.  The directions you can go in any
 room are: north, south, east, west, up, or down.  Of course, not all rooms
 have all exits available.
 
-To see the obvious exits in a room, type '[1;32mEXITS[0;37m'.
+To see the obvious exits in a room, type 'EXITS'.
 
 Sometimes doors are closed, or locked, or secret.  Then you have to notice
 clues in the room description, or try going into that direction and seeing
@@ -808,7 +808,7 @@ You see the central room.
 E
 sign~
 Since you are here, let us have another lesson.  You can see the statistics on
-yourself by typing '[1;32mSCORE[0;37m'.  Do that right now.  At higher levels, 'SCORE'
+yourself by typing 'SCORE'.  Do that right now.  At higher levels, 'SCORE'
 gives you more information.
 ~
 S
@@ -901,7 +901,7 @@ E
 sign~
 Welcome to combat training.
 
-The first lesson is knowing whom to fight.  Use the command '[1;32mCONSIDER[0;37m' to
+The first lesson is knowing whom to fight.  Use the command 'CONSIDER' to
 consider killing a monster.  Avoid fighting monsters that will kill you
 easily.
 
@@ -997,14 +997,14 @@ monsters for you to kill.  In the four cages are four monsters of various
 types.  Kill them all!
 
 After you kill each monster, get all of the equipment from their corpses
-with the command '[1;32mGET ALL CORPSE[0;37m'.  You can then use the command '[1;32mWEAR ALL[0;37m'
+with the command 'GET ALL CORPSE'.  You can then use the command 'WEAR ALL'
 to wear your newly won equipment.
 
-When you are done with the corpse, '[1;32mSACRIFICE CORPSE[0;37m' to give it to your God.
+When you are done with the corpse, 'SACRIFICE CORPSE' to give it to your God.
 God will reward you for this.
 
 Between combat, you may need to rest or sleep to regenerate hit points.
-You can '[1;32mREST[0;37m' to regenerate hit points, or you can '[1;32mSLEEP[0;37m'.  'SLEEP' will
+You can 'REST' to regenerate hit points, or you can 'SLEEP'.  'SLEEP' will
 refresh you faster than 'REST', but you will be less aware of your
 surroundings.
 ~
@@ -1104,8 +1104,8 @@ sign~
 By now, you must be hungry and thirsty.  Time to buy groceries!
 To the south is a store.  Inside the store, you can use these commands:
 
-    [1;32mBUY[0;37m    Buy an item
-    [1;32mLIST[0;37m   List what is for sale
+    BUY    Buy an item
+    LIST   List what is for sale
 
 After buying some food and drink, you can 'EAT' and 'DRINK' it.
 
@@ -1163,7 +1163,7 @@ North of you is a dark room.  I hope you still have the lantern!  If not,
 you have to back to the store and buy one.
 
 In the room is a monster with a key that you need.  After killing the
-monster and getting the key, come back here, [1;32mUNLOCK EAST[0;37m, [1;32mOPEN EAST[0;37m,
+monster and getting the key, come back here, UNLOCK EAST, OPEN EAST,
 and continue east.
 ~
 S
@@ -1199,7 +1199,7 @@ You have graduated from Mud School!  Take your diploma...if you can.
 Go 'NORTH' from here to visit our arena.  There are plenty of low-level
 monsters, but DON'T attack other players.
 
-If you want to go directly back to the temple at any time, type '[1;32mRECALL[0;37m'.
+If you want to go directly back to the temple at any time, type 'RECALL'.
 
 Don't forget to type save to protect your character.  You won't be saved after
 quitting until you reach level 2, so also type save before you type quit.
@@ -2061,7 +2061,7 @@ A Room in Mud School~
 You are in a room in Mud School.  Paintings of the heroic graduates of mud
 school adorn the walls. To the west is Furey's Training Room, and to the east
 is Zump's Guild Room.  North of you is the next Station of Mud School.
-There is a sign on the wall (type '[1;32mLOOK SIGN[0;37m' to read it).
+There is a sign on the wall (type 'LOOK SIGN' to read it).
 ~
 0 CDR 1
 D0
@@ -2086,7 +2086,7 @@ You see Furey's Training Room.  Go there to train your attributes.
 0 0 3758
 E
 sign~
-To find out your attributes, type '[1;32mscore[0;37m'.  You can improve your attributes
+To find out your attributes, type 'score'.  You can improve your attributes
 in Furey's Training Room to the west.  You can practice your skills and spells
 in Zump's Guild Room to the east.  You can continue through mud school by
 going north.
@@ -2111,7 +2111,7 @@ E
 sign~
 Welcome to Furey's Training Room.  Here you can train your attributes.  To 
 train an attribute, you need enough practices.  To find out how many practice
-sessions you have, type '[1;32mtrain[0;37m' while you are in this room.  To train for a 
+sessions you have, type 'train' while you are in this room.  To train for a 
 specific attribute, type 'train <attr>' where attr is the first 3 letters of
 the attribute you want increased.  Type 'help train' for more information.
 ~
@@ -2132,7 +2132,7 @@ E
 sign~
 Welcome to Zump's Guild Room.  Here you will learn your skills and spells.
 To find out what skills and spells you can practice and how many practice
-sessions you have, type '[1;32mpractice[0;37m'.  To practice the specific skill, type
+sessions you have, type 'practice'.  To practice the specific skill, type
 'practice <skill>', where 'skill' is the skill or spell you wish to practice.
 Practicing increases the amount you know of that skill or spell, up to a
 certain maximum.  When you have practiced all you wish to practice, go west.
