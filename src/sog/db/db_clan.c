@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_clan.c,v 1.14 1999-02-12 16:22:41 fjoe Exp $
+ * $Id: db_clan.c,v 1.15 1999-02-15 08:16:29 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -92,14 +92,10 @@ DBLOAD_FUN(load_clan)
 		case 'I':
 			KEY("Item", clan->obj_vnum, fread_number(fp));
 			break;
-		case 'L':
-			SKEY("Leaders", clan->leader_list);
-			break;
 		case 'M':
 			KEY("Mark", clan->mark_vnum, fread_number(fp));
 			SKEY("MsgPrays", clan->msg_prays);
 			SKEY("MsgVanishes", clan->msg_vanishes);
-			SKEY("Members", clan->member_list);
 			break;
 		case 'N':
 			SKEY("Name", clan->name);
@@ -115,8 +111,6 @@ DBLOAD_FUN(load_clan)
 				sk->percent = fread_number(fp);
 				fMatch = TRUE;
 			}
-			SKEY("Seconds", clan->second_list);
-			break;
 		}
 
 		if (!fMatch) 
