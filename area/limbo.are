@@ -1221,7 +1221,7 @@ quest kio~
 quest staff of kio~
 A quest obj flying in the air.~
 energy~
-treasure ATY A
+treasure ATYf AP
 0 0 -1 0 0
 0 0 0 P
 E
@@ -1234,7 +1234,7 @@ quest conrad~
 quest staff of conrad~
 A quest obj flying in the air.~
 energy~
-treasure ATY A
+treasure ATYf AP
 0 0 -1 0 0
 0 0 0 P
 E
@@ -1247,7 +1247,7 @@ quest powerman~
 quest staff of powerman~
 A quest obj flying in the air.~
 energy~
-treasure ATY A
+treasure ATYf AP
 0 0 -1 0 0
 0 0 0 P
 E
@@ -1260,7 +1260,7 @@ quest mandrake~
 quest staff of mandrake~
 A quest obj flying in the air.~
 energy~
-treasure ATY A
+treasure ATYf AP
 0 0 -1 0 0
 0 0 0 P
 E

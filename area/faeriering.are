@@ -11,7 +11,7 @@ End
 pixie faerie пикси~
 @eng a giggling pixie@rus ~~хихикающий~~ пикси~
 @eng A pixie pokes you in the butt with its sword and giggles! 
-@rus Пикси (pixie) указал на тебя рукояткой меча и захихикал.
+@rus Пикси (pixie) указал на тебя рукоятью меча и захихикал.
 ~
 @eng The pixie is about 6" tall, is human like, and has dragonfly wings. 
 @rus Пикси... Ростом около 6 дюймов, похожий на человека и со стрекозиными
@@ -44,10 +44,13 @@ AHMVW ABCDEFGHIJKO tiny unknown
 #29103
 sprite faerie спрайт~
 @eng a dancing sprite@rus ~~танцующий~~ ~~спрайт~~~
-A sprite casts a spell and you do a merry little dance! 
+@eng A sprite casts a spell and you do a merry little dance! 
+@rus Спрайт (sprite) пробормотал несколько слов, и ты, неожиданно для себя, пустился в пляс.
 ~
-The sprite has dragonfly wings like the nixie and pixie, but she towers over 
+@eng The sprite has dragonfly wings like the nixie and pixie, but she towers over 
 them at an amazing 12" height!
+@rus Он очень похож на пикси и никси, имеет точно такие же стрекозиные крылья.
+Но это существо значительно крупнее -- аж 12 дюймов ростом.
 ~
 unique~
 ACEH BT 0 0
@@ -57,12 +60,15 @@ EFNU 0 C HZ
 stand stand female 20
 AHMVW ABCDEFGHIJKO tiny unknown
 #29104
-brownie faerie~
-a stern brownie~
-A stern brownie stands guard here - you better watch it bub! 
+brownie faerie брауни~
+@eng a stern brownie@rus ~~мрачный~~ брауни~
+@eng A stern brownie stands guard here - you better watch it bub! 
+@rus Мрачный, суровый брауни (brownie) стоит здесь, охраняя порядок.
 ~
-The beefy 2' tall brownie wears earth colored clothing, and seems intent on 
+@eng The beefy 2' tall brownie wears earth colored clothing, and seems intent on 
 its task of guarding.
+@rus Крепкий, двух футов роста брауни (brownie), одетый в цветную одежду.
+Здесь он выполняет свою работу -- охраняет закон и порядок.
 ~
 unique~
 ABCE V 0 0
@@ -88,13 +94,17 @@ stand stand male 300
 AHMV ABCDEFGHIJK small unknown
 #29106
 queen faerie~
-the Faerie Queen~
-The Faerie Queen sits in a circle of dancing twinkling faeries! 
+@eng the Faerie Queen@rus ~~королева~~ фейри~
+@eng The Faerie Queen sits in a circle of dancing twinkling faeries! 
+@rus Королева фейри (queen) сидит здесь, окруженная танцующими, веселящимися поддаными.
 ~
-The faerie queen is here teaching her subjects court in a gossamer gown  of 
+@eng The faerie queen is here teaching her subjects court in a gossamer gown  of 
 moonbeams. She towers at 4' tall. She is by far the most beautiful creature
  you have ever  seen. Maybe you should stay here a while. Hmmm. Why  bother
 going back?
+@rus Прекрасная королева фейри. Она самое прекрасное существо из всех, которых 
+ты когда-либо встречал. Правда, она гораздо выше своих подданых -- 4 фута
+ростом. 
 ~
 elf~
 ABCER DHT 0 0
@@ -104,11 +114,14 @@ EFNU 0 C 0
 stand stand female 500
 0 O medium unknown
 #29107
-lucky leprechaun faerie~
-Lucky~
-A little leprechaun garbed in green says 'Wooo-hooo-hoo' and tickles you! 
+leprechaun faerie леприкон lucky~
+@eng Lucky@rus Лаки~
+@eng A little leprechaun garbed in green says 'Wooo-hooo-hoo' and tickles you! 
+@rus Маленький леприкон (leprechaun), одетый в зеленое весело захихикал и пощекотал тебя.
 ~
-Lucky wears green and is mumbling something about blue diamonds. 
+@eng Lucky wears green and is mumbling something about blue diamonds. 
+@rus Маленький человечик, одетый в зеленое, что-то тихо бормочет о драгоценных
+камнях.
 ~
 unique~
 ACEH QUV 0 0
