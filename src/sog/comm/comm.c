@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.9 1998-04-19 10:00:44 fjoe Exp $
+ * $Id: comm.c,v 1.10 1998-04-19 10:14:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1190,7 +1190,10 @@ bool read_from_descriptor( DESCRIPTOR_DATA *d )
 			case DO:
 			case WONT:
 			case WILL:
-				q = p+3;
+				if (p[2] == '\0')
+					q = p+2;
+				else
+					q = p+3;
 				break;
 
 			wse:

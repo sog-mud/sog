@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.5 1998-04-17 18:10:24 efdi Exp $
+ * $Id: update.c,v 1.6 1998-04-19 10:14:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -872,28 +872,26 @@ void weather_update( void )
 	for ( d = descriptor_list; d != NULL; d = d->next )
 	{
 	CHAR_DATA *ch=d->character;
-	buf[0] = '\0';
-
 	switch ( time_info.hour )
 	{
 	case  5:
 	weather_info.sunlight = SUN_LIGHT;
-	strcat( buf, msg(UPDATE_WEATHER_DAY_BEGUN, ch->i_lang));
+	strcpy( buf, msg(UPDATE_WEATHER_DAY_BEGUN, ch->i_lang));
 	break;
 
 	case  6:
 	weather_info.sunlight = SUN_RISE;
-	strcat( buf, msg(UPDATE_WEATHER_SUN_IN_THE_EAST, ch->i_lang));
+	strcpy( buf, msg(UPDATE_WEATHER_SUN_IN_THE_EAST, ch->i_lang));
 	break;
 
 	case 19:
 	weather_info.sunlight = SUN_SET;
-	strcat( buf, msg(UPDATE_WEATHER_SUN_IN_THE_WEST, ch->i_lang));
+	strcpy( buf, msg(UPDATE_WEATHER_SUN_IN_THE_WEST, ch->i_lang));
 	break;
 
 	case 20:
 	weather_info.sunlight = SUN_DARK;
-	strcat( buf, msg(UPDATE_WEATHER_NIGHT_BEGUN, ch->i_lang));
+	strcpy( buf, msg(UPDATE_WEATHER_NIGHT_BEGUN, ch->i_lang));
 	break;
 
 	}
