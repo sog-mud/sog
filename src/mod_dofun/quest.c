@@ -1,5 +1,5 @@
 /*
- * $Id: quest.c,v 1.49 1998-07-14 07:47:49 fjoe Exp $
+ * $Id: quest.c,v 1.50 1998-07-14 12:49:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -778,7 +778,7 @@ static void quest_complete(CHAR_DATA *ch, char *arg)
 	}
 
 	quest_cancel(ch);
-	ch->pcdata->questtime = -number_range(5, 10);
+	ch->pcdata->questtime = -number_range(10, 15);
 }
 
 
