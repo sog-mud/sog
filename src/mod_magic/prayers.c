@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.75 2004-03-04 13:09:54 tatyana Exp $
+ * $Id: prayers.c,v 1.76 2004-03-05 18:09:01 tatyana Exp $
  */
 
 /***************************************************************************
@@ -166,6 +166,7 @@ DECLARE_SPELL_FUN(prayer_geyser);
 DECLARE_SPELL_FUN(prayer_water_elemental);
 DECLARE_SPELL_FUN(prayer_fire_elemental);
 DECLARE_SPELL_FUN(prayer_earth_elemental);
+DECLARE_SPELL_FUN(prayer_produce_flame);
 
 static void
 hold(CHAR_DATA *ch, CHAR_DATA *victim, int duration, int dex_modifier, int
@@ -4245,4 +4246,51 @@ SPELL_FUN(prayer_earth_elemental, sn, level, ch, vo)
 	elemental->master = elemental->leader = ch;
 
 	char_to_room(elemental, ch->in_room);
+}
+
+SPELL_FUN(prayer_produce_flame, sn, level, ch, vo)
+{
+	CHAR_DATA *victim = (CHAR_DATA *) vo;
+	CHAR_DATA *vch;
+	AFFECT_DATA *paf;
+
+	act("You produce fire cloud!", ch, NULL, NULL, TO_CHAR);
+	act("$n produce fire cloud!", ch, NULL, NULL, TO_ROOM);
+
+	if (!saves_spell(level, victim, DAM_FIRE)) {
+		paf = aff_new(TO_AFFECTS, sn);
+		paf->level	= level;
+		paf->duration	= UMIN(1, level / 10);
+		paf->bitvector	= AFF_BLIND;
+		affect_to_char(victim, paf);
+		aff_free(paf);
+
+		act("$N is blinded by flame!", ch, NULL, victim, TO_CHAR);
+		act("$N is blinded by flame!", ch, NULL, victim, TO_NOTVICT);
+		act("You are blinded by flame!", ch, NULL, victim, TO_VICT);
+	}
+
+	foreach (vch, char_in_room(ch->in_room)) {
+		if (ch == vch
+		||  IS_IMMORTAL(vch)
+		||  is_safe(ch, vch)
+		||  vch == victim)
+			continue;
+
+		if (saves_spell(level, vch, DAM_FIRE)
+		||  number_bits(2) == 0)
+			return;
+
+		paf = aff_new(TO_AFFECTS, sn);
+		paf->level	= level;
+		paf->duration	= UMIN(1, level / 20);
+		paf->bitvector	= AFF_BLIND;
+		affect_to_char(vch, paf);
+		aff_free(paf);
+
+		act("$N is blinded by flame!", ch, NULL, vch, TO_CHAR);
+		act("$N is blinded by flame!", ch, NULL, vch, TO_NOTVICT);
+		act("You are blinded by flame!", ch, NULL, vch, TO_VICT);
+
+	} end_foreach(vch);
 }
