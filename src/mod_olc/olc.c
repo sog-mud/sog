@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.128 2001-06-24 10:50:44 avn Exp $
+ * $Id: olc.c,v 1.129 2001-06-24 21:12:46 avn Exp $
  */
 
 /***************************************************************************
@@ -632,7 +632,7 @@ bool olced_mlstr_text(CHAR_DATA *ch, const char *argument,
 	return FALSE;
 }
 
-static MLSTR_FOREACH_FUN(cb_format)
+static MLSTR_FOREACH_FUN(cb_format, lang, p, ap)
 {
 	*p = format_string(*p);
 	return NULL;

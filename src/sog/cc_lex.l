@@ -66,8 +66,7 @@ static char *s;
 				}
 %%
 
-const void *
-expr_check_cb(void *p, va_list ap)
+const FOREACH_CB_FUN(expr_check_cb, p, ap)
 {
 	cc_expr_t *e = (cc_expr_t *) p;
 	const void *rv;

@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.106 2001-06-24 10:50:59 avn Exp $
+ * $Id: db_area.c,v 1.107 2001-06-24 21:12:52 avn Exp $
  */
 
 /***************************************************************************
@@ -336,7 +336,7 @@ DBLOAD_FUN(load_areadata)
 	}
 }
 
-static MLSTR_FOREACH_FUN(cb_strip_nl)
+static MLSTR_FOREACH_FUN(cb_strip_nl, lang, p, ap)
 {
 	char buf[MAX_STRING_LENGTH];
 	size_t len, oldlen;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: module.c,v 1.20 2001-06-24 10:50:49 avn Exp $
+ * $Id: module.c,v 1.21 2001-06-24 21:12:49 avn Exp $
  */
 
 /*
@@ -45,8 +45,9 @@
 
 varr modules;
 
-static void *mod_load_cb	(void *arg, va_list ap);
-static void *mod_unload_cb	(void *arg, va_list ap);
+static DECLARE_FOREACH_CB(mod_load_cb);
+static DECLARE_FOREACH_CB(mod_unload_cb);
+static DECLARE_FOREACH_CB(mod_lookup_cb);
 
 static int	modset_add	(varr *v, module_t *m, time_t curr_time);
 static module_t *modset_search	(varr *v, const char *name);
@@ -79,8 +80,17 @@ mod_load(module_t* m, time_t curr_time)
 	return 0;
 }
 
-static void *
-mod_lookup_cb(void *p, va_list ap)
+module_t *
+mod_lookup(const char *name)
+{
+	return varr_foreach(&modules, mod_lookup_cb, name);
+}
+
+/*--------------------------------------------------------------------
+ * static functions
+ */
+
+static FOREACH_CB_FUN(mod_lookup_cb, p, ap)
 {
 	module_t *m = (module_t *) p;
 
@@ -92,21 +102,10 @@ mod_lookup_cb(void *p, va_list ap)
 	return NULL;
 }
 
-module_t *
-mod_lookup(const char *name)
-{
-	return varr_foreach(&modules, mod_lookup_cb, name);
-}
-
-/*--------------------------------------------------------------------
- * static functions
- */
-
 /*
  * load module
  */
-static void *
-mod_load_cb(void *arg, va_list ap __attribute__((unused)))
+static FOREACH_CB_FUN(mod_load_cb, arg, ap)
 {
 	module_t *m = *(module_t **) arg;
 
@@ -157,8 +156,7 @@ mod_load_cb(void *arg, va_list ap __attribute__((unused)))
 /*
  * unload previously loaded module
  */
-static void *
-mod_unload_cb(void *arg, va_list ap __attribute__((unused)))
+static FOREACH_CB_FUN(mod_unload_cb, arg, ap)
 {
 	module_t *m = *(module_t **) arg;
 
@@ -177,8 +175,7 @@ mod_unload_cb(void *arg, va_list ap __attribute__((unused)))
 	return NULL;
 }
 
-static void *
-modset_add_cb(void *p, va_list ap)
+static FOREACH_CB_FUN(modset_add_cb, p, ap)
 {
 	module_t *m = (module_t *) p;
 
@@ -242,8 +239,7 @@ modset_add(varr *v, module_t *m, time_t curr_time)
 	return 0;
 }
 
-static void *
-modset_search_cb(void *p, va_list ap)
+static FOREACH_CB_FUN(modset_search_cb, p, ap)
 {
 	module_t *m = *(module_t **) p;
 

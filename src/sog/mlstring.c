@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.c,v 1.58 2001-06-24 10:50:47 avn Exp $
+ * $Id: mlstring.c,v 1.59 2001-06-24 21:12:48 avn Exp $
  */
 
 #include <stdio.h>
@@ -257,7 +257,7 @@ const char * mlstr_val(const mlstring *mlp, size_t lang)
 	return (p ? p : str_empty);
 }
 
-static MLSTR_FOREACH_FUN(mlstr_null_cb)
+static MLSTR_FOREACH_FUN(mlstr_null_cb, lang, p, ap)
 {
 	if (!IS_NULLSTR(*p))
 		return *p;
@@ -269,7 +269,7 @@ bool mlstr_null(const mlstring *mlp)
 	return mlstr_foreach((mlstring*)(uintptr_t)mlp, mlstr_null_cb) == NULL;
 }
 
-static MLSTR_FOREACH_FUN(mlstr_valid_cb)
+static MLSTR_FOREACH_FUN(mlstr_valid_cb, lang, p, ap)
 {
 	if (!IS_NULLSTR(*p) && !mem_is(*p, MT_STR))
 		return *p;
@@ -451,7 +451,7 @@ void mlstr_dump(BUFFER *buf, const char *name, const mlstring *mlp,
 	}
 }
 
-static MLSTR_FOREACH_FUN(cb_addnl)
+static MLSTR_FOREACH_FUN(cb_addnl, lang, p, ap)
 {
 	char buf[MAX_STRING_LENGTH];
 	size_t len;
@@ -472,7 +472,7 @@ static MLSTR_FOREACH_FUN(cb_addnl)
 	return NULL;
 }
 
-static MLSTR_FOREACH_FUN(cb_stripnl)
+static MLSTR_FOREACH_FUN(cb_stripnl, lang, p, ap)
 {
 	char buf[MAX_STRING_LENGTH];
 	size_t len;

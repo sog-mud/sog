@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.288 2001-06-24 10:50:46 avn Exp $
+ * $Id: handler.c,v 1.289 2001-06-24 21:12:47 avn Exp $
  */
 
 /***************************************************************************
@@ -1329,7 +1329,7 @@ money_form(size_t lang, char *buf, size_t len, uint num, const char *name)
 	strnzcpy(buf, len, word_form(tmp, num, lang, RULES_QTY));
 }
 
-static MLSTR_FOREACH_FUN(money_descr_cb)
+static MLSTR_FOREACH_FUN(money_descr_cb, lang, p, ap)
 {
 	uint num1 = va_arg(ap, uint);
 	const char *name1 = va_arg(ap, const char *);

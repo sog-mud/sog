@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: eventfun.c,v 1.25 2001-05-21 19:06:30 fjoe Exp $
+ * $Id: eventfun.c,v 1.26 2001-06-24 21:12:44 avn Exp $
  */
 
 
@@ -34,7 +34,7 @@
 #include "fight.h"
 #include "magic.h"
 
-void show_owner(CHAR_DATA *ch, AFFECT_DATA *af)
+static void show_owner(CHAR_DATA *ch, AFFECT_DATA *af)
 {
 	CHAR_DATA *owner;
 
@@ -48,7 +48,7 @@ void show_owner(CHAR_DATA *ch, AFFECT_DATA *af)
 	act("Sure, this is $N's work!", ch, NULL, owner, TO_CHAR);
 }
 
-EVENT_FUN(event_enter_lshield)
+EVENT_FUN(event_enter_lshield, ch, af)
 {
 	if (af->owner->in_room != ch->in_room) {
 		log(LOG_BUG, "event_enter_lshield: owner of lightning shield left the room");
@@ -69,7 +69,7 @@ EVENT_FUN(event_enter_lshield)
 	}
 }
 
-EVENT_FUN(event_enter_alarm)
+EVENT_FUN(event_enter_alarm, ch, af)
 {
 	DESCRIPTOR_DATA *d;
 
@@ -90,7 +90,7 @@ EVENT_FUN(event_enter_alarm)
 	}
 }
 
-EVENT_FUN(event_enter_shocking)
+EVENT_FUN(event_enter_shocking, ch, af)
 {
 	if (af->owner == ch) {
 		act("You avoid your trap here.", ch, NULL, NULL, TO_CHAR);
@@ -109,7 +109,7 @@ EVENT_FUN(event_enter_shocking)
 	}
 }
 
-EVENT_FUN(event_enter_thieftrap)
+EVENT_FUN(event_enter_thieftrap, ch, af)
 {
 	if (af->owner == ch) {
 		act("You avoid your trap here.", ch, NULL, NULL, TO_CHAR);
@@ -126,12 +126,12 @@ EVENT_FUN(event_enter_thieftrap)
 	}
 }
 
-EVENT_FUN(event_enter_mist)
+EVENT_FUN(event_enter_mist, ch, af)
 {
 	act("There is some mist flowing in the air.", ch, NULL, NULL, TO_CHAR);
 }
 
-EVENT_FUN(event_update_plague)
+EVENT_FUN(event_update_plague, ch, af)
 {
 	if (af->level < 1)
 		af->level = 2;
@@ -139,7 +139,7 @@ EVENT_FUN(event_update_plague)
 		spellfun_call("plague", NULL, af->level - 1, af->owner, ch);
 }
 
-EVENT_FUN(event_update_poison)
+EVENT_FUN(event_update_poison, ch, af)
 {
 	if (af->level < 1)
 		af->level = 2;
@@ -147,7 +147,7 @@ EVENT_FUN(event_update_poison)
 		spellfun_call("poison", NULL, af->level - 1, af->owner, ch);
 }
 
-EVENT_FUN(event_update_slow)
+EVENT_FUN(event_update_slow, ch, af)
 {
 	if (af->level < 1)
 		af->level = 2;
@@ -155,7 +155,7 @@ EVENT_FUN(event_update_slow)
 		spellfun_call("slow", NULL, af->level - 1, af->owner, ch);
 }
 
-EVENT_FUN(event_update_sleep)
+EVENT_FUN(event_update_sleep, ch, af)
 {
 	if (af->level < 1)
 		af->level = 2;
@@ -163,7 +163,7 @@ EVENT_FUN(event_update_sleep)
 		spellfun_call("sleep", NULL, af->level - 1, af->owner, ch);
 }
 
-EVENT_FUN(event_update_espirit)
+EVENT_FUN(event_update_espirit, ch, af)
 {
 	AFFECT_DATA af2;
 
@@ -188,17 +188,17 @@ EVENT_FUN(event_update_espirit)
 	}
 }
 
-EVENT_FUN(event_leave_lshield)
+EVENT_FUN(event_leave_lshield, ch, af)
 {
 	if (ch == af->owner) affect_strip_room(ch->in_room, af->type);
 }
 
-EVENT_FUN(event_enter_rlight)
+EVENT_FUN(event_enter_rlight, ch, af)
 {
 	make_visible(ch, FALSE);
 }
 
-EVENT_FUN(event_update_rlight)
+EVENT_FUN(event_update_rlight, ch, af)
 {
 	dofun("visible", ch, str_empty);
 
@@ -216,7 +216,7 @@ EVENT_FUN(event_update_rlight)
 
 }
 
-EVENT_FUN(event_updatechar_wcurse)
+EVENT_FUN(event_updatechar_wcurse, ch, af)
 {
 	AFFECT_DATA  witch;
 
@@ -249,7 +249,7 @@ EVENT_FUN(event_updatechar_wcurse)
 	}
 }
 
-EVENT_FUN(event_updatechar_plague)
+EVENT_FUN(event_updatechar_plague, ch, af)
 {
 	AFFECT_DATA plague;
 	CHAR_DATA *vch;
@@ -296,7 +296,7 @@ EVENT_FUN(event_updatechar_plague)
 	}
 }
 
-EVENT_FUN(event_updatechar_poison)
+EVENT_FUN(event_updatechar_poison, ch, af)
 {
 	if (IS_AFFECTED(ch, AFF_SLOW)) return;
 
@@ -305,7 +305,7 @@ EVENT_FUN(event_updatechar_poison)
 	damage(ch, ch, af->level/10 + 1, "poison", DAM_POISON, DAMF_SHOW);
 }
 
-EVENT_FUN(event_updatefast_entangle)
+EVENT_FUN(event_updatefast_entangle, ch, af)
 {
 	AFFECT_DATA *paf;
 
@@ -344,7 +344,7 @@ EVENT_FUN(event_updatefast_entangle)
 	}
 }
 
-EVENT_FUN(event_updatechar_crippled_hands)
+EVENT_FUN(event_updatechar_crippled_hands, ch, af)
 {
 	if (get_eq_char(ch, WEAR_WIELD) 
 	|| get_eq_char(ch, WEAR_SECOND_WIELD)
@@ -354,7 +354,7 @@ EVENT_FUN(event_updatechar_crippled_hands)
 	}
 }
 
-EVENT_FUN(event_updatechar_bonedragon)
+EVENT_FUN(event_updatechar_bonedragon, ch, af)
 {
 	if (!IS_NPC(ch)
 	|| !ch->master
@@ -370,7 +370,7 @@ EVENT_FUN(event_updatechar_bonedragon)
 			ch->master, NULL, NULL, TO_CHAR);
 }
 
-EVENT_FUN(event_timeoutchar_bonedragon)
+EVENT_FUN(event_timeoutchar_bonedragon, ch, af)
 {
 	CHAR_DATA *chm, *drag;
 	int i, dlev;

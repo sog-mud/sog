@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.243 2001-06-24 10:50:59 avn Exp $
+ * $Id: db.c,v 1.244 2001-06-24 21:12:52 avn Exp $
  */
 
 /***************************************************************************
@@ -1073,7 +1073,7 @@ void reset_area(AREA_DATA *pArea)
 			reset_room(pRoom, 0);
 }
 
-static MLSTR_FOREACH_FUN(cb_xxx_of)
+static MLSTR_FOREACH_FUN(cb_xxx_of, lang, p, ap)
 {
 	mlstring *owner = va_arg(ap, mlstring *);
 	const char *q;

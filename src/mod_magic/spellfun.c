@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.238 2001-06-22 07:13:38 avn Exp $
+ * $Id: spellfun.c,v 1.239 2001-06-24 21:12:45 avn Exp $
  */
 
 /***************************************************************************
@@ -5207,7 +5207,7 @@ void spell_attract_other(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	spellfun_call("charm person", sn, level+2, ch, vo);
 }
 
-static MLSTR_FOREACH_FUN(cb_strip)
+static MLSTR_FOREACH_FUN(cb_strip, lang, p, ap)
 {
 	char buf[MAX_STRING_LENGTH];
 	mlstring *mlp = va_arg(ap, mlstring *);

@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.178 2001-06-24 10:50:51 avn Exp $
+ * $Id: save.c,v 1.179 2001-06-24 21:12:50 avn Exp $
  */
 
 /***************************************************************************
@@ -202,8 +202,7 @@ void char_save(CHAR_DATA *ch, int flags)
 	d2rename(PLAYER_PATH, TMP_FILE, PLAYER_PATH, name);
 }
 
-static void *
-pc_skill_save_cb(void *p, va_list ap)
+static FOREACH_CB_FUN(pc_skill_save_cb, p, ap)
 {
 	pc_skill_t *pc_sk = (pc_skill_t *) p;
 
@@ -216,8 +215,7 @@ pc_skill_save_cb(void *p, va_list ap)
 	return NULL;
 }
 
-static void *
-spn_save_cb(void *p, va_list ap)
+static FOREACH_CB_FUN(spn_save_cb, p, ap)
 {
 	const char *spn = *(const char **) p;
 

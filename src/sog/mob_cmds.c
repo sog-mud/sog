@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.54 2001-06-24 10:50:48 avn Exp $
+ * $Id: mob_cmds.c,v 1.55 2001-06-24 21:12:48 avn Exp $
  */
 
 /***************************************************************************
@@ -117,7 +117,7 @@ void mob_interpret(CHAR_DATA *ch, const char *argument)
  *
  * Syntax: mob gecho [string]
  */
-DO_FUN(do_mpgecho)
+DO_FUN(do_mpgecho, ch, argument)
 {
     DESCRIPTOR_DATA *d;
 
@@ -144,7 +144,7 @@ DO_FUN(do_mpgecho)
  *
  * Syntax: mob zecho [string]
  */
-DO_FUN(do_mpzecho)
+DO_FUN(do_mpzecho, ch, argument)
 {
     DESCRIPTOR_DATA *d;
 
@@ -176,7 +176,7 @@ DO_FUN(do_mpzecho)
  *
  * Syntax: mob asound [string]
  */
-DO_FUN(do_mpasound)
+DO_FUN(do_mpasound, ch, argument)
 {
 
     ROOM_INDEX_DATA *was_in_room;
@@ -208,7 +208,7 @@ DO_FUN(do_mpasound)
  *
  * Syntax: mob kill [victim]
  */
-DO_FUN(do_mpkill)
+DO_FUN(do_mpkill, ch, argument)
 {
     char      arg[ MAX_INPUT_LENGTH ];
     CHAR_DATA *victim;
@@ -234,7 +234,7 @@ DO_FUN(do_mpkill)
     multi_hit(ch, victim, NULL);
 }
 
-DO_FUN(do_mpattack)
+DO_FUN(do_mpattack, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA* victim;
@@ -255,7 +255,7 @@ DO_FUN(do_mpattack)
  *
  * Syntax: mob assist [character]
  */
-DO_FUN(do_mpassist)
+DO_FUN(do_mpassist, ch, argument)
 {
     char      arg[ MAX_INPUT_LENGTH ];
     CHAR_DATA *victim;
@@ -284,7 +284,7 @@ DO_FUN(do_mpassist)
  * Syntax: mob junk [item]
  */
 
-DO_FUN(do_mpjunk)
+DO_FUN(do_mpjunk, ch, argument)
 {
     char      arg[ MAX_INPUT_LENGTH ];
     OBJ_DATA *obj;
@@ -329,7 +329,7 @@ DO_FUN(do_mpjunk)
  * Syntax: mob echoaround [victim] [string]
  */
 
-DO_FUN(do_mpechoaround)
+DO_FUN(do_mpechoaround, ch, argument)
 {
     char       arg[ MAX_INPUT_LENGTH ];
     CHAR_DATA *victim;
@@ -350,7 +350,7 @@ DO_FUN(do_mpechoaround)
  *
  * Syntax: mob echoat [victim] [string]
  */
-DO_FUN(do_mpechoat)
+DO_FUN(do_mpechoat, ch, argument)
 {
     char       arg[ MAX_INPUT_LENGTH ];
     CHAR_DATA *victim;
@@ -371,7 +371,7 @@ DO_FUN(do_mpechoat)
  *
  * Syntax: mpecho [string]
  */
-DO_FUN(do_mpecho)
+DO_FUN(do_mpecho, ch, argument)
 {
     if (argument[0] == '\0')
 	return;
@@ -383,7 +383,7 @@ DO_FUN(do_mpecho)
  *
  * Syntax: mob mload [vnum]
  */
-DO_FUN(do_mpmload)
+DO_FUN(do_mpmload, ch, argument)
 {
     char            arg[ MAX_INPUT_LENGTH ];
     MOB_INDEX_DATA *pMobIndex;
@@ -411,7 +411,7 @@ DO_FUN(do_mpmload)
  *
  * Syntax: mob oload [vnum] {R}
  */
-DO_FUN(do_mpoload)
+DO_FUN(do_mpoload, ch, argument)
 {
     char arg1[ MAX_INPUT_LENGTH ];
     char arg2[ MAX_INPUT_LENGTH ];
@@ -464,7 +464,7 @@ DO_FUN(do_mpoload)
  *
  * syntax mob purge {target}
  */
-DO_FUN(do_mppurge)
+DO_FUN(do_mppurge, ch, argument)
 {
     char       arg[ MAX_INPUT_LENGTH ];
     CHAR_DATA *victim;
@@ -524,7 +524,7 @@ DO_FUN(do_mppurge)
  *
  * Syntax: mob goto [location]
  */
-DO_FUN(do_mpgoto)
+DO_FUN(do_mpgoto, ch, argument)
 {
     char             arg[ MAX_INPUT_LENGTH ];
     ROOM_INDEX_DATA *location;
@@ -556,7 +556,7 @@ DO_FUN(do_mpgoto)
  *
  * Syntax: mob at [location] [commands]
  */
-DO_FUN(do_mpat)
+DO_FUN(do_mpat, ch, argument)
 {
     char             arg[ MAX_INPUT_LENGTH ];
     ROOM_INDEX_DATA *location;
@@ -603,7 +603,7 @@ DO_FUN(do_mpat)
  *
  * Syntax: mob transfer [target|'all'] [location]
  */
-DO_FUN(do_mptransfer)
+DO_FUN(do_mptransfer, ch, argument)
 {
     char             arg1[ MAX_INPUT_LENGTH ];
     char             arg2[ MAX_INPUT_LENGTH ];
@@ -672,7 +672,7 @@ DO_FUN(do_mptransfer)
  *
  * Syntax: mob gtransfer [victim] [location]
  */
-DO_FUN(do_mpgtransfer)
+DO_FUN(do_mpgtransfer, ch, argument)
 {
     char             arg1[ MAX_INPUT_LENGTH ];
     char             arg2[ MAX_INPUT_LENGTH ];
@@ -705,7 +705,7 @@ DO_FUN(do_mpgtransfer)
  *
  * Syntax: mob force [victim] [commands]
  */
-DO_FUN(do_mpforce)
+DO_FUN(do_mpforce, ch, argument)
 {
     char arg[ MAX_INPUT_LENGTH ];
 
@@ -754,7 +754,7 @@ DO_FUN(do_mpforce)
  *
  * Syntax: mob gforce [victim] [commands]
  */
-DO_FUN(do_mpgforce)
+DO_FUN(do_mpgforce, ch, argument)
 {
     char arg[ MAX_INPUT_LENGTH ];
     CHAR_DATA *victim, *vch, *vch_next;
@@ -791,7 +791,7 @@ DO_FUN(do_mpgforce)
  *
  * Syntax: mob vforce [vnum] [commands]
  */
-DO_FUN(do_mpvforce)
+DO_FUN(do_mpvforce, ch, argument)
 {
     CHAR_DATA *victim, *victim_next;
     char arg[ MAX_INPUT_LENGTH ];
@@ -831,7 +831,7 @@ DO_FUN(do_mpvforce)
  *
  * Syntax: mob damage [victim] [min] [max] {kill}
  */
-DO_FUN(do_mpdamage)
+DO_FUN(do_mpdamage, ch, argument)
 {
     CHAR_DATA *victim = NULL, *victim_next;
     char target[ MAX_INPUT_LENGTH ],
@@ -906,7 +906,7 @@ DO_FUN(do_mpdamage)
  *
  * Syntax: mob remember [victim]
  */
-DO_FUN(do_mpremember)
+DO_FUN(do_mpremember, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 
@@ -924,7 +924,7 @@ DO_FUN(do_mpremember)
  *
  * Syntax: mob forget
  */
-DO_FUN(do_mpforget)
+DO_FUN(do_mpforget, ch, argument)
 {
 	NPC(ch)->mprog_target = NULL;
 }
@@ -936,7 +936,7 @@ DO_FUN(do_mpforget)
  *
  * Syntax: mob delay [pulses]
  */
-DO_FUN(do_mpdelay)
+DO_FUN(do_mpdelay, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 
@@ -954,7 +954,7 @@ DO_FUN(do_mpdelay)
  *
  * Syntax: mob cancel
  */
-DO_FUN(do_mpcancel)
+DO_FUN(do_mpcancel, ch, argument)
 {
 	NPC(ch)->mprog_delay = -1;
 }
@@ -968,7 +968,7 @@ DO_FUN(do_mpcancel)
  * Syntax: mob call [vnum] [victim|'null'] [object1|'null'] [object2|'null']
  *
  */
-DO_FUN(do_mpcall)
+DO_FUN(do_mpcall, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *vch;
@@ -1004,7 +1004,7 @@ DO_FUN(do_mpcall)
  * Syntax: mob flee
  *
  */
-DO_FUN(do_mpflee)
+DO_FUN(do_mpflee, ch, argument)
 {
     ROOM_INDEX_DATA *was_in;
     EXIT_DATA *pexit;
@@ -1038,7 +1038,7 @@ DO_FUN(do_mpflee)
  *
  * Syntax: mob otransfer [item name] [location]
  */
-DO_FUN(do_mpotransfer)
+DO_FUN(do_mpotransfer, ch, argument)
 {
     OBJ_DATA *obj;
     ROOM_INDEX_DATA *location;
@@ -1078,7 +1078,7 @@ DO_FUN(do_mpotransfer)
  *
  * Syntax: mob remove [victim] [object vnum|'all']
  */
-DO_FUN(do_mpremove)
+DO_FUN(do_mpremove, ch, argument)
 {
     CHAR_DATA *victim;
     OBJ_DATA *obj, *obj_next;
@@ -1114,7 +1114,7 @@ DO_FUN(do_mpremove)
     }
 }
 
-DO_FUN(do_mpslay)
+DO_FUN(do_mpslay, ch, argument)
 {
 	dofun("slay", ch, argument);
 }

@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.118 2001-06-24 10:50:52 avn Exp $
+ * $Id: skills.c,v 1.119 2001-06-24 21:12:50 avn Exp $
  */
 
 /***************************************************************************
@@ -178,8 +178,7 @@ void set_skill(CHAR_DATA *ch, const char *sn, int percent)
 	_set_skill(ch, sn, percent, TRUE);
 }
 
-static void *
-apply_sa_cb(void *p, va_list ap)
+static FOREACH_CB_FUN(apply_sa_cb, p, ap)
 {
 	saff_t *sa = (saff_t *) p;
 
@@ -487,8 +486,7 @@ int skill_level(const CHAR_DATA *ch, const char *sn)
 	return spec_sk.level;
 }
 
-static const void *
-skill_slot_cb(void *p, va_list ap)
+static const FOREACH_CB_FUN(skill_slot_cb, p, ap)
 {
 	skill_t *sk = (skill_t *) p;
 
@@ -510,7 +508,7 @@ const char *skill_slot_lookup(int slot)
 	if (slot <= 0)
 		return NULL;
 
-	sn = hash_foreach(&skills, (foreach_cb_t)skill_slot_cb, slot);
+	sn = hash_foreach(&skills, (void*)skill_slot_cb, slot);
 	if (IS_NULLSTR(sn))
 		log(LOG_BUG, "skill_slot_lookup: unknown slot %d", slot);
 	return str_qdup(sn);

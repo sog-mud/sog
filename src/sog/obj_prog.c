@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.92 2001-06-24 10:50:49 avn Exp $
+ * $Id: obj_prog.c,v 1.93 2001-06-24 21:12:49 avn Exp $
  */
 
 /***************************************************************************
@@ -53,7 +53,7 @@
 #include "update.h"
 #include "obj_prog.h"
 
-DECLARE_OPROG_FUN(wear_prog_excalibur);
+static DECLARE_OPROG_FUN(wear_prog_excalibur);
 DECLARE_OPROG_FUN(remove_prog_excalibur);
 DECLARE_OPROG_FUN(death_prog_excalibur);
 DECLARE_OPROG_FUN(speech_prog_excalibur);
@@ -103,7 +103,7 @@ DECLARE_OPROG_FUN(remove_prog_coconut);
 DECLARE_OPROG_FUN(fight_prog_firegauntlets);
 DECLARE_OPROG_FUN(wear_prog_firegauntlets);
 DECLARE_OPROG_FUN(remove_prog_firegauntlets);
-/* ibrahim armbands */
+
 DECLARE_OPROG_FUN(fight_prog_armbands);
 DECLARE_OPROG_FUN(wear_prog_armbands);
 DECLARE_OPROG_FUN(remove_prog_armbands);
@@ -118,7 +118,6 @@ DECLARE_OPROG_FUN(get_prog_quest_obj);
 DECLARE_OPROG_FUN(fight_prog_shockwave);
 DECLARE_OPROG_FUN(fight_prog_snake);
 
-/* new ones by chronos */
 DECLARE_OPROG_FUN(wear_prog_wind_boots);
 DECLARE_OPROG_FUN(remove_prog_wind_boots);
 
@@ -321,7 +320,7 @@ void oprog_set(OBJ_INDEX_DATA *pObjIndex,const char *progtype, const char *name)
 	pObjIndex->oprogs[opindex] = oprog->fn;
 }
 
-OPROG_FUN(wear_prog_excalibur)
+OPROG_FUN(wear_prog_excalibur, obj, ch, arg)
 {
 	int v2;
 
@@ -341,7 +340,7 @@ OPROG_FUN(wear_prog_excalibur)
 	return 0;
 }
 
-OPROG_FUN(wear_prog_bracer)
+OPROG_FUN(wear_prog_bracer, obj, ch, arg)
 {
 	AFFECT_DATA af;
 
@@ -363,7 +362,7 @@ OPROG_FUN(wear_prog_bracer)
 	return 0;
 }
 
-OPROG_FUN(remove_prog_bracer)
+OPROG_FUN(remove_prog_bracer, obj, ch, arg)
 {
 	if (is_affected(ch, "haste"))
 	{
@@ -374,14 +373,14 @@ OPROG_FUN(remove_prog_bracer)
 }
 
 
-OPROG_FUN(remove_prog_excalibur)
+OPROG_FUN(remove_prog_excalibur, obj, ch, arg)
 {
 	act("$p stops glowing.",ch,obj,NULL,TO_CHAR);
 	act("$p stops glowing.",ch,obj,NULL,TO_ROOM);
 	return 0;
 }
 
-OPROG_FUN(death_prog_excalibur)
+OPROG_FUN(death_prog_excalibur, obj, ch, arg)
 {
 	if (number_percent()<25) {
 		act_puts("$p starts to glow with a blue aura.",ch,obj,NULL,TO_CHAR,POS_DEAD);
@@ -394,7 +393,7 @@ OPROG_FUN(death_prog_excalibur)
 	else return 0;
 }
 
-OPROG_FUN(speech_prog_excalibur)
+OPROG_FUN(speech_prog_excalibur, obj, ch, arg)
 {
 	const char *speech = arg;
 
@@ -411,7 +410,7 @@ OPROG_FUN(speech_prog_excalibur)
 	return 0;
 }
 	
-OPROG_FUN(sac_prog_excalibur)
+OPROG_FUN(sac_prog_excalibur, obj, ch, arg)
 {
 	act("The gods are infuriated!",ch,NULL,NULL,TO_ALL);
 	damage(ch, ch,
@@ -422,7 +421,7 @@ OPROG_FUN(sac_prog_excalibur)
 	return TRUE; 
 }
 
-OPROG_FUN(fight_prog_ranger_staff)
+OPROG_FUN(fight_prog_ranger_staff, obj, ch, arg)
 {
 	if ((get_eq_char(ch,WEAR_WIELD) == obj
 	||   get_eq_char(ch,WEAR_SECOND_WIELD) == obj)
@@ -434,7 +433,7 @@ OPROG_FUN(fight_prog_ranger_staff)
 	return 0;
 }
 
-OPROG_FUN(death_prog_ranger_staff)
+OPROG_FUN(death_prog_ranger_staff, obj, ch, arg)
 {
 	act_char("Your ranger's staff disappears.", ch);
 	act("$n's ranger's staff disappears.",ch,NULL,NULL,TO_ROOM);
@@ -442,7 +441,7 @@ OPROG_FUN(death_prog_ranger_staff)
 	return 0;
 }
 
-OPROG_FUN(get_prog_spec_weapon) 
+OPROG_FUN(get_prog_spec_weapon, obj, ch, arg) 
 {
 	if (IS_OWNER(ch, obj)) {
 		if (IS_AFFECTED(ch, AFF_POISON) && (dice(1,5)==1))  {
@@ -480,7 +479,7 @@ OPROG_FUN(get_prog_spec_weapon)
 	return 0;
 }
 
-OPROG_FUN(get_prog_quest_obj) 
+OPROG_FUN(get_prog_quest_obj, obj, ch, arg) 
 {
 	if (IS_OWNER(ch, obj)) {
 		if (IS_AFFECTED(ch, AFF_POISON) && (dice(1, 5) == 1)) {
@@ -513,7 +512,7 @@ OPROG_FUN(get_prog_quest_obj)
 	return 0;
 }
 
-OPROG_FUN(speech_prog_kassandra)
+OPROG_FUN(speech_prog_kassandra, obj, ch, arg)
 {
 	const char *speech = (const char*) arg;
 
@@ -539,7 +538,7 @@ OPROG_FUN(speech_prog_kassandra)
 	return 0;
 }
 	  
-OPROG_FUN(fight_prog_chaos_blade)
+OPROG_FUN(fight_prog_chaos_blade, obj, ch, arg)
 {
 	if (get_eq_char(ch, WEAR_WIELD) != obj
 	&&  get_eq_char(ch, WEAR_SECOND_WIELD) != obj)
@@ -572,7 +571,7 @@ OPROG_FUN(fight_prog_chaos_blade)
 	return 0;
 }
 
-OPROG_FUN(death_prog_chaos_blade)
+OPROG_FUN(death_prog_chaos_blade, obj, ch, arg)
 {
 	act_char("Your chaotic blade disappears.", ch);
 	act("$n's chaotic blade disappears.",ch,NULL,NULL,TO_ROOM);
@@ -580,7 +579,7 @@ OPROG_FUN(death_prog_chaos_blade)
 	return 0;
 }
 
-OPROG_FUN(fight_prog_tattoo_atum_ra)
+OPROG_FUN(fight_prog_tattoo_atum_ra, obj, ch, arg)
 {
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
@@ -601,7 +600,7 @@ OPROG_FUN(fight_prog_tattoo_atum_ra)
 }
 
 
-OPROG_FUN(fight_prog_tattoo_zeus)
+OPROG_FUN(fight_prog_tattoo_zeus, obj, ch, arg)
 {
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
@@ -624,7 +623,7 @@ OPROG_FUN(fight_prog_tattoo_zeus)
 	return 0;
 }
 
-OPROG_FUN(fight_prog_tattoo_siebele)
+OPROG_FUN(fight_prog_tattoo_siebele, obj, ch, arg)
 {
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
@@ -642,7 +641,7 @@ OPROG_FUN(fight_prog_tattoo_siebele)
 	return 0;
 }
 
-OPROG_FUN(fight_prog_tattoo_ahuramazda)
+OPROG_FUN(fight_prog_tattoo_ahuramazda, obj, ch, arg)
 {
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
@@ -661,7 +660,7 @@ OPROG_FUN(fight_prog_tattoo_ahuramazda)
 	return 0;
 }
 
-OPROG_FUN(fight_prog_tattoo_shamash)
+OPROG_FUN(fight_prog_tattoo_shamash, obj, ch, arg)
 {
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
@@ -681,7 +680,7 @@ OPROG_FUN(fight_prog_tattoo_shamash)
 	return 0;
 }
 
-OPROG_FUN(fight_prog_tattoo_ehrumen)
+OPROG_FUN(fight_prog_tattoo_ehrumen, obj, ch, arg)
 {
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
@@ -697,7 +696,7 @@ OPROG_FUN(fight_prog_tattoo_ehrumen)
 	return 0;
 }
 
-OPROG_FUN(fight_prog_tattoo_venus)
+OPROG_FUN(fight_prog_tattoo_venus, obj, ch, arg)
 {
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
@@ -721,7 +720,7 @@ OPROG_FUN(fight_prog_tattoo_venus)
 	return 0;
 }
 
-OPROG_FUN(fight_prog_tattoo_seth)
+OPROG_FUN(fight_prog_tattoo_seth, obj, ch, arg)
 {
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
@@ -742,7 +741,7 @@ OPROG_FUN(fight_prog_tattoo_seth)
 }
 
 
-OPROG_FUN(fight_prog_tattoo_odin)
+OPROG_FUN(fight_prog_tattoo_odin, obj, ch, arg)
 {
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
@@ -762,7 +761,7 @@ OPROG_FUN(fight_prog_tattoo_odin)
 	return 0;
 }
 
-OPROG_FUN(fight_prog_tattoo_phobos)
+OPROG_FUN(fight_prog_tattoo_phobos, obj, ch, arg)
 {
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
@@ -778,7 +777,7 @@ OPROG_FUN(fight_prog_tattoo_phobos)
 	return 0;
 }
 
-OPROG_FUN(fight_prog_tattoo_teshub)
+OPROG_FUN(fight_prog_tattoo_teshub, obj, ch, arg)
 {
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
@@ -802,7 +801,7 @@ OPROG_FUN(fight_prog_tattoo_teshub)
 	return 0;
 }
 
-OPROG_FUN(fight_prog_tattoo_ares)
+OPROG_FUN(fight_prog_tattoo_ares, obj, ch, arg)
 {
 	AFFECT_DATA af;
 
@@ -871,7 +870,7 @@ OPROG_FUN(fight_prog_tattoo_ares)
 	return 0;
 }
 
-OPROG_FUN(fight_prog_tattoo_hera)
+OPROG_FUN(fight_prog_tattoo_hera, obj, ch, arg)
 {
 	int bonus = 3;
 
@@ -908,7 +907,7 @@ OPROG_FUN(fight_prog_tattoo_hera)
 }
 
 
-OPROG_FUN(fight_prog_tattoo_deimos)
+OPROG_FUN(fight_prog_tattoo_deimos, obj, ch, arg)
 {
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
@@ -922,7 +921,7 @@ OPROG_FUN(fight_prog_tattoo_deimos)
 	return 0;
 }
 
-OPROG_FUN(fight_prog_tattoo_enki)
+OPROG_FUN(fight_prog_tattoo_enki, obj, ch, arg)
 {
 	if (get_eq_char(ch, WEAR_TATTOO) == obj)
 	switch(number_bits(5)) {
@@ -939,7 +938,7 @@ OPROG_FUN(fight_prog_tattoo_enki)
 	return 0;
 }
 
-OPROG_FUN(fight_prog_tattoo_eros)
+OPROG_FUN(fight_prog_tattoo_eros, obj, ch, arg)
 {
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
@@ -959,7 +958,7 @@ OPROG_FUN(fight_prog_tattoo_eros)
 }
 
 
-OPROG_FUN(death_prog_golden_weapon)
+OPROG_FUN(death_prog_golden_weapon, obj, ch, arg)
 {
 	act_char("Your golden weapon disappears.", ch);
 	act("$n's golden weapon disappears.",ch,NULL,NULL,TO_ROOM);
@@ -974,7 +973,7 @@ OPROG_FUN(death_prog_golden_weapon)
 	return 1; 
 }
 
-OPROG_FUN(fight_prog_golden_weapon)
+OPROG_FUN(fight_prog_golden_weapon, obj, ch, arg)
 {
 	if ((get_eq_char(ch,WEAR_WIELD) == obj) ||
 		(get_eq_char(ch,WEAR_SECOND_WIELD) == obj))
@@ -998,14 +997,14 @@ OPROG_FUN(fight_prog_golden_weapon)
 	return 0;
 }
 
-OPROG_FUN(get_prog_heart)
+OPROG_FUN(get_prog_heart, obj, ch, arg)
 {
 	if (obj->timer == 0)
 		obj->timer = 24;
 	return 0;
 }
 
-OPROG_FUN(fight_prog_snake)
+OPROG_FUN(fight_prog_snake, obj, ch, arg)
 {
 	if ((get_eq_char(ch, WEAR_WIELD) == obj) ||
 		(get_eq_char(ch,WEAR_SECOND_WIELD) == obj))
@@ -1034,7 +1033,7 @@ OPROG_FUN(fight_prog_snake)
 	return 0;
 }
 
-OPROG_FUN(fight_prog_shockwave)
+OPROG_FUN(fight_prog_shockwave, obj, ch, arg)
 {
 	if ((get_eq_char(ch, WEAR_WIELD) == obj) ||
 		(get_eq_char(ch,WEAR_SECOND_WIELD) == obj))
@@ -1052,7 +1051,7 @@ OPROG_FUN(fight_prog_shockwave)
 	return 0;
 }
 
-OPROG_FUN(wear_prog_ranger_staff)
+OPROG_FUN(wear_prog_ranger_staff, obj, ch, arg)
 {
 	if (!IS_CLASS(ch->class, "ranger")) {
 		act_char("You don't know to use this thing.", ch);
@@ -1065,7 +1064,7 @@ OPROG_FUN(wear_prog_ranger_staff)
 	return 0;
 }
 
-OPROG_FUN(wear_prog_coconut)
+OPROG_FUN(wear_prog_coconut, obj, ch, arg)
 {
 	act("You start to bang the coconut shells together.",ch,NULL,NULL,TO_CHAR);
 	act("You hear a sound like horses galloping and you mount your steed.", 
@@ -1075,7 +1074,7 @@ OPROG_FUN(wear_prog_coconut)
 	return 0;
 }
 
-OPROG_FUN(entry_prog_coconut)
+OPROG_FUN(entry_prog_coconut, obj, ch, arg)
 {
 	if (obj->carried_by != NULL)
 	if (get_eq_char(obj->carried_by, WEAR_HOLD) == obj)
@@ -1084,7 +1083,7 @@ OPROG_FUN(entry_prog_coconut)
 	return 0;
 }  
 
-OPROG_FUN(greet_prog_coconut)
+OPROG_FUN(greet_prog_coconut, obj, ch, arg)
 {
 	if (obj->carried_by != NULL)
 	{
@@ -1097,7 +1096,7 @@ OPROG_FUN(greet_prog_coconut)
 	return 0;
 }
 
-OPROG_FUN(get_prog_coconut)
+OPROG_FUN(get_prog_coconut, obj, ch, arg)
 {
 	act_char("You hold the coconut up to your ear and suddenly you hear the faint", ch);
 	act_char("roar of galloping horses.", ch);
@@ -1105,14 +1104,14 @@ OPROG_FUN(get_prog_coconut)
 	return 0;
 }
 
-OPROG_FUN(remove_prog_coconut)
+OPROG_FUN(remove_prog_coconut, obj, ch, arg)
 {
 	act_char("The sounds of horses fade away.", ch);
 	act("$n pretends to dismount a horse.", ch, NULL, NULL, TO_ROOM);
 	return 0;
 }
 
-OPROG_FUN(fight_prog_firegauntlets)
+OPROG_FUN(fight_prog_firegauntlets, obj, ch, arg)
 {
 	int dam;
 
@@ -1139,19 +1138,19 @@ OPROG_FUN(fight_prog_firegauntlets)
 	return 0;
 }
 
-OPROG_FUN(wear_prog_firegauntlets)
+OPROG_FUN(wear_prog_firegauntlets, obj, ch, arg)
 {
 	act_char("Your hands warm up by the gauntlets.", ch);
 	return 0;
 }
 
-OPROG_FUN(remove_prog_firegauntlets)
+OPROG_FUN(remove_prog_firegauntlets, obj, ch, arg)
 {
 	act_char("Your hands cool down.", ch);
 	return 0;
 }
 
-OPROG_FUN(fight_prog_armbands)
+OPROG_FUN(fight_prog_armbands, obj, ch, arg)
 {
 	int dam;
 	if (get_eq_char(ch, WEAR_ARMS) != obj)
@@ -1174,19 +1173,19 @@ OPROG_FUN(fight_prog_armbands)
 	return 0;
 }
 
-OPROG_FUN(wear_prog_armbands)
+OPROG_FUN(wear_prog_armbands, obj, ch, arg)
 {
 	act_char("Your arms warm up by the armbands of the volcanoes.", ch);
 	return 0;
 }
 
-OPROG_FUN(remove_prog_armbands)
+OPROG_FUN(remove_prog_armbands, obj, ch, arg)
 {
 	act_char("Your arms cool down again.", ch);
 	return 0;
 }
 
-OPROG_FUN(fight_prog_demonfireshield)
+OPROG_FUN(fight_prog_demonfireshield, obj, ch, arg)
 {
 	int dam;
 
@@ -1209,19 +1208,19 @@ OPROG_FUN(fight_prog_demonfireshield)
 	return 0;
 }
 
-OPROG_FUN(wear_prog_demonfireshield)
+OPROG_FUN(wear_prog_demonfireshield, obj, ch, arg)
 {
 	act_char("Your hands warm up by the fire shield.", ch);
 	return 0;
 }
 
-OPROG_FUN(remove_prog_demonfireshield)
+OPROG_FUN(remove_prog_demonfireshield, obj, ch, arg)
 {
 	act_char("Your hands cool down.", ch);
 	return 0;
 }
 
-OPROG_FUN(fight_prog_vorpalblade)
+OPROG_FUN(fight_prog_vorpalblade, obj, ch, arg)
 {
 	CHAR_DATA *victim;
 
@@ -1252,7 +1251,7 @@ OPROG_FUN(fight_prog_vorpalblade)
 	return 0;
 }
 
-OPROG_FUN(wear_prog_wind_boots)
+OPROG_FUN(wear_prog_wind_boots, obj, ch, arg)
 {
 	AFFECT_DATA af;
 
@@ -1274,7 +1273,7 @@ OPROG_FUN(wear_prog_wind_boots)
 	return 0;
 }
 
-OPROG_FUN(remove_prog_wind_boots)
+OPROG_FUN(remove_prog_wind_boots, obj, ch, arg)
 {
 	if (is_affected(ch, "fly"))
 	{
@@ -1285,7 +1284,7 @@ OPROG_FUN(remove_prog_wind_boots)
 	return 0;
 }
 
-OPROG_FUN(wear_prog_boots_flying)
+OPROG_FUN(wear_prog_boots_flying, obj, ch, arg)
 {
 	AFFECT_DATA af;
 
@@ -1307,7 +1306,7 @@ OPROG_FUN(wear_prog_boots_flying)
 	return 0;
 }
 
-OPROG_FUN(remove_prog_boots_flying)
+OPROG_FUN(remove_prog_boots_flying, obj, ch, arg)
 {
 	if (is_affected(ch, "fly"))
 	{
@@ -1318,7 +1317,7 @@ OPROG_FUN(remove_prog_boots_flying)
 	return 0;
 }
 
-OPROG_FUN(wear_prog_arm_hercules)
+OPROG_FUN(wear_prog_arm_hercules, obj, ch, arg)
 {
 	AFFECT_DATA af;
 
@@ -1340,7 +1339,7 @@ OPROG_FUN(wear_prog_arm_hercules)
 	return 0;
 }
 
-OPROG_FUN(remove_prog_arm_hercules)
+OPROG_FUN(remove_prog_arm_hercules, obj, ch, arg)
 {
 	if (is_affected(ch, "giant strength"))
 	{
@@ -1350,7 +1349,7 @@ OPROG_FUN(remove_prog_arm_hercules)
 	return 0;
 }
 
-OPROG_FUN(wear_prog_girdle_giant)
+OPROG_FUN(wear_prog_girdle_giant, obj, ch, arg)
 {
 	AFFECT_DATA af;
 
@@ -1372,7 +1371,7 @@ OPROG_FUN(wear_prog_girdle_giant)
 	return 0;
 }
 
-OPROG_FUN(remove_prog_girdle_giant)
+OPROG_FUN(remove_prog_girdle_giant, obj, ch, arg)
 {
 	if (is_affected(ch, "giant strength"))
 	{
@@ -1382,7 +1381,7 @@ OPROG_FUN(remove_prog_girdle_giant)
 	return 0;
 }
 
-OPROG_FUN(wear_prog_breastplate_strength)
+OPROG_FUN(wear_prog_breastplate_strength, obj, ch, arg)
 {
 	AFFECT_DATA af;
 
@@ -1404,7 +1403,7 @@ OPROG_FUN(wear_prog_breastplate_strength)
 	return 0;
 }
 
-OPROG_FUN(remove_prog_breastplate_strength)
+OPROG_FUN(remove_prog_breastplate_strength, obj, ch, arg)
 {
 	if (is_affected(ch, "giant strength")) {
 	  affect_strip(ch, "giant strength");
@@ -1413,7 +1412,7 @@ OPROG_FUN(remove_prog_breastplate_strength)
 	return 0;
 }
 
-OPROG_FUN(fight_prog_rose_shield)
+OPROG_FUN(fight_prog_rose_shield, obj, ch, arg)
 {
 	if (ch->in_room->sector_type != SECT_FIELD
 	&&  ch->in_room->sector_type != SECT_FOREST
@@ -1453,7 +1452,7 @@ lion_claw_hit(OBJ_DATA *obj, CHAR_DATA *ch, int loc)
 	return TRUE;
 }
 
-OPROG_FUN(fight_prog_lion_claw)
+OPROG_FUN(fight_prog_lion_claw, obj, ch, arg)
 {
 	bool foo;
 
@@ -1465,7 +1464,7 @@ OPROG_FUN(fight_prog_lion_claw)
 	return 0;
 }
 
-OPROG_FUN(speech_prog_ring_ra)
+OPROG_FUN(speech_prog_ring_ra, obj, ch, arg)
 {
 	const char *speech = (const char*) arg;
 
@@ -1483,7 +1482,7 @@ OPROG_FUN(speech_prog_ring_ra)
 	return 0;
 }
 
-OPROG_FUN(wear_prog_eyed_sword)
+OPROG_FUN(wear_prog_eyed_sword, obj, ch, arg)
 {
 	int v2;
 
@@ -1505,7 +1504,7 @@ OPROG_FUN(wear_prog_eyed_sword)
 	return 0;
 }
 
-OPROG_FUN(wear_prog_katana_sword)
+OPROG_FUN(wear_prog_katana_sword, obj, ch, arg)
 {
 	if (obj->item_type == ITEM_WEAPON 
 	&&  IS_WEAPON_STAT(obj, WEAPON_KATANA)
@@ -1538,7 +1537,7 @@ OPROG_FUN(wear_prog_katana_sword)
 	return 0;
 }
 
-OPROG_FUN(fight_prog_tattoo_goktengri)
+OPROG_FUN(fight_prog_tattoo_goktengri, obj, ch, arg)
 {
 	if (get_eq_char(ch, WEAR_TATTOO) == obj)
 	switch(number_bits(4)) {
@@ -1553,7 +1552,7 @@ OPROG_FUN(fight_prog_tattoo_goktengri)
 	return 0;
 }
 
-OPROG_FUN(wear_prog_snake)
+OPROG_FUN(wear_prog_snake, obj, ch, arg)
 {
 	int v2;
 
@@ -1577,7 +1576,7 @@ OPROG_FUN(wear_prog_snake)
 }
 
 
-OPROG_FUN(remove_prog_snake)
+OPROG_FUN(remove_prog_snake, obj, ch, arg)
 {
 	act_puts("Snakes of whip slowly melds to non-living skin.",
 			ch,obj,NULL,TO_CHAR,POS_DEAD);
@@ -1586,13 +1585,13 @@ OPROG_FUN(remove_prog_snake)
 	return 0;
 }
 
-OPROG_FUN(get_prog_snake) 
+OPROG_FUN(get_prog_snake, obj, ch, arg) 
 {
 	act("You feel as if snakes of whip moved.",ch,obj,NULL,TO_CHAR);
 	return 0;
 }
 
-OPROG_FUN(wear_prog_fire_shield)
+OPROG_FUN(wear_prog_fire_shield, obj, ch, arg)
 {
 	AFFECT_DATA af;
 
@@ -1632,7 +1631,7 @@ OPROG_FUN(wear_prog_fire_shield)
 	return 0;
 }
 
-OPROG_FUN(remove_prog_fire_shield)
+OPROG_FUN(remove_prog_fire_shield, obj, ch, arg)
 {
 	if (is_affected(ch, "fire shield")) {
 		affect_strip(ch, "fire shield");
@@ -1644,7 +1643,7 @@ OPROG_FUN(remove_prog_fire_shield)
 	return 0;
 }
 
-OPROG_FUN(wear_prog_quest_weapon)
+OPROG_FUN(wear_prog_quest_weapon, obj, ch, arg)
 {
 	if (IS_OWNER(ch, obj)) {
 		int v2;
@@ -1673,7 +1672,7 @@ OPROG_FUN(wear_prog_quest_weapon)
 	return 1;
 }
 
-OPROG_FUN(get_prog_quest_reward) 
+OPROG_FUN(get_prog_quest_reward, obj, ch, arg) 
 {
 	if (IS_OWNER(ch, obj)) {
 		act_puts("Your $p starts glowing.",
@@ -1689,7 +1688,7 @@ OPROG_FUN(get_prog_quest_reward)
 	return 0;
 }
 
-OPROG_FUN(wear_prog_ruler_shield)
+OPROG_FUN(wear_prog_ruler_shield, obj, ch, arg)
 {
 	clan_t *clan = clan_lookup(ch->clan);
 
@@ -1706,7 +1705,7 @@ OPROG_FUN(wear_prog_ruler_shield)
 	return 0;
 }
 
-OPROG_FUN(fight_prog_swordbreaker)
+OPROG_FUN(fight_prog_swordbreaker, obj, ch, arg)
 {
   CHAR_DATA *victim;
   OBJ_DATA *wield;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spec.c,v 1.23 2001-06-24 10:50:52 avn Exp $
+ * $Id: spec.c,v 1.24 2001-06-24 21:12:51 avn Exp $
  */
 
 #include <stdio.h>
@@ -99,8 +99,7 @@ spec_skill_lookup(spec_t *s, const char *sn)
  * update_skills stuff
  */
 
-static void *
-add_one_skill_cb(void *p, va_list ap)
+static FOREACH_CB_FUN(add_one_skill_cb, p, ap)
 {
 	spec_skill_t *spec_sk = (spec_skill_t *) p;
 
@@ -125,8 +124,7 @@ add_one_skill_cb(void *p, va_list ap)
 	return NULL;
 }
 
-static void *
-add_skills_cb(void *p, va_list ap)
+static FOREACH_CB_FUN(add_skills_cb, p, ap)
 {
 	const char *spn = *(const char **) p;
 
@@ -146,8 +144,7 @@ add_skills_cb(void *p, va_list ap)
 	return NULL;
 }
 
-static void *
-check_one_skill_cb(void *p, va_list ap)
+static FOREACH_CB_FUN(check_one_skill_cb, p, ap)
 {
 	pc_skill_t *pc_sk = (pc_skill_t *) p;
 
@@ -204,8 +201,7 @@ spec_apply(spec_skill_t *spec_sk, spec_skill_t *spec_sk2)
 	spec_sk->max = UMAX(spec_sk->max, spec_sk2->max);
 }
 
-static void *
-spec_stats_cb(void *p, va_list ap)
+static FOREACH_CB_FUN(spec_stats_cb, p, ap)
 {
 	const char *spn = *(const char **) p;
 
@@ -352,8 +348,7 @@ bool spec_del(CHAR_DATA *ch, const char *spn)
 #define SU_F_SEEN_CLAN	(C)
 #define SU_F_ALTERED	(D)
 
-static void *
-spec_update_cb(void *p, va_list ap)
+static FOREACH_CB_FUN(spec_update_cb, p, ap)
 {
 	const char **pspn = (const char **) p;
 
@@ -461,8 +456,7 @@ void spec_update(CHAR_DATA *ch)
 		update_skills(ch);
 }
 
-static const void *
-replace_cb(void *p, va_list ap)
+static const FOREACH_CB_FUN(replace_cb, p, ap)
 {
 	const char **pspn = (const char **) p;
 
@@ -498,7 +492,7 @@ spec_replace(CHAR_DATA *ch, const char *spn_rm, const char *spn_add)
 				 spn_rm, spn_add)) != NULL)
 		return rv;
 
-	if ((rv = varr_foreach(&PC(ch)->specs, (foreach_cb_t)replace_cb, ch,
+	if ((rv = varr_foreach(&PC(ch)->specs, (void*)replace_cb, ch,
 			       spn_rm, spn_add)) != NULL)
 		return rv;
 

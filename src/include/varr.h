@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.h,v 1.21 2001-06-24 10:50:41 avn Exp $
+ * $Id: varr.h,v 1.22 2001-06-24 21:12:43 avn Exp $
  */
 
 #ifndef _VARR_H_
@@ -65,23 +65,26 @@ void	varr_qsort	(const varr *, int (*)(const void *, const void *));
 void *	varr_bsearch	(const varr *, const void *e,
 			 int (*)(const void *, const void *));
 
-typedef void *(*foreach_cb_t)(void *, va_list);
-
+typedef void *(foreach_cb_t)(void *p, va_list ap);
+#define DECLARE_FOREACH_CB(fun)	foreach_cb_t fun
+#define FOREACH_CB_FUN(fun, p, ap)					\
+	void *fun(void *p __attribute__((unused)),			\
+		  va_list ap __attribute__((unused)))
 /*
  * iterators
  */
 void *	varr_foreach	(const varr *, foreach_cb_t, ...);
-void *	varr_eforeach	(const varr *, void *, foreach_cb_t, ...);
-void *	varr_nforeach	(const varr *, size_t i, foreach_cb_t, ...);
-void *	varr_anforeach	(const varr *, size_t i, foreach_cb_t, va_list ap);
+void *	varr_eforeach	(const varr *, void *, foreach_cb_t *, ...);
+void *	varr_nforeach	(const varr *, size_t i, foreach_cb_t *, ...);
+void *	varr_anforeach	(const varr *, size_t i, foreach_cb_t *, va_list ap);
 
 /*
  * reverse iterators
  */
-void *	varr_rforeach	(const varr *, foreach_cb_t, ...);
-void *	varr_reforeach	(const varr *, void *, foreach_cb_t, ...);
-void *	varr_rnforeach	(const varr *, size_t i, foreach_cb_t, ...);
-void *	varr_arnforeach	(const varr *, size_t i, foreach_cb_t, va_list ap);
+void *	varr_rforeach	(const varr *, foreach_cb_t *, ...);
+void *	varr_reforeach	(const varr *, void *, foreach_cb_t *, ...);
+void *	varr_rnforeach	(const varr *, size_t i, foreach_cb_t *, ...);
+void *	varr_arnforeach	(const varr *, size_t i, foreach_cb_t *, va_list ap);
 
 #define varr_size(v)	((v)->nused)
 #define varr_enew(v)	(varr_touch((v), varr_size(v)))

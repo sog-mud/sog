@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.45 2001-06-24 10:50:40 avn Exp $
+ * $Id: typedef.h,v 1.46 2001-06-24 21:12:43 avn Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -118,12 +118,11 @@ union vo_t {
 		(v).s = (str);			\
 	} while(0);
 
-typedef void	DO_FUN		(CHAR_DATA *ch, const char *argument);
-typedef bool	SPEC_FUN	(CHAR_DATA *ch);
-typedef void	SPELL_FUN	(const char *sn, int level,
-				 CHAR_DATA *ch, void *vo);
-typedef int	OPROG_FUN	(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg);
-typedef void	EVENT_FUN	(CHAR_DATA *ch, AFFECT_DATA *af);
+typedef void	DO_FUN		(CHAR_DATA *, const char *);
+typedef bool	SPEC_FUN	(CHAR_DATA *);
+typedef void	SPELL_FUN	(const char *, int, CHAR_DATA *, void *);
+typedef int	OPROG_FUN	(OBJ_DATA *, CHAR_DATA *, const void *);
+typedef void	EVENT_FUN	(CHAR_DATA *, AFFECT_DATA *);
 
 #define DECLARE_SPEC_FUN(fun)	SPEC_FUN  fun
 #define DECLARE_DO_FUN(fun)	DO_FUN fun
@@ -131,15 +130,15 @@ typedef void	EVENT_FUN	(CHAR_DATA *ch, AFFECT_DATA *af);
 #define DECLARE_EVENT_FUN(fun)	EVENT_FUN fun
 #define DECLARE_SPELL_FUN(fun)	SPELL_FUN fun
 
-#define DO_FUN(fun)	void	fun(CHAR_DATA *ch,			\
-				const char *argument __attribute((unused)))
-#define SPEC_FUN(fun)	bool	fun(CHAR_DATA *ch)
-#define OPROG_FUN(fun)	int	fun(OBJ_DATA *obj __attribute__((unused)),\
-				CHAR_DATA *ch __attribute__((unused)),	\
-				const void *arg __attribute__((unused)))
-#define EVENT_FUN(fun)	void	fun(CHAR_DATA *ch, AFFECT_DATA *af)
-#define SPELL_FUN(fun)	void	fun(const char *sn, int level,		\
-				CHAR_DATA *ch, void *vo)
+#define DO_FUN(fun,a,b)		void fun(CHAR_DATA *a,			\
+					const char *b __attribute((unused)))
+#define SPEC_FUN(fun,a)		bool fun(CHAR_DATA *a)
+#define OPROG_FUN(fun,a,b,c)	int fun(OBJ_DATA *a __attribute__((unused)),\
+					CHAR_DATA *b __attribute__((unused)),\
+					const void *c __attribute__((unused)))
+#define EVENT_FUN(fun,a,b)	void fun(CHAR_DATA *a, AFFECT_DATA *b)
+#define SPELL_FUN(fun,a,b,c,d)	void fun(const char *a, int b,		\
+				CHAR_DATA *c, void *d)
 
 /* WIN32 Microsoft specific definitions */
 #if defined (WIN32)

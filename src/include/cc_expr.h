@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cc_expr.h,v 1.3 2001-06-24 10:50:38 avn Exp $
+ * $Id: cc_expr.h,v 1.4 2001-06-24 21:12:42 avn Exp $
  */
 
 #ifndef _CC_EXPR_H
@@ -68,7 +68,7 @@ void	fwrite_cc_vexpr	(varr *v, const char *pre, FILE *fp);
 void	print_cc_vexpr	(varr *v, const char *pre, BUFFER *buf);
 
 const char *cc_vexpr_check(varr *v, const char *rcn, ...);
-const void *expr_check_cb(void *p, va_list ap);
+const FOREACH_CB_FUN(expr_check_cb, p, ap);
 
 #endif
 

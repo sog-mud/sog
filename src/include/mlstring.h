@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.h,v 1.28 2001-06-24 10:50:39 avn Exp $
+ * $Id: mlstring.h,v 1.29 2001-06-24 21:12:43 avn Exp $
  */
 
 #ifndef _MLSTRING_H_
@@ -37,8 +37,9 @@
  * 'ref' = number of references (COW semantics)
  */
 
-typedef const char *(*mlstr_foreach_cb_t)(size_t, const char **, va_list);
-#define MLSTR_FOREACH_FUN(fun)						\
+typedef const char *(mlstr_foreach_cb_t)(size_t, const char **, va_list);
+#define DECLARE_MLSTR_FOREACH(fun) mlstr_foreach_cb_t
+#define MLSTR_FOREACH_FUN(fun, lang, p, ap)				\
 		const char *fun(size_t lang __attribute__((unused)),	\
 		const char **p __attribute__((unused)),			\
 		va_list ap __attribute__((unused)))
@@ -78,7 +79,7 @@ bool	mlstr_editnl	(mlstring *mlp, const char *arg);
 void	mlstr_dump	(BUFFER *buf, const char *name, const mlstring *ml,
 			 int dump_level);
 
-const char *mlstr_foreach(mlstring *mlp, mlstr_foreach_cb_t cb, ...);
+const char *mlstr_foreach(mlstring *mlp, mlstr_foreach_cb_t *cb, ...);
 bool	mlstr_addnl	(mlstring *mlp);
 bool	mlstr_stripnl	(mlstring *mlp);
 
