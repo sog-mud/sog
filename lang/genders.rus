@@ -258,10 +258,26 @@ Form 3 -ли~
 End
 
 #RULE
+Name закрыт~
+BaseLen 6
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
 Name ранен~
 BaseLen 5
 Form 1 -а~
 Form 2 -о~
+End
+
+#RULE
+Name открыт~
+BaseLen 6
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
 End
 
 #RULE
