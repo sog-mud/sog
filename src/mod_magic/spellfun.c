@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.295 2002-08-05 17:57:33 tatyana Exp $
+ * $Id: spellfun.c,v 1.296 2002-08-15 14:29:30 tatyana Exp $
  */
 
 /***************************************************************************
@@ -644,12 +644,30 @@ SPELL_FUN(spell_continual_light, sn, level, ch, vo)
 }
 
 #define OBJ_VNUM_ROSE			19
+#define OBJ_VNUM_ROSE_BOUQUET		34430
+#define OBJ_VNUM_ROSE_BASKET		34431
 
 SPELL_FUN(spell_create_rose, sn, level, ch, vo)
 {
-	OBJ_DATA *rose = create_obj(OBJ_VNUM_ROSE, 0);
-	if (rose == NULL)
+	OBJ_DATA *rose;
+	int vnum;
+
+        if (!str_prefix(target_name, "single"))
+                vnum = OBJ_VNUM_ROSE;
+        else if (!str_prefix(target_name, "bouquet"))
+                vnum = OBJ_VNUM_ROSE_BOUQUET;
+        else if (!str_prefix(target_name, "basket"))
+                vnum = OBJ_VNUM_ROSE_BASKET;
+        else {
+                act_char("Chose wisely! Single, bouquet or basket.", ch);
 		return;
+	}
+
+	rose = create_obj(vnum, 0);
+	if (rose == NULL) {
+		act_char("You feel something strange... You can't create!", ch);
+		return;
+	}
 
 	act("$n has created $p.", ch, rose, NULL, TO_ROOM);
 	act("You create $p.", ch, rose, NULL, TO_CHAR);

@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.212 2002-03-21 13:30:33 fjoe Exp $
+ * $Id: martial_art.c,v 1.213 2002-08-15 14:29:36 tatyana Exp $
  */
 
 /***************************************************************************
@@ -2575,7 +2575,7 @@ DO_FUN(do_assassinate, ch, argument)
 		return;
 	}
 
-	if (victim->hit < victim->max_hit*0.9) {
+	if (victim->hit < victim->max_hit * 9 / 10) {
 		act("$N is hurt and suspicious ... you can't sneak up.",
 		    ch, NULL, victim, TO_CHAR);
 		return;
