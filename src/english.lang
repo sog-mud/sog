@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.40 1998-06-10 06:46:21 efdi Exp $
+# $Id: english.lang,v 1.41 1998-06-10 06:50:40 efdi Exp $
 #
 
 INFO_NOTHING		"Nothing.\n\r"
@@ -612,4 +612,4 @@ INFO_NOTHING_SPECIAL_IT	"You see nothing special about it.\n\r"
 INFO_ONLY_SEE_ONE_S	"You only see one %s here.\n\r"
 INFO_ONLY_SEE_D_THOSE	"You only see %d of those here.\n\r"
 INFO_NOTHING_SPECIAL_THERE	"Nothing special there.\n\r"
-INFO_THE_D_IS_CLOSED	"The $d is open."
+INFO_THE_D_IS_OPEN	"The $d is open."
