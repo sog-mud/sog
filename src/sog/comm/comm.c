@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.92 1998-09-11 06:36:48 fjoe Exp $
+ * $Id: comm.c,v 1.93 1998-09-15 02:51:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -233,7 +233,7 @@ bool	process_output		(DESCRIPTOR_DATA *d, bool fPrompt);
 void	read_from_buffer	(DESCRIPTOR_DATA *d);
 void	stop_idling		(CHAR_DATA *ch);
 void    bust_a_prompt           (CHAR_DATA *ch);
-void	exit_function();
+void	cleanup(int);
 int 	log_area_popularity(void);
 
 int main(int argc, char **argv)
@@ -242,8 +242,6 @@ int main(int argc, char **argv)
 	int port;
 	int control;
 
-	/* Don't leave save processes stranded */
-	signal(SIGQUIT, exit_function);
 	/*
 	 * Memory debugging if needed.
 	 */
@@ -256,7 +254,7 @@ int main(int argc, char **argv)
 	 */
 	gettimeofday(&now_time, NULL);
 	current_time 	= (time_t) now_time.tv_sec;
-	strcpy(str_boot_time, ctime(&current_time));
+	strnzcpy(str_boot_time, ctime(&current_time), sizeof(str_boot_time));
 
 	/*
 	 * Reserve one channel for our use.
@@ -286,12 +284,30 @@ int main(int argc, char **argv)
 	 */
 	
 	resolver_init();
+#if 0
+	signal(SIGHUP, cleanup);
+	signal(SIGINT, cleanup);
+	signal(SIGQUIT, cleanup);
+	signal(SIGILL, cleanup);
+	signal(SIGTRAP, cleanup);
+	signal(SIGABRT, cleanup);
+	signal(SIGEMT, cleanup);
+	signal(SIGFPE, cleanup);
+	signal(SIGBUS, cleanup);
+	signal(SIGSEGV, cleanup);
+	signal(SIGSYS, cleanup);
+	signal(SIGPIPE, cleanup);
+	signal(SIGALRM, cleanup);
+	signal(SIGTERM, cleanup);
+#endif
+
 	control = init_socket(port);
 	msgdb_load();
 	boot_db();
 	log_printf("ready to rock on port %d.", port);
 	game_loop_unix(control);
 	close(control);
+
 	resolver_done();
 
 	log_area_popularity();
@@ -1153,12 +1169,12 @@ void bust_a_prompt(CHAR_DATA *ch)
 			break;
 
 		case 'g':
-			snprintf(buf2, sizeof(buf2), "%ld", ch->gold);
+			snprintf(buf2, sizeof(buf2), "%d", ch->gold);
 			i = buf2;
 			break;
 
 		case 's':
-			snprintf(buf2, sizeof(buf2), "%ld", ch->silver);
+			snprintf(buf2, sizeof(buf2), "%d", ch->silver);
 			i = buf2;
 			break;
 
@@ -2932,10 +2948,10 @@ int log_area_popularity(void)
  * Function for save processes.
  */
 
-void exit_function()
+void cleanup(int s)
 {
-	dump_to_scr("Exiting from the player saver.\n\r");
-	wait(NULL);
+	resolver_done();
+	exit(0);
 }
 
 char *get_stat_alias(CHAR_DATA *ch, int where)

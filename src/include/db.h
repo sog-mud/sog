@@ -2,7 +2,7 @@
 #define _DB_H_
 
 /*
- * $Id: db.h,v 1.22 1998-09-01 18:37:57 fjoe Exp $
+ * $Id: db.h,v 1.23 1998-09-15 02:51:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -45,6 +45,7 @@
 
 typedef void DBLOAD_FUN(FILE*);
 #define DECLARE_DBLOAD_FUN(fun) DBLOAD_FUN fun
+#define DBLOAD_FUN(fun) void fun(FILE* fp)
 
 struct dbfun {
 	char *		name;
@@ -54,7 +55,7 @@ typedef struct dbfun DBFUN;
 
 typedef void DBINIT_FUN(void);
 #define DECLARE_DBINIT_FUN(fun) DBINIT_FUN fun
-#define DBINIT(fun) void fun(void)
+#define DBINIT_FUN(fun) void fun(void)
 
 extern DBFUN db_load_skills[];
 extern DBFUN db_load_classes[];
@@ -62,9 +63,11 @@ extern DBFUN db_load_clans[];
 extern DBFUN db_load_areas[];
 
 DECLARE_DBINIT_FUN(init_area);
+DECLARE_DBINIT_FUN(init_class);
 DECLARE_DBINIT_FUN(init_skills);
-DECLARE_DBINIT_FUN(init_classes);
-DECLARE_DBINIT_FUN(init_clans);
+
+void init_classes(void);
+void init_clans(void);
 
 extern int fBootDb;
 

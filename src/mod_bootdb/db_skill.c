@@ -1,5 +1,5 @@
 /*
- * $Id: db_skill.c,v 1.1 1998-09-01 18:37:57 fjoe Exp $
+ * $Id: db_skill.c,v 1.2 1998-09-15 02:51:38 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -16,12 +16,12 @@ DBFUN db_load_skills[] =
 	{ NULL }
 };
 
-DBINIT(init_skills)
+DBINIT_FUN(init_skills)
 {
 	skills = varr_new(sizeof(SKILL_DATA), 8);
 }
 
-void load_skill(FILE *fp)
+DBLOAD_FUN(load_skill)
 {
 	SKILL_DATA *skill;
 

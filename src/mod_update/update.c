@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.59 1998-09-01 18:38:02 fjoe Exp $
+ * $Id: update.c,v 1.60 1998-09-15 02:51:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2163,7 +2163,7 @@ void check_reboot(void)
 	case 15:
 		for (d = descriptor_list; d != NULL; d = d->next) 
 			if (d->character != NULL)
-				if (rebooter)
+				if (rebooter || !IS_IMMORTAL(d->character))
 					char_nprintf(d->character, 
 						     MSG_REBOOT_IN,
 					    	     reboot_counter);

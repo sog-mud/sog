@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.78 1998-09-11 06:36:47 fjoe Exp $
+ * $Id: act_comm.c,v 1.79 1998-09-15 02:51:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -927,7 +927,6 @@ const	struct	pose_table_type	pose_table	[]	=
 };
 #endif
 
-
 void do_pose(CHAR_DATA *ch, const char *argument)
 {
 #if 0
@@ -943,8 +942,6 @@ void do_pose(CHAR_DATA *ch, const char *argument)
 	act(pose_table[pose].message[2*ch->class+1], ch, NULL, NULL, TO_ROOM | TO_BUF);
 #endif
 }
-
-
 
 void do_bug(CHAR_DATA *ch, const char *argument)
 {
@@ -1664,16 +1661,14 @@ void do_gtell(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *gch;
 	int i;
 
-	if (argument[0] == '\0')
-	{
-	send_to_char("Tell your group what?\n\r", ch);
-	return;
+	if (argument[0] == '\0') {
+		char_puts("Tell your group what?\n\r", ch);
+		return;
 	}
 
-	if (IS_SET(ch->comm, COMM_NOTELL))
-	{
-	send_to_char("Your message didn't get through!\n\r", ch);
-	return;
+	if (IS_SET(ch->comm, COMM_NOTELL)) {
+		send_to_char("Your message didn't get through!\n\r", ch);
+		return;
 	}
 
 	if (is_affected(ch,gsn_garble))
@@ -1681,29 +1676,20 @@ void do_gtell(CHAR_DATA *ch, const char *argument)
 	else
 		 strcpy(buf,argument);
 
-	/*
-	 * Note use of send_to_char, so gtell works on sleepers.
-	 */
-
-	for (i = 0, gch = char_list; gch != NULL; gch = gch->next)
-	{
-		 if (is_same_group(gch, ch) && !is_affected(gch, gsn_deafen))
-		{
-		  act_puts("{W$n{x tells the group '{G$t{x'",
-		          ch,buf,gch,TO_VICT,POS_DEAD);
-		  i++;
+	for (i = 0, gch = char_list; gch != NULL; gch = gch->next) {
+		if (is_same_group(gch, ch) && !is_affected(gch, gsn_deafen)) {
+			act_puts("$n tells the group '{G$t{x'",
+				 ch, buf, gch, TO_VICT, POS_DEAD);
+			i++;
 		}
 	}
 
 	if (i > 1 && !is_affected(ch, gsn_deafen))
-		 act_puts("You tell your group '{G$t{x'",
-		        ch,buf,NULL,TO_CHAR,POS_DEAD);
-	else send_to_char("Quit talking to yourself. You are all alone.",ch);
-
-	return;
+		act_puts("You tell your group '{G$t{x'",
+			 ch, buf, NULL, TO_CHAR, POS_DEAD);
+	else
+		char_puts("Quit talking to yourself. You are all alone.\n\r", ch);
 }
-
-
 
 void do_clan(CHAR_DATA *ch, const char *argument)
 {

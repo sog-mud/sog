@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.62 1998-09-01 18:37:57 fjoe Exp $
+ * $Id: db.c,v 1.63 1998-09-15 02:51:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -308,7 +308,7 @@ void boot_db(void)
 
 	db_load_file(ETC_PATH, SKILLS_CONF, db_load_skills, init_skills);
 	init_classes();
-	db_load_list(CLASSES_PATH, CLASS_LIST, db_load_classes, NULL);
+	db_load_list(CLASSES_PATH, CLASS_LIST, db_load_classes, init_class);
 	init_clans();
 	db_load_list(CLANS_PATH, CLAN_LIST, db_load_clans, NULL);
 	db_load_list(AREA_PATH, AREA_LIST, db_load_areas, init_area);
@@ -1941,7 +1941,7 @@ void do_memory(CHAR_DATA *ch, const char *argument)
 	char_printf(ch, "Resets   : %d\n\r", top_reset   );
 	char_printf(ch, "Rooms    : %d\n\r", top_room    );
 	char_printf(ch, "Shops    : %d\n\r", top_shop    );
-	char_printf(ch, "Buffers  : %d blocks of %d bytes.\n\r",
+	char_printf(ch, "Buffers  : %d (%d bytes)\n\r",
 					nAllocBuf, sAllocBuf);
 	char_printf(ch, "mlstrings: %d\n\r", mlstr_count);
 }

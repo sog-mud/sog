@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.56 1998-09-10 22:07:52 fjoe Exp $
+ * $Id: act_wiz.c,v 1.57 1998-09-15 02:51:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1725,13 +1725,11 @@ void do_shutdown(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
 
-	if (ch->invis_level < LEVEL_HERO)
-		snprintf(buf, sizeof(buf), "Shutdown by %s.", ch->name);
+	snprintf(buf, sizeof(buf), "Shutdown by %s.", ch->name);
 	append_file(ch, SHUTDOWN_FILE, buf);
-	if (ch->invis_level < LEVEL_HERO) {
-		strnzcat(buf, "\n\r", sizeof(buf));
-		do_echo(ch, buf);
-	}
+	log(buf);
+	strnzcat(buf, "\n\r", sizeof(buf));
+	do_echo(ch, buf);
 }
 
 void do_protect(CHAR_DATA *ch, const char *argument)
@@ -3184,7 +3182,7 @@ void do_invis(CHAR_DATA *ch, const char *argument)
 	  }
 	  else
 	  {
-		  ch->invis_level = get_trust(ch);
+		  ch->invis_level = LEVEL_IMMORTAL;
 		  act("$n slowly fades into thin air.", ch, NULL, NULL, TO_ROOM);
 		  char_puts("You slowly vanish into thin air.\n\r", ch);
 	  }
@@ -3229,7 +3227,7 @@ void do_incognito(CHAR_DATA *ch, const char *argument)
 	  }
 	  else
 	  {
-	      ch->incog_level = get_trust(ch);
+	      ch->incog_level = LEVEL_IMMORTAL;
 	      act("$n cloaks $s presence.", ch, NULL, NULL, TO_ROOM);
 	      char_puts("You cloak your presence.\n\r", ch);
 	  }
@@ -3250,11 +3248,7 @@ void do_incognito(CHAR_DATA *ch, const char *argument)
 	      char_puts("You cloak your presence.\n\r", ch);
 	  }
 	}
-	
-	return;
 }
-
-
 
 void do_holylight(CHAR_DATA *ch, const char *argument)
 {

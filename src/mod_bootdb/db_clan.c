@@ -1,5 +1,5 @@
 /*
- * $Id: db_clan.c,v 1.1 1998-09-01 18:37:57 fjoe Exp $
+ * $Id: db_clan.c,v 1.2 1998-09-15 02:51:38 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -16,12 +16,12 @@ DBFUN db_load_clans[] =
 	{ NULL }
 };
 
-DBINIT(init_clans)
+void init_clans(void)
 {
 	clans = varr_new(sizeof(CLAN_DATA), 4);
 }
 
-void load_clan(FILE *fp)
+DBLOAD_FUN(load_clan)
 {
 	CLAN_DATA *clan;
 

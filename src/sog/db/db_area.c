@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.1 1998-09-01 18:37:57 fjoe Exp $
+ * $Id: db_area.c,v 1.2 1998-09-15 02:51:38 fjoe Exp $
  */
 #include <stdio.h>
 
@@ -54,10 +54,15 @@ char *		help_greeting;
 struct		social_type	social_table		[MAX_SOCIALS];
 int		social_count;
 
+DBINIT_FUN(init_area)
+{
+	area_current = NULL;
+}
+
 /*
  * Snarf an 'area' header line.
  */
-void load_area(FILE *fp)
+DBLOAD_FUN(load_area)
 {
 	AREA_DATA *pArea;
 
@@ -100,8 +105,6 @@ void load_area(FILE *fp)
 	top_area++;
 }
 
-
-
 /* OLC
  * Snarf an 'area' header line.   Check this format.  MUCH better.  Add fields
  * too.
@@ -112,7 +115,7 @@ void load_area(FILE *fp)
  * Recall 3001
  * End
  */
-void load_areadata(FILE *fp)
+DBLOAD_FUN(load_areadata)
 {
 	AREA_DATA *pArea;
 	char      *word;
@@ -186,13 +189,11 @@ void load_areadata(FILE *fp)
 		}
 	}
 }
-
-
  
 /*
  * Snarf a help section.
  */
-void load_helps(FILE *fp)
+DBLOAD_FUN(load_helps)
 {
 	HELP_DATA *pHelp;
 	int level;
@@ -222,11 +223,10 @@ void load_helps(FILE *fp)
 	}
 }
 
-
 /*
  * Snarf a mob section.  old style 
  */
-void load_old_mob(FILE *fp)
+DBLOAD_FUN(load_old_mob)
 {
 	MOB_INDEX_DATA *pMobIndex;
 	/* for race updating */
@@ -361,11 +361,10 @@ void load_old_mob(FILE *fp)
 	}
 }
 
-
 /*
  * Load mobprogs section
  */
-void load_mobprogs(FILE *fp)
+DBLOAD_FUN(load_mobprogs)
 {
     MPCODE *mpcode;
 
@@ -409,7 +408,7 @@ void load_mobprogs(FILE *fp)
 /*
  * Snarf an obj section.  old style 
  */
-void load_old_obj(FILE *fp)
+DBLOAD_FUN(load_old_obj)
 {
 	OBJ_INDEX_DATA *pObjIndex;
 
@@ -536,7 +535,7 @@ void load_old_obj(FILE *fp)
 /*
  * Snarf a reset section.
  */
-void load_resets(FILE *fp)
+DBLOAD_FUN(load_resets)
 {
 	RESET_DATA *pReset;
 	int iLastRoom = 0;
@@ -657,11 +656,10 @@ void load_resets(FILE *fp)
 	}
 }
 
-
 /*
  * Snarf a room section.
  */
-void load_rooms(FILE *fp)
+DBLOAD_FUN(load_rooms)
 {
 	ROOM_INDEX_DATA *pRoomIndex;
 
@@ -824,7 +822,7 @@ void load_rooms(FILE *fp)
 /*
  * Snarf a shop section.
  */
-void load_shops(FILE *fp)
+DBLOAD_FUN(load_shops)
 {
 	SHOP_DATA *pShop;
 
@@ -859,11 +857,10 @@ void load_shops(FILE *fp)
 	return;
 }
 
-
 /*
  * Snarf spec proc declarations.
  */
-void load_specials(FILE *fp)
+DBLOAD_FUN(load_specials)
 {
 	for (; ;)
 	{
@@ -900,7 +897,7 @@ void load_specials(FILE *fp)
 /*
  * Snarf can prac declarations.
  */
-void load_practicer(FILE *fp)
+DBLOAD_FUN(load_practicer)
 {
 	for (; ;) {
 		MOB_INDEX_DATA *pMobIndex;
@@ -937,7 +934,7 @@ void load_practicer(FILE *fp)
 	}
 }
 
-void load_olimits(FILE *fp)
+DBLOAD_FUN(load_olimits)
 {
 	int vnum;
 	int limit;
@@ -969,18 +966,18 @@ void load_olimits(FILE *fp)
 	}
 }
 
-void load_resetmsg(FILE *fp)
+DBLOAD_FUN(load_resetmsg)
 {
 	area_current->resetmsg = mlstr_fread(fp);
 }
 
-void load_aflag(FILE *fp)
+DBLOAD_FUN(load_aflag)
 {
 	area_current->flags = fread_flags(fp);
 }
 
 /* snarf a socials file */
-void load_socials(FILE *fp)
+DBLOAD_FUN(load_socials)
 {
 	for (; ;) {
 		struct social_type social;
@@ -1017,11 +1014,10 @@ void load_socials(FILE *fp)
 	}
 }
     
-
 /*
  * Snarf a mob section.  new style
  */
-void load_mobiles(FILE *fp)
+DBLOAD_FUN(load_mobiles)
 {
     MOB_INDEX_DATA *pMobIndex;
  
@@ -1218,7 +1214,7 @@ void load_mobiles(FILE *fp)
 /*
  * Snarf an obj section. new style
  */
-void load_objects(FILE *fp)
+DBLOAD_FUN(load_objects)
 {
     OBJ_INDEX_DATA *pObjIndex;
  
@@ -1424,8 +1420,7 @@ void load_objects(FILE *fp)
 /*
  * Snarf a mprog section
  */
-
-void load_omprogs(FILE *fp)
+DBLOAD_FUN(load_omprogs)
 {
   char progtype[MAX_INPUT_LENGTH];
   char progname[MAX_INPUT_LENGTH];
@@ -1459,10 +1454,5 @@ void load_omprogs(FILE *fp)
 
 	fread_to_eol(fp);
     }
-}
-
-DBINIT(init_area)
-{
-	area_current = NULL;
 }
 

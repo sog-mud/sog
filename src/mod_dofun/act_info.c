@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.125 1998-09-11 16:18:47 fjoe Exp $
+ * $Id: act_info.c,v 1.126 1998-09-15 02:51:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -385,6 +385,8 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 
 	if (victim->invis_level >= LEVEL_HERO)
 		buf_add(output, "[{WWizi{x] ");
+	if (victim->incog_level >= LEVEL_HERO)
+		buf_add(output, "[{DIncog{x] ");
 
 	if (IS_NPC(victim) && victim->position == victim->start_pos)
 		buf_printf(output, "{g%s{x",
@@ -392,7 +394,11 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	else {
 		int msgnum;
 
+		if (IS_IMMORTAL(victim))
+			buf_add(output, "{W");
 		buf_add(output, PERS(victim, ch));
+		if (IS_IMMORTAL(victim))
+			buf_add(output, "{x");
 
 		if (!IS_NPC(victim) && !IS_SET(ch->comm, COMM_BRIEF)
 		&&  victim->position == POS_STANDING)
@@ -576,8 +582,11 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 			char_printf(ch, "(%s) ", class_name(victim->class));
 	}
 
-	char_printf(ch, "%s %s\n\r",
-		    PERS(victim, ch), vmsg(msgnum, ch, victim));
+	char_printf(ch, "%s%s%s %s\n\r",
+		    IS_IMMORTAL(victim) ? "{W" : "",
+		    PERS(victim, ch),
+		    IS_IMMORTAL(victim) ? "{x" : "",
+		    vmsg(msgnum, ch, victim));
 
 	found = FALSE;
 	for (i = 0; show_order[i] != -1; i++) {
@@ -1535,7 +1544,7 @@ void do_time(CHAR_DATA *ch, const char *argument)
 	if (!IS_IMMORTAL(ch))
 		return;
 
-	char_printf(ch, "MUDDY started up at %s\n\r"
+	char_printf(ch, "\n\rMUDDY started up at %s"
 			"The system time is %s.\n\r",
 			str_boot_time, (char*) ctime(&current_time));
 }
@@ -1637,6 +1646,8 @@ static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 
 	if (wch->invis_level >= LEVEL_HERO)
 		buf_add(output, "[{WWizi{x] ");
+	if (wch->incog_level >= LEVEL_HERO)
+		buf_add(output, "[{DIncog{x] ");
 
 	if (in_PK(ch, wch) && !IS_IMMORTAL(ch))
 		buf_add(output, "{r[{RPK{r]{x ");

@@ -2,8 +2,10 @@
 #define _TYPEDEF_H_
 
 /*
- * $Id: typedef.h,v 1.3 1998-09-11 06:36:49 fjoe Exp $
+ * $Id: typedef.h,v 1.4 1998-09-15 02:51:38 fjoe Exp $
  */
+
+#include <sys/types.h>
 
 #if	!defined(FALSE)
 #define FALSE	 0
@@ -54,6 +56,7 @@ typedef struct pc_skill			PC_SKILL;
 typedef struct clan_data		CLAN_DATA;
 typedef struct where_data		WHERE_DATA;
 typedef struct class_data		CLASS_DATA;
+typedef struct pose_data		POSE_DATA;
 typedef struct skill_data		SKILL_DATA;
 typedef struct namedp			NAMEDP;
 

@@ -2,7 +2,7 @@
 #define _CLASS_H_
 
 /*
- * $Id: class.h,v 1.2 1998-09-04 05:27:45 fjoe Exp $
+ * $Id: class.h,v 1.3 1998-09-15 02:51:37 fjoe Exp $
  */
 
 /*--------------------------------------------------------------------
@@ -32,6 +32,12 @@ struct class_data {
 	int	align;			/* alignment restrictions */
 	varr *	skills;			/* varr of class skills */
 	char *	titles[MAX_LEVEL+1][2];	/* titles for each levels and sexes */
+	varr *	poses;			/* varr of class poses */
+};
+
+struct pose_data {
+	mlstring *	self;		/* what is seen by char */
+	mlstring *	others;		/* what is seen by others */
 };
 
 /* class flags */
