@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.33 1998-07-15 08:47:05 fjoe Exp $
+ * $Id: spellfun.c,v 1.34 1998-07-21 00:04:05 efdi Exp $
  */
 
 /***************************************************************************
@@ -772,26 +772,21 @@ void obj_cast_spell(int sn, int level,
 	case TAR_CHAR_DEFENSIVE:
 	case TAR_CHAR_SELF:
 		if (victim == NULL)
-		    victim = ch;
+			victim = ch;
 		vo = (void *) victim;
 		target = TARGET_CHAR;
-	    if (is_affected(victim,gsn_spellbane))
-	      {
-	        if (ch==victim)
-	          {
-	            act("Your spellbane deflects the spell!",ch,NULL,NULL,TO_CHAR);
-	            act("$n's spellbane deflects the spell!",ch,NULL,NULL,TO_ROOM);
-	            damage(victim,ch,10 * victim->level,gsn_spellbane,DAM_NEGATIVE, TRUE);
-	          }
-	        else {
-	          act("$N deflects your spell!",ch,NULL,victim,TO_CHAR);
-	          act("You deflect $n's spell!",ch,NULL,victim,TO_VICT);
-	          act("$N deflects $n's spell!",ch,NULL,victim,TO_NOTVICT);
-	          damage(victim,ch,10 * victim->level,gsn_spellbane,DAM_NEGATIVE, TRUE);
-	        }
-	        return;
-	      }
-	    break;
+		if (is_affected(victim,gsn_spellbane) && ch != victim) {
+			act("$N deflects your spell!", ch, NULL,
+			    victim, TO_CHAR);
+			act("You deflect $n's spell!", ch, NULL,
+			    victim, TO_VICT);
+			act("$N deflects $n's spell!", ch, NULL,
+			    victim, TO_NOTVICT);
+			damage(victim, ch, 10 * victim->level, gsn_spellbane,
+			       DAM_NEGATIVE, TRUE);
+			return;
+		}
+		break;
 
 	case TAR_OBJ_INV:
 		if (obj == NULL)

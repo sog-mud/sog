@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.55 1998-07-20 21:19:20 efdi Exp $
+ * $Id: fight.c,v 1.56 1998-07-21 00:04:05 efdi Exp $
  */
 
 /***************************************************************************
@@ -2612,7 +2612,6 @@ void do_kill(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
-	OBJ_DATA *wield;
 
 	one_argument(argument, arg);
 

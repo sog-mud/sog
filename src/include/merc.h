@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.54 1998-07-19 21:57:56 efdi Exp $
+ * $Id: merc.h,v 1.55 1998-07-21 00:04:05 efdi Exp $
  */
 
 /***************************************************************************
@@ -1068,11 +1068,11 @@ struct	kill_data
 #define RAFF_THIEF_TRAP		(C)
 #define RAFF_RANDOMIZER		(D)
 #define RAFF_ESPIRIT		(E)
-#define RAFF_CURSE			(K)
+#define RAFF_CURSE		(K)
 #define RAFF_POISON 		(M)
-#define RAFF_SLEEP			(R)
+#define RAFF_SLEEP		(R)
 #define RAFF_PLAGUE 		(X)
-#define RAFF_SLOW			(dd)
+#define RAFF_SLOW		(dd)
 
 /*
  * Bits for 'detection'.  *DETECT*
@@ -1161,8 +1161,8 @@ enum {
 #define OBJ_VNUM_SPRING 	     22
 #define OBJ_VNUM_DISC		     23
 #define OBJ_VNUM_PORTAL 	     25
-#define OBJ_VNUM_ROSE		   1001
-#define OBJ_VNUM_PIT			3010
+#define OBJ_VNUM_ROSE		     1001
+#define OBJ_VNUM_PIT		     3010
 
 #define OBJ_VNUM_SCHOOL_MACE	   3700
 #define OBJ_VNUM_SCHOOL_DAGGER	   3701
@@ -1197,7 +1197,7 @@ enum {
 #define OBJ_VNUM_RANGER_ARROW	     6
 #define OBJ_VNUM_RANGER_BOW	     7
 
-#define OBJ_VNUM_DEPUTY_BADGE	     70
+#define OBJ_VNUM_DEPUTY_BADGE	   70
 #define OBJ_VNUM_RULER_BADGE	   70
 #define OBJ_VNUM_RULER_SHIELD1	   71
 #define OBJ_VNUM_RULER_SHIELD2	   72

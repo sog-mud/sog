@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.19 1998-07-15 08:47:07 fjoe Exp $
+ * $Id: obj_prog.c,v 1.20 1998-07-21 00:04:05 efdi Exp $
  */
 
 /***************************************************************************
@@ -1056,7 +1056,7 @@ int fight_prog_tattoo_eros(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
 
-	switch(number_bits(5)) {
+	switch(number_bits(4)) {
 	case 0:
 	case 1:
 		char_nputs(TATTOO_GLOWS_BLUE, ch);
