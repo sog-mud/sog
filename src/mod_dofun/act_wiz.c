@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.16 1998-06-03 20:44:09 fjoe Exp $
+ * $Id: act_wiz.c,v 1.17 1998-06-07 07:15:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,6 +46,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdarg.h>
+#include <unistd.h>
 #include "merc.h"
 #include "recycle.h"
 #include "tables.h"

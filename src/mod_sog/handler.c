@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.10 1998-05-27 08:47:24 fjoe Exp $
+ * $Id: handler.c,v 1.11 1998-06-07 07:15:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -122,7 +122,7 @@ bool is_friend(CHAR_DATA *ch,CHAR_DATA *victim)
  * Else use the oldest one.
  */
 
-void room_record(char *name,ROOM_INDEX_DATA *room,sh_int door)
+void room_record(char *name,ROOM_INDEX_DATA *room,int door)
 {
   ROOM_HISTORY_DATA *rec;
   int i;
@@ -223,7 +223,7 @@ int weapon_lookup (const char *name)
     return -1;
 }
 
-bool clan_ok(CHAR_DATA *ch, sh_int sn) 
+bool clan_ok(CHAR_DATA *ch, int sn) 
 {
   int i;
 

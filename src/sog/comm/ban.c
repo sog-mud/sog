@@ -1,5 +1,5 @@
 /*
- * $Id: ban.c,v 1.3 1998-04-26 17:08:03 efdi Exp $
+ * $Id: ban.c,v 1.4 1998-06-07 07:15:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -45,6 +45,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include "merc.h"
 #include "recycle.h"
 #include "db.h"

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.12 1998-06-06 10:51:55 fjoe Exp $
+ * $Id: spellfun.c,v 1.13 1998-06-07 07:15:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4110,7 +4110,7 @@ void spell_magic_missile(int sn, int level, CHAR_DATA *ch,void *vo,int target)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	static const sh_int dam_each[] =
+	static const int dam_each[] =
 	{
 		 0,
 		 3,  3,  4,  4,  5,	 6,  6,  6,  6,  6,

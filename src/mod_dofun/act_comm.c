@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.37 1998-06-02 21:49:17 fjoe Exp $
+ * $Id: act_comm.c,v 1.38 1998-06-07 07:15:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,6 +47,7 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <time.h>
+#include <unistd.h>
 #include "merc.h"
 #include "interp.h"
 #include "act_wiz.h"

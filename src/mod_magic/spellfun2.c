@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.9 1998-06-02 21:49:19 fjoe Exp $
+ * $Id: spellfun2.c,v 1.10 1998-06-07 07:15:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4040,7 +4040,7 @@ void spell_knock (int sn, int level, CHAR_DATA *ch, void *vo , int target)
 	char arg[MAX_INPUT_LENGTH];
 	int chance=0;
 	int door;
-	const	sh_int	rev_dir		[]		=
+	const	int	rev_dir		[]		=
 	{
 	    2, 3, 0, 1, 5, 4
 	};

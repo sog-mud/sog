@@ -1,5 +1,5 @@
 /*
- * $Id: db2.c,v 1.5 1998-05-07 07:05:01 fjoe Exp $
+ * $Id: db2.c,v 1.6 1998-06-07 07:15:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -201,7 +201,7 @@ void load_mobiles( FILE *fp )
  
     for ( ; ; )
     {
-        sh_int vnum;
+        int vnum;
         char letter;
         int iHash;
  
@@ -384,7 +384,7 @@ void load_objects( FILE *fp )
  
     for ( ; ; )
     {
-        sh_int vnum;
+        int vnum;
         char letter;
         int iHash;
  

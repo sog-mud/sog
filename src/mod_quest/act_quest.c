@@ -1,5 +1,5 @@
 /*
- * $Id: act_quest.c,v 1.27 1998-06-06 10:51:57 fjoe Exp $
+ * $Id: act_quest.c,v 1.28 1998-06-07 07:15:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -740,10 +740,10 @@ void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
 	for(i = 0; i < vnum_count; i++) {
 		CHAR_DATA* vch;
 		MOB_INDEX_DATA* mid;
-		int vnum;
+		int idx;
 
-		vnum = number_range(0, vnum_count-1);
-		if ((mid = get_mob_index(mob_vnums[vnum])) != NULL
+		idx = number_range(0, vnum_count-1);
+		if ((mid = get_mob_index(mob_vnums[idx])) != NULL
 		&&  ((IS_EVIL(mid) && !IS_EVIL(ch)) ||
 		     (!IS_EVIL(mid) && !IS_GOOD(ch)))
 		&&  (vch = get_char_world(ch, mid->player_name)) != NULL
@@ -765,6 +765,10 @@ void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
 		return;
 	}
 
+	log_printf("generate_quest: quest for %s (%d): %s (%d, %d), %s (%d)\n",
+		   ch->name, ch->level,
+		   victim->name, victim->level, victim->pIndexData->vnum,
+		   room->name, room->vnum);
 	ch->pcdata->questroom = room;
 
 	if (chance(40)) { /* Quest to find an obj */

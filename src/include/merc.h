@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.26 1998-06-06 10:51:56 fjoe Exp $
+ * $Id: merc.h,v 1.27 1998-06-07 07:15:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -103,13 +103,6 @@
 #define DECLARE_OPROG_FUN_AREA(fun)	OPROG_FUN_AREA fun
 #endif
 
-
-/* system calls */
-int unlink();
-int system();
-
-
-
 /*
  * Short scalar types.
  * Diavolo reports AIX compiler has bugs with short types.
@@ -122,18 +115,7 @@ int system();
 #define TRUE	 1
 #endif
 
-#if	defined(_AIX)
-#if	!defined(const)
-#define const
-#endif
-typedef int				sh_int;
-typedef int				bool;
-#else
-typedef short	int			sh_int;
-typedef unsigned char			bool;
-#endif
-
-
+typedef int bool;
 
 /*
  * Structure types.
@@ -375,8 +357,8 @@ struct	ban_data
 {
     BAN_DATA *	next;
     bool	valid;
-    sh_int	ban_flags;
-    sh_int	level;
+    int	ban_flags;
+    int	level;
     char *	name;
 };
 
@@ -384,8 +366,8 @@ struct buf_type
 {
     BUFFER *	next;
     bool	valid;
-    sh_int	state;	/* error state of the buffer */
-    sh_int	size;	/* size in k */
+    int	state;	/* error state of the buffer */
+    int	size;	/* size in k */
     char *	string; /* buffer's string */
 };
 
@@ -460,8 +442,8 @@ struct	descriptor_data
     CHAR_DATA * 	original;
     bool		valid;
     char *		host;
-    sh_int		descriptor;
-    sh_int		connected;
+    int		descriptor;
+    int		connected;
     int 		wait_for_se;
     bool		fcommand;
     char		inbuf		[4 * MAX_INPUT_LENGTH];
@@ -483,31 +465,31 @@ struct	descriptor_data
  */
 struct	str_app_type
 {
-    sh_int	tohit;
-    sh_int	todam;
-    sh_int	carry;
-    sh_int	wield;
+    int	tohit;
+    int	todam;
+    int	carry;
+    int	wield;
 };
 
 struct	int_app_type
 {
-    sh_int	learn;
+    int	learn;
 };
 
 struct	wis_app_type
 {
-    sh_int	practice;
+    int	practice;
 };
 
 struct	dex_app_type
 {
-    sh_int	defensive;
+    int	defensive;
 };
 
 struct	con_app_type
 {
-    sh_int	hitp;
-    sh_int	shock;
+    int	hitp;
+    int	shock;
 };
 
 
@@ -529,7 +511,7 @@ struct	con_app_type
 struct	help_data
 {
     HELP_DATA * next;
-    sh_int	level;
+    int	level;
     char *	keyword;
     char *	text;
 };
@@ -544,12 +526,12 @@ struct	help_data
 struct	shop_data
 {
     SHOP_DATA * next;			/* Next shop in list		*/
-    sh_int	keeper; 		/* Vnum of shop keeper mob	*/
-    sh_int	buy_type [MAX_TRADE];	/* Item types shop will buy	*/
-    sh_int	profit_buy;		/* Cost multiplier for buying	*/
-    sh_int	profit_sell;		/* Cost multiplier for selling	*/
-    sh_int	open_hour;		/* First opening hour		*/
-    sh_int	close_hour;		/* First closing hour		*/
+    int	keeper; 		/* Vnum of shop keeper mob	*/
+    int	buy_type [MAX_TRADE];	/* Item types shop will buy	*/
+    int	profit_buy;		/* Cost multiplier for buying	*/
+    int	profit_sell;		/* Cost multiplier for selling	*/
+    int	open_hour;		/* First opening hour		*/
+    int	close_hour;		/* First closing hour		*/
 };
 
 
@@ -571,18 +553,18 @@ struct	class_type
 {
     char *	name;			/* the full name of the class */
     char	who_name	[4];	/* Three-letter name for 'who'	*/
-    sh_int	attr_prime;		/* Prime attribute		*/
-    sh_int	weapon; 		/* First weapon 		*/
-    sh_int	guild[MAX_GUILD];	/* Vnum of guild rooms		*/
-    sh_int	skill_adept;		/* Maximum skill level		*/
-    sh_int	thac0_00;		/* Thac0 for level  0		*/
-    sh_int	thac0_32;		/* Thac0 for level 32		*/
-    sh_int	hp_rate;		/* hp rate gained on leveling	*/
-    sh_int	mana_rate;		/* mana rate gained on leveling */
+    int	attr_prime;		/* Prime attribute		*/
+    int	weapon; 		/* First weapon 		*/
+    int	guild[MAX_GUILD];	/* Vnum of guild rooms		*/
+    int	skill_adept;		/* Maximum skill level		*/
+    int	thac0_00;		/* Thac0 for level  0		*/
+    int	thac0_32;		/* Thac0 for level 32		*/
+    int	hp_rate;		/* hp rate gained on leveling	*/
+    int	mana_rate;		/* mana rate gained on leveling */
     bool	fMana;			/* Class gains mana on level	*/
     int 	points; 		/* Cost in exp of class 	*/
-    sh_int	stats[MAX_STATS];	/* Stat modifiers		*/
-    sh_int	align;			/* Alignment			*/
+    int	stats[MAX_STATS];	/* Stat modifiers		*/
+    int	align;			/* Alignment			*/
 };
 
 
@@ -619,9 +601,9 @@ struct item_type
 struct weapon_type
 {
     char *	name;
-    sh_int	vnum;
-    sh_int	type;
-    sh_int	*gsn;
+    int	vnum;
+    int	type;
+    int	*gsn;
 };
 
 struct wiznet_type
@@ -659,16 +641,16 @@ struct pc_race_type  /* additional data for pc races */
     char *	name;			/* MUST be in race_type */
     char	who_name[6];
     int 	points; 		/* cost in exp of the race */
-    sh_int	class_mult[MAX_CLASS];	/* exp multiplier for class, * 100 */
+    int	class_mult[MAX_CLASS];	/* exp multiplier for class, * 100 */
     char *	skills[5];		/* bonus skills for the race */
-    sh_int	stats[MAX_STATS];	/* starting stats	*/
-    sh_int	max_stats[MAX_STATS];	/* maximum stats	*/
-    sh_int	size;			/* aff bits for the race*/
+    int	stats[MAX_STATS];	/* starting stats	*/
+    int	max_stats[MAX_STATS];	/* maximum stats	*/
+    int	size;			/* aff bits for the race*/
     int 	hp_bonus;		/* Initial hp bonus	*/
     int 	mana_bonus;		/* Initial mana bonus	*/
     int 	prac_bonus;		/* Initial practice bonus */
-    sh_int	align;			/* Alignment		*/
-    sh_int	language;		/* language		*/
+    int	align;			/* Alignment		*/
+    int	language;		/* language		*/
 };
 
 struct spec_type
@@ -691,7 +673,7 @@ struct	note_data
 {
     NOTE_DATA * next;
     bool	valid;
-    sh_int	type;
+    int	type;
     char *	sender;
     char *	date;
     char *	to_list;
@@ -709,12 +691,12 @@ struct	affect_data
 {
     AFFECT_DATA *	next;
     bool		valid;
-    sh_int		where;
-    sh_int		type;
-    sh_int		level;
-    sh_int		duration;
-    sh_int		location;
-    sh_int		modifier;
+    int		where;
+    int		type;
+    int		level;
+    int		duration;
+    int		location;
+    int		modifier;
     int 		bitvector;
 };
 
@@ -744,8 +726,8 @@ struct	affect_data
  */
 struct	kill_data
 {
-    sh_int		number;
-    sh_int		killed;
+    int		number;
+    int		killed;
 };
 
 
@@ -1834,7 +1816,7 @@ struct	kill_data
 struct language_type
 {
  char *name;
- sh_int vnum;
+ int vnum;
 };
 
 struct translation_type
@@ -1853,8 +1835,8 @@ struct	auction_data
     CHAR_DATA * seller; /* a pointer to the seller - which may NOT quit */
     CHAR_DATA * buyer;	/* a pointer to the buyer - which may NOT quit */
     int 	bet;	/* last bet - or 0 if noone has bet anything */
-    sh_int	going;	/* 1,2, sold */
-    sh_int	pulse;	/* how many pulses (.25 sec) until another call-out ? */
+    int	going;	/* 1,2, sold */
+    int	pulse;	/* how many pulses (.25 sec) until another call-out ? */
 };
 
 /*
@@ -1868,11 +1850,11 @@ struct	mob_index_data
     MPROG_DATA *	mprogs;
     int 		progtypes;
     SHOP_DATA * 	pShop;
-    sh_int		vnum;
-    sh_int		group;
+    int		vnum;
+    int		group;
     bool		new_format;
-    sh_int		count;
-    sh_int		killed;
+    int		count;
+    int		killed;
     char *		player_name;
     char *		short_descr;
     char *		long_descr;
@@ -1880,26 +1862,26 @@ struct	mob_index_data
     long		act;
     long		affected_by;
     long		detection;
-    sh_int		alignment;
-    sh_int		level;
-    sh_int		hitroll;
+    int		alignment;
+    int		level;
+    int		hitroll;
     int 		hit[3];
     int 		mana[3];
-    sh_int		damage[3];
-    sh_int		ac[4];
-    sh_int		dam_type;
+    int		damage[3];
+    int		ac[4];
+    int		dam_type;
     long		off_flags;
     long		imm_flags;
     long		res_flags;
     long		vuln_flags;
-    sh_int		start_pos;
-    sh_int		default_pos;
-    sh_int		sex;
-    sh_int		race;
+    int		start_pos;
+    int		default_pos;
+    int		sex;
+    int		race;
     long		wealth;
     long		form;
     long		parts;
-    sh_int		size;
+    int		size;
     char *		material;
     long		practicer;
 };
@@ -1986,28 +1968,28 @@ struct	char_data
     bool		valid;
     char *		name;
     long		id;
-    sh_int		version;
+    int		version;
     char *		short_descr;
     char *		long_descr;
     char *		description;
     char *		prompt;
     char *		prefix;
-    sh_int		group;
-    sh_int		sex;
-    sh_int		class;
-    sh_int		race;
-    sh_int		clan;
-    sh_int		hometown;
-    sh_int		ethos;
-    sh_int		level;
-    sh_int		trust;
+    int		group;
+    int		sex;
+    int		class;
+    int		race;
+    int		clan;
+    int		hometown;
+    int		ethos;
+    int		level;
+    int		trust;
     int 		played;
     int 		lines;	/* for the pager */
     time_t		logon;
-    sh_int		timer;
-    sh_int		wait;
-    sh_int		daze;
-    sh_int		hit;
+    int		timer;
+    int		wait;
+    int		daze;
+    int		hit;
     int 		max_hit;
     int 		mana;
     int 		max_mana;
@@ -2022,35 +2004,35 @@ struct	char_data
     long		imm_flags;
     long		res_flags;
     long		vuln_flags;
-    sh_int		invis_level;
-    sh_int		incog_level;
+    int		invis_level;
+    int		incog_level;
     long		affected_by;
     long		detection;
-    sh_int		position;
-    sh_int		practice;
-    sh_int		train;
-    sh_int		carry_weight;
-    sh_int		carry_number;
-    sh_int		saving_throw;
-    sh_int		alignment;
-    sh_int		hitroll;
-    sh_int		damroll;
-    sh_int		armor[4];
-    sh_int		wimpy;
+    int		position;
+    int		practice;
+    int		train;
+    int		carry_weight;
+    int		carry_number;
+    int		saving_throw;
+    int		alignment;
+    int		hitroll;
+    int		damroll;
+    int		armor[4];
+    int		wimpy;
     /* stats */
-    sh_int		perm_stat[MAX_STATS];
-    sh_int		mod_stat[MAX_STATS];
+    int		perm_stat[MAX_STATS];
+    int		mod_stat[MAX_STATS];
     /* parts stuff */
     long		form;
     long		parts;
-    sh_int		size;
+    int		size;
     char	*	material;
     /* mobile stuff */
     long		off_flags;
-    sh_int		damage[3];
-    sh_int		dam_type;
-    sh_int		start_pos;
-    sh_int		default_pos;
+    int		damage[3];
+    int		dam_type;
+    int		start_pos;
+    int		default_pos;
     int 		status;
     int 		progtypes;
     bool		extracted;
@@ -2061,8 +2043,8 @@ struct	char_data
     int 		endur;
     bool		riding; /* mount data */
     CHAR_DATA	*	mount;
-    sh_int		language;
-    sh_int		i_lang; /* interface language */
+    int		language;
+    int		i_lang; /* interface language */
     CHAR_DATA *		hunter;	/* who quested to slay */
 };
 
@@ -2088,11 +2070,11 @@ struct	pc_data
     int 		perm_hit;
     int 		perm_mana;
     int 		perm_move;
-    sh_int		true_sex;
+    int		true_sex;
     int 		last_level;
-    sh_int		condition	[MAX_COND];
-    sh_int		learned 	[MAX_SKILL];
-    sh_int		points;
+    int		condition	[MAX_COND];
+    int		learned 	[MAX_SKILL];
+    int		points;
     bool		confirm_delete;
     char *		alias[MAX_ALIAS];
     char *		alias_sub[MAX_ALIAS];
@@ -2102,14 +2084,14 @@ struct	pc_data
     int 		played;
     int 		anti_killed;
     int 		has_killed;
-    sh_int		questgiver;	/* quest */
+    int		questgiver;	/* quest */
     int 		questpoints;	/* quest */
-    sh_int		questtime;	/* quest */
-    sh_int		questobj;	/* quest */
-    sh_int		questmob;	/* quest */
+    int		questtime;	/* quest */
+    int		questobj;	/* quest */
+    int		questmob;	/* quest */
     ROOM_INDEX_DATA *	questroom;	/* quest */
-    sh_int		race;	/* orginal race for polymorph */
-    sh_int		adr_stops_shown;
+    int		race;	/* orginal race for polymorph */
+    int		adr_stops_shown;
     int			pc_killed;	/* how many PC's killed by character */
 };
 
@@ -2123,7 +2105,7 @@ struct	liq_type
 {
     char *	liq_name;
     char *	liq_color;
-    sh_int	liq_affect[5];
+    int	liq_affect[5];
 };
 
 
@@ -2152,16 +2134,16 @@ struct	obj_index_data
     char *		name;
     char *		short_descr;
     char *		description;
-    sh_int		vnum;
-    sh_int		reset_num;
+    int		vnum;
+    int		reset_num;
     char *		material;
-    sh_int		item_type;
+    int		item_type;
     int 		extra_flags;
     int 		wear_flags;
-    sh_int		level;
-    sh_int		condition;
-    sh_int		count;
-    sh_int		weight;
+    int		level;
+    int		condition;
+    int		count;
+    int		weight;
     int 		cost;
     int 		value[5];
     int 		progtypes;
@@ -2192,16 +2174,16 @@ struct	obj_data
     char *		name;
     char *		short_descr;
     char *		description;
-    sh_int		item_type;
+    int		item_type;
     int 		extra_flags;
     int 		wear_flags;
-    sh_int		wear_loc;
-    sh_int		weight;
+    int		wear_loc;
+    int		weight;
     int 		cost;
-    sh_int		level;
-    sh_int		condition;
+    int		level;
+    int		condition;
     char *		material;
-    sh_int		timer;
+    int		timer;
     int 		value	[5];
     int 		progtypes;
     char		*from;
@@ -2221,10 +2203,10 @@ struct	exit_data
     union
     {
 	ROOM_INDEX_DATA *	to_room;
-	sh_int			vnum;
+	int			vnum;
     } u1;
-    sh_int		exit_info;
-    sh_int		key;
+    int		exit_info;
+    int		key;
     char *		keyword;
     char *		description;
 };
@@ -2251,10 +2233,10 @@ struct	reset_data
 {
     RESET_DATA *	next;
     char		command;
-    sh_int		arg1;
-    sh_int		arg2;
-    sh_int		arg3;
-    sh_int		arg4;
+    int		arg1;
+    int		arg2;
+    int		arg3;
+    int		arg4;
 };
 
 
@@ -2271,12 +2253,12 @@ struct	area_data
     char *		name;
     char *		writer;
     char *		credits;
-    sh_int		age;
-    sh_int		nplayer;
-    sh_int		low_range;
-    sh_int		high_range;
-    sh_int		min_vnum;
-    sh_int		max_vnum;
+    int		age;
+    int		nplayer;
+    int		low_range;
+    int		high_range;
+    int		min_vnum;
+    int		max_vnum;
     bool		empty;
     unsigned long	count;
     char *		resetmsg;
@@ -2286,7 +2268,7 @@ struct	area_data
 struct room_history_data
 {
   char *name;
-  sh_int went;
+  int went;
   ROOM_HISTORY_DATA *next;
   ROOM_HISTORY_DATA *prev;
 };
@@ -2307,12 +2289,12 @@ struct	room_index_data
     char *		name;
     char *		description;
     char *		owner;
-    sh_int		vnum;
+    int		vnum;
     long		room_flags;
-    sh_int		light;
-    sh_int		sector_type;
-    sh_int		heal_rate;
-    sh_int		mana_rate;
+    int		light;
+    int		sector_type;
+    int		heal_rate;
+    int		mana_rate;
     ROOM_HISTORY_DATA * history;
     AFFECT_DATA *	affected;
     long		affected_by;
@@ -2355,262 +2337,262 @@ struct	room_index_data
 struct	skill_type
 {
     char *	name;			/* Name of skill		*/
-    sh_int	skill_level[MAX_CLASS]; /* Level needed by class	*/
-    sh_int	rating[MAX_CLASS];	/* How hard it is to learn	*/
+    int	skill_level[MAX_CLASS]; /* Level needed by class	*/
+    int	rating[MAX_CLASS];	/* How hard it is to learn	*/
     SPELL_FUN * spell_fun;		/* Spell pointer (for spells)	*/
-    sh_int	target; 		/* Legal targets		*/
-    sh_int	minimum_position;	/* Position for caster / user	*/
-    sh_int *	pgsn;			/* Pointer to associated gsn	*/
-    sh_int	slot;			/* Slot for #OBJECT loading	*/
-    sh_int	min_mana;		/* Minimum mana used		*/
-    sh_int	beats;			/* Waiting time after use	*/
+    int	target; 		/* Legal targets		*/
+    int	minimum_position;	/* Position for caster / user	*/
+    int *	pgsn;			/* Pointer to associated gsn	*/
+    int	slot;			/* Slot for #OBJECT loading	*/
+    int	min_mana;		/* Minimum mana used		*/
+    int	beats;			/* Waiting time after use	*/
     char *	noun_damage;		/* Damage message		*/
     char *	msg_off;		/* Wear off message		*/
     char *	msg_obj;		/* Wear off message for obects	*/
-    sh_int	clan;			/* Cabal spells 		*/
+    int	clan;			/* Cabal spells 		*/
     long	race;			/* Race spells			*/
-    sh_int	align;			/* alignment of spells		*/
-    sh_int	group;			/* skill group for practicing	*/
+    int	align;			/* alignment of spells		*/
+    int	group;			/* skill group for practicing	*/
 };
 
 
 /*
  * These are skill_lookup return values for common skills and spells.
  */
-extern	sh_int	gsn_backstab;
-extern	sh_int	gsn_dodge;
-extern	sh_int	gsn_envenom;
-extern	sh_int	gsn_hide;
-extern	sh_int	gsn_peek;
-extern	sh_int	gsn_pick_lock;
-extern	sh_int	gsn_sneak;
-extern	sh_int	gsn_steal;
+extern	int	gsn_backstab;
+extern	int	gsn_dodge;
+extern	int	gsn_envenom;
+extern	int	gsn_hide;
+extern	int	gsn_peek;
+extern	int	gsn_pick_lock;
+extern	int	gsn_sneak;
+extern	int	gsn_steal;
 
-extern	sh_int	gsn_disarm;
-extern	sh_int	gsn_enhanced_damage;
-extern	sh_int	gsn_kick;
-extern	sh_int	gsn_parry;
-extern	sh_int	gsn_rescue;
-extern	sh_int	gsn_second_attack;
-extern	sh_int	gsn_third_attack;
+extern	int	gsn_disarm;
+extern	int	gsn_enhanced_damage;
+extern	int	gsn_kick;
+extern	int	gsn_parry;
+extern	int	gsn_rescue;
+extern	int	gsn_second_attack;
+extern	int	gsn_third_attack;
 
-extern	sh_int	gsn_blindness;
-extern	sh_int	gsn_charm_person;
-extern	sh_int	gsn_curse;
-extern	sh_int	gsn_remove_curse;
-extern	sh_int	gsn_invis;
-extern	sh_int	gsn_mass_invis;
-extern	sh_int	gsn_plague;
-extern	sh_int	gsn_poison;
-extern	sh_int	gsn_sleep;
-extern	sh_int	gsn_fly;
-extern	sh_int	gsn_death_protection;
-extern	sh_int	gsn_sanctuary;
+extern	int	gsn_blindness;
+extern	int	gsn_charm_person;
+extern	int	gsn_curse;
+extern	int	gsn_remove_curse;
+extern	int	gsn_invis;
+extern	int	gsn_mass_invis;
+extern	int	gsn_plague;
+extern	int	gsn_poison;
+extern	int	gsn_sleep;
+extern	int	gsn_fly;
+extern	int	gsn_death_protection;
+extern	int	gsn_sanctuary;
 
 /* new gsns */
-extern sh_int  gsn_axe;
-extern sh_int  gsn_dagger;
-extern sh_int  gsn_flail;
-extern sh_int  gsn_mace;
-extern sh_int  gsn_polearm;
-extern sh_int  gsn_shield_block;
-extern sh_int  gsn_spear;
-extern sh_int  gsn_sword;
-extern sh_int  gsn_whip;
+extern int  gsn_axe;
+extern int  gsn_dagger;
+extern int  gsn_flail;
+extern int  gsn_mace;
+extern int  gsn_polearm;
+extern int  gsn_shield_block;
+extern int  gsn_spear;
+extern int  gsn_sword;
+extern int  gsn_whip;
 
-extern sh_int  gsn_bash;
-extern sh_int  gsn_berserk;
-extern sh_int  gsn_dirt;
-extern sh_int  gsn_hand_to_hand;
-extern sh_int  gsn_trip;
+extern int  gsn_bash;
+extern int  gsn_berserk;
+extern int  gsn_dirt;
+extern int  gsn_hand_to_hand;
+extern int  gsn_trip;
 
-extern sh_int  gsn_fast_healing;
-extern sh_int  gsn_haggle;
-extern sh_int  gsn_lore;
-extern sh_int  gsn_meditation;
+extern int  gsn_fast_healing;
+extern int  gsn_haggle;
+extern int  gsn_lore;
+extern int  gsn_meditation;
 
-extern sh_int  gsn_scrolls;
-extern sh_int  gsn_staves;
-extern sh_int  gsn_wands;
-extern sh_int  gsn_recall;
-extern sh_int  gsn_detect_hidden;
+extern int  gsn_scrolls;
+extern int  gsn_staves;
+extern int  gsn_wands;
+extern int  gsn_recall;
+extern int  gsn_detect_hidden;
 
-extern	sh_int	gsn_fourth_attack;
-extern sh_int  gsn_dual_backstab;
-extern sh_int  gsn_cleave;
-extern sh_int  gsn_counter;
-extern sh_int  gsn_ambush;
-extern sh_int  gsn_camouflage;
-extern sh_int  gsn_circle;
-extern sh_int  gsn_nerve;
-extern sh_int  gsn_endure;
-extern sh_int  gsn_quiet_movement;
-extern sh_int  gsn_herbs;
-extern sh_int  gsn_tame;
-extern sh_int  gsn_butcher;
-extern sh_int  gsn_assassinate;
-extern sh_int  gsn_wanted;
-extern sh_int  gsn_caltraps;
-extern sh_int  gsn_throw;
-extern sh_int  gsn_strangle;
-extern sh_int  gsn_blackjack;
-extern sh_int  gsn_bloodthirst;
-extern sh_int  gsn_spellbane;
-extern sh_int  gsn_resistance;
-extern sh_int  gsn_deathblow;
-extern sh_int  gsn_doppelganger;
-extern sh_int  gsn_fade;
-extern sh_int  gsn_garble;
-extern sh_int  gsn_confuse;
-extern sh_int  gsn_mirror;
-extern sh_int  gsn_track;
-extern sh_int  gsn_vanish;
-extern sh_int  gsn_chaos_blade;
-extern sh_int  gsn_terangreal;
-extern sh_int  gsn_dispel_evil;
-extern sh_int  gsn_dispel_good;
-extern sh_int  gsn_wrath;
-extern sh_int  gsn_stalker;
-extern sh_int  gsn_tesseract;
-extern sh_int  gsn_randomizer;
-extern sh_int  gsn_trophy;
-extern sh_int  gsn_truesight;
-extern sh_int  gsn_brew;
-extern sh_int  gsn_flamestrike;
-extern sh_int  gsn_shadowlife;
-extern sh_int  gsn_ruler_badge;
-extern sh_int  gsn_remove_badge;
-extern sh_int  gsn_dragon_strength;
-extern sh_int  gsn_dragon_breath;
-extern sh_int  gsn_warcry;
-extern sh_int  gsn_entangle;
-extern sh_int  gsn_dragonsword;
-extern sh_int  gsn_knight;
-extern sh_int  gsn_guard;
-extern sh_int  gsn_guard_call;
-extern sh_int  gsn_love_potion;
-extern sh_int  gsn_deafen;
-extern sh_int  gsn_protective_shield;
-extern sh_int  gsn_protection_heat_cold;
-extern sh_int  gsn_trance;
-extern sh_int  gsn_demon_summon;
-extern sh_int  gsn_nightwalker;
-extern sh_int  gsn_bear_call;
-extern sh_int  gsn_squire;
-extern sh_int  gsn_lightning_bolt;
-extern sh_int  gsn_disperse;
-extern sh_int  gsn_bless;
-extern sh_int  gsn_weaken;
-extern sh_int  gsn_haste;
-extern sh_int  gsn_cure_critical;
-extern sh_int  gsn_cure_serious;
-extern sh_int  gsn_burning_hands;
-extern sh_int  gsn_acid_blast;
-extern sh_int  gsn_ray_of_truth;
-extern sh_int  gsn_spell_craft;
-extern sh_int  gsn_giant_strength;
-extern sh_int  gsn_explode;
-extern sh_int  gsn_acid_breath;
-extern sh_int  gsn_fire_breath;
-extern sh_int  gsn_gas_breath;
-extern sh_int  gsn_frost_breath;
-extern sh_int  gsn_lightning_breath;
-extern sh_int  gsn_cure_light;
-extern sh_int  gsn_magic_missile;
-extern sh_int  gsn_demonfire;
-extern sh_int  gsn_faerie_fire;
-extern sh_int  gsn_shield;
-extern sh_int  gsn_chill_touch;
-extern sh_int  gsn_second_weapon;
-extern sh_int  gsn_target;
-extern sh_int  gsn_sand_storm;
-extern sh_int  gsn_scream;
-extern sh_int  gsn_enchant_sword;
-extern sh_int  gsn_tiger_power;
-extern sh_int  gsn_lion_call;
-extern sh_int  gsn_hara_kiri;
-extern sh_int  gsn_mouse;
-extern sh_int  gsn_enhanced_armor;
-extern sh_int  gsn_vampire;
-extern sh_int  gsn_vampiric_bite;
-extern sh_int  gsn_light_res;
-extern sh_int  gsn_blink;
-extern sh_int  gsn_hunt;
-extern sh_int  gsn_path_find;
-extern sh_int  gsn_critical;
-extern sh_int  gsn_detect_sneak;
-extern sh_int  gsn_mend;
-extern sh_int  gsn_shielding;
-extern sh_int  gsn_blind_fighting;
-extern sh_int  gsn_riding;
-extern sh_int  gsn_smithing;
-extern sh_int  gsn_swimming;
-extern sh_int  gsn_move_camf;
-extern sh_int  gsn_protection_heat;
-extern sh_int  gsn_protection_cold;
-extern sh_int  gsn_teleport;
-extern sh_int  gsn_witch_curse;
-extern sh_int  gsn_terangreal;
-extern sh_int  gsn_sebat;
-extern sh_int  gsn_kassandra;
-extern sh_int  gsn_matandra;
-extern sh_int  gsn_armor_use;
-extern sh_int  gsn_world_find;
-extern sh_int  gsn_vampiric_touch;
-extern sh_int  gsn_cure_poison;
-extern sh_int  gsn_fire_shield;
-extern sh_int  gsn_fear;
-extern sh_int  gsn_settraps;
-extern sh_int  gsn_mental_attack;
-extern sh_int  gsn_secondary_attack;
-extern sh_int  gsn_mortal_strike;
-extern sh_int  gsn_shield_cleave;
-extern sh_int  gsn_weapon_cleave;
-extern sh_int  gsn_slow;
-extern sh_int  gsn_imp_invis;
-extern sh_int  gsn_camp;
-extern sh_int  gsn_push;
-extern sh_int  gsn_tail;
-extern sh_int  gsn_power_stun;
-extern sh_int  gsn_clan_recall;
-extern sh_int  gsn_escape;
-extern sh_int  gsn_lay_hands;
-extern sh_int  gsn_grip;
-extern sh_int  gsn_concentrate;
-extern sh_int  gsn_master_sword;
-extern sh_int  gsn_master_hand;
-extern sh_int  gsn_fifth_attack;
-extern sh_int  gsn_area_attack;
-extern sh_int  gsn_reserved;
-extern sh_int  gsn_bandage;
-extern sh_int  gsn_web;
-extern sh_int  gsn_bow;
-extern sh_int  gsn_bash_door;
-extern sh_int  gsn_katana;
-extern sh_int  gsn_bluefire;
-extern sh_int  gsn_crush;
-extern sh_int  gsn_perception;
-extern sh_int  gsn_control_animal;
-extern sh_int  gsn_sanctify_lands;
-extern sh_int  gsn_deadly_venom;
-extern sh_int  gsn_cursed_lands;
-extern sh_int  gsn_lethargic_mist;
-extern sh_int  gsn_black_death;
-extern sh_int  gsn_mysterious_dream;
-extern sh_int  gsn_sense_life;
-extern sh_int  gsn_arrow;
-extern sh_int  gsn_lance;
-extern sh_int  gsn_evil_spirit;
-extern sh_int  gsn_make_arrow;
-extern sh_int  gsn_green_arrow;
-extern sh_int  gsn_red_arrow;
-extern sh_int  gsn_white_arrow;
-extern sh_int  gsn_blue_arrow;
-extern sh_int  gsn_make_bow;
-extern sh_int  gsn_blindness_dust;
-extern sh_int  gsn_poison_smoke;
-extern sh_int  gsn_mastering_spell;
-extern sh_int  gsn_judge;
+extern	int	gsn_fourth_attack;
+extern int  gsn_dual_backstab;
+extern int  gsn_cleave;
+extern int  gsn_counter;
+extern int  gsn_ambush;
+extern int  gsn_camouflage;
+extern int  gsn_circle;
+extern int  gsn_nerve;
+extern int  gsn_endure;
+extern int  gsn_quiet_movement;
+extern int  gsn_herbs;
+extern int  gsn_tame;
+extern int  gsn_butcher;
+extern int  gsn_assassinate;
+extern int  gsn_wanted;
+extern int  gsn_caltraps;
+extern int  gsn_throw;
+extern int  gsn_strangle;
+extern int  gsn_blackjack;
+extern int  gsn_bloodthirst;
+extern int  gsn_spellbane;
+extern int  gsn_resistance;
+extern int  gsn_deathblow;
+extern int  gsn_doppelganger;
+extern int  gsn_fade;
+extern int  gsn_garble;
+extern int  gsn_confuse;
+extern int  gsn_mirror;
+extern int  gsn_track;
+extern int  gsn_vanish;
+extern int  gsn_chaos_blade;
+extern int  gsn_terangreal;
+extern int  gsn_dispel_evil;
+extern int  gsn_dispel_good;
+extern int  gsn_wrath;
+extern int  gsn_stalker;
+extern int  gsn_tesseract;
+extern int  gsn_randomizer;
+extern int  gsn_trophy;
+extern int  gsn_truesight;
+extern int  gsn_brew;
+extern int  gsn_flamestrike;
+extern int  gsn_shadowlife;
+extern int  gsn_ruler_badge;
+extern int  gsn_remove_badge;
+extern int  gsn_dragon_strength;
+extern int  gsn_dragon_breath;
+extern int  gsn_warcry;
+extern int  gsn_entangle;
+extern int  gsn_dragonsword;
+extern int  gsn_knight;
+extern int  gsn_guard;
+extern int  gsn_guard_call;
+extern int  gsn_love_potion;
+extern int  gsn_deafen;
+extern int  gsn_protective_shield;
+extern int  gsn_protection_heat_cold;
+extern int  gsn_trance;
+extern int  gsn_demon_summon;
+extern int  gsn_nightwalker;
+extern int  gsn_bear_call;
+extern int  gsn_squire;
+extern int  gsn_lightning_bolt;
+extern int  gsn_disperse;
+extern int  gsn_bless;
+extern int  gsn_weaken;
+extern int  gsn_haste;
+extern int  gsn_cure_critical;
+extern int  gsn_cure_serious;
+extern int  gsn_burning_hands;
+extern int  gsn_acid_blast;
+extern int  gsn_ray_of_truth;
+extern int  gsn_spell_craft;
+extern int  gsn_giant_strength;
+extern int  gsn_explode;
+extern int  gsn_acid_breath;
+extern int  gsn_fire_breath;
+extern int  gsn_gas_breath;
+extern int  gsn_frost_breath;
+extern int  gsn_lightning_breath;
+extern int  gsn_cure_light;
+extern int  gsn_magic_missile;
+extern int  gsn_demonfire;
+extern int  gsn_faerie_fire;
+extern int  gsn_shield;
+extern int  gsn_chill_touch;
+extern int  gsn_second_weapon;
+extern int  gsn_target;
+extern int  gsn_sand_storm;
+extern int  gsn_scream;
+extern int  gsn_enchant_sword;
+extern int  gsn_tiger_power;
+extern int  gsn_lion_call;
+extern int  gsn_hara_kiri;
+extern int  gsn_mouse;
+extern int  gsn_enhanced_armor;
+extern int  gsn_vampire;
+extern int  gsn_vampiric_bite;
+extern int  gsn_light_res;
+extern int  gsn_blink;
+extern int  gsn_hunt;
+extern int  gsn_path_find;
+extern int  gsn_critical;
+extern int  gsn_detect_sneak;
+extern int  gsn_mend;
+extern int  gsn_shielding;
+extern int  gsn_blind_fighting;
+extern int  gsn_riding;
+extern int  gsn_smithing;
+extern int  gsn_swimming;
+extern int  gsn_move_camf;
+extern int  gsn_protection_heat;
+extern int  gsn_protection_cold;
+extern int  gsn_teleport;
+extern int  gsn_witch_curse;
+extern int  gsn_terangreal;
+extern int  gsn_sebat;
+extern int  gsn_kassandra;
+extern int  gsn_matandra;
+extern int  gsn_armor_use;
+extern int  gsn_world_find;
+extern int  gsn_vampiric_touch;
+extern int  gsn_cure_poison;
+extern int  gsn_fire_shield;
+extern int  gsn_fear;
+extern int  gsn_settraps;
+extern int  gsn_mental_attack;
+extern int  gsn_secondary_attack;
+extern int  gsn_mortal_strike;
+extern int  gsn_shield_cleave;
+extern int  gsn_weapon_cleave;
+extern int  gsn_slow;
+extern int  gsn_imp_invis;
+extern int  gsn_camp;
+extern int  gsn_push;
+extern int  gsn_tail;
+extern int  gsn_power_stun;
+extern int  gsn_clan_recall;
+extern int  gsn_escape;
+extern int  gsn_lay_hands;
+extern int  gsn_grip;
+extern int  gsn_concentrate;
+extern int  gsn_master_sword;
+extern int  gsn_master_hand;
+extern int  gsn_fifth_attack;
+extern int  gsn_area_attack;
+extern int  gsn_reserved;
+extern int  gsn_bandage;
+extern int  gsn_web;
+extern int  gsn_bow;
+extern int  gsn_bash_door;
+extern int  gsn_katana;
+extern int  gsn_bluefire;
+extern int  gsn_crush;
+extern int  gsn_perception;
+extern int  gsn_control_animal;
+extern int  gsn_sanctify_lands;
+extern int  gsn_deadly_venom;
+extern int  gsn_cursed_lands;
+extern int  gsn_lethargic_mist;
+extern int  gsn_black_death;
+extern int  gsn_mysterious_dream;
+extern int  gsn_sense_life;
+extern int  gsn_arrow;
+extern int  gsn_lance;
+extern int  gsn_evil_spirit;
+extern int  gsn_make_arrow;
+extern int  gsn_green_arrow;
+extern int  gsn_red_arrow;
+extern int  gsn_white_arrow;
+extern int  gsn_blue_arrow;
+extern int  gsn_make_bow;
+extern int  gsn_blindness_dust;
+extern int  gsn_poison_smoke;
+extern int  gsn_mastering_spell;
+extern int  gsn_judge;
 
 /*
  * Utility macros.
@@ -2953,7 +2935,7 @@ void	affect_enchant	args( (OBJ_DATA *obj) );
 int	check_immune	args( (CHAR_DATA *ch, int dam_type) );
 bool	check_material	args( (OBJ_DATA *obj, char *material ) );
 bool	is_metal	args( (OBJ_DATA *obj ) );
-bool	clan_ok	args( ( CHAR_DATA *ch, sh_int sn ) );
+bool	clan_ok	args( ( CHAR_DATA *ch, int sn ) );
 int	liq_lookup	args( ( const char *name) );
 int	material_lookup args( ( const char *name) );
 int	weapon_lookup	args( ( const char *name) );
@@ -3054,7 +3036,7 @@ char *	weapon_bit_name args( ( int weapon_flags ) );
 char *	comm_bit_name	args( ( int comm_flags ) );
 char *	cont_bit_name	args( ( int cont_flags) );
 char *	flag_room_name	args( ( int vector) );
-void	room_record	args( ( char *name, ROOM_INDEX_DATA *room,sh_int door) );
+void	room_record	args( ( char *name, ROOM_INDEX_DATA *room,int door) );
 int	ch_skill_nok	args( (CHAR_DATA *ch , int sn));
 int	skill_is_native	args( (CHAR_DATA *ch , int sn));
 int	affect_check_obj	args( (CHAR_DATA *ch, int vector) );

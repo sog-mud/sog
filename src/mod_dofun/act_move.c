@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.46 1998-06-05 22:08:50 efdi Exp $
+ * $Id: act_move.c,v 1.47 1998-06-07 07:15:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -69,12 +69,12 @@ char *	const	dir_name	[]		=
 	"north", "east", "south", "west", "up", "down"
 };
 
-const	sh_int	rev_dir		[]		=
+const	int	rev_dir		[]		=
 {
 	2, 3, 0, 1, 5, 4
 };
 
-const	sh_int	movement_loss	[SECT_MAX]	=
+const	int	movement_loss	[SECT_MAX]	=
 {
 	1, 2, 2, 3, 4, 6, 4, 1, 6, 10, 6
 };
@@ -581,13 +581,13 @@ int find_door(CHAR_DATA *ch, char *arg)
 /* scan.c */
 
 void scan_list           args((ROOM_INDEX_DATA *scan_room, CHAR_DATA *ch,
-		                         sh_int depth, sh_int door));
+		                         int depth, int door));
 
 void do_scan2(CHAR_DATA *ch, char *argument)
 {
 	extern char *const dir_name[];
 	EXIT_DATA *pExit;
-	sh_int door;
+	int door;
 
 	act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, 
 			MOVE_N_LOOKS_ALL_AROUND);
@@ -609,7 +609,7 @@ void do_scan2(CHAR_DATA *ch, char *argument)
 }
 
 void scan_list(ROOM_INDEX_DATA *scan_room, CHAR_DATA *ch, 
-		sh_int depth, sh_int door)
+		int depth, int door)
 {
 	CHAR_DATA *rch;
 
@@ -2042,7 +2042,7 @@ void do_train(CHAR_DATA *ch, char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	CHAR_DATA *mob;
-	sh_int stat = - 1;
+	int stat = - 1;
 	char *pOutput = NULL;
 	int cost;
 

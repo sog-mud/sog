@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.39 1998-06-06 10:51:54 fjoe Exp $
+ * $Id: comm.c,v 1.40 1998-06-07 07:15:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1474,7 +1474,7 @@ void add_race_skills(CHAR_DATA* ch, int race)
 {
 	int i;
 	for (i = 0; i < 5; i++) {
-		sh_int sn = skill_lookup(pc_race_table[race].skills[i]);
+		int sn = skill_lookup(pc_race_table[race].skills[i]);
 
 		if (sn < 0)
 			break;
@@ -1500,7 +1500,7 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
 	int obj_count2;
 	OBJ_DATA *obj;
 	OBJ_DATA *inobj;
-	sh_int nextquest = 0;
+	int nextquest = 0;
 
 	while ( isspace(*argument) )
 	argument++;

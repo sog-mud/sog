@@ -2,7 +2,7 @@
 #define _INTERP_H_
 
 /*
- * $Id: interp.h,v 1.5 1998-05-27 08:47:24 fjoe Exp $
+ * $Id: interp.h,v 1.6 1998-06-07 07:15:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -68,11 +68,11 @@ struct	cmd_type
 {
     char * const	name;
     DO_FUN *		do_fun;
-    sh_int		position;
-    sh_int		level;
-    sh_int		log;
-    sh_int              show;
-    sh_int		extra;
+    int		position;
+    int		level;
+    int		log;
+    int              show;
+    int		extra;
 };
 
 /* the command table itself */
