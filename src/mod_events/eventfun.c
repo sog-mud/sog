@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: eventfun.c,v 1.52 2004-02-28 19:41:59 tatyana Exp $
+ * $Id: eventfun.c,v 1.53 2004-03-13 18:19:35 kets Exp $
  */
 
 #include <sys/time.h>
@@ -59,6 +59,9 @@ DECLARE_EVENT_FUN(event_enter_fog_cloud);
 DECLARE_EVENT_FUN(event_leave_fog_cloud);
 DECLARE_EVENT_FUN(event_timeout_fog_cloud);
 DECLARE_EVENT_FUN(event_timeout_grease);
+DECLARE_EVENT_FUN(event_enter_barbs);
+DECLARE_EVENT_FUN(event_update_barbs);
+DECLARE_EVENT_FUN(event_timeout_barbs);
 
 static void
 show_owner(CHAR_DATA *ch, AFFECT_DATA *af)
@@ -511,5 +514,44 @@ EVENT_FUN(event_timeout_fog_cloud, ch, af)
 EVENT_FUN(event_timeout_grease, ch, af)
 {
 	act("The ground in the room isn't so greasy anymore.",
+	    ch, NULL, NULL, TO_CHAR);
+}
+
+EVENT_FUN(event_enter_barbs, ch, af)
+{
+	act("There are some sharp barbs on the ground.",
+	    ch, NULL, NULL, TO_CHAR);
+}
+
+EVENT_FUN(event_update_barbs, ch, af)
+{
+	int dam;
+
+	if (ch == af->owner) {
+		act_char("Barbs step aside around you.", ch);
+		return;
+	}
+
+	if (IS_CLAN_GUARD(ch)
+	||  IS_IMMORTAL(ch)
+	||  IS_AFFECTED(ch, AFF_FLYING))
+		return;
+
+	dam = calc_spell_damage(af->owner, af->owner->level, "soil barbs");
+	if (IS_NPC(ch))
+		dam /= 6;
+	else
+		dam /= 4;
+
+	act("Sharp barbs on the ground sting your feet!",
+	    ch, NULL, NULL, TO_CHAR);
+	if (saves_spell(af->owner->level, ch, DAM_EARTH)) 
+		dam /= 2;
+	damage(ch, ch, dam, af->type, DAM_F_SHOW | DAM_F_TRAP_ROOM);
+}
+
+EVENT_FUN(event_timeout_barbs, ch, af)
+{
+	act("Sharp barbs on the ground turns yellow and wither.",
 	    ch, NULL, NULL, TO_CHAR);
 }
