@@ -3184,7 +3184,7 @@ This help is only for russian win1251 (MS Windows) codepage players.
 {Cnotelnet{x. Для того, чтобы маленькая буква 'Я' транслировалась в большую,
 попробуйте {Cnoiac{x.
 ~
--1 OLC EDIT~
+-1 'OLC INTRO'~
 Syntax: EDIT AREA [create/reset] [vnum]		- Area Creation and Repoping.
 Syntax: EDIT ROOM ( [create] [vnum] )		- Room Creation and Editing.
 Syntax: EDIT OBJ  [create] <vnum>		- Object Creation and Editing.
@@ -3694,6 +3694,12 @@ by Askold
   -по договоренности.                       |
    продаваться будет у кланового продавца   |
 ******************************************************
+~
+0 'OLC ED'~
+Syntax: ed add keyword lang
+        ed edit keyword lang
+        ed delete keyword
+        ed format keyword
 ~
 -1 $~
 
