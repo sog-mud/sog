@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.138 1999-05-15 10:32:40 fjoe Exp $
+ * $Id: act_obj.c,v 1.139 1999-05-15 11:28:34 avn Exp $
  */
 
 /***************************************************************************
@@ -974,7 +974,7 @@ int sn;
 		   || vch->pIndexData->vnum == MOB_VNUM_BONE_DRAGON)) break;
 
 	if (!vch) {
-	    act("Hmmm. Where did that dragon go?",ch,NULL,NULL,TO_ROOM);
+	    act("Hmmm. Where did that dragon go?",ch,NULL,NULL,TO_CHAR);
 	    return;
 	}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.136 1999-05-12 18:54:41 avn Exp $
+ * $Id: handler.c,v 1.137 1999-05-15 11:28:34 avn Exp $
  */
 
 /***************************************************************************
@@ -1072,6 +1072,7 @@ int i,dlev;
 	    extract_char(coc,TRUE);
 	    return;
 	}
+	if (coc->pIndexData->vnum != MOB_VNUM_COCOON) return;
 	dlev=ch->level*2/3 + paf->level/14;
 	aff_free(paf);
 	act("Cocoon explodes and nasty dracolich emerges!",

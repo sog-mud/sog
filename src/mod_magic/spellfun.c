@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.146 1999-05-15 07:57:40 kostik Exp $
+ * $Id: spellfun.c,v 1.147 1999-05-15 11:28:34 avn Exp $
  */
 
 /***************************************************************************
@@ -4896,11 +4896,11 @@ void spell_spectral_furor(int sn, int level, CHAR_DATA *ch, void *vo, int target
 	int dam;
 
 	dam = dice(level, 8);
-	if (saves_spell(level, victim, DAM_ENERGY))
+	if (saves_spell(level, victim, DAM_LIGHT))
 		dam /= 2;
 	act("The fabric of the cosmos strains in fury about $N!",
 			ch,NULL,victim,TO_NOTVICT);
-	damage(ch, victim, dam, sn,DAM_ENERGY,TRUE);
+	damage(ch, victim, dam, sn, DAM_LIGHT, TRUE);
 }
 
 void spell_disruption(int sn, int level, CHAR_DATA *ch, void *vo, int target)
@@ -4909,11 +4909,11 @@ void spell_disruption(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	int dam;
 
 	dam = dice(level, 9);
-	if (saves_spell(level, victim, DAM_ENERGY))
+	if (saves_spell(level, victim, DAM_NEGATIVE))
 		dam /= 2;
 	act("A weird energy encompasses $N, causing you to question $S continued existence.",
 			ch,NULL,victim,TO_NOTVICT);
-	damage(ch, victim, dam, sn,DAM_ENERGY,TRUE);
+	damage(ch, victim, dam, sn, DAM_NEGATIVE, TRUE);
 }
 
 
@@ -4923,11 +4923,11 @@ void spell_sonic_resonance(int sn, int level, CHAR_DATA *ch, void *vo, int targe
 	int dam;
 
 	dam = dice(level, 7);
-	if (saves_spell(level, victim, DAM_ENERGY))
+	if (saves_spell(level, victim, DAM_SOUND))
 		dam /= 2;
 	act("A cylinder of kinetic energy enshrouds $N causing $S to resonate.",
 			ch,NULL,victim,TO_NOTVICT);
-	damage(ch, victim, dam, sn,DAM_ENERGY,TRUE);
+	damage(ch, victim, dam, sn, DAM_SOUND, TRUE);
 }
 
 /* mental */
