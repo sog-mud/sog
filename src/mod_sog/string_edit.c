@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.c,v 1.6 1998-07-25 15:49:21 fjoe Exp $
+ * $Id: string_edit.c,v 1.7 1998-08-07 07:57:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -42,7 +42,7 @@ char *numlineas(char *);
 void string_edit(CHAR_DATA *ch, char **pString)
 {
     send_to_char("-========- Entering EDIT Mode -=========-\n\r", ch);
-    send_to_char("    Type ,h on a new line for help\n\r", ch);
+    send_to_char("    Type :h on a new line for help\n\r", ch);
     send_to_char(" Terminate with a ~ or @ on a blank line.\n\r", ch);
     send_to_char("-=======================================-\n\r", ch);
 
@@ -70,7 +70,7 @@ void string_edit(CHAR_DATA *ch, char **pString)
 void string_append(CHAR_DATA *ch, char **pString)
 {
     send_to_char("-=======- Entering APPEND Mode -========-\n\r", ch);
-    send_to_char("    Type ,h on a new line for help\n\r", ch);
+    send_to_char("    Type :h on a new line for help\n\r", ch);
     send_to_char(" Terminate with a ~ or @ on a blank line.\n\r", ch);
     send_to_char("-=======================================-\n\r", ch);
 
@@ -142,7 +142,7 @@ void string_add(CHAR_DATA *ch, const char *argument)
         argument = first_arg(argument, arg3, FALSE);
 	smash_tilde(arg3);
 
-        if (!str_cmp(arg1, ",c"))
+        if (!str_cmp(arg1, ":c"))
         {
             send_to_char("String cleared.\n\r", ch);
 	    free_string(*ch->desc->pString);
@@ -150,19 +150,19 @@ void string_add(CHAR_DATA *ch, const char *argument)
             return;
         }
 
-        if (!str_cmp(arg1, ",s"))
+        if (!str_cmp(arg1, ":s"))
         {
             char_printf(ch, "String so far:\n\r%s",
             		*ch->desc->pString);
             return;
         }
 
-        if (!str_cmp(arg1, ",r"))
+        if (!str_cmp(arg1, ":r"))
         {
             if (arg2[0] == '\0')
             {
                 send_to_char(
-                    "usage:  ,r \"old string\" \"new string\"\n\r", ch);
+                    "usage:  :r \"old string\" \"new string\"\n\r", ch);
                 return;
             }
 
@@ -173,28 +173,28 @@ void string_add(CHAR_DATA *ch, const char *argument)
             return;
         }
 
-        if (!str_cmp(arg1, ",f"))
+        if (!str_cmp(arg1, ":f"))
         {
             *ch->desc->pString = format_string(*ch->desc->pString);
             send_to_char("String formatted.\n\r", ch);
             return;
         }
         
-	if (!str_cmp(arg1, ",ld"))
+	if (!str_cmp(arg1, ":ld"))
 	{
 		*ch->desc->pString = string_linedel(*ch->desc->pString, atoi(arg2));
 		send_to_char("Line deleted.\n\r", ch);
 		return;
 	}
 
-	if (!str_cmp(arg1, ",li"))
+	if (!str_cmp(arg1, ":li"))
 	{
 		*ch->desc->pString = string_lineadd(*ch->desc->pString, tmparg3, atoi(arg2));
 		send_to_char("Line inserted.\n\r", ch);
 		return;
 	}
 
-	if (!str_cmp(arg1, ",lr"))
+	if (!str_cmp(arg1, ":lr"))
 	{
 		*ch->desc->pString = string_linedel(*ch->desc->pString, atoi(arg2));
 		*ch->desc->pString = string_lineadd(*ch->desc->pString, tmparg3, atoi(arg2));
@@ -202,18 +202,18 @@ void string_add(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-        if (!str_cmp(arg1, ",h"))
+        if (!str_cmp(arg1, ":h"))
         {
             send_to_char("Sedit help (commands on blank line):   \n\r", ch);
-            send_to_char(",r 'old' 'new'   - replace a substring \n\r", ch);
+            send_to_char(":r 'old' 'new'   - replace a substring \n\r", ch);
             send_to_char("                   (requires '', \"\") \n\r", ch);
-            send_to_char(",h               - get help (this info)\n\r", ch);
-            send_to_char(",s               - show string so far  \n\r", ch);
-            send_to_char(",f               - (word wrap) string  \n\r", ch);
-            send_to_char(",c               - clear string so far \n\r", ch);
-            send_to_char(",ld <num>        - delete line #num\n\r", ch);
-            send_to_char(",li <num> <str>  - insert <str> before line #num\n\r", ch);
-	    send_to_char(",lr <num> <str>  - replace line #num with <str>\n\r", ch);
+            send_to_char(":h               - get help (this info)\n\r", ch);
+            send_to_char(":s               - show string so far  \n\r", ch);
+            send_to_char(":f               - (word wrap) string  \n\r", ch);
+            send_to_char(":c               - clear string so far \n\r", ch);
+            send_to_char(":ld <num>        - delete line #num\n\r", ch);
+            send_to_char(":li <num> <str>  - insert <str> before line #num\n\r", ch);
+	    send_to_char(":lr <num> <str>  - replace line #num with <str>\n\r", ch);
             send_to_char("@                - end string          \n\r", ch);
             return;
         }
