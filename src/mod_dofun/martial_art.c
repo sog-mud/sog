@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.125 1999-11-26 09:24:05 fjoe Exp $
+ * $Id: martial_art.c,v 1.126 1999-11-26 09:36:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -401,19 +401,17 @@ void do_berserk(CHAR_DATA *ch, const char *argument)
 		af.duration	= number_fuzzy(ch->level / 8);
 		af.modifier	= UMAX(1,LEVEL(ch)/5);
 		af.bitvector 	= AFF_BERSERK;
-
 		af.location	= APPLY_HITROLL;
-		af.bitvector	= 0;
 		affect_to_char(ch,&af);
 
 		af.location	= APPLY_DAMROLL;
+		af.bitvector	= 0;
 		affect_to_char(ch,&af);
 
 		af.modifier	= UMAX(10,10 * (LEVEL(ch)/5));
 		af.location	= APPLY_AC;
 		affect_to_char(ch,&af);
-	}
-	else {
+	} else {
 		WAIT_STATE(ch,2 * PULSE_VIOLENCE);
 		ch->mana -= 25;
 		ch->move /= 2;
