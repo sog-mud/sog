@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.271 2000-05-24 21:13:05 fjoe Exp $
+ * $Id: fight.c,v 1.272 2000-06-01 09:36:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -56,6 +56,7 @@
 #include "rating.h"
 #include "mob_prog.h"
 #include "obj_prog.h"
+#include "effects.h"
 
 #include "module.h"
 #define MODULE_IMPL MOD_FIGHT

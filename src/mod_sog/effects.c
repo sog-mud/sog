@@ -1,5 +1,5 @@
 /*
- * $Id: effects.c,v 1.31 2000-03-07 09:21:55 avn Exp $
+ * $Id: effects.c,v 1.32 2000-06-01 09:36:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,7 +47,12 @@
 #include <time.h>
 #include "merc.h"
 
-void acid_effect(void *vo, int level, int dam)
+#include "module.h"
+#define MODULE_IMPL MOD_EFFECTS
+#include "effects.h"
+
+void *
+acid_effect(void *vo, int level, int dam)
 {
     if (mem_is(vo, MT_ROOM)) { /* nail objects on the floor */
 	ROOM_INDEX_DATA *room = (ROOM_INDEX_DATA *) vo;
@@ -58,7 +63,7 @@ void acid_effect(void *vo, int level, int dam)
 	    obj_next = obj->next_content;
 	    acid_effect(obj,level,dam);
 	}
-	return;
+	return NULL;
     }
 
     if (mem_is(vo, MT_CHAR)) { /* do the effect on a victim */
@@ -71,7 +76,7 @@ void acid_effect(void *vo, int level, int dam)
 	    obj_next = obj->next_content;
 	    acid_effect(obj,level,dam);
 	}
-	return;
+	return NULL;
     }
 
     if (mem_is(vo, MT_OBJ)) { /* toast an object */
@@ -83,7 +88,7 @@ void acid_effect(void *vo, int level, int dam)
 	if (IS_OBJ_STAT(obj, ITEM_BURN_PROOF)
 	||  OBJ_IS(obj, OBJ_NOPURGE)
 	||  number_range(0,4) == 0)
-	    return;
+	    return NULL;
 
 	chance = level / 4 + dam / 10;
 
@@ -99,7 +104,7 @@ void acid_effect(void *vo, int level, int dam)
 
 	switch (obj->item_type) {
 	    default:
-		return;
+		return NULL;
 	    case ITEM_CONTAINER:
 	    case ITEM_CORPSE_PC:
 	    case ITEM_CORPSE_NPC:
@@ -125,7 +130,7 @@ void acid_effect(void *vo, int level, int dam)
 	chance = URANGE(5,chance,95);
 
 	if (number_percent() > chance)
-	    return;
+	    return NULL;
 
 	if (obj->carried_by != NULL)
 	    act(msg,obj->carried_by,obj,NULL,TO_ALL);
@@ -176,7 +181,7 @@ void acid_effect(void *vo, int level, int dam)
             if (obj->carried_by != NULL && obj->wear_loc != WEAR_NONE)
                 for (i = 0; i < 4; i++)
                     obj->carried_by->armor[i] += 1;
-            return;
+            return NULL;
 	}
 
 	/* get rid of the object */
@@ -201,11 +206,14 @@ void acid_effect(void *vo, int level, int dam)
  	}
 
 	extract_obj(obj, 0);
-	return;
+	return NULL;
     }
+
+	return NULL;
 }
 
-void cold_effect(void *vo, int level, int dam)
+void *
+cold_effect(void *vo, int level, int dam)
 {
     if (mem_is(vo, MT_ROOM)) { /* nail objects on the floor */
         ROOM_INDEX_DATA *room = (ROOM_INDEX_DATA *) vo;
@@ -216,7 +224,7 @@ void cold_effect(void *vo, int level, int dam)
             obj_next = obj->next_content;
             cold_effect(obj,level,dam);
         }
-        return;
+        return NULL;
     }
 
     if (mem_is(vo, MT_CHAR)) { /* whack a character */
@@ -251,7 +259,7 @@ void cold_effect(void *vo, int level, int dam)
 	    obj_next = obj->next_content;
 	    cold_effect(obj,level,dam);
 	}
-	return;
+	return NULL;
    }
 
    if (mem_is(vo, MT_OBJ)) { /* toast an object */
@@ -262,7 +270,7 @@ void cold_effect(void *vo, int level, int dam)
 	if (IS_OBJ_STAT(obj, ITEM_BURN_PROOF)
 	||  OBJ_IS(obj, OBJ_NOPURGE)
 	||  number_range(0,4) == 0)
-	    return;
+	    return NULL;
 
 	chance = level / 4 + dam / 10;
 
@@ -279,7 +287,7 @@ void cold_effect(void *vo, int level, int dam)
 	switch(obj->item_type)
 	{
 	    default:
-		return;
+		return NULL;
 	    case ITEM_POTION:
 		msg = "$p freezes and shatters!";
 		chance += 25;
@@ -293,7 +301,7 @@ void cold_effect(void *vo, int level, int dam)
 	chance = URANGE(5,chance,95);
 
 	if (number_percent() > chance)
-	    return;
+	    return NULL;
 
 	if (obj->carried_by != NULL)
 	    act(msg,obj->carried_by,obj,NULL,TO_ALL);
@@ -301,11 +309,14 @@ void cold_effect(void *vo, int level, int dam)
 	    act(msg,obj->in_room->people,obj,NULL,TO_ALL);
 
 	extract_obj(obj, 0);
-	return;
+	return NULL;
     }
+
+	return NULL;
 }
 
-void fire_effect(void *vo, int level, int dam)
+void *
+fire_effect(void *vo, int level, int dam)
 {
     
     if (mem_is(vo, MT_ROOM)) { /* nail objects on the floor */
@@ -316,7 +327,7 @@ void fire_effect(void *vo, int level, int dam)
 	    obj_next = obj->next_content;
 	    fire_effect(obj,level,dam);
 	}
-	return;
+	return NULL;
     }
  
     if (mem_is(vo, MT_CHAR)) { /* do the effect on a victim */
@@ -355,7 +366,7 @@ void fire_effect(void *vo, int level, int dam)
 
 	    fire_effect(obj,level,dam);
         }
-	return;
+	return NULL;
     }
 
     if (mem_is(vo, MT_OBJ)) { /* toast an object */
@@ -366,7 +377,7 @@ void fire_effect(void *vo, int level, int dam)
 
     	if (IS_OBJ_STAT(obj,ITEM_BURN_PROOF)
 	||  number_range(0,4) == 0)
-            return;
+            return NULL;
  
         chance = level / 4 + dam / 10;
  
@@ -385,7 +396,7 @@ void fire_effect(void *vo, int level, int dam)
 	} else
 	switch (obj->item_type) {
 	default:             
-		return;
+		return NULL;
 	case ITEM_CONTAINER:
 		msg = "$p ignites and burns!";
 		break;
@@ -415,7 +426,7 @@ void fire_effect(void *vo, int level, int dam)
 	chance = URANGE(5,chance,95);
 
 	if (number_percent() > chance)
-		return;
+		return NULL;
 
 	if (obj->carried_by != NULL)
 		act( msg, obj->carried_by, obj, NULL, TO_ALL );
@@ -438,11 +449,14 @@ void fire_effect(void *vo, int level, int dam)
 		}
 
 	extract_obj(obj, 0);
-	return;
+	return NULL;
     }
+
+	return NULL;
 }
 
-void poison_effect(void *vo,int level, int dam)
+void *
+poison_effect(void *vo,int level, int dam)
 {
     if (mem_is(vo, MT_ROOM)) {  /* nail objects on the floor */
         ROOM_INDEX_DATA *room = (ROOM_INDEX_DATA *) vo;
@@ -453,7 +467,7 @@ void poison_effect(void *vo,int level, int dam)
             obj_next = obj->next_content;
             poison_effect(obj,level,dam);
         }
-        return;
+        return NULL;
     }
  
     if (mem_is(vo, MT_CHAR)) { /* do the effect on a victim */
@@ -486,7 +500,7 @@ void poison_effect(void *vo,int level, int dam)
 	    obj_next = obj->next_content;
 	    poison_effect(obj,level,dam);
 	}
-	return;
+	return NULL;
     }
 
     if (mem_is(vo, MT_OBJ)) {/* do some poisoning */
@@ -496,7 +510,7 @@ void poison_effect(void *vo,int level, int dam)
 	if (IS_OBJ_STAT(obj,ITEM_BURN_PROOF)
   	||  IS_OBJ_STAT(obj,ITEM_BLESS)
 	||  number_range(0,4) == 0)
-	    return;
+	    return NULL;
 
 	chance = level / 4 + dam / 10;
 	if (chance > 25)
@@ -509,26 +523,29 @@ void poison_effect(void *vo,int level, int dam)
 	switch (obj->item_type)
 	{
 	    default:
-		return;
+		return NULL;
 	    case ITEM_FOOD:
 		break;
 	    case ITEM_DRINK_CON:
 		if (INT(obj->value[0]) == INT(obj->value[1]))
-		    return;
+		    return NULL;
 		break;
 	}
 
 	chance = URANGE(5,chance,95);
 
 	if (number_percent() > chance)
-	    return;
+	    return NULL;
 
 	INT(obj->value[3]) = 1;
-	return;
+	return NULL;
     }
+
+	return NULL;
 }
 
-void shock_effect(void *vo,int level, int dam)
+void *
+shock_effect(void *vo,int level, int dam)
 {
     if (mem_is(vo, MT_ROOM)) {
 	ROOM_INDEX_DATA *room = (ROOM_INDEX_DATA *) vo;
@@ -539,7 +556,7 @@ void shock_effect(void *vo,int level, int dam)
 	    obj_next = obj->next_content;
 	    shock_effect(obj,level,dam);
 	}
-	return;
+	return NULL;
     }
 
     if (mem_is(vo, MT_CHAR)) {
@@ -559,7 +576,7 @@ void shock_effect(void *vo,int level, int dam)
 	    obj_next = obj->next_content;
 	    shock_effect(obj,level,dam);
 	}
-	return;
+	return NULL;
     }
 
     if (mem_is(vo, MT_OBJ)) {
@@ -570,7 +587,7 @@ void shock_effect(void *vo,int level, int dam)
 	if (IS_OBJ_STAT(obj, ITEM_BURN_PROOF)
 	||  OBJ_IS(obj, OBJ_NOPURGE)
 	||  number_range(0,4) == 0)
-	    return;
+	    return NULL;
 
 	chance = level / 4 + dam / 10;
 
@@ -587,7 +604,7 @@ void shock_effect(void *vo,int level, int dam)
 	switch(obj->item_type)
 	{
 	    default:
-		return;
+		return NULL;
 	   case ITEM_WAND:
 	   case ITEM_STAFF:
 		chance += 10;
@@ -601,7 +618,7 @@ void shock_effect(void *vo,int level, int dam)
 	chance = URANGE(5,chance,95);
 
 	if (number_percent() > chance)
-	    return;
+	    return NULL;
 
 	if (obj->carried_by != NULL)
 	    act(msg,obj->carried_by,obj,NULL,TO_ALL);
@@ -609,11 +626,14 @@ void shock_effect(void *vo,int level, int dam)
 	    act(msg,obj->in_room->people,obj,NULL,TO_ALL);
 
 	extract_obj(obj, 0);
-	return;
+	return NULL;
     }
+
+	return NULL;
 }
 
-void sand_effect(void *vo, int level, int dam)
+void *
+sand_effect(void *vo, int level, int dam)
 {
     if (mem_is(vo, MT_ROOM)) { /* nail objects on the floor */
 	ROOM_INDEX_DATA *room = (ROOM_INDEX_DATA *) vo;
@@ -624,7 +644,7 @@ void sand_effect(void *vo, int level, int dam)
 	    obj_next = obj->next_content;
 	    sand_effect(obj,level,dam);
 	}
-	return;
+	return NULL;
     }
 
     if (mem_is(vo, MT_CHAR)) {  /* do the effect on a victim */
@@ -657,7 +677,7 @@ void sand_effect(void *vo, int level, int dam)
 	    obj_next = obj->next_content;
 	    sand_effect(obj,level,dam);
 	}
-	return;
+	return NULL;
     }
 
     if (mem_is(vo, MT_OBJ)) { /* toast an object */
@@ -669,7 +689,7 @@ void sand_effect(void *vo, int level, int dam)
 	if (IS_OBJ_STAT(obj, ITEM_BURN_PROOF)
 	||  OBJ_IS(obj, OBJ_NOPURGE)
 	||  number_range(0,4) == 0)
-	    return;
+	    return NULL;
 
 	chance = level / 4 + dam / 10;
 
@@ -686,7 +706,7 @@ void sand_effect(void *vo, int level, int dam)
 	switch (obj->item_type)
 	{
 	    default:
-		return;
+		return NULL;
 	    case ITEM_CONTAINER:
 	    case ITEM_CORPSE_PC:
 	    case ITEM_CORPSE_NPC:
@@ -717,7 +737,7 @@ void sand_effect(void *vo, int level, int dam)
 	chance = URANGE(5,chance,95);
 
 	if (number_percent() > chance)
-	    return;
+	    return NULL;
 
 	if (obj->carried_by != NULL)
 	    act(msg,obj->carried_by,obj,NULL,TO_ALL);
@@ -768,7 +788,7 @@ void sand_effect(void *vo, int level, int dam)
             if (obj->carried_by != NULL && obj->wear_loc != WEAR_NONE)
                 for (i = 0; i < 4; i++)
                     obj->carried_by->armor[i] += 1;
-            return;
+            return NULL;
 	}
 
 	/* get rid of the object */
@@ -793,11 +813,14 @@ void sand_effect(void *vo, int level, int dam)
  	}
 
 	extract_obj(obj, 0);
-	return;
+	return NULL;
     }
+
+	return NULL;
 }
 
-void scream_effect(void *vo, int level, int dam)
+void *
+scream_effect(void *vo, int level, int dam)
 {
     if (mem_is(vo, MT_ROOM)) { /* nail objects on the floor */
 	ROOM_INDEX_DATA *room = (ROOM_INDEX_DATA *) vo;
@@ -807,7 +830,7 @@ void scream_effect(void *vo, int level, int dam)
 	    obj_next = obj->next_content;
 	    scream_effect(obj,level,dam);
 	}
-	return;
+	return NULL;
     }
  
     if (mem_is(vo, MT_CHAR)) { /* do the effect on a victim */
@@ -851,7 +874,7 @@ void scream_effect(void *vo, int level, int dam)
 
 	    scream_effect(obj,level,dam);
         }
-	return;
+	return NULL;
     }
 
     if (mem_is(vo, MT_OBJ)) {  /* toast an object */
@@ -862,7 +885,7 @@ void scream_effect(void *vo, int level, int dam)
 
     	if (IS_OBJ_STAT(obj,ITEM_BURN_PROOF)
 	||  number_range(0,4) == 0)
-            return;
+            return NULL;
  
         chance = level / 4 + dam / 10;
  
@@ -884,7 +907,7 @@ void scream_effect(void *vo, int level, int dam)
         switch ( obj->item_type )
         {
         default:             
-	    return;
+	    return NULL;
         case ITEM_POTION:
             chance += 25;
             msg = "Vial of $p breaks and liquid spoils!";
@@ -905,7 +928,7 @@ void scream_effect(void *vo, int level, int dam)
         chance = URANGE(5,chance,95);
 
         if (number_percent() > chance)
-            return;
+            return NULL;
  
 	if (obj->carried_by != NULL)
             act( msg, obj->carried_by, obj, NULL, TO_ALL );
@@ -934,7 +957,9 @@ void scream_effect(void *vo, int level, int dam)
         }
  
         extract_obj(obj, 0);
-	return;
+	return NULL;
     }
+
+	return NULL;
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.h,v 1.24 2000-05-24 21:13:01 fjoe Exp $
+ * $Id: fight.h,v 1.25 2000-06-01 09:36:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -42,9 +42,6 @@
 
 #ifndef _FIGHT_H_
 #define _FIGHT_H_
-#define MODULE_NAME MOD_FIGHT
-
-#include "dynafun.h"
 
 /*
  * dam_flags
@@ -59,7 +56,10 @@
 #define DAMF_LIGHT_V	(G)	/* light in room */
 #define DAMF_TRAP_ROOM	(H)	/* room trap damage */
 
-__MODULE_START_DECL(_fight)
+#define MODULE_NAME MOD_FIGHT
+#include "dynafun_decl.h"
+
+__MODULE_START_DECL(MOD_FIGHT)
 
 DECLARE_FUN4(void, one_hit,
 	     CHAR_DATA, ch, CHAR_DATA, victim, cchar_t, dt, bool, secondary)
@@ -103,4 +103,5 @@ DECLARE_FUN2(bool, in_PK,
 __MODULE_END_DECL
 
 #undef MODULE_NAME
+
 #endif

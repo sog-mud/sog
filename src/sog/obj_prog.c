@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.79 2000-03-05 17:14:48 avn Exp $
+ * $Id: obj_prog.c,v 1.80 2000-06-01 09:37:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,6 +47,7 @@
 #include <time.h>
 #include "merc.h"
 #include "fight.h"
+#include "effects.h"
 
 #define DECLARE_OPROG(f) OPROG_FUN f
 

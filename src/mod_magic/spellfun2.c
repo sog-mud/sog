@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.187 2000-04-26 14:24:35 fjoe Exp $
+ * $Id: spellfun2.c,v 1.188 2000-06-01 09:36:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -51,6 +51,7 @@
 #include "quest.h"
 #include "rating.h"
 #include "fight.h"
+#include "effects.h"
 
 ROOM_INDEX_DATA * check_place(CHAR_DATA *ch, const char *argument) 
 {

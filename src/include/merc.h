@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.302 2000-05-24 21:13:01 fjoe Exp $
+ * $Id: merc.h,v 1.303 2000-06-01 09:36:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1974,15 +1974,6 @@ CHAR_DATA *random_char(ROOM_INDEX_DATA *room);
 CHAR_DATA *nth_char(CHAR_DATA *ch, int n);
 OBJ_DATA *random_obj();
 OBJ_DATA *nth_obj(OBJ_DATA* obj, int n);
-
-/* effect.c */
-void	acid_effect	(void *vo, int level, int dam);
-void	cold_effect	(void *vo, int level, int dam);
-void	fire_effect	(void *vo, int level, int dam);
-void	poison_effect	(void *vo, int level, int dam);
-void	shock_effect	(void *vo, int level, int dam);
-void	sand_effect	(void *vo, int level, int dam);
-void	scream_effect	(void *vo, int level, int dam);
 
 /* handler.c */
 const char *get_stat_alias(CHAR_DATA *ch, int stat);
