@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.10 1998-04-26 17:08:09 efdi Exp $
+ * $Id: update.c,v 1.11 1998-04-28 10:38:18 efdi Exp $
  */
 
 /***************************************************************************
@@ -198,7 +198,7 @@ void gain_exp(CHAR_DATA *ch, int gain)
 	        	log_printf("%s made level 90.", ch->name);
 
 		wiznet_printf(ch, NULL, WIZ_LEVELS, 0, 0,
-			      "$N has attained level %d!",ch->level);
+			      "$N has attained level %d!",(int)ch->level);
 		advance_level(ch);
 		save_char_obj(ch);
 	}

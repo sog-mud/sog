@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.15 1998-04-26 17:08:01 efdi Exp $
+ * $Id: act_info.c,v 1.16 1998-04-28 10:38:17 efdi Exp $
  */
 
 /***************************************************************************
@@ -3555,7 +3555,7 @@ void do_score( CHAR_DATA *ch, char *argument )
 	sprintf(buf, "     {G| {RAlign:  {x%-11s  {C|                |{x %-7s %-19s {G|{x\n\r",		
 		IS_GOOD(ch) ? "good" : IS_EVIL(ch) ? "evil" : "neutral",
 		msg(INFO_YOU_ARE, ch ),
-		msg(INFO_POS_NAME_DEAD + ch->position*3, ch));
+		msg(INFO_POS_NAME_DEAD + (int)ch->position*3, ch));
 	send_to_char(buf, ch);
 
 	send_to_char("     {G|{C+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+{G|{x{x\n\r", ch);

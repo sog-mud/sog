@@ -1,8 +1,7 @@
-char *strings_rus[] = {
+char *strings_rus[MSG_MAX_NUM] = {
 /* Russian messages (KOI-8) */
 "",
 /* INFO_NOTHING */ 		"Ничего.\n\r",	
-
 /* EQ_USED_AS_LIGHT */		"<освещает>             ",
 /* EQ_WORN_ON_FINGER_1 */	"<надето на палец>      ",
 /* EQ_WORN_ON_FINGER_2 */	"<надето на палец>      ",
@@ -25,7 +24,6 @@ char *strings_rus[] = {
 /* EQ_SCRATCHED_TATTOO */	"<татуировка>           ",
 /* EQ_DUAL_WIELDED */		"<второе оружие>        ",
 /* EQ_STUCK_IN */		"<stuck in>             ",
-
 /* INFO_SLEEPING_AT */		" спит у %s.",
 /* INFO_SLEEPING_ON */		" спит на %s.",
 /* INFO_SLEEPING_IN */		" спит в %s.",
@@ -44,7 +42,6 @@ char *strings_rus[] = {
 /* INFO_STANDING */		" стоит здесь.",
 /* INFO_FIGHTING */		" здесь, сражается с ",
 /* INFO_IS_HERE */		" здесь. ",
-
 /* INFO_IS_IN_PERFECT_HEALTH */	"{Cв отличном состоянии{x.",
 /* INFO_HAS_A_FEW_SCRATCHES */	"{bимеет несколько царапин{x.",
 /* INFO_HAS_SOME_SMALL_BUT_DISGUSTING_CUTS */ "{Bимеет несколько маленьких ран и синяков{x.",
@@ -52,25 +49,21 @@ char *strings_rus[] = {
 /* INFO_IS_WRITHING_IN_AGONY */	"{Mистекает кровью{x.",
 /* INFO_IS_CONVULSING_ON_THE_GROUND */ "{Rв ужасном состоянии{x.",
 /* INFO_IS_NEARLY_DEAD */	"{Rпочти труп{x.",
-
 /* INFO_YOU_ARE */		"Ты",
 /* INFO_YOU_ARE_CARRYING */	"Ты несешь:\n\r",
 /* INFO_YOU_ARE_USING */	"Ты используешь:\n\r",
 /* INFO_IS_USING */		"$N использует:",
 /* INFO_YOU_PEEK_AT_THE_INVENTORY */"\n\rТы всматриваешься в снаряжение:\n\r",
-
 /* COMM_SWITCH_TO_RUSSIAN */	"Русский язык включен.",
 /* COMM_SWITCH_TO_ENGLSH */	"Английский язык включен.",
 /* COMM_SHOW_LANGUAGE */	"Текущий язык: %s.",
 /* COMM_LANGUAGE_USAGE */	"Использование: lang [ russian | english ]",
-
 /* INFO_COND_EXCELLENT */	"идеальное",
 /* INFO_COND_GOOD */		"хорошее",
 /* INFO_COND_FINE */		"нормальное",
 /* INFO_COND_AVERAGE */		"среднее",
 /* INFO_COND_POOR */		"плохое",
 /* INFO_COND_FRAGILE */		"совсем плохое",
-
 /* UPDATE_WEATHER_DAY_BEGUN */		"Начинается новый день.\n\r",
 /* UPDATE_WEATHER_SUN_IN_THE_EAST */	"Восток озарился светом восходящего солнца.\n\r",
 /* UPDATE_WEATHER_SUN_IN_THE_WEST */	"Солнце медленно опустилось за горизонт.\n\r",
@@ -81,18 +74,14 @@ char *strings_rus[] = {
 /* UPDATE_WEATHER_LIGHTNING_FLASHES */	"Молния озарило небо.\n\r",
 /* UPDATE_WEATHER_THE_RAIN_STOPPED */	"Дождь прекратился.\n\r",
 /* UPDATE_WEATHER_LIGHTNING_STOPPED */	"Гроза кончилась.\n\r",
-
 /* QUEST_QUESTOR_TELLS_YOU */	"{W%s{x говорит тебе '{G%s{x'\n\r",
 /* QUEST_YOU_HAVE_D_MINUTES */	"У тебя есть %d на выполнение этого задания.",
 /* QUEST_MAY_THE_GODS_GO */	"И пусть боги помогут тебе!",
-
-/* COMM_ORDERS_YOU_TO */	"$n приказывает тебе '%s', ты повинуешься.",
+/* COMM_ORDERS_YOU_TO */	"$n приказывает тебе '%s', ты подчиняешься.",
 /* COMM_YOU_PUSH */		"Ты выталкиваешь $N на %s.",
 /* COMM_PUSHES_YOU */		"$n выталкивает тебя на %s.",
 /* COMM_PUSHES_N_TO */		"$n выталкивает $N на %s.",
-
 /* HERA_IS_FROM_HERE */		"$N находится на %s отсюда.", 
-
 /* INFO_S_S */			"%s%s",
 /* INFO_ITS_S */		"Сейчас %s.",
 /* INFO_TIME_DAWN */		"рассветает",
@@ -100,10 +89,9 @@ char *strings_rus[] = {
 /* INFO_TIME_MID_DAY */		"день",
 /* INFO_TIME_EVENING */		"вечер",
 /* INFO_TIME_NIGHT */		"ночь",
-
 /* MOVE_ALAS_YOU_CANNOT_GO */	"Увы, ты не можешь идти туда.\n\r",
 /* MOVE_THE_D_IS_CLOSED */	"$d закрыто.",
-/* MOVE_WHAT_YOU_LEAVE */	"Что? Ты уйдешь от своего любимого хозяина?\n\r",
+/* MOVE_WHAT_YOU_LEAVE */      "Что? Ты уйдешь от своего любимого хозяина?\n\r",
 /* MOVE_ROOM_IS_PRIVATE */	"Это частная комната.\n\r",
 /* MOVE_MOUNT_MUST_STAND */	"Твое животное должно стоять.\n\r",
 /* MOVE_MOUNT_REFUSES_GO_THAT_WAY */"Твое животное упорно отказывается идти в эту сторону.\n\r",
@@ -190,6 +178,35 @@ char *strings_rus[] = {
 /* MOVE_N_STANDS_IN */		"$n встает в $p.",
 /* MOVE_YOU_ARE_ALREADY_STANDING */"Ты уже стоишь.\n\r",
 /* MOVE_YOU_ARE_ALREADY_FIGHTING */"Ты уже сражаешься!\n\r",
+/* MOVE_YOU_CANT_REST_MOUNTED */"Ты не можешь отдыхать верхом.\n\r",
+/* MOVE_YOU_CANT_REST_RIDDEN */	"Ты не можешь отдыхать оседланным.\n\r",
+/* MOVE_YOU_ARE_ALREADY_SLEEPING */"Ты уже спишь.\n\r",
+/* MOVE_YOU_CANT_REST_ON_THAT */"Ты не можешь на этом отдыхать.\n\r",
+/* MOVE_THERES_NO_MORE_ROOM_ON n*/"На $p больше нет места.",
+/* MOVE_YOU_WAKE_AND_REST */	"Ты просыпаешься и садишься отдыхать.\n\r",
+/* MOVE_N_WAKES_AND_RESTS */	"$n просыпается и садится отдыхать.",
+/* MOVE_YOU_WAKE_UP_AND_REST_AT */"Ты просыпаешься и садишься отдыхать у $p.",
+/* MOVE_N_WAKES_UP_AND_RESTS_AT */"$n просыпается и садится отдыхать у $p.",
+/* MOVE_YOU_WAKE_UP_AND_REST_ON */"Ты просыпаешься и садишься отдыхать на $p.",
+/* MOVE_N_WAKES_UP_AND_RESTS_ON */"$n просыпается и садится отдыхать на $p.",
+/* MOVE_YOU_WAKE_UP_AND_REST_IN */"Ты просыпаешься и садишься отдыхать в $p.",
+/* MOVE_N_WAKES_UP_AND_RESTS_IN */"$n просыпается и садится отдыхать в $p.",
+/* MOVE_YOU_ARE_ALREADY_RESTING */"Ты уже отдыхаешь.\n\r",
+/* MOVE_YOU_REST */		"Ты садишься отдыхать.\n\r",
+/* MOVE_N_SITS_DOWN_AND_RESTS */"$n садится отдыхать.",
+/* MOVE_YOU_SIT_DOWN_AT_AND_REST */"Ты садишься отдыхать у $p.",
+/* MOVE_N_SITS_DOWN_AT_AND_RESTS */"$n садится отдыхать у $p.",
+/* MOVE_YOU_SIT_DOWN_ON_AND_REST */"Ты садишься отдыхать на $p.",
+/* MOVE_N_SITS_DOWN_ON_AND_RESTS */"$n садится отдыхать на $p.",
+/* MOVE_YOU_SIT_DOWN_IN_AND_REST */"Ты садишься отдыхать в $p.",
+/* MOVE_N_SITS_DOWN_IN_AND_RESTS */"$n садится отдыхать в $p.",
+/* MOVE_N_RESTS */		"$n садится отдыхать.",
+/* MOVE_YOU_REST_AT */		"Ты садишься отдыхать у $p.",
+/* MOVE_N_RESTS_AT */		"$n садится отдыхать у $p.",
+/* MOVE_YOU_REST_ON */		"Ты садишься отдыхать на $p.",
+/* MOVE_N_RESTS_ON */		"$n садится отдыхать на $p.",
+/* MOVE_YOU_REST_IN */		"Ты садишься отдыхать в $p.",
+/* MOVE_N_RESTS_IN */		"$n садится отдыхать в $p.",
 
 /*	Here start sex-dependent messages */
 /* INFO_IS_GUSHING_BLOOD */	"{Yсерьезно ранено{x.",
@@ -243,21 +260,18 @@ char *strings_rus[] = {
 /* QUEST_THANK_YOU_BRAVE */	"Спасибо, отважное {W%s{G!", 
 /* QUEST_THANK_YOU_BRAVE_M */	"Спасибо, отважный {W%s{G!", 
 /* QUEST_THANK_YOU_BRAVE_F */	"Спасибо, отважная {W%s{G!", 
-
 /* SKILLS_HAVE_BECOME_BETTER */		"{WТы стало более искусно в {g%s{x!",
 /* SKILLS_HAVE_BECOME_BETTER_M */	"{WТы стал более искусен в {g%s{x!",
 /* SKILLS_HAVE_BECOME_BETTER_F */	"{WТы стала более искусна в {g%s{x!",
 /* SKILLS_LEARN_FROM_MISTAKES */"{WПоняв свои ошибки ты стало более искусно в {g%s{x.",
 /* SKILLS_LEARN_FROM_MISTAKES_M */"{WПоняв свои ошибки ты стал более искусен в {g%s{x.",
 /* SKILLS_LEARN_FROM_MISTAKES_F */"{WПоняв свои ошибки ты стала более искусна в {g%s{x.",
-
 /* HERA_STEPS_INTO_RIDING_ON */		"$n въехало в $p верхом на %s",
 /* HERA_STEPS_INTO_RIDING_ON_M */	"$n въехал в $p верхом на %s",
 /* HERA_STEPS_INTO_RIDING_ON_F */	"$n въехала в $p верхом на %s",
 /* HERA_STEPS_INTO */			"$n вошло в $p",
 /* HERA_STEPS_INTO_M */			"$n вошел в $p",
 /* HERA_STEPS_INTO_F */			"$n вошла в $p",
-
 /* MOVE_WHEN_YOU_ATTEMPT_YOU_BREAK_WEBS */ "Выходя из комнаты, ты разорвало связывавшую тебя паутину.\n\r",
 /* MOVE_WHEN_YOU_ATTEMPT_YOU_BREAK_WEBS_M */ "Выходя из комнаты, ты разорвал связывавшую тебя паутину.\n\r",
 /* MOVE_WHEN_YOU_ATTEMPT_YOU_BREAK_WEBS_F */ "Выходя из комнаты, ты разорвала связывавшую тебя паутину.\n\r",

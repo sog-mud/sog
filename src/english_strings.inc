@@ -1,8 +1,7 @@
-char *strings_engl[] =  {
+char *strings_engl[MSG_MAX_NUM] =  {
 /* English messages */
 "",
 /* INFO_NOTHING */ 		"Nothing.\n\r",
-
 /* EQ_USED_AS_LIGHT */		"<used as light>     ",
 /* EQ_WORN_ON_FINGER_1 */	"<worn on finger>    ",
 /* EQ_WORN_ON_FINGER_2 */	"<worn on finger>    ",
@@ -25,7 +24,6 @@ char *strings_engl[] =  {
 /* EQ_SCRATCHED_TATTOO */	"<scratched tattoo>  ",
 /* EQ_DUAL_WIELDED */		"<dual wielded>      ",
 /* EQ_STUCK_IN */		"<stuck in>          ",
-
 /* INFO_SLEEPING_AT */		" is sleeping at %s.",
 /* INFO_SLEEPING_ON */		" is sleeping on %s.",
 /* INFO_SLEEPING_IN */		" is sleeping in %s.",
@@ -44,7 +42,6 @@ char *strings_engl[] =  {
 /* INFO_STANDING */		" is standing here.",
 /* INFO_FIGHTING */		" is here, fighting with ",
 /* INFO_IS_HERE */		" is here. ",
-
 /* INFO_IS_IN_PERFECT_HEALTH */	"{Cis in perfect health{x.",
 /* INFO_HAS_A_FEW_SCRATCHES */	"{bhas a few scratches{x.",
 /* INFO_HAS_SOME_SMALL_BUT_DISGUSTING_CUTS */ "{Bhas some small but disgusting cuts{x.",
@@ -52,25 +49,21 @@ char *strings_engl[] =  {
 /* INFO_IS_WRITHING_IN_AGONY */	"{Mis writhing in agony{x.",
 /* INFO_IS_CONVULSING_ON_THE_GROUND */ "{Ris convulsing on the ground{x.",
 /* INFO_IS_NEARLY_DEAD */	"{Ris nearly dead{x.",
-
 /* INFO_YOU_ARE */		"You are",
 /* INFO_YOU_ARE_CARRYING */	"You are carrying:\n\r",
 /* INFO_YOU_ARE_USING */	"You are using:\n\r",
 /* INFO_IS_USING */		"$N is using:",
 /* INFO_YOU_PEEK_AT_THE_INVENTORY */	"\n\rYou peek at the inventory:\n\r",
-
 /* COMM_SWITCH_TO_RUSSIAN */	"Now messages will be shown in russian.",
 /* COMM_SWITCH_TO_ENGLSH */	"Now messages will be shown in english.",
 /* COMM_SHOW_LANGUAGE */	"Current language: %s.",
 /* COMM_LANGUAGE_USAGE */	"Usage: lang [ russian | english ]",
-
 /* INFO_COND_EXCELLENT */	"excellent",
 /* INFO_COND_GOOD */		"good",
 /* INFO_COND_FINE */		"fine",
 /* INFO_COND_AVERAGE */		"average",
 /* INFO_COND_POOR */		"poor",
 /* INFO_COND_FRAGILE */		"fragile",
-
 /* UPDATE_WEATHER_DAY_BEGUN */		"The day has begun.\n\r",
 /* UPDATE_WEATHER_SUN_IN_THE_EAST */	"The sun rises in the east.\n\r",
 /* UPDATE_WEATHER_SUN_IN_THE_WEST */	"The sun slowly disappears in the west.\n\r",
@@ -81,18 +74,14 @@ char *strings_engl[] =  {
 /* UPDATE_WEATHER_LIGHTNING_FLASHES */	"Lightning flashes in the sky.\n\r",
 /* UPDATE_WEATHER_THE_RAIN_STOPPED */	"The rain stopped.\n\r",
 /* UPDATE_WEATHER_LIGHTNING_STOPPED */	"The lightning has stopped.\n\r",
-
 /* QUEST_QUESTOR_TELLS_YOU */	"{W%s{x tells you '{G%s{x'\n\r",
 /* QUEST_YOU_HAVE_D_MINUTES */	"You have %d minutes to complete this quest.",
 /* QUEST_MAY_THE_GODS_GO */	"May the gods go with you!",
-
 /* COMM_ORDERS_YOU_TO */	"$n orders you to '%s', you do.",
 /* COMM_YOU_PUSH */		"You push $N to %s.",
 /* COMM_PUSHES_YOU */		"$n pushes you to %s.",
 /* COMM_PUSHES_N_TO */		"$n pushes $N to %s.",
-
 /* HERA_IS_FROM_HERE */		"$N is %s from here.", 
-
 /* INFO_S_S */			"%s%s",
 /* INFO_ITS_S */		"It's %s.",
 /* INFO_TIME_DAWN */		"dawn",
@@ -100,7 +89,6 @@ char *strings_engl[] =  {
 /* INFO_TIME_MID_DAY */		"mid-day",
 /* INFO_TIME_EVENING */		"evening",
 /* INFO_TIME_NIGHT */		"night",
-
 /* MOVE_ALAS_YOU_CANNOT_GO */	"Alas, you cannot go that way.\n\r",
 /* MOVE_THE_D_IS_CLOSED */	"The $d is closed.",
 /* MOVE_WHAT_YOU_LEAVE */	"What? And leave your beloved master?\n\r",
@@ -190,6 +178,35 @@ char *strings_engl[] =  {
 /* MOVE_N_STANDS_IN */		"$n stands in $p.",
 /* MOVE_YOU_ARE_ALREADY_STANDING */"You are already standing.\n\r",
 /* MOVE_YOU_ARE_ALREADY_FIGHTING */"You are already fighting!\n\r",
+/* MOVE_YOU_CANT_REST_MOUNTED */"You can't rest while mounted.\n\r",
+/* MOVE_YOU_CANT_REST_RIDDEN */	"You can't rest while being ridden.\n\r",
+/* MOVE_YOU_ARE_ALREADY_SLEEPING */"You are already sleeping.\n\r",
+/* MOVE_YOU_CANT_REST_ON_THAT */"You can't rest on that.\n\r",
+/* MOVE_THERES_NO_MORE_ROOM_ON n*/"There's no more room on $p.",
+/* MOVE_YOU_WAKE_AND_REST */	"You wake up and start resting.\n\r",
+/* MOVE_N_WAKES_AND_RESTS */	"$n wakes up and starts resting.",
+/* MOVE_YOU_WAKE_UP_AND_REST_AT */"You wake up and rest at $p.",
+/* MOVE_N_WAKES_UP_AND_RESTS_AT */"$n wakes up and rests at $p.",
+/* MOVE_YOU_WAKE_UP_AND_REST_ON */"You wake up and rest on $p.",
+/* MOVE_N_WAKES_UP_AND_RESTS_ON */"$n wakes up and rests on $p.",
+/* MOVE_YOU_WAKE_UP_AND_REST_IN */"You wake up and rest in $p.",
+/* MOVE_N_WAKES_UP_AND_RESTS_IN */"$n wakes up and rests in $p.",
+/* MOVE_YOU_ARE_ALREADY_RESTING */"You are already resting.\n\r",
+/* MOVE_YOU_REST */		"You rest.\n\r",
+/* MOVE_N_SITS_DOWN_AND_RESTS */"$n sits down and rests.",
+/* MOVE_YOU_SIT_DOWN_AT_AND_REST */"You sit down at $p and rest.",
+/* MOVE_N_SITS_DOWN_AT_AND_RESTS */"$n sits down at $p and rests.",
+/* MOVE_YOU_SIT_DOWN_ON_AND_REST */"You sit down on $p and rest.",
+/* MOVE_N_SITS_DOWN_ON_AND_RESTS */"$n sits down on $p and rests.",
+/* MOVE_YOU_SIT_DOWN_IN_AND_REST */"You sit down in $p and rest.",
+/* MOVE_N_SITS_DOWN_IN_AND_RESTS */"$n sits down in $p and rests.",
+/* MOVE_N_RESTS */		"$n rests.",
+/* MOVE_YOU_REST_AT */		"You rest at $p.",
+/* MOVE_N_RESTS_AT */		"$n rests at $p.",
+/* MOVE_YOU_REST_ON */		"You rest on $p.",
+/* MOVE_N_RESTS_ON */		"$n rests on $p.",
+/* MOVE_YOU_REST_IN */		"You rest in $p.",
+/* MOVE_N_RESTS_IN */		"$n rests in $p.",
 
 /*	Here start sex-dependent messages */
 /* INFO_IS_GUSHING_BLOOD */	"{Yis gushing blood{x.",
@@ -243,21 +260,18 @@ char *strings_engl[] =  {
 /* QUEST_THANK_YOU_BRAVE */	"Thank you, brave {W%s{G!", 
 /* QUEST_THANK_YOU_BRAVE_M */	"Thank you, brave {W%s{G!", 
 /* QUEST_THANK_YOU_BRAVE_F */	"Thank you, brave {W%s{G!", 
-
 /* SKILLS_HAVE_BECOME_BETTER */		"{WYou have become better at {g%s{x!",
 /* SKILLS_HAVE_BECOME_BETTER_M */	"{WYou have become better at {g%s{x!",
 /* SKILLS_HAVE_BECOME_BETTER_F */	"{WYou have become better at {g%s{x!",
 /* SKILLS_LEARN_FROM_MISTAKES */	"{WYou learn from your mistakes, and your {g%s{x skill improves.",
 /* SKILLS_LEARN_FROM_MISTAKES_M */	"{WYou learn from your mistakes, and your {g%s{x skill improves.",
 /* SKILLS_LEARN_FROM_MISTAKES_F */	"{WYou learn from your mistakes, and your {g%s{x skill improves.",
-
 /* HERA_STEPS_INTO_RIDING_ON */		"$n steps into $p, riding on %s",
 /* HERA_STEPS_INTO_RIDING_ON_M */	"$n steps into $p, riding on %s",
 /* HERA_STEPS_INTO_RIDING_ON_F */	"$n steps into $p, riding on %s",
 /* HERA_STEPS_INTO */			"$n steps into $p",
 /* HERA_STEPS_INTO_M */			"$n steps into $p",
 /* HERA_STEPS_INTO_F */			"$n steps into $p",
-
 /* MOVE_WHEN_YOU_ATTEMPT_YOU_BREAK_WEBS */ "When you attempt to leave the room, you break the webs holding you tight.\n\r",
 /* MOVE_WHEN_YOU_ATTEMPT_YOU_BREAK_WEBS_M */ "When you attempt to leave the room, you break the webs holding you tight.\n\r",
 /* MOVE_WHEN_YOU_ATTEMPT_YOU_BREAK_WEBS_F */ "When you attempt to leave the room, you break the webs holding you tight.\n\r",
@@ -288,6 +302,5 @@ char *strings_engl[] =  {
 /* MOVE_N_TRIES_TO_PASS_FAILED */"$n tries to pass through the $d, but $e failes",
 /* MOVE_N_TRIES_TO_PASS_FAILED_M */"$n tries to pass through the $d, but $e failes",
 /* MOVE_N_TRIES_TO_PASS_FAILED_F */"$n tries to pass through the $d, but $e failes",
-
 };
 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.16 1998-04-27 20:48:45 efdi Exp $
+ * $Id: act_move.c,v 1.17 1998-04-28 10:38:18 efdi Exp $
  */
 
 /***************************************************************************
@@ -441,12 +441,12 @@ void move_char( CHAR_DATA *ch, int door, bool follow )
 	    if (IS_SET(ch->in_room->room_flags,ROOM_LAW)
 	    &&  (IS_NPC(fch) && IS_SET(fch->act,ACT_AGGRESSIVE)))
 	    {
-		act_printf(ch,NULL,fch,TO_CHAR, POS_RESTING, MOVE_YOU_CANT_BRING_N_CITY);
+		act_printf(ch,NULL,fch,TO_CHAR, POS_DEAD, MOVE_YOU_CANT_BRING_N_CITY);
 		act_printf(fch,NULL,NULL,TO_CHAR, POS_RESTING, MOVE_YOU_ARENT_ALLOWED_CITY);
 		continue;
 	    }
 
-	    act_printf(fch, NULL, ch, TO_CHAR, POS_RESTING, MOVE_YOU_FOLLOW_N);
+	    act_printf(fch, NULL, ch, TO_CHAR, POS_DEAD, MOVE_YOU_FOLLOW_N);
 	    move_char( fch, door, TRUE );
 	}
     }
@@ -526,7 +526,7 @@ int find_exit( CHAR_DATA *ch, char *arg )
     else if ( !str_cmp( arg, "d" ) || !str_cmp( arg, "down"  ) ) door = 5;
     else
     {
-	act_printf(ch, NULL, arg, TO_CHAR, POS_RESTING, MOVE_I_SEE_NO_EXIT_T_HERE);
+	act_printf(ch, NULL, arg, TO_CHAR, POS_DEAD, MOVE_I_SEE_NO_EXIT_T_HERE);
 	return -1;
     }
 
@@ -555,13 +555,13 @@ int find_door( CHAR_DATA *ch, char *arg )
 	    &&   is_name( arg, pexit->keyword ) )
 		return door;
 	}
-	act_printf(ch, NULL, arg, TO_CHAR, POS_RESTING, MOVE_I_SEE_NO_T_HERE);
+	act_printf(ch, NULL, arg, TO_CHAR, POS_DEAD, MOVE_I_SEE_NO_T_HERE);
 	return -1;
     }
 
     if ( ( pexit = ch->in_room->exit[door] ) == NULL )
     {
-	act_printf(ch, NULL, arg, TO_CHAR, POS_RESTING, MOVE_I_SEE_NO_DOOR_T_HERE);
+	act_printf(ch, NULL, arg, TO_CHAR, POS_DEAD, MOVE_I_SEE_NO_DOOR_T_HERE);
 	return -1;
     }
 
@@ -678,7 +678,7 @@ void do_open( CHAR_DATA *ch, char *argument )
 	    }
 
 	    REMOVE_BIT(obj->value[1], EX_CLOSED);
-	    act_printf(ch,obj,NULL,TO_CHAR, POS_RESTING, MOVE_YOU_OPEN_P);
+	    act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD, MOVE_YOU_OPEN_P);
 	    act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_OPENS_P);
 	    return;
  	}
@@ -694,7 +694,7 @@ void do_open( CHAR_DATA *ch, char *argument )
 	    { send_to_char(msg(MOVE_ITS_LOCKED, ch), ch); return; }
 
 	REMOVE_BIT(obj->value[1], CONT_CLOSED);
-	act_printf(ch, obj, NULL, TO_CHAR, POS_RESTING, MOVE_YOU_OPEN_P);
+	act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD, MOVE_YOU_OPEN_P);
 	act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_OPENS_P);
 	return;
     }
@@ -769,7 +769,7 @@ void do_close( CHAR_DATA *ch, char *argument )
 	    }
 
 	    SET_BIT(obj->value[1],EX_CLOSED);
-	    act_printf(ch, obj, NULL, TO_CHAR, POS_RESTING, MOVE_YOU_CLOSE_P);
+	    act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD, MOVE_YOU_CLOSE_P);
 	    act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_CLOSES_P);
 	    return;
 	}
@@ -783,7 +783,7 @@ void do_close( CHAR_DATA *ch, char *argument )
 	    { send_to_char(msg(MOVE_YOU_CANT_DO_THAT, ch), ch); return; }
 
 	SET_BIT(obj->value[1], CONT_CLOSED);
-	act_printf(ch, obj, NULL, TO_CHAR, POS_RESTING, MOVE_YOU_CLOSE_P);
+	act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD, MOVE_YOU_CLOSE_P);
 	act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_CLOSES_P);
 	return;
     }
@@ -907,7 +907,7 @@ void do_lock( CHAR_DATA *ch, char *argument )
 	    }
 
 	    SET_BIT(obj->value[1],EX_LOCKED);
-	    act_printf(ch, obj, NULL, TO_CHAR, POS_RESTING, MOVE_YOU_LOCK_P);
+	    act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD, MOVE_YOU_LOCK_P);
 	    act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_LOCKS_P);
 	    return;
 	}
@@ -925,7 +925,7 @@ void do_lock( CHAR_DATA *ch, char *argument )
 	    { send_to_char(msg(MOVE_ITS_ALREADY_LOCKED, ch), ch); return; }
 
 	SET_BIT(obj->value[1], CONT_LOCKED);
-	act_printf(ch, obj, NULL, TO_CHAR, POS_RESTING, MOVE_YOU_LOCK_P);
+	act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD, MOVE_YOU_LOCK_P);
 	act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_LOCKS_P);
 	return;
     }
@@ -1021,7 +1021,7 @@ void do_unlock( CHAR_DATA *ch, char *argument )
 	    }
 
 	    REMOVE_BIT(obj->value[1],EX_LOCKED);
-	    act_printf(ch, obj, NULL, TO_CHAR, POS_RESTING, MOVE_YOU_UNLOCK_P);
+	    act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD, MOVE_YOU_UNLOCK_P);
 	    act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_UNLOCKS_P);
 	    return;
 	}
@@ -1039,7 +1039,7 @@ void do_unlock( CHAR_DATA *ch, char *argument )
 	    { send_to_char(msg(MOVE_ITS_ALREADY_UNLOCKED, ch), ch); return; }
 
 	REMOVE_BIT(obj->value[1], CONT_LOCKED);
-	act_printf(ch, obj, NULL, TO_CHAR, POS_RESTING, MOVE_YOU_UNLOCK_P);
+	act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD, MOVE_YOU_UNLOCK_P);
 	act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_UNLOCKS_P);
 	return;
     }
@@ -1153,7 +1153,7 @@ void do_pick( CHAR_DATA *ch, char *argument )
 	    }
 
 	    REMOVE_BIT(obj->value[1],EX_LOCKED);
-	    act_printf(ch, obj, NULL, TO_CHAR, POS_RESTING, MOVE_YOU_PICK_THE_LOCK_ON_P);
+	    act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD, MOVE_YOU_PICK_THE_LOCK_ON_P);
 	    act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_PICKS_THE_LOCK_ON_P);
 	    check_improve(ch,gsn_pick_lock,TRUE,2);
 	    return;
@@ -1173,7 +1173,7 @@ void do_pick( CHAR_DATA *ch, char *argument )
 	    { send_to_char(msg(MOVE_YOU_FAILED, ch), ch); return; }
 
 	REMOVE_BIT(obj->value[1], CONT_LOCKED);
-        act_printf(ch, obj, NULL, TO_CHAR, POS_RESTING, MOVE_YOU_PICK_THE_LOCK_ON_P);
+        act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD, MOVE_YOU_PICK_THE_LOCK_ON_P);
         act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_PICKS_THE_LOCK_ON_P);
 	check_improve(ch,gsn_pick_lock,TRUE,2);
 	return;
@@ -1301,17 +1301,17 @@ void do_stand( CHAR_DATA *ch, char *argument )
 	}
 	else if (IS_SET(obj->value[2],STAND_AT))
 	{
-	    act_printf(ch, obj, NULL, TO_CHAR, POS_RESTING, MOVE_YOU_STAND_AT);
+	    act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD, MOVE_YOU_STAND_AT);
 	    act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_STANDS_AT);
 	}
 	else if (IS_SET(obj->value[2],STAND_ON))
 	{
-	    act_printf(ch, obj, NULL, TO_CHAR, POS_RESTING, MOVE_YOU_STAND_ON);
+	    act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD, MOVE_YOU_STAND_ON);
 	    act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_STANDS_ON);
 	}
 	else
 	{
-	    act_printf(ch, obj, NULL, TO_CHAR, POS_RESTING, MOVE_YOU_STAND_IN);
+	    act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD, MOVE_YOU_STAND_IN);
 	    act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_STANDS_IN);
 	}
 	ch->position = POS_STANDING;
@@ -1337,24 +1337,24 @@ void do_rest( CHAR_DATA *ch, char *argument )
 
     if (ch->position == POS_FIGHTING)
     {
-	send_to_char("You are already fighting!\n\r",ch);
+	send_to_char(msg(MOVE_YOU_ARE_ALREADY_FIGHTING, ch), ch);
 	return;
     }
 
     if (MOUNTED(ch)) 
     {
-        send_to_char("You can't rest while mounted.\n\r", ch);
+        send_to_char(msg(MOVE_YOU_CANT_REST_MOUNTED, ch), ch);
         return;
     }
     if (RIDDEN(ch)) 
     {
-        send_to_char("You can't rest while being ridden.\n\r", ch);
+        send_to_char(msg(MOVE_YOU_CANT_REST_RIDDEN, ch), ch);
         return;
     }
 
 
     if ( IS_AFFECTED(ch, AFF_SLEEP) )
-    { send_to_char( "You are already sleeping.\n\r", ch ); return; }
+    { send_to_char(msg(MOVE_YOU_ARE_ALREADY_SLEEPING, ch), ch); return; }
 
     /* okay, now that we know we can rest, find an object to rest on */
     if (argument[0] != '\0')
@@ -1362,7 +1362,7 @@ void do_rest( CHAR_DATA *ch, char *argument )
 	obj = get_obj_list(ch,argument,ch->in_room->contents);
 	if (obj == NULL)
 	{
-	    send_to_char("You don't see that here.\n\r",ch);
+	    send_to_char(msg(MOVE_YOU_DONT_SEE_THAT, ch), ch);
 	    return;
 	}
     }
@@ -1375,13 +1375,14 @@ void do_rest( CHAR_DATA *ch, char *argument )
     	&&   !IS_SET(obj->value[2],REST_IN)
     	&&   !IS_SET(obj->value[2],REST_AT)))
     	{
-	    send_to_char("You can't rest on that.\n\r",ch);
+	    send_to_char(msg(MOVE_YOU_CANT_REST_ON_THAT, ch), ch);
 	    return;
     	}
 
         if (obj != NULL && ch->on != obj && count_users(obj) >= obj->value[0])
         {
-	    act_puts("There's no more room on $p.",ch,obj,NULL,TO_CHAR,POS_DEAD);
+	    act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD, 
+			MOVE_THERES_NO_MORE_ROOM_ON);
 	    return;
     	}
 	
@@ -1393,54 +1394,65 @@ void do_rest( CHAR_DATA *ch, char *argument )
     case POS_SLEEPING:
 	if (obj == NULL)
 	{
-	    send_to_char( "You wake up and start resting.\n\r", ch );
-	    act ("$n wakes up and starts resting.",ch,NULL,NULL,TO_ROOM);
+	    send_to_char(msg(MOVE_YOU_WAKE_AND_REST, ch), ch);
+	    act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, 
+			MOVE_N_WAKES_AND_RESTS);
 	}
 	else if (IS_SET(obj->value[2],REST_AT))
 	{
-	    act_puts("You wake up and rest at $p.",
-		    ch,obj,NULL,TO_CHAR,POS_SLEEPING);
-	    act("$n wakes up and rests at $p.",ch,obj,NULL,TO_ROOM);
+	    act_printf(ch, obj, NULL, TO_CHAR, POS_SLEEPING,
+			MOVE_YOU_WAKE_UP_AND_REST_AT);
+	    act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING,
+			MOVE_N_WAKES_UP_AND_RESTS_AT);
 	}
         else if (IS_SET(obj->value[2],REST_ON))
         {
-            act_puts("You wake up and rest on $p.",
-                    ch,obj,NULL,TO_CHAR,POS_SLEEPING);
-            act("$n wakes up and rests on $p.",ch,obj,NULL,TO_ROOM);
+	    act_printf(ch, obj, NULL, TO_CHAR, POS_SLEEPING,
+			MOVE_YOU_WAKE_UP_AND_REST_ON);
+	    act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING,
+			MOVE_N_WAKES_UP_AND_RESTS_ON);
         }
         else
         {
-            act_puts("You wake up and rest in $p.",
-                    ch,obj,NULL,TO_CHAR,POS_SLEEPING);
-            act("$n wakes up and rests in $p.",ch,obj,NULL,TO_ROOM);
+	    act_printf(ch, obj, NULL, TO_CHAR, POS_SLEEPING,
+			MOVE_YOU_WAKE_UP_AND_REST_IN);
+	    act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING,
+			MOVE_N_WAKES_UP_AND_RESTS_IN);
         }
 	ch->position = POS_RESTING;
 	break;
 
     case POS_RESTING:
-	send_to_char( "You are already resting.\n\r", ch );
+	send_to_char(msg(MOVE_YOU_ARE_ALREADY_RESTING, ch), ch);
 	break;
 
     case POS_STANDING:
 	if (obj == NULL)
 	{
-	    send_to_char( "You rest.\n\r", ch );
-	    act( "$n sits down and rests.", ch, NULL, NULL, TO_ROOM );
+	    send_to_char(msg(MOVE_YOU_REST, ch), ch);
+	    act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
+			MOVE_N_SITS_DOWN_AND_RESTS);
 	}
         else if (IS_SET(obj->value[2],REST_AT))
         {
-	    act("You sit down at $p and rest.",ch,obj,NULL,TO_CHAR);
-	    act("$n sits down at $p and rests.",ch,obj,NULL,TO_ROOM);
+	    act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD,
+			MOVE_YOU_SIT_DOWN_AT_AND_REST);
+	    act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING,
+			MOVE_N_SITS_DOWN_AT_AND_RESTS);
         }
         else if (IS_SET(obj->value[2],REST_ON))
         {
-	    act("You sit on $p and rest.",ch,obj,NULL,TO_CHAR);
-	    act("$n sits on $p and rests.",ch,obj,NULL,TO_ROOM);
+	    act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD,
+			MOVE_YOU_SIT_DOWN_ON_AND_REST);
+	    act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING,
+			MOVE_N_SITS_DOWN_ON_AND_RESTS);
         }
         else
         {
-	    act("You rest in $p.",ch,obj,NULL,TO_CHAR);
-	    act("$n rests in $p.",ch,obj,NULL,TO_ROOM);
+	    act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD,
+			MOVE_YOU_SIT_DOWN_IN_AND_REST);
+	    act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING,
+			MOVE_N_SITS_DOWN_IN_AND_RESTS);
         }
 	ch->position = POS_RESTING;
 	break;
@@ -1448,35 +1460,33 @@ void do_rest( CHAR_DATA *ch, char *argument )
     case POS_SITTING:
 	if (obj == NULL)
 	{
-	    send_to_char("You rest.\n\r",ch);
-	    act("$n rests.",ch,NULL,NULL,TO_ROOM);
+	    send_to_char(msg(MOVE_YOU_REST, ch), ch);
+	    act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MOVE_N_RESTS);
 	}
         else if (IS_SET(obj->value[2],REST_AT))
         {
-	    act("You rest at $p.",ch,obj,NULL,TO_CHAR);
-	    act("$n rests at $p.",ch,obj,NULL,TO_ROOM);
+	    act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD, MOVE_YOU_REST_AT);
+	    act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_RESTS_AT);
         }
         else if (IS_SET(obj->value[2],REST_ON))
         {
-	    act("You rest on $p.",ch,obj,NULL,TO_CHAR);
-	    act("$n rests on $p.",ch,obj,NULL,TO_ROOM);
+	    act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD, MOVE_YOU_REST_ON);
+	    act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_RESTS_ON);
         }
         else
         {
-	    act("You rest in $p.",ch,obj,NULL,TO_CHAR);
-	    act("$n rests in $p.",ch,obj,NULL,TO_ROOM);
+	    act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD, MOVE_YOU_REST_IN);
+	    act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_RESTS_IN);
 	}
 	ch->position = POS_RESTING;
 
         if (IS_HARA_KIRI(ch)) 
 	{
-	 send_to_char("You feel your blood heats your body.\n\r",ch);
-	 REMOVE_BIT(ch->act,PLR_HARA_KIRI);
+	 send_to_char(msg(MOVE_FEEL_BLOOD_HEATS, ch), ch);
+	 REMOVE_BIT(ch->act, PLR_HARA_KIRI);
 	}
-
 	break;
     }
-
 
     return;
 }
