@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spec.c,v 1.1 1999-10-06 09:56:11 fjoe Exp $
+ * $Id: spec.c,v 1.2 1999-10-07 18:22:25 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -92,7 +92,6 @@ typedef struct _update_skills_t _update_skills_t;
 struct _update_skills_t {
 	CHAR_DATA *ch;
 	const char *bonus_skills;
-	const char *matched_skills;
 	spec_t *spec;
 };
 
@@ -114,10 +113,8 @@ add_one_skill_cb(void *p, void *d)
 		level = spec_sk->level;
 	}
 
-	if (level <= u->ch->level) {
+	if (level <= u->ch->level)
 		set_skill_raw(u->ch, spec_sk->sn, percent, FALSE);
-		name_add(&u->matched_skills, spec_sk->sn, NULL, NULL);
-	}
 	return NULL;
 }
 
@@ -146,8 +143,11 @@ check_one_skill_cb(void *p, void *d)
 	pc_skill_t *pc_sk = (pc_skill_t *) p;
 	_update_skills_t *u = (_update_skills_t *) d;
 
-	if (!is_name(pc_sk->sn, u->matched_skills))
-		pc_sk->percent = 0;
+	spec_skill_t spec_sk;
+
+	spec_sk.sn = pc_sk->sn;
+	spec_stats(u->ch, &spec_sk);
+	pc_sk->percent = UMIN(pc_sk->percent, spec_sk.max);
 	return NULL;
 }
 
@@ -170,13 +170,11 @@ void update_skills(CHAR_DATA *ch)
 	else
 		u.bonus_skills = NULL;
 	u.ch = ch;
-	u.matched_skills = NULL;
 	varr_foreach(&PC(ch)->specs, add_skills_cb, &u);
 
 /* remove not matched skills */
 	if (!IS_IMMORTAL(ch)) 
 		varr_foreach(&PC(ch)->learned, check_one_skill_cb, &u);
-	free_string(u.matched_skills);
 }
 
 /*-------------------------------------------------------------------
