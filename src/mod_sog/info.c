@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: info.c,v 1.29 2001-08-20 16:47:42 fjoe Exp $
+ * $Id: info.c,v 1.30 2001-08-22 12:41:29 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -313,7 +313,7 @@ CMD_FUN(cmd_help)
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	lev = atoi(arg);
-	
+
 	output = buf_new(0);
 	help_show_raw(lev, lang, output, argument);
 	parse_colors(buf_string(output), buf, sizeof(buf), format);
