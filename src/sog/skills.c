@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.82 1999-11-19 09:41:53 fjoe Exp $
+ * $Id: skills.c,v 1.83 1999-11-19 13:05:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -238,7 +238,8 @@ int get_skill(CHAR_DATA *ch, const char *sn)
 		percent = get_mob_skill(ch, sk);
 
 	if (ch->daze > 0) {
-		if (sk->skill_type == ST_SPELL)
+		if (sk->skill_type == ST_SPELL
+		||  sk->skill_type == ST_PRAYER)
 			percent /= 2;
 		else
 			percent = 2 * percent / 3;
@@ -665,7 +666,8 @@ get_mob_skill(CHAR_DATA *ch, skill_t *sk)
 {
 	mob_skill_t *mob_skill;
 
-	if (sk->skill_type == ST_SPELL)
+	if (sk->skill_type == ST_SPELL
+	||  sk->skill_type == ST_PRAYER)
 		return 40 + 2 * ch->level;
 
 	if (!mob_skill_count)

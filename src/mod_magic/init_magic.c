@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_magic.c,v 1.3 1999-10-06 09:56:20 fjoe Exp $
+ * $Id: init_magic.c,v 1.4 1999-11-19 13:05:28 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -58,7 +58,8 @@ load_cb(void *p, void *d)
 	skill_t *sk = (skill_t*) p;
 	module_t *m = (module_t*) d;
 
-	if (sk->skill_type == ST_SPELL) {
+	if (sk->skill_type == ST_SPELL
+	||  sk->skill_type == ST_PRAYER) {
 		sk->fun = dlsym(m->dlh, sk->fun_name);
 		if (sk->fun == NULL) 
 			wizlog("_module_load(spellfun): %s", dlerror());
@@ -71,7 +72,8 @@ unload_cb(void *p, void *d)
 {
 	skill_t *sk = (skill_t*) p;
 
-	if (sk->skill_type == ST_SPELL)
+	if (sk->skill_type == ST_SPELL
+	||  sk->skill_type == ST_PRAYER)
 		sk->fun = NULL;
 	return NULL;
 }

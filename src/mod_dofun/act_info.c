@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.283 1999-11-18 18:41:30 fjoe Exp $
+ * $Id: act_info.c,v 1.284 1999-11-19 13:05:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3194,7 +3194,8 @@ void do_spells(CHAR_DATA *ch, const char *argument)
 
 		if (pc_sk->percent == 0
 		||  (sk = skill_lookup(pc_sk->sn)) == NULL
-		||  sk->skill_type != ST_SPELL)
+		||  (sk->skill_type != ST_SPELL &&
+		     sk->skill_type != ST_PRAYER))
 			continue;
 
 		knowledge = skill_knowledge_alias(ch, pc_sk, &spec_sk);

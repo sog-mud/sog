@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.61 1999-10-21 13:53:41 fjoe Exp $
+ * $Id: olc_obj.c,v 1.62 1999-11-19 13:05:27 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -1156,6 +1156,7 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 			if (!str_cmp(argument, "?") 
 			|| (sk = skill_lookup(argument)) == 0) {
 				show_skills(output, ST_SPELL);
+				show_skills(output, ST_PRAYER);
 				return 2;
 			}
 			buf_add(output, "SPELL TYPE SET.\n");
@@ -1184,6 +1185,7 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 			if (!str_cmp(argument, "?")
 			||  (sk = skill_lookup(argument)) == 0) {
 				show_skills(output, ST_SPELL);
+				show_skills(output, ST_PRAYER);
 				return 2;
 			}
 			buf_printf(output, "SPELL TYPE %d SET.\n\n", value_num);

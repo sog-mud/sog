@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic.c,v 1.11 1999-10-23 10:20:19 fjoe Exp $
+ * $Id: magic.c,v 1.12 1999-11-19 13:05:27 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -98,7 +98,8 @@ void obj_cast_spell(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	bool offensive = FALSE;
 
 	if ((spell = skill_lookup(sn)) == NULL
-	||  spell->skill_type != ST_SPELL
+	||  (spell->skill_type != ST_SPELL &&
+	     spell->skill_type != ST_PRAYER)
 	||  spell->fun == NULL)
 		return;
 

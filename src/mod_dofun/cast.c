@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cast.c,v 1.8 1999-10-23 10:20:12 fjoe Exp $
+ * $Id: cast.c,v 1.9 1999-11-19 13:05:27 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -43,18 +43,13 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	bool cast_far = FALSE;
 	bool offensive = FALSE;
 	pc_skill_t *pc_sk = NULL;
-	int slevel;
 	int chance = 0;
 	skill_t *spell;
-	class_t *cl;
 	CHAR_DATA *familiar = NULL;
 	CHAR_DATA *gch;
 
 	CHAR_DATA *bch;		/* char to check spellbane on */
 	int bane_chance;	/* spellbane chance */
-
-	if ((cl = class_lookup(ch->class)) == NULL)
-		return;
 
 	if (HAS_SKILL(ch, "spellbane") && !IS_IMMORTAL(ch)) {
 		char_puts("You are Battle Rager, not the filthy magician.\n",
@@ -111,7 +106,8 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (spell->skill_type != ST_SPELL
+	if ((spell->skill_type != ST_SPELL &&
+	     spell->skill_type != ST_PRAYER)
 	||  spell->fun == NULL) {
 		char_puts("That's not a spell.\n", ch);
 		return;
@@ -129,12 +125,12 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	for(gch=ch->in_room->people; gch; gch=gch->next_in_room) {
+	for (gch = ch->in_room->people; gch; gch = gch->next_in_room) {
 		if (IS_AFFECTED(gch, AFF_CHARM)
-		&& IS_NPC(gch)
-		&& IS_SET(gch->pMobIndex->act, ACT_FAMILIAR)
-		&& gch->master==ch) 	
-			familiar=gch;
+		&&  IS_NPC(gch)
+		&&  IS_SET(gch->pMobIndex->act, ACT_FAMILIAR)
+		&&  gch->master == ch) 	
+			familiar = gch;
 	}
 
 	if (!IS_NPC(ch)) {
@@ -143,8 +139,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 			char_puts("You don't have enough mana.\n", ch);
 			return;
 		}
-	}
-	else
+	} else
 		mana = 0;
 
 	/*
@@ -336,10 +331,17 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		ch->mana -= mana / 2;
 		if (cast_far) cast_far = FALSE;
 	} else {
-		if (IS_SET(cl->class_flags, CLASS_MAGIC))
-			slevel = LEVEL(ch) - UMAX(0, (LEVEL(ch) / 20));
-		else
-			slevel = LEVEL(ch) - UMAX(5, (LEVEL(ch) / 10));
+		int slevel = LEVEL(ch);
+
+		if (!IS_NPC(ch)) {
+			class_t *cl;
+
+			if ((cl = class_lookup(ch->class)) != NULL
+			&&  IS_SET(cl->class_flags, CLASS_MAGIC))
+				slevel -= UMAX(0, (LEVEL(ch) / 20));
+			else
+				slevel -= UMAX(5, (LEVEL(ch) / 10));
+		}
 
 		if ((chance = get_skill(ch, "spell craft"))) {
 			if (number_percent() < chance) {
@@ -377,13 +379,15 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 
 		if ((chance = get_skill(ch, "mastering spell"))
 		&&  number_percent() < chance) {
-			slevel += number_range(1,4); 
+			slevel += number_range(1, 4); 
 			check_improve(ch, "mastering spell", TRUE, 1);
 		}
 
-		if (familiar && number_percent()<20 && familiar->mana > mana) {
+		if (familiar
+		&&  number_percent() < 20
+		&&  familiar->mana > mana) {
 			act("You take some energy of your $N and power of your spell increases", ch, NULL, familiar, TO_CHAR);
-			slevel +=number_range(1,3);
+			slevel += number_range(1, 3);
 			familiar->mana -= mana/2;
 		}
 
@@ -397,7 +401,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 
 		if (familiar && number_percent()<20 && familiar->mana > mana) {
 			act("You take some energy of your $N to cast a spell.", ch, NULL, familiar, TO_CHAR);
-			slevel +=number_range(1,3);
+			slevel += number_range(1,3);
 			familiar->mana -= mana/2;
 			ch->mana += mana/2;
 		}
