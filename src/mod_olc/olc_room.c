@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.64 1999-12-01 10:39:36 fjoe Exp $
+ * $Id: olc_room.c,v 1.65 1999-12-04 11:32:13 fjoe Exp $
  */
 
 #include "olc.h"
@@ -396,9 +396,12 @@ OLC_FUN(roomed_name)
 
 OLC_FUN(roomed_desc)
 {
+	bool rv;
 	ROOM_INDEX_DATA *pRoom;
 	EDIT_ROOM(ch, pRoom);
-	return olced_mlstr_text(ch, argument, cmd, &pRoom->description);
+	rv = olced_mlstr_text(ch, argument, cmd, &pRoom->description);
+	dofun("look", ch, str_empty);
+	return rv;
 }
 
 OLC_FUN(roomed_heal)
@@ -775,6 +778,7 @@ OLC_FUN(roomed_clone)
 		room->mana_rate = proto->mana_rate;
 	}
 
+	dofun("look", ch, str_empty);
 	return TRUE;
 }
 
