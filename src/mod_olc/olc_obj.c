@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.16 1998-10-21 05:01:25 fjoe Exp $
+ * $Id: olc_obj.c,v 1.17 1998-10-22 04:38:42 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -375,7 +375,7 @@ OLC_FUN(objed_addaffect)
 	argument = one_argument(argument, mod);
 	argument = one_argument(argument, wh);
 
-	if (loc[0] == '\0' || mod[0] == '\0' || !is_number(mod)) {
+	if (loc[0] == '\0') {
 		do_help(ch, "'OLC ADDAFFECT'");
 		return FALSE;
 	}
@@ -388,6 +388,11 @@ OLC_FUN(objed_addaffect)
 		if ((location = flag_value(apply_flags, loc)) < 0) {
 			char_puts("Valid locations are:\n\r", ch);
 			show_flags(ch, apply_flags);
+			return FALSE;
+		}
+
+		if (!is_number(mod)) {
+			do_help(ch, "'OLC ADDAFFECT'");
 			return FALSE;
 		}
 		modifier = atoi(mod);
