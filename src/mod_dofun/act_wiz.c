@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.251 2000-09-11 07:09:35 fjoe Exp $
+ * $Id: act_wiz.c,v 1.252 2000-10-04 17:32:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3700,7 +3700,7 @@ void do_title(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
-	bool loaded = TRUE;
+	bool loaded = FALSE;
 
 	if (IS_NPC(ch))
 		return;
