@@ -513,7 +513,10 @@ m mob_random @ 1~
 dofun("say", $n, "You don't know much and that's fact!");
 return 0;
 ~
-m mob_speech mob_random_duchess ~
+m mob_speech @ ~
+dofun("say", $n, "You don't know much and that's fact!");
+return 0;
+~
 #21019
 pig baby~
 the Duchess' baby~
@@ -876,7 +879,10 @@ dofun("yell", $n, "GUARDS! HELP!");
 cast_char("flamestrike", $n, $N);
 return 0;
 ~
-m mob_exit mob_queen_of_hearts all~
+m mob_exit @ all~
+dofun("yell", $n, "Off with their heads!");
+return 0;
+~
 m mob_look @ 100~
 tell_char($n, $N, "Off with YOUR head!");
 cast_char("black shroud", $n, $n);
