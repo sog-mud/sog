@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.35 1998-06-23 18:50:29 efdi Exp $
+ * $Id: merc.h,v 1.36 1998-06-23 22:29:51 efdi Exp $
  */
 
 /***************************************************************************
@@ -2042,11 +2042,11 @@ struct	pc_data
     int 		perm_hit;
     int 		perm_mana;
     int 		perm_move;
-    int		true_sex;
+    int			true_sex;
     int 		last_level;
-    int		condition	[MAX_COND];
-    int		learned 	[MAX_SKILL];
-    int		points;
+    int			condition	[MAX_COND];
+    int			learned 	[MAX_SKILL];
+    int			points;
     bool		confirm_delete;
     char *		alias[MAX_ALIAS];
     char *		alias_sub[MAX_ALIAS];
@@ -2056,15 +2056,15 @@ struct	pc_data
     int 		played;
     int 		anti_killed;
     int 		has_killed;
-    int		questgiver;	/* quest */
+    int			questgiver;	/* quest */
     int 		questpoints;	/* quest */
-    int		questtime;	/* quest */
-    int		questobj;	/* quest */
-    int		questmob;	/* quest */
+    int			questtime;	/* quest */
+    int			questobj;	/* quest */
+    int			questmob;	/* quest */
     struct qtrouble_data *qtrouble;
     ROOM_INDEX_DATA *	questroom;	/* quest */
-    int		race;	/* orginal race for polymorph */
-    int		adr_stops_shown;
+    int			race;	/* orginal race for polymorph */
+    int			adr_stops_shown;
     int			pc_killed;	/* how many PC's killed by character */
 };
 
