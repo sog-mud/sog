@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.18 1998-07-03 15:18:42 fjoe Exp $
+ * $Id: mob_prog.c,v 1.19 1998-07-04 08:54:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -454,9 +454,8 @@ int cmd_eval(int vnum, char *line, int check,
     {
 	if ((oper = keyword_lookup(fn_evals, buf)) < 0)
 	{
-	    sprintf(buf, "Cmd_eval: prog %d syntax error(2) '%s'",
+	    log_printf("cmd_eval: vnum %d: syntax error(2) '%s'",
 		vnum, original);
-	    bug(buf, 0);
 	    return FALSE;
 	}
 	one_argument(line, buf);
@@ -470,9 +469,8 @@ int cmd_eval(int vnum, char *line, int check,
      */
     if (buf[0] != '$' || buf[1] == '\0')
     {
-	sprintf(buf, "Cmd_eval: prog %d syntax error(3) '%s'",
+	log_printf("cmd_eval: vnum %d: syntax error(3) '%s'",
 		vnum, original);
-	bug(buf, 0);
         return FALSE;
     }
     else
@@ -494,9 +492,8 @@ int cmd_eval(int vnum, char *line, int check,
 	case 'q':
 	    lval_char = mob->mprog_target; break;
 	default:
-	    sprintf(buf, "Cmd_eval: prog %d syntax error(4) '%s'",
+	    log_printf("cmd_eval: vnum %d: syntax error(4) '%s'",
 		vnum, original);
-	    bug(buf, 0);
 	    return FALSE;
     }
     /*
@@ -618,9 +615,8 @@ int cmd_eval(int vnum, char *line, int check,
      */
     if ((oper = keyword_lookup(fn_evals, buf)) < 0)
     {
-	sprintf(buf, "Cmd_eval: prog %d syntax error(5): '%s'",
+	log_printf("cmd_eval: vnum %d: syntax error(5): '%s'",
 		vnum, original);
-	bug(buf, 0);
 	return FALSE;
     }
     one_argument(line, buf);
@@ -909,12 +905,10 @@ void program_flow(
     int state[MAX_NESTED_LEVEL], /* Block state (BEGIN,IN,END) */
 	cond[MAX_NESTED_LEVEL];  /* Boolean value based on the last if-check */
 
-    int mvnum = mob->pIndexData->vnum;
-
-    if(++call_level > MAX_CALL_LEVEL)
-    {
-	bug("MOBprogs: MAX_CALL_LEVEL exceeded, vnum %d", mob->pIndexData->vnum);
-	return;
+    if(++call_level > MAX_CALL_LEVEL) {
+	log_printf("program_flow: vnum %d: MAX_CALL_LEVEL exceeded",
+		pvnum);
+	goto bail_out;
     }
 
     /*
@@ -975,18 +969,16 @@ void program_flow(
 	{
 	    if (state[level] == BEGIN_BLOCK)
 	    {
-		sprintf(buf, "Mobprog: misplaced if statement, mob %d prog %d",
-			mvnum, pvnum);
-		bug(buf, 0);
-		return;
+		log_printf("program_flow: vnum %d: misplaced if statement",
+			pvnum);
+		goto bail_out;
 	    }
 	    state[level] = BEGIN_BLOCK;
             if (++level >= MAX_NESTED_LEVEL)
             {
-		sprintf(buf, "Mobprog: Max nested level exceeded, mob %d prog %d",
-			mvnum, pvnum);
-		bug(buf, 0);
-		return;
+		log_printf("program_flow: vnum %d: max nested level exceeded",
+			pvnum);
+		goto bail_out;
 	    }
 	    if (level && cond[level-1] == FALSE) 
 	    {
@@ -1000,10 +992,9 @@ void program_flow(
 	    }
 	    else
 	    {
-		sprintf(buf, "Mobprog: invalid if_check (if), mob %d prog %d",
-			mvnum, pvnum);
-		bug(buf, 0);
-		return;
+		log_printf("program_flow: vnum %d: invalid if_check (if)",
+			pvnum);
+		goto bail_out;
 	    }
 	    state[level] = END_BLOCK;
     	}
@@ -1011,10 +1002,9 @@ void program_flow(
 	{
 	    if (!level || state[level-1] != BEGIN_BLOCK)
 	    {
-		sprintf(buf, "Mobprog: or without if, mob %d prog %d",
-			mvnum, pvnum);
-		bug(buf, 0);
-		return;
+		log_printf("program_flow: vnum %d: 'or' without 'if'",
+			pvnum);
+		goto bail_out;
 	    }
 	    if (level && cond[level-1] == FALSE) continue;
 	    line = one_argument(line, control);
@@ -1024,10 +1014,9 @@ void program_flow(
 	    }
 	    else
             {
-		sprintf(buf, "Mobprog: invalid if_check (or), mob %d prog %d",
-			mvnum, pvnum);
-		bug(buf, 0);
-		return;
+		log_printf("program_flow: vnum %d: invalid if_check (or)",
+			pvnum);
+		goto bail_out;
             }
             cond[level] = (eval == TRUE) ? TRUE : cond[level];
     	}
@@ -1035,10 +1024,9 @@ void program_flow(
 	{
 	    if (!level || state[level-1] != BEGIN_BLOCK)
 	    {
-		sprintf(buf, "Mobprog: and without if, mob %d prog %d",
-			mvnum, pvnum);
-		bug(buf, 0);
-		return;
+		log_printf("program_flow: vnum %d: 'and' without 'if'",
+			pvnum);
+		goto bail_out;
 	    }
 	    if (level && cond[level-1] == FALSE) continue;
 	    line = one_argument(line, control);
@@ -1048,10 +1036,9 @@ void program_flow(
 	    }
 	    else
 	    {
-		sprintf(buf, "Mobprog: invalid if_check (and), mob %d prog %d",
-			mvnum, pvnum);
-		bug(buf, 0);
-		return;
+		log_printf("program_flow: vnum %d: invalid if_check (and)",
+			pvnum);
+		goto bail_out;
 	    }
 	    cond[level] = (cond[level] == TRUE) && (eval == TRUE) ? TRUE : FALSE;
     	}
@@ -1059,10 +1046,9 @@ void program_flow(
 	{
 	    if (!level || state[level-1] != BEGIN_BLOCK)
 	    {
-		sprintf(buf, "Mobprog: endif without if, mob %d prog %d",
-			mvnum, pvnum);
-		bug(buf, 0);
-		return;
+		log_printf("program_flow: vnum %d: 'endif' without 'if'",
+			pvnum);
+		goto bail_out;
 	    }
 	    cond[level] = TRUE;
 	    state[level] = IN_BLOCK;
@@ -1072,10 +1058,9 @@ void program_flow(
 	{
 	    if (!level || state[level-1] != BEGIN_BLOCK)
 	    {
-		sprintf(buf, "Mobprog: else without if, mob %d prog %d",
-			mvnum, pvnum);
-		bug(buf, 0);
-		return;
+		log_printf("program_flow: vnum %d: 'else' without 'if'",
+			pvnum);
+		goto bail_out;
 	    }
 	    if (level && cond[level-1] == FALSE) continue;
             state[level] = IN_BLOCK;
@@ -1083,10 +1068,7 @@ void program_flow(
         }
     	else if (cond[level] == TRUE
 	&& (!str_cmp(control, "break") || !str_cmp(control, "end")))
-	{
-	    call_level--;
-            return;
-	}
+	    goto bail_out;
 	else if ((!level || cond[level] == TRUE) && buf[0] != '\0')
 	{
 	    state[level] = IN_BLOCK;
@@ -1108,6 +1090,8 @@ void program_flow(
 	    }
 	}
     }
+
+bail_out:
     call_level--;
 }
 

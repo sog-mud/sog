@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.c,v 1.2 1998-07-03 15:18:47 fjoe Exp $
+ * $Id: string_edit.c,v 1.3 1998-07-04 08:54:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -169,8 +169,7 @@ void string_add(CHAR_DATA *ch, char *argument)
 
             *ch->desc->pString =
                 string_replace(*ch->desc->pString, arg2, arg3);
-            sprintf(buf, "'%s' replaced with '%s'.\n\r", arg2, arg3);
-            send_to_char(buf, ch);
+            char_printf(ch, "'%s' replaced with '%s'.\n\r", arg2, arg3);
             return;
         }
 
@@ -240,8 +239,7 @@ void string_add(CHAR_DATA *ch, char *argument)
 					for (mpl = mob->mprogs; mpl; mpl = mpl->next)
 						if (mpl->vnum == mpc->vnum)
 						{
-							sprintf(buf, "Arreglando mob %d.\n\r", mob->vnum);
-							send_to_char(buf, ch);
+							char_printf(ch, "Arreglando mob %d.\n\r", mob->vnum);
 							mpl->code = mpc->code;
 						}
 	}

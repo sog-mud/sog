@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.2 1998-07-03 15:18:46 fjoe Exp $
+ * $Id: olc_save.c,v 1.3 1998-07-04 08:54:13 fjoe Exp $
  */
 
 /**************************************************************************
@@ -451,6 +451,7 @@ void save_object(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
 				break;
 			case TO_DETECTS:
 				fprintf(fp, "D ");
+				break;
 			default:
 				log_printf("olc_save: vnum %d: "
 					   "invalid affect->where: %d",
@@ -686,7 +687,6 @@ void save_resets(FILE *fp, AREA_DATA *pArea)
     MOB_INDEX_DATA *pLastMob = NULL;
     OBJ_INDEX_DATA *pLastObj;
     ROOM_INDEX_DATA *pRoom;
-    char buf[MAX_STRING_LENGTH];
     int iHash;
 
     fprintf(fp, "#RESETS\n");
@@ -746,10 +746,7 @@ void save_resets(FILE *fp, AREA_DATA *pArea)
 	        pReset->arg1,
 	        capitalize(get_obj_index(pReset->arg1)->short_descr));
             if (!pLastMob)
-            {
-                sprintf(buf, "Save_resets: !NO_MOB! in [%s]", pArea->file_name);
-                bug(buf, 0);
-            }
+                log_printf("save_resets: !NO_MOB! in [%s]", pArea->file_name);
             break;
 
 	case 'E':
@@ -759,10 +756,7 @@ void save_resets(FILE *fp, AREA_DATA *pArea)
                 capitalize(get_obj_index(pReset->arg1)->short_descr),
                 flag_string(wear_loc_strings, pReset->arg3));
             if (!pLastMob)
-            {
-                sprintf(buf, "Save_resets: !NO_MOB! in [%s]", pArea->file_name);
-                bug(buf, 0);
-            }
+                log_printf("save_resets: !NO_MOB! in [%s]", pArea->file_name);
             break;
 
 	case 'D':
@@ -806,11 +800,7 @@ void save_resets(FILE *fp, AREA_DATA *pArea)
 	case 'G':
 	    fprintf(fp, "G 0 %d 0\n", pReset->arg1);
             if (!pLastMob)
-            {
-                sprintf(buf,
-                    "Save_resets: !NO_MOB! in [%s]", pArea->file_name);
-                bug(buf, 0);
-            }
+                log_printf("save_resets: !NO_MOB! in [%s]", pArea->file_name);
             break;
 
 	case 'E':
@@ -818,11 +808,7 @@ void save_resets(FILE *fp, AREA_DATA *pArea)
 	        pReset->arg1,
                 pReset->arg3);
             if (!pLastMob)
-            {
-                sprintf(buf,
-                    "Save_resets: !NO_MOB! in [%s]", pArea->file_name);
-                bug(buf, 0);
-            }
+                log_printf("save_resets: !NO_MOB! in [%s]", pArea->file_name);
             break;
 
 	case 'D':
@@ -1169,7 +1155,7 @@ void do_asave(CHAR_DATA *ch, char *argument)
 	else
 		log("Saved zones:");
 
-	sprintf(buf, "None.\n\r");
+	strcpy(buf, "None.\n\r");
 
 	for(pArea = area_first; pArea; pArea = pArea->next)
 	{
