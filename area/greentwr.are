@@ -25,7 +25,6 @@ stand stand none 0
 I 0 medium unknown
 r negative 100
 r holy 100
-r charm 100
 m mob_fight mob_fight_cast_cleric 100~
 #26561
 undead novice~
@@ -41,9 +40,6 @@ BFJOQT 0 JT G L -1000 26560
 ADFGKUW
 stand stand none 0
 0 0 medium unknown
-r negative 100
-r mental 100
-r charm 100
 m mob_fight mob_fight_cast_cleric 100~
 #26562
 lich cleric~
@@ -61,7 +57,6 @@ BFGJOQT 0 JV 0 ABHL -1000 26560
 ADGKUW
 stand stand none 0
 0 0 medium unknown
-r acid 100
 m mob_fight mob_fight_cast_cleric 100~
 #26563
 undead elven healder~
@@ -77,11 +72,6 @@ BFGJOQT 0 J 0 L -1000 26560
 ADFGKUW
 stand stand none 0
 0 0 medium unknown
-r cold 100
-r acid 100
-r negative 100
-r mental 100
-r charm 100
 m mob_fight mob_fight_cast_cleric 100~
 #26564
 undead elven bishop~
@@ -96,11 +86,6 @@ BFGJOQT 0 JV 0 L -1000 26560
 ADFGHKUW
 stand stand none 0
 0 0 medium unknown
-r cold 100
-r acid 100
-r negative 100
-r mental 100
-r charm 100
 #26565
 dark angel~
 a dark angel~
@@ -117,10 +102,6 @@ BFGJQT 0 0 0 ABL -1000 26560
 CDEFKO
 stand stand none 0
 0 0 giant unknown
-r acid 100
-r poison 100
-r negative 100
-r charm 100
 m mob_fight mob_fight_cast_cleric 100~
 #26567
 undead elven cardinal~
@@ -138,11 +119,6 @@ BFGJOQT 0 JV 0 L -1000 26560
 ADFGHKUWX
 stand stand none 0
 0 0 medium unknown
-r cold 100
-r acid 100
-r negative 100
-r mental 100
-r charm 100
 m mob_fight mob_fight_cast_cleric 100~
 #0
 
@@ -175,6 +151,29 @@ weapon BG 0 AN
 mace 6 9 'crush' 0
 33 180 4323 P
 f object damroll 10 0
+m obj_fight @ 100~
+char victim = char_fighting($n);
+ 
+if (is_immortal(victim))
+        return 0;
+
+if (!char_form_is(victim, FORM_UNDEAD))
+        return 0;
+ 
+if (saves_spell(char_level($n), victim, DAM_ENERGY)
+||  saves_spell(char_level($n), victim, DAM_OTHER))
+        return 0;
+ 
+if (number_percent() < 95)
+        return 0;
+ 
+act("$N's body explodes under $n's $p.", $n, $p, victim, TO_NOTVICT);
+act("$N's body explodes under your $p.", $n, $p, victim, TO_CHAR);
+act("Your body explodes under $n's $p.", $n, $p, victim, TO_VICT);
+ 
+handle_death($n, victim);
+return 0;
+~
 #26562
 chain shard obsidian crystal~
 an obsidian pendant~
