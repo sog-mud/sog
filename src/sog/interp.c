@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.164.2.10 2004-02-22 15:50:27 fjoe Exp $
+ * $Id: interp.c,v 1.164.2.11 2004-02-22 16:36:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -209,7 +209,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 
 		min_pos = soc->min_pos;
 		/* socials are harmless unless ch is charmed */
-		cmd_flg = IS_AFFECTED(ch, AFF_CHARM) ? 0 : CMD_HARMLESS;
+		cmd_flg = CMD_HARMLESS | CMD_STRIP_HIDE;
 		cmd_log = LOG_NORMAL;
 		cmd_level = 0;
 	} else {
