@@ -863,12 +863,15 @@ CMN 0 C 0
 stand stand either 0
 0 0 medium unknown
 #3100
-maid~
-the maid~
-The maid is waiting for your order.
+maid служанка~
+@eng the maid@rus служанка~
+@eng The maid is waiting for your order.
+@rus Служанка (maid) ждет твоего заказа.
 ~
-She is very beautiful with golden hair, and deep blue eyes. A good reason
+@eng She is very beautiful with golden hair, and deep blue eyes. A good reason
 for coming here more often.
+@rus Она прекрасна!.. Золотистые волосы, томные взгляд голубых глаз - все за то,
+чтобы заходить сюда почаще!
 ~
 human~
 ABVe 0 1000 0
@@ -878,11 +881,13 @@ FG AB CD 0
 stand stand female 180
 0 0 medium unknown
 #3120
-sexton~
-the sexton~
-A sexton is sitting here, drinking hot tea.
+sexton могильщик~
+@eng the sexton@rus могильщик~
+@eng A sexton is sitting here, drinking hot tea.
+@rus Могильщик (sexton) сидит тут и пьет горячий чай.
 ~
-The sexton looks like he is relaxing after another grave-digging job.
+@eng The sexton looks like he is relaxing after another grave-digging job.
+@rus Могильщик отдыхает после изнурительной работы.
 ~
 human~
 ABH 0 800 0
@@ -892,11 +897,13 @@ ABH 0 800 0
 sit sit male 75
 0 0 medium unknown
 #3121
-swan~
-the swan~
-A swan is swimming around in the pond.
+swan лебедь~
+@eng the swan@rus лебедь~
+@eng A swan is swimming around in the pond.
+@rus Лебедь (swan) величественно плывет к берегу.
 ~
-The white swan is very elegant.
+@eng The white swan is very elegant.
+@rus Белая, очень элегантная птица.
 ~
 water fowl~
 ABU 0 1000 0
@@ -906,11 +913,13 @@ CFR 0 0 C
 stand stand either 0
 0 0 small unknown
 #3122
-duckling~
-the duckling~
-A duckling is swimming around in the pond.
+duckling утенок~
+@eng the duckling@rus утенок~
+@eng A duckling is swimming around in the pond.
+@rus Утенок (duckling) весело перебирает лапками, плывя через пруд.
 ~
-The duckling is adorable, it looks most of all like a tiny furball.
+@eng The duckling is adorable, it looks most of all like a tiny furball.
+@rus Просто прелесть! Выглядит как маленький пушистый комочек.
 ~
 water fowl~
 ABU 0 1000 0
@@ -920,11 +929,13 @@ FR 0 0 C
 stand stand either 0
 0 0 tiny unknown
 #3123
-sparrow~
-the sparrow~
-A sparrow is flapping around on the ground.
+sparrow воробей~
+@eng the sparrow@rus воробей~
+@eng A sparrow is flapping around on the ground.
+@rus Воробей (sparrow) скачет по земле.
 ~
-The sparrow looks like it is enjoying life.
+@eng The sparrow looks like it is enjoying life.
+@rus Воробей вовсю наслаждается жизнью.
 ~
 song bird~
 AGHU 0 1000 0
@@ -934,11 +945,13 @@ R 0 0 C
 stand stand either 0
 0 0 tiny unknown
 #3124
-duck~
-the duck~
-A duck is here, quacking happily.
+duck утка~
+@eng the duck@rus утка~
+@eng A duck is here, quacking happily.
+@rus Утка (duck) крякает жизнерадостно.
 ~
-The duck is quite fat.  It looks like it is enjoying life.
+@eng The duck is quite fat.  It looks like it is enjoying life.
+@rus Довольно жирная птица. И вовсю наслаждается жизнью, пока ее не съели.
 ~
 water fowl~
 AGU 0 1000 0
@@ -948,11 +961,13 @@ FR 0 0 C
 stand stand either 0
 0 0 small unknown
 #3140
-captain~
-the captain~
-The captain of the guard is looking very upset.
+captain капитан~
+@eng the captain@rus капитан~
+@eng The captain of the guard is looking very upset.
+@rus Капитан гвардии (captain) выглядит раздраженным.
 ~
-A big, strong, angry captain.
+@eng A big, strong, angry captain.
+@rus Большой, сильный и злой капитан.
 ~
 human~
 ABCFT D 1000 3000
@@ -962,11 +977,13 @@ CDEHKLU 0 C 0
 stand stand male 500
 0 0 medium unknown
 #3141
-cityguard guard~
-the cityguard~
-A cityguard stands here, looking very upset.
+cityguard guard стражник~
+@eng the cityguard@rus стражник~
+@eng A cityguard stands here, looking very upset.
+@rus Стражник (cityguard) стоит тут, глядя раздраженно.
 ~
-A big, strong, angry guard.
+@eng A big, strong, angry guard.
+@rus Большой, сильный, злобный стражник.
 ~
 human~
 ABCFT 0 1000 3000
@@ -1145,14 +1162,17 @@ EFJ AB CD 0
 stand stand female 7000
 0 0 medium unknown
 #3165
-novice boy~
-@eng the novice boy@rus помошник~
+novice boy помощник~
+@eng the novice boy@rus помощник~
 @eng Novice of weaponsmith is here.
-@rus Помошник (novice) оружейника стоит здесь.
+@rus Помощник (novice) оружейника стоит здесь.
 ~
-He is a small boy with short black hair. His bright eyes are watching 
+@eng He is a small boy with short black hair. His bright eyes are watching 
 his master, weaponsmith. Here, he takes care of the bulky work, bringing 
 or carrying away what is needed and what is not.
+@rus Маленький мальчик с короткими черными волосами. Его светлые глаза устремлены
+на мастера оружейника. Он выполняет черную работу - приносит, что нужно, и
+уносит, что не нужно.
 ~
 human~
 ABce HV 500 0
@@ -1162,14 +1182,18 @@ EFJN AB 0 0
 stand stand male 100
 0 0 medium unknown
 #3166
-healer nacya~
-Nacya~
-The healer Nacya welcomes you to her temple.
+healer nacya нася~
+@eng Nacya@rus Нася~
+@eng The healer Nacya welcomes you to her temple.
+@rus Лекарь (healer) Нася приглашает тебя в храм.
 ~
-She surely is one of the most beautiful human you have ever seen in your 
+@eng She surely is one of the most beautiful human you have ever seen in your 
 life.  Her deep brown eyes, invite you to the peaceful world of goods.  
 Her white robes represend the purity of her soul.  She is standing behind 
 the altar, and concentrating, to cure the others wounds.
+@rus Несомненно, это одна из самых прекрасных женщин, встреченных тобой в жизни.
+Ее темно-карие глаза притягивают твой взор. Ее белые одежды означают чистоту
+ее души. Она стоит позади алтаря, готовая излечить раны и помочь страждущим.
 ~
 human~
 ABKQRVaef DEFHZ 1000 0
@@ -2096,7 +2120,7 @@ armor 0 AJ
 5 60 750 P
 G male
 #3100
-cup tea чашка~
+tea чашка cup~
 @eng a cup of tea@rus ~~чашка~~ чая~
 @eng A cup has been set here.@rus Чашка (cup) чая оставлена здесь.~
 china~
@@ -2109,7 +2133,7 @@ It is a small simple cup.
 ~
 G female
 #3101
-cup coffee чашка~
+coffee чашка cup~
 @eng a cup of coffee@rus ~~чашка~~ кофе~
 @eng A cup has been set here.@rus Чашка (cup) кофе оставлена здесь.~
 china~
@@ -2122,7 +2146,7 @@ It is a small simple cup.
 ~
 G female
 #3102
-cup water чашка~
+water чашка cup~
 @eng a cup of water@rus ~~чашка~~ воды~
 @eng A cup has been set here.@rus Чашка (cup) воды оставлена здесь.~
 clay~
@@ -2234,6 +2258,15 @@ A EIJKN A BCEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz 0
 0 0 0 P
 S 'smithing' 75 A
 G female
+#3119
+duck утка~
+@eng a duck@rus ~~утка~~ в яблоках~
+@eng A duck is here, no quacking anymore...@rus Утка (duck) здесь, больше не крякает...~
+food~
+food 0 A
+CE DF 0 0 0
+0 40 100 P
+G female
 #3120
 key iron~
 a key~
@@ -2248,18 +2281,19 @@ The iron key is not special.
 ~
 G none
 #3121
-key rusty~
-a key~
-A rusty key has been left here.~
+key rusty ключ~
+@eng a key@rus ключ~
+@eng A rusty key has been left here.@rus Ржавый ключ (key) оставлен здесь кем-то.~
 iron~
 key 0 A
 0 0 0 0 0
 0 10 0 W
 E
 key rusty~
-The key is a fairly large rusty key.  You notice some fresh dirt on it.
+@eng The key is a fairly large rusty key.  You notice some fresh dirt on it.
+@rus Это довольно большой ключ. Ты замечаешь свежую грязь на нем.
 ~
-G none
+G male
 #3122
 key wooden~
 a key~
@@ -2274,18 +2308,19 @@ The wooden key is not special.
 ~
 G none
 #3123
-key brass~
-a key~
-A brass key has been left here.~
+key brass ключ~
+@eng a key@rus ключ~
+@eng A brass key has been left here.@rus Латунный (brass) ключ (key) оставлен здесь.~
 brass~
 key 0 A
 0 0 0 0 0
 0 10 0 G
 E
 key brass~
-The brass key is small and looks like it fits a very complicated lock.
+@eng The brass key is small and looks like it fits a very complicated lock.
+@rus Латунный ключ невелик, но, похоже, открывает очень сложный замок!
 ~
-G none
+G male
 #3124
 sword long меч~
 @eng a long sword@rus ~~длинный~~ ~~меч~~~
@@ -2313,39 +2348,42 @@ trash 0 AO
 0 40 0 A
 G none
 #3130
-desk drawer~
-the desk~
-A desk is set against the western wall.~
+desk drawer стол~
+@eng the desk@rus стол~
+@eng A desk is set against the western wall.@rus Стол (desk) стоит у западной стены.~
 wood~
 container 0 0
 34 ABCD 3122 20 100
 0 0 0 G
 E
 desk~
-The desk looks very sparse, there is a drawer on the left side.
+@eng The desk looks very sparse, there is a drawer on the left side.
+@rus На столе большой беспорядок, с левого торца выдвигается ящик (drawer).
 ~
 E
 drawer~
-You notice a keyhole in the drawer.
+@eng You notice a keyhole in the drawer.
+@rus Ты видишь отверстие для ключа.
 ~
-G none
+G male
 #3131
-safe~
-the safe~
-A safe is placed in a dark corner of the room.~
+safe сейф~
+@eng the safe@rus сейф~
+@eng A safe is placed in a dark corner of the room.@rus Сейф (safe) установлен в темном углу комнаты.~
 iron~
 container 0 0
 34 ABCD 3123 20 100
 0 0 0 G
 E
 safe~
-The safe is very heavy.
+@eng The safe is very heavy.
+@rus Тяжелый сейф.
 ~
-G none
+G male
 #3132
-silver coins~
-the silver coins~
-A lot of silver is here.~
+silver coins монеты~
+@eng the silver coins@rus ~~серебряные~~ ~~монеты~~~
+@eng A lot of silver is here.@rus Много серебряных монет (silver) лежит тут.~
 silver~
 money 0 A
 1000 0 0 0 0
@@ -2354,7 +2392,7 @@ E
 silver~
 Looks like at least a thousand coins.
 ~
-G none
+G plural
 #3133
 city key~
 the City Key~
@@ -6749,15 +6787,20 @@ Z -1 3010
 S
 #3068
 @eng Temple of Sun@rus Храм Солнца~
-This temple you are standing inside is construcded from green-gray 
+@eng This temple you are standing inside is construcded from green-gray 
 marble blocks, and most of the walls are decorated with silk curtains.
 The very high ceiling is covered with every color of crystals. To the 
 east, large stairs lead down to the temple square, and altar chamber is 
 noticeable to south east.
+@rus Храм, в котором ты оказался, сооружен из серо-зеленых мраморных блоков, и
+почти все стены украшены шелковыми пологами. Высокие своды покрыты кристаллами
+всех цветов. К востоку (east) на площадь спускается мраморная лестница, а альков
+с алтарем виднеется на юго-востоке (south-east).
 ~
 0 DS inside
 D1
-The stairs lead to temple square.
+@eng The stairs lead to temple square.
+@rus Ступени спускаются к Храмовой площади.
 ~
 ~
 Z -1 3069
@@ -6769,55 +6812,74 @@ M 110 H 150
 S
 #3069
 @eng Temple Square@rus Храмовая площадь~
-You are standing in the middle of the large temple square.  In two 
+@eng You are standing in the middle of the large temple square.  In two 
 directions, stairs lead up, at south to the priestess's chamber, and at 
 west to the temple chamber. This square connect to the park road, at the 
 north.
+@rus Ты стоишь посреди большой Храмовой площади. В двух направлениях ведут ступени:
+на юг (south) - в комнату жрицы, а на запад (west) - в храмовый придел. К северу
+(north) площадь выходит на Парковую аллею.
 ~
 0 S city
 D0
-You can see the park road.
+@eng You can see the park road.
+@rus Ты видишь Парковую аллею.
 ~
 ~
 Z -1 3135
 D2
-The stairs lead up to the Nacya's chamber of altar.
+@eng The stairs lead up to the Nacya's chamber of altar.
+@rus Ступени ведут наверх, к алтарю в комнате Наси.
 ~
 ~
 Z -1 3070
 D3
-The resting chambers of Temple of Sun is at the end of stairs.
+@eng The resting chambers of Temple of Sun is at the end of stairs.
+@rus Храмовые покои, куда ведет мраморная лестница, видны на западе.
 ~
 ~
 Z -1 3068
 S
 #3070
 @eng Altar@rus Алтарь~
-You are at a beautiful chamber, which makes you relax.  You can feel 
+@eng You are at a beautiful chamber, which makes you relax.  You can feel 
 the peace in thie holy room.  A very relaxing music from a harp is heard 
 from the back rooms.  You notice a large, altar made of a light green 
 stone, at the center of the chamber.  The walls are all decorated with 
 beautiful paintings and tapestries, while very nice, silk curtains 
 decorate the windows.  You really feel like staying here the rest of your 
 life.
+@rus Ты находишься в тихой комнате, располагающей к отдыху. Ты чувствуешь покой и
+мир этого места. Из дальней комнаты доносятся успокаивающие звуки арфы. Ты
+замечаешь большой алтарь из срео-зеленого камня в центре комнаты. Стены
+расписаны фресками (painting) и украшены гобеленами (tapestry), а тонкие
+прозрачные занавески украшают окна. Ты думаешь, а не остаться ли тут навечно?..
 ~
 0 DKNS inside
 E
 painting~
-Getting a closer look to one of the paintings, you decided that you know 
+@eng Getting a closer look to one of the paintings, you decided that you know 
 the woman on the picture. It's surely Nacya the Healer's portrait hanging 
 on the wall.  A signiture on the bottom corner freezes your blood, as it 
 reads...   ???.
+@rus Рассмотрев поближе одну из фресок, ты решаешь, что тебе знакома женщина на
+ней. Это, несомненно, портрет лекаря Наси. Подпись в нижнем углу заставляет
+заледенеть кровь в твоих жилах... ???
 ~
 E
 tapestry~
-You take a closer look to one of the tapestries.  It's an hand made one, 
+@eng You take a closer look to one of the tapestries.  It's an hand made one, 
 in all color you have seen in your life.  The material looks like silk, 
 and cotton someplaces.  You decide not to touch it, the temple guards 
 will probably arrest you as a thief.
+@rus Ты подходишь поближе к одному из гобеленов. Он выткан вручную, и тебя поражают
+натуральные краски всех цветов, какие ты когда-либо видел! Материал похож на
+шелк, кое-где ты видишь вплетение хлопковых нитей. Ты решаешь не трогать гобелен
+- вдруг храмовая стража примет тебя за вора?
 ~
 D0
-You can see the stairs leading down to the temple square.
+@eng You can see the stairs leading down to the temple square.
+@rus Ты видишь лестницу, ведущую вниз, к Храмовой площади.
 ~
 ~
 Z -1 3069
@@ -7195,45 +7257,58 @@ Z -1 3103
 S
 #3105
 @eng Park Entrance@rus Вход в парк~
-You are standing just inside the small park of Midgaard.  To the north is
+@eng You are standing just inside the small park of Midgaard.  To the north is
 the promenade and a small path leads south into the park.  To your east is
 the famous Park Cafe.
+@rus Ты стоишь у входа в маленький парк Мидгаарда. К северу (north) лежит бульвар,
+а к югу (south) небольшая тропинка ведет вглубь парка. К востоку (east) - вход
+в знаменитую парковую таверну.
 ~
 0 CS city
 D0
-You see the promenade.
+@eng You see the promenade.
+@rus Ты видишь бульвар.
 ~
 ~
 Z -1 3102
 D1
-You see Park Cafe.
+@eng You see Park Cafe.
+@rus Ты видишь парковую таверну.
 ~
 ~
 Z -1 3106
 D2
-You see the park.
+@eng You see the park.
+@rus Ты видишь парк.
 ~
 ~
 Z -1 3108
 S
 #3106
-@eng Park Cafe@rus Кафе-ресторан~
-You are inside Park Cafe, a very well lighted, cosy place. The cafe
+@eng Park Cafe@rus Таверна~
+@eng You are inside Park Cafe, a very well lighted, cosy place. The cafe
 is built from large logs. Through the windows in the northern wall you
 see the river, and through the southern window you see many vigorous
 colorful plants.
+@rus Ты находишься в парковой таверне, хорошо освещенном, уютном месте.
+Таверна выстроена из больших бревен. Из северных окон открывается
+изумительный вид на реку, а сквозь южные окна видны цветущие растения
+парка.
 ~
 0 DS inside
 D3
-You see the park entrance.
+@eng You see the park entrance.
+@rus Ты видишь вход в парк.
 ~
 ~
 Z -1 3105
 S
 #3107
 @eng Small path through the park@rus Тропинка в парке~
-You are walking along a small path through the park.  The path continues
+@eng You are walking along a small path through the park.  The path continues
 south and east.
+@rus Ты идешь по маленькой тропинке через парк. Тропинка продолжается на юг (south)
+и на восток (east).
 ~
 0 S city
 D1
@@ -7247,13 +7322,17 @@ Z -1 3113
 S
 #3108
 @eng Small path in the park@rus Тропинка в парке~
-You are standing on a small path inside the park.  The park entrance is
+@eng You are standing on a small path inside the park.  The park entrance is
 just north of here, and Park Cafe is just east of the entrance.  The path
 leads further east and west.
+@rus Ты стоишь на меленькой тропинке в парке. Вход в парк - к северу (north),
+парковая таверна - на восток от входа. Тропинка ведет на восток (east) и
+на запад (west).
 ~
 0 S city
 D0
-You see the northern park entrance.
+@eng You see the northern park entrance.
+@rus Ты видишь северный вход в парк.
 ~
 ~
 Z -1 3105
@@ -7268,10 +7347,21 @@ Z -1 3107
 S
 #3109
 @eng Small path in the park@rus Тропинка в парке~
-You are on a small path running through the park.  It continues west and
+@eng You are on a small path running through the park.  It continues west and
 south and just north of here you see the southern wall of Park Cafe.
+@rus Ты идешь по тропинке, проходящей через парк. Она продолжается на запад (west)
+и на юг (south), а к северу ты видишь южную стену (wall) парковой таверны.
 ~
 0 S city
+E
+wall~
+@eng You see a wall constructed with a heavy logs. Through the window in the wall
+you can catch a relaxing half-darkness and smell some beautiful aromas. The
+entrance to this attracting place, you guess, is just north-west from here.
+@rus Ты видишь стену, сложенную из тяжелых бревен. Через окно в стене ты замечаешь
+уютную атмосферу этого местечка и ощущаешь восхитительные ароматы. Вход, как ты
+можешь догадаться, лежит к северу-западу отсюда.
+~
 D2
 ~
 ~
@@ -7282,40 +7372,51 @@ D3
 Z -1 3108
 S
 #3110
-@eng Cityguard Head Quarters@rus Казармы городской стражи~
-You are inside a tidy office.  A big desk made from dark wood is standing
+@eng Cityguard Head Quarters@rus Штаб-квартира городской стражи.~
+@eng You are inside a tidy office.  A big desk made from dark wood is standing
 in the centre of the room.
+@rus Ты оказался внутри опрятного офиса. Большой стол из потемневшего от времени
+дерева стоит в центре комнаты.
 ~
 0 DS inside
 D1
-You see Park Road.
+@eng You see Park Road.
+@rus Ты видишь Парковую аллею.
 ~
 door~
 Z -1 3111
 D3
-You see a sign saying 'KEEP OUT'.
+@eng You see a sign saying 'KEEP OUT'.
+@rus {R "НЕ ВХОДИТЬ!"{x
 ~
 door~
 ABCZ 3120 3142
 S
 #3111
 @eng Park Road@rus Дорога вокруг парка~
-The road continues north and south.  A building is just west of here, you
+@eng The road continues north and south.  A building is just west of here, you
 notice a sign on the door.  The park entrance is to the east.
+@rus Дорога ведет на север (north) и на юг (south). На западе (west) ты видишь
+строение (building), на его двери (door) ты замечаешь надпись (sign). Вход
+в парк - на востоке (east) отсюда.
 ~
 0 S city
 E
 building door sign~
-The sign on the door says:-
+@eng The sign on the door says:-
 
                  Cityguard Head Quarters
+@rus Надпись на двери гласит:
+ 
+{r                     Штаб-квартира городской стражи.{x
 ~
 D0
 ~
 ~
 Z -1 3131
 D1
-You see the park entrance.
+@eng You see the park entrance.
+@rus Ты видишь вход в парк.
 ~
 ~
 Z -1 3112
@@ -7324,15 +7425,18 @@ D2
 ~
 Z -1 3118
 D3
-You see the cityguard head quarters.
+@eng You see the cityguard head quarters.
+@rus Ты видишь штаб-квартиру городской стражи.
 ~
 door~
 Z -1 3110
 S
 #3112
 @eng Western Park Entrance@rus Западный вход в парк~
-You are standing at the western end of the park.  A small path leads east
+@eng You are standing at the western end of the park.  A small path leads east
 into the park and going west through the entrance you will reach Park Road.
+@rus Ты стоишь у западного входа в парк. Небольшая тропинка ведет к востоку (east)
+в парк, а на западе (west) ты можешь выйти к Парковой Аллее.
 ~
 0 CS city
 D1
@@ -7346,8 +7450,10 @@ Z -1 3111
 S
 #3113
 @eng A path in the park@rus Тропинка в парке~
-You are in the park.  The paths lead north and west.  Westwards is the
+@eng You are in the park.  The paths lead north and west.  Westwards is the
 park entrance and to the east you see a small pond.
+@rus Ты в парке. Тропинка ведет к северу (north) и к западу (west). На западе ты
+видишь вход в парк, а к востоку (east) лежит небольшой пруд.
 ~
 0 S city
 D0
@@ -7355,20 +7461,24 @@ D0
 ~
 Z -1 3107
 D1
-You see the pond.
+@eng You see the pond.
+@rus Ты видишь пруд.
 ~
 ~
 Z -1 3114
 D3
-You see the western park entrance.
+@eng You see the western park entrance.
+@rus Ты видишь западный вход в парк.
 ~
 ~
 Z -1 3112
 S
 #3114
 @eng The Pond@rus Пруд~
-You are swimming around in the pond, feeling rather stupid.  You can get
+@eng You are swimming around in the pond, feeling rather stupid.  You can get
 back on the path from the eastern and western end of the pond.
+@rus Ты плывешь через пруд, чувствуя себя полным идиотом. Ты можешь выбраться на
+тропинку на восточном (east) или западном (west) берегу озерка.
 ~
 0 S swim
 D1
@@ -7376,7 +7486,8 @@ D1
 ~
 Z -1 3115
 D2
-Outside the Midgaard Zoo.
+@eng Outside the Midgaard Zoo.
+@rus Ты видишь площадку перед зоопарком Мидгаарда.
 ~
 ~
 Z -1 8200
@@ -7387,8 +7498,10 @@ Z -1 3113
 S
 #3115
 @eng A path in the park@rus Тропинка в парке~
-You are in the park.  The paths lead north and east.  Eastwards is the
+@eng You are in the park.  The paths lead north and east.  Eastwards is the
 park entrance and to the west you see a small pond.
+@rus Ты в парке. Тропинка ведет на север (north) и на восток (east). На западе
+(west) ты видишь небольшой пруд, а к востоку лежит вход в парк.
 ~
 0 S city
 D0
@@ -7396,24 +7509,31 @@ D0
 ~
 Z -1 3109
 D1
+@eng You see the eastern park entrance.
+@rus Ты видишь восточный вход в парк.
 ~
 ~
 Z -1 3116
 D3
+@eng You see the pond.
+@rus Ты видишь пруд.
 ~
 ~
 Z -1 3114
 D4
-Outside the Midgaard Zoo.
+@eng Outside the Midgaard Zoo.
+@rus На холме ты видишь зоопарк Мидгаарда.
 ~
 ~
 Z -1 8200
 S
 #3116
 @eng Eastern Park Entrance@rus Восточный вход в парк~
-You are standing at the eastern end of the park.  A small path leads west
+@eng You are standing at the eastern end of the park.  A small path leads west
 into the park.  Going east through the entrance you will reach Emerald
 Avenue.
+@rus Ты стоишь у восточного входа в парк. Тропинка ведет на запад (west) в парк.
+На востоке (east) ты можешь выйти к Изумрудному проспекту.
 ~
 0 CS city
 D1
@@ -7452,8 +7572,9 @@ D3
 Z -1 3116
 S
 #3118
-@eng Park Road@rus Дорога вокруг парка~
-You are on Park Road which leads north and south.
+@eng Park Road@rus Парковая Аллея~
+@eng You are on Park Road which leads north and south.
+@rus Ты идешь по Парковой аллее, ведущей с юга (south) на север (north).
 ~
 0 S city
 D0
@@ -7579,9 +7700,11 @@ D2
 Z -1 3125
 S
 #3122
-@eng Park Road@rus Дорога вокруг парка~
-You are on Park Road which leads south and north.  Elm Street is east of
+@eng Park Road@rus Парковая Аллея~
+@eng You are on Park Road which leads south and north.  Elm Street is east of
 here.
+@rus Ты идешь по Парковой аллее, ведущей на север (north) и на юг (south). Улица
+Вязов идет на восток (east) отсюда.
 ~
 0 S city
 D0
@@ -7599,8 +7722,10 @@ Z -1 3126
 S
 #3123
 @eng Elm Street@rus Улица Вязов~
-You are on Elm street.  Park Road is to the west and Elm Street continues
+@eng You are on Elm street.  Park Road is to the west and Elm Street continues
 in eastward direction.
+@rus Ты идешь по улице Вязов. Парковая аллея осталась на западе (west), а улица
+Вязов продолжается на восток (east).
 ~
 0 S city
 D1
@@ -7614,28 +7739,41 @@ Z -1 3122
 S
 #3124
 @eng Elm Street@rus Улица Вязов~
-You near the end of Elm Street.  An old elm tree grows here.  A heavy
+@eng You near the end of Elm Street.  An old elm tree grows here.  A heavy
 iron grating is south, surrounding the city's graveyard.  You can see a sign
 hanging on the grate.  The concourse joins Elm Street to the east, and the
 street ends to the north near a run-down neighborhood.
+@rus Ты стоишь на краю улицы Вязов. Старый вяз (elm tree) растет у обочины.
+Тяжелая железная ограда (grating) видна к югу (south), она окружает кладбище
+города. На калитке (grate) висит табличка (sign). Площадь Собраний видна на
+востоке (east), а улица заканчивается на севере (north), около городских
+трущоб.
 ~
 0 S city
 E
 grate grating~
-Looks heavy.  A small sign is hanging on it.
+@eng Looks heavy.  A small sign is hanging on it.
+@rus Выглядит солидно. К прутьям прикручена табличка (sign).
 ~
 E
 sign~
-The sign says :-
+@eng The sign says :-
  
                           Graveyard of Midgaard
  
     Many brave adventurers have found their final resting place here.
           Please show respect and do not desecrate their tombs.
+@rus Здесь написано:
+ 
+                      Кладбище Мидгаарда
+ 
+   Много смелых искателей приключений нашли здесь последнее пристанище.
+          Прояви уважение и не разрывай их могилы, путник...
 ~
 E
 elm tree~
-The fresh young leaves of the elm tree wave gently in the wind.
+@eng The fresh young leaves of the elm tree wave gently in the wind.
+@rus Молодые листочки вяза тихо шелестят на ветру.
 ~
 D0
 You see the beginnings of Midgaard's bad neighborhoods.
@@ -7783,8 +7921,9 @@ D3
 Z -1 3129
 S
 #3131
-@eng Park Road@rus Дорога вокруг парка~
-You are at Park Road which continues north and south.
+@eng Park Road@rus Парковая Аллея~
+@eng You are at Park Road which continues north and south.
+@rus Ты идешь по Парковой аллее, ведущей с юга (south) на север (north).
 ~
 0 S city
 D0
@@ -7852,10 +7991,13 @@ D3
 Z -1 3121
 S
 #3135
-@eng Park Road@rus Дорога вокруг парка~
-You are at a bend on Park Road.  To the north the road goes on and to the
+@eng Park Road@rus Парковая Аллея~
+@eng You are at a bend on Park Road.  To the north the road goes on and to the
 east is the Road Crossing.  To the south, the ancient cliffs rise from deep
 under the ground, forming a wall.
+@rus Ты на повороте Парковой аллеи. На север (north) дорога продолжается, а на
+востоке (east) ты видишь перекресток дорог. На юге (south) из-под земли
+вырастает утес, образуя стену.
 ~
 0 S city
 D0
@@ -7867,15 +8009,18 @@ D1
 ~
 Z -1 3120
 D2
-The white temple of sun, is located at the south.
+@eng The white temple of sun, is located at the south.
+@rus Белый Храм Солнца расположен к югу.
 ~
 ~
 Z -1 3069
 S
 #3136
-@eng Park Road@rus Дорога вокруг парка~
-You are at a bend on Park Road.  To the south the road goes on and to the
+@eng Park Road@rus Парковая Аллея~
+@eng You are at a bend on Park Road.  To the south the road goes on and to the
 west is the Road Crossing.
+@rus Ты стоишь на повороте Парковой аллеи. К югу (south) дорога продолжается, а
+к западу (south) расположен перекресток дорог.
 ~
 0 S city
 D2
@@ -7985,57 +8130,75 @@ D2
 Z -1 3140
 S
 #3142
-@eng Captain's Office@rus Офис капитана стражников~
-You are in the Office of the Captain of the Guard.  The Midgaard Coat of
+@eng Captain's Office@rus Кабинет капитана стражников~
+@eng You are in the Office of the Captain of the Guard.  The Midgaard Coat of
 Arms is hanging on the north wall and a heavy steel door is to the south.
+@rus Ты стоишь в кабинете капитана городской стражи. Гербовый щит (arms) Мидгаарда
+висит на северной стене, а выход на юг (south) преграждает тяжелая стальная
+дверь (door).
 ~
 0 DS inside
 E
 arms~
-Although a bit dusty the Coat of Arms is an excellent piece of work.
+@eng Although a bit dusty the Coat of Arms is an excellent piece of work.
+@rus Несмотря на толстый слой пыли, Гербовый щит выглядит весьма внушительно.
 ~
 D1
-You see the Cityguard Head Quarters.
+@eng You see the Cityguard Head Quarters.
+@rus Ты видишь штаб-квартиру городской стражи.
 ~
 door~
 ABCZ 3120 3110
 D2
-You see the heavy steel door.
+@eng You see the heavy steel door.
+@rus Ты видишь тяжелую стальную дверь.
 ~
 door~
 ABCZ 3137 3143
 S
 #3143
 @eng The Jail@rus Тюрьма~
-You are in a dark and humid jail.  The dark stone walls are hard and cold
+@eng You are in a dark and humid jail.  The dark stone walls are hard and cold
 to the touch.  A heavy steel door is to the north.
+@rus Ты попал в темную и сырую тюрьму! Стены (walls) из темного камня прочны, от
+них веет могильным холодом. Тяжелая стальная дверь преграждает выход на север
+(north).
 ~
 0 DS inside
 E
 wall walls~
-The walls are marked with lots of scratches.  Some of them spell sentences
+@eng The walls are marked with lots of scratches.  Some of them spell sentences
 like "JAIL IS BETTER THAN SQL" and "BIGFOOTDAMOOSE IS ALIVE".
+@rus Стены поктрыты множеством царапин. Некоторые из них слагаются во фразы:
+"JAIL IS BETTER THAN SQL" и "BIGFOOTDAMOOSE IS ALIVE".
 ~
 D0
-You see the heavy steel door.
+@eng You see the heavy steel door.
+@rus Ты видишь тяжелую стальную дверь.
 ~
 door~
 ABCZ 3137 3142
 S
 #3144
 @eng The end of Elm Street@rus Окраина улицы Вязов~
-Elm street ends here, next to a dangerous-looking run down neighborhood.
+@eng Elm street ends here, next to a dangerous-looking run down neighborhood.
 You can enter the slums to the east, or head towards the graveyard to the
 south.  It occurs to you that this isn't the happiest section of town.
+@rus Улица Вязов заканчивается здесь, возле неприглядно (и опасно!) выглядящих
+трущоб. Ты можешь (если осмелишься) пойти в грязь на востоке (east), либо
+вернуться на юг (south), к кладбищу. Очевидно, здесь не самое благополучное
+место в городе.
 ~
 0 S city
 D1
-You see a run-down slum neighborood.
+@eng You see a run-down slum neighborood.
+@rus Ты видишь грязные трущобы.
 ~
 ~
 Z -1 2160
 D2
-Elm street continues towards a graveyard.
+@eng Elm street continues towards a graveyard.
+@rus Улица Вязов продолжается на юг. Чуть дальше видно кладбище.
 ~
 ~
 Z -1 3124
@@ -8211,7 +8374,7 @@ part of the city wall.
 @rus Арка моста на фут поросла мхом и водорослями. Вода несет тебя через дыру 
 в нижней части западной (west) стены.
 ~
-0 S noswim
+0 CS noswim
 E
 wall~
 It is built from large grey rocks that have been fastened to each other with
@@ -8254,7 +8417,7 @@ dump to the promenade.
 (west). Берег реки слишом крут, чтобы на него взобраться. Над твоей головой
 проходит мост, соединяющий свалку с бульваром на южном берегу реки.
 ~
-0 S noswim
+0 CS noswim
 D1
 ~
 ~
@@ -8319,7 +8482,7 @@ can see the stone buttresses of the eastern bridge overhead.
 толстыми вертикальными прутьями, вделанными в стену. Ты видишь каменные опоры
 моста над головой.
 ~
-0 S noswim
+0 CS noswim
 D1
 @eng The iron bars are broken, allowing passage through the hole in the wall.
 Beyond the bars you see a dark tunnel.
@@ -9668,9 +9831,11 @@ E 0 3350 0 16		*	a standard issue sword: wielded
 E 0 3353 0 5		*	a standard issue vest: on the body
 E 0 3363 0 15		*	a standard issue bracer: on the right wrist
 M 0 3124 2 3113 1	* the duck (A path in the park)
+G 0 3119 0		*	a duck
 M 0 3121 1 3114 1	* the swan (The Pond)
 M 0 3122 1 3114 1	* the duckling (The Pond)
 M 0 3124 2 3115 1	* the duck (A path in the park)
+G 0 3119 0		*	a duck
 M 0 3060 18 3117 1	* the cityguard (Emerald Avenue)
 E 0 3365 0 0		*	a war banner: as a light
 E 0 3364 0 1		*	a city guard signet ring: on the left finger
@@ -9689,7 +9854,6 @@ E 0 3350 0 16		*	a standard issue sword: wielded
 E 0 3353 0 5		*	a standard issue vest: on the body
 M 0 3005 4 3128 2	* the thief (On the Concourse)
 E 0 3351 0 16		*	a standard issue dagger: wielded
-O 0 3135 0 3135	* a fountain (Park Road)
 M 0 3142 1 3137 1	* the secretary (The Waiting Room)
 M 0 3143 1 3138 1	* the mayor (The Mayor's Office)
 E 0 3124 0 16		*	a long sword: wielded

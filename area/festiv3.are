@@ -895,10 +895,10 @@ ACGHW P 0 0
 stand stand female 0
 W 0 tiny unknown
 #36351
-sentipede многоножка~
-@eng sentipede@rus многоножка~
-@eng A sentipede is here, searching for food.
-@rus Многоножка (sentipede) занята добыванием пищи.
+centipede многоножка~
+@eng centipede@rus многоножка~
+@eng A centipede is here, searching for food.
+@rus Многоножка (centipede) занята добыванием пищи.
 ~
 ~
 centipede~
@@ -1278,9 +1278,9 @@ A
 19 8
 G male
 #36309
-plate black scale кольчуга~
+platemail black scale кольчуга~
 @eng black scale platemail@rus ~~черная~~ ~~кольчуга~~~
-@eng A plate glows in dark.@rus Кольчуга (platemail) блестит в темноте.~
+@eng A platemail glows in dark.@rus Кольчуга (platemail) блестит в темноте.~
 black dragonscale~
 armor ABCEG AD
 35 35 35 27 0
@@ -7049,19 +7049,19 @@ M 0 36353 10 36398 2	* small insect (Path to the Forest)
 O 0 36379 0 36399	* oak (Deep in the Dark Forest)
 P 0 36378 1 36379 1	* oak: bureau key
 O 0 36384 0 36399	* hole (Deep in the Dark Forest)
-M 0 36351 10 36402 2	* sentipede (Wide Tunnel)
+M 0 36351 10 36402 2	* centipede (Wide Tunnel)
 M 0 36352 10 36403 2	* small snake (Wide Tunnel)
 M 0 36353 10 36406 2	* small insect (A rocky path around the lake)
-M 0 36351 10 36406 1	* sentipede (A rocky path around the lake)
+M 0 36351 10 36406 1	* centipede (A rocky path around the lake)
 M 0 36352 10 36408 1	* small snake (A rocky path around the lake)
 M 0 36353 10 36408 2	* small insect (A rocky path around the lake)
-M 0 36351 10 36410 1	* sentipede (A rocky path around the lake)
+M 0 36351 10 36410 1	* centipede (A rocky path around the lake)
 M 0 36352 10 36411 1	* small snake (A rocky path around the lake)
 M 0 36353 10 36414 2	* small insect (A rocky path around the lake)
 M 0 36352 10 36415 1	* small snake (A rocky path around the lake)
-M 0 36351 10 36415 1	* sentipede (A rocky path around the lake)
+M 0 36351 10 36415 1	* centipede (A rocky path around the lake)
 M 0 36353 10 36417 2	* small insect (A rocky path around the lake)
-M 0 36351 10 36417 1	* sentipede (A rocky path around the lake)
+M 0 36351 10 36417 1	* centipede (A rocky path around the lake)
 M 0 36352 10 36420 1	* small snake (A rocky path around the lake)
 M 0 36354 1 36429 1	* mother of salamanders (A Small Island)
 G 0 36416 0		*	healing pill

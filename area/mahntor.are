@@ -2831,12 +2831,17 @@ D3
 Z 0 2343
 S
 #2345
-The gathering place~
-This appears to be the clearing the ogres use to assemble. It is quite large
+@eng The gathering place@rus Место сборов~
+@eng This appears to be the clearing the ogres use to assemble. It is quite large
 and has a raised mound in the center that contains a crude throne. The ground
 in front of the throne is quite worn, as if it is sat on quite often. You get
 the impression that this place is a crude sort of auditorium. Small paths lead
 east and south.
+@rus Похоже, что огры мспользуют это место для сборов. Поляна достаточно
+велика, а в центре находится возвыщение, в центре которого стоит трон.
+Земля перед троном достаточно сильно утоптана, что наводит тебя на
+мысль о том, что это место используют довольно часто. Маленькие тропки
+ведут на юг и на восток.
 ~
 0 0 city
 D1

@@ -1380,7 +1380,6 @@ any spell.
 Анти-паладины могут оглушать своих врагов, делая их глухонемыми.
 А следовательно, человек который находится под действием такого заклинания,
 не может читать заклинания сам.
-Синтаксис: {ccast 'deafen'{x <жертва>
 ~
 0 'SANCTIFY LANDS'~
 @eng Syntax: {ccast 'sanctify lands'{x
@@ -1425,15 +1424,19 @@ has small size will get higher damage.
 ~
 0 PASSWORD~
 @eng Syntax: {cpassword{x <old-password> <new-password>
+Syntax: {cpassword null{x <new-password>
 
 PASSWORD changes your character's password.  The first argument must be
 your old password.  The second argument is your new password.
 
 The PASSWORD command is protected against being snooped or logged.
+PASSWORD NULL is used when your old password is missing for some reasons.
 @rus Синтаксис: {cpassword{x <старый пароль> <новый пароль>
+Синтаксис: {cpassword null{x <новый пароль>
  
 PASSWORD изменяет твой текущий пароль.
 Эта команда защищена от подсматривания богами.
+PASSWORD NULL нужен, когда по каким-то причинам у персонажа отсутствует пароль.
 ~
 0 TITLE~
 @eng Syntax: {ctitle{x <string>
@@ -2684,12 +2687,7 @@ This spell renders the target character blind.
  
 Это заклинание ослепляет жертву.
 ~
-0 'ACETUM PRIMUS' 'ACID ARROW' 'ACID BLAST' 'BURNING HANDS' 'CAUSE CRITICAL'
-'CAUSE LIGHT' 'CAUSE SERIOUS' 'CAUSTIC FONT' DISRUPTION 'DRAGON BREATH'
-'ETHERAL FIST' FIREBALL FLAMESTRIKE 'GALVANIC WHIP' HARM HELLFIRE
-'LIGHTNING BOLT' 'MAGIC MISSILE' 'MAGNETIC TRUST' 'MIND WRACK' 'MIND WRENCH'
-'SEVERITY FORCE' 'SHOCKING GRASP' 'SONIC RESONANCE' 'SPECTRAL FUROR'
-'SULFURUS SPRAY' 'VAMPIRIC BLAST'~
+0 'ACETUM PRIMUS' 'ACID ARROW' 'ACID BLAST' 'BURNING HANDS' 'CAUSE CRITICAL' 'CAUSE LIGHT' 'CAUSE SERIOUS' 'CAUSTIC FONT' DISRUPTION 'DRAGON BREATH' 'ETHERAL FIST' FIREBALL FLAMESTRIKE 'GALVANIC WHIP' HARM HELLFIRE 'LIGHTNING BOLT' 'MAGIC MISSILE' 'MAGNETIC TRUST' 'MIND WRACK' 'MIND WRENCH' 'QUANTUM SPIKE' 'SEVERITY FORCE' 'SHOCKING GRASP' 'SONIC RESONANCE' 'SPECTRAL FUROR' 'SULFURUS SPRAY' 'VAMPIRIC BLAST'~
 @eng Syntax: {ccast 'acetum primus'{x  <victim>
 Syntax: {ccast 'acid arrow'{x     <victim>
 Syntax: {ccast 'acid blast'{x     <victim>
@@ -2756,25 +2754,12 @@ OTHER работает только на существах противоположного твоему пола. CONTROL UNDEAD
 вать даже тех, что устойчив к обычному CHARM PERSON. И наконец, CONTROL ANIMAL
 может очаровать только монстров тех рас, которые недоступны игрокам.
 ~
-0 'ATTRACT OTHER'~
-Syntax: cast 'charm sex' <victim>
-
-
-This spell, if successful, causes the victim to follow you and to take orders
-from you.  Use ORDER to order your charmed followers.
-
-This success is dependent on your sex. You must try this spell on the victims
-that has the opposite sex of you.
-
-You are responsible for the actions of your followers.  Conversely, other
-people who attack your followers will be penalized as if they attacked you.
-~
 0 'CHILL TOUCH'~
 @eng Syntax: {ccast 'chill touch'{x <victim>
 
 This spell inflicts damage on the victim and also reduces the victim's
 strength by one.
-@rus Синтаксис: {ccast 'chill touch' <жертва>
+@rus Синтаксис: {ccast 'chill touch'{x <жертва>
  
 Это заклинание не только наносит раны жертве, но и уменьшает ее силу на 1.
 ~
@@ -2968,6 +2953,8 @@ harmful and benign spells.
 The chance of dispelling is based on the level of the spell. Permanent spells
 (such as mobile sanctuary) are much harder to remove.  Not all spells may
 be dispelled, notable examples are poison and plague.
+ 
+This is a questionable spell. See {CHELP TRUST{x for details.
 @rus Синтаксис: {ccast 'dispel magic'{x <персонаж>
 Синтаксис: {ccast 'cancellation'{x <персонаж>
  
@@ -2980,7 +2967,8 @@ CANCELLATION гораздо эффективнее, но для его применения необходимо согласие
 Шанс успеха зависит от уровня заклинания. Перманентные эффекты сложнее снять.
 Не все эффекты можно снять этими заклинаниями. Хорошо известные примеры -plague
 и poison.
-asa changed
+Это заклинание является "сомнительным". Смотри {CHELP TRUST{x для более подроб-
+ной информации.
 ~
 0 EARTHQUAKE~
 @eng Syntax: {ccast 'earthquake'{x
@@ -3056,203 +3044,313 @@ MANA DRAIN вытягивает ману из жертвы и передает ее чародею.
 @eng Syntax: {ccast 'faerie fire'{x <victim>
 
 This spell increases (makes worse) the armor class of its victim.
+@rus Синтаксис: {ccast 'faerie fire'{x <жертва>
+ 
+Это заклинание увеличивает (ухудшает) класс брони у жертвы.
 ~
 0 'FAERIE FOG'~
-Syntax: cast 'faerie fog'
+@eng Syntax: {ccast 'faerie fog'{x
 
 This spell reveals all manner of invisible, hidden, camouflaged and sneaking 
 creatures in the same room as you.
+@rus Синтаксис: {ccast 'faerie fog'{x
+ 
+Это заклинание выявляет всех спрятавшихся, камуфлированных или невидимых игро-
+ков в комнате, где ты стоишь.
 ~
 0 FLY~
-Syntax: cast 'fly' <character>
-
-This spell enables the target character to fly.
-
-Syntax: fly up 
-Syntax: fly down
-	If you have affected by fly spell or your race allows you to fly
-you can land and then start to fly again when you want.
+@eng Syntax: {ccast 'fly'{x <character>
+Syntax: {cfly up{x
+Syntax: {cfly down{x
+ 
+Spell FLY enables you to fly. When you're flying you can land and start to fly
+again at will with FLY UP and FLY DOWN commands.
+@rus Синтаксис: {ccast 'fly'{x <персонаж>
+Синтаксис: {cfly up{x
+Синтаксис: {cfly down{x
+ 
+Заклинание FLY поможет тебе взлететь, даже если ты лишен крыльев. Взлетев, ты
+можешь приземлиться командой FLY DOWN и снова взлететь (FLY UP).
 ~
-0 IDENTIFY~
-Syntax: cast identify <object>
-
-This spell reveals information about the object.
+0 IDENTIFY 'IMPROVED IDENTIFY'~
+@eng Syntax: {ccast 'identify'{x <object>
+Syntax: {ccast 'improved identify'{x <object>
+ 
+Both these spells reveal information about the object. The latter gives more
+detailed information.
+@rus Синтаксис: {ccast 'identify'{x <обьект>
+Синтаксис: {ccast 'improved identify'{x <обьект>
+ 
+Оба этих заклинания выдают информацию об обьекте, второе выдает более подроб-
+ную информацию.
 ~
 0 INFRAVISION~
-Syntax: cast infravision <character>
+@eng Syntax: cast {c'infravision'{x <character>
 
 This spell enables the target character to see warm-blooded creatures even
 while in the dark, and exits of a room as well.
+@rus Синтаксис: {ccast 'infravision'{x <персонаж>
+ 
+Это заклинание позволяет видеть теплокровных существ и выходы из комнат даже
+в темноте.
 ~
 0 INVISIBILITY 'MASS INVIS' 'IMPROVED INVIS'~
-Syntax: cast 'invisibility' <character>
-Syntax: cast 'invisibility' <object>
-Syntax: cast 'mass invis'
-
+@eng Syntax: {ccast 'invisibility'{x <character>
+Syntax: {ccast 'invisibility'{x <object>
+Syntax: {ccast 'improved invis'{x <character>
+Syntax: {ccast 'mass invis'{x
+ 
 The INVIS spell makes the target character invisible.  Invisible characters
-will become visible when they attack. It may also be cast on an object
-to render the object invisible.
-
-The MASS INVIS spell makes all characters in the caster's group invisible,
-including the caster.
+will become visible when they attack. It may also be cast on an object to
+render the object invisible. IMPROVED INVIS does the same except for it's
+harder to detect.
+ 
+MASS INVIS spell makes all characters grouped with caster invisible.
+@rus Синтаксис: {ccast 'invisibility'{x <персонаж>
+Синтаксис: {ccast 'invisibility'{x <обьект>
+Синтаксис: {ccast 'improved invis'{x <персонаж>
+Синтаксис: {ccast 'mass invis'{x
+ 
+Заклинание INVISIBILITY позволяет сделать персонажа или объект временно неви-
+димыми. Заклинание IMPROVED INVIS делает то же самое, но его гораздо труднее
+обнаружить.
+ 
+MASS INVIS делает невидимой вся группу чародея, включая его самого.
 ~
 0 'KNOW ALIGNMENT'~
-Syntax: cast 'know alignment' <character>
+@eng Syntax: cast {c'know alignment'{x <character>
 
 This spell reveals the alignment of the target character.
+ 
+See also {CHELP ALIGNMENT{x
+@rus Синтаксис: {ccast 'know alignment'{x <персонаж>
+ 
+Это заклинание сообщает тебе align указанного персонажа.
+ 
+Смотри также {CHELP ALIGNMENT{x
 ~
 0 'LOCATE OBJECT'~
-Syntax: cast 'locate object' <name>
+@eng Syntax: {ccast 'locate object'{x <name>
 
 This spell reveals the location of all objects with the given name.
+@rus Синтаксис: {ccast 'locate object'{x <название>
+ 
+Это заклинание откроет тебе местоположение всех вещей с таким именем.
 ~
 0 'PASS DOOR'~
-Syntax: cast 'pass door'
+@eng Syntax: {ccast 'pass door'{x
 
 This spell turns the caster translucent and enables to pass through 
-closed doors. ~
+closed doors. @rus Синтаксис: {ccast 'pass door'{x
+ 
+Это заклинание позволяет чародею проходить через закрытые двери.
+~
 0 POISON~
-Syntax: cast poison <victim>
-Syntax: cast poison <object>
+@eng Syntax: {ccast 'poison'{x <victim>
+Syntax: {ccast 'poison'{x <object>
 
 This spell reduces the strength of the victim by two, as well as reducing the
 victim's regeneration rate. It may also be used to poison food, drink, or
-a weapon in a fashion similar to envenom ('help envenom'), but with 
+a weapon in a fashion similar to envenoming ({CHELP ENVENOM{x), but with
 drastically reduced effectiveness. Tearing the flesh by poisoned weapons 
-may cause the victim to get posioned.
+may cause the victim to get poisoned.
+@rus Синтаксис: {ccast 'poison'{x <жертва>
+Синтаксис: {ccast 'poison'{x <обьект>
+ 
+Это заклинание уменьшает силу жертвы на 2, также снижая скоростьь восстановле-
+ния здоровья и маны. Также можно отравить еду, питье или оружие - аналогично
+умению ENVENOM (смотри {CHELP ENVENOM{x), но с значительно меньшей вероят-
+ностью. Использование отравленного оружия может отравить жертву.
 ~
-0 SANCTUARY~
-Syntax: cast sanctuary  <character>
-
+0 SANCTUARY 'BLACK SHROUD'~
+@eng Syntax: {ccast 'sanctuary'{x <character>
+Syntax: {ccast 'black shroud'{x <character>
+ 
 The SANCTUARY spell reduces the damage taken by the character from any attack
-by one half. It is said to be that a very special tecnique of attack 
-passes the sanctuary protection.
+by one half. BLACK SHROUD is weaker version of sanctuary, available only to
+evil casters.
+@rus Синтаксис: {ccast 'sanctuary'{x <персонаж>
+Синтаксис: {ccast 'black shroud'{x <персонаж>
+ 
+Заклинание SANCTUARY уменьшает ущерб для персонажа от любой атаки наполовину.
+BLACK SHROUD является несколько ослабленной версией заклинания SANCTUARY и
+доступно только злым чародеям.
 ~
 0 REFRESH~
-Syntax: cast refresh <character>
+@eng Syntax: {ccast 'refresh'{x <character>
 
 This spell refreshes the movement points of a character who is out of movement
 points.
+@rus Синтаксис: {ccast 'refresh'{x <персонаж>
+ 
+Это заклинание восстанавливает силы и позволяет ходить тем, кто израсходовал
+все шаги (movement points).
 ~
 0 'REMOVE CURSE'~
-Syntax: cast 'remove curse' <character>
-Syntax: cast 'remove curse' <object>
+@eng Syntax: {ccast 'remove curse'{x <character>
+Syntax: {ccast 'remove curse'{x <object>
 
 This spell removes a curse from a character, and might possibly uncurse
 a cursed object.  It may also be targeted on an object in the caster's
 inventory, in which case it's chance of success is significantly higher.
-~
-0 SHIELD 'STONE SKIN' 'ENHANCED ARMOR' 'MELD INTO STONE'~
-Syntax: cast shield
-Syntax: cast 'stone skin'
-Syntax: cast 'enhanced armor'
-Syntax: cast 'meld into stone'
+ 
+This is a questionable spell. See {CHELP TRUST{x for details.
+@rus Синтаксис: {ccast 'remove curse'{x <персонаж>
+Синтаксис: {ccast 'remove curse'{x <объект>
+ 
+Это заклинание снимает проклятие с предмета или персонажа. Целью данного зак-
+линания может быть также вещь в твоем инвентаре, в этом случае шанс успеха
+заметно выше.
 
-These spells protect the caster by decreasing (improving) the caster's armor
-class.  SHIELD provides 20 points of armor.  STONE SKIN provides 40 points of
-armor.  ENHANCED ARMOR provides 60 points of armor. MELD INTO STONE 
-provides 100 points of armor.But MELD INTO STONE is available only for 
-RockSeer RACE.
+Это заклинание является "сомнительным". Смотри {CHELP TRUST{x для более под-
+робной информации.
 ~
-0 'SHIELD CLEAVE'~
-Syntax: shield cleave
-
-	Master fighters can break the opponent's shield into two parts by using 
-sword or axe. Of course, axe type weapons has more chance than sword 
-types. And don't forget this attack is meaningless if your opponents use 
-a shield which is made of titanium or platinum elements or limited 
-shield. 
-~
-0 'WEAPON CLEAVE'~
-Syntax: weapon cleave
-	Master fighters can break the opponent's weapon into two parts by 
-using sword or axe. Of course,axe type weapons has more chance than 
-sword types. And don't forget this attack is meaningless if your 
-opponents use a weapon which is made of titanium or platinum elements or 
-limited weapons.
+0 'SHIELD CLEAVE' 'WEAPON CLEAVE'~
+@eng Syntax: {cshield{x
+Syntax: {cweapon{x
+ 
+Master fighters can break opponent's shield and weapon by using special sword
+or axe technique. Of course, using axes is more resourceful. And don't forget,
+these attacks are pointless against either items made of platinum or titanium
+or limited items.
+@rus Синтаксис: {cshield{x
+Синтаксис: {cweapon{x
+ 
+Мастера-воины могут сломать щит или оружие противника, используя особую техни-
+ку работы мечом или топором. Конечно, используя топор, это сделать заметно лег-
+че. Не забывайте, это бесполезно против щитов или оружия, сделанных из титана
+или платины, а также против лимитированных вещей.
 ~
 0 INSANITY~
-Syntax: cast 'insanity' <victim>
-
-	Powerful necromancers have the secret of this spell which make 
-the players aggressive for a while.
+@eng Syntax: {ccast 'insanity'{x <victim>
+ 
+This spell makes victim aggressive for a while.
+@rus Синтаксис: {ccast 'insanity'{x <жертва>
+ 
+Это заклинание на время делает жертву аггрессивной.
 ~
-0 'HEALING LIGHT'~
-Syntax: cast 'healing light' 
-
-	Clerics have the the ability of increasing heal booster of the 
-room using this spell. 
+0 'HEALING LIGHT' 'MIND LIGHT'~
+@eng Syntax: {ccast 'healing light'{x
+Syntax: {ccast 'mind light'{x
+ 
+These spells increase hp/mana regeneration of all characters in the room you
+caster stands in.
+@rus Синтаксис: {ccast 'healing light'{x
+Синтаксис: {ccast 'mind light'{x
+ 
+Эти заклинания ускоряют восстановление здоровья и маны в комнате, где стоит
+чародей.
 ~
-0 'MIND LIGHT~
-Syntax: cast 'mind light'
-
-	Clerics have the ability of increasing mana booster of the room 
-using this spell.
-~
-0 SETTRAPS~
-Syntax: settraps
-
-	Master thiefs can set a trap to kill their victims. This trap has 
-a timer and it can give damage to your victims only once.
-~
-0 'LIGHTNING SHIELD'~
-Syntax: cast 'lightning shield'
-
-	Powerful necromancers and witchs can make a shield to protect 
-themself that wake them if they are sleeping when any mobiles or victims 
-entered the room.
-~
-0 'SHOCKING TRAP'~
-Necromancers, Witchs and Warlocks can make a magical trap. 
+0 'LIGHTNING SHIELD' 'SHOCKING TRAP' SETTRAPS~
+@eng Syntax: {ccast 'lightning shield'{x
+Syntax: {ccast 'shocking trap'{x
+Syntax: {csettraps{x
+ 
+All these spells and skills prepare a trap for those unlucky characters who
+enter room you're in. LIGHTNING SHIELD not only strikes those who enter, but
+also wakes you if you are sleeping. But, to maintain it you must be in the
+room where you cast LIGHTNING SHIELD.
+@rus Синтаксис: {ccast 'lightning shield'{x
+Синтаксис: {ccast 'shocking trap'{x
+Синтаксис: {csettraps{x
+ 
+Все эти умения и заклинания ставят ловушку в комнате, где ты находишься.
+Заклинание LIGHTNING SHIELD не только причиняет ущерб входящему, но и будит
+чародея, если он спит.
+Но, чтобы поддерживать заклинание LIGHTNING SHIELD, ты должен находиться в той
+же комнате.
 ~
 0 SLEEP~
-Syntax: cast sleep <victim>
-
+@eng Syntax: {ccast 'sleep'{x <victim>
+ 
 This spell puts its victim to sleep.
+@rus Синтаксис: {ccast 'sleep'{x <жертва>
+ 
+Это заклинание погружает жертву в глубокий сон.
 ~
 0 SUMMON NOSUMMON~
-Syntax: cast summon <character>
-
+@eng Syntax: {ccast 'summon'{x <character>
+Syntax: {cnosummon{x
+ 
 This spell summons a character from anywhere else in the world into your room.
-Characters who are fighting may not be summoned.
+Fighting characters as well as characters much greater than you may not be
+summoned.
+
+NOSUMMON toggle prevents you from being summoned by someone outside your PK
+range.
+@rus Синтаксис: {ccast 'summon'{x <персонаж>
+Синтаксис: {cnosummon{x
+ 
+Это заклинание вызывает указанного персонажа из другого места в комнату, где
+ты стоишь. Дерущиеся персонажи или персонажи намного старше тебя по уровню не
+могут быть вызваны.
+ 
+Переключатель NOSUMMON предотвращает вызов тебя игроками вне твоего ПК.
 ~
 0 TELEPORT~
-Syntax: cast <teleport>
+@eng Syntax: {ccast 'teleport'{x
 
 This spell takes you from your current location to a random location somewhere
 in the world.
+@rus Синтаксис: {ccast 'teleport'{x
+ 
+Это заклинание переносит тебя из комнаты, где ты стоишь, в случайное место в
+мире.
 ~
 0 VENTRILOQUATE~
-Syntax: cast ventriloquate <speaker> <message>
+@eng Syntax: {ccast 'ventriloquate'{x <speaker> <message>
 
 This spell throws your voice, making it appear that some other object or
 character in the room is saying your message.  Victims who make their saving
 throw will know that someone is using ventriloquism, but not who.  Victims who
 fail their saving throw will think that the object or character really did say
 your message.
+@rus Синтаксис: {ccast 'ventriloquate'{x <говорящий> <фраза>
+ 
+Это заклинание меняет твой голос, делая его похожим на голос кого-либо из
+персонажей или объектов, находящихся в той же комнате, что и ты. Жертвы,
+которые выдержали защиту от магии, узнают, что это чревовещание, но не узнают,
+чье именно. Для остальных это будет выглядеть в точночти, как произнесение
+фразы персонажем или объектом.
 ~
 0 WEAKEN~
-Syntax: cast weaken <victim>
+@eng Syntax: {ccast 'weaken'{x <victim>
 
-This spell reduces the strength of the victim by two points.
+This spell reduces the strength of the victim.
+@rus Синтаксис: {ccast 'weaken'{x <жертва>
+ 
+Это заклинание уменьшает силу жертвы.
 ~
 0 'WORD OF RECALL'~
-Syntax: cast 'word of recall'
-
-This spell duplicates the built-in RECALL ability.  It is provided solely for
-Merc-based muds which wish to eliminate the built-in ability while still
-providing the spell.
+@eng Syntax: {ccast 'word of recall'{x <character>
+ 
+This spell duplicates RECALL ability for low-level characters, it transfers
+character to the temple of his/her hometown.
+@rus Синтаксис: {ccast 'word of recall'{x <персонаж>
+ 
+Это заклинание делает то же, что и способность RECALL для персонажей низкого
+уровня - переносит персонажа в храм его родного города.
 ~
 0 'ACID BREATH' 'FIRE BREATH' 'FROST BREATH' 'GAS BREATH' 'LIGHTNING BREATH'~
-Syntax: cast 'acid breath'      <victim>
-Syntax: cast 'fire breath'      <victim>
-Syntax: cast 'frost breath'     <victim>
-Syntax: cast 'gas breath'
-Syntax: cast 'lightning breath' <victim>
+@eng Syntax: {ccast 'acid breath'{x      <victim>
+Syntax: {ccast 'fire breath'{x      <victim>
+Syntax: {ccast 'frost breath'{x     <victim>
+Syntax: {ccast 'gas breath'{x
+Syntax: {ccast 'lightning breath'{x <victim>
 
 These spells are for the use of dragons.  Acid and lightning damage one victim,
 whereas fire, frost and gas damage everyone in the room. Fire, lightning and
 frost breath can break objects, and acid can damage armor.
+@rus Синтаксис: {ccast 'acid breath'{x      <жертва>
+Синтаксис: {ccast 'fire breath'{x      <жертва>
+Синтаксис: {ccast 'frost breath'{x     <жертва>
+Синтаксис: {ccast 'gas breath'{x
+Синтаксис: {ccast 'lightning breath'{x <жертва>
+ 
+Эти заклинания используются драконами. ACID BREATH и LIGHTNING BREATH действуют
+на одного персонажа, остальные действуют на всех персонажей в комнате.
+FIRE BREATH и FROST BREATH могут портить вещи, ACID BREATH может разрушить
+броню.
 ~
 -1 'RACE HELP' RACE RACES 'RACE HELP'~
 The culturally diverse realm of Shades of Gray is home to 18 different
@@ -3590,47 +3688,34 @@ that you  go through all the helps at a low level, especially for first
 time mudders.
 ~
 0 ASSASSINATE~
-@eng Syntax: assassinate <victim>
+@eng Syntax: {cassassinate{x <victim>
 
 Very high level ninjas can learn to kill in one hit. This surprise
 attack must be on a fully healed target. Ninja aproaches his or her
 victims from behind, and with a fast move, twists their head, breaking
 the neck. The skill must be used both hands free, and it has a little
 chance for an instant kill.
-@rus Syntax: assassinate <victim>
+@rus Синтаксис: {cassassinate{x <жертва>
  
 Это умение позволяет незаметно подкрасться к противнику сзади, и быстрым
 движением свернуть ему голову, ломая шею. Руки убийцы при этом должны быть 
 свободны. 
 ~
-0 'QUIET MOVEMENT' HERBS TAME BUTCHER BARKSKIN 'BARK SKIN' 'BEAR CALL'
-  'RANGER STAFF'~
-Syntax: HERBS <victim> or HERBS
-        TAME <victim>
-        BUTCHER <corpse>
-        BEAR CALL
-        BARKSKIN
-        cast 'ranger staff'
-
-Quiet movement is an automatic skill that, if successful, will not
-  reveal a player's destination direction when he leaves the room.
-Herbs allows a player to gather herbs with healing power from the
-  forest, and optionally give heal another character, even of plague.
-Tame is used on aggressive mobs to permanently calm them.
-Butcher creates 1-4 edible steaks out of corpses.
-Bark skin is a protection spell, making strong barks to cover your skin.
-Bear call calls 2 powerful bears to your rescue.
-Ranger staff creates a staff whose power depends upon the caster's
-level. The weapon created may only be wielded by rangers.
+0 'QUIET MOVEMENT'~
+@eng Quiet movement is an automatic skill that, if successful, will not reveal
+player's destination direction when he leaves the room.
+@rus QUIET MOVEMENT - это автоматическое умение, при успешном использовании направ-
+ление твоего выхода из комнаты не будет замечено другими игроками.
 ~
-0 LIONCALL 'LION CALL' 'TIGER POWER' TIGER~
-LIONCALL
-TIGER POWER
-
-  Similar to bear call, the lion call, calls 2 powerful lions to your
-rescue.
-  Tiger power calls 10 tigers from forest to join you. And increase your
-damroll & hitroll.  
+0 'LION CALL' LIONCALL 'BEAR CALL' BEARCALL~
+@eng Syntax: {clioncall{x
+Syntax: {cbearcall{x
+ 
+Both these abilities summon animals to aid the summoner.
+@rus Синтаксис: {clioncall{x
+Синтаксис: {cbearcall{x
+ 
+Оба этих умения вызывают животных на помощь вызывающему.
 ~
 0 'HARA KIRI'~
 A Samurai kills himself, in other words set him/her self hitpoint, mana
@@ -4223,13 +4308,13 @@ Syntax: cast 'lion help'
 eyed sword. And also this is the clan spell. So you cannot use this spell
 if you haven't got clan powers or eyed sword wielding.
 ~
-92 'WEAPON CALL'~
+101 '_WEAPON CALL'~
 Syntax: cast 'weapon call'
 
 	A clan member of lion can call his eyed sword with a whisper, if 
 he/she has the clan power with him/her.
 ~
-92 'EYED SWORD'~
+101 '_EYED SWORD'~
 Syntax: cast 'eyed sword'
 
 	A lion clan member when casts this spell, creates the special 
@@ -4243,7 +4328,7 @@ Syntax: cammove
 	A lion clan member can move, without losing his/her affect of
 camuflage.
 ~
--1 LEADERS~
+101 '_LEADERS'~
 .	
 	When you induct a player from your clan to none, that player
 won't be able to change his/her title forever (unless an immortal grants
@@ -4251,123 +4336,47 @@ him/her). Thus when you induct a player to your clan be very careful.
 If any problem occurs, you are RESPONSIBLE.
 ~
 -1 RELIGION~
-Find the Templeman in the Midgaard, and say the name of your god.
-Syntax: say <god_name> 
-	The list of religions.
-     Leader		  Ethos	
-----------------------------------------------
-    "Atum-Ra",		"Lawful Good"
-    "Zeus",		"Neutral Good"
-    "Siebele", 		"True Neutral"
-    "Shamash",		"God of Justice"
-    "Ahuramazda",	"Chaotic Good"
-    "Ehrumen",		"Chaotic Evil"
-    "Deimos", 		"Lawful Evil"
-    "Phobos", 		"Neutral Evil"
-    "Odin",		"Lawful Neutral"
-    "Teshub",	 	"Chaotic Neutral"
-    "Ares",	 	"God of War"
-    "Goktengri", 	"God of Honor"
-    "Hera", 		"God of Hate"
-    "Venus", 		"God of Beauty"
-    "Seth",	 	"God of Anger"
-    "Enki",	 	"God of Knowledge"
-    "Eros",	 	"God of Love"
-
-	For more information about the tattoos  
-Syntax: help 'atum-ra'
-Syntax: help 'zeus'
-Syntax: help 'siebele'
-                      So on
-
-	Don't forget that some of the tattoos can be seen powerful with respect
-to the others, but their probabities is much lower.
-~
-0 'ATUM-RA' RA APOLLON~
-.
-	To enemy  : holy word
-        To you    : cure serious  
+Syntax: {csay{x <god name>
+ 
+Find the Templeman in Midgaard and say the name of the god you worship.
+There are following religions available:
+ 
+   {CGod      Ethos               To you          To enemy{x
+----------------------------------------------------------------------
+{WAtum-ra     {gLawful Good{x         cure serious    holy word
+{WZeus        {gNeutral Good{x        cure critical   ---
+                                cure disease    ---
+                                cure poison     ---
+{WAhuramazda  {gChaotic Good{x        cure serious    dispel evil
+{WOdin        {gLawful Neutral{x      cure critical   faerie fire
+{WSiebele     {gTrue Neutral{x        cure serious    blue fire
+{WTeshub      {gChaotic Neutral{x     haste           blind
+                                shield          poison
+{WDeimos      {gLawful Evil{x         cure serious    web
+{WPhobos      {gNeutral Evil{x        cure serious    color spray
+{WEhrumen     {gChaotic Evil{x        cure serious    demon fire
+                                cure light      ---
+{WShamash     {gAny{x                 cure serious    scream
+{WAres        {gAny{x                 berserk         ---
+{WGoktengri   {gAny{x                 additional attack
+{WHera        {gAny{x                 ---             poison
+                                ---             plague
+                                ---             slow
+                                ---             weaken
+{WVenus       {gAny{x                 bless           plague
+                                cure light      ---
+{WEnki        {gAny{x                 cure critical   lightning bolt
+                                ---             dispel evil
+                                ---             dispel good
+{WSeth        {gAny{x                 dragon strength dragon breath
+{WEros        {gAny{x                 heal            ---
+                                group heal      ---
 ~
 0 ZEUS~
 .
 	To you : cure critical
 	To you : cure disease
 	To you : cure poison
-~
-0 SIEBELE~
-.
-	To enemy : blue fire
-	To you	 : cure serious
-~
-0 EHRUMEN~
-.
-	To victim : demon fire
-	To you	  : cure serious
-	To you	  : cure light
-~
-0 SHAMASH HEPHAESTUS~
-.
-	To victim : scream
-	To you    : cure serious
-~
-0 DEIMOS~
-.
-	To victim : web
-	To you	  : cure serious
-~
-0 PHOBOS~
-To victim : color spray
-	To you	  : cure serious
-~
-0 ODIN~
-.
-	To victim : Faerie fire
-	To you	  : Cure critic
-~
-0 TESHUB~
-.
-	To victim : Blind
-	To victim : Poison
-	To you    : Haste
-	To you	  : Shield
-~
-0 ARES~
-.
-	To you : Berserk
-~
-0 GOKTENGRI~
-.
-	To you : One additional attack
-~
-0 HERA~
-.
-	To victim : Poison
-	To victim : Plague
-	To victim : Weaken
-	To victim : Slow
-~
-0 VENUS~
-.
-	To victim : Plague
-	To you 	  : Bless
-	To you	  : Cure light
-~
-0 SETH~
-.
-	To victim : Dragon Breath
-	To you	  : Dragon Strength
-~
-0 ENKI~
-.
-	To victim : Lightning Bolt.... if victim neutral
-	To victim : Dispel Evil........if victim evil
-	To victim : Dispel Good........if victim good
-	To you    : Cure Critical
-~
-0 EROS~
-.
-	To you : Heal
-	To you : Group Heal
 ~
 -2 STATS~
 There are currently 6 stats, which are STR,INT,WIS,DEX,CON,CHA. Each
@@ -4961,10 +4970,6 @@ DAMAGE     [victim] [min] [max] <lethal>
 DELAY                              CANCEL
 REMEMBER   [victim]                FORGET
 CALL       [vnum] [victim] [target1] [target2]
-~
-0 AHURAMAZDA~
-To victim: dispel evil
-       To you    : cure serious
 ~
 0 'CLAN SHALAFI' SHALAFI~
 @eng   ... and the time has come when High council of mages decided that no  longer 
@@ -5787,7 +5792,7 @@ scrolls		The reading of magical scrolls and books (see 'help recite')
 staves		The use of staves and similar devices (see 'help brandish')
 wands		The use of wands and similar items (see 'help zap') 
 ~
--1 EXOTIC WEAPONS WEAPON WEAPONSMASTER AXE DAGGER FLAIL MACE POLEARM SPEAR SWORD WHIP BOW~
+-1 EXOTIC WEAPONS AXE DAGGER FLAIL MACE POLEARM SPEAR SWORD WHIP BOW LANCE~
 Each weapon skill applies to a specific group of armaments, and determines how
 well a character fights with a particular weapon.
 If the character has the parry skill as well, he can parry incoming attacks.
@@ -5804,7 +5809,7 @@ polearm		the use of pole weapons (except spears), including halberds
 spear		this skill covers both spears and staves, but not polearms
 sword		the warrior's standby, from rapier to claymore
 whip		the use of whips, chains, and bullwhips
-bow             the use of missile weapons           
+bow             the use of missile weapons (see HELP SHOOT)
 exotic          the use of strange magical weapons
  
 The exotic skill can neither be known nor practiced, and is dependent solely
@@ -5905,14 +5910,6 @@ defender is skilled in both his and his opponent's weapon type.
 	Warriors and samurai's have more chance than the others to parry
 the attacks.  
 ~
--1 RESCUE~
-A friend in need is a friend indeed.  And when in combat, a warrior with
-the rescue skill is just the friend you need.  Rescue allows you to intercede
-in combat, protecting weaker characters from bodily harm. Hopefully the
-favor will be returned.  Success in rescuing depends on the skill rating, as
-well as a comparision of level, dexterity, and speed between the character and
-the target. (note: you rescue a friend, not the monster)
-~
 -1 TRIP~
 Back by popular demand.  Trip is a somewhat dastardly attack, and involves
 using any one of a number of methods to bring your opponent down to the ground.
@@ -5967,12 +5964,6 @@ The peek skill is useful for seeing what a player or monster is carrying,
 the better to use the steal command with.  More intelligent characters are
 harder to peek at.  Only thieves can peek.
 ~
--1 PICK 'PICK LOCK'~
-Lock picking is one of the prime skills of thieves, allowing them to gain
-access to many secured areas.  Lock picking chances are improved by  
-intelligence, and hindered by the difficulty of the lock. Very few 
-classes, may learn to pick locks, and thives are the master of it.
-~
 -1 PERCEPTION~
 Perception is one of the prime skills of thieves, allowing them to gain
 access to many secured areas. Perception allows you to recognize the
@@ -5983,12 +5974,6 @@ This skill is similar to fast healing, but relies on the concentration and
 mantras to increase mana recovery when the character is sleeping or resting.
 Thieves and warriors, with their troubled minds and violent attitudes, have
 much trouble learning to meditate.
-~
--1 STEAL~
-Theft is the defining skill of the thief, and is only available to that class.
-It allows items to be stolen from the inventory of monsters and characters,
-and even from shops!  But beware, shop keepers gaurd their merchandise 
-carefully.
 ~
 60 'DETECT GOOD'~
 Syntax: cast 'detect good'
@@ -6481,12 +6466,6 @@ NOTITLE запрещают персонажу устанавливать себе титул. Используй это, когда
 персонаж устанавливает себе оскорбительные титулы. ITITLE служит для принуди-
 тельной смены титула у персонажа.
 ~
-0 ANATHEMA~
-@rus Syntax: cast anathema <target>
- 
-This powerful spell allows cleric to curse his/her enemy. Cursed players
-cannot recall, they become more vulnerable to magic and less skillful.
-~
 0 WIZLIST~
 @eng {WDEITIES OF THIS WORLD{x
  
@@ -6701,6 +6680,63 @@ WEATHER shows the current game weather.
 TIME выводит игровое и системное времЯ, а также времЯ последнего рестарта
 сервера.
 WEATHER выводит текущую погоду в игре.
+~
+0 FENCE~
+This automatic skill gives additional chance to parry enemy attack, when
+you are using the sword. Also, this skill reduces enemy chances to parry 
+your attack.
+~
+0 HERBS~
+@eng Syntax: {cherbs{x <character>
+ 
+This is ability to find healing herbs to cure someone's wounds and even to
+cure a plague.
+@rus Синтаксис: {cherbs{x <персонаж>
+ 
+Это умение позволяет находить лекарственные травы, чтобы вылечить чьи-либо
+раны или даже чуму.
+~
+0 TAME~
+@eng Syntax: {ctame{x <victim>
+ 
+TAME calms down aggressive mob.
+@rus Синтаксис: {ctame{x <жертва>
+ 
+Это умение успокаивает указанного монстра, делая его неагрессивным.
+~
+0 BUTCHER~
+@eng Syntax: {cbutcher{x <corpse>
+ 
+This skill makes 1-4 edible steaks out of corpse.
+@rus Синтаксис: {cbutcher{x <труп>
+ 
+Это умение позволяет вырезать из трупа 1-4 съедобных бифштекса.
+~
+0 'BARK SKIN'~
+@eng Syntax: {ccast 'barkskin'{x
+ 
+BARK SKIN is a protection spell, making strong barks to cover your skin.
+@rus Синтаксис: {ccast 'bark skin'{x
+ 
+Это умение позволяет нанести на кожу жесткие чешуйки, улучшая броню.
+~
+0 'RANGER STAFF'~
+@eng Syntax: {ccast 'ranger staff'{x
+ 
+This spell creates a staff ranger can wield.
+@rus Синтаксис: {ccast 'ranger staff'{x
+ 
+Это заклинание создает посох, который может служить вооружением для охотника.
+~
+0 'TIGER POWER'~
+@eng Syntax: {ctiger{x
+ 
+TIGER POWER gives you strength of 10 tigers, increasing your hitroll
+and damroll.
+@rus Синтаксис: {ctiger{x
+ 
+Умение TIGER POWER дает тебе силу десяти тигров, увеличивая наносимый вред и
+вероятность пробить броню.
 ~
 -1 $~
 

@@ -350,6 +350,14 @@ Form 3 -ют~
 End
 
 #RULE
+Name продает~
+BaseLen 5
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
 Name ему~
 Form 1 ей~
 Form 2 ему~
