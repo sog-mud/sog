@@ -226,6 +226,16 @@ Form 6 -ую~
 End
 
 #RULE
+Name часовой~
+BaseLen 5
+Form 1 -ого~
+Form 2 -ому~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ого~
+End
+
+#RULE
 Name варг~
 BaseLen 4
 Form 1 -а~
@@ -4118,6 +4128,17 @@ Form 6 -а~
 End
 
 #RULE
+Name часовая~
+BaseLen 5
+Form 1 -ой~
+Form 2 -ой~
+Form 3 -ую~
+Form 4 -ой~
+Form 5 -ой~
+Form 6 -ую~
+End
+
+#RULE
 Name анвар~
 BaseLen 5
 Form 1 -а~
@@ -4342,6 +4363,17 @@ Form 3 -ок~
 Form 4 -ком~
 Form 5 -ке~
 Form 6 -ок~
+End
+
+#RULE
+Name коричневый~
+BaseLen 8
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ый~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ого~
 End
 
 #RULE
@@ -8767,6 +8799,17 @@ Form 6 -ю~
 End
 
 #RULE
+Name эльфийка~
+BaseLen 7
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
 Name орк~
 BaseLen 3
 Form 1 -а~
@@ -10021,6 +10064,17 @@ Form 1 -ьца~
 Form 2 -ьцу~
 Form 4 -ьцем~
 Form 5 -ьце~
+End
+
+#RULE
+Name отшельник~
+BaseLen 9
+Form 1 -а~
+Form 2 -у~
+Form 3 -а~
+Form 4 -ом~
+Form 5 -е~
+Form 6 -а~
 End
 
 #RULE
@@ -11970,6 +12024,17 @@ Form 3 -а~
 Form 4 -ем~
 Form 5 -е~
 Form 6 -а~
+End
+
+#RULE
+Name старейшина~
+BaseLen 9
+Form 1 -ы~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
 End
 
 #RULE
@@ -15447,6 +15512,17 @@ Form 3 -ое~
 Form 4 -ым~
 Form 5 -ом~
 Form 6 -ое~
+End
+
+#RULE
+Name антилопа~
+BaseLen 7
+Form 1 -ы~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
 End
 
 #RULE
