@@ -1,3 +1,7 @@
+/*
+ * $Id: resource.c,v 1.2 1998-04-14 08:54:34 fjoe Exp $
+ */
+
 #include "resource.h"
 
 char *BLANK_STRING = "{RBUG{x";

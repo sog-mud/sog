@@ -1,3 +1,7 @@
+/*
+ * $Id: act_hera.c,v 1.3 1998-04-14 08:54:25 fjoe Exp $
+ */
+
 /***************************************************************************
  *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *	
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
@@ -42,6 +46,9 @@
 *	ROM license, in the file Rom24/doc/rom.license			   *
 ***************************************************************************/
 
+/*
+ * $Id: act_hera.c,v 1.3 1998-04-14 08:54:25 fjoe Exp $
+ */
 #if defined(macintosh)
 #include <types.h>
 #else
@@ -54,6 +61,8 @@
 #include <time.h>
 #include <ctype.h>
 #include "merc.h"
+#include "db.h"
+#include "comm.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_look		);
@@ -1236,13 +1245,13 @@ void damage_to_obj(CHAR_DATA *ch,OBJ_DATA *wield, OBJ_DATA *worn, int damage)
  if ( damage == 0) return;
  worn->condition -= damage;
 
- act_color("$CThe $p inflicts damage on $P.$c",
-	ch,wield,worn,TO_ROOM,POS_RESTING,CLR_GREEN);
+ act_puts("The $p inflicts damage on $P.",
+	ch,wield,worn,TO_ROOM,POS_RESTING);
 
  if (worn->condition < 1)
 	{
- act_color("$CThe $P breaks into pieces.$c",
-	ch,wield,worn,TO_ROOM,POS_RESTING,CLR_WHITE);
+ act_puts("The $P breaks into pieces.",
+	ch,wield,worn,TO_ROOM,POS_RESTING);
 	extract_obj( worn );
 	return;
 	}
@@ -1252,12 +1261,12 @@ void damage_to_obj(CHAR_DATA *ch,OBJ_DATA *wield, OBJ_DATA *worn, int damage)
      && (IS_SET(worn->extra_flags,ITEM_ANTI_EVIL) 
 	&& IS_SET(worn->extra_flags,ITEM_ANTI_NEUTRAL) ) )	
  {
-  sprintf(buf,"$C$p doesn't want to fight against $P.$c");
-  act_color(buf,ch,wield,worn,TO_ROOM,POS_RESTING,CLR_GREEN);
-  sprintf(buf,"$C$p removes itself from you!$c.");
-  act_color(buf,ch,wield,worn,TO_CHAR,POS_RESTING,CLR_GREEN);
-  sprintf(buf,"$C$p removes itself from $n$c.");
-  act_color(buf,ch,wield,worn,TO_ROOM,POS_RESTING,CLR_GREEN);
+  sprintf(buf,"$p doesn't want to fight against $P.");
+  act_puts(buf,ch,wield,worn,TO_ROOM,POS_RESTING);
+  sprintf(buf,"$p removes itself from you!.");
+  act_puts(buf,ch,wield,worn,TO_CHAR,POS_RESTING);
+  sprintf(buf,"$p removes itself from $n.");
+  act_puts(buf,ch,wield,worn,TO_ROOM,POS_RESTING);
   unequip_char( ch, wield );
   return;
  }
@@ -1265,8 +1274,8 @@ void damage_to_obj(CHAR_DATA *ch,OBJ_DATA *wield, OBJ_DATA *worn, int damage)
  if (IS_SET(wield->extra_flags,ITEM_ANTI_EVIL) 
 	&& IS_SET(worn->extra_flags,ITEM_ANTI_EVIL))
  {
-  sprintf(buf,"$CThe $p worries for the damage to $P.$c");
-  act_color(buf,ch,wield,worn,TO_ROOM,POS_RESTING,CLR_GREEN);
+  sprintf(buf,"The $p worries for the damage to $P.");
+  act_puts(buf,ch,wield,worn,TO_ROOM,POS_RESTING);
   return;
  }
  return;
@@ -2067,7 +2076,6 @@ int parsebet (const int currentbet, const char *argument)
 void auction_update (void)
 {
     char buf[MAX_STRING_LENGTH];
-    char bufc[MAX_STRING_LENGTH];
 
     if (auction->item != NULL)
         if (--auction->pulse <= 0) /* decrease pulse */
@@ -2083,8 +2091,7 @@ void auction_update (void)
             else
                 sprintf (buf, "%s: going %s (not bet received yet).", auction->item->short_descr,
                      ((auction->going == 1) ? "once" : "twice"));
-	    sprintf(bufc,"%s%s%s",CLR_CYAN,buf,CLR_WHITE_BOLD);
-            talk_auction (bufc);
+            talk_auction (buf);
             break;
 
             case 3 : /* SOLD! */
@@ -2095,8 +2102,7 @@ void auction_update (void)
                     auction->item->short_descr,
                     IS_NPC(auction->buyer) ? auction->buyer->short_descr : auction->buyer->name,
                     auction->bet);
-	        sprintf(bufc,"%s%s%s",CLR_CYAN,buf,CLR_WHITE_BOLD);
-                talk_auction(bufc);
+                talk_auction(buf);
                 obj_to_char (auction->item,auction->buyer);
                 act ("The auctioneer appears before you in a puff of smoke and hands you $p.",
                      auction->buyer,auction->item,NULL,TO_CHAR);
@@ -2111,11 +2117,8 @@ void auction_update (void)
             else /* not sold */
             {
                 sprintf (buf, "No bets received for %s - object has been removed.",auction->item->short_descr);
-		sprintf(bufc,"%s%s%s",CLR_CYAN,buf,CLR_WHITE_BOLD);
-                talk_auction(bufc);
-                sprintf (buf, "The auctioneer puts the unsold item to his pit.");
-		sprintf(bufc,"%s%s%s",CLR_RED,buf,CLR_WHITE_BOLD);
-                talk_auction(bufc);
+                talk_auction(buf);
+                talk_auction("The auctioneer puts the unsold item to his pit.");
                 extract_obj(auction->item);
                 auction->item = NULL; /* clear auction */
 
@@ -2131,7 +2134,6 @@ void do_auction (CHAR_DATA *ch, char *argument)
     OBJ_DATA *obj;
     char arg1[MAX_INPUT_LENGTH];
     char buf[MAX_STRING_LENGTH];
-    char bufc[MAX_STRING_LENGTH];
     char betbuf[MAX_STRING_LENGTH];
 
     argument = one_argument (argument, arg1);
@@ -2155,25 +2157,22 @@ void do_auction (CHAR_DATA *ch, char *argument)
 	 }
 	}
 
-    if (arg1[0] == '\0')
-        if (auction->item != NULL)
-        {
-            /* show item data here */
-            if (auction->bet > 0)
-                sprintf (buf, "Current bet on this item is %d gold.\n\r",auction->bet);
-            else
-                sprintf (buf, "No bets on this item have been received.\n\r");
-	    sprintf(bufc,"%s%s%s",CLR_GREEN,buf,CLR_WHITE_BOLD);
-            send_to_char (bufc,ch);
-	    spell_identify(0, 0, ch, auction->item,0);
-            return;
-        }
-        else
-        {
-	    sprintf(bufc,"%sAuction WHAT?%s\n\r",CLR_RED,CLR_WHITE_BOLD);
-            send_to_char (bufc,ch);
-            return;
-        }
+	if (arg1[0] == '\0')
+		if (auction->item != NULL) {
+			/* show item data here */
+			if (auction->bet > 0)
+				char_printf(ch, "Current bet on this item is "
+						"%d gold.\n\r",auction->bet);
+			else
+				send_to_char ("No bets on this item have been "
+					      "received.\n\r", ch);
+			spell_identify(0, 0, ch, auction->item,0);
+			return;
+		}
+		else {	
+			send_to_char("Auction WHAT?%s\n\r", ch);
+			return;
+		}
 
     if (!str_cmp(arg1,"off") )
 	{
@@ -2192,8 +2191,7 @@ void do_auction (CHAR_DATA *ch, char *argument)
     {
         sprintf(buf,"Sale of %s has been stopped by God. Item confiscated.",
                         auction->item->short_descr);
-	sprintf(bufc,"%s%s%s",CLR_WHITE,buf,CLR_WHITE_BOLD);
-        talk_auction(bufc);
+        talk_auction(buf);
         obj_to_char(auction->item, auction->seller);
         auction->item = NULL;
         if (auction->buyer != NULL) /* return money to the buyer */
@@ -2249,8 +2247,7 @@ void do_auction (CHAR_DATA *ch, char *argument)
             auction->pulse = PULSE_AUCTION; /* start the auction over again */
 
             sprintf (buf,"A bet of %d gold has been received on %s.\n\r",newbet,auction->item->short_descr);
-	    sprintf(bufc,"%s%s%s",CLR_MAGENTA,buf,CLR_WHITE_BOLD);
-            talk_auction (bufc);
+            talk_auction (buf);
             return;
 
 
@@ -2276,8 +2273,8 @@ void do_auction (CHAR_DATA *ch, char *argument)
     {
 
     default:
-        act_color ("$CYou cannot auction $Ts.$c",ch, NULL, item_type_name(obj), 
-		TO_CHAR,POS_SLEEPING,CLR_RED);
+        act_puts ("You cannot auction $Ts.",ch, NULL, item_type_name(obj), 
+		TO_CHAR,POS_SLEEPING);
         return;
 
     case ITEM_WEAPON:
@@ -2293,9 +2290,8 @@ void do_auction (CHAR_DATA *ch, char *argument)
         auction->pulse = PULSE_AUCTION;
         auction->going = 0;
 
-        sprintf(buf, "A new item has been received: %s.", obj->short_descr);
-	sprintf(bufc,"%s%s%s",CLR_YELLOW,buf,CLR_WHITE_BOLD);
-        talk_auction(bufc);
+        sprintf(buf, "A new item has been received: {Y%s{x.", obj->short_descr);
+        talk_auction(buf);
 
         return;
 

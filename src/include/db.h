@@ -1,3 +1,9 @@
+#ifndef _DB_H_
+#define _DB_H_
+/*
+ * $Id: db.h,v 1.2 1998-04-14 08:54:29 fjoe Exp $
+ */
+
 /***************************************************************************
  *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
@@ -36,18 +42,62 @@
 *	ROM license, in the file Rom24/doc/rom.license			   *
 ***************************************************************************/
 
-/* vals from db.c */
 extern bool fBootDb;
 extern int		newmobs;
 extern int		newobjs;
-extern MOB_INDEX_DATA 	* mob_index_hash          [MAX_KEY_HASH];
-extern OBJ_INDEX_DATA 	* obj_index_hash          [MAX_KEY_HASH];
+extern MOB_INDEX_DATA 	*mob_index_hash          [MAX_KEY_HASH];
+extern OBJ_INDEX_DATA 	*obj_index_hash          [MAX_KEY_HASH];
 extern int		top_mob_index;
 extern int		top_obj_index;
 extern int  		top_affect;
 extern int		top_ed; 
-extern AREA_DATA 	* area_first;
+extern AREA_DATA 	*area_first;
 
+char *	print_flags	(int flag);
+void	boot_db		(void);
+CHAR_DATA *	create_mobile	(MOB_INDEX_DATA *pMobIndex);
+void	clone_mobile	(CHAR_DATA *parent, CHAR_DATA *clone);
+OBJ_DATA *	create_object	(OBJ_INDEX_DATA *pObjIndex, int level);
+OBJ_DATA *    create_object_nocount (OBJ_INDEX_DATA *pObjIndex, int level);
+OBJ_DATA *    create_object_org (OBJ_INDEX_DATA *pObjIndex,int level,bool Count);
+void	clone_object	(OBJ_DATA *parent, OBJ_DATA *clone); 
+void	clear_char	(CHAR_DATA *ch);
+char *	get_extra_descr	(const char *name, EXTRA_DESCR_DATA *ed);
+MOB_INDEX_DATA *	get_mob_index	(int vnum);
+OBJ_INDEX_DATA *	get_obj_index	(int vnum);
+ROOM_INDEX_DATA *	get_room_index	(int vnum);
+char	fread_letter	(FILE *fp);
+int	fread_number	(FILE *fp);
+long 	fread_flag	(FILE *fp);
+char *	fread_string	(FILE *fp);
+char *  fread_string_eol(FILE *fp);
+void	fread_to_eol	(FILE *fp);
+char *	fread_word	(FILE *fp);
+long	flag_convert	(char letter);
+void *	alloc_mem	(int sMem);
+void *	alloc_perm	(int sMem);
+void	free_mem	(void *pMem, int sMem);
+char *	str_dup		(const char *str);
+void	free_string	(char *pstr);
+int	number_fuzzy	(int number);
+int	number_range	(int from, int to);
+int	number_percent	(void);
+int	number_door	(void);
+int	number_bits	(int width);
+long     number_mm      (void);
+int	dice		(int number, int size);
+int	interpolate	(int level, int value_00, int value_32);
+void	smash_tilde	(char *str);
+bool	str_cmp		(const char *astr, const char *bstr);
+bool	str_prefix	(const char *astr, const char *bstr);
+bool	str_infix	(const char *astr, const char *bstr);
+bool	str_suffix	(const char *astr, const char *bstr);
+char *	capitalize	(const char *str);
+void	append_file	(CHAR_DATA *ch, char *file, char *str);
+void	bug		(const char *str, int param);
+#define log_string(str) log_printf(str)
+void	log_printf	(const char *str, ...);
+void	tail_chain	(void);
 
 
 /* from db2.c */
@@ -62,3 +112,6 @@ void	convert_obj(OBJ_INDEX_DATA *obj);
 
 /* Magic number for memory allocation */
 #define MAGIC_NUM 52571214
+
+#endif
+

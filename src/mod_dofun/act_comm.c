@@ -1,3 +1,7 @@
+/*
+ * $Id: act_comm.c,v 1.2 1998-04-14 08:54:25 fjoe Exp $
+ */
+
 /***************************************************************************
  *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *	
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
@@ -47,7 +51,11 @@
 #include <stdlib.h>
 #include <time.h>
 #include "merc.h"
+#include "interp.h"
+#include "act_wiz.h"
 #include "recycle.h"
+#include "comm.h"
+#include "db.h"
 #include "tables.h"
 #include "interp.h"
 
@@ -253,15 +261,15 @@ void do_immtalk( CHAR_DATA *ch, char *argument )
     REMOVE_BIT(ch->comm,COMM_NOWIZ);
 
    if (!is_affected(ch, gsn_deafen))
-     act_color("$n: $C$t$c",ch,argument,NULL,TO_CHAR,POS_DEAD, CLR_CYAN_BOLD );
+     act_puts("$n: $t",ch,argument,NULL,TO_CHAR,POS_DEAD);
     for ( d = descriptor_list; d != NULL; d = d->next )
     {
 	if ( d->connected == CON_PLAYING && 
 	     IS_IMMORTAL(d->character) && 
              !IS_SET(d->character->comm,COMM_NOWIZ) )
 	{
-            act_color("$n: $C$t$c",
-                    ch,argument,d->character,TO_VICT,POS_DEAD, CLR_CYAN_BOLD );
+            act_puts("$n: $t",
+                    ch,argument,d->character,TO_VICT,POS_DEAD);
 	}
     }
 
@@ -297,17 +305,15 @@ void do_say( CHAR_DATA *ch, char *argument )
 
     for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room)
     {
-        if (!is_affected(vch, gsn_deafen))
-	{
-	  sprintf(trans,"%s",translate(ch,vch,buf));
-          act_color( "$C$n says '$t'$c",
-                    ch, trans, vch, TO_VICT,POS_RESTING, CLR_GREEN );
+        if (!is_affected(vch, gsn_deafen)) {
+	  strcpy(trans, translate(ch, vch, buf));
+          act_puts("{W$n{x says '{G$t{x'",
+                    ch, trans, vch, TO_VICT,POS_RESTING);
 	}
     }
 
    if (!is_affected(ch, gsn_deafen))
-     act_color( "$CYou say '$T'$c",
-               ch, NULL, buf, TO_CHAR,POS_RESTING, CLR_GREEN );
+     act_puts( "You say '{G$T{x'", ch, NULL, buf, TO_CHAR,POS_RESTING);
 
 
   for (room_char = ch->in_room->people; room_char != NULL;
@@ -356,8 +362,8 @@ void do_shout( CHAR_DATA *ch, char *argument )
       strcpy(buf,argument);
 
     if (!is_affected(ch, gsn_deafen))
-     act_color( "You shout '$C$T$c'",
-               ch, NULL, buf, TO_CHAR,POS_DEAD, CLR_GREEN_BOLD );
+     act_puts("You shout '{R$T{x'",
+               ch, NULL, buf, TO_CHAR,POS_DEAD);
 
     for ( d = descriptor_list; d != NULL; d = d->next )
     {
@@ -370,9 +376,9 @@ void do_shout( CHAR_DATA *ch, char *argument )
 	     d->character->in_room->area == ch->in_room->area &&
              !is_affected(d->character, gsn_deafen))
 	{
-	    sprintf(trans,"%s",translate(ch,d->character,buf));
-            act_color("$n shouts '$C$t$c'",
-                      ch,trans,d->character,TO_VICT,POS_DEAD,CLR_GREEN_BOLD );
+	    strcpy(trans, translate(ch,d->character,buf));
+            act_puts("{W$n{x shouts '{R$t{x'",
+                      ch,trans,d->character,TO_VICT,POS_DEAD);
 	}
     }
 
@@ -380,82 +386,56 @@ void do_shout( CHAR_DATA *ch, char *argument )
 }
 
 
-
-void do_tell( CHAR_DATA *ch, char *argument )
+void do_tell_raw(CHAR_DATA *ch, char *msg, CHAR_DATA *victim)
 {
-    char arg[MAX_INPUT_LENGTH],buf[MAX_STRING_LENGTH];
-    CHAR_DATA *victim;
+    char buf[MAX_STRING_LENGTH];
 
-    if ( IS_SET(ch->comm, COMM_NOTELL) || IS_SET(ch->comm,COMM_DEAF))
-    {
+    if ( IS_SET(ch->comm, COMM_NOTELL) ) {
 	send_to_char( "Your message didn't get through.\n\r", ch );
 	return;
     }
 
-    if ( IS_SET(ch->comm, COMM_QUIET) )
-    {
-	send_to_char( "You must turn off quiet mode first.\n\r", ch);
-	return;
-    }
-
-    if (IS_SET(ch->comm,COMM_DEAF))
-    {
-	send_to_char("You must turn off deaf mode first.\n\r",ch);
-	return;
-    }
-
-    argument = one_argument( argument, arg );
-
-    if ( arg[0] == '\0' || argument[0] == '\0' )
-    {
-	send_to_char( "Tell whom what?\n\r", ch );
-	return;
-    }
-
-    /*
-     * Can tell to PC's anywhere, but NPC's only in same room.
-     * -- Furey
-     */
-    if ( ( victim = get_char_world( ch, arg ) ) == NULL
-    || ( IS_NPC(victim) && victim->in_room != ch->in_room ) )
-    {
+    if (victim == NULL 
+    || (IS_NPC(victim) && victim->in_room != ch->in_room)) {
 	send_to_char( "They aren't here.\n\r", ch );
 	return;
     }
 
-    if ( victim->desc == NULL && !IS_NPC(victim))
-    {
-	act("$N seems to have misplaced $S link...try again later.",
-	    ch,NULL,victim,TO_CHAR);
-        sprintf(buf,"%s tells you '%s'\n\r",PERS(ch,victim),argument);
+    strcpy(buf,msg);
+    if ( victim->desc == NULL && !IS_NPC(victim)) {
+        if (is_affected(ch,gsn_garble))
+          garble(buf,msg);
+        else
+          strcpy(buf,msg);
+        act("$N seems to have misplaced $S link...try again later.",
+            ch,NULL,victim,TO_CHAR);
+        sprintf(buf,"%s tells you '%s'\n\r",PERS(ch,victim),msg);
         buf[0] = UPPER(buf[0]);
         add_buf(victim->pcdata->buffer,buf);
-	return;
+        return;
     }
 
-    if ( !(IS_IMMORTAL(ch) && ch->level > LEVEL_IMMORTAL) && !IS_AWAKE(victim) )
-    {
+    if (!IS_IMMORTAL(ch) && !IS_AWAKE(victim)) {
 	act( "$E can't hear you.", ch, 0, victim, TO_CHAR );
 	return;
     }
-  
+
     if ((IS_SET(victim->comm,COMM_QUIET) || IS_SET(victim->comm,COMM_DEAF))
-    && !IS_IMMORTAL(ch))
-    {
-	act( "$E is not receiving tells.", ch, 0, victim, TO_CHAR );
-  	return;
+    &&  !IS_IMMORTAL(ch) && !IS_IMMORTAL(victim)) {
+        act_puts("$E is not receiving tells.", ch, 0, victim, TO_CHAR,POS_DEAD);
+        return;
     }
 
-    if (is_affected(ch,gsn_garble))
-      garble(buf,argument);
-    else
-      strcpy(buf,argument);
+    if (!IS_IMMORTAL(victim) && !IS_AWAKE(ch)) {
+	send_to_char( "In your dreams, or what?\n\r", ch );
+	return;
+    }
 
    if (!is_affected(ch, gsn_deafen))
-     act_color("$CYou tell $N '$t'$c",
-               ch,buf,victim,TO_CHAR,POS_SLEEPING, CLR_RED );
-   act_color("$C$n tells you '$t'$c",
-             ch,buf,victim,TO_VICT,POS_SLEEPING, CLR_RED );
+     act_puts("You tell $N '{G$t{x'",
+               ch,buf,victim,TO_CHAR,POS_SLEEPING);
+   act_puts("{W$n{x tells you '{G$t{x'",
+             ch,buf,victim,TO_VICT,POS_SLEEPING);
 
     victim->reply	= ch;
 
@@ -463,66 +443,23 @@ void do_tell( CHAR_DATA *ch, char *argument )
 }
 
 
+void do_tell( CHAR_DATA *ch, char *argument )
+{
+	char arg[MAX_INPUT_LENGTH];
+
+	argument = one_argument( argument, arg );
+	if ( arg[0] == '\0' || argument[0] == '\0' ) {
+		send_to_char( "Tell whom what?\n\r", ch );
+		return;
+    	}
+
+	do_tell_raw(ch, argument, get_char_world(ch, arg));
+}
+
+
 void do_reply( CHAR_DATA *ch, char *argument )
 {
-    CHAR_DATA *victim;
-    char buf[MAX_STRING_LENGTH];
-
-    if ( IS_SET(ch->comm, COMM_NOTELL) )
-    {
-	send_to_char( "Your message didn't get through.\n\r", ch );
-	return;
-    }
-
-    if ( ( victim = ch->reply ) == NULL )
-    {
-	send_to_char( "They aren't here.\n\r", ch );
-	return;
-    }
-
-    strcpy(buf,argument);
-    if ( victim->desc == NULL && !IS_NPC(victim))
-    {
-        if (is_affected(ch,gsn_garble))
-          garble(buf,argument);
-        else
-          strcpy(buf,argument);
-        act("$N seems to have misplaced $S link...try again later.",
-            ch,NULL,victim,TO_CHAR);
-        sprintf(buf,"%s tells you '%s'\n\r",PERS(ch,victim),argument);
-        buf[0] = UPPER(buf[0]);
-        add_buf(victim->pcdata->buffer,buf);
-        return;
-    }
-
-    if ( !IS_IMMORTAL(ch) && !IS_AWAKE(victim) )
-    {
-	act( "$E can't hear you.", ch, 0, victim, TO_CHAR );
-	return;
-    }
-
-    if ((IS_SET(victim->comm,COMM_QUIET) || IS_SET(victim->comm,COMM_DEAF))
-    &&  !IS_IMMORTAL(ch) && !IS_IMMORTAL(victim))
-    {
-        act_new( "$E is not receiving tells.", ch, 0, victim, TO_CHAR,POS_DEAD);
-        return;
-    }
-
-    if (!IS_IMMORTAL(victim) && !IS_AWAKE(ch))
-    {
-	send_to_char( "In your dreams, or what?\n\r", ch );
-	return;
-    }
-
-   if (!is_affected(ch, gsn_deafen))
-     act_color("$CYou tell $N '$t'$c",
-               ch,buf,victim,TO_CHAR,POS_SLEEPING, CLR_RED_BOLD );
-   act_color("$C$n tells you '$t'$c",
-              ch,buf,victim,TO_VICT,POS_SLEEPING, CLR_RED_BOLD );
-
-    victim->reply	= ch;
-
-    return;
+	do_tell_raw(ch, argument, ch->reply);
 }
 
 void do_yell( CHAR_DATA *ch, char *argument )
@@ -530,7 +467,6 @@ void do_yell( CHAR_DATA *ch, char *argument )
     DESCRIPTOR_DATA *d;
     char buf[MAX_INPUT_LENGTH];
     char trans[MAX_STRING_LENGTH];
-
 
     if ( argument[0] == '\0' )
     {
@@ -544,8 +480,8 @@ void do_yell( CHAR_DATA *ch, char *argument )
       strcpy(buf,argument);
 
    if (!is_affected(ch, gsn_deafen))
-     act_color("You yell '$C$t$c'",
-               ch,buf,NULL,TO_CHAR,POS_DEAD, CLR_BROWN );
+     act_puts("You yell '{M$t{x'",
+               ch,buf,NULL,TO_CHAR,POS_DEAD);
 
     for ( d = descriptor_list; d != NULL; d = d->next )
     {
@@ -556,8 +492,8 @@ void do_yell( CHAR_DATA *ch, char *argument )
         &&   !is_affected(d->character, gsn_deafen))
 	{
 	    sprintf(trans,"%s",translate(ch,d->character,buf));
-            act_color("$n yells '$C$t$c'",
-                      ch,trans,d->character,TO_VICT,POS_DEAD, CLR_BROWN );
+            act_puts("$n yells '{M$t{x'",
+                      ch,trans,d->character,TO_VICT,POS_DEAD);
 	}
     }
 
@@ -1033,11 +969,9 @@ void do_quit_org( CHAR_DATA *ch, char *argument, bool Count )
 
     send_to_char( 
 	"Alas, all good things must come to an end.\n\r",ch);
-    act_color( "$C$n has left the game.$c", ch, NULL, NULL, 
-	TO_ROOM ,POS_DEAD,CLR_GREEN);
-    sprintf( log_buf, "%s has quit.", ch->name );
-    log_string( log_buf );
-     wiznet("$N rejoins the real world.",ch,NULL,WIZ_LOGINS,0,get_trust(ch));
+    act_puts( "{W$n{x has left the game.", ch, NULL, NULL, TO_ROOM ,POS_DEAD);
+    log_printf("%s has quit.", ch->name);
+    wiznet("{W$N{x rejoins the real world.",ch,NULL,WIZ_LOGINS,0,get_trust(ch));
 
      for ( obj = object_list; obj != NULL; obj = obj_next )
      {
@@ -1226,10 +1160,10 @@ void add_follower( CHAR_DATA *ch, CHAR_DATA *master )
     ch->leader        = NULL;
 
     if ( can_see( master, ch ) )
-act_color( "$C$n now follows you.$c", ch, NULL, master, 
-TO_VICT,POS_RESTING,CLR_YELLOW );
-act_color( "$CYou now follow $N.$c",  ch, NULL, master, 
-TO_CHAR,POS_RESTING,CLR_YELLOW );
+act_puts( "$n now follows you.", ch, NULL, master, 
+TO_VICT,POS_RESTING);
+act_puts( "You now follow $N.",  ch, NULL, master, 
+TO_CHAR,POS_RESTING);
 
     return;
 }
@@ -1252,10 +1186,10 @@ void stop_follower( CHAR_DATA *ch )
 
     if ( can_see( ch->master, ch ) && ch->in_room != NULL)
     {
-act_color( "$C$n stops following you.$c",ch, NULL, ch->master, 
-		TO_VICT,POS_RESTING,CLR_BLUE);
-act_color( "$CYou stop following $N.$c", ch, NULL, ch->master, 
-		TO_CHAR,POS_RESTING,CLR_BLUE);
+act_puts( "$n stops following you.",ch, NULL, ch->master, 
+		TO_VICT,POS_RESTING);
+act_puts( "You stop following $N.", ch, NULL, ch->master, 
+		TO_CHAR,POS_RESTING);
     }
     if (ch->master->pet == ch)
 	ch->master->pet = NULL;
@@ -1542,12 +1476,12 @@ void do_group( CHAR_DATA *ch, char *argument )
         }
 
       victim->leader = NULL;
-act_color( "$C$n removes $N from $s group.$c",   ch, NULL, victim, 
-		TO_NOTVICT,POS_SLEEPING,CLR_YELLOW );
-act_color( "$C$n removes you from $s group.$c",  ch, NULL, victim, 
-		TO_VICT,POS_SLEEPING,CLR_YELLOW);
-act_color( "$CYou remove $N from your group.$c", ch, NULL, victim, 
-		TO_CHAR,POS_SLEEPING,CLR_BLUE);
+act_puts( "$n removes $N from $s group.",   ch, NULL, victim, 
+		TO_NOTVICT,POS_SLEEPING);
+act_puts( "$n removes you from $s group.",  ch, NULL, victim, 
+		TO_VICT,POS_SLEEPING);
+act_puts( "You remove $N from your group.", ch, NULL, victim, 
+		TO_CHAR,POS_SLEEPING);
 
       if (victim->guarded_by != NULL &&
           !is_same_group(victim,victim->guarded_by))
@@ -1564,30 +1498,30 @@ act_color( "$CYou remove $N from your group.$c", ch, NULL, victim,
   if ( ch->level - victim->level < -8
       ||   ch->level - victim->level > 8 )
     {
-act_color( "$C$N cannot join $n's group.$c",     ch, NULL, victim, 
-		TO_NOTVICT,POS_SLEEPING,CLR_RED_BOLD );
-act_color( "$CYou cannot join $n's group.$c",    ch, NULL, victim, 
-		TO_VICT,POS_SLEEPING,CLR_RED_BOLD    );
-act_color( "$C$N cannot join your group.$c",     ch, NULL, victim, 
-		TO_CHAR ,POS_SLEEPING,CLR_RED_BOLD   );
+act_puts( "$N cannot join $n's group.",     ch, NULL, victim, 
+		TO_NOTVICT,POS_SLEEPING);
+act_puts( "You cannot join $n's group.",    ch, NULL, victim, 
+		TO_VICT,POS_SLEEPING);
+act_puts( "$N cannot join your group.",     ch, NULL, victim, 
+		TO_CHAR ,POS_SLEEPING);
       return;
     }
 
   if (IS_GOOD(ch) && IS_EVIL(victim))
     {
-act_color("$CYou are too evil for $n's group.$c", ch, NULL, victim, 
-	TO_VICT,POS_SLEEPING,CLR_RED);
-act_color("$C$N is too evil for your group!$c", ch, NULL, victim, 
-	TO_CHAR,POS_SLEEPING,CLR_RED);
+act_puts("You are too evil for $n's group.", ch, NULL, victim, 
+	TO_VICT,POS_SLEEPING);
+act_puts("$N is too evil for your group!", ch, NULL, victim, 
+	TO_CHAR,POS_SLEEPING);
       return;
     }
 
   if (IS_GOOD(victim) && IS_EVIL(ch))
     {
-act_color("$CYou are too pure to join $n's group!$c", ch, NULL, victim, 
-	TO_VICT,POS_SLEEPING,CLR_RED);
-act_color("$C$N is too pure for your group!$c", ch, NULL, victim, 
-	TO_CHAR,POS_SLEEPING,CLR_RED);
+act_puts("You are too pure to join $n's group!", ch, NULL, victim, 
+	TO_VICT,POS_SLEEPING);
+act_puts("$N is too pure for your group!", ch, NULL, victim, 
+	TO_CHAR,POS_SLEEPING);
       return;
     }
 
@@ -1598,21 +1532,21 @@ act_color("$C$N is too pure for your group!$c", ch, NULL, victim,
 	(ch->cabal == CABAL_SHALAFI  && victim->cabal == CABAL_BATTLE) ||
 	(ch->cabal == CABAL_BATTLE  && victim->cabal == CABAL_SHALAFI) )
     {
-act_color("$CYou hate $n's cabal, how can you join $n's group?!$c", ch,
-		NULL, victim,TO_VICT,POS_SLEEPING,CLR_RED);
-act_color("$CYou hate $N's cabal, how can you want $N to join your group?!$c",
-		ch, NULL, victim, TO_CHAR,POS_SLEEPING,CLR_RED);
+act_puts("You hate $n's cabal, how can you join $n's group?!", ch,
+		NULL, victim,TO_VICT,POS_SLEEPING);
+act_puts("You hate $N's cabal, how can you want $N to join your group?!",
+		ch, NULL, victim, TO_CHAR,POS_SLEEPING);
       return;
     }
 
 
   victim->leader = ch;
-act_color( "$C$N joins $n's group.$c", ch, NULL, victim,TO_NOTVICT,
-	POS_SLEEPING,CLR_YELLOW );
-act_color( "$CYou join $n's group.$c", ch, NULL, victim,TO_VICT,
-	POS_SLEEPING,CLR_YELLOW    );
-act_color( "$C$N joins your group.$c", ch, NULL, victim, TO_CHAR,
-	POS_SLEEPING,CLR_BLUE    );
+act_puts( "$N joins $n's group.", ch, NULL, victim,TO_NOTVICT,
+	POS_SLEEPING);
+act_puts( "You join $n's group.", ch, NULL, victim,TO_VICT,
+	POS_SLEEPING);
+act_puts( "$N joins your group.", ch, NULL, victim, TO_CHAR,
+	POS_SLEEPING);
   return;
 
 }
@@ -1773,15 +1707,15 @@ void do_gtell( CHAR_DATA *ch, char *argument )
     {
       if ( is_same_group( gch, ch ) && !is_affected(gch, gsn_deafen))
         {
-          act_color("$C$n tells the group '$t'$c",
-                  ch,buf,gch,TO_VICT,POS_DEAD,CLR_MAGENTA);
+          act_puts("{W$n{x tells the group '{G$t{x'",
+                  ch,buf,gch,TO_VICT,POS_DEAD);
           i++;
         }
     }
 
     if (i > 1 && !is_affected(ch, gsn_deafen))
-      act_color("$CYou tell your group '$t'$c",
-                ch,buf,NULL,TO_CHAR,POS_DEAD,CLR_CYAN);
+      act_puts("You tell your group '{G$t{x'",
+                ch,buf,NULL,TO_CHAR,POS_DEAD);
     else send_to_char( "Quit talking to yourself. You are all alone.",ch);
 
     return;
@@ -1838,7 +1772,7 @@ void do_cb( CHAR_DATA *ch, char *argument )
 	return;
       }
 
-    sprintf(buf, "[%s] $n: $C$t$c",cabal_table[ch->cabal].short_name);
+    sprintf(buf, "[%s] $n: {C$t{x",cabal_table[ch->cabal].short_name);
 
     if (is_affected(ch,gsn_garble))
       garble(buf2,argument);
@@ -1846,17 +1780,13 @@ void do_cb( CHAR_DATA *ch, char *argument )
       strcpy(buf2,argument);
 
    if (!is_affected(ch, gsn_deafen))
-     act_color(buf, ch, argument, NULL, TO_CHAR,POS_DEAD, CLR_BROWN);
-    for ( d = descriptor_list; d != NULL; d = d->next )
-    {
+     act_puts(buf, ch, argument, NULL, TO_CHAR,POS_DEAD);
+    for ( d = descriptor_list; d != NULL; d = d->next ) {
 	if ( d->connected == CON_PLAYING && 
 	     (d->character->cabal == ch->cabal) &&
 /*             !IS_SET(d->character->comm,COMM_NOCB) &&   */
 	     !is_affected(d->character, gsn_deafen))
-	{
-	    act_color(buf,
-		      ch,buf2,d->character,TO_VICT,POS_DEAD, CLR_BROWN );
-	}
+	    act_puts(buf, ch,buf2,d->character,TO_VICT,POS_DEAD);
     }
 
     return;
@@ -1882,15 +1812,11 @@ void do_pray(CHAR_DATA *ch, char *argument)
 	    !IS_SET(d->character->comm,COMM_NOWIZ))
 	  {
 	    if (argument[0] == '\0')
-	      {
-		act_color("$C$n is PRAYING for: any god$c",
-			ch,argument,d->character,TO_VICT,POS_DEAD,CLR_CYAN);
-	      }
+		act_puts("$n is PRAYING for: any god",
+			ch,argument,d->character,TO_VICT,POS_DEAD);
 	    else
-	      {
-		act_color("$C$n is PRAYING for: $t$c",
-			ch,argument,d->character,TO_VICT,POS_DEAD,CLR_CYAN);
-	      }
+		act_puts("$n is PRAYING for: $t",
+			ch,argument,d->character,TO_VICT,POS_DEAD);
 	  }
       }
    return;

@@ -1,3 +1,7 @@
+/*
+ * $Id: act_move.c,v 1.2 1998-04-14 08:54:26 fjoe Exp $
+ */
+
 /***************************************************************************
  *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *	
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
@@ -47,6 +51,8 @@
 #include <string.h>
 #include "merc.h"
 #include "recycle.h"
+#include "db.h"
+#include "comm.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_look		);
@@ -1241,7 +1247,7 @@ void do_stand( CHAR_DATA *ch, char *argument )
 	}
 	if (ch->on != obj && count_users(obj) >= obj->value[0])
 	{
-	    act_new("There's no room to stand on $p.",
+	    act_puts("There's no room to stand on $p.",
 		ch,obj,NULL,TO_ROOM,POS_DEAD);
 	    return;
 	}
@@ -1260,17 +1266,17 @@ void do_stand( CHAR_DATA *ch, char *argument )
 	}
 	else if (IS_SET(obj->value[2],STAND_AT))
 	{
-	   act_new("You wake and stand at $p.",ch,obj,NULL,TO_CHAR,POS_DEAD);
+	   act_puts("You wake and stand at $p.",ch,obj,NULL,TO_CHAR,POS_DEAD);
 	   act("$n wakes and stands at $p.",ch,obj,NULL,TO_ROOM);
 	}
 	else if (IS_SET(obj->value[2],STAND_ON))
 	{
-	    act_new("You wake and stand on $p.",ch,obj,NULL,TO_CHAR,POS_DEAD);
+	    act_puts("You wake and stand on $p.",ch,obj,NULL,TO_CHAR,POS_DEAD);
 	    act("$n wakes and stands on $p.",ch,obj,NULL,TO_ROOM);
 	}
 	else 
 	{
-	    act_new("You wake and stand in $p.",ch,obj,NULL,TO_CHAR,POS_DEAD);
+	    act_puts("You wake and stand in $p.",ch,obj,NULL,TO_CHAR,POS_DEAD);
 	    act("$n wakes and stands in $p.",ch,obj,NULL,TO_ROOM);
 	}
 
@@ -1373,7 +1379,7 @@ void do_rest( CHAR_DATA *ch, char *argument )
 
         if (obj != NULL && ch->on != obj && count_users(obj) >= obj->value[0])
         {
-	    act_new("There's no more room on $p.",ch,obj,NULL,TO_CHAR,POS_DEAD);
+	    act_puts("There's no more room on $p.",ch,obj,NULL,TO_CHAR,POS_DEAD);
 	    return;
     	}
 	
@@ -1390,19 +1396,19 @@ void do_rest( CHAR_DATA *ch, char *argument )
 	}
 	else if (IS_SET(obj->value[2],REST_AT))
 	{
-	    act_new("You wake up and rest at $p.",
+	    act_puts("You wake up and rest at $p.",
 		    ch,obj,NULL,TO_CHAR,POS_SLEEPING);
 	    act("$n wakes up and rests at $p.",ch,obj,NULL,TO_ROOM);
 	}
         else if (IS_SET(obj->value[2],REST_ON))
         {
-            act_new("You wake up and rest on $p.",
+            act_puts("You wake up and rest on $p.",
                     ch,obj,NULL,TO_CHAR,POS_SLEEPING);
             act("$n wakes up and rests on $p.",ch,obj,NULL,TO_ROOM);
         }
         else
         {
-            act_new("You wake up and rest in $p.",
+            act_puts("You wake up and rest in $p.",
                     ch,obj,NULL,TO_CHAR,POS_SLEEPING);
             act("$n wakes up and rests in $p.",ch,obj,NULL,TO_ROOM);
         }
@@ -1524,7 +1530,7 @@ void do_sit (CHAR_DATA *ch, char *argument )
 
 	if (obj != NULL && ch->on != obj && count_users(obj) >= obj->value[0])
 	{
-	    act_new("There's no more room on $p.",ch,obj,NULL,TO_CHAR,POS_DEAD);
+	    act_puts("There's no more room on $p.",ch,obj,NULL,TO_CHAR,POS_DEAD);
 	    return;
 	}
 
@@ -1540,17 +1546,17 @@ void do_sit (CHAR_DATA *ch, char *argument )
             }
             else if (IS_SET(obj->value[2],SIT_AT))
             {
-            	act_new("You wake and sit at $p.",ch,obj,NULL,TO_CHAR,POS_DEAD);
+            	act_puts("You wake and sit at $p.",ch,obj,NULL,TO_CHAR,POS_DEAD);
             	act("$n wakes and sits at $p.",ch,obj,NULL,TO_ROOM);
             }
             else if (IS_SET(obj->value[2],SIT_ON))
             {
-            	act_new("You wake and sit on $p.",ch,obj,NULL,TO_CHAR,POS_DEAD);
+            	act_puts("You wake and sit on $p.",ch,obj,NULL,TO_CHAR,POS_DEAD);
             	act("$n wakes and sits at $p.",ch,obj,NULL,TO_ROOM);
             }
             else
             {
-            	act_new("You wake and sit in $p.",ch,obj,NULL,TO_CHAR,POS_DEAD);
+            	act_puts("You wake and sit in $p.",ch,obj,NULL,TO_CHAR,POS_DEAD);
             	act("$n wakes and sits in $p.",ch,obj,NULL,TO_ROOM);
             }
 
@@ -1661,7 +1667,7 @@ void do_sleep( CHAR_DATA *ch, char *argument )
 
 	    if (ch->on != obj && count_users(obj) >= obj->value[0])
 	    {
-		act_new("There is no room on $p for you.",
+		act_puts("There is no room on $p for you.",
 		    ch,obj,NULL,TO_CHAR,POS_DEAD);
 		return;
 	    }
@@ -1717,7 +1723,7 @@ void do_wake( CHAR_DATA *ch, char *argument )
     if ( IS_AFFECTED(victim, AFF_SLEEP) )
 	{ act( "You can't wake $M!",   ch, NULL, victim, TO_CHAR );  return; }
 
-    act_new( "$n wakes you.", ch, NULL, victim, TO_VICT,POS_SLEEPING );
+    act_puts( "$n wakes you.", ch, NULL, victim, TO_VICT,POS_SLEEPING );
     do_stand(victim,"");
     return;
 }
@@ -3017,13 +3023,13 @@ if ( ( door = find_exit( ch, arg2 ) ) >= 0 )
     }
 
 
-    sprintf(buf,"$CYou push $N to %s.$c",dir_name[door]);
-    act_color(buf,ch,NULL,victim,TO_CHAR,POS_SLEEPING,CLR_YELLOW);
-    sprintf(buf,"$C$n pushes you to %s.$c", dir_name[door]);
-    act_color(buf,ch,NULL,victim,TO_VICT,POS_SLEEPING,CLR_YELLOW);
-    sprintf(buf,"$C$n pushes $N to %s.$c", dir_name[door]);
-    act_color(buf,ch,NULL,victim,TO_NOTVICT,POS_SLEEPING,CLR_YELLOW);
-    move_char( victim , door , FALSE );
+    act_printf(ch,NULL,victim,TO_CHAR,POS_SLEEPING,
+	       "You push $N to %s.",dir_name[door]);
+    act_printf(ch,NULL,victim,TO_VICT,POS_SLEEPING,
+	       "$n pushes you to %s.", dir_name[door]);
+    act_printf(ch,NULL,victim,TO_NOTVICT,POS_SLEEPING,
+    	       "$n pushes $N to %s.", dir_name[door]);
+    move_char(victim, door, FALSE);
 
     check_improve(ch,gsn_push,TRUE,1);
  }

@@ -1,3 +1,7 @@
+/*
+ * $Id: act_wiz.c,v 1.2 1998-04-14 08:54:27 fjoe Exp $
+ */
+
 /***************************************************************************
  *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *	
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
@@ -46,10 +50,15 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <stdarg.h>
 #include "merc.h"
 #include "recycle.h"
 #include "tables.h"
 #include "lookup.h"
+#include "db.h"
+#include "comm.h"
+#include "act_info.h"
+#include "act_wiz.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_rstat		);
@@ -81,6 +90,7 @@ extern int max_on;
  */
 ROOM_INDEX_DATA *	find_location	args( ( CHAR_DATA *ch, char *arg ) );
 bool write_to_descriptor  args(( int desc, char *txt, int length ));
+void reboot_anatolia( void );
 
 
 void do_cabal_scan( CHAR_DATA *ch, char *argument )
@@ -452,28 +462,29 @@ void do_wiznet( CHAR_DATA *ch, char *argument )
 
 }
 
-void wiznet(char *string, CHAR_DATA *ch, OBJ_DATA *obj,
-	    long flag, long flag_skip, int min_level) 
+void wiznet_printf(CHAR_DATA *ch, OBJ_DATA *obj,
+		   long flag, long flag_skip, int min_level,
+		   char* format, ...) 
 {
-    DESCRIPTOR_DATA *d;
+	va_list ap;
+	DESCRIPTOR_DATA *d;
 
-    for ( d = descriptor_list; d != NULL; d = d->next )
-    {
-        if (d->connected == CON_PLAYING
-	&&  IS_IMMORTAL(d->character) 
-	&&  IS_SET(d->character->wiznet,WIZ_ON) 
-	&&  (!flag || IS_SET(d->character->wiznet,flag))
-	&&  (!flag_skip || !IS_SET(d->character->wiznet,flag_skip))
-	&&  get_trust(d->character) >= min_level
-	&&  d->character != ch)
-        {
-	    if (IS_SET(d->character->wiznet,WIZ_PREFIX))
-	  	send_to_char("--> ",d->character);
-            act_new(string,d->character,obj,ch,TO_CHAR,POS_DEAD);
-        }
-    }
- 
-    return;
+	va_start(ap, format);
+	for (d = descriptor_list; d != NULL; d = d->next) {
+		if (d->connected == CON_PLAYING &&
+		    IS_IMMORTAL(d->character) && 
+		    IS_SET(d->character->wiznet,WIZ_ON) &&
+		    (!flag || IS_SET(d->character->wiznet,flag)) &&
+		    (!flag_skip || !IS_SET(d->character->wiznet,flag_skip)) &&
+		    get_trust(d->character) >= min_level &&
+		    d->character != ch) {
+			if (IS_SET(d->character->wiznet,WIZ_PREFIX))
+				send_to_char("--> ",d->character);
+			act_printf(d->character, obj, ch, TO_CHAR, POS_DEAD,
+				   format, ap);
+		}
+	}
+	va_end(ap); 
 }
 
 void do_tick( CHAR_DATA *ch, char *argument )
@@ -2412,13 +2423,13 @@ void do_protect( CHAR_DATA *ch, char *argument)
 
     if (IS_SET(victim->comm,COMM_SNOOP_PROOF))
     {
-	act_new("$N is no longer snoop-proof.",ch,NULL,victim,TO_CHAR,POS_DEAD);
+	act_puts("$N is no longer snoop-proof.",ch,NULL,victim,TO_CHAR,POS_DEAD);
 	send_to_char("Your snoop-proofing was just removed.\n\r",victim);
 	REMOVE_BIT(victim->comm,COMM_SNOOP_PROOF);
     }
     else
     {
-	act_new("$N is now snoop-proof.",ch,NULL,victim,TO_CHAR,POS_DEAD);
+	act_puts("$N is now snoop-proof.",ch,NULL,victim,TO_CHAR,POS_DEAD);
 	send_to_char("You are now immune to snooping.\n\r",victim);
 	SET_BIT(victim->comm,COMM_SNOOP_PROOF);
     }
@@ -4283,54 +4294,6 @@ void do_grant( CHAR_DATA *ch, char *argument )
     return;
 }
 
-void do_cecho( CHAR_DATA *ch, char *argument )
-{
-    DESCRIPTOR_DATA *d;
-    char buf[MAX_INPUT_LENGTH];
-    char color[MAX_INPUT_LENGTH];
-    bool bFound = FALSE;
-    int i;
-    
-    if ( argument[0] == '\0' )
-    {
-	send_to_char( "Color echo what?\n\r", ch );
-	return;
-    }
-    
-    argument = one_argument(argument, color);
-
-    for (i=0;color_table[i].name != NULL;i++) {
-      if (!str_cmp(color,color_table[i].name)) {
-	bFound = TRUE;
-	break;
-      }
-    }
-
-    if (!bFound) {
-      sprintf(buf,"Usage: cecho <color> <message>.\n\rChoose from one of these colors:\n\r");
-
-      for (i=0;color_table[i].name != NULL;i++) {
-           strcat(buf,color_table[i].name);
-           strcat(buf," ");
-      }
-      send_to_char(buf, ch);
-      return;
-    }
-
-
-    for ( d = descriptor_list; d; d = d->next )
-    {
-	if ( d->connected == CON_PLAYING )
-	{
-	    if (get_trust(d->character) >= get_trust(ch))
-		send_to_char( "global> ",d->character);
-	    act_color("$C$t$c",d->character,argument,NULL,TO_CHAR,POS_RESTING,
-		      color_table[i].code);
-	}
-    }
-
-    return;
-}
 
 
 void do_advance( CHAR_DATA *ch, char *argument )

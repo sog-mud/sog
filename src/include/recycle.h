@@ -1,3 +1,10 @@
+#ifndef _RECYCLE_H_
+#define _RECYCLE_H_
+
+/*
+ * $Id: recycle.h,v 1.2 1998-04-14 08:54:33 fjoe Exp $
+ */
+
 /***************************************************************************
  *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
@@ -88,24 +95,18 @@ void	free_obj args( (OBJ_DATA *obj) );
 #undef OD
 
 /* character recyling */
-#define CD CHAR_DATA
-#define PD PC_DATA
-CD	*new_char args( (void) );
+CHAR_DATA	*new_char args( (void) );
 void	free_char args( (CHAR_DATA *ch) );
-PD	*new_pcdata args( (void) );
+PC_DATA	*new_pcdata args( (void) );
 void	free_pcdata args( (PC_DATA *pcdata) );
-#undef PD
-#undef CD
 
 
 /* mob id and memory procedures */
-#define MD MEM_DATA
 long 	get_pc_id args( (void) );
 long	get_mob_id args( (void) );
-MD	*new_mem_data args( (void) );
+MEM_DATA *new_mem_data args( (void) );
 void	free_mem_data args( ( MEM_DATA *memory) );
-MD	*find_memory args( (MEM_DATA *memory, long id) );
-#undef MD
+MEM_DATA *find_memory args( (MEM_DATA *memory, long id) );
 
 /* buffer procedures */
 
@@ -115,3 +116,6 @@ void	free_buf args( (BUFFER *buffer) );
 bool	add_buf args( (BUFFER *buffer, char *string) );
 void	clear_buf args( (BUFFER *buffer) );
 char	*buf_string args( (BUFFER *buffer) );
+
+#endif
+

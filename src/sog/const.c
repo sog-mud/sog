@@ -1,3 +1,7 @@
+/*
+ * $Id: const.c,v 1.2 1998-04-14 08:54:28 fjoe Exp $
+ */
+
 /***************************************************************************
  *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *	
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
@@ -46,6 +50,8 @@
 #include "merc.h"
 #include "magic.h"
 #include "interp.h"
+
+char DEFAULT_PROMPT[] = "<%n: {M%h{xhp {C%m{xm {W%v{xmv Opp:%o> ";
 
 /* language staff */
 const struct translation_type translation_table[]=
@@ -2763,19 +2769,6 @@ char *	const			title_table	[MAX_CLASS][MAX_LEVEL+1][2] =
 
   };
 
-const struct color_type color_table[] = /*  Last entry should be NULL   */
-{
-  {"Black", CLR_BLACK},
-  {"Green", CLR_GREEN},
-  {"Brown", CLR_BROWN},
-  {"Yellow", CLR_YELLOW},
-  {"Red", CLR_RED},
-  {"Blue", CLR_BLUE},
-  {"Magenta", CLR_MAGENTA},
-  {"Cyan", CLR_CYAN},
-  {"White", CLR_WHITE},
-  {NULL, NULL}    
-};
 
 /* God's Name, name of religion, tattoo vnum  */
 const struct religion_type religion_table [] =

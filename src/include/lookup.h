@@ -1,3 +1,10 @@
+#ifndef _LOOKUP_H_
+#define _LOOKUP_H_
+
+/*
+ * $Id: lookup.h,v 1.2 1998-04-14 08:54:31 fjoe Exp $
+ */
+
 /***************************************************************************
  *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *	
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
@@ -40,3 +47,6 @@
 int	position_lookup	args( (const char *name) );
 int 	sex_lookup	args( (const char *name) );
 int 	size_lookup	args( (const char *name) );
+
+#endif
+

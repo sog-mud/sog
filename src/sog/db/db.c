@@ -1,3 +1,7 @@
+/*
+ * $Id: db.c,v 1.3 1998-04-14 08:54:29 fjoe Exp $
+ */
+
 /***************************************************************************
  *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
@@ -41,6 +45,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <time.h>
+#include <stdarg.h>
 #if defined(macintosh)
 #include <types.h>
 #else
@@ -54,6 +59,8 @@
 #include "db.h"
 #include "recycle.h"
 #include "lookup.h"
+#include "act_wiz.h"
+#include "comm.h"
 
 void load_limited_objects();
 
@@ -3183,67 +3190,55 @@ void free_string( char *pstr )
 }
 
 
+
 void do_areas( CHAR_DATA *ch, char *argument )
 {
-    char bufpage[6 * MAX_STRING_LENGTH];
-    char buf[MAX_STRING_LENGTH];
-    char buf2[MAX_STRING_LENGTH];
-    AREA_DATA *pArea1;
-    AREA_DATA *pArea2;
-    int iArea;
-    int iAreaHalf;
+	char bufpage[6 * MAX_STRING_LENGTH];
+	char buf[MAX_STRING_LENGTH];
+	char buf2[MAX_STRING_LENGTH];
+	AREA_DATA *pArea1;
+	AREA_DATA *pArea2;
+	int iArea;
+	int iAreaHalf;
 
-    if (argument[0] != '\0')
-    {
-	send_to_char("No argument is used with this command.\n\r",ch);
+	if (argument[0] != '\0') {
+		send_to_char("No argument is used with this command.\n\r",ch);
+		return;
+	}
+
+	iAreaHalf = (top_area + 1) / 2;
+	pArea1    = area_first;
+	pArea2    = area_first;
+	for (iArea = 0; iArea < iAreaHalf; iArea++)
+		pArea2 = pArea2->next;
+
+	sprintf(bufpage,"Current areas of Anatolia MUD: \n\r");
+	for (iArea = 0; iArea < iAreaHalf; iArea++) {
+		sprintf(buf2,"{W{{{x%2d %3d{W} {B%s {C%s{x",
+			pArea1->low_range,pArea1->high_range,
+			pArea1->writer,
+			pArea1->credits);
+		sprintf(buf, "%-51s", buf2);
+
+		if (pArea2 != NULL) {
+			sprintf(buf2,"{W{{{x%2d %3d{W} {B%s {C%s{x",
+				pArea2->low_range,pArea1->high_range,
+				pArea2->writer,
+				pArea2->credits);
+			strcat(buf, buf2);
+	 	}
+		strcat(buf, "\n\r");
+		strcat(bufpage,buf); 
+
+		pArea1 = pArea1->next;
+		if (pArea2 != NULL)
+			pArea2 = pArea2->next;
+	}
+
+	strcat(bufpage,"\n\r");	
+	page_to_char(bufpage, ch);	
+
 	return;
-    }
-
-    iAreaHalf = (top_area + 1) / 2;
-    pArea1    = area_first;
-    pArea2    = area_first;
-    for ( iArea = 0; iArea < iAreaHalf; iArea++ )
-	pArea2 = pArea2->next;
-
-    sprintf(bufpage,"Current areas of Anatolia MUD: \n\r");
-    for ( iArea = 0; iArea < iAreaHalf; iArea++ )
-    {
-     sprintf(buf2,"{%s%2d %3d%s} %s%s %s%s%s",
-	IS_SET(ch->act,PLR_COLOR) ? CLR_WHITE : "",
-	pArea1->low_range,pArea1->high_range,
-	IS_SET(ch->act,PLR_COLOR) ? CLR_WHITE_BOLD : "",
-	IS_SET(ch->act,PLR_COLOR) ? CLR_BLUE : "",
-	pArea1->writer,
-	IS_SET(ch->act,PLR_COLOR) ? CLR_CYAN : "",
-	pArea1->credits,
-	IS_SET(ch->act,PLR_COLOR) ? CLR_WHITE_BOLD : "");
-
-     sprintf( buf, "%s",buf2);
-     if (pArea2 != NULL)
-      {
-     sprintf(buf2,"{%s%2d %3d%s} %s%s %s%s%s",
-	IS_SET(ch->act,PLR_COLOR) ? CLR_WHITE : "",
-	pArea2->low_range,pArea1->high_range,
-	IS_SET(ch->act,PLR_COLOR) ? CLR_WHITE_BOLD : "",
-	IS_SET(ch->act,PLR_COLOR) ? CLR_BLUE : "",
-	pArea2->writer,
-	IS_SET(ch->act,PLR_COLOR) ? CLR_CYAN : "",
-	pArea2->credits,
-	IS_SET(ch->act,PLR_COLOR) ? CLR_WHITE_BOLD : "");
-      }
-     else sprintf(buf2,"\n\r");
-     if (IS_SET(ch->act,PLR_COLOR))
-      sprintf( buf,"%-69s %s\n\r",buf,buf2);
-     else sprintf( buf,"%-39s %-39s\n\r",buf,buf2);
- 
-     strcat( bufpage,buf); 
-     pArea1 = pArea1->next;
-     if ( pArea2 != NULL )
-       pArea2 = pArea2->next;
-    }
-    strcat(bufpage,"\n\r");	
-    page_to_char(bufpage, ch);	
-    return;
 }
 
 
@@ -3604,15 +3599,10 @@ int interpolate( int level, int value_00, int value_32 )
  * Removes the tildes from a string.
  * Used for player-entered strings that go into disk files.
  */
-void smash_tilde( char *str )
+void smash_tilde(char *str)
 {
-    for ( ; *str != '\0'; str++ )
-    {
-	if ( *str == '~' )
-	    *str = '-';
-    }
-
-    return;
+	for (; *str; str++) 
+		if (*str == '~') *str = '-';
 }
 
 
@@ -3831,14 +3821,16 @@ void bug( const char *str, int param )
 /*
  * Writes a string to the log.
  */
-void log_string( const char *str )
+void log_printf(const char *format, ...)
 {
-    char *strtime;
+	char buf[MAX_STRING_LENGTH];
+	va_list ap;
 
-    strtime                    = ctime( &current_time );
-    strtime[strlen(strtime)-1] = '\0';
-    fprintf( stderr, "%s :: %s\n", strtime, str );
-    return;
+	va_start(ap, format);
+	vsprintf(buf, format, ap);
+	va_end(ap);
+
+	fprintf(stderr, "%s :: %s\n", ctime(&current_time), buf);
 }
 
 

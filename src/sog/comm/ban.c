@@ -1,3 +1,7 @@
+/*
+ * $Id: ban.c,v 1.2 1998-04-14 08:54:27 fjoe Exp $
+ */
+
 /***************************************************************************
  *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *	
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
@@ -48,6 +52,8 @@
 #include <stdlib.h>
 #include "merc.h"
 #include "recycle.h"
+#include "db.h"
+#include "comm.h"
 
 BAN_DATA *ban_list;
 

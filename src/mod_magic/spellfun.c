@@ -1,3 +1,7 @@
+/*
+ * $Id: spellfun.c,v 1.2 1998-04-14 08:54:31 fjoe Exp $
+ */
+
 /***************************************************************************
  *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *	
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
@@ -48,6 +52,8 @@
 #include "merc.h"
 #include "magic.h"
 #include "recycle.h"
+#include "comm.h"
+#include "db.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_look		);

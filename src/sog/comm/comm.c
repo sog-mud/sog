@@ -1,3 +1,7 @@
+/*
+ * $Id: comm.c,v 1.2 1998-04-14 08:54:28 fjoe Exp $
+ */
+
 /***************************************************************************
  *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *	
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
@@ -69,11 +73,16 @@
 #include <time.h>
 #include <stdarg.h>   
 
-#include "merc.h"
-#include "recycle.h"
-
 #include <sys/wait.h>
 #include <stdlib.h>
+#include <stdarg.h>
+
+#include "merc.h"
+#include "recycle.h"
+#include "comm.h"
+#include "act_wiz.h"
+#include "act_info.h"
+#include "db.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_help		);
@@ -82,6 +91,7 @@ DECLARE_DO_FUN(do_skills	);
 DECLARE_DO_FUN(do_outfit	);
 DECLARE_DO_FUN(do_unread	);
 
+char* color(char type, CHAR_DATA *ch);
 
 /*
  * Malloc debugging stuff.
@@ -145,6 +155,14 @@ char *get_stat_alias		args( (CHAR_DATA* ch, int which) );
 /*
  * OS-dependent declarations.
  */
+#if	defined(BSD44)
+#include <sys/types.h>
+#include <sys/time.h>
+#include <sys/socket.h>
+#include <unistd.h>
+#include <string.h>
+#endif
+
 #if	defined(_AIX)
 #include <sys/select.h>
 int	accept		args( ( int s, struct sockaddr *addr, int *addrlen ) );
@@ -1518,7 +1536,8 @@ void bust_a_prompt( CHAR_DATA *ch )
       while( (*point = *i) != '\0' )
          ++point, ++i;
    }
-   write_to_buffer( ch->desc, buf, point - buf );
+   *point = '\0';
+   send_to_char(buf, ch);
 
    if (ch->prefix[0] != '\0')
         write_to_buffer(ch->desc,ch->prefix,0);
@@ -2754,91 +2773,69 @@ void stop_idling( CHAR_DATA *ch )
     return;
 }
 
-
-
-/*
- * Write to one char.
- */
-void send_to_char( const char *txt, CHAR_DATA *ch )
+void char_printf (CHAR_DATA* ch, const char* format, ...)
 {
-    if ( txt != NULL && ch->desc != NULL )
-        write_to_buffer( ch->desc, txt, strlen(txt) );
-    return;
-}
-/*
- * Write to one char with color
- */
+	char buf[MAX_STRING_LENGTH];
+	va_list ap;
 
-void send_ch_color( const char *format, CHAR_DATA *ch, int min, ... )
-{
-    char buf[MAX_STRING_LENGTH];
-    const char *str;
-    const char *i;
-    char *point;
-    int n;
-    va_list colors; /* variable arg list of colors */
- 
-
-    /*
-     * Discard null and zero-length messages.
-     */
-    if ( format == NULL || format[0] == '\0' )
-        return;
-
-    /* discard null rooms and chars */
-    if (ch == NULL || ch->in_room == NULL || ch->desc == NULL)
-	return;
-
-   /* Re-initialize color list for each person */
-    va_start(colors,min); 
-
-    point   = buf;
-    str     = format;
-    while ( *str != '\0' )
-     {
-            if ( *str != '$' )
-            {
-                *point++ = *str++;
-                continue;
-            }
-            ++str;
-
-            switch ( *str )
-             {
-                default:  bug( "Act: bad code %d.", *str );
-                          i = " <@@@> ";                                break;
-		case 'C': 
-		  if (IS_SET(ch->act,PLR_COLOR))
-		    i = va_arg(colors,char *); 
-		  else i = "";
-		  break;
-
-		case 'c': 
-		  if (IS_SET(ch->act,PLR_COLOR))
-		    i = CLR_NORMAL ; 
-		  else i = "";
-		  break;
- 	    }
-            ++str;
-            while ( ( *point = *i ) != '\0' )
-                ++point, ++i;
-        }
- 
-    *point++ = '\n';
-    *point++ = '\r';
-
-      /* fix for color prefix and capitalization */
-    if (buf[0] == '')
-	  {
-	    for(n = 1;buf[n] != 'm';n++) ;
-	    buf[n+1] = UPPER(buf[n+1]);
-	  }
-    else buf[0]   = UPPER(buf[0]);
-    write_to_buffer( ch->desc, buf, point - buf );
-    va_end(colors); /* mandatory clean-up procedure. */
-    return;
+	va_start(ap, format);
+	vsprintf(buf, format, ap);
+	char_puts(buf, ch);
+	va_end(ap);
 }
 
+/*
+ * Write to one char, new color version, by Lope. (taken from Rot)
+ */
+void char_puts(const char *txt, CHAR_DATA *ch)
+{
+    const	char 	*point;
+    		char 	*point2;
+    		char 	buf[ MAX_STRING_LENGTH*4 ];
+
+    buf[0] = '\0';
+    point2 = buf;
+    if( txt && ch->desc )
+	{
+	    if( IS_SET( ch->act, PLR_COLOR ) )
+	    {
+		for( point = txt ; *point ; point++ )
+	        {
+		    if( *point == '{' )
+		    {
+			point++;
+			strcat( buf, color( *point, ch ) );
+			for( point2 = buf ; *point2 ; point2++ )
+			    ;
+			continue;
+		    }
+		    *point2 = *point;
+		    *++point2 = '\0';
+		}			
+		*point2 = '\0';
+        	write_to_buffer( ch->desc, buf, point2 - buf );
+	    }
+	    else
+	    {
+		for( point = txt ; *point ; point++ )
+	        {
+		    if( *point == '{' )
+		    {
+			point++;
+			if( *point != '{' )
+			{
+			    continue;
+			}
+		    }
+		    *point2 = *point;
+		    *++point2 = '\0';
+		}
+		*point2 = '\0';
+        	write_to_buffer( ch->desc, buf, point2 - buf );
+	    }
+	}
+    return;
+}
 
 /*
  * Send a page to one char.
@@ -2930,88 +2927,118 @@ void fix_sex(CHAR_DATA *ch)
 void act (const char *format, CHAR_DATA *ch, const void *arg1, 
 		const void *arg2, int type)
 {
-    act_color(format,ch,arg1,arg2,type,POS_RESTING);
+    act_puts(format,ch,arg1,arg2,type,POS_RESTING);
 }
 
-void act_color( const char *format, CHAR_DATA *ch, const void *arg1, 
-	      const void *arg2, int type, int min_pos, ... )
+void act_printf(CHAR_DATA *ch, const void *arg1, const void *arg2,
+		int type, int min_pos, const char* format, ...)
+{
+	char buf[MAX_STRING_LENGTH];
+	va_list ap;
+
+	va_start(ap, format);
+	vsprintf(buf, format, ap);
+	act_puts(buf, ch, arg1, arg2, type, min_pos);
+	va_end(ap);
+}
+
+/*
+ * The colour version of the act( ) function, -Lope (taken from Rot)
+ */
+void act_puts(const char *format, CHAR_DATA *ch, const void *arg1, 
+	      const void *arg2, int type, int min_pos)
 {
     static char * const he_she  [] = { "it",  "he",  "she" };
     static char * const him_her [] = { "it",  "him", "her" };
     static char * const his_her [] = { "its", "his", "her" };
  
-    char buf[MAX_STRING_LENGTH];
-    char fname[MAX_INPUT_LENGTH];
-    CHAR_DATA *to;
-    CHAR_DATA *vch = (CHAR_DATA *) arg2;
-    OBJ_DATA *obj1 = (OBJ_DATA  *) arg1;
-    OBJ_DATA *obj2 = (OBJ_DATA  *) arg2;
-    const char *str;
-    const char *i;
-    char *point;
-    int n;
-    va_list colors; 
- 
+    CHAR_DATA 		*to;
+    CHAR_DATA 		*vch = ( CHAR_DATA * ) arg2;
+    OBJ_DATA 		*obj1 = ( OBJ_DATA  * ) arg1;
+    OBJ_DATA 		*obj2 = ( OBJ_DATA  * ) arg2;
+    const 	char 	*str;
+    char 		*i;
+    char 		*point;
+    char 		*i2;
+    char 		fixed[ MAX_STRING_LENGTH ];
+    char 		buf[ MAX_STRING_LENGTH   ];
+    char 		fname[ MAX_INPUT_LENGTH  ];
+    bool		fColour = FALSE;
 
-    /*
-     * Discard null and zero-length messages.
-     */
-    if ( format == NULL || format[0] == '\0' )
+    if( !format || !*format )
         return;
 
-    /* discard null rooms and chars */
-    if (ch == NULL || ch->in_room == NULL)
+    if( !ch || !ch->in_room )
 	return;
 
     to = ch->in_room->people;
-    if ( type == TO_VICT )
+    if( type == TO_VICT )
     {
-        if ( vch == NULL )
+        if ( !vch )
         {
             bug( "Act: null vch with TO_VICT.", 0 );
             return;
         }
 
-	if (vch->in_room == NULL)
+	if ( !vch->in_room )
 	    return;
 
         to = vch->in_room->people;
     }
  
-    for ( ; to != NULL; to = to->next_in_room )
+    for( ; to ; to = to->next_in_room )
     {
-      va_start(colors,min_pos); 
-
-        if ( to->desc == NULL || to->position < min_pos )
+        if ( !to->desc || to->position < min_pos )
             continue;
  
-        if ( type == TO_CHAR && to != ch )
+        if( type == TO_CHAR && to != ch )
             continue;
-        if ( type == TO_VICT && ( to != vch || to == ch ) )
+        if( type == TO_VICT && ( to != vch || to == ch ) )
             continue;
-        if ( type == TO_ROOM && to == ch )
+        if( type == TO_ROOM && to == ch )
             continue;
-        if ( type == TO_NOTVICT && (to == ch || to == vch) )
+        if( type == TO_NOTVICT && ( to == ch || to == vch ) )
             continue;
  
         point   = buf;
         str     = format;
-        while ( *str != '\0' )
+        while( *str )
         {
-            if ( *str != '$' )
+            if( *str != '$' && *str != '{' )
             {
                 *point++ = *str++;
                 continue;
             }
-            ++str;
 
-                switch ( *str )
-                {
-                default:  bug( "Act: bad code %d.", *str );
-                          i = " <@@@> ";                                break;
-                /* Thx alex for 't' idea */
-                case 't': i = (char *) arg1;                            break;
-                case 'T': i = (char *) arg2;                            break;
+	    i = NULL;
+	    switch( *str )
+	    {
+		case '$':
+		    fColour = TRUE;
+		    ++str;
+		    i = " <@@@> ";
+		    if ( !arg2 && *str >= 'A' && *str <= 'Z' && *str != 'G' )
+		    {
+			bug( "Act: missing arg2 for code %d.", *str );
+			i = " <@@@> ";
+		    }
+		    else
+		    {
+			switch ( *str )
+			{
+			    default:  
+				bug( "Act: bad code %d.", *str );
+				i = " <@@@> ";                                
+				break;
+
+			    case 't': 
+				i = (char *) arg1;                            
+				break;
+
+			    case 'T': 
+				i = (char *) arg2;                            
+				break;
+
                 case 'n': i =  
 		  (is_affected(ch,gsn_doppelganger) && 
 		   !IS_SET(to->act,PLR_HOLYLIGHT)) ? 
@@ -3058,71 +3085,225 @@ void act_color( const char *format, CHAR_DATA *ch, const void *arg1,
 		    his_her  [URANGE(0, vch->doppel->sex, 2)] :
 		    his_her  [URANGE(0, vch->sex, 2)];
 		  break;
-		case 'C': 
-		  if (IS_SET(to->act,PLR_COLOR))
-		    i = va_arg(colors,char *); 
-		  else i = "";
-		  break;
+ 
+			    case 'p':
+				i = can_see_obj( to, obj1 )
+				  ? obj1->short_descr
+				  : "something";
+				break;
+ 
+			    case 'P':
+				i = can_see_obj( to, obj2 )
+				  ? obj2->short_descr
+				  : "something";
+				break;
+ 
+			    case 'd':
+				if ( !arg2 || ((char *) arg2)[0] == '\0' )
+				{
+				    i = "door";
+				}
+				else
+				{
+				    one_argument( (char *) arg2, fname );
+				    i = fname;
+				}
+				break;
 
-		case 'c': 
-		  if (IS_SET(to->act,PLR_COLOR))
-		    i = CLR_NORMAL ; 
-		  else i = "";
-		  break;
- 
-                case 'p':
-                    i = can_see_obj( to, obj1 )
-                            ? obj1->short_descr
-                            : "something";
-                    break;
- 
-                case 'P':
-                    i = can_see_obj( to, obj2 )
-                            ? obj2->short_descr
-                            : "something";
-                    break;
- 
-                case 'd':
-                    if ( arg2 == NULL || ((char *) arg2)[0] == '\0' )
-                    {
-                        i = "door";
-                    }
-                    else
-                    {
-                        one_argument( (char *) arg2, fname );
-                        i = fname;
-                    }
-                    break;
-                }
- 
+			    case 'G':
+				if ( ch->alignment < 0 )
+				{
+				    i = "Belan";
+				}
+				else
+				{
+				    i = "Thoth";
+				}
+				break;
+
+			}
+		    }
+		    break;
+
+		case '{':
+		    fColour = FALSE;
+		    ++str;
+		    i = NULL;
+		    if( IS_SET( to->act, PLR_COLOR ) )
+			i = color( *str, to );
+		    break;
+
+		default:
+		    fColour = FALSE;
+		    *point++ = *str++;
+		    break;
+	    }
+
             ++str;
-            while ( ( *point = *i ) != '\0' )
-                ++point, ++i;
+	    if( fColour && i )
+	    {
+		fixed[0] = '\0';
+		i2 = fixed;
+
+		if( IS_SET( to->act, PLR_COLOR ) )
+		{
+		    for( i2 = fixed ; *i ; i++ )
+	            {
+			if( *i == '{' )
+			{
+			    i++;
+			    strcat( fixed, color( *i, to ) );
+			    for( i2 = fixed ; *i2 ; i2++ )
+				;
+			    continue;
+			}
+			*i2 = *i;
+			*++i2 = '\0';
+		    }			
+		    *i2 = '\0';
+		    i = &fixed[0];
+		}
+	        else
+		{
+		    for( i2 = fixed ; *i ; i++ )
+	            {
+			if( *i == '{' )
+			{
+			    i++;
+			    if( *i != '{' )
+			    {
+				continue;
+			    }
+			}
+			*i2 = *i;
+			*++i2 = '\0';
+		    }			
+		    *i2 = '\0';
+		    i = &fixed[0];
+		}
+	    }
+
+
+	    if( i )
+	    {
+		while( ( *point = *i ) != '\0' )
+		{
+		    ++point;
+		    ++i;
+		}
+	    }
         }
  
-        *point++ = '\n';
-        *point++ = '\r';
-        /* fix for color prefix and capitalization */
-        if (buf[0] == '')
-	  {
-	    for(n = 1;buf[n] != 'm';n++) ;
-	    buf[n+1] = UPPER(buf[n+1]);
-	  }
-        else buf[0]   = UPPER(buf[0]);
-        write_to_buffer( to->desc, buf, point - buf );
+        *point++	= '\n';
+        *point++	= '\r';
+        *point		= '\0';
+	buf[0]		= UPPER( buf[0] );
+	if( to->desc )
+	    write_to_buffer( to->desc, buf, point - buf );
     }
-    va_end(colors); 
     return;
 }
 
-void act_new( const char *format, CHAR_DATA *ch, const void *arg1, 
-	      const void *arg2, int type, int min_pos)
+#pragma unused(0)
+/*
+ * Colour stuff by Lope of Loping Through The MUD (taken from Rot)
+ */
+static char CLEAR[]		= "[0m";	/* Resets Color        */
+static char BLINK[]		= "[5m";	/* Blink                */
+static char C_BLACK[]		= "[0;30m";	/* Normal Colors       */
+static char C_RED[]		= "[0;31m";
+static char C_GREEN[]		= "[0;32m";
+static char C_YELLOW[]		= "[0;33m";
+static char C_BLUE[]		= "[0;34m";
+static char C_MAGENTA[]		= "[0;35m";
+static char C_CYAN[]		= "[0;36m";
+static char C_WHITE[]		= "[0;37m";
+static char C_D_GREY[]		= "[1;30m";	/* Light Colors         */
+static char C_B_RED[]		= "[1;31m";
+static char C_B_GREEN[]		= "[1;32m";
+static char C_B_YELLOW[]	= "[1;33m";
+static char C_B_BLUE[]		= "[1;34m";
+static char C_B_MAGENTA[]	= "[1;35m";
+static char C_B_CYAN[]		= "[1;36m";
+static char C_B_WHITE[]		= "[1;37m";
+static char R_BLACK[]		= "[0m[0;30m";	/* Reset Colors      */
+static char R_RED[]		= "[0m[0;31m";
+static char R_GREEN[]		= "[0m[0;32m";
+static char R_YELLOW[]		= "[0m[0;33m";
+static char R_BLUE[]		= "[0m[0;34m";
+static char R_MAGENTA[]		= "[0m[0;35m";
+static char R_CYAN[]		= "[0m[0;36m";
+static char R_WHITE[]		= "[0m[0;37m";
+static char R_D_GREY[]		= "[0m[1;30m";	/* Reset Light        */
+static char R_B_RED[]		= "[0m[1;31m";
+static char R_B_GREEN[]		= "[0m[1;32m";
+static char R_B_YELLOW[]	= "[0m[1;33m";
+static char R_B_BLUE[]		= "[0m[1;34m";
+static char R_B_MAGENTA[]	= "[0m[1;35m";
+static char R_B_CYAN[]		= "[0m[1;36m";
+static char R_B_WHITE[]		= "[0m[1;37m";
+
+char* color(char type, CHAR_DATA *ch)
 {
-    act_color(format,ch,arg1,arg2,type,min_pos);
-    return;
+	if (IS_NPC(ch))
+		return "";
+
+	switch (type) {
+	case 'z':
+		return BLINK;
+	case 'b':
+        case '4':
+		return C_BLUE;
+	case 'c':
+        case '6':
+		return C_CYAN;
+	case 'g':
+        case '2':
+		return C_GREEN;
+	case 'm':
+        case '5':
+		return C_MAGENTA;
+	case 'r':
+        case '1':
+		return C_RED;
+	case 'w':
+        case '7':
+		return C_WHITE;
+	case 'y':
+        case '3':
+		return C_YELLOW;
+	case 'B':
+        case '$':
+		return C_B_BLUE;
+	case 'C':
+        case '^':
+		return C_B_CYAN;
+	case 'G':
+        case '@':
+		return C_B_GREEN;
+	case 'M':
+        case '%':
+		return C_B_MAGENTA;
+	case 'R':
+        case '!':
+		return C_B_RED;
+	case 'W':
+        case '&':
+		return C_B_WHITE;
+	case 'Y':
+        case '#':
+		return C_B_YELLOW;
+	case 'D':
+        case '8':
+		return C_D_GREY;
+        case '*':
+		return "\007";
+	case '{':
+		return "{";
+	}
+
+	return CLEAR;
 }
-
-
 
 /*
  * Macintosh support functions.
@@ -3344,14 +3525,13 @@ int hometown_ok(CHAR_DATA *ch, int home)
 
 int ethos_check(CHAR_DATA *ch)
 {
- DESCRIPTOR_DATA *d = ch->desc;
+	DESCRIPTOR_DATA *d = ch->desc;
 
-  if ( ch->class == 4 )
-    {
-     write_to_buffer( d, "You are Lawful.\n\r", 0 );
-     return 1;
-    }
-  return 0;
+	if (ch->class == 4) {
+		write_to_buffer(d, "You are Lawful.\n\r", 0);
+		return 1;
+	}
+	return 0;
 }
 
 

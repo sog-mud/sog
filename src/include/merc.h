@@ -1,3 +1,10 @@
+#ifndef _MERC_H_
+#define _MERC_H_
+
+/*
+ * $Id: merc.h,v 1.3 1998-04-14 08:54:32 fjoe Exp $
+ */
+
 /***************************************************************************
  *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
@@ -206,27 +213,6 @@ typedef void OPROG_FUN_AREA args((OBJ_DATA *obj));
 #define MAX_STRING_LENGTH	 4608
 #define MAX_INPUT_LENGTH	  256
 #define PAGELEN			   22
-
-/* ANSI Colors */
-#define CLR_BLACK "\033[30m"
-#define CLR_GREEN "\033[32m"
-#define CLR_GREEN_BOLD "\033[32;1m"
-#define CLR_BROWN "\033[33m"
-#define CLR_YELLOW "\033[33;1m" 
-#define CLR_RED "\033[31m"
-#define CLR_RED_BOLD "\033[31;1m"
-#define CLR_BLUE "\033[34m"
-#define CLR_BLUE_BOLD "\033[34;1m"
-#define CLR_MAGENTA "\033[35m"
-#define CLR_MAGENTA_BOLD "\033[35;1m"
-#define CLR_CYAN "\033[36m"
-#define CLR_CYAN_BOLD "\033[36;1m"
-#define CLR_WHITE "\033[37;1m"
-#define CLR_WHITE_BOLD "\033[37;0m"
-
-#define CLR_BLINK "\033[5m"
-#define CLR_BOLD "\033[1m"
-#define CLR_NORMAL "\033[0;37;40m"
 
 #define MPROG_BRIBE               (A)
 #define MPROG_ENTRY               (B)
@@ -2972,7 +2958,6 @@ char *	crypt		args( ( const char *key, const char *salt ) );
  * Our function prototypes.
  * One big lump ... this is every function in Merc.
  */
-#define CD	CHAR_DATA
 #define MID	MOB_INDEX_DATA
 #define OD	OBJ_DATA
 #define OID	OBJ_INDEX_DATA
@@ -2994,10 +2979,6 @@ RID  *get_random_room   args ( (CHAR_DATA *ch) );
 /* hunt.c */
 void hunt_victim(CHAR_DATA *ch);
 
-/* act_info.c */
-void	set_title	args( ( CHAR_DATA *ch, char *title ) );
-char	*get_cond_alias	args( ( OBJ_DATA *obj ) );
-
 /* act_move.c */
 void	move_char	args( ( CHAR_DATA *ch, int door, bool follow ) );
 char *	find_way	args( ( CHAR_DATA *ch, ROOM_INDEX_DATA *rstart, ROOM_INDEX_DATA *rend ) );
@@ -3009,79 +2990,8 @@ int floating_time	args( ( OBJ_DATA *obj ) );
 bool may_float		args( ( OBJ_DATA *obj ) );
 bool cant_float		args( ( OBJ_DATA *obj ) );
 
-/* act_wiz.c */
-void wiznet		args( (char *string, CHAR_DATA *ch, OBJ_DATA *obj,
-			       long flag, long flag_skip, int min_level ) );
-void reboot_anatolia	args( ( void) );
-
 /* ban.c */
 bool	check_ban	args( ( char *site, int type) );
-
-
-/* comm.c */
-void	show_string	args( ( struct descriptor_data *d, char *input) );
-void	close_socket	args( ( DESCRIPTOR_DATA *dclose ) );
-void	write_to_buffer	args( ( DESCRIPTOR_DATA *d, const char *txt,
-			    int length ) );
-void	send_to_char	args( ( const char *txt, CHAR_DATA *ch ) );
-void	send_ch_color	args( ( const char *txt, CHAR_DATA *ch , int min , ... ) ); 
-void	page_to_char	args( ( const char *txt, CHAR_DATA *ch ) );
-void	act		args( ( const char *format, CHAR_DATA *ch,
-			    const void *arg1, const void *arg2, int type ) );
-void	act_new		args( ( const char *format, CHAR_DATA *ch, 
-			    const void *arg1, const void *arg2, int type,
-			    int min_pos) );
-void    act_color       args( ( const char *format, CHAR_DATA *ch,
-                            const void *arg1, const void *arg2, int type,
-                            int min_pos, ...) );
-void    dump_to_scr	args( ( char *text ) );
-
-
-/* db.c */
-char *	print_flags	args( ( int flag ));
-void	boot_db		args( ( void ) );
-CD *	create_mobile	args( ( MOB_INDEX_DATA *pMobIndex ) );
-void	clone_mobile	args( ( CHAR_DATA *parent, CHAR_DATA *clone) );
-OD *	create_object	args( ( OBJ_INDEX_DATA *pObjIndex, int level ) );
-OD *    create_object_nocount args( ( OBJ_INDEX_DATA *pObjIndex, int level ) );
-OD *    create_object_org args((OBJ_INDEX_DATA *pObjIndex,int level,bool Count));
-void	clone_object	 args( ( OBJ_DATA *parent, OBJ_DATA *clone ) ); 
-void	clear_char	args( ( CHAR_DATA *ch ) );
-char *	get_extra_descr	args( ( const char *name, EXTRA_DESCR_DATA *ed ) );
-MID *	get_mob_index	args( ( int vnum ) );
-OID *	get_obj_index	args( ( int vnum ) );
-RID *	get_room_index	args( ( int vnum ) );
-char	fread_letter	args( ( FILE *fp ) );
-int	fread_number	args( ( FILE *fp ) );
-long 	fread_flag	args( ( FILE *fp ) );
-char *	fread_string	args( ( FILE *fp ) );
-char *  fread_string_eol args(( FILE *fp ) );
-void	fread_to_eol	args( ( FILE *fp ) );
-char *	fread_word	args( ( FILE *fp ) );
-long	flag_convert	args( ( char letter) );
-void *	alloc_mem	args( ( int sMem ) );
-void *	alloc_perm	args( ( int sMem ) );
-void	free_mem	args( ( void *pMem, int sMem ) );
-char *	str_dup		args( ( const char *str ) );
-void	free_string	args( ( char *pstr ) );
-int	number_fuzzy	args( ( int number ) );
-int	number_range	args( ( int from, int to ) );
-int	number_percent	args( ( void ) );
-int	number_door	args( ( void ) );
-int	number_bits	args( ( int width ) );
-long     number_mm       args( ( void ) );
-int	dice		args( ( int number, int size ) );
-int	interpolate	args( ( int level, int value_00, int value_32 ) );
-void	smash_tilde	args( ( char *str ) );
-bool	str_cmp		args( ( const char *astr, const char *bstr ) );
-bool	str_prefix	args( ( const char *astr, const char *bstr ) );
-bool	str_infix	args( ( const char *astr, const char *bstr ) );
-bool	str_suffix	args( ( const char *astr, const char *bstr ) );
-char *	capitalize	args( ( const char *str ) );
-void	append_file	args( ( CHAR_DATA *ch, char *file, char *str ) );
-void	bug		args( ( const char *str, int param ) );
-void	log_string	args( ( const char *str ) );
-void	tail_chain	args( ( void ) );
 
 /* effect.c */
 void	acid_effect	args( (void *vo, int level, int dam, int target) );
@@ -3177,10 +3087,10 @@ void	extract_obj_1	args( ( OBJ_DATA *obj, bool count ) );
 void	extract_char	args( ( CHAR_DATA *ch, bool fPull ) );
 void	extract_char_nocount	args( ( CHAR_DATA *ch, bool fPull ) );
 void	extract_char_org	args( ( CHAR_DATA *ch, bool fPull, bool Count ) );
-CD *	get_char_room	args( ( CHAR_DATA *ch, char *argument ) );
-CD *	get_char_room2	args( ( CHAR_DATA *ch, ROOM_INDEX_DATA *room,char *argument, int *number ) );
-CD *	get_char_world	args( ( CHAR_DATA *ch, char *argument ) );
-CD *	get_char_area	args( ( CHAR_DATA *ch, char *argument ) );
+CHAR_DATA *	get_char_room	args( ( CHAR_DATA *ch, char *argument ) );
+CHAR_DATA *	get_char_room2	args( ( CHAR_DATA *ch, ROOM_INDEX_DATA *room,char *argument, int *number ) );
+CHAR_DATA *	get_char_world	args( ( CHAR_DATA *ch, char *argument ) );
+CHAR_DATA *	get_char_area	args( ( CHAR_DATA *ch, char *argument ) );
 OD *	get_obj_type	args( ( OBJ_INDEX_DATA *pObjIndexData ) );
 OD *	get_obj_list	args( ( CHAR_DATA *ch, char *argument,
 			    OBJ_DATA *list ) );
@@ -3228,8 +3138,8 @@ int	count_charmed	args( ( CHAR_DATA *ch ) );
 void	add_mind	args( ( CHAR_DATA *ch, char *str) );
 void	remove_mind	args( ( CHAR_DATA *ch, char *str) );
 void	back_home	args( ( CHAR_DATA *ch ) );
-CD*	find_char	args( ( CHAR_DATA *ch, char *argument, int door, int range) );
-CD*	get_char_spell	args( ( CHAR_DATA *ch, char *argument, int *door, int range) );
+CHAR_DATA*	find_char	args( ( CHAR_DATA *ch, char *argument, int door, int range) );
+CHAR_DATA*	get_char_spell	args( ( CHAR_DATA *ch, char *argument, int *door, int range) );
 void	path_to_track	args( ( CHAR_DATA *ch, CHAR_DATA *victim, int door) );
 
 /* interp.c */
@@ -3289,11 +3199,12 @@ void oprog_set(OBJ_INDEX_DATA *, const char *, const char *);
 void mprog_set(MOB_INDEX_DATA *, const char *, const char *);
 
 
-#undef	CD
 #undef	MID
 #undef	OD
 #undef	OID
 #undef	RID
 #undef	SF
 #undef  AD
+
+#endif
 

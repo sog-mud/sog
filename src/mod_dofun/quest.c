@@ -1,3 +1,7 @@
+/*
+ * $Id: quest.c,v 1.2 1998-04-14 08:54:33 fjoe Exp $
+ */
+
 /***************************************************************************
  *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT		           *	
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
@@ -59,6 +63,8 @@
 #include <time.h>
 #include "merc.h"
 #include "recycle.h"
+#include "db.h"
+#include "comm.h"
 
 void do_tell_quest( CHAR_DATA *ch, CHAR_DATA *victim, char *argument);
 extern	MOB_INDEX_DATA	*mob_index_hash	[MAX_KEY_HASH];
@@ -332,8 +338,8 @@ To buy an item, type 'QUEST BUY <item>'.\n\r",
 		ch->pcdata->learned[sn] = 100;
     	        act( "$N gives secret of undead to $n.", ch, NULL, questman, TO_ROOM );
   	        act( "$N gives you SECRET of undead.",   ch, NULL, questman, TO_CHAR );
-		act_color( "$CLightning flashes in the sky.$c",   ch, NULL, 
-			questman, TO_ALL,POS_SLEEPING,CLR_BLUE );
+		act_puts("Lightning flashes in the sky.", ch, NULL, 
+			questman, TO_ALL,POS_SLEEPING);
 	        return;
 	    }
 	    else

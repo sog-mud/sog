@@ -1,3 +1,7 @@
+/*
+ * $Id: special.c,v 1.2 1998-04-14 08:54:34 fjoe Exp $
+ */
+
 /***************************************************************************
  *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT		           *	
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
@@ -48,6 +52,8 @@
 #include <time.h>
 #include "merc.h"
 #include "magic.h"
+#include "db.h"
+#include "comm.h"
 
 void	say_spell	args( ( CHAR_DATA *ch, int sn ) );
 
@@ -1351,10 +1357,10 @@ bool spec_questmaster( CHAR_DATA *ch )
   
 bool spec_assassinater( CHAR_DATA *ch )
 {
-    char buf[MAX_STRING_LENGTH];
-    CHAR_DATA *victim;
-    CHAR_DATA *v_next;
-         int rnd_say;
+	char* msg;
+	CHAR_DATA *victim;
+	CHAR_DATA *v_next;
+        int rnd_say;
 
     if ( ch->fighting != NULL )
                 return FALSE;
@@ -1375,32 +1381,32 @@ bool spec_assassinater( CHAR_DATA *ch )
    if (victim->hit < victim->max_hit) 
 	return FALSE;
 
-   rnd_say = number_range (1, 40);
+   rnd_say = number_range(1, 40);
 
    switch (rnd_say)
 	{
    	 case  5:
-            sprintf( buf, "Death to is the true end...");
+            msg = "Death to is the true end...";
 	    break;
 	 case  6:
-            sprintf( buf, "Time to die....");
+            msg = "Time to die....";
 	    break;
 	 case  7:
-            sprintf( buf, "Cabrone...."); 
+            msg = "Cabrone...."; 
 	    break;
 	 case  8:
-            sprintf( buf, "Welcome to your fate....");
+            msg = "Welcome to your fate....";
 	    break;
 	 case  9:
-	    sprintf( buf, "A sacrifice to immortals.. ");
+	    msg = "A sacrifice to immortals.. ";
 	    break;
 	 case 10:
-            sprintf( buf, "Ever dance with the devil...."); 
+            msg = "Ever dance with the devil...."; 
 	    break;
 	 default:
 	   return FALSE;
 	}
-    do_say( ch, buf );
+    do_say(ch, msg);
     multi_hit( ch, victim ,gsn_assassinate );
     return TRUE;
 }
@@ -1410,7 +1416,7 @@ bool spec_repairman( CHAR_DATA *ch )
 {
     if ( !IS_AWAKE(ch) )
         return FALSE;
-    if (number_range(0,100) == 0) 
+    if (number_range(0, 100) == 0) 
     {
         do_say(ch, "Now it is time to repair the other equipments.");
         return TRUE;
@@ -1465,88 +1471,88 @@ bool spec_captain( CHAR_DATA *ch )
  
     case 'W':
 	ch->position = POS_STANDING;
-	act_color( "$C$n awakens suddenly and yawns.$c", ch, NULL, NULL, TO_ROOM, 
-POS_RESTING,CLR_WHITE );
+	act_puts("$n awakens suddenly and yawns.", ch, NULL, NULL, TO_ROOM,
+		 POS_RESTING);
 	break;
  
     case 'S':
 	ch->position = POS_SLEEPING;
-act_color( "$C$n lies down and falls asleep.$c", ch, NULL, NULL, TO_ROOM, 
-POS_RESTING,CLR_WHITE );
+	act_puts("$n lies down and falls asleep.", ch, NULL, NULL, TO_ROOM,
+		 POS_RESTING);
 	break;
  
     case 'a':
-act_color( "$C$n says 'Greetings! Good Hunting to you!'$c", ch, NULL, 
-        NULL,TO_ROOM,POS_RESTING, CLR_YELLOW );
+	act_puts("$n says 'Greetings! Good Hunting to you!'", ch, NULL, 
+        NULL,TO_ROOM,POS_RESTING);
 	break;
  
     case 'b':
-act_color( "$C$n says 'Keep the streets clean please. Keep Solace tidy.'$c", 
-ch,NULL, NULL, TO_ROOM, POS_RESTING,CLR_YELLOW );
+	act_puts("$n says 'Keep the streets clean please. Keep Solace tidy.'",
+		  ch, NULL, NULL, TO_ROOM, POS_RESTING);
 	break;
  
     case 'c':
-act_color( "$C$n says 'I must do something about all these doors.$c", ch, 
-NULL, NULL, TO_ROOM, POS_RESTING,CLR_YELLOW ); 
-act_color("$C$n says, 'I will never get out of here.'$c", ch, NULL, NULL, 
-        TO_ROOM,POS_RESTING,CLR_YELLOW );
+	act_puts("$n says 'I must do something about all these doors.",
+		  ch, NULL, NULL, TO_ROOM, POS_RESTING); 
+	act_puts("$n says, 'I will never get out of here.'",
+		  ch, NULL, NULL, TO_ROOM, POS_RESTING);
 	break;
  
     case 'd':
-act_color( "$C$n says 'Salutations Citizens of Solace!'$c", ch, NULL, NULL,  
-        TO_ROOM, POS_RESTING,CLR_YELLOW );
+	act_puts("$n says 'Salutations Citizens of Solace!'",
+		  ch, NULL, NULL, TO_ROOM, POS_RESTING);
 	break;
  
     case 'y':
-act_color( "$C$n says 'I hereby declare the city of Solace open!'$c", ch, 
-NULL, NULL, TO_ROOM, POS_RESTING,CLR_YELLOW );
+	act_puts("$n says 'I hereby declare the city of Solace open!'",
+		  ch, NULL, NULL, TO_ROOM, POS_RESTING);
 	break;
  
     case 'E':
-act_color( "$C$n says 'I hereby declare the city of Solace closed!'$c", ch, 
-NULL, NULL, TO_ROOM, POS_RESTING,CLR_YELLOW );
+	act_puts("$n says 'I hereby declare the city of Solace closed!'",
+		  ch, NULL, NULL, TO_ROOM, POS_RESTING);
 	break;
  
     case 'O':
-	do_unlock( ch, "gate" );
-	do_open( ch, "gate" );
+	do_unlock(ch, "gate");
+	do_open(ch, "gate");
 	break;
  
     case 'C':
-	do_close( ch, "gate" );
-	do_lock( ch, "gate" );
+	do_close(ch, "gate");
+	do_lock(ch, "gate");
 	break;
  
     case 'n':
-	do_open( ch, "north" );
+	do_open(ch, "north");
 	break;
 
     case 'o':
-        do_close( ch, "south" );
+        do_close(ch, "south");
         break;
  
     case 's':
-	do_open( ch, "south" );
+	do_open(ch, "south");
 	break;
 
     case 't':
-        do_close( ch, "north" );
+        do_close(ch, "north");
         break;
  
     case 'e':
-	do_open( ch, "east" );
+	do_open(ch, "east");
 	break;
  
     case 'f':
-        do_close( ch, "west" );
+        do_close(ch, "west");
         break;
 
     case 'w':
-	do_open( ch, "west" );
+	do_open(ch, "west");
 	break;
 
     case 'x':
-        do_close( ch, "east" );
+        do_close(ch, "east");
         break;
  
     case '.' :

@@ -1,3 +1,7 @@
+/*
+ * $Id: spellfun2.c,v 1.2 1998-04-14 08:54:32 fjoe Exp $
+ */
+
 /***************************************************************************
  *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
@@ -48,6 +52,8 @@
 #include "merc.h"
 #include "magic.h"
 #include "recycle.h"
+#include "db.h"
+#include "comm.h"
 
 DECLARE_DO_FUN(do_scan2);
 /* command procedures needed */
@@ -224,13 +230,13 @@ void spell_disintegrate( int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	 return;
 	}
 
-    act_color( "$N's thin light ray $C###DISINTEGRATES###$c you!", 
-		victim, NULL, ch, TO_CHAR, POS_RESTING, CLR_RED );
-    act_color( "$n's thin light ray $C###DISINTEGRATES###$c $N!", 
-		ch, NULL, victim, TO_NOTVICT, POS_RESTING, CLR_RED );
-    act_color( "Your thin light ray $C###DISINTEGRATES###$c $N!", 
-		ch, NULL, victim, TO_CHAR, POS_RESTING, CLR_RED );
-    send_to_char( "You have been KILLED!\n\r", victim );
+    act_puts("$N's thin light ray ###DISINTEGRATES### you!", 
+	      victim, NULL, ch, TO_CHAR, POS_RESTING);
+    act_puts("$n's thin light ray ###DISINTEGRATES### $N!", 
+	      ch, NULL, victim, TO_NOTVICT, POS_RESTING);
+    act_puts("Your thin light ray ###DISINTEGRATES### $N!", 
+	      ch, NULL, victim, TO_CHAR, POS_RESTING);
+    send_to_char("You have been KILLED!\n\r", victim);
 
     act("$N does not exist anymore!\n\r", ch, NULL, victim, TO_CHAR);
     act("$N does not exist anymore!\n\r", ch, NULL, victim, TO_ROOM);
@@ -3469,12 +3475,12 @@ void spell_power_kill ( int sn, int level, CHAR_DATA *ch, void *vo , int target)
   int dam;
 
    
-    act_color( "A stream of darkness from your finger surrounds $N.", 
-		ch, NULL, victim, TO_CHAR, POS_RESTING, CLR_RED );
-    act_color( "A stream of darkness from $n's finger surrounds $N.", 
-		ch, NULL, victim, TO_NOTVICT, POS_RESTING, CLR_RED );
-    act_color( "A stream of darkness from $N's finger surrounds you.", 
-		victim, NULL, ch, TO_CHAR, POS_RESTING, CLR_RED );
+    act_puts( "A stream of darkness from your finger surrounds $N.", 
+		ch, NULL, victim, TO_CHAR, POS_RESTING);
+    act_puts( "A stream of darkness from $n's finger surrounds $N.", 
+		ch, NULL, victim, TO_NOTVICT, POS_RESTING);
+    act_puts( "A stream of darkness from $N's finger surrounds you.", 
+		victim, NULL, ch, TO_CHAR, POS_RESTING);
 
     if (saves_spell(level,victim,DAM_MENTAL)) 
 	{
@@ -4330,7 +4336,7 @@ void spell_power_stun ( int sn, int level, CHAR_DATA *ch, void *vo , int target)
     af.bitvector = AFF_STUN;
     affect_to_char( victim, &af );
     send_to_char( "You are stunned.\n\r", victim );
-    act_color("$n is stunned.",victim,NULL,NULL,TO_ROOM,POS_SLEEPING,CLR_RED);
+    act_puts("$n is stunned.",victim,NULL,NULL,TO_ROOM,POS_SLEEPING);
     return;
 }
 

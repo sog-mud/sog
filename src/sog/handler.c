@@ -1,3 +1,7 @@
+/*
+ * $Id: handler.c,v 1.2 1998-04-14 08:54:30 fjoe Exp $
+ */
+
 /***************************************************************************
  *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *	
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
@@ -49,6 +53,8 @@
 #include "magic.h"
 #include "recycle.h"
 #include "tables.h"
+#include "db.h"
+#include "comm.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_return	);
@@ -3313,7 +3319,7 @@ char *act_bit_name( int act_flags )
 	if (act_flags & PLR_NOSUMMON	) strcat(buf, " no_summon");
 	if (act_flags & PLR_NOFOLLOW	) strcat(buf, " no_follow");
 	if (act_flags & PLR_FREEZE	) strcat(buf, " frozen");
-	if (act_flags & PLR_COLOR	) strcat(buf, " color_on");
+	if (act_flags & PLR_COLOR	) strcat(buf, " color");
 	if (act_flags & PLR_WANTED	) strcat(buf, " WANTED");
 	if (act_flags & PLR_GHOST	) strcat(buf, " GHOST");
 	if (act_flags & PLR_CANINDUCT	) strcat(buf, " Cabal_LEADER");
@@ -4009,7 +4015,7 @@ void raffect_to_char( ROOM_INDEX_DATA *room, CHAR_DATA *ch)
 
   if ( IS_ROOM_AFFECTED( room, AFF_ROOM_SLOW)
 	|| IS_ROOM_AFFECTED( room, AFF_ROOM_SLEEP) )
-     send_ch_color("$CThere is some mist flowing in the air.$c\n\r",ch,POS_SLEEPING,CLR_YELLOW);
+     char_puts("There is some mist flowing in the air.\n\r",ch);
 
   return;
  }

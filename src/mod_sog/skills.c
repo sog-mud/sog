@@ -1,3 +1,7 @@
+/*
+ * $Id: skills.c,v 1.2 1998-04-14 08:54:34 fjoe Exp $
+ */
+
 /***************************************************************************
  *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
@@ -48,6 +52,8 @@
 #include <stdlib.h>
 #include "merc.h"
 #include "magic.h"
+#include "db.h"
+#include "comm.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_help		);
@@ -301,7 +307,6 @@ int exp_per_level(CHAR_DATA *ch, int points)
 void check_improve( CHAR_DATA *ch, int sn, bool success, int multiplier )
 {
     int chance;
-    char buf[100];
 
     if (IS_NPC(ch))
 	return;
@@ -324,28 +329,22 @@ void check_improve( CHAR_DATA *ch, int sn, bool success, int multiplier )
 
     /* now that the character has a CHANCE to learn, see if they really have */	
 
-    if (success)
-    {
+    if (success) {
 	chance = URANGE(5,100 - ch->pcdata->learned[sn], 95);
-	if (number_percent() < chance)
-	{
-	    sprintf(buf,"$CYou have become better at %s!$c",
-		    skill_table[sn].name);
-	    act_color(buf,ch,NULL,NULL,TO_CHAR,POS_DEAD, CLR_GREEN);
+	if (number_percent() < chance) {
+	    act_printf(ch, NULL, NULL, TO_CHAR, POS_DEAD,
+	               "You have become better at %s!",
+		       skill_table[sn].name);
 	    ch->pcdata->learned[sn]++;
 	    gain_exp(ch,2 * skill_table[sn].rating[ch->class]);
 	}
     }
-
-    else
-    {
+    else {
 	chance = URANGE(5,ch->pcdata->learned[sn]/2,30);
-	if (number_percent() < chance)
-	{
-	    sprintf(buf,
-		"$CYou learn from your mistakes, and your %s skill improves.$c",
+	if (number_percent() < chance) {
+	    act_printf(ch, NULL, NULL, TO_CHAR, POS_DEAD,
+		   "You learn from your mistakes, and your %s skill improves.",
 		skill_table[sn].name);
-	    act_color(buf,ch,NULL,NULL,TO_CHAR,POS_DEAD,CLR_GREEN);
 	    ch->pcdata->learned[sn] += number_range(1,3);
 	    ch->pcdata->learned[sn] = UMIN(ch->pcdata->learned[sn],100);
 	    gain_exp(ch,2 * skill_table[sn].rating[ch->class]);

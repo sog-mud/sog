@@ -1,3 +1,10 @@
+#ifndef _TELNET_H_
+#define _TELNET_H_
+
+/*
+ * $Id: telnet.h,v 1.2 1998-04-14 08:54:34 fjoe Exp $
+ */
+
 /***************************************************************************
  *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
@@ -96,3 +103,5 @@ char *telopts[NTELOPTS] = {
 #define	TELQUAL_SEND	1	/* send option */
 
 #endif /*!_arpa_telnet_h*/
+
+#endif

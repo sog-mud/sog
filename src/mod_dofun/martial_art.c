@@ -1,3 +1,7 @@
+/*
+ * $Id: martial_art.c,v 1.2 1998-04-14 08:54:32 fjoe Exp $
+ */
+
 /***************************************************************************
  *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *	
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
@@ -44,6 +48,8 @@
 #include <stdio.h>
 #include "merc.h"
 #include "recycle.h"
+#include "db.h"
+#include "comm.h"
 
 DECLARE_DO_FUN(do_yell		);
 DECLARE_DO_FUN(do_sleep		);
@@ -111,12 +117,10 @@ void disarm( CHAR_DATA *ch, CHAR_DATA *victim ,int disarm_second)
 	else 	 check_improve(victim,gsn_grip,FALSE,1);
     }
 
-    act_color("$n $CDISARMS$c you and sends your weapon flying!", 
-	 ch, NULL, victim, TO_VICT ,POS_FIGHTING,CLR_CYAN   );
-    act_color("You $Cdisarm$c $N!", ch,NULL, victim, TO_CHAR,
-	POS_FIGHTING,CLR_CYAN_BOLD);
-    act_color( "$n $Cdisarms$c $N!",ch, NULL, victim,TO_NOTVICT,
-	POS_FIGHTING,CLR_CYAN_BOLD);
+    act_puts("$n DISARMS you and sends your weapon flying!", 
+	 ch, NULL, victim, TO_VICT ,POS_FIGHTING);
+    act_puts("You disarm $N!", ch,NULL, victim, TO_CHAR, POS_FIGHTING);
+    act_puts("$n disarms $N!",ch, NULL, victim,TO_NOTVICT, POS_FIGHTING);
 
     obj_from_char( obj );
     if ( IS_OBJ_STAT(obj,ITEM_NODROP) || IS_OBJ_STAT(obj,ITEM_INVENTORY) )
@@ -130,12 +134,12 @@ void disarm( CHAR_DATA *ch, CHAR_DATA *victim ,int disarm_second)
 
     if ( (obj2 = get_eq_char(victim, WEAR_SECOND_WIELD)) != NULL)
 	{
-act_color( "$CYou wield your second weapon as your first!.$c", ch, NULL, 
-	victim,TO_VICT,POS_FIGHTING,CLR_CYAN);
-act_color( "$C$N wields his second weapon as first!$c",  ch, NULL, 
-	victim,TO_CHAR ,POS_FIGHTING,CLR_CYAN_BOLD);
-act_color( "$C$N wields his second weapon as first!$c",  ch, NULL, victim, 
-	TO_NOTVICT ,POS_FIGHTING,CLR_CYAN_BOLD);
+act_puts("You wield your second weapon as your first!.", ch, NULL, 
+	victim,TO_VICT,POS_FIGHTING);
+act_puts("$N wields his second weapon as first!",  ch, NULL, 
+	victim,TO_CHAR ,POS_FIGHTING);
+act_puts("$N wields his second weapon as first!",  ch, NULL, victim, 
+	TO_NOTVICT ,POS_FIGHTING);
 	unequip_char( victim, obj2);
 	equip_char( victim, obj2 , WEAR_WIELD);
 	}
@@ -198,8 +202,8 @@ void do_berserk( CHAR_DATA *ch, char *argument)
 	ch->hit = UMIN(ch->hit,ch->max_hit);
 
 	send_to_char("Your pulse races as you are consumned by rage!\n\r",ch);
-	act_color("$C$n gets a wild look in $s eyes.$c",
-		ch,NULL,NULL,TO_ROOM,POS_FIGHTING,CLR_RED);
+	act_puts("$n gets a wild look in $s eyes.",
+		ch,NULL,NULL,TO_ROOM,POS_FIGHTING);
 	check_improve(ch,gsn_berserk,TRUE,2);
 
 	af.where	= TO_AFFECTS;
@@ -310,12 +314,12 @@ void do_bash( CHAR_DATA *ch, char *argument )
    
     if (is_affected(victim, gsn_protective_shield))
      {
-act_color("$CYour bash seems to slide around $N.$c", ch, NULL, victim, 
-	TO_CHAR,POS_FIGHTING,CLR_YELLOW);
-act_color("$C$n's bash slides off your protective shield.$c", ch, NULL, 
-	victim,	TO_VICT,POS_FIGHTING,CLR_YELLOW);
-act_color("$C$n's bash seems to slide around $N.$c",ch,NULL,victim,
-	TO_NOTVICT,POS_FIGHTING,CLR_YELLOW);
+act_puts("Your bash seems to slide around $N.", ch, NULL, victim, 
+	TO_CHAR,POS_FIGHTING);
+act_puts("$n's bash slides off your protective shield.", ch, NULL, 
+	victim,	TO_VICT,POS_FIGHTING);
+act_puts("$n's bash seems to slide around $N.",ch,NULL,victim,
+	TO_NOTVICT,POS_FIGHTING);
 	return;
      }
    
@@ -1724,12 +1728,12 @@ void do_throw( CHAR_DATA *ch, char *argument )
 
     if (is_affected(victim, gsn_protective_shield))
      {
-act_color("$CYou fail to reach $s arm.$c",ch,NULL,victim, TO_CHAR,
-	POS_FIGHTING,CLR_YELLOW);
-act_color("$C$n fails to throw you.$c", ch, NULL, victim, TO_VICT,
-	POS_FIGHTING,CLR_YELLOW);
-act_color("$C$n fails to throw $N.$c",ch,NULL,victim,TO_NOTVICT,
-	POS_FIGHTING,CLR_YELLOW);
+act_puts("You fail to reach $s arm.",ch,NULL,victim, TO_CHAR,
+	POS_FIGHTING);
+act_puts("$n fails to throw you.", ch, NULL, victim, TO_VICT,
+	POS_FIGHTING);
+act_puts("$n fails to throw $N.",ch,NULL,victim,TO_NOTVICT,
+	POS_FIGHTING);
 	return;
      }
 
@@ -2843,8 +2847,8 @@ void do_hara( CHAR_DATA *ch, char *argument)
 		ch->pcdata->condition[COND_THIRST] = 40; 
 
 	send_to_char("Yo cut your finger and wait till all your blood finishes.\n\r",ch);
-act_color("$C$n cuts his body and look in a deadly figure.$c",ch,NULL,NULL,TO_ROOM,
-	POS_FIGHTING,CLR_RED);
+act_puts("$n cuts his body and look in a deadly figure.",ch,NULL,NULL,TO_ROOM,
+	POS_FIGHTING);
 	check_improve(ch,gsn_hara_kiri,TRUE,2);
 	do_sleep( ch, "");
 	SET_BIT(ch->act,PLR_HARA_KIRI);
@@ -2913,10 +2917,10 @@ int critical_strike( CHAR_DATA *ch, CHAR_DATA *victim,   int dam )
       diceroll = number_percent( );
       if( diceroll < 75 )
       {  
-        act_color( "$C$n takes you down with a weird judo move!$c", 
-	     ch, NULL, victim, TO_VICT,POS_RESTING,CLR_RED);
-	act_color( "$CYou take $N down with a weird judo move!$c", 
-	     ch, NULL, victim, TO_CHAR,POS_RESTING,CLR_RED );
+        act_puts( "$n takes you down with a weird judo move!", 
+	     ch, NULL, victim, TO_VICT,POS_RESTING);
+	act_puts( "You take $N down with a weird judo move!", 
+	     ch, NULL, victim, TO_CHAR,POS_RESTING);
         if (!IS_NPC(ch))
           check_improve( ch, gsn_critical, TRUE, 3 );
 	WAIT_STATE( victim, 2 * PULSE_VIOLENCE );
@@ -2925,10 +2929,10 @@ int critical_strike( CHAR_DATA *ch, CHAR_DATA *victim,   int dam )
       }   
       else if( diceroll > 75 && diceroll < 95 )
       {   
-        act_color( "$CYou are blinded by $n's attack!$c", ch, NULL, victim, 
-			TO_VICT ,POS_RESTING,CLR_BROWN);
-        act_color( "$CYou blind $N with your attack!$c", ch, NULL, victim, 
-			TO_CHAR,POS_RESTING,CLR_BROWN );
+        act_puts( "You are blinded by $n's attack!", ch, NULL, victim, 
+			TO_VICT ,POS_RESTING);
+        act_puts( "You blind $N with your attack!", ch, NULL, victim, 
+			TO_CHAR,POS_RESTING);
 	if (!IS_NPC(ch)) 
 	  check_improve( ch, gsn_critical, TRUE, 4 );
 	if (!IS_AFFECTED(victim,AFF_BLIND)) 
@@ -2946,10 +2950,10 @@ int critical_strike( CHAR_DATA *ch, CHAR_DATA *victim,   int dam )
       }  
       else if( diceroll > 95 ) 
       {   
-        act_color( "$C$n cuts out your heart! OUCH!!$c",  
-             ch, NULL, victim, TO_VICT ,POS_RESTING,CLR_RED); 
-        act_color( "$CYou cut out $N's heart!  I bet that hurt!$c",  
-             ch, NULL, victim, TO_CHAR ,POS_RESTING,CLR_RED);
+        act_puts( "$n cuts out your heart! OUCH!!",  
+             ch, NULL, victim, TO_VICT ,POS_RESTING); 
+        act_puts( "You cut out $N's heart!  I bet that hurt!",  
+             ch, NULL, victim, TO_CHAR ,POS_RESTING);
 	if (!IS_NPC(ch)) 
 	  check_improve( ch, gsn_critical, TRUE, 5 );
 	dam += dam * number_range( 2, 5 );			
@@ -3201,12 +3205,12 @@ void do_tail( CHAR_DATA *ch, char *argument )
    
     if (is_affected(victim, gsn_protective_shield))
      {
-act_color("$CYour tail seems to slide around $N.$c", ch, NULL, victim, 
-	TO_CHAR,POS_FIGHTING,CLR_YELLOW);
-act_color("$C$n's tail slides off your protective shield.$c", ch, NULL, 
-	victim,	TO_VICT,POS_FIGHTING,CLR_YELLOW);
-act_color("$C$n's tail seems to slide around $N.$c",ch,NULL,victim,
-	TO_NOTVICT,POS_FIGHTING,CLR_YELLOW);
+act_puts("Your tail seems to slide around $N.", ch, NULL, victim, 
+	TO_CHAR,POS_FIGHTING);
+act_puts("$n's tail slides off your protective shield.", ch, NULL, 
+	victim,	TO_VICT,POS_FIGHTING);
+act_puts("$n's tail seems to slide around $N.",ch,NULL,victim,
+	TO_NOTVICT,POS_FIGHTING);
 	return;
      }
    
@@ -3343,8 +3347,8 @@ void do_concentrate( CHAR_DATA *ch, char *argument)
 
 	do_sit(ch,"");
 	send_to_char("You sit down and relax , concentrate on the next fight.!\n\r",ch);
-	act_color("$C$n concentrates for the next fight.$c",ch,NULL,NULL,TO_ROOM,
-	POS_FIGHTING,CLR_RED);
+	act_puts("$n concentrates for the next fight.",ch,NULL,NULL,TO_ROOM,
+	POS_FIGHTING);
 	check_improve(ch,gsn_concentrate,TRUE,2);
 
 	af.where	= TO_AFFECTS;
@@ -3571,12 +3575,12 @@ void do_crush( CHAR_DATA *ch, char *argument )
    
     if (is_affected(victim, gsn_protective_shield))
      {
-act_color("$CYour crush seems to slide around $N.$c", ch, NULL, victim, 
-	TO_CHAR,POS_FIGHTING,CLR_YELLOW);
-act_color("$C$n's crush slides off your protective shield.$c", ch, NULL, 
-	victim,	TO_VICT,POS_FIGHTING,CLR_YELLOW);
-act_color("$C$n's crush seems to slide around $N.$c",ch,NULL,victim,
-	TO_NOTVICT,POS_FIGHTING,CLR_YELLOW);
+act_puts("Your crush seems to slide around $N.", ch, NULL, victim, 
+	TO_CHAR,POS_FIGHTING);
+act_puts("$n's crush slides off your protective shield.", ch, NULL, 
+	victim,	TO_VICT,POS_FIGHTING);
+act_puts("$n's crush seems to slide around $N.",ch,NULL,victim,
+	TO_NOTVICT,POS_FIGHTING);
 	return;
      }
    

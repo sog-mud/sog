@@ -1,3 +1,7 @@
+/*
+ * $Id: mob_prog.c,v 1.2 1998-04-14 08:54:33 fjoe Exp $
+ */
+
 /***************************************************************************
  *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT		           *	
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
@@ -50,6 +54,8 @@
 #include "magic.h"
 #include "interp.h"
 #include "recycle.h"
+#include "db.h"
+#include "comm.h"
 
 void raw_kill args( (CHAR_DATA *victim) );
 DECLARE_DO_FUN(do_yell);
@@ -991,10 +997,10 @@ void fight_prog_diana( CHAR_DATA *mob, CHAR_DATA *ch )
 	  { 
 	   int i;
 
-  	   act_color("$C$n call the gods for help.$c",
-		ach,NULL,NULL,TO_ROOM,POS_SLEEPING,CLR_BLUE);
-  	   act_color("$CGods advance $n to help diana.$c",
-		ach,NULL,NULL,TO_ROOM,POS_SLEEPING,CLR_GREEN);
+  	   act_puts("$n call the gods for help.",
+		ach,NULL,NULL,TO_ROOM,POS_SLEEPING);
+  	   act_puts("Gods advance $n to help diana.",
+		ach,NULL,NULL,TO_ROOM,POS_SLEEPING);
   	   ach->max_hit = 6000;
   	   ach->hit = 6000;
   	   ach->level = 60;

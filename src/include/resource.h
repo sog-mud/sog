@@ -1,6 +1,10 @@
 #ifndef _RESOURCE_H_
 #define _RESOURCE_H_
 
+/*
+ * $Id: resource.h,v 1.2 1998-04-14 08:54:34 fjoe Exp $
+ */
+
 char* msg(int resnum, int lang);
 
 #define LANG_ENG 0

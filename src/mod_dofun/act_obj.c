@@ -1,3 +1,7 @@
+/*
+ * $Id: act_obj.c,v 1.2 1998-04-14 08:54:27 fjoe Exp $
+ */
+
 /***************************************************************************
  *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *	
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
@@ -47,6 +51,9 @@
 #include <string.h>
 #include <stdlib.h>
 #include "merc.h"
+#include "comm.h"
+#include "db.h"
+#include "act_wiz.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_split		);

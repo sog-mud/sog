@@ -1,3 +1,7 @@
+/*
+ * $Id: obj_prog.c,v 1.2 1998-04-14 08:54:33 fjoe Exp $
+ */
+
 /***************************************************************************
  *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT		           *	
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
@@ -48,6 +52,8 @@
 #include "merc.h"
 #include "magic.h"
 #include "interp.h"
+#include "db.h"
+#include "comm.h"
 
 void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool second);
 
@@ -529,7 +535,7 @@ void remove_prog_excalibur(OBJ_DATA *obj, CHAR_DATA *ch)
 
 bool death_prog_excalibur(OBJ_DATA *obj, CHAR_DATA *ch)
 {
-  act_new("$p starts to glow with a blue aura.",ch,obj,NULL,TO_CHAR,POS_DEAD);
+  act_puts("$p starts to glow with a blue aura.",ch,obj,NULL,TO_CHAR,POS_DEAD);
   act("$p starts to glow with a blue aura,",ch,obj,NULL,TO_ROOM);
   ch->hit = ch->max_hit;
   send_to_char("You feel much better.",ch);
@@ -693,8 +699,8 @@ void get_prog_cabal_item(OBJ_DATA *obj, CHAR_DATA *ch)
         {
           if ( d->connected == CON_PLAYING && 
 	     cabal_table[d->character->cabal].obj_ptr == obj)
-     	  act_color("$CYou feel a shudder in your Cabal Power!$c",
-		   d->character,NULL,NULL,TO_CHAR,POS_DEAD,CLR_GREEN);
+     	  act_puts("You feel a shudder in your Cabal Power!",
+		   d->character,NULL,NULL,TO_CHAR,POS_DEAD);
     	}
     }
 }
@@ -833,13 +839,13 @@ void fight_prog_tattoo_apollon(OBJ_DATA *obj, CHAR_DATA *ch)
     switch(number_bits(6)) {
     case 0:
     case 1:
-      act_color("$CThe tattoo on your shoulder glows blue.$c",
-		   ch,NULL,NULL,TO_CHAR,POS_DEAD,CLR_CYAN);
+      act_puts("The tattoo on your shoulder glows blue.",
+		   ch,NULL,NULL,TO_CHAR,POS_DEAD);
       obj_cast_spell(gsn_cure_serious, ch->level, ch, ch, obj);
       break;
     case 2:
-      act_color("$CThe tattoo on your shoulder glows red.$c",
-		   ch,NULL,NULL,TO_CHAR,POS_DEAD,CLR_RED);
+      act_puts("The tattoo on your shoulder glows red.",
+		   ch,NULL,NULL,TO_CHAR,POS_DEAD);
       do_yell( ch, "Ever dance with good....");
       sn = skill_lookup("holy word");
       spell_holy_word(sn,ch->level,ch,NULL,TARGET_CHAR);
@@ -855,13 +861,13 @@ void fight_prog_tattoo_zeus(OBJ_DATA *obj, CHAR_DATA *ch)
     case 0:
     case 1:
     case 2:
-      act_color("$CThe tattoo on your shoulder glows blue.$c",
-		   ch,NULL,NULL,TO_CHAR,POS_DEAD,CLR_CYAN);
+      act_puts("The tattoo on your shoulder glows blue.",
+		   ch,NULL,NULL,TO_CHAR,POS_DEAD);
       obj_cast_spell(gsn_cure_critical, ch->level, ch, ch, obj);
       break;
     case 3:
-      act_color("$CThe tattoo on your shoulder glows blue.$c",
-		   ch,NULL,NULL,TO_CHAR,POS_DEAD,CLR_CYAN);
+      act_puts("The tattoo on your shoulder glows blue.",
+		   ch,NULL,NULL,TO_CHAR,POS_DEAD);
       if (IS_AFFECTED(ch,AFF_PLAGUE))	
 	spell_cure_disease(25,100,ch,ch,TARGET_CHAR);
       if (IS_AFFECTED(ch,AFF_POISON))	
@@ -875,13 +881,13 @@ void fight_prog_tattoo_siebele(OBJ_DATA *obj, CHAR_DATA *ch)
   if (get_eq_char(ch, WEAR_TATTOO) == obj)
     switch(number_bits(6)) {
     case 0:
-      act_color("$CThe tattoo on your shoulder glows blue.$c",
-		   ch,NULL,NULL,TO_CHAR,POS_DEAD,CLR_CYAN);
+      act_puts("The tattoo on your shoulder glows blue.",
+		   ch,NULL,NULL,TO_CHAR,POS_DEAD);
       obj_cast_spell(gsn_cure_serious, ch->level, ch,ch, obj);
       break;
     case 1:
-      act_color("$CThe tattoo on your shoulder glows red.$c",
-		   ch,NULL,NULL,TO_CHAR,POS_DEAD,CLR_RED);
+      act_puts("The tattoo on your shoulder glows red.",
+		   ch,NULL,NULL,TO_CHAR,POS_DEAD);
       spell_bluefire(gsn_dispel_good, ch->level, ch, ch->fighting, TARGET_CHAR);
       break;
     }
@@ -892,13 +898,13 @@ void fight_prog_tattoo_ahrumazda(OBJ_DATA *obj, CHAR_DATA *ch)
   if (get_eq_char(ch, WEAR_TATTOO) == obj)
     switch(number_bits(6)) {
     case 0:
-      act_color("$CThe tattoo on your shoulder glows blue.$c",
-		   ch,NULL,NULL,TO_CHAR,POS_DEAD,CLR_BLUE);
+      act_puts("The tattoo on your shoulder glows blue.",
+		   ch,NULL,NULL,TO_CHAR,POS_DEAD);
       obj_cast_spell(gsn_cure_serious, ch->level, ch, ch, obj); 
       break;
     case 1:
-      act_color("$CThe tattoo on your shoulder glows red.$c",
-		   ch,NULL,NULL,TO_CHAR,POS_DEAD,CLR_RED);
+      act_puts("The tattoo on your shoulder glows red.",
+		   ch,NULL,NULL,TO_CHAR,POS_DEAD);
       obj_cast_spell(gsn_demonfire, ch->level, ch, ch->fighting, obj);
       break;
     }
@@ -910,13 +916,13 @@ void fight_prog_tattoo_ahrumazda(OBJ_DATA *obj, CHAR_DATA *ch)
     switch(number_bits(6)) {
     case 0:
     case 1:
-      act_color("$CThe tattoo on your shoulder glows blue.$c",
-		   ch,NULL,NULL,TO_CHAR,POS_DEAD,CLR_CYAN);
+      act_puts("The tattoo on your shoulder glows blue.",
+		   ch,NULL,NULL,TO_CHAR,POS_DEAD);
       obj_cast_spell(gsn_cure_serious, ch->level, ch, ch, obj);
       break;
     case 2:
-      act_color("$CThe tattoo on your shoulder glows red.$c",
-		   ch,NULL,NULL,TO_CHAR,POS_DEAD,CLR_RED);
+      act_puts("The tattoo on your shoulder glows red.",
+		   ch,NULL,NULL,TO_CHAR,POS_DEAD);
       do_yell(ch,"And justice for all!....");
       spell_scream(gsn_scream,ch->level,ch,ch->fighting,TARGET_CHAR);
       break;
@@ -928,18 +934,18 @@ void fight_prog_tattoo_ehrumen(OBJ_DATA *obj, CHAR_DATA *ch)
   if (get_eq_char(ch, WEAR_TATTOO) == obj)
     switch(number_bits(6)) {
     case 0:
-      act_color("$CThe tattoo on your shoulder glows red.$c",
-		   ch,NULL,NULL,TO_CHAR,POS_DEAD,CLR_RED);
+      act_puts("The tattoo on your shoulder glows red.",
+		   ch,NULL,NULL,TO_CHAR,POS_DEAD);
       obj_cast_spell(gsn_cure_light, ch->level, ch, ch->fighting, obj);
       break;
     case 1:
-      act_color("$CThe tattoo on your shoulder glows blue.$c",
-		   ch,NULL,NULL,TO_CHAR,POS_DEAD,CLR_CYAN);
+      act_puts("The tattoo on your shoulder glows blue.",
+		   ch,NULL,NULL,TO_CHAR,POS_DEAD);
       obj_cast_spell(gsn_cure_serious, ch->level, ch, ch, obj);
       break;
     case 2:
-      act_color("$CThe tattoo on your shoulder glows red.$c",
-		   ch,NULL,NULL,TO_CHAR,POS_DEAD,CLR_RED);
+      act_puts("The tattoo on your shoulder glows red.",
+		   ch,NULL,NULL,TO_CHAR,POS_DEAD);
       spell_dispel_evil(gsn_dispel_evil, ch->level, ch, ch->fighting,TARGET_CHAR);
       break;
     }
@@ -952,18 +958,18 @@ void fight_prog_tattoo_venus(OBJ_DATA *obj, CHAR_DATA *ch)
     case 0:
     case 1:
     case 2:
-      act_color("$CThe tattoo on your shoulder glows blue.$c",
-		   ch,NULL,NULL,TO_CHAR,POS_DEAD,CLR_CYAN);
+      act_puts("The tattoo on your shoulder glows blue.",
+		   ch,NULL,NULL,TO_CHAR,POS_DEAD);
       obj_cast_spell(gsn_cure_light, ch->level, ch, ch, obj);
       break;
     case 3:
-      act_color("$CThe tattoo on your shoulder glows red.$c",
-		   ch,NULL,NULL,TO_CHAR,POS_DEAD,CLR_RED);
+      act_puts("The tattoo on your shoulder glows red.",
+		   ch,NULL,NULL,TO_CHAR,POS_DEAD);
       obj_cast_spell(gsn_plague, ch->level, ch, ch->fighting, obj);
       break;
     case 4:
-      act_color("$CThe tattoo on your shoulder glows blue.$c",
-		   ch,NULL,NULL,TO_CHAR,POS_DEAD,CLR_CYAN);
+      act_puts("The tattoo on your shoulder glows blue.",
+		   ch,NULL,NULL,TO_CHAR,POS_DEAD);
       obj_cast_spell(gsn_bless, ch->level, ch, ch, obj);
       break;
     }
@@ -974,13 +980,13 @@ void fight_prog_tattoo_ares(OBJ_DATA *obj, CHAR_DATA *ch)
   if (get_eq_char(ch, WEAR_TATTOO) == obj)
     switch(number_bits(5)) {
     case 0:
-      act_color("$CThe tattoo on your shoulder glows blue.$c",
-		   ch,NULL,NULL,TO_CHAR,POS_DEAD,CLR_CYAN);
+      act_puts("The tattoo on your shoulder glows blue.",
+		   ch,NULL,NULL,TO_CHAR,POS_DEAD);
       obj_cast_spell(gsn_dragon_strength, ch->level, ch, ch, obj);
       break;
     case 1:
-      act_color("$CThe tattoo on your shoulder glows RED.$c",
-		   ch,NULL,NULL,TO_CHAR,POS_DEAD,CLR_RED);
+      act_puts("The tattoo on your shoulder glows RED.",
+		   ch,NULL,NULL,TO_CHAR,POS_DEAD);
       obj_cast_spell(gsn_dragon_breath, ch->level, ch, ch->fighting, obj);
       break;
     }
@@ -992,13 +998,13 @@ void fight_prog_tattoo_odin(OBJ_DATA *obj, CHAR_DATA *ch)
   if (get_eq_char(ch, WEAR_TATTOO) == obj)
     switch(number_bits(5)) {
     case 0:
-      act_color("$CThe tattoo on your shoulder glows blue.$c",
-		   ch,NULL,NULL,TO_CHAR,POS_DEAD,CLR_CYAN);
+      act_puts("The tattoo on your shoulder glows blue.",
+		   ch,NULL,NULL,TO_CHAR,POS_DEAD);
       obj_cast_spell(gsn_cure_critical, ch->level, ch, ch, obj);
       break;
     case 1:
-      act_color("$CThe tattoo on your shoulder glows red.$c",
-		   ch,NULL,NULL,TO_CHAR,POS_DEAD,CLR_RED);
+      act_puts("The tattoo on your shoulder glows red.",
+		   ch,NULL,NULL,TO_CHAR,POS_DEAD);
       obj_cast_spell(gsn_faerie_fire, ch->level, ch, ch->fighting, obj);
       break;
     }
@@ -1009,13 +1015,13 @@ void fight_prog_tattoo_phobos(OBJ_DATA *obj, CHAR_DATA *ch)
   if (get_eq_char(ch, WEAR_TATTOO) == obj)
     switch(number_bits(6)) {
     case 0:
-      act_color("$CThe tattoo on your shoulder glows blue.$c",
-		   ch,NULL,NULL,TO_CHAR,POS_DEAD,CLR_CYAN);
+      act_puts("The tattoo on your shoulder glows blue.",
+		   ch,NULL,NULL,TO_CHAR,POS_DEAD);
       obj_cast_spell(gsn_cure_serious, ch->level, ch, ch, obj);
       break;
     case 1:
-      act_color("$CThe tattoo on your shoulder glows red.$c",
-		   ch,NULL,NULL,TO_CHAR,POS_DEAD,CLR_RED);
+      act_puts("The tattoo on your shoulder glows red.",
+		   ch,NULL,NULL,TO_CHAR,POS_DEAD);
       obj_cast_spell(16, ch->level, ch, ch->fighting, obj);
       break;
     }
@@ -1117,21 +1123,21 @@ void fight_prog_tattoo_hera( OBJ_DATA *obj, CHAR_DATA *ch)
   if (get_eq_char(ch, WEAR_TATTOO) == obj)
     switch(number_bits(5)) {
     case 0:
-      act_color("$CThe tattoo on your shoulder glows red.$c",
-		   ch,NULL,NULL,TO_CHAR,POS_DEAD,CLR_RED);
+      act_puts("The tattoo on your shoulder glows red.",
+		   ch,NULL,NULL,TO_CHAR,POS_DEAD);
       obj_cast_spell(gsn_plague, ch->level, ch, ch->fighting, obj);
       break;
     case 1:
-      act_color("$CThe tattoo on your shoulder glows red.$c",
-		   ch,NULL,NULL,TO_CHAR,POS_DEAD,CLR_RED);
+      act_puts("The tattoo on your shoulder glows red.",
+		   ch,NULL,NULL,TO_CHAR,POS_DEAD);
       obj_cast_spell(gsn_poison, ch->level, ch, ch->fighting, obj);
     case 2:
-      act_color("$CThe tattoo on your shoulder glows red.$c",
-		   ch,NULL,NULL,TO_CHAR,POS_DEAD,CLR_RED);
+      act_puts("The tattoo on your shoulder glows red.",
+		   ch,NULL,NULL,TO_CHAR,POS_DEAD);
       obj_cast_spell(gsn_weaken, ch->level, ch, ch->fighting, obj);
     case 3:
-      act_color("$CThe tattoo on your shoulder glows red.$c",
-		   ch,NULL,NULL,TO_CHAR,POS_DEAD,CLR_RED);
+      act_puts("The tattoo on your shoulder glows red.",
+		   ch,NULL,NULL,TO_CHAR,POS_DEAD);
       obj_cast_spell(gsn_slow, ch->level, ch, ch->fighting, obj);
       break;
     }
@@ -1145,13 +1151,13 @@ void fight_prog_tattoo_deimos(OBJ_DATA *obj, CHAR_DATA *ch)
     switch(number_bits(6)) {
     case 0:
     case 1:
-      act_color("$CThe tattoo on your shoulder glows blue.$c",
-		   ch,NULL,NULL,TO_CHAR,POS_DEAD,CLR_CYAN);
+      act_puts("The tattoo on your shoulder glows blue.",
+		   ch,NULL,NULL,TO_CHAR,POS_DEAD);
       obj_cast_spell(gsn_cure_serious, ch->level, ch, ch, obj);
       break;
     case 2:
-      act_color("$CThe tattoo on your shoulder glows red.$c",
-		   ch,NULL,NULL,TO_CHAR,POS_DEAD,CLR_RED);
+      act_puts("The tattoo on your shoulder glows red.",
+		   ch,NULL,NULL,TO_CHAR,POS_DEAD);
       sn = skill_lookup("web");
       spell_web(sn, ch->level, ch, ch->fighting,TARGET_CHAR);
       break;
@@ -1165,13 +1171,13 @@ void fight_prog_tattoo_eros(OBJ_DATA *obj, CHAR_DATA *ch)
     switch(number_bits(5)) {
     case 0:
     case 1:
-      act_color("$CThe tattoo on your shoulder glows blue.$c",
-		   ch,NULL,NULL,TO_CHAR,POS_DEAD,CLR_CYAN);
+      act_puts("The tattoo on your shoulder glows blue.",
+		   ch,NULL,NULL,TO_CHAR,POS_DEAD);
       obj_cast_spell(57, ch->level, ch, ch, obj);
       break;
     case 2:
-      act_color("$CThe tattoo on your shoulder glows blue.$c",
-		   ch,NULL,NULL,TO_CHAR,POS_DEAD,CLR_CYAN);
+      act_puts("The tattoo on your shoulder glows blue.",
+		   ch,NULL,NULL,TO_CHAR,POS_DEAD);
       obj_cast_spell(67, ch->level, ch, ch, obj);
       break;
     }
@@ -1253,14 +1259,14 @@ void fight_prog_tattoo_prometheus(OBJ_DATA *obj, CHAR_DATA *ch)
   if (get_eq_char(ch, WEAR_TATTOO) == obj)
     switch(number_bits(5)) {
     case 0:
-      act_color("$CThe tattoo on your shoulder glows blue.$c",
-		   ch,NULL,NULL,TO_CHAR,POS_DEAD,CLR_CYAN);
+      act_puts("The tattoo on your shoulder glows blue.",
+		   ch,NULL,NULL,TO_CHAR,POS_DEAD);
       obj_cast_spell(gsn_cure_critical, ch->level, ch, ch, obj);
       break;
     case 1:
     case 2:
-      act_color("$CThe tattoo on your shoulder glows red.$c",
-		   ch,NULL,NULL,TO_CHAR,POS_DEAD,CLR_RED);
+      act_puts("The tattoo on your shoulder glows red.",
+		   ch,NULL,NULL,TO_CHAR,POS_DEAD);
       if (IS_EVIL(ch->fighting))
       spell_dispel_evil(gsn_dispel_evil,1.2* ch->level, ch, ch->fighting,TARGET_CHAR);
       else if (IS_GOOD(ch->fighting))
@@ -1658,15 +1664,15 @@ void fight_prog_lion_claw(OBJ_DATA *obj, CHAR_DATA *ch)
 	(obj == get_eq_char(ch,WEAR_SECOND_WIELD)) )
 {
   send_to_char("The nails of your claw appears form its fingers.\n\r",ch);
-  act_color("the nails of $n's claw appears for an instant.",
-		ch,NULL,NULL,TO_ROOM,POS_DEAD,CLR_WHITE);
+  act_puts("the nails of $n's claw appears for an instant.",
+		ch,NULL,NULL,TO_ROOM,POS_DEAD);
   one_hit(ch,ch->fighting,TYPE_HIT,FALSE);
   one_hit(ch,ch->fighting,TYPE_HIT,FALSE);
   one_hit(ch,ch->fighting,TYPE_HIT,FALSE);
   one_hit(ch,ch->fighting,TYPE_HIT,FALSE);
   send_to_char("The nails of your claw disappears.\n\r",ch);
-  act_color("the nails of $n's claw disappears suddenly.",
-	ch,NULL,NULL,TO_ROOM,POS_DEAD,CLR_WHITE);
+  act_puts("the nails of $n's claw disappears suddenly.",
+	ch,NULL,NULL,TO_ROOM,POS_DEAD);
   return;
 }
  return;
@@ -1732,8 +1738,8 @@ void fight_prog_tattoo_goktengri(OBJ_DATA *obj, CHAR_DATA *ch)
     switch(number_bits(4)) {
     case 0:
     case 1:
-      act_color("$CThe tattoo on your shoulder glows white.$c",
-		   ch,NULL,NULL,TO_CHAR,POS_DEAD,CLR_WHITE);
+      act_puts("The tattoo on your shoulder glows white.",
+		   ch,NULL,NULL,TO_CHAR,POS_DEAD);
       do_say(ch,"My honour is my life.");
       one_hit(ch,ch->fighting,TYPE_UNDEFINED,FALSE);
       break;
@@ -1743,10 +1749,10 @@ void fight_prog_tattoo_goktengri(OBJ_DATA *obj, CHAR_DATA *ch)
 
 void wear_prog_snake(OBJ_DATA *obj, CHAR_DATA *ch)
 {
-  act_color("$CSnakes of whip starts to breath a poisonous air.$c",
-		ch,obj,NULL,TO_CHAR,POS_DEAD,CLR_GREEN);
-  act_color("$CSnakes of whip starts to breath a poisonous air.$c",
-		ch,obj,NULL,TO_ROOM,POS_DEAD,CLR_GREEN);
+  act_puts("Snakes of whip starts to breath a poisonous air.",
+		ch,obj,NULL,TO_CHAR,POS_DEAD);
+  act_puts("Snakes of whip starts to breath a poisonous air.",
+		ch,obj,NULL,TO_ROOM,POS_DEAD);
   if (  ch->level <= 10)			obj->value[2] = 3;
   else if ( ch->level > 10 && ch->level <= 20)   obj->value[2] = 4;
   else if ( ch->level > 20 && ch->level <= 30)   obj->value[2] = 5;
@@ -1762,10 +1768,10 @@ void wear_prog_snake(OBJ_DATA *obj, CHAR_DATA *ch)
 
 void remove_prog_snake(OBJ_DATA *obj, CHAR_DATA *ch)
 {
-  act_color("$CSnakes of whip slowly melds to non-living skin.$c",
-		ch,obj,NULL,TO_CHAR,POS_DEAD,CLR_RED);
-  act_color("$CSnakes of whip slowy melds to non-living skin.$c",
-		ch,obj,NULL,TO_ROOM,POS_DEAD,CLR_RED);
+  act_puts("Snakes of whip slowly melds to non-living skin.",
+		ch,obj,NULL,TO_CHAR,POS_DEAD);
+  act_puts("Snakes of whip slowy melds to non-living skin.",
+		ch,obj,NULL,TO_ROOM,POS_DEAD);
 }
 
 void get_prog_snake(OBJ_DATA *obj, CHAR_DATA *ch) 
@@ -1827,7 +1833,7 @@ void wear_prog_quest_weapon(OBJ_DATA *obj, CHAR_DATA *ch)
 {
   if ( strstr( obj->short_descr, ch->name ) != NULL )  
   {
-    send_ch_color("$CYour weapon starts glowing.$c",ch,POS_SLEEPING,CLR_BLUE);
+    send_to_char("Your weapon starts glowing.",ch);
     if ( ch->level > 20 && ch->level <= 30)	   obj->value[2] = 4;
     else if ( ch->level > 30 && ch->level <= 40)   obj->value[2] = 5;
     else if ( ch->level > 40 && ch->level <= 50)   obj->value[2] = 6;
@@ -1851,8 +1857,8 @@ void get_prog_quest_reward(OBJ_DATA *obj, CHAR_DATA *ch)
 {
   if ( strstr( obj->short_descr, ch->name ) != NULL )  
   {
-    act_color("$CYour $p starts glowing.\n\r$c",
-		ch,obj,NULL,TO_CHAR,POS_SLEEPING,CLR_BLUE);
+    act_puts("Your $p starts glowing.\n\r",
+		ch,obj,NULL,TO_CHAR,POS_SLEEPING);
     return;
   }
 

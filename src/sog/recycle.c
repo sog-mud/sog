@@ -1,3 +1,7 @@
+/*
+ * $Id: recycle.c,v 1.2 1998-04-14 08:54:33 fjoe Exp $
+ */
+
 /***************************************************************************
  *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
@@ -48,6 +52,8 @@
 #include <stdlib.h>
 #include "merc.h"
 #include "recycle.h"
+#include "db.h"
+#include "comm.h"
 
 /* stuff for recyling notes */
 NOTE_DATA *note_free;

@@ -1,3 +1,10 @@
+#ifndef _INTERP_H_
+#define _INTERP_H_
+
+/*
+ * $Id: interp.h,v 1.2 1998-04-14 08:54:31 fjoe Exp $
+ */
+
 /***************************************************************************
  *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *	
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
@@ -236,7 +243,7 @@ DECLARE_DO_FUN( do_nosummon	);
 DECLARE_DO_FUN(	do_note		);
 DECLARE_DO_FUN(	do_notell	);
 DECLARE_DO_FUN( do_notitle	);
-DECLARE_DO_FUN( do_nscore	);
+DECLARE_DO_FUN( do_oscore	);
 DECLARE_DO_FUN( do_objlist	);
 DECLARE_DO_FUN(	do_ofind	);
 DECLARE_DO_FUN(	do_oload	);
@@ -391,3 +398,6 @@ DECLARE_DO_FUN( do_worth	);
 DECLARE_DO_FUN(	do_yell		);
 DECLARE_DO_FUN(	do_zap		);
 DECLARE_DO_FUN(	do_zecho	);
+
+#endif
+

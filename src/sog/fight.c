@@ -1,3 +1,7 @@
+/*
+ * $Id: fight.c,v 1.2 1998-04-14 08:54:29 fjoe Exp $
+ */
+
 /***************************************************************************
  *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
@@ -46,6 +50,9 @@
 #include <time.h>
 #include <math.h>
 #include "merc.h"
+#include "act_wiz.h"
+#include "db.h"
+#include "comm.h"
 
 #define MAX_DAMAGE_MESSAGE 34
 
@@ -282,24 +289,24 @@ void multi_hit( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
 
     if (IS_AFFECTED(ch,AFF_WEAK_STUN) ) 
 	{
- act_color("$CYou are too stunned to respond $N's attack.$c",
-		ch,NULL,victim,TO_CHAR,POS_FIGHTING,CLR_WHITE );
- act_color("$C$n is too stunned to respond your attack.$c",
-		ch,NULL,victim,TO_VICT,POS_FIGHTING,CLR_WHITE );
- act_color("$C$n seems to be stunned.$c",
-		ch,NULL,victim,TO_NOTVICT,POS_FIGHTING,CLR_WHITE );
+ act_puts("You are too stunned to respond $N's attack.",
+		ch,NULL,victim,TO_CHAR,POS_FIGHTING);
+ act_puts("$n is too stunned to respond your attack.",
+		ch,NULL,victim,TO_VICT,POS_FIGHTING);
+ act_puts("$n seems to be stunned.",
+		ch,NULL,victim,TO_NOTVICT,POS_FIGHTING);
 	 REMOVE_BIT(ch->affected_by,AFF_WEAK_STUN);
 	 return;
 	}
 
     if (IS_AFFECTED(ch,AFF_STUN) )
 	{
- act_color("$CYou are too stunned to respond $N's attack.$c",
-		ch,NULL,victim,TO_CHAR,POS_FIGHTING,CLR_WHITE );
- act_color("$C$n is too stunned to respond your attack.$c",
-		ch,NULL,victim,TO_VICT,POS_FIGHTING,CLR_WHITE );
- act_color("$C$n seems to be stunned.$c",
-		ch,NULL,victim,TO_NOTVICT,POS_FIGHTING,CLR_WHITE );
+ act_puts("You are too stunned to respond $N's attack.",
+		ch,NULL,victim,TO_CHAR,POS_FIGHTING);
+ act_puts("$n is too stunned to respond your attack.",
+		ch,NULL,victim,TO_VICT,POS_FIGHTING);
+ act_puts("$n seems to be stunned.",
+		ch,NULL,victim,TO_NOTVICT,POS_FIGHTING);
 	 affect_strip(ch,gsn_power_stun);
          SET_BIT(ch->affected_by,AFF_WEAK_STUN);
 	 return;
@@ -764,10 +771,10 @@ void one_hit( CHAR_DATA *ch, CHAR_DATA *victim, int dt ,bool secondary)
             if (IS_WEAPON_STAT(wield,WEAPON_HOLY) &&
 		  IS_GOOD(ch) && IS_EVIL(victim) && number_percent() < 30)
             {
-		act_color("$C$p shines with a holy area.$c",
-			ch,wield,NULL,TO_CHAR,POS_DEAD,CLR_YELLOW);
-		act_color("$C$p shines with a holy area.$c",
-			ch,wield,NULL,TO_ROOM,POS_DEAD,CLR_YELLOW);
+		act_puts("$p shines with a holy area.",
+			ch,wield,NULL,TO_CHAR,POS_DEAD);
+		act_puts("$p shines with a holy area.",
+			ch,wield,NULL,TO_ROOM,POS_DEAD);
                 dam += dam * 120 / 100;
             }
 	}
@@ -783,12 +790,12 @@ void one_hit( CHAR_DATA *ch, CHAR_DATA *victim, int dt ,bool secondary)
 		         if ( d < 20 )
 			  {
 			   SET_BIT(victim->affected_by,AFF_WEAK_STUN);
-	act_color("$CYou hit $N with a stunning force!$c",
-		ch,NULL,victim,TO_CHAR,POS_DEAD,CLR_RED);
-	act_color("$C$n hit you with a stunning force!$c",
-		ch,NULL,victim,TO_VICT,POS_DEAD,CLR_RED);
-	act_color("$C$n hits $N with a stunning force!$c",
-		ch,NULL,victim,TO_NOTVICT,POS_DEAD,CLR_RED);
+	act_puts("You hit $N with a stunning force!",
+		ch,NULL,victim,TO_CHAR,POS_DEAD);
+	act_puts("$n hit you with a stunning force!",
+		ch,NULL,victim,TO_VICT,POS_DEAD);
+	act_puts("$n hits $N with a stunning force!",
+		ch,NULL,victim,TO_NOTVICT,POS_DEAD);
             		   check_improve(ch,gsn_master_hand,TRUE,6);
 			  }
         		}
@@ -924,12 +931,12 @@ void one_hit( CHAR_DATA *ch, CHAR_DATA *victim, int dt ,bool secondary)
       {
 	if (number_percent() < URANGE(4, 5+(ch->level-victim->level),10) && !counter)
 	  {
-	    act_color("Your cleave chops $N $CIN HALF!$c",
-		      ch,NULL,victim,TO_CHAR,POS_RESTING,CLR_RED);
-	    act_color("$n's cleave chops you $CIN HALF!$c",
-		      ch,NULL,victim,TO_VICT,POS_RESTING,CLR_RED);
-	    act_color("$n's cleave chops $N $CIN HALF!$c",
-		      ch,NULL,victim,TO_NOTVICT,POS_RESTING,CLR_RED);
+	    act_puts("Your cleave chops $N IN HALF!",
+		      ch,NULL,victim,TO_CHAR,POS_RESTING);
+	    act_puts("$n's cleave chops you IN HALF!",
+		      ch,NULL,victim,TO_VICT,POS_RESTING);
+	    act_puts("$n's cleave chops $N IN HALF!",
+		      ch,NULL,victim,TO_NOTVICT,POS_RESTING);
 	    send_to_char("You have been KILLED!\n\r",victim);
 	    act("$n is DEAD!",victim,NULL,NULL,TO_ROOM);
 	    WAIT_STATE( ch, 2 );
@@ -965,14 +972,14 @@ void one_hit( CHAR_DATA *ch, CHAR_DATA *victim, int dt ,bool secondary)
       {
 	if (number_percent() <= URANGE(10, 20+(ch->level-victim->level)*2, 50) && !counter)
 	  {
-	    act_color("You $C+++ASSASSINATE+++$c $N!",ch,NULL,victim,TO_CHAR,
-		      POS_RESTING,CLR_RED);
+	    act_puts("You {R+++ASSASSINATE+++{x $N!",ch,NULL,victim,TO_CHAR,
+		      POS_RESTING);
 	    act("$N is DEAD!",ch,NULL,victim,TO_CHAR);
-	    act_color("$n $C+++ASSASSINATES+++$c $N!",ch,NULL,victim,
-		      TO_NOTVICT,POS_RESTING,CLR_RED);
+	    act_puts("$n {R+++ASSASSINATES+++{x $N!",ch,NULL,victim,
+		      TO_NOTVICT,POS_RESTING);
 	    act("$N is DEAD!",ch,NULL,victim,TO_NOTVICT);
-	    act_color("$n $C+++ASSASSINATES+++$c you!",ch,NULL,victim,
-		      TO_VICT,POS_DEAD,CLR_RED);
+	    act_puts("$n {R+++ASSASSINATES+++{x you!",ch,NULL,victim,
+		      TO_VICT,POS_DEAD);
 	    send_to_char("You have been KILLED!\n\r",victim);
 	    check_improve(ch,gsn_assassinate,TRUE,1);
 	    raw_kill(victim);
@@ -1477,10 +1484,10 @@ bool damage( CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, bo
             
 	    if ( ch->class == CLASS_VAMPIRE && ch->level > 10)
 		{
-		 act_color( "$C$n suck blood from $N's corpse!!$c", 
-			ch, NULL,victim,TO_ROOM,POS_SLEEPING,CLR_RED_BOLD);
-		 send_ch_color("$CYou suck blood from the corpse!!$c\n\r\n\r",
-			ch,POS_SLEEPING,CLR_RED_BOLD );
+		 act_puts( "$n suck {Rblood{x from $N's corpse!!", 
+			ch, NULL,victim,TO_ROOM,POS_SLEEPING);
+		 send_to_char("You suck {Rblood{x from the corpse!!\n\r\n\r",
+			ch);
 		 gain_condition(ch,COND_BLOODLUST,3);
 		}
 
@@ -2537,35 +2544,35 @@ void dam_message( CHAR_DATA *ch, CHAR_DATA *victim,int dam,int dt,bool immune ,i
 	{
 	  if ( dam_type == DAM_HUNGER )
 	  {
-	    sprintf( buf1, "$n's hunger $C%s$c $mself%c",vp,punct);
-	    sprintf( buf2, "Your hunger $C%s$c yourself%c",vs,punct);
+	    sprintf( buf1, "$n's hunger %s $mself%c",vp,punct);
+	    sprintf( buf2, "Your hunger %s yourself%c",vs,punct);
 	  }
 
 	  else if ( dam_type == DAM_THIRST )
 	  {
-	    sprintf( buf1, "$n's thirst $C%s$c $mself%c",vp,punct);
-	    sprintf( buf2, "Your thirst $C%s$c yourself%c",vs,punct);
+	    sprintf( buf1, "$n's thirst %s $mself%c",vp,punct);
+	    sprintf( buf2, "Your thirst %s yourself%c",vs,punct);
 	  }
 	  else if ( dam_type == DAM_LIGHT_V )
 	  {
-	    sprintf( buf1, "The light of room $C%s$c $n!%c",vp,punct);
-	    sprintf( buf2, "The light of room $C%s$c you!%c",vs,punct);
+	    sprintf( buf1, "The light of room %s $n!%c",vp,punct);
+	    sprintf( buf2, "The light of room %s you!%c",vs,punct);
 	  }
 	  else if ( dam_type == DAM_TRAP_ROOM )
 	  {
-	    sprintf( buf1, "The trap at room $C%s$c $n!%c",vp,punct);
-	    sprintf( buf2, "The trap at room $C%s$c you!%c",vs,punct);
+	    sprintf( buf1, "The trap at room %s $n!%c",vp,punct);
+	    sprintf( buf2, "The trap at room %s you!%c",vs,punct);
 	  }
 	  else {
-	    sprintf( buf1, "$n $C%s$c $mself%c",vp,punct);
-	    sprintf( buf2, "You $C%s$c yourself%c",vs,punct);
+	    sprintf( buf1, "$n %s $mself%c",vp,punct);
+	    sprintf( buf2, "You %s yourself%c",vs,punct);
 		}
 	}
 	else
 	{
-	    sprintf( buf1, "$n $C%s$c $N%c",  vp, punct );
-	    sprintf( buf2, "You $C%s$c $N%c", vs, punct );
-	    sprintf( buf3, "$n $C%s$c you%c", vp, punct );
+	    sprintf( buf1, "$n %s $N%c",  vp, punct );
+	    sprintf( buf2, "You %s $N%c", vs, punct );
+	    sprintf( buf3, "$n %s you%c", vp, punct );
 	}
     }
 
@@ -2601,14 +2608,14 @@ void dam_message( CHAR_DATA *ch, CHAR_DATA *victim,int dam,int dt,bool immune ,i
 	{
 	    if (ch == victim)
 	    {
-		sprintf( buf1, "$n's %s $C%s$c $m%c",attack,vp,punct);
-		sprintf( buf2, "Your %s $C%s$c you%c",attack,vp,punct);
+		sprintf( buf1, "$n's %s %s $m%c",attack,vp,punct);
+		sprintf( buf2, "Your %s %s you%c",attack,vp,punct);
 	    }
 	    else
 	    {
-	    	sprintf( buf1, "$n's %s $C%s$c $N%c",  attack, vp, punct );
-	    	sprintf( buf2, "Your %s $C%s$c $N%c",  attack, vp, punct );
-	    	sprintf( buf3, "$n's %s $C%s$c you%c", attack, vp, punct );
+	    	sprintf( buf1, "$n's %s %s $N%c",  attack, vp, punct );
+	    	sprintf( buf2, "Your %s %s $N%c",  attack, vp, punct );
+	    	sprintf( buf3, "$n's %s %s you%c", attack, vp, punct );
 	    }
 	}
     }
@@ -2617,50 +2624,50 @@ void dam_message( CHAR_DATA *ch, CHAR_DATA *victim,int dam,int dt,bool immune ,i
     {
 	if ( dam <=36 )
 	{
-	act_color(buf1,ch,NULL,NULL,TO_ROOM,POS_RESTING,CLR_BLUE);
-	act_color(buf2,ch,NULL,NULL,TO_CHAR,POS_RESTING,CLR_BLUE_BOLD);
+	act_puts(buf1,ch,NULL,NULL,TO_ROOM,POS_RESTING);
+	act_puts(buf2,ch,NULL,NULL,TO_CHAR,POS_RESTING);
 	}
 	else if (dam <=100)
 	{
-	act_color(buf1,ch,NULL,NULL,TO_ROOM,POS_RESTING,CLR_MAGENTA);
-	act_color(buf2,ch,NULL,NULL,TO_CHAR,POS_RESTING,CLR_MAGENTA_BOLD);
+	act_puts(buf1,ch,NULL,NULL,TO_ROOM,POS_RESTING);
+	act_puts(buf2,ch,NULL,NULL,TO_CHAR,POS_RESTING);
 	}
 	else if (dam <=325)
 	{
-	act_color(buf1,ch,NULL,NULL,TO_ROOM,POS_RESTING,CLR_BROWN);
-	act_color(buf2,ch,NULL,NULL,TO_CHAR,POS_RESTING,CLR_BROWN);
+	act_puts(buf1,ch,NULL,NULL,TO_ROOM,POS_RESTING);
+	act_puts(buf2,ch,NULL,NULL,TO_CHAR,POS_RESTING);
 	}
 	else 
 	{
-	act_color(buf1,ch,NULL,NULL,TO_ROOM,POS_RESTING,CLR_RED);
-	act_color(buf2,ch,NULL,NULL,TO_CHAR,POS_RESTING,CLR_RED_BOLD);
+	act_puts(buf1,ch,NULL,NULL,TO_ROOM,POS_RESTING);
+	act_puts(buf2,ch,NULL,NULL,TO_CHAR,POS_RESTING);
 	}
     }
     else
     {
 	if ( dam <= 36 )
 	{
-    	act_color( buf1, ch, NULL, victim, TO_NOTVICT,POS_RESTING,CLR_BLUE );
-    	act_color( buf2, ch, NULL, victim, TO_CHAR,POS_RESTING,CLR_BLUE_BOLD );
-    	act_color( buf3, ch, NULL, victim, TO_VICT,POS_RESTING,CLR_BLUE_BOLD );
+    	act_puts( buf1, ch, NULL, victim, TO_NOTVICT,POS_RESTING);
+    	act_puts( buf2, ch, NULL, victim, TO_CHAR,POS_RESTING);
+    	act_puts( buf3, ch, NULL, victim, TO_VICT,POS_RESTING);
 	}
 	else if ( dam <= 100 )
 	{
-    	act_color( buf1, ch, NULL,victim,TO_NOTVICT,POS_RESTING,CLR_MAGENTA );
-    	act_color( buf2, ch, NULL,victim,TO_CHAR,POS_RESTING,CLR_MAGENTA_BOLD );
-    	act_color( buf3, ch, NULL,victim,TO_VICT,POS_RESTING,CLR_MAGENTA_BOLD );
+    	act_puts( buf1, ch, NULL,victim,TO_NOTVICT,POS_RESTING);
+    	act_puts( buf2, ch, NULL,victim,TO_CHAR,POS_RESTING);
+    	act_puts( buf3, ch, NULL,victim,TO_VICT,POS_RESTING);
 	}
 	else if ( dam <= 325 )
 	{
-    	act_color( buf1, ch, NULL, victim, TO_NOTVICT,POS_RESTING,CLR_BROWN );
-    	act_color( buf2, ch, NULL, victim, TO_CHAR,POS_RESTING,CLR_BROWN );
-    	act_color( buf3, ch, NULL, victim, TO_VICT,POS_RESTING,CLR_BROWN );
+    	act_puts( buf1, ch, NULL, victim, TO_NOTVICT,POS_RESTING);
+    	act_puts( buf2, ch, NULL, victim, TO_CHAR,POS_RESTING);
+    	act_puts( buf3, ch, NULL, victim, TO_VICT,POS_RESTING);
 	}
 	else
 	{
-    	act_color( buf1, ch, NULL, victim, TO_NOTVICT,POS_RESTING,CLR_RED );
-    	act_color( buf2, ch, NULL, victim, TO_CHAR,POS_RESTING,CLR_RED_BOLD );
-    	act_color( buf3, ch, NULL, victim, TO_VICT,POS_RESTING,CLR_RED_BOLD );
+    	act_puts( buf1, ch, NULL, victim, TO_NOTVICT,POS_RESTING);
+    	act_puts( buf2, ch, NULL, victim, TO_CHAR,POS_RESTING);
+    	act_puts( buf3, ch, NULL, victim, TO_VICT,POS_RESTING);
 	}
 
     }
@@ -2738,12 +2745,12 @@ void do_kill( CHAR_DATA *ch, char *argument )
       chance += (ch->level - victim->level) / 2;
       if (number_percent() < chance)
 	{
-	 act_color("$CYour flash strike instantly slays $N!$c",
-		ch,NULL,victim,TO_CHAR,POS_RESTING,CLR_RED);
-	 act_color("$C$n flash strike instantly slays $N!$c",
-		ch,NULL,victim,TO_NOTVICT,POS_RESTING,CLR_RED);
-	 act_color("$C$n flash strike instantly slays you!$c",
-		ch,NULL,victim,TO_VICT,POS_DEAD,CLR_RED);
+	 act_puts("Your flash strike instantly slays $N!",
+		ch,NULL,victim,TO_CHAR,POS_RESTING);
+	 act_puts("$n flash strike instantly slays $N!",
+		ch,NULL,victim,TO_NOTVICT,POS_RESTING);
+	 act_puts("$n flash strike instantly slays you!",
+		ch,NULL,victim,TO_VICT,POS_DEAD);
 	 damage(ch,victim,(victim->hit + 1),gsn_mortal_strike,DAM_NONE, TRUE);
 	 check_improve( ch,gsn_mortal_strike, TRUE, 1);
 	 return;
@@ -2833,12 +2840,12 @@ void do_murder( CHAR_DATA *ch, char *argument )
       chance += (ch->level - victim->level) / 2;
       if (number_percent() < chance)
 	{
-	 act_color("$CYour flash strike instantly slays $N!$c",
-		ch,NULL,victim,TO_CHAR,POS_RESTING,CLR_RED);
-	 act_color("$C$n flash strike instantly slays $N!$c",
-		ch,NULL,victim,TO_NOTVICT,POS_RESTING,CLR_RED);
-	 act_color("$C$n flash strike instantly slays you!$c",
-		ch,NULL,victim,TO_VICT,POS_DEAD,CLR_RED);
+	 act_puts("Your flash strike instantly slays $N!",
+		ch,NULL,victim,TO_CHAR,POS_RESTING);
+	 act_puts("$n flash strike instantly slays $N!",
+		ch,NULL,victim,TO_NOTVICT,POS_RESTING);
+	 act_puts("$n flash strike instantly slays you!",
+		ch,NULL,victim,TO_VICT,POS_DEAD);
 	 damage(ch,victim,(victim->hit + 1),gsn_mortal_strike,DAM_NONE, TRUE);
 	 check_improve( ch,gsn_mortal_strike, TRUE, 1);
 	 return;

@@ -1,3 +1,7 @@
+/*
+ * $Id: save.c,v 1.3 1998-04-14 08:54:34 fjoe Exp $
+ */
+
 /***************************************************************************
  *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
@@ -54,11 +58,13 @@
 #include "recycle.h"
 #include "lookup.h"
 #include "tables.h"
+#include "db.h"
+#include "comm.h"
+#include "const.h"
  
 #if !defined(macintosh)
 extern  int     _filbuf         args( (FILE *) );
 #endif
-
 
 int rename(const char *oldfname, const char *newfname);
 
@@ -206,7 +212,7 @@ void fwrite_char( CHAR_DATA *ch, FILE *fp )
 	fprintf( fp, "LnD  %s~\n",	ch->long_descr	);
     if (ch->description[0] != '\0')
     	fprintf( fp, "Desc %s~\n",	ch->description	);
-    if (ch->prompt != NULL || !str_cmp(ch->prompt,"<%hhp %mm %vmv> "))
+    if (ch->prompt != NULL || !str_cmp(ch->prompt, DEFAULT_PROMPT))
         fprintf( fp, "Prom %s~\n",      ch->prompt  	);
     fprintf( fp, "Race %s~\n", pc_race_table[ORG_RACE(ch)].name );
     fprintf( fp, "Sex  %d\n",	ch->sex			);
@@ -659,7 +665,7 @@ bool load_char_obj( DESCRIPTOR_DATA *d, char *name )
     ch->progtypes                       = 0; 
     ch->extracted                       = FALSE; 
     ch->pcdata->points                  = 0;
-    ch->prompt 				= str_dup("<%n: %hhp %mm %vmv Opp:<%o>> ");
+    ch->prompt 				= str_dup(DEFAULT_PROMPT);
     ch->pcdata->confirm_delete		= FALSE;
     ch->pcdata->pwd			= str_dup( "" );
     ch->pcdata->bamfin			= str_dup( "" );
