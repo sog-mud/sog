@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.19 1999-05-21 13:04:27 fjoe Exp $
+ * $Id: act.c,v 1.20 1999-05-21 14:30:23 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -213,7 +213,7 @@ static int SEX(CHAR_DATA *ch, CHAR_DATA *looker)
 	if (is_affected(ch, gsn_doppelganger)
 	&&  (IS_NPC(looker) || !IS_SET(looker->plr_flags, PLR_HOLYLIGHT)))
 		ch = ch->doppel;
-	return URANGE(0, ch->sex, SEX_MAX-1);
+	return URANGE(0, ch->sex, 2);
 }
 
 static const char *

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_rule.c,v 1.8 1999-04-17 06:56:39 fjoe Exp $
+ * $Id: olc_rule.c,v 1.9 1999-05-21 14:30:23 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -288,7 +288,6 @@ OLC_FUN(ruleed_show)
 OLC_FUN(ruleed_list)
 {
 	int i;
-	rule_t *r;
 	rulecl_t *rcl;
 	ruleops_t *rops;
 	lang_t *l;
@@ -297,9 +296,16 @@ OLC_FUN(ruleed_list)
 	EDIT_LANG(ch, l);
 	EDIT_ROPS(ch, rops);
 
-	if (IS_EDIT(ch, ED_IMPL) || IS_EDIT(ch, ED_EXPL)) {
-		EDIT_RULE(ch, r);
-		EDIT_RCL(ch, rcl);
+	/*
+	 * obtain rule class
+	 */
+	if (argument[0] == '\0') {
+		if (IS_EDIT(ch, ED_IMPL) || IS_EDIT(ch, ED_EXPL))
+			EDIT_RCL(ch, rcl);
+		else {
+			do_help(ch, "'OLC ALIST'");
+			return FALSE;
+		}
 	}
 	else {
 		int rulecl;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.c,v 1.10 1999-04-16 15:52:24 fjoe Exp $
+ * $Id: lang.c,v 1.11 1999-05-21 14:30:23 fjoe Exp $
  */
 
 #include <string.h>
@@ -136,7 +136,14 @@ const char *word_form(const char *word, int fnum, int lang, int rulecl)
 
 	switch (rulecl) {
 	case RULES_GENDER:
-		fnum = (fnum + SEX_MAX - 1) % SEX_MAX;
+		/*
+		 * SEX_NEUTRAL: 0 -> 2
+		 * SEX_MALE:    1 -> 0
+		 * SEX_FEMALE:  2 -> 1
+		 * SEX_PLURAL:  3 -> 3
+		 */
+		if (fnum != SEX_PLURAL)
+			fnum = (fnum + 2) % 3;
 		break;
 
 	case RULES_QTY:

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.190 1999-05-21 13:04:26 fjoe Exp $
+ * $Id: merc.h,v 1.191 1999-05-21 14:30:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -727,7 +727,7 @@ enum {
 	SEX_FEMALE,
 	SEX_EITHER,		/* used only for NPC, means random sex
 				   in create_mob */
-	SEX_MAX = SEX_EITHER
+	SEX_PLURAL = SEX_EITHER /* used in obj genders */
 };
 
 /* AC types */
