@@ -5,7 +5,11 @@
 # this script in production use
 #
 umask 002
-port="-p 7000 -i 7001 -f 7002"
+if [ -f .ports ]; then
+	ports=`cat .ports`
+else
+	ports="-p 6666 -i 6667 -f 6668"
+fi
 sog=bin/sog
 index=1000
 cd ..
@@ -32,7 +36,7 @@ while [ 1 ]; do
 	done
 
 	echo $(($index+1)) > tmp/lastlog
-	$sog $port 2>&1 | tee $logfile
+	$sog $ports 2>&1 | tee $logfile
 	exitcode=$?
 
 	if [ -e sog.core ]; then
