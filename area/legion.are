@@ -103,7 +103,8 @@ FGJR 0 0 0 B -900 29700
 F
 stand stand male 1333
 0 0 medium unknown
-r charm 100
+m mob_fight mob_fight_demonologist 50~
+m mob_random mob_random_demonologist 100~
 #29706
 half nightwalker half-moon~
 a half-moon nightwalker~
@@ -589,6 +590,8 @@ r poison 100
 r negative 100
 r disease 100
 r charm 100
+m mob_fight mob_fight_demonologist 100~
+m mob_random mob_random_demonologist 100~
 #29733
 hooded figure nightwalker~
 a Darkstar nightwalker~
@@ -2059,7 +2062,7 @@ and rocks.
 rubble~
 a pile of rubble~
 A huge pile of rocks and rubble lie here.~
-rock~
+stone~
 trash 0 A 0
 0 0 0 0 0
 0 0 0 P

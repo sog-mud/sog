@@ -79,7 +79,8 @@ BGJOQT 0 J 0 ABL -1000 13900
 AKUX
 stand stand male 3000
 0 0 medium unknown
-r weapon 100
+m mob_fight mob_fight_demonologist 100~
+m mob_random mob_random_demonologist 100~
 #13904
 rakshasa prince~
 Daedalus, the rakshasa prince~

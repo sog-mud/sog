@@ -575,7 +575,6 @@ act("You feel yourself transported to another place.",
 transfer_char(actor, r);
 return 0;
 ~
-m mob_speech mob_speech_irin ирин~
 #229
 cat~
 the marmalade cat~

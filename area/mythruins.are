@@ -58,6 +58,30 @@ CDEFKU
 stand stand male 0
 0 0 medium unknown
 r holy 100
+m mob_greet @ all~
+int i = number_percent();
+
+if (i < 20) {
+        dofun("say", mob, "Leave here adventurer, this place is tainted by an evil that would consume you.");
+} else if (i >= 20 && i < 40) {
+        dofun("say", mob, "Stay out of here, there is an evil within the towers that not even the gods can banish");
+} else if (i >= 40 && i < 60) {
+        dofun("say", mob, "Stay clear of the dark-elves.");
+        dofun("say", mob, "They seek to reclaim this land with the power that resides here.");
+} else if (i >= 60 && i < 80) {
+        dofun("say", mob, "Watch out for the rakshasa, they fight for their survival and are deadly.");
+} else {
+        dofun("say", mob, "Leave here adventurer.");
+        dofun("say", mob, "The beholder corpse has moved into the ruins and we know not what they seek.");
+}
+return 0;
+~
+m mob_random @ 10~
+dofun("say", mob, "The evil that was once buried is returning and we must prevent it!");
+dofun("say", mob,  "We cannot allow the drow or rakshasa to meet It and join with It.");
+return 0;
+
+~
 #13703
 drow marauder~
 a drow marauder~
@@ -438,6 +462,35 @@ r charm 100
 r sound 100
 r weapon 100
 r magic 100
+m mob_give @ 13737~
+dofun("say", mob, "Your worth is proven great adventurer.");
+Obj horn = create_obj(13739, 0);
+if (horn == NULL)
+        return 0;
+obj_to_char(horn, mob);
+dofun("say", mob, "Take this artifact in your quest to slay the evil, brandish it when you face darkest evil.");
+give_obj(mob, actor, horn);
+dofun("emote", mob, "flickers for a moment then fades away.");
+return 0;
+
+~
+m mob_greet @ all~
+dofun("emote", mob, "looks at you sadly.");
+dofun("say", mob, "It is long since one came to help us, are you here to help?");
+return 0;
+
+~
+m mob_speech @ beast~
+dofun("say", mob, "The beast is dangerous beyond mortal comprehension.");
+dofun("say", mob, "Find the fallen knight in the towers and retrieve the slayer to kill the beast.");
+dofun("emote", mob, "flickers for a moment then resumes her tranquil position of waiting.");
+return 0;
+~
+m mob_speech @ yes~
+dofun("say", mob, "Bring me the head of the beast that slew my people as they fled to the seas.");
+dofun("say", mob, "It lives in the bloody waters, feeding off bones of the elves it killed as they tried to flee.");
+return 0;
+~
 #13728
 mud dweller~
 a mud dweller~
@@ -652,7 +705,7 @@ bloody shredded angel wings~
 the shredded wings of a fallen angel~
 The shredded and bloody remains of some creature's wings are here.~
 energy~
-boat CEGHMQ 0 AK
+treasure CEGHMQ 0 AK
 0 0 0 0 0
 36 200 1000 P
 f object saves -8 0
@@ -660,6 +713,34 @@ f object hp 50 0
 f affects none 0 T
 f object hitroll 2 0
 f object damroll 2 0
+m obj_wear @ 100~
+act("$n's shredded wings slowly beat and $gn{his} feet rise of the ground.",
+    actor, NULL, NULL, TO_ROOM);
+act("Your shredded angel wings slowly beat and your feet rise off the ground.",
+    actor, NULL, NULL, TO_CHAR);
+return 0;
+~
+m obj_remove @ 100~
+act("$n slowly floats back to the ground.", actor , NULL, NULL, TO_ROOM);
+act("Your feet slowly float back to the ground.", actor, NULL, NULL, TO_CHAR);
+return 0;
+~
+m obj_fight @ 6~
+Char victim = get_random_fighting(actor);
+
+int dam = calc_spell_damage(actor, actor->level, "windwall");
+if (saves_spell(actor->level, victim, DAM_AIR))
+        dam /= 2;
+
+act("The shredded wings on your back unfold and beat with savage force!",
+    actor, NULL, NULL, TO_CHAR);
+act("The shredded wings on $n's back unfold and beat with savage force!",
+    actor, NULL, NULL, TO_ROOM);
+
+damage(actor, victim, dam, "windwall",  DAM_F_SHOW);
+return 0;
+
+~
 #13712
 horns bane~
 the horns of Bane~
@@ -782,6 +863,34 @@ armor CEFGHIJLMQ 0 AM
 33 20 1328 P
 f object saves -5 0
 f object hp 30 0
+m obj_sac @ 100~
+if (is_evil(actor))
+        return 1;
+
+act("A white light slowly surrounds $p as the soul is damned elf is freed.",
+    actor, obj, NULL, TO_ALL);
+extract_obj(obj, 0);
+
+Obj bracelet = create_obj(13725, 0);
+if (bracelet == NULL)
+        return 1;
+
+obj_to_char(bracelet, actor);
+act("When the glow fades $p has miraculously taken it's place!",
+    actor, bracelet, NULL, TO_ALL);
+return 1;
+~
+m obj_fight @ 30~
+Char victim = actor->fighting;
+
+if (!is_good(victim))
+        return 0;
+
+act("The blood on $n's $p hisses and steams.", actor, obj, NULL, TO_ROOM);
+act("The blood on your $p hisses and steams.", actor, obj, NULL, TO_CHAR);
+spellfun("dispel good", NULL, actor->level, actor, victim);
+return 0;
+~
 E
 circle bracelet frozen blood elf~
 The blood is congealed and disgustingly frozen, yet there almost seems to be
@@ -833,6 +942,17 @@ armor AGIKL 0 AM
 30 20 1321 P
 f object saves -5 0
 f object hp 30 0
+m obj_fight @ 30~
+Char victim = actor->fighting;
+
+if (!is_evil(victim))
+        return 0;
+
+act("The hair on $n's $p shimmers softly.", actor, obj, NULL, TO_ROOM);
+act("The hair on your $p shimmers softly.", actor, obj, NULL, TO_CHAR);
+spellfun("dispel evil", NULL, actor->level, actor, victim);
+        return 0;
+~
 #13727
 stone club~
 a stone club~

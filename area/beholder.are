@@ -294,6 +294,23 @@ f object hp 30 0
 f object mana 25 0
 f object damroll 2 0
 f object saving_spell -6 0
+m obj_wear @ 100~
+if (is_npc(actor))
+        return 0;
+
+act_char("You feel a darkness converge your soul.", actor);
+if (saves_spell(obj->level, actor, DAM_OTHER))
+        return 0;
+
+if (is_sn_affected(actor, "blindness"))
+        affect_strip(actor, "blindness");
+
+affect_char(actor, TO_AFFECTS, "blindness", obj->level, -1,
+            APPLY_HITROLL, -3, AFF_BLIND);
+act("A veil of darkness seems to cover $n's eyes.", actor, NULL, NULL, TO_ROOM);
+act_char("You can't see a thing!", actor);
+return 0;
+~
 E
 zhentil black robes~
 The robes are covered in the symbols of the lord of darkness and hum softly

@@ -4746,7 +4746,7 @@ Syntax: {calist lang{x
 Syntax: {calist liquid{x
 Syntax: {calist material{x
 Syntax: {calist mobile{x {{ {call{x | <name> }
-Syntax: {calist mpcode{x [ {call{x ]
+Syntax: {calist mprog{x [ {call{x ]
 Syntax: {calist msg{x <substring>
 Syntax: {calist object{x {{ {call{x | <name> | <item type> }
 Syntax: {calist race{x
@@ -4847,7 +4847,7 @@ Syntax: {cedit lang{x <name>
 Syntax: {cedit liquid{x <name>
 Syntax: {cedit material{x <name>
 Syntax: {cedit mobile{x <vnum>
-Syntax: {cedit mpcode{x <vnum>
+Syntax: {cedit mprog{x <name>
 Syntax: {cedit msg{x [<num>.]<substr>
 Syntax: {cedit object{x <vnum>
 Syntax: {cedit race{x <name>
@@ -7450,6 +7450,7 @@ of ticks can be viewed by entering this command without arguments.
 ~
 0 'OLC TRIG'~
 Syntax: {ctrig{x {cadd{x <type> [name [arg]]
+Syntax: {ctrig{x {cadd{x <type> @@ [arg]
 Syntax: {ctrig{x {cdelete{x <num>
 Syntax: {ctrig{x {carg{x <num> arg
 
@@ -7462,8 +7463,9 @@ Syntax: {ctrig{x {cflags{x <num> <flags>
  
 <flags> are mprog flags, Use '?' to get list of valid mprog flags.
 
-If `name' is omitted in {ctrig{x {cadd{x, inline trigger is created.
-{ctrig{x {cshow/edit/compile/flags{x can be used to show/edit/compile
+If `name' is omitted in {ctrig{x {cadd{x or the second form of {ctrig{x {cadd{x
+is used (where "@@" is specified instead of name), inline trigger is created.
+{ctrig{x {cshow/edit/compile/flags'{x can be used to show/edit/compile
 inline trigger mprog or set its flags.
 ~
 0 COMPRESS~

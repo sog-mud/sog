@@ -12,9 +12,9 @@ End
 spirit mage~
 a spirit mage~
 A transparent figure in flowing robes stands here.~
-This figure appears almost tangible, yet not quite. Something about it's face
-seems to show despair and anger, although if it is directed at you is unsure.
-All you know is that it appears to be guarding the way past.
+This figure appears almost tangible, yet not quite.  Something about it's
+face seems to show despair and anger, although if it is directed at you is
+unsure.  All you know is that it appears to be guarding the way past.  
 ~
 human~
 FJR 0 U 0 ABL 0 26130
@@ -23,8 +23,6 @@ FJR 0 U 0 ABL 0 26130
 FKU
 stand stand none 0
 I 0 medium unknown
-r negative 100
-r charm 100
 m mob_fight mob_fight_cast_mage 100~
 #26131
 blue ghost~
@@ -34,18 +32,13 @@ The energy around this figure is so strong that it has formed a permenant blue
 aura of crackling power. It raises it's withered hand and points at you,
 sending sizzling blue energy through the air!
 ~
-human~
+ghost~
 BGJR 0 0 0 AHKL -1000 26130
 45 0 25d10+4000 1d1+1000 6d6+20 'magic'
 -20 -20 -20 -20
 FKUWX
 stand stand male 0
-I 0 medium unknown
-r poison 100
-r negative 100
-r disease 100
-r charm 100
-r magic 100
+0 0 medium unknown
 m mob_fight mob_fight_cast_mage 100~
 #26132
 elven lich archmage~
@@ -64,7 +57,6 @@ BJOQ 0 J 0 ABL -1000 26130
 AKX
 stand stand male 0
 0 0 medium unknown
-r magic 100
 m mob_fight mob_fight_cast_mage 100~
 #26133
 witch queen~
@@ -82,11 +74,6 @@ BJRT 0 J 0 ABL -1000 26130
 AEFKX
 stand stand female 0
 I 0 medium unknown
-r poison 100
-r negative 100
-r disease 100
-r charm 100
-r magic 100
 m mob_fight mob_fight_cast_mage 100~
 #26134
 devil familiar~
@@ -102,7 +89,6 @@ BGJT 0 0 0 ABL -1000 26130
 ACDEKOX
 stand stand none 0
 0 0 giant unknown
-r charm 100
 #26160
 spirit priest~
 a spirit priest~
@@ -118,9 +104,7 @@ FGJQT 0 T G ABL -1000 26160
 FGKU
 stand stand none 0
 I 0 medium unknown
-r negative 100
 r holy 100
-r charm 100
 m mob_fight mob_fight_cast_cleric 100~
 #0
 
@@ -237,10 +221,10 @@ joined the black tower will reveal it's secrets..~
 #ROOMS
 #26130
 Entrance to the Blue tower~
-You are standing within the confines of a tower built from blue tinged stones.
-The colour seems to almost glow with power as if magic were stored within the
-very walls themselves. The hallway leads east into the tower, and there is
-a large blue door in the west wall.
+You are standing within the confines of a tower built from blue tinged
+stones.  The colour seems to almost glow with power as if magic were stored
+within the very walls themselves.  The hallway leads east into the tower,
+and there is a large blue door in the west wall.  
 ~
 0 D inside
 D1
@@ -273,13 +257,13 @@ Z 0 26136
 S
 #26132
 A room bathed in blue light~
-You are standing in the middle of what feels like a warm sea of blue light. At
-first glance it would appear to be some sort of physical substance hanging in
-the air, but after being in it for just a short time you come to understand
-that it is pure energy that you are bathed in. Somehow the tower itself is not
-physically existing, but merely the product of so much magical force that it
-is solid enough to walk on and feel.Above you a column of searing blue light
-can be seen.
+You are standing in the middle of what feels like a warm sea of blue
+light.  At first glance it would appear to be some sort of physical
+substance hanging in the air, but after being in it for just a short time
+you come to understand that it is pure energy that you are bathed in. 
+Somehow the tower itself is not physically existing, but merely the product
+of so much magical force that it is solid enough to walk on and feel.  Above
+you a column of searing blue light can be seen.  
 ~
 0 0 inside
 D1
@@ -306,12 +290,12 @@ Z 0 26141
 S
 #26133
 A room bathed in blue light~
-You are standing in the middle of what feels like a warm sea of blue light. At
-first glance it would appear to be some sort of physical substance hanging in
-the air, but after being in it for just a short time you come to understand
-that it is pure energy that you are bathed in. Somehow the tower itself is not
-physically existing, but merely the product of so much magical force that it
-is solid enough to walk on and feel.
+You are standing in the middle of what feels like a warm sea of blue
+light.  At first glance it would appear to be some sort of physical
+substance hanging in the air, but after being in it for just a short time
+you come to understand that it is pure energy that you are bathed in. 
+Somehow the tower itself is not physically existing, but merely the product
+of so much magical force that it is solid enough to walk on and feel.  
 ~
 0 0 inside
 D1
@@ -338,14 +322,13 @@ Z 0 26132
 S
 #26134
 A room bathed in blue light~
-You are standing in the middle of what feels like a warm sea of blue light. At
-first glance it would appear to be some sort of physical substance hanging in
-the air, but after being in it for just a short time you come to understand
-that it is pure energy that you are bathed in. Somehow the tower itself is not
-physically existing, but merely the product of so much magical force that it
-is solid enough to walk on and feel. Above you a column of searing blue light
-can be seen.
-
+You are standing in the middle of what feels like a warm sea of blue
+light.  At first glance it would appear to be some sort of physical
+substance hanging in the air, but after being in it for just a short time
+you come to understand that it is pure energy that you are bathed in. 
+Somehow the tower itself is not physically existing, but merely the product
+of so much magical force that it is solid enough to walk on and feel.  Above
+you a column of searing blue light can be seen.  
 ~
 0 0 inside
 D2
@@ -372,12 +355,12 @@ Z 0 26143
 S
 #26135
 A room bathed in blue light~
-You are standing in the middle of what feels like a warm sea of blue light. At
-first glance it would appear to be some sort of physical substance hanging in
-the air, but after being in it for just a short time you come to understand
-that it is pure energy that you are bathed in. Somehow the tower itself is not
-physically existing, but merely the product of so much magical force that it
-is solid enough to walk on and feel.
+You are standing in the middle of what feels like a warm sea of blue
+light.  At first glance it would appear to be some sort of physical
+substance hanging in the air, but after being in it for just a short time
+you come to understand that it is pure energy that you are bathed in. 
+Somehow the tower itself is not physically existing, but merely the product
+of so much magical force that it is solid enough to walk on and feel.  
 ~
 0 0 inside
 D0
@@ -403,13 +386,13 @@ Z 0 26138
 S
 #26136
 A room bathed in blue light~
-You are standing in the middle of what feels like a warm sea of blue light. At
-first glance it would appear to be some sort of physical substance hanging in
-the air, but after being in it for just a short time you come to understand
-that it is pure energy that you are bathed in. Somehow the tower itself is not
-physically existing, but merely the product of so much magical force that it
-is solid enough to walk on and feel. There is a column of searing blue light
-coming from the roof here.
+You are standing in the middle of what feels like a warm sea of blue
+light.  At first glance it would appear to be some sort of physical
+substance hanging in the air, but after being in it for just a short time
+you come to understand that it is pure energy that you are bathed in. 
+Somehow the tower itself is not physically existing, but merely the product
+of so much magical force that it is solid enough to walk on and feel.  There
+is a column of searing blue light coming from the roof here.  
 ~
 0 0 inside
 D0
@@ -441,12 +424,12 @@ Z 0 26135
 S
 #26137
 A room bathed in blue light~
-You are standing in the middle of what feels like a warm sea of blue light. At
-first glance it would appear to be some sort of physical substance hanging in
-the air, but after being in it for just a short time you come to understand
-that it is pure energy that you are bathed in. Somehow the tower itself is not
-physically existing, but merely the product of so much magical force that it
-is solid enough to walk on and feel.
+You are standing in the middle of what feels like a warm sea of blue
+light.  At first glance it would appear to be some sort of physical
+substance hanging in the air, but after being in it for just a short time
+you come to understand that it is pure energy that you are bathed in. 
+Somehow the tower itself is not physically existing, but merely the product
+of so much magical force that it is solid enough to walk on and feel.  
 ~
 0 0 inside
 D0
@@ -473,14 +456,13 @@ Z 0 26136
 S
 #26138
 A room bathed in blue light~
-You are standing in the middle of what feels like a warm sea of blue light. At
-first glance it would appear to be some sort of physical substance hanging in
-the air, but after being in it for just a short time you come to understand
-that it is pure energy that you are bathed in. Somehow the tower itself is not
-physically existing, but merely the product of so much magical force that it
-is solid enough to walk on and feel. Above you a column of searing blue light
-can be seen.
-
+You are standing in the middle of what feels like a warm sea of blue
+light.  At first glance it would appear to be some sort of physical
+substance hanging in the air, but after being in it for just a short time
+you come to understand that it is pure energy that you are bathed in. 
+Somehow the tower itself is not physically existing, but merely the product
+of so much magical force that it is solid enough to walk on and feel.  Above
+you a column of searing blue light can be seen.  
 ~
 0 0 inside
 D0
@@ -507,12 +489,12 @@ Z 0 26147
 S
 #26139
 A room bathed in blue light~
-You are standing in the middle of what feels like a warm sea of blue light. At
-first glance it would appear to be some sort of physical substance hanging in
-the air, but after being in it for just a short time you come to understand
-that it is pure energy that you are bathed in. Somehow the tower itself is not
-physically existing, but merely the product of so much magical force that it
-is solid enough to walk on and feel.
+You are standing in the middle of what feels like a warm sea of blue
+light.  At first glance it would appear to be some sort of physical
+substance hanging in the air, but after being in it for just a short time
+you come to understand that it is pure energy that you are bathed in. 
+Somehow the tower itself is not physically existing, but merely the product
+of so much magical force that it is solid enough to walk on and feel.  
 ~
 0 0 inside
 D0

@@ -2133,7 +2133,7 @@ drink 0 0 A
 Blasphemy two-handed sword~
 the two-handed sword named "Blasphemy"~
 A two-handed sword with the word "Blasphemy" engraved on the blade.~
-none~
+steel~
 weapon CEG 0 AN
 sword 6 6 'flbite' AF
 25 485 3788 P
@@ -2308,7 +2308,7 @@ a potion of negation~
 A potion of negation is here.~
 glass~
 potion BG 0 AO
-35 'cancellation' '' '' ''
+35 'dispel magic' '' '' ''
 9 10 700 P
 #812
 potion fly flying~
@@ -2364,7 +2364,7 @@ a scroll of magic food~
 An old scroll has been left here.~
 paper~
 scroll 0 0 A
-20 'create mushroom' 'create mushroom' 'create mushroom' 'create spring'
+20 'create food' 'create food' 'create food' 'create spring'
 10 0 1300 P
 #818
 wand wind~

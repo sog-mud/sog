@@ -1216,7 +1216,6 @@ sleep stand male 1000
 r charm 100
 r weapon 33
 r magic 33
-m mob_random mob_random_mayor 100~
 #3144
 crier плакальщик~
 @eng the town crier@rus ~~городской~~ ~~плакальщик~~~
