@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.62 1998-08-14 03:36:20 fjoe Exp $
+ * $Id: fight.c,v 1.63 1998-08-14 05:45:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1262,7 +1262,7 @@ handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 	raw_kill(ch, victim);
 
 	/*
-	 * handle PC death (from NPC or being WANTED)
+	 * handle PC death (from NPC or being MSG_WANTED)
 	 */
 	if (!IS_NPC(victim)
 	&&  (victim == ch ||
@@ -2618,7 +2618,7 @@ void do_kill(CHAR_DATA *ch, const char *argument)
 	}
 
 	if ((victim = get_char_room(ch, arg)) == NULL) {
-		char_nputs(THEY_ARENT_HERE, ch);
+		char_nputs(MSG_THEY_ARENT_HERE, ch);
 		return;
 	}
 
@@ -2688,7 +2688,7 @@ void do_murder(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if ((victim = get_char_room(ch, arg)) == NULL) {
-		char_nputs(THEY_ARENT_HERE, ch);
+		char_nputs(MSG_THEY_ARENT_HERE, ch);
 		return;
 	}
 
@@ -2784,9 +2784,9 @@ void do_flee(CHAR_DATA *ch, const char *argument)
 		ch->in_room = now_in;
 
 		if (!IS_NPC(ch)) {
-			char_nputs(YOU_FLED_FROM_COMBAT, ch);
+			char_nputs(MSG_YOU_FLED_FROM_COMBAT, ch);
 			if (ch->level < LEVEL_HERO) {
-				char_nprintf(ch, YOU_LOSE_D_EXPS, 10);
+				char_nprintf(ch, MSG_YOU_LOSE_D_EXPS, 10);
 				gain_exp(ch, -10);
 			}
 		} else
@@ -2796,7 +2796,7 @@ void do_flee(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	char_nputs(COULDNT_ESCAPE, ch);
+	char_nputs(MSG_COULDNT_ESCAPE, ch);
 	return;
 }
 
@@ -2822,7 +2822,7 @@ void do_slay(CHAR_DATA *ch, const char *argument)
 	}
 
 	if ((victim = get_char_room(ch, arg)) == NULL) {
-		char_nputs(THEY_ARENT_HERE, ch);
+		char_nputs(MSG_THEY_ARENT_HERE, ch);
 		return;
 	}
 
@@ -2946,7 +2946,7 @@ void do_dishonor(CHAR_DATA *ch, const char *argument)
 			send_to_char("You dishonored yourself "
 				     "and flee from combat.\n\r",ch);
 			if (ch->level < LEVEL_HERO) {
-				char_nprintf(ch, YOU_LOSE_D_EXPS, ch->level);
+				char_nprintf(ch, MSG_YOU_LOSE_D_EXPS, ch->level);
 				gain_exp(ch, -(ch->level));
 			}
 		}

@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.27 1998-08-14 03:36:22 fjoe Exp $
+ * $Id: martial_art.c,v 1.28 1998-08-14 05:45:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1240,7 +1240,7 @@ void do_nerve(CHAR_DATA *ch, const char *argument)
 	one_argument(argument,arg);
 
 	if ((chance = get_skill(ch, gsn_nerve)) == 0) {
-		char_nputs(HUH, ch);
+		char_nputs(MSG_HUH, ch);
 		return;
 	}
 	if (ch->fighting == NULL) {
@@ -3674,7 +3674,7 @@ void do_holler(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!(victim = get_char_world(ch, arg1))) {
-		char_nputs(THEY_ARENT_HERE, ch);
+		char_nputs(MSG_THEY_ARENT_HERE, ch);
 		return;
 	}
 

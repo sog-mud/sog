@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.58 1998-08-14 03:36:17 fjoe Exp $
+ * $Id: act_obj.c,v 1.59 1998-08-14 05:45:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -126,7 +126,7 @@ get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container)
 	     IS_SET(obj->in_room->room_flags, ROOM_BATTLE_ARENA) &&
 	     obj->from != NULL &&
 	     str_cmp(ch->name, obj->from))) {
-		char_nputs(YOU_CANT_TAKE_THAT, ch);
+		char_nputs(MSG_YOU_CANT_TAKE_THAT, ch);
 		return;
 	}
 
@@ -136,22 +136,22 @@ get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container)
 		||  (IS_OBJ_STAT(obj, ITEM_ANTI_GOOD) && IS_GOOD(ch))
 		||  (IS_OBJ_STAT(obj, ITEM_ANTI_NEUTRAL) && IS_NEUTRAL(ch))) {
 			act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
-				    YOU_ZAPPED_BY_P);
+				    MSG_YOU_ZAPPED_BY_P);
 			act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING,
-				    N_ZAPPED_BY_P);
+				    MSG_N_ZAPPED_BY_P);
 			return;
 		}
 	}
 
 	if (ch->carry_number + get_obj_number(obj) > can_carry_n(ch)) {
 		act_nprintf(ch, NULL, obj->name, TO_CHAR, POS_DEAD,
-			    CANT_CARRY_ITEMS);
+			    MSG_CANT_CARRY_ITEMS);
 		return;
 	}
 
 	if (get_carry_weight(ch) + get_obj_weight(obj) > can_carry_w(ch)) {
 		act_nprintf(ch, NULL, obj->name, TO_CHAR, POS_DEAD,
-			    CANT_CARRY_WEIGHT);
+			    MSG_CANT_CARRY_WEIGHT);
 		return;
 	}
 
@@ -160,7 +160,7 @@ get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container)
 		     gch = gch->next_in_room)
 			if (gch->on == obj) {
 				act_nprintf(ch, obj, gch, TO_CHAR, POS_DEAD,
-					    N_APPEARS_USING);
+					    MSG_N_APPEARS_USING);
 				return;
 			}
 	}
@@ -174,10 +174,10 @@ get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container)
 		    || container->pIndexData->vnum == OBJ_VNUM_LIONS_ALTAR
 		    || container->pIndexData->vnum == OBJ_VNUM_HUNTER_ALTAR) {
 			act_nprintf(ch, obj, container, TO_CHAR, POS_DEAD,
-				    YOU_GET_P_FROM_P);
+				    MSG_YOU_GET_P_FROM_P);
 			if (!IS_AFFECTED(ch, AFF_SNEAK))
 				act_nprintf(ch, obj, container, TO_ROOM,
-					    POS_RESTING, N_GETS_P_FROM_P);
+					    POS_RESTING, MSG_N_GETS_P_FROM_P);
 			obj_from_obj(obj);
 			act("$p fades to black, then dissapears!", ch,
 			    container, NULL, TO_ROOM);
@@ -194,17 +194,17 @@ get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container)
 		&&  !IS_OBJ_STAT(obj, ITEM_HAD_TIMER))
 			obj->timer = 0;
 		act_nprintf(ch, obj, container, TO_CHAR, POS_DEAD,
-			    YOU_GET_P_FROM_P);
+			    MSG_YOU_GET_P_FROM_P);
 		if (!IS_AFFECTED(ch, AFF_SNEAK))
 			act_nprintf(ch, obj, container, TO_ROOM,
-				    POS_RESTING, N_GETS_P_FROM_P);
+				    POS_RESTING, MSG_N_GETS_P_FROM_P);
 		REMOVE_BIT(obj->extra_flags, ITEM_HAD_TIMER);
 		obj_from_obj(obj);
 	} else {
-		act_nprintf(ch, obj, container, TO_CHAR, POS_DEAD, YOU_GET_P);
+		act_nprintf(ch, obj, container, TO_CHAR, POS_DEAD, MSG_YOU_GET_P);
 		if (!IS_AFFECTED(ch, AFF_SNEAK))
 			act_nprintf(ch, obj, container, TO_ROOM, POS_RESTING,
-				    N_GETS_P);
+				    MSG_N_GETS_P);
 		obj_from_room(obj);
 	}
 
@@ -212,7 +212,7 @@ get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container)
 		if (get_carry_weight(ch) + obj->value[0] / 10
 		    + obj->value[1] * 2 / 5 > can_carry_w(ch)) {
 			act_nprintf(ch, NULL, obj->name, TO_CHAR, POS_DEAD,
-				    CANT_CARRY_WEIGHT);
+				    MSG_CANT_CARRY_WEIGHT);
 			if (container)
 				obj_to_obj(obj, container);
 			return;
@@ -259,7 +259,7 @@ do_get(CHAR_DATA * ch, const char *argument)
 
 	/* Get type. */
 	if (arg1[0] == '\0') {
-		char_nputs(GET_WHAT, ch);
+		char_nputs(MSG_GET_WHAT, ch);
 		return;
 	}
 	if (arg2[0] == '\0') {
@@ -268,7 +268,7 @@ do_get(CHAR_DATA * ch, const char *argument)
 			obj = get_obj_list(ch, arg1, ch->in_room->contents);
 			if (obj == NULL) {
 				act_nprintf(ch, NULL, arg1, TO_CHAR, POS_DEAD,
-					    I_SEE_NO_T_HERE);
+					    MSG_I_SEE_NO_T_HERE);
 				return;
 			}
 
@@ -288,26 +288,26 @@ do_get(CHAR_DATA * ch, const char *argument)
 
 			if (!found) {
 				if (arg1[3] == '\0')
-					char_nputs(I_SEE_NOTHING_HERE, ch);
+					char_nputs(MSG_I_SEE_NOTHING_HERE, ch);
 				else
 					act_nprintf(ch, NULL, &arg1[4], TO_CHAR,
-						  POS_DEAD, I_SEE_NO_T_HERE);
+						  POS_DEAD, MSG_I_SEE_NO_T_HERE);
 			}
 		}
 		return;
 	}
 	/* 'get ... container' */
 	if (!str_cmp(arg2, "all") || !str_prefix("all.", arg2)) {
-		char_nputs(YOU_CANT_DO_THAT, ch);
+		char_nputs(MSG_YOU_CANT_DO_THAT, ch);
 		return;
 	}
 	if ((container = get_obj_here(ch, arg2)) == NULL) {
-		act_nprintf(ch, NULL, arg2, TO_CHAR, POS_DEAD, I_SEE_NO_T_HERE);
+		act_nprintf(ch, NULL, arg2, TO_CHAR, POS_DEAD, MSG_I_SEE_NO_T_HERE);
 		return;
 	}
 	switch (container->item_type) {
 	default:
-		char_nputs(THATS_NOT_CONTAINER, ch);
+		char_nputs(MSG_THATS_NOT_CONTAINER, ch);
 		return;
 
 	case ITEM_CONTAINER:
@@ -316,14 +316,14 @@ do_get(CHAR_DATA * ch, const char *argument)
 
 	case ITEM_CORPSE_PC:
 		if (!can_loot(ch, container)) {
-			char_nputs(YOU_CANT_DO_THAT, ch);
+			char_nputs(MSG_YOU_CANT_DO_THAT, ch);
 			return;
 		}
 	}
 
 	if (IS_SET(container->value[1], CONT_CLOSED)) {
 		act_nprintf(ch, NULL, container->name, TO_CHAR, POS_DEAD,
-			    THE_D_IS_CLOSED);
+			    MSG_THE_D_IS_CLOSED);
 		return;
 	}
 	if (str_cmp(arg1, "all") && str_prefix("all.", arg1)) {
@@ -331,7 +331,7 @@ do_get(CHAR_DATA * ch, const char *argument)
 		obj = get_obj_list(ch, arg1, container->contains);
 		if (obj == NULL) {
 			act_nprintf(ch, NULL, arg2, TO_CHAR, POS_DEAD,
-				    DONT_SEE_ANYTHING_LIKE_IN_T);
+				    MSG_DONT_SEE_ANYTHING_LIKE_IN_T);
 			return;
 		}
 		get_obj(ch, obj, container);
@@ -345,7 +345,7 @@ do_get(CHAR_DATA * ch, const char *argument)
 				found = TRUE;
 				if (container->pIndexData->vnum == OBJ_VNUM_PIT
 				    && !IS_IMMORTAL(ch)) {
-					char_nputs(DONT_BE_SO_GREEDY, ch);
+					char_nputs(MSG_DONT_BE_SO_GREEDY, ch);
 					return;
 				}
 				get_obj(ch, obj, container);
@@ -355,10 +355,10 @@ do_get(CHAR_DATA * ch, const char *argument)
 		if (!found) {
 			if (arg1[3] == '\0')
 				act_nprintf(ch, NULL, arg2, TO_CHAR, POS_DEAD,
-					    I_SEE_NOTHING_IN_T);
+					    MSG_I_SEE_NOTHING_IN_T);
 			else
 				act_nprintf(ch, NULL, arg2, TO_CHAR, POS_DEAD,
-					    DONT_SEE_ANYTHING_LIKE_IN_T);
+					    MSG_DONT_SEE_ANYTHING_LIKE_IN_T);
 		}
 	}
 }
@@ -380,47 +380,47 @@ do_put(CHAR_DATA * ch, const char *argument)
 		argument = one_argument(argument, arg2);
 
 	if (arg1[0] == '\0' || arg2[0] == '\0') {
-		char_nputs(PUT_WHAT_IN_WHAT, ch);
+		char_nputs(MSG_PUT_WHAT_IN_WHAT, ch);
 		return;
 	}
 	if (!str_cmp(arg2, "all") || !str_prefix("all.", arg2)) {
-		char_nputs(YOU_CANT_DO_THAT, ch);
+		char_nputs(MSG_YOU_CANT_DO_THAT, ch);
 		return;
 	}
 	if ((container = get_obj_here(ch, arg2)) == NULL) {
-		act_nprintf(ch, NULL, arg2, TO_CHAR, POS_DEAD, I_SEE_NO_T_HERE);
+		act_nprintf(ch, NULL, arg2, TO_CHAR, POS_DEAD, MSG_I_SEE_NO_T_HERE);
 		return;
 	}
 	if (container->item_type != ITEM_CONTAINER) {
-		char_nputs(THATS_NOT_CONTAINER, ch);
+		char_nputs(MSG_THATS_NOT_CONTAINER, ch);
 		return;
 	}
 	if (IS_SET(container->value[1], CONT_CLOSED)) {
 		act_nprintf(ch, NULL, container->name, TO_CHAR, POS_DEAD,
-			    THE_D_IS_CLOSED);
+			    MSG_THE_D_IS_CLOSED);
 		return;
 	}
 	if (str_cmp(arg1, "all") && str_prefix("all.", arg1)) {
 		/* 'put obj container' */
 		if ((obj = get_obj_carry(ch, arg1)) == NULL) {
-			char_nputs(DONT_HAVE_ITEM, ch);
+			char_nputs(MSG_DONT_HAVE_ITEM, ch);
 			return;
 		}
 		if (obj == container) {
-			char_nputs(CANT_FOLD_INTO_SELF, ch);
+			char_nputs(MSG_CANT_FOLD_INTO_SELF, ch);
 			return;
 		}
 		if (!can_drop_obj(ch, obj)) {
-			char_nputs(CANT_LET_GO_OF_IT, ch);
+			char_nputs(MSG_CANT_LET_GO_OF_IT, ch);
 			return;
 		}
 		if (WEIGHT_MULT(obj) != 100) {
-			char_nputs(THAT_WOULD_BE_BAD_IDEA, ch);
+			char_nputs(MSG_THAT_WOULD_BE_BAD_IDEA, ch);
 			return;
 		}
 		if (obj->pIndexData->limit != -1) {
 			act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
-				    UNWORTHY_CANT_HOLD);
+				    MSG_UNWORTHY_CANT_HOLD);
 			return;
 		}
 		if (IS_SET(container->value[1], CONT_FOR_ARROW)
@@ -432,7 +432,7 @@ do_put(CHAR_DATA * ch, const char *argument)
 		if (get_obj_weight(obj) + get_true_weight(container)
 		    > (container->value[0] * 10)
 		    || get_obj_weight(obj) > (container->value[3] * 10)) {
-			char_nputs(IT_WONT_FIT, ch);
+			char_nputs(MSG_IT_WONT_FIT, ch);
 			return;
 		}
 		if (obj->item_type == ITEM_POTION &&
@@ -465,14 +465,14 @@ do_put(CHAR_DATA * ch, const char *argument)
 
 		if (IS_SET(container->value[1], CONT_PUT_ON)) {
 			act_nprintf(ch, obj, container, TO_ROOM, POS_RESTING,
-				    N_PUTS_P_ON_P);
+				    MSG_N_PUTS_P_ON_P);
 			act_nprintf(ch, obj, container, TO_CHAR, POS_DEAD,
-				    YOU_PUT_P_ON_P);
+				    MSG_YOU_PUT_P_ON_P);
 		} else {
 			act_nprintf(ch, obj, container, TO_ROOM, POS_RESTING,
-				    N_PUTS_P_IN_P);
+				    MSG_N_PUTS_P_IN_P);
 			act_nprintf(ch, obj, container, TO_CHAR, POS_DEAD,
-				    YOU_PUT_P_IN_P);
+				    MSG_YOU_PUT_P_IN_P);
 		}
 	} else {
 		pcount = 0;
@@ -501,7 +501,7 @@ do_put(CHAR_DATA * ch, const char *argument)
 
 				if (obj->pIndexData->limit != -1) {
 					act_nprintf(ch, obj, NULL, TO_CHAR,
-						  POS_DEAD, UNWORTHY_CANT_HOLD);
+						  POS_DEAD, MSG_UNWORTHY_CANT_HOLD);
 					continue;
 				}
 				if (obj->item_type == ITEM_POTION &&
@@ -525,14 +525,14 @@ do_put(CHAR_DATA * ch, const char *argument)
 
 				if (IS_SET(container->value[1], CONT_PUT_ON)) {
 					act_nprintf(ch, obj, container, TO_ROOM,
-						    POS_RESTING, N_PUTS_P_ON_P);
+						    POS_RESTING, MSG_N_PUTS_P_ON_P);
 					act_nprintf(ch, obj, container, TO_CHAR,
-						    POS_DEAD, YOU_PUT_P_ON_P);
+						    POS_DEAD, MSG_YOU_PUT_P_ON_P);
 				} else {
 					act_nprintf(ch, obj, container, TO_ROOM,
-						    POS_RESTING, N_PUTS_P_IN_P);
+						    POS_RESTING, MSG_N_PUTS_P_IN_P);
 					act_nprintf(ch, obj, container, TO_CHAR,
-						    POS_DEAD, YOU_PUT_P_IN_P);
+						    POS_DEAD, MSG_YOU_PUT_P_IN_P);
 				}
 			}
 		}
@@ -555,7 +555,7 @@ do_drop(CHAR_DATA * ch, const char *argument)
 	argument = one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
-		char_nputs(DROP_WHAT, ch);
+		char_nputs(MSG_DROP_WHAT, ch);
 		return;
 	}
 	if (is_number(arg)) {
@@ -566,20 +566,20 @@ do_drop(CHAR_DATA * ch, const char *argument)
 		if (amount <= 0
 		    || (str_cmp(arg, "coins") && str_cmp(arg, "coin")
 			&& str_cmp(arg, "gold") && str_cmp(arg, "silver"))) {
-			char_nputs(YOU_CANT_DO_THAT, ch);
+			char_nputs(MSG_YOU_CANT_DO_THAT, ch);
 			return;
 		}
 		if (!str_cmp(arg, "coins") || !str_cmp(arg, "coin")
 		    || !str_cmp(arg, "silver")) {
 			if (ch->silver < amount) {
-				char_nputs(DONT_HAVE_MUCH_SILVER, ch);
+				char_nputs(MSG_DONT_HAVE_MUCH_SILVER, ch);
 				return;
 			}
 			ch->silver -= amount;
 			silver = amount;
 		} else {
 			if (ch->gold < amount) {
-				char_nputs(DONT_HAVE_MUCH_GOLD, ch);
+				char_nputs(MSG_DONT_HAVE_MUCH_GOLD, ch);
 				return;
 			}
 			ch->gold -= amount;
@@ -622,8 +622,8 @@ do_drop(CHAR_DATA * ch, const char *argument)
 		obj_to_room(obj, ch->in_room);
 		if (!IS_AFFECTED(ch, AFF_SNEAK))
 			act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
-				    N_DROPS_SOME_COINS);
-		char_nputs(OK, ch);
+				    MSG_N_DROPS_SOME_COINS);
+		char_nputs(MSG_OK, ch);
 		if (IS_WATER(ch->in_room)) {
 			extract_obj(obj);
 			if (!IS_AFFECTED(ch, AFF_SNEAK))
@@ -635,18 +635,18 @@ do_drop(CHAR_DATA * ch, const char *argument)
 	if (str_cmp(arg, "all") && str_prefix("all.", arg)) {
 		/* 'drop obj' */
 		if ((obj = get_obj_carry(ch, arg)) == NULL) {
-			char_nputs(DONT_HAVE_ITEM, ch);
+			char_nputs(MSG_DONT_HAVE_ITEM, ch);
 			return;
 		}
 		if (!can_drop_obj(ch, obj)) {
-			char_nputs(CANT_LET_GO_OF_IT, ch);
+			char_nputs(MSG_CANT_LET_GO_OF_IT, ch);
 			return;
 		}
 		obj_from_char(obj);
 		obj_to_room(obj, ch->in_room);
 		if (!IS_AFFECTED(ch, AFF_SNEAK))
-			act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING, N_DROPS_P);
-		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, YOU_DROP_P);
+			act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING, MSG_N_DROPS_P);
+		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, MSG_YOU_DROP_P);
 		if (obj->pIndexData->vnum == OBJ_VNUM_POTION_VIAL &&
 		    number_percent() < 40)
 			if (!IS_SET(ch->in_room->sector_type, SECT_FOREST) &&
@@ -686,8 +686,8 @@ do_drop(CHAR_DATA * ch, const char *argument)
 				obj_from_char(obj);
 				obj_to_room(obj, ch->in_room);
 				if (!IS_AFFECTED(ch, AFF_SNEAK))
-					act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING, N_DROPS_P);
-				act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, YOU_DROP_P);
+					act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING, MSG_N_DROPS_P);
+				act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, MSG_YOU_DROP_P);
 				if (obj->pIndexData->vnum == OBJ_VNUM_POTION_VIAL &&
 				    number_percent() < 70)
 					if (!IS_SET(ch->in_room->sector_type, SECT_FOREST) &&
@@ -828,7 +828,7 @@ do_give(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 	if ((obj = get_obj_carry(ch, arg1)) == NULL) {
-		char_nputs(DONT_HAVE_ITEM, ch);
+		char_nputs(MSG_DONT_HAVE_ITEM, ch);
 		return;
 	}
 	if (obj->wear_loc != WEAR_NONE) {
@@ -1054,7 +1054,7 @@ do_pour(CHAR_DATA * ch, const char *argument)
 	}
 	if (!str_cmp(argument, "out")) {
 		if (out->value[1] == 0) {
-			char_nputs(IT_IS_EMPTY, ch);
+			char_nputs(MSG_IT_IS_EMPTY, ch);
 			return;
 		}
 		out->value[1] = 0;
@@ -1149,23 +1149,23 @@ do_drink(CHAR_DATA * ch, const char *argument)
 		}
 
 		if (obj == NULL) {
-			char_nputs(DRINK_WHAT, ch);
+			char_nputs(MSG_DRINK_WHAT, ch);
 			return;
 		}
 	} else {
 		if ((obj = get_obj_here(ch, arg)) == NULL) {
-			char_nputs(CANT_FIND_IT, ch);
+			char_nputs(MSG_CANT_FIND_IT, ch);
 			return;
 		}
 	}
 
 	if (!IS_NPC(ch) && ch->pcdata->condition[COND_DRUNK] > 10) {
-		char_nputs(FAIL_TO_REACH_MOUTH, ch);
+		char_nputs(MSG_FAIL_TO_REACH_MOUTH, ch);
 		return;
 	}
 	switch (obj->item_type) {
 	default:
-		char_nputs(CANT_DRINK_FROM_THAT, ch);
+		char_nputs(MSG_CANT_DRINK_FROM_THAT, ch);
 		return;
 
 	case ITEM_FOUNTAIN:
@@ -1178,7 +1178,7 @@ do_drink(CHAR_DATA * ch, const char *argument)
 
 	case ITEM_DRINK_CON:
 		if (obj->value[1] <= 0) {
-			char_nputs(IT_IS_EMPTY, ch);
+			char_nputs(MSG_IT_IS_EMPTY, ch);
 			return;
 		}
 		if ((liquid = obj->value[2]) < 0) {
@@ -1191,13 +1191,13 @@ do_drink(CHAR_DATA * ch, const char *argument)
 	}
 	if (!IS_NPC(ch) && !IS_IMMORTAL(ch)
 	    && ch->pcdata->condition[COND_FULL] > 80) {
-		char_nputs(TOO_FULL_TO_DRINK, ch);
+		char_nputs(MSG_TOO_FULL_TO_DRINK, ch);
 		return;
 	}
 	act_nprintf(ch, obj, liq_table[liquid].liq_name, TO_ROOM, POS_RESTING,
-		    N_DRINKS_T_FROM_P);
+		    MSG_N_DRINKS_T_FROM_P);
 	act_nprintf(ch, obj, liq_table[liquid].liq_name, TO_CHAR, POS_DEAD,
-		    YOU_DRINK_T_FROM_P);
+		    MSG_YOU_DRINK_T_FROM_P);
 
 	if (ch->fighting != NULL)
 		WAIT_STATE(ch, 3 * PULSE_VIOLENCE);
@@ -1212,18 +1212,18 @@ do_drink(CHAR_DATA * ch, const char *argument)
 		     amount * liq_table[liquid].liq_affect[COND_HUNGER] / 1);
 
 	if (!IS_NPC(ch) && ch->pcdata->condition[COND_DRUNK] > 10)
-		char_nputs(YOU_FEEL_DRUNK, ch);
+		char_nputs(MSG_YOU_FEEL_DRUNK, ch);
 	if (!IS_NPC(ch) && ch->pcdata->condition[COND_FULL] > 60)
-		char_nputs(YOU_ARE_FULL, ch);
+		char_nputs(MSG_YOU_ARE_FULL, ch);
 	if (!IS_NPC(ch) && ch->pcdata->condition[COND_THIRST] > 60)
-		char_nputs(YOUR_THIRST_QUENCHED, ch);
+		char_nputs(MSG_YOUR_THIRST_QUENCHED, ch);
 
 	if (obj->value[3] != 0) {
 		/* The drink was poisoned ! */
 		AFFECT_DATA     af;
 		act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
-			    N_CHOKES_GAGS);
-		char_nputs(YOU_CHOKE_GAG, ch);
+			    MSG_N_CHOKES_GAGS);
+		char_nputs(MSG_YOU_CHOKE_GAG, ch);
 		af.where = TO_AFFECTS;
 		af.type = gsn_poison;
 		af.level = number_fuzzy(amount);
@@ -1249,26 +1249,26 @@ do_eat(CHAR_DATA * ch, const char *argument)
 
 	one_argument(argument, arg);
 	if (arg[0] == '\0') {
-		char_nputs(EAT_WHAT, ch);
+		char_nputs(MSG_EAT_WHAT, ch);
 		return;
 	}
 	if ((obj = get_obj_carry(ch, arg)) == NULL) {
-		char_nputs(DONT_HAVE_ITEM, ch);
+		char_nputs(MSG_DONT_HAVE_ITEM, ch);
 		return;
 	}
 	if (!IS_IMMORTAL(ch)) {
 		if (obj->item_type != ITEM_FOOD
 		&& obj->item_type != ITEM_PILL) {
-			char_nputs(NOT_EDIBLE, ch);
+			char_nputs(MSG_NOT_EDIBLE, ch);
 			return;
 		}
 		if (!IS_NPC(ch) && ch->pcdata->condition[COND_FULL] > 80) {
-			char_nputs(TOO_FULL_TO_EAT, ch);
+			char_nputs(MSG_TOO_FULL_TO_EAT, ch);
 			return;
 		}
 	}
-	act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING, N_EATS_P);
-	act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, YOU_EAT_P);
+	act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING, MSG_N_EATS_P);
+	act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, MSG_YOU_EAT_P);
 	if (ch->fighting != NULL)
 		WAIT_STATE(ch, 3 * PULSE_VIOLENCE);
 
@@ -1282,16 +1282,16 @@ do_eat(CHAR_DATA * ch, const char *argument)
 			gain_condition(ch, COND_HUNGER, obj->value[1] * 2);
 			if (!condition
 			&& ch->pcdata->condition[COND_HUNGER] > 0)
-				char_nputs(NO_LONGER_HUNGRY, ch);
+				char_nputs(MSG_NO_LONGER_HUNGRY, ch);
 			else if (ch->pcdata->condition[COND_FULL] > 60)
-				char_nputs(YOU_ARE_FULL, ch);
+				char_nputs(MSG_YOU_ARE_FULL, ch);
 		}
 		if (obj->value[3] != 0) {
 			/* The food was poisoned! */
 			AFFECT_DATA     af;
 			act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
-				    N_CHOKES_GAGS);
-			char_nputs(YOU_CHOKE_GAG, ch);
+				    MSG_N_CHOKES_GAGS);
+			char_nputs(MSG_YOU_CHOKE_GAG, ch);
 
 			af.where = TO_AFFECTS;
 			af.type = gsn_poison;
@@ -1331,12 +1331,12 @@ remove_obj(CHAR_DATA * ch, int iWear, bool fReplace)
 		return FALSE;
 
 	if (IS_SET(obj->extra_flags, ITEM_NOREMOVE)) {
-		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, CANT_REMOVE_IT);
+		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, MSG_CANT_REMOVE_IT);
 		return FALSE;
 	}
 	if ((obj->item_type == ITEM_TATTOO) && (!IS_IMMORTAL(ch))) {
 		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
-			    YOU_MUST_SCRATCH_TO_REMOVE);
+			    MSG_YOU_MUST_SCRATCH_TO_REMOVE);
 		return FALSE;
 	}
 	if (iWear == WEAR_STUCK_IN) {
@@ -1349,15 +1349,15 @@ remove_obj(CHAR_DATA * ch, int iWear, bool fReplace)
 				affect_strip(ch, gsn_spear);
 		}
 		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
-			    YOU_REMOVE_P_IN_PAIN);
+			    MSG_YOU_REMOVE_P_IN_PAIN);
 		act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING,
-			    N_REMOVES_P_IN_PAIN);
+			    MSG_N_REMOVES_P_IN_PAIN);
 		WAIT_STATE(ch, 4);
 		return TRUE;
 	}
 	unequip_char(ch, obj);
-	act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING, N_STOPS_USING_P);
-	act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, YOU_STOP_USING_P);
+	act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING, MSG_N_STOPS_USING_P);
+	act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, MSG_YOU_STOP_USING_P);
 
 	if (iWear == WEAR_WIELD
 	    && (obj = get_eq_char(ch, WEAR_SECOND_WIELD)) != NULL) {
@@ -1383,18 +1383,18 @@ wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 		wear_level += 3;
 
 	if (wear_level < obj->level) {
-		char_printf(ch, msg(MUST_BE_LEVEL_TO_USE, ch), obj->level);
+		char_printf(ch, msg(MSG_MUST_BE_LEVEL_TO_USE, ch), obj->level);
 		act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING,
-			    N_TRIES_TO_USE);
+			    MSG_N_TRIES_TO_USE);
 		return;
 	}
 	if (obj->item_type == ITEM_LIGHT) {
 		if (!remove_obj(ch, WEAR_LIGHT, fReplace))
 			return;
 		act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING,
-			    N_LIGHTS_P_HOLD);
+			    MSG_N_LIGHTS_P_HOLD);
 		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
-			    YOU_LIGHT_P_HOLD);
+			    MSG_YOU_LIGHT_P_HOLD);
 		equip_char(ch, obj, WEAR_LIGHT);
 		return;
 	}
@@ -1407,22 +1407,22 @@ wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 
 		if (get_eq_char(ch, WEAR_FINGER_L) == NULL) {
 			act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING,
-				    N_WEARS_P_LEFT_FINGER);
+				    MSG_N_WEARS_P_LEFT_FINGER);
 			act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
-				    YOU_WEAR_P_LEFT_FINGER);
+				    MSG_YOU_WEAR_P_LEFT_FINGER);
 			equip_char(ch, obj, WEAR_FINGER_L);
 			return;
 		}
 		if (get_eq_char(ch, WEAR_FINGER_R) == NULL) {
 			act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING,
-				    N_WEARS_P_RIGHT_FINGER);
+				    MSG_N_WEARS_P_RIGHT_FINGER);
 			act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
-				    YOU_WEAR_P_RIGHT_FINGER);
+				    MSG_YOU_WEAR_P_RIGHT_FINGER);
 			equip_char(ch, obj, WEAR_FINGER_R);
 			return;
 		}
 		bug("Wear_obj: no free finger.", 0);
-		char_nputs(ALREADY_WEAR_TWO_RINGS, ch);
+		char_nputs(MSG_ALREADY_WEAR_TWO_RINGS, ch);
 		return;
 	}
 	if (CAN_WEAR(obj, ITEM_WEAR_NECK)) {
@@ -1434,30 +1434,30 @@ wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 
 		if (get_eq_char(ch, WEAR_NECK_1) == NULL) {
 			act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING,
-				    N_WEARS_P_NECK);
+				    MSG_N_WEARS_P_NECK);
 			act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
-				    YOU_WEAR_P_NECK);
+				    MSG_YOU_WEAR_P_NECK);
 			equip_char(ch, obj, WEAR_NECK_1);
 			return;
 		}
 		if (get_eq_char(ch, WEAR_NECK_2) == NULL) {
 			act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING,
-				    N_WEARS_P_NECK);
+				    MSG_N_WEARS_P_NECK);
 			act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
-				    YOU_WEAR_P_NECK);
+				    MSG_YOU_WEAR_P_NECK);
 			equip_char(ch, obj, WEAR_NECK_2);
 			return;
 		}
 		bug("Wear_obj: no free neck.", 0);
-		char_nputs(ALREADY_WEAR_TWO_NECK, ch);
+		char_nputs(MSG_ALREADY_WEAR_TWO_NECK, ch);
 		return;
 	}
 	if (CAN_WEAR(obj, ITEM_WEAR_BODY)) {
 		if (!remove_obj(ch, WEAR_BODY, fReplace))
 			return;
 		act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING,
-			    N_WEARS_P_TORSO);
-		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, YOU_WEAR_P_TORSO);
+			    MSG_N_WEARS_P_TORSO);
+		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, MSG_YOU_WEAR_P_TORSO);
 		equip_char(ch, obj, WEAR_BODY);
 		return;
 	}
@@ -1465,8 +1465,8 @@ wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 		if (!remove_obj(ch, WEAR_HEAD, fReplace))
 			return;
 		act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING,
-			    N_WEARS_P_HEAD);
-		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, YOU_WEAR_P_HEAD);
+			    MSG_N_WEARS_P_HEAD);
+		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, MSG_YOU_WEAR_P_HEAD);
 		equip_char(ch, obj, WEAR_HEAD);
 		return;
 	}
@@ -1474,8 +1474,8 @@ wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 		if (!remove_obj(ch, WEAR_LEGS, fReplace))
 			return;
 		act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING,
-			    N_WEARS_P_LEGS);
-		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, YOU_WEAR_P_LEGS);
+			    MSG_N_WEARS_P_LEGS);
+		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, MSG_YOU_WEAR_P_LEGS);
 		equip_char(ch, obj, WEAR_LEGS);
 		return;
 	}
@@ -1483,8 +1483,8 @@ wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 		if (!remove_obj(ch, WEAR_FEET, fReplace))
 			return;
 		act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING,
-			    N_WEARS_P_FEET);
-		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, YOU_WEAR_P_FEET);
+			    MSG_N_WEARS_P_FEET);
+		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, MSG_YOU_WEAR_P_FEET);
 		equip_char(ch, obj, WEAR_FEET);
 		return;
 	}
@@ -1492,8 +1492,8 @@ wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 		if (!remove_obj(ch, WEAR_HANDS, fReplace))
 			return;
 		act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING,
-			    N_WEARS_P_HANDS);
-		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, YOU_WEAR_P_HANDS);
+			    MSG_N_WEARS_P_HANDS);
+		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, MSG_YOU_WEAR_P_HANDS);
 		equip_char(ch, obj, WEAR_HANDS);
 		return;
 	}
@@ -1501,8 +1501,8 @@ wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 		if (!remove_obj(ch, WEAR_ARMS, fReplace))
 			return;
 		act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING,
-			    N_WEARS_P_ARMS);
-		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, YOU_WEAR_P_ARMS);
+			    MSG_N_WEARS_P_ARMS);
+		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, MSG_YOU_WEAR_P_ARMS);
 		equip_char(ch, obj, WEAR_ARMS);
 		return;
 	}
@@ -1510,8 +1510,8 @@ wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 		if (!remove_obj(ch, WEAR_ABOUT, fReplace))
 			return;
 		act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING,
-			    N_WEARS_P_TORSO);
-		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, YOU_WEAR_P_TORSO);
+			    MSG_N_WEARS_P_TORSO);
+		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, MSG_YOU_WEAR_P_TORSO);
 		equip_char(ch, obj, WEAR_ABOUT);
 		return;
 	}
@@ -1519,8 +1519,8 @@ wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 		if (!remove_obj(ch, WEAR_WAIST, fReplace))
 			return;
 		act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING,
-			    N_WEARS_P_WAIST);
-		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, YOU_WEAR_P_WAIST);
+			    MSG_N_WEARS_P_WAIST);
+		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, MSG_YOU_WEAR_P_WAIST);
 		equip_char(ch, obj, WEAR_WAIST);
 		return;
 	}
@@ -1533,28 +1533,28 @@ wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 
 		if (get_eq_char(ch, WEAR_WRIST_L) == NULL) {
 			act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING,
-				    N_WEARS_P_RIGHT_WRIST);
+				    MSG_N_WEARS_P_RIGHT_WRIST);
 			act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
-				    YOU_WEAR_P_LEFT_WRIST);
+				    MSG_YOU_WEAR_P_LEFT_WRIST);
 			equip_char(ch, obj, WEAR_WRIST_L);
 			return;
 		}
 		if (get_eq_char(ch, WEAR_WRIST_R) == NULL) {
 			act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING,
-				    N_WEARS_P_RIGHT_WRIST);
+				    MSG_N_WEARS_P_RIGHT_WRIST);
 			act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
-				    YOU_WEAR_P_RIGHT_WRIST);
+				    MSG_YOU_WEAR_P_RIGHT_WRIST);
 			equip_char(ch, obj, WEAR_WRIST_R);
 			return;
 		}
 		bug("Wear_obj: no free wrist.", 0);
-		char_nputs(ALREADY_WEAR_TWO_WRIST, ch);
+		char_nputs(MSG_ALREADY_WEAR_TWO_WRIST, ch);
 		return;
 	}
 	if (CAN_WEAR(obj, ITEM_WEAR_SHIELD)) {
 		OBJ_DATA       *weapon;
 		if (get_eq_char(ch, WEAR_SECOND_WIELD) != NULL) {
-			char_nputs(CANT_USE_SHIELD_SECOND_WEAPON, ch);
+			char_nputs(MSG_CANT_USE_SHIELD_SECOND_WEAPON, ch);
 			return;
 		}
 		if (!remove_obj(ch, WEAR_SHIELD, fReplace))
@@ -1563,13 +1563,13 @@ wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 		weapon = get_eq_char(ch, WEAR_WIELD);
 		if (weapon != NULL && ch->size < SIZE_LARGE
 		    && IS_WEAPON_STAT(weapon, WEAPON_TWO_HANDS)) {
-			char_nputs(YOUR_HANDS_TIRED_WEAPON, ch);
+			char_nputs(MSG_YOUR_HANDS_TIRED_WEAPON, ch);
 			return;
 		}
 		act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING,
-			    N_WEARS_P_SHIELD);
+			    MSG_N_WEARS_P_SHIELD);
 		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
-			    YOU_WEAR_P_SHIELD);
+			    MSG_YOU_WEAR_P_SHIELD);
 		equip_char(ch, obj, WEAR_SHIELD);
 		return;
 	}
@@ -1584,7 +1584,7 @@ wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 
 		if (!IS_NPC(ch) && get_obj_weight(obj)
 		    > (str_app[get_curr_stat(ch, STAT_STR)].wield * 10)) {
-			char_nputs(TOO_HEAVY_WIELD, ch);
+			char_nputs(MSG_TOO_HEAVY_WIELD, ch);
 			if (dual)
 				equip_char(ch, dual, WEAR_SECOND_WIELD);
 			return;
@@ -1593,13 +1593,13 @@ wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 		    && ((!IS_NPC(ch) && ch->size < SIZE_LARGE
 			 && get_eq_char(ch, WEAR_SHIELD) != NULL)
 			|| get_eq_char(ch, WEAR_SECOND_WIELD) != NULL)) {
-			char_nputs(NEED_TWO_HANDS, ch);
+			char_nputs(MSG_NEED_TWO_HANDS, ch);
 			if (dual)
 				equip_char(ch, dual, WEAR_SECOND_WIELD);
 			return;
 		}
-		act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING, N_WIELDS_P);
-		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, YOU_WIELD_P);
+		act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING, MSG_N_WIELDS_P);
+		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, MSG_YOU_WIELD_P);
 		equip_char(ch, obj, WEAR_WIELD);
 		if (dual)
 			equip_char(ch, dual, WEAR_SECOND_WIELD);
@@ -1613,59 +1613,59 @@ wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 
 		if (skill >= 100)
 			act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
-				    P_LIKE_PART_OF_YOU);
+				    MSG_P_LIKE_PART_OF_YOU);
 		else if (skill > 85)
 			act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
-				    QUITE_CONFIDENT_P);
+				    MSG_QUITE_CONFIDENT_P);
 		else if (skill > 70)
 			act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
-				    SKILLED_WITH_P);
+				    MSG_SKILLED_WITH_P);
 		else if (skill > 50)
 			act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
-				    SKILL_P_ADEQUATE);
+				    MSG_SKILL_P_ADEQUATE);
 		else if (skill > 25)
 			act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
-				    P_FEELS_CLUMSY);
+				    MSG_P_FEELS_CLUMSY);
 		else if (skill > 1)
 			act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
-				    ALMOST_DROP_P);
+				    MSG_ALMOST_DROP_P);
 		else
 			act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
-				    DONT_KNOW_THE_END);
+				    MSG_DONT_KNOW_THE_END);
 
 		return;
 	}
 	if (CAN_WEAR(obj, ITEM_HOLD)) {
 		if (get_eq_char(ch, WEAR_SECOND_WIELD) != NULL) {
-			char_nputs(CANT_HOLD_WHILE_2_WEAPONS, ch);
+			char_nputs(MSG_CANT_HOLD_WHILE_2_WEAPONS, ch);
 			return;
 		}
 		if (!remove_obj(ch, WEAR_HOLD, fReplace))
 			return;
 		act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING,
-			    N_HOLDS_P_HAND);
-		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, YOU_HOLD_P_HAND);
+			    MSG_N_HOLDS_P_HAND);
+		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, MSG_YOU_HOLD_P_HAND);
 		equip_char(ch, obj, WEAR_HOLD);
 		return;
 	}
 	if (CAN_WEAR(obj, ITEM_WEAR_FLOAT)) {
 		if (!remove_obj(ch, WEAR_FLOAT, fReplace))
 			return;
-		act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING, N_FLOAT_P);
-		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, YOU_FLOAT_P);
+		act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING, MSG_N_FLOAT_P);
+		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, MSG_YOU_FLOAT_P);
 		equip_char(ch, obj, WEAR_FLOAT);
 		return;
 	}
 	if (CAN_WEAR(obj, ITEM_WEAR_TATTOO) && IS_IMMORTAL(ch)) {
 		if (!remove_obj(ch, WEAR_TATTOO, fReplace))
 			return;
-		act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING, N_USES_TATTOO);
-		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, YOU_USE_TATTOO);
+		act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING, MSG_N_USES_TATTOO);
+		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, MSG_YOU_USE_TATTOO);
 		equip_char(ch, obj, WEAR_TATTOO);
 		return;
 	}
 	if (fReplace)
-		char_nputs(CANT_WEAR_IT, ch);
+		char_nputs(MSG_CANT_WEAR_IT, ch);
 
 	return;
 }
@@ -1681,7 +1681,7 @@ do_wear(CHAR_DATA * ch, const char *argument)
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
-		char_nputs(WEAR_WHAT, ch);
+		char_nputs(MSG_WEAR_WHAT, ch);
 		return;
 	}
 	if (!str_cmp(arg, "all"))
@@ -1691,7 +1691,7 @@ do_wear(CHAR_DATA * ch, const char *argument)
 				wear_obj(ch, obj, FALSE);
 		}
 	else if ((obj = get_obj_carry(ch, arg)) == NULL) {
-		char_nputs(DONT_HAVE_ITEM, ch);
+		char_nputs(MSG_DONT_HAVE_ITEM, ch);
 		return;
 	} else
 		wear_obj(ch, obj, TRUE);
@@ -1709,7 +1709,7 @@ do_remove(CHAR_DATA * ch, const char *argument)
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
-		char_nputs(REMOVE_WHAT, ch);
+		char_nputs(MSG_REMOVE_WHAT, ch);
 		return;
 	}
 	if (!str_cmp(arg, "all")) {
@@ -1722,7 +1722,7 @@ do_remove(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 	if ((obj = get_obj_wear(ch, arg)) == NULL) {
-		char_nputs(DONT_HAVE_ITEM, ch);
+		char_nputs(MSG_DONT_HAVE_ITEM, ch);
 		return;
 	}
 	remove_obj(ch, obj->wear_loc, TRUE);
@@ -1764,24 +1764,24 @@ do_sacr(CHAR_DATA * ch, const char *argument)
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0' || !str_cmp(arg, ch->name)) {
-		act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, N_SACS_SELF);
-		char_nputs(YOU_SAC_SELF, ch);
+		act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MSG_N_SACS_SELF);
+		char_nputs(MSG_YOU_SAC_SELF, ch);
 		return;
 	}
 	obj = get_obj_list(ch, arg, ch->in_room->contents);
 	if (obj == NULL) {
-		char_nputs(CANT_FIND_IT, ch);
+		char_nputs(MSG_CANT_FIND_IT, ch);
 		return;
 	}
 	if ((obj->item_type == ITEM_CORPSE_PC && ch->level < MAX_LEVEL)
 	    || (QUEST_OBJ_FIRST <= obj->pIndexData->vnum
 		&& obj->pIndexData->vnum <= QUEST_OBJ_LAST)) {
-		char_nputs(GODS_WOUDLNT_LIKE_THAT, ch);
+		char_nputs(MSG_GODS_WOUDLNT_LIKE_THAT, ch);
 		return;
 	}
 	if (!CAN_WEAR(obj, ITEM_TAKE) || CAN_WEAR(obj, ITEM_NO_SAC)) {
 		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
-			    P_NOT_ACCEPTABLE_SAC);
+			    MSG_P_NOT_ACCEPTABLE_SAC);
 		return;
 	}
 	silver = UMAX(1, number_fuzzy(obj->level));
@@ -1791,9 +1791,9 @@ do_sacr(CHAR_DATA * ch, const char *argument)
 		silver = UMIN(silver, obj->cost);
 
 	if (silver == 1)
-		char_nputs(SAC_GET_ONE_SILVER, ch);
+		char_nputs(MSG_SAC_GET_ONE_SILVER, ch);
 	else
-		char_nprintf(ch, SAC_GET_D_SILVER, silver);
+		char_nprintf(ch, MSG_SAC_GET_D_SILVER, silver);
 
 	ch->silver += silver;
 
@@ -1808,7 +1808,7 @@ do_sacr(CHAR_DATA * ch, const char *argument)
 		if (members > 1 && silver > 1)
 			doprintf(do_split, ch, "%d", silver);
 	}
-	act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING, N_SACS_P);
+	act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING, MSG_N_SACS_P);
 
 	if (oprog_call(OPROG_SAC, obj, ch, NULL))
 		return;
@@ -1829,56 +1829,56 @@ do_sacr(CHAR_DATA * ch, const char *argument)
 		}
 		if (iScatter == 1) {
 			act_nprintf(ch, two_objs[0], NULL, TO_CHAR, POS_DEAD,
-				    YOUR_SAC_REVEALS_P);
+				    MSG_YOUR_SAC_REVEALS_P);
 			act_nprintf(ch, two_objs[0], NULL, TO_ROOM, POS_RESTING,
-				    NS_SAC_REVEALS_P);
+				    MSG_P_IS_REVEALED_BY_N_SAC);
 		}
 		if (iScatter == 2) {
 			act_nprintf(ch, two_objs[0], two_objs[1], TO_CHAR,
-				    POS_DEAD, YOUR_SAC_REVEALS_P_P);
+				    POS_DEAD, MSG_YOUR_SAC_REVEALS_P_P);
 			act_nprintf(ch, two_objs[0], two_objs[1], TO_ROOM,
-				    POS_RESTING, NS_SAC_REVEALS_P);
+				    POS_RESTING, MSG_P_IS_REVEALED_BY_N_SAC);
 		}
-		snprintf(buf, sizeof(buf), msg(AS_YOU_SAC, ch));
-		snprintf(buf2, sizeof(buf2), msg(AS_N_SACS, ch));
+		snprintf(buf, sizeof(buf), msg(MSG_AS_YOU_SAC, ch));
+		snprintf(buf2, sizeof(buf2), msg(MSG_AS_N_SACS, ch));
 		if (iScatter < 3)
 			fScatter = FALSE;
 		else if (iScatter < 5) {
-			strcat(buf, msg(FEW_THINGS, ch));
-			strcat(buf2, msg(FEW_THINGS, ch));
+			strcat(buf, msg(MSG_FEW_THINGS, ch));
+			strcat(buf2, msg(MSG_FEW_THINGS, ch));
 		} else if (iScatter < 9) {
-			strcat(buf, msg(BUNCH_OF_OBJECTS, ch));
-			strcat(buf2, msg(BUNCH_OF_OBJECTS, ch));
+			strcat(buf, msg(MSG_BUNCH_OF_OBJECTS, ch));
+			strcat(buf2, msg(MSG_BUNCH_OF_OBJECTS, ch));
 		} else if (iScatter < 15) {
-			strcat(buf, msg(MANY_THINGS, ch));
-			strcat(buf2, msg(MANY_THINGS, ch));
+			strcat(buf, msg(MSG_MANY_THINGS, ch));
+			strcat(buf2, msg(MSG_MANY_THINGS, ch));
 		} else {
-			strcat(buf, msg(LOT_OF_OBJECTS, ch));
-			strcat(buf2, msg(LOT_OF_OBJECTS, ch));
+			strcat(buf, msg(MSG_LOT_OF_OBJECTS, ch));
+			strcat(buf2, msg(MSG_LOT_OF_OBJECTS, ch));
 		}
-		strcat(buf, msg(ON_IT, ch));
-		strcat(buf2, msg(ON_IT, ch));
+		strcat(buf, msg(MSG_ON_IT, ch));
+		strcat(buf2, msg(MSG_ON_IT, ch));
 
 		switch (ch->in_room->sector_type) {
 		case SECT_FIELD:
-			strcat(buf, msg(SCATTER_ON_DIRT, ch));
-			strcat(buf2, msg(SCATTER_ON_DIRT, ch));
+			strcat(buf, msg(MSG_SCATTER_ON_DIRT, ch));
+			strcat(buf2, msg(MSG_SCATTER_ON_DIRT, ch));
 			break;
 		case SECT_FOREST:
-			strcat(buf, msg(SCATTER_ON_DIRT, ch));
-			strcat(buf2, msg(SCATTER_ON_DIRT, ch));
+			strcat(buf, msg(MSG_SCATTER_ON_DIRT, ch));
+			strcat(buf2, msg(MSG_SCATTER_ON_DIRT, ch));
 			break;
 		case SECT_WATER_SWIM:
-			strcat(buf, msg(SCATTER_OVER_WATER, ch));
-			strcat(buf2, msg(SCATTER_OVER_WATER, ch));
+			strcat(buf, msg(MSG_SCATTER_OVER_WATER, ch));
+			strcat(buf2, msg(MSG_SCATTER_OVER_WATER, ch));
 			break;
 		case SECT_WATER_NOSWIM:
-			strcat(buf, msg(SCATTER_OVER_WATER, ch));
-			strcat(buf2, msg(SCATTER_OVER_WATER, ch));
+			strcat(buf, msg(MSG_SCATTER_OVER_WATER, ch));
+			strcat(buf2, msg(MSG_SCATTER_OVER_WATER, ch));
 			break;
 		default:
-			strcat(buf, msg(SCATTER_AROUND, ch));
-			strcat(buf2, msg(SCATTER_AROUND, ch));
+			strcat(buf, msg(MSG_SCATTER_AROUND, ch));
+			strcat(buf2, msg(MSG_SCATTER_AROUND, ch));
 			break;
 		}
 		if (fScatter) {
@@ -1904,23 +1904,23 @@ do_quaff(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 	if (arg[0] == '\0') {
-		char_nputs(QUAFF_WHAT, ch);
+		char_nputs(MSG_QUAFF_WHAT, ch);
 		return;
 	}
 	if ((obj = get_obj_carry(ch, arg)) == NULL) {
-		char_nputs(DONT_HAVE_POTION, ch);
+		char_nputs(MSG_DONT_HAVE_POTION, ch);
 		return;
 	}
 	if (obj->item_type != ITEM_POTION) {
-		char_nputs(CAN_QUAFF_ONLY_POTIONS, ch);
+		char_nputs(MSG_CAN_QUAFF_ONLY_POTIONS, ch);
 		return;
 	}
 	if (ch->level < obj->level) {
-		char_nputs(TOO_POWERFUL_LIQUID, ch);
+		char_nputs(MSG_TOO_POWERFUL_LIQUID, ch);
 		return;
 	}
-	act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING, N_QUAFFS_P);
-	act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, YOU_QUAFF_P);
+	act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING, MSG_N_QUAFFS_P);
+	act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, MSG_YOU_QUAFF_P);
 
 	obj_cast_spell(obj->value[1], obj->value[0], ch, ch, NULL);
 	obj_cast_spell(obj->value[2], obj->value[0], ch, ch, NULL);
@@ -1953,15 +1953,15 @@ do_recite(CHAR_DATA * ch, const char *argument)
 	argument = one_argument(argument, arg2);
 
 	if ((scroll = get_obj_carry(ch, arg1)) == NULL) {
-		char_nputs(DONT_HAVE_SCROLL, ch);
+		char_nputs(MSG_DONT_HAVE_SCROLL, ch);
 		return;
 	}
 	if (scroll->item_type != ITEM_SCROLL) {
-		char_nputs(CAN_RECITE_ONLY_SCROLLS, ch);
+		char_nputs(MSG_CAN_RECITE_ONLY_SCROLLS, ch);
 		return;
 	}
 	if (ch->level < scroll->level) {
-		char_nputs(SCROLL_TOO_COMPLEX, ch);
+		char_nputs(MSG_SCROLL_TOO_COMPLEX, ch);
 		return;
 	}
 	obj = NULL;
@@ -1969,14 +1969,14 @@ do_recite(CHAR_DATA * ch, const char *argument)
 		victim = ch;
 	else if ((victim = get_char_room(ch, arg2)) == NULL
 		 && (obj = get_obj_here(ch, arg2)) == NULL) {
-		char_nputs(CANT_FIND_IT, ch);
+		char_nputs(MSG_CANT_FIND_IT, ch);
 		return;
 	}
-	act_nprintf(ch, scroll, NULL, TO_ROOM, POS_RESTING, N_RECITES_P);
-	act_nprintf(ch, scroll, NULL, TO_CHAR, POS_DEAD, YOU_RECITE_P);
+	act_nprintf(ch, scroll, NULL, TO_ROOM, POS_RESTING, MSG_N_RECITES_P);
+	act_nprintf(ch, scroll, NULL, TO_CHAR, POS_DEAD, MSG_YOU_RECITE_P);
 
 	if (number_percent() >= get_skill(ch, gsn_scrolls) * 4 / 5) {
-		char_nputs(MISPRONOUNCE_SYLLABLE, ch);
+		char_nputs(MSG_MISPRONOUNCE_SYLLABLE, ch);
 		check_improve(ch, gsn_scrolls, FALSE, 2);
 	} else {
 		obj_cast_spell(scroll->value[1], scroll->value[0],
@@ -2212,9 +2212,9 @@ do_steal(CHAR_DATA * ch, const char *argument)
 
 		if (IS_AFFECTED(ch, AFF_HIDE | AFF_FADE) && !IS_NPC(ch)) {
 			REMOVE_BIT(ch->affected_by, AFF_HIDE | AFF_FADE);
-			char_nputs(YOU_STEP_OUT_SHADOWS, ch);
+			char_nputs(MSG_YOU_STEP_OUT_SHADOWS, ch);
 			act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, 
-				    N_STEPS_OUT_OF_SHADOWS);
+				    MSG_N_STEPS_OUT_OF_SHADOWS);
         	}
 
 		if (!IS_AFFECTED(victim, AFF_SLEEP)) {

@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.82 1998-08-14 03:36:18 fjoe Exp $
+ * $Id: comm.c,v 1.83 1998-08-14 05:45:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1062,21 +1062,21 @@ void battle_prompt(CHAR_DATA *ch, CHAR_DATA *victim)
 		percent = -1;
   
         if (percent >= 100)
-		msgid = IS_IN_PERFECT_HEALTH;
+		msgid = MSG_IS_IN_PERFECT_HEALTH;
         else if (percent >= 90)
-		msgid = HAS_A_FEW_SCRATCHES;
+		msgid = MSG_HAS_A_FEW_SCRATCHES;
         else if (percent >= 75)
-		msgid = HAS_SOME_SMALL_BUT_DISGUSTING_CUTS;
+		msgid = MSG_HAS_SOME_SMALL_BUT_DISGUSTING_CUTS;
         else if (percent >= 50)
-		msgid = IS_COVERED_WITH_BLEEDING_WOUNDS;
+		msgid = MSG_IS_COVERED_WITH_BLEEDING_WOUNDS;
         else if (percent >= 30)
-		msgid = IS_GUSHING_BLOOD;
+		msgid = MSG_IS_GUSHING_BLOOD;
         else if (percent >= 15)
-		msgid = IS_WRITHING_IN_AGONY;
+		msgid = MSG_IS_WRITHING_IN_AGONY;
         else if (percent >= 0)
-		msgid = IS_CONVULSING_ON_THE_GROUND;
+		msgid = MSG_IS_CONVULSING_ON_THE_GROUND;
         else
-		msgid = IS_NEARLY_DEAD;
+		msgid = MSG_IS_NEARLY_DEAD;
 
 	snprintf(buf, sizeof(buf), "%s %s \n\r", 
 		 PERS(victim, ch), vmsg(msgid, ch, victim));

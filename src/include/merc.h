@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.67 1998-08-14 03:36:22 fjoe Exp $
+ * $Id: merc.h,v 1.68 1998-08-14 05:45:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -126,7 +126,6 @@ typedef void SPELL_FUN	(int sn, int level, CHAR_DATA *ch, void *vo,
 #define MAX_ALIAS		50
 #define MAX_CLASS		13
 #define MAX_PC_RACE		19	/* 18 */
-#define MAX_CLAN		10
 #define MAX_RELIGION		18
 #define MAX_LEVEL		100
 #define LEVEL_HERO		(MAX_LEVEL - 9)
@@ -1638,7 +1637,7 @@ enum {
 
 #define IS_VAMPIRE(ch)	(!IS_NPC(ch) && IS_SET((ch)->act , PLR_VAMPIRE))
 #define IS_HARA_KIRI(ch) (IS_SET((ch)->act , PLR_HARA_KIRI))
-#define CANT_CHANGE_TITLE(ch) (IS_SET(ch->act , PLR_NOTITLE))
+#define MSG_CANT_CHANGE_TITLE(ch) (IS_SET(ch->act , PLR_NOTITLE))
 #define IS_BLINK_ON(ch) (IS_SET((ch)->act , PLR_BLINK))
 #define CANT_GAIN_EXP(ch) (IS_SET((ch)->act , PLR_NOEXP))
 

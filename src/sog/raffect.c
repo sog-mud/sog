@@ -1,5 +1,5 @@
 /*
- * $Id: raffect.c,v 1.5 1998-08-05 10:56:24 fjoe Exp $
+ * $Id: raffect.c,v 1.6 1998-08-14 05:45:16 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -426,20 +426,20 @@ void do_raffects(CHAR_DATA *ch, const char *argument)
 			else
 				continue;
 		else
-			char_printf(ch, "%s {c%-15s{x", msg(AFF_SPELL, ch),
+			char_printf(ch, "%s {c%-15s{x", msg(MSG_AFF_SPELL, ch),
 				    paf->type > 0 ?
 				    skill_table[paf->type].name : "none");
 
 		if (ch->level >= 20) {
 			char_printf(ch, ": %s {c%s{x %s {c%d{x ",
-				    msg(AFF_MODIFIES, ch),
+				    msg(MSG_AFF_MODIFIES, ch),
 				    raffect_loc_name(paf->location),
-				    msg(AFF_BY, ch),
+				    msg(MSG_AFF_BY, ch),
 				    paf->modifier);
 			if (paf->duration == -1 || paf->duration == -2)
-				char_nputs(AFF_PERMANENTLY, ch);
+				char_nputs(MSG_AFF_PERMANENTLY, ch);
 			else
-				char_printf(ch, msg(AFF_FOR_D_HOURS, ch),
+				char_printf(ch, msg(MSG_AFF_FOR_D_HOURS, ch),
 					    paf->duration);
 		}
 		send_to_char("\n\r", ch);

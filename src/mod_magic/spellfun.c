@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.44 1998-08-14 03:36:21 fjoe Exp $
+ * $Id: spellfun.c,v 1.45 1998-08-14 05:45:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -165,11 +165,11 @@ void say_spell(CHAR_DATA *ch, int sn)
 			skill = (get_skill(rch,gsn_spell_craft) * 9) / 10;
 			if (skill < number_percent()) {
 				act_nprintf(ch, NULL, rch, TO_VICT, POS_RESTING,
-					    N_UTTERS_THE_WORDS, buf);
+					    MSG_N_UTTERS_THE_WORDS, buf);
 				check_improve(rch, gsn_spell_craft, TRUE, 5);
 			} else  {
 				act_nprintf(ch, NULL, rch, TO_VICT, POS_RESTING,
-					    N_UTTERS_THE_WORDS,
+					    MSG_N_UTTERS_THE_WORDS,
 					    skill_table[sn].name);
 				check_improve(rch, gsn_spell_craft, TRUE, 5);
 			}
@@ -303,12 +303,12 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (is_affected(ch, gsn_shielding)) {
-		char_nputs(REACH_TRUE_SOURCE_STOP, ch);
+		char_nputs(MSG_REACH_TRUE_SOURCE_STOP, ch);
 		return;
 	}
 
 	if (is_affected(ch, gsn_garble) || is_affected(ch, gsn_deafen)) {
-		char_nputs(CANT_GET_RIGHT_INTONATIONS, ch);
+		char_nputs(MSG_CANT_GET_RIGHT_INTONATIONS, ch);
 		return;
 	}
 
@@ -316,7 +316,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	one_argument(target_name, arg2);
 
 	if (arg1[0] == '\0') {
-		char_nputs(CAST_WHAT_WHERE, ch);
+		char_nputs(MSG_CAST_WHAT_WHERE, ch);
 		return;
 	}
 
@@ -327,23 +327,23 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	}
 
 	if ((sn = find_spell(ch, arg1)) < 0) {
-		char_nputs(DONT_KNOW_ANY_SPELLS_NAME, ch);
+		char_nputs(MSG_DONT_KNOW_ANY_SPELLS_NAME, ch);
 		return;
 	}
 
 	if (ch->class == CLASS_VAMPIRE
 	&& !IS_VAMPIRE(ch) && skill_table[sn].clan == CLAN_NONE) {
-		char_nputs(MUST_TRANSFORM_VAMPIRE, ch);
+		char_nputs(MSG_MUST_TRANSFORM_VAMPIRE, ch);
 		return;
 	}
 
 	if (skill_table[sn].spell_fun == spell_null) {
-		char_nputs(THATS_NOT_A_SPELL, ch);
+		char_nputs(MSG_THATS_NOT_A_SPELL, ch);
 		return;
 	}
 
 	if (ch->position < skill_table[sn].minimum_position) {
-		char_nputs(CANT_CONCENTRATE_ENOUGH, ch);
+		char_nputs(MSG_CANT_CONCENTRATE_ENOUGH, ch);
 		return;
 	}
 
@@ -351,9 +351,9 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (IS_SET(ch->in_room->room_flags,ROOM_NO_MAGIC)) {
-		char_nputs(YOUR_SPELL_FIZZLES_FAILS, ch);
+		char_nputs(MSG_YOUR_SPELL_FIZZLES_FAILS, ch);
 		act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
-			    N_SPELL_FIZZLES_FAILS);
+			    MSG_N_SPELL_FIZZLES_FAILS);
 		return;
 	}
 
@@ -381,9 +381,9 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	case TAR_IGNORE:
 		if (is_affected(ch,gsn_spellbane)) {
 			act_nprintf(ch, NULL, NULL, TO_CHAR, POS_DEAD,
-				    YOUR_SPELLBANE_DEFLECTS);
+				    MSG_YOUR_SPELLBANE_DEFLECTS);
 			act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
-				    NS_SPELLBANE_DEFLECTS);
+				    MSG_N_SPELLBANE_DEFLECTS);
 			damage(ch, ch, 3 * ch->level, gsn_spellbane,
 			       DAM_NEGATIVE, TRUE);
 			return;
@@ -393,7 +393,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	case TAR_CHAR_OFFENSIVE:
 		if (arg2[0] == '\0') {
 			if ((victim = ch->fighting) == NULL) {
-				char_nputs(CAST_SPELL_ON_WHOM, ch);
+				char_nputs(MSG_CAST_SPELL_ON_WHOM, ch);
 				return;
 			}
 		}
@@ -401,7 +401,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 			if ((range = allowed_other(ch,sn)) > 0) {
 				if (!(victim = get_char_spell(ch, target_name,
 							      &door, range))) {
-					char_nputs(THEY_ARENT_HERE, ch);
+					char_nputs(MSG_THEY_ARENT_HERE, ch);
 					return;
 				}
 
@@ -410,12 +410,12 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 				&&  victim->in_room != ch->in_room) {
 					act_nprintf(ch, NULL, victim,
 						    TO_CHAR, POS_DEAD,
-						    CANT_CAST_SPELL_ON_N_FAR);
+						    MSG_CANT_CAST_SPELL_ON_N_FAR);
 					return;
 				}
 				cast_far = 1;
 			} else if (!(victim = get_char_room(ch, target_name))) {
-				char_nputs(THEY_ARENT_HERE, ch);
+				char_nputs(MSG_THEY_ARENT_HERE, ch);
 				return;
 			}
 		}
@@ -443,10 +443,10 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 			if (ch == victim) {
 				act_nprintf(ch, NULL, NULL, TO_CHAR,
 					    POS_DEAD,
-					    YOUR_SPELLBANE_DEFLECTS);
+					    MSG_YOUR_SPELLBANE_DEFLECTS);
 				act_nprintf(ch, NULL, NULL, TO_ROOM,
 					    POS_RESTING,
-					    NS_SPELLBANE_DEFLECTS);
+					    MSG_N_SPELLBANE_DEFLECTS);
 				damage(ch, ch, 3 * ch->level,
 				       gsn_spellbane,
 				       DAM_NEGATIVE, TRUE);
@@ -1372,7 +1372,7 @@ void spell_cancellation(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	}
 
 	if (found)
-	    char_nputs(OK, ch);
+	    char_nputs(MSG_OK, ch);
 	else
 	    send_to_char("Spell failed.\n\r",ch);
 }
@@ -1688,7 +1688,7 @@ void spell_control_weather(int sn,int level,CHAR_DATA *ch,void *vo,int target)
 		return;
 	}
 
-	char_nputs(OK, ch);
+	char_nputs(MSG_OK, ch);
 	return;
 }
 
@@ -1805,7 +1805,7 @@ void spell_cure_critical(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	update_pos(victim);
 	send_to_char("You feel better!\n\r", victim);
 	if (ch != victim)
-		char_nputs(OK, ch);
+		char_nputs(MSG_OK, ch);
 	return;
 }
 
@@ -1844,7 +1844,7 @@ void spell_cure_light(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	update_pos(victim);
 	send_to_char("You feel better!\n\r", victim);
 	if (ch != victim)
-		char_nputs(OK, ch);
+		char_nputs(MSG_OK, ch);
 	return;
 }
 
@@ -1882,7 +1882,7 @@ void spell_cure_serious(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	update_pos(victim);
 	send_to_char("You feel better!\n\r", victim);
 	if (ch != victim)
-		char_nputs(OK, ch);
+		char_nputs(MSG_OK, ch);
 	return;
 }
 
@@ -2042,7 +2042,7 @@ void spell_detect_evil(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	affect_to_char(victim, &af);
 	send_to_char("Your eyes tingle.\n\r", victim);
 	if (ch != victim)
-		char_nputs(OK, ch);
+		char_nputs(MSG_OK, ch);
 	return;
 }
 
@@ -2070,7 +2070,7 @@ void spell_detect_good(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	affect_to_char(victim, &af);
 	send_to_char("Your eyes tingle.\n\r", victim);
 	if (ch != victim)
-		char_nputs(OK, ch);
+		char_nputs(MSG_OK, ch);
 	return;
 }
 
@@ -2099,7 +2099,7 @@ void spell_detect_hidden(int sn,int level,CHAR_DATA *ch,void *vo,int target)
 	affect_to_char(victim, &af);
 	send_to_char("Your awareness improves.\n\r", victim);
 	if (ch != victim)
-		char_nputs(OK, ch);
+		char_nputs(MSG_OK, ch);
 	return;
 }
 
@@ -2129,7 +2129,7 @@ void spell_detect_invis(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	affect_to_char(victim, &af);
 	send_to_char("Your eyes tingle.\n\r", victim);
 	if (ch != victim)
-		char_nputs(OK, ch);
+		char_nputs(MSG_OK, ch);
 	return;
 }
 
@@ -2159,7 +2159,7 @@ void spell_detect_magic(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	affect_to_char(victim, &af);
 	send_to_char("Your eyes tingle.\n\r", victim);
 	if (ch != victim)
-		char_nputs(OK, ch);
+		char_nputs(MSG_OK, ch);
 	return;
 }
 
@@ -2465,7 +2465,7 @@ void spell_dispel_magic(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	}
 
 	if (found)
-	    char_nputs(OK, ch);
+	    char_nputs(MSG_OK, ch);
 	else
 	    send_to_char("Spell failed.\n\r",ch);
 		return;
@@ -3338,7 +3338,7 @@ void spell_haste(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	send_to_char("You feel yourself moving more quickly.\n\r", victim);
 	act("$n is moving more quickly.",victim,NULL,NULL,TO_ROOM);
 	if (ch != victim)
-		char_nputs(OK, ch);
+		char_nputs(MSG_OK, ch);
 	return;
 }
 
@@ -3351,7 +3351,7 @@ void spell_heal(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	update_pos(victim);
 	send_to_char("A warm feeling fills your body.\n\r", victim);
 	if (ch != victim)
-		char_nputs(OK, ch);
+		char_nputs(MSG_OK, ch);
 	return;
 }
 
@@ -4080,7 +4080,7 @@ void spell_mass_invis(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		af.bitvector = AFF_INVISIBLE;
 		affect_to_char(gch, &af);
 	}
-	char_nputs(OK, ch);
+	char_nputs(MSG_OK, ch);
 
 	return;
 }
@@ -4429,7 +4429,7 @@ void spell_refresh(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	else
 		send_to_char("You feel less tired.\n\r", victim);
 	if (ch != victim)
-		char_nputs(OK, ch);
+		char_nputs(MSG_OK, ch);
 	return;
 }
 
@@ -5743,7 +5743,7 @@ void spell_detect_undead(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	affect_to_char(victim, &af);
 	send_to_char("Your eyes tingle.\n\r", victim);
 	if (ch != victim)
-		char_nputs(OK, ch);
+		char_nputs(MSG_OK, ch);
 	return;
 }
 

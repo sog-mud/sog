@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.45 1998-08-14 03:36:24 fjoe Exp $
+ * $Id: save.c,v 1.46 1998-08-14 05:45:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -166,8 +166,12 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, bool reboot)
 	fprintf(fp, "Vers %d\n", 6);
 	fprintf(fp, "Etho %d\n", ch->ethos);
 	fprintf(fp, "Home %d\n", ch->hometown);
-	fprintf(fp, "Clan %d\n", ch->clan);
-	fprintf(fp, "ClanStatus %d\n", ch->pcdata->clan_status);
+
+	if (ch->clan) {
+		fprintf(fp, "Clan %s~\n", clan_table[ch->clan].short_name);
+		if (!IS_NPC(ch))
+			fprintf(fp, "ClanStatus %d\n", ch->pcdata->clan_status);
+	}
 
 	if (!IS_NULLSTR(mlstr_mval(ch->description)))
 		fprintf(fp, "Desc %s~\n", mlstr_mval(ch->description));
@@ -372,7 +376,8 @@ fwrite_pet(CHAR_DATA * pet, FILE * fp)
 
 	fprintf(fp, "Name %s~\n", pet->name);
 	fprintf(fp, "LogO %ld\n", current_time);
-	fprintf(fp, "Clan %d\n", pet->clan);
+	if (pet->clan)
+		fprintf(fp, "Clan %s~\n", clan_table[pet->clan].short_name);
 	if (mlstr_cmp(pet->short_descr, pet->pIndexData->short_descr) != 0)
 		mlstr_fwrite(fp, "ShD", pet->short_descr);
 	if (mlstr_cmp(pet->long_descr, pet->pIndexData->long_descr) != 0)
@@ -449,7 +454,7 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 	if (obj->next_content != NULL)
 		fwrite_obj(ch, obj->next_content, fp, iNest);
 
-	for (i = 1; i < MAX_CLAN; i++)
+	for (i = 1; clan_table[i].long_name != NULL; i++)
 		if (obj->pIndexData->vnum == clan_table[i].obj_vnum)
 			return;
 
@@ -865,11 +870,21 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 		case 'C':
 			KEY("Class", ch->class, fread_number(fp));
 			KEY("Cla", ch->class, fread_number(fp));
-			KEY("Clan", ch->clan, fread_number(fp));
 			KEY("ClanStatus", ch->pcdata->clan_status,
 			    fread_number(fp));
-			KEY("Cab", ch->clan, fread_number(fp));
 
+			if (!str_cmp(word, "Clan")) {
+				char *p = fread_string(fp);
+				int clan = clan_lookup(p);
+
+				if (clan < 0) 
+					log_printf("fread_char: unknown clan:"
+						   " `%s'", p);
+				else
+					ch->clan = clan;
+				fMatch = TRUE;
+				break;
+			}
 			if (!str_cmp(word, "Condition")
 			|| !str_cmp(word, "Cond")) {
 				ch->pcdata->condition[0] = fread_number(fp);
@@ -1267,8 +1282,18 @@ fread_pet(CHAR_DATA * ch, FILE * fp)
 			break;
 
 		case 'C':
-			KEY("Cab", pet->clan, fread_number(fp));
-			KEY("Clan", pet->clan, fread_number(fp));
+			if (!str_cmp(word, "Clan")) {
+				char *p = fread_string(fp);
+				int clan = clan_lookup(p);
+
+				if (clan < 0) 
+					log_printf("fread_pet: unknown clan:"
+						   " `%s'", p);
+				else
+					pet->clan = clan;
+				fMatch = TRUE;
+				break;
+			}
 			KEY("Comm", pet->comm, fread_flags(fp));
 			break;
 

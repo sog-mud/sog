@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.54 1998-08-07 04:24:48 fjoe Exp $
+ * $Id: update.c,v 1.55 1998-08-14 05:45:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -131,7 +131,7 @@ void advance_level(CHAR_DATA *ch)
 				  (int) (current_time - ch->logon)) / 3600;
 
 	p = title_table[ch->class][ch->level-1][ch->sex == SEX_FEMALE ? 1 : 0];
-	if (strstr(ch->pcdata->title, p) || CANT_CHANGE_TITLE(ch)) {
+	if (strstr(ch->pcdata->title, p) || MSG_CANT_CHANGE_TITLE(ch)) {
 		char title[MAX_TITLE_LENGTH];
 
 		snprintf(title, sizeof(title), "the %s", p);
@@ -170,7 +170,7 @@ void advance_level(CHAR_DATA *ch)
 	ch->pcdata->perm_move += add_move;
 
 	char_printf(ch, "%s {C%d{x hp, {C%d{x mana, {C%d{x mv {C%d{x"
-			" prac.\n\r", msg(YOUR_GAIN_IS, ch),
+			" prac.\n\r", msg(MSG_YOUR_GAIN_IS, ch),
 			add_hp, add_mana, add_move, add_prac);
 	return;
 }   
@@ -194,7 +194,7 @@ void gain_exp(CHAR_DATA *ch, int gain)
 	ch->exp = UMAX(base_exp(ch, ch->pcdata->points), ch->exp + gain);
 	while (ch->level < LEVEL_HERO &&
 	       exp_to_level(ch, ch->pcdata->points) <= 0) {
-		send_to_char(msg(YOU_RAISE_A_LEVEL, ch), ch);
+		send_to_char(msg(MSG_YOU_RAISE_A_LEVEL, ch), ch);
 		ch->level += 1;
 
 		if ((ch->class == CLASS_SAMURAI) && (ch->level == 10))
@@ -592,7 +592,7 @@ void mobile_update(void)
 			&&  ch->desc->pString == NULL 
 			&&  (ch->last_death_time == -1 ||
 			     ch->last_death_time < ch->last_fight_time))
-				char_nputs(YOU_SETTLE_DOWN, ch);
+				char_nputs(MSG_YOU_SETTLE_DOWN, ch);
 		}
 
 		if (ch->last_death_time != -1
@@ -927,22 +927,22 @@ void weather_update(void)
 		switch (time_info.hour) {
 		case  5:
 			weather_info.sunlight = SUN_LIGHT;
-			strcpy(buf, msg(WEATHER_DAY_BEGUN, ch));
+			strcpy(buf, msg(MSG_WEATHER_DAY_BEGUN, ch));
 			break;
 
 		case  6:
 			weather_info.sunlight = SUN_RISE;
-			strcpy(buf, msg(WEATHER_SUN_IN_THE_EAST, ch));
+			strcpy(buf, msg(MSG_WEATHER_SUN_IN_THE_EAST, ch));
 			break;
 
 		case 19:
 			weather_info.sunlight = SUN_SET;
-			strcpy(buf, msg(WEATHER_SUN_IN_THE_WEST, ch));
+			strcpy(buf, msg(MSG_WEATHER_SUN_IN_THE_WEST, ch));
 			break;
 
 		case 20:
 			weather_info.sunlight = SUN_DARK;
-			strcpy(buf, msg(WEATHER_NIGHT_BEGUN, ch));
+			strcpy(buf, msg(MSG_WEATHER_NIGHT_BEGUN, ch));
 			break;
 		}
 
@@ -955,7 +955,7 @@ void weather_update(void)
 		case SKY_CLOUDLESS:
 			if (weather_info.mmhg < 990
 			|| (weather_info.mmhg < 1010 && number_bits(2) == 0)) {
-				strcat(buf, msg(WEATHER_GETTING_CLOUDY, ch));
+				strcat(buf, msg(MSG_WEATHER_GETTING_CLOUDY, ch));
 				weather_info.sky = SKY_CLOUDY;
 			}
 			break;
@@ -963,25 +963,25 @@ void weather_update(void)
 		case SKY_CLOUDY:
 			if (weather_info.mmhg < 970
 			|| (weather_info.mmhg < 990 && number_bits(2) == 0)) {
-				strcat(buf, msg(WEATHER_IT_STARTS_TO_RAIN, ch));
+				strcat(buf, msg(MSG_WEATHER_IT_STARTS_TO_RAIN, ch));
 				weather_info.sky = SKY_RAINING;
 			}
 
 			if (weather_info.mmhg > 1030 && number_bits(2) == 0) {
-				strcat(buf, msg(WEATHER_THE_CLOUDS_DISAPPEAR, ch));
+				strcat(buf, msg(MSG_WEATHER_THE_CLOUDS_DISAPPEAR, ch));
 				weather_info.sky = SKY_CLOUDLESS;
 			}
 			break;
 
 		case SKY_RAINING:
 			if (weather_info.mmhg < 970 && number_bits(2) == 0) {
-				strcat(buf, msg(WEATHER_LIGHTNING_FLASHES, ch));
+				strcat(buf, msg(MSG_WEATHER_LIGHTNING_FLASHES, ch));
 				weather_info.sky = SKY_LIGHTNING;
 			}
 
 			if (weather_info.mmhg > 1030
 			|| (weather_info.mmhg > 1010 && number_bits(2) == 0)) {
-				strcat(buf, msg(WEATHER_THE_RAIN_STOPPED, ch));
+				strcat(buf, msg(MSG_WEATHER_THE_RAIN_STOPPED, ch));
 				weather_info.sky = SKY_CLOUDY;
 			}
 			break;
@@ -989,7 +989,7 @@ void weather_update(void)
 		case SKY_LIGHTNING:
 			if (weather_info.mmhg > 1010
 			|| (weather_info.mmhg > 990 && number_bits(2) == 0)) {
-				strcat(buf, msg(WEATHER_LIGHTNING_STOPPED, ch));
+				strcat(buf, msg(MSG_WEATHER_LIGHTNING_STOPPED, ch));
 				weather_info.sky = SKY_RAINING;
 			}
 			break;
@@ -1057,17 +1057,17 @@ void char_update(void)
 		/* Reset sneak for vampire */
 		if (!(ch->fighting) && !IS_AFFECTED(ch,AFF_SNEAK) 
 		&& IS_VAMPIRE(ch) && !MOUNTED(ch)) {
-			char_nputs(YOU_BEGIN_TO_SNEAK_AGAIN, ch);
+			char_nputs(MSG_YOU_BEGIN_TO_SNEAK_AGAIN, ch);
 			SET_BIT(ch->affected_by, AFF_SNEAK);
 		}
 
 		if (!(ch->fighting) && !IS_AFFECTED(ch, AFF_SNEAK) 
 		&& (race_table[RACE(ch)].aff & AFF_SNEAK) && !MOUNTED(ch))
-			char_nputs(YOU_BEGIN_TO_SNEAK_AGAIN, ch);
+			char_nputs(MSG_YOU_BEGIN_TO_SNEAK_AGAIN, ch);
 
 		if (!(ch->fighting) && !IS_AFFECTED(ch, AFF_HIDE) 
 		&& (race_table[RACE(ch)].aff & AFF_HIDE) && !MOUNTED(ch))
-			char_nputs(YOU_STEP_BACK_SHADOWS, ch);
+			char_nputs(MSG_YOU_STEP_BACK_SHADOWS, ch);
 
 		if (!IS_NPC(ch) && is_affected(ch, gsn_thumbling)) {
 			if (dice(5, 6) > get_curr_stat(ch, STAT_DEX)) {
@@ -1106,7 +1106,7 @@ void char_update(void)
 					back_home(ch);
 				else {
 					act_nprintf(ch, NULL, NULL, TO_ROOM,
-						POS_RESTING, N_WANDERS_ON_HOME);
+						POS_RESTING, MSG_N_WANDERS_ON_HOME);
 					extract_char(ch, TRUE);
 				}
 				continue;
@@ -1146,13 +1146,13 @@ void char_update(void)
 				if (--obj->value[2] == 0) {
 					--ch->in_room->light;
 					act_nprintf(ch, obj, NULL, TO_ROOM,
-						POS_RESTING, N_GOES_OUT);
+						POS_RESTING, MSG_N_GOES_OUT);
 					act_nprintf(ch, obj, NULL, TO_CHAR,
-						POS_RESTING, N_FLICKERS_OUT);
+						POS_RESTING, MSG_N_FLICKERS_OUT);
 					extract_obj(obj);
 				} else if (obj->value[2] <= 5)
 					act_nprintf(ch, obj, NULL, TO_CHAR, 
-						POS_RESTING, P_FLICKERS);
+						POS_RESTING, MSG_P_FLICKERS);
 			}
 
 			if (++ch->timer >= 12) {
@@ -1161,8 +1161,8 @@ void char_update(void)
 					if (ch->fighting != NULL)
 						stop_fighting(ch, TRUE);
 					act_nprintf(ch, NULL, NULL, TO_ROOM, 
-						POS_RESTING, N_DISAPPEARS_VOID);
-					char_nputs(YOU_DISAPPEAR_VOID, ch);
+						POS_RESTING, MSG_N_DISAPPEARS_VOID);
+					char_nputs(MSG_YOU_DISAPPEAR_VOID, ch);
 					if (ch->level > 1)
 						save_char_obj(ch, FALSE);
 					if (ch->level < 10) {
@@ -1227,8 +1227,8 @@ void char_update(void)
 				continue;
 
 			act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, 
-				    WITCH_CURSE_MAKES_N);
-			char_nputs(WITCH_CURSE_MAKES_YOU, ch); 
+				    MSG_WITCH_CURSE_MAKES_N);
+			char_nputs(MSG_WITCH_CURSE_MAKES_YOU, ch); 
 	
 			for (af = ch->affected; af!= NULL; af = af->next)
 				if (af->type == gsn_witch_curse)
@@ -1267,8 +1267,8 @@ void char_update(void)
 				continue;
 	        
 			act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
-				    N_WRITHES_PLAGUE);
-			char_nputs(YOU_WRITHE_PLAGUE, ch);
+				    MSG_N_WRITHES_PLAGUE);
+			char_nputs(MSG_YOU_WRITHE_PLAGUE, ch);
 			for (af = ch->affected; af != NULL; af = af->next)
 				if (af->type == gsn_plague)
 				break;
@@ -1296,9 +1296,9 @@ void char_update(void)
 				&& !IS_IMMORTAL(vch) 
 				&& !IS_AFFECTED(vch, AFF_PLAGUE) 
 				&& number_bits(2) == 0) {
-					char_nputs(YOU_FEEL_HOT_FEVERISH, vch);
+					char_nputs(MSG_YOU_FEEL_HOT_FEVERISH, vch);
 					act_nprintf(ch, NULL, NULL, TO_ROOM,
-						POS_RESTING ,N_SHIVERS_ILL);
+						POS_RESTING ,MSG_N_SHIVERS_ILL);
 					affect_join(vch, &plague);
 				}
 			}
@@ -1318,8 +1318,8 @@ void char_update(void)
 
 			if (poison != NULL) {
 				act_nprintf(ch, NULL, NULL, TO_ROOM, 
-					POS_RESTING, N_SHIVERS_SUFFERS);
-				char_nputs(YOU_SHIVER_SUFFER, ch);
+					POS_RESTING, MSG_N_SHIVERS_SUFFERS);
+				char_nputs(MSG_YOU_SHIVER_SUFFER, ch);
 				damage(ch, ch, poison->level/10 + 1, gsn_poison,
 				       DAM_POISON, TRUE);
 			}
@@ -2209,11 +2209,11 @@ void check_reboot(void)
 			if (d->character != NULL)
 				if (rebooter)
 					char_nprintf(d->character, 
-						     REBOOT_IN,
+						     MSG_REBOOT_IN,
 					    	     reboot_counter);
 				else
 					char_nprintf(d->character, 
-						     AUTOREBOOT_IN,
+						     MSG_AUTOREBOOT_IN,
 					    	     reboot_counter);
 
 		/* FALLTHRU */

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.52 1998-08-14 03:36:21 fjoe Exp $
+ * $Id: interp.c,v 1.53 1998-08-14 05:45:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -532,7 +532,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	 * Implement freeze command.
 	 */
 	if (!IS_NPC(ch) && IS_SET(ch->act, PLR_FREEZE)) {
-		send_to_char(msg(FROZEN, ch), ch);
+		send_to_char(msg(MSG_FROZEN, ch), ch);
 		return;
 	}
 
@@ -584,13 +584,13 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
        		 */
 		if (!is_order && IS_AFFECTED(ch,AFF_CHARM)
 		&&  cmd_table[cmd].do_fun != do_return) {
-			char_nputs(ASK_MASTER, ch);
+			char_nputs(MSG_ASK_MASTER, ch);
 			return;
 		}
 
 		if (IS_AFFECTED(ch,AFF_STUN) 
 		&& !(cmd_table[cmd].extra & CMD_KEEP_HIDE)) {
-			char_nputs(TOO_STUNNED, ch);
+			char_nputs(MSG_TOO_STUNNED, ch);
 			return;
 		}
 
@@ -598,18 +598,18 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 		if (IS_AFFECTED(ch, AFF_HIDE | AFF_FADE) && !IS_NPC(ch)
 		&& !(cmd_table[cmd].extra & CMD_KEEP_HIDE)) {
 			REMOVE_BIT(ch->affected_by, AFF_HIDE | AFF_FADE);
-			char_nputs(YOU_STEP_OUT_SHADOWS, ch);
+			char_nputs(MSG_YOU_STEP_OUT_SHADOWS, ch);
 			act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, 
-				    N_STEPS_OUT_OF_SHADOWS);
+				    MSG_N_STEPS_OUT_OF_SHADOWS);
         	}
 
 		if (IS_AFFECTED(ch, AFF_IMP_INVIS) && !IS_NPC(ch)
 		&& (cmd_table[cmd].position == POS_FIGHTING)) {
 			affect_strip(ch, gsn_imp_invis);
 			REMOVE_BIT(ch->affected_by, AFF_IMP_INVIS);
-			char_nputs(YOU_FADE_INTO_EXIST, ch);
+			char_nputs(MSG_YOU_FADE_INTO_EXIST, ch);
 			act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
-				    N_FADES_INTO_EXIST);
+				    MSG_N_FADES_INTO_EXIST);
 		}
 
 		/* prevent ghosts from doing a bunch of commands */
@@ -650,7 +650,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 		 * Look for command in socials table.
 		 */
 		if (!check_social(ch, command, argument)) {
-			send_to_char(msg(HUH, ch), ch);
+			send_to_char(msg(MSG_HUH, ch), ch);
 			return;
 		} else
 			return;
@@ -662,32 +662,32 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	if (ch->position < cmd_table[cmd].position) {
 		switch(ch->position) {
 			case POS_DEAD:
-				char_nputs(YOU_ARE_DEAD, ch);
+				char_nputs(MSG_YOU_ARE_DEAD, ch);
 				break;
 
 			case POS_MORTAL:
 			case POS_INCAP:
-				char_nputs(HURT_FAR_TOO_BAD, ch);
+				char_nputs(MSG_HURT_FAR_TOO_BAD, ch);
 				break;
 
 			case POS_STUNNED:
-				char_nputs(YOU_TOO_STUNNED, ch);
+				char_nputs(MSG_YOU_TOO_STUNNED, ch);
 				break;
 
 			case POS_SLEEPING:
-				char_nputs(IN_YOUR_DREAMS, ch);
+				char_nputs(MSG_IN_YOUR_DREAMS, ch);
 				break;
 
 			case POS_RESTING:
-				char_nputs(TOO_RELAXED, ch);
+				char_nputs(MSG_TOO_RELAXED, ch);
 				break;
 
 			case POS_SITTING:
-				char_nputs(BETTER_STANDUP, ch);
+				char_nputs(MSG_BETTER_STANDUP, ch);
 				break;
 
 			case POS_FIGHTING:
-				char_nputs(NO_WAY_FIGHT, ch);
+				char_nputs(MSG_NO_WAY_FIGHT, ch);
 				break;
 
 		}
@@ -725,22 +725,22 @@ bool check_social(CHAR_DATA *ch, char *command, const char *argument)
 		return FALSE;
 
 	if (!IS_NPC(ch) && IS_SET(ch->comm, COMM_NOEMOTE)) {
-		char_nputs(ANTI_SOCIAL, ch);
+		char_nputs(MSG_ANTI_SOCIAL, ch);
 		return TRUE;
 	}
 
 	switch (ch->position) {
 		case POS_DEAD:
-			char_nputs(YOU_ARE_DEAD, ch);
+			char_nputs(MSG_YOU_ARE_DEAD, ch);
 			return TRUE;
 
 		case POS_INCAP:
 		case POS_MORTAL:
-			char_nputs(HURT_FAR_TOO_BAD, ch);
+			char_nputs(MSG_HURT_FAR_TOO_BAD, ch);
 			return TRUE;
 
 		case POS_STUNNED:
-			char_nputs(YOU_TOO_STUNNED, ch);
+			char_nputs(MSG_YOU_TOO_STUNNED, ch);
 			return TRUE;
 
 		case POS_SLEEPING:
@@ -750,14 +750,14 @@ bool check_social(CHAR_DATA *ch, char *command, const char *argument)
 		 */
 			if (!str_cmp(social_table[cmd].name, "snore"))
 				break;
-			char_nputs(IN_YOUR_DREAMS, ch);
+			char_nputs(MSG_IN_YOUR_DREAMS, ch);
 			return TRUE;
 	}
 
 	if (IS_AFFECTED(ch, AFF_HIDE | AFF_FADE)) {
 		REMOVE_BIT(ch->affected_by, AFF_HIDE | AFF_FADE);
-		char_nputs(YOU_STEP_OUT_SHADOWS, ch);
-		act_nputs(N_STEPS_OUT_OF_SHADOWS, ch, NULL, NULL, TO_ROOM,
+		char_nputs(MSG_YOU_STEP_OUT_SHADOWS, ch);
+		act_nputs(MSG_N_STEPS_OUT_OF_SHADOWS, ch, NULL, NULL, TO_ROOM,
 			  POS_RESTING); 
 	}
 
@@ -765,8 +765,8 @@ bool check_social(CHAR_DATA *ch, char *command, const char *argument)
 	&& (cmd_table[cmd].position == POS_FIGHTING)) {
 		affect_strip(ch, gsn_imp_invis);
 		REMOVE_BIT(ch->affected_by, AFF_IMP_INVIS);
-		char_nputs(YOU_FADE_INTO_EXIST, ch);
-		act_nputs(N_FADES_INTO_EXIST, ch, NULL, NULL, TO_ROOM,
+		char_nputs(MSG_YOU_FADE_INTO_EXIST, ch);
+		act_nputs(MSG_N_FADES_INTO_EXIST, ch, NULL, NULL, TO_ROOM,
 			  POS_RESTING);
 	}
 
@@ -782,7 +782,7 @@ bool check_social(CHAR_DATA *ch, char *command, const char *argument)
 
 	if (((victim = get_char_room(ch, arg)) == NULL)
 	&&  ((victim = get_char_world(ch, arg)) == NULL || IS_NPC(victim))) {
-		char_nputs(THEY_ARENT_HERE, ch);
+		char_nputs(MSG_THEY_ARENT_HERE, ch);
 		return TRUE;
 	}
 
@@ -989,7 +989,7 @@ void do_wizhelp(CHAR_DATA *ch, const char *argument)
 
 void do_reture(CHAR_DATA *ch, const char *argument)
 {
-  char_nputs(OK, ch);
+  char_nputs(MSG_OK, ch);
   return;
 }
 

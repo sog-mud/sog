@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.32 1998-08-14 03:36:21 fjoe Exp $
+ * $Id: spellfun2.c,v 1.33 1998-08-14 05:45:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2390,7 +2390,7 @@ void spell_acute_vision(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	affect_to_char(victim, &af);
 	send_to_char("Your vision sharpens.\n\r", victim);
 	if (ch != victim)
-		char_nputs(OK, ch);
+		char_nputs(MSG_OK, ch);
 	return;
 }
 
@@ -4078,7 +4078,7 @@ void spell_improved_detection(int sn, int level, CHAR_DATA *ch, void *vo,int tar
 	affect_to_char(victim, &af);
 	send_to_char("Your eyes tingle.\n\r", victim);
 	if (ch != victim)
-	char_nputs(OK, ch);
+	char_nputs(MSG_OK, ch);
 	return;
 }
 
@@ -4242,7 +4242,7 @@ void spell_super_heal(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	update_pos(victim);
 	send_to_char("A warm feeling fills your body.\n\r", victim);
 	if (ch != victim)
-		char_nputs(OK, ch);
+		char_nputs(MSG_OK, ch);
 	return;
 }
 
@@ -4255,7 +4255,7 @@ void spell_master_heal(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	update_pos(victim);
 	send_to_char("A warm feeling fills your body.\n\r", victim);
 	if (ch != victim)
-		char_nputs(OK, ch);
+		char_nputs(MSG_OK, ch);
 	return;
 }
 
@@ -4313,7 +4313,7 @@ void spell_restoring_light(int sn, int level, CHAR_DATA *ch, void *vo,int target
 	update_pos(victim);
 	send_to_char("A warm feeling fills your body.\n\r", victim);
 	if (ch != victim)
-		char_nputs(OK, ch);
+		char_nputs(MSG_OK, ch);
 	return;
 }
 
@@ -5098,7 +5098,7 @@ void spell_assist(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	send_to_char("A warm feeling fills your body.\n\r", victim);
 	act("$n looks better.", victim, NULL, NULL, TO_ROOM);
 	if (ch != victim)
-		char_nputs(OK, ch);
+		char_nputs(MSG_OK, ch);
 	return;
 }  
 	
@@ -5129,7 +5129,7 @@ void spell_aid(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	send_to_char("A warm feeling fills your body.\n\r", victim);
 	act("$n looks better.", victim, NULL, NULL, TO_ROOM);
 	if (ch != victim)
-		char_nputs(OK, ch);
+		char_nputs(MSG_OK, ch);
 	return;
 }  
 	

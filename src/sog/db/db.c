@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.53 1998-08-14 03:36:19 fjoe Exp $
+ * $Id: db.c,v 1.54 1998-08-14 05:45:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2947,7 +2947,7 @@ OBJ_DATA *create_obj_org(OBJ_INDEX_DATA *pObjIndex, int level, int flags)
 
 	obj->pIndexData	= pObjIndex;
 
-	for (i=1;i < MAX_CLAN;i++)
+	for (i = 1; clan_table[i].long_name != NULL; i++)
 	  if (pObjIndex->vnum == clan_table[i].obj_vnum)  {
 		if (count_obj_list(pObjIndex, object_list) > 0)
 		  return(NULL);

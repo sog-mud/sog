@@ -1,8 +1,8 @@
-#ifndef _LOOKUP_H_
-#define _LOOKUP_H_
+#ifndef _LOMSG_OKUP_H_
+#define _LOMSG_OKUP_H_
 
 /*
- * $Id: lookup.h,v 1.6 1998-07-09 13:41:32 fjoe Exp $
+ * $Id: lookup.h,v 1.7 1998-08-14 05:45:14 fjoe Exp $
  */
 
 /***************************************************************************

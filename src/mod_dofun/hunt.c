@@ -1,5 +1,5 @@
 /*
- * $Id: hunt.c,v 1.5 1998-08-06 16:46:14 fjoe Exp $
+ * $Id: hunt.c,v 1.6 1998-08-14 05:45:14 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -579,7 +579,7 @@ else {
    */
   }
 	act_nprintf(ch, NULL, victim, TO_CHAR, POS_RESTING,
-		   HERA_IS_FROM_HERE, dir_name[direction]);
+		   MSG_HERA_IS_FROM_HERE, dir_name[direction]);
   return;
 }
 

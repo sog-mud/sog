@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.19 1998-08-03 15:09:02 fjoe Exp $
+ * $Id: special.c,v 1.20 1998-08-14 05:45:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -829,7 +829,7 @@ bool spec_fido(CHAR_DATA *ch)
 	    continue;
 
 	act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, 
-			SAVAGELY_DEVOURS_CORPSE);
+			MSG_SAVAGELY_DEVOURS_CORPSE);
 	for (obj = corpse->contains; obj; obj = obj_next)
 	{
 	    obj_next = obj->next_content;
@@ -862,7 +862,7 @@ bool spec_janitor(CHAR_DATA *ch)
 	||   trash->cost < 10)
 	{
 	    act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, 
-			PICKS_SOME_TRASH);
+			MSG_PICKS_SOME_TRASH);
 	    obj_from_room(trash);
 	    obj_to_char(trash, ch);
 	    return TRUE;
@@ -994,9 +994,9 @@ bool spec_poison(CHAR_DATA *ch)
 	||   number_percent() > 2 * ch->level)
 	return FALSE;
 
-	act_nprintf(ch, NULL, victim, TO_CHAR, POS_DEAD, YOU_BITE_N);
-	act_nprintf(ch, NULL, victim, TO_NOTVICT, POS_RESTING, N_BITES_N);
-	act_nprintf(ch, NULL, victim, TO_VICT, POS_DEAD, N_BITES_YOU);
+	act_nprintf(ch, NULL, victim, TO_CHAR, POS_DEAD, MSG_YOU_BITE_N);
+	act_nprintf(ch, NULL, victim, TO_NOTVICT, POS_RESTING, MSG_N_BITES_N);
+	act_nprintf(ch, NULL, victim, TO_VICT, POS_DEAD, MSG_N_BITES_YOU);
 	spell_poison(gsn_poison, ch->level, ch, victim,TARGET_CHAR);
 	return TRUE;
 }
@@ -1131,14 +1131,14 @@ bool spec_guard(CHAR_DATA *ch)
 	if (IS_SET(ch->in_room->area->area_flag,AREA_HOMETOWN) 
 		&& number_percent() < 2 && !IS_IMMORTAL(victim)) {
 	  act_nprintf(ch, NULL, victim, TO_ROOM, POS_RESTING, 
-			DO_I_KNOW_YOU);
+			MSG_DO_I_KNOW_YOU);
  	  if (str_cmp(ch->in_room->area->name,
 		hometown_table[victim->hometown].name))
 		act_nprintf(ch, NULL, victim, TO_ROOM, POS_RESTING, 
-				DONT_REMEMBER_YOU);
+				MSG_DONT_REMEMBER_YOU);
 	  else {
 		act_nprintf(ch, NULL, victim, TO_ROOM, POS_RESTING, 
-				OK_MY_DEAR);
+				MSG_OK_MY_DEAR);
 		 interpret(ch, "smile");
 	   }
 	 }

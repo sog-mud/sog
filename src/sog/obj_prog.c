@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.21 1998-08-14 03:36:23 fjoe Exp $
+ * $Id: obj_prog.c,v 1.22 1998-08-14 05:45:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -578,9 +578,9 @@ bool sac_prog_clan_item(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 	damage(ch,ch,ch->hit -10,TYPE_HIT,DAM_HOLY, TRUE); 
 	ch->gold = 0;
 
-	for(i=0;i<MAX_CLAN;i++)
+	for(i = 1; clan_table[i].long_name != NULL; i++)
 	if (clan_table[i].obj_ptr == obj) break;
-	if (i < MAX_CLAN)  {
+	if (clan_table[i].long_name != NULL)  {
 	if (obj->pIndexData->vnum == clan_table[CLAN_RULER].obj_vnum)
 	  container = create_obj(get_obj_index(OBJ_VNUM_RULER_STAND),100);
 	else if (obj->pIndexData->vnum == clan_table[CLAN_INVADER].obj_vnum)
@@ -702,11 +702,11 @@ int fight_prog_tattoo_apollon(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 	switch(number_bits(6)) {
 	case 0:
 	case 1:
-		char_nputs(TATTOO_GLOWS_BLUE, ch);
+		char_nputs(MSG_TATTOO_GLOWS_BLUE, ch);
 		obj_cast_spell(gsn_cure_serious, ch->level, ch, ch, obj);
 		break;
 	case 2:
-		char_nputs(TATTOO_GLOWS_RED, ch);
+		char_nputs(MSG_TATTOO_GLOWS_RED, ch);
 		do_yell(ch, "Ever dance with good....");
 		obj_cast_spell(skill_lookup("holy word"), ch->level, ch,
 			       NULL, obj);
@@ -725,12 +725,12 @@ int fight_prog_tattoo_zeus(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 	case 0:
 	case 1:
 	case 2:
-		char_nputs(TATTOO_GLOWS_BLUE, ch);
+		char_nputs(MSG_TATTOO_GLOWS_BLUE, ch);
 		obj_cast_spell(gsn_cure_critical,
 			       ch->level, ch, ch, obj);
 		break;
 	case 3:
-		char_nputs(TATTOO_GLOWS_BLUE, ch);
+		char_nputs(MSG_TATTOO_GLOWS_BLUE, ch);
 		if (IS_AFFECTED(ch, AFF_PLAGUE))
 			obj_cast_spell(skill_lookup("cure disease"),
 				       MAX_LEVEL, ch, ch, obj);
@@ -749,11 +749,11 @@ int fight_prog_tattoo_siebele(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 
 	switch(number_bits(6)) {
 	case 0:
-		char_nputs(TATTOO_GLOWS_BLUE, ch);
+		char_nputs(MSG_TATTOO_GLOWS_BLUE, ch);
 		obj_cast_spell(gsn_cure_serious, ch->level, ch, ch, obj);
 		break;
 	case 1:
-		char_nputs(TATTOO_GLOWS_RED, ch);
+		char_nputs(MSG_TATTOO_GLOWS_RED, ch);
 		obj_cast_spell(gsn_bluefire,
 			       ch->level, ch, ch->fighting, obj);
 		break;
@@ -768,11 +768,11 @@ int fight_prog_tattoo_ahrumazda(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 
 	switch(number_bits(6)) {
 	case 0:
-		char_nputs(TATTOO_GLOWS_BLUE, ch);
+		char_nputs(MSG_TATTOO_GLOWS_BLUE, ch);
 		obj_cast_spell(gsn_cure_serious, ch->level, ch, ch, obj); 
 		break;
 	case 1:
-		char_nputs(TATTOO_GLOWS_RED, ch);
+		char_nputs(MSG_TATTOO_GLOWS_RED, ch);
 		obj_cast_spell(gsn_demonfire, ch->level, ch, ch->fighting, obj);
 		break;
 	}
@@ -787,11 +787,11 @@ int fight_prog_tattoo_hephaestus(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 	switch(number_bits(6)) {
 	case 0:
 	case 1:
-		char_nputs(TATTOO_GLOWS_BLUE, ch);
+		char_nputs(MSG_TATTOO_GLOWS_BLUE, ch);
 		obj_cast_spell(gsn_cure_serious, ch->level, ch, ch, obj);
 		break;
 	case 2:
-		char_nputs(TATTOO_GLOWS_RED, ch);
+		char_nputs(MSG_TATTOO_GLOWS_RED, ch);
 		do_yell(ch,"And justice for all!....");
 		obj_cast_spell(gsn_scream, ch->level, ch, ch->fighting, obj);
 		break;
@@ -806,16 +806,16 @@ int fight_prog_tattoo_ehrumen(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 
 	switch(number_bits(6)) {
 	case 0:
-		char_nputs(TATTOO_GLOWS_BLUE, ch);
+		char_nputs(MSG_TATTOO_GLOWS_BLUE, ch);
 		obj_cast_spell(gsn_cure_light,
 			       ch->level, ch, ch->fighting, obj);
 		break;
 	case 1:
-		char_nputs(TATTOO_GLOWS_BLUE, ch);
+		char_nputs(MSG_TATTOO_GLOWS_BLUE, ch);
 		obj_cast_spell(gsn_cure_serious, ch->level, ch, ch, obj);
 		break;
 	case 2:
-		char_nputs(TATTOO_GLOWS_RED, ch);
+		char_nputs(MSG_TATTOO_GLOWS_RED, ch);
 		obj_cast_spell(gsn_dispel_evil,
 			       ch->level, ch, ch->fighting, obj);
 		break;
@@ -832,17 +832,17 @@ int fight_prog_tattoo_venus(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 	case 0:
 	case 1:
 	case 2:
-		char_nputs(TATTOO_GLOWS_BLUE, ch);
+		char_nputs(MSG_TATTOO_GLOWS_BLUE, ch);
 		act_puts("The tattoo on your shoulder glows blue.",
 			 ch,NULL,NULL,TO_CHAR,POS_DEAD);
 		obj_cast_spell(gsn_cure_light, ch->level, ch, ch, obj);
 		break;
 	case 3:
-		char_nputs(TATTOO_GLOWS_RED, ch);
+		char_nputs(MSG_TATTOO_GLOWS_RED, ch);
 		obj_cast_spell(gsn_plague, ch->level, ch, ch->fighting, obj);
 		break;
 	case 4:
-		char_nputs(TATTOO_GLOWS_BLUE, ch);
+		char_nputs(MSG_TATTOO_GLOWS_BLUE, ch);
 		obj_cast_spell(gsn_bless, ch->level, ch, ch, obj);
 		break;
 	}
@@ -856,11 +856,11 @@ int fight_prog_tattoo_ares(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 
 	switch(number_bits(5)) {
 	case 0:
-		char_nputs(TATTOO_GLOWS_BLUE, ch);
+		char_nputs(MSG_TATTOO_GLOWS_BLUE, ch);
 		obj_cast_spell(gsn_dragon_strength, ch->level, ch, ch, obj);
 		break;
 	case 1:
-		char_nputs(TATTOO_GLOWS_RED, ch);
+		char_nputs(MSG_TATTOO_GLOWS_RED, ch);
 		obj_cast_spell(gsn_dragon_breath,
 			       ch->level, ch, ch->fighting, obj);
 		break;
@@ -876,11 +876,11 @@ int fight_prog_tattoo_odin(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 
 	switch(number_bits(5)) {
 	case 0:
-		char_nputs(TATTOO_GLOWS_BLUE, ch);
+		char_nputs(MSG_TATTOO_GLOWS_BLUE, ch);
 		obj_cast_spell(gsn_cure_critical, ch->level, ch, ch, obj);
 		break;
 	case 1:
-		char_nputs(TATTOO_GLOWS_RED, ch);
+		char_nputs(MSG_TATTOO_GLOWS_RED, ch);
 		obj_cast_spell(gsn_faerie_fire,
 			       ch->level, ch, ch->fighting, obj);
 		break;
@@ -895,11 +895,11 @@ int fight_prog_tattoo_phobos(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 
 	switch(number_bits(6)) {
 	case 0:
-		char_nputs(TATTOO_GLOWS_BLUE, ch);
+		char_nputs(MSG_TATTOO_GLOWS_BLUE, ch);
 		obj_cast_spell(gsn_cure_serious, ch->level, ch, ch, obj);
 		break;
 	case 1:
-		char_nputs(TATTOO_GLOWS_RED, ch);
+		char_nputs(MSG_TATTOO_GLOWS_RED, ch);
 		obj_cast_spell(skill_lookup("colour spray"),
 			       ch->level, ch, ch->fighting, obj);
 		break;
@@ -914,12 +914,12 @@ int fight_prog_tattoo_mars(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 
 	switch(number_bits(7)) {
 	case 0:
-		char_nputs(TATTOO_GLOWS_RED, ch);
+		char_nputs(MSG_TATTOO_GLOWS_RED, ch);
 		obj_cast_spell(gsn_blindness, ch->level, ch, ch->fighting, obj);
 		send_to_char("You send out a cloud of confusion!\n\r", ch);
 		break;
 	case 1:
-		char_nputs(TATTOO_GLOWS_RED, ch);
+		char_nputs(MSG_TATTOO_GLOWS_RED, ch);
 		obj_cast_spell(gsn_poison, ch->level, ch, ch->fighting, obj);
 		send_to_char("Some of your insanity rubs off on your opponent.\n\r", ch);
 		break;
@@ -1010,19 +1010,19 @@ int fight_prog_tattoo_hera(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 
 	switch(number_bits(5)) {
 	case 0:
-		char_nputs(TATTOO_GLOWS_RED, ch);
+		char_nputs(MSG_TATTOO_GLOWS_RED, ch);
 		obj_cast_spell(gsn_plague, ch->level, ch, ch->fighting, obj);
 		break;
 	case 1:
-		char_nputs(TATTOO_GLOWS_RED, ch);
+		char_nputs(MSG_TATTOO_GLOWS_RED, ch);
 		obj_cast_spell(gsn_poison, ch->level, ch, ch->fighting, obj);
 		/* FALLTHRU */
 	case 2:
-		char_nputs(TATTOO_GLOWS_RED, ch);
+		char_nputs(MSG_TATTOO_GLOWS_RED, ch);
 		obj_cast_spell(gsn_weaken, ch->level, ch, ch->fighting, obj);
 		/* FALLTHRU */
 	case 3:
-		char_nputs(TATTOO_GLOWS_RED, ch);
+		char_nputs(MSG_TATTOO_GLOWS_RED, ch);
 		obj_cast_spell(gsn_slow, ch->level, ch, ch->fighting, obj);
 		break;
 	}
@@ -1038,11 +1038,11 @@ int fight_prog_tattoo_deimos(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 	switch(number_bits(6)) {
 	case 0:
 	case 1:
-		char_nputs(TATTOO_GLOWS_BLUE, ch);
+		char_nputs(MSG_TATTOO_GLOWS_BLUE, ch);
 		obj_cast_spell(gsn_cure_serious, ch->level, ch, ch, obj);
 		break;
 	case 2:
-		char_nputs(TATTOO_GLOWS_RED, ch);
+		char_nputs(MSG_TATTOO_GLOWS_RED, ch);
 		obj_cast_spell(gsn_web, ch->level, ch, ch->fighting,
 			       obj);
 		break;
@@ -1059,11 +1059,11 @@ int fight_prog_tattoo_eros(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 	switch(number_bits(4)) {
 	case 0:
 	case 1:
-		char_nputs(TATTOO_GLOWS_BLUE, ch);
+		char_nputs(MSG_TATTOO_GLOWS_BLUE, ch);
 		obj_cast_spell(skill_lookup("heal"), ch->level, ch, ch, obj);
 		break;
 	case 2:
-		char_nputs(TATTOO_GLOWS_BLUE, ch);
+		char_nputs(MSG_TATTOO_GLOWS_BLUE, ch);
 		obj_cast_spell(skill_lookup("group heal"),
 			       ch->level, ch, ch, obj);
 		break;

@@ -1,5 +1,5 @@
 /*
- * $Id: resource.c,v 1.28 1998-07-14 11:16:06 fjoe Exp $
+ * $Id: resource.c,v 1.29 1998-08-14 05:45:16 fjoe Exp $
  */
 
 #include <limits.h>
@@ -97,17 +97,17 @@ void do_lang(CHAR_DATA *ch, const char *argument)
 				   ch->name, ch->lang);
 			ch->lang = 0;
 		}
-		char_nprintf(ch, INTERFACE_LANGUAGE_IS, lang_table[ch->lang]);
+		char_nprintf(ch, MSG_INTERFACE_LANGUAGE_IS, lang_table[ch->lang]);
 		return;
 	}
 
 	lang = lang_lookup(arg);
 	if (lang < 0) {
-		char_nputs(LANG_USAGE_PRE, ch);
+		char_nputs(MSG_LANG_USAGE_PRE, ch);
 		for (lang = 0; lang < nlang; lang++)
 			char_printf(ch, "%s%s",
 				    lang == 0 ? "" : " | ", lang_table[lang]);
-		char_nputs(LANG_USAGE_POST, ch);
+		char_nputs(MSG_LANG_USAGE_POST, ch);
 		return;
 	}
 

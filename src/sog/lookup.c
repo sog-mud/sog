@@ -1,5 +1,5 @@
 /*
- * $Id: lookup.c,v 1.9 1998-08-05 06:43:51 fjoe Exp $
+ * $Id: lookup.c,v 1.10 1998-08-14 05:45:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -227,8 +227,7 @@ int clan_lookup (const char *argument)
 {
    int clan;
  
-   for (clan = 0; clan < MAX_CLAN; clan++)
-   {
+   for (clan = 0; clan_table[clan].long_name; clan++) {
 	    if (LOWER(argument[0]) == LOWER(clan_table[clan].short_name[0])
 	    &&  !str_prefix(argument,clan_table[clan].short_name))
 	        return clan;

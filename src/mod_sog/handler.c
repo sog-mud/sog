@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.47 1998-08-14 03:36:20 fjoe Exp $
+ * $Id: handler.c,v 1.48 1998-08-14 05:45:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -190,7 +190,7 @@ bool clan_ok(CHAR_DATA *ch, int sn)
 	    clan_table[ch->clan].room_vnum)
 	return TRUE;
 
-  for (i=1;i < MAX_CLAN; i++)
+  for (i = 1; clan_table[i].long_name != NULL; i++)
 	if (clan_table[ch->clan].obj_ptr->in_room->vnum ==
 	      clan_table[i].room_vnum) {
 	  send_to_char("You cannot find the Cabal Power within you.\n\r",ch);
@@ -2149,7 +2149,7 @@ void extract_obj_1(OBJ_DATA *obj, bool count)
 	else if (obj->in_obj != NULL)
 		obj_from_obj(obj);
 
-	for (i=1;i < MAX_CLAN;i++)
+	for (i = 1; clan_table[i].long_name != NULL; i++)
 	  if (obj->pIndexData->vnum == clan_table[i].obj_vnum) {
 	    obj->pIndexData->count--;
 	    clan_table[i].obj_ptr = NULL;

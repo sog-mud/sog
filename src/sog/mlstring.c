@@ -1,5 +1,5 @@
 /*
- * $Id: mlstring.c,v 1.8 1998-08-14 03:36:22 fjoe Exp $
+ * $Id: mlstring.c,v 1.9 1998-08-14 05:45:15 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -406,6 +406,7 @@ static mlstring *mlstr_split(mlstring *ml)
 		return res;
 	}
 
+	res->u.lstr = alloc_mem(sizeof(char*) * res->nlang);
 	for (lang = 0; lang < res->nlang; lang++)
 		res->u.lstr[lang] = strdup(ml->u.lstr[lang]);
 	return res;

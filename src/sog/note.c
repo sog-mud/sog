@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.16 1998-08-05 06:43:53 fjoe Exp $
+ * $Id: note.c,v 1.17 1998-08-14 05:45:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -684,7 +684,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
         for (pnote = *list; pnote != NULL; pnote = pnote->next) {
             if (is_note_to(ch, pnote) && vnum++ == anum) {
                 note_remove(ch, pnote, FALSE);
-                char_nputs(OK, ch);
+                char_nputs(MSG_OK, ch);
                 return;
             }
         }
@@ -704,7 +704,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
         for (pnote = *list; pnote != NULL; pnote = pnote->next) {
             if (is_note_to(ch, pnote) && vnum++ == anum) {
                 note_remove(ch, pnote,TRUE);
-                char_nputs(OK, ch);
+                char_nputs(MSG_OK, ch);
                 return;
             }
         }
@@ -754,7 +754,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 
 	free_string(ch->pnote->subject);
 	ch->pnote->subject = str_dup(argument);
-	char_nputs(OK, ch);
+	char_nputs(MSG_OK, ch);
 	return;
     }
 
@@ -767,7 +767,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
         }
 	free_string(ch->pnote->to_list);
 	ch->pnote->to_list = str_dup(argument);
-	char_nputs(OK, ch);
+	char_nputs(MSG_OK, ch);
 	return;
     }
 
@@ -777,7 +777,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 	    ch->pnote = NULL;
 	}
 
-	char_nputs(OK, ch);
+	char_nputs(MSG_OK, ch);
 	return;
     }
 
@@ -848,7 +848,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 	return;
     }
 
-    char_nputs(YOU_CANT_DO_THAT, ch);
+    char_nputs(MSG_YOU_CANT_DO_THAT, ch);
     return;
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: clan.c,v 1.7 1998-08-06 13:50:10 fjoe Exp $
+ * $Id: clan.c,v 1.8 1998-08-14 05:45:12 fjoe Exp $
  */
 
 #include <sys/syslimits.h>
@@ -62,7 +62,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 		victim->clan = ch->clan;
 		victim->pcdata->petition = CLAN_NONE;
 		victim->pcdata->clan_status = CLAN_COMMON;
-		char_nputs(OK, ch);
+		char_nputs(MSG_OK, ch);
 		char_puts("Greet new member!\n\r", ch);
 		char_printf(victim, "Your petition to %s has been "
 			    "accepted.\n\r",
@@ -96,7 +96,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 		&&  victim->pcdata->clan_status != CLAN_LEADER) {
 			victim->clan = CLAN_NONE;
 			victim->pcdata->petition = CLAN_NONE;
-			char_nputs(OK, ch);
+			char_nputs(MSG_OK, ch);
 			char_puts("They are not a member of your clan "
 				  "any more.\n\r", ch);
 			char_puts("You are not a member of any clan "
@@ -106,7 +106,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 
 		if (victim->pcdata->petition == ch->clan) {
 			victim->pcdata->petition = CLAN_NONE;
-			char_nputs(OK, ch);
+			char_nputs(MSG_OK, ch);
 			char_puts("Petition was rejected.\n\r", ch);
 			char_printf(victim, "Your petition to %s was "
 				    "rejected.\n\r",
@@ -135,7 +135,7 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 
 	if (!IS_IMMORTAL(ch)
 	&&  (IS_NPC(ch) || ch->pcdata->clan_status != CLAN_LEADER)) {
-		char_nputs(HUH, ch);
+		char_nputs(MSG_HUH, ch);
 		return;
 	}
 
@@ -154,7 +154,7 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 	victim = get_char_world(ch, arg1);
 
 	if (!victim || IS_NPC(victim)) {
-		char_nputs(THEY_ARENT_HERE, ch);
+		char_nputs(MSG_THEY_ARENT_HERE, ch);
 		return;
 	}
 
@@ -171,7 +171,7 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 		}
 
 		victim->pcdata->clan_status = CLAN_LEADER;
-		char_nputs(OK, ch);
+		char_nputs(MSG_OK, ch);
 		char_puts("They are now leader in their clan.\n\r", ch);
 		char_puts("You are now leader in your clan.\n\r", victim);
 		return;
@@ -198,7 +198,7 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 		}
 
 		victim->pcdata->clan_status = CLAN_SECOND;
-		char_nputs(OK, ch);
+		char_nputs(MSG_OK, ch);
 		char_puts("They are now second in clan.\n\r", ch);
 		char_puts("You are now second in clan.\n\r", victim);
 		return;
@@ -219,7 +219,7 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 		}
 
 		victim->pcdata->clan_status = CLAN_COMMON;
-		char_nputs(OK, ch);
+		char_nputs(MSG_OK, ch);
 		char_puts("They are now common in your clan.\n\r", ch);
 		char_puts("You are now common in your clan.\n\r", victim);
 		return;
@@ -253,7 +253,7 @@ void do_clanlist(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (ch->clan == CLAN_NONE || ch->pcdata->clan_status == CLAN_COMMON) {
-		char_nputs(HUH, ch);
+		char_nputs(MSG_HUH, ch);
 		return;
 	}
 
