@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.25 1998-10-26 08:40:09 fjoe Exp $
+ * $Id: olc_room.c,v 1.26 1998-11-17 06:40:48 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -820,7 +820,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		   	char_puts("Exit does not exist.\n\r",ch);
 		   	return FALSE;
 		}
-		 /*   pRoom->exit[door] = new_exit(); */
+		/*   pRoom->exit[door] = new_exit(); */
 
 		/*
 		 * This room.
@@ -836,10 +836,9 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		/*
 		 * Connected room.
 		 */
-		pToRoom = pRoom->exit[door]->u1.to_room;     /* ROM OLC */
 		rev = rev_dir[door];
-
-		if (pToRoom->exit[rev] != NULL) {
+		pToRoom = pRoom->exit[door]->u1.to_room;     /* ROM OLC */
+		if (pToRoom && pToRoom->exit[rev] != NULL) {
 			TOGGLE_BIT(pToRoom->exit[rev]->rs_flags,  value);
 			TOGGLE_BIT(pToRoom->exit[rev]->exit_info, value);
 		}
@@ -885,8 +884,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		 */
 		rev = rev_dir[door];
 		pToRoom = pRoom->exit[door]->u1.to_room;       /* ROM OLC */
-		
-		if (pToRoom->exit[rev]) {
+		if (pToRoom && pToRoom->exit[rev]) {
 			free_exit(pToRoom->exit[rev]);
 			pToRoom->exit[rev] = NULL;
 		}
