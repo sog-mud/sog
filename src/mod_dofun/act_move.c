@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.67 1998-07-14 07:47:40 fjoe Exp $
+ * $Id: act_move.c,v 1.68 1998-07-20 02:50:01 efdi Exp $
  */
 
 /***************************************************************************
@@ -2964,7 +2964,7 @@ void do_crecall(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
 	ROOM_INDEX_DATA *location;
-	int point = ROOM_VNUM_BATTLE;
+	int point = clan_table[ch->clan].room_vnum;
 	AFFECT_DATA af;
 
 	if (ch_skill_nok(ch,gsn_clan_recall))
@@ -2973,17 +2973,12 @@ void do_crecall(CHAR_DATA *ch, const char *argument)
 	if (!clan_ok(ch,gsn_clan_recall))
 		return;
 
-	if (is_affected(ch, gsn_clan_recall)) {
+	if (is_affected(ch, gsn_clan_recall))
 		char_nputs(CANT_PRAY_NOW, ch);
-	}
 
 	if (ch->desc != NULL && IS_PUMPED(ch)) {
 		char_nputs(TOO_PUMPED_TO_PRAY, ch);
 		return;
-	}
-
-	if (ch->desc == NULL && !IS_NPC(ch)) {
-		point =	ROOM_VNUM_BATTLE;
 	}
 
 	act_nprintf(ch, 0, 0, TO_ROOM, POS_RESTING, PRAYS_UPPER_LORD);
@@ -3008,13 +3003,7 @@ void do_crecall(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (ch->mana < (ch->max_mana * 0.3)) {
-		char_nputs(DONT_HAVE_POWER, ch);
-		return;
-	}
-
 	ch->move /= 2;
-	ch->mana /= 10;
 	act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, N_DISAPPEARS);
 	char_from_room(ch);
 	char_to_room(ch, location);
@@ -3030,7 +3019,7 @@ void do_crecall(CHAR_DATA *ch, const char *argument)
 
 	af.type      = gsn_clan_recall;
 	af.level     = ch->level;
-	af.duration  = ch->level / 6 + 15;
+	af.duration  = 5;
 	af.location  = APPLY_NONE;
 	af.modifier  = 0;
 	af.bitvector = 0;

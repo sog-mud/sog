@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.42 1998-07-13 16:27:22 efdi Exp $
+ * $Id: interp.c,v 1.43 1998-07-20 02:50:01 efdi Exp $
  */
 
 /***************************************************************************
@@ -104,7 +104,6 @@ const	struct	cmd_type	cmd_table	[] =
      */
     { "at",             do_at,          POS_DEAD,       L6,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST  },
     { "cast",		do_cast,	POS_FIGHTING,	 0,  LOG_NORMAL, 1,0},
-    { "crecall",	do_crecall,	POS_FIGHTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
     { "auction",        do_auction,     POS_SLEEPING,    0,  LOG_NORMAL, 1, CMD_GHOST  },
     { "buy",		do_buy,		POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
     { "channels",       do_channels,    POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST},
@@ -183,7 +182,8 @@ const	struct	cmd_type	cmd_table	[] =
      * Communication commands.
      */
     { "bearcall",       do_bear_call,   POS_FIGHTING,    0,  LOG_NORMAL, 1,0},
-    { "cb",             do_cb,          POS_SLEEPING,    0,  LOG_NORMAL, 1, CMD_GHOST },
+    { "clan",		do_clan,	POS_SLEEPING,    0,  LOG_NORMAL, 1, CMD_GHOST },
+    { "clanrecall",	do_crecall,	POS_FIGHTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
     { "deaf",		do_deaf,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "emote",		do_emote,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
     { "pmote",		do_pmote,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },

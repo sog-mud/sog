@@ -1,5 +1,5 @@
 /*
- * $Id: mlstring.c,v 1.4 1998-07-14 11:16:06 fjoe Exp $
+ * $Id: mlstring.c,v 1.5 1998-07-20 02:50:01 efdi Exp $
  */
 
 #include <stdio.h>
@@ -116,6 +116,9 @@ void mlstr_fwrite(FILE *fp, const char* name, const mlstring *ml)
 {
 	int lang;
 
+	if (!ml)
+		return;
+
 	if (name != NULL)
 		fprintf(fp, "%s ", name);
 
@@ -134,6 +137,9 @@ void mlstr_free(mlstring *ml)
 {
 	int lang;
 
+	if (!ml)
+		return;
+
 	if (ml->nlang == 0) {
 		free_string(ml->u.str);
 		return;
@@ -150,6 +156,9 @@ mlstring *mlstr_dup(const mlstring *ml)
 {
 	int lang;
 	mlstring *ml_new;
+
+	if (!ml)
+		return 0;
 
 	ml_new = alloc_mem(sizeof(*ml_new));
 	ml_new->nlang = ml->nlang;
@@ -171,6 +180,9 @@ void mlstr_printf(mlstring *ml,...)
 
 	va_start(ap, ml);
 
+	if (!ml)
+		return;
+
 	if (ml->nlang == 0) {
 		vsnprintf(buf, sizeof(buf), ml->u.str, ap);
 		free_string(ml->u.str);
@@ -190,6 +202,9 @@ void mlstr_printf(mlstring *ml,...)
 
 char * mlstr_val(const mlstring *ml, int lang)
 {
+	if (!ml)
+		return "";
+
 	if (ml->nlang == 0)
 		return ml->u.str;
 	if (lang >= ml->nlang || lang < 0)
@@ -207,6 +222,9 @@ int mlstr_cmp(const mlstring *ml1, const mlstring *ml2)
 {
 	int lang;
 	int res;
+
+	if (!ml1 || !ml2)
+		return 0;
 
 	if (ml1->nlang != ml2->nlang)
 		return  ml1->nlang - ml2->nlang;
@@ -227,6 +245,9 @@ char** mlstr_convert(mlstring *ml, int newlang)
 {
 	char *old;
 	int lang;
+
+	if (!ml)
+		return 0;
 
 	if (newlang < 0) {
 		/* convert to language-independent */
@@ -268,6 +289,9 @@ bool mlstr_append(CHAR_DATA *ch, mlstring *ml, const char *arg)
 void mlstr_format(mlstring *ml)
 {
 	int lang;
+
+	if (!ml)
+		return;
 
 	if (ml->nlang == 0) {
 		ml->u.str = format_string(ml->u.str);
@@ -323,6 +347,9 @@ void mlstr_dump(BUFFER *buf, const char *name, const mlstring *ml)
 	size_t namelen;
 	int lang;
 	static char FORMAT[] = "%s[%s] [%s]\n\r";
+
+	if (!ml)
+		return;
 
 	namelen = strlen(name);
 	namelen = URANGE(0, namelen, sizeof(space)-1);

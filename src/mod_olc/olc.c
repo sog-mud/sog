@@ -1,5 +1,5 @@
 /*
- * $Id: olc.c,v 1.6 1998-07-14 07:47:49 fjoe Exp $
+ * $Id: olc.c,v 1.7 1998-07-20 02:50:01 efdi Exp $
  */
 
 /***************************************************************************
@@ -701,18 +701,13 @@ void do_aedit(CHAR_DATA *ch, const char *argument)
 
     argument	= one_argument(argument,arg);
 
-    if (is_number(arg))
-    {
+    if (is_number(arg)) {
 	value = atoi(arg);
-	if (!(pArea = get_area_data(value)))
-	{
+	if (!(pArea = get_area_data(value))) {
 	    send_to_char("That area vnum does not exist.\n\r", ch);
 	    return;
 	}
-    }
-    else
-    if (!str_cmp(arg, "create"))
-    {
+    } else if (!str_cmp(arg, "create")) {
 	if (ch->pcdata->security < 9)
 	{
 		send_to_char("AEdit : Seguridad insuficiente para crear area.\n\r", ch);

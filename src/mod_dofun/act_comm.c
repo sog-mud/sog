@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.64 1998-07-16 10:13:27 efdi Exp $
+ * $Id: act_comm.c,v 1.65 1998-07-20 02:50:00 efdi Exp $
  */
 
 /***************************************************************************
@@ -1711,16 +1711,16 @@ void do_gtell(CHAR_DATA *ch, const char *argument)
 
 
 
-void do_cb(CHAR_DATA *ch, const char *argument)
+void do_clan(CHAR_DATA *ch, const char *argument)
 {
 	DESCRIPTOR_DATA *d;
 	char buf[MAX_STRING_LENGTH];
 	char buf2[MAX_INPUT_LENGTH];
 
 	if (!(ch->clan)) {
-	send_to_char("You are not in a Cabal.\n\r",ch);
-	return;
-		 }
+		char_puts("You are not in a Cabal.\n\r",ch);
+		return;
+	}
 
 	snprintf(buf, sizeof(buf), "[%s] $n: {C$t{x",clan_table[ch->clan].short_name);
 
@@ -1734,7 +1734,6 @@ void do_cb(CHAR_DATA *ch, const char *argument)
 	for (d = descriptor_list; d != NULL; d = d->next) {
 	if (d->connected == CON_PLAYING && 
 		 (d->character->clan == ch->clan) &&
-/*             !IS_SET(d->character->comm,COMM_NOCB) &&   */
 		 !is_affected(d->character, gsn_deafen))
 		act_puts(buf, ch,buf2,d->character,TO_VICT,POS_DEAD);
 	}

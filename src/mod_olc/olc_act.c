@@ -1,5 +1,5 @@
 /*
- * $Id: olc_act.c,v 1.9 1998-07-18 23:57:28 efdi Exp $
+ * $Id: olc_act.c,v 1.10 1998-07-20 02:50:01 efdi Exp $
  */
 
 /***************************************************************************
@@ -38,6 +38,7 @@
 #include "mlstring.h"
 
 char * mprog_type_to_name (int type);
+AREA_DATA *area_in_range = NULL;
 
 /* Return TRUE if area changed, FALSE if not. */
 #define REDIT(fun)		bool fun(CHAR_DATA *ch, const char *argument)
@@ -522,6 +523,7 @@ bool check_range(int lower, int upper)
 		||  (lower <= pArea->max_vnum && pArea->max_vnum <= upper))
 			++cnt;
 
+		area_in_range = pArea;
 		if (cnt > 1)
 			return FALSE;
 	}
@@ -862,21 +864,20 @@ AEDIT(aedit_vnum)
 	one_argument(argument, upper);
 
 	if (!is_number(lower) || lower[0] == '\0'
-	|| !is_number(upper) || upper[0] == '\0')
-	{
-		send_to_char("Syntax:  vnum [#xlower] [#xupper]\n\r", ch);
+	||  !is_number(upper) || upper[0] == '\0') {
+		char_puts("Syntax:  vnum [#xlower] [#xupper]\n\r", ch);
 		return FALSE;
 	}
 
-	if ((ilower = atoi(lower)) > (iupper = atoi(upper)))
-	{
-		send_to_char("AEdit:  Upper must be larger then lower.\n\r", ch);
+	if ((ilower = atoi(lower)) > (iupper = atoi(upper))) {
+		char_puts("Upper must be larger then lower.\n\r", ch);
 		return FALSE;
 	}
 	
-	if (!check_range(atoi(lower), atoi(upper)))
-	{
-		send_to_char("AEdit:  Range must include only this area.\n\r", ch);
+	if (!check_range(atoi(lower), atoi(upper))) {
+		char_puts("Range must include only this area.\n\r", ch);
+		char_printf(ch, "This range intersects with %s.\n\r",
+			    area_in_range->name);
 		return FALSE;
 	}
 
