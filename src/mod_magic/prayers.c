@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.84 2004-06-28 19:21:02 tatyana Exp $
+ * $Id: prayers.c,v 1.85 2004-07-15 08:14:07 tatyana Exp $
  */
 
 /***************************************************************************
@@ -4495,45 +4495,32 @@ SPELL_FUN(prayer_incendiary_cloud, sn, level, ch, vo)
 SPELL_FUN(prayer_unholy_aura, sn, level, ch, vo)
 {
 	CHAR_DATA *vch = vo;
+	AFFECT_DATA *paf;
 
-	for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room) {
-		AFFECT_DATA *paf;
-
-		if (!is_same_group(vch, ch) || !IS_EVIL(ch))
-			continue;
-
-		if (is_sn_affected(vch, sn)) {
-			if (vch == ch)
-				act_char("You are already protected by a unholy aura.", ch);
-			else
-				act("$N is already protected by a unholy aura.",
-				    ch, NULL, vch, TO_CHAR);
-			continue;
-		}
-
-		paf = aff_new(TO_AFFECTS, sn);
-		INT(paf->location)= APPLY_HITROLL;
-		paf->modifier	= UMAX(1, level / 8);
-		paf->bitvector	= 0;
-		paf->duration	= level / 4;
-		affect_to_char(vch, paf);
-
-		INT(paf->location)= APPLY_SAVING_SPELL;
-		paf->modifier	=  -UMAX(1, level / 8);
-		affect_to_char(vch, paf);
-		aff_free(paf);
-
-		act_char("You feel a unholy aura around you.", vch);
-		if (ch != vch)
-			act("A unholy aura surrounds $N.",
-			    ch, NULL, vch, TO_CHAR);
+	if (is_sn_affected(vch, sn)) {
+		act_char("You are already protected by a unholy aura.", ch);
+		return;
 	}
+
+	paf = aff_new(TO_AFFECTS, sn);
+	INT(paf->location)= APPLY_HITROLL;
+	paf->modifier	= UMAX(1, level / 8);
+	paf->bitvector	= 0;
+	paf->duration	= level / 4;
+	affect_to_char(vch, paf);
+
+	INT(paf->location)= APPLY_SAVING_SPELL;
+	paf->modifier	=  -UMAX(1, level / 8);
+	affect_to_char(vch, paf);
+	aff_free(paf);
+
+	act_char("You feel a unholy aura around you.", vch);
 }
 
 SPELL_FUN(prayer_unholy_blight, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	int dam, align;
+	int dam;
 
 	if (IS_GOOD(ch)) {
 		victim = ch;
@@ -4541,9 +4528,10 @@ SPELL_FUN(prayer_unholy_blight, sn, level, ch, vo)
 	}
 
 	if (victim != ch) {
-		act("$n raises $s hand, and a wave of unholy blight spreads forth!",
-		    ch, NULL, NULL, TO_ROOM);
-		act_char("You raise your hand and a wave of unholy blight spreads forth!", ch);
+		act("$n raises $s hand, and a wave of unholy blight "
+		    "spreads forth!", ch, NULL, NULL, TO_ROOM);
+		act_char("You raise your hand and a wave of unholy "
+			 "blight spreads forth!", ch);
 	}
 
 	if (IS_EVIL(victim)) {
@@ -4556,14 +4544,6 @@ SPELL_FUN(prayer_unholy_blight, sn, level, ch, vo)
 	dam = calc_spell_damage(ch, level, sn);
 	if (saves_spell(level, victim, DAM_EVIL))
 		dam /= 2;
-
-	align = victim->alignment;
-	align += 350;
-
-	if (align > 1000)
-		align = 1000 + (align - 1000) / 3;
-
-	dam = (dam * align * align) / 1000000;
 
 	spellfun("poison", NULL, 4 * level / 3, ch, victim);
 	damage(ch, victim, dam, sn, DAM_F_SHOW);
@@ -4580,8 +4560,7 @@ SPELL_FUN(prayer_inspire_weapon, sn, level, ch, vo)
 	}
 
 	if (obj->wear_loc != -1) {
-		act_char("The item must be carried to be inspired.",
-			 ch);
+		act_char("The item must be carried to be inspired.", ch);
 		return;
 	}
 
@@ -4606,7 +4585,8 @@ SPELL_FUN(prayer_inspire_weapon, sn, level, ch, vo)
 	aff_free(paf);
 
 	act("$p is inspired with a part of your soul.", ch, obj, NULL, TO_CHAR);
-	act("Now it can slay enemies without your help.", ch, obj, NULL, TO_CHAR);
+	act("Now it can slay enemies without your help.",
+	    ch, obj, NULL, TO_CHAR);
 }
 
 SPELL_FUN(prayer_blasphemy, sn, level, ch, vo)
