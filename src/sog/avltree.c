@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: avltree.c,v 1.4 2001-09-13 16:22:19 fjoe Exp $
+ * $Id: avltree.c,v 1.5 2001-09-14 06:49:04 fjoe Exp $
  */
 
 #include <assert.h>
@@ -456,6 +456,7 @@ avltree_delete(void *c, const void *key)
 		} else {
 			avlnode_t *s = LEFT(r);
 			avlnode_t **qq;
+			avlnode_t *t = r;
 
 			a[k] = 1;
 			qq = &pa[k++];
@@ -479,7 +480,7 @@ avltree_delete(void *c, const void *key)
 			LEFT(s) = LEFT(curr);
 			LTAG(s) = LTAG(curr);
 
-			RIGHT(s) = r;
+			RIGHT(s) = t;
 			RTAG(s) = TAG_TREE;
 
 			s->bal = curr->bal;
