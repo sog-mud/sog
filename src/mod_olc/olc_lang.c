@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_lang.c,v 1.1 1998-10-06 13:20:14 fjoe Exp $
+ * $Id: olc_lang.c,v 1.2 1998-10-08 13:31:28 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -45,6 +45,7 @@ DECLARE_OLC_FUN(langed_list	);
 DECLARE_OLC_FUN(langed_name	);
 DECLARE_OLC_FUN(langed_flags	);
 DECLARE_OLC_FUN(langed_slangof	);
+DECLARE_OLC_FUN(langed_filename	);
 DECLARE_OLC_FUN(langed_genders	);
 DECLARE_OLC_FUN(langed_cases	);
 
@@ -61,6 +62,7 @@ OLC_CMD_DATA olc_cmds_lang[] =
 	{ "name",	langed_name,	validate_langname	},
 	{ "flags",	langed_flags,	lang_flags		},
 	{ "slangof",	langed_slangof				},
+	{ "filename",	langed_filename,validate_filename	},
 	{ "genders",	langed_genders,	validate_filename	},
 	{ "cases",	langed_cases,	validate_filename	},
 
@@ -91,6 +93,7 @@ OLC_FUN(langed_create)
 
 	l = lang_new();
 	l->name = str_dup(arg);
+	l->file_name = str_printf("lang%02d.lang", langs.nused-1);
 	ch->desc->pEdit = l;
 	ch->desc->editor = ED_LANG;
 	char_puts("LangEd: lang created.\n\r", ch);
@@ -137,7 +140,9 @@ OLC_FUN(langed_show)
 	LANG_DATA *sl;
 	EDIT_LANG(ch, l);
 
-	char_printf(ch, "Name:     [%s]\n\r", l->name);
+	char_printf(ch, "Name:     [%s]\n\r"
+			"Filename: [%s]\n\r",
+		    l->name, l->file_name);
 	if ((sl = varr_get(&langs, l->slang_of)))
 		char_printf(ch, "Slang of: [%s]\n\r", sl->name);
 	if (!IS_NULLSTR(l->file_genders))
@@ -202,6 +207,13 @@ OLC_FUN(langed_slangof)
 	EDIT_LANG(ch, l);
 	l->slang_of = lang;
 	return TRUE;
+}
+
+OLC_FUN(langed_filename)
+{
+	LANG_DATA *l;
+	EDIT_LANG(ch, l);
+	return olced_str(ch, argument, langed_filename, &l->file_name);
 }
 
 OLC_FUN(langed_genders)

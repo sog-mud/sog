@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_form.c,v 1.1 1998-10-06 13:20:14 fjoe Exp $
+ * $Id: olc_form.c,v 1.2 1998-10-08 13:31:28 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -64,13 +64,14 @@ OLC_CMD_DATA olc_cmds_word[] =
 	{ "form",	worded_form	},
 	{ "del",	worded_del	},
 
+	{ "commands",	show_commands	},
 	{ NULL }
 };
 
 OLC_FUN(worded_create)
 {
 	WORD_DATA *w;
-	LANG_DATA *l;
+	LANG_DATA *l = NULL;
 	char arg[MAX_STRING_LENGTH];
 	const char *type;
 	varr **hashp;
@@ -90,9 +91,10 @@ OLC_FUN(worded_create)
 		l = ch->desc->pEdit;
 	else if (ch->desc->editor == ED_GENDER || ch->desc->editor == ED_CASE) {
 		w = ch->desc->pEdit;
-		l = w->lang;
+		l = varr_get(&langs, w->lang);
 	}
-	else {
+
+	if (l == NULL) {
 		char_puts("WordEd: You must be editing a language or another word.\n\r", ch);
 		return FALSE;
 	}
@@ -115,7 +117,7 @@ OLC_FUN(worded_create)
 		return FALSE;
 	}
 
-	w = word_new(l);
+	w = word_new(l->vnum);
 	w->name = str_dup(argument);
 	word_add(hashp, w);
 	ch->desc->editor = type;
@@ -127,7 +129,7 @@ OLC_FUN(worded_create)
 OLC_FUN(worded_edit)
 {
 	WORD_DATA *w;
-	LANG_DATA *l;
+	LANG_DATA *l = NULL;
 	char arg[MAX_STRING_LENGTH];
 	const char *type;
 	varr **hashp;
@@ -147,18 +149,19 @@ OLC_FUN(worded_edit)
 		l = ch->desc->pEdit;
 	else if (ch->desc->editor == ED_GENDER || ch->desc->editor == ED_CASE) {
 		w = ch->desc->pEdit;
-		l = w->lang;
+		l = varr_get(&langs, w->lang);
 	}
-	else {
+
+	if (l == NULL) {
 		char_puts("WordEd: You must be editing a language or another word.\n\r", ch);
 		return FALSE;
 	}
 
-	if (!str_prefix(arg, "case")) {
+	if (!str_prefix(arg, "cases")) {
 		type = ED_CASE;
 		hashp = l->hash_cases;
 	}
-	else if (!str_prefix(arg, "gender")) {
+	else if (!str_prefix(arg, "genders")) {
 		type = ED_GENDER;
 		hashp = l->hash_genders;
 	}
@@ -168,25 +171,28 @@ OLC_FUN(worded_edit)
 	}
 
 	if ((w = word_lookup(hashp, argument)) == NULL) {
-		char_printf(ch, "WordEd: %s: duplicate name.\n\r", argument);
+		char_printf(ch, "WordEd: %s: not found.\n\r", argument);
 		return FALSE;
 	}
 
 	ch->desc->editor = type;
 	ch->desc->pEdit = w;
-	char_puts("WordEd: word created.\n\r", ch);
 	return FALSE;
 }
 
 OLC_FUN(worded_touch)
 {
 	WORD_DATA *w;
+	LANG_DATA *l;
+
 	EDIT_WORD(ch, w);
+	if ((l = varr_get(&langs, w->lang)) == NULL)
+		return FALSE;
 
 	if (ch->desc->editor == ED_GENDER)
-		SET_BIT(w->lang->flags, LANG_GENDERS_CHANGED);
+		SET_BIT(l->flags, LANG_GENDERS_CHANGED);
 	else if (ch->desc->editor == ED_CASE)
-		SET_BIT(w->lang->flags, LANG_CASES_CHANGED);
+		SET_BIT(l->flags, LANG_CASES_CHANGED);
 
 	return FALSE;
 }
@@ -195,14 +201,16 @@ OLC_FUN(worded_show)
 {
 	int i;
 	WORD_DATA *w;
+	LANG_DATA *l;
+
 	EDIT_WORD(ch, w);
+	l = varr_get(&langs, w->lang);
 
 	char_printf(ch, "Name: [%s]\n\r"
 			"Lang: [%s]\n\r"
-			"Type: [%s]\n\r"
-			"Base: [%s]\n\r",
+			"Type: [%s]\n\r",
 		    w->name,
-		    w->lang->name,
+		    l->name,
 		    ch->desc->editor == ED_GENDER ?	"gender" :
 		    ch->desc->editor == ED_CASE ?	"case" :
 							"unknown");
@@ -214,7 +222,7 @@ OLC_FUN(worded_show)
 		char **p = VARR_GET(&w->f, i);
 
 		if (!IS_NULLSTR(*p))
-			char_printf(ch, "Form: [%d] [%s]", i, *p);
+			char_printf(ch, "Form: [%d] [%s]\n\r", i, *p);
 	}
 
 	return FALSE;
@@ -273,6 +281,7 @@ OLC_FUN(worded_list)
 OLC_FUN(worded_name)
 {
 	WORD_DATA *w;
+	LANG_DATA *l;
 	varr **hashp;
 
 	if (argument[0] == '\0') {
@@ -281,7 +290,10 @@ OLC_FUN(worded_name)
 	}
 
 	EDIT_WORD(ch, w);
-	EDIT_HASH(ch, w->lang, hashp);
+	l = varr_get(&langs, w->lang);
+	if (l == NULL)
+		return FALSE;
+	EDIT_HASH(ch, l, hashp);
 
 	if (word_lookup(hashp, argument)) {
 		char_printf(ch, "WordEd: %s: duplicate name.\n\r", argument);
@@ -340,9 +352,13 @@ OLC_FUN(worded_del)
 {
 	varr **hashp;
 	WORD_DATA *w;
+	LANG_DATA *l;
 
 	EDIT_WORD(ch, w);
-	EDIT_HASH(ch, w->lang, hashp);
+	l = varr_get(&langs, w->lang);
+	if (l == NULL)
+		return FALSE;
+	EDIT_HASH(ch, l, hashp);
 
 	word_del(hashp, w->name);
 	edit_done(ch->desc);

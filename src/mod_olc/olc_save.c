@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.32 1998-10-06 13:20:14 fjoe Exp $
+ * $Id: olc_save.c,v 1.33 1998-10-08 13:31:28 fjoe Exp $
  */
 
 /**************************************************************************
@@ -32,6 +32,8 @@
 #include "obj_prog.h"
 #include "interp.h"
 #include "olc.h"
+#include "db/word.h"
+#include "db/lang.h"
 
 #define DIF(a,b) (~((~a)|(b)))
 
@@ -955,14 +957,14 @@ void save_clan(CHAR_DATA *ch, CLAN_DATA *clan)
 
 	fp = dfopen(CLANS_PATH, clan->file_name, "w");
 	if (fp == NULL) {
-		save_print(ch, "%s: %s", clan->file_name, strerror(errno));
+		save_print(ch, "%s/%s: %s", CLANS_PATH, clan->file_name,
+			   strerror(errno));
 		return;
 	}
 		
 	fprintf(fp, "#CLAN\n");
 
 	fprintf(fp, "Name %s~\n", clan->name);
-	fprintf(fp, "Filename %s~\n", clan->file_name);
 	if (clan->recall_vnum)
 		fprintf(fp, "Recall %d\n", clan->recall_vnum);
 	if (!IS_NULLSTR(clan->msg_prays))
@@ -1004,7 +1006,8 @@ void save_clans(CHAR_DATA *ch)
 
 	fp = dfopen(CLANS_PATH, CLAN_LIST, "w");
 	if (fp == NULL) {
-		save_print(ch, "%s: %s", CLAN_LIST, strerror(errno));
+		save_print(ch, "%s/%s: %s", CLANS_PATH, CLAN_LIST,
+			   strerror(errno));
 		return;
 	}
 
@@ -1038,7 +1041,8 @@ void save_msgdb(CHAR_DATA *ch)
 
 	fp = dfopen(ETC_PATH, MSG_FILE, "w");
 	if (fp == NULL) {
-		save_print(ch, "%s: %s", MSG_FILE, strerror(errno));
+		save_print(ch, "%s/%s: %s", ETC_PATH, MSG_FILE,
+			   strerror(errno));
 		return;
 	}
 
@@ -1055,39 +1059,145 @@ void save_msgdb(CHAR_DATA *ch)
 
 	fprintf(fp, "$~\n");
 	fclose(fp);
-	save_print(ch, "Saved msgdb.");
+	save_print(ch, "Msgdb saved.");
 }
 
-#if 0
-void save_lang(CHAR_DATA *ch, LANG_DATA *l)
+void save_word(FILE *fp, WORD_DATA *w)
+{
+	int i;
+
+	fprintf(fp, "#WORD\n"
+		    "Name %s~\n", w->name);
+	if (!IS_NULLSTR(w->base))
+		fprintf(fp, "Base %s~\n", w->base);
+	for (i = 0; i < w->f.nused; i++) {
+		char **p = VARR_GET(&w->f, i);
+		if (IS_NULLSTR(*p))
+			continue;
+		fprintf(fp, "Form %d %s~\n", i, *p);
+	}
+	fprintf(fp, "End\n\n");
+}
+
+bool save_words(CHAR_DATA *ch, const char *filename, varr **hashp)
 {
 	int i;
 	FILE *fp;
 	int sec = ch ? (IS_NPC(ch) ? 0 : ch->pcdata->security) : 9;
 
-	if (security < 9) {
-		save_print(ch, "Insufficient security to save langs.");
-		return;
+	if (sec < SECURITY_MSGDB) {
+		save_print(ch, "Insufficient security to save words hash.");
+		return FALSE;
 	}
+
+	fp = dfopen(LANG_PATH, filename, "w");
+	if (fp == NULL) {
+		save_print(ch, "%s/%s: %s", LANG_PATH, filename,
+			   strerror(errno));
+		return FALSE;
+	}
+
+	for (i = 0; i < MAX_WORD_HASH; i++) {
+		int j;
+
+		if (hashp[i] == NULL)
+			continue;
+
+		for (j = 0; j < hashp[i]->nused; j++) {
+			WORD_DATA *w = VARR_GET(hashp[i], j);
+			save_word(fp, w);
+		}
+	}
+
+	fprintf(fp, "#$\n");
+	fclose(fp);
+	return TRUE;
 }
-#endif
+
+bool save_lang(CHAR_DATA *ch, LANG_DATA *l)
+{
+	FILE *fp;
+	LANG_DATA *sl;
+	int sec = ch ? (IS_NPC(ch) ? 0 : ch->pcdata->security) : 9;
+	int flags;
+
+	if (sec < SECURITY_MSGDB) {
+		save_print(ch, "Insufficient security to save langs.");
+		return FALSE;
+	}
+
+	fp = dfopen(LANG_PATH, l->file_name, "w");
+	if (fp == NULL) {
+		save_print(ch, "%s/%s: %s", LANG_PATH, l->file_name,
+			   strerror(errno));
+		return FALSE;
+	}
+
+	fprintf(fp, "#LANG\n"
+		    "Name %s\n", l->name);
+	if ((sl = varr_get(&langs, l->slang_of)))
+		fprintf(fp, "SlangOf %s\n", sl->name);
+	flags = l->flags & ~(LANG_CHANGED | LANG_CASES_CHANGED |
+			     LANG_GENDERS_CHANGED);
+	if (flags)
+		fprintf(fp, "Flags %s~\n", flag_string(lang_flags, flags));
+	if (!IS_NULLSTR(l->file_cases))
+		fprintf(fp, "CasesFile %s~\n", l->file_cases);
+	if (!IS_NULLSTR(l->file_genders))
+		fprintf(fp, "GendersFile %s~\n", l->file_genders);
+	fprintf(fp, "End\n\n"
+		    "#$\n");
+	fclose(fp);
+	return TRUE;
+}
 
 void save_langs(CHAR_DATA *ch)
 {
-#if 0
 	int lang;
+	bool list = FALSE;
 
 	for (lang = 0; lang < langs.nused; lang++) {
 		LANG_DATA *l = VARR_GET(&langs, lang);
 
-		if (IS_SET(l->flags, LANG_GENDERS_CHANGED) 
-			save_words(ch, l, l->file_genders, l->hash_gender);
+		if (IS_SET(l->flags, LANG_GENDERS_CHANGED)
+		&&  save_words(ch, l->file_genders, l->hash_genders)) {
+			save_print(ch, "Genders saved (language '%s', %s/%s).",
+				   l->name, LANG_PATH, l->file_genders);
+			l->flags &= ~LANG_GENDERS_CHANGED;
+		}
+
 		if (IS_SET(l->flags, LANG_CASES_CHANGED)
-			save_words(ch, l, l->file_cases, l->hash_cases);
-		if (IS_SET(l->flags, LANG_CHANGED))
-			save_langs(ch, l);
+		&&  save_words(ch, l->file_cases, l->hash_cases)) {
+			save_print(ch, "Cases saved (language '%s', %s/%s).",
+				   l->name, LANG_PATH, l->file_cases);
+			l->flags &= ~LANG_CASES_CHANGED;
+		}
+
+		if (IS_SET(l->flags, LANG_CHANGED)
+		&&  save_lang(ch, l)) {
+			save_print(ch, "Language '%s' saved (%s/%s).",
+				   l->name, LANG_PATH, l->file_name);
+			l->flags &= ~LANG_CHANGED;
+			list = TRUE;
+		}
 	}
-#endif
+
+	if (list) {
+		FILE *fp;
+
+		if ((fp = dfopen(LANG_PATH, LANG_LIST, "w")) == NULL) {
+			save_print(ch, "%s/%s: %s", LANG_PATH, LANG_LIST,
+				   strerror(errno));
+			return;
+		}
+
+		for (lang = 0; lang < langs.nused; lang++) {
+			LANG_DATA *l = VARR_GET(&langs, lang);
+			fprintf(fp, "%s\n", l->file_name);
+		}
+		fprintf(fp, "$\n");
+		fclose(fp);
+	}
 }
 
 void do_asave_raw(CHAR_DATA *ch, int flags)
@@ -1102,8 +1212,6 @@ void do_asave_raw(CHAR_DATA *ch, int flags)
     		sec = ch->pcdata->security;
 	else
     		sec = 0;
-
-	save_area_list();
 
 	if (ch)
 		char_puts("Saved zones:\n\r", ch);
@@ -1136,8 +1244,9 @@ void do_asave_raw(CHAR_DATA *ch, int flags)
 		else
 			log("    None.");
 	}
+	else
+		save_area_list();
 }
-
 
 /*****************************************************************************
  Name:		do_asave
