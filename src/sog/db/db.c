@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.76 1998-10-09 15:34:36 fjoe Exp $
+ * $Id: db.c,v 1.77 1998-10-10 04:37:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1318,7 +1318,7 @@ OBJ_DATA *create_obj_org(OBJ_INDEX_DATA *pObjIndex, int level, int flags)
 	obj->value[3]		= pObjIndex->value[3];
 	obj->value[4]		= pObjIndex->value[4];
 	obj->weight		= pObjIndex->weight;
-	obj->from      		= str_dup(str_empty); /* used with body parts */
+	obj->owner      		= str_dup(str_empty); /* used with body parts */
 	obj->condition		= pObjIndex->condition;
 	obj->cost = pObjIndex->cost;
 
@@ -1365,6 +1365,7 @@ OBJ_DATA *create_named_obj(OBJ_INDEX_DATA *pObjIndex, int level,
 	res->name		= str_printf(pObjIndex->name, name);
 	res->short_descr	= mlstr_printf(pObjIndex->short_descr, name);
 	res->description	= mlstr_printf(pObjIndex->description, name);
+	res->owner = str_dup(name);
 	return res;
 }
 
@@ -1399,7 +1400,7 @@ void clone_obj(OBJ_DATA *parent, OBJ_DATA *clone)
 	clone->condition	= parent->condition;
 	clone->material		= str_dup(parent->material);
 	clone->timer		= parent->timer;
-	clone->from		= parent->from;
+	clone->owner		= parent->owner;
 	clone->extracted	= parent->extracted;
 	clone->pit		= parent->pit;
 	clone->altar		= parent->altar;

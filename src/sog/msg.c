@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: msg.c,v 1.10 1998-10-08 02:46:18 fjoe Exp $
+ * $Id: msg.c,v 1.11 1998-10-10 04:37:28 fjoe Exp $
  */
 
 #include <sys/syslimits.h>
@@ -139,13 +139,15 @@ const char *MSG(const char *msg, int lang)
 	return mlstr_val(*mlp, lang);
 }
 
+/* reverse order (otherwise msg_del will not work) */
 static int cmpmsg(const void* p1, const void* p2)
 {
-	return strcmp((char*)p1, mlstr_mval(*(mlstring**)p2));
+	return -strcmp((char*)p1, mlstr_mval(*(mlstring**)p2));
 }
 
+/* reverse order (otherwise msg_del will not work) */
 static int cmpmlstr(const void* p1, const void* p2)
 {
-	return strcmp(mlstr_mval(*(mlstring**)p1), mlstr_mval(*(mlstring**)p2));
+	return -strcmp(mlstr_mval(*(mlstring**)p1), mlstr_mval(*(mlstring**)p2));
 }
 

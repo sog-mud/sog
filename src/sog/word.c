@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: word.c,v 1.4 1998-10-08 13:31:07 fjoe Exp $
+ * $Id: word.c,v 1.5 1998-10-10 04:37:28 fjoe Exp $
  */
 
 #include <sys/syslimits.h>
@@ -38,6 +38,7 @@
 #define wordhash(s) hashstr(s, 16, MAX_WORD_HASH)
 
 const char* word_form_lookup(varr **hashp, const char *word, int num);
+static int cmpword(const void *p1, const void *p2);
 
 WORD_DATA *word_new(int lang)
 {
@@ -62,13 +63,13 @@ WORD_DATA *word_add(varr **hashp, WORD_DATA *w)
 	if (v == NULL)
 		v = hashp[hash] = varr_new(sizeof(WORD_DATA), 4);
 
-	if (varr_bsearch(v, w, cmpstrp))
+	if (varr_bsearch(v, w, cmpword))
 		return NULL;
 
 	wnew = varr_enew(v);
 	*wnew = *w;
-	varr_qsort(v, cmpstrp);
-	return varr_bsearch(v, w, cmpstrp);
+	varr_qsort(v, cmpword);
+	return varr_bsearch(v, w, cmpword);
 }
 
 void word_del(varr **hashp, const char *name)
@@ -83,17 +84,19 @@ void word_del(varr **hashp, const char *name)
 	if (v == NULL)
 		return;
 
-	if ((w = varr_bsearch(v, &name, cmpstrp)) == NULL)
+	if ((w = varr_bsearch(v, &name, cmpword)) == NULL)
 		return;
+	word_free(w);
 	w->name = NULL;
-	varr_qsort(v, cmpstrp);
+	varr_qsort(v, cmpword);
+	v->nused--;
 }
 
 WORD_DATA *word_lookup(varr **hashp, const char *name)
 {
 	if (IS_NULLSTR(name))
 		return NULL;
-	return varr_bsearch(hashp[wordhash(name)], &name, cmpstrp);
+	return varr_bsearch(hashp[wordhash(name)], &name, cmpword);
 }
 
 void word_form_add(WORD_DATA* w, int fnum, const char *s)
@@ -159,7 +162,7 @@ const char* word_form_lookup(varr **hashp, const char *word, int num)
 
 	hash = wordhash(word);
 	if ((v = hashp[hash]) == NULL
-	||  (w = varr_bsearch(v, &word, cmpstrp)) == NULL
+	||  (w = varr_bsearch(v, &word, cmpword)) == NULL
 	||  (p = varr_get(&w->f, num)) == NULL
 	||  IS_NULLSTR(*p))
 		return word;
@@ -171,3 +174,10 @@ const char* word_form_lookup(varr **hashp, const char *word, int num)
 	strnzcat(buf, *p + 1, sizeof(buf));
 	return buf;
 }
+
+/* reverse order (otherwise word_del will not work) */
+int cmpword(const void *p1, const void *p2)
+{
+	return -str_cmp(((WORD_DATA*) p1)->name, ((WORD_DATA*) p2)->name);
+}
+
