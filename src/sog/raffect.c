@@ -1,5 +1,5 @@
 /*
- * $Id: raffect.c,v 1.16 1998-10-26 08:38:22 fjoe Exp $
+ * $Id: raffect.c,v 1.17 1998-11-06 09:04:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -324,7 +324,7 @@ bool is_safe_rspell(int level, CHAR_DATA *victim)
 {
   if (is_safe_rspell_nom(level,victim))
 	{
-	  act("The gods protect $n.",victim,NULL,NULL,TO_CHAR);
+	  act("The gods protect you.",victim,NULL,NULL,TO_CHAR);
 	  act("The gods protect $n from the spell of room.",victim,NULL,NULL,TO_ROOM);
 	  return TRUE;
 	}

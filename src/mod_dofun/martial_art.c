@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.49 1998-10-28 19:46:01 fjoe Exp $
+ * $Id: martial_art.c,v 1.50 1998-11-06 09:04:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2512,7 +2512,7 @@ void do_shield(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if ((chance = get_skill(ch,gsn_shield_cleave)) == 0) {
+	if ((chance = get_skill(ch, gsn_shield_cleave)) == 0) {
 		char_puts("You don't know how to cleave opponents's shield.\n\r",
 			  ch);
 		return;
@@ -2541,7 +2541,8 @@ void do_shield(CHAR_DATA *ch, const char *argument)
 
 	/* skill */
 	chance = chance * ch_weapon / 200;
-	chance = chance * 100 / vict_shield;
+	if (vict_shield)
+		chance = chance * 100 / vict_shield;
 
 	/* dex vs. strength */
 	chance += get_curr_stat(ch, STAT_DEX);

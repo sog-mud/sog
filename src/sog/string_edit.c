@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.c,v 1.19 1998-10-09 13:42:43 fjoe Exp $
+ * $Id: string_edit.c,v 1.20 1998-11-06 09:04:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -183,6 +183,13 @@ void string_add(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	if (!str_cmp(arg1+1, "x")
+	||  !str_cmp(arg1+1, "q")
+	||  !str_cmp(arg1+1, "wq")) {
+        	ch->desc->pString = NULL;
+        	return;
+	}
+
         if (!str_cmp(arg1+1, "h"))
         {
             char_puts("Sedit help (commands on blank line):   \n\r", ch);
@@ -196,6 +203,7 @@ void string_add(CHAR_DATA *ch, const char *argument)
             char_puts(":li <num> <str>  - insert <str> before line #num\n\r", ch);
 	    char_puts(":lr <num> <str>  - replace line #num with <str>\n\r", ch);
             char_puts("@                - end string          \n\r", ch);
+            char_puts(":x, :q, :wq      - end string          \n\r", ch);
             return;
         }
 

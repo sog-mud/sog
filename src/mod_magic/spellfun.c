@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.78 1998-11-02 05:45:01 fjoe Exp $
+ * $Id: spellfun.c,v 1.79 1998-11-06 09:04:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -105,8 +105,11 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (IS_NPC(ch)) {
-		if (!str_cmp(arg1, "nowait"))
+		if (!str_cmp(arg1, "nowait")) {
 			target_name = one_argument(target_name, arg1);
+			if (ch->wait)
+				ch->wait = 0;
+		}
 		else if (ch->wait) {
 			log_printf("%s: wait state %d", ch->name, ch->wait);
 			return;

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.158 1998-11-02 05:28:27 fjoe Exp $
+ * $Id: act_info.c,v 1.159 1998-11-06 09:04:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1644,7 +1644,7 @@ static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 	if (wch->incog_level >= LEVEL_HERO)
 		buf_add(output, "[{DIncog{x] ");
 
-	if (in_PK(ch, wch) && !IS_IMMORTAL(ch))
+	if (in_PK(ch, wch) && !IS_IMMORTAL(ch) && !IS_IMMORTAL(wch))
 		buf_add(output, "{r[{RPK{r]{x ");
 
 	if (IS_SET(wch->act, PLR_WANTED))
