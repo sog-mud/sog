@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.202.2.17 2001-05-22 18:56:18 kostik Exp $
+ * $Id: act_move.c,v 1.202.2.18 2001-06-26 18:19:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2241,7 +2241,7 @@ void do_push(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (IS_SET(ch->in_room->room_flags, ROOM_BATTLE_ARENA)) {
-		char_puts("Some mystical force prevents you from doing that",
+		char_puts("Some mystical force prevents you from doing that.\n",
 		    ch);
 		return;
 	}

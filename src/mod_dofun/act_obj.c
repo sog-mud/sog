@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.165.2.24 2001-05-09 14:21:10 fjoe Exp $
+ * $Id: act_obj.c,v 1.165.2.25 2001-06-26 18:19:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1678,7 +1678,7 @@ void do_steal(CHAR_DATA * ch, const char *argument)
 
 	if (is_safe(ch, victim))
 		return;
-	
+
 	percent = number_percent() +
 		  (IS_AWAKE(victim) ? 10 : -50) +
 		  (!can_see(victim, ch) ? -10 : 0);
@@ -2597,9 +2597,10 @@ void do_butcher(CHAR_DATA * ch, const char *argument)
 	}
 
 	if (ch->in_room && IS_SET(ch->in_room->room_flags, ROOM_BATTLE_ARENA)) {
-		char_puts("This place doesn't seem to be good for your cooking experiments.", ch);
+		char_puts("This place doesn't seem to be good for your cooking experiments.\n", ch);
 		return;
 	}
+
 	if ((obj = get_obj_here(ch, arg)) == NULL) {
 		char_puts("You do not see that here.\n", ch);
 		return;
@@ -2678,7 +2679,13 @@ void do_crucify(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_AFFECTED(ch, AFF_BERSERK) 
+	if (IS_SET(ch->in_room->room_flags, ROOM_BATTLE_ARENA)) {
+		char_puts("Some mystical force prevents you from doing that.\n",
+		    ch);
+		return;
+	}
+
+	if (IS_AFFECTED(ch, AFF_BERSERK)
 	|| is_affected(ch, gsn_frenzy)) {
 		char_puts("Calm down first.\n", ch);
 		return;

@@ -1,11 +1,11 @@
 /*
- * $Id: fight.c,v 1.202.2.28 2001-06-26 18:02:24 fjoe Exp $
+ * $Id: fight.c,v 1.202.2.29 2001-06-26 18:19:22 fjoe Exp $
  */
 
 /***************************************************************************
  *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
- *	 Serdar BULUT {Chronos} 	bulut@rorqual.cc.metu.edu.tr	   *
+ *	 Serdar BULUT {Chronos}		bulut@rorqual.cc.metu.edu.tr	   *
  *	 Ibrahim Canpunar  {Asena}	canpunar@rorqual.cc.metu.edu.tr    *
  *	 Murat BICER  {KIO}		mbicer@rorqual.cc.metu.edu.tr	   *
  *	 D.Baris ACAR {Powerman}	dbacar@rorqual.cc.metu.edu.tr	   *
@@ -1156,8 +1156,8 @@ void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 	PC_DATA *vpc;
 	bool vnpc = IS_NPC(victim);
 	ROOM_INDEX_DATA *vroom = victim->in_room;
-	bool is_duel = !IS_NPC(victim) 
-		&& (!IS_NPC(ch) || IS_AFFECTED(ch, AFF_CHARM)) 
+	bool is_duel = !IS_NPC(victim)
+		&& (!IS_NPC(ch) || IS_AFFECTED(ch, AFF_CHARM))
 		&& IS_SET(victim->in_room->room_flags, ROOM_BATTLE_ARENA);
 	OBJ_DATA *corpse;
 	class_t *cl;
@@ -1165,7 +1165,7 @@ void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (is_affected(victim, gsn_resurrection)) {
 		raw_kill(ch, victim);
 		return;
-	} 
+	}
 
 	group_gain(ch, victim);
 
