@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.96 1998-10-12 04:56:36 fjoe Exp $
+ * $Id: act_comm.c,v 1.97 1998-10-13 08:53:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -305,7 +305,7 @@ void do_tell_raw(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
 		 ch, msg, victim, TO_CHAR | CHECK_DEAF, POS_DEAD);
 	act_puts("$n tells you '{G$t{x'",
 		 ch, msg, victim,
-		 TO_VICT | TO_BUF | CHECK_TWIT | STRANS_TEXT | CHECK_DEAF |
+		 TO_VICT | TO_BUF | CHECK_TWIT | CHECK_DEAF |
 		 (IS_NPC(ch) && !IS_AFFECTED(ch, AFF_CHARM) ? TRANS_TEXT : 0),
 		 POS_SLEEPING);
 
@@ -681,7 +681,6 @@ void do_clan(CHAR_DATA *ch, const char *argument)
 {
 	CLAN_DATA *clan;
 	DESCRIPTOR_DATA *d;
-	char buf[MAX_STRING_LENGTH];
 	int flags;
 
 	if (!ch->clan) {
@@ -695,18 +694,17 @@ void do_clan(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	snprintf(buf, sizeof(buf), "[%s] $n: {C$t{x", clan->name);
-
 	argument = garble(ch, argument);
-	act_puts(buf, ch, argument, NULL, TO_CHAR | CHECK_DEAF, POS_DEAD);
+	act_puts("[CLAN] $n: {C$t{x",
+		 ch, argument, NULL, TO_CHAR | CHECK_DEAF, POS_DEAD);
 
-	flags = TO_VICT | TO_BUF | STRANS_TEXT | CHECK_DEAF |
+	flags = TO_VICT | TO_BUF | CHECK_DEAF |
 		(IS_NPC(ch) && !IS_AFFECTED(ch, AFF_CHARM) ? TRANS_TEXT : 0);
 	for (d = descriptor_list; d; d = d->next) {
 		if (d->connected == CON_PLAYING
 		&&  d->character->clan == ch->clan)
-			act_puts(buf, ch, argument, d->character, flags,
-				 POS_DEAD);
+			act_puts("[CLAN] $n: {C$t{x",
+				 ch, argument, d->character, flags, POS_DEAD);
 	}
 }
 
