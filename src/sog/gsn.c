@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: gsn.c,v 1.10 1999-02-09 09:34:05 kostik Exp $
+ * $Id: gsn.c,v 1.11 1999-02-15 16:02:18 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -96,7 +96,6 @@ int gsn_remove_badge;
 int gsn_dragon_strength;
 int gsn_dragon_breath;
 int gsn_warcry;
-int gsn_entangle;
 int gsn_dragonsword;
 int gsn_guard;
 int gsn_guard_call;
@@ -301,7 +300,6 @@ NAMEDP gsn_table[] =
 	{ "gsn_dragon_strength",	&gsn_dragon_strength		},
 	{ "gsn_dragon_breath",		&gsn_dragon_breath		},
 	{ "gsn_warcry",			&gsn_warcry			},
-	{ "gsn_entangle",		&gsn_entangle			},
 	{ "gsn_dragonsword",		&gsn_dragonsword		},
 	{ "gsn_guard",			&gsn_guard			},
 	{ "gsn_guard_call",		&gsn_guard_call			},

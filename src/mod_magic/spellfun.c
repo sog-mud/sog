@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.115 1999-02-12 10:16:26 fjoe Exp $
+ * $Id: spellfun.c,v 1.116 1999-02-15 16:02:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -952,17 +952,6 @@ void spell_cancellation(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 
 	level += 2;
 
-#ifdef 0
-	if ((!IS_NPC(ch) && IS_NPC(victim) &&
-	     (!IS_AFFECTED(ch, AFF_CHARM) || ch->master != victim))
-	||  (IS_NPC(ch) && !IS_NPC(victim))
-	||  (!IS_NPC(victim) && victim != ch &&
-	     IS_SET(victim->plr_flags, PLR_NOCANCEL))) {
-		char_puts("You failed, try dispel magic.\n",ch);
-		return;
-	}
-#endif
-
 	/* unlike dispel magic, the victim gets NO save */
 
 	/* begin running through the spells */
@@ -1081,23 +1070,21 @@ void spell_cancellation(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	if (check_dispel(level,victim,sn_lookup("protection good")))
 		found = TRUE;
 
-	if (check_dispel(level,victim,sn_lookup("sanctuary")))
-	{
+	if (check_dispel(level,victim,sn_lookup("sanctuary"))) {
 		act("The white aura around $n's body vanishes.",
 		    victim,NULL,NULL,TO_ROOM);
 		found = TRUE;
 	}
 
-	if (check_dispel(level, victim, sn_lookup("black shroud")))
-	{
+	if (check_dispel(level, victim, gsn_black_shroud)) {
 		act("The black aura around $n's body vanishes.",
-		    victim,NULL,NULL,TO_ROOM);
+		    victim, NULL, NULL, TO_ROOM);
 		found = TRUE;
 	}
 
-	if (check_dispel(level,victim,sn_lookup("shield")))
-	{
-		act("The shield protecting $n vanishes.",victim,NULL,NULL,TO_ROOM);
+	if (check_dispel(level, victim, sn_lookup("shield"))) {
+		act("The shield protecting $n vanishes.",
+		    victim, NULL, NULL, TO_ROOM);
 		found = TRUE;
 	}
 
@@ -2159,28 +2146,25 @@ void spell_dispel_magic(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	if (check_dispel(level,victim,sn_lookup("protection good")))
 	    found = TRUE;
  
-	if (check_dispel(level,victim,sn_lookup("sanctuary")))
-	{
-	    act("The white aura around $n's body vanishes.",
-	        victim,NULL,NULL,TO_ROOM);
-	    found = TRUE;
+	if (check_dispel(level,victim, gsn_sanctuary)) {
+		act("The white aura around $n's body vanishes.",
+		    victim, NULL, NULL, TO_ROOM);
+		found = TRUE;
 	}
 
-	if (check_dispel(level, victim, sn_lookup("black shroud")))
-	{
-	    act("The black aura around $n's body vanishes.",
-		victim,NULL,NULL,TO_ROOM);
-	     found = TRUE;
+	if (check_dispel(level, victim, gsn_black_shroud)) {
+		act("The black aura around $n's body vanishes.",
+		    victim, NULL, NULL, TO_ROOM);
+		found = TRUE;
 	}
 
 	if (IS_AFFECTED(victim,AFF_SANCTUARY) 
-		&& !saves_dispel(level, victim->level,-1)
-		&& !is_affected(victim,sn_lookup("sanctuary")))
-	{
+	&&  !saves_dispel(level, victim->level,-1)
+	&&  !is_affected(victim, gsn_sanctuary)) {
 		REMOVE_BIT(victim->affected_by,AFF_SANCTUARY);
-	    act("The white aura around $n's body vanishes.",
-	        victim,NULL,NULL,TO_ROOM);
-	    found = TRUE;
+		act("The white aura around $n's body vanishes.",
+		    victim, NULL, NULL, TO_ROOM);
+		found = TRUE;
 	}
  
 	if (check_dispel(level,victim,sn_lookup("shield")))
@@ -3961,21 +3945,22 @@ void spell_sanctuary(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
 
-	if (IS_AFFECTED(victim, AFF_SANCTUARY))
-	{
+	if (IS_AFFECTED(victim, AFF_SANCTUARY)) {
 		if (victim == ch)
-		  char_puts("You are already in sanctuary.\n",ch);
+			char_puts("You are already in sanctuary.\n", ch);
 		else
-		  act("$N is already in sanctuary.",ch,NULL,victim,TO_CHAR);
+			act("$N is already in sanctuary.",
+			    ch, NULL, victim, TO_CHAR);
 		return;
 	}
 
-	if (is_affected(victim, sn_lookup("black shroud"))) {
+	if (is_affected(victim, gsn_black_shroud)) {
 		if (victim == ch)
-	 	  char_puts("But you are surrounded by black shroud.\n", ch);
+	 		char_puts("But you are surrounded by black shroud.\n",
+				  ch);
 		else
-		  act("But $n is surrounded by black shroud.\n",
-			ch, NULL, victim, TO_CHAR);
+			act("But $n is surrounded by black shroud.\n",
+			    ch, NULL, victim, TO_CHAR);
 		return;
 	}
 
@@ -3989,10 +3974,9 @@ void spell_sanctuary(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	affect_to_char(victim, &af);
 	act("$n is surrounded by a white aura.", victim, NULL, NULL, TO_ROOM);
 	char_puts("You are surrounded by a white aura.\n", victim);
-	return;
 }
 
-void spell_black_shroud (int sn, int level, CHAR_DATA *ch, void *vo, int target)
+void spell_black_shroud(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
 	CHAR_DATA *victim = (CHAR_DATA*) vo;
 	AFFECT_DATA af;
@@ -4007,36 +3991,36 @@ void spell_black_shroud (int sn, int level, CHAR_DATA *ch, void *vo, int target)
 
 	if (!IS_EVIL(ch)) {
 		char_puts("The gods are infuriated!.\n", ch);
-		damage(ch, ch, dice(level, IS_GOOD(ch)?2:1), TYPE_HIT, DAM_HOLY,TRUE);
+		damage(ch, ch, dice(level, IS_GOOD(ch) ? 2 : 1),
+		       TYPE_HIT, DAM_HOLY, TRUE);
 		return;
 	}
 	
 	if (!IS_EVIL(victim)) {
 		act("Your god does not seems to like $N", 
-			ch, NULL, victim, TO_CHAR);
+		    ch, NULL, victim, TO_CHAR);
 		return;
 	}
 
 	if (is_affected(victim, sn)) {
-		if (victim==ch)
+		if (victim == ch)
 			char_puts("You are already protected.\n", ch);
 		else
 			act("$N is already protected.\n",
-				ch, NULL, victim, TO_CHAR);
+			    ch, NULL, victim, TO_CHAR);
 		return;
 	}
+
 	af.where     = TO_AFFECTS;
 	af.type      = sn;
 	af.level     = level;
 	af.duration  = level/6;
 	af.location  = APPLY_SAVING_SPELL;
 	af.modifier  = -1;
-	af.bitvector = 0;
+	af.bitvector = AFF_BLACK_SHROUD;
 	affect_to_char(victim, &af);
-	act ("$n is surrounded by black aura.",
-		victim, NULL, NULL, TO_ROOM);
+	act ("$n is surrounded by black aura.", victim, NULL, NULL, TO_ROOM);
 	char_puts("You are surrounded by black aura.\n", victim);
-	return;
 }
 
 void spell_shield(int sn, int level, CHAR_DATA *ch, void *vo, int target)

@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.42 1999-02-11 18:07:04 fjoe Exp $
+ * $Id: tables.c,v 1.43 1999-02-15 16:02:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -171,7 +171,7 @@ FLAG affect_flags[] =
 	{ "bloodthirst",	AFF_BLOODTHIRST,	TRUE	},
 	{ "stun",		AFF_STUN,		TRUE	},
 	{ "weak_stun",		AFF_WEAK_STUN,		TRUE	},
-	{ "detect_imp_invis",	AFF_DETECT_IMP_INVIS,		TRUE	},
+	{ "detect_imp_invis",	AFF_DETECT_IMP_INVIS,	TRUE	},
 	{ "detect_fade",	AFF_DETECT_FADE,	TRUE	},
 	{ "detect_undead",	AFF_DETECT_UNDEAD,	TRUE	},
 	{ "detect_fear",	AFF_DETECT_FEAR,	TRUE	},
@@ -180,6 +180,7 @@ FLAG affect_flags[] =
 	{ "detect_web",		AFF_DETECT_WEB,		TRUE	},
 	{ "detect_life",	AFF_DETECT_LIFE,	TRUE	},
 	{ "acute_vision",	AFF_ACUTE_VISION,	TRUE	},
+	{ "black_shroud",	AFF_BLACK_SHROUD,	TRUE	},
 	{ NULL }
 };
 

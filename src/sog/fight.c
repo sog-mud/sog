@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.131 1999-02-12 18:30:35 fjoe Exp $
+ * $Id: fight.c,v 1.132 1999-02-15 16:02:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1239,7 +1239,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 	&&  !((dt == gsn_cleave) && (number_percent() < 50)))
 		dam /= 2;
 
-	if (is_affected(victim, sn_lookup("black shroud")))
+	if (IS_AFFECTED(victim, AFF_BLACK_SHROUD))
 		dam = (7*dam)/15;
 
 	if (IS_AFFECTED(victim, AFF_PROTECT_EVIL) && IS_EVIL(ch))

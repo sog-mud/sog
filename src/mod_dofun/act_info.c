@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.193 1999-02-15 12:51:02 fjoe Exp $
+ * $Id: act_info.c,v 1.194 1999-02-15 16:02:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -361,7 +361,7 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 			buf_add(output, "({YGolden Aura{x) ");
 		if (IS_AFFECTED(victim, AFF_SANCTUARY))
 			buf_add(output, "({WWhite Aura{x) ");
-		if (is_affected(victim, sn_lookup("black shroud"))) 
+		if (IS_AFFECTED(victim, AFF_BLACK_SHROUD))
 			buf_add(output, "({DBlack Aura{x) ");
 		if (IS_AFFECTED(victim, AFF_FADE)) 
 			buf_add(output, "({yFade{x) ");
@@ -389,7 +389,7 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		FLAG_SET(35, 'S', IS_AFFECTED(victim, AFF_SANCTUARY));
 		FLAG_SET(34, 'W', IS_AFFECTED(victim, AFF_SANCTUARY));
 
-		if (is_affected(victim, sn_lookup("black shroud"))) {
+		if (IS_AFFECTED(victim, AFF_BLACK_SHROUD)) {
 			FLAG_SET(35, 'B', TRUE);
 			FLAG_SET(34, 'D', TRUE);
 		}

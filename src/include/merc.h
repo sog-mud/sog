@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.147 1999-02-15 12:51:03 fjoe Exp $
+ * $Id: merc.h,v 1.148 1999-02-15 16:02:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -665,14 +665,14 @@ struct kill_data
 #define AFF_SLOW		(dd)
 #define AFF_CAMOUFLAGE		(ee)
 
-#define AFF_IMP_INVIS			(ff)	/* improved invis */
+#define AFF_IMP_INVIS		(ff)	/* improved invis */
 #define AFF_FADE		(gg)
 #define AFF_SCREAM		(hh)
 #define AFF_BLOODTHIRST 	(ii)
 #define AFF_STUN		(jj)
 #define AFF_WEAK_STUN		(kk)
 
-#define AFF_DETECT_IMP_INVIS		(ll)	/* detect improved invis */
+#define AFF_DETECT_IMP_INVIS	(ll)	/* detect improved invis */
 #define AFF_DETECT_FADE		(mm)
 #define AFF_DETECT_UNDEAD	(nn)
 #define AFF_DETECT_FEAR		(oo)
@@ -681,6 +681,7 @@ struct kill_data
 #define AFF_DETECT_WEB		(rr)
 #define AFF_DETECT_LIFE		(ss)
 #define AFF_ACUTE_VISION	(tt)
+#define AFF_BLACK_SHROUD	(uu)
 
 /*
  * *AFF* bits for rooms
