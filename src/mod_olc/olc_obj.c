@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.29 1999-02-15 18:19:45 fjoe Exp $
+ * $Id: olc_obj.c,v 1.30 1999-02-15 18:42:41 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -895,6 +895,23 @@ void show_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj)
 	switch(pObj->item_type) {
 	default:	/* No values. */
 		buf_add(output, "Currently edited obj has unknown item type.\n");
+		/* FALLTHRU */
+
+	case ITEM_TREASURE:
+	case ITEM_CLOTHING:
+	case ITEM_TRASH:
+	case ITEM_KEY:
+	case ITEM_BOAT:
+	case ITEM_CORPSE_NPC:
+	case ITEM_CORPSE_PC:
+	case ITEM_PROTECT:
+	case ITEM_MAP:
+	case ITEM_WARP_STONE :
+	case ITEM_ROOM_KEY:
+	case ITEM_GEM:
+	case ITEM_JEWELRY:
+	case ITEM_JUKEBOX:
+	case ITEM_TATTOO:
 		break;
 		     
 	case ITEM_LIGHT:
