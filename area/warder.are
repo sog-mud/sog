@@ -12,14 +12,14 @@ End
 #96000
 biomass mass~
 biomass~
-@eng Something like biomass is here
+@eng Something like biomass is here.
 @rus Нечто похожее на биомассу стоит здесь
 ~
 You understand that you can't describe that
 It looks realy strange. You never see that.
 ~
 unique~
-ABJKTVbef DFlmt 0 0
+ABJKTVbef DFUVclmt 0 0
 50 25 2d1+5000 1d1+99 5d6+50 none
 -10 -10 -10 -10
 ACEFIK C 0 0
@@ -105,6 +105,28 @@ wood~
 fountain AB 0
 0 0 'milk' 0 0
 0 0 0 P
+G none
+#96011
+item bottle~
+@eng bottle of Clain~
+@eng strange bottle flying here.~
+unknown~
+fountain 0 AQ
+0 0 'beer' 0 0
+0 0 0 P
+F A 0 0 U
+F A 0 0 V
+F A 0 0 H
+A
+26 3
+A
+18 1000
+A
+19 1000
+A
+17 -30000
+A
+8 100
 G none
 #0
 

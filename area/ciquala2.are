@@ -430,7 +430,7 @@ G none
 gold liquid vial~
 a vial with gold liquid~
 A vial with a gold colored liquid sits on the floor.~
-glas~
+glass~
 potion 0 A
 30 'weaken' 'poison' 'teleport' 'curse'
 20 20 4300 P
@@ -439,7 +439,7 @@ G none
 milky liquid vial~
 a vial with milky liquid~
 A vial with milky liquid sits on the shelf.~
-glas~
+glass~
 potion 0 A
 30 'heal' 'pass door' 'teleport' 'sanctuary'
 20 20 4400 P

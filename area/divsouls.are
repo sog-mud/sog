@@ -2535,7 +2535,7 @@ G none
 ivory scales~
 A pair of ivory scales~
 A pair of golden scales lie here.~
-ivory ~
+ivory~
 treasure A AH
 0 0 0 0 0
 67 150 4334 P
@@ -2784,7 +2784,7 @@ G none
 dark eye nightmare~
 eye of the nightmare~
 A dark eye shot with streaks of red lies here, pulsing.~
-fire~
+flame~
 light AE A
 0 0 -1 0 0
 66 10 700 P

@@ -552,7 +552,7 @@ G none
 wisp dragon fire~
 a wisp of DragonFyre~
 There is a nice flame sitting here.~
-fire~
+flame~
 light AL A
 0 0 -1 0 0
 38 20 2300 G
@@ -717,7 +717,7 @@ G none
 scarlet ribbon~
 scarlet ribbon~
 A scarlet ribbon is lying here, it is hot to touch.~
-fire~
+flame~
 armor AG AQ
 18 18 18 7 0
 45 20 4717 G

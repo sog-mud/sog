@@ -1641,7 +1641,7 @@ G none
 magic flame~
 a magic flame~
 A strange flame hovers here.~
-fire~
+flame~
 light A A
 0 0 -1 0 0
 87 0 10000 P
@@ -2394,7 +2394,7 @@ G none
 invisible flame~
 an invisible flame~
 An invisible flame burns silently.~
-fire~
+flame~
 light CF A
 0 0 -1 0 0
 80 0 11500 P
@@ -2878,7 +2878,7 @@ G none
 laerkai fury rage~
 laerkai fury~
 A feeling of rage pulses here.~
-fire~
+flame~
 armor AI AQ
 29 29 29 26 0
 89 0 50000 P
@@ -2929,7 +2929,7 @@ G none
 shadows laerkai stealth~
 laerkai stealth~
 The shadows are deep here.~
-shadows~
+shadow~
 armor CI AG
 29 29 28 26 0
 89 0 50000 P
@@ -3036,7 +3036,7 @@ G none
 flame balance silver~
 flame of balance~
 A shimmering silver flame hovers here.~
-fire~
+flame~
 light AFIJK A
 0 0 -1 0 0
 89 0 55000 P

@@ -5,7 +5,7 @@ Credits Asena~
 Security 9
 LevelRange 90 100
 Flags noquest update_always~
-Clan Shalafi~
+Clan Shalafi
 End
 
 #MOBILES
@@ -30,7 +30,7 @@ stand stand male 0
 F aff JP
 M grall 95300 100~
 M exall 95302 0~
-C Shalafi~
+C Shalafi
 #95301
 healer adept cabal shalafi~
 @eng an adept@rus áÄÅÐÔ~
@@ -52,7 +52,7 @@ ABQVae DFH 1000 0
 FHIK ABC D 0
 stand stand male 1000
 0 0 medium unknown
-C Shalafi~
+C Shalafi
 #95302
 fiery red demon~
 a fiery demon~

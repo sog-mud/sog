@@ -1111,7 +1111,7 @@ G none
 fire campfire~
 a campfire~
 There are the remains of a campfire here.  ~
-fire~
+flame~
 container 0 0
 10000 0 0 0 0
 5 0 0 P

@@ -1402,7 +1402,7 @@ G male
 stone~
 A Clan Stone~
 Somebody left their Clan Stone here.~
-adamite~
+adamantite~
 food 0 A
 ACDF ACDF 0 0 0
 0 20 0 P
@@ -2122,7 +2122,7 @@ G male
 tea чашка cup~
 @eng a cup of tea@rus ~~чашка~~ чая~
 @eng A cup has been set here.@rus Чашка (cup) чая оставлена здесь.~
-china~
+porcelain~
 drink 0 A
 6 6 'tea' 0 0
 0 10 8 P
@@ -2135,7 +2135,7 @@ G female
 coffee чашка cup~
 @eng a cup of coffee@rus ~~чашка~~ кофе~
 @eng A cup has been set here.@rus Чашка (cup) кофе оставлена здесь.~
-china~
+porcelain~
 drink 0 A
 6 6 'coffee' 0 0
 0 10 6 P
@@ -2525,7 +2525,7 @@ G none
 coffee cup cinnamon~
 a cup of cinnamon coffee~
 A piping hot cup of cinnamon coffee is here.~
-china~
+porcelain~
 drink 0 A
 6 6 'coffee' 0 0
 0 10 12 P

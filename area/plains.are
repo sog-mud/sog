@@ -153,7 +153,7 @@ stand stand female 0
 herbs herb timian~
 a small dusk of timian herbs~
 Some herbs are lying here, small green leaves and tiny pink flowers.~
-plant_organism~
+plant~
 food 0 A
 A A 0 0 0
 0 10 10 P
@@ -180,7 +180,7 @@ G none
 plant ivy~
 a small dusk of poison ivy~
 Some poison ivy is growing here.~
-plant_organism~
+plant~
 food 0 A
 A A 0 A 0
 0 10 0 P
@@ -207,7 +207,7 @@ G none
 wild flowers~
 wild flowers~
 A bunch of pretty wild flowers is here.~
-plant_organism~
+plant~
 trash K AEO
 0 0 0 0 0
 0 10 0 P

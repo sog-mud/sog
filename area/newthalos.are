@@ -1892,7 +1892,7 @@ G none
 carrot~
 a carrot~
 A carrot lies here.~
-plant_organism~
+plant~
 food 0 A
 AB AB 0 0 0
 0 10 6 P
@@ -1901,7 +1901,7 @@ G none
 tomato~
 a tomato~
 A tomato lies here.~
-plant_organism~
+plant~
 food 0 A
 B B 0 0 0
 0 10 12 P
@@ -1955,7 +1955,7 @@ G none
 herring salted~
 a salted herring~
 A salted herring lies here.~
-fish~
+food~
 food 0 A
 D D 0 0 0
 0 10 8 P

@@ -690,7 +690,7 @@ G none
 lettuce~
 a head of lettuce~
 Some fresh lettuce is here, get it while it lasts!~
-plant_organism~
+plant~
 food 0 A
 CD CD 0 0 0
 0 20 2 P
@@ -1416,7 +1416,7 @@ G none
 pit~
 the donation pit~
 A pit for sacrifices is in front of the altar.~
-none~
+unknown~
 container Og 0
 10000 0 0 1000 100
 0 0 0 P

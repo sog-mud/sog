@@ -26,7 +26,7 @@ stand stand male 1000000
 M speech 18799 да пошел ты~
 M speech 18799 да иди ты~
 M act 18799 say~
-C Battleragers~
+C Battleragers
 #18701
 griswold грисвольд~
 @eng Griswold@rus кузнец Гризвольд~
@@ -169,7 +169,7 @@ ARf DFJVlmtu -1000 0
 0 0 0 0
 stand stand male 0
 0 0 medium unknown
-C Shalafi~
+C Shalafi
 #0
 
 #OBJECTS

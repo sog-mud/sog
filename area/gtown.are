@@ -687,7 +687,7 @@ G female
 treasure hoard сокровище~
 @eng a treasure hoard@rus сокровище~
 @eng A treasure hoard is scattered here.@rus Накопленные за долгие годы сокровища (treasure) рассыпаны сверкающей грудой.~
-gems~
+gem~
 container 0 AO
 400 0 0 50 50
 1 150 0 P
@@ -705,7 +705,7 @@ G male
 robes flesh накидка~
 @eng robes of Flesh@rus ~~накидка~~, сделанная из кожи~
 @eng Robes made of human flesh are piled here.@rus Накидка (robes), изготовленная из кожи людей, брошена здесь.~
-human flesh~
+flesh~
 armor EJ AK
 15 15 15 6 0
 58 25 13000 P
@@ -718,7 +718,7 @@ G female
 rod bone жезл~
 @eng a Rod of Bone@rus ~~костяной~~ ~~жезл~~~
 @eng A Rod fashioned from a human femur lies here.@rus Жезл (rod), выточенный из человеческой кости, лежит здесь.~
-human femur~
+femur~
 weapon EJ AN
 exotic 6 9 'crush' 0
 58 25 13000 P

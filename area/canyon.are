@@ -591,7 +591,7 @@ G none
 cape flame flaming red~
 a flame red cape~
 A cape made of ethereal red fiber lies neatly folded on the ground here.~
-ethereal~
+etherealness~
 armor A AC
 9 9 9 3 0
 30 30 3100 P
@@ -696,7 +696,7 @@ G none
 armband platinum band~
 a platinum arm band~
 A platinum arm band, once worn by the Cyclops, lie here.~
-platinium~
+platinum~
 armor 0 AM
 9 9 9 2 0
 26 40 1700 P

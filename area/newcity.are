@@ -70,14 +70,66 @@ figurine statuette salamander статуэтка саламандра~
 ~
 G female
 #33405
-statuette статуэтка undine ундина~
-~
-~
+statuette статуэтка undine ундина figurine~
+@eng figurine of the undine@rus ~~статуэтка~~ ундины~
+@eng The saphire statueete of the Undine on the gray granite pedestal.@rus Фигурка унидины (statuettе), сделанная из сапфира, на постаменте из серого мрамора.~
 saphire~
 gem A 0
 0 0 0 0 0
 0 0 0 P
+E
+statuette undine figurine статуэтка ундина~
+@rus Эта статуэтка выточена из сапфира. Очень красивая. Прозрачная голубизна 
+этого камня отражает всю внутреннюю суть существа, выполненного из него.
+~
 G female
+#33406
+statueete figurine sylph статуэтка фигурка сильфида~
+@eng Figurine of The Silver Sylph@rus ~~Статуэтка~~ Серебряной Сильфиды~
+@eng The silver statuette ot the Sylph on the gray granite pedestal.@rus Серебрянная статуэтка (statuette) сильфиды на постаменте из серого мрамора.~
+silver~
+gem A 0
+0 0 0 0 0
+0 0 0 P
+E
+statuette fugurine sylph статуэтка фигурка сильфида~
+@rus Фигурка отлита из чистейшего серебра. Видимо она защищена каким-то 
+заклинанием, потому что на металле совершенно незаметно какого-либо
+воздействия на него природных стихий.
+~
+G female
+#33407
+figurine teranim статуэтка фирурка тераним statuette~
+@eng figurine of the teranim@rus ~~фигурка~~ теранима~
+@eng Kaolin figurine of the teranim on the gray granite pedestal.@rus Глиняная фигурка (figurine) теранима на постаменте из серого гранита.~
+kaolin~
+gem A 0
+0 0 0 0 0
+0 0 0 P
+E
+figurine statuette teranim статуэтка фигурка тераним~
+@rus Фигурка непонятного существа, похожего на гнома. Маленького, коренастого
+с большой головой. Она очень искусно вылеплена из белой глины и покрыта
+неизвестным тебе веществом, которое заставляет ее переливаться под лучами
+солнца.
+~
+G female
+#33408
+sign вывеска~
+@eng large sign@rus ~~огромная~~ ~~вывеска~~~
+@eng Large sign hung on the wall.@rus Огромная вывеска (sign) висит на стене.~
+marble~
+trash 0 0
+0 0 0 0 0
+0 0 0 P
+E
+sign вывеска~
+@rus Огромная вывеска, сделанная из серого гранита, висит прямо перед тобой. 
+В верхней ее части находится выполненная из белого камня фигура единорога
+с позолоченным рогом. Снизу большими буквами написано: Таверна 'Распутный
+Единорог'.
+~
+G none
 #0
 
 #ROOMS
@@ -1024,6 +1076,10 @@ D1
 ~
 ~
 Z 0 33446
+D2
+~
+~
+Z 0 33459
 D3
 ~
 ~
@@ -1121,7 +1177,7 @@ D3
 Z 0 33456
 S
 #33458
-@eng The Small Teranim Street~
+@eng The Small Teranim Street@rus Улица Маленького Теранима~
 ~
 0 0 inside
 D3
@@ -1131,8 +1187,18 @@ Z 0 33457
 S
 #33459
 @eng The Spirit Square@rus Площадь Духа~
+@rus Прямо перед собой ты видишь огромную вывеску, призывающую посетить
+сие заведение. Но еще больше, чем вывеска, манят ароматнейшие запахи
+доносящиеся из-за прикрытой двери. Да и интересно узнать, что стоит
+за таким необычным названием: Таверна 'Распутный Единорог'. Надо же
+было так обозвать. Очень необычная фантазия у владельца этого места.
+Будет очень интересно с ним познакомиться.
 ~
 0 0 inside
+D0
+~
+~
+Z 0 33452
 D1
 ~
 ~
@@ -1148,6 +1214,14 @@ Z 0 33460
 S
 #33460
 @eng The Spirit Square@rus Площадь Духа~
+@rus Гуляя, ты $gn{дошел} до юго-западного угла площади. Стоя совсем рядом
+с домами, ты можешь убедится в огромном мастерстве строителей этого
+города. Нигде больше ты не $gn{видел} так искусно обтесанных камней.
+А то как они подобраны по цвету? Не может быть, что этот город строили
+без вмешательства магов или даже какой-то божественной силы.
+  Небольшая дверь ведет куда-то вглубь здания. Если верить тому, что
+тебе рассказали в таверне, то надо полагать именно здесь находится
+штаб-квартира стражников. 
 ~
 0 0 inside
 D0
@@ -1175,6 +1249,10 @@ D2
 ~
 ~
 Z 0 33460
+D3
+~
+~
+Z 0 33478
 S
 #33462
 @eng The Spirit Square@rus Площадь Духа~
@@ -1396,6 +1474,15 @@ D1
 ~
 Z 0 33475
 S
+#33478
+@eng The Small Teranim Street@rus Улица Маленького Теранима~
+~
+0 0 inside
+D1
+~
+~
+Z 0 33461
+S
 #0
 
 #RESETS
@@ -1407,9 +1494,13 @@ D 0 33475 0 1	* : door to the north: closed
 D 0 33475 1 1	* : door to the east: closed
 O 0 33404 0 33444	* The Figurine of Salamander (The Fire Salamander Street)
 O 0 33401 0 33446	* Diamond Statuette (The Spririt Square)
+O 0 33405 0 33448	* figurine of the undine (The Solitary Undine Street)
 O 0 33402 0 33452	* Gray marble fountain (The Spirit Square)
 O 0 33402 0 33453	* Gray marble fountain (The Spirit Square)
 O 0 33403 0 33454	* sign (The Spirit Square)
+O 0 33408 0 33459	* large sign (The Spirit Square)
+O 0 33406 0 33473	* Figurine of The Silver Sylph (The Silver Sylph Street)
+O 0 33407 0 33478	* figurine of the teranim (The Small Teranim Street)
 S
 
 #$

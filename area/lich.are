@@ -193,7 +193,7 @@ G none
 bracer night~
 the Bracer of the Night~
 A black bracer covered in ancient runes lies here.~
-admantite~
+adamantite~
 armor BG AM
 18 18 17 8 0
 54 5 1500 P
@@ -225,7 +225,7 @@ G none
 ancient longsword sword~
 an Ancient Longsword~
 An old longsword floats here, glowing slightly.~
-admantite~
+adamantite~
 weapon AG AN
 sword 10 8 'slash' DH
 70 12 2500 P
@@ -238,7 +238,7 @@ G none
 black scale dragon~
 a black dragon scale~
 A black dragon scale that's been torn from one of the beasts.~
-admantite~
+adamantite~
 armor 0 AJ
 21 22 21 10 0
 65 30 1200 P
@@ -257,7 +257,7 @@ G none
 hell sword wraith~
 the Hell's Wraith~
 This sword was supposedly forged in the depths of Hell. It's wavy blade makes it appear much like a large kris. It is a bit unwieldly at first but the damage it inflicts is unbelievable.~
-admantite~
+adamantite~
 weapon ABEGM AN
 exotic 10 8 'bite' CE
 73 10 5000 P
@@ -349,7 +349,7 @@ G none
 thieve's tunic~
 a Thieve's Tunic~
 A black shirt with many pockets.~
-admantite~
+adamantite~
 armor G AD
 13 13 12 5 0
 40 15 900 P

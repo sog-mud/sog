@@ -312,7 +312,7 @@ G none
 cactus~
 a small cactus cup~
 A small cactus cup lies on the ground.~
-plant_organism~
+plant~
 drink 0 A
 5 5 'water' 0 0
 0 60 5 P
@@ -448,7 +448,7 @@ G none
 wand platinum~
 a platinum wand~
 A platinum wand lies here.~
-platinium~
+platinum~
 wand B AO
 30 10 10 'magic missile' 0
 2 80 990 P

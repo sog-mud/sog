@@ -809,7 +809,7 @@ G none
 crown white conquerer~
 The white crown of the conquerer~
 A white crown lies here.~
-admantite~
+adamantite~
 armor EJ AE
 28 28 28 14 0
 85 35 10000 P
@@ -826,7 +826,7 @@ G none
 bow white conquerer~
 The white bow of the conquerer~
 A great white bow lies here.~
-admantite~
+adamantite~
 weapon EJM AN
 bow 10 10 'blast' AFH
 85 10 12000 P
@@ -852,7 +852,7 @@ G none
 sword war~
 The sword of war~
 A great two-handed sword lies here.~
-admantite~
+adamantite~
 weapon EJM AN
 sword 11 12 'slash' DEFH
 85 20 14000 P
@@ -929,7 +929,7 @@ G none
 lance holy archangel Michael~
 The holy lance of archangel Michael~
 A lance hums with a heavenly aura.~
-admantite~
+adamantite~
 weapon ABGIKMS AN
 lance 12 10 'pierce' A
 91 15 20000 P
@@ -1075,7 +1075,7 @@ G none
 sword mouth sharp two edged~
 The sharp, two-edged sword of the mouth~
 A huge two handed sword lies here.~
-admantite~
+adamantite~
 weapon IKLM AN
 sword 3 43 'slash' DF
 91 30 25000 P

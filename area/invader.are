@@ -6,7 +6,7 @@ Credits Asena~
 Security 9
 LevelRange 90 100
 Flags noquest update_always~
-Clan Invaders~
+Clan Invaders
 End
 
 #MOBILES
@@ -31,7 +31,7 @@ stand stand male 5000
 M grall 95600 100~
 M exall 95603 0~
 M fight 95605 30~
-C Invaders~
+C Invaders
 #95601
 cleric cabal invader~
 @eng the evil cleric@rus ~~жрец~~ Зла~
@@ -56,7 +56,7 @@ AFHIKQ ABCE D 0
 stand stand male 1000
 0 0 medium unknown
 M act 95601 tells you 'great night'~
-C Invaders~
+C Invaders
 #95602
 bruks vampire~
 @eng bruks@rus ~~брукса~~~
@@ -128,7 +128,7 @@ ABOci gl -1000 0
 stand stand none 0
 0 0 gargantuan unknown
 M grall 95606 100~
-C Invaders~
+C Invaders
 W 92
 #0
 

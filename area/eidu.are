@@ -154,8 +154,6 @@ container 0 AL
 1000000 A 0 1000 1
 0 0 0 P
 A
-8 50
-A
 13 1000
 A
 18 150
@@ -308,6 +306,10 @@ S
 O 0 44012 0 44000	* the statue of Eidu (The grand samurai's house)
 O 0 44011 0 44003	* {rrivulet{x (Path to the grand samurai's house)
 M 0 44000 1 44003 1	* Samurai (Path to the grand samurai's house)
+S
+
+#OLIMITS
+O 44007 1	* {Wfighter's {Rfirst aid {Wkit{x
 S
 
 #MOBPROGS

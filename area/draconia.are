@@ -312,7 +312,7 @@ stand stand female 500
 spear jagged~
 a jagged spear~
 A jagged spear has been left here.~
-wood steel~
+steel~
 weapon 0 AN
 spear 2 7 'thrust' K
 10 150 153 P
@@ -376,7 +376,7 @@ G none
 bracelet platinum~
 a platinum bracelet.~
 A tarnished platinum bracelet has been dropped here.~
-platinium~
+platinum~
 armor A AM
 7 7 7 0 0
 20 50 1450 P
@@ -505,7 +505,7 @@ G none
 key platinum~
 a platinum key~
 A platinum key.~
-platinium~
+platinum~
 key 0 A
 0 0 0 0 0
 0 10 0 P
