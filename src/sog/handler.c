@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.44 1998-08-07 13:11:23 fjoe Exp $
+ * $Id: handler.c,v 1.45 1998-08-08 06:40:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2338,6 +2338,9 @@ CHAR_DATA *get_char_room(CHAR_DATA *ch, const char *argument)
 	int count;
 	int ugly;
 
+	if (IS_NULLSTR(argument))
+		return NULL;
+
 	number = number_argument(argument, arg);
 	count  = 0;
 	ugly   = 0;
@@ -2376,6 +2379,9 @@ CHAR_DATA *get_char_room2(CHAR_DATA *ch, ROOM_INDEX_DATA *room, const char *argu
 	int count;
 	int ugly;
 
+	if (IS_NULLSTR(argument))
+		return NULL;
+
 	if (room == NULL) return NULL;
 	count  = 0;
 	ugly   = 0;
@@ -2411,6 +2417,9 @@ CHAR_DATA *get_char_world(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *wch;
 	int number;
 	int count;
+
+	if (IS_NULLSTR(argument))
+		return NULL;
 
 	if ((wch = get_char_room(ch, argument)) != NULL)
 		return wch;
@@ -2460,6 +2469,9 @@ OBJ_DATA *get_obj_list(CHAR_DATA *ch, const char *argument, OBJ_DATA *list)
 	int number;
 	int count;
 
+	if (IS_NULLSTR(argument))
+		return NULL;
+
 	number = number_argument(argument, arg);
 	count  = 0;
 	for (obj = list; obj; obj = obj->next_content)
@@ -2481,6 +2493,9 @@ OBJ_DATA *get_obj_carry(CHAR_DATA *ch, const char *argument)
 	OBJ_DATA *obj;
 	int number;
 	int count;
+
+	if (IS_NULLSTR(argument))
+		return NULL;
 
 	number = number_argument(argument, arg);
 	count  = 0;
@@ -2510,6 +2525,9 @@ OBJ_DATA *get_obj_wear(CHAR_DATA *ch, const char *argument)
 	int number;
 	int count;
 
+	if (IS_NULLSTR(argument))
+		return NULL;
+
 	number = number_argument(argument, arg);
 	count  = 0;
 	for (obj = ch->carrying; obj != NULL; obj = obj->next_content)
@@ -2535,6 +2553,9 @@ OBJ_DATA *get_obj_here(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *obj;
 
+	if (IS_NULLSTR(argument))
+		return NULL;
+
 	obj = get_obj_list(ch, argument, ch->in_room->contents);
 	if (obj != NULL)
 		return obj;
@@ -2559,6 +2580,9 @@ OBJ_DATA *get_obj_world(CHAR_DATA *ch, const char *argument)
 	OBJ_DATA *obj;
 	int number;
 	int count;
+
+	if (IS_NULLSTR(argument))
+		return NULL;
 
 	if ((obj = get_obj_here(ch, argument)) != NULL)
 		return obj;

@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.8 1998-08-03 00:22:31 efdi Exp $
+ * $Id: mob_cmds.c,v 1.9 1998-08-08 06:40:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1012,58 +1012,89 @@ void do_mpvforce(CHAR_DATA *ch, const char *argument)
  *
  * Syntax: mob cast [spell] {target}
  */
+extern const char* target_name;
 
 void do_mpcast(CHAR_DATA *ch, const char *argument)
 {
-    CHAR_DATA *vch;
-    OBJ_DATA *obj;
-    void *victim = NULL;
-    char spell[ MAX_INPUT_LENGTH ],
-	 target[ MAX_INPUT_LENGTH ];
-    int sn;
+	void *victim = NULL;
+	char spell[MAX_STRING_LENGTH];
+	char arg[MAX_INPUT_LENGTH];
+	int target = TARGET_NONE;
+	int sn;
 
-    argument = one_argument(argument, spell);
-               one_argument(argument, target);
+	target_name = one_argument(argument, spell);
+		      one_argument(target_name, arg);
 
-    if (spell[0] == '\0')
-    {
-	bug("MpCast - Bad syntax from vnum %d.", 
-		IS_NPC(ch) ? ch->pIndexData->vnum : 0);
-	return;
-    }
+	if (spell[0] == '\0') {
+		bug("MpCast - Bad syntax from vnum %d.", 
+			IS_NPC(ch) ? ch->pIndexData->vnum : 0);
+		return;
+	}
 
-    if ((sn = skill_lookup(spell)) < 0)
-    {
-	bug("MpCast - No such spell from vnum %d.", 
-		IS_NPC(ch) ? ch->pIndexData->vnum : 0);
-	return;
-    }
-    vch = get_char_room(ch, target);
-    obj = get_obj_here(ch, target);
-    switch (skill_table[sn].target)
-    {
-	default: return;
+	if ((sn = skill_lookup(spell)) < 0) {
+		bug("MpCast - No such spell from vnum %d.", 
+			IS_NPC(ch) ? ch->pIndexData->vnum : 0);
+		return;
+	}
+
+	switch (skill_table[sn].target) {
+	default:
+		return;
 	case TAR_IGNORE: 
-	    break;
+		break;
 	case TAR_CHAR_OFFENSIVE: 
-	    if (vch == NULL || vch == ch)
-		return;
-	    victim = (void *) vch;
-	    break;
+		if ((victim = get_char_room(ch, arg)) == NULL
+		&&  (victim = ch->fighting) == NULL)
+			return;
+		target = TARGET_CHAR;
+		break;
 	case TAR_CHAR_DEFENSIVE:
-	    victim = vch == NULL ? (void *) ch : (void *) vch; break;
+		if ((victim = get_char_room(ch, arg)) == NULL)
+			victim = ch;
+		target = TARGET_CHAR;
+		break;
 	case TAR_CHAR_SELF:
-	    victim = (void *) ch; break;
+		victim = ch;
+		target = TARGET_CHAR;
+		break;
 	case TAR_OBJ_CHAR_DEF:
+		if (arg[0] == '\0')
+			victim = ch;
+		else
+			victim = get_char_room(ch, arg);
+
+		if (victim != NULL)
+			target = TARGET_CHAR;
+		else {
+			if ((victim = get_obj_carry(ch, arg)) == NULL)
+				return;
+			target = TARGET_OBJ;
+		}
+		break;
 	case TAR_OBJ_CHAR_OFF:
+		if (arg[0] == '\0') {
+			if ((victim = ch->fighting) == NULL)
+				return;
+		}
+		else
+			victim = get_char_room(ch, arg);
+
+		if (victim != NULL)
+			target = TARGET_CHAR;
+		else {
+			if ((victim = get_obj_here(ch, arg)) == NULL)
+				return;
+			target = TARGET_OBJ;
+		}
+		break;
 	case TAR_OBJ_INV:
-	    if (obj == NULL)
-		return;
-	    victim = (void *) obj;
-    }
-    (*skill_table[sn].spell_fun)(sn, ch->level, ch, victim,
-	skill_table[sn].target);
-    return;
+		if ((victim = get_obj_carry(ch, arg)) == NULL)
+			return;
+		target = TARGET_OBJ;
+		break;
+	}
+
+	(*skill_table[sn].spell_fun)(sn, ch->level, ch, victim, target);
 }
 
 /*
