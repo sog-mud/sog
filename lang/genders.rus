@@ -71,6 +71,14 @@ Form 3 -ли~
 End
 
 #RULE
+Name дошел~
+BaseLen 3
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
 Name бормочет~
 BaseLen 6
 Form 1 -ет~
