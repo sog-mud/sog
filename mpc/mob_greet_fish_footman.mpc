@@ -1,15 +1,13 @@
 /*
- * $Id: mob_greet_fish_footman.mpc,v 1.1 2001-09-01 18:56:20 fjoe Exp $
+ * $Id: mob_greet_fish_footman.mpc,v 1.2 2001-09-02 16:02:26 fjoe Exp $
  */
 
 if (get_obj_carry($n, $N, "21029") != NULL)
         return 0;
  
 obj o;
-if ((o = get_obj_carry($n, $n, "21029")) == NULL) {
-        o = create_obj(21029, 0);
-        obj_to_char(o, $n);
-}
+if ((o = get_obj_carry($n, $n, "21029")) == NULL)
+        o = load_obj($n, 21029);
  
 if (!give_obj($n, $N, o))
         return 0;
@@ -17,6 +15,6 @@ if (!give_obj($n, $N, o))
 dofun("say", $n, "For the Duchess, an invitation from the Queen to play croquet.");
  
 char ch;
-if ((ch = get_char_room($n, "21017")) != NULL) {
+if ((ch = get_char_here($n, "21017")) != NULL) {
         dofun("say", ch, "For the Duchess, an invitation from the Queen to play croquet.");
 }
