@@ -1,5 +1,5 @@
 /*
- * $Id: buffer.c,v 1.36 2001-09-13 16:22:20 fjoe Exp $
+ * $Id: buffer.c,v 1.37 2003-06-18 07:41:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -53,6 +53,7 @@
 #include <log.h>
 #include <str.h>
 #include <memalloc.h>
+#include <avltree.h>
 #include <lang.h>
 
 struct buf_data

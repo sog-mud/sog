@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.h,v 1.27 2001-09-15 17:12:32 fjoe Exp $
+ * $Id: lang.h,v 1.28 2003-06-18 07:41:00 fjoe Exp $
  */
 
 #ifndef _LANG_H_
@@ -59,8 +59,6 @@ void	rule_destroy(rule_t *);
 void	rule_form_add	(rule_t *r, size_t fnum, const char *s);
 void	rule_form_del	(rule_t *r, size_t fnum);
 
-#define MAX_RULE_HASH	256
-
 /*
  * rule class - just hash of explicit rules with set of implicit rules
  */
@@ -68,7 +66,7 @@ struct rulecl_t {
 	int rulecl;			/* rulecl number		*/
 	const char *file_expl;		/* explicit rules file		*/
 	const char *file_impl;		/* implicit rules file		*/
-	varr expl[MAX_RULE_HASH];	/* explicit rules (hashed)	*/
+	avltree_t expl;			/* explicit rules		*/
 	varr impl;			/* implicit rules		*/
 	flag_t rcl_flags;
 };

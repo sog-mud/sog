@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.c,v 1.40 2001-12-03 22:28:47 fjoe Exp $
+ * $Id: lang.c,v 1.41 2003-06-18 07:41:03 fjoe Exp $
  */
 
 #include <string.h>
@@ -167,15 +167,6 @@ GETMSG(const char *msg, size_t lang)
  * rule_t functions
  */
 
-#define rulehash(s) hashcasestr(s, 16, MAX_RULE_HASH)
-
-/* reverse order (otherwise word_del will not work) */
-static int
-cmprule(const void *p1, const void *p2)
-{
-	return -str_cmp(((const rule_t*) p1)->name, ((const rule_t*) p2)->name);
-}
-
 static varr_info_t c_info_vforms =
 {
 	&varr_ops,
@@ -288,34 +279,24 @@ rule_t *
 erule_add(rulecl_t *rcl, rule_t *r)
 {
 	rule_t *rnew;
-	varr *v;
 
-	if (IS_NULLSTR(r->name))
+	rnew = c_insert(&rcl->expl, r->name);
+	if (rnew == NULL)
 		return NULL;
-
-	v = rcl->expl + rulehash(r->name);
-	if (varr_bsearch(v, r, cmprule))
-		return NULL;
-
-	rnew = varr_enew(v);
 	*rnew = *r;
-	varr_qsort(v, cmprule);
-	return varr_bsearch(v, r, cmprule);
+	return rnew;
 }
 
 void
 erule_del(rulecl_t *rcl, rule_t *r)
 {
-	varr *v = rcl->expl + rulehash(r->name);
-	varr_edelete(v, r);
+	c_delete(&rcl->expl, r);
 }
 
 rule_t *
 erule_lookup(rulecl_t *rcl, const char *name)
 {
-	if (IS_NULLSTR(name))
-		return NULL;
-	return varr_bsearch(rcl->expl + rulehash(name), &name, cmprule);
+	return c_lookup(&rcl->expl, name);
 }
 
 /*----------------------------------------------------------------------------
@@ -332,17 +313,25 @@ static varr_info_t c_info_rules =
 	sizeof(rule_t), 4
 };
 
+static avltree_info_t c_avlinfo_rules =
+{
+	&avltree_ops,
+
+	(e_init_t) rule_init,
+	(e_destroy_t) rule_destroy,
+
+	MT_PVOID, sizeof(rule_t), ke_cmp_str
+};
+
 static void
 rulecl_init(lang_t *l, size_t rulecl)
 {
-	int i;
 	rulecl_t *rcl = l->rules + rulecl;
 
 	rcl->rulecl = rulecl;
 	rcl->file_expl = str_empty;
 	rcl->file_impl = str_empty;
-	for (i = 0; i < MAX_RULE_HASH; i++)
-		c_init(rcl->expl+i, &c_info_rules);
+	c_init(&rcl->expl, &c_avlinfo_rules);
 	c_init(&rcl->impl, &c_info_rules);
 	rcl->rcl_flags = 0;
 }

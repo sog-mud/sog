@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_rule.c,v 1.42 2001-12-05 19:00:17 fjoe Exp $
+ * $Id: olc_rule.c,v 1.43 2003-06-18 07:41:01 fjoe Exp $
  */
 
 #include "olc.h"
@@ -406,22 +406,18 @@ OLC_FUN(ruleed_list)
 			}
 		}
 	} else {
-		size_t i;
+		rule_t *r;
 
 		if (argument[0] == '\0')
 			OLC_ERROR("'OLC ALIST'");
 
-		for (i = 0; i < MAX_RULE_HASH; i++) {
-			rule_t *r;
+		C_FOREACH(r, &rcl->expl) {
+			if (!!str_prefix(argument, r->name))
+				continue;
 
-			C_FOREACH(r, rcl->expl + i) {
-				if (!!str_prefix(argument, r->name))
-					continue;
-
-				if (!output)
-					output = buf_new(0);
-				buf_printf(output, BUF_END, "%s\n", r->name);
-			}
+			if (!output)
+				output = buf_new(0);
+			buf_printf(output, BUF_END, "%s\n", r->name);
 		}
 	}
 
@@ -583,8 +579,8 @@ rule_save(FILE *fp, rule_t *r)
 static void
 rcl_save_expl(CHAR_DATA *ch, lang_t *l, rulecl_t *rcl)
 {
-	int i;
 	FILE *fp;
+	rule_t *r;
 
 	if (!IS_SET(rcl->rcl_flags, RULES_EXPL_CHANGED))
 		return;
@@ -599,12 +595,8 @@ rcl_save_expl(CHAR_DATA *ch, lang_t *l, rulecl_t *rcl)
 	if ((fp = olc_fopen(LANG_PATH, rcl->file_expl, ch, -1)) == NULL)
 		return;
 
-	for (i = 0; i < MAX_RULE_HASH; i++) {
-		rule_t *r;
-
-		C_FOREACH(r, rcl->expl + i)
-			rule_save(fp, r);
-	}
+	C_FOREACH(r, &rcl->expl)
+		rule_save(fp, r);
 
 	fprintf(fp, "#$\n");
 	fclose(fp);
