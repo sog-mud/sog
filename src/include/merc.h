@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.366 2001-09-13 16:21:53 fjoe Exp $
+ * $Id: merc.h,v 1.367 2001-09-13 18:56:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2086,6 +2086,10 @@ where_t *where_lookup(flag_t where);
 	 (where) == TO_INVIS ||					\
 	 (where) == TO_FORMAFFECTS)
 #define IS_APPLY_AFFECT(paf)	IS_APPLY_WHERE((paf)->where)
+#define IS_RESIST_AFFECT(paf)	((paf)->where == TO_RESISTS ||	\
+				 (paf)->where == TO_FORMRESISTS)
+#define HAS_INT_LOCATION(paf)	(IS_APPLY_AFFECT(paf) ||	\
+				 IS_RESIST_AFFECT(paf))
 
 /*----------------------------------------------------------------------
  * skills stuff

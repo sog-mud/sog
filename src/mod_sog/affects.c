@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.70 2001-09-13 18:41:41 fjoe Exp $
+ * $Id: affects.c,v 1.71 2001-09-13 18:56:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -136,7 +136,7 @@ affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 		if (!IS_NPC(ch))
 			spec_update(ch);
 		return;
-	} else if (paf->where == TO_RESISTS || paf->where == TO_FORMRESISTS) {
+	} else if (IS_RESIST_AFFECT(paf)) {
 		int res = INT(paf->location);
 
 		if (res < 0)
@@ -918,8 +918,7 @@ aff_dump_list(AFFECT_DATA *paf, BUFFER *output)
 		    "[%4d] %-9.9s %-7.7s %-10.10s %8d %s\n",	// notrans
 		    cnt, paf->type,
 		    flag_string(affect_where_types, paf->where),
-		    IS_APPLY_AFFECT(paf) ||
-		    paf->where == TO_RESISTS || paf->where == TO_FORMRESISTS ?
+		    HAS_INT_LOCATION(paf) ?
 			(w != NULL && w->loc_table) ?
 				SFLAGS(w->loc_table, paf->location) : "none" :
 			STR(paf->location),
@@ -940,14 +939,11 @@ format_obj_affects(BUFFER *output, AFFECT_DATA *paf, int flags)
 			continue;
 
 		if (!IS_NULLSTR(w->loc_format)
-		&&  (paf->where == TO_RESISTS ||
-		     paf->where == TO_FORMRESISTS ||
+		&&  (IS_RESIST_AFFECT(paf) ||
 		     INT(paf->location) != APPLY_NONE)
 		&&   paf->modifier) {
 			buf_printf(output, BUF_END, w->loc_format,
-			    IS_APPLY_AFFECT(paf) ||
-			     paf->where == TO_RESISTS ||
-			     paf->where == TO_FORMRESISTS ?
+			    HAS_INT_LOCATION(paf) ?
 				SFLAGS(w->loc_table, paf->location) :
 				STR(paf->location),
 			    paf->modifier);
