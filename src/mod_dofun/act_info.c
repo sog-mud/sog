@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.58 1998-06-02 16:52:41 fjoe Exp $
+ * $Id: act_info.c,v 1.59 1998-06-03 11:15:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3267,7 +3267,7 @@ void do_oscore(CHAR_DATA *ch, char *argument)
 	int i;
 
 	char_printf(ch,
-		"%s {W%s{x%s, level {W%d{x, {g%d{x years old "
+		"%s {W%s{x%s, level {W%d{x, {c%d{x years old "
 		"(%d hours).\n\r",
 		msg(INFO_YOU_ARE, ch),
 		ch->name,
@@ -3278,34 +3278,34 @@ void do_oscore(CHAR_DATA *ch, char *argument)
 		char_printf(ch, "You are trusted at level %d.\n\r", get_trust(ch));
 
 	char_printf(ch,
-		"Race: {g%s{x  Sex: {g%s{x  Class: {g%s{x  "
-		"Hometown: {g%s{x\n\r",
+		"Race: {c%s{x  Sex: {c%s{x  Class: {c%s{x  "
+		"Hometown: {c%s{x\n\r",
 		race_table[ORG_RACE(ch)].name,
 		ch->sex == 0 ? "sexless" : ch->sex == 1 ? "male" : "female",
 		IS_NPC(ch) ? "mobile" : class_table[ch->class].name,
 		IS_NPC(ch) ? "Midgaard" : hometown_table[ch->hometown].name);
 
 	char_printf(ch,
-		"You have {W%d{x/{g%d{x hit, {W%d{x/{g%d{x mana, "
-		"{W%d{x/{g%d{x movement.\n\r",
+		"You have {W%d{x/{c%d{x hit, {W%d{x/{c%d{x mana, "
+		"{W%d{x/{c%d{x movement.\n\r",
 		ch->hit, ch->max_hit, ch->mana, ch->max_mana,
 		ch->move, ch->max_move);
 
 	char_printf(ch,
-		"You have {g%d{x practices and "
-		"{g%d{x training sessions.\n\r",
+		"You have {c%d{x practices and "
+		"{c%d{x training sessions.\n\r",
 		ch->practice, ch->train);
 
-	char_printf(ch, "You are carrying {W%d{x/{g%d{x items "
-		"with weight {W%ld{x/{g%d{x pounds.\n\r",
+	char_printf(ch, "You are carrying {W%d{x/{c%d{x items "
+		"with weight {W%ld{x/{c%d{x pounds.\n\r",
 		ch->carry_number, can_carry_n(ch),
 		get_carry_weight(ch), can_carry_w(ch));
 
 	if (ch->level > 20 || IS_NPC(ch))
 		char_printf(ch,
-			"Str: {g%d{x({Y%d{x)  Int: {g%d{x({Y%d{x)  "
-			"Wis: {g%d{x({Y%d{x)  Dex: {g%d{x({Y%d{x)  "
-			"Con: {g%d{x({Y%d{x)  Cha: {g%d{x({Y%d{x)\n\r",
+			"Str: {c%d{x({Y%d{x)  Int: {c%d{x({Y%d{x)  "
+			"Wis: {c%d{x({Y%d{x)  Dex: {c%d{x({Y%d{x)  "
+			"Con: {c%d{x({Y%d{x)  Cha: {c%d{x({Y%d{x)\n\r",
 			ch->perm_stat[STAT_STR], get_curr_stat(ch, STAT_STR),
 			ch->perm_stat[STAT_INT], get_curr_stat(ch, STAT_INT),
 			ch->perm_stat[STAT_WIS], get_curr_stat(ch, STAT_WIS),
@@ -3314,8 +3314,8 @@ void do_oscore(CHAR_DATA *ch, char *argument)
 			ch->perm_stat[STAT_CHA], get_curr_stat(ch, STAT_CHA));
 	else
 		char_printf(ch,
-			"Str: {g%-9s{x Wis: {g%-9s{x Con: {g%-9s{x\n\r"
-			"Int: {g%-9s{x Dex: {g%-9s{x Cha: {g%-11s{x\n\r",
+			"Str: {c%-9s{x Wis: {c%-9s{x Con: {c%-9s{x\n\r"
+			"Int: {c%-9s{x Dex: {c%-9s{x Cha: {c%-11s{x\n\r",
 			get_stat_alias(ch, STAT_STR),
 			get_stat_alias(ch, STAT_WIS),
 			get_stat_alias(ch, STAT_CON),
@@ -3323,7 +3323,7 @@ void do_oscore(CHAR_DATA *ch, char *argument)
 			get_stat_alias(ch, STAT_DEX),
 			get_stat_alias(ch, STAT_CHA));
 
-	sprintf(buf2, "You have scored {g%d{x exp, and have %s%s%s.\n\r",
+	sprintf(buf2, "You have scored {c%d{x exp, and have %s%s%s.\n\r",
 		ch->exp,
 		ch->gold + ch->silver == 0 ? "no money" :
 					     ch->gold ? "{Y%ld gold{x " : "",
@@ -3337,23 +3337,23 @@ void do_oscore(CHAR_DATA *ch, char *argument)
 
 	/* KIO shows exp to level */
 	if (!IS_NPC(ch) && ch->level < LEVEL_HERO)
-		char_printf(ch, "You need {g%d{x exp to level.\n\r",
+		char_printf(ch, "You need {c%d{x exp to level.\n\r",
 			exp_to_level(ch,ch->pcdata->points));
 
 	if (!IS_NPC(ch))
 		char_printf(ch,
-			"Quest Points: {g%d{x.  "
-			"%s: {g%d{x.\n\r",
+			"Quest Points: {c%d{x.  "
+			"%s: {c%d{x.\n\r",
 			ch->pcdata->questpoints, 
 			IS_NPC(ch) ? "Quest?" : (IS_ON_QUEST(ch) ? 
 					"Quest Time" : "Next Quest"),
 			IS_NPC(ch) ? 0 : abs(ch->pcdata->questtime));
 
 	if ((ch->class == CLASS_SAMURAI) && (ch->level >= 10))
-		char_printf(ch, "Total {g%d{x deaths up to now.",
+		char_printf(ch, "Total {c%d{x deaths up to now.",
 			ch->pcdata->death);
 	else
-		char_printf(ch, "Wimpy set to {g%d{x hit points.", ch->wimpy);
+		char_printf(ch, "Wimpy set to {c%d{x hit points.", ch->wimpy);
 
 	if (ch->guarding != NULL)
 		char_printf(ch, "  You are guarding: {W%s{x", ch->guarding->name);
@@ -3364,7 +3364,7 @@ void do_oscore(CHAR_DATA *ch, char *argument)
 	send_to_char("\n\r", ch);
 
 	if (!IS_NPC(ch) && ch->pcdata->condition[COND_DRUNK] > 10)
-		send_to_char("You are {gdrunk{x.\n\r", ch);
+		send_to_char("You are {cdrunk{x.\n\r", ch);
 
 	if (!IS_NPC(ch) && ch->pcdata->condition[COND_THIRST] <= 0)
 		send_to_char("You are {rthirsty{x.\n\r", ch);
@@ -3390,65 +3390,65 @@ void do_oscore(CHAR_DATA *ch, char *argument)
 	/* print AC values */
 	if (ch->level >= 25)
 		char_printf(ch,
-			"Armor: pierce: {g%d{x  bash: {g%d{x  "
-			"slash: {g%d{x  magic: {g%d{x\n\r",
+			"Armor: pierce: {c%d{x  bash: {c%d{x  "
+			"slash: {c%d{x  magic: {c%d{x\n\r",
 			GET_AC(ch, AC_PIERCE), GET_AC(ch, AC_BASH),
 			GET_AC(ch, AC_SLASH), GET_AC(ch, AC_EXOTIC));
 
 	for (i = 0; i < 4; i++) {
-		static char* ac_name[4] = { "{gpiercing{x", "{gbashing{x",
-					    "{gslashing{x", "{gmagic{x" };
+		static char* ac_name[4] = { "{cpiercing{x", "{cbashing{x",
+					    "{cslashing{x", "{cmagic{x" };
 
 		send_to_char("You are ", ch);
 		if (GET_AC(ch,i) >= 101)
-			char_printf(ch, "{ghopelessly vulnerable{x to %s.\n\r",
+			char_printf(ch, "{chopelessly vulnerable{x to %s.\n\r",
 				ac_name[i]);
 		else if (GET_AC(ch,i) >= 80)
-			char_printf(ch, "{gdefenseless against{x %s.\n\r",
+			char_printf(ch, "{cdefenseless against{x %s.\n\r",
 				ac_name[i]);
 		else if (GET_AC(ch,i) >= 60)
-			char_printf(ch, "{gbarely protected{x from %s.\n\r",
+			char_printf(ch, "{cbarely protected{x from %s.\n\r",
 				ac_name[i]);
 		else if (GET_AC(ch,i) >= 40)
-			char_printf(ch, "{gslightly armored{x against %s.\n\r",
+			char_printf(ch, "{cslightly armored{x against %s.\n\r",
 				ac_name[i]);
 		else if (GET_AC(ch,i) >= 20)
-			char_printf(ch, "{gsomewhat armored{x against %s.\n\r",
+			char_printf(ch, "{csomewhat armored{x against %s.\n\r",
 				ac_name[i]);
 		else if (GET_AC(ch,i) >= 0)
-			char_printf(ch, "{garmored{x against %s.\n\r",
+			char_printf(ch, "{carmored{x against %s.\n\r",
 				ac_name[i]);
 		else if (GET_AC(ch,i) >= -20)
-			char_printf(ch, "{gwell-armored{x against %s.\n\r",
+			char_printf(ch, "{cwell-armored{x against %s.\n\r",
 				ac_name[i]);
 		else if (GET_AC(ch,i) >= -40)
-			char_printf(ch, "{gvery well-armored{x against %s.\n\r",
+			char_printf(ch, "{cvery well-armored{x against %s.\n\r",
 				ac_name[i]);
 		else if (GET_AC(ch,i) >= -60)
-			char_printf(ch, "{gheavily armored{x against %s.\n\r",
+			char_printf(ch, "{cheavily armored{x against %s.\n\r",
 				ac_name[i]);
 		else if (GET_AC(ch,i) >= -80)
-			char_printf(ch, "{gsuperbly armored{x against %s.\n\r",
+			char_printf(ch, "{csuperbly armored{x against %s.\n\r",
 				ac_name[i]);
 		else if (GET_AC(ch,i) >= -100)
-			char_printf(ch, "{galmost invulnerable{x to %s.\n\r",
+			char_printf(ch, "{calmost invulnerable{x to %s.\n\r",
 				ac_name[i]);
 		else
-			char_printf(ch, "{gdivinely armored{x against %s.\n\r",
+			char_printf(ch, "{cdivinely armored{x against %s.\n\r",
 				ac_name[i]);
 	}
 
 	/* RT wizinvis and holy light */
 	if (IS_IMMORTAL(ch)) {
 		char_printf(ch, "Holy Light: %s",
-			IS_SET(ch->act, PLR_HOLYLIGHT) ? "{gon{x" : "{goff{x");
+			IS_SET(ch->act, PLR_HOLYLIGHT) ? "{con{x" : "{coff{x");
 
 		if (ch->invis_level)
-			char_printf(ch, "  Invisible: {glevel %d{x",
+			char_printf(ch, "  Invisible: {clevel %d{x",
 				ch->invis_level);
 
 		if (ch->incog_level)
-			char_printf(ch, "  Incognito: {glevel %d{x",
+			char_printf(ch, "  Incognito: {clevel %d{x",
 				ch->incog_level);
 		send_to_char("\n\r", ch);
 	}
