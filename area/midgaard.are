@@ -11954,8 +11954,8 @@ say Sorry, I haven't got coppers for the exchange ;)
 #0
 
 #PRACTICERS
-M 3000 wizard~	* the wizard
-M 3172 benedictions~	* the templeman
+M 3000 X	* the wizard
+M 3172 D	* the templeman
 S
 
 #$
