@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_social.c,v 1.15 1999-12-15 00:14:14 avn Exp $
+ * $Id: olc_social.c,v 1.16 1999-12-15 20:12:26 avn Exp $
  */
 
 #include "olc.h"
@@ -80,6 +80,9 @@ olc_cmd_t olc_cmds_soc[] =
 };
 
 static void *save_social_cb(void *fp, va_list ap);
+static void shadow_print_cmds(CHAR_DATA *ch, const char *name);
+
+#define check_shadow(name)	!!(cmd_search(name))
 
 OLC_FUN(soced_create)
 {
@@ -96,11 +99,12 @@ OLC_FUN(soced_create)
 	if (arg[0] == '\0')
 		OLC_ERROR("'OLC CREATE'");
 
-	if ((soc = social_lookup(arg, str_cmp))) {
+	if ((soc = social_lookup(arg))) {
 		char_printf(ch, "SocEd: %s: already exists.\n", soc->name);
 		return FALSE;
 	}
 
+	shadow_print_cmds(ch, arg);
 	soc		= social_new();
 	soc->name	= str_dup(arg);
 
@@ -125,7 +129,7 @@ OLC_FUN(soced_edit)
 	if (arg[0] == '\0')
 		OLC_ERROR("'OLC EDIT'");
 
-	if ((soc = social_lookup(arg, str_cmp)) == NULL) {
+	if ((soc = social_lookup(arg)) == NULL) {
 		char_printf(ch, "SocEd: %s: No such social.\n", arg);
 		return FALSE;
 	}
@@ -173,6 +177,8 @@ OLC_FUN(soced_show)
 	char arg[MAX_STRING_LENGTH];
 	BUFFER *output;
 	social_t *soc;
+	cmd_t *cmnd;
+	int i;
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
@@ -182,7 +188,7 @@ OLC_FUN(soced_show)
 			OLC_ERROR("'OLC ASHOW'");
 	}
 	else {
-		if ((soc = social_lookup(arg, str_prefix)) == NULL) {
+		if ((soc = social_search(arg)) == NULL) {
 			char_printf(ch, "SocEd: %s: No such social.\n", arg);
 			return FALSE;
 		}
@@ -205,6 +211,16 @@ OLC_FUN(soced_show)
 	SOC_SHOW("Self  char   [%s]\n", soc->self_char);
 	SOC_SHOW("Self  room   [%s]\n", soc->self_room);
 	SOC_SHOW("Notfound     [%s]\n", soc->notfound_char);
+	if (check_shadow(soc->name)) {
+		buf_add(output, "[*** SHADOWED BY FOLLOWING COMMANDS ***]\n");
+
+		for (i = 0; i < commands.nused; i++) {
+			cmnd = (cmd_t *)VARR_GET(&commands, i);
+			if (str_prefix(soc->name, cmnd->name))
+				continue;
+			buf_printf(output, "   [%s]\n", cmnd->name);
+		}
+	}
 
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
@@ -228,12 +244,13 @@ OLC_FUN(soced_list)
 		if (arg[0] && str_prefix(arg, soc->name))
 			continue;
 
-		buf_printf(output, "%-12s", soc->name);
-		if (++col % 6 == 0)
+		buf_printf(output, "[%1s%3d] %-12s",
+			check_shadow(soc->name) ? "*" : " ", i,	soc->name);
+		if (++col % 4 == 0)
 			buf_add(output, "\n");
 	}
 
-	if (col % 6)
+	if (col % 4)
 		buf_add(output, "\n");
 
 	page_to_char(buf_string(output), ch);
@@ -246,6 +263,8 @@ OLC_FUN(soced_name)
 {
 	social_t *soc;
 	EDIT_SOC(ch, soc);
+
+	shadow_print_cmds(ch, argument);
 	return olced_str(ch, argument, cmd, &soc->name);
 }
 
@@ -312,6 +331,47 @@ OLC_FUN(soced_notfound_char)
 	return olced_str(ch, argument, cmd, &soc->notfound_char);
 }
 
+OLC_FUN(soced_move)
+{
+	social_t *soc, *nsoc;
+	char arg[MAX_INPUT_LENGTH];
+	int num, num2;
+
+	EDIT_SOC(ch, soc);
+
+	if (olced_busy(ch, ED_SOCIAL, NULL, NULL))
+		return FALSE;
+
+	one_argument(argument, arg, sizeof(arg));
+	if (!is_number(arg))
+		OLC_ERROR("'OLC SOCIALS'");
+
+	if ((num = atoi(arg)) > socials.nused)
+		num = socials.nused;
+
+	num2 = varr_index(&socials, soc);
+
+	nsoc = (social_t *)varr_insert(&socials, num);
+	if (num <= num2)
+		soc = (social_t *)varr_get(&socials, num2 + 1);
+
+	nsoc->name = soc->name;
+	nsoc->min_pos = soc->min_pos;
+	nsoc->found_char = soc->found_char;
+	nsoc->found_vict = soc->found_vict;
+	nsoc->found_notvict = soc->found_notvict;
+	nsoc->noarg_char = soc->noarg_char;
+	nsoc->noarg_room = soc->noarg_room;
+	nsoc->self_char = soc->self_char;
+	nsoc->self_room = soc->self_room;
+	
+	varr_edelete(&socials, soc);
+	ch->desc->pEdit	= nsoc;
+	char_printf(ch, "SocEd: '%s' moved to %d position.\n",
+		nsoc->name, varr_index(&socials, nsoc));
+	return TRUE;
+}
+
 static VALIDATE_FUN(validate_soc_name)
 {
 	const char *name = (const char*) arg;
@@ -325,7 +385,7 @@ static VALIDATE_FUN(validate_soc_name)
 		return FALSE;
 	}
 
-	if ((soc2 = social_lookup(name, str_cmp))
+	if ((soc2 = social_lookup(name))
 	&&  soc2 != soc) {
 		char_printf(ch, "SocEd: %s: duplicate social name.\n", arg);
 		return FALSE;
@@ -356,3 +416,25 @@ static void *save_social_cb(void *p, va_list ap)
 	return NULL;
 }
 
+static void shadow_print_cmds(CHAR_DATA *ch, const char *name)
+{
+	cmd_t *cmnd;
+	int i;
+	BUFFER *output;
+
+	output = buf_new(-1);
+	if (check_shadow(name))
+		return;
+
+	buf_add(output, "[*** SHADOWED BY FOLLOWING COMMANDS ***]\n");
+
+	for (i = 0; i < commands.nused; i++) {
+		cmnd = (cmd_t *)VARR_GET(&commands, i);
+		if (str_prefix(name, cmnd->name))
+			continue;
+		buf_printf(output, "   [%s]\n", cmnd->name);
+	}
+
+	page_to_char(buf_string(output), ch);
+	buf_free(output);
+}

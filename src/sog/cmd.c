@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cmd.c,v 1.8 1999-12-15 15:35:41 fjoe Exp $
+ * $Id: cmd.c,v 1.9 1999-12-15 20:12:26 avn Exp $
  */
 
 #include <stdarg.h>
@@ -58,6 +58,23 @@ cmd_t *cmd_lookup(const char *name)
 	for (i = 0; i < commands.nused; i++) {
 		cmd_t *cmd = VARR_GET(&commands, i);
 		if (!str_cmp(cmd->name, name))
+			return cmd;
+	}
+
+	return NULL;
+}
+
+cmd_t *cmd_search(const char *name)
+{
+	int i;
+	cmd_t *cmd;
+
+	if ((cmd = cmd_lookup(name)))
+		return cmd;
+
+	for (i = 0; i < commands.nused; i++) {
+		cmd = VARR_GET(&commands, i);
+		if (!str_prefix(cmd->name, name))
 			return cmd;
 	}
 

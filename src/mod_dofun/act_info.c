@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.303 1999-12-15 15:35:24 fjoe Exp $
+ * $Id: act_info.c,v 1.304 1999-12-15 20:12:24 avn Exp $
  */
 
 /***************************************************************************
@@ -166,7 +166,7 @@ void do_socials(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if ((soc = social_lookup(argument, str_prefix)) == NULL) {
+	if ((soc = social_search(argument)) == NULL) {
 		char_puts("There is no such social.\n", ch);
 		return;
 	}

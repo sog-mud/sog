@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cmd.h,v 1.8 1999-11-22 14:54:23 fjoe Exp $
+ * $Id: cmd.h,v 1.9 1999-12-15 20:12:26 avn Exp $
  */
 
 #ifndef _CMD_H_
@@ -74,6 +74,8 @@ cmd_t *	cmd_new		(void);
 void	cmd_free	(cmd_t*);
 
 cmd_t *	cmd_lookup	(const char *name);
+cmd_t *	cmd_search	(const char *name);
+
 void *	cmd_load_cb	(void *p, va_list ap);
 void *	cmd_unload_cb	(void *p, va_list ap);
 

@@ -23,10 +23,11 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_cmd.c,v 1.2 1999-12-15 08:14:15 fjoe Exp $
+ * $Id: olc_cmd.c,v 1.3 1999-12-15 20:12:26 avn Exp $
  */
 
 #include "olc.h"
+#include "socials.h"
 
 #define EDIT_CMD(ch, cmd)	(cmd = (cmd_t*) ch->desc->pEdit)
 
@@ -44,6 +45,7 @@ DECLARE_OLC_FUN(cmded_dofun		);
 DECLARE_OLC_FUN(cmded_flags		);
 DECLARE_OLC_FUN(cmded_log		);
 DECLARE_OLC_FUN(cmded_class		);
+DECLARE_OLC_FUN(cmded_move		);
 
 static DECLARE_VALIDATE_FUN(validate_cmd_name);
 
@@ -63,12 +65,15 @@ olc_cmd_t olc_cmds_cmd[] =
 	{ "flags",	cmded_flags,	NULL,		cmd_flags	},
 	{ "log",	cmded_log,	NULL,		cmd_logtypes	},
 	{ "class",	cmded_class,	NULL,		cmd_classes	},
+	{ "move",	cmded_move					},
 
 	{ "commands",	show_commands					},
 	{ NULL }
 };
 
 static void *save_cmd_cb(void *fp, va_list ap);
+static void check_shadow(CHAR_DATA *ch, const char *name);
+
 
 OLC_FUN(cmded_create)
 {
@@ -88,6 +93,8 @@ OLC_FUN(cmded_create)
 		char_printf(ch, "CmdEd: %s: already exists.\n", cmnd->name);
 		return FALSE;
 	}
+
+	check_shadow(ch, arg);
 
 	cmnd		= cmd_new();
 	cmnd->name	= str_dup(arg);
@@ -166,7 +173,7 @@ OLC_FUN(cmded_show)
 			OLC_ERROR("'OLC ASHOW'");
 	}
 	else {
-		if (!(cmnd = cmd_lookup(arg))) {
+		if (!(cmnd = cmd_search(arg))) {
 			char_printf(ch, "CmdEd: %s: No such command.\n", arg);
 			return FALSE;
 		}
@@ -175,7 +182,8 @@ OLC_FUN(cmded_show)
 	output = buf_new(-1);
 
 	buf_printf(output,
-		   "Name       [%s]\nDofun      [%s]\n",
+		   "[%3d]Name  [%s]\nDofun      [%s]\n",
+		   varr_index(&commands, cmnd),
 		   cmnd->name, cmnd->dofun_name);
 	buf_printf(output,
 		   "Min_pos    [%s]\n",
@@ -215,12 +223,12 @@ OLC_FUN(cmded_list)
 		if (arg[0] && str_prefix(arg, cmnd->name))
 			continue;
 
-		buf_printf(output, "%-12s", cmnd->name);
-		if (++col % 6 == 0)
+		buf_printf(output, "[%3d] %-12s", i, cmnd->name);
+		if (++col % 4 == 0)
 			buf_add(output, "\n");
 	}
 
-	if (col % 6)
+	if (col % 4)
 		buf_add(output, "\n");
 
 	page_to_char(buf_string(output), ch);
@@ -233,6 +241,8 @@ OLC_FUN(cmded_name)
 {
 	cmd_t *cmnd;
 	EDIT_CMD(ch, cmnd);
+
+	check_shadow(ch, argument);
 	return olced_str(ch, argument, cmd, &cmnd->name);
 }
 
@@ -276,6 +286,46 @@ OLC_FUN(cmded_minlevel)
 	cmd_t *cmnd;
 	EDIT_CMD(ch, cmnd);
 	return olced_ival(ch, argument, cmd, &cmnd->min_level);
+}
+
+OLC_FUN(cmded_move)
+{
+	cmd_t *cmnd, *ncmnd;
+	char arg[MAX_INPUT_LENGTH];
+	int num, num2;
+
+	EDIT_CMD(ch, cmnd);
+
+	if (olced_busy(ch, ED_CMD, NULL, NULL))
+		return FALSE;
+
+	one_argument(argument, arg, sizeof(arg));
+	if (!is_number(arg))
+		OLC_ERROR("'OLC CMDS'");
+
+	if ((num = atoi(arg)) > commands.nused)
+		num = commands.nused;
+
+	num2 = varr_index(&commands, cmnd);
+
+	ncmnd = (cmd_t *)varr_insert(&commands, num);
+	if (num <= num2)
+		cmnd = (cmd_t *)varr_get(&commands, num2 + 1);
+
+	ncmnd->name = cmnd->name;
+	ncmnd->dofun_name = cmnd->dofun_name;
+	ncmnd->do_fun = cmnd->do_fun;
+	ncmnd->cmd_class = cmnd->cmd_class;
+	ncmnd->cmd_log = cmnd->cmd_log;
+	ncmnd->cmd_flags = cmnd->cmd_flags;
+	ncmnd->min_pos = cmnd->min_pos;
+	ncmnd->min_level = cmnd->min_level;
+	
+	varr_edelete(&commands, cmnd);
+	ch->desc->pEdit	= ncmnd;
+	char_printf(ch, "CmdEd: '%s' moved to %d position.\n",
+		ncmnd->name, varr_index(&commands, ncmnd));
+	return TRUE;
 }
 
 static VALIDATE_FUN(validate_cmd_name)
@@ -331,3 +381,27 @@ static void *save_cmd_cb(void *p, va_list ap)
 	return NULL;
 }
 
+static void check_shadow(CHAR_DATA *ch, const char *name)
+{
+	BUFFER *output;
+	social_t *soc;
+	int i;
+	bool found = FALSE;
+
+	output = buf_new(-1);
+
+	for (i = 0; i < socials.nused; i++) {
+		soc = (social_t *)VARR_GET(&socials, i);
+		if (str_prefix(soc->name, name))
+			continue;
+		if (!found)
+			buf_add(output, "The following social(s) will be shadowed:\n");
+		found = TRUE;
+		buf_printf(output, "  [%s]\n", soc->name);
+	}
+	if (!found)
+		buf_add(output, "This name will not shadow anything.\n");
+	
+	page_to_char(buf_string(output), ch);
+	buf_free(output);
+}
