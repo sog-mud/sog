@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.160 2000-06-08 18:09:17 fjoe Exp $
+ * $Id: martial_art.c,v 1.161 2000-06-21 10:34:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2347,7 +2347,7 @@ void do_strip(CHAR_DATA *ch, const char *argument)
 	
 
 		if ((obj2 = get_eq_char(victim, WEAR_SECOND_WIELD)) != NULL) {
-			act_puts("You wield your second weapon as your first!.",
+			act_puts("You wield your second weapon as your first!",
 			 ch, NULL, victim, TO_VICT, POS_FIGHTING);
 			act_puts("$N wields his second weapon as first!",
 			 ch, NULL, victim, TO_CHAR, POS_FIGHTING);
