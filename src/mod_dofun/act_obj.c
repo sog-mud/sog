@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.38 1998-06-30 11:09:49 fjoe Exp $
+ * $Id: act_obj.c,v 1.39 1998-07-05 16:30:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2916,69 +2916,6 @@ do_value(CHAR_DATA * ch, char *argument)
 	return;
 }
 
-void 
-do_wanted(CHAR_DATA * ch, char *argument)
-{
-	char            arg1[MAX_INPUT_LENGTH];
-	char            arg2[MAX_INPUT_LENGTH];
-	CHAR_DATA      *victim;
-	if (ch_skill_nok(ch, gsn_wanted))
-		return;
-
-	if (!clan_ok(ch, gsn_wanted))
-		return;
-
-	argument = one_argument(argument, arg1);
-	argument = one_argument(argument, arg2);
-
-	if (arg1[0] == '\0' || arg2[0] == '\0') {
-		send_to_char("Usage: wanted <player> <Y|N>\n\r", ch);
-		return;
-	}
-	victim = get_char_world(ch, arg1);
-
-	if ((victim == NULL) ||
-	    !(can_see(ch, victim))) {
-		send_to_char("They aren't here.\n\r", ch);
-		return;
-	}
-	if (victim->level >= LEVEL_IMMORTAL && (ch->level < victim->level)) {
-		act("You do not have the power to arrest $N.", ch, NULL, victim,
-		    TO_CHAR);
-		return;
-	}
-	if (victim == ch) {
-		send_to_char("You cannot do that to yourself.\n\r", ch);
-		return;
-	}
-	switch (arg2[0]) {
-	case 'Y':
-	case 'y':
-		if (IS_SET(victim->act, PLR_WANTED))
-			act("$n is already wanted.", ch, NULL, NULL, TO_CHAR);
-		else {
-			SET_BIT(victim->act, PLR_WANTED);
-			act("$n is now WANTED!!!", victim, NULL, ch, TO_NOTVICT);
-			send_to_char("You are now WANTED!!!\n\r", victim);
-			send_to_char("Ok.\n\r", ch);
-		}
-		break;
-	case 'N':
-	case 'n':
-		if (!IS_SET(victim->act, PLR_WANTED))
-			act("$N is not wanted.", ch, NULL, victim, TO_CHAR);
-		else {
-			REMOVE_BIT(victim->act, PLR_WANTED);
-			act("$n is no longer wanted.", victim, NULL, ch, TO_NOTVICT);
-			send_to_char("You are no longer wanted.\n\r", victim);
-			send_to_char("Ok.\n\r", ch);
-		}
-		break;
-	default:
-		send_to_char("Usage: wanted <player> <Y|N>\n\r", ch);
-		break;
-	}
-}
 
 void 
 do_herbs(CHAR_DATA * ch, char *argument)

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.32 1998-07-04 13:39:16 fjoe Exp $
+ * $Id: db.c,v 1.33 1998-07-05 16:30:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -123,7 +123,6 @@ OBJ_DATA *		object_list;
 TIME_INFO_DATA		time_info;
 WEATHER_DATA		weather_info;
 
-AUCTION_DATA	*	auction;
 ROOM_INDEX_DATA	*	top_affected_room;
 int			reboot_counter;
 
@@ -173,7 +172,6 @@ int  gsn_herbs;
 int  gsn_tame;
 int  gsn_butcher;
 int  gsn_assassinate;
-int  gsn_wanted;
 int  gsn_caltrops;
 int  gsn_throw;
 int  gsn_strangle;
@@ -332,7 +330,6 @@ int  gsn_make_bow;
 int  gsn_blindness_dust;
 int  gsn_poison_smoke;
 int  gsn_mastering_spell;
-int  gsn_judge;
 
 /* new_gsns */
 
@@ -512,19 +509,6 @@ void boot_db(void)
 	else if (weather_info.mmhg <= 1000) weather_info.sky = SKY_RAINING;
 	else if (weather_info.mmhg <= 1020) weather_info.sky = SKY_CLOUDY;
 	else                                weather_info.sky = SKY_CLOUDLESS;
-
-	/*
-	 * auction
-	 */
-
-	auction = (AUCTION_DATA *) malloc (sizeof(AUCTION_DATA)); 
-	if (auction == NULL) {
-		log_printf("malloc'ing AUCTION_DATA didn't give %d bytes",
-		    sizeof(AUCTION_DATA));
-		exit(1);
-	}
-			
-	auction->item = NULL; /* nothing is being sold */
 
 	/* room_affect_data */
 	top_affected_room = NULL;
@@ -2222,7 +2206,6 @@ void reset_room( ROOM_INDEX_DATA *pRoom )
         OBJ_INDEX_DATA  *pObjIndex;
         OBJ_INDEX_DATA  *pObjToIndex;
         ROOM_INDEX_DATA *pRoomIndex;
-	char buf[MAX_STRING_LENGTH];
 	int count,limit=0;
 	OBJ_INDEX_DATA *clan_item;
 	int ci_vnum = 0;

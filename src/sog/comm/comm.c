@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.59 1998-07-04 11:28:19 fjoe Exp $
+ * $Id: comm.c,v 1.60 1998-07-05 16:30:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -103,6 +103,48 @@ DECLARE_DO_FUN(do_skills	);
 DECLARE_DO_FUN(do_outfit	);
 DECLARE_DO_FUN(do_unread	);
 
+/*
+ * Colour stuff by Lope of Loping Through The MUD (taken from Rot)
+ */
+static char CLEAR[]		= "[0m";	/* Resets Color        */
+						/* Normal Colors       */
+/* static char C_BLACK[]	= "[0;30m";	-- Not used */	
+static char C_RED[]		= "[0;31m";
+static char C_GREEN[]		= "[0;32m";
+static char C_YELLOW[]		= "[0;33m";
+static char C_BLUE[]		= "[0;34m";
+static char C_MAGENTA[]		= "[0;35m";
+static char C_CYAN[]		= "[0;36m";
+static char C_WHITE[]		= "[0;37m";
+static char C_D_GREY[]		= "[1;30m";	/* Light Colors         */
+static char C_B_RED[]		= "[1;31m";
+static char C_B_GREEN[]		= "[1;32m";
+static char C_B_YELLOW[]	= "[1;33m";
+static char C_B_BLUE[]		= "[1;34m";
+static char C_B_MAGENTA[]	= "[1;35m";
+static char C_B_CYAN[]		= "[1;36m";
+static char C_B_WHITE[]		= "[1;37m";
+/*
+static char R_BLACK[]		= "[0m[0;30m";	
+static char R_RED[]		= "[0m[0;31m";
+static char R_GREEN[]		= "[0m[0;32m";
+static char R_YELLOW[]		= "[0m[0;33m";
+static char R_BLUE[]		= "[0m[0;34m";
+static char R_MAGENTA[]		= "[0m[0;35m";
+static char R_CYAN[]		= "[0m[0;36m";
+static char R_WHITE[]		= "[0m[0;37m";
+static char R_D_GREY[]		= "[0m[1;30m";	
+static char R_B_RED[]		= "[0m[1;31m";
+static char R_B_GREEN[]		= "[0m[1;32m";
+static char R_B_YELLOW[]	= "[0m[1;33m";
+static char R_B_BLUE[]		= "[0m[1;34m";
+static char R_B_MAGENTA[]	= "[0m[1;35m";
+static char R_B_CYAN[]		= "[0m[1;36m";
+static char R_B_WHITE[]		= "[0m[1;37m";
+*/
+
+static char* reset_color = CLEAR;
+static char* curr_color = CLEAR;
 char* color(char type, CHAR_DATA *ch);
 
 
@@ -2607,6 +2649,8 @@ void char_puts(const char *txt, CHAR_DATA *ch)
 	if (txt == NULL || ch->desc == NULL)
 		return;
 
+	reset_color = curr_color = CLEAR;
+
 	for(p = txt, q = buf; *p; p++) {
 		if (*p == '{' && *(p+1)) {
 			p++;
@@ -2725,8 +2769,9 @@ void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 	char 	fname[MAX_INPUT_LENGTH];
 	bool	fColour = FALSE;
 
+	reset_color = curr_color = CLEAR;
+
 	point   = buf;
-	
 	while(*str) {
 		if(*str != '$' && *str != '{') {
 			*point++ = *str++;
@@ -3021,106 +3066,90 @@ void act_printf(CHAR_DATA *ch, const void *arg1,
 	va_end(ap);
 }
 
-/*
- * Colour stuff by Lope of Loping Through The MUD (taken from Rot)
- */
-static char CLEAR[]		= "[0m";	/* Resets Color        */
-						/* Normal Colors       */
-/* static char C_BLACK[]	= "[0;30m";	-- Not used */	
-static char C_RED[]		= "[0;31m";
-static char C_GREEN[]		= "[0;32m";
-static char C_YELLOW[]		= "[0;33m";
-static char C_BLUE[]		= "[0;34m";
-static char C_MAGENTA[]		= "[0;35m";
-static char C_CYAN[]		= "[0;36m";
-static char C_WHITE[]		= "[0;37m";
-static char C_D_GREY[]		= "[1;30m";	/* Light Colors         */
-static char C_B_RED[]		= "[1;31m";
-static char C_B_GREEN[]		= "[1;32m";
-static char C_B_YELLOW[]	= "[1;33m";
-static char C_B_BLUE[]		= "[1;34m";
-static char C_B_MAGENTA[]	= "[1;35m";
-static char C_B_CYAN[]		= "[1;36m";
-static char C_B_WHITE[]		= "[1;37m";
-/*
-static char R_BLACK[]		= "[0m[0;30m";	
-static char R_RED[]		= "[0m[0;31m";
-static char R_GREEN[]		= "[0m[0;32m";
-static char R_YELLOW[]		= "[0m[0;33m";
-static char R_BLUE[]		= "[0m[0;34m";
-static char R_MAGENTA[]		= "[0m[0;35m";
-static char R_CYAN[]		= "[0m[0;36m";
-static char R_WHITE[]		= "[0m[0;37m";
-static char R_D_GREY[]		= "[0m[1;30m";	
-static char R_B_RED[]		= "[0m[1;31m";
-static char R_B_GREEN[]		= "[0m[1;32m";
-static char R_B_YELLOW[]	= "[0m[1;33m";
-static char R_B_BLUE[]		= "[0m[1;34m";
-static char R_B_MAGENTA[]	= "[0m[1;35m";
-static char R_B_CYAN[]		= "[0m[1;36m";
-static char R_B_WHITE[]		= "[0m[1;37m";
-*/
-
 char* color(char type, CHAR_DATA *ch)
 {
+	char *color;
 	if (IS_NPC(ch))
 		return "";
 
 	switch (type) {
 	case 'b':
 	case '4':
-		return C_BLUE;
+		color = C_BLUE;
+		break;
 	case 'c':
 	case '6':
-		return C_CYAN;
+		color = C_CYAN;
+		break;
 	case 'g':
 	case '2':
-		return C_GREEN;
+		color = C_GREEN;
+		break;
 	case 'm':
 	case '5':
-		return C_MAGENTA;
+		color = C_MAGENTA;
+		break;
 	case 'r':
 	case '1':
-		return C_RED;
+		color = C_RED;
+		break;
 	case 'w':
 	case '7':
-		return C_WHITE;
+		color = C_WHITE;
+		break;
 	case 'y':
 	case '3':
-		return C_YELLOW;
+		color = C_YELLOW;
+		break;
 	case 'B':
 	case '$':
-		return C_B_BLUE;
+		color = C_B_BLUE;
+		break;
 	case 'C':
 	case '^':
-		return C_B_CYAN;
+		color = C_B_CYAN;
+		break;
 	case 'G':
 	case '@':
-		return C_B_GREEN;
+		color = C_B_GREEN;
+		break;
 	case 'M':
 	case '%':
-		return C_B_MAGENTA;
+		color = C_B_MAGENTA;
+		break;
 	case 'R':
 	case '!':
-		return C_B_RED;
+		color = C_B_RED;
+		break;
 	case 'W':
 	case '&':
-		return C_B_WHITE;
+		color = C_B_WHITE;
+		break;
 	case 'Y':
 	case '#':
-		return C_B_YELLOW;
+		color = C_B_YELLOW;
+		break;
 	case 'D':
 	case '8':
-		return C_D_GREY;
+		color = C_D_GREY;
+		break;
+	case 'x':
+		color = CLEAR;
+		break;
+	case 'z':
+		return curr_color = reset_color;
 	case '*':
 		return "\a";
 	case '{':
 		return "{";
 	case '\\':
 		return "\n\r";
+	default:
+		return CLEAR;
 	}
 
-	return CLEAR;
+	reset_color = curr_color;
+	return curr_color = color;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.61 1998-07-04 11:28:19 fjoe Exp $
+ * $Id: act_move.c,v 1.62 1998-07-05 16:30:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -233,21 +233,26 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 		  }
 	}
 
-	if (!IS_NPC(ch))
-	{
+	if (!IS_NPC(ch)) {
 		int move;
 		int i;
+		bool bloody = (ch->last_fight_time != -1 &&
+			current_time - ch->last_fight_time < FIGHT_DELAY_TIME);
 
 		if ((i = guild_check(ch, to_room)) > 0) {
-			if (ch->last_fight_time != -1 &&
-		            current_time - ch->last_fight_time <
-							FIGHT_DELAY_TIME) {
+			if (bloody) {
 				char_nputs(YOU_FEEL_TOO_BLOODY, ch);
 				return;
 			}
 		}
 		else if (i < 0) {
 			char_nputs(YOU_ARENT_ALLOWED_THERE, ch);
+			return;
+		}
+
+		if (ch->level < LEVEL_IMMORTAL && bloody
+		&&  IS_SET(to_room->room_flags, ROOM_SAFE)) {
+			char_nputs(YOU_FEEL_TOO_BLOODY, ch);
 			return;
 		}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: const.c,v 1.14 1998-07-03 15:18:40 fjoe Exp $
+ * $Id: const.c,v 1.15 1998-07-05 16:30:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -6034,24 +6034,6 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
 	spell_null,		TAR_IGNORE,		POS_STANDING,
 	&gsn_clan_recall,		SLOT( 0),	0,	24,
 	"",	"You may pray for transportation again.","", CLAN_BATTLE , 
-	RACE_NONE, ALIGN_NONE, GROUP_CLAN
-    },
-
-    {
-        "wanted",               {  1,  1,  1,  1, 1, 1, 1, 1 ,1,1,1,1,1},
-        { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
-        spell_null,             TAR_IGNORE,             POS_DEAD,
-        &gsn_wanted,                   SLOT(0),        0,       0,
-        "",                     "!Wanted!", "",		CLAN_RULER,
-	RACE_NONE, ALIGN_NONE, GROUP_CLAN
-    },
-
-    {
-        "judge",               {  1,  1,  1,  1, 1, 1, 1, 1 ,1,1,1,1,1},
-        { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
-        spell_null,             TAR_IGNORE,             POS_DEAD,
-        &gsn_judge,              SLOT(0),        0,       0,
-        "",                     "!Judge!", "",		CLAN_RULER,
 	RACE_NONE, ALIGN_NONE, GROUP_CLAN
     },
 

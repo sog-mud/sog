@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.41 1998-07-03 15:18:42 fjoe Exp $
+ * $Id: merc.h,v 1.42 1998-07-05 16:30:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -87,7 +87,6 @@ typedef struct	shop_data		SHOP_DATA;
 typedef struct	time_info_data		TIME_INFO_DATA;
 typedef struct	weather_data		WEATHER_DATA;
 typedef struct	room_history_data	ROOM_HISTORY_DATA;
-typedef struct	auction_data		AUCTION_DATA;
 typedef struct  mprog_list		MPROG_LIST;
 typedef struct  mprog_code		MPROG_CODE;
 typedef struct	qtrouble_data		QTROUBLE_DATA;
@@ -1716,16 +1715,6 @@ struct translation_type
  * auction data
  */
 
-struct	auction_data
-{
-	OBJ_DATA  * item;	/* a pointer to the item */
-	CHAR_DATA * seller; /* a pointer to the seller - which may NOT quit */
-	CHAR_DATA * buyer;	/* a pointer to the buyer - which may NOT quit */
-	int 	bet;	/* last bet - or 0 if noone has bet anything */
-	int	going;	/* 1,2, sold */
-	int	pulse;	/* how many pulses (.25 sec) until another call-out ? */
-};
-
 /*
  * Prototype for a mob.
  * This is the in-memory version of #MOBILES.
@@ -2335,7 +2324,6 @@ extern int  gsn_herbs;
 extern int  gsn_tame;
 extern int  gsn_butcher;
 extern int  gsn_assassinate;
-extern int  gsn_wanted;
 extern int  gsn_caltrops;
 extern int  gsn_throw;
 extern int  gsn_strangle;
@@ -2494,7 +2482,6 @@ extern int  gsn_make_bow;
 extern int  gsn_blindness_dust;
 extern int  gsn_poison_smoke;
 extern int  gsn_mastering_spell;
-extern int  gsn_judge;
 
 /*
  * Utility macros.
@@ -2678,7 +2665,6 @@ extern		OBJ_DATA	  *	object_list;
 
 extern		MPROG_CODE	  *	mprog_list;
 
-extern		AUCTION_DATA	  *	auction;
 extern		ROOM_INDEX_DATA   *	top_affected_room;
 
 extern		char			bug_buf 	[];

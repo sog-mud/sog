@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.15 1998-07-03 15:18:46 fjoe Exp $
+ * $Id: special.c,v 1.16 1998-07-05 16:30:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -66,7 +66,6 @@ DECLARE_DO_FUN(do_say		);
 DECLARE_DO_FUN(do_backstab	);
 DECLARE_DO_FUN(do_flee		);
 DECLARE_DO_FUN(do_tell		);
-DECLARE_DO_FUN(do_cb		);
 DECLARE_DO_FUN(do_track		);
 DECLARE_DO_FUN(do_murder	);
 DECLARE_DO_FUN(do_kill		);
@@ -113,7 +112,6 @@ DECLARE_SPEC_FUN(	spec_ogre_member	);
 DECLARE_SPEC_FUN(	spec_patrolman		);
 DECLARE_SPEC_FUN(      spec_cast_clan        );
 DECLARE_SPEC_FUN(      spec_special_guard     );
-DECLARE_SPEC_FUN(      spec_stalker           );
 DECLARE_SPEC_FUN(      spec_assassinater      );
 DECLARE_SPEC_FUN(      spec_repairman		);
 DECLARE_SPEC_FUN(	spec_captain		);
@@ -147,7 +145,7 @@ const   struct  spec_type    spec_table[] =
 	{	"spec_ogre_member",		spec_ogre_member	},
 	{	"spec_patrolman",		spec_patrolman		},
 	{	"spec_cast_clan",		spec_cast_clan		},
-	{	"spec_stalker",			spec_stalker		},
+/*	{	"spec_stalker",			spec_stalker		}, */
 	{	"spec_special_guard",		spec_special_guard	},
 	{   "spec_assassinater",            spec_assassinater	},  
 	{   "spec_repairman",		spec_repairman		},  
@@ -1210,77 +1208,6 @@ bool spec_special_guard(CHAR_DATA *ch)
 		return TRUE;
 	}
 
-	return FALSE;
-}
-
-bool spec_stalker(CHAR_DATA *ch)
-{
-	CHAR_DATA *victim;
-	CHAR_DATA *wch;
-	CHAR_DATA *wch_next;
-	int i;
-
-	victim = ch->last_fought;
-
-	if (ch->fighting != NULL)
-	return FALSE;
-
-	if (ch->status == 10)
-	{
-	  ch->clan = CLAN_RULER;
-	  do_cb(ch, "I have killed my victim, now I can leave the realms.");
-	  extract_char(ch, TRUE);
-	  return TRUE;
-	}
-
-	if (victim == NULL)
-	{
-	  ch->clan = CLAN_RULER;
-	  do_cb(ch, "To their shame, my victim has cowardly left the game. I must leave also.");
-	  extract_char(ch, TRUE);
-	  return TRUE;
-	}
-
-	if (IS_GOOD(victim))
-	i = 0;
-	if (IS_EVIL(victim))
-	i = 2;
-	else
-	i = 1;
-	
-	for (wch = ch->in_room->people; wch != NULL; wch = wch_next) {
-		wch_next = wch->next_in_room;
-		if (victim == wch) {
-			doprintf(do_yell, ch,
-				 "%s, you're criminal! Now you die!",
-				 victim->name);
-			multi_hit(ch,wch,TYPE_UNDEFINED);
-			return TRUE;
-		}
-	}
-	do_track(ch, victim->name);
-
-	if (ch->status == 5)
-	{
-	  if (ch->in_room != 
-get_room_index(hometown_table[victim->hometown].recall[1]))
-	{
-	  	  char_from_room(ch);
-	  	  char_to_room(ch,
-		   get_room_index(hometown_table[victim->hometown].recall[i]));
-	  	  do_track(ch, victim->name);
-	  	  return TRUE;
-		}
-	   else 
-		{
-	  	  ch->clan = CLAN_RULER;
-	  	  doprintf(do_cb, ch,
-			  "To my shame I have lost track of %s.  I must leave.",
-			  victim->name);
-	  	  extract_char(ch, TRUE);
-	  	  return TRUE;
-		}
-	}
 	return FALSE;
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.36 1998-07-03 16:35:29 fjoe Exp $
+ * $Id: interp.c,v 1.37 1998-07-05 16:30:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -280,7 +280,6 @@ const	struct	cmd_type	cmd_table	[] =
     { "steal",		do_steal,	POS_STANDING,	 0,  LOG_NORMAL, 1,0 },
     { "train",		do_train,	POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
     { "visible",	do_visible,	POS_SLEEPING,	 0,  LOG_NORMAL, 1,0 },
-    { "wanted",         do_wanted,      POS_STANDING,    0,  LOG_ALWAYS, 1,0 },
     { "where",		do_where,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     /*
      * Object manipulation commands.
@@ -470,7 +469,6 @@ const	struct	cmd_type	cmd_table	[] =
     { "control",       	do_control,	POS_STANDING,    0,  LOG_NORMAL, 1,0 },
     { "ititle",		do_ititle,	POS_DEAD,	IM,  LOG_NORMAL, 1,CMD_KEEP_HIDE|CMD_GHOST },
     { "sense",          do_sense,       POS_RESTING,     0,  LOG_NORMAL, 1,0},
-    { "judge",          do_judge,       POS_RESTING,     0,  LOG_ALWAYS, 1,CMD_KEEP_HIDE },
 
     { "mpdump",		do_mpdump,	POS_DEAD,	IM,  LOG_NEVER,  1, 0 },
     { "mpstat",		do_mpstat,	POS_DEAD,	IM,  LOG_NEVER,  1, 0 },
@@ -801,6 +799,7 @@ bool check_social( CHAR_DATA *ch, char *command, char *argument )
 		return TRUE;
 	}
 
+	victim_room = victim->in_room;
 	char_from_room(victim);
 	char_to_room(victim, ch->in_room);
 
@@ -808,7 +807,6 @@ bool check_social( CHAR_DATA *ch, char *command, char *argument )
 	act(social_table[cmd].char_found, ch, NULL, victim, TO_CHAR);
 	act(social_table[cmd].vict_found, ch, NULL, victim, TO_VICT);
 
-	victim_room = victim->in_room;
 	char_from_room(victim);
 	char_to_room(victim, victim_room);
 

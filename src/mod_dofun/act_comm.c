@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.55 1998-07-03 15:18:38 fjoe Exp $
+ * $Id: act_comm.c,v 1.56 1998-07-05 16:30:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -62,6 +62,7 @@
 #include "mob_prog.h"
 #include "obj_prog.h"
 #include "buffer.h"
+#include "auction.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_quit	);
@@ -1044,9 +1045,10 @@ void do_quit_org(CHAR_DATA *ch, char *argument, bool Count)
 		return;
 	}
 
-	if (auction->item != NULL
-	&&  ((ch == auction->buyer) || (ch == auction->seller))) {
-		send_to_char ("Wait till you have sold/bought the item on auction.\n\r",ch);
+	if (auction.item != NULL
+	&&  ((ch == auction.buyer) || (ch == auction.seller))) {
+		char_puts("Wait till you have sold/bought the item "
+			  "on auction.\n\r",ch);
 		return;
 	}
 
@@ -1862,55 +1864,6 @@ void do_speak(CHAR_DATA *ch, char *argument)
 	
 	char_printf(ch,"Now you speak %s.\n\r",language_table[ch->language].name);
 }
-
-/* Thanx zihni@karmi.emu.edu.tr for the code of do_judge */
-void do_judge(CHAR_DATA *ch, char *argument)
-{
-	char arg[MAX_INPUT_LENGTH];
-	CHAR_DATA *victim;
-
-	one_argument(argument, arg);
-
-	if (ch->clan != CLAN_RULER) {
-		send_to_char("Huh?\n\r", ch);
-		return;
-	}
-
-	if (!clan_ok(ch,gsn_judge)) return;
-
-	if (arg[0] == '\0') {
-		send_to_char("Judge whom?\n\r", ch);
-		return;
-	}
-
-	/* judge thru world */
-	if ((victim = get_char_world(ch, arg)) == NULL) {
-		 send_to_char("They aren't here.\n\r", ch);
-		 return;
-	}
-
-
-	if (IS_NPC(victim)) {
-		 send_to_char("Not a mobile, of course.\n\r", ch);
-		 return;
-	}
-
-	if (IS_IMMORTAL(victim) && !IS_IMMORTAL(ch)) {
-		 send_to_char("You do not have the power to judge Immortals.\n\r",ch);
-		return;
-	}
-
-	char_printf(ch,"%s's ethos is %s and aligment is %s.\n\r",
-		victim->name,
-		victim->ethos == 1 ? "Lawful" :
-		victim->ethos == 2 ? "Neutral" :
-		victim->ethos == 3 ? "Chaotic" : "unknown",
-		IS_GOOD(victim) ? "Good" :
-		IS_EVIL(victim) ? "Evil" : "Neutral");
-
-	return;
-}
-
 
 void do_noiac(CHAR_DATA *ch, char *arg)
 {
