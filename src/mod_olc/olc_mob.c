@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.72 2000-10-22 17:53:44 fjoe Exp $
+ * $Id: olc_mob.c,v 1.73 2001-06-20 06:37:42 avn Exp $
  */
 
 #include "olc.h"
@@ -106,7 +106,7 @@ olc_cmd_t olc_cmds_mob[] =
 	{ "spec",	mobed_spec					},
 
 	{ "gender",	mobed_gender,	NULL,		sex_table	},
-	{ "act",	mobed_act,	NULL,		act_flags	},
+	{ "act",	mobed_act,	NULL,		mob_act_flags	},
 	{ "mob",	mobed_mob,	NULL,		mob_flags	},
 	{ "affect",	mobed_affect,	NULL,		affect_flags	},
 	{ "invis",	mobed_invis,	NULL,		id_flags	},
@@ -281,7 +281,7 @@ OLC_FUN(mobed_show)
 		goto bamfout;
 
 	buf_printf(buf, BUF_END, "Act:         [%s]\n",
-		flag_string(act_flags, pMob->act));
+		flag_string(mob_act_flags, pMob->act));
 
 	if (pMob->mob_flags) {
 		buf_printf(buf, BUF_END, "Mob:         [%s]\n",

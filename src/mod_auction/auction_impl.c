@@ -1,5 +1,5 @@
 /*
- * $Id: auction_impl.c,v 1.50 2000-06-08 18:09:23 fjoe Exp $
+ * $Id: auction_impl.c,v 1.51 2001-06-20 06:37:43 avn Exp $
  */
 
 #include <stdio.h>
@@ -9,7 +9,9 @@
 #include "merc.h"
 #include "auction.h"
 
-AUCTION_DATA auction = { NULL };
+static int advatoi(const char *s);
+
+AUCTION_DATA auction = { NULL, NULL, NULL, 0, 0, 0 };
 
 /***************************************************************************
  *  This snippet was orginally written by Erwin S. Andreasen.              *
@@ -37,6 +39,74 @@ void act_auction(const char *fmt,
 	}
 }
 
+int parsebet(const int currentbet, const char *argument)
+{
+  int newbet = 0;               /* a variable to temporarily hold the new bet */
+  char string[MAX_INPUT_LENGTH];/* a buffer to modify the bet string */
+  char *stringptr = string;     /* a pointer we can move around */
+
+				/* make a work copy of argument */
+  strnzcpy(string, sizeof(string), argument);
+
+  if (*stringptr)               /* check for an empty string */
+  {
+
+	if (isdigit (*stringptr)) /* first char is a digit assume e.g. 433k */
+	  newbet = advatoi (stringptr); /* parse and set newbet to that value */
+
+	else
+	  if (*stringptr == '+') /* add ?? percent */
+	  {
+	    if (strlen (stringptr) == 1) /* only + specified, assume default */
+	      newbet = (currentbet * 125) / 100; /* default: add 25% */
+	    else
+	      newbet = (currentbet * (100 + atoi (++stringptr))) / 100; /* cut off the first char */
+	  } else {
+	    if ((*stringptr == '*') || (*stringptr == 'x')) { /* multiply */
+	      if (strlen (stringptr) == 1) /* only x specified, assume default */
+	        newbet = currentbet * 2 ; /* default: twice */
+	      else /* user specified a number */
+	        newbet = currentbet * atoi (++stringptr); /* cut off the first char */
+	    }
+	 }
+  }
+
+  return newbet;        /* return the calculated bet */
+}
+
+void auction_give_obj(CHAR_DATA* victim)
+{
+	int carry_w, carry_n;
+	OBJ_DATA *obj = auction.item;
+
+	act("The auctioneer appears before you in a puff of smoke\n"
+	    "and hands you $p.", victim, obj, NULL, TO_CHAR);
+	act("The auctioneer appears before $n and hands $m $p.",
+	    victim, obj, NULL, TO_ROOM);
+
+	if ((carry_w = can_carry_w(victim)) >= 0
+	&&  get_carry_weight(victim) + get_obj_weight(obj) > carry_w) {
+		act("$p is too heavy for you to carry.",
+		    victim, obj, NULL, TO_CHAR);
+		act("$n is carrying too much to carry $p and $e drops it.",
+		    victim, obj, NULL, TO_ROOM);
+		obj_to_room (obj, victim->in_room);
+	} else if ((carry_n = can_carry_n(victim)) >= 0
+	       &&  victim->carry_number + get_obj_number(obj) > carry_n) {
+		act("You can't carry that many items and you drop $p.",
+		    victim, obj, NULL, TO_CHAR);
+		act("$n is carrying too many items and $e drops $p.",
+		    victim, obj, NULL, TO_ROOM);
+		obj_to_room (obj, victim->in_room);
+	} else {
+		obj_to_char (obj, victim);
+	}
+	auction.item = NULL;
+}
+
+/*-------------------------------------------------------------------------
+ *  local functions
+ */
 /*
   This function allows the following kinds of bets to be made:
 
@@ -60,7 +130,7 @@ void act_auction(const char *fmt,
 
 */
 
-int advatoi(const char *s)
+static int advatoi(const char *s)
 /*
   util function, converts an 'advanced' ASCII-number-string into a number.
   Used by parsebet() but could also be used by do_give or do_wimpy.
@@ -139,69 +209,4 @@ int advatoi(const char *s)
   return (number);
 }
 
-
-int parsebet(const int currentbet, const char *argument)
-{
-  int newbet = 0;               /* a variable to temporarily hold the new bet */
-  char string[MAX_INPUT_LENGTH];/* a buffer to modify the bet string */
-  char *stringptr = string;     /* a pointer we can move around */
-
-				/* make a work copy of argument */
-  strnzcpy(string, sizeof(string), argument);
-
-  if (*stringptr)               /* check for an empty string */
-  {
-
-	if (isdigit (*stringptr)) /* first char is a digit assume e.g. 433k */
-	  newbet = advatoi (stringptr); /* parse and set newbet to that value */
-
-	else
-	  if (*stringptr == '+') /* add ?? percent */
-	  {
-	    if (strlen (stringptr) == 1) /* only + specified, assume default */
-	      newbet = (currentbet * 125) / 100; /* default: add 25% */
-	    else
-	      newbet = (currentbet * (100 + atoi (++stringptr))) / 100; /* cut off the first char */
-	  } else {
-	    if ((*stringptr == '*') || (*stringptr == 'x')) { /* multiply */
-	      if (strlen (stringptr) == 1) /* only x specified, assume default */
-	        newbet = currentbet * 2 ; /* default: twice */
-	      else /* user specified a number */
-	        newbet = currentbet * atoi (++stringptr); /* cut off the first char */
-	    }
-	 }
-  }
-
-  return newbet;        /* return the calculated bet */
-}
-
-void auction_give_obj(CHAR_DATA* victim)
-{
-	int carry_w, carry_n;
-	OBJ_DATA *obj = auction.item;
-
-	act("The auctioneer appears before you in a puff of smoke\n"
-	    "and hands you $p.", victim, obj, NULL, TO_CHAR);
-	act("The auctioneer appears before $n and hands $m $p.",
-	    victim, obj, NULL, TO_ROOM);
-
-	if ((carry_w = can_carry_w(victim)) >= 0
-	&&  get_carry_weight(victim) + get_obj_weight(obj) > carry_w) {
-		act("$p is too heavy for you to carry.",
-		    victim, obj, NULL, TO_CHAR);
-		act("$n is carrying too much to carry $p and $e drops it.",
-		    victim, obj, NULL, TO_ROOM);
-		obj_to_room (obj, victim->in_room);
-	} else if ((carry_n = can_carry_n(victim)) >= 0
-	       &&  victim->carry_number + get_obj_number(obj) > carry_n) {
-		act("You can't carry that many items and you drop $p.",
-		    victim, obj, NULL, TO_CHAR);
-		act("$n is carrying too many items and $e drops $p.",
-		    victim, obj, NULL, TO_ROOM);
-		obj_to_room (obj, victim->in_room);
-	} else {
-		obj_to_char (obj, victim);
-	}
-	auction.item = NULL;
-}
 

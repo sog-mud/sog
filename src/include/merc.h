@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.324 2001-06-18 15:03:34 fjoe Exp $
+ * $Id: merc.h,v 1.325 2001-06-20 06:37:38 avn Exp $
  */
 
 /***************************************************************************
@@ -2004,7 +2004,7 @@ extern		bool			MOBtrigger;
 ROOM_INDEX_DATA  *get_random_room(CHAR_DATA *ch, AREA_DATA *area);
 CHAR_DATA *random_char(ROOM_INDEX_DATA *room);
 CHAR_DATA *nth_char(CHAR_DATA *ch, int n);
-OBJ_DATA *random_obj();
+OBJ_DATA *random_obj(void);
 OBJ_DATA *nth_obj(OBJ_DATA* obj, int n);
 
 /* handler.c */
@@ -2193,7 +2193,6 @@ void		mptrig_add		(MOB_INDEX_DATA *mob, MPTRIG *mptrig);
 void		mptrig_fix		(MOB_INDEX_DATA *mob);
 void            mptrig_free		(MPTRIG *mptrig);
 
-extern MPCODE *	mpcode_list;
 MPCODE *	mpcode_new		(void);
 void		mpcode_add		(MPCODE *mpcode);
 MPCODE *	mpcode_lookup		(int vnum);
@@ -2243,13 +2242,8 @@ void	clear_char	(CHAR_DATA *ch);
 ED_DATA * ed_lookup(const char *name, ED_DATA *ed);
 
 MOB_INDEX_DATA *	get_mob_index	(int vnum);
-MOB_INDEX_DATA *	_get_mob_index	(const char *name);
-
 OBJ_INDEX_DATA *	get_obj_index	(int vnum);
-MOB_INDEX_DATA *	_get_mob_index	(const char *name);
-
 ROOM_INDEX_DATA *	get_room_index	(int vnum);
-MOB_INDEX_DATA *	_get_room_index	(const char *name);
 
 int	number_fuzzy	(int number);
 int	number_range	(int from, int to);
@@ -2257,8 +2251,8 @@ int	number_percent	(void);
 int	number_door	(void);
 int	number_bits	(int width);
 int	dice		(int number, int size);
-int	dice_wlb	(int number, int dice, CHAR_DATA *ch, CHAR_DATA *victim);
 /* Dice with luck bonus */
+int	dice_wlb	(int number, int size, CHAR_DATA *ch, CHAR_DATA *victim);
 int	interpolate	(int level, int value_00, int value_32);
 char *	capitalize	(const char *str);
 void	tail_chain	(void);
@@ -2272,7 +2266,6 @@ char *	format_flags	(flag_t flags);
 extern	const char *			dir_name	[];
 extern	const char *			from_dir_name	[];
 extern	const	int			rev_dir		[];
-extern	const	struct spec_type	spec_table	[];
 extern	char				DEFAULT_PROMPT	[];
 
 void		add_follower	(CHAR_DATA *ch, CHAR_DATA *master);

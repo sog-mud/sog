@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.62 2001-02-12 19:07:19 fjoe Exp $
+ * $Id: mob_prog.c,v 1.63 2001-06-20 06:37:44 avn Exp $
  */
 
 /***************************************************************************
@@ -595,7 +595,7 @@ int cmd_eval(int vnum, const char *line, int check,
 		&&  IS_SET(lval_char->affected_by, flag_value(affect_flags, buf)));
 	case CHK_ACT:
 	    return(lval_char != NULL 
-		&&  IS_SET(lval_char->pMobIndex->act, flag_value(act_flags, buf)));
+		&&  IS_SET(lval_char->pMobIndex->act, flag_value(mob_act_flags, buf)));
 	case CHK_IMM:
 	    return FALSE;
 	 /*(lval_char != NULL 

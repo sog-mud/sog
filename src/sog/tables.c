@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.148 2001-04-03 14:44:36 cs Exp $
+ * $Id: tables.c,v 1.149 2001-06-20 06:37:44 avn Exp $
  */
 
 /***************************************************************************
@@ -87,7 +87,7 @@ flaginfo_t size_table[] =
 	{ NULL }
 };
 
-flaginfo_t act_flags[] =
+flaginfo_t mob_act_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 

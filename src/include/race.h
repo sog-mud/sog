@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.h,v 1.30 2001-01-28 11:39:48 cs Exp $
+ * $Id: race.h,v 1.31 2001-06-20 06:37:38 avn Exp $
  */
 
 #ifndef _RACE_H_
@@ -91,7 +91,7 @@ void	race_init	(race_t *r);
 race_t *race_cpy	(race_t *dst, const race_t *src);
 void	race_destroy	(race_t *r);
 
-pcrace_t *	pcrace_new();
+pcrace_t *	pcrace_new(void);
 pcrace_t *	pcrace_dup(pcrace_t*);
 void		pcrace_free(pcrace_t*);
 

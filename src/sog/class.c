@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.c,v 1.30 2001-01-23 21:46:59 fjoe Exp $
+ * $Id: class.c,v 1.31 2001-06-20 06:37:44 avn Exp $
  */
 
 #include <stdio.h>
@@ -36,7 +36,7 @@ static void	pose_init(pose_t *p);
 static pose_t *	pose_cpy(pose_t *dst, const pose_t *src);
 static void	pose_destroy(pose_t *p);
 
-static varrdata_t v_guilds = { sizeof(int), 4 };
+static varrdata_t v_guilds = { sizeof(int), 4, NULL, NULL, NULL };
 
 static varrdata_t v_poses =
 {
@@ -121,7 +121,7 @@ guild_ok_cb(void *p, va_list ap)
 	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
 	int vnum = va_arg(ap, int);
 	const char **cn_found = va_arg(ap, const char **);
-	int iGuild;
+	size_t iGuild;
 
 	for (iGuild = 0; iGuild < cl->guilds.nused; iGuild++) {
 	    	if (vnum == *(int *) VARR_GET(&cl->guilds, iGuild)) {

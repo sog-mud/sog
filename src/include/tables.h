@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: tables.h,v 1.36 2000-10-15 17:19:29 fjoe Exp $
+ * $Id: tables.h,v 1.37 2001-06-20 06:37:39 avn Exp $
  */
 
 #ifndef _TABLES_H_
@@ -32,7 +32,7 @@
 /* flag tables */
 extern flaginfo_t	slang_table[];
 extern flaginfo_t	size_table[];
-extern flaginfo_t	act_flags[];
+extern flaginfo_t	mob_act_flags[];
 extern flaginfo_t	mob_flags[];
 extern flaginfo_t	plr_flags[];
 extern flaginfo_t	affect_flags[];

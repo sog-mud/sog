@@ -1,5 +1,5 @@
 /*
- * $Id: buffer.c,v 1.28 2001-06-16 18:40:11 fjoe Exp $
+ * $Id: buffer.c,v 1.29 2001-06-20 06:37:43 avn Exp $
  */
 
 /***************************************************************************
@@ -62,7 +62,7 @@ struct buf_data
 {
 	BUFFER *	next;
 	int		lang;	/* buffer language, -1 == none */
-	int		size;	/* buffer size in bytes */
+	size_t		size;	/* buffer size in bytes */
 	char *		string; /* buffer's string */
 };
 
@@ -77,7 +77,7 @@ BUFFER *free_list;
 
 static bool buf_resize(BUFFER *buffer, const char *string);
 static bool buf_copy(BUFFER *buffer, int where, const char *string);
-static int get_size (int val);
+static size_t get_size (size_t val);
 
 BUFFER *
 buf_new(int lang)
@@ -199,15 +199,15 @@ buf_lang(BUFFER *buffer)
  */
 
 /* buffer sizes */
-static const int buf_size[BUF_LIST_MAX] =
+static const size_t buf_size[BUF_LIST_MAX] =
 {
 	16, 32, 64, 128, 256, 1024, 2048, 4096, 8192, 16384, 32768, 65536
 };
 
 /* local procedure for finding the next acceptable size */
-/* -1 indicates out-of-boundary error */
-static int
-get_size(int val)
+/* 0 indicates out-of-boundary error */
+static size_t
+get_size(size_t val)
 {
 	int i;
 
@@ -215,15 +215,15 @@ get_size(int val)
 		if (buf_size[i] >= val)
 			return buf_size[i];
 
-	return -1;
+	return 0;
 }
 
 static bool
 buf_resize(BUFFER *buffer, const char *string)
 {
-	int len;
+	size_t len;
 	char *oldstr;
-	int oldsize;
+	size_t oldsize;
 
 	oldstr = buffer->string;
 	oldsize = buffer->size;
@@ -237,7 +237,7 @@ buf_resize(BUFFER *buffer, const char *string)
 
 	if (len >= buffer->size) { /* increase the buffer size */
 		buffer->size = get_size(len);
-		if (buffer->size == -1) { /* overflow */
+		if (buffer->size == 0) { /* overflow */
 			buffer->size = oldsize;
 			mem_tag(buffer, BUF_OFLOW);
 			log(LOG_INFO,

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.270 2001-05-21 19:06:27 fjoe Exp $
+ * $Id: act_wiz.c,v 1.271 2001-06-20 06:37:40 avn Exp $
  */
 
 /***************************************************************************
@@ -1272,7 +1272,7 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 			   NPC(victim)->dam.dice_type,
 			   victim->damtype);
 		buf_printf(output, BUF_END, "Act: [%s]\n",
-			   flag_string(act_flags, pMobIndex->act));
+			   flag_string(mob_act_flags, pMobIndex->act));
 		if (pMobIndex->mob_flags) {
 			buf_printf(output, BUF_END, "Mob: [%s]\n",
 				   flag_string(mob_flags, pMobIndex->mob_flags));

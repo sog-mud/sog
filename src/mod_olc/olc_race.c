@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.42 2001-01-28 11:39:49 cs Exp $
+ * $Id: olc_race.c,v 1.43 2001-06-20 06:37:42 avn Exp $
  */
 
 #include "olc.h"
@@ -87,7 +87,7 @@ olc_cmd_t olc_cmds_race[] =
 	{ "list",	raceed_list					},
 
 	{ "name",	olced_strkey,	NULL,		&strkey_races	},
-	{ "act",	raceed_act,	NULL,		act_flags	},
+	{ "act",	raceed_act,	NULL,		mob_act_flags	},
 	{ "affect",	raceed_affect,	NULL,		affect_flags	},
 	{ "invis",	raceed_invis,	NULL,		id_flags	},
 	{ "detect",	raceed_detect,	NULL,		id_flags	},
@@ -233,7 +233,7 @@ OLC_FUN(raceed_show)
 	buf_printf(output, BUF_END, "Name:          [%s]\n", r->name);
 	if (r->act)
 		buf_printf(output, BUF_END, "Act flags:     [%s]\n",
-			   flag_string(act_flags, r->act));
+			   flag_string(mob_act_flags, r->act));
 	if (r->aff)
 		buf_printf(output, BUF_END, "Aff flags:     [%s]\n",
 			   flag_string(affect_flags, r->aff));
@@ -949,7 +949,7 @@ save_race_cb(void *p, va_list ap)
 
 	REMOVE_BIT(r->race_flags, RACE_CHANGED);
 	if (r->act)
-		fprintf(fp, "Act %s~\n", flag_string(act_flags, r->act));
+		fprintf(fp, "Act %s~\n", flag_string(mob_act_flags, r->act));
 	if (r->aff)
 		fprintf(fp, "Aff %s~\n", flag_string(affect_flags, r->aff));
 	if (r->has_invis)

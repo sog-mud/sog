@@ -1,5 +1,5 @@
 /*
- * $Id: affects.h,v 1.15 2000-10-21 17:00:48 fjoe Exp $
+ * $Id: affects.h,v 1.16 2001-06-20 06:37:37 avn Exp $
  */
 
 /***************************************************************************
@@ -110,9 +110,12 @@ struct where_t
 
 where_t *where_lookup(flag_t where);
 
-void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd);
+void	affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd);
+void	affect_modify_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf, bool fAdd);
 AFFECT_DATA	*affect_find (AFFECT_DATA *paf, const char *sn);
 void	affect_check	(CHAR_DATA *ch, int where, flag_t vector);
+void	affect_check_list(CHAR_DATA *ch, AFFECT_DATA *paf,
+			  int where, flag_t vector);
 void	affect_enchant	(OBJ_DATA *obj);
 
 void	affect_to_char	(CHAR_DATA *ch, AFFECT_DATA *paf);
