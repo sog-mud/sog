@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.349 2001-08-20 17:57:24 fjoe Exp $
+ * $Id: merc.h,v 1.350 2001-08-20 18:18:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2030,7 +2030,7 @@ enum {
 	TO_FORM,
 	TO_FORMAFFECTS,
 	TO_FORMRESIST,
-	TO_RESIST
+	TO_RESISTS
 };
 
 struct affect_data

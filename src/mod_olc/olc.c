@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.136 2001-08-20 16:47:33 fjoe Exp $
+ * $Id: olc.c,v 1.137 2001-08-20 18:18:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1168,7 +1168,7 @@ olced_addaffect(CHAR_DATA *ch, const char *argument,
 
 	default:
 		if (!str_cmp(arg2, "none")) {
-			if (where == TO_RESIST) {
+			if (where == TO_RESISTS) {
 				act_char("Specify damage type.", ch);
 				return FALSE;
 			}

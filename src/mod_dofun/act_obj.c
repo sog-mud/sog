@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.250 2001-08-20 16:47:25 fjoe Exp $
+ * $Id: act_obj.c,v 1.251 2001-08-20 18:18:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -848,7 +848,7 @@ DO_FUN(do_feed, ch, argument)
 		paf->level	= obj->level;
 
 		if (what < 10) {
-			paf->where	= TO_RESIST;
+			paf->where	= TO_RESISTS;
 			INT(paf->location)= DAM_MENTAL;
 			paf->duration	= obj->level/5;
 			paf->modifier	= 100;
@@ -865,7 +865,7 @@ DO_FUN(do_feed, ch, argument)
 			vch->position	= POS_SLEEPING;
 			do_emote(vch, "yawns and goes to sleep.");
 		} else {
-			paf->where	= TO_RESIST;
+			paf->where	= TO_RESISTS;
 			INT(paf->location)= DAM_BASH;
 			paf->modifier	= 33;
 			paf->duration	= 10;

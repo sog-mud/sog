@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.63 2001-08-20 17:57:28 fjoe Exp $
+ * $Id: affects.c,v 1.64 2001-08-20 18:18:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -136,7 +136,7 @@ affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 		if (!IS_NPC(ch))
 			spec_update(ch);
 		return;
-	} else if (paf->where == TO_RESIST || paf->where == TO_FORMRESIST) {
+	} else if (paf->where == TO_RESISTS || paf->where == TO_FORMRESIST) {
 		int res = INT(paf->location);
 
 		if (res < 0)
@@ -942,7 +942,7 @@ format_obj_affects(BUFFER *output, AFFECT_DATA *paf, int flags)
 			continue;
 
 		if (!IS_NULLSTR(w->loc_format)
-		&& (paf->where == TO_RESIST
+		&& (paf->where == TO_RESISTS
 			|| paf->where == TO_FORMRESIST
 			|| INT(paf->location) != APPLY_NONE)
 		&&  paf->modifier) {

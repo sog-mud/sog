@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.253 2001-08-20 16:47:31 fjoe Exp $
+ * $Id: spellfun.c,v 1.254 2001-08-20 18:18:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2134,7 +2134,7 @@ SPELL_FUN(spell_stone_skin, sn, level, ch, vo)
 		return;
 	}
 
-	paf = aff_new(TO_RESIST, sn);
+	paf = aff_new(TO_RESISTS, sn);
 	paf->level     = level;
 	paf->duration  = (10 + level / 5);
 	INT(paf->location) = DAM_BASH;
@@ -5949,7 +5949,7 @@ SPELL_FUN(spell_protection_heat, sn, level, ch, vo)
 		return;
 	}
 
-	paf = aff_new(TO_RESIST, sn);
+	paf = aff_new(TO_RESISTS, sn);
 	paf->level	= level;
 	paf->duration	= level * 4 / 3;
 	INT(paf->location) = DAM_FIRE;
@@ -5997,7 +5997,7 @@ SPELL_FUN(spell_protection_cold, sn, level, ch, vo)
 		return;
 	}
 
-	paf = aff_new(TO_RESIST, sn);
+	paf = aff_new(TO_RESISTS, sn);
 	paf->level     = level;
 	paf->duration  = level * 4 / 3;
 	INT(paf->location) = DAM_COLD;
@@ -6846,7 +6846,7 @@ SPELL_FUN(spell_protection_negative, sn, level, ch, vo)
 	if (!is_affected(ch, sn)) {
 		AFFECT_DATA *paf;
 
-		paf = aff_new(TO_RESIST, sn);
+		paf = aff_new(TO_RESISTS, sn);
 		paf->duration = level / 4;
 		paf->level = level;
 		INT(paf->location) = DAM_NEGATIVE;
@@ -6864,7 +6864,7 @@ SPELL_FUN(spell_ruler_aura, sn, level, ch, vo)
 	if (!is_affected(ch, sn)) {
 		AFFECT_DATA *paf;
 
-		paf = aff_new(TO_RESIST, sn);
+		paf = aff_new(TO_RESISTS, sn);
 		paf->duration	= level / 4;
 		paf->level	= level;
 		INT(paf->location) = DAM_CHARM;

@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.15 2001-08-20 16:47:31 fjoe Exp $
+ * $Id: prayers.c,v 1.16 2001-08-20 18:18:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -762,7 +762,7 @@ SPELL_FUN(prayer_resilience, sn, level, ch, vo)
 	if (!is_affected(ch, sn)) {
 		AFFECT_DATA *paf;
 
-		paf = aff_new(TO_RESIST, sn);
+		paf = aff_new(TO_RESISTS, sn);
 		paf->duration	= level / 10;
 		paf->level	= level;
 		INT(paf->location)= DAM_NEGATIVE;

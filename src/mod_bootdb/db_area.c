@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.121 2001-08-20 17:57:25 fjoe Exp $
+ * $Id: db_area.c,v 1.122 2001-08-20 18:18:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1140,7 +1140,7 @@ DBLOAD_FUN(load_mobiles)
 					&&  IS_APPLY_AFFECT(paf)
 					&&  INT(paf->location) >= 27) {
 						AFFECT_DATA *paf2 = aff_new(
-						    TO_RESIST, str_empty);
+						    TO_RESISTS, str_empty);
 
 						INT(paf2->location) = damtbl[
 						    UMIN(INT(paf->location)-27,
@@ -1482,7 +1482,7 @@ DBLOAD_FUN(load_objects)
 					&&  IS_APPLY_AFFECT(paf)
 					&&  INT(paf->location) >= 27) {
 						AFFECT_DATA *paf2 = aff_new(
-						    TO_RESIST, str_empty);
+						    TO_RESISTS, str_empty);
 
 						INT(paf2->location) = damtbl[
 						    UMIN(INT(paf->location)-27,
@@ -1522,7 +1522,7 @@ DBLOAD_FUN(load_objects)
 
 				if (area_current->ver < 4
 				&&  INT(paf->location) >= 27) {
-					paf->where = TO_RESIST;
+					paf->where = TO_RESISTS;
 					INT(paf->location) = damtbl[
 					    UMIN(INT(paf->location)-27,
 						 (int) DAMTBL_SZ-1)];
@@ -1586,7 +1586,7 @@ DBLOAD_FUN(load_objects)
 							continue;
 
 						paf = aff_new(
-						    TO_RESIST, str_empty);
+						    TO_RESISTS, str_empty);
 						paf->level = pObjIndex->level;
 						paf->duration = -1;
 						INT(paf->location) = i;
@@ -1677,7 +1677,7 @@ DBLOAD_FUN(load_objects)
 				if (where == TO_AFFECTS
 				&&  INT(location) >= 27
 				&&  area_current->ver < 4) {
-					paf = aff_new(TO_RESIST, str_empty);
+					paf = aff_new(TO_RESISTS, str_empty);
 					paf->level = pObjIndex->level;
 					paf->duration = -1;
 					INT(paf->location) = damtbl[

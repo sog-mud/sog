@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.270 2001-08-20 16:47:24 fjoe Exp $
+ * $Id: act_move.c,v 1.271 2001-08-20 18:18:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1625,7 +1625,7 @@ DO_FUN(do_vampire, ch, argument)
 	act_char("You feel yourself getting greater and greater.", ch);
 	act("You cannot recognize $n anymore.", ch, NULL, NULL, TO_ROOM);
 
-	paf = aff_new(TO_RESIST, "vampire");
+	paf = aff_new(TO_RESISTS, "vampire");
 	paf->level     = LEVEL(ch);
 	paf->duration  = LEVEL(ch) / 10 + 5;
 

@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.157 2001-08-20 17:57:30 fjoe Exp $
+ * $Id: tables.c,v 1.158 2001-08-20 18:18:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1383,7 +1383,7 @@ flaginfo_t affect_where_types[] =
 	{ "invis",		TO_INVIS,			TRUE	},
 	{ "form",		TO_FORM,			FALSE	},
 	{ "formaffects",	TO_FORMAFFECTS,			FALSE	},
-	{ "resist",		TO_RESIST,			TRUE	},
+	{ "resists",		TO_RESISTS,			TRUE	},
 
 	{ NULL, 0, FALSE }
 };
