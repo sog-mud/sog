@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.284 2002-01-06 03:37:31 fjoe Exp $
+ * $Id: spellfun.c,v 1.285 2002-01-08 20:21:38 tatyana Exp $
  */
 
 /***************************************************************************
@@ -3293,7 +3293,7 @@ SPELL_FUN(spell_disintegrate, sn, level, ch, vo)
 	      ch, NULL, victim, TO_CHAR, POS_RESTING);
 	act_char("You die..", victim);
 
-	act("$N does not exist anymore!\n", ch, NULL, victim, TO_ALL);
+	act("$N does not exist anymore!\n", ch, NULL, victim, TO_ROOM);
 
 	act_char("You turn into an invincible ghost for a few minutes.", victim);
 	act_char("As long as you don't attack anything.", victim);
@@ -5586,7 +5586,7 @@ SPELL_FUN(spell_bone_dragon, sn, level, ch, vo)
 	AFFECT_DATA *paf;
 	int i;
 
-	if (PC(ch)->pet) {
+	if (!IS_NPC(ch) && PC(ch)->pet) {
 		act("You already have a pet.", ch, NULL, NULL, TO_CHAR);
 		return;
 	}

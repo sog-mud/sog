@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_auction.c,v 1.5 2001-12-08 00:08:37 tatyana Exp $
+ * $Id: act_auction.c,v 1.6 2002-01-08 20:21:34 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -120,7 +120,7 @@ do_auction(CHAR_DATA *ch, const char *argument)
 
 			/* return money to the seller */
 			if (auction.seller != NULL) {
-				auction.seller->gold +=
+				PC(auction.seller)->bank_g +=
 					(auction.starting * 20) / 100;
 				act_puts("Your money has been returned.",
 					 auction.seller, NULL, NULL,
@@ -252,7 +252,7 @@ do_auction(CHAR_DATA *ch, const char *argument)
 	case ITEM_FURNITURE:
 	case ITEM_FOOD:
 		tax = (auction.starting * 20) / 100;
-		if (ch->gold < tax) {
+		if (PC(ch)->bank_g < tax && ch->gold < tax) {
 			act_puts("You do not have enough gold to pay "
 				 "an auction fee of $j gold.",
 				 ch, (const void*) tax, NULL,
@@ -264,7 +264,11 @@ do_auction(CHAR_DATA *ch, const char *argument)
 			 "of $j gold.",
 			 ch, (const void*) tax, NULL,
 			 TO_CHAR, POS_DEAD);
-		ch->gold -= tax;
+
+		if (PC(ch)->bank_g < tax)
+			ch->gold -= tax;
+		else
+			PC(ch)->bank_g -= tax;
 
 		obj_from_char(obj);
 		auction.item = obj;

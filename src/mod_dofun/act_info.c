@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.417 2002-01-04 06:37:49 kostik Exp $
+ * $Id: act_info.c,v 1.418 2002-01-08 20:21:35 tatyana Exp $
  */
 
 /***************************************************************************
@@ -79,6 +79,7 @@ DECLARE_DO_FUN(do_autoloot);
 DECLARE_DO_FUN(do_autosac);
 DECLARE_DO_FUN(do_autosplit);
 DECLARE_DO_FUN(do_prompt);
+DECLARE_DO_FUN(do_nogive);
 DECLARE_DO_FUN(do_nofollow);
 DECLARE_DO_FUN(do_nosummon);
 DECLARE_DO_FUN(do_glance);
@@ -301,6 +302,11 @@ DO_FUN(do_autolist, ch, argument)
 	else
 		act_char("You can be summoned by anyone.", ch);
 
+	if (IS_SET(PC(ch)->plr_flags, PLR_NOGIVE))
+		act_char("You do not take any given object.", ch);
+	else
+		act_char("You will take all objects given to you.", ch);
+
 	if (IS_SET(PC(ch)->plr_flags, PLR_NOFOLLOW))
 		act_char("You do not welcome followers.", ch);
 	else
@@ -438,6 +444,22 @@ DO_FUN(do_prompt, ch, argument)
 	d->dvdata->prompt = prompt;
 	act_puts("Prompt set to '$t'.", ch, d->dvdata->prompt, NULL,
 		 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
+}
+
+DO_FUN(do_nogive, ch, argument)
+{
+
+	if (IS_NPC(ch)) {
+		act_char("Huh?", ch);
+		return;
+	}
+
+	TOGGLE_BIT(PC(ch)->plr_flags, PLR_NOGIVE);
+
+	if (IS_SET(PC(ch)->plr_flags, PLR_NOGIVE))
+		act_char("You no longer take any given objects.", ch);
+	else
+		act_char("You will take any given objects.", ch);
 }
 
 DO_FUN(do_nofollow, ch, argument)

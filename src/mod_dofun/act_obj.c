@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.273 2002-01-04 06:37:50 kostik Exp $
+ * $Id: act_obj.c,v 1.274 2002-01-08 20:21:36 tatyana Exp $
  */
 
 /***************************************************************************
@@ -535,6 +535,12 @@ DO_FUN(do_give, ch, argument)
 			return;
 		}
 
+		if (!IS_NPC(victim) && IS_SET(PC(victim)->plr_flags, PLR_NOGIVE)) {
+			act("$N do not wish take any.",
+			    ch, NULL, victim, TO_CHAR);
+			return;
+		}
+
 		if ((!silver && ch->gold < amount)
 		||  (silver && ch->silver < amount)) {
 			act_char("You haven't got that much.", ch);
@@ -634,6 +640,12 @@ DO_FUN(do_give, ch, argument)
 
 	if ((victim = get_char_here(ch, arg)) == NULL) {
 		act_char("They aren't here.", ch);
+		return;
+	}
+
+	if (!IS_NPC(victim) && IS_SET(PC(victim)->plr_flags, PLR_NOGIVE)) {
+		act("$N do not wish take any.",
+		    ch, NULL, victim, TO_CHAR);
 		return;
 	}
 

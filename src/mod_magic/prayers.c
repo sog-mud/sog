@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.28 2002-01-04 06:37:52 kostik Exp $
+ * $Id: prayers.c,v 1.29 2002-01-08 20:21:37 tatyana Exp $
  */
 
 /***************************************************************************
@@ -500,10 +500,11 @@ SPELL_FUN(prayer_cure_blindness, sn, level, ch, vo)
 
 	if (!IS_AFFECTED(victim, AFF_BLIND)) {
 		if (victim == ch)
-			act_char("You aren't blind.",ch);
-		else
-			act("$N doesn't appear to be blinded.", ch, NULL,
-			    victim, TO_CHAR);
+			act_char("You aren't blind.", ch);
+		else {
+			act("$N doesn't appear to be blinded.",
+			    ch, NULL, victim, TO_CHAR);
+		}
 		return;
 	}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.185 2002-01-04 16:57:27 matrim Exp $
+ * $Id: tables.c,v 1.186 2002-01-08 20:21:43 tatyana Exp $
  */
 
 /***************************************************************************
@@ -150,6 +150,7 @@ flaginfo_t plr_flags[] =
 	{ "bought_pet",		PLR_BOUGHT_PET,		FALSE	},
 	{ "holylight",		PLR_HOLYLIGHT,		FALSE	},
 	{ "nosummon",		PLR_NOSUMMON,		FALSE	},
+	{ "nogive",		PLR_NOGIVE,		FALSE	},
 	{ "nofollow",		PLR_NOFOLLOW,		FALSE	},
 	{ "log",		PLR_LOG,		FALSE	},
 	{ "freeze",		PLR_FREEZE,		FALSE	},

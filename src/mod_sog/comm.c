@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm.c,v 1.10 2001-12-15 13:47:52 matrim Exp $
+ * $Id: comm.c,v 1.11 2002-01-08 20:21:41 tatyana Exp $
  */
 
 #include <sys/types.h>
@@ -46,6 +46,7 @@
 
 #include <sog.h>
 #include <update.h>
+#include <quest.h>
 
 #include "handler_impl.h"
 #include "info.h"
@@ -377,6 +378,28 @@ bust_a_prompt(DESCRIPTOR_DATA *d)
 				i = buf2;
 			} else
 				i = str_empty;
+			break;
+		case 'q':
+			if (IS_NPC(ch))
+				i = str_empty;
+			else {
+				snprintf(buf2, sizeof(buf2), "%dqp",
+					 PC(ch)->questpoints);
+				i = buf2;
+			}
+			break;
+		case 'Q':
+			if (IS_NPC(ch))
+				i = str_empty;
+			else if (!IS_ON_QUEST(ch)) {
+				snprintf(buf2, sizeof(buf2), "%dtnq",
+					 -PC(ch)->questtime);
+				i = buf2;
+			} else {
+				snprintf(buf2, sizeof(buf2), "%dleft",
+					PC(ch)->questpoints);
+				i = buf2;
+			}
 			break;
 		}
 		++str;

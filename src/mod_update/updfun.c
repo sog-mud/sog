@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.53 2001-12-03 22:39:34 fjoe Exp $
+ * $Id: updfun.c,v 1.54 2002-01-08 20:21:42 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -772,7 +772,7 @@ FOREACH_CB_FUN(char_update_cb, vo, ap)
 			skill_t *sk;
 
 			if ((paf_next == NULL ||
-			     paf_next->type != paf->type ||
+			     !IS_SKILL(paf_next->type, paf->type) ||
 			     paf_next->duration > 0)
 			&&  (sk = skill_lookup(paf->type)) != NULL
 			&&  !mlstr_null(&sk->msg_off))
@@ -1358,7 +1358,8 @@ FOREACH_CB_FUN(check_assist_cb, vo, ap)
 	 */
 	if (IS_NPC(rch) && !IS_NPC(ch)
 	&&  IS_SET(rch->pMobIndex->off_flags, ASSIST_PLAYERS)
-	&&  rch->level + 6 > victim->level) {
+	&&  rch->level + 6 > victim->level
+	&&  can_see(rch, victim)) {
 		dofun("emote", rch, "screams and attacks!");
 		multi_hit(rch, victim, NULL);
 		return NULL;
@@ -1386,13 +1387,14 @@ FOREACH_CB_FUN(check_assist_cb, vo, ap)
 	if (!IS_NPC(rch))
 		return NULL;
 
-	if (IS_SET(rch->pMobIndex->off_flags, ASSIST_ALL)
-	||  (IS_SET(rch->pMobIndex->off_flags, ASSIST_RACE) &&
-	     IS_RACE(rch->race, ch->race))
-	||  (rch->pMobIndex == ch->pMobIndex &&
-	     IS_SET(rch->pMobIndex->off_flags, ASSIST_VNUM))
-	||  (IS_SET(rch->pMobIndex->off_flags, ASSIST_ALIGN) &&
-	     NALIGN(rch) == NALIGN(ch))) {
+	if ((IS_SET(rch->pMobIndex->off_flags, ASSIST_ALL)
+	||   (IS_SET(rch->pMobIndex->off_flags, ASSIST_RACE) &&
+	      IS_RACE(rch->race, ch->race))
+	||   (rch->pMobIndex == ch->pMobIndex &&
+	      IS_SET(rch->pMobIndex->off_flags, ASSIST_VNUM))
+	||   (IS_SET(rch->pMobIndex->off_flags, ASSIST_ALIGN) &&
+	      NALIGN(rch) == NALIGN(ch)))
+	&&  can_see(rch, victim)) {
 		int number = 0;
 		CHAR_DATA *target = NULL;
 		CHAR_DATA *vch;
@@ -1694,7 +1696,8 @@ update_obj_affects(OBJ_DATA *obj)
 		} else if (paf->duration == 0) {
 			skill_t *sk;
 
-			if ((paf_next == NULL || paf_next->type != paf->type ||
+			if ((paf_next == NULL ||
+			     !IS_SKILL(paf_next->type, paf->type) ||
 			     paf_next->duration > 0)
 			&&  !IS_NULLSTR(paf->type)
 			&&  (sk = skill_lookup(paf->type)) != NULL

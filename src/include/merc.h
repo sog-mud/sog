@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.385 2002-01-04 16:57:25 matrim Exp $
+ * $Id: merc.h,v 1.386 2002-01-08 20:21:32 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1122,6 +1122,7 @@ struct wiznet_type
 #define PLR_AUTOSAC		(F)
 #define PLR_AUTOGOLD		(G)
 #define PLR_AUTOSPLIT		(H)
+#define PLR_NOGIVE		(K)
 #define PLR_NOEXP		(L)
 #define PLR_AUTOLOOK		(M)
 #define PLR_HOLYLIGHT		(N)
