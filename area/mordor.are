@@ -1,0 +1,67 @@
+#AREADATA
+Name Mordor~
+Builders kromt~
+VNUMs 30000 30100
+Credits Kromt~
+Security 0
+LevelRange 20 20
+Flags closed noquest~
+End
+
+#OBJECTS
+#30099
+fountain~
+fountain~
+fountain~
+unknown~
+fountain 0 0
+-1 -1 'root beer' 0 0
+0 0 0 P
+G none
+#0
+
+#ROOMS
+#30000
+@eng Road to Mountain@rus Дорога к Горам~
+@eng You are on the way to the Mountain. You can walk the rocky road north
+or return to the main road. The trail strethces through the old  
+forest north. You can hear sount of wildlife, but it's seens strange  
+and evil.
+~
+0 0 mountain
+D0
+~
+~
+Z 0 30001
+S
+#30001
+@eng Before the Gate of Mordor@rus Перед Воротами Мордора~
+~
+0 0 mountain
+D0
+~
+~
+ABZ 0 30002
+D2
+~
+~
+Z 0 30000
+S
+#30002
+@eng Guard Room behind the Gate@rus Сторожевая Комната за Воротами~
+~
+0 0 inside
+D2
+~
+gate~
+ABZ 0 30001
+S
+#0
+
+#RESETS
+D 0 30001 0 1	* Before the Gate of Mordor: door to the north: closed
+D 0 30002 2 1	* Guard Room behind the Gate: door to the south: closed
+O 0 30099 0 30000	* fountain (Road to Mountain)
+S
+
+#$

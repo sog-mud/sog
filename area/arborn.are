@@ -825,18 +825,6 @@ You feel completely relaxed...
 Вы расслабляетесь ...
 ~
 0 CKNX forest
-D0
-~
-~
-Z 0 36112
-D1
-~
-~
-Z 0 36101
-D5
-~
-~
-ABCFZ 36109 36113
 S
 #36101
 Shooting place~
@@ -846,10 +834,6 @@ D2
 ~
 ~
 Z 0 36102
-D3
-~
-~
-Z 0 36100
 S
 #36102
 Shooting place~
@@ -984,19 +968,11 @@ someone is watching you. A voice booms inside you, "You want to change
 your hometown? Well, let this be."
 ~
 0 b inside
-D2
-~
-~
-Z 0 36100
 S
 #36113
 ~
 ~
 0 0 inside
-D4
-~
-~
-ABCFZ 0 36100
 S
 #36130
 Balthazar's home~
@@ -1019,8 +995,6 @@ M 36115 spec_cast_mage	* Remitoel
 S
 
 #RESETS
-D 0 36100 5 2	* Arborn's home: door to the down: closed and locked
-D 0 36113 4 2	* : door to the up: closed and locked
 M 0 36100 1 36100 1	* Healer (Arborn's home)
 O 0 36108 0 36100	* invisible niche (Arborn's home)
 P 0 36109 1 36108 1	* invisible niche: Portal room key
