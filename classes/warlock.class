@@ -107,9 +107,9 @@ Skill 'web' 69 1 0
 Skill 'weaken' 19 1 0
 Skill 'word of recall' 32 1 0
 Skill 'dagger' 1 1 0
-Skill 'staff' 1 1 0
 Skill 'sword' 13 1 0
 Skill 'whip' 1 1 0
+Skill 'staff' 1 1 0
 Skill 'blink' 1 1 0
 Skill 'dodge' 43 1 0
 Skill 'hand to hand' 45 1 0
@@ -124,6 +124,7 @@ Skill 'staves' 1 2 0
 Skill 'trance' 14 1 0
 Skill 'wands' 1 1 0
 Skill 'throwing weapons' 56 3 -5
+Skill 'water breathing' 43 1 0
 Title 0 male the Man~
 Title 0 female the Woman~
 Title 1 male the Apprentice of Magic~

@@ -11,12 +11,12 @@ Thac0_32 2
 HPRate 70
 ManaRate 80
 Flags magic~
-AddExp 0
 StatMod 0 0 3 0 0 5
 Skill 'aid' 53 1 0
 Skill 'armor' 1 1 0
 Skill 'blade barrier' 60 1 0
 Skill 'bless' 14 1 0
+Skill 'benediction' 73 1 0
 Skill 'blindness' 14 1 0
 Skill 'bluefire' 37 1 0
 Skill 'call lightning' 28 1 0
@@ -37,6 +37,7 @@ Skill 'cure light' 4 1 0
 Skill 'cure poison' 23 1 0
 Skill 'cure serious' 10 1 0
 Skill 'curse' 33 1 0
+Skill 'anathema' 60 1 0
 Skill 'cursed lands' 41 1 0
 Skill 'demonfire' 37 1 0
 Skill 'desert fist' 58 1 0
@@ -80,7 +81,6 @@ Skill 'nexus' 55 1 0
 Skill 'pass door' 32 1 0
 Skill 'poison' 22 1 0
 Skill 'portal' 35 1 0
-Skill 'benediction' 73 1 0
 Skill 'protection cold' 44 1 0
 Skill 'protection evil' 9 1 0
 Skill 'protection good' 9 1 0
@@ -107,9 +107,9 @@ Skill 'weaken' 24 1 0
 Skill 'word of recall' 28 1 0
 Skill 'flail' 1 2 0
 Skill 'mace' 1 2 0
-Skill 'staff' 1 1 0
 Skill 'shield block' 17 1 -20
 Skill 'whip' 1 2 0
+Skill 'staff' 1 1 0
 Skill 'enhanced damage' 33 2 -20
 Skill 'hand to hand' 30 1 0
 Skill 'kick' 12 1 0
@@ -123,7 +123,7 @@ Skill 'scrolls' 1 1 0
 Skill 'staves' 1 1 0
 Skill 'trance' 15 1 0
 Skill 'wands' 1 1 0
-Skill 'anathema' 60 1 0
+Skill 'free action' 50 1 0
 Title 0 male the Man~
 Title 0 female the Woman~
 Title 1 male the Believer~

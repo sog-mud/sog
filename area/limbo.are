@@ -321,9 +321,9 @@ cat black кошка кот~
 ~
 cat~
 AIg P 0 0
-0 0 1d1+1 1d1+1 3d10+12 none
+0 0 1d1+1 1d1+1 3d10+12 claw
 0 0 0 0
-0 0 I H
+0 AB I H
 stand stand female 0
 0 0 medium unknown
 #31
@@ -335,9 +335,9 @@ black familiar crow ворон~
 ~
 song bird~
 AIg 0 0 0
-0 0 1d1+1 1d1+1 3d10+12 none
+0 0 1d1+1 1d1+1 3d10+12 claw
 0 0 0 0
-0 0 I H
+0 AB I H
 stand stand female 0
 0 0 medium unknown
 #50

@@ -42,7 +42,6 @@ Skill 'detect invis' 5 1 0
 Skill 'detect magic' 8 1 0
 Skill 'detect poison' 35 1 0
 Skill 'dispel magic' 36 1 0
-Skill 'dodge' 40 1 0
 Skill 'dragons breath' 61 1 0
 Skill 'enchant armor' 26 1 0
 Skill 'enchant weapon' 33 1 0
@@ -108,9 +107,10 @@ Skill 'witch curse' 81 1 0
 Skill 'weaken' 19 1 0
 Skill 'word of recall' 32 1 0
 Skill 'dagger' 1 2 0
-Skill 'staff' 1 1 0
 Skill 'whip' 1 2 0
+Skill 'staff' 1 1 0
 Skill 'blink' 1 1 0
+Skill 'dodge' 40 1 0
 Skill 'hand to hand' 45 2 0
 Skill 'spell craft' 10 1 0
 Skill 'second attack' 34 2 0
@@ -121,6 +121,7 @@ Skill 'scrolls' 1 1 0
 Skill 'staves' 1 1 0
 Skill 'trance' 14 1 0
 Skill 'wands' 1 1 0
+Skill 'water breathing' 49 1 0
 Title 0 male the Man~
 Title 0 female the Woman~
 Title 1 male the Apprentice of Magic~

@@ -812,6 +812,20 @@ armor 0 AE
 0 0 0 100 0
 30 2 5 P
 G female
+#110200
+kalandor heartstone dagger~
+@eng kalandor, heartstone dagger@rus ~~каландор~~, меч твердыни Тира~
+@eng Very shine dagger hangs here, trusted in heavens.@rus Сияющий меч висит здесь, острием вонзаясь в небо.~
+cuendillar~
+treasure AGHNTYZa AO
+0 0 0 0 0
+75 100 0 P
+A
+12 5000
+S 'mastering spell' 100 A
+A
+8 16
+G male
 #0
 
 #ROOMS
@@ -8287,6 +8301,7 @@ O 110167 1	* Swordbreaker
 O 110168 1	* Bonnet
 O 110171 1	* Stiletto
 O 110174 1	* sign of Tears Head
+O 110200 1	* kalandor, heartstone dagger
 S
 
 #MOBPROGS
