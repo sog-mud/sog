@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.167 1999-06-24 21:12:38 fjoe Exp $
+ * $Id: act_wiz.c,v 1.168 1999-06-25 07:14:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -898,7 +898,7 @@ void do_rstat(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (ch->in_room != location 
-	&&  room_is_private(location) && !IS_TRUSTED(ch,IMPLEMENTOR)) {
+	&&  room_is_private(location) && !IS_TRUSTED(ch,LEVEL_IMP)) {
 		char_puts("That room is private right now.\n", ch);
 		return;
 	}
@@ -1812,7 +1812,7 @@ void do_snoop(CHAR_DATA *ch, const char *argument)
 	if (!is_room_owner(ch,victim->in_room)
 	&&  ch->in_room != victim->in_room 
 	&&  room_is_private(victim->in_room)
-	&&  !IS_TRUSTED(ch, IMPLEMENTOR)) {
+	&&  !IS_TRUSTED(ch, LEVEL_IMP)) {
 		char_puts("That character is in a private room.\n",ch);
 		return;
 	}
@@ -1874,7 +1874,7 @@ void do_switch(CHAR_DATA *ch, const char *argument)
 	if (!is_room_owner(ch,victim->in_room)
 	&&  ch->in_room != victim->in_room 
 	&&  room_is_private(victim->in_room)
-	&&  !IS_TRUSTED(ch,IMPLEMENTOR)) {
+	&&  !IS_TRUSTED(ch,LEVEL_IMP)) {
 		char_puts("That character is in a private room.\n", ch);
 		return;
 	}
@@ -1928,11 +1928,11 @@ void do_return(CHAR_DATA *ch, const char *argument)
 /* trust levels for load and clone */
 static bool obj_check(CHAR_DATA *ch, OBJ_DATA *obj)
 {
-	if (IS_TRUSTED(ch, GOD)
-	|| (IS_TRUSTED(ch, IMMORTAL) && obj->level <= 20 && obj->cost <= 1000)
-	|| (IS_TRUSTED(ch, DEMI)     && obj->level <= 10 && obj->cost <= 500)
-	|| (IS_TRUSTED(ch, ANGEL)    && obj->level <=  5 && obj->cost <= 250)
-	|| (IS_TRUSTED(ch, AVATAR)   && obj->level ==  0 && obj->cost <= 100))
+	if (IS_TRUSTED(ch, LEVEL_GOD)
+	|| (IS_TRUSTED(ch, LEVEL_IMM) && obj->level <= 20 && obj->cost <= 1000)
+	|| (IS_TRUSTED(ch, LEVEL_DEM) && obj->level <= 10 && obj->cost <= 500)
+	|| (IS_TRUSTED(ch, LEVEL_ANG) && obj->level <=  5 && obj->cost <= 250)
+	|| (IS_TRUSTED(ch, LEVEL_AVA) && obj->level ==  0 && obj->cost <= 100))
 		return TRUE;
 	else
 		return FALSE;
@@ -1940,11 +1940,11 @@ static bool obj_check(CHAR_DATA *ch, OBJ_DATA *obj)
 
 static bool mob_check(CHAR_DATA *ch, CHAR_DATA *mob)
 {
-	if ((mob->level > 20 && !IS_TRUSTED(ch, GOD))
-	||  (mob->level > 10 && !IS_TRUSTED(ch, IMMORTAL))
-	||  (mob->level >  5 && !IS_TRUSTED(ch, DEMI))
-	||  (mob->level >  0 && !IS_TRUSTED(ch, ANGEL))
-	||  !IS_TRUSTED(ch, AVATAR))
+	if ((mob->level > 20 && !IS_TRUSTED(ch, LEVEL_GOD))
+	||  (mob->level > 10 && !IS_TRUSTED(ch, LEVEL_IMM))
+	||  (mob->level >  5 && !IS_TRUSTED(ch, LEVEL_DEM))
+	||  (mob->level >  0 && !IS_TRUSTED(ch, LEVEL_ANG))
+	||  !IS_TRUSTED(ch, LEVEL_AVA))
 		return FALSE;
 	else
 		return TRUE;
@@ -2856,7 +2856,7 @@ void do_rset(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (ch->in_room != location 
-	&&  room_is_private(location) && !IS_TRUSTED(ch,IMPLEMENTOR)) {
+	&&  room_is_private(location) && !IS_TRUSTED(ch,LEVEL_IMP)) {
 	    char_puts("That room is private right now.\n",ch);
 	    return;
 	}
@@ -3035,7 +3035,7 @@ void do_force(CHAR_DATA *ch, const char *argument)
 
 		if (!is_room_owner(ch,victim->in_room) 
 		&&  ch->in_room != victim->in_room 
-	    &&  room_is_private(victim->in_room) && !IS_TRUSTED(ch,IMPLEMENTOR))
+	    &&  room_is_private(victim->in_room) && !IS_TRUSTED(ch,LEVEL_IMP))
 		{
 	        char_puts("That character is in a private room.\n",ch);
 	        return;

@@ -1,4 +1,9 @@
 #!/bin/sh
+#
+# this shell script is intended for debugging purposes
+# do not use autorun to debug mud server and do not use
+# this script in production use
+#
 umask 002
 port="-p 6666 -i 6667"
 sog=bin/sog

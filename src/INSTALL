@@ -10,4 +10,8 @@ You need pmake to build SoG under Linux
 `mkdep' can be found in mkdep/ (it is needed to run `make depend') --
 just copy it into any directory in you $PATH.
 
+To run mud server
+ - use ../bin/autorun for production use
+ - use ./startup for debugging
+
 /fjoe

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.256 1999-06-24 20:34:55 fjoe Exp $
+ * $Id: act_info.c,v 1.257 1999-06-25 07:14:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3215,7 +3215,7 @@ void do_learn(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 			
-	if (IS_NPC(practicer) || practicer->level != HERO) {
+	if (IS_NPC(practicer) || practicer->level != LEVEL_HERO) {
 		char_puts("You must find a hero, not an ordinary one.\n",
 			  ch);
 		return;
@@ -4456,7 +4456,7 @@ void do_wizhelp(CHAR_DATA *ch, const char *argument)
 		if (cmd->min_level < LEVEL_IMMORTAL)
 			continue;
 
-		if (ch->level < IMPLEMENTOR
+		if (ch->level < LEVEL_IMP
 		&&  !is_name(cmd->name, ch->pcdata->granted))
 			continue;
 

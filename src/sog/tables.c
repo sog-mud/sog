@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.76 1999-06-24 16:33:18 fjoe Exp $
+ * $Id: tables.c,v 1.77 1999-06-25 07:14:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1210,32 +1210,94 @@ flag_t ban_classes[] =
 	{ NULL }
 };
 
-/* wiznet table and prototype for future flag setting */
-const   struct wiznet_type      wiznet_table    []              =
+flag_t cmd_flags[] =
 {
-   {    "on",           WIZ_ON,         IM },
-   {    "prefix",	WIZ_PREFIX,	IM },
-   {    "ticks",        WIZ_TICKS,      IM },
-   {    "logins",       WIZ_LOGINS,     IM },
-   {    "sites",        WIZ_SITES,      L4 },
-   {    "links",        WIZ_LINKS,      L7 },
-   {	"newbies",	WIZ_NEWBIE,	IM },
-   {	"spam",		WIZ_SPAM,	L5 },
-   {    "deaths",       WIZ_DEATHS,     IM },
-   {    "resets",       WIZ_RESETS,     L4 },
-   {    "mobdeaths",    WIZ_MOBDEATHS,  L4 },
-   {    "flags",	WIZ_FLAGS,	L5 },
-   {	"penalties",	WIZ_PENALTIES,	L5 },
-   {	"saccing",	WIZ_SACCING,	L5 },
-   {	"levels",	WIZ_LEVELS,	IM },
-   {	"load",		WIZ_LOAD,	L2 },
-   {	"restore",	WIZ_RESTORE,	L2 },
-   {	"snoops",	WIZ_SNOOPS,	L2 },
-   {	"switches",	WIZ_SWITCHES,	L2 },
-   {	"secure",	WIZ_SECURE,	L1 },
-   {	"olc",		WIZ_OLC,	IM },
-   {	"wizlog",	WIZ_WIZLOG,	IM },
-   {	NULL,		0,		0  }
+	{ "",			TABLE_BITVAL,			},
+
+	{ "keep_hide",		CMD_KEEP_HIDE,		TRUE	},
+	{ "noorder",		CMD_NOORDER,		TRUE	},
+	{ "charmed_ok",		CMD_CHARMED_OK,		TRUE	},
+	{ "hidden",		CMD_HIDDEN,		TRUE	},
+	{ "disabled",		CMD_DISABLED,		TRUE	},
+	{ "frozen_ok",		CMD_FROZEN_OK,		TRUE	},
+
+	{ NULL }
+};
+
+flag_t cmd_logtypes[] =
+{
+	{ "",			TABLE_INTVAL,			},
+
+	{ "normal",		LOG_NORMAL,			},
+	{ "always",		LOG_ALWAYS,			},
+	{ "never",		LOG_NEVER,			},
+
+	{ NULL }
+};
+
+flag_t cmd_classes[] =
+{
+	{ "",			TABLE_INTVAL			},
+
+	{ "ordinary",		CC_ORDINARY,			},
+	{ "core",		CC_CORE,			},
+	{ "olc",		CC_OLC				},
+
+	{ NULL }
+};
+
+/*
+ * "imm" should be before "immortal" for flag_lookup to work properly
+ * "immortal" should be before "ava" for convenience
+ */
+flag_t level_table[] =
+{
+	{ "",			TABLE_INTVAL,			},
+
+	{ "imp",		LEVEL_IMP,			},
+	{ "cre",		LEVEL_CRE,			},
+	{ "sup",		LEVEL_SUP,			},
+	{ "dei",		LEVEL_DEI,			},
+	{ "god",		LEVEL_GOD,			},
+	{ "imm",		LEVEL_IMM,			},
+	{ "immortal",		LEVEL_IMMORTAL,			},
+	{ "dem",		LEVEL_DEM,			},
+	{ "ang",		LEVEL_ANG,			},
+	{ "ava",		LEVEL_AVA,			},
+
+	{ "hero",		LEVEL_HERO,			},
+	{ "newbie",		LEVEL_NEWBIE,			},
+	{ "pk",			LEVEL_PK,			},
+
+	{ NULL }
+};
+
+/* wiznet table and prototype for future flag setting */
+const struct wiznet_type wiznet_table[] =
+{
+	{ "on",			WIZ_ON,		LEVEL_IMMORTAL	},
+	{ "prefix",		WIZ_PREFIX,	LEVEL_IMMORTAL	},
+	{ "ticks",		WIZ_TICKS,	LEVEL_IMMORTAL	},
+	{ "logins",		WIZ_LOGINS,	LEVEL_IMMORTAL	},
+	{ "sites",		WIZ_SITES,	LEVEL_GOD	},
+	{ "links",		WIZ_LINKS,	LEVEL_ANG	},
+	{ "newbies",		WIZ_NEWBIE,	LEVEL_IMMORTAL	},
+	{ "spam",		WIZ_SPAM,	LEVEL_IMM	},
+	{ "deaths",		WIZ_DEATHS,	LEVEL_IMMORTAL	},
+	{ "resets",		WIZ_RESETS,	LEVEL_GOD	},
+	{ "mobdeaths",		WIZ_MOBDEATHS,	LEVEL_GOD	},
+	{ "flags",		WIZ_FLAGS,	LEVEL_IMM	},
+	{ "penalties",		WIZ_PENALTIES,	LEVEL_IMM	},
+	{ "saccing",		WIZ_SACCING,	LEVEL_IMM	},
+	{ "levels",		WIZ_LEVELS,	LEVEL_IMMORTAL	},
+	{ "load",		WIZ_LOAD,	LEVEL_SUP	},
+	{ "restore",		WIZ_RESTORE,	LEVEL_SUP	},
+	{ "snoops",		WIZ_SNOOPS,	LEVEL_SUP	},
+	{ "switches",		WIZ_SWITCHES,	LEVEL_SUP	},
+	{ "secure",		WIZ_SECURE,	LEVEL_CRE	},
+	{ "olc",		WIZ_OLC,	LEVEL_IMMORTAL	},
+	{ "wizlog",		WIZ_WIZLOG,	LEVEL_IMMORTAL	},
+	{ NULL }
 };
 
 /* attack table */

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.186 1999-06-24 20:35:04 fjoe Exp $
+ * $Id: fight.c,v 1.187 1999-06-25 07:14:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2783,7 +2783,7 @@ void do_flee(CHAR_DATA *ch, const char *argument)
 		     || (IS_SET(pexit->exit_info, EX_CLOSED)
 		         && (!IS_AFFECTED(ch, AFF_PASS_DOOR)
 		             || IS_SET(pexit->exit_info,EX_NOPASS))
-		             && !IS_TRUSTED(ch,ANGEL))
+		             && !IS_TRUSTED(ch, LEVEL_ANG))
 		         || (IS_SET(pexit->exit_info , EX_NOFLEE))
 		         || (IS_NPC(ch)
 		             && IS_SET(pexit->to_room.r->room_flags, ROOM_NOMOB)))
@@ -2953,7 +2953,7 @@ void do_dishonor(CHAR_DATA *ch, const char *argument)
 		||  (IS_SET(pexit->exit_info, EX_CLOSED) &&
 		     (!IS_AFFECTED(ch, AFF_PASS_DOOR) ||
 		      IS_SET(pexit->exit_info,EX_NOPASS)) &&
-		     !IS_TRUSTED(ch,ANGEL))
+		     !IS_TRUSTED(ch, LEVEL_ANG))
 		|| IS_SET(pexit->exit_info, EX_NOFLEE)
 		|| (IS_NPC(ch) &&
 		    IS_SET(pexit->to_room.r->room_flags, ROOM_NOMOB)))

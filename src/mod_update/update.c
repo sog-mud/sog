@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.143 1999-06-24 20:35:10 fjoe Exp $
+ * $Id: update.c,v 1.144 1999-06-25 07:14:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -230,7 +230,7 @@ void gain_exp(CHAR_DATA *ch, int gain)
 
 		if ((cl = class_lookup(ch->class)) != NULL
 		&&  cl->death_limit != 0
-		&&  ch->level == MIN_PK_LEVEL)
+		&&  ch->level == LEVEL_PK)
 			ch->wimpy = 0;
 
 		if (ch->level == 91)
@@ -509,7 +509,7 @@ void gain_condition(CHAR_DATA *ch, int iCond, int value)
 		}
 	}
 
-	if (ch->pcdata->condition[iCond] == -6 && ch->level >= MIN_PK_LEVEL) {
+	if (ch->pcdata->condition[iCond] == -6 && ch->level >= LEVEL_PK) {
 		switch (iCond) {
 		case COND_HUNGER:
 			char_puts("You are starving!\n",  ch);

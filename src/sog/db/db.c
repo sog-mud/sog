@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.162 1999-06-24 20:35:13 fjoe Exp $
+ * $Id: db.c,v 1.163 1999-06-25 07:14:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -126,6 +126,7 @@ const char SOCIALS_CONF		[] = "socials.conf";	/* socials */
 const char SYSTEM_CONF		[] = "system.conf";	/* system conf */
 const char LANG_CONF		[] = "lang.conf";	/* lang definitions */
 const char MSGDB_CONF		[] = "msgdb.conf";	/* msgdb */
+const char CMD_CONF		[] = "cmd.conf";
 
 const char AREA_LIST		[] = "area.lst";	/* list of areas */
 const char CLAN_LIST		[] = "clan.lst";	/* list of clans */

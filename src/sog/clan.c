@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.c,v 1.45 1999-06-24 16:33:13 fjoe Exp $
+ * $Id: clan.c,v 1.46 1999-06-25 07:14:35 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -360,7 +360,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (ch->level < MIN_PK_LEVEL) {
+	if (ch->level < LEVEL_PK) {
 		act("You are not ready to join clans.",
 		    ch, NULL, NULL, TO_CHAR);
 		return;

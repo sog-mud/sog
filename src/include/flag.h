@@ -1,5 +1,5 @@
 /*
- * $Id: flag.h,v 1.4 1999-04-16 15:52:17 fjoe Exp $
+ * $Id: flag.h,v 1.5 1999-06-25 07:14:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -30,6 +30,7 @@ struct flag_t
 };
 
 const flag_t *	flag_lookup	(const flag_t *flag64_table, const char* name);
+const flag_t *	flag_ilookup	(const flag_t *flag64_table, flag64_t val);
 flag64_t	flag_value	(const flag_t *flag64_table, const char *argument);
 const char *	flag_string	(const flag_t *flag64_table, flag64_t bits);
 

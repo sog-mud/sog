@@ -23,14 +23,14 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cmd.h,v 1.5 1999-06-24 20:35:02 fjoe Exp $
+ * $Id: cmd.h,v 1.6 1999-06-25 07:14:33 fjoe Exp $
  */
 
 #ifndef _CMD_H_
 #define _CMD_H_
 
 /*
- * Command logging types.
+ * cmd logging types
  */
 #define LOG_NORMAL	0
 #define LOG_ALWAYS	1
@@ -50,9 +50,9 @@
  * cmd classes
  */
 enum {
-	CMD_ORDINARY,
-	CMD_CORE,
-	CMD_OLC
+	CC_ORDINARY,
+	CC_CORE,
+	CC_OLC
 };
 
 /*
@@ -60,13 +60,14 @@ enum {
  */
 struct cmd_t
 {
-	char * const	name;
-	DO_FUN *	do_fun;
+	const char * 	name;
+	const char *	dofun_name;
 	int		min_pos;
 	int		min_level;
 	int		cmd_log;
 	int		cmd_flags;
 	int		cmd_class;
+	DO_FUN *	do_fun;
 };
 
 cmd_t *	cmd_lookup(const char *name);

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.159 1999-06-24 20:35:08 fjoe Exp $
+ * $Id: interp.c,v 1.160 1999-06-25 07:14:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -157,7 +157,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 			if (IS_NPC(ch))
 				continue;
 
-			if (ch->level < IMPLEMENTOR
+			if (ch->level < LEVEL_IMP
 			&&  !is_name(cmd->name, ch->pcdata->granted))
 				continue;
 		}

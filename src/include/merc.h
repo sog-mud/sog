@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.215 1999-06-24 20:35:02 fjoe Exp $
+ * $Id: merc.h,v 1.216 1999-06-25 07:14:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -141,13 +141,6 @@ struct note_t
 	time_t		date_stamp;
 	flag32_t	type;
 };
-
-#define	CMD_KEEP_HIDE	(A)
-#define CMD_NOORDER	(B)
-#define CMD_CHARMED_OK	(C)
-#define CMD_HIDDEN	(D)
-#define CMD_DISABLED	(E)
-#define CMD_FROZEN_OK	(F)
 
 /*
  * Time and weather stuff.
@@ -1843,7 +1836,7 @@ void SET_ORG_RACE(CHAR_DATA *ch, int race);
 
 #define IS_EXTRACTED(ch)	(ch->extracted || ch->last_death_time >= current_time)
 #define CAN_FLEE(ch, cl)	((cl)->death_limit < 0 || \
-			         (ch)->level < MIN_PK_LEVEL)
+				 (ch)->level < LEVEL_PK)
 /*
  * Object macros.
  */

@@ -1,5 +1,5 @@
 /*
- * $Id: flag.c,v 1.25 1999-06-10 11:47:28 fjoe Exp $
+ * $Id: flag.c,v 1.26 1999-06-25 07:14:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -45,6 +45,16 @@ const flag_t* flag_lookup(const flag_t *f, const char *name)
 			return f;
 		f++;
 	}
+	return NULL;
+}
+
+const flag_t* flag_ilookup(const flag_t *f, flag64_t val)
+{
+	for (f++; f->name != NULL; f++) {
+		if (f->bit == val)
+			return f;
+	}
+
 	return NULL;
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.167 1999-06-24 20:35:06 fjoe Exp $
+ * $Id: handler.c,v 1.168 1999-06-25 07:14:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2519,15 +2519,15 @@ bool room_is_private(ROOM_INDEX_DATA *pRoomIndex)
 bool can_see_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 {
 	if (IS_SET(pRoomIndex->room_flags, ROOM_IMP_ONLY) 
-	&&  !IS_TRUSTED(ch, IMPLEMENTOR))
+	&&  !IS_TRUSTED(ch, LEVEL_IMP))
 		return FALSE;
 
 	if (IS_SET(pRoomIndex->room_flags, ROOM_GODS_ONLY)
-	&&  !IS_TRUSTED(ch, GOD))
+	&&  !IS_TRUSTED(ch, LEVEL_GOD))
 		return FALSE;
 
 	if (IS_SET(pRoomIndex->room_flags, ROOM_HEROES_ONLY)
-	&&  !IS_TRUSTED(ch, HERO))
+	&&  !IS_TRUSTED(ch, LEVEL_HERO))
 		return FALSE;
 
 	if (IS_SET(pRoomIndex->room_flags, ROOM_NEWBIES_ONLY)
@@ -2839,7 +2839,7 @@ bool in_PK(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (IS_NPC(ch) || IS_NPC(victim))
 		return TRUE;
 
-	if (victim->level < MIN_PK_LEVEL || ch->level < MIN_PK_LEVEL)
+	if (victim->level < LEVEL_PK || ch->level < LEVEL_PK)
 		return FALSE;
 
 	/* level adjustment */
@@ -3899,16 +3899,16 @@ void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 			buf_add(output, "  ");
 		buf_add(output, "{G");
 		switch (wch->level) {
-		case IMPLEMENTOR:	buf_add(output, " IMP "); break;
-		case CREATOR:		buf_add(output, " CRE "); break;
-		case SUPREME:		buf_add(output, " SUP "); break;
-		case DEITY:		buf_add(output, " DEI "); break;
-		case GOD:		buf_add(output, " GOD "); break;
-		case IMMORTAL:		buf_add(output, " IMM "); break;
-		case DEMI:		buf_add(output, " DEM "); break;
-		case ANGEL:		buf_add(output, " ANG "); break;
-		case AVATAR:		buf_add(output, " AVA "); break;
-		case HERO:		buf_add(output, "HERO "); break;
+		case LEVEL_IMP:		buf_add(output, " IMP "); break;
+		case LEVEL_CRE:		buf_add(output, " CRE "); break;
+		case LEVEL_SUP:		buf_add(output, " SUP "); break;
+		case LEVEL_DEI:		buf_add(output, " DEI "); break;
+		case LEVEL_GOD:		buf_add(output, " GOD "); break;
+		case LEVEL_IMM:		buf_add(output, " IMM "); break;
+		case LEVEL_DEM:		buf_add(output, " DEM "); break;
+		case LEVEL_ANG:		buf_add(output, " ANG "); break;
+		case LEVEL_AVA:		buf_add(output, " AVA "); break;
+		case LEVEL_HERO:	buf_add(output, "HERO "); break;
 		}
 		buf_add(output, "{x");
 		if (ch && IS_IMMORTAL(ch))
@@ -4154,7 +4154,7 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 	if (IS_SET(pexit->exit_info, EX_CLOSED) 
 	&&  (!IS_AFFECTED(ch, AFF_PASS_DOOR) ||
 	     IS_SET(pexit->exit_info, EX_NOPASS))
-	&&  !IS_TRUSTED(ch, ANGEL)) {
+	&&  !IS_TRUSTED(ch, LEVEL_ANG)) {
 		if (IS_AFFECTED(ch, AFF_PASS_DOOR)
 		&&  IS_SET(pexit->exit_info, EX_NOPASS)) {
   			act_puts("You failed to pass through the $d.",
