@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.283 1999-12-29 12:11:31 kostik Exp $
+ * $Id: merc.h,v 1.284 2000-01-04 04:14:07 avn Exp $
  */
 
 /***************************************************************************
@@ -2047,6 +2047,8 @@ HELP_DATA *	help_new	(void);
 void		help_add	(AREA_DATA*, HELP_DATA*);
 HELP_DATA *	help_lookup	(int num, const char *keyword);
 void		help_show	(CHAR_DATA *ch, BUFFER *output,
+				 const char *keyword);
+void		help_show_raw	(int level, int lang, BUFFER *output,
 				 const char *keyword);
 void		help_free	(HELP_DATA*);
 

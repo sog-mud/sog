@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_info.c,v 1.10 1999-12-16 12:24:54 fjoe Exp $
+ * $Id: comm_info.c,v 1.11 2000-01-04 04:14:08 avn Exp $
  */
 
 #include <sys/types.h>
@@ -46,14 +46,44 @@
 #include "comm_info.h"
 #include "comm_colors.h"
 #include "db.h"
+#include "lang.h"
 
 INFO_DESC *	id_list;
 int		top_id;
+char		buf[2 * MAX_STRING_LENGTH];
 
 static INFO_DESC *	id_free_list;
 
 static INFO_DESC *	info_desc_new(int fd);
 static void		info_desc_free(INFO_DESC *id);
+
+void	cmd_who(const char *argument);
+void	cmd_auth(const char *argument);
+void	cmd_help(const char *argument);
+void	cmd_show(const char *argument);
+void	cmd_dumb(const char *argument);
+
+typedef void CMD_FUN (const char *argument);
+typedef struct {
+	char	*name;
+	CMD_FUN	*fun;
+} infocmd_t;
+
+/* Currently supported commands:
+ * WHO <fmt>				- outputs list of visible players
+ * AUTH <plr> <pwd>			- authentificate a player
+ * HELP <fmt> <lang> <lev> <topic>	- show help
+ * SHOW	<plr>				- dump player's information
+ */
+
+infocmd_t info_cmds[] =
+{
+	{ "WHO",	cmd_who			},
+	{ "AUTH",	cmd_auth		},
+	{ "HELP",	cmd_help		},
+	{ "SHOW",	cmd_show		},
+	{ NULL,		cmd_dumb		}
+};
 
 void info_newconn(int infofd)
 {
@@ -112,14 +142,11 @@ void info_newconn(int infofd)
 
 void info_process_cmd(INFO_DESC *id)
 {
-	BUFFER *output;
-	char buf[MAX_STRING_LENGTH * 2];
-	char *p;
+	char cmd_name[10];
+	const char *p;
 	char *q;
-	int format;
-
-	DESCRIPTOR_DATA *d;
-	int nread;
+        int nread;
+	infocmd_t *icmd;
 
 #if !defined (WIN32)
 	if ((nread = read(id->fd, buf, sizeof(buf))) < 0)
@@ -132,51 +159,28 @@ void info_process_cmd(INFO_DESC *id)
 #endif
 			return;
 		log("info_input: read: %s", strerror(errno));
-		goto bail_out;
+		info_desc_free(id);
+		return;
 	}
 	buf[nread] = '\0';
-
-	for (p = buf; *p && strchr(" \n\r\t", *p); p++)
-		;
-
-	if ((q = strpbrk(p, " \n\r\t")))
+	q = strchr(buf, '\n');
+	if (q)
 		*q = '\0';
-	log("process_who: output format requested: '%s'", p);
-	format = format_lookup(p);
 
-	output = buf_new(-1);
+	p = one_argument(buf, cmd_name, sizeof(cmd_name));
 
-	buf_printf(output, "%d\n", top_player);
-	p = buf_string(output);
-#if !defined (WIN32)
-	write(id->fd, p, strlen(p));
-#else
-	send(id->fd, p, strlen(p), 0);
-#endif
+	for (icmd = info_cmds; icmd->name; icmd++)
+		if (!str_cmp(icmd->name, cmd_name))			
+			break;
 
-	for (d = descriptor_list; d; d = d->next) {
-		CHAR_DATA *wch = d->original ? d->original : d->character;
+	if (icmd->fun)
+		icmd->fun(p);
 
-		if (!wch
-		||  d->connected != CON_PLAYING
-		||  wch->invis_level
-		||  wch->incog_level
-		||  HAS_INVIS(wch, ID_ALL_INVIS))
-			continue;
-
-		buf_clear(output);
-		do_who_raw(NULL, wch, output);
-		parse_colors(buf_string(output), buf, sizeof(buf), format);
 #if !defined (WIN32)
 		write(id->fd, buf, strlen(buf));
 #else
 		send(id->fd, buf, strlen(buf), 0);
 #endif
-
-	}
-	buf_free(output);
-
-bail_out:
 	info_desc_free(id);
 }
 
@@ -227,3 +231,84 @@ static void info_desc_free(INFO_DESC *id)
 	id_free_list = id;
 }
 
+void	cmd_who(const char *argument)
+{
+	BUFFER *output;
+	DESCRIPTOR_DATA *d;
+	int format;
+	char arg[MAX_INPUT_LENGTH];
+
+	one_argument(argument, arg, sizeof(arg));
+
+	output = buf_new(-1);
+
+	buf_printf(output, "%d\n", top_player);
+
+	for (d = descriptor_list; d; d = d->next) {
+		CHAR_DATA *wch;
+
+		wch = d->original ? d->original : d->character;
+		if (!wch
+		|| d->connected != CON_PLAYING
+		|| wch->invis_level
+		|| wch->incog_level
+		|| HAS_INVIS(wch, ID_ALL_INVIS)
+		|| is_affected(wch, "vampire"))
+			continue;
+
+		do_who_raw(NULL, wch, output);
+	}
+	format = format_lookup(arg);
+	parse_colors(buf_string(output), buf, sizeof(buf), format);
+	buf_free(output);
+}
+
+void	cmd_auth(const char *argument)
+{
+	char arg1[MAX_INPUT_LENGTH],arg2[MAX_INPUT_LENGTH];
+	CHAR_DATA *ch;
+
+	argument = first_arg(argument, arg1, sizeof(arg1), FALSE);
+	argument = first_arg(argument, arg2, sizeof(arg2), FALSE);
+
+	ch = char_load(arg1, LOAD_F_NOCREATE);
+	if (!ch || strcmp(crypt(argument, ch->name), PC(ch)->pwd)) {
+		strncpy(buf, "AUTH FAILED.\n", sizeof(buf));
+		if (ch)
+			char_free(ch);
+		return;
+	}
+	strncpy(buf, "AUTH OK.\n", sizeof(buf));
+	char_free(ch);
+}
+
+void	cmd_help(const char *argument)
+{
+	BUFFER *output;
+	int format, lang, lev;
+	char arg[MAX_INPUT_LENGTH];
+
+	argument = one_argument(argument, arg, sizeof(arg));
+	format = format_lookup(arg);
+
+	argument = one_argument(argument, arg, sizeof(arg));
+	lang = lang_lookup(arg);
+
+	argument = one_argument(argument, arg, sizeof(arg));
+	lev = atoi(arg);
+	
+	output = buf_new(-1);
+	help_show_raw(lev, lang, output, argument);
+	parse_colors(buf_string(output), buf, sizeof(buf), format);
+	buf_free(output);
+}
+
+void	cmd_show(const char *argument)
+{
+	strncpy(buf, "SHOW: not implemented yet.\n", sizeof(buf));
+}
+
+void	cmd_dumb(const char *argument)
+{
+	strncpy(buf, "ERROR: unsupported or illegal function.\n", sizeof(buf));
+}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: help.c,v 1.14 1999-12-16 12:24:52 fjoe Exp $
+ * $Id: help.c,v 1.15 2000-01-04 04:14:07 avn Exp $
  */
 
 #include <stdio.h>
@@ -81,6 +81,11 @@ HELP_DATA *help_lookup(int num, const char *keyword)
 
 void help_show(CHAR_DATA *ch, BUFFER *output, const char *keyword)
 {
+	help_show_raw(ch->level, GET_LANG(ch), output, keyword);
+}
+
+void help_show_raw(int level, int lang, BUFFER *output, const char *keyword)
+{
 	HELP_DATA *pHelp;
 	HELP_DATA *pFirst = NULL;
 	bool topic_list = FALSE;
@@ -96,7 +101,7 @@ void help_show(CHAR_DATA *ch, BUFFER *output, const char *keyword)
 		keyword = "summary";
 
 	for (pHelp = help_first; pHelp; pHelp = pHelp->next) {
-		if (pHelp->level > ch->level
+		if (pHelp->level > level
 		||  !is_name(keyword, pHelp->keyword)) 
 			continue;
 
@@ -134,7 +139,7 @@ void help_show(CHAR_DATA *ch, BUFFER *output, const char *keyword)
 		&&  str_cmp(pFirst->keyword, "imotd"))
 			buf_printf(output, "{C%s{x\n\n", pFirst->keyword);
 
-		text = mlstr_cval(&pFirst->text, ch);
+		text = mlstr_val(&pFirst->text, lang);
 
 		/*
 		 * Strip leading '.' to allow initial blanks.
