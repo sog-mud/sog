@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.43 1998-05-20 22:02:57 efdi Exp $
+ * $Id: act_info.c,v 1.44 1998-05-21 10:16:37 efdi Exp $
  */
 
 /***************************************************************************
@@ -309,7 +309,6 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	buf[0] = '\0';
 
 	if (!IS_NPC(ch) && IS_NPC(victim) && ch->pcdata->questmob > 0
-/*	  &&  victim->pIndexData->vnum == ch->pcdata->questmobi */
 	&&  victim->hunter == ch)
 		strcat(buf, "{R[TARGET]{x ");
 

@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.27 1998-05-20 21:20:45 efdi Exp $
+ * $Id: comm.c,v 1.28 1998-05-21 10:16:37 efdi Exp $
  */
 
 /***************************************************************************
@@ -82,6 +82,7 @@
 #include "charset.h"
 #include "hometown.h"
 #include "magic.h"
+#include "quest.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_help		);
@@ -2351,12 +2352,14 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 		 ch->exp -= 10;
 		}
 
-	if (IS_QUESTOR(ch) && ch->pcdata->questmob == 0) 
+	/* if (IS_QUESTOR(ch) && ch->pcdata->questmob == 0) 
 		{
 		 ch->pcdata->nextquest = ch->pcdata->countdown;
 		 ch->pcdata->questobj = 0;
 		 REMOVE_BIT(ch->act,PLR_QUESTOR);
 		}
+	*/
+		cancel_quest(ch);
 
 	if (IS_SET(ch->act,PLR_NO_EXP))	REMOVE_BIT(ch->act,PLR_NO_EXP);
 

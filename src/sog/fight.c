@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.13 1998-05-19 00:28:49 efdi Exp $
+ * $Id: fight.c,v 1.14 1998-05-21 10:16:37 efdi Exp $
  */
 
 /***************************************************************************
@@ -53,6 +53,7 @@
 #include "act_comm.h"
 #include "magic.h"
 #include "resource.h"
+#include "quest.h"
 
 #define MAX_DAMAGE_MESSAGE 34
 
@@ -2273,12 +2274,7 @@ void group_gain(CHAR_DATA *ch, CHAR_DATA *victim)
 		} else if (victim->hunter) {
 			send_to_char(msg(FIGHT_YOU_COMPLETED_SOMEONES_QUEST, gch), gch);
 			send_to_char(msg(FIGHT_SOMEONE_COMPLETED_YOUR_QUEST, victim->hunter), victim->hunter);
-			REMOVE_BIT(victim->hunter->act, PLR_QUESTOR);
-			victim->hunter->pcdata->questgiver = 0;
-			victim->hunter->pcdata->countdown = 0;
-			victim->hunter->pcdata->questmob = 0;
-			victim->hunter->pcdata->questobj = 0;
-			victim->hunter->pcdata->nextquest = 5;
+			cancel_quest(ch);
 		}
 	}
 /* end quest */

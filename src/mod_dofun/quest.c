@@ -1,5 +1,5 @@
 /*
- * $Id: quest.c,v 1.18 1998-05-20 21:21:49 efdi Exp $
+ * $Id: quest.c,v 1.19 1998-05-21 10:16:38 efdi Exp $
  */
 
 /***************************************************************************
@@ -898,54 +898,53 @@ void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
 }
 
 /* Called from update_handler() by pulse_area */
+void cancel_quest(CHAR_DATA *ch)
+{
+	CHAR_DATA *fch;
+	ch->pcdata->nextquest = 0;
+	REMOVE_BIT(ch->act, PLR_QUESTOR);
+	ch->pcdata->questgiver = 0;
+	ch->pcdata->countdown = 0;
+	ch->pcdata->questmob = 0;
+	ch->pcdata->questobj = 0;
+	/* here remove mob->hunter */
+	for (fch = char_list; fch; fch = fch->next)
+		if (fch->hunter == ch) {
+			fch->hunter = 0;
+			break;
+		}
+}
 
 void quest_update(void)
 {
-    CHAR_DATA *ch, *ch_next;
+	CHAR_DATA *ch, *ch_next;
 
-    for (ch = char_list; ch != NULL; ch = ch_next)
-    {
-	ch_next = ch->next;
+	for (ch = char_list; ch != NULL; ch = ch_next) {
+		ch_next = ch->next;
 
-	if (IS_NPC(ch)) continue;
+		if (IS_NPC(ch)) 
+			continue;
+		if (ch->pcdata->nextquest > 0) {
+			ch->pcdata->nextquest--;
 
-	if (ch->pcdata->nextquest > 0)
-	{
-	    ch->pcdata->nextquest--;
-
-	    if (ch->pcdata->nextquest == 0)
-	    {
-		send_to_char(msg(QUEST_YOU_MAY_NOW_QUEST_AGAIN, ch), ch);
-		return;
-	    }
-	}
-	else if (IS_SET(ch->act,PLR_QUESTOR))
-	{
-	    if (--ch->pcdata->countdown <= 0)
-	    {
-		CHAR_DATA *fch;
-		ch->pcdata->nextquest = 0;
-		send_to_char(msg(QUEST_RUN_OUT_TIME, ch), ch);
-		REMOVE_BIT(ch->act, PLR_QUESTOR);
-		ch->pcdata->questgiver = 0;
-		ch->pcdata->countdown = 0;
-		ch->pcdata->questmob = 0;
-		ch->pcdata->questobj = 0;
-		/* here remove mob->hunter */
-		for (fch = char_list; fch; fch = fch->next)
-			if (fch->hunter == ch) {
-				fch->hunter = 0;
-				break;
+			if (ch->pcdata->nextquest == 0) {
+				send_to_char(msg(QUEST_YOU_MAY_NOW_QUEST_AGAIN,
+						 ch), ch);
+				return;
 			}
-	    }
-	    if (ch->pcdata->countdown > 0 && ch->pcdata->countdown < 6)
-	    {
-		send_to_char(msg(QUEST_BETTER_HURRY, ch), ch);
-		return;
-	    }
+		} else if (IS_SET(ch->act, PLR_QUESTOR)) {
+			if (--ch->pcdata->countdown <= 0) {
+				send_to_char(msg(QUEST_RUN_OUT_TIME, ch), ch);
+				cancel_quest(ch);
+			}
+			if (ch->pcdata->countdown > 0 
+			    && ch->pcdata->countdown < 6) {
+				send_to_char(msg(QUEST_BETTER_HURRY, ch), ch);
+				return;
+			}
+		}
 	}
-    }
-    return;
+	return;
 }
 
 void do_tell_quest(CHAR_DATA *ch, CHAR_DATA *victim, char *argument)

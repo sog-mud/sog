@@ -1,6 +1,8 @@
 #ifndef __QUEST_H_FILE__
 #define __QUEST_H_FILE__
 
+void cancel_quest(CHAR_DATA *ch);
+
 /* quest rewards */
 #define QUEST_ITEM1 94
 #define QUEST_ITEM2 95
