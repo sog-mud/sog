@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.126 1998-11-21 06:00:58 fjoe Exp $
+ * $Id: comm.c,v 1.127 1998-11-21 06:33:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -482,9 +482,6 @@ void game_loop_unix(int control)
 	static struct timeval null_time;
 	struct timeval last_time;
  
-#if !defined (WIN32)
-	signal(SIGPIPE, SIG_IGN);
-#endif
 	gettimeofday(&last_time, NULL);
 	current_time = (time_t) last_time.tv_sec;
 
