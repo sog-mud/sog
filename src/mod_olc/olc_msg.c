@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.33 1999-06-29 10:57:04 fjoe Exp $
+ * $Id: olc_msg.c,v 1.34 1999-07-02 05:41:05 fjoe Exp $
  */
 
 #include "olc.h"
@@ -148,13 +148,16 @@ OLC_FUN(msged_save)
 		for (j = 0; j < v->nused; j++) {
 			msg_t *mp = VARR_GET(v, j);
 
+			if (IS_NULLSTR(mlstr_mval(&mp->ml)))
+				continue;
+
 			fprintf(fp, "#MSG\n");
 
 			if (mp->gender) {
 				fprintf(fp, "Gender %s\n",
 					flag_string(gender_table, mp->gender));
 			}
-
+			
 			mlstr_fwrite(fp, "Text", &mp->ml);
 			fprintf(fp, "End\n\n");
 		}

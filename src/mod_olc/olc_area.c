@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.46 1999-07-01 11:31:35 fjoe Exp $
+ * $Id: olc_area.c,v 1.47 1999-07-02 05:41:04 fjoe Exp $
  */
 
 #include "olc.h"
@@ -1592,8 +1592,7 @@ static void save_area(CHAR_DATA *ch, AREA_DATA *pArea)
 	fprintf(fp, "Security %d\n",	pArea->security);
 	fprintf(fp, "LevelRange %d %d\n",
 		pArea->min_level, pArea->max_level);
-	if (!mlstr_null(&pArea->resetmsg))
-		mlstr_fwrite(fp, "ResetMessage", &pArea->resetmsg);
+	mlstr_fwrite(fp, "ResetMessage", &pArea->resetmsg);
 	flags = pArea->area_flags & ~AREA_CHANGED;
 	if (flags)
 		fwrite_string(fp, "Flags", flag_string(area_flags, flags));
