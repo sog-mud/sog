@@ -5525,10 +5525,6 @@ G 0 12034 0		*	A jester's stick
 M 0 12030 3 12144 1	* an eshu (The Court of the Fae)
 G 0 12007 0		*	A pixie bow
 M 0 12034 6 12144 1	* a sluagh watcher (The Court of the Fae)
-M 0 12006 3 12145 1	* a sidhe noble (The Top of the Eastern Guard Tower)
-E 0 12047 0 11		*	A noble's rapier: as a shield
-E 0 12069 0 16		*	A crested shield: wielded
-E 0 12046 0 6		*	A noble's circlet: over the head
 M 0 12010 3 12145 1	* a sidhe guard (The Top of the Eastern Guard Tower)
 E 0 12045 0 14		*	An engraved sidhe bracer: on the left wrist
 E 0 12045 0 15		*	An engraved sidhe bracer: on the right wrist

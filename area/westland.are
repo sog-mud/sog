@@ -985,7 +985,7 @@ Back to the woods.
 Z 0 10001
 S
 #10003
-Welcome to Westands!~
+Welcome to Westlands~
 Welcome! Here you are in the middle of a forest beside Trout
 Lake. The road you are walking on goes to the north and back to
 the south if you wish to leave. There are fish jumping in the
@@ -1841,9 +1841,9 @@ S
 #RESETS
 O 0 10025 0 10001	* a sign (Path By a Lake.)
 O 0 10026 0 10001	* a little sign (Path By a Lake.)
-M 0 10007 1 10003 1	* a young lady (Welcome to Westands!)
-M 0 10008 1 10003 1	* a fisherman (Welcome to Westands!)
-M 0 10009 1 10003 1	* a little boy (Welcome to Westands!)
+M 0 10007 1 10003 1	* a young lady (Welcome to Westlands)
+M 0 10008 1 10003 1	* a fisherman (Welcome to Westlands)
+M 0 10009 1 10003 1	* a little boy (Welcome to Westlands)
 M 0 10005 4 10005 1	* a quad assassin (A Turn in the Road.)
 M 0 10005 4 10005 1	* a quad assassin (A Turn in the Road.)
 M 0 10005 4 10005 1	* a quad assassin (A Turn in the Road.)

@@ -24,6 +24,8 @@ stand stand male 0
 Z LPQUX medium unknown
 F for AHMV
 F par CEFGHJ
+M speech 44000 Hi~
+M exall 44001 4~
 #44001
 sam~
 @eng sam@rus sam~
@@ -184,7 +186,6 @@ S
 
 #MOBPROGS
 #44000
---- speech "Hi"
 smile $n
 say Hi
 ~

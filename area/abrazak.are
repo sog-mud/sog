@@ -186,8 +186,10 @@ Abrazak's mace~
 abrazak's mace~
 divinity~
 weapon 0 AN
-mace 10000 100000 stab BCDEGHI
+mace 2000 2000 stab BCDEGHI
 100 0 0 P
+F
+A 18 10000 HIV
 F
 I 19 10000 CD
 #15010

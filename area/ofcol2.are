@@ -577,6 +577,7 @@ ABCGTe N 1000 0
 CDEFGIKLUe 0 0 0
 stand stand male 5
 0 0 giant unknown
+M grall 600 100~
 #0
 
 #OBJECTS
@@ -3492,6 +3493,17 @@ S
 608 0 17 19 0 0 120 10 0 23
 622 0 17 0 0 0 120 10 0 23
 0
+
+#MOBPROGS
+#600
+if clan $n ruler 
+bow $n
+end 
+endif
+say Do not go further and leave the square.
+say This place is private.
+~
+#0
 
 #PRACTICERS
 M 601 maladictions~	* Marshall Diana

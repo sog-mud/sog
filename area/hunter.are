@@ -16,12 +16,13 @@ After joining so many safaris, the guardian know implements what he
 learned as guarding this palace for very very much amounts of gold. 
 ~
 human~
-ABWe DFHJVZ 0 0
+ABWef DFHJVZ 0 0
 92 40 2d500+25000 1d200+600 10d35+50 slash
 -77 -77 -77 -37
 CEFKNU AB 0 S
 stand stand male 5000
 0 0 medium unknown
+M grall 95700 100~
 #95701
 neutral cleric cabal hunter~
 the cleric~
@@ -110,7 +111,7 @@ The guardians are  keeping the hunters from enemies.
 D0
 ~
 ~
-Z -1 95702
+DZ -1 95702
 D5
 ~
 enterance~
@@ -134,7 +135,7 @@ Z -1 95702
 D2
 ~
 ~
-Z -1 95701
+DZ -1 95701
 D3
 ~
 ~
@@ -168,6 +169,35 @@ M 0 95701 1 95703 1	* the cleric (Main chambers of Hunt)
 O 0 95700 0 95703	* the golden sign (Main chambers of Hunt)
 P 0 95701 1 95700 1	* the golden sign: the golden tattoo
 S
+
+#MOBPROGS
+#95700
+if clan $n Hunter     
+'Welcome, brother.     
+end
+endif
+if isimmort $n 
+bow $n
+end
+endif
+if level $n < 10
+mob transfer $n 9783 
+end
+endif
+if ischarm $n 
+say Charmies are not allowed in this place!
+mob transfer $n 9783 
+end
+endif
+if isghost $n
+say Ghosts are not allowed in this place!
+mob slay $n
+end
+endif
+clan We are attacked by $n !
+mob attack $n
+~
+#0
 
 #PRACTICERS
 M 95702 clan~	* the guardian

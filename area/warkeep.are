@@ -694,7 +694,7 @@ flind bar~
 a flind bar~
 A flind bar has been left here.~
 copper~
-armor J AN
+armor J AO
 7 7 7 7 0
 20 5 200 P
 A
@@ -1681,8 +1681,8 @@ E 0 15732 0 16		*	a shovel: wielded
 E 0 15742 0 7		*	a set of leg irons: on the legs
 O 0 15733 0 15739	* a pile of rubble (The Mines)
 M 0 15719 1 15739 1	* a flind slave master (The Mines)
-E 0 15735 0 16		*	a flind bar: wielded
 G 0 15734 0		*	a whip
+E 0 15735 0 17		*	a flind bar: held in the hands
 M 0 15717 10 15740 1	* a gnoll slave (The Mines)
 E 0 15731 0 16		*	a pick: wielded
 E 0 15742 0 7		*	a set of leg irons: on the legs

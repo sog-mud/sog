@@ -16,12 +16,13 @@ This strong serves as the guardian of the Invader Cabal. His mission is
 to destroy anyone who dares to penatrate into the chamber.
 ~
 human~
-ABJKWe DFHJVZ -1000 0
+ABJKWef DFHJVZ -1000 0
 92 40 2d500+25000 1d200+600 10d40+40 slash
 -77 -77 -77 -42
 CEFKNU AB 0 S
 stand stand male 5000
 0 0 medium unknown
+M grall 95600 100~
 C Invader~
 #95601
 evil cleric cabal invader~
@@ -215,7 +216,7 @@ D0
 It's dark to tell anything.
 ~
 ~
-Z -1 95608
+DZ -1 95608
 D1
 It's dark to tell anything.
 ~
@@ -225,7 +226,7 @@ D2
 It's too dark to tell anything.
 ~
 ~
-Z -1 95609
+DZ -1 95609
 D3
 It's dark to tell anything.
 ~
@@ -248,7 +249,7 @@ D2
 You see the dark corridor.
 ~
 ~
-Z -1 95607
+DZ -1 95607
 M 110 H 100
 S
 #95609
@@ -264,7 +265,7 @@ D0
 You see the dark corridor.
 ~
 ~
-Z -1 95607
+DZ -1 95607
 M 50 H 50
 S
 #0
@@ -281,6 +282,35 @@ O 0 95603 0 95608	* Magical White Portal (The Pentagram)
 O 0 95604 0 95608	* Dark Portal (The Pentagram)
 O 0 95605 0 95608	* Magical Green Portal (The Pentagram)
 S
+
+#MOBPROGS
+#95600
+if clan $n Invader
+' Greetings, dark one.
+end
+endif
+if isimmort $n 
+bow $n
+end
+endif
+if level $n < 10
+mob transfer $n 95600
+end
+endif
+if ischarm $n 
+say Charmies are not allowed in this place!
+mob transfer $n 95600
+end
+endif
+if isghost $n
+say Ghosts are not allowed in this place!
+mob slay $n
+end
+endif
+clan We are attacked by $n
+mob attack $n
+~
+#0
 
 #PRACTICERS
 M 95600 clan~	* the invader guardian

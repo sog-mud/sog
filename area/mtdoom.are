@@ -3851,7 +3851,7 @@ O 0 14733 0 14792	* a chest (The Hydra Lair)
 P 0 14734 1 14733 1	* a chest: a great treasure
 M 0 14745 1 14793 1	* a stone golem (A Spiral Staircase)
 M 0 14702 1 14794 1	* an iron golem (A Landing)
-E 0 14706 0 16		*	the iron fist: wielded
+E 0 14706 0 9		*	the iron fist: on the hands
 M 0 14719 1 14795 1	* an evil illithid (A Bedchamber)
 E 0 14731 0 12		*	an illithid's robes: about the shoulders
 E 0 14732 0 17		*	a gem: held in the hands

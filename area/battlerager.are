@@ -18,12 +18,13 @@ staffs. Even he had never used a magical item. Those shows how he
 hates magic.
 ~
 giant~
-ABJKTVe DFe 0 0
+ABJKTVef DFe 0 0
 92 70 2d500+25000 1d1+3999 10d40+90 slash
 -90 -90 -90 -70
 ACEFIK AB D 0
 stand stand male 0
 0 0 giant unknown
+M grall 95400 100~
 C BattleRager~
 #95401
 Gordall~
@@ -313,6 +314,36 @@ S
 #SHOPS
 95401 1 5 9 11 0 150 70 0 23
 0
+
+#MOBPROGS
+#95400
+if clan $n Battlerager
+'Hail, brother!           
+mob echoat $n $I snaps to attention, sharply saluting you!
+end
+endif
+if isimmort $n 
+mob echoat $n $I snaps to attention, sharply saluting you!
+end
+endif
+if level $n < 10
+mob transfer $n 5281 
+end
+endif
+if ischarm $n 
+say Charmies are not allowed in this place!
+mob transfer $n 5281 
+end
+endif
+if isghost $n
+say Ghosts are not allowed in this place!
+mob slay $n
+end
+endif
+clan We are attacked by $n !
+mob attack $n
+~
+#0
 
 #PRACTICERS
 M 95400 clan~	* the Powerman

@@ -188,12 +188,12 @@ A
 A
 13 1000
 #38011
-sword safira~
+dagger safira~
 Sword of Safira~
 Sword of Safira lies here.~
-unknown~
-weapon CIc AN
-sword 8 6 slash C
+steal~
+weapon CI AN
+dagger 8 6 stab C
 10 100 4000 P
 A
 19 4
@@ -685,6 +685,7 @@ S
 O 0 38003 0 38101	* fountain (Coridor)
 O 0 38002 0 38101	* armchair (Coridor)
 O 0 38001 0 38102	* big bed (Bedroom)
+O 0 38011 0 38102	* Sword of Safira (Bedroom)
 O 0 38002 0 38103	* armchair (Cabinet)
 O 0 38004 0 38103	* table (Cabinet)
 O 0 38200 0 38200	* long wooden table (Budy's)
