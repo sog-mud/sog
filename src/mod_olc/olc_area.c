@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.23 1998-10-26 08:40:06 fjoe Exp $
+ * $Id: olc_area.c,v 1.24 1998-10-28 19:46:40 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -174,8 +174,7 @@ OLC_FUN(areaed_show)
 	char_printf(ch, "Security: [%d]\n\r", pArea->security);
 	if (!IS_NULLSTR(pArea->builders))
 		char_printf(ch, "Builders: [%s]\n\r", pArea->builders);
-	if (!IS_NULLSTR(pArea->credits))
-		char_printf(ch, "Credits:  [%s]\n\r", pArea->credits);
+	char_printf(ch, "Credits:  [%s]\n\r", pArea->credits);
 	char_printf(ch, "Flags:    [%s]\n\r",
 			flag_string(area_flags, pArea->flags));
 	return FALSE;
