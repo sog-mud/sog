@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.167 2004-02-20 00:39:31 fjoe Exp $
+ * $Id: olc.c,v 1.168 2004-02-21 18:58:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -131,7 +131,7 @@ static olc_cmd_t *	olc_cmd_lookup(olc_cmd_t *cmd_table, const char *name);
 
 static void do_olc(CHAR_DATA *ch, const char *argument, int fun);
 
-const char *skip_commands[] = { "n", "w", "e", "s", "u", "d" };
+static const char *skip_commands[] = { "n", "w", "e", "s", "u", "d" };
 #define NSKIP_COMMANDS (sizeof(skip_commands) / sizeof(*skip_commands))
 
 MODINIT_FUN(_module_load, m)
@@ -1384,6 +1384,62 @@ olced_remove_one_trig(CHAR_DATA *ch, trig_t *trig)
 	}
 }
 
+/*
+ * NOTE: keep this in sync with pull_one_trigger() in sog/trig.c
+ */
+static bool
+trig_check_arg(CHAR_DATA *ch, int trig_type, const char *argument)
+{
+	int number;
+
+	if (HAS_TEXT_ARG(trig_type)
+	||  HAS_OBJ_ARG(trig_type)
+	||  HAS_CMD_ARG(trig_type))
+		return TRUE;
+
+	if (HAS_EXIT_ARG(trig_type)) {
+		char arg[MAX_STRING_LENGTH];
+
+		for (argument = one_argument(argument, arg, sizeof(arg));
+		     arg[0] != '\0';
+		     argument = one_argument(argument, arg, sizeof(arg))) {
+			int i;
+			bool found;
+
+			if (!str_cmp(arg, "portal") || !str_cmp(arg, "all"))
+				continue;
+
+			found = FALSE;
+			for (i = 0; i < MAX_DIR; i++) {
+				if (!str_cmp(arg, dir_name[i])) {
+					found = TRUE;
+					break;
+				}
+			}
+			if (found)
+				continue;
+
+			act_char("Trigger argument should be 'all', 'portal', or exit direction.", ch);
+			return FALSE;
+		}
+
+		return TRUE;
+	}
+
+	if (!is_number(argument)
+	||  (number = atoi(argument)) < 0
+	||  (trig_type != TRIG_MOB_BRIBE && number > 100)) {
+		if (trig_type == TRIG_MOB_BRIBE) {
+			act_char("Trigger argument should be non-negative integer number.", ch);
+		} else {
+			act_char("Trigger argument should be integer number in range 0..100.", ch);
+		}
+		return FALSE;
+	}
+
+	return TRUE;
+}
+
 bool
 olced_trig(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 	   varr *v, int mp_type, int vnum, void *vo)
@@ -1426,6 +1482,9 @@ olced_trig(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 			const char *mp_name;
 			int trignum = c_size(v);
 
+			if (!trig_check_arg(ch, trig_type, argument))
+				return FALSE;
+
 			do {
 				mp_name = genmpname_vnum(
 				    mp_type, vnum, trignum++);
@@ -1461,6 +1520,9 @@ olced_trig(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 			    TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 			return FALSE;
 		}
+
+		if (!trig_check_arg(ch, trig_type, argument))
+			return FALSE;
 
 		trig = trig_new(v, trig_type);
 		trig->trig_prog = str_qdup(mp->name);
@@ -1882,7 +1944,8 @@ olc_cmd_lookup(olc_cmd_t *cmd_table, const char *name)
 	return NULL;
 }
 
-const char *help_topics[FUN_MAX] =
+static const char *
+help_topics[FUN_MAX] =
 {
 	"'OLC CREATE'",
 	"'OLC EDIT'",

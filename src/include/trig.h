@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.h,v 1.21 2004-02-11 21:44:11 fjoe Exp $
+ * $Id: trig.h,v 1.22 2004-02-21 18:58:45 fjoe Exp $
  */
 
 #ifndef _TRIG_H_
@@ -87,25 +87,25 @@
 /* spec triggers */
 #define TRIG_SPEC		300
 
-#define HAS_TEXT_ARG(trig)	((trig)->trig_type == TRIG_MOB_ACT ||	\
-				 (trig)->trig_type == TRIG_MOB_SPEECH ||\
-				 (trig)->trig_type == TRIG_MOB_TELL ||	\
-				 (trig)->trig_type == TRIG_MOB_YELL ||	\
-				 (trig)->trig_type == TRIG_OBJ_SPEECH)
-#define HAS_OBJ_ARG(trig)	((trig)->trig_type == TRIG_MOB_GIVE ||	\
-				 (trig)->trig_type == TRIG_MOB_OPEN ||	\
-				 (trig)->trig_type == TRIG_MOB_GET)
-#define HAS_CMD_ARG(trig)	((trig)->trig_type == TRIG_MOB_CMD ||	\
-				 (trig)->trig_type == TRIG_ROOM_CMD ||	\
-				 (trig)->trig_type == TRIG_OBJ_CMD)
-#define HAS_EXIT_ARG(trig)	((trig)->trig_type == TRIG_MOB_GREET ||	\
-				 (trig)->trig_type == TRIG_MOB_EXIT ||	\
-				 (trig)->trig_type == TRIG_OBJ_GREET ||	\
-				 (trig)->trig_type == TRIG_ROOM_GREET || \
-				 (trig)->trig_type == TRIG_ROOM_DOPEN || \
-				 (trig)->trig_type == TRIG_ROOM_DCLOSE || \
-				 (trig)->trig_type == TRIG_ROOM_DLOCK || \
-				 (trig)->trig_type == TRIG_ROOM_DUNLOCK)
+#define HAS_TEXT_ARG(trig_type)	((trig_type) == TRIG_MOB_ACT ||		\
+				 (trig_type) == TRIG_MOB_SPEECH ||	\
+				 (trig_type) == TRIG_MOB_TELL ||	\
+				 (trig_type) == TRIG_MOB_YELL ||	\
+				 (trig_type) == TRIG_OBJ_SPEECH)
+#define HAS_OBJ_ARG(trig_type)	((trig_type) == TRIG_MOB_GIVE ||	\
+				 (trig_type) == TRIG_MOB_OPEN ||	\
+				 (trig_type) == TRIG_MOB_GET)
+#define HAS_CMD_ARG(trig_type)	((trig_type) == TRIG_MOB_CMD ||		\
+				 (trig_type) == TRIG_ROOM_CMD ||	\
+				 (trig_type) == TRIG_OBJ_CMD)
+#define HAS_EXIT_ARG(trig_type)	((trig_type) == TRIG_MOB_GREET ||	\
+				 (trig_type) == TRIG_MOB_EXIT ||	\
+				 (trig_type) == TRIG_OBJ_GREET ||	\
+				 (trig_type) == TRIG_ROOM_GREET ||	\
+				 (trig_type) == TRIG_ROOM_DOPEN ||	\
+				 (trig_type) == TRIG_ROOM_DCLOSE ||	\
+				 (trig_type) == TRIG_ROOM_DLOCK ||	\
+				 (trig_type) == TRIG_ROOM_DUNLOCK)
 
 #define TRIG_F_CASEDEP	(A)	/* text arg case-dependent	*/
 #define TRIG_F_REGEXP	(B)	/* text arg is regexp		*/

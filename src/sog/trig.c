@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.c,v 1.39 2004-02-19 00:29:35 fjoe Exp $
+ * $Id: trig.c,v 1.40 2004-02-21 18:58:46 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -265,7 +265,7 @@ trig_set_arg(trig_t *trig, const char *arg)
 	/*
 	 * skip non-text arg triggers and empty args
 	 */
-	if (!HAS_TEXT_ARG(trig) || IS_NULLSTR(trig->trig_arg))
+	if (!HAS_TEXT_ARG(trig->trig_type) || IS_NULLSTR(trig->trig_arg))
 		return;
 
 	if (trig_arg[0] == '#')
@@ -496,6 +496,9 @@ pull_one_trigger(trig_t *trig, int mp_type,
 		}
 	}
 
+	/*
+	 * NOTE: keep this in sync with trig_check_arg() in mod_olc/olc.c
+	 */
 	if (trig->trig_type == TRIG_MOB_BRIBE) {
 		int silver_needed = atoi(trig_arg);
 		int silver = (int) arg3;
@@ -503,7 +506,7 @@ pull_one_trigger(trig_t *trig, int mp_type,
 		if (silver < silver_needed)
 			return MPC_ERR_COND_FAILED;
 		arg3 = NULL;
-	} else if (HAS_TEXT_ARG(trig)) {
+	} else if (HAS_TEXT_ARG(trig->trig_type)) {
 		char *arg_lwr = strlwr(arg3);
 		bool match = FALSE;
 
@@ -519,7 +522,7 @@ pull_one_trigger(trig_t *trig, int mp_type,
 			return MPC_ERR_COND_FAILED;
 		arg4 = arg3;
 		arg3 = NULL;
-	} else if (HAS_OBJ_ARG(trig)) {
+	} else if (HAS_OBJ_ARG(trig->trig_type)) {
 		OBJ_DATA *obj = (OBJ_DATA *) arg3;
 		bool match = FALSE;
 
@@ -541,7 +544,7 @@ pull_one_trigger(trig_t *trig, int mp_type,
 
 		if (!match)
 			return MPC_ERR_COND_FAILED;
-	} else if (HAS_CMD_ARG(trig)) {
+	} else if (HAS_CMD_ARG(trig->trig_type)) {
 		const char *argument = arg3;
 		char command[MAX_INPUT_LENGTH];
 
@@ -551,7 +554,7 @@ pull_one_trigger(trig_t *trig, int mp_type,
 
 		arg3 = NULL;
 		arg4 = CAST(void *, argument);
-	} else if (HAS_EXIT_ARG(trig)) {
+	} else if (HAS_EXIT_ARG(trig->trig_type)) {
 		if (!is_name(arg3, trig_arg))
 			return MPC_ERR_COND_FAILED;
 		arg4 = arg3;
