@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.272 2001-01-11 12:41:14 cs Exp $
+ * $Id: handler.c,v 1.273 2001-01-11 18:44:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -460,7 +460,8 @@ equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 	&&  ch->in_room != NULL)
 		++ch->in_room->light;
 
-	oprog_call(OPROG_WEAR, obj, ch, NULL);
+	if (oprog_call(OPROG_WEAR, obj, ch, NULL))
+		return NULL;
 	return obj;
 }
 

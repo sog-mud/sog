@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rwfile.c,v 1.15 2000-10-21 17:00:56 fjoe Exp $
+ * $Id: rwfile.c,v 1.16 2001-01-11 18:44:28 fjoe Exp $
  */
 
 static char str_end[] = "End";
@@ -329,7 +329,8 @@ fread_sword(rfile_t *fp)
 	return str_dup(rfile_tok(fp));
 }
 
-const char *fread_string(rfile_t *fp)
+const char *
+fread_string(rfile_t *fp)
 {
 	char buf[MAX_STRING_LENGTH];
 	char *plast = buf;
@@ -372,7 +373,8 @@ const char *fread_string(rfile_t *fp)
 /*
  * Read a letter from a file.
  */
-char fread_letter(rfile_t *fp)
+char
+fread_letter(rfile_t *fp)
 {
 	char c;
 
@@ -385,7 +387,8 @@ char fread_letter(rfile_t *fp)
 /*
  * Read to end of line (for comments).
  */
-void fread_to_eol(rfile_t *fp)
+void
+fread_to_eol(rfile_t *fp)
 {
 	char c;
 
@@ -400,12 +403,13 @@ void fread_to_eol(rfile_t *fp)
 	xungetc(fp);
 }
 
-void fread_to_end(rfile_t *fp)
+void
+fread_to_end(rfile_t *fp)
 {
 	for (;;) {
 		fread_to_eol(fp);
 		fread_keyword(fp);
-		if (!IS_TOKEN(fp, "End"))
+		if (IS_TOKEN(fp, "End"))
 			break;
 	}
 }
@@ -413,7 +417,8 @@ void fread_to_end(rfile_t *fp)
 /*
  * Read a number from a file.
  */
-int fread_number(rfile_t *fp)
+int
+fread_number(rfile_t *fp)
 {
 	int number = 0;
 	bool sign = FALSE;
@@ -463,7 +468,8 @@ flag_convert(int letter, int low_end)
 	return rv;
 }
 
-int64_t fread_flagsxx(rfile_t *fp, int low_end)
+int64_t
+fread_flagsxx(rfile_t *fp, int low_end)
 {
 	int64_t number;
 	bool negative = FALSE;
@@ -499,12 +505,14 @@ int64_t fread_flagsxx(rfile_t *fp, int low_end)
 	return number;
 }
 
-flag_t fread_flags(rfile_t *fp)
+flag_t
+fread_flags(rfile_t *fp)
 {
 	return fread_flagsxx(fp, 'e');
 }
 
-int64_t fread_flags64(rfile_t *fp)
+int64_t
+fread_flags64(rfile_t *fp)
 {
 	return fread_flagsxx(fp, 'z');
 }
@@ -512,7 +520,8 @@ int64_t fread_flags64(rfile_t *fp)
 /*
  * read flag word (not f-word :)
  */
-flag_t fread_fword(const flaginfo_t *table, rfile_t *fp)
+flag_t
+fread_fword(const flaginfo_t *table, rfile_t *fp)
 {
 	const char *name;
 
@@ -525,7 +534,8 @@ flag_t fread_fword(const flaginfo_t *table, rfile_t *fp)
 	return flag_svalue(table, name);
 }
 
-flag_t fread_fstring(const flaginfo_t *table, rfile_t *fp)
+flag_t
+fread_fstring(const flaginfo_t *table, rfile_t *fp)
 {
 	const char *s = fread_string(fp);
 	flag_t val;
@@ -538,4 +548,3 @@ flag_t fread_fstring(const flaginfo_t *table, rfile_t *fp)
 	free_string(s);
 	return val;
 }
-

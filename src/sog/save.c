@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.173 2000-11-17 19:19:48 avn Exp $
+ * $Id: save.c,v 1.174 2001-01-11 18:44:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1135,10 +1135,14 @@ fread_obj(CHAR_DATA * ch, rfile_t * fp, int flags)
 
 		if ((pObjIndex = get_obj_index(vnum)) != NULL)
 			obj = create_obj(pObjIndex, CO_F_NOCOUNT);
-	}
-
-	if (obj == NULL) {
-		log(LOG_INFO, "fread_obj: %s: no obj vnum or bad vnum in file", ch->name);
+		else {
+			log(LOG_INFO, "fread_obj: %s: vnum %d: no such object",
+			    ch->name, vnum);
+			fread_to_end(fp);
+			return;
+		}
+	} else {
+		log(LOG_INFO, "fread_obj: %s: no obj vnum in file", ch->name);
 		fread_to_end(fp);
 		return;
 	}
