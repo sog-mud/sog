@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.57 1999-04-16 15:52:20 fjoe Exp $
+ * $Id: obj_prog.c,v 1.58 1999-05-22 17:08:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1715,7 +1715,7 @@ int wear_prog_ruler_shield(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	clan_t *clan = clan_lookup(ch->clan);
 
-	if (!clan || str_cmp(clan->name, "ruler")) {
+	if (!clan || str_cmp(clan->name, "rulers")) {
 		act("You are zapped by $p and drop it.",
 		    ch, obj, NULL, TO_CHAR);
 		act("$n is zapped by $p and drops it.",
