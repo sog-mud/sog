@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.289 2002-11-22 15:20:49 fjoe Exp $
+ * $Id: act_move.c,v 1.290 2002-11-22 17:09:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2233,7 +2233,7 @@ DO_FUN(do_mount, ch, argument)
 	if (!IS_NPC(mount)
 	||  !IS_SET(mount->pMobIndex->act, ACT_RIDEABLE)
 	||  IS_SET(mount->pMobIndex->act, ACT_NOTRACK)) {
-		act_char("You can't ride that.", ch);
+		act("You can't ride that.", ch, NULL, mount, TO_CHAR);
 		return;
 	}
 
