@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.117 1999-02-15 22:48:22 fjoe Exp $
+ * $Id: act_wiz.c,v 1.118 1999-02-16 16:41:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -45,7 +45,6 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include <stdarg.h>
 #if !defined (WIN32)
 #include <unistd.h>
 #endif
@@ -234,15 +233,11 @@ void do_wiznet(CHAR_DATA *ch, const char *argument)
 			    wiznet_table[flag].name);
 }
 
-void wiznet_printf(CHAR_DATA *ch, OBJ_DATA *obj,
-		   long flag, long flag_skip, int min_level,
-		   char* format, ...) 
+void wiznet(const char *msg, CHAR_DATA *ch, const void *arg,
+	    flag32_t flag, flag32_t flag_skip, int min_level)
 {
-	va_list ap;
 	DESCRIPTOR_DATA *d;
-	char buf[MAX_STRING_LENGTH];
 
-	va_start(ap, format);
 	for (d = descriptor_list; d != NULL; d = d->next) {
 		CHAR_DATA *vch = d->original ? d->original : d->character;
 
@@ -259,10 +254,8 @@ void wiznet_printf(CHAR_DATA *ch, OBJ_DATA *obj,
 		if (IS_SET(vch->pcdata->wiznet, WIZ_PREFIX))
 			act_puts("--> ", vch, NULL, NULL, TO_CHAR | ACT_NOLF,
 				 POS_DEAD);
-		vsnprintf(buf, sizeof(buf), format, ap);
-		act_puts(buf, vch, obj, ch, TO_CHAR, POS_DEAD);
+		act_puts(msg, vch, arg, ch, TO_CHAR, POS_DEAD);
 	}
-	va_end(ap); 
 }
 
 void do_tick(CHAR_DATA *ch, const char *argument)
@@ -391,18 +384,16 @@ void do_nochannels(CHAR_DATA *ch, const char *argument)
 	    char_puts("The gods have restored your channel priviliges.\n", 
 			      victim);
 	    char_puts("NOCHANNELS removed.\n", ch);
-		wiznet_printf(ch,NULL,WIZ_PENALTIES,WIZ_SECURE,0,
-			      "$N restores channels to %s",victim->name);
+		wiznet("$N restores channels to $i",
+			ch, victim, WIZ_PENALTIES, WIZ_SECURE, 0);
 	} else {
 	    SET_BIT(victim->comm, COMM_NOCHANNELS);
 	    char_puts("The gods have revoked your channel priviliges.\n", 
 			       victim);
 	    char_puts("NOCHANNELS set.\n", ch);
-		wiznet_printf(ch,NULL,WIZ_PENALTIES,WIZ_SECURE,0,
-				"$N revokes %s's channels.",victim->name);
+		wiznet("$N revokes $i's channels.",
+			ch, victim, WIZ_PENALTIES, WIZ_SECURE, 0);
 	}
-	
-	return;
 }
 
 void do_smote(CHAR_DATA *ch, const char *argument)
@@ -438,7 +429,7 @@ void do_smote(CHAR_DATA *ch, const char *argument)
 			continue;
 		}
 
-		strcpy(temp,argument);
+		strnzcpy(temp, argument, sizeof(temp));
 		temp[strlen(argument) - strlen(letter)] = '\0';
 		last[0] = '\0';
 		name = vch->name;
@@ -552,8 +543,8 @@ void do_deny(CHAR_DATA *ch, const char *argument)
 
 	SET_BIT(victim->plr_flags, PLR_DENY);
 	char_puts("You are denied access!\n", victim);
-	wiznet_printf(ch, NULL, WIZ_PENALTIES, WIZ_SECURE, 0,
-		      "$N denies access to %s", victim->name);
+	wiznet("$N denies access to $i",
+		ch, victim, WIZ_PENALTIES, WIZ_SECURE, 0);
 	char_puts("Ok.\n", ch);
 	save_char_obj(victim, FALSE);
 	stop_fighting(victim, TRUE);
@@ -1820,10 +1811,8 @@ void do_snoop(CHAR_DATA *ch, const char *argument)
 		    }
 
 	victim->desc->snoop_by = ch->desc;
-	wiznet_printf(ch, NULL, WIZ_SNOOPS, WIZ_SECURE, ch->level,
-		      "$N starts snooping on %s",
-		      (IS_NPC(ch) ?
-			  mlstr_mval(victim->short_descr) : victim->name));
+	wiznet("$N starts snooping on $i.",
+		ch, victim, WIZ_SNOOPS, WIZ_SECURE, ch->level);
 	char_puts("Ok.\n", ch);
 }
 
@@ -1875,8 +1864,8 @@ void do_switch(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	wiznet_printf(ch, NULL, WIZ_SWITCHES, WIZ_SECURE, ch->level,
-		      "$N switches into %s", mlstr_mval(victim->short_descr));
+	wiznet("$N switches into $i.",
+		ch, victim, WIZ_SWITCHES, WIZ_SECURE, ch->level);
 
 	ch->desc->character = victim;
 	ch->desc->original  = ch;
@@ -1905,9 +1894,9 @@ void do_return(CHAR_DATA *ch, const char *argument)
 		ch->prompt = NULL;
 	}
 
-	wiznet_printf(ch->desc->original, 0, WIZ_SWITCHES, WIZ_SECURE,
-		      ch->level, "$N returns from %s.",
-		      mlstr_mval(ch->short_descr));
+	wiznet("$N returns from $i.",
+		ch->desc->original, ch,
+		WIZ_SWITCHES, WIZ_SECURE, ch->desc->original->level);
 	ch->desc->character       = ch->desc->original;
 	ch->desc->original        = NULL;
 	ch->desc->character->desc = ch->desc; 
@@ -2009,9 +1998,10 @@ void do_clone(CHAR_DATA *ch, const char *argument)
 		    obj_to_room(clone, ch->in_room);
 		recursive_clone(ch, obj, clone);
 
-		act("$n has created $p.",ch,clone,NULL,TO_ROOM);
-		act("You clone $p.",ch,clone,NULL,TO_CHAR);
-		wiznet("$N clones $p.",ch,clone,WIZ_LOAD,WIZ_SECURE,ch->level);
+		act("$n has created $p.", ch, clone, NULL, TO_ROOM);
+		act("You clone $p.", ch, clone, NULL, TO_CHAR);
+		wiznet("$N clones $p.",
+			ch, clone, WIZ_LOAD, WIZ_SECURE, ch->level);
 		return;
 	} else if (mob != NULL) {
 		CHAR_DATA *clone;
@@ -2041,8 +2031,8 @@ void do_clone(CHAR_DATA *ch, const char *argument)
 		char_to_room(clone, ch->in_room);
 		act("$n has created $N.", ch, NULL, clone, TO_ROOM);
 		act("You clone $N.", ch, NULL, clone, TO_CHAR);
-		wiznet_printf(ch, NULL, WIZ_LOAD, WIZ_SECURE, ch->level,
-			      "$N clones %s.", mlstr_mval(clone->short_descr));
+		wiznet("$N clones $i.",
+			ch, clone, WIZ_LOAD, WIZ_SECURE, ch->level);
 	}
 }
 
@@ -2096,8 +2086,7 @@ void do_mload(CHAR_DATA *ch, const char *argument)
 	victim = create_mob(pMobIndex);
 	char_to_room(victim, ch->in_room);
 	act("$n has created $N!", ch, NULL, victim, TO_ROOM);
-	wiznet_printf(ch, NULL, WIZ_LOAD, WIZ_SECURE, ch->level,
-		      "$N loads %s.", mlstr_mval(victim->short_descr));
+	wiznet("$N loads $i.", ch, victim, WIZ_LOAD, WIZ_SECURE, ch->level);
 	char_puts("Ok.\n", ch);
 }
 
@@ -2223,8 +2212,9 @@ void do_restore(CHAR_DATA *ch, const char *argument)
 	        act("$n has restored you.",ch,NULL,vch,TO_VICT);
 	    }
 
-	    wiznet_printf(ch,NULL,WIZ_RESTORE,WIZ_SECURE,ch->level,
-	    		"$N restored room %d.",ch->in_room->vnum);
+		wiznet("$N restored room $j.",
+			ch, (const void*) ch->in_room->vnum,
+			WIZ_RESTORE, WIZ_SECURE, ch->level);
 	    
 	    char_puts("Room restored.\n",ch);
 	    return;
@@ -2271,9 +2261,8 @@ void do_restore(CHAR_DATA *ch, const char *argument)
 	victim->move = victim->max_move;
 	update_pos(victim);
 	act("$n has restored you.", ch, NULL, victim, TO_VICT);
-	wiznet_printf(ch,NULL,WIZ_RESTORE,WIZ_SECURE,ch->level,
-			"$N restored %s",
-	      IS_NPC(victim) ? mlstr_mval(victim->short_descr) : victim->name);
+	wiznet("$N restored $i",
+		ch, victim, WIZ_RESTORE, WIZ_SECURE, ch->level);
 	char_puts("Ok.\n", ch);
 }
 		
@@ -2308,14 +2297,14 @@ void do_freeze(CHAR_DATA *ch, const char *argument)
 	if (!IS_SET(victim->plr_flags, PLR_FREEZE)) {
 		char_puts("You can play again.\n", victim);
 		char_puts("FREEZE removed.\n", ch);
-		wiznet_printf(ch, NULL, WIZ_PENALTIES, WIZ_SECURE, 0,
-			      "$N thaws %s.", victim->name);
+		wiznet("$N thaws $i.",
+			ch, victim, WIZ_PENALTIES, WIZ_SECURE, 0);
 	}
 	else {
 		char_puts("You can't do ANYthing!\n", victim);
 		char_puts("FREEZE set.\n", ch);
-		wiznet_printf(ch, NULL, WIZ_PENALTIES, WIZ_SECURE, 0,
-			      "$N puts %s in the deep freeze.", victim->name);
+		wiznet("$N puts $i in the deep freeze.",
+			ch, victim, WIZ_PENALTIES, WIZ_SECURE, 0);
 	}
 	save_char_obj(victim, FALSE);
 }
@@ -2365,7 +2354,7 @@ void do_log(CHAR_DATA *ch, const char *argument)
 
 void do_noemote(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH],buf[MAX_STRING_LENGTH];
+	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 
 	one_argument(argument, arg);
@@ -2389,20 +2378,21 @@ void do_noemote(CHAR_DATA *ch, const char *argument)
 		REMOVE_BIT(victim->comm, COMM_NOEMOTE);
 		char_puts("You can emote again.\n", victim);
 		char_puts("NOEMOTE removed.\n", ch);
-		sprintf(buf,"$N restores emotes to %s.",victim->name);
-		wiznet(buf,ch,NULL,WIZ_PENALTIES,WIZ_SECURE,0);
-	} else {
+		wiznet("$N restores emotes to $i.",
+			ch, victim, WIZ_PENALTIES, WIZ_SECURE, 0);
+	}
+	else {
 		SET_BIT(victim->comm, COMM_NOEMOTE);
 		char_puts("You can't emote!\n", victim);
 		char_puts("NOEMOTE set.\n", ch);
-		sprintf(buf,"$N revokes %s's emotes.",victim->name);
-		wiznet(buf,ch,NULL,WIZ_PENALTIES,WIZ_SECURE,0);
+		wiznet("$N revokes $i's emotes.",
+			ch, victim, WIZ_PENALTIES, WIZ_SECURE, 0);
 	}
 }
 
 void do_noshout(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH],buf[MAX_STRING_LENGTH];
+	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 
 	one_argument(argument, arg);
@@ -2431,20 +2421,20 @@ void do_noshout(CHAR_DATA *ch, const char *argument)
 		REMOVE_BIT(victim->comm, COMM_NOSHOUT);
 		char_puts("You can shout again.\n", victim);
 		char_puts("NOSHOUT removed.\n", ch);
-		sprintf(buf,"$N restores shouts to %s.",victim->name);
-		wiznet(buf,ch,NULL,WIZ_PENALTIES,WIZ_SECURE,0);
+		wiznet("$N restores shouts to $i.",
+			ch, victim, WIZ_PENALTIES, WIZ_SECURE, 0);
 	} else {
 		SET_BIT(victim->comm, COMM_NOSHOUT);
 		char_puts("You can't shout!\n", victim);
 		char_puts("NOSHOUT set.\n", ch);
-		sprintf(buf,"$N revokes %s's shouts.",victim->name);
-		wiznet(buf,ch,NULL,WIZ_PENALTIES,WIZ_SECURE,0);
+		wiznet("$N revokes $i's shouts.",
+			ch, victim, WIZ_PENALTIES, WIZ_SECURE, 0);
 	}
 }
 
 void do_notell(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH],buf[MAX_STRING_LENGTH];
+	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 
 	one_argument(argument, arg);
@@ -2468,15 +2458,15 @@ void do_notell(CHAR_DATA *ch, const char *argument)
 		REMOVE_BIT(victim->comm, COMM_NOTELL);
 		char_puts("You can tell again.\n", victim);
 		char_puts("NOTELL removed.\n", ch);
-		sprintf(buf,"$N restores tells to %s.",victim->name);
-		wiznet(buf,ch,NULL,WIZ_PENALTIES,WIZ_SECURE,0);
+		wiznet("$N restores tells to $i.",
+			ch, victim, WIZ_PENALTIES, WIZ_SECURE, 0);
 	}
 	else {
 		SET_BIT(victim->comm, COMM_NOTELL);
 		char_puts("You can't tell!\n", victim);
 		char_puts("NOTELL set.\n", ch);
-		sprintf(buf,"$N revokes %s's tells.",victim->name);
-		wiznet(buf,ch,NULL,WIZ_PENALTIES,WIZ_SECURE,0);
+		wiznet("$N revokes $i's tells.",
+			ch, victim, WIZ_PENALTIES, WIZ_SECURE, 0);
 	}
 }
 
@@ -2514,11 +2504,11 @@ void do_wizlock(CHAR_DATA *ch, const char *argument)
 	wizlock = !wizlock;
 
 	if (wizlock) {
-		wiznet("$N has wizlocked the game.",ch,NULL,0,0,0);
+		wiznet("$N has wizlocked the game.", ch, NULL, 0, 0, 0);
 		char_puts("Game wizlocked.\n", ch);
 	}
 	else {
-		wiznet("$N removes wizlock.",ch,NULL,0,0,0);
+		wiznet("$N removes wizlock.", ch, NULL, 0, 0, 0);
 		char_puts("Game un-wizlocked.\n", ch);
 	}
 }
@@ -2530,11 +2520,11 @@ void do_newlock(CHAR_DATA *ch, const char *argument)
 	newlock = !newlock;
 	
 	if (newlock) {
-		wiznet("$N locks out new characters.",ch,NULL,0,0,0);
+		wiznet("$N locks out new characters.", ch, NULL, 0, 0, 0);
 		char_puts("New characters have been locked out.\n", ch);
 	}
 	else {
-		wiznet("$N allows new characters back in.",ch,NULL,0,0,0);
+		wiznet("$N allows new characters back in.", ch, NULL, 0, 0, 0);
 		char_puts("Newlock removed.\n", ch);
 	}
 }
@@ -2642,17 +2632,17 @@ void do_sset(CHAR_DATA *ch, const char *argument)
 
 void do_string(CHAR_DATA *ch, const char *argument)
 {
-	char type [MAX_INPUT_LENGTH];
-	char arg1 [MAX_INPUT_LENGTH];
-	char arg2 [MAX_INPUT_LENGTH];
-	char arg3 [MAX_INPUT_LENGTH];
+	char type[MAX_INPUT_LENGTH];
+	char arg1[MAX_INPUT_LENGTH];
+	char arg2[MAX_INPUT_LENGTH];
+	char arg3[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	OBJ_DATA *obj;
 
 	argument = one_argument(argument, type);
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
-	strcpy(arg3, argument);
+	strnzcpy(arg3, argument, sizeof(arg3));
 
 	if (type[0] == '\0' || arg1[0] == '\0'
 	||  arg2[0] == '\0' || arg3[0] == '\0') {
@@ -2972,7 +2962,6 @@ void do_sockets(CHAR_DATA *ch, const char *argument)
  */
 void do_force(CHAR_DATA *ch, const char *argument)
 {
-	char buf[MAX_STRING_LENGTH];
 	char arg[MAX_INPUT_LENGTH];
 	char arg2[MAX_INPUT_LENGTH];
 
@@ -2990,7 +2979,6 @@ void do_force(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	sprintf(buf, "$n forces you to '%s'.", argument);
 
 	if (!str_cmp(arg, "all")) {
 		CHAR_DATA *vch;
@@ -3005,7 +2993,8 @@ void do_force(CHAR_DATA *ch, const char *argument)
 		    vch_next = vch->next;
 
 		    if (!IS_NPC(vch) && vch->level < ch->level) {
-			act(buf, ch, NULL, vch, TO_VICT);
+			act_puts("$n forces you to '$t'.",
+				 ch, argument, vch, TO_VICT, POS_DEAD);
 			interpret_raw(vch, argument, TRUE);
 		    }
 		}
@@ -3023,7 +3012,8 @@ void do_force(CHAR_DATA *ch, const char *argument)
 	
 	        if (!IS_NPC(vch) && vch->level < ch->level 
 		    &&	 vch->level < LEVEL_HERO) {
-	            act(buf, ch, NULL, vch, TO_VICT);
+			act_puts("$n forces you to '$t'.",
+				 ch, argument, vch, TO_VICT, POS_DEAD);
 	            interpret(vch, argument);
 	        }
 	    }
@@ -3042,7 +3032,8 @@ void do_force(CHAR_DATA *ch, const char *argument)
 	        if (!IS_NPC(vch) && vch->level < ch->level
 	        &&   vch->level >= LEVEL_HERO)
 	        {
-	            act(buf, ch, NULL, vch, TO_VICT);
+			act_puts("$n forces you to '$t'.",
+				 ch, argument, vch, TO_VICT, POS_DEAD);
 	            interpret(vch, argument);
 	        }
 	    }
@@ -3081,12 +3072,12 @@ void do_force(CHAR_DATA *ch, const char *argument)
 			}
 		}
 
-		act(buf, ch, NULL, victim, TO_VICT);
+		act_puts("$n forces you to '$t'.",
+			 ch, argument, victim, TO_VICT, POS_DEAD);
 		interpret(victim, argument);
 	}
 
 	char_puts("Ok.\n", ch);
-	return;
 }
 
 /*

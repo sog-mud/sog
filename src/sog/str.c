@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: str.c,v 1.7 1999-02-12 07:32:22 fjoe Exp $
+ * $Id: str.c,v 1.8 1999-02-16 16:41:36 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -147,8 +147,7 @@ void free_string(const char *p)
 }
 
 /*
- * str_printf -- like sprintf, but prints into string.
- *		 the format is string itself
+ * str_printf -- snprintf to string
  */
 const char *str_printf(const char* format,...)
 {

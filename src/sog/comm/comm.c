@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.138 1999-02-12 18:14:36 fjoe Exp $
+ * $Id: comm.c,v 1.139 1999-02-16 16:41:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -980,15 +980,20 @@ void read_from_buffer(DESCRIPTOR_DATA *d)
 		else {
 			if (++d->repeat >= 100) {
 				log_printf("%s input spamming!", d->host);
-	        		if (d->character != NULL) {
-					wiznet_printf(d->character,NULL,WIZ_SPAM,0,d->character->level, "SPAM SPAM SPAM %s spamming, and OUT!",d->character->name);
-
-	    				wiznet_printf(d->character,NULL,WIZ_SPAM,0,d->character->level, "[%s]'s  Inlast:[%s] Incomm:[%s]!", d->character->name,d->inlast,d->incomm);
+	        		if (d->character) {
+					char buf[MAX_STRING_LENGTH];
+					snprintf(buf, sizeof(buf),
+						 "Inlast:[%s] Incomm:[%s]!",
+						 d->inlast, d->incomm);
+					
+					wiznet("SPAM SPAM SPAM $N spamming, and OUT!", d->character, NULL, WIZ_SPAM, 0, d->character->level);
+					wiznet("[$N]'s $t!", d->character, buf,
+						WIZ_SPAM, 0, d->character->level);
 
 					d->repeat = 0;
 
 					write_to_descriptor(d->descriptor, "\n\r*** PUT A LID ON IT!!! ***\n\r", 0);
-/*		strcpy(d->incomm, "quit");	*/
+/*		strnzcpy(d->incomm, "quit", sizeof(d->incomm));	*/
 					close_descriptor(d);	
 					return;
 				}
@@ -1000,9 +1005,9 @@ void read_from_buffer(DESCRIPTOR_DATA *d)
 	 * Do '!' substitution.
 	 */
 	if (d->incomm[0] == '!')
-		strcpy(d->incomm, d->inlast);
+		strnzcpy(d->incomm, d->inlast, sizeof(d->incomm));
 	else
-		strcpy(d->inlast, d->incomm);
+		strnzcpy(d->inlast, d->incomm, sizeof(d->inlast));
 
 	/*
 	 * Shift the input buffer.
@@ -1484,8 +1489,9 @@ void advance(CHAR_DATA *victim, int level);
  */
 void nanny(DESCRIPTOR_DATA *d, const char *argument)
 {
-	DESCRIPTOR_DATA *d_old, *d_next;
 	char buf[MAX_STRING_LENGTH];
+	DESCRIPTOR_DATA *d_old, *d_next;
+	const char *name;
 	char buf1[MAX_STRING_LENGTH];
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *ch;
@@ -1602,14 +1608,14 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		} 
 #endif
 	  if (iNumPlayers > MAX_OLDIES && !IS_SET(ch->plr_flags, PLR_NEW))  {
-	     sprintf(buf, 
+	     snprintf(buf, sizeof(buf),
 	   "\n\rThere are currently %i players mudding out of a maximum of %i.\n\rPlease try again soon.\n\r",iNumPlayers - 1, MAX_OLDIES);
 	     write_to_buffer(d, buf, 0);
 	     close_descriptor(d);
 	     return;
 	  }
 	  if (iNumPlayers > MAX_NEWBIES && IS_SET(ch->plr_flags, PLR_NEW))  {
-	     sprintf(buf,
+	     snprintf(buf, sizeof(buf),
 	   "\n\rThere are currently %i players mudding. New player creation is \n\rlimited to when there are less than %i players. Please try again soon.\n\r",
 		     iNumPlayers - 1, MAX_NEWBIES);
 	     write_to_buffer(d, buf, 0);
@@ -1840,8 +1846,8 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	
 	do_help(ch,"class help");
 
-	strcpy(buf, "Select a class:\n\r[ ");
-	sprintf(buf1,"  (Continuing:) ");
+	strnzcpy(buf, "Select a class:\n\r[ ", sizeof(buf));
+	snprintf(buf1, sizeof(buf), "  (Continuing:) ");
 	for (iClass = 0; iClass < classes.nused; iClass++)
 	{
 	  if (class_ok(ch,iClass))
@@ -1993,8 +1999,8 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	break;
 	
 	  case CON_PICK_HOMETOWN:
-	sprintf(buf1,", [O]fcol");
-	sprintf(buf,"[M]idgaard, [N]ew Thalos%s?",
+	snprintf(buf1, sizeof(buf1), ", [O]fcol");
+	snprintf(buf, sizeof(buf),"[M]idgaard, [N]ew Thalos%s?",
 		IS_NEUTRAL(ch) ? buf1 : str_empty);
 	if (ch->endur)
 	 {
@@ -2060,19 +2066,19 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	   case 'H': case 'h': case '?': 
 		do_help(ch, "alignment"); return; break;
 	   case 'L': case 'l': 
-	 	sprintf(buf,"\n\rNow you are lawful-%s.\n\r",
+	 	snprintf(buf, sizeof(buf), "\n\rNow you are lawful-%s.\n\r",
 		   IS_GOOD(ch) ? "good" : IS_EVIL(ch) ? "evil" : "neutral");
 	        write_to_buffer(d, buf, 0);
 		ch->ethos = ETHOS_LAWFUL; 
 		break;
 	   case 'N': case 'n': 
-	 	sprintf(buf,"\n\rNow you are neutral-%s.\n\r",
+	 	snprintf(buf, sizeof(buf), "\n\rNow you are neutral-%s.\n\r",
 		   IS_GOOD(ch) ? "good" : IS_EVIL(ch) ? "evil" : "neutral");
 	        write_to_buffer(d, buf, 0);
 		ch->ethos = ETHOS_NEUTRAL; 
 		break;
 	   case 'C': case 'c': 
-	 	sprintf(buf,"\n\rNow you are chaotic-%s.\n\r",
+	 	snprintf(buf, sizeof(buf), "\n\rNow you are chaotic-%s.\n\r",
 		   IS_GOOD(ch) ? "good" : IS_EVIL(ch) ? "evil" : "neutral");
 	        write_to_buffer(d, buf, 0);
 		ch->ethos = ETHOS_CHAOTIC; 
@@ -2143,10 +2149,11 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	     obj = obj->next_content)
 	  obj_count += get_obj_realnumber(obj);
 
-	strcpy(buf,ch->name);
-
+	name = str_qdup(ch->name);
 	free_char(ch);
-	load_char_obj(d, buf);
+	load_char_obj(d, name);
+	free_string(name);
+
 	ch = d->character;
 
 	if (IS_SET(ch->plr_flags, PLR_NEW)) {
@@ -2541,19 +2548,6 @@ void show_string(struct descriptor_data *d, char *input)
 			return;
 		}
 	}
-}
-
-/*
- *  writes bug directly to user screen.
- */
-void dump_to_scr(char *text)
-{
-#if !defined( WIN32 )
-	write(1, text, strlen(text));
-#else
-	printf (text);
-#endif
-	
 }
 
 int log_area_popularity(void)

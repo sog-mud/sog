@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.137 1999-02-15 18:19:36 fjoe Exp $
+ * $Id: act_comm.c,v 1.138 1999-02-16 16:41:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -437,7 +437,7 @@ void do_pmote(CHAR_DATA *ch, const char *argument)
 			continue;
 		}
 
-		strcpy(temp,argument);
+		strnzcpy(temp, argument, sizeof(temp));
 		temp[strlen(argument) - strlen(letter)] = '\0';
 		last[0] = '\0';
 		name = vch->name;
@@ -1112,7 +1112,8 @@ void do_quit_org(CHAR_DATA *ch, const char *argument, bool Count)
 	char_puts("You hit reality hard. Reality truth does unspeakable things to you.\n", ch);
 	act_puts("$n has left the game.", ch, NULL, NULL, TO_ROOM, POS_RESTING);
 	log_printf("%s has quit.", ch->name);
-	wiznet("{W$N{x rejoins the real world.",ch,NULL,WIZ_LOGINS,0,ch->level);
+	wiznet("{W$N{x rejoins the real world.",
+		ch, NULL, WIZ_LOGINS, 0, ch->level);
 
 	/*
 	 * remove quest objs for this char, drop quest objs for other chars
@@ -1406,8 +1407,8 @@ void do_order(CHAR_DATA *ch, const char *argument)
 		&&   och->master == ch
 		&& (fAll || och == victim)) {
 			found = TRUE;
-			act_printf(ch, NULL, och, TO_VICT, POS_RESTING,
-				   "$n orders you to '%s', you do.", argument);
+			act("$n orders you to '$t', you do.",
+			    ch, argument, och, TO_VICT);
 			interpret_raw(och, argument, TRUE);
 		}
 	}
@@ -2070,15 +2071,15 @@ static toggle_t *toggle_lookup(const char *name)
 
 static void toggle_print(CHAR_DATA *ch, toggle_t *t)
 {
+	char buf[MAX_STRING_LENGTH];
 	flag32_t *bits;
 
 	if ((bits = toggle_bits(ch, t)) < 0)
 		return;
 
-	act_printf(ch, t->desc, NULL, TO_CHAR | ACT_TRANS, POS_DEAD,
-		   "  %-11.11s - %-3.3s ($t)",
-		   t->name,
-		   IS_SET(*bits, t->bit) ? "ON" : "OFF");
+	snprintf(buf, sizeof(buf), "  %-11.11s - %-3.3s ($t)",
+		 t->name, IS_SET(*bits, t->bit) ? "ON" : "OFF");
+	act_puts(buf, ch, t->desc, NULL, TO_CHAR | ACT_TRANS, POS_DEAD);
 }
 
 static flag32_t* toggle_bits(CHAR_DATA *ch, toggle_t *t)

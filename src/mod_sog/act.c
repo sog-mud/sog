@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.5 1999-02-15 22:48:26 fjoe Exp $
+ * $Id: act.c,v 1.6 1999-02-16 16:41:55 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -319,6 +319,10 @@ static void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 			case 'i':
 				i = PERS(vch1, to);
 				break;
+
+			case 'j':
+				snprintf(tmp, sizeof(tmp), "%d", (int) arg1);
+				i = tmp;
 
 			case 'e':
 				i = he_she[SEX(ch, to)];

@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.26 1999-02-03 10:01:14 kostik Exp $
+ * $Id: mob_cmds.c,v 1.27 1999-02-16 16:41:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -104,7 +104,7 @@ void do_mob(CHAR_DATA *ch, const char *argument)
  */
 void mob_interpret(CHAR_DATA *ch, const char *argument)
 {
-    char buf[MAX_STRING_LENGTH], command[MAX_INPUT_LENGTH];
+    char command[MAX_INPUT_LENGTH];
     int cmd;
 
     argument = one_argument(argument, command);
@@ -122,9 +122,8 @@ void mob_interpret(CHAR_DATA *ch, const char *argument)
 	    return;
 	}
     }
-    sprintf(buf, "Mob_interpret: invalid cmd from mob %d: '%s'",
+    log_printf("mob_interpret: invalid cmd from mob %d: '%s'",
 	IS_NPC(ch) ? ch->pIndexData->vnum : 0, command);
-    bug(buf, 0);
 }
 
 /* 
@@ -474,9 +473,8 @@ void do_mpmload(CHAR_DATA *ch, const char *argument)
     vnum = atoi(arg);
     if ((pMobIndex = get_mob_index(vnum)) == NULL)
     {
-	sprintf(arg, "Mpmload: bad mob index (%d) from mob %d",
+	log_printf("mpmload: bad mob index (%d) from mob %d",
 	    vnum, IS_NPC(ch) ? ch->pIndexData->vnum : 0);
-	bug(arg, 0);
 	return;
     }
     victim = create_mob(pMobIndex);
@@ -697,7 +695,6 @@ void do_mptransfer(CHAR_DATA *ch, const char *argument)
 {
     char             arg1[ MAX_INPUT_LENGTH ];
     char             arg2[ MAX_INPUT_LENGTH ];
-    char	     buf[MAX_STRING_LENGTH];
     ROOM_INDEX_DATA *location;
     CHAR_DATA       *victim;
 
@@ -719,10 +716,7 @@ void do_mptransfer(CHAR_DATA *ch, const char *argument)
 	{
 	    victim_next = victim->next_in_room;
 	    if (!IS_NPC(victim))
-	    {
-		sprintf(buf, "%s %s", victim->name, arg2);
-		do_mptransfer(ch, buf);
-	    }
+		doprintf(do_mptransfer, ch, "%s %s", victim->name, arg2);
 	}
 	return;
     }
@@ -771,7 +765,6 @@ void do_mpgtransfer(CHAR_DATA *ch, const char *argument)
 {
     char             arg1[ MAX_INPUT_LENGTH ];
     char             arg2[ MAX_INPUT_LENGTH ];
-    char	     buf[MAX_STRING_LENGTH];
     CHAR_DATA       *who, *victim, *victim_next;
 
     argument = one_argument(argument, arg1);
@@ -790,13 +783,9 @@ void do_mpgtransfer(CHAR_DATA *ch, const char *argument)
     for (victim = ch->in_room->people; victim; victim = victim_next)
     {
     	victim_next = victim->next_in_room;
-    	if(is_same_group(who,victim))
-    	{
-	    sprintf(buf, "%s %s", victim->name, arg2);
-	    do_mptransfer(ch, buf);
-    	}
+    	if (is_same_group(who, victim))
+		doprintf(do_mptransfer, ch, "%s %s", victim->name, arg2);
     }
-    return;
 }
 
 /*

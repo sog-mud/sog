@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.104 1999-02-15 18:19:42 fjoe Exp $
+ * $Id: db.c,v 1.105 1999-02-16 16:41:57 fjoe Exp $
  */
 
 /***************************************************************************
@@ -601,8 +601,8 @@ void area_update(void)
 			}
 
 			reset_area(pArea);
-			wiznet_printf(NULL, NULL, WIZ_RESETS, 0, 0,
-		    		"%s has just been reset.", pArea->name);
+			wiznet("$t has just been reset.",
+				NULL, pArea->name, WIZ_RESETS, 0, 0);
 
 			print_resetmsg(pArea);
 
@@ -802,10 +802,11 @@ void reset_room(ROOM_INDEX_DATA *pRoom)
 				                /* lastObj->level  -  ROM */
 
 		    if ((pObjIndex->limit != -1             ) &&
-		         (pObjIndex->count >= pObjIndex->limit))
-		      {
+		         (pObjIndex->count >= pObjIndex->limit)) {
 		        last = FALSE;
-		        dump_to_scr("Reseting area: [P] OBJ limit reached\n");
+		        log_printf("room_reset: room %d: obj %d: "
+				   "[P] OBJ limit reached",
+				   pRoom->vnum, pObjIndex->vnum);
 		        break;
 		      }
 	    if (IS_SET(pObjIndex->extra_flags, ITEM_CLAN)) {

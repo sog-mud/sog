@@ -1,5 +1,5 @@
 /*
- * $Id: comm.h,v 1.25 1998-12-02 13:32:49 fjoe Exp $
+ * $Id: comm.h,v 1.26 1999-02-16 16:41:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -54,7 +54,5 @@ void	char_printf(CHAR_DATA *ch, const char *format, ...);
 
 void	send_to_char(const char *txt, CHAR_DATA *ch);
 void	page_to_char( const char *txt, CHAR_DATA *ch);
-
-void    dump_to_scr(char *text);
 
 #endif

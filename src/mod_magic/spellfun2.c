@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.77 1999-02-15 22:48:24 fjoe Exp $
+ * $Id: spellfun2.c,v 1.78 1999-02-16 16:41:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -704,67 +704,65 @@ void spell_nightwalker(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	AFFECT_DATA af;
 	int i;
 
-	if (is_affected(ch,sn))
-	{
-	  char_puts("You feel too weak to summon a Nightwalker now.\n",
-		   ch);
-	  return;
+	if (is_affected(ch,sn)) {
+		act_puts("You feel too weak to summon a Nightwalker now.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		return;
 	}
 
-	char_puts("You attempt to summon a Nightwalker.\n",ch);
-	act("$n attempts to summon a Nightwalker.",ch,NULL,NULL,TO_ROOM);
+	act_puts("You attempt to summon a Nightwalker.",
+		 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+	act("$n attempts to summon a Nightwalker.", ch, NULL, NULL, TO_ROOM);
 
-	for (gch = char_list; gch != NULL; gch = gch->next)
-	{
-	  if (IS_NPC(gch) && IS_AFFECTED(gch,AFF_CHARM) && gch->master == ch &&
-	  gch->pIndexData->vnum == MOB_VNUM_NIGHTWALKER)
-	{
-	  char_puts("Two Nightwalkers are more than you can control!\n",ch);
-	  return;
-	}
+	for (gch = char_list; gch; gch = gch->next) {
+		if (IS_NPC(gch)
+		&&  IS_AFFECTED(gch, AFF_CHARM)
+		&&  gch->master == ch
+		&&  gch->pIndexData->vnum == MOB_VNUM_NIGHTWALKER) {
+			act_puts("Two Nightwalkers are more than "
+				 "you can control!",
+				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+			return;
+		}
 	}
 
 	walker = create_mob(get_mob_index(MOB_VNUM_NIGHTWALKER));
 
-	for (i=0;i < MAX_STATS; i++)
-	{
-	  walker->perm_stat[i] = ch->perm_stat[i];
-	}
+	for (i = 0; i < MAX_STATS; i++)
+		walker->perm_stat[i] = ch->perm_stat[i];
 
-	walker->max_hit = IS_NPC(ch)? URANGE(ch->max_hit,1 * ch->max_hit,30000)
-	            : URANGE(ch->pcdata->perm_hit,1*ch->pcdata->perm_hit,30000);
+	walker->max_hit = IS_NPC(ch) ? ch->max_hit : ch->pcdata->perm_hit;
 	walker->hit = walker->max_hit;
 	walker->max_mana = ch->max_mana;
 	walker->mana = walker->max_mana;
 	walker->level = ch->level;
-	for (i=0; i < 3; i++)
-	walker->armor[i] = interpolate(walker->level,100,-100);
-	walker->armor[3] = interpolate(walker->level,100,0);
+	for (i = 0; i < 3; i++)
+		walker->armor[i] = interpolate(walker->level, 100, -100);
+	walker->armor[3] = interpolate(walker->level, 100, 0);
 	walker->gold = 0;
 	walker->timer = 0;
 	walker->damage[DICE_NUMBER] = number_range(level/15, level/10);   
 	walker->damage[DICE_TYPE]   = number_range(level/3, level/2);
 	walker->damage[DICE_BONUS]  = 0;
 	 
-	char_to_room(walker,ch->in_room);
-	char_puts("A Nightwalker rises from the shadows!\n",ch);
-	act("A Nightwalker rises from the shadows!",ch,NULL,NULL,TO_ROOM);
-	char_printf(ch, "A Nightwalker kneels before you.");
-	act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
-		   "A Nightwalker kneels before %s!", ch->name);
+	char_to_room(walker, ch->in_room);
+	act_puts("$N rises from the shadows!",
+		 ch, NULL, walker, TO_CHAR, POS_DEAD);
+	act("$N rises from the shadows!", ch, NULL, walker, TO_ROOM);
+	act_puts("$N kneels before you.",
+		 ch, NULL, walker, TO_CHAR, POS_DEAD);
+	act("$N kneels before $n!", ch, NULL, walker, TO_ROOM);
 
-	af.where		= TO_AFFECTS;
-	af.type               = sn;
-	af.level              = level; 
-	af.duration           = 24;
-	af.bitvector          = 0;
-	af.modifier           = 0;
-	af.location           = APPLY_NONE;
+	af.where	= TO_AFFECTS;
+	af.type		= sn;
+	af.level	= level; 
+	af.duration	= 24;
+	af.bitvector	= 0;
+	af.modifier	= 0;
+	af.location	= APPLY_NONE;
 	affect_to_char(ch, &af);  
 
-	SET_BIT(walker->affected_by, AFF_CHARM);
 	walker->master = walker->leader = ch;
-
 }
 	
 void spell_eyes_of_intrigue(int sn, int level, CHAR_DATA *ch, void *vo, int target)
@@ -2570,10 +2568,10 @@ void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo, int target)
 		af.location  = APPLY_NONE;
 		affect_to_char(ch, &af);
 
-		char_puts("With mystic power, you animate it!\n",ch);
-		act_printf(ch,NULL,NULL,TO_ROOM, POS_RESTING,
-			   "With mystic power, %s animates %s!",
-			   ch->name, obj->name); 
+		act_puts("With mystic power, you animate it!",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		act("With mystic power, $n animates $p!",
+		    ch, obj, NULL, TO_ROOM);
 
 		act_puts("$N looks at you and plans to make you "
 			 "pay for distrurbing its rest!",

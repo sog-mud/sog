@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.102 1999-02-15 22:48:26 fjoe Exp $
+ * $Id: update.c,v 1.103 1999-02-16 16:41:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -186,8 +186,8 @@ void gain_exp(CHAR_DATA *ch, int gain)
 		if (ch->level == 91)
 	        	log_printf("%s made level 91.", ch->name);
 
-		wiznet_printf(ch, NULL, WIZ_LEVELS, 0, 0,
-			      "$N has attained level %d!",(int)ch->level);
+		wiznet("$N has attained level $j!",
+			ch, (const void*) ch->level, WIZ_LEVELS, 0, 0);
 		advance_level(ch);
 		save_char_obj(ch, FALSE);
 	}
@@ -1808,7 +1808,7 @@ void update_handler(void)
 	if (--pulse_point <= 0) {
 		CHAR_DATA *ch;
 
-		wiznet("CHAR TICK!",NULL,NULL,WIZ_TICKS,0,0);
+		wiznet("CHAR TICK!", NULL, NULL, WIZ_TICKS, 0, 0);
 		pulse_point = PULSE_TICK;
 		weather_update();
 		char_update();

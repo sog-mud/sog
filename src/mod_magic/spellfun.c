@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.117 1999-02-15 22:48:24 fjoe Exp $
+ * $Id: spellfun.c,v 1.118 1999-02-16 16:41:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1343,7 +1343,7 @@ void spell_charm_person(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		if (number_percent() < (4 + (victim->level - ch->level)) * 10)
 		 	add_mind(victim, ch->name);
 		else if (victim->in_mind == NULL) {
-			sprintf(buf, "%d", victim->in_room->vnum);
+			snprintf(buf, sizeof(buf), "%d", victim->in_room->vnum);
 			victim->in_mind = str_dup(buf);
 		}
 	}
@@ -4243,7 +4243,7 @@ void spell_summon(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 
 	if (IS_NPC(victim) && victim->in_mind == NULL) {
 		char buf[MAX_INPUT_LENGTH];
-		sprintf(buf,"%d",victim->in_room->vnum);
+		snprintf(buf, sizeof(buf), "%d", victim->in_room->vnum);
 		victim->in_mind = str_dup(buf);
 	}
 
@@ -4316,27 +4316,25 @@ void spell_bamf(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 
 void spell_ventriloquate(int sn, int level, CHAR_DATA *ch,void *vo, int target)
 {
-	char buf1[MAX_STRING_LENGTH];
-	char buf2[MAX_STRING_LENGTH];
 	char speaker[MAX_INPUT_LENGTH];
 	CHAR_DATA *vch;
 
 	target_name = one_argument(target_name, speaker);
 
-	sprintf(buf1, "%s says '{G%s{x'.\n",              speaker, target_name);
-	sprintf(buf2, "Someone makes %s say '{G%s{x'.\n", speaker, target_name);
-	buf1[0] = UPPER(buf1[0]);
+	for (vch = ch->in_room->people; vch; vch = vch->next_in_room) {
+		if (is_name(speaker, vch->name))
+			continue;
 
-	for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room)
-	{
-		if (!is_name(speaker, vch->name))
-		    char_puts(saves_spell(level,vch,DAM_OTHER) ? buf2 : buf1, vch);
+		if (saves_spell(level, vch, DAM_OTHER)) {
+			act("Someone makes $t say '{G$T{x'",
+			    vch, speaker, target_name, TO_CHAR);
+		}
+		else {
+			act("$t says '{G$T{x'",
+			    vch, speaker, target_name, TO_CHAR);
+		}
 	}
-
-	return;
 }
-
-
 
 void spell_weaken(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.196 1999-02-15 22:48:20 fjoe Exp $
+ * $Id: act_info.c,v 1.197 1999-02-16 16:41:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -116,20 +116,6 @@ void	show_char_to_char	(CHAR_DATA *list, CHAR_DATA *ch);
 
 #define strend(s) (strchr(s, '\0'))
 
-char *obj_name(OBJ_DATA *obj, CHAR_DATA *ch)
-{
-	static char buf[MAX_STRING_LENGTH];
-	const char *name;
-	char engname[MAX_STRING_LENGTH];
-
-	name = mlstr_cval(obj->short_descr, ch);
-	one_argument(obj->name, engname);
-	snprintf(buf, sizeof(buf), "%s", name);
-	if (name != mlstr_mval(obj->short_descr)) 
-		sprintf(strend(buf), " (%s)", engname);
-	return buf;
-}
-
 char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 {
 	static char buf[MAX_STRING_LENGTH];
@@ -160,7 +146,7 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 	}
 	else {
 		static char FLAGS[] = "{x[{y.{D.{R.{B.{M.{W.{Y.{x] ";
-		strcpy(buf, FLAGS);
+		strnzcpy(buf, FLAGS, sizeof(buf));
 		if (IS_OBJ_STAT(obj, ITEM_INVIS)	)   buf[5] = 'I';
 		if (IS_OBJ_STAT(obj, ITEM_DARK)		)   buf[8] = 'D';
 		if (IS_AFFECTED(ch, AFF_DETECT_EVIL)
@@ -176,7 +162,7 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 	}
 
 	if (fShort) {
-		strcat(buf, obj_name(obj, ch));
+		strcat(buf, mlstr_cval(obj->short_descr, ch));
 		if (obj->pIndexData->vnum > 5 /* not money, gold, etc */
 		&&  (obj->condition < COND_EXCELLENT ||
 		     !IS_SET(ch->comm, COMM_NOVERBOSE)))
@@ -189,7 +175,7 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 		char* p;
 
 		p = strend(buf);
-		strcat(buf, obj_name(obj, ch));
+		strcat(buf, mlstr_cval(obj->short_descr, ch));
 		p[0] = UPPER(p[0]);
 		switch(dice(1,3)) {
 		case 1:

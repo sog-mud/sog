@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.138 1999-02-15 22:48:20 fjoe Exp $
+ * $Id: act_move.c,v 1.139 1999-02-16 16:41:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1848,24 +1848,23 @@ void do_train(CHAR_DATA *ch, const char *argument)
 		pOutput     = "charisma";
 	}
 	else {
-		strcpy(buf, GETMSG("You can train:", ch->lang));
-		if (ch->perm_stat[STAT_STR] < get_max_train(ch,STAT_STR)) 
-		    strcat(buf, " str");
-		if (ch->perm_stat[STAT_INT] < get_max_train(ch,STAT_INT))  
-		    strcat(buf, " int");
-		if (ch->perm_stat[STAT_WIS] < get_max_train(ch,STAT_WIS)) 
-		    strcat(buf, " wis");
-		if (ch->perm_stat[STAT_DEX] < get_max_train(ch,STAT_DEX))  
-		    strcat(buf, " dex");
-		if (ch->perm_stat[STAT_CON] < get_max_train(ch,STAT_CON))  
-		    strcat(buf, " con");
-		if (ch->perm_stat[STAT_CHA] < get_max_train(ch,STAT_CHA))  
-		    strcat(buf, " cha");
+		snprintf(buf, sizeof(buf),
+			 GETMSG("You can train: %s%s%s%s%s%s", ch->lang),
+			 ch->perm_stat[STAT_STR] < get_max_train(ch, STAT_STR) ?
+			 	" str" : str_empty,
+			 ch->perm_stat[STAT_INT] < get_max_train(ch, STAT_INT) ?
+			 	" int" : str_empty,
+			 ch->perm_stat[STAT_WIS] < get_max_train(ch, STAT_WIS) ?
+			 	" wis" : str_empty,
+			 ch->perm_stat[STAT_DEX] < get_max_train(ch, STAT_DEX) ?
+			 	" dex" : str_empty,
+			 ch->perm_stat[STAT_CON] < get_max_train(ch, STAT_CON) ?
+			 	" con" : str_empty,
+			 ch->perm_stat[STAT_CHA] < get_max_train(ch, STAT_CHA) ?
+			 	" cha" : str_empty);
 
-		if (buf[strlen(buf)-1] != ':') {
-			strcat(buf, ".\n");
-			char_puts(buf, ch);
-		}
+		if (buf[strlen(buf)-1] != ':')
+			char_printf(ch, "%s.\n", buf);
 		else {
 			/*
 			 * This message dedicated to Jordan ... you big stud!

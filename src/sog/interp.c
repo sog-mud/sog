@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.117 1999-02-15 22:48:23 fjoe Exp $
+ * $Id: interp.c,v 1.118 1999-02-16 16:41:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -506,7 +506,7 @@ void interpret(CHAR_DATA *ch, const char *argument)
 void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 {
 	char command[MAX_INPUT_LENGTH];
-	char logline[MAX_INPUT_LENGTH];
+	const char *logline;
 	CMD_DATA *cmd;
 	bool found;
 	social_t *soc = NULL;
@@ -518,15 +518,17 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	 */
 	while (isspace(*argument))
 		argument++;
+
 	if (argument[0] == '\0')
 		return;
+
+	logline = argument;
 
 	/*
 	 * Grab the command word.
 	 * Special parsing so ' can be a command,
 	 * also no spaces needed after punctuation.
 	 */
-	strcpy(logline, argument);
 
 #ifdef IMMORTALS_LOGS
  	if (IS_IMMORTAL(ch)) {
@@ -614,15 +616,14 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	 * Log and snoop.
 	 */
 	if (cmd->log == LOG_NEVER)
-		strcpy(logline, str_empty);
+		logline = str_empty;
 
 	if (((!IS_NPC(ch) && IS_SET(ch->plr_flags, PLR_LOG))
 	||   fLogAll
 	||   cmd->log == LOG_ALWAYS) && logline[0] != '\0' 
 	&&   logline[0] != '\n') {
 		log_printf("Log %s: %s", ch->name, logline);
-		wiznet_printf(ch, NULL, WIZ_SECURE, 0, ch->level,
-				"Log %s: %s", ch->name, logline);
+		wiznet("Log $N: $t", ch, logline, WIZ_SECURE, 0, ch->level);
 	}
 
 	if (ch->desc && ch->desc->snoop_by) {
@@ -826,7 +827,7 @@ static uint x_argument(const char *argument, char arg[MAX_INPUT_LENGTH], char c)
 
 	p = strchr(argument, c);
 	if (p == NULL) {
-		strcpy(arg, argument);
+		strnzcpy(arg, argument, sizeof(arg));
 		return 1;
 	}
 
@@ -973,7 +974,7 @@ void substitute_alias(DESCRIPTOR_DATA *d, const char *argument)
 	    char_puts("Line to long, prefix not processed.\n",ch);
 	else
 	{
-	    sprintf(prefix,"%s %s",ch->prefix,argument);
+	    snprintf(prefix, sizeof(prefix), "%s %s",ch->prefix,argument);
 	    argument = prefix;
 	}
     }
@@ -985,7 +986,7 @@ void substitute_alias(DESCRIPTOR_DATA *d, const char *argument)
 	return;
     }
 
-    strcpy(buf,argument);
+    strnzcpy(buf, argument, sizeof(buf));
 
     for (alias = 0; alias < MAX_ALIAS; alias++)	 /* go through the aliases */
     {
@@ -1022,7 +1023,7 @@ void do_alia(CHAR_DATA *ch, const char *argument)
 void do_alias(CHAR_DATA *ch, const char *argument)
 {
     CHAR_DATA *rch;
-    char arg[MAX_INPUT_LENGTH],buf[MAX_STRING_LENGTH];
+    char arg[MAX_INPUT_LENGTH];
     int pos;
 
     if (ch->desc == NULL)
@@ -1071,11 +1072,10 @@ void do_alias(CHAR_DATA *ch, const char *argument)
 	    ||	rch->pcdata->alias_sub[pos] == NULL)
 		break;
 
-	    if (!str_cmp(arg,rch->pcdata->alias[pos]))
-	    {
-		sprintf(buf,"%s aliases to '%s'.\n",rch->pcdata->alias[pos],
-			rch->pcdata->alias_sub[pos]);
-		char_puts(buf,ch);
+	    if (!str_cmp(arg,rch->pcdata->alias[pos])) {
+		char_printf(ch, "%s aliases to '%s'.\n",
+			    rch->pcdata->alias[pos],
+			    rch->pcdata->alias_sub[pos]);
 		return;
 	    }
 	}

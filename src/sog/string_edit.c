@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.c,v 1.25 1999-02-12 07:32:22 fjoe Exp $
+ * $Id: string_edit.c,v 1.26 1999-02-16 16:41:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -59,8 +59,7 @@ const char * string_replace(const char * orig, char * old, char * new)
     char xbuf[MAX_STRING_LENGTH];
     int i;
 
-    xbuf[0] = '\0';
-    strcpy(xbuf, orig);
+    strnzcpy(xbuf, orig, sizeof(xbuf));
     if (strstr(orig, old) != NULL)
     {
         i = strlen(orig) - strlen(strstr(orig, old));
@@ -98,7 +97,7 @@ void string_add(CHAR_DATA *ch, const char *argument)
 
         argument = one_argument(argument, arg1);
         argument = first_arg(argument, arg2, FALSE);
-	strcpy(tmparg3, argument);
+	strnzcpy(tmparg3, argument, sizeof(tmparg3));
         argument = first_arg(argument, arg3, FALSE);
 
         if (!str_cmp(arg1+1, "c"))
@@ -338,7 +337,7 @@ const char *format_string(const char *oldstring /*, bool fSpace */)
     }
   }
   xbuf[i]=0;
-  strcpy(xbuf2,xbuf);
+  strnzcpy(xbuf2, xbuf, sizeof(xbuf2));
   
   rdesc=xbuf2;
   
@@ -475,8 +474,9 @@ char *numlines(const char *string)
 
 	while (*string) {
 		string = getline(string, tmpb, sizeof(tmpb));
-		sprintf(buf2, "%2d. %s\n", cnt++, tmpb);
-		strcat(buf, buf2);
+		snprintf(buf2, sizeof(buf2),
+			 "%2d. %s\n", cnt++, tmpb);
+		strnzcat(buf, buf2, sizeof(buf));
 	}
 
 	return buf;

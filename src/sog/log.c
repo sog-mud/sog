@@ -1,5 +1,5 @@
 /*
- * $Id: log.c,v 1.10 1998-11-26 10:49:01 fjoe Exp $
+ * $Id: log.c,v 1.11 1999-02-16 16:41:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -94,9 +94,10 @@ void log_printf(const char *format, ...)
 void bug(const char *str, int param)
 {
 	char buf[MAX_STRING_LENGTH];
+	char buf2[MAX_STRING_LENGTH];
 
-	strcpy(buf, "[*****] BUG: ");
-	sprintf(buf + strlen(buf), str, param);
+	snprintf(buf2, sizeof(buf2), str, param);
+	snprintf(buf, sizeof(buf), "[*****] BUG: %s", buf2);
 	log(buf);
 }
 

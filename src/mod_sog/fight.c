@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.134 1999-02-15 22:48:22 fjoe Exp $
+ * $Id: fight.c,v 1.135 1999-02-16 16:41:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1058,7 +1058,7 @@ void delete_player(CHAR_DATA *victim, char* msg)
 	    victim, NULL, NULL, TO_ROOM);
 	victim->hit = 1;
 	victim->position = POS_STANDING;
-	wiznet_printf(victim, NULL, 0, 0, 0, "$N is deleted due to %s.", msg);
+	wiznet("$N is deleted due to $t.", victim, msg, 0, 0, 0);
 	RESET_FIGHT_TIME(victim);
 	name = capitalize(victim->name);
 	do_quit_count(victim, str_empty);

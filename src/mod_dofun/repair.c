@@ -1,5 +1,5 @@
 /*
- * $Id: repair.c,v 1.16 1999-02-12 10:33:30 kostik Exp $
+ * $Id: repair.c,v 1.17 1999-02-16 16:41:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -210,14 +210,12 @@ void do_estimate(CHAR_DATA *ch, const char *argument)
 
 void do_restring(CHAR_DATA *ch, const char *argument)
 {
-	CHAR_DATA *mob;
 #if 0
+	CHAR_DATA *mob;
 	char arg  [MAX_INPUT_LENGTH];
 	char arg1 [MAX_INPUT_LENGTH];
-	char arg2 [MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
 	int cost = 2000;
-#endif
 
 	for (mob = ch->in_room->people; mob; mob = mob->next_in_room)
 	{
@@ -225,7 +223,6 @@ void do_restring(CHAR_DATA *ch, const char *argument)
 	        break;
 	}
  
-#if 0
 	if (mob == NULL) {
 #endif
 	    char_puts("You can't do that here.\n", ch);
@@ -236,9 +233,8 @@ void do_restring(CHAR_DATA *ch, const char *argument)
 
 	argument = one_argument(argument, arg);
 	argument = one_argument(argument, arg1);
-	strcpy(arg2, argument);
 
-	if (arg[0] == '\0' || arg1[0] == '\0' || arg2[0] == '\0')
+	if (arg[0] == '\0' || arg1[0] == '\0' || argument[0] == '\0')
 	{
 		char_puts("Syntax:\n",ch);
 		char_puts("  restring <obj> <field> <string>\n",ch);
@@ -261,32 +257,36 @@ void do_restring(CHAR_DATA *ch, const char *argument)
 	
 	if (!str_prefix(arg1, "name")) {
 		free_string(obj->name);
-		obj->name = str_dup(arg2);
+		obj->name = str_dup(argument);
 	}
 	else
 	if (!str_prefix(arg1, "short")) {
 		free_string(obj->short_descr);
-	    obj->short_descr = str_dup(arg2);
+	    obj->short_descr = str_dup(argument);
 	}
 	else
 	if (!str_prefix(arg1, "long")) {
 		free_string(obj->description);
-		obj->description = str_dup(arg2);
+		obj->description = str_dup(argument);
 	}
 	else {
 		char_puts("That's not a valid Field.\n",ch);
 		return;
 	}
 	
-	WAIT_STATE(ch,PULSE_VIOLENCE);
+	WAIT_STATE(ch, PULSE_VIOLENCE);
 
 	ch->gold -= cost;
 	mob->gold += cost;
-	act_printf(ch, NULL, mob, TO_ROOM, POS_RESTING,
-		  "$N takes $n's item, tinkers with it, and returns it to $n.");
-	char_printf(ch, "%s takes your item, tinkers with it, and returns %s to you.\n", mob->short_descr, obj->short_descr);
-	char_puts("Remember, if we find your new string offensive, we will not be happy.\n", ch);
-	char_puts(" This is your ONE AND ONLY Warning.\n", ch);
+	act("$N takes $n's item, tinkers with it, and returns it to $n.",
+	    ch, NULL, mob, TO_ROOM);
+	act_puts("$N takes $p, tinkers with it and returns it to you.\n",
+		 ch, obj, mob, TO_CHAR, POS_DEAD);
+	act_puts("Remember, if we find your new string offensive, "
+		 "we will not be happy.",
+		 chi, NULL, NULL, TO_CHAR, POS_DEAD);
+	act_puts("This is your ONE AND ONLY warning.",
+		 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 #endif
 }
 

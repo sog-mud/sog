@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.149 1999-02-15 18:19:40 fjoe Exp $
+ * $Id: merc.h,v 1.150 1999-02-16 16:41:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -283,9 +283,9 @@ enum {
 
 struct wiznet_type
 {
-	char *	name;
-	int	flag;
-	int 	level;
+	const char *	name;
+	flag32_t	flag;
+	int 		level;
 };
 
 struct attack_type
@@ -2153,10 +2153,8 @@ void wear_obj		(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace);
 void quaff_obj		(CHAR_DATA *ch, OBJ_DATA *obj);
 
 /* act_wiz.h */
-#define wiznet(string, ch, obj, flag, flag_skip, min_level) \
-		wiznet_printf(ch, obj, flag, flag_skip, min_level, string)
-void wiznet_printf(CHAR_DATA *ch, OBJ_DATA *obj, long flag, long flag_skip,
-		   int min_level, char* format,...);
+void wiznet(const char *msg, CHAR_DATA *ch, const void *arg,
+	    flag32_t flag, flag32_t flag_skip, int min_level);
 void reboot_muddy(void);
 ROOM_INDEX_DATA *find_location(CHAR_DATA *ch, const char *argument);
 

@@ -1,5 +1,5 @@
 /*
- * $Id: auction.c,v 1.23 1999-02-15 22:48:22 fjoe Exp $
+ * $Id: auction.c,v 1.24 1999-02-16 16:41:33 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -34,8 +34,8 @@ void talk_auction(const char *fmt, ...)
 		original = d->original ? d->original : d->character;
 		if (d->connected == CON_PLAYING
 		&&  !IS_SET(original->comm, COMM_NOAUCTION))
-	        	act_printf(original, NULL, NULL, TO_CHAR, POS_DEAD,
-				   "{YAUCTION{x: %s", buf);
+			act_puts("{YAUCTION{x: $t",
+				 original, buf, NULL, TO_CHAR, POS_DEAD);
 	}
 }
 
@@ -110,7 +110,7 @@ int advatoi (const char *s)
   int multiplier = 0;       /* multiplier used to get the extra digits right */
 
 
-  strcpy (string,s);        /* working copy */
+  strnzcpy(string, s, sizeof(string));        /* working copy */
 
   while (isdigit (*stringptr)) /* as long as the current character is a digit */
   {
@@ -145,13 +145,12 @@ int advatoi (const char *s)
 
 int parsebet (const int currentbet, const char *argument)
 {
+  int newbet = 0;               /* a variable to temporarily hold the new bet */
+  char string[MAX_INPUT_LENGTH];/* a buffer to modify the bet string */
+  char *stringptr = string;     /* a pointer we can move around */
 
-  int newbet = 0;                /* a variable to temporarily hold the new bet */
-  char string[MAX_INPUT_LENGTH]; /* a buffer to modify the bet string */
-  char *stringptr = string;      /* a pointer we can move around */
-
-  strcpy (string,argument);      /* make a work copy of argument */
-
+				/* make a work copy of argument */
+  strnzcpy(string, argument, sizeof(string));
 
   if (*stringptr)               /* check for an empty string */
   {

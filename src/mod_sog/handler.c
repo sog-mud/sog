@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.111 1999-02-15 22:48:23 fjoe Exp $
+ * $Id: handler.c,v 1.112 1999-02-16 16:41:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1864,19 +1864,26 @@ void extract_char_org(CHAR_DATA *ch, bool fPull, bool Count)
 	OBJ_DATA *obj_next;
 	OBJ_DATA *wield;
 	int i;    
-	char buf[MAX_STRING_LENGTH];
 
-	if (fPull) /* only for total extractions should it check */
-	{
-	if (ch->extracted)  /* if the char has already been extracted once */
-	  {
-	    sprintf(buf, "Warning! Extraction of %s.", ch->name);
-	    bug(buf, 0);
-	    return; /* if it's already been extracted, something bad is going on */
-	  }
-	else
-	  ch->extracted = TRUE;  /* if it hasn't been extracted yet, now
-	                           * it's being extracted. */
+	if (fPull) {
+		/*
+		 * only for total extractions should it check
+		 */
+		if (ch->extracted) {
+			/*
+			 * if it's already been extracted,
+			 * something bad is going on
+			 */
+			log_printf("Warning! Extraction of %s.", ch->name);
+			return;
+		}
+		else {
+			/*
+			 * if it hasn't been extracted yet, now
+	                 * it's being extracted.
+			 */
+			ch->extracted = TRUE;
+		}
 	}
 
 
@@ -2648,8 +2655,10 @@ bool can_see(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (ch == victim)
 		return TRUE;
 
-	if (ch == NULL || victim == NULL)
-		dump_to_scr(">>>>>>>> CAN_ SEE ERROR <<<<<<<<<<<\n");
+	if (ch == NULL || victim == NULL) {
+		log("can_see: NULL ch or victim");
+		return FALSE;
+	}
 	
 	if (!IS_NPC(victim) && !IS_TRUSTED(ch, victim->invis_level))
 		return FALSE;
@@ -2832,10 +2841,11 @@ void remove_mind(CHAR_DATA *ch, const char *str)
 		mind = one_argument(mind, arg);
 		if (!is_name(str,arg))  {
 			if (buf[0] == '\0')
-				strcpy(buff, arg);
-			else
+				strnzcpy(buf, arg, sizeof(buf));
+			else {
 				snprintf(buff, sizeof(buff), "%s %s", buf, arg);
-			strcpy(buf,buff);
+				strnzcpy(buf, buff, sizeof(buf));
+			}
 		}
 	}
 	while (mind[0] != '\0');

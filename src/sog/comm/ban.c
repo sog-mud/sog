@@ -1,5 +1,5 @@
 /*
- * $Id: ban.c,v 1.25 1999-02-15 18:19:42 fjoe Exp $
+ * $Id: ban.c,v 1.26 1999-02-16 16:41:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -106,7 +106,6 @@ void save_bans(void)
     BAN_DATA *pban;
     FILE *fp;
     bool found = FALSE;
-    char buf[160];
 
     fclose(fpReserve); 
     if ((fp = dfopen(ETC_PATH, BAN_FILE, "w")) == NULL)
@@ -119,9 +118,8 @@ void save_bans(void)
 	if (IS_SET(pban->ban_flags,BAN_PERMANENT))
 	{
 	    found = TRUE;
-	    sprintf(buf, "%-20s %-2d %s\n", pban->name, pban->level,
-		    format_flags(pban->ban_flags));
-	    dump_to_scr(buf);
+	    log_printf("%-20s %-2d %s\n", pban->name, pban->level,
+			format_flags(pban->ban_flags));
 	    fprintf(fp,"%-20s %-2d %s\n",pban->name,pban->level,
 		format_flags(pban->ban_flags));
 	}
@@ -174,7 +172,7 @@ bool check_ban(const char *site, int type)
     BAN_DATA *pban;
     char host[MAX_STRING_LENGTH];
 
-    strcpy(host,capitalize(site));
+    strnzcpy(host, capitalize(site), sizeof(host));
     host[0] = LOWER(host[0]);
 
     for (pban = ban_list; pban != NULL; pban = pban->next) 
