@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.46 2000-10-07 18:15:00 fjoe Exp $
+ * $Id: olc_msg.c,v 1.47 2000-10-21 20:12:54 fjoe Exp $
  */
 
 #include "olc.h"
@@ -72,6 +72,7 @@ OLC_FUN(msged_create)
 {
 	mlstring ml;
 	mlstring *mlp;
+	const char *arg;
 
 	if (PC(ch)->security < SECURITY_MSGDB) {
 		act_char("MsgEd: Insufficient security.", ch);
@@ -81,18 +82,19 @@ OLC_FUN(msged_create)
 	if (argument[0] == '\0')
 		OLC_ERROR("'OLC CREATE'");
 
-	argument = atomsg(argument);
-	if (!str_cmp(argument, "$")) {
+	arg = atomsg(argument);
+	if (!str_cmp(arg, "$")) {
 		act_char("MsgEd: invalid value", ch);
 		return FALSE;
 	}
 
-	mlstr_init2(&ml, argument);
-	mlp = hash_insert(&msgdb, argument, &ml);
+	mlstr_init2(&ml, arg);
+	mlp = hash_insert(&msgdb, arg, &ml);
 	mlstr_destroy(&ml);
 
 	if (mlp == NULL) {
-		act_char("MsgEd: msg already exists.", ch);
+		act_char("MsgEd: msg already exists:", ch);
+		dofun("ashow", ch, "msg %s", argument);
 		return FALSE;
 	}
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_rule.c,v 1.31 2000-10-21 19:41:06 fjoe Exp $
+ * $Id: olc_rule.c,v 1.32 2000-10-21 20:12:54 fjoe Exp $
  */
 
 #include "olc.h"
@@ -138,7 +138,7 @@ OLC_FUN(ruleed_create)
 	ruleops_t *rops;
 	lang_t *l;
 	rule_t rnew;
-	char arg[MAX_STRING_LENGTH];
+	char arg1[MAX_STRING_LENGTH];
 	char arg2[MAX_STRING_LENGTH];
 	bool impl;
 
@@ -151,22 +151,23 @@ OLC_FUN(ruleed_create)
 	EDIT_ROPS(ch, rops);
 	impl = (rops->id == ED_IMPL);
 
-	argument = one_argument(argument, arg, sizeof(arg));
+	argument = one_argument(argument, arg1, sizeof(arg1));
 	if (impl)
 		argument = one_argument(argument, arg2, sizeof(arg2));
 	if (argument[0] == '\0' || (impl && !is_number(arg2)))
 		OLC_ERROR("'OLC CREATE'");
 
-	if ((rulecl = flag_value(rulecl_names, arg)) < 0) {
+	if ((rulecl = flag_value(rulecl_names, arg1)) < 0) {
 		act_puts("RuleEd: $t: unknown rule class.",
-			 ch, arg, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
+			 ch, arg1, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 	rcl = l->rules + rulecl;
 
 	if (!impl && erule_lookup(rcl, argument)) {
-		act_puts("RuleEd: $t: duplicate name.",
+		act_puts("RuleEd: $t: already exists:",
 			 ch, argument, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
+		dofun("ashow", ch, "expl %s %s", arg1, argument);
 		return FALSE;
 	}
 
