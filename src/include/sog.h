@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.30 2001-10-21 22:13:18 fjoe Exp $
+ * $Id: sog.h,v 1.31 2001-11-07 13:09:12 kostik Exp $
  */
 
 #ifndef _SOG_H_
@@ -459,6 +459,8 @@ DECLARE_FUN2(bool, is_sn_affected_room,
 	     ARG(ROOM_INDEX_DATA), ch, ARG(cchar_t), sn)
 DECLARE_PROC1(strip_raff_owner,
 	      ARG(CHAR_DATA), ch)
+DECLARE_PROC2(affect_bit_strip_room,
+	      ARG(ROOM_INDEX_DATA), room, ARG(flag_t), bits)
 
 DECLARE_PROC2(aff_dump_list,
 	      NULLABLE_ARG(AFFECT_DATA), paf, ARG(BUFFER), output)

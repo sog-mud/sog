@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.273 2001-10-26 09:35:21 kostik Exp $
+ * $Id: spellfun.c,v 1.274 2001-11-07 13:09:14 kostik Exp $
  */
 
 /***************************************************************************
@@ -219,7 +219,6 @@ DECLARE_SPELL_FUN(spell_flesh_golem);
 DECLARE_SPELL_FUN(spell_stone_golem);
 DECLARE_SPELL_FUN(spell_iron_golem);
 DECLARE_SPELL_FUN(spell_adamantite_golem);
-DECLARE_SPELL_FUN(spell_light);
 DECLARE_SPELL_FUN(spell_mysterious_dream);
 DECLARE_SPELL_FUN(spell_ratform);
 DECLARE_SPELL_FUN(spell_polymorph);
@@ -6818,33 +6817,6 @@ SPELL_FUN(spell_adamantite_golem, sn, level, ch, vo)
 
 	golem->master = golem->leader = ch;
 	char_to_room(golem, ch->in_room);
-}
-
-SPELL_FUN(spell_light, sn, level, ch, vo)
-{
-	AFFECT_DATA *paf;
-
-	if (IS_AFFECTED(ch->in_room, RAFF_LIGHT)) {
-		act("You cannot add more light to this room.",
-		    ch, NULL, NULL, TO_CHAR);
-		return;
-	}
-
-	paf = aff_new(TO_ROOM_AFFECTS, sn);
-	paf->level	= level;
-	paf->duration	= level / 3;
-	paf->bitvector	= RAFF_LIGHT;
-	paf->owner	= ch;
-	affect_to_room(ch->in_room, paf);
-	aff_free(paf);
-
-	if (room_is_dark(ch->in_room)) {
-		act("The room is lit by a magical light.",
-			ch, NULL, NULL, TO_ALL);
-	} else {
-		act("Light seems to be somewhat better now.",
-			ch, NULL, NULL, TO_ALL);
-	}
 }
 
 SPELL_FUN(spell_mysterious_dream, sn, level, ch, vo)

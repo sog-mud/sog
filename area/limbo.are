@@ -323,6 +323,20 @@ stand stand none 0
 g @eng none@rus male~
 F aff T
 m mob_fight mob_fight_cast_undead 100~
+#29
+air elemental воздушный элементаль~
+@eng an air elemental@rus ~~воздушный~~ ~~элементаль~~~
+@eng You feel something unusual in air here.@rus Что-то странное носится в воздухе.~
+~
+air elemental~
+D 0 SUV 0 ABH 0 0
+0 0 0d0+0 0d0+0 0d0+0 'none'
+0 0 0 0
+FH
+stand stand male 0
+0 0 huge unknown
+g @eng male@rus male~
+m mob_fight mob_fight_cast_air_elemental 100~
 #30
 cat black кошка кот~
 @eng a large black cat@rus большая черная кошка~

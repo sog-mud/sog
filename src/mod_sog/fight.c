@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.336 2001-10-29 11:45:54 kostik Exp $
+ * $Id: fight.c,v 1.337 2001-11-07 13:09:16 kostik Exp $
  */
 
 /***************************************************************************
@@ -2337,6 +2337,9 @@ check_parry(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 	&& (INT(paf->location) == APPLY_DEX))
 		chance /= 3;
 
+	if (is_sn_affected(victim, "hold"))
+		chance /= 3;
+
 	if (ch_weapon && WEAPON_IS(ch_weapon, WEAPON_SWORD)) {
 		if (number_percent() < get_skill(ch, "fence")) {
 			chance /= 2;
@@ -2474,6 +2477,9 @@ check_block(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 	if (chance <= 1)
 		return FALSE;
 
+	if (is_sn_affected(victim, "hold"))
+		chance = chance * 2 / 3;
+
 	if (check_forest(victim) == FOREST_DEFENCE
 	&&  (number_percent() < get_skill(victim, "forest fighting"))) {
 		chance *= 1.2;
@@ -2543,7 +2549,7 @@ check_dodge(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (MOUNTED(victim))
 		return FALSE;
 
-	if (is_sn_affected(ch, "entanglement"))
+	if (is_sn_affected(ch, "entanglement") || is_sn_affected(ch, "hold"))
 		return FALSE;
 
 	chance  = get_skill(victim, "dodge") / 2;

@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.73 2001-10-21 21:34:02 fjoe Exp $
+ * $Id: affects.c,v 1.74 2001-11-07 13:09:16 kostik Exp $
  */
 
 /***************************************************************************
@@ -836,6 +836,21 @@ strip_raff_owner(CHAR_DATA *ch)
 		strip_raff_list(
 		    obj->affected, (aff_remove_t) affect_remove_obj,
 		    ch, obj);
+	}
+}
+/*
+ * Strip all affects of a given bitvector
+ */
+void
+affect_bit_strip_room(ROOM_INDEX_DATA *room, flag_t bits)
+{
+	AFFECT_DATA *paf;
+	AFFECT_DATA *paf_next;
+
+	for (paf = room->affected; paf != NULL; paf = paf_next) {
+		paf_next = paf->next;
+		if (paf->where == TO_ROOM_AFFECTS && (paf->bitvector & bits))
+			affect_remove_room(room, paf);
 	}
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.22 2001-11-06 07:22:52 kostik Exp $
+ * $Id: prayers.c,v 1.23 2001-11-07 13:09:13 kostik Exp $
  */
 
 /***************************************************************************
@@ -127,6 +127,14 @@ DECLARE_SPELL_FUN(prayer_know_alignment);
 DECLARE_SPELL_FUN(prayer_frenzy);
 DECLARE_SPELL_FUN(prayer_awaken);
 DECLARE_SPELL_FUN(prayer_shapechange);
+DECLARE_SPELL_FUN(prayer_hold_animal);
+DECLARE_SPELL_FUN(prayer_light);
+DECLARE_SPELL_FUN(prayer_darkness);
+DECLARE_SPELL_FUN(prayer_air_elemental);
+
+static void
+hold(CHAR_DATA *ch, CHAR_DATA *victim, int duration, int dex_modifier, int
+    level);
 
 SPELL_FUN(prayer_detect_good, sn, level, ch, vo)
 {
@@ -1330,21 +1338,14 @@ SPELL_FUN(prayer_holy_hammer, sn, level, ch, vo)
 SPELL_FUN(prayer_hold_person, sn, level, ch, vo)
 {
 	CHAR_DATA* victim = (CHAR_DATA*) vo;
-	AFFECT_DATA *paf;
 
-	if (saves_spell(level + 2, victim, DAM_OTHER)) {
+	if (saves_spell(level, victim, DAM_OTHER)) {
 		act_char("You failed.", ch);
 		act("$n tries to hold you, but fails.", ch, victim, NULL, TO_VICT);
 		return;
 	}
 
-	paf = aff_new(TO_AFFECTS, sn);
-	paf->duration	= 1;
-	paf->level	= level;
-	paf->modifier	= -level/12;
-	INT(paf->location)= APPLY_DEX;
-	affect_to_char(victim, paf);
-	aff_free(paf);
+	hold(ch, victim, 1, -level/12, level);
 }
 
 SPELL_FUN(prayer_lethargic_mist, sn, level, ch, vo)
@@ -2429,4 +2430,189 @@ SPELL_FUN(prayer_shapechange, sn, level, ch, vo)
 	paf->location.s	= str_dup(form_name);
 	affect_to_char(ch, paf);
 	aff_free(paf);
+}
+
+SPELL_FUN(prayer_hold_animal, sn, level, ch, vo)
+{
+	CHAR_DATA* victim = (CHAR_DATA*) vo;
+
+	if (!IS_SET(victim->form, FORM_ANIMAL)) {
+		if (victim == ch)
+			act_char("Do you really feel as if you are animal?",
+			    ch);
+		else
+			act("$N doesn't seem to be animal.", ch, NULL, victim,
+			    TO_CHAR);
+		return;
+	}
+
+	if (saves_spell(level + 2, victim, DAM_OTHER)) {
+		act_char("You failed.", ch);
+		act("$n tries to hold you, but fails.", ch, victim, NULL,
+		    TO_VICT);
+		return;
+	}
+
+	hold(ch, victim, 1, -level/12, level);
+}
+
+SPELL_FUN(prayer_light, sn, level, ch, vo)
+{
+	AFFECT_DATA *paf;
+
+	if (IS_AFFECTED(ch->in_room, RAFF_DARKNESS)) {
+		affect_bit_strip_room(ch->in_room, RAFF_DARKNESS);
+		act("Room seems to be less dark now.", ch, NULL,
+		    NULL, TO_ALL);
+		return;
+	}
+
+	if (IS_AFFECTED(ch->in_room, RAFF_LIGHT)) {
+		act("You cannot add more light to this room.",
+		    ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	if (room_is_dark(ch->in_room)) {
+		act("The room is lit by a magical light.",
+			ch, NULL, NULL, TO_ALL);
+	} else {
+		act("Light seems to be somewhat better now.",
+			ch, NULL, NULL, TO_ALL);
+	}
+
+	paf = aff_new(TO_ROOM_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= level / 3;
+	paf->bitvector	= RAFF_LIGHT;
+	paf->owner	= ch;
+	affect_to_room(ch->in_room, paf);
+	aff_free(paf);
+}
+
+SPELL_FUN(prayer_darkness, sn, level, ch, vo)
+{
+	AFFECT_DATA *paf;
+
+	if (IS_AFFECTED(ch->in_room, RAFF_LIGHT)) {
+		affect_bit_strip_room(ch->in_room, RAFF_LIGHT);
+		act("Room seems to be less lit now.", ch, NULL,
+		    NULL, TO_ALL);
+		return;
+	}
+
+	if (IS_AFFECTED(ch->in_room, RAFF_DARKNESS)) {
+		act_char("It's already pitch-dark here.", ch);
+		return;
+	}
+
+	paf = aff_new(TO_ROOM_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= level / 3;
+	paf->bitvector	= RAFF_DARKNESS;
+	paf->owner	= ch;
+	affect_to_room(ch->in_room, paf);
+	aff_free(paf);
+
+	act("The darkness falls.", ch, NULL, NULL, TO_ALL);
+}
+
+#define MOB_VNUM_AIR_ELEMENTAL 29
+
+static int air_elemental_stats[MAX_STAT] = {
+	23, 23, 3, 24, 16, 25
+};
+
+SPELL_FUN(prayer_air_elemental, sn, level, ch, vo)
+{
+	CHAR_DATA *gch;
+	CHAR_DATA *elemental;
+	AFFECT_DATA *paf;
+	int i;
+
+	if (is_sn_affected(ch, sn)) {
+		act_puts("You cannot summon air elemental right now.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		return;
+	}
+
+	if (ch->in_room == NULL
+	|| ch->in_room->sector_type == SECT_UNDERWATER) {
+		act_char("There is no air here.", ch);
+		return;
+	}
+
+	act("You notice some strange motions in air around you.", ch,
+	    NULL, NULL, TO_ALL);
+
+	if (IS_SET(ch->in_room->room_flags,
+		   ROOM_NOMOB | ROOM_PEACE | ROOM_PRIVATE | ROOM_SOLITARY)) {
+		act("But nothing else happens.", ch, NULL, NULL, TO_ALL);
+		return;
+	}
+
+	for (gch = npc_list; gch; gch = gch->next) {
+		if (IS_AFFECTED(gch, AFF_CHARM)
+		&&  gch->master == ch
+		&&  gch->pMobIndex->vnum == MOB_VNUM_AIR_ELEMENTAL) {
+			act_char("Two air elemental is too much", ch);
+			act("But nothing else happens.", ch, NULL, NULL,
+			    TO_ROOM);
+			return;
+		}
+	}
+
+	elemental = create_mob(MOB_VNUM_AIR_ELEMENTAL, 0);
+	if (elemental == NULL) {
+		act("But nothing else happens.", ch, NULL, NULL, TO_ALL);
+		return;
+	}
+
+	for (i = 0; i < MAX_STAT; i++) {
+		elemental->perm_stat[i] = air_elemental_stats[i];
+	}
+
+	SET_HIT(elemental, ch->perm_hit);
+	SET_MANA(elemental, ch->max_mana);
+	elemental->level = level;
+	for (i = 0; i < 4; i++)
+		elemental->armor[i] = interpolate(elemental->level, 100, -100);
+	elemental->gold = elemental->silver = 0;
+	NPC(elemental)->dam.dice_number = number_range(level/15, level/10);
+	NPC(elemental)->dam.dice_type   = number_range(level/3, level/2);
+	elemental->damroll  = 0;
+
+	act("Air around you concentrates and $N appears.",
+		 ch, NULL, elemental, TO_ALL);
+
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= 48;
+	affect_to_char(ch, paf);
+	aff_free(paf);
+
+	elemental->master = elemental->leader = ch;
+
+	char_to_room(elemental, ch->in_room);
+}
+
+static void
+hold(CHAR_DATA *ch, CHAR_DATA *victim, int duration, int dex_modifier,
+     int level)
+{
+	AFFECT_DATA *paf;
+	affect_strip(victim, "hold");
+
+	paf = aff_new(TO_AFFECTS, "hold");
+	paf->level		= level;
+	paf->duration		= duration;
+	paf->owner		= ch;
+	paf->modifier		= dex_modifier;
+	INT(paf->location)	= APPLY_DEX;
+
+	affect_to_char(victim, paf);
+
+	aff_free(paf);
+	act("$N suddenly seems immobile.", ch, NULL, victim, TO_NOTVICT);
+	act_char("You are unable to move.", victim);
 }

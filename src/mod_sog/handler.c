@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.339 2001-11-06 07:22:54 kostik Exp $
+ * $Id: handler.c,v 1.340 2001-11-07 13:09:17 kostik Exp $
  */
 
 /***************************************************************************
@@ -1713,6 +1713,26 @@ move_char(CHAR_DATA *ch, int door, flag_t flags)
 		return FALSE;
 	}
 
+	if ((paf = affect_find(ch->affected, "hold")) != NULL) {
+		if (paf->owner == NULL || paf->owner->in_room != ch->in_room)
+			affect_strip(ch, "hold");
+		else {
+			WAIT_STATE(ch, get_pulse("violence"));
+			if (dice_wlb(3, 3, ch, NULL) == 9) {
+				affect_strip(ch, "hold");
+				act("You manage to break $N's hold.", ch,
+				    NULL, paf->owner, TO_CHAR);
+				act("$n breaks your hold.", ch,
+				    NULL, paf->owner, TO_VICT);
+			} else {
+				act_char("You are unable to move.", ch);
+				act("$n tries to move, but fails.",
+				    ch, NULL, NULL, TO_ROOM);
+				return FALSE;
+			}
+		}
+	}
+
 	if (IS_AFFECTED(ch, AFF_WEB)
 	|| (MOUNTED(ch) && IS_AFFECTED(ch->mount, AFF_WEB))) {
 		WAIT_STATE(ch, get_pulse("violence"));
@@ -2618,6 +2638,10 @@ delevel(CHAR_DATA *ch)
 bool
 room_is_dark(ROOM_INDEX_DATA *pRoomIndex)
 {
+	/* Lights won't work in RAFF_DARKNESS room */
+	if (IS_AFFECTED(pRoomIndex, RAFF_DARKNESS))
+		return TRUE;
+
 	if (pRoomIndex->light > 0)
 		return FALSE;
 

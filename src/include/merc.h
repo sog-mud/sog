@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.372 2001-11-01 13:21:42 kostik Exp $
+ * $Id: merc.h,v 1.373 2001-11-07 13:09:12 kostik Exp $
  */
 
 /***************************************************************************
@@ -710,6 +710,7 @@ struct wiznet_type
 #define RAFF_ESPIRIT		(B)
 #define RAFF_CURSE		(C)
 #define	RAFF_LIGHT		(D)
+#define RAFF_DARKNESS		(E)
 
 /* AC types */
 #define AC_PIERCE			0

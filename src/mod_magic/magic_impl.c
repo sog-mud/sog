@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic_impl.c,v 1.10 2001-11-06 07:22:52 kostik Exp $
+ * $Id: magic_impl.c,v 1.11 2001-11-07 13:09:13 kostik Exp $
  */
 
 #include <stdio.h>
@@ -215,6 +215,7 @@ get_cpdata(CHAR_DATA *ch, const char *argument, int skill_type, cpdata_t *cp)
 bool
 casting_allowed(CHAR_DATA *ch, cpdata_t *cp)
 {
+	AFFECT_DATA *paf;
 	if (has_spec(ch, "clan_battleragers") && !IS_IMMORTAL(ch)) {
 		if (cp->sk->skill_type == ST_SPELL)
 			act_char("You are Battle Rager, not a filthy magician!", ch);
@@ -227,6 +228,19 @@ casting_allowed(CHAR_DATA *ch, cpdata_t *cp)
 	&&  is_sn_affected(ch, "shielding")) {
 		act_char("You reach for the True Source and feel something stopping you.", ch);
 		return FALSE;
+	}
+
+	if ((paf = affect_find(ch->affected, "hold")) != NULL) {
+		if (paf->owner == NULL || paf->owner->in_room != ch->in_room)
+			affect_strip(ch, "hold");
+
+		if (cp->sk->skill_type == ST_SPELL
+		&& cp->sk->rank > 2) {
+			act_char(
+			    "You cannot make right gestures to cast this spell",
+			    ch);
+			return FALSE;
+		}
 	}
 
 	if (is_sn_affected(ch, "garble")
