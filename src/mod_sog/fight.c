@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.306 2001-07-16 18:42:06 fjoe Exp $
+ * $Id: fight.c,v 1.307 2001-07-25 16:40:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1000,6 +1000,7 @@ damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 	&&  (ch != victim || IS_SET(dam_flags, DAMF_LIGHT_V))) {
 		REMOVE_BIT(victim->affected_by, AFF_SLEEP);
 		affect_bit_strip(victim, TO_AFFECTS, AFF_SLEEP);
+		victim->position = POS_STANDING;
 	}
 
 	/*
