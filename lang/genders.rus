@@ -46,6 +46,14 @@ Form 3 -лись~
 End
 
 #RULE
+Name который~
+BaseLen 5
+Form 1 -ая~
+Form 2 -ое~
+Form 3 -ые~
+End
+
+#RULE
 Name погас~
 BaseLen 5
 Form 1 -ла~
@@ -119,6 +127,14 @@ Form 3 -ы~
 End
 
 #RULE
+Name выпущен~
+BaseLen 7
+Form 1 -а~
+Form 2 -о~
+Form 3 -и~
+End
+
+#RULE
 Name разделал~
 BaseLen 8
 Form 1 -а~
@@ -129,6 +145,15 @@ Name уклонился~
 BaseLen 7
 Form 1 -ась~
 Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
+Name выпущенный~
+BaseLen 8
+Form 1 -ая~
+Form 2 -ое~
+Form 3 -ые~
 End
 
 #RULE
@@ -149,7 +174,9 @@ End
 
 #RULE
 Name него~
-Form 1 нее~
+BaseLen 1
+Form 1 -ее~
+Form 3 -их~
 End
 
 #RULE
@@ -179,6 +206,14 @@ End
 #RULE
 Name создал~
 Form 1 создала~
+End
+
+#RULE
+Name был~
+BaseLen 3
+Form 1 -а~
+Form 2 -о~
+Form 3 -и~
 End
 
 #RULE

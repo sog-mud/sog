@@ -3,6 +3,7 @@ Name -ый~
 BaseLen -2
 Form 1 -ая~
 Form 2 -ое~
+Form 3 -ые~
 End
 
 #RULE
@@ -10,6 +11,7 @@ Name -ий~
 BaseLen -2
 Form 1 -ая~
 Form 2 -ое~
+Form 3 -ие~
 End
 
 #RULE
@@ -17,6 +19,7 @@ Name -ой~
 BaseLen -2
 Form 1 -ая~
 Form 2 -ое~
+Form 3 -ие~
 End
 
 #RULE

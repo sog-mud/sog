@@ -762,6 +762,15 @@ A
 A
 19 4
 G none
+#36195
+bag сумка~
+{Cstrangely light bag{x~
+Bag glows with a sky-blue light.~
+energy~
+container AHIRTYa AP
+2000 0 0 2000 3
+1 50 0 P
+G none
 #36196
 lembas wafers~
 delicious lembas wafers~

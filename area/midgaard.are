@@ -6715,6 +6715,10 @@ D0
 ~
 ~
 Z 0 3062
+D5
+~
+~
+Z 0 7017
 S
 #3100
 @eng Northwest end of Concourse@rus Северо-западный конец дороги~
@@ -8642,6 +8646,7 @@ M 3013 spec_janitor	* the janitor
 M 3020 spec_cast_mage	* the guildmaster
 M 3021 spec_cast_cleric	* the guildmaster
 M 3024 spec_cast_mage	* the sorcerer
+M 3026 spec_assassinater	* the assassin
 M 3042 spec_cast_mage	* the waiter
 M 3043 spec_cast_cleric	* the waiter
 M 3060 spec_guard	* the cityguard

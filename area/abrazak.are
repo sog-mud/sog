@@ -550,39 +550,6 @@ wand CEGJLTYa AOP
 50 10 10 'sand storm' 0
 20 10 0 P
 G none
-#15100
-cheburator~
-@eng a dwarven golden ring~
-~
-unknown~
-armor HOTY B
-99 99 99 99 0
-7 1 900000 P
-A
-18 500
-A
-18 500
-A
-19 100
-A
-19 100
-A
-19 100
-A
-19 100
-A
-19 100
-A
-19 100
-A
-19 100
-A
-19 100
-A
-20 -50
-A
-19 100
-G none
 #15113
 bucket rose~
 @eng Bucket full of roses@rus Ведерко для роз~
@@ -666,10 +633,6 @@ S
 #SHOPS
 15016 0 0 0 0 0 100 100 0 23
 0
-
-#OLIMITS
-O 15100 1	* a dwarven golden ring
-S
 
 #MOBPROGS
 #15000

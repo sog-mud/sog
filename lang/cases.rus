@@ -1,4 +1,15 @@
 #RULE
+Name выпущенная~
+BaseLen 8
+Form 1 -ой~
+Form 2 -ой~
+Form 3 -ую~
+Form 4 -ой~
+Form 5 -ой~
+Form 6 -ую~
+End
+
+#RULE
 Name волчица~
 BaseLen 6
 Form 1 -ы~
@@ -330,6 +341,17 @@ Form 3 -~
 Form 4 -ом~
 Form 5 -е~
 Form 6 -~
+End
+
+#RULE
+Name штаны~
+BaseLen 4
+Form 1 -ы~
+Form 2 -ам~
+Form 3 -ы~
+Form 4 -ами~
+Form 5 -ах~
+Form 6 -ы~
 End
 
 #RULE
@@ -1415,6 +1437,17 @@ Form 6 -и~
 End
 
 #RULE
+Name дракончик~
+BaseLen 9
+Form 1 -а~
+Form 2 -у~
+Form 3 -~
+Form 4 -ом~
+Form 5 -е~
+Form 6 -а~
+End
+
+#RULE
 Name амулет~
 BaseLen 6
 Form 1 -а~
@@ -1978,6 +2011,17 @@ Form 6 -у~
 End
 
 #RULE
+Name мерцающий~
+BaseLen 7
+Form 1 -его~
+Form 2 -ему~
+Form 3 -ий~
+Form 4 -им~
+Form 5 -ем~
+Form 6 -его~
+End
+
+#RULE
 Name блюститель~
 BaseLen 9
 Form 1 -я~
@@ -2090,6 +2134,17 @@ Form 3 -ую~
 Form 4 -ой~
 Form 5 -ой~
 Form 6 -ую~
+End
+
+#RULE
+Name сказочный~
+BaseLen 7
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ый~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ого~
 End
 
 #RULE
@@ -3818,6 +3873,17 @@ Form 1 -ов~
 Form 2 -ам~
 Form 4 -ами~
 Form 5 -ах~
+End
+
+#RULE
+Name луч~
+BaseLen 3
+Form 1 -а~
+Form 2 -у~
+Form 3 -~
+Form 4 -ом~
+Form 5 -е~
+Form 6 -~
 End
 
 #RULE

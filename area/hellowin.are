@@ -188,8 +188,8 @@ S 'hand block' 75 A
 S 'disarm' 75 A
 G plural
 #34451
-manual reference book справочник энциклопедия~
-@eng Reference manual@rus "~~Энциклопедия~~ юных сурков"~
+book справочник энциклопедия old~
+@eng An old book@rus "~~Энциклопедия~~ юных сурков"~
 @eng The book about all you want to know lies here.@rus Большая толстая энциклопедия (manual) кем-то оставлена здесь.~
 paper~
 treasure Ah AO

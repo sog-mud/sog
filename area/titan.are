@@ -5068,7 +5068,7 @@ Healer's temple.
 Z -1 18126
 S
 #18140
-Royal Bank.~
+@eng Royal Bank~
 You are in a large hall, nicely lit by big chandeliers hanging from the
 ceilings. A long counter lies through the room.
 ~
@@ -5380,7 +5380,7 @@ M 0 18056 1 18125 1	* the Magical Sylph (Store of the deadly beast)
 M 0 18100 1 18126 1	* Questor (Temple of Titans Valley)
 O 0 18101 0 18127	* the donation pit (By the temple of Titans Valley)
 M 0 18101 5 18127 1	* the healer (By the temple of Titans Valley)
-O 0 18102 0 18140	* a fountain (Royal Bank.)
+O 0 18102 0 18140	* a fountain (Royal Bank)
 S
 
 #SHOPS

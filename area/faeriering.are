@@ -8,11 +8,14 @@ End
 
 #MOBILES
 #29101
-pixie faerie~
-a giggling pixie~
-A pixie pokes you in the butt with its sword and giggles! 
+pixie faerie пикси~
+@eng a giggling pixie@rus ~~хихикающий~~ пикси~
+@eng A pixie pokes you in the butt with its sword and giggles! 
+@rus Пикси (pixie) указал на тебя рукояткой меча и захихикал.
 ~
-The pixie is about 6" tall, is human like, and has dragonfly wings. 
+@eng The pixie is about 6" tall, is human like, and has dragonfly wings. 
+@rus Пикси... Ростом около 6 дюймов, похожий на человека и со стрекозиными
+крыльями.
 ~
 unique~
 ACEH T 0 0
@@ -22,11 +25,14 @@ EFR 0 CD HZ
 stand stand male 5
 ACHMVW ABCDEFGHIJKO tiny unknown
 #29102
-nixie faerie~
-a fluttering nixie~
-A fluttering nixie rummages through your possessions looking for wine! 
+nixie faerie никси~
+@eng a fluttering nixie@rus ~~порхающий~~ никси~
+@eng A fluttering nixie rummages through your possessions looking for wine! 
+@rus Никси (nixie) весело порхает вокруг, разыскивая вино.
 ~
-The nixie, like the pixie has dragonfly wings, but is taller (9"). 
+@eng The nixie, like the pixie has dragonfly wings, but is taller (9"). 
+@rus Никси... Похож на пикси, тоже имеет стрекозиные крылья, но повыше -- аж
+девять дюймов.
 ~
 unique~
 ACEH T 0 0
@@ -36,8 +42,8 @@ EFU 0 C HZ
 stand stand male 10
 AHMVW ABCDEFGHIJKO tiny unknown
 #29103
-sprite faerie~
-a dancing sprite~
+sprite faerie спрайт~
+@eng a dancing sprite@rus ~~танцующий~~ ~~спрайт~~~
 A sprite casts a spell and you do a merry little dance! 
 ~
 The sprite has dragonfly wings like the nixie and pixie, but she towers over 
@@ -112,12 +118,15 @@ EFHNU 0 C Z
 stand stand male 400
 AHMV ABCDEFGHIJK small unknown
 #29108
-faerie drunken~
-a drunken faerie~
-A drunken faerie snores happily on the floor.  
+faerie drunken фейри~
+@eng a drunken faerie@rus ~~пьяный~~ фейри~
+@eng A drunken faerie snores happily on the floor.  
+@rus Пьяный фейри (faerie) счастливо храпит на полу.
 ~
-The drunken faerie lies nude on the floor, snoring happily away. Looks like 
+@eng The drunken faerie lies nude on the floor, snoring happily away. Looks like 
 somebody is playing a practical joke on him.
+@rus Пьный фейри лежит на полу, счастливо похрапывая. Почему-то кажется что 
+кто-то сыграл с ним шутку.
 ~
 unique~
 ABCE RT 0 0
@@ -128,11 +137,14 @@ sleep rest male 5
 AHMV ABCDEFGHIJKO tiny unknown
 #29109
 twinkletoes bartender faerie~
-Twinkletoes~
-A faerie bartender is here, serving up faerie wine and finger food. 
+@eng Twinkletoes@rus Твинклету~
+@eng A faerie bartender is here, serving up faerie wine and finger food. 
+@rus Немолодой торговец (bartender) предлагает вам перекусить у него в заведении.
 ~
-Twinkletoes is a fierce, old looking brownie. Maybe you should leave her 
+@eng Twinkletoes is a fierce, old looking brownie. Maybe you should leave her 
 alone.
+@rus Твинклету принадлежит сказочному народу фейри. Это немолодой уже брауни.
+Может быть, тебе стоит оставить его в покое?
 ~
 unique~
 ABCEbe V 0 0
@@ -146,26 +158,29 @@ AHMV ABCDEFGHIJK medium unknown
 #OBJECTS
 #29101
 rhyme catchy little~
-a catchy little rhyme~
-There is a tiny rolled up paper lying on the ground.~
+@eng a catchy little rhyme@rus ~~листок~~ с рифмами~
+@eng There is a tiny rolled up paper lying on the ground.@rus Небольшой, скрученный в трубку листок (rhyme) лежит на земле.~
 paper~
 scroll AG AO
 15 'faerie fog' '' '' ''
 10 1 200 P
 E
-rhyme catchy little~
-You look at the rhyme. It reads:
+rhyme catchy little листок~
+@eng You look at the rhyme. It reads:
 -
 Turn your clothes inside out
 Circle three times and shout
 Iron and cross, make you be
 Revealed to all, and to me
+@rus Абра, швабра, кадабра...
+Пакля, шпакля, рвакля...
+Розы, морозы..
 ~
-G none
+G male
 #29102
-light twinkle twinkling ball~
-a *twinkling* ball of light~
-A twinkling ball of light sparkles here!~
+ball light twinkle twinkling мерцающий шар~
+@eng a *twinkling* ball of light@rus ~~мерцающий~~ ~~шар~~~
+@eng A twinkling ball of light sparkles here!@rus Мерцающий шар (ball) искрится и переливается всеми цветами радуги, освещая все вокруг.~
 unknown~
 light AGI AO
 0 0 999 0 0
@@ -178,22 +193,22 @@ A
 18 1
 A
 19 1
-G none
+G male
 #29103
-belt sprite~
-a sprite belt~
-A loop of rainbow thread lies here.~
+belt sprite поясок rainbow радуга~
+@eng a sprite belt@rus ~~поясок~~ спрайта~
+@eng A loop of rainbow thread lies here.@rus Маленькая радуга (sprite bell), свернутая в кольцо, лежит у твоих ног.~
 mithril~
 armor FM AL
 5 5 5 5 0
 11 1 500 P
 A
 24 -3
-G none
+G female
 #29104
-bracer brownie~
-a brownie bracer~
-An earthen colored band lies here.~
+bracer brownie браслет~
+@eng a brownie bracer@rus ~~браслет~~ брауни~
+@eng An earthen colored band lies here.@rus Цветной глиняный браслет (bracer) лежит здесь.~
 mithril~
 armor G AM
 5 5 5 5 0
@@ -202,20 +217,20 @@ A
 2 1
 A
 13 8
-G none
+G male
 #29105
-vial moonlight bottled~
-a vial of bottled moonlight~
-A vial of sparkling liquid emits a soft white glow.~
+vial moonlight bottled пузырек~
+@eng a vial of bottled moonlight@rus ~~пузырек~~, полный лунного света~
+@eng A vial of sparkling liquid emits a soft white glow.@rus Пузырек (vial), наполненный искрящийся жидкостью, излучает вокруг мягкое белое сияние.~
 glass~
 potion AG AO
 15 'fly' 'cure poison' 'cure critical' ''
 12 1 700 P
-G none
+G male
 #29106
-robe gossamer~
-a gossamer robe~
-A gossamer robe sparkles with a pale white glow!~
+robe gossamer плащ~
+@eng a gossamer robe@rus ~~плащ~~ из тончайшего газа~
+@eng A gossamer robe sparkles with a pale white glow!@rus Плащ (robe) из газа светится неярким белым светом.~
 cloth~
 armor IM AK
 6 6 6 6 0
@@ -224,11 +239,11 @@ A
 12 10
 A
 24 -2
-G none
+G male
 #29107
-moonbeam~
-a moonbeam~
-A sparkling pale light ray glows here! ~
+moonbeam луч~
+@eng a moonbeam@rus ~~лунный~~ ~~луч~~~
+@eng A sparkling pale light ray glows here! @rus Луч (moonbeam) лунного света нежно освещает все вокруг.~
 unknown~
 weapon AF AN
 exotic 4 4 pierce G
@@ -237,20 +252,20 @@ A
 18 2
 A
 19 2
-G none
+G male
 #29108
-wine goblet faerie~
-a goblet of faerie wine~
-A crystal goblet filled with a sparkling wine is here.~
+wine goblet faerie бокал вино~
+@eng a goblet of faerie wine@rus ~~бокал~~ вина фейри~
+@eng A crystal goblet filled with a sparkling wine is here.@rus Бокал (goblet) из цельного кристалла, наполненный искрящимся вином, оставлен здесь.~
 glass~
 potion G A
 10 'cure blindness' 'invisibility' '' ''
 10 1 100 P
-G none
+G male
 #29109
-britches dirty~
-a pair of dirty britches~
-A pair of dirty britches lies here. Get the laundry soap.~
+britches dirty штаны~
+@eng a pair of dirty britches@rus ~~грязные~~ ~~штаны~~~
+@eng A pair of dirty britches lies here. Get the laundry soap.@rus Пара грязных штанов (britches) валяется здесь.~
 leather~
 armor C AF
 5 5 5 0 0
@@ -263,20 +278,20 @@ A
 19 1
 A
 23 -1
-G none
+G plural
 #29110
-key sparkling~
-a sparkling key~
-A sparkling key glistens on the ground.~
+key sparkling ключ сверкающий~
+@eng a sparkling key@rus ~~сверкающий~~ ~~ключ~~~
+@eng A sparkling key glistens on the ground.@rus Сверкающий ключ (key) блестит на земле.~
 silver~
 key BG AO
 0 0 0 0 0
 13 1 130 P
-G none
+G male
 #29111
-cloak dirty~
-a dirty cloak~
-A dirty cloak lies here. Ugh! Get the laundry soap.~
+cloak dirty плащ~
+@eng a dirty cloak@rus ~~грязный~~ ~~плащ~~~
+@eng A dirty cloak lies here. Ugh! Get the laundry soap.@rus Грязный плащ (cloak) валяется на земле.~
 leather~
 armor C AC
 5 5 5 0 0
@@ -285,38 +300,39 @@ A
 2 1
 A
 1 1
-G none
+G male
 #29112
-wand blue diamond~
-a blue diamond wand~
-A wand with a huge blue diamond on it is just lying here! Pick it up!~
+wand blue diamond жезл~
+@eng a blue diamond wand@rus ~~жезл~~ из голубого алмаза~
+@eng A wand with a huge blue diamond on it is just lying here! Pick it up!@rus Жезл (wand), выточенный из огромного голубого алмаза лежит прямо перед тобой.~
 wood~
 wand G AO
 14 12 12 'create food' 0
 13 2 1200 P
 E
 diamond blue~
-They're magically delicious!
+@eng They're magically delicious!
+@rus Просто прелесть.
 ~
-G none
+G male
 #29113
-gold~
-whoooooopie! Gold!~
-A rainbow ends at this pot of gold!~
+gold золото деньги~
+@eng whoooooopie! Gold!@rus Деньги!!!~
+@eng A rainbow ends at this pot of gold!@rus Оо! Ты с волнением замечаешь небольшую кучку золотых монет (gold).~
 gold~
 money A AO
 500 0 0 0 0
 0 13 130 P
-G none
+G plural
 #29114
-food finger~
-delicious finger food~
-A delicious little plate of scrumptious finger foods lies beckons to you.~
+food finger пирожок~
+@eng delicious finger food@rus ~~вкусный~~ ~~пирожок~~~
+@eng A delicious little plate of scrumptious finger foods lies beckons to you.@rus Великолепно приготовленный пирожок (food) сам просится к тебе в рот.~
 flesh~
 food 0 AN
 DE DE 0 0 0
 0 1 5 P
-G none
+G male
 #0
 
 #ROOMS

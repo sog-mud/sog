@@ -1993,11 +1993,14 @@ D3
 Z -1 1820
 S
 #1822
-@eng Path in the Dark Woods@rus В Дремучем Лесу~
-The path stretches north and south. To the west the way is impassable, and to
+@eng Path in the Dark Woods@rus Тропа в Дремучем Лесу~
+@eng The path stretches north and south. To the west the way is impassable, and to
 the east the foliage is dark. Indeed, above you the canopy of leaves is so
 thick that very little light comes through. From the west you hear faint
 songs of birds.
+@rus Тропа идет с юга на север. На запад проход закрыт, а на востоке дремучий
+кустарник. Неужели лесной полог настолько густой, что проходит так мало
+света. С запада доносятся слабые голоса птиц.
 ~
 0 A forest
 D0

@@ -288,7 +288,7 @@ armchair~
 @eng Armchair@rus {yКресло-качалка{w~
 wood~
 furniture G 0
-A DFGHIJ FI CEFGHI CEFGHI
+A DFGHIJ FIL CEFGHI CEFGHI
 92 1 1 P
 G none
 #38003
@@ -425,7 +425,7 @@ treasure RT A
 G none
 #38013
 weapon~
-{MO**{Y({W=====-{x Third Power Of Heavens{x~
+@eng Sword of Justice@rus Меч Правосудия~
 Third Power lies here.~
 energy~
 weapon CI AN

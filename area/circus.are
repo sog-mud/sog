@@ -1,6 +1,6 @@
 #AREADATA
 Name Circus~
-Builders setepios~
+Builders shamash~
 VNUMs 4400 4500
 Credits Binky~
 Security 9
@@ -215,11 +215,13 @@ stand stand male 10
 0 0 medium unknown
 #4412
 clown red~
-a red-nosed clown~
-A red-nosed clown is ready to throw a pie in your face.
+@eng a red-nosed clown@rus клоун~
+@eng A red-nosed clown is ready to throw a pie in your face.
+@rus Красноносый клоун (clown) готов запустить торт в твое лицо.
 ~
-The clown is laughing and throwing pies, and generally being a nuisance.  
+@eng The clown is laughing and throwing pies, and generally being a nuisance.  
 He turns towards you with a pie.  DUCK!
+@rus Клоун смеется, кидается тортами и жутко раздражает тебя. Что за придурок !?
 ~
 human~
 ABCH 0 500 0
@@ -230,11 +232,14 @@ stand stand male 20
 0 0 medium unknown
 #4413
 clown big~
-a clown with big shoes~
-A clown with big shoes is trying to get into a small car.
+@eng a clown with big shoes@rus клоун~
+@eng A clown with big shoes is trying to get into a small car.
+@rus Клоун (Clown) в большуших ботинках пытается перепрыгнуть через голову.
 ~
-The clown is trying to fit his shoes into the carriage.  It will be a tight 
+@eng The clown is trying to fit his shoes into the carriage.  It will be a tight 
 fit.
+@rus Клоун пытается одеть свои ботинуи так, чтоб они пришлись ему в пору ...
+Кажется, что для этого ему надо одеть их боком.
 ~
 dwarf~
 ABCH 0 500 0
@@ -245,11 +250,14 @@ stand stand male 20
 0 0 medium unknown
 #4414
 clown big~
-a big clown~
-A big clown is getting ready to throw confetti at you.
+@eng a big clown@rus клоун-гигант~
+@eng A big clown is getting ready to throw confetti at you.
+@rus Клоун-гигант (clown) готов стрельнуть в тебя хлопушкой.
 ~
-The big clown has a bucket full of confetti.  Or is it water?  Better stay 
+@eng The big clown has a bucket full of confetti.  Or is it water?  Better stay 
 away from him until you know.
+@rus Большой клоун вооружен хлопушками с конфети !!! Лучше не попадаться ему 
+под руку.
 ~
 giant~
 ABCH 0 300 0
@@ -355,11 +363,14 @@ stand stand male 135
 0 0 medium unknown
 #4421
 keeper~
-an animal keeper~
-An animal keeper is here, taking care of the animals.
+@eng an animal keeper@rus ветеренар~
+@eng An animal keeper is here, taking care of the animals.
+@rus Ветеренар (animal keeper) осматривает больное животное.
 ~
-She loves her work, and takes good care of the animals, despite the cheap 
+@eng She loves her work, and takes good care of the animals, despite the cheap 
 supplies bought for them by the Circus Owner.
+@rus Она любит свою работу и хорошо заботиться о больных животных, пичкая их 
+дешевой гадостью, которую купил хозяин цирка.
 ~
 human~
 AG N 1000 0
@@ -370,11 +381,14 @@ stand stand female 540
 0 0 medium unknown
 #4422
 elephant~
-an elephant~
-An elephant nudges you with his trunk, asking for peanuts.
+@eng an elephant@rus слон~
+@eng An elephant nudges you with his trunk, asking for peanuts.
+@rus Цирковой слон (elepant) тянет свой хобот желая орешков.
 ~
-This is a gigantic animal!  But he seems pretty docile.  Good thing.  You 
+@eng This is a gigantic animal!  But he seems pretty docile.  Good thing.  You 
 probably would not want to get him angry.
+@rus Большое ! Очень большое животное, но довольно забавное. Хотя ... Наверное не
+стоит его злить - раздавит как котенка.
 ~
 unique~
 AB 0 0 0
@@ -416,11 +430,14 @@ stand stand none 300
 0 0 medium unknown
 #4425
 unicorn horse white~
-a poor horse~
-A poor white horse is here, about to have a horn implanted in it's head.
+@eng a poor horse@rus лошадь~
+@eng A poor white horse is here, about to have a horn implanted in it's head.
+@rus Бедная лошадь (horse) болезнено фыркает.
 ~
-This poor animal had the unfortunate luck of being white.  Just what the 
+@eng This poor animal had the unfortunate luck of being white.  Just what the 
 Circus Owner was looking for.
+@rus Это бедное животное виновато в том, что родилось белым ... Как раз то, что
+и искал хозяин цирка.
 ~
 unique~
 AB 0 0 0
@@ -1109,7 +1126,7 @@ D2
 Z 0 4403
 S
 #4403
-@eng The Path to the Big Top@rus Тропинка ведущая под Большой Навес~
+@eng The Path to the Big Top@rus Дорожка в Шапито~
 @eng This way to the Big Top is lined with people.  They seem to be having 
 a good time.  Everyone that is, except the people waiting in line for the 
 Big Top.  They seem annoyed at you as you push your way past them.  To the
@@ -1164,7 +1181,7 @@ D3
 Z 0 4403
 S
 #4406
-The Path to the Big Top~
+@eng The Path to the Big Top@rus Дорожка в Шапито~
 This way to the Big Top is lined with people.  They seem to be having 
 a good time.  Everyone that is, except the people waiting in line for the 
 Big Top.  They seem annoyed at you as you push your way past them.  To the

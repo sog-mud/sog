@@ -1,6 +1,5 @@
 #AREADATA
 Name Knight~
-Builders agrael~
 VNUMs 95200 95229
 Credits Chronos~
 Security 1
@@ -206,7 +205,7 @@ holy lance~
 {WHoly blessed Lance{x~
 {WVery beautiful Lance{x glowing here.~
 silver~
-weapon ABIKRTa AN
+weapon ABIKTa AN
 lance 12 12 charge DEI
 75 200 1000000 P
 A

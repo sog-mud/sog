@@ -91,10 +91,6 @@ O 0 700 0 700	* armchair (Captain's cabin)
 O 0 702 0 700	* Rum bottle (Captain's cabin)
 S
 
-#OLIMITS
-O 703 0	* Rod Of Rage
-S
-
 #MOBPROGS
 #700
 if name $r JullyRoger
