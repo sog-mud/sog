@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_damtype.c,v 1.1 1999-12-18 16:08:38 avn Exp $
+ * $Id: olc_damtype.c,v 1.2 2000-04-03 08:54:08 fjoe Exp $
  */
 
 /*
@@ -261,6 +261,9 @@ OLC_FUN(damted_slot)
 OLC_FUN(damted_delete)
 {
 	damtype_t *dt;
+
+	if (olced_busy(ch, ED_DAMT, NULL, NULL))
+		return FALSE;
 
 	EDIT_DAMT(ch, dt);
 	hash_delete(&damtypes, dt->dam_name);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_liquid.c,v 1.10 1999-12-20 08:31:20 fjoe Exp $
+ * $Id: olc_liquid.c,v 1.11 2000-04-03 08:54:08 fjoe Exp $
  */
 
 #include "olc.h"
@@ -271,6 +271,9 @@ OLC_FUN(liqed_affect)
 OLC_FUN(liqed_delete)
 {
 	liquid_t *lq;
+
+	if (olced_busy(ch, ED_LIQUID, NULL, NULL))
+		return FALSE;
 
 	EDIT_LIQ(ch, lq);
 	hash_delete(&liquids, gmlstr_mval(&lq->lq_name));

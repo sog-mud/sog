@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_cmd.c,v 1.9 2000-01-19 06:57:42 fjoe Exp $
+ * $Id: olc_cmd.c,v 1.10 2000-04-03 08:54:08 fjoe Exp $
  */
 
 #include "olc.h"
@@ -347,6 +347,9 @@ OLC_FUN(cmded_delete)
 {
 	cmd_t *cmnd;
 	EDIT_CMD(ch, cmnd);
+
+	if (olced_busy(ch, ED_CMD, NULL, NULL))
+		return FALSE;
 
 	varr_edelete(&commands, cmnd);
 	edit_done(ch->desc);

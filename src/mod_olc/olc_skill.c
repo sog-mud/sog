@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_skill.c,v 1.14 1999-12-21 06:36:27 fjoe Exp $
+ * $Id: olc_skill.c,v 1.15 2000-04-03 08:54:08 fjoe Exp $
  */
 
 #include "olc.h"
@@ -52,6 +52,7 @@ DECLARE_OLC_FUN(skilled_flags		);
 DECLARE_OLC_FUN(skilled_group		);
 DECLARE_OLC_FUN(skilled_type		);
 DECLARE_OLC_FUN(skilled_event		);
+DECLARE_OLC_FUN(skilled_delete		);
 
 olced_strkey_t strkey_skills = { &skills, NULL };
 
@@ -80,6 +81,9 @@ olc_cmd_t olc_cmds_skill[] =
 	{ "group",	skilled_group,	NULL,	skill_groups		},
 	{ "type",	skilled_type,	NULL,	skill_types		},
 	{ "event",	skilled_event, validate_funname, events_classes	},
+	{ "delete_skil",olced_spell_out					},
+	{ "delete_skill",skilled_delete					},
+
 
 	{ "commands",	show_commands					},
 	{ NULL }
@@ -465,3 +469,17 @@ OLC_FUN(skilled_event)
 	char_puts("SkillEd: Ok.\n", ch);
 	return TRUE;
 }
+
+OLC_FUN(skilled_delete)
+{
+	skill_t *sk;
+
+	if (olced_busy(ch, ED_SKILL, NULL, NULL))
+		return FALSE;
+
+	EDIT_SKILL(ch, sk);
+	hash_delete(&skills, gmlstr_mval(&sk->sk_name));
+	edit_done(ch->desc);
+	return TRUE;
+}
+

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.336 2000-04-01 13:18:52 kostik Exp $
+ * $Id: act_info.c,v 1.337 2000-04-03 08:54:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2656,28 +2656,32 @@ static const char * get_resist_alias(int resist)
 void do_resistances(CHAR_DATA *ch, const char *argument)
 {
 	int i;
-	int16_t* resists;
 
 	bool found = FALSE;
 
-	for (i=0; i < MAX_RESIST; i++) {
-		if (!get_resist(ch,i) || i == DAM_CHARM)
+	for (i = 0; i < MAX_RESIST; i++) {
+		int res;
+
+		if (!(res = get_resist(ch, i)) || i == DAM_CHARM)
 			continue;
+
 		found = TRUE;
 		if (ch->level < MAX_LEVEL / 3) {
 			char_printf(ch, "You are %s %s.\n", 
-				get_resist_alias(get_resist(ch, i)), 
+				get_resist_alias(res), 
 				flag_string(resist_info_flags, i));
 		} else {
 			char_printf(ch, "You are %s %s (%d%%).\n", 
-				get_resist_alias(get_resist(ch,i)),
+				get_resist_alias(res),
 				flag_string(resist_info_flags, i),
-				get_resist(ch, i));
+				res);
 		}
 	}
-	if (!found)
+
+	if (!found) {
 		act("You don't have any resistances and vulnerabilities.",
 			ch, NULL, NULL, TO_CHAR);
+	}
 }
 
 void do_lion_call(CHAR_DATA *ch, const char *argument)

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_material.c,v 1.14 2000-03-05 22:01:38 avn Exp $
+ * $Id: olc_material.c,v 1.15 2000-04-03 08:54:08 fjoe Exp $
  */
 
 #include "olc.h"
@@ -233,6 +233,9 @@ OLC_FUN(mated_material)
 OLC_FUN(mated_delete)
 {
 	material_t *mat;
+
+	if (olced_busy(ch, ED_MATERIAL, NULL, NULL))
+		return FALSE;
 
 	EDIT_MAT(ch, mat);
 	hash_delete(&materials, mat->name);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_social.c,v 1.24 2000-01-19 06:51:46 fjoe Exp $
+ * $Id: olc_social.c,v 1.25 2000-04-03 08:54:08 fjoe Exp $
  */
 
 /* I never wanted to be
@@ -395,6 +395,9 @@ OLC_FUN(soced_delete)
 {
 	social_t *soc;
 	EDIT_SOC(ch, soc);
+
+	if (olced_busy(ch, ED_SOCIAL, NULL, NULL))
+		return FALSE;
 
 	varr_edelete(&socials, soc);
 	edit_done(ch->desc);
