@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.54 2002-01-15 16:58:52 tatyana Exp $
+ * $Id: spellfun2.c,v 1.139.2.55 2002-01-30 04:55:43 tatyana Exp $
  */
 
 /***************************************************************************
@@ -185,7 +185,6 @@ void spell_disintegrate(int sn, int level, CHAR_DATA *ch, void *vo)
 	PC_DATA *vpc;
 	
 	if (saves_spell(level-2, victim, DAM_ENERGY)
-	||  number_bits(1) == 0
 	||  IS_IMMORTAL(victim)
 	||  IS_CLAN_GUARD(victim)
 	||  IS_SET(victim->in_room->room_flags, ROOM_BATTLE_ARENA)) {
