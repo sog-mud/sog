@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.19 1998-05-24 19:20:56 efdi Exp $
+ * $Id: update.c,v 1.20 1998-05-24 20:40:06 efdi Exp $
  */
 
 /***************************************************************************
@@ -561,6 +561,9 @@ void mobile_update(void)
 
 	/* Examine all mobs. */
 	for (ch = char_list; ch != NULL; ch = ch->next) {
+		if (ch->position == POS_FIGHTING)
+			ch->last_fight_time = current_time;
+
 		/* show adrenalin stops gushing status */
 		if (!IS_NPC(ch))
 			if (current_time - ch->last_fight_time 
@@ -1284,10 +1287,11 @@ void char_update(void)
 	{
 	    damage(ch, ch, 1, TYPE_UNDEFINED, DAM_NONE,FALSE);
 	}
-	}
 
-	/* bust_a_prompt */
+	/* bust a prompt */
 	send_to_char("", ch);
+
+	} /* global for */
 
 	/*
 	 * Autosave and autoquit.
