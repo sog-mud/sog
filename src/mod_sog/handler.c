@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.27 1998-06-24 16:39:01 efdi Exp $
+ * $Id: handler.c,v 1.28 1998-06-25 14:10:16 efdi Exp $
  */
 
 /***************************************************************************
@@ -2993,6 +2993,7 @@ bool can_see(CHAR_DATA *ch, CHAR_DATA *victim)
 	&&   !CAN_DETECT(ch, DETECT_IMP_INVIS))
 		return FALSE;
 
+/*
 	if (IS_AFFECTED(victim, AFF_SNEAK)
 	&&  !(IS_NPC(ch) && ch->pIndexData->pShop)
 	&&  !CAN_DETECT(ch,DETECT_HIDDEN)
@@ -3006,6 +3007,7 @@ bool can_see(CHAR_DATA *ch, CHAR_DATA *victim)
 		if (number_percent() < chance)
 		    return FALSE;
 	}
+*/
 
 	if (IS_AFFECTED(victim,AFF_CAMOUFLAGE) &&
 	    !CAN_DETECT(ch,ACUTE_VISION))
