@@ -1,5 +1,5 @@
 /*
- * $Id: nanny.c,v 1.6 2001-09-17 18:42:31 fjoe Exp $
+ * $Id: nanny.c,v 1.7 2001-11-21 18:30:53 avn Exp $
  */
 
 /***************************************************************************
@@ -173,10 +173,12 @@ nanny(DESCRIPTOR_DATA *d, const char *argument)
 				d->ip = str_dup(inet_ntoa(sock.sin_addr));
 #if defined (WIN32)
 				printf("%s@%s\n",		// notrans
-#else
-				fprintf(rfout, "%s@%s\n",	// notrans
-#endif
 				    ch->name, d->ip);
+#else
+				if (rpid > 0)
+					fprintf(rfout, "%s@%s\n", // notrans
+					    ch->name, d->ip);
+#endif
 				d->connected = CON_RESOLV;
 /* wait until sock.sin_addr gets resolved */
 				break;
@@ -186,8 +188,12 @@ nanny(DESCRIPTOR_DATA *d, const char *argument)
 		/* FALLTHRU */
 
 	case CON_RESOLV:
-		if (d->host == NULL)
-			break;
+		if (d->host == NULL) {
+			if (rpid > 0)
+				break;
+			else
+				d->host = str_qdup(d->ip);
+		}
 
 		/*
 		 * Swiftest: I added the following to ban sites.  I don't

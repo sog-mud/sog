@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: resolver.c,v 1.19 2001-08-28 16:37:42 avn Exp $
+ * $Id: resolver.c,v 1.20 2001-11-21 18:30:54 avn Exp $
  */
 
 #include <sys/types.h>
@@ -122,8 +122,10 @@ resolver_destroy(void)
 {
 	fclose(rfin);
 	fclose(rfout);
-	kill(rpid, SIGTERM);
-	wait(NULL);
+	if (rpid > 0) {
+		kill(rpid, SIGTERM);
+		wait(NULL);
+	}
 }
 
 void

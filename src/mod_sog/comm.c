@@ -23,12 +23,13 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm.c,v 1.6 2001-09-14 18:12:06 fjoe Exp $
+ * $Id: comm.c,v 1.7 2001-11-21 18:30:53 avn Exp $
  */
 
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <sys/time.h>
+#include <sys/wait.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <arpa/telnet.h>
@@ -594,8 +595,10 @@ RUNGAME_FUN(_run_game, in_set, out_set, exc_set)
 	add_fds(&info_sockets, in_set, &maxdesc);
 
 #if !defined (WIN32)
-	FD_SET(fileno(rfin), in_set);
-	maxdesc = UMAX(maxdesc, fileno(rfin));
+	if (rpid > 0) {
+		FD_SET(fileno(rfin), in_set);
+		maxdesc = UMAX(maxdesc, fileno(rfin));
+	}
 #endif
 
 	for (d = descriptor_list; d; d = d->next) {
@@ -616,7 +619,7 @@ RUNGAME_FUN(_run_game, in_set, out_set, exc_set)
 	}
 
 #if !defined (WIN32)
-	if (FD_ISSET(fileno(rfin), in_set))
+	if (rpid > 0 && FD_ISSET(fileno(rfin), in_set))
 		resolv_done();
 #endif
 
@@ -649,6 +652,7 @@ RUNGAME_FUN(_run_game, in_set, out_set, exc_set)
 RUNGAME_FUN(_run_game_bottom, in_set, out_set, exc_set)
 {
 	DESCRIPTOR_DATA *d, *d_next;
+
 	/*
 	 * Process input.
 	 */
@@ -715,6 +719,28 @@ RUNGAME_FUN(_run_game_bottom, in_set, out_set, exc_set)
 		&&  FD_ISSET(d->descriptor, out_set)) {
 			if (!process_output(d, TRUE))
 				close_descriptor(d, SAVE_F_NORMAL);
+		}
+	}
+
+	/*
+	 * Check whether resolver is running
+	 */
+	if (rpid > 0) {
+		int st;
+
+		if (waitpid(rpid, &st, WNOHANG | WUNTRACED) == rpid) {
+			/* resolver died/stopped */
+			if (WIFEXITED(st))
+				log(LOG_BUG, "resolver exited with status %d",
+					WEXITSTATUS(st));
+			else if (WIFSIGNALED(st))
+				log(LOG_BUG, "resolver died on signal %d",
+					WTERMSIG(st));
+			else if (WIFSTOPPED(st))
+				log(LOG_BUG, "resolver stopped on signal %d",
+					WSTOPSIG(st));
+			/* to prevent reading from resolver */
+			rpid = -1;
 		}
 	}
 }
