@@ -1,5 +1,5 @@
 /*
- * $Id: comm.h,v 1.17 1998-09-29 01:06:54 fjoe Exp $
+ * $Id: comm.h,v 1.18 1998-10-02 08:14:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -77,8 +77,6 @@ void    act_printf(CHAR_DATA *ch, const void *arg1, const void *arg2,
 		act_nprintf(ch, arg1, arg2, type, min_pos, msg_num)
 void    act_nprintf(CHAR_DATA *ch, const void *arg1, const void *arg2,
 		    int type, int min_pos, int msg_num, ...);
-void	act_mlputs(CHAR_DATA *ch, const void *arg1, const void *arg2,
-		   int type, int min_pos, mlstring*);
 
 void    dump_to_scr(char *text);
 

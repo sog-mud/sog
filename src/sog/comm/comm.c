@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.103 1998-10-02 04:48:35 fjoe Exp $
+ * $Id: comm.c,v 1.104 1998-10-02 08:14:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2254,6 +2254,7 @@ bool check_parse_name(const char *name)
 	const char *pc;
 	bool fIll,adjcaps = FALSE,cleancaps = FALSE;
  	int total_caps = 0;
+	int i;
 
 	/*
 	 * Reserved words.
@@ -2313,6 +2314,12 @@ bool check_parse_name(const char *name)
 				if (is_name(name, pMobIndex->name))
 					return FALSE;
 		}
+	}
+
+	for (i = 0; i < clans.nused; i++) {
+		CLASS_DATA *clan = VARR_GET(&clans, i);
+		if (!str_cmp(name, clan->name))
+			return FALSE;
 	}
 
 	return TRUE;
@@ -2753,8 +2760,12 @@ void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 		else if (to->desc)
 			write_to_buffer(to->desc, tmp, 0);
 	}
-	else if (!IS_SET(flags, NO_TRIGGER))
-		mp_act_trigger(tmp, to, ch, arg1, arg2, TRIG_ACT);
+	else {
+		if (!IS_SET(flags, NO_TRIGGER))
+			mp_act_trigger(tmp, to, ch, arg1, arg2, TRIG_ACT);
+		if (to->desc)
+			write_to_buffer(to->desc, tmp, 0);
+	}
 }
 
 void act_nprintf(CHAR_DATA *ch, const void *arg1, 
@@ -2784,9 +2795,12 @@ void act_nprintf(CHAR_DATA *ch, const void *arg1,
 	va_start(ap, msgid);
 
 	for(; to ; to = to->next_in_room) {
-		if ((IS_NPC(to) && !HAS_TRIGGER(to, TRIG_ACT))
-	/*	||  (!IS_NPC(to) && to->desc == NULL) */
-		||  to->position < min_pos)
+		if (to->position < min_pos)
+			continue;
+
+		if (IS_NPC(to)
+		&&  to->desc == NULL
+		&&  !HAS_TRIGGER(to, TRIG_ACT))
 	        	continue;
  
 		if (IS_SET(flags, TO_CHAR) && to != ch)
@@ -2833,9 +2847,12 @@ void act_printf(CHAR_DATA *ch, const void *arg1,
 	va_start(ap, format);
 
 	for(; to ; to = to->next_in_room) {
-		if ((IS_NPC(to) && !HAS_TRIGGER(to, TRIG_ACT))
-	/*	||  (!IS_NPC(to) && to->desc == NULL) */
-		||  to->position < min_pos)
+		if (to->position < min_pos)
+			continue;
+
+		if (IS_NPC(to)
+		&&  to->desc == NULL
+		&&  !HAS_TRIGGER(to, TRIG_ACT))
 	        	continue;
  
 		if (IS_SET(flags, TO_CHAR) && to != ch)
@@ -2852,48 +2869,6 @@ void act_printf(CHAR_DATA *ch, const void *arg1,
 	}
 
 	va_end(ap);
-}
-
-void act_mlputs(CHAR_DATA *ch, const void *arg1, 
-		const void *arg2, int flags, int min_pos,
-		mlstring* text)
-{
-	CHAR_DATA *to;
-	CHAR_DATA *vch = (CHAR_DATA *) arg2;
-
-	if (ch == NULL || ch->in_room == NULL || text == NULL)
-		return;
-
-	to = ch->in_room->people;
-	if (IS_SET(flags, TO_VICT)) {
-		if (vch == NULL) {
-	        	bug("Act: null vch with TO_VICT.", 0);
-	        	return;
-		}
-
-		if (vch->in_room == NULL)
-			return;
-
-		to = vch->in_room->people;
-	}
- 
-	for(; to ; to = to->next_in_room) {
-		if ((IS_NPC(to) && !HAS_TRIGGER(to, TRIG_ACT))
-	/*	||  (!IS_NPC(to) && to->desc == NULL) */
-		||  to->position < min_pos)
-	        	continue;
- 
-		if (IS_SET(flags, TO_CHAR) && to != ch)
-			continue;
-		if (IS_SET(flags, TO_VICT) && (to != vch || to == ch))
-			continue;
-		if (IS_SET(flags, TO_ROOM) && to == ch)
-			continue;
-		if (IS_SET(flags, TO_NOTVICT) && (to == ch || to == vch))
-			continue;
-	
-		act_raw(ch, to, arg1, arg2, mlstr_cval(text, to), flags);
-	}
 }
 
 char* color(char type, CHAR_DATA *ch)
