@@ -1,5 +1,5 @@
 #!/bin/sh
-# $Id: sog.sh,v 1.4.2.7 2001-11-08 11:08:50 avn Exp $
+# $Id: sog.sh,v 1.4.2.8 2001-11-11 20:50:48 avn Exp $
 
 #
 # determine our home
@@ -12,7 +12,7 @@ export SOG_HOME
 
 #
 # check uid
-uid=`id -P | awk -F: '{ print $1 }'`
+uid=`id -un`
 if [ "$uid" != "sog" ]; then
 	echo "SoG must be run under user \`sog'"
 	exit 1
