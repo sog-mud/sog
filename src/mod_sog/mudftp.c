@@ -1,5 +1,5 @@
 /*
- * $Id: mudftp.c,v 1.1 2003-04-19 00:26:46 fjoe Exp $
+ * $Id: mudftp.c,v 1.2 2003-04-25 13:38:11 fjoe Exp $
  *
  * MUDftp module
  * (c) Copyright 1997, 1998 Erwin S. Andreasen and Oliver Jowett
@@ -205,7 +205,7 @@ SERVICE_FUN(cmd_stop)
 	free_string(d->mftp_filename);
 	d->mftp_filename = NULL;
 
-	string_add(ch, ":q");	/* Abort editing */
+	string_add_exit(ch, FALSE);	/* Abort editing */
 	mudftp_reply(d, "OK");
 }
 
@@ -282,7 +282,7 @@ finish_file(DESCRIPTOR_DATA *d)
 			free_string(d->mftp_data);
 			d->mftp_data = str_empty;
 
-			string_add(ch, "@"); /* Finish editing */
+			string_add_exit(ch, TRUE); /* Finish editing */
 			return;
 		}
 	}
