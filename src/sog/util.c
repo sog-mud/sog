@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: util.c,v 1.40 2001-11-01 13:21:46 kostik Exp $
+ * $Id: util.c,v 1.41 2002-11-21 12:59:21 fjoe Exp $
  */
 
 #include <sys/stat.h>
@@ -348,7 +348,8 @@ first_arg(const char *argument, char *arg_first, size_t len, bool fCase)
 		argument++;
 
 /* check quotes */
-	if (*argument == '\'' || *argument == '"')
+	if ((argument[0] == '\'' || argument[0] == '"')
+	&&  argument[1] != '\0')
 		cEnd = *argument++;
 
 	for (q = arg_first; *argument && q + 1 < arg_first + len; argument++) {
