@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.66 1998-12-22 19:03:02 fjoe Exp $
+ * $Id: spellfun2.c,v 1.67 1998-12-28 10:14:47 kostik Exp $
  */
 
 /***************************************************************************
@@ -778,12 +778,12 @@ void spell_eyes_of_intrigue(int sn, int level, CHAR_DATA *ch, void *vo, int targ
 	  }
 
 	if (ch==victim)
-	  do_look(ch, "auto");
+	  do_look(ch, str_empty);
 	else {
 	  ori_room = ch->in_room;
 	  char_from_room(ch);
 	  char_to_room(ch, victim->in_room);
-	  do_look(ch, "auto");
+	  do_look(ch, str_empty);
 	  char_from_room(ch);
 	  char_to_room(ch, ori_room);
 	}
@@ -1392,16 +1392,32 @@ void spell_brew(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 
 	switch (obj->pIndexData->item_type) {
 	 case ITEM_TRASH:
-		if (number_percent() < 20)
+		switch(number_bits(3)) {
+		case 0:
 	  		spell = sn_lookup("fireball");
-		else if (number_percent() < 40)
+			break;
+		case 1:
 	  		spell = sn_lookup("cure poison");
-		else if (number_percent() < 60)
+			break;
+		case 2:
 	  		spell = sn_lookup("cure blind");
-		else if (number_percent() < 80)
+			break;
+		case 3:
 	  		spell = sn_lookup("cure disease");
-		else
+			break;
+		case 4:
 	  		spell = sn_lookup("word of recall");
+			break;
+		case 5: 
+			spell = sn_lookup("protection good");
+			break;
+		case 6:
+			spell = sn_lookup("protection evil");
+			break;
+		case 7: 
+			spell = sn_lookup("sanctuary");
+			break;
+		};
 		break;
 	case ITEM_TREASURE:
 		switch(number_bits(3)) {
