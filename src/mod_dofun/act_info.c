@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.12 2000-04-18 08:09:45 osya Exp $
+ * $Id: act_info.c,v 1.271.2.13 2000-04-18 08:29:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4566,7 +4566,6 @@ show_clanlist(CHAR_DATA *ch, clan_t *clan,
 	char name[MAX_STRING_LENGTH];
 	int cnt = 0;
 	CHAR_DATA *vch;
-	race_t *r;
 
 	output = buf_new(-1);
 	buf_printf(output, "List of %s of %s:\n", name_list, clan->name);
@@ -4575,6 +4574,9 @@ show_clanlist(CHAR_DATA *ch, clan_t *clan,
 
 	list = first_arg(list, name, sizeof(name), FALSE);
 	for (; name[0]; list = first_arg(list, name, sizeof(name), FALSE)) {
+		race_t *r;
+		class_t *cl;
+
 		if ((vch = char_load(name, LOAD_F_NOCREATE)) == NULL) {
 			buf_printf(output, "[{RInvalid entry{x] %s (report this to immortals)\n", name);
 			continue;
@@ -4588,12 +4590,13 @@ show_clanlist(CHAR_DATA *ch, clan_t *clan,
 
 		cnt++;
 
+		r = race_lookup(ch->race);
+		cl = class_lookup(ch->class);
 		buf_printf(output, "%-8s  %3d  %-5s  %-3s  %7s-%-7s %s\n",
 			flag_string(clan_status_table, PC(vch)->clan_status),
 			vch->level,
-			(r = race_lookup(ch->race)) != NULL ?
-			r->race_pcdata->who_name : "error",
-			CLASS(vch->class)->who_name,
+			r && r->race_pcdata ? r->race_pcdata->who_name : "none",
+			cl ? cl->who_name : "none",
 			flag_string(ethos_table, vch->ethos),
 			flag_string(align_names, NALIGN(vch)),
 			vch->name);
