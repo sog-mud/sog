@@ -3989,6 +3989,14 @@ leather~
 container 0 A
 50 F 0 5 75
 1 10 9 G
+#3398
+map canyon elemental~
+@eng a rolled up is here.@rus Здесь лежит свернутая карта.~
+~
+unknown~
+map 0 A
+0 0 0 0 0
+5 5 0 P
 #0
 
 
