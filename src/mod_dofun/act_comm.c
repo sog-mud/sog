@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.21 1998-05-20 10:27:21 efdi Exp $
+ * $Id: act_comm.c,v 1.22 1998-05-20 11:18:14 efdi Exp $
  */
 
 /***************************************************************************
@@ -75,14 +75,24 @@ void do_gossip(CHAR_DATA *ch, char *argument)
 
 	if (argument[0] == '\0')
 	{
-		 send_to_char("Gossip what?.\n\r",ch);
-		 return;
+		/* send_to_char("Gossip what?.\n\r",ch);
+		   return;
+		*/
+		if (IS_SET(ch->comm, COMM_NOGOSSIP)) {
+			REMOVE_BIT(ch->comm, COMM_NOGOSSIP);
+			send_to_char("You will now hear gossips.\n\r", ch);
+			return;
+		} else {
+			SET_BIT(ch->comm, COMM_NOGOSSIP);
+			send_to_char("You will no longer hear gossips.\n\r",ch);
+			return;
+		}
 	}
 
 	strcpy(buf,argument);
 
 	if (!is_affected(ch, gsn_deafen))
-		act_puts("You gosiip '{Y$T{x'",
+		act_puts("You gossip '{Y$T{x'",
 		       ch, NULL, buf, TO_CHAR,POS_DEAD);
 
 	for (d = descriptor_list; d != NULL; d = d->next) {
@@ -181,7 +191,13 @@ void do_channels(CHAR_DATA *ch, char *argument)
 	send_to_char("   channel     status\n\r",ch);
 	send_to_char("---------------------\n\r",ch);
 	
-	send_to_char("auction        ",ch);
+	send_to_char("gossip         ", ch);
+	if (!IS_SET(ch->comm,COMM_NOGOSSIP))
+		 send_to_char("ON\n\r",ch);
+	else
+		 send_to_char("OFF\n\r",ch);
+
+	send_to_char("auction        ", ch);
 	if (!IS_SET(ch->comm,COMM_NOAUCTION))
 		 send_to_char("ON\n\r",ch);
 	else

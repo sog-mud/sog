@@ -1,5 +1,5 @@
 /*
- * $Id: act_hera.c,v 1.10 1998-05-08 19:25:43 fjoe Exp $
+ * $Id: act_hera.c,v 1.11 1998-05-20 11:18:15 efdi Exp $
  */
 
 /***************************************************************************
@@ -47,7 +47,7 @@
 ***************************************************************************/
 
 /*
- * $Id: act_hera.c,v 1.10 1998-05-08 19:25:43 fjoe Exp $
+ * $Id: act_hera.c,v 1.11 1998-05-20 11:18:15 efdi Exp $
  */
 #include <sys/types.h>
 #include <sys/time.h>
@@ -2241,11 +2241,13 @@ void do_auction (CHAR_DATA *ch, char *argument)
 		TO_CHAR,POS_SLEEPING);
         return;
 
+    case ITEM_LIGHT:
     case ITEM_WEAPON:
     case ITEM_ARMOR:
     case ITEM_STAFF:
     case ITEM_WAND:
-    case ITEM_SCROLL:
+    case ITEM_GEM:
+    case ITEM_TREASURE:
         obj_from_char (obj);
         auction->item = obj;
         auction->bet = 0; 	/* obj->cost / 100 */
