@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.74 1999-12-20 12:40:34 fjoe Exp $
+ * $Id: olc_area.c,v 1.75 1999-12-22 06:42:07 fjoe Exp $
  */
 
 #include "olc.h"
@@ -1009,7 +1009,8 @@ static void save_object(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
 	for (pEd = pObjIndex->ed; pEd; pEd = pEd->next)
 		ed_fwrite(fp, pEd);
 
-	mlstr_fwrite(fp, "g", &pObjIndex->gender);
+	if (mlstr_nlang(&pObjIndex->gender) > 1)
+		mlstr_fwrite(fp, "g", &pObjIndex->gender);
 	fwrite_cc_vexpr(&pObjIndex->restrictions, "R", fp);
 }
 
