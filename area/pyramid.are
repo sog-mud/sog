@@ -753,6 +753,9 @@ jewelry BG 0 AB
 f object damroll 5 0
 f object ac 20 0
 m obj_speech @ punish~
+if (room_is(char_room($n), ROOM_NOMAGIC))
+        return 0;
+
 char victim = char_fighting($n);
 
 if ((get_eq_char($n, WEAR_FINGER_R) != $p &&
