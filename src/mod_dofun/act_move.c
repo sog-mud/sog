@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.167 1999-05-17 07:59:23 fjoe Exp $
+ * $Id: act_move.c,v 1.168 1999-05-18 12:09:16 avn Exp $
  */
 
 /***************************************************************************
@@ -2987,6 +2987,29 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim,OBJ_DATA *arrow,
 	AFFECT_DATA *paf;
 	int damroll = 0, hitroll = 0, sn;
 	AFFECT_DATA af;
+
+	/* Added by Osya */
+	/* Patched by avn */
+	/* instant kill */
+	if (get_skill(ch, gsn_bow) > 90
+	&& number_range(1, 10000) < get_skill(ch, gsn_mastering_bow) *
+		(get_curr_stat(ch, STAT_STR) + get_curr_stat(ch, STAT_DEX))/50)
+		{
+		act("Your arrow hit $N's eye!", ch, NULL, victim, TO_CHAR);
+		act("$N's arrow hits $n's eye!", victim, NULL, ch,TO_ROOM);
+		act("$N's arrow hits your eye!", victim, NULL, ch, TO_CHAR);
+		act("$n is DEAD!!", victim, NULL, NULL, TO_ROOM);
+		act("$N is DEAD!!", ch, NULL, victim, TO_CHAR);
+		char_puts("You have been KILLED!\n", victim);
+		check_improve(ch, gsn_mastering_bow, TRUE, 6);
+		handle_death(ch, victim);
+		return TRUE;
+		}
+
+	if (number_percent() < get_skill(ch, gsn_mastering_bow)) {
+		bonus *= dice(2,4);
+		check_improve(ch, gsn_mastering_bow, TRUE, 9);
+	}
 
 	if (arrow->value[0] == WEAPON_SPEAR)  
 		sn = gsn_spear;

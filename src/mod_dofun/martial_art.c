@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.88 1999-05-11 09:33:51 fjoe Exp $
+ * $Id: martial_art.c,v 1.89 1999-05-18 12:09:18 avn Exp $
  */
 
 /***************************************************************************
@@ -1859,8 +1859,8 @@ void do_resistance(CHAR_DATA *ch, const char *argument)
 		af.type 	= gsn_resistance;
 		af.level 	= ch->level;
 		af.duration	= ch->level / 6;
-		af.location	= APPLY_NONE;
-		af.modifier	= 0;
+		af.location	= APPLY_SAVES;
+		af.modifier	= -LEVEL(ch)/4;
 		af.bitvector	= 0;
 
 		affect_to_char(ch, &af);

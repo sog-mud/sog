@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: gsn.c,v 1.20 1999-05-14 20:09:07 avn Exp $
+ * $Id: gsn.c,v 1.21 1999-05-18 12:09:19 avn Exp $
  */
 
 #include <stdio.h>
@@ -237,6 +237,7 @@ int gsn_thumbling;
 int gsn_pick;
 int gsn_hand_block;
 int gsn_forest_fighting;
+int gsn_mastering_bow;
 
 int gsn_doppelganger;
 int gsn_mirror;
@@ -443,6 +444,7 @@ namedp_t gsn_table[] =
 	{ "gsn_riding",			&gsn_riding			},
 	{ "gsn_thumbling",		&gsn_thumbling			},
 	{ "gsn_forest_fighting",	&gsn_forest_fighting		},
+	{ "gsn_mastering_bow",		&gsn_mastering_bow		},
 	{ "gsn_pick",			&gsn_pick			},
 	{ "gsn_doppelganger",		&gsn_doppelganger		},
 	{ "gsn_mirror",			&gsn_mirror			},

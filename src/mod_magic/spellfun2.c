@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.102 1999-05-17 20:05:29 avn Exp $
+ * $Id: spellfun2.c,v 1.103 1999-05-18 12:09:18 avn Exp $
  */
 
 /***************************************************************************
@@ -4647,14 +4647,14 @@ void spell_plant_form(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 
 	if (ch->in_room->sector_type == SECT_FOREST)
 	{
-	  char_puts("You starts to be seen a nearby tree!\n",ch);
-	  act("$n starts to be seen a nearby tree!", ch, NULL, NULL,TO_ROOM);
+	  char_puts("You start to look like a nearby tree!\n",ch);
+	  act("$n starts look like a nearby tree!", ch, NULL, NULL,TO_ROOM);
 	  af.bitvector = AFF_DETECT_FORM_TREE;
 	}
 	else
 	{
-	  char_puts("You starts to be seen some grass!\n",ch);
-	  act("$n starts to be seen some grass!", ch, NULL, NULL, TO_ROOM);
+	  char_puts("You start to look like some grass!\n",ch);
+	  act("$n starts to look like some grass!", ch, NULL, NULL, TO_ROOM);
 	  af.bitvector = AFF_DETECT_FORM_GRASS;
 	}
 	affect_to_char(ch, &af);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: gsn.h,v 1.19 1999-05-14 20:09:07 avn Exp $
+ * $Id: gsn.h,v 1.20 1999-05-18 12:09:19 avn Exp $
  */
 
 #ifndef _GSN_H_
@@ -238,6 +238,7 @@ extern int gsn_riding;
 extern int gsn_thumbling;
 extern int gsn_pick;
 extern int gsn_forest_fighting;
+extern int gsn_mastering_bow;
 
 extern int gsn_doppelganger;
 extern int gsn_mirror;
