@@ -12,9 +12,10 @@ End
 @eng {DShades of Gray{x is based on Anatolia MUD -- see {CHELP ANATOLIA{x.
 
                      Original idea, concept and coding:
-        fjoe                           [{cTyan{x]   (fjoe@@plesk.com)
+        fjoe                           [{cTyan{x]   (fjoe@@iclub.nsu.ru)
         Constantin Svintsoff           [{cNergal{x] (cs@@plesk.com)
         Alexey Neyman                  [{cArborn{x] (avn@@any.ru)
+        Alexander Morokhovets                   (efdi@@iclub.nsu.ru)
 
                         Web page design:
         Maxim Sokolov                  [{cHolse{x]  (holse@@yandex.ru)
@@ -33,12 +34,13 @@ End
                         Help translation:
         Alexey Neyman                  [{cArborn{x] (avn@@any.ru)
         Andrey Eliseev                 [{cRondor{x] (eliseev@@inorg.chem.msu.ru)
-@rus {DShades of Gray{x составлен на основе MUDа Anatolia -- смотри {CHELP ANATOLIA{x.
+@rus {DShades of Gray{x разработан на основе MUDа Anatolia -- смотри {CHELP ANATOLIA{x.
 
                  Первоначальная идея, концепция и кодирование:
-        fjoe                           [{cTyan{x]   (fjoe@@plesk.com)
+        fjoe                           [{cTyan{x]   (fjoe@@iclub.nsu.ru)
         Константин Свинцов             [{cNergal{x] (cs@@plesk.com)
         Алексей Нейман                 [{cArborn{x] (avn@@org.chem.msu.su{x)
+        Александр Мороховец                     (efdi@@iclub.nsu.ru)
  
                       Дизайн Web-страницы:
         Максим Соколов                 [{cHolse{x]  (holse@@yndex.ru)
@@ -6181,7 +6183,7 @@ Thanks to ...
 * Important commands: help, commands, news, notes, changes.
 * Read all helps. So many things are changed relatively before.
 * Added multi-language support command. See '{Clanguage{x' command.
-* Mail to {Csog@@any.ru{x for bug reports and suggestions.
+* Mail to {Csog2@@iclub.nsu.ru{x for bug reports and suggestions.
 * Players who use russian codepages, see '{CHELP RUSSIAN{x'.
 * Check out our homepage at {Chttp://iclub.nsu.ru/mud/{x.
 * Our server supports Mud Client Compression Protocol, see '{CHELP MCCP{x'.
@@ -7534,12 +7536,12 @@ TITLE устанавливает титул указанного персонажа.
                                    {y|@@@@@@@@@@|{G    . . . ______------____ . .  
                                    {y|@@@@@@@@@@|{G ... ____/\__.. \_. ..\ ..\___ .
                                    {y|@@@@@@@@@@|{G.___/ . .\__.. ./ \__. .. / ..\.
-                                   {y|@@@@@@@@@@|{G/. .\. ... \. .. . .  .  . .
+             {YSerre  Zed            {y|@@@@@@@@@@|{G/. .\. ... \. .. . .  .  . .
        .. .___-----______. . .     {y|@@@@@@@@@@|{G     . .
        . /. ./..__/ .. . \._._ . . {y|@@@@@@@@@@|{G
       . /\ . . /.. .  . _/.. .\.__.{y|@@@@@@@@@@|{G
        ...   ...     . /..  . . ..\/{y@@@@@@@@@@|{G
-{D                                   {y|@@@@@@@@@@|{Y                 Serre{x
+{D                                   {y|@@@@@@@@@@|{Y                      {x
                                    {y|@@@@@@@@@@|{G  ..  . _______--------______  . .
                                    {y|@@@@@@@@@@|{G ..____/. . . .\ ... . \ . . \___ 
                                    {y|@@@@@@@@@@|{G__/.. .\_.. .. .\__. ../\ . . \ .\
@@ -7563,6 +7565,7 @@ TITLE устанавливает титул указанного персонажа.
                                    {y|@@@@@@@@@@@@|{G
                                    {y|@@@@@@@@@@@@|{G
                                    {y|@@@@@@@@@@@@|{x
+ 
 ~
 92 'WIZ PREFIX' PREFIX~
 @eng Syntax: {cprefix{x <command>
