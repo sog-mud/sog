@@ -2555,11 +2555,16 @@ You see the medina.
 Z -1 9503
 S
 #9505
-The Southern Market Square~
-The large square of markets fills your vision. Strange sights and sounds,
+@eng The Southern Market Square@rus Южная часть рынка.~
+@eng The large square of markets fills your vision. Strange sights and sounds,
 those known only to the New Thalos market, barrage your senses. The only
 hope of making any sense of what's going on here is to wander around. The
 Market continues north, west, and east, with the Medina trailing off south.
+@rus Большая рыночная площадь открывается вашему взору.  Странные видения и
+звуки, которые можно встретить только на рынке Нового Талоса, заполняют ваши
+чуства.  Единственная надежда понять, что здесь происходит - побродить
+вокруг.  Рынок продолжается на север (north), запад (west) и восток (east),
+на юге (south) находится Медина.  
 ~
 0 S city
 D0
@@ -2613,11 +2618,15 @@ D3
 Z -1 9509
 S
 #9507
-The Southeastern Market Square~
-In this corner of the market some of the largest warriors in the land
+@eng The Southeastern Market Square@rus Юго-восточная часть рынка~
+@eng In this corner of the market some of the largest warriors in the land
 tower over you. It's easy to understand why they hangout here once you
 notice the weapon shop and the armory close by. Perhaps you might stop
 in and take a look at the wares these shops have to offer.
+@rus В этом углу рынка над вами возвышаются несколько величайших воинов на
+земле.  Вы понимаете почему они собрались здесь, как только замечаете рядом
+оруженую лавку и лавку доспехов.  Возможно вы остановитесь и посмотрите на
+товар, который могут предложить вам в этих лавках.  
 ~
 0 S city
 D0
@@ -2638,11 +2647,15 @@ D3
 Z -1 9505
 S
 #9508
-The Southwestern Market Square~
-This area of the market seems relatively quiet, save the high-pitched
+@eng The Southwestern Market Square@rus Юго-западная часть рынка~
+@eng This area of the market seems relatively quiet, save the high-pitched
 banter of the shopkeeps attempting to lure you into their stores.  South
 you see the bread stand and west is the entrance to the general store.
 The market's sprawl continues east and north of here.
+@rus Эта часть рынка выглядела бы относительно тихой, если бы не громкоголосое
+зазывание лавочников пытающихся завлечь вас в их лавки.  На юге (south) вы
+видите хлебопекарню, на западе (west) вход в скобянную лавку. Рынок
+продолжается на восток (east) и на север (north).  
 ~
 0 S city
 D0
@@ -2665,12 +2678,17 @@ You see the general store.
 Z -1 9628
 S
 #9509
-The Western Market Square~
-This area of the square seems a bit more subdued than the rest. You
+@eng The Western Market Square@rus Западная часть рынка~
+@eng This area of the square seems a bit more subdued than the rest. You
 notice that most of the outland adventurers mill around the southern
 end of the market, while the townfolk seem to keep their business in
 the northern end.  West Main Street begins here and heads for the
 gate. The market's expanse fills the other directions.
+@rus Эта часть рынка выглядит немного более мягкой, чем все остальные.  Вы
+замечаете, что большинство пришедших путешествеников кружат около южного
+конца рынка, в то время как горожане, кажется, ведут их дела в северной
+части.  Главная улица начинается здесь и ведет к воротам.  Рынок
+продолжается во всех направлениях.  
 ~
 0 S city
 D0
@@ -2691,12 +2709,17 @@ D3
 Z -1 9526
 S
 #9510
-The Common Square~
-People pass by talking to each other, or rest their weary bones on this
+@eng The Common Square@rus Общая площадь~
+@eng People pass by talking to each other, or rest their weary bones on this
 grassy field. You can hear faint sounds of the river to the south of you
 as it passes through the city. Ishtar drive heads east and west from here
 and the medina is to the north. South lies the Ishtar River bridge and the
 southern gate.
+@rus Люди приходят на это поле, чтобы поговорить друг с другом или дать отдых
+их уставшим костям.  Вы можете слышать слабые звуки реки на юге (south) от
+вас, поскольку она протекает через город.  Улица Иштар направляется на
+восток (east) и запад (west) отсюда, (south) находятся мост через реку Иштар
+и южные ворота.  
 ~
 0 S city
 D0
@@ -2733,10 +2756,13 @@ gate~
 ABZ 9501 9513
 S
 #9512
-The Southern Bridge~
-Walking over the bridge you see the rushing waters of the Ishtar River.
+@eng The Southern Bridge@rus Южный мост~
+@eng Walking over the bridge you see the rushing waters of the Ishtar River.
 To the south you see the Southern Gate of New Thalos and the Common
 Square stretches out to the north.
+@rus  Проходя через мост, вы видите мчащиеся воды реки Иштар.  На юге (south)
+вы видите Южные ворота Нового Талоса, на севере (north) простирается Общая
+площадь.  
 ~
 0 S city
 D0
@@ -2753,12 +2779,17 @@ D5
 Z -1 9585
 S
 #9513
-Inside the South Gate of New Thalos~
-Two large stone towers rise up to greet you with the massive iron gate
+@eng Inside the South Gate of New Thalos@rus Внутри Южных ворот Нового Талоса~
+@eng Two large stone towers rise up to greet you with the massive iron gate
 swinging on ornately crafted hinges and emblazoned with the crest of
 New Thalos. The makers of the city spared no expense in rebuilding the
 defenses or their home. The Ishtar River bridge lies to the north and
 wilderness to the south.
+@rus Две высокие каменные башни с массивными железными воротами, качающимися
+на красивых декоративных петлях, украшенные крестом Нового Талоса
+возвышаются, здесь приветствуя вас.  Строители города не жалели средств для
+повышения обороноспособности их города.  Мост через реку Иштар лежит на
+севере (north), пустыня находится на юге (south).  
 ~
 0 S city
 D0
@@ -2799,10 +2830,13 @@ D3
 Z -1 9621
 S
 #9515
-The Northern Market Square~
-You stand in one of the most heavily used parts of town. To the north lies
+@eng The Northern Market Square@rus Северная часть рынка~
+@eng You stand in one of the most heavily used parts of town. To the north lies
 the Palace of New Thalos and the Casbah; east west and south of here the
 busy market thrives with life.
+@rus Вы стоите на одной из наиболее используемых частей города.  На севере
+(north) находится Дворец Нового Талоса и аллея Касбах.  Восток (east), запад
+(west) и юг (south) от этого места, заняты рынком с бурлящей на нем жизнью. 
 ~
 0 S city
 D0
@@ -2823,12 +2857,17 @@ D3
 Z -1 9514
 S
 #9516
-The Northeastern Market Square~
-Pandemonium. Chaos. Madness. A few other choice words come to mind as you
+@eng The Northeastern Market Square@rus Северо-восточная часть рынка~
+@eng Pandemonium. Chaos. Madness. A few other choice words come to mind as you
 gaze into this corner of the market. The vegetable stand seems quiet enough
 so you have to assume the noise comes from the Butchery. You have to
 think for a while before you muster the will to enter this shop.
 The market continues to the south and west.
+@rus Столпотворение.  Хаос.  Безумие.  Еще несколько отборных слов приходит на
+ум, когда вы попадаете в эту часть рынка.  Овощная лавка кажется достаточно
+тихой, и вы предполагаете, что шум доносится от мясной лавки.  Вы
+задумываетесь, должны ли вы зайти в эту лавку.  Рынок продолжается на север
+(north) и на юг (south).  
 ~
 0 S city
 D0
@@ -2849,11 +2888,15 @@ D3
 Z -1 9515
 S
 #9517
-The Eastern Market Square~
-You stand in the market of New Thalos, the gem of the desert. The
+@eng The Eastern Market Square@rus Восточная часть рынка~
+@eng You stand in the market of New Thalos, the gem of the desert. The
 market is the hub of the city; all trade and commerce of any significance is
 carried on here. The market spreads out in all directions save east; here
 Main Street heads for the eastern gate.
+@rus Вы стоите на рынке Нового Талоса, драгоценном камне в пустыне.  Рынок -
+это сердце города; вся торговля и коммерция любого значения проводится
+здесь.  Рынок распространяется во всех направлениях за исключением востока
+(east); главная улица ведет к западным воротам.  
 ~
 0 S city
 D0
@@ -2874,10 +2917,13 @@ D3
 Z -1 9506
 S
 #9518
-Sultan's Walk~
-This cobblestone road aides your journey through town. Traveling north will
+@eng Sultan's Walk@rus Аллея Султана~
+@eng This cobblestone road aides your journey through town. Traveling north will
 take you by the palace and the Dancing Daemon Inn, and south will put you on
 the market square.
+@rus Эта булыжная мостовая поможет в вашем путешествии через город. 
+Путешествуя на север (north) ко дворцу и к гостинице Танцующий Демон. 
+Путешествие на юг (south) приведет вас на рыночную площадь.  
 ~
 0 S inside
 D0
@@ -2890,12 +2936,17 @@ D2
 Z -1 9515
 S
 #9519
-Sultan's Walk~
-This part of the road travels between one of the sturdy walls of the
+@eng Sultan's Walk@rus Аллея Султана~
+@eng This part of the road travels between one of the sturdy walls of the
 Palace and the Dancing Daemon. To the east you peer through a small
 window into the Daemon, seeing many people dancing and drinking. After
 you tend to your other chores you plan on visiting the Daemon.
 The walk continues north and south from here.
+@rus Эта часть дороги, пролегающая между одной из мощных стен дворца и
+Танцующим Демоном.  Заглядывая через маленькое окошко на востоке (east) в
+гостиницу Танцующий Демон, вы видите много танцующих и пьющих людей.  После
+выполнения всех намеченных дел вы планируете посетить гостиницу.  Аллея
+продолжается на север (north) и юг (south).  
 ~
 0 S city
 D0
@@ -2908,12 +2959,18 @@ D2
 Z -1 9518
 S
 #9520
-Sultan's Walk~
-The road here between the palace and the Dancing Daemon Inn seems well
+@eng Sultan's Walk@rus Аллея Султана~
+@eng The road here between the palace and the Dancing Daemon Inn seems well
 worn by the travel of horses, carts, and leather boots. From the west you
 hear the faint sound of trumpets announcing the arrival of some duke or
 duchess to the palace. Safe haven awaits you to the east in the halls
 of the Daemon, and Sultan's Walk continues north and south.
+@rus Дорога между дворцом и Танцующим Демоном выглядит сильно разбитой
+копытами лошадей, колесами повозок и ботинками путешественников.  С запада
+(west) вы слышите слабый звук труб, обозначающий прибытие, какого то герцога
+или герцогини к дворцу.  Безопасная зона ждет вас на востоке (east), в
+холлах гостиницы Танцующий Демон.  Аллея султана продолжается на север
+(north) и юг (south).  
 ~
 0 S city
 D0
@@ -2934,10 +2991,13 @@ D3
 Z -1 9658
 S
 #9521
-Sultan's Walk~
-The main road north from the square continues here, surrounded by the walls
+@eng Sultan's Walk@rus Аллея Султана~
+@eng The main road north from the square continues here, surrounded by the walls
 of the palace and the Daemon. To the north you see the heavily guarded gate
 and can make out faint sounds of trade to the south.
+@rus Здесь пролегает главная северная дорога от площади, окруженная стенами
+дворца и гостиницы.  На севере (north) вы видите хорошо охраняемые ворота, с
+юга (south) доносятся звуки торговли.  
 ~
 0 S city
 D0
@@ -2950,12 +3010,18 @@ D2
 Z -1 9520
 S
 #9522
-Inside the Northern Gate of New Thalos~
-Two large stone towers rise up to greet you with a massive iron gate
+@eng Inside the Northern Gate of New Thalos@rus Внутри Северных ворот Нового Талоса~
+@eng Two large stone towers rise up to greet you with a massive iron gate
 swinging between on ornately crafted hinges and emblazend with the crest of
 New Thalos. The makers of this city spared no costs in rebuilding the
 defenses of their home. Sultan's Walk runs to the south and the Casbah
 stretches out east and west. To the north lay wilderness of the desert.
+@rus Две высокие каменные башни с массивными железными воротами, качающимися
+на красивых декоративных петлях, украшенные крестом Нового Талоса
+возвышаются, здесь приветствуя вас.  Строители города не жалели средств для
+повышения обороноспособности их города.  Аллея Султана лежит на юге (south),
+аллея Касбах протянулась с запада (west) на восток (east).  На севере
+(north) лежат дикие земли пустыни.  
 ~
 0 S inside
 D0
@@ -2984,13 +3050,14 @@ spared no expense to protect their home.  Main street heads towards
 the market eastward and the eastern road passes through the Sands of
 Sorrow to your west. To the south lies the entrance of the warrior's guild.
 To the north lies the entrance of the weaponsmaster.
-@rus Две высокие каменные башни, стоящие по разные стороны массивных железных
-ворот,возвышаются над тобой.  Ворота в город с изображенными на них гербом
-нового Талоса, висят на аккуратных,но очень крепких петлях.  Строители ворот
-явно преследовали цель укрепления города, а не его украшения.  На восток
-тянеться главная улица города.  На западе расположились Sands of Sorrow.  На
-юге вход в гильдию Воинов, а на севере лежит вход к мастеру-воину,
-специалисту по оружию.  
+@rus Две большие каменные башни, вросшие в очертания стен, возвышаются над
+вами.  Массивные железные ворота, украшенные крестом Нового Талоса , легко
+покачиваются на четырех искусно украшенных петлях.  Строители города не
+жалели средств для повышения обороноспособности их дома.  Главная улица в
+восточном направлении ведет прямиком к рынку, западная дорога проходящая
+прямиком через Пески Горя ведет вас на запад (west).  На юге (south)
+расположен вход в гильдию воинов.  На севере (north) вход к мастеру боевых
+искусств.  
 ~
 0 S city
 D0
@@ -3045,8 +3112,10 @@ S
 fixing a pothole. The road here branches off north and south into
 two alleys behind the stores of the market. The main street continues
 east and west from here.
-@rus Прораб, контролирующий работу двух рабочих заделывающих яму, стоит тут.
-Выходы на север и юг ведут к алеям. Главная улица продолжается на восток и запад.
+@rus Мастер стоит здесь и наблюдает за двумя строителями, заделывающими дыру в
+дороге.  Дорога отсюда разветвляется на сервер (north) и на юг (south) в
+аллеи позади складов рынка.  Главная улица продолжается на запад (west) и
+восток (east) отсюда.  
 ~
 0 S city
 D0
@@ -3072,9 +3141,10 @@ S
 the west you hear a roadcrew at work and to the East, the sounds of 
 commerce taking place.  The air is filled with the smell of gold and riches.
 On the wall of the store is a poster.
-@rus Вы бродите по улице между Банком и главным магазином. На западе вы слышите шум дорожных
-работ и на востоке громкую речь торговцев. В воздухе витает запах золота и богатства.
-На стене магазина висит объявление.
+@rus Вы бродите по улице между Банком и главным магазином.  На западе (west)
+вы слышите шум дорожных работ и на востоке (east) громкую речь торговцев.  В
+воздухе витает запах золота и богатства.  На стене магазина висит объявление
+(poster).  
 ~
 0 S city
 E
@@ -3634,7 +3704,7 @@ D3
 Z -1 9552
 S
 #9554
-The Casbah~
+@eng The Casbah@rus Аллея Касбах ~
 The avenue ends here, turning south to become Kali Row. Traveling in that
 direction will take you to the library and the grand dance hall of the city.
 The Northeast Tower of the wall is accessible here up a spiral staircase.
@@ -3720,8 +3790,9 @@ D2
 Z -1 9559
 S
 #9559
-Alley~
-The alley ends here.
+@eng Alley@rus Аллея~
+@eng The alley ends here.
+@rus Аллея заканчивается здесь.
 ~
 0 AS city
 D0
@@ -4202,7 +4273,7 @@ D4
 Z -1 9512
 S
 #9586
-Ishtar River~
+@eng Ishtar River@rus Река Иштар~
 This part of the river seems alive with activity. Boats moored to the
 docks near the ramp north of here make navigation a bit more trying.
 As the river flows eastward you can see the southern bridge in that
@@ -4313,8 +4384,9 @@ secret~
 Z -1 9670
 S
 #9592
-Underground~
-The small passage continues west and east.
+@eng Underground@rus Подземелье~
+@eng The small passage continues west and east.
+@rus Маленький проход продолжается на запад (west) и восток (east).
 ~
 0 ADS city
 E
@@ -4332,8 +4404,9 @@ D3
 Z -1 9582
 S
 #9593
-Underground~
-The small passage continues west and east.
+@eng Underground@rus Подземелье~
+@eng The small passage continues west and east.
+@rus Маленький проход продолжается на запад (west) и восток (east).
 ~
 0 ADS city
 D1
@@ -4386,7 +4459,7 @@ tomes. On the worn desk next to the window candles burn low, casting
 strange shadows on the walls. The only noticeable decor is the mounted
 head of the Demi-Lich.
 ~
-0 DEFGS inside
+0 CDEFGSX inside
 D5
 ~
 door~
@@ -4401,7 +4474,7 @@ the smiley face button stuck on his bedpost tells you he'll probably
 help you out all he can. As you turn to leave the room the mounted head
 of Kalas stares past you into emptiness.
 ~
-0 DEFGS inside
+0 CDEFGSX inside
 D3
 ~
 door~
@@ -4419,7 +4492,7 @@ In the Land of Mordor where Shadows lie.
 In the Land of Mordor where the Shadows lie.
 If I have to explain, you wouldn't understand.
 ~
-0 DEFGS inside
+0 CDEFGSX inside
 D0
 ~
 ~
@@ -4438,27 +4511,40 @@ and a homemade one in the corner with a picture of Ice and under it the
 inscription, "I LOVE the resurrection spell". The only thing out of
 place in this happy-go-lucky room is mounted head of Crimson Death.
 ~
-0 DEFGS inside
+0 CDEFGSX inside
 D4
 ~
 door~
 Z -1 9594
 S
 #9599
-Inside the Castle of Clan MacCleod~
-You have entered the grand hall of the castle. A huge throne dominates a
+@eng Inside the Castle of Brand@rus Внутри замка Бранда~
+@eng You have entered the grand hall of the castle. A huge throne dominates a
 raised area in the northern part of then room. In front of this stands a
 drafting table.
+@rus Вы вошли в главный зал замка.  Огромный трон возвышается над всем в
+северной части комнаты.  Помотрев на трон вы приходите в экстаз от красоты
+трона.  Трон выполнен из костей BattleRagerov покрытых тонкими узорами из
+листового золота, шикарные подлокотники вырезанные из цельных изумрудов
+выполнены в виде головы лидера клана Battleragerov оскаленного в
+предсмертных судоргах.  По стенам зала развешаны тонкие шелковые гобелены
+изображающие последние моменты жизи всех известных врагов магии.  Эти
+картины в тяжелые времена успакаивают взор хозяина замка.  Пол покрыт
+тонкими плитками мрамора с изображением подвигов героев клана Shalafi. 
+Посреди комнаты стоит огромный стол из красного дерева вокруг которого
+расположены мягкие кресла с изображением эмблемы клана Shalafi.  Довольно
+часто здесь собираются друзья владельца замка и обсуждают свои планы.  
 ~
-0 DEFGS inside
+0 CDEFGSX inside
 D2
 ~
 iron gate~
 Z -1 9594
 S
 #9600
-Underground~
-The small passage continues west and east.
+@eng Underground@rus Подземелье~
+@eng The small passage continues west and east.
+@rus Маленький проход продолжается на запад (west) и восток (east).
 ~
 0 ADS inside
 D1
@@ -4471,8 +4557,9 @@ D3
 Z -1 9593
 S
 #9601
-Underground~
-The small passage continues west and east.
+@eng Underground@rus Подземелье~
+@eng The small passage continues west and east.
+@rus Маленький проход продолжается на запад (west) и восток (east).
 ~
 0 ADS inside
 D1
@@ -4485,8 +4572,9 @@ D3
 Z -1 9600
 S
 #9602
-Underground~
-The small passage continues west and east.
+@eng Underground@rus Подземелье~
+@eng The small passage continues west.
+@rus Маленький проход продолжается на запад (west).
 ~
 0 ADS inside
 D3
@@ -5462,7 +5550,7 @@ gate~
 AFZ 9500 9650
 S
 #9659
-North-West Tower~
+@eng North-West Tower@rus Северо-западная башня~
 You stand on one of the four towers guarding the city. The view from here
 is great! To the west you see the tall mountains that make up the divide
 between here an Midgaard. The Ishtar river slowly flows from that direction.
@@ -5508,10 +5596,13 @@ D3
 Z -1 9671
 S
 #9662
-North-East Tower~
-You stand on one of the four towers guarding the city. To the north you
+@eng North-East Tower@rus Северо-восточная башня~
+@eng You stand on one of the four towers guarding the city. To the north you
 see the wide plains and then the forest. South of here you see the city
 and the great eastern desert beyond.
+@rus Вы стоите на одной из четырех башен для охраны города.  На севере (north)
+вы видите обширные поля и начинающийся за ними лес.  На юге (south) отсюда
+видите город и великую западную пустыню за ним.  
 ~
 0 DS inside
 D5
@@ -5736,7 +5827,7 @@ D3
 Z -1 9679
 S
 #9675
-Entrance to the Dungeon~
+@eng Entrance to the Dungeon@rus Вход в подземную тюрьму.~
 You enter a cold damp room with bare, roughly hewn stone walls. This
 room seems very out of place compared to the splender of the rest of the
 palace. A large steel grating leads down into darkness, and an iron door
@@ -6043,7 +6134,7 @@ D2
 Z -1 9689
 S
 #9691
-Jailer's Room~
+@eng Jailer's Room@rus Комната Джайлера.~
 Climbing down the old wooden ladder you enter a small cave-like
 room. There is a small bench with some old magazines and a low
 burning candle sitting off to one side. A door is set into the
@@ -6286,7 +6377,7 @@ live.  --Kahlil Gibran."
 yourself tugged into the softened space. Have a seat in one of the enormous
 papasan chairs, and choose a title that strikes you.
 ~
-0 CDS inside
+0 CDSX inside
 D2
 ~
 ~
@@ -6856,7 +6947,7 @@ D2
 Z -1 9786
 S
 #9788
-The Dragon Sea~
+@eng The Dragon Sea@rus Море Дракона~
 You are on the clear blue seas of the Dragon Sea.
  Water extends in all directions as far as the eye
  can see. Off in the distance you think you might
@@ -6873,7 +6964,7 @@ D2
 Z -1 9795
 S
 #9789
-The Dragon Sea~
+@eng The Dragon Sea@rus Море Дракона~
 You are on the clear blue seas of the Dragon Sea.
  Water extends in all directions as far as the eye
  can see. Off in the distance you think you might
@@ -7005,7 +7096,7 @@ D3
 Z -1 9794
 S
 #9796
-The Dragon Sea~
+@eng The Dragon Sea@rus Море Дракона~
 You are on the clear blue seas of the Dragon Sea.
  Water extends in all directions as far as the eye
  can see. Off in the distance you think you might
@@ -7027,7 +7118,7 @@ D3
 Z -1 9787
 S
 #9797
-The Dragon Sea~
+@eng The Dragon Sea@rus Море Дракона~
 The ocean spreads out in all directions rolling gently. In the distance
 you can see two islands on the horizon. To the west you see the mainland.
 To the east ocean ends turning into a small dirt path leading down
@@ -7283,7 +7374,7 @@ M 0 9535 3 9568 3	* the skinny kid (Alley)
 M 0 9535 3 9568 3	* the skinny kid (Alley)
 M 0 9543 13 9569 3	* the alley cat (Alley)
 M 0 9543 13 9573 3	* the alley cat (Alley)
-M 0 9569 1 9599 1	* Shelbye (Inside the Castle of Clan MacCleod)
+M 0 9569 1 9599 1	* Shelbye (Inside the Castle of Brand)
 M 0 9501 1 9603 1	* the guildmaster (Cleric's Sanctum)
 M 0 9581 1 9604 1	* the high priest (Chamber of the High Priest)
 M 0 9593 1 9605 1	* the healer (By the Altar)

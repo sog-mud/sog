@@ -503,7 +503,7 @@ M random 3026 10~
 V 37000
 #3062
 fido dog собака~
-@eng the beastly fido@rus страшная собака~
+@eng the beastly fido@rus ~~страшная~~ ~~собака~~~
 @eng A beastly fido is here.
 @rus Страшная собака (fido) бегает здесь.
 ~
@@ -1636,14 +1636,14 @@ armor 0 AM
 0 10 112 G
 G male
 #3053
-belt leather~
-a leather belt~
-A soft leather belt is here.~
+belt leather пояс кожаный~
+@eng a leather belt@rus ~~кожаный~~ ~~пояс~~~
+@eng A soft leather belt is here.@rus Мягкий кожаный пояс (belt) лежит здесь.~
 leather~
 armor 0 AL
 1 2 2 0 0
 0 10 136 G
-G none
+G male
 #3054
 girdle leather~
 a leather girdle~

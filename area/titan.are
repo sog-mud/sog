@@ -1,5 +1,6 @@
 #AREADATA
 Name Valley of the Titans~
+Builders miagi~
 VNUMs 18000 18150
 Credits Xavier~
 Security 9
@@ -3526,14 +3527,23 @@ Back to the Main Street.
 Z 0 18054
 S
 #18059
-The Market Square~
-You have come upon the Market Square. Many people are gathered about, 
+@eng The Market Square@rus Торговая Площадь~
+@eng You have come upon the Market Square. Many people are gathered about, 
 talking to eachother or listening to the group of musicians playing some wild 
 tunes. The stone streets feels hard on your feet and you feel very tired. To 
 the north you see the road you came from, Along The Southern Main Streets, to 
 the south you see that the road continues, to several Inns. All the way west 
 you notice that a wide road takes you down to a grocer store and many others. 
 To the east in the far distance, you see a giant Castle.
+@rus     Вы очутились на большой, шумной Торговой Площади. Множество народу
+толпится вокруг, обсуждая что-то между собой, или слушая группу музыкантов,
+разрывающих окружающий воздух и Ваши перепонки дикими звуками. Улицы
+вымощены крупным неровным булыжником,что неудобно для ходьбы, поэтому Вы
+чувствуете себя довольно таки уставшим. На Севере (North) Вы видите
+Длинную Главную Южную Улицу, эта же дорога тянется дальше на Юг (South) к
+нескольким постоялым дворам. Вы замечаете, что в Западном (West) направлении,
+широкая дорога приведет Вас к бакалейной и другим лавкам. На Востоке (East)
+в далеке Вы видите гигантский Замок.
 ~
 0 AS forest
 D0

@@ -29,7 +29,7 @@ stand stand male 0
 0 0 medium unknown
 #8001
 punk~
-@eng a punk@rus панк (punk)~
+@eng a punk@rus панк~
 @eng A punk is here plotting a crime wave.
 @rus Панк (punk) стоит здесь здесь, замышляя что-то нехорошее.
 ~
@@ -47,12 +47,16 @@ stand stand male 0
 0 0 medium unknown
 #8002
 Futsie~
-a Futsie~
-A Futsie is here reciting Monty Python sketches.
+@eng a Futsie@rus Психбольной~
+@eng A Futsie is here reciting Monty Python sketches.
+@rus Психбольной (Futsie) стоит здесь, зачитывая отрывки из Monty Python.
 ~
-A sad victim of Future Shock, this man is immensely dangerous and will
+@eng A sad victim of Future Shock, this man is immensely dangerous and will
 not be stopped by anyone who tries to deter him from revenge upon the
 Justice Department.
+@rus Этот мужик довольно опасен, и никто пожалуй не сможет остановить его от мести
+представителям правосудия.
+ 
 ~
 human~
 ABF D 0 0
@@ -63,11 +67,13 @@ stand stand male 0
 0 0 medium unknown
 #8003
 Citi-Def Militiaman~
-a Citi-Def Militiaman~
-A Citi-Def Militiaman is here contemplating a Block War.
+@eng a Citi-Def Militiaman@rus Городской Милиционер~
+@eng A Citi-Def Militiaman is here contemplating a Block War.
+@rus Городской милиционер (Militiaman) стоит здесь в раздумии.
 ~
-A member of a local Block's Citi-Def militia, this man is well-armed
+@eng A member of a local Block's Citi-Def militia, this man is well-armed
 and undersupervised.
+@rus Член городской милиции. Этот мужичок вооружён до зубов и не находится под присмотром.
 ~
 human~
 ACG J 0 0
@@ -78,10 +84,12 @@ stand stand male 0
 0 0 medium unknown
 #8004
 dunk~
-a dunk~
-A dunk is here blending into the crowd.
+@eng a dunk@rus Карманник~
+@eng A dunk is here blending into the crowd.
+@rus Карманик (dunk) ходит здесь, сливаясь с толпой.
 ~
-He blends into the crowd as his hand travels into another citizen's pocket.
+@eng He blends into the crowd as his hand travels into another citizen's pocket.
+@rus В то время как он сливается с толпой, его шаловливые руки бродят по карманам горожан.
 ~
 human~
 ACGHS DF -150 0
@@ -92,11 +100,13 @@ stand stand male 0
 0 0 medium unknown
 #8005
 tap~
-a tap~
-A tap is here eyeing your belongings.
+@eng a tap@rus Попрошайка~
+@eng A tap is here eyeing your belongings.
+@rus Попрошайка (tap) всматривается в твоё снаряжение.
 ~
-A practitioner in Mega-City One's largest growth industry, mugging, is
+@eng A practitioner in Mega-City One's largest growth industry, mugging, is
 looking you over for a possible business transaction.
+@rus Попрошайка рассматривает тебя в надежде на какую-нибудь сделку.
 ~
 human~
 ACG 0 -400 0
@@ -107,12 +117,15 @@ stand stand female 0
 0 0 medium unknown
 #8006
 rookie judge~
-a rookie judge~
-A Rookie judge is on his first beat here.
+@eng a rookie judge@rus Судья-новичок~
+@eng A Rookie judge is on his first beat here.
+@rus Судья-новичок (rookie) стоит здесь.
 ~
-A member of Mega-City One's Justice Department is here considering what
+@eng A member of Mega-City One's Justice Department is here considering what
 crimes you have committed.  Being a rookie he will probably be easier on
 you though.
+@rus Член депертамента правосудия Mega-City One, в раздумии о твоих преступлениях.
+Будучи новичком, он скорее всего не будет таким строгим по отношению к тебе.
 ~
 human~
 AG DF 300 0
@@ -123,11 +136,14 @@ stand stand male 0
 0 0 medium unknown
 #8007
 Wallaby Gleep~
-Wallaby Gleep~
-Mr. Gleep is here wanting to know what you want.
+@eng Wallaby Gleep@rus Мистер Глип~
+@eng Mr. Gleep is here wanting to know what you want.
+@rus Мистер Глип (Gleep) стоит здесь. Он хочет узнать чего хочешь ты!
 ~
-Wallaby Gleep is a heavy-set man who gives you the impression that he is
+@eng Wallaby Gleep is a heavy-set man who gives you the impression that he is
 unintelligent and unimaginative, but looks can be deceiving.
+@rus Мистер Глип довольно хорошо сложенный мужчина, что дает тебе повод подумать
+что он довольно глуп и невоображателен. Но вид может быть обманчивым.
 ~
 human~
 ABC DFJ -600 0
@@ -138,9 +154,9 @@ stand stand male 0
 0 0 medium unknown
 #8008
 Pinkerton Throt~
-Pinkerton Throt~
+@eng Pinkerton Throt@rus Пинки Трот~
 @eng Pinky Throt is here Wringing his hands.
-@rus Пинки Трот (Pinky Throt) стоит тут выкручивая свои руки.
+@rus Пинки Трот (Throt) стоит тут выкручивая свои руки.
 ~
 @eng He is a thin angular crook, pretty close to everyone's idea of Ebeneezer
 Scrooge.  Indeed, the only thing guaranteed to bring a spark to his dead
@@ -158,12 +174,15 @@ stand stand male 0
 0 0 medium unknown
 #8009
 Ernie Ramirez~
-Ernie Ramirez~
-Ernie Ramirez is here collecting for the mob.
+@eng Ernie Ramirez@rus Ерни Рамирез~
+@eng Ernie Ramirez is here collecting for the mob.
+@rus Ерни Рамирез (Ernie) стоит здесь.
 ~
-Ramirez is a dour man who knows that he's never going to get a better
+@eng Ramirez is a dour man who knows that he's never going to get a better
 deal out of life.  He is content to run the bite fights for Throt and
 Gleep.
+@rus Рамирез скучный человек. Он знает что лучшего занятия чем драться за Трота и Глипа
+ему не найти.
 ~
 human~
 ABC 0 -400 0
@@ -174,11 +193,13 @@ stand stand male 0
 0 0 medium unknown
 #8010
 Judge Eckersely~
-Judge Eckersely~
-Judge Eckersely is here shaking down a Perp.
+@eng Judge Eckersely@rus Судья Экерсели~
+@eng Judge Eckersely is here shaking down a Perp.
+@rus Судья Экерсели (Eckersely) стоит здесь.
 ~
-He is a dedicated, if somewhat pessimistic Judge.  He is the Senior Judge
+@eng He is a dedicated, if somewhat pessimistic Judge.  He is the Senior Judge
 of the Downtown Quadrant.
+@rus Он довольно умён, но большой пессимист. Он Главный Судья центра города.
 ~
 human~
 AG DFH 300 0
@@ -189,12 +210,15 @@ stand stand male 0
 0 0 medium unknown
 #8011
 Judge Beddows~
-Judge Beddows~
-Judge Beddows is here calling Resyk.
+@eng Judge Beddows@rus Судья Беддоуз~
+@eng Judge Beddows is here calling Resyk.
+@rus Судья Беддоуз (Beddows) стоит здесь.
 ~
-Beddows is a clone from the same stock as the ex-Chief Judge McGruder.
+@eng Beddows is a clone from the same stock as the ex-Chief Judge McGruder.
 She is fanatically dedicated to her job and has no ambitions other than
 to enforce the LAW.
+@rus Беддоуз очень похожа на экс-судью МакГрудера. Она фанатично преданна своей работе
+и не имеет никаких других задач кроме как защищать ЗАКОН.
 ~
 human~
 AG DF 500 0
@@ -205,10 +229,12 @@ stand stand female 0
 0 0 medium unknown
 #8012
 bite fighter~
-a bite fighter~
-A bite fighter is here sharpening his teeth.
+@eng a bite fighter@rus Кусающий боец~
+@eng A bite fighter is here sharpening his teeth.
+@rus Кусающий боец (fighter) стоит здесь, точа свои клыки.
 ~
-A bite fighter is here with sharpened teeth and a bad attitude.
+@eng A bite fighter is here with sharpened teeth and a bad attitude.
+@rus Кусающий боец стоит здесь с очень остро наточенными зубами и плохой репутацией.
 ~
 human~
 ABF J -400 0

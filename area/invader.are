@@ -38,7 +38,7 @@ whole Realms of Anatolia as in the history.
 ~
 human~
 ABQVae DFmu -1000 0
-90 0 1d1+28999 1d1+999 2d14+30 magic
+90 100 1d1+28999 1d1+999 2d14+60 magic
 -85 -85 -85 -15
 AFHIKQ ABCE D 0
 stand stand male 1000
@@ -253,7 +253,7 @@ Z -1 95607
 S
 #95608
 The Pentagram~
-Now, you have stepped into a large chamber hewn of black stone. A black
+@eng Now, you have stepped into a large chamber hewn of black stone. A black
 altar rises from the space between the line in the center of pentagram. At
 the center of the pentagram, you see a human skull is on a huge altar. The
 room is lit by many candles  on the step surrounding the room. On the east
@@ -261,6 +261,12 @@ wall is a large skin sheet with blood script on it. The title with big
 letters reads ' The Brotherhood of Invader's '. On the west wall there is
 a black stone with blood script on it. The title with big letters reads  
 'Death Angel'.
+@rus Ты заходишь в зал выложенный черным камнем. Расчерченная алым пентаграмма как
+паутина облепила плиты пола. Гиганский черный алтарь, похожий на человеческий
+череп возвышается в центре. Множество огоньков расставленных повсюду свечей
+подрагивают при малейшем движении. На восточной стене исписанной кровью, 
+виднеется надпись "{RБратство Инвайдеров{x". На черных камнях западной стены
+среди потеков крови можно различить руны обозначающие - "{DАнгел Смерти{x".
 ~
 0 ADK inside
 D2

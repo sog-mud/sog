@@ -2235,26 +2235,35 @@ movement.
 @rus Ты стоишь на поле среди волнующегося моря высокой зеленой травы. На северо-
 западе возвышается величественный холм, вершина которого скрыта серебрящимся
 туманом. Там, среди живых искрящихся капелек, мелькают очертания чего-то
-весьма похожего на большой замок. 
+весьма похожего на большой замок. На севере и на западе колышется море
+трав. А догогу на восток и юг преграждают густые заросли колючего кустарника.
 ~
 0 0 field
 D0
-In a Field.
+@eng In a Field.
+@rus Поля.
 ~
 ~
 Z -1 12016
 D3
+@eng In a Field.
+@rus Поля.
 ~
 ~
 Z 0 12019
 S
 #12021
-At the Top of the Hill~
-You are standing on the top of the hill.  The structure you thought 
+@eng At the Top of the Hill@rus На вершине холма~
+@eng You are standing on the top of the hill.  The structure you thought 
 you saw from the bottom must have just been something created by a 
 combination of the light, the mist and your imagination because there is 
 not castle here.  There is however a small standing stone with some worn 
 engravings on it.  The only exit is down.
+@rus Ты стоишь на самой вершине холма.  То, что издали казалось прекрасным
+замком, на деле оказалось игрой света и твоего воображения.  Единственное,
+что здесь есть, это небольшой проский камень с выгравированными на нем
+странными письменами.  Единственная дорога ведет вниз.  И стоило так
+страдать при подьеме сюда.  
 ~
 0 0 field
 E
@@ -2263,126 +2272,154 @@ The engravings on the stone are very worn but you can barely make out the
 words "Three times around the faery tor, till you'll find the faery door."
 ~
 D5
-Down the hill.
+@eng Down the hill.
+@rus Вниз по склону.
 ~
 ~
 Z -1 12006
 S
 #12022
-Along the path~
-You are standing on the path of dark grass. The path continues to 
+@eng Along the path@rus Вдоль дороги~
+@eng You are standing on the path of dark grass. The path continues to 
 the west and south but all other directions are hazy.
+@rus Ты стоишь на тропинке, по обеим сторонам которой колышится темная трава.
+Тропинка убегает дальше на запад, петляя среди кустов.
 ~
 0 VW field
 D2
-The Begining of the Path
+@eng The Begining of the Path
+@rus Тропинка.
 ~
 ~
 Z -1 12018
 D3
-Further along the Path.
+@eng Further along the Path.
+@rus Тропинка.
 ~
 ~
 Z -1 12023
 S
 #12023
-Along the path~
-You are standing on the path of dark grass. The path continues to
+@eng Along the path@rus Вдоль дороги~
+@eng You are standing on the path of dark grass. The path continues to
 the north but all other directions are hazy.
+@rus Ты стоишь на тропинке, по обеим сторонам которой колышется темная трава. 
+Тропинка убегает дальше на север, петляя среди кустов.
 ~
 0 VW field
 D0
-Further along the Path
+@eng Further along the Path
+@rus Тропинка.
 ~
 ~
 Z -1 12024
 D1
-Off the Path
+@eng Off the Path
+@rus Тропинка.
 ~
 ~
 Z -1 12022
 S
 #12024
-Along the path~
-You are standing on the path of dark grass. The path continues to
+@eng Along the path@rus Вдоль дороги~
+@eng You are standing on the path of dark grass. The path continues to
 the north but all other directions are hazy.
+@rus Ты стоишь на тропинке, по обеим сторонам которой колышется темная трава.
+Тропинка убегает дальше на север, петляя среди кустов.
 ~
 0 VW field
 D0
-Further along the Path
+@eng Further along the Path
+@rus Тропинка.
 ~
 ~
 Z -1 12025
 D1
-Off the Path
+@eng Off the Path
+@rus Поле.
 ~
 ~
 Z -1 12013
 D2
-Off the Path
+@eng Off the Path
+@rus Тропинка.
 ~
 ~
 Z -1 12023
 S
 #12025
-Along the path~
-You are standing on the path of dark grass. The path continues to
+@eng Along the path@rus Вдоль дороги~
+@eng You are standing on the path of dark grass. The path continues to
 the north but all other directions are hazy. To the east brambles 
 block all movement.
+@rus Ты стоишь на тропинке, по обеим сторонам которой колышется темная трава.
+Тропинка убегает дальше на север. Дорогу на восток и на запад преграждают 
+заросли куманики.
 ~
 0 VW field
 D0
-Further along the Path
+@eng Further along the Path
+@rus Тропинка.
 ~
 ~
 Z -1 12026
 D2
-Off the Path
+@eng Off the Path
+@rus Тропинка.
 ~
 ~
 Z -1 12024
 S
 #12026
-Along the path~
-You are standing on the path of dark grass. The path continues to
+@eng Along the path@rus Вдоль дороги~
+@eng You are standing on the path of dark grass. The path continues to
 the north but all other directions are hazy.
+@rus Ты стоишь на дороге, по обеим сторонам которой колышется темная трава.
+Тропинка убегает дальше на север.
 ~
 0 VW field
 D0
-Further along the Path
+@eng Further along the Path
+@rus Тропинка.
 ~
 ~
 Z -1 12027
 D1
-Off the Path
+@eng Off the Path
+@rus Поля.
 ~
 ~
 Z -1 12005
 D2
-Along the Path
+@eng Along the Path
+@rus Тропинка.
 ~
 ~
 Z -1 12025
 S
 #12027
-Along the path~
-You are standing on the path of dark grass. The path continues to
+@eng Along the path@rus Вдоль дороги~
+@eng You are standing on the path of dark grass. The path continues to
 the east but all other directions are hazy.
+@rus Ты стоишь на тропинке, по обеим сторонам которой колышется темная трава.
+Тропинка сворачивает на восток.
 ~
 0 VW field
 D1
-Further along the Path
+@eng Further along the Path
+@rus Тропинка.
 ~
 ~
 Z -1 12028
 D2
-Off the Path
+@eng Off the Path
+@rus Тропинка.
 ~
 ~
 Z -1 12026
 S
 #12028
-Along the path~
+@eng Along the path@rus Вдоль дороги~
 You are standing on the path of dark grass. The path continues to
 the east but all other directions are hazy.
 ~

@@ -41,9 +41,9 @@ stand stand male 25
 
 #OBJECTS
 #1001
-rose~
-a red rose~
-A res rose is lying on the ground.~
+rose роза~
+@eng a red rose@rus ~~красная~~ ~~роза~~~
+@eng A red rose is lying on the ground.@rus Красная роза (rose) лежит на земле.~
 flower~
 treasure 0 AE
 BC 0 0 0 0

@@ -80,6 +80,7 @@ A
 18 300
 A
 19 300
+G none
 #44001
 mat~
 @eng mat@rus Циновка~
@@ -88,6 +89,7 @@ straw~
 furniture R 0
 A EIJKN EH 0 0
 0 0 0 P
+G none
 #44002
 low table~
 @eng low table@rus низенький столик~
@@ -100,6 +102,7 @@ E
 table~
 На столике стоят фарфоровые чашки и чайник. Похоже что здесь кто-то собирался попить чаю.
 ~
+G none
 #44003
 life of Eidu~
 @eng Life@rus Жизнь Eidu~
@@ -114,6 +117,7 @@ A
 12 20000
 A
 13 20000
+G none
 #44004
 Statue of Eidu~
 @eng Статуя главного самурая~
@@ -122,6 +126,7 @@ Statue of Eidu~
 fountain R 0
 0 0 'water' 0 0
 0 0 0 P
+G none
 #44005
 axe bloody amputation~
 {RBloody Axe of Amputation{x~
@@ -129,7 +134,8 @@ A large axe is here, its blade stuck in the ground.~
 medicine steel~
 weapon 0 AN
 axe 40 20 chop DEI
-110 0 0 P
+105 0 0 P
+G none
 #44006
 hammer great sleep~
 {yGreat Hammer of Sleep{x~
@@ -138,6 +144,7 @@ wooden~
 wand 0 AO
 300 1000000 1000000 'terangreal' 0
 96 0 0 P
+G none
 #44007
 kit fighter's first aid~
 {Wfighter's {Rfirst aid {Wkit{x~
@@ -146,6 +153,7 @@ plastic~
 container 0 AL
 1000000 A 0 100000 1
 0 0 0 P
+G none
 #44008
 elka christmas tree~
 @eng Christmas tree@rus Ёлка~
@@ -176,6 +184,7 @@ elka~
            .         .   . {y  ### {W    .        .       .
     .. .. ..................{y#####{W................... ...... ...{x
 ~
+G none
 #44009
 bottle vodka absolut~
 bottle of Absolut~
@@ -184,6 +193,7 @@ glass~
 drink 0 AO
 100 100 'vodka' 0 0
 0 0 0 P
+G none
 #44010
 ring black skull~
 @eng ring with little black skull@rus кольцо с маленьким черным черепом~
@@ -198,6 +208,7 @@ A
 18 4
 A
 19 4
+G none
 #44011
 rivulet~
 {rrivulet{x~
@@ -211,6 +222,7 @@ rivulet~
 Ручеек весело несет свои красные воды дальше на восток. Попробуй-ка его 
 понюхать.
 ~
+G none
 #44012
 statue~
 the statue of Eidu~
@@ -223,6 +235,7 @@ E
 statue~
 Under construction
 ~
+G none
 #0
 
 #ROOMS

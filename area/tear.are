@@ -8305,6 +8305,7 @@ if level $n > 80
 mob cast nowait scream
 ~
 #110998
+say Ну жри!
 mob mload 3013
 mob mload 3013
 mob mload 3013
