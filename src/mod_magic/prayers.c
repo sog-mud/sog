@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.64 2004-03-01 19:44:02 tatyana Exp $
+ * $Id: prayers.c,v 1.65 2004-03-02 13:14:58 tatyana Exp $
  */
 
 /***************************************************************************
@@ -155,6 +155,7 @@ DECLARE_SPELL_FUN(prayer_earth_ward);
 DECLARE_SPELL_FUN(prayer_fire_ward);
 DECLARE_SPELL_FUN(prayer_death_ward);
 DECLARE_SPELL_FUN(prayer_spear_of_death);
+DECLARE_SPELL_FUN(prayer_sleep_of_grave);
 
 static void
 hold(CHAR_DATA *ch, CHAR_DATA *victim, int duration, int dex_modifier, int
@@ -2812,7 +2813,7 @@ SPELL_FUN(prayer_nightmare, sn, level, ch, vo)
 	paf->level	= level;
 	paf->duration	= 1 + level/10;
 	paf->bitvector	= AFF_SLEEP;
-	affect_join(victim, paf);
+	affect_to_char(victim, paf);
 	aff_free(paf);
 
 	if (IS_AWAKE(victim)) {
@@ -3637,3 +3638,33 @@ SPELL_FUN(prayer_spear_of_death, sn, level, ch, vo)
 
 	damage(ch, victim, dam, sn, DAM_F_SHOW);
 }
+SPELL_FUN(prayer_sleep_of_grave, sn, level, ch, vo)
+{
+	CHAR_DATA *victim = (CHAR_DATA *) vo;
+	AFFECT_DATA *paf;
+
+	if (ch == victim)
+		act_char("Even you is not so stupid.", ch);
+
+	if (IS_AFFECTED(victim, AFF_SLEEP)
+	||  IS_SET(victim->form, FORM_UNDEAD)
+	||  IS_SET(victim->form, FORM_CONSTRUCT)
+	||  saves_spell(level, victim, DAM_CHARM))
+		return;
+
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= 1 + level/10;
+	paf->bitvector	= AFF_SLEEP;
+	affect_to_char(victim, paf);
+	aff_free(paf);
+
+	if (IS_AWAKE(victim)) {
+		act_char("Irresistible sleep holds your body.", victim);
+		act("$n puts $N into nightmares.", ch, NULL, victim,
+		    TO_NOTVICT);
+		act("You put $N into nightmares.", ch, NULL, victim, TO_CHAR);
+		victim->position = POS_SLEEPING;
+	}
+}
+
