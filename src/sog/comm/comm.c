@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.158 1999-03-10 17:23:33 fjoe Exp $
+ * $Id: comm.c,v 1.159 1999-03-10 17:49:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2043,6 +2043,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		||  hometown_restrict(HOMETOWN(htn), ch)) {
 			char_puts("That's not a valid hometown.\n", ch);
 			print_hometown(ch);
+			return;
 		}
 
 		ch->hometown = htn; 
