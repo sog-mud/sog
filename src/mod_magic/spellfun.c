@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.80 1998-11-07 06:01:20 fjoe Exp $
+ * $Id: spellfun.c,v 1.81 1998-11-10 11:32:58 kostik Exp $
  */
 
 /***************************************************************************
@@ -87,6 +87,11 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 
 	if ((cl = class_lookup(ch->class)) == NULL)
 		return;
+
+	if (skill_level(ch,gsn_spellbane<=MAX_LEVEL)) {
+		char_puts("You are Battle Rager, not the filthy magician.\n\r",ch);
+		return;
+	}
 
 	if (is_affected(ch, gsn_shielding)) {
 		char_puts("You reach for the True Source and feel something stopping you.\n\r", ch);

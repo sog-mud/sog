@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.90 1998-11-07 07:30:11 fjoe Exp $
+ * $Id: act_obj.c,v 1.91 1998-11-10 11:32:57 kostik Exp $
  */
 
 /***************************************************************************
@@ -1865,6 +1865,11 @@ void do_quaff(CHAR_DATA * ch, const char *argument)
 	char            arg[MAX_INPUT_LENGTH];
 	OBJ_DATA       *obj;
 	one_argument(argument, arg);
+	
+	if (skill_level(ch,gsn_spellbane)<=MAX_LEVEL && !IS_IMMORTAL(ch)) {
+		char_puts("You are Battle Rager, not filthy magician!\n\r",ch);
+		return;
+	}
 
 	if (arg[0] == '\0') {
 		char_puts("Quaff what?\n\r", ch);
@@ -1885,7 +1890,6 @@ void do_quaff(CHAR_DATA * ch, const char *argument)
 		char_puts("This liquid is too powerful for you to drink.\n\r", ch);
 		return;
 	}
-
 	quaff_obj(ch, obj);
 }
 
@@ -1897,6 +1901,10 @@ void do_recite(CHAR_DATA * ch, const char *argument)
 	OBJ_DATA       *scroll;
 	OBJ_DATA       *obj;
 	int		sn;
+
+	if (skill_level(ch,gsn_spellbane)<=MAX_LEVEL && !IS_IMMORTAL(ch)) {
+		char_puts ("RECITE? You are Battle Rager !\n\r",ch);
+	}
 
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
@@ -1957,6 +1965,11 @@ void do_brandish(CHAR_DATA * ch, const char *argument)
 	OBJ_DATA       *staff;
 	int             sn;
 	SKILL_DATA *	sk;
+
+	if (skill_level(ch,gsn_spellbane)<=MAX_LEVEL && !IS_IMMORTAL(ch)) {
+		char_puts("BRANDISH? You are not a filthy magician!\n\r",ch);
+		return;
+	}
 
 	if ((staff = get_eq_char(ch, WEAR_HOLD)) == NULL) {
 		char_puts("You hold nothing in your hand.\n\r", ch);
@@ -2034,6 +2047,11 @@ void do_zap(CHAR_DATA * ch, const char *argument)
 	OBJ_DATA       *wand;
 	OBJ_DATA       *obj;
 	int		sn;
+	
+	if (skill_level(ch,gsn_spellbane)<=MAX_LEVEL && !IS_IMMORTAL(ch)) {
+		char_puts("You'd destroy magic, not use it!\n\r",ch);
+		return;
+	}
 
 	one_argument(argument, arg);
 	if (arg[0] == '\0' && ch->fighting == NULL) {

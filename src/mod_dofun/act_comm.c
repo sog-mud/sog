@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.106 1998-11-07 11:26:21 fjoe Exp $
+ * $Id: act_comm.c,v 1.107 1998-11-10 11:32:56 kostik Exp $
  */
 
 /***************************************************************************
@@ -1513,6 +1513,17 @@ void do_group(CHAR_DATA *ch, const char *argument)
 		act_puts("$N is too pure for your group!", ch, NULL, victim, 
 			 TO_CHAR,POS_SLEEPING);
 		return;
+	}
+
+	if (skill_level(ch,gsn_ruler_badge)<=MAX_LEVEL && skill_level(victim,gsn_disperse)<=MAX_LEVEL ||
+	    skill_level(ch,gsn_disperse)<=MAX_LEVEL && skill_level(victim,gsn_ruler_badge)<=MAX_LEVEL ||
+	    skill_level(ch,gsn_evil_spirit)<=MAX_LEVEL && skill_level(victim,gsn_riding)<=MAX_LEVEL  ||
+	    skill_level(ch,gsn_riding)<=MAX_LEVEL && skill_level(victim,gsn_evil_spirit)<=MAX_LEVEL  ||
+	    skill_level(ch,gsn_mastering_spell)<=MAX_LEVEL && skill_level(victim,gsn_spellbane)<=MAX_LEVEL ||
+	    skill_level(ch,gsn_spellbane)<=MAX_LEVEL && skill_level(victim,gsn_mastering_spell)<=MAX_LEVEL) {
+	    act_puts("You hate $n's cabal, how can you join $n's group?",ch,NULL,victim, TO_VICT, POS_SLEEPING);
+	    act_puts("You hate $N's cabal, how can you want $N to join your group", ch, NULL, victim, TO_CHAR, POS_SLEEPING);
+	    return;
 	}
 
 

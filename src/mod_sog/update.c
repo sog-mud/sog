@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.83 1998-11-07 11:46:44 fjoe Exp $
+ * $Id: update.c,v 1.84 1998-11-10 11:32:59 kostik Exp $
  */
 
 /***************************************************************************
@@ -1003,7 +1003,10 @@ void char_update(void)
 			else
 				check_improve(ch, gsn_path_find, FALSE, 16);
 		}
-
+		
+		if (!IS_IMMORTAL(ch) && !IS_NPC(ch) 
+		    && get_skill(ch, gsn_spellbane) && 
+		    !is_affected(ch, gsn_spellbane)) do_spellbane(ch,"");
 		if (!ch->fighting) {
 			flag_t skip = AFF_FLYING;
 

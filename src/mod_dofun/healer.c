@@ -1,5 +1,5 @@
 /*
- * $Id: healer.c,v 1.12 1998-10-14 18:10:18 fjoe Exp $
+ * $Id: healer.c,v 1.13 1998-11-10 11:32:58 kostik Exp $
  */
 
 /***************************************************************************
@@ -67,6 +67,11 @@ void do_heal(CHAR_DATA *ch, const char *argument)
     if (mob == NULL) {
         char_puts("You can't do that here.\n\r", ch);
         return;
+    }
+
+    if (skill_level(ch, gsn_spellbane)<=MAX_LEVEL) {
+	char_puts("You are Battle Rager, not the filthy magician\n\r",ch);
+	return;
     }
 
     one_argument(argument,arg);
