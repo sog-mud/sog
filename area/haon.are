@@ -168,8 +168,8 @@ do.
 @rus Ужасная крылатая рептилия с темно-зеленой чешуей покрывающей
 большую часть ее громадного тела. Разрывы на ее больших кры-
 льях говорят о множестве схваток, в которых этот дракон при-
-нимал участие. От него пахнет.. хмм.. воняет так, как обыкно-
-венного дракона.
+нимал участие. От него пахнет.. хмм.. воняет так, как от обык-
+новенного дракона.
 ~
 dragon~
 BFG 0 0 0 A -1000 0
@@ -245,6 +245,7 @@ iron~
 weapon 0 0 AN
 axe 2 6 'chop' F
 8 100 820 P
+m obj_wear obj_wear_lumber_axe 100~
 E
 axe lumber топор~
 @eng It is a heavy axe of the kind lumberjacks use to chop down trees.
@@ -2927,26 +2928,12 @@ S
 @eng The spider web@rus Паутина~
 @eng You are walking along the narrow path, ducking under the sticky ropes as you
 advance...
->
-A huge, poisonous spider drops from above!
-A huge, poisonous spider drops from above!
-A huge, poisonous spider drops from above!
->
-The huge, poisonous spider stings you!  You resist the poison!
-The huge, poisonous spider stings you!  You are poisoned!
-The huge, poisonous spider stings you!  You are poisoned!
->
-You've fallen, and you can't get up!!!!!
 @rus Спокойно идя по тропинке, ты неожиданно попадаешь в сплетение
 клейких веревок, которые сжимают тебя тем крепче, чем сильнее ты
 пытаешься вырваться...
-   Огромный ядовитый паук сверху падает на тебя и... ЖАЛИТ.
-   Огромный ядовитый паук сверху падает на тебя и... ЖАЛИТ.
-   Огромный ядовитый паук сверху падает на тебя и... ЖАЛИТ.
-Паучий яд проникает в кровь, ты чувствуешь, что тебе отсюда не
-выбраться.
 ~
 0 CD forest
+m room_greet room_greet_spiders_web all~
 S
 #6132
 @eng Up in the tree@rus На дереве~

@@ -5724,14 +5724,15 @@ for example warrior which has 'enhanced damage' remarkable knows it better
 when thief with which knows it 'perfect'.
 @rus Синтаксис: {cskills{x
 Синтаксис: {cspells{x
+Синтаксис: {cpayers{x
  
-Команды SKILLS и SPELLS показывают тебе список умений и заклинаний, доступных
-твоему персонажу. Списки упорядочены по уровню, с указанием стоимости (для
-заклинаний) или уровня владения (для умений).
+Комманды SKILLS, SPELLS и PRAYERS показывают список умений, заклинаний
+и молитв соответственно, доступных твоему персонажу. Списки упорядочены
+по уровню и даны с указанием степени изученности и стоимости (для молитв
+и заклинаний).
  
-Сообщения, означающие степень изученности навыка (в порядке возрастания):
-{cnot learned{x, {cridiculous{x, {cvery bad{x,{cbad{x, {caverage{x, {cgood{x,
-{cvery good{x, {cremarkable{x и {cperfect{x.
+Степени изученности (в порядке возрастания): not learned, ridiculous,
+very bad, bad, average, good, very good, remarkable, perfect.
 ~
 0 OUTFIT~
 @eng Syntax: {coutfit{x

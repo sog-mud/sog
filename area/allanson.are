@@ -93,7 +93,8 @@ F par J
 #40205
 rat big крыса~
 @eng the rat with a sharp fangs@rus ~~зубастая~~ ~~крыса~~~
-@rus Большая зубастая крыса (rat) напряженно смотрит на тебя.~
+@eng The big rat with sharp teech looks at you.@rus Большая зубастая крыса (rat) напряженно смотрит на тебя.~
+@eng Very very big. You hope that rat do not attack you.
 @rus Ну и ну. Ее нельзя назвать маленькой, разве что в сочетании
 "маленький слоник". Хочется верить, что она не набросится на
 тебя.
@@ -109,7 +110,11 @@ g @eng none@rus female~
 #40206
 rat крыса~
 @eng the rat@rus ~~крыса~~~
-@rus Крыса (rat) вцепилась тебе в ногу.~
+@eng The rat bites your leg.@rus Крыса (rat) вцепилась тебе в ногу.~
+@eng Nice rat. It's very big and very aggressive. You see many
+scars from already healed wounds on it's skin and fresh 
+wounds on the spine. Apparently, this rat fights with other
+rats often.
 @rus Очень колоритный экземпляр. Она очень крупная и очень
 агрессивная. На шкуре ты видишь множество шрамов от уже
 заживших ран, и свежую рану на хребте. Видимо, она час-
@@ -126,7 +131,9 @@ g @eng none@rus female~
 #40207
 mouse мышка~
 @eng the mouse@rus мышка~
-@rus Мышка (mouse) прошмыгнула мимо тебя.~
+@eng A mouse slips near you.@rus Мышка (mouse) прошмыгнула мимо тебя.~
+@eng It is very strange that this mouse is still living here.
+But, may be, rats do not consider it as rival.
 @rus Очень странно, что ее отсюда еще не выжили. А, может,
 крысы не считают ее конкуренткой.
 ~
@@ -278,6 +285,20 @@ W 0 0 0 0 0 0
 stand stand none 0
 0 0 medium unknown
 g @eng none@rus female~
+#40225
+mayor мэр man мужчина~
+~
+@rus Полноватый мужчина (man) очень внимательно глядит на тебя.~
+~
+human~
+0 0 0 0 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 ''
+0 0 0 0
+0
+stand stand none 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
 #0
 
 #OBJECTS
@@ -308,7 +329,7 @@ g @eng none@rus male~
 #40202
 chest small сундучок~
 @eng the small chest@rus ~~маленький~~ ~~сундучок~~~
-@rus Совсем небольшой сундучок (chest) стоит у стены.~
+@eng You see the small chest near the wall.@rus Совсем небольшой сундучок (chest) стоит у стены.~
 wood~
 container 0 B 0
 100 ACD 40203 10 100
@@ -317,7 +338,7 @@ g @eng none@rus male~
 #40203
 key ключик brass латунный~
 @eng the small brass key@rus ~~маленький~~ ~~латунный~~ ~~ключ~~~
-@rus Маленький ключ (key) оставлен кем-то.~
+@eng The small key was dropped here.@rus Маленький ключ (key) оставлен кем-то.~
 brass~
 key 0 0 AO
 0 0 0 0 0
@@ -358,7 +379,7 @@ g @eng none@rus female~
 #40206
 ladle половник~
 @eng the ladle@rus половник~
-@rus Ты видишь самый обыкновенный половник (ladle).~
+@eng You see the usual ladle here.@rus Ты видишь самый обыкновенный половник (ladle).~
 metal~
 trash 0 0 AO
 0 0 0 0 0
@@ -369,7 +390,7 @@ g @eng none@rus male~
 #40207
 shelf полка~
 @eng the wood shelf@rus ~~деревянная~~ ~~полка~~~
-@rus На стене висит деревянная полка (shelf).~
+@eng The wooden shelf hangs on the wall.@rus На стене висит деревянная полка (shelf).~
 wood~
 container 0 B 0
 100 E 0 10 100
@@ -383,7 +404,7 @@ g @eng none@rus female~
 #40208
 pepper-pot pot перечница~
 @eng the pepper-pot@rus перечница~
-@rus Симпатичная стеклянная перечница (pepper-pot), практически полная, лежит здесь.~
+@eng The nice glass pepper-pot, almost full, lies here.@rus Симпатичная стеклянная перечница (pepper-pot), практически полная, лежит здесь.~
 glass~
 staff 0 0 AO
 15 5 2 'faerie fog' 0
@@ -411,7 +432,7 @@ g @eng none@rus female~
 #40210
 feather-bed перина~
 @eng the feather-bed@rus ~~пуховая~~ ~~перина~~~
-@rus Очень воздушная и мягкая пуховая перина (feather-bed) манит к себе.~
+@eng Aethereal and very softly feather-bed attracts for rest.@rus Очень воздушная и мягкая пуховая перина (feather-bed) манит к себе.~
 feathers~
 furniture 0 0 A
 2 200 EHK 110 110
@@ -443,7 +464,7 @@ g @eng none@rus male~
 #40212
 beef grilled говядина жареная~
 @eng the grilled beef@rus ~~жареная~~ ~~говядина~~~
-@rus Ты видишь очень аппетитный и сочный кусок говядины (beef).~
+@eng You see very appetizing peace of grilled beef.@rus Ты видишь очень аппетитный и сочный кусок говядины (beef).~
 meat~
 food 0 0 AO
 AC AC 0 0 0
@@ -465,7 +486,7 @@ AC AC 0 0 0
 #40214
 cheese сыр кусок ломоть piece~
 @eng the piece of cheese@rus ~~ломоть~~ сыра~
-@rus Ломоть сыра (cheese) привлек твое внимание.~
+@eng You notice the large piece of cheese.@rus Ломоть сыра (cheese) привлек твое внимание.~
 cheese~
 food 0 0 AO
 A A 0 0 0
@@ -474,7 +495,7 @@ g @eng none@rus male~
 #40215
 robe балахон~
 @eng the robe with a hood@rus ~~балахон~~ с капюшоном~
-@rus Балахон (robe) грязного серого цвета валяется здесь.~
+@eng Grey robe is lying here.@rus Балахон (robe) грязного серого цвета валяется здесь.~
 unknown~
 armor 0 0 AK
 0 0 0 0 0
@@ -489,7 +510,7 @@ g @eng none@rus male~
 #40216
 staff посох~
 @eng an oak staff@rus ~~дубовый~~ ~~посох~~~
-@rus Сучковатый дубовый посох (staff) лежит на земле.~
+@eng The knotted oak staff lies on the ground.@rus Сучковатый дубовый посох (staff) лежит на земле.~
 unknown~
 trash 0 0 0
 0 0 0 0 0
@@ -503,7 +524,7 @@ g @eng none@rus male~
 #40217
 hauberk кольчуга~
 @eng the light hauberk@rus ~~легкая~~ ~~кольчуга~~~
-@rus Кольчуга (hauberk) лежит на земле.~
+@eng Hauberk lies on the ground.@rus Кольчуга (hauberk) лежит на земле.~
 unknown~
 armor 0 0 AD
 0 0 0 0 0
@@ -517,7 +538,7 @@ g @eng none@rus female~
 #40218
 sword меч~
 @eng the guard's sword@rus ~~меч~~ стражника~
-@rus Сверкающий меч (sword) привлек твое внимание.~
+@eng You notice the sparkling sword.@rus Сверкающий меч (sword) привлек твое внимание.~
 unknown~
 weapon 0 0 0
 exotic 0 0 '' 0
@@ -531,7 +552,7 @@ g @eng none@rus male~
 #40219
 bench скамейка скамья~
 @eng the bench@rus скамейка~
-@rus Удобная скамейка (bench) стоит в тени деревьев.~
+@eng The comfort bench stands in the trees' shade.@rus Удобная скамейка (bench) стоит в тени деревьев.~
 oak~
 furniture 0 0 0
 4 5000 E 110 110
@@ -561,11 +582,12 @@ g @eng none@rus female~
 #40221
 statuette статуэтка undine ундина figurine~
 @eng figurine of the undine@rus ~~статуэтка~~ ундины~
-@eng The saphire statueete of the Undine on the gray granite pedestal.@rus Фигурка ундины (statuettе), сделанная из сапфира, на постаменте из серого мрамора.~
+@eng The saphire statuette of the Undine on the gray granite pedestal.@rus Фигурка ундины (statuettе), сделанная из сапфира, на постаменте из серого мрамора.~
 sapphire~
 gem A 0 0
 0 0 0 0 0
 0 0 0 P
+m obj_get obj_get_figurine 100~
 E
 statuette undine figurine статуэтка ундина~
 @rus Эта статуэтка выточена из сапфира. Очень красивая. Прозрачная голубизна 
@@ -606,7 +628,7 @@ g @eng none@rus female~
 #40224
 cloak плащ emerald изумрудный~
 @eng the emerald cloak@rus ~~изумрудный~~ ~~плащ~~~
-@rus Красивейший изумрудный плащ (cloak) непонятно почему лежит на земле.~
+@eng Someone lost here the beautiful emerald cloak.@rus Красивейший изумрудный плащ (cloak) непонятно почему лежит на земле.~
 unknown~
 armor 0 0 AK
 0 0 0 0 0
@@ -620,7 +642,7 @@ g @eng none@rus male~
 #40225
 ring кольцо~
 @eng the emerald ring@rus ~~кольцо~~ с изумрудом~
-@rus Изящное колечко (ring) поблескивает в пыли.~
+@eng You see elegance ring lying on the dust.@rus Изящное колечко (ring) поблескивает в пыли.~
 unknown~
 jewelry 0 0 0
 0 0 0 0 0
@@ -647,7 +669,7 @@ g @eng none@rus plural~
 #40227
 pie apple пирог яблочный~
 @eng the apple pie@rus ~~яблочный~~ ~~пирог~~~
-@rus Свежий пирог (pie) распространяет вокруг нежный аромат.~
+@eng The fresh pie smells nicely.@rus Свежий пирог (pie) распространяет вокруг нежный аромат.~
 unknown~
 trash 0 0 0
 0 0 0 0 0
@@ -674,7 +696,7 @@ g @eng none@rus plural~
 #40229
 goblet sweet wine бокал сладкое вино~
 @eng the goblet of sweet wine@rus ~~бокал~~ сладкого вина~
-@rus Ты видишь бокал (goblet), наполненный янтарной жидкостью.~
+@eng You see goblet filled with amber liquid.@rus Ты видишь бокал (goblet), наполненный янтарной жидкостью.~
 glass~
 drink 0 0 A
 10 8 'sweet wine' 0 0
@@ -688,7 +710,7 @@ g @eng none@rus male~
 #40230
 carafe lemonade графин лимонад~
 @eng the carafe with lemonade@rus ~~графин~~ лимонада~
-@rus Ты видишь графин (carafe), наполненный лимонадом.~
+@eng You see carafe, filled eith lemonade.@rus Ты видишь графин (carafe), наполненный лимонадом.~
 unknown~
 drink 0 0 A
 10 10 'lemonade' 0 0
@@ -716,7 +738,7 @@ g @eng none@rus male~
 #40232
 cape short hooded пелерина~
 @eng the short hooded cape@rus пелерина~
-@rus Пелерина (cape) оставлена здесь кем-то.~
+@eng Someone lost here the cape.@rus Пелерина (cape) оставлена здесь кем-то.~
 unknown~
 armor 0 0 AC
 0 0 0 0 0
@@ -730,7 +752,7 @@ g @eng none@rus female~
 #40233
 boots башмаки~
 @eng the leather boots@rus ~~кожаные~~ ~~башмаки~~~
-@rus Кожаные башмаки (boots) ищут себе хозяина.~
+@eng The leather boots are looking for new owner.@rus Кожаные башмаки (boots) ищут себе хозяина.~
 unknown~
 armor 0 0 AG
 0 0 0 0 0
@@ -1596,6 +1618,12 @@ Z 0 40226
 S
 #40226
 @eng The sewers@rus Канализация~
+@eng .  You are in the dark, damp place. Dirt walls cover by slime.
+You breath stale air and hear squelch every your step. Possible,
+entering here was a bad idea. Moreover, all is equally and you
+can't determinate where you are. Squeak is heard from below and
+you hope that you are not tread on the one of creatures living
+here.
 @rus Затхлый воздух, сырость и темнота, стены покрыты слизью,
 а под ногами хлюпает. Не надо было сюда залазить. Кроме то-
 го все секции такие одинаковые, что непонятно в какой части
@@ -1618,6 +1646,9 @@ Z 0 40228
 S
 #40227
 @eng In the sewers@rus Канализация~
+@eng At last you can get out from the sewers. You have a real chance
+to get rid of dampness, stale air and terrible disgustful creatures
+living here.
 @rus Ура! Здесь можно вылезти наверх. Скорее бы избавиться
 от этой сырости, затхлости и мерзких здешних обитателей.
 ~
@@ -1637,6 +1668,12 @@ Z 0 40207
 S
 #40228
 @eng The sewers@rus Канализация~
+@eng You are in the dark, damp place. Dirt walls cover by slime.
+You breath stale air and hear squelch every your step. Possible,
+entering here was a bad idea. Moreover, all is equally and you
+can't determinate where you are. Squeak is heard from below and
+you hope that you are not tread on the one of creatures living
+here.
 @rus Затхлый воздух, сырость и темнота, стены покрыты слизью,
 а под ногами хлюпает. Не надо было сюда залазить. Кроме то-
 го все секции такие одинаковые, что непонятно в какой части
@@ -1659,6 +1696,12 @@ Z 0 40226
 S
 #40229
 @eng The sewers@rus Канализация~
+@eng You are in the dark, damp place. Dirt walls cover by slime.
+You breath stale air and hear squelch every your step. Possible,
+entering here was a bad idea. Moreover, all is equally and you
+can't determinate where you are. Squeak is heard from below and
+you hope that you are not tread on the one of creatures living
+here.
 @rus Затхлый воздух, сырость и темнота, стены покрыты слизью,
 а под ногами хлюпает. Не надо было сюда залазить. Кроме то-
 го все секции такие одинаковые, что непонятно в какой части
@@ -1681,6 +1724,12 @@ Z 0 40228
 S
 #40230
 @eng The sewers@rus Канализация~
+@eng You are in the dark, damp place. Dirt walls cover by slime.
+You breath stale air and hear squelch every your step. Possible,
+entering here was a bad idea. Moreover, all is equally and you
+can't determinate where you are. Squeak is heard from below and
+you hope that you are not tread on the one of creatures living
+here.
 @rus Затхлый воздух, сырость и темнота, стены покрыты слизью,
 а под ногами хлюпает. Не надо было сюда залазить. Кроме то-
 го все секции такие одинаковые, что непонятно в какой части
@@ -1703,6 +1752,12 @@ Z 0 40229
 S
 #40231
 @eng The sewers@rus Канализация~
+@eng You are in the dark, damp place. Dirt walls cover by slime.
+You breath stale air and hear squelch every your step. Possible,
+entering here was a bad idea. Moreover, all is equally and you
+can't determinate where you are. Squeak is heard from below and
+you hope that you are not tread on the one of creatures living
+here.
 @rus Затхлый воздух, сырость и темнота, стены покрыты слизью,
 а под ногами хлюпает. Не надо было сюда залазить. Кроме то-
 го все секции такие одинаковые, что непонятно в какой части
@@ -1725,6 +1780,12 @@ Z 0 40230
 S
 #40232
 @eng The sewers@rus Канализация~
+@eng You are in the dark, damp place. Dirt walls cover by slime.
+You breath stale air and hear squelch every your step. Possible,
+entering here was a bad idea. Moreover, all is equally and you
+can't determinate where you are. Squeak is heard from below and
+you hope that you are not tread on the one of creatures living
+here.
 @rus Затхлый воздух, сырость и темнота, стены покрыты слизью,
 а под ногами хлюпает. Не надо было сюда залазить. Кроме то-
 го все секции такие одинаковые, что непонятно в какой части
@@ -1747,6 +1808,12 @@ Z 0 40231
 S
 #40233
 @eng The sewers@rus Канализация~
+@eng You are in the dark, damp place. Dirt walls cover by slime.
+You breath stale air and hear squelch every your step. Possible,
+entering here was a bad idea. Moreover, all is equally and you
+can't determinate where you are. Squeak is heard from below and
+you hope that you are not tread on the one of creatures living
+here.
 @rus Затхлый воздух, сырость и темнота, стены покрыты слизью,
 а под ногами хлюпает. Не надо было сюда залазить. Кроме то-
 го все секции такие одинаковые, что непонятно в какой части
@@ -1781,6 +1848,9 @@ Z 0 40245
 S
 #40234
 @eng In the sewers@rus Канализация~
+@eng At last you can get out from the sewers. You have a real chance
+to get rid of dampness, stale air and terrible disgustful creatures
+living here.
 @rus Ура! Здесь можно вылезти наверх. Скорее бы избавиться
 от этой сырости, затхлости и мерзких здешних обитателей.
 ~
@@ -1794,6 +1864,12 @@ Z 0 40233
 S
 #40235
 @eng The sewers@rus Канализация~
+@eng You are in the dark, damp place. Dirt walls cover by slime.
+You breath stale air and hear squelch every your step. Possible,
+entering here was a bad idea. Moreover, all is equally and you
+can't determinate where you are. Squeak is heard from below and
+you hope that you are not tread on the one of creatures living
+here.
 @rus Затхлый воздух, сырость и темнота, стены покрыты слизью,
 а под ногами хлюпает. Не надо было сюда залазить. Кроме то-
 го все секции такие одинаковые, что непонятно в какой части
@@ -1822,6 +1898,12 @@ Z 0 40241
 S
 #40236
 @eng The sewers@rus Канализация~
+@eng You are in the dark, damp place. Dirt walls cover by slime.
+You breath stale air and hear squelch every your step. Possible,
+entering here was a bad idea. Moreover, all is equally and you
+can't determinate where you are. Squeak is heard from below and
+you hope that you are not tread on the one of creatures living
+here.
 @rus Затхлый воздух, сырость и темнота, стены покрыты слизью,
 а под ногами хлюпает. Не надо было сюда залазить. Кроме то-
 го все секции такие одинаковые, что непонятно в какой части
@@ -1856,6 +1938,12 @@ Z 0 40233
 S
 #40237
 @eng The sewers@rus Канализация~
+@eng You are in the dark, damp place. Dirt walls cover by slime.
+You breath stale air and hear squelch every your step. Possible,
+entering here was a bad idea. Moreover, all is equally and you
+can't determinate where you are. Squeak is heard from below and
+you hope that you are not tread on the one of creatures living
+here.
 @rus Затхлый воздух, сырость и темнота, стены покрыты слизью,
 а под ногами хлюпает. Не надо было сюда залазить. Кроме то-
 го все секции такие одинаковые, что непонятно в какой части
@@ -1884,6 +1972,12 @@ Z 0 40236
 S
 #40238
 @eng The sewers@rus Канализация~
+@eng You are in the dark, damp place. Dirt walls cover by slime.
+You breath stale air and hear squelch every your step. Possible,
+entering here was a bad idea. Moreover, all is equally and you
+can't determinate where you are. Squeak is heard from below and
+you hope that you are not tread on the one of creatures living
+here.
 @rus Затхлый воздух, сырость и темнота, стены покрыты слизью,
 а под ногами хлюпает. Не надо было сюда залазить. Кроме то-
 го все секции такие одинаковые, что непонятно в какой части
@@ -1918,6 +2012,12 @@ Z 0 40235
 S
 #40239
 @eng The sewers@rus Канализация~
+@eng You are in the dark, damp place. Dirt walls cover by slime.
+You breath stale air and hear squelch every your step. Possible,
+entering here was a bad idea. Moreover, all is equally and you
+can't determinate where you are. Squeak is heard from below and
+you hope that you are not tread on the one of creatures living
+here.
 @rus Затхлый воздух, сырость и темнота, стены покрыты слизью,
 а под ногами хлюпает. Не надо было сюда залазить. Кроме то-
 го все секции такие одинаковые, что непонятно в какой части
@@ -1952,6 +2052,12 @@ Z 0 40240
 S
 #40240
 @eng The sewers@rus Канализация~
+@eng You are in the dark, damp place. Dirt walls cover by slime.
+You breath stale air and hear squelch every your step. Possible,
+entering here was a bad idea. Moreover, all is equally and you
+can't determinate where you are. Squeak is heard from below and
+you hope that you are not tread on the one of creatures living
+here.
 @rus Затхлый воздух, сырость и темнота, стены покрыты слизью,
 а под ногами хлюпает. Не надо было сюда залазить. Кроме то-
 го все секции такие одинаковые, что непонятно в какой части
@@ -1986,6 +2092,12 @@ Z 0 40241
 S
 #40241
 @eng The sewers@rus Канализация~
+@eng You are in the dark, damp place. Dirt walls cover by slime.
+You breath stale air and hear squelch every your step. Possible,
+entering here was a bad idea. Moreover, all is equally and you
+can't determinate where you are. Squeak is heard from below and
+you hope that you are not tread on the one of creatures living
+here.
 @rus Затхлый воздух, сырость и темнота, стены покрыты слизью,
 а под ногами хлюпает. Не надо было сюда залазить. Кроме то-
 го все секции такие одинаковые, что непонятно в какой части
@@ -2020,6 +2132,12 @@ Z 0 40239
 S
 #40242
 @eng The sewers@rus Канализация~
+@eng You are in the dark, damp place. Dirt walls cover by slime.
+You breath stale air and hear squelch every your step. Possible,
+entering here was a bad idea. Moreover, all is equally and you
+can't determinate where you are. Squeak is heard from below and
+you hope that you are not tread on the one of creatures living
+here.
 @rus Затхлый воздух, сырость и темнота, стены покрыты слизью,
 а под ногами хлюпает. Не надо было сюда залазить. Кроме то-
 го все секции такие одинаковые, что непонятно в какой части
@@ -2054,6 +2172,12 @@ Z 0 40238
 S
 #40243
 @eng The sewers@rus Канализация~
+@eng You are in the dark, damp place. Dirt walls cover by slime.
+You breath stale air and hear squelch every your step. Possible,
+entering here was a bad idea. Moreover, all is equally and you
+can't determinate where you are. Squeak is heard from below and
+you hope that you are not tread on the one of creatures living
+here.
 @rus Затхлый воздух, сырость и темнота, стены покрыты слизью,
 а под ногами хлюпает. Не надо было сюда залазить. Кроме то-
 го все секции такие одинаковые, что непонятно в какой части
@@ -2076,6 +2200,12 @@ Z 0 40242
 S
 #40244
 @eng The sewers@rus Канализация~
+@eng You are in the dark, damp place. Dirt walls cover by slime.
+You breath stale air and hear squelch every your step. Possible,
+entering here was a bad idea. Moreover, all is equally and you
+can't determinate where you are. Squeak is heard from below and
+you hope that you are not tread on the one of creatures living
+here.
 @rus Затхлый воздух, сырость и темнота, стены покрыты слизью,
 а под ногами хлюпает. Не надо было сюда залазить. Кроме то-
 го все секции такие одинаковые, что непонятно в какой части
@@ -2098,6 +2228,12 @@ Z 0 40243
 S
 #40245
 @eng The sewers@rus Канализация~
+@eng You are in the dark, damp place. Dirt walls cover by slime.
+You breath stale air and hear squelch every your step. Possible,
+entering here was a bad idea. Moreover, all is equally and you
+can't determinate where you are. Squeak is heard from below and
+you hope that you are not tread on the one of creatures living
+here.
 @rus Затхлый воздух, сырость и темнота, стены покрыты слизью,
 а под ногами хлюпает. Не надо было сюда залазить. Кроме то-
 го все секции такие одинаковые, что непонятно в какой части
@@ -2120,6 +2256,12 @@ Z 0 40232
 S
 #40246
 @eng The sewers@rus Канализация~
+@eng You are in the dark, damp place. Dirt walls cover by slime.
+You breath stale air and hear squelch every your step. Possible,
+entering here was a bad idea. Moreover, all is equally and you
+can't determinate where you are. Squeak is heard from below and
+you hope that you are not tread on the one of creatures living
+here.
 @rus Затхлый воздух, сырость и темнота, стены покрыты слизью,
 а под ногами хлюпает. Не надо было сюда залазить. Кроме то-
 го все секции такие одинаковые, что непонятно в какой части
@@ -2142,6 +2284,12 @@ Z 0 40247
 S
 #40247
 @eng The sewers@rus Канализация~
+@eng You are in the dark, damp place. Dirt walls cover by slime.
+You breath stale air and hear squelch every your step. Possible,
+entering here was a bad idea. Moreover, all is equally and you
+can't determinate where you are. Squeak is heard from below and
+you hope that you are not tread on the one of creatures living
+here.
 @rus Затхлый воздух, сырость и темнота, стены покрыты слизью,
 а под ногами хлюпает. Не надо было сюда залазить. Кроме то-
 го все секции такие одинаковые, что непонятно в какой части
@@ -2176,6 +2324,12 @@ Z 0 40254
 S
 #40248
 @eng The sewers@rus Канализация~
+@eng You are in the dark, damp place. Dirt walls cover by slime.
+You breath stale air and hear squelch every your step. Possible,
+entering here was a bad idea. Moreover, all is equally and you
+can't determinate where you are. Squeak is heard from below and
+you hope that you are not tread on the one of creatures living
+here.
 @rus Затхлый воздух, сырость и темнота, стены покрыты слизью,
 а под ногами хлюпает. Не надо было сюда залазить. Кроме то-
 го все секции такие одинаковые, что непонятно в какой части
@@ -2210,6 +2364,9 @@ Z 0 40256
 S
 #40249
 @eng In the sewers@rus Канализация~
+@eng At last you can get out from the sewers. You have a real chance
+to get rid of dampness, stale air and terrible disgustful creatures
+living here.
 @rus Ура! Здесь можно вылезти наверх. Скорее бы избавиться
 от этой сырости, затхлости и мерзких здешних обитателей.
 ~
@@ -2223,6 +2380,12 @@ Z 0 40248
 S
 #40250
 @eng The sewers@rus Канализация~
+@eng You are in the dark, damp place. Dirt walls cover by slime.
+You breath stale air and hear squelch every your step. Possible,
+entering here was a bad idea. Moreover, all is equally and you
+can't determinate where you are. Squeak is heard from below and
+you hope that you are not tread on the one of creatures living
+here.
 @rus Затхлый воздух, сырость и темнота, стены покрыты слизью,
 а под ногами хлюпает. Не надо было сюда залазить. Кроме то-
 го все секции такие одинаковые, что непонятно в какой части
@@ -2257,6 +2420,12 @@ Z 0 40251
 S
 #40251
 @eng The sewers@rus Канализация~
+@eng You are in the dark, damp place. Dirt walls cover by slime.
+You breath stale air and hear squelch every your step. Possible,
+entering here was a bad idea. Moreover, all is equally and you
+can't determinate where you are. Squeak is heard from below and
+you hope that you are not tread on the one of creatures living
+here.
 @rus Затхлый воздух, сырость и темнота, стены покрыты слизью,
 а под ногами хлюпает. Не надо было сюда залазить. Кроме то-
 го все секции такие одинаковые, что непонятно в какой части
@@ -2279,6 +2448,12 @@ Z 0 40252
 S
 #40252
 @eng The sewers@rus Канализация~
+@eng You are in the dark, damp place. Dirt walls cover by slime.
+You breath stale air and hear squelch every your step. Possible,
+entering here was a bad idea. Moreover, all is equally and you
+can't determinate where you are. Squeak is heard from below and
+you hope that you are not tread on the one of creatures living
+here.
 @rus Затхлый воздух, сырость и темнота, стены покрыты слизью,
 а под ногами хлюпает. Не надо было сюда залазить. Кроме то-
 го все секции такие одинаковые, что непонятно в какой части
@@ -2301,6 +2476,13 @@ Z 0 40251
 S
 #40253
 @eng The sewers@rus Канализация~
+@eng You are in the dark, damp place. Dirt walls cover by slime.
+You breath stale air and hear squelch every your step. Possible,
+entering here was a bad idea. Moreover, all is equally and you
+can't determinate where you are. Squeak is heard from below and
+you hope that you are not tread on the one of creatures living
+here.
+  And, is addition, you are in the dead end. You must go back.
 @rus Затхлый воздух, сырость и темнота, стены покрыты слизью,
 а под ногами хлюпает. Не надо было сюда залазить. Кроме то-
 го все секции такие одинаковые, что непонятно в какой части
@@ -2319,6 +2501,12 @@ Z 0 40252
 S
 #40254
 @eng The sewers@rus Канализация~
+@eng You are in the dark, damp place. Dirt walls cover by slime.
+You breath stale air and hear squelch every your step. Possible,
+entering here was a bad idea. Moreover, all is equally and you
+can't determinate where you are. Squeak is heard from below and
+you hope that you are not tread on the one of creatures living
+here.
 @rus Затхлый воздух, сырость и темнота, стены покрыты слизью,
 а под ногами хлюпает. Не надо было сюда залазить. Кроме то-
 го все секции такие одинаковые, что непонятно в какой части
@@ -2347,6 +2535,12 @@ Z 0 40250
 S
 #40255
 @eng The sewers@rus Канализация~
+@eng You are in the dark, damp place. Dirt walls cover by slime.
+You breath stale air and hear squelch every your step. Possible,
+entering here was a bad idea. Moreover, all is equally and you
+can't determinate where you are. Squeak is heard from below and
+you hope that you are not tread on the one of creatures living
+here.
 @rus Затхлый воздух, сырость и темнота, стены покрыты слизью,
 а под ногами хлюпает. Не надо было сюда залазить. Кроме то-
 го все секции такие одинаковые, что непонятно в какой части
@@ -2381,6 +2575,12 @@ Z 0 40248
 S
 #40256
 @eng The sewers@rus Канализация~
+@eng You are in the dark, damp place. Dirt walls cover by slime.
+You breath stale air and hear squelch every your step. Possible,
+entering here was a bad idea. Moreover, all is equally and you
+can't determinate where you are. Squeak is heard from below and
+you hope that you are not tread on the one of creatures living
+here.
 @rus Затхлый воздух, сырость и темнота, стены покрыты слизью,
 а под ногами хлюпает. Не надо было сюда залазить. Кроме то-
 го все секции такие одинаковые, что непонятно в какой части
@@ -2415,6 +2615,12 @@ Z 0 40255
 S
 #40257
 @eng The sewers@rus Канализация~
+@eng You are in the dark, damp place. Dirt walls cover by slime.
+You breath stale air and hear squelch every your step. Possible,
+entering here was a bad idea. Moreover, all is equally and you
+can't determinate where you are. Squeak is heard from below and
+you hope that you are not tread on the one of creatures living
+here.
 @rus Затхлый воздух, сырость и темнота, стены покрыты слизью,
 а под ногами хлюпает. Не надо было сюда залазить. Кроме то-
 го все секции такие одинаковые, что непонятно в какой части
@@ -2449,6 +2655,12 @@ Z 0 40250
 S
 #40258
 @eng The sewers@rus Канализация~
+@eng You are in the dark, damp place. Dirt walls cover by slime.
+You breath stale air and hear squelch every your step. Possible,
+entering here was a bad idea. Moreover, all is equally and you
+can't determinate where you are. Squeak is heard from below and
+you hope that you are not tread on the one of creatures living
+here.
 @rus Затхлый воздух, сырость и темнота, стены покрыты слизью,
 а под ногами хлюпает. Не надо было сюда залазить. Кроме то-
 го все секции такие одинаковые, что непонятно в какой части
@@ -2477,13 +2689,19 @@ Z 0 40257
 S
 #40259
 @eng The sewers@rus Канализация~
+@eng You are in the dark, damp place. Dirt walls cover by slime.
+You breath stale air and hear squelch every your step. Possible,
+entering here was a bad idea. Moreover, all is equally and you
+can't determinate where you are. Squeak is heard from below and
+you hope that you are not tread on the one of creatures living
+here.
 @rus Затхлый воздух, сырость и темнота, стены покрыты слизью,
 а под ногами хлюпает. Не надо было сюда залазить. Кроме то-
 го все секции такие одинаковые, что непонятно в какой части
 ты находишься.  Снизу, из-под ног, ты слышишь попискивание.
 Не наступить бы на кого из местных обитателей...
 ~
-0 0 inside
+0 A inside
 D2
 ~
 ~
@@ -3251,6 +3469,12 @@ D1
 ~
 ~
 Z 0 40290
+D2
+~
+~
+~
+~
+Z 0 40315
 D3
 ~
 ~
@@ -3716,12 +3940,24 @@ S
 @eng The town hall@rus Ратуша~
 ~
 0 D inside
+D0
+~
+~
+~
+~
+Z 0 40313
 D1
 ~
 ~
 ~
 ~
 Z 0 40309
+D2
+~
+~
+~
+~
+Z 0 40314
 D3
 ~
 ~
@@ -3736,7 +3972,7 @@ D4
 ABZ 0 40310
 S
 #40309
-@rus Приемная мэра~
+@eng The waiting room@rus Приемная мэра~
 ~
 0 0 inside
 D0
@@ -3764,7 +4000,7 @@ D5
 ABZ 0 40308
 S
 #40311
-@rus Кабинет мэра~
+@eng The mayor's office@rus Кабинет мэра~
 ~
 0 0 inside
 D2
@@ -3784,6 +4020,39 @@ D0
 ~
 ~
 Z 0 40276
+S
+#40313
+@eng The registry office@rus Регистратура~
+~
+0 b city
+D2
+~
+~
+~
+~
+Z 0 40308
+S
+#40314
+@eng The captain's office@rus Кабинет начальника городской стражи~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 40308
+S
+#40315
+@eng Trail to the park@rus Тропинка к парку~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 40289
 S
 #0
 

@@ -136,9 +136,9 @@ stand stand female 3000
 0 0 medium unknown
 m mob_random mob_random_cast_adept 100~
 #908
-hephaestus smith гефест~
-Hephaestus~
-Hephaestus the Smith is here, crafting a fine weapon.~
+hephaestus smith кузнец~
+@eng Hephaestus@rus Гефест~
+@eng Hephaestus the Smith is here, crafting a fine weapon.@rus Ты видишь Гефеста (Hephaestus), создающего прекрасное оружие.~
 This God is the only one who is not physically perfect.  He is lame and very
 ugly.  You get the impression that he is kind, however, and would go out of his
 way to help you.  He is attended by three golden maidens.
@@ -372,9 +372,11 @@ stand stand none 250
 m mob_fight mob_fight_poison_bite 100~
 #923
 citizen resident житель~
-A citizen~
-A citizen of this town is strolling down the street here.~
-He looks happy and carefree.  He smiles and tips his hat to you.
+@eng A citizen@rus ~~местный~~ ~~житель~~~
+@eng A citizen of this town is strolling down the street here.@rus Один из жителей города (citizen) направляется вниз по улице.~
+@eng He looks happy and carefree.  He smiles and tips his hat to you.
+@rus Он выглядит счастливый и беззаботным. Он улыбается тебе, чуть
+приподнимая шляпу.
 ~
 human~
 CS 0 NT A AB 1000 0

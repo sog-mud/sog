@@ -110,6 +110,21 @@ drink Y BF A
 -1 -1 'cranberry juice' 0 0
 1 10 -1 P
 g @rus female~
+#34403
+ring vitality~
+Ring of Vitality~
+Beautiful golden ring sparks brightly.~
+gold~
+jewelry AY C AB
+0 0 0 0 0
+10 1 1500 P
+m obj_wear obj_wear_ring_vitality 100~
+m obj_remove obj_remove_ring_vitality 100~
+m obj_random obj_random_ring_vitality 100~
+E
+ring~
+You see small beautiful golden ring decorated some colour gems.
+~
 #34404
 spring crystal~
 @eng {WSpring with crystal and clear water{w@rus {WРодник с кристально-чистой водой{w~
@@ -146,6 +161,16 @@ drink IU 0 AO
 1 1 'vodka' 0 0
 1 0 1 P
 g @rus none~
+#34408
+chessboard доска шахматная~
+@eng small chessboard@rus ~~маленькая~~ ~~шахматная~~ ~~доска~~~
+@eng You see small chessboard with several figures on it.@rus Ты видишь маленькую шахматную доску (chessboard) с фигурками на ней.~
+magic~
+treasure 0 0 A
+0 0 0 0 0
+1 1 1500 P
+m obj_look obj_look_magic_chessboard 100~
+g @eng none@rus female~
 #34410
 karmael statue piss~
 @eng Pissed Karmael@rus {YСтатуя писающего Кармаеля стоит здесь!{\{Y    Он одет в форму штандартенфюрера СС фон{\{Y    Штирлица, глаза дико выпучены!  Он рад!{x~
@@ -713,5 +738,9 @@ S
 #SHOPS
 34400 0 0 0 0 0 100 100 0 23
 0
+
+#OLIMITS
+O 34403 1	* Ring of Vitality
+S
 
 #$

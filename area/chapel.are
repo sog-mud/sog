@@ -601,6 +601,7 @@ sword 3 11 'slash' AC
 28 200 2200 P
 f object hitroll 2 0
 f object damroll 2 0
+m obj_wear obj_wear_flaming_sword 100~
 E
 flaming sword long longsword~
 This sword is amazing! It almost wields itself! As you test it out, the

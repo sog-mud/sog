@@ -941,22 +941,6 @@ small tablet~
 +                                                          july'96 +
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ~
-D1
-@eng A dirt path leads away through the great field north of Midgaard.
-@rus Дома Мидгарда.
-~
-~
-~
-~
-Z -1 3043
-D3
-@eng The huge chessboard opens up to the west.
-@rus Шахматная Арена.
-~
-~
-~
-~
-Z -1 4232
 S
 #4201
 @eng A White Square@rus Белая Клетка~
@@ -1791,10 +1775,8 @@ Z -1 4222
 S
 #4224
 @eng A Black Square@rus Черная Клетка~
-@eng You are standing on a black marble square.  You can see a rusty gate
-to the south.
-@rus Ты стоишь на черной квадратной мраморной площадке. На юге виднеются
-старые покосившиеся ворота.
+@eng You are standing on a black marble square.
+@rus Ты стоишь на черной квадратной мраморной площадке.
 ~
 0 0 city
 D0
@@ -2050,10 +2032,8 @@ Z -1 4229
 S
 #4231
 @eng A Black Square@rus Черная Клетка~
-@eng You are standing on a black marble square.  There is a rusty gate
-a short distance to the east.
-@rus Ты стоишь на черной квадратной мраморной площадке. На востоке от тебя
-виднеются старые покосившиеся ворота.
+@eng You are standing on a black marble square.
+@rus Ты стоишь на черной квадратной мраморной площадке.
 ~
 0 0 city
 D0
@@ -2091,10 +2071,8 @@ Z -1 4230
 S
 #4232
 @eng A White Square@rus Белая клетка~
-@eng You are standing on a white marble square.  There is a large rusty
-gate to the east.
-@rus Ты стоишь на белой квадратной мраморной площадке. На востоке от тебя 
-находятся старые покосившиеся ворота.
+@eng You are standing on a white marble square.
+@rus Ты стоишь на белой квадратной мраморной площадке.
 ~
 0 0 city
 D0
@@ -2105,14 +2083,6 @@ D0
 ~
 ~
 Z -1 4224
-D1
-@eng The gate to the chessboard is just to the east.
-@rus Выход с Шахматной Арены.
-~
-~
-~
-~
-Z -1 4200
 D2
 @eng A black square lies to the south.
 @rus Черная Клетка.
@@ -2397,10 +2367,8 @@ Z -1 4238
 S
 #4240
 @eng A Black Square@rus Черная Клетка~
-@eng You are standing on a black marble square.  There is a rusty gate
-to the north.
-@rus Ты стоишь на черной квадратной мраморной площадке. На севере виднеются
-старые покосившиеся ворота.
+@eng You are standing on a black marble square.
+@rus Ты стоишь на черной квадратной мраморной площадке.
 ~
 0 0 city
 D0
