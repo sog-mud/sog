@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: word.c,v 1.3 1998-10-06 13:19:57 fjoe Exp $
+ * $Id: word.c,v 1.4 1998-10-08 13:31:07 fjoe Exp $
  */
 
 #include <sys/syslimits.h>
@@ -39,13 +39,13 @@
 
 const char* word_form_lookup(varr **hashp, const char *word, int num);
 
-WORD_DATA *word_new(LANG_DATA *l)
+WORD_DATA *word_new(int lang)
 {
 	WORD_DATA *w = calloc(1, sizeof(WORD_DATA));
 	w->base = str_empty;
 	w->f.nsize = sizeof(char*);
 	w->f.nstep = 4;
-	w->lang = l;
+	w->lang = lang;
 	return w;
 }
 

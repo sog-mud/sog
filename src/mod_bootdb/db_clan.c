@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_clan.c,v 1.7 1998-10-02 08:14:48 fjoe Exp $
+ * $Id: db_clan.c,v 1.8 1998-10-08 13:31:07 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -44,14 +44,9 @@ DBFUN db_load_clans[] =
 DBLOAD_FUN(load_clan)
 {
 	CLAN_DATA *	clan;
-	char *		p;
 
 	clan = clan_new();
-	if ((p = strrchr(filename, '/')))
-		p++;
-	else
-		p = filename;
-	clan->file_name = str_dup(p);
+	clan->file_name = get_filename(filename);
 
 	for (;;) {
 		char *word = feof(fp) ? "End" : fread_word(fp);
@@ -73,7 +68,6 @@ DBLOAD_FUN(load_clan)
 		case 'F':
 			KEY("Flags", clan->flags,
 			    fread_fstring(clan_flags, fp));
-			SKEY("Filename", clan->file_name);
 			break;
 		case 'M':
 			SKEY("MsgPrays", clan->msg_prays);

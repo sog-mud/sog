@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.9 1998-10-06 13:19:57 fjoe Exp $
+ * $Id: db_area.c,v 1.10 1998-10-08 13:31:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -113,7 +113,8 @@ DBLOAD_FUN(load_area)
 	pArea->reset_last	= NULL;
 	pArea->help_first	= NULL;
 	pArea->help_last	= NULL;
-	pArea->file_name	= fread_string(fp);
+	free_string(fread_string(fp));		/* file name */
+	pArea->file_name	= get_filename(filename);
 
 	pArea->security		= 9;
 	pArea->vnum		= top_area;
@@ -162,16 +163,11 @@ DBLOAD_FUN(load_areadata)
 	AREA_DATA *	pArea;
 	char *		word;
 	bool		fMatch;
-	char *		p;
 
 	pArea			= alloc_perm(sizeof(*pArea));
 	pArea->age		= 15;
 	pArea->nplayer		= 0;
-	if ((p = strrchr(filename, '/')))
-		p++;
-	else
-		p = filename;
-	pArea->file_name	= str_dup(p);
+	pArea->file_name	= get_filename(filename);
 	pArea->vnum		= top_area;
 	pArea->name		= str_dup("New Area");
 	pArea->builders		= str_dup(str_empty);

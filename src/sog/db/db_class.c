@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_class.c,v 1.7 1998-10-06 13:19:57 fjoe Exp $
+ * $Id: db_class.c,v 1.8 1998-10-08 13:31:07 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -52,14 +52,9 @@ DBINIT_FUN(init_class)
 DBLOAD_FUN(load_class)
 {
 	int	i;
-	char *	p;
 
 	class_curr = class_new();
-	if ((p = strrchr(filename, '/')))
-		p++;
-	else
-		p = filename;
-	class_curr->file_name = str_dup(p);
+	class_curr->file_name = get_filename(filename);
 	class_curr->guild = varr_new(sizeof(int), 4);
 
 	for (i = 0; i < MAX_LEVEL+1; i++)
@@ -87,7 +82,6 @@ DBLOAD_FUN(load_class)
 			}
 
 		case 'F':
-			SKEY("Filename", class_curr->file_name);
 			KEY("Flags", class_curr->flags,
 			    fread_fstring(class_flags, fp));
 			break;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: word.h,v 1.3 1998-10-06 13:19:57 fjoe Exp $
+ * $Id: word.h,v 1.4 1998-10-08 13:31:07 fjoe Exp $
  */
 
 #ifndef _WORD_H_
@@ -35,10 +35,10 @@ struct word_data {
 	const char *	name;
 	const char *	base;
 	varr 		f;		/* forms */
-	LANG_DATA *	lang;
+	int		lang;
 };
 
-WORD_DATA *	word_new	(LANG_DATA *l);
+WORD_DATA *	word_new	(int lang);
 WORD_DATA *	word_add	(varr** hashp, WORD_DATA *w);
 void		word_del	(varr** hashp, const char *name);
 WORD_DATA *	word_lookup	(varr** hashp, const char *name);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.c,v 1.2 1998-10-06 19:09:17 fjoe Exp $
+ * $Id: lang.c,v 1.3 1998-10-08 13:31:07 fjoe Exp $
  */
 
 #include <sys/syslimits.h>
@@ -42,6 +42,7 @@ LANG_DATA *lang_new(void)
 {
 	LANG_DATA *lang = varr_enew(&langs);
 	lang->slang_of = -1;
+	lang->vnum = langs.nused-1;
 	return lang;
 }
 

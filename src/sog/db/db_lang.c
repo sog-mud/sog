@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_lang.c,v 1.3 1998-10-06 13:19:57 fjoe Exp $
+ * $Id: db_lang.c,v 1.4 1998-10-08 13:31:07 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -50,6 +50,7 @@ void load_hash(const char* file, varr** hash);
 DBLOAD_FUN(load_lang)
 {
 	lang_curr = lang_new();
+	lang_curr->file_name = get_filename(filename);
 
 	for (;;) {
 		char *word = feof(fp) ? "End" : fread_word(fp);
@@ -136,7 +137,7 @@ DBLOAD_FUN(load_word)
 {
 	WORD_DATA *w;
 
-	w = word_new(lang_curr);
+	w = word_new(lang_curr->vnum);
 
 	for (;;) {
 		char *word = feof(fp) ? "End" : fread_word(fp);
