@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.40 1999-12-20 08:31:20 fjoe Exp $
+ * $Id: olc_msg.c,v 1.41 2000-01-18 14:12:14 avn Exp $
  */
 
 #include "olc.h"
@@ -354,6 +354,9 @@ static const char* msgtoa(const char *argument)
 	static char buf[MAX_STRING_LENGTH];
 	const char *i;
 	int o;
+
+	if (!argument)
+		return str_empty;
 
 	for (o = 0, i = argument; o < sizeof(buf)-2 && *i; i++, o++) {
 		switch (*i) {
