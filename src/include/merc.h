@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.340 2001-07-31 18:14:34 fjoe Exp $
+ * $Id: merc.h,v 1.341 2001-07-31 19:09:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2197,6 +2197,8 @@ extern hash_t skills;
 void skill_init(skill_t *sk);
 skill_t *skill_cpy(skill_t *dst, const skill_t *src);
 void skill_destroy(skill_t *sk);
+
+void skills_dump(BUFFER *output, int skill_type);
 
 /*
  * misc skill lookup functions

@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.116 2001-07-31 18:15:15 fjoe Exp $
+ * $Id: recycle.c,v 1.117 2001-07-31 19:09:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -701,6 +701,36 @@ skill_destroy(skill_t *sk)
 	mlstr_destroy(&sk->msg_obj);
 	free_string(sk->restrict_race);
 	varr_destroy(&sk->events);
+}
+
+static void *
+skills_dump_cb(void *p, va_list ap)
+{
+	skill_t *sk = (skill_t *) p;
+
+	BUFFER *output = va_arg(ap, BUFFER *);
+	int skill_type = va_arg(ap, int);
+	int *pcol = va_arg(ap, int *);
+
+	const char *sn = gmlstr_mval(&sk->sk_name);
+
+	if (!str_cmp(sn, "reserved")
+	||  (skill_type >= 0 && sk->skill_type != skill_type))
+		return NULL;
+
+	buf_printf(output, BUF_END, "%-19.18s", sn);		// notrans
+	if (++(*pcol) % 4 == 0)
+		buf_append(output, "\n");
+	return 0;
+}
+
+void
+skills_dump(BUFFER *output, int skill_type)
+{
+	int col = 0;
+	hash_foreach(&skills, skills_dump_cb, output, skill_type, &col);
+	if (col % 4)
+		buf_append(output, "\n");
 }
 
 static void

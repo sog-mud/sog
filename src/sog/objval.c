@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: objval.c,v 1.10 2001-07-31 18:15:14 fjoe Exp $
+ * $Id: objval.c,v 1.11 2001-07-31 19:09:37 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -32,8 +32,6 @@
 
 #include <merc.h>
 #include <db.h>
-
-#include "handler.h"
 
 /*-
  *
@@ -45,7 +43,8 @@
  *
  */
 
-void objval_init(flag_t item_type, vo_t *v)
+void
+objval_init(flag_t item_type, vo_t *v)
 {
 	int i;
 
@@ -96,7 +95,8 @@ void objval_init(flag_t item_type, vo_t *v)
  * copy obj values from src to dst
  * dst is assumed to be freed before the call
  */
-void objval_cpy(flag_t item_type, vo_t *dst, vo_t *src)
+void
+objval_cpy(flag_t item_type, vo_t *dst, vo_t *src)
 {
 	int i;
 
@@ -143,7 +143,8 @@ void objval_cpy(flag_t item_type, vo_t *dst, vo_t *src)
 	}
 }
 
-void objval_destroy(flag_t item_type, vo_t *v)
+void
+objval_destroy(flag_t item_type, vo_t *v)
 {
 	int i;
 
@@ -173,7 +174,8 @@ void objval_destroy(flag_t item_type, vo_t *v)
 	}
 }
 
-void fwrite_objval(flag_t item_type, vo_t *v, FILE *fp)
+void
+fwrite_objval(flag_t item_type, vo_t *v, FILE *fp)
 {
 	/*
 	 *  Using format_flags to write most values gives a strange
@@ -291,7 +293,8 @@ void fwrite_objval(flag_t item_type, vo_t *v, FILE *fp)
 	}
 }
 
-void fread_objval(flag_t item_type, vo_t *v, rfile_t *fp)
+void
+fread_objval(flag_t item_type, vo_t *v, rfile_t *fp)
 {
 	int i;
 
@@ -348,7 +351,8 @@ void fread_objval(flag_t item_type, vo_t *v, rfile_t *fp)
 	}
 }
 
-void objval_show(BUFFER *output, flag_t item_type, vo_t *v)
+void
+objval_show(BUFFER *output, flag_t item_type, vo_t *v)
 {
 	switch(item_type) {
 	default:	/* No values. */
@@ -541,8 +545,9 @@ void objval_show(BUFFER *output, flag_t item_type, vo_t *v)
  *	1 - pObj was not changed
  *	2 - pObj was not changed, do not show obj values
  */
-int objval_set(BUFFER *output, flag_t item_type, vo_t *v,
-	       int value_num, const char *argument)
+int
+objval_set(BUFFER *output, flag_t item_type, vo_t *v,
+	   int value_num, const char *argument)
 {
 	int val;
 	skill_t *sk;

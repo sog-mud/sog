@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.5 2001-07-31 19:03:10 fjoe Exp $
+ * $Id: sog.h,v 1.6 2001-07-31 19:09:35 fjoe Exp $
  */
 
 #ifndef _HANDLER_H_
@@ -501,8 +501,6 @@ DECLARE_FUN1(cchar_t, get_weapon_sn,
 DECLARE_FUN2(int, get_weapon_skill,
 	     ARG(CHAR_DATA), ch, ARG(cchar_t), sn)
 
-DECLARE_PROC2(skills_dump,
-	      ARG(BUFFER), output, ARG(int), skill_type)
 DECLARE_PROC2(say_spell,
 	      ARG(CHAR_DATA), ch, ARG(cchar_t), sn)
 
