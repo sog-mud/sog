@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.36 1998-05-15 12:04:24 efdi Exp $
+ * $Id: act_move.c,v 1.37 1998-05-15 13:32:03 efdi Exp $
  */
 
 /***************************************************************************
@@ -2695,14 +2695,14 @@ void do_vanish(CHAR_DATA *ch, char *argument)
   if (!IS_NPC(ch)
 		&& ch->level < skill_table[gsn_vanish].skill_level[ch->class])
 		{
-		 send_to_char("Huh?\n\r",ch);
+		 send_to_char(msg(MOVE_HUH, ch), ch);
 		 return;
 		}
 
 
   if (ch->mana < 25)
 		{
-		 send_to_char("You don't have enough power.\n\r" , ch);
+		 send_to_char(msg(MOVE_DONT_HAVE_POWER, ch), ch);
 		 return;
 		}
 
@@ -2710,7 +2710,7 @@ void do_vanish(CHAR_DATA *ch, char *argument)
 
   if (number_percent() > get_skill(ch,gsn_vanish))
 	{
-		send_to_char("You failed.\n\r", ch);
+		send_to_char(msg(MOVE_YOU_FAILED, ch), ch);
 		WAIT_STATE(ch, skill_table[gsn_vanish].beats);
 		check_improve(ch,gsn_vanish,FALSE,1);
 		return;
@@ -2721,7 +2721,7 @@ void do_vanish(CHAR_DATA *ch, char *argument)
   if (ch->in_room == NULL
 		||   IS_SET(ch->in_room->room_flags, ROOM_NO_RECALL))
 	{
-		send_to_char("You failed.\n\r", ch);
+		send_to_char(msg(MOVE_YOU_FAILED, ch), ch);
 		return;
 	}
 
@@ -2739,21 +2739,21 @@ void do_vanish(CHAR_DATA *ch, char *argument)
 	}
 
   
-  act("$n throws down a small globe.", ch, NULL, NULL, TO_ROOM);
+  act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MOVE_N_THROWS_GLOBE);
 
   check_improve(ch,gsn_vanish,TRUE,1);
 
   if (!IS_NPC(ch) && ch->fighting != NULL && number_bits(1) == 1) 
   {
-	send_to_char("You failed.\n\r",ch);
+	send_to_char(msg(MOVE_YOU_FAILED, ch), ch);
 	return;
   }
 
-  act("$n is gone!",ch,NULL,NULL,TO_ROOM);
+  act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MOVE_N_IS_GONE);
 
   char_from_room(ch);
   char_to_room(ch, pRoomIndex);
-  act("$n appears from nowhere.", ch, NULL, NULL, TO_ROOM);
+  act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MOVE_N_APPEARS_FROM_NOWHERE);
   do_look(ch, "auto");
   stop_fighting(ch,TRUE);
   return;
@@ -2765,7 +2765,7 @@ void do_detect_sneak(CHAR_DATA *ch, char *argument)
 
 	if (is_affected(ch, gsn_detect_sneak))
 	{
-		send_to_char("You can already detect sneaking.\n\r",ch);
+		send_to_char(msg(MOVE_YOU_CAN_ALREADY_DETECT_SNEAK, ch), ch);
 	}
 	af.where	 = TO_DETECTS;
 	af.type      = gsn_detect_sneak;
@@ -2775,7 +2775,7 @@ void do_detect_sneak(CHAR_DATA *ch, char *argument)
 	af.modifier  = 0;
 	af.bitvector = DETECT_SNEAK;
 	affect_to_char(ch, &af);
-	send_to_char("Your can detect the sneaking.\n\r", ch);
+	send_to_char(msg(MOVE_YOU_CAN_DETECT_THE_SNEAK, ch), ch);
 	return;
 }
 
@@ -2786,17 +2786,17 @@ void do_fade(CHAR_DATA *ch, char *argument)
 
 	if (MOUNTED(ch)) 
 	{
-		  send_to_char("You can't fade while mounted.\n\r", ch);
+		  send_to_char(msg(MOVE_CANT_FADE_MOUNTED, ch), ch);
 		  return;
 	}
 	if (RIDDEN(ch)) 
 	{
-		  send_to_char("You can't fade while being ridden.\n\r", ch);
+		  send_to_char(msg(MOVE_CANT_FADE_RIDDEN, ch), ch);
 		  return;
 	}
 
 	if (!cabal_ok(ch,gsn_fade)) return;
-	send_to_char("You attempt to fade.\n\r", ch);
+	send_to_char(msg(MOVE_YOU_ATTEMPT_TO_FADE, ch), ch);
 
 	SET_BIT(ch->affected_by, AFF_FADE);
 	check_improve(ch,gsn_fade,TRUE,3);
@@ -2810,34 +2810,31 @@ void do_vtouch(CHAR_DATA *ch, char *argument)
 	AFFECT_DATA af;
 
 	if (IS_NPC(ch) ||
-		 ch->level < skill_table[gsn_vampiric_touch].skill_level[ch->class])
+	    ch->level < skill_table[gsn_vampiric_touch].skill_level[ch->class])
 	{
-		send_to_char("You lack the skill to draining touch.\n\r",ch);
+		send_to_char(msg(MOVE_LACK_SKILL_DRAIN_TOUCH, ch), ch);
 		return;
 	}
 
-	if (!IS_VAMPIRE(ch))
-		{
-		send_to_char("Let it be.\n\r",ch);
+	if (!IS_VAMPIRE(ch)) {
+		send_to_char(msg(MOVE_LET_IT_BE, ch), ch);
 		return;
-		}
+	}
 
 	if (IS_AFFECTED(ch, AFF_CHARM))  {
-		send_to_char("You don't want to drain your master.\n\r",ch);
+		send_to_char(msg(MOVE_DONT_WANT_DRAIN_MASTER, ch), ch);
 		return;
 	} 
 
-	if ((victim = get_char_room(ch,argument)) == NULL)
-		{
-		send_to_char("You do not see that person here.\n\r",ch);
+	if ((victim = get_char_room(ch,argument)) == NULL) {
+		send_to_char(msg(MOVE_THEY_ARENT_HERE, ch), ch);
 		return;
-		}
+	}
 
-	if (ch==victim)
-		{
-		send_to_char("Even you are not that stupid.\n\r",ch);
+	if (ch==victim) {
+		send_to_char(msg(MOVE_EVEN_YOU_NOT_SO_STUPID, ch), ch);
 		return;
-		}
+	}
 
 	if (is_affected(victim,gsn_vampiric_touch))
 		return;
@@ -2851,14 +2848,13 @@ void do_vtouch(CHAR_DATA *ch, char *argument)
 	WAIT_STATE(ch,skill_table[gsn_vampiric_touch].beats);
 
 	if (IS_NPC(ch) || 
-		number_percent() < 0.85 * get_skill(ch,gsn_vampiric_touch))
-		{
-		act("You deadly touch  $N's neck and put $M to nightmares.",
-		    ch,NULL,victim,TO_CHAR);
-		act("$n's deadly touch your neck and puts you to nightmares.",
-		    ch,NULL,victim,TO_VICT);
-		act("$n's deadly touch $N's neck and puts $M to nightmares.",
-		    ch,NULL,victim,TO_NOTVICT);
+	    number_percent() < 0.85 * get_skill(ch,gsn_vampiric_touch)) {
+		act_printf(ch, NULL, victim, TO_CHAR, POS_DEAD, 
+				MOVE_YOU_TOUCH_NS_NECK);
+		act_printf(ch, NULL, victim, TO_VICT, POS_RESTING, 
+				MOVE_N_TOUCHES_YOUR_NECK);
+		act_printf(ch, NULL, victim, TO_NOTVICT, POS_RESTING,
+				MOVE_N_TOUCHES_NS_NECK);
 		check_improve(ch,gsn_vampiric_touch,TRUE,1);
 		
 		af.type = gsn_vampiric_touch;
@@ -2872,12 +2868,10 @@ void do_vtouch(CHAR_DATA *ch, char *argument)
 
 		if (IS_AWAKE(victim))
 		  victim->position = POS_SLEEPING;
-		}
-	else 
-		{
-		damage(ch,victim,0,gsn_vampiric_touch,DAM_NONE, TRUE);
-		check_improve(ch,gsn_vampiric_touch,FALSE,1);
-		}
+	} else {
+		damage(ch, victim, 0, gsn_vampiric_touch, DAM_NONE, TRUE);
+		check_improve(ch, gsn_vampiric_touch, FALSE, 1);
+	}
 }
 
 void do_fly(CHAR_DATA *ch, char *argument)
@@ -2891,7 +2885,7 @@ void do_fly(CHAR_DATA *ch, char *argument)
 	{
 	 if (IS_AFFECTED(ch,AFF_FLYING))
 		{		       
-		   send_to_char("You are already flying.\n\r",ch); 
+		   send_to_char(msg(MOVE_YOU_ARE_ALREADY_FLYING, ch), ch); 
 		 return;
 		}
 	 if (is_affected(ch,gsn_fly) 
@@ -2900,11 +2894,11 @@ void do_fly(CHAR_DATA *ch, char *argument)
 		{
    	 SET_BIT(ch->affected_by,AFF_FLYING);
 		 REMOVE_BIT(ch->act,PLR_CHANGED_AFF);
-   	 send_to_char("You start to fly.\n\r",ch);
+   	 send_to_char(msg(MOVE_YOU_START_TO_FLY, ch), ch);
 		}
    else 
 		{		       
-		   send_to_char("To fly , find a potion or wings.\n\r",ch); 
+		   send_to_char(msg(MOVE_FIND_POTION_OR_WINGS, ch), ch); 
 		}
 	}
 	else if (!str_cmp(arg,"down"))
@@ -2913,17 +2907,17 @@ void do_fly(CHAR_DATA *ch, char *argument)
 		{
    	 REMOVE_BIT(ch->affected_by,AFF_FLYING);
 		 SET_BIT(ch->act,PLR_CHANGED_AFF);
-   	 send_to_char("You slowly touch the ground.\n\r",ch);
+   	 send_to_char(msg(MOVE_YOU_SLOWLY_TOUCH_GROUND, ch), ch);
 		}
    else 
 		{		       
-		   send_to_char("You are already on the ground.\n\r",ch); 
+		   send_to_char(msg(MOVE_YOU_ARE_ALREADY_ON_GROUND, ch), ch); 
 		 return;
 		}
 	}
    else 
 	{
-		send_to_char("Type fly with 'up' or 'down'.\n\r",ch);
+		send_to_char(msg(MOVE_TYPE_WITH_UP_OR_DOWN, ch), ch);
 		return;
 	}
 

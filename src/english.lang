@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.6 1998-05-15 12:04:02 efdi Exp $
+# $Id: english.lang,v 1.7 1998-05-15 13:31:59 efdi Exp $
 #
 
 INFO_NOTHING		"Nothing.\n\r"
@@ -364,3 +364,26 @@ MOVE_CURRENT_BLINK	"Your current blink status : %s.\n\r"
 MOVE_BLINK_ON		"Now, your current blink status is ON.\n\r"
 MOVE_BLINK_OFF		"Now, your current blink status is OFF.\n\r"
 MOVE_IS_S_A_STATUS	"What's that? Is %s a status?\n\r"
+MOVE_DONT_HAVE_POWER	"You don't have enough power.\n\r"
+MOVE_N_THROWS_GLOBE	"$n throws down a small globe."
+MOVE_N_IS_GONE		"$n is gone!"
+MOVE_N_APPEARS_FROM_NOWHERE	"$n appears form nowhere."
+MOVE_YOU_CAN_ALREADY_DETECT_SNEAK "You can already detect sneaking.\n\r"
+MOVE_YOU_CAN_DETECT_THE_SNEAK	"You can detect the sneaking.\n\r"
+MOVE_CANT_FADE_MOUNTED	"You can't fade while mounted.\n\r"
+MOVE_CANT_FADE_RIDDEN	"You can't fade while being ridden.\n\r"
+MOVE_YOU_ATTEMPT_TO_FADE	"You attempt to fade.\n\r"
+MOVE_LACK_SKILL_DRAIN_TOUCH	"You lack the skill to draining touch.\n\r"
+MOVE_LET_IT_BE		"Let it be.\n\r"
+MOVE_DONT_WANT_DRAIN_MASTER	"You don't want to drain your master.\n\r"
+MOVE_EVEN_YOU_NOT_SO_STUPID	"Even you are not so stupid.\n\r"
+MOVE_YOU_TOUCH_NS_NECK	"You deadly touch $N's neck and put $M to nightmares."
+MOVE_N_TOUCHES_YOUR_NECK 
+		"$n deadly touches your neck and puts you to nightmares."
+MOVE_N_TOUCHES_NS_NECK	"$n deadly touches $N's neck and puts $M to nightmares."
+MOVE_YOU_ARE_ALREADY_FLYING	"You are already flying.\n\r"
+MOVE_YOU_START_TO_FLY	"You start to fly.\n\r"
+MOVE_FIND_POTION_OR_WINGS	"To fly find potion or wings.\n\r"
+MOVE_YOU_SLOWLY_TOUCH_GROUND	"You slowly touch the ground.\n\r"
+MOVE_YOU_ARE_ALREADY_ON_GROUND	"You are already on the ground.\n\r"
+MOVE_TYPE_WITH_UP_OR_DOWN	"Type fly with 'up' or 'down'.\n\r"
