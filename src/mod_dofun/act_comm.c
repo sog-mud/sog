@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.114 1998-11-21 06:00:33 fjoe Exp $
+ * $Id: act_comm.c,v 1.115 1998-11-21 09:03:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1836,7 +1836,7 @@ DO_FUN(do_wanted)
 		return;
 	}
 
-	if (ch->level < victim->level) {
+	if (!in_PK(ch, victim) && ch->level < victim->level) {
 		act("You do not have the power to arrest $N.",
 		    ch, NULL, victim, TO_CHAR);
 		return;

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.165 1998-11-21 06:00:34 fjoe Exp $
+ * $Id: act_info.c,v 1.166 1998-11-21 09:03:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -396,17 +396,12 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 
 	if (IS_NPC(victim) && victim->position == victim->start_pos) {
 		const char *p = mlstr_cval(victim->long_descr, ch);
-		bool doppel = is_affected(victim, gsn_doppelganger);
 
 		if (IS_NULLSTR(p)) {	/* for the hell of "It" (#2006) :) */
 			buf_free(output);
 			return;
 		}
-		if (!doppel)
-			buf_add(output, "{g");
 		buf_add(output, p);
-		if (!doppel)
-			buf_add(output, "{x");
 	}
 	else {
 		char *msg;
