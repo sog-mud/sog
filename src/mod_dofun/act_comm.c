@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.187.2.52 2004-02-21 20:12:05 fjoe Exp $
+ * $Id: act_comm.c,v 1.187.2.53 2004-05-18 00:09:06 kets Exp $
  */
 
 /***************************************************************************
@@ -2481,4 +2481,15 @@ do_retell(CHAR_DATA *ch, const char *argument)
 	}
 
 	tell_char(ch, PC(ch)->retell, argument);
+}
+
+void
+do_sync(CHAR_DATA *ch, const char *argument)
+{
+	if (argument[0] == '\0') {
+		do_help(ch, "sync");
+		return;
+	}
+	
+	interpret(ch, argument);
 }
