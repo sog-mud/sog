@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.19 1998-06-14 06:22:40 efdi Exp $
+ * $Id: act_obj.c,v 1.20 1998-06-14 08:57:55 efdi Exp $
  */
 
 /***************************************************************************
@@ -2352,6 +2352,7 @@ void do_brandish(CHAR_DATA *ch, char *argument)
 	return;
 	  }
 
+
 	  WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
 
 	  if (staff->value[2] > 0)
@@ -2397,6 +2398,9 @@ void do_brandish(CHAR_DATA *ch, char *argument)
 		break;
 	    }
 
+		if (is_safe(ch, vch))
+			continue;
+
 	    obj_cast_spell(staff->value[3], staff->value[0], ch, vch, NULL);
 	    check_improve(ch,gsn_staves,TRUE,2);
 	}
@@ -2420,10 +2424,6 @@ void do_zap(CHAR_DATA *ch, char *argument)
 	CHAR_DATA *victim;
 	OBJ_DATA *wand;
 	OBJ_DATA *obj;
-
-	if (IS_SET(ch->act, PLR_GHOST)) {
-		send_to_char("You can't do it while being a ghost.\n\r", ch);
-	}
 
 	if (ch->clan == CLAN_BATTLE) {
 		send_to_char("You'd destroy the magic, not use it!\n\r", ch);
@@ -2470,6 +2470,9 @@ void do_zap(CHAR_DATA *ch, char *argument)
 	    return;
 	}
 	  }
+
+	if (is_safe(ch, victim))
+		return;
 
 	  WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
 
