@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.67 1998-09-17 15:51:17 fjoe Exp $
+ * $Id: act_obj.c,v 1.68 1998-09-21 02:54:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2266,10 +2266,11 @@ void do_steal(CHAR_DATA * ch, const char *argument)
 CHAR_DATA * find_keeper(CHAR_DATA * ch)
 {
 	CHAR_DATA      *keeper;
-	SHOP_DATA      *pShop;
-	pShop = NULL;
+	SHOP_DATA      *pShop = NULL;
+
 	for (keeper = ch->in_room->people; keeper; keeper = keeper->next_in_room) {
-		if (IS_NPC(keeper) && (pShop = keeper->pIndexData->pShop) != NULL)
+		if (IS_NPC(keeper)
+		&&  (pShop = keeper->pIndexData->pShop) != NULL)
 			break;
 	}
 
@@ -2277,6 +2278,7 @@ CHAR_DATA * find_keeper(CHAR_DATA * ch)
 		char_puts("You can't do that here.\n\r", ch);
 		return NULL;
 	}
+
 	if (IS_SET(keeper->in_room->area->flags, AREA_HOMETOWN)
 	    && !IS_NPC(ch) && IS_SET(ch->act, PLR_WANTED)) {
 		do_say(keeper, "Criminals are not welcome!");
@@ -2517,10 +2519,8 @@ void do_buy(CHAR_DATA * ch, const char *argument)
 	char            arg[MAX_INPUT_LENGTH];
 	int             number, count = 1;
 
-	if ((keeper = find_keeper(ch)) == NULL) {
-		char_puts("You don't see shopkeeper here.\n\r", ch);
+	if ((keeper = find_keeper(ch)) == NULL)
 		return;
-	}
 
 	if (IS_SET(ch->in_room->room_flags, ROOM_PET_SHOP)) {
 		do_buy_pet(ch, argument);
