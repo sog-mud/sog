@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.41 1999-02-11 09:45:47 kostik Exp $
+ * $Id: tables.c,v 1.42 1999-02-11 18:07:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -326,6 +326,7 @@ FLAG comm_flags[] =
 	{ "notelnet",		COMM_NOTELNET,		TRUE	},
 	{ "noiac",		COMM_NOIAC,		TRUE	},
 	{ "noverbose",		COMM_NOVERBOSE,		TRUE	},
+	{ "nobust",		COMM_NOBUST,		TRUE	},
 	{ NULL }
 };
 

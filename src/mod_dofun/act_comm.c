@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.134 1999-02-11 09:45:43 kostik Exp $
+ * $Id: act_comm.c,v 1.135 1999-02-11 18:07:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2017,6 +2017,12 @@ toggle_t toggle_table[] =
 	  "You will no longer see prompts."
 	},
 
+	{ "nobust",		"do not bust prompt if hp/mana/move changed",
+	  comm_flags,	COMM_NOBUST,
+	  "$t set.",
+	  "$t removed."
+	},
+
 	{ "quiet edit",		"quiet mode in string editor",
 	  comm_flags,	COMM_QUIET_EDITOR,
 	  "$t set.",
@@ -2070,7 +2076,7 @@ static void toggle_print(CHAR_DATA *ch, toggle_t *t)
 		return;
 
 	act_printf(ch, t->desc, NULL, TO_CHAR | ACT_TRANS, POS_DEAD,
-		   "  %-10.10s - %-3.3s ($t)",
+		   "  %-11.11s - %-3.3s ($t)",
 		   t->name,
 		   IS_SET(*bits, t->bit) ? "ON" : "OFF");
 }
