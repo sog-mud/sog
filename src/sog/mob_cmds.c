@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.19 1998-10-26 08:38:21 fjoe Exp $
+ * $Id: mob_cmds.c,v 1.20 1998-11-18 05:20:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1212,7 +1212,8 @@ void do_mpreligion(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
 	char name[MAX_STRING_LENGTH];
-	int chosen = 0, correct = 1;
+	int chosen = 0;
+	bool correct = TRUE;
 
 	argument = one_argument(argument, name);
 	if ((victim = get_char_room(ch, name)) == NULL)
@@ -1228,32 +1229,41 @@ void do_mpreligion(CHAR_DATA *ch, const char *argument)
 	}
 
 	switch(chosen) {
-	case RELIGION_APOLLON:
-		if (!IS_GOOD(victim) && victim->ethos != 1) correct = 0;
+	case RELIGION_ATUM_RA:
+		if (!IS_GOOD(victim) || victim->ethos != ETHOS_LAWFUL)
+			correct = FALSE;
 		break;
 	case RELIGION_ZEUS:
-		if (!IS_GOOD(victim) && victim->ethos != 2) correct = 0;
+		if (!IS_GOOD(victim) || victim->ethos != ETHOS_NEUTRAL)
+			correct = FALSE;
 		break;
 	case RELIGION_SIEBELE:
-		if (!IS_NEUTRAL(victim) && victim->ethos != 2) correct = 0;
+		if (!IS_NEUTRAL(victim) || victim->ethos != ETHOS_NEUTRAL)
+			correct = FALSE;
+		break;
+	case RELIGION_AHURAMAZDA:
+		if (!IS_GOOD(victim) || victim->ethos != ETHOS_CHAOTIC)
+			correct = FALSE;
 		break;
 	case RELIGION_EHRUMEN:
-		if (!IS_GOOD(victim) && victim->ethos != 3) correct = 0;
-		break;
-	case RELIGION_AHRUMAZDA:
-		if (!IS_EVIL(victim) && victim->ethos != 3) correct = 0;
+		if (!IS_EVIL(victim) || victim->ethos != ETHOS_CHAOTIC)
+			correct = FALSE;
 		break;
 	case RELIGION_DEIMOS:
-		if (!IS_EVIL(victim) && victim->ethos != 1) correct = 0;
+		if (!IS_EVIL(victim) || victim->ethos != ETHOS_LAWFUL)
+			correct = FALSE;
 		break;
 	case RELIGION_PHOBOS:
-		if (!IS_EVIL(victim) && victim->ethos != 2) correct = 0;
+		if (!IS_EVIL(victim) || victim->ethos != ETHOS_NEUTRAL)
+			correct = FALSE;
 		break;
 	case RELIGION_ODIN:
-		if (!IS_NEUTRAL(victim) && victim->ethos != 1) correct = 0;
+		if (!IS_NEUTRAL(victim) || victim->ethos != ETHOS_LAWFUL)
+			correct = FALSE;
 		break;
-	case RELIGION_MARS:
-		if (!IS_NEUTRAL(victim) && victim->ethos != 3) correct = 0;
+	case RELIGION_TESHUB:
+		if (!IS_NEUTRAL(victim) || victim->ethos != ETHOS_CHAOTIC)
+			correct = FALSE;
 		break;
 	}
 

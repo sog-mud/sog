@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.163 1998-11-17 08:06:25 fjoe Exp $
+ * $Id: act_info.c,v 1.164 1998-11-18 05:20:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -639,7 +639,7 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 	if (!IS_IMMORTAL(victim)) {
 		char_printf(ch, "(%s) ", race_name(doppel->race));
 		if (!IS_NPC(victim)) 
-			char_printf(ch, "(%s) ", class_name(doppel->class));
+			char_printf(ch, "(%s) ", class_name(doppel));
 	}
 
 	char_printf(ch, "%s%s%s %s\n\r",

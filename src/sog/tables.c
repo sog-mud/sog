@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.22 1998-10-30 06:56:35 fjoe Exp $
+ * $Id: tables.c,v 1.23 1998-11-18 05:20:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -920,6 +920,13 @@ FLAG lang_flags[] =
 	{ NULL }
 };
 
+FLAG ethos_table[] =
+{
+	{ "lawful",		ETHOS_LAWFUL,		TRUE	},
+	{ "neutral",		ETHOS_NEUTRAL,		TRUE	},
+	{ "chaotic",		ETHOS_CHAOTIC,		TRUE	},
+};
+
 /* wiznet table and prototype for future flag setting */
 const   struct wiznet_type      wiznet_table    []              =
 {
@@ -991,14 +998,6 @@ const 	struct attack_type	attack_table	[]		=
 	{ "chill",	"chill",		DAM_COLD	},
 	{ "kiss",	"kiss",			DAM_MENTAL	}, /* 40 */
 	{ NULL }
-};
-
-const struct ethos_type ethos_table [] =
-{
-  { "Null" },
-  { "Lawful" },
-  { "Neutral" },
-  { "Chaotic" }
 };
 
 /*

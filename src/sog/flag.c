@@ -1,5 +1,5 @@
 /*
- * $Id: flag.c,v 1.16 1998-10-26 08:38:19 fjoe Exp $
+ * $Id: flag.c,v 1.17 1998-11-18 05:20:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -92,6 +92,7 @@ const struct flag_stat_type flag_stat_table[] =
 	{ class_flags,		FALSE	},
 	{ align_names,		TRUE	},
 	{ lang_flags,		FALSE	},
+	{ ethos_table,		TRUE	},
 	{ NULL }
 };
 

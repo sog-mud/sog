@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.h,v 1.7 1998-10-30 06:56:32 fjoe Exp $
+ * $Id: class.h,v 1.8 1998-11-18 05:20:39 fjoe Exp $
  */
 
 #ifndef _CLASS_H_
@@ -77,8 +77,8 @@ extern varr classes;
 
 CLASS_DATA *	class_new(void);
 void		class_free(CLASS_DATA*);
-const char *	class_name(int);
-const char *	class_who_name(int);
+const char *	class_name(CHAR_DATA *ch);
+const char *	class_who_name(CHAR_DATA *ch);
 
 int		cln_lookup(const char *name);
 const char *	title_lookup(CHAR_DATA *ch);

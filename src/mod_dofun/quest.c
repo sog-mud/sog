@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.78 1998-11-02 05:28:30 fjoe Exp $
+ * $Id: quest.c,v 1.79 1998-11-18 05:20:40 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -468,7 +468,7 @@ static void quest_buy(CHAR_DATA *ch, char *arg)
 			return;
 		}
 
-	quest_tell(ch, questor, "I do not have that item, {W%s{z.", ch->name);
+	quest_tell(ch, questor, "I do not have that item, %s.", ch->name);
 }
 
 #define MAX_QMOB_COUNT 512
@@ -516,19 +516,15 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 		||  (IS_EVIL(victim) && IS_EVIL(ch))
 		||  (IS_GOOD(victim) && IS_GOOD(ch))
 		||  victim->pIndexData->vnum < 100
-		||  IS_SET(victim->pIndexData->act, ACT_TRAIN)
-		||  IS_SET(victim->pIndexData->act, ACT_PRACTICE)
-		||  IS_SET(victim->pIndexData->act, ACT_HEALER)
-		||  IS_SET(victim->pIndexData->act, ACT_NOTRACK)
-		||  IS_SET(victim->pIndexData->act, ACT_PET)
+		||  IS_SET(victim->pIndexData->act,
+			   ACT_TRAIN | ACT_PRACTICE | ACT_HEALER |
+			   ACT_NOTRACK | ACT_PET)
 		||  IS_SET(victim->pIndexData->imm_flags, IMM_SUMMON)
 		||  questor->pIndexData == victim->pIndexData
 		||  victim->in_room == NULL
 		||  (IS_SET(victim->pIndexData->act, ACT_SENTINEL) &&
-		     (IS_SET(victim->in_room->room_flags, ROOM_SAFE) ||
-		      IS_SET(victim->in_room->room_flags, ROOM_PRIVATE) ||
-		      IS_SET(victim->in_room->room_flags, ROOM_SOLITARY))
-		    )
+		     IS_SET(victim->in_room->room_flags,
+			    ROOM_SAFE | ROOM_PRIVATE | ROOM_SOLITARY))
 		||  IS_SET(victim->in_room->area->flags, AREA_HOMETOWN))
 			continue;
 		mobs[mob_count++] = victim;
@@ -571,17 +567,24 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 		obj_to_room(eyed, victim->in_room);
 		ch->pcdata->questobj = eyed->pIndexData->vnum;
 
-		quest_tell(ch, questor, "Vile pilferers have stolen {W%s{z from the royal treasury!",
+		quest_tell(ch, questor,
+			   "Vile pilferers have stolen {W%s{z "
+			   "from the royal treasury!",
 			   mlstr_mval(eyed->short_descr));
-		quest_tell(ch, questor, "My court wizardess, with her magic mirror, has pinpointed its location.");
-		quest_tell(ch, questor, "That location is in general area of {W%s{z for {W%s{z.",
-			   victim->in_room->area->name,
+		quest_tell(ch, questor,
+			   "My court wizardess, with her magic mirror, "
+			   "has pinpointed its location.");
+		quest_tell(ch, questor,
+			   "That location is in general area of {W%s{z",
+			   victim->in_room->area->name);
+		quest_tell(ch, questor, "for {W%s{z.",
 			   mlstr_mval(victim->in_room->name));
 	}
 	else {	/* Quest to kill a mob */
 		if (IS_GOOD(ch)) {
 			quest_tell(ch, questor,
-				   "Rune's most heinous criminal, {W%s{z, has escaped from the dungeon.",
+				   "Rune's most heinous criminal, {W%s{z, "
+				   "has escaped from the dungeon.",
 				   mlstr_mval(victim->short_descr));
 			quest_tell(ch, questor,
 				   vmsg(MSG_HAS_MURDERED, ch, victim),
@@ -590,14 +593,20 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 			quest_tell(ch, questor, msg(MSG_THE_PENALTY_IS, ch));
 		}
 		else {
-			quest_tell(ch, questor, "An enemy of mine, {W%s{z, is making vile threats against the crown.",
+			quest_tell(ch, questor,
+				   "An enemy of mine, {W%s{z, "
+				   "is making vile threats against the crown.",
 				   mlstr_mval(victim->short_descr));
-			quest_tell(ch, questor, "This threat must be eliminated!");
+			quest_tell(ch, questor,
+				   "This threat must be eliminated!");
 		}
 
-		quest_tell(ch, questor, "Seek {W%s{z out in general area of {W%s{z in vicinity of {W%s{z!",
+		quest_tell(ch, questor,
+			   "Seek {W%s{z out in general area of {W%s{z",
 			   mlstr_mval(victim->short_descr),
-			   victim->in_room->area->name,
+			   victim->in_room->area->name);
+		quest_tell(ch, questor,
+			   "in vicinity of {W%s{z!",
 			   mlstr_mval(victim->in_room->name));
 
 		ch->pcdata->questmob = victim->pIndexData->vnum;
@@ -606,8 +615,9 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 
 	ch->pcdata->questgiver = questor->pIndexData->vnum;
 	ch->pcdata->questtime = number_range(10, 20) + ch->level/10;
-	quest_tell(ch, questor, "You have {W%d{z minutes to complete this quest.", 
-			ch->pcdata->questtime);
+	quest_tell(ch, questor,
+		   "You have {W%d{z minutes to complete this quest.", 
+		   ch->pcdata->questtime);
 	quest_tell(ch, questor, "May the gods go with you!");
 }
 
@@ -682,12 +692,15 @@ static void quest_complete(CHAR_DATA *ch, char *arg)
 	ch->pcdata->questpoints += qp_reward;
 
 	quest_tell(ch, questor, "Congratulations on completing your quest!");
-	quest_tell(ch, questor, "As a reward, I am giving you %d quest points, and %d gold.",
+	quest_tell(ch, questor,
+		   "As a reward, I am giving you %d quest points, "
+		   "and %d gold.",
 		   qp_reward, gold_reward);
 
 	if (prac_reward) {
 		ch->practice += prac_reward;
-		quest_tell(ch, questor, "You gain %d practices!\n\r", prac_reward);
+		quest_tell(ch, questor,
+			   "You gain %d practices!\n\r", prac_reward);
 	}
 
 	quest_cancel(ch);
@@ -717,7 +730,10 @@ static void quest_trouble(CHAR_DATA *ch, char *arg)
 		}
 	}
 
-	quest_tell(ch, questor, "Sorry, {W%s{z, but you haven't bought that quest award, yet.\n\r", ch->name);
+	quest_tell(ch, questor,
+		   "Sorry, {W%s{z, but you haven't bought "
+		   "that quest award, yet.\n\r",
+		   ch->name);
 }
 
 /*
@@ -730,32 +746,54 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 	OBJ_DATA *reward;
 	QTROUBLE_DATA *qt;
 
-	/* check quest trouble data */
+	/*
+	 * check quest trouble data
+	 */
 
 	qt = qtrouble_lookup(ch, item_vnum);
 
 	if (count_max) {
+		/*
+		 * 'quest trouble'
+		 */
+
 		if (qt == NULL) {
 			/* ch has never bought this item, but requested it */
-			quest_tell(ch, questor, "Sorry, {W%s{z, but you haven't bought that quest award, yet.\n\r",
+			quest_tell(ch, questor,
+				   "Sorry, {W%s{z, but you haven't bought "
+				   "that quest award, yet.\n\r",
 				   ch->name);
 			return FALSE;
 		}
 		else if (qt->count > count_max) {
 			/* ch requested this item too many times */
-			quest_tell(ch, questor, "This item is beyond the trouble option.");
+			quest_tell(ch, questor,
+				   "This item is beyond the trouble option.");
+			return FALSE;
+		}
+	}
+	else {
+		/*
+		 * 'quest buy'
+		 */
+
+		if (qt && qt->count <= TROUBLE_MAX) {
+			quest_tell(ch, questor,
+				   "You have already bought this item.");
 			return FALSE;
 		}
 	}
 
-	/* update quest trouble data */
-
-	reward = create_named_obj(get_obj_index(item_vnum), ch->level, ch->name);
+	reward = create_named_obj(get_obj_index(item_vnum), ch->level,
+				  ch->name);
 	if (get_wear_level(ch, reward) < reward->level) {
-		quest_tell(ch, questor, "This item is too powerful for you.\n\r");
+		quest_tell(ch, questor,
+			   "This item is too powerful for you.\n\r");
 		extract_obj(reward);
 		return FALSE;
 	}
+
+	/* update quest trouble data */
 
 	if (qt != NULL && count_max) {
 		OBJ_DATA *obj;
@@ -773,9 +811,13 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 		}
 
 		quest_tell(ch, questor,
-			   "This is the %i time that I am giving that award back.", qt->count);
-		if (qt->count == count_max) 
-			quest_tell(ch, questor, "And I won't give you that again, with trouble option.\n\r");
+			   "This is the %i time that I am giving "
+			   "that award back.",
+			   qt->count);
+		if (qt->count > count_max) 
+			quest_tell(ch, questor,
+				   "And I won't give you that again, "
+				   "with trouble option.\n\r");
 	}
 
 	if (qt == NULL) {
@@ -803,7 +845,8 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 	obj_to_char(reward, ch);
 
 	act("$N gives {W$p{x to $n.", ch, reward, questor, TO_ROOM);
-	act_puts("$N gives you {W$p{x.", ch, reward, questor, TO_CHAR, POS_DEAD);
+	act_puts("$N gives you {W$p{x.",
+		 ch, reward, questor, TO_CHAR, POS_DEAD);
 
 	return TRUE;
 }

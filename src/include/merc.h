@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.116 1998-11-14 09:01:11 fjoe Exp $
+ * $Id: merc.h,v 1.117 1998-11-18 05:20:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1050,6 +1050,13 @@ enum {
 #define POS_FIGHTING		      7
 #define POS_STANDING		      8
 
+enum {
+	ETHOS_NONE,
+	ETHOS_LAWFUL,
+	ETHOS_NEUTRAL,
+	ETHOS_CHAOTIC
+};
+
 /*
  * ACT bits for players.
  */
@@ -1795,7 +1802,6 @@ extern	const	struct wiznet_type	wiznet_table	[];
 extern	const	struct attack_type	attack_table	[];
 extern	const	struct spec_type	spec_table	[];
 extern	const	struct liq_type		liq_table	[];
-extern	const	struct ethos_type	ethos_table	[];
 extern		struct social_type	social_table	[MAX_SOCIALS];
 
 /*

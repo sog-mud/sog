@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.110 1998-11-14 09:01:08 fjoe Exp $
+ * $Id: act_comm.c,v 1.111 1998-11-18 05:20:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1421,9 +1421,7 @@ void do_group(CHAR_DATA *ch, const char *argument)
 					    "[%2d %s] %-16s %d/%d hp "
 					    "%d/%d mana %d/%d mv   %5d xp\n\r",
 					    gch->level,
-					    IS_NPC(ch) ?
-						"Mob" :
-						 class_who_name(gch->class),
+					    class_who_name(gch),
 					    PERS(gch, ch),
 					    gch->hit,   gch->max_hit,
 					    gch->mana,  gch->max_mana,

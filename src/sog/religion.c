@@ -1,5 +1,5 @@
 /*
- * $Id: religion.c,v 1.3 1998-09-24 14:07:41 fjoe Exp $
+ * $Id: religion.c,v 1.4 1998-11-18 05:20:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,24 +46,24 @@
 /* God's Name, name of religion, tattoo vnum  */
 const struct religion_type religion_table [] =
 {
-  { str_empty,		"None",			0 },
-  { "Atum-Ra",		"Lawful Good",		OBJ_VNUM_TATTOO_APOLLON },
-  { "Zeus",		"Neutral Good",		OBJ_VNUM_TATTOO_ZEUS },
+  { str_empty,		"None",			0			},
+  { "Atum-Ra",		"Lawful Good",		OBJ_VNUM_TATTOO_ATUM_RA },
+  { "Zeus",		"Neutral Good",		OBJ_VNUM_TATTOO_ZEUS	},
   { "Siebele",		"True Neutral",		OBJ_VNUM_TATTOO_SIEBELE },
-  { "Shamash",		"God of Justice",	OBJ_VNUM_TATTOO_HEPHAESTUS },
-  { "Ahuramazda",	"Chaotic Good",		OBJ_VNUM_TATTOO_EHRUMEN },
-  { "Ehrumen",		"Chaotic Evil",		OBJ_VNUM_TATTOO_AHRUMAZDA },
-  { "Deimos",		"Lawful Evil",		OBJ_VNUM_TATTOO_DEIMOS },
-  { "Phobos",		"Neutral Evil",		OBJ_VNUM_TATTOO_PHOBOS },
-  { "Odin",		"Lawful Neutral",	OBJ_VNUM_TATTOO_ODIN },
-  { "Teshub",		"Chaotic Neutral",	OBJ_VNUM_TATTOO_MARS },
-  { "Ares",		"God of War",		OBJ_VNUM_TATTOO_ATHENA },
+  { "Shamash",		"God of Justice",	OBJ_VNUM_TATTOO_SHAMASH	},
+  { "Ehrumen",		"Chaotic Evil",		OBJ_VNUM_TATTOO_EHRUMEN	},
+  { "Ahuramazda",	"Chaotic Good",		OBJ_VNUM_TATTOO_AHURAMAZDA },
+  { "Deimos",		"Lawful Evil",		OBJ_VNUM_TATTOO_DEIMOS	},
+  { "Phobos",		"Neutral Evil",		OBJ_VNUM_TATTOO_PHOBOS	},
+  { "Odin",		"Lawful Neutral",	OBJ_VNUM_TATTOO_ODIN	},
+  { "Teshub",		"Chaotic Neutral",	OBJ_VNUM_TATTOO_TESHUB	},
+  { "Ares",		"God of War",		OBJ_VNUM_TATTOO_ARES	},
   { "Goktengri",	"God of Honor",		OBJ_VNUM_TATTOO_GOKTENGRI },
-  { "Hera",		"Goddess of Hate",	OBJ_VNUM_TATTOO_HERA },
-  { "Venus",		"Goddess of Beauty",	OBJ_VNUM_TATTOO_VENUS },
-  { "Seth",		"God of Anger",		OBJ_VNUM_TATTOO_ARES },
-  { "Enki",		"God of Knowledge",	OBJ_VNUM_TATTOO_PROMETHEUS },
-  { "Eros",		"God of Love",		OBJ_VNUM_TATTOO_EROS }
+  { "Hera",		"Goddess of Hate",	OBJ_VNUM_TATTOO_HERA	},
+  { "Venus",		"Goddess of Beauty",	OBJ_VNUM_TATTOO_VENUS	},
+  { "Seth",		"God of Anger",		OBJ_VNUM_TATTOO_SETH	},
+  { "Enki",		"God of Knowledge",	OBJ_VNUM_TATTOO_ENKI	},
+  { "Eros",		"God of Love",		OBJ_VNUM_TATTOO_EROS	}
 };
 
 char *religion_name(int religion)

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.c,v 1.5 1998-10-30 06:56:32 fjoe Exp $
+ * $Id: class.c,v 1.6 1998-11-18 05:20:39 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -82,20 +82,20 @@ int guild_check(CHAR_DATA *ch, ROOM_INDEX_DATA *room)
 	return -1;
 }
 
-const char *class_name(int vnum)
+const char *class_name(CHAR_DATA *ch)
 {
 	CLASS_DATA *cl;
 
-	if ((cl = class_lookup(vnum)) == NULL)
+	if (IS_NPC(ch) || (cl = class_lookup(ch->class)) == NULL)
 		return "Mobile";
 	return cl->name;
 }
 
-const char *class_who_name(int vnum)
+const char *class_who_name(CHAR_DATA *ch)
 {
 	CLASS_DATA *cl;
 
-	if ((cl = class_lookup(vnum)) == NULL)
+	if (IS_NPC(ch) || (cl = class_lookup(ch->class)) == NULL)
 		return "Mob";
 	return cl->who_name;
 }

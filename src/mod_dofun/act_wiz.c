@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.87 1998-11-17 08:28:50 fjoe Exp $
+ * $Id: act_wiz.c,v 1.88 1998-11-18 05:20:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1294,21 +1294,19 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 		IS_NPC(victim) ? "Chronos" : religion_table[victim->religion].leader);
 
 	if (IS_NPC(victim))
-		sprintf(buf, "%d", victim->alignment);
+		snprintf(buf, sizeof(buf), "%d", victim->alignment);
 	else  {
-		sprintf(buf, "%s%s", 
-			victim->ethos==1 ? "Law-":
-			victim->ethos==2 ? "Neut-":
-			victim->ethos==3 ? "Cha-": "none-",
-			IS_GOOD(victim)		? "Good" :
-			IS_NEUTRAL(victim)	? "Neut" :
-			IS_EVIL(victim)		? "Evil" : "Other");
+		snprintf(buf, sizeof(buf), "%s%s", 
+			 flag_string(ethos_table, victim->ethos),
+			 IS_GOOD(victim)	? "Good" :
+			 IS_NEUTRAL(victim)	? "Neut" :
+			 IS_EVIL(victim)	? "Evil" : "Other");
 	}
 
 	buf_printf(output,
 		"Lv: %d  Class: %s  Align: %s  Gold: %ld  Silver: %ld  Exp: %d\n\r",
 		victim->level,       
-		IS_NPC(victim) ? "mobile" : class_name(victim->class),          
+		class_name(victim),
 		buf,
 		victim->gold, victim->silver, victim->exp);
 
@@ -3554,23 +3552,20 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (!str_prefix(arg2, "move"))
-	{
-		if (value < 0 || value > 60000)
-		{
-		    char_puts("Move range is 0 to 60,000 move points.\n\r", ch);
-		    return;
+	if (!str_prefix(arg2, "move")) {
+		if (value < 0 || value > 60000) {
+			char_puts("Move range is 0 to 60,000 move points.\n\r", ch);
+			return;
 		}
 		victim->max_move = value;
-	    if (!IS_NPC(victim))
-	        victim->pcdata->perm_move = value;
+
+		if (!IS_NPC(victim))
+		        victim->pcdata->perm_move = value;
 		return;
 	}
 
-	if (!str_prefix(arg2, "practice"))
-	{
-		if (value < 0 || value > 250)
-		{
+	if (!str_prefix(arg2, "practice")) {
+		if (value < 0 || value > 250) {
 		    char_puts("Practice range is 0 to 250 sessions.\n\r", ch);
 		    return;
 		}
@@ -3578,46 +3573,44 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (!str_prefix(arg2, "train"))
-	{
-		if (value < 0 || value > 50)
-		{
-		    char_puts("Training session range is 0 to 50 sessions.\n\r",ch);
-		    return;
+	if (!str_prefix(arg2, "train")) {
+		if (value < 0 || value > 50) {
+			char_puts("Training session range is 0 to 50 sessions.\n\r", ch);
+			return;
 		}
 		victim->train = value;
 		return;
 	}
 
-	if (!str_prefix(arg2, "align"))
-	{
-		if (value < -1000 || value > 1000)
-		{
-		    char_puts("Alignment range is -1000 to 1000.\n\r", ch);
-		    return;
+	if (!str_prefix(arg2, "align")) {
+		if (value < -1000 || value > 1000) {
+			char_puts("Alignment range is -1000 to 1000.\n\r", ch);
+			return;
 		}
 		victim->alignment = value;
 		char_puts("Remember to check their hometown.\n\r", ch);
 		return;
 	}
 
-	if (!str_prefix(arg2, "ethos"))
-	  {
-		if (IS_NPC(victim))
-		  {
-		    char_puts("Mobiles don't have an ethos.\n\r", ch);
-		    return;
-		  }
-		if (value < 0 || value > 3)
-		  {
-		char_puts("The values are Lawful - 1, Neutral - 2, Chaotic - 3\n\r",
-				ch);
-		    return;
-		  }
+	if (!str_prefix(arg2, "ethos")) {
+		int ethos;
+
+		if (IS_NPC(victim)) {
+			char_puts("Mobiles don't have an ethos.\n\r", ch);
+			return;
+		}
+
+		ethos = flag_value(ethos_table, arg3);
+		if (ethos < 0) {
+			char_puts("%s: Unknown ethos.\n\r", ch);
+			char_puts("Valid ethos types are: ", ch);
+			show_flags(ch, ethos_table);
+			return;
+		}
 
 		victim->ethos = value;
 		return;
-	  }
+	}
 
 	if (!str_prefix(arg2, "hometown"))
 	{
