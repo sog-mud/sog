@@ -284,7 +284,7 @@ BGR 0 U 0 ABKLM -1000 0
 A
 stand stand male 3000
 Gc L giant unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #1813
 witch red ведьма красная~
 @eng the red witch@rus ~~красная~~ ~~ведьма~~~
@@ -310,7 +310,7 @@ r negative 33
 r holy -50
 r wood -50
 m mob_random mob_random_red_witch 12~
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #1814
 witch orange ведьма рыжая~
 @eng the orange witch@rus ~~рыжая~~ ~~ведьма~~~
@@ -336,7 +336,7 @@ r negative 33
 r holy -50
 r wood -50
 m mob_random mob_random_orange_witch 12~
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #1815
 witch yellow ведьма желтая~
 @eng the yellow witch@rus ~~желтая~~ ~~ведьма~~~
@@ -363,7 +363,7 @@ r negative 33
 r holy -50
 r wood -50
 m mob_random mob_random_yellow_witch 12~
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #1816
 witch green ведьма зеленая~
 @eng the green witch@rus ~~зеленая~~ ~~ведьма~~~
@@ -386,7 +386,7 @@ r acid 33
 r negative 33
 r holy -50
 r wood -50
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #1817
 witch blue ведьма синяя~
 @eng the blue witch@rus ~~синяя~~ ~~ведьма~~~
@@ -407,7 +407,7 @@ r acid 33
 r negative 33
 r holy -50
 r wood -50
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #1818
 witch indigo ведьма индиго~
 @eng the indigo witch@rus ~~ведьма~~ индиго~
@@ -434,7 +434,7 @@ r acid 33
 r negative 33
 r holy -50
 r wood -50
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #1819
 witch violet ведьма фиолетовая~
 @eng the violet witch@rus ~~фиолетовая~~ ~~ведьма~~~
@@ -462,7 +462,7 @@ r negative 33
 r holy -50
 r wood -50
 m mob_greet mob_greet_violet_witch 100~
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #1820
 warlock red колдун красный~
 @eng the red warlock@rus ~~красный~~ ~~колдун~~~
@@ -483,7 +483,7 @@ r acid 33
 r negative 33
 r holy -50
 r wood -50
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #1821
 warlock orange колдун оранжевый~
 @eng the orange warlock@rus ~~оранжевый~~ ~~колдун~~~
@@ -504,7 +504,7 @@ r acid 33
 r negative 33
 r holy -50
 r wood -50
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #1822
 warlock yellow колдун желтый~
 @eng the yellow warlock@rus ~~желтый~~ ~~колдун~~~
@@ -528,7 +528,7 @@ r acid 33
 r negative 33
 r holy -50
 r wood -50
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #1823
 warlock green колдун зеленый~
 @eng the green warlock@rus ~~зеленый~~ ~~колдун~~~
@@ -551,7 +551,7 @@ r acid 33
 r negative 33
 r holy -50
 r wood -50
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #1824
 warlock blue колдун синий filimordr~
 @eng the blue warlock@rus ~~синий~~ ~~колдун~~~
@@ -574,7 +574,7 @@ r acid 33
 r negative 33
 r holy -50
 r wood -50
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #1825
 warlock indigo колдун индиго~
 @eng the indigo warlock@rus ~~колдун~~ ~~индиго~~~
@@ -603,7 +603,7 @@ r acid 33
 r negative 33
 r holy -50
 r wood -50
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #1826
 warlock violet колдун фиолетовый~
 @eng the violet warlock@rus ~~фиолетовый~~ ~~колдун~~~
@@ -630,7 +630,7 @@ r negative 33
 r holy -50
 r wood -50
 m mob_greet mob_greet_violet_warlock 100~
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #1827
 shopkeeper ranger продавец егерь торговец~
 @eng the ranger shopkeeper@rus ~~егерский~~ ~~торговец~~~
@@ -880,7 +880,7 @@ r acid 33
 r negative 33
 r holy -50
 r wood -50
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #1839
 bunny rabbit~
 a small white bunny~
@@ -936,7 +936,7 @@ stand stand male 0
 0 0 medium unknown
 r weapon 33
 r magic 100
-m mob_random mob_random_cast_adept +100~
+m mob_random mob_random_cast_adept 100~
 #0
 
 #OBJECTS

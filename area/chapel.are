@@ -23,7 +23,7 @@ EFNU
 stand stand male 0
 0 0 medium unknown
 r bash -50
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #3401
 undead zombie~
 the undead zombie~
@@ -39,7 +39,7 @@ BF 0 0 0 ABH -100 0
 EFNU
 stand stand male 2
 0 0 medium unknown
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #3402
 undead ghoul~
 The ghoul~
@@ -54,7 +54,7 @@ F 0 0 0 AH -500 0
 EFNU
 stand stand male 7
 0 0 medium unknown
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #3403
 undead wraith~
 The wraith~
@@ -70,7 +70,7 @@ BF 0 0 A ABH -750 0
 EFNU
 stand stand male 50
 0 0 medium unknown
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #3404
 undead guardian vampire~
 The guardian vampire~
@@ -85,7 +85,7 @@ BF 0 0 0 ABH -1000 0
 EFNU
 stand stand male 750
 0 0 medium unknown
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #3405
 priest~
 the priest~
@@ -101,7 +101,7 @@ BQ 0 H 0 AB 1000 0
 EIKU
 stand stand male 20
 0 0 medium unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #3406
 Mi-Go Fungi~
 the Mi-Go~
@@ -136,7 +136,7 @@ FG 0 0 BG H -1000 0
 EFNU
 stand stand none 7
 0 0 medium unknown
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #3408
 hunting horror~
 The hunting horror~
@@ -154,7 +154,7 @@ F 0 0 0 ABH -1000 0
 EFNU
 stand stand none 100
 0 0 medium unknown
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #3409
 weeds~
 some cave weeds~
@@ -183,7 +183,7 @@ B 0 0 0 AH -750 0
 EFNU
 stand stand male 111
 0 0 medium unknown
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #3411
 X-ist eater~
 The X-ist flesh eater~
@@ -201,7 +201,7 @@ BF 0 0 0 AH -1000 0
 EFNU
 stand stand male 78
 0 0 medium unknown
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #3412
 spirit ghost king crotus~
 the spirit of King Crotus~
@@ -220,7 +220,7 @@ BR 0 0 0 ABH 350 0
 FU
 stand stand male 2
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #3413
 rock slug~
 the rock slug~
@@ -255,7 +255,7 @@ GR 0 A 0 H 1000 0
 FU
 sit sit male 2
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #3415
 wife ghost specter~
 The spectral etcher's wife~
@@ -273,7 +273,7 @@ B 0 0 B H 1000 0
 EFNU
 stand stand female 6
 0 0 medium unknown
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #3416
 body~
 The half-decomposed body~
@@ -287,7 +287,7 @@ CF 0 0 0 H -350 0
 EFNU
 stand stand male 4
 0 0 medium unknown
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #0
 
 #OBJECTS

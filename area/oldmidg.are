@@ -24,7 +24,7 @@ BCHR 0 0 0 A 500 0
 FU
 stand stand none 1000
 0 0 large unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #5301
 lamia pet ламия~
 @eng the pet lamia@rus ~~домашняя~~ ~~ламия~~~
@@ -69,7 +69,7 @@ CGT 0 H 0 0 1000 0
 CDEIKLU
 stand stand male 75
 0 0 medium unknown
-m mob_random mob_random_guard +100~
+m mob_random mob_random_guard 100~
 #5304
 citizen woman female~
 a female citizen of Thalos~
@@ -101,7 +101,7 @@ T 0 H 0 0 1000 0
 CDEIKLU
 stand stand male 500
 0 0 medium unknown
-m mob_random mob_random_guard +100~
+m mob_random mob_random_guard 100~
 #5306
 priest~
 the fanatic priest~
@@ -118,7 +118,7 @@ BHQ 0 0 0 0 -500 0
 EIKU
 stand stand male 5
 0 0 medium unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #5307
 priest~
 the priest of Thalos~
@@ -133,7 +133,7 @@ BQ 0 H 0 0 1000 0
 EIKU
 stand stand male 5
 0 0 medium unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #5308
 golem stone~
 the stone golem~
@@ -268,7 +268,7 @@ BRe 0 0 0 A 550 0
 FU
 stand stand male 50
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #5318
 masseuse woman~
 a beautiful masseuse~
@@ -313,7 +313,7 @@ BCGT 0 H 0 0 1000 0
 CDEIKLU
 stand stand male 75
 0 0 medium unknown
-m mob_random mob_random_guard +100~
+m mob_random mob_random_guard 100~
 #5321
 guard cityguard~
 an imperial cityguard~
@@ -328,7 +328,7 @@ BCGT 0 H 0 0 1000 0
 CDEIKLU
 stand stand male 75
 0 0 medium unknown
-m mob_random mob_random_guard +100~
+m mob_random mob_random_guard 100~
 #5322
 doe~
 a doe~
@@ -409,7 +409,7 @@ GHQ 0 N 0 A 1000 0
 EIKU
 stand stand male 2
 0 0 medium unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #5328
 druidess~
 a druidess~
@@ -423,7 +423,7 @@ GHQ 0 N 0 A 1000 0
 EIKU
 stand stand female 2
 0 0 medium unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #5329
 musician bard~
 bard of Thalos~
@@ -463,7 +463,7 @@ CGT 0 0 0 0 1000 0
 CDEIKLU
 stand stand male 25
 0 0 medium unknown
-m mob_random mob_random_guard +100~
+m mob_random mob_random_guard 100~
 #5332
 janitor~
 the janitor~
@@ -476,7 +476,7 @@ human~
 EFNU
 stand stand male 1
 0 0 medium unknown
-m mob_random mob_random_janitor +100~
+m mob_random mob_random_janitor 100~
 #5333
 fido dog~
 the beastly fido~
@@ -491,7 +491,7 @@ FH 0 0 0 0 -200 0
 EN
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_fido +100~
+m mob_random mob_random_fido 100~
 #5334
 cityguard guard~
 the cityguard~
@@ -505,7 +505,7 @@ BGT 0 0 0 0 1000 0
 CDEIKLU
 stand stand male 25
 0 0 medium unknown
-m mob_random mob_random_guard +100~
+m mob_random mob_random_guard 100~
 #5335
 wizard~
 the wizard~
@@ -641,7 +641,7 @@ stand stand male 5000
 0 0 huge unknown
 r weapon 33
 r magic 100
-m mob_random mob_random_cast_adept +100~
+m mob_random mob_random_cast_adept 100~
 #5343
 guildmaster master~
 the guildmaster~
@@ -693,7 +693,7 @@ stand stand male 5000
 0 0 huge unknown
 r weapon 33
 r magic 100
-m mob_random mob_random_cast_adept +100~
+m mob_random mob_random_cast_adept 100~
 #5346
 junkseller junk seller~
 Junkseller~

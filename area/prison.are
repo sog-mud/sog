@@ -23,7 +23,7 @@ BG 0 0 0 0 0 0
 EFNU
 stand stand male 100
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #32001
 rat~
 the rat~
@@ -37,7 +37,7 @@ G 0 0 B H 0 0
 F
 stand stand male 100
 0 0 medium unknown
-m mob_random mob_random_fido +100~
+m mob_random mob_random_fido 100~
 #32002
 Prison Guard~
 the Prison Guard~
@@ -53,7 +53,7 @@ CG 0 0 0 H 0 0
 EFNU
 stand stand male 100
 0 0 medium unknown
-m mob_random mob_random_guard +100~
+m mob_random mob_random_guard 100~
 #32003
 Prison Worker~
 the Prison Worker~
@@ -68,7 +68,7 @@ CG J 0 0 ABH 0 0
 FIJ
 stand stand male 100
 0 0 medium unknown
-m mob_random mob_random_janitor +100~
+m mob_random mob_random_janitor 100~
 #32004
 Cell Guard~
 the Cell Guard~
@@ -84,7 +84,7 @@ BGe 0 H 0 H 1000 0
 CDEFIKU
 stand stand male 100
 0 0 medium unknown
-m mob_random mob_random_guard +100~
+m mob_random mob_random_guard 100~
 #32005
 prisoner~
 the prisoner~
@@ -99,7 +99,7 @@ G 0 0 0 H 0 0
 FIJK
 stand stand male 100
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #32006
 cockroach~
 the cockroach~
@@ -114,7 +114,7 @@ G 0 0 0 H 500 0
 F
 stand stand none 100
 0 0 medium unknown
-m mob_random mob_random_poison +100~
+m mob_fight mob_fight_poison_bite 100~
 #32007
 flunky~
 a flunky~
@@ -174,7 +174,7 @@ BGe 0 HU 0 0 0 0
 FHIJK
 stand stand male 100
 0 0 medium unknown
-m mob_random mob_random_breath_lightning +100~
+m mob_fight mob_fight_breath_lightning 100~
 #32011
 Trixie~
 Trixie the secretary~
@@ -233,7 +233,7 @@ BGe 0 HN 0 0 1000 0
 CDEFIJK
 stand stand female 100
 0 0 medium unknown
-m mob_random mob_random_breath_any +100~
+m mob_fight mob_fight_breath_any 100~
 #32015
 Steam Monster~
 A steam monster~
@@ -248,7 +248,7 @@ BFG 0 0 0 A 0 0
 FKN
 stand stand none 100
 0 0 medium unknown
-m mob_random mob_random_poison +100~
+m mob_fight mob_fight_poison_bite 100~
 #32016
 Larry armsmaster~
 Larry the armsmaster~
@@ -311,7 +311,7 @@ stand stand male 100
 0 0 medium unknown
 r charm 100
 r magic 33
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #32020
 towel boy~
 the towel boy~
@@ -369,7 +369,7 @@ G 0 HU AG AB 1000 0
 F
 stand stand male 100
 0 0 huge unknown
-m mob_random mob_random_breath_fire +100~
+m mob_fight mob_fight_breath_fire 100~
 #32024
 Terry ~
 Terry the salesman~
@@ -386,7 +386,7 @@ BCDEFIJK
 stand stand male 100
 0 0 medium unknown
 r magic 33
-m mob_random mob_random_poison +100~
+m mob_fight mob_fight_poison_bite 100~
 #0
 
 #OBJECTS

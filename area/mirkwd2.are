@@ -37,7 +37,7 @@ r fire -50
 r cold 100
 r holy 100
 r charm 100
-m mob_random mob_random_poison +100~
+m mob_fight mob_fight_poison_bite 100~
 #8801
 sylvan elf warrior лесной эльф воин~
 @eng a sylvan elf warrior@rus ~~лесной~~ ~~эльф~~-~~воин~~~
@@ -82,7 +82,8 @@ stand stand male 211
 r charm 100
 r weapon -50
 r magic -50
-m mob_random mob_random_nasty +100~
+m mob_random mob_random_nasty 100~
+m mob_fight mob_fight_nasty 100~
 #8803
 orc warrior орк воин~
 @eng an orc warrior@rus ~~орк~~-~~воин~~~
@@ -104,7 +105,7 @@ stand stand male 0
 0 0 medium unknown
 r charm 100
 r magic -50
-m mob_random mob_random_guard +100~
+m mob_random mob_random_guard 100~
 #8804
 guard elf эльф стражник~
 @eng a wood elf guard@rus ~~эльф~~-~~стражник~~~
@@ -149,7 +150,7 @@ r fire 100
 r poison 100
 r holy 100
 r magic 33
-m mob_random mob_random_guard +100~
+m mob_random mob_random_guard 100~
 #8806
 galion butler elf гэлион дворецкий~
 @eng Galion the butler@rus ~~дворецкий~~ ~~Гэлион~~~
@@ -185,7 +186,7 @@ CDEK
 sit sit male 0
 0 0 medium unknown
 r weapon 33
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #8808
 wood elf male лесной эльф~
 @eng a male wood elf@rus ~~лесной~~ ~~эльф~~~

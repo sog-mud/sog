@@ -45,7 +45,7 @@ stand stand female 1850
 r holy -50
 r iron -50
 r magic 33
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #29122
 guard woodsman~
 The woodsman guard~
@@ -64,7 +64,7 @@ BG 0 M B 0 500 0
 CDEFINP
 stand stand male 2000
 0 0 medium unknown
-m mob_random mob_random_guard +100~
+m mob_random mob_random_guard 100~
 #29123
 lumberjack~
 The lumberjack~
@@ -162,7 +162,7 @@ Ge 0 0 0 0 300 0
 CEFN
 stand stand male 1600
 0 0 small unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #29129
 snake rock~
 The giant rock snake~
@@ -225,7 +225,7 @@ stand stand female 2200
 r bash -50
 r holy -50
 r magic 33
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #29132
 warlock man~
 The warlock~
@@ -243,7 +243,7 @@ stand stand male 2300
 r bash -50
 r holy -50
 r magic 33
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #29133
 leader coven~
 The coven leader~
@@ -263,7 +263,7 @@ r bash -50
 r negative 100
 r holy -50
 r magic 33
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #29134
 beast hell flaming~
 The flaming beast from hell~
@@ -285,7 +285,7 @@ r fire 100
 r cold -50
 r poison 100
 r charm 33
-m mob_random mob_random_breath_fire +100~
+m mob_fight mob_fight_breath_fire 100~
 #0
 
 #OBJECTS

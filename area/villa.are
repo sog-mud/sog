@@ -24,7 +24,7 @@ BG 0 HN 0 0 1000 0
 FHKN
 stand stand male 1000
 0 0 medium unknown
-m mob_random mob_random_cast_adept +100~
+m mob_random mob_random_cast_adept 100~
 #24101
 flint knapper flint-knapper~
 the village flint-knapper~
@@ -242,7 +242,7 @@ BG 0 HNc 0 H 0 0
 ADEFHOZ
 stand stand male 1000
 F 0 medium unknown
-m mob_random mob_random_executioner +100~
+m mob_random mob_random_executioner 100~
 #24116
 merchant~
 a hook-nosed merchant~
@@ -371,7 +371,7 @@ GH 0 U ABG 0 0 0
 FIN
 stand stand male 1000
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #24125
 wolf~
 a scrawny wolf~
@@ -387,7 +387,7 @@ GH 0 0 0 0 0 0
 0
 stand stand either 1000
 0 0 medium unknown
-m mob_random mob_random_fido +100~
+m mob_random mob_random_fido 100~
 #24126
 rat~
 a rat~
@@ -403,7 +403,7 @@ GH 0 0 0 0 0 0
 F
 stand stand none 1000
 0 0 medium unknown
-m mob_random mob_random_fido +100~
+m mob_random mob_random_fido 100~
 #24127
 dog~
 a dog~
@@ -418,7 +418,7 @@ GH 0 0 0 0 0 0
 0
 stand stand female 1000
 0 0 medium unknown
-m mob_random mob_random_fido +100~
+m mob_random mob_random_fido 100~
 #24128
 militia member~
 a member of the village militia~
@@ -434,7 +434,7 @@ G 0 HN 0 K 1000 0
 EFIKN
 stand stand male 1000
 0 0 medium unknown
-m mob_random mob_random_guard +100~
+m mob_random mob_random_guard 100~
 #24129
 militia member~
 a member of the village militia~
@@ -450,7 +450,7 @@ G 0 HN 0 K 1000 0
 CEFIKN
 stand stand male 1000
 0 0 medium unknown
-m mob_random mob_random_guard +100~
+m mob_random mob_random_guard 100~
 #24130
 militia member~
 a member of the village militia~
@@ -466,7 +466,7 @@ BG 0 HN 0 K 1000 0
 CEFIKN
 stand stand male 1000
 0 0 medium unknown
-m mob_random mob_random_guard +100~
+m mob_random mob_random_guard 100~
 #24131
 minoan merc merc1~
 minoan mercenary~

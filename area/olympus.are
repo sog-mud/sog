@@ -29,7 +29,7 @@ stand stand male 50000
 0 0 gargantuan unknown
 r lightning 100
 r charm 100
-m mob_random mob_random_breath_lightning +100~
+m mob_fight mob_fight_breath_lightning 100~
 #902
 prometheus прометей~
 @eng Prometheus@rus Прометей~
@@ -45,7 +45,7 @@ EFNU
 stand stand male 2000
 0 0 medium unknown
 r charm 100
-m mob_random mob_random_breath_fire +100~
+m mob_fight mob_fight_breath_fire 100~
 #903
 hermes гермес~
 @eng Hermes@rus Гермес~
@@ -62,7 +62,7 @@ BEFJNU
 stand stand male 2500
 0 0 medium unknown
 r charm 100
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #904
 poseidon~
 Poseidon~
@@ -79,7 +79,7 @@ FU
 sit stand male 5000
 0 0 medium unknown
 r charm 100
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #905
 apollo аполлон~
 @eng Apollo@rus Аполлон~
@@ -100,7 +100,7 @@ EFNU
 stand stand male 2000
 0 0 medium unknown
 r charm 100
-m mob_random mob_random_cast_adept +100~
+m mob_random mob_random_cast_adept 100~
 #906
 ares~
 Ares~
@@ -134,7 +134,7 @@ BCEJ 0 HNT A AB 1000 0
 EFNU
 stand stand female 3000
 0 0 medium unknown
-m mob_random mob_random_cast_adept +100~
+m mob_random mob_random_cast_adept 100~
 #908
 hephaestus smith гефест~
 Hephaestus~
@@ -151,7 +151,7 @@ EFNU
 stand stand male 3000
 0 0 medium unknown
 r charm 100
-m mob_random mob_random_breath_lightning +100~
+m mob_fight mob_fight_breath_lightning 100~
 #909
 handmaid golden~
 A Golden Maiden~
@@ -166,7 +166,7 @@ BCT 0 HNT A AB 0 0
 CDEIKLU
 stand stand female 50
 0 0 medium unknown
-m mob_random mob_random_guard +100~
+m mob_random mob_random_guard 100~
 #910
 soldier~
 A Soldier~
@@ -240,7 +240,7 @@ EFNU
 stand stand male 5000
 0 0 medium unknown
 r charm 100
-m mob_random mob_random_breath_any +100~
+m mob_fight mob_fight_breath_any 100~
 #915
 grocer greengrocer julius~
 Julius the Green Grocer~
@@ -320,7 +320,7 @@ stand stand male 5000
 r fire 100
 r light 100
 r charm 100
-m mob_random mob_random_breath_any +100~
+m mob_fight mob_fight_breath_any 100~
 #920
 chimera химера~
 @eng a chimera@rus химера~
@@ -336,7 +336,7 @@ EFNU
 stand stand male 50
 0 0 medium unknown
 g @eng male@rus female~
-m mob_random mob_random_breath_fire +100~
+m mob_fight mob_fight_breath_fire 100~
 #921
 hera гера~
 @eng Hera@rus Гера~
@@ -354,7 +354,7 @@ EIKU
 stand stand female 5000
 0 0 medium unknown
 r charm 100
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #922
 roc~
 a roc~
@@ -369,7 +369,7 @@ C 0 HNT A AB 0 0
 EFNU
 stand stand none 250
 0 0 medium unknown
-m mob_random mob_random_poison +100~
+m mob_fight mob_fight_poison_bite 100~
 #923
 citizen resident житель~
 A citizen~
@@ -383,7 +383,7 @@ CS 0 NT A AB 1000 0
 EFJNU
 stand stand male 3
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #924
 pegasus horse пегас конь~
 @eng a pegasus@rus пегас~
@@ -429,7 +429,7 @@ BCR 0 HNT A ABH 0 0
 FU
 stand stand male 50
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #0
 
 #OBJECTS

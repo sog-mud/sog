@@ -26,7 +26,7 @@ B 0 J 0 AH -1000 0
 EFNU
 stand stand male 1250
 0 0 medium unknown
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #2301
 treant tree дерево~
 @eng the Old Treant@rus старое Дерево~
@@ -64,7 +64,7 @@ BF 0 0 G HKL 0 0
 EFNU
 stand stand none 125
 0 0 medium unknown
-m mob_random mob_random_breath_acid +100~
+m mob_fight mob_fight_breath_acid 100~
 #2303
 toad rock жаба~
 @eng the Rock Toad@rus ~~каменная~~ ~~жаба~~~
@@ -128,7 +128,7 @@ BCF 0 0 0 H -1000 0
 EFNU
 stand stand male 1250
 0 0 medium unknown
-m mob_random mob_random_poison +100~
+m mob_fight mob_fight_poison_bite 100~
 #2307
 ogre villager~
 the Ogre Villager~
@@ -188,7 +188,7 @@ BCFGHQ 0 J 0 A -750 0
 EIKU
 stand stand male 2500
 0 0 medium unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #2311
 chief chieftain ogre шеф~
 @eng the Ogre Chieftain@rus Огр-шеф~
@@ -234,7 +234,7 @@ BCFGH 0 0 0 0 -350 0
 EFNU
 stand stand none 50
 0 0 medium unknown
-m mob_random mob_random_breath_frost +100~
+m mob_fight mob_fight_breath_frost 100~
 #2314
 worm ice iceworm~
 the Ice Worm~
@@ -250,7 +250,7 @@ BCFG 0 0 0 0 0 0
 EFNU
 stand stand none 175
 0 0 medium unknown
-m mob_random mob_random_breath_acid +100~
+m mob_fight mob_fight_breath_acid 100~
 #2315
 citizen minotaur~
 the Minotaur Citizen~
@@ -392,7 +392,7 @@ BCGR 0 H 0 A -300 0
 FU
 stand stand male 2500
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #2325
 gorak minotaur warrior master~
 Gorak~
@@ -421,7 +421,7 @@ BF 0 J 0 AH -1000 0
 EFNU
 stand stand male 5000
 0 0 medium unknown
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #2327
 tyrgoth minotaur paladin master~
 Tyrgoth~
@@ -451,7 +451,7 @@ BFR 0 H 0 A 300 0
 FU
 stand stand male 5000
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #2329
 sumaron minotaur cleric master~
 Sumaron~
@@ -466,7 +466,7 @@ BFQ 0 H 0 A 1000 0
 EIKU
 stand stand male 5000
 0 0 medium unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #2330
 nasturn minotaur druid master~
 Nasturn~
@@ -481,7 +481,7 @@ BQ 0 H 0 A 500 0
 EIKU
 stand stand male 5000
 0 0 medium unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #2331
 belrak minotaur ranger master~
 Belrak~
@@ -528,7 +528,7 @@ BCR 0 JTU A A -500 0
 FU
 stand stand male 5000
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #0
 
 #OBJECTS

@@ -40,7 +40,7 @@ EFK
 stand stand male 1000
 0 0 medium unknown
 a 'water breathing' affects none 0 0
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #12303
 Sucker fish~
 a sucker fish~
@@ -110,7 +110,7 @@ G 0 0 0 0 0 0
 stand stand male 1000
 0 0 medium unknown
 a 'water breathing' affects none 0 0
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #12315
 Antharian child~
 an Antharian child~
@@ -245,7 +245,7 @@ CDEFIJK
 stand stand female 1000
 0 0 medium unknown
 a 'water breathing' affects none 0 0
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #12360
 Human Representative~
 a human representative~
@@ -276,7 +276,7 @@ CEFIJK
 stand stand male 1000
 0 0 medium unknown
 a 'water breathing' affects none 0 0
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #12362
 Kender Representative~
 a kender representative~
@@ -292,7 +292,7 @@ CEFIJK
 stand stand female 1000
 I 0 medium unknown
 a 'water breathing' affects none 0 0
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #12363
 Antharian Representative~
 an antharian representative~
@@ -324,7 +324,7 @@ CEFIJK
 stand stand female 1000
 0 0 medium unknown
 a 'water breathing' affects none 0 0
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #12365
 Dwarven Representative~
 a dwarven representative~

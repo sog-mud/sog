@@ -24,7 +24,7 @@ GHS 0 0 0 AB 100 0
 BEFJNU
 stand stand male 1
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #102
 smurf смурф~
 @eng a smurf@rus смурф~
@@ -40,7 +40,7 @@ BHS 0 0 0 AB 100 0
 BEFJNU
 stand stand male 1
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #103
 brainy smurf смурф~
 @eng Brainy Smurf@rus ~~мозговитый~~ ~~смурф~~~
@@ -57,7 +57,7 @@ GHS 0 0 0 AB 100 0
 BEFJNU
 stand stand male 1
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #104
 handy smurf~
 Handy Smurf~
@@ -72,7 +72,7 @@ GHS 0 0 0 AB 100 0
 BEFJNU
 stand stand male 1
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #105
 sleepy smurf смурф~
 @eng Sleepy Smurf@rus ~~смурф~~ ~~Соня~~~
@@ -88,7 +88,7 @@ GHS 0 0 0 AB 100 0
 BEFJNU
 stand stand male 1
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #106
 hefty smurf~
 Hefty Smurf~
@@ -103,7 +103,7 @@ GHS 0 0 0 AB 100 0
 BEFJNU
 stand stand male 1
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #107
 grumpy smurf~
 Grumpy Smurf~
@@ -117,7 +117,7 @@ GHS 0 0 0 AB 100 0
 BEFJNU
 stand stand male 1
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #108
 jokey smurf~
 Jokey Smurf~
@@ -132,7 +132,7 @@ GHS 0 0 0 AB 100 0
 BEFJNU
 stand stand male 1
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #109
 smurfette смурфетта~
 @eng Smurfette@rus Смурфетта~
@@ -149,7 +149,7 @@ GHS 0 0 0 AB 100 0
 BEFJNU
 stand stand female 1
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #110
 papa smurf~
 Papa Smurf~
@@ -165,7 +165,7 @@ GHR 0 0 0 0 100 0
 FU
 stand stand male 2
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #111
 gargamel~
 Gargamel~
@@ -180,7 +180,7 @@ BHQ 0 0 0 0 -100 0
 EIKU
 stand stand male 2
 0 0 medium unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #112
 azreal cat~
 Azreal~
@@ -195,7 +195,7 @@ BH 0 0 0 0 -100 0
 EFNU
 stand stand male 1
 0 0 medium unknown
-m mob_random mob_random_poison +100~
+m mob_fight mob_fight_poison_bite 100~
 #0
 
 #OBJECTS

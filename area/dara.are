@@ -25,7 +25,7 @@ stand stand male 15400
 r charm 100
 r weapon 33
 r magic 33
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #15401
 trusted henchman~
 the trusted henchman~
@@ -67,7 +67,7 @@ r negative -50
 r holy -50
 r charm 100
 r weapon 33
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #15403
 golorth captain thug~
 Golorth, the thug captain~
@@ -106,7 +106,7 @@ r poison -50
 r negative -50
 r charm 100
 r magic 33
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #15405
 masked thug guard~
 the masked thug~
@@ -142,7 +142,7 @@ stand stand male 3120
 r bash -50
 r charm 100
 r magic 33
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #15407
 mother woman~
 Darathorn's mother~
@@ -161,7 +161,7 @@ stand stand female 5000
 r charm 100
 r weapon 33
 r magic 33
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #15408
 guardian golem obsidian~
 the obsidian golem~
@@ -184,7 +184,7 @@ r mental 100
 r charm 100
 r iron -50
 r weapon 33
-m mob_random mob_random_breath_any +100~
+m mob_fight mob_fight_breath_any 100~
 #15409
 thug guard minor~
 the minor thug~
@@ -217,7 +217,7 @@ stand stand either 530
 r pierce 33
 r acid -50
 r poison 33
-m mob_random mob_random_assassinater +100~
+m mob_fight mob_fight_assassinater 100~
 #15411
 thief~
 the thief~
@@ -235,7 +235,7 @@ r pierce 33
 r poison 33
 r disease -50
 r charm 33
-m mob_random mob_random_assassinater +100~
+m mob_fight mob_fight_assassinater 100~
 #15412
 master thief~
 the master thief~
@@ -253,7 +253,7 @@ stand stand male 1700
 r pierce 33
 r poison 33
 r charm 100
-m mob_random mob_random_assassinater +100~
+m mob_fight mob_fight_assassinater 100~
 #15413
 shade guardian~
 the shade guardian~
@@ -275,7 +275,7 @@ r energy -50
 r charm 100
 r weapon 33
 r magic 33
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #15414
 assasin deadly~
 the deadly assasin~
@@ -298,7 +298,7 @@ r holy -50
 r disease 100
 r charm 100
 r magic 33
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #15415
 prisoner~
 the wretched prisoner~
@@ -330,7 +330,7 @@ F
 stand stand either 220
 0 0 medium unknown
 r charm 33
-m mob_random mob_random_janitor +100~
+m mob_random mob_random_janitor 100~
 #15417
 man barbarian warrior~
 the barbarian warrior~
@@ -373,7 +373,7 @@ r mental 100
 r charm 100
 r weapon 33
 r magic 33
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #0
 
 #OBJECTS

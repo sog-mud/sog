@@ -127,7 +127,7 @@ BCF 0 J 0 AH -600 0
 EFNU
 stand stand female 3000
 0 0 medium unknown
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #0
 
 #OBJECTS

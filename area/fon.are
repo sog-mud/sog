@@ -225,7 +225,7 @@ GJRTW 0 JNTUVc AG ABH -500 0
 ACDEFJK
 stand stand female 1000
 AMX AC large unknown
-m mob_random mob_random_breath_gas +100~
+m mob_fight mob_fight_breath_gas 100~
 #22465
 tellias ranger guard~
 Tellias~
@@ -242,7 +242,7 @@ GJ C HV 0 ABFH 500 0
 FJKX
 stand stand male 500
 AMV ACDEF large unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #22466
 mifner captain burner~
 Mifner~
@@ -259,7 +259,7 @@ GJ 0 JV 0 ABH -500 0
 DEFJK
 stand stand male 500
 AMV ACDEF large unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #22467
 large forest guard~
 large guard~
@@ -338,7 +338,8 @@ CF 0 HVa A AB 0 0
 stand stand none 0
 0 0 medium unknown
 F par AEJ
-m mob_random mob_random_nasty +100~
+m mob_random mob_random_nasty 100~
+m mob_fight mob_fight_nasty 100~
 #22472
 human sergeant~
 human sergeant~

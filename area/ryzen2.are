@@ -188,7 +188,7 @@ c L medium unknown
 r cold 33
 r lightning 33
 r acid 33
-m mob_random mob_random_breath_lightning +100~
+m mob_fight mob_fight_breath_lightning 100~
 #22011
 beast undead тварь неживая~
 @eng an Undead Beast@rus ~~неживая~~ ~~тварь~~~
@@ -226,7 +226,7 @@ BGQ 0 0 0 H 800 0
 CEKLS
 stand stand male 500
 0 0 medium unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #22013
 knight рыцарь~
 @eng A Well Armed Knight@rus ~~вооруженный~~ ~~рыцарь~~~
@@ -280,7 +280,7 @@ FNS
 stand stand female 1000
 0 0 medium unknown
 r magic 33
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #0
 
 #OBJECTS

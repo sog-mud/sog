@@ -498,7 +498,7 @@ GHR 0 0 0 0 0 0
 0
 stand stand male 0
 0 0 tiny unknown
-m mob_random mob_random_poison +100~
+m mob_fight mob_fight_poison_bite 100~
 #4929
 spider huge паук~
 @eng HUGE spider@rus ~~здоровенный~~ ~~паук~~~
@@ -511,7 +511,7 @@ FGHR 0 0 0 0 -1000 0
 0
 stand stand male 0
 0 0 small unknown
-m mob_random mob_random_poison +100~
+m mob_fight mob_fight_poison_bite 100~
 #4930
 hand long big~
 Long Hand~

@@ -73,7 +73,7 @@ BCGQ 0 0 0 AB -900 0
 EIKU
 stand stand female 150
 0 0 medium unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #1606
 carnivorous plant~
 a carnivorous plant~
@@ -126,7 +126,7 @@ BCFG 0 0 0 ABH -1000 0
 EFNU
 stand stand male 110
 0 0 medium unknown
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #1610
 burly minotaur~
 A burly minotaur~
@@ -179,7 +179,7 @@ CFG 0 0 0 0 -1000 0
 EFNU
 stand stand none 0
 0 0 medium unknown
-m mob_random mob_random_breath_acid +100~
+m mob_fight mob_fight_breath_acid 100~
 #1615
 lesser golem~
 a lesser golem~
@@ -206,7 +206,7 @@ CFG 0 0 0 AB -1000 0
 EFNU
 stand rest male 0
 0 0 medium unknown
-m mob_random mob_random_breath_any +100~
+m mob_fight mob_fight_breath_any 100~
 #1617
 spectre~
 the spectre~
@@ -220,7 +220,7 @@ CFG 0 J A AH -1000 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #1702
 trapper~
 a trapper~
@@ -364,7 +364,7 @@ BC 0 0 A 0 200 0
 EFNU
 rest stand male 0
 0 0 medium unknown
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #1720
 displacer beast~
 a displacer beast~

@@ -102,7 +102,7 @@ EFNR
 stand stand female 275
 0 0 medium unknown
 g @eng female@rus male~
-m mob_random mob_random_breath_any +100~
+m mob_fight mob_fight_breath_any 100~
 #5006
 nomad leader предводитель кочевник~
 @eng The nomad leader@rus ~~предводитель~~ кочевников~
@@ -170,7 +170,7 @@ BF 0 J 0 AH -1000 0
 EFNU
 stand stand none 3750
 0 0 medium unknown
-m mob_random mob_random_breath_fire +100~
+m mob_fight mob_fight_breath_fire 100~
 #5011
 drider drow~
 The drider~
@@ -224,7 +224,7 @@ BHQ 0 H 0 AH 850 0
 EIKU
 stand stand male 75
 0 0 medium unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #5015
 dustdigger~
 The dustdigger~

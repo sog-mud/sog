@@ -503,7 +503,7 @@ G 0 0 0 0 -900 0
 0
 stand stand male 1000
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #0
 
 #OBJECTS

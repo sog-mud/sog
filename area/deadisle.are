@@ -87,7 +87,7 @@ BFGOR G JTUc 0 ABCD 0 0
 AFGK
 stand stand none 20000
 BIZc ABCDEFGHU large unknown
-m mob_random mob_random_breath_any +100~
+m mob_fight mob_fight_breath_any 100~
 #22305
 guard chu-gun iron statue~
 Chu-gun the Guard of Pa-Ra-Voz~
@@ -102,7 +102,7 @@ BFT 0 Vc 0 ABCD 0 0
 EFK
 stand stand none 0
 0 0 huge unknown
-m mob_random mob_random_breath_fire +100~
+m mob_fight mob_fight_breath_fire 100~
 #22306
 ringwraith adunaphel~
 Adunaphel the Quiet~
@@ -119,7 +119,7 @@ BFTVe 0 T 0 ABCD -1000 0
 K
 stand stand female 20000
 0 0 large unknown
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #22307
 uvatha ringwraith~
 Uvatha the Horseman~
@@ -136,7 +136,7 @@ BFTVe 0 T 0 ABCD -1000 0
 K
 stand stand male 20000
 0 0 large unknown
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #22308
 alhorahil ringwraith~
 Alhorahil the Blind~
@@ -154,7 +154,7 @@ BFTVe 0 T 0 ABCD -1000 0
 K
 stand stand male 20000
 0 0 large unknown
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #22309
 ren ringwraith~
 Ren the Unclean~
@@ -172,7 +172,7 @@ BFTVe 0 T 0 ABCD -1000 0
 K
 stand stand male 22000
 0 0 large unknown
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #22310
 indur ringwraith~
 Ji Indur Dawndeath~
@@ -189,7 +189,7 @@ BFTVe 0 T 0 ABCD -1000 0
 K
 stand stand male 21000
 0 0 large unknown
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #22311
 dwar ringwraith~
 Dwar, Dog Lord of Waw~
@@ -207,7 +207,7 @@ BFTVe 0 T 0 ABCD -1000 0
 K
 stand stand male 21000
 0 0 large unknown
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #22312
 hoarmurath ringwraith~
 Hoarmurath of Dir~
@@ -224,7 +224,7 @@ BFTVe 0 T 0 ABCD -1000 0
 K
 stand stand male 22000
 0 0 large unknown
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #22313
 khamul ringwraith~
 Khamul the Easterling~
@@ -242,7 +242,7 @@ BFTVe 0 T 0 ABCD -1000 0
 K
 stand stand male 22000
 0 0 large unknown
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #22314
 murazor ringwraith~
 Murazor, the Witch-King of Angmar~
@@ -262,7 +262,7 @@ BFTVe 0 T 0 ABCD -1000 0
 ACGIK
 stand stand male 25000
 0 0 huge unknown
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #22315
 omarax beholder~
 Omarax the Eye tyrant~
@@ -278,7 +278,7 @@ BCGJR 0 JT 0 ABCD -1000 0
 AFGK
 stand stand none 10000
 BIVc AEKU large unknown
-m mob_random mob_random_cast_beholder +100~
+m mob_fight mob_fight_cast_beholder 100~
 #22316
 tselakus ghost~
 Tselakus, the Dreadlord~
@@ -325,7 +325,7 @@ CEJT 0 TUVc G ABCD -1000 0
 ACEFGIKMOP
 stand stand male 30000
 ABV ABCDEFPU gargantuan unknown
-m mob_random mob_random_special_guard +100~
+m mob_random mob_random_special_guard 100~
 #22319
 lich vecna skelet~
 Vecna, the Emperor Lich~
@@ -340,7 +340,7 @@ BCF 0 JT 0 ABCD -1000 0
 AK
 stand stand female 20000
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #22320
 demon uriel~
 Uriel, Demon of Fire~
@@ -356,7 +356,7 @@ BCFJR 0 JT 0 ABCD -1000 0
 AFGK
 stand stand male 10000
 BV ABCDEF small unknown
-m mob_random mob_random_breath_fire +100~
+m mob_fight mob_fight_breath_fire 100~
 #22321
 baphoment minotaur lord~
 Baphomet the Minotaur Lord~
@@ -388,7 +388,7 @@ CFRT 0 0 0 ABCD -1000 0
 FKP
 stand stand none 0
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #22323
 nightwing demon~
 Nightwing~
@@ -419,7 +419,7 @@ CFT 0 T 0 ABCD -1000 0
 GK
 stand stand none 0
 0 0 large unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #22325
 colbran demon~
 the Colbran~
@@ -434,7 +434,7 @@ CFR 0 T 0 ABCD -1000 0
 FGK
 stand stand none 0
 ABV ABCE medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #22326
 the gelatinous cube demon~
 the Gelatinous cube~
@@ -450,7 +450,7 @@ CFR 0 T 0 ABCD -1000 0
 AFGK
 stand stand none 0
 ABV ABCDE large unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #22327
 guard fire drake dragon itangast~
 Itangast, the Fire Drake~
@@ -468,7 +468,7 @@ stand stand male 0
 0 0 gargantuan unknown
 m mob_bribe mob_bribe_itangast 1000~
 m mob_give mob_give_itangast 22352~
-m mob_random mob_random_breath_fire +100~
+m mob_fight mob_fight_breath_fire 100~
 #22328
 lord evil tiamat dragon~
 Tiamat, Celestial Dragon of Evil~
@@ -485,7 +485,7 @@ FT 0 0 0 ABCD -1000 0
 0
 stand stand female 100000
 0 0 gargantuan unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #22329
 guard high zombie~
 the high guard~
@@ -503,7 +503,7 @@ ORT 0 V G CDG -1000 0
 AFGHKP
 stand stand random 1000
 0 0 large unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 m mob_open mob_open_undead_guard chest~
 #22330
 guard undead~

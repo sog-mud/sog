@@ -59,7 +59,7 @@ stand stand male 0
 0 0 medium unknown
 r negative -50
 r charm 33
-m mob_random mob_random_special_guard +100~
+m mob_random mob_random_special_guard 100~
 #12
 bear~
 a bear~
@@ -86,7 +86,7 @@ B 0 0 0 H -1000 0
 FHI
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #14
 nightwalker~
 A Nightwalker~
@@ -322,7 +322,7 @@ stand stand none 0
 0 0 huge unknown
 g @eng none@rus male~
 F aff T
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #30
 cat black кошка кот~
 @eng a large black cat@rus большая черная кошка~
@@ -368,7 +368,7 @@ stand stand male 0
 0 0 huge unknown
 r weapon 100
 r magic 100
-m mob_random mob_random_breath_any +100~
+m mob_fight mob_fight_breath_any 100~
 #0
 
 #OBJECTS
@@ -657,7 +657,9 @@ ebony~
 weapon A 0 AN
 staff 0 0 'pierce' F
 0 160 0 P
+m obj_wear obj_wear_ranger_staff 100~
 m obj_fight obj_fight_ranger_staff 100~
+m obj_death obj_death_obj_disappears 100~
 g @rus male~
 #29
 gloves перчатки~
@@ -687,6 +689,8 @@ energy~
 weapon AGIY ABG AN
 sword 10 4 'slash' D
 21 100 100000 G
+m obj_wear obj_wear_quest_weapon 100~
+m obj_get obj_get_quest_reward 100~
 g @rus male~
 #32
 dagger hero~
@@ -705,6 +709,8 @@ f object hitroll 25 0
 f object mana 200 0
 f object hp 200 0
 f object move 500 0
+m obj_wear obj_wear_quest_weapon 100~
+m obj_get obj_get_quest_reward 100~
 g @rus male~
 #33
 mace hero~
@@ -723,6 +729,8 @@ f object hitroll 25 0
 f object mana 200 0
 f object hp 200 0
 f object move 500 0
+m obj_wear obj_wear_quest_weapon 100~
+m obj_get obj_get_quest_reward 100~
 g @rus male~
 #34
 arrow green стрела зеленая~
@@ -797,6 +805,7 @@ f object damroll 15 0
 f object move 500 0
 f object mana 150 0
 f object hp 200 0
+m obj_get obj_get_quest_reward 100~
 g @rus female~
 #41
 sack sands мешок~
@@ -1198,6 +1207,8 @@ energy~
 armor GPUY 0 AJ
 20 20 20 20 2
 0 50 10000 P
+m obj_wear obj_wear_cold_shield 100~
+m obj_remove obj_remove_cold_shield 100~
 E
 shield energy~
 This shield is resistive to cold.
@@ -1252,6 +1263,7 @@ energy~
 treasure AY BCI A
 0 0 -1 0 0
 0 0 0 P
+m obj_get obj_get_quest_obj 100~
 E
 quest~
 The letters '%s' are carved on the staff.
@@ -1265,6 +1277,7 @@ energy~
 treasure AY BCI A
 0 0 -1 0 0
 0 0 0 P
+m obj_get obj_get_quest_obj 100~
 E
 quest~
 The letters '%s' are carved on the staff.
@@ -1278,6 +1291,7 @@ energy~
 treasure AY BCI A
 0 0 -1 0 0
 0 0 0 P
+m obj_get obj_get_quest_obj 100~
 E
 quest~
 The letters '%s' are carved on the staff.
@@ -1291,6 +1305,7 @@ energy~
 treasure AY BCI A
 0 0 -1 0 0
 0 0 0 P
+m obj_get obj_get_quest_obj 100~
 E
 quest~
 The letters '%s' are carved on the staff.
@@ -1307,6 +1322,7 @@ exotic 10 1 'pierce' D
 f object hitroll 20 0
 f object cha 1 0
 m obj_wear obj_wear_eyed_sword 100~
+m obj_get obj_get_eyed_sword 100~
 E
 sword~
 The letters '%s' is carved on the handle.
@@ -1352,6 +1368,8 @@ energy~
 armor GPUY 0 AJ
 20 20 20 20 2
 0 50 10000 P
+m obj_wear obj_wear_fire_shield 100~
+m obj_remove obj_remove_fire_shield 100~
 E
 shield energy~
 This shield is resistive to fire.
@@ -1391,6 +1409,7 @@ f resists magic 33 0
 f object damroll 10 0
 f detects ac -30 H
 f detects none 0 AKLM
+m obj_get obj_get_quest_reward 100~
 g @rus none~
 #95
 ring hero~
@@ -1407,6 +1426,7 @@ f object hitroll 10 0
 f object cha 1 0
 f object mana 150 0
 f object hp 150 0
+m obj_get obj_get_quest_reward 100~
 g @rus none~
 #96
 weapon hero~
@@ -1425,6 +1445,8 @@ f object hitroll 25 0
 f object mana 200 0
 f object hp 200 0
 f object move 500 0
+m obj_wear obj_wear_quest_weapon 100~
+m obj_get obj_get_quest_reward 100~
 g @rus none~
 #97
 chaos blade~
@@ -1436,6 +1458,7 @@ dagger 8 1 'pierce' D
 20 200 0 P
 f object cha 2 0
 m obj_fight obj_fight_chaos_blade 100~
+m obj_death obj_death_obj_disappears 100~
 g @rus none~
 #98
 sword katana~

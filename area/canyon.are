@@ -43,7 +43,7 @@ stand stand male 600
 r charm 100
 r weapon 33
 r magic 33
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #9203
 elemental tiny крохотный элементаль~
 @eng a tiny elemental@rus ~~крохотный~~ ~~элементаль~~~
@@ -75,7 +75,7 @@ EFNU
 stand stand none 500
 0 0 medium unknown
 g @eng none@rus male~
-m mob_random mob_random_breath_any +100~
+m mob_fight mob_fight_breath_any 100~
 #9205
 elemental small маленький элементаль~
 @eng a small elemental@rus ~~маленький~~ ~~элементаль~~~
@@ -120,7 +120,7 @@ EFNU
 stand stand none 100
 0 0 medium unknown
 g @eng none@rus male~
-m mob_random mob_random_breath_any +100~
+m mob_fight mob_fight_breath_any 100~
 #9208
 earth elemental ruler повелитель воплощение земля~
 @eng the Earth Ruler@rus ~~повелитель~~ стихии Земли~
@@ -141,7 +141,7 @@ stand stand none 5000
 0 0 medium unknown
 g @eng none@rus male~
 r charm 100
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #9209
 fire elemental ruler повелитель воплощение огонь~
 @eng the Fire Ruler@rus ~~повелитель~~ стихии Огня~
@@ -158,7 +158,7 @@ stand stand none 5000
 0 0 medium unknown
 g @eng none@rus male~
 r charm 100
-m mob_random mob_random_breath_fire +100~
+m mob_fight mob_fight_breath_fire 100~
 #9210
 air elemental ruler повелитель воплощение воздух~
 @eng The Air Ruler@rus ~~повелитель~~ стихии Воздуха~
@@ -175,7 +175,7 @@ stand stand none 5000
 0 0 medium unknown
 g @eng none@rus male~
 r charm 100
-m mob_random mob_random_breath_gas +100~
+m mob_fight mob_fight_breath_gas 100~
 #9211
 lightning elemental ruler повелитель молний~
 @eng The Lightning Ruler@rus ~~повелитель~~ молний~
@@ -194,7 +194,7 @@ stand stand none 5000
 0 0 medium unknown
 g @eng none@rus male~
 r charm 100
-m mob_random mob_random_breath_lightning +100~
+m mob_fight mob_fight_breath_lightning 100~
 #9212
 water elemental ruler повелитель воплощение вода~
 @eng The Water Ruler@rus ~~повелитель~~ стихии Воды~
@@ -214,7 +214,7 @@ stand stand none 0
 0 0 medium unknown
 g @eng none@rus male~
 r charm 100
-m mob_random mob_random_breath_acid +100~
+m mob_fight mob_fight_breath_acid 100~
 #9214
 puddle elemental water водяная лужица элементаль~
 @eng a puddle@rus лужица~
@@ -306,7 +306,7 @@ EFNU
 stand stand none 50
 0 0 medium unknown
 g @eng none@rus female~
-m mob_random mob_random_breath_acid +100~
+m mob_fight mob_fight_breath_acid 100~
 #9220
 lava elemental лава элементаль~
 @eng a lava beast@rus элементаль~
@@ -368,7 +368,7 @@ EFNU
 stand stand none 0
 0 0 medium unknown
 g @eng none@rus female~
-m mob_random mob_random_breath_lightning +100~
+m mob_fight mob_fight_breath_lightning 100~
 #9224
 dust elemental пыльный элементаль пыльное облако~
 @eng a dust cloud@rus ~~пыльное~~ ~~облако~~~
@@ -384,7 +384,7 @@ GS 0 0 0 ABH 0 0
 BEFJNU
 stand stand none 5
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #9225
 eddie elemental вихрь элементаль~
 @eng an eddie@rus вихрь~
@@ -400,7 +400,7 @@ BEFJNU
 stand stand none 1
 0 0 medium unknown
 g @eng none@rus male~
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #9226
 blue flame~
 the Blue Flame~
@@ -415,7 +415,7 @@ BG 0 0 0 0 -100 0
 EFNU
 stand stand none 1250
 0 0 medium unknown
-m mob_random mob_random_breath_fire +100~
+m mob_fight mob_fight_breath_fire 100~
 #9227
 magneto~
 the Magneto~
@@ -429,7 +429,7 @@ BG 0 0 0 0 -150 0
 EFNU
 stand stand none 500
 0 0 medium unknown
-m mob_random mob_random_breath_lightning +100~
+m mob_fight mob_fight_breath_lightning 100~
 #9228
 ice bandit~
 the Ice Bandit~
@@ -443,7 +443,7 @@ BGH 0 0 G 0 -250 0
 EFNU
 stand stand none 1500
 0 0 medium unknown
-m mob_random mob_random_breath_frost +100~
+m mob_fight mob_fight_breath_frost 100~
 #9229
 rock monster~
 the Rock Monster~
@@ -470,7 +470,7 @@ BG 0 0 G 0 -10 0
 EFNU
 stand stand none 2054
 0 0 medium unknown
-m mob_random mob_random_breath_gas +100~
+m mob_fight mob_fight_breath_gas 100~
 #9231
 magician~
 an elemental magician~
@@ -485,7 +485,7 @@ BGR 0 0 A 0 -50 0
 FU
 stand stand none 400
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #9232
 rainbow warrior~
 a rainbow warrior~
@@ -500,7 +500,7 @@ GQ 0 0 0 0 150 0
 EIKU
 stand stand none 400
 0 0 medium unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #9233
 illusionist~
 an illusionist~
@@ -515,7 +515,7 @@ BGR 0 0 0 0 -50 0
 FU
 stand stand none 95
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #9234
 alchemist~
 an alchemist~
@@ -529,7 +529,7 @@ GS 0 0 0 AB -50 0
 BEFJNU
 stand stand none 95
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #9235
 baby rainbow dragon~
 a baby rainbow dragon~
@@ -543,7 +543,7 @@ BG 0 0 0 AB 0 0
 EFNU
 stand stand none 500
 0 0 medium unknown
-m mob_random mob_random_breath_any +100~
+m mob_fight mob_fight_breath_any 100~
 #9236
 imp~
 a little imp~
@@ -571,7 +571,7 @@ EFNU
 stand stand none 500
 0 0 medium unknown
 g @eng none@rus male~
-m mob_random mob_random_breath_any +100~
+m mob_fight mob_fight_breath_any 100~
 #9238
 vendor~
 the elixir vendor~
@@ -587,7 +587,7 @@ stand stand male 0
 0 0 medium unknown
 r weapon 100
 r magic 100
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #9239
 the magician~
 The Combat Magician~
@@ -603,7 +603,7 @@ F
 stand stand none 400
 0 0 medium unknown
 r magic 100
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #0
 
 #OBJECTS

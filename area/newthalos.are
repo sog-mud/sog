@@ -323,7 +323,7 @@ BQT 0 0 0 0 1000 0
 EIKU
 stand stand female 1150
 0 0 huge unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #9522
 statue~
 the statue of Alander~
@@ -339,7 +339,7 @@ BQT 0 0 0 0 1000 0
 EIKU
 stand stand male 1150
 0 0 huge unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #9523
 statue~
 the statue of Zump~
@@ -353,7 +353,7 @@ BQT 0 0 0 0 1000 0
 EIKU
 stand stand male 1150
 0 0 tiny unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #9524
 statue~
 the statue of Nightshade~
@@ -368,7 +368,7 @@ BQT 0 0 0 0 1000 0
 EIKU
 stand stand male 1190
 0 0 tiny unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #9525
 statue~
 the statue of Satin~
@@ -383,7 +383,7 @@ BQT 0 0 0 0 1000 0
 EIKU
 stand stand female 1150
 0 0 tiny unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #9526
 statue~
 the statue of Shandra~
@@ -398,7 +398,7 @@ BQT 0 0 0 0 1000 0
 EIKU
 stand stand female 1150
 0 0 tiny unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #9527
 statue~
 the statue of Furey~
@@ -412,7 +412,7 @@ BQRT 0 0 0 0 1000 0
 EIKU
 stand stand male 3250
 0 0 tiny unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #9528
 statue~
 the statue of Landru~
@@ -427,7 +427,7 @@ BQRTUW 0 0 0 0 1000 0
 EIKU
 stand stand male 3250
 0 0 tiny unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #9529
 aziz~
 Aziz~
@@ -441,7 +441,7 @@ CGHQR 0 0 0 AH 0 0
 FU
 stand stand male 65
 0 0 tiny unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #9530
 mustafah~
 Mustafah~
@@ -455,7 +455,7 @@ CGHS 0 0 0 ABH 0 0
 BEFJNU
 stand stand male 11
 0 0 tiny unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #9531
 fatima~
 Fatima~
@@ -469,7 +469,7 @@ CGHRU 0 0 0 AH 0 0
 FU
 stand stand male 30
 0 0 tiny unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #9532
 kareem~
 Kareem~
@@ -525,7 +525,7 @@ CHS 0 0 0 ABH 100 0
 BEFJNU
 stand stand male 11
 0 0 tiny unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #9536
 dockworker рабочий доков~
 @eng the dockworker@rus ~~рабочий~~ доков~
@@ -572,7 +572,7 @@ CGSTU 0 0 0 AB -200 0
 BEFJNU
 stand stand male 615
 0 0 tiny unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #9539
 caramon~
 Caramon~
@@ -599,7 +599,7 @@ CGHR 0 0 0 A 200 0
 FU
 stand stand male 615
 0 0 tiny unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #9541
 curley greenleaf~
 Curley GreenLeaf~
@@ -613,7 +613,7 @@ GQT 0 0 0 A 0 0
 EIKU
 stand stand male 615
 0 0 tiny unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #9542
 man wandering prophet проповедник~
 @eng the wandering prophet@rus проповедник~
@@ -658,7 +658,7 @@ GH 0 0 0 H -200 0
 EFNU
 stand stand male 0
 0 0 tiny unknown
-m mob_random mob_random_fido +100~
+m mob_random mob_random_fido 100~
 #9545
 old man~
 the old man~
@@ -711,7 +711,7 @@ CFRT 0 0 0 0 -500 0
 FU
 stand stand female 18
 0 0 tiny unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #9549
 dervish~
 the raggety dervish~
@@ -888,7 +888,7 @@ CDEIKLU
 stand stand male 45
 0 0 tiny unknown
 C Invaders
-m mob_random mob_random_guard +100~
+m mob_random mob_random_guard 100~
 #9562
 sultans guard rus охранник султана~
 @eng the sultans guard@rus ~~охранник~~ султана~
@@ -903,7 +903,7 @@ BGT 0 0 0 0 1000 0
 CDEIKLU
 stand stand male 45
 0 0 tiny unknown
-m mob_random mob_random_guard +100~
+m mob_random mob_random_guard 100~
 #9563
 sultans guard chief~
 The chief guard~
@@ -1015,7 +1015,7 @@ FGTW 0 0 0 H 0 0
 EFNU
 stand stand none 18
 0 0 tiny unknown
-m mob_random mob_random_breath_frost +100~
+m mob_fight mob_fight_breath_frost 100~
 #9571
 giant minotaur lizard~
 the minotaur lizard~
@@ -1068,7 +1068,7 @@ BFT 0 0 0 AH -300 0
 EFNU
 stand stand male 60
 0 0 tiny unknown
-m mob_random mob_random_breath_lightning +100~
+m mob_fight mob_fight_breath_lightning 100~
 #9575
 chimera~
 the chimera~
@@ -1084,7 +1084,7 @@ BFT 0 0 0 AH -500 0
 EFNU
 stand stand male 30
 0 0 tiny unknown
-m mob_random mob_random_breath_fire +100~
+m mob_fight mob_fight_breath_fire 100~
 #9576
 couatl~
 the couatl~
@@ -1113,7 +1113,7 @@ FGU 0 0 0 H 0 0
 EFNR
 stand stand male 3
 0 0 tiny unknown
-m mob_random mob_random_poison +100~
+m mob_fight mob_fight_poison_bite 100~
 #9578
 pegasus~
 the pegasus~
@@ -1184,7 +1184,7 @@ GHTU 0 H 0 A 1000 0
 CDEIKLU
 stand stand male 1250
 0 0 tiny unknown
-m mob_random mob_random_guard +100~
+m mob_random mob_random_guard 100~
 #9583
 patch bartender~
 Patch the bartender~
@@ -1322,7 +1322,7 @@ T 0 0 0 0 1000 0
 CDEIKLU
 stand stand male 45
 0 0 tiny unknown
-m mob_random mob_random_guard +100~
+m mob_random mob_random_guard 100~
 #9593
 healer~
 the healer~
@@ -1339,7 +1339,7 @@ stand stand male 5000
 0 0 medium unknown
 r weapon 33
 r magic 100
-m mob_random mob_random_cast_adept +100~
+m mob_random mob_random_cast_adept 100~
 #9594
 samurai weaponsmaster~
 The Samurai Weaponsmaster~

@@ -21,7 +21,7 @@ BCG 0 HN 0 ABH 0 0
 EFIJK
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_breath_lightning +100~
+m mob_fight mob_fight_breath_lightning 100~
 #32701
 warg young~
 a young warg~
@@ -35,7 +35,7 @@ CGHS 0 0 G ABH 0 0
 EFIKN
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #32702
 knanath~
 Knanath~
@@ -49,7 +49,7 @@ BCFG 0 0 A ABH 0 0
 EI
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_guard +100~
+m mob_random mob_random_guard 100~
 #32703
 adult mother warg~
 warg mother~
@@ -64,7 +64,7 @@ CG 0 0 0 ABH 0 0
 EFI
 stand stand female 0
 0 0 medium unknown
-m mob_random mob_random_poison +100~
+m mob_fight mob_fight_poison_bite 100~
 #32704
 warg father~
 warg father~
@@ -78,7 +78,7 @@ CG 0 0 G ABH 0 0
 EFI
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_fido +100~
+m mob_random mob_random_fido 100~
 #32705
 young hungry warg~
 the young hungry warg~
@@ -92,7 +92,7 @@ BCGH 0 0 0 0 0 0
 EFI
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_fido +100~
+m mob_random mob_random_fido 100~
 #32706
 snake~
 the snake~
@@ -107,7 +107,7 @@ FH
 stand stand none 0
 0 0 small unknown
 r poison 100
-m mob_random mob_random_poison +100~
+m mob_fight mob_fight_poison_bite 100~
 #32707
 beorn~
 Beorn~
@@ -121,7 +121,7 @@ G 0 HNU BG ABH 0 0
 CFIK
 stand stand male 0
 0 0 large unknown
-m mob_random mob_random_breath_lightning +100~
+m mob_fight mob_fight_breath_lightning 100~
 #32708
 bat~
 the bat~
@@ -136,7 +136,7 @@ FG 0 T 0 ABH 0 0
 F
 stand stand none 0
 0 0 small unknown
-m mob_random mob_random_poison +100~
+m mob_fight mob_fight_poison_bite 100~
 #32709
 Htrag warg breeder~
 Htrag~
@@ -151,7 +151,7 @@ BGe 0 H 0 ABH 0 0
 EFI
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_guard +100~
+m mob_random mob_random_guard 100~
 #32710
 female warg breeder~
 the female warg~
@@ -165,7 +165,7 @@ BCG 0 0 0 ABH 0 0
 EFI
 stand stand female 0
 0 0 medium unknown
-m mob_random mob_random_poison +100~
+m mob_fight mob_fight_poison_bite 100~
 #32711
 male warg breeder~
 the male warg~
@@ -180,7 +180,7 @@ BCFG 0 0 0 ABH 0 0
 EFI
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #32712
 Sapth slave~
 Sapth~
@@ -194,7 +194,7 @@ CGH J I 0 ABH 0 0
 EFI
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_janitor +100~
+m mob_random mob_random_janitor 100~
 #32713
 left huge warg guard~
 the guard~
@@ -208,7 +208,7 @@ BCGT 0 0 0 ABH 0 0
 CDEFIKTU
 stand stand male 0
 0 0 large unknown
-m mob_random mob_random_guard +100~
+m mob_random mob_random_guard 100~
 #32714
 right huge warg guard~
 the guard~
@@ -222,7 +222,7 @@ BCGT 0 0 0 ABH 0 0
 CDEFIKTU
 stand stand male 0
 0 0 large unknown
-m mob_random mob_random_guard +100~
+m mob_random mob_random_guard 100~
 #32715
 shaanh~
 Shaanh~

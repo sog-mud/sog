@@ -146,7 +146,7 @@ stand stand male 0
 0 0 medium unknown
 r weapon 100
 r magic 100
-m mob_random mob_random_cast_adept +100~
+m mob_random mob_random_cast_adept 100~
 #3708
 adept приспешник~
 @eng the adept of Alander@rus ~~приспешник~~ Аландера~
@@ -163,7 +163,7 @@ stand stand male 0
 0 0 medium unknown
 r weapon 100
 r magic 100
-m mob_random mob_random_cast_adept +100~
+m mob_random mob_random_cast_adept 100~
 #3709
 rabbit кролик~
 @eng the rabbit@rus кролик~
@@ -255,7 +255,7 @@ stand stand female 50
 0 0 large unknown
 r fire 33
 r cold 33
-m mob_random mob_random_fido +100~
+m mob_random mob_random_fido 100~
 #3715
 bear медведь~
 @eng the bear@rus медведь~

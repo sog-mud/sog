@@ -24,7 +24,7 @@ EIKU
 stand stand male 2
 0 0 medium unknown
 r charm 100
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #8901
 hierophant~
 The Hierophant~
@@ -40,7 +40,7 @@ GHQ 0 HN 0 A 1000 0
 EIKU
 stand stand female 2
 0 0 medium unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #8902
 elder druid~
 an elder druid~
@@ -55,7 +55,7 @@ GHQ 0 N 0 0 1000 0
 EIKU
 stand stand male 2
 0 0 medium unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #8903
 elder druidess~
 an elder druidess~
@@ -69,7 +69,7 @@ GHQ 0 N 0 0 1000 0
 EIKU
 stand stand female 2
 0 0 medium unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #8904
 doe~
 a doe~
@@ -137,7 +137,7 @@ FGH 0 0 G 0 0 0
 EFNR
 stand stand none 0
 0 0 medium unknown
-m mob_random mob_random_poison +100~
+m mob_fight mob_fight_poison_bite 100~
 #8909
 druid~
 a druid~
@@ -151,7 +151,7 @@ GHQ 0 N 0 A 1000 0
 EIKU
 stand stand male 2
 0 0 medium unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #8910
 druidess~
 a druidess~
@@ -165,7 +165,7 @@ GHQ 0 N 0 A 1000 0
 EIKU
 stand stand female 2
 0 0 medium unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #0
 
 #OBJECTS

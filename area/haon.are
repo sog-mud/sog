@@ -179,7 +179,7 @@ EFNR
 stand stand none 2500
 0 0 medium unknown
 g @eng none@rus male~
-m mob_random mob_random_breath_gas +100~
+m mob_fight mob_fight_breath_gas 100~
 #6115
 shargugh brownie шаргах брауни~
 @eng Shargugh@rus Шаргах~
@@ -213,7 +213,7 @@ BCFQ 0 0 0 AH 0 0
 EIKU
 stand stand male 250
 0 0 medium unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #6117
 guildmaster master учитель~
 @eng the guildmaster@rus учитель~

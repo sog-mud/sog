@@ -57,7 +57,7 @@ r holy -50
 r disease 100
 r charm 100
 r magic 33
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #12002
 puck пак~
 @eng Puck@rus Пак~
@@ -1010,7 +1010,7 @@ BEJKNV
 stand stand female 0
 0 0 medium unknown
 r iron -50
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #12049
 bransidhe pet брансид~
 @eng A BranSidhe@rus БранСид~
@@ -1033,7 +1033,7 @@ r bash -50
 r pierce 33
 r holy -50
 r iron -50
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #0
 
 #OBJECTS

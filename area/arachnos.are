@@ -35,7 +35,7 @@ BCG 0 0 0 A -1000 0
 EFNR
 stand stand male 500
 0 0 medium unknown
-m mob_random mob_random_breath_gas +100~
+m mob_fight mob_fight_breath_gas 100~
 #6303
 spider wolf~
 the Wolf Spider~
@@ -198,7 +198,7 @@ BF 0 0 A A -1000 0
 EFNU
 stand stand female 500
 0 0 medium unknown
-m mob_random mob_random_breath_gas +100~
+m mob_fight mob_fight_breath_gas 100~
 #6315
 ki-rin~
 the Ki-Rin~
@@ -226,7 +226,7 @@ B 0 0 0 A 1000 0
 EFNR
 stand stand male 50
 0 0 medium unknown
-m mob_random mob_random_breath_gas +100~
+m mob_fight mob_fight_breath_gas 100~
 #6317
 dragon wormkin medium~
 the medium dragon wormkin~
@@ -240,7 +240,7 @@ B 0 0 0 A 100 0
 EFNR
 stand stand male 250
 0 0 medium unknown
-m mob_random mob_random_breath_gas +100~
+m mob_fight mob_fight_breath_gas 100~
 #6318
 spider poisonous~
 the huge, poisonous spider~
@@ -256,7 +256,7 @@ BG 0 0 0 H -350 0
 EFNU
 stand stand none 0
 0 0 medium unknown
-m mob_random mob_random_poison +100~
+m mob_fight mob_fight_poison_bite 100~
 #6319
 queen spider~
 the Queen Spider~
@@ -272,7 +272,7 @@ BG 0 0 0 AH -1000 0
 EFNU
 stand stand female 0
 0 0 medium unknown
-m mob_random mob_random_poison +100~
+m mob_fight mob_fight_poison_bite 100~
 #0
 
 #OBJECTS

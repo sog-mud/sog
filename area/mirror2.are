@@ -42,7 +42,7 @@ BCFG 0 0 B ABH 0 0
 CDEFIJK
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_breath_frost +100~
+m mob_fight mob_fight_breath_frost 100~
 #19003
 king loranhir man~
 King Loranhir~
@@ -65,7 +65,7 @@ BGT 0 NU 0 ABH 0 0
 CDEFIJKN
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #19004
 caerlin bard~
 Caerlin~
@@ -81,7 +81,7 @@ BG 0 H 0 0 1000 0
 CDEFIJK
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #19005
 commoner mirror citizen man~
 the young man~
@@ -190,7 +190,7 @@ BGH 0 NU A AB 1000 0
 CFIJK
 stand stand male 0
 0 0 large unknown
-m mob_random mob_random_breath_fire +100~
+m mob_fight mob_fight_breath_fire 100~
 #19012
 knight withered~
 a withered knight~
@@ -207,7 +207,7 @@ BCFGT 0 0 B ABH 0 0
 DEF
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_breath_frost +100~
+m mob_fight mob_fight_breath_frost 100~
 #19013
 grey mare horse skeleton~
 the Grey Mare~
@@ -223,7 +223,7 @@ G 0 I G AB -1000 0
 CDFIJ
 stand stand none 0
 0 0 medium unknown
-m mob_random mob_random_poison +100~
+m mob_fight mob_fight_poison_bite 100~
 #19014
 bride woman~
 the bride~
@@ -378,7 +378,7 @@ BG 0 H 0 0 1000 0
 FIJK
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #19024
 wizard standard~
 a standard issue wizard~
@@ -395,7 +395,7 @@ BGe 0 N 0 ABHM 1000 0
 F
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #19025
 pool man~
 the pool player~
@@ -502,7 +502,7 @@ BG 0 H 0 0 1000 0
 FI
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_cast_adept +100~
+m mob_random mob_random_cast_adept 100~
 #19032
 dark lord white~
 the White Lord~
@@ -565,7 +565,7 @@ BGe 0 0 0 ABH -1000 0
 FI
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #19036
 gardener gardner lady~
 the gardener~
@@ -579,7 +579,7 @@ CG 0 0 0 ABH -1000 0
 FI
 stand stand female 0
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #19037
 kid boy child~
 the young boy~
@@ -638,7 +638,7 @@ BFG 0 IN AB AB -1000 0
 F
 stand stand none 0
 0 0 medium unknown
-m mob_random mob_random_breath_any +100~
+m mob_fight mob_fight_breath_any 100~
 #19041
 mass red ants~
 the mass of red ants~
@@ -654,7 +654,7 @@ BCFG 0 I 0 0 -1000 0
 F
 stand stand none 0
 0 0 small unknown
-m mob_random mob_random_poison +100~
+m mob_fight mob_fight_poison_bite 100~
 #19042
 man card shark~
 the card shark~
@@ -670,7 +670,7 @@ BCG 0 0 G H -1000 0
 F
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #19043
 hepzibah bartender~
 Hepzibah the Barkeep~
@@ -704,7 +704,7 @@ BCGe 0 0 G ABH -1000 0
 F
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #19045
 citizen man commoner~
 the young man~
@@ -721,7 +721,7 @@ G 0 0 G 0 -1000 0
 F
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #19046
 commoner citizen woman~
 the woman~
@@ -737,7 +737,7 @@ G 0 0 0 0 -1000 0
 F
 stand stand female 0
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #19047
 fox grey~
 the grey fox~
@@ -754,7 +754,7 @@ BFG 0 0 G ABH -1000 0
 0
 stand stand none 0
 0 0 medium unknown
-m mob_random mob_random_fido +100~
+m mob_random mob_random_fido 100~
 #19048
 moose~
 the moose~
@@ -802,7 +802,7 @@ BCGe 0 0 G ABH -1000 0
 F
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #19051
 urchin boy~
 the young urchin~
@@ -819,7 +819,7 @@ BCG 0 0 BG AB -1000 0
 F
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #19052
 lady woman slut whore night~
 the lady of ill repute~
@@ -837,7 +837,7 @@ BCG 0 0 0 AB -1000 0
 F
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #19053
 pimp man master~
 the greasy man~
@@ -853,7 +853,7 @@ BG 0 0 0 AB -1000 0
 F
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #19054
 thief hidden~
 the wily little thief (hidden somewhere in the shadows)~
@@ -867,7 +867,7 @@ BG 0 N ABG ABH -1000 0
 FHJN
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #19055
 red master~
 the Red Master~
@@ -882,7 +882,7 @@ BG 0 HN 0 ABH 1000 0
 CDEFHK
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_breath_fire +100~
+m mob_fight mob_fight_breath_fire 100~
 #19056
 amber master~
 the Amber Master~
@@ -897,7 +897,7 @@ BG 0 HN 0 ABH 1000 0
 CDEFHK
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_breath_gas +100~
+m mob_fight mob_fight_breath_gas 100~
 #19057
 green master~
 the Green Master~
@@ -912,7 +912,7 @@ BG 0 HN 0 ABH 1000 0
 CDEFHK
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_breath_acid +100~
+m mob_fight mob_fight_breath_acid 100~
 #19058
 blue master~
 the Blue Master~
@@ -927,7 +927,7 @@ BG 0 HN 0 ABH 1000 0
 CDEFHK
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_breath_frost +100~
+m mob_fight mob_fight_breath_frost 100~
 #19059
 violet master~
 the Violet Master~
@@ -942,7 +942,7 @@ BG 0 HN 0 ABH 1000 0
 CDEFHK
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_breath_gas +100~
+m mob_fight mob_fight_breath_gas 100~
 #19060
 yellow master~
 the Yellow Master~
@@ -957,7 +957,7 @@ BG 0 HN 0 ABH 1000 0
 CDEFHK
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_breath_lightning +100~
+m mob_fight mob_fight_breath_lightning 100~
 #19061
 light figure being lord master~
 the Master of Light~
@@ -977,7 +977,7 @@ BG 0 HN 0 ABH 1000 0
 CDEFHK
 stand stand none 0
 0 0 medium unknown
-m mob_random mob_random_breath_any +100~
+m mob_fight mob_fight_breath_any 100~
 #19062
 phoenix bird~
 the Phoenix~
@@ -994,7 +994,7 @@ BCFG 0 IN 0 AB 0 0
 FH
 stand stand none 0
 0 0 medium unknown
-m mob_random mob_random_breath_any +100~
+m mob_fight mob_fight_breath_any 100~
 #19063
 mandeep beekeeper bee keeper~
 Mandeep the Beekeeper~
@@ -1025,7 +1025,7 @@ BFG 0 0 0 ABH -1000 0
 CDEFHK
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #19065
 white master~
 the White Master~
@@ -1040,7 +1040,7 @@ BFG 0 0 0 ABH -1000 0
 CDEFHK
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #19066
 black master~
 the Black Master~
@@ -1055,7 +1055,7 @@ BFG 0 0 0 ABH -1000 0
 CDEFHK
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #19067
 black master~
 the Black Master~
@@ -1070,7 +1070,7 @@ BFG 0 0 0 ABH -1000 0
 CDEFHK
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #19068
 jerry garcia~
 Jerry Garcia~
@@ -1085,7 +1085,7 @@ BG 0 NU 0 AB 0 0
 CDEFHK
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_cast_adept +100~
+m mob_random mob_random_cast_adept 100~
 #19069
 mr teece~
 Mr. Teece~

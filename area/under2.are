@@ -71,7 +71,7 @@ unique~
 EF
 stand stand none 0
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #16005
 beholder eye~
 The huge beholder~
@@ -90,7 +90,7 @@ B 0 0 0 ABHKL 0 0
 EF
 stand stand none 0
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #16006
 beholder~
 The beholder~
@@ -107,7 +107,7 @@ BC 0 J 0 ABHKL -1000 0
 EF
 stand stand none 0
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #16007
 svirfneblin deep gnome~
 The svirfneblin~
@@ -217,7 +217,7 @@ B 0 J 0 ABHKL -666 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #16014
 lizard man~
 The lizard man~
@@ -297,7 +297,7 @@ G 0 0 0 AB -850 0
 EF
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #16019
 beholder attendant~
 The supreme attendant~
@@ -314,7 +314,7 @@ B 0 0 0 AB -900 0
 EF
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #16020
 grell brain~
 The grell~
@@ -406,7 +406,7 @@ B 0 0 0 HL 0 0
 EIK
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #16026
 adventurer antryg~
 Antryg~
@@ -420,7 +420,7 @@ B 0 0 0 HL 0 0
 EIK
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #16027
 gremlin form~
 The gremlin~
@@ -437,7 +437,7 @@ CG 0 0 BG H -50 0
 EIK
 stand stand none 0
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #16028
 creature slime~
 The slime creature~
@@ -484,7 +484,7 @@ CG 0 0 BG H -400 0
 EIK
 stand stand none 0
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #16031
 jermlaine human form~
 The jermlaine~
@@ -502,7 +502,7 @@ CG 0 0 G H -600 0
 EIK
 stand stand none 0
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #16032
 bodak humanoid~
 The bodak~
@@ -520,7 +520,7 @@ B 0 J 0 ABH -999 0
 EIK
 stand stand none 0
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #16033
 mage~
 The mage~
@@ -536,7 +536,7 @@ BF 0 0 0 A -500 0
 EIK
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #16034
 iron golem~
 The iron golem~
@@ -596,7 +596,7 @@ BG 0 0 ABG ABH -750 0
 EF
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #16038
 minor demon babau~
 The babau~
@@ -614,7 +614,7 @@ CF 0 0 0 H -1000 0
 EKNU
 stand stand none 0
 0 0 medium unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #16039
 servant~
 The servant~
@@ -1014,7 +1014,7 @@ B 0 0 0 A -500 0
 EIK
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #16067
 drow warrior~
 Thespan~
@@ -1042,7 +1042,7 @@ BS 0 0 0 0 -600 0
 EIKN
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #16069
 gnome mage~
 Snaromba~
@@ -1058,7 +1058,7 @@ BR 0 0 0 A -600 0
 EIK
 stand stand female 0
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #16070
 gnome thief~
 Anmictes~
@@ -1108,7 +1108,7 @@ BS 0 0 0 0 -700 0
 EIKN
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #16073
 drow Yie'Stei~
 Yie'Stei~
@@ -1124,7 +1124,7 @@ BRe 0 0 0 A 0 0
 EIK
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #16074
 drow zae'tres~
 Zae'tres~
@@ -1249,7 +1249,7 @@ dark-elf~
 EIK
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #16082
 cutpurse~
 The cutpurse~
@@ -1265,7 +1265,7 @@ H 0 0 B 0 -600 0
 EIK
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #16083
 filcher~
 The filcher~
@@ -1281,7 +1281,7 @@ H 0 0 0 A -600 0
 EIK
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #16084
 rogue~
 The rogue~
@@ -1297,7 +1297,7 @@ HS 0 0 B A -700 0
 EIKN
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #16085
 sharper~
 The sharper~
@@ -1313,7 +1313,7 @@ BFS 0 0 0 A -500 0
 EIKN
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #16086
 magsman thief~
 The magsman~
@@ -1329,7 +1329,7 @@ BS 0 0 0 A -500 0
 EIKN
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #16087
 master thief~
 The master thief~
@@ -1345,7 +1345,7 @@ BS 0 0 0 ABL -700 0
 EIKN
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #16088
 head thief~
 The head thief~
@@ -1361,7 +1361,7 @@ BS 0 0 0 ABL -1000 0
 EFIKN
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #16089
 mage~
 Meliadus~
@@ -1376,7 +1376,7 @@ BR 0 J 0 ABL -500 0
 EIK
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #16090
 trainer~
 The trainer~
@@ -1604,7 +1604,7 @@ G 0 H 0 H 0 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #16105
 duergar merchant~
 Gulthac~
@@ -1636,7 +1636,7 @@ GR 0 J 0 H -999 0
 EIK
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #16107
 keeper~
 The Keeper~
@@ -1653,7 +1653,7 @@ GT 0 H 0 AH 0 0
 EFIK
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #16108
 xaren~
 The xaren~
@@ -1690,7 +1690,7 @@ B 0 0 0 BH -999 0
 EFIK
 stand stand none 0
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #16110
 human fighter~
 Lord Rygar~
@@ -1723,7 +1723,7 @@ BS 0 0 0 0 -500 0
 EIKN
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #16112
 drow mage~
 Sabrakarn~
@@ -1739,7 +1739,7 @@ BR 0 0 0 0 -700 0
 EIK
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #16113
 svirfneblin fighter~
 Hangharid~
@@ -1768,7 +1768,7 @@ BQ 0 0 0 0 -800 0
 EIK
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #16115
 duergar fighter~
 Wismarel~
@@ -1796,7 +1796,7 @@ BR 0 0 0 H -400 0
 EIK
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #16117
 human fighter~
 Cedrena~
@@ -1854,7 +1854,7 @@ BGR 0 N 0 H -600 0
 EIK
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #16121
 demon clan fighter~
 A demon clan fighter~
@@ -1885,7 +1885,7 @@ BR 0 N 0 0 -600 0
 EIK
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #16123
 cambion~
 The cambion~
@@ -1901,7 +1901,7 @@ BGT 0 N 0 0 -999 0
 EIK
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_breath_fire +100~
+m mob_fight mob_fight_breath_fire 100~
 #16124
 noble cambion~
 A noble cambion~
@@ -1918,7 +1918,7 @@ BG 0 N 0 0 -999 0
 EIK
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_breath_fire +100~
+m mob_fight mob_fight_breath_fire 100~
 #16125
 clan head~
 Irmugar~
@@ -1935,7 +1935,7 @@ BT 0 JN 0 0 -999 0
 EIK
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #16126
 demon hezrou~
 The hezrou~
@@ -1951,7 +1951,7 @@ BF 0 0 0 0 -999 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_breath_acid +100~
+m mob_fight mob_fight_breath_acid 100~
 #16127
 eye of fear and flame~
 An eye of fear and flame~

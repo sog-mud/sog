@@ -101,7 +101,7 @@ AHMV ABCDEFGHIJK small unknown
 r iron -50
 r weapon 33
 r magic 33
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #29106
 queen faerie~
 @eng the Faerie Queen@rus ~~королева~~ фейри~
@@ -122,7 +122,7 @@ EFNU
 stand stand female 500
 0 O medium unknown
 r magic 33
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #29107
 leprechaun faerie леприкон lucky~
 @eng Lucky@rus Лаки~

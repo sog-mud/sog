@@ -24,7 +24,7 @@ G 0 0 0 H -200 0
 DNR
 stand stand either 0
 0 0 huge unknown
-m mob_random mob_random_poison +100~
+m mob_fight mob_fight_poison_bite 100~
 #3501
 goblin mountain горный гоблин~
 @eng the goblin@rus гоблин~

@@ -224,7 +224,7 @@ r negative 33
 r holy -50
 r charm 100
 r iron 33
-m mob_random mob_random_breath_fire +100~
+m mob_fight mob_fight_breath_fire 100~
 #14011
 horseman red всадник рыжий~
 @eng the red horseman@rus ~~всадник~~ на рыжем коне~
@@ -245,7 +245,7 @@ r negative 33
 r holy -50
 r charm 100
 r iron 33
-m mob_random mob_random_breath_acid +100~
+m mob_fight mob_fight_breath_acid 100~
 #14012
 horseman black всадник~
 @eng The black horseman@rus ~~всадник~~ на вороном коне~
@@ -266,7 +266,7 @@ r negative 33
 r holy -50
 r charm 100
 r iron 33
-m mob_random mob_random_breath_gas +100~
+m mob_fight mob_fight_breath_gas 100~
 #14013
 horseman pale всадник~
 @eng The pale horseman@rus ~~всадник~~ на бледном коне~
@@ -333,7 +333,7 @@ r lightning 33
 r acid 33
 r negative 33
 r holy -50
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #14016
 jezebel woman пророчица иезавель женщина~
 @eng Jezebel the prophetess@rus ~~пророчица~~ ~~Иезавель~~~
@@ -351,7 +351,7 @@ Q 0 0 0 0 -1000 0
 FN
 sit sit female 900
 0 0 medium unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #14017
 Balaam teacher man валаам учитель~
 @eng Balaam the teacher of Balac@rus Валаам~
@@ -369,7 +369,7 @@ R 0 0 0 0 -1000 0
 FN
 sit sit male 900
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #14018
 balac disciple man валак последователь мужчина~
 @eng Balac, disciple of Balaam@rus Валак~
@@ -415,7 +415,7 @@ r negative 100
 r holy -50
 r energy -50
 r charm 100
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #14020
 prophet false лжепророк~
 @eng The false prophet@rus лжепророк~
@@ -437,7 +437,7 @@ FN
 stand stand male 900
 0 W medium unknown
 r holy -50
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #14021
 woman sun жена женщина~
 @eng The woman clothed with the sun@rus ~~жена~~, ~~облаченная~~ в солнце~
@@ -645,7 +645,7 @@ HS 0 0 0 H -1000 0
 FJ
 stand stand male 900
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #14031
 man rich богач~
 @eng The rich man@rus богач~

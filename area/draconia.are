@@ -22,7 +22,7 @@ BG 0 0 0 0 -900 0
 EFNU
 stand stand none 100
 0 0 medium unknown
-m mob_random mob_random_breath_any +100~
+m mob_fight mob_fight_breath_any 100~
 #2201
 draconian~
 the Draconian~
@@ -66,7 +66,7 @@ BR 0 J A A -900 0
 FU
 stand stand male 30
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #2204
 cleric draconian~
 the holy Draconian~
@@ -81,7 +81,7 @@ BCFQ 0 J 0 A -900 0
 EIKU
 stand stand male 20
 0 0 medium unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #2205
 king draconian~
 the Draconian King~
@@ -97,7 +97,7 @@ BC 0 J 0 A -900 0
 EFNU
 stand stand male 40
 0 0 medium unknown
-m mob_random mob_random_breath_any +100~
+m mob_fight mob_fight_breath_any 100~
 #2206
 concubine draconian~
 a concubine~
@@ -144,7 +144,7 @@ stand stand female 2500
 r charm 100
 r weapon 33
 r magic 33
-m mob_random mob_random_breath_any +100~
+m mob_fight mob_fight_breath_any 100~
 #2221
 dragon red~
 the Great Red Dragon~
@@ -160,7 +160,7 @@ EFNR
 stand stand male 8000
 0 0 medium unknown
 r fire 100
-m mob_random mob_random_breath_fire +100~
+m mob_fight mob_fight_breath_fire 100~
 #2222
 dragon black~
 the Great Black Dragon~
@@ -177,7 +177,7 @@ stand stand male 1000
 0 0 medium unknown
 r lightning -50
 r acid 100
-m mob_random mob_random_breath_acid +100~
+m mob_fight mob_fight_breath_acid 100~
 #2223
 dragon white~
 the Great White Dragon~
@@ -195,7 +195,7 @@ stand stand female 1750
 0 0 medium unknown
 r fire -50
 r cold 100
-m mob_random mob_random_breath_frost +100~
+m mob_fight mob_fight_breath_frost 100~
 #2225
 dragon green~
 the Ancient Green Dragon~
@@ -213,7 +213,7 @@ stand stand female 1000
 0 0 medium unknown
 r poison 100
 r mental -50
-m mob_random mob_random_breath_gas +100~
+m mob_fight mob_fight_breath_gas 100~
 #2226
 hydra~
 a large hydra~
@@ -228,7 +228,7 @@ BCF 0 0 0 AB -800 0
 EFNU
 stand stand none 250
 0 0 medium unknown
-m mob_random mob_random_poison +100~
+m mob_fight mob_fight_poison_bite 100~
 #2227
 slave human~
 A human slave~
@@ -243,7 +243,7 @@ BS 0 0 0 AB 0 0
 BEFJNU
 stand stand male 5
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #2240
 zombie draconian~
 a Draconian zombie~
@@ -258,7 +258,7 @@ BCF 0 0 0 ABH -400 0
 EFNU
 stand stand none 75
 0 0 medium unknown
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #2241
 dragon phase~
 the phase dragon~
@@ -272,7 +272,7 @@ CFGH 0 0 0 AB -300 0
 EFNR
 stand stand male 250
 0 0 medium unknown
-m mob_random mob_random_breath_gas +100~
+m mob_fight mob_fight_breath_gas 100~
 #2242
 fool draconian~
 the draconian fool~
@@ -287,7 +287,7 @@ GHS 0 0 0 AB 0 0
 BEFJNU
 stand stand male 25
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #2243
 queen draconian~
 the Draconian Queen~
@@ -302,7 +302,7 @@ BC 0 J 0 AB -600 0
 EFNU
 stand stand female 500
 0 0 medium unknown
-m mob_random mob_random_breath_any +100~
+m mob_fight mob_fight_breath_any 100~
 #0
 
 #OBJECTS

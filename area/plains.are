@@ -148,7 +148,7 @@ BHR 0 H 0 A 1000 0
 FR
 stand stand female 0
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #0
 
 #OBJECTS

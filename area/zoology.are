@@ -126,7 +126,7 @@ r bash 100
 r fire 33
 r acid 33
 r charm 100
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #408
 gorilla~
 A gorilla~
@@ -155,7 +155,7 @@ CG J 0 0 0 200 0
 EN
 stand stand either 110
 0 0 medium unknown
-m mob_random mob_random_janitor +100~
+m mob_random mob_random_janitor 100~
 #410
 emu~
 an emu~

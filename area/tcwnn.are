@@ -26,7 +26,7 @@ stand stand male 1000
 0 0 medium unknown
 r charm 100
 r weapon 33
-m mob_random mob_random_cast_adept +100~
+m mob_random mob_random_cast_adept 100~
 #31001
 dryad guildmaster~
 the Dryad Guildmaster~
@@ -260,7 +260,7 @@ BCG 0 HN 0 H 1000 0
 F
 stand stand male 1000
 I 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #31015
 dryad waiter~
 a Dryad Waiter~
@@ -317,7 +317,7 @@ BGe 0 HN 0 H 0 0
 FHKN
 stand stand male 1000
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #31019
 mouse~
 the mouse~
@@ -576,7 +576,7 @@ G J 0 0 A 900 0
 0
 stand stand male 1000
 0 0 medium unknown
-m mob_random mob_random_janitor +100~
+m mob_random mob_random_janitor 100~
 #31037
 footpad~
 a footpad~
@@ -629,7 +629,7 @@ GH 0 U BG HK 0 0
 F
 stand stand male 1000
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #31041
 fido~
 a beastly fido~
@@ -643,7 +643,7 @@ GH 0 0 0 0 0 0
 0
 stand stand none 0
 0 0 medium unknown
-m mob_random mob_random_fido +100~
+m mob_random mob_random_fido 100~
 #31042
 rat~
 a huge sewer rat~
@@ -658,7 +658,7 @@ GH 0 0 0 H 0 0
 0
 stand stand none 1000
 0 0 medium unknown
-m mob_random mob_random_fido +100~
+m mob_random mob_random_fido 100~
 #31043
 cat~
 a cat~
@@ -687,7 +687,7 @@ GT 0 N 0 K 1000 0
 CDFIJK
 stand stand male 1000
 0 0 medium unknown
-m mob_random mob_random_guard +100~
+m mob_random mob_random_guard 100~
 #31045
 guard~
 a City Guard~
@@ -703,7 +703,7 @@ G 0 N 0 K 1000 0
 CDFIJK
 stand stand female 1000
 0 0 medium unknown
-m mob_random mob_random_guard +100~
+m mob_random mob_random_guard 100~
 #31046
 guard~
 a City Guard~
@@ -719,7 +719,7 @@ BG 0 N 0 K 1000 0
 CDFIJK
 stand stand male 1000
 0 0 medium unknown
-m mob_random mob_random_guard +100~
+m mob_random mob_random_guard 100~
 #31047
 hobbit merc1~
 Hobbit Mercenary~

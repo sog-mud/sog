@@ -29,7 +29,7 @@ stand stand either 1000
 Q 0 medium unknown
 r negative -50
 r magic 33
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #11601
 roc bird~
 Roc~
@@ -123,7 +123,7 @@ r poison 100
 r mental -50
 r disease 100
 r magic 33
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #11606
 unicorn white horse~
 the Unicorn~
@@ -193,7 +193,7 @@ r negative -50
 r holy 100
 r energy -50
 r mental -50
-m mob_random mob_random_guard +100~
+m mob_random mob_random_guard 100~
 #11609
 ivory statue lady justice~
 Lady Justice~
@@ -236,7 +236,7 @@ r negative 33
 r holy 33
 r mental -50
 r charm 33
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #11611
 babbling sculptor~
 Babbling Sculptor~
@@ -255,7 +255,7 @@ stand stand male 1200
 r poison -50
 r energy -50
 r disease 33
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #11612
 bush denebi priest white cross~
 Denebi~
@@ -276,7 +276,7 @@ r acid 33
 r poison 33
 r holy 33
 r mental -50
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #11613
 statue believer~
 the Believer~
@@ -479,7 +479,7 @@ r acid 100
 r negative -50
 r holy 100
 r charm 100
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #11623
 myrl figure cynic~
 Myrl~
@@ -503,7 +503,7 @@ stand stand either 1000
 0 0 medium unknown
 r bash -50
 r magic 33
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #11624
 hellhawk hawk~
 the hellhawk~
@@ -538,7 +538,7 @@ stand stand either 0
 0 0 medium unknown
 r acid 33
 r mental -50
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #11626
 twisted being~
 a Twisted Being~
@@ -592,7 +592,7 @@ r fire -50
 r cold 33
 r negative 100
 r silver -50
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #11629
 nightmare black horse darkness~
 the Nightmare~
@@ -655,7 +655,7 @@ r fire -50
 r cold 100
 r acid 33
 r energy -50
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #11632
 bloody sadist~
 the Bloody Sadist~
@@ -730,7 +730,7 @@ r holy -50
 r disease 100
 r light -50
 r silver -50
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #11636
 nothingness square area~
 a patch of Nothingness~
@@ -804,7 +804,7 @@ r lightning 33
 r acid 33
 r energy -50
 r charm 100
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #11640
 lost dreams~
 some lost dreams~
@@ -855,7 +855,7 @@ r pierce 33
 r lightning -50
 r mental -50
 r light -50
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #11643
 lost hopes~
 some lost hopes~
@@ -1014,7 +1014,7 @@ stand stand either 2000
 r lightning -50
 r negative 33
 r holy 33
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #11652
 night lynx cat form~
 the night lynx~
@@ -1051,7 +1051,7 @@ r lightning 100
 r negative -50
 r holy -50
 r mental -50
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #11654
 dark black owl~
 the dark owl~
@@ -1254,7 +1254,7 @@ CGS 0 IV 0 0 0 0
 EFGJ
 stand stand male 1700
 C 0 small unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #11667
 boggled brain~
 the boggled brain~
@@ -1428,7 +1428,7 @@ r energy 33
 r mental 33
 r light 100
 r sound 100
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #11678
 fax parrot~
 Fax~
@@ -1768,7 +1768,7 @@ stand stand either 5000
 0 0 medium unknown
 r weapon 33
 r magic 33
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #11699
 zdreni deathmaster assassin~
 the Zdreni deathmaster~
@@ -1786,7 +1786,7 @@ BCFGRS 0 0 B AB -500 11699
 BEFHJK
 stand stand male 5000
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #11700
 zdreni shadowmaster assassin dark elven form~
 the Zdreni shadowmaster~
@@ -1831,7 +1831,7 @@ CFGRS 0 0 B AB -500 11699
 BFJ
 stand stand either 3700
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #11703
 zdreni stalker assassin figure~
 the Zdreni stalker~
@@ -1970,7 +1970,7 @@ BCFGRS 0 0 B AB -500 11699
 BFJ
 stand stand either 3700
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #11712
 zdreni apprentice assassin~
 the Zdreni apprentice~
@@ -1987,7 +1987,7 @@ BCFGRS 0 0 B 0 -50 11711
 BFJ
 stand stand either 500
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #11713
 zdreni apprentice assassin~
 the Zdreni apprentice~
@@ -2004,7 +2004,7 @@ BCFGRS 0 0 B 0 -50 11699
 BFJ
 stand stand either 500
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #11714
 zdreni blademaster assassin~
 the Zdreni blademaster~
@@ -2066,7 +2066,7 @@ BCFGRS 0 0 B AB -500 11699
 BFJ
 stand stand either 3700
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #11718
 zdreni venomblade assassin elf~
 the Zdreni venomblade~
@@ -2193,7 +2193,7 @@ stand stand either 4500
 0 0 medium unknown
 r weapon 33
 r magic 33
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #0
 
 #OBJECTS

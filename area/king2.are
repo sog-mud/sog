@@ -291,7 +291,7 @@ stand stand male 10000
 0 0 tiny unknown
 r weapon -50
 r magic -50
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #15220
 tim guard lifeguard~
 Tim, the King's Lifeguard~

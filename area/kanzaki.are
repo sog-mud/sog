@@ -35,7 +35,7 @@ stand stand none 0
 0 0 gargantuan unknown
 g @eng none@rus female~
 m mob_greet mob_greet_lothar_warrior 100~
-m mob_random mob_random_guard +100~
+m mob_random mob_random_guard 100~
 m mob_speech mob_speech_lothar_warrior i'm your woman~
 m mob_speech mob_speech_lothar_warrior_password password~
 m mob_speech mob_speech_lothar_warrior_password пароль~
@@ -95,7 +95,7 @@ FHM
 stand stand neutral 0
 D 0 tiny unknown
 g @eng neutral@rus female~
-m mob_random mob_random_poison +100~
+m mob_fight mob_fight_poison_bite 100~
 #47103
 grasshopper кузнечик~
 @eng a grasshopper@rus ~~кузнечик~~~
@@ -284,7 +284,7 @@ ADFHOZ
 stand stand male 50000
 0 0 giant unknown
 g @eng male@rus male~
-m mob_random mob_random_breath_lightning +100~
+m mob_fight mob_fight_breath_lightning 100~
 #47111
 saki саки хозяин owner~
 @eng Saki@rus Саки~
@@ -751,7 +751,7 @@ AEFHKN
 stand stand male 0
 0 0 medium unknown
 F for H
-m mob_random mob_random_assassinater +100~
+m mob_fight mob_fight_assassinater 100~
 #47133
 man Тоширо человек Toshiro monk монах~
 @eng brother Toshiro@rus ~~брат~~ Тоширо~
@@ -782,7 +782,7 @@ ADEFKQ
 stand stand male 0
 0 0 medium unknown
 F for H
-m mob_random mob_random_guard +100~
+m mob_random mob_random_guard 100~
 #47151
 worshipper человек молящийся посетитель~
 @eng a worshipper@rus ~~молящийся~~ ~~человек~~~

@@ -151,7 +151,7 @@ CFGH 0 0 BG H -100 0
 EFNR
 stand stand female 0
 0 0 medium unknown
-m mob_random mob_random_poison +100~
+m mob_fight mob_fight_poison_bite 100~
 #8310
 python snake змея питон~
 @eng a large snake@rus питон~
@@ -167,7 +167,7 @@ EFNR
 stand stand female 0
 0 0 medium unknown
 g @eng female@rus male~
-m mob_random mob_random_poison +100~
+m mob_fight mob_fight_poison_bite 100~
 #8312
 hag ведьма~
 @eng the Marsh Hag@rus ~~болотная~~ ~~ведьма~~~
@@ -186,7 +186,7 @@ CGS 0 0 0 ABH -200 0
 BEFJNU
 stand stand female 50
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #8313
 slaad смерть~
 @eng a Death Slaad@rus ~~старуха~~ ~~Смерть~~~
@@ -204,7 +204,7 @@ EFNU
 stand stand male 700
 0 0 medium unknown
 g @eng male@rus female~
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #8314
 wolf волчица~
 @eng a marsh wolf@rus ~~болотная~~ ~~волчица~~~
@@ -252,7 +252,7 @@ BCFGQ 0 0 0 AB -100 0
 EIKU
 stand stand male 17
 0 0 medium unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #8320
 giant гигант~
 @eng a marsh giant@rus ~~болотный~~ ~~гигант~~~

@@ -36,7 +36,7 @@ BGe 0 0 0 0 0 0
 E
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #5602
 bird aarakocra trinket vendor~
 the trinket vendor~
@@ -204,7 +204,7 @@ BGH 0 0 0 ABK 100 0
 E
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_cast_judge +100~
+m mob_fight mob_fight_cast_judge 100~
 #5614
 bird aarakocra junk dealer fred~
 the junk dealer~
@@ -342,7 +342,7 @@ stand stand male 0
 I 0 medium unknown
 r weapon 100
 r magic 100
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #5623
 bird aarakocra aarakocran sneaky guildmaster thief assassin~
 the sneaky aarakocran guildmaster~
@@ -358,7 +358,7 @@ stand stand male 0
 0 0 medium unknown
 r weapon 100
 r magic 100
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #5624
 bird aarakocra aarakocran strong guildmaster warrior hero~
 the strong aarakocran guildmaster~
@@ -390,7 +390,7 @@ CGT 0 0 0 0 1000 0
 CDEIR
 stand stand female 0
 0 0 medium unknown
-m mob_random mob_random_guard +100~
+m mob_random mob_random_guard 100~
 #5626
 bird aarakocra aarakocran cityguard guard~
 the cityguard~
@@ -405,7 +405,7 @@ CG 0 0 0 0 1000 0
 CDER
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_guard +100~
+m mob_random mob_random_guard 100~
 #5627
 bird aarakocra aarakocran cityguard guard~
 the cityguard~
@@ -420,7 +420,7 @@ BCG 0 0 0 0 1000 5627
 CDEIR
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_guard +100~
+m mob_random mob_random_guard 100~
 #5628
 bat breakfast lunch dinner snack appetizer~
 the small bat~
@@ -445,7 +445,7 @@ BFH 0 0 0 0 -400 0
 0
 stand stand male 0
 0 0 small unknown
-m mob_random mob_random_guard +100~
+m mob_random mob_random_guard 100~
 #5629
 kobold~
 the kobold~

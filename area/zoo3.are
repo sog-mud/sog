@@ -161,7 +161,7 @@ B 0 0 0 0 2 0
 0
 stand stand male 0
 0 0 large unknown
-m mob_random mob_random_breath_lightning +100~
+m mob_fight mob_fight_breath_lightning 100~
 #8209
 elephant слон~
 @eng the elephant@rus слон~

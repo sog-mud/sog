@@ -28,7 +28,7 @@ BGH 0 JNT 0 ABHKL -1000 0
 FHIJKN
 stand stand male 1000
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #15701
 woman witch alara~
 the witch Alara~
@@ -45,7 +45,7 @@ BGH 0 N 0 AH -1000 0
 EIK
 stand stand female 1000
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #15702
 demon~
 a demon~
@@ -62,7 +62,7 @@ BFG 0 JT 0 AH -1000 0
 EIKQ
 stand stand none 1000
 0 0 medium unknown
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #15703
 cat familiar~
 a cat familiar~
@@ -76,7 +76,7 @@ BFGH 0 N 0 AH -1000 0
 0
 stand stand female 0
 0 0 large unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #15704
 hawk familiar~
 a hawk familiar~
@@ -90,7 +90,7 @@ BFGH 0 N 0 AH -1000 0
 0
 stand stand none 0
 0 0 small unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #15705
 troll guard~
 a troll guard~
@@ -106,7 +106,7 @@ troll~
 EFIJKQ
 stand stand male 1000
 0 0 medium unknown
-m mob_random mob_random_fido +100~
+m mob_random mob_random_fido 100~
 #15706
 flesh golem~
 a flesh golem~
@@ -121,7 +121,7 @@ BG 0 HN 0 H 0 0
 EFNU
 stand stand none 0
 0 0 medium unknown
-m mob_random mob_random_executioner +100~
+m mob_random mob_random_executioner 100~
 #15707
 fire drake~
 a fire drake~
@@ -136,7 +136,7 @@ BFG 0 J 0 AH -500 0
 EFNU
 stand stand male 1000
 0 0 large unknown
-m mob_random mob_random_breath_fire +100~
+m mob_fight mob_fight_breath_fire 100~
 #15708
 zombie servant~
 a zombie servant~
@@ -153,7 +153,7 @@ G J 0 0 0 0 0
 EFN
 stand stand none 1000
 0 0 medium unknown
-m mob_random mob_random_janitor +100~
+m mob_random mob_random_janitor 100~
 #15709
 guard~
 a keep guard~
@@ -171,7 +171,7 @@ BG 0 0 0 H -400 0
 CDEFIJKQ
 stand stand male 1000
 0 0 medium unknown
-m mob_random mob_random_guard +100~
+m mob_random mob_random_guard 100~
 #15710
 apprentice~
 an apprentice mage~
@@ -187,7 +187,7 @@ BGH 0 N 0 H -400 0
 EFU
 stand stand female 1000
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #15711
 grell~
 a grell~
@@ -231,7 +231,7 @@ BFG 0 0 0 H 0 0
 EFNU
 stand stand none 0
 0 0 large unknown
-m mob_random mob_random_fido +100~
+m mob_random mob_random_fido 100~
 #15714
 war dog~
 a savage war dog~
@@ -247,7 +247,7 @@ BFG 0 N 0 H -400 0
 ENQ
 stand stand none 0
 0 0 medium unknown
-m mob_random mob_random_poison +100~
+m mob_fight mob_fight_poison_bite 100~
 #15715
 assassin~
 an assassin~
@@ -263,7 +263,7 @@ BFGH 0 N 0 H -1000 0
 EFIJKN
 stand stand female 1000
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #15716
 dagar assassin~
 the assassin Dagar~
@@ -279,7 +279,7 @@ BG 0 H BG ABH 400 0
 EFIJKN
 stand stand male 1000
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #15717
 gnoll slave~
 a gnoll slave~
@@ -295,7 +295,7 @@ GH J 0 0 H -400 0
 EN
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_janitor +100~
+m mob_random mob_random_janitor 100~
 #15718
 ogre slave~
 an ogre slave~
@@ -310,7 +310,7 @@ ogre~
 FS
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_janitor +100~
+m mob_random mob_random_janitor 100~
 #15719
 flind slave master~
 a flind slave master~
@@ -325,7 +325,7 @@ BFG 0 N 0 H -500 0
 EFIJKNQ
 stand stand male 10000
 0 0 medium unknown
-m mob_random mob_random_poison +100~
+m mob_fight mob_fight_poison_bite 100~
 #15720
 otyugh~
 an otyugh~
@@ -341,7 +341,7 @@ BFG 0 H 0 H 0 0
 EFNU
 stand stand none 0
 0 0 medium unknown
-m mob_random mob_random_fido +100~
+m mob_random mob_random_fido 100~
 #0
 
 #OBJECTS

@@ -151,7 +151,7 @@ stand stand none 50
 AC ABCDEF small unknown
 r poison 100
 r holy -50
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #208
 Gremlin~
 a gremlin~
@@ -321,7 +321,7 @@ AB ABCDEF medium unknown
 r fire -50
 r holy -50
 r charm 100
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #217
 Witch Gertrude~
 Gertrude~
@@ -341,7 +341,7 @@ AB ABCDEF medium unknown
 r fire -50
 r holy -50
 r charm 100
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #218
 Witch Hela~
 Hela~
@@ -360,7 +360,7 @@ AB ABCDEF medium unknown
 r fire -50
 r holy -50
 r charm 100
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #219
 Jim Young~
 Young Jim~
@@ -680,7 +680,7 @@ stand stand none 15
 AB ABCDEF small unknown
 r holy -50
 r charm 100
-m mob_random mob_random_poison +100~
+m mob_fight mob_fight_poison_bite 100~
 #235
 boogum~
 the mountain boogum~
@@ -734,7 +734,7 @@ stand stand female 1000
 AB ABCDEF medium unknown
 r holy -50
 r charm 100
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #238
 imbessar king~
 Imbessar~
@@ -778,7 +778,7 @@ A ABCDEF medium unknown
 r holy -50
 r charm 100
 r magic 33
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #240
 Ranger~
 a lady ranger~
@@ -1809,7 +1809,7 @@ AB ABCDEF medium unknown
 r fire -50
 r holy -50
 r charm 100
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #299
 healer woodskeeper~
 priest~
@@ -1829,7 +1829,7 @@ stand stand male 0
 0 0 medium unknown
 r weapon 33
 r magic 100
-m mob_random mob_random_cast_adept +100~
+m mob_random mob_random_cast_adept 100~
 #0
 
 #OBJECTS

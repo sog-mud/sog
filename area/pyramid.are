@@ -22,7 +22,7 @@ FG 0 0 0 H 0 0
 EFNU
 stand stand none 0
 0 0 medium unknown
-m mob_random mob_random_poison +100~
+m mob_fight mob_fight_poison_bite 100~
 #8701
 cobra snake~
 A hooded cobra snake~
@@ -37,7 +37,7 @@ FG 0 0 0 0 0 0
 EFNU
 stand stand none 1
 0 0 medium unknown
-m mob_random mob_random_poison +100~
+m mob_fight mob_fight_poison_bite 100~
 #8702
 mongoose~
 A wily little mongoose~
@@ -80,7 +80,7 @@ GHS 0 0 G ABH -250 0
 BEFJNU
 stand stand male 25
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #8705
 ali baba thief~
 Ali Baba~
@@ -97,7 +97,7 @@ CGS 0 0 G AB -300 0
 BEFJNU
 stand stand male 50
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #8706
 magic carpet~
 The magic carpet~
@@ -156,7 +156,7 @@ BF 0 0 0 AH -600 0
 EFNU
 stand stand male 550
 0 0 medium unknown
-m mob_random mob_random_breath_fire +100~
+m mob_fight mob_fight_breath_fire 100~
 #8710
 caryatid column~
 A caryatid~
@@ -188,7 +188,7 @@ BR 0 0 0 H 600 0
 FU
 stand stand male 3000
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #8712
 hieracosphinx sphinx~
 A hieracosphinx~
@@ -221,7 +221,7 @@ BQ 0 0 0 A 100 0
 EIKU
 stand stand female 500
 0 0 medium unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #8714
 criosphinx sphinx~
 A criosphinx~
@@ -237,7 +237,7 @@ BQ 0 0 0 A 300 0
 EIKU
 stand stand male 1250
 0 0 medium unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #8715
 androsphinx sphinx~
 An androsphinx~
@@ -254,7 +254,7 @@ BQ 0 0 0 A 400 0
 EIKU
 stand stand none 2500
 0 0 medium unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #8716
 great sphinx~
 The great sphinx~
@@ -272,7 +272,7 @@ B 0 HN 0 AL 500 0
 EFNU
 stand stand none 6250
 0 0 medium unknown
-m mob_random mob_random_breath_any +100~
+m mob_fight mob_fight_breath_any 100~
 #8717
 ramses mummy~
 Ramses the Damned~
@@ -290,7 +290,7 @@ BQ 0 HN 0 AHL 150 0
 EIKU
 stand stand male 4400
 0 0 medium unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #8718
 caryatid column~
 A caryatid~
@@ -556,6 +556,7 @@ exotic 4 15 'claw' 0
 f object damroll 6 0
 f object hitroll 8 0
 f object con 1 0
+m obj_fight obj_fight_claw 10~
 E
 lion paw~
 The massive paw has straps on it formed of bronze, so that it will
@@ -751,6 +752,7 @@ jewelry BG 0 AB
 40 50 44300 P
 f object damroll 5 0
 f object ac 20 0
+m obj_speech obj_speech_ra punish~
 E
 ra ring~
 The ring is bigger than other rings, smooth, metal-colored and shining, 

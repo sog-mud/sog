@@ -30,6 +30,9 @@ r wood 100
 r silver 100
 r weapon 100
 r magic 100
+m mob_fight mob_fight_test 100~
+m mob_fight mob_fight_poison_bite 80~
+m mob_random mob_random_test 100~
 #34401
 tank t-34~
 @eng {DTank Abrams A1M1{w@rus {DТанк Т-34{w~

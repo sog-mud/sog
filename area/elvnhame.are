@@ -32,7 +32,7 @@ stand stand male 3400
 0 0 medium unknown
 r weapon 100
 r magic 100
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #40102
 GuildMaster Master наставник мастер~
 @eng the Guildmaster@rus наставник~
@@ -73,7 +73,7 @@ stand stand male 3400
 0 0 medium unknown
 r weapon 100
 r magic 100
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #40104
 GuildMaster Master WeaponsMaster Weapons~
 the WeaponsMaster~
@@ -113,7 +113,7 @@ stand stand male 3400
 0 0 medium unknown
 r weapon 100
 r magic 100
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #40106
 GuildMaster Master~
 the Guildmaster~
@@ -136,7 +136,7 @@ stand stand male 3400
 0 0 medium unknown
 r weapon 100
 r magic 100
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #40107
 GuildMaster Master Paladin~
 the Guildmaster~
@@ -159,7 +159,7 @@ stand stand male 3400
 0 0 medium unknown
 r weapon 100
 r magic 100
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #40108
 GuildMaster Master~
 the Guildmaster~
@@ -179,7 +179,7 @@ stand stand male 3400
 0 0 medium unknown
 r weapon 100
 r magic 100
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #40109
 GuildMaster Master~
 the Guildmaster~
@@ -200,7 +200,7 @@ sit sit male 3400
 0 0 medium unknown
 r weapon 100
 r magic 100
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #40110
 GuildMaster~
 the Guildmaster~
@@ -241,7 +241,7 @@ stand stand male 3400
 0 0 medium unknown
 r weapon 100
 r magic 100
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #40112
 GuildMaster~
 the Guildmaster~
@@ -592,7 +592,7 @@ r negative 33
 r holy 33
 r energy 33
 r disease -50
-m mob_random mob_random_mayor +100~
+m mob_random mob_random_mayor 100~
 #40133
 kitten cat~
 the little kitten~
@@ -685,7 +685,7 @@ stand stand male 100
 r energy 33
 r mental 33
 r weapon -50
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #40138
 citizen woman~
 a citizen~
@@ -703,7 +703,7 @@ stand stand female 75
 r energy 33
 r mental 33
 r weapon -50
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #40139
 elf child~
 the elf child~
@@ -740,7 +740,7 @@ stand stand male 100
 r energy 33
 r mental 33
 r weapon -50
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #40141
 citizen woman~
 a citizen~
@@ -758,7 +758,7 @@ stand stand female 175
 r energy 33
 r mental 33
 r weapon -50
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #40142
 drow child~
 the drow child~
@@ -796,7 +796,7 @@ stand stand male 140
 r energy 33
 r mental 33
 r weapon -50
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #40144
 citizen woman~
 a citizen~
@@ -814,7 +814,7 @@ stand stand female 125
 r energy 33
 r mental 33
 r weapon -50
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #40145
 grey-elven elf child~
 the grey-elven child~
@@ -927,7 +927,7 @@ stand stand female 5000
 0 0 medium unknown
 r weapon 100
 r magic 100
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #40151
 necromancer shopkeeper Xaixara~
 The Necromancer-Alchemist~
@@ -955,7 +955,7 @@ stand stand female 10000
 0 0 medium unknown
 r weapon 100
 r magic 100
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #0
 
 #OBJECTS

@@ -21,7 +21,7 @@ G 0 0 0 A 1000 2900
 CDF
 stand stand either 2000
 0 0 medium unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #2901
 planetar~
 a planetar~
@@ -36,7 +36,7 @@ BG 0 H A AK 900 2901
 CDFK
 stand stand either 4500
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #2902
 shedu~
 a Shedu~
@@ -80,7 +80,7 @@ CDEFIKN
 stand stand either 2000
 0 0 medium unknown
 r magic -50
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #2905
 babau ebony~
 a babau~
@@ -110,7 +110,7 @@ CG 0 0 0 ABL -950 2906
 DFJ
 stand stand either 2900
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #2907
 kostchtchie demon kost~
 Kostchtchie~
@@ -126,7 +126,7 @@ FI
 stand stand either 6900
 0 0 medium unknown
 r charm 100
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #2908
 nabassu demon~
 a nabassu~
@@ -142,7 +142,7 @@ FI
 stand stand either 1120
 0 0 medium unknown
 r weapon -50
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #2909
 dragon cloud~
 a cloud dragon~
@@ -157,7 +157,7 @@ BG 0 H 0 AB 0 2909
 FIKLN
 stand stand either 8000
 0 0 large unknown
-m mob_random mob_random_breath_gas +100~
+m mob_fight mob_fight_breath_gas 100~
 #2910
 solar~
 a solar~
@@ -172,7 +172,7 @@ BG 0 H 0 ABK 1000 2910
 FI
 stand stand either 8000
 0 0 medium unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #2911
 wemic~
 a wemic~
@@ -187,7 +187,7 @@ C 0 0 0 B 100 2911
 ABC
 stand stand either 0
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #2912
 frost giant~
 a frost giant~
@@ -218,7 +218,7 @@ FIKN
 stand stand either 2500
 0 0 large unknown
 r charm 100
-m mob_random mob_random_breath_any +100~
+m mob_fight mob_fight_breath_any 100~
 #2914
 ratatosk~
 Ratatosk~

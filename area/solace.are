@@ -24,7 +24,8 @@ BT 0 H 0 ABK 900 0
 CDEFIJKLTU
 stand stand male 1000
 0 0 medium unknown
-m mob_random mob_random_captain +100~
+m mob_random mob_random_captain 100~
+m mob_fight mob_fight_cast_cleric 100~
 #10202
 lieutenant commander~
 Lieutenant Commander~
@@ -42,7 +43,7 @@ BGT 0 H 0 BK 800 0
 CDEFIJKTU
 stand stand male 1000
 0 0 medium unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #10203
 Sergeant Arms~
 Sergeant at Arms~
@@ -58,7 +59,7 @@ BGT 0 H 0 K 400 0
 EFIK
 stand stand male 1000
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #10204
 townguard guard~
 Townguard~
@@ -73,7 +74,7 @@ BGT 0 0 0 0 1000 0
 CDEIKTU
 stand stand male 1000
 0 0 medium unknown
-m mob_random mob_random_guard +100~
+m mob_random mob_random_guard 100~
 #10205
 townguard guard agg~
 Townguard~
@@ -88,7 +89,7 @@ BFGT 0 0 0 0 1000 0
 CDEIKTU
 stand stand male 1000
 0 0 medium unknown
-m mob_random mob_random_guard +100~
+m mob_random mob_random_guard 100~
 #10206
 citizen solace~
 Citizen of Solace~
@@ -127,7 +128,7 @@ e 0 H 0 0 800 0
 EIK
 stand stand male 1000
 0 0 medium unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #10209
 Mcbaker~
 the Mcbaker~
@@ -169,7 +170,7 @@ Be 0 H 0 0 900 0
 EIK
 stand stand female 1000
 0 0 medium unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #10212
 ghost jander~
 Ghost of Jander~
@@ -185,7 +186,7 @@ B 0 0 0 0 900 0
 EIK
 stand stand male 1000
 0 0 medium unknown
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #10213
 ghost waiter~
 ghost of waiter~
@@ -200,7 +201,7 @@ B 0 0 0 0 900 0
 EK
 stand stand male 1000
 0 0 medium unknown
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #10214
 ghost barkeep~
 ghost of a barkeeper~
@@ -215,7 +216,7 @@ Be 0 0 0 0 900 0
 EK
 stand stand female 1000
 0 0 medium unknown
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #10215
 townguard guard~
 Townguard~
@@ -230,7 +231,7 @@ GT 0 0 0 0 1000 0
 CDEIKTU
 stand stand male 1000
 0 0 medium unknown
-m mob_random mob_random_guard +100~
+m mob_random mob_random_guard 100~
 #10216
 field rat~
 field rat~
@@ -258,7 +259,7 @@ B 0 H 0 0 800 0
 EIK
 stand stand male 1000
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #10218
 treasury guards~
 Treasury Guards~
@@ -273,7 +274,7 @@ BT 0 H 0 ABK 800 0
 EIJKU
 stand stand male 1000
 0 0 medium unknown
-m mob_random mob_random_guard +100~
+m mob_random mob_random_guard 100~
 #10219
 Jhen~
 Jhen the farmer~
@@ -340,7 +341,7 @@ Be 0 0 0 0 800 0
 EIK
 stand stand male 1000
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #10224
 Rashan~
 Rashan the farmer~
@@ -354,7 +355,7 @@ Be 0 0 0 0 800 0
 EIK
 stand stand male 1000
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #10225
 Lexie~
 Lexie~
@@ -383,7 +384,7 @@ Be 0 0 0 0 800 0
 EIK
 stand stand male 1000
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #10227
 otik sandath bartender~
 Otik Sandath~
@@ -430,7 +431,7 @@ BS 0 0 0 0 800 0
 EFIKN
 stand stand male 1000
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #10230
 old man~
 old man~
@@ -474,7 +475,7 @@ B 0 0 0 0 800 0
 EK
 stand stand male 1000
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #10233
 Mage~
 mage~
@@ -488,7 +489,7 @@ B 0 0 0 0 800 0
 EIK
 stand stand male 1000
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #10234
 Thief~
 Thief~
@@ -502,7 +503,7 @@ BS 0 0 0 0 800 0
 EFIJN
 stand stand male 1000
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #10235
 Warrior~
 Warrior~
@@ -529,7 +530,7 @@ BQ 0 0 0 0 800 0
 EIK
 stand stand male 1000
 0 0 medium unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #10237
 ghost gambler~
 Ghost of gambler~
@@ -603,7 +604,7 @@ B 0 0 0 0 100 0
 EIK
 stand stand male 1000
 0 0 medium unknown
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #10243
 Magnus wizard~
 Magnus wizard~
@@ -616,7 +617,7 @@ BR 0 0 0 0 100 0
 0
 stand stand male 1000
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #10244
 Lord doom warrior~
 Lord Doom~

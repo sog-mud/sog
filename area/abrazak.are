@@ -91,7 +91,7 @@ stand stand female 0
 0 0 small unknown
 r weapon 100
 r magic 100
-m mob_random mob_random_breath_any +100~
+m mob_fight mob_fight_breath_any 100~
 #15010
 devil~
 @eng {DDevil{x@rus {DЧерт{x~

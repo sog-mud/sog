@@ -52,7 +52,7 @@ r poison 100
 r holy -50
 r mental 33
 r disease 100
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #29352
 demon minor младший демон~
 @eng A Minor Demon@rus ~~Младший~~ ~~Демон~~~
@@ -108,7 +108,7 @@ r poison 100
 r disease 100
 r weapon 33
 r magic -50
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #29354
 lich lord myzelak лич мизелак~
 @eng Myzelak the Lich Lord@rus ~~Лич~~ ~~Мизелак~~~
@@ -131,7 +131,7 @@ stand stand male 800
 0 0 medium unknown
 r cold 33
 r lightning 33
-m mob_random mob_random_cast_adept +100~
+m mob_random mob_random_cast_adept 100~
 #29355
 dracolich mount dragon драколич~
 @eng The Dracolich@rus ~~Драколич~~~

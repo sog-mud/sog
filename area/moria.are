@@ -24,7 +24,7 @@ FHNOR
 stand stand male 0
 0 0 large unknown
 r pierce 33
-m mob_random mob_random_poison +100~
+m mob_fight mob_fight_poison_bite 100~
 #4001
 garter snake змейка садовая~
 @eng the garter snake@rus ~~садовая~~ ~~змейка~~~
@@ -40,7 +40,7 @@ FHR
 stand stand either 0
 0 0 small unknown
 r bash 33
-m mob_random mob_random_poison +100~
+m mob_fight mob_fight_poison_bite 100~
 #4002
 centipede сороконожка~
 @eng the centipede@rus сороконожка~
@@ -165,7 +165,7 @@ stand stand none 0
 g @eng none@rus female~
 r bash 33
 r pierce 33
-m mob_random mob_random_poison +100~
+m mob_fight mob_fight_poison_bite 100~
 #4054
 centipede многоножка~
 @eng the centipede@rus многоножка~
@@ -269,7 +269,7 @@ FQ
 stand stand male 400
 0 0 medium unknown
 r magic 33
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #4101
 troll тролль~
 @eng the troll@rus тролль~
@@ -303,7 +303,7 @@ stand stand female 0
 0 0 medium unknown
 r pierce 33
 r slash -50
-m mob_random mob_random_poison +100~
+m mob_fight mob_fight_poison_bite 100~
 #4103
 thief вор~
 @eng the thief@rus вор~
@@ -394,7 +394,7 @@ g @eng none@rus female~
 r lightning 100
 r iron -50
 r silver -50
-m mob_random mob_random_breath_lightning +100~
+m mob_fight mob_fight_breath_lightning 100~
 #4151
 bat red красная летучая мышь~
 @eng the red bat@rus ~~красная~~ ~~летучая~~ ~~мышь~~~
@@ -413,7 +413,7 @@ stand stand none 0
 g @eng none@rus female~
 r fire 100
 r cold -50
-m mob_random mob_random_breath_fire +100~
+m mob_fight mob_fight_breath_fire 100~
 #4152
 bat green зеленая летучая мышь~
 @eng the green bat@rus ~~зеленая~~ ~~летучая~~ ~~мышь~~~
@@ -431,7 +431,7 @@ stand stand none 0
 B 0 tiny unknown
 g @eng none@rus female~
 r poison 100
-m mob_random mob_random_breath_gas +100~
+m mob_fight mob_fight_breath_gas 100~
 #4153
 bat white белая летучая мышь~
 @eng the white bat@rus ~~белая~~ ~~летучая~~ ~~мышь~~~
@@ -450,7 +450,7 @@ stand stand none 0
 g @eng none@rus female~
 r fire -50
 r cold 100
-m mob_random mob_random_breath_frost +100~
+m mob_fight mob_fight_breath_frost 100~
 #4154
 bat black черная летучая мышь~
 @eng the black bat@rus ~~черная~~ ~~летучая~~ ~~мышь~~~
@@ -467,7 +467,7 @@ stand stand none 0
 0 0 tiny unknown
 g @eng none@rus female~
 r acid 100
-m mob_random mob_random_breath_acid +100~
+m mob_fight mob_fight_breath_acid 100~
 #4155
 thief вор~
 @eng the thief@rus вор~
@@ -482,7 +482,7 @@ CGS 0 0 AB H 400 0
 BFJNQU
 stand stand male 500
 0 0 medium unknown
-m mob_random mob_random_thief +100~
+m mob_random mob_random_thief 100~
 #4156
 troll троль~
 @eng the troll@rus тролль~
@@ -515,7 +515,7 @@ QU
 stand stand male 200
 0 0 medium unknown
 r magic 33
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #4158
 snake змея~
 @eng the snake@rus змея~
@@ -534,7 +534,7 @@ fight fight female 0
 0 0 medium unknown
 r bash 33
 r pierce 33
-m mob_random mob_random_poison +100~
+m mob_fight mob_fight_poison_bite 100~
 #4159
 troll small тролль маленький~
 @eng the small troll@rus ~~маленький~~ ~~тролль~~~

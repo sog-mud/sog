@@ -78,7 +78,7 @@ BCFJ 0 0 0 0 -750 0
 CEFHIK
 stand stand male 300
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #4506
 mob vampire mayor~
 the Vampire Mayor~
@@ -125,7 +125,7 @@ FHK
 stand stand male 2600
 0 0 medium unknown
 r wood -50
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #4509
 mob rat~
 the giant rat~
@@ -141,7 +141,7 @@ stand stand male 0
 0 0 medium unknown
 r wood -50
 r silver -50
-m mob_random mob_random_assassinater +100~
+m mob_fight mob_fight_assassinater 100~
 #4510
 mob vampire nosferatu~
 Nosferatu~
@@ -158,7 +158,7 @@ E
 stand stand either 5000
 0 0 medium unknown
 r wood -50
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #0
 
 #OBJECTS

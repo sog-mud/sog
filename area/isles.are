@@ -209,7 +209,7 @@ unique~
 0
 stand stand none 1000
 0 0 medium unknown
-m mob_random mob_random_fido +100~
+m mob_random mob_random_fido 100~
 #17025
 worm lava~
 the lava worm~
@@ -227,7 +227,7 @@ human~
 U
 stand stand none 1000
 0 0 medium unknown
-m mob_random mob_random_breath_fire +100~
+m mob_fight mob_fight_breath_fire 100~
 #17026
 lizard lava~
 the lava lizard~
@@ -307,7 +307,7 @@ CEFIK
 stand stand none 1000
 0 0 medium unknown
 r fire 100
-m mob_random mob_random_breath_fire +100~
+m mob_fight mob_fight_breath_fire 100~
 #17031
 mizzenmast pirate lord~
 Mizzenmast~
@@ -384,7 +384,7 @@ F 0 0 0 0 0 0
 EF
 stand stand none 1000
 0 0 medium unknown
-m mob_random mob_random_fido +100~
+m mob_random mob_random_fido 100~
 #17036
 shark white great~
 the great white shark~
@@ -400,7 +400,7 @@ F 0 0 0 0 0 0
 EF
 stand stand none 1000
 0 0 medium unknown
-m mob_random mob_random_fido +100~
+m mob_random mob_random_fido 100~
 #17037
 shark mako~
 the mako shark~
@@ -416,7 +416,7 @@ F 0 0 0 0 0 0
 EF
 stand stand none 1000
 0 0 medium unknown
-m mob_random mob_random_fido +100~
+m mob_random mob_random_fido 100~
 #17038
 shark hammerhead~
 the hammerhead shark~
@@ -431,7 +431,7 @@ human~
 EF
 stand stand none 1000
 0 0 medium unknown
-m mob_random mob_random_fido +100~
+m mob_random mob_random_fido 100~
 #17039
 shark blue~
 the blue shark~
@@ -447,7 +447,7 @@ human~
 EF
 stand stand none 1000
 0 0 medium unknown
-m mob_random mob_random_fido +100~
+m mob_random mob_random_fido 100~
 #17040
 clam giant~
 Did I say coral? I meant clam~
@@ -624,7 +624,7 @@ B 0 0 A 0 1000 0
 EFIJ
 stand stand male 1000
 0 0 medium unknown
-m mob_random mob_random_cast_mage +100~
+m mob_fight mob_fight_cast_mage 100~
 #17051
 orca~
 the orca~

@@ -40,7 +40,7 @@ BG 0 N 0 ABH 0 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_executioner +100~
+m mob_random mob_random_executioner 100~
 #30802
 monk master~
 a master~
@@ -74,7 +74,7 @@ BGH 0 0 0 ABH -800 0
 FIJQ
 stand stand male 0
 0 0 medium unknown
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #30804
 abbot~
 the abbot~
@@ -108,7 +108,7 @@ BFG 0 0 0 H 0 0
 FIJQ
 stand stand none 0
 0 0 small unknown
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #30806
 bone devil~
 a bone devil~
@@ -124,7 +124,7 @@ BG 0 N 0 ABH -1000 0
 EFHIJKNQ
 stand stand none 0
 0 0 large unknown
-m mob_random mob_random_cast_undead +100~
+m mob_fight mob_fight_cast_undead 100~
 #30807
 elven virgin~
 an elven virgin~
@@ -185,7 +185,7 @@ EFIJKS
 stand stand male 0
 0 0 medium unknown
 r holy 100
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #30811
 black dragon~
 a black dragon~
@@ -199,7 +199,7 @@ BG 0 JN 0 ABKL -1000 0
 CDEFQ
 stand stand male 0
 0 0 giant unknown
-m mob_random mob_random_breath_acid +100~
+m mob_fight mob_fight_breath_acid 100~
 #30812
 old elf~
 an old elf~
@@ -246,7 +246,7 @@ BG 0 T 0 0 -234 0
 FHQ
 stand stand male 0
 0 0 small unknown
-m mob_random mob_random_poison +100~
+m mob_fight mob_fight_poison_bite 100~
 #30815
 pit beast~
 a pit beast~
@@ -262,7 +262,7 @@ BFG 0 0 G H 0 0
 FIJQ
 stand stand none 0
 0 0 medium unknown
-m mob_random mob_random_fido +100~
+m mob_random mob_random_fido 100~
 #0
 
 #OBJECTS

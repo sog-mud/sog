@@ -208,7 +208,7 @@ BGH 0 H 0 0 700 0
 EIK
 stand stand female 1000
 0 0 medium unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #29513
 andromache~
 Andromache~
@@ -393,7 +393,7 @@ BG 0 N 0 0 500 0
 EIK
 stand stand male 1000
 0 0 medium unknown
-m mob_random mob_random_cast_adept +100~
+m mob_random mob_random_cast_adept 100~
 #29526
 menestheus~
 Menestheus~
@@ -546,7 +546,7 @@ BG 0 H 0 0 400 0
 EIK
 stand stand male 1000
 0 0 medium unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #29537
 neoptolemus~
 Neoptolemus~

@@ -139,7 +139,7 @@ G 0 0 0 0 0 0
 EN
 stand stand male 10
 0 0 medium unknown
-m mob_random mob_random_cast_cleric +100~
+m mob_fight mob_fight_cast_cleric 100~
 #9910
 warrior goblin~
 the Goblin Warrior~
