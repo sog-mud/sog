@@ -923,7 +923,7 @@ $n takes advantage of your fall, stabbing you down."~
 @eng $n wears $p on $s legs.@rus $n $gn{надевает} $c3{$p} на ноги.~
 @eng $n wears $p on $s right finger.@rus $n $gn{надевает} $c3{$p} на палец правой руки.~
 @eng $n wears $p on $s torso.@rus $n $gn{надевает} $c3{$p}.~
-@eng $n wears $s $p!@rus $n $gn{одевает} $c3{$p}!~
+@eng $n wears $s $p!@rus $n $gn{надевает} $c3{$p}!~
 @eng $n whacks $N at the back of $S head with a heavy looking sack!  *OUCH*@rus $n $gn{огрел} $c6{$N} по голове увесистым мешком! *ОЙ*~
 @eng $n wields $p in $s off-hand.@rus $n $gn{взял} $c3{$p} во вторую руку. ~
 @eng $n wields $p.@rus $n $gn{вооружается} $c4{$p}.~
@@ -3603,7 +3603,7 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng You wear $p on your legs.@rus Ты надеваешь $c3{$p} на ноги.~
 @eng You wear $p on your right finger.@rus Ты надеваешь $c3{$p} на палец правой руки.~
 @eng You wear $p on your torso.@rus Ты надеваешь $c3{$p}.~
-@eng You wear $p!@rus Ты одеваешь $c3{$p}!~
+@eng You wear $p!@rus Ты надеваешь $c3{$p}!~
 @eng You wield $p in your off-hand.@rus Ты берешь $c3{$p} во вторую руку.~
 @eng You wield $p.@rus Ты вооружаешься $c4{$p}.~
 @eng You wield your second weapon as your first!@rus Перехватив второе оружие, ты теперь используешь его в качестве основного.~
