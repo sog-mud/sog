@@ -296,7 +296,7 @@ BZc KMN large unknown
 bone dragon lich~
 @eng bone dragon@rus ~~костяной~~ ~~дракон~~~
 @eng Huge undead dragon unfurls his wings.
-@rus Огромный дракон разворачивает крылья.
+@rus Огромный дракон (dragon) разворачивает крылья.
 ~
 @eng This huge creature walks with a deadly grace. But a smell... It smells
 really BAD!
@@ -308,7 +308,7 @@ AOT DS 0 0
 0 10 0d0+0 0d0+0 0d0+0 scratch
 0 0 0 0
 CFHLO 0 0 0
-stand stand none 0
+stand stand male 0
 0 0 huge unknown
 F aff JT
 F vul FI

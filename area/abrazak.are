@@ -369,13 +369,17 @@ A
 18 250
 G none
 #15019
-mark~
-@rus Свернувший с пути~
-abra kadabra madabra~
-unknown~
-treasure A S
-0 0 0 0 0
-0 0 100 P
+pit яма~
+@eng the large donation pit@rus большая яма для жертвоприношений~
+@eng A pit for sacrifices is in middle of the street.@rus Посреди улицы находится большая яма для жертвоприношений.~
+~
+container g 0
+10000 0 0 1000 100
+0 0 0 P
+E
+pit~
+This is where you put money and items to help Doz expand this shrine, 
+~
 G none
 #15020
 box~
@@ -394,6 +398,21 @@ bottle~
 drink CGRYa AOP
 20 20 'beer' 0 0
 1 0 0 P
+G none
+#15022
+collar bloody special~
+a bloody collar~
+The bloody collar of a dead beast lies here~
+gold~
+armor GHP AC
+12 12 12 6 0
+36 7 800 P
+A
+13 35
+A
+19 5
+A
+18 2
 G none
 #15026
 shtuchka~
@@ -570,6 +589,19 @@ staff EFHMPRTYa AOP
 0 0 0 'reserved' 0
 10 10 0 P
 G none
+#15055
+knife sacrificers~
+@eng sacrificers knife of a dark gods@rus [освященный богами тьмы нож для жертвоприношений~
+@eng Evils dark emanates from obsidian knife from the ground@rus Зловещая тьма растекается от обсидианового ножа на земле.~
+obsidian~
+weapon CEGJL ANP
+dagger 8 15 slash CDEGH
+65 0 0 P
+A
+8 2
+S 'shielding' 50 A
+S 'power word stun' 50 A
+G none
 #15060
 wand storm~
 the wand of death storm~
@@ -587,6 +619,28 @@ brass~
 container Yb AE
 1000 0 0 1000 10
 0 0 0 P
+G none
+#15199
+harp~
+a harp of Hyperion~
+A harp is lieing on the ground here.~
+gold~
+wand G AO
+10 300 300 'word of recall' 0
+9 200 25000 P
+A
+12 30
+A
+17 -60
+A
+19 1
+A
+13 15
+E
+harp~
+On the side it says:
+                                Harp of safety.
+~
 G none
 #0
 
@@ -638,6 +692,74 @@ S
 ~
 0 0 inside
 S
+#15020
+@eng Cavern entrance@rus Вход в пещеру~
+~
+0 0 inside
+D0
+~
+~
+Z 0 15021
+S
+#15021
+@eng Junction in the cavern~
+~
+0 0 inside
+D0
+~
+~
+Z 0 15022
+D1
+~
+~
+Z 0 15024
+D2
+~
+~
+Z 0 15020
+D3
+~
+~
+Z 0 15023
+S
+#15022
+@eng Main chamber~
+~
+0 0 inside
+D2
+~
+~
+Z 0 15021
+S
+#15023
+@eng West end of the cavern~
+~
+0 0 inside
+D1
+~
+~
+Z 0 15021
+S
+#15024
+@eng East end of the cavern~
+~
+0 0 inside
+D3
+~
+~
+Z 0 15021
+S
+#15025
+@eng Rakot's bedroom@rus Комната покоя Ракота~
+@rus Вы находитесь в комнате ВЛАДЫКИ МРАКА. Сама обстановка не располагает к расслабленности, к отдыху. БОЙТЕСЬ! Ибо страшен Ракот в ГНЕВЕ своем!
+~
+0 K inside
+D0
+~
+~
+Z 0 3005
+M 200 H 200
+S
 #15100
 ~
 ~
@@ -680,7 +802,7 @@ mob vforce 50 wave
 mob vforce 50 mob goto 15000
 mob vforce 50 cast 'teleport'
 mob vforce 50 yell Hey! I have some funny junk for you!
-if rand 25
+if rand 5
 mob vforce 50 mob oload 15008
 mob vforce 50 drop invader
 endif

@@ -1925,7 +1925,7 @@ their groups:
  {ctransportation{x >>> {gGrand Mistress of Magic{x  (High Tower     )
  {cweaponsmaster{x  >>> {gSamurai{x                  (New Thalos     )
  {cwizard{x         >>> {gWizard{x                   (Midgaard       )
-{c necromancy     {x>>>{g Necromancer-Alchemist    {x(Elvenhame      )
+ {cnecromancy{x     >>> {gMyzelak{x                  (Lich Tower      )
  
 If you SLOOK the spell or skill and find it in group `{cnone{x', `{cweather{x',
 `{ccreation{x', `{charmful{x', `{cprotective{x' or `{cdetection{x', then you
@@ -1969,7 +1969,7 @@ PRACTICE с аргументом тренирует тебя во владении указанным умением или закли-
  {ctransportation{x >>> {gGrand Mistress of Magic{x  (High Tower     )
  {cweaponsmaster{x  >>> {gSamurai{x                  (New Thalos     )
  {cwizard{x         >>> {gWizard{x                   (Midgaard       )
- {cnecromancy{x     >>> {gNecromancer-Alchemist{x    (Elvenhame      )
+ {cnecromancy{x     >>> {gMyzelak{x                  (Lich Tower      )
  
 Используй команду SLOOK для определения группы. Если умение или заклинание
 принадлежит одной из групп '{cnone{x', '{cweather{x', '{ccreation{x', '{charmful{x',
@@ -2118,13 +2118,6 @@ typically used for preventing a spammer from returning.
 всем смертным персонажам (т.е. уровня ниже 92), за исключением игроков, кто
 возобновляет разорванное соединение. NEWLOCK запрещает генерацию новых персо-
 нажей.
-~
-92 'WIZ DENY' DENY~
-Syntax: deny <name>
-
-Deny locks a character out of a game permanently, rendering their character
-name unusable.  It may only be removed by editing the file, for this reason
-freeze is usually preferred.
 ~
 92 'WIZ DISCONNECT' DISCONNECT~
 @eng Syntax: {cdisconnect{x <name>
@@ -4599,9 +4592,35 @@ There are following religions available:
 	To you : cure poison
 ~
 -2 STATS~
-There are currently 6 stats, which are STR,INT,WIS,DEX,CON,CHA. Each
+@eng There are currently 6 stats, which are STR,INT,WIS,DEX,CON,CHA. Each
 has special importance in your mud life, while fighting, gaining hitpoint 
 mana at each tick, gaining hitpoint,mana and movement at gaining level,etc.
+ 
+ (Str)ength|(Int)ellect| (Wis)dom  |(Dex)terity|(Con)stitution|(Cha)risma
+-----------|-----------|-----------|-----------|--------------|------------
+ Titanic   | Genious   | Excellent | Fast      | Iron         | Charismatic
+ Herculian | Clever    | Wise      | Quick     | Hearty       | Familier
+ Strong    | Good      | Good      | Dextrous  | Healthy      | Good
+ Average   | Average   | Average   | Average   | Average      | Average
+ Poor      | Poor      | Dim       | Clumsy    | Poor         | Poor
+ Weak      | Hopeless  | Fool      | Slow      | Fragile      | Mongol
+___________|___________|___________|___________|______________|____________
+@rus У всего движущегося в этом мире имеется шесть параметров. Это
+STR (Сила), INT (Интеллект), WIS (Мудрость), DEX (Проворность),
+CON (Сложение), CHA (Харизма). Они определяют всю жизнь персонажа -
+бой, восстановление очков здоровья и магии, увеличение очков здо-
+ровья, магии и движения при переходе на другой уровень, и многое
+другое.
+ 
+ (Str)ength|(Int)ellect| (Wis)dom  |(Dex)terity|(Con)stitution|(Cha)risma
+-----------|-----------|-----------|-----------|--------------|------------
+ Titanic   | Genious   | Excellent | Fast      | Iron         | Charismatic
+ Herculian | Clever    | Wise      | Quick     | Hearty       | Familier
+ Strong    | Good      | Good      | Dextrous  | Healthy      | Good
+ Average   | Average   | Average   | Average   | Average      | Average
+ Poor      | Poor      | Dim       | Clumsy    | Poor         | Poor
+ Weak      | Hopeless  | Fool      | Slow      | Fragile      | Mongol
+___________|___________|___________|___________|______________|____________
 ~
 0 'LIMITED EQUIPMENTS' 'LIMIT EQUIPMENTS'~
 Some of the items have been limited. You may find more information about
