@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.80 1998-11-02 05:28:31 fjoe Exp $
+ * $Id: update.c,v 1.81 1998-11-07 06:01:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1562,6 +1562,15 @@ void obj_update(void)
  
 	for (obj = object_list; obj != NULL; obj = obj_next) {
 		obj_next = obj->next;
+		if (obj->extracted) {
+/* XXX
+ * temporary patch. i don't have enough time to find out why extracted objs
+ * appear in object_list
+ */
+			log_printf("obj_update: updating extracted obj (%s)",
+				   obj->pIndexData->name);
+			continue;
+		}
 		update_one_obj(obj);
 	}
 }

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.96 1998-11-02 05:28:29 fjoe Exp $
+ * $Id: fight.c,v 1.97 1998-11-07 06:01:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1721,7 +1721,6 @@ void make_corpse(CHAR_DATA *ch)
 	if (IS_NPC(ch)) {
 		/* XXX */
 		corpse		= create_named_obj(get_obj_index(OBJ_VNUM_CORPSE_NPC), ch->level, mlstr_mval(ch->short_descr));
-		corpse->owner	= str_dup(ch->name);
 		corpse->timer	= number_range(3, 6);
 		if (ch->gold > 0 || ch->silver > 0)
 		  {
@@ -1745,7 +1744,6 @@ void make_corpse(CHAR_DATA *ch)
 		  i = 1;
 
 		corpse		= create_named_obj(get_obj_index(OBJ_VNUM_CORPSE_PC), ch->level, ch->name);
-		corpse->owner	= str_dup(ch->name);
 		corpse->timer	= number_range(25, 40);
 		REMOVE_BIT(ch->act,PLR_CANLOOT);
 		corpse->owner = str_dup(ch->name);
