@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.165.2.52 2004-02-18 22:49:15 fjoe Exp $
+ * $Id: act_obj.c,v 1.165.2.53 2004-02-18 22:54:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3688,6 +3688,7 @@ static void sac_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 	&&  obj->pObjIndex->item_type != ITEM_CORPSE_PC)
 		silver = UMIN(silver, obj->cost);
 
+	act("You sacrifice $p to gods.", ch, obj, NULL, TO_CHAR);
 	act("$n sacrifices $p to gods.", ch, obj, NULL, TO_ROOM);
 	if ((carry_w = can_carry_w(ch)) < 0
 	||  get_carry_weight(ch) + COINS_WEIGHT(silver, 0) <= (uint) carry_w) {
