@@ -84,4 +84,22 @@ Adept 75
 Max 100
 End
 
+#SKILL
+Skill 'wind blow'
+Level 22
+Rating 1
+Min 1
+Adept 75
+Max 100
+End
+
+#SKILL
+Skill 'tornado'
+Level 17
+Rating 1
+Min 1
+Adept 75
+Max 100
+End
+
 #$
