@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.147 1999-06-04 14:54:44 avn Exp $
+ * $Id: db.c,v 1.148 1999-06-05 06:58:41 kostik Exp $
  */
 
 /***************************************************************************
@@ -1715,7 +1715,8 @@ void do_areas(CHAR_DATA *ch, const char *argument)
 	pArea1    = area_first;
 	pArea2    = area_first;
 	for (iArea = 0; iArea < iAreaHalf; iArea++)
-		for (pArea2 = pArea2->next; IS_SET(pArea2->flags, AREA_CLOSED);
+		for (pArea2 = pArea2->next; 
+		    IS_SET(pArea2->flags, AREA_CLOSED) && pArea2->next;
 			pArea2 = pArea2->next);
 
 	output = buf_new(-1);
@@ -1733,7 +1734,8 @@ void do_areas(CHAR_DATA *ch, const char *argument)
 				pArea2->credits);
 		buf_add(output, "\n");
 
-		for (pArea1 = pArea1->next; IS_SET(pArea1->flags, AREA_CLOSED);
+		for (pArea1 = pArea1->next; 
+		IS_SET(pArea1->flags, AREA_CLOSED) && pArea1->next;
 			pArea1 = pArea1->next);
 		if (pArea2 != NULL)
 			for (pArea2 = pArea2->next;
