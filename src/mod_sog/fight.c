@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.350 2002-03-20 19:39:45 fjoe Exp $
+ * $Id: fight.c,v 1.351 2002-03-20 19:52:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1230,294 +1230,6 @@ damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt, int dam_flags)
 {
 	int dam_class = skill_damclass(dt);
 	return damage2(ch, victim, dam, dt, dam_class, dam_flags);
-}
-
-/*
- * Inflict damage from a hit.
- * XXX should be moved to the end of file
- */
-static bool
-damage2(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
-	int dam_class, int dam_flags)
-{
-	bool immune;
-	int dam2;
-	int loc;
-	int res;
-
-	int initial_damage = dam;
-
-	if (IS_EXTRACTED(victim))
-		return FALSE;
-	if (victim->in_room == NULL || ch->in_room == NULL)
-		return FALSE;
-
-	/*
-	 * strip sleeping affects
-	 * (only for DAM_F_LIGHT_V if ch == victim
-	 * otherwise blackjack/vtouch etc. will not take effect on
-	 * poisoned/plagued etc. char)
-	 */
-	if (IS_AFFECTED(victim, AFF_SLEEP)
-	&&  (ch != victim || IS_SET(dam_flags, DAM_F_LIGHT_V))) {
-		REMOVE_BIT(victim->affected_by, AFF_SLEEP);
-		affect_bit_strip(victim, TO_AFFECTS, AFF_SLEEP);
-		victim->position = POS_STANDING;
-	}
-
-	/*
-	 * strip calm affects
-	 */
-	if (IS_AFFECTED(victim, AFF_CALM)) {
-		REMOVE_BIT(victim->affected_by, AFF_CALM);
-		affect_bit_strip(victim, TO_AFFECTS, AFF_CALM);
-	}
-
-	if (victim != ch) {
-		/*
-		 * Certain attacks are forbidden.
-		 * Most other attacks are returned.
-		 */
-
-		if (victim->position > POS_STUNNED) {
-			if (victim->fighting == NULL) {
-				set_fighting(victim, ch);
-
-				if (pull_mob_trigger(
-					TRIG_MOB_KILL, victim, ch, NULL) > 0
-				||  IS_EXTRACTED(ch)
-				||  IS_EXTRACTED(victim))
-					return FALSE;
-			}
-
-			/*
-			 * stand up if victim was bashed (and is not idle)
-			 * check that victim is fighting
-			 * (if victim is range-attacked and is not fighting
-			 * with someone else victim->fighting will be NULL)
-			 */
-			if ((IS_NPC(victim) || PC(victim)->idle_timer <= 4)
-			&&  victim->fighting != NULL)
-				victim->position = POS_FIGHTING;
-		}
-
-		if (victim->position > POS_STUNNED) {
-			if (ch->fighting == NULL)
-				set_fighting(ch, victim);
-
-			/*
-			 * If victim is charmed, ch might attack
-			 * victim's master.
-			 */
-			if (IS_NPC(ch)
-			&&  IS_NPC(victim)
-			&&  IS_AFFECTED(victim, AFF_CHARM)
-			&&  victim->master
-			&&  victim->master->in_room == ch->in_room
-			&&  !victim->master->fighting
-			&&  number_bits(2) == 0) {
-				stop_fighting(ch, FALSE);
-				multi_hit(ch, victim->master, NULL);
-				return FALSE;
-			}
-		}
-
-		/*
-		 * More charm and group stuff.
-		 */
-		if (victim->master == ch)
-			stop_follower(victim);
-
-		if (MOUNTED(victim) == ch || RIDDEN(victim) == ch)
-			victim->riding = ch->riding = 0;
-	}
-
-	/*
-	 * No one in combat can hide, be invis or camoed. But can be
-	 * imp invis.
-	 */
-	if (HAS_INVIS(ch, ID_ALL_INVIS & ~ID_IMP_INVIS))
-		make_visible(ch, FALSE);
-	if (HAS_INVIS(victim, ID_ALL_INVIS & ~ID_IMP_INVIS))
-		make_visible(victim, FALSE);
-
-	if (ch != victim && is_sn_affected(ch, "globe of invulnerability")) {
-		affect_strip(ch, "globe of invulnerability");
-		act_char("Your globe of invulnerability shatters.", ch);
-		act("$n's globe of invulnerability shatters.", ch,
-		    NULL, NULL, TO_ROOM);
-	}
-
-	if (ch != victim && is_sn_affected(victim, "globe of invulnerability")) {
-		affect_strip(victim, "globe of invulnerability");
-		act_char("Your globe of invulnerability shatters.", victim);
-		act("$n's globe of invulnerability shatters.", victim,
-		    NULL, NULL, TO_ROOM);
-	}
-
-	/*
-	 * Damage modifiers.
-	 */
-	if (IS_AFFECTED(victim, AFF_SANCTUARY)
-	&&  (!IS_SKILL(dt, "cleave") || number_percent() > 50))
-		dam /= 2;
-
-	if (IS_AFFECTED(victim, AFF_BLACK_SHROUD))
-		dam = (4 * dam) / 7;
-
-	if (is_sn_affected(victim, "obscuring mist"))
-		dam = (5 * dam) / 8;
-
-	if (IS_AFFECTED(victim, AFF_PROTECT_EVIL) && IS_EVIL(ch))
-		dam -= dam / 4;
-
-	if (IS_AFFECTED(victim, AFF_PROTECT_GOOD) && IS_GOOD(ch))
-		dam -= dam / 4;
-
-	if (is_sn_affected(victim, "golden aura")) {
-		if (IS_GOOD(ch)) /* Goodies shouldn't fight each other */
-			dam /= 8;
-		else if (IS_EVIL(ch))
-			dam -= dam / 5;
-		else
-			dam -= dam / 10;
-	}
-
-	if (is_sn_affected(victim, "toughen"))
-		dam = (3 * dam) / 5;
-
-	immune = FALSE;
-	loc = IS_SET(dam_flags, DAM_F_SECOND) ? WEAR_SECOND_WIELD : WEAR_WIELD;
-
-	/*
-	 * Check for parry, and dodge.
-	 */
-	if (IS_SET(dam_flags, DAM_F_HIT) && ch != victim) {
-		/*
-		 * some funny stuff
-		 */
-		if (is_sn_affected(victim, "mirror")) {
-			act("$n shatters into tiny fragments of glass.",
-			    victim, NULL, NULL, TO_ROOM);
-			extract_char(victim, 0);
-			return FALSE;
-		}
-
-		if (check_distance(ch, victim, loc))
-			return FALSE;
-		if (check_parry(ch, victim, loc))
-			return FALSE;
-		if (check_block(ch, victim, loc))
-			return FALSE;
-		if (check_dodge(ch, victim))
-			return FALSE;
-		if (check_blink(ch, victim))
-			return FALSE;
-		if (check_hand_block(ch, victim))
-			return FALSE;
-		check_stun(ch, victim);
-	}
-
-	if ((res = get_resist(victim, dam_class, TRUE)) == 100)
-		immune = TRUE;
-
-	if (IS_SET(dam_flags, DAM_F_HIT) && ch != victim) {
-		if ((dam2 = critical_strike(ch, victim, dam)) != 0)
-			dam = dam2;
-	}
-
-	dam -= dam * res / 100;
-
-	if (is_sn_affected(victim, "shadow magic"))
-		dam /= 5;
-
-	if (IS_SET(dam_flags, DAM_F_NOREDUCE))
-		dam = initial_damage;
-
-	if (IS_SET(dam_flags, DAM_F_SHOW))
-		dam_message(ch, victim, dam, dt, immune, dam_class, dam_flags);
-
-	if (dam == 0)
-		return FALSE;
-
-	if (IS_SET(dam_flags, DAM_F_HIT)
-	&&  ch != victim
-	&&  number_percent() < 5)
-		random_eq_damage(ch, victim, loc);
-
-	/*
-	 * Hurt the victim.
-	 * Inform the victim of his new state.
-	 */
-	victim->hit -= dam;
-	if (IS_IMMORTAL(victim) && victim->hit < 1)
-		victim->hit = 1;
-
-	update_pos(victim);
-
-	switch (victim->position) {
-	case POS_MORTAL:
-		act("$n is mortally wounded, and will die soon, if not aided.",
-		    victim, NULL, NULL, TO_ROOM);
-		act_char("You are mortally wounded, and will die soon, if not aided.", victim);
-		break;
-
-	case POS_INCAP:
-		act("$n is incapacitated and will slowly die, if not aided.",
-		    victim, NULL, NULL, TO_ROOM);
-		act_char("You are incapacitated and will slowly die, if not aided.", victim);
-		break;
-
-	case POS_STUNNED:
-		act("$n is stunned, but will probably recover.",
-		    victim, NULL, NULL, TO_ROOM);
-		act_char("You are stunned, but will probably recover.", victim);
-		break;
-
-	case POS_DEAD:
-		break;
-
-	default:
-		if (IS_SET(dam_flags, DAM_F_HUNGER | DAM_F_THIRST))
-			break;
-		if (dam > victim->max_hit / 4)
-			act_char("That really did HURT!", victim);
-		if (victim->hit < victim->max_hit / 4)
-			act_char("You sure are BLEEDING!", victim);
-		break;
-	}
-
-	/*
-	 * Sleep spells and extremely wounded folks.
-	 */
-	if (!IS_AWAKE(victim) && victim->fighting)
-		victim->fighting = NULL;
-
-	/*
-	 * Payoff for killing things.
-	 */
-	if (victim->position == POS_DEAD) {
-		handle_death(ch, victim);
-		return TRUE;
-	}
-
-	if (victim == ch)
-		return TRUE;
-
-	/*
-	 * Take care of link dead people.
-	 */
-	if (!IS_NPC(victim)
-	&&  victim->desc == NULL
-	&&  !IS_SET(victim->comm, COMM_NOFLEE)) {
-		if (number_range(0, victim->wait) == 0) {
-			dofun("flee", victim, str_empty);
-			return TRUE;
-		}
-	}
-
-
-	return TRUE;
 }
 
 /*
@@ -3528,4 +3240,291 @@ is_safe_rspell_nom(AFFECT_DATA *af, CHAR_DATA *victim)
 	log(LOG_BUG, "is_safe_rspell_nom: no affect owner");
 	affect_remove_room(victim->in_room, af);
 	return TRUE; /* protected from broken room affects */
+}
+
+/*
+ * Inflict damage from a hit.
+ */
+static bool
+damage2(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
+	int dam_class, int dam_flags)
+{
+	bool immune;
+	int dam2;
+	int loc;
+	int res;
+
+	int initial_damage = dam;
+
+	if (IS_EXTRACTED(victim))
+		return FALSE;
+	if (victim->in_room == NULL || ch->in_room == NULL)
+		return FALSE;
+
+	/*
+	 * strip sleeping affects
+	 * (only for DAM_F_LIGHT_V if ch == victim
+	 * otherwise blackjack/vtouch etc. will not take effect on
+	 * poisoned/plagued etc. char)
+	 */
+	if (IS_AFFECTED(victim, AFF_SLEEP)
+	&&  (ch != victim || IS_SET(dam_flags, DAM_F_LIGHT_V))) {
+		REMOVE_BIT(victim->affected_by, AFF_SLEEP);
+		affect_bit_strip(victim, TO_AFFECTS, AFF_SLEEP);
+		victim->position = POS_STANDING;
+	}
+
+	/*
+	 * strip calm affects
+	 */
+	if (IS_AFFECTED(victim, AFF_CALM)) {
+		REMOVE_BIT(victim->affected_by, AFF_CALM);
+		affect_bit_strip(victim, TO_AFFECTS, AFF_CALM);
+	}
+
+	if (victim != ch) {
+		/*
+		 * Certain attacks are forbidden.
+		 * Most other attacks are returned.
+		 */
+
+		if (victim->position > POS_STUNNED) {
+			if (victim->fighting == NULL) {
+				set_fighting(victim, ch);
+
+				if (pull_mob_trigger(
+					TRIG_MOB_KILL, victim, ch, NULL) > 0
+				||  IS_EXTRACTED(ch)
+				||  IS_EXTRACTED(victim))
+					return FALSE;
+			}
+
+			/*
+			 * stand up if victim was bashed (and is not idle)
+			 * check that victim is fighting
+			 * (if victim is range-attacked and is not fighting
+			 * with someone else victim->fighting will be NULL)
+			 */
+			if ((IS_NPC(victim) || PC(victim)->idle_timer <= 4)
+			&&  victim->fighting != NULL)
+				victim->position = POS_FIGHTING;
+		}
+
+		if (victim->position > POS_STUNNED) {
+			if (ch->fighting == NULL)
+				set_fighting(ch, victim);
+
+			/*
+			 * If victim is charmed, ch might attack
+			 * victim's master.
+			 */
+			if (IS_NPC(ch)
+			&&  IS_NPC(victim)
+			&&  IS_AFFECTED(victim, AFF_CHARM)
+			&&  victim->master
+			&&  victim->master->in_room == ch->in_room
+			&&  !victim->master->fighting
+			&&  number_bits(2) == 0) {
+				stop_fighting(ch, FALSE);
+				multi_hit(ch, victim->master, NULL);
+				return FALSE;
+			}
+		}
+
+		/*
+		 * More charm and group stuff.
+		 */
+		if (victim->master == ch)
+			stop_follower(victim);
+
+		if (MOUNTED(victim) == ch || RIDDEN(victim) == ch)
+			victim->riding = ch->riding = 0;
+	}
+
+	/*
+	 * No one in combat can hide, be invis or camoed. But can be
+	 * imp invis.
+	 */
+	if (HAS_INVIS(ch, ID_ALL_INVIS & ~ID_IMP_INVIS))
+		make_visible(ch, FALSE);
+	if (HAS_INVIS(victim, ID_ALL_INVIS & ~ID_IMP_INVIS))
+		make_visible(victim, FALSE);
+
+	if (ch != victim && is_sn_affected(ch, "globe of invulnerability")) {
+		affect_strip(ch, "globe of invulnerability");
+		act_char("Your globe of invulnerability shatters.", ch);
+		act("$n's globe of invulnerability shatters.", ch,
+		    NULL, NULL, TO_ROOM);
+	}
+
+	if (ch != victim && is_sn_affected(victim, "globe of invulnerability")) {
+		affect_strip(victim, "globe of invulnerability");
+		act_char("Your globe of invulnerability shatters.", victim);
+		act("$n's globe of invulnerability shatters.", victim,
+		    NULL, NULL, TO_ROOM);
+	}
+
+	/*
+	 * Damage modifiers.
+	 */
+	if (IS_AFFECTED(victim, AFF_SANCTUARY)
+	&&  (!IS_SKILL(dt, "cleave") || number_percent() > 50))
+		dam /= 2;
+
+	if (IS_AFFECTED(victim, AFF_BLACK_SHROUD))
+		dam = (4 * dam) / 7;
+
+	if (is_sn_affected(victim, "obscuring mist"))
+		dam = (5 * dam) / 8;
+
+	if (IS_AFFECTED(victim, AFF_PROTECT_EVIL) && IS_EVIL(ch))
+		dam -= dam / 4;
+
+	if (IS_AFFECTED(victim, AFF_PROTECT_GOOD) && IS_GOOD(ch))
+		dam -= dam / 4;
+
+	if (is_sn_affected(victim, "golden aura")) {
+		if (IS_GOOD(ch)) /* Goodies shouldn't fight each other */
+			dam /= 8;
+		else if (IS_EVIL(ch))
+			dam -= dam / 5;
+		else
+			dam -= dam / 10;
+	}
+
+	if (is_sn_affected(victim, "toughen"))
+		dam = (3 * dam) / 5;
+
+	immune = FALSE;
+	loc = IS_SET(dam_flags, DAM_F_SECOND) ? WEAR_SECOND_WIELD : WEAR_WIELD;
+
+	/*
+	 * Check for parry, and dodge.
+	 */
+	if (IS_SET(dam_flags, DAM_F_HIT) && ch != victim) {
+		/*
+		 * some funny stuff
+		 */
+		if (is_sn_affected(victim, "mirror")) {
+			act("$n shatters into tiny fragments of glass.",
+			    victim, NULL, NULL, TO_ROOM);
+			extract_char(victim, 0);
+			return FALSE;
+		}
+
+		if (check_distance(ch, victim, loc))
+			return FALSE;
+		if (check_parry(ch, victim, loc))
+			return FALSE;
+		if (check_block(ch, victim, loc))
+			return FALSE;
+		if (check_dodge(ch, victim))
+			return FALSE;
+		if (check_blink(ch, victim))
+			return FALSE;
+		if (check_hand_block(ch, victim))
+			return FALSE;
+		check_stun(ch, victim);
+	}
+
+	if ((res = get_resist(victim, dam_class, TRUE)) == 100)
+		immune = TRUE;
+
+	if (IS_SET(dam_flags, DAM_F_HIT) && ch != victim) {
+		if ((dam2 = critical_strike(ch, victim, dam)) != 0)
+			dam = dam2;
+	}
+
+	dam -= dam * res / 100;
+
+	if (is_sn_affected(victim, "shadow magic"))
+		dam /= 5;
+
+	if (IS_SET(dam_flags, DAM_F_NOREDUCE))
+		dam = initial_damage;
+
+	if (IS_SET(dam_flags, DAM_F_SHOW))
+		dam_message(ch, victim, dam, dt, immune, dam_class, dam_flags);
+
+	if (dam == 0)
+		return FALSE;
+
+	if (IS_SET(dam_flags, DAM_F_HIT)
+	&&  ch != victim
+	&&  number_percent() < 5)
+		random_eq_damage(ch, victim, loc);
+
+	/*
+	 * Hurt the victim.
+	 * Inform the victim of his new state.
+	 */
+	victim->hit -= dam;
+	if (IS_IMMORTAL(victim) && victim->hit < 1)
+		victim->hit = 1;
+
+	update_pos(victim);
+
+	switch (victim->position) {
+	case POS_MORTAL:
+		act("$n is mortally wounded, and will die soon, if not aided.",
+		    victim, NULL, NULL, TO_ROOM);
+		act_char("You are mortally wounded, and will die soon, if not aided.", victim);
+		break;
+
+	case POS_INCAP:
+		act("$n is incapacitated and will slowly die, if not aided.",
+		    victim, NULL, NULL, TO_ROOM);
+		act_char("You are incapacitated and will slowly die, if not aided.", victim);
+		break;
+
+	case POS_STUNNED:
+		act("$n is stunned, but will probably recover.",
+		    victim, NULL, NULL, TO_ROOM);
+		act_char("You are stunned, but will probably recover.", victim);
+		break;
+
+	case POS_DEAD:
+		break;
+
+	default:
+		if (IS_SET(dam_flags, DAM_F_HUNGER | DAM_F_THIRST))
+			break;
+		if (dam > victim->max_hit / 4)
+			act_char("That really did HURT!", victim);
+		if (victim->hit < victim->max_hit / 4)
+			act_char("You sure are BLEEDING!", victim);
+		break;
+	}
+
+	/*
+	 * Sleep spells and extremely wounded folks.
+	 */
+	if (!IS_AWAKE(victim) && victim->fighting)
+		victim->fighting = NULL;
+
+	/*
+	 * Payoff for killing things.
+	 */
+	if (victim->position == POS_DEAD) {
+		handle_death(ch, victim);
+		return TRUE;
+	}
+
+	if (victim == ch)
+		return TRUE;
+
+	/*
+	 * Take care of link dead people.
+	 */
+	if (!IS_NPC(victim)
+	&&  victim->desc == NULL
+	&&  !IS_SET(victim->comm, COMM_NOFLEE)) {
+		if (number_range(0, victim->wait) == 0) {
+			dofun("flee", victim, str_empty);
+			return TRUE;
+		}
+	}
+
+
+	return TRUE;
 }
