@@ -3724,6 +3724,17 @@ Form 6 -а~
 End
 
 #RULE
+Name мужчина~
+BaseLen 6
+Form 1 -ы~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
 Name короткие~
 BaseLen 7
 Form 1 -х~
