@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.12 1998-05-06 09:25:25 fjoe Exp $
+ * $Id: act_comm.c,v 1.13 1998-05-06 09:34:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -99,7 +99,7 @@ void do_ilang(CHAR_DATA *ch, char *argument)
 
 void do_delet( CHAR_DATA *ch, char *argument)
 {
-	send_to_char("You must type the full command to delete yourself.\n\r",i
+	send_to_char("You must type the full command to delete yourself.\n\r",
 		     ch);
 }
 
@@ -131,7 +131,7 @@ void do_delete( CHAR_DATA *ch, char *argument)
 	}
 
 	send_to_char("Type delete again to confirm this command.\n\r"
-		     "WARNING: this command is irreversible.\n\r",ch);
+		     "WARNING: this command is irreversible.\n\r"
 		     "Typing delete with an argument will undo delete status.\n\r",
 		     ch);
 	ch->pcdata->confirm_delete = TRUE;

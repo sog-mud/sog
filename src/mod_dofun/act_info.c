@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.24 1998-05-06 09:25:25 fjoe Exp $
+ * $Id: act_info.c,v 1.25 1998-05-06 09:34:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -128,20 +128,20 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 		if (IS_OBJ_STAT(obj, ITEM_INVIS))
 			strcat(buf, "({yInvis{x) ");
 		if (IS_OBJ_STAT(obj, ITEM_DARK))
-			strcat(buf, "({DHidden{x) ");
+			strcat(buf, "({DDark{x) ");
 		if (CAN_DETECT(ch, DETECT_EVIL) && IS_OBJ_STAT(obj, ITEM_EVIL))
 			strcat(buf, "({RRed Aura{x) ");
 		if (CAN_DETECT(ch, DETECT_GOOD) && IS_OBJ_STAT(obj,ITEM_BLESS))
 			strcat(buf,"({BBlue Aura{x) ");
 		if (CAN_DETECT(ch, DETECT_MAGIC) && IS_OBJ_STAT(obj,ITEM_MAGIC))
-			strcat(buf, "({YMagical{x) ");
+			strcat(buf, "({MMagical{x) ");
 		if (IS_OBJ_STAT(obj, ITEM_GLOW))
-			strcat(buf, "({MGlowing{x) ");
+			strcat(buf, "({YGlowing{x) ");
 		if (IS_OBJ_STAT(obj, ITEM_HUM))
 			strcat(buf, "({WHumming{x) ");
 	}
 	else {
-		static char FLAGS[] = "{x[{y.{D.{R.{B.{Y.{M.{W.{x] ";
+		static char FLAGS[] = "{x[{y.{D.{R.{B.{M.{Y.{W.{x] ";
 		strcpy(buf, FLAGS);
 		if (IS_OBJ_STAT(obj, ITEM_INVIS)	)   buf[5] = 'I';
 		if (IS_OBJ_STAT(obj, ITEM_DARK)		)   buf[8] = 'H';
