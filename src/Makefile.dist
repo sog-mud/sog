@@ -1,5 +1,5 @@
 #
-# $Id: Makefile.dist,v 1.13 1999-05-22 13:38:33 fjoe Exp $
+# $Id: Makefile.dist,v 1.14 1999-05-22 16:49:47 avn Exp $
 #
 CC		= gcc
 LD		= gcc
@@ -69,7 +69,7 @@ CFILES = act_comm.c act_info.c act_move.c act_obj.c act_wiz.c auction.c\
 	 effects.c fight.c flag.c handler.c healer.c help.c\
 	 hunt.c interp.c log.c lookup.c magic.c magic2.c martial_art.c mem.c\
 	 mlstring.c mob_cmds.c mob_prog.c namedp.c note.c obj_prog.c quest.c\
-	 race.c raffects.c rating.c recycle.c religion.c repair.c\
+	 race.c raffects.c rating.c recycle.c religion.c repair.c rspells.c\
 	 save.c skills.c special.c str.c string_edit.c\
 	 tables.c update.c util.c varr.c\
 	 $(COMM_CFILES) $(DB_CFILES) $(OLC_CFILES) $(COMPAT_CFILES)
@@ -79,7 +79,7 @@ OFILES = act_comm.o act_info.o act_move.o act_obj.o act_wiz.o auction.o\
 	 effects.o fight.o flag.o handler.o healer.o help.o\
 	 hunt.o interp.o log.o lookup.o magic.o magic2.o martial_art.o mem.o\
 	 mlstring.o mob_cmds.o mob_prog.o namedp.o note.o obj_prog.o quest.o\
-	 race.o raffects.o rating.o recycle.o religion.o repair.o\
+	 race.o raffects.o rating.o recycle.o religion.o repair.o rspells.c\
 	 save.o skills.o special.o str.o string_edit.o\
 	 tables.o update.o util.o varr.o\
 	 $(COMM_OFILES) $(DB_OFILES) $(OLC_OFILES) $(COMPAT_OFILES)
