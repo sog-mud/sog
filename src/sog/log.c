@@ -23,12 +23,11 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: log.c,v 1.33 2001-08-05 16:36:59 fjoe Exp $
+ * $Id: log.c,v 1.34 2001-09-12 12:32:50 fjoe Exp $
  */
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdarg.h>
 #include <time.h>
 
 #include <typedef.h>

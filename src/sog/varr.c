@@ -23,10 +23,9 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.c,v 1.32 2001-09-12 08:12:00 fjoe Exp $
+ * $Id: varr.c,v 1.33 2001-09-12 12:32:54 fjoe Exp $
  */
 
-#include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

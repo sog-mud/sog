@@ -23,10 +23,9 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mprog.c,v 1.5 2001-09-04 19:33:03 fjoe Exp $
+ * $Id: mprog.c,v 1.6 2001-09-12 12:32:51 fjoe Exp $
  */
 
-#include <stdarg.h>
 #include <stdlib.h>
 
 #include <typedef.h>

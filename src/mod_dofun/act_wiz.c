@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.297 2001-09-07 19:34:31 fjoe Exp $
+ * $Id: act_wiz.c,v 1.298 2001-09-12 12:32:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -40,7 +40,6 @@
 *	ROM license, in the file Rom24/doc/rom.license			   *
 ***************************************************************************/
 
-#include <sys/types.h>
 #include <sys/time.h>
 #include <stdio.h>
 #include <string.h>

@@ -23,10 +23,9 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: healer.c,v 1.56 2001-08-20 16:47:26 fjoe Exp $
+ * $Id: healer.c,v 1.57 2001-09-12 12:32:26 fjoe Exp $
  */
 
-#include <sys/types.h>
 #include <sys/time.h>
 #include <stdio.h>
 #include <string.h>

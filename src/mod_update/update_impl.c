@@ -23,11 +23,10 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: update_impl.c,v 1.7 2001-08-20 16:47:49 fjoe Exp $
+ * $Id: update_impl.c,v 1.8 2001-09-12 12:32:47 fjoe Exp $
  */
 
 #include <stdlib.h>
-#include <stdarg.h>
 #include <stdio.h>
 
 #include <merc.h>

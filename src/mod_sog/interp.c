@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.188 2001-09-04 19:33:01 fjoe Exp $
+ * $Id: interp.c,v 1.189 2001-09-12 12:32:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -40,7 +40,6 @@
 *	ROM license, in the file Rom24/doc/rom.license			   *
 ***************************************************************************/
 
-#include <sys/types.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

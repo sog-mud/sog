@@ -23,10 +23,9 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hash.c,v 1.19 2001-08-28 16:37:41 avn Exp $
+ * $Id: hash.c,v 1.20 2001-09-12 12:32:50 fjoe Exp $
  */
 
-#include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -40,8 +39,8 @@
 /*
  * hash_add flags
  */
-#define HA_INSERT	(A)	/* insert element if does not exist */
-#define HA_REPLACE	(B)	/* replace element if exists */
+#define HA_F_INSERT	(A)	/* insert element if does not exist */
+#define HA_F_UPDATE	(B)	/* update element if exists */
 
 static void *hash_search(hash_t *h, const void *k, varr *v);
 static void *hash_add(hash_t *h, const void *k, const void *e, int flags);
@@ -99,19 +98,19 @@ hash_delete(hash_t *h, const void *k)
 void *
 hash_insert(hash_t *h, const void *k, const void *e)
 {
-	return hash_add(h, k, e, HA_INSERT);
-}
-
-void *
-hash_replace(hash_t *h, const void *k, const void *e)
-{
-	return hash_add(h, k, e, HA_REPLACE);
+	return hash_add(h, k, e, HA_F_INSERT);
 }
 
 void *
 hash_update(hash_t *h, const void *k, const void *e)
 {
-	return hash_add(h, k, e, HA_INSERT | HA_REPLACE);
+	return hash_add(h, k, e, HA_F_UPDATE);
+}
+
+void *
+hash_replace(hash_t *h, const void *k, const void *e)
+{
+	return hash_add(h, k, e, HA_F_INSERT | HA_F_UPDATE);
 }
 
 bool
@@ -215,11 +214,11 @@ hash_add(hash_t *h, const void *k, const void *e, int flags)
 	void *elem = hash_search(h, k, v);	/* existing element */
 
 	if (elem == NULL) {
-		if (!IS_SET(flags, HA_INSERT))
+		if (!IS_SET(flags, HA_F_INSERT))
 			return NULL;
 		elem = varr_enew(v);
 	} else {
-		if (!IS_SET(flags, HA_REPLACE))
+		if (!IS_SET(flags, HA_F_UPDATE))
 			return NULL;
 		if (v->v_data->e_destroy)
 			v->v_data->e_destroy(elem);

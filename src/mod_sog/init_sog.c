@@ -23,11 +23,10 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_sog.c,v 1.7 2001-08-25 04:53:58 fjoe Exp $
+ * $Id: init_sog.c,v 1.8 2001-09-12 12:32:42 fjoe Exp $
  */
 
 #include <stdio.h>
-#include <stdarg.h>
 #include <dlfcn.h>
 
 #include <merc.h>

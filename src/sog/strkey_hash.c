@@ -23,11 +23,10 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: strkey_hash.c,v 1.21 2001-08-28 21:52:18 fjoe Exp $
+ * $Id: strkey_hash.c,v 1.22 2001-09-12 12:32:53 fjoe Exp $
  */
 
 #include <limits.h>
-#include <stdarg.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>

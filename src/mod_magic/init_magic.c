@@ -23,10 +23,9 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_magic.c,v 1.15 2001-08-13 18:23:43 fjoe Exp $
+ * $Id: init_magic.c,v 1.16 2001-09-12 12:32:30 fjoe Exp $
  */
 
-#include <stdarg.h>
 #include <stdio.h>
 #include <dlfcn.h>
 

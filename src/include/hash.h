@@ -23,14 +23,11 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hash.h,v 1.10 2001-06-16 18:40:08 fjoe Exp $
+ * $Id: hash.h,v 1.11 2001-09-12 12:32:17 fjoe Exp $
  */
 
 #ifndef _HASH_H_
 #define _HASH_H_
-
-typedef int (*k_hash_t)(const void *k, size_t hsize);
-typedef int (*ke_cmp_t)(const void *k, const void *e);
 
 /*
  * first five elems must be the same as in varrdata_t

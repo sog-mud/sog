@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.324 2001-09-12 08:11:48 fjoe Exp $
+ * $Id: handler.c,v 1.325 2001-09-12 12:32:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -40,7 +40,6 @@
 *	ROM license, in the file Rom24/doc/rom.license			   *
 ***************************************************************************/
 
-#include <sys/types.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.362 2001-09-12 08:11:26 fjoe Exp $
+ * $Id: merc.h,v 1.363 2001-09-12 12:32:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -63,7 +63,6 @@
 
 #include <limits.h>
 #include <ctype.h>
-#include <stdarg.h>
 
 #include <typedef.h>
 

@@ -23,11 +23,11 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: info.c,v 1.31 2001-09-07 15:40:25 fjoe Exp $
+ * $Id: info.c,v 1.32 2001-09-12 12:32:42 fjoe Exp $
  */
 
-#include <sys/types.h>
-#if	!defined (WIN32)
+#if !defined (WIN32)
+#	include <sys/types.h>
 #	include <sys/socket.h>
 #	include <netinet/in.h>
 #	include <arpa/inet.h>

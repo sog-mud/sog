@@ -23,11 +23,10 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_bootdb.c,v 1.7 2001-08-30 18:50:03 fjoe Exp $
+ * $Id: init_bootdb.c,v 1.8 2001-09-12 12:32:21 fjoe Exp $
  */
 
 #include <sys/stat.h>
-#include <sys/types.h>
 #include <errno.h>
 #include <dirent.h>
 #include <stdio.h>

@@ -23,12 +23,11 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: str.c,v 1.32 2001-08-28 21:52:18 fjoe Exp $
+ * $Id: str.c,v 1.33 2001-09-12 12:32:53 fjoe Exp $
  */
 
 #include <ctype.h>
 #include <string.h>
-#include <stdarg.h>
 #include <stdlib.h>
 #include <stdio.h>
 

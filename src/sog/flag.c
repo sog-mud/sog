@@ -1,5 +1,5 @@
 /*
- * $Id: flag.c,v 1.38 2001-08-13 18:24:00 fjoe Exp $
+ * $Id: flag.c,v 1.39 2001-09-12 12:32:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -21,7 +21,6 @@
  implementing a system like below with such functions. -Jason Dinkel
  */
 
-#include <sys/types.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.58 2001-09-12 08:11:28 fjoe Exp $
+ * $Id: typedef.h,v 1.59 2001-09-12 12:32:19 fjoe Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -33,6 +33,7 @@
 #if defined(LINUX)
 #include <stdint.h>
 #endif
+#include <stdarg.h>
 
 #if	!defined(FALSE)
 #define FALSE	 0
@@ -177,6 +178,19 @@ typedef void	RUNGAME_FUN	(fd_set *, fd_set *, fd_set *);
 #	define vsnprintf	_vsnprintf
 #	define inline
 #endif
+
+typedef void (*e_init_t)(void *);
+typedef void (*e_destroy_t)(void *);
+typedef void *(*e_cpy_t)(void *, const void *);
+
+typedef int (*k_hash_t)(const void *k, size_t hsize);
+typedef int (*ke_cmp_t)(const void *k, const void *e);
+
+typedef void *(foreach_cb_t)(void *p, va_list ap);
+#define DECLARE_FOREACH_CB_FUN(fun)	foreach_cb_t fun
+#define FOREACH_CB_FUN(fun, p, ap)					\
+	void *fun(void *p __attribute__((unused)),			\
+		  va_list ap __attribute__((unused)))
 
 #define IS_SET(flag, bit)	((flag) & (bit))
 #define SET_BIT(var, bit)	((var) |= (bit))

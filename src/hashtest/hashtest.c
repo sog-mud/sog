@@ -1,6 +1,5 @@
-/* $Id: hashtest.c,v 1.5 2001-08-05 16:36:16 fjoe Exp $ */
+/* $Id: hashtest.c,v 1.6 2001-09-12 12:32:16 fjoe Exp $ */
 #include <sys/time.h>
-#include <stdarg.h>
 #include <stdlib.h>
 #include <stdio.h>
 

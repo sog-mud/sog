@@ -1,5 +1,5 @@
 /*
- * $Id: ban.c,v 1.50 2001-09-12 08:11:47 fjoe Exp $
+ * $Id: ban.c,v 1.51 2001-09-12 12:32:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -40,7 +40,6 @@
 *	ROM license, in the file Rom24/doc/rom.license			   *
 ***************************************************************************/
 
-#include <sys/types.h>
 #include <sys/time.h>
 #include <stdio.h>
 #include <string.h>

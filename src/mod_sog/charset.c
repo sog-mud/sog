@@ -23,10 +23,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: charset.c,v 1.7 2001-08-14 16:06:53 fjoe Exp $
+ * $Id: charset.c,v 1.8 2001-09-12 12:32:39 fjoe Exp $
  */
-
-#include <sys/types.h>
 
 #include <typedef.h>
 

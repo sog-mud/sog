@@ -1,5 +1,5 @@
 /*
- * $Id: effects.c,v 1.43 2001-09-07 19:34:42 fjoe Exp $
+ * $Id: effects.c,v 1.44 2001-09-12 12:32:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -40,7 +40,6 @@
 *	ROM license, in the file Rom24/doc/rom.license			   *
 ***************************************************************************/
 
-#include <sys/types.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

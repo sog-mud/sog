@@ -23,11 +23,10 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_social.c,v 1.18 2001-08-05 16:36:30 fjoe Exp $
+ * $Id: db_social.c,v 1.19 2001-09-12 12:32:20 fjoe Exp $
  */
 
 #include <limits.h>
-#include <stdarg.h>
 #include <stdio.h>
 #include <ctype.h>
 

@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.192 2001-08-21 09:35:20 fjoe Exp $
+ * $Id: save.c,v 1.193 2001-09-12 12:32:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -40,7 +40,6 @@
 *	ROM license, in the file Rom24/doc/rom.license			   *
 ***************************************************************************/
 
-#include <sys/types.h>
 #include <stdio.h>
 #include <string.h>
 #include <time.h>

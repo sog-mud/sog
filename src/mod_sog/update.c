@@ -23,10 +23,9 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: update.c,v 1.203 2001-08-21 07:02:08 fjoe Exp $
+ * $Id: update.c,v 1.204 2001-09-12 12:32:46 fjoe Exp $
  */
 
-#include <stdarg.h>
 #include <stdio.h>
 #include <dlfcn.h>
 

@@ -23,10 +23,9 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: events.c,v 1.11 2001-08-13 18:23:32 fjoe Exp $
+ * $Id: events.c,v 1.12 2001-09-12 12:32:29 fjoe Exp $
  */
 
-#include <stdarg.h>
 #include <stdio.h>
 #include <dlfcn.h>
 

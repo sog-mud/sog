@@ -23,13 +23,12 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_mpc.c,v 1.27 2001-09-12 08:11:42 fjoe Exp $
+ * $Id: init_mpc.c,v 1.28 2001-09-12 12:32:32 fjoe Exp $
  */
 
 #include <dlfcn.h>
 #include <errno.h>
 #include <setjmp.h>
-#include <stdarg.h>
 #include <stdio.h>
 #include <string.h>
 #include <limits.h>

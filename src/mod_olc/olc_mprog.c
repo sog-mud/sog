@@ -1,8 +1,7 @@
 /*
- * $Id: olc_mprog.c,v 1.4 2001-08-31 10:29:32 fjoe Exp $
+ * $Id: olc_mprog.c,v 1.5 2001-09-12 12:32:35 fjoe Exp $
  */
 
-#include <sys/types.h>
 #include <ctype.h>
 #include <time.h>
 

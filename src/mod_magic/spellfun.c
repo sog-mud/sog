@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.267 2001-09-07 19:34:35 fjoe Exp $
+ * $Id: spellfun.c,v 1.268 2001-09-12 12:32:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -40,7 +40,6 @@
 *	ROM license, in the file Rom24/doc/rom.license			   *
 ***************************************************************************/
 
-#include <sys/types.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

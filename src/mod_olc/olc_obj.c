@@ -23,10 +23,9 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.97 2001-08-25 04:46:55 fjoe Exp $
+ * $Id: olc_obj.c,v 1.98 2001-09-12 12:32:35 fjoe Exp $
  */
 
-#include <sys/types.h>
 #include <ctype.h>
 #include <time.h>
 

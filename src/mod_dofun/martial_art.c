@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.199 2001-09-09 12:52:32 kostik Exp $
+ * $Id: martial_art.c,v 1.200 2001-09-12 12:32:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -40,7 +40,6 @@
 *	ROM license, in the file Rom24/doc/rom.license			   *
 ***************************************************************************/
 
-#include <sys/types.h>
 #include <stdio.h>
 
 #include <merc.h>

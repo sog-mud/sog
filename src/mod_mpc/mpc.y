@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.34 2001-09-12 08:11:43 fjoe Exp $
+ * $Id: mpc.y,v 1.35 2001-09-12 12:32:33 fjoe Exp $
  */
 
 /*
@@ -36,11 +36,9 @@
  * Stephan Iannce and John Garnett, LPmud copyright by Lars Pensj|, 1990, 1991.
  */
 
-#include <sys/types.h>
 #include <sys/stat.h>
 #include <assert.h>
 #include <errno.h>
-#include <stdarg.h>
 #include <stdio.h>
 #include <string.h>
 #include <setjmp.h>

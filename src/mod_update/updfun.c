@@ -23,10 +23,9 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.43 2001-09-12 08:11:53 fjoe Exp $
+ * $Id: updfun.c,v 1.44 2001-09-12 12:32:47 fjoe Exp $
  */
 
-#include <sys/types.h>
 #include <stdio.h>
 #include <string.h>
 #include <time.h>

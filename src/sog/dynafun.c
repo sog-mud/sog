@@ -23,11 +23,10 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: dynafun.c,v 1.15 2001-09-02 16:33:33 fjoe Exp $
+ * $Id: dynafun.c,v 1.16 2001-09-12 12:32:50 fjoe Exp $
  */
 
 #include <stdlib.h>
-#include <stdarg.h>
 #include <dlfcn.h>
 
 #include <typedef.h>

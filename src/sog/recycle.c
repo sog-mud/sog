@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.131 2001-09-09 09:46:48 kostik Exp $
+ * $Id: recycle.c,v 1.132 2001-09-12 12:32:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -40,7 +40,6 @@
 *	ROM license, in the file Rom24/doc/rom.license			   *
 ***************************************************************************/
 
-#include <sys/types.h>
 #include <sys/time.h>
 #include <regex.h>
 #include <stdio.h>

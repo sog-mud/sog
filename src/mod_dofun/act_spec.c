@@ -23,10 +23,9 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_spec.c,v 1.26 2001-09-07 19:34:31 fjoe Exp $
+ * $Id: act_spec.c,v 1.27 2001-09-12 12:32:25 fjoe Exp $
  */
 
-#include <sys/types.h>
 #include <sys/time.h>
 #include <stdio.h>
 #include <string.h>

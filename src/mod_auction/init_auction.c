@@ -23,11 +23,10 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_auction.c,v 1.2 2001-08-13 18:23:19 fjoe Exp $
+ * $Id: init_auction.c,v 1.3 2001-09-12 12:32:20 fjoe Exp $
  */
 
 #include <stdio.h>
-#include <stdarg.h>
 
 #include <typedef.h>
 #include <memalloc.h>

@@ -23,10 +23,9 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: objval.c,v 1.13 2001-08-05 16:37:01 fjoe Exp $
+ * $Id: objval.c,v 1.14 2001-09-12 12:32:51 fjoe Exp $
  */
 
-#include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
 

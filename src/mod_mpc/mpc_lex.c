@@ -23,12 +23,11 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_lex.c,v 1.16 2001-09-01 19:08:31 fjoe Exp $
+ * $Id: mpc_lex.c,v 1.17 2001-09-12 12:32:34 fjoe Exp $
  */
 
 #include <ctype.h>
 #include <setjmp.h>
-#include <stdarg.h>
 #include <stdio.h>
 #include <string.h>
 

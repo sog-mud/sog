@@ -23,13 +23,12 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_impl.h,v 1.20 2001-09-07 19:34:39 fjoe Exp $
+ * $Id: mpc_impl.h,v 1.21 2001-09-12 12:32:33 fjoe Exp $
  */
 
 #ifndef _MPC_IMPL_H_
 #define _MPC_IMPL_H_
 
-#include <stdarg.h>
 #include <stdlib.h>
 
 #include <typedef.h>

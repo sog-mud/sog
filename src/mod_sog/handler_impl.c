@@ -23,10 +23,9 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: handler_impl.c,v 1.2 2001-08-20 16:47:42 fjoe Exp $
+ * $Id: handler_impl.c,v 1.3 2001-09-12 12:32:41 fjoe Exp $
  */
 
-#include <stdarg.h>
 #include <stdio.h>
 
 #include <merc.h>

@@ -31,10 +31,9 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_update.c,v 1.12 2001-08-20 16:47:48 fjoe Exp $
+ * $Id: act_update.c,v 1.13 2001-09-12 12:32:45 fjoe Exp $
  */
 
-#include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
 

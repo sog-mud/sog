@@ -23,11 +23,11 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_system.c,v 1.21 2001-08-19 19:24:51 fjoe Exp $
+ * $Id: db_system.c,v 1.22 2001-09-12 12:32:21 fjoe Exp $
  */
 
-#include <sys/types.h>
 #if !defined(WIN32)
+#include <sys/types.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>

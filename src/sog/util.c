@@ -23,10 +23,9 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: util.c,v 1.37 2001-09-12 08:11:59 fjoe Exp $
+ * $Id: util.c,v 1.38 2001-09-12 12:32:54 fjoe Exp $
  */
 
-#include <sys/types.h>
 #include <sys/stat.h>
 #include <stdio.h>
 #include <string.h>

@@ -23,12 +23,11 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rwfile.c,v 1.22 2001-08-14 16:07:11 fjoe Exp $
+ * $Id: rwfile.c,v 1.23 2001-09-12 12:32:52 fjoe Exp $
  */
 
 #include <ctype.h>
 #include <limits.h>
-#include <stdarg.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -45,7 +44,6 @@
 
 #if !defined(NO_MMAP)
 
-#include <sys/types.h>
 #include <sys/mman.h>
 #include <sys/stat.h>
 #include <errno.h>

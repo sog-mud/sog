@@ -23,10 +23,9 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_iter.c,v 1.3 2001-08-14 16:06:59 fjoe Exp $
+ * $Id: mpc_iter.c,v 1.4 2001-09-12 12:32:34 fjoe Exp $
  */
 
-#include <stdarg.h>
 #include <stdlib.h>
 
 #include <typedef.h>

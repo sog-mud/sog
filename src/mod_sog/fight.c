@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.328 2001-09-09 12:01:00 kostik Exp $
+ * $Id: fight.c,v 1.329 2001-09-12 12:32:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -40,7 +40,6 @@
 *	ROM license, in the file Rom24/doc/rom.license			   *
 ***************************************************************************/
 
-#include <sys/types.h>
 #include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>

@@ -23,10 +23,9 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.160 2001-08-20 16:47:37 fjoe Exp $
+ * $Id: act_quest.c,v 1.161 2001-09-12 12:32:36 fjoe Exp $
  */
 
-#include <sys/types.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
