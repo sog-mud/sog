@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.26 2000-08-21 07:48:32 fjoe Exp $
+ * $Id: update.c,v 1.157.2.27 2000-10-10 15:08:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1663,11 +1663,21 @@ void update_one_obj(OBJ_DATA *obj)
 	if (IS_AUCTIONED(obj))
 		return;
 
-	update_obj_affects(obj);
-
 	/* find the uppest obj container */
 	for(t_obj = obj; t_obj->in_obj; t_obj = t_obj->in_obj)
 		;
+
+	/*
+	 * skip objects if owner is !IS_NPC and
+	 * has not finished login or is in lost-link
+	 */
+	if (t_obj->carried_by != NULL && !IS_NPC(t_obj->carried_by)) {
+		if (t_obj->carried_by->desc == NULL
+		||  t_obj->carried_by->desc->connected != CON_PLAYING)
+			return;
+	}
+
+	update_obj_affects(obj);
 
 	if ((t_obj->in_room != NULL &&
 	     t_obj->in_room->area->nplayer > 0)
