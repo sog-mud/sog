@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.c,v 1.9 1998-08-14 03:36:25 fjoe Exp $
+ * $Id: string_edit.c,v 1.10 1998-08-15 07:47:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -32,7 +32,7 @@
 
 char *string_linedel(char *, int);
 char *string_lineadd(char *, char *, int);
-char *numlineas(char *);
+char *numlines(char *);
 
 /*****************************************************************************
  Name:		string_edit
@@ -76,9 +76,9 @@ void string_append(CHAR_DATA *ch, char **pString)
 
     if (*pString == NULL)
 	*pString = str_dup("");
-    send_to_char(numlineas(*pString), ch);
+    send_to_char(numlines(*pString), ch);
 
-/* numlineas entrega el string con \n\r */
+/* numlines entrega el string con \n\r */
 /*  if (*(*pString + strlen(*pString) - 1) != '\r')
 	send_to_char("\n\r", ch); */
 
@@ -142,7 +142,7 @@ void string_add(CHAR_DATA *ch, const char *argument)
         argument = first_arg(argument, arg3, FALSE);
 	smash_tilde(arg3);
 
-        if (!str_cmp(arg1, ":c"))
+        if (!str_cmp(arg1+1, "c"))
         {
             send_to_char("String cleared.\n\r", ch);
 	    free_string(*ch->desc->pString);
@@ -150,14 +150,14 @@ void string_add(CHAR_DATA *ch, const char *argument)
             return;
         }
 
-        if (!str_cmp(arg1, ":s"))
+        if (!str_cmp(arg1+1, "s"))
         {
             char_printf(ch, "String so far:\n\r%s",
-            		*ch->desc->pString);
+            		numlines(*ch->desc->pString));
             return;
         }
 
-        if (!str_cmp(arg1, ":r"))
+        if (!str_cmp(arg1+1, "r"))
         {
             if (arg2[0] == '\0')
             {
@@ -173,28 +173,28 @@ void string_add(CHAR_DATA *ch, const char *argument)
             return;
         }
 
-        if (!str_cmp(arg1, ":f"))
+        if (!str_cmp(arg1+1, "f"))
         {
             *ch->desc->pString = format_string(*ch->desc->pString);
             send_to_char("String formatted.\n\r", ch);
             return;
         }
         
-	if (!str_cmp(arg1, ":ld"))
+	if (!str_cmp(arg1+1, "ld"))
 	{
 		*ch->desc->pString = string_linedel(*ch->desc->pString, atoi(arg2));
 		send_to_char("Line deleted.\n\r", ch);
 		return;
 	}
 
-	if (!str_cmp(arg1, ":li"))
+	if (!str_cmp(arg1+1, "li"))
 	{
 		*ch->desc->pString = string_lineadd(*ch->desc->pString, tmparg3, atoi(arg2));
 		send_to_char("Line inserted.\n\r", ch);
 		return;
 	}
 
-	if (!str_cmp(arg1, ":lr"))
+	if (!str_cmp(arg1+1, "lr"))
 	{
 		*ch->desc->pString = string_linedel(*ch->desc->pString, atoi(arg2));
 		*ch->desc->pString = string_lineadd(*ch->desc->pString, tmparg3, atoi(arg2));
@@ -202,7 +202,7 @@ void string_add(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-        if (!str_cmp(arg1, ":h"))
+        if (!str_cmp(arg1+1, "h"))
         {
             send_to_char("Sedit help (commands on blank line):   \n\r", ch);
             send_to_char(":r 'old' 'new'   - replace a substring \n\r", ch);
@@ -658,7 +658,7 @@ char *getline(char *str, char *buf)
 	return str;
 }
 
-char *numlineas(char *string)
+char *numlines(char *string)
 {
 	int cnt = 1;
 	static char buf[MAX_STRING_LENGTH*2];

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.55 1998-08-14 22:33:04 fjoe Exp $
+ * $Id: db.c,v 1.56 1998-08-15 07:47:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -397,11 +397,6 @@ int 			mobile_count = 0;
 int			newmobs = 0;
 int			newobjs = 0;
 
-int	nAllocString;
-int	sAllocString;
-int	nAllocPerm;
-int	sAllocPerm;
-
 int	nAllocBuf;
 int	sAllocBuf;
 
@@ -775,24 +770,24 @@ void load_areadata(FILE *fp)
 /*
  * Sets vnum range for area using OLC protection features.
  */
-void vnum_check(int vnum)
+void vnum_check(AREA_DATA *area, int vnum)
 {
-	if (area_last->min_vnum == 0 || area_last->max_vnum == 0) {
+	if (area->min_vnum == 0 || area->max_vnum == 0) {
 		log_printf("%s: min_vnum or max_vnum not assigned",
-			   area_last->file_name);
+			   area->file_name);
 #if 0
-		area_last->min_vnum = area_last->max_vnum = vnum;
+		area->min_vnum = area->max_vnum = vnum;
 #endif
 	}
 
-	if (vnum != URANGE(area_last->min_vnum, vnum, area_last->max_vnum)) {
+	if (vnum < area->min_vnum || vnum > area->max_vnum) {
 		log_printf("%s: %d not in area vnum range",
-			   area_last->file_name, vnum);
+			   area->file_name, vnum);
 #if 0
-		if (vnum < area_last->min_vnum)
-			area_last->min_vnum = vnum;
+		if (vnum < area->min_vnum)
+			area->min_vnum = vnum;
 		else
-			area_last->max_vnum = vnum;
+			area->max_vnum = vnum;
 #endif
 	}
 }
@@ -896,7 +891,6 @@ void load_old_mob(FILE *fp)
 		pMobIndex->description	= NULL;
 
 		pMobIndex->vnum		= vnum;
-		pMobIndex->area		= area_last;
 		pMobIndex->new_format	= FALSE;
 		pMobIndex->name	= fread_string(fp);
 		pMobIndex->short_descr	= mlstr_fread(fp);
@@ -1005,7 +999,7 @@ void load_old_mob(FILE *fp)
 		top_mob_index++;
 							/* OLC */
 		top_vnum_mob = top_vnum_mob < vnum ? vnum : top_vnum_mob;
-		vnum_check(vnum);			/* OLC */
+		vnum_check(area_current, vnum);			/* OLC */
 		kill_table[URANGE(0, pMobIndex->level, MAX_LEVEL-1)].number++;
 	}
 }
@@ -1043,7 +1037,6 @@ void load_old_obj(FILE *fp)
 		pObjIndex->short_descr	= NULL;
 		pObjIndex->description	= NULL;
 		pObjIndex->vnum		= vnum;
-		pObjIndex->area         = area_last;	/* OLC */
 		pObjIndex->new_format	= FALSE;
 		pObjIndex->reset_num	= 0;
 
@@ -1135,7 +1128,7 @@ void load_old_obj(FILE *fp)
 		top_obj_index++;
 								/* OLC */
 		top_vnum_obj = top_vnum_obj < vnum ? vnum : top_vnum_obj;
-		vnum_check(vnum);				/* OLC */
+		vnum_check(area_current, vnum);			/* OLC */
 	}
 }
 
@@ -1332,7 +1325,7 @@ void load_rooms(FILE *fp)
 		pRoomIndex->contents	= NULL;
 		pRoomIndex->ed	= NULL;
 		pRoomIndex->history     = NULL;
-		pRoomIndex->area	= area_last;
+		pRoomIndex->area	= area_current;
 		pRoomIndex->vnum	= vnum;
 		pRoomIndex->name	= mlstr_fread(fp);
 		pRoomIndex->description	= mlstr_fread(fp);
@@ -1445,7 +1438,7 @@ void load_rooms(FILE *fp)
 		top_room++;
 								/* OLC */
 		top_vnum_room = top_vnum_room < vnum ? vnum : top_vnum_room;
-		vnum_check(vnum);				/* OLC */
+		vnum_check(area_current, vnum);			/* OLC */
 	}
 }
 
@@ -3659,24 +3652,24 @@ void do_areas(CHAR_DATA *ch, const char *argument)
 
 void do_memory(CHAR_DATA *ch, const char *argument)
 {
-	char_printf(ch, "Affects %5d\n\r", top_affect  );
-	char_printf(ch, "Areas   %5d\n\r", top_area    );
-	char_printf(ch, "ExDes   %5d\n\r", top_ed      );
-	char_printf(ch, "Exits   %5d\n\r", top_exit    );
-	char_printf(ch, "Helps   %5d\n\r", top_help    );
-	char_printf(ch, "Socials %5d\n\r", social_count);
-	char_printf(ch, "Mobs    %5d(%d new format)\n\r",
-				top_mob_index,newmobs); 
-	char_printf(ch, "(in use)%5d\n\r", mobile_count);
-	char_printf(ch, "Objs    %5d(%d new format)\n\r",
-				top_obj_index,newobjs); 
-	char_printf(ch, "Resets  %5d\n\r", top_reset   );
-	char_printf(ch, "Rooms   %5d\n\r", top_room    );
-	char_printf(ch, "Shops   %5d\n\r", top_shop    );
-	char_printf(ch, "Perms   %5d blocks  of %7d bytes.\n\r",
-		nAllocPerm, sAllocPerm);
-	char_printf(ch, "Buffers %d blocks of %d bytes.\n\r",
-		nAllocBuf, sAllocBuf);
+	extern int mlstr_count;
+
+	char_printf(ch, "Affects  : %d\n\r", top_affect  );
+	char_printf(ch, "Areas    : %d\n\r", top_area    );
+	char_printf(ch, "ExDes    : %d\n\r", top_ed      );
+	char_printf(ch, "Exits    : %d\n\r", top_exit    );
+	char_printf(ch, "Helps    : %d\n\r", top_help    );
+	char_printf(ch, "Socials  : %d\n\r", social_count);
+	char_printf(ch, "Mobs     : %d (%d new format, %d in use)\n\r",
+					top_mob_index, newmobs, mobile_count); 
+	char_printf(ch, "Objs     : %d (%d new format)\n\r",
+					top_obj_index, newobjs); 
+	char_printf(ch, "Resets   : %d\n\r", top_reset   );
+	char_printf(ch, "Rooms    : %d\n\r", top_room    );
+	char_printf(ch, "Shops    : %d\n\r", top_shop    );
+	char_printf(ch, "Buffers  : %d blocks of %d bytes.\n\r",
+					nAllocBuf, sAllocBuf);
+	char_printf(ch, "mlstrings: %d\n\r", mlstr_count);
 }
 
 void do_dump(CHAR_DATA *ch, const char *argument)

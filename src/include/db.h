@@ -2,7 +2,7 @@
 #define _DB_H_
 
 /*
- * $Id: db.h,v 1.17 1998-08-14 22:33:04 fjoe Exp $
+ * $Id: db.h,v 1.18 1998-08-15 07:47:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -137,7 +137,7 @@ void	convert_obj(OBJ_INDEX_DATA *obj);
 /* macro for flag swapping */
 #define GET_UNSET(flag1,flag2)	(~(flag1)&((flag1)|(flag2)))
 
-extern void vnum_check( int vnum );                    /* OLC */
+extern void vnum_check(AREA_DATA *area, int vnum);	/* OLC */
 
 void convert_mobile(MOB_INDEX_DATA *pMobIndex);            /* OLC ROM */
 void convert_objects(void);                                /* OLC ROM */

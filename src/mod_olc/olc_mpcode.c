@@ -1,5 +1,5 @@
 /*
- * $Id: olc_mpcode.c,v 1.4 1998-08-14 22:33:06 fjoe Exp $
+ * $Id: olc_mpcode.c,v 1.5 1998-08-15 07:47:34 fjoe Exp $
  */
 
 /* The following code is based on ILAB OLC by Jason Dinkel */
@@ -100,6 +100,9 @@ void do_mpedit(CHAR_DATA *ch, const char *argument)
 {
     MPROG_CODE *pMcode;
     char command[MAX_INPUT_LENGTH];
+
+    if (IS_NPC(ch))
+	return;
 
     argument = one_argument(argument, command);
 

@@ -1,5 +1,5 @@
 /*
- * $Id: mlstring.c,v 1.10 1998-08-14 22:33:05 fjoe Exp $
+ * $Id: mlstring.c,v 1.11 1998-08-15 07:47:34 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -39,17 +39,17 @@ mlstring mlstr_empty;
 
 static void smash_a(char *s);
 static char* fix_mlstring(const char* s);
+static mlstring *mlstr_new();
 static mlstring *mlstr_split(mlstring *ml);
+
+int mlstr_count;
 
 mlstring *mlstr_fread(FILE *fp)
 {
 	char *p;
 	char *s;
 	int lang;
-	mlstring *res;
-
-	res = alloc_mem(sizeof(*res));
-	res->ref = 1;
+	mlstring *res = mlstr_new();
 
 	p = fread_string(fp);
 	if (*p != '@' || *(p+1) == '@') {
@@ -143,6 +143,7 @@ void mlstr_free(mlstring *ml)
 		free_mem(ml->u.lstr, sizeof(char*) * ml->nlang);
 	}
 	free_mem(ml, sizeof(*ml));
+	mlstr_count--;
 }
 
 mlstring *mlstr_dup(mlstring *ml)
@@ -166,8 +167,7 @@ mlstring *mlstr_printf(mlstring *ml,...)
 	if (ml == NULL)
 		return NULL;
 
-	res = alloc_mem(sizeof(*res));
-	res->ref = 1;
+	res = mlstr_new();
 	res->nlang = ml->nlang;
 
 	va_start(ap, ml);
@@ -387,6 +387,14 @@ static char *fix_mlstring(const char *s)
 	return buf;
 }
 
+static mlstring *mlstr_new()
+{
+	mlstring *res = alloc_mem(sizeof(*res));
+	res->ref = 1;
+	mlstr_count++;
+	return res;
+}
+
 static mlstring *mlstr_split(mlstring *ml)
 {
 	int lang;
@@ -395,8 +403,7 @@ static mlstring *mlstr_split(mlstring *ml)
 	if (ml != NULL && ml->ref < 2) 
 		return ml;
 
-	res = alloc_mem(sizeof(*res));
-	res->ref = 1;
+	res = mlstr_new();
 
 	if (ml == NULL) {
 		res->u.str = NULL;

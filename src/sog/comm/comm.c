@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.83 1998-08-14 05:45:12 fjoe Exp $
+ * $Id: comm.c,v 1.84 1998-08-15 07:47:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1099,7 +1099,7 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 		if (d->showstr_point)
 			write_to_buffer(d, "[Hit Return to continue]\n\r", 0);
 		else if (fPrompt && d->pString && d->connected == CON_PLAYING)
-			write_to_buffer(d, "> ", 2);
+			write_to_buffer(d, "  > ", 0);
 		else if (fPrompt && d->connected == CON_PLAYING) {
    			CHAR_DATA *ch;
 			CHAR_DATA *victim;

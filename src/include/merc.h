@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.69 1998-08-14 22:33:05 fjoe Exp $
+ * $Id: merc.h,v 1.70 1998-08-15 07:47:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1735,7 +1735,6 @@ struct	mob_index_data
 	int 			progtypes;
 	SHOP_DATA * 		pShop;
 	MPROG_LIST *		mprogs;
-	AREA_DATA *		area;		/* OLC */
 	int			vnum;
 	int			group;
 	bool			new_format;
@@ -1987,9 +1986,8 @@ enum {
 struct	obj_index_data
 {
 	OBJ_INDEX_DATA *	next;
-	ED_DATA *	ed;
+	ED_DATA *		ed;
 	AFFECT_DATA *		affected;
-	AREA_DATA *		area;		/* OLC */
 	bool			new_format;
 	char *			name;
 	mlstring *		short_descr;
@@ -2149,7 +2147,7 @@ struct	room_index_data
 	ROOM_INDEX_DATA *	aff_next;
 	CHAR_DATA * 		people;
 	OBJ_DATA *		contents;
-	ED_DATA *	ed;
+	ED_DATA *		ed;
 	AREA_DATA * 		area;
 	EXIT_DATA * 		exit	[6];
 	RESET_DATA *		reset_first;	/* OLC */

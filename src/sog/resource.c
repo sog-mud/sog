@@ -1,5 +1,5 @@
 /*
- * $Id: resource.c,v 1.29 1998-08-14 05:45:16 fjoe Exp $
+ * $Id: resource.c,v 1.30 1998-08-15 07:47:34 fjoe Exp $
  */
 
 #include <limits.h>
@@ -77,6 +77,9 @@ char *vmsg(int msgid, CHAR_DATA *ch, CHAR_DATA *victim)
 int lang_lookup(const char *name)
 {
 	int lang;
+
+	if (IS_NULLSTR(name))
+		return -1;
 
 	for (lang = 0; lang < nlang; lang++)
 		if (str_cmp(lang_table[lang], name) == 0)

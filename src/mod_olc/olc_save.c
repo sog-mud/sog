@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.17 1998-08-14 22:33:07 fjoe Exp $
+ * $Id: olc_save.c,v 1.18 1998-08-15 07:47:34 fjoe Exp $
  */
 
 /**************************************************************************
@@ -472,29 +472,20 @@ void save_objects(FILE *fp, AREA_DATA *pArea)
 	if (found)
 		fprintf(fp, "#0\n\n");
 }
- 
 
-static int find_exit(EXIT_DATA **exit, int door)
+static int exitcmp(const void *p1, const void *p2)
 {
-	EXIT_DATA *pExit;
-	int i;
-
-	for (i = 0; i < MAX_DIR; i++)
-		if ((pExit = exit[i]) != NULL
-		&&  pExit->orig_door == door)
-			return i;
-	return -1;
+	return (*(EXIT_DATA**)p1)->orig_door - (*(EXIT_DATA**)p2)->orig_door;
 }
-
 
 void save_room(FILE *fp, ROOM_INDEX_DATA *pRoomIndex)
 {
 	int door;
 	ED_DATA *pEd;
 	EXIT_DATA *pExit;
-	EXIT_DATA **exit;
-	int i = 0;
     	char buf[MAX_STRING_LENGTH];
+	EXIT_DATA *exit[MAX_DIR];
+	int max_door;
 
         fprintf(fp, "#%d\n",	pRoomIndex->vnum);
 	mlstr_fwrite(fp, NULL,	pRoomIndex->name);
@@ -510,19 +501,14 @@ void save_room(FILE *fp, ROOM_INDEX_DATA *pRoomIndex)
 	}
 
 	/* sort exits (to minimize diffs) */
-	exit = pRoomIndex->exit;
-	for (door = 0; door < MAX_DIR; door++)
-		if (((pExit = exit[door]) == NULL ||
-			pExit->orig_door != door)
-		&&  (i = find_exit(exit, door)) >= 0) {
-			pExit = exit[door];
-			exit[door] = exit[i];
-			exit[i] = pExit;
-		}
+	for (max_door = 0, door = 0; door < MAX_DIR; door++)
+		if ((pExit = pRoomIndex->exit[door]))
+			exit[max_door++] = pExit;
+	qsort(exit, max_door, sizeof(*exit), exitcmp);
 
-	for (door = 0; door < MAX_DIR; door++) {	/* I hate this! */
-		if ((pExit = pRoomIndex->exit[door])
-		&&  pExit->u1.to_room) {
+	for (door = 0; door < max_door; door++) {
+		pExit = exit[door];
+		if (pExit->u1.to_room) {
  
 	 		/* HACK : TO PREVENT EX_LOCKED etc without EX_ISDOOR
  			   to stop booting the mud */
@@ -654,9 +640,6 @@ void save_door_reset(FILE *fp, ROOM_INDEX_DATA *pRoomIndex, EXIT_DATA *pExit)
 void save_reset(FILE *fp, AREA_DATA *pArea,
 		ROOM_INDEX_DATA *pRoomIndex, RESET_DATA *pReset)
 {
-	MOB_INDEX_DATA *pLastMob = NULL;
-	OBJ_INDEX_DATA *pLastObj;
-
 	switch (pReset->command) {
 	default:
 		bug("Save_resets: bad command %c.", pReset->command);
@@ -664,29 +647,24 @@ void save_reset(FILE *fp, AREA_DATA *pArea,
 
 #if defined(VERBOSE)
 	case 'M':
-		pLastMob = get_mob_index(pReset->arg1);
-		pRoomIndex = get_room_index(pReset->arg3);
 		fprintf(fp, "M 0 %d %d %d %d\t* %s (%s)\n", 
 			pReset->arg1,
 			pReset->arg2,
 			pReset->arg3,
-		pReset->arg4,
-			mlstr_mval(pLastMob->short_descr),
-			mlstr_mval(pRoomIndex->name));
+			pReset->arg4,
+			mlstr_mval(get_mob_index(pReset->arg1)->short_descr),
+			mlstr_mval(get_room_index(pReset->arg3)->name));
 		break;
 
 	case 'O':
-		pLastObj = get_obj_index(pReset->arg1);
-		pRoomIndex = get_room_index(pReset->arg3);
 		fprintf(fp, "O 0 %d 0 %d\t* %s (%s)\n", 
 			pReset->arg1,
 			pReset->arg3,
-			mlstr_mval(pLastObj->short_descr),
-			mlstr_mval(pRoomIndex->name));
+			mlstr_mval(get_obj_index(pReset->arg1)->short_descr),
+			mlstr_mval(get_room_index(pReset->arg3)->name));
 		break;
 
 	case 'P':
-		pLastObj = get_obj_index(pReset->arg1);
 		fprintf(fp, "P 0 %d %d %d %d\t* %s: %s\n", 
 			pReset->arg1,
 			pReset->arg2,
@@ -700,8 +678,6 @@ void save_reset(FILE *fp, AREA_DATA *pArea,
 		fprintf(fp, "G 0 %d 0\t\t*\t%s\n",
 			pReset->arg1,
 			mlstr_mval(get_obj_index(pReset->arg1)->short_descr));
-		if (!pLastMob)
-			log_printf("save_resets: !NO_MOB! in [%s]", pArea->file_name);
 		break;
 
 	case 'E':
@@ -710,8 +686,6 @@ void save_reset(FILE *fp, AREA_DATA *pArea,
 			pReset->arg3,
 			mlstr_mval(get_obj_index(pReset->arg1)->short_descr),
 			flag_string(wear_loc_strings, pReset->arg3));
-		if (!pLastMob)
-			log_printf("save_resets: !NO_MOB! in [%s]", pArea->file_name);
 		break;
 
 	case 'D':
@@ -726,7 +700,6 @@ void save_reset(FILE *fp, AREA_DATA *pArea,
 		break;
 #else
 	case 'M':
-		pLastMob = get_mob_index(pReset->arg1);
 		fprintf(fp, "M 0 %d %d %d %d\n", 
 			pReset->arg1,
 			pReset->arg2,
@@ -735,14 +708,12 @@ void save_reset(FILE *fp, AREA_DATA *pArea,
 		break;
 
 	case 'O':
-		pLastObj = get_obj_index(pReset->arg1);
 		fprintf(fp, "O 0 %d 0 %d\n", 
 			pReset->arg1,
 			pReset->arg3);
 		break;
 
 	case 'P':
-		pLastObj = get_obj_index(pReset->arg1);
 		fprintf(fp, "P 0 %d %d %d %d\n", 
 			pReset->arg1,
 			pReset->arg2,
@@ -752,16 +723,12 @@ void save_reset(FILE *fp, AREA_DATA *pArea,
 
 	case 'G':
 		fprintf(fp, "G 0 %d 0\n", pReset->arg1);
-		if (!pLastMob)
-			log_printf("save_resets: !NO_MOB! in [%s]", pArea->file_name);
 		break;
 
 	case 'E':
 		fprintf(fp, "E 0 %d 0 %d\n",
 			pReset->arg1,
 			pReset->arg3);
-		if (!pLastMob)
-			log_printf("save_resets: !NO_MOB! in [%s]", pArea->file_name);
 		break;
 
 	case 'D':
@@ -1051,18 +1018,19 @@ void do_asave_raw(CHAR_DATA *ch, int flags)
 		save_area(pArea);
 
 		if (ch)
-			char_printf(ch, "%s (%s)\n\r",
+			char_printf(ch, "    %s (%s)\n\r",
 				    pArea->name, pArea->file_name);
 		else
-			log_printf("%s (%s)", pArea->name, pArea->file_name);
+			log_printf("    %s (%s)",
+				   pArea->name, pArea->file_name);
 		REMOVE_BIT(pArea->area_flags, flags);
 	}
 
 	if (!found) {
 		if (ch)
-			char_puts("None.\n\r", ch);
+			char_puts("    None.\n\r", ch);
 		else
-			log("None.");
+			log("    None.");
 	}
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: db2.c,v 1.21 1998-08-14 22:33:04 fjoe Exp $
+ * $Id: db2.c,v 1.22 1998-08-15 07:47:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -138,7 +138,6 @@ void load_mobiles(FILE *fp)
         pMobIndex->description          = NULL;
 
         pMobIndex->vnum                 = vnum;
-        pMobIndex->area                 = area_last;               /* OLC */
 	pMobIndex->new_format		= TRUE;
 	newmobs++;
         pMobIndex->name          = fread_string(fp);
@@ -297,7 +296,7 @@ void load_mobiles(FILE *fp)
         mob_index_hash[iHash]   = pMobIndex;
         top_mob_index++;
         top_vnum_mob = top_vnum_mob < vnum ? vnum : top_vnum_mob;  /* OLC */
-        vnum_check(vnum);                                    /* OLC */
+        vnum_check(area_current, vnum);                            /* OLC */
         kill_table[URANGE(0, pMobIndex->level, MAX_LEVEL-1)].number++;
     }
  
@@ -339,7 +338,6 @@ void load_objects(FILE *fp)
         pObjIndex->description          = NULL;
 
         pObjIndex->vnum                 = vnum;
-        pObjIndex->area                 = area_last;            /* OLC */
         pObjIndex->new_format           = TRUE;
 	pObjIndex->reset_num		= 0;
 	newobjs++;
@@ -473,10 +471,8 @@ void load_objects(FILE *fp)
 		    paf->where		= TO_DETECTS;
 		    break;
 		default:
-            	    log_printf("load_objects: %s: vnum %d: "
-			       "'%c': bad where on flag.",
-			       area_last->file_name, pObjIndex->vnum, letter);
-            		exit(1);
+			db_error("load_objects", "vnum %d: '%c': bad where on flag.",
+			        pObjIndex->vnum, letter);
 		}
                 paf->type               = -1;
                 paf->level              = pObjIndex->level;
@@ -502,7 +498,7 @@ void load_objects(FILE *fp)
         obj_index_hash[iHash]   = pObjIndex;
         top_obj_index++;
         top_vnum_obj = top_vnum_obj < vnum ? vnum : top_vnum_obj; /* OLC */
-        vnum_check(vnum);					  /* OLC */
+        vnum_check(area_current, vnum);				  /* OLC */
     }
 }
 

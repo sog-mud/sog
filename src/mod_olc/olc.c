@@ -1,5 +1,5 @@
 /*
- * $Id: olc.c,v 1.9 1998-08-14 22:33:06 fjoe Exp $
+ * $Id: olc.c,v 1.10 1998-08-15 07:47:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -548,7 +548,7 @@ void oedit(CHAR_DATA *ch, const char *argument)
     argument = one_argument(arg, command);
 
     EDIT_OBJ(ch, pObj);
-    pArea = pObj->area;
+    pArea = get_vnum_area(pObj->vnum);
 
     if (!IS_BUILDER(ch, pArea))
     {
@@ -570,17 +570,11 @@ void oedit(CHAR_DATA *ch, const char *argument)
     }
 
     /* Search Table and Dispatch Command. */
-    for (cmd = 0; oedit_table[cmd].name != NULL; cmd++)
-    {
-	if (!str_prefix(command, oedit_table[cmd].name))
-	{
+    for (cmd = 0; oedit_table[cmd].name != NULL; cmd++) {
+	if (!str_prefix(command, oedit_table[cmd].name)) {
 	    if ((*oedit_table[cmd].olc_fun) (ch, argument))
-	    {
 		SET_BIT(pArea->area_flags, AREA_CHANGED);
-		return;
-	    }
-	    else
-		return;
+	    return;
 	}
     }
 
@@ -605,7 +599,7 @@ void medit(CHAR_DATA *ch, const char *argument)
     argument = one_argument(arg, command);
 
     EDIT_MOB(ch, pMob);
-    pArea = pMob->area;
+    pArea = get_vnum_area(pMob->vnum);
 
     if (!IS_BUILDER(ch, pArea))
     {
@@ -842,7 +836,8 @@ void do_oedit(CHAR_DATA *ch, const char *argument)
 	    return;
 	}
 
-	if (!IS_BUILDER(ch, pObj->area))
+	pArea = get_vnum_area(pObj->vnum);
+	if (!IS_BUILDER(ch, pArea))
 	{
 		send_to_char("Insuficiente seguridad para modificar objetos.\n\r" , ch);
 	        return;
@@ -914,7 +909,8 @@ void do_medit(CHAR_DATA *ch, const char *argument)
 	    return;
 	}
 
-	if (!IS_BUILDER(ch, pMob->area))
+	pArea = get_vnum_area(pMob->vnum);
+	if (!IS_BUILDER(ch, pArea))
 	{
 		send_to_char("Insuficiente seguridad para modificar mobs.\n\r" , ch);
 	        return;

@@ -2,7 +2,7 @@
 #define _MLSTRING_H_
 
 /*
- * $Id: mlstring.h,v 1.6 1998-08-14 22:33:06 fjoe Exp $
+ * $Id: mlstring.h,v 1.7 1998-08-15 07:47:34 fjoe Exp $
  */
 
 mlstring * 	mlstr_fread	(FILE *fp);
@@ -24,7 +24,7 @@ bool		mlstr_append	(CHAR_DATA *ch, mlstring **mlp,
 				 const char *arg);
 void		mlstr_format	(mlstring **mlp);
 bool		mlstr_change	(mlstring **mlp, const char *arg);
-bool		mlstr_change_desc(mlstring **mlp, const char *argument);
+bool		mlstr_change_desc(mlstring **mlp, const char *arg);
 
 void		mlstr_dump	(BUFFER *buf, const char *name,
 				 const mlstring *ml);

@@ -1,5 +1,5 @@
 /*
- * $Id: mem.c,v 1.8 1998-08-14 22:33:05 fjoe Exp $
+ * $Id: mem.c,v 1.9 1998-08-15 07:47:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -322,7 +322,6 @@ OBJ_INDEX_DATA *new_obj_index(void)
     pObj->next          =   NULL;
     pObj->ed		=   NULL;
     pObj->affected      =   NULL;
-    pObj->area          =   NULL;
     pObj->name          =   str_dup("no name");
     pObj->vnum          =   0;
     pObj->item_type     =   ITEM_TRASH;
@@ -388,8 +387,7 @@ MOB_INDEX_DATA *new_mob_index(void)
     pMob->next          =   NULL;
     pMob->spec_fun      =   NULL;
     pMob->pShop         =   NULL;
-    pMob->area          =   NULL;
-    pMob->name   =   str_dup("no name");
+    pMob->name		=   str_dup("no name");
     pMob->vnum          =   0;
     pMob->count         =   0;
     pMob->killed        =   0;

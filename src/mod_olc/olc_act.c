@@ -1,5 +1,5 @@
 /*
- * $Id: olc_act.c,v 1.14 1998-08-14 22:33:06 fjoe Exp $
+ * $Id: olc_act.c,v 1.15 1998-08-15 07:47:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -38,6 +38,9 @@
 #include "mlstring.h"
 
 char * mprog_type_to_name (int type);
+static bool change_exit(CHAR_DATA *ch, const char *argument, int door);
+static bool edit_ed(CHAR_DATA *ch, const char* argument, ED_DATA **ped);
+
 AREA_DATA *area_in_range = NULL;
 
 /* Return TRUE if area changed, FALSE if not. */
@@ -1124,469 +1127,42 @@ REDIT(redit_show)
 	return FALSE;
 }
 
-
-
-
-/* Local function. */
-bool change_exit(CHAR_DATA *ch, const char *argument, int door)
-{
-	ROOM_INDEX_DATA *pRoom;
-	char command[MAX_INPUT_LENGTH];
-	char arg[MAX_INPUT_LENGTH];
-	int  value;
-
-	EDIT_ROOM(ch, pRoom);
-
-	/*
-	 * Set the exit flags, needs full argument.
-	 * ----------------------------------------
-	 */
-	if ((value = flag_value(exit_flags, argument)) != NO_FLAG)
-	{
-		ROOM_INDEX_DATA *pToRoom;
-		int rev;                                    /* ROM OLC */
-
-		if (!pRoom->exit[door])
-		   {
-		   	send_to_char("Salida no existe.\n\r",ch);
-		   	return FALSE;
-		   }
-		 /*   pRoom->exit[door] = new_exit(); */
-
-		/*
-		 * This room.
-		 */
-		TOGGLE_BIT(pRoom->exit[door]->rs_flags,  value);
-		/* Don't toggle exit_info because it can be changed by players. */
-		pRoom->exit[door]->exit_info = pRoom->exit[door]->rs_flags;
-
-		/*
-		 * Connected room.
-		 */
-		pToRoom = pRoom->exit[door]->u1.to_room;     /* ROM OLC */
-		rev = rev_dir[door];
-
-		if (pToRoom->exit[rev] != NULL)
-		{
-		   TOGGLE_BIT(pToRoom->exit[rev]->rs_flags,  value);
-		   TOGGLE_BIT(pToRoom->exit[rev]->exit_info, value);
-		}
-
-		send_to_char("Exit flag toggled.\n\r", ch);
-		return TRUE;
-	}
-
-	/*
-	 * Now parse the arguments.
-	 */
-	argument = one_argument(argument, command);
-	argument = one_argument(argument, arg);
-
-	if (command[0] == '\0' && argument[0] == '\0')	/* Move command. */
-	{
-		move_char(ch, door, TRUE);                    /* ROM OLC */
-		return FALSE;
-	}
-
-	if (command[0] == '?')
-	{
-		do_help(ch, "EXIT");
-		return FALSE;
-	}
-
-	if (!str_cmp(command, "delete"))
-	{
-		ROOM_INDEX_DATA *pToRoom;
-		int rev;                                     /* ROM OLC */
-		
-		if (!pRoom->exit[door])
-		{
-			send_to_char("REdit:  Cannot delete a null exit.\n\r", ch);
-			return FALSE;
-		}
-
-		/*
-		 * Remove ToRoom Exit.
-		 */
-		rev = rev_dir[door];
-		pToRoom = pRoom->exit[door]->u1.to_room;       /* ROM OLC */
-		
-		if (pToRoom->exit[rev])
-		{
-			free_exit(pToRoom->exit[rev]);
-			pToRoom->exit[rev] = NULL;
-		}
-
-		/*
-		 * Remove this exit.
-		 */
-		free_exit(pRoom->exit[door]);
-		pRoom->exit[door] = NULL;
-
-		send_to_char("Exit unlinked.\n\r", ch);
-		return TRUE;
-	}
-
-	if (!str_cmp(command, "link"))
-	{
-		EXIT_DATA *pExit;
-
-		if (arg[0] == '\0' || !is_number(arg))
-		{
-			send_to_char("Syntax:  [direction] link [vnum]\n\r", ch);
-			return FALSE;
-		}
-
-		value = atoi(arg);
-
-		if (!get_room_index(value))
-		{
-			send_to_char("REdit:  Cannot link to non-existant room.\n\r", ch);
-			return FALSE;
-		}
-
-		if (!IS_BUILDER(ch, get_room_index(value)->area))
-		{
-			send_to_char("REdit:  Cannot link to that area.\n\r", ch);
-			return FALSE;
-		}
-
-		if (get_room_index(value)->exit[rev_dir[door]])
-		{
-			send_to_char("REdit:  Remote side's exit already exists.\n\r", ch);
-			return FALSE;
-		}
-
-		if (!pRoom->exit[door])
-		{
-			pRoom->exit[door] = new_exit();
-		}
-
-		pRoom->exit[door]->u1.to_room = get_room_index(value);   /* ROM OLC */
-		pRoom->exit[door]->orig_door = door;
-		
-/*	pRoom->exit[door]->vnum = value;                Can't set vnum in ROM */
-
-		pRoom                   = get_room_index(value);
-		door                    = rev_dir[door];
-		pExit                   = new_exit();
-		pExit->u1.to_room       = ch->in_room;
-/*	pExit->vnum             = ch->in_room->vnum;    Can't set vnum in ROM */
-		pExit->orig_door	= door;
-		pRoom->exit[door]       = pExit;
-
-		send_to_char("Two-way link established.\n\r", ch);
-		return TRUE;
-	}
-		 
-	if (!str_cmp(command, "dig"))
-	{
-		char buf[MAX_STRING_LENGTH];
-		
-		if (arg[0] == '\0' || !is_number(arg))
-		{
-			send_to_char("Syntax: [direction] dig <vnum>\n\r", ch);
-			return FALSE;
-		}
-		
-		redit_create(ch, arg);
-		snprintf(buf, sizeof(buf), "link %s", arg);
-		change_exit(ch, buf, door);
-		return TRUE;
-	}
-
-	if (!str_cmp(command, "room"))
-	{
-		if (arg[0] == '\0' || !is_number(arg))
-		{
-			send_to_char("Syntax:  [direction] room [vnum]\n\r", ch);
-			return FALSE;
-		}
-
-		if (!pRoom->exit[door])
-		{
-			pRoom->exit[door] = new_exit();
-		}
-
-		value = atoi(arg);
-
-		if (!get_room_index(value))
-		{
-			send_to_char("REdit:  Cannot link to non-existant room.\n\r", ch);
-			return FALSE;
-		}
-
-		pRoom->exit[door]->u1.to_room = get_room_index(value);    /* ROM OLC */
-		pRoom->exit[door]->orig_door = door;
-/*	pRoom->exit[door]->vnum = value;                 Can't set vnum in ROM */
-
-		send_to_char("One-way link established.\n\r", ch);
-		return TRUE;
-	}
-
-	if (!str_cmp(command, "key"))
-	{
-		if (arg[0] == '\0' || !is_number(arg))
-		{
-			send_to_char("Syntax:  [direction] key [vnum]\n\r", ch);
-			return FALSE;
-		}
-
-		if (!pRoom->exit[door])
-		   {
-		   	send_to_char("Salida no existe.\n\r",ch);
-		   	return FALSE;
-		   }
-
-/*	if (!pRoom->exit[door])
-		{
-			pRoom->exit[door] = new_exit();
-		} */
-
-		value = atoi(arg);
-
-		if (!get_obj_index(value))
-		{
-			send_to_char("REdit:  Item doesn't exist.\n\r", ch);
-			return FALSE;
-		}
-
-		if (get_obj_index(atoi(argument))->item_type != ITEM_KEY)
-		{
-			send_to_char("REdit:  Key doesn't exist.\n\r", ch);
-			return FALSE;
-		}
-
-		pRoom->exit[door]->key = value;
-
-		send_to_char("Exit key set.\n\r", ch);
-		return TRUE;
-	}
-
-	if (!str_cmp(command, "name"))
-	{
-		if (arg[0] == '\0')
-		{
-			send_to_char("Syntax:  [direction] name [string]\n\r", ch);
-			send_to_char("         [direction] name none\n\r", ch);
-			return FALSE;
-		}
-
-		if (!pRoom->exit[door])
-		   {
-		   	send_to_char("Salida no existe.\n\r",ch);
-		   	return FALSE;
-		   }
-
-/*	if (!pRoom->exit[door])
-		{
-			pRoom->exit[door] = new_exit();
-		} */
-
-		free_string(pRoom->exit[door]->keyword);
-		if (str_cmp(arg,"none"))
-			pRoom->exit[door]->keyword = str_dup(arg);
-		else
-			pRoom->exit[door]->keyword = str_dup("");
-
-		send_to_char("Exit name set.\n\r", ch);
-		return TRUE;
-	}
-
-	if (!str_prefix(command, "description")) {
-		if (!pRoom->exit[door]) {
-		   	send_to_char("Salida no existe.\n\r",ch);
-		   	return FALSE;
-		}
-
-/*	    if (!pRoom->exit[door])
-			{
-			    pRoom->exit[door] = new_exit();
-			} */
-
-		if (!mlstr_append(ch, &pRoom->exit[door]->description, arg)) {
-			send_to_char("Syntax:  [direction] desc lang\n\r", ch);
-			return FALSE;
-		}
-		return TRUE;
-	}
-
-	return FALSE;
-}
-
-
-
 REDIT(redit_north)
 {
-	if (change_exit(ch, argument, DIR_NORTH))
-		return TRUE;
-
-	return FALSE;
+	return change_exit(ch, argument, DIR_NORTH);
 }
-
-
 
 REDIT(redit_south)
 {
-	if (change_exit(ch, argument, DIR_SOUTH))
-		return TRUE;
-
-	return FALSE;
+	return change_exit(ch, argument, DIR_SOUTH);
 }
-
-
 
 REDIT(redit_east)
 {
-	if (change_exit(ch, argument, DIR_EAST))
-		return TRUE;
-
-	return FALSE;
+	return change_exit(ch, argument, DIR_EAST);
 }
-
-
 
 REDIT(redit_west)
 {
-	if (change_exit(ch, argument, DIR_WEST))
-		return TRUE;
-
-	return FALSE;
+	return change_exit(ch, argument, DIR_WEST);
 }
-
-
 
 REDIT(redit_up)
 {
-	if (change_exit(ch, argument, DIR_UP))
-		return TRUE;
-
-	return FALSE;
+	return change_exit(ch, argument, DIR_UP);
 }
-
-
 
 REDIT(redit_down)
 {
-	if (change_exit(ch, argument, DIR_DOWN))
-		return TRUE;
-
-	return FALSE;
+	return change_exit(ch, argument, DIR_DOWN);
 }
-
-
 
 REDIT(redit_ed)
 {
 	ROOM_INDEX_DATA *pRoom;
-	ED_DATA *ed;
-	char command[MAX_INPUT_LENGTH];
-	char keyword[MAX_INPUT_LENGTH];
-	char lang[MAX_INPUT_LENGTH];
-
 	EDIT_ROOM(ch, pRoom);
-
-	argument = one_argument(argument, command);
-	argument = one_argument(argument, keyword);
-	argument = one_argument(argument, lang);
-
-	if (command[0] == '\0' || keyword[0] == '\0')
-	{
-		send_to_char("Syntax:  ed add [keyword]\n\r", ch);
-		send_to_char("         ed edit [keyword]\n\r", ch);
-		send_to_char("         ed delete [keyword]\n\r", ch);
-		send_to_char("         ed format [keyword]\n\r", ch);
-		return FALSE;
-	}
-
-	if (!str_cmp(command, "add")) {
-		if (keyword[0] == '\0' || lang[0] == '\0') {
-			send_to_char("Syntax:  ed add keyword lang\n\r", ch);
-			return FALSE;
-		}
-
-		ed			=   ed_new();
-		ed->keyword		=   str_dup(keyword);
-		ed->next		=   pRoom->ed;
-		pRoom->ed	=   ed;
-
-		mlstr_append(ch, &ed->description, lang);
-
-		return TRUE;
-	}
-
-
-	if (!str_cmp(command, "edit")) {
-		if (keyword[0] == '\0' || lang[0] == '\0') {
-			send_to_char("Syntax:  ed edit keyword lang\n\r", ch);
-			return FALSE;
-		}
-
-		ed = ed_lookup(keyword, pRoom->ed);
-		if (ed == NULL) {
-			send_to_char("REdit:  Extra description keyword not found.\n\r", ch);
-			return FALSE;
-		}
-
-		mlstr_append(ch, &ed->description, lang);
-
-		return TRUE;
-	}
-
-
-	if (!str_cmp(command, "delete")) {
-		ED_DATA *ped = NULL;
-
-		if (keyword[0] == '\0') {
-			send_to_char("Syntax:  ed delete keyword\n\r", ch);
-			return FALSE;
-		}
-
-		for (ed = pRoom->ed; ed; ed = ed->next) {
-			if (is_name(keyword, ed->keyword))
-				break;
-			ped = ed;
-		}
-
-		if (ed == NULL) {
-			send_to_char("REdit:  Extra description keyword not found.\n\r", ch);
-			return FALSE;
-		}
-
-		if (ped == NULL)
-			pRoom->ed = ed->next;
-		else
-			ped->next = ed->next;
-
-		ed_free(ed);
-
-		send_to_char("Extra description deleted.\n\r", ch);
-		return TRUE;
-	}
-
-
-	if (!str_cmp(command, "format")) {
-		if (keyword[0] == '\0') {
-			send_to_char("Syntax:  ed format keyword\n\r", ch);
-			return FALSE;
-		}
-
-		ed = ed_lookup(keyword, pRoom->ed);
-		if (ed == NULL) {
-			send_to_char("REdit:  Extra description keyword not found.\n\r", ch);
-			return FALSE;
-		}
-
-		mlstr_format(&ed->description);
-		send_to_char("Extra description formatted.\n\r", ch);
-		return TRUE;
-	}
-
-	redit_ed(ch, "");
-	return FALSE;
+	return edit_ed(ch, argument, &pRoom->ed);
 }
-
-
 
 REDIT(redit_create)
 {
@@ -1736,31 +1312,30 @@ REDIT(redit_mreset)
 {
 	ROOM_INDEX_DATA	*pRoom;
 	MOB_INDEX_DATA	*pMobIndex;
-	CHAR_DATA		*newmob;
+	AREA_DATA	*pArea;
+	CHAR_DATA	*newmob;
 	char		arg [ MAX_INPUT_LENGTH ];
 	char		arg2 [ MAX_INPUT_LENGTH ];
 
-	RESET_DATA		*pReset;
+	RESET_DATA	*pReset;
 
 	EDIT_ROOM(ch, pRoom);
 
 	argument = one_argument(argument, arg);
 	argument = one_argument(argument, arg2);
 
-	if (arg[0] == '\0' || !is_number(arg))
-	{
+	if (arg[0] == '\0' || !is_number(arg)) {
 		send_to_char ("Syntax:  mreset <vnum> <max #x> <mix #x>\n\r", ch);
 		return FALSE;
 	}
 
-	if (!(pMobIndex = get_mob_index(atoi(arg))))
-	{
+	if (!(pMobIndex = get_mob_index(atoi(arg)))) {
 		send_to_char("REdit: No mobile has that vnum.\n\r", ch);
 		return FALSE;
 	}
 
-	if (pMobIndex->area != pRoom->area)
-	{
+	pArea = get_vnum_area(pMobIndex->vnum);
+	if (pArea != pRoom->area) {
 		send_to_char("REdit: No such mobile in this area.\n\r", ch);
 		return FALSE;
 	}
@@ -1872,14 +1447,15 @@ REDIT(redit_oreset)
 {
 	ROOM_INDEX_DATA	*pRoom;
 	OBJ_INDEX_DATA	*pObjIndex;
-	OBJ_DATA		*newobj;
-	OBJ_DATA		*to_obj;
-	CHAR_DATA		*to_mob;
+	AREA_DATA	*pArea;
+	OBJ_DATA	*newobj;
+	OBJ_DATA	*to_obj;
+	CHAR_DATA	*to_mob;
 	char		arg1 [ MAX_INPUT_LENGTH ];
 	char		arg2 [ MAX_INPUT_LENGTH ];
-	int			olevel = 0;
+	int		olevel = 0;
 
-	RESET_DATA		*pReset;
+	RESET_DATA	*pReset;
 	char		output [ MAX_STRING_LENGTH ];
 
 	EDIT_ROOM(ch, pRoom);
@@ -1887,8 +1463,7 @@ REDIT(redit_oreset)
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
-	if (arg1[0] == '\0' || !is_number(arg1))
-	{
+	if (arg1[0] == '\0' || !is_number(arg1)) {
 		send_to_char ("Syntax:  oreset <vnum> <args>\n\r", ch);
 		send_to_char ("        -no_args               = into room\n\r", ch);
 		send_to_char ("        -<obj_name>            = into obj\n\r", ch);
@@ -1896,14 +1471,13 @@ REDIT(redit_oreset)
 		return FALSE;
 	}
 
-	if (!(pObjIndex = get_obj_index(atoi(arg1))))
-	{
+	if (!(pObjIndex = get_obj_index(atoi(arg1)))) {
 		send_to_char("REdit: No object has that vnum.\n\r", ch);
 		return FALSE;
 	}
 
-	if (pObjIndex->area != pRoom->area)
-	{
+	pArea = get_vnum_area(pObjIndex->vnum);
+	if (pArea != pRoom->area) {
 		send_to_char("REdit: No such object in this area.\n\r", ch);
 		return FALSE;
 	}
@@ -2551,19 +2125,18 @@ bool set_obj_values(CHAR_DATA *ch, OBJ_INDEX_DATA *pObj,
 
 OEDIT(oedit_show)
 {
-	OBJ_INDEX_DATA *pObj;
+	OBJ_INDEX_DATA	*pObj;
+	AREA_DATA	*pArea;
 	AFFECT_DATA *paf;
 	int cnt;
 	BUFFER *output;
 
 	EDIT_OBJ(ch, pObj);
+	pArea = get_vnum_area(pObj->vnum);
 
 	output = buf_new(0);
 	buf_printf(output, "Name:        [%s]\n\rArea:        [%5d] %s\n\r",
-		pObj->name,
-		!pObj->area ? -1        : pObj->area->vnum,
-		!pObj->area ? "No Area" : pObj->area->name);
-
+		pObj->name, pArea->vnum, pArea->name);
 
 	buf_printf(output, "Vnum:        [%5d]\n\rType:        [%s]\n\r",
 		pObj->vnum,
@@ -3017,14 +2590,13 @@ OEDIT(oedit_create)
 	}
 		 
 	pObj			= new_obj_index();
-	pObj->vnum			= value;
-	pObj->area			= pArea;
+	pObj->vnum		= value;
 		 
 	if (value > top_vnum_obj)
 		top_vnum_obj = value;
 
 	iHash			= value % MAX_KEY_HASH;
-	pObj->next			= obj_index_hash[iHash];
+	pObj->next		= obj_index_hash[iHash];
 	obj_index_hash[iHash]	= pObj;
 	ch->desc->pEdit		= (void *)pObj;
 
@@ -3032,118 +2604,12 @@ OEDIT(oedit_create)
 	return TRUE;
 }
 
-
-
 OEDIT(oedit_ed)
 {
 	OBJ_INDEX_DATA *pObj;
-	ED_DATA *ed;
-	char command[MAX_INPUT_LENGTH];
-	char keyword[MAX_INPUT_LENGTH];
-	char lang[MAX_INPUT_LENGTH];
-
 	EDIT_OBJ(ch, pObj);
-
-	argument = one_argument(argument, command);
-	argument = one_argument(argument, keyword);
-		   one_argument(argument, lang);
-
-	if (command[0] == '\0') {
-		send_to_char("Syntax:  ed add [keyword]\n\r", ch);
-		send_to_char("         ed delete [keyword]\n\r", ch);
-		send_to_char("         ed edit [keyword]\n\r", ch);
-		send_to_char("         ed format [keyword]\n\r", ch);
-		return FALSE;
-	}
-
-	if (!str_cmp(command, "add")) {
-		if (keyword[0] == '\0' || lang[0] == '\0') {
-			send_to_char("Syntax:  ed add keyword lang\n\r", ch);
-			return FALSE;
-		}
-
-		ed			= ed_new();
-		ed->keyword		= str_dup(keyword);
-		ed->next		= pObj->ed;
-		pObj->ed	= ed;
-
-		mlstr_append(ch, &ed->description, lang);
-
-		return TRUE;
-	}
-
-	if (!str_cmp(command, "edit")) {
-		if (keyword[0] == '\0' || lang[0] == '\0') {
-			send_to_char("Syntax:  ed edit [keyword]\n\r", ch);
-			return FALSE;
-		}
-
-		ed = ed_lookup(keyword, pObj->ed);
-		if (ed == NULL) {
-			send_to_char("OEdit:  Extra description keyword not found.\n\r", ch);
-			return FALSE;
-		}
-
-		mlstr_append(ch, &ed->description, lang);
-		return TRUE;
-	}
-
-	if (!str_cmp(command, "delete")) {
-		ED_DATA *ped = NULL;
-
-		if (keyword[0] == '\0') {
-			send_to_char("Syntax:  ed delete keyword\n\r", ch);
-			return FALSE;
-		}
-
-		for (ed = pObj->ed; ed; ed = ed->next) {
-			if (is_name(keyword, ed->keyword))
-				break;
-			ped = ed;
-		}
-
-		if (ed == NULL) {
-			send_to_char("OEdit:  Extra description keyword not found.\n\r", ch);
-			return FALSE;
-		}
-
-		if (ped == NULL)
-			pObj->ed = ed->next;
-		else
-			ped->next = ed->next;
-
-		ed_free(ed);
-
-		send_to_char("Extra description deleted.\n\r", ch);
-		return TRUE;
-	}
-
-
-	if (!str_cmp(command, "format")) {
-		if (keyword[0] == '\0') {
-			send_to_char("Syntax:  ed format keyword\n\r", ch);
-			return FALSE;
-		}
-
-		ed = ed_lookup(keyword, pObj->ed);
-		if (ed == NULL) {
-		         send_to_char("OEdit:  Extra description keyword not found.\n\r", ch);
-		         return FALSE;
-		}
-
-		mlstr_format(&ed->description);
-
-		send_to_char("Extra description formatted.\n\r", ch);
-		return TRUE;
-	}
-
-	oedit_ed(ch, "");
-	return FALSE;
+	return edit_ed(ch, argument, &pObj->ed);
 }
-
-
-
-
 
 /* ROM object functions : */
 
@@ -3299,7 +2765,8 @@ OEDIT(oedit_condition)
  */
 MEDIT(medit_show)
 {
-	MOB_INDEX_DATA *pMob;
+	MOB_INDEX_DATA	*pMob;
+	AREA_DATA	*pArea;
 	MPROG_LIST *list;
 	BUFFER *buf;
 
@@ -3307,10 +2774,9 @@ MEDIT(medit_show)
 
 	buf = buf_new(0);
 
+	pArea = get_vnum_area(pMob->vnum);
 	buf_printf(buf, "Name:        [%s]\n\rArea:        [%5d] %s\n\r",
-		pMob->name,
-		!pMob->area ? -1        : pMob->area->vnum,
-		!pMob->area ? "No Area" : pMob->area->name);
+		pMob->name, pArea->vnum, pArea->name);
 
 	buf_printf(buf, "Act:         [%s]\n\r",
 		flag_string(act_flags, pMob->act));
@@ -3487,7 +2953,6 @@ MEDIT(medit_create)
 
 	pMob			= new_mob_index();
 	pMob->vnum		= value;
-	pMob->area		= pArea;
 		 
 	if (value > top_vnum_mob)
 		top_vnum_mob = value;        
@@ -4618,4 +4083,381 @@ REDIT(redit_sector)
 	send_to_char("Sector type set.\n\r", ch);
 
 	return TRUE;
+}
+
+
+/* Local functions. */
+
+static bool change_exit(CHAR_DATA *ch, const char *argument, int door)
+{
+	ROOM_INDEX_DATA *pRoom;
+	char command[MAX_INPUT_LENGTH];
+	char arg[MAX_INPUT_LENGTH];
+	int  value;
+
+	EDIT_ROOM(ch, pRoom);
+
+	/*
+	 * Set the exit flags, needs full argument.
+	 * ----------------------------------------
+	 */
+	if ((value = flag_value(exit_flags, argument)) != NO_FLAG)
+	{
+		ROOM_INDEX_DATA *pToRoom;
+		int rev;                                    /* ROM OLC */
+
+		if (!pRoom->exit[door])
+		   {
+		   	send_to_char("Salida no existe.\n\r",ch);
+		   	return FALSE;
+		   }
+		 /*   pRoom->exit[door] = new_exit(); */
+
+		/*
+		 * This room.
+		 */
+		TOGGLE_BIT(pRoom->exit[door]->rs_flags,  value);
+		/* Don't toggle exit_info because it can be changed by players. */
+		pRoom->exit[door]->exit_info = pRoom->exit[door]->rs_flags;
+
+		/*
+		 * Connected room.
+		 */
+		pToRoom = pRoom->exit[door]->u1.to_room;     /* ROM OLC */
+		rev = rev_dir[door];
+
+		if (pToRoom->exit[rev] != NULL)
+		{
+		   TOGGLE_BIT(pToRoom->exit[rev]->rs_flags,  value);
+		   TOGGLE_BIT(pToRoom->exit[rev]->exit_info, value);
+		}
+
+		send_to_char("Exit flag toggled.\n\r", ch);
+		return TRUE;
+	}
+
+	/*
+	 * Now parse the arguments.
+	 */
+	argument = one_argument(argument, command);
+	argument = one_argument(argument, arg);
+
+	if (command[0] == '\0' && argument[0] == '\0')	/* Move command. */
+	{
+		move_char(ch, door, TRUE);                    /* ROM OLC */
+		return FALSE;
+	}
+
+	if (command[0] == '?')
+	{
+		do_help(ch, "EXIT");
+		return FALSE;
+	}
+
+	if (!str_cmp(command, "delete"))
+	{
+		ROOM_INDEX_DATA *pToRoom;
+		int rev;                                     /* ROM OLC */
+		
+		if (!pRoom->exit[door])
+		{
+			send_to_char("REdit:  Cannot delete a null exit.\n\r", ch);
+			return FALSE;
+		}
+
+		/*
+		 * Remove ToRoom Exit.
+		 */
+		rev = rev_dir[door];
+		pToRoom = pRoom->exit[door]->u1.to_room;       /* ROM OLC */
+		
+		if (pToRoom->exit[rev])
+		{
+			free_exit(pToRoom->exit[rev]);
+			pToRoom->exit[rev] = NULL;
+		}
+
+		/*
+		 * Remove this exit.
+		 */
+		free_exit(pRoom->exit[door]);
+		pRoom->exit[door] = NULL;
+
+		send_to_char("Exit unlinked.\n\r", ch);
+		return TRUE;
+	}
+
+	if (!str_cmp(command, "link"))
+	{
+		EXIT_DATA *pExit;
+
+		if (arg[0] == '\0' || !is_number(arg))
+		{
+			send_to_char("Syntax:  [direction] link [vnum]\n\r", ch);
+			return FALSE;
+		}
+
+		value = atoi(arg);
+
+		if (!get_room_index(value))
+		{
+			send_to_char("REdit:  Cannot link to non-existant room.\n\r", ch);
+			return FALSE;
+		}
+
+		if (!IS_BUILDER(ch, get_room_index(value)->area))
+		{
+			send_to_char("REdit:  Cannot link to that area.\n\r", ch);
+			return FALSE;
+		}
+
+		if (get_room_index(value)->exit[rev_dir[door]])
+		{
+			send_to_char("REdit:  Remote side's exit already exists.\n\r", ch);
+			return FALSE;
+		}
+
+		if (!pRoom->exit[door])
+		{
+			pRoom->exit[door] = new_exit();
+		}
+
+		pRoom->exit[door]->u1.to_room = get_room_index(value);   /* ROM OLC */
+		pRoom->exit[door]->orig_door = door;
+		
+/*	pRoom->exit[door]->vnum = value;                Can't set vnum in ROM */
+
+		pRoom                   = get_room_index(value);
+		door                    = rev_dir[door];
+		pExit                   = new_exit();
+		pExit->u1.to_room       = ch->in_room;
+/*	pExit->vnum             = ch->in_room->vnum;    Can't set vnum in ROM */
+		pExit->orig_door	= door;
+		pRoom->exit[door]       = pExit;
+
+		send_to_char("Two-way link established.\n\r", ch);
+		return TRUE;
+	}
+		 
+	if (!str_cmp(command, "dig"))
+	{
+		char buf[MAX_STRING_LENGTH];
+		
+		if (arg[0] == '\0' || !is_number(arg))
+		{
+			send_to_char("Syntax: [direction] dig <vnum>\n\r", ch);
+			return FALSE;
+		}
+		
+		redit_create(ch, arg);
+		snprintf(buf, sizeof(buf), "link %s", arg);
+		change_exit(ch, buf, door);
+		return TRUE;
+	}
+
+	if (!str_cmp(command, "room"))
+	{
+		if (arg[0] == '\0' || !is_number(arg))
+		{
+			send_to_char("Syntax:  [direction] room [vnum]\n\r", ch);
+			return FALSE;
+		}
+
+		if (!pRoom->exit[door])
+		{
+			pRoom->exit[door] = new_exit();
+		}
+
+		value = atoi(arg);
+
+		if (!get_room_index(value))
+		{
+			send_to_char("REdit:  Cannot link to non-existant room.\n\r", ch);
+			return FALSE;
+		}
+
+		pRoom->exit[door]->u1.to_room = get_room_index(value);    /* ROM OLC */
+		pRoom->exit[door]->orig_door = door;
+/*	pRoom->exit[door]->vnum = value;                 Can't set vnum in ROM */
+
+		send_to_char("One-way link established.\n\r", ch);
+		return TRUE;
+	}
+
+	if (!str_cmp(command, "key"))
+	{
+		if (arg[0] == '\0' || !is_number(arg))
+		{
+			send_to_char("Syntax:  [direction] key [vnum]\n\r", ch);
+			return FALSE;
+		}
+
+		if (!pRoom->exit[door])
+		   {
+		   	send_to_char("Salida no existe.\n\r",ch);
+		   	return FALSE;
+		   }
+
+/*	if (!pRoom->exit[door])
+		{
+			pRoom->exit[door] = new_exit();
+		} */
+
+		value = atoi(arg);
+
+		if (!get_obj_index(value))
+		{
+			send_to_char("REdit:  Item doesn't exist.\n\r", ch);
+			return FALSE;
+		}
+
+		if (get_obj_index(atoi(argument))->item_type != ITEM_KEY)
+		{
+			send_to_char("REdit:  Key doesn't exist.\n\r", ch);
+			return FALSE;
+		}
+
+		pRoom->exit[door]->key = value;
+
+		send_to_char("Exit key set.\n\r", ch);
+		return TRUE;
+	}
+
+	if (!str_cmp(command, "name"))
+	{
+		if (arg[0] == '\0')
+		{
+			send_to_char("Syntax:  [direction] name [string]\n\r", ch);
+			send_to_char("         [direction] name none\n\r", ch);
+			return FALSE;
+		}
+
+		if (!pRoom->exit[door])
+		   {
+		   	send_to_char("Salida no existe.\n\r",ch);
+		   	return FALSE;
+		   }
+
+/*	if (!pRoom->exit[door])
+		{
+			pRoom->exit[door] = new_exit();
+		} */
+
+		free_string(pRoom->exit[door]->keyword);
+		if (str_cmp(arg,"none"))
+			pRoom->exit[door]->keyword = str_dup(arg);
+		else
+			pRoom->exit[door]->keyword = str_dup("");
+
+		send_to_char("Exit name set.\n\r", ch);
+		return TRUE;
+	}
+
+	if (!str_prefix(command, "description")) {
+		if (!pRoom->exit[door]) {
+		   	send_to_char("Salida no existe.\n\r",ch);
+		   	return FALSE;
+		}
+
+/*	    if (!pRoom->exit[door])
+			{
+			    pRoom->exit[door] = new_exit();
+			} */
+
+		if (!mlstr_append(ch, &pRoom->exit[door]->description, arg)) {
+			send_to_char("Syntax:  [direction] desc lang\n\r", ch);
+			return FALSE;
+		}
+		return TRUE;
+	}
+
+	return FALSE;
+}
+
+static bool edit_ed(CHAR_DATA *ch, const char* argument, ED_DATA **ped)
+{
+	ED_DATA *ed;
+	char command[MAX_INPUT_LENGTH];
+	char keyword[MAX_INPUT_LENGTH];
+	char lang[MAX_INPUT_LENGTH];
+
+	argument = one_argument(argument, command);
+	argument = one_argument(argument, keyword);
+	argument = one_argument(argument, lang);
+
+	if (command[0] == '\0' || keyword[0] == '\0') {
+		do_help(ch, "'OLC ED'");
+		return FALSE;
+	}
+
+	if (!str_cmp(command, "add")) {
+		ed		= ed_new();
+		ed->keyword	= str_dup(keyword);
+		ed->next	= *ped;
+		*ped		= ed;
+
+		if (!mlstr_append(ch, &ed->description, lang)) {
+			ed_free(ed);
+			do_help(ch, "'OLC ED'");
+			return FALSE;
+		}
+
+		send_to_char("Extra description added.\n\r", ch);
+		return TRUE;
+	}
+
+	if (!str_cmp(command, "edit")) {
+		ed = ed_lookup(keyword, *ped);
+		if (ed == NULL) {
+			send_to_char("Extra description keyword not found.\n\r", ch);
+			return FALSE;
+		}
+
+		if (!mlstr_append(ch, &ed->description, lang)) {
+			do_help(ch, "'OLC ED'");
+			return FALSE;
+		}
+		return TRUE;
+	}
+
+	if (!str_cmp(command, "delete")) {
+		ED_DATA *prev = NULL;
+
+		for (ed = *ped; ed; ed = ed->next) {
+			if (is_name(keyword, ed->keyword))
+				break;
+			prev = ed;
+		}
+
+		if (ed == NULL) {
+			send_to_char("Extra description keyword not found.\n\r", ch);
+			return FALSE;
+		}
+
+		if (prev == NULL)
+			*ped = ed->next;
+		else
+			prev->next = ed->next;
+
+		ed_free(ed);
+
+		send_to_char("Extra description deleted.\n\r", ch);
+		return TRUE;
+	}
+
+
+	if (!str_cmp(command, "format")) {
+		ed = ed_lookup(keyword, *ped);
+		if (ed == NULL) {
+			send_to_char("REdit:  Extra description keyword not found.\n\r", ch);
+			return FALSE;
+		}
+
+		mlstr_format(&ed->description);
+		send_to_char("Extra description formatted.\n\r", ch);
+		return TRUE;
+	}
+
+	do_help(ch, "'OLC ED'");
+	return FALSE;
 }
