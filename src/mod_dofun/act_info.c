@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.104 1998-07-25 20:04:31 efdi Exp $
+ * $Id: act_info.c,v 1.105 1998-07-25 21:19:08 efdi Exp $
  */
 
 /***************************************************************************
@@ -398,7 +398,7 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		strcat(buf, "[{WWizi{x] ");
 
 	if (IS_NPC(victim) && victim->position == victim->start_pos) {
-		char_printf(ch, "%s{G%s{x",
+		char_printf(ch, "%s{g%s{x",
 			    buf, mlstr_cval(victim->long_descr, ch));
 		return;
 	}
