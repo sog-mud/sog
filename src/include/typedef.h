@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.74 2004-01-27 22:52:43 fjoe Exp $
+ * $Id: typedef.h,v 1.75 2004-02-11 23:54:07 fjoe Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -187,7 +187,7 @@ typedef void	EFFECT_FUN	(void *vo, int level, int dam);
 	void fun(fd_set *in_set, fd_set *out_set,			\
 		 fd_set *exc_set __attribute__((unused)))
 #define EFFECT_FUN(fun)							\
-	static void fun(void *vo, int level, int dam)
+	void fun(void *vo, int level, int dam)
 
 typedef void (*e_init_t)(void *);
 typedef void (*e_destroy_t)(void *);

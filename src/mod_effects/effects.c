@@ -1,5 +1,5 @@
 /*
- * $Id: effects.c,v 1.49 2003-10-10 16:14:35 fjoe Exp $
+ * $Id: effects.c,v 1.50 2004-02-11 23:54:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -52,6 +52,14 @@
 static void toast_obj_list(OBJ_DATA *obj, EFFECT_FUN *eff, int level, int dam);
 static bool effect_ok(OBJ_DATA *obj, int chance, const char *msg);
 static void toast_obj(OBJ_DATA *obj, EFFECT_FUN *eff, int level, int dam);
+
+DECLARE_EFFECT_FUN(acid_effect);
+DECLARE_EFFECT_FUN(cold_effect);
+DECLARE_EFFECT_FUN(fire_effect);
+DECLARE_EFFECT_FUN(poison_effect);
+DECLARE_EFFECT_FUN(shock_effect);
+DECLARE_EFFECT_FUN(sand_effect);
+DECLARE_EFFECT_FUN(scream_effect);
 
 EFFECT_FUN(acid_effect)
 {
