@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.16 1998-09-24 14:07:41 fjoe Exp $
+ * $Id: mob_cmds.c,v 1.17 1998-10-11 17:17:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -72,7 +72,6 @@ const	struct	mob_cmd_type	mob_cmd_table	[] =
 	{	"force",	do_mpforce	},
 	{	"gforce",	do_mpgforce	},
 	{	"vforce",	do_mpvforce	},
-	{	"cast",		do_mpcast	},
 	{	"damage",	do_mpdamage	},
 	{	"remember",	do_mpremember	},
 	{	"forget",	do_mpforget	},
@@ -955,100 +954,6 @@ void do_mpvforce(CHAR_DATA *ch, const char *argument)
 	    interpret(victim, argument);
     }
     return;
-}
-
-
-/*
- * Lets the mobile cast spells --
- * Beware: this does only crude checking on the target validity
- * and does not account for mana etc., so you should do all the
- * necessary checking in your mob program before issuing this cmd!
- *
- * Syntax: mob cast [spell] {target}
- */
-extern const char* target_name;
-
-void do_mpcast(CHAR_DATA *ch, const char *argument)
-{
-	void *victim = NULL;
-	char spell[MAX_STRING_LENGTH];
-	char arg[MAX_INPUT_LENGTH];
-	int target = TARGET_NONE;
-	int sn;
-
-	target_name = one_argument(argument, spell);
-		      one_argument(target_name, arg);
-
-	if (spell[0] == '\0') {
-		bug("MpCast - Bad syntax from vnum %d.", 
-			IS_NPC(ch) ? ch->pIndexData->vnum : 0);
-		return;
-	}
-
-	if ((sn = sn_lookup(spell)) < 0) {
-		bug("MpCast - No such spell from vnum %d.", 
-			IS_NPC(ch) ? ch->pIndexData->vnum : 0);
-		return;
-	}
-
-	switch (SKILL(sn)->target) {
-	default:
-		return;
-	case TAR_IGNORE: 
-		break;
-	case TAR_CHAR_OFFENSIVE: 
-		if ((victim = get_char_room(ch, arg)) == NULL
-		&&  (victim = ch->fighting) == NULL)
-			return;
-		target = TARGET_CHAR;
-		break;
-	case TAR_CHAR_DEFENSIVE:
-		if ((victim = get_char_room(ch, arg)) == NULL)
-			victim = ch;
-		target = TARGET_CHAR;
-		break;
-	case TAR_CHAR_SELF:
-		victim = ch;
-		target = TARGET_CHAR;
-		break;
-	case TAR_OBJ_CHAR_DEF:
-		if (arg[0] == '\0')
-			victim = ch;
-		else
-			victim = get_char_room(ch, arg);
-
-		if (victim != NULL)
-			target = TARGET_CHAR;
-		else {
-			if ((victim = get_obj_carry(ch, arg)) == NULL)
-				return;
-			target = TARGET_OBJ;
-		}
-		break;
-	case TAR_OBJ_CHAR_OFF:
-		if (arg[0] == '\0') {
-			if ((victim = ch->fighting) == NULL)
-				return;
-		}
-		else
-			victim = get_char_room(ch, arg);
-
-		if (victim != NULL)
-			target = TARGET_CHAR;
-		else {
-			if ((victim = get_obj_here(ch, arg)) == NULL)
-				return;
-			target = TARGET_OBJ;
-		}
-		break;
-	case TAR_OBJ_INV:
-		if ((victim = get_obj_carry(ch, arg)) == NULL)
-			return;
-		target = TARGET_OBJ;
-		break;
-	}
-
-	SKILL(sn)->spell_fun(sn, ch->level, ch, victim, target);
 }
 
 /*

@@ -2967,8 +2967,8 @@ say Who are YOU?
 emote puffs on its hookah.
 ~
 #21032
-mob cast 'fly' $n
-mob cast 'fly' self
+cast 'fly' $n
+cast 'fly' self
 say Now everyone's high!
 ~
 #21033
@@ -3030,7 +3030,7 @@ say In that direction lives the March Hare.
 say And in that direction lives the Mad Hatter.
 ~
 #21048
-mob cast 'invisibility' self
+cast 'invisibility' self
 ~
 #21049
 tell $n Do you play croquet with the Queen today? I'll see you there!
@@ -3110,11 +3110,11 @@ yell Off with their heads!
 ~
 #21073
 tell $n Off with YOUR head!
-mob cast 'sanctuary' self
+cast 'sanctuary' self
 ~
 #21074
 yell GUARDS! HELP!
-mob cast 'flamestrike' $n
+cast 'flamestrike' $n
 ~
 #21075
 tell $n Tsk! Such impertinence!
@@ -3147,7 +3147,7 @@ say It's so amusing. She never chops anyone's heads off, you know.
 tell $n The Mock Turtle is east then south of here.
 ~
 #21086
-mob cast 'fly' $n
+cast 'fly' $n
 ~
 #21087
 emote screeches and attacks!
@@ -3167,8 +3167,8 @@ give slate $n
 emote glares at you suspiciously
 ~
 #21092
-mob cast 'blindness' $n
-mob cast 'web' $n
+cast 'blindness' $n
+cast 'web' $n
 ~
 #0
 

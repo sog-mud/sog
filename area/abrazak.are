@@ -410,20 +410,20 @@ else
 mob mload 50
 mob vforce 50 mob oload 15000
 mob vforce 50 mob goto 11740
-mob vforce 50 mob cast 'teleport'
+mob vforce 50 cast 'teleport'
 endif
 mob vforce 50 mob oload 15000
 mob vforce 50 say I'm very sorry but I must go to other places.....
 mob vforce 50 wave
 mob vforce 50 mob goto 15000
-mob vforce 50 mob cast 'teleport'
+mob vforce 50 cast 'teleport'
 mob vforce 50 yell Hey! I have some funny junk for you !
 ~
 #15001
-mob cast 'shadowlife' $n
+cast 'shadowlife' $n
 ~
 #15002
-mob cast 'demon summon'
+cast 'demon summon'
 ~
 #15003
 say ýáÓ ÝÁÓ...

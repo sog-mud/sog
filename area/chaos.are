@@ -1502,59 +1502,59 @@ if rand 97
 smile $n
 endif
 if rand 97
-mob cast 'blindness' $n
+cast 'blindness' $n
 endif
 if rand 97
-mob cast 'cause critical' $n
+cast 'cause critical' $n
 endif
 if rand 97
-mob cast 'earthquake' $n
+cast 'earthquake' $n
 endif
 if rand 97
-mob cast 'poison' $n
+cast 'poison' $n
 endif
 if rand 97
-mob cast 'heal' $n
+cast 'heal' $n
 endif
 if rand 97
-mob cast 'heat metal' $n
+cast 'heat metal' $n
 endif
 if rand 97
-mob cast 'curse' $n
+cast 'curse' $n
 endif
 if rand 97
-mob cast 'dragonfire' $n
+cast 'dragonfire' $n
 endif
 if rand 97
-mob cast 'giant strength' $n
+cast 'giant strength' $n
 endif
 if rand 97
-mob cast 'cancel' $n
+cast 'cancel' $n
 endif
 mob goto 36100
 if rand 95
-mob cast 'heal' $n
+cast 'heal' $n
 endif
 if rand 90
-mob cast 'haste' $n
+cast 'haste' $n
 endif
 if rand 90
-mob cast 'armor' $n
+cast 'armor' $n
 endif
 if rand 90
-mob cast 'enhanced armor' $n
+cast 'enhanced armor' $n
 endif
 if rand 90
-mob cast 'bless' $n
+cast 'bless' $n
 endif
 if rand 90
-mob cast 'frenzy' $n
+cast 'frenzy' $n
 endif
 if rand 90
-mob cast 'sanctuary' $n
+cast 'sanctuary' $n
 endif
 if rand 90
-mob cast 'shield' $n
+cast 'shield' $n
 endif
 ~
 #36101
