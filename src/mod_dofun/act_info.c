@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.423 2002-11-22 15:20:48 fjoe Exp $
+ * $Id: act_info.c,v 1.424 2002-11-22 16:22:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4358,10 +4358,11 @@ show_aliases(CHAR_DATA *ch, const char *argument, bool wiz)
 {
 	cmd_t *cmd;
 	char arg[MAX_INPUT_LENGTH];
+	CHAR_DATA *vch = wiz ? GET_ORIGINAL(ch) : ch;
 
 	one_argument(argument, arg, sizeof(arg));
 	C_FOREACH(cmd, &commands) {
-		if ((wiz ? WIZCMD_ALLOWED(cmd, ch) : CMD_ALLOWED(cmd, ch))
+		if ((wiz ? WIZCMD_ALLOWED(cmd, vch) : CMD_ALLOWED(cmd, vch))
 		&&  !str_prefix(arg, cmd->name)) {
 			if (!IS_NULLSTR(cmd->aliases)) {
 				act_puts("Aliases for '$t' are: [$T]",
@@ -4382,75 +4383,33 @@ show_aliases(CHAR_DATA *ch, const char *argument, bool wiz)
 	    TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 }
 
-/*
- * Contributed by Alander.
- */
-DO_FUN(do_commands, ch, argument)
+static void
+show_commands(CHAR_DATA *ch, const char *argument, bool wiz)
 {
 	int col;
 	varr v;
 	cmd_t *cmd;
+	CHAR_DATA *vch = wiz ? GET_ORIGINAL(ch) : ch;
 
 	if (!IS_NULLSTR(argument)) {
-		show_aliases(ch, argument, FALSE);
+		show_aliases(ch, argument, wiz);
 		return;
 	}
 
 	c_init(&v, &c_info_commands);
 	C_FOREACH(cmd, &commands) {
-		cmd_t *ncmd = varr_enew(&v);
-		*ncmd = *cmd;
-	}
-	varr_qsort(&v, cmpstr);
-
-	col = 0;
-	C_FOREACH(cmd, &v) {
-		if (CMD_ALLOWED(cmd, ch)
-		&&  !IS_SET(cmd->cmd_flags, CMD_HIDDEN)) {
-			act_puts("$f-12{$t}", ch, cmd->name, NULL,   // notrans
-				 TO_CHAR | ACT_NOTRANS | ACT_NOLF | ACT_NOUCASE,
-				 POS_DEAD);
-			if (++col % 6 == 0)
-				send_to_char("\n", ch);
+		if (wiz ? WIZCMD_ALLOWED(cmd, vch) :
+			  CMD_ALLOWED(cmd, vch) &&
+			  !IS_SET(cmd->cmd_flags, CMD_HIDDEN)) {
+			cmd_t *ncmd = varr_enew(&v);
+			*ncmd = *cmd;
 		}
 	}
-
-	if (col % 6 != 0)
-		send_to_char("\n", ch);
-
-	varr_destroy_nd(&v);
-}
-
-DO_FUN(do_wizhelp, ch, argument)
-{
-	cmd_t *cmd;
-	int col;
-	varr v;
-	CHAR_DATA *vch = GET_ORIGINAL(ch);
-
-	if (IS_NPC(vch)) {
-		act_char("Huh?", ch);
-		return;
-	}
-
-	if (!IS_NULLSTR(argument)) {
-		show_aliases(ch, argument, TRUE);
-		return;
-	}
-
-	c_init(&v, &c_info_commands);
-	C_FOREACH(cmd, &commands) {
-		cmd_t *ncmd = varr_enew(&v);
-		*ncmd = *cmd;
-	}
 	varr_qsort(&v, cmpstr);
 
 	col = 0;
 	C_FOREACH(cmd, &v) {
-		if (!WIZCMD_ALLOWED(cmd, vch))
-			continue;
-
-		act_puts("$f-12{$t}", ch, cmd->name, NULL,	// notrans
+		act_puts("$f-12{$t}", ch, cmd->name, NULL,   // notrans
 			 TO_CHAR | ACT_NOTRANS | ACT_NOLF | ACT_NOUCASE,
 			 POS_DEAD);
 		if (++col % 6 == 0)
@@ -4461,6 +4420,16 @@ DO_FUN(do_wizhelp, ch, argument)
 		send_to_char("\n", ch);
 
 	varr_destroy_nd(&v);
+}
+
+DO_FUN(do_commands, ch, argument)
+{
+	show_commands(ch, argument, FALSE);
+}
+
+DO_FUN(do_wizhelp, ch, argument)
+{
+	show_commands(ch, argument, TRUE);
 }
 
 static void
