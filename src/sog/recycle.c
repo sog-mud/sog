@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.69 1999-10-21 12:52:04 fjoe Exp $
+ * $Id: recycle.c,v 1.70 1999-10-21 13:32:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -759,6 +759,14 @@ void objval_init(flag32_t item_type, vo_t *v)
 			v[i] = 0;
 		break;
 
+	case ITEM_DRINK_CON:
+	case ITEM_FOUNTAIN:
+		v[0] = 0;
+		v[1] = 0;
+		v[2].s = str_empty;
+		v[3] = 0;
+		v[4] = 0;
+		
 	case ITEM_WEAPON:
 	case ITEM_STAFF:
 	case ITEM_WAND:
@@ -789,6 +797,15 @@ void objval_cpy(flag32_t item_type, vo_t *dst, vo_t *src)
 			dst[i] = src[i];
 		break;
 
+	case ITEM_DRINK_CON:
+	case ITEM_FOUNTAIN:
+		dst[0] = src[0];
+		dst[1] = src[1];
+		STR_VAL_ASSIGN(dst[2], str_qdup(src[2].s));
+		dst[3] = src[3];
+		dst[4] = src[4];
+		break;
+		
 	case ITEM_WEAPON:
 	case ITEM_STAFF:
 	case ITEM_WAND:
@@ -814,6 +831,11 @@ void objval_destroy(flag32_t item_type, vo_t *v)
 	int i;
 
 	switch (item_type) {
+	case ITEM_DRINK_CON:
+	case ITEM_FOUNTAIN:
+		free_string(v[2].s);
+		break;
+
 	case ITEM_WEAPON:
 	case ITEM_STAFF:
 	case ITEM_WAND:
@@ -946,7 +968,7 @@ void fread_objval(flag32_t item_type, vo_t *v, FILE *fp)
 	case ITEM_FOUNTAIN:
 		INT_VAL(v[0]) = fread_number(fp);
 		INT_VAL(v[1]) = fread_number(fp);
-		STR_VAL_ASSIGN(v[2], fread_word(fp));
+		STR_VAL_ASSIGN(v[2], fread_strkey(fp, &liquids, "fread_obj_val"));
 		INT_VAL(v[3]) = fread_number(fp);
 		INT_VAL(v[4]) = fread_number(fp);
 		break;
