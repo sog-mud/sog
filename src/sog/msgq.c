@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: msgq.c,v 1.1.2.1 2002-10-26 16:51:33 fjoe Exp $
+ * $Id: msgq.c,v 1.1.2.2 2003-03-06 16:00:41 avn Exp $
  */
 
 #include <sys/types.h>
@@ -49,6 +49,7 @@ msgq_destroy(msgq_t *msgq)
 
 	for (i = 0; i < msgq->qlen; i++)
 		free_string(msgq->qbuf[i]);
+	free(msgq->qbuf);
 }
 
 void
