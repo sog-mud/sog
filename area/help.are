@@ -3,8 +3,8 @@
 -1 MUDDY~
 		Muddy is based on Anatolia MUD -- see help anatolia.
 		Original idea, concept and coding:
-	Max Khon			[CAMBAH] (fjoe@iclub.nsu.ru)
-	Alexander Motokhovets		[Eros]	 (efdi@iclub.nsu.ru)
+	Farmer Joe                    [Someone] (fjoe@iclub.nsu.ru)
+	Alexander Morokhovets            [Eros] (efdi@iclub.nsu.ru)
 
 ~
 -1 DIKU~
@@ -1088,10 +1088,11 @@ their groups:
  Weaponsmaster  >>> Samurai			(New Thalos	)
  Wizard		>>> Wizard			(Midgaard	)
 	
-If you SLOOK the spell or skill and find in group NONE , then you
+If you SLOOK the spell or skill and find in group `none', `weather',
+`creation', `harmful', `protective' or `detection', then you
 can practice that in your guild.
 
-FOR MORE HELP , look help of GLIST ,SLOOK , TEACH , LEARN.
+FOR MORE HELP , look help of GLIST, SLOOK, TEACH, LEARN.
 ~
 
 0 GLIST~
