@@ -1128,7 +1128,7 @@ M fight 36302 100~
 #OBJECTS
 #36300
 bracer feathery браслет feathers~
-@eng feathery bracer@rus ~~браслет~~ из перьев~
+@eng feathery bracer@rus {M~~браслет~~ из перьев {z~
 @eng Beautiful color feathers lie here.@rus Красивые разноцветные перья (feathers) лежат здесь.~
 feathers~
 armor A AM
@@ -1160,7 +1160,7 @@ A
 G male
 #36302
 necklace tooth ожерелье~
-@eng tooth necklace@rus ~~ожерелье~~ из клыков~
+@eng tooth necklace@rus {*{D~~ожерелье~~ из клыков {z~
 @eng A set of teeth lies here.@rus Коллекция всевозможных зубов (tooth) лежит здесь.~
 horn~
 armor BG AC
@@ -1177,8 +1177,8 @@ A
 G none
 #36303
 skirt palm юбка~
-@eng short palm skirt@rus ~~короткая~~ ~~юбка~~ из пальмовых листьев~
-@eng A bunch of palm leaves lies on the ground.@rus Связка пальмовых (palm) листьев лежит тут.~
+@eng short palm skirt@rus {G~~короткая~~ ~~юбка~~ из пальмовых листьев{z~
+@eng A bunch of palm leaves lies on the ground.@rus {GСвязка пальмовых (palm) листьев лежит тут.{z~
 bamboo~
 armor I AF
 20 20 20 10 0
@@ -1196,7 +1196,7 @@ A
 G female
 #36304
 bracer charisma feathery браслет~
-@eng bracer of charisma@rus ~~браслет~~ удачи~
+@eng bracer of charisma@rus {B~~браслет~~ удачи {z~
 @eng A feathery bracer is hanging here.@rus Пушистый браслет (bracer) висит здесь.~
 feathers~
 armor AGI AI
@@ -1213,7 +1213,7 @@ A
 G male
 #36305
 shield ebony щит~
-@eng ebony shield@rus ~~щит~~ из черного дерева~
+@eng ebony shield@rus {D~~щит~~ из черного дерева {z~
 @eng An ebony shield lies neglected.@rus Щит (shield) из черного дерева оставлен на земле.~
 ebony~
 armor CE AJ
@@ -1232,7 +1232,7 @@ A
 G male
 #36306
 lion шкура skin~
-@eng leo skin@rus ~~львиная~~ ~~шкура~~~
+@eng leo skin@rus {Y~~львиная~~ ~~шкура~~ {z~
 @eng A sneaking lion tries to bite you.@rus Крадущийся лев (lion) пытается укусить тебя.~
 hard leather~
 armor H AK
@@ -1253,7 +1253,7 @@ A
 G female
 #36307
 stick reet spear bamboo копье~
-@eng reet stick@rus ~~бамбуковая~~ ~~палочка~~~
+@eng reet stick@rus {W-{R-{W-{R-{W-{R-{W-{R-{W-{R-{W-{R-{W-{R-{W-{R-{\{g~~бамбуковая~~ ~~палочка~~{x~
 @eng A long piece of bamboo lies here.@rus Длинный кусок бамбука (stick) лежит здесь.~
 bamboo~
 weapon BI AN
@@ -1266,7 +1266,7 @@ A
 G female
 #36308
 casque black helm шлем~
-@eng black casque@rus ~~черный~~ ~~шлем~~~
+@eng black casque@rus {D~~черный~~ ~~шлем~~ {z~
 @eng A strange helm gets your attention.@rus Странный шлем (casque) привлек твое внимание.~
 iron~
 armor E AE
@@ -1279,7 +1279,7 @@ A
 G male
 #36309
 platemail black scale кольчуга~
-@eng black scale platemail@rus ~~черная~~ ~~кольчуга~~~
+@eng black scale platemail@rus {D[~~черная~~ ~~кольчуга~~ {z~
 @eng A platemail glows in dark.@rus Кольчуга (platemail) блестит в темноте.~
 black dragonscale~
 armor ABCEG AD
@@ -1296,7 +1296,7 @@ A
 G female
 #36310
 gauntlets black dragon перчатки~
-@eng black dragon gauntlets@rus ~~перчатки~~ из кожи черного дракона~
+@eng black dragon gauntlets@rus {D~~перчатки~~ из кожи черного дракона {z~
 @eng A pair of dark scale gauntlets is waiting to be worn.@rus Пара черных перчаток (gauntlets) ждет своего хозяина.~
 black dragonscale~
 armor ABCEG AH
@@ -1309,7 +1309,7 @@ A
 G plural
 #36311
 leg black dragon plates поножи~
-@eng black dragon leg plates@rus ~~поножи~~ из черной драконьей кожи~
+@eng black dragon leg plates@rus {D~~поножи~~ из черной драконьей кожи {z~
 @eng A pile of black scale lies here.@rus Груда черной чешуи (leg) лежит здесь.~
 black dragonscale~
 armor ABCEG AF
@@ -1324,7 +1324,7 @@ A
 G plural
 #36312
 bow short~
-@eng short bow@rus ~~короткий~~ ~~лук~~~
+@eng short bow@rus {y~~короткий~~ ~~лук~~ {z~
 @eng A short wooden bow lies here.@rus Короткий деревянный лук (bow) лежит тут.~
 wood~
 weapon G AN
@@ -1337,7 +1337,7 @@ A
 G male
 #36313
 boots black scale dragon сапоги~
-@eng black dragon boots@rus ~~черные~~ ~~сапоги~~~
+@eng black dragon boots@rus {D~~черные~~ ~~сапоги~~ {z~
 @eng A pair of scale dragon boots sits here.@rus Драконьи морды грозно поглядавают на тебя с носков черных сапог (boots).~
 black dragonscale~
 armor ABCEG AG
@@ -1352,7 +1352,7 @@ A
 G plural
 #36314
 pot ink girth чернильница~
-@eng ink-pot@rus ~~чернильница~~~
+@eng ink-pot@rus {D~~чернильница~~ {z~
 @eng An ink-pot is hanging on a rope.@rus Чернильница (ink pot) висит на шнурке.~
 quartz~
 drink AGIY AL
@@ -1363,7 +1363,7 @@ A
 G female
 #36315
 apple яблоко~
-@eng apple@rus ~~яблоко~~~
+@eng apple@rus {y~~яблоко~~ {z~
 @eng An apple lies here.@rus Яблоко (apple) лежит тут.~
 food~
 food A AO
@@ -1376,7 +1376,7 @@ part one
 G none
 #36316
 cookie пирожок~
-@eng cookie@rus пирожок~
+@eng cookie@rus {y~~пирожок~~ {z~
 @eng A cookie lies here.@rus Пирожок (cookie) лежит здесь.~
 bread~
 food U A
@@ -1389,7 +1389,7 @@ part two
 G male
 #36317
 bookmark leather long закладка~
-@eng bookmark@rus закладка~
+@eng bookmark@rus {y~~закладка~~ {z~
 @eng A long leather strip lies here.@rus Длинная кожаная полоска (bookmark) лежит здесь.~
 soft leather~
 weapon HM AN
@@ -1408,8 +1408,8 @@ A
 G female
 #36318
 mist накидка cloak illusory~
-@eng illusory cloak@rus ~~призрачная~~ ~~накидка~~~
-@eng A cloud of mist is shimmering around you.@rus Облачко тумана (mist) кружится около тебя.~
+@eng illusory cloak@rus {b~~призрачная~~ ~~накидка~~ {z~
+@eng A cloud of mist is shimmering around you.@rus {bОблачко тумана (mist) кружится около тебя.{z~
 air~
 armor ABCFGIRWY AK
 0 0 0 0 0
@@ -1433,7 +1433,7 @@ A
 G female
 #36319
 sword long illusory mist меч~
-@eng illusory longsword@rus ~~призрачный~~ ~~меч~~~
+@eng illusory longsword@rus {w~~призрачный~~ ~~меч~~ {z~
 @eng A cloud of mist shaped like a sword is floating here.@rus Облако тумана в форме меча (sword) парит поблизости.~
 air~
 weapon ACFGORWY AN
@@ -1450,7 +1450,7 @@ A
 G male
 #36320
 arrow silver~
-@eng silver arrow@rus ~~серебрянная~~ ~~стрела~~~
+@eng silver arrow@rus {w~~серебрянная~~ ~~стрела~~ {z~
 @eng A silver arrow glows brightly.@rus Серебрянная стрела ярко сверкает.~
 silver~
 weapon AIORY AO
@@ -1463,7 +1463,7 @@ A
 G none
 #36321
 ring bowman кольцо~
-@eng bowman's ring@rus ~~кольцо~~ лучника~
+@eng bowman's ring@rus {D~~кольцо~~ лучника {z~
 @eng A large ring lies here.@rus Широкое кольцо (ring) лежит здесь.~
 mithril~
 armor BGIT AB
@@ -1480,7 +1480,7 @@ A
 G none
 #36322
 hat green red шляпа~
-@eng green hat@rus ~~зеленая~~ ~~шляпа~~~
+@eng green hat@rus {G~~зеленая~~ ~~шляпа~~ {z~
 @eng A green hat with a bright red plume hangs here.@rus Зеленая шляпа (hat) с огненно-красным пером висит здесь.~
 fur~
 armor AGIR AE
@@ -1495,7 +1495,7 @@ A
 G female
 #36323
 vest green куртка~
-@eng green vest@rus ~~зеленая~~ ~~куртка~~~
+@eng green vest@rus {G~~зеленая~~ ~~куртка~~ {z~
 @eng A green vest lies here forgotten.@rus Зеленая куртка (vest) лежит здесь, забытая своим хозяином.~
 silk~
 armor AGI AD
@@ -1516,7 +1516,7 @@ A
 G none
 #36324
 leggings leather штаны~
-@eng leather leggings@rus ~~кожаные~~ ~~штаны~~~
+@eng leather leggings@rus {y~~кожаные~~ ~~штаны~~ {z~
 @eng A pair of leggings lies here in the dirt.@rus Штаны (leggings) лежат на траве.~
 soft leather~
 armor BGTY AF
@@ -1537,7 +1537,7 @@ A
 G plural
 #36325
 boots leather thin ботинки~
-@eng thin leather boots@rus ~~ботинки~~ из тонкой кожи~
+@eng thin leather boots@rus {y~~ботинки~~ из тонкой кожи {z~
 @eng Some leather boots sits here.@rus Кожаные ботинки (boots) стоят тут.~
 soft leather~
 armor BG AG
@@ -1558,7 +1558,7 @@ A
 G plural
 #36326
 bow long лук~
-@eng longbow@rus ~~длинный~~ ~~лук~~~
+@eng longbow@rus {y~~длинный~~ ~~лук~~ {z~
 @eng A huge bow lies here neglected.@rus Здесь лежит кем-то забытый длинный лук (bow).~
 ebony~
 weapon BG AN
@@ -1569,7 +1569,7 @@ A
 G male
 #36327
 headband head band повязка~
-@eng headband@rus ~~головная~~ ~~повязка~~~
+@eng headband@rus {M~~головная~~ ~~повязка~~ {z~
 @eng A headband is waiting to be worn.@rus Головная повязка (headband) ждет, когда ее оденут.~
 feathers~
 armor ABGI AE
@@ -1594,7 +1594,7 @@ A
 G female
 #36328
 snake пояс~
-@eng snake belt@rus ~~змеиный~~ ~~пояс~~~
+@eng snake belt@rus {g~~змеиный~~ ~~пояс~~ {z~
 @eng A long snake slithers along the grass.@rus Длинная змея (snake) скользит по траве.~
 snakeskin~
 armor ABGHIM AL
@@ -1613,7 +1613,7 @@ A
 G male
 #36329
 scalp штаны leggings~
-@eng scalp leggings@rus ~~штаны~~, ~~украшенные~~ скальпами~
+@eng scalp leggings@rus {y~~штаны~~, ~~украшенные~~ скальпами {z~
 @eng Someone has left a pile of scalps here.@rus Некто оставил тут кучу скальпов (scalp).~
 fur~
 armor CEG AF
@@ -1632,7 +1632,7 @@ A
 G plural
 #36330
 boots soft мокасины moccasins~
-@eng some moccasins@rus мокасины~
+@eng some moccasins@rus {yмокасины {z~
 @eng A pair of soft boots sits here.@rus Пара мягких башмаков (boots) стоит здесь.~
 soft leather~
 armor C AG
@@ -1652,7 +1652,7 @@ A
 G plural
 #36331
 spiritus vini~
-spiritus vini~
+{Cspiritus vini {z~
 @eng A strange aura floats here.@rus Винный дух (vini) витает здесь.~
 nothingness~
 armor BG AQ
@@ -1669,7 +1669,7 @@ A
 G none
 #36332
 waistcoat dirty плащ~
-@eng dirty waistcoat@rus ~~пыльный~~ ~~плащ~~~
+@eng dirty waistcoat@rus {W~~пыльный~~ ~~плащ~~ {z~
 @eng An old dusty waistcoat lies here in the dirt.@rus Старый пыльный плащ (waistcoat) лежит на траве.~
 silk~
 armor AGY AK
@@ -1684,7 +1684,7 @@ A
 G male
 #36333
 belt shoulder перевязь~
-@eng shoulder belt@rus перевязь~
+@eng shoulder belt@rus {Mперевязь {z~
 @eng A strip of leather is here.@rus Кожаная лента (belt) лежит тут.~
 hard leather~
 container GY AL
@@ -1703,16 +1703,20 @@ A
 G female
 #36334
 sword veteran old меч~
-@eng old veteran's sword@rus ~~старый~~ ~~ветеранский~~ ~~меч~~~
+@eng old veteran's sword@rus {w~~старый~~ ~~ветеранский~~ ~~меч~~ {z~
 @eng A rusted sword lies here.@rus Тронутый ржавчиной меч (sword) лежит тут.~
 steel~
 weapon BHMTY AN
 sword 8 14 pierce D
 90 100 10000 A
+A
+18 15
+A
+19 15
 G male
 #36335
 flask crumpled фляжка~
-@eng crumpled flask@rus ~~помятая~~ ~~фляжка~~~
+@eng crumpled flask@rus {w~~помятая~~ ~~фляжка~~ {z~
 @eng An old crumpled flask lies here neglected.@rus Старая помятая фляжка (flask) кем-то забыта здесь.~
 tin~
 drink GIY AO
@@ -1721,7 +1725,7 @@ drink GIY AO
 G female
 #36336
 glasses sun очки~
-@eng some sun-glasses@rus ~~солнечные~~ ~~очки~~~
+@eng some sun-glasses@rus {m~~солнечные~~ ~~очки~~ {z~
 @eng Some glasses waiting to be worn.@rus Солнечные очки (glasses) ждут, пока их кто-то подберет.~
 glass~
 armor 0 AE
@@ -1736,7 +1740,7 @@ A
 G plural
 #36337
 match спичка~
-@eng a match@rus ~~спичка~~~
+@eng a match@rus {y~~спичка~~ {z~
 @eng A small wooden stick lies here.@rus Маленькая деревянная палочка (match) лежит здесь.~
 wood~
 wand U AO
@@ -1745,7 +1749,7 @@ wand U AO
 G female
 #36338
 match box коробок~
-@eng a match box@rus ~~спичечный~~ ~~коробок~~~
+@eng a match box@rus {y~~спичечный~~ ~~коробок~~ {z~
 @eng A box with strange carvings lies here.@rus Коробочка (box) со странной резьбой лежит тут.~
 wood~
 container 0 AO
@@ -1754,7 +1758,7 @@ container 0 AO
 G male
 #36339
 wig strange парик~
-@eng a wig@rus ~~парик~~~
+@eng a wig@rus {y~~парик~~ {z~
 @eng A strange pile of furs lies here.@rus Странный клочок волос (wig) лежит здесь.~
 wool~
 armor AM AE
@@ -1767,7 +1771,7 @@ A
 G male
 #36340
 hat cowboy dusty шляпа~
-@eng cowboy's hat@rus ~~ковбойская~~ ~~шляпа~~~
+@eng cowboy's hat@rus {D~~ковбойская~~ ~~шляпа~~ {z~
 @eng A dusty piece of leather dropped here.@rus Пыльный (dusty) клочок кожи брошен тут.~
 kid leather~
 armor M AE
@@ -1788,10 +1792,10 @@ A
 G female
 #36341
 staff strength посох~
-@eng staff of strength@rus ~~посох~~ Силы~
+@eng staff of strength@rus {B~~посох~~ Силы {x~
 @eng A wooden staff lies here.@rus Деревянный посох (staff) лежит здесь.~
 wood~
-staff A O
+staff A AO
 91 10 10 'earthquake' 0
 81 30 4500 P
 A
@@ -1799,7 +1803,7 @@ A
 G male
 #36342
 suit festival костюм~
-@eng festival suit@rus ~~фестивальный~~ ~~костюм~~~
+@eng festival suit@rus {C~~фестивальный~~ ~~костюм~~ {x~
 @eng A festival-looking suit lies here.@rus Фестивальный костюм (suit) лежит здесь.~
 satin~
 armor A AD
@@ -6974,7 +6978,7 @@ E 0 36359 0 9		*	tournament gauntlets: on the hands
 E 0 36366 0 16		*	tournament morningstar: wielded
 M 0 36350 10 36376 1	* tiny bird (Wasted Lawn)
 M 0 36305 1 36378 1	* Old Veteran (Wasted Lawn)
-E 0 36331 0 18		*	spiritus vini: floating nearby
+E 0 36331 0 18		*	{Cspiritus vini {z: floating nearby
 E 0 36332 0 12		*	dirty waistcoat: about the shoulders
 E 0 36333 0 13		*	shoulder belt: around the waist
 E 0 36334 0 16		*	old veteran's sword: wielded

@@ -1536,6 +1536,17 @@ Form 6 -ка~
 End
 
 #RULE
+Name сеть~
+BaseLen 3
+Form 1 -и~
+Form 2 -и~
+Form 3 -ь~
+Form 4 -ью~
+Form 5 -и~
+Form 6 -ь~
+End
+
+#RULE
 Name мясник~
 BaseLen 6
 Form 1 -а~
@@ -3323,6 +3334,17 @@ Form 3 -у~
 Form 4 -ой~
 Form 5 -е~
 Form 6 -у~
+End
+
+#RULE
+Name сушеная~
+BaseLen 5
+Form 1 -ой~
+Form 2 -ой~
+Form 3 -ую~
+Form 4 -ой~
+Form 5 -ой~
+Form 6 -ую~
 End
 
 #RULE
@@ -6161,6 +6183,17 @@ Form 3 -~
 Form 4 -ом~
 Form 5 -е~
 Form 6 -а~
+End
+
+#RULE
+Name деревянное~
+BaseLen 8
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ое~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ое~
 End
 
 #RULE

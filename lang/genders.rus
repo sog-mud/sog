@@ -491,6 +491,14 @@ Form 3 -ы~
 End
 
 #RULE
+Name белый~
+BaseLen 3
+Form 1 -ая~
+Form 2 -ое~
+Form 3 -ые~
+End
+
+#RULE
 Name стоит~
 BaseLen 3
 Form 1 -ит~

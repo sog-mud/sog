@@ -303,6 +303,15 @@ A
 A
 18 500
 G none
+#36107
+bottle of milk~
+@eng the bottle of milk@rus ~~Бутылк~~ молока~
+@eng The bottle of milk is here@rus Бутылка молока кем-то оставлена здесь~
+glass~
+drink 0 A
+100 100 'local specialty' 0 0
+0 100 1000 P
+G none
 #36108
 invisible niche~
 invisible niche~
@@ -1040,6 +1049,7 @@ M 0 36100 1 36100 1	* Healer (Arborn's home)
 O 0 36108 0 36100	* invisible niche (Arborn's home)
 P 0 36109 1 36108 1	* invisible niche: Portal room key
 O 0 36100 0 36100	* sofa (Arborn's home)
+O 0 36107 0 36100	* the bottle of milk (Arborn's home)
 M 0 36102 4 36101 4	* training mob (Shooting place)
 M 0 36102 4 36101 4	* training mob (Shooting place)
 M 0 36102 4 36101 4	* training mob (Shooting place)

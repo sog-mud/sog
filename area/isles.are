@@ -1,6 +1,6 @@
 #AREADATA
 Name Isles~
-VNUMs 17000 17300
+VNUMs 17000 17299
 Credits Lok~
 Security 9
 LevelRange 40 90
@@ -1499,7 +1499,7 @@ Frostbite sword winter~
 A long bastard sword made of ice lies here melting.~
 ice~
 weapon DFL AN
-sword 10 13 bite 0
+sword 10 13 frbite 0
 90 30 0 P
 A
 1 -2

@@ -1,7 +1,7 @@
 #AREADATA
 Name New Thalos~
 Builders maedhros brand~
-VNUMs 9500 9800
+VNUMs 9500 9799
 Credits Conner~
 Security 9
 LevelRange 10 35
@@ -7181,15 +7181,6 @@ D1
 grate~
 Z -1 9798
 S
-#9800
-The weaponsmaster's room~
-You are at the place, where maybe the best, to learn what the weapon is 
-and how they can be controlled. The walls are decorated with large and 
-valuable tapestries. One great sword and one axe are standing near the 
-opposite walls. Short swords and light shields are hangingon the wall. 
-~
-0 S city
-S
 #0
 
 #SPECIALS
@@ -7580,7 +7571,6 @@ M 0 9594 1 9707 1	* The Samurai Weaponsmaster (The weaponsmaster's room)
 O 0 9598 0 9750	* the Daemon Claw (Igor's Secret Chamber)
 M 0 9591 1 9799 1	* the Ixitxachitl (Lair of the Ixitxachitl)
 G 0 9602 0		*	a beautiful white pearl
-M 0 9594 1 9800 1	* The Samurai Weaponsmaster (The weaponsmaster's room)
 S
 
 #SHOPS

@@ -40,21 +40,21 @@ ABQRT DFHUVZl 0 0
 stand stand male 32000
 0 0 medium unknown
 #38002
-defrash~
-Defrash~
-Defrash is sneaking here ...
+buzua~
+Buzua~
+Buzua is snooping here for new victims.
 ~
 Wow !!! It's a kind of mutant troll ...
 ~
 troll~
-ABGRT DFVu -1000 0
-55 230 1d1+12000 1d1+6000 1d1+400 crush
--40 -40 -34 -50
-AH BJLPUX 0 0
-stand stand male 10000
+ABGRT FVu -1000 0
+25 200 1d1+12000 1d1+6000 1d1+250 crush
+-30 -10 0 0
+H BJLPX 0 0
+stand stand male 0
 0 0 huge unknown
 #38003
-demon of eros gubund sola rafta~
+of gubund sola rafta~
 Rafta~
 Rafta is here.
 ~
@@ -387,19 +387,19 @@ trash NR A
 0 1 1 P
 G none
 #38010
-pie~
-Heras pie~
-Heras pie~
-unknown~
-food AR A
-0 0 0 0 0
-5 1 10000 P
+godlen chain sun~
+{YGolden Chain of Sun{x~
+something strange lies here.~
+gold~
+weapon AIRS A
+flail 8 3 whip DH
+15 5 0 P
 A
-8 1000
+13 10
 A
-12 1000
+19 6
 A
-13 1000
+18 5
 G none
 #38011
 dagger safira~
@@ -1048,6 +1048,20 @@ wellknown~
 food A A
 CE CE 0 0 0
 0 1 100000 P
+G none
+#38605
+salfita ring~
+{y={Y={R[{W*{R]{Y={y={x Salfita ring~
+Hmm... Cute thing ! It looks like a Salfitas ring.~
+unknown~
+jewelry AC AB
+0 0 0 0 0
+35 1 100000 P
+A
+7 1
+A
+13 30
+S 'rescue' 100 A
 G none
 #0
 

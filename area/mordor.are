@@ -6,7 +6,7 @@ Credits Kromt~
 Security 0
 LevelRange 20 30
 ResetMessage @eng Reseting@rus Reseting~
-Flags closed noquest~
+Flags noquest~
 End
 
 #MOBILES
@@ -49,7 +49,7 @@ rat крыса~
 ~
 ~
 unique~
-ABF 0 0 0
+ABF F 0 0
 20 0 100d1+500 0d0+0 5d7+5 bite
 -10 -10 -10 -10
 FHR 0 0 0
@@ -121,7 +121,7 @@ container 0 0
 G none
 #30004
 capitan helm шлем капитана~
-@eng Capitan signet Helm@rus ~~Шлем~~ Капитана Орков~
+@eng Dark Capitan Helm@rus ~~Шлем~~ Капитана Орков~
 @eng Dark steel helmet lies here.@rus Стальной шлем темного цвета валяется тут.~
 steel~
 armor C AE
@@ -148,7 +148,7 @@ A
 18 3
 G none
 #30006
-robe orcish signet роба орков~
+robe orcish роба орков~
 @eng Silk orc'ish robe@rus ~~Шелковая~~ ~~орчья~~ ~~роба~~~
 @eng Some clothing lies on the ground.@rus Какая-то одежда (robe) лежит на земле.~
 silk~
@@ -179,6 +179,9 @@ unknown~
 light 0 AO
 0 0 -1 0 0
 50 0 0 P
+S 'locate object' 100 A
+S 'locate object' 100 A
+S 'locate object' 100 A
 S 'calm' 100 A
 A
 20 -1000
@@ -318,6 +321,10 @@ In corner of the room you see a strange door, locked by steel bar.
 В углу комнаты ты замечаешь странную дверь, запертую на стальной засов.
 ~
 0 X inside
+D0
+~
+~
+Z 0 30007
 D1
 ~
 ~
@@ -340,6 +347,32 @@ D1
 ~
 ABCFGZ 30007 30005
 S
+#30007
+@eng End Of the Dark Tunnel@rus Конец Темного Туннеля~
+@eng Now you stay in the end of dark tunnel. There is a exit from tunnels
+in front of you. You can heard quite voices of the GateKeepers.
+@rus  Сейчас ты стоишь в конце темного туннеля. Впереди тебя выход из системы
+туннелей Мордора. Впереди слышны негромкие голоса Привратников.
+~
+0 0 inside
+D0
+~
+~
+Z 0 30008
+D2
+~
+~
+Z 0 30005
+S
+#30008
+@eng Hill behind the Mountain~
+~
+0 0 inside
+D2
+~
+~
+Z 0 30007
+S
 #0
 
 #RESETS
@@ -354,7 +387,7 @@ E 0 30001 0 16		*	Orc'ish sword: wielded
 E 0 30002 0 11		*	orc'ish shield: as a shield
 O 0 30003 0 30003	* Case (Storing room)
 M 0 30002 1 30005 1	* orc capitan (Guard Room)
-E 0 30004 0 6		*	Capitan signet Helm: over the head
+E 0 30004 0 6		*	Dark Capitan Helm: over the head
 E 0 30005 0 5		*	Orc'ish chainmail: on the body
 E 0 30006 0 12		*	Silk orc'ish robe: about the shoulders
 M 0 30003 2 30006 2	* rat (Prison behind the Guard Room)

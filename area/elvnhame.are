@@ -1,6 +1,6 @@
 #AREADATA
 Name Elvenhame~
-Builders stark~
+Builders mephistopul~
 VNUMs 40100 40199
 Credits Xyza~
 Security 9
@@ -36,7 +36,7 @@ GuildMaster Master наставник мастер~
 @eng the Guildmaster@rus наставник~
 @eng Your Guildmaster stands here, patiently waiting to 
 teach you.
-@rus Ваш наставник (guildmaster) терпеливо ждет Вас здесь, чтобы учить.
+@rus Ваш наставник (guildmaster) терпеливо ожидает Вас для следующего урока.
 ~
 @eng He wears a colorful tunic and patchwork leggings.  In  his  hands is
 his most prized possession, a harp  of gold,  whose strings sparkle in
@@ -53,7 +53,7 @@ E ABCD 0 0
 stand stand male 3400
 0 0 medium unknown
 #40103
-GuildMaster~
+GuildMaster наставник~
 the Guildmaster~
 Your Guildmaster stands here, glowing with energies
 he is channeling from the floor upon which he stands.

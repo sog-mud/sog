@@ -73,8 +73,9 @@ See also {CHELP BANK{x
 
 Смотри также {CHELP BANK{x
 ~
--1 DEAF~
+-1 DEAF QUIET~
 @eng Syntax: {cdeaf{x
+Syntax: {cquiet{x
 
 The deaf toggle turns off incoming tells, helpfull if you are being bombarded
 by messages from other players.  You can still use reply (see {CHELP REPLY{x) to
@@ -82,12 +83,19 @@ reply to people who were telling you before you went deaf, although you
 cannot reply to a deaf person unless you or they are a deity (it's mostly 
 useful for sending a quick "I'm being spammed so I went deaf" message to
 a person).
+ 
+QUIET toggles on and of world channels (shout, music). In quiet mode you will
+hear only says and emotes.
 @rus Синтаксис: {cdeaf{x
+Синтаксис: {cquiet{x
 
 Переключатель deaf выключает получение сообщений(tell). Тем не менее, ты можешь
 использовать команду reply (смотри {CHELP REPLY{x) длЯ ответа человеку с которым
 ты общался до набора этой команды. Однако данная команда не отменяет обращений
 богов к тебе. 
+ 
+QUIET включает и выключает всемирные каналы общения (shout, music). В режиме
+quiet ты будешь слышать только разговоры в комнате и видеть эмоции.
 ~
 0 PROMPT~
 @eng Syntax: {cprompt{x
@@ -385,23 +393,27 @@ the ground will not be regenerated if anyone is in the area when it resets.
 
 ! повторяет последнюю введенную команду.
 ~
-0 NORTH SOUTH EAST WEST UP DOWN~
+0 NORTH SOUTH EAST WEST UP DOWN ENTER~
 @eng Syntax: {cnorth{x
 Syntax: {csouth{x
 Syntax: {ceast{x
 Syntax: {cwest{x
 Syntax: {cup{x
 Syntax: {cdown{x
+Syntax: {center{x <portal>
  
 Use these commands to walk in a particular direction.
+Use ENTER command to pass through magical portals.
 @rus Синтаксис: {cnorth{x
 Синтаксис: {csouth{x
 Синтаксис: {ceast{x
 Синтаксис: {cwest{x
 Синтаксис: {cup{x
 Синтаксис: {cdown{x
+Синтаксис: {center{x <портал>
 
 Эти команды используются для перемещений в соответствующем направлении.
+Используй команду ENTER для входа в магические порталы.
 ~
 -2 NAME~
 @eng .                   {cName Policy{x
@@ -627,7 +639,7 @@ higher), you can DISHONOR yourself and leave combat field.
 боя. Если уровень противника намного выше твоего (более чем на 6), то ты можешь
 обесчестить (DISHONOR) себя и покинуть поле боя.
 ~
-0 LOOK EXAMINE GLANCE~
+0 LOOK EXAMINE GLANCE READ~
 @eng Syntax: {clook{x
 Syntax: {clook{x    <object>
 Syntax: {clook{x    <character>
@@ -639,7 +651,7 @@ Syntax: {cexamine{x <container>
 Syntax: {cexamine{x <corpse>
 Syntax: {cglance{x
  
-LOOK looks at something and sees what you can see.
+LOOK looks at something and sees what you can see. READ is a synonym for LOOK.
  
 GLANCE does the same as LOOK without arguments, but does not show room
 descriptions.
@@ -657,7 +669,7 @@ EXAMINE is short for 'LOOK container' followed by 'LOOK IN container'.
 Синтаксис: {cglance{x 
  
 LOOK позволяет посмотреть на что-то или во что-то и сообщает тебе о том,
-что ты увидел.
+что ты увидел. READ является синонимом для LOOK.
 
 GLANCE является аналогом look без параметров. Но не показывает описание
 комнаты.
@@ -689,7 +701,7 @@ ORDER приказывает одному или всем зачарованным вами существам, включая домашних
 
 Если вы нападаете на зачаровнных вами существ, это разрывает узы заклинания.
 ~
-0 REST SLEEP STAND WAKE~
+0 REST SIT SLEEP STAND WAKE~
 @eng Syntax: rest
 Syntax: sleep
 Syntax: stand
@@ -764,7 +776,7 @@ REPLY посылает сообщение игроку, который последним послал тебе сообщение при
 персонажа, с которым говоришь, что делает ее незаменимой для разговора с
 игроками, которых ты не видишь или с Богами.
 ~
--1 NOTE NOTES CHANGES NEWS PENALTY IDEA UNREAD~
+-1 NOTES CHANGES NEWS PENALTY PENALTIES IDEAS UNREAD~
 @eng The notes in Shades of Gray replace the bulletin boards and mail systems
 found on many other muds. The following options are usable:
 
@@ -880,14 +892,14 @@ MUSIC предназначен для громкого, на весь мир распевания песен.
 может служить причиной для их отключения(используйте tell, say, gtell). Также
 не рекомендуется использовать транслитерацию.
 ~
-0 EMOTE PMOTE POSE~
+0 EMOTE PMOTE POSE ,~
 @eng Syntax: {cemote{x <action>
 Syntax: {cpmote{x <action>
 Syntax: {cpose{x
 
 EMOTE is used to express emotions or actions.  Besides EMOTE, there are
 several dozen built-in social commands, such as CACKLE, HUG, and THANK
-(type socials or help socials for a listing).
+(type {csocials{x for a listing). {c,{x is a synonym for emote.
 
 PMOTE is similar to emote, but will substitute you and your for a target's
 name (i.e. {cpmote bonks Alander{x will be read as {cbonks you{x by Alander, and
@@ -900,7 +912,7 @@ POSE produces a random message depending on your class and level.
 
 EMOTE используется, чтобы выразить эмоции или действия. Помимо EMOTE существует
 множество встроенных команд, например CACKLE, HUG{x и THANK (введите SOCIALS для
-вывода списка).
+вывода списка). {c,{x(запятая) является синонимом для EMOTE.
 
 PMOTE действует аналогично EMOTE, но будет заменять имена персонажа на 'you'.
 Например, {cpmote bonks Alander{x выведет '{cbonks you{x' Аландеру, и '{cbonks Alander{x'
@@ -973,10 +985,11 @@ This command shows the list of the original Diku Mud implementors.
  
 Эта команда показывает тебе список создателей MUDa.
 ~
-0 AREAS COMMANDS REPORT SCORE OSCORE TIME WEATHER~
+0 REPORT SCORE OSCORE WORTH~
 @eng Syntax: {creport{x
 Syntax: {cscore{x
 Syntax: {coscore{x
+Syntax: {cworth{x
 
 REPORT shows your current statistics to you and also announces them to other
 players in the room.  SCORE shows much more detailed statistics to you only.
@@ -984,15 +997,20 @@ Your ability scores are shown as true value(current value), so for example
 Str: 15(23) means you have a 15 strength from training, but a 23 strength
 from other factors (spells or items).
 OSCORE is an old-style SCORE.
+WORTH shows you brief information about your character: money carried,
+experience needed to gain a level and kill counters.
 @rus Синтаксис: {creport{x
 Синтаксис: {cscore{x
 Синтаксис: {coscore{x
+Синтаксис: {cworth{x
  
 REPORT выводит твое состояние всем в комнате.
  
 SCORE выводит наиболее полную информацию о тебе. В скобках указаны значения
 твоих характеристик с учетом надетых вещей и наложенных заклинаний.
 OSCORE является устаревшим вариантом SCORE.
+WORTH выводит краткую информацию о персонаже (наличные деньги; опыт, необходи-
+мый для достижения уровня и счетчик убийств).
 ~
 -1 WHO~
 @eng Syntax: {cwho{x
@@ -1358,7 +1376,7 @@ paladin and this energy force the evil victims to flee.
 миссию. Мощные потоки святой энергии из пальцев паладина вынуждают жертву 
 бежать из боя.
 ~
-0 'VAMPIRIC TOUCH'~
+0 'VAMPIRIC TOUCH' TOUCH~
 @eng Syntax: {ctouch{x <victim>
  
 You deadly touch your victim's neck and put it/him/her to nightmares.
@@ -1577,20 +1595,21 @@ BUY покупает объект у хозяина магазина:
 LIST показывает список объектов выставленных на продажу.
 LIST <имЯ> показывает только объекты с указанным именем.
  
-продает объект хозяину магазина.
+SELL продает объект хозяину магазина.
 VALUE показывает возможную цену объекта.
 ~
-0 SACRIFICE~
+0 SACRIFICE JUNK~
 @eng Syntax: {csacrifice{x <object>
 
 SACRIFICE offers an object to gods, who may reward you.
 The nature of the reward depends upon the type of object.
- 
+JUNK is a synonym for SACRIFICE.
 @rus Синтаксис: {csacrifice{x <объект>;
  
 SACRIFICE приносит объект в жертву богам, которые могут вознаградить тебя за
 жертвоприношение. Награда за принесенный в жертву объект зависит от самого
 объекта.
+JUNK является синонимом команды SACRIFICE.
 ~
 0 SCROLL~
 @eng Syntax: {cscroll{x
@@ -1816,9 +1835,9 @@ SPLIT делит указанное количество денег между членами твоей группы, находящимися
 в одной комнате с тобой. Делить или не делить добычу после боя - решать тебе.
  
 Примеры:
-{split 30{x        --> разделить 30 серебряных монет
-{split 20 50{x     --> разделить 20 серебряных и 50 золотых монет
-{split  0 10{x     --> разделить 10 золотых монет
+{csplit 30{x        --> разделить 30 серебрЯных монет
+{csplit 20 50{x     --> разделить 20 серебрЯных и 50 золотых монет
+{csplit  0 10{x     --> разделить 10 золотых монет
  
 Смотри также {CHELP AUTOSPLIT{x
 ~
@@ -3080,16 +3099,22 @@ again at will with FLY UP and FLY DOWN commands.
 можешь приземлиться командой FLY DOWN и снова взлететь (FLY UP).
 ~
 0 IDENTIFY 'IMPROVED IDENTIFY'~
-@eng Syntax: {ccast 'identify'{x <object>
+@eng Syntax: {cidentify{x <object>
+Syntax: {ccast 'identify'{x <object>
 Syntax: {ccast 'improved identify'{x <object>
  
 Both these spells reveal information about the object. The latter gives more
 detailed information.
+IDENTIFY command is used to ask a sage for identification of object. It will
+cost you 1 gold piece to identify an item.
 @rus Синтаксис: {ccast 'identify'{x <обьект>
 Синтаксис: {ccast 'improved identify'{x <обьект>
+Синтаксис: {cidentify{x <обьект>
  
 Оба этих заклинания выдают информацию об обьекте, второе выдает более подроб-
 ную информацию.
+Команда IDENTIFY используется, чтобы попросить мудреца рассказать о предмете.
+Это будет стоить 1 золотой.
 ~
 0 INFRAVISION~
 @eng Syntax: cast {c'infravision'{x <character>
@@ -3470,7 +3495,7 @@ vulnerable to mental attacks.  Storm giants, due to their  size and
 stamina, receive the fast healing and bash skills for free.And they are
 born to be enemies of white dragons.
 ~
--1 HUMAN HUMANS MAN~
+-1 HUMANS~
 Humans are the most common race in the world, and make up the majority of
 adventurers.  Although they have no special talents like the other races,
 they are more versatile, being skilled in all classes.  Humans are able to
@@ -3670,11 +3695,18 @@ cannot realize a vampire in nights. It is only written "An uggly creature".
 -1 NECROMANCERS~
 Powerful mage. But powerful in necromantic spells. 
 ~
--2 HOMETOWNS~
-You can pick one of six cities as your hometown: New Thalos and Midgaard are
-all alignments. Ofcol is neutral only. Your hometown is where you will 
-recall to and is where the pit is to which your corpse will decay. 
-Everyone starts at mud school, which is connected to each of the hometowns.
+0 HOMETOWN~
+@eng Syntax: {chometown{x <city>
+ 
+You can change your hometown with this command. You need to be in registry
+room for doing this.
+Use this command without argument to ask for a price of hometown change.
+@rus Синтаксис: {chometown{x <город>
+ 
+Ты можешь сменить родной город при помощи этой команды. Для этого ты должен
+быть в регистрационной комнате.
+Используй эту команду без аргумента, чтобы узнать, сколько стоит перемена места
+жительства.
 ~
 -1 ETHOS~
 You may pick a Lawful, Neutral or Chaotic ethos.  This shows your opinion
@@ -3734,21 +3766,27 @@ faster than normally.
 Самурай совершает самоубийство, теряя здоровье и ману. Но после этого, он
 восстанавливает их быстрее, чем обычно.
 ~
-0 'VAMPIRIC BITE'~
-Syntax: bite <victim>
-
-   A vampire bites a sleeping victim and gains victim's hitpoint to itself.
-But then fight starts.
+0 'VAMPIRIC BITE' BITE~
+@eng Syntax: {cbite{x <victim>
+ 
+Vampire bites sleeping victim, sucking its life force. Then fighting starts.
+@rus Синтаксис: {cbite{x <жертва>
+ 
+Вампир кусает спящую жертву, высасывая жизненную силу. затем начинается бой.
 ~
 0 'LIGHT RESISTANCE'~
 A vampire get damages from light. But a high level vampire can teach 
 itself how to resist light.
 ~
 0 'ENCHANT SWORD'~
-Syntax: enchant <sword name>
-
-    A powerful Samurai can beat up the swords and makes its damroll &
-hitroll higher.
+@eng Syntax: {cenchant{x <weapon>
+ 
+Masters of the sword can make it hit more often and cause more damage.
+Unexperienced men call this "enchantment".
+@rus Синтаксис: {cenchant{x <оружие>
+ 
+Мастера меча могут заставить меч попадать чаще и наносить больший ущерб. Не
+столь опытные мечники называют это "зачаровыванием".
 ~
 0 SCREAM~
 Syntax: cast scream
@@ -3769,12 +3807,29 @@ Syntax: target <victim>
    A samurai can change his/her target when fighting with a group of mobiles
 or characters.
 ~
-0 'SECOND WEAPON'~
-Syntax: second <weapon>
-
-    A samurai can use second weapon. It at each turn attacks one time, and
-give damage to samura's fighting. But while using second weapon you cannot
-hold an item and wear a shield.
+0 'SECOND WEAPON' DUAL-WIELD DUAL 'SECONDARY ATTACK'~
+@eng Syntax: {csecond{x <weapon>
+ 
+Some classes are able to use two weapons at a time. Though second weapon
+attacks happen not so often as with first on, they dramatically increase
+damage to your opponent. One may increase frequency of second weapon attacks
+by practicing 'SECONDARY ATTACK' skill.
+You cannot wear shield or hold item when you use dual-wield.
+ 
+DUAL is synonym for this command.
+ 
+See also: {CHELP 'SECOND ATTACK'{x
+@rus Синтаксис: {csecond{x <оружие>
+ 
+Некоторые классы могут обучиться драться оружием воберучь. Хотя удары вторым
+оружием не столь часты, как первым, они тем не менее заметно увеличивают
+ущерб врагу. Поднять частоту атак вторым оружием можно, практикуя умение
+'SECONDARY ATTACK'. Ты не сможешь носить щит или держать что-то в руке, пока
+используешь два оружия.
+ 
+Команда DUAL является синонимом этой команды.
+ 
+Смотри также: {CHELP 'SECOND ATTACK'{x
 ~
 0 EXPLODE~
 A samurai can explode some material so that every mobile in the effected
@@ -4015,30 +4070,47 @@ command. Old midgaard is not a holy town.
 ПРИМЕЧАНИЕ. Старый Мидгард не является защищенной областью.
 ~
 1 WANTED ~
-Syntax: WANTED <player> <Y or N>
+@eng Syntax: {cwanted{x <player>
+ 
+This is clan skill of Rulers that mark a player as a criminal or removes this
+mark. Ruler commoner can remove wanted status only if he set it. Leaders and
+secondaries can always remove wanted status.
 
-This is a clan skill for the Legions of Ruler that flags or unflags
-a player as a criminal. Many good mobs do not take kindly to criminals.
-Only members of the Ruler clan can flag or unflag criminals.
+Wanted players are denied from the shops, suffer attacks of cityguards. If
+player dies with this flag he is demoted one level.
+@rus Синтаксис: {cwanted{x <персонаж>
+ 
+Это клановое умение клана Рулер, который метит указанного игрока как преступ-
+ника или снимает эту метку. Рядовые члены клана могут снять метки, только если
+она поставлена ими. Лидеры могут снять любую метку.
+ 
+Игроки, обьявленные в розыск, не могут вести дела с торговцами, на них нападают
+стражники. Если игрок умирает с этим флагом, он понижается на 1 уровень
 ~
 0 BLACKJACK~
-syntax: blackjack <target>
-
-Using a small weighted sack, the thief delivers a blow to the back of the 
-victims head in the hopes of rendering them unconscious.  "It is not a 
-killing stroke.  Thieves know what happens to thieves that killed 
-people.  The Ninja's Guild came and talked briefly to them--in fact, 
-all they said was 'Good-bye'." -t.p.
+@eng Syntax: {cblackjack{x <victim>
+ 
+Using small weighted sack thief delivers a blow to the back of victim's head,
+rendering him unconscious if the blow was successful.
+@rus Синтаксис: {cblackjack{x <жертва>
+ 
+Используя небольшой мешок со свинчаткой внутри, вор наносит удаз сзади по голо-
+ве жертвы. В случае удачного нанесения жертва теряет сознание на некоторое
+время.
 ~
 0 REQUEST ~
-Syntax: request <object> <mobile>
-
-Good characters may use this command to request items in the inventory or
-equipment of a good aligned mob.  See consider for more info.
-Consider the player's level when making a request for another player.  The
-limits were put on request for a reason.  An unproven player does not deserve
-Diana's armor.  You are merely removing the mob's ability to defend itself
-against evil doers.  There is a 3 minute (real time) wait for requesting.
+@eng Syntax: {crequest{x <object> <mobile>
+Syntax: {cdemand{x <object> <mobile>
+ 
+Good characters can request items from good mobiles. Evil anti-paladins can
+threaten every mobile. But mobile insulted with demand may consider anti-
+paladin weak and attack him.
+@rus Синтаксис: {crequest{x <object> <mobile>
+Синтаксис: {cdemand{x <object> <mobile>
+ 
+Добрый персонаж может попросить монстра отдать ему вещь, и если монстр тоже
+добр, то вещь может обрести нового владельца. Злые анти-паладины могут потре-
+бовать вещь, но иногда оскорбленный монстр атакует обидчика.
 ~
 0 STRANGLE ~
 Syntax: strangle <victim>
@@ -4092,15 +4164,21 @@ Keep in mind these are only general guidelines.
 See also: CLANS
 ~
 0 REPAIR ESTIMATE~
-Syntax: repair <item>
-Syntax: estiamte <item>
-
-   During fight your equipment gets damage. And after full damages the
-equipment breaks into pieces.
-
-   To avoid this you can have your your equipment repaired by WEAPONSMITHS
-and ARMOURERS.
-   You can learn how much that will cost by "estimate" command.
+@eng Syntax: {crepair{x <item>
+Syntax: {cestimate{x <item>
+ 
+As you use your weapon or armor it gets damage. Receiving a lot of damage can
+break your equipment. To avoid this you need to repair it regularly.
+To ask about repairing costs, use 'ESTIMATE' command. Only special mobiles can
+repair equipment.
+@rus Синтаксис: {crepair{x <предмет>
+Синтаксис: {cestimate{x <предмет>
+ 
+По мере того, как ты используешь броню или оружие в бою, они получают повреж-
+дения. Если их вовремя не починить (REPAIR), то в самый неподходящий момент ты
+можешь остаться без оружия.
+Чтобы узнать стоимость работ по ремонту какой-нибудь вещи, используй команду
+'ESTIMATE'.
 ~
 0 PRAY ~
 @eng Syntax: {cpray{x
@@ -4127,10 +4205,14 @@ without a good reason will be severely punished.
 то причины, или многократно выдает свою просьбу, будет жестоко наказан.
 ~
 0 WARCRY ~
-Syntax: warcry
+@eng Syntax: {cwarcry{x
+ 
+Warrior can self-bless himself by yelling out a warcry, thus gaining some
+resistance to magic and hitroll bonus.
+@rus Синтаксис: {cwarcry{x
 
-This skill allows one to gain some resistance by yelling out a warcry.
-The effects have been compared with bless.
+Воин может благословить себя, выкрикивая свой боевоц клич и получая тем самым
+некоторое сопротивление к магии и улучгение точности ударов.
 ~
 0 NERVE ~
 Syntax: nerve
@@ -4165,7 +4247,7 @@ attempted every 2 rounds, but no commands can be entered for 2 rounds
 after attempting a throw.  Thrown opponents are then stunned, unable to
 enter any commands. 
 ~
-0 'CLAN CHANNEL' CLANTALK~
+0 'CLAN CHANNEL' CLANTALK =~
 @eng Syntax: {cclan{x <message>
 Syntax: {cclan{x
 
@@ -4202,7 +4284,7 @@ subject to a slight processing fee.
 снять (withdraw) указанное количество золота или серебра, а также проверить
 текущий баланс. Снятие денег со счета облагается небольшим налогом.
 ~
-0 CAMOUFLAGE AMBUSH~
+0 CAMOUFLAGE~
 Syntax: camouflage
 	ambush <victim>
 	cast 'acute vision'
@@ -4213,10 +4295,13 @@ camouflaged player will remain camouflaged until he/she/it moves.
 A camouflaged player may ambush someone who doesn't see him/her/it.
 ~
 -1 ENDURE~
-Syntax: Endure
-
-This is a meditation technique used to strengthen one's defence
-againts magical attacks
+@eng Syntax: {cendure{x
+ 
+This is a meditation technique used to strengthen one's defence against
+magical attacks.
+@rus Синтаксис: {cendure{x
+ 
+Это техника медитации, усиливающая защиту от магических атак.
 ~
 -1 TRANCE~
 This skill is similar to meditation and fast healing in that it is
@@ -4881,16 +4966,27 @@ Examples:
 0 TWIT~
 @eng Syntax: {ctwit{x <name>
 Syntax: {ctwit{x
+Syntax: {ctwit none{x
+Syntax: {ctwit all{x
  
-TWIT command toggles names in your twitlist. You won't hear anything save for
+TWIT command toggles names in your twitlist. You won't hear anything except
 gossips from these characters. TWIT without arguments shows you current
-twitlist.
-@rus Синтаксис: {ctwit{x <имя>
-Синтаксис: {ctwit{x
+twitlist. TWIT NONE clears your twitlist. TWIT ALL sets
+'deaf-dumb-blind' (actually only deaf and maybe dumb (depends on player))
+mode.
  
-Команда TWIT включает/исключает имена в список блокируемых персонажей. Ты не
-услышишь ничего от них, кроме GOSSIP. Эта же команда без аргументов покажет
-твой текущий список.
+See also {CHELP GOSSIP{x
+@rus Синтаксис: {ctwit{x <персонаж>
+Синтаксис: {ctwit{x
+Синтаксис: {ctwit none{x
+Синтаксис: {ctwit all{x
+ 
+Команда TWIT заносит и вычеркивает имена персонажей в список игнорируемых
+тобой. Ты не услышишь от них ничего, кроме gossip. TWIT без аргумента показы-
+вает текущее состояние списка. TWIT NONE очищает список, TWIT ALL устанавливает
+"глухой" режим.
+ 
+Смотри также {CHELP GOSSIP{x
 ~
 0 SHOOT~
 @eng Syntax: {cshoot{x <direction> <victim>
@@ -5100,23 +5196,8 @@ bers of the Order will track him down, until that renegade dies.
 Принятый в братство должен помнить, что Сила, данная ему, может
 быть с легкостью отобрана, и это будет необратимо.
 ~
-0 DEMAND~
-The most cruel adventurers of this realm, anti-paladins can threat
-mobs and force them to give an item away. The higher your charisma is,
-the better is chance of success. Of course, you can't retrieve cursed   
-items this way, and, if the monster considers you too pathetic, it'll
-just attack you. There also is a timer on this command so you can't     
-just walk around and collect gear.
- 
-Syntax : demand item-name mob-name
- 
-~
 0 CLANS~
-The following help files have already been installed:
- 
-    Shalafi, Battleragers и Invader.
- 
-See also: PHILOSOPHY
+See also: {CHELP PHILOSOPHY{x and {CHELP CLAN <clan name>{x
 ~
 92 'WIZ GRANT' GRANT~
 @eng Syntax: {cgrant{x <player> <command(s)>
@@ -5157,14 +5238,20 @@ initial percent of the skill when it is added to character.
  
 ~
 0 CLANLIST~
-Syntax: clanlist {{ member | second | leader } [clan]
+@eng Syntax: {cclanlist{x <position> [<clan>]
  
-clanlist command will list members, leaders or secondaries
-in your clan (or the specified clan -- imms only).
+CLANLIST command lists roster of your clan of given position. Position can be
+one of the following: {cmember{x (list includes every clan member), {csecond{x (list
+of secondary leaders) or {cleader{x (list of primary leaders).
+Immortal can specify clan to list. Mortals can see only list of clan they
+belong to.
+@rus Синтаксис: {cclanlist{x <статус> [<клан>]
  
-These lists are updated automagically when the player is
-accepted/rejected to/from clan, promoted or renamed.
- 
+Команда CLANLIST показывает список членов клана с указанным статусом. Статус
+может быть одним из: {cmember{x (список всех членов клана), {csecond{x (список
+второстепенных лидеров) или {cleader{x (список главных лидеров).
+Бессмертный может дополнительно указать клан. Смертные могут увидеть только
+список клана, к которому принадлежат.
 ~
 0 'OLC FORM'~
 Syntax: form add num text
@@ -5645,7 +5732,7 @@ first delete.
 зование этой команды с аргументом вернет тебя в 'безопасный' статус. Бессмерт-
 ный не может заставить тебя удалить персонажа.
 ~
-0 HEALER~
+0 HEALER HEAL~
 @eng The healer decided to grab a quick buck, and now charges for his heals.  Some
 services are still free to players of level 10 or below, however.  To see
 a full listing of the healer's services, type 'heal' at his residence. To
@@ -5791,20 +5878,43 @@ to solar flight, as well as in player who has no summon set. And ofcourse
 you need the sun light to cast this spell effectively.
 ~
 -1 AFFECTS RAFFECTS~
-Affect command is used to show all the spells affecting your character. At
+@eng Syntax: {caffect{x
+Syntax: {craffect{x
+
+'AFFECT' command is used to show all the spells affecting your character. At
 low levels, only the spell name will be displayed, at higher levels the
 effects and duration of the spell will also be shown.  Spell effects
-are no longer shown on score (this can be changed by using 'show' command).
+are no longer shown on score (this can be changed by using 'TOGGLE' command).
+ 
+'RAFFECT' command is used to show all the spells affecting room you stand in.
+At low levels, only the spell name will be displayed, at higher levels the
+effects and duration of the spell will also be shown.
+ 
+See also: {CHELP TOGGLE{x
+@rus Синтаксис: {caffect{x
+Синтаксис: {craffect{x
+ 
+Команда 'AFFECT' используется для определения заклинаний, наложенных на твой
+персонаж. На низких уровнях будет показано только название заклинания, на более
+высоких - длительность и эффект заклинания.
+Заклинания, наложенные на твой персонаж, больше не показываются командой
+'SCORE', но это можно изменить командой 'TOGGLE'.
+ 
+Команда 'RAFFECT' используется для определения заклинаний, наложенных на ком-
+нату, в которой ты находишься. На низких уровнях ты увидишь только название
+заклинания, на высоких - продолжительность и эффекты.
 
-
-Raffect command is used to show all the spells affecting the rooms. At
-low levels, only the spell name will be displayed, at higher levels the
-effects and duration of the spell will also be shown.  Spell effects
-are no longer shown on score (this can be changed by using 'show' command).
+Смотри также: {CHELP TOGGLE{x
 ~
 -1 LANGUAGE~
-Language command is used to switch native language.
-Use 'language help' to list supported languages.
+@eng Syntax: {clanguage{x <language>
+ 
+This command is used to switch interface language. Use 'LANG HELP' to get list
+of available languages.
+@rus Синтаксис: {clanguage{x <язык>
+ 
+Эта команда используется для переключения языка выводимых тебе сообщений.
+Список доступных языков можно получить по команде 'LANG HELP'.
 ~
 92 'WIZ BAN' BAN~
 @eng Syntax: {cban add{x <num> {callow{x <who> <mask>
@@ -5878,26 +5988,55 @@ Axes may split shields in two.
 	Warriors have more chance than the others to block the attacks
 with the shields.
 ~
--1 BACKSTAB~
-Backstab is the favored attack of  thieves, murderers, and other rogues.  It 
-can be only be used with daggers, knifes or other kind of stabing weapons.
-The damage inflicted by a backstab is determined by the attacker's level, his
-weapon skill, his backstab skill, and the power of his opponent.
-Thives may learn to dual backstab in their higher levels.  A second 
-backstab can be executed after the first one, automaticly.
-Only thieves may learn the skill to backstab.
+-1 BACKSTAB 'DUAL BACKSTAB' BS~
+@eng Syntax: {cbackstab{x <victim>
+Syntax: {cknife{x <victim>
+ 
+Backstab is the favourite attack of thiefs. It can be done with daggers, knives
+or any piercing weapon. At high levels thieves learn the deadly skill of second
+backstab. It's executed automatically after the first one. BS is a synonym for
+BACKSTAB.
+ 
+Knife is quite similar to backstab, though it could be done only with daggers.
+But it can be done to already bleeding victim, when backstab fails.
+@rus Синтаксис: {cbackstab{x <жертва>
+Синтаксис: {cknife{x <жертва>
+ 
+BACKSTAB (удар в спину) - любимая атака воров. Он может быть выполнен любым
+колющим оружием. На высоких уровнях воры учатся быстро выполнять второй удар,
+который наносится автоматически, вслед за первым.
+BS является синонимом для BACKSTAB.
+ 
+KNIFE наносит меньший ущерб и может быть выполнен только кинжалом. Однако, это
+умение можно использовать даже тогда, когда истекающая кровью жертва огляды-
+вается по сторонам, не давая зайти к себе за спину.
 ~
--1 BASH~
-The bash skill is a warrior talent, a brute-force attack designed to knock
-your foe to his knees.  Its success depends on many factors, including the
-bash rating, your weight, and the size of your opponent, so bashing a dragon
-is not generally a wise idea.
+-1 BASH CRUSH~
+@eng Syntax: {cbash{x <victim>
+Syntax: {ccrush{x
+ 
+Both these skills are brute-force attacks designed to knock you foe to the
+ground. Their success depends on many factors, including weight and size.
+Crush does more damage to the opponent.
+@rus Синтаксис: {cbash{x <жертва>
+Синтаксис: {ccrush{x
+ 
+Оба этих умения преполагают применение грубой силы для того, чтобы сбить
+противника на землю. Успех зависит от многих факторов, в том числе от веса и
+размера противника, а также твоего веса.
+Crush наносит больший ущерб врагу.
 ~
--1 BERSERK~
-Only powerful warriors can master berserking, the ability to enter insane rage
-in combat.  Its effects are not altogether unlike the frenzy spell -- a huge
-surge of combat prowess, coupled with a disregard for personal safety.  
-Berserking warriors are more resistant to the effects of magic.
+-1 BERSERK FRENZY~
+@eng Syntax: {cberserk{x
+Syntax: {ccast 'frenzy'{x <target>
+ 
+Both these skill and spell fill target with insane battle rage, thus making
+it resistive to effects of magic and greatly increasing damage dealt to enemy.
+@rus Синтаксис: {cberserk{x
+Синтаксис: {ccast 'frenzy'{x <target>
+ 
+Оба этих умения наполняют цель безумной яростью, делая ее лучше защищенной от
+магических атак и увеличивая ущерб, наносимый врагу. 
 ~
 -1 'DIRT KICKING'~
 Consider by some to be a cowardly skill, dirt kicking gives the clever 
@@ -5930,16 +6069,22 @@ is very low indeed.
 have the least. The others have between these two.
 ~
 -1 ENVENOM~
-The envenom skill is a cowardly skill practiced only by thieves, designed to
-win a battle through alchemy and treachery rather than skill or strength.
-Or, put another way, it's a skill used by the smart to kill the foolish.
-Food, drink, and weapons may be envenomed, with varying effects. Poisoned
-food or drink puts a mild poison spell on the consumer, and is unlikely to
-be more than a minor inconvience (after all, the typical adventurer could
-drink sewer water with only a trace of the runs).  A poisoned weapon, on
-the other hand, can inflict serious damage on an opponent as the poison 
-burns through his bloodstream.  But be careful, blade venom evaporates 
-quickly and is rendered almost powerless by repeated blows in combat.
+@eng Syntax: {cenvenom{x <object>
+ 
+This is a cowardly skill practiced by thieves, designed to win through alchemy
+and treachery rather than skill or strength. Or in another words, it's a skill
+used by the smart to kill the foolish. Food, water and weapon can be poisoned.
+Though poisoned food or water looks no more than a small inconvinience, weapon
+coated with poison can inflict serious damage. But venom on blade evaporates
+rather quikly in combat.
+@rus Синтаксис: {cenvenom{x <предмет>
+ 
+Это умение практикуют трусливые воры, предпочитающие побеждать не силой или
+умением, но предательством. С другой стороны, можно сказать, что это умение, с
+помощью которого более умные убивают более глупых. Отравить можно еду, питье
+или оружие. Тогда как отравленная еда или вода - не более чем неудобство,
+отравленное оружие представляет собой серьезную проблему. Но, яд на лезвии
+испаряется весьма быстро.
 ~
 -1 'HAND TO HAND'~
 Hand to hand combat is a rare skill in the lands of Midgaard.  Learning this
@@ -5982,13 +6127,20 @@ third attack does NOT assure three attacks per round.  Only warriors and highly
 skilled thieves may learn this skill.
 ~
 -1 HIDE SNEAK~
-Hide and sneak are similar skills, both related to remaining undetected.
-Hiding is done by moving in civilized shadows which are generally 
-geometricaly shaped, and mostly found in civilized world but not in forests.
-Hide has a very high chance of success, but only works for as long as the
-character remains silent.  Sneak may be used when moving (including to
-sneak by monsters), but has a lower chance of success.  Only and thieves  
-may learn these skills.
+@eng Syntax: {chide{x
+Syntax: {csneak{x
+ 
+Both these skills deal with remaining unnoticed. Hiding is done by moving in
+shadows and thus is much easier in cities than in forests. Sneak deals with
+moving, stepping so silently and smoothly so that noone can notice your
+arrival.
+@rus Синтаксис: {chide{x
+Синтаксис: {csneak{x
+ 
+Оба этих умения предназначены для того, чтобы оставаться незамеченным. HIDE
+использует тени, ниши и прочие укрытия, поэтому гораздо проще так скрыться в
+городе, чем в лесу. SNEAK помогает перемещаться неслышно и плавно, так что
+никто не может заметить вход крадущегося персонажа в комнату.
 ~
 -1 'FAST HEALING'~
 The fast healing skill improves wound healing rates, whether walking, resting,
@@ -5998,11 +6150,16 @@ possible for it to fail.  All class may learn this skill, but mages find it
 very difficult to master, due to their bookish lifestyle.
 ~
 -1 LORE~
-Lore is a general skill, consisting of knowledge of myths and legends. Use
-of the lore skill gives a chance of obtaining information on an object,
-concerning its power and uses. All classes may learn lore, although 
-thieves are best at it, and warriors find it very hard to use.  The 
-harder you practice lore, the more information you will find.
+@eng Syntax: {clore{x <object>
+ 
+LORE is a general skill consisting of myth and legends knowledge. Use of this
+skill gives a chance of obtaining information on an object, concerning its
+power and uses.
+The more you practice it the more information you obtain.
+@rus Синтаксис: {clore{x <обьект>
+ 
+LORE - это знание мифов и легенд, позволяющее получить информацию об объекте.
+Чем старательнее ты практикуешься в этом умении, тем больше будешь узнавать.
 ~
 -1 HAGGLE HAGGLING~
 Haggling is an indispensable skill to the trader.  It allows a character to
@@ -6112,16 +6269,6 @@ are struck down by holy (or unholy might) and cursed.  The cleric suffers
 greatly from the strain of this spell, being left unable to move and 
 drained of vitality.  Experience loss is no longer associated with the spell.
 ~
--1 FRENZY~
-Syntax: cast 'frenzy' <target>
-
-The frenzy spell fills the target with righteous fury, greatly increasing
-his or her attack skill and damaging capacity.  Unfortunately, this divine
-wrath is coupled with a tendency to ignore threats to personal safety, 
-making the character easier to hit.  Frenzy provides immunity to the calm
-spell (see 'help calm'), and may only be used on those of the caster's 
-alignment.
-~
 -1 CALM~
 Syntax: cast 'calm' 
 
@@ -6228,22 +6375,43 @@ Although inexpensive to use, the spell's short duration makes it impractical
 for protecting large numbers of objects.
 ~
 -1 ALIAS UNALIAS~
-Syntax: alias
-	alias <word>
-	alias <word> <substitution>
-	unalias <word>
-
-The alias command allows limited shortening of command names.  At this time,
-aliases cannot call other aliases, and cannot generate more than one command.
-Alias by itself lists your current aliases, Alias <word> lists the alias with 
-that name (if such exist), and alias with both a word and and argument 
-produces a new alias.  You cannot alias either alias or unalias to a new
-command.  Examples of use:
-
-alias gc get all corpse --> typing gc will equal typing 'get all corpse'
-alias ff cast 'fireball' --> ff orc will equal 'cast 'fireball' orc'
-
-Only the first word on the line will be subsituted at this time.
+@eng Syntax: {calias{x
+Syntax: {calias{x <word>
+Syntax: {calias{x <word> <substitution>
+Syntax: {cunalias{x <word>
+ 
+ALIAS command allows shortening of long or complicated commands. One alias
+cannot contain aliased commands and cannot generate more than one command.
+ALIAS without argument lists your current aliases. ALIAS with one argument
+shows alias with that name if such exists. ALIAS with both arguments creates
+new alias. UNALIAS deletes an alias.
+Only first word on the line will be checked for substitution.
+You cannot alias these commands.
+ 
+Examples:
+{calias gc get all corpse{x
+-- after this you may type just {cgc{x instead of {cget all corpse{x
+{calias lb cast 'lightning bolt'{x
+-- {clb orc{x will be expanded to {ccast 'lightning bolt' orc{x
+@rus Синтаксис: {calias{x
+Синтаксис: {calias{x <слово>
+Синтаксис: {calias{x <слово> <подстановка>
+Синтаксис: {cunalias{x <слово>
+ 
+Команда ALIAS служит для сокрашения длинных или составных команд. Сокращенная
+команда не может содержать других сокращений или генерировать несколько команд.
+Без аргументов эта команда показывает список всех твоих сокращений. С одним
+аргументом показывается подстановка для этого слова, если такая есть. С двумя
+аргументами создается новое сокращение. Команда UNALIAS служит для удаления
+ненужных сокращений.
+Слово во введенной строке будет заменено, только если оно стоит в самом начале.
+Команды ALIAS и UNALIAS нельзя присвоить сокращениям.
+ 
+Примеры:
+{calias gc get all corpse{x
+-- после этого, написание {cgc{x будет эквивалентно {cget all corpse{x
+{calias lb cast 'lightning bolt'{x
+-- {clb orc{x будет расшифровано как {ccast 'lightning bolt' orc{x
 ~
 101 '_MERLIN'~
 '        '
@@ -6301,7 +6469,7 @@ MODULES RELOAD перезагружает указанный модуль.
 MODULES LIST показывает список всех загруженных модулей.
 ~
 0 TOGGLE~
-Syntax: {ctoggle{x <option>
+@eng Syntax: {ctoggle{x <option>
  
 Toggles given option on/off. Available options are:
 {caffects{x    - defines whether spells affecting you will be shown in score
@@ -6324,6 +6492,27 @@ Toggles given option on/off. Available options are:
 {cprompt{x     - enables/disable prompt showing.
 {ctelnet GA{x  - some clients require special symbol (GA) to be sent to them.
 {cquiet edit{x - buffer all output when you write a note.
+@rus Переключает различные настройки, такие как:
+{caffects{x    - определяет, показывать ли заклинания, наложенные на тебя, по
+           - команде SCORE. Смотри {CHELP AFFECTS{x
+{cbrief{x      - с включенной этой опцией ты будешь видеть описания комнат при
+           - хождении. Только названия.
+{ccolor{x      - включает/выключает поддержку ANSI цветов. Смотри HELP COLOR.
+{ccompact{x    - эта опция подавляет вывод пустой строки перед приглашением.
+{ccombine{x    - определяет, надо ли комбинировать одинаковые предметы в твоем
+           - мешке, показывая только количество, или показывать их отдельно.
+{clong flags{x - переклчает между новым и старым форматом вывода флагов. Смотри
+           - {CHELP FLAGS{x
+{cnobust{x     - подавляет вывод нового приглашения при изменении hp/mana/move.
+           - Полезно для избегания спама при регенерации.
+{cnoflee{x     - при потере связи персонаж не будет пытаться сбегать. Смотри
+           - {CHELP FLEE{x.
+{cnotelnet{x   - отключает парсер телнета. Смотри {CHELP RUSSIAN{x
+{cnoiac{x      - транслирует строчные 'я' в прописные. Смотри {CHELP RUSSIAN{x
+{cnoverbose{x  - отключает неинформативные сообщения (например, [отличное])
+{cprompt{x     - отключает показ приглашения.
+{ctelnet GA{x  - некоторым клиентам необходимо посылать спец. символ (GA)
+{cquiet edit{x - помещает все сообщения в буфер, когда ты находишься в редакторе.
 ~
 0 FLAGS~
 You can see following flags on mobiles:
@@ -6567,7 +6756,7 @@ NOTITLE запрещают персонажу устанавливать себе титул. Используй это, когда
  ._/\  \..  /. ./. ./.. .. .\_____.{y|@@@@@@@@@@|{G
  . . . /\. .. ./.  .\.     ./ . . \/{y@@@@@@@@@@|{G
       . ..     .    .      ...   . {y|@@@@@@@@@@|{G
-                                   {y|@@@@@@@@@@|                  {YMaedhros{y
+                                   {y|@@@@@@@@@@|               {YVivien Maedhros
                                    {y|@@@@@@@@@@|{G      . .  ..______------_____. ..
                                    {y|@@@@@@@@@@|{G.. .. ______/. . . \_ ../ . ./\___
                                    {y|@@@@@@@@@@|{G.____/. \.. \_. . ./ \__ .. .\ .\_
@@ -6576,7 +6765,7 @@ NOTITLE запрещают персонажу устанавливать себе титул. Используй это, когда
                                    {y|@@@@@@@@@@@@|{G
                                    {y|@@@@@@@@@@@@|{G
                                    {y|@@@@@@@@@@@@|{G
-                                   {y|@@@@@@@@@@@@|{G
+   {y                                |@@@@@@@@@@@@|
                                    {y|@@@@@@@@@@@@|{G
                                    {y|@@@@@@@@@@@@|{G
                                    {y|@@@@@@@@@@@@|{x
@@ -6627,7 +6816,7 @@ NOTITLE запрещают персонажу устанавливать себе титул. Используй это, когда
  ._/\  \..  /. ./. ./.. .. .\_____.{y|@@@@@@@@@@|{G
  . . . /\. .. ./.  .\.     ./ . . \/{y@@@@@@@@@@|{G
       . ..     .    .      ...   . {y|@@@@@@@@@@|{G
-                                   {y|@@@@@@@@@@|                  {YMaedhros{y
+                                   {y|@@@@@@@@@@|               {YVivien Maedhros
                                    {y|@@@@@@@@@@|{G      . .  ..______------_____. ..
                                    {y|@@@@@@@@@@|{G.. .. ______/. . . \_ ../ . ./\___
                                    {y|@@@@@@@@@@|{G.____/. \.. \_. . ./ \__ .. .\ .\_
@@ -6721,15 +6910,19 @@ AREAS выводит список подключенных зон.
 COMMANDS выводит список всех игровых команд.
 ~
 0 TIME WEATHER~
-@eng Syntax: {ctime{x
+@eng Syntax: {cdate{x
+Syntax: {ctime{x
 Syntax: {cweather{x
  
+DATE shows you current local date and time (real-life).
 TIME shows the game time, as well as the time the mud was last started,
 and the current local time for the host computer.
 WEATHER shows the current game weather.
-@rus Синтаксис: {ctime{x
+@rus Синтаксис: {cdate{x
+Синтаксис: {ctime{x
 Синтаксис: {cweather{x
  
+DATE выводит системное время (локальное для сервера).
 TIME выводит игровое и системное времЯ, а также времЯ последнего рестарта
 сервера.
 WEATHER выводит текущую погоду в игре.
@@ -6791,7 +6984,7 @@ and damroll.
 Умение TIGER POWER дает тебе силу десяти тигров, увеличивая наносимый вред и
 вероятность пробить броню.
 ~
-0 'WATER BREATHING' 'FREE ACTION' 'HOLD BREATH'~
+0 'WATER BREATHING' 'FREE ACTION' 'HOLD BREATH' BREATHHOLD~
 @eng Syntax: {ccast 'free action'{x <character>
 Syntax: {ccast 'water breathing'{x <character>
 Syntax: {cbreathhold{x
@@ -6812,6 +7005,298 @@ period of time.
 ты сможешь дышать даже в воде. И наконец, пройдя соответствующие тренировки,
 ты сможешь задерживать дыхание на достаточно долгое время для исследования
 глубин.
+~
+0 CHANNELS~
+@eng Syntax: {cchannels{x
+ 
+This command shows current state of all channels available to you.
+ 
+See also: {CHELP SHOUT, EMOTE, TELL{x
+@rus Синтаксис: {cchannels{x
+ 
+Эта команда показывает состояние всех каналов общения, доступных тебе.
+ 
+Смотри также: {CHELP SHOUT, EMOTE, TELL{x
+~
+0 KILL MURDER HIT~
+@eng Syntax: {ckill{x <victim>
+Syntax: {chit{x <victim>
+Syntax: {cmurder{x <victim>
+ 
+KILL command is used to start a fight with specified victim. It's applicable
+to NPC's only, to initiate attack on player use MURDER command.
+ 
+HIT is a synonym for KILL.
+ 
+See also: {CHELP EXPERIENCE, DEATH, PK{x
+@rus Синтаксис: {ckill{x <жертва>
+Синтаксис: {chit{x <жертва>
+Синтаксис: {cmurder{x <жертва>
+ 
+Команда KILL используется для нападения на кого-либо. Она годится только для
+нападения на монстров, для нападения на игроков используй команду murder.
+ 
+Команда HIT является синонимом для команды KILL.
+ 
+Смотри также: {CHELP EXP, DEATH, PK{x
+~
+0 AFK~
+@eng Syntax: {cafk{x
+ 
+{CAFK{x means {CA{xway {CF{xrom {CK{xeyboard.
+This command is used to save most incoming messages into buffer when you are
+not able to read them and replay it later. One use of this command will put you
+in message-saving mode, second use will return you to normal mode.
+ 
+{RREMEMBER!{x This command does not protect you neither from player killing nor
+from hunting or aggressive mobiles. Choose safe places to leave your character
+alone.
+ 
+See also: {CHELP REPLAY{x
+@rus Синтаксис: {cafk{x
+ 
+{CAFK{x означает {CA{xway {CF{xrom {CK{xeyboard (отошел от клавиатуры).
+Эта команда используется для сохранения приходящих сообщений в буфере и после-
+дующего воспроизведения их, переключая между нормальным режимом и режимом сох-
+ранения сообщений.
+ 
+{RВНИМАНИЕ!{x Эта команда не защитит тебя ни от убийц-игроков, ни от агрессив-
+ных или преследующих тебя монстров. Выбирай безопасные места, чтобы оставить
+своего персонажа одного.
+ 
+Смотри также: {CHELP REPLAY{x
+~
+0 SCAN~
+@eng Syntax: {cscan{x [<number>.]<direction>
+Syntax: {cscan{x  (IMMORTAL ONLY)
+ 
+This command scans given direction as far as you can see. You can specify
+how far do you want to see by setting a number before direction. For example,
+{cscan 4.north{x will report monsters not more than 4 rooms away north from you.
+Without argument, this command reports monsters in nearby rooms.
+@rus Синтаксис: {cscan{x [<число>{c.{x]<направление>
+Синтаксис: {cscan{x    (только для бессмертных)
+ 
+Эта команда позволяет внимательно изучить указанное направление, сообщая о
+наличии монстров. Можно ограничить просмотр по количеству комнат, задав число
+перед направлением (например, {cscan 4.north{x покажет монстров, находящихся
+не далее 4 комнат от тебя по направлению к северу).
+Без аргументов, команда показывает монстров в соседних комнатах.
+~
+0 SPEAK~
+@eng Syntax: {cspeak{x <language>
+ 
+Your character is usually capable of speaking more than one language. You can
+choose one of learned languages to speak with this command. Enter this command
+without any argument to see a list of learned languages.
+@rus Синтаксис: {cspeak{x <язык>
+ 
+Твой персонаж обычно способен говорить более чем на одном языке. Ты можешь
+выбрать используемый язык при помощи этой команды. Введи эту команду без аргу-
+мента, чтобы увидеть список известных твоему персонажу языков.
+~
+92 JUDGE~
+@eng Syntax: {cjudge{x <victim>
+ 
+This command is used to get to know victim's ethos and align.
+It is Rulers' clan skill.
+@rus Синтаксис: {cjudge{x <жертва>
+При помощи этой команды Рулер может определить характер жертвы.
+~
+0 KIDNAP~
+@eng Syntax: {ckidnap{x <victim>
+ 
+This skill allows trained assassin to avoid enemy's strength in numbers,
+teleporting him with only victim to a random place all around the world.
+@rus Синтаксис: {ckidnap{x <жертва>
+ 
+Это умение позволяет тренированным убийцам бороться даже с группами, охраняю-
+щими жертву. При помощи этого умения убийца переносится вместе с жертвой в
+случайное место, чтобы там начать бой.
+~
+0 CLEAR CLS~
+@eng Syntax: {cclear{x
+ 
+This command clear the screen. CLS is a synonym for this command.
+@rus Синтаксис: {cclear{x
+ 
+Эта команда очищает экран. CLS является синонимом этой команды.
+~
+0 DESCRIPTION~
+@eng Syntax: {cdescription{x
+ 
+Use this command to enter your description.
+@rus Синтаксис: {cdescription{x
+
+Используй эту команду для ввода описания твоего персонажа.
+~
+0 PROMOTE~
+@eng Syntax: {cpromote{x <character> <position>
+ 
+This command is used to change character's position in clan. Position can be
+one of the following: commoner, secondary or leader. Only immortals can promote
+to leadership.
+@rus Синтаксис: {cpromote{x <персонаж> <статус>
+ 
+Эта команда применяется для изменения статуса персонажа в клане. Статус может
+быть одним из: commoner (обычный член клана), secondary (заместитель лидера)
+или leader (лидер). Назначать лидера может только бессмертный.
+~
+92 'WIZ MOB' MOB~
+@eng Syntax: {cmob{x <action>
+ 
+MOB command simulates actions of mobiles in mudprogs. This command is 
+restricted to implementors.
+@rus Синтаксис: {cmob{x <действие>
+ 
+Команда MOB выполняет действия монстров в муд-программах. Использование этой
+команды разрешено лишь имплементорам.
+~
+92 FADE~
+@eng Syntax: {cfade{x
+ 
+This is a skill that allows Invaders to vanish in the air. It's most hard-to-
+detect invisibility.
+@rus Синтаксис: {cfade{x
+ 
+Это умение, практикуемое Захватчиками, является наиболее труднообнаруживаемой
+невидимостью - персонаж буквально растворяется в воздухе.
+~
+-2 'CREATECHAR HOMETOWN'~
+You can pick one of six cities as your hometown: New Thalos and Midgaard are
+all alignments. Ofcol is neutral only. Your hometown is where you will
+recall to and is where the pit is to which your corpse will decay.
+Everyone starts at mud school, which is connected to each of the hometowns.
+~
+0 HOMEPOINT~
+@eng Syntax: {chomepoint{x
+Syntax: {chomepoint motherland{x
+ 
+First type of usage sets your recall point in the room you are in.
+Second type of usage set it back to you home town.
+@rus Синтаксис: {chomepoint{x
+Синтаксис: {chomepoint motherland{x
+ 
+Первый вариант использования устанавливает точку, куда тебя будет переносить
+заклинание 'word of recall', в комнате, где ты находишься.
+Второй вариант возвращает точку возврата в твой родной город.
+~
+0 VAMPIRE HUMAN~
+@eng Syntax: {cvampire{x
+Syntax: {chuman{x
+ 
+Using these commands, vampire can become an ugly creature and return to human
+appearance.
+@rus Синтаксис: {cvampire{x
+Синтаксис: {chuman{x
+ 
+Используя эти команды, вампир может становиться ужасной тварью и возвращаться
+к человеческому облику соответственно.
+~
+92 HUNT~
+@eng Syntax: {chunt{x <victim>
+ 
+This skill is used to find path to victim.
+It's a clan skill of Hunters.
+@rus Синтаксис: {chunt{x <жертва>
+ 
+Это умение позволяет найти путь к жертве.
+Это умение практикуется кланом Охотников.
+~
+0 ITEM~
+@eng Syntax: {citem{x
+ 
+This command will show you the location of your clan item.
+Immortal can supply clan name as an argument to learn that clan item location.
+@rus Синтаксис: {citem{x
+ 
+Эта команда покажет тебе местоположение твоего кланового предмета.
+Бессмертный может указать имя клана как аргумент, тем самым узнать местополо-
+жение кланового предмета указанного клана.
+~
+0 CRUCIFY~
+@eng Syntax: {ccrucify{x <corpse>
+ 
+Evil adventurers can please their dark god with desecration of enemy's corpse.
+But, to offer such a sacrifice you must possess appropriate skill.
+@rus Синтаксис: {ccrucify{x <труп>
+ 
+Искатели приключений без страха и совести иногда приносят жертвы своим темным
+богам, оскверняя труп поверженного врага. Но, принесение такой жертвы требует
+соответствующего умения, так как является достаточно сложным процессом.
+~
+0 FEED~
+@eng Syntax: {cfeed{x
+ 
+Evil pets of necromancers require flesh as food. So you can feed them with
+fresh corpses by this command.
+@rus Синтаксис: {cfeed{x
+ 
+Злобные питомцы некромансеров питаются плотью. При помощи этой команды ты
+можешь скормить ему свежий труп.
+~
+0 LAYHANDS~
+@eng Syntax: {clayhands{x <character>
+ 
+Mighty paladins can heal with a touch. Not only does it restore hitpoints, but
+also has a chance to cure blindness, poison and even disease.
+@rus Синтаксис: {clayhands{x <персонаж>
+ 
+Могучие паладины могут лечить прикосновением. Их божественная сила не только
+заживляет раны, но и вылечивает слепоту, яд и даже чуму.
+~
+92 TROPHY~
+@eng Syntax: {ctrophy{x <object>
+ 
+This skill makes a poncho out of battle leftovers (arms, guts etc.)
+It's Battleragers' clan skill.
+@rus Синтаксис: {ctrophy{x <объект>
+ 
+Это умение позволяет сделать накидку из останков врага.
+Клан Яростных-в-битве практикует это умение.
+~
+0 AMBUSH~
+@eng Syntax: {cambush{x <victim>
+ 
+Ranger can ambush someone who does not see him, greatly increasing damage with
+his first blow.
+@rus Синтаксис: {cambush{x <жертва>
+ 
+Ренджер может устроить засаду и напасть на кого-либо, кто не видит его, значи-
+тельно увеличивая ущерб от первого удара.
+~
+0 'BLINDNESS DUST' 'POISONOUS SMOKE'~
+@eng Syntax: {cblindness{x
+Syntax: {cblindness{x <victim>
+Syntax: {cpoison{x
+ 
+These skills come from ninja's alchemy. Throwing some dust into someone's eyes
+can blind him for a quite long period of time. Even thrown into the air, this
+dust has a chance to blind everyone in the room. Another dust makes clouds of
+poisonous smoke,  poisoning everybody.
+~
+92 BLOODTHIRST~
+@eng Syntax: {cbloodthirst{x
+ 
+Powered-up version of berserk, practiced by Battleragers. Rage of bloodthirsty
+warrior makes him attack every mobile.
+@rus Синтаксис: {cbloodthirst{x
+ 
+Усиленный вариант умения BERSERK, практикуемый кланом Яростных-в-битве. Ярость,
+охватывающая кровожадного воина, так велика, что заставляет его нападать на
+любое живое существо.
+~
+92 BLEND~
+@eng Syntax: {cblend{x
+ 
+BLEND is advanced form of camouflage. Blended players almost cannot be detected
+But this skill workd only in forest
+Warders practioce this skill.
+@rus Синтаксис: {cblend{x
+ 
+BLEND - улучшенный камуфляж, замаскировавшиеся таким образом, почти не могут
+могут быть обнаружены. Но, к сожалению, это умение можно применать только
+в десу. Это умение практикует клан Защитников природы.
 ~
 -1 $~
 

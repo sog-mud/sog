@@ -37,14 +37,12 @@ prisoner karabas~
 @rus Он большой и толстый. лучше не ссорься с ним.
 ~
 human~
-A HV 0 0
+A 0 0 0
 200 0 10d10+25000 0d0+0 10d10+1000 none
 -66 -66 -66 -66
-0 AB 0 0
+0 ABQ 0 0
 stand stand male 0
 0 0 huge unknown
-F for AHMV
-F par ABCDEFGHIJK
 M act 15004 is dead!!~
 M delay 15003 100~
 M random 15005 5~
