@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.135 1999-05-20 19:59:05 fjoe Exp $
+ * $Id: db.c,v 1.136 1999-05-20 20:11:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2068,6 +2068,11 @@ void scan_pfiles()
 	log_printf("scan_pfiles: start (eqcheck is %s)",
 		   eqcheck ? "active" : "inactive");
 
+	if (eqcheck
+	&&  dunlink(TMP_PATH, EQCHECK_FILE) < 0)
+		log_printf("scan_pfiles: unable to deactivate eq checker (%s)",
+			   strerror(errno));
+
 	if ((dirp = opendir(PLAYER_PATH)) == NULL) {
 		bug("Load_limited_objects: unable to open player directory.",
 		    0);
@@ -2120,11 +2125,6 @@ void scan_pfiles()
 		nuke_char_obj(ch);
 	}
 	closedir(dirp);
-
-	if (eqcheck
-	&&  dunlink(TMP_PATH, EQCHECK_FILE) < 0)
-		log_printf("scan_pfiles: unable to deactivate eq checker (%s)",
-			   strerror(errno));
 
 	log_printf("scan_pfiles: end (eqcheck is %s)",
 		   dfexist(TMP_PATH, EQCHECK_FILE) ? "active" : "inactive");
