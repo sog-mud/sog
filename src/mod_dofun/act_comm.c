@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.270 2002-11-23 18:02:30 fjoe Exp $
+ * $Id: act_comm.c,v 1.271 2002-11-27 15:35:35 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1734,8 +1734,10 @@ DO_FUN(do_petition, ch, argument)
 
 /* handle 'petition reject' */
 		if (IS_CLAN(victim->clan, clan->name)) {
-			if (vpc->clan_status == CLAN_LEADER
-			&&  !IS_IMMORTAL(ch)) {
+			if ((vpc->clan_status == CLAN_LEADER &&
+			     !IS_IMMORTAL(ch))
+			||  (IS_IMMORTAL(victim) &&
+			     !IS_TRUSTED(ch, trust_level(victim)))) {
 				act_char("You don't have enough power to do that.", ch);
 				return;
 			}
