@@ -18,6 +18,7 @@ BonusSkills identify lore~
 Stats -2 3 5 -2 -1 0 
 MaxStats 18 23 25 18 20 25 
 Size small
+HPStart 105
 ManaBonus 10
 PracBonus 5
 RestrictAlign neutral~

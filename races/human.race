@@ -14,6 +14,7 @@ Class 'warrior' 100
 Class 'wizard' 100
 MaxStats 21 21 21 21 21 25 
 Size medium
+HPStart 110
 Slang human
 End
 

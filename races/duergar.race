@@ -18,7 +18,7 @@ BonusSkills 'berserk' 'pick lock'~
 Stats 2 -1 -1 1 1 0 
 MaxStats 22 19 19 21 22 25 
 Size medium
-HPBonus 10
+HPstart 110
 RestrictAlign evil~
 Slang dwarvish
 End

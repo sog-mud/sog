@@ -20,7 +20,7 @@ BonusSkills 'enhanced damage' sword bash~
 Stats 5 -3 -3 -3 4 0 
 MaxStats 25 17 16 14 24 25 
 Size huge
-HPBonus 20
+HPStart 120
 ManaBonus -20
 RestrictAlign good~
 Slang giant

@@ -19,7 +19,7 @@ BonusSkills berserk warcry~
 Stats 2 -1 -1 0 2 0 
 MaxStats 22 18 18 20 22 25 
 Size medium
-HPBonus 10
+HPStart 110
 ManaBonus -20
 RestrictAlign evil~
 Slang common

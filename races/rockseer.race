@@ -22,7 +22,7 @@ BonusSkills 'wand'~
 Stats -1 2 0 4 -2 0 
 MaxStats 19 22 20 24 18 25 
 Size medium
-HPBonus -10
+HPStart 100
 ManaBonus 20
 RestrictAlign neutral~
 Slang elvish

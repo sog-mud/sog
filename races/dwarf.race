@@ -17,7 +17,7 @@ BonusSkills berserk axe mace~
 Stats 3 -1 0 -2 3 0 
 MaxStats 23 19 19 18 24 25 
 Size medium
-HPBonus 15
+HPStart 115
 RestrictAlign neutral good~
 Slang dwarvish
 End

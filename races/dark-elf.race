@@ -22,7 +22,7 @@ SkillSpec race_dark_elf
 Stats -1 2 1 1 -1 0 
 MaxStats 19 23 21 23 18 25 
 Size medium
-HPBonus -5
+HPStart 90
 ManaBonus 10
 RestrictAlign evil~
 Slang elvish

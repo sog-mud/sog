@@ -22,7 +22,7 @@ SkillSpec race_half_elf
 Stats 0 1 0 1 0 0 
 MaxStats 20 22 20 21 20 25 
 Size medium
-HPBonus -5
+HPStart 110
 ManaBonus 5
 Slang elvish
 End

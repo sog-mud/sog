@@ -16,6 +16,7 @@ Class 'wizard' 100
 SkillSpec race_githyanki
 Stats 0 2 -2 3 -1 0 
 MaxStats 20 22 18 23 19 25 
+HPStart 100
 Size medium
 RestrictAlign evil~
 Slang human

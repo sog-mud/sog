@@ -20,7 +20,7 @@ BonusSkills bash 'enhanced damage' mace~
 Stats 5 -3 -3 -3 4 0 
 MaxStats 25 16 16 15 24 25 
 Size huge
-HPBonus 20
+HPStart 120
 ManaBonus -20
 RestrictAlign neutral~
 Slang giant

@@ -24,7 +24,9 @@ BonusSkills 'fast healing'~
 Stats 4 -2 -2 -2 5 0 
 MaxStats 24 17 18 17 25 25 
 Size large
+HPStart 120
 HungerRate 300
+MovesRate 100
 RestrictAlign evil~
 Slang trollish
 End

@@ -21,7 +21,7 @@ BonusSkills tail~
 Stats 3 -2 -1 1 2 0 
 MaxStats 23 17 18 21 22 25 
 Size medium
-HPBonus 10
+HpStart 110
 ManaBonus -10
 RestrictAlign evil neutral~
 Slang common
