@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.193 1999-11-27 09:17:37 kostik Exp $
+ * $Id: act_comm.c,v 1.194 1999-11-27 11:06:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -841,7 +841,7 @@ void do_group(CHAR_DATA *ch, const char *argument)
 					    "%d/%d mana %d/%d mv   %5d xp\n",
 					    gch->level,
 					    class_who_name(gch),
-					    fix_short(PERS(gch, ch)),
+					    PERS(gch, ch),
 					    gch->hit,   gch->max_hit,
 					    gch->mana,  gch->max_mana,
 					    gch->move,  gch->max_move,

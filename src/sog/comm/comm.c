@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.210 1999-11-25 12:26:25 fjoe Exp $
+ * $Id: comm.c,v 1.211 1999-11-27 11:06:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -801,7 +801,7 @@ void game_loop_unix(void)
 	}
 }
 
-static void cp_print(DESCRIPTOR_DATA* d)
+static void charset_print(DESCRIPTOR_DATA* d)
 {
 	char buf[MAX_STRING_LENGTH];
 	int i;
@@ -812,7 +812,7 @@ static void cp_print(DESCRIPTOR_DATA* d)
 			 i ? " " : "", i+1, codepages[i].name);
 		write_to_buffer(d, buf, 0);
 	}
-	write_to_buffer(d, "\n\rSelect your codepage (non-russian players should choose translit): ", 0);
+	write_to_buffer(d, "\n\rSelect your charset (non-russian players should choose translit): ", 0);
 }
 
 #if !defined(FNDELAY)
@@ -880,7 +880,7 @@ void init_descriptor(int control)
 			     FORMAT_DUMB);
 		write_to_buffer(dnew, buf + (buf[0] == '.'), 0);
 	}
-	cp_print(dnew);
+	charset_print(dnew);
 }
 
 void close_descriptor(DESCRIPTOR_DATA *dclose, int save_flags)
@@ -1779,7 +1779,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		if (argument[1] != '\0'
 		||  (num = argument[0] - '1') < 0
 		||  num >= NCODEPAGES) {
-			cp_print(d);
+			charset_print(d);
 			break;
 		}
 
