@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.71 1999-12-14 00:26:40 avn Exp $
+ * $Id: olc_obj.c,v 1.72 1999-12-14 15:31:13 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -108,7 +108,7 @@ olc_cmd_t olc_cmds_obj[] =
 	{ "condition",	objed_condition,validate_condition		},
 	{ "clone",	objed_clone					},
 	{ "gender",	objed_gender,	NULL,		gender_table	},
-	{ "restrictions",objed_restrictions,	NULL,	cc_order_types	},
+	{ "restrictions",objed_restrictions,				},	
 
 	{ "version",	show_version					},
 	{ "commands",	show_commands					},
@@ -302,7 +302,7 @@ OLC_FUN(objed_show)
 	}
 
 	show_obj_values(output, pObj);
-	print_cc_ruleset(&pObj->restrictions, "Restrictions:", output);
+	print_cc_vexpr(&pObj->restrictions, "Restrictions:", output);
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
 
@@ -801,9 +801,6 @@ OLC_FUN(objed_clone)
 	OBJ_INDEX_DATA *pFrom;
 	char arg[MAX_INPUT_LENGTH];
 	int i;
-	AFFECT_DATA *paf;
-	AFFECT_DATA *paf_next;
-	AFFECT_DATA **ppaf;
 
 	one_argument(argument, arg, sizeof(arg));
 	if (!is_number(arg))
@@ -840,17 +837,8 @@ OLC_FUN(objed_clone)
 	pObj->limit		= pFrom->limit;
 
 /* copy affects */
-	for (paf = pObj->affected; paf; paf = paf_next) {
-		paf_next = paf->next;
-		aff_free(paf);
-	}
-	pObj->affected = NULL;
-
-	ppaf = &pObj->affected;
-	for (paf = pFrom->affected; paf; paf = paf->next) {
-		*ppaf = aff_dup(paf);
-		ppaf = &(*ppaf)->next;
-	}
+	aff_free_list(pObj->affected);
+	pObj->affected = aff_dup_list(pFrom->affected);
 
 /* copy extra descriptions */
 	ed_free(pObj->ed);
@@ -870,7 +858,7 @@ OLC_FUN(objed_restrictions)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
-	return olced_cc_ruleset(ch, argument, cmd, &pObj->restrictions);
+	return olced_cc_vexpr(ch, argument, cmd, &pObj->restrictions, "obj");
 }
 
 void show_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj)

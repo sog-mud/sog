@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cc_spec.c,v 1.2 1999-12-04 08:52:29 fjoe Exp $
+ * $Id: cc_spec.c,v 1.1 1999-12-14 15:31:11 fjoe Exp $
  */
 
 #include <stdio.h>

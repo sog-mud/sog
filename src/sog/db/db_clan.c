@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_clan.c,v 1.24 1999-10-26 13:52:58 fjoe Exp $
+ * $Id: db_clan.c,v 1.25 1999-12-14 15:31:17 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -93,7 +93,7 @@ DBLOAD_FUN(load_clan)
 				} else if ((pclan = hash_insert(&clans,
 						clan.name, &clan)) != NULL) {
 					const char *file_name =
-						strkey_filename(clan.name);
+						strkey_filename(clan.name, CLAN_EXT);
 					if (dfexist(PLISTS_PATH, file_name)) {
 						db_set_arg(&db_plists, "PLISTS",
 							   pclan);

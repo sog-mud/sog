@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_class.c,v 1.16 1999-12-14 07:24:49 fjoe Exp $
+ * $Id: olc_class.c,v 1.17 1999-12-14 15:31:12 fjoe Exp $
  */
 
 #include "olc.h"
@@ -60,7 +60,7 @@ DECLARE_OLC_FUN(olc_skill_update	);
 
 static DECLARE_VALIDATE_FUN(validate_whoname);
 
-olced_strkey_t strkey_classes = { &classes, CLASSES_PATH };
+olced_strkey_t strkey_classes = { &classes, CLASSES_PATH, CLASS_EXT };
 
 olc_cmd_t olc_cmds_class[] =
 {
@@ -616,13 +616,16 @@ save_class_cb(void *p, va_list ap)
 
 	int i;
 	FILE *fp;
-	char buf[PATH_MAX];
+	const char *filename;
 
-	snprintf(buf, sizeof(buf), "%s.%s", strkey_filename(cl->name), CLASS_EXT);
-	if ((fp = olc_fopen(CLASSES_PATH, buf, ch, -1)) == NULL)
+	if (!IS_SET(cl->class_flags, CLASS_CHANGED))
 		return NULL;
 
-	REMOVE_BIT(cl->class_flags, RACE_CHANGED);
+	filename = strkey_filename(cl->name, CLASS_EXT);
+	if ((fp = olc_fopen(CLASSES_PATH, filename, ch, -1)) == NULL)
+		return NULL;
+
+	REMOVE_BIT(cl->class_flags, CLASS_CHANGED);
 	fprintf(fp, "#CLASS\n");
 	fprintf(fp, "Name %s~\n", cl->name);
 	fprintf(fp, "ShortName %s~\n", cl->who_name);
@@ -670,7 +673,7 @@ save_class_cb(void *p, va_list ap)
 	fprintf(fp, "#$\n");
 	fclose(fp);
 
-	olc_printf(ch, "    %s (%s)", cl->name, buf);
+	olc_printf(ch, "    %s (%s)", cl->name, filename);
 	*pfound = TRUE;
 	return NULL;
 }

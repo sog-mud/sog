@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_spec.c,v 1.2 1999-12-14 00:26:41 avn Exp $
+ * $Id: olc_spec.c,v 1.3 1999-12-14 15:31:13 fjoe Exp $
  */
 
 #include "olc.h"
@@ -44,7 +44,7 @@ DECLARE_OLC_FUN(speced_flags		);
 
 DECLARE_OLC_FUN(olc_skill_update	);
 
-olced_strkey_t strkey_specs = { &specs, SPEC_PATH };
+olced_strkey_t strkey_specs = { &specs, SPEC_PATH, SPEC_EXT };
 
 olc_cmd_t olc_cmds_spec[] =
 {
@@ -58,7 +58,7 @@ olc_cmd_t olc_cmds_spec[] =
 	{ "name",	olced_strkey,	NULL,		&strkey_specs	},
 	{ "class",	speced_class,	NULL,		spec_classes	},
 	{ "skill",	speced_skill, 	NULL,		&skills		},
-	{ "depend",	speced_depend,	NULL,		cc_order_types	},
+	{ "depend",	speced_depend					},
 	{ "flags",	speced_flags,	NULL,		spec_flags	},
 
 	{ "update",	olc_skill_update				},
@@ -172,7 +172,7 @@ OLC_FUN(speced_show)
 	buf_printf(output, "Class:         [%s]   Flags: [%s]\n",
 			flag_string(spec_classes, s->spec_class),
 			flag_string(spec_flags, s->spec_flags));
-	print_cc_ruleset(&s->spec_deps, "Dependencies:", output);
+	print_cc_vexpr(&s->spec_deps, "Dependencies:", output);
 	if (s->spec_skills.nused == 0)
 		buf_printf(output, "No skills defined for this spec.\n");
 	else {
@@ -273,7 +273,7 @@ OLC_FUN(speced_depend)
 {
 	spec_t *s;
 	EDIT_SPEC(ch, s);
-	return olced_cc_ruleset(ch, argument, cmd, &s->spec_deps);
+	return olced_cc_vexpr(ch, argument, cmd, &s->spec_deps, "spec");
 }
 
 OLC_FUN(speced_flags)
@@ -319,14 +319,13 @@ save_spec_cb(void *p, va_list ap)
 	bool *pfound = va_arg(ap, bool *);
 
 	FILE *fp;
-	char buf[PATH_MAX];
+	const char *filename;
 
 	if (!IS_SET(s->spec_flags, SPF_CHANGED))
 		return NULL;
 
-	snprintf(buf, sizeof(buf), "%s.%s", strkey_filename(s->spec_name), SPEC_EXT);
-	fp = olc_fopen(SPEC_PATH, buf, ch, SECURITY_SPEC);
-	if (fp == NULL)
+	filename = strkey_filename(s->spec_name, SPEC_EXT);
+	if ((fp = olc_fopen(SPEC_PATH, filename, ch, SECURITY_SPEC)) == NULL)
 		return NULL;
 
 	REMOVE_BIT(s->spec_flags, SPF_CHANGED);
@@ -338,12 +337,12 @@ save_spec_cb(void *p, va_list ap)
 		fprintf(fp, "Flags %s~\n",
 				flag_string(spec_flags, s->spec_flags));
 	fprintf(fp, "End\n");
-	fwrite_cc_ruleset(&s->spec_deps, "\n#R", fp);
+	fwrite_cc_vexpr(&s->spec_deps, "\n#R", fp);
 	varr_foreach(&s->spec_skills, save_spec_skill_cb, fp);
 	fprintf(fp, "\n#$\n");
 	fclose(fp);
 
-	olc_printf(ch, "    %s (%s)", s->spec_name, buf);
+	olc_printf(ch, "    %s (%s)", s->spec_name, filename);
 	*pfound = TRUE;
 	return NULL;
 }

@@ -4,8 +4,7 @@ Class class
 End
 
 #R
-order allow_deny
-allow spclass_limit("weapon 3")~
+deny spclass_limit !spclass_limit("weapon 3")~
 end
 
 #SKILL

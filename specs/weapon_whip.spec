@@ -4,9 +4,8 @@ Class weapon
 End
 
 #R
-order allow_deny
-allow has_spec("class_warrior")~
-End
+deny has_spec !has_spec("class_warrior")~
+end
 
 #SKILL
 Skill 'weapon strip'

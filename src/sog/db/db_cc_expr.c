@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_cc_rulecl.c,v 1.2 1999-11-24 07:22:28 fjoe Exp $
+ * $Id: db_cc_expr.c,v 1.1 1999-12-14 15:31:17 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -34,32 +34,32 @@
 #include "db.h"
 #include "lang.h"
 
-DECLARE_DBLOAD_FUN(load_cc_rulecl);
-DECLARE_DBINIT_FUN(init_cc_rulecl);
+DECLARE_DBLOAD_FUN(load_cc_eclass);
+DECLARE_DBINIT_FUN(init_cc_eclass);
 
-DBFUN dbfun_cc_rulecl[] =
+DBFUN dbfun_cc_eclass[] =
 {
-	{ "CC_RULECL",	load_cc_rulecl	},
+	{ "ECLASS",	load_cc_eclass	},
 	{ NULL }
 };
 
-DBDATA db_cc_rulecl = { dbfun_cc_rulecl, init_cc_rulecl };
+DBDATA db_cc_expr = { dbfun_cc_eclass, init_cc_eclass };
 
 /*----------------------------------------------------------------------------
- * cc_rulecl loader
+ * cc_eclass loader
  */
-DBINIT_FUN(init_cc_rulecl)
+DBINIT_FUN(init_cc_eclass)
 {
 	if (!DBDATA_VALID(dbdata)) {
-		varr_init(&cc_rulecls, sizeof(cc_rulecl_t), 1);
-		cc_rulecls.e_init = (varr_e_init_t) cc_rulecl_init;
-		cc_rulecls.e_destroy = (varr_e_destroy_t) cc_rulecl_destroy;
+		varr_init(&cc_eclasses, sizeof(cc_eclass_t), 1);
+		cc_eclasses.e_init = (varr_e_init_t) cc_eclass_init;
+		cc_eclasses.e_destroy = (varr_e_destroy_t) cc_eclass_destroy;
 	}
 }
 
-DBLOAD_FUN(load_cc_rulecl)
+DBLOAD_FUN(load_cc_eclass)
 {
-	cc_rulecl_t *rcl = varr_enew(&cc_rulecls);
+	cc_eclass_t *rcl = varr_enew(&cc_eclasses);
 
 	for (;;) {
 		bool fMatch = FALSE;
@@ -67,33 +67,31 @@ DBLOAD_FUN(load_cc_rulecl)
 		fread_keyword(fp);
 		switch (rfile_tokfl(fp)) {
 		case 'E':
-			if (IS_TOKEN(fp, "End")) {
+			if (IS_TOKEN(fp, "efun")) {
+				cc_efun_t *rfun = varr_enew(&rcl->efuns);
+				rfun->name = fread_sword(fp);
+				rfun->fun_name = fread_sword(fp);
+				fMatch = TRUE;
+			}
+			if (IS_TOKEN(fp, "end")) {
 				if (IS_NULLSTR(rcl->name)) {
-					db_error("load_cc_rulecl",
-						 "cc_rulecl name undefined");
-					varr_edelete(&cc_rulecls, rcl);
+					db_error("load_cc_eclass",
+						 "cc_eclass name undefined");
+					varr_edelete(&cc_eclasses, rcl);
 				} else {
-					varr_qsort(&cc_rulecls, cmpstr);
+					varr_qsort(&cc_eclasses, cmpstr);
 				}
+				varr_qsort(&rcl->efuns, cmpstr);
 				return;
 			}
 			break;
 		case 'N':
-			KEY("Name", rcl->name, fread_sword(fp));
-			break;
-		case 'T':
-			if (IS_TOKEN(fp, "Type")) {
-				cc_rulefun_t *rfun = varr_enew(&rcl->rulefuns);
-				rfun->type = fread_sword(fp);
-				rfun->fun_name = fread_sword(fp);
-				varr_qsort(&rcl->rulefuns, cmpstr);
-				fMatch = TRUE;
-			}
+			KEY("name", rcl->name, fread_sword(fp));
 			break;
 		}
 
 		if (!fMatch) {
-			db_error("load_cc_rulecl", "%s: Unknown keyword",
+			db_error("load_cc_eclass", "%s: Unknown keyword",
 				 rfile_tok(fp));
 			fread_to_eol(fp);
 		}

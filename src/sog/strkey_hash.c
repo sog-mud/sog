@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: strkey_hash.c,v 1.4 1999-11-22 14:54:27 fjoe Exp $
+ * $Id: strkey_hash.c,v 1.5 1999-12-14 15:31:15 fjoe Exp $
  */
 
 #include <limits.h>
@@ -130,7 +130,7 @@ void strkey_printall(hash_t *h, BUFFER *buf)
 }
 
 char *
-strkey_filename(const char *name)
+strkey_filename(const char *name, const char *ext)
 {
 	static char buf[2][MAX_STRING_LENGTH];
 	static int ind = 0;
@@ -154,5 +154,7 @@ strkey_filename(const char *name)
 	}
 
 	*p = '\0';
+	if (!IS_NULLSTR(ext)) 
+		strnzcat(buf[ind], sizeof(buf[ind]), ext);
 	return buf[ind];
 }

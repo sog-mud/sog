@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.92 1999-12-14 00:26:38 avn Exp $
+ * $Id: olc.c,v 1.93 1999-12-14 15:31:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -38,7 +38,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <sys/types.h>
 #include <ctype.h>
 #include <time.h>
 #include <errno.h>
@@ -292,8 +291,8 @@ OLC_FUN(olced_strkey)
 	}
 
 	if (o->path) {
-		d2rename(o->path, strkey_filename(*(const char**) p),
-			 o->path, strkey_filename(*(const char**) q));
+		d2rename(o->path, strkey_filename(*(const char**) p, o->ext),
+			 o->path, strkey_filename(*(const char**) arg, o->ext));
 	}
 
 	hash_delete(o->h, p);
@@ -830,67 +829,74 @@ olced_gender(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd, mlstring *g)
 	return TRUE;
 }
 
-		
 bool
-olced_cc_ruleset(CHAR_DATA *ch, const char *argument,
-	         olc_cmd_t *cmd, cc_ruleset_t *rs)
+olced_cc_vexpr(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
+	       varr *v, const char *ecn)
 {
 	char arg[MAX_INPUT_LENGTH];
-	varr *v = NULL;
-	bool del = FALSE;
+	bool del;
 	const char **ps;
+	const char *p;
+	cc_eclass_t *ecl;
 
-	argument = one_argument(argument, arg, sizeof(arg));
+	if ((ecl = cc_eclass_lookup(ecn)) == NULL) {
+		char_printf(ch, "%s: %s: unknown eclass.\n",
+			    OLCED(ch)->name, ecn);
+		return FALSE;
+	}
+
+	p = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0')
 		OLC_ERROR("'OLC RULESET'");
 
 	if (!str_prefix(arg, "show")) {
 		BUFFER *buf = buf_new(-1);
-		print_cc_ruleset(rs, "Restrictions:", buf);
+		print_cc_vexpr(v, "Restrictions:", buf);
 		page_to_char(buf_string(buf), ch);
 		buf_free(buf);
 		return FALSE;
 	}
 
-	if (!str_prefix(arg, "order"))
-		return olced_flag(ch, argument, cmd, &rs->order);
-
-	if (!str_prefix(arg, "delete"))
-		del = TRUE;
-
-	if (!del && str_prefix(arg, "add"))
-		OLC_ERROR("'OLC RULESET'");
-
-	argument = one_argument(argument, arg, sizeof(arg));
-	if (!str_prefix(arg, "allow"))
-		v = &rs->allow;
-	else if (!str_prefix(arg, "deny"))
-		v = &rs->deny;
-
-	if (v == NULL || argument == NULL)
-		OLC_ERROR("'OLC RULESET'");
-		
-	if (del) {
+	if ((del = !str_prefix(arg, "delete"))
+	||  !str_prefix(arg, "mfun")) {
 		int num;
-		void *p;
+		cc_expr_t *e;
 
-		argument = one_argument(argument, arg, sizeof(arg));
+		argument = one_argument(p, arg, sizeof(arg));
 		if (!is_number(arg))
 			OLC_ERROR("'OLC RULESET'");
 
 		num = atoi(arg);
-		p = varr_get(v, num);
-		if (p == NULL) {
+		e = varr_get(v, num);
+		if (e == NULL) {
 			char_printf(ch, "%s: %s: no expr with number '%s'.\n",
 				    OLCED(ch)->name, cmd->name, arg);
 			return FALSE;
 		}
 
-		varr_edelete(v, p);
-		char_printf(ch, "%s: %s: expr deleted.\n",
-			    OLCED(ch)->name, cmd->name);
+		/*
+		 * 'delete'
+		 */
+		if (del) {
+			varr_edelete(v, e);
+			char_printf(ch, "%s: %s: expr deleted.\n",
+				    OLCED(ch)->name, cmd->name);
+			return TRUE;
+		}
+
+		one_argument(argument, arg, sizeof(arg));
+		if (cc_efun_lookup(ecl, arg) == NULL) {
+			char_printf(ch, "%s: %s: no such efun in eclass '%s'.\n");
+			return FALSE;
+		}
+
+		free_string(e->mfun);
+		e->mfun = str_dup(arg);
 		return TRUE;
 	} 
+
+	if (!str_prefix(arg, "add"))
+		argument = p;
 
 	ps = varr_enew(v);
 	*ps = str_dup(argument);

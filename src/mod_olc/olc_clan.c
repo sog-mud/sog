@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_clan.c,v 1.38 1999-12-14 00:26:39 avn Exp $
+ * $Id: olc_clan.c,v 1.39 1999-12-14 15:31:12 fjoe Exp $
  */
 
 #include "olc.h"
@@ -46,7 +46,7 @@ DECLARE_OLC_FUN(claned_plist		);
 DECLARE_OLC_FUN(claned_skillspec	);
 
 /* also should move clan's plists */
-olced_strkey_t strkey_clans = { &clans, CLANS_PATH };
+olced_strkey_t strkey_clans = { &clans, CLANS_PATH, CLAN_EXT };
 
 olc_cmd_t olc_cmds_clan[] =
 {
@@ -320,14 +320,13 @@ save_clan_cb(void *p, va_list ap)
 	bool *pfound = va_arg(ap, bool *);
 
 	FILE *fp;
-	char buf[PATH_MAX];
+	const char *filename;
 
 	if (!IS_SET(clan->clan_flags, CLAN_CHANGED))
 		return NULL;
 
-	snprintf(buf, sizeof(buf), "%s.%s",
-		 strkey_filename(clan->name), CLAN_EXT);
-	if ((fp = olc_fopen(CLANS_PATH, buf, ch, -1)) == NULL)
+	filename = strkey_filename(clan->name, CLAN_EXT);
+	if ((fp = olc_fopen(CLANS_PATH, filename, ch, -1)) == NULL)
 		return NULL;
 		
 	fprintf(fp, "#CLAN\n");
@@ -354,7 +353,7 @@ save_clan_cb(void *p, va_list ap)
 	fclose(fp);
 
 /* save plists */
-	if ((fp = olc_fopen(PLISTS_PATH, buf, ch, -1)) == NULL)
+	if ((fp = olc_fopen(PLISTS_PATH, filename, ch, -1)) == NULL)
 		return NULL;
 
 	fprintf(fp, "#PLISTS\n");
@@ -367,7 +366,7 @@ save_clan_cb(void *p, va_list ap)
 		    "#$\n");
 	fclose(fp);
 
-	olc_printf(ch, "    %s (%s)", clan->name, buf);
+	olc_printf(ch, "    %s (%s)", clan->name, filename);
 	*pfound = TRUE;
 	return NULL;
 }

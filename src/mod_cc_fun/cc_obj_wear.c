@@ -23,23 +23,59 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cc_lex.h,v 1.3 1999-12-14 15:31:14 fjoe Exp $
+ * $Id: cc_obj_wear.c,v 1.1 1999-12-14 15:31:11 fjoe Exp $
  */
 
-#ifndef _CC_LEX_H_
-#define _CC_LEX_H_
+#include <stdio.h>
+#include "merc.h"
 
-typedef struct ctx_t {
-	bool val;
-	struct cc_eclass_t *rcl;	/* rule class */
-	va_list	ap;			/* arguments for predicate */
-} ctx_t;
+/*
+ * varags for this cc_rulecl:
+ *	CHAR_DATA * ch		- character to check
+ */
 
-extern ctx_t cc_ctx;
+/*
+ * race is in list
+ *
+ * arg format: <race name>...
+ * return values: TRUE is ch's race is in specified list
+ *		  otherwise FALSE
+ */
+bool
+cc_obj_wear_race(const char *arg, va_list ap)
+{
+	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
+	return is_sname(ch->race, arg);
+}
 
-bool cc_fun_call(ctx_t *ctx, const char *rn, const char *arg);
+/*
+ * class is in list
+ *
+ * arg format: <race name>...
+ * return values: TRUE is ch's class is in specified list
+ *		  otherwise FALSE
+ */
+bool
+cc_obj_wear_class(const char *arg, va_list ap)
+{
+	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
+	return is_sname(ch->class, arg);
+}
 
-extern jmp_buf cc_jmpbuf;
+/*
+ * min size
+ *
+ * arg format: <size> (see size_table[] for valid values)
+ * return values: TRUE is ch's size is not greater then <size>
+ */
+bool
+cc_obj_wear_minsize(const char *arg, va_list ap)
+{
+	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
 
-#endif
+	if (!str_cmp(arg, "all"))
+		return TRUE;
+
+	return ch->size <= flag_value(size_table, arg);
+}
 

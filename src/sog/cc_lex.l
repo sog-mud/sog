@@ -8,7 +8,7 @@ alnum	[a-zA-Z0-9]
 
 #include "typedef.h"
 #include "varr.h"
-#include "cc_rule.h"
+#include "cc_expr.h"
 #include "str.h"
 
 #include "y.tab.h"
@@ -56,8 +56,8 @@ extern void yyerror(const char *);
 "||"				return OR;
 
 {alpha}{alnum}*			{ yylval.s = str_dup(yytext);
-				  fprintf(stderr, "RULE: '%s'\n", yylval.s);
-				  return RULE;
+				  fprintf(stderr, "FUN: '%s'\n", yylval.s);
+				  return FUN;
 				}
 
 [!()]				return *yytext;
@@ -67,22 +67,22 @@ extern void yyerror(const char *);
 %%
 
 void *
-expr_match_cb(void *p, va_list ap)
+expr_check_cb(void *p, va_list ap)
 {
-	const char *expr = *(const char **) p;
+	cc_expr_t *e = (cc_expr_t *) p;
 	void *rv;
 	YY_BUFFER_STATE yy_buf;
 
 	cc_ctx.val = FALSE;
-	cc_ctx.rcl = va_arg(ap, cc_rulecl_t *);
+	cc_ctx.rcl = va_arg(ap, cc_eclass_t *);
 	cc_ctx.ap = va_arg(ap, va_list);
 
-	yy_buf = yy_scan_string(expr);
+	yy_buf = yy_scan_string(e->expr);
 
 	if (!setjmp(cc_jmpbuf)) {
 		yyparse();
 		if (cc_ctx.val)
-			rv = (void *) expr;
+			rv = (void *) e->mfun;
 		else
 			rv = NULL;
 	} else {
@@ -95,23 +95,23 @@ expr_match_cb(void *p, va_list ap)
 }
 
 bool
-rule_check(ctx_t *ctx, const char *rn, const char *arg)
+cc_fun_call(ctx_t *ctx, const char *en, const char *arg)
 {
-	cc_rulefun_t *rfun;
+	cc_efun_t *efun;
 
-	rfun = cc_rulefun_lookup(ctx->rcl, rn);
-	if (rfun == NULL) {
+	efun = cc_efun_lookup(ctx->rcl, en);
+	if (efun == NULL) {
 		char buf[256];
 
 		snprintf(buf, sizeof(buf),
-			 "rule_check: %s: unknown rule in ruleclass '%s'\n",
-			 rn, ctx->rcl->name);
+			 "cc_fun_call: %s: unknown efun in ruleclass '%s'\n",
+			 en, ctx->rcl->name);
 		yyerror(buf);
 	}
 
-	if (rfun->fun == NULL)
+	if (efun->fun == NULL)
 		return FALSE;
 
-	return rfun->fun(arg, ctx->ap);
+	return efun->fun(arg, ctx->ap);
 }
 

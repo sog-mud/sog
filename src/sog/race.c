@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.c,v 1.17 1999-12-14 07:24:50 fjoe Exp $
+ * $Id: race.c,v 1.18 1999-12-14 15:31:15 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -53,9 +53,6 @@ race_init(race_t *r)
 	r->affected = NULL;
 }
 
-/*
- * r->race_pcdata and r->affected are not copied intentionally
- */
 race_t *
 race_cpy(race_t *dst, race_t *src)
 {
@@ -69,9 +66,11 @@ race_cpy(race_t *dst, race_t *src)
 	dst->form = src->form;
 	dst->parts = src->parts;
 	dst->race_flags = src->race_flags;
-	dst->damtype = str_dup(src->damtype);
+	dst->damtype = str_qdup(src->damtype);
 	for (i = 0; i < MAX_RESIST; i++)
 		dst->resists[i] = src->resists[i];
+	dst->race_pcdata = pcrace_dup(src->race_pcdata);
+	dst->affected = aff_dup_list(src->affected);
 	return dst;
 }
 
@@ -94,12 +93,25 @@ pcrace_new(void)
 	varr_init(&pcr->classes, sizeof(rclass_t), 4);
 	pcr->classes.e_init = strkey_init;
 	pcr->classes.e_destroy = strkey_destroy;
+	pcr->refcnt = 1;
+	return pcr;
+}
+
+pcrace_t *
+pcrace_dup(pcrace_t *pcr)
+{
+	if (pcr == NULL)
+		return NULL;
+
+	pcr->refcnt++;
 	return pcr;
 }
 
 void
 pcrace_free(pcrace_t *pcr)
 {
+	if (--pcr->refcnt > 0)
+		return;
 	varr_destroy(&pcr->classes);
 	free_string(pcr->skill_spec);
 	free_string(pcr->bonus_skills);

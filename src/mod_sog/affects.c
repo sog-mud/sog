@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.16 1999-12-14 05:25:26 fjoe Exp $
+ * $Id: affects.c,v 1.17 1999-12-14 15:31:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -85,6 +85,21 @@ void aff_free(AFFECT_DATA *af)
 	free_string(af->type);
 	free(af);
 	top_affect--;
+}
+
+AFFECT_DATA *
+aff_dup_list(AFFECT_DATA *paf)
+{
+	AFFECT_DATA *rv = NULL;
+	AFFECT_DATA **ppaf = &rv;
+
+	while (paf) {
+		*ppaf = aff_dup(paf);
+		ppaf = &(*ppaf)->next;
+		paf = paf->next;
+	}
+
+	return rv;
 }
 
 void aff_free_list(AFFECT_DATA *paf)

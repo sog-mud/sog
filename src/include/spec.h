@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spec.h,v 1.7 1999-12-13 14:10:38 avn Exp $
+ * $Id: spec.h,v 1.8 1999-12-14 15:31:11 fjoe Exp $
  */
 
 #ifndef _SPEC_H_
@@ -46,7 +46,7 @@ struct spec_t {
 	const char *spec_name;	/* spec name, also used as file name	*/
 	flag_t spec_class;	/* spec class				*/
 	varr spec_skills;	/* spec_skill_t				*/
-	cc_ruleset_t spec_deps;	/* spec deps				*/
+	varr spec_deps;		/* cc_expr_t				*/
 	flag_t spec_flags;	/* SPF_CHANGED - for OLC		*/
 };
 
@@ -63,11 +63,10 @@ struct spec_skill_t {
 	int		max;		/* max skill percents		*/
 };
 
-void spec_init(spec_t *spec);
-spec_t *spec_cpy(spec_t *dst, const spec_t *src);
-void spec_destroy(spec_t *spec);
+void	spec_init(spec_t *spec);
+spec_t *spec_cpy(spec_t *dst, spec_t *src);
+void	spec_destroy(spec_t *spec);
 
-void spec_skill_init(spec_skill_t *spec_sk);
 spec_skill_t *spec_skill_lookup(spec_t *s, const char *sn);
 
 /* fast spec lookup by precise name */
@@ -83,6 +82,6 @@ bool spec_del		(CHAR_DATA *ch, const char *spn);
 void update_skills	(CHAR_DATA *ch);
 void spec_update	(CHAR_DATA *ch);
 
-int spec_replace(CHAR_DATA *ch, const char *spn_rm, const char *spn_add);
+const char *spec_replace(CHAR_DATA *ch, const char *spn_rm, const char *spn_add);
 
 #endif

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.h,v 1.22 1999-12-14 07:24:49 fjoe Exp $
+ * $Id: race.h,v 1.23 1999-12-14 15:31:11 fjoe Exp $
  */
 
 #ifndef _RACE_H_
@@ -67,6 +67,7 @@ struct pcrace_t
 	int	slang;			/* spoken language		*/
 	flag_t	restrict_align;		/* alignment restrictions	*/
 	flag_t	restrict_ethos;		/* ethos restrictions		*/
+	int	refcnt;
 };
 
 /* additional data for available classes for race */
@@ -87,6 +88,7 @@ race_t *race_cpy	(race_t *dst, race_t *src);
 void	race_destroy	(race_t *r);
 
 pcrace_t *	pcrace_new();
+pcrace_t *	pcrace_dup(pcrace_t*);
 void		pcrace_free(pcrace_t*);
 
 rclass_t *rclass_lookup(race_t *r, const char *cn);

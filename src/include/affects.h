@@ -1,5 +1,5 @@
 /*
- * $Id: affects.h,v 1.7 1999-12-11 15:31:07 fjoe Exp $
+ * $Id: affects.h,v 1.8 1999-12-14 15:31:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -71,6 +71,8 @@ typedef struct saff_t {
 AFFECT_DATA *	aff_new	(void);
 AFFECT_DATA *	aff_dup	(const AFFECT_DATA *af);
 void		aff_free(AFFECT_DATA *af);
+
+AFFECT_DATA *	aff_dup_list(AFFECT_DATA *af);
 void		aff_free_list(AFFECT_DATA *af);
 
 void saff_init(saff_t *sa);

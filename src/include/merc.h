@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.270 1999-12-14 07:24:49 fjoe Exp $
+ * $Id: merc.h,v 1.271 1999-12-14 15:31:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -77,7 +77,7 @@
 #include "strkey_hash.h"
 #include "flag.h"
 #include "cmd.h"
-#include "cc_rule.h"
+#include "cc_expr.h"
 
 #include "tables.h"
 #include "comm.h"
@@ -1468,7 +1468,7 @@ struct obj_index_data
 	int 			limit;
 	OPROG_FUN **		oprogs;
 	mlstring		gender;
-	cc_ruleset_t		restrictions;
+	varr			restrictions;	/* cc_expr_t */
 };
 
 /*

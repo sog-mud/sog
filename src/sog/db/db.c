@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.194 1999-12-14 11:08:43 sog Exp $
+ * $Id: db.c,v 1.195 1999-12-14 15:31:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -117,10 +117,10 @@ const char CLANS_PATH		[] = "clans";
 const char RACES_PATH		[] = "races";
 const char SPEC_PATH		[] = "specs";
 
-const char RACE_EXT		[] = "race";
-const char CLASS_EXT		[] = "class";
-const char CLAN_EXT		[] = "clan";
-const char SPEC_EXT		[] = "spec";
+const char RACE_EXT		[] = ".race";
+const char CLASS_EXT		[] = ".class";
+const char CLAN_EXT		[] = ".clan";
+const char SPEC_EXT		[] = ".spec";
 
 #if defined (WIN32)
 const char PLISTS_PATH		[] = "clans\\plists";
@@ -142,7 +142,7 @@ const char CMD_CONF		[] = "cmd.conf";	/* commands */
 const char DAMTYPE_CONF		[] = "damtype.conf";	/* damtypes */
 const char MATERIALS_CONF	[] = "materials.conf";	/* materials */
 const char LIQUIDS_CONF		[] = "liquids.conf";	/* liquids */
-const char CC_RULECL_CONF	[] = "cc_rulecl.conf";	/* cc rule classes */
+const char CC_EXPR_CONF		[] = "cc_expr.conf";	/* cc_exprs */
 
 const char AREA_LIST		[] = "area.lst";	/* list of areas */
 const char LANG_LIST		[] = "lang.lst";	/* list of languages */
@@ -338,7 +338,7 @@ void db_load_dir(DBDATA *dbdata, const char *path, const char *ext)
 	if (!dbdata->tab_sz)
 		dbdata_init(dbdata);
 
-	snprintf(mask, sizeof(mask), "*.%s", ext);
+	snprintf(mask, sizeof(mask), "*%s", ext);
 
 	for (dp = readdir(dirp); dp != NULL; dp = readdir(dirp)) {
 #if defined (LINUX) || defined (WIN32)
@@ -444,7 +444,7 @@ void boot_db(void)
 	db_load_file(&db_cmd, ETC_PATH, CMD_CONF);
 	db_load_file(&db_msg, ETC_PATH, MSGDB_CONF);
 	db_load_file(&db_socials, ETC_PATH, SOCIALS_CONF);
-	db_load_file(&db_cc_rulecl, ETC_PATH, CC_RULECL_CONF);
+	db_load_file(&db_cc_expr, ETC_PATH, CC_EXPR_CONF);
 
 	db_load_file(&db_skills, ETC_PATH, SKILLS_CONF);
 	db_load_dir(&db_spec, SPEC_PATH, SPEC_EXT);

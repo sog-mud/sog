@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.59 1999-12-14 00:26:39 avn Exp $
+ * $Id: olc.h,v 1.60 1999-12-14 15:31:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -128,7 +128,8 @@ bool olced_busy(CHAR_DATA *ch, const char *id, void *edit, void *edit2);
 typedef struct olced_strkey_t olced_strkey_t;
 struct olced_strkey_t {
 	hash_t *h;
-	const char *path;	/* path to conf files for edited hash */
+	const char *path;	/* path to conf files for edited hash	*/
+	const char *ext;	/* conf files extension			*/
 };
 
 /*
@@ -169,8 +170,8 @@ bool olced_ival		(CHAR_DATA *ch, const char *argument,
 			 olc_cmd_t *cmd, int *);
 bool olced_gender	(CHAR_DATA *ch, const char *argument,
 			 olc_cmd_t *cmd, mlstring *);
-bool olced_cc_ruleset	(CHAR_DATA *ch, const char *argument,
-			 olc_cmd_t *cmd, cc_ruleset_t *rs);
+bool olced_cc_vexpr	(CHAR_DATA *ch, const char *argument,
+			 olc_cmd_t *cmd, varr *v, const char *ecn);
 
 DECLARE_VALIDATE_FUN(validate_filename);
 DECLARE_VALIDATE_FUN(validate_room_vnum);

@@ -23,59 +23,71 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cc_obj_wear.c,v 1.5 1999-12-04 08:52:29 fjoe Exp $
+ * $Id: init_cc_fun.c,v 1.1 1999-12-14 15:31:11 fjoe Exp $
  */
 
 #include <stdio.h>
-#include "merc.h"
+#include <dlfcn.h>
 
-/*
- * varags for this cc_rulecl:
- *	CHAR_DATA * ch		- character to check
- */
+#include "typedef.h"
+#include "varr.h"
+#include "cc_expr.h"
+#include "log.h"
 
-/*
- * race is in list
- *
- * arg format: <race name>...
- * return values: TRUE is ch's race is in specified list
- *		  otherwise FALSE
- */
-bool
-cc_obj_wear_race(const char *arg, va_list ap)
+#include "module.h"
+
+static void *load_cb(void *p, va_list ap);
+static void *unload_cb(void *p, va_list ap);
+
+int _module_load(module_t* m)
 {
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	return is_sname(ch->race, arg);
+	varr_foreach(&cc_eclasses, load_cb, m);
+	return 0;
 }
 
-/*
- * class is in list
- *
- * arg format: <race name>...
- * return values: TRUE is ch's class is in specified list
- *		  otherwise FALSE
- */
-bool
-cc_obj_wear_class(const char *arg, va_list ap)
+int _module_unload(module_t *m)
 {
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	return is_sname(ch->class, arg);
+	varr_foreach(&cc_eclasses, unload_cb);
+	return 0;
 }
 
-/*
- * min size
- *
- * arg format: <size> (see size_table[] for valid values)
- * return values: TRUE is ch's size is not greater then <size>
- */
-bool
-cc_obj_wear_minsize(const char *arg, va_list ap)
+static void *
+efun_load_cb(void *p, va_list ap)
 {
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
+	cc_efun_t *efun = (cc_efun_t *) p;
 
-	if (!str_cmp(arg, "all"))
-		return TRUE;
+	module_t *m = va_arg(ap, module_t *);
 
-	return ch->size <= flag_value(size_table, arg);
+	efun->fun = dlsym(m->dlh, efun->fun_name);
+	if (efun->fun == NULL) 
+		wizlog("_module_load(mod_cc_efun): %s", dlerror());
+	return NULL;
 }
 
+static void *
+efun_unload_cb(void *p, va_list ap)
+{
+	cc_efun_t *efun = (cc_efun_t *) p;
+
+	efun->fun = NULL;
+	return NULL;
+}
+
+static void *
+load_cb(void *p, va_list ap)
+{
+	cc_eclass_t *rcl = (cc_eclass_t *) p;
+
+	module_t *m = va_arg(ap, module_t *);
+
+	varr_foreach(&rcl->efuns, efun_load_cb, m);
+	return NULL;
+}
+
+static void *
+unload_cb(void *p, va_list ap)
+{
+	cc_eclass_t *rcl = (cc_eclass_t *) p;
+	varr_foreach(&rcl->efuns, efun_unload_cb);
+	return NULL;
+}

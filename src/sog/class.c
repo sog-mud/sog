@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.c,v 1.24 1999-12-14 07:24:50 fjoe Exp $
+ * $Id: class.c,v 1.25 1999-12-14 15:31:14 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -33,6 +33,7 @@
 hash_t classes;
 
 static void	pose_init(pose_t *p);
+static pose_t *	pose_cpy(pose_t *dst, pose_t *src);
 static void	pose_destroy(pose_t *p);
 
 void
@@ -59,14 +60,12 @@ class_init(class_t *cl)
 	varr_init(&cl->guilds, sizeof(int), 4);
 	varr_init(&cl->poses, sizeof(pose_t), 4);
 	cl->poses.e_init = (varr_e_init_t) pose_init;
+	cl->poses.e_cpy = (varr_e_cpy_t) pose_cpy;
 	cl->poses.e_destroy = (varr_e_destroy_t) pose_destroy;
 	for (i = 0; i < MAX_STAT; i++)
 		cl->mod_stat[i] = 0;
 }
 
-/*
- * poses are not copied intentionally
- */
 class_t *
 class_cpy(class_t *dst, class_t *src)
 {
@@ -89,7 +88,7 @@ class_cpy(class_t *dst, class_t *src)
 	dst->skill_spec = str_qdup(src->skill_spec);
 
 	varr_cpy(&dst->guilds, &src->guilds);
-
+	varr_cpy(&dst->poses, &src->poses);
 	for (i = 0; i < MAX_STAT; i++)
 		dst->mod_stat[i] = src->mod_stat[i];
 
@@ -179,6 +178,14 @@ pose_init(pose_t *p)
 {
 	p->self = str_empty;
 	p->others = str_empty;
+}
+
+static pose_t *
+pose_cpy(pose_t *dst, pose_t *src)
+{
+	dst->self = str_qdup(src->self);
+	dst->others = str_qdup(src->others);
+	return dst;
 }
 
 static void

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.212 1999-12-14 07:24:48 fjoe Exp $
+ * $Id: act_wiz.c,v 1.213 1999-12-14 15:31:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1195,8 +1195,7 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 
 	buf_printf(output, "Damage condition: %d (%s)\n",
 		   obj->condition, get_cond_alias(obj));
-	print_cc_ruleset(&obj->pObjIndex->restrictions,
-			 "Restrictions:", output);
+	print_cc_vexpr(&obj->pObjIndex->restrictions, "Restrictions:", output);
 	send_to_char(buf_string(output), ch);
 	buf_free(output);
 }

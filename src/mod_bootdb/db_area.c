@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.76 1999-12-14 11:08:44 sog Exp $
+ * $Id: db_area.c,v 1.77 1999-12-14 15:31:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1634,8 +1634,8 @@ DBLOAD_FUN(load_objects)
 				break;
 	
 			case 'R':
-				fread_cc_ruleset(&pObjIndex->restrictions,
-						 "obj_wear", fp);
+				fread_cc_vexpr(&pObjIndex->restrictions,
+					       "obj_wear", fp);
 				break;
 
 			case 'S':

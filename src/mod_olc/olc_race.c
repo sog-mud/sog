@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.24 1999-12-14 07:24:49 fjoe Exp $
+ * $Id: olc_race.c,v 1.25 1999-12-14 15:31:13 fjoe Exp $
  */
 
 #include "olc.h"
@@ -72,7 +72,7 @@ DECLARE_OLC_FUN(olc_skill_update	);
 static DECLARE_VALIDATE_FUN(validate_whoname);
 static DECLARE_VALIDATE_FUN(validate_haspcdata);
 
-olced_strkey_t strkey_races = { &races, RACES_PATH };
+olced_strkey_t strkey_races = { &races, RACES_PATH, RACE_EXT };
 
 olc_cmd_t olc_cmds_race[] =
 {
@@ -858,14 +858,13 @@ save_race_cb(void *p, va_list ap)
 	bool *pfound = va_arg(ap, bool *);
 
 	FILE *fp;
-	char buf[PATH_MAX];
+	const char *filename;
 
 	if (!IS_SET(r->race_flags, RACE_CHANGED))
 		return NULL;
 
-	snprintf(buf, sizeof(buf), "%s.%s", strkey_filename(r->name), RACE_EXT);
-	fp = olc_fopen(RACES_PATH, buf, ch, SECURITY_RACE);
-	if (fp == NULL)
+	filename = strkey_filename(r->name, RACE_EXT);
+	if ((fp = olc_fopen(RACES_PATH, filename, ch, SECURITY_RACE)) == NULL)
 		return NULL;
 
 	fprintf(fp, "#RACE\n");
@@ -906,7 +905,7 @@ save_race_cb(void *p, va_list ap)
 	fprintf(fp, "#$\n");
 	fclose(fp);
 
-	olc_printf(ch, "    %s (%s)", r->name, buf);
+	olc_printf(ch, "    %s (%s)", r->name, filename);
 	*pfound = TRUE;
 	return NULL;
 }

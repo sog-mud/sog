@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cc_parse.y,v 1.2 1999-12-12 07:44:02 fjoe Exp $
+ * $Id: cc_parse.y,v 1.3 1999-12-14 15:31:14 fjoe Exp $
  */
 
 #include <setjmp.h>
@@ -46,7 +46,7 @@ extern int yylex(void);
 	const char *s;	/* string argument or rule name */
 }
 
-%token <s> RULE
+%token <s> FUN
 %token <s> STRING
 %type <val> expr
 %left OR
@@ -58,7 +58,7 @@ extern int yylex(void);
 stmt:	expr			{ cc_ctx.val = $1; }
 	;
 
-expr:	RULE '(' STRING ')'	{ $$ = rule_check(&cc_ctx, $1, $3);
+expr:	FUN '(' STRING ')'	{ $$ = cc_fun_call(&cc_ctx, $1, $3);
 				  free_string($1);
 				  free_string($3);
 				}

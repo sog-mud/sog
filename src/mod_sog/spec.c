@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spec.c,v 1.14 1999-12-13 14:10:39 avn Exp $
+ * $Id: spec.c,v 1.15 1999-12-14 15:31:15 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -50,6 +50,9 @@
 
 hash_t specs;
 
+static void		spec_skill_init(spec_skill_t *spec_sk);
+static spec_skill_t *	spec_skill_cpy(spec_skill_t *, spec_skill_t *);
+
 void
 spec_init(spec_t *spec)
 {
@@ -58,20 +61,19 @@ spec_init(spec_t *spec)
 
 	varr_init(&spec->spec_skills, sizeof(spec_skill_t), 4);
 	spec->spec_skills.e_init = (varr_e_init_t) spec_skill_init;
+	spec->spec_skills.e_cpy = (varr_e_cpy_t) spec_skill_cpy;
 	spec->spec_skills.e_destroy = strkey_destroy;
 
-	cc_ruleset_init(&spec->spec_deps);
+	cc_vexpr_init(&spec->spec_deps);
 }
 
-/*
- * spec->spec_skills and spec->spec_deps are not copied
- * this behavior is intentional
- */
 spec_t *
-spec_cpy(spec_t *dst, const spec_t *src)
+spec_cpy(spec_t *dst, spec_t *src)
 {
 	dst->spec_name = str_qdup(src->spec_name);
 	dst->spec_class = src->spec_class;
+	varr_cpy(&dst->spec_skills, &src->spec_skills);
+	varr_cpy(&dst->spec_deps, &src->spec_deps);
 	return dst;
 }
 
@@ -80,17 +82,7 @@ spec_destroy(spec_t *spec)
 {
 	free_string(spec->spec_name);
 	varr_destroy(&spec->spec_skills);
-	cc_ruleset_destroy(&spec->spec_deps);
-}
-
-void spec_skill_init(spec_skill_t *spec_sk)
-{
-	spec_sk->sn = str_empty;
-	spec_sk->level = 1;
-	spec_sk->rating = 1;
-	spec_sk->min = 1;
-	spec_sk->adept = 75;
-	spec_sk->max = 100;
+	varr_destroy(&spec->spec_deps);
 }
 
 spec_skill_t *
@@ -98,6 +90,7 @@ spec_skill_lookup(spec_t *s, const char *sn)
 {
 	return (spec_skill_t*) varr_bsearch(&s->spec_skills, &sn, cmpstr);
 }
+
 /*-------------------------------------------------------------------
  * update_skills stuff
  */
@@ -460,39 +453,67 @@ replace_cb(void *p, va_list ap)
 	const char *spn_add = va_arg(ap, const char *);
 
 	spec_t *spec;
+	const char *rv;
 
 	if (!str_cmp(*pspn, spn_rm))
 		return NULL;
 
 	if ((spec = spec_lookup(*pspn)) != NULL
-	&&  !cc_ruleset_check("spec", &spec->spec_deps, ch, spn_rm, spn_add))
-		return p;
+	&&  (rv = cc_vexpr_check(&spec->spec_deps, "spec", ch,
+				 spn_rm, spn_add)) != NULL)
+		return (void*) rv;
 
 	return NULL;
 }
 
-int
+const char *
 spec_replace(CHAR_DATA *ch, const char *spn_rm, const char *spn_add)
 {
+	const char *rv;
 	spec_t *spec;
 
 	if (IS_NPC(ch))
-		return -1;
+		return "is_npc";
 
 	if ((spec = spec_lookup(spn_add)) != NULL
-	&&  !cc_ruleset_check("spec", &spec->spec_deps, ch, spn_rm, spn_add))
-		return -1;
+	&&  (rv = cc_vexpr_check(&spec->spec_deps, "spec", ch,
+				 spn_rm, spn_add)) != NULL)
+		return rv;
 
-	if (varr_foreach(&PC(ch)->specs, replace_cb, ch, spn_rm, spn_add))
-		return -1;
+	if ((rv = varr_foreach(&PC(ch)->specs, replace_cb, ch,
+			       spn_rm, spn_add)) != NULL)
+		return rv;
 
 	if (!spec_del(ch, spn_rm))
-		return -1;
+		return "spec_del";
 
 	if (!spec_add(ch, spn_add)) {
 		spec_add(ch, spn_rm);
-		return -1;
+		return "spec_add";
 	}
 
-	return 0;
+	return NULL;
+}
+
+static void
+spec_skill_init(spec_skill_t *spec_sk)
+{
+	spec_sk->sn = str_empty;
+	spec_sk->level = 1;
+	spec_sk->rating = 1;
+	spec_sk->min = 1;
+	spec_sk->adept = 75;
+	spec_sk->max = 100;
+}
+
+static spec_skill_t *
+spec_skill_cpy(spec_skill_t *dst, spec_skill_t *src)
+{
+	dst->sn = str_qdup(src->sn);
+	dst->level = src->level;
+	dst->rating = src->rating;
+	dst->min = src->min;
+	dst->adept = src->adept;
+	dst->max = src->max;
+	return dst;
 }

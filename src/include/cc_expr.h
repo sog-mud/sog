@@ -23,23 +23,51 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cc_lex.h,v 1.3 1999-12-14 15:31:14 fjoe Exp $
+ * $Id: cc_expr.h,v 1.1 1999-12-14 15:31:10 fjoe Exp $
  */
 
-#ifndef _CC_LEX_H_
-#define _CC_LEX_H_
+#ifndef _CC_EXPR_H
+#define _CC_EXPR_H_
 
-typedef struct ctx_t {
-	bool val;
-	struct cc_eclass_t *rcl;	/* rule class */
-	va_list	ap;			/* arguments for predicate */
-} ctx_t;
+/*
+ * condition checking expr class
+ */
+typedef struct cc_eclass_t {
+	const char *name;	/* expr class name		 */
+	varr efuns;		/* varr of cc_efun_t	(sorted) */
+} cc_eclass_t;
 
-extern ctx_t cc_ctx;
+extern varr cc_eclasses;	/* varr of cc_eclass_t */
 
-bool cc_fun_call(ctx_t *ctx, const char *rn, const char *arg);
+void cc_eclass_init	(cc_eclass_t *);
+void cc_eclass_destroy	(cc_eclass_t *);
 
-extern jmp_buf cc_jmpbuf;
+cc_eclass_t *cc_eclass_lookup(const char *rcn);
+
+typedef bool (*cc_fun_t)(const char *arg, va_list ap);
+
+/*
+ * condition checking function
+ */
+typedef struct cc_efun_t {
+	const char *name;			/* efun name		*/
+	const char *fun_name;			/* efun cc_fun_t name	*/
+	cc_fun_t fun;				/* efun fun 		*/
+} cc_efun_t;
+
+cc_efun_t *cc_efun_lookup(cc_eclass_t *ecl, const char *type);
+
+typedef struct cc_expr_t {
+	const char *mfun;	/* main fun	*/
+	const char *expr;
+} cc_expr_t;
+
+void	cc_vexpr_init	(varr *v);
+void	fread_cc_vexpr	(varr *v, const char *rcn, rfile_t *fp);
+void	fwrite_cc_vexpr	(varr *v, const char *pre, FILE *fp);
+void	print_cc_vexpr	(varr *v, const char *pre, BUFFER *buf);
+
+const char *cc_vexpr_check(varr *v, const char *rcn, ...);
 
 #endif
 
