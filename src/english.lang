@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.52 1998-06-16 16:59:52 fjoe Exp $
+# $Id: english.lang,v 1.53 1998-06-17 04:41:13 fjoe Exp $
 #
 
 NOTHING		"Nothing.\n\r"
@@ -690,7 +690,7 @@ N_APPEARS_USING	"$N appears to be using $p."
 YOU_GET_P_FROM_P	"You get $p from $P."
 N_GETS_P_FROM_P	"$n gets $p from $P."
 YOU_GET_P	"You get $p."
-N_GETS_P		"$N gets $p."
+N_GETS_P		"$n gets $p."
 GET_WHAT	"Get what?\n\r"
 I_SEE_NOTHING_HERE	"I see nothing here.\n\r"
 DONT_SEE_ANYTHING_LIKE_IN_T "I see nothing like that in the $T."
