@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: chquest.c,v 1.6 1999-05-26 12:44:49 fjoe Exp $
+ * $Id: chquest.c,v 1.7 1999-05-26 15:07:29 fjoe Exp $
  */
 
 /*
@@ -114,7 +114,7 @@ void do_chquest(CHAR_DATA *ch, const char *argument)
 		}
 
 		if (!str_prefix(arg, "start")) {
-			if (!q->delay) {
+			if (IS_RUNNING(q)) {
 				char_printf(ch, "do_chquest: quest vnum %d "
 						"already running.\n",
 						q->obj_index->vnum);
@@ -124,7 +124,7 @@ void do_chquest(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		if (!q->delay && IS_AUCTIONED(q->obj)) {
+		if (IS_RUNNING(q) && IS_AUCTIONED(q->obj)) {
 			act("$p is on auction right now.",
 			    ch, q->obj, NULL, TO_CHAR);
 			return;
@@ -145,8 +145,8 @@ void chquest_start(int flags)
 	chquest_t *q;
 
 	for (q = chquest_list; q; q = q->next) {
-		if (!q->delay
-		||  (!IS_SET(flags, CHQUEST_F_NODELAY) && q->delay > 0))
+		if (IS_RUNNING(q)
+		||  (!IS_SET(flags, CHQUEST_F_NODELAY) && IS_WAITING(q)))
 			continue;
 
 		chquest_startq(q);
@@ -161,7 +161,7 @@ void chquest_update(void)
 	chquest_t *q;
 
 	for (q = chquest_list; q; q = q->next) {
-		if (q->delay <= 0)
+		if (!IS_WAITING(q))
 			continue;
 		if (!--q->delay)
 			chquest_startq(q);
@@ -180,7 +180,7 @@ void chquest_add(OBJ_INDEX_DATA *obj_index)
 
 	q = calloc(1, sizeof(*q));
 	q->obj_index = obj_index;
-	q->delay = -1;
+	SET_STOPPED(q);
 	q->next = chquest_list;
 	chquest_list = q;
 }
@@ -202,7 +202,7 @@ bool chquest_delete(CHAR_DATA *ch, OBJ_INDEX_DATA *obj_index)
 	if (q == NULL)
 		return TRUE;
 
-	if (!q->delay && IS_AUCTIONED(q->obj)) {
+	if (IS_RUNNING(q) && IS_AUCTIONED(q->obj)) {
 		act("$p is on auction right now.",
 		    ch, q->obj, NULL, TO_CHAR);
 		return FALSE;
@@ -235,7 +235,7 @@ void chquest_extract(OBJ_DATA *obj)
 
 	log_printf("chquest_extract: finished quest for '%s' (vnum %d)",
 		   mlstr_mval(q->obj_index->short_descr), q->obj_index->vnum);
-	q->delay = number_range(15, 20);
+	SET_WAITING(q, number_range(15, 20));
 }
 
 CHAR_DATA *chquest_carried_by(OBJ_DATA *obj)
@@ -272,7 +272,7 @@ static chquest_t *chquest_lookup_obj(OBJ_DATA *obj)
 {
 	chquest_t *q = chquest_lookup(obj->pIndexData);
 
-	if (q == NULL || q->delay || q->obj != obj)
+	if (q == NULL || !IS_RUNNING(q) || q->obj != obj)
 		return NULL;
 	return q;
 }
@@ -284,10 +284,13 @@ static void chquest_startq(chquest_t *q)
 {
 	ROOM_INDEX_DATA *room;
 
+	if (IS_RUNNING(q))
+		return;
+
 	log_printf("chquest_startq: started chquest for '%s' (vnum %d)",
 	   	   mlstr_mval(q->obj_index->short_descr), q->obj_index->vnum);
 
-	q->delay = 0;
+	SET_RUNNING(q);
 	q->obj = create_obj(q->obj_index, 0);
 	q->obj->timer = number_range(100, 150);
 
@@ -300,13 +303,14 @@ static void chquest_startq(chquest_t *q)
 
 static void chquest_stopq(chquest_t *q)
 {
+	if (IS_STOPPED(q))
+		return;
+
 	log_printf("chquest_stopq: stopped quest for '%s' (vnum %d)",
 		   mlstr_mval(q->obj_index->short_descr), q->obj_index->vnum);
-	if (q->obj != NULL) {
+	if (IS_RUNNING(q))
 		extract_obj(q->obj, XO_F_NOCHQUEST);
-		q->obj = NULL;
-	}
-	q->delay = -1;
+	SET_STOPPED(q);
 }
 
 static inline void chquest_status(CHAR_DATA *ch)
@@ -321,10 +325,10 @@ static inline void chquest_status(CHAR_DATA *ch)
 			    mlstr_mval(q->obj_index->short_descr),
 			    q->obj_index->vnum);
 
-		if (q->delay < 0) {
+		if (IS_STOPPED(q)) {
 			char_puts("stopped.\n", ch);
 			continue;
-		} else if (q->delay > 0) {
+		} else if (IS_WAITING(q)) {
 			char_printf(ch, "%d area ticks to start.\n",
 				    q->delay);
 			continue;

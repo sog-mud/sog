@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.107 1999-05-26 13:19:10 fjoe Exp $
+ * $Id: act_quest.c,v 1.108 1999-05-26 15:07:29 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -766,7 +766,7 @@ static void quest_chquest(CHAR_DATA *ch, char *arg)
 	for (q = chquest_list; q; q = q->next) {
 		CHAR_DATA *carried_by;
 
-		if (q->delay)
+		if (!IS_RUNNING(q))
 			continue;
 
 		if (!found) {

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: chquest.h,v 1.3 1999-05-26 12:44:49 fjoe Exp $
+ * $Id: chquest.h,v 1.4 1999-05-26 15:07:29 fjoe Exp $
  */
 
 #ifndef _CHQUEST_H_
@@ -41,6 +41,14 @@ struct chquest_t {
 					/* < 0  - quest is stopped	     */
 	chquest_t *next;
 };
+
+#define IS_RUNNING(q)	(q->delay == 0)
+#define IS_WAITING(q)	(q->delay > 0)
+#define IS_STOPPED(q)	(q->delay < 0)
+
+#define SET_STOPPED(q)		(q->delay = -1)
+#define SET_RUNNING(q)		(q->delay = 0)
+#define SET_WAITING(q, aticks)	(q->delay = aticks)
 
 extern chquest_t *chquest_list;		/* global list of chquests	     */
 
