@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.112 1999-02-16 16:41:34 fjoe Exp $
+ * $Id: handler.c,v 1.113 1999-02-17 07:53:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -612,7 +612,7 @@ bool is_name_raw(const char *str, const char *namelist,
 	string = str;
 	/* we need ALL parts of string to match part of namelist */
 	for (; ;) { /* start parsing string */
-		str = one_argument(str, part);
+		str = one_argument(str, part, sizeof(part));
 
 		if (part[0] == '\0')
 			return TRUE;
@@ -620,7 +620,7 @@ bool is_name_raw(const char *str, const char *namelist,
 		/* check to see if this is part of namelist */
 		list = namelist;
 		for (; ;) { /* start parsing namelist */
-			list = one_argument(list, name);
+			list = one_argument(list, name, sizeof(name));
 			if (name[0] == '\0')  /* this name was not found */
 				return FALSE;
 
@@ -676,7 +676,7 @@ bool name_edit(const char **nl, const char *name, int flags,
 	for (;;) {
 		char arg[MAX_STRING_LENGTH];
 
-		p = first_arg(p, arg, FALSE);
+		p = first_arg(p, arg, sizeof(arg), FALSE);
 
 		if (arg[0] == '\0')
 			break;
@@ -2011,7 +2011,7 @@ CHAR_DATA *get_char_room(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	uint number;
 
-	number = number_argument(argument, arg);
+	number = number_argument(argument, arg, sizeof(arg));
 	if (!number || arg[0] == '\0')
 		return NULL;
 	if (!str_cmp(arg, "self"))
@@ -2026,7 +2026,7 @@ CHAR_DATA *get_char_area(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *ach;
 	uint number;
 
-	number = number_argument(argument, arg);
+	number = number_argument(argument, arg, sizeof(arg));
 	if (!number || arg[0] == '\0')
 		return NULL;
 	if (!str_cmp(arg, "self"))
@@ -2060,7 +2060,7 @@ CHAR_DATA *get_char_world(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *wch;
 	uint number;
 
-	number = number_argument(argument, arg);
+	number = number_argument(argument, arg, sizeof(arg));
 	if (!number || arg[0] == '\0')
 		return NULL;
 	if (!str_cmp(arg, "self"))
@@ -2110,7 +2110,7 @@ CHAR_DATA *find_char(CHAR_DATA *ch, const char *argument, int door, int range)
 	int opdoor;
 	char arg[MAX_INPUT_LENGTH];
 
-	number = number_argument(argument, arg);
+	number = number_argument(argument, arg, sizeof(arg));
 	if (!number || arg[0] == '\0')
 		return NULL;
 	if (!str_cmp(arg, "self"))
@@ -2279,7 +2279,7 @@ OBJ_DATA *get_obj_list(CHAR_DATA *ch, const char *argument, OBJ_DATA *list)
 	char arg[MAX_INPUT_LENGTH];
 	uint number;
 
-	number = number_argument(argument, arg);
+	number = number_argument(argument, arg, sizeof(arg));
 	if (!number || arg[0] == '\0')
 		return NULL;
 
@@ -2294,7 +2294,7 @@ OBJ_DATA *get_obj_carry(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	uint number;
 
-	number = number_argument(argument, arg);
+	number = number_argument(argument, arg, sizeof(arg));
 	if (!number || arg[0] == '\0')
 		return NULL;
 
@@ -2310,7 +2310,7 @@ OBJ_DATA *get_obj_wear(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	uint number;
 
-	number = number_argument(argument, arg);
+	number = number_argument(argument, arg, sizeof(arg));
 	if (!number || arg[0] == '\0')
 		return NULL;
 
@@ -2325,7 +2325,7 @@ OBJ_DATA *get_obj_here(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	uint number;
 
-	number = number_argument(argument, arg);
+	number = number_argument(argument, arg, sizeof(arg));
 	if (!number || arg[0] == '\0')
 		return NULL;
 
@@ -2339,7 +2339,7 @@ OBJ_DATA *get_obj_room(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	uint number;
 
-	number = number_argument(argument, arg);
+	number = number_argument(argument, arg, sizeof(arg));
 	if (!number || arg[0] == '\0')
 		return NULL;
 
@@ -2376,7 +2376,7 @@ OBJ_DATA *get_obj_world(CHAR_DATA *ch, const char *argument)
 	OBJ_DATA *obj;
 	uint number;
 
-	number = number_argument(argument, arg);
+	number = number_argument(argument, arg, sizeof(arg));
 	if (!number || arg[0] == '\0')
 		return NULL;
 
@@ -2838,7 +2838,7 @@ void remove_mind(CHAR_DATA *ch, const char *str)
 
 	buf[0] = '\0';
 	do { 
-		mind = one_argument(mind, arg);
+		mind = one_argument(mind, arg, sizeof(arg));
 		if (!is_name(str,arg))  {
 			if (buf[0] == '\0')
 				strnzcpy(buf, arg, sizeof(buf));
@@ -2868,7 +2868,7 @@ void back_home(CHAR_DATA *ch)
 	if (!IS_NPC(ch) || ch->in_mind == NULL)
 		return;
 
-	one_argument(ch->in_mind, arg);
+	one_argument(ch->in_mind, arg, sizeof(arg));
 	if ((location = find_location(ch, arg)) == NULL) {
 		log("back_home: reset place not found");
 		return;

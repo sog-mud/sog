@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.198 1999-02-16 20:25:47 fjoe Exp $
+ * $Id: act_info.c,v 1.199 1999-02-17 07:53:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -722,7 +722,7 @@ DO_FUN(do_scroll)
 	char arg[MAX_INPUT_LENGTH];
 	int lines;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
 		char_printf(ch, "You currently display %d lines per "
@@ -1033,9 +1033,9 @@ void do_look(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	argument = one_argument(argument, arg1);
-	argument = one_argument(argument, arg2);
-	number = number_argument(arg1, arg3);
+	argument = one_argument(argument, arg1, sizeof(arg1));
+	argument = one_argument(argument, arg2, sizeof(arg2));
+	number = number_argument(arg1, arg3, sizeof(arg3));
 	count = 0;
 
 	if (arg1[0] == '\0' || !str_cmp(arg1, "auto")) {
@@ -1240,7 +1240,7 @@ void do_examine(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	if (ch->desc == NULL)
 		return;
@@ -1589,7 +1589,7 @@ DO_FUN(do_who)
 		int i;
 		char arg[MAX_INPUT_LENGTH];
 
-		argument = one_argument(argument, arg);
+		argument = one_argument(argument, arg, sizeof(arg));
 		if (arg[0] == '\0')
 			break;
 
@@ -1734,7 +1734,7 @@ void do_whois(CHAR_DATA *ch, const char *argument)
 	BUFFER *output = NULL;
 	DESCRIPTOR_DATA *d;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		char_puts("You must provide a name.\n", ch);
 		return;
@@ -1838,8 +1838,8 @@ void do_compare(CHAR_DATA *ch, const char *argument)
 	int value2;
 	char *cmsg;
 
-	argument = one_argument(argument, arg1);
-	argument = one_argument(argument, arg2);
+	argument = one_argument(argument, arg1, sizeof(arg1));
+	argument = one_argument(argument, arg2, sizeof(arg2));
 	if (arg1[0] == '\0') {
 		char_puts("Compare what to what?\n", ch);
 		return;
@@ -1919,7 +1919,7 @@ void do_where(CHAR_DATA *ch, const char *argument)
 	bool found;
 	bool fPKonly = FALSE;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	if (!check_blind(ch))
 		return;
@@ -1993,7 +1993,7 @@ void do_consider(CHAR_DATA *ch, const char *argument)
 	char *align;
 	int diff;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
 		char_puts("Consider killing whom?\n", ch);
@@ -2099,7 +2099,7 @@ void do_description(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	if (str_cmp(arg, "edit") == 0) {
 		string_append(ch, mlstr_convert(&ch->description, -1));
@@ -2138,7 +2138,7 @@ void do_wimpy(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0')
 		wimpy = ch->max_hit / 5;
@@ -2170,8 +2170,8 @@ void do_password(CHAR_DATA *ch, const char *argument)
 	if (IS_NPC(ch))
 		return;
 
-	argument = first_arg(argument, arg1, FALSE);
-	argument = first_arg(argument, arg2, FALSE);
+	argument = first_arg(argument, arg1, sizeof(arg1), FALSE);
+	argument = first_arg(argument, arg2, sizeof(arg2), FALSE);
 
 	if (arg1[0] == '\0' || arg2[0] == '\0') {
 		char_puts("Syntax: password <old> <new>.\n", ch);
@@ -2204,7 +2204,6 @@ void do_password(CHAR_DATA *ch, const char *argument)
 	ch->pcdata->pwd = str_dup(pwdnew);
 	save_char_obj(ch, FALSE);
 	char_puts("Ok.\n", ch);
-	return;
 }
 
 void scan_list(ROOM_INDEX_DATA *scan_room, CHAR_DATA *ch, 
@@ -2262,7 +2261,7 @@ void do_scan(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *person;
 	int numpeople;
 
-	one_argument(argument,dir);
+	one_argument(argument, dir, sizeof(dir));
 
 	if (dir[0] == '\0') {
 		do_scan2(ch, str_empty);
@@ -2351,8 +2350,8 @@ void do_request(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	argument = one_argument(argument, arg1);
-	argument = one_argument(argument, arg2);
+	argument = one_argument(argument, arg1, sizeof(arg1));
+	argument = one_argument(argument, arg2, sizeof(arg2));
 
 	if (IS_NPC(ch))
 		return;
@@ -3358,7 +3357,7 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	ps = (PC_SKILL*) skill_vlookup(&ch->pcdata->learned, arg);
 	if (!ps || get_skill(ch, sn = ps->sn) == 0) {
 		char_puts("You can't practice that.\n", ch);
@@ -3510,8 +3509,8 @@ void do_demand(CHAR_DATA *ch, const char *argument)
 	OBJ_DATA  *obj;
 	int chance;
 
-	argument = one_argument(argument, arg1);
-	argument = one_argument(argument, arg2);
+	argument = one_argument(argument, arg1, sizeof(arg1));
+	argument = one_argument(argument, arg2, sizeof(arg2));
 
 	if (IS_NPC(ch))
 		return;
@@ -3600,7 +3599,7 @@ void do_control(CHAR_DATA *ch, const char *argument)
 	int sn;
 	RACE_DATA *r;
 
-	argument = one_argument(argument, arg);
+	argument = one_argument(argument, arg, sizeof(arg));
 
 	if ((sn = sn_lookup("control animal")) < 0
 	||  (chance = get_skill(ch, sn)) == 0) {
@@ -3691,7 +3690,7 @@ void do_make_arrow(CHAR_DATA *ch, const char *argument)
 	wait = SKILL(sn)->beats;
 
 	color = -1;
-	argument = one_argument(argument, arg);
+	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0')
 		color = 0;
 	else if (!str_prefix(arg, "green")) {
@@ -3864,7 +3863,7 @@ void do_make(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 
-	argument = one_argument(argument,arg);
+	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		char_puts("You can make either bow or arrow.\n",ch);
 		return;

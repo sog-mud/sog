@@ -1,5 +1,5 @@
 /*
- * $Id: ban.c,v 1.26 1999-02-16 16:41:55 fjoe Exp $
+ * $Id: ban.c,v 1.27 1999-02-17 07:53:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -207,8 +207,8 @@ void ban_site(CHAR_DATA *ch, const char *argument, bool fPerm)
     bool prefix = FALSE,suffix = FALSE;
     int type;
 
-    argument = one_argument(argument,arg1);
-    argument = one_argument(argument,arg2);
+    argument = one_argument(argument, arg1, sizeof(arg1));
+    argument = one_argument(argument, arg2, sizeof(arg2));
 
 	if (arg1[0] == '\0') {
 		if (ban_list == NULL) {
@@ -340,7 +340,7 @@ void do_allow(CHAR_DATA *ch, const char *argument)
     BAN_DATA *prev;
     BAN_DATA *curr;
 
-    one_argument(argument, arg);
+    one_argument(argument, arg, sizeof(arg));
 
     if (arg[0] == '\0')
     {

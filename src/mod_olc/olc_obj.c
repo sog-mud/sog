@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.31 1999-02-15 22:48:27 fjoe Exp $
+ * $Id: olc_obj.c,v 1.32 1999-02-17 07:53:29 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -128,7 +128,7 @@ OLC_FUN(objed_create)
 	int  iHash;
 	char arg[MAX_STRING_LENGTH];
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	value = atoi(arg);
 	if (!value) {
 		do_help(ch, "'OLC CREATE'");
@@ -175,7 +175,7 @@ OLC_FUN(objed_edit)
 	OBJ_INDEX_DATA *pObj;
 	AREA_DATA *pArea;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		do_help(ch, "'OLC EDIT'");
 		return FALSE;
@@ -216,7 +216,7 @@ OLC_FUN(objed_show)
 	BUFFER *output;
 	CLAN_DATA *clan;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		if (ch->desc->editor == ED_OBJ)
 			EDIT_OBJ(ch, pObj);
@@ -317,7 +317,7 @@ OLC_FUN(objed_list)
 	int vnum;
 	int  col = 0;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		do_help(ch, "'OLC ALIST'");
 		return FALSE;
@@ -463,9 +463,9 @@ OLC_FUN(objed_addaffect)
 
 	EDIT_OBJ(ch, pObj);
 
-	argument = one_argument(argument, loc);
-	argument = one_argument(argument, mod);
-	argument = one_argument(argument, wh);
+	argument = one_argument(argument, loc, sizeof(loc));
+	argument = one_argument(argument, mod, sizeof(mod));
+	argument = one_argument(argument, wh, sizeof(wh));
 
 	if (loc[0] == '\0') {
 		do_help(ch, "'OLC ADDAFFECT'");
@@ -545,10 +545,10 @@ OLC_FUN(objed_addapply)
 
 	EDIT_OBJ(ch, pObj);
 
-	argument = one_argument(argument, type);
-	argument = one_argument(argument, loc);
-	argument = one_argument(argument, mod);
-	one_argument(argument, bvector);
+	argument = one_argument(argument, type, sizeof(type));
+	argument = one_argument(argument, loc, sizeof(loc));
+	argument = one_argument(argument, mod, sizeof(mod));
+	one_argument(argument, bvector, sizeof(bvector));
 
 	if ((where = flag_value(apply_types, type)) < 0) {
 		char_puts("Invalid apply type. Valid apply types are:\n", ch);
@@ -610,7 +610,7 @@ OLC_FUN(objed_delaffect)
 
 	EDIT_OBJ(ch, pObj);
 
-	one_argument(argument, affect);
+	one_argument(argument, affect, sizeof(affect));
 
 	if (!is_number(affect) || affect[0] == '\0')
 	{
@@ -825,7 +825,7 @@ OLC_FUN(objed_clone)
 	ED_DATA *ed_next;
 	ED_DATA **ped;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	if (!is_number(arg)) {
 		char_puts("Syntax: clone <vnum>\n", ch);
 		return FALSE;

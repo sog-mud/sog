@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.51 1999-02-15 18:19:41 fjoe Exp $
+ * $Id: skills.c,v 1.52 1999-02-17 07:53:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -77,7 +77,7 @@ void do_gain(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
 		do_say(tr, "You may convert 10 practices into 1 train.");
@@ -396,7 +396,7 @@ void update_skills(CHAR_DATA *ch)
 			int sn;
 			char name[MAX_STRING_LENGTH];
 
-			p = one_argument(p, name);
+			p = one_argument(p, name, sizeof(name));
 			if (name[0] == '\0')
 				break;
 		
@@ -435,7 +435,7 @@ DO_FUN(do_glist)
 	flag64_t group = GROUP_NONE;
 	int sn;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	
 	if (arg[0] == '\0') {
 		char_puts("Syntax: glist group\n"
@@ -479,7 +479,7 @@ void do_slook(CHAR_DATA *ch, const char *argument)
 	int sn = -1;
 	char arg[MAX_INPUT_LENGTH];
 
-	one_argument(argument,arg);
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		char_puts("Syntax : slook <skill | spell>\n",ch);
 		return;
@@ -537,7 +537,7 @@ void do_learn(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	argument = one_argument(argument, arg);
+	argument = one_argument(argument, arg, sizeof(arg));
 	ps = (PC_SKILL*) skill_vlookup(&ch->pcdata->learned, arg);
 	if (!ps || get_skill(ch, sn = ps->sn) == 0) {
 		char_puts("You can't learn that.\n", ch);
@@ -550,7 +550,7 @@ void do_learn(CHAR_DATA *ch, const char *argument)
 		return;
 	}	
 
-	argument = one_argument(argument,arg);
+	argument = one_argument(argument, arg, sizeof(arg));
 		
 	if ((practicer = get_char_room(ch,arg)) == NULL) {
 		char_puts("Your hero is not here.\n", ch);

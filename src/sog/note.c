@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.43 1999-02-15 16:12:31 fjoe Exp $
+ * $Id: note.c,v 1.44 1999-02-17 07:53:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -449,7 +449,7 @@ void note_remove(CHAR_DATA *ch, NOTE_DATA *pnote, bool delete)
         to_list	= pnote->to_list;
         while (*to_list != '\0')
         {
-    	    to_list	= one_argument(to_list, to_one);
+    	    to_list	= one_argument(to_list, to_one, sizeof(to_one));
     	    if (to_one[0] != '\0' && str_cmp(ch->name, to_one))
 	    {
 	        strcat(to_new, " ");
@@ -671,7 +671,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 		break;
 	}
 
-	argument = one_argument(argument, arg);
+	argument = one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0' || !str_prefix(arg, "read")) {
         	bool fAll;
@@ -736,10 +736,11 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 		int flags = 0;
 
 		for (;;) {
-			argument = one_argument(argument, buf);
+			argument = one_argument(argument, buf, sizeof(buf));
 
 			if (!str_cmp(buf, "from")) {
-				argument = one_argument(argument, from);
+				argument = one_argument(argument,
+							from, sizeof(from));
 				if (from[0] == '\0')
 					break;
 				SET_BIT(flags, CHECK_FROM);
@@ -747,7 +748,8 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 			}
 
 			if (!str_cmp(buf, "to")) {
-				argument = one_argument(argument, to);
+				argument = one_argument(argument,
+							to, sizeof(to));
 				if (to[0] == '\0')
 					break;
 				SET_BIT(flags, CHECK_TO);
@@ -880,7 +882,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 	if (!str_prefix(arg, "forward")) {
 		char buf[MAX_INPUT_LENGTH];
 
-		argument = one_argument(argument, buf);
+		argument = one_argument(argument, buf, sizeof(buf));
 		if (!is_number(buf)) {
 			char_puts("Forward which number?\n", ch);
 			return;
@@ -922,7 +924,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 	if (!str_prefix(arg, "quote")) {
 		char buf[MAX_INPUT_LENGTH];
 
-		argument = one_argument(argument, buf);
+		argument = one_argument(argument, buf, sizeof(buf));
 		if (!is_number(buf)) {
 			char_puts("Quote which number?\n", ch);
 			return;

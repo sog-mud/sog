@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.27 1999-02-16 16:41:36 fjoe Exp $
+ * $Id: mob_cmds.c,v 1.28 1999-02-17 07:53:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -107,7 +107,7 @@ void mob_interpret(CHAR_DATA *ch, const char *argument)
     char command[MAX_INPUT_LENGTH];
     int cmd;
 
-    argument = one_argument(argument, command);
+    argument = one_argument(argument, command, sizeof(command));
 
     /*
      * Look for command in command table.
@@ -138,7 +138,7 @@ void do_mpstat(CHAR_DATA *ch, const char *argument)
     CHAR_DATA   *victim;
     int i;
 
-    one_argument(argument, arg);
+    one_argument(argument, arg, sizeof(arg));
 
     if (arg[0] == '\0')
     {
@@ -289,7 +289,7 @@ void do_mpkill(CHAR_DATA *ch, const char *argument)
     char      arg[ MAX_INPUT_LENGTH ];
     CHAR_DATA *victim;
 
-    one_argument(argument, arg);
+    one_argument(argument, arg, sizeof(arg));
 
     if (arg[0] == '\0')
 	return;
@@ -315,7 +315,7 @@ void do_mpattack(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA* victim;
 
-	one_argument (argument,arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') return;
 	
@@ -336,7 +336,7 @@ void do_mpassist(CHAR_DATA *ch, const char *argument)
     char      arg[ MAX_INPUT_LENGTH ];
     CHAR_DATA *victim;
 
-    one_argument(argument, arg);
+    one_argument(argument, arg, sizeof(arg));
 
     if (arg[0] == '\0')
 	return;
@@ -365,7 +365,7 @@ void do_mpjunk(CHAR_DATA *ch, const char *argument)
     OBJ_DATA *obj;
     OBJ_DATA *obj_next;
 
-    one_argument(argument, arg);
+    one_argument(argument, arg, sizeof(arg));
 
     if (arg[0] == '\0')
 	return;
@@ -409,7 +409,7 @@ void do_mpechoaround(CHAR_DATA *ch, const char *argument)
     char       arg[ MAX_INPUT_LENGTH ];
     CHAR_DATA *victim;
 
-    argument = one_argument(argument, arg);
+    argument = one_argument(argument, arg, sizeof(arg));
 
     if (arg[0] == '\0')
 	return;
@@ -430,7 +430,7 @@ void do_mpechoat(CHAR_DATA *ch, const char *argument)
     char       arg[ MAX_INPUT_LENGTH ];
     CHAR_DATA *victim;
 
-    argument = one_argument(argument, arg);
+    argument = one_argument(argument, arg, sizeof(arg));
 
     if (arg[0] == '\0' || argument[0] == '\0')
 	return;
@@ -465,7 +465,7 @@ void do_mpmload(CHAR_DATA *ch, const char *argument)
     CHAR_DATA      *victim;
     int vnum;
 
-    one_argument(argument, arg);
+    one_argument(argument, arg, sizeof(arg));
 
     if (ch->in_room == NULL || arg[0] == '\0' || !is_number(arg))
 	return;
@@ -496,8 +496,8 @@ void do_mpoload(CHAR_DATA *ch, const char *argument)
     int             level = 0;
     bool            fToroom = FALSE, fWear = FALSE;
 
-    argument = one_argument(argument, arg1);
-               one_argument(argument, arg2);
+    argument = one_argument(argument, arg1, sizeof(arg1));
+               one_argument(argument, arg2, sizeof(arg2));
  
     if (arg1[0] == '\0' || !is_number(arg1))
     {
@@ -547,7 +547,7 @@ void do_mppurge(CHAR_DATA *ch, const char *argument)
     CHAR_DATA *victim;
     OBJ_DATA  *obj;
 
-    one_argument(argument, arg);
+    one_argument(argument, arg, sizeof(arg));
 
     if (arg[0] == '\0')
     {
@@ -608,7 +608,7 @@ void do_mpgoto(CHAR_DATA *ch, const char *argument)
     char             arg[ MAX_INPUT_LENGTH ];
     ROOM_INDEX_DATA *location;
 
-    one_argument(argument, arg);
+    one_argument(argument, arg, sizeof(arg));
     if (arg[0] == '\0')
     {
 	bug("Mpgoto - No argument from vnum %d.", 
@@ -645,7 +645,7 @@ void do_mpat(CHAR_DATA *ch, const char *argument)
     CHAR_DATA       *wch;
     OBJ_DATA 	    *on;
 
-    argument = one_argument(argument, arg);
+    argument = one_argument(argument, arg, sizeof(arg));
 
     if (arg[0] == '\0' || argument[0] == '\0')
     {
@@ -698,8 +698,8 @@ void do_mptransfer(CHAR_DATA *ch, const char *argument)
     ROOM_INDEX_DATA *location;
     CHAR_DATA       *victim;
 
-    argument = one_argument(argument, arg1);
-    argument = one_argument(argument, arg2);
+    argument = one_argument(argument, arg1, sizeof(arg1));
+    argument = one_argument(argument, arg2, sizeof(arg2));
 
     if (arg1[0] == '\0')
     {
@@ -767,8 +767,8 @@ void do_mpgtransfer(CHAR_DATA *ch, const char *argument)
     char             arg2[ MAX_INPUT_LENGTH ];
     CHAR_DATA       *who, *victim, *victim_next;
 
-    argument = one_argument(argument, arg1);
-    argument = one_argument(argument, arg2);
+    argument = one_argument(argument, arg1, sizeof(arg1));
+    argument = one_argument(argument, arg2, sizeof(arg2));
 
     if (arg1[0] == '\0')
     {
@@ -798,7 +798,7 @@ void do_mpforce(CHAR_DATA *ch, const char *argument)
 {
     char arg[ MAX_INPUT_LENGTH ];
 
-    argument = one_argument(argument, arg);
+    argument = one_argument(argument, arg, sizeof(arg));
 
     if (arg[0] == '\0' || argument[0] == '\0')
     {
@@ -848,7 +848,7 @@ void do_mpgforce(CHAR_DATA *ch, const char *argument)
     char arg[ MAX_INPUT_LENGTH ];
     CHAR_DATA *victim, *vch, *vch_next;
 
-    argument = one_argument(argument, arg);
+    argument = one_argument(argument, arg, sizeof(arg));
 
     if (arg[0] == '\0' || argument[0] == '\0')
     {
@@ -886,7 +886,7 @@ void do_mpvforce(CHAR_DATA *ch, const char *argument)
     char arg[ MAX_INPUT_LENGTH ];
     int vnum;
 
-    argument = one_argument(argument, arg);
+    argument = one_argument(argument, arg, sizeof(arg));
 
     if (arg[0] == '\0' || argument[0] == '\0')
     {
@@ -929,9 +929,9 @@ void do_mpdamage(CHAR_DATA *ch, const char *argument)
     int low, high;
     bool fAll = FALSE, fKill = FALSE;
 
-    argument = one_argument(argument, target);
-    argument = one_argument(argument, min);
-    argument = one_argument(argument, max);
+    argument = one_argument(argument, target, sizeof(target));
+    argument = one_argument(argument, min, sizeof(min));
+    argument = one_argument(argument, max, sizeof(max));
 
     if (target[0] == '\0')
     {
@@ -960,7 +960,7 @@ void do_mpdamage(CHAR_DATA *ch, const char *argument)
 		IS_NPC(ch) ? ch->pIndexData->vnum : 0);
 	return;
     }
-    one_argument(argument, target);
+    one_argument(argument, target, sizeof(target));
 
     /*
      * If kill parameter is omitted, this command is "safe" and will not
@@ -998,7 +998,7 @@ void do_mpdamage(CHAR_DATA *ch, const char *argument)
 void do_mpremember(CHAR_DATA *ch, const char *argument)
 {
     char arg[ MAX_INPUT_LENGTH ];
-    one_argument(argument, arg);
+    one_argument(argument, arg, sizeof(arg));
     if (arg[0] != '\0')
 	ch->mprog_target = get_char_world(ch, arg);
     else
@@ -1027,7 +1027,7 @@ void do_mpdelay(CHAR_DATA *ch, const char *argument)
 {
     char arg[ MAX_INPUT_LENGTH ];
 
-    one_argument(argument, arg);
+    one_argument(argument, arg, sizeof(arg));
     if (!is_number(arg))
     {
 	bug("MpDelay: invalid arg from vnum %d.", 
@@ -1063,7 +1063,7 @@ void do_mpcall(CHAR_DATA *ch, const char *argument)
 	OBJ_DATA *obj1, *obj2;
 	int vnum;
 
-	argument = one_argument(argument, arg);
+	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		bug("MpCall: missing arguments from vnum %d.", 
 			IS_NPC(ch) ? ch->pIndexData->vnum : 0);
@@ -1074,13 +1074,13 @@ void do_mpcall(CHAR_DATA *ch, const char *argument)
 
 	vch = NULL;
 	obj1 = obj2 = NULL;
-	argument = one_argument(argument, arg);
+	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] != '\0')
 		vch = get_char_room(ch, arg);
-	argument = one_argument(argument, arg);
+	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] != '\0')
 		obj1 = get_obj_here(ch, arg);
-	argument = one_argument(argument, arg);
+	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] != '\0')
 		obj2 = get_obj_here(ch, arg);
 	program_flow(vnum, ch, vch, (void *)obj1, (void *)obj2);
@@ -1133,14 +1133,14 @@ void do_mpotransfer(CHAR_DATA *ch, const char *argument)
     char arg[ MAX_INPUT_LENGTH ];
     char buf[ MAX_INPUT_LENGTH ];
 
-    argument = one_argument(argument, arg);
+    argument = one_argument(argument, arg, sizeof(arg));
     if (arg[0] == '\0')
     {
 	bug("MpOTransfer - Missing argument from vnum %d.", 
 		IS_NPC(ch) ? ch->pIndexData->vnum : 0);
 	return;
     }
-    one_argument(argument, buf);
+    one_argument(argument, buf, sizeof(buf));
     if ((location = find_location(ch, buf)) == NULL)
     {
 	bug("MpOTransfer - No such location from vnum %d.", 
@@ -1174,11 +1174,11 @@ void do_mpremove(CHAR_DATA *ch, const char *argument)
     bool fAll = FALSE;
     char arg[ MAX_INPUT_LENGTH ];
 
-    argument = one_argument(argument, arg);
+    argument = one_argument(argument, arg, sizeof(arg));
     if ((victim = get_char_room(ch, arg)) == NULL)
 	return;
 
-    one_argument(argument, arg);
+    one_argument(argument, arg, sizeof(arg));
     if (!str_cmp(arg, "all"))
 	fAll = TRUE;
     else if (!is_number(arg))
@@ -1224,7 +1224,7 @@ void do_mpreligion(CHAR_DATA *ch, const char *argument)
 	int chosen = 0;
 	bool correct = TRUE;
 
-	argument = one_argument(argument, name);
+	argument = one_argument(argument, name, sizeof(name));
 	if ((victim = get_char_room(ch, name)) == NULL)
 		return;
 

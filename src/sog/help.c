@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: help.c,v 1.9 1998-12-01 10:53:52 fjoe Exp $
+ * $Id: help.c,v 1.10 1999-02-17 07:53:21 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -91,7 +91,7 @@ void help_show(CHAR_DATA *ch, BUFFER *output, const char *keyword)
 	if (strchr(keyword, '.')) {
 		int num;
 		char buf[MAX_STRING_LENGTH];
-		num = number_argument(keyword, buf);
+		num = number_argument(keyword, buf, sizeof(buf));
 		pFirst = help_lookup(num, buf);
 	}
 	else {

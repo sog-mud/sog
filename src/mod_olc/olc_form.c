@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_form.c,v 1.8 1999-02-17 04:25:25 fjoe Exp $
+ * $Id: olc_form.c,v 1.9 1999-02-17 07:53:29 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -82,7 +82,7 @@ OLC_FUN(formed_create)
 		return FALSE;
 	}
 
-	argument = one_argument(argument, arg);
+	argument = one_argument(argument, arg, sizeof(arg));
 	if (argument[0] == '\0') {
 		do_help(ch, "'OLC CREATE'");
 		return FALSE;
@@ -145,7 +145,7 @@ OLC_FUN(formed_edit)
 		return FALSE;
 	}
 
-	argument = one_argument(argument, arg);
+	argument = one_argument(argument, arg, sizeof(arg));
 	if (argument[0] == '\0') {
 		do_help(ch, "'OLC EDIT'");
 		return FALSE;
@@ -250,7 +250,7 @@ OLC_FUN(formed_list)
 		return FALSE;
 	}
 
-	argument = one_argument(argument, arg);
+	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0' || argument[0] == '\0') {
 		do_help(ch, "'OLC ALIST'");
 		return FALSE;
@@ -334,8 +334,8 @@ OLC_FUN(formed_form)
 	char arg[MAX_STRING_LENGTH];
 	char arg2[MAX_STRING_LENGTH];
 
-	argument = one_argument(argument, arg);
-	argument = one_argument(argument, arg2);
+	argument = one_argument(argument, arg, sizeof(arg));
+	argument = one_argument(argument, arg2, sizeof(arg2));
 
 	if (!str_prefix(arg, "add"))
 		add = TRUE;

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.118 1999-02-16 16:41:34 fjoe Exp $
+ * $Id: interp.c,v 1.119 1999-02-17 07:53:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -550,7 +550,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 		while (isspace(*argument))
 			argument++;
 	} else
-		argument = one_argument(argument, command);
+		argument = one_argument(argument, command, sizeof(command));
 
 	/*
 	 * Look for command in command table.
@@ -735,7 +735,7 @@ void interpret_social(social_t *soc, CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *victim;
 	ROOM_INDEX_DATA *victim_room;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		act(soc->noarg_char, ch, NULL, NULL, TO_CHAR);
 		act(soc->noarg_room,
@@ -814,7 +814,7 @@ bool is_number(const char *argument)
 	return TRUE;
 }
 
-static uint x_argument(const char *argument, char arg[MAX_INPUT_LENGTH], char c)
+static uint x_argument(const char *argument, char c, char *arg, size_t len)
 {
 	char *p;
 	char *q;
@@ -827,7 +827,7 @@ static uint x_argument(const char *argument, char arg[MAX_INPUT_LENGTH], char c)
 
 	p = strchr(argument, c);
 	if (p == NULL) {
-		strnzcpy(arg, argument, sizeof(arg));
+		strnzcpy(arg, argument, len);
 		return 1;
 	}
 
@@ -843,26 +843,26 @@ static uint x_argument(const char *argument, char arg[MAX_INPUT_LENGTH], char c)
 /*
  * Given a string like 14.foo, return 14 and 'foo'
  */
-uint number_argument(const char *argument, char arg[MAX_INPUT_LENGTH])
+uint number_argument(const char *argument, char *arg, size_t len)
 {
-	return x_argument(argument, arg, '.');
+	return x_argument(argument, '.', arg, len);
 }
 
 /* 
  * Given a string like 14*foo, return 14 and 'foo'
  */
-uint mult_argument(const char *argument, char arg[MAX_INPUT_LENGTH])
+uint mult_argument(const char *argument, char *arg, size_t len)
 {
-	return x_argument(argument, arg, '*');
+	return x_argument(argument, '*', arg, len);
 }
 
 /*
  * Pick off one argument from a string and return the rest.
  * Understands quotes.
  */
-const char *one_argument(const char *argument, char *arg_first)
+const char *one_argument(const char *argument, char *arg_first, size_t len)
 {
-	return first_arg(argument, arg_first, TRUE);
+	return first_arg(argument, arg_first, len, TRUE);
 }
 
 /*****************************************************************************
@@ -871,8 +871,10 @@ const char *one_argument(const char *argument, char *arg_first)
  		Understands quotes, if fCase then arg_first will be lowercased
  Called by:	string_add(string.c)
  ****************************************************************************/
-const char *first_arg(const char *argument, char *arg_first, bool fCase)
+const char *first_arg(const char *argument, char *arg_first, size_t len,
+		      bool fCase)
 {
+	char *q;
 	char cEnd = '\0';
 
 	if (IS_NULLSTR(argument)) {
@@ -888,15 +890,14 @@ const char *first_arg(const char *argument, char *arg_first, bool fCase)
 	if (*argument == '\'' || *argument == '"')
         	cEnd = *argument++;
 
-	while (*argument) {
+	for (q = arg_first; *argument && q - arg_first + 1 < len; argument++) {
 		if ((!cEnd && isspace(*argument)) || *argument == cEnd) {
 			argument++;
 			break;
 		}
-		*arg_first++ = fCase ? LOWER(*argument) : *argument;
-		argument++;
+		*q++ = fCase ? LOWER(*argument) : *argument;
 	}
-	*arg_first = '\0';
+	*q = '\0';
 
 	while (isspace(*argument))
 		argument++;
@@ -995,7 +996,7 @@ void substitute_alias(DESCRIPTOR_DATA *d, const char *argument)
 
 	if (!str_prefix(ch->pcdata->alias[alias],argument))
 	{
-	    point = one_argument(argument,name);
+	    point = one_argument(argument, name, sizeof(name));
 	    if (!strcmp(ch->pcdata->alias[alias],name))
 	    {
 		buf[0] = '\0';
@@ -1034,7 +1035,7 @@ void do_alias(CHAR_DATA *ch, const char *argument)
     if (IS_NPC(rch))
 	return;
 
-    argument = one_argument(argument,arg);
+    argument = one_argument(argument, arg, sizeof(arg));
     
 
     if (arg[0] == '\0')
@@ -1132,7 +1133,7 @@ void do_unalias(CHAR_DATA *ch, const char *argument)
     if (IS_NPC(rch))
 	return;
  
-    argument = one_argument(argument,arg);
+    argument = one_argument(argument, arg, sizeof(arg));
 
     if (arg == '\0')
     {

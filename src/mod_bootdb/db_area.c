@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.25 1999-02-16 16:41:58 fjoe Exp $
+ * $Id: db_area.c,v 1.26 1999-02-17 07:53:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -357,7 +357,7 @@ DBLOAD_FUN(load_old_mob)
 		pMobIndex->sex			= fread_number(fp);
 
 		/* compute the race BS */
-		one_argument(pMobIndex->name, name);
+		one_argument(pMobIndex->name, name, sizeof(name));
  
 		if (name[0] == '\0' || (race =  rn_lookup(name)) == 0) {
 			RACE_DATA *r;

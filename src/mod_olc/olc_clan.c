@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_clan.c,v 1.22 1999-02-15 18:19:44 fjoe Exp $
+ * $Id: olc_clan.c,v 1.23 1999-02-17 07:53:29 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -93,7 +93,7 @@ OLC_FUN(claned_create)
 		return FALSE;
 	}
 
-	first_arg(argument, arg, FALSE);
+	first_arg(argument, arg, sizeof(arg), FALSE);
 	if (arg[0] == '\0') {
 		do_help(ch, "'OLC CREATE'");
 		return FALSE;
@@ -126,7 +126,7 @@ OLC_FUN(claned_edit)
 		return FALSE;
 	}
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		do_help(ch, "'OLC EDIT'");
 		return FALSE;
@@ -156,7 +156,7 @@ OLC_FUN(claned_show)
 	BUFFER *output;
 	CLAN_DATA *clan;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		if (ch->desc->editor == ED_CLAN)
 			EDIT_CLAN(ch, clan);
@@ -292,7 +292,7 @@ OLC_FUN(claned_skill)
 {
 	char arg[MAX_STRING_LENGTH];
 
-	argument = one_argument(argument, arg);
+	argument = one_argument(argument, arg, sizeof(arg));
 	if (!str_prefix(arg, "add")) 
 		return claned_skill_add(ch, argument);
 	else if (!str_prefix(arg, "delete"))
@@ -316,8 +316,8 @@ OLC_FUN(claned_plist)
 		return FALSE;
 	}
 
-	argument = one_argument(argument, arg1);
-		   one_argument(argument, arg2);
+	argument = one_argument(argument, arg1, sizeof(arg1));
+		   one_argument(argument, arg2, sizeof(arg2));
 
 	if (arg1[0] == '\0') {
 		do_help(ch, "'OLC CLAN PLIST'");
@@ -365,9 +365,9 @@ OLC_FUN(claned_skill_add)
 	CLAN_DATA *clan;
 	EDIT_CLAN(ch, clan);
 
-	argument = one_argument(argument, arg1);
-	argument = one_argument(argument, arg2);
-		   one_argument(argument, arg3);
+	argument = one_argument(argument, arg1, sizeof(arg1));
+	argument = one_argument(argument, arg2, sizeof(arg2));
+		   one_argument(argument, arg3, sizeof(arg3));
 
 	if (arg1[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0') {
 		do_help(ch, "'OLC CLAN SKILL'");
@@ -414,7 +414,7 @@ OLC_FUN(claned_skill_del)
 	CLAN_DATA *clan;
 	EDIT_CLAN(ch, clan);
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		do_help(ch, "'OLC CLAN SKILL'");
 		return FALSE;

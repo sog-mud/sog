@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.67 1999-02-15 22:48:25 fjoe Exp $
+ * $Id: martial_art.c,v 1.68 1999-02-17 07:53:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -219,7 +219,7 @@ void do_bash(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 	
-	argument = one_argument(argument, arg);
+	argument = one_argument(argument, arg, sizeof(arg));
  
 	if ((chance = get_skill(ch, gsn_bash)) == 0) {
 		char_puts("Bashing? What's that?\n", ch);
@@ -367,7 +367,7 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	if ((chance = get_skill(ch, gsn_dirt)) == 0) {
 		char_puts("You get your feet dirty.\n", ch);
@@ -502,7 +502,7 @@ void do_trip(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	if ((chance = get_skill(ch,gsn_trip)) == 0) {
 		char_puts("Tripping? What's that?\n", ch);
@@ -667,7 +667,7 @@ void do_backstab(CHAR_DATA *ch, const char *argument)
 	OBJ_DATA *obj;
 	int chance;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	if (MOUNTED(ch)) {
 		char_puts("You can't backstab while riding!\n", ch);
@@ -728,7 +728,7 @@ void do_cleave(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	if (ch->master != NULL && IS_NPC(ch))
 		return;
@@ -805,7 +805,7 @@ void do_ambush(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	if ((chance = get_skill(ch, gsn_ambush)) == 0) {
 		char_puts("You don't know how to ambush.\n", ch);
@@ -857,7 +857,7 @@ void do_rescue(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *victim;
 	CHAR_DATA *fch;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		char_puts("Rescue whom?\n", ch);
 		return;
@@ -1039,7 +1039,7 @@ void do_disarm(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	argument = one_argument(argument, arg);
+	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] && !str_prefix(arg, "second"))
 		loc = WEAR_SECOND_WIELD;
 
@@ -1096,7 +1096,7 @@ void do_nerve(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	one_argument(argument,arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	if ((chance = get_skill(ch, gsn_nerve)) == 0) {
 		char_puts("Huh?\n", ch);
@@ -1202,7 +1202,7 @@ void do_tame(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
 		char_puts("You are beyond taming.\n", ch);
@@ -1262,7 +1262,7 @@ void do_assassinate(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	if (ch->master != NULL && IS_NPC(ch))
 		return;
@@ -1426,7 +1426,7 @@ void do_throw(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	argument = one_argument(argument,arg);
+	argument = one_argument(argument, arg, sizeof(arg));
 
 	if (!str_cmp(arg, "spear")) {
 		do_throw_spear(ch, argument);
@@ -1851,7 +1851,7 @@ void do_trophy(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 	
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		char_puts("Make a trophy of what?\n", ch);
 		return;
@@ -2073,7 +2073,7 @@ void do_guard(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		char_puts("Guard whom?\n", ch);
 		return;
@@ -2199,7 +2199,7 @@ void do_explode(CHAR_DATA *ch, const char *argument)
 	WAIT_STATE(ch, SKILL(gsn_explode)->beats);
 
 	if (victim == NULL) {
-		one_argument(argument, arg);
+		one_argument(argument, arg, sizeof(arg));
 		if (arg == NULL) { 
 			char_puts("You play with the exploding material.\n",
 				  ch);
@@ -2733,7 +2733,7 @@ void do_tail(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
  
 	if ((chance = get_skill(ch, gsn_tail)) == 0) {
 		char_puts("Huh?\n", ch);
@@ -2980,7 +2980,7 @@ void do_katana(CHAR_DATA *ch, const char *argument)
 	int chance;
 	int mana;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	
 	if ((chance = get_skill(ch, gsn_katana)) == 0) {
 		char_puts("Huh?\n", ch);

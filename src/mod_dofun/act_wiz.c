@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.118 1999-02-16 16:41:32 fjoe Exp $
+ * $Id: act_wiz.c,v 1.119 1999-02-17 07:53:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -262,7 +262,7 @@ void do_tick(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0')  {
 		char_puts("tick area : area update\n",ch);
 		char_puts("tick char : char update\n",ch);
@@ -362,7 +362,7 @@ void do_nochannels(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	
 	if (arg[0] == '\0') {
 	    char_puts("Nochannel whom?", ch);
@@ -520,7 +520,7 @@ void do_deny(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		char_puts("Deny whom?\n", ch);
 		return;
@@ -557,7 +557,7 @@ void do_disconnect(CHAR_DATA *ch, const char *argument)
 	DESCRIPTOR_DATA *d;
 	CHAR_DATA *victim;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		char_puts("Disconnect whom?\n", ch);
 		return;
@@ -657,7 +657,7 @@ void do_pecho(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 
-	argument = one_argument(argument, arg);
+	argument = one_argument(argument, arg, sizeof(arg));
 	
 	if (argument[0] == '\0' || arg[0] == '\0') {
 		char_puts("Personal echo what?\n", ch); 
@@ -701,8 +701,8 @@ void do_transfer(CHAR_DATA *ch, const char *argument)
 	DESCRIPTOR_DATA *d;
 	CHAR_DATA *victim;
 
-	argument = one_argument(argument, arg1);
-	argument = one_argument(argument, arg2);
+	argument = one_argument(argument, arg1, sizeof(arg1));
+	argument = one_argument(argument, arg2, sizeof(arg2));
 
 	if (arg1[0] == '\0') {
 		char_puts("Transfer whom (and where)?\n", ch);
@@ -766,7 +766,7 @@ void do_at(CHAR_DATA *ch, const char *argument)
 	OBJ_DATA *on;
 	CHAR_DATA *wch;
 	
-	argument = one_argument(argument, arg);
+	argument = one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0' || argument[0] == '\0') {
 		char_puts("At where what?\n", ch);
@@ -931,7 +931,7 @@ void do_stat (CHAR_DATA *ch, const char *argument)
 	 ROOM_INDEX_DATA *location;
 	 CHAR_DATA *victim;
 
-	 string = one_argument(argument, arg);
+	 string = one_argument(argument, arg, sizeof(arg));
 	 if (arg[0] == '\0') {
 		char_puts("Syntax:\n", ch);
 		char_puts("  stat <name>\n", ch);
@@ -990,7 +990,7 @@ void do_rstat(CHAR_DATA *ch, const char *argument)
 	BUFFER *output;
 	int door;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	location = (arg[0] == '\0') ? ch->in_room : find_location(ch, arg);
 	if (location == NULL) {
 		char_puts("No such location.\n", ch);
@@ -1047,7 +1047,7 @@ void do_rstat(CHAR_DATA *ch, const char *argument)
 	for (rch = location->people; rch; rch = rch->next_in_room) {
 		if (can_see(ch,rch)) {
 		    buf_add(output, " ");
-		    one_argument(rch->name, buf);
+		    one_argument(rch->name, buf, sizeof(buf));
 		    buf_add(output, buf);
 		}
 	}
@@ -1055,7 +1055,7 @@ void do_rstat(CHAR_DATA *ch, const char *argument)
 	buf_add(output, ".\nObjects:   ");
 	for (obj = location->contents; obj; obj = obj->next_content) {
 		buf_add(output, " ");
-		one_argument(obj->name, buf);
+		one_argument(obj->name, buf, sizeof(buf));
 		buf_add(output, buf);
 	}
 	buf_add(output, ".\n");
@@ -1090,7 +1090,7 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
 		char_puts("Stat what?\n", ch);
@@ -1257,7 +1257,7 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *victim;
 	BUFFER *output;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
 		char_puts("Stat whom?\n", ch);
@@ -1485,7 +1485,7 @@ void do_vnum(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	const char *string;
 
-	string = one_argument(argument, arg);
+	string = one_argument(argument, arg, sizeof(arg));
 	
 	if (arg[0] == '\0') {
 		char_puts("Syntax:\n",ch);
@@ -1518,7 +1518,7 @@ void do_mfind(CHAR_DATA *ch, const char *argument)
 	int nMatch;
 	bool found;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		char_puts("Find whom?\n", ch);
 		return;
@@ -1556,7 +1556,7 @@ void do_ofind(CHAR_DATA *ch, const char *argument)
 	int nMatch;
 	bool found;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		char_puts("Find what?\n", ch);
 		return;
@@ -1757,7 +1757,7 @@ void do_snoop(CHAR_DATA *ch, const char *argument)
 	DESCRIPTOR_DATA *d;
 	CHAR_DATA *victim;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
 		char_puts("Snoop whom?\n", ch);
@@ -1821,7 +1821,7 @@ void do_switch(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	
 	if (arg[0] == '\0') {
 		char_puts("Switch into whom?\n", ch);
@@ -1951,7 +1951,7 @@ void do_clone(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *mob;
 	OBJ_DATA  *obj;
 
-	rest = one_argument(argument,arg);
+	rest = one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
 		char_puts("Clone what?\n",ch);
@@ -2042,7 +2042,7 @@ void do_load(CHAR_DATA *ch, const char *argument)
 {
 	 char arg[MAX_INPUT_LENGTH];
 
-	argument = one_argument(argument,arg);
+	argument = one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
 		char_puts("Syntax:\n", ch);
@@ -2071,7 +2071,7 @@ void do_mload(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *victim;
 	int vnum;
 	
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0' || !is_number(arg)) {
 		char_puts("Syntax: load mob <vnum>.\n", ch);
@@ -2098,8 +2098,8 @@ void do_oload(CHAR_DATA *ch, const char *argument)
 	int level = 0;
 	int vnum;
 	
-	argument = one_argument(argument, arg1);
-	one_argument(argument, arg2);
+	argument = one_argument(argument, arg1, sizeof(arg1));
+	one_argument(argument, arg2, sizeof(arg2));
 
 	if (arg1[0] == '\0' || !is_number(arg1)) {
 		char_puts("Syntax: load obj <vnum>.\n", ch);
@@ -2129,7 +2129,7 @@ void do_purge(CHAR_DATA *ch, const char *argument)
 	OBJ_DATA *obj;
 	DESCRIPTOR_DATA *d;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
 		/* 'purge' */
@@ -2194,7 +2194,7 @@ void do_restore(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *vch;
 	DESCRIPTOR_DATA *d;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0' || !str_cmp(arg,"room")) {
 	/* cure room */
 		
@@ -2271,7 +2271,7 @@ void do_freeze(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
 		char_puts("Freeze whom?\n", ch);
@@ -2314,7 +2314,7 @@ void do_log(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
 		char_puts("Log whom?\n", ch);
@@ -2357,7 +2357,7 @@ void do_noemote(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
 		char_puts("Noemote whom?\n", ch);
@@ -2395,7 +2395,7 @@ void do_noshout(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
 		char_puts("Noshout whom?\n",ch);
@@ -2437,7 +2437,7 @@ void do_notell(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
 		char_puts("Notell whom?", ch);
@@ -2534,7 +2534,7 @@ void do_set(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 
-	argument = one_argument(argument,arg);
+	argument = one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
 		char_puts("Syntax:\n",ch);
@@ -2579,9 +2579,9 @@ void do_sset(CHAR_DATA *ch, const char *argument)
 	int sn;
 	bool fAll;
 
-	argument = one_argument(argument, arg1);
-	argument = one_argument(argument, arg2);
-	argument = one_argument(argument, arg3);
+	argument = one_argument(argument, arg1, sizeof(arg1));
+	argument = one_argument(argument, arg2, sizeof(arg2));
+	argument = one_argument(argument, arg3, sizeof(arg3));
 
 	if (arg1[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0') {
 		char_puts("Syntax:\n",ch);
@@ -2639,9 +2639,9 @@ void do_string(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *victim;
 	OBJ_DATA *obj;
 
-	argument = one_argument(argument, type);
-	argument = one_argument(argument, arg1);
-	argument = one_argument(argument, arg2);
+	argument = one_argument(argument, type, sizeof(type));
+	argument = one_argument(argument, arg1, sizeof(arg1));
+	argument = one_argument(argument, arg2, sizeof(arg2));
 	strnzcpy(arg3, argument, sizeof(arg3));
 
 	if (type[0] == '\0' || arg1[0] == '\0'
@@ -2749,7 +2749,7 @@ void do_string(CHAR_DATA *ch, const char *argument)
 				return;
 			}
 
-			argument = one_argument(argument, arg3);
+			argument = one_argument(argument, arg3, sizeof(arg3));
 			if (argument == NULL) {
 				char_puts("Syntax: oset <object> ed <keyword> "
 					  "lang\n", ch);
@@ -2777,9 +2777,9 @@ void do_oset(CHAR_DATA *ch, const char *argument)
 	OBJ_DATA *obj;
 	int value;
 
-	argument = one_argument(argument, arg1);
-	argument = one_argument(argument, arg2);
-		   one_argument(argument, arg3);
+	argument = one_argument(argument, arg1, sizeof(arg1));
+	argument = one_argument(argument, arg2, sizeof(arg2));
+		   one_argument(argument, arg3, sizeof(arg3));
 
 	if (arg1[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0') {
 		char_puts("Syntax:\n",ch);
@@ -2860,9 +2860,9 @@ void do_rset(CHAR_DATA *ch, const char *argument)
 	ROOM_INDEX_DATA *location;
 	int value;
 
-	argument = one_argument(argument, arg1);
-	argument = one_argument(argument, arg2);
-		   one_argument(argument, arg3);
+	argument = one_argument(argument, arg1, sizeof(arg1));
+	argument = one_argument(argument, arg2, sizeof(arg2));
+		   one_argument(argument, arg3, sizeof(arg3));
 
 	if (arg1[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0') {
 		char_puts("Syntax:\n",ch);
@@ -2922,7 +2922,7 @@ void do_sockets(CHAR_DATA *ch, const char *argument)
 	count = 0;
 	output = buf_new(-1);
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	for (d = descriptor_list; d; d = d->next) {
 		CHAR_DATA *vch = d->original ? d->original : d->character;
 
@@ -2965,14 +2965,14 @@ void do_force(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	char arg2[MAX_INPUT_LENGTH];
 
-	argument = one_argument(argument, arg);
+	argument = one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0' || argument[0] == '\0') {
 		char_puts("Force whom to do what?\n", ch);
 		return;
 	}
 
-	one_argument(argument,arg2);
+	one_argument(argument, arg2, sizeof(arg2));
 	
 	if (!str_cmp(arg2,"delete") || !str_prefix(arg2,"mob")) {
 		char_puts("That will NOT be done.\n",ch);
@@ -3089,7 +3089,7 @@ void do_invis(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_STRING_LENGTH];
 
 	/* RT code for taking a level argument */
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') 
 	/* take the default path */
@@ -3131,7 +3131,7 @@ void do_incognito(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_STRING_LENGTH];
 	
 	/* RT code for taking a level argument */
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	
 	if (arg[0] == '\0')
 	/* take the default path */
@@ -3262,8 +3262,8 @@ void do_advance(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *victim;
 	int level;
 
-	argument = one_argument(argument, arg1);
-	argument = one_argument(argument, arg2);
+	argument = one_argument(argument, arg1, sizeof(arg1));
+	argument = one_argument(argument, arg2, sizeof(arg2));
 
 	if (arg1[0] == '\0' || arg2[0] == '\0' || !is_number(arg2)) {
 		char_puts("Syntax: advance <char> <level>.\n", ch);
@@ -3302,10 +3302,10 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *victim;
 	int value, val2;
 
-	argument = one_argument(argument, arg1);
-	argument = one_argument(argument, arg2);
-	argument = one_argument(argument, arg3);
-		   one_argument(argument, arg4);
+	argument = one_argument(argument, arg1, sizeof(arg1));
+	argument = one_argument(argument, arg2, sizeof(arg2));
+	argument = one_argument(argument, arg3, sizeof(arg3));
+		   one_argument(argument, arg4, sizeof(arg4));
 
 	if (arg1[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0') {
 		char_puts("Syntax:\n",ch);
@@ -3838,7 +3838,7 @@ void do_desocket(CHAR_DATA *ch, const char *argument)
 	int socket;
 	char arg[MAX_INPUT_LENGTH];
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	if (!is_number(arg))
 
@@ -3947,7 +3947,7 @@ void do_ititle(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 
-	argument = one_argument(argument, arg);
+	argument = one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0')  {
 		char_puts("Change whose title to what?\n", ch);
@@ -3989,8 +3989,8 @@ void do_rename(CHAR_DATA* ch, const char *argument)
 	CLAN_DATA *clan;
 	FILE* file;
 		
-	argument = first_arg(argument, old_name, FALSE); 
-		   first_arg(argument, new_name, FALSE);
+	argument = first_arg(argument, old_name, sizeof(old_name), FALSE); 
+		   first_arg(argument, new_name, sizeof(new_name), FALSE);
 		
 	if (!old_name[0]) {
 		char_puts("Rename who?\n",ch);
@@ -4112,7 +4112,7 @@ void do_notitle(CHAR_DATA *ch, const char *argument)
 	if (!IS_IMMORTAL(ch))
 	    return;
 
-	argument = one_argument(argument,arg);
+	argument = one_argument(argument, arg, sizeof(arg));
 
 	if ((victim = get_char_world(ch ,arg)) == NULL) {
 		char_puts("He is not currently playing.\n", ch);
@@ -4137,7 +4137,7 @@ void do_noaffect(CHAR_DATA *ch, const char *argument)
 	if (!IS_IMMORTAL(ch))
 		return;
 
-	argument = one_argument(argument, arg);
+	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		char_puts("Noaff whom?\n", ch);
 		return;
@@ -4206,7 +4206,7 @@ void do_reboot(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 
-	argument = one_argument(argument, arg);    
+	argument = one_argument(argument, arg, sizeof(arg));    
 
 	if (arg[0] == '\0') {
 		char_puts("Usage: reboot now\n"
@@ -4319,8 +4319,8 @@ DO_FUN(do_grant)
 	char arg2[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 
-	argument = one_argument(argument, arg1);
-	argument = one_argument(argument, arg2);
+	argument = one_argument(argument, arg1, sizeof(arg1));
+	argument = one_argument(argument, arg2, sizeof(arg2));
 	if (arg1[0] == '\0') {
 		do_help(ch, "'WIZ GRANT'");
 		return;
@@ -4368,7 +4368,7 @@ DO_FUN(do_grant)
 		return;
 	}
 
-	for (; arg2[0]; argument = one_argument(argument, arg2)) {
+	for (; arg2[0]; argument = one_argument(argument, arg2, sizeof(arg2))) {
 		if ((cmd = cmd_lookup(arg2)) == NULL
 		&&  str_cmp(arg2, "none")
 		&&  str_cmp(arg2, "all")) {
@@ -4389,7 +4389,7 @@ DO_FUN(do_disable)
 	CMD_DATA *cmd;
 	char arg[MAX_INPUT_LENGTH];
 
-	argument = one_argument(argument, arg);
+	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		do_help(ch, "'WIZ ENABLE DISABLE'");
 		return;
@@ -4403,7 +4403,7 @@ DO_FUN(do_disable)
 		return;
 	}
 
-	for (; arg[0]; argument = one_argument(argument, arg)) {
+	for (; arg[0]; argument = one_argument(argument, arg, sizeof(arg))) {
 		if ((cmd = cmd_lookup(arg)) == NULL) {
 			char_printf(ch, "%s: command not found.\n", arg);
 			continue;
@@ -4425,13 +4425,13 @@ DO_FUN(do_enable)
 	CMD_DATA *cmd;
 	char arg[MAX_INPUT_LENGTH];
 
-	argument = one_argument(argument, arg);
+	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		do_help(ch, "'WIZ ENABLE DISABLE'");
 		return;
 	}
 
-	for (; arg[0]; argument = one_argument(argument, arg)) {
+	for (; arg[0]; argument = one_argument(argument, arg, sizeof(arg))) {
 		if ((cmd = cmd_lookup(arg)) == NULL) {
 			char_printf(ch, "%s: command not found.\n", arg);
 			continue;

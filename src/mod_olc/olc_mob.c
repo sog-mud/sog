@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.31 1999-02-15 22:48:27 fjoe Exp $
+ * $Id: olc_mob.c,v 1.32 1999-02-17 07:53:29 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -145,7 +145,7 @@ OLC_FUN(mobed_create)
 	int  iHash;
 	char arg[MAX_STRING_LENGTH];
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	value = atoi(arg);
 	if (!value) {
 		do_help(ch, "'OLC CREATE'");
@@ -193,7 +193,7 @@ OLC_FUN(mobed_edit)
 	int value;
 	char arg[MAX_INPUT_LENGTH];
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		do_help(ch, "'OLC EDIT'");
 		return FALSE;
@@ -232,7 +232,7 @@ OLC_FUN(mobed_show)
 	BUFFER *buf;
 	CLAN_DATA *clan;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		if (ch->desc->editor == ED_MOB)
 			EDIT_MOB(ch, pMob);
@@ -406,7 +406,7 @@ OLC_FUN(mobed_list)
 	int vnum;
 	int  col = 0;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		do_help(ch, "'OLC ALIST'");
 		return FALSE;
@@ -484,7 +484,7 @@ OLC_FUN(mobed_damtype)
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		char_puts("Syntax: damtype [damage message]\n", ch);
 		char_puts("Syntax: damtype ?\n", ch);
@@ -557,8 +557,8 @@ OLC_FUN(mobed_shop)
 	char command[MAX_INPUT_LENGTH];
 	char arg1[MAX_INPUT_LENGTH];
 
-	argument = one_argument(argument, command);
-	argument = one_argument(argument, arg1);
+	argument = one_argument(argument, command, sizeof(command));
+	argument = one_argument(argument, arg1, sizeof(arg1));
 
 	EDIT_MOB(ch, pMob);
 
@@ -762,17 +762,17 @@ OLC_FUN(mobed_ac)
 		if (argument[0] == '\0')  break;
 
 		EDIT_MOB(ch, pMob);
-		argument = one_argument(argument, arg);
+		argument = one_argument(argument, arg, sizeof(arg));
 
 		if (!is_number(arg))  break;
 		pierce = atoi(arg);
-		argument = one_argument(argument, arg);
+		argument = one_argument(argument, arg, sizeof(arg));
 
 		if (arg[0] != '\0')
 		{
 			if (!is_number(arg))  break;
 			bash = atoi(arg);
-			argument = one_argument(argument, arg);
+			argument = one_argument(argument, arg, sizeof(arg));
 		}
 		else
 			bash = pMob->ac[AC_BASH];
@@ -781,7 +781,7 @@ OLC_FUN(mobed_ac)
 		{
 			if (!is_number(arg))  break;
 			slash = atoi(arg);
-			argument = one_argument(argument, arg);
+			argument = one_argument(argument, arg, sizeof(arg));
 		}
 		else
 			slash = pMob->ac[AC_SLASH];
@@ -980,7 +980,7 @@ OLC_FUN(mobed_group)
 		return TRUE;
 	}
 	
-	argument = one_argument(argument, arg);
+	argument = one_argument(argument, arg, sizeof(arg));
 	
 	if (!strcmp(arg, "show") && is_number(argument)) {
 		if (atoi(argument) == 0) {
@@ -1028,8 +1028,8 @@ OLC_FUN(mobed_trigadd)
 	char num[MAX_STRING_LENGTH];
 
 	EDIT_MOB(ch, pMob);
-	argument = one_argument(argument, num);
-	argument = one_argument(argument, trigger);
+	argument = one_argument(argument, num, sizeof(num));
+	argument = one_argument(argument, trigger, sizeof(trigger));
 
 	if (!str_cmp(num, "?")) {
 		show_flags(ch, mptrig_types);
@@ -1069,7 +1069,7 @@ OLC_FUN(mobed_trigdel)
 
 	EDIT_MOB(ch, pMob);
 
-	one_argument(argument, mprog);
+	one_argument(argument, mprog, sizeof(mprog));
 	if (!is_number(mprog) || mprog[0] == '\0') {
 		char_puts("Syntax:  trigdel [#mprog]\n",ch);
 		return FALSE;
@@ -1120,7 +1120,7 @@ OLC_FUN(mobed_clone)
 	char arg[MAX_INPUT_LENGTH];
 	int i;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	if (!is_number(arg)) {
 		char_puts("Syntax: clone <vnum>\n", ch);
 		return FALSE;

@@ -1,5 +1,5 @@
 /*
- * $Id: flag.c,v 1.20 1999-02-15 18:19:39 fjoe Exp $
+ * $Id: flag.c,v 1.21 1999-02-17 07:53:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -70,7 +70,7 @@ flag64_t flag_value(const FLAG *flag64_table, const char *argument)
 		 */
 		for (;;) {
 			char word[MAX_INPUT_LENGTH];
-			argument = one_argument(argument, word);
+			argument = one_argument(argument, word, sizeof(word));
 
 			if (word[0] == '\0')
 				break;

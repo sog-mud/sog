@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.17 1999-02-11 16:40:32 fjoe Exp $
+ * $Id: olc_msg.c,v 1.18 1999-02-17 07:53:29 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -191,7 +191,7 @@ OLC_FUN(msged_msg)
 	mlstring **mlp;
 	EDIT_GETMSG(ch, mlp);
 
-	argument = one_argument(argument, arg);
+	argument = one_argument(argument, arg, sizeof(arg));
 	lang = lang_lookup(arg);
 	if (lang < 0) {
 		do_help(ch, "'OLC MSG'");
@@ -251,7 +251,7 @@ static mlstring **msg_search(const char *argument)
 	int i;
 	int num;
 
-	num = number_argument(argument, name);
+	num = number_argument(argument, name, sizeof(name));
 	if (name[0] == '\0' || num <= 0)
 		return NULL;
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.c,v 1.27 1999-02-11 16:40:30 fjoe Exp $
+ * $Id: mlstring.c,v 1.28 1999-02-17 07:53:24 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -364,7 +364,7 @@ bool mlstr_edit(mlstring **mlp, const char *argument)
 	int lang;
 	const char **p;
 
-	argument = one_argument(argument, arg);
+	argument = one_argument(argument, arg, sizeof(arg));
 	lang = lang_lookup(arg);
 	if (lang < 0 && str_cmp(arg, "all"))
 		return FALSE;
@@ -384,7 +384,7 @@ bool mlstr_editnl(mlstring **mlp, const char *argument)
 	int lang;
 	const char **p;
 
-	argument = one_argument(argument, arg);
+	argument = one_argument(argument, arg, sizeof(arg));
 	lang = lang_lookup(arg);
 	if (lang < 0 && str_cmp(arg, "all"))
 		return FALSE;

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.150 1999-02-16 16:41:36 fjoe Exp $
+ * $Id: merc.h,v 1.151 1999-02-17 07:53:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1990,10 +1990,10 @@ void	show_affects(CHAR_DATA *ch, BUFFER *output);
 void	interpret	(CHAR_DATA *ch, const char *argument);
 void	interpret_raw	(CHAR_DATA *ch, const char *argument, bool is_order);
 bool	is_number	(const char *argument);
-uint	number_argument (const char *argument, char arg[MAX_INPUT_LENGTH]);
-uint	mult_argument	(const char *argument, char arg[MAX_INPUT_LENGTH]);
-const char *	one_argument	(const char *argument, char *arg_first);
-const char *	first_arg	(const char *argument, char *arg_first,
+uint	number_argument (const char *argument, char *arg, size_t len);
+uint	mult_argument	(const char *argument, char *arg, size_t len);
+const char *	one_argument	(const char *argument, char *arg_first, size_t);
+const char *	first_arg	(const char *argument, char *arg_first, size_t,
 				 bool fCase);
 const char* PERS(CHAR_DATA *ch, CHAR_DATA *looker);
 

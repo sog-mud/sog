@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_lang.c,v 1.9 1999-02-17 04:25:25 fjoe Exp $
+ * $Id: olc_lang.c,v 1.10 1999-02-17 07:53:29 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -81,7 +81,7 @@ OLC_FUN(langed_create)
 		return FALSE;
 	}
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		do_help(ch, "'OLC CREATE'");
 		return FALSE;
@@ -111,7 +111,7 @@ OLC_FUN(langed_edit)
 		return FALSE;
 	}
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		do_help(ch, "'OLC EDIT'");
 		return FALSE;
@@ -140,7 +140,7 @@ OLC_FUN(langed_show)
 	LANG_DATA *l;
 	LANG_DATA *sl;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		if (ch->desc->editor == ED_LANG)
 			EDIT_LANG(ch, l);
@@ -212,7 +212,7 @@ OLC_FUN(langed_slangof)
 	LANG_DATA *l;
 	int lang;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		do_help(ch, "'OLC LANG SLANG'");
 		return FALSE;

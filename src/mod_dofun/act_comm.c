@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.138 1999-02-16 16:41:30 fjoe Exp $
+ * $Id: act_comm.c,v 1.139 1999-02-17 07:53:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -337,7 +337,7 @@ void do_tell(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 
-	argument = one_argument(argument, arg);
+	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0' || argument[0] == '\0') {
 		char_puts("Tell whom what?\n", ch);
 		return;
@@ -1231,7 +1231,7 @@ void do_follow(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
 		char_puts("Follow whom?\n", ch);
@@ -1364,8 +1364,8 @@ void do_order(CHAR_DATA *ch, const char *argument)
 	bool found;
 	bool fAll;
 
-	argument = one_argument(argument, arg);
-	one_argument(argument,arg2);
+	argument = one_argument(argument, arg, sizeof(arg));
+	one_argument(argument, arg2, sizeof(arg2));
 
 	if (arg[0] == '\0' || argument[0] == '\0') {
 		char_puts("Order whom to do what?\n", ch);
@@ -1434,7 +1434,7 @@ void do_group(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
 		CHAR_DATA *gch;
@@ -1583,8 +1583,8 @@ void do_split(CHAR_DATA *ch, const char *argument)
 	int share_gold, share_silver;
 	int extra_gold, extra_silver;
 
-	argument = one_argument(argument, arg1);
-		   one_argument(argument, arg2);
+	argument = one_argument(argument, arg1, sizeof(arg1));
+		   one_argument(argument, arg2, sizeof(arg2));
 
 	if (arg1[0] == '\0')
 	{
@@ -1688,7 +1688,7 @@ void do_speak(CHAR_DATA *ch, const char *argument)
 	||  !r->pcdata)
 		return;
 
-	argument = one_argument(argument,arg);
+	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		char_printf(ch, "You now speak %s.\n", 
 			flag_string(slang_table, ch->slang));
@@ -1721,7 +1721,7 @@ DO_FUN(do_twit)
 		return;
 	}
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
 		char_printf(ch, "Current twitlist is [%s]\n",
@@ -1743,7 +1743,7 @@ DO_FUN(do_lang)
 		return;
 	}
 
-	argument = one_argument(argument, arg);
+	argument = one_argument(argument, arg, sizeof(arg));
 
 	if (*arg == '\0') {
 		l = varr_get(&langs, ch->lang);
@@ -1785,7 +1785,7 @@ DO_FUN(do_judge)
 		return;
 	}
 
-	argument = one_argument(argument, arg);
+	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		char_puts("Judge whom?\n", ch);
 		return;
@@ -1825,7 +1825,7 @@ DO_FUN(do_trust)
 		return;
 	}
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		if (!ch->pcdata->trust) {
 			char_puts("You do not allow anyone to cast questionable spells on you.\n", ch);
@@ -1897,7 +1897,7 @@ DO_FUN(do_wanted)
 		return;
 	}
 
-	argument = one_argument(argument, arg);
+	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		char_puts("Toggle wanted whom?\n", ch);
 		return;
@@ -2038,7 +2038,7 @@ DO_FUN(do_toggle)
 	toggle_t *t;
 	char arg[MAX_INPUT_LENGTH];
 
-	argument = one_argument(argument, arg);
+	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		char_puts("Your current settings are:\n", ch);
 		for (t = toggle_table; t->name; t++)
@@ -2046,7 +2046,7 @@ DO_FUN(do_toggle)
 		return;
 	}
 
-	for (; arg[0]; argument = one_argument(argument, arg)) {
+	for (; arg[0]; argument = one_argument(argument, arg, sizeof(arg))) {
 		flag32_t* bits;
 
 		if ((t = toggle_lookup(arg)) == NULL

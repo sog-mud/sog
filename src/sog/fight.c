@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.135 1999-02-16 16:41:33 fjoe Exp $
+ * $Id: fight.c,v 1.136 1999-02-17 07:53:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -87,7 +87,7 @@ bool	check_parry		(CHAR_DATA *ch, CHAR_DATA *victim, int loc);
 bool	check_block		(CHAR_DATA *ch, CHAR_DATA *victim, int loc);
 bool	check_blink		(CHAR_DATA *ch, CHAR_DATA *victim);
 void	dam_message		(CHAR_DATA *ch, CHAR_DATA *victim, int dam,
-				 int dt, bool immune ,int dam_type);
+				 int dt, bool immune, int dam_type);
 void	death_cry		(CHAR_DATA *ch);
 void	death_cry_org		(CHAR_DATA *ch, int part);
 void	group_gain		(CHAR_DATA *ch, CHAR_DATA *victim);
@@ -2294,90 +2294,155 @@ int xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels, int members)
 void dam_message(CHAR_DATA *ch, CHAR_DATA *victim,
 		 int dam, int dt, bool immune, int dam_type)
 {
-	char buf1[256], buf2[256], buf3[256];
 	const char *vs;
 	const char *vp;
-	const char *attack;
-	char punct;
+	const char *msg_char;
+	const char *msg_vict = NULL;
+	const char *msg_notvict;
+	const char *attack = str_empty;
 
-	     if (dam ==   0) { vs = "miss"; vp = "misses";}
-	else if (dam <=   4) { vs = "{cscratch{x";  vp = "{cscratches{x";}
-	else if (dam <=   8) { vs = "{cgraze{x";    vp = "{cgrazes{x";}
-	else if (dam <=  12) { vs = "{chit{x";      vp = "{chits{x";}
-	else if (dam <=  16) { vs = "{cinjure{x";   vp = "{cinjures{x"; }
-	else if (dam <=  20) { vs = "{cwound{x";    vp = "{cwounds{x";}
-	else if (dam <=  24) { vs = "{cmaul{x";     vp = "{cmauls{x";}
-	else if (dam <=  28) { vs = "{cdecimate{x"; vp = "{cdecimates{x";}
-	else if (dam <=  32) { vs = "{cdevastate{x";vp = "{cdevastates{x";}
-	else if (dam <=  36) { vs = "{cmaim{x";	    vp = "{cmaims{x";}
-	else if (dam <=  42) { vs = "{MMUTILATE{x";  vp = "{MMUTILATES{x"; }
-	else if (dam <=  52) { vs = "{MDISEMBOWEL{x";vp = "{MDISEMBOWELS{x"; }
-	else if (dam <=  65) { vs = "{MDISMEMBER{x"; vp = "{MDISMEMBERS{x";  }
-	else if (dam <=  80) { vs = "{MMASSACRE{x";  vp = "{MMASSACRES{x"; }
-	else if (dam <=  100) { vs = "{MMANGLE{x";   vp = "{MMANGLES{x"; }
-	else if (dam <=  130) { vs = "{y*** DEMOLISH ***{x";
-				     vp = "{y*** DEMOLISHES ***{x"; 		}
-	else if (dam <= 175) { vs = "{y*** DEVASTATE ***{x";
-				     vp = "{y*** DEVASTATES ***{x"; 		}
-	else if (dam <= 250)  { vs = "{y=== OBLITERATE ==={x";
-				     vp = "{y=== OBLITERATES ==={x";		}
-	else if (dam <= 325)  { vs = "{y==== ATOMIZE ===={x";
-				     vp = "{y==== ATOMIZES ===={x"; }
-	else if (dam <= 400)  { vs = "{R<*> <*> ANNIHILATE <*> <*>{x";
-				     vp = "{R<*> <*> ANNIHILATES <*> <*>{x";	}
-	else if (dam <= 500)  { vs = "{R<*>!<*> ERADICATE <*>!<*>{x";
-				     vp = "{R<*>!<*> ERADICATES <*>!<*>{x"; }
-	else if (dam <= 650)  { vs = "{R<*><*><*> ELECTRONIZE <*><*><*>{x";
-				     vp = "{R<*><*><*> ELECTRONIZES <*><*><*>{x";	}
-	else if (dam <= 800)  { vs = "{R(<*>)!(<*>) SKELETONIZE (<*>)!(<*>){x";
-				     vp = "{R(<*>)!(<*>) SKELETONIZES (<*>)!(<*>){x";}
-	else if (dam <= 1000)  { vs = "{R(*)!(*)!(*) NUKE (*)!(*)!(*){x";
-				     vp = "{R(*)!(*)!(*) NUKES (*)!(*)!(*){x";	}
-	else if (dam <= 1250)  { vs = "{R(*)!<*>!(*) TERMINATE (*)!<*>!(*){x";
-				     vp = "{R(*)!<*>!(*) TERMINATES (*)!<*>!(*){x"; }
-	else if (dam <= 1500)  { vs = "{R<*>!(*)!<*>> TEAR UP <<*)!(*)!<*>{x";
-				     vp = "{R<*>!(*)!<*>> TEARS UP <<*)!(*)!<*>{x"; }
-	else		   { vs = "\007{R=<*) (*>= ! POWER HIT ! =<*) (*>={x\007";
-				     vp = "\007{R=<*) (*>= ! POWER HITS ! =<*) (*>={x\007";}
+	if (dam == 0) {
+		vs = "miss";
+		vp = "misses";
+	}
+	else if (dam <= 4) {
+		vs = "{cscratch{x";
+		vp = "{cscratches{x";
+	}
+	else if (dam <= 8) {
+		vs = "{cgraze{x";
+		vp = "{cgrazes{x";
+	}
+	else if (dam <= 12) {
+		vs = "{chit{x";
+		vp = "{chits{x";
+	}
+	else if (dam <= 16) {
+		vs = "{cinjure{x";
+		vp = "{cinjures{x";
+	}
+	else if (dam <= 20) {
+		vs = "{cwound{x";
+		vp = "{cwounds{x";
+	}
+	else if (dam <= 24) {
+		vs = "{cmaul{x";
+		vp = "{cmauls{x";
+	}
+	else if (dam <= 28) {
+		vs = "{cdecimate{x";
+		vp = "{cdecimates{x";
+	}
+	else if (dam <= 32) {
+		vs = "{cdevastate{x";
+		vp = "{cdevastates{x";
+	}
+	else if (dam <= 36) {
+		vs = "{cmaim{x";
+		vp = "{cmaims{x";
+	}
+	else if (dam <= 42) {
+		vs = "{MMUTILATE{x";
+		vp = "{MMUTILATES{x";
+	}
+	else if (dam <= 52) {
+		vs = "{MDISEMBOWEL{x";
+		vp = "{MDISEMBOWELS{x";
+	}
+	else if (dam <= 65) {
+		vs = "{MDISMEMBER{x";
+		vp = "{MDISMEMBERS{x";
+	}
+	else if (dam <= 80) {
+		vs = "{MMASSACRE{x";
+		vp = "{MMASSACRES{x";
+	}
+	else if (dam <= 100) {
+		vs = "{MMANGLE{x";
+		vp = "{MMANGLES{x";
+	}
+	else if (dam <= 130) {
+		vs = "{y*** DEMOLISH ***{x";
+		vp = "{y*** DEMOLISHES ***{x";
+	}
+	else if (dam <= 175) {
+		vs = "{y*** DEVASTATE ***{x";
+		vp = "{y*** DEVASTATES ***{x";
+	}
+	else if (dam <= 250) {
+		vs = "{y=== OBLITERATE ==={x";
+		vp = "{y=== OBLITERATES ==={x";
+	}
+	else if (dam <= 325) {
+		vs = "{y==== ATOMIZE ===={x";
+		vp = "{y==== ATOMIZES ===={x";
+	}
+	else if (dam <= 400) {
+		vs = "{R<*> <*> ANNIHILATE <*> <*>{x";
+		vp = "{R<*> <*> ANNIHILATES <*> <*>{x";
+	}
+	else if (dam <= 500) {
+		vs = "{R<*>!<*> ERADICATE <*>!<*>{x";
+		vp = "{R<*>!<*> ERADICATES <*>!<*>{x";
+	}
+	else if (dam <= 650) {
+		vs = "{R<*><*><*> ELECTRONIZE <*><*><*>{x";
+		vp = "{R<*><*><*> ELECTRONIZES <*><*><*>{x";
+	}
+	else if (dam <= 800) {
+		vs = "{R(<*>)!(<*>) SKELETONIZE (<*>)!(<*>){x";
+		vp = "{R(<*>)!(<*>) SKELETONIZES (<*>)!(<*>){x";
+	}
+	else if (dam <= 1000) {
+		vs = "{R(*)!(*)!(*) NUKE (*)!(*)!(*){x";
+		vp = "{R(*)!(*)!(*) NUKES (*)!(*)!(*){x";
+	}
+	else if (dam <= 1250) {
+		vs = "{R(*)!<*>!(*) TERMINATE (*)!<*>!(*){x";
+		vp = "{R(*)!<*>!(*) TERMINATES (*)!<*>!(*){x";
+	}
+	else if (dam <= 1500) {
+		vs = "{R<*>!(*)!<*>> TEAR UP <<*)!(*)!<*>{x";
+		vp = "{R<*>!(*)!<*>> TEARS UP <<*)!(*)!<*>{x";
+	}
+	else {
+		vs = "\007{R=<*) (*>= ! POWER HIT ! =<*) (*>={x\007";
+		vp = "\007{R=<*) (*>= ! POWER HITS ! =<*) (*>={x\007";
+	}
 
-	if (victim->level < 20)	punct	= (dam <= 24) ? '.' : '!';
-	else if (victim->level < 50)  punct = (dam <= 50) ? '.' : '!';
-	else punct = (dam <= 75) ? '.' : '!';
+	if (dt == TYPE_HIT || dt == TYPE_HUNGER) {
+		if (ch == victim) {
+			switch (dam_type) {
+			case DAM_HUNGER:
+				msg_notvict = "$n's hunger $r $mself!";
+				msg_char = "Your hunger $r yourself!";
+				break;
 
-	if ((dt == TYPE_HIT) || (dt == TYPE_HUNGER)) {
-		if (ch	== victim)
-		{
-		  if (dam_type == DAM_HUNGER)
-		  {
-		    sprintf(buf1, "$n's hunger %s $mself%c",vp,punct);
-		    sprintf(buf2, "Your hunger %s yourself%c",vs,punct);
-		  }
+			case DAM_THIRST:
+				msg_notvict = "$n's thirst $r $mself!";
+				msg_char = "Your thirst $r yourself!";
+				break;
 
-		  else if (dam_type == DAM_THIRST)
-		  {
-		    sprintf(buf1, "$n's thirst %s $mself%c",vp,punct);
-		    sprintf(buf2, "Your thirst %s yourself%c",vs,punct);
-		  }
-		  else if (dam_type == DAM_LIGHT_V)
-		  {
-		    sprintf(buf1, "The light of room %s $n!%c",vp,punct);
-		    sprintf(buf2, "The light of room %s you!%c",vs,punct);
-		  }
-		  else if (dam_type == DAM_TRAP_ROOM)
-		  {
-		    sprintf(buf1, "The trap at room %s $n!%c",vp,punct);
-		    sprintf(buf2, "The trap at room %s you!%c",vs,punct);
-		  }
-		  else {
-		    sprintf(buf1, "$n %s $mself%c",vp,punct);
-		    sprintf(buf2, "You %s yourself%c",vs,punct);
+			case DAM_LIGHT_V:
+				msg_notvict = "The light of room $r $n!!";
+				msg_char = "The light of room $r you!!";
+				break;
+
+			case DAM_TRAP_ROOM:
+				msg_notvict = "The trap at room $r $n!!";
+				msg_char = "The trap at room $r you!!";
+				break;
+
+			default:
+				msg_notvict = "$n $r $mself!";
+				msg_char = "You $r yourself!";
+				break;
 			}
 		}
-		else
-		{
-		    sprintf(buf1, "$n %s $N%c",  vp, punct);
-		    sprintf(buf2, "You %s $N%c", vs, punct);
-		    sprintf(buf3, "$n %s you%c", vp, punct);
+		else {
+			msg_notvict = "$n $r $N!";
+			msg_char = "You $r $N!";
+			msg_vict = "$n $r you!";
 		}
 	}
 	else {
@@ -2395,89 +2460,46 @@ void dam_message(CHAR_DATA *ch, CHAR_DATA *victim,
 			attack = attack_table[0].name;
 		}
 
-		if (immune)
-		{
-		    if (ch == victim)
-		    {
-			sprintf(buf1,"$n is unaffected by $s own %s.",attack);
-			sprintf(buf2,"Luckily, you are immune to that.");
-		    }
-		    else
-		    {
-			sprintf(buf1,"$N is unaffected by $n's %s!",attack);
-			sprintf(buf2,"$N is unaffected by your %s!",attack);
-			sprintf(buf3,"$n's %s is powerless against you.",attack);
-		    }
+		if (immune) {
+			if (ch == victim) {
+				msg_notvict = "$n is unaffected by $s own $R.";
+				msg_char = "Luckily, you are immune to that.";
+			}
+			else {
+				msg_notvict = "$N is unaffected by $n's $R!";
+				msg_char = "$N is unaffected by your $R!";
+				msg_vict = "$n's $R is powerless against you.";
+			}
 		}
-		else
-		{
-		    if (ch == victim)
-		    {
-			sprintf(buf1, "$n's %s %s $m%c",attack,vp,punct);
-			sprintf(buf2, "Your %s %s you%c",attack,vp,punct);
-		    }
-		    else
-		    {
-			sprintf(buf1, "$n's %s %s $N%c",  attack, vp, punct);
-			sprintf(buf2, "Your %s %s $N%c",  attack, vp, punct);
-			sprintf(buf3, "$n's %s %s you%c", attack, vp, punct);
-		    }
+		else {
+			vs = vp;
+
+			if (ch == victim) {
+				msg_notvict = "$n's $R $r $m!";
+				msg_char = "Your $R $r you!";
+			}
+			else {
+				msg_notvict = "$n's $R $r $N!";
+				msg_char = "Your $R $r $N!";
+				msg_vict = "$n's $R $r you!";
+			}
 		}
 	}
 
-	if (ch == victim)
-	{
-		if (dam <=36)
-		{
-		act_puts(buf1,ch,NULL,NULL,TO_ROOM,POS_RESTING);
-		act_puts(buf2,ch,NULL,NULL,TO_CHAR,POS_RESTING);
-		}
-		else if (dam <=100)
-		{
-		act_puts(buf1,ch,NULL,NULL,TO_ROOM,POS_RESTING);
-		act_puts(buf2,ch,NULL,NULL,TO_CHAR,POS_RESTING);
-		}
-		else if (dam <=325)
-		{
-		act_puts(buf1,ch,NULL,NULL,TO_ROOM,POS_RESTING);
-		act_puts(buf2,ch,NULL,NULL,TO_CHAR,POS_RESTING);
-		}
-		else
-		{
-		act_puts(buf1,ch,NULL,NULL,TO_ROOM,POS_RESTING);
-		act_puts(buf2,ch,NULL,NULL,TO_CHAR,POS_RESTING);
-		}
+	if (ch == victim) {
+		act_puts3(msg_notvict, ch, vp, NULL, attack,
+			  TO_ROOM | ACT_TRANS, POS_RESTING);
+		act_puts3(msg_char, ch, vs, NULL, attack,
+			  TO_CHAR | ACT_TRANS, POS_RESTING);
 	}
-	else
-	{
-		if (dam <= 36)
-		{
-		act_puts(buf1, ch, NULL, victim, TO_NOTVICT,POS_RESTING);
-		act_puts(buf2, ch, NULL, victim, TO_CHAR,POS_RESTING);
-		act_puts(buf3, ch, NULL, victim, TO_VICT,POS_RESTING);
-		}
-		else if (dam <= 100)
-		{
-		act_puts(buf1, ch, NULL,victim,TO_NOTVICT,POS_RESTING);
-		act_puts(buf2, ch, NULL,victim,TO_CHAR,POS_RESTING);
-		act_puts(buf3, ch, NULL,victim,TO_VICT,POS_RESTING);
-		}
-		else if (dam <= 325)
-		{
-		act_puts(buf1, ch, NULL, victim, TO_NOTVICT,POS_RESTING);
-		act_puts(buf2, ch, NULL, victim, TO_CHAR,POS_RESTING);
-		act_puts(buf3, ch, NULL, victim, TO_VICT,POS_RESTING);
-		}
-		else
-		{
-		act_puts(buf1, ch, NULL, victim, TO_NOTVICT,POS_RESTING);
-		act_puts(buf2, ch, NULL, victim, TO_CHAR,POS_RESTING);
-		act_puts(buf3, ch, NULL, victim, TO_VICT,POS_RESTING);
-		}
-
+	else {
+		act_puts3(msg_notvict, ch, vp, victim, attack,
+			  TO_NOTVICT | ACT_TRANS, POS_RESTING);
+		act_puts3(msg_char, ch, vs, victim, attack,
+			  TO_CHAR | ACT_TRANS, POS_RESTING);
+		act_puts3(msg_vict, ch, vp, victim, attack,
+			  TO_VICT | ACT_TRANS, POS_RESTING);
 	}
-
-	return;
 }
 
 void do_kill(CHAR_DATA *ch, const char *argument)
@@ -2486,7 +2508,7 @@ void do_kill(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *victim;
 	int chance;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
 		char_puts("Kill whom?\n", ch);
@@ -2567,7 +2589,7 @@ void do_murder(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *victim;
 	int chance;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
 		char_puts("Murder whom?\n", ch);
@@ -2711,7 +2733,7 @@ void do_slay(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *victim;
 	char arg[MAX_INPUT_LENGTH];
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		char_puts("Slay whom?\n", ch);
 		return;

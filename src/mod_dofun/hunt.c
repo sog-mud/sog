@@ -1,5 +1,5 @@
 /*
- * $Id: hunt.c,v 1.18 1999-02-08 08:48:06 fjoe Exp $
+ * $Id: hunt.c,v 1.19 1999-02-17 07:53:21 fjoe Exp $
  */
 
 /* Kak zovut sobaku Gejtsa?
@@ -434,7 +434,7 @@ void do_hunt(CHAR_DATA *ch, const char *argument)
 	||  (chance = get_skill(ch, sn_hunt)) == 0)
 		return;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
 		char_puts("Whom are you trying to hunt?\n", ch);

@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.139 1999-02-16 16:41:55 fjoe Exp $
+ * $Id: comm.c,v 1.140 1999-02-17 07:53:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1763,10 +1763,10 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		break;
 
 	case CON_GET_NEW_RACE:
-		one_argument(argument, arg);
+		one_argument(argument, arg, sizeof(arg));
 
 		if (!str_cmp(arg, "help")) {
-			argument = one_argument(argument, arg);
+			argument = one_argument(argument, arg, sizeof(arg));
 			if (argument[0] == '\0') {
 				write_to_buffer(d, "The Muddy MUD Realms is the home for the following races:\n\r", 0);
 	  			do_help(ch,"RACETABLE");
@@ -1875,7 +1875,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 	case CON_GET_NEW_CLASS:
 	iClass = cln_lookup(argument);
-	argument = one_argument(argument,arg);
+	argument = one_argument(argument, arg, sizeof(arg));
 
 	if (!str_cmp(arg,"help"))
 	  {
@@ -2514,7 +2514,7 @@ void show_string(struct descriptor_data *d, char *input)
 	int lines = 0, toggle = 1;
 	int show_lines;
 
-	one_argument(input, buf);
+	one_argument(input, buf, sizeof(buf));
 	if (buf[0] != '\0') {
 		if (d->showstr_head) {
 			free_string(d->showstr_head);

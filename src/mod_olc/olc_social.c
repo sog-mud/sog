@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_social.c,v 1.3 1999-02-15 18:19:45 fjoe Exp $
+ * $Id: olc_social.c,v 1.4 1999-02-17 07:53:30 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -92,7 +92,7 @@ OLC_FUN(soced_create)
 		return FALSE;
 	}
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		do_help(ch, "'OLC CREATE'");
 		return FALSE;
@@ -122,7 +122,7 @@ OLC_FUN(soced_edit)
 		return FALSE;
 	}
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		do_help(ch, "'OLC EDIT'");
 		return FALSE;
@@ -153,7 +153,7 @@ OLC_FUN(soced_show)
 	BUFFER *output;
 	social_t *soc;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		if (ch->desc->editor == ED_SOC)
 			EDIT_SOC(ch, soc);
@@ -199,7 +199,7 @@ OLC_FUN(soced_list)
 	int col = 0;
 	char arg[MAX_STRING_LENGTH];
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	for (i = 0; i < socials.nused; i++) {
 		social_t *soc = (social_t*) VARR_GET(&socials, i);

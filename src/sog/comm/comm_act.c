@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.c,v 1.7 1999-02-16 20:25:58 fjoe Exp $
+ * $Id: comm_act.c,v 1.8 1999-02-17 07:53:28 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -418,7 +418,7 @@ static void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 				if (IS_NULLSTR(arg2))
 					i = "door";
 				else {
-					one_argument(arg2, tmp);
+					one_argument(arg2, tmp, sizeof(tmp));
 					i = tmp;
 				}
 				break;

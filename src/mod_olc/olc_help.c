@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_help.c,v 1.26 1999-02-10 15:58:51 fjoe Exp $
+ * $Id: olc_help.c,v 1.27 1999-02-17 07:53:29 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -119,7 +119,7 @@ OLC_FUN(helped_edit)
 		return FALSE;
 	}
 
-	num = number_argument(argument, keyword);
+	num = number_argument(argument, keyword, sizeof(keyword));
 	if (keyword[0] == '\0') {
 		do_help(ch, "'OLC EDIT'");
 		return FALSE;
@@ -160,7 +160,7 @@ OLC_FUN(helped_show)
 		int num;
 		char keyword[MAX_INPUT_LENGTH];
 
-		num = number_argument(argument, keyword);
+		num = number_argument(argument, keyword, sizeof(keyword));
 		if (keyword[0] == '\0') {
 			if (ch->desc->editor)
 			do_help(ch, ch->desc->editor ?
@@ -196,7 +196,7 @@ OLC_FUN(helped_list)
 	HELP_DATA *pHelp;
 	char arg[MAX_INPUT_LENGTH];
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		if ((pArea = get_edited_area(ch)) == NULL) {
 			do_help(ch, "'OLC ALIST'");

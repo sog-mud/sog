@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.37 1999-02-15 18:19:41 fjoe Exp $
+ * $Id: special.c,v 1.38 1999-02-17 07:53:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1461,7 +1461,7 @@ static void spec_cast(CHAR_DATA *ch, const char *spell_name, CHAR_DATA *victim)
 		return;
 	}
 
-	one_argument(victim->name, name);
+	one_argument(victim->name, name, sizeof(name));
 	for (vch = ch->in_room->people; vch; vch = vch->next_in_room) {
 		if (vch == victim)
 			break;

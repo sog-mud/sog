@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.41 1999-02-17 04:25:25 fjoe Exp $
+ * $Id: olc.c,v 1.42 1999-02-17 07:53:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -124,7 +124,7 @@ bool run_olc_editor(DESCRIPTOR_DATA *d)
 	if ((olced = olced_lookup(d->editor)) == NULL)
 		return FALSE;
 
-	argument = one_argument(d->incomm, command);
+	argument = one_argument(d->incomm, command, sizeof(command));
 
 	if (command[0] == '\0') {
 		olced->cmd_table[FUN_SHOW].olc_fun(d->character, argument);
@@ -200,7 +200,7 @@ bool olced_number(CHAR_DATA *ch, const char *argument, OLC_FUN* fun, int *pInt)
 	if ((cmd = olc_cmd_lookup(ch, fun)) == NULL)
 		return FALSE;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	val = strtol(arg, &endptr, 0);
 	if (*arg == '\0' || *endptr != '\0') {
 		char_printf(ch, "Syntax: %s number\n", cmd->name);
@@ -227,7 +227,7 @@ bool olced_name(CHAR_DATA *ch, const char *argument,
 	||  (olced = olced_lookup(ch->desc->editor)) == NULL)
 		return FALSE;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		char_printf(ch, "Syntax: %s string\n", cmd->name);
 		return FALSE;
@@ -338,9 +338,9 @@ bool olced_exd(CHAR_DATA *ch, const char* argument, ED_DATA **ped)
 	if ((olced = olced_lookup(ch->desc->editor)) == NULL)
 		return FALSE;
 
-	argument = one_argument(argument, command);
-	argument = one_argument(argument, keyword);
-	argument = one_argument(argument, lang);
+	argument = one_argument(argument, command, sizeof(command));
+	argument = one_argument(argument, keyword, sizeof(keyword));
+	argument = one_argument(argument, lang, sizeof(lang));
 
 	if (command[0] == '\0' || keyword[0] == '\0') {
 		do_help(ch, "'OLC EXD'");
@@ -474,7 +474,7 @@ bool olced_flag64(CHAR_DATA *ch, const char *argument,
 		for (;;) {
 			char word[MAX_INPUT_LENGTH];
 	
-			argument = one_argument(argument, word);
+			argument = one_argument(argument, word, sizeof(word));
 	
 			if (word[0] == '\0')
 				break;
@@ -780,7 +780,7 @@ static void do_olc(CHAR_DATA *ch, const char *argument, int fun)
 	if (IS_NPC(ch))
 		return;
 
-	argument = one_argument(argument, command);
+	argument = one_argument(argument, command, sizeof(command));
 	if ((olced = olced_lookup(command)) == NULL
 	||  (olcfun = olced->cmd_table[fun].olc_fun) == NULL) {
         	do_help(ch, help_topics[fun]);

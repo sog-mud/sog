@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.119 1999-02-17 04:25:43 fjoe Exp $
+ * $Id: act_obj.c,v 1.120 1999-02-17 07:53:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -198,11 +198,11 @@ void do_get(CHAR_DATA * ch, const char *argument)
 	OBJ_DATA       *obj, *obj_next;
 	OBJ_DATA       *container;
 	bool            found;
-	argument = one_argument(argument, arg1);
-	argument = one_argument(argument, arg2);
+	argument = one_argument(argument, arg1, sizeof(arg1));
+	argument = one_argument(argument, arg2, sizeof(arg2));
 
 	if (!str_cmp(arg2, "from"))
-		argument = one_argument(argument, arg2);
+		argument = one_argument(argument, arg2, sizeof(arg2));
 
 	/* Get type. */
 	if (arg1[0] == '\0') {
@@ -387,11 +387,11 @@ void do_put(CHAR_DATA * ch, const char *argument)
 	OBJ_DATA *	objc;
 	int		count;
 
-	argument = one_argument(argument, arg1);
-	argument = one_argument(argument, arg2);
+	argument = one_argument(argument, arg1, sizeof(arg1));
+	argument = one_argument(argument, arg2, sizeof(arg2));
 
 	if (!str_cmp(arg2, "in") || !str_cmp(arg2, "on"))
-		argument = one_argument(argument, arg2);
+		argument = one_argument(argument, arg2, sizeof(arg2));
 
 	if (arg1[0] == '\0' || arg2[0] == '\0') {
 		char_puts("Put what in what?\n", ch);
@@ -541,7 +541,7 @@ void do_drop(CHAR_DATA * ch, const char *argument)
 	OBJ_DATA       *obj_next;
 	bool            found;
 
-	argument = one_argument(argument, arg);
+	argument = one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
 		char_puts("Drop what?\n", ch);
@@ -551,7 +551,7 @@ void do_drop(CHAR_DATA * ch, const char *argument)
 		/* 'drop NNNN coins' */
 		int             amount, gold = 0, silver = 0;
 		amount = atoi(arg);
-		argument = one_argument(argument, arg);
+		argument = one_argument(argument, arg, sizeof(arg));
 		if (amount <= 0
 		    || (str_cmp(arg, "coins") && str_cmp(arg, "coin")
 			&& str_cmp(arg, "gold") && str_cmp(arg, "silver"))) {
@@ -672,7 +672,7 @@ void do_give(CHAR_DATA * ch, const char *argument)
 	CHAR_DATA      *victim;
 	OBJ_DATA       *obj;
 
-	argument = one_argument(argument, arg);
+	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		char_puts("Give what to whom?\n", ch);
 		return;
@@ -685,7 +685,7 @@ void do_give(CHAR_DATA * ch, const char *argument)
 
 		amount = atoi(arg);
 
-		argument = one_argument(argument, arg);
+		argument = one_argument(argument, arg, sizeof(arg));
 		if (arg[0] == '\0') {
 			do_give(ch, str_empty);
 			return;
@@ -700,9 +700,9 @@ void do_give(CHAR_DATA * ch, const char *argument)
 
 		silver = str_cmp(arg, "gold");
 
-		argument = one_argument(argument, arg);
+		argument = one_argument(argument, arg, sizeof(arg));
 		if (!str_cmp(arg, "to"))
-			argument = one_argument(argument, arg);
+			argument = one_argument(argument, arg, sizeof(arg));
 		if (arg[0] == '\0') {
 			do_give(ch, str_empty);
 			return;
@@ -784,9 +784,9 @@ void do_give(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	argument = one_argument(argument, arg);
+	argument = one_argument(argument, arg, sizeof(arg));
 	if (!str_cmp(arg, "to"))
-		argument = one_argument(argument, arg);
+		argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		do_give(ch, str_empty);
 		return;
@@ -968,7 +968,7 @@ void do_fill(CHAR_DATA * ch, const char *argument)
 	OBJ_DATA       *obj;
 	OBJ_DATA       *fountain;
 	bool            found;
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
 		char_puts("Fill what?\n", ch);
@@ -1021,7 +1021,7 @@ void do_pour(CHAR_DATA * ch, const char *argument)
 	OBJ_DATA       *out, *in;
 	CHAR_DATA      *vch = NULL;
 	int             amount;
-	argument = one_argument(argument, arg);
+	argument = one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0' || argument[0] == '\0') {
 		char_puts("Pour what into what?\n", ch);
@@ -1126,7 +1126,7 @@ void do_drink(CHAR_DATA * ch, const char *argument)
 	OBJ_DATA       *obj;
 	int             amount;
 	int             liquid;
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
 		for (obj = ch->in_room->contents; obj; obj= obj->next_content) {
@@ -1230,7 +1230,7 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 	char            arg[MAX_INPUT_LENGTH];
 	OBJ_DATA       *obj;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		char_puts("Eat what?\n", ch);
 		return;
@@ -1666,7 +1666,7 @@ void do_wear(CHAR_DATA * ch, const char *argument)
 	char            arg[MAX_INPUT_LENGTH];
 	OBJ_DATA       *obj;
 	OBJ_DATA       *obj_next;
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
 		char_puts("Wear, wield, or hold what?\n", ch);
@@ -1689,7 +1689,7 @@ void do_remove(CHAR_DATA * ch, const char *argument)
 {
 	char            arg[MAX_INPUT_LENGTH];
 	OBJ_DATA       *obj;
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
 		char_puts("Remove what?\n", ch);
@@ -1732,7 +1732,7 @@ void do_sacrifice(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0' || !str_cmp(arg, ch->name)) {
 		act("$n offers $mself to gods, who graciously declines.",
 		    ch, NULL, NULL, TO_ROOM);
@@ -1756,7 +1756,8 @@ void sac_obj(CHAR_DATA * ch, OBJ_DATA *obj)
 	CHAR_DATA      *gch;
 	int             members;
 
-	if ((obj->pIndexData->item_type == ITEM_CORPSE_PC && ch->level < MAX_LEVEL)
+	if ((obj->pIndexData->item_type == ITEM_CORPSE_PC &&
+	     ch->level < MAX_LEVEL)
 	||  (QUEST_OBJ_FIRST <= obj->pIndexData->vnum &&
 	     obj->pIndexData->vnum <= QUEST_OBJ_LAST)) {
 		char_puts("Gods wouldn't like that.\n", ch);
@@ -1774,10 +1775,8 @@ void sac_obj(CHAR_DATA * ch, OBJ_DATA *obj)
 	&&  obj->pIndexData->item_type != ITEM_CORPSE_PC)
 		silver = UMIN(silver, obj->cost);
 
-	if (silver == 1)
-		char_puts("Gods give you one silver coin for your sacrifice.\n", ch);
-	else
-		char_printf(ch, "Gods give you %d silver coins for your sacrifice.\n", silver);
+	act_puts("Gods give you $j silver $qj{coins} for your sacrifice.",
+		 ch, (const void*) silver, NULL, TO_CHAR, POS_DEAD);
 
 	ch->silver += silver;
 
@@ -1803,13 +1802,12 @@ void sac_obj(CHAR_DATA * ch, OBJ_DATA *obj)
 	||  obj->pIndexData->item_type == ITEM_CORPSE_PC) {
 		OBJ_DATA       *obj_content;
 		OBJ_DATA       *obj_next;
-
-		char            buf[MAX_STRING_LENGTH];
-		char            buf2[MAX_STRING_LENGTH];
 		OBJ_DATA       *two_objs[2];
 
-		bool	fScatter = TRUE;
 		int	iScatter = 0;
+
+		const char *qty;
+		const char *where;
 
 		for (obj_content = obj->contains; obj_content;
 		     obj_content = obj_next) {
@@ -1819,63 +1817,57 @@ void sac_obj(CHAR_DATA * ch, OBJ_DATA *obj)
 			obj_to_room(obj_content, ch->in_room);
 			iScatter++;
 		}
-		if (iScatter == 1) {
+
+		switch (iScatter) {
+		case 0:
+			break;
+
+		case 1:
 			act_puts("Your sacrifice reveals $p.",
 				 ch, two_objs[0], NULL, TO_CHAR, POS_DEAD);
 			act("$p is revealed by $n's sacrifice.",
 			    ch, two_objs[0], NULL, TO_ROOM);
-		}
-		if (iScatter == 2) {
+			break;
+
+		case 2:
 			act_puts("Your sacrifice reveals $p and $P.",
-				 ch, two_objs[0], two_objs[1], TO_CHAR, POS_DEAD);
+				 ch, two_objs[0], two_objs[1],
+				 TO_CHAR, POS_DEAD);
 			act("$p and $P are revealed by $n's sacrifice.",
 			    ch, two_objs[0], two_objs[1], TO_ROOM);
-		}
-		snprintf(buf, sizeof(buf), GETMSG("As you sacrifice the corpse, ", ch->lang));
-		snprintf(buf2, sizeof(buf2), GETMSG("As $n sacrifices the corpse, ", ch->lang));
-		if (iScatter < 3)
-			fScatter = FALSE;
-		else if (iScatter < 5) {
-			strcat(buf, GETMSG("few things ", ch->lang));
-			strcat(buf2, GETMSG("few things ", ch->lang));
-		}
-		else if (iScatter < 9) {
-			strcat(buf, GETMSG("a bunch of objects ", ch->lang));
-			strcat(buf2, GETMSG("a bunch of objects ", ch->lang));
-		}
-		else if (iScatter < 15) {
-			strcat(buf, GETMSG("many things ", ch->lang));
-			strcat(buf2, GETMSG("many things ", ch->lang));
-		}
-		else {
-			strcat(buf, GETMSG("a lot of objects ", ch->lang));
-			strcat(buf2, GETMSG("a lot of objects ", ch->lang));
-		}
-		strcat(buf, GETMSG("on it, ", ch->lang));
-		strcat(buf2, GETMSG("on it, ", ch->lang));
+			break;
 
-		switch (ch->in_room->sector_type) {
-		case SECT_FIELD:
-		case SECT_FOREST:
-			strcat(buf, GETMSG("scatter on the dirt.", ch->lang));
-			strcat(buf2, GETMSG("scatter on the dirt.", ch->lang));
+		default: 
+			if (iScatter < 5)
+				qty = "few things";
+			else if (iScatter < 9)
+				qty = "a bunch of objects";
+			else if (iScatter < 15)
+				qty = "many things";
+			else
+				qty = "a lot of objects";
+
+			switch (ch->in_room->sector_type) {
+			case SECT_FIELD:
+			case SECT_FOREST:
+				where = "on the dirt";
+				break;
+
+			case SECT_WATER_SWIM:
+			case SECT_WATER_NOSWIM:
+				where = "over the water";
+				break;
+
+			default:
+				where = "around";
+				break;
+			}
+			act_puts("As you sacrifice the corpse, $t on it "
+				 "scatter $T.",
+				 ch, qty, where, TO_CHAR | ACT_TRANS, POS_DEAD);
+			act("As $n sacrifices the corpse, $t on it scatter $T.",
+			    ch, qty, where, TO_ROOM | ACT_TRANS);
 			break;
-		case SECT_WATER_SWIM:
-			strcat(buf, GETMSG("scatter over the water.", ch->lang));
-			strcat(buf2, GETMSG("scatter over the water.", ch->lang));
-			break;
-		case SECT_WATER_NOSWIM:
-			strcat(buf, GETMSG("scatter over the water.", ch->lang));
-			strcat(buf2, GETMSG("scatter over the water.", ch->lang));
-			break;
-		default:
-			strcat(buf, GETMSG("scatter around.", ch->lang));
-			strcat(buf2, GETMSG("scatter around.", ch->lang));
-			break;
-		}
-		if (fScatter) {
-			act_puts(buf, ch, NULL, NULL, TO_CHAR, POS_DEAD);
-			act(buf2, ch, NULL, NULL, TO_ROOM);
 		}
 	}
 	extract_obj(obj);
@@ -1902,7 +1894,7 @@ void do_quaff(CHAR_DATA * ch, const char *argument)
 {
 	char            arg[MAX_INPUT_LENGTH];
 	OBJ_DATA       *obj;
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	
 	if (HAS_SKILL(ch, gsn_spellbane)) {
 		char_puts("You are Battle Rager, not filthy magician!\n",ch);
@@ -1945,8 +1937,8 @@ void do_recite(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	argument = one_argument(argument, arg1);
-	argument = one_argument(argument, arg2);
+	argument = one_argument(argument, arg1, sizeof(arg1));
+	argument = one_argument(argument, arg2, sizeof(arg2));
 
 	if ((scroll = get_obj_carry(ch, arg1)) == NULL) {
 		char_puts("You do not have that scroll.\n", ch);
@@ -2100,7 +2092,7 @@ void do_zap(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0' && ch->fighting == NULL) {
 		char_puts("Zap whom or what?\n", ch);
 		return;
@@ -2174,8 +2166,8 @@ void do_steal(CHAR_DATA * ch, const char *argument)
 	int             percent;
 	int		sn;
 	
-	argument = one_argument(argument, arg1);
-	argument = one_argument(argument, arg2);
+	argument = one_argument(argument, arg1, sizeof(arg1));
+	argument = one_argument(argument, arg2, sizeof(arg2));
 
 	if (arg1[0] == '\0' || arg2[0] == '\0') {
 		char_puts("Steal what from whom?\n", ch);
@@ -2421,7 +2413,7 @@ OBJ_DATA * get_obj_keeper(CHAR_DATA * ch, CHAR_DATA * keeper, const char *argume
 	OBJ_DATA       *obj;
 	int             number;
 	int             count;
-	number = number_argument(argument, arg);
+	number = number_argument(argument, arg, sizeof(arg));
 	count = 0;
 	for (obj = keeper->carrying; obj != NULL; obj = obj->next_content) {
 		if (obj->wear_loc == WEAR_NONE
@@ -2503,7 +2495,7 @@ void do_buy_pet(CHAR_DATA * ch, const char *argument)
 	if (IS_NPC(ch))
 		return;
 
-	argument = one_argument(argument, arg);
+	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		char_puts("Buy what?\n", ch);
 		return;
@@ -2579,7 +2571,7 @@ void do_buy_pet(CHAR_DATA * ch, const char *argument)
 	SET_BIT(pet->affected_by, AFF_CHARM);
 	pet->comm = COMM_NOTELL | COMM_NOSHOUT | COMM_NOCHANNELS;
 
-	argument = one_argument(argument, arg);
+	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] != '\0')
 		pet->name = str_printf(pet->pIndexData->name, arg);
 	pet->description = mlstr_printf(pet->pIndexData->description, ch->name);
@@ -2608,7 +2600,7 @@ void do_buy(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	number = mult_argument(argument, arg);
+	number = mult_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0' || number == 0) {
 		char_puts("Buy what?\n", ch);
 		return;
@@ -2749,7 +2741,7 @@ void do_list(CHAR_DATA * ch, const char *argument)
 		char            arg[MAX_INPUT_LENGTH];
 		if ((keeper = find_keeper(ch)) == NULL)
 			return;
-		one_argument(argument, arg);
+		one_argument(argument, arg, sizeof(arg));
 
 		found = FALSE;
 		for (obj = keeper->carrying; obj; obj = obj->next_content) {
@@ -2797,7 +2789,7 @@ void do_sell(CHAR_DATA * ch, const char *argument)
 	int		cost, roll;
 	uint		gold, silver;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
 		char_puts("Sell what?\n", ch);
@@ -2882,7 +2874,7 @@ void do_value(CHAR_DATA * ch, const char *argument)
 	OBJ_DATA       *obj;
 	int             cost;
 	int		silver;
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
 		char_puts("Value what?\n", ch);
@@ -2930,7 +2922,7 @@ void do_herbs(CHAR_DATA * ch, const char *argument)
 	||  (sn = sn_lookup("herbs")) < 0)
 		return;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	if (is_affected(ch, sn)) {
 		char_puts("You can't find any more herbs.\n", ch);
@@ -3233,7 +3225,7 @@ void do_lore(CHAR_DATA *ch, const char *argument)
 	BUFFER *	output;
 	OBJ_DATA *	obj;
 
-	argument = one_argument(argument, arg);
+	argument = one_argument(argument, arg, sizeof(arg));
 	if ((obj = get_obj_carry(ch, arg)) == NULL) {
 		char_puts("You do not have that object.\n", ch);
 		return;
@@ -3254,7 +3246,7 @@ void do_butcher(CHAR_DATA * ch, const char *argument)
 	int		sn;
 	int		chance;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		char_puts("Butcher what?\n", ch);
 		return;
@@ -3373,7 +3365,7 @@ void do_withdraw(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	argument = one_argument(argument, arg);
+	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		char_puts("Withdraw how much?\n", ch);
 		return;
@@ -3438,7 +3430,7 @@ void do_deposit(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	argument = one_argument(argument, arg);
+	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		char_puts("Deposit how much?\n", ch);
 		return;
@@ -3611,46 +3603,47 @@ void do_enchant(CHAR_DATA * ch, const char *argument)
 
 void do_label(CHAR_DATA* ch, const char *argument)
 {
-	OBJ_DATA *	obj;
+	OBJ_DATA *obj;
+	const char *p;
 	char obj_name[MAX_INPUT_LENGTH];
 	char label[MAX_INPUT_LENGTH];
-	char buff[MAX_INPUT_LENGTH];
 	
-	if (IS_NPC(ch)) return;
+	if (IS_NPC(ch))
+		return;
 
-	argument = first_arg(argument, obj_name, FALSE);
-	first_arg(argument, label, FALSE);
+	argument = one_argument(argument, obj_name, sizeof(obj_name));
+	first_arg(argument, label, sizeof(label), FALSE);
 	
 	if (!obj_name[0]) {
 		char_puts("Label what?\n",ch);
 		return;
 	}
+
 	if (!label[0]) {
 		char_puts("How do you want to label it?\n",ch);
 		return;
 	}
-	if ((obj=get_obj_carry(ch,obj_name)) == NULL) {
+
+	if ((obj = get_obj_carry(ch, obj_name)) == NULL) {
 		char_puts("You don't have that object.\n", ch);
 		return;
 	}
 	
 	if (ch->pcdata->questpoints < 10) {
-		char_puts("You do not have enough questpoints for labeling", ch);
+		char_puts("You do not have enough questpoints for labeling.\n",
+			  ch);
 		return;
 	}
 
-	if ((strlen(obj->name)+strlen(label)+1) >=MAX_INPUT_LENGTH) {
-		char_puts("You can't label this object with this label\n",ch);
+	if ((strlen(obj->name) + strlen(label) + 2) >= MAX_STRING_LENGTH) {
+		char_puts("You can't label this object with this label.\n", ch);
 		return;
 	}
-	buff[0] = '\0';
-	strcat(buff, obj->name);
-	strcat(buff, " ");
-	strcat(buff, label);
-	free_string(obj_name);
-	obj->name = strdup(buff);
+
+	p = obj->name;
+	obj->name = str_printf("%s %s", obj->name, label);
+	free_string(p);
 	
 	ch->pcdata->questpoints -= 10;
 	char_puts("Ok.\n",ch);
-	return;
 }

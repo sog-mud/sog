@@ -1,5 +1,5 @@
 /*
- * $Id: auction_impl.c,v 1.24 1999-02-16 16:41:33 fjoe Exp $
+ * $Id: auction_impl.c,v 1.25 1999-02-17 07:53:19 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -268,7 +268,7 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 	char arg1[MAX_INPUT_LENGTH];
 	char starting[MAX_INPUT_LENGTH];
 
-	argument = one_argument(argument, arg1);
+	argument = one_argument(argument, arg1, sizeof(arg1));
 
 	if (IS_NPC(ch))    /* NPC can't auction cos the can be extracted ! */
 		return;
@@ -422,7 +422,7 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	argument = one_argument(argument, starting);
+	argument = one_argument(argument, starting, sizeof(starting));
 	if (starting[0] == '\0')
 		auction.starting = MIN_START_PRICE;
 	else if ((auction.starting = atoi(starting)) < MIN_START_PRICE) {

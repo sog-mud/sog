@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.c,v 1.32 1999-02-15 12:51:03 fjoe Exp $
+ * $Id: clan.c,v 1.33 1999-02-17 07:53:19 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -123,7 +123,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 	if (IS_NPC(ch))
 		return;	
 
-	argument = one_argument(argument, arg1);
+	argument = one_argument(argument, arg1, sizeof(arg1));
 
 	if (IS_NULLSTR(arg1)) {
 		if (IS_IMMORTAL(ch)
@@ -145,7 +145,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 			do_petition(ch, str_empty);
 			return;
 		}
-		argument = one_argument(argument, arg1);
+		argument = one_argument(argument, arg1, sizeof(arg1));
 		if (IS_NULLSTR(arg1)) {
 			do_petition(ch, str_empty);
 			return;
@@ -167,7 +167,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 			cn = ch->clan;
 		}
 
-		argument = one_argument(argument, arg2);
+		argument = one_argument(argument, arg2, sizeof(arg2));
 		if (IS_NULLSTR(arg2)) {
 			do_petition(ch, str_empty);
 			return;
@@ -326,8 +326,8 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	argument = one_argument(argument, arg1);
-	argument = one_argument(argument, arg2);
+	argument = one_argument(argument, arg1, sizeof(arg1));
+	argument = one_argument(argument, arg2, sizeof(arg2));
 
 	if (!*arg1 || !*arg2) {
 		char_puts("Usage: promote <char name> <commoner | secondary>\n",
@@ -428,16 +428,20 @@ void show_clanlist(CHAR_DATA *ch, CLAN_DATA *clan,
 {
 	BUFFER *output;
 	char name[MAX_STRING_LENGTH];
+	bool found = FALSE;
 
 	output = buf_new(-1);
 	buf_printf(output, "List of %s of %s:\n", name_list, clan->name);
-	list = first_arg(list, name, FALSE);
-	if (name[0]) {
-		for (; name[0]; list = first_arg(list, name, FALSE))
-			buf_printf(output, "- %s\n", name);
+
+	list = first_arg(list, name, sizeof(name), FALSE);
+	for (; name[0]; list = first_arg(list, name, sizeof(name), FALSE)) {
+		found = TRUE;
+		buf_printf(output, "- %s\n", name);
 	}
-	else
+
+	if (!found)
 		buf_add(output, "None.\n");
+
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
 }
@@ -448,8 +452,8 @@ void do_clanlist(CHAR_DATA *ch, const char *argument)
 	char arg2[MAX_INPUT_LENGTH];
 	CLAN_DATA *clan = NULL;
 
-	argument = one_argument(argument, arg1);
-		   one_argument(argument, arg2);
+	argument = one_argument(argument, arg1, sizeof(arg1));
+		   one_argument(argument, arg2, sizeof(arg2));
 
 	if (IS_IMMORTAL(ch) && arg2[0]) {
 		int cn;
@@ -492,7 +496,7 @@ void do_item(CHAR_DATA* ch, const char* argument)
 	int cn;
 	char arg[MAX_STRING_LENGTH];
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	if (IS_IMMORTAL(ch) && arg[0]) {
 		if ((cn = cn_lookup(arg)) < 0) {
 			char_printf(ch, "%s: no such clan.\n", arg);

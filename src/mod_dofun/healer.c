@@ -1,5 +1,5 @@
 /*
- * $Id: healer.c,v 1.18 1999-02-08 16:33:59 fjoe Exp $
+ * $Id: healer.c,v 1.19 1999-02-17 07:53:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -74,7 +74,7 @@ void do_heal(CHAR_DATA *ch, const char *argument)
 	return;
     }
 
-    one_argument(argument,arg);
+    one_argument(argument, arg, sizeof(arg));
 
     if (arg[0] == '\0') {
         /* display price list */

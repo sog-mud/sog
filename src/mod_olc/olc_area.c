@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.34 1999-02-15 18:19:44 fjoe Exp $
+ * $Id: olc_area.c,v 1.35 1999-02-17 07:53:29 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -124,7 +124,7 @@ OLC_FUN(areaed_edit)
 	AREA_DATA *pArea;
 	char arg[MAX_STRING_LENGTH];
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0')
 		pArea = ch->in_room->area;
 	else if (!is_number(arg) || (pArea = area_lookup(atoi(arg))) == NULL) {
@@ -154,7 +154,7 @@ OLC_FUN(areaed_show)
 	AREA_DATA *pArea;
 	char arg[MAX_STRING_LENGTH];
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		if (ch->desc->editor == ED_AREA)
 			EDIT_AREA(ch, pArea);
@@ -191,7 +191,7 @@ OLC_FUN(areaed_list)
 	AREA_DATA *pArea;
 	BUFFER *output = NULL;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	for (pArea = area_first; pArea; pArea = pArea->next) {
 		if (arg[0] != '\0' && !strstr(strlwr(pArea->name), arg))
@@ -298,7 +298,7 @@ OLC_FUN(areaed_builders)
 
 	EDIT_AREA(ch, pArea);
 
-	one_argument(argument, name);
+	one_argument(argument, name, sizeof(name));
 	if (name[0] == '\0') {
 		do_help(ch, "'OLC AREA BUILDER'");
 		return FALSE;

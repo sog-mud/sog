@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.40 1999-02-15 18:19:41 fjoe Exp $
+ * $Id: mob_prog.c,v 1.41 1999-02-17 07:53:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -396,7 +396,7 @@ int cmd_eval(int vnum, const char *line, int check,
     int lval = 0, oper = 0, rval = -1;
 
     original = line;
-    line = one_argument(line, buf);
+    line = one_argument(line, buf, sizeof(buf));
     if (buf[0] == '\0' || mob == NULL)
 	return FALSE;
 
@@ -457,7 +457,7 @@ int cmd_eval(int vnum, const char *line, int check,
 		vnum, original);
 	    return FALSE;
 	}
-	one_argument(line, buf);
+	one_argument(line, buf, sizeof(buf));
 	lval = rval;
 	rval = atoi(buf);
 	return(num_eval(lval, oper, rval));
@@ -558,7 +558,7 @@ int cmd_eval(int vnum, const char *line, int check,
      /* 
       * Case 4: Keyword, actor and value
       */
-     line = one_argument(line, buf);
+     line = one_argument(line, buf, sizeof(buf));
      switch(check)
      {
 	case CHK_AFFECTED:
@@ -622,7 +622,7 @@ int cmd_eval(int vnum, const char *line, int check,
 		vnum, original);
 	return FALSE;
     }
-    one_argument(line, buf);
+    one_argument(line, buf, sizeof(buf));
     rval = atoi(buf);
 
     switch(check)
@@ -736,7 +736,7 @@ void expand_arg(char *buf,
             default:  bug("Expand_arg: bad code %d.", *str);
                           i = " <@@@> ";                        break;
             case 'i':
-		one_argument(mob->name, fname);
+		one_argument(mob->name, fname, sizeof(fname));
 		i = fname;                         		break;
 	    /* XXX */
             case 'I': i = mlstr_mval(mob->short_descr);         break;
@@ -744,7 +744,7 @@ void expand_arg(char *buf,
 		i = someone;
 		if (ch != NULL && can_see(mob, ch))
 		{
-            	    one_argument(ch->name, fname);
+            	    one_argument(ch->name, fname, sizeof(fname));
 		    i = capitalize(fname);
 		}						break;
             case 'N': 
@@ -756,7 +756,7 @@ void expand_arg(char *buf,
 		i = someone;
 		if (vch != NULL && can_see(mob, vch))
 		{
-            	     one_argument(vch->name, fname);
+            	     one_argument(vch->name, fname, sizeof(fname));
 		     i = capitalize(fname);
 		}						break;
             case 'T': 
@@ -770,7 +770,7 @@ void expand_arg(char *buf,
 		i = someone;
 		if(rch != NULL && can_see(mob, rch))
 		{
-                    one_argument(rch->name, fname);
+                    one_argument(rch->name, fname, sizeof(fname));
 		    i = capitalize(fname);
 		} 						break;
             case 'R': 
@@ -784,7 +784,7 @@ void expand_arg(char *buf,
 		i = someone;
 		if (mob->mprog_target != NULL && can_see(mob, mob->mprog_target))
 	        {
-		    one_argument(mob->mprog_target->name, fname);
+		    one_argument(mob->mprog_target->name, fname, sizeof(fname));
 		    i = capitalize(fname);
 		} 						break;
 	    case 'Q':
@@ -853,7 +853,7 @@ void expand_arg(char *buf,
 		i = something;
 		if (obj1 != NULL && can_see_obj(mob, obj1))
 		{
-            	    one_argument(obj1->name, fname);
+            	    one_argument(obj1->name, fname, sizeof(fname));
                     i = fname;
 		} 						break;
             case 'O':
@@ -864,7 +864,7 @@ void expand_arg(char *buf,
 		i = something;
 		if (obj2 != NULL && can_see_obj(mob, obj2))
 		{
-            	    one_argument(obj2->name, fname);
+            	    one_argument(obj2->name, fname, sizeof(fname));
             	    i = fname;
 		} 						break;
             case 'P':
@@ -998,7 +998,7 @@ void program_flow(int pvnum, CHAR_DATA *mob, CHAR_DATA *ch,
 		cond[level] = FALSE;
 		continue;
 	    }
-	    line = one_argument(line, control);
+	    line = one_argument(line, control, sizeof(control));
 	    if ((check = keyword_lookup(fn_keyword, control)) >= 0)
 	    {
 		cond[level] = cmd_eval(pvnum, line, check, mob, ch, arg1, arg2, rch);
@@ -1020,7 +1020,7 @@ void program_flow(int pvnum, CHAR_DATA *mob, CHAR_DATA *ch,
 		goto bail_out;
 	    }
 	    if (level && cond[level-1] == FALSE) continue;
-	    line = one_argument(line, control);
+	    line = one_argument(line, control, sizeof(control));
 	    if ((check = keyword_lookup(fn_keyword, control)) >= 0)
 	    {
 		eval = cmd_eval(pvnum, line, check, mob, ch, arg1, arg2, rch);
@@ -1042,7 +1042,7 @@ void program_flow(int pvnum, CHAR_DATA *mob, CHAR_DATA *ch,
 		goto bail_out;
 	    }
 	    if (level && cond[level-1] == FALSE) continue;
-	    line = one_argument(line, control);
+	    line = one_argument(line, control, sizeof(control));
 	    if ((check = keyword_lookup(fn_keyword, control)) >= 0)
 	    {
 		eval = cmd_eval(pvnum, line, check, mob, ch, arg1, arg2, rch);
@@ -1091,7 +1091,7 @@ void program_flow(int pvnum, CHAR_DATA *mob, CHAR_DATA *ch,
 		/* 
 		 * Found a mob restricted command, pass it to mob interpreter
 		 */
-		line = one_argument(data, control);
+		line = one_argument(data, control, sizeof(control));
 		mob_interpret(mob, line);
 	    }
 	    else
@@ -1254,7 +1254,7 @@ void mp_give_trigger(CHAR_DATA *mob, CHAR_DATA *ch, OBJ_DATA *obj)
 	    {
 	    	while(*p)
 	    	{
-		    p = one_argument(p, buf);
+		    p = one_argument(p, buf, sizeof(buf));
 
 		    if (is_name(buf, obj->name)
 		    ||   !str_cmp("all", buf))

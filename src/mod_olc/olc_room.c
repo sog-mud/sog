@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.35 1999-02-16 16:42:02 fjoe Exp $
+ * $Id: olc_room.c,v 1.36 1999-02-17 07:53:30 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -113,7 +113,7 @@ OLC_FUN(roomed_create)
 	int iHash;
 	char arg[MAX_STRING_LENGTH];
 	
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	value = atoi(arg);
 	if (!value) {
 		do_help(ch, "'OLC CREATE'");
@@ -159,7 +159,7 @@ OLC_FUN(roomed_edit)
 	char arg[MAX_STRING_LENGTH];
 	ROOM_INDEX_DATA *pRoom;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0')
 		pRoom = ch->in_room;
 	else if (!is_number(arg)) {
@@ -194,7 +194,7 @@ OLC_FUN(roomed_show)
 	bool		fcnt;
 	CLAN_DATA	*clan;
 	
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		if (ch->desc->editor == ED_ROOM)
 			EDIT_ROOM(ch, pRoom);
@@ -247,8 +247,8 @@ OLC_FUN(roomed_show)
 
 	buf_add(output, "Characters: [");
 	fcnt = FALSE;
-	for (rch = pRoom->people; rch != NULL; rch = rch->next_in_room) {
-		one_argument(rch->name, buf);
+	for (rch = pRoom->people; rch; rch = rch->next_in_room) {
+		one_argument(rch->name, buf, sizeof(buf));
 		buf_add(output, buf);
 		if (rch->next_in_room != NULL)
 			buf_add(output, " ");
@@ -262,8 +262,8 @@ OLC_FUN(roomed_show)
 
 	buf_add(output, "Objects:    [");
 	fcnt = FALSE;
-	for (obj = pRoom->contents; obj != NULL; obj = obj->next_content) {
-		one_argument(obj->name, buf);
+	for (obj = pRoom->contents; obj; obj = obj->next_content) {
+		one_argument(obj->name, buf, sizeof(buf));
 		buf_add(output, buf);
 		if (obj->next_content != NULL)
 			buf_add(output, " ");
@@ -300,7 +300,7 @@ OLC_FUN(roomed_show)
 			state = flag_string(exit_flags, pexit->exit_info);
 			buf_add(output, " Exit flags: [");
 			for (; ;) {
-				state = one_argument(state, word);
+				state = one_argument(state, word, sizeof(word));
 
 				if (word[0] == '\0') {
 					buf_add(output, "]\n");
@@ -452,8 +452,8 @@ OLC_FUN(roomed_mreset)
 
 	EDIT_ROOM(ch, pRoom);
 
-	argument = one_argument(argument, arg);
-	argument = one_argument(argument, arg2);
+	argument = one_argument(argument, arg, sizeof(arg));
+	argument = one_argument(argument, arg2, sizeof(arg2));
 
 	if (arg[0] == '\0' || !is_number(arg)) {
 		char_puts ("Syntax:  mreset <vnum> <max #x> <min #x>\n", ch);
@@ -583,8 +583,8 @@ OLC_FUN(roomed_oreset)
 
 	EDIT_ROOM(ch, pRoom);
 
-	argument = one_argument(argument, arg1);
-	argument = one_argument(argument, arg2);
+	argument = one_argument(argument, arg1, sizeof(arg1));
+	argument = one_argument(argument, arg2, sizeof(arg2));
 
 	if (arg1[0] == '\0' || !is_number(arg1)) {
 		char_puts ("Syntax:  oreset <vnum> <args>\n", ch);
@@ -859,8 +859,8 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 	/*
 	 * Now parse the arguments.
 	 */
-	argument = one_argument(argument, command);
-	argument = one_argument(argument, arg);
+	argument = one_argument(argument, command, sizeof(command));
+	argument = one_argument(argument, arg, sizeof(arg));
 
 	if (command[0] == '\0' && argument[0] == '\0') { /* Move command. */
 		move_char(ch, door, TRUE);                    /* ROM OLC */
@@ -1256,13 +1256,13 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 	ROOM_INDEX_DATA *pRoom = ch->in_room;
 
 
-    argument = one_argument(argument, arg1);
-    argument = one_argument(argument, arg2);
-    argument = one_argument(argument, arg3);
-    argument = one_argument(argument, arg4);
-    argument = one_argument(argument, arg5);
-    argument = one_argument(argument, arg6);
-    argument = one_argument(argument, arg7);
+    argument = one_argument(argument, arg1, sizeof(arg1));
+    argument = one_argument(argument, arg2, sizeof(arg2));
+    argument = one_argument(argument, arg3, sizeof(arg3));
+    argument = one_argument(argument, arg4, sizeof(arg4));
+    argument = one_argument(argument, arg5, sizeof(arg5));
+    argument = one_argument(argument, arg6, sizeof(arg6));
+    argument = one_argument(argument, arg7, sizeof(arg7));
 
     if (!IS_BUILDER(ch, pRoom->area))
     {

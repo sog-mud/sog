@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.c,v 1.26 1999-02-16 16:41:36 fjoe Exp $
+ * $Id: string_edit.c,v 1.27 1999-02-17 07:53:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -95,10 +95,10 @@ void string_add(CHAR_DATA *ch, const char *argument)
         char arg3 [MAX_INPUT_LENGTH];
         char tmparg3 [MAX_INPUT_LENGTH];
 
-        argument = one_argument(argument, arg1);
-        argument = first_arg(argument, arg2, FALSE);
+        argument = one_argument(argument, arg1, sizeof(arg1));
+        argument = first_arg(argument, arg2, sizeof(arg2), FALSE);
 	strnzcpy(tmparg3, argument, sizeof(tmparg3));
-        argument = first_arg(argument, arg3, FALSE);
+        argument = first_arg(argument, arg3, sizeof(arg3), FALSE);
 
         if (!str_cmp(arg1+1, "c"))
         {

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.118 1999-02-16 16:41:34 fjoe Exp $
+ * $Id: spellfun.c,v 1.119 1999-02-17 07:53:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -162,7 +162,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	target_name = one_argument(argument, arg1);
+	target_name = one_argument(argument, arg1, sizeof(arg1));
 	if (arg1[0] == '\0') {
 		char_puts("Cast which what where?\n", ch);
 		return;
@@ -170,7 +170,8 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 
 	if (IS_NPC(ch)) {
 		if (!str_cmp(arg1, "nowait")) {
-			target_name = one_argument(target_name, arg1);
+			target_name = one_argument(target_name,
+						   arg1, sizeof(arg1));
 			if (ch->wait)
 				ch->wait = 0;
 		}
@@ -4319,7 +4320,7 @@ void spell_ventriloquate(int sn, int level, CHAR_DATA *ch,void *vo, int target)
 	char speaker[MAX_INPUT_LENGTH];
 	CHAR_DATA *vch;
 
-	target_name = one_argument(target_name, speaker);
+	target_name = one_argument(target_name, speaker, sizeof(speaker));
 
 	for (vch = ch->in_room->people; vch; vch = vch->next_in_room) {
 		if (is_name(speaker, vch->name))

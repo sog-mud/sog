@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.78 1999-02-16 16:41:35 fjoe Exp $
+ * $Id: spellfun2.c,v 1.79 1999-02-17 07:53:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -75,7 +75,7 @@ ROOM_INDEX_DATA * check_place(CHAR_DATA *ch, const char *argument)
  int range = (ch->level / 10) + 1;
  char arg[MAX_INPUT_LENGTH];
 
- number = number_argument(argument,arg);
+ number = number_argument(argument, arg, sizeof(arg));
  if ((door = check_exit(arg)) == -1) return NULL;
 
  dest_room = ch->in_room;
@@ -1903,7 +1903,7 @@ void spell_dragonsword(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	char arg[MAX_INPUT_LENGTH];
 	AFFECT_DATA af;
 	
-	target_name = one_argument(target_name, arg);
+	target_name = one_argument(target_name, arg, sizeof(arg));
 	sword_vnum = 0;
 
 	if (!str_cmp(arg, "sword"))
@@ -3006,7 +3006,7 @@ void spell_lion_help(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	char arg[MAX_INPUT_LENGTH];
 	int i;
 	
-	target_name = one_argument(target_name, arg);
+	target_name = one_argument(target_name, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		char_puts("Whom do you want to have killed.\n",ch);
 		return;
@@ -3352,7 +3352,7 @@ void spell_fire_shield (int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	OBJ_DATA *fire;
 	int i;
 
-	target_name = one_argument(target_name, arg);
+	target_name = one_argument(target_name, arg, sizeof(arg));
 	if (!(!str_cmp(arg,"cold") || !str_cmp(arg,"fire"))) {
 		char_puts("You must specify the type.\n",ch);
 		return;
@@ -3427,7 +3427,7 @@ void spell_knock (int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	    2, 3, 0, 1, 5, 4
 	};
 
-	target_name = one_argument(target_name,arg);
+	target_name = one_argument(target_name, arg, sizeof(arg));
  
 	if (arg[0] == '\0')
 	{

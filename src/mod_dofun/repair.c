@@ -1,5 +1,5 @@
 /*
- * $Id: repair.c,v 1.17 1999-02-16 16:41:36 fjoe Exp $
+ * $Id: repair.c,v 1.18 1999-02-17 07:53:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -104,7 +104,7 @@ void do_repair(CHAR_DATA *ch, const char *argument)
 	    return;
 	}
 
-	one_argument(argument,arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
 	do_say(mob,"I will repair a weapon for you, for a price.");
@@ -173,7 +173,7 @@ void do_estimate(CHAR_DATA *ch, const char *argument)
 	    return;
 	}
 	
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	
 	if (arg[0] == '\0')
 	{
@@ -231,8 +231,8 @@ void do_restring(CHAR_DATA *ch, const char *argument)
 	/* XXX */
 	}
 
-	argument = one_argument(argument, arg);
-	argument = one_argument(argument, arg1);
+	argument = one_argument(argument, arg, sizeof(arg));
+	argument = one_argument(argument, arg1, sizeof(arg1));
 
 	if (arg[0] == '\0' || arg1[0] == '\0' || argument[0] == '\0')
 	{
@@ -309,7 +309,7 @@ void do_smithing(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		char_puts("Which object do you want to repair.\n",ch);
 		return;

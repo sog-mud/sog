@@ -1,5 +1,5 @@
 /*
- * $Id: olc_mpcode.c,v 1.23 1999-02-10 15:58:51 fjoe Exp $
+ * $Id: olc_mpcode.c,v 1.24 1999-02-17 07:53:29 fjoe Exp $
  */
 
 /* The following code is based on ILAB OLC by Jason Dinkel */
@@ -49,7 +49,7 @@ OLC_FUN(mped_create)
 	AREA_DATA *pArea;
 	char arg[MAX_STRING_LENGTH];
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	value = atoi(arg);
 	if (!value) {
 		do_help(ch, "'OLC CREATE'");
@@ -90,7 +90,7 @@ OLC_FUN(mped_edit)
 	int value;
 	char arg[MAX_INPUT_LENGTH];
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		do_help(ch, "'OLC EDIT'");
 		return FALSE;
@@ -126,7 +126,7 @@ OLC_FUN(mped_show)
 	MPCODE *mpcode;
 	char arg[MAX_INPUT_LENGTH];
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		if (ch->desc->editor == ED_MPCODE)
 			EDIT_MPCODE(ch, mpcode);

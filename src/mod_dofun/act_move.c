@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.140 1999-02-16 20:25:49 fjoe Exp $
+ * $Id: act_move.c,v 1.141 1999-02-17 07:53:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -555,7 +555,7 @@ void do_open(CHAR_DATA *ch, const char *argument)
 	OBJ_DATA *obj;
 	int door;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
 		char_puts("Open what?\n", ch);
@@ -646,7 +646,7 @@ void do_close(CHAR_DATA *ch, const char *argument)
 	OBJ_DATA *obj;
 	int door;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
 		char_puts("Close what?\n", ch);
@@ -754,7 +754,7 @@ void do_lock(CHAR_DATA *ch, const char *argument)
 	OBJ_DATA *obj;
 	int door;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
 		char_puts("Lock what?\n", ch);
@@ -859,7 +859,7 @@ void do_unlock(CHAR_DATA *ch, const char *argument)
 	OBJ_DATA *obj;
 	int door;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
 		char_puts("Unlock what?\n", ch);
@@ -972,7 +972,7 @@ void do_pick(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
 		char_puts("Pick what?\n", ch);
@@ -1549,7 +1549,7 @@ void do_wake(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0')
 		{ do_stand(ch, argument); return; }
 
@@ -2025,7 +2025,7 @@ void do_vbite(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *victim;
 	int chance;
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	if ((chance = get_skill(ch, gsn_vampiric_bite)) == 0) {
 		char_puts("You don't know how to bite creatures.\n", ch);
@@ -2110,7 +2110,7 @@ void do_bash_door(CHAR_DATA *ch, const char *argument)
 	EXIT_DATA *pexit;
 	EXIT_DATA *pexit_rev;
 
-	one_argument(argument,arg);
+	one_argument(argument, arg, sizeof(arg));
  
 	if ((chance = get_skill(ch, gsn_bash_door)) == 0) {
 		char_puts("Bashing? What's that?\n", ch);
@@ -2242,7 +2242,7 @@ void do_blink(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	argument = one_argument(argument, arg);
+	argument = one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
 		char_printf(ch, "Your current blink status: %s.\n",
@@ -2429,7 +2429,7 @@ void do_fly(CHAR_DATA *ch, const char *argument)
 	if (IS_NPC(ch))
 		return;
 
-	argument = one_argument(argument,arg);
+	argument = one_argument(argument, arg, sizeof(arg));
 
 	if (!str_cmp(arg,"up")) {
 		RACE_DATA *r;
@@ -2484,8 +2484,8 @@ void do_push(CHAR_DATA *ch, const char *argument)
 	int door;
 	int sn;
 
-	argument = one_argument(argument, arg1);
-	argument = one_argument(argument, arg2);
+	argument = one_argument(argument, arg1, sizeof(arg1));
+	argument = one_argument(argument, arg2, sizeof(arg2));
 
 	if (arg1[0] == '\0' || arg2[0] == '\0') {
 		char_puts("Push whom to what direction?\n", ch);
@@ -2690,7 +2690,7 @@ void do_escape(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	argument = one_argument(argument, arg);
+	argument = one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
 		char_puts("Escape to what direction?\n", ch);
@@ -2723,10 +2723,10 @@ void do_escape(CHAR_DATA *ch, const char *argument)
 	if ((pexit = was_in->exit[door]) == 0
 	||  pexit->u1.to_room == NULL
 	||  (IS_SET(pexit->exit_info, EX_CLOSED) &&
-	    (!IS_AFFECTED(ch, AFF_PASS_DOOR) 
-	||  IS_SET(pexit->exit_info, EX_NOPASS)) &&
-	    !IS_TRUSTED(ch, ANGEL))
-	||  (IS_SET(pexit->exit_info, EX_NOFLEE))
+	     (!IS_AFFECTED(ch, AFF_PASS_DOOR) ||
+	      IS_SET(pexit->exit_info, EX_NOPASS)) &&
+	     !IS_TRUSTED(ch, ANGEL))
+	||  IS_SET(pexit->exit_info, EX_NOFLEE)
 	||  (IS_NPC(ch) &&
 	     IS_SET(pexit->u1.to_room->room_flags, ROOM_NOMOB))) {
 		char_puts("Something prevents you to escape that direction.\n", ch); 
@@ -2893,7 +2893,7 @@ void do_mount(CHAR_DATA *ch, const char *argument)
 	char 		arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *	mount;
 
-	argument = one_argument(argument, arg);
+	argument = one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
 		if (ch->mount && ch->mount->in_room == ch->in_room)
@@ -3170,8 +3170,8 @@ DO_FUN(do_shoot)
 		return;
 	}
 
-	argument = one_argument(argument, arg1);
-	one_argument(argument, arg2);
+	argument = one_argument(argument, arg1, sizeof(arg1));
+	one_argument(argument, arg2, sizeof(arg2));
 
 	if (arg1[0] == '\0' || arg2[0] == '\0') {
 		char_puts("Shoot what direction and whom?\n", ch);
@@ -3329,8 +3329,8 @@ void do_throw_spear(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	argument = one_argument(argument, arg1);
-	one_argument(argument, arg2);
+	argument = one_argument(argument, arg1, sizeof(arg1));
+	one_argument(argument, arg2, sizeof(arg2));
 
   	if (arg1[0] == '\0' || arg2[0] == '\0') {
 		char_puts("Throw spear what direction and whom?\n", ch);
@@ -3661,7 +3661,7 @@ void do_thumbling(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	one_argument(argument, arg);
+	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
 		if (is_affected(ch, gsn_thumbling)) {

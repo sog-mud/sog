@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.96 1999-02-15 22:48:26 fjoe Exp $
+ * $Id: quest.c,v 1.97 1999-02-17 07:53:26 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -158,8 +158,8 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	QCMD_DATA *qcmd;
 
-	argument = one_argument(argument, cmd);
-	argument = one_argument(argument, arg);
+	argument = one_argument(argument, cmd, sizeof(cmd));
+	argument = one_argument(argument, arg, sizeof(arg));
 
 	if (IS_NPC(ch)) 
 		return;
