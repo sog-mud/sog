@@ -1,4 +1,6 @@
 #!/usr/bin/perl -w
+# $Id: mkdep.pl,v 1.5 2001-01-18 12:15:07 avn Exp $
+
 use strict;
 require "../mkutil.pl";
 

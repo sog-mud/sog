@@ -1,4 +1,6 @@
 #!/bin/sh
+# $Id: act_char.sh,v 1.4 2001-01-18 12:15:07 avn Exp $
+
 for i in $*; do
 	cp $i $i.old && \
 	([ -f $i.orig ] || mv $i $i.orig) && \

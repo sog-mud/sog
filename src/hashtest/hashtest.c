@@ -1,3 +1,4 @@
+/* $Id: hashtest.c,v 1.4 2001-01-18 12:15:08 avn Exp $ */
 #include <sys/time.h>
 #include <stdarg.h>
 #include <stdlib.h>

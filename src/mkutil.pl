@@ -1,3 +1,5 @@
+# $Id: mkutil.pl,v 1.4 2001-01-18 12:15:07 avn Exp $
+
 sub mod_name {
 	my $subdir = shift;
 	my $dir = shift;

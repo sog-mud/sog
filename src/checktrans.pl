@@ -1,4 +1,6 @@
 #!/usr/bin/perl -w
+# $Id: checktrans.pl,v 1.3 2001-01-18 12:15:07 avn Exp $
+
 use strict;
 
 # path to msgdb
