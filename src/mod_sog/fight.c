@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.241 1999-12-16 07:06:55 fjoe Exp $
+ * $Id: fight.c,v 1.242 1999-12-16 07:09:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2214,7 +2214,8 @@ void make_corpse(CHAR_DATA *ch)
 			obj_to_room(obj, ch->in_room);
 	}
 
-	obj_to_room(corpse, ch->in_room);
+	if (corpse)
+		obj_to_room(corpse, ch->in_room);
 }
 
 /*
