@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.50 1998-06-15 15:15:15 efdi Exp $
+# $Id: english.lang,v 1.51 1998-06-16 09:42:04 efdi Exp $
 #
 
 NOTHING		"Nothing.\n\r"
@@ -716,3 +716,20 @@ DONT_HAVE_MUCH_GOLD	"You don't have that much gold.\n\r"
 N_DROPS_SOME_COINS	"$n drops some coins."
 N_DROPS_P	"$n drops $p."
 YOU_DROP_P	"You drop $p."
+YOU_BEGIN_TO_SNEAK_AGAIN	"You begin to sneak again.\n\r"
+YOU_STEP_BACK_SHADOWS	"You step back into the shadows.\n\r"
+N_WANDERS_ON_HOME	"$n wanders on home."
+N_GOES_OUT	"$p goes out."
+N_FLICKERS_OUT	"$p flickers and goes out."
+P_FLICKERS	"$p flickers."
+N_DISAPPEARS_VOID	"$n disappears into the void."
+YOU_DISAPPEAR_VOID	"You disappear into the void.\n\r"
+WITCH_CURSE_MAKES_N   "The witch curse makes $n feel $s life slipping away.\n\r"
+WITCH_CURSE_MAKES_YOU
+	"The witch curse makes you feeling your life slipping away.\n\r" 
+N_WRITHES_PLAGUE    "$n writhes in agony as plague sores erupt from $s skin."
+YOU_WRITHE_PLAGUE	"You writhe in agony from the plague.\n\r"
+YOU_FEEL_HOT_FEVERISH	"You feel hot and feverish.\n\r"
+N_SHIVERS_ILL		"$n shivers and looks very ill."
+N_SHIVERS_SUFFERS	"$n shivers and suffers."
+YOU_SHIVER_SUFFER	"You shiver and suffer.\n\r"
