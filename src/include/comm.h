@@ -1,5 +1,5 @@
 /*
- * $Id: comm.h,v 1.24 1998-11-25 15:17:58 fjoe Exp $
+ * $Id: comm.h,v 1.25 1998-12-02 13:32:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -54,33 +54,6 @@ void	char_printf(CHAR_DATA *ch, const char *format, ...);
 
 void	send_to_char(const char *txt, CHAR_DATA *ch);
 void	page_to_char( const char *txt, CHAR_DATA *ch);
-
-/* the following 5 act target flags are exclusive */
-#define TO_ROOM		(A)
-#define TO_NOTVICT	(B)
-#define TO_VICT		(C)
-#define TO_CHAR		(D)
-#define TO_ALL		(E)
-
-#define ACT_TOBUF	(F)
-#define ACT_NOTRIG	(G)
-#define ACT_NOTWIT	(H)
-#define ACT_TRANS	(I)	/* do $t and $T translation		    */
-#define ACT_NODEAF	(J)	/* skip is_affected(to, gsn_deafen) chars   */
-#define ACT_STRANS	(K)	/* do $t and $T slang translation (from ch) */
-#define ACT_NOMORTAL	(L)	/* skip mortals */
-#define ACT_VERBOSE	(M)	/* skip if (!IS_SET(ch->comm, COMM_VERBOSE)) */
-
-#define act(format, ch, arg1, arg2, type) \
-		act_printf(ch, arg1, arg2, type, POS_RESTING, format)
-#define	act_puts(format, ch, arg1, arg2, type, min_pos) \
-		act_printf(ch, arg1, arg2, type, min_pos, format)
-void    act_printf(CHAR_DATA *ch, const void *arg1, const void *arg2,
-		   int type, int min_pos, const char* format, ...);
-#define	act_nputs(msg_num, ch, arg1, arg2, type, min_pos) \
-		act_nprintf(ch, arg1, arg2, type, min_pos, msg_num)
-void    act_nprintf(CHAR_DATA *ch, const void *arg1, const void *arg2,
-		    int type, int min_pos, int msg_num, ...);
 
 void    dump_to_scr(char *text);
 
