@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.2 1998-04-14 08:54:28 fjoe Exp $
+ * $Id: comm.c,v 1.3 1998-04-16 08:12:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2897,7 +2897,7 @@ void show_string(struct descriptor_data *d, char *input)
 	else if (!*scan || (show_lines > 0 && lines >= show_lines))
 	{
 	    *scan = '\0';
-	    write_to_buffer(d,buffer,strlen(buffer));
+		char_puts(buffer, d->character);
 	    for (chk = d->showstr_point; isspace(*chk); chk++);
 	    {
 		if (!*chk)
