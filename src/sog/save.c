@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.83 1998-11-14 09:01:12 fjoe Exp $
+ * $Id: save.c,v 1.84 1998-11-17 08:28:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -525,7 +525,7 @@ void load_char_obj(DESCRIPTOR_DATA * d, const char *name)
 	ch->prompt = str_dup(DEFAULT_PROMPT);
 
 	ch->pcdata->race = ch->race;
-	ch->pcdata->clan_status = CLAN_COMMON;
+	ch->pcdata->clan_status = CLAN_COMMONER;
 	ch->pcdata->condition[COND_THIRST] = 48;
 	ch->pcdata->condition[COND_FULL] = 48;
 	ch->pcdata->condition[COND_HUNGER] = 48;

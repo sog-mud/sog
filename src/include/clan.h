@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.h,v 1.7 1998-10-16 09:37:15 fjoe Exp $
+ * $Id: clan.h,v 1.8 1998-11-17 08:28:50 fjoe Exp $
  */
 
 #ifndef _CLAN_H_
@@ -38,7 +38,7 @@
 /* Clan status */
 #define CLAN_LEADER	2
 #define CLAN_SECOND	1
-#define CLAN_COMMON	0
+#define CLAN_COMMONER	0
 
 /*
  * Clan structure

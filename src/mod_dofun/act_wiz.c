@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.86 1998-11-14 09:01:09 fjoe Exp $
+ * $Id: act_wiz.c,v 1.87 1998-11-17 08:28:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3802,6 +3802,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		}
 
 		victim->clan = cn;
+		victim->pcdata->clan_status = CLAN_COMMONER;
 		char_puts("Ok.\n\r", ch);
 		return;
 	}

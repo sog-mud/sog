@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.c,v 1.21 1998-11-17 05:29:55 fjoe Exp $
+ * $Id: clan.c,v 1.22 1998-11-17 08:28:50 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -164,7 +164,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 			}
 			victim->clan = cn;
 			victim->pcdata->petition = CLAN_NONE;
-			victim->pcdata->clan_status = CLAN_COMMON;
+			victim->pcdata->clan_status = CLAN_COMMONER;
 			update_skills(victim);
 			char_puts("Greet new member!\n\r", ch);
 			char_printf(victim, "Your petition to %s has been "
@@ -285,13 +285,13 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!str_prefix(arg2, "commoner")) {
-		if (victim->pcdata->clan_status == CLAN_COMMON) {
+		if (victim->pcdata->clan_status == CLAN_COMMONER) {
 			char_puts("They are already commoner in a clan.\n\r",
 				  ch);
 			return;
 		}
 
-		victim->pcdata->clan_status = CLAN_COMMON;
+		victim->pcdata->clan_status = CLAN_COMMONER;
 		char_puts("They are now commoner in the clan.\n\r", ch);
 		char_puts("You are now commoner in the clan.\n\r", victim);
 		return;
@@ -303,7 +303,7 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 char *get_status_alias(int status)
 {
 	switch (status) {
-	case CLAN_COMMON:
+	case CLAN_COMMONER:
 		return "commoner";
 	case CLAN_SECOND:
 		return "secondary";
@@ -327,7 +327,7 @@ void do_clanlist(CHAR_DATA *ch, const char *argument)
 	if (IS_NPC(ch))
 		return;
 
-	if (ch->clan == CLAN_NONE || ch->pcdata->clan_status == CLAN_COMMON) {
+	if (ch->clan == CLAN_NONE || ch->pcdata->clan_status == CLAN_COMMONER) {
 		char_puts("Huh?\n\r", ch);
 		return;
 	}
