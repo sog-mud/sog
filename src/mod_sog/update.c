@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.117 1999-04-15 09:14:18 fjoe Exp $
+ * $Id: update.c,v 1.118 1999-04-16 10:59:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -503,6 +503,10 @@ void gain_condition(CHAR_DATA *ch, int iCond, int value)
 			       	     vch != NULL && ch->fighting == NULL;
 				     vch = vch_next) {
 			        	vch_next = vch->next_in_room;
+
+					if (IS_IMMORTAL(vch))
+						continue;
+
 			        	if (ch != vch && can_see(ch, vch)
 					&&  !is_safe_nomessage(ch, vch)) {
 						do_yell(ch,
@@ -1682,6 +1686,10 @@ void aggr_update(void)
 			     vch != NULL && wch->fighting == NULL;
 			     vch = vch_next) {
 				vch_next = vch->next_in_room;
+
+				if (IS_IMMORTAL(vch))
+					continue;
+
 				if (wch != vch && can_see(wch,vch)
 				&&  !is_safe_nomessage(wch,vch)) {
 					act_puts("{RMORE BLOOD! MORE BLOOD! MORE BLOOD!!!{x", wch,NULL,NULL,TO_CHAR,POS_RESTING);
