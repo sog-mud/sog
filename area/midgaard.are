@@ -2843,7 +2843,7 @@ leather~
 armor 0 0 AL
 1 3 3 0 1
 0 20 220 G
-g none~
+g @eng none@rus male~
 #3060
 jerkin leather~
 a leather jerkin~

@@ -262,6 +262,14 @@ Form 3 -ли~
 End
 
 #RULE
+Name сам~
+BaseLen 3
+Form 1 -а~
+Form 2 -о~
+Form 3 -и~
+End
+
+#RULE
 Name рад~
 BaseLen 3
 Form 1 -а~
@@ -719,6 +727,14 @@ BaseLen 11
 Form 1 -а~
 Form 2 -о~
 Form 3 -и~
+End
+
+#RULE
+Name улыбнулся~
+BaseLen 6
+Form 1 -лась~
+Form 2 -лось~
+Form 3 -лись~
 End
 
 #RULE

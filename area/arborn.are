@@ -332,7 +332,7 @@ helm seeing~
 @eng Helm of Seeing@rus Шлем Видения~
 @eng Helm of seeing@rus Helm of seeing~
 unknown~
-armor 0 0 AB
+armor 0 0 AI
 100 100 100 100 0
 48 0 0 P
 a '' to_object 48 -1 2000 19 0
@@ -370,7 +370,7 @@ dagger might~
 @eng dagger of might@rus dagger of might~
 unknown~
 weapon BM 0 AN
-dagger 1 10000 'scratch' ABDEGH
+dagger 1 10000 'scratch' ABDEG
 75 0 0 P
 a '' to_object 75 -1 30 18 0
 a '' to_object 75 -1 70 19 0

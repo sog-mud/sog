@@ -7361,6 +7361,16 @@ Str Wield Carry
  24  550  4500
  25  600  5000
 ~
+0 'OLC SKILL EVENT'~
+Syntax: event <eventcl> <funname>
+Syntax: event <eventcl> none
+Syntax: event ?
+ 
+<eventcl> is event class. Type 'event ?' to see list of valid
+event classes. <funname> is function name from module
+'events' which will be called on specified event.
+Use 'event <eventcl> none' to remove event.
+~
 -1 $~
 
 #$
