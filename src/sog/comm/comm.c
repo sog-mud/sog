@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.116 1998-10-26 08:39:19 fjoe Exp $
+ * $Id: comm.c,v 1.117 1998-10-28 21:40:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2267,7 +2267,7 @@ bool check_parse_name(const char *name)
 	 * Reserved words.
 	 */
 	if (is_name(name, "all auto immortals self someone something the you "
-			  "demise balance circle loner honor none"))
+			  "demise balance circle loner honor none clan"))
 		return FALSE;
 	
 	/*
