@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.63 1998-07-09 13:01:36 fjoe Exp $
+# $Id: english.lang,v 1.64 1998-07-10 16:41:19 efdi Exp $
 #
 
 NOTHING		"Nothing.\n\r"
@@ -842,3 +842,4 @@ N_DRINKS_T_FROM_P	"$n drinks $T from $p."
 YOU_DRINK_T_FROM_P	"You drink $T from $p."
 YOU_FEEL_DRUNK		"You feel drunk.\n\r"
 YOUR_THIRST_QUENCHED	"Your thirst is quenched.\n\r"
+UNWORTHY_CANT_HOLD	"This unworthy container won't hold $p."

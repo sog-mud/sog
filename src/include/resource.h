@@ -2,7 +2,7 @@
 #define _RESOURCE_H_
 
 /*
- * $Id: resource.h,v 1.83 1998-07-10 10:39:42 fjoe Exp $
+ * $Id: resource.h,v 1.84 1998-07-10 16:41:36 efdi Exp $
  */
 
 #define msg(msgid, ch) vmsg(msgid, ch, ch)
@@ -844,6 +844,8 @@ enum {
 	YOU_DRINK_T_FROM_P,
 	YOU_FEEL_DRUNK,
 	YOUR_THIRST_QUENCHED,
+	UNWORTHY_CANT_HOLD,
+	CAN_PUT_ONLY_ARROWS,
 };
 
 #endif

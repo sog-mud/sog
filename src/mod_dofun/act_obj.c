@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.40 1998-07-06 07:32:54 fjoe Exp $
+ * $Id: act_obj.c,v 1.41 1998-07-10 16:41:36 efdi Exp $
  */
 
 /***************************************************************************
@@ -431,7 +431,8 @@ do_put(CHAR_DATA * ch, char *argument)
 			return;
 		}
 		if (obj->pIndexData->limit != -1) {
-			act("This unworthy container won't hold $p.", ch, obj, NULL, TO_CHAR);
+			act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
+				    UNWORTHY_CANT_HOLD);
 			return;
 		}
 		if (IS_SET(container->value[1], CONT_FOR_ARROW)
@@ -511,8 +512,8 @@ do_put(CHAR_DATA * ch, char *argument)
 						obj->timer = number_range(100, 200);
 
 				if (obj->pIndexData->limit != -1) {
-					act("This unworthy container won't hold $p.", ch, obj,
-					    NULL, TO_CHAR);
+					act_nprintf(ch, obj, NULL, TO_CHAR,
+						  POS_DEAD, UNWORTHY_CANT_HOLD);
 					continue;
 				}
 				if (obj->item_type == ITEM_POTION &&
