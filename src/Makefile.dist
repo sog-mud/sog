@@ -1,5 +1,5 @@
 #
-# $Id: Makefile.dist,v 1.5 1999-03-19 18:55:19 fjoe Exp $
+# $Id: Makefile.dist,v 1.6 1999-04-15 10:42:27 fjoe Exp $
 #
 CC		= gcc
 LD		= gcc
@@ -11,13 +11,6 @@ LIBS		=
 INSTALL_PATH	= ..
 
 #
-# for SUNOS
-#CFLAGS	+= -DSUNOS
-#LIBS	+= -lsocket -lnsl
-#CFILES	+= compat/strsep.c compat/snprintf.c
-#OFILES	+= strsep.o snprintf.o
-
-#
 # for FreeBSD
 #CFLAGS	+= -DBSD44 
 #LIBS	+= -lcrypt
@@ -26,6 +19,13 @@ INSTALL_PATH	= ..
 # for Linux
 #CFLAGS	+= -DLINUX 
 #LIBS	+= -lcrypt
+
+#
+# for SUNOS
+#CFLAGS	+= -DSUNOS
+#LIBS	+= -lsocket -lnsl
+#CFILES	+= compat/strsep.c compat/snprintf.c
+#OFILES	+= strsep.o snprintf.o
 
 #
 # for Unixware 2.x
@@ -96,7 +96,10 @@ clean:
 	rm -f *.o *.core sog
 
 ctags:
-	ctags -dtw $(CFILES) *.h
+	ctags -dtw $(CFILES) *.h comm/*.h compat/*.h db/*.h mudprogs/*.h olc/*.h
+
+gtags:
+	gtags -co .
 
 install: sog
 	install -c -m 770 sog $(INSTALL_PATH)/bin

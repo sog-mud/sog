@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.176 1999-04-15 10:28:18 fjoe Exp $
+ * $Id: merc.h,v 1.177 1999-04-15 10:42:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -42,6 +42,18 @@
 
 #ifndef _MERC_H_
 #define _MERC_H_
+
+#if !defined(BSD44)
+#if !defined(LINUX)
+#if !defined(WIN32)
+#if !defined(SUNOS)
+#if !defined(SVR4)
+#error "You must uncomment options for your system in Makefile"
+#endif
+#endif
+#endif
+#endif
+#endif
 
 #if defined (WIN32)
 #	undef  NOCRYPT
