@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.302 2002-12-03 17:08:38 tatyana Exp $
+ * $Id: spellfun.c,v 1.303 2003-04-17 19:33:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4260,16 +4260,21 @@ SPELL_FUN(spell_brew, sn, level, ch, vo)
 	potion->level = ch->level;
 	INT(potion->value[0]) = level;
 
-	spell = 0;
-
+	spell = NULL;
 	magic_value = obj_magic_value(obj);
-
-	if (!(magic_value >> (sizeof(int) *4))) {
+	if (MV_HI(magic_value) == 0) {
+		/*
+		 * generate spell_num 0..2 (low-level spell)
+		 */
 		spell_num = magic_value % 3;
 	} else {
+		/*
+		 * generate spell_num 3..7 (high-level spell)
+		 */
 		int i;
+
 		spell_num = 3;
-		for (i = 0; i < 5; i++) {
+		for (i = 0; i < 4; i++) {
 			spell_num += magic_value % 2;
 			magic_value /= 2;
 		}

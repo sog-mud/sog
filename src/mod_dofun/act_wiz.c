@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.314 2003-04-17 05:58:52 fjoe Exp $
+ * $Id: act_wiz.c,v 1.315 2003-04-17 19:33:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1095,6 +1095,7 @@ DO_FUN(do_ostat, ch, argument)
 	BUFFER *output;
 	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
+	int magic_value;
 
 	one_argument(argument, arg, sizeof(arg));
 
@@ -1117,12 +1118,13 @@ DO_FUN(do_ostat, ch, argument)
 	if (!mlstr_null(&obj->owner))
 		buf_printf(output, BUF_END,
 			   "Owner: [%s]\n", mlstr_mval(&obj->owner)); // notrans
+	magic_value = obj_magic_value(obj);
 	buf_printf(output, BUF_END,
-		   "Vnum: %d  Type: %s  Resets: %d Magic value %d\n", // notrans
-		obj->pObjIndex->vnum,
-		flag_string(item_types, obj->item_type),
-		obj->pObjIndex->reset_num,
-		obj_magic_value(obj));
+	    "Vnum: %d  Type: %s  Resets: %d Magic value %d (%d, 0x%x)\n", // notrans
+	    obj->pObjIndex->vnum,
+	    flag_string(item_types, obj->item_type),
+	    obj->pObjIndex->reset_num,
+	    magic_value, MV_HI(magic_value) == 0, MV_LO(magic_value));
 
 	mlstr_dump(output, "Short description: ",		// notrans
 		   &obj->short_descr, DUMP_LEVEL(ch));

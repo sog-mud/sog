@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.42 2002-11-30 16:23:06 kostik Exp $
+ * $Id: sog.h,v 1.43 2003-04-17 19:33:07 fjoe Exp $
  */
 
 #ifndef _SOG_H_
@@ -429,6 +429,10 @@ DECLARE_FUN3(AFFECT_DATA, is_bit_affected,
 	     ARG(CHAR_DATA), ch, ARG(int), where, ARG(flag_t), bits)
 DECLARE_FUN2(bool, has_obj_affect,
 	     ARG(CHAR_DATA), ch, ARG(flag_t), vector)
+
+#define MV_HI(mv)	((mv) >> sizeof(int) * 8 / 2)
+#define MV_LO(mv)	((mv) - MV_HI(mv))
+#define MV_MAKE(hi, lo)	(((hi) << sizeof(int) * 8 / 2) | (lo))
 
 DECLARE_FUN1(int, obj_magic_value, ARG(OBJ_DATA), obj)
 

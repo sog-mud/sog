@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.82 2003-04-17 18:28:33 tatyana Exp $
+ * $Id: affects.c,v 1.83 2003-04-17 19:33:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -661,11 +661,11 @@ obj_magic_value(OBJ_DATA *obj)
 	calc_affect_bonus(obj->affected, &hi, &lo);
 
 	if (IS_OBJ_STAT(obj, ITEM_GLOW)) {
-		hi +=	1;
-		lo +=	23;
+		hi += 1;
+		lo += 23;
 	}
 
-	return (hi << (sizeof(int) * 4) ) + lo;
+	return MV_MAKE(hi, lo);
 }
 
 /*----------------------------------------------------------------------------
