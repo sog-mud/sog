@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.h,v 1.28 2003-06-18 07:41:00 fjoe Exp $
+ * $Id: lang.h,v 1.29 2003-06-18 08:49:05 fjoe Exp $
  */
 
 #ifndef _LANG_H_
@@ -60,7 +60,7 @@ void	rule_form_add	(rule_t *r, size_t fnum, const char *s);
 void	rule_form_del	(rule_t *r, size_t fnum);
 
 /*
- * rule class - just hash of explicit rules with set of implicit rules
+ * rule class - a set of explicit and implicit rules
  */
 struct rulecl_t {
 	int rulecl;			/* rulecl number		*/
