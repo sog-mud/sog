@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.68 1998-06-12 12:40:26 efdi Exp $
+ * $Id: act_info.c,v 1.69 1998-06-12 13:19:28 efdi Exp $
  */
 
 /***************************************************************************
@@ -1677,7 +1677,7 @@ void do_help(CHAR_DATA *ch, char *argument)
 		}
 	}
 
-	send_to_char("No help on that word.\n\r", ch);
+	send_to_char(msg(INFO_NO_HELP_ON_WORD, ch), ch);
 	return;
 }
 
@@ -2009,7 +2009,7 @@ void do_who(CHAR_DATA *ch, char *argument)
 
 	max_on = UMAX(count, max_on);
 	sprintf(strend(output),
-		"\n\rPlayers found: %d. Most so far today: %d.\n\r",
+		msg(INFO_PLAYERS_FOUND, ch),
 		nMatch, max_on);
 	page_to_char(output, ch);
 	return;
@@ -2026,7 +2026,7 @@ void do_whois (CHAR_DATA *ch, char *argument)
 
 	one_argument(argument, arg);
 	if (arg[0] == '\0') {
-		send_to_char("You must provide a name.\n\r",ch);
+		send_to_char(msg(INFO_MUST_PROVIDE_NAME, ch), ch);
 		return;
 	}
 
@@ -2054,7 +2054,7 @@ void do_whois (CHAR_DATA *ch, char *argument)
 	}
 
 	if (!found) {
-		send_to_char("No one of that name is playing.\n\r",ch);
+		send_to_char(msg(INFO_NO_ONE_THAT_NAME, ch), ch);
 		return;
 	}
 
@@ -2062,7 +2062,7 @@ void do_whois (CHAR_DATA *ch, char *argument)
 }
 
 
-void do_count (CHAR_DATA *ch, char *argument)
+void do_count(CHAR_DATA *ch, char *argument)
 {
 	int count;
 	DESCRIPTOR_DATA *d;
@@ -2075,11 +2075,11 @@ void do_count (CHAR_DATA *ch, char *argument)
 
 	max_on = UMAX(count,max_on);
 
-	char_printf(ch, "There are %d characters on, ", count);
+	char_printf(ch, msg(INFO_D_CHARS_ON, ch), count);
 	if (max_on == count)
-		char_puts("the most so far today", ch);
+		char_puts(msg(INFO_MOST_SO_FAR_TODAY, ch), ch);
 	else
-		char_printf(ch, "the most on today was %d", max_on);
+		char_printf(ch, msg(INFO_MOST_TODAY_WAS, ch), max_on);
 	char_puts(".\n\r", ch);
 }
 
@@ -2109,7 +2109,7 @@ void do_equipment(CHAR_DATA *ch, char *argument)
 			char_printf(ch, "%s\n\r",
 				    format_obj_to_char(obj, ch, TRUE));
 		else
-			send_to_char("something.\n\r", ch);
+			send_to_char(msg(INFO_SOMETHING, ch), ch);
 		found = TRUE;
 	}
 
@@ -2122,12 +2122,12 @@ void do_equipment(CHAR_DATA *ch, char *argument)
 			char_printf(ch, "%s\n\r",
 				    format_obj_to_char(obj, ch, TRUE));
 		else
-			send_to_char("something.\n\r", ch);
+			send_to_char(msg(INFO_SOMETHING, ch), ch);
 		found = TRUE;
 	}
 
 	if (!found)
-		send_to_char("Nothing.\n\r", ch);
+		send_to_char(msg(INFO_NOTHING, ch), ch);
 
 	return;
 }
@@ -2146,12 +2146,12 @@ void do_compare(CHAR_DATA *ch, char *argument)
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 	if (arg1[0] == '\0') {
-		send_to_char("Compare what to what?\n\r", ch);
+		send_to_char(msg(INFO_COMPARE_WHAT, ch), ch);
 		return;
 	}
 
 	if ((obj1 = get_obj_carry(ch, arg1)) == NULL) {
-		send_to_char("You do not have that item.\n\r", ch);
+		send_to_char(msg(INFO_DONT_HAVE_ITEM, ch), ch);
 		return;
 	}
 
@@ -2165,13 +2165,12 @@ void do_compare(CHAR_DATA *ch, char *argument)
 				break;
 
 		if (obj2 == NULL) {
-			send_to_char("You aren't wearing anything "
-				       "comparable.\n\r",ch);
+			send_to_char(msg(INFO_ARENT_WEAR_COMPARABLE, ch), ch);
 			return;
 		}
 	}
 	else if ((obj2 = get_obj_carry(ch,arg2)) == NULL) {
-		send_to_char("You do not have that item.\n\r",ch);
+		send_to_char(msg(INFO_DONT_HAVE_ITEM, ch), ch);
 		return;
 	}
 
@@ -2180,13 +2179,13 @@ void do_compare(CHAR_DATA *ch, char *argument)
 	value2	= 0;
 
 	if (obj1 == obj2)
-		cmsg = "You compare $p to itself.  It looks about the same.";
+		cmsg = msg(INFO_COMPARE_P_TO_ITSELF, ch);
 	else if (obj1->item_type != obj2->item_type)
-		cmsg = "You can't compare $p and $P.";
+		cmsg = msg(INFO_CANT_COMPARE_P_P, ch);
 	else {
 		switch (obj1->item_type) {
 		default:
-			cmsg = "You can't compare $p and $P.";
+			cmsg = msg(INFO_CANT_COMPARE_P_P, ch);
 			break;
 
 		case ITEM_ARMOR:
@@ -2210,11 +2209,11 @@ void do_compare(CHAR_DATA *ch, char *argument)
 
 	if (cmsg == NULL)
 		if (value1 == value2)
-			cmsg = "$p and $P look about the same.";
+			cmsg = msg(INFO_P_P_LOOKS_SAME, ch);
 		else if (value1  > value2)
-			cmsg = "$p looks better than $P.";
+			cmsg = msg(INFO_P_LOOKS_BETTER_P, ch);
 		else
-			cmsg = "$p looks worse than $P.";
+			cmsg = msg(INFO_P_LOOKS_WORSE_P, ch);
 
 	act(cmsg, ch, obj1, obj2, TO_CHAR);
 	return;

@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.44 1998-06-12 12:40:38 efdi Exp $
+# $Id: english.lang,v 1.45 1998-06-12 13:19:42 efdi Exp $
 #
 
 INFO_NOTHING		"Nothing.\n\r"
@@ -637,3 +637,19 @@ INFO_NON_NEUTRALS	"non-neutrals"
 INFO_GOODS		"goods"
 INFO_EVILS		"evils"
 INFO_NEUTRALS		"neutrals"
+INFO_NO_HELP_ON_WORD	"No help on that word.\n\r"
+INFO_PLAYERS_FOUND	"\n\rPlayers found: %d. Most so far today: %d.\n\r"
+INFO_MUST_PROVIDE_NAME	"You must provide a name.\n\r"
+INFO_NO_ONE_THAT_NAME	"No one of that name is playing.\n\r"
+INFO_D_CHARS_ON		"There are %d characters on, "
+INFO_MOST_SO_FAR_TODAY	"the most so far today"
+INFO_MOST_TODAY_WAS	"the most on today was %d"
+INFO_SOMETHING		"something.\n\r"
+INFO_COMPARE_WHAT	"Compare what to what?\n\r"
+INFO_DONT_HAVE_ITEM	"You do not have that item.\n\r"
+INFO_ARENT_WEAR_COMPARABLE	"You aren't wearing anything comparable.\n\r"
+INFO_COMPARE_P_TO_ITSELF  "You compare $p to itself.  It looks about the same."
+INFO_CANT_COMPARE_P_P	"You can't compare $p and $P."
+INFO_P_P_LOOKS_SAME	"$p and $P look about the same."
+INFO_P_LOOKS_BETTER_P	"$p looks better than $P."
+INFO_P_LOOKS_WORSE_P	"$p looks worse than $P."
