@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.23 1999-02-22 13:30:29 fjoe Exp $
+ * $Id: olc_msg.c,v 1.24 1999-02-23 07:42:44 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -112,7 +112,7 @@ OLC_FUN(msged_edit)
 		return FALSE;
 	}
 
-	if ((mlp = msg_search(argument)) == NULL) {
+	if ((mlp = msg_search(atomsg(argument))) == NULL) {
 		char_puts("MsgEd: msg not found.\n", ch);
 		return FALSE;
 	}
@@ -136,7 +136,7 @@ OLC_FUN(msged_show)
 		}
 	}
 	else {
-		if ((mlp = msg_search(argument)) == NULL) {
+		if ((mlp = msg_search(atomsg(argument))) == NULL) {
 			char_puts("MsgEd: msg not found.\n", ch);
 			return FALSE;
 		}
@@ -159,7 +159,8 @@ OLC_FUN(msged_list)
 		do_help(ch, "'OLC ALIST'");
 		return FALSE;
 	}
-		
+	
+	argument = atomsg(argument);
 	num = 0;
 	for (i = 0; i < MAX_MSG_HASH; i++) {
 		int j;
@@ -205,6 +206,7 @@ OLC_FUN(msged_msg)
 		return FALSE;
 	}
 
+	argument = atomsg(argument);
 	if (!lang) {
 		/* gonna change name */
 
@@ -227,7 +229,7 @@ OLC_FUN(msged_msg)
 
 	p = mlstr_convert(mlp, lang);
 	free_string(*p);
-	*p = str_dup(atomsg(argument));
+	*p = str_dup(argument);
 
 	if (!lang) 
 		ch->desc->pEdit = (void*) msg_add(ml);
