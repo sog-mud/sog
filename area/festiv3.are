@@ -1,0 +1,5867 @@
+#AREA
+festiv2.are~
+Festival Town~
+{1 50} Builder Sample Area~
+36300 36499
+
+#HELPS
+1 festival~
+   There are many peoples all over the world
+      celebrating here! Join them!
+~
+1 town~
+                   Forest
+
+     Tournament                 Hills
+        lawn        Lawn       (mages)
+     (warriors)
+                                  |
+                              Caverns
+
+
+          Bank     Central      Mayor
+                   Square
+
+                   Entrance
+~
+0 $~
+
+#MOBILES
+#36300
+grand father old man~
+Grandfather~
+you see a powerful old man standing here
+~
+You see here a majestic old man with a gray hair and a long beard 
+lowered on his cape. He looks as a person, who past throu a lot of 
+trials and knew the reality of life.
+~
+human~
+GRT BCDEFGHNO 0 0
+120 0 100d40+30000 100d10+15000 16d16+70 wrath
+-80 -80 -80 -70
+AEFIJKN ABJKQ IO NPZ
+stand stand male 9000
+AL ABCD medium 0
+#36301
+Green Bowman~
+green bowman~
+a tall man stands here shooting arrows
+~
+A tall man dressed all in green stands here. A red plume flows above 
+his hat. He looks at you then scans to the north, preparing an arrow
+to shoot. His longbow sounds sharply and you think that better to 
+stay away of the pass he is shooting.
+~
+human~
+GT FNPUZ 1000 0
+87 0 100d20+22000 85d10+1000 13d10+70 punch
+-60 -60 -60 -58
+EFHIJKLNPY ABIX LQ FG
+stand stand male 5000
+AM ABCDEF medium 0
+#36302
+Acute Eye red man~
+Acute Eye~
+a sneaky red-skinned man throws axes northward
+~
+This man seems to be very strong. His eyes glows red and you realize
+that you'll never be such a person like he. You are to fall on your
+knees and to bow before him.
+~
+human~
+GT JPUVc 0 0
+85 0 90d19+17000 82d10+1000 11d11+60 punch
+-55 -55 -55 -53
+AEFHIJKN T H I
+stand stand male 10000
+AM ABCDEF medium 0
+#36303
+tumbu yumbu black man~
+Tumbu-Yumbu~
+a man with black hair stands here
+~
+"Such a pity that you forget your bag! Your would be able to gather
+some memories about my life." - says Tumbu-Yumbu and smiles at you.
+~
+human~
+GT DOVZ -100 0
+85 0 95d18+16000 82d10+1000 11d11+60 thrust
+-50 -50 -50 -49
+CFHIKN 0 H I
+stand stand male 3000
+AM ABCDEF medium 0
+#36304
+lee huang wang black man~
+Lee Huang Wang~
+a man dressed in black screams and attacks!
+~
+You are lucky! Fortunatly, he attacks not you but a target at the 
+northern edge of the lawn. His dark clothes shine brightly for being
+polished.
+~
+human~
+GT OUa -300 0
+85 0 95d19+18000 85d10+1000 11d11+70 pound
+-60 -65 -65 -55
+ADEFIJK 0 IP HN
+stand stand male 10000
+AM ABCDEF medium 0
+#36305
+veteran old warrior~
+Old Veteran~
+An old man is drinking ale here. He is half asleep
+~
+An old veteran, who surely took a part in all the battles you've
+ever heard, sits here, forgotten by his relatives as well as all
+others. All the money he had he spent on whiskey and ale. Even
+now he cannot leave his crumpled flask filled with ale.
+~
+human~
+GT FTVac 100 0
+85 0 90d20+17000 82d10+1000 12d10+65 charge
+-60 -50 -60 -70
+ADEFHIKLN B IKLQX EHT
+stand stand male 100
+AM ABCDEF medium 0
+#36306
+monk fat~
+Monk~
+a very fat monk is here, drinking ale from the enormous barrel
+~
+Just a monk. Dressed in just a simple brown robe. But the barrel
+he holds contains more then 100 litres! You wonder, if he needs
+your help?
+~
+human~
+GQ DENTU 1000 0
+90 0 90d20+17000 85d10+10000 20d6+50 pound
+-58 -65 -55 -55
+CEIKN ABN CLMPQ FX
+stand stand male 10000
+AM ABCDEF medium 0
+#36307
+boy little son banker~
+Banker's son~
+a little boy sits here playing with his toy
+~
+A boy your see wears simple trousers and a shirt. He sits at
+this darkened room and barely cry. All that he may do is to 
+play with something that looks like a toy, as far as you can 
+guess.
+~
+human~
+GH U 0 0
+10 0 3d22+100 10d10+100 2d5+10 punch
+-10 -10 -10 -5
+FJ 0 E F
+sit sit male 100
+AM ABCDEF small 0
+#36308
+little boy son mayor~
+Mayor's son~
+a little boy is here, burning a shrub
+~
+That little boy is very-well dressed. You recognize him as a son
+of the Mayor of the town. Sun-glasses he wears look very fashious
+and shoes are very expensive. He sits between shrubs and tries to
+burn a match. You think if it would be better to get his match-box
+off.
+~
+human~
+GH U 0 0
+5 0 1d17+42 5d10+100 2d3+5 thwack
+-10 -10 -10 -3
+FH 0 EH F
+stand stand male 20
+AM ABCDEF small 0
+#36309
+woman wife mayor~
+Mayor's Wife~
+a nervous woman screams loudly as you trespass her room
+~
+Mayor's wife looks very nervous. Probably you'd better go away 
+while she has not summoned guards by her cry! She wears a 
+festival suit and a powdered wig.
+~
+human~
+GHR H 0 0
+50 0 20d80+1000 50d10+1000 5d10+25 slap
+-35 -35 -35 -30
+EFIJZ 0 0 0
+stand stand female 5000
+AM ABCDEF medium 0
+#36310
+fat man mayor~
+Mayor~
+a fat man stands here with a big smile on his face
+~
+A low and very fatty man walks about the fountain. He wears a 
+festival suit as do other inhabitants of the town. There is a 
+big hat on his head gets your attention.
+~
+human~
+EGT DFHNOU 0 0
+75 0 50d20+11000 75d10+9000 9d11+45 punch
+-50 -50 -50 -30
+CEFIKN AB 0 0
+stand stand male 20000
+AM ABCDEF medium 0
+#36311
+clerk~
+Clerk~
+a tired clerk sits here
+~
+A clerk looks very tired. Shurely he worked all the week past
+but today he yet has to do a lot of deal. He scribes something
+on the piece of paper and you want to leave him alone in order
+to allow him to finish.
+~
+human~
+GQ F 0 0
+25 0 8d45+3000 25d10+1000 5d5+15 punch
+-25 -20 -20 -5
+FIJKN 0 0 0
+sit sit male 1235
+AM ABCDEF medium 0
+#36312
+archivarius old man~
+Archivarius~
+an old man looks at you
+~
+An old man covered in dark gray clothes sits at the table. He 
+scribes something on the piece of paper. He rises up his eyes 
+and looks at your over.
+~
+human~
+GQ DHNU 0 0
+75 0 50d20+10000 75d10+10000 9d9+45 magic
+-50 -46 -53 -30
+FIKN 0 0 0
+sit sit male 9856
+AM ABCDEF medium 0
+#36313
+rodent ugly rat~
+Rodent~
+a large ugly rat sits in the corner
+~
+A large ugly rat sits in the corner staring her red eyes at you.
+~
+bat~
+FGH 0 -100 0
+10 0 3d22+100 10d10+100 2d5+5 bite
+-10 -10 -10 0
+FH 0 0 H
+sit sit female 0
+AP ADEF small 0
+#36314
+spider dust small~
+Spider~
+a small spider sits here collecting dust
+~
+A small spider sits on his web. His dusty web holds remains of
+some insects.
+~
+centipede~
+FGH 0 0 0
+10 0 3d22+100 10d10+100 2d3+3 bite
+-10 -10 -5 -1
+FH 0 E H
+sit sit male 0
+AP ABCD small 0
+#36315
+old man librarian~
+Librarian~
+an old man sits at the bureau
+~
+This old man seems not to be happy about your intrusion. But he asks
+you what you need and offers to look books at the shelf behind him.
+~
+human~
+GQ DHU 0 0
+75 0 50d20+12000 75d10+5000 8d12+44 magic
+-45 -48 -50 -25
+EFIJKN 0 0 0
+sit sit male 10895
+AM ABCDEF medium 0
+#36316
+warrior competition~
+warrior on competition~
+A warrior wants to compete with you
+~
+You see a strong man, clad in tournament clothes and wielding a 
+tournament weapon. He ask you for challenge.
+~
+human~
+GT 0 0 0
+50 0 20d80+10000 50d10+1000 7d8+30 punch
+-36 -38 -36 -34
+CEFIJK 0 0 0
+stand stand male 10000
+AM ABCDEF medium 0
+#36317
+hooligan young man~
+hooligan~
+A young man looks like hooligan
+~
+A youngster stands before you grinning happily. He looks like
+he was fighting with all cats all over the countryside, so he
+wounded.
+~
+human~
+CGHT F 0 0
+25 0 8d40+2500 25d10+100 5d4+12 punch
+-30 -30 -30 -20
+FHJT 0 0 0
+stand stand male 0
+AM ABCDEF medium 0
+#36318
+training mob~
+some clothes~
+you see a strange figure standing there
+~
+A training mob stands here waiting for you to fight!
+~
+human~
+GIT DFHc 0 0
+50 0 80d40+10000 50d10+1000 1d1+1 cleave
+-50 -50 -50 -40
+AEFJK ABCHIJKLMNOPQRST D 0
+stand stand male 0
+ABM ABCDEF medium 0
+#36319
+hedgehog ezhik~
+hedgehog~
+A wise little hedgehog hurries by his own business
+~
+A hedgehog carries an apple to his cave. He looks at you
+angrilly.
+~
+modron~
+CGHe JPZ 0 0
+5 0 2d8+40 5d10+100 2d5+5 pierce
+-10 -20 -10 -5
+FNd AB 0 0
+stand stand male 0
+AG ABCDEF small 0
+#36320
+boy small~
+a small boy~
+A small boy plays in the fountain
+~
+A boy who seems to be one of the town children plays naked
+in the water bowl.
+~
+human~
+GH 0 500 0
+8 0 3d15+70 8d10+100 5d3+10 slap
+-13 -15 -13 -10
+FHd 0 0 0
+stand stand male 0
+AM ABCDEF medium 0
+#36321
+girl small~
+a small girl~
+A small girl is playing in the fountain
+~
+A girl who seems to be one of the town children plays naked
+in the water bowl.
+~
+human~
+GH 0 300 0
+5 0 2d8+35 5d10+100 1d16+8 slap
+-5 -3 -5 -5
+Id 0 0 0
+stand stand female 0
+AM ABCDEF medium 0
+#36322
+citizen male~
+a citizen~
+A citizen celebrates a festival
+~
+A male citizen of the Festival Town beckons you to take a part 
+in the celebration.
+~
+human~
+GHT 0 100 0
+28 0 10d40+3000 28d10+1000 5d7+17 punch
+-30 -25 -30 -20
+FI 0 0 0
+stand stand male 300
+AM ABCDEF medium 0
+#36323
+citizen female~
+a citizen~
+A citizen celebrates a festival
+~
+A female citizen of the Festival Town beckons you to take a part 
+in the celebration.
+~
+human~
+GHT 0 100 0
+25 0 8d30+2400 25d10+1000 4d8+16 slap
+-20 -20 -20 -10
+FN 0 0 0
+stand stand female 500
+AM ABCDEF medium 0
+#36324
+clown~
+a clown~
+a clown walks by on stilts
+~
+A funny clown shows you his painted face, then removes his big red
+nose, set it back and falls down laughing.
+~
+human~
+GH 0 0 0
+25 0 80d30+2500 25d10+1000 7d5+21 punch
+-25 -25 -25 -15
+HNd 0 0 0
+stand stand male 2500
+AM ABCDEF medium 0
+#36325
+juggler~
+a juggler~
+a juggler trys to get your attention
+~
+A man who pretends to be a mage shows your his skills. He get money
+from your pocket and money suddenly disappear!
+~
+human~
+GR 0 -100 0
+25 0 50d60+3500 25d10+1000 8d4+20 magic
+-23 -20 -23 -25
+FId 0 0 0
+stand stand male 3500
+AM ABCDEF medium 0
+#36326
+vendor~
+a vendor~
+a vendor is here selling goods
+~
+A vendor is here selling goods.
+~
+human~
+GT 0 0 0
+50 0 80d40+12000 50d10+1000 8d8+36 punch
+-20 -30 -30 -30
+EJ ABCDEFGHIJKLMNOPQRSTXYZ 0 0
+stand stand male 100000
+AM ABCDEF medium 0
+#36327
+guard gate~
+Gate guard~
+A gate guard smiles at you happily
+~
+A gate guard smiles at you and invites in the town.
+~
+human~
+GT DFHTU 500 0
+25 0 50d40+2000 25d10+1000 10d3+20 slash
+-30 -30 -30 -20
+CEFHIJKLNc 0 0 0
+stand stand male 2450
+AM ABCDEF medium 0
+#36328
+thief~
+a hidden figure~
+a hidden figure is here doing something
+~
+A dark robe is flying in the air and you suddenly catch an
+angry look out from it.
+~
+human~
+GHS FPQU -500 0
+10 0 2d33+90 10d10+100 5d5+12 stab
+-10 -10 -10 -2
+EFHIJKNX 0 0 0
+stand stand male 2000
+AS ABCDEF medium 0
+#36329
+pickpocket thief~
+a pickpocket~
+a thief here trys to look like a good citizen
+~
+A male citizen of the Festival Town beckons you to take a part 
+in the celebration.
+~
+human~
+GHS FPQ -100 0
+25 0 20d60+1900 25d10+1000 2d15+16 stab
+-40 -40 -40 -20
+BEFIJKN 0 0 0
+stand stand male 2300
+AM ABCDEF medium 0
+#36330
+bat~
+a bat~
+a HUGE bat attacks you!
+~
+Wow! Don't you have time to look at this beast? Run away! Run aw..
+~
+bat~
+FGHT DFTUc -1000 0
+10 0 1d66+100 10d10+100 3d6+12 bite
+-5 -10 -5 -2
+FH 0 0 0
+stand stand male 0
+AG ADEF small 0
+#36331
+cat~
+a black cat~
+a black form screams and attacks!
+~
+A black lightning hits your head! You have been blinded!
+~
+cat~
+FGHR DFP -1000 0
+10 0 33d2+120 10d10+100 2d8+10 scratch
+-10 -10 -10 -5
+FHM 0 0 0
+stand stand male 0
+0 0 small 0
+#36332
+mage white law~
+White Law~
+A powerful mage stands here casting spells
+~
+A powerful mage clad in white stands here.
+~
+human~
+GHR DH 1000 0
+85 0 90d20+16000 85d10+10000 11d9+50 magic
+-70 -65 -70 -55
+FIKVY 0 0 0
+stand stand male 20000
+AM ABCDEF medium 0
+#36333
+mage white neutral~
+White Neutrality~
+a see a mage here watching you
+~
+A powerful mage clad in white stands here.
+~
+human~
+GHR DH 1000 0
+85 0 90d20+16000 85d10+10000 11d9+50 magic
+-70 -60 -70 -60
+FIKVY 0 0 0
+stand stand male 23000
+AM ABCDEF medium 0
+#36334
+mage white chaos~
+White Chaos~
+a white mage seems to be very chaotic
+~
+A powerful mage clad in white stands here.
+~
+human~
+GHR DH 1000 0
+85 0 90d20+16000 85d10+10000 11d9+50 magic
+-70 -60 -70 -60
+FIKVY 0 0 0
+stand stand male 15000
+AM ABCDEF medium 0
+#36335
+mage grey law~
+Grey Law~
+a mage stands here casting spells
+~
+A powerful mage clad in grey stands here.
+~
+human~
+GHR DH 0 0
+85 0 90d20+16000 85d10+10000 11d9+50 magic
+-70 -70 -70 -60
+FIKVY 0 0 0
+stand stand male 14000
+AM ABCDEF medium 0
+#36336
+mage grey neutral~
+True Neutrality~
+a mage clad in grey stands here
+~
+A powerful mage clad in grey stands here.
+~
+human~
+GHR DH 0 0
+85 0 90d20+16000 85d10+10000 11d9+50 magic
+-70 -65 -70 -60
+FIKVY 0 0 0
+stand stand male 50000
+AM ABCDEF medium 0
+#36337
+mage grey chaos~
+Grey Chaos~
+an undescript mass of grey clothes rises from the ground
+~
+A powerful mage clad in grey stands here.
+~
+human~
+GHR DH 0 0
+85 0 90d20+16000 85d10+10000 11d9+50 magic
+-70 -60 -70 -70
+FIKVY 0 0 0
+stand stand male 10000
+AM ABCDEF medium 0
+#36338
+mage dark law~
+Dark Law~
+a dark clad figure stands here
+~
+A powerful mage clad in black stands here.
+~
+human~
+GHR DH -1000 0
+85 0 90d20+16000 85d10+10000 11d9+50 magic
+-70 -60 -70 -60
+FIKVY 0 0 0
+stand stand male 14000
+AM ABCDEF medium 0
+#36339
+mage dark neutral~
+Dark Neutrality~
+a dark mage stands here casting his spells
+~
+A powerful mage clad in black stands here.
+~
+human~
+GHR DH -1000 0
+85 0 90d20+16000 85d10+10000 11d9+50 magic
+-60 -80 -60 -50
+FIKVY 0 0 0
+stand stand male 5090
+AM ABCDEF medium 0
+#36340
+mage dark chaos~
+Dark Chaos~
+a powerful mage stands here
+~
+A powerful mage clad in black stands here.
+~
+human~
+GHR DH -1000 0
+85 0 90d20+16000 85d10+10000 11d9+50 magic
+-65 -65 -65 -60
+FIKVY 0 0 0
+stand stand male 3500
+AM ABCDEF medium 0
+#36341
+mage earthquaker~
+Earthquaker~
+a mage stands here causing earthquake
+~
+A powerful mage clad in brown stands here.
+~
+human~
+GR 0 0 0
+75 0 50d20+11000 75d10+10000 9d9+45 magic
+-50 -50 -50 -45
+FIK 0 0 0
+stand stand male 4500
+AM ABCDEF medium 0
+#36342
+mage wimpy~
+a wimpy mage~
+a mage stands here
+~
+A wimpy mage tries to cast spell but cannot...
+~
+human~
+GHR 0 0 0
+50 0 40d20+8000 50d10+10000 7d7+31 suction
+-40 -35 -40 -30
+FIK 0 0 0
+stand stand male 1300
+AM ABCDEF medium 0
+#36343
+gekko~
+a gekko~
+You see a little dragon crossing the desert
+~
+A little gragon looks like a brown-green lightning with
+a short tail.
+~
+human~
+GH P 0 0
+5 0 20d5+100 5d10+100 2d5+6 bite
+-5 -5 -5 -1
+FN 0 0 0
+stand stand male 0
+AZ ABCDEF small 0
+#36344
+servant~
+a servant~
+a servant hurries by serving
+~
+a servant hurries by serving
+~
+human~
+GHT 0 0 0
+25 0 40d20+1000 25d10+100 2d15+15 punch
+-10 -10 -10 -6
+EFIK 0 0 0
+stand stand male 600
+0 0 medium 0
+#36345
+vendor~
+a vendor~
+a vendor is here selling goods
+~
+a vendor is here selling goods
+~
+human~
+GT 0 0 0
+50 0 80d40+12000 50d10+1000 8d8+36 punch
+-20 -30 -30 -30
+EJ ABCDEFGHIJKLMNOPQRSTXYZ 0 0
+stand stand male 100000
+AM ABCDEF medium 0
+#36346
+vendor~
+a vendor~
+a vendor is here selling goods
+~
+a vendor is here selling goods
+~
+human~
+GT 0 0 0
+50 0 80d40+12000 50d10+1000 8d8+36 punch
+-20 -30 -30 -30
+EJ ABCDEFGHIJKLMNOPQRSTXYZ 0 0
+stand stand male 100000
+AM ABCDEF medium 0
+#36347
+vendor~
+a vendor~
+a vendor is here selling goods
+~
+a vendor is here selling goods
+~
+human~
+GT 0 0 0
+50 0 80d40+12000 50d10+1000 8d8+36 punch
+-20 -30 -30 -30
+EJ ABCDEFGHIJKLMNOPQRSTXYZ 0 0
+stand stand male 100000
+AM ABCDEF medium 0
+#36348
+vendor~
+a vendor~
+a vendor is here selling goods
+~
+a vendor is here selling goods
+~
+human~
+GT 0 0 0
+50 0 80d40+12000 50d10+1000 8d8+36 punch
+-20 -30 -30 -30
+EJ ABCDEFGHIJKLMNOPQRSTXYZ 0 0
+stand stand male 100000
+AM ABCDEF medium 0
+#36349
+target~
+a target~
+[TARGET] you see a target standing here
+~
+White and black strips surround the apple painted in the middle
+of the wooden shield.
+~
+unique~
+BGHI 0 0 0
+70 0 70d20+15000 70d10+1000 1d1+1 pound
+-50 -50 -50 -45
+EFIJK ABCHIJKLMNOPQRST 0 X
+stand stand none 0
+M 0 large 0
+#36350
+bird~
+a tiny bird~
+A tiny bird flies here
+~
+A tiny bird flies here.
+~
+bat~
+CGH PT 0 0
+5 0 20d5+70 5d10+100 1d6+3 peck
+-5 -5 -5 0
+F 0 0 0
+stand stand male 0
+AW ACDEF tiny 0
+#36351
+sentipede~
+a sentipede~
+A sentipede is here, searching for food.
+~
+A sentipede is here, searching for food.
+~
+centipede~
+GH 0 0 0
+5 0 9d20+100 5d10+100 1d12+6 claw
+-5 -5 -5 0
+FJd 0 0 0
+stand stand none 0
+AXc ADEF small 0
+#36352
+snake small~
+a small snake~
+you see a small snake sleathing along the floor
+~
+You see a small snake sleathing along the floor
+~
+lizard~
+GH FP 0 0
+8 0 10d20+120 10d10+100 5d2+8 claw
+-10 -10 -10 -5
+FHJN 0 0 0
+stand stand female 0
+AXYc ADEF small 0
+#36353
+insect small~
+a small insect~
+A small insect drops on you.
+~
+A small insect.
+~
+centipede~
+FGHT T 0 0
+6 0 10d10+100 6d10+100 6d2+6 bite
+-6 -5 -6 -2
+FHNd 0 0 CEH
+stand stand male 0
+Oc ACDEF tiny 0
+#36354
+salamander mother dragon~
+mother of salamanders~
+A fire dragon looks like a salamander
+~
+A fire dragon looks like a salamander.
+~
+dragon~
+CGR DHPRTVc 0 0
+30 0 20d80+2500 30d10+1000 7d5+20 frbite
+-30 -20 -30 -30
+FHI HX KOS I
+sleep sleep female 5000
+Z ABCDE large 0
+#0
+#OBJECTS
+#36300
+bracer feathery~
+feathery bracer~
+beautiful color feathers lie here~
+feathers~
+armor A AM
+25 25 25 10 0
+86 20 1000 P
+A 1 2
+A 13 50
+A 14 50
+A 18 6
+A 19 6
+#36301
+tomahawk axe~
+tomahawk~
+a small throwing axe lies on the ground~
+steel~
+weapon BY AN
+axe 15 10 slash DE
+90 40 10000 P
+A 18 11
+A 19 15
+#36302
+necklace tooth~
+tooth necklace~
+a set of teeth lies here~
+horn~
+armor BG AC
+26 28 26 20 0
+85 13 5000 P
+A 5 2
+A 13 20
+A 18 3
+A 19 7
+#36303
+skirt palm~
+short palm skirt~
+a bunch of palm leaves lies on the ground~
+bamboo~
+armor I AF
+20 20 20 10 0
+85 10 500 P
+A 2 2
+A 12 50
+A 13 65
+A 18 7
+A 19 7
+#36304
+bracer charisma feathery~
+bracer of charisma~
+a feathery bracer is hanging here~
+feathers~
+armor AGI AI
+25 25 25 19 0
+85 5 5000 P
+A 26 5
+A 12 35
+A 13 65
+A 18 7
+A 19 7
+#36305
+shield ebony~
+ebony shield~
+an ebony shield lies neglected~
+ebony~
+armor CE AJ
+35 35 35 15 0
+85 60 6700 P
+A 1 -1
+A 13 65
+A 14 -100
+A 18 8
+A 19 8
+#36306
+skin leo~
+leo skin~
+a sneaking lion tries to bite you~
+hard leather~
+armor H AK
+20 26 24 19 0
+85 15 15000 P
+A 1 2
+A 2 1
+A 5 1
+A 13 75
+A 18 5
+A 19 8
+A 24 -5
+#36307
+stick reet spear bamboo~
+reet stick~
+a long piece of bamboo lies here~
+bamboo~
+weapon BI AN
+spear 11 9 pierce C
+85 10 100 P
+A 18 10
+A 19 10
+#36308
+casque black helm~
+black casque~
+a strange helm gets your attention~
+iron~
+armor E AE
+30 30 30 20 0
+85 20 5100 P
+A 18 8
+A 19 8
+#36309
+plate black scale~
+black scale platemail~
+a plate glows in dark~
+black dragonscale~
+armor ABCEG AD
+35 35 35 27 0
+85 23 16700 G
+A 13 50
+A 18 12
+A 19 12
+A 24 -5
+#36310
+gauntlets black dragon~
+black dragon gauntlets~
+a pair of dark scale gauntlets is waiting to be worn~
+black dragonscale~
+armor ABCEG AH
+30 30 30 24 0
+85 20 18000 P
+A 18 7
+A 19 7
+#36311
+plates leg black dragon~
+black dragon leg plates~
+a pile of black scale lies here~
+black dragonscale~
+armor ABCEG AF
+28 28 28 16 0
+85 25 17000 P
+A 13 50
+A 18 7
+A 19 7
+#36312
+bow short~
+short bow~
+a short wooden bow lies here~
+wood~
+weapon G AN
+bow 8 10 blast 0
+80 15 1000 P
+A 18 5
+A 19 5
+#36313
+boots black scale dragon~
+black dragon boots~
+a pair of scale dragon boots sits here~
+black dragonscale~
+armor ABCEG AG
+31 28 31 20 0
+85 12 15000 P
+A 14 -50
+A 18 8
+A 19 8
+#36314
+pot ink girth~
+ink-pot~
+an ink-pot is hanging on a rope~
+quartz~
+armor AGIY AL
+0 0 0 0 0
+25 0 1000 P
+A 4 10
+#36315
+apple~
+an apple~
+an apple lies here~
+food~
+food A A
+1 10 0 0 0
+0 1 15 P
+E
+paper~
+part one
+~
+#36316
+cookie~
+a cookie~
+a cookie lies here~
+bread~
+food U A
+1 20 0 0 0
+0 1 34 P
+E
+paper~
+part two
+~
+#36317
+bookmark leather long~
+bookmark~
+a long leather strip lies here~
+soft leather~
+weapon HM AN
+whip 9 11 blast G
+78 0 1000 P
+A 3 1
+A 4 4
+A 18 5
+A 19 15
+A 24 -2
+#36318
+cloak illusory mist~
+illusory cloak~
+a cloud of mist is shimmering around you~
+air~
+armor ABCFGIORWY AK
+0 0 0 0 0
+90 0 0 P
+A 3 2
+A 4 2
+A 12 200
+A 13 200
+A 14 500
+A 17 -100
+A 18 20
+A 19 20
+A 24 -15
+#36319
+sword long illusory mist~
+illusory longsword~
+a cloud of mist shaped like a sword is floating here~
+air~
+weapon ACFGORWY AN
+sword 13 13 slash DGF
+99 250 0 P
+A 2 1
+A 13 100
+A 18 25
+A 19 25
+#36320
+arrow silver~
+silver arrow~
+a silver arrow glows brightly~
+silver~
+weapon AIORY AO
+arrow 15 15 pierce DG
+90 10 0 P
+A 18 20
+A 19 20
+#36321
+ring bowman~
+bowman's ring~
+a large ring lies here~
+mithril~
+armor BGIT AB
+20 18 20 15 0
+85 10 23000 P
+A 1 1
+A 13 50
+A 18 10
+A 19 7
+A 24 -1
+#36322
+hat green red~
+green hat~
+a green hat with a bright red plume lies here~
+fur~
+armor AGIR AE
+30 25 30 20 0
+89 10 10000 P
+A 2 1
+A 26 1
+A 13 80
+A 18 10
+A 19 7
+#36323
+vest green~
+green vest~
+a green vest lies here~
+silk~
+armor AGI AD
+32 30 32 21 0
+89 10 2500 P
+A 2 1
+A 12 40
+A 13 80
+A 18 10
+A 19 7
+A 24 -1
+#36324
+leggings leather~
+leather leggings~
+a pair of leggings lies here~
+soft leather~
+armor BGTY AF
+32 30 32 23 0
+89 20 5000 P
+A 5 1
+A 12 30
+A 13 80
+A 14 50
+A 18 10
+A 19 7
+#36325
+boots leather thin~
+thin leather boots~
+some leather boots sits here~
+soft leather~
+armor BG AG
+35 33 35 26 0
+89 20 3000 P
+A 5 1
+A 13 80
+A 14 45
+A 18 10
+A 19 7
+A 24 -1
+#36326
+bow long~
+longbow~
+a huge bow lies here neglected~
+ebony~
+weapon BG AN
+bow 5 20 blast 0
+89 30 14000 P
+A 26 1
+A 18 8
+A 19 8
+#36327
+head band~
+headband~
+a headband is waiting to be worn~
+feathers~
+armor ABGI AE
+23 23 23 18 0
+85 0 2400 P
+A 2 1
+A 4 2
+A 26 1
+A 13 65
+A 14 100
+A 17 -5
+A 18 11
+A 19 6
+A 24 -2
+#36328
+belt snake~
+snake belt~
+a long snake slithers along the grass~
+snakeskin~
+armor ABGHIM AL
+25 28 25 25 0
+85 0 10000 P
+A 4 1
+A 5 1
+A 13 65
+A 18 8
+A 19 6
+#36329
+leggings scalp~
+scalp leggings~
+someone has left a pile of scalps here~
+fur~
+armor CEG AF
+26 24 26 15 0
+88 23 1000 P
+A 4 -1
+A 26 2
+A 13 65
+A 14 100
+A 18 11
+A 19 6
+#36330
+moccasins boots soft~
+some moccasins~
+a pair of soft boots sits here~
+soft leather~
+armor C AG
+23 18 23 15 0
+87 20 1000 P
+A 2 1
+A 13 65
+A 14 100
+A 18 8
+A 19 8
+#36331
+spiritus vini~
+spiritus vini~
+a strange aura floats here~
+nothingness~
+armor BGP AQ
+0 0 0 0 0
+90 0 0 P
+A 2 -3
+A 13 100
+A 17 -50
+A 18 -5
+A 19 10
+A 24 -5
+#36332
+waistcoat dirty~
+a dirty waistcoat~
+an old dusty waistcoat lies here in the dirt~
+silk~
+armor AGY AK
+28 28 28 24 0
+87 20 18000 P
+A 26 5
+A 18 10
+A 19 8
+A 24 -2
+#36333
+belt shoulder~
+a shoulder belt~
+a strip of leather is here~
+hard leather~
+container GY AL
+150 E 0 150 50
+87 10 25000 P
+A 12 50
+A 13 100
+A 17 -30
+A 18 8
+A 19 8
+#36334
+sword veteran old~
+an old veteran's sword~
+a sword lies here~
+steel~
+weapon BMT N
+sword 9 9 slash D
+87 100 10000 A
+A 18 5
+A 19 9
+#36335
+flask crumpled~
+a crumpled flask~
+an old crumpled flask lies here neglected~
+tin~
+drink GIY O
+100 100 ale 3 0
+0 10 3450 P
+#36336
+glasses sun~
+some sun-glasses~
+some glasses waiting to be worn~
+glass~
+armor 0 E
+2 2 2 0 0
+5 5 100 P
+A 18 2
+A 19 1
+A 24 -2
+#36337
+match~
+a match~
+a small wooden stick lies here~
+wood~
+wand U O
+10 1 1 'fireball' 0
+1 0 1 P
+#36338
+match box~
+a match box~
+a box with strange carvings lies here~
+wood~
+container 0 AO
+60 E 0 1 100
+1 60 10 P
+#36339
+wig strange~
+a wig~
+a strange pile of furs lies here~
+wool~
+armor AM E
+15 15 15 18 0
+50 20 1000 P
+A 4 -3
+A 6 1
+A 12 100
+#36340
+hat cowboy dusty~
+a cowboy's hat~
+a dusty piece of leather dropped here~
+kid leather~
+armor M E
+24 20 27 17 0
+75 35 1200 A
+A 1 1
+A 2 1
+A 5 1
+A 26 1
+A 13 80
+A 18 5
+A 19 5
+#36341
+staff strength~
+a staff of strength~
+a wooden staff lies here~
+wood~
+staff A O
+91 10 10 'earthquake' 0
+81 30 4500 P
+A 26 1
+A 18 2
+#36342
+suit festival~
+a festival suit~
+a festival-looking suit lies here~
+satin~
+armor A D
+12 12 12 12 0
+25 20 8900 P
+A 26 2
+A 18 1
+#36343
+toy boy key~
+a boy's toy~
+a bright toy lies here~
+hardwood~
+key A A
+0 0 0 0 0
+0 0 0 P
+#36344
+pris grand~
+Grand Pris~
+a brightly glowing medal is waiting to be worn~
+gold~
+armor AGIORY AC
+30 30 30 25 0
+75 50 0 P
+A 1 1
+A 2 1
+A 3 1
+A 4 1
+A 5 1
+A 6 1
+A 26 3
+A 12 100
+A 13 100
+A 14 200
+A 17 -20
+A 18 15
+A 19 15
+A 24 -10
+#36345
+robe dark grey~
+a dark gray robe~
+a dark gray robe is hanging on the hook~
+linen~
+armor 0 AD
+10 10 10 10 0
+25 20 400 P
+A 3 2
+A 14 -100
+A 18 5
+#36346
+sleeves accuracy~
+a sleeves of accuracy~
+someone has left some sleeves here~
+linen~
+armor 0 AH
+10 10 10 10 0
+25 10 1000 A
+A 3 2
+A 12 40
+A 18 5
+#36347
+pen goose~
+a goose pen~
+a feather shaped like a pen lies here~
+feathers~
+weapon BIJK AN
+exotic 5 7 pierce 0
+25 10 1000 P
+A 4 2
+A 12 10
+A 18 15
+#36348
+scroll dispatch witch hunt~
+a witch-hunt dispatch~
+a scroll lies on the table~
+kid leather~
+scroll ABGITU AO
+35 'cancellation' 'curse' 'dispel evil' 'dispel magic'
+25 0 0 P
+#36349
+scroll rescript witch hunt~
+a witch-hunt rescript~
+a scroll with a big circle stamp hangs on the wall~
+kid leather~
+scroll ABGUY AO
+90 'dispel magic' 'dispel evil' 'cancellation' 'weaken'
+75 0 0 P
+#36350
+ring tournament~
+a tournament ring~
+a ring engraved with a short inscription lies here~
+iron~
+armor 0 AB
+8 8 8 5 0
+50 10 1000 P
+A 18 2
+A 19 3
+#36351
+scarf tournament~
+a tournament scarf~
+a scarf with a short inscription lies on the ground~
+iron~
+armor 0 AC
+10 10 10 5 0
+50 12 1200 P
+A 18 3
+A 19 3
+#36352
+helm tournament~
+a tournament helm~
+an iron helm lies here~
+iron~
+armor 0 AE
+15 15 15 10 0
+50 35 2300 P
+A 19 4
+#36353
+plate breast tournament~
+a tournament breast plate~
+a plate with dark carvings lies here neglected~
+iron~
+armor 0 AD
+15 15 15 10 0
+50 50 5000 P
+A 18 1
+A 19 3
+#36354
+plate leg tournament~
+tournament leg's plate~
+a pile of a tournament armor lies here~
+iron~
+armor 0 AF
+10 10 10 5 0
+50 35 2300 P
+A 5 1
+A 19 2
+#36355
+boots plated tournament~
+tournament plated boots~
+hard heavy boots sit here~
+iron~
+armor 0 AG
+15 15 15 6 0
+50 23 2300 P
+A 19 2
+#36356
+arm plate tournament~
+tournament arm plates~
+some plates lie here~
+iron~
+armor 0 AI
+10 10 10 10 0
+50 23 2300 P
+A 19 3
+#36357
+shield tournament~
+a tournament shield~
+a small shield lies on the ground~
+iron~
+armor 0 AJ
+20 20 20 18 0
+50 40 1200 P
+A 5 1
+#36358
+cloak tournament~
+a tournament cloak~
+a cloak with an inscription lies here~
+iron~
+armor 0 AK
+15 10 10 10 0
+50 20 2000 P
+A 19 3
+#36359
+gauntlets tournament~
+tournament gauntlets~
+some gauntlets has been dropped here~
+iron~
+armor 0 AH
+15 15 15 10 0
+50 30 10356 P
+A 19 3
+#36360
+tournament sword~
+a tournament sword~
+a long sword is stuck in the ground~
+iron~
+weapon 0 AN
+sword 7 7 slash 0
+50 100 10000 P
+#36361
+statue mayor~
+a Mayor's statue~
+A bronze statue of Mayor stands here~
+bronze~
+jewelry RY A
+0 0 0 0 0
+50 3000 500000 P
+#36362
+mace tournament~
+a tournament mace~
+a large mace lies on the ground~
+iron~
+weapon 0 AN
+mace 10 5 crush 0
+50 90 23450 P
+#36363
+statue~
+a statue~
+WOW! You see YOUR statue standing here!~
+bronze~
+jewelry RY A
+0 0 0 0 0
+50 3000 500000 P
+#36364
+battle pill~
+a battle pill~
+a battle pill lies here~
+food~
+pill 0 AO
+85 'armor' 'stone skin' 'shield' ''
+75 0 2500 P
+#36365
+pill magic~
+a magic pill~
+a magic pill lies here~
+food~
+pill 0 AO
+85 'haste' 'enhanced armor' 'giant strength' 'bless'
+75 0 2450 P
+#36366
+star morning tournament~
+a tournament morningstar~
+a heavy metal ball glows on the grass~
+iron~
+weapon A AN
+flail 16 3 crush 0
+50 100 23980 P
+#36367
+fountain marble~
+a marble fountain~
+A marble fountain is in the middle of the stone basin.~
+marble~
+fountain ABRY 0
+10000 10000 water 0 0
+0 20000 0 P
+#36368
+guard breast plate~
+a guard breast plate~
+a pile of armor lies here~
+steel~
+armor 0 AD
+10 10 10 5 0
+25 50 0 P
+A 19 2
+#36369
+shield guard~
+a guard shield~
+a shield lies here~
+shell~
+armor 0 AJ
+15 15 15 10 0
+25 35 3400 P
+A 5 2
+A 17 -10
+#36370
+cape guard~
+a guard cape~
+a guard cape lies on the ground~
+fur~
+armor 0 AK
+10 10 10 5 0
+25 10 2387 P
+A 18 3
+#36371
+sword guard~
+a guard sword~
+a short sword gleams here~
+steel~
+weapon A AN
+sword 6 6 pierce 0
+25 50 500 P
+#36372
+axe tournament~
+a tournament axe~
+a HUGE axe lies here~
+iron~
+weapon 0 AN
+axe 6 9 chop 0
+50 50 2500 P
+#36373
+gloves hedgehog~
+hedgehog's gloves~
+some gloves lies on the grass~
+fur~
+armor BGIM AH
+5 6 5 3 0
+5 10 0 P
+A 4 1
+A 18 1
+A 19 1
+A 24 -1
+#36374
+some stilts~
+some stilts~
+some stilts has been dropped here~
+wood~
+armor 0 AG
+10 12 15 5 0
+25 20 2000 P
+A 26 2
+A 14 300
+A 18 -3
+#36375
+safe~
+a safe~
+a steel safe stands in the corner~
+steel~
+container ABRTY 0
+300 ABCDE 36343 300 100
+0 10000 0 P
+#36376
+key room~
+room key~
+a key from the back room lies here~
+iron~
+key 0 AO
+0 0 0 0 0
+0 0 0 P
+#36377
+bureau~
+bureau~
+a bureau stands at the south wall~
+hardwood~
+container R AO
+10 ABCDE 36378 10 100
+0 10000 0 P
+#36378
+bureau key~
+bureau key~
+a key from a bureau lies on the grass~
+silver~
+key 0 AO
+0 0 0 0 0
+0 0 0 P
+#36379
+oak~
+oak~
+A huge oak stands here, gleaming in a holy white light.~
+hardwood~
+container R 0
+10 E 0 10 100
+0 10000 0 P
+#36380
+key secret~
+a secret key~
+a secret key lies here~
+adamantite~
+key FTU AO
+0 0 0 0 0
+0 0 0 P
+#36381
+cell secret~
+secret cell~
+a secret cell~
+steel~
+container ABFGRTY 0
+100 ABCDE 36380 100 100
+0 10000 0 P
+#36382
+portrait~
+portrait~
+A portrait of Grandfather hangs on the wall.~
+diamond~
+portal R 0
+-1 -1 A 36358 0
+0 10000 0 P
+#36383
+wall~
+wall~
+A long wide mirror stands by the wall.~
+~
+portal R 0
+-1 -1 A 36357 0
+0 10000 0 P
+#36384
+hole dark~
+hole~
+A dark hole beckons you amidst the bushes.~
+ebony~
+portal RY 0
+-1 -1 A 36348 0
+0 1000 0 P
+#36385
+book shelf~
+a bookshelf~
+a bookshelf hangs on the wall~
+wood~
+container ARTY 0
+30 E -1 1 100
+0 10000 0 P
+#36386
+book iluvatar one~
+Book of Iluvatar~
+a huge volume stands on the shelf ~
+kid leather~
+treasure ARY A
+0 0 0 0 0
+0 0 0 P
+#36387
+book abrazak~
+Book of abrazak~
+a huge volume stands on the shelf ~
+kid leather~
+treasure ARY A
+0 0 0 0 0
+0 0 0 P
+#36388
+book diablo~
+Book of Diablo~
+a huge volume stands on the shelf ~
+kid leather~
+treasure AERY A
+0 0 0 0 0
+0 0 0 P
+#36389
+book hedin~
+Book of Hedin~
+a huge volume stands on the shelf ~
+kid leather~
+treasure ARY A
+0 0 0 0 0
+0 0 0 P
+#36390
+book phobos~
+Book of Phobos~
+a huge volume stands on the shelf ~
+kid leather~
+treasure ARY A
+0 0 0 0 0
+0 0 0 P
+#36391
+book lothar~
+Book of Lothar~
+a huge volume stands on the shelf ~
+kid leather~
+treasure ARY A
+0 0 0 0 0
+0 0 0 P
+#36392
+book eidu~
+Book of Eidu~
+a huge volume stands on the shelf ~
+kid leather~
+treasure ARY A
+0 0 0 0 0
+0 0 0 P
+#36393
+book marewell~
+Book of Marewell~
+a huge volume stands on the shelf ~
+kid leather~
+treasure 0 0
+0 0 0 0 0
+0 0 0 P
+#36394
+duncan book~
+Book of Dunkan~
+a huge volume stands on the shelf ~
+kid leather~
+treasure ARY A
+0 0 0 0 0
+0 0 0 P
+#36395
+book leon~
+Book of Leon~
+a huge volume stands on the shelf ~
+kid leather~
+treasure AGRY A
+0 0 0 0 0
+0 0 0 P
+#36396
+book arwen~
+Book of Arwen~
+a huge volume stands on the shelf ~
+kid leather~
+treasure ARY A
+0 0 0 0 0
+0 0 0 P
+#36397
+book arborn~
+Book of Arborn~
+a huge volume stands on the shelf ~
+kid leather~
+treasure AIRY A
+0 0 0 0 0
+0 0 0 P
+#36398
+book jullyroger~
+Book of JullyRoger~
+a huge volume stands on the shelf ~
+kid leather~
+treasure AGRY A
+0 0 0 0 0
+0 0 0 P
+#36399
+book gelios~
+Book of Gelios~
+a huge volume stands on the shelf ~
+kid leather~
+treasure ARY A
+0 0 0 0 0
+0 0 0 P
+#36400
+book setepios~
+Book of Setepios~
+a huge volume stands on the shelf ~
+kid leather~
+treasure ABRY A
+0 0 0 0 0
+0 0 0 P
+#36401
+book immortal~
+book of immortal~
+A huge volume stands on the shelf~
+~
+treasure 0 0 
+0 0 0 0 0
+0 0 0 P
+#36402
+book immortal~
+book of immortal~
+A huge volume stands on the shelf~
+~
+treasure 0 0 
+0 0 0 0 0
+0 0 0 P
+#36403
+book immortal~
+book of immortal~
+A huge volume stands on the shelf~
+~
+treasure 0 0 
+0 0 0 0 0
+0 0 0 P
+#36404
+book immortal~
+book of immortal~
+A huge volume stands on the shelf~
+~
+treasure 0 0 
+0 0 0 0 0
+0 0 0 P
+#36405
+book immortal~
+book of immortal~
+A huge volume stands on the shelf~
+~
+treasure 0 0 
+0 0 0 0 0
+0 0 0 P
+#36406
+book immortal~
+book of immortal~
+A huge volume stands on the shelf~
+~
+treasure 0 0 
+0 0 0 0 0
+0 0 0 P
+#36407
+book immortal~
+book of immortal~
+A huge volume stands on the shelf~
+~
+treasure 0 0 
+0 0 0 0 0
+0 0 0 P
+#36408
+book immortal~
+book of immortal~
+A huge volume stands on the shelf~
+~
+treasure 0 0 
+0 0 0 0 0
+0 0 0 P
+#36409
+book immortal~
+book of immortal~
+A huge volume stands on the shelf~
+~
+treasure 0 0 
+0 0 0 0 0
+0 0 0 P
+#36410
+gap~
+gap~
+A gap between roots of the shrub looks very interesting.~
+wood~
+portal 0 0
+-1 -1 A 36352 0
+0 10000 0 P
+#36411
+cape white~
+a white cape~
+a white cape lies here.~
+silk~
+armor AGHKLM AK
+35 35 35 30 0
+85 10 5000 P
+A 3 2
+A 4 2
+A 12 150
+A 13 150
+A 24 -10
+#36412
+cape grey~
+a grey cape~
+A grey cape lies here.~
+silk~
+armor AGHJKM AK
+35 35 35 30 0
+85 10 5500 P
+A 3 2
+A 4 2
+A 12 150
+A 13 150
+A 24 -10
+#36413
+cape dark~
+a dark cape~
+A dark cape lies here.~
+silk~
+armor AEGHJLM AK
+35 35 35 30 0
+85 10 4500 P
+A 3 2
+A 4 2
+A 12 150
+A 13 150
+A 24 -10
+#36414
+mask clown~
+a clown mask~
+A strange painted face looks at you.~
+plastic~
+armor CEMN AE
+12 12 10 5 0
+25 10 1000 P
+A 2 2
+A 3 -2
+A 4 -1
+A 6 1
+A 26 1
+A 12 25
+A 13 10
+A 18 5
+#36415
+ball crystall quartz~
+a quartz crystall~
+A strange glowing ball shimmers on the dirt~
+quartz~
+light AG A
+0 0 -1 0 0
+85 10 4560 P
+A 1 5
+A 4 1
+A 12 100
+A 13 100
+A 17 -20
+A 18 10
+A 19 5
+#36416
+pill heal~
+a healing pill~
+Someone has left a pill of death here.~
+food~
+pill ABG AO
+40 'heal' 'refresh' 'uncurse' ''
+30 5 5500 P
+#36417
+pill energize~
+an energize pill~
+Someone has left a deadly-looking pill here.~
+food~
+pill ABGM AO
+85 'energizer' 'energizer' 'teleport' ''
+75 0 25000 P
+A 12 200
+#36418
+pill great~
+a great battle pill~
+A HUGE pill seems to be able to heal all of your wounds.~
+gut~
+pill 0 AO
+20 'blindness' 'weaken' 'slow' 'calm'
+10 0 1000 P
+#0
+#ROOMS
+#36300
+Path to the Festival Town~
+You are on the path to a beautiful town lying north. Flags
+flow above the entrance tower. Opened gates invite you to
+enter the town.
+~
+0 0 2
+D0
+
+~
+~
+0 -1 36336
+S
+#36301
+Fountain~
+Children play in the fountain, having ventured down into the
+shallow stone bowl, darting in and out of the spray, laughing
+and teasing one another. Light catches the water and creates
+small, shimmering rainbows.
+
+~
+0 0 6
+D0
+
+~
+~
+0 -1 36302
+D1
+
+~
+~
+0 -1 36304
+D2
+
+~
+~
+0 -1 36306
+D3
+
+~
+~
+0 -1 36308
+S
+#36302
+The Lawn~
+A grassy flat spreads all around a great stone basin. A fountain
+at the center of the basin spouts a plume of water that arches
+high into the air in a feathery spray.  People are seated all
+across the lawn and at the edge of the fountain.
+
+~
+0 0 2
+D0
+
+~
+~
+0 -1 36311
+D1
+
+~
+~
+0 -1 36303
+D2
+
+~
+~
+0 -1 36301
+D3
+
+~
+~
+0 -1 36309
+S
+#36303
+The Lawn~
+A grassy flat spreads all around a great stone basin. A fountain
+at the center of the basin spouts a plume of water that arches
+high into the air in a feathery spray.  People are seated all
+across the lawn and at the edge of the fountain.
+
+~
+0 0 2
+D2
+
+~
+~
+0 -1 36304
+D3
+
+~
+~
+0 -1 36302
+S
+#36304
+The Lawn~
+A grassy flat spreads all around a great stone basin. A fountain
+at the center of the basin spouts a plume of water that arches
+high into the air in a feathery spray.  People are seated all
+across the lawn and at the edge of the fountain.
+
+~
+0 0 2
+D0
+
+~
+~
+0 -1 36303
+D1
+
+~
+~
+0 -1 36315
+D2
+
+~
+~
+0 -1 36305
+D3
+
+~
+~
+0 -1 36301
+S
+#36305
+The Lawn~
+A grassy flat spreads all around a great stone basin. A fountain
+at the center of the basin spouts a plume of water that arches
+high into the air in a feathery spray.  People are seated all
+across the lawn and at the edge of the fountain.
+
+~
+0 0 2
+D0
+
+~
+~
+0 -1 36304
+D3
+
+~
+~
+0 -1 36306
+S
+#36306
+The Lawn~
+A grassy flat spreads all around a great stone basin. A fountain
+at the center of the basin spouts a plume of water that arches
+high into the air in a feathery spray.  People are seated all
+across the lawn and at the edge of the fountain.
+
+~
+0 0 2
+D1
+
+~
+~
+0 -1 36305
+D2
+
+~
+~
+0 -1 36319
+D3
+
+~
+~
+0 -1 36307
+D0
+
+~
+~
+0 -1 36301
+S
+#36307
+The Lawn~
+A grassy flat spreads all around a great stone basin. A fountain
+at the center of the basin spouts a plume of water that arches
+high into the air in a feathery spray.  People are seated all
+across the lawn and at the edge of the fountain.
+
+~
+0 0 2
+D0
+
+~
+~
+0 -1 36308
+D1
+
+~
+~
+0 -1 36306
+S
+#36308
+The Lawn~
+A grassy flat spreads all around a great stone basin. A fountain
+at the center of the basin spouts a plume of water that arches
+high into the air in a feathery spray.  People are seated all
+across the lawn and at the edge of the fountain.
+
+~
+0 0 2
+D0
+
+~
+~
+0 -1 36309
+D1
+
+~
+~
+0 -1 36301
+D2
+
+~
+~
+0 -1 36307
+D3
+
+~
+~
+0 -1 36323
+S
+#36309
+The Lawn~
+A grassy flat spreads all around a great stone basin. A fountain
+at the center of the basin spouts a plume of water that arches
+high into the air in a feathery spray.  People are seated all
+across the lawn and at the edge of the fountain.
+
+~
+0 0 2
+D1
+
+~
+~
+0 -1 36302
+D2
+
+~
+~
+0 -1 36308
+S
+#36310
+Walkway~
+Walkways border the lawn, packed end to end with makeshift
+booths selling the works of artisans and craftsmen: glass
+prisms, wood carvings, metal sculptures, and clothing of
+all sorts. Others are jammed with carts and stands selling
+food and drink.
+
+~
+0 0 2
+D1
+
+~
+~
+0 -1 36311
+D3
+
+~
+~
+0 -1 36325
+S
+#36311
+Walkway~
+Walkways border the lawn, packed end to end with makeshift
+booths selling the works of artisans and craftsmen: glass
+prisms, wood carvings, metal sculptures, and clothing of
+all sorts. Others are jammed with carts and stands selling
+food and drink.
+
+~
+0 0 2
+D0
+
+~
+~
+1 -1 36326
+D1
+
+~
+~
+0 -1 36312
+D2
+
+~
+~
+0 -1 36302
+D3
+
+~
+~
+0 -1 36310
+S
+#36312
+Walkway~
+Walkways border the lawn, packed end to end with makeshift
+booths selling the works of artisans and craftsmen: glass
+prisms, wood carvings, metal sculptures, and clothing of
+all sorts. Others are jammed with carts and stands selling
+food and drink.
+
+~
+0 0 2
+D1
+
+~
+~
+0 -1 36313
+D3
+
+~
+~
+0 -1 36311
+S
+#36313
+Walkway~
+Walkways border the lawn, packed end to end with makeshift
+booths selling the works of artisans and craftsmen: glass
+prisms, wood carvings, metal sculptures, and clothing of
+all sorts. Others are jammed with carts and stands selling
+food and drink.
+
+~
+0 0 2
+D2
+
+~
+~
+0 -1 36314
+D3
+
+~
+~
+0 -1 36312
+S
+#36314
+Walkway~
+Walkways border the lawn, packed end to end with makeshift
+booths selling the works of artisans and craftsmen: glass
+prisms, wood carvings, metal sculptures, and clothing of
+all sorts. Others are jammed with carts and stands selling
+food and drink.
+
+~
+0 0 2
+D0
+
+~
+~
+0 -1 36313
+D2
+
+~
+~
+0 -1 36315
+S
+#36315
+Walkway~
+Walkways border the lawn, packed end to end with makeshift
+booths selling the works of artisans and craftsmen: glass
+prisms, wood carvings, metal sculptures, and clothing of
+all sorts. Others are jammed with carts and stands selling
+food and drink.
+
+~
+0 0 2
+D0
+
+~
+~
+0 -1 36314
+D1
+
+~
+~
+1 -1 36327
+D2
+
+~
+~
+0 -1 36316
+D3
+
+~
+~
+0 -1 36304
+S
+#36316
+Walkway~
+Walkways border the lawn, packed end to end with makeshift
+booths selling the works of artisans and craftsmen: glass
+prisms, wood carvings, metal sculptures, and clothing of
+all sorts. Others are jammed with carts and stands selling
+food and drink.
+
+~
+0 0 2
+D0
+
+~
+~
+0 -1 36315
+D2
+
+~
+~
+0 -1 36317
+S
+#36317
+Walkway~
+Walkways border the lawn, packed end to end with makeshift
+booths selling the works of artisans and craftsmen: glass
+prisms, wood carvings, metal sculptures, and clothing of
+all sorts. Others are jammed with carts and stands selling
+food and drink.
+
+~
+0 0 2
+D0
+
+~
+~
+0 -1 36316
+D3
+
+~
+~
+0 -1 36318
+S
+#36318
+Walkway~
+Walkways border the lawn, packed end to end with makeshift
+booths selling the works of artisans and craftsmen: glass
+prisms, wood carvings, metal sculptures, and clothing of
+all sorts. Others are jammed with carts and stands selling
+food and drink.
+
+~
+0 0 2
+D1
+
+~
+~
+0 -1 36317
+D3
+
+~
+~
+0 -1 36319
+S
+#36319
+Walkway~
+Walkways border the lawn, packed end to end with makeshift
+booths selling the works of artisans and craftsmen: glass
+prisms, wood carvings, metal sculptures, and clothing of
+all sorts. Others are jammed with carts and stands selling
+food and drink.
+
+~
+0 0 2
+D0
+
+~
+~
+0 -1 36306
+D1
+
+~
+~
+0 -1 36318
+D2
+
+~
+~
+0 -1 36328
+D3
+
+~
+~
+0 -1 36320
+S
+#36320
+Walkway~
+Walkways border the lawn, packed end to end with makeshift
+booths selling the works of artisans and craftsmen: glass
+prisms, wood carvings, metal sculptures, and clothing of
+all sorts. Others are jammed with carts and stands selling
+food and drink.
+
+~
+0 0 2
+D1
+
+~
+~
+0 -1 36319
+D3
+
+~
+~
+0 -1 36321
+S
+#36321
+Walkway~
+Walkways border the lawn, packed end to end with makeshift
+booths selling the works of artisans and craftsmen: glass
+prisms, wood carvings, metal sculptures, and clothing of
+all sorts. Others are jammed with carts and stands selling
+food and drink.
+
+~
+0 0 2
+D0
+
+~
+~
+0 -1 36322
+D1
+
+~
+~
+0 -1 36320
+S
+#36322
+Walkway~
+Walkways border the lawn, packed end to end with makeshift
+booths selling the works of artisans and craftsmen: glass
+prisms, wood carvings, metal sculptures, and clothing of
+all sorts. Others are jammed with carts and stands selling
+food and drink.
+
+~
+0 0 2
+D0
+
+~
+~
+0 -1 36323
+D2
+
+~
+~
+0 -1 36321
+S
+#36323
+Walkway~
+Walkways border the lawn, packed end to end with makeshift
+booths selling the works of artisans and craftsmen: glass
+prisms, wood carvings, metal sculptures, and clothing of
+all sorts. Others are jammed with carts and stands selling
+food and drink.
+
+~
+0 0 2
+D0
+
+~
+~
+0 -1 36324
+D1
+
+~
+~
+0 -1 36308
+D2
+
+~
+~
+0 -1 36322
+D3
+
+~
+~
+1 -1 36329
+S
+#36324
+Walkway~
+Walkways border the lawn, packed end to end with makeshift
+booths selling the works of artisans and craftsmen: glass
+prisms, wood carvings, metal sculptures, and clothing of
+all sorts. Others are jammed with carts and stands selling
+food and drink.
+
+~
+0 0 2
+D0
+
+~
+~
+0 -1 36325
+D2
+
+~
+~
+0 -1 36323
+S
+#36325
+Walkway~
+Walkways border the lawn, packed end to end with makeshift
+booths selling the works of artisans and craftsmen: glass
+prisms, wood carvings, metal sculptures, and clothing of
+all sorts. Others are jammed with carts and stands selling
+food and drink.
+
+~
+0 0 2
+D1
+
+~
+~
+0 -1 36310
+D2
+
+~
+~
+0 -1 36324
+S
+#36326
+Unused Path~
+A dusty trail leads to the north. South you can return back
+to the Festival Lawn.
+~
+0 0 3
+D2
+
+~
+~
+1 -1 36311
+D0
+
+~
+~
+0 -1 36398
+S
+#36327
+Small Path~
+A small path leads to the hills where magic users can
+show their abilities.
+~
+0 0 3
+D3
+
+~
+~
+1 -1 36315
+D1
+
+~
+~
+0 -1 36383
+S
+#36328
+Small Path~
+You are on a small path. A wide lawn lies to the north. There
+are people everywhere on the lawn, and everyone is celebrating.
+South you can return back to the streets.
+~
+0 0 3
+D0
+
+~
+~
+0 -1 36319
+D2
+
+~
+grate~
+1 -1 36440
+S
+#36329
+Small Path~
+A small path in the forest leads to the tournament lawn,
+where you can see many warrior compete with each other
+for the right to be awarded by the Grand Pris and for
+the title of a champion.
+~
+0 0 3
+D1
+
+~
+~
+1 -1 36323
+D3
+
+~
+~
+0 -1 36373
+S
+#36330
+Main Street~
+You are walking along the main street. Brightly colored houses
+are on the sides of the street. Some of them are closed, other
+opened and you can catch some shadows inside. Probably, all the
+inhabitants celebrate the Festival. You here some noises from
+the northern part of town.
+~
+0 0 1
+D0
+
+~
+~
+0 -1 36439
+D2
+
+~
+~
+0 -1 36331
+D3
+
+~
+~
+0 -1 36344
+D1
+
+~
+~
+0 -1 36345
+S
+#36331
+Main Street~
+You are walking along the main street. Brightly colored houses
+are on the sides of the street. Some of them are closed, other
+opened and you can catch some shadows inside. Probably, all the
+inhabitants celebrate the Festival. You here some noises from
+the northern part of town.
+
+~
+0 0 1
+D0
+
+~
+~
+0 -1 36330
+D2
+
+~
+~
+0 -1 36332
+D3
+
+~
+~
+0 -1 36346
+D1
+
+~
+~
+0 -1 36347
+S
+#36332
+Central Square~
+You are on the Central Square of Festival Town. North and
+south the main road continues, west is a Bank Office,
+east you can enter a Mayor's Residence.
+~
+0 0 1
+D0
+
+~
+~
+0 -1 36331
+D2
+
+~
+~
+0 -1 36333
+D3
+
+~
+~
+0 -1 36337
+D1
+
+~
+~
+0 -1 36338
+S
+#36333
+Main Street~
+You are walking along the main street. Brightly colored houses
+are on the sides of the street. Some of them are closed, other
+opened and you can catch some shadows inside. Probably, all the
+inhabitants celebrate the Festival. You here some noises from
+the northern part of town.
+
+~
+0 0 1
+D0
+
+~
+~
+0 -1 36332
+D2
+
+~
+~
+0 -1 36334
+D3
+
+~
+~
+1 -1 36348
+D1
+
+~
+~
+1 -1 36349
+S
+#36334
+Main Street~
+You are walking along the main street. Brightly colored houses
+are on the sides of the street. Some of them are closed, other
+opened and you can catch some shadows inside. Probably, all the
+inhabitants celebrate the Festival. You here some noises from
+the northern part of town.
+
+~
+0 0 1
+D0
+
+~
+~
+0 -1 36333
+D2
+
+~
+~
+0 -1 36449
+D3
+
+~
+~
+0 -1 36350
+D1
+
+~
+~
+0 -1 36351
+S
+#36335
+The Gates~
+You enter the gates and step into a nice archway, leading
+to the brightness of a festival. Gate guards greet you warmly
+and invite to the town.
+~
+0 0 1
+D0
+
+~
+~
+0 -1 36450
+D2
+
+~
+~
+0 -1 36336
+S
+#36336
+Before the Gates~
+You are before the gates with a beautiful carvings. A brightly
+painted wall stretches east and west. A road carries you fore
+to the entrance.
+~
+0 0 2
+D0
+
+~
+~
+0 -1 36335
+D2
+
+~
+~
+0 -1 36300
+S
+#36337
+Entrance to the Bank Office~
+There is an emposing building west in the garden. The house
+is wood-sided and painted white with deep blue trim. Window
+boxes filled with flowers decorate its front, and a covered
+porch with a swing and rockers run its length. Dormers jutted
+out from the sloping roof, the windows brightly curtained,
+end massive stone chimneys brackets the walls at either end.
+
+~
+0 0 1
+D1
+
+~
+~
+0 -1 36332
+D3
+
+~
+~
+0 -1 36339
+S
+#36338
+Entrance to the Mayor's Residence~
+There is a two-story home set back from the street in a
+grove of spruce and dog-wood, the foundation bordered by
+flower beds, the walkway lined with petunias, and the yard
+dotted with rhododendrons. Sunlight streaks the house and
+yard through gaps in the trees.
+
+~
+0 0 1
+D3
+
+~
+~
+0 -1 36332
+D1
+
+~
+~
+0 -1 36352
+S
+#36339
+Entrance Hall~
+This hall is not so colored and decorated as mayor's one,
+but you can see some flags hanging by the walls. South
+you can get in the Office, north lies a bedroom.
+~
+0 0 0
+D1
+
+~
+~
+0 -1 36337
+D2
+
+~
+~
+0 -1 36340
+D0
+
+~
+~
+0 -1 36342
+S
+#36340
+Office~
+A bank office is strongly colored. A wooden bureau stands by the
+southern wall. South you see a door to treasure room.
+~
+0 DE 0
+D0
+
+~
+~
+0 -1 36339
+D3
+
+~
+~
+1 -1 36341
+S
+#36341
+Dark Room~
+It is pitch black.
+~
+0 ADE 0
+D1
+
+~
+~
+1 -1 36340
+S
+#36342
+Living Room~
+A table with simple chairs stands in the middle of the room.
+A window shows the park before the house. West is the
+bedroom, south you can get back to the entrance.
+~
+0 DE 0
+D2
+
+~
+~
+0 -1 36339
+D3
+
+~
+~
+4 2 36343
+S
+#36343
+Bedroom~
+A dark bedroom is slightly lightened by the window in the
+west wall. Forest edge does not allow the daylight come to
+the room.
+~
+0 ADE 0
+D1
+
+~
+~
+4 36376 36342
+S
+#36344
+Samurai's House~
+An old samurai live here. All his life was spent in battles.
+On the walls you can see beautiful paintings. Some carvings
+stand on the shelves. His kimono and katana sword seem to be
+locked in a small chest sitting by the corner.
+~
+0 DJ 0
+D1
+
+~
+~
+0 -1 36330
+E
+chest~
+It's locked.
+~
+S
+#36345
+Ranger's House~
+A home of ranger is filled with forest goods. There is
+a huge skin of a mountain lion lies on the floor. Wood
+carvings and rocks lies on the stands and shelves. An
+ashen longbow stands by the corner and wooden arrows
+fill a quiver hanging on the back wall.
+~
+0 DJ 0
+D3
+
+~
+~
+0 -1 36330
+S
+#36346
+Warrior's House~
+Armor and weapons all over the house! You can guess that
+it is really a home of a great warrior.
+~
+0 AD 0
+D1
+
+~
+~
+0 -1 36331
+S
+#36347
+Paladin's House~
+Some glowing armor stands by the corner.
+~
+0 AD 0
+D3
+
+~
+~
+0 -1 36331
+S
+#36348
+Vampire's House~
+Simply house of a dreaded vampire.
+~
+0 AD 0
+D1
+
+~
+~
+1 -1 36333
+S
+#36349
+Witch's House~
+You come to the witch house at your own risk. Vials filling
+with witch's brew are everywhere.
+~
+0 AD 0
+D3
+
+~
+~
+1 -1 36333
+S
+#36350
+Cleric's House~
+Holy symbols and other monk's things are lying on the
+shelves and hanging on the walls.
+~
+0 AD 0
+D1
+
+~
+~
+0 -1 36334
+S
+#36351
+Mage's House~
+You are a lucky boy! Mage is on the festival and you can get
+what you want. But someone has been here just before you...
+~
+0 AD 0
+D3
+
+~
+~
+0 -1 36334
+S
+#36352
+Entrance Hall~
+You enter the Mayor's Residence. Marble stairs lead to the
+Great Hall north and the Mayor's Office south. Up ahead you
+see a great Dining Hall. West you can get back outdoors.
+~
+0 D 0
+D3
+
+~
+~
+0 -1 36338
+D2
+
+~
+~
+0 -1 36353
+D0
+
+~
+~
+1 -1 36354
+D4
+
+~
+~
+0 -1 36356
+S
+#36353
+Secretary's Office~
+A humble secretary's office is also decorated. A simple
+table covered in green stands at the window. Some flags
+and rescripts hang on the walls. Waiting chairs stand
+along the southern wall. A few stairs lead up to the
+Mayor's office.
+~
+0 DE 0
+D0
+
+~
+~
+0 -1 36352
+D1
+
+~
+~
+1 -1 36360
+D4
+
+~
+~
+1 -1 36359
+S
+#36354
+Great Hall~
+Many statues stand along the walls. Amidst them you can see
+a huge gobelen with some types of weapons on it hanging on
+the eastern wall. North you see an entrance to the Great
+Library. There is a small door upstairs leading to the
+Mayor's apartments. Probably you aren't allowed there.
+~
+0 DE 0
+D2
+
+~
+~
+1 -1 36352
+D1
+
+~
+~
+1 -1 36357
+D4
+
+~
+~
+1 -1 36355
+S
+#36355
+Living Room~
+You see not an ordinary room but a large apartments. Some
+gobelens hang on the wall. A huge bed stands deep in the
+alcove by the eastern wall. A table with food and drinks
+stands by the western wall. Bright windows enlighten the
+room.
+~
+0 DE 0
+D5
+
+~
+~
+1 -1 36354
+S
+#36356
+Dining Hall~
+Dining hall is decorated by flowers and waits for citizens
+and guests to sit at the large tables filled with fruits,
+cookies, and other edibles and drinks. A band of servants
+hurries preparing a festival dinner.
+~
+0 DE 0
+D5
+
+~
+~
+0 -1 36352
+S
+#36357
+Great Library~
+What? Once again archives? No, you have mistaken. There
+is a Great Library, where you can find any of the book
+whenever written. Come inside and find what you want!
+~
+0 DE 0
+D3
+
+~
+~
+1 -1 36354
+S
+#36358
+Lost in time~
+You drift, suspended in the light, wrapped in silence and
+consumed by a numbness that empties you of all feeling...
+Suddenly the light disappears in a rush of wind and
+brilliant colors and you realize that you are in a strange
+room with no exits.
+~
+0 AN 0
+S
+#36359
+Mayor's Office~
+As you enter the room, a huge table with an armchair behind
+gets your attention. A wide windows allow you to see a whole
+countryside. A dozen of chairs stands along the walls. On
+the northern wall you see a diploma enclosed in a bright gold
+frame.
+~
+0 DEJ 0
+D5
+
+~
+~
+1 -1 36353
+E
+diploma~
+Agrael and Kami made this.
+Special thanks to Arborn.
+01.03.1999
+~
+E
+table~
+A huge table stands in the middle of the room.
+~
+S
+#36360
+Archives~
+Many shelves are all over the large room. In the corner
+you can barely see a small bureau with a simple chair
+at it. A lot of scrolls, rescripts and books are on the
+shelves.
+~
+0 DE 0
+D3
+
+~
+~
+1 -1 36353
+S
+#36361
+The edge of the Forest~
+You are by the edge of a light green forest. Bowmen and
+other masters of throwing techniques stands here on a start
+position. They compete for the Grand Pris.
+~
+0 0 3
+D0
+
+~
+~
+0 -1 36362
+S
+#36362
+Shooting Place~
+A grassy field spreads between the forest edges. Some
+animals are worrying about their business. You can see
+bowmen by the southern edge and their targets by the
+northern.
+~
+0 0 2
+D2
+
+~
+~
+0 -1 36361
+D0
+
+~
+~
+0 -1 36363
+S
+#36363
+Shooting Place~
+A grassy field spreads between the forest edges. Some
+animals are worrying about their business. You can see
+bowmen by the southern edge and their targets by the
+northern.
+~
+0 0 2
+D2
+
+~
+~
+0 -1 36362
+D0
+
+~
+~
+0 -1 36364
+S
+#36364
+Shooting Place~
+A grassy field spreads between the forest edges. Some
+animals are worrying about their business. You can see
+bowmen by the southern edge and their targets by the
+northern.
+~
+0 0 2
+D2
+
+~
+~
+0 -1 36363
+D0
+
+~
+~
+0 -1 36365
+D1
+
+~
+~
+0 -1 36377
+S
+#36365
+Shooting Place~
+A grassy field spreads between the forest edges. Some
+animals are worrying about their business. You can see
+bowmen by the southern edge and their targets by the
+northern.
+~
+0 0 2
+D2
+
+~
+~
+0 -1 36364
+D0
+
+~
+~
+0 -1 36366
+S
+#36366
+Shooting Place~
+A grassy field spreads between the forest edges. Some
+animals are worrying about their business. You can see
+bowmen by the southern edge and their targets by the
+northern.
+~
+0 0 2
+D2
+
+~
+~
+0 -1 36365
+D0
+
+~
+~
+0 -1 36367
+S
+#36367
+The edge of the Forest~
+You step under the trees and feel relaxed. But what do
+you see here safe the trees and grass?
+~
+0 0 3
+D2
+
+~
+~
+0 -1 36366
+S
+#36368
+The edge of the Forest~
+You step under the trees and feel relaxed. But what do
+you see here safe the trees and grass?
+~
+0 0 3
+D2
+
+~
+~
+0 -1 36372
+S
+#36369
+Strange Grove~
+A grove you enter looks ordinary but at the same time it
+don't. Looking around you see trees, flowers, birds, small
+animals and suddenly a small tent gets your attention.
+~
+0 0 3
+D0
+
+~
+~
+0 -1 36375
+S
+#36370
+Wasted Lawn~
+A wide grassy lawn is wasted by the boots of many warriors
+come here on a competition. A championship looks very
+interesting, especially if you can get your own part in it.
+~
+0 0 2
+D0
+
+~
+~
+0 -1 36371
+D1
+
+~
+~
+0 -1 36373
+D2
+
+~
+~
+0 -1 36375
+D2
+
+~
+~
+0 -1 36375
+D3
+
+~
+~
+0 -1 36377
+S
+#36371
+Wasted Lawn~
+A wide grassy lawn is wasted by the boots of many warriors
+come here on a competition. A championship looks very
+interesting, especially if you can get your own part in it.
+~
+0 0 2
+D2
+
+~
+~
+0 -1 36370
+D1
+
+~
+~
+0 -1 36372
+D3
+
+~
+~
+0 -1 36378
+S
+#36372
+Wasted Lawn~
+A wide grassy lawn is wasted by the boots of many warriors
+come here on a competition. A championship looks very
+interesting, especially if you can get your own part in it.
+~
+0 0 2
+D3
+
+~
+~
+0 -1 36371
+D2
+
+~
+~
+0 -1 36373
+D0
+
+~
+~
+0 -1 36368
+S
+#36373
+Wasted Lawn~
+A wide grassy lawn is wasted by the boots of many warriors
+come here on a competition. A championship looks very
+interesting, especially if you can get your own part in it.
+~
+0 0 2
+D0
+
+~
+~
+0 -1 36372
+D3
+
+~
+~
+0 -1 36370
+D1
+
+~
+~
+0 -1 36329
+D2
+
+~
+~
+0 -1 36374
+S
+#36374
+Wasted Lawn~
+A wide grassy lawn is wasted by the boots of many warriors
+come here on a competition. A championship looks very
+interesting, especially if you can get your own part in it.
+~
+0 0 2
+D0
+
+~
+~
+0 -1 36373
+D3
+
+~
+~
+0 -1 36375
+S
+#36375
+Wasted Lawn~
+A wide grassy lawn is wasted by the boots of many warriors
+come here on a competition. A championship looks very
+interesting, especially if you can get your own part in it.
+~
+0 0 2
+D1
+
+~
+~
+0 -1 36374
+D0
+
+~
+~
+0 -1 36370
+D0
+
+~
+~
+0 -1 36370
+D2
+
+~
+~
+0 -1 36369
+D3
+
+~
+~
+0 -1 36376
+S
+#36376
+Wasted Lawn~
+A wide grassy lawn is wasted by the boots of many warriors
+come here on a competition. A championship looks very
+interesting, especially if you can get your own part in it.
+~
+0 0 2
+D1
+
+~
+~
+0 -1 36375
+D0
+
+~
+~
+0 -1 36377
+S
+#36377
+Wasted Lawn~
+A wide grassy lawn is wasted by the boots of many warriors
+come here on a competition. A championship looks very
+interesting, especially if you can get your own part in it.
+~
+0 0 2
+D2
+
+~
+~
+0 -1 36376
+D1
+
+~
+~
+0 -1 36370
+D0
+
+~
+~
+0 -1 36378
+D3
+
+~
+~
+0 -1 36364
+S
+#36378
+Wasted Lawn~
+A wide grassy lawn is wasted by the boots of many warriors
+come here on a competition. A championship looks very
+interesting, especially if you can get your own part in it.
+~
+0 0 2
+D2
+
+~
+~
+0 -1 36377
+D1
+
+~
+~
+0 -1 36371
+S
+#36379
+Dark Hill~
+A dark hill, filled with a black magic, covered with fairy
+mists, shows you a deserted line to the south. Far you can
+see a lit hill.
+~
+0 0 4
+D2
+
+~
+~
+0 -1 36380
+S
+#36380
+Deserted Lawn~
+Earlier it was a lawn. But mage's casts deserted it and you
+can see only a sand.
+~
+0 0 9
+D0
+
+~
+~
+0 -1 36379
+D2
+
+~
+~
+0 -1 36381
+S
+#36381
+Deserted Lawn~
+Earlier it was a lawn. But mage's casts deserted it and you
+can see only a sand.
+~
+0 0 9
+D0
+
+~
+~
+0 -1 36380
+D2
+
+~
+~
+0 -1 36382
+S
+#36382
+Deserted Lawn~
+Earlier it was a lawn. But mage's casts deserted it and you
+can see only a sand.
+~
+0 0 9
+D0
+
+~
+~
+0 -1 36381
+D2
+
+~
+~
+0 -1 36383
+D2
+
+~
+~
+0 -1 36383
+D1
+
+~
+~
+0 -1 36397
+S
+#36383
+Deserted Lawn~
+Earlier it was a lawn. But mage's casts deserted it and you
+can see only a sand.
+~
+0 0 9
+D0
+
+~
+~
+0 -1 36382
+D0
+
+~
+~
+0 -1 36382
+D3
+
+~
+~
+0 -1 36327
+D2
+
+~
+~
+0 -1 36384
+S
+#36384
+Deserted Lawn~
+Earlier it was a lawn. But mage's casts deserted it and you
+can see only a sand.
+~
+0 0 9
+D0
+
+~
+~
+0 -1 36383
+D2
+
+~
+~
+0 -1 36385
+D1
+
+~
+~
+0 -1 36395
+S
+#36385
+Deserted Lawn~
+Earlier it was a lawn. But mage's casts deserted it and you
+can see only a sand.
+~
+0 0 9
+D0
+
+~
+~
+0 -1 36384
+D2
+
+~
+~
+0 -1 36386
+S
+#36386
+Deserted Lawn~
+Earlier it was a lawn. But mage's casts deserted it and you
+can see only a sand.
+~
+0 0 9
+D0
+
+~
+~
+0 -1 36385
+D2
+
+~
+~
+0 -1 36387
+S
+#36387
+Lit Hill~
+You are on the top of a lit hill. North spreads the desert
+you have left just now. South you can see Festival Town.
+~
+0 0 4
+D0
+
+~
+~
+0 -1 36386
+S
+#36388
+Small Shrub~
+You are beside a small shrub. You can't go back to the north,
+but under your feet you can barely see a dark hole. May be
+there is a way home?
+~
+0 0 3
+S
+#36389
+Rocky Mountain~
+A rocky mountain rises in the middle of a hill country side.
+Far to the west you can see a festival lawn and further lies
+tournament lawn. South-east lies Festival Town.
+~
+0 0 5
+D0
+
+~
+~
+0 -1 36390
+D2
+
+~
+~
+0 -1 36394
+D1
+
+~
+~
+0 -1 36392
+D3
+
+~
+~
+0 -1 36396
+D5
+A rock blocks the way down.
+~
+rock~
+1 -1 36400
+S
+#36390
+Hills~
+Grassy hills spreads on the foot of a high rocky mountain.
+Mages practices here their spells on competition. Birds and
+small animals run away you approaching.
+~
+0 0 4
+D2
+
+~
+~
+0 -1 36389
+D1
+
+~
+~
+0 -1 36391
+D3
+
+~
+~
+0 -1 36397
+S
+#36391
+Hills~
+Grassy hills spreads on the foot of a high rocky mountain.
+Mages practices here their spells on competition. Birds and
+small animals run away you approaching.
+~
+0 0 4
+D3
+
+~
+~
+0 -1 36390
+D2
+
+~
+~
+0 -1 36392
+S
+#36392
+Hills~
+Grassy hills spreads on the foot of a high rocky mountain.
+Mages practices here their spells on competition. Birds and
+small animals run away you approaching.
+~
+0 0 4
+D0
+
+~
+~
+0 -1 36391
+D2
+
+~
+~
+0 -1 36393
+D3
+
+~
+~
+0 -1 36389
+S
+#36393
+Hills~
+Grassy hills spreads on the foot of a high rocky mountain.
+Mages practices here their spells on competition. Birds and
+small animals run away you approaching.
+~
+0 0 4
+D0
+
+~
+~
+0 -1 36392
+D3
+
+~
+~
+0 -1 36394
+S
+#36394
+Hills~
+Grassy hills spreads on the foot of a high rocky mountain.
+Mages practices here their spells on competition. Birds and
+small animals run away you approaching.
+~
+0 0 4
+D1
+
+~
+~
+0 -1 36393
+D0
+
+~
+~
+0 -1 36389
+D3
+
+~
+~
+0 -1 36395
+S
+#36395
+Hills~
+Grassy hills spreads on the foot of a high rocky mountain.
+Mages practices here their spells on competition. Birds and
+small animals run away you approaching.
+~
+0 0 4
+D1
+
+~
+~
+0 -1 36394
+D2
+
+~
+~
+0 -1 36388
+D0
+
+~
+~
+0 -1 36396
+D3
+
+~
+~
+0 -1 36384
+S
+#36396
+Hills~
+Grassy hills spreads on the foot of a high rocky mountain.
+Mages practices here their spells on competition. Birds and
+small animals run away you approaching.
+~
+0 0 4
+D2
+
+~
+~
+0 -1 36395
+D0
+
+~
+~
+0 -1 36397
+D1
+
+~
+~
+0 -1 36389
+S
+#36397
+Hills~
+Grassy hills spreads on the foot of a high rocky mountain.
+Mages practices here their spells on competition. Birds and
+small animals run away you approaching.
+~
+0 0 4
+D1
+
+~
+~
+0 -1 36390
+D2
+
+~
+~
+0 -1 36396
+D3
+
+~
+~
+0 -1 36382
+S
+#36398
+Path to the Forest~
+You are on a dark path leading into forest shadows.
+~
+0 0 3
+D2
+
+~
+~
+0 -1 36326
+D1
+
+~
+~
+0 -1 36399
+S
+#36399
+Deep in the Dark Forest~
+You have come far deep in the dark forest. You are lost...
+~
+0 N 3
+S
+#36400
+Entrance Cave~
+You dive in the darkness. Dump walls cause you to feel
+yourself cold. A dump tunnel leads down.
+~
+0 ADN 5
+D4
+A rock block the way back.
+~
+rock~
+1 -1 36389
+D5
+
+~
+~
+0 -1 36401
+S
+#36401
+Deep in the Dark Cave~
+You step in the dark cave. East opens a wide tunnel, up you can
+climb back to the daylight.
+~
+0 ADN 5
+D3
+
+~
+~
+0 -1 36402
+D4
+
+~
+~
+0 -1 36400
+S
+#36402
+Wide Tunnel~
+You go through the wide tunnel. Water flows along the dump
+walls and you are going to regret forgetting a boat... Far
+east you see a light streaming from nowhere.
+~
+0 ADN 5
+D1
+D
+~
+~
+0 -1 36401
+D3
+
+~
+~
+0 -1 36403
+S
+#36403
+Wide Tunnel~
+You go through the wide tunnel. Water flows along the dump
+walls and you are going to regret forgetting a boat... Far
+east you see a light streaming from nowhere.
+
+~
+0 ADN 5
+D1
+
+~
+~
+0 -1 36402
+D3
+
+~
+~
+0 -1 36404
+S
+#36404
+Wide Tunnel~
+You go through the wide tunnel. Water flows along the dump
+walls and you are going to regret forgetting a boat... Far
+east you see a light streaming from nowhere.
+
+~
+0 ADN 5
+D3
+
+~
+~
+0 -1 36405
+D1
+
+~
+~
+0 -1 36403
+S
+#36405
+Before the wide tunnel~
+You step under the arch of a huge cavern. An underground lake
+fills almost all space of the cavern. In the middle of the
+lake you see a small island and you realize, that the light
+catching your eyes flows just from this place.
+~
+0 DN 0
+D1
+
+~
+~
+0 -1 36404
+D0
+
+~
+~
+0 -1 36406
+D2
+
+~
+~
+0 -1 36420
+D3
+
+~
+~
+0 -1 36422
+S
+#36406
+A rocky path around the lake~
+You are climbing amidst the rocks, trying to reach the next
+side of the lake. Small snakes, snails and insects live here.
+Bats screams above you as you disturb them.
+~
+0 DN 0
+D2
+
+~
+~
+0 -1 36405
+D0
+
+~
+~
+0 -1 36407
+D3
+
+~
+~
+0 -1 36423
+S
+#36407
+A rocky path around the lake~
+You are climbing amidst the rocks, trying to reach the next
+side of the lake. Small snakes, snails and insects live here.
+Bats screams above you as you disturb them.
+
+~
+0 DN 0
+D2
+
+~
+~
+0 -1 36406
+D3
+
+~
+~
+0 -1 36408
+S
+#36408
+A rocky path around the lake~
+You are climbing amidst the rocks, trying to reach the next
+side of the lake. Small snakes, snails and insects live here.
+Bats screams above you as you disturb them.
+
+~
+0 DN 0
+D1
+
+~
+~
+0 -1 36407
+D3
+
+~
+~
+0 -1 36409
+D2
+
+~
+~
+0 -1 36423
+S
+#36409
+A rocky path around the lake~
+You are climbing amidst the rocks, trying to reach the next
+side of the lake. Small snakes, snails and insects live here.
+Bats screams above you as you disturb them.
+
+~
+0 DN 0
+D1
+
+~
+~
+0 -1 36408
+D3
+
+~
+~
+0 -1 36410
+D2
+
+~
+~
+0 -1 36424
+S
+#36410
+A rocky path around the lake~
+You are climbing amidst the rocks, trying to reach the next
+side of the lake. Small snakes, snails and insects live here.
+Bats screams above you as you disturb them.
+
+~
+0 DN 0
+D1
+
+~
+~
+0 -1 36409
+D3
+
+~
+~
+0 -1 36411
+D2
+
+~
+~
+0 -1 36425
+S
+#36411
+A rocky path around the lake~
+You are climbing amidst the rocks, trying to reach the next
+side of the lake. Small snakes, snails and insects live here.
+Bats screams above you as you disturb them.
+
+~
+0 DN 0
+D1
+
+~
+~
+0 -1 36410
+D2
+
+~
+~
+0 -1 36412
+S
+#36412
+A rocky path around the lake~
+You are climbing amidst the rocks, trying to reach the next
+side of the lake. Small snakes, snails and insects live here.
+Bats screams above you as you disturb them.
+
+~
+0 DN 0
+D0
+
+~
+~
+0 -1 36411
+D2
+
+~
+~
+0 -1 36413
+D1
+
+~
+~
+0 -1 36425
+S
+#36413
+A rocky path around the lake~
+You are climbing amidst the rocks, trying to reach the next
+side of the lake. Small snakes, snails and insects live here.
+Bats screams above you as you disturb them.
+
+~
+0 DN 0
+D0
+
+~
+~
+0 -1 36412
+D2
+
+~
+~
+0 -1 36414
+D1
+
+~
+~
+0 -1 36426
+S
+#36414
+A rocky path around the lake~
+You are climbing amidst the rocks, trying to reach the next
+side of the lake. Small snakes, snails and insects live here.
+Bats screams above you as you disturb them.
+
+~
+0 DN 0
+D0
+
+~
+~
+0 -1 36413
+D2
+
+~
+~
+0 -1 36415
+D1
+
+~
+~
+0 -1 36427
+S
+#36415
+A rocky path around the lake~
+You are climbing amidst the rocks, trying to reach the next
+side of the lake. Small snakes, snails and insects live here.
+Bats screams above you as you disturb them.
+
+~
+0 DN 0
+D0
+
+~
+~
+0 -1 36414
+D1
+
+~
+~
+0 -1 36416
+S
+#36416
+A rocky path around the lake~
+You are climbing amidst the rocks, trying to reach the next
+side of the lake. Small snakes, snails and insects live here.
+Bats screams above you as you disturb them.
+
+~
+0 DN 0
+D3
+
+~
+~
+0 -1 36415
+D1
+
+~
+~
+0 -1 36417
+D0
+
+~
+~
+0 -1 36427
+S
+#36417
+A rocky path around the lake~
+You are climbing amidst the rocks, trying to reach the next
+side of the lake. Small snakes, snails and insects live here.
+Bats screams above you as you disturb them.
+
+~
+0 DN 0
+D3
+
+~
+~
+0 -1 36416
+D1
+
+~
+~
+0 -1 36418
+D0
+
+~
+~
+0 -1 36428
+S
+#36418
+A rocky path around the lake~
+You are climbing amidst the rocks, trying to reach the next
+side of the lake. Small snakes, snails and insects live here.
+Bats screams above you as you disturb them.
+
+~
+0 DN 0
+D3
+
+~
+~
+0 -1 36417
+D1
+
+~
+~
+0 -1 36419
+D0
+
+~
+~
+0 -1 36421
+S
+#36419
+A rocky path around the lake~
+You are climbing amidst the rocks, trying to reach the next
+side of the lake. Small snakes, snails and insects live here.
+Bats screams above you as you disturb them.
+
+~
+0 DN 0
+D3
+
+~
+~
+0 -1 36418
+D0
+
+~
+~
+0 -1 36420
+S
+#36420
+A rocky path around the lake~
+You are climbing amidst the rocks, trying to reach the next
+side of the lake. Small snakes, snails and insects live here.
+Bats screams above you as you disturb them.
+
+~
+0 DN 0
+D2
+
+~
+~
+0 -1 36419
+D0
+
+~
+~
+0 -1 36405
+D3
+
+~
+~
+0 -1 36421
+S
+#36421
+An Underground Lake~
+The lake seems to be very deep. You wonder the beauty of
+stalactites and stalagmites all around you. But do worry if
+someone is hidden amidst this beauty!
+~
+0 DN 7
+D1
+
+~
+~
+0 -1 36420
+D2
+
+~
+~
+0 -1 36418
+D3
+
+~
+~
+0 -1 36428
+D0
+
+~
+~
+0 -1 36422
+D4
+
+~
+~
+0 -1 36434
+S
+#36422
+An Underground Lake~
+The lake seems to be very deep. You wonder the beauty of
+stalactites and stalagmites all around you. But do worry if
+someone is hidden amidst this beauty!
+
+~
+0 DN 7
+D3
+
+~
+~
+0 -1 36429
+D2
+
+~
+~
+0 -1 36421
+D1
+
+~
+~
+0 -1 36405
+D0
+
+~
+~
+0 -1 36423
+D4
+
+~
+~
+0 -1 36433
+S
+#36423
+An Underground Lake~
+The lake seems to be very deep. You wonder the beauty of
+stalactites and stalagmites all around you. But do worry if
+someone is hidden amidst this beauty!
+
+~
+0 DN 7
+D1
+
+~
+~
+0 -1 36406
+D3
+
+~
+~
+0 -1 36424
+D0
+
+~
+~
+0 -1 36408
+D2
+
+~
+~
+0 -1 36422
+D4
+
+~
+~
+0 -1 36432
+S
+#36424
+An Underground Lake~
+The lake seems to be very deep. You wonder the beauty of
+stalactites and stalagmites all around you. But do worry if
+someone is hidden amidst this beauty!
+
+~
+0 DN 7
+D1
+
+~
+~
+0 -1 36423
+D3
+
+~
+~
+0 -1 36425
+D2
+
+~
+~
+0 -1 36429
+D0
+
+~
+~
+0 -1 36409
+D4
+
+~
+~
+0 -1 36431
+S
+#36425
+An Underground Lake~
+The lake seems to be very deep. You wonder the beauty of
+stalactites and stalagmites all around you. But do worry if
+someone is hidden amidst this beauty!
+
+~
+0 DN 7
+D1
+
+~
+~
+0 -1 36424
+D2
+
+~
+~
+0 -1 36426
+D3
+
+~
+~
+0 -1 36412
+D0
+
+~
+~
+0 -1 36410
+D4
+
+~
+~
+0 -1 36438
+S
+#36426
+An Underground Lake~
+The lake seems to be very deep. You wonder the beauty of
+stalactites and stalagmites all around you. But do worry if
+someone is hidden amidst this beauty!
+
+~
+0 DN 7
+D0
+
+~
+~
+0 -1 36425
+D2
+
+~
+~
+0 -1 36427
+D3
+
+~
+~
+0 -1 36413
+D1
+
+~
+~
+0 -1 36429
+D4
+
+~
+~
+0 -1 36437
+S
+#36427
+An Underground Lake~
+The lake seems to be very deep. You wonder the beauty of
+stalactites and stalagmites all around you. But do worry if
+someone is hidden amidst this beauty!
+
+~
+0 DN 7
+D0
+
+~
+~
+0 -1 36426
+D1
+
+~
+~
+0 -1 36428
+D3
+
+~
+~
+0 -1 36414
+D2
+
+~
+~
+0 -1 36416
+D4
+
+~
+~
+0 -1 36436
+S
+#36428
+An Underground Lake~
+The lake seems to be very deep. You wonder the beauty of
+stalactites and stalagmites all around you. But do worry if
+someone is hidden amidst this beauty!
+
+~
+0 DN 7
+D0
+
+~
+~
+0 -1 36429
+D1
+
+~
+~
+0 -1 36421
+D3
+
+~
+~
+0 -1 36427
+D2
+
+~
+~
+0 -1 36417
+D4
+
+~
+~
+0 -1 36435
+S
+#36429
+A Small Island~
+A small rock rises from under the water. Up ahead you suddenly
+see a glimpse of light. Trying to climb up, you fall and fall
+down. Probably there is another way home? Who knows...
+~
+0 DN 0
+D1
+
+~
+~
+0 -1 36422
+D2
+
+~
+~
+0 -1 36428
+D0
+
+~
+~
+0 -1 36424
+D3
+
+~
+~
+0 -1 36426
+D4
+
+~
+~
+0 -1 36430
+S
+#36430
+Flying above the lake~
+You are flying above a small island. All that you see around
+is a deep gleaming lake. Up ahead you feel a flow of fresh air.
+~
+0 DN 8
+D5
+
+~
+~
+0 -1 36429
+D4
+
+~
+~
+0 -1 36301
+D0
+
+~
+~
+0 -1 36431
+D3
+
+~
+~
+0 -1 36437
+D1
+
+~
+~
+0 -1 36433
+D2
+
+~
+~
+0 -1 36435
+S
+#36431
+Flying above the lake~
+You are flying above a small island. All that you see around
+is a deep gleaming lake. Up ahead you feel a flow of fresh air.
+
+~
+0 DN 8
+D2
+
+~
+~
+0 -1 36430
+D1
+
+~
+~
+0 -1 36432
+D3
+
+~
+~
+0 -1 36438
+D5
+
+~
+~
+0 -1 36424
+S
+#36432
+Flying above the lake~
+You are flying above a small island. All that you see around
+is a deep gleaming lake. Up ahead you feel a flow of fresh air.
+
+~
+0 DN 8
+D3
+
+~
+~
+0 -1 36431
+D2
+
+~
+~
+0 -1 36433
+D5
+
+~
+~
+0 -1 36423
+S
+#36433
+Flying above the lake~
+You are flying above a small island. All that you see around
+is a deep gleaming lake. Up ahead you feel a flow of fresh air.
+
+~
+0 DN 8
+D3
+
+~
+~
+0 -1 36430
+D2
+
+~
+~
+0 -1 36434
+D0
+
+~
+~
+0 -1 36432
+D5
+
+~
+~
+0 -1 36422
+S
+#36434
+Flying above the lake~
+You are flying above a small island. All that you see around
+is a deep gleaming lake. Up ahead you feel a flow of fresh air.
+
+~
+0 DN 8
+D0
+
+~
+~
+0 -1 36433
+D3
+
+~
+~
+0 -1 36435
+D5
+
+~
+~
+0 -1 36421
+S
+#36435
+Flying above the lake~
+You are flying above a small island. All that you see around
+is a deep gleaming lake. Up ahead you feel a flow of fresh air.
+
+~
+0 DN 8
+D1
+
+~
+~
+0 -1 36434
+D3
+
+~
+~
+0 -1 36436
+D0
+
+~
+~
+0 -1 36430
+D5
+
+~
+~
+0 -1 36428
+S
+#36436
+Flying above the lake~
+You are flying above a small island. All that you see around
+is a deep gleaming lake. Up ahead you feel a flow of fresh air.
+
+~
+0 DN 8
+D1
+
+~
+~
+0 -1 36435
+D0
+
+~
+~
+0 -1 36437
+D5
+
+~
+~
+0 -1 36427
+S
+#36437
+Flying above the lake~
+You are flying above a small island. All that you see around
+is a deep gleaming lake. Up ahead you feel a flow of fresh air.
+
+~
+0 DN 8
+D1
+
+~
+~
+0 -1 36430
+D2
+
+~
+~
+0 -1 36436
+D0
+
+~
+~
+0 -1 36438
+D5
+
+~
+~
+0 -1 36426
+S
+#36438
+Flying above the lake~
+You are flying above a small island. All that you see around
+is a deep gleaming lake. Up ahead you feel a flow of fresh air.
+
+~
+0 DN 8
+D2
+
+~
+~
+0 -1 36437
+D1
+
+~
+~
+0 -1 36431
+D5
+
+~
+~
+0 -1 36425
+S
+#36439
+Main Street~
+You are walking along the main street. Brightly colored houses
+are on the sides of the street. Some of them are closed, other
+opened and you can catch some shadows inside. Probably, all the
+inhabitants celebrate the Festival. You here some noises from
+the northern part of town.
+
+~
+0 0 1
+D0
+
+~
+~
+0 -1 36440
+D2
+
+~
+~
+0 -1 36330
+S
+#36440
+2nd Line Street~
+This street can be simply called "the 2nd"
+
+~
+0 0 1
+D2
+
+~
+~
+0 -1 36439
+D0
+
+~
+grate~
+1 -1 36328
+D1
+
+~
+~
+0 -1 36443
+D3
+
+~
+~
+0 -1 36441
+S
+#36441
+2nd Line Street~
+This street can be simply called "the 2nd"
+
+~
+0 0 1
+D1
+
+~
+~
+0 -1 36440
+D3
+
+~
+~
+0 -1 36442
+D2
+
+~
+~
+0 -1 36446
+S
+#36442
+2nd Line Street~
+This street can be simply called "the 2nd"
+
+~
+0 0 1
+D1
+
+~
+~
+0 -1 36441
+D2
+
+~
+~
+0 -1 36445
+S
+#36443
+2nd Line Street~
+This street can be simply called "the 2nd"
+
+~
+0 0 1
+D1
+
+~
+~
+0 -1 36444
+D3
+
+~
+~
+0 -1 36440
+D2
+
+~
+~
+0 -1 36447
+S
+#36444
+2nd Line Street~
+This street can be simply called "the 2nd"
+
+~
+0 0 1
+D3
+
+~
+~
+0 -1 36443
+D2
+
+~
+~
+0 -1 36448
+S
+#36445
+Small house~
+You are inside a small house.
+
+~
+0 AD 0
+D0
+
+~
+~
+0 -1 36442
+S
+#36446
+Small house~
+You are inside a small house.
+
+~
+0 AD 0
+D0
+
+~
+~
+0 -1 36441
+S
+#36447
+Small house~
+You are inside a small house.
+
+~
+0 AD 0
+D0
+
+~
+~
+0 -1 36443
+S
+#36448
+Small house~
+You are inside a small house.
+
+~
+0 AD 0
+D0
+
+~
+~
+0 -1 36444
+S
+#36449
+Main Street~
+You are walking along the main street. Brightly colored houses
+are on the sides of the street. Some of them are closed, other
+opened and you can catch some shadows inside. Probably, all the
+inhabitants celebrate the Festival. You here some noises from
+the northern part of town.
+
+~
+0 0 1
+D2
+
+~
+~
+0 -1 36450
+D0
+
+~
+~
+0 -1 36334
+S
+#36450
+1st Line Street~
+You walk along the street called simply "the 1st". Small
+houses are on the northern side of the street.
+
+~
+0 0 1
+D2
+
+~
+~
+0 -1 36335
+D0
+
+~
+~
+0 -1 36449
+D1
+
+~
+~
+0 -1 36451
+D3
+
+~
+~
+0 -1 36453
+S
+#36451
+1st Line Street~
+You walk along the street called simply "the 1st". Small
+houses are on the northern side of the street.
+
+~
+0 0 1
+D1
+
+~
+~
+0 -1 36452
+D0
+
+~
+~
+0 -1 36457
+D3
+
+~
+~
+0 -1 36450
+S
+#36452
+1st Line Street~
+You walk along the street called simply "the 1st". Small
+houses are on the northern side of the street.
+
+~
+0 0 1
+D0
+
+~
+~
+0 -1 36458
+D3
+
+~
+~
+0 -1 36451
+S
+#36453
+1st Line Street~
+You walk along the street called simply "the 1st". Small
+houses are on the northern side of the street.
+
+~
+0 0 1
+D1
+
+~
+~
+0 -1 36450
+D3
+
+~
+~
+0 -1 36454
+D0
+
+~
+~
+0 -1 36456
+S
+#36454
+1st Line Street~
+You walk along the street called simply "the 1st". Small
+houses are on the northern side of the street.
+
+~
+0 0 1
+D1
+
+~
+~
+0 -1 36453
+D0
+
+~
+~
+0 -1 36455
+S
+#36455
+Small house~
+You are inside a small house.
+
+~
+0 0 0
+D2
+
+~
+~
+0 -1 36454
+S
+#36456
+Small house~
+You are inside a small house.
+
+~
+0 0 0
+D2
+
+~
+~
+0 -1 36453
+S
+#36457
+Small house~
+You are inside a small house.
+
+~
+0 0 0
+D2
+
+~
+~
+0 -1 36451
+S
+#36458
+Small house~
+You are inside a small house.
+
+~
+0 0 0
+D2
+
+~
+~
+0 -1 36452
+S
+#0
+#RESETS
+M 0 36319 3 36300 1 		* resetting hedgehog into room 36300
+G 0 36315 -1 * giving an apple
+M 0 36310 1 36301 1 		* resetting Mayor into room 36300
+E 0 36342 -1 5 * equipping a festival suit (on torso)
+E 0 36340 -1 6 * equipping a cowboy's hat (head)
+O 0 36367 -1 36301 * loading a marble fountain into room 36301
+M 0 36320 0 36301 0 		* resetting a small boy into room 36301
+M 0 36320 0 36301 0 		* resetting a small boy into room 36301
+M 0 36321 0 36301 0 		* resetting a small girl into room 36301
+M 0 36321 0 36301 0 		* resetting a small girl into room 36301
+M 0 36324 2 36302 1 		* resetting a clown into room 36302
+E 0 36342 -1 5 * equipping a festival suit (on torso)
+E 0 36374 -1 8 * equipping some stilts (feet)
+E 0 36414 -1 6 * equipping a clown mask (head)
+M 0 36321 0 36302 0 		* resetting a small girl into room 36302
+M 0 36323 4 36302 1 		* resetting a citizen into room 36302
+E 0 36342 -1 5 * equipping a festival suit (on torso)
+M 0 36324 2 36307 1 		* resetting a clown into room 36307
+E 0 36342 -1 5 * equipping a festival suit (on torso)
+E 0 36374 -1 8 * equipping some stilts (feet)
+E 0 36414 -1 6 * equipping a clown mask (head)
+M 0 36323 3 36307 1 		* resetting a citizen into room 36307
+E 0 36342 -1 5 * equipping a festival suit (on torso)
+M 0 36322 2 36307 1 		* resetting a citizen into room 36307
+E 0 36342 -1 5 * equipping a festival suit (on torso)
+M 0 36322 3 36310 1 		* resetting a citizen into room 36310
+E 0 36342 -1 5 * equipping a festival suit (on torso)
+M 0 36327 1 36310 1 		* resetting Gate guard into room 36310
+E 0 36368 -1 5 * equipping a guard breast plate (on torso)
+E 0 36371 -1 16 * equipping a guard sword (wielded)
+E 0 36369 -1 11 * equipping a guard shield (shield)
+E 0 36370 -1 12 * equipping a guard cape (about body)
+D 0 36311 0 1 
+M 0 36329 0 36312 1 		* resetting a pickpocket into room 36312
+E 0 36342 -1 5 * equipping a festival suit (on torso)
+E 0 36338 -1 17 * equipping a match box (held)
+M 0 36326 1 36313 1 		* resetting a vendor into room 36313
+G 0 36364 -1 * giving a battle pill
+G 0 36365 -1 * giving a magic pill
+G 0 36416 -1 * giving a healing pill
+G 0 36417 -1 * giving an energize pill
+G 0 36418 -1 * giving a great battle pill
+D 0 36315 1 1 
+M 0 36345 1 36317 1 		* resetting a vendor into room 36317
+G 0 36337 -1 * giving a match
+G 0 36338 -1 * giving a match box
+G 0 36341 -1 * giving a staff of strength
+M 0 36323 2 36318 1 		* resetting a citizen into room 36318
+E 0 36342 -1 5 * equipping a festival suit (on torso)
+M 0 36325 1 36318 1 		* resetting a juggler into room 36318
+E 0 36337 -1 17 * equipping a match (held)
+E 0 36336 -1 6 * equipping some sun-glasses (head)
+G 0 36315 -1 * giving an apple
+G 0 36315 -1 * giving an apple
+G 0 36315 -1 * giving an apple
+G 0 36315 -1 * giving an apple
+M 0 36346 0 36321 1 		* resetting a vendor into room 36321
+G 0 36363 -1 * giving a statue
+G 0 36361 -1 * giving a statue
+D 0 36323 3 1 
+M 0 36325 2 36324 1 		* resetting a juggler into room 36324
+E 0 36342 -1 5 * equipping a festival suit (on torso)
+E 0 36347 -1 16 * equipping a goose pen (wielded)
+M 0 36329 1 36324 1 		* resetting a pickpocket into room 36324
+E 0 36342 -1 5 * equipping a festival suit (on torso)
+M 0 36347 0 36325 1 		* resetting a vendor into room 36325
+G 0 36315 -1 * giving an apple
+G 0 36316 -1 * giving a cookie
+D 0 36326 2 1 
+D 0 36327 3 1 
+M 0 36322 1 36327 1 		* resetting a citizen into room 36327
+E 0 36342 -1 5 * equipping a festival suit (on torso)
+D 0 36328 2 1 
+D 0 36329 1 1 
+D 0 36333 3 1 
+D 0 36333 1 1 
+M 0 36350 0 36333 0 		* resetting a tiny bird into room 36333
+M 0 36327 3 36335 2 		* resetting Gate guard into room 36335
+E 0 36368 -1 5 * equipping a guard breast plate (on torso)
+E 0 36369 -1 11 * equipping a guard shield (shield)
+E 0 36370 -1 12 * equipping a guard cape (about body)
+E 0 36371 -1 16 * equipping a guard sword (wielded)
+M 0 36327 0 36335 2 		* resetting Gate guard into room 36335
+E 0 36368 -1 5 * equipping a guard breast plate (on torso)
+E 0 36369 -1 11 * equipping a guard shield (shield)
+E 0 36370 -1 12 * equipping a guard cape (about body)
+E 0 36371 -1 16 * equipping a guard sword (wielded)
+M 0 36350 0 36338 0 		* resetting a tiny bird into room 36338
+M 0 36344 5 36339 1 		* resetting a servant into room 36339
+E 0 36345 -1 5 * equipping a dark gray robe (on torso)
+D 0 36340 3 1 
+D 0 36341 1 1 
+O 0 36375 -1 36341 * loading a safe into room 36341
+P 0 36380 1 36375 1 		* puttinging a safe into a safe
+P 0 36315 1 36375 1 		* puttinging a safe into a safe
+D 0 36342 3 2 
+D 0 36343 1 2 
+M 0 36307 0 36343 1 		* resetting Banker's son into room 36343
+G 0 36343 -1 * giving a boy's toy
+M 0 36328 2 36346 1 		* resetting a hidden figure into room 36346
+D 0 36348 1 1 
+M 0 36330 0 36348 0 		* resetting a bat into room 36348
+D 0 36349 3 1 
+M 0 36331 0 36349 1 		* resetting a black cat into room 36349
+G 0 36364 -1 * giving a battle pill
+G 0 36365 -1 * giving a magic pill
+M 0 36328 2 36351 1 		* resetting a hidden figure into room 36351
+D 0 36352 0 1 
+D 0 36353 1 1 
+D 0 36353 4 1 
+M 0 36311 1 36353 1 		* resetting Clerk into room 36353
+E 0 36345 -1 5 * equipping a dark gray robe (on torso)
+E 0 36346 -1 9 * equipping a sleeves of accuracy (hands)
+E 0 36347 -1 16 * equipping a goose pen (wielded)
+G 0 36348 -1 * giving a witch-hunt dispatch
+D 0 36354 2 1 
+D 0 36354 1 1 
+D 0 36354 4 1 
+D 0 36355 5 1 
+M 0 36309 0 36355 1 		* resetting Mayor's Wife into room 36355
+E 0 36339 -1 6 * equipping a wig (head)
+E 0 36342 -1 5 * equipping a festival suit (on torso)
+G 0 36316 -1 * giving a cookie
+O 0 36316 -1 36355 * loading a cookie into room 36355
+O 0 36316 -1 36355 * loading a cookie into room 36355
+O 0 36315 -1 36355 * loading an apple into room 36355
+M 0 36344 4 36356 4 		* resetting a servant into room 36356
+E 0 36342 -1 5 * equipping a festival suit (on torso)
+M 0 36344 0 36356 4 		* resetting a servant into room 36356
+E 0 36342 -1 5 * equipping a festival suit (on torso)
+M 0 36344 0 36356 4 		* resetting a servant into room 36356
+E 0 36342 -1 5 * equipping a festival suit (on torso)
+M 0 36344 0 36356 4 		* resetting a servant into room 36356
+E 0 36342 -1 5 * equipping a festival suit (on torso)
+D 0 36357 3 1 
+O 0 36382 -1 36357 * loading portrait into room 36357
+M 0 36315 1 36357 1 		* resetting Librarian into room 36357
+E 0 36346 -1 9 * equipping a sleeves of accuracy (hands)
+E 0 36345 -1 5 * equipping a dark gray robe (on torso)
+E 0 36349 -1 17 * equipping a witch-hunt rescript (held)
+E 0 36317 -1 16 * equipping bookmark (wielded)
+M 0 36314 0 36357 1 		* resetting Spider into room 36357
+O 0 36385 -1 36357 * loading a bookshelf into room 36357
+P 0 36386 1 36385 1 		* puttinging a bookshelf into a bookshelf
+P 0 36387 1 36385 1 		* puttinging a bookshelf into a bookshelf
+P 0 36388 1 36385 1 		* puttinging a bookshelf into a bookshelf
+P 0 36389 1 36385 1 		* puttinging a bookshelf into a bookshelf
+P 0 36390 1 36385 1 		* puttinging a bookshelf into a bookshelf
+P 0 36391 1 36385 1 		* puttinging a bookshelf into a bookshelf
+P 0 36392 1 36385 1 		* puttinging a bookshelf into a bookshelf
+P 0 36393 1 36385 1 		* puttinging a bookshelf into a bookshelf
+P 0 36394 1 36385 1 		* puttinging a bookshelf into a bookshelf
+P 0 36395 1 36385 1 		* puttinging a bookshelf into a bookshelf
+P 0 36396 1 36385 1 		* puttinging a bookshelf into a bookshelf
+P 0 36397 1 36385 1 		* puttinging a bookshelf into a bookshelf
+P 0 36398 1 36385 1 		* puttinging a bookshelf into a bookshelf
+P 0 36399 1 36385 1 		* puttinging a bookshelf into a bookshelf
+P 0 36361 1 36385 1 		* puttinging a bookshelf into a bookshelf
+O 0 36383 -1 36358 * loading wall into room 36358
+M 0 36300 0 36358 1 		* resetting Grandfather into room 36358
+E 0 36318 -1 12 * equipping illusory cloak (about body)
+E 0 36319 -1 16 * equipping illusory longsword (wielded)
+D 0 36359 5 1 
+O 0 36381 -1 36359 * loading secret cell into room 36359
+P 0 36344 1 36381 1 		* puttinging secret cell into secret cell
+D 0 36360 3 1 
+M 0 36312 0 36360 1 		* resetting Archivarius into room 36360
+E 0 36314 -1 13 * equipping ink-pot (waist)
+E 0 36345 -1 5 * equipping a dark gray robe (on torso)
+E 0 36346 -1 9 * equipping a sleeves of accuracy (hands)
+E 0 36349 -1 17 * equipping a witch-hunt rescript (held)
+G 0 36316 -1 * giving a cookie
+G 0 36348 -1 * giving a witch-hunt dispatch
+M 0 36313 0 36360 0 		* resetting Rodent into room 36360
+M 0 36301 1 36361 1 		* resetting green bowman into room 36361
+E 0 36320 -1 17 * equipping silver arrow (held)
+E 0 36322 -1 6 * equipping green hat (head)
+E 0 36323 -1 5 * equipping green vest (on torso)
+E 0 36324 -1 7 * equipping leather leggings (legs)
+E 0 36325 -1 8 * equipping thin leather boots (feet)
+E 0 36326 -1 16 * equipping longbow (wielded)
+E 0 36321 -1 1 * equipping bowman's ring (left finger)
+M 0 36302 0 36361 1 		* resetting Acute Eye into room 36361
+E 0 36327 -1 6 * equipping headband (head)
+E 0 36328 -1 13 * equipping snake belt (waist)
+E 0 36329 -1 7 * equipping scalp leggings (legs)
+E 0 36330 -1 8 * equipping some moccasins (feet)
+E 0 36300 -1 15 * equipping feathery bracer (right wrist)
+E 0 36301 -1 16 * equipping tomahawk (wielded)
+E 0 36300 -1 14 * equipping feathery bracer (left wrist)
+M 0 36303 0 36361 1 		* resetting Tumbu-Yumbu into room 36361
+E 0 36302 -1 4 * equipping tooth necklace (neck)
+E 0 36303 -1 7 * equipping short palm skirt (legs)
+E 0 36304 -1 10 * equipping bracer of charisma (arms)
+E 0 36306 -1 12 * equipping leo skin (about body)
+E 0 36307 -1 16 * equipping reet stick (wielded)
+E 0 36305 -1 11 * equipping ebony shield (shield)
+M 0 36304 0 36361 1 		* resetting Lee Huang Wang into room 36361
+E 0 36308 -1 6 * equipping black casque (head)
+E 0 36309 -1 5 * equipping black scale platemail (on torso)
+E 0 36310 -1 9 * equipping black dragon gauntlets (hands)
+E 0 36311 -1 7 * equipping black dragon leg plates (legs)
+E 0 36312 -1 16 * equipping short bow (wielded)
+E 0 36313 -1 8 * equipping black dragon boots (feet)
+E 0 36321 -1 1 * equipping bowman's ring (left finger)
+M 0 36319 2 36363 1 		* resetting hedgehog into room 36363
+E 0 36373 -1 9 * equipping hedgehog's gloves (hands)
+G 0 36315 -1 * giving an apple
+M 0 36349 4 36367 4 		* resetting a target into room 36367
+M 0 36349 0 36367 4 		* resetting a target into room 36367
+M 0 36349 0 36367 4 		* resetting a target into room 36367
+M 0 36349 0 36367 4 		* resetting a target into room 36367
+M 0 36318 0 36368 1 		* resetting an undescript mobile into room 36368
+E 0 36357 -1 11 * equipping a tournament shield (shield)
+E 0 36360 -1 16 * equipping a tournament sword (wielded)
+M 0 36350 0 36368 0 		* resetting a tiny bird into room 36368
+M 0 36306 1 36369 1 		* resetting Monk into room 36369
+E 0 36362 -1 16 * equipping a tournament mace (wielded)
+E 0 36323 -1 5 * equipping green vest (on torso)
+E 0 36324 -1 7 * equipping leather leggings (legs)
+M 0 36348 0 36369 1 		* resetting a vendor into room 36369
+G 0 36335 -1 * giving a crumpled flask
+M 0 36316 3 36370 1 		* resetting warrior on competition into room 36370
+E 0 36350 -1 2 * equipping a tournament ring (right finger)
+E 0 36351 -1 4 * equipping a tournament scarf (neck)
+E 0 36354 -1 7 * equipping tournament leg's plate (legs)
+E 0 36355 -1 8 * equipping tournament plated boots (feet)
+E 0 36362 -1 16 * equipping a tournament mace (wielded)
+M 0 36316 2 36372 1 		* resetting warrior on competition into room 36372
+E 0 36350 -1 2 * equipping a tournament ring (right finger)
+E 0 36351 -1 4 * equipping a tournament scarf (neck)
+E 0 36352 -1 6 * equipping a tournament helm (head)
+E 0 36353 -1 5 * equipping a tournament breast plate (on torso)
+E 0 36360 -1 16 * equipping a tournament sword (wielded)
+M 0 36317 3 36373 1 		* resetting hooligan into room 36373
+E 0 36338 -1 17 * equipping a match box (held)
+E 0 36342 -1 5 * equipping a festival suit (on torso)
+M 0 36316 0 36374 1 		* resetting warrior on competition into room 36374
+E 0 36350 -1 2 * equipping a tournament ring (right finger)
+E 0 36351 -1 4 * equipping a tournament scarf (neck)
+E 0 36357 -1 11 * equipping a tournament shield (shield)
+E 0 36358 -1 12 * equipping a tournament cloak (about body)
+E 0 36372 -1 16 * equipping a tournament axe (wielded)
+M 0 36317 2 36375 1 		* resetting hooligan into room 36375
+E 0 36337 -1 17 * equipping a match (held)
+E 0 36342 -1 5 * equipping a festival suit (on torso)
+M 0 36316 4 36376 1 		* resetting warrior on competition into room 36376
+E 0 36350 -1 2 * equipping a tournament ring (right finger)
+E 0 36351 -1 4 * equipping a tournament scarf (neck)
+E 0 36356 -1 10 * equipping tournament arm plates (arms)
+E 0 36359 -1 9 * equipping tournament gauntlets (hands)
+E 0 36366 -1 16 * equipping a tournament morningstar (wielded)
+M 0 36350 0 36376 0 		* resetting a tiny bird into room 36376
+M 0 36305 0 36378 1 		* resetting Old Veteran into room 36378
+E 0 36331 -1 18 * equipping spiritus vini (floating nearby)
+E 0 36332 -1 12 * equipping a dirty waistcoat (about body)
+E 0 36333 -1 13 * equipping a shoulder belt (waist)
+E 0 36334 -1 16 * equipping an old veteran's sword (wielded)
+E 0 36335 -1 17 * equipping a crumpled flask (held)
+M 0 36340 0 36379 1 		* resetting Dark Chaos into room 36379
+E 0 36376 -1 0 * equipping a quartz crystall (light source)
+E 0 36374 -1 12 * equipping a dark cape (about body)
+M 0 36343 3 36379 1 		* resetting a gekko into room 36379
+G 0 36316 -1 * giving a cookie
+M 0 36339 0 36380 1 		* resetting Dark Neutrality into room 36380
+E 0 36376 -1 0 * equipping a quartz crystall (light source)
+E 0 36374 -1 12 * equipping a dark cape (about body)
+M 0 36338 0 36381 1 		* resetting Dark Law into room 36381
+E 0 36376 -1 0 * equipping a quartz crystall (light source)
+E 0 36374 -1 12 * equipping a dark cape (about body)
+M 0 36343 0 36382 1 		* resetting a gekko into room 36382
+G 0 36316 -1 * giving a cookie
+M 0 36337 0 36382 1 		* resetting Grey Chaos into room 36382
+E 0 36373 -1 12 * equipping a grey cape (about body)
+E 0 36376 -1 0 * equipping a quartz crystall (light source)
+M 0 36317 4 36382 1 		* resetting hooligan into room 36382
+E 0 36337 -1 17 * equipping a match (held)
+G 0 36338 -1 * giving a match box
+M 0 36336 0 36383 1 		* resetting True Neutrality into room 36383
+E 0 36373 -1 12 * equipping a grey cape (about body)
+E 0 36376 -1 0 * equipping a quartz crystall (light source)
+M 0 36335 0 36384 1 		* resetting Grey Law into room 36384
+E 0 36376 -1 0 * equipping a quartz crystall (light source)
+E 0 36373 -1 12 * equipping a grey cape (about body)
+M 0 36334 0 36385 1 		* resetting White Chaos into room 36385
+E 0 36376 -1 0 * equipping a quartz crystall (light source)
+E 0 36372 -1 12 * equipping a white cape (about body)
+M 0 36333 0 36386 1 		* resetting White Neutrality into room 36386
+E 0 36372 -1 12 * equipping a white cape (about body)
+E 0 36376 -1 0 * equipping a quartz crystall (light source)
+M 0 36332 0 36387 1 		* resetting White Law into room 36387
+E 0 36376 -1 0 * equipping a quartz crystall (light source)
+E 0 36372 -1 12 * equipping a white cape (about body)
+M 0 36343 3 36387 1 		* resetting a gekko into room 36387
+M 0 36308 1 36388 1 		* resetting Mayor's son into room 36388
+E 0 36337 -1 17 * equipping a match (held)
+G 0 36338 -1 * giving a match box
+O 0 36371 -1 36388 * loading gap into room 36388
+D 0 36389 5 1 
+M 0 36341 1 36389 1 		* resetting Earthquaker into room 36389
+E 0 36314 -1 13 * equipping ink-pot (waist)
+E 0 36323 -1 5 * equipping green vest (on torso)
+E 0 36341 -1 17 * equipping a staff of strength (held)
+G 0 36338 -1 * giving a match box
+M 0 36319 0 36389 1 		* resetting hedgehog into room 36389
+E 0 36373 -1 9 * equipping hedgehog's gloves (hands)
+G 0 36315 -1 * giving an apple
+M 0 36343 0 36390 0 		* resetting a gekko into room 36390
+M 0 36342 4 36390 1 		* resetting a wimpy mage into room 36390
+E 0 36347 -1 16 * equipping a goose pen (wielded)
+G 0 36365 -1 * giving a magic pill
+M 0 36317 0 36390 1 		* resetting hooligan into room 36390
+E 0 36345 -1 5 * equipping a dark gray robe (on torso)
+M 0 36350 7 36391 2 		* resetting a tiny bird into room 36391
+M 0 36350 0 36391 2 		* resetting a tiny bird into room 36391
+M 0 36342 0 36393 1 		* resetting a wimpy mage into room 36393
+G 0 36364 -1 * giving a battle pill
+M 0 36323 1 36393 1 		* resetting a citizen into room 36393
+E 0 36342 -1 5 * equipping a festival suit (on torso)
+M 0 36350 0 36394 0 		* resetting a tiny bird into room 36394
+M 0 36342 2 36395 1 		* resetting a wimpy mage into room 36395
+E 0 36337 -1 17 * equipping a match (held)
+E 0 36345 -1 5 * equipping a dark gray robe (on torso)
+M 0 36342 3 36396 1 		* resetting a wimpy mage into room 36396
+E 0 36342 -1 5 * equipping a festival suit (on torso)
+M 0 36350 0 36398 0 		* resetting a tiny bird into room 36398
+M 0 36353 0 36398 0 		* resetting a small insect into room 36398
+O 0 36379 -1 36399 * loading oak into room 36399
+P 0 36378 1 36379 1 		* putting bureau key into oak
+O 0 36384 -1 36399 * loading hole into room 36399
+D 0 36400 4 1 
+M 0 36351 0 36402 0 		* resetting a sentipede into room 36402
+M 0 36352 0 36403 0 		* resetting a small snake into room 36403
+M 0 36353 0 36406 0 		* resetting a small insect into room 36406
+M 0 36351 0 36406 0 		* resetting a sentipede into room 36406
+M 0 36352 0 36408 0 		* resetting a small snake into room 36408
+M 0 36353 0 36408 0 		* resetting a small insect into room 36408
+M 0 36351 0 36410 0 		* resetting a sentipede into room 36410
+M 0 36352 0 36411 0 		* resetting a small snake into room 36411
+M 0 36353 0 36414 0 		* resetting a small insect into room 36414
+M 0 36352 0 36415 0 		* resetting a small snake into room 36415
+M 0 36351 0 36415 0 		* resetting a sentipede into room 36415
+M 0 36353 0 36417 0 		* resetting a small insect into room 36417
+M 0 36351 0 36417 0 		* resetting a sentipede into room 36417
+M 0 36352 0 36420 0 		* resetting a small snake into room 36420
+M 0 36352 0 36420 0 		* resetting a small snake into room 36420
+M 0 36354 1 36429 1 		* resetting mother of salamanders into room 36429
+G 0 36416 -1  * giving a healing pill
+M 0 36353 0 36430 0 		* resetting a small insect into room 36430
+M 0 36330 0 36432 0 		* resetting a bat into room 36432
+M 0 36330 0 36432 0 		* resetting a bat into room 36432
+M 0 36330 0 36435 0 		* resetting a bat into room 36435
+M 0 36330 0 36437 0 		* resetting a bat into room 36437
+M 0 36328 0 36439 0 		* resetting a hidden figure into room 36439
+D 0 36440 0 1 
+M 0 36322 0 36445 0 		* resetting a citizen into room 36445
+M 0 36320 0 36445 0 		* resetting a small boy into room 36445
+M 0 36323 0 36446 0 		* resetting a citizen into room 36446
+M 0 36321 0 36446 0 		* resetting a small girl into room 36446
+M 0 36321 0 36447 0 		* resetting a small girl into room 36447
+M 0 36323 0 36448 0 		* resetting a citizen into room 36448
+M 0 36323 0 36455 0 		* resetting a citizen into room 36455
+M 0 36322 0 36456 0 		* resetting a citizen into room 36456
+M 0 36350 0 36456 0 		* resetting a tiny bird into room 36456
+M 0 36323 0 36457 0 		* resetting a citizen into room 36457
+M 0 36320 0 36458 0 		* resetting a small boy into room 36458
+S
+#SHOPS
+36326 26 0 0 0 0 100 50 0 23 
+36345 3 4 15 0 0 100 50 0 23 
+36346 33 0 0 0 0 100 50 0 23 
+36347 19 0 0 0 0 100 50 0 23 
+36348 17 0 0 0 0 100 50 0 23 
+0
+#SPECIALS
+M 36300 spec_thief 
+M 36306 spec_cast_cleric 
+M 36310 spec_mayor 
+M 36312 spec_cast_mage 
+M 36315 spec_cast_mage 
+M 36327 spec_guard 
+M 36328 spec_thief 
+M 36329 spec_thief 
+M 36332 spec_breath_acid 
+M 36333 spec_breath_frost 
+M 36334 spec_breath_gas 
+M 36335 spec_breath_lightning 
+M 36336 spec_breath_frost 
+M 36337 spec_breath_gas 
+M 36338 spec_breath_fire 
+M 36339 spec_breath_frost 
+M 36340 spec_breath_acid 
+M 36341 spec_cast_mage 
+M 36343 spec_breath_fire 
+S
+#$
+
+
+
+
+
