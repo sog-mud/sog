@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.12 2000-04-11 01:05:47 fjoe Exp $
+ * $Id: fight.c,v 1.202.2.13 2000-04-25 08:34:52 osya Exp $
  */
 
 /***************************************************************************
@@ -1024,6 +1024,13 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 			  "your victim's blood.\n", ch);
 	}
 
+	if (is_affected(victim, sn_lookup("fire sphere"))) {
+		act("$n is burned by $N's fire sphere.", ch, NULL, victim, TO_ROOM);
+		act("$N's fire sphere sears your flesh.", ch, NULL, victim, TO_CHAR);
+		fire_effect((void *) victim, ch->level/2, dam/3, TARGET_CHAR);
+		damage(victim, ch, dam, 0, DAM_FIRE, DAMF_NONE);
+	}
+	
 	/* but do we have a funky weapon? */
 	if (result && wield != NULL && ch->fighting == victim) {
 		int dam;
@@ -1335,6 +1342,8 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 		dam -= dam / 4;
 	if (is_affected(victim, gsn_protection_cold) && (dam_type == DAM_COLD))
 		dam -= dam / 4;
+	if (is_affected(victim, sn_lookup("ice sphere")))
+		dam -= dam/ dice(2, 3);
 
 	immune = FALSE;
 	loc = IS_SET(dam_flags, DAMF_SECOND) ? WEAR_SECOND_WIELD : WEAR_WIELD;
@@ -1398,6 +1407,16 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 	 * Hurt the victim.
 	 * Inform the victim of his new state.
 	 */
+	if (dam_type == DAM_FIRE
+	&& is_affected(victim, sn_lookup("ice sphere"))
+	&& !saves_spell(ch->level, victim, DAM_FIRE)) 
+		affect_strip(victim, sn_lookup("ice sphere"));
+
+	if (dam_type == DAM_COLD
+	&& is_affected(victim, sn_lookup("fire sphere"))
+	&& !saves_spell(ch->level, victim, DAM_COLD)) 
+		affect_strip(victim, sn_lookup("fire sphere"));
+
 	victim->hit -= dam;
 	if (IS_IMMORTAL(victim) && victim->hit < 1)
 		victim->hit = 1;

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.181.2.7 2000-04-19 11:52:09 osya Exp $
+ * $Id: spellfun.c,v 1.181.2.8 2000-04-25 08:34:47 osya Exp $
  */
 
 /***************************************************************************
@@ -4709,5 +4709,66 @@ void spell_take_revenge(int sn, int level, CHAR_DATA *ch, void *vo)
 		char_puts("Unluckily your corpse is devoured.\n", ch);
 	else
 		transfer_char(ch, NULL, room, NULL, NULL, NULL);
+}
+
+void 
+spell_ice_sphere(int sn, int level, CHAR_DATA *ch, void *vo)
+{
+	AFFECT_DATA af;
+
+	if (is_affected(ch, sn)) { 
+		act_puts("You are already protected.", ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		return;
+	};
+
+	if (is_affected(ch, sn_lookup("fire sphere"))) {
+		act("Your fire sphere blushes and go out!", ch, NULL, NULL, TO_CHAR);
+		act("$n's fire sphere blushes and go out!", ch, NULL, NULL, TO_ROOM);
+                damage(ch, ch, dice(level, 4), TYPE_HIT, DAM_FIRE, TRUE);
+		affect_strip(ch, sn_lookup("fire sphere"));
+		return;
+	};
+
+	af.where     = TO_AFFECTS;
+	af.type      = sn;
+	af.level     = level;
+	af.duration  = level/2;
+	af.location  = APPLY_NONE;
+	af.modifier  = 0;
+	af.bitvector = 0;
+	affect_to_char(ch, &af);
+	act("Fine shiny sphere starts glowing around you.", ch, NULL, NULL, TO_CHAR);
+	act("Fine shiny sphere starts glowing around $n.", ch, NULL, NULL, TO_ROOM);
+}
+
+void
+spell_fire_sphere(int sn, int level, CHAR_DATA *ch, void *vo)
+{
+        AFFECT_DATA af;
+
+        if (is_affected(ch, sn)) {
+                act_puts("You are already protected.", ch, NULL, NULL, TO_CHAR,
+POS_DEAD);
+        return;
+        };
+
+	if (is_affected(ch, sn_lookup("ice sphere"))) {
+		act("Your ice sphere explodes, and splinters hits you!", ch, NULL, NULL, TO_CHAR);
+		act("$n's ice sphere explodes and splinters hits $n!", ch, NULL, NULL, TO_ROOM);
+		damage(ch, ch, dice(level, 4), 0, DAM_COLD, TRUE);
+		affect_strip(ch, sn_lookup("ice sphere"));
+		return;
+	};
+	af.where     = TO_AFFECTS;
+	af.type      = sn;
+	af.level     = level;
+	af.duration  = level/2;
+	af.location  = APPLY_NONE;
+	af.modifier  = 0;
+	af.bitvector = 0;
+	affect_to_char(ch, &af);
+	act("Hot violence fire flashes around you.", ch, NULL, NULL, TO_CHAR);
+	act("Hot violence fire flashes around $n.", ch, NULL, NULL, TO_ROOM);
+
 }
 

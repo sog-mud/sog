@@ -1,5 +1,5 @@
 /*
- * $Id: effects.c,v 1.17 1999-09-08 10:40:07 fjoe Exp $
+ * $Id: effects.c,v 1.17.2.1 2000-04-25 08:34:52 osya Exp $
  */
 
 /***************************************************************************
@@ -223,6 +223,17 @@ void cold_effect(void *vo, int level, int dam, int target)
     {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	OBJ_DATA *obj, *obj_next;
+
+	if (is_affected(victim, sn_lookup("fire sphere"))
+	&& !saves_spell(level, victim, DAM_COLD)) {
+		affect_strip(victim, sn_lookup("fire sphere"));
+		return;
+	} else
+		return;
+	
+	if (is_affected(victim, sn_lookup("ice sphere"))
+	&& !saves_spell(level/3, victim, DAM_COLD)) 
+		return;
 	
 	/* chill touch effect */
 	if (!saves_spell(level/4 + dam / 20, victim, DAM_COLD))
@@ -327,6 +338,17 @@ void fire_effect(void *vo, int level, int dam, int target)
     {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	OBJ_DATA *obj, *obj_next;
+
+	if (is_affected(victim, sn_lookup("ice sphere"))
+	&& !saves_spell(level, victim, DAM_FIRE)) {
+		affect_strip(victim, sn_lookup("ice sphere"));
+		return;
+	} else
+		return;
+
+	if (is_affected(victim, sn_lookup("fire sphere"))
+	&& !saves_spell(level/3, victim, DAM_FIRE))
+		return;
 
 	/* chance of blindness */
 	if (!IS_AFFECTED(victim,AFF_BLIND)

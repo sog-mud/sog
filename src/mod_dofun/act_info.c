@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.17 2000-04-21 07:05:46 osya Exp $
+ * $Id: act_info.c,v 1.271.2.18 2000-04-25 08:34:43 osya Exp $
  */
 
 /***************************************************************************
@@ -4138,11 +4138,15 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 			char_puts("({gCamf{x) ", ch);
 		if (IS_AFFECTED(victim, AFF_BLEND))
 			char_puts("({gBlending{x) ", ch);
+		if (is_affected(victim, sn_lookup("ice sphere")))
+			act_puts("({CIn ice sphere{x) ", ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
+		if (is_affected(victim, sn_lookup("fire sphere")))
+			act_puts("({RIn fire sphere{x) ", ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 		if (IS_SET(ch->comm, COMM_SHOW_RACE))
 			act_puts("({c$T{x) ", ch, NULL, race_name(victim->race), TO_CHAR | ACT_NOLF, POS_DEAD);
 	}
 	else {
-		static char FLAGS[] = "{x[{y.{D.{m.{c.{M.{D.{G.{b.{R.{Y.{W.{y.{g.{g.{x";
+		static char FLAGS[] = "{x[{y.{D.{m.{c.{M.{D.{G.{b.{R.{Y.{W.{y.{g.{g.{x.{x";
 		bool flags = FALSE;
 
 		FLAG_SET( 5, 'I', IS_AFFECTED(victim, AFF_INVIS));
@@ -4169,7 +4173,13 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		FLAG_SET(38, 'F', IS_AFFECTED(victim, AFF_FADE));
 		FLAG_SET(41, 'C', IS_AFFECTED(victim, AFF_CAMOUFLAGE));
 		FLAG_SET(44, 'B', IS_AFFECTED(victim, AFF_BLEND));
-
+		FLAG_SET(46, 'C', is_affected(victim, sn_lookup("ice sphere")));
+		FLAG_SET(47, 'I', is_affected(victim, sn_lookup("ice sphere")));
+		
+		if (is_affected(victim, sn_lookup("fire sphere"))) {
+			FLAG_SET(46, 'R', TRUE);
+			FLAG_SET(47, 'F', TRUE);
+		}
 		if (flags || IS_SET(ch->comm, COMM_SHOW_RACE)) 
 			if (IS_SET(ch->comm, COMM_SHOW_RACE)) {
 				char_puts(FLAGS, ch);
