@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.40 1998-05-19 10:24:45 efdi Exp $
+ * $Id: act_info.c,v 1.41 1998-05-19 12:13:07 efdi Exp $
  */
 
 /***************************************************************************
@@ -2294,46 +2294,46 @@ void do_consider(CHAR_DATA *ch, char *argument)
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
-		send_to_char("Consider killing whom?\n\r", ch);
+		send_to_char(msg(INFO_CONSIDER_WHOM, ch), ch);
 		return;
 	}
 
 	if ((victim = get_char_room(ch, arg)) == NULL) {
-		send_to_char("They're not here.\n\r", ch);
+		send_to_char(msg(MOVE_THEY_ARENT_HERE, ch), ch);
 		return;
 	}
 
 	if (is_safe(ch, victim)) {
-		send_to_char("Don't even think about it.\n\r",ch);
+		send_to_char(msg(INFO_DONT_EVEN_THINK, ch), ch);
 		return;
 	}
 
 	diff = victim->level - ch->level;
 
-	     if (diff <= -10) cmsg = "You can kill $N naked and weaponless.";
-	else if (diff <=  -5) cmsg = "$N is no match for you.";
-	else if (diff <=  -2) cmsg = "$N looks like an easy kill.";
-	else if (diff <=   1) cmsg = "The perfect match!";
-	else if (diff <=   4) cmsg = "$N says 'Do you feel lucky, punk?'.";
-	else if (diff <=   9) cmsg = "$N laughs at you mercilessly.";
-	else		      cmsg = "Death will thank you for your gift.";
+	     if (diff <= -10) cmsg = msg(INFO_CAN_KILL_NAKED, ch);
+	else if (diff <=  -5) cmsg = msg(INFO_IS_NOT_MATCH_FOR_YOU, ch);
+	else if (diff <=  -2) cmsg = msg(INFO_LOOKS_EASY_KILL, ch);
+	else if (diff <=   1) cmsg = msg(INFO_PERFECT_MATCH, ch);
+	else if (diff <=   4) cmsg = msg(INFO_FEEL_LUCKY_PUNK, ch);
+	else if (diff <=   9) cmsg = msg(INFO_LAUGHS_AT_YOU_MERCILESSLY, ch);
+	else		      cmsg = msg(INFO_DEATH_WILL_THANK_YOU, ch);
 
 	if (IS_EVIL(ch) && IS_EVIL(victim))
-		align = "$N grins evilly with you.";
+		align = msg(INFO_GRINS_EVILLY_WITH, ch);
 	else if (IS_GOOD(victim) && IS_GOOD(ch))
-		align = "$N greets you warmly.";
+		align = msg(INFO_GREETS_YOU_WARMLY, ch);
 	else if (IS_GOOD(victim) && IS_EVIL(ch))
-		align = "$N smiles at you, hoping you will turn from your evil path.";
+		align = msg(INFO_HOPE_YOU_WILL_TURN, ch);
 	else if (IS_EVIL(victim) && IS_GOOD(ch))
-		align = "$N grins evilly at you.";
+		align = msg(INFO_GRINS_EVILLY_AT, ch);
 	else if (IS_NEUTRAL(ch) && IS_EVIL(victim))
-		align = "$N grins evilly.";
+		align = msg(INFO_GRINS_EVILLY, ch);
 	else if (IS_NEUTRAL(ch) && IS_GOOD(victim))
-		align = "$N smiles happily.";
+		align = msg(INFO_SMILES_HAPPILY, ch);
 	else if (IS_NEUTRAL(ch) && IS_NEUTRAL(victim))
-		align = "$N looks just as disinterested as you.";
+		align = msg(INFO_LOOKS_AS_YOU, ch);
 	else
-		align = "$N looks very disinterested.";
+		align = msg(INFO_LOOKS_VERY_DISINTERESTED, ch);
 
 	act(cmsg, ch, NULL, victim, TO_CHAR);
 	act(align, ch, NULL, victim, TO_CHAR);

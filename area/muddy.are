@@ -268,8 +268,8 @@ _____,*-'   `==
 * Important commands: help, commands, news, notes.
 * Read all helps. So many things are changed relatively before.
 * Read helps of WHATSNEW(ROM2ANATOLIA), FROM20TO21 and ALIGNORCABAL.
-* Added multi-language support command. See 'language' command.
-* Added short mode for flags. See 'long' command.
+* Added multi-language support command. See '{Clanguage{x' command.
+* Added short mode for flags. See '{Clong{x' command.
 
 [Hit Return to continue]
 ~ 
