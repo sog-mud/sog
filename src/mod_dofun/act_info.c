@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.11 2000-04-05 06:06:25 fjoe Exp $
+ * $Id: act_info.c,v 1.271.2.12 2000-04-18 08:09:45 osya Exp $
  */
 
 /***************************************************************************
@@ -4102,7 +4102,8 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		if (IS_SET(victim->comm, COMM_AFK))
 			char_puts("{c[AFK]{x ", ch);
 	}
-
+			
+	
 	if (IS_SET(ch->comm, COMM_LONG)) {
 		if (IS_AFFECTED(victim, AFF_INVIS))
 			char_puts("({yInvis{x) ", ch);
@@ -4175,6 +4176,8 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		char_puts("[{WWizi{x] ", ch);
 	if (victim->incog_level >= LEVEL_HERO)
 		char_puts("[{DIncog{x] ", ch);
+
+		act_puts("($T) ", ch, NULL, race_name(victim->race), TO_CHAR | ACT_NOLF, POS_DEAD);
 
 	if (IS_NPC(victim)
 	&&  victim->position == victim->pMobIndex->start_pos) {
@@ -4563,6 +4566,7 @@ show_clanlist(CHAR_DATA *ch, clan_t *clan,
 	char name[MAX_STRING_LENGTH];
 	int cnt = 0;
 	CHAR_DATA *vch;
+	race_t *r;
 
 	output = buf_new(-1);
 	buf_printf(output, "List of %s of %s:\n", name_list, clan->name);
@@ -4587,7 +4591,8 @@ show_clanlist(CHAR_DATA *ch, clan_t *clan,
 		buf_printf(output, "%-8s  %3d  %-5s  %-3s  %7s-%-7s %s\n",
 			flag_string(clan_status_table, PC(vch)->clan_status),
 			vch->level,
-			RACE(vch->race)->race_pcdata->who_name,
+			(r = race_lookup(ch->race)) != NULL ?
+			r->race_pcdata->who_name : "error",
 			CLASS(vch->class)->who_name,
 			flag_string(ethos_table, vch->ethos),
 			flag_string(align_names, NALIGN(vch)),

@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.114.2.3 2000-04-17 12:48:42 osya Exp $
+ * $Id: martial_art.c,v 1.114.2.4 2000-04-18 08:09:49 osya Exp $
  */
 
 /***************************************************************************
@@ -2846,11 +2846,11 @@ void do_shield(CHAR_DATA *ch, const char *argument)
 	/* skill */
 	chance = chance * ch_weapon / 200;
 	if (vict_shield)
-		chance = chance * 100 / vict_shield;
+		chance = chance * 101 / (vict_shield+ 1);
 
 	/* dex vs. strength */
-	chance += get_curr_stat(ch, STAT_DEX);
-	chance -= 2 * get_curr_stat(victim, STAT_STR);
+	chance += get_curr_stat(ch, STAT_STR);
+	chance -= 2 * get_curr_stat(victim, STAT_DEX);
 
 	/* level */
 /*	chance += (ch->level - victim->level) * 2; */
@@ -2924,6 +2924,15 @@ void do_weapon(CHAR_DATA *ch, const char *argument)
 	/* staves are easy to break */
 	if (wield->value[0] == WEAPON_STAFF)
 		chance += 50;
+	/* two-handed swords and axes are hard to break */
+	if (wield->value[0] == WEAPON_SWORD
+	&& IS_WEAPON_STAT(wield, WEAPON_TWO_HANDS))
+		chance /= 1.2;
+	if (wield->value[0] == WEAPON_AXE)
+		if (IS_WEAPON_STAT(wield, WEAPON_TWO_HANDS))
+			chance /= 2;
+		else
+			chance /= 1.2;
 
 	/* find weapon skills */
 	ch_weapon = get_weapon_skill(ch, get_weapon_sn(axe));

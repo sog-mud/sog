@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.18 2000-04-17 13:56:15 fjoe Exp $
+ * $Id: spellfun2.c,v 1.139.2.19 2000-04-18 08:10:00 osya Exp $
  */
 
 /***************************************************************************
@@ -5219,6 +5219,7 @@ void spell_mirror(int sn, int level, CHAR_DATA *ch, void *vo)
 
 		gch->max_hit = gch->hit = 1;
 		gch->level = 1;
+		gch->race = victim->race ;
 		gch->doppel = victim;
 		gch->master = victim;
 
