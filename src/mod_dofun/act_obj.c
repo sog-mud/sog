@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.165.2.21 2001-02-12 19:12:13 fjoe Exp $
+ * $Id: act_obj.c,v 1.165.2.22 2001-02-25 12:30:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1352,9 +1352,9 @@ void do_quaff(CHAR_DATA * ch, const char *argument)
 	char            arg[MAX_INPUT_LENGTH];
 	OBJ_DATA       *obj;
 	one_argument(argument, arg, sizeof(arg));
-	
+
 	if (HAS_SKILL(ch, gsn_spellbane)) {
-		char_puts("You are Battle Rager, not filthy magician!\n",ch);
+		char_puts("You are Battle Rager, not a filthy magician!\n",ch);
 		return;
 	}
 
