@@ -42,7 +42,7 @@ for $_ (@modules) {
 __END__
 
 	print COUT << "__END__";
-	{ "$_->{module}",		$mod_id,		FALSE	},
+	{ "$_->{module}",		$mod_id,		TRUE	},
 __END__
 	$i++;
 }
