@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.95 1998-12-07 05:51:13 fjoe Exp $
+ * $Id: interp.c,v 1.96 1998-12-09 10:19:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -919,7 +919,7 @@ const char *one_argument(const char *argument, char *arg_first)
 /*****************************************************************************
  Name:		first_arg
  Purpose:	Pick off one argument from a string and return the rest.
- 		Understands quotes, if fCase then case will not be modified
+ 		Understands quotes, if fCase then arg_first will be lowercased
  Called by:	string_add(string.c)
  ****************************************************************************/
 const char *first_arg(const char *argument, char *arg_first, bool fCase)

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.96 1998-12-07 05:51:12 fjoe Exp $
+ * $Id: act_wiz.c,v 1.97 1998-12-09 10:19:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3960,7 +3960,7 @@ void do_rename(CHAR_DATA* ch, const char *argument)
 	FILE* file;
 		
 	argument = one_argument(argument, old_name); 
-		   one_argument(argument, new_name);
+		   first_arg(argument, new_name, FALSE);
 		
 	if (!old_name[0]) {
 		char_puts("Rename who?\n",ch);
