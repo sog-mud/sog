@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: str.c,v 1.24 2001-06-25 16:51:31 fjoe Exp $
+ * $Id: str.c,v 1.25 2001-07-08 16:36:15 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -384,7 +384,7 @@ int
 backslash(int ch)
 {
 	const char *p;
-	static char transtab[] = "a\ab\bf\fn\nr\rt\tv\v";
+	static char transtab[] = "a\ab\bf\fn\nr\rt\tv\v";	// notrans
 
 	p = strchr(transtab, ch);
 	if (p != NULL)

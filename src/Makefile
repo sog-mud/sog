@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.80 2001-01-23 21:22:18 fjoe Exp $
+# $Id: Makefile,v 1.81 2001-07-08 16:36:12 fjoe Exp $
 #
 
 .include "${.CURDIR}/Makefile.modules"
@@ -29,7 +29,7 @@ gtags:
 CHECKTRANS_FILES!=	ls mod_*/*.c sog/*.c sog/**/*.c |\
 	egrep -v '^sog/tables.c$$|^sog/comm/comm_info.c$$|/_depend.c$$' |\
 	egrep -v '^sog/cc_parse.c$$|^sog/cc_lex.c$$' |\
-	egrep -v '^mod_olc/|^sog/objval.c$$' |\
+	egrep -v '^mod_olc/|^mod_mpc/|^sog/objval.c$$' |\
 	egrep -v '^sog/obj_prog.c$$|^sog/mob_prog.c$$|^sog/mob_cmds.c$$|^sog/special.c$$'
 
 checktrans: .PHONY

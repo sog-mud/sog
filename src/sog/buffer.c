@@ -1,16 +1,16 @@
 /*
- * $Id: buffer.c,v 1.30 2001-06-22 07:13:51 avn Exp $
+ * $Id: buffer.c,v 1.31 2001-07-08 16:36:14 fjoe Exp $
  */
 
 /***************************************************************************
- *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *	
+ *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
  *	 Serdar BULUT {Chronos}		bulut@rorqual.cc.metu.edu.tr       *
- *	 Ibrahim Canpunar  {Asena}	canpunar@rorqual.cc.metu.edu.tr    *	
- *	 Murat BICER  {KIO}		mbicer@rorqual.cc.metu.edu.tr	   *	
- *	 D.Baris ACAR {Powerman}	dbacar@rorqual.cc.metu.edu.tr	   *	
+ *	 Ibrahim Canpunar  {Asena}	canpunar@rorqual.cc.metu.edu.tr    *
+ *	 Murat BICER  {KIO}		mbicer@rorqual.cc.metu.edu.tr	   *
+ *	 D.Baris ACAR {Powerman}	dbacar@rorqual.cc.metu.edu.tr	   *
  *     By using this code, you have agreed to follow the terms of the      *
- *     ANATOLIA license, in the file Anatolia/anatolia.licence             *	
+ *     ANATOLIA license, in the file Anatolia/anatolia.licence             *
  ***************************************************************************/
 
 /***************************************************************************
@@ -238,7 +238,7 @@ buf_resize(BUFFER *buffer, const char *string)
 			buffer->size = oldsize;
 			mem_tag(buffer, BUF_OFLOW);
 			log(LOG_INFO,
-			    "buf_append: '%s': buffer overflow", string);
+			    "buf_append: '%s': buffer overflow", string); // notrans
 			return FALSE;
 		}
 	}
@@ -251,7 +251,7 @@ buf_resize(BUFFER *buffer, const char *string)
 			buffer->size = oldsize;
 			mem_tag(buffer, BUF_OFLOW);
 			log(LOG_INFO,
-			    "buf_append: '%s': realloc failed", string);
+			    "buf_append: '%s': realloc failed", string); // notrans
 			return FALSE;
 		}
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_skill.c,v 1.28 2001-06-24 10:51:02 avn Exp $
+ * $Id: db_skill.c,v 1.29 2001-07-08 16:36:16 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -141,7 +141,7 @@ DBLOAD_FUN(load_skill)
 			if (sk.rank < 0 || sk.rank > 7) {
 				sk.rank = 0;
 				log(LOG_ERROR,
-				    "load_skill: rank should be beetwen 0..7");
+				    "load_skill: rank should be beetwen 0..7");	// notrans
 			}
 			break;
 		case 'S':
