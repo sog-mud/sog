@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.161 1999-10-18 18:08:10 avn Exp $
+ * $Id: update.c,v 1.162 1999-10-19 14:45:01 kostik Exp $
  */
 
 /***************************************************************************
@@ -228,8 +228,8 @@ void gain_exp(CHAR_DATA *ch, int gain)
 		&&  ch->level == LEVEL_PK)
 			ch->wimpy = 0;
 
-		if (ch->level == 91)
-	        	log("%s made level 91.", ch->name);
+		if (ch->level == LEVEL_HERO)
+	        	log("%s made a hero level.", ch->name);
 
 		wiznet("$N has attained level $j!",
 			ch, (const void*) ch->level, WIZ_LEVELS, 0, 0);

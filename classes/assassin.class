@@ -1,0 +1,17 @@
+#CLASS
+Name assassin~
+ShortName Asn~
+PrimeStat dex
+SchoolWeapon 3701
+GuildRoom 3062
+GuildRoom 3078
+Thac0_00 18
+Thac0_32 -10
+HPRate 90
+ManaRate 60
+AddExp 300
+StatMod 1 0 0 2 0 5
+SkillSpec class_assassin
+End
+
+#$

@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.95 1999-10-18 19:34:34 avn Exp $
+ * $Id: tables.c,v 1.96 1999-10-19 14:45:00 kostik Exp $
  */
 
 /***************************************************************************
@@ -1096,6 +1096,7 @@ flag_t skill_types[] =
 
 	{ "skill",		ST_SKILL,		TRUE	},
 	{ "spell",		ST_SPELL,		TRUE	},
+	{ "prayer",		ST_PRAYER,		TRUE	},
 
 	{ NULL }
 };

@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.118 1999-10-18 18:08:02 avn Exp $
+ * $Id: martial_art.c,v 1.119 1999-10-19 14:44:54 kostik Exp $
  */
 
 /***************************************************************************
@@ -1772,15 +1772,21 @@ void do_throw(CHAR_DATA *ch, const char *argument)
 			  ch);
 		return;
 	}
-
+#if 0
 	if (IS_AFFECTED(ch, AFF_FLYING)) {
 		char_puts("Your feet should touch the ground to balance\n",
 			     ch);
 		return;
 	}
-
+#endif
 	if ((victim = ch->fighting) == NULL) {
 		char_puts("You aren't fighting anyone.\n", ch);
+		return;
+	}
+	
+	if (free_hands(ch) < 1) {
+		act("You should have a free hand to catch your victim.", 
+			ch, NULL, NULL, TO_CHAR);
 		return;
 	}
 
@@ -1813,6 +1819,9 @@ void do_throw(CHAR_DATA *ch, const char *argument)
 		chance += (ch->size - victim->size) * 10;
 	else
 		chance += (ch->size - victim->size) * 25; 
+	
+	if (free_hands(ch)<2) 
+		chance -= 20;
 
 	/* stats */
 	chance += get_curr_stat(ch,STAT_STR);
@@ -1839,8 +1848,9 @@ void do_throw(CHAR_DATA *ch, const char *argument)
 		    ch, NULL, victim, TO_NOTVICT);
 		WAIT_STATE(victim,2 * PULSE_VIOLENCE);
 
-		damage(ch, victim, LEVEL(ch) + get_curr_stat(ch, STAT_STR), 
-		       "throw", DAM_BASH, TRUE);
+		damage(ch, victim, 
+		(LEVEL(ch) + get_curr_stat(ch, STAT_STR)) * free_hands(ch), 
+	       "throw", DAM_BASH, TRUE);
 		check_improve(ch, "throw", TRUE, 1);
 	}
 	else {

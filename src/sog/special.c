@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.56 1999-10-17 08:55:50 fjoe Exp $
+ * $Id: special.c,v 1.57 1999-10-19 14:44:59 kostik Exp $
  */
 
 /***************************************************************************
@@ -485,7 +485,7 @@ bool spec_cast_cleric(CHAR_DATA *ch)
 		case  3: min_level =  9; spell = "cause critical"; break;
 		case  4: min_level = 10; spell = "dispel evil";    break;
 		case  5: min_level = 12; spell = "curse";          break;
-		case  6: min_level = 12; spell = "change sex";     break;
+		case  6:
 		case  7: min_level = 13; spell = "flamestrike";    break;
 		case  8:
 		case  9:

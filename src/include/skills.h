@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: skills.h,v 1.19 1999-10-17 08:55:44 fjoe Exp $
+ * $Id: skills.h,v 1.20 1999-10-19 14:44:56 kostik Exp $
  */
 
 #ifndef _SKILLS_H_
@@ -40,6 +40,7 @@
 
 #define ST_SKILL	0
 #define ST_SPELL	1
+#define ST_PRAYER	2
 
 /*
  * EVENTs for room affects

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.208 1999-10-18 18:08:07 avn Exp $
+ * $Id: fight.c,v 1.209 1999-10-19 14:44:56 kostik Exp $
  */
 
 /***************************************************************************
@@ -2370,8 +2370,10 @@ int xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels, int members)
 	int base_exp;
 	int level_range = victim->level - gch->level;
 	int neg_cha = 0, pos_cha = 0;
+	double diff;
 
 /* base exp */
+#if 0
 	switch (level_range) {
 	case -9:	base_exp =   1; 	break;
 	case -8:	base_exp =   2; 	break;
@@ -2393,7 +2395,14 @@ int xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels, int members)
 		else
 			base_exp = 0;
 	}
-
+#endif
+	base_exp = 125*(victim->level+2+(double)(gch->level-victim->level)/gch->level);
+	diff = (victim->level+gch->level)/2.0*gch->level;
+	diff *= diff;
+	diff *= diff;
+	if (diff > 2) diff = 2;
+	base_exp *= diff;
+	
 /* calculate exp multiplier */
 #if 0
 	if (IS_NPC(victim) && IS_SET(victim->pMobIndex->act, ACT_NOALIGN))

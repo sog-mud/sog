@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.77 1999-10-17 08:55:50 fjoe Exp $
+ * $Id: skills.c,v 1.78 1999-10-19 14:44:58 kostik Exp $
  */
 
 /***************************************************************************
@@ -72,8 +72,11 @@ int base_exp(CHAR_DATA *ch)
 
 int exp_for_level(CHAR_DATA *ch, int level)
 {
+#if 0
 	int i = base_exp(ch) * level;
 	return i + i * (level-1) / 20;
+#endif
+	return base_exp(ch)*level*level*level;
 }
 
 /*

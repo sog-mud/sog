@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.275 1999-10-17 08:55:38 fjoe Exp $
+ * $Id: act_info.c,v 1.276 1999-10-19 14:44:50 kostik Exp $
  */
 
 /***************************************************************************
@@ -2862,18 +2862,21 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 			spec_stats(ch, &spec_sk);
 
 			if (pc_sk->percent == 0
-			||  spec_sk.max <= 0)
+			||  spec_sk.max <= 0
+			||  pc_sk->percent >= spec_sk.adept)
 				continue;
 
 			buf_printf(output, "%-19s %3d%%  ",
 				   pc_sk->sn,
-				   UMAX(100 * pc_sk->percent / spec_sk.max, 1));
+				   UMAX(100 * pc_sk->percent / spec_sk.adept, 1));
 			if (++col % 3 == 0)
 				buf_add(output, "\n");
 		}
 
 		if (col % 3)
 			buf_add(output, "\n");
+		if (!col)
+			buf_add(output, "You have nothing to practice.\n");
 
 		buf_printf(output, "You have %d practice sessions left.\n",
 			   pc->practice);
@@ -3134,6 +3137,8 @@ void do_spells(CHAR_DATA *ch, const char *argument)
 {
 	char spell_list[LEVEL_IMMORTAL+1][MAX_STRING_LENGTH];
 	char spell_columns[LEVEL_IMMORTAL+1];
+	char *knowledge;
+	int percent;
 	int lev;
 	int i;
 	bool found = FALSE;
@@ -3152,6 +3157,7 @@ void do_spells(CHAR_DATA *ch, const char *argument)
 	for (i = 0; i < PC(ch)->learned.nused; i++) {
 		pc_skill_t *pc_sk = VARR_GET(&PC(ch)->learned, i);
 		skill_t *sk;
+		spec_skill_t spec_sk;
 
 		if (pc_sk->percent == 0
 		||  (sk = skill_lookup(pc_sk->sn)) == NULL
@@ -3159,18 +3165,44 @@ void do_spells(CHAR_DATA *ch, const char *argument)
 			continue;
 
 		found = TRUE;
+		spec_sk.sn = pc_sk->sn;
+		spec_stats(ch, &spec_sk);
+
 		lev = skill_level(ch, pc_sk->sn);
 		if (lev > ch->level)
 			continue;
+		if (spec_sk.max)
+			percent=URANGE(1, 100*pc_sk->percent/spec_sk.max, 100);
+		else
+			percent=0;
 
-		snprintf(buf, sizeof(buf), "%-19s %4d mana  ",
-				 pc_sk->sn, skill_mana(ch, pc_sk->sn));
+		if (!percent)                   
+			knowledge="not learned";
+		else if (percent < 15)          
+			knowledge="ridiculous"; 
+		else if (percent <30)           
+			knowledge="very bad";   
+		else if (percent < 50)          
+			knowledge="bad";        
+		else if (percent < 75)          
+			knowledge="average";    
+		else if (percent < 80)          
+			knowledge="good";       
+		else if (percent < 90)          
+			knowledge="very good";  
+		else if (percent < 100)         
+			knowledge="remarkable"; 
+		else                            
+			knowledge="perfect";    
+		
+		snprintf(buf, sizeof(buf), "%-19s [%-11s] %4d mana  ",
+			 pc_sk->sn, knowledge, skill_mana(ch, pc_sk->sn));
 			
 		if (spell_list[lev][0] == '\0')
 			snprintf(spell_list[lev], sizeof(spell_list[lev]),
 				 "\nLevel %2d: %s", lev, buf);
 		else { /* append */
-			if (++spell_columns[lev] % 2 == 0)
+			if (++spell_columns[lev] % 1 == 0)
 				strnzcat(spell_list[lev],
 					 sizeof(spell_list[lev]),
 					 "\n          ");
@@ -3187,7 +3219,7 @@ void do_spells(CHAR_DATA *ch, const char *argument)
 	}
 	
 	output = buf_new(-1);
-	for (lev = 0; lev <= LEVEL_IMMORTAL; lev++)
+	for (lev = 0; lev <= UMIN(ch->level, LEVEL_IMMORTAL); lev++)
 		if (spell_list[lev][0] != '\0')
 			buf_add(output, spell_list[lev]);
 	buf_add(output, "\n");
@@ -3203,6 +3235,8 @@ void do_skills(CHAR_DATA *ch, const char *argument)
 	int i;
 	bool found = FALSE;
 	char buf[MAX_STRING_LENGTH];
+	char *knowledge;
+	int percent;
 	BUFFER *output;
 	
 	if (IS_NPC(ch))
@@ -3230,11 +3264,33 @@ void do_skills(CHAR_DATA *ch, const char *argument)
 		lev = spec_sk.level;
 		if (lev > ch->level)
 			continue;
+		
+		if (spec_sk.max)
+			percent=URANGE(1, 100*pc_sk->percent/spec_sk.max, 100);
+		else
+			percent=0;
+		
+		if (!percent)
+			knowledge="not learned";
+		else if (percent < 15) 
+			knowledge="ridiculous";
+		else if (percent <30)
+			knowledge="very bad";
+		else if (percent < 50)
+			knowledge="bad";
+		else if (percent < 75)
+			knowledge="average";
+		else if (percent < 80)
+			knowledge="good";
+		else if (percent < 90)
+			knowledge="very good";
+		else if (percent < 100)
+			knowledge="remarkable";
+		else 
+			knowledge="perfect";
 
-		snprintf(buf, sizeof(buf), "%-19s %3d%%      ",
-			 pc_sk->sn,
-			 spec_sk.max <= 0 ? 0 :
-				UMAX(100 * pc_sk->percent / spec_sk.max, 1));
+		snprintf(buf, sizeof(buf), "%-19s %-11s  ",
+			 pc_sk->sn, knowledge);
 
 		if (skill_list[lev][0] == '\0')
 			snprintf(skill_list[lev], sizeof(skill_list[lev]),
@@ -3256,7 +3312,7 @@ void do_skills(CHAR_DATA *ch, const char *argument)
 	}
 	
 	output = buf_new(-1);
-	for (lev = 0; lev <= LEVEL_IMMORTAL; lev++)
+	for (lev = 0; lev <= UMIN(ch->level, LEVEL_IMMORTAL+1); lev++)
 		if (skill_list[lev][0] != '\0')
 			buf_add(output, skill_list[lev]);
 	buf_add(output, "\n");
