@@ -129,7 +129,7 @@ Get back to questor before your time runs out!
 @rus 	Ты видишь закрытую дверь.
 ~
 @eng $N looks very disinterested.@rus $N не заинтересован тобой.~
-@eng $n fades into existence.@rus Здесь появился $n.~
+@eng $n fades into existence.@rus $n появляется словно ниоткуда.~
 @eng $n picks up some trash.@rus $n подбирает мусор.~
 @eng $n wakes and sits on $p.@rus $n просыпается и садится на $p.~
 @eng The clouds disappear.
