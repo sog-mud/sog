@@ -23,10 +23,9 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cmd.c,v 1.6 1999-11-22 14:54:25 fjoe Exp $
+ * $Id: cmd.c,v 1.7 1999-11-23 12:14:31 fjoe Exp $
  */
 
-#include <stdarg.h>
 #include <stdio.h>
 #include <dlfcn.h>
 

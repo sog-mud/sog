@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.66 1999-10-26 13:52:57 fjoe Exp $
+ * $Id: db_area.c,v 1.67 1999-11-23 12:14:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1202,164 +1202,189 @@ DBLOAD_FUN(load_mobiles)
  */
 DBLOAD_FUN(load_objects)
 {
-    OBJ_INDEX_DATA *pObjIndex;
+	bool done;
+	OBJ_INDEX_DATA *pObjIndex;
  
-    if (!area_current) {
-        db_error("load_objects", "no #AREA seen yet.");
-	return;
-    }
-
-    for (; ;)
-    {
-        int vnum;
-        char letter;
-        int iHash;
- 
-        letter                          = fread_letter(fp);
-        if (letter != '#') {
-            db_error("load_objects", "# not found.");
-	    return;
-	}
- 
-        vnum                            = fread_number(fp);
-        if (vnum == 0)
-            break;
- 
-        fBootDb = FALSE;
-        if (get_obj_index(vnum)) {
-        	db_error("load_objects", "vnum %d duplicated.", vnum);
+	if (!area_current) {
+		db_error("load_objects", "no #AREA seen yet.");
 		return;
 	}
-        fBootDb = TRUE;
- 
-        pObjIndex                       = new_obj_index();
 
-        pObjIndex->vnum                 = vnum;
-	pObjIndex->reset_num		= 0;
-	newobjs++;
-        pObjIndex->name                 = fread_string(fp);
-        mlstr_fread(fp, &pObjIndex->short_descr);
-
-        mlstr_fread(fp, &pObjIndex->description);
-	if (mlstr_stripnl(&pObjIndex->description))
-		TOUCH_AREA(area_current);
-
-	free_string(pObjIndex->material);
-        pObjIndex->material		= fread_string(fp);
-
-	if (IS_NULLSTR(pObjIndex->material)) {
-		free_string(pObjIndex->material);
-		pObjIndex->material = str_dup("unknown");
-	}
-
-	if (!material_lookup(pObjIndex->material))
-		log("Obj %d: unknown material '%s'", vnum, pObjIndex->material);
-
-	pObjIndex->oprogs		= NULL;
-
-	pObjIndex->item_type		= fread_fword(item_types, fp);
-        pObjIndex->extra_flags          = fread_flags(fp);
-        pObjIndex->wear_flags           = fread_flags(fp);
-	fread_objval(pObjIndex->item_type, pObjIndex->value, fp);
-	pObjIndex->level		= fread_number(fp);
-        pObjIndex->weight               = fread_number(fp);
-        pObjIndex->cost                 = fread_number(fp); 
-        pObjIndex->limit                = -1; 
-
-        /* condition */
-        letter 				= fread_letter(fp);
-	switch (letter)
- 	{
-	    case ('P') :		pObjIndex->condition = 100; break;
-	    case ('G') :		pObjIndex->condition =  90; break;
-	    case ('A') :		pObjIndex->condition =  75; break;
-	    case ('W') :		pObjIndex->condition =  50; break;
-	    case ('D') :		pObjIndex->condition =  25; break;
-	    case ('B') :		pObjIndex->condition =  10; break;
-	    case ('R') :		pObjIndex->condition =   0; break;
-	    default:			pObjIndex->condition = 100; break;
-	}
- 
-        for (; ;) {
-            char letter = fread_letter(fp);
- 
-            if (letter == 'A') {
-                AFFECT_DATA *paf;
- 
-                paf                     = aff_new();
-		paf->where		= TO_OBJECT;
-                paf->type               = str_empty;
-                paf->level              = pObjIndex->level;
-                paf->duration           = -1;
-                paf->location           = fread_number(fp);
-                paf->modifier           = fread_number(fp);
-                paf->bitvector          = 0;
-		SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);
-	    } else if (letter == 'G') {
-		pObjIndex->gender = fread_fword(gender_table, fp);
-	    } else if (letter == 'S') {
-		AFFECT_DATA *paf;
-		paf = aff_new();
-		paf->where = TO_SKILLS;
-		paf->type = str_empty;
-		paf->level = pObjIndex->level;
-		paf->duration = -1;
-		paf->location = fread_strkey(fp, &skills, "load_objects");
-                paf->modifier = fread_number(fp);
-                paf->bitvector = fread_flags(fp);
-		SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);
-	    } else if (letter == 'F') {
-                AFFECT_DATA *paf;
- 
-                paf                     = aff_new();
-		letter 			= fread_letter(fp);
-		switch (letter)
-	 	{
-		case 'A':
-                    paf->where          = TO_AFFECTS;
-		    break;
-		case 'I':
-		    paf->where		= TO_IMMUNE;
-		    break;
-		case 'R':
-		    paf->where		= TO_RESIST;
-		    break;
-		case 'V':
-		    paf->where		= TO_VULN;
-		    break;
-		case 'D':
-		    paf->where		= TO_AFFECTS;
-		    break;
-		default:
-			db_error("load_objects",
-				 "vnum %d: '%c': bad where on flag.",
-			        pObjIndex->vnum, letter);
+	for (;;) {
+		int vnum;
+		char letter;
+		int iHash;
+	 
+		letter = fread_letter(fp);
+		if (letter != '#') {
+			db_error("load_objects", "# not found.");
 			return;
 		}
-                paf->type               = str_empty;
-                paf->level              = pObjIndex->level;
-                paf->duration           = -1;
-                paf->location		= fread_number(fp);
-                paf->modifier           = fread_number(fp);
-                paf->bitvector          = fread_flags(fp);
-		SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);
-            } else if (letter == 'E')
-		ed_fread(fp, &pObjIndex->ed);
-            else {
-                xungetc(fp);
-                break;
-            }
-        }
- 
-        iHash                   = vnum % MAX_KEY_HASH;
-        pObjIndex->next         = obj_index_hash[iHash];
-        obj_index_hash[iHash]   = pObjIndex;
-        top_vnum_obj = top_vnum_obj < vnum ? vnum : top_vnum_obj; /* OLC */
-        vnum_check(area_current, vnum);				  /* OLC */
+	 
+		vnum = fread_number(fp);
+		if (vnum == 0)
+		 	break;
+	 
+		fBootDb = FALSE;
+		if (get_obj_index(vnum)) {
+		 	db_error("load_objects", "vnum %d duplicated.", vnum);
+			return;
+		}
+		fBootDb = TRUE;
+	 
+		pObjIndex                       = new_obj_index();
+	
+		pObjIndex->vnum                 = vnum;
+		pObjIndex->reset_num		= 0;
+		newobjs++;
+		pObjIndex->name                 = fread_string(fp);
+		mlstr_fread(fp, &pObjIndex->short_descr);
+	
+		mlstr_fread(fp, &pObjIndex->description);
+		if (mlstr_stripnl(&pObjIndex->description))
+			TOUCH_AREA(area_current);
+	
+		free_string(pObjIndex->material);
+		pObjIndex->material		= fread_string(fp);
+	
+		if (IS_NULLSTR(pObjIndex->material)) {
+			free_string(pObjIndex->material);
+			pObjIndex->material = str_dup("unknown");
+		}
+	
+		if (!material_lookup(pObjIndex->material))
+			log("Obj %d: unknown material '%s'", vnum, pObjIndex->material);
+	
+		pObjIndex->oprogs		= NULL;
+	
+		pObjIndex->item_type		= fread_fword(item_types, fp);
+		pObjIndex->extra_flags          = fread_flags(fp);
+		pObjIndex->wear_flags           = fread_flags(fp);
+		fread_objval(pObjIndex->item_type, pObjIndex->value, fp);
+		pObjIndex->level		= fread_number(fp);
+		pObjIndex->weight               = fread_number(fp);
+		pObjIndex->cost                 = fread_number(fp); 
+		pObjIndex->limit                = -1; 
+	
+		/* condition */
+		letter = fread_letter(fp);
+		switch (letter) {
+		default:
+		case 'P':
+			pObjIndex->condition = 100;
+			break;
+		case 'G':
+			pObjIndex->condition = 90;
+			break;
+		case 'A':
+			pObjIndex->condition = 75;
+			break;
+		case 'W':
+			pObjIndex->condition = 50;
+			break;
+		case 'D':
+			pObjIndex->condition = 25;
+			break;
+		case 'B':
+			pObjIndex->condition = 10;
+			break;
+		case 'R':
+			pObjIndex->condition = 0;
+			break;
+		}
+	 
+		for (done = FALSE; !done;) {
+			char letter = fread_letter(fp);
+			AFFECT_DATA *paf;
+	 
+			switch (letter) {
+			case 'A':
+				paf                     = aff_new();
+				paf->where		= TO_OBJECT;
+				paf->type               = str_empty;
+				paf->level              = pObjIndex->level;
+				paf->duration           = -1;
+				paf->location           = fread_number(fp);
+				paf->modifier           = fread_number(fp);
+				paf->bitvector          = 0;
+				SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);
+				break;
+	
+			case 'E':
+				ed_fread(fp, &pObjIndex->ed);
+				break;
 
+			case 'F':
+				paf = aff_new();
+				letter = fread_letter(fp);
+				switch (letter) {
+				case 'A':
+					paf->where = TO_AFFECTS;
+					break;
+				case 'I':
+					paf->where = TO_IMMUNE;
+					break;
+				case 'R':
+					paf->where = TO_RESIST;
+					break;
+				case 'V':
+					paf->where = TO_VULN;
+					break;
+				case 'D':
+					paf->where = TO_AFFECTS;
+					break;
+				default:
+					db_error("load_objects",
+						 "vnum %d: '%c': bad where on flag.",
+						pObjIndex->vnum, letter);
+					return;
+				}
+	
+				paf->type               = str_empty;
+				paf->level              = pObjIndex->level;
+				paf->duration           = -1;
+				paf->location		= fread_number(fp);
+				paf->modifier           = fread_number(fp);
+				paf->bitvector          = fread_flags(fp);
+				SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);
+				break;
+	
+			case 'G':
+				pObjIndex->gender = fread_fword(gender_table, fp);
+				break;
+	
+			case 'R':
+				fread_cc_ruleset(fp, "obj", &pObjIndex->restrictions);
+				break;
+
+			case 'S':
+				paf = aff_new();
+				paf->where = TO_SKILLS;
+				paf->type = str_empty;
+				paf->level = pObjIndex->level;
+				paf->duration = -1;
+				paf->location = fread_strkey(fp, &skills, "load_objects");
+				paf->modifier = fread_number(fp);
+				paf->bitvector = fread_flags(fp);
+				SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);
+				break;
+	
+			default:
+				xungetc(fp);
+				done = TRUE;
+				break;
+			}
+		}
+	 
+		iHash                   = vnum % MAX_KEY_HASH;
+		pObjIndex->next         = obj_index_hash[iHash];
+		obj_index_hash[iHash]   = pObjIndex;
+		top_vnum_obj = UMAX(top_vnum_obj, vnum);
+		vnum_check(area_current, vnum);
+	
 		if (IS_SET(pObjIndex->extra_flags, ITEM_CHQUEST))
 			chquest_add(pObjIndex);
-    }
+	}
 }
 
 /*

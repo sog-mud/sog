@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.c,v 1.9 1999-11-18 15:31:31 fjoe Exp $
+ * $Id: race.c,v 1.10 1999-11-23 12:14:32 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -94,6 +94,12 @@ pcrace_free(pcrace_t *pcr)
 	free_string(pcr->skill_spec);
 	free_string(pcr->bonus_skills);
 	free(pcr);
+}
+
+rclass_t *
+rclass_lookup(race_t *r, const char *cn)
+{
+	return (rclass_t*) varr_bsearch(&r->race_pcdata->classes, &cn, cmpstr);
 }
 
 void race_setstats(CHAR_DATA *ch, const char *rn)

@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.122 1999-11-05 05:48:48 kostik Exp $
+ * $Id: martial_art.c,v 1.123 1999-11-23 12:14:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,7 +47,6 @@
 #include "mob_prog.h"
 
 #ifdef SUNOS
-#	include <stdarg.h>
 #	include "compat/compat.h"
 #endif
 

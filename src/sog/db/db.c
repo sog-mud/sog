@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.185 1999-11-22 14:54:28 fjoe Exp $
+ * $Id: db.c,v 1.186 1999-11-23 12:14:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -45,7 +45,6 @@
 #include <string.h>
 #include <stdlib.h>
 #include <time.h>
-#include <stdarg.h>
 #include <ctype.h>
 #include <limits.h>
 #include <sys/types.h>

@@ -23,13 +23,12 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.126 1999-10-21 12:51:51 fjoe Exp $
+ * $Id: quest.c,v 1.127 1999-11-23 12:14:29 fjoe Exp $
  */
 
 #include <sys/types.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdarg.h>
 #include <string.h>
 #include <time.h>
 
@@ -39,7 +38,6 @@
 #include "auction.h"
 
 #ifdef SUNOS
-#	include <stdarg.h>
 #	include "compat/compat.h"
 #endif
 

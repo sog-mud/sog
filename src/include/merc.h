@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.253 1999-11-23 09:11:32 fjoe Exp $
+ * $Id: merc.h,v 1.254 1999-11-23 12:14:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1467,8 +1467,7 @@ struct pc_skill_t {
 	int percent;	/* skill percentage			*/
 };
 
-#define pc_skill_lookup(ch, sn) \
-	((pc_skill_t*) varr_bsearch(&PC(ch)->learned, &sn, cmpstr))
+pc_skill_t *pc_skill_lookup(CHAR_DATA *ch, const char *sn);
 
 void pc_skill_init(pc_skill_t *);
 
@@ -1525,7 +1524,7 @@ struct obj_index_data
 	int 			limit;
 	OPROG_FUN **		oprogs;
 	flag32_t		gender;
-	cc_ruleset_t		cc_rules;
+	cc_ruleset_t		restrictions;
 };
 
 /*

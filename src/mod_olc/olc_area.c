@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.57 1999-11-23 09:11:33 fjoe Exp $
+ * $Id: olc_area.c,v 1.58 1999-11-23 12:14:30 fjoe Exp $
  */
 
 #include "olc.h"
@@ -1034,6 +1034,7 @@ static void save_object(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
 		ed_fwrite(fp, pEd);
 
 	fprintf(fp, "G %s\n", flag_string(gender_table, pObjIndex->gender));
+	fwrite_cc_ruleset(fp, "obj", "R\n", &pObjIndex->restrictions);
 }
 
 /*****************************************************************************

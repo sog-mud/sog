@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cc_rule.c,v 1.2 1999-11-23 08:09:36 fjoe Exp $
+ * $Id: cc_rule.c,v 1.3 1999-11-23 12:14:31 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -41,6 +41,7 @@
 #include "tables.h"
 #include "flag.h"
 #include "db.h"
+#include "buffer.h"
 
 static void	cc_rulefun_init		(cc_rulefun_t *);
 static void	cc_rulefun_destroy	(cc_rulefun_t *);
@@ -49,7 +50,7 @@ static void	cc_rule_destroy		(cc_rule_t *);
 
 static void	fread_cc_rule	(rfile_t *fp, cc_rulecl_t *rcl, varr *v);
 
-static bool ruleset_match(cc_rulecl_t *rcl, varr *v, void *p);
+static bool	ruleset_match	(cc_rulecl_t *rcl, varr *v, va_list ap);
 
 varr cc_rulecls;
 
@@ -67,6 +68,18 @@ cc_rulecl_destroy(cc_rulecl_t *rcl)
 {
 	free_string(rcl->name);
 	varr_destroy(&rcl->rulefuns);
+}
+
+cc_rulecl_t *
+cc_rulecl_lookup(const char *rcn)
+{
+	return (cc_rulecl_t *) varr_bsearch(&cc_rulecls, &rcn, cmpstr);
+}
+
+cc_rulefun_t *
+cc_rulefun_lookup(cc_rulecl_t *rcl, const char *keyword)
+{
+	return (cc_rulefun_t *) varr_bsearch(&rcl->rulefuns, &keyword, cmpstr);
 }
 
 void
@@ -136,63 +149,118 @@ fread_cc_ruleset(rfile_t *fp, const char *rcn, cc_ruleset_t *rs)
 	}
 }
 
-typedef struct fwrite_ruleset_t {
-	FILE *fp;
-	const char *type;
-} fwrite_ruleset_t;
-
 static void *
 fwrite_ruleset_cb(void *p, va_list ap)
 {
+	cc_rule_t *r = (cc_rule_t *) p;
+	FILE *fp = va_arg(ap, FILE *);
+	const char *rn = va_arg(ap, const char *);
+
+	fprintf(fp, "%s %s %s~\n",
+		rn, fix_word(r->keyword), fix_string(r->arg));
 	return NULL;
 }
 
 void
-fwrite_cc_ruleset(FILE *fp, const char *rcn, cc_ruleset_t *rs)
+fwrite_cc_ruleset(FILE *fp, const char *rcn,
+		  const char *pre, cc_ruleset_t *rs)
 {
-	fwrite_ruleset_t frs;
+	if (cc_ruleset_isempty(rs))
+		return;
 
-	fprintf(fp, "order '%s'\n", flag_string(cc_order_types, rs->order));
+	fprintf(fp, "%sorder %s\n",
+		pre, fix_word(flag_string(cc_order_types, rs->order)));
 
-	frs.fp = fp;
-	frs.type = "allow";
-	varr_foreach(&rs->allow, fwrite_ruleset_cb, &frs);
+	switch (rs->order) {
+	case CC_O_DENY_ALLOW:
+		varr_foreach(&rs->deny, fwrite_ruleset_cb, fp, "deny");
+		varr_foreach(&rs->allow, fwrite_ruleset_cb, fp, "allow");
+		break;
 
-	frs.type = "deny";
-	varr_foreach(&rs->deny, fwrite_ruleset_cb, &frs);
+	case CC_O_ALLOW_DENY:
+	default:
+		varr_foreach(&rs->allow, fwrite_ruleset_cb, fp, "allow");
+		varr_foreach(&rs->deny, fwrite_ruleset_cb, fp, "deny");
+		break;
+	}
 
-	fprintf(fp, "end");
+	fprintf(fp, "end\n");
+}
+
+static void *
+print_ruleset_cb(void *p, va_list ap)
+{
+	cc_rule_t *r = (cc_rule_t *) p;
+	BUFFER *buf = va_arg(ap, BUFFER *);
+	cc_rulecl_t *rcl = va_arg(ap, cc_rulecl_t *);
+	const char *rn = va_arg(ap, const char *);
+
+	buf_printf(buf, "        %s %s %s",
+		   rn, fix_word(r->keyword), r->arg);
+	if (cc_rulefun_lookup(rcl, r->keyword) == NULL)
+		buf_add(buf, " (UNDEF)");
+	buf_add(buf, "\n");
+	return NULL;
+}
+
+void
+print_cc_ruleset(BUFFER *buf, const char *rcn,
+		 const char *pre, cc_ruleset_t *rs)
+{
+	cc_rulecl_t *rcl;
+
+	if (cc_ruleset_isempty(rs))
+		return;
+
+	buf_printf(buf, "%s        order %s\n",
+		   pre, fix_word(flag_string(cc_order_types, rs->order)));
+
+	rcl = cc_rulecl_lookup(rcn);
+	switch (rs->order) {
+	case CC_O_DENY_ALLOW:
+		varr_foreach(&rs->deny, print_ruleset_cb, buf, rcl, "deny");
+		varr_foreach(&rs->allow, print_ruleset_cb, buf, rcl, "allow");
+		break;
+
+	case CC_O_ALLOW_DENY:
+	default:
+		varr_foreach(&rs->allow, print_ruleset_cb, buf, rcl, "allow");
+		varr_foreach(&rs->deny, print_ruleset_cb, buf, rcl, "deny");
+		break;
+	}
 }
 
 int
-cc_ruleset_ok(const char *rcn, cc_ruleset_t *rs, void *p)
+cc_ruleset_ok(const char *rcn, cc_ruleset_t *rs, ...)
 {
 	bool retval;
 	cc_rulecl_t *rcl = cc_rulecl_lookup(rcn);
+	va_list ap;
 
 	if (rcl == NULL) {
 		wizlog("cc_ruleset_ok: %s: unknown cc_rule class", rcn);
 		return TRUE;
 	}
 
+	va_start(ap, rs);
 	switch (rs->order) {
 	case CC_O_DENY_ALLOW:
 		retval = TRUE;
-		if (ruleset_match(rcl, &rs->deny, p))
+		if (ruleset_match(rcl, &rs->deny, ap))
 			retval = FALSE;
-		if (ruleset_match(rcl, &rs->allow, p))
+		if (ruleset_match(rcl, &rs->allow, ap))
 			retval = TRUE;
 		break;
 	case CC_O_ALLOW_DENY:
 		retval = FALSE;
-		if (ruleset_match(rcl, &rs->allow, p))
+		if (ruleset_match(rcl, &rs->allow, ap))
 			retval = TRUE;
-		if (ruleset_match(rcl, &rs->deny, p))
+		if (ruleset_match(rcl, &rs->deny, ap))
 			retval = FALSE;
 		break;
 	case CC_O_MUTUAL_FAILURE:
-		if (ruleset_match(rcl, &rs->allow, p)
-		&&  !ruleset_match(rcl, &rs->deny, p))
+		if (ruleset_match(rcl, &rs->allow, ap)
+		&&  !ruleset_match(rcl, &rs->deny, ap))
 			retval = TRUE;
 		else
 			retval = FALSE;
@@ -201,6 +269,7 @@ cc_ruleset_ok(const char *rcn, cc_ruleset_t *rs, void *p)
 		wizlog("cc_ruleset_ok: unknown ruleset order");
 		retval = FALSE;
 	}
+	va_end(ap);
 
 	return retval;
 }
@@ -256,23 +325,23 @@ ruleset_match_cb(void *p, va_list ap)
 {
 	cc_rule_t *r = (cc_rule_t *) p;
 
-	bool *prv = va_arg(ap, bool *);
-	void *arg = va_arg(ap, void *);
 	cc_rulecl_t *rcl = va_arg(ap, cc_rulecl_t *);
+	va_list ap2 = va_arg(ap, va_list);
+	bool *prv = va_arg(ap, bool *);
 
 	cc_rulefun_t *rfun = cc_rulefun_lookup(rcl, r->keyword);
 	if (rfun != NULL
 	&&  rfun->fun != NULL
-	&&  rfun->fun(r->arg, arg))
+	&&  rfun->fun(r->arg, ap2))
 		*prv = TRUE;
 	return NULL;
 }
 
 static bool
-ruleset_match(cc_rulecl_t *rcl, varr *v, void *p)
+ruleset_match(cc_rulecl_t *rcl, varr *v, va_list ap)
 {
 	bool rv = FALSE;
-	varr_foreach(v, ruleset_match_cb, &rv, p, rcl);
+	varr_foreach(v, ruleset_match_cb, rcl, ap, &rv);
 	return rv;
 }
 

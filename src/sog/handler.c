@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.198 1999-11-23 08:09:36 fjoe Exp $
+ * $Id: handler.c,v 1.199 1999-11-23 12:14:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -553,7 +553,8 @@ OBJ_DATA * equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 
 	if ((IS_OBJ_STAT(obj, ITEM_ANTI_EVIL)    && IS_EVIL(ch)   )
 	||  (IS_OBJ_STAT(obj, ITEM_ANTI_GOOD)    && IS_GOOD(ch)   )
-	||  (IS_OBJ_STAT(obj, ITEM_ANTI_NEUTRAL) && IS_NEUTRAL(ch))) {
+	||  (IS_OBJ_STAT(obj, ITEM_ANTI_NEUTRAL) && IS_NEUTRAL(ch))
+	||  !cc_ruleset_ok("obj", &obj->pObjIndex->restrictions, ch)) {
 		/*
 		 * Thanks to Morgenes for the bug fix here!
 		 */

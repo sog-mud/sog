@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.62 1999-11-19 13:05:27 fjoe Exp $
+ * $Id: olc_obj.c,v 1.63 1999-11-23 12:14:31 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -67,6 +67,7 @@ DECLARE_OLC_FUN(objed_level		);
 DECLARE_OLC_FUN(objed_condition		);
 DECLARE_OLC_FUN(objed_clone		);
 DECLARE_OLC_FUN(objed_gender		);
+DECLARE_OLC_FUN(objed_restrictions	);
 
 DECLARE_VALIDATE_FUN(validate_condition);
 
@@ -107,6 +108,7 @@ olc_cmd_t olc_cmds_obj[] =
 	{ "condition",	objed_condition,validate_condition		},
 	{ "clone",	objed_clone					},
 	{ "gender",	objed_gender,	NULL,		gender_table	},
+	{ "restrictions",objed_restrictions,	NULL,	cc_order_types	},
 
 	{ "version",	show_version					},
 	{ "commands",	show_commands					},
@@ -303,6 +305,7 @@ OLC_FUN(objed_show)
 	}
 
 	show_obj_values(output, pObj);
+	print_cc_ruleset(output, "obj", "Restrictions:\n", &pObj->restrictions);
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
 
@@ -924,6 +927,13 @@ OLC_FUN(objed_gender)
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
 	return olced_flag32(ch, argument, cmd, &pObj->gender);
+}
+
+OLC_FUN(objed_restrictions)
+{
+	OBJ_INDEX_DATA *pObj;
+	EDIT_OBJ(ch, pObj);
+	return olced_cc_ruleset(ch, argument, cmd, "obj", &pObj->restrictions);
 }
 
 void show_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj)

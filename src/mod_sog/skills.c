@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.84 1999-11-22 14:54:27 fjoe Exp $
+ * $Id: skills.c,v 1.85 1999-11-23 12:14:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -240,6 +240,12 @@ int get_skill(CHAR_DATA *ch, const char *sn)
 		percent = 9 * percent / 10;
 
 	return UMAX(0, percent + get_skill_mod(ch, sk, percent));
+}
+
+pc_skill_t *
+pc_skill_lookup(CHAR_DATA *ch, const char *sn)
+{
+	return (pc_skill_t*) varr_bsearch(&PC(ch)->learned, &sn, cmpstr);
 }
 
 /*

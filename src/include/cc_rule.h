@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cc_rule.h,v 1.2 1999-11-23 08:09:36 fjoe Exp $
+ * $Id: cc_rule.h,v 1.3 1999-11-23 12:14:29 fjoe Exp $
  */
 
 #ifndef _CC_RULE_H_
@@ -41,12 +41,14 @@ typedef struct cc_rulecl_t {
 	varr rulefuns;		/* varr of cc_rulefun_t	(sorted) */
 } cc_rulecl_t;
 
+extern varr cc_rulecls;		/* varr of cc_rulecl_t */
+
 void cc_rulecl_init	(cc_rulecl_t *);
 void cc_rulecl_destroy	(cc_rulecl_t *);
 
-extern varr cc_rulecls;
+cc_rulecl_t *cc_rulecl_lookup(const char *rcn);
 
-#define cc_rulecl_lookup(rcn) (varr_bsearch(&cc_rulecls, &(rcn), cmpstr))
+typedef bool (*cc_fun_t)(const char *arg, va_list ap);
 
 /*
  * condition checking function
@@ -54,11 +56,10 @@ extern varr cc_rulecls;
 typedef struct cc_rulefun_t {
 	const char *keyword;			/* rule_fun keyword	*/
 	const char *fun_name;			/* rule_fun name	*/
-	int (*fun)(const char *arg, void *p);	/* rule_fun 		*/
+	cc_fun_t fun;				/* rule_fun 		*/
 } cc_rulefun_t;
 
-#define cc_rulefun_lookup(rcl, keyword)		\
-		(varr_bsearch(&(rcl)->rulefuns, &(keyword), cmpstr))
+cc_rulefun_t *cc_rulefun_lookup(cc_rulecl_t *rcl, const char *keyword);
 
 /*
  * order types
@@ -77,7 +78,7 @@ enum {
  * a set of cc_rule's with checking order
  */
 typedef struct cc_ruleset_t {
-	int order;		/* order		*/
+	flag32_t order;		/* order		*/
 	varr allow;		/* allow cc_rule_t	*/
 	varr deny;		/* deny cc_rule_t	*/
 } cc_ruleset_t;
@@ -86,7 +87,13 @@ void	cc_ruleset_init		(cc_ruleset_t *);
 void	cc_ruleset_destroy	(cc_ruleset_t *);
 
 void	fread_cc_ruleset	(rfile_t *fp, const char *rcn, cc_ruleset_t *);
-void	fwrite_cc_ruleset	(FILE *fp, const char *rcn, cc_ruleset_t *);
+void	fwrite_cc_ruleset	(FILE *fp, const char *rcn,
+				 const char *pre, cc_ruleset_t *);
+void	print_cc_ruleset	(BUFFER *buf, const char *rcn,
+				 const char *pre, cc_ruleset_t *);
+
+#define cc_ruleset_isempty(rs)	\
+		(varr_isempty(&(rs)->allow) && varr_isempty(&(rs)->deny))
 
 /*
  * condition checking rule
@@ -96,7 +103,7 @@ typedef struct cc_rule_t {
 	const char *arg;
 } cc_rule_t;
 
-bool cc_ruleset_ok(const char *rcn, cc_ruleset_t *rs, void *p);
+bool cc_ruleset_ok(const char *rcn, cc_ruleset_t *rs, ...);
 
 #endif
 

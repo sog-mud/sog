@@ -23,11 +23,13 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.h,v 1.11 1999-11-22 14:54:24 fjoe Exp $
+ * $Id: varr.h,v 1.12 1999-11-23 12:14:30 fjoe Exp $
  */
 
 #ifndef _VARR_H_
 #define _VARR_H_
+
+#include <stdarg.h>
 
 typedef void (*varr_e_init_t)(void *);
 typedef void *(*varr_e_cpy_t)(void *, void *);
@@ -59,8 +61,6 @@ void	varr_delete	(varr*, size_t i);
 void	varr_qsort	(varr*, int (*)(const void*, const void*));
 void *	varr_bsearch	(varr*, const void *e,
 			 int (*)(const void*, const void*));
-
-#include <stdarg.h>
 
 typedef void *(*foreach_cb_t)(void *, va_list);
 

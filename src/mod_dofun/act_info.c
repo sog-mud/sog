@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.286 1999-11-22 14:54:21 fjoe Exp $
+ * $Id: act_info.c,v 1.287 1999-11-23 12:14:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,7 +46,6 @@
 #include <string.h>
 #include <stdlib.h>
 #include <time.h>
-#include <stdarg.h>
 
 #if !defined(WIN32)
 #	include <unistd.h>

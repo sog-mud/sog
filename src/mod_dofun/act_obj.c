@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.175 1999-11-22 10:16:36 kostik Exp $
+ * $Id: act_obj.c,v 1.176 1999-11-23 12:14:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1228,13 +1228,14 @@ void do_wear(CHAR_DATA * ch, const char *argument)
 		char_puts("Wear, wield, or hold what?\n", ch);
 		return;
 	}
-	if (!str_cmp(arg, "all"))
+
+	if (!str_cmp(arg, "all")) {
 		for (obj = ch->carrying; obj != NULL; obj = obj_next) {
 			obj_next = obj->next_content;
 			if (obj->wear_loc == WEAR_NONE && can_see_obj(ch, obj))
 				wear_obj(ch, obj, FALSE);
 		}
-	else if ((obj = get_obj_carry(ch, arg)) == NULL) {
+	} else if ((obj = get_obj_carry(ch, arg)) == NULL) {
 		char_puts("You do not have that item.\n", ch);
 		return;
 	} else

@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.208 1999-11-22 14:54:27 fjoe Exp $
+ * $Id: comm.c,v 1.209 1999-11-23 12:14:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -77,7 +77,6 @@
 #include <errno.h>
 #include <fcntl.h>
 #include <locale.h>
-#include <stdarg.h>   
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

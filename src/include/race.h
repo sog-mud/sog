@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.h,v 1.15 1999-11-18 15:31:30 fjoe Exp $
+ * $Id: race.h,v 1.16 1999-11-23 12:14:30 fjoe Exp $
  */
 
 #ifndef _RACE_H_
@@ -76,8 +76,6 @@ extern hash_t races;
 
 #define race_lookup(rn)	((race_t*) strkey_lookup(&races, (rn)))
 #define race_search(rn) ((race_t*) strkey_search(&races, (rn)))
-#define rclass_lookup(r, cn) \
-	((rclass_t*) varr_bsearch(&r->race_pcdata->classes, &cn, cmpstr))
 
 #define IS_RACE(r1, r2)		(!str_cmp((r1), (r2)))
 
@@ -87,6 +85,8 @@ void	race_destroy	(race_t *r);
 
 pcrace_t *	pcrace_new();
 void		pcrace_free(pcrace_t*);
+
+rclass_t *rclass_lookup(race_t *r, const char *cn);
 
 void	race_setstats	(CHAR_DATA *ch, const char *rn);
 

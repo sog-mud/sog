@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.80 1999-11-22 14:54:24 fjoe Exp $
+ * $Id: olc.c,v 1.81 1999-11-23 12:14:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -43,7 +43,6 @@
 #include <time.h>
 #include <errno.h>
 #include <dlfcn.h>
-#include <stdarg.h>
 
 #include "olc.h"
 #include "lang.h"
@@ -771,7 +770,7 @@ bool olced_rulecl(CHAR_DATA *ch, const char *argument,
 bool olced_vform_add(CHAR_DATA *ch, const char *argument,
 		     olc_cmd_t *cmd, rule_t *r)
 {
-	char arg[MAX_STRING_LENGTH];
+	char arg[MAX_INPUT_LENGTH];
 	int fnum;
 
 	argument = one_argument(argument, arg, sizeof(arg));
@@ -790,7 +789,7 @@ bool olced_vform_add(CHAR_DATA *ch, const char *argument,
 bool olced_vform_del(CHAR_DATA *ch, const char *argument,
 		     olc_cmd_t *cmd, rule_t *r)
 {
-	char arg[MAX_STRING_LENGTH];
+	char arg[MAX_INPUT_LENGTH];
 	int fnum;
 
 	argument = one_argument(argument, arg, sizeof(arg));
@@ -810,6 +809,101 @@ bool olced_ival(CHAR_DATA *ch, const char *argument,
 	if (is_number(argument))
 		return olced_number(ch, argument, cmd, pInt);
 	return olced_flag32(ch, argument, cmd, pInt);
+}
+
+#define CC_RULESET_ERR					\
+	do {						\
+		dofun("help", ch, "'OLC CC_RULESET'");	\
+		return FALSE;				\
+	} while (0);
+		
+bool
+olced_cc_ruleset(CHAR_DATA *ch, const char *argument,
+		 olc_cmd_t *cmd, const char *rcn, cc_ruleset_t *rs)
+{
+	char arg[MAX_INPUT_LENGTH];
+	char arg2[MAX_INPUT_LENGTH];
+	varr *v;
+
+	argument = one_argument(argument, arg, sizeof(arg));
+	if (arg[0] == '\0')
+		CC_RULESET_ERR;
+
+	if (!str_prefix(arg, "show")) {
+		BUFFER *buf = buf_new(-1);
+		print_cc_ruleset(buf, "obj", "Restrictions:\n", rs);
+		page_to_char(buf_string(buf), ch);
+		buf_free(buf);
+		return FALSE;
+	}
+
+	if (!str_prefix(arg, "order")) {
+		return olced_flag32(ch, argument, cmd, &rs->order);
+	}
+
+	argument = one_argument(argument, arg2, sizeof(arg2));
+	if (arg2[0] == '\0')
+		CC_RULESET_ERR;
+
+	if (!str_cmp(arg2, "allow"))
+		v = &rs->allow;
+	else if (!str_cmp(arg2, "deny"))
+		v = &rs->deny;
+	else
+		CC_RULESET_ERR;
+
+	if (!str_prefix(arg, "add")) {
+		cc_rulecl_t *rcl;
+		cc_rule_t *r;
+
+		if ((rcl = cc_rulecl_lookup(rcn)) == NULL) {
+			char_printf(ch, "%s: %s: %s: unknown cc_rule class.\n",
+				    OLCED(ch)->name, cmd->name, rcn);
+			return FALSE;
+		}
+
+		argument = one_argument(argument, arg, sizeof(arg));
+		if (arg[0] == '\0')
+			CC_RULESET_ERR;
+
+		if (cc_rulefun_lookup(rcl, arg) == NULL) {
+			char_printf(ch, "%s: %s: %s: unknown keyword for cc_rule class '%s'.\n",
+				    OLCED(ch)->name, cmd->name, arg, rcn);
+			return FALSE;
+		}
+
+		r = varr_enew(v);
+		r->keyword = str_dup(arg);
+		r->arg = str_dup(argument);
+		char_printf(ch, "%s: %s: cc_rule added.\n",
+			    OLCED(ch)->name, cmd->name);
+		return TRUE;
+	}
+
+	if (!str_prefix(arg, "delete")) {
+		int num;
+		void *p;
+
+		argument = one_argument(argument, arg, sizeof(arg));
+		if (!is_number(arg))
+			CC_RULESET_ERR;
+
+		num = atoi(arg);
+		p = varr_get(v, num);
+		if (p == NULL) {
+			char_printf(ch, "%s: %s: no rule with number '%s'.\n",
+				    OLCED(ch)->name, cmd->name, arg);
+			return FALSE;
+		}
+
+		varr_edelete(v, p);
+		char_printf(ch, "%s: %s: cc_rule deleted.\n",
+			    OLCED(ch)->name, cmd->name);
+		return TRUE;
+	}
+
+	dofun("help", ch, "'OLC CC_RULESET'");
+	return FALSE;
 }
 
 VALIDATE_FUN(validate_filename)

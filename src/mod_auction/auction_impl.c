@@ -1,9 +1,8 @@
 /*
- * $Id: auction_impl.c,v 1.45 1999-09-08 10:40:06 fjoe Exp $
+ * $Id: auction_impl.c,v 1.46 1999-11-23 12:14:31 fjoe Exp $
  */
 
 #include <stdio.h>
-#include <stdarg.h>
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>

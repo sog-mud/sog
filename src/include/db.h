@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.h,v 1.58 1999-11-22 14:54:23 fjoe Exp $
+ * $Id: db.h,v 1.59 1999-11-23 12:14:29 fjoe Exp $
  */
 
 #ifndef _DB_H_
@@ -132,6 +132,7 @@ void	reset_area      (AREA_DATA * pArea);
 #define RESET_F_NOPCHECK (A)
 void	reset_room	(ROOM_INDEX_DATA *pRoom, int flags);
 
+const char *	fix_word	(const char *s);
 char *		fix_string	(const char *s);
 
 void		fwrite_ival	(FILE *fp, const flag_t *table,
