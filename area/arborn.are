@@ -25,6 +25,8 @@ stand stand female 0
 0 0 medium unknown
 F for AHMVgns
 M speech 36101 gecho~
+r bash 50
+r fire 50
 #36101
 target~
 TARGET~

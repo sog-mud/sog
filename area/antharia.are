@@ -47,7 +47,7 @@ your respect.  He is here healing people in the name of Anthar, the
 god of the Antharians.
 ~
 human~
-Qw 0 b 0 0 1000 0
+Qw 0 0 0 0 1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 'wrath'
 -11 -11 -11 3
 EFKklq
@@ -64,7 +64,7 @@ Antharians seem to like it.  All in all, these fish are pretty
 content.
 ~
 human~
-CGim 0 b 0 0 0 0
+CGim 0 0 0 0 0 0
 10 0 2d7+121 5d5+100 2d4+2 'charge'
 1 1 1 7
 0
@@ -82,7 +82,7 @@ looking at every detail.
 daily schedule.
 ~
 human~
-Gm 0 b 0 0 0 0
+Gm 0 0 0 0 0 0
 15 0 3d9+208 5d5+100 2d6+3 'punch'
 -2 -2 -2 6
 0
@@ -100,7 +100,7 @@ looking at every detail.
 daily schedule.
 ~
 human~
-Gm 0 b 0 0 0 0
+Gm 0 0 0 0 0 0
 16 0 3d9+208 5d5+100 2d6+3 'punch'
 -2 -2 -2 6
 0
@@ -116,7 +116,7 @@ right now in life is play.  PLAY PLAY PLAY!   They try to drag you
 into the fray to play with them.
 ~
 human~
-Gm 0 b 0 0 0 0
+Gm 0 0 0 0 0 0
 9 0 2d6+110 5d5+100 1d8+2 'punch'
 2 2 2 7
 0
@@ -132,7 +132,7 @@ mind right now is play.  PLAY PLAY PLAY!  They try to drag you into
 their games.
 ~
 human~
-0 0 b 0 0 0 0
+0 0 0 0 0 0 0
 9 0 2d6+110 5d5+100 1d8+2 'punch'
 2 2 2 7
 0
@@ -149,7 +149,7 @@ very mysterious.   It is said that they are knighted in a very intense
 ceremony in the Temple of Anthar.
 ~
 human~
-0 0 b 0 0 0 0
+0 0 0 0 0 0 0
 42 0 25d10+2250 5d5+1000 3d12+14 'slash'
 -14 -14 -14 3
 CDEFIJKijklopq
@@ -165,7 +165,7 @@ powerful and impressive than the Peace Guards.  These guards are here
 to make sure that law and order is maintained, and so it shall.
 ~
 human~
-Gm 0 b 0 Ag 250 0
+Gm 0 0 0 Ag 250 0
 32 0 10d10+1000 5d5+1000 6d4+9 'pound'
 -10 -10 -10 3
 CDEFIJKijklopq
@@ -183,7 +183,7 @@ councils, which are said to be displayed in a museum inside the
 Temple.
 ~
 human~
-Beh 0 b 0 0 400 0
+Beh 0 0 0 0 400 0
 70 0 50d10+18500 5d5+5000 17d9+60 'pound'
 -60 -60 -60 -27
 CEFIJKiklopq
@@ -199,7 +199,7 @@ sell Antharian food.  He is highly respected, as producing good food
 in this underwater world is not easy.
 ~
 human~
-Beh 0 b 0 0 500 0
+Beh 0 0 0 0 500 0
 70 0 50d10+18500 5d5+5000 17d9+60 'pound'
 -60 -60 -60 -27
 CDEFIJKijklopq
@@ -216,7 +216,7 @@ are artists of war, and he looks like he could paint a very clear
 portrait of death.
 ~
 human~
-BThz 0 b 0 0 800 0
+BThz 0 0 0 0 800 0
 32 0 10d10+1000 5d5+1000 6d4+9 'pound'
 -10 -10 -10 3
 CDEFIKijkloq
@@ -233,7 +233,7 @@ passed from generation to generation.  The secret is well kept, and
 rightly so -- for their's is the best.
 ~
 human~
-BTehz 0 b 0 0 500 0
+BTehz 0 0 0 0 500 0
 70 0 50d10+18500 5d5+5000 17d9+60 'pound'
 -60 -60 -60 -27
 CDEFIJKijklopq
@@ -250,7 +250,7 @@ Transformation, and Cyrtpea and her colleages work hard to recover as
 much of this lost magic as possible.
 ~
 human~
-BUeh 0 Nbt 0 0 400 0
+BUeh 0 Nt 0 0 400 0
 65 0 50d10+18500 5d5+5000 17d9+60 'pound'
 -60 -60 -60 -27
 CDEFIJKijklopq
@@ -265,7 +265,7 @@ A young human is here looking at you.  She is the representative
 from the human race here in Antharia.
 ~
 human~
-Bh 0 b 0 0 0 0
+Bh 0 0 0 0 0 0
 40 0 15d10+1850 5d5+1000 4d8+13 'pound'
 -13 -13 -13 3
 CEFIJiklop
@@ -280,7 +280,7 @@ A young druid is here looking at you.   He is the representative
 from the druids here in Antharia.
 ~
 human~
-Bh 0 b 0 0 0 0
+Bh 0 0 0 0 0 0
 40 0 15d10+1850 5d5+1000 4d8+13 'pound'
 -13 -13 -13 3
 CEFIJKiklopq
@@ -295,7 +295,7 @@ A young Kender is standing here looking at you.  She is the
 representative from the Kender race here in Antharia.
 ~
 human~
-BOhu 0 b 0 0 0 0
+BOhu 0 0 0 0 0 0
 40 0 15d10+1850 5d5+1000 4d8+13 'pound'
 -13 -13 -13 3
 CEFIJKiklopq
@@ -311,7 +311,7 @@ representative from the Antharian government here to answer questions
 from visitors.
 ~
 human~
-Bh 0 b 0 0 0 0
+Bh 0 0 0 0 0 0
 40 0 15d10+1850 5d5+1000 4d8+13 'pound'
 -13 -13 -13 3
 CEFIJKQiklopqw
@@ -326,7 +326,7 @@ A young elf is here looking at you.  She is the representative from
 the elven race here in Antharia.
 ~
 elf~
-Bh Dj b 0 0 0 0
+Bh Dj 0 0 0 0 0
 40 0 15d10+1850 5d5+1000 4d8+13 'pound'
 -13 -13 -13 3
 CEFIJKiklopq
@@ -341,7 +341,7 @@ A young Dwarf is here looking at you.  He is the representative
 from the Dwarven race here in Antharia.
 ~
 dwarf~
-BQhw 0 b 0 0 0 0
+BQhw 0 0 0 0 0 0
 40 0 15d10+1850 5d5+1000 4d8+13 'pound'
 -13 -13 -13 3
 CEFIJKiklopq
@@ -356,7 +356,7 @@ A young Illithid is standing here looking at you.  She is the
 representative from the Illithid race here in Antharia.
 ~
 human~
-Bh 0 b 0 0 0 0
+Bh 0 0 0 0 0 0
 40 0 15d10+1850 5d5+1000 4d8+13 'pound'
 -13 -13 -13 3
 CEFIJKiklopq
@@ -371,7 +371,7 @@ A young avian is standing here looking at you.  She is the
 representative from the avian race here in Antharia.
 ~
 human~
-BYh 0 b 0 0 0 0
+BYh 0 0 0 0 0 0
 40 0 15d10+1850 5d5+1000 4d8+13 'pound'
 -13 -13 -13 3
 CEFIJKiklopq

@@ -2607,48 +2607,54 @@ sandstone altar алтарь песчаник~
 ~
 g none~
 #228
-bole~
-a bole~
+bole ствол дупло~
+@eng a bole@rus ~~дупло~~~
 ~
 wood~
 container 0 0 0
 2 0 0 0 0
 30 100000 1000 A
 E
-bole~
-You see miniature furniture inside the bole of this tree.  This could
+bole дупло ствол~
+@eng You see miniature furniture inside the bole of this tree.  This could
 very well be the home of a fairy, or a house-proud squirrel.
+@rus В стволе ты видишь дупло. Заглянув туда, ты $gn{увидел} крохотную
+мебель, расставленную вдоль стен. Это жилище или фейри, или очень
+хозяйственной белки.
 ~
 g none~
 #229
-nut nuts cache~
-a cache of nuts~
-A cache of nuts lies here.~
+nut nuts cache орехи запас~
+@eng a cache of nuts@rus ~~запас~~ орехов~
+@eng A cache of nuts lies here.@rus Небольшая кучка орехов лежит перед тобой.~
 food~
 food 0 0 Ag
 DEjk 0 0 0 0
 15 2 100 W
 E
-nuts~
-These delicious-looking nuts must be from a squirrel's winter larder.
+nuts орехи~
+@eng These delicious-looking nuts must be from a squirrel's winter larder.
+@rus Орехи! да какие аппетитные! Наверно, из запасов какой-нибудь белки.
 ~
-g none~
+g @eng none@rus male~
 #230
-Herman Melville book~
-Herman Melville's "Moby Dick"~
-Herman Melville's "Moby Dick" lies here.~
-cloth~
+Herman Melville book книга герман мелвилль~
+@eng Herman Melville's "Moby Dick"@rus ~~книга~~ Германа Мелвилля "Моби Дик"~
+@eng Herman Melville's "Moby Dick" lies here.@rus Книга Германа Мелвилля "Моби Дик" лежит тут.~
+paper~
 trash 0 0 AOgu
 0 0 0 0 0
 5 3 50 G
 E
-Herman Melville book~
-A classic tale of man against fish.  Flipping through it, you notice
+Herman Melville book книга герман мелвилль~
+@eng A classic tale of man against fish.  Flipping through it, you notice
 that the word "eskimo" has been circled repeatedly in red.
+@rus Классическая история о человеке и рыбе. Пролистывая ее, ты наткнулся
+на обведенное красным слово "эскимос".
 ~
-g none~
+g @eng none@rus female~
 #231
-shield melancholic~
+shield melancholic щит рыцарь печальный~
 the Knight Melancholic's shield~
 A green and silver shield bears a bleeding heart device.~
 steel~
@@ -2660,13 +2666,13 @@ A
 A
 19 2
 E
-shield melancholic~
+shield melancholic щит рыцарь печальный~
 This is a Knight Melancholic's shield, and it bears the crest of the
 Order, that of a bleeding heart skewered by a sword and crossed with
 roses.  You feel at once angry with and tired of life just looking
 at the device.
 ~
-g none~
+g @eng none@rus male~
 #232
 sword swiftbird~
 a sword called "Swiftbird"~
