@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.102 1998-12-17 21:05:40 fjoe Exp $
+ * $Id: act_wiz.c,v 1.103 1998-12-21 04:23:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3962,8 +3962,10 @@ void do_ititle(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_NPC(ch))
+	if (IS_NPC(victim)) {
+		char_puts("Not on NPC's.\n", ch);
 		return;
+	}
 
 	if (argument[0] == '\0') {
 		char_puts("Change the title to what?\n", ch);
@@ -4340,6 +4342,8 @@ DO_FUN(do_grant)
 		for (cmd = cmd_table; cmd->name; cmd++) {
 			if (cmd->level < LEVEL_HERO
 			||  cmd->level > lev)
+				continue;
+
 			name_add(ch, cmd->name, "grant",
 				 &victim->pcdata->granted);
 		}
@@ -4348,14 +4352,16 @@ DO_FUN(do_grant)
 	}
 
 	for (; arg2[0]; argument = one_argument(argument, arg2)) {
-		if ((cmd = cmd_lookup(arg2)) == NULL) {
+		if ((cmd = cmd_lookup(arg2)) == NULL
+		&&  str_cmp(arg2, "none")
+		&&  str_cmp(arg2, "all")) {
 			char_printf(ch, "%s: command not found.\n", arg2);
 			continue;
 		}
 
-		if (cmd->level < LEVEL_IMMORTAL) {
+		if (cmd && cmd->level < LEVEL_IMMORTAL) {
 			char_printf(ch, "%s: not a wizard command.\n", arg2);
-			return;
+			continue;
 		}
 		name_toggle(ch, arg2, "grant", &victim->pcdata->granted);
 	}

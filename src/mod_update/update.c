@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.95 1998-12-17 21:05:44 fjoe Exp $
+ * $Id: update.c,v 1.96 1998-12-21 04:23:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -555,6 +555,10 @@ void mobile_update(void)
 		flag_t act;
 
 		ch_next = ch->next;
+
+		if (ch->in_room == NULL)
+			continue;
+
 		if (ch->position == POS_FIGHTING)
 			SET_FIGHT_TIME(ch);
 
@@ -616,7 +620,6 @@ void mobile_update(void)
  * that's all for PCs and charmed mobiles
  */
 		if (!IS_NPC(ch)
-		||  ch->in_room == NULL
 		||  IS_AFFECTED(ch, AFF_CHARM))
 			continue;
 
