@@ -286,7 +286,7 @@ aura sanctity аура святости свет~
 @eng Aura of Sanctity@rus ~~Аура~~ Святости~
 @eng Aura of Santity is shining.@rus Сияющий белый свет (aura) искрится и переливается прямо перед тобой.~
 unknown~
-armor G AQ
+armor Gh AQ
 -50 -50 -50 -50 0
 1 0 0 P
 S 'sanctuary' 100 A

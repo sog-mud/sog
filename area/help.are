@@ -5803,7 +5803,7 @@ Thanks to ...
 * This is a Roleplaying, PlayerKilling and Adventure MUD.
 * You are responsible for knowing the rules (type 'rules').  Ignorance of 
   the rules is no excuse.
-* Important cammands: help, commands, news, notes, changes.
+* Important commands: help, commands, news, notes, changes.
 * Read all helps. So many things are changed relatively before.
 * Added multi-language support command. See '{Clanguage{x' command.
 * Added short mode for flags. See '{CHELP TOGGLE{x'.

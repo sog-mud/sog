@@ -517,7 +517,7 @@ S 'blindness' 100 A
 G female
 #15034
 ribbon лента~
-@eng the green silk ribbon@rus ~~зеленая~~ ~~шелковая~~ ~~лента~~~
+@eng the green silk ribbon@rus {G~~зеленая~~ ~~шелковая~~ ~~лента~~{x~
 @eng The green silk ribbon is here.@rus Зеленая шелковая лента (ribbon) лежит здесь, слегка шевелимая ветром.~
 silk~
 jewelry T AE
@@ -676,15 +676,15 @@ wand CEGJLTYa AOP
 20 10 0 P
 G none
 #15101
-aqualung~
-@eng a rubber aqualung@rus резиновый акваланг~
+aqualung акваланг~
+@eng a rubber aqualung@rus ~~резиновый~~ ~~акваланг~~~
 @eng The rubber aqualung is here.@rus Небольшой резиновый акваланг ожидает своего владельца.~
 rubber~
 clothing GRTa AE
 0 0 0 0 0
 1 10 0 P
 F A 0 0 bz
-G none
+G male
 #15113
 bucket rose~
 @eng Bucket full of roses@rus Ведерко для роз~
