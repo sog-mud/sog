@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.421 2002-11-21 13:31:23 fjoe Exp $
+ * $Id: act_info.c,v 1.422 2002-11-21 13:53:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4424,7 +4424,7 @@ show_aliases(CHAR_DATA *ch, const char *argument, bool wiz)
 		}
 	}
 
-	act_puts("$t: No such $Tcommands found.",
+	act_puts("$t: No such $Tcommand found.",
 	    ch, arg, wiz ? "wiz" : "",
 	    TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 }
