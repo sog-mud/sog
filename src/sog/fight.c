@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.32 2001-07-04 19:43:04 fjoe Exp $
+ * $Id: fight.c,v 1.202.2.33 2001-07-04 19:55:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1167,7 +1167,8 @@ void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 		return;
 	}
 
-	group_gain(ch, victim);
+	if (!is_duel)
+		group_gain(ch, victim);
 
 	/*
 	 * Death trigger
