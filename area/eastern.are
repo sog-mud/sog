@@ -267,7 +267,7 @@ banded mail~
 a glowing suit of banded mail~
 A glowing suit of banded mail lies on the ground.~
 wood-iron~
-armor AG AD
+armor A AD
 7 7 7 0 0
 23 0 7300 P
 A
@@ -280,7 +280,7 @@ halberd~
 the halberd~
 A mighty halberd lies against the wall.~
 steel~
-weapon GI AN
+weapon I AN
 polearm 3 14 cleave F
 29 160 1620 P
 A
@@ -293,7 +293,7 @@ amulet~
 the amulet~
 A mushroom shaped amulet lies on the ground.~
 marble ruby~
-jewelry G AC
+jewelry 0 AC
 0 0 0 0 0
 5 20 550 P
 A
@@ -385,7 +385,7 @@ turban~
 a thick padded turban~
 A thick padded turban lies here.~
 cloth~
-clothing GH AE
+clothing H AE
 0 0 0 0 0
 0 10 10 P
 A
@@ -440,7 +440,7 @@ potion pink~
 a pink potion~
 A potion in a pink clay pot stands here.~
 clay~
-potion P A
+potion GP A
 25 'cure critical' 'remove curse' '' ''
 13 60 1220 P
 G none
@@ -449,7 +449,7 @@ wand platinum~
 a platinum wand~
 A platinum wand lies here.~
 platinium~
-wand B AO
+wand BG AO
 30 10 10 'magic missile' 0
 2 80 990 P
 G none
@@ -458,7 +458,7 @@ bow energy strange~
 a strange energy bow~
 A strange energy bow lies here.~
 unknown~
-weapon ABGI AN
+weapon ABI AN
 bow 5 5 blast 0
 21 200 2600 P
 G none
@@ -467,7 +467,7 @@ scroll encrypted~
 an encrypted scroll~
 An encrypted scroll lies at your feet.~
 vellum~
-scroll 0 A
+scroll G A
 22 'cure blindness' 'remove curse' 'cure poison' ''
 11 70 1730 P
 G none
@@ -494,7 +494,7 @@ bracelet copper~
 a copper bracelet~
 A tarnished copper bracelet lies at your feet.~
 copper~
-jewelry GH AM
+jewelry H AM
 0 0 0 0 0
 20 100 1300 P
 A
@@ -507,7 +507,7 @@ gem ruby~
 a large ruby~
 A large ruby lies on the ground collecting dust.~
 ruby~
-gem G AO
+gem 0 AO
 CE 0 0 0 0
 0 1 5000 P
 G none
@@ -516,7 +516,7 @@ gem diamond glittering~
 a glittering diamond~
 A glittering diamond lies at your feet.~
 diamond~
-gem G AO
+gem 0 AO
 ACE 0 0 0 0
 0 1 6000 P
 G none
@@ -525,7 +525,7 @@ gem sapphire~
 a brilliant sapphire~
 A brilliant sapphire lies here twinkling.~
 sapphire~
-gem G AO
+gem 0 AO
 BCE 0 0 0 0
 0 1 2000 P
 G none
@@ -534,7 +534,7 @@ gem lapis~
 a deep blue lapis lazuli~
 A deep blue lapis lazuli gem lies here.~
 gem~
-gem G AO
+gem 0 AO
 DE 0 0 0 0
 0 1 800 P
 G none
@@ -565,7 +565,7 @@ gem emerald~
 a fiery green emerald~
 A fiery green emerald sits here.~
 gem~
-warp_stone T AO
+warp_stone GT AO
 ABCE 0 0 0 0
 0 1 4000 P
 G none

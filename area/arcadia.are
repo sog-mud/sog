@@ -911,7 +911,7 @@ hat acorn шляпка~
 @eng An acorn hat@rus ~~желудевая~~ ~~шляпка~~~
 @eng A small brown cap lies here.@rus Маленькая коричневая шляпка (hat) лежит здесь.~
 wood~
-armor G AE
+armor 0 AE
 5 6 5 3 0
 22 3 30 P
 G female
@@ -920,7 +920,7 @@ nectar нектар~
 @eng A drop of nectar@rus ~~капелька~~ нектара~
 @eng A small drop af amber nectar.@rus Маленькая капелька янтарного нектара (nectar).~
 cloth~
-potion Q A
+potion GQ A
 25 'refresh' 'cure critical' 'cure poison' 'cure blindness'
 22 1 0 P
 G male
@@ -929,7 +929,7 @@ trident трезубец~
 @eng A silver trident@rus ~~серебряный~~ ~~трезубец~~~
 A long, perfectly balanced silver trident.~
 silver~
-weapon AG AN
+weapon A AN
 spear 6 6 pierce K
 28 30 800 P
 G male
@@ -938,7 +938,7 @@ opal bracelet браслет~
 @eng an opal bracelet@rus ~~опаловый~~ ~~браслет~~~
 @eng A gleaming opal bracelet shines faintly from the floor.@rus Переливающийся опаловый браслет (bracelet) сверкает у твоих ног.~
 silver~
-armor AG AM
+armor A AM
 10 7 9 0 0
 30 5 400 P
 A
@@ -949,7 +949,7 @@ gown gossamer платье~
 @eng A light gossamer gown@rus ~~газовое~~ ~~платье~~~
 @eng This see through gossamer gown leaves little to the imagination.@rus Это газовое платье (gown) оставляет очень мало твоему воображению.~
 cloth~
-armor AFG AD
+armor AF AD
 10 10 10 0 0
 30 1 600 P
 A
@@ -962,7 +962,7 @@ sword slender меч клинок~
 @eng A small slender sword@rus ~~маленький~~ ~~тонкий~~ ~~клинок~~~
 @eng A small slender blade of good craftsmanship.@rus Маленький тонкий клинок (sword), выкованный с необыкновенным мастерством.~
 silver~
-weapon G AN
+weapon 0 AN
 sword 4 9 slash 0
 32 10 800 P
 A
@@ -973,7 +973,7 @@ boots grey ботинки~
 @eng A pair of grey boots@rus ~~пара~~ ~~серых~~ ~~ботинок~~~
 @eng A pair boots made of some grey material you haven't seen before.@rus Пара ботинок (boots), сделанных из серого, невиданного тобой ранее материала.~
 leather~
-armor G AG
+armor 0 AG
 10 11 8 8 0
 32 5 500 P
 A
@@ -986,7 +986,7 @@ bow pixie лук~
 @eng A pixie bow@rus ~~эльфийский~~ ~~лук~~~
 @eng A small elegantly crafted bow with tiny arrows.@rus Небольшой, изящно сделанный лук (bow) с маленькими стрелами.~
 silver~
-wand ABC AO
+wand ABCG AO
 30 18 18 'curse' 0
 30 2 1000 P
 A
@@ -997,7 +997,7 @@ kris blade wavy~
 @eng A dull kris blade@rus ~~кривой~~ ~~нож~~ с тупым лезвием~
 @eng A dull kris blade with a broken handle and a few chips.@rus Кривой нож (kris) с тупым лезвием и сломанной рукоятью валяется здесь.~
 iron~
-weapon CG AN
+weapon C AN
 dagger 4 10 pierce D
 40 9 30 W
 A
@@ -1008,7 +1008,7 @@ blade jagged кинжал~
 @eng A jagged blade@rus ~~зазубренный~~ ~~кинжал~~~
 @eng A jagged, broken and chipped blade.@rus Кинжал (blade) со сломанным зазубренным лезвием.~
 unknown~
-weapon G AN
+weapon 0 AN
 sword 4 11 cleave 0
 43 13 200 W
 A
@@ -1025,7 +1025,7 @@ cap red кепка~
 @eng A red cap@rus ~~красная~~ ~~кепка~~~
 @eng This hat looks as if it were dyed with the blood of several animals.@rus Эта кепка (hat) выглядит так, будто ее качественно измазали в чьей-то крови.~
 cloth~
-armor EGJ AE
+armor EJ AE
 12 12 13 4 0
 38 4 20 G
 A
@@ -1051,7 +1051,7 @@ book книга tales~
 @eng A book of Tales@rus ~~книга~~ сказок~
 @eng This book contains the adventures of a wandering Eshu.@rus Эта книга (book), в которой собраны рассказы странствующего эшу.~
 paper~
-treasure G AO
+treasure 0 AO
 0 0 0 0 0
 54 5 300 P
 A
@@ -1064,7 +1064,7 @@ khopesh~
 A gleaming khopesh~
 A bright, wide-bladed khopesh with a gold and ivory handle.~
 unknown~
-weapon G AN
+weapon 0 AN
 sword 8 7 slash 0
 56 30 1200 P
 G none
@@ -1073,7 +1073,7 @@ helmet unfinished шлем~
 @eng An unfinished helmet@rus ~~незаконченный~~ ~~шлем~~~
 @eng This helmet looks to be of unparalleled craftsmanship, too bad it was never finished.@rus Этот шлем (helm) никогда не будет закончен мастером, слишком плохой уж материал попался.~
 unknown~
-armor G AEO
+armor 0 AEO
 14 14 12 12 0
 51 15 800 G
 G none
@@ -1083,7 +1083,7 @@ boots unfinished ботинки~
 @eng These boots would be the best pair you had ever seen if their maker had 
 ever finished them.@rus Эти ботинки (boots) будут лучшими из виденных тобой, если мастер их закончит.~
 leather~
-armor G AGO
+armor 0 AGO
 14 14 12 10 0
 52 8 1000 G
 A
@@ -1096,7 +1096,7 @@ stitching needle~
 A stitching needle~
 A small iron stitching needle.~
 iron~
-weapon AG AN
+weapon A AN
 dagger 6 9 pierce 0
 51 1 200 P
 G none
@@ -1125,7 +1125,7 @@ flagon графин~
 @eng A flagon of dark ale@rus ~~графин~~ темного эля~
 @eng A large wooden flagon of almost endless capacity.@rus Большой деревянный графин (flagon) уже практически пустой стоит здесь.~
 wood~
-drink G AO
+drink 0 AO
 200 100 'dark ale' 0 0
 30 10 120 W
 A
@@ -1138,7 +1138,7 @@ cap jester колпак~
 @eng A jester's cap@rus ~~шутовской~~ ~~колпак~~~
 @eng A multi-colored cap with four parts, each ending in a large silver bell.@rus Разноцветный колпак (cap) с четырьмя серебрянными бубенчиками лежит здесь.~
 cloth~
-armor BGHI AE
+armor BHI AE
 17 17 18 10 0
 59 6 800 P
 A
@@ -1275,7 +1275,7 @@ slime bit кусок~
 @eng A bit of slime@rus ~~кусок~~ грязи~
 @eng A small bit of purple slime with luminescent blue streaks.@rus Кусок красноватой грязи (slime) с голубыми прожилками валяется здесь.~
 unknown~
-pill A A
+pill AG A
 30 'know alignment' 'armor' '' ''
 28 2 0 G
 G male
@@ -1346,7 +1346,7 @@ jester stick~
 A jester's stick~
 A carved wooden stick with a puppet jester head on top.~
 unknown~
-staff BI AO
+staff BGI AO
 60 20 20 'faerie fog' 0
 58 7 1200 G
 G none
@@ -1355,7 +1355,7 @@ jester stick~
 A jester's stick~
 A carved wooden stick with a puppet jester head on top.~
 unknown~
-staff BI AO
+staff BGI AO
 60 20 20 'blindness' 0
 58 7 1200 G
 G none
@@ -1364,7 +1364,7 @@ jester stick~
 A jester's stick~
 A carved wooden stick with a puppet jester head on top.~
 unknown~
-staff BI AO
+staff BGI AO
 60 20 20 'teleport' 0
 58 7 1200 G
 G none
@@ -1373,7 +1373,7 @@ white marble mace~
 A white  mace~
 A large white marble mace.~
 marble~
-weapon GK AN
+weapon K AN
 mace 8 10 pound D
 70 25 1200 P
 A
@@ -1390,7 +1390,7 @@ spiked club~
 A twisted spiked club~
 A large spiked club made of dark twisted wood.~
 wood~
-weapon GJ AN
+weapon J AN
 mace 8 10 blast 0
 70 25 1200 W
 A
@@ -1407,7 +1407,7 @@ ice shield~
 An ice shield~
 A large shield made of pure ice.~
 ice~
-armor G AJ
+armor 0 AJ
 23 23 22 16 0
 70 25 1200 P
 A
@@ -1420,7 +1420,7 @@ oath ring~
 An oath ring~
 A brightly gleaming ring with a small inscription on the inside.~
 unknown~
-treasure G AB
+treasure 0 AB
 0 0 0 0 0
 70 25 1200 P
 A
@@ -1433,7 +1433,7 @@ noble cape~
 A noble's cape~
 A long well made cape of some rich purple cloth.~
 unknown~
-armor G AC
+armor 0 AC
 22 22 22 16 0
 72 5 1200 P
 G none
@@ -1442,7 +1442,7 @@ noble sword~
 A sidhe broadsword~
 A well made sidhe broadsword with a strange inscription.~
 unknown~
-weapon G AN
+weapon 0 AN
 sword 10 8 slash 0
 72 5 1200 P
 G none
@@ -1451,7 +1451,7 @@ noble breastplate~
 A sidhe breastplate~
 A well made sidhe noble's breastplate with fine engraving.~
 unknown~
-armor G AD
+armor 0 AD
 22 22 21 17 0
 72 9 1200 P
 A
@@ -1462,7 +1462,7 @@ sidhe armguards~
 A pair of sidhe armguards~
 A pair of bright silver armguards of fine craftsmanship.~
 unknown~
-armor G AI
+armor 0 AI
 22 23 21 16 0
 68 6 1100 P
 A
@@ -1473,7 +1473,7 @@ sidhe greaves~
 A pair of sidhe greaves~
 A set of bright silver leg armor.~
 unknown~
-armor G AF
+armor 0 AF
 23 23 21 16 0
 68 6 800 P
 A
@@ -1484,7 +1484,7 @@ sidhe bracers~
 An engraved sidhe bracer~
 A light metal bracer of intricate design.~
 unknown~
-armor G AM
+armor 0 AM
 22 21 23 16 0
 68 3 960 P
 A
@@ -1497,7 +1497,7 @@ noble circlet~
 A noble's circlet~
 This silver circlet is covered in sidhe designs and pale green gems.~
 unknown~
-armor G AE
+armor 0 AE
 23 23 23 17 0
 73 3 980 P
 A
@@ -1512,7 +1512,7 @@ noble rapier~
 A noble's rapier~
 The iron sword of a sidhe noble.~
 iron~
-weapon G AN
+weapon 0 AN
 sword 8 12 slash 0
 75 5 990 P
 A
@@ -1525,7 +1525,7 @@ heart night~
 The heart of Night~
 The black heart of night pulses with power.~
 unknown~
-treasure G AO
+treasure 0 AO
 0 0 0 0 0
 84 20 0 P
 A
@@ -1553,7 +1553,7 @@ stag horned helmet~
 A stag horned helmet~
 This dark helm has two silver antlers of seven tines on the top.~
 unknown~
-armor G AE
+armor 0 AE
 28 28 28 11 0
 86 11 2800 P
 A
@@ -1564,7 +1564,7 @@ silver torc~
 A silver torc~
 The silver torc of the Unseelie King.~
 silver~
-armor G AC
+armor 0 AC
 28 28 28 10 0
 86 11 2900 P
 A
@@ -1584,7 +1584,7 @@ robe~
 A poet's robe~
 A heavy blue poet's robe.~
 unknown~
-armor G AK
+armor 0 AK
 25 25 25 18 0
 78 7 2000 P
 A
@@ -1595,7 +1595,7 @@ gown~
 An embroidered gown~
 A finely embroidered court gown.~
 unknown~
-armor G AK
+armor 0 AK
 28 29 29 22 0
 84 8 2000 P
 A
@@ -1606,7 +1606,7 @@ locket~
 A summer locket~
 A golden locket that contains the essence of summer.~
 unknown~
-armor G AC
+armor 0 AC
 28 28 29 22 0
 84 4 1750 P
 A
@@ -1621,7 +1621,7 @@ golden torc~
 A golden torc~
 The torc of Rulership of the Seelie Court.~
 gold~
-armor G AC
+armor 0 AC
 28 28 28 20 0
 86 7 2500 P
 A
@@ -1636,7 +1636,7 @@ cloak shadows~
 The cloak of shadows~
 A cloak made of shifting formless shadows.~
 unknown~
-armor CG AC
+armor C AC
 27 28 28 21 0
 84 2 3000 P
 A
@@ -1647,7 +1647,7 @@ bag tricks~
 A bag of tricks~
 A doe skin bag that looks empty.~
 unknown~
-container G AO
+container 0 AO
 1000 0 0 500 100
 82 2 0 P
 G none
@@ -1656,7 +1656,7 @@ orange~
 An orange~
 A small orange orange.~
 unknown~
-pill 0 A
+pill G A
 82 'curse' 'sleep' 'blindness' 'poison'
 83 1 0 P
 G none
@@ -1750,7 +1750,7 @@ crested shield~
 A crested shield~
 This shield bears the crest of one of the sidhe noble houses.~
 unknown~
-armor G AJ
+armor 0 AJ
 24 24 25 17 0
 74 13 1200 P
 A

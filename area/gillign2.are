@@ -436,7 +436,7 @@ Glasses~
 a pair of glasses~
 A pair of glasses sit here.~
 glass~
-armor G AE
+armor 0 AE
 6 6 6 0 1
 14 30 2160 G
 A
@@ -500,7 +500,7 @@ White cane~
 a white cane~
 A white cane rests here.~
 softwood~
-wand 0 AO
+wand G AO
 12 20 20 'blindness' 0
 10 20 1850 P
 G none
@@ -531,7 +531,7 @@ Coconut~
 A coconut~
 A coconut lies here.~
 food~
-potion A AO
+potion AG AO
 11 'cure light' 'cure light' 'cure light' 'cure light'
 0 5 1368 P
 G none
@@ -540,7 +540,7 @@ Chicken Feather~
 A chicken feather~
 A feather seems to hover here.~
 feathers~
-wand 0 AO
+wand G AO
 10 20 20 'detect magic' 0
 1 5 2100 P
 A
@@ -599,7 +599,7 @@ Teeth Necklace~
 A necklace made of teeth~
 A necklace made of teeth rests here.~
 horn~
-armor G AC
+armor 0 AC
 5 5 5 0 0
 14 40 1690 G
 A
@@ -610,7 +610,7 @@ bracelet palm~
 A bracelet made of palm~
 A bracelet made of palm is beautifully woven.~
 softwood~
-armor G AM
+armor 0 AM
 6 6 6 0 0
 13 10 2440 G
 G none
@@ -628,7 +628,7 @@ Groucho glasses~
 Groucho glasses~
 A pair of glasses with a fake nose and mustache attached rests here.~
 glass~
-armor G AE
+armor 0 AE
 6 6 6 0 0
 13 10 2100 G
 A
@@ -641,7 +641,7 @@ moon boots~
 Moon boots~
 A pair of moon boots rest here.~
 air~
-armor AG AG
+armor A AG
 6 6 6 0 0
 13 5 900 G
 A
@@ -661,7 +661,7 @@ Calculater~
 A calculater~
 A calculator computes here.~
 plastic~
-armor BG AO
+armor B AO
 5 5 5 0 0
 12 5 1764 G
 A
@@ -672,7 +672,7 @@ Globetrotter jersey~
 A Globetrotter jersey~
 A jersey rests here.~
 wool~
-armor G AD
+armor 0 AD
 6 6 6 0 0
 12 45 2350 G
 A
@@ -692,7 +692,7 @@ Sumo pants~
 Sumo pants~
 A pair of pants that look like a huge diaper rest here.~
 wool~
-armor GI AF
+armor I AF
 5 5 6 1 0
 10 40 1000 G
 A
@@ -727,7 +727,7 @@ bullhorn~
 A bullhorn~
 A bullhorn lies here to be used to get attention.~
 horn~
-wand 0 AO
+wand G AO
 10 10 10 'charm person' 0
 11 5 600 P
 A
@@ -738,7 +738,7 @@ Directors scarf~
 A directors scarf~
 A long white scarf lies here.~
 wool~
-armor G AC
+armor 0 AC
 6 6 6 0 0
 10 40 1000 G
 G none
@@ -747,7 +747,7 @@ Hurricane staff~
 The hurricane staff~
 The hurricane staff sizzles here.~
 air~
-wand AB AO
+wand ABG AO
 20 10 10 'earthquake' 0
 10 5 600 P
 G none
@@ -756,7 +756,7 @@ camera~
 A 35 millimeter camera~
 A camera sits here waiting to be used.~
 plastic~
-armor AG AC
+armor A AC
 5 5 6 0 0
 14 40 1400 G
 A

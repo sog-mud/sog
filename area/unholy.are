@@ -351,7 +351,7 @@ bracers might~
 bracers of might~
 A pair of sturdy metal bracers lie here, unclaimed.~
 ~
-armor AG AI
+armor A AI
 22 22 22 18 0
 65 10 20000 P
 A
@@ -366,7 +366,7 @@ sword elven~
 an elven longsword~
 An ornately-fashioned sword lies here.~
 ~
-weapon AG AN
+weapon A AN
 sword 7 9 pierce 0
 63 10 15000 P
 A
@@ -379,7 +379,7 @@ suit elven chainmail~
 a suit of elven chainmail~
 A suit of well-crafted chain lies here.~
 ~
-armor AG AD
+armor A AD
 21 21 22 20 0
 63 5 25000 P
 A
@@ -390,7 +390,7 @@ shield~
 a rune-covered shield~
 A shield covered with mithril runes is propped up against a wall here.~
 ~
-armor AG AJ
+armor A AJ
 20 20 20 20 0
 63 8 15000 P
 A
@@ -412,7 +412,7 @@ scythe~
 a scythe~
 A scythe lies here, glowing.~
 ~
-weapon ABEGJ AN
+weapon ABEJ AN
 polearm 7 8 stab 0
 66 20 2000 P
 A
@@ -499,7 +499,7 @@ suit unholy armor~
 a suit of unholy armor~
 A suit of unholy armor lies here.~
 ~
-armor ABEGJM AD
+armor ABEJM AD
 21 21 21 10 0
 63 25 20000 P
 A
@@ -566,7 +566,7 @@ portal~
 a glowing green portal~
 A green portal floats here.~
 ~
-portal A 0
+portal AG 0
 0 0 A 30827 0
 0 0 0 P
 G none
@@ -575,7 +575,7 @@ portal~
 a glowing green portal~
 A green portal floats here.~
 ~
-portal A 0
+portal AG 0
 0 0 A 30825 0
 0 0 0 P
 G none
@@ -584,7 +584,7 @@ portal~
 a glowing red portal~
 A red portal floats here.~
 ~
-portal A 0
+portal AG 0
 0 0 A 30839 0
 0 0 0 P
 G none
@@ -710,7 +710,7 @@ quiver~
 a quiver~
 A large quiver is hanging from a hook opposite the door.~
 ~
-portal 0 AD
+portal G AD
 BEF 0 0 0 0
 3 100 0 P
 G none
@@ -719,7 +719,7 @@ shield~
 a white shield~
 A white shield bearing a white hart on a green field lies here.~
 ~
-armor AGIK AJ
+armor AIK AJ
 25 25 25 18 0
 75 7 25000 P
 A
@@ -738,7 +738,7 @@ surcoat~
 a white surcoat~
 A surcoat bearing the coat of arms of Malathar lies here.~
 ~
-armor AGIK AD
+armor AIK AD
 25 25 25 20 0
 75 5 15000 P
 A
@@ -800,7 +800,7 @@ portal~
 a glowing red portal~
 A red portal floats here.~
 ~
-portal A 0
+portal AG 0
 0 0 A 30827 0
 0 0 0 P
 G none
@@ -851,7 +851,7 @@ portal~
 a glowing blue portal~
 A blue portal floats here.~
 ~
-portal A 0
+portal AG 0
 0 0 A 30883 0
 0 0 0 P
 G none
@@ -860,7 +860,7 @@ portal~
 a glowing blue portal~
 A blue portal floats here.~
 ~
-portal A 0
+portal AG 0
 0 0 A 30839 0
 0 0 0 P
 G none
@@ -869,7 +869,7 @@ portal~
 a glowing black portal~
 A black portal floats here.~
 ~
-portal A 0
+portal AG 0
 0 0 A 30819 0
 0 0 0 P
 G none

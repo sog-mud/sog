@@ -1971,7 +1971,7 @@ artwork white object bones thing~
 Weird artwork~
 A twisting white object casts strange shadows across the clearing.~
 bone~
-portal AO 0
+portal AGO 0
 0 0 D 11613 0
 0 0 0 P
 E
@@ -1988,7 +1988,7 @@ mirror pool water~
 Mirror pool~
 A circular pool of clear water shimmers here.~
 water~
-portal O 0
+portal GO 0
 0 0 A 11650 0
 0 0 0 P
 E
@@ -2005,7 +2005,7 @@ shadow shadows~
 the shadows~
 The shadows seem to writhe along the cave wall, as if alive.~
 shadow~
-portal 0 0
+portal G 0
 0 0 A 11672 0
 0 0 0 P
 E
@@ -2018,7 +2018,7 @@ leering stone face mouth~
 the mouth of the leering face~
 A grotesque stone face rests here, leering at you.~
 stone~
-portal 0 0
+portal G 0
 0 0 D 11647 0
 0 0 0 P
 E
@@ -2033,7 +2033,7 @@ dark pool water~
 the dark pool~
 A pool of water has formed in the dark stone of the cave floor.~
 water~
-portal 0 0
+portal G 0
 0 0 A 11616 0
 0 0 0 P
 E
@@ -2049,7 +2049,7 @@ pine coffin~
 a pine coffin~
 A long pine coffin rests against one wall.~
 hardwood~
-furniture G 0
+furniture 0 0
 2 500 CFILO 110 120
 0 0 0 P
 E
@@ -2064,7 +2064,7 @@ darkness~
 the darkness~
 Darkness pervades the cavern, seeming to feed off the light.~
 nothingness~
-portal 0 0
+portal G 0
 0 0 A 11672 0
 0 0 0 P
 E
@@ -2135,7 +2135,7 @@ white oak tree~
 an ancient white oak~
 An ancient white oak tree towers over the eastern edge of the clearing.~
 hardwood~
-portal 0 0
+portal G 0
 0 0 A 11633 0
 0 0 0 P
 E
@@ -2150,7 +2150,7 @@ black oak tree~
 an ancient black oak~
 An ancient black oak tree towers over the western edge of the clearing.~
 hardwood~
-portal 0 0
+portal G 0
 0 0 A 11667 0
 0 0 0 P
 E
@@ -2275,7 +2275,7 @@ bubbling indigo potion~
 a bubbling indigo potion~
 A deep indigo potion bubbles here.~
 crystal~
-potion A AO
+potion AG AO
 80 'detect magic' 'cure critical' 'bless' ''
 70 10 1000 P
 G none
@@ -2429,7 +2429,7 @@ scroll enlightenment white~
 a scroll of enlightenment~
 A beautiful white scroll lies here, promising to teach you many things.~
 parchment~
-scroll B AO
+scroll BG AO
 60 'colour spray' 'curse' 'charm person' 'poison'
 60 10 550 P
 A
@@ -2442,7 +2442,7 @@ sparkling wand~
 a sparkling wand~
 A wand sparkles in the light.~
 mithril~
-wand AF AO
+wand AFG AO
 69 12 12 'colour spray' 0
 61 10 3250 P
 G none
@@ -2592,7 +2592,7 @@ polished bone chip~
 a chip of polished bone~
 A chip of polished bone gleams eerily.~
 bone~
-warp_stone AT AO
+warp_stone AGT AO
 0 0 0 0 0
 0 10 2200 P
 G none
@@ -2680,7 +2680,7 @@ rabbit food pellet~
 a pellet of rabbit food~
 A pellet of rabbit food lies here.~
 food~
-pill 0 A
+pill G A
 55 'haste' '' '' ''
 45 10 500 P
 G none
@@ -3488,7 +3488,7 @@ dark owl feather blanket~
 a blanket of dark owl feathers~
 The soft feathers of a dark bird have been woven together to form a blanket.~
 feathers~
-furniture CG AO
+furniture C AO
 2 1200 BEHKN 115 115
 65 70 5500 P
 G none
@@ -3497,7 +3497,7 @@ hole ground~
 a hole in the ground~
 Someone has dug a hole in the ground here.~
 nothingness~
-portal 0 0
+portal G 0
 0 0 D 11646 0
 0 0 0 P
 G none
@@ -3506,7 +3506,7 @@ rip void~
 a rip in the void~
 A rip in the fabric of the void shimmers whitely overhead.~
 etherealness~
-portal A 0
+portal AG 0
 0 0 D 11612 0
 0 0 0 P
 G none
@@ -3515,7 +3515,7 @@ vacuum nothing~
 a vacuum~
 There is nothing here.~
 nothingness~
-portal B AO
+portal BG AO
 0 0 BCE 2 0
 75 0 0 P
 G none
@@ -3524,7 +3524,7 @@ oaken door~
 an oaken door~
 A carved oaken door hangs in midair.~
 oak~
-portal 0 0
+portal G 0
 0 A A 11699 0
 0 0 0 P
 E
@@ -3540,7 +3540,7 @@ oaken door~
 an oaken door~
 A carved oaken door hangs in midair.~
 oak~
-portal 0 0
+portal G 0
 0 A A 11687 0
 0 0 0 P
 G none
@@ -3880,7 +3880,7 @@ manual bladework blade work black~
 a manual of bladework~
 A black bound manual is here.~
 leather~
-scroll 0 A
+scroll G A
 82 'bless' 'frenzy' '' ''
 73 10 1000 P
 G none
@@ -3889,7 +3889,7 @@ dark blue scroll~
 a dark blue scroll~
 A dark blue scroll lies here.~
 vellum~
-scroll B A
+scroll BG A
 82 'enchant weapon' '' '' ''
 73 10 1000 P
 G none
@@ -3898,7 +3898,7 @@ simmering green potion~
 a simmering green potion~
 A dark green potion simmers here.~
 glass~
-potion 0 A
+potion G A
 67 'poison' 'blindness' 'plague' 'curse'
 60 10 1000 P
 G none

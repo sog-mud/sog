@@ -1082,7 +1082,7 @@ hammer mithril~
 a mithril hammer~
 A mithril hammer has been left here~
 mithril~
-weapon G AN
+weapon 0 AN
 mace 3 6 pound 0
 12 190 1410 P
 A
@@ -1204,7 +1204,7 @@ staff red white~
 a red and white staff~
 A red and white staff is leaning against the wall here~
 ivory~
-staff 0 AO
+staff G AO
 15 3 3 'heal' 0
 15 80 5600 P
 G none
@@ -1213,7 +1213,7 @@ staff burnt~
 a burnt staff~
 A burnt staff is leaning against the wall here.~
 oak~
-staff 0 AO
+staff G AO
 20 4 4 'blindness' 0
 6 60 1720 P
 G none
@@ -1222,7 +1222,7 @@ rod black~
 a black rod~
 A black rod has been left here.~
 onyx~
-wand 0 AO
+wand G AO
 20 3 3 'dispel evil' 0
 11 40 2200 P
 G none
@@ -1231,7 +1231,7 @@ wand wooden~
 a wooden stick~
 A wooden stick is here~
 ebony~
-wand 0 AO
+wand G AO
 20 10 10 'bless' 0
 7 40 1640 P
 G none
@@ -1240,7 +1240,7 @@ wand metal~
 a metal wand~
 A metal wand is here.~
 steel~
-wand 0 AO
+wand G AO
 20 20 4 'energy drain' 0
 14 50 3200 P
 G none
@@ -1285,7 +1285,7 @@ spectacles glasses~
 a pair of spectacles~
 A pair of wire-rimmed spectacles has been left here.~
 glass~
-clothing G AE
+clothing 0 AE
 0 0 0 0 0
 7 40 1140 P
 A
@@ -1307,7 +1307,7 @@ medallion heart~
 a heart shaped medallion~
 A heart shaped medallion is here.~
 amethyst~
-jewelry GI AC
+jewelry I AC
 0 0 0 0 0
 13 30 2200 P
 A
@@ -1320,7 +1320,7 @@ chest~
 a large chest~
 A large chest is here.~
 brass~
-container AG 0
+container A 0
 2000 ABCD 1339 200 100
 0 0 0 P
 G none
@@ -1329,7 +1329,7 @@ key intricate~
 an intricately carved key~
 An intricately carved key has been left here.~
 aluminum~
-key AG AO
+key A AO
 BDEFIK 0 0 0 0
 0 10 150 P
 A
@@ -1362,7 +1362,7 @@ chameleon poncho~
 a chameleon poncho~
 Some multicolored cloth is on the ground here~
 wool~
-clothing G AK
+clothing 0 AK
 0 0 0 0 0
 17 40 3600 P
 A
@@ -1375,7 +1375,7 @@ boots worn~
 a pair of old boots~
 A pair of old boots is here, they look very comfortable.~
 leather~
-clothing G AG
+clothing 0 AG
 0 0 0 0 0
 10 20 270 P
 A
@@ -1386,7 +1386,7 @@ ring seashell~
 a seashell ring~
 A small seashell has been left here.~
 bone~
-boat G AB
+boat 0 AB
 0 0 0 0 0
 0 20 1000 P
 G none
@@ -1395,7 +1395,7 @@ backpack leather~
 a leather backpack~
 A leather backpack is here.~
 leather~
-container GY AKO
+container Y AKO
 300 0 0 50 50
 0 90 1000 P
 G none
@@ -1431,7 +1431,7 @@ shackles chain~
 some chain shackles~
 Some chain shackles have been discarded here~
 iron~
-trash GH A
+trash H A
 0 0 0 0 0
 0 150 0 P
 A
@@ -1444,7 +1444,7 @@ dagger silvery~
 a silvery dagger~
 A long dagger that seems to be made of silver is here.~
 silver~
-weapon G AN
+weapon 0 AN
 dagger 4 5 pierce 0
 15 10 910 P
 A
@@ -1455,7 +1455,7 @@ scroll~
 a scroll~
 A scroll is here.~
 vellum~
-scroll 0 A
+scroll G A
 21 'blindness' 'curse' 'sleep' ''
 11 50 1570 P
 G none
@@ -1475,7 +1475,7 @@ tube~
 a long cylindrical tube~
 A long cylindrical tube is rolling around here.~
 crystal~
-container GY A
+container Y A
 100 AC -1 2 90
 0 10 50 P
 G none
@@ -1484,7 +1484,7 @@ scroll old~
 an old scroll~
 An old scroll has been left here.~
 vellum~
-scroll 0 A
+scroll G A
 10 'create food' '' '' ''
 0 20 400 P
 G none
@@ -1502,7 +1502,7 @@ pouch leather~
 a leather pouch~
 A leather pouch is on the ground here.~
 leather~
-container GY AO
+container Y AO
 150 0 0 5 20
 0 20 100 P
 G none
@@ -1511,7 +1511,7 @@ spoon silver~
 a silver stirring spoon~
 A silver stirring spoon has been left here.~
 silver~
-furniture G AO
+furniture 0 AO
 0 0 0 0 0
 0 10 150 P
 A
@@ -1562,7 +1562,7 @@ white milky potion~
 a milky white potion~
 A milky white potion is here.~
 glass~
-potion 0 A
+potion G A
 14 'word of recall' '' '' ''
 17 20 1350 P
 G none
@@ -1618,7 +1618,7 @@ chisel runed~
 a runed chisel~
 A runed chisel is here.~
 diamond~
-weapon AG AN
+weapon A AN
 dagger 3 6 pierce 0
 20 60 2100 P
 A
@@ -1640,7 +1640,7 @@ dust~
 some sparkling dust~
 Some sparkling dust is in a pile here.~
 unknown~
-staff 0 AO
+staff G AO
 20 1 1 'sleep' 0
 5 20 1930 P
 G none
@@ -1649,7 +1649,7 @@ cowl dark~
 a dark cowl~
 A dark cowl is here.~
 unknown~
-clothing GJ AC
+clothing J AC
 0 0 0 0 0
 26 50 2900 P
 A
@@ -1662,7 +1662,7 @@ wand ashen~
 an ashen wand~
 An ashen wand is here~
 wood~
-wand J AO
+wand GJ AO
 20 4 4 'cause critical' 0
 9 40 1860 P
 G none
@@ -1680,7 +1680,7 @@ robe grey~
 a grey robe~
 A pile of grey cloth has been left here.~
 wool~
-container GJKY AK
+container JKY AK
 250 0 0 10 50
 26 80 2900 P
 A
@@ -1699,7 +1699,7 @@ cloak grey~
 a long grey cloak~
 A pile of grey cloth has been left here.~
 wool~
-clothing GJK AC
+clothing JK AC
 0 0 0 0 0
 29 70 3300 P
 A
@@ -1712,7 +1712,7 @@ bracelet silver~
 a glinting silver bracelet~
 A glinting hoop of silvery metal is here.~
 silver~
-jewelry G AM
+jewelry 0 AM
 0 0 0 0 0
 20 50 1440 P
 A
@@ -1725,7 +1725,7 @@ staff~
 an iron shod staff~
 A grey piece of wood shod in iron has been left here.~
 wood~
-weapon G AN
+weapon 0 AN
 staff 4 8 pound F
 27 70 1280 P
 A
@@ -1736,7 +1736,7 @@ minor ward cube clear~
 a ward minor~
 A small clear cube is sitting here.~
 crystal~
-gem AG AO
+gem A AO
 0 0 0 0 0
 20 50 1440 P
 A
@@ -1747,7 +1747,7 @@ robe black~
 a black robe~
 A pile of black cloth is on the ground here.~
 cloth~
-container GJLY AK
+container JLY AK
 50 0 0 10 75
 22 80 2400 P
 A
@@ -1760,7 +1760,7 @@ bracelet onyx~
 an onyx bracelet~
 A hoop of black onyx is here.~
 onyx~
-jewelry G AM
+jewelry 0 AM
 0 0 0 0 0
 20 60 1150 P
 A
@@ -1771,7 +1771,7 @@ cloak black dark~
 a dark black cloak~
 A pile of black cloth is on the ground here.~
 leather~
-clothing GJL AC
+clothing JL AC
 0 0 0 0 0
 29 80 3300 P
 A
@@ -1795,7 +1795,7 @@ robe white~
 a white robe~
 A pile of white cloth is on the ground here.~
 wool~
-container GKLY AK
+container KLY AK
 50 0 0 10 75
 22 70 2400 P
 A
@@ -1808,7 +1808,7 @@ bracelet white gold~
 a white gold bracelet~
 A hoop of silvery metal is here.~
 gold~
-jewelry G AM
+jewelry 0 AM
 0 0 0 0 0
 20 50 1150 P
 A
@@ -1819,7 +1819,7 @@ cloak white~
 a white cloak~
 A pile of white cloth is on the ground here.~
 cloth~
-clothing GIKL AC
+clothing IKL AC
 0 0 0 0 0
 29 70 3300 P
 A
@@ -1832,7 +1832,7 @@ ivory dagger~
 an ivory hilted dagger~
 An ivory hilted dagger has been left here~
 mithril~
-weapon GIK AN
+weapon IK AN
 dagger 4 7 pierce 0
 27 10 2100 P
 A
@@ -1845,7 +1845,7 @@ collar spiked~
 a spiked collar~
 A small spiked collar is here.~
 leather~
-armor G AC
+armor 0 AC
 2 2 2 0 0
 20 90 1970 P
 A
@@ -1858,7 +1858,7 @@ cloak shimmering~
 a shimmering cloak of many colors~
 A multi-colored pile of cloth is here.~
 unknown~
-container AGY AC
+container AY AC
 100 0 0 10 25
 50 80 10800 P
 A
@@ -1871,7 +1871,7 @@ emerald ring~
 a small emerald ring~
 A small ring with a green gemstone is here.~
 ruby~
-jewelry G AB
+jewelry 0 AB
 0 0 0 0 0
 20 50 580 P
 A
@@ -1882,7 +1882,7 @@ bracelet emerald~
 an emerald bracelet~
 A beautifully crafted hoop of emerald is here.~
 bronze~
-jewelry G AM
+jewelry 0 AM
 0 0 0 0 0
 20 50 2200 P
 A
@@ -1895,7 +1895,7 @@ ward major clear crystal~
 a ward major~
 A large clear crystal cube is here.~
 crystal~
-gem AGY AO
+gem AY AO
 0 0 0 0 0
 40 60 5100 P
 F I 0 0 A
@@ -1909,7 +1909,7 @@ ebony kris~
 the ebony kris~
 A wavy bladed knife made of ebony is here.~
 ebony~
-weapon G AN
+weapon 0 AN
 dagger 6 7 pierce D
 46 30 10700 P
 A
@@ -1924,7 +1924,7 @@ green scale shirt~
 a tight fitting green dragon scale shirt~
 Some green dragon scales which have been sewn together are here.~
 dragonskin~
-armor G AD
+armor 0 AD
 12 12 13 5 0
 37 90 17800 P
 A

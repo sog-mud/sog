@@ -1081,7 +1081,7 @@ little bottle~
 a little bottle~
 A little bottle with a tiny paper label rests here.~
 copper~
-potion 0 AO
+potion G AO
 35 'weaken' 'weaken' 'weaken' ''
 48 1 480 P
 E
@@ -1103,7 +1103,7 @@ small cake~
 a small cake~
 A small cake with something written on it with currants sits here.~
 copper~
-pill 0 A
+pill G A
 35 'giant strength' 'giant strength' 'giant strength' ''
 48 1 480 P
 G none
@@ -1112,7 +1112,7 @@ little bottle~
 a little bottle~
 A little bottle with a tiny paper label rests on the table here.~
 copper~
-potion 0 AO
+potion G AO
 35 'giant strength' 'stone skin' 'armor' ''
 33 1 330 P
 E
@@ -1143,7 +1143,7 @@ hookah~
 a hookah~
 A hookah sits here.~
 copper~
-armor ABG AO
+armor AB AO
 11 11 11 0 0
 40 3 400 P
 A
@@ -1158,7 +1158,7 @@ mushroom flesh~
 some flesh from a mushroom~
 Some flesh has been torn off the mushroom and dropped here.~
 copper~
-pill 0 AO
+pill G AO
 40 'weaken' '' 'poison' ''
 40 1 400 P
 G none
@@ -1167,7 +1167,7 @@ mushroom flesh~
 some flesh from a mushroom~
 Some flesh has been torn off the mushroom and dropped here.~
 copper~
-pill 0 AO
+pill G AO
 40 'protection evil' 'pass door' 'fly' ''
 40 1 400 P
 G none
@@ -1176,7 +1176,7 @@ pigeon egg~
 a pigeon egg~
 A pigeon egg sits here.~
 copper~
-pill B AO
+pill BG AO
 36 'cure poison' '' '' ''
 34 1 340 P
 G none
@@ -1185,7 +1185,7 @@ pigeon egg~
 a pigeon egg~
 A pigeon egg sits here.~
 copper~
-pill B AO
+pill BG AO
 36 'mind light' '' '' ''
 34 1 340 P
 G none
@@ -1194,7 +1194,7 @@ pigeon egg~
 a pigeon egg~
 A pigeon egg sits here.~
 copper~
-pill B AO
+pill BG AO
 36 'detect hidden' '' '' ''
 34 1 340 P
 G none
@@ -1244,7 +1244,7 @@ invitation~
 an invitation~
 An invitation from the Queen to play croquet lies here.~
 copper~
-scroll A AO
+scroll AG AO
 36 'bless' 'detect magic' 'faerie fog' ''
 37 1 370 P
 G none
@@ -1273,7 +1273,7 @@ plate~
 a plate~
 This plate is one of several the cook has hurled at the Duchess.~
 copper~
-warp_stone 0 AO
+warp_stone G AO
 0 0 0 0 0
 37 2 370 P
 G none
@@ -1392,7 +1392,7 @@ biscuit plate~
 a biscuit plate~
 A biscuit plate sits on the table here.~
 copper~
-warp_stone 0 AO
+warp_stone G AO
 0 0 0 0 0
 43 1 430 P
 G none
@@ -1496,7 +1496,7 @@ diamond~
 a diamond~
 A diamond has been dropped here.~
 copper~
-light AG AOQ
+light A AOQ
 0 0 -1 0 0
 37 2 370 P
 A
@@ -1542,7 +1542,7 @@ flamingo~
 a flamingo~
 A flamingo that is being used as a croquet mallet wriggles about here.~
 copper~
-weapon G AN
+weapon 0 AN
 exotic 5 8 bite 0
 37 10 370 P
 A
@@ -1577,7 +1577,7 @@ axe~
 the executioner's axe~
 The executioner's axe is leaning against one wall here.~
 copper~
-weapon AEGM ANP
+weapon AEM ANP
 axe 5 10 slice 0
 44 20 440 P
 A
@@ -1599,7 +1599,7 @@ slate~
 a slate~
 A slate is covered with meaningless scribbles.~
 copper~
-scroll 0 AO
+scroll G AO
 35 'sleep' 'sleep' 'sleep' ''
 38 1 380 P
 G none
@@ -1626,7 +1626,7 @@ rabbit hole~
 a rabbit hole~
 A rabbit hole beckons for you to enter!~
 copper~
-portal 0 0
+portal G 0
 0 0 0 21002 0
 48 1 480 P
 G none
@@ -1635,7 +1635,7 @@ tree door~
 a tree with a tiny door~
 A tree with a tiny door set in it stands here.~
 copper~
-portal 0 0
+portal G 0
 0 0 0 21042 0
 35 1 350 P
 G none

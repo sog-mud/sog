@@ -261,7 +261,7 @@ longsword elven sword long~
 an elven longsword~
 A shiny blade is on the floor.~
 steel~
-weapon G AN
+weapon 0 AN
 sword 3 3 slash 0
 7 30 670 P
 A
@@ -272,7 +272,7 @@ cloak brown~
 a brown cloak~
 A pile of brown cloth is on the floor.~
 cloth~
-armor G AC
+armor 0 AC
 3 3 3 0 0
 7 30 900 P
 A
@@ -301,7 +301,7 @@ ring gold~
 a gold ring~
 A shiny ring is on the floor.~
 gold~
-jewelry G AB
+jewelry 0 AB
 0 0 0 0 0
 5 10 110 P
 A
@@ -312,7 +312,7 @@ quarterstaff staff two-handed~
 a quarterstaff~
 A quarterstaff is on the floor.~
 wood~
-weapon G AN
+weapon 0 AN
 staff 5 5 pound F
 21 50 670 P
 A
@@ -467,7 +467,7 @@ quarterstaff staff two-handed~
 a quarterstaff~
 A quarterstaff is on the floor.~
 wood~
-weapon G AN
+weapon 0 AN
 staff 3 7 pound F
 14 50 310 P
 A

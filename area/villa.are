@@ -848,7 +848,7 @@ club~
 the chief's club~
 The chief's oak club is lying here in the dirt.~
 copper~
-weapon G AN
+weapon 0 AN
 mace 5 13 crush 0
 60 25 600 P
 A
@@ -872,7 +872,7 @@ wooden club~
 a wooden club~
 A wooden club is lying here.~
 copper~
-weapon G AN
+weapon 0 AN
 exotic 5 11 crush 0
 50 15 500 P
 A
@@ -961,7 +961,7 @@ papyrus~
 a blank papyrus~
 A blank papyrus is here.~
 copper~
-scroll 0 AO
+scroll G AO
 0 '' '' '' ''
 10 1 100 P
 G none

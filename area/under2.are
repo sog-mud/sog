@@ -2100,7 +2100,7 @@ blood eye~
 Blood shot eye~
 A blood shot eye that looks half mad~
 wood~
-wand A AO
+wand AG AO
 22 2 2 'flamestrike' 0
 15 3 0 P
 G none
@@ -2118,7 +2118,7 @@ eye justice~
 A huge eye of justice~
 The ripped out eye of the enforcer beholder~
 wood~
-staff A AO
+staff AG AO
 20 2 2 'lightning bolt' 0
 20 3 10000 P
 G none
@@ -2127,7 +2127,7 @@ eye stalk beholder~
 Beholder's eyestalk~
 An eyestalk of a beholder~
 wood~
-staff A AO
+staff AG AO
 20 2 2 'energy drain' 0
 15 3 1500 P
 G none
@@ -2166,7 +2166,7 @@ grey helm~
 Dark grey helm~
 A helm of duergar make lies abandoned off to the side~
 steel~
-armor G AE
+armor 0 AE
 5 5 5 0 0
 20 3 10 P
 A
@@ -2179,7 +2179,7 @@ sleeves knowledge~
 Sleeves of knowledge~
 Sleeves that bear many arcane signs rest here~
 steel~
-armor FG AI
+armor F AI
 14 14 13 10 0
 43 3 110 P
 A
@@ -2201,7 +2201,7 @@ breast plate~
 Breast plate of strength~
 A breast plate emits an aura of power~
 unknown~
-armor AG AD
+armor A AD
 25 25 25 20 0
 43 4 100 P
 A
@@ -2345,7 +2345,7 @@ wand~
 A black wand inlaid with gold symbols~
 A small black wand waits to be tested~
 wood~
-wand B AO
+wand BG AO
 30 10 10 'faerie fog' 0
 20 2 1000 P
 G none
@@ -2354,7 +2354,7 @@ girth~
 Girth of protection~
 A girth lies here glowing softly with power~
 mithril~
-armor AGM AL
+armor AM AL
 15 14 15 6 0
 45 2 100 P
 A
@@ -2421,7 +2421,7 @@ stone~
 A small black stone~
 A very small black stone almost escapes your notice~
 stone~
-armor CFGLM AO
+armor CFLM AO
 0 0 0 0 0
 39 1 0 P
 A
@@ -2548,7 +2548,7 @@ boots of flying~
 Boots of flying~
 A pair of boots hover just above the ground~
 unknown~
-armor FGM AG
+armor FM AG
 18 18 18 9 0
 31 2 1000 P
 A
@@ -2561,7 +2561,7 @@ bracer strength~
 Bracer of strength~
 A very powerful looking bracer hums on the ground~
 platinum~
-armor BG AL
+armor B AL
 21 20 21 12 0
 30 3 0 P
 A
@@ -2695,7 +2695,7 @@ drow sword~
 A drow sword~
 A dark sword lies on the ground~
 steel~
-weapon G AN
+weapon 0 AN
 sword 3 4 slice 0
 10 5 1200 P
 A
@@ -2708,7 +2708,7 @@ drow dagger~
 A drow dagger~
 A dark dagger lies on the ground~
 steel~
-weapon G AN
+weapon 0 AN
 dagger 3 3 pierce 0
 11 3 1200 P
 A
@@ -2721,7 +2721,7 @@ drow mace~
 A drow mace~
 A dark mace lies on the ground~
 wood~
-weapon G AN
+weapon 0 AN
 mace 3 3 pound 0
 11 4 1200 P
 A
@@ -2734,7 +2734,7 @@ duergar breastplate~
 Duergar breastplate~
 A breastplate of duergar make lies ready~
 brass~
-armor G AD
+armor 0 AD
 5 5 5 0 0
 12 4 1180 P
 A
@@ -2745,7 +2745,7 @@ duergar helm~
 A duergar helm~
 A helm of duergar make lies ready~
 brass~
-armor G AE
+armor 0 AE
 3 3 3 0 0
 6 2 420 P
 A
@@ -2756,7 +2756,7 @@ duergar shield~
 A duergar shield~
 A shield of duergar designs lies ready~
 brass~
-armor G AJ
+armor 0 AJ
 3 3 3 0 0
 6 3 420 P
 A
@@ -2767,7 +2767,7 @@ duergar leggings~
 Duergar leggings~
 A pair of leggings lie ready~
 brass~
-armor G AF
+armor 0 AF
 5 5 5 0 0
 12 4 1800 P
 A
@@ -2778,7 +2778,7 @@ duergar bracer~
 A duergar bracer~
 A bracer of duergar design lies ready~
 silver~
-armor G AM
+armor 0 AM
 6 6 6 0 0
 11 3 1800 P
 A
@@ -2807,7 +2807,7 @@ moss red мох красный~
 @eng Red moss@rus красный мох~
 @eng Some red moss lies on the ground@rus Немного красного мха (moss) лежит на земле.~
 food~
-pill I A
+pill GI A
 12 'cure light' 'cure light' 'giant strength' ''
 5 2 100 P
 G male
@@ -2816,7 +2816,7 @@ root dirty грязный корень~
 @eng a dirty root@rus грязный корень~
 @eng A dirty root lies on the ground.@rus Грязный корень (root) лежит на земле.~
 food~
-pill I A
+pill GI A
 15 'armor' 'shield' 'stone skin' ''
 10 1 1000 P
 G male
@@ -2825,7 +2825,7 @@ scroll reveal~
 Scroll of reveal~
 A scroll lies on the ground~
 vellum~
-scroll 0 A
+scroll G A
 15 'faerie fog' '' '' ''
 5 1 50 P
 G none
@@ -2834,7 +2834,7 @@ hand shocking grasp~
 Hand of shocking grasp~
 A hand lies on the ground~
 wood~
-wand A AO
+wand AG AO
 55 4 4 'identify' 0
 20 2 100 P
 G none
@@ -2843,7 +2843,7 @@ potion detection зелье обнаружения~
 @eng Potion of detection@rus зелье обнаружения~
 @eng A potion of detection waits to be used@rus Зелье обнаружения (potion) здесь.~
 glass~
-potion 0 A
+potion G A
 15 'detect invis' 'detect magic' 'detect evil' ''
 10 2 100 P
 G none
@@ -2852,7 +2852,7 @@ svirfneblin leggings~
 Svirfneblin leggings~
 A pair of svirfneblin leggings lies on the ground waiting to be taken~
 steel~
-armor G AF
+armor 0 AF
 6 6 6 0 0
 17 3 110 P
 A
@@ -2865,7 +2865,7 @@ necklace nobility~
 Necklace of nobility~
 A beautiful necklace waits to be worn~
 cloth~
-armor G AC
+armor 0 AC
 5 5 5 0 32768
 16 3 100 P
 A
@@ -2914,7 +2914,7 @@ thieve's gloves~
 Thieve's gloves~
 A pair of thin leather gloves rests on the ground~
 leather~
-armor G AH
+armor 0 AH
 5 5 5 0 0
 18 2 1100 P
 A
@@ -2927,7 +2927,7 @@ gold chain~
 A gold chain~
 A gold chain glints in the light~
 gold~
-armor G AC
+armor 0 AC
 5 5 6 0 0
 19 2 11 P
 A
@@ -2948,7 +2948,7 @@ lucky dice~
 Lucky dice~
 A pair of dice glow softly~
 bone~
-treasure AG AO
+treasure A AO
 0 0 0 0 0
 20 2 1110 P
 A
@@ -2971,7 +2971,7 @@ dark cloak~
 A dark cloak~
 A very dark cloak lies in the shadows~
 cloth~
-armor CG AC
+armor C AC
 7 6 6 0 0
 23 3 1000 P
 A
@@ -2986,7 +2986,7 @@ golden earring~
 Golden earring~
 A small golden earring glints softly in the light~
 gold~
-armor G AQ
+armor 0 AQ
 8 8 8 5 0
 25 1 1000 P
 A
@@ -3001,7 +3001,7 @@ jewelled dagger~
 A jewelled dagger~
 A jewelled dagger looks as if it could cut through anything~
 steel~
-weapon BG AN
+weapon B AN
 dagger 4 11 pierce D
 47 3 30000 P
 A
@@ -3018,7 +3018,7 @@ hand~
 A hand grasping an orb~
 A hand grasping an orb lies on the ground~
 unknown~
-light AG AO
+light A AO
 0 0 -1 0 0
 15 3 0 P
 A
@@ -3031,7 +3031,7 @@ robe~
 A long flowing robe~
 A beautiful robe lies pooled on the ground~
 leather~
-armor G AK
+armor 0 AK
 13 13 13 6 0
 40 4 5000 P
 A
@@ -3044,7 +3044,7 @@ blade of poison~
 A blade of poison~
 A dark blade rests here humming quietly~
 iron~
-weapon BCG AN
+weapon BC AN
 dagger 4 5 pierce H
 20 3 100 P
 A
@@ -3057,7 +3057,7 @@ assassin's sleeves~
 Assassin's sleeves~
 A pair of black sleeves rests here~
 cloth~
-armor CG AI
+armor C AI
 6 6 7 0 0
 22 3 100 P
 A
@@ -3070,7 +3070,7 @@ skull tattoo~
 Skull tattoo~
 A weird glimmer lies on the ground, shaped like a skull~
 bone~
-armor G AM
+armor 0 AM
 0 0 0 0 0
 23 1 0 P
 A
@@ -3096,7 +3096,7 @@ assassin's mask~
 An assassin's mask~
 A mask keep changing on the ground~
 cloth~
-armor CG AE
+armor C AE
 9 9 7 5 0
 27 3 100 P
 A
@@ -3111,7 +3111,7 @@ flaming dagger tattoo~
 Flaming dagger tattoo~
 A weird glimmer lies on the ground, shaped like a dagger~
 unknown~
-armor G AM
+armor 0 AM
 9 9 8 4 0
 29 1 10 P
 A
@@ -3122,7 +3122,7 @@ wyvern tattoo~
 Wyvern tattoo~
 A weird glimmer lies on the ground, shaped like a wyvern~
 unknown~
-armor G AM
+armor 0 AM
 7 7 7 0 0
 31 1 100 P
 A
@@ -3135,7 +3135,7 @@ dragon tattoo~
 Dragon tattoo~
 A weird glimmer lies on the ground, shaped like a dragon~
 unknown~
-armor G AM
+armor 0 AM
 19 19 19 7 0
 46 1 100 P
 A
@@ -3148,7 +3148,7 @@ diamond helm~
 A diamond helm~
 A helm sparkles and glints in the light~
 diamond~
-armor G AE
+armor 0 AE
 15 16 15 8 0
 47 2 1000 P
 A
@@ -3161,7 +3161,7 @@ keeper's shield~
 The keeper's shield~
 A large shield that looks as if it were made of stone lies here~
 stone~
-armor G AJ
+armor 0 AJ
 16 15 16 8 0
 49 10 1000 P
 A
@@ -3180,7 +3180,7 @@ clan ring~
 A demon clan signet ring~
 A red and black ring glows and hums softly on the ground~
 gold~
-treasure ABEG AB
+treasure ABE AB
 0 0 0 0 0
 17 1 100 P
 A
@@ -3195,7 +3195,7 @@ demon bracer~
 Demon bracer~
 A black and red bracer lies on the ground~
 steel~
-armor ABEG AM
+armor ABE AM
 7 7 5 0 0
 21 3 500 P
 A
@@ -3206,7 +3206,7 @@ demon blade~
 A demon blade~
 A black blade hums on the ground~
 steel~
-weapon BEGJ AN
+weapon BEJ AN
 dagger 5 6 slash 0
 23 6 1000 P
 A
@@ -3230,7 +3230,7 @@ demon plate~
 Demon Plate~
 A black suite of plate mail rests on the ground~
 steel~
-armor BEGJ AD
+armor BEJ AD
 10 10 10 4 0
 30 9 1000 P
 A
@@ -3243,7 +3243,7 @@ demon fire~
 Demon fire~
 A weird flame burns here~
 fire~
-armor BEG AJ
+armor BE AJ
 22 20 20 12 0
 37 5 1000 P
 A

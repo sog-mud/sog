@@ -1469,7 +1469,7 @@ striped bodysuit~
 a Prisoner's Strip-Suit~
 A striped suit is here.~
 leather~
-armor ABG AK
+armor AB AK
 8 8 8 1 3
 25 200 7200 G
 A
@@ -1596,7 +1596,7 @@ patch townguard crest~
 a townguard crest~
 A crest is here in the dirt.~
 leather~
-armor AG AC
+armor A AC
 12 12 12 0 4
 43 250 10900 G
 A
@@ -1618,7 +1618,7 @@ potion invisibility~
 a Magical Potion of Invisibility.~
 A potion lies here in the dirt.~
 glass~
-potion AB AO
+potion ABG AO
 50 'invisibility' 'pass door' '' ''
 20 2 1660 P
 G none
@@ -1627,7 +1627,7 @@ potion teleportation~
 a Magical Potion of Teleportation.~
 A potion lies here in the dirt.~
 glass~
-potion AB AO
+potion ABG AO
 50 'teleport' 'teleport' 'teleport' 'teleport'
 20 50 13000 P
 G none
@@ -1636,7 +1636,7 @@ potion holy touch~
 a Magical Potion of The Holy Touch.~
 A potion lies here in the dirt.~
 glass~
-potion AB A
+potion ABG A
 20 'bless' 'protection evil' 'armor' 'shield'
 20 100 25000 P
 G none
@@ -1645,7 +1645,7 @@ potion deadly combat~
 a Magical Potion of Deadly Combat.~
 A potion lies here in the dirt.~
 glass~
-potion AB A
+potion ABG A
 20 'frenzy' 'stone skin' 'giant strength' 'armor'
 20 100 19000 P
 G none
@@ -1654,7 +1654,7 @@ potion cure battle wounds~
 a Magical Potion to Cure Battle Wounds~
 A potion lies here in the dirt.~
 glass~
-potion AB A
+potion ABG A
 40 'cure serious' 'cure light' 'cure light' ''
 20 50 10500 P
 G none
@@ -1663,7 +1663,7 @@ breast plate titan~
 the silver breast plate of the Titans~
 A breast plate lies here on the ground.~
 silver~
-armor G AD
+armor 0 AD
 9 9 9 1 4
 25 350 12840 G
 A
@@ -1676,7 +1676,7 @@ bracer titan silver~
 the silver bracer of the Titans~
 A silver bracer lies here on the ground.~
 silver~
-armor G AI
+armor 0 AI
 9 9 9 1 1
 25 100 10994 G
 A
@@ -1689,7 +1689,7 @@ legging silver titan~
 the silver leggings of the Titans~
 A pair of legging are here.~
 silver~
-armor G AF
+armor 0 AF
 9 9 9 1 3
 25 200 9954 G
 A
@@ -1700,7 +1700,7 @@ silver boots boot titan~
 the silver boots of the Titans~
 A pair of boots are here.~
 silver~
-armor G AG
+armor 0 AG
 9 9 9 1 2
 25 200 8906 G
 A
@@ -1839,7 +1839,7 @@ book titan lore~
 a Leather Bound Book on Titan Lore~
 A large leather book is here.~
 leather~
-wand A AO
+wand AG AO
 50 20 20 'sleep' 0
 25 80 10620 P
 G none
@@ -1897,7 +1897,7 @@ cook hat~
 the Cook's Hat~
 A cooks hat is here on the ground.~
 leather~
-armor ABG AE
+armor AB AE
 9 9 9 1 0
 29 160 8400 G
 A
@@ -1910,7 +1910,7 @@ cook pot~
 the Cook's Pot~
 A cooking pot is here on the ground.~
 leather~
-armor ABG AE
+armor AB AE
 9 9 9 1 0
 28 200 8100 G
 A
@@ -1936,7 +1936,7 @@ pouch beggar money~
 a little beggar's money pouch~
 A little pouch lies here~
 leather~
-container AG A
+container A A
 200 A 0 100 50
 24 20 1500 P
 G none
@@ -1945,7 +1945,7 @@ staff knight templar~
 the Staff of The Knight Templar~
 A staff is here, leaning up against a wall.~
 iron~
-armor ABG AO
+armor AB AO
 10 10 10 50 0
 40 10 33350 G
 A
@@ -1960,7 +1960,7 @@ leather boot boots titan~
 a Titan Citizen's Leather Boots.~
 A pair of boots lie here.~
 stone~
-armor ABG AG
+armor AB AG
 8 8 8 1 2
 25 250 4700 G
 A
@@ -1991,7 +1991,7 @@ long dagger golden~
 a Long Golden Dagger~
 A Jail Guard's Long Golden Dagger is here.~
 gold~
-weapon ABG AN
+weapon AB AN
 dagger 5 6 cleave D
 25 120 4500 P
 A
@@ -2020,7 +2020,7 @@ backpack~
 a Designer Backpack~
 A backpack is here on the ground.~
 leather~
-container AGH A
+container AH A
 1000 A 0 1000 25
 20 25 15000 P
 G none
@@ -2029,7 +2029,7 @@ wand titans titan magic~
 a Wand of Titan Magic~
 A long wand is here on the ground.~
 wood~
-wand A AO
+wand AG AO
 50 19 19 'calm' 0
 25 200 17080 P
 G none
@@ -2038,7 +2038,7 @@ wand elven magic~
 a Wand of Elven Magic~
 A long wand is here on the ground.~
 wood~
-wand A AO
+wand AG AO
 50 60 60 'know alignment' 0
 25 200 11980 P
 G none
@@ -2047,7 +2047,7 @@ wand druid magic~
 a Wand of Druid Magic~
 A long wand is here on the ground.~
 wood~
-wand A AO
+wand AG AO
 25 10 10 'acid blast' 0
 25 200 49706 P
 G none
@@ -2056,7 +2056,7 @@ wand pixie magic~
 a Wand of Pixie Magic~
 A long wand is here on the ground.~
 wood~
-wand A AO
+wand AG AO
 50 15 15 'faerie fire' 0
 25 200 12204 P
 G none
@@ -2065,7 +2065,7 @@ wand avian magic~
 a Wand of Avian Magic~
 A long wand is here on the ground.~
 wood~
-wand A AO
+wand AG AO
 30 5 5 'fireball' 0
 25 20 14356 P
 G none
@@ -2074,7 +2074,7 @@ wand drow magic~
 a Wand of Drow Magic~
 A long wand is here on the ground, glowing dark black.~
 wood~
-wand A AO
+wand AG AO
 50 16 16 'curse' 0
 25 20 13490 P
 G none
@@ -2155,7 +2155,7 @@ navy blue skirt~
 a long navy blue skirt~
 A long skirt is here on the ground.~
 leather~
-armor AG AF
+armor A AF
 8 9 8 1 3
 25 300 5050 G
 A
@@ -2168,7 +2168,7 @@ silver white cloak~
 a beautiful silver and white cloak~
 A cloak is here on the ground.~
 leather~
-armor AG AK
+armor A AK
 8 8 8 0 0
 25 170 9604 G
 A
@@ -2181,7 +2181,7 @@ emerald studded bracer~
 an emerald-studded bracer~
 A bracer is here on the ground.~
 leather~
-armor AG AK
+armor A AK
 9 9 9 1 0
 25 10 7600 G
 A
@@ -2201,7 +2201,7 @@ standard weapon~
 a Standard Demon Weapon~
 A dark demonic weapon is here on the ground.~
 stone~
-weapon ABCG AN
+weapon ABC AN
 exotic 5 9 wrath CF
 35 200 14300 P
 A
@@ -2231,7 +2231,7 @@ potion cure sickness~
 a Magical Potion of Cure Sickness.~
 A potion lies here in the dirt.~
 glass~
-potion AB A
+potion ABG A
 50 'remove curse' 'cure blindness' 'cure poison' 'cure disease'
 20 50 50333 P
 G none

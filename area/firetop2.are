@@ -751,7 +751,7 @@ a small black bottle with a tight glass stopper~
 A small black bottle with a tight glass stopper containing black liquid is 
 here.~
 glass~
-potion 0 AO
+potion G AO
 8 'invisibility' '' '' ''
 10 10 200 P
 E
@@ -902,7 +902,7 @@ gem jewel~
 an expensive-looking jewel~
 This Jewel looks VERY valuable...~
 gold~
-staff A AO
+staff AG AO
 10 5 5 'blindness' 0
 10 10 5000 P
 A
@@ -1056,7 +1056,7 @@ sword magnificient~
 a magnificent-looking sword~
 A magnificent-looking sword is here. Pick it up!~
 iron~
-weapon AG AN
+weapon A AN
 sword 5 5 slash 0
 15 125 700 P
 A
@@ -1092,7 +1092,7 @@ chisel~
 a chisel with a silver blade~
 A chisel with a silver blade is here.~
 iron~
-weapon AG AN
+weapon A AN
 dagger 4 4 pierce 0
 12 40 600 P
 A
@@ -1312,7 +1312,7 @@ liquid~
 a vial of liquid~
 A vial of liquid glows strangely here...~
 glass~
-potion A AO
+potion AG AO
 10 'bless' 'cure serious' 'cure poison' 'refresh'
 10 10 100 P
 A
@@ -1455,7 +1455,7 @@ robes~
 the Warlock's robes~
 The Warlock's robes have been torn from his body.~
 wool~
-armor GJ AK
+armor J AK
 7 7 7 0 0
 21 90 3500 G
 A
@@ -1476,7 +1476,7 @@ sword~
 the Warlock's sword~
 The Warlock's sword has been dropped here.~
 iron~
-weapon GJ AN
+weapon J AN
 sword 5 6 slice C
 21 120 5300 P
 A
@@ -1707,7 +1707,7 @@ desk~
 a massive desk~
 This massive desk looks far too heavy to even budge.~
 wood~
-furniture AG 0
+furniture A 0
 0 0 0 0 0
 0 0 0 P
 E
@@ -1721,7 +1721,7 @@ chair~
 a comfortable-looking chair~
 This chair looks very comfortable.~
 nothingness~
-furniture AG AO
+furniture A AO
 0 0 0 0 0
 0 50 50 P
 A

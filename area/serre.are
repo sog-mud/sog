@@ -2056,7 +2056,7 @@ potion animal control~
 Potion of Animal Control~
 A potion is lying here.~
 unknown~
-potion 0 0
+potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none
@@ -2065,7 +2065,7 @@ potion clairaudience~
 Potion of Clairaudience~
 A potion is lying here.~
 unknown~
-potion 0 0
+potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none
@@ -2074,7 +2074,7 @@ potion clairvoyance~
 Potion of Clairvoyance~
 A potion is lying here.~
 unknown~
-potion 0 0
+potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none
@@ -2083,7 +2083,7 @@ potion climbing~
 Potion of Climbing~
 A potion is lying here.~
 unknown~
-potion 0 0
+potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none
@@ -2092,7 +2092,7 @@ potion delusion~
 Potion of Delusion~
 A potion is lying here.~
 unknown~
-potion 0 0
+potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none
@@ -2101,7 +2101,7 @@ potion deminution~
 Potion of Deminution~
 A potion is lying here.~
 unknown~
-potion 0 0
+potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none
@@ -2110,7 +2110,7 @@ potion dragon control~
 Potion of Dragon Control~
 A potion is lying here.~
 unknown~
-potion 0 0
+potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none
@@ -2119,7 +2119,7 @@ elixir health~
 Elixir of Health~
 A potion is lying here.~
 unknown~
-potion 0 0
+potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none
@@ -2128,7 +2128,7 @@ elixir madness~
 Elixir of Madness~
 A potion is lying here.~
 unknown~
-potion 0 0
+potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none
@@ -2137,7 +2137,7 @@ elixir youth~
 Elixir of Youth~
 A potion is lying here.~
 unknown~
-potion 0 0
+potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none
@@ -2146,7 +2146,7 @@ potion extra-healing~
 Potion of Extra-healing~
 A potion is lying here.~
 unknown~
-potion 0 0
+potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none
@@ -2155,7 +2155,7 @@ potion fire breath~
 Potion of Fire Breath~
 A potion is lying here.~
 unknown~
-potion 0 0
+potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none
@@ -2164,7 +2164,7 @@ potion fire resistance~
 Potion of Fire Resistance~
 A potion is lying here.~
 unknown~
-potion 0 0
+potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none
@@ -2173,7 +2173,7 @@ potion flying~
 Potion of Flying~
 A potion is lying here.~
 unknown~
-potion 0 0
+potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none
@@ -2182,7 +2182,7 @@ potion gaseous form~
 Potion of Gaseous Form~
 A potion is lying here.~
 unknown~
-potion 0 0
+potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none
@@ -2191,7 +2191,7 @@ potion giant control~
 Potion of Giant Control~
 A potion is lying here.~
 unknown~
-potion 0 0
+potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none
@@ -2200,7 +2200,7 @@ potion giant strength~
 Potion of Giant Strength~
 A potion is lying here.~
 unknown~
-potion 0 0
+potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none
@@ -2209,7 +2209,7 @@ potion growth~
 Potion of Growth~
 A potion is lying here.~
 unknown~
-potion 0 0
+potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none
@@ -2218,7 +2218,7 @@ potion healing~
 Potion of Healing~
 A potion is lying here.~
 unknown~
-potion 0 0
+potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none
@@ -2227,7 +2227,7 @@ potion heroism~
 Potion of Heroism~
 A potion is lying here.~
 unknown~
-potion 0 0
+potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none
@@ -2236,7 +2236,7 @@ potion human control~
 Potion of Human Control~
 A potion is lying here.~
 unknown~
-potion 0 0
+potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none
@@ -2245,7 +2245,7 @@ potion invisibility~
 Potion of Invisibility~
 A potion is lying here.~
 unknown~
-potion 0 0
+potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none
@@ -2254,7 +2254,7 @@ potion invulnerability~
 Potion of Invulnerability~
 A potion is lying here.~
 unknown~
-potion 0 0
+potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none
@@ -2263,7 +2263,7 @@ potion levitation~
 Potion of Levitation~
 A potion is lying here.~
 unknown~
-potion 0 0
+potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none
@@ -2272,7 +2272,7 @@ potion longevity~
 Potion of Longevity~
 A potion is lying here.~
 unknown~
-potion 0 0
+potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none
@@ -2281,7 +2281,7 @@ oil acid resistance~
 Oil of Acid Resistance~
 A potion is lying here.~
 unknown~
-potion 0 0
+potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none
@@ -2290,7 +2290,7 @@ oil disenchantment~
 Oil of Disenchantment~
 A potion is lying here.~
 unknown~
-potion 0 0
+potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none
@@ -2299,7 +2299,7 @@ oil elemental invulnerability~
 Oil of Elemental Invulnerability~
 A potion is lying here.~
 unknown~
-potion 0 0
+potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none
@@ -2308,7 +2308,7 @@ oil etherealness~
 Oil of Etherealness~
 A potion is lying here.~
 unknown~
-potion 0 0
+potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none
@@ -2317,7 +2317,7 @@ oil fiery burning~
 Oil of Fiery Burning~
 A potion is lying here.~
 unknown~
-potion 0 0
+potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none
@@ -2326,7 +2326,7 @@ oil fumbling~
 Oil of Fumbling~
 A potion is lying here.~
 unknown~
-potion 0 0
+potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none
@@ -2335,7 +2335,7 @@ oil impact~
 Oil of Impact~
 A potion is lying here.~
 unknown~
-potion 0 0
+potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none
@@ -2344,7 +2344,7 @@ oil slipperiness~
 Oil of Slipperiness~
 A potion is lying here.~
 unknown~
-potion 0 0
+potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none
@@ -2353,7 +2353,7 @@ oil timelessness~
 Oil of Timelessness~
 A potion is lying here.~
 unknown~
-potion 0 0
+potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none
@@ -2362,7 +2362,7 @@ philter glibness~
 Philter of Glibness~
 A potion is lying here.~
 unknown~
-potion 0 0
+potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none
@@ -2371,7 +2371,7 @@ philter love~
 Philter of Love~
 A potion is lying here.~
 unknown~
-potion 0 0
+potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none
@@ -2380,7 +2380,7 @@ philter persuasiveness~
 Philter of Persuasiveness~
 A potion is lying here.~
 unknown~
-potion 0 0
+potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none
@@ -2389,7 +2389,7 @@ philter stammering and stuttering~
 Philter of Stammering and Stuttering~
 A potion is lying here.~
 unknown~
-potion 0 0
+potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none
@@ -2398,7 +2398,7 @@ potion plant control~
 Potion of Plant Control~
 A potion is lying here.~
 unknown~
-potion 0 0
+potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none
@@ -2407,7 +2407,7 @@ potion poison~
 Potion of Poison~
 A potion is lying here.~
 unknown~
-potion 0 0
+potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none
@@ -2416,7 +2416,7 @@ potion polymorph self~
 Potion of Polymorph Self~
 A potion is lying here.~
 unknown~
-potion 0 0
+potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none
@@ -2425,7 +2425,7 @@ potion rainbow hues~
 Potion of Rainbow Hues~
 A potion is lying here.~
 unknown~
-potion 0 0
+potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none
@@ -2434,7 +2434,7 @@ potion speed~
 Potion of Speed~
 A potion is lying here.~
 unknown~
-potion 0 0
+potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none
@@ -2443,7 +2443,7 @@ potion super-heroism~
 Potion of Super-heroism~
 A potion is lying here.~
 unknown~
-potion 0 0
+potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none
@@ -2452,7 +2452,7 @@ potion sweet water~
 Potion of Sweet Water~
 A potion is lying here.~
 unknown~
-potion 0 0
+potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none
@@ -2461,7 +2461,7 @@ potion treasure finding~
 Potion of Treasure Finding~
 A potion is lying here.~
 unknown~
-potion 0 0
+potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none
@@ -2470,7 +2470,7 @@ potion undead control~
 Potion of Undead Control~
 A potion is lying here.~
 unknown~
-potion 0 0
+potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none
@@ -2479,7 +2479,7 @@ potion ventriloquism~
 Potion of Ventriloquism~
 A potion is lying here.~
 unknown~
-potion 0 0
+potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none
@@ -2488,7 +2488,7 @@ potion vitality~
 Potion of Vitality~
 A potion is lying here.~
 unknown~
-potion 0 0
+potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none
@@ -2497,7 +2497,7 @@ potion water breathing~
 Potion of Water Breathing~
 A potion is lying here.~
 unknown~
-potion 0 0
+potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none

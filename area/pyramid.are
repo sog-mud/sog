@@ -349,7 +349,7 @@ obsidian dirk~
 an obsidian dirk~
 A flat dirk made of chipped obsidian lies here.~
 obsidian~
-weapon G AN
+weapon 0 AN
 dagger 3 7 pierce 0
 15 10 910 P
 A
@@ -364,7 +364,7 @@ cloth turban~
 a dirty cloth turban~
 A dirty cloth turban has been forgotten here.~
 cloth~
-armor G AE
+armor 0 AE
 5 5 5 0 0
 13 100 1470 P
 A
@@ -395,7 +395,7 @@ bottle fluid~
 a bottle of embalming fluid~
 A dusty bottle lies here on the ground.~
 glass~
-potion 0 A
+potion G A
 5 'poison' '' '' ''
 3 50 270 P
 E
@@ -408,7 +408,7 @@ jar formaldehyde~
 a jar of formaldehyde~
 A small jar lies here on the ground.~
 glass~
-potion 0 A
+potion G A
 10 'cure light' '' '' ''
 0 60 200 P
 E
@@ -421,7 +421,7 @@ ball fire~
 a small hot ball of fire~
 A little ball of fire hovers in the air before your eyes.~
 fire~
-light AG AO
+light A AO
 0 0 -1 0 0
 20 100 720 P
 A
@@ -438,7 +438,7 @@ stone scimitar~
 a stone scimitar~
 A curved scimitar made of stone rests on the ground.~
 stone~
-weapon BG AN
+weapon B AN
 sword 5 5 slash 0
 20 180 1820 P
 A
@@ -554,7 +554,7 @@ book riddles~
 a book of riddles~
 A medium-sized parchment book with well-worn pages lies here.~
 vellum~
-scroll 0 A
+scroll G A
 21 'identify' 'know alignment' 'faerie fog' ''
 10 150 1540 P
 E
@@ -569,7 +569,7 @@ lion paw~
 a lion's paw~
 The mighty paw of a lion-like creature has been dropped here.~
 bone~
-weapon G AN
+weapon 0 AN
 exotic 4 15 claw 0
 26 200 4400 P
 A
@@ -631,7 +631,7 @@ curse mummy~
 the curse of the mummy~
 Some fortunate soul has escaped the mummy's curse, for now.~
 unknown~
-trash EGHM AO
+trash EHM AO
 0 0 0 0 0
 0 10 0 P
 A
@@ -671,7 +671,7 @@ golden mask~
 a golden mask~
 A beautiful, intricately detailed mask has been forgotten here.~
 gold~
-armor G AE
+armor 0 AE
 11 11 10 5 0
 33 100 5500 P
 A
@@ -728,7 +728,7 @@ sandy ring~
 a sandy-colored ring~
 A small sandy-colored ring has been carelessly dropped here.~
 ruby~
-jewelry BG AB
+jewelry B AB
 0 0 0 0 0
 20 50 1300 P
 A
@@ -746,7 +746,7 @@ golden sphinx~
 a small golden sphinx~
 A small golden sphinx glints in the light.~
 gold~
-treasure G AO
+treasure 0 AO
 0 0 0 0 0
 5 50 550 P
 A
@@ -763,7 +763,7 @@ spinhxian leggings~
 a pair of sphinxian leggings~
 Massive leggings formed from the body of a sphinx stand here.~
 mithril~
-armor GK AF
+armor K AF
 11 11 11 4 0
 32 200 7800 P
 A

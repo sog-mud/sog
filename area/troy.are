@@ -733,7 +733,7 @@ spear~
 a long throwing spear~
 A long throwing spear has been thrust into the dirt here.~
 ~
-warp_stone 0 AO
+warp_stone G AO
 0 0 0 0 0
 25 10 250 P
 A
@@ -812,7 +812,7 @@ achilles breastplate~
 achilles' breastplate~
 Achilles' breastplate lies here.~
 ~
-armor AG AD
+armor A AD
 12 12 12 0 0
 45 5 450 P
 A
@@ -825,7 +825,7 @@ achilles greaves~
 achilles' greaves~
 Achilles' greaves lie here.~
 ~
-armor AG AF
+armor A AF
 12 12 12 0 0
 45 5 450 P
 A
@@ -838,7 +838,7 @@ achilles helm~
 achilles' helm~
 Achilles' helm lies here.~
 ~
-armor AG AE
+armor A AE
 12 12 12 0 0
 45 5 450 P
 A
@@ -897,7 +897,7 @@ achilles' shield~
 achilles' shield~
 Achilles' shield lies here.~
 ~
-armor AG AJ
+armor A AJ
 12 12 12 0 0
 45 5 450 P
 A

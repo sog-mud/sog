@@ -281,7 +281,7 @@ candle lighted~
 a lighted candle~
 A lighted candle stands here, providing little light and warm.~
 wax~
-light G A
+light 0 A
 0 0 500 0 0
 10 100 10 P
 F I 0 0 M
@@ -327,7 +327,7 @@ flame mercy~
 the Flame of Mercy~
 Sparks of beautiful multi-colored light envelops you.~
 fire~
-light ABGIJK A
+light ABIJK A
 0 0 -1 0 0
 30 1 8670 P
 A
@@ -350,7 +350,7 @@ manual book Jiuyangzhenjing jiuyangzhenjing~
 a Jiuyangzhenjing manual~
 An old chinese manual is discarded here.~
 paper~
-scroll 0 A
+scroll G A
 20 'flamestrike' 'fireball' 'burning hands' 'fire breath'
 15 1 6799 P
 E
@@ -364,7 +364,7 @@ manual book jiuyingzhenjing Jiuyingzhenjing~
 a Jiuyingzhenjing manual~
 An old chinese manual is discarded here.~
 paper~
-scroll 0 A
+scroll G A
 20 'draining touch' 'chill touch' 'energy drain' 'weaken'
 15 1 8763 P
 E
@@ -378,7 +378,7 @@ manual book Yijinjing yijinjing~
 a Yijinjing manual~
 A book of some sort is left on the floor.~
 paper~
-scroll 0 A
+scroll G A
 45 'cure critical' 'giant strength' 'heal' 'refresh'
 10 1 7653 P
 E
@@ -424,7 +424,7 @@ chain whip~
 a chain whip~
 A whip made of chains is left on the floor.~
 hard leather~
-weapon BG AN
+weapon B AN
 whip 6 6 whip 0
 24 500 4158 P
 A
@@ -450,7 +450,7 @@ horse spear~
 a horse spear~
 A long slim spear leans against the wall.~
 wood~
-weapon G AN
+weapon 0 AN
 spear 5 4 crush K
 15 250 2304 P
 A
@@ -485,7 +485,7 @@ garters~
 monk's garters~
 A material of some sort is left here.~
 cloth~
-armor BG AF
+armor B AF
 7 7 7 2 4
 26 125 4389 P
 A
@@ -498,7 +498,7 @@ robe~
 a monk's robe~
 A rough and cheap looking piece of cloth is discarded here.~
 cloth~
-armor G AK
+armor 0 AK
 7 7 8 1 0
 27 200 4010 P
 A
@@ -511,7 +511,7 @@ cane armor~
 a cane armor~
 A suit of cane armor stands here.~
 steel~
-armor G AD
+armor 0 AD
 7 7 7 1 3
 19 300 3420 P
 A
@@ -522,7 +522,7 @@ Jiasha jiasha robe~
 Abbot's Jiasha~
 A pile of golden and red cloth lies here.~
 cloth~
-armor AG AK
+armor A AK
 9 9 9 1 3
 27 250 8649 P
 A
@@ -541,7 +541,7 @@ fozhu necklace~
 Abbot's fozhu~
 A necklace made of big black beads is dumped here.~
 stone~
-armor BG AC
+armor B AC
 9 9 9 2 2
 29 100 10230 P
 A
@@ -560,7 +560,7 @@ staff Abbot~
 the Staff of Abbot~
 A staff made entirely of solid gold stands here.~
 gold~
-armor BG AO
+armor B AO
 9 9 9 208 3
 30 0 9000 P
 A
@@ -590,7 +590,7 @@ cane shield~
 a cane shield~
 A disc made of cane lies in the mud.~
 steel~
-armor BG AJ
+armor B AJ
 7 7 7 2 4
 19 350 3400 P
 A

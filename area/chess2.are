@@ -369,7 +369,7 @@ crown black queen корона~
 @eng the Crown of the Black Queen@rus ~~корона~~ черной владычицы~
 @eng The Crown of the Black Queen lies here, looking neglected.@rus Никому ненужная черная корона (crown) лежит на земле.~
 gold~
-armor AGJL AE
+armor AJL AE
 9 9 9 1 1
 32 50 5000 G
 A
@@ -382,7 +382,7 @@ crown white queen корона~
 @eng the Crown of the White Queen@rus ~~корона~~ белой владычицы~
 @eng The Crown of the White Queen lies here, looking neglected.@rus Корона (crown) из светлого металла брошена тут.~
 gold~
-armor AGKL AE
+armor AKL AE
 9 9 9 1 1
 32 50 5000 G
 A

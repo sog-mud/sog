@@ -331,7 +331,7 @@ ciquala's robe~
 Ciquala's robe~
 A heavy pile of black cloth lies in the dust.~
 leather~
-armor GHJM AK
+armor HJM AK
 17 17 17 2 0
 51 50 29470 G
 A
@@ -397,7 +397,7 @@ blue potion~
 a blue potion~
 A blue bottle of liquid lies here.~
 glass~
-potion H A
+potion GH A
 38 'acid blast' 'acute vision' 'detect hidden' 'detect invis'
 20 20 3200 P
 G none
@@ -406,7 +406,7 @@ emerald vial~
 an emerald vial~
 An emerald vial lies here~
 glass~
-potion 0 A
+potion G A
 25 'heal' 'heal' 'blindness' ''
 20 20 3350 P
 G none
@@ -415,7 +415,7 @@ testube clear~
 a clear testube~
 A clear testube contains an unknown liquid.~
 glass~
-potion H A
+potion GH A
 38 'burning hands' 'colour spray' 'protection evil' 'giant strength'
 20 20 3300 P
 G none
@@ -424,7 +424,7 @@ vial green~
 a green vial~
 A green vial sits on  a shelf.~
 glass~
-potion 0 A
+potion G A
 28 'create spring' 'energy drain' 'poison' 'armor'
 20 20 2300 P
 G none
@@ -433,7 +433,7 @@ gold liquid vial~
 a vial with gold liquid~
 A vial with a gold colored liquid sits on the floor.~
 glas~
-potion 0 A
+potion G A
 30 'weaken' 'poison' 'teleport' 'curse'
 20 20 4300 P
 G none
@@ -442,7 +442,7 @@ milky liquid vial~
 a vial with milky liquid~
 A vial with milky liquid sits on the shelf.~
 glas~
-potion 0 A
+potion G A
 30 'heal' 'pass door' 'teleport' 'black shroud'
 20 20 4400 P
 G none
@@ -451,7 +451,7 @@ black potion~
 a black potion~
 A black potion is waiting to be picked up.~
 glass~
-potion 0 A
+potion G A
 30 'shield' 'infravision' 'cause critical' 'protection good'
 20 20 4900 P
 G none
@@ -460,7 +460,7 @@ beaker yellow~
 a beaker with yellow liquid~
 A beaker filled with yellow bubbling liquid sits on the counter.~
 glass~
-potion 0 A
+potion G A
 30 'harm' 'poison' 'weaken' 'sleep'
 20 20 3400 P
 G none
@@ -486,7 +486,7 @@ torturer's whip~
 the torturer's whip~
 An enormous whip lies here.~
 iron~
-weapon ABFG AN
+weapon ABF AN
 whip 5 10 chop C
 48 90 14700 P
 A
@@ -555,7 +555,7 @@ fizzing bottle~
 a fizzing bottle~
 A bottle of fizzing liquid lies here.~
 glass~
-potion 0 A
+potion G A
 28 'word of recall' 'sleep' 'poison' ''
 20 20 1000 P
 G none
@@ -564,7 +564,7 @@ grey potion~
 a grey potion~
 A grey potion sits on the counter.~
 glass~
-potion 0 A
+potion G A
 30 'energy drain' 'energy drain' 'create food' 'create spring'
 20 20 1000 P
 G none

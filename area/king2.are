@@ -480,7 +480,7 @@ universal~
 sapowox's Universal Nothingness~
 You are quite unable to perceive Sapowox's Universal Nothingness here.~
 nothingness~
-weapon BGM AN
+weapon BM AN
 exotic 6 7 peck 0
 45 70 16750 G
 A
@@ -504,7 +504,7 @@ sceptre royal golden~
 a golden sceptre~
 A golden Royal sceptre lies on the ground.~
 gold~
-furniture GK AO
+furniture K AO
 0 0 0 0 0
 50 200 27225 G
 A
@@ -515,7 +515,7 @@ crown golden~
 a golden crown~
 A magnificently jewelled golden crown has been left here.~
 gold~
-armor GK AE
+armor K AE
 16 17 16 6 0
 50 400 28244 G
 A
@@ -528,7 +528,7 @@ apple golden~
 a golden apple~
 There is a golden apple here.~
 gold~
-light GK A
+light K A
 0 0 -1 0 0
 50 50 27720 G
 G none
@@ -550,7 +550,7 @@ sword training~
 a training sword~
 A training sword with blunt edges is leaned against a wall.~
 iron~
-weapon G AN
+weapon 0 AN
 sword 5 8 scratch 0
 35 70 9000 G
 A
@@ -614,7 +614,7 @@ banner royal~
 a royal banner~
 The royal banner has been firmly planted in the ground here.~
 velvet~
-furniture AG AO
+furniture A AO
 0 0 0 0 0
 40 300 25000 G
 A
@@ -694,7 +694,7 @@ large halberd protector~
 a large halberd named "Protector"~
 There is a large halberd named "Protector" lying here.~
 steel~
-weapon G AN
+weapon 0 AN
 polearm 5 10 stab 0
 48 140 19716 G
 A
@@ -707,7 +707,7 @@ mail chain hauberk~
 a lifeguard's chain mail hauberk~
 A chain mail hauberk lies on the floor~
 steel~
-armor G AD
+armor 0 AD
 16 16 16 7 0
 48 300 26240 G
 A
@@ -718,7 +718,7 @@ mail chain hauberk~
 a chain mail hauberk~
 A chain mail hauberk lies on the floor~
 steel~
-armor G AD
+armor 0 AD
 13 13 12 3 0
 40 400 16278 G
 A

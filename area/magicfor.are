@@ -854,7 +854,7 @@ witch ring~
 Ring of the Witch~
 A green ring lies here emanating a soft green glow.~
 malachite~
-armor FG AB
+armor F AB
 11 11 11 11 0
 53 30 5200 P
 A
@@ -871,7 +871,7 @@ blue amulet~
 a blue amulet~
 A blue amulet is here.~
 lapis~
-armor FGI AC
+armor FI AC
 9 9 9 9 0
 55 30 5600 P
 A
@@ -931,7 +931,7 @@ oaken staff~
 an oaken staff~
 A finely carved stick made of oak wood was left behind.~
 wood~
-staff I AO
+staff GI AO
 60 5 5 'lightning bolt' 0
 48 50 3400 P
 A
@@ -948,7 +948,7 @@ orange boots~
 a pair of orange boots~
 A pair of orange-tinted leather boots is here.~
 soft leather~
-armor BGI AG
+armor BI AG
 11 11 11 11 0
 50 50 3700 P
 S 'kick' 50 0
@@ -966,7 +966,7 @@ golden eye sword~
 a golden eye sword~
 A sword with an open eye inscribed on its blade seems to glare at you.~
 gold~
-weapon AGY AN
+weapon AY AN
 sword 7 10 cleave B
 52 50 4340 P
 A
@@ -1172,7 +1172,7 @@ pool water~
 a pool~
 A pool of clear, sweet water gurgles up from underground.~
 stone~
-fountain GOR 0
+fountain OR 0
 100000 100000 'water' 0 0
 0 0 0 P
 G none
@@ -1181,7 +1181,7 @@ magic spring~
 a magic spring~
 A spring is here, gurgling water into a clear sparkling pool.~
 quartz~
-fountain GOR 0
+fountain OR 0
 100000 100000 'water' 0 0
 0 0 0 P
 G none
@@ -1190,7 +1190,7 @@ stream water small~
 a small stream~
 A small stream flows south.~
 clay~
-fountain GOR 0
+fountain OR 0
 100000 100000 'water' 0 0
 0 0 0 P
 G none
@@ -1325,7 +1325,7 @@ robe black warlock~
 the Robe of the Warlock~
 A black robe emanating an evil aura has been discarded here.~
 velvet~
-armor ACEGHJMY AK
+armor ACEHJMY AK
 15 15 15 15 0
 60 50 50000 P
 S 'mana transfer' 80 A

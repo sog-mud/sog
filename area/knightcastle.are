@@ -82,7 +82,7 @@ donkey ослик grey mount~
 солнца.
 ~
 horse~
-ABIWZ FHJV 1000 0
+ABIW FHJV 1000 0
 25 10 2d100+1000 1d200+1600 6d4+9 wrath
 -10 -10 -10 -5
 N AB 0 0
@@ -99,7 +99,7 @@ horse mount конь white~
 белой гривы ослепляет тебя.
 ~
 horse~
-ABIWZ FHJV 1000 0
+ABIW FHJV 1000 0
 45 20 25d10+3000 1d200+1600 7d6+25 wrath
 -20 -20 -20 -10
 N AB 0 0
@@ -116,7 +116,7 @@ unicorn единорог mount~
 угодно в этом мире! Его перевитый рог сверкает на свету.
 ~
 horse~
-ABIWZ FHJPV 1000 0
+ABIW FHJPV 1000 0
 55 30 50d10+6000 1d200+1600 6d7+25 wrath
 -30 -30 -30 -20
 JN AB CLQ 0
@@ -137,7 +137,7 @@ at you suspiciuosely and sighs saddly.
 вздыхает.
 ~
 horse~
-ABIWZ BDFHJPTUV 1000 0
+ABIW BDFHJPTUV 1000 0
 70 30 100d10+9500 1d20+1600 6d10+30 wrath
 -40 -40 -40 -30
 N AB CLQ 0
@@ -236,7 +236,7 @@ plaque~
 @eng Artegal's Codex@rus ~~наставление~~ Артегаля~
 ~
 gold~
-scroll AIKLORTYai 0
+scroll AGIKLORTYai 0
 100 'benediction' 'bless' 'restoring light' 'golden aura'
 91 13691547 -1 P
 E

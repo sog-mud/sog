@@ -325,7 +325,7 @@ sword longsword~
 an ornate Longsword~
 An ornate Longsword is lying here.~
 copper~
-weapon G AN
+weapon 0 AN
 sword 5 11 pierce 0
 50 25 500 P
 A
@@ -450,7 +450,7 @@ broadsword~
 a finely-made broadsword~
 A knight's broadsword lies here.~
 copper~
-weapon AGK AN
+weapon AK AN
 sword 5 13 slash 0
 58 10 580 P
 A
@@ -489,7 +489,7 @@ gauntlets~
 a pair of mail gauntlets~
 A pair of mail gauntlets lie here.~
 copper~
-armor GK AE
+armor K AE
 14 14 14 0 0
 58 4 580 P
 A
@@ -504,7 +504,7 @@ ring~
 a holy signet ring~
 A holy signet ring lies here.~
 copper~
-armor ABGK AB
+armor ABK AB
 14 14 14 0 0
 58 10 580 P
 G none
@@ -526,7 +526,7 @@ swagger stick~
 the marshal's swagger stick~
 The marshal's swagger stick lies here.~
 copper~
-wand ABK AO
+wand ABGK AO
 60 1 1 'enchant weapon' 0
 62 1 620 P
 G none
@@ -535,7 +535,7 @@ beacon~
 a wall beacon~
 This beacon illuminates the walls for guards patrolling at night.~
 copper~
-light G AQ
+light 0 AQ
 0 0 -1 0 0
 46 5 460 P
 G none
@@ -611,7 +611,7 @@ scroll~
 a torn scroll~
 ~
 copper~
-scroll 0 AO
+scroll G AO
 50 'dispel magic' '' '' ''
 46 1 460 P
 G none
@@ -795,7 +795,7 @@ ring wizardry~
 a ring of wizardry~
 A ring of wizardry has been left here.~
 copper~
-armor AG AB
+armor A AB
 14 14 14 0 0
 56 1 560 P
 A
@@ -821,7 +821,7 @@ robe magi~
 a white robe of the magi~
 A white robe of the magi lies here.~
 copper~
-map AGK AK
+map AK AK
 0 0 0 0 0
 56 5 560 P
 A
@@ -842,7 +842,7 @@ boots speed~
 a pair of boots of speed~
 A pair of boots of speed lie here.~
 copper~
-armor AG AG
+armor A AG
 14 14 14 0 0
 56 2 560 P
 A
@@ -857,7 +857,7 @@ invincible plate~
 a suit of invincible plate~
 A suit of invincible plate lies here.~
 copper~
-armor BCEFGHJLM AD
+armor BCEFHJLM AD
 15 15 15 0 0
 60 25 600 P
 A

@@ -1162,7 +1162,7 @@ necklace tooth ожерелье~
 @eng tooth necklace@rus ~~ожерелье~~ из клыков~
 @eng A set of teeth lies here.@rus Коллекция всевозможных зубов (tooth) лежит здесь.~
 horn~
-armor BG AC
+armor B AC
 26 28 26 20 0
 85 13 5000 P
 A
@@ -1198,7 +1198,7 @@ bracer charisma feathery браслет~
 @eng bracer of charisma@rus ~~браслет~~ удачи~
 @eng A feathery bracer is hanging here.@rus Пушистый браслет (bracer) висит здесь.~
 feathers~
-armor AGI AM
+armor AI AM
 25 25 25 19 0
 90 5 5000 P
 A
@@ -1279,7 +1279,7 @@ platemail black scale кольчуга~
 @eng black scale platemail@rus ~~черная~~ ~~кольчуга~~~
 @eng A platemail glows in dark.@rus Кольчуга (platemail) блестит в темноте.~
 black dragonscale~
-armor ABCEG AD
+armor ABCE AD
 35 35 35 27 0
 85 23 16700 G
 A
@@ -1296,7 +1296,7 @@ gauntlets black dragon перчатки~
 @eng black dragon gauntlets@rus ~~перчатки~~ из кожи черного дракона~
 @eng A pair of dark scale gauntlets is waiting to be worn.@rus Пара черных перчаток (gauntlets) ждет своего хозяина.~
 black dragonscale~
-armor ABCEG AH
+armor ABCE AH
 30 30 30 24 0
 85 20 18000 P
 A
@@ -1309,7 +1309,7 @@ leg black dragon plates поножи~
 @eng black dragon leg plates@rus ~~поножи~~ из черной драконьей кожи~
 @eng A pile of black scale lies here.@rus Груда черной чешуи (leg) лежит здесь.~
 black dragonscale~
-armor ABCEG AF
+armor ABCE AF
 28 28 28 16 0
 85 25 17000 P
 A
@@ -1324,7 +1324,7 @@ bow short~
 @eng short bow@rus ~~короткий~~ ~~лук~~~
 @eng A short wooden bow lies here.@rus Короткий деревянный лук (bow) лежит тут.~
 wood~
-weapon G AN
+weapon 0 AN
 bow 8 10 blast 0
 80 15 1000 P
 A
@@ -1337,7 +1337,7 @@ boots black scale dragon сапоги~
 @eng black dragon boots@rus ~~черные~~ ~~сапоги~~~
 @eng A pair of scale dragon boots sits here.@rus Драконьи морды грозно поглядывают на тебя с носков черных сапог (boots).~
 black dragonscale~
-armor ABCEG AG
+armor ABCE AG
 31 28 31 20 0
 85 12 15000 P
 A
@@ -1352,7 +1352,7 @@ pot ink girth чернильница~
 @eng ink-pot@rus чернильница~
 @eng An ink-pot is hanging on a rope.@rus Чернильница (ink pot) висит на шнурке.~
 quartz~
-drink AGIY AL
+drink AIY AL
 100 0 'water' 0 0
 25 0 1000 P
 A
@@ -1408,7 +1408,7 @@ mist накидка cloak illusory~
 @eng illusory cloak@rus ~~призрачная~~ ~~накидка~~~
 @eng A cloud of mist is shimmering around you.@rus Облачко тумана (mist) кружится около тебя.~
 air~
-armor ABCFGIRWY AK
+armor ABCFIRWY AK
 0 0 0 0 0
 94 0 100000 P
 A
@@ -1433,7 +1433,7 @@ sword long illusory mist меч~
 @eng illusory longsword@rus ~~призрачный~~ ~~меч~~~
 @eng A cloud of mist shaped like a sword is floating here.@rus Облако тумана в форме меча (sword) парит поблизости.~
 air~
-weapon ACFGORWY AN
+weapon ACFORWY AN
 sword 13 13 slash DEFG
 94 80 100000 P
 A
@@ -1463,7 +1463,7 @@ ring bowman кольцо~
 @eng bowman's ring@rus ~~кольцо~~ лучника~
 @eng A large ring lies here.@rus Широкое кольцо (ring) лежит здесь.~
 mithril~
-armor BGIT AB
+armor BIT AB
 20 18 20 15 0
 85 10 23000 P
 A
@@ -1480,7 +1480,7 @@ hat green red шляпа~
 @eng green hat@rus ~~зеленая~~ ~~шляпа~~~
 @eng A green hat with a bright red plume hangs here.@rus Зеленая шляпа (hat) с огненно-красным пером висит здесь.~
 fur~
-armor AGIR AE
+armor AIR AE
 30 25 30 20 0
 89 10 10000 P
 A
@@ -1495,7 +1495,7 @@ vest green куртка~
 @eng green vest@rus ~~зеленая~~ ~~куртка~~~
 @eng A green vest lies here forgotten.@rus Зеленая куртка (vest) лежит здесь, забытая своим хозяином.~
 silk~
-armor AGI AD
+armor AI AD
 32 30 32 21 0
 97 10 2500 P
 A
@@ -1514,7 +1514,7 @@ leggings leather штаны~
 @eng leather leggings@rus ~~кожаные~~ ~~штаны~~~
 @eng A pair of leggings lies here in the dirt.@rus Штаны (leggings) лежат на траве.~
 soft leather~
-armor BGTY AF
+armor BTY AF
 32 30 32 23 0
 98 20 5000 P
 A
@@ -1535,7 +1535,7 @@ boots leather thin ботинки~
 @eng thin leather boots@rus ~~ботинки~~ из тонкой кожи~
 @eng Some leather boots sits here.@rus Кожаные ботинки (boots) стоят тут.~
 soft leather~
-armor BG AG
+armor B AG
 35 33 35 26 0
 96 20 3000 P
 A
@@ -1552,7 +1552,7 @@ bow long лук~
 @eng longbow@rus ~~длинный~~ ~~лук~~~
 @eng A huge bow lies here neglected.@rus Здесь лежит кем-то забытый длинный лук (bow).~
 ebony~
-weapon BG AN
+weapon B AN
 bow 6 20 blast 0
 94 30 14000 P
 A
@@ -1563,7 +1563,7 @@ headband head band повязка~
 @eng headband@rus ~~головная~~ ~~повязка~~~
 @eng A headband is waiting to be worn.@rus Головная повязка (headband) ждет, когда ее оденут.~
 feathers~
-armor ABGI AE
+armor ABI AE
 23 23 23 18 0
 89 0 2400 P
 A
@@ -1588,7 +1588,7 @@ snake пояс~
 @eng snake belt@rus ~~змеиный~~ ~~пояс~~~
 @eng A long snake slithers along the grass.@rus Длинная змея (snake) скользит по траве.~
 snakeskin~
-armor ABGHIM AL
+armor ABHIM AL
 25 28 25 25 0
 85 0 10000 P
 A
@@ -1607,7 +1607,7 @@ scalp штаны leggings~
 @eng scalp leggings@rus ~~штаны~~, ~~украшенные~~ скальпами~
 @eng Someone has left a pile of scalps here.@rus Некто оставил тут кучу скальпов (scalp).~
 fur~
-armor CEG AF
+armor CE AF
 26 24 26 15 0
 88 23 1000 P
 A
@@ -1646,7 +1646,7 @@ spiritus vini~
 @eng spiritus vini@rus винный дух~
 @eng A strange aura floats here.@rus Винный дух (vini) витает здесь.~
 nothingness~
-armor BG AQ
+armor B AQ
 0 0 0 0 0
 90 0 0 P
 A
@@ -1663,7 +1663,7 @@ waistcoat dirty плащ~
 @eng dirty waistcoat@rus ~~пыльный~~ ~~плащ~~~
 @eng An old dusty waistcoat lies here in the dirt.@rus Старый пыльный плащ (waistcoat) лежит на траве.~
 silk~
-armor AGY AK
+armor AY AK
 28 28 28 24 0
 87 20 18000 P
 A
@@ -1676,7 +1676,7 @@ belt shoulder перевязь~
 @eng shoulder belt@rus {M~~перевязь~~{x~
 @eng A strip of leather is here.@rus Кожаная лента (belt) лежит тут.~
 hard leather~
-container GY AL
+container Y AL
 150 0 0 150 50
 100 10 25000 P
 A
@@ -1708,7 +1708,7 @@ flask crumpled фляжка~
 @eng crumpled flask@rus ~~помятая~~ ~~фляжка~~~
 @eng An old crumpled flask lies here neglected.@rus Старая помятая фляжка (flask) кем-то забыта здесь.~
 tin~
-drink GIY AO
+drink IY AO
 500 500 'ale' 0 0
 75 10 3450 P
 G female
@@ -1732,7 +1732,7 @@ match спичка~
 @eng a match@rus спичка~
 @eng A small wooden stick lies here.@rus Маленькая деревянная палочка (match) лежит здесь.~
 wood~
-wand U AO
+wand GU AO
 10 1 1 'fireball' 0
 1 0 1 P
 G female
@@ -1784,7 +1784,7 @@ staff strength посох~
 @eng staff of strength@rus ~~посох~~ Силы~
 @eng A wooden staff lies here.@rus Деревянный посох (staff) лежит здесь.~
 wood~
-staff A AO
+staff AG AO
 91 10 10 'earthquake' 0
 81 30 4500 P
 A
@@ -1817,7 +1817,7 @@ grand prize medal медаль~
 @eng Grand Prize@rus Гран При~
 @eng A brightly glowing medal is waiting to be worn.@rus Ярко светящаяся медаль (medal) ждет своего обладателя.~
 gold~
-armor AGIRY AC
+armor AIRY AC
 30 30 30 25 0
 75 50 0 P
 A
@@ -2085,7 +2085,7 @@ battle pill пилюля~
 @eng battle pill@rus {M~~боевая~~ ~~пилюля~~{x~
 @eng A battle pill lies here.@rus Боевая пилюля (pill) лежит здесь.~
 food~
-pill 0 AO
+pill G AO
 95 'armor' 'stone skin' 'shield' 'enhanced armor'
 75 0 2500 P
 G female
@@ -2094,7 +2094,7 @@ pill magic пилюля~
 @eng magic pill@rus {Y~~магическая~~ ~~пилюля~~{x~
 @eng A magic pill lies here.@rus Магическая пилюля (pill) лежит здесь.~
 food~
-pill 0 AO
+pill G AO
 95 'haste' 'frenzy' 'giant strength' 'bless'
 75 0 2450 P
 G female
@@ -2174,7 +2174,7 @@ gloves hedgehog рукавицы~
 @eng hedgehog's gloves@rus {D~~ежовые~~ ~~рукавицы~~{x~
 @eng Some gloves lies on the grass.@rus Рукавицы (gloves) лежат на траве.~
 fur~
-armor BGIM AH
+armor BIM AH
 5 6 5 3 0
 5 10 0 P
 A
@@ -2258,7 +2258,7 @@ cell secret тайник~
 @eng secret cell@rus {wтайник{x~
 @eng A secret cell is set in the wall.@rus Тайник (cell) вделан в стену.~
 steel~
-container ABFGRTY 0
+container ABFRTY 0
 100 ABCD 36380 100 100
 0 10000 0 P
 G male
@@ -2285,7 +2285,7 @@ hole dark нора~
 @eng hole@rus {Dнора{x~
 @eng A dark hole beckons you amidst the bushes.@rus Темная нора (hole) виднеется среди кустов.~
 ebony~
-portal RY 0
+portal GRY 0
 0 EMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz A 36348 0
 0 1000 0 P
 G female
@@ -2480,7 +2480,7 @@ book leon книга~
 @eng Book of Leon@rus {Y~~книга~~ Леона{x~
 @eng A huge volume stands on the shelf.@rus Большая красиво переплетенная книга (book) лежит здесь.~
 kid leather~
-treasure AGRY AO
+treasure ARY AO
 0 0 0 0 0
 0 0 0 P
 A
@@ -2537,7 +2537,7 @@ book jullyroger~
 @eng Book of JullyRoger@rus {Y~~книга~~ Веселого Роджера{x~
 @eng A huge volume stands on the shelf.@rus Большая красиво переплетенная книга (book) лежит здесь.~
 kid leather~
-treasure AGRY AO
+treasure ARY AO
 0 0 0 0 0
 0 0 0 P
 A
@@ -2651,7 +2651,7 @@ club monk дубинка~
 @eng Monk's club@rus {Y~~дубинка~~ Монаха{x~
 @eng A heavy looking club stands here.@rus Тяжелая дубинка (club) прислонена к дереву.~
 wood~
-weapon GI AN
+weapon I AN
 mace 8 13 crush K
 75 100 0 P
 G female
@@ -2669,7 +2669,7 @@ gap щель~
 @eng gap@rus {Dщель{x~
 @eng A gap between the roots of the shrub looks very interesting.@rus Щель (gap) между корнями куста выглядит интригующе.~
 wood~
-portal Y 0
+portal GY 0
 0 EMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz A 36352 0
 0 10000 0 P
 G female
@@ -2678,7 +2678,7 @@ cape white накидка~
 @eng white cape@rus {w~~белая~~ ~~накидка~~{x~
 @eng A white cape lies here.@rus Белая накидка (cape) лежит здесь.~
 silk~
-armor AGHKLM AK
+armor AHKLM AK
 35 35 35 30 0
 90 10 5000 P
 A
@@ -2695,7 +2695,7 @@ cape grey накидка~
 @eng grey cape@rus ~~серая~~ ~~накидка~~~
 @eng A grey cape lies here.@rus Серая накидка (cape) лежит здесь.~
 silk~
-armor AGHJKM AK
+armor AHJKM AK
 35 35 35 30 0
 85 10 5500 P
 A
@@ -2712,7 +2712,7 @@ cape dark накидка~
 @eng dark cape@rus {D~~черная~~ ~~накидка~~{x~
 @eng A dark cape lies here.@rus Черная накидка (cape) лежит здесь.~
 silk~
-armor AEGHJLM AK
+armor AEHJLM AK
 35 35 35 30 0
 85 10 4500 P
 A
@@ -2750,7 +2750,7 @@ ball crystall quartz шар~
 @eng quartz crystall@rus {R({r({Y({G({C({b(){C){G){Y){r){R) {w~~кварцевый~~ ~~шар~~{x~
 @eng A strange glowing ball shimmers in the dirt.@rus Странный светящийся шар (ball) мерцает в пыли.~
 quartz~
-light AG A
+light A A
 0 0 -1 0 0
 91 10 4560 P
 A
@@ -2793,7 +2793,7 @@ pill great пилюля~
 @eng great battle pill@rus {C~~большая~~ ~~боевая~~ ~~пилюля~~{x~
 @eng A HUGE pill seems to be able to heal all of your wounds.@rus Здесь лежит очень полезная лечебная пилюля (pill).~
 gut~
-pill 0 AO
+pill G AO
 20 'blindness' 'weaken' 'poison' 'calm'
 10 0 1000 P
 G female
@@ -2802,7 +2802,7 @@ pill debugging~
 strange pill~
 A pill of debugging lies here.~
 unknown~
-pill 0 A
+pill G A
 80 'detect hidden' 'detect invis' 'pass door' 'fly'
 0 0 0 P
 G none
@@ -2811,7 +2811,7 @@ portrait grandfather портрет~
 @eng portrait@rus {Yпортрет{x~
 @eng A portrait of Grandfather hangs on the wall.@rus Портрет Дедушки (portrait) висит на стене.~
 canvas~
-portal ARY 0
+portal AGRY 0
 0 EMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz A 36358 0
 0 10000 0 P
 G male
@@ -2820,7 +2820,7 @@ mirror wall зеркало~
 @eng mirror@rus {cзеркало{x~
 @eng A long wide mirror stands by the wall.@rus Высокое и широкое зеркало (mirror) стоит у стены (wall).~
 glass~
-portal RY P
+portal GRY P
 0 EMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz A 36357 0
 0 10000 0 P
 G none
@@ -2847,7 +2847,7 @@ staff green cold посох~
 @eng green staff@rus {G~~зеленый~~ ~~посох~~{x~
 @eng A staff covered in bark lies here.@rus Неошкуренный посох (staff) лежит здесь.~
 wood~
-staff B AO
+staff BG AO
 20 10 10 'protection cold' 0
 10 100 100 P
 G male
@@ -2856,7 +2856,7 @@ staff broom метла~
 @eng witch's broom@rus {D~~ведьмина~~ ~~метла~~{x~
 @eng Witch's broom sweeps around you in a cloud of dust.@rus Метла ведьмы (broom) подняла вокруг тебя облако пыли.~
 wood~
-staff B AO
+staff BG AO
 10 10 10 'fly' 0
 10 50 2500 P
 G female
@@ -2909,7 +2909,7 @@ eye dragon глаз~
 @eng eye of the dragon@rus {c({R.{c) {C~~глаз~~ дракона{x~
 @eng Dragon Eye lies in dust.@rus Драконий глаз (eye) валяется в грязи.~
 unknown~
-trash GU AO
+trash U AO
 0 0 0 0 0
 10 5 1000 P
 S 'farsight' 30 A
@@ -2919,7 +2919,7 @@ toad tongue язык~
 @eng toad tongue@rus {M~~жабий~~ ~~язык~~{x~
 @eng A tongue of toad is convulsing on the floor.@rus Язык (tongue) жабы дергается в конвульсиях.~
 unknown~
-trash GU AO
+trash U AO
 0 0 0 0 0
 10 5 1000 P
 S 'ventriloquate' 30 A
@@ -2929,7 +2929,7 @@ dried bat мышь~
 @eng dried bat@rus {G~~сушеная~~ ~~летучая~~ ~~мышь~~{x~
 @eng Dried bat rustles with wings.@rus Сушеная летучая мышь (bat) трепещет крыльями.~
 unknown~
-trash GU AO
+trash U AO
 0 0 0 0 0
 10 5 1000 P
 S 'control weather' 50 A
@@ -3039,7 +3039,7 @@ entrance дверь door~
 @eng entrance to the tower@rus {D~~вход~~ в башню{x~
 @eng An opened door beckons you to enter the tower.@rus Открытая дверь (door) приглашает тебя войти в башню.~
 unknown~
-portal 0 0
+portal G 0
 0 0 0 4900 0
 0 0 0 P
 G none

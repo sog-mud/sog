@@ -1017,7 +1017,7 @@ armor green~
 a suit of green armor~
 A fine suit of green armor bearing the crest of Hautdesert glistens here!~
 mithril~
-armor GK AD
+armor K AD
 9 9 9 9 0
 31 2 2000 P
 A
@@ -1036,7 +1036,7 @@ axe benlad benlad's~
 benlad's axe~
 A two headed axe with the Hautdesert crest lies here.~
 iron~
-weapon GK AN
+weapon K AN
 axe 5 7 slash 0
 31 7 2000 P
 A
@@ -1055,7 +1055,7 @@ bracer white~
 a white bracer~
 A humming, blinding white bracer lies here!~
 admantite~
-armor ABGK AM
+armor ABK AM
 11 11 11 11 0
 40 2 3000 P
 A
@@ -1085,7 +1085,7 @@ cloak many orkney~
 a many colored cloak~
 A cloak of many colors and the crest of Orkney lies here.~
 leather~
-armor GK AK
+armor K AK
 9 9 9 9 0
 34 4 1500 P
 A
@@ -1098,7 +1098,7 @@ shield~
 a shield of many colors~
 A rainbow of colors is reflected from the shield which lies here!~
 silver~
-armor GK AJ
+armor K AJ
 9 9 9 9 0
 34 4 1500 P
 A
@@ -1153,7 +1153,7 @@ armband armbands garlon garlon's~
 garlon's invisible armbands~
 A set of armbands of black iron lie here.~
 iron~
-armor FGJ AI
+armor FJ AI
 8 8 8 0 0
 28 4 1500 P
 A
@@ -1188,7 +1188,7 @@ gauntlets bravery~
 gauntlets of bravery~
 A glowing pair of burnished chain mesh gauntlets lies here.~
 iron~
-armor GIKL AH
+armor IKL AH
 11 11 11 11 0
 44 3 5000 P
 A
@@ -1270,7 +1270,7 @@ pack backpack trailpack leather pellinore pellinore's~
 pellinore's trailpack~
 A backpack made of fine leather sits here. You see lettering on its corner.~
 leather~
-container GH AD
+container H AD
 500 0 17321 250 75
 27 0 1200 P
 E
@@ -1337,7 +1337,7 @@ rock black small~
 a small black rock~
 A small black rock lies here.~
 stone~
-pill 0 A
+pill G A
 40 'black shroud' 'cure serious' '' ''
 22 1 1200 P
 E
@@ -1396,7 +1396,7 @@ spear unholy~
 a spear glowing in an unholy dark light~
 A spear is here, glowing with an unholy dark light.~
 admantite~
-weapon ACEG AN
+weapon ACE AN
 spear 5 8 pierce CK
 34 10 2500 P
 A
@@ -1459,7 +1459,7 @@ helm wolf helmet шлем волчий~
 @eng a wolf helm@rus волчий шлем~
 @eng A helm with the semblance of a wolf is here.@rus Шлем в виде волка (helm) сдесь.~
 iron~
-armor G AE
+armor 0 AE
 9 9 9 9 0
 33 10 3400 P
 A
@@ -1472,7 +1472,7 @@ armor shimmering red~
 a suit of shimmering red armor~
 A suit of shimmering red armor glistens in the sunlight.~
 mithril~
-armor AG AD
+armor A AD
 9 9 9 4 0
 31 15 1800 P
 A
@@ -1576,7 +1576,7 @@ rod command~
 a rod of command~
 A rod of black, runed metal swallows light here.~
 iron~
-staff CJL AO
+staff CGJL AO
 40 24 24 'charm person' 0
 40 9 3500 P
 A

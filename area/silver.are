@@ -162,7 +162,7 @@ shadow blade~
 a shadowblade~
 A faintly transparent blade forged of shadow lies here.~
 air~
-weapon GJ AN
+weapon J AN
 sword 4 4 slash 0
 12 40 800 P
 A
@@ -175,7 +175,7 @@ shadow spear~
 a shadowspear~
 A faintly transparent spear forged of shadow lies here.~
 air~
-weapon GJ AN
+weapon J AN
 spear 5 5 pierce K
 22 200 3800 P
 A
@@ -188,7 +188,7 @@ shadow axe~
 a shadowaxe~
 A faintly transparent axe forged of shadow lies here.~
 air~
-weapon GJ AN
+weapon J AN
 axe 5 5 chomp 0
 22 200 3800 P
 A
@@ -201,7 +201,7 @@ bracer shadow~
 shadowbracer~
 A faintly transparent bracer has been dropped here~
 air~
-armor GJ AM
+armor J AM
 7 8 7 1 2
 22 300 4800 P
 A
@@ -212,7 +212,7 @@ gauntlets shadow~
 shadowgauntlets~
 A faintly transparent pair of gauntlets has been dropped here~
 air~
-armor GJ AH
+armor J AH
 5 5 6 1 2
 12 10 700 P
 A
@@ -223,7 +223,7 @@ orb stone~
 a mageorb~
 A small stone lies on the ground~
 stone~
-armor G AQ
+armor 0 AQ
 7 7 7 1 0
 19 400 1200 G
 A
@@ -236,7 +236,7 @@ orb stone~
 a priestorb~
 A small stone lies on the ground~
 stone~
-armor G AQ
+armor 0 AQ
 7 7 8 1 0
 22 400 5200 G
 A
@@ -249,7 +249,7 @@ shadow mail~
 shadowmail~
 A faintly transparent mail shirt lies on the ground.~
 air~
-armor GJ AD
+armor J AD
 9 9 9 1 4
 29 300 6500 P
 A
@@ -270,7 +270,7 @@ a large forge~
 A large forge, complete with a mold, stands in the corner, 
 connected to the furnace.~
 ~
-container AG 0
+container A 0
 200 0 0 0 0
 200 5000 0 P
 G none
@@ -305,7 +305,7 @@ sword silver~
 a silver longsword~
 A sharp looking silver longsword lies on the ground.~
 silver~
-weapon AG AN
+weapon A AN
 sword 5 5 slash D
 20 200 6900 P
 A
@@ -373,7 +373,7 @@ key small~
 a big key~
 A big key lies here.~
 metal~
-key G AO
+key 0 AO
 0 0 0 0 0
 30 300 0 G
 G none

@@ -198,7 +198,7 @@ ball light twinkle twinkling мерцающий шар~
 @eng a *twinkling* ball of light@rus ~~мерцающий~~ ~~шар~~~
 @eng A twinkling ball of light sparkles here!@rus Мерцающий шар (ball) искрится и переливается всеми цветами радуги, освещая все вокруг.~
 unknown~
-light AGI AO
+light AI AO
 0 0 999 0 0
 15 0 1000 P
 A
@@ -226,7 +226,7 @@ bracer brownie браслет~
 @eng a brownie bracer@rus ~~браслет~~ брауни~
 @eng An earthen colored band lies here.@rus Цветной глиняный браслет (bracer) лежит здесь.~
 mithril~
-armor G AM
+armor 0 AM
 5 5 5 5 0
 13 1 700 P
 A
@@ -300,7 +300,7 @@ key sparkling ключ сверкающий~
 @eng a sparkling key@rus ~~сверкающий~~ ~~ключ~~~
 @eng A sparkling key glistens on the ground.@rus Сверкающий ключ (key) блестит на земле.~
 silver~
-key BG AO
+key B AO
 0 0 0 0 0
 13 1 130 P
 G male

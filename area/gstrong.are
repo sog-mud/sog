@@ -272,7 +272,7 @@ crown king goblin~
 the Great Crown of the Goblin King~
 A simple crown of silver lies here. It looks quite old.~
 silver~
-armor G AE
+armor 0 AE
 4 6 5 3 0
 16 100 2000 P
 A
@@ -283,7 +283,7 @@ grumm axe~
 the Great War Axe of Grumm~
 A quite large, two-handed and double bladed axe lies before you.~
 iron~
-weapon ABEGLRY AN
+weapon ABELRY AN
 axe 5 5 slash CDF
 18 140 5000 G
 A
@@ -309,7 +309,7 @@ arm guards granite~
 a pair of carved granite armguards.~
 You see a large hollow tube carved of granite.~
 stone~
-armor GM AI
+armor M AI
 6 6 9 2 0
 15 251 1900 P
 A
@@ -324,7 +324,7 @@ cape green filthy~
 a filthy green cape~
 You see a pile of green rags on the floor~
 cloth~
-armor G AK
+armor 0 AK
 1 2 1 1 0
 10 30 1650 P
 A
@@ -344,7 +344,7 @@ dagger shard stone~
 a stone shard~
 A sharp pointed rock lies here.~
 stone~
-weapon AG AN
+weapon A AN
 dagger 4 4 stab D
 12 10 1100 G
 A
@@ -361,7 +361,7 @@ sword goblin short~
 a goblin's shortsword~
 It looks heavier than your average shortsword, but it could use sone oiling.~
 iron~
-weapon G AN
+weapon 0 AN
 sword 4 4 slash D
 12 50 900 G
 A
@@ -385,7 +385,7 @@ sword long two two-hand two-handed~
 a long two-handed sword~
 A long two-handed sword has been left here.~
 iron~
-weapon AG AN
+weapon A AN
 sword 4 6 slash DF
 20 50 7900 G
 A
@@ -438,7 +438,7 @@ rock big большая скала~
 @eng a big rock@rus ~~большая~~ ~~скала~~~
 @eng You see a big rock in the middle of the room. It looks real heavy.@rus В центре комнаты вы видите большую скалу (rock). Она очень тяжелая.~
 stone~
-container ABGLRY AQ
+container ABLRY AQ
 600 0 0 100 10
 20 20 12300 G
 A
@@ -459,7 +459,7 @@ ring britta~
 Britta's Ring~
 You almost miss a tiny ring of gold.~
 gold~
-treasure G AB
+treasure 0 AB
 0 0 0 0 0
 9 10 1100 G
 A

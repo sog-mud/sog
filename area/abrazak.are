@@ -250,7 +250,7 @@ beer barrel~
 @eng a BIG barrel of beer for Mabutu@rus ~~БОЛЬШОЙ~~ ~~бочонок~~ пива для старого негра~
 @eng Mabutu has left here his BIG barrel of beer.@rus Старый негр оставил здесь БОЛЬШОЙ бочонок (barrel) с пивом.~
 unknown~
-drink AGIYa AOP
+drink AIYa AOP
 -1 100 'beer' 0 0
 0 0 0 P
 G male
@@ -268,7 +268,7 @@ bed~
 @eng bed@rus нары~
 @eng A bed is here.@rus Нары здесь.~
 unknown~
-furniture ABCEGIOY 0
+furniture ABCEIOY 0
 19 2147483647 BEK 1000 1000
 0 0 0 P
 G none
@@ -286,7 +286,7 @@ pill anti invader~
 Anti-invader's pill~
 Someone has left an anti-invader's pill here.~
 energy~
-pill ABOTi A
+pill ABGOTi A
 15 'detect fade' 'bless' 'protection evil' 'cure critical'
 0 1 10000 P
 G none
@@ -352,7 +352,7 @@ mark beast~
 The Mark of the Beast~
 Mark of the Beast is here.~
 darkness~
-treasure ABCEG AS
+treasure ABCE AS
 0 0 0 0 0
 100 0 0 P
 G none
@@ -361,7 +361,7 @@ dress платье~
 @eng a green dress@rus {G~~платье~~ из зеленого муслина{x~
 @eng Beautiful green dress is lying here.@rus Очаровательнейшее муслиновое платье (dress) оставлено своей хозяйкой.~
 unknown~
-clothing DGITY AD
+clothing DITY AD
 0 0 0 0 0
 95 0 0 P
 G none
@@ -370,7 +370,7 @@ G none
 @eng a silver diadem@rus ~~серебряная~~ ~~диадема~~~
 @eng A silver diadem is lying here.@rus Очаровательная диадема (diadem) оставлена своей хозяйкой.~
 unknown~
-clothing GITY AE
+clothing ITY AE
 0 0 0 0 0
 95 0 0 P
 F I 20 -10 CD
@@ -388,7 +388,7 @@ G none
 @eng a wooden staff@rus ~~посох~~, обвитый лианами~
 @eng A strange staff is lying here.@rus Странного вида посох (staff) оставлен кем-то.~
 wood~
-weapon GI AN
+weapon I AN
 staff 10 20 none 0
 95 0 0 P
 G none
@@ -397,7 +397,7 @@ G none
 @eng a pearl necklace@rus ~~жемчужное~~ ~~ожерелье~~~
 @eng A pearl necklace is lying here.@rus Ожерелье (necklace) из черного жемчуга забыто здесь своей хозяйкой.~
 pearl~
-jewelry GIT AC
+jewelry IT AC
 0 0 0 0 0
 95 0 0 P
 A
@@ -423,7 +423,7 @@ box~
 {Dящик ворсинского пива{x~
 {DЯщик темного Ворсинского пива дожидается своего хозяина здесь.{x~
 дерево~
-container GRYa AOP
+container RYa AOP
 20 0 0 100 0
 1 0 0 P
 G none
@@ -432,7 +432,7 @@ bottle~
 {Dбутылка холодного Ворсинского пива{x~
 {DБутылка холодного Ворсинского пива лежит здесь.{x~
 стекло~
-drink CGRYa AOP
+drink CRYa AOP
 20 20 'beer' 0 0
 1 0 0 P
 G none
@@ -441,7 +441,7 @@ collar bloody special~
 a bloody collar~
 The bloody collar of a dead beast lies here~
 gold~
-armor GHP AC
+armor HP AC
 12 12 12 6 0
 36 7 800 P
 A
@@ -492,7 +492,7 @@ sword darkness меч тьмы~
 @eng {DSword of Darkness{x@rus {D Меч ТЬМЫ {x~
 @eng {DSword of Darkness{x lies here.@rus {DМеч ТЬМЫ{x лежит здесь.~
 darkness~
-weapon ABCGIOTi AN
+weapon ABCIOTi AN
 sword 100 100 digestion ABCDEGHI
 99 50 0 P
 A
@@ -576,7 +576,7 @@ cone шишка~
 @eng the gold cone@rus ~~золотая~~ ~~шишка~~~
 @eng The gold cone is here.@rus Золотая шишка (cone) блестит на солнце.~
 gold~
-container G AO
+container 0 AO
 600 A 0 100 10
 75 1 10000 P
 A
@@ -602,7 +602,7 @@ bottle champagne~
 @eng {ga bottle of champagne{x@rus {g~~бутылка~~ шампанского{x~
 @eng Bottle of champagne is here.@rus Бутылка шампанского оставлена кем-то здесь.~
 стекло~
-drink GRYa AOP
+drink RYa AOP
 -1 2147483647 'champagne' 0 0
 0 0 0 P
 G none
@@ -620,7 +620,7 @@ box~
 @eng {ra box of chocolate sweets{x@rus {rкоробка шоколадных конфет{x~
 @eng Box of chocolate sweets is here.@rus Коробка шоколадных конфет лежит тут.~
 картон~
-container GRYa AOP
+container RYa AOP
 100 0 0 0 0
 0 0 0 P
 G none
@@ -677,7 +677,7 @@ chair~
 ancient chair~
 The ancient chair is here.~
 unknown~
-furniture FGRTYa AP
+furniture FRTYa AP
 1 100000 H 150 150
 0 0 0 P
 G none
@@ -686,7 +686,7 @@ chair~
 ancient chair~
 The ancient chair is here.~
 unknown~
-furniture FGRTYa AP
+furniture FRTYa AP
 1 10000000 H 500 500
 0 0 0 P
 G none
@@ -695,7 +695,7 @@ gabagaba ring~
 gabagaba ring~
 Gabagaba ring is here.~
 unknown~
-armor GIRTYa ABP
+armor IRTYa ABP
 -20 -20 -20 -20 0
 0 0 0 P
 A
@@ -716,7 +716,7 @@ splinter~
 splinter "p"~
 splinter "n" is here.~
 unknown~
-trash GTYa AP
+trash TYa AP
 0 0 0 0 0
 0 0 0 P
 G none
@@ -725,7 +725,7 @@ splinter~
 splinter "i"~
 splinter "i" is here.~
 unknown~
-trash GTYa AP
+trash TYa AP
 0 0 0 0 0
 0 0 0 P
 G none
@@ -734,7 +734,7 @@ splinter~
 splinter "r"~
 splinter "l" is here.~
 unknown~
-trash GTYa AP
+trash TYa AP
 0 0 0 0 0
 0 0 0 P
 G none
@@ -743,7 +743,7 @@ splinter~
 splinter "a"~
 splinter "b" is here.~
 unknown~
-trash GTYa AP
+trash TYa AP
 0 0 0 0 0
 0 0 0 P
 G none
@@ -752,7 +752,7 @@ splinter~
 splinter "t"~
 splinter "o" is here.~
 unknown~
-trash GTYa AP
+trash TYa AP
 0 0 0 0 0
 0 0 0 P
 G none
@@ -761,7 +761,7 @@ splinter~
 splinter "e"~
 splinter "g" is here.~
 unknown~
-trash GTYa AP
+trash TYa AP
 0 0 0 0 0
 0 0 0 P
 G none
@@ -770,7 +770,7 @@ eye~
 eye~
 eye~
 unknown~
-staff EFHMPRTYa AOP
+staff EFGHMPRTYa AOP
 0 0 0 'reserved' 0
 10 10 0 P
 G none
@@ -791,7 +791,7 @@ altar алтарь~
 @eng altar@rus алтарь~
 @eng White stone altar is here.@rus Алтарь (altar) из белого камня предстал твоему взору.~
 magic~
-container AGIRTi 0
+container AIRTi 0
 500 E 0 65 100
 0 10 0 P
 G male
@@ -838,7 +838,7 @@ lamp лампа diogen~
 @eng a Diogen's lamp@rus ~~лампа~~ Диогена~
 @eng A small lamp, made of darkened bronze, lies here neglected.@rus Небольшая лампа из потемневшей бронзы лежит, брошенная, здесь.~
 bronze~
-light GRY AO
+light RY AO
 0 0 -1 0 0
 5 10 0 P
 S 'acute vision' 50 A
@@ -945,7 +945,7 @@ aqualung акваланг~
 @eng a rubber aqualung@rus ~~резиновый~~ ~~акваланг~~~
 @eng The rubber aqualung is here.@rus Небольшой резиновый акваланг ожидает своего владельца.~
 rubber~
-clothing GRTa AE
+clothing RTa AE
 0 0 0 0 0
 1 10 0 P
 F A 0 0 bz
@@ -1081,7 +1081,7 @@ scarlet cloak~
 @eng {RScarlet Cloak{x@rus {RАлый Плащ{x~
 @eng {DRakot's Scarlet Cloak lies here...Attention! Be cautious! {x@rus {DПлащ Великого Ракота (scarlet cloak) лежит тут. Запрещено даже думать дотронуться до него! {x~
 gold~
-armor ABCGRTi AK
+armor ABCRTi AK
 500 500 500 500 0
 99 1 100000 P
 F A 0 0 V
@@ -1092,7 +1092,7 @@ grandelven quiver~
 GrandElven Quiver~
 Bright colored quiver lies here.~
 leather~
-container ABGY AK
+container ABY AK
 100 F 0 100 100
 91 10 1000 P
 A

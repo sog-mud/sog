@@ -1090,7 +1090,7 @@ wicked trident two-handed~
 a wicked-looking trident~
 A wicked-looking trident is stuck into the ground.~
 unknown~
-weapon AEGJ AN
+weapon AEJ AN
 spear 4 12 stab FK
 45 70 3100 P
 A
@@ -1131,7 +1131,7 @@ sword farslayer two-handed~
 a black-hilted sword called "Farslayer"~
 A black-hilted sword with engravings on the blade lies here.~
 unknown~
-weapon BFGHM AN
+weapon BFHM AN
 sword 6 10 pierce F
 53 70 15300 P
 A
@@ -1243,7 +1243,7 @@ rivet gun~
 a rivet gun~
 A rivet gun loaded with hot rivets lies here.~
 unknown~
-staff 0 AO
+staff G AO
 46 10 10 'general purpose' 0
 17 70 100000 P
 G none
@@ -1265,7 +1265,7 @@ box matches~
 a box of matches~
 A box of matches lies here, ready to light something.~
 unknown~
-staff A AO
+staff AG AO
 48 10 10 'sleep' 0
 9 20 15000 P
 G none
@@ -1274,7 +1274,7 @@ bloody black talon~
 a bloody black talon~
 A severed bloody, black talon lies here.~
 unknown~
-weapon EG AN
+weapon E AN
 dagger 5 9 claw C
 46 60 7500 P
 A
@@ -1289,7 +1289,7 @@ jar of blood~
 jar of blood~
 A dark jar of blood lies here.~
 unknown~
-potion 0 A
+potion G A
 50 'teleport' 'remove curse' 'refresh' ''
 11 10 5170 P
 G none
@@ -1311,7 +1311,7 @@ icy bottle~
 an icy bottle~
 An icy bottle sits on the floor.~
 unknown~
-potion 0 A
+potion G A
 47 '' 'create spring' 'faerie fog' ''
 8 10 2970 P
 G none
@@ -1384,7 +1384,7 @@ unholy symbol~
 an unholy symbol~
 A sinister-looking symbol of evil lies here smoldering.~
 unknown~
-wand 0 AO
+wand G AO
 53 10 10 'black shroud' 0
 12 20 5300 P
 G none
@@ -1404,7 +1404,7 @@ sharp teeth lawyer~
 the sharp teeth of a lawyer~
 A set of sharp, evil-looking teeth lie here. Probably a lawyer's.~
 unknown~
-weapon G AN
+weapon 0 AN
 exotic 5 11 none C
 52 20 11800 P
 A
@@ -1445,7 +1445,7 @@ prenuptual agreement~
 a prenuptual agreement~
 A prenuptual agreement lies here.~
 unknown~
-scroll 0 A
+scroll G A
 51 'cure blindness' 'detect evil' 'shield' ''
 11 10 2400 P
 G none
@@ -1467,7 +1467,7 @@ figurine horse~
 a figurine of a horse~
 You see a small figurine of a horse on the ground.~
 unknown~
-treasure AG AO
+treasure A AO
 0 0 0 0 0
 45 30 11800 P
 A
@@ -1541,7 +1541,7 @@ geiger counter~
 a geiger counter~
 You see a Geiger counter here.~
 unknown~
-wand A AO
+wand AG AO
 52 10 10 'remove curse' 0
 16 20 8500 P
 A
@@ -1578,7 +1578,7 @@ antacid pill~
 an antacid pill~
 You see an antacid pill here.~
 unknown~
-pill 0 A
+pill G A
 54 'pass door' 'refresh' '' ''
 14 10 1520 P
 G none
@@ -1650,7 +1650,7 @@ fire opal gem~
 a precious fire opal~
 A flaming red gem lies on the ground.~
 unknown~
-warp_stone T AO
+warp_stone GT AO
 0 0 0 0 0
 0 10 5000 P
 E
@@ -1665,7 +1665,7 @@ hellstone hell stone~
 a hellstone~
 An evil black gem rests here, hoping to seduce you with its evil.~
 unknown~
-warp_stone ET AO
+warp_stone EGT AO
 0 0 0 0 0
 0 10 10000 P
 E
@@ -1680,7 +1680,7 @@ wand жезл fire~
 @eng a fire wand@rus ~~огненный~~ ~~жезл~~~
 @eng The fire wand blazes and glows.@rus Сияние, исходящее от огненного жезла (wand) слепит тебе глаза.~
 fire~
-wand 0 AO
+wand G AO
 75 5 5 'fire sphere' 0
 55 1 1000 P
 G male
@@ -1689,7 +1689,7 @@ wand ice жезл~
 @eng an ice wand@rus ~~ледяной~~ ~~жезл~~~
 @eng The sparkling ice wand is here.@rus Ты видишь искрящийся ледяной жезл (wand).~
 ice~
-wand 0 AO
+wand G AO
 75 5 5 'ice sphere' 0
 50 1 1000 P
 G male

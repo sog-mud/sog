@@ -789,7 +789,7 @@ helmet obsidian~
 the obsidian helmet~
 A black helmet is on the floor.~
 copper~
-armor GK AE
+armor K AE
 9 9 9 0 0
 30 30 300 P
 A
@@ -802,7 +802,7 @@ sleeves obsidian~
 obsidian sleeves~
 A pair of black sleeves are on the floor.~
 copper~
-armor GK AI
+armor K AI
 9 9 9 0 0
 30 40 300 P
 A
@@ -815,7 +815,7 @@ leggings obsidian~
 obsidian leggings~
 Some black leggings are on the floor.~
 copper~
-armor GK AF
+armor K AF
 9 9 9 0 0
 30 40 300 P
 A
@@ -828,7 +828,7 @@ gauntlets obsidian~
 obsidian gauntlets~
 A pair of black gauntlets are on the floor.~
 copper~
-armor GK AH
+armor K AH
 9 9 9 0 0
 30 40 300 P
 A
@@ -841,7 +841,7 @@ boots obsidian~
 obsidian boots~
 Some black boots are on the floor.~
 copper~
-armor GK AG
+armor K AG
 9 9 9 0 0
 30 40 300 P
 A
@@ -854,7 +854,7 @@ cloak obsidian~
 obsidian cloak~
 a black cloak lies on the floor.~
 copper~
-armor GK AC
+armor K AC
 9 9 9 0 0
 30 40 300 P
 A
@@ -867,7 +867,7 @@ girth obsidian~
 the obsidian girth~
 A black girth is on the floor.~
 copper~
-armor GK AL
+armor K AL
 9 9 9 0 0
 30 40 300 P
 A
@@ -880,7 +880,7 @@ shield large obsidian~
 the large obsidian shield~
 A large, black shield is on the floor.~
 copper~
-armor GK AJ
+armor K AJ
 9 9 9 0 0
 30 40 300 P
 A
@@ -893,7 +893,7 @@ amulet solace~
 the amulet of Solace~
 A shiny black amulet with a gold symbol is here.~
 copper~
-armor GK AC
+armor K AC
 7 7 7 0 0
 20 40 200 P
 A
@@ -915,7 +915,7 @@ sword doomgiver~
 a black hilted sword called, "Doomgiver"~
 A black hilted sword with engravings on the blade lie here.~
 copper~
-weapon FG AN
+weapon F AN
 sword 5 7 slice 0
 30 30 300 P
 A
@@ -942,7 +942,7 @@ signet ring~
 an Solace signet ring~
 A shiny ring of obsidian is in the dirt.~
 copper~
-armor G AB
+armor 0 AB
 7 7 7 0 0
 20 1 200 P
 A
@@ -979,7 +979,7 @@ sword dragonslicer~
 a black hilted sword called, "Dragonslicer"~
 A black hilted sword with engravings on the blade lie here.~
 copper~
-weapon FG AN
+weapon F AN
 sword 5 7 slice 0
 28 30 280 P
 A
@@ -1008,7 +1008,7 @@ helmet steel~
 the steel helmet~
 A steel helmet is on the floor.~
 copper~
-armor GK AE
+armor K AE
 8 8 8 0 0
 27 25 270 P
 A
@@ -1021,7 +1021,7 @@ sleeves steel~
 steel sleeves~
 A pair of steel sleeves are on the floor.~
 copper~
-armor GK AI
+armor K AI
 8 8 8 0 0
 27 35 270 P
 A
@@ -1034,7 +1034,7 @@ leggings steel~
 steel leggings~
 Some steel leggings are on the floor.~
 copper~
-armor GK AF
+armor K AF
 8 8 8 0 0
 27 35 270 P
 A
@@ -1047,7 +1047,7 @@ gauntlets steel~
 steel gauntlets~
 A pair of steel gauntlets are on the floor.~
 copper~
-armor GK AH
+armor K AH
 8 8 8 0 0
 27 35 270 P
 A
@@ -1062,7 +1062,7 @@ boots steel~
 steel boots~
 Some steel boots are on the floor.~
 copper~
-armor GK AG
+armor K AG
 8 8 8 0 0
 27 35 270 P
 A
@@ -1075,7 +1075,7 @@ cloak lieutenant ~
 the lieutenant's cloak~
 a lieutenant's cloak lies on the floor.~
 copper~
-armor GK AC
+armor K AC
 8 8 8 0 0
 27 35 270 P
 A
@@ -1088,7 +1088,7 @@ girth steel~
 the steel girth~
 A steel girth is on the floor.~
 copper~
-armor GK AL
+armor K AL
 8 8 8 0 0
 27 35 270 P
 A
@@ -1099,7 +1099,7 @@ shield large steel~
 the large steel shield~
 A large, steel shield is on the floor.~
 copper~
-armor GK AJ
+armor K AJ
 8 8 8 0 0
 27 35 270 P
 A
@@ -1123,7 +1123,7 @@ sword shieldbreaker~
 black hilted sword called, "Shieldbreaker"~
 A black hilted sword with engravings on the blade lie here.~
 copper~
-weapon BFGM AN
+weapon BFM AN
 sword 5 6 pierce 0
 27 35 270 P
 A
@@ -1154,7 +1154,7 @@ helmet red~
 the red helmet~
 A red helmet is on the floor.~
 copper~
-armor GK AE
+armor K AE
 7 7 7 0 0
 20 20 200 P
 A
@@ -1165,7 +1165,7 @@ sleeves red scalemail~
 red scalemail sleeves~
 A pair of red scalemail sleeves are on the floor.~
 copper~
-armor GK AI
+armor K AI
 7 7 7 0 0
 20 30 200 P
 A
@@ -1176,7 +1176,7 @@ leggings red scalemail~
 red scalemail leggings~
 Some red scalemail leggings are on the floor.~
 copper~
-armor GK AF
+armor K AF
 7 7 7 0 0
 20 30 200 P
 A
@@ -1187,7 +1187,7 @@ gauntlets red scalemail~
 red scalemail gauntlets~
 A pair of red scalemail gauntlets are on the floor.~
 copper~
-armor GK AH
+armor K AH
 7 7 7 0 0
 20 30 200 P
 A
@@ -1198,7 +1198,7 @@ boots red scalemail~
 red scalemail boots~
 Some red scalemail boots are on the floor.~
 copper~
-armor GK AG
+armor K AG
 7 7 7 0 0
 20 30 200 P
 A
@@ -1211,7 +1211,7 @@ cloak red sergeant~
 the red sergeant's cloak~
 a red sergeant's cloak lies on the floor.~
 copper~
-armor GK AC
+armor K AC
 7 7 7 0 0
 20 30 200 P
 A
@@ -1222,7 +1222,7 @@ girth red scalemail~
 the red scalemail girth~
 A red scalemail girth is on the floor.~
 copper~
-armor GK AL
+armor K AL
 7 7 7 0 0
 20 30 200 P
 G none
@@ -1231,7 +1231,7 @@ shield large red~
 the large red shield~
 A large, red shield is on the floor.~
 copper~
-armor GK AJ
+armor K AJ
 7 7 7 0 0
 20 30 200 P
 A
@@ -1253,7 +1253,7 @@ warhammer mage masher~
 a red steel warhammer called, "Mage Masher"~
 A red steel warhammer with engravings on the head lies here.~
 copper~
-weapon BG AN
+weapon B AN
 mace 5 5 crush 0
 20 35 200 P
 A
@@ -1274,7 +1274,7 @@ plate black platemail~
 black platemail~
 A suit of black platemail is sitting on the floor.~
 copper~
-armor G AD
+armor 0 AD
 6 6 6 0 0
 15 10 150 P
 A
@@ -1287,7 +1287,7 @@ enchanted longsword~
 enchanted longsword~
 A blade with runes etched in it is on the floor.~
 copper~
-weapon G AN
+weapon 0 AN
 sword 4 5 none 0
 15 7 150 P
 A
@@ -1300,7 +1300,7 @@ enchanted hammer~
 enchanted hammer~
 A hammer with runes etched in it is on the floor.~
 copper~
-weapon G AN
+weapon 0 AN
 mace 4 5 none 0
 15 12 150 P
 A
@@ -1311,7 +1311,7 @@ enchanted pike~
 enchanted pike~
 A polearm with runes etched in it is on the floor.~
 copper~
-weapon G AN
+weapon 0 AN
 polearm 4 5 none 0
 15 15 150 P
 A
@@ -1322,7 +1322,7 @@ chamorro ringmail~
 chamorro ringmail~
 A bunch of rings sewn together with taotamoa bark is on the ground.~
 copper~
-armor G AD
+armor 0 AD
 5 5 5 0 0
 10 6 100 P
 A
@@ -1420,7 +1420,7 @@ enchanted two-handed sword~
 enchanted two-handed sword~
 A large two-handed sword with runes etched in it is on the floor.~
 copper~
-weapon G AN
+weapon 0 AN
 sword 6 6 magic F
 16 30 160 P
 A
@@ -1649,7 +1649,7 @@ Scuba flippers~
 scuba flippers~
 A pair of flippers are here.~
 copper~
-armor G AG
+armor 0 AG
 5 5 5 0 0
 10 7 100 P
 A
@@ -1687,7 +1687,7 @@ cloak storage~
 cloak of storage~
 A cloak is on the ground in a pile.~
 copper~
-container G AC
+container 0 AC
 125 A 0 0 0
 0 5 0 P
 G none
@@ -1696,7 +1696,7 @@ ring holding~
 ring of holding~
 A small ring with a hinge is here collecting dust.~
 copper~
-container G AB
+container 0 AB
 300 A 0 0 0
 0 3 0 P
 G none
@@ -1723,7 +1723,7 @@ travellers spellbook~
 travellers spellbook~
 A leather bound book with an arcane symbol is laying here.~
 copper~
-staff 0 AO
+staff G AO
 14 5 5 'flamestrike' 0
 14 45 140 P
 G none
@@ -1732,7 +1732,7 @@ travellers holy symbol~
 travellers holy symbol~
 A cheap holy symbol is laying here.~
 copper~
-staff 0 AO
+staff G AO
 19 5 5 'remove curse' 0
 19 20 190 P
 G none
@@ -1759,7 +1759,7 @@ travellers sword~
 a travellers sword~
 You see a travellers sword here.~
 copper~
-weapon G AN
+weapon 0 AN
 sword 5 4 slash 0
 16 5 160 P
 G none
@@ -1795,7 +1795,7 @@ Magnus's spellbook~
 Magnus's spellbook~
 A leather bound book with an arcane symbol is laying here.~
 copper~
-staff 0 AO
+staff G AO
 19 5 5 'acid breath' 0
 19 55 190 P
 G none
@@ -1804,7 +1804,7 @@ robe magi~
 robe of the magi~
 A pile of cloth is on the ground. The cloth is covered with arcane symbols.~
 copper~
-armor G AK
+armor 0 AK
 6 6 6 0 0
 19 10 190 P
 A
@@ -1817,7 +1817,7 @@ crystal plate armor~
 crystal plate armor~
 A finely crafted suit of crystal plate armor is here.~
 copper~
-armor FG AD
+armor F AD
 6 6 6 0 0
 18 60 180 P
 A
@@ -1832,7 +1832,7 @@ Scythe Grim Reaper~
 Scythe of the Grim Reaper~
 A huge bloody scythe is here floating above the ground~
 copper~
-weapon AGJ AN
+weapon AJ AN
 polearm 3 3 cleave 0
 0 50 0 P
 A
@@ -1847,7 +1847,7 @@ crystal shield~
 crystal shield~
 A finely crafted crystal shield is here.~
 copper~
-armor FG AJ
+armor F AJ
 6 6 6 0 0
 18 20 180 P
 A
@@ -1858,7 +1858,7 @@ crystal longsword~
 crystal longsword~
 A finely crafted crystal longsword is here.~
 copper~
-weapon FG AN
+weapon F AN
 sword 6 6 slash F
 18 15 180 P
 A
@@ -1871,7 +1871,7 @@ obsidian plate armor~
 a suit of obsidian plate armor~
 A suit of obsiadian plate armor is here on the ground.~
 copper~
-armor GK AD
+armor K AD
 9 9 9 0 0
 30 40 300 P
 A
@@ -1884,7 +1884,7 @@ steel plate armor~
 a suit of steel plate armor~
 A suit of steel plate armor is here on the ground.~
 copper~
-armor GK AD
+armor K AD
 8 8 8 0 0
 27 37 270 P
 A
@@ -1897,7 +1897,7 @@ red plate armor~
 a suit of red plate armor~
 A suit of red plate armor is here on the ground.~
 copper~
-armor GK AD
+armor K AD
 7 7 7 0 0
 20 33 200 P
 A
@@ -1910,7 +1910,7 @@ enchanted bow~
 enchanted bow~
 A bow with runes etched in it is on the floor.~
 copper~
-weapon G AN
+weapon 0 AN
 bow 4 5 blast 0
 15 7 150 P
 A

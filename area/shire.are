@@ -518,7 +518,7 @@ rainbow staff~
 the rainbow staff~
 The rainbow staff lies here.~
 unknown~
-light G A
+light 0 A
 0 0 -1 0 0
 5 80 550 P
 A
@@ -570,7 +570,7 @@ silvery cloak~
 a silvery cloak~
 A silvery cloak lies here.~
 cloth~
-armor GK AK
+armor K AK
 6 6 6 2 0
 15 30 1320 P
 A
@@ -581,7 +581,7 @@ one ring~
 the One Ring~
 The One Ring is here.~
 copper~
-jewelry G AB
+jewelry 0 AB
 0 0 0 0 0
 20 30 1660 P
 F A 0 0 B
@@ -593,7 +593,7 @@ elven spear~
 an elven spear~
 An elven spear lies here.~
 wood~
-weapon BGK AN
+weapon BK AN
 spear 3 7 thrust K
 16 50 500 P
 A

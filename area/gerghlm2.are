@@ -916,7 +916,7 @@ strengthening herbs red bunch~
 a bunch of red herbs~
 A bunch of strengthening herbs is growing here.~
 food~
-pill 0 A
+pill G A
 2 'giant strength' 'refresh' 'refresh' 'refresh'
 1 15 500 P
 G none
@@ -925,7 +925,7 @@ healing herb green bunch~
 a bunch of green herbs~
 A bunch of healing herbs is growing here.~
 food~
-pill 0 A
+pill G A
 1 'cure critical' 'remove curse' 'cure poison' 'cure disease'
 1 20 437 P
 G none
@@ -934,7 +934,7 @@ strange herbs green bunch~
 a bunch of herbs~
 A bunch of strange herbs are growing here.~
 food~
-pill 0 A
+pill G A
 1 'detect hidden' 'detect invis' 'infravision' ''
 1 10 494 P
 G none
@@ -1040,7 +1040,7 @@ vest junior guard~
 a junior guard vest~
 A junior guard vest is here. forgotten.~
 leather~
-armor G AD
+armor 0 AD
 6 6 6 0 1
 14 60 2448 P
 A
@@ -1056,7 +1056,7 @@ shield junior guard~
 a junior guard shield~
 A junior guard shield is here.  Forgotten.~
 leather~
-armor G AJ
+armor 0 AJ
 6 6 6 0 1
 14 60 2400 P
 A
@@ -1164,7 +1164,7 @@ cloak guard gerighelm~
 a Gerighelm cloak~
 A Gerighelm guard's cloak is here.~
 cloth~
-armor G AC
+armor 0 AC
 6 6 6 0 2
 16 50 2560 P
 A
@@ -1307,7 +1307,7 @@ cloak palace guard~
 a palace guard cloak~
 a cloak that glows! And Humms too!!~
 steel~
-armor ABG AC
+armor AB AC
 7 7 7 -1 2
 22 40 4700 P
 A
@@ -1375,7 +1375,7 @@ silver staff~
 a silver staff~
 A staff made out of silver is here.~
 wood~
-staff 0 AO
+staff G AO
 40 20 20 'lightning bolt' 0
 20 40 4840 P
 G none
@@ -1384,7 +1384,7 @@ dagger stabbing~
 the dagger of stabbing~
 A dagger is here.~
 silver~
-weapon G AN
+weapon 0 AN
 dagger 5 6 stab 0
 20 40 4666 P
 A
@@ -1397,7 +1397,7 @@ holy word holyword~
 a holyword~
 A holyword is here, hanging in midair.~
 crystal~
-weapon G AN
+weapon 0 AN
 exotic 5 6 blast 0
 25 50 5400 P
 A
@@ -1412,7 +1412,7 @@ mace~
 a mace~
 A mace is here.~
 wood~
-weapon AG AN
+weapon A AN
 mace 2 4 pound 0
 6 10 870 P
 A
@@ -1425,7 +1425,7 @@ sword thunder~
 the sword of thunder~
 A HUGE sword is here.~
 steel~
-weapon G AN
+weapon 0 AN
 sword 5 6 slash 0
 21 80 5000 P
 A
@@ -1438,7 +1438,7 @@ vest titans titan~
 the vest of the titans~
 A vest is here.~
 leather~
-armor G AD
+armor 0 AD
 7 7 7 0 3
 21 60 5520 P
 A
@@ -1451,7 +1451,7 @@ hoe destruction~
 the hoe of destruction~
 A hoe of destruction is here.~
 wood~
-weapon ABG AN
+weapon AB AN
 polearm 5 6 blast 0
 21 80 5175 P
 A
@@ -1462,7 +1462,7 @@ gardeners gloves~
 the gardeners gloves~
 Some gloves are here.~
 cloth~
-armor G AH
+armor 0 AH
 3 3 3 0 1
 21 50 9 P
 A
@@ -1484,7 +1484,7 @@ uniform~
 a uniform~
 A uniform is here.~
 cloth~
-armor G AD
+armor 0 AD
 8 8 8 0 3
 22 60 6000 P
 A
@@ -1495,7 +1495,7 @@ saber~
 a saber~
 A saber is here.~
 steel~
-weapon G AN
+weapon 0 AN
 sword 5 6 slash 0
 22 80 7000 P
 A
@@ -1506,7 +1506,7 @@ two-handed two handed~
 a two-handed sword~
 A two handed sword is here.~
 steel~
-weapon G AN
+weapon 0 AN
 sword 5 7 slash F
 28 8 8928 P
 A
@@ -1525,7 +1525,7 @@ dukes duke helm~
 the Dukes Helm~
 A helmet is here.~
 steel~
-armor G AE
+armor 0 AE
 9 9 9 0 3
 28 50 9920 P
 A
@@ -1536,7 +1536,7 @@ duchesses tiara~
 the Duchesses Tiara~
 A Tiara is here.~
 diamond~
-armor G AE
+armor 0 AE
 7 7 7 0 2
 22 10 6520 P
 A
@@ -1549,7 +1549,7 @@ wedding ring~
 a wedding ring~
 A wedding ring is here.~
 gold~
-armor ABG AB
+armor AB AB
 7 7 7 0 2
 22 10 6600 P
 A
@@ -1562,7 +1562,7 @@ wedding ring~
 a wedding ring~
 A wedding ring is here.~
 gold~
-armor ABG AB
+armor AB AB
 8 8 8 0 2
 28 10 6600 P
 A
@@ -1599,7 +1599,7 @@ marbles marble green~
 a green marble~
 A green marble is here, all alone...~
 marble~
-wand A AO
+wand AG AO
 20 1 1 'fireball' 0
 20 1 2560 P
 G none
@@ -1608,7 +1608,7 @@ marble marbles blue~
 a blue marble~
 A marble is here, it's blue.~
 marble~
-wand A AO
+wand AG AO
 20 1 1 'heal' 0
 20 1 2560 P
 G none
@@ -1617,7 +1617,7 @@ marble marbles yellow~
 a yellow marble~
 A yellow marble is here.~
 marble~
-wand A AO
+wand AG AO
 49 1 1 'gas breath' 0
 20 1 2100 P
 G none
@@ -1653,7 +1653,7 @@ ring defender~
 a defenders ring~
 A ring is shining in the dust.~
 gold~
-armor G AB
+armor 0 AB
 0 0 0 0 0
 18 10 3610 P
 A
@@ -1736,7 +1736,7 @@ scythe~
 the Death's Scythe~
 Very dangerous evil scythe is here.~
 mithril~
-weapon G AN
+weapon 0 AN
 polearm 10 8 smash DE
 60 200 50000 P
 G none

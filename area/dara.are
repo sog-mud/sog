@@ -309,7 +309,7 @@ dagger seeker iron~
 the Seeker~
 A dull iron dagger lies here.~
 iron~
-weapon BCG AN
+weapon BC AN
 dagger 5 11 sting DE
 47 50 16370 P
 A
@@ -324,7 +324,7 @@ power stone~
 the power stone~
 A small sun hovers above the ground.~
 stone~
-light ABG A
+light AB A
 0 0 -1 0 0
 47 100 21783 P
 A
@@ -339,7 +339,7 @@ ivory statuette warrior blessing~
 the warrior's blessing~
 A small ivory statuette of a fierce warrior rests in the corner.~
 stone~
-treasure ABFGI AO
+treasure ABFI AO
 0 0 0 0 0
 45 30 10000 P
 A
@@ -352,7 +352,7 @@ boots wind~
 the Boots of the Wind~
 A pair of worn leather boots lie here.~
 leather~
-armor AG AG
+armor A AG
 12 12 12 6 1
 45 15 14000 P
 A
@@ -366,7 +366,7 @@ bone dagger~
 bone dagger~
 A dagger made of some white substance lies here.~
 stone~
-weapon ABCEFGHM AN
+weapon ABCEFHM AN
 dagger 5 9 pierce D
 40 20 17560 P
 A
@@ -381,7 +381,7 @@ cloak grey~
 a grey cloak~
 A pile of grey cloth lies here.~
 cloth~
-armor CFGH AK
+armor CFH AK
 9 9 9 2 1
 32 250 11845 P
 A
@@ -396,7 +396,7 @@ glass knife~
 a glass knife~
 A piece of glass has been shaped into a knife and left here.~
 glass~
-weapon G AN
+weapon 0 AN
 dagger 7 5 stab D
 32 70 5000 P
 A
@@ -407,7 +407,7 @@ glass knife~
 a glass knife~
 A piece of glass has been shaped into a knife and left here.~
 glass~
-weapon G AN
+weapon 0 AN
 dagger 5 7 stab D
 36 40 15000 P
 A
@@ -420,7 +420,7 @@ red robe~
 a red robe~
 A pile of soft red cloth lie on the floor.~
 cloth~
-armor ABGI AK
+armor ABI AK
 14 14 14 6 1
 48 75 22523 P
 A
@@ -433,7 +433,7 @@ sapphire staff~
 a sapphire staff~
 A long, blue staff has been carelessly left here.~
 stone~
-weapon ABG AN
+weapon AB AN
 staff 11 5 blast AF
 48 110 27450 P
 A
@@ -448,7 +448,7 @@ bracer iron~
 a iron bracer~
 A tranished metal bracer is on the ground.~
 iron~
-armor CG AM
+armor C AM
 9 9 9 1 1
 36 140 6700 P
 A
@@ -461,7 +461,7 @@ wicked battle axe~
 a wicked battle axe~
 A sharp battle axe rest in the corner.~
 iron~
-weapon G AN
+weapon 0 AN
 axe 5 10 cleave D
 36 270 12500 P
 A
@@ -474,7 +474,7 @@ cloak black~
 a dark black cloak~
 An evil black cloth is waiting for someone to pick it up.~
 cloth~
-armor BCEFGH AC
+armor BCEFH AC
 10 10 10 2 1
 45 250 17120 P
 A
@@ -487,7 +487,7 @@ fire blade~
 a fire blade~
 A beautiful black sword lies here. It has a flame engraved into the blade.~
 adamantite~
-weapon ABCEG AN
+weapon ABCE AN
 sword 5 10 slash A
 44 130 19000 P
 A
@@ -502,7 +502,7 @@ silver plate breast~
 Silver plate~
 A beautifully made breast plate made from pure silver lies here.~
 silver~
-armor G AD
+armor 0 AD
 13 13 13 5 1
 40 350 10044 P
 A
@@ -528,7 +528,7 @@ green skull cap~
 a green skull cap~
 A small piece of green cloth has be abandoned here.~
 cloth~
-armor CEG AE
+armor CE AE
 13 13 13 6 1
 44 5 14000 P
 A
@@ -541,7 +541,7 @@ green demon claw~
 a green demon claw~
 A demon has left his claw here for anyone to use.~
 gold~
-weapon ABCEG AN
+weapon ABCE AN
 exotic 5 10 claw D
 43 25 14000 P
 A
@@ -574,7 +574,7 @@ mask~
 a black mask~
 A black mask has been discarded here.~
 cloth~
-armor CFG AE
+armor CF AE
 10 10 10 5 1
 38 75 13000 P
 A
@@ -587,7 +587,7 @@ adamantite small sword~
 an adamantite small sword~
 A dull black small sword waits for a new owner.~
 adamantite~
-weapon ABCEGL AN
+weapon ABCEL AN
 sword 5 8 thrust E
 40 200 14200 P
 A
@@ -600,7 +600,7 @@ shield crow~
 the crow shield~
 A small steel shield with the image of a crow on it, lies here.~
 steel~
-armor BG AJ
+armor B AJ
 11 11 11 4 0
 38 250 19000 P
 A

@@ -538,7 +538,7 @@ packet black centipede spice~
 spice of the black, aquatic centipede~
 A packet of black spice has been forgotten here.~
 glass~
-pill 0 A
+pill G A
 20 'teleport' '' '' ''
 1 10 100 P
 G none
@@ -547,7 +547,7 @@ seaweed~
 aromatic seaweed~
 You smell the dreamy smell of seaweed.~
 glass~
-pill 0 A
+pill G A
 20 'detect magic' '' '' ''
 2 100 100 P
 G none
@@ -556,7 +556,7 @@ chameleon~
 a desiccated chameleon~
 A small chameleon corpse blends in with the ground.~
 snakeskin~
-pill 0 A
+pill G A
 11 'detect invis' '' '' ''
 3 100 300 P
 G none
@@ -565,7 +565,7 @@ giant squid eye eyeball~
 the eye of a giant squid~
 An eyeball looks up at you strangely.~
 gut~
-pill 0 A
+pill G A
 13 'poison' 'plague' '' ''
 4 100 100 P
 G none
@@ -574,7 +574,7 @@ shiny bit green glass~
 a shiny bit of green glass~
 You see a shiny bit of green glass and need to possess it.~
 glass~
-treasure G AO
+treasure 0 AO
 0 0 0 0 0
 8 10 640 P
 A
@@ -585,7 +585,7 @@ shiny bit blue glass~
 a shiny bit of blue glass~
 You see a shiny bit of blue glass and decide it will soon be yours.~
 glass~
-treasure G AO
+treasure 0 AO
 0 0 0 0 0
 8 10 650 P
 A
@@ -596,7 +596,7 @@ gold circlet~
 a bright gold circlet~
 You have a sudden urge to pick up a bright gold circlet.~
 gold~
-treasure G AO
+treasure 0 AO
 0 0 0 0 0
 8 10 680 P
 A
@@ -607,7 +607,7 @@ piece string~
 a pretty piece of string~
 The most beautiful piece of string you have ever seen rests here.~
 steel~
-treasure G AO
+treasure 0 AO
 0 0 0 0 0
 10 10 600 P
 A
@@ -744,7 +744,7 @@ glass eye~
 a glass eye~
 A glass eye looks back at you.~
 glass~
-treasure G AO
+treasure 0 AO
 0 0 0 0 0
 10 4 10 P
 A
@@ -780,7 +780,7 @@ hand ashtray~
 an ashtray~
 An ashtray made out of the hand of a dwarf lies on the floor.~
 gold~
-treasure G AO
+treasure 0 AO
 0 0 0 0 0
 10 550 1000 P
 A
@@ -813,7 +813,7 @@ bottle potion clear~
 a clear potion with feathers inside~
 Feathers float about inside a clear bottle.~
 glass~
-potion 0 AO
+potion G AO
 5 'fly' '' '' ''
 1 50 1001 P
 G none
@@ -831,7 +831,7 @@ sword~
 a sword~
 You see a sword here.~
 steel~
-weapon AG AN
+weapon A AN
 sword 5 6 pierce 0
 25 100 1000 P
 A
@@ -844,7 +844,7 @@ mace~
 a mace~
 You see a mace here.~
 bronze~
-weapon AG AN
+weapon A AN
 mace 5 7 crush 0
 27 100 3000 P
 A
@@ -1338,7 +1338,7 @@ fountain water~
 a fountain~
 A large fountain gushes forth here.~
 marble~
-fountain G 0
+fountain 0 0
 100000 10000 'milk' 0 0
 0 0 0 P
 G none
@@ -1347,7 +1347,7 @@ cannon tube~
 a cannon~
 A mysterious thick metal tube rests here.~
 steel~
-wand 0 AO
+wand G AO
 50 1 1 'high explosive' 0
 20 12 34570 G
 E
@@ -1370,7 +1370,7 @@ bug glowbug chitin~
 a dead glowbug~
 You see the shiny chitin of a dead glowbug.~
 gut~
-light G A
+light 0 A
 0 0 80 0 0
 5 33 567 P
 G none

@@ -558,7 +558,7 @@ sword~
 the Sword of the Ancients~
 The Sword of the Ancients rests here~
 steel~
-weapon GJLO AN
+weapon JLO AN
 sword 5 8 pierce D
 40 320 18400 G
 A
@@ -575,7 +575,7 @@ pile silk~
 a pile of blue silk~
 A pile of dark blue silk lies here, rustling slightly.~
 wool~
-armor GL AK
+armor L AK
 12 12 12 6 0
 37 120 19453 G
 A
@@ -590,7 +590,7 @@ silver sleeves~
 a pair of silver sleeves~
 A pair of silver sleeves lies at your feet.~
 silver~
-armor GLO AI
+armor LO AI
 11 11 11 5 0
 32 200 11800 G
 A
@@ -605,7 +605,7 @@ belt~
 a Rune Covered Belt~
 An ornate looking belt lies here.~
 leather~
-armor GL AL
+armor L AL
 9 9 9 2 0
 32 100 14799 G
 E
@@ -618,7 +618,7 @@ helm dragons~
 a Helm of the Dragons~
 A strange helm lies here.~
 steel~
-armor GJL AE
+armor JL AE
 12 12 12 2 0
 38 240 19450 G
 A
@@ -636,7 +636,7 @@ rune breast plate~
 a Rune Covered Breast Plate~
 A rune covered breast plate lies here in the dirt~
 steel~
-armor GJLO AD
+armor JLO AD
 11 11 11 2 0
 38 150 18394 G
 A
@@ -652,7 +652,7 @@ pair silver boot boots~
 a Pair of Silver Boots~
 A pair of silver boots stands neatly in the corner~
 silver~
-armor GLO AG
+armor LO AG
 10 10 10 2 0
 35 90 17560 G
 E
@@ -666,7 +666,7 @@ silver Shield~
 A Sturdy looking shield of silver rests against a nearby wall, gleaming
 brightly.~
 silver~
-armor GLO AJ
+armor LO AJ
 12 12 12 2 0
 46 250 20666 G
 E
@@ -680,7 +680,7 @@ black silver cloak~
 a Black and Silver Cloak~
 A Black and silver Cloak lies crumpled in a corner.~
 silver~
-armor GLM AK
+armor LM AK
 9 9 9 2 0
 25 50 12340 G
 E
@@ -694,7 +694,7 @@ metallic leg plates~
 a Pair of Metallic Leg Plates~
 A pair of leg plates formed of some metallic substance lie in pile.~
 steel~
-armor EGL AF
+armor EL AF
 9 9 9 1 0
 25 3500 0 G
 G none
@@ -703,7 +703,7 @@ pair jeweled gauntlets~
 a Pair of Jeweled Gauntlets~
 A pair of jewel encrusted gauntlets lie here.~
 steel~
-armor GJLN AH
+armor JLN AH
 15 15 15 7 0
 45 17 13670 G
 A
@@ -720,7 +720,7 @@ pitch black cloak~
 a Pitch-Black Cloak~
 A dark black cloak lies here in the dirt.~
 energy~
-armor GHLM AK
+armor HLM AK
 12 11 10 2 0
 35 60 26620 G
 G none
@@ -729,7 +729,7 @@ flaming bracelet~
 a Flaming Bracelet~
 A diamond studded bracelet lies here, burning fiercely.~
 diamond~
-armor GHLMO AM
+armor HLMO AM
 11 11 11 2 0
 35 20 24678 G
 A
@@ -746,7 +746,7 @@ black onyx ring~
 a Black Onyx Ring~
 A black onyx ring lies here, just barely visible.~
 stone~
-armor GL AB
+armor L AB
 0 0 0 0 0
 36 10 12250 G
 A
@@ -759,7 +759,7 @@ shadowshiv~
 the Shadowshiv~
 A small, wicked looking dagger lies here, its blade as black as night.~
 steel~
-weapon BGHLM AN
+weapon BHLM AN
 dagger 5 7 stab C
 25 40 13060 G
 A
@@ -772,7 +772,7 @@ two handed sword flaming~
 a Flaming Two-Handed Sword~
 An finely crafted two handed sword lies here engulfed in flamed.~
 fire~
-weapon GLO AN
+weapon LO AN
 sword 5 11 blast AF
 50 40 36740 G
 F A 0 0 I
@@ -786,7 +786,7 @@ silver trident~
 a Silver Trident~
 A trident crafted from fine silver has been placed here.~
 silver~
-weapon BCGHJLM AN
+weapon BCHJLM AN
 spear 5 8 pierce K
 36 180 16740 G
 A
@@ -799,7 +799,7 @@ sword sharpness~
 sword of Sharpness~
 A sword with a razor sharp blade lies here.~
 steel~
-weapon GLO AN
+weapon LO AN
 sword 5 7 pierce D
 33 70 8700 G
 A
@@ -812,7 +812,7 @@ crystal ring~
 a Crystal Ring~
 A small crystal ring lies here.~
 crystal~
-treasure AGL AB
+treasure AL AB
 0 0 0 0 0
 22 100 5000 G
 A
@@ -823,7 +823,7 @@ jeweled dagger~
 a Jeweled Dagger~
 A small dagger, encrusted with jewels lies here.~
 steel~
-weapon GLM AN
+weapon LM AN
 dagger 6 7 stab 0
 37 70 22342 G
 G none
@@ -832,7 +832,7 @@ jewel encrusted helmet~
 a Jewel Encrusted Helmet~
 A small, jewel encrusted helmet lies here.~
 silver~
-armor GJLNO AE
+armor JLNO AE
 12 12 12 2 0
 37 170 23679 G
 G none
@@ -841,7 +841,7 @@ small medallion~
 a Small Medallion~
 A small medallion lies here among the dirt.~
 quartz~
-armor AGLP AC
+armor ALP AC
 13 14 13 2 0
 41 20 18999 G
 A
@@ -852,7 +852,7 @@ ivory bracelet~
 an Ivory Bracelet~
 A bracelet made of the finest ivory rests here.~
 ivory~
-armor GL AM
+armor L AM
 9 9 9 2 0
 31 16 13420 G
 F R 0 0 D
@@ -864,7 +864,7 @@ green cape~
 a Bright Green Cape~
 An ugly, bright green cape lies ruffled in a nearby corner.~
 snakeskin~
-armor GL AC
+armor L AC
 9 9 9 1 3
 33 120 10404 G
 A
@@ -875,7 +875,7 @@ fire blade~
 the fire blade~
 A large sword lies here, smoldering in flames.~
 fire~
-weapon AGL AN
+weapon AL AN
 sword 5 5 blast A
 25 400 13780 G
 G none
@@ -884,7 +884,7 @@ glaive~
 glaive~
 A glaive rests here in the dirt.~
 steel~
-weapon GL AN
+weapon L AN
 polearm 9 5 slash 0
 44 120 18734 G
 E
@@ -897,7 +897,7 @@ soul amulet~
 the Soul Amulet~
 A magical looking amulet lies here, gleaming.~
 quartz~
-armor GL AC
+armor L AC
 11 11 11 3 0
 36 30 16400 G
 G none
@@ -906,7 +906,7 @@ circlet concentration~
 the Silver Circlet of Concentration~
 A small tiara of silver lies on the ground.~
 silver~
-armor GL AE
+armor L AE
 12 12 12 2 0
 42 100 18450 G
 A
@@ -1039,7 +1039,7 @@ breast plate~
 The Silver Breast Plate~
 A silver breast plate lies here in the dirt~
 silver~
-armor GJL AD
+armor JL AD
 16 17 16 3 0
 48 150 19394 G
 A
@@ -1050,7 +1050,7 @@ helm~
 the Silver Helm~
 A strange, silver helm lies here.~
 silver~
-armor GJL AE
+armor JL AE
 17 17 16 12 0
 48 280 21450 G
 A
@@ -1061,7 +1061,7 @@ pair boot boots~
 a Pair of Runed Covered Boots~
 A pair of runed covered boots stands neatly in the corner~
 leather~
-armor GLO AG
+armor LO AG
 12 12 12 2 0
 27 120 19560 G
 G none
@@ -1070,7 +1070,7 @@ girth hero heroism~
 the Girth of Real Heroism~
 An enormous, huge GIRTH lies here, filling the room with its power.~
 mithril~
-armor AGIOY AL
+armor AIOY AL
 12 12 12 9 2
 51 300 100000 G
 G none
@@ -1079,7 +1079,7 @@ ring hero heroism~
 the Ring of Real Heroism~
 An enormous, RING lies here, filling the room with its power.~
 energy~
-armor AGIOY AB
+armor AIOY AB
 12 12 12 9 1
 51 300 100000 G
 G none
@@ -1088,7 +1088,7 @@ weapon hero heroism~
 the Real Hero' Weapon~
 An enormous, huge WEAPON lies here, filling the room with its power.~
 steel~
-weapon AGIOY AN
+weapon AIOY AN
 exotic 10 11 slash D
 51 300 100000 G
 G none
@@ -1097,7 +1097,7 @@ wand жезл flaming~
 @eng a flaming wand@rus ~~пылающий~~ ~~жезл~~~
 @eng The flaming wand shines.@rus Пылающий жезл (wand) освещает все вокруг.~
 fire~
-wand 0 AO
+wand G AO
 40 5 5 'fire sphere' 0
 30 1 0 P
 G male

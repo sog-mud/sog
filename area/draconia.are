@@ -526,7 +526,7 @@ wand golden~
 a golden wand~
 A golden wand has been dropped here.~
 gold~
-wand A AO
+wand AG AO
 25 10 10 'dispel magic' 0
 14 50 5500 P
 G none
@@ -562,7 +562,7 @@ staff black~
 a black staff~
 You notice the faint outline of a staff.~
 onyx~
-staff AJ AO
+staff AGJ AO
 30 3 3 'energy drain' 0
 14 250 5300 P
 G none
@@ -571,7 +571,7 @@ potion cyan~
 a cyan potion~
 A small cyan potion has been left here.~
 glass~
-potion 0 A
+potion G A
 30 'blindness' 'harm' '' ''
 9 10 1060 P
 G none
@@ -580,7 +580,7 @@ potion magenta~
 a magenta potion~
 A magenta potion.~
 glass~
-potion H A
+potion GH A
 30 'cure critical' 'protection evil' '' ''
 7 10 600 P
 G none
@@ -589,7 +589,7 @@ gauntlets spiked~
 a pair of spiked gauntlets~
 A pair of spiked gauntlets.~
 iron~
-armor AG AH
+armor A AH
 4 4 4 0 0
 20 100 2500 P
 A
@@ -615,7 +615,7 @@ brooch diamond~
 a diamond brooch~
 A diamond brooch.~
 diamond~
-jewelry G AC
+jewelry 0 AC
 0 0 0 0 0
 25 20 980 P
 A

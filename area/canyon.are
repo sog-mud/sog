@@ -603,7 +603,7 @@ boots wind~
 the wind boots~
 A pair of boots that look fast standing still are here.~
 fiber~
-armor G AG
+armor 0 AG
 8 8 8 2 0
 26 10 5200 P
 A
@@ -723,7 +723,7 @@ wand~
 elemental wand of fire~
 A fire wand lies forgotten on the ground.~
 wood~
-wand A AO
+wand AG AO
 15 3 3 'fireball' 0
 16 70 3900 P
 G none
@@ -732,7 +732,7 @@ staff ice~
 an ice staff~
 An ice staff lies forgotten on the ground.~
 ice~
-wand A AO
+wand AG AO
 12 3 3 'frost breath' 0
 25 70 13700 P
 G none
@@ -741,7 +741,7 @@ rod earthquake~
 an elemental rod of earthquake~
 An earthquake rod lies forgotten on the ground.~
 ebony~
-wand A AO
+wand AG AO
 7 3 3 'earthquake' 0
 7 70 1000 P
 G none
@@ -750,7 +750,7 @@ wand air wind~
 elemental wand of wind and air~
 An air wand lies forgotten on the ground.~
 wood~
-wand A AO
+wand AG AO
 11 1 1 'gas breath' 0
 27 70 12600 P
 G none
@@ -759,7 +759,7 @@ wand~
 elemental wand of lightning~
 A lightning wand lies forgotten on the ground.~
 ebony~
-wand A AO
+wand AG AO
 9 1 1 'lightning bolt' 0
 7 70 1420 P
 G none
@@ -781,7 +781,7 @@ lode load lodestone loadstone stone~
 a lodestone~
 A dull red rock lies here amid the weeds.~
 stone~
-wand 0 AO
+wand G AO
 19 2 2 'harm' 0
 13 20 2800 P
 A
@@ -801,7 +801,7 @@ energy scroll~
 an energy scroll~
 A scroll of energy replacement lies here.~
 paper~
-scroll B A
+scroll BG A
 19 'cure critical' 'refresh' '' ''
 5 10 860 P
 G none
@@ -819,7 +819,7 @@ dust~
 magic dust~
 A pile of dust of appearance has gathered here.~
 unknown~
-pill 0 A
+pill G A
 20 'detect invis' '' '' ''
 0 10 300 P
 G none
@@ -891,7 +891,7 @@ elixir anti~
 anti-cyclops elixir~
 An elixir to ward off cyclopi has been bought then left behind here.~
 glass~
-potion 0 AO
+potion G AO
 15 'invisibility' '' '' ''
 0 10 250 P
 G none

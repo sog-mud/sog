@@ -872,7 +872,7 @@ potion green~
 a green potion~
 You see a green potion on the floor.~
 glass~
-potion 0 A
+potion G A
 20 'gas breath' '' '' ''
 25 50 3000 P
 G none
@@ -881,7 +881,7 @@ bluish herbs~
 some bluish herbs~
 Some bluish herbs are scattered here.~
 unknown~
-pill 0 A
+pill G A
 15 '' '' 'bless' ''
 1 10 270 P
 G none
@@ -890,7 +890,7 @@ purplish herbs~
 some purplish herbs~
 Some purplish herbs are scattered here.~
 unknown~
-pill 0 A
+pill G A
 15 '' '' 'detect evil' ''
 0 10 250 P
 G none
@@ -899,7 +899,7 @@ grayish herbs~
 some grayish herbs~
 Some grayish herbs are scattered here.~
 unknown~
-pill 0 A
+pill G A
 5 '' 'giant strength' 'poison' ''
 5 10 360 P
 G none
@@ -908,7 +908,7 @@ orangish herbs~
 some orangish herbs~
 Some orangish herbs are scattered here.~
 plant_organism~
-pill 0 A
+pill G A
 5 '' '' 'cure light' ''
 0 10 150 P
 G none
@@ -917,7 +917,7 @@ sword~
 an imperial sword~
 You see an imperial sword here.~
 steel~
-weapon G AN
+weapon 0 AN
 sword 3 6 slash 0
 14 50 1420 P
 A
@@ -935,7 +935,7 @@ mace~
 an imperial mace~
 You see an imperial mace here.~
 mithril~
-weapon G AN
+weapon 0 AN
 mace 3 7 pound 0
 15 50 1180 P
 A
@@ -1107,7 +1107,7 @@ ring signet~
 an imperial city guard signet ring~
 You see a ring with a strange symbol on the floor.~
 ruby~
-jewelry G AB
+jewelry 0 AB
 0 0 0 0 0
 16 10 1280 P
 A
@@ -1120,7 +1120,7 @@ imperial banner~
 an imperial war banner~
 An imperial war banner is on the floor here.~
 wood~
-light AG A
+light A A
 0 0 -1 0 0
 20 10 1440 P
 A
@@ -1137,7 +1137,7 @@ two-handed two sword~
 a two-handed sword~
 A nice two-handed sword hangs on a hook in the wall.~
 iron~
-weapon GK AN
+weapon K AN
 sword 5 7 cleave DF
 34 240 4400 P
 A

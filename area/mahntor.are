@@ -616,7 +616,7 @@ rod weaponry~
 the rod of weaponry~
 A shiny metal rod lies here.~
 steel~
-weapon AGI AN
+weapon AI AN
 exotic 3 12 blast 0
 28 240 4700 P
 A
@@ -629,7 +629,7 @@ cloak pitch black~
 a pitch black cloak~
 A pile of black cloth lies here.~
 leather~
-container G AK
+container 0 AK
 150 0 0 30 90
 20 30 860 P
 A
@@ -644,7 +644,7 @@ neckguard neck guard black plate~
 a black plate neckguard~
 A black plate collar rests here.~
 iron~
-armor GJL AC
+armor JL AC
 9 9 9 0 0
 30 100 3400 P
 A
@@ -670,7 +670,7 @@ shield shadow~
 the shadow shield~
 A shadowy shield rests here.~
 oak~
-armor AGJL AJ
+armor AJL AJ
 8 8 8 3 0
 27 150 4900 P
 A
@@ -687,7 +687,7 @@ nightbringer short sword shortsword~
 a shortsword named "Nightbringer"~
 A very evil looking shortsword lies here.~
 unknown~
-weapon CGJL AN
+weapon CJL AN
 sword 3 14 pierce 0
 39 90 3500 P
 A
@@ -704,7 +704,7 @@ visor helm golden~
 a golden helm and visor~
 A helm and visor made of pure gold rests here.~
 gold~
-armor AGKL AE
+armor AKL AE
 7 7 7 2 0
 20 150 3000 P
 A
@@ -717,7 +717,7 @@ breast plate gilded gold~
 a gilded gold breast plate~
 A large golden breast plate lies here.~
 gold~
-armor AGKL AD
+armor AKL AD
 9 9 9 3 0
 32 180 6700 P
 A
@@ -728,7 +728,7 @@ cape white billowing silk~
 a billowing white cape ~
 A pile of white silk lies here.~
 silk~
-armor AG AC
+armor A AC
 5 5 5 1 0
 10 50 760 P
 G none
@@ -737,7 +737,7 @@ shield huge tower~
 a huge tower shield~
 A huge shield lies here.~
 steel~
-armor AG AJ
+armor A AJ
 9 9 9 3 0
 30 390 4100 P
 E
@@ -750,7 +750,7 @@ dawnbringer mace huge two-handed~
 a huge mace named "Dawnbringer"~
 A huge mace lies here. It radiates an aura of power.~
 iron~
-weapon AGKL AN
+weapon AKL AN
 mace 5 9 blast F
 38 240 3200 P
 A
@@ -767,7 +767,7 @@ spectacles wire rimmed~
 a pair of wire rimmed spectacles~
 A small pair of wire rimmed spectacles rests here.~
 glass~
-clothing G AE
+clothing 0 AE
 0 0 0 0 0
 15 20 2600 P
 A
@@ -782,7 +782,7 @@ ring banded~
 a banded ring~
 A small ring made of gold and silver bands lies here.~
 gold silver~
-jewelry AG AB
+jewelry A AB
 0 0 0 0 0
 30 20 1520 P
 A
@@ -797,7 +797,7 @@ globe minor~
 a minor globe of invulnerability~
 A small globe rests here. It shimmers and radiates power.~
 crystal~
-armor AG AK
+armor A AK
 8 8 8 4 0
 27 10 3200 P
 A
@@ -812,7 +812,7 @@ staff gnarled magius~
 a gnarled magius staff~
 A gnarled staff lies here.~
 platinium~
-weapon G AN
+weapon 0 AN
 staff 6 5 pound F
 27 100 2900 P
 A
@@ -844,7 +844,7 @@ robe heavy woolen~
 a heavy woolen robe~
 A heavy pile of wool lies here.~
 wool~
-armor G AK
+armor 0 AK
 8 8 8 0 0
 25 100 1950 P
 G none
@@ -853,7 +853,7 @@ brooch ivory~
 a brooch of life~
 A small ivory brooch lies here.~
 ivory~
-jewelry AGI AC
+jewelry AI AC
 0 0 0 0 0
 30 50 1520 P
 A
@@ -864,7 +864,7 @@ manual arts healing book~
 a manual of healing arts~
 A small book lies here.~
 paper~
-scroll 0 AO
+scroll G AO
 30 'cure light' 'cure light' 'cure light' ''
 0 50 800 P
 E
@@ -877,7 +877,7 @@ mace huge mithril~
 a huge mithril mace~
 A huge mace made of mithril metal lies here.~
 mithril~
-weapon AG AN
+weapon A AN
 mace 5 5 crush 0
 26 130 1960 P
 A
@@ -890,7 +890,7 @@ symbol holy golden~
 a golden holy symbol~
 A small holy symbol on a golden chain lies here.~
 gold~
-jewelry G AC
+jewelry 0 AC
 0 0 0 0 0
 5 30 110 P
 A
@@ -901,7 +901,7 @@ ring marble thick~
 a thick marble ring~
 A thick ring made of marble~
 marble~
-jewelry G AB
+jewelry 0 AB
 0 0 0 0 0
 8 50 470 P
 A
@@ -912,7 +912,7 @@ bracelet thick marble~
 a thick marble bracelet~
 A thick bracelet made of marble lies here.~
 marble~
-jewelry G AM
+jewelry 0 AM
 0 0 0 0 0
 5 80 550 P
 A
@@ -923,7 +923,7 @@ boots striding~
 boots of striding~
 A lithe pair of leather boots have been left here.~
 leather~
-armor G AG
+armor 0 AG
 5 5 5 0 0
 30 50 2500 P
 A
@@ -938,7 +938,7 @@ cloak icy white~
 an icy white cloak~
 A cold pile of white cloth lies here.~
 cloth~
-armor AG AK
+armor A AK
 8 8 8 2 0
 25 50 2000 P
 E
@@ -951,7 +951,7 @@ staff ice~
 an ice staff~
 A staff made of ice rests here.~
 ice~
-weapon G AN
+weapon 0 AN
 staff 7 4 pound BF
 28 130 1470 P
 A
@@ -968,7 +968,7 @@ ring carved wooden~
 a carved wooden ring~
 A wooden ring is on the floor.~
 wood~
-jewelry G AB
+jewelry 0 AB
 0 0 0 0 0
 7 30 460 P
 A
@@ -994,7 +994,7 @@ belt life~
 the belt of life~
 A strange belt lies here.~
 leather~
-clothing G AL
+clothing 0 AL
 0 0 0 0 0
 30 90 7600 P
 A
@@ -1020,7 +1020,7 @@ crossbow huge~
 a huge crossbow~
 A huge crossbow rests here.~
 wood~
-weapon G AN
+weapon 0 AN
 exotic 3 10 pierce F
 27 150 4300 P
 A
@@ -1033,7 +1033,7 @@ pack leather small~
 a small leather pack~
 A small leather pack rests here.~
 leather~
-container GY AK
+container Y AK
 200 0 0 20 80
 0 90 500 P
 E
@@ -1046,7 +1046,7 @@ hood black leather~
 a black leather hood~
 A hood made of black leather rests here.~
 leather~
-armor G AE
+armor 0 AE
 5 5 5 0 0
 10 50 730 P
 G none
@@ -1064,7 +1064,7 @@ pants black leather~
 a pair of black leather pants~
 Some leather pants lie here.~
 leather~
-armor G AF
+armor 0 AF
 7 7 7 0 0
 20 50 1450 P
 E
@@ -1077,7 +1077,7 @@ sword wicked short shortsword~
 a wicked shortsword~
 A wicked looking shortsword lies here.~
 steel~
-weapon G AN
+weapon 0 AN
 sword 4 8 pierce 0
 26 110 2300 P
 A
@@ -1092,7 +1092,7 @@ globe major~
 a major globe of invulnerability~
 A large globe rests here, pulsing uneasily.~
 glass~
-armor ABG AK
+armor AB AK
 9 9 9 6 0
 31 10 4100 P
 A
@@ -1115,7 +1115,7 @@ chain chainmail black suit~
 a suit of black minotaur chainmail~
 A huge pile of black chainmail rests here.~
 iron~
-armor G AD
+armor 0 AD
 9 9 9 2 0
 30 120 7000 P
 A
@@ -1139,7 +1139,7 @@ ring studded~
 a studded ring~
 A small studded ring lies here.~
 gem~
-jewelry G AB
+jewelry 0 AB
 0 0 0 0 0
 13 10 1020 P
 A
@@ -1161,7 +1161,7 @@ axe great~
 mahn-Tor's Great Axe~
 An extremely huge axe is resting here.~
 titanium~
-weapon BG AN
+weapon B AN
 axe 7 5 slash 0
 31 260 3400 P
 A
@@ -1331,7 +1331,7 @@ boots fur lined~
 a pair of fur lined boots~
 A pair of boots are on the floor.~
 fur~
-armor G AG
+armor 0 AG
 3 3 3 1 0
 7 50 470 P
 A
@@ -1410,7 +1410,7 @@ halberd huge two-handed~
 a huge halberd~
 A huge halberd has been left here.~
 wood~
-weapon G AN
+weapon 0 AN
 polearm 3 8 cleave F
 18 180 690 P
 A
@@ -1450,7 +1450,7 @@ sword two two-handed~
 a two-handed sword~
 A large sword lies here.~
 steel~
-weapon G AN
+weapon 0 AN
 sword 5 5 slash F
 22 180 2500 P
 A
@@ -1490,7 +1490,7 @@ glaive~
 a minotaur glaive~
 A very large glaive rests here.~
 bronze~
-weapon G AN
+weapon 0 AN
 polearm 5 4 slash F
 22 190 830 P
 A
@@ -1530,7 +1530,7 @@ star morning morningstar~
 a huge morningstar~
 A huge morningstar rests here.~
 wood steel~
-weapon G AN
+weapon 0 AN
 flail 7 5 crush 0
 29 200 2300 P
 A
@@ -1627,7 +1627,7 @@ ear ring earring feathered~
 a pair of feathered earrings~
 Some feathered earrings rest here.~
 fur~
-jewelry AG AE
+jewelry A AE
 0 0 0 0 0
 0 20 500 P
 G none
@@ -1636,7 +1636,7 @@ gauntlets ogre power~
 gauntlets of ogre power~
 Some heavy gauntlets lie here.~
 gold amethyst~
-armor BG AH
+armor B AH
 9 9 9 0 0
 23 130 5800 P
 A
@@ -1680,7 +1680,7 @@ snowflake снежинка~
 @eng a snowflake@rus снежинка~
 @eng The little starkling snowflake is here.@rus Ты видишь сверкающую миниатюрную снежинку (snowflake).~
 ice~
-pill 0 A
+pill G A
 35 'ice sphere' 'reserved' 'reserved' 'reserved'
 25 1 500 P
 G female

@@ -1622,7 +1622,7 @@ field plate suit~
 a suit of field plate~
 A suit of field plate lies here.~
 iron~
-armor FGIKL AD
+armor FIKL AD
 8 8 8 0 0
 25 280 3900 P
 G none
@@ -2250,7 +2250,7 @@ horse shoe~
 a horse shoe~
 A horse shoe lies here.~
 iron~
-armor BG ACO
+armor B ACO
 1 1 1 0 0
 5 20 300 P
 A
@@ -2324,7 +2324,7 @@ shirt tie dye~
 a tie-dye shirt~
 A multi-colored shirt lies here.~
 cloth~
-armor G AD
+armor 0 AD
 7 7 7 0 0
 20 10 2900 P
 G none
@@ -2333,7 +2333,7 @@ bugle boy jeans~
 a pair of Bugle Boy jeans~
 A pair of jeans lie here.~
 cloth~
-armor G AF
+armor 0 AF
 5 5 5 0 0
 10 10 730 P
 G none
@@ -2342,7 +2342,7 @@ sneakers reeboks reebok pumps~
 a pair of Reebok Pumps~
 A pair of nifty sneakers lie here.~
 anani sikiyim~
-armor G AG
+armor 0 AG
 1 1 1 0 0
 7 10 770 P
 A
@@ -2375,7 +2375,7 @@ halberd~
 the halberd~
 A mighty halberd lies against the wall.~
 iron~
-weapon GI AN
+weapon I AN
 polearm 3 8 chop F
 22 160 1240 P
 A
@@ -2388,7 +2388,7 @@ fountain water~
 a fountain~
 A large fountain is here gurgling out an endless stream of water.~
 stone~
-fountain G 0
+fountain 0 0
 100000 100000 'water' 0 0
 0 0 0 P
 G none
@@ -2397,7 +2397,7 @@ pearl~
 a beautiful white pearl~
 A well-formed pearl sits upon the ground, looking for an oyster.~
 pearl~
-warp_stone T AO
+warp_stone GT AO
 0 0 0 0 0
 0 10 1000 P
 E

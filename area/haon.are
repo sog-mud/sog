@@ -447,7 +447,7 @@ crown iron~
 an iron crown~
 An iron crown rests on the ground.~
 iron~
-armor G AE
+armor 0 AE
 6 6 6 0 0
 15 100 1050 P
 E
@@ -460,7 +460,7 @@ ring iron~
 an iron ring~
 An iron ring has been left here.~
 iron~
-jewelry G AB
+jewelry 0 AB
 0 0 0 0 0
 0 10 50 P
 E
@@ -474,7 +474,7 @@ morning-star star morning~
 the morning star~
 The morning star is here collecting dust while it lies on the ground.~
 wood iron~
-weapon G AN
+weapon 0 AN
 flail 2 8 crush 0
 15 100 750 P
 G none

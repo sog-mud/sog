@@ -412,7 +412,7 @@ aegis plate~
 the Aegis~
 A powerful breast plate has been left here.~
 platinium~
-armor FGK AD
+armor FK AD
 12 12 11 6 0
 35 500 8400 P
 A
@@ -423,7 +423,7 @@ hammer thunder bolt thunderbolt~
 the Thunder Bolt~
 A huge hammer has been carelessly dropped here.~
 mithril~
-weapon FGKL AN
+weapon FKL AN
 mace 9 9 blast G
 50 140 5400 P
 A
@@ -438,7 +438,7 @@ helmet winged~
 a Winged Helmet~
 A helmet with small wings lies here.~
 platinium~
-armor FGK AE
+armor FK AE
 11 12 11 5 0
 35 50 7300 P
 A
@@ -449,7 +449,7 @@ spear ares~
 the spear of Ares~
 A wicked spear rests on the ground here.~
 titanium~
-weapon FGJ AN
+weapon FJ AN
 spear 5 10 thrust K
 48 180 2000 P
 A
@@ -464,7 +464,7 @@ sandals winged~
 a pair of winged sandals~
 A pair of well made sandals lies here.~
 silk~
-armor FGK AG
+armor FK AG
 8 8 8 4 0
 25 50 2200 P
 F A 0 0 T
@@ -483,7 +483,7 @@ trident poseidon~
 poseidon's Trident~
 A huge three pronged spear lies here.~
 oak~
-weapon FGK AN
+weapon FK AN
 spear 7 7 pierce FK
 47 160 5700 P
 A
@@ -494,7 +494,7 @@ bow silver~
 a silver bow~
 A silver bow.~
 silver~
-weapon FGK AN
+weapon FK AN
 bow 6 7 pierce F
 47 150 10300 P
 A
@@ -507,7 +507,7 @@ gauntlets flaming~
 flaming gauntlets~
 A pair of metal gauntlets flame here.~
 steel gold leather~
-armor G AH
+armor 0 AH
 7 7 7 4 0
 27 60 2900 P
 A
@@ -527,7 +527,7 @@ necklace glowing~
 a glowing necklace~
 A necklace with an inner glow lies here.~
 amethyst~
-jewelry FGK AC
+jewelry FK AC
 0 0 0 0 0
 25 20 980 P
 A
@@ -538,7 +538,7 @@ ring sapphire~
 a sapphire ring~
 A sapphire ring lies here.~
 sapphire~
-jewelry FGK AB
+jewelry FK AB
 0 0 0 0 0
 35 10 6900 P
 A
@@ -551,7 +551,7 @@ shield glowing~
 a brightly glowing shield~
 A shield lies here, filling the room with its aura.~
 silver~
-armor FGK AJ
+armor FK AJ
 9 9 9 6 0
 30 200 5300 P
 A
@@ -562,7 +562,7 @@ axe notched~
 a notched axe~
 A notched axe.~
 iron~
-weapon FGK AN
+weapon FK AN
 axe 4 10 slice 0
 35 120 3600 P
 G none
@@ -607,7 +607,7 @@ apple~
 an apple~
 An apple is here.~
 food~
-pill 0 A
+pill G A
 24 '' '' 'cure light' ''
 0 10 340 P
 G none
@@ -616,7 +616,7 @@ pear~
 a pear~
 A pear is here.~
 food~
-pill 0 A
+pill G A
 24 '' '' 'cure poison' ''
 6 10 530 P
 G none
@@ -625,7 +625,7 @@ orange~
 a orange~
 A orange is here.~
 food~
-pill 0 A
+pill G A
 24 '' '' 'armor' ''
 0 10 340 P
 G none
@@ -634,7 +634,7 @@ kiwi~
 a kiwi~
 A kiwi is here.~
 food~
-pill 0 A
+pill G A
 24 '' '' 'cure poison' ''
 6 10 530 P
 G none
@@ -643,7 +643,7 @@ amulet~
 the Amulet of Ra~
 A sun shaped medallion is lying here.~
 crystal~
-jewelry FGK AC
+jewelry FK AC
 0 0 0 0 0
 40 10 4900 P
 A
@@ -654,7 +654,7 @@ sun sword~
 the Sword of the Sun~
 A beautiful sword with the rising sun etched on the pommel is lying here.~
 unknown~
-weapon FGKL AN
+weapon FKL AN
 sword 9 9 slash 0
 50 200 6800 P
 A
@@ -669,7 +669,7 @@ robe blue~
 a blue robe~
 A deep blue robe is on the ground here.~
 unknown~
-armor FGK AK
+armor FK AK
 6 6 6 8 0
 17 100 1960 P
 A
@@ -680,7 +680,7 @@ hat~
 a wide brimmed hat~
 A hat is lying here.~
 cloth~
-armor FGK AE
+armor FK AE
 4 4 4 3 0
 5 50 580 P
 G none
@@ -689,7 +689,7 @@ nectar~
 nectar~
 A vial of nectar is lying here.~
 glass~
-potion 0 A
+potion G A
 12 'sanctuary' 'giant strength' 'armor' ''
 12 10 810 P
 G none
@@ -762,7 +762,7 @@ arrow silver~
 a silver arrow~
 A silver arrow with an inner glow lies here.~
 silver~
-weapon FGK AO
+weapon FK AO
 arrow 6 7 pierce ABCDEFGHK
 47 20 10300 P
 A

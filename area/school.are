@@ -688,7 +688,7 @@ diploma диплом~
 @eng a mud school diploma@rus ~~диплом~~ об окончании МУД школы~
 @eng You see a mud school diploma here.@rus Ты видишь диплом (diploma) об окончании МУД школы~
 vellum~
-treasure GU AO
+treasure U AO
 0 0 0 0 0
 0 10 1140 P
 A
@@ -723,7 +723,7 @@ banner war merc знамя~
 @eng a war banner@rus ~~боевое~~ ~~знамя~~~
 @eng A war banner is on the floor here.@rus Боевое знамя (banner) лежит на полу.~
 cloth~
-light AG A
+light A A
 0 0 200 0 0
 0 20 380 P
 A

@@ -350,7 +350,7 @@ robes~
 some black robes~
 Some black robes have been left here.~
 copper~
-armor AGJ AK
+armor AJ AK
 9 9 9 0 0
 30 5 300 P
 A
@@ -374,7 +374,7 @@ sword~
 a bone sword~
 A bone sword is stuck in the ground here.~
 copper~
-weapon AGJ AN
+weapon AJ AN
 sword 5 7 pierce 0
 30 10 300 P
 A
@@ -387,7 +387,7 @@ helm~
 a bronze helm~
 A bronze helm covered in runes has been left here.~
 copper~
-armor AGJ AE
+armor AJ AE
 9 9 9 0 0
 30 7 300 P
 A
@@ -431,7 +431,7 @@ scroll~
 a lightning scroll~
 A lightning scroll is curled up on the floor here.~
 copper~
-scroll 0 AO
+scroll G AO
 28 'call lightning' 'lightning bolt' 'lightning breath' ''
 28 1 280 P
 G none
@@ -440,7 +440,7 @@ scroll~
 a fire scroll~
 A fire scroll is curled up on the floor here.~
 copper~
-scroll 0 AO
+scroll G AO
 28 'fire breath' 'flamestrike' 'fireball' ''
 28 1 280 P
 G none
@@ -458,7 +458,7 @@ dagger~
 a dagger~
 A rune-covered dagger has been left here.~
 copper~
-weapon BEGJ AN
+weapon BEJ AN
 dagger 5 7 pierce 0
 28 5 280 P
 A
@@ -558,7 +558,7 @@ robes~
 some green robes~
 Some green robes are crumpled up on the floor here.~
 copper~
-armor AGJ AK
+armor AJ AK
 7 7 7 0 0
 21 3 210 P
 A
@@ -626,7 +626,7 @@ dagger~
 a throwing dagger~
 A throwing dagger has been left here.~
 copper~
-warp_stone 0 AO
+warp_stone G AO
 0 0 0 0 0
 20 3 200 P
 A
@@ -637,7 +637,7 @@ sword~
 a steel sword~
 A rare steel sword covered in runes lies here.~
 copper~
-weapon AG AN
+weapon A AN
 sword 5 6 slash 0
 27 10 270 P
 A
@@ -650,7 +650,7 @@ ring~
 a magic ring~
 A magic ring floats by here.~
 copper~
-armor AGP AB
+armor AP AB
 8 8 8 0 0
 27 1 270 P
 A

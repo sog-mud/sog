@@ -299,7 +299,7 @@ bluish herbs~
 some bluish herbs~
 Some bluish herbs are scattered here.~
 plant_organism sulfur~
-pill 0 A
+pill G A
 15 '' '' 'bless' ''
 1 10 270 P
 G none
@@ -308,7 +308,7 @@ purplish herbs~
 some purplish herbs~
 Some purplish herbs are scattered here.~
 plant_organism flour~
-pill 0 A
+pill G A
 15 '' '' 'cure light' ''
 0 10 250 P
 G none
@@ -317,7 +317,7 @@ blackish herbs~
 some blackish herbs~
 Some blackish herbs are scattered here.~
 plant_organism papper~
-pill 0 A
+pill G A
 5 '' '' 'blindness' ''
 0 10 178 P
 G none
@@ -326,7 +326,7 @@ grayish herbs~
 some grayish herbs~
 Some grayish herbs are scattered here.~
 plant_organism~
-pill 0 A
+pill G A
 5 '' 'giant strength' 'poison' ''
 5 10 360 P
 G none
@@ -335,7 +335,7 @@ reddish herbs~
 some reddish herbs~
 Some reddish herbs are scattered here.~
 plant_organism~
-pill 0 A
+pill G A
 15 '' '' 'detect magic' ''
 0 10 250 P
 G none
@@ -344,7 +344,7 @@ orangish herbs~
 some orangish herbs~
 Some orangish herbs are scattered here.~
 plant_organism~
-pill 0 A
+pill G A
 5 '' '' 'cure light' ''
 0 10 150 P
 G none
@@ -353,7 +353,7 @@ pinkish herbs~
 some pinkish herbs~
 Some pinkish herbs are scattered here.~
 unknown~
-pill 0 A
+pill G A
 5 '' 'cure poison' 'poison' ''
 6 10 430 P
 G none

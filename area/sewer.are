@@ -381,7 +381,7 @@ ring silver~
 a glinting ring of silver~
 A lovely silver ring has been left here.~
 silver~
-jewelry G AB
+jewelry 0 AB
 0 0 0 0 0
 7 10 468 P
 A
@@ -394,7 +394,7 @@ rod devil~
 the devil rod~
 The mysterious devil rod lies on the floor.~
 oak~
-weapon G AN
+weapon 0 AN
 exotic 4 5 pound C
 15 60 2300 P
 A
@@ -412,7 +412,7 @@ mace large~
 the large mace~
 A large mace lies here.~
 iron~
-weapon G AN
+weapon 0 AN
 mace 2 6 crush 0
 8 100 610 P
 A
@@ -428,7 +428,7 @@ mace small~
 the small mace~
 A small mace has been left here.~
 iron~
-weapon G AN
+weapon 0 AN
 mace 2 6 crush 0
 8 60 480 P
 A
@@ -444,7 +444,7 @@ cloak purple~
 a purple cloak~
 A purple cloak lies on the floor.~
 cloth~
-armor G AC
+armor 0 AC
 6 6 6 0 0
 15 200 1250 P
 A
@@ -473,7 +473,7 @@ skull white~
 a strange white skull~
 A strange white skull lies on the floor looking at you.~
 bone~
-armor GH AE
+armor H AE
 1 1 1 0 0
 0 300 10 P
 A
@@ -511,7 +511,7 @@ boots muddy~
 a pair of muddy boots~
 A pair of muddy boots has been dropped here.~
 leather~
-armor G AG
+armor 0 AG
 3 3 3 0 0
 7 200 900 P
 A
@@ -549,7 +549,7 @@ claw red redclaw~
 a red dragon claw~
 On the floor rests an enormous red claw.~
 bone~
-weapon G AN
+weapon 0 AN
 exotic 3 12 claw 0
 31 190 5800 P
 A
@@ -566,7 +566,7 @@ plate breast silvery~
 a silvery breast plate~
 There is a silvery breast plate on the floor.~
 silver~
-armor GIKL AD
+armor IKL AD
 8 8 8 2 0
 32 400 12400 P
 A
@@ -582,7 +582,7 @@ plates leg silvery~
 some silvery leg plates~
 On the floor you see some silvery leg plates.~
 silver~
-armor GIKL AF
+armor IKL AF
 8 8 8 2 0
 32 200 10100 P
 A
@@ -597,7 +597,7 @@ gloves silvery~
 a pair of silvery gloves~
 You can see a pair of silvery gloves on the floor.~
 silver~
-armor GIKL AH
+armor IKL AH
 8 8 8 2 0
 27 140 3700 P
 A
@@ -614,7 +614,7 @@ helmet silvery~
 a silvery helmet~
 The silvery helmet lies here.~
 silver~
-armor GIKL AE
+armor IKL AE
 9 9 9 2 0
 32 350 10600 P
 A
@@ -630,7 +630,7 @@ shield~
 the shield of the rose~
 The shield of the rose rests on the floor.~
 steel~
-armor GIKL AJ
+armor IKL AJ
 8 8 8 3 0
 30 300 5800 P
 A
@@ -646,7 +646,7 @@ boots silvery~
 a pair of silvery boots~
 A pair of silvery boots stand on the floor.~
 silver~
-armor GIKL AG
+armor IKL AG
 8 8 8 2 0
 32 400 10100 P
 A
@@ -661,7 +661,7 @@ plates arm silvery~
 some silvery arm plates~
 On the floor you see some silvery arm plates.~
 silver~
-armor GIKL AI
+armor IKL AI
 8 8 8 2 0
 32 400 10100 P
 A
@@ -676,7 +676,7 @@ cloak white~
 a white cloak~
 A white cloak lies on the floor.~
 wool~
-armor GIKL AK
+armor IKL AK
 9 9 9 2 0
 31 200 3700 P
 A
@@ -749,7 +749,7 @@ red torso~
 a red dragon torso~
 There is a pile of red dragonscale on the floor.~
 dragonskin~
-armor GJ AD
+armor J AD
 9 9 9 4 0
 29 300 6400 P
 A
@@ -762,7 +762,7 @@ leggings red~
 red dragonscale leggings~
 On the floor you see two red dragonscale leggings.~
 dragonskin~
-armor GJ AF
+armor J AF
 9 9 9 4 0
 29 170 3700 P
 A
@@ -775,7 +775,7 @@ claws dragonclaws red~
 a pair of red dragon claws~
 You can see a pair of large red dragon claws on the floor.~
 bone~
-furniture GJ AH
+furniture J AH
 9 0 0 0 0
 20 40 1150 P
 A
@@ -786,7 +786,7 @@ skull dragonhelm red~
 a red dragonhelm~
 A helmet fashioned into the likeness of a dragon skull is here.~
 dragonskin~
-armor GJ AE
+armor J AE
 9 9 9 4 0
 29 150 7000 P
 A
@@ -801,7 +801,7 @@ shield red~
 the red dragon shield~
 A large red dragon shield rests on the floor.~
 dragonskin~
-armor GJ AJ
+armor J AJ
 10 10 10 5 0
 35 220 6900 P
 A
@@ -812,7 +812,7 @@ greaves red~
 a pair of a red dragon's rear claws~
 A pair of a red dragon's rear claws is on the floor.~
 bone~
-armor GJ AG
+armor J AG
 9 9 9 4 0
 29 400 3700 P
 A
@@ -825,7 +825,7 @@ arm guards red~
 red dragon arm guards~
 On the ground you see two red arm guards.~
 dragonskin~
-armor GJ AI
+armor J AI
 9 9 9 4 0
 29 400 3700 P
 A

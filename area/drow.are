@@ -209,7 +209,7 @@ whip snake two-headed~
 a snake headed whip~
 A whip with two snakes heads lies here.~
 leather~
-weapon AG AN
+weapon A AN
 whip 2 7 whip F
 11 10 920 P
 A
@@ -222,7 +222,7 @@ whip snake three-headed~
 a snake headed whip~
 A whip with three snake heads has been left here.~
 leather~
-weapon AG AN
+weapon A AN
 whip 3 7 whip 0
 15 10 1020 P
 A
@@ -235,7 +235,7 @@ whip snake four-headed~
 a snake headed whip~
 A whip with four snake heads has been left here.~
 leather~
-weapon AG AN
+weapon A AN
 whip 5 5 whip 0
 24 10 1530 P
 A
@@ -248,7 +248,7 @@ longsword black~
 a black longsword~
 A black longsword has been carelessly left here.~
 adamantite~
-weapon AG AN
+weapon A AN
 sword 4 6 slash 0
 21 0 2100 P
 A
@@ -261,7 +261,7 @@ whip snake five-headed~
 a snake headed whip~
 A whip with five snake heads is lying here.~
 leather~
-weapon AGJ AN
+weapon AJ AN
 whip 4 6 whip 0
 14 0 10 P
 A
@@ -274,7 +274,7 @@ whip snake six-headed~
 a snake headed whip~
 A whip with six snake heads has been dropped here.~
 leather~
-weapon AGJ AN
+weapon AJ AN
 whip 5 5 whip 0
 13 0 0 P
 A
@@ -287,7 +287,7 @@ bracer iron~
 an iron bracer~
 An iron bracer has been dropped here.~
 iron~
-armor AG AM
+armor A AM
 4 7 7 2 0
 15 30 1150 P
 G none
@@ -316,7 +316,7 @@ helmet helm~
 a small helmet~
 A small helmet lies up against a rock.~
 steel~
-armor G AE
+armor 0 AE
 4 4 4 0 0
 16 50 3300 P
 A
@@ -327,7 +327,7 @@ ring ruby~
 a small ruby ring~
 A small ruby ring lies in the dirt.~
 ruby~
-jewelry G AB
+jewelry 0 AB
 0 0 0 0 0
 25 10 980 P
 A
@@ -338,7 +338,7 @@ dagger sacrificial~
 a spider shaped dagger~
 A dagger with spider leg shaped blades lies on the ground.~
 unknown~
-weapon GJ AN
+weapon J AN
 dagger 4 8 stab 0
 30 25 3300 P
 A
@@ -362,7 +362,7 @@ whip snake skin~
 two Snake Headed whip~
 A two Snake Headed whip is lying on the ground.~
 snakeskin~
-weapon CGJRT AN
+weapon CJRT AN
 whip 10 6 whip H
 24 140 1530 P
 A

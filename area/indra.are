@@ -32,7 +32,7 @@ poisoned pill~
 pill~
 pill~
 unknown~
-pill 0 AO
+pill G AO
 300 'cure poison' 'cure poison' 'reserved' 'reserved'
 0 0 0 P
 G none
@@ -41,7 +41,7 @@ asd~
 @eng spiked tree@rus колючий кустарник~
 @eng spiked asdklg@rus Колючий, почти черный, кустарник растет поперек дороги. ~
 wood~
-portal 0 0
+portal G 0
 0 0 A 34004 0
 0 0 0 P
 G none

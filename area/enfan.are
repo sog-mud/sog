@@ -203,7 +203,7 @@ pair strange boots~
 a pair of strange boots~
 A pair of strange boots sit on the floor rather correctly~
 leather~
-armor G AG
+armor 0 AG
 6 6 7 3 3
 13 120 330 P
 A
@@ -244,7 +244,7 @@ black tunic~
 a black tunic~
 A black tunic lies in a crumpled heap on the floor~
 velvet~
-armor G AD
+armor 0 AD
 5 5 5 5 3
 8 100 730 P
 A
@@ -255,7 +255,7 @@ high heels shoes~
 high heels~
 A pair of old high heels lie discarded in a corner~
 leather~
-armor G AG
+armor 0 AG
 5 5 5 5 3
 8 120 459 P
 A
@@ -312,7 +312,7 @@ opal potion~
 an opal potion~
 An opal potion rests here~
 glass~
-potion 0 AO
+potion G AO
 15 'cure poison' 'heal' 'heal' ''
 10 10 2120 P
 A

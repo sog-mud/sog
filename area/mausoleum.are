@@ -212,7 +212,7 @@ frostbrand sword~
 a Frostbrand sword~
 An ice-cold broad sword lies here.~
 iron~
-weapon GHIT AN
+weapon HIT AN
 sword 6 6 frbite B
 35 9 12000 P
 A
@@ -225,7 +225,7 @@ symbol unholy~
 an unholy symbol of Lloth~
 A forboding symbol of evil lies here.~
 iron~
-armor CEGJLT AC
+armor CEJLT AC
 12 12 12 12 0
 45 1 25000 A
 A
@@ -253,7 +253,7 @@ darkened boots~
 a pair of darkened boots~
 A pair of darkened boots lies here.~
 iron~
-armor ABCEGJT AG
+armor ABCEJT AG
 14 14 14 14 0
 49 7 51000 A
 A
@@ -320,7 +320,7 @@ signet ring~
 the Arkham signet ring~
 A small, iron ring lies here.~
 iron~
-armor ABCEGJT AB
+armor ABCEJT AB
 0 0 0 0 0
 49 1 42000 A
 A
@@ -358,7 +358,7 @@ guardian sword~
 a guardian sword~
 A guardian sword lies here.~
 iron~
-weapon ABCEGJMT AN
+weapon ABCEJMT AN
 sword 6 8 slash 0
 55 4 55000 A
 A
@@ -373,7 +373,7 @@ potion healing~
 a potion of healing~
 A crystal-clear potion lies here... it looks refreshing.~
 glass~
-potion A A
+potion AG A
 30 'acid blast' 'blindness' 'plague' ''
 5 0 15000 P
 G none
@@ -382,7 +382,7 @@ staff wrath~
 a staff of wrath~
 A long, golden staff is here~
 wood~
-staff A AO
+staff AG AO
 20 5 5 'colour spray' 0
 5 0 2000 P
 G none
@@ -391,7 +391,7 @@ cloak death~
 the Cloak of Death~
 A pile of blackened cloth is here.~
 cloth~
-armor CEGMT AK
+armor CEMT AK
 13 13 13 13 0
 45 4 50000 P
 A
@@ -410,7 +410,7 @@ scroll yellow parchment~
 an ancient yellow parchment~
 A yellow from age, almost decayed parchment lies here.~
 paper~
-scroll EHMPT AO
+scroll EGHMPT AO
 50 'acid blast' '' '' ''
 50 0 100000 P
 G none
@@ -419,7 +419,7 @@ copper ring fortitide~
 a ring of fortitude~
 A small copper ring lays here, shining with a dull gleam.~
 copper~
-armor ABCEFGHMT AB
+armor ABCEFHMT AB
 0 0 0 0 0
 60 0 120000 P
 A
@@ -493,7 +493,7 @@ emerald potion~
 an emerald potion~
 An emerald colored potion is here.~
 glass~
-potion AHM AO
+potion AGHM AO
 30 'armor' 'curse' 'dispel evil' ''
 5 0 0 P
 G none
@@ -566,7 +566,7 @@ claw dracolich~
 the Claw of great Dracolich~
 A claw of great ancient Dracolich is here.~
 bone~
-weapon ABCEGHMT AN
+weapon ABCEHMT AN
 exotic 7 8 none C
 60 30 150000 P
 A
@@ -620,7 +620,7 @@ potion protection divine~
 a potion of divine protection~
 A gleamy, white potion is here.~
 glass~
-potion A AO
+potion AG AO
 30 'harm' 'plague' 'poison' 'chill touch'
 50 15 40000 P
 G none
@@ -646,7 +646,7 @@ scroll overkill~
 a scroll of ultimate overkill~
 A scroll with the title 'Ultimate Overkill' lies here.~
 parchment~
-scroll T A
+scroll GT A
 50 'lightning breath' 'acid blast' 'harm' ''
 38 1 1500 P
 G none
@@ -655,7 +655,7 @@ scroll truimph~
 a scroll of truimph~
 A scroll with the title 'Truimph' lies here.~
 parchment~
-scroll AT A
+scroll AGT A
 43 'giant strength' 'cure serious' 'bless' ''
 34 1 1500 P
 G none
@@ -664,7 +664,7 @@ scroll feasting~
 a scroll of feasting~
 A scroll with the title 'Feasting' lies here.~
 parchment~
-scroll AT A
+scroll AGT A
 35 'infravision' 'armor' 'colour spray' ''
 20 1 1500 P
 G none
@@ -673,7 +673,7 @@ scroll redecoration~
 a scroll of room-redecoration~
 A scroll with the title 'Room-redecoration' lies here.~
 parchment~
-scroll AT A
+scroll AGT A
 38 'cause serious' 'energy drain' 'demonfire' ''
 45 1 1500 P
 G none
@@ -682,7 +682,7 @@ scroll protection~
 a scroll of protection~
 A scroll with the title 'Protection' lies here.~
 parchment~
-scroll AT A
+scroll AGT A
 50 'armor' 'stone skin' 'pass door' ''
 40 1 1500 P
 G none
@@ -691,7 +691,7 @@ scroll invulnerability~
 a scroll of invulnerability~
 A scroll with the title 'Invulnerability' lies here.~
 parchment~
-scroll AT A
+scroll AGT A
 34 'armor' 'teleport' '' ''
 12 1 1500 P
 G none
@@ -700,7 +700,7 @@ scroll wolverine~
 a scroll of the Wolverine~
 A scroll with the title 'Wolverine' lies here.~
 parchment~
-scroll AT A
+scroll AGT A
 38 'frenzy' 'shield' '' ''
 20 1 1500 P
 G none
@@ -709,7 +709,7 @@ scroll lifebane~
 a scroll of lifebane~
 A scroll with the title 'Lifebane' lies here.~
 parchment~
-scroll AT A
+scroll AGT A
 40 'energy drain' 'energy drain' '' ''
 33 1 1500 P
 G none
@@ -718,7 +718,7 @@ scroll destruction~
 a scroll of destruction~
 A scroll with the title 'Destruction' lies here.~
 parchment~
-scroll AT A
+scroll AGT A
 42 'fireball' 'demonfire' '' ''
 29 1 1500 P
 G none
@@ -727,7 +727,7 @@ scroll chaos~
 a scroll of chaos~
 A scroll with the title 'Chaos' lies here.~
 parchment~
-scroll AT A
+scroll AGT A
 50 'teleport' 'teleport' 'sleep' 'curse'
 10 1 1500 P
 G none
@@ -736,7 +736,7 @@ potion healing bvumpertan~
 a potion of healing~
 A crystal-clear potion lies here... it looks refreshing.~
 glass~
-potion A AO
+potion AG AO
 35 '' 'acid blast' 'plague' ''
 5 0 15000 P
 G none
@@ -745,7 +745,7 @@ potion life~
 a potion of life~
 A reddish-brown potion lies here.~
 glass~
-potion A AO
+potion AG AO
 27 'cause critical' 'cause light' 'cure serious' ''
 5 0 1000 P
 G none

@@ -364,7 +364,7 @@ scroll violet~
 a violet scroll~
 A rolled piece of violet parchment lies on the floor.~
 paper~
-scroll I A
+scroll GI A
 15 'armor' 'bless' 'shield' ''
 11 10 1510 P
 E
@@ -377,7 +377,7 @@ tablet scroll black~
 a black etched tablet~
 Lying on the ground is a jet black stone tablet.~
 stone~
-scroll E A
+scroll EG A
 30 'summon' 'charm person' '' ''
 30 50 2100 P
 E
@@ -391,7 +391,7 @@ scroll githyanki~
 a scroll with githyanki writings on it~
 You see a scroll written in an alien tongue.~
 paper~
-scroll 0 A
+scroll G A
 24 'lightning bolt' 'lightning bolt' '' ''
 7 10 1240 P
 E
@@ -404,7 +404,7 @@ amulet demon~
 a small demon's amulet~
 A small amulet lies here in the dirt.~
 ebony~
-wand EH AO
+wand EGH AO
 25 5 5 'energy drain' 0
 11 50 2600 P
 A
@@ -426,7 +426,7 @@ talisman devilish~
 a devilish talisman~
 On the ground is a small talisman which radiates a tangible evil.~
 copper~
-staff EH AO
+staff EGH AO
 25 6 5 'flamestrike' 0
 14 50 5300 P
 A
@@ -698,7 +698,7 @@ potion violet~
 a violet potion~
 A tall glass flask holds a translucent violet fluid.~
 glass~
-potion 0 A
+potion G A
 18 'invisibility' 'protection evil' 'detect evil' ''
 2 20 320 P
 E
@@ -711,7 +711,7 @@ potion vial murky~
 a vial of murky fluid~
 A small vial contains a murky, sludge-like substance.~
 glass~
-potion 0 A
+potion G A
 15 'blindness' 'shield' '' ''
 10 10 760 P
 E
@@ -724,7 +724,7 @@ potion silvery~
 a silvery-colored potion~
 An octagonal vial holds a silvery-colored fluid that reflects light.~
 glass~
-potion 0 A
+potion G A
 20 'detect invis' 'detect magic' '' ''
 1 20 320 P
 E
@@ -737,7 +737,7 @@ mint chocolate~
 a tasty-looking chocolate mint~
 Someone has dropped a delicious-looking chocolate mint here.~
 chocolate~
-pill 0 A
+pill G A
 35 'refresh' 'heal' '' ''
 11 0 990 P
 E

@@ -384,7 +384,7 @@ ring black marble~
 a black marble ring~
 A black marble ring is lying here on the ground.~
 marble~
-treasure GK AB
+treasure K AB
 0 0 0 0 0
 3 20 26 P
 A
@@ -587,7 +587,7 @@ cape dark black~
 a dark black cape~
 A dark black cape is lying here~
 leather~
-armor G AK
+armor 0 AK
 5 5 5 0 0
 0 100 100 P
 A
@@ -605,7 +605,7 @@ flaming black sword long longsword~
 the pitch-black flaming longsword~
 A pitch-black long swor here~
 steel~
-weapon G AN
+weapon 0 AN
 sword 3 11 slash AC
 28 200 2200 P
 A

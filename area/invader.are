@@ -164,7 +164,7 @@ white object portal~
 @eng white portal@rus ~~белый~~ ~~портал~~~
 @eng Three magically created objects ({Wwhite{x, {Ggreen{x and {Ddark{x)                            casts strange shadows across the clearing.@rus Три магических объекта ({Wwhite{x, {Ggreen{x и {Ddark{x) мерцают неподалеку.~
 energy~
-portal 0 0
+portal G 0
 0 0 B 95600 0
 0 0 0 P
 G male
@@ -173,7 +173,7 @@ dark object portal~
 @eng dark portal@rus ~~черный портал~~~
 ~
 energy~
-portal A 0
+portal AG 0
 0 0 E 0 0
 0 0 0 P
 G male
@@ -182,7 +182,7 @@ green object portal~
 @eng green portal@rus ~~зеленый~~ ~~портал~~~
 ~
 energy~
-portal A 0
+portal AG 0
 0 0 B 3124 0
 0 0 0 P
 G male

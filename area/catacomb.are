@@ -261,7 +261,7 @@ glowing key~
 a glowing key~
 A circular, glowing key radiates a bright aura around it.~
 steel~
-key ABG A
+key AB A
 ABCF 0 0 0 0
 0 10 0 P
 G none
@@ -340,7 +340,7 @@ holy water flask~
 a flask of holy water~
 A flask of holy water is here.~
 copper~
-potion A AO
+potion AG AO
 25 'bless' 'sanctuary' '' ''
 11 20 880 P
 G none
@@ -369,7 +369,7 @@ shield defense~
 the shield of defense~
 A large shield lies protecting the ground.~
 iron~
-armor G AJ
+armor 0 AJ
 6 6 6 4 0
 13 350 1920 P
 A
@@ -408,7 +408,7 @@ shadow cloak~
 a shadow cloak~
 The shadows in the corner of the room seems strange ...~
 cloth~
-armor G AK
+armor 0 AK
 7 7 7 2 0
 14 10 210 P
 A
@@ -419,7 +419,7 @@ misty potion~
 a misty potion~
 A potion of swirling mist-like substance is here.~
 glass~
-potion 0 AO
+potion G AO
 10 'pass door' 'faerie fire' '' ''
 12 10 920 P
 G none

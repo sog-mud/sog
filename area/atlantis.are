@@ -422,7 +422,7 @@ sharkbite sword~
 sword Sharkbite~
 A sword everybody dreams of, is lying here.~
 bone~
-weapon ABGIK AN
+weapon ABIK AN
 sword 5 10 frbite D
 42 200 14380 P
 A
@@ -467,7 +467,7 @@ shield seaweed~
 shield Seaweed~
 A shield named 'Seaweed' has been left here.~
 bone~
-armor FGK AJ
+armor FK AJ
 14 11 13 6 4
 42 317 11380 P
 A
@@ -484,7 +484,7 @@ ice crown~
 the Ice Crown~
 A crown made of ice has been left here.~
 ice~
-armor AGHK AE
+armor AHK AE
 13 13 15 7 2
 42 110 10380 P
 A
@@ -499,7 +499,7 @@ pair leather shoes~
 leather shoes~
 A pair of leather shoes are lying here.~
 leather~
-armor GK AG
+armor K AG
 13 13 13 9 0
 42 127 11380 P
 A
@@ -527,7 +527,7 @@ ring wisdom~
 the Ring of Wisdom~
 The ring of wisdom has been left here.~
 iron~
-armor GK AB
+armor K AB
 11 11 11 3 0
 42 11 9380 P
 A
@@ -572,7 +572,7 @@ sage potion~
 the sage Potion~
 A potion, made by the sage is lying here.~
 glass~
-potion 0 A
+potion G A
 30 'fly' 'refresh' 'giant strength' ''
 7 10 650 P
 E
@@ -585,7 +585,7 @@ green potion~
 a green potion~
 A green potion has been left here.~
 glass~
-potion 0 A
+potion G A
 20 'detect magic' 'detect poison' 'detect good' ''
 9 1 450 P
 E
@@ -598,7 +598,7 @@ unknown potion~
 unknown potion~
 A unknown potion has been left here.~
 glass~
-potion 0 A
+potion G A
 30 'cure light' 'bless' 'armor' ''
 4 1 8000 P
 E
@@ -611,7 +611,7 @@ dark brown potion~
 a dark brown potion~
 A dark brown potion is lying here.~
 glass~
-potion BH A
+potion BGH A
 20 'haste' 'refresh' 'armor' ''
 9 1 10000 P
 E
@@ -719,7 +719,7 @@ ivory shield~
 a ivory shield~
 An ivory shield is lying here.~
 ivory~
-armor AGY AJP
+armor AY AJP
 7 7 6 3 3
 20 310 4240 P
 A

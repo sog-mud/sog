@@ -303,7 +303,7 @@ stick~
 long, black stick~
 There is a long, black stick lying here.~
 wood cloth~
-staff 0 AO
+staff G AO
 4 10 10 'cure critical' 0
 11 10 4800 P
 G none
@@ -354,7 +354,7 @@ ring golden dwarven~
 a dwarven golden ring~
 A pretty golden ring is here.~
 gold~
-gem G AB
+gem 0 AB
 0 0 0 0 0
 7 10 460 P
 A
@@ -430,7 +430,7 @@ pills~
 a box of birth control pills~
 There is a box of birth control pills here.~
 unknown~
-pill 0 A
+pill G A
 20 'cure light' 'cure light' 'cure light' ''
 0 10 300 P
 E
@@ -531,7 +531,7 @@ gems pile~
 a pile of {gg{ce{mm{Ys{x~
 There is a pile of {rp{yr{Ye{cc{Bi{Ro{gu{Gs{x stones here.~
 gem~
-gem AGT AO
+gem AT AO
 0 0 0 0 0
 1 50 500 P
 G none

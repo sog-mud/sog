@@ -142,7 +142,7 @@ mithril vest~
 a mithril vest~
 A vest made of mithril plates lies heaped on the floor.~
 mithril~
-armor GK AD
+armor K AD
 8 8 8 2 0
 26 300 7600 P
 A
@@ -155,7 +155,7 @@ helm mithril~
 a mithril helm~
 Here lies a large mithril helm.~
 mithril~
-armor GK AE
+armor K AE
 8 8 8 2 0
 27 100 3400 P
 A
@@ -166,7 +166,7 @@ gauntlets mithril~
 a pair of mithril gauntlets~
 A pair of mithril gauntlets rests on the ground.~
 mithril~
-armor GK AH
+armor K AH
 8 8 8 2 0
 25 100 2700 P
 A
@@ -179,7 +179,7 @@ sleeves mithril~
 some mithril sleeves~
 A set of mithril sleeves lies on the ground.~
 mithril~
-armor GK AI
+armor K AI
 8 8 8 2 0
 25 100 2700 P
 A
@@ -192,7 +192,7 @@ boots mithril~
 a pair of mithril boots~
 A pair of mithril boots stands has been left here.~
 mithril~
-armor GK AG
+armor K AG
 8 8 8 2 0
 25 60 3100 P
 A
@@ -205,7 +205,7 @@ leggings mithril~
 a set of mithril leggings~
 A set of mithril leggings lie here unattended.~
 mithril~
-armor GK AF
+armor K AF
 8 8 8 2 0
 25 100 3100 P
 A
@@ -218,7 +218,7 @@ girth mithril~
 a mithril girth~
 A large iron girth lies at your feet.~
 mithril~
-armor GK AL
+armor K AL
 8 8 8 2 0
 26 60 5200 P
 A
@@ -240,7 +240,7 @@ shield iron~
 a sturdy iron shield~
 A small, but sturdy, iron shield has been left here.~
 iron~
-armor GJ AJ
+armor J AJ
 7 7 7 3 0
 24 100 4400 P
 A
@@ -272,7 +272,7 @@ ball quartz~
 a smooth quartz ball~
 A smooth quartz ball lies here gleaming.~
 quartz~
-light G AO
+light 0 AO
 0 0 72 0 0
 0 300 50 P
 G none
@@ -310,7 +310,7 @@ talisman demon~
 a demon-faced talisman~
 A demon-faced talisman glares at you angrily.~
 bronze~
-jewelry AG AC
+jewelry A AC
 0 0 0 0 0
 0 110 0 P
 A
@@ -341,7 +341,7 @@ two-handed two sword~
 a two-handed sword~
 A nice two-handed sword hangs on a hook in the wall.~
 iron~
-weapon GK AN
+weapon K AN
 sword 3 11 chop F
 26 240 3300 P
 A
@@ -365,7 +365,7 @@ cloak green~
 a dark green cloak~
 A beautiful dark green cloak has been dropped by someone.~
 cloth~
-armor GJ AC
+armor J AC
 7 7 7 2 0
 20 120 1600 P
 A
@@ -421,7 +421,7 @@ stone pale blue~
 a pale blue stone~
 A pale blue stone sits here.~
 stone~
-gem G AQ
+gem 0 AQ
 0 0 0 0 0
 5 10 550 P
 A
@@ -432,7 +432,7 @@ stone scarlet blue~
 a scarlet and blue stone~
 A pretty scarlet and blue stone has been dropped here.~
 stone~
-gem G AQ
+gem 0 AQ
 0 0 0 0 0
 5 10 550 P
 A
@@ -443,7 +443,7 @@ stone blue incandescent~
 an incandescent blue stone~
 A small incandescent blue stone lies here.~
 stone~
-gem G AQ
+gem 0 AQ
 0 0 0 0 0
 5 10 550 P
 A
@@ -454,7 +454,7 @@ stone red deep~
 a deep red stone~
 Someone has left a deep red stone here.~
 stone~
-gem G AQ
+gem 0 AQ
 0 0 0 0 0
 5 10 550 P
 A
@@ -465,7 +465,7 @@ stone pink~
 a pink stone~
 A tiny pink stone lies at your feet.~
 stone~
-gem G AQ
+gem 0 AQ
 0 0 0 0 0
 5 10 550 P
 A
@@ -476,7 +476,7 @@ stone pearly white~
 a pearly white stone~
 This pearly white stone would probably sell for a good price.~
 stone~
-gem G AQ
+gem 0 AQ
 0 0 0 0 0
 5 10 11 P
 A
@@ -487,7 +487,7 @@ stone lavender green~
 a lavender and green stone~
 A stunning lavender and green stone rests on the ground.~
 stone~
-gem G AQ
+gem 0 AQ
 0 0 0 0 0
 0 10 150 P
 A
@@ -507,7 +507,7 @@ stone pink green~
 a pink and green stone~
 A bright pink and green stone has been left here.~
 stone~
-gem G AQ
+gem 0 AQ
 0 0 0 0 0
 0 10 500 P
 A
@@ -518,7 +518,7 @@ stone clear~
 a clear stone~
 A odd clear stone lies at your feet.~
 stone~
-gem G AQ
+gem 0 AQ
 0 0 0 0 0
 0 10 100 P
 A
@@ -549,7 +549,7 @@ long dagger slim~
 a long slim dagger~
 A long slim dagger has been left here.~
 steel~
-weapon G AN
+weapon 0 AN
 dagger 2 5 pierce 0
 8 10 590 P
 A
@@ -562,7 +562,7 @@ water fall waterfall~
 Waterfall~
 You see a beautiful waterfall here.~
 water~
-portal AO 0
+portal AGO 0
 0 0 B 95400 0
 0 0 0 P
 G none

@@ -659,7 +659,7 @@ sword kas меч~
 @eng the Sword of Kas@rus ~~меч~~ Каса~
 @eng The Sword of Kas beckons to you!@rus Меч Каса (sword) манит тебя к себе.~
 steel~
-weapon BEGJM AN
+weapon BEJM AN
 sword 5 10 pierce D
 47 20 17000 P
 A
@@ -674,7 +674,7 @@ circlet диадема~
 @eng a circlet@rus диадема~
 @eng A Circlet lies here, gathering dust.@rus Диадема (circlet) валяется здесь, собирая на себя пыль.~
 steel~
-armor GM AE
+armor M AE
 17 17 17 10 0
 54 25 18000 P
 A
@@ -869,7 +869,7 @@ jar blood кувшин~
 @eng a jar of human blood@rus ~~кувшин~~, наполненный кровью~
 @eng A jar of human blood sits here.@rus Небольшой стеклянный кувшин (jar), наполненный человеческой кровью стоит прямо на полу.~
 glass~
-potion BEJ AO
+potion BEGJ AO
 60 'poison' 'weaken' 'curse' ''
 45 10 300 P
 G male

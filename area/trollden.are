@@ -210,7 +210,7 @@ ring opal~
 an opal ring~
 A ring of black opal lies here gathering dust.~
 opal~
-jewelry G AB
+jewelry 0 AB
 0 0 0 0 0
 20 10 1150 P
 A
@@ -225,7 +225,7 @@ leather belt ремень пояс~
 @eng a leather belt@rus кожанный ремень~
 @eng An old leather belt is left on the floor.@rus Кто-то выкинул старый кожанный ремень.~
 leather~
-armor G AL
+armor 0 AL
 6 6 6 0 0
 15 50 1050 P
 E

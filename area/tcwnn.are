@@ -1166,7 +1166,7 @@ scimitar~
 a Wickedly-Curved Scimitar~
 A Wickedly-Curved Scimitar hums ominously here.~
 steel~
-weapon BEGJ AN
+weapon BEJ AN
 sword 2 4 slash 0
 6 25 20 P
 A
@@ -1323,7 +1323,7 @@ sword longsword~
 the Castellan's Longsword~
 The Castellan's Longsword is lying here in the dirt.~
 steel~
-weapon G AN
+weapon 0 AN
 sword 6 7 slash 0
 53 25 1200 P
 A
@@ -1349,7 +1349,7 @@ sword longsword~
 an Ornate Longsword~
 An Ornate Longsword is lying here.~
 steel~
-weapon G AN
+weapon 0 AN
 sword 8 6 slash 0
 54 25 2000 P
 A
@@ -1431,7 +1431,7 @@ spear~
 a Throwing Spear~
 A sturdy Throwing Spear has been thrust into the ground here.~
 steel~
-weapon G AN
+weapon 0 AN
 spear 6 8 pierce K
 52 20 3000 P
 A
@@ -1444,7 +1444,7 @@ scroll~
 a blank scroll~
 A blank scroll is here.~
 vellum~
-scroll 0 AO
+scroll G AO
 20 'armor' 'shield' '' ''
 10 1 3000 P
 G none

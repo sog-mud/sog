@@ -446,7 +446,7 @@ soap rope~
 a soap on a rope~
 Some soap on a rope is here.~
 unknown~
-weapon AGJL AN
+weapon AJL AN
 exotic 4 4 pound 0
 11 10 10 P
 A
@@ -459,7 +459,7 @@ tricks~
 flar's bag of tricks~
 An enchanted bag lies here~
 leather~
-container FG AO
+container F AO
 300 0 0 11 100
 0 10 10 P
 G none
@@ -690,7 +690,7 @@ joint~
 a big fat joint~
 A big fat joint lays here burning.~
 unknown~
-wand 0 AO
+wand G AO
 23 6 6 'faerie fire' 0
 5 5 10 P
 G none
@@ -811,7 +811,7 @@ ring guardian~
 a pitch black ring~
 A pitch black ring with sparkles of color lies on the ground here.~
 unknown~
-armor ABFG AB
+armor ABF AB
 18 18 19 10 0
 30 5 1000 P
 A
@@ -837,7 +837,7 @@ zip gun~
 a zip gun~
 A home made zip gun lies here.~
 unknown~
-wand 0 AO
+wand G AO
 15 8 8 'high explosive' 0
 5 5 10 P
 G none
@@ -957,7 +957,7 @@ scroll persuasion~
 a scroll of persuasion~
 A very delicate scroll set in silver leafs lies here.~
 vellum~
-scroll 0 A
+scroll G A
 60 'word of recall' '' '' ''
 40 5 50 P
 G none
@@ -999,7 +999,7 @@ Axe destruction~
 an axe of destruction~
 A massive blood-stained axe of immeasurable age lies here.~
 steel~
-weapon BFG AN
+weapon BF AN
 axe 11 11 chop DE
 90 30 0 P
 A
@@ -1030,7 +1030,7 @@ head severed~
 a severed head~
 A severed head of a previous victim lies in the corner.~
 unknown~
-pill 0 0
+pill G 0
 1 '' '' '' ''
 5 5 0 P
 E
@@ -1052,7 +1052,7 @@ pill lude~
 a lude~
 A pill called a "lude" lies here collecting dust.~
 unknown~
-pill 0 A
+pill G A
 10 'bless' 'cure serious' 'cure light' ''
 1 20 200 P
 G none
@@ -1061,7 +1061,7 @@ flask vile mist~
 a flask of vile liquid~
 A flask full of vile liquid has been laid to rest here.~
 glass~
-potion 0 A
+potion G A
 8 'fly' 'refresh' '' ''
 2 25 10 P
 G none
@@ -1070,7 +1070,7 @@ invisibility staff~
 a staff of invisibility~
 A twig of an oak tree lies here.~
 wood~
-staff 0 AO
+staff G AO
 12 8 8 'armor' 0
 5 5 0 P
 G none
@@ -1138,7 +1138,7 @@ Can ec50~
 a can of EC50~
 A can of EC50 is here looking dangerous.~
 unknown~
-wand 0 AO
+wand G AO
 10 5 5 'fireball' 0
 10 10 400 P
 G none

@@ -679,7 +679,7 @@ mace boundary дубинка warden~
 @eng a boundary warden's mace@rus ~~дубинка~~ стража границы~
 @eng A large powerful mace is resting against the wall here.@rus Большая, мрачного вида дубинка (mace) брошена кем-то.~
 unknown~
-weapon ABG AN
+weapon AB AN
 mace 12 7 blast 0
 70 15 1938 P
 A
@@ -896,7 +896,7 @@ pouch magical leather мешочек~
 @eng a magical leather pouch@rus ~~маленький~~ ~~магический~~ ~~мешочек~~~
 @eng A pouch has been left here in the mud.@rus Маленький мешочек (pouch) валяется в грязи.~
 leather~
-container BC A
+container BCG A
 700 A 0 350 72
 70 50 1000 P
 G none
@@ -979,7 +979,7 @@ agiel weapon эйджил~
 @eng a mord-sith agiel@rus эйджил~
 @eng A magical weapon has been left here.@rus Странное магическое оружие (agiel) оставлено здесь своей хозяйкой.~
 unknown~
-weapon ABCEGM AN
+weapon ABCEM AN
 exotic 18 7 slash 0
 90 20 9902 P
 A

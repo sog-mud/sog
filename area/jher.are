@@ -304,7 +304,7 @@ curved dagger jher's~
 jher's curved dagger~
 Jher's evil curved dagger is here glowing.~
 ~
-weapon ABGJ AN
+weapon ABJ AN
 dagger 5 12 pierce 0
 53 3 530 P
 A
@@ -345,7 +345,7 @@ beorn's fury~
 beorn's fury~
 A huge set of teeth are rotting like a skull in the desert.~
 ~
-weapon GKM AN
+weapon KM AN
 exotic 1 7 bite 0
 0 2 0 P
 A
@@ -394,7 +394,7 @@ dusty golden trunk chest~
 the golden chest~
 A large dusty trunk was left in the corner, looks like a good place to sit.~
 ~
-container G 0
+container 0 0
 100 ABCD 9910 0 0
 35 5 350 P
 G none
@@ -403,7 +403,7 @@ diamond bracelet~
 a diamond bracelet~
 A diamond bracelet sparkles here.~
 ~
-armor AFG AM
+armor AF AM
 10 10 10 0 0
 37 5 370 P
 A
@@ -414,7 +414,7 @@ broken scroll~
 a broken scroll~
 A bound roll of paper is hidden here.~
 ~
-scroll B A
+scroll BG A
 50 'heal' 'word of recall' 'refresh' ''
 0 5 0 P
 G none
@@ -423,7 +423,7 @@ glowing zapath necklace~
 a glowing zapath necklace~
 A necklace carved from a blood red stone was left here.~
 ~
-armor AGJM AC
+armor AJM AC
 10 10 10 0 0
 35 1 350 P
 A
@@ -436,7 +436,7 @@ gold pill coin~
 a gold coin~
 A small gold coin catches your eye here.~
 ~
-pill A A
+pill AG A
 10 'detect invis' '' '' ''
 35 5 350 P
 G none

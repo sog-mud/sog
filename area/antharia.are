@@ -370,7 +370,7 @@ mother pearl~
 mother of pearl~
 A Mother of Pearl is shining here.~
 copper~
-armor G AO
+armor 0 AO
 5 5 5 0 0
 10 10 100 P
 A
@@ -698,7 +698,7 @@ Piece Metal~
 a round piece of metal~
 A round piece of some unknown metal is here.~
 copper~
-wand F AO
+wand FG AO
 38 7 7 'charm person' 0
 38 10 380 P
 G none
@@ -707,7 +707,7 @@ Crystal potion~
 a crystal potion~
 A liquid substance in a crystal container is here.~
 copper~
-potion P AF
+potion GP AF
 20 'refresh' '' '' ''
 5 3 50 P
 G none
@@ -716,7 +716,7 @@ crystal scroll~
 a crystal scroll~
 An amazing scroll of crystal is here.~
 copper~
-scroll A AI
+scroll AG AI
 13 'enchant weapon' '' '' ''
 10 3 100 P
 G none
@@ -725,7 +725,7 @@ glowing seashell~
 a glowing seashell~
 A glowing seashell is here.~
 copper~
-scroll A AE
+scroll AG AE
 5 'detect hidden' '' '' ''
 10 3 100 P
 G none
@@ -734,7 +734,7 @@ antharian bracer~
 an Antharian style bracer~
 An Antharian style bracer is here.~
 copper~
-armor G AM
+armor 0 AM
 8 8 8 0 0
 25 5 250 P
 A
@@ -747,7 +747,7 @@ antharian bracer~
 an Antharian style bracer~
 An Antharian style bracer is here.~
 copper~
-armor G AM
+armor 0 AM
 9 9 9 0 0
 32 5 320 P
 A
@@ -760,7 +760,7 @@ antharian bracer~
 an Antharian style bracer~
 An Antharian style bracer is here.~
 copper~
-armor G AM
+armor 0 AM
 11 11 11 0 0
 42 5 420 P
 A
@@ -773,7 +773,7 @@ net~
 a net~
 A glowing net is here.~
 copper~
-staff A AO
+staff AG AO
 25 10 10 '' 0
 25 5 250 P
 A

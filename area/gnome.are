@@ -440,7 +440,7 @@ potion bloody~
 a bloody potion~
 A bloody potion lies here.~
 glass~
-potion 0 A
+potion G A
 15 'cure blindness' 'cure critical' 'giant strength' ''
 7 220 480 P
 G none
@@ -449,7 +449,7 @@ cloak bloody~
 a bloody cloak~
 A bloody cloak lies in a corner.~
 cloth~
-armor G AC
+armor 0 AC
 4 4 4 0 0
 5 150 480 P
 G none
@@ -458,7 +458,7 @@ ring bat~
 a bat ring~
 A ring in the shape of a bat lies here.~
 silver~
-jewelry G AB
+jewelry 0 AB
 0 0 0 0 0
 10 20 270 P
 A
@@ -480,7 +480,7 @@ sword electrum~
 an electrum sword~
 An electrum sword lies here.~
 steel~
-weapon AG AN
+weapon A AN
 sword 4 4 slash 0
 12 200 930 P
 G none
@@ -594,7 +594,7 @@ life potion~
 a potion of life healing~
 A potion of life healing has left here.~
 clay~
-potion H A
+potion GH A
 32 'cure poison' 'bless' '' ''
 6 10 630 P
 G none

@@ -533,7 +533,7 @@ tongue blue lizard~
 a blue lizard tongue~
 A blue lizard tongue is here.~
 flesh~
-pill 0 A
+pill G A
 10 'sanctuary' '' '' ''
 8 1 450 P
 G none
@@ -542,7 +542,7 @@ tongue red lizard~
 a red lizard tongue~
 A red lizard tongue is here.~
 flesh~
-pill 0 A
+pill G A
 30 'poison' '' '' ''
 9 1 90 P
 G none
@@ -551,7 +551,7 @@ tongue green lizard~
 a green lizard tongue~
 A green lizard tongue is here.~
 flesh~
-pill 0 A
+pill G A
 30 'curse' '' '' ''
 8 1 80 P
 G none
@@ -578,7 +578,7 @@ notebook~
 a notebook~
 A notebook has been left here.~
 vellum~
-treasure G AO
+treasure 0 AO
 0 0 0 0 0
 29 4 290 P
 G none
@@ -598,7 +598,7 @@ mail scale~
 scale mail~
 A suit of scale mail is here.~
 iron~
-armor G AD
+armor 0 AD
 7 7 7 0 0
 20 20 200 P
 G none
@@ -607,7 +607,7 @@ trident~
 a trident~
 A trident has been left here.~
 wood~
-weapon G AN
+weapon 0 AN
 polearm 5 5 none 0
 20 9 200 P
 A
@@ -668,7 +668,7 @@ armor emerald~
 emerald armor~
 A suit of emerald armor is here.~
 stone~
-armor G AD
+armor 0 AD
 13 13 13 10 0
 46 40 2000 P
 A
@@ -679,7 +679,7 @@ hammer dwarven thrower~
 a dwarven thrower~
 A dwarven throwing hammer is here.~
 unknown~
-weapon GP AN
+weapon P AN
 mace 9 5 none K
 40 20 1500 P
 A
@@ -692,7 +692,7 @@ sleeves elven chainmail~
 elven chainmail sleeves~
 A set of elven chainmail sleeves is here.~
 mithril~
-armor G AI
+armor 0 AI
 5 5 5 5 0
 10 4 100 P
 G none
@@ -701,7 +701,7 @@ leggings elven chainmail~
 elven chainmail leggings~
 A pair of elven chainmail leggings is here.~
 mithril~
-armor GQ AF
+armor Q AF
 5 5 5 5 0
 10 5 100 P
 G none
@@ -755,7 +755,7 @@ wristguard emerald~
 an emerald wristguard~
 An emerald wristguard is here.~
 stone~
-armor G AM
+armor 0 AM
 12 12 12 6 0
 46 10 3500 P
 A
@@ -766,7 +766,7 @@ longsword emerald~
 an emerald longsword~
 An emerald longsword is here.~
 stone~
-weapon G AN
+weapon 0 AN
 exotic 5 10 none 0
 46 10 3200 P
 A
@@ -777,7 +777,7 @@ helm emerald~
 an emerald helm~
 An emerald helm is here.~
 stone~
-armor G AE
+armor 0 AE
 12 12 12 6 0
 46 15 1800 P
 A
@@ -797,7 +797,7 @@ cape admiral's~
 an admiral's cape~
 A cape with the emblem of Freeport is here.~
 cloth~
-armor GI AD
+armor I AD
 12 12 12 6 0
 45 10 3200 P
 A
@@ -816,7 +816,7 @@ signet ring freeport~
 an admiral's signet~
 A ring with the seal of Freeport is here.~
 gold~
-armor G AB
+armor 0 AB
 12 12 12 6 0
 45 1 1800 P
 A
@@ -853,7 +853,7 @@ cape dimensional~
 a dimensional cape~
 A hole in reality lies here.~
 unknown~
-armor G AC
+armor 0 AC
 13 13 13 13 0
 52 3 5000 P
 A

@@ -1729,7 +1729,7 @@ ring protection кольцо защиты~
 @eng a ring of protection@rus кольцо защиты~
 @eng an enchanted ring of protection sits on the floor.@rus Кольцо защиты (ring) лежит на полу.~
 silver~
-treasure G AB
+treasure 0 AB
 0 0 0 0 0
 8 10 640 P
 A
@@ -3460,7 +3460,7 @@ sword standard merc меч~
 @eng a standard issue sword@rus ~~форменный~~ ~~меч~~~
 @eng You see a standard issue sword here.@rus Форменный меч (sword) оставлен здесь.~
 steel~
-weapon G AN
+weapon 0 AN
 sword 3 7 slash 0
 16 50 1280 P
 A
@@ -3476,7 +3476,7 @@ dagger standard merc кинжал~
 @eng a standard issue dagger@rus ~~форменный~~ ~~кинжал~~~
 @eng You see a standard issue dagger here.@rus Форменный кинжал (dagger) оставлен здесь.~
 steel~
-weapon G AN
+weapon 0 AN
 dagger 2 5 pierce 0
 8 20 590 P
 A
@@ -3494,7 +3494,7 @@ mace standard merc палица~
 @eng a standard issue mace@rus ~~форменная~~ ~~палица~~~
 @eng You see a standard issue mace here.@rus Форменная палица (mace) оставлен здесь.~
 iron~
-weapon G AN
+weapon 0 AN
 mace 2 4 pound 0
 7 100 620 P
 A
@@ -3666,7 +3666,7 @@ ring signet кольцо~
 @eng a city guard signet ring@rus ~~кольцо~~ с печаткой~
 @eng You see a ring with a strange symbol on the floor.@rus На земле вы видите кольцо (ring) со странным символом.~
 copper~
-treasure G AB
+treasure 0 AB
 0 0 0 0 0
 16 10 1280 P
 A
@@ -3679,7 +3679,7 @@ banner war merc знамя~
 @eng a war banner@rus ~~военное~~ ~~знамя~~~
 @eng A war banner is on the floor here.@rus Военное знамя (banner) лежит на земле.~
 cloth~
-light AG A
+light A A
 0 0 500 0 0
 8 10 640 P
 A

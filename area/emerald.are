@@ -1669,7 +1669,7 @@ Stetson helm~
 an ancient Ranger Lord's Stetson~
 A large brown hat is trying to camoflage itself on the floor.~
 wood~
-armor AG AE
+armor A AE
 12 11 11 10 0
 50 8 80000 P
 A
@@ -1687,7 +1687,7 @@ VainGlory Morning-Star Morningstar~
 a Morning-Star named "VainGlory"~
 A large and ancient morning-star glows brightly on the floor.~
 silver~
-weapon AGHM AN
+weapon AHM AN
 flail 12 3 wrath 0
 38 10 10000 G
 A
@@ -1730,7 +1730,7 @@ Rose black flower~
 a single black Rose~
 A black long stemmed rose with single thorn lies here.~
 energy~
-trash G AO
+trash 0 AO
 0 0 0 0 0
 1 1 15 G
 E
@@ -1744,7 +1744,7 @@ lily flower~
 a Lily of the Valley~
 A white lily is here.~
 energy~
-trash G AO
+trash 0 AO
 0 0 0 0 0
 1 1 17 G
 E
@@ -1758,7 +1758,7 @@ daisys basket flower~
 a basket of daisys~
 There is a basket of daisys here.~
 energy~
-trash G AO
+trash 0 AO
 0 0 0 0 0
 1 1 18 G
 E
@@ -1771,7 +1771,7 @@ Irises flower~
 English Irises~
 Many long stalks of bright blue flowers lie here.~
 energy~
-trash G AO
+trash 0 AO
 0 0 0 0 0
 1 1 18 G
 E
@@ -1785,7 +1785,7 @@ Nosegay rosebuds flower~
 a nosegay of rosebuds~
 There is a bunch of pink, unopened roses here.~
 energy~
-trash G AO
+trash 0 AO
 0 0 0 0 0
 1 1 19 G
 E
@@ -1799,7 +1799,7 @@ Violets box flower~
 a box of downy violets~
 A sprig of purple violets lies sleepily in a box here.~
 energy~
-trash G AO
+trash 0 AO
 0 0 0 0 0
 1 1 18 G
 E
@@ -1812,7 +1812,7 @@ Poppy poppies vase flower~
 a vase of snow poppies~
 A make shift vase which holds a number of delicate, white flowers is here.~
 energy~
-trash G AO
+trash 0 AO
 0 0 0 0 0
 1 1 19 G
 E
@@ -1826,7 +1826,7 @@ Sunflower bouquet flower~
 a sunflower bouquet~
 A huge bouquet of bright orange and yellow flowers is here.~
 energy~
-trash G AO
+trash 0 AO
 0 0 0 0 0
 1 1 20 G
 E
@@ -1889,7 +1889,7 @@ four-leaf clover~
 a Four-Leaf Clover~
 A Four-Leaf Clover.~
 energy~
-treasure G AO
+treasure 0 AO
 0 0 0 0 0
 1 1 50 G
 E
@@ -1903,7 +1903,7 @@ Sword~
 a Crusader's Sword~
 There is a shiny steel sword with a decorated hilt here.~
 silver~
-weapon GKL AN
+weapon KL AN
 sword 10 3 wrath 0
 35 8 12000 G
 A
@@ -1923,7 +1923,7 @@ Cross~
 a wooden cross~
 A small wooden cross lies here.~
 wood~
-armor GKL AC
+armor KL AC
 9 9 9 0 0
 35 2 5000 G
 A
@@ -2056,7 +2056,7 @@ chest~
 a wooden chest~
 There is a sturdy wooden chest at the foot of the bed.~
 wood~
-container G 0
+container 0 0
 8 AC 0 0 0
 30 100000 1000 A
 G none
@@ -2092,7 +2092,7 @@ Yew bow~
 a yew bow~
 An elegant yew bow lies here amongst the rocks.~
 yew~
-weapon GKL AN
+weapon KL AN
 bow 5 9 pierce 0
 43 9 30000 G
 A
@@ -2208,7 +2208,7 @@ marmalade Orb~
 a marmalade orb~
 A striped marmalade orb floats in the air near you.~
 energy~
-weapon FGI AN
+weapon FI AN
 exotic 10 4 magic 0
 43 10 10000 G
 A
@@ -2250,7 +2250,7 @@ bible~
 the Bible~
 A small black bible lies here.~
 wood~
-armor GIKL AO
+armor IKL AO
 7 8 7 0 0
 20 3 100 G
 A
@@ -2407,7 +2407,7 @@ tulips bunch flower~
 a bunch of tulips~
 There is a bunch of yellow tulips here.~
 energy~
-trash G A
+trash 0 A
 0 0 0 0 0
 1 1 20 G
 E
@@ -2656,7 +2656,7 @@ candle~
 a blood candle~
 A blood candle paints the room red.~
 wax~
-light AGJ A
+light AJ A
 0 0 999 0 0
 20 1 5500 G
 A
@@ -2675,7 +2675,7 @@ ring scarab beetle~
 a gold scarab ring~
 A petrified beetle dipped in gold has been dead a long time.~
 gold~
-armor ACGJ AB
+armor ACJ AB
 9 9 9 9 9
 38 2 15000 G
 A
@@ -2694,7 +2694,7 @@ wig~
 a green serpent-tressed wig~
 A green serpent-tressed wig slithers about on the ground.~
 moss~
-armor CGJ AE
+armor CJ AE
 9 9 9 0 0
 38 2 15500 G
 A
@@ -2740,7 +2740,7 @@ gown samite~
 a beautiful gown of white samite~
 A white samite gown lies here like a symbol of beauty and purity.~
 bronze~
-armor G AD
+armor 0 AD
 11 11 11 0 0
 50 6 25000 G
 A
@@ -2868,7 +2868,7 @@ carnations carnation flower~
 a dozen pink carnations~
 Several long-stemmed carnations are here.~
 energy~
-trash G AO
+trash 0 AO
 0 0 0 0 0
 1 1 10 G
 E
@@ -2882,7 +2882,7 @@ casket dandelion dandelions flower~
 a casket of Fairy Dandelions~
 A handful of wispy white flowers floats wispfully in the air in front of you.~
 energy~
-trash G AO
+trash 0 AO
 0 0 0 0 0
 1 1 20 G
 E
@@ -2898,7 +2898,7 @@ carrion flower~
 a Carrion Flower~
 A grotesque scaley plant sits here on the floor, covered in a fog of flies.~
 energy~
-trash G AO
+trash 0 AO
 0 0 0 0 0
 1 1 250 G
 E
@@ -2916,7 +2916,7 @@ tub crocuses~
 a tub of bright yellow crocuses~
 A stubby stone tub here holds several bright yellow flower bulbs.~
 energy~
-trash G AO
+trash 0 AO
 0 0 0 0 0
 1 1 25 G
 E
@@ -2930,7 +2930,7 @@ cactus~
 a cactus~
 A solitary spiked cactus is here.~
 energy~
-trash G AO
+trash 0 AO
 0 0 0 0 0
 1 1 5 G
 E

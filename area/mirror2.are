@@ -1197,7 +1197,7 @@ sword shiny silver~
 a shiny silver sword~
 A shiny silver sword lies on the ground here.~
 silver~
-weapon G AN
+weapon 0 AN
 sword 4 7 slash 0
 23 10 100 P
 G none
@@ -1239,7 +1239,7 @@ circlet golden~
 the Golden Circlet~
 A golden circlet lies here.~
 gold~
-armor AFGM AE
+armor AFM AE
 15 15 15 7 0
 45 30 10000 P
 A
@@ -1261,7 +1261,7 @@ bent sword~
 a bent sword~
 A sword with a rusted, bent blade is here.~
 steel~
-weapon GHM AN
+weapon HM AN
 sword 4 11 slash 0
 45 10 200 P
 A
@@ -1283,7 +1283,7 @@ royal staff king~
 the Royal Staff~
 King Loranhir's golden staff lies here.~
 wood~
-staff L AO
+staff GL AO
 30 10 10 'heal' 0
 30 10 1000 P
 A
@@ -1303,7 +1303,7 @@ harp silver caerlin~
 a silver harp~
 A bright silver harp lies here.~
 silver~
-wand K AO
+wand GK AO
 30 25 25 'sanctuary' 0
 15 10 1000 P
 G none
@@ -1312,7 +1312,7 @@ pool cue~
 a pool cue~
 A wooden pool cue is here.~
 wood~
-weapon G AN
+weapon 0 AN
 mace 5 6 blast 0
 25 4 100 P
 G none
@@ -1350,7 +1350,7 @@ small steel knife~
 a small steel knife~
 A small steel knife is here.~
 steel~
-weapon G AN
+weapon 0 AN
 dagger 6 3 pierce 0
 19 2 10 P
 E
@@ -1363,7 +1363,7 @@ potion human flight~
 a potion of human flight~
 A cloudy potion lies here.~
 glass~
-potion H A
+potion GH A
 20 'fly' '' '' ''
 10 0 0 P
 G none
@@ -1372,7 +1372,7 @@ pill restore restoration~
 a pill of mana and life restoration~
 A glittering silver pill lies here.~
 silver~
-pill H A
+pill GH A
 15 'heal' 'refresh' 'teleport' ''
 15 3 0 P
 G none
@@ -1381,7 +1381,7 @@ flask holy water~
 a flask of holy water~
 A small flask of clear, bright water lies here.~
 glass~
-potion AH A
+potion AGH A
 25 'bless' 'cure blindness' 'remove curse' ''
 10 5 1000 P
 G none
@@ -1390,7 +1390,7 @@ staff destruction~
 a staff of destruction~
 A vicious staff lies here.~
 wood~
-staff BH AO
+staff BGH AO
 25 7 7 'earthquake' 0
 10 3 100 P
 G none
@@ -1408,7 +1408,7 @@ potion invis invisible~
 a clear potion of invisibility~
 A clear potion of invisibility is here.~
 glass~
-potion H A
+potion GH A
 20 'invisibility' 'detect magic' '' ''
 10 5 0 P
 G none
@@ -1538,7 +1538,7 @@ horn golden~
 a unicorn's golden horn~
 A unicorn's horn is here.~
 gold~
-weapon AGK AN
+weapon AK AN
 exotic 5 12 stab 0
 39 30 30000 P
 A
@@ -1576,7 +1576,7 @@ apple fruit~
 an apple~
 A ripe red apple is here.~
 food~
-pill 0 A
+pill G A
 10 'refresh' '' '' ''
 1 1 0 P
 G none
@@ -1907,7 +1907,7 @@ prism sword~
 a prism sword~
 A clear glass sword lies here, reflecting all sorts of rainbow colors.~
 glass~
-weapon G AN
+weapon 0 AN
 sword 4 10 slice 0
 35 10 4000 P
 A
@@ -1920,7 +1920,7 @@ hoe~
 a hoe~
 A hoe lies here.~
 iron~
-weapon G AN
+weapon 0 AN
 exotic 4 7 charge 0
 25 14 100 P
 G none
@@ -1938,7 +1938,7 @@ poultice detection~
 a poultice of detection~
 A small herbal poultice lies hee.~
 food~
-pill 0 AO
+pill G AO
 20 'detect invis' 'detect magic' '' ''
 10 1 0 P
 G none
@@ -1974,7 +1974,7 @@ kendo stick staff~
 a kendo~
 A long wooden staff lies here.~
 wood~
-weapon GH AN
+weapon H AN
 staff 5 9 crush D
 45 10 100 P
 A
@@ -2047,7 +2047,7 @@ knife pocket pocketknife~
 a pocketknife~
 A pocketknife lies here.~
 steel~
-weapon G AN
+weapon 0 AN
 dagger 1 6 pierce 0
 2 2 10 P
 G none
@@ -2085,7 +2085,7 @@ page hymn~
 a hymn~
 A page from a hymnal has fallen on the ground here.~
 glass~
-scroll 0 A
+scroll G A
 20 'bless' '' '' ''
 5 1 0 P
 G none
@@ -2107,7 +2107,7 @@ clippers~
 a pair of clippers~
 A pair of clippers lie here.~
 steel~
-weapon G AN
+weapon 0 AN
 exotic 4 4 slice 0
 25 10 10 P
 G none
@@ -2185,7 +2185,7 @@ diploma wizard finishing~
 a "Wizard's Finishing School" diploma~
 A rolled-up piece of paper lies here.~
 paper~
-treasure GK AO
+treasure K AO
 A 0 0 0 0
 1 0 0 P
 A
@@ -2241,7 +2241,7 @@ diploma wizard finishing~
 a "Wizard's Finishing School" diploma~
 A rolled-up piece of paper lies here.~
 paper~
-treasure GJ AO
+treasure J AO
 0 0 0 0 0
 1 0 0 P
 A
@@ -2290,7 +2290,7 @@ broken bottle~
 a broken bottle~
 A broken bottle lies here.~
 glass~
-weapon G AN
+weapon 0 AN
 exotic 6 6 slime 0
 40 2 100 P
 A
@@ -2312,7 +2312,7 @@ wand soul stealer~
 the Soul Stealer~
 A strange wand is here.~
 wood~
-wand H AO
+wand GH AO
 15 15 15 'charm person' 0
 15 5 5 P
 E
@@ -2347,7 +2347,7 @@ bone horn~
 a horn of bone~
 A unicorn's bony horn lies here.~
 bone~
-weapon EGHJ AN
+weapon EHJ AN
 exotic 6 7 pierce 0
 45 5 100 P
 A
@@ -2386,7 +2386,7 @@ holly berries berry~
 a few holly berries~
 A few holly berries lie here.~
 food~
-pill 0 A
+pill G A
 10 'poison' '' '' ''
 2 2 0 P
 G none
@@ -2395,7 +2395,7 @@ sword obsidian eclipse~
 an eclipse sword~
 A sword of pure obsidian lies here, seeming to swallow up the rays of light.~
 obsidian~
-weapon FGHJM AN
+weapon FHJM AN
 sword 5 10 slash DG
 35 20 20000 P
 A
@@ -2599,7 +2599,7 @@ amulet death~
 the Amulet of Death and Dishonor~
 An amulet lies here....it absorbs all the light around it.~
 unknown~
-armor ABFGHM AC
+armor ABFHM AC
 0 0 0 0 0
 50 5 0 P
 A
@@ -2637,7 +2637,7 @@ blood red dagger~
 a blood-red dagger~
 A blood-red dagger lies here.~
 steel~
-weapon EGJ AN
+weapon EJ AN
 dagger 6 10 pierce AD
 45 10 10000 P
 A
@@ -2739,7 +2739,7 @@ smoke can jug~
 a beekeeper's smoke can~
 Thin smoke pours out of a small jug on the ground.~
 wood~
-wand 0 AO
+wand G AO
 30 10 10 'blindness' 0
 25 5 100 P
 E
@@ -3027,7 +3027,7 @@ sword taliesin~
 taliesin~
 A beautiful sword lies here.~
 gold~
-weapon GM AN
+weapon M AN
 sword 5 9 slash 0
 45 0 1000 P
 A
@@ -3052,7 +3052,7 @@ sunrise shield~
 the Sunrise Shield~
 A beautiful jewelled shield lies here.~
 gold~
-armor GM AJ
+armor M AJ
 5 5 5 0 0
 10 0 0 P
 A

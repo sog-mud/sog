@@ -388,7 +388,7 @@ cross white marble~
 a white marble cross~
 A white marble cross is here.~
 marble~
-staff AIKL AO
+staff AGIKL AO
 35 3 3 'sanctuary' 0
 30 100 15000 P
 G none
@@ -430,7 +430,7 @@ rod black~
 a black rune covered rod~
 A black rune covered rod~
 sandstone~
-staff CEHJM AO
+staff CEGHJM AO
 40 8 8 'fire breath' 0
 30 30 7000 P
 E
@@ -489,7 +489,7 @@ potion invisibility~
 a potion of invisibility~
 A glass jar of a clear fluid is here.~
 glass~
-potion 0 AO
+potion G AO
 30 'invisibility' 'detect invis' '' ''
 28 10 3000 P
 G none

@@ -723,7 +723,7 @@ hat top black цилиндр черный~
 @eng black top hat of a chimney-sweep@rus ~~черный~~ ~~цилиндр~~ трубочиста~
 @eng A strange-looking black hat sits here.@rus Странная шляпа (hat) лежит тут.~
 silk~
-armor GK AE
+armor K AE
 10 10 10 8 0
 15 40 1000 P
 A
@@ -740,7 +740,7 @@ vest chimney black куртка черная~
 @eng black vest of a chimney-sweep@rus ~~черная~~ ~~куртка~~ трубочиста~
 @eng A black vest lies here.@rus Черная куртка (vest) брошена тут.~
 silk~
-armor GK AD
+armor K AD
 10 10 10 8 0
 15 30 1000 P
 A
@@ -757,7 +757,7 @@ leggins chimney black штаны черные~
 @eng black leggings of a chimney-sweep@rus ~~черные~~ ~~штаны~~ трубочиста~
 @eng Leather leggings lie here.@rus Черные штаны (leggings) брошены тут.~
 soft leather~
-armor GKMZ AF
+armor KMZ AF
 10 10 10 8 0
 15 20 1000 P
 A
@@ -774,7 +774,7 @@ broom chimney black щетка черная~
 @eng black chimney broom@rus ~~черная~~ ~~щетка~~ трубочиста~
 @eng A chimney broom lies here.@rus Щетка (broom) трубочиста лежит тут.~
 wire~
-staff 0 AO
+staff G AO
 25 10 10 'faerie fog' 0
 15 10 1500 P
 G female
@@ -1121,7 +1121,7 @@ exit door дверь~
 @eng exit from the tower@rus ~~выход~~ из башни~
 @eng Through the opened door you see the town square.@rus Через открытую дверь (door) ты видишь городскую площадь.~
 unknown~
-portal 0 0
+portal G 0
 0 0 0 36332 0
 0 0 0 P
 G male

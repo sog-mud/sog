@@ -325,7 +325,7 @@ potion beaker plentiful potions~
 a beaker of plentiful potions~
 A mystical concoction is here waiting to be quaffed.~
 magic~
-potion A AO
+potion AG AO
 0 'cure critical' 'armor' 'refresh' 'cure light'
 45 1 450 P
 G none
@@ -373,7 +373,7 @@ wing crystal pixie zzz~
 {Wa crystal pixie wing{x~
 A crystal pixie wing flutters aimlessly.~
 magic dust~
-armor AGKQ AI
+armor AKQ AI
 -10 -10 -10 -10 0
 43 1 780 P
 A

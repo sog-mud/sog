@@ -251,7 +251,7 @@ sword newbie~
 a shiny newbie sword~
 A shiny newbie sword is lying here waiting to be possessed.~
 steel~
-weapon AG AN
+weapon A AN
 sword 1 7 thrust 0
 4 120 200 G
 A
@@ -271,7 +271,7 @@ helm helmet newbie~
 a bright newbie helm~
 A bright newbie helm is hoping a loose head will wander by.~
 steel~
-armor AG AE
+armor A AE
 4 4 3 1 1
 4 50 220 G
 A
@@ -282,7 +282,7 @@ cloak dark newbie~
 a dark newbie cloak~
 A dark newbie cloak is lying here hoping to smother you.~
 wool~
-armor AG AK
+armor A AK
 3 4 3 1 2
 2 100 180 G
 A
@@ -295,7 +295,7 @@ ring signet newbie~
 a newbie signet ring~
 A newbie signet ring is lying in the dust here.~
 silver~
-armor FG AB
+armor F AB
 4 3 3 1 1
 1 20 200 G
 A
@@ -306,7 +306,7 @@ dagger newbie~
 a shiny newbie dagger~
 A shiny newbie dagger is lying here looking for a back to stab.~
 iron~
-weapon AG AN
+weapon A AN
 dagger 1 7 stab 0
 4 50 140 G
 A
@@ -317,7 +317,7 @@ collar dragon~
 a pet dragon collar~
 Someone's pet dragon has escaped and left his collar here.~
 snakeskin~
-armor G AC
+armor 0 AC
 3 3 4 1 1
 4 20 300 G
 A
@@ -339,7 +339,7 @@ light jar~
 a brightly glowing jar~
 A jar of glowing fluid wants to brighten your day.~
 energy~
-light AG A
+light A A
 0 0 -1 0 0
 2 20 120 G
 A
@@ -350,7 +350,7 @@ horns horn~
 the horns of the minotaur~
 The horns of the great Minotaur lie here.~
 bone~
-armor G AE
+armor 0 AE
 3 4 4 1 1
 6 100 320 G
 A
@@ -383,7 +383,7 @@ sleeves newbie~
 some cool newbie sleeves~
 A set of nifty sleeves is here.~
 steel~
-armor G AI
+armor 0 AI
 4 4 3 1 1
 3 140 275 G
 A
@@ -394,7 +394,7 @@ mace newbie~
 a glowing newbie mace~
 A finely crafted newbie mace is waiting for a worthy owner.~
 wood~
-weapon AG AN
+weapon A AN
 mace 1 7 pound 0
 3 170 245 G
 A
@@ -405,7 +405,7 @@ orb~
 a baby dragon orb~
 A baby dragon orb lies here.~
 quartz~
-armor AEGJM AQ
+armor AEJM AQ
 3 3 3 1 1
 3 20 400 G
 A

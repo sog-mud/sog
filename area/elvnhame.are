@@ -893,7 +893,7 @@ fountain фонтан вода свет water light~
 @eng the Fountain of Light@rus ~~фонтан~~ света~
 (Good Aura) The Fountain of Light is here, offering water to the thirsty.~
 quartz~
-fountain AGIOR 0
+fountain AIOR 0
 100000 100000 'water' 0 0
 0 0 0 P
 E
@@ -908,7 +908,7 @@ fountain water magic lapis~
 The Fountain of Magic~
 The Fountain of Magic shoots clear water into the air.~
 quartz~
-fountain ABGOR 0
+fountain ABOR 0
 100000 100000 'water' 0 0
 0 0 0 P
 E
@@ -924,7 +924,7 @@ fountain blood darkness shadow gore~
 the Fountain of Gore~
 The Fountain of Gore is here, blood shooting up and falling back down into the pool.~
 obsidian~
-fountain CGOR 0
+fountain COR 0
 10000 10000 'blood' 0 0
 0 0 0 P
 E
@@ -1030,7 +1030,7 @@ plain ring cityguard~
 City Guard Ring~
 A plain ring of pewter glints faintly on the floor.~
 pewter~
-treasure G AB
+treasure 0 AB
 0 0 0 0 0
 6 10 500 P
 A
@@ -1052,7 +1052,7 @@ citysword blade~
 City Guard sword~
 A nondescript blade lies here gathering dust.~
 steel~
-weapon G AN
+weapon 0 AN
 sword 2 5 slash D
 6 70 100 P
 A
@@ -1071,7 +1071,7 @@ shillelagh stick~
 City Guard shillelagh~
 A thick stick of oak lies here.~
 wood~
-weapon G AN
+weapon 0 AN
 mace 2 6 smash 0
 6 90 90 P
 A
@@ -1089,7 +1089,7 @@ standard chain mail chainmail~
 City Guard chainmail~
 You see a City Guard's chainmail vest.~
 steel~
-armor G AD
+armor 0 AD
 -5 -5 -5 -5 2
 8 140 300 P
 A
@@ -1100,7 +1100,7 @@ dashing cape~
 a dashing City Guard cape~
 You see a dashing City Guard cape neatly folded here.~
 cloth~
-armor G AK
+armor 0 AK
 -5 -5 -5 -5 0
 8 50 500 P
 A
@@ -1119,7 +1119,7 @@ lieutenant sword~
 City Guard Lieutenant Sword~
 City Guard Lieutenant Sword is lying here.~
 steel~
-weapon G AN
+weapon 0 AN
 sword 4 8 slice 0
 11 100 1000 P
 A
@@ -1132,7 +1132,7 @@ lieutenant helmet helm~
 City Guard Lieutenant Helmet~
 A shiny helmet lies here waiting to be used.~
 steel~
-armor G AE
+armor 0 AE
 -5 -5 -5 -5 2
 8 130 2000 P
 A
@@ -1143,7 +1143,7 @@ captain helmet helm~
 City Guard Captain's Helmet~
 The City Guard Captain left his helmet here.~
 silver~
-armor G AE
+armor 0 AE
 -6 -6 -6 -6 2
 10 140 2600 P
 A
@@ -1154,7 +1154,7 @@ captain jacket~
 City Guard Captain's Jacket~
 The City Guard Captain left his jacket here.~
 cloth~
-armor G AD
+armor 0 AD
 -6 -6 -6 -6 0
 10 100 1900 P
 A
@@ -1169,7 +1169,7 @@ captain cape blue~
 blue City Guard Captain's Cape~
 The City Guard Captain left his blue cape here.~
 velvet~
-armor G AK
+armor 0 AK
 -6 -7 -7 -6 0
 10 120 2300 P
 A
@@ -1180,7 +1180,7 @@ captain gloves blue~
 City Guard Captain's blue gloves~
 A pair of pretty blue gloves is here.~
 velvet~
-armor G AH
+armor 0 AH
 -6 -6 -6 -6 0
 10 20 1000 P
 A
@@ -1191,7 +1191,7 @@ golden scimitar captain~
 City Guard Captain's Golden Scimitar~
 A shiny golden scimitar waits to be bloodied.~
 gold~
-weapon G AN
+weapon 0 AN
 sword 4 5 slice 0
 10 80 2190 P
 A
@@ -1204,7 +1204,7 @@ captain boots~
 City Guard Captain's Boots~
 A pair of worn boots sits here undisturbed.~
 leather~
-armor G AG
+armor 0 AG
 -6 -6 -6 -6 1
 10 150 2900 P
 A
@@ -1217,7 +1217,7 @@ captain striped trousers~
 City Guard Captain's Striped Trousers~
 A pair of striped trousers lay here in a heap.~
 cloth~
-armor G AF
+armor 0 AF
 -6 -6 -6 -6 0
 10 110 2600 P
 A
@@ -1268,7 +1268,7 @@ signet-ring ring~
 the Mayor's Signet-Ring~
 A silver ring studded with emeralds lies here.~
 silver~
-armor GJK AB
+armor JK AB
 -15 -14 -15 -16 0
 50 10 6500 P
 A
@@ -1289,7 +1289,7 @@ tuxedo suit~
 a tuxedo~
 A suit of formal clothes is neatly laid out for use.~
 silk~
-armor GY AK
+armor Y AK
 -10 -14 -14 -9 0
 40 40 7000 P
 A
@@ -1491,7 +1491,7 @@ ruby~
 a sparkling ruby~
 A small sparkling red stone is here.~
 corundum~
-gem GN AO
+gem N AO
 0 0 0 0 0
 10 10 1000 P
 A
@@ -1502,7 +1502,7 @@ emerald~
 an emerald~
 A polished green stone, emerald shaped, is sitting here.~
 corundum~
-gem GN AO
+gem N AO
 0 0 0 0 0
 14 10 1000 P
 A
@@ -1513,7 +1513,7 @@ sapphire~
 a sapphire~
 A sapphire sparkles from its lowly position on the ground.~
 corundum~
-gem GN AO
+gem N AO
 0 0 0 0 0
 18 10 1300 P
 A
@@ -1526,7 +1526,7 @@ diamond~
 a diamond~
 A diamond glitters in the light.~
 diamond~
-gem GN AO
+gem N AO
 0 0 0 0 0
 23 10 2000 P
 A
@@ -1568,7 +1568,7 @@ topaz collar~
 a topaz-encrusted collar~
 A collar encrusted with amber-hued gems glitters here.~
 quartz~
-jewelry GN AB
+jewelry N AB
 0 0 0 0 0
 25 40 14500 P
 A

@@ -123,7 +123,7 @@ winged boots~
 a pair of winged boots~
 A pair of winged boots flutters about~
 leather~
-armor G AG
+armor 0 AG
 3 3 3 0 0
 13 100 2800 P
 A
@@ -159,7 +159,7 @@ magenta potion~
 magenta potion~
 Bright magenta potion gathers dust.~
 glass~
-potion J AO
+potion GJ AO
 8 'armor' 'cure light' 'poison' ''
 3 20 320 P
 G none
@@ -168,7 +168,7 @@ ancient parchment~
 an ancient illustrated parchment~
 An ancient illustrated parchment in the corner~
 vellum~
-scroll AH AO
+scroll AGH AO
 5 'blindness' 'curse' 'poison' ''
 12 50 1330 P
 G none

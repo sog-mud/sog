@@ -384,7 +384,7 @@ hip pack alligator skin~
 an Alligator skin hip pack~
 An Alligator skin hip pack has been dropped here.~
 leather~
-container G AM
+container 0 AM
 100 0 0 20 80
 1 10 1200 G
 G none
@@ -415,7 +415,7 @@ candlestick~
 a candlestick~
 A candlestick is lying here.~
 silver~
-treasure G AB
+treasure 0 AB
 0 0 0 0 0
 1 10 1000 P
 G none
@@ -456,7 +456,7 @@ sword madboy~
 madboy's sword~
 Madboy's sword has been dropped here.~
 iron~
-weapon BGI AN
+weapon BI AN
 sword 1 12 slash 0
 7 50 500 P
 A
@@ -478,7 +478,7 @@ island helmet~
 an Island Helmet~
 An Island Helmet is lying here.~
 silver~
-armor AGK AE
+armor AK AE
 6 6 6 1 4
 15 5 1500 G
 A
@@ -495,7 +495,7 @@ shield island~
 an Island Shield~
 An Island Shield has been dropped here.~
 steel~
-armor G AJ
+armor 0 AJ
 6 6 6 1 5
 15 100 2000 G
 E
@@ -508,7 +508,7 @@ island mace~
 an Island Mace~
 An Island Mace is lying here.~
 mithril~
-weapon G AN
+weapon 0 AN
 mace 5 5 pound 0
 17 300 2620 P
 A
@@ -534,7 +534,7 @@ watcher cape black~
 a Watcher's Black Cape~
 A Watcher's Black Cape has been dropped onto the floor.~
 cloth~
-armor GK AK
+armor K AK
 6 8 7 1 3
 20 200 4600 G
 A
@@ -549,7 +549,7 @@ watcher thrusting dagger~
 a Watcher's Thrusting Dagger~
 A Watcher's Thrusting Dagger is sticking in the floor.~
 corundum~
-weapon GK AN
+weapon K AN
 dagger 5 6 thrust 0
 20 50 3100 P
 A
@@ -562,7 +562,7 @@ watcher signet ring~
 a Watcher Signet Ring~
 A Watcher Signet Ring lies here discarded.~
 bone~
-treasure GK AB
+treasure K AB
 0 0 0 0 0
 20 1 4567 P
 A
@@ -609,7 +609,7 @@ stone well~
 a stone well~
 A stone well sits here.~
 stone~
-fountain G 0
+fountain 0 0
 100000 100000 'water' 0 0
 0 0 0 P
 G none
@@ -681,7 +681,7 @@ spear goblin~
 a Goblin Spear~
 A Goblin Spear is lying on the floor.~
 wood~
-weapon AG AN
+weapon A AN
 spear 4 5 pierce DK
 12 50 1700 P
 G none
@@ -690,7 +690,7 @@ goblin loincloth~
 a Goblin Loincloth~
 A Goblin Loincloth has been discarded here.~
 snakeskin~
-armor G AD
+armor 0 AD
 7 7 7 0 2
 12 20 2456 G
 A
@@ -705,7 +705,7 @@ dwarven flail~
 A Dwarven Flail~
 A Dwarven Flail is lying on the floor.~
 wood~
-weapon AG AN
+weapon A AN
 flail 5 5 pound D
 17 250 3400 P
 G none
@@ -714,7 +714,7 @@ dwarven shield~
 a Dwarven Shield~
 A Dwarven Shield has been dropped here.~
 wood~
-armor AG AJ
+armor A AJ
 6 6 6 1 5
 17 190 4500 G
 A
@@ -1470,7 +1470,7 @@ Village street~
 To the west is the village well, while all about you the native
 stone buildings create a wonderful setting for this family life.
 ~
-0 0 city
+0 F city
 D0
 ~
 door~

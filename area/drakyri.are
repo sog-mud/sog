@@ -1523,7 +1523,7 @@ pool water mirror~
 a pool of water~
 A pool of water gleams in the light.~
 water~
-portal 0 0
+portal G 0
 0 0 A 11802 0
 0 0 0 P
 E
@@ -1549,7 +1549,7 @@ counter black stone~
 a black counter~
 A black counter floats here.  A sign is attached to the counter top.~
 stone~
-portal B 0
+portal BG 0
 0 0 A 11818 0
 0 0 0 P
 E
@@ -1572,7 +1572,7 @@ shimmering curtain light~
 a shimmering curtain~
 A curtain of shimmering light hangs in midair.~
 light~
-portal A 0
+portal AG 0
 0 A A 11801 0
 0 0 0 P
 E
@@ -1585,7 +1585,7 @@ table stone~
 a large stone table~
 A large stone table stands here.~
 stone~
-portal 0 0
+portal G 0
 0 0 A 11812 0
 0 0 0 P
 E
@@ -1767,7 +1767,7 @@ glittering ((+*+)) earring deriki~
 a glittering ((+*+)) earring~
 An intricately carved earring glitters here.~
 mithril~
-armor AG AE
+armor A AE
 26 26 26 23 0
 80 10 12400 P
 A
@@ -1820,7 +1820,7 @@ owl eyes feather~
 Owl eyes~
 A pair of feather rimmed eyes are here.~
 feathers~
-armor GI AE
+armor I AE
 28 28 27 24 0
 85 10 9000 P
 A
@@ -1837,7 +1837,7 @@ staff guarding mithril~
 a staff of guarding~
 A polished mithril staff lies here.~
 mithril~
-staff B AO
+staff BG AO
 100 11 11 'sanctuary' 0
 85 30 10100 P
 A
@@ -2059,7 +2059,7 @@ deep indigo pill~
 a deep indigo pill~
 A deep indigo pill lies here.~
 food~
-pill 0 A
+pill G A
 25 'protection evil' 'bless' '' ''
 55 10 850 P
 G none
@@ -2289,7 +2289,7 @@ black collar runes runed leather~
 a black runed collar~
 A black leather collar engraved with shimmering runes lies here.~
 leather~
-armor BEGHJLM AC
+armor BEHJLM AC
 27 27 27 22 0
 85 30 5500 P
 A
@@ -2427,7 +2427,7 @@ engraved platinum ][+][ ring xaek~
 an engraved platinum ][+][ ring~
 An engraved platinum ring lies here.~
 platinum~
-armor G AB
+armor 0 AB
 23 23 20 19 0
 69 20 12000 P
 A
@@ -2559,7 +2559,7 @@ ring lynx~
 a ring of the lynx~
 A darkly beautiful ring lies here.~
 fur~
-armor CFGI AB
+armor CFI AB
 10 11 11 10 0
 75 10 10000 P
 A
@@ -3132,7 +3132,7 @@ green greenish energy pill~
 an energy pill~
 A greenish pill is here, humming with energy.~
 food~
-pill B A
+pill BG A
 20 'free action' 'enhanced armor' '' ''
 55 10 500 P
 G none
@@ -3141,7 +3141,7 @@ warp pill~
 a warp pill~
 A mysterious looking pill lies here.~
 food~
-pill B A
+pill BG A
 30 'teleport' 'teleport' 'heal' 'invisibility'
 55 10 300 P
 G none

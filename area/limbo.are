@@ -563,7 +563,7 @@ holy hammer молот~
 @eng Holy Hammer@rus ~~Священный~~ ~~Молот~~~
 @eng You see a large Holy Hammer.@rus Перед тобой огромный молот (hammer), излучающий божественную силу.~
 spirit~
-weapon AGIKL AN
+weapon AIKL AN
 mace 9 0 divine I
 0 0 0 P
 G male
@@ -590,7 +590,7 @@ mushroom грибок~
 @eng a Magic Mushroom@rus ~~Волшебный~~ ~~Мухомор~~~
 @eng A delicious magic mushroom is here.@rus Вкусный Волшебный Мухомор (mushroom) растет тут.~
 food~
-food G A
+food 0 A
 D D 0 0 0
 0 10 0 P
 G male
@@ -608,7 +608,7 @@ spring источник~
 @eng a magical spring@rus ~~магический~~ ~~источник~~~
 @eng A magical spring flows from the ground here.@rus Магический источник (spring) бьет из-под земли.~
 water~
-fountain G 0
+fountain 0 0
 100000 100000 'water' 0 0
 0 0 0 P
 G male
@@ -617,7 +617,7 @@ disc disk floating black диск~
 @eng a floating disc@rus ~~летающий~~ ~~диск~~~
 @eng A floating black disc hangs in the air.@rus Черный диск (disc) парит в воздухе.~
 energy~
-container GMPUYZ AQ
+container MPUYZ AQ
 0 E 0 0 0
 0 0 0 P
 G male
@@ -706,7 +706,7 @@ sword hero~
 the %s Sword of %s~
 An enormous, huge SWORD lies here, filling the room with its power.~
 energy~
-weapon AGIOYc ANP
+weapon AIOYc ANP
 sword 10 4 slash D
 21 100 100000 G
 G male
@@ -715,7 +715,7 @@ dagger hero~
 the %s Dagger of %s~
 An enormous, huge DAGGER lies here, filling the room with its power.~
 energy~
-weapon AGIOYc ANP
+weapon AIOYc ANP
 dagger 10 4 pierce D
 21 100 100000 G
 A
@@ -742,7 +742,7 @@ mace hero~
 the %s Mace of %s~
 An enormous, huge MACE lies here, filling the room with its power.~
 energy~
-weapon AGIOYc ANP
+weapon AIOYc ANP
 mace 10 4 pound D
 21 100 100000 G
 A
@@ -814,7 +814,7 @@ bell small колокольчик~
 @eng Small silver bell@rus ~~маленький~~ ~~серебряный~~ ~~колокольчик~~~
 @eng Small silver bell lies here.@rus В пыли мягким серебрянным светом поблескивает колокольчик (bell).~
 silver~
-jewelry AGh AO
+jewelry Ah AO
 0 0 0 0 0
 10 0 0 P
 S 'summon' 100 A
@@ -903,7 +903,7 @@ cloud облако~
 @eng the small cloud@rus ~~маленькое~~ ~~облако~~~
 @eng The small cloud is floating around your head.@rus Маленькое облако (cloud) висит в воздухе прямо перед тобой.~
 energy~
-container GIYh AQ
+container IYh AQ
 150 A 0 600 5
 10 5 10000 P
 S 'control weather' 100 A
@@ -933,7 +933,7 @@ cloak плащ~
 @eng Cloak of The Lord Protector@rus ~~плащ~~ Лорда-Защитника~
 @eng The beautiful black cloak lies here.@rus Красивый плащ (cloak) из черной кожи лежит здесь.~
 skin~
-armor GIYh AD
+armor IYh AD
 -20 -20 -20 -20 0
 10 1 10000 P
 S 'stone skin' 100 A
@@ -1180,7 +1180,7 @@ amulet амулет holy~
 @eng holy amulet@rus ~~священный~~ ~~амулет~~~
 @eng Holy amulet lies here.@rus Светящийся белый амулет (amulet) лежит здесь.~
 magic~
-jewelry GIh AC
+jewelry Ih AC
 0 0 0 0 0
 10 1 10000 P
 A
@@ -1212,7 +1212,7 @@ buckler enforcer shield~
 @eng Enforcer's Buckler@rus ~~круглый~~ ~~щит~~ блюстителя порядка~
 @eng A buckler of Enforcer is on the ground.@rus Круглый щит (shield) с гербом клана Enforcers лежит на земле.~
 steel~
-armor GIRYZ AJ
+armor IRYZ AJ
 8 8 8 3 0
 0 200 10000 P
 G male
@@ -1221,7 +1221,7 @@ great enforcer shield щит~
 @eng Enforcer's Great Shield@rus ~~большой~~ ~~щит~~ блюстителя порядка~
 @eng There is a Great Enforcer's Shield on the ground.@rus Большой щит (shield) с гербом клана Enforcers лежит на земле.~
 steel~
-armor GIRYZ AJ
+armor IRYZ AJ
 20 20 20 10 0
 0 300 15000 P
 G male
@@ -1230,7 +1230,7 @@ kite enforcer shield щит~
 Enforcer's Kite Shield~
 You see a large Kite Shield of Enforcer on the ground.~
 steel~
-armor GIRYZ AJ
+armor IRYZ AJ
 20 20 20 10 0
 0 310 20000 P
 A
@@ -1245,7 +1245,7 @@ tower enforcer shield щит~
 @eng Enforcer's Tower Shield@rus ~~огромный~~ ~~щит~~ блюстителя порядка~
 @eng A very big shield with a symbol of Enforcers covers the ground.@rus ОГРОМНЫЙ щит (shield) с гербом клана Enforcers лежит на земле.~
 steel~
-armor GIRYZ AJ
+armor IRYZ AJ
 30 30 30 20 0
 0 240 20000 P
 G male
@@ -1317,7 +1317,7 @@ golden dragonplate plate~
 Dragonplate~
 @eng A Dragonplate is left here.@rus Золотая броня (plate) с нарисованным Драконом оставлена тут.~
 gold~
-armor GIKLY AD
+armor IKLY AD
 30 30 30 30 0
 0 250 10000 P
 A
@@ -1419,7 +1419,7 @@ dress~
 dress~
 A dress of a white gown out of the bolt of silk lying here..~
 silk~
-armor G AD
+armor 0 AD
 1 1 1 1 1
 1 90 100 P
 E
@@ -1442,7 +1442,7 @@ shield fire~
 fire shield~
 An energy shield is left here.~
 energy~
-armor GPUY AJ
+armor PUY AJ
 20 20 20 20 2
 0 250 10000 P
 E
@@ -1468,7 +1468,7 @@ girth hero~
 the %s Girth of %s~
 An enormous, huge GIRTH lies here, filling the room with its power.~
 energy~
-armor AGIOYc ALP
+armor AIOYc ALP
 12 12 12 9 2
 120 30 100000 G
 A
@@ -1498,7 +1498,7 @@ ring hero~
 the %s Ring of %s~
 An enormous, RING lies here, filling the room with its power.~
 energy~
-weapon AGIOYc ABP
+weapon AIOYc ABP
 exotic 0 0 none 0
 120 30 100000 G
 A
@@ -1521,7 +1521,7 @@ weapon hero~
 the %s Weapon of %s~
 An enormous, huge WEAPON lies here, filling the room with its power.~
 energy~
-weapon AGIOYc ANP
+weapon AIOYc ANP
 exotic 10 4 slash D
 21 100 100000 G
 A

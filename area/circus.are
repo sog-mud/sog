@@ -570,7 +570,7 @@ candy~
 cotton candy~
 Some pink fluffy candy lies here.~
 ~
-pill 0 A
+pill G A
 1 'refresh' 'refresh' '' ''
 4 1 64 P
 G none
@@ -894,7 +894,7 @@ drugged food~
 drugged food~
 A delicious looking dinner lies here.~
 ~
-pill 0 A
+pill G A
 34 'sleep' 'weaken' 'poison' ''
 2 1 8 P
 G none
@@ -1064,7 +1064,7 @@ refrigerator frig fridge~
 Binky's refrigerator~
 Binky's refrigerator sits here, packed full of goodies.~
 ~
-container BG B
+container B B
 999 AC 0 999 100
 3 24 0 P
 G none

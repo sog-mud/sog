@@ -223,7 +223,7 @@ amulet~
 a strange amulet~
 A strange looking amulet is lying here, half covered with dust.~
 bronze~
-jewelry GH AC
+jewelry H AC
 0 0 0 0 0
 0 10 1 P
 A
@@ -306,7 +306,7 @@ scroll jhyfrdow~
 a scroll titled 'jhyfrdow'~
 An odd looking scroll is here.~
 vellum~
-scroll 0 A
+scroll G A
 18 'protection evil' '' '' ''
 2 10 640 P
 E

@@ -207,7 +207,7 @@ bunch berries smurfberries~
 a bunch of smurfberries~
 A bunch of delicious looking smurfberries lie here.~
 food~
-pill 0 A
+pill G A
 8 '' '' 'detect magic' ''
 0 20 180 P
 G none
@@ -258,7 +258,7 @@ pink potion~
 a pink potion~
 A pink potion is barely visible on the ground.~
 glass~
-potion 0 A
+potion G A
 6 'armor' 'cure blindness' '' ''
 0 20 160 P
 G none
@@ -267,7 +267,7 @@ wand~
 a small wand~
 A small wand lies on the ground.~
 wood~
-wand 0 AO
+wand G AO
 5 1 1 'burning hands' 0
 3 20 540 P
 G none

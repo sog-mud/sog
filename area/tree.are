@@ -258,7 +258,7 @@ bastard sword~
 a holy bastard sword~
 A beautiful sword lies on the ground here.~
 steel~
-weapon AGIK AN
+weapon AIK AN
 sword 5 7 pierce 0
 28 190 9000 G
 A
@@ -284,7 +284,7 @@ cloudy staff~
 a cloudy glass staff~
 A staff made of cloudy glass lies here.~
 glass~
-staff F AO
+staff FG AO
 40 8 8 'sleep' 0
 23 60 7580 G
 G none
@@ -315,7 +315,7 @@ paper triangle~
 a paper triangle~
 A piece of paper in the shape of a triangle is here.~
 paper~
-scroll F A
+scroll FG A
 50 'armor' 'bless' 'fly' 'stone skin'
 22 12 6700 G
 G none
@@ -333,7 +333,7 @@ girth cast iron~
 a cast iron girth~
 A cast iron girth lies here.~
 iron~
-armor BG AL
+armor B AL
 9 9 9 1 3
 23 180 11230 G
 A
