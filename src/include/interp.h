@@ -1,5 +1,5 @@
 /*
- * $Id: interp.h,v 1.38 1999-02-22 15:56:54 kostik Exp $
+ * $Id: interp.h,v 1.39 1999-02-24 08:42:43 kostik Exp $
  */
 
 /***************************************************************************
@@ -113,6 +113,7 @@ DECLARE_DO_FUN(do_consider	);
 DECLARE_DO_FUN(do_count		);
 DECLARE_DO_FUN(do_crecall	);
 DECLARE_DO_FUN(do_credits	);
+DECLARE_DO_FUN(do_crucify	);
 DECLARE_DO_FUN(do_date		);
 DECLARE_DO_FUN(do_deaf		);
 DECLARE_DO_FUN(do_delet		);

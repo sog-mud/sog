@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: const.h,v 1.25 1999-02-22 15:56:54 kostik Exp $
+ * $Id: const.h,v 1.26 1999-02-24 08:42:43 kostik Exp $
  */
 
 #ifndef _CONST_H_
@@ -236,6 +236,7 @@
 #define OBJ_VNUM_SILVER_SOME		4
 #define OBJ_VNUM_COINS			5
 
+#define OBJ_VNUM_CROSS			8
 #define OBJ_VNUM_CORPSE_NPC		10
 #define OBJ_VNUM_CORPSE_PC		11
 #define OBJ_VNUM_SEVERED_HEAD		12

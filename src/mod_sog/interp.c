@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.125 1999-02-23 22:26:11 fjoe Exp $
+ * $Id: interp.c,v 1.126 1999-02-24 08:42:43 kostik Exp $
  */
 
 /***************************************************************************
@@ -283,6 +283,7 @@ CMD_DATA cmd_table[] =
      */
     { "brandish",	do_brandish,	POS_RESTING,	 0,  LOG_NORMAL	},
     { "butcher",        do_butcher,     POS_STANDING,    0,  LOG_NORMAL	},
+    { "crucify",	do_crucify,	POS_STANDING,	 0,  LOG_NORMAL },
     { "close",		do_close,	POS_RESTING,	 0,  LOG_NORMAL	},
     { "detect",         do_detect_hidden,POS_RESTING,    0,  LOG_NORMAL	},
     { "drink",		do_drink,	POS_RESTING,	 0,  LOG_NORMAL	},

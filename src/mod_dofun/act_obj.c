@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.127 1999-02-22 15:56:53 kostik Exp $
+ * $Id: act_obj.c,v 1.128 1999-02-24 08:42:42 kostik Exp $
  */
 
 /***************************************************************************
@@ -3291,6 +3291,105 @@ void do_butcher(CHAR_DATA * ch, const char *argument)
 		check_improve(ch, sn, FALSE, 1);
 	}
 	extract_obj(obj);
+}
+
+void do_crucify(CHAR_DATA *ch, const char *argument)
+{	
+	OBJ_DATA *obj;
+	char arg[MAX_STRING_LENGTH];
+	OBJ_DATA *obj2, *next;
+	OBJ_DATA *cross;
+	int sn;
+	int chance;
+	AFFECT_DATA af;
+
+	sn = sn_lookup("crucify");
+
+	if ((chance = get_skill(ch, sn)) == 0) {
+		char_puts("Oh no, you can't do that.\n", ch);
+		return;
+	}
+
+	if (is_affected(ch, sn)) {
+		char_puts("You are not yet ready to make a sacrifice.\n", ch);
+		return;
+	}
+
+	if (IS_PUMPED(ch) 
+	|| IS_AFFECTED(ch, AFF_BERSERK) 
+	|| is_affected(ch, gsn_frenzy)) {
+		char_puts("Calm down first.\n", ch);
+		return;
+	}
+
+	one_argument(argument, arg, sizeof(arg));
+
+	if (arg == '\0') {
+		char_puts("Crucify what?\n", ch);
+		return;
+	}
+
+	if ((obj = get_obj_here(ch, arg)) == NULL) {
+		char_puts("You do not see that here.", ch);
+		return;
+	}
+
+	if (obj->pIndexData->item_type != ITEM_CORPSE_PC
+	 && obj->pIndexData->item_type != ITEM_CORPSE_NPC) {
+		char_puts("You cannot crucify that.\n", ch);
+		return;
+	 }
+
+	if (obj->carried_by != NULL) {
+		char_puts("Put it down first.\n", ch);
+		return;
+	}
+
+	obj_from_room(obj);
+	for(obj2 = obj->contains; obj2; obj2 = next) {
+		next = obj2->next_content;
+		obj_from_obj(obj2);
+		obj_to_room(obj2, ch->in_room);
+	}
+	
+	if (number_percent() > chance) {
+		act("You attempt a ritual crucification of $p, "
+		   "but fail and ruin it.", ch, obj, NULL, TO_CHAR);
+		act("$n attempts to crucify $p, but fails and ruins it.",
+		    ch, obj, NULL, TO_ROOM);
+		extract_obj(obj);
+		check_improve(ch, sn, FALSE, 1);
+	}
+	else {
+		cross = create_obj_of(get_obj_index(OBJ_VNUM_CROSS),
+			obj->owner);
+		obj_to_room(cross, ch->in_room);
+		act("With a crunch of bone and splash of blood you nail "
+		    "$p to a sacrificial cross.", ch, obj, NULL, TO_CHAR);
+		act("With a crunch of bone and splash of blood $n nails "
+		    "$p to a sacrificial cross.", ch, obj, NULL, TO_ROOM);
+		char_puts("You are filled with a dark energy.\n", ch);
+		ch->hit += obj->level*3/2;
+		af.where 	= TO_AFFECTS;
+		af.type  	= sn;
+		af.level	= ch->level;
+		af.duration	= 15;
+		af.modifier	= UMAX(1, obj->level/8);
+		af.bitvector	= AFF_BERSERK;
+
+		af.location	= APPLY_HITROLL;
+		affect_to_char(ch, &af);
+
+		af.location	= APPLY_DAMROLL;
+		affect_to_char(ch, &af);
+
+		af.modifier 	= UMAX(10, obj->level);
+		af.location	= APPLY_AC;
+
+		affect_to_char(ch, &af);
+		extract_obj(obj);
+		check_improve(ch, sn, TRUE, 1);
+	}
 }
 
 void do_balance(CHAR_DATA * ch, const char *argument)
