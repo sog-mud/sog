@@ -1,0 +1,7 @@
+/*
+ * $Id: mob_death_tree.mpc,v 1.1 2001-09-14 18:08:04 fjoe Exp $
+ */
+
+act("Many wooden chips stay on the ground.", $n, NULL, NULL, TO_ROOM);
+obj_to_room(create_obj(35463, 0), char_room($n));
+return 0;

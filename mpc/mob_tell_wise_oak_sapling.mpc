@@ -1,0 +1,12 @@
+/*
+ * $Id: mob_tell_wise_oak_sapling.mpc,v 1.1 2001-09-14 18:08:08 fjoe Exp $
+ */
+
+if (get_obj_carry($n, $N, "35469") != NULL
+||  get_obj_carry($n, $N, "35468") != NULL
+||  get_obj_carry($n, $N, "35467") != NULL)
+        return 1;
+ 
+tell_char($n, $N, "Do you wish to help us?");
+tell_char($n, $N, "It's nice!");
+return 1;

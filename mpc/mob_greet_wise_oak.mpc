@@ -1,0 +1,18 @@
+/*
+ * $Id: mob_greet_wise_oak.mpc,v 1.1 2001-09-14 18:08:02 fjoe Exp $
+ */
+
+if (char_race($N) != "felar")
+        return 0;
+ 
+act("$n tells you:", $n, NULL, $N, TO_VICT);
+act("        Young felar?", $n, NULL, $N, TO_VICT);
+social_char("smile", $n, $N);
+act("$n tells you:", $n, NULL, $N, TO_VICT);
+act("        You can find pretty amulet in this forest. It gives defence",
+    $n, NULL, $N, TO_VICT);
+act("        against fire.  I suppose you need it.  Or has anyone found",
+    $n, NULL, $N, TO_VICT);
+act("        already this amulet? Anyway, you have a chance.",
+    $n, NULL, $N, TO_VICT);
+return 0;

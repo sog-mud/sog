@@ -1,0 +1,26 @@
+/*
+ * $Id: mob_fight_nasty.mpc,v 1.1 2001-09-14 18:07:59 fjoe Exp $
+ */
+
+char victim = get_random_fighting($n);
+if (victim == NULL)
+        return 0;
+
+switch (number_bits(2)) {
+case 1:
+        act("$n rips apart your coin purse, spilling your gold!",
+            $n, NULL, victim, TO_VICT);
+        act("You slash apart $N's coin purse and gather his gold.",
+            $n, NULL, victim, TO_CHAR);
+        act("$N's coin purse is ripped apart!",
+            $n, NULL, victim, TO_NOTVICT);
+ 
+        int gold = char_gold(victim) / 10;
+        set_char_gold(victim, char_gold(victim) - gold);
+        set_char_gold($n, char_gold($n) + gold);
+        break;
+case 2:
+        dofun("flee", $n, "");
+        break;
+}
+return 0;

@@ -1,0 +1,17 @@
+/*
+ * $Id: mob_death_forest_bear.mpc,v 1.1 2001-09-14 18:08:03 fjoe Exp $
+ */
+
+act("{WAs $n breathes its last and collapses with a thud,{x",
+    $n, NULL, NULL, TO_ROOM);
+act("{WYou notice one of its long, curved claws has fallen loose.{x",
+    $n, NULL, NULL, TO_ROOM);
+
+obj wear = get_eq_char($n, WEAR_WIELD);
+if (wear != NULL
+&&  obj_vnum(wear) == 35480)
+        return 0;
+ 
+obj claw = create_obj(35471, 0);
+obj_to_room(claw, char_room($n));
+return 0;

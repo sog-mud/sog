@@ -1,0 +1,13 @@
+/*
+ * $Id: mob_fight_breath_acid.mpc,v 1.1 2001-09-14 18:07:58 fjoe Exp $
+ */
+
+if (number_bits(3) != 0)
+        return 0;
+ 
+char victim = get_random_fighting($n);
+if (victim == NULL)
+        return 0;
+ 
+cast_char("acid breath", $n, victim);
+return 0;

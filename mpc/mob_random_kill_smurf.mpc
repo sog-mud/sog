@@ -1,0 +1,12 @@
+/*
+ * $Id: mob_random_kill_smurf.mpc,v 1.1 2001-09-14 18:07:59 fjoe Exp $
+ */
+
+char ch = get_char_here($n, "smurf");
+ 
+if (ch == NULL)
+       return 0;
+ 
+dofun("say", $n, "All smurfes must die!!!");
+multi_hit($n, ch, NULL);
+return 0;

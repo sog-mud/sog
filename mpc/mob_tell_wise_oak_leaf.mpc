@@ -1,0 +1,16 @@
+/*
+ * $Id: mob_tell_wise_oak_leaf.mpc,v 1.1 2001-09-14 18:07:56 fjoe Exp $
+ */
+
+if (get_obj_carry($n, $N, "35469") != NULL
+||  get_obj_carry($n, $N, "35468") != NULL
+||  get_obj_carry($n, $N, "35467") != NULL)
+        return 1;
+ 
+obj leaf = load_obj($n, 35469);
+if (leaf == NULL)
+        return 1;
+ 
+tell_char($n, $N, "You may take it.");
+give_obj($n, $N, leaf);
+return 1;

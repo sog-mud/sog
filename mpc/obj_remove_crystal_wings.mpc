@@ -1,0 +1,12 @@
+/*
+ * $Id: obj_remove_crystal_wings.mpc,v 1.1 2001-09-14 18:08:06 fjoe Exp $
+ */
+
+if (!is_sn_affected($n, "fly"))
+        return 0;
+ 
+affect_strip($n, "fly");
+act("As you remove $p, you slowly touch down.",
+    $n, $p, NULL, TO_CHAR);
+ 
+return 0;

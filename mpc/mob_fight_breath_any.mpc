@@ -1,0 +1,35 @@
+/*
+ * $Id: mob_fight_breath_any.mpc,v 1.1 2001-09-14 18:07:58 fjoe Exp $
+ */
+
+if (number_bits(3) != 0)
+        return 0;
+
+char victim = get_random_fighting($n);
+if (victim == NULL)
+        return 0;
+ 
+string spell;
+switch (number_bits(3)) {
+case 0:
+       spell = "fire breath";
+       break;
+case 1:
+case 2:
+       spell = "lightning breath";
+       break;
+case 3:
+       spell = "gas breath";
+       break;
+case 4:
+       spell = "acid breath";
+       break;
+case 5:
+case 6:
+case 7:
+       spell = "frost breath";
+       break;
+}
+ 
+cast_char(spell, $n, victim);
+return 0;

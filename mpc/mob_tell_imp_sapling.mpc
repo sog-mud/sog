@@ -1,0 +1,8 @@
+/*
+ * $Id: mob_tell_imp_sapling.mpc,v 1.1 2001-09-14 18:08:07 fjoe Exp $
+ */
+
+act_say($n, "You want my sapling for nothing, $N?", $N);
+mob_interpret($n, "giggle");
+dofun("say", $n, "I think I cann't you give it, but I can exchange.");
+return 1;

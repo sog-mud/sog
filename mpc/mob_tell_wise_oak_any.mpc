@@ -1,0 +1,13 @@
+/*
+ * $Id: mob_tell_wise_oak_any.mpc,v 1.1 2001-09-14 18:08:07 fjoe Exp $
+ */
+
+if (get_obj_carry($n, $N, "35468") != NULL
+||  get_obj_carry($n, $N, "35469") != NULL
+||  get_obj_carry($n, $N, "35467") != NULL) {
+        tell_char($n, $N, "Good day, adventure.");
+        return 0;
+}
+ 
+tell_char($n, $N, "Ah, adventure! Our forest need help. Evil imp stealed oak sapling and small tree will die, if nobody take it from imp and plant.");
+return 0;

@@ -1,0 +1,53 @@
+/*
+ * $Id: mob_fight_cast_seneschal.mpc,v 1.1 2001-09-14 18:07:57 fjoe Exp $
+ */
+
+if (number_bits(1) == 0)
+        return 0;
+ 
+char victim = get_random_fighting($n);
+if (victim == NULL)
+        return 0;
+
+string spell;
+switch (dice(1, 16)) {
+case 1:
+case 2:
+       spell = "blindness";
+       break;
+case 3:
+case 4:
+       spell = "dispel magic";
+       break;
+case 5:
+       spell = "weaken";
+       break;
+case 6:
+       spell = "acid arrow";
+       break;
+case 7:
+case 8:
+       spell = "poison";
+       break;
+case 9:
+       spell = "plague";
+       break;
+case 10:
+       spell = "fireball";
+       break;
+case 11:
+       spell = "energy drain";
+       break;
+case 12:
+case 13:
+       spell = "mental knife";
+       break;
+case 14:
+case 15:
+case 16:
+       spell = "acid blast";
+       break;
+}
+ 
+cast_char(spell, $n, victim);
+return 0;

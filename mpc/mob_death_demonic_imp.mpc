@@ -1,0 +1,15 @@
+/*
+ * $Id: mob_death_demonic_imp.mpc,v 1.1 2001-09-14 18:08:04 fjoe Exp $
+ */
+
+act("{DAs the foul imp perishes, a small object slips its grasp...{x",
+    $n, NULL, NULL, TO_ROOM);
+ 
+obj wear = get_eq_char($n, WEAR_HOLD);
+if (wear != NULL
+&&  obj_vnum(wear) == 35477) 
+        return 0;
+ 
+obj pearl = create_obj(35470, 0);
+obj_to_room(pearl, char_room($n));
+return 0;

@@ -1,0 +1,7 @@
+/*
+ * $Id: mob_give_sprite_any.mpc,v 1.1 2001-09-14 18:08:05 fjoe Exp $
+ */
+
+dofun("say", $n, "Wah! I don't need this silly thing. Take it back.");
+give_obj($n, $N, $p);
+return 0;

@@ -1,0 +1,31 @@
+/*
+ * $Id: mob_greet_guardian_tree.mpc,v 1.1 2001-09-14 18:08:06 fjoe Exp $
+ */
+
+if (char_room($n) != get_room_index(35477))
+        return 0;
+
+obj object = get_obj_carry($n, $N, "35467");
+if (object == NULL)
+        return 0;
+ 
+if (get_obj_room($n, "35462") != NULL) {
+	act_say($n,
+		"You have $P, so if you whish you may visit a secret glade.",
+		object);
+	act("$n points at $p.", $n, get_obj_room($n, "35462"), NULL, TO_ROOM);
+	act_say($n, "Go through this $P for it.", get_obj_room($n, "35462")); 
+	return 0;
+}
+obj portal = create_obj(35462, 0);
+if (portal == NULL)
+	return 0;
+
+set_obj_timer(portal, 2);
+obj_to_room(portal, char_room($n));
+
+act_say($n, "You have $P, so if you whish you may visit a secret glade.", object);
+act("$n points at $p.", $n, portal, NULL, TO_ROOM);
+act_say($n, "Go through this $P for it.", portal); 
+ 
+return 0;

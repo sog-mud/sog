@@ -1,0 +1,31 @@
+/*
+ * $Id: obj_fight_swordbreaker.mpc,v 1.1 2001-09-14 18:07:57 fjoe Exp $
+ */
+
+char victim = char_fighting($n);
+obj wield = get_eq_char(victim, WEAR_WIELD);
+obj second_wield = get_eq_char(victim, WEAR_SECOND_WIELD);
+ 
+if (wield == NULL)
+        return 0;
+ 
+if (weapon_is(wield, WEAPON_SWORD)) {
+        act("You {Wcleaved{x $N's $p into two.",
+            $n, wield, victim, TO_CHAR);
+        act("$n {Wcleaved{x your $p into two.",
+            $n, wield, victim, TO_VICT);
+        act("$n {Wcleaved{x $N's $p into two.",
+            $n, wield, victim, TO_NOTVICT);
+        purge_obj(wield);
+        return 0;
+} else if (second_wield != NULL
+       &&  weapon_is(second_wield, WEAPON_SWORD)) {
+        act("You {Wcleaved{x $N's $p into two.",
+            $n, second_wield, victim, TO_CHAR);
+        act("$n {Wcleaved{x your $p into two.",
+            $n, second_wield, victim, TO_VICT);
+        act("$n {Wcleaved{x $N's $p into two.",
+            $n, second_wield, victim, TO_NOTVICT);
+        purge_obj(second_wield);
+}
+return 0;

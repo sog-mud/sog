@@ -1,0 +1,15 @@
+/*
+ * $Id: mob_death_sprite_wings.mpc,v 1.1 2001-09-14 18:08:05 fjoe Exp $
+ */
+
+act("{WAs the small creature plunges to the surface, a wing is torn off.{x", $n, NULL, NULL, TO_ROOM);
+ 
+obj wear = get_eq_char($n, WEAR_ARMS);
+
+if (wear != NULL
+&&  obj_vnum(wear) == 35479)
+        return 0;
+ 
+obj wings = create_obj(35472, 0);
+obj_to_room(wings, char_room($n));
+return 0;

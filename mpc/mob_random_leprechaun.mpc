@@ -1,0 +1,7 @@
+/*
+ * $Id: mob_random_leprechaun.mpc,v 1.1 2001-09-14 18:08:05 fjoe Exp $
+ */
+
+dofun("say", $n, "Give me 100 gold and I'll transfer you out from here.");
+dofun("say", $n, "And may be I'll preset you a gem.");
+return 0;

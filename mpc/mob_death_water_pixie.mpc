@@ -1,0 +1,20 @@
+/*
+ * $Id: mob_death_water_pixie.mpc,v 1.1 2001-09-14 18:08:05 fjoe Exp $
+ */
+
+act("{B$n collapses into the water, forming a circle of liquid.{x",
+    $n, NULL, NULL, TO_ROOM);
+
+obj wear = get_eq_char($n, WEAR_FINGER_L);
+if (wear != NULL
+&&  obj_vnum(wear) == 35478)
+        return 0;
+ 
+wear = get_eq_char($n, WEAR_FINGER_R);
+if (wear != NULL
+&&  obj_vnum(wear) == 35478)
+        return 0;
+
+obj ring = create_obj(35473, 0);
+obj_to_room(ring, char_room($n));
+return 0;
