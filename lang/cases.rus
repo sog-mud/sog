@@ -3635,6 +3635,17 @@ Form 6 -ую~
 End
 
 #RULE
+Name радужный~
+BaseLen 6
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ый~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ого~
+End
+
+#RULE
 Name путешественник~
 BaseLen 14
 Form 1 -а~

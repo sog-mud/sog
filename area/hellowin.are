@@ -475,12 +475,27 @@ jewelry 0 AC
 0 1 15000 P
 F R 0 0 B
 G male
+#34429
+amulet rainbow радужный амулет радуга~
+@eng rainbow amulet@rus ~~радужный~~ ~~амулет~~~
+@eng You see the small rainbow on the chain lying here.@rus Тв видишь маленькую радугу (rainbow) на цепочке, лежащую здесь.~
+rainbow~
+jewelry Tj AC
+0 0 0 0 0
+0 1 10056 P
+A
+14 10
+A
+12 10
+A
+13 10
+G male
 #34439
 amulet амулет~
 @eng golden amulet@rus ~~золотой~~ ~~амулет~~~
 @eng Beuatiful golden amulet on the chain lies here.@rus Прекрасный золотой амулет (amulet) на цепочке лежит здесь.~
 gold~
-jewelry 0 AC
+jewelry j AC
 0 0 0 0 0
 0 1 13000 P
 G male
@@ -711,7 +726,7 @@ treasure AGI AO
 1 1 15000 P
 E
 scroll~
-  Ключ первый, алый, ищи там, где огонь земли выходит на поверхность.
+Ключ первый, алый, ищи там, где огонь земли выходит на поверхность.
   Ключ второй, оранжевый, ищи в саду, где земля дарит нам плоды щедрости своей.
   Ключ третий, желтый, ищи у птицы, возраждающейся из пепла.
   Ключ четвертый, зеленый, ищи у деревенской колдуньи, познавшей тайны природы.
@@ -1259,6 +1274,9 @@ give key $n
 
 #OMPROGS
 O 34421 fight_prog fight_prog_wasp_hive	* `humming wasp hive'
+O 34429 wear_prog wear_prog_rainbow_amulet	* `rainbow amulet'
+O 34429 fight_prog fight_prog_rainbow_amulet	* `rainbow amulet'
+O 34439 wear_prog wear_prog_amulet_strangulation	* `golden amulet'
 O 34449 wear_prog wear_prog_excalibur	* `wooden mace'
 O 34459 wear_prog wear_prog_excalibur	* `butcher's knife'
 S
