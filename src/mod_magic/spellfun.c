@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.137 1999-03-26 20:04:43 kostik Exp $
+ * $Id: spellfun.c,v 1.138 1999-03-27 06:43:01 kostik Exp $
  */
 
 /***************************************************************************
@@ -2769,10 +2769,6 @@ void spell_energy_drain(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 
 		affect_join(victim, &af);
 
-		if (number_percent() < 25) {
-			af.modifier = 1;
-			affect_join(ch, &af);
-		}
 	}
 
 
