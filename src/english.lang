@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.82 1998-09-19 11:13:06 fjoe Exp $
+# $Id: english.lang,v 1.83 1998-09-20 17:00:47 fjoe Exp $
 #
 
 MSG_NOTHING		"Nothing.\n\r"
@@ -377,7 +377,6 @@ MSG_YOU_ARE_ALREADY_ON_GROUND	"You are already on the ground.\n\r"
 MSG_TYPE_WITH_UP_OR_DOWN	"Type fly with 'up' or 'down'.\n\r"
 MSG_YOUR_GAIN_IS	"Your gain is:"
 MSG_YOU_RAISE_A_LEVEL	"{CYou raise a level!!{x "
-MSG_TELLS_YOU		"$n tells you '{G$t{x'"
 MSG_YOU_TELL		"You tell $N '{G$t{x'"
 MSG_YOUR_MESSAGE_DIDNT_GET_THROUGH	"Your message didn't get through.\n\r"
 MSG_N_ASKS_FOR_QUEST	"$n asks $N for a quest."
@@ -851,4 +850,3 @@ MSG_YOUR_SPELLBANE_DEFLECTS	"Your spellbane deflects the spell!"
 MSG_N_SPELLBANE_DEFLECTS	"$n's spellbane deflects the spell!"
 MSG_CAST_SPELL_ON_WHOM	"Cast the spell on whom?\n\r"
 MSG_CANT_CAST_SPELL_ON_N_FAR "You can't cast this spell to $N at this distance."
-MSG_YOU_HAVE_NO_UNREAD "You have no unread notes.\n\r"

@@ -1,5 +1,5 @@
 #
-# $Id: russian.lang,v 1.103 1998-09-19 11:13:06 fjoe Exp $
+# $Id: russian.lang,v 1.104 1998-09-20 17:00:48 fjoe Exp $
 #
 
 MSG_NOTHING  		"Ничего.\n\r",	
@@ -436,7 +436,6 @@ MSG_YOUR_GAIN_IS	"Ты получаешь:"
 MSG_YOU_RAISE_A_LEVEL  sexdep  "{CТы поднялось на следующий уровень!!{x "
    				  "{CТы поднялся на следующий уровень!!{x " 
 				  "{CТы поднялась на следующий уровень!!{x "
-MSG_TELLS_YOU		"$n говорит тебе '{G$t{x'"
 MSG_YOU_TELL		"Ты говоришь $N '{G$t{x'"
 MSG_YOUR_MESSAGE_DIDNT_GET_THROUGH	"Твои слова не дошли.\n\r"
 MSG_N_ASKS_FOR_QUEST	"$n просит задание у $N."
@@ -1028,4 +1027,3 @@ MSG_N_SPELLBANE_DEFLECTS	"Проклятье на $n отразило заклинание!"
 MSG_CAST_SPELL_ON_WHOM	"Прочитать заклинание на кого?\n\r"
 MSG_CANT_CAST_SPELL_ON_N_FAR
 		"Ты не можешь читать заклинания на $N на таком расстоянии."
-MSG_YOU_HAVE_NO_UNREAD "А новостей на сегодня больше нет.\n\r"

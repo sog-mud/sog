@@ -2,7 +2,7 @@
 #define _RESOURCE_H_
 
 /*
- * $Id: resource.h,v 1.92 1998-09-19 11:13:06 fjoe Exp $
+ * $Id: resource.h,v 1.93 1998-09-20 17:00:48 fjoe Exp $
  */
 
 #define msg(msgid, ch) vmsg(msgid, ch, ch)
@@ -381,7 +381,6 @@ enum {
 	MSG_TYPE_WITH_UP_OR_DOWN,
 	MSG_YOUR_GAIN_IS,
 	MSG_YOU_RAISE_A_LEVEL,
-	MSG_TELLS_YOU,
 	MSG_YOU_TELL,
 	MSG_YOUR_MESSAGE_DIDNT_GET_THROUGH,
 	MSG_N_ASKS_FOR_QUEST,
@@ -851,7 +850,6 @@ enum {
 	MSG_N_SPELLBANE_DEFLECTS,
 	MSG_CAST_SPELL_ON_WHOM,
 	MSG_CANT_CAST_SPELL_ON_N_FAR,
-	MSG_YOU_HAVE_NO_UNREAD,
 };
 
 #endif
