@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_spec.c,v 1.22 2003-05-14 19:20:05 fjoe Exp $
+ * $Id: olc_spec.c,v 1.23 2003-05-14 20:05:00 fjoe Exp $
  */
 
 #include "olc.h"
@@ -350,18 +350,22 @@ OLC_FUN(speced_check)
 	EDIT_SPEC(ch, spec);
 
 	argument = one_argument(argument, arg, sizeof(arg));
-	if (!str_cmp(arg, "delete")) {
-		olced_remove_one_trig(ch, &spec->mp_trig);
-		trig_destroy(&spec->mp_trig);
-		trig_init(&spec->mp_trig);
-	}
-
-	if ((rv = olced_one_trig(ch, arg, argument, cmd, &spec->mp_trig)) < 0) {
+	if (arg[0] == '\0') {
 		dofun("help", ch, "'OLC SPEC CHECK'");
 		return FALSE;
 	}
 
-	return FALSE;
+	if (!str_cmp(arg, "delete")) {
+		olced_remove_one_trig(ch, &spec->mp_trig);
+		trig_destroy(&spec->mp_trig);
+		trig_init(&spec->mp_trig);
+		act_char("Ok.", ch);
+		return TRUE;
+	}
+
+	if ((rv = olced_one_trig(ch, arg, argument, cmd, &spec->mp_trig)) < 0)
+		return cmd->olc_fun(ch, "", cmd);
+	return rv;
 }
 
 OLC_FUN(speced_flags)
