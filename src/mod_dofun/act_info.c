@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.38 2001-09-01 19:30:31 fjoe Exp $
+ * $Id: act_info.c,v 1.271.2.39 2001-09-15 19:26:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -656,68 +656,79 @@ void do_look(CHAR_DATA *ch, const char *argument)
 	}
 
 	for (obj = ch->carrying; obj != NULL; obj = obj->next_content) {
-		if (can_see_obj(ch, obj)) {
-			/* player can see object */
-			ed = ed_lookup(arg3, obj->ed);
-			if (ed != NULL) {
-				if (++count == number) {
-					act_puts(mlstr_cval(&ed->description, ch),
-						 ch, NULL, NULL,
-						 TO_CHAR | ACT_NOLF, POS_DEAD);
-					return;
-				} else
-					continue;
+		if (!can_see_obj(ch, obj))
+			continue;
+
+		/* player can see object */
+		ed = ed_lookup(arg3, obj->ed);
+		if (ed != NULL) {
+			if (++count == number) {
+				act_puts(mlstr_cval(&ed->description, ch),
+					 ch, NULL, NULL,
+					 TO_CHAR | ACT_NOLF, POS_DEAD);
+				return;
 			}
 
-			ed = ed_lookup(arg3, obj->pObjIndex->ed);
+			continue;
+		}
 
-			if (ed != NULL) {
-				if (++count == number) {
-					act_puts(mlstr_cval(&ed->description, ch),
-						 ch, NULL, NULL,
-						 TO_CHAR | ACT_NOLF, POS_DEAD);
-					return;
-				} else
-					continue;
+		ed = ed_lookup(arg3, obj->pObjIndex->ed);
+		if (ed != NULL) {
+			if (++count == number) {
+				act_puts(mlstr_cval(&ed->description, ch),
+					 ch, NULL, NULL,
+					 TO_CHAR | ACT_NOLF, POS_DEAD);
+				return;
 			}
 
-			if (is_name(arg3, obj->name))
-				if (++count == number) {
-					char_puts("You see nothing special about it.\n", ch);
-					return;
-				}
+			continue;
+		}
+
+		if (is_name(arg3, obj->name)) {
+			if (++count == number) {
+				char_puts("You see nothing special about it.\n", ch);
+				return;
+			}
 		}
 	}
 
 	for (obj = ch->in_room->contents;
 	     obj != NULL; obj = obj->next_content) {
-		if (can_see_obj(ch, obj)) {
-			ed = ed_lookup(arg3, obj->ed);
-			if (ed != NULL)
-				if (++count == number) {
-					act_puts(mlstr_cval(&ed->description, ch),
-						 ch, NULL, NULL,
-						 TO_CHAR | ACT_NOLF, POS_DEAD);
-					return;
-				}
+		if (!can_see_obj(ch, obj))
+			continue;
 
-			ed = ed_lookup(arg3, obj->pObjIndex->ed);
-			if (ed != NULL)
-				if (++count == number) {
-					act_puts(mlstr_cval(&ed->description, ch),
-						 ch, NULL, NULL,
-						 TO_CHAR | ACT_NOLF, POS_DEAD);
-					return;
-				}
+		ed = ed_lookup(arg3, obj->ed);
+		if (ed != NULL) {
+			if (++count == number) {
+				act_puts(mlstr_cval(&ed->description, ch),
+					 ch, NULL, NULL,
+					 TO_CHAR | ACT_NOLF, POS_DEAD);
+				return;
+			}
+
+			continue;
 		}
 
-		if (is_name(arg3, obj->name))
+		ed = ed_lookup(arg3, obj->pObjIndex->ed);
+		if (ed != NULL) {
+			if (++count == number) {
+				act_puts(mlstr_cval(&ed->description, ch),
+					 ch, NULL, NULL,
+					 TO_CHAR | ACT_NOLF, POS_DEAD);
+				return;
+			}
+
+			continue;
+		}
+
+		if (is_name(arg3, obj->name)) {
 			if (++count == number) {
 				act_puts(format_long(&obj->description, ch),
 					 ch, NULL, NULL, TO_CHAR,
 					 POS_DEAD);
 				return;
 			}
+		}
 	}
 
 	ed = ed_lookup(arg3, ch->in_room->ed);
