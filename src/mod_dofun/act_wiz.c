@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.40 1998-07-14 07:47:41 fjoe Exp $
+ * $Id: act_wiz.c,v 1.41 1998-07-19 17:04:34 efdi Exp $
  */
 
 /***************************************************************************
@@ -452,6 +452,7 @@ void do_tick(CHAR_DATA *ch, const char *argument)
 		char_puts("tick char : char update\n\r",ch);
 		char_puts("tick room : room update\n\r",ch);
 		char_puts("tick track: track update\n\r",ch);
+		char_puts("tick obj  : obj update\n\r",ch);
 		return;
 	}
 	if (is_name(arg, "area"))  {
@@ -471,7 +472,12 @@ void do_tick(CHAR_DATA *ch, const char *argument)
 	}
 	if (is_name(arg, "track"))  {
 		track_update();
-		char_puts("Track updated.\n\r", ch);
+		char_puts("Tracks updated.\n\r", ch);
+		return;
+	}
+	if (is_name(arg, "obj"))  {
+		obj_update();
+		char_puts("Objects updated.\n\r", ch);
 		return;
 	}
 	do_tick(ch,"");
@@ -1380,7 +1386,7 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 	}
 
 	if ((obj = get_obj_world(ch, argument)) == NULL) {
-		char_puts("Nothing like that in hell, heaven or earth.\n\r", ch);
+		char_puts("Nothing like that in hell, heaven or earth.\n\r",ch);
 		return;
 	}
 
@@ -1388,7 +1394,8 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 	buf_printf(output, "Name(s): %s\n\r", obj->name);
 
 	buf_printf(output, "Vnum: %d  Format: %s  Type: %s  Resets: %d\n\r",
-		obj->pIndexData->vnum, obj->pIndexData->new_format ? "new" : "old",
+		obj->pIndexData->vnum,
+		obj->pIndexData->new_format ? "new" : "old",
 		item_type_name(obj), obj->pIndexData->reset_num);
 
 	mlstr_dump(output, "Short description: ", obj->short_descr);
@@ -1400,8 +1407,10 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 		1,           get_obj_number(obj),
 		obj->weight, get_obj_weight(obj),get_true_weight(obj));
 
-	buf_printf(output, "Level: %d  Cost: %d  Condition: %d  Timer: %d Count: %d\n\r",
-		obj->level, obj->cost, obj->condition, obj->timer, obj->pIndexData->count);
+	buf_printf(output,
+		  "Level: %d  Cost: %d  Condition: %d  Timer: %d Count: %d\n\r",
+		  obj->level, obj->cost, obj->condition,
+		  obj->timer, obj->pIndexData->count);
 
 	buf_printf(output,
 		"In room: %d  In object: %s  Carried by: %s  Wear_loc: %d\n\r",
