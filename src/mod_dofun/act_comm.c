@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.28 1998-05-27 15:38:54 fjoe Exp $
+ * $Id: act_comm.c,v 1.29 1998-05-27 16:22:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -195,8 +195,13 @@ void do_delete(CHAR_DATA *ch, char *argument)
 	char strsave[MAX_INPUT_LENGTH];
 
 	if (IS_NPC(ch))
-	return;
+		return;
 	
+	if (IS_AFFECTED(ch, AFF_CHARM)) {
+		send_to_char("You don't want to leave your master.\n\r", ch);
+		return;
+	}
+
 	if (ch->pcdata->confirm_delete) {
 		if (argument[0] != '\0') {
 			send_to_char("Delete status removed.\n\r",ch);
