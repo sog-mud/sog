@@ -1,0 +1,93 @@
+#AREADATA
+Name Tower~
+Builders Schemer Chaos~
+VNUMs 36200 36299
+Credits (null)~
+Security 2
+LevelRange 0 0
+End
+
+#MOBILES
+#36200
+the Major Dragon~
+@eng {YDragon healer.{x@rus {YDragon healer.{x~
+@eng A huge , very kind {YDragon{x is here.
+@rus A huge , very kind {YDragon{x is here.
+~
+~
+human~
+ABGa BDFHmt 1000 0
+120 0 0d0+0 0d0+0 0d0+0 none
+0 0 0 0
+0 ABQ 0 0
+stand stand none 0
+Z PU huge unknown
+F for AHMV
+F par BCDEFGHIJK
+#0
+
+#OBJECTS
+#36200
+no name~
+~
+~
+unknown~
+trash 0 0
+0 0 0 0 0
+0 0 0 P
+#0
+
+#ROOMS
+#36200
+@eng {WEntrance to Tower.{z@rus {WEntrance to Tower.{z~
+@eng You are on the wide road.You see a big tower.
+@rus You are on the wide road.You see a big tower.
+~
+0 CK mountain
+D0
+~
+~
+Z 0 36201
+S
+#36201
+@eng {WHallway{z@rus {WHallway{z~
+~
+0 0 inside
+D1
+~
+~
+Z 0 36202
+D2
+~
+~
+Z 0 36200
+S
+#36202
+@eng {WHallway{z@rus {WHallway{z~
+~
+0 0 inside
+D1
+~
+~
+Z 0 36203
+D3
+~
+~
+Z 0 36201
+S
+#36203
+@eng {WHallway{z@rus {WHallway{z~
+~
+0 0 inside
+D3
+~
+~
+Z 0 36202
+S
+#0
+
+#RESETS
+M 0 36200 1 36202 1	* {YDragon healer.{x ({WHallway{z)
+S
+
+#$
