@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.345 2002-01-04 06:37:53 kostik Exp $
+ * $Id: fight.c,v 1.346 2002-01-04 15:06:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -103,6 +103,19 @@ static bool	is_safe_rspell_nom(AFFECT_DATA *af, CHAR_DATA *victim);
 #define FOREST_NONE 0
 #define FOREST_ATTACK 1
 #define FOREST_DEFENCE 2
+
+static OBJ_DATA *
+get_katana(CHAR_DATA *ch, int wear_loc)
+{
+	OBJ_DATA *katana = get_eq_char(ch, wear_loc);
+
+	if (katana != NULL
+	&&  IS_WEAPON_STAT(katana, WEAPON_KATANA)
+	&&  katana->ed != NULL)
+		return katana;
+
+	return NULL;
+}
 
 /*
  * Hit one guy once.
@@ -381,10 +394,8 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 		check_improve(ch, "mastering sword", TRUE, 6);
 		dam += dam * 110 /100;
 
-		if (((katana = get_eq_char(ch,WEAR_WIELD)) ||
-		     (katana = get_eq_char(ch, WEAR_SECOND_WIELD)))
-		&&  IS_WEAPON_STAT(katana, WEAPON_KATANA)
-		&&  katana->ed != NULL) {
+		if ((katana = get_katana(ch, WEAR_WIELD)) != NULL
+		||  (katana = get_katana(ch, WEAR_SECOND_WIELD)) != NULL) {
 			char nmbuf[MAX_STRING_LENGTH];
 			AFFECT_DATA *paf;
 
@@ -394,14 +405,21 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 			&&  (katana->cost = ++katana->cost % 250) == 0
 			&&  (paf = affect_find(katana->affected, "katana"))) {
 				int old_mod = paf->modifier;
-				paf->modifier = UMIN(paf->modifier+1,
-							ch->level / 3);
+
+				paf->modifier = UMIN(
+				    paf->modifier + 1, ch->level / 3);
 				ch->hitroll += paf->modifier - old_mod;
+
 				if (paf->next != NULL
 				&&  IS_SKILL(paf->next->type, "katana")) {
-					paf->next->modifier = paf->modifier;
+					paf = paf->next;
+					old_mod = paf->modifier;
+
+					paf->modifier = UMIN(
+					    paf->modifier + 1, ch->level / 3);
 					ch->damroll += paf->modifier - old_mod;
 				}
+
 				act("$n's katana glows blue.",
 				    ch, NULL, NULL, TO_ROOM);
 				act_char("Your katana glows blue.", ch);
