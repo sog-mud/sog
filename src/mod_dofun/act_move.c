@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.227 2000-01-05 12:53:32 fjoe Exp $
+ * $Id: act_move.c,v 1.228 2000-01-17 09:30:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1465,7 +1465,7 @@ void do_train(CHAR_DATA *ch, const char *argument)
 	char buf[MAX_STRING_LENGTH];
 	CHAR_DATA *mob;
 	int stat = - 1;
-	gmlstr_t *stat_name;
+	const char *stat_name;
 	PC_DATA *pc;
 
 	if (IS_NPC(ch))
@@ -1493,22 +1493,22 @@ void do_train(CHAR_DATA *ch, const char *argument)
 
 	if (!str_cmp(argument, "str")) {
 		stat		= STAT_STR;
-		stat_name	= glob_lookup("strength");
+		stat_name	= "strength";
 	} else if (!str_cmp(argument, "int")) {
 		stat		= STAT_INT;
-		stat_name	= glob_lookup("intelligence");
+		stat_name	= "intelligence";
 	} else if (!str_cmp(argument, "wis")) {
 		stat		= STAT_WIS;
-		stat_name	= glob_lookup("wisdom");
+		stat_name	= "wisdom";
 	} else if (!str_cmp(argument, "dex")) {
 		stat		= STAT_DEX;
-		stat_name	= glob_lookup("dexterity");
+		stat_name	= "dexterity";
 	} else if (!str_cmp(argument, "con")) {
 		stat		= STAT_CON;
-		stat_name	= glob_lookup("constitution");
+		stat_name	= "constitution";
 	} else if (!str_cmp(argument, "cha")) {
 		stat		= STAT_CHA;
-		stat_name	= glob_lookup("charisma");
+		stat_name	= "charisma";
 	} else {
 		snprintf(buf, sizeof(buf),
 			 GETMSG("You can train: %s%s%s%s%s%s", GET_LANG(ch)),
@@ -1535,7 +1535,7 @@ void do_train(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (ch->perm_stat[stat] >= get_max_train(ch,stat)) {
-		act_puts("Your $v is already at maximum.",
+		act_puts("Your $w is already at maximum.",
 			 ch, stat_name, NULL, TO_CHAR, POS_DEAD);
 		return;
 	}
@@ -1547,9 +1547,9 @@ void do_train(CHAR_DATA *ch, const char *argument)
 
 	pc->train--;
 	ch->perm_stat[stat] += 1;
-	act_puts("Your $v increases!",
+	act_puts("Your $w increases!",
 		 ch, stat_name, NULL, TO_CHAR, POS_DEAD);
-	act("$n's $v increases!", ch, stat_name, NULL, TO_ROOM);
+	act("$n's $w increases!", ch, stat_name, NULL, TO_ROOM);
 }
 
 void do_track(CHAR_DATA *ch, const char *argument)

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.c,v 1.57 2000-01-13 14:46:37 kostik Exp $
+ * $Id: comm_act.c,v 1.58 2000-01-17 09:31:50 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -467,8 +467,8 @@ act_format_door(gmlstr_t *gml)
  * $U - text(arg3)
  * $v - mltext(arg1)
  * $V - mltext(arg3)
- * $w
- * $W
+ * $w - glob_lookup(arg1)
+ * $W - glob_lookup(arg3)
  * $x
  * $X
  * $y
@@ -627,6 +627,16 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 					    opt->act_flags & ~ACT_STRANS);
 				break;
 
+			case 'w':
+				gml = glob_lookup(arg1);
+				GMLTEXT_ARG(GML1, opt->act_flags & ~ACT_STRANS);
+				break;
+			
+			case 'W':
+				gml = glob_lookup(arg3);
+				GMLTEXT_ARG(GML1, opt->act_flags & ~ACT_STRANS);
+				break;
+			
 /* room arguments */
 			case 'r':
 				CHECK_TYPE(ROOM1, MT_ROOM);
@@ -804,6 +814,18 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 					case 'V':
 						CHECK_GMLSTR2(GML3);
 						tstack[sp].arg = GET_SEX(&GML3->gender, opt->to_lang);
+						break;
+
+					case 'w':
+						gml = glob_lookup(arg1);
+						CHECK_GMLSTR2(gml);
+						tstack[sp].arg = GET_SEX(&gml->gender, opt->to_lang);
+						break;
+
+					case 'W':
+						gml = glob_lookup(arg3);
+						CHECK_GMLSTR2(gml);
+						tstack[sp].arg = GET_SEX(&gml->gender, opt->to_lang);
 						break;
 
 					case '0':
