@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spellfn.h,v 1.9 1998-12-04 06:50:46 kostik Exp $
+ * $Id: spellfn.h,v 1.10 1999-01-21 12:23:52 kostik Exp $
  */
 
 #ifndef _SPELLFN_H_
@@ -118,6 +118,7 @@ DECLARE_SPELL_FUN(spell_recharge);
 DECLARE_SPELL_FUN(spell_refresh);
 DECLARE_SPELL_FUN(spell_remove_curse);
 DECLARE_SPELL_FUN(spell_sanctuary);
+DECLARE_SPELL_FUN(spell_black_shroud);
 DECLARE_SPELL_FUN(spell_shocking_grasp);
 DECLARE_SPELL_FUN(spell_shield);
 DECLARE_SPELL_FUN(spell_sleep);

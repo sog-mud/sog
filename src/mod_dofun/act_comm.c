@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.127 1998-12-23 16:11:08 fjoe Exp $
+ * $Id: act_comm.c,v 1.128 1999-01-21 12:23:38 kostik Exp $
  */
 
 /***************************************************************************
@@ -1063,6 +1063,11 @@ void do_quit_org(CHAR_DATA *ch, const char *argument, bool Count)
 
 	if (IS_SET(ch->plr_flags, PLR_NOEXP)) {
 		char_puts("You don't want to lose your spirit.\n", ch);
+		return;
+	}
+
+	if (IS_AFFECTED(ch, AFF_SLEEP)) {
+		char_puts("You cannot quit, you are in deep sleep.\n", ch);
 		return;
 	}
 

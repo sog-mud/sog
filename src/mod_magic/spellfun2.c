@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.69 1998-12-29 16:28:20 fjoe Exp $
+ * $Id: spellfun2.c,v 1.70 1999-01-21 12:23:41 kostik Exp $
  */
 
 /***************************************************************************
@@ -2460,6 +2460,8 @@ void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo,int target)
 	AFFECT_DATA af;
 	const char *p;
 	int i;
+	int chance;
+	int u_level;
 
 	/* deal with the object case first */
 	if (target == TARGET_OBJ) {
@@ -2503,6 +2505,16 @@ void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo,int target)
 		}
 
 		/* XXX */
+
+		chance = URANGE(5, get_skill(ch,sn)+(level-obj->level)*7, 95);
+		if (number_percent()>chance) {
+			char_puts ("You failed and destroyed it.\n", ch);
+			act("$n tries to animate $p, but fails and destoys it",
+				ch, obj, NULL, TO_ROOM);
+			extract_obj(obj);
+			return;
+		}
+
 		p = mlstr_mval(obj->short_descr);
 		if (!str_prefix("The corpse of ", p))
 			p += strlen("The corpse of ");
@@ -2511,23 +2523,26 @@ void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo,int target)
 			p += strlen("The undead body of ");
 
 		undead = create_named_mob(get_mob_index(MOB_VNUM_UNDEAD), p);
-		for (i = 0; i < MAX_STATS; i++)
-			undead->perm_stat[i] = UMIN(25, 2 * ch->perm_stat[i]);
 
-		undead->max_hit = IS_NPC(ch) ? ch->max_hit 
-					     : ch->pcdata->perm_hit;
+		for (i = 0; i < MAX_STATS; i++)
+			undead->perm_stat[i] = UMIN(25, 15+obj->level/10);
+		u_level = UMIN (obj->level, level+((obj->level-level)/3)*2); 
+
+		undead->max_hit = dice(20,u_level*2)+u_level*20; 
 		undead->hit = undead->max_hit;
-		undead->max_mana = IS_NPC(ch) ? ch->max_mana 
-					      : ch->pcdata->perm_mana;
+		undead->max_mana = dice(u_level,10)+100;
 		undead->mana = undead->max_mana;
-		undead->alignment = ch->alignment;
-		undead->level = UMIN(100, (ch->level-2));
+		undead->alignment = -1000;
+		undead->level = u_level;
 
 		for (i = 0; i < 3; i++)
 			undead->armor[i] = interpolate(undead->level,100,-100);
 		undead->armor[3] = interpolate(undead->level, 50, -200);
 		undead->sex = ch->sex;
 		undead->gold = 0;
+		undead->damage[DICE_NUMBER] = 11;
+		undead->damage[DICE_TYPE]   = 5;
+		undead->damage[DICE_BONUS]  = u_level/2 +10;
 	
 		undead->master = ch;
 		undead->leader = ch;

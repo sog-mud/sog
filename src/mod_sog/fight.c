@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.119 1999-01-18 04:47:14 fjoe Exp $
+ * $Id: fight.c,v 1.120 1999-01-21 12:23:39 kostik Exp $
  */
 
 /***************************************************************************
@@ -1229,6 +1229,9 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 	&&  !((dt == gsn_cleave) && (number_percent() < 50)))
 		dam /= 2;
 
+	if (is_affected(victim, sn_lookup("black shroud")))
+		dam = (7*dam)/15;
+
 	if (IS_AFFECTED(victim, AFF_PROTECT_EVIL) && IS_EVIL(ch))
 		dam -= dam / 4;
 
@@ -1796,6 +1799,7 @@ void make_corpse(CHAR_DATA *ch)
 		/* XXX */
 		corpse->owner = str_dup(mlstr_mval(ch->short_descr));
 		corpse->cost = 0;
+		corpse->level = ch->level;
 	}
 	else
 	  {
@@ -1812,6 +1816,7 @@ void make_corpse(CHAR_DATA *ch)
 		corpse->owner = str_dup(ch->name);
 		corpse->altar = hometown_table[ch->hometown].altar[i];
 		corpse->pit = hometown_table[ch->hometown].pit[i];
+		corpse->level = ch->level;
 
 		if (ch->gold > 0 || ch->silver > 0) {
 		    obj_to_obj(create_money(ch->gold, ch->silver), corpse);
@@ -1937,6 +1942,7 @@ void death_cry_org(CHAR_DATA *ch, int part)
 					name);
 		obj->owner = str_dup(name);
 		obj->timer	= number_range(4, 7);
+		obj->level	= ch->level;
 
 		if (obj->pIndexData->item_type == ITEM_FOOD) {
 			if (IS_SET(ch->form,FORM_POISON))

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: gsn.c,v 1.8 1999-01-05 08:12:14 kostik Exp $
+ * $Id: gsn.c,v 1.9 1999-01-21 12:23:52 kostik Exp $
  */
 
 #include <stdio.h>
@@ -56,6 +56,7 @@ int gsn_poison;
 int gsn_plague;
 int gsn_sleep;
 int gsn_sanctuary;
+int gsn_black_shroud;
 int gsn_fly;
 int gsn_fourth_attack;
 int gsn_dual_backstab;
@@ -259,6 +260,7 @@ NAMEDP gsn_table[] =
 	{ "gsn_plague",			&gsn_plague			},
 	{ "gsn_sleep",			&gsn_sleep			},
 	{ "gsn_sanctuary",		&gsn_sanctuary			},
+	{ "gsn_black_shroud",		&gsn_black_shroud		},
 	{ "gsn_fly",			&gsn_fly			},
 	{ "gsn_fourth_attack",		&gsn_fourth_attack		},
 	{ "gsn_dual_backstab",		&gsn_dual_backstab		},

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.101 1999-01-05 08:11:59 kostik Exp $
+ * $Id: spellfun.c,v 1.102 1999-01-21 12:23:39 kostik Exp $
  */
 
 /***************************************************************************
@@ -3882,6 +3882,15 @@ void spell_sanctuary(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 		return;
 	}
 
+	if (is_affected(victim, sn_lookup("black shroud"))) {
+		if (victim == ch)
+	 	  char_puts("But you are surronded by black shroud.\n", ch);
+		else
+		  act("But $n is surrounded by black shroud.\n",
+			ch, NULL, victim, TO_CHAR);
+		return;
+	}
+
 	af.where     = TO_AFFECTS;
 	af.type      = sn;
 	af.level     = level;
@@ -3895,7 +3904,52 @@ void spell_sanctuary(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	return;
 }
 
+void spell_black_shroud (int sn, int level, CHAR_DATA *ch, void *vo, int target)
+{
+	CHAR_DATA *victim = (CHAR_DATA*) vo;
+	AFFECT_DATA af;
 
+	if (IS_AFFECTED(victim, AFF_SANCTUARY)) {
+		if (victim==ch)
+			char_puts("But you are in sanctuary.\n", ch);
+		else
+			act("But $N in sanctuary.", ch, NULL, victim,TO_CHAR);
+		return;
+	}
+
+	if (!IS_EVIL(ch)) {
+		char_puts("The gods are infuriated!.\n", ch);
+		damage(ch, ch, dice(level, IS_GOOD(ch)?2:1), TYPE_HIT, DAM_HOLY,TRUE);
+		return;
+	}
+	
+	if (!IS_EVIL(victim)) {
+		act("Your god does not seems to like $N", 
+			ch, NULL, victim, TO_CHAR);
+		return;
+	}
+
+	if (is_affected(victim, sn)) {
+		if (victim==ch)
+			char_puts("You are already protected.\n", ch);
+		else
+			act("$N is already protected.\n",
+				ch, NULL, victim, TO_CHAR);
+		return;
+	}
+	af.where     = TO_AFFECTS;
+	af.type      = sn;
+	af.level     = level;
+	af.duration  = level/6;
+	af.location  = APPLY_SAVING_SPELL;
+	af.modifier  = -1;
+	af.bitvector = 0;
+	affect_to_char(victim, &af);
+	act ("$n is surrounded by black aura.",
+		victim, NULL, NULL, TO_ROOM);
+	char_puts("You are surrounded by black aura.\n", victim);
+	return;
+}
 
 void spell_shield(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 {
@@ -3961,7 +4015,7 @@ void spell_sleep(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	if (IS_AFFECTED(victim, AFF_SLEEP)
 	||  (IS_NPC(victim) && IS_SET(victim->pIndexData->act, ACT_UNDEAD))
 	||  level < victim->level
-	||  saves_spell(level-4, victim, DAM_CHARM))
+	||  saves_spell(level, victim, DAM_CHARM))
 		return;
 
 	af.where     = TO_AFFECTS;

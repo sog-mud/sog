@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spellfn.c,v 1.9 1998-12-04 06:50:46 kostik Exp $
+ * $Id: spellfn.c,v 1.10 1999-01-21 12:23:52 kostik Exp $
  */
 
 #include <stdio.h>
@@ -117,6 +117,7 @@ NAMEDP spellfn_table[] =
 	{ "spell_refresh",		spell_refresh			},
 	{ "spell_remove_curse",		spell_remove_curse		},
 	{ "spell_sanctuary",		spell_sanctuary			},
+	{ "spell_black_shroud",		spell_black_shroud		},
 	{ "spell_shocking_grasp",	spell_shocking_grasp		},
 	{ "spell_shield",		spell_shield			},
 	{ "spell_sleep",		spell_sleep			},
