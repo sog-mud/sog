@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.97 1998-07-14 12:29:39 fjoe Exp $
+ * $Id: act_info.c,v 1.98 1998-07-14 12:43:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -124,6 +124,20 @@ void	show_char_to_char_1	args((CHAR_DATA *victim, CHAR_DATA *ch));
 void	show_char_to_char	args((CHAR_DATA *list, CHAR_DATA *ch));
 bool	check_blind		args((CHAR_DATA *ch));
 
+char *obj_name(OBJ_DATA *obj, CHAR_DATA *ch)
+{
+	static char buf[MAX_STRING_LENGTH];
+	char *name;
+	char engname[MAX_STRING_LENGTH];
+
+	name = mlstr_cval(obj->short_descr, ch);
+	one_argument(obj->name, engname);
+	snprintf(buf, sizeof(buf), "%s", name);
+	if (name != mlstr_mval(obj->short_descr)) 
+		sprintf(strend(buf), " (%s)", engname);
+	return buf;
+}
+
 char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 {
 	static char buf[MAX_STRING_LENGTH];
@@ -167,7 +181,7 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 	}
 
 	if (fShort) {
-		strcat(buf, mlstr_cval(obj->short_descr, ch));
+		strcat(buf, obj_name(obj, ch));
 		if (obj->pIndexData->vnum > 5)	/* not money, gold, etc */
 			sprintf(strend(buf), " [{g%s{x]",
 				get_cond_alias(obj, ch));
@@ -178,7 +192,7 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 		char* p;
 
 		p = strend(buf);
-		strcat(buf, mlstr_cval(obj->short_descr, ch));
+		strcat(buf, obj_name(obj, ch));
 		p[0] = UPPER(p[0]);
 		switch(dice(1,3)) {
 		case 1:
@@ -301,8 +315,6 @@ void show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch,
 	buf_free(output);
 	free_mem(prgpstrShow, count * sizeof(char *));
 	free_mem(prgnShow,    count * sizeof(int)  );
-
-	return;
 }
 
 
