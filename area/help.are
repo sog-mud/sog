@@ -7192,6 +7192,43 @@ To add new pose: {cpose add, pose self{x <number> <msg>, {cpose others{x <number
 3. Команда addaffect пока глючит! лучше пока ее не трогать - МУД падает.
    #Arborn
 ~
+0 'OLC CC_RULESET'~
+Syntax: <cmd> order <order>
+Syntax: <cmd> order ?
+Syntax: <cmd> show
+Syntax: <cmd> add [allow | deny] <keyword> <check expression>
+Syntax: <cmd> delete [allow | deny] <num>
+ 
+{c<cmd>{x depends on your current OLC editor (e.g.: 'restrictions' if
+you are editing an object)
+ 
+{c<order>{x can be one of the following:
+deny_allow     - `deny' rules are checked before `allow' rules.
+                 Initial state is OK.
+allow_deny     - `allow' rules are checked before `deny' rules.
+                 Initial state is FORBIDDEN.
+mutual_failure - the result will be OK only if `allow' rules are fulfilled
+                 and `deny' rules are not. Otherwise the result will be
+                 FORBIDDEN. Initial state is irrelevant.
+ 
+{c<keyword>{x depends on your current OLC editor.
+Valid keywords for obj OLC editor are:
+race  - check race
+class - check class
+ 
+{c<check expression>{x depends on your current OLC editor.
+Valid keywords for obj OLC editor are race or class names (depending
+on <keyword>) or 'all'.
+ 
+Rulesets for objects are used to restrict the possibility to
+wear an object by race or class.
+
+E.g.: suppose you have the following ruleset for an object:
+        order deny_allow
+        deny race all
+        allow race human elf
+This will allow to wear an object only for humans and elves.
+~
 -1 $~
 
 #$

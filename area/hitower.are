@@ -2538,11 +2538,14 @@ D5
 Z -1 1322
 S
 #1322
-A damp intersection~
-You are in a damp intersection of what seems to be the basement of the
+@eng A damp intersection@rus В подвале~
+@eng You are in a damp intersection of what seems to be the basement of the
 tower. The sound of running water can be heard coming from the south,
 other than that, an almost tangible stillness fills the air.
   Passages lead off in all directions, and a ladder leads up.
+@rus Ты находишься в подвале башни. Здесь очень сыро. Журчание воды доносится
+с юга и больше ни звука, лишь тишина наполняет воздух.
+  Выходы ведут во всех направлениях, вверх ведет веревочная лестница.
 ~
 0 AD inside
 D0
@@ -2568,10 +2571,13 @@ D4
 Z -1 1321
 S
 #1323
-A dark passage~
-You are at the end of a dark passage which ends in a stout wooden door.
+@eng A dark passage@rus Темный коридор~
+@eng You are at the end of a dark passage which ends in a stout wooden door.
 Other then through the door, the only apparent exit is back the way you
 came.
+@rus Ты находишься в темном коридоре, в коце которого можно различить прочную
+деревянную дверь. Кроме выхода через дверь, есть еще один -- назад, по пути,
+по которому ты сюда пришел.
 ~
 0 AD inside
 D0
@@ -2584,11 +2590,13 @@ D2
 Z -1 1322
 S
 #1324
-A dark passage~
-You are at the end of a dark passage. A half opened door is to the east,
+@eng A dark passage@rus Темный коридор~
+@eng You are at the end of a dark passage. A half opened door is to the east,
 shedding soft light around the edges. Faint snoring sounds can be heard
 behind the door.
   Exits lead east through the door, or back west.
+@rus Ты находишься в конце темного коридора. Из проема приоткрытой двери на
+востоке струится мягкий свет. За дверью зардается чей-то негромкий храп.
 ~
 0 AD inside
 D1
@@ -2601,13 +2609,17 @@ D3
 Z -1 1322
 S
 #1325
-The stagnant pool~
-You are at the edge of a stagnant pool of water. The smell here is quite
+@eng The stagnant pool@rus Сточная канава~
+@eng You are at the edge of a stagnant pool of water. The smell here is quite
 nauseating. This is apparently where the denizens of the tower dispose of
 their garbage. Faint gurgling can be heard from beneath the surface of the
 pool.
   Exits lead back north, or perhaps for the very adventurous, down into the
 pool.
+@rus Ты находишься на краю сточной канавы. Здесь очень дурно пахнет. Видимо сюда
+спускаются все сточные воды из башни. Гадкое клокотание доносится со дна
+канавы.
+  Выходы ведут назад, на север, или ,для особо небрезгливых, вниз в канаву.
 ~
 0 AD inside
 D0
@@ -2621,11 +2633,15 @@ No light penetrates the gloom of the stagnant pool.
 Z -1 1329
 S
 #1326
-A dark passage~
-You are in a dark passage, which comes to an abrupt stop at what appears
+@eng A dark passage@rus Темный коридор~
+@eng You are in a dark passage, which comes to an abrupt stop at what appears
 to be a cave-in to the west. It is certainly unpassable, and perhaps quite
 dangerous just being this close.
   The only exit leads back east.
+@rus Ты находишься в темном коридоре, который внезапно кончается возле странного
+разлома, походящего на вход в пещеру. Она слишком узкая, что бы можно было
+пролезть сквозь нее, и, возможно, опасно даже просто находиться рядом с ней.
+  Единстенный выход ведет назад на восток.
 ~
 0 AD inside
 D1
@@ -2634,10 +2650,13 @@ D1
 Z -1 1322
 S
 #1327
-A dark cell~
-You are in a dark cell. Straw and dirt cover the floors here, it is
+@eng A dark cell@rus Темная камера~
+@eng You are in a dark cell. Straw and dirt cover the floors here, it is
 very dark. Someone, or something seems to be chained to the far wall.
   The only exit is back south.
+@rus Ты находишься в тюремной камере. Пол покрыт соломой и грязью, и темно, хоть
+глаз выколи. Кто-то, или что-то, кажется приковано к стене тяжеленной цепью.
+  Единственный выход -- назад на юг.
 ~
 0 AD inside
 D2
@@ -2646,11 +2665,15 @@ oak door~
 ABCZ -1 1323
 S
 #1328
-The Jailor's office~
-You are in the Jailor's office. It is rather messy here. Judging by the
+@eng The Jailor's office@rus Пост тюремщика~
+@eng You are in the Jailor's office. It is rather messy here. Judging by the
 sleeping form of the Jailor on duty, you can surmise that very few, if any
 prisoners survive long enough to spend much time in these dank dungeons.
   The only exit leads back west.
+@rus Ты находишься окло поста тюремщика. Здесь царит беспорядок. Исходя из того,
+что тюремщик спит на посту, ты понимаешь, что немногие из заключенных
+выживают в этих темных подземельях.
+  Единственный выход ведет назад на запад.
 ~
 0 D inside
 D3
@@ -2659,13 +2682,17 @@ door~
 Z -1 1324
 S
 #1329
-Below the stagnant pool~
-As you dive beneath the putrid waters, you feel a strong tug and a whirlpool
+@eng Below the stagnant pool@rus В сточных водах~
+@eng As you dive beneath the putrid waters, you feel a strong tug and a whirlpool
 drags you under.  You are sucked into blackness.  You feel your lungs burst
 from lack of oxygen.  Just as you feel your life fading, you notice a change in
 direction ... and are sucked under by a rip tide.
+@rus Как только ты $gn{погрузился} в грязную воду, ты $gn{почувствовал} мощный рывок,
+затянувший тебя вглубь. Тебя засосало в кромешную тьму. Ты чувствуешь, что
+твои легкие разрываются от недостатка кислорода. Твои силы постепенно покидают
+тебя. Каждый следующий поток воды затягивает тебя все глубже и глубже...
 ~
-0 ACD inside
+0 ACD underwater
 S
 #1330
 The hallway~
