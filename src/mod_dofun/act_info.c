@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.29 2000-11-22 08:50:08 osya Exp $
+ * $Id: act_info.c,v 1.271.2.30 2001-01-07 17:48:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1547,7 +1547,7 @@ void do_description(CHAR_DATA *ch, const char *argument)
 
 	char_printf(ch, "Your description is:\n"
 			 "%s\n"
-			 "Use 'desc edit' to edit your description.\n",
+			 "{xUse 'desc edit' to edit your description.\n",
 		    mlstr_mval(&ch->description));
 }
 
@@ -4408,11 +4408,18 @@ static void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 	else
 		desc = mlstr_mval(&doppel->description);
 
-	if (!IS_NULLSTR(desc)) 
-		act_puts(desc, ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
-	else
+	if (!IS_NULLSTR(desc)) {
+		if (IS_NPC(doppel)) {
+			act_puts(desc, ch, desc, NULL,
+				 TO_CHAR | ACT_NOLF, POS_DEAD);
+		} else {
+			act_puts("$t{x", ch, desc, NULL,
+				 TO_CHAR | ACT_NOLF, POS_DEAD);
+		}
+	} else {
 		act_puts("You see nothing special about $m.",
 			 victim, NULL, ch, TO_VICT, POS_DEAD);
+	}
 
 	if (MOUNTED(victim))
 		act_puts("$N is riding $i.",
