@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hometown.c,v 1.12 2001-06-21 16:16:59 avn Exp $
+ * $Id: hometown.c,v 1.13 2001-06-21 17:00:25 avn Exp $
  */
 
 #include <stdio.h>
@@ -173,9 +173,11 @@ altar_t *get_altar(CHAR_DATA *ch)
  */
 static hometown_t* get_hometown(int htn)
 {
+	hometown_t *h;
+
 	if (htn < 0)
 		htn = 0;
-	hometown_t *h = varr_get(&hometowns, (unsigned)htn);
+	h = varr_get(&hometowns, (unsigned)htn);
 	if (!h)
 		h = VARR_GET(&hometowns, 0);
 	return h;
