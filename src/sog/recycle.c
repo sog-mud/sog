@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.137 2001-09-16 18:14:28 fjoe Exp $
+ * $Id: recycle.c,v 1.138 2001-09-25 14:27:17 kostik Exp $
  */
 
 /***************************************************************************
@@ -431,11 +431,41 @@ static varr_info_t c_info_pcspecs =
 	sizeof(const char *), 2
 };
 
+static int month_stat_mods[17][MAX_STAT] = {
+	{  0,  0,  0,  0, -1,  1 },	// Winter
+	{  1, -1, -1,  0,  0, -1 },	// the Winter Wolf
+	{  2, -1, -1, -1, +2,  0 },	// the Frost Giant
+	{  2,  0,  2,  0,  0,  0 },	// the Old Forces
+	{  3,  0,  0,  0,  0,  0 },	// the Grand Struggle
+	{  0,  0,  0,  0,  2,  1 },	// the Spring
+	{  0,  0,  3,  0,  1,  1 },	// Nature
+	{ -1, -1, -1, -1, -1,  0 },	// Futility
+	{  2,  0,  1, -1,  2,  1 },	// the Dragon
+	{  1,  1,  1,  1,  1,  1 },	// the Sun
+	{  1,  0,  0,  0,  0,  0 },	// the Heat
+	{  3,  0, -1,  0,  0,  0 },	// the Battle
+	{  0,  0,  0,  2,  0,  0 },	// the Dark Shades
+	{  0,  1,  0,  2,  0,  0 },	// the Shadows
+	{  0,  1,  1,  2,  0,  0 },	// the Long Shadows
+	{  0,  0,  3,  0,  0,  0 },	// the Ancient Darkness
+	{  3, -2,  0,  0,  0, -3 }	// the Great Evil
+};
+static int day_stat_mods[7][MAX_STAT] = {
+	{  0,  0,  1,  0,  0,  1 },	// the Moon
+	{  2, -2, -1, -1,  2, -1 },	// the Bull
+	{ -1, +2,  0,  0,  0, +1 },     // Deception
+	{  3,  0,  0,  0,  0,  0 },	// Thunder
+	{  0,  0,  0,  1,  0,  1 },	// Freedom
+	{  1,  0,  2,  0,  1,  2 },	// the Great Gods
+	{  1,  1,  1,  1,  1,  2 },     // the Sun
+};
+
 CHAR_DATA *
 char_new(MOB_INDEX_DATA *pMobIndex)
 {
 	CHAR_DATA *ch;
 	int i;
+	int day = (time_info.day + 1) % 7;
 
 	CHAR_DATA **free_list;
 	int *free_count;
@@ -482,7 +512,8 @@ char_new(MOB_INDEX_DATA *pMobIndex)
 	for (i = 0; i < 4; i++)
 		ch->armor[i] = 100;
 	for (i = 0; i < MAX_STAT; i++) {
-		ch->perm_stat[i] = 15;
+		ch->perm_stat[i] = 14 + month_stat_mods[time_info.month][i] +
+		    day_stat_mods[day][i];
 		ch->mod_stat[i] = 0;
 	}
 
