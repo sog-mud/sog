@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.c,v 1.18 1999-11-18 18:41:32 fjoe Exp $
+ * $Id: lang.c,v 1.19 1999-12-04 12:11:29 fjoe Exp $
  */
 
 #include <string.h>
@@ -99,6 +99,8 @@ word_form_lookup(lang_t *l, rulecl_t *rcl, const char *word, int fnum)
 	 */
 	if ((rule = erule_lookup(rcl, word)) == NULL) {
 		rule_t e;
+
+		return word;
 
 		/*
 		 * implicit rule lookup
