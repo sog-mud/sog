@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.201 1999-11-24 07:22:25 fjoe Exp $
+ * $Id: handler.c,v 1.202 1999-11-25 08:14:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3648,7 +3648,7 @@ void get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container,
 	     obj->in_room &&
 	     IS_SET(obj->in_room->room_flags, ROOM_BATTLE_ARENA) &&
 	     !IS_OWNER(ch, obj))) {
-		char_puts("You can't take that.\n", ch);
+		act("You can't take $p.", ch, obj, NULL, TO_CHAR);
 		return;
 	}
 

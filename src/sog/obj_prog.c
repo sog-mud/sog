@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.69 1999-10-23 10:20:19 fjoe Exp $
+ * $Id: obj_prog.c,v 1.70 1999-11-25 08:14:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -56,7 +56,6 @@ DECLARE_OPROG(death_prog_excalibur);
 DECLARE_OPROG(speech_prog_excalibur);
 DECLARE_OPROG(sac_prog_excalibur);
 
-DECLARE_OPROG(fight_prog_sub_weapon);
 DECLARE_OPROG(speech_prog_kassandra);
 
 DECLARE_OPROG(fight_prog_chaos_blade);
@@ -179,7 +178,6 @@ OPROG_DATA oprog_table[] = {
 	{ "death_prog_excalibur", death_prog_excalibur },
 	{ "speech_prog_excalibur", speech_prog_excalibur },
 	{ "sac_prog_excalibur", sac_prog_excalibur },
-	{ "fight_prog_sub_weapon", fight_prog_sub_weapon },
 	{ "speech_prog_kassandra", speech_prog_kassandra },
 	{ "fight_prog_chaos_blade", fight_prog_chaos_blade },
 	{ "death_prog_chaos_blade", death_prog_chaos_blade },
@@ -420,21 +418,6 @@ int fight_prog_ranger_staff(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 		char_puts("Your ranger's staff glows blue!\n",ch);
 		act("$n's ranger's staff glows blue!", ch, NULL, NULL, TO_ROOM);
 		obj_cast_spell("cure critical", LEVEL(ch), ch, ch);
-	}
-	return 0;
-}
-
-int fight_prog_sub_weapon(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
-{
-	if (get_eq_char(ch,WEAR_WIELD) == obj && number_percent() < 30)
-	{
-	  if (((float) ch->hit)/((float) ch->max_hit) > 0.9)
-		char_puts("Your weapon whispers, 'You're doing great!'\n",ch);
-	  else if (((float) ch->hit)/((float) ch->max_hit) > 0.6)
-		char_puts("Your weapon whispers, 'Keep up the good work!'\n",ch);
-	  else if (((float) ch->hit)/((float) ch->max_hit) > 0.4)
-		  char_puts("Your weapon whispers, 'You can do it!'\n",ch);
-	  else char_puts("Your weapon whispers, 'Run away! Run away!'\n",ch);
 	}
 	return 0;
 }
