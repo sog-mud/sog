@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_skill.c,v 1.9 1999-12-16 05:34:36 fjoe Exp $
+ * $Id: olc_skill.c,v 1.10 1999-12-16 10:39:28 fjoe Exp $
  */
 
 #include "olc.h"
@@ -45,6 +45,7 @@ DECLARE_OLC_FUN(skilled_slot		);
 DECLARE_OLC_FUN(skilled_minmana		);
 DECLARE_OLC_FUN(skilled_beats		);
 DECLARE_OLC_FUN(skilled_noun		);
+DECLARE_OLC_FUN(skilled_noungender	);
 DECLARE_OLC_FUN(skilled_msgoff		);
 DECLARE_OLC_FUN(skilled_msgobj		);
 DECLARE_OLC_FUN(skilled_flags		);
@@ -72,6 +73,7 @@ olc_cmd_t olc_cmds_skill[] =
 	{ "minmana",	skilled_minmana					},
 	{ "beats",	skilled_beats					},
 	{ "noun",	skilled_noun					},
+	{ "noungender",	skilled_noungender, NULL, gender_table		},
 	{ "msgoff",	skilled_msgoff					},
 	{ "msgobjoff",	skilled_msgobj					},
 	{ "flags",	skilled_flags,	NULL,	skill_flags		},

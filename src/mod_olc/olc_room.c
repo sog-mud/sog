@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.70 1999-12-14 00:26:41 avn Exp $
+ * $Id: olc_room.c,v 1.71 1999-12-16 10:39:27 fjoe Exp $
  */
 
 #include "olc.h"
@@ -75,12 +75,12 @@ olc_cmd_t olc_cmds_room[] =
 	{ "mana",	roomed_mana					},
 	{ "clone",	roomed_clone					},
 
-	{ "north",	roomed_north					},
-	{ "south",	roomed_south					},
-	{ "east",	roomed_east					},
-	{ "west",	roomed_west					},
-	{ "up",		roomed_up					},
-	{ "down",	roomed_down					},
+	{ "north",	roomed_north,	NULL,		gender_table	},
+	{ "south",	roomed_south,	NULL,		gender_table	},
+	{ "east",	roomed_east,	NULL,		gender_table	},
+	{ "west",	roomed_west,	NULL,		gender_table	},
+	{ "up",		roomed_up,	NULL,		gender_table	},
+	{ "down",	roomed_down,	NULL,		gender_table	},
 
 /* New reset commands. */
 	{ "mreset",	roomed_mreset					},
@@ -294,9 +294,10 @@ OLC_FUN(roomed_show)
 				buf_add(output, " ");
 			}
 
-			if (!IS_NULLSTR(pexit->keyword))
-				buf_printf(output, "Kwds: [%s]\n",
-					   pexit->keyword);
+			buf_printf(output, "Kwds:   [%s]\n", pexit->keyword);
+			mlstr_dump(output, "Short:  ", &pexit->short_descr.ml);
+			mlstr_dump(output, "Gender: ",
+				   &pexit->short_descr.gender);
 			mlstr_dump(output, str_empty, &pexit->description);
 		}
 	}
@@ -789,8 +790,6 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 
 	argument = one_argument(argument, command, sizeof(command));
 
-	/* old method did not allow to set 'door' as an exit name - Arborn */
-
 	if (!str_prefix(command, "flags")) {
 		ROOM_INDEX_DATA *pToRoom;
 		int rev;
@@ -809,7 +808,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		/*
 		 * This room.
 		 */
-		TOGGLE_BIT(pRoom->exit[door]->rs_flags,  value);
+		TOGGLE_BIT(pRoom->exit[door]->rs_flags, value);
 
 		/*
 		 * Don't toggle exit_info because it can be
@@ -830,6 +829,36 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		char_printf(ch, "Exit flag '%s' toggled.\n",
 				flag_string(exit_flags, value));
 		return TRUE;
+	}
+
+	if (!str_cmp(command, "short")) {
+		bool ok;
+
+		if (!pRoom->exit[door]) {
+			char_puts("RoomEd: Exit does not exist.\n",ch);
+			return FALSE;
+		}
+
+		ok = olced_mlstr(ch, argument, cmd,
+				 &pRoom->exit[door]->short_descr.ml);
+		if (ok)
+			char_puts("Short descr set.\n", ch);
+		return ok;
+	}
+
+	if (!str_cmp(command, "gender")) {
+		bool ok;
+
+		if (!pRoom->exit[door]) {
+			char_puts("RoomEd: Exit does not exist.\n",ch);
+			return FALSE;
+		}
+
+		ok = olced_gender(ch, argument, cmd,
+				  &pRoom->exit[door]->short_descr.gender);
+		if (ok)
+			char_puts("Gender set.\n", ch);
+		return ok;
 	}
 
 	if (!str_cmp(command, "name")) {
