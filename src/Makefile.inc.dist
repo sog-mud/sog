@@ -1,13 +1,15 @@
 #
-# $Id: Makefile.inc.dist,v 1.1 1999-06-22 12:37:13 fjoe Exp $
+# $Id: Makefile.inc.dist,v 1.2 1999-06-22 14:03:31 fjoe Exp $
 #
 
 CC		= gcc
 LD		= gcc
-INCLUDES	= -I . 
+INCLUDES	= -I . -I ..
 
 CFLAGS		= -g -Wall -O -pipe $(INCLUDES)
-LFLAGS		= -g
+LFLAGS		= -g -export-dynamic
+SO_CFLAGS	= -fpic
+SO_LFLAGS	= -shared
 LIBS		=
 INSTALL_PATH	= ..
 
@@ -20,6 +22,7 @@ INSTALL_PATH	= ..
 # for Linux
 #CFLAGS	+= -DLINUX 
 #LIBS	+= -lcrypt
+#SO_LFLAGS += -ldl -rdynamic
 #COMPAT_CFILES = compat/fnmatch.c
 #COMPAT_OFILES = fnmatch.o
 
