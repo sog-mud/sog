@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.169.2.17 2001-01-24 18:15:55 fjoe Exp $
+ * $Id: db.c,v 1.169.2.18 2001-02-11 21:21:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -866,7 +866,8 @@ void reset_room(ROOM_INDEX_DATA *pRoom, int flags)
                 break;
             }
 
-            if (LastMob->pMobIndex->pShop) {  /* Shop-keeper? */
+            if (pReset->command == 'G'
+	    &&  LastMob->pMobIndex->pShop) {  /* Shop-keeper? */
                 pObj = create_obj(pObjIndex, 0);
 		SET_BIT(pObj->extra_flags, ITEM_INVENTORY);
             }

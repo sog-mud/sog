@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.165.2.19 2001-01-16 19:22:52 fjoe Exp $
+ * $Id: act_obj.c,v 1.165.2.20 2001-02-11 21:21:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3357,8 +3357,10 @@ void do_smithing(CHAR_DATA *ch, const char *argument)
  */
 static CHAR_DATA *find_keeper(CHAR_DATA *ch)
 {
-	CHAR_DATA      *keeper;
-	SHOP_DATA      *pShop = NULL;
+	CHAR_DATA *keeper;
+	SHOP_DATA *pShop = NULL;
+	bool closed;
+	int hour;
 
 	for (keeper = ch->in_room->people; keeper; keeper = keeper->next_in_room) {
 		if (IS_NPC(keeper)
@@ -3378,16 +3380,20 @@ static CHAR_DATA *find_keeper(CHAR_DATA *ch)
 	}
 
 	/*
-	 * Shop hours.
+	 * shop hours
 	 */
-	if (time_info.hour < pShop->open_hour) {
-		do_say(keeper, "Sorry, I am closed. Come back later.");
+	hour = time_info.hour;
+	closed = pShop->open_hour < pShop->close_hour ?
+		!(pShop->open_hour <= hour && hour < pShop->close_hour) :
+		pShop->close_hour <= hour && hour < pShop->open_hour;
+	if (closed) {
+		if (hour < pShop->open_hour)
+			do_say(keeper, "Sorry, I am closed. Come back later.");
+		else
+			do_say(keeper, "Sorry, I am closed. Come back tomorrow.");
 		return NULL;
 	}
-	if (time_info.hour > pShop->close_hour) {
-		do_say(keeper, "Sorry, I am closed. Come back tomorrow.");
-		return NULL;
-	}
+
 	/*
 	 * Invisible or hidden people.
 	 */

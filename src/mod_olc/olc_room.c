@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.57.2.5 2000-11-17 12:49:35 avn Exp $
+ * $Id: olc_room.c,v 1.57.2.6 2001-02-11 21:21:33 fjoe Exp $
  */
 
 #include "olc.h"
@@ -1220,25 +1220,16 @@ void display_resets(CHAR_DATA *ch)
                 break;
 	    }
 
-	    if (pMob->pShop) {
-	        buf_printf(buf,
-		"O[%5d] %-13.13s in the inventory of S[%5d]       %-15.15s\n",
-		pReset->arg1,
-		mlstr_mval(&pObj->short_descr),                           
-		pMob->vnum,
-		mlstr_mval(&pMob->short_descr));
-	    }
-	    else
 	    buf_printf(buf,
-		"O[%5d] %-13.13s %-19.19s M[%5d]       %-15.15s\n",
+		"O[%5d] %-13.13s %-19.19s %c[%5d]       %-15.15s\n",
 		pReset->arg1,
 		mlstr_mval(&pObj->short_descr),
 		(pReset->command == 'G') ?
 		    flag_string(wear_loc_strings, WEAR_NONE)
 		  : flag_string(wear_loc_strings, pReset->arg3),
+		  pReset->command == 'G' && pMob->pShop ? 'S' : 'M',
 		  pMob->vnum,
 		  mlstr_mval(&pMob->short_descr));
-
 	    break;
 
 	/*
