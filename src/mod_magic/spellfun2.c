@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.29 2000-12-28 05:18:19 osya Exp $
+ * $Id: spellfun2.c,v 1.139.2.30 2001-01-23 21:48:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1373,7 +1373,7 @@ void spell_brew(int sn, int level, CHAR_DATA *ch, void *vo)
 	  		spell = sn_lookup("cure poison");
 			break;
 		case 2:
-	  		spell = sn_lookup("cure blind");
+	  		spell = sn_lookup("cure blindness");
 			break;
 		case 3:
 	  		spell = sn_lookup("cure disease");
