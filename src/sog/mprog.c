@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mprog.c,v 1.4 2001-08-27 16:56:03 fjoe Exp $
+ * $Id: mprog.c,v 1.5 2001-09-04 19:33:03 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -40,7 +40,8 @@
 hash_t mprogs;
 
 int (*mprog_compile)(mprog_t *mp);
-int (*mprog_execute)(mprog_t *mp, void *arg1, void *arg2, void *arg3);
+int (*mprog_execute)(mprog_t *mp,
+		     void *arg1, void *arg2, void *arg3, void *arg4);
 
 hashdata_t h_mprogs = {
 	sizeof(mprog_t), 8,

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_impl.h,v 1.18 2001-09-01 19:08:31 fjoe Exp $
+ * $Id: mpc_impl.h,v 1.19 2001-09-04 19:32:56 fjoe Exp $
  */
 
 #ifndef _MPC_IMPL_H_
@@ -84,7 +84,8 @@ extern flaginfo_t mpc_types[];
 	 (type_tag) == MT_ROOM)						\
 
 #define TYPE_IS(type_tag1, type_tag2)					\
-	 (IS_PTR_TYPE(type_tag1) && (type_tag2) == MT_PVOID)
+	 ((type_tag1) == (type_tag2) ||					\
+	  (IS_PTR_TYPE(type_tag1) && (type_tag2) == MT_PVOID))
 
 /**
  * Switch jump table

@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.30 2001-09-01 19:08:30 fjoe Exp $
+ * $Id: mpc.y,v 1.31 2001-09-04 19:32:53 fjoe Exp $
  */
 
 /*
@@ -88,7 +88,8 @@
 #define yystacksize mpc_stacksize
 
 int _mprog_compile(mprog_t *mp);
-int _mprog_execute(mprog_t *mp, void *arg1, void *arg2, void *arg3);
+int _mprog_execute(mprog_t *mp,
+		   void *arg1, void *arg2, void *arg3, void *arg4);
 
 /*--------------------------------------------------------------------
  * argtype stack manipulation functions
@@ -205,8 +206,7 @@ code3(mpcode_t *mpc,
 
 #define BOP_CHECK_TYPES(opname, type_tag1, type_tag2)			\
 	do {								\
-		if ((type_tag1) != (type_tag2)				\
-		&&  !TYPE_IS((type_tag1), (type_tag2))			\
+		if (!TYPE_IS((type_tag1), (type_tag2))			\
 		&&  !TYPE_IS((type_tag2), (type_tag1)))	{		\
 			compile_error(mpc,				\
 			    "invalid operand types for '%s' ('%s' and '%s')",\
@@ -1564,6 +1564,8 @@ _mprog_compile(mprog_t *mp)
 			return MPC_ERR_COMPILE;
 		if (var_add(mpc, "$o", MT_OBJ) < 0)
 			return MPC_ERR_COMPILE;
+		if (var_add(mpc, "$t", MT_STR) < 0)
+			return MPC_ERR_COMPILE;
 		break;
 
 	case MP_T_OBJ:
@@ -1611,7 +1613,7 @@ _mprog_compile(mprog_t *mp)
 	} while (0)
 
 int
-_mprog_execute(mprog_t *mp, void *arg1, void *arg2, void *arg3)
+_mprog_execute(mprog_t *mp, void *arg1, void *arg2, void *arg3, void *arg4)
 {
 	sym_t *sym;
 	mpcode_t *mpc;
@@ -1634,6 +1636,8 @@ _mprog_execute(mprog_t *mp, void *arg1, void *arg2, void *arg3)
 		if (mob_var_assign(mpc, "$N", arg2) < 0)
 			execerr(MPC_ERR_RUNTIME);
 		if (obj_var_assign(mpc, "$o", arg3) < 0)
+			execerr(MPC_ERR_RUNTIME);
+		if (str_var_assign(mpc, "$t", arg4) < 0)
 			execerr(MPC_ERR_RUNTIME);
 		break;
 

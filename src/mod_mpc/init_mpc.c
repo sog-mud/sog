@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_mpc.c,v 1.22 2001-09-02 16:21:59 fjoe Exp $
+ * $Id: init_mpc.c,v 1.23 2001-09-04 19:32:53 fjoe Exp $
  */
 
 #include <dlfcn.h>
@@ -62,6 +62,8 @@ static dynafun_data_t core_dynafun_tab[] = {
 	DECLARE_FUN0(int, number_percent)
 	DECLARE_FUN2(int, number_range,
 		     ARG(int), from, ARG(int), to)
+	DECLARE_FUN1(ROOM_INDEX_DATA, get_room_index,
+		     ARG(int), vnum)
 #if defined(MPC)
 	{ "print",		MT_VOID, 1,
 	  { { MT_INT } }						},
@@ -158,6 +160,8 @@ const char *mpc_dynafuns[] = {
 	"cast_char",
 	"cast_obj",
 	"char_sex",
+	"close_door",
+	"close_obj",
 	"create_obj",
 	"dofun",
 	"get_char_area",
@@ -169,12 +173,19 @@ const char *mpc_dynafuns[] = {
 	"get_obj_room",
 	"get_obj_wear",
 	"get_obj_world",
+	"get_room_index",
 	"give_obj",
 	"has_sp",
 	"is_affected",
+	"is_evil",
+	"is_ghost",
+	"is_good",
 	"is_immortal",
+	"is_neutral",
 	"level",
 	"load_obj",
+	"lock_door",
+	"lock_obj",
 	"look_char",
 	"mob_interpret",
 	"multi_hit",
@@ -182,10 +193,15 @@ const char *mpc_dynafuns[] = {
 	"number_percent",
 	"number_range",
 	"obj_to_char",
+	"open_door",
+	"open_obj",
+	"purge_obj",
 	"social_char",
 	"spclass_count",
 	"transfer_char",
 	"tell_char",
+	"unlock_door",
+	"unlock_obj",
 #else
 	"nonexistent",
 	"number_range",

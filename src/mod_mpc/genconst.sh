@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: genconst.sh,v 1.5 2001-09-02 16:21:58 fjoe Exp $
+# $Id: genconst.sh,v 1.6 2001-09-04 19:32:52 fjoe Exp $
 #
 
 echo "#include <stdlib.h>"
@@ -11,7 +11,7 @@ echo
 echo "#include \"mpc_const.h\""
 echo
 echo "int_const_t ic_tab[] = {"
-egrep 'ACT_|SEX_' ../include/merc.h | sed -f genconst.sed
+egrep '#define (ACT_|AN_|SEX_)' ../include/merc.h | sed -f genconst.sed
 grep 'TO_' ../include/sog.h | sed -f genconst.sed
 echo
 echo "	{ \"NULL\", 0, MT_PVOID },"

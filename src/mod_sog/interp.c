@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.187 2001-09-02 16:22:03 fjoe Exp $
+ * $Id: interp.c,v 1.188 2001-09-04 19:33:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -74,6 +74,20 @@ static void interpret_social(social_t *soc,
 FILE				*imm_log;
 #endif
 
+static
+FOREACH_CB_FUN(pull_mob_cmd_cb, p, ap)
+{
+	CHAR_DATA *vch = (CHAR_DATA *) p;
+
+	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
+	char *argument = va_arg(ap, char *);
+
+	if (pull_mob_trigger(TRIG_MOB_CMD, vch, ch, argument) >= 0)
+		return p;
+
+	return NULL;
+}
+
 /*
  * The main entry point for executing commands.
  * Can be recursively called from 'at', 'order', 'force'.
@@ -82,12 +96,14 @@ void
 interpret(CHAR_DATA *ch, const char *argument, bool is_order)
 {
 	char command[MAX_INPUT_LENGTH];
-	const char *logline;
+	const char *save_argument;
 	cmd_t *cmd = NULL;
 	social_t *soc = NULL;
 	int min_pos;
 	flag_t cmd_flg;
 	int cmd_log;
+	const char *cmd_name;
+	int cmd_level;
 	size_t i;
 	bool found = FALSE;
 	CHAR_DATA *vch;
@@ -101,7 +117,7 @@ interpret(CHAR_DATA *ch, const char *argument, bool is_order)
 	if (argument[0] == '\0')
 		return;
 
-	logline = argument;
+	save_argument = argument;
 
 	/*
 	 * Grab the command word.
@@ -113,7 +129,7 @@ interpret(CHAR_DATA *ch, const char *argument, bool is_order)
 	if (IS_IMMORTAL(ch)) {
 		if ((imm_log = dfopen(GODS_PATH, IMMLOG_FILE, "a+"))) {
 			fprintf(imm_log, "%s [%s] %s\n",
-				strtime(time(NULL)), ch->name, logline);
+				strtime(time(NULL)), ch->name, save_argument);
 			fprintf(imm_log, buf);
 			fclose(imm_log);
 		}
@@ -148,16 +164,6 @@ interpret(CHAR_DATA *ch, const char *argument, bool is_order)
 		&&  !IS_SET(cmd->cmd_flags, CMD_FROZEN_OK))
 			continue;
 
-		/*
-		 * "edit" cannot be disabled, otherwise it would be impossible
-		 * to enable it back
-		 */
-		if (IS_SET(cmd->cmd_flags, CMD_DISABLED)
-		&&  !!str_cmp(cmd->name, "edit")) {
-			act_char("Sorry, this command is disabled.", ch);
-			return;
-		}
-
 		if (cmd->min_level >= LEVEL_IMMORTAL) {
 			if (IS_NPC(vch))
 				continue;
@@ -167,33 +173,6 @@ interpret(CHAR_DATA *ch, const char *argument, bool is_order)
 				continue;
 		} else if (cmd->min_level > ch->level)
 			continue;
-
-		if (is_order) {
-			if (IS_SET(cmd->cmd_flags, CMD_NOORDER)
-			||  cmd->min_level >= LEVEL_IMMORTAL)
-				return;
-		} else if (IS_AFFECTED(ch, AFF_CHARM)
-		&&  !IS_SET(cmd->cmd_flags, CMD_CHARMED_OK)
-		&&  ch->master != NULL
-		&&  cmd->min_level < LEVEL_IMMORTAL
-		&&  !IS_IMMORTAL(ch)) {
-			act("First ask your beloved master!",
-			    ch, NULL, ch->master, TO_CHAR);
-			return;
-		}
-
-		if (IS_AFFECTED(ch, AFF_STUN)
-		&&  !IS_SET(cmd->cmd_flags, CMD_KEEP_HIDE)) {
-			act_char("You are STUNNED to do that.", ch);
-			return;
-		}
-
-		if (IS_SET(cmd->cmd_flags, CMD_STRICT_MATCH)
-		&&  !!str_cmp(command, cmd->name)) {
-			act_puts("If you want to $t, spell it out.",
-			    ch, strupr(cmd->name), NULL, TO_CHAR, POS_DEAD);
-			return;
-		}
 
 		found = TRUE;
 		break;
@@ -205,7 +184,7 @@ interpret(CHAR_DATA *ch, const char *argument, bool is_order)
 	if (ch->desc && ch->desc->snoop_by) {
 		char buf[MAX_INPUT_LENGTH];
 
-		snprintf(buf, sizeof(buf), "# %s\n\r", logline); // notrans
+		snprintf(buf, sizeof(buf), "# %s\n\r", save_argument); // notrans
 		write_to_snoop(ch->desc, buf, 0);
 	}
 
@@ -219,23 +198,69 @@ interpret(CHAR_DATA *ch, const char *argument, bool is_order)
 		/*
 		 * Look for command in socials table.
 		 */
-		if ((soc = social_search(command)) == NULL) {
-			act_char("Huh?", ch);
-			return;
-		}
+		if ((soc = social_search(command)) != NULL) {
+			if (!IS_NPC(ch) && IS_SET(ch->comm, COMM_NOEMOTE)) {
+				act_char("You are anti-social!", ch);
+				return;
+			}
 
-		if (!IS_NPC(ch) && IS_SET(ch->comm, COMM_NOEMOTE)) {
-			act_char("You are anti-social!", ch);
-			return;
-		}
+			found = TRUE;
 
-		min_pos = soc->min_pos;
-		cmd_flg = 0;
-		cmd_log = LOG_NORMAL;
+			min_pos = soc->min_pos;
+			cmd_flg = 0;
+			cmd_log = LOG_NORMAL;
+			cmd_name = soc->name;
+			cmd_level = 0;
+		} else {
+			min_pos = POS_RESTING;
+			cmd_flg = 0;
+			cmd_log = LOG_NEVER;
+			cmd_name = command;
+			cmd_level = 0;
+		}
 	} else {
 		min_pos = cmd->min_pos;
 		cmd_flg = cmd->cmd_flags;
 		cmd_log = cmd->cmd_log;
+		cmd_name = cmd->name;
+		cmd_level = cmd->min_level;
+	}
+
+	/*
+	 * "edit" cannot be disabled, otherwise it would be impossible
+	 * to enable it back
+	 */
+	if (IS_SET(cmd_flg, CMD_DISABLED)
+	&&  !!str_cmp(cmd_name, "edit")) {
+		act_char("Sorry, this command is disabled.", ch);
+		return;
+	}
+
+	if (is_order) {
+		if (IS_SET(cmd_flg, CMD_NOORDER)
+		||  cmd_level >= LEVEL_IMMORTAL)
+			return;
+	} else if (IS_AFFECTED(ch, AFF_CHARM)
+	       &&  !IS_SET(cmd_flg, CMD_CHARMED_OK)
+	       &&  ch->master != NULL
+	       &&  cmd_level < LEVEL_IMMORTAL
+	       &&  !IS_IMMORTAL(ch)) {
+		act("First ask your beloved master!",
+		    ch, NULL, ch->master, TO_CHAR);
+		return;
+	}
+
+	if (IS_AFFECTED(ch, AFF_STUN)
+	&&  !IS_SET(cmd_flg, CMD_KEEP_HIDE)) {
+		act_char("You are STUNNED to do that.", ch);
+		return;
+	}
+
+	if (IS_SET(cmd_flg, CMD_STRICT_MATCH)
+	&&  !!str_cmp(command, cmd_name)) {
+		act_puts("If you want to $t, spell it out.",
+		    ch, strupr(cmd_name), NULL, TO_CHAR, POS_DEAD);
+		return;
 	}
 
 	/*
@@ -245,8 +270,8 @@ interpret(CHAR_DATA *ch, const char *argument, bool is_order)
 	     fLogAll ||
 	     cmd_log == LOG_ALWAYS)
 	&&  cmd_log != LOG_NEVER
-	&&  logline[0] != '\0')
-		log(LOG_INFO, "Log %s: %s", vch->name, logline);
+	&&  save_argument[0] != '\0')
+		log(LOG_INFO, "Log %s: %s", vch->name, save_argument);
 
 	if (!IS_NPC(ch)) {
 		/* Come out of hiding for most commands */
@@ -294,6 +319,19 @@ interpret(CHAR_DATA *ch, const char *argument, bool is_order)
 			act_char("No way! You are still fighting!", ch);
 			break;
 		}
+		return;
+	}
+
+	if (!found) {
+		/*
+		 * pull mob 'cmd' triggers
+		 */
+		if (!IS_NPC(ch)
+		&&  vo_foreach(ch->in_room, &iter_char_room, pull_mob_cmd_cb,
+			       ch, save_argument) != NULL)
+			return;
+
+		act_char("Huh?", ch);
 		return;
 	}
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hometown.c,v 1.19 2001-08-14 16:07:10 fjoe Exp $
+ * $Id: hometown.c,v 1.20 2001-09-04 19:33:03 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -139,7 +139,7 @@ get_map(CHAR_DATA *ch)
 ROOM_INDEX_DATA *
 get_random_recall(void)
 {
-	int i = number_range(0, MAX_ANUM-1);
+	int i = number_range(0, MAX_AN-1);
 	return get_hometown(
 	    number_range(1, varr_size(&hometowns) - 1))->recall[i];
 }

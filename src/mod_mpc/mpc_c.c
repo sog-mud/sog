@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_c.c,v 1.21 2001-09-02 16:21:59 fjoe Exp $
+ * $Id: mpc_c.c,v 1.22 2001-09-04 19:32:54 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -195,7 +195,7 @@ c_push_retval(mpcode_t *mpc)
 		&&  d->argtype[i].type_tag != MT_PCVOID
 		&&  !TYPE_IS(d->argtype[i].type_tag, argtype[i])) {
 			mpc_assert(mpc, __FUNCTION__,
-			    argtype[i] == d->argtype[i].type_tag,
+			    FALSE,
 			    "%s: invalid arg[%d] type (want %d, got %d)",
 			    d->name, i+1, argtype[i], d->argtype[i].type_tag);
 		}
@@ -209,6 +209,7 @@ c_push_retval(mpcode_t *mpc)
 		case MT_STR:
 		case MT_CHAR:
 		case MT_OBJ:
+		case MT_ROOM:
 			mpc_assert(mpc, __FUNCTION__,
 			    dynafun_check_arg(d, i, ((void **) args)[i]),
 			    "dynafun_arg_check failed");

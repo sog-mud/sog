@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hometown.h,v 1.9 2001-08-05 16:36:20 fjoe Exp $
+ * $Id: hometown.h,v 1.10 2001-09-04 19:32:39 fjoe Exp $
  */
 
 #ifndef _HOMETOWN_H_
@@ -37,9 +37,9 @@ struct altar_t {
 struct hometown_t {
 	const char* area;
 
-	ROOM_INDEX_DATA *	recall[MAX_ANUM];	/* recall points */
-	OBJ_INDEX_DATA *	map[MAX_ANUM];		/* maps		 */
-	altar_t			altar[MAX_ANUM];
+	ROOM_INDEX_DATA *	recall[MAX_AN];		/* recall points */
+	OBJ_INDEX_DATA *	map[MAX_AN];		/* maps		 */
+	altar_t			altar[MAX_AN];
 	const char *		restrict_race;
 	const char *		restrict_class;
 	flag_t			restrict_align;

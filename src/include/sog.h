@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.19 2001-09-02 16:21:46 fjoe Exp $
+ * $Id: sog.h,v 1.20 2001-09-04 19:32:40 fjoe Exp $
  */
 
 #ifndef _SOG_H_
@@ -189,6 +189,23 @@ DECLARE_FUN3(bool, remove_obj,
 	     ARG(CHAR_DATA), ch, ARG(int), iWear, ARG(bool), fReplace)
 DECLARE_FUN3(bool, give_obj,
 	     ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim, ARG(OBJ_DATA), obj)
+DECLARE_FUN2(bool, open_obj,
+	     ARG(CHAR_DATA), ch, ARG(OBJ_DATA), obj)
+DECLARE_FUN2(bool, close_obj,
+	     ARG(CHAR_DATA), ch, ARG(OBJ_DATA), obj)
+DECLARE_FUN2(bool, lock_obj,
+	     ARG(CHAR_DATA), ch, ARG(OBJ_DATA), obj)
+DECLARE_FUN2(bool, unlock_obj,
+	     ARG(CHAR_DATA), ch, ARG(OBJ_DATA), obj)
+
+DECLARE_FUN2(bool, open_door,
+	     ARG(CHAR_DATA), ch, ARG(cchar_t), name)
+DECLARE_FUN2(bool, close_door,
+	     ARG(CHAR_DATA), ch, ARG(cchar_t), name)
+DECLARE_FUN2(bool, lock_door,
+	     ARG(CHAR_DATA), ch, ARG(cchar_t), name)
+DECLARE_FUN2(bool, unlock_door,
+	     ARG(CHAR_DATA), ch, ARG(cchar_t), name)
 
 DECLARE_PROC2(look_char,
 	      ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim)
@@ -472,7 +489,8 @@ DECLARE_PROC4(one_hit,
 DECLARE_PROC2(handle_death,
 	      ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim)
 DECLARE_PROC3(multi_hit,
-	      ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim, ARG(cchar_t), dt)
+	      ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim,
+	      NULLABLE_ARG(cchar_t), dt)
 DECLARE_FUN6(bool, damage,
 	     ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim, ARG(int), dam,
 	     ARG(cchar_t), dt, ARG(int), class, ARG(int), dam_flags)
@@ -691,7 +709,7 @@ DECLARE_FUN4(cchar_t, act_speech,
 
 DECLARE_PROC4(act_yell,
 	      ARG(CHAR_DATA), ch, ARG(cchar_t), text,
-	      NULLABLE_ARG(pcvoid_t), arg, ARG(cchar_t), format)
+	      NULLABLE_ARG(pcvoid_t), arg, NULLABLE_ARG(cchar_t), format)
 DECLARE_PROC3(act_clan,
 	      ARG(CHAR_DATA), ch, ARG(cchar_t), text,
 	      NULLABLE_ARG(pcvoid_t), arg)

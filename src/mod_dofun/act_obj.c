@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.257 2001-09-02 16:21:50 fjoe Exp $
+ * $Id: act_obj.c,v 1.258 2001-09-04 19:32:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -290,7 +290,7 @@ DO_FUN(do_put, ch, argument)
 	 * clan members can put item into clan altar even if it is closed
 	 * check that obj is clan item is done in put_obj
 	 */
-	if (IS_SET(INT(container->value[1]), CONT_CLOSED) 
+	if (IS_SET(INT(container->value[1]), CONT_CLOSED)
 	&&  ((clan = clan_lookup(ch->clan)) == NULL ||
 	     clan->altar_ptr != container)) {
 		act_puts("$P is closed.",
@@ -3679,7 +3679,7 @@ static bool put_obj(CHAR_DATA *ch, OBJ_DATA *container,
 	 * clan members can put item into clan altar even if it is closed
 	 * check that container is clan altar is done in do_put
 	 */
-	if (IS_SET(INT(container->value[1]), CONT_CLOSED) 
+	if (IS_SET(INT(container->value[1]), CONT_CLOSED)
 	&&  ((clan = clan_lookup(ch->clan)) == NULL ||
 	     clan->obj_ptr != obj)) {
 		act_puts("$P is closed.",
@@ -3756,7 +3756,7 @@ static void drop_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 	act_puts("You drop $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
 
 	if (obj->pObjIndex->vnum == OBJ_VNUM_POTION_VIAL
-	&&  number_percent() < 51)
+	&&  number_percent() < 51) {
 		switch (ch->in_room->sector_type) {
 		case SECT_FOREST:
 		case SECT_DESERT:
@@ -3773,6 +3773,7 @@ static void drop_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 			extract_obj(obj, 0);
 			return;
 		}
+	}
 
 #if 0
 	XXX

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.246 2001-09-02 16:21:48 fjoe Exp $
+ * $Id: act_comm.c,v 1.247 2001-09-04 19:32:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -254,14 +254,33 @@ DO_FUN(do_replay, ch, argument)
 	buf_clear(PC(ch)->buffer);
 }
 
+static
+FOREACH_CB_FUN(pull_obj_speech_cb, p, ap)
+{
+	OBJ_DATA *obj = (OBJ_DATA *) p;
+
+	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
+	char *speech = va_arg(ap, char *);
+
+	pull_obj_trigger(TRIG_OBJ_SPEECH, obj, ch, speech);
+	return NULL;
+}
+
+static
+FOREACH_CB_FUN(pull_mob_speech_cb, p, ap)
+{
+	CHAR_DATA *vch = (CHAR_DATA *) p;
+
+	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
+	char *speech = va_arg(ap, char *);
+
+	pull_mob_trigger(TRIG_MOB_SPEECH, vch, ch, speech);
+	vo_foreach(ch, &iter_obj_char, pull_obj_speech_cb, ch, speech);
+	return NULL;
+}
+
 DO_FUN(do_say, ch, argument)
 {
-#if 0
-	XXX
-	OBJ_DATA *char_obj;
-	OBJ_DATA *char_obj_next;
-#endif
-
 	if (argument[0] == '\0') {
 		act_char("Say what?", ch);
 		return;
@@ -277,32 +296,12 @@ DO_FUN(do_say, ch, argument)
 	argument = garble(ch, argument);
 	act_say(ch, "$T", argument);
 
-#if 0
-	XXX
 	if (!IS_NPC(ch)) {
-		CHAR_DATA *mob, *mob_next;
-		for (mob = ch->in_room->people; mob != NULL; mob = mob_next) {
-			mob_next = mob->next_in_room;
-			if (IS_NPC(mob) && HAS_TRIGGER(mob, TRIG_SPEECH)
-			&&  mob->position == mob->pMobIndex->default_pos) {
-				mp_act_trigger(argument, mob, ch, NULL, NULL,
-					       TRIG_SPEECH);
-			}
-		}
+		vo_foreach(ch->in_room, &iter_char_room, pull_mob_speech_cb,
+		    ch, argument);
+		vo_foreach(ch->in_room, &iter_obj_room, pull_obj_speech_cb,
+		    ch, argument);
 	}
-
-	for (char_obj = ch->carrying; char_obj != NULL;
-	     char_obj = char_obj_next) {
-		char_obj_next = char_obj->next_content;
-		oprog_call(OPROG_SPEECH, char_obj, ch, argument);
-	}
-
-	for (char_obj = ch->in_room->contents; char_obj != NULL;
-	     char_obj = char_obj_next) {
-		char_obj_next = char_obj->next_content;
-		oprog_call(OPROG_SPEECH, char_obj, ch, argument);
-	}
-#endif
 }
 
 DO_FUN(do_tell, ch, argument)

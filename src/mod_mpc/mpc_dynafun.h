@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_dynafun.h,v 1.3 2001-09-02 16:22:00 fjoe Exp $
+ * $Id: mpc_dynafun.h,v 1.4 2001-09-04 19:32:56 fjoe Exp $
  */
 
 #ifndef _MPC_DYNAFUN_H_
@@ -51,6 +51,16 @@ DECLARE_FUN1(int, char_sex,
 	     ARG(CHAR_DATA), ch)
 DECLARE_FUN2(OBJ_DATA, load_obj,
 	     ARG(CHAR_DATA), ch, ARG(int), vnum)
+DECLARE_FUN1(bool, is_ghost,
+	     ARG(CHAR_DATA), ch)
+DECLARE_PROC1(purge_obj,
+	      ARG(OBJ_DATA), obj)
+DECLARE_FUN1(bool, is_good,
+	     ARG(CHAR_DATA), ch)
+DECLARE_FUN1(bool, is_neutral,
+	     ARG(CHAR_DATA), ch)
+DECLARE_FUN1(bool, is_evil,
+	     ARG(CHAR_DATA), ch)
 
 __MODULE_END_DECL
 

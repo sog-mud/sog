@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.h,v 1.7 2001-08-31 10:29:28 fjoe Exp $
+ * $Id: trig.h,v 1.8 2001-09-04 19:32:41 fjoe Exp $
  */
 
 #ifndef _TRIG_H_
@@ -49,6 +49,10 @@
 #define TRIG_MOB_DELAY		14		/* arg: probability	*/
 #define TRIG_MOB_SURR		15		/* arg: probability	*/
 #define TRIG_MOB_LOOK		16		/* arg: probability	*/
+#define TRIG_MOB_OPEN		17		/* arg: obj vnum/name	*/
+#define TRIG_MOB_GET		18		/* arg: obj vnum/name	*/
+#define TRIG_MOB_TELL		19		/* arg: text		*/
+#define TRIG_MOB_CMD		20		/* arg: cmd		*/
 
 /* obj triggers */
 #define TRIG_OBJ_WEAR		100		/* arg: probability	*/
@@ -69,9 +73,14 @@
 
 #define HAS_TEXT_ARG(trig)	(trig->trig_type == TRIG_MOB_ACT ||	\
 				 trig->trig_type == TRIG_MOB_SPEECH ||	\
+				 trig->trig_type == TRIG_MOB_TELL ||	\
 				 trig->trig_type == TRIG_OBJ_SPEECH)
 #define HAS_EXIT_ARG(trig)	(trig->trig_type == TRIG_MOB_EXIT ||	\
 				 trig->trig_type == TRIG_MOB_EXALL)
+#define HAS_OBJ_ARG(trig)	(trig->trig_type == TRIG_MOB_GIVE ||	\
+				 trig->trig_type == TRIG_MOB_OPEN ||	\
+				 trig->trig_type == TRIG_MOB_GET)
+#define HAS_CMD_ARG(trig)	(trig->trig_type == TRIG_MOB_CMD)
 
 #define TRIG_F_CASEDEP	(A)	/* text arg case-dependent	*/
 #define TRIG_F_REGEXP	(B)	/* text arg is regexp		*/

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.c,v 1.9 2001-09-02 16:22:04 fjoe Exp $
+ * $Id: trig.c,v 1.10 2001-09-04 19:33:04 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -264,6 +264,7 @@ pull_one_trigger(trig_t *trig, int mp_type,
 		 void *arg1, void *arg2, void *arg3)
 {
 	mprog_t *mp;
+	void *arg4 = NULL;
 
 	if (mprog_execute == NULL)
 		return MPC_ERR_UNLOADED;
@@ -280,7 +281,30 @@ pull_one_trigger(trig_t *trig, int mp_type,
 
 		if (silver < silver_needed)
 			return MPC_ERR_COND_FAILED;
-	} else if (trig->trig_type == TRIG_MOB_GIVE) {
+	} else if (HAS_TEXT_ARG(trig)) {
+		char *arg_lwr = strlwr(arg3);
+		bool match = FALSE;
+
+		if (IS_SET(trig->trig_flags, TRIG_F_REGEXP))
+			match = !regexec(trig->trig_extra, arg3, 0, NULL, 0);
+		else {
+			if (!IS_SET(trig->trig_flags, TRIG_F_CASEDEP))
+				arg3 = arg_lwr;
+			match = strstr(arg3, trig->trig_arg) != NULL;
+		}
+
+		if (!match)
+			return MPC_ERR_COND_FAILED;
+	} else if (HAS_EXIT_ARG(trig)) {
+		CHAR_DATA *ch = (CHAR_DATA *) arg1;
+
+		if (trig->trig_type == TRIG_MOB_EXIT
+		&&  ch->position != ch->pMobIndex->default_pos)
+			return MPC_ERR_COND_FAILED;
+
+		if (!is_name(arg3, trig->trig_arg))
+			return MPC_ERR_COND_FAILED;
+	} else if (HAS_OBJ_ARG(trig)) {
 		OBJ_DATA *obj = (OBJ_DATA *) arg3;
 		bool match = FALSE;
 
@@ -302,29 +326,16 @@ pull_one_trigger(trig_t *trig, int mp_type,
 
 		if (!match)
 			return MPC_ERR_COND_FAILED;
-	} else if (HAS_EXIT_ARG(trig)) {
-		CHAR_DATA *ch = (CHAR_DATA *) arg1;
+	} else if (HAS_CMD_ARG(trig)) {
+		const char *argument = arg3;
+		char command[MAX_INPUT_LENGTH];
 
-		if (trig->trig_type == TRIG_MOB_EXIT
-		&&  ch->position != ch->pMobIndex->default_pos)
+		argument = one_argument(argument, command, sizeof(command));
+		if (!!str_prefix(command, trig->trig_arg))
 			return MPC_ERR_COND_FAILED;
 
-		if (!is_name(arg3, trig->trig_arg))
-			return MPC_ERR_COND_FAILED;
-	} else if (HAS_TEXT_ARG(trig)) {
-		char *arg_lwr = strlwr(arg3);
-		bool match = FALSE;
-
-		if (IS_SET(trig->trig_flags, TRIG_F_REGEXP))
-			match = !regexec(trig->trig_extra, arg3, 0, NULL, 0);
-		else {
-			if (!IS_SET(trig->trig_flags, TRIG_F_CASEDEP))
-				arg3 = arg_lwr;
-			match = strstr(arg3, trig->trig_arg) != NULL;
-		}
-
-		if (!match)
-			return MPC_ERR_COND_FAILED;
+		arg3 = NULL;
+		arg4 = (void *) (uintptr_t) argument;
 	} else {
 		int chance;
 
@@ -345,7 +356,7 @@ pull_one_trigger(trig_t *trig, int mp_type,
 	&&  trig->trig_type != TRIG_SPEC)
 		arg3 = NULL;
 
-	return mprog_execute(mp, arg1, arg2, arg3);
+	return mprog_execute(mp, arg1, arg2, arg3, arg4);
 }
 
 static int

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_dynafun.c,v 1.10 2001-09-02 16:21:59 fjoe Exp $
+ * $Id: mpc_dynafun.c,v 1.11 2001-09-04 19:32:55 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -136,6 +136,36 @@ load_obj(CHAR_DATA *ch, int vnum)
 
 	obj_to_char(obj, ch);
 	return obj;
+}
+
+bool
+is_ghost(CHAR_DATA *ch)
+{
+	return !IS_NPC(ch) && IS_SET(PC(ch)->plr_flags, PLR_GHOST);
+}
+
+void
+purge_obj(OBJ_DATA *obj)
+{
+	extract_obj(obj, 0);
+}
+
+bool
+is_good(CHAR_DATA *ch)
+{
+	return IS_GOOD(ch);
+}
+
+bool
+is_neutral(CHAR_DATA *ch)
+{
+	return IS_NEUTRAL(ch);
+}
+
+bool
+is_evil(CHAR_DATA *ch)
+{
+	return IS_EVIL(ch);
 }
 
 #else /* !defined(MPC) */

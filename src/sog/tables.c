@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.163 2001-08-30 18:50:18 fjoe Exp $
+ * $Id: tables.c,v 1.164 2001-09-04 19:33:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1056,9 +1056,9 @@ flaginfo_t align_names[] =
 {
 	{ "",			TABLE_INTVAL,		FALSE	},
 
-	{ "good",		ANUM_GOOD,		TRUE	},
-	{ "neutral",		ANUM_NEUTRAL,		TRUE	},
-	{ "evil",		ANUM_EVIL,		TRUE	},
+	{ "good",		AN_GOOD,		TRUE	},
+	{ "neutral",		AN_NEUTRAL,		TRUE	},
+	{ "evil",		AN_EVIL,		TRUE	},
 
 	{ NULL, 0, FALSE }
 };
@@ -1533,6 +1533,10 @@ flaginfo_t mptrig_types[] =
 	{ "mob_delay",		TRIG_MOB_DELAY,		TRUE    },
 	{ "mob_surr",		TRIG_MOB_SURR,		TRUE    },
 	{ "mob_look",		TRIG_MOB_LOOK,		TRUE	},
+	{ "mob_open",		TRIG_MOB_OPEN,		TRUE	},
+	{ "mob_get",		TRIG_MOB_GET,		TRUE	},
+	{ "mob_tell",		TRIG_MOB_TELL,		TRUE	},
+	{ "mob_cmd",		TRIG_MOB_CMD,		TRUE	},
 
 	{ "obj_wear",		TRIG_OBJ_WEAR,		TRUE	},
 	{ "obj_remove",		TRIG_OBJ_REMOVE,	TRUE	},

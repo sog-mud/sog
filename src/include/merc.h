@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.357 2001-09-02 16:21:45 fjoe Exp $
+ * $Id: merc.h,v 1.358 2001-09-04 19:32:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -78,13 +78,10 @@
 #define SEX_PLURAL	4
 
 /* align numbers */
-enum {
-	ANUM_GOOD,
-	ANUM_NEUTRAL,
-	ANUM_EVIL,
-
-	MAX_ANUM
-};
+#define AN_GOOD		0
+#define AN_NEUTRAL	1
+#define AN_EVIL		2
+#define MAX_AN		3
 
 enum {
 	STAT_STR,
@@ -1799,9 +1796,9 @@ struct room_index_data
 #define RALIGN(ch)	(IS_GOOD(ch) ? RA_GOOD :	\
 			 IS_EVIL(ch) ? RA_EVIL :	\
 				       RA_NEUTRAL)
-#define NALIGN(ch)	(IS_GOOD(ch) ? ANUM_GOOD :	\
-			 IS_EVIL(ch) ? ANUM_EVIL :	\
-				       ANUM_NEUTRAL)
+#define NALIGN(ch)	(IS_GOOD(ch) ? AN_GOOD :	\
+			 IS_EVIL(ch) ? AN_EVIL :	\
+				       AN_NEUTRAL)
 
 #define IS_AWAKE(ch)		(ch->position > POS_SLEEPING)
 #define GET_AC(ch, type)	((ch)->armor[type]			    \

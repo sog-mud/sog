@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.319 2001-09-02 16:22:01 fjoe Exp $
+ * $Id: handler.c,v 1.320 2001-09-04 19:33:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -79,6 +79,8 @@ static void strip_obj_affects(CHAR_DATA *ch, AFFECT_DATA *paf);
 static OBJ_DATA *get_stuck_eq(CHAR_DATA *ch, int wtype);
 #endif
 static bool has_boat(CHAR_DATA *ch);
+static bool has_key(CHAR_DATA *ch, int key);
+static bool has_key_ground(CHAR_DATA *ch, int key);
 
 /*
  * Move a char into a room.
@@ -2769,6 +2771,18 @@ find_location(CHAR_DATA *ch, const char *argument)
 	return NULL;
 }
 
+static
+FOREACH_CB_FUN(pull_mob_get_cb, p, ap)
+{
+	CHAR_DATA *vch = (CHAR_DATA *) p;
+
+	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
+	OBJ_DATA *obj = va_arg(ap, OBJ_DATA *);
+
+	pull_mob_trigger(TRIG_MOB_GET, vch, ch, obj);
+	return NULL;
+}
+
 bool
 get_obj(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *container,
 	const char *msg_others)
@@ -2886,6 +2900,11 @@ get_obj(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *container,
 		extract_obj(obj, 0);
 	} else {
 		obj_to_char(obj, ch);
+
+		if (!IS_NPC(ch)) {
+			vo_foreach(ch->in_room, &iter_char_room,
+				   pull_mob_get_cb, ch, obj);
+		}
 #if 0
 		XXX
 		oprog_call(OPROG_GET, obj, ch, NULL);
@@ -3391,6 +3410,449 @@ give_obj(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj)
 	XXX MPC
 	oprog_call(OPROG_GIVE, obj, ch, victim);
 #endif
+	return TRUE;
+}
+
+static
+FOREACH_CB_FUN(pull_mob_open_cb, p, ap)
+{
+	CHAR_DATA *vch = (CHAR_DATA *) p;
+
+	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
+	OBJ_DATA *obj = va_arg(ap, OBJ_DATA *);
+
+	pull_mob_trigger(TRIG_MOB_OPEN, vch, ch, obj);
+	return NULL;
+}
+
+bool
+open_obj(CHAR_DATA *ch, OBJ_DATA *obj)
+{
+	if (obj->item_type == ITEM_PORTAL) {
+		/* open portal */
+		if (!IS_SET(INT(obj->value[1]), EX_ISDOOR)) {
+			act_char("You can't do that.", ch);
+			return FALSE;
+		}
+
+		if (!IS_SET(INT(obj->value[1]), EX_CLOSED)) {
+			act_char("It's already open.", ch);
+			return FALSE;
+		}
+
+		if (IS_SET(INT(obj->value[1]), EX_LOCKED)) {
+			act_char("It's locked.", ch);
+			return FALSE;
+		}
+
+		REMOVE_BIT(INT(obj->value[1]), EX_CLOSED);
+	} else {
+		/* 'open object' */
+		if (obj->item_type != ITEM_CONTAINER) {
+			act_char("That's not a container.", ch);
+			return FALSE;
+		}
+
+		if (!IS_SET(INT(obj->value[1]), CONT_CLOSED)) {
+			act_char("It's already open.", ch);
+			return FALSE;
+		}
+
+		if (!IS_SET(INT(obj->value[1]), CONT_CLOSEABLE)) {
+			act_char("You can't do that.", ch);
+			return FALSE;
+		}
+
+		if (IS_SET(INT(obj->value[1]), CONT_LOCKED)) {
+			act_char("It's locked.", ch);
+			return FALSE;
+		}
+
+		REMOVE_BIT(INT(obj->value[1]), CONT_CLOSED);
+	}
+
+	act_puts("You open $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
+	act("$n opens $p.", ch, obj, NULL, TO_ROOM);
+
+	if (!IS_NPC(ch)) {
+		vo_foreach(ch->in_room, &iter_char_room,
+			   pull_mob_open_cb, ch, obj);
+	}
+
+	return TRUE;
+}
+
+bool
+close_obj(CHAR_DATA *ch, OBJ_DATA *obj)
+{
+	if (obj->item_type == ITEM_PORTAL) {
+		/* portal stuff */
+		if (!IS_SET(INT(obj->value[1]), EX_ISDOOR)
+		||  IS_SET(INT(obj->value[1]), EX_NOCLOSE)) {
+			act_char("You can't do that.", ch);
+			return FALSE;
+		}
+
+		if (IS_SET(INT(obj->value[1]), EX_CLOSED)) {
+			act_char("It's already closed.", ch);
+			return FALSE;
+		}
+
+		SET_BIT(INT(obj->value[1]), EX_CLOSED);
+	} else {
+		/* 'close object' */
+		if (obj->item_type != ITEM_CONTAINER) {
+			act_char("That's not a container.", ch);
+			return FALSE;
+		}
+
+		if (IS_SET(INT(obj->value[1]), CONT_CLOSED)) {
+			act_char("It's already closed.", ch);
+			return FALSE;
+		}
+
+		if (!IS_SET(INT(obj->value[1]), CONT_CLOSEABLE)) {
+			act_char("You can't do that.", ch);
+			return FALSE;
+		}
+
+		SET_BIT(INT(obj->value[1]), CONT_CLOSED);
+	}
+
+	act_puts("You close $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
+	act("$n closes $p.", ch, obj, NULL, TO_ROOM);
+	return TRUE;
+}
+
+bool
+lock_obj(CHAR_DATA *ch, OBJ_DATA *obj)
+{
+	if (obj->item_type == ITEM_PORTAL) {
+		/* portal stuff */
+		if (!IS_SET(INT(obj->value[1]), EX_ISDOOR)
+		||  IS_SET(INT(obj->value[1]), EX_NOCLOSE)) {
+			act_char("You can't do that.", ch);
+			return FALSE;
+		}
+
+		if (!IS_SET(INT(obj->value[1]), EX_CLOSED)) {
+			act_char("It's not closed.", ch);
+			return FALSE;
+		}
+
+		if (INT(obj->value[4]) < 0
+		||  IS_SET(INT(obj->value[1]), EX_NOLOCK)) {
+			act_char("It can't be locked.", ch);
+			return FALSE;
+		}
+
+		if (!has_key(ch, INT(obj->value[4]))) {
+			act_char("You lack the key.", ch);
+			return FALSE;
+		}
+
+		if (IS_SET(INT(obj->value[1]), EX_LOCKED)) {
+			act_char("It's already locked.", ch);
+			return FALSE;
+		}
+
+		SET_BIT(INT(obj->value[1]), EX_LOCKED);
+	} else {
+		/* 'lock object' */
+		if (obj->item_type != ITEM_CONTAINER) {
+			act_char("That's not a container.", ch);
+			return FALSE;
+		}
+
+		if (!IS_SET(INT(obj->value[1]), CONT_CLOSED)) {
+			act_char("It's not closed.", ch);
+			return FALSE;
+		}
+
+		if (INT(obj->value[2]) < 0) {
+			act_char("It can't be locked.", ch);
+			return FALSE;
+		}
+
+		if (!has_key(ch, INT(obj->value[2]))) {
+			act_char("You lack the key.", ch);
+			return FALSE;
+		}
+
+		if (IS_SET(INT(obj->value[1]), CONT_LOCKED)) {
+			act_char("It's already locked.", ch);
+			return FALSE;
+		}
+
+		SET_BIT(INT(obj->value[1]), CONT_LOCKED);
+	}
+
+	act_puts("You lock $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
+	act("$n locks $p.", ch, obj, NULL, TO_ROOM);
+	return TRUE;
+}
+
+bool
+unlock_obj(CHAR_DATA *ch, OBJ_DATA *obj)
+{
+	if (obj->item_type == ITEM_PORTAL) {
+		/* portal stuff */
+		if (!IS_SET(INT(obj->value[1]), EX_ISDOOR)) {
+			act_char("You can't do that.", ch);
+			return FALSE;
+		}
+
+		if (!IS_SET(INT(obj->value[1]),EX_CLOSED)) {
+			act_char("It's not closed.", ch);
+			return FALSE;
+		}
+
+		if (INT(obj->value[4]) < 0) {
+			act_char("It can't be unlocked.", ch);
+			return FALSE;
+		}
+
+		if (!has_key(ch, INT(obj->value[4]))) {
+			act_char("You lack the key.", ch);
+			return FALSE;
+		}
+
+		if (!IS_SET(INT(obj->value[1]), EX_LOCKED)) {
+			act_char("It's already unlocked.", ch);
+			return FALSE;
+		}
+
+		REMOVE_BIT(INT(obj->value[1]),EX_LOCKED);
+	} else {
+		/* 'unlock object' */
+		if (obj->item_type != ITEM_CONTAINER) {
+			act_char("That's not a container.", ch);
+			return FALSE;
+		}
+
+		if (!IS_SET(INT(obj->value[1]), CONT_CLOSED)) {
+			act_char("It's not closed.", ch);
+			return FALSE;
+		}
+
+		if (INT(obj->value[2]) < 0) {
+			act_char("It can't be unlocked.", ch);
+			return FALSE;
+		}
+
+		if (!has_key(ch, INT(obj->value[2]))) {
+			act_char("You lack the key.", ch);
+			return FALSE;
+		}
+
+		if (!IS_SET(INT(obj->value[1]), CONT_LOCKED)) {
+			act_char("It's already unlocked.", ch);
+			return FALSE;
+		}
+
+		REMOVE_BIT(INT(obj->value[1]), CONT_LOCKED);
+	}
+
+	act_puts("You unlock $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
+	act("$n unlocks $p.", ch, obj, NULL, TO_ROOM);
+	return TRUE;
+}
+
+bool
+open_door(CHAR_DATA *ch, const char *name)
+{
+	int door;
+	ROOM_INDEX_DATA *to_room;
+	EXIT_DATA *pexit;
+	EXIT_DATA *pexit_rev;
+
+	if ((door = find_door(ch, name)) < 0)
+		return FALSE;
+
+	pexit = ch->in_room->exit[door];
+	if (!IS_SET(pexit->exit_info, EX_CLOSED)) {
+		act("It's already open.",
+		    ch, &pexit->short_descr, NULL, TO_CHAR);
+		return FALSE;
+	}
+
+	if (IS_SET(pexit->exit_info, EX_LOCKED)) {
+		act("It's locked.", ch, &pexit->short_descr, NULL, TO_CHAR);
+		return FALSE;
+	}
+
+	REMOVE_BIT(pexit->exit_info, EX_CLOSED);
+	act("$n opens $d.", ch, &pexit->short_descr, NULL, TO_ROOM);
+	act_char("Ok.", ch);
+
+	/* open the other side */
+	if ((to_room = pexit->to_room.r) != NULL
+	&&  (pexit_rev = to_room->exit[rev_dir[door]]) != NULL
+	&&  pexit_rev->to_room.r == ch->in_room) {
+		ROOM_INDEX_DATA *in_room;
+
+		REMOVE_BIT(pexit_rev->exit_info, EX_CLOSED);
+
+		in_room = ch->in_room;
+		ch->in_room = to_room;
+		act("$d opens.", ch, &pexit_rev->short_descr, NULL, TO_ROOM);
+		ch->in_room = in_room;
+	}
+
+	return TRUE;
+}
+
+bool
+close_door(CHAR_DATA *ch, const char *name)
+{
+	int door;
+	ROOM_INDEX_DATA *to_room;
+	EXIT_DATA *pexit;
+	EXIT_DATA *pexit_rev;
+
+	if ((door = find_door(ch, name)) < 0)
+		return FALSE;
+
+	pexit = ch->in_room->exit[door];
+	if (IS_SET(pexit->exit_info, EX_CLOSED)) {
+		act("It's already closed.",
+		    ch, &pexit->short_descr, NULL, TO_CHAR);
+		return FALSE;
+	}
+
+	SET_BIT(pexit->exit_info, EX_CLOSED);
+	act("$n closes $d.", ch, &pexit->short_descr, NULL, TO_ROOM);
+	act_char("Ok.", ch);
+
+	/* close the other side */
+	if ((to_room = pexit->to_room.r) != NULL
+	&&  (pexit_rev = to_room->exit[rev_dir[door]]) != 0
+	&&  pexit_rev->to_room.r == ch->in_room) {
+		ROOM_INDEX_DATA *in_room;
+
+		SET_BIT(pexit_rev->exit_info, EX_CLOSED);
+		in_room = ch->in_room;
+		ch->in_room = to_room;
+		act("$d closes.", ch, &pexit_rev->short_descr, NULL, TO_ROOM);
+		ch->in_room = in_room;
+	}
+
+	return TRUE;
+}
+
+bool
+lock_door(CHAR_DATA *ch, const char *name)
+{
+	int door;
+	ROOM_INDEX_DATA *to_room;
+	EXIT_DATA *pexit;
+	EXIT_DATA *pexit_rev;
+
+	if ((door = find_door(ch, name)) < 0)
+		return FALSE;
+
+	pexit = ch->in_room->exit[door];
+	if (!IS_SET(pexit->exit_info, EX_CLOSED)) {
+		act("It's not closed.",
+		    ch, &pexit->short_descr, NULL, TO_CHAR);
+		return FALSE;
+	}
+
+	if (pexit->key < 0) {
+		act("It can't be locked.",
+		    ch, &pexit->short_descr, NULL, TO_CHAR);
+		return FALSE;
+	}
+
+	if (!has_key(ch, pexit->key)
+	&&  !has_key_ground(ch, pexit->key)) {
+		act("You lack the key.", ch, NULL, NULL, TO_CHAR);
+		return FALSE;
+	}
+
+	if (IS_SET(pexit->exit_info, EX_LOCKED)) {
+		act("It's already locked.",
+		    ch, &pexit->short_descr, NULL, TO_ROOM);
+		return FALSE;
+	}
+
+	SET_BIT(pexit->exit_info, EX_LOCKED);
+	act_char("*Click*", ch);
+	act("$n locks $d.", ch, &pexit->short_descr, NULL, TO_ROOM);
+
+	/* lock the other side */
+	if ((to_room = pexit->to_room.r) != NULL
+	&&  (pexit_rev = to_room->exit[rev_dir[door]]) != 0
+	&&  pexit_rev->to_room.r == ch->in_room) {
+		ROOM_INDEX_DATA *in_room;
+
+		SET_BIT(pexit_rev->exit_info, EX_LOCKED);
+
+		in_room = ch->in_room;
+		ch->in_room = to_room;
+		act("$d clicks.",
+		    ch, &pexit_rev->short_descr, NULL, TO_ROOM);
+		ch->in_room  = in_room;
+	}
+
+	return TRUE;
+}
+
+bool
+unlock_door(CHAR_DATA *ch, const char *name)
+{
+	int door;
+	ROOM_INDEX_DATA *to_room;
+	EXIT_DATA *pexit;
+	EXIT_DATA *pexit_rev;
+
+	if ((door = find_door(ch, name)) < 0)
+		return FALSE;
+
+	pexit = ch->in_room->exit[door];
+	if (!IS_SET(pexit->exit_info, EX_CLOSED)) {
+		act("It's not closed.",
+		    ch, &pexit->short_descr, NULL, TO_CHAR);
+		return FALSE;
+	}
+
+	if (pexit->key < 0) {
+		act("It can't be unlocked.",
+		    ch, &pexit->short_descr, NULL, TO_CHAR);
+		return FALSE;
+	}
+
+	if (!has_key(ch, pexit->key)
+	&&  !has_key_ground(ch, pexit->key)) {
+		act("You lack the key.", ch, NULL, NULL, TO_CHAR);
+		return FALSE;
+	}
+
+	if (!IS_SET(pexit->exit_info, EX_LOCKED)) {
+		act("It's already unlocked.",
+		    ch, &pexit->short_descr, NULL, TO_CHAR);
+		return FALSE;
+	}
+
+	REMOVE_BIT(pexit->exit_info, EX_LOCKED);
+	act_char("*Click*", ch);
+	act("$n unlocks $d.", ch, &pexit->short_descr, NULL, TO_ROOM);
+
+	/* unlock the other side */
+	if ((to_room = pexit->to_room.r) != NULL
+	&&  (pexit_rev = to_room->exit[rev_dir[door]]) != NULL
+	&&  pexit_rev->to_room.r == ch->in_room) {
+		ROOM_INDEX_DATA *in_room;
+
+		REMOVE_BIT(pexit_rev->exit_info, EX_LOCKED);
+
+		in_room = ch->in_room;
+		ch->in_room = to_room;
+		act("$d clicks.",
+		    ch, &pexit_rev->short_descr, NULL, TO_ROOM);
+		ch->in_room = in_room;
+	}
+
 	return TRUE;
 }
 
@@ -5874,4 +6336,32 @@ has_boat(CHAR_DATA *ch)
 		}
 
 	return found;
+}
+
+static bool
+has_key(CHAR_DATA *ch, int key)
+{
+	OBJ_DATA *obj;
+
+	for (obj = ch->carrying; obj; obj = obj->next_content) {
+		if (obj->pObjIndex->vnum == key
+		&&  can_see_obj(ch, obj))
+		    return TRUE;
+	}
+
+	return FALSE;
+}
+
+static bool
+has_key_ground(CHAR_DATA *ch, int key)
+{
+	OBJ_DATA *obj;
+
+	for (obj = ch->in_room->contents; obj; obj = obj->next_content) {
+		if (obj->pObjIndex->vnum == key
+		&&  can_see_obj(ch, obj))
+		    return TRUE;
+	}
+
+	return FALSE;
 }

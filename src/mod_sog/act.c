@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.83 2001-08-30 18:50:14 fjoe Exp $
+ * $Id: act.c,v 1.84 2001-09-04 19:33:00 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -1279,11 +1279,10 @@ tell_char(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
 		return;
 
 	if (IS_NPC(victim)) {
-#if 0
-		XXX
-		if (HAS_TRIGGER(victim, TRIG_SPEECH))
-			mp_act_trigger(msg, victim, ch, NULL, NULL, TRIG_SPEECH);
-#endif
+		pull_mob_trigger(
+		    TRIG_MOB_SPEECH, victim, ch, (void *) (uintptr_t) msg);
+		pull_mob_trigger(
+		    TRIG_MOB_TELL, victim, ch, (void *) (uintptr_t) msg);
 	} else {
 		if (!IS_IMMORTAL(victim)
 		&&  !IS_IMMORTAL(ch)

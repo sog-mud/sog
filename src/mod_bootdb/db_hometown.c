@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_hometown.c,v 1.12 2001-08-05 16:36:28 fjoe Exp $
+ * $Id: db_hometown.c,v 1.13 2001-09-04 19:32:44 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -134,7 +134,7 @@ fread_altar(hometown_t *h, rfile_t *fp)
 	if (anum < 0) {
 		int i;
 
-		for (i = 0; i < MAX_ANUM; i++) {
+		for (i = 0; i < MAX_AN; i++) {
 			h->altar[i].room = room;
 			h->altar[i].pit = pit;
 		}
@@ -163,7 +163,7 @@ fread_recall(hometown_t *h, rfile_t *fp)
 	if (anum < 0) {
 		int i;
 
-		for (i = 0; i < MAX_ANUM; i++)
+		for (i = 0; i < MAX_AN; i++)
 			h->recall[i] = room;
 	} else
 		h->recall[anum] = room;
@@ -189,7 +189,7 @@ fread_map(hometown_t *h, rfile_t *fp)
 	if (anum < 0) {
 		int i;
 
-		for (i = 0; i < MAX_ANUM; i++)
+		for (i = 0; i < MAX_AN; i++)
 			h->map[i] = obj;
 	} else
 		h->map[anum] = obj;
@@ -205,7 +205,7 @@ check_hometown(hometown_t *h)
 		return FALSE;
 	}
 
-	for (i = 0; i < MAX_ANUM; i++) {
+	for (i = 0; i < MAX_AN; i++) {
 		if (!h->recall[i]) {
 			log(LOG_ERROR, "load_hometown: Recall for '%s' undefined",
 				 flag_string(align_names, i));
