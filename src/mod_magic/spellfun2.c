@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.43 2001-07-31 10:19:27 fjoe Exp $
+ * $Id: spellfun2.c,v 1.139.2.44 2001-09-23 18:57:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -193,15 +193,15 @@ void spell_disintegrate(int sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	act_puts("$n's thin light ray ###DISINTEGRATES### you!", 
+	act_puts("$n's thin light ray ###DISINTEGRATES### you!",
 	      ch, NULL, victim, TO_VICT, POS_RESTING);
-	act_puts("$n's thin light ray ###DISINTEGRATES### $N!", 
+	act_puts("$n's thin light ray ###DISINTEGRATES### $N!",
 	      ch, NULL, victim, TO_NOTVICT, POS_RESTING);
-	act_puts("Your thin light ray ###DISINTEGRATES### $N!", 
+	act_puts("Your thin light ray ###DISINTEGRATES### $N!",
 	      ch, NULL, victim, TO_CHAR, POS_RESTING);
 	char_puts("You have been KILLED!\n", victim);
 
-	act("$N does not exist anymore!\n", ch, NULL, victim, TO_ALL);
+	act("$N does not exist anymore!", ch, NULL, victim, TO_NOTVICT);
 
 	char_puts("You turn into an invincible ghost for a few minutes.\n",
 	             victim);
@@ -5794,7 +5794,7 @@ void spell_abolish_undead(int sn, int level, CHAR_DATA *ch, void *vo)
               ch, NULL, victim, TO_CHAR, POS_RESTING);
         char_puts("You have been KILLED!\n", victim);
 
-        act("$N does not exist anymore!", ch, NULL, victim, TO_ALL);
+	act("$N does not exist anymore!", ch, NULL, victim, TO_NOTVICT);
 
         char_puts("You turn into an invincible ghost for a few minutes.\n",
                      victim);

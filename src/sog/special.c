@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.54.2.7 2001-09-14 18:11:06 fjoe Exp $
+ * $Id: special.c,v 1.54.2.8 2001-09-23 18:57:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1098,7 +1098,6 @@ bool spec_assassinater(CHAR_DATA *ch)
 	char* msg;
 	CHAR_DATA *victim;
 	CHAR_DATA *v_next;
-	int rnd_say;
 
 	if (ch->fighting != NULL)
 		return FALSE;
@@ -1108,24 +1107,21 @@ bool spec_assassinater(CHAR_DATA *ch)
 
 		v_next = victim->next_in_room;
 
-		if (IS_NPC(victim)
-		||  (vcl = class_lookup(victim->class)) == NULL
-		||  !str_cmp(vcl->name, "thief")
-		||  !str_cmp(vcl->name, "ninja"))
-			continue;
+		if (!IS_NPC(victim)
+		&&  !IS_IMMORTAL(victim)
+		&&  (vcl = class_lookup(victim->class)) != NULL
+		&&  !!str_cmp(vcl->name, "thief")
+		&&  !!str_cmp(vcl->name, "ninja")
+		&&  victim->level <= ch->level + 7
+		&&  victim->hit >= victim->max_hit)
+			break;
 	}
 
-	if (victim == NULL || victim == ch || IS_IMMORTAL(victim))
-		return FALSE;
-	if (victim->level > ch->level + 7 || IS_NPC(victim))
-		return FALSE;
-	if (victim->hit < victim->max_hit)
+	if (victim == NULL)
 		return FALSE;
 
-	rnd_say = number_range(1, 40);
-
-	switch (rnd_say) {
-		case  5:
+	switch (number_range(1, 40)) {
+	case  5:
 		msg = "Death to is the true end...";
 		break;
 
@@ -1146,7 +1142,7 @@ bool spec_assassinater(CHAR_DATA *ch)
 		break;
 
 	case 10:
-		msg = "Ever dance with the devil...."; 
+		msg = "Ever dance with the devil....";
 		break;
 
 	default:
