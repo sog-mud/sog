@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.239 1999-10-18 18:08:03 avn Exp $
+ * $Id: merc.h,v 1.240 1999-10-18 19:34:33 avn Exp $
  */
 
 /***************************************************************************
@@ -87,7 +87,6 @@
 /* utils */
 #include "log.h"
 #include "util.h"
-#include "lookup.h"
 
 #include "race.h"
 #include "affect.h"
@@ -2229,6 +2228,10 @@ void	track_update	(void);
 void	obj_update	(void);
 void	clan_item_update(void);
 void	weather_update	(void);
+
+int	liq_lookup		(const char *name);
+void	show_liq_types		(BUFFER *output);
+long	wiznet_lookup	(const char *name);
 
 #endif
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: damtype.h,v 1.1 1999-10-06 09:55:58 fjoe Exp $
+ * $Id: damtype.h,v 1.2 1999-10-18 19:34:33 avn Exp $
  */
 
 #ifndef _DAMTYPE_H_
@@ -56,6 +56,8 @@
 #define DAM_HUNGER		21
 #define DAM_LIGHT_V		22
 #define DAM_TRAP_ROOM		23
+#define DAM_WOOD		24
+#define DAM_SILVER		25
 
 typedef struct damtype_t damtype_t;
 struct damtype_t {
