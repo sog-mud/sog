@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.148 1999-02-22 15:56:52 kostik Exp $
+ * $Id: act_move.c,v 1.149 1999-02-23 14:13:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3830,7 +3830,6 @@ void do_forest(CHAR_DATA* ch, const char* argument)
 	}
 	
 	one_argument(argument, arg, sizeof(arg));
-
 	if (arg == '\0') {
 		char_puts("Usage: forest {{ attack|defence|normal}", ch);
 		return;
@@ -3838,11 +3837,13 @@ void do_forest(CHAR_DATA* ch, const char* argument)
 
 	if (!str_prefix(arg, "normal")) {
 		if (!is_affected(ch, gsn_forest_fighting)) {
-			char_puts("You do not use your knowledge of forest in fight.\n", ch);
+			char_puts("You do not use your knowledge of forest "
+				  "in fight.\n", ch);
 			return;
 		}
 		else {
-			char_puts("You stop using your knowledge of forest in fight.\n", ch);
+			char_puts("You stop using your knowledge of forest in "
+				  "fight.\n", ch);
 			affect_strip(ch, gsn_forest_fighting);
 			return;
 		}
@@ -3853,7 +3854,7 @@ void do_forest(CHAR_DATA* ch, const char* argument)
 	else if (!str_prefix(arg, "attack"))
 		attack = TRUE;
 	else {
-		char_puts("Usage: forest {{ attack|defence|normal}.\n", ch);
+		do_forest(ch, str_empty);
 		return;
 	}
 
@@ -3871,18 +3872,18 @@ void do_forest(CHAR_DATA* ch, const char* argument)
 		af.location	= APPLY_HITROLL;
 		affect_to_char(ch, &af);
 		af.location	= APPLY_DAMROLL;
-		char_puts("You feel yourself wild.\n", ch);
-		act("$N looks wild.", ch, NULL, NULL, TO_ROOM);
+		act_puts("You feel yourself wild.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		act("$n looks wild.", ch, NULL, NULL, TO_ROOM);
 	}
 	else {
 		af.modifier	= -ch->level;
 		af.location	= APPLY_AC;
-		char_puts("You feel yourself protected.\n", ch);
-		act("$N looks protected.\n", ch, NULL, NULL, TO_ROOM);
+		act_puts("You feel yourself protected.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		act("$n looks protected.", ch, NULL, NULL, TO_ROOM);
 	}
 
 	affect_to_char(ch, &af);
-	return;
 }
-
 
