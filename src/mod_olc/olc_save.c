@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.19 1998-08-17 18:47:39 fjoe Exp $
+ * $Id: olc_save.c,v 1.20 1998-08-17 21:00:32 fjoe Exp $
  */
 
 /**************************************************************************
@@ -157,10 +157,8 @@ void save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
     fprintf(fp, "%s ",		fwrite_flag(pMobIndex->act &
 					    ~race_table[pMobIndex->race].act,
 					    buf));
-    fprintf(fp, "%s ",		fwrite_flag((pMobIndex->affected_by |
-					     pMobIndex->detection) &
-					    ~(race_table[pMobIndex->race].aff |
-					      race_table[pMobIndex->race].det),
+    fprintf(fp, "%s ",		fwrite_flag(pMobIndex->affected_by &
+					    ~race_table[pMobIndex->race].aff,
 					    buf));
     fprintf(fp, "%d %d\n",	pMobIndex->alignment , pMobIndex->group);
     fprintf(fp, "%d ",		pMobIndex->level);
@@ -206,6 +204,10 @@ void save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 
     fprintf(fp, "%s ",		size_table[pMobIndex->size].name);
     fprintf(fp, "%s\n",	IS_NULLSTR(pMobIndex->material) ? pMobIndex->material : "unknown");
+
+    fprintf(fp, "A det %s\n", fwrite_flag(pMobIndex->detection &
+					  ~race_table[pMobIndex->race].det,
+					  buf));
 
     if ((temp = DIF(race_table[race].act,pMobIndex->act)))
      	fprintf(fp, "F act %s\n", fwrite_flag(temp, buf));

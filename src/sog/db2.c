@@ -1,5 +1,5 @@
 /*
- * $Id: db2.c,v 1.23 1998-08-17 18:47:05 fjoe Exp $
+ * $Id: db2.c,v 1.24 1998-08-17 21:00:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -235,8 +235,17 @@ void load_mobiles(FILE *fp)
         {
             letter = fread_letter(fp);
 
-            if (letter == 'F')
-            {
+	    if (letter == 'A') {
+		char *word;
+		long vector;
+
+                word	= fread_word(fp);
+		vector	= fread_flags(fp);
+
+		if (!str_prefix(word,"det"))
+		    SET_BIT(pMobIndex->detection, vector);
+	    }
+            else if (letter == 'F') {
 		char *word;
 		long vector;
 
