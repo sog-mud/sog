@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.7 1998-04-26 15:57:41 fjoe Exp $
+ * $Id: merc.h,v 1.8 1998-04-26 17:08:07 efdi Exp $
  */
 
 /***************************************************************************
@@ -132,7 +132,6 @@ int system();
 #endif
 typedef int				sh_int;
 typedef int				bool;
-#define unix
 #else
 typedef short   int			sh_int;
 typedef unsigned char			bool;
@@ -2850,22 +2849,8 @@ char *	crypt		args( ( const char *key, const char *salt ) );
 char *	crypt		args( ( const char *key, const char *salt ) );
 #endif
 
-#if	defined(macintosh)
-#define NOCRYPT
-#if	defined(unix)
-#undef	unix
-#endif
-#endif
-
 #if	defined(MIPS_OS)
 char *	crypt		args( ( const char *key, const char *salt ) );
-#endif
-
-#if	defined(MSDOS)
-#define NOCRYPT
-#if	defined(unix)
-#undef	unix
-#endif
 #endif
 
 #if	defined(NeXT)
@@ -2926,24 +2911,11 @@ char *	crypt		args( ( const char *key, const char *salt ) );
  *   so players can go ahead and telnet to all the other descriptors.
  * Then we close it whenever we need to open a file (e.g. a save file).
  */
-#if defined(macintosh)
-#define PLAYER_DIR	""			/* Player files	*/
-#define TEMP_FILE	"romtmp"
-#define NULL_FILE	"proto.are"		/* To reserve one stream */
-#endif
 
-#if defined(MSDOS)
-#define PLAYER_DIR	""			/* Player files */
-#define TEMP_FILE	"romtmp"
-#define NULL_FILE	"nul"			/* To reserve one stream */
-#endif
-
-#if defined(unix)
 #define PLAYER_DIR      "../player/"        	/* Player files */
 #define GOD_DIR         "../gods/"  		/* list of gods */
 #define TEMP_FILE	"../player/romtmp"
 #define NULL_FILE	"/dev/null"		/* To reserve one stream */
-#endif
 
 #define AREA_LIST       "area.lst"  /* List of areas*/
 #define BUG_FILE        "bugs.txt" /* For 'bug' and bug()*/

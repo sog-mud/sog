@@ -1,10 +1,9 @@
 #!/bin/csh
 umask 002
-set areapath = /usr/local/muddy/area
 set port = 9999
 set muddy = `pwd`/muddy
 
-cd $areapath
+cd ../area
 
 # Set limits.
 if ( -e shutdown.txt ) rm -f shutdown.txt
@@ -23,8 +22,6 @@ while ( 1 )
     # after a compile, place the new binary in the bin directory,
     # this way a reboot will install the new binary, instead of
     # of having to shut down.
-#    rm -f ./rot
-#    cp ../bin/rot .
     # Run rot.
     $muddy $port >&! $logfile
 

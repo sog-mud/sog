@@ -1,5 +1,5 @@
 /*
- * $Id: flags.c,v 1.2 1998-04-14 08:54:30 fjoe Exp $
+ * $Id: flags.c,v 1.3 1998-04-26 17:08:05 efdi Exp $
  */
 
 /***************************************************************************
@@ -40,13 +40,8 @@
 *	ROM license, in the file Rom24/doc/rom.license			   *
 ***************************************************************************/
 
-#if defined(macintosh)
-#include <types.h>
-#include <time.h>
-#else
 #include <sys/types.h>
 #include <sys/time.h>
-#endif
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>

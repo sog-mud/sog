@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.5 1998-04-18 07:11:54 fjoe Exp $
+ * $Id: db.c,v 1.6 1998-04-26 17:08:04 efdi Exp $
  */
 
 /***************************************************************************
@@ -46,14 +46,10 @@
 #include <time.h>
 #include <stdarg.h>
 #include <ctype.h>
-#if defined(macintosh)
-#include <types.h>
-#else
 #include <sys/types.h>
 #include <sys/time.h>
 #include <sys/resource.h>
 #include <sys/dir.h>
-#endif
 
 #include "merc.h"
 #include "db.h"
@@ -64,10 +60,7 @@
 
 void load_limited_objects();
 
-
-#if !defined(macintosh)
 extern	int	_filbuf		args( (FILE *) );
-#endif
 
 #if !defined(OLD_RAND)
 #ifdef BSD44

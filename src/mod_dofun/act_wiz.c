@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.4 1998-04-21 22:03:52 efdi Exp $
+ * $Id: act_wiz.c,v 1.5 1998-04-26 17:08:03 efdi Exp $
  */
 
 /***************************************************************************
@@ -40,13 +40,8 @@
 *	ROM license, in the file Rom24/doc/rom.license			   *
 ***************************************************************************/
 
-#if defined(macintosh)
-#include <types.h>
-#include <time.h>
-#else
 #include <sys/types.h>
 #include <sys/time.h>
-#endif
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>

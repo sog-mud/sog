@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.16 1998-04-26 15:57:41 fjoe Exp $
+ * $Id: comm.c,v 1.17 1998-04-26 17:08:03 efdi Exp $
  */
 
 /***************************************************************************
@@ -116,9 +116,7 @@ int class_ok( CHAR_DATA *ch , int class);
 #define __attribute(x)
 #endif
 
-#if defined(unix)
 #include <signal.h>
-#endif
 
 #if defined(apollo)
 #undef __attribute
@@ -146,11 +144,8 @@ struct codepage codepages[] = {
 #include <netdb.h>
 #include <netinet/in.h>
 #include <sys/socket.h>
-#ifdef BSD44
-#	include <arpa/telnet.h>
-#else
-#	include "telnet.h"
-#endif
+#include <arpa/telnet.h>
+
 char	echo_off_str	[] = { IAC, WILL, TELOPT_ECHO, '\0' };
 char	echo_on_str	[] = { IAC, WONT, TELOPT_ECHO, '\0' };
 char 	go_ahead_str	[] = { IAC, GA, '\0' };
@@ -424,7 +419,6 @@ int main( int argc, char **argv )
 
 
 
-#if defined(unix)
 int init_socket( int port )
 {
     static struct sockaddr_in sa_zero;
@@ -484,8 +478,6 @@ int init_socket( int port )
 
     return fd;
 }
-#endif
-
 
 void crash_chronos (int sig)
 {
@@ -1663,9 +1655,7 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
 	break;
 
     case CON_GET_OLD_PASSWORD:
-#if defined(unix)
 	write_to_buffer( d, "\n\r", 2 );
-#endif
 
 	if ( strcmp( crypt( argument, ch->pcdata->pwd ), ch->pcdata->pwd ) )
 	{
@@ -1833,9 +1823,7 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
 	break;
 
     case CON_GET_NEW_PASSWORD:
-#if defined(unix)
 	write_to_buffer( d, "\n\r", 2 );
-#endif
 
 	if ( strlen(argument) < 5 )
 	{
@@ -1864,9 +1852,7 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
 	break;
 
     case CON_CONFIRM_NEW_PASSWORD:
-#if defined(unix)
 	write_to_buffer( d, "\n\r", 2 );
-#endif
 
 	if ( strcmp( crypt( argument, ch->pcdata->pwd ), ch->pcdata->pwd ) )
 	{

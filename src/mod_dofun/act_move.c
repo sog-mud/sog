@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.9 1998-04-26 16:37:41 efdi Exp $
+ * $Id: act_move.c,v 1.10 1998-04-26 17:08:02 efdi Exp $
  */
 
 /***************************************************************************
@@ -40,13 +40,8 @@
 *	ROM license, in the file Rom24/doc/rom.license			   *
 ***************************************************************************/
 
-#if defined(macintosh)
-#include <types.h>
-#include <time.h>
-#else
 #include <sys/types.h>
 #include <sys/time.h>
-#endif
 #include <stdio.h>
 #include <string.h>
 #include "merc.h"

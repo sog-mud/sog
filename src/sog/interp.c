@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.8 1998-04-22 06:08:59 fjoe Exp $
+ * $Id: interp.c,v 1.9 1998-04-26 17:08:06 efdi Exp $
  */
 
 /***************************************************************************
@@ -40,11 +40,7 @@
 *	ROM license, in the file Rom24/doc/rom.license			   *
 ***************************************************************************/
 
-#if defined(macintosh)
-#include <types.h>
-#else
 #include <sys/types.h>
-#endif
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

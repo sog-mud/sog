@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.2 1998-04-14 08:54:33 fjoe Exp $
+ * $Id: obj_prog.c,v 1.3 1998-04-26 17:08:08 efdi Exp $
  */
 
 /***************************************************************************
@@ -39,12 +39,7 @@
 *	By using this code, you have agreed to follow the terms of the	   *
 *	ROM license, in the file Rom24/doc/rom.license			   *
 ***************************************************************************/
-#if defined(macintosh)
-#include <types.h>
-#include <time.h>
-#else
 #include <sys/types.h>
-#endif
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

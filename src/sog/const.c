@@ -1,5 +1,5 @@
 /*
- * $Id: const.c,v 1.3 1998-04-18 07:11:53 fjoe Exp $
+ * $Id: const.c,v 1.4 1998-04-26 17:08:04 efdi Exp $
  */
 
 /***************************************************************************
@@ -40,11 +40,7 @@
 *	ROM license, in the file Rom24/doc/rom.license			   *
 ***************************************************************************/
 
-#if defined(macintosh)
-#include <types.h>
-#else
 #include <sys/types.h>
-#endif
 #include <stdio.h>
 #include <time.h>
 #include "merc.h"

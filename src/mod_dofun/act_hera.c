@@ -1,5 +1,5 @@
 /*
- * $Id: act_hera.c,v 1.5 1998-04-21 22:03:50 efdi Exp $
+ * $Id: act_hera.c,v 1.6 1998-04-26 17:08:01 efdi Exp $
  */
 
 /***************************************************************************
@@ -47,14 +47,10 @@
 ***************************************************************************/
 
 /*
- * $Id: act_hera.c,v 1.5 1998-04-21 22:03:50 efdi Exp $
+ * $Id: act_hera.c,v 1.6 1998-04-26 17:08:01 efdi Exp $
  */
-#if defined(macintosh)
-#include <types.h>
-#else
 #include <sys/types.h>
 #include <sys/time.h>
-#endif
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>

@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.9 1998-04-22 06:08:59 fjoe Exp $
+ * $Id: save.c,v 1.10 1998-04-26 17:08:08 efdi Exp $
  */
 
 /***************************************************************************
@@ -40,11 +40,7 @@
 *	ROM license, in the file Rom24/doc/rom.license			   *
 ***************************************************************************/
 
-#if defined(macintosh)
-#include <types.h>
-#else
 #include <sys/types.h>
-#endif
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
@@ -63,9 +59,7 @@
 #include "act_info.h"
 #include "resource.h"
  
-#if !defined(macintosh)
 extern  int     _filbuf         args( (FILE *) );
-#endif
 
 int rename(const char *oldfname, const char *newfname);
 
@@ -137,7 +131,6 @@ void save_char_obj( CHAR_DATA *ch )
     if ( ch->desc != NULL && ch->desc->original != NULL )
 	ch = ch->desc->original;
 
-#if defined(unix)
     /* create god log */
     if (IS_IMMORTAL(ch) || ch->level >= LEVEL_IMMORTAL)
     {
@@ -157,7 +150,6 @@ void save_char_obj( CHAR_DATA *ch )
       bug("save_char_obj: Can't open null file.", 0 );
 
     }
-#endif
 
     fclose( fpReserve );
     sprintf( strsave, "%s%s", PLAYER_DIR, capitalize( ch->name ) );
@@ -704,7 +696,6 @@ bool load_char_obj( DESCRIPTOR_DATA *d, char *name )
     found = FALSE;
     fclose( fpReserve );
     
-    #if defined(unix)
     /* decompress if .gz file exists */
     sprintf( strsave, "%s%s%s", PLAYER_DIR, capitalize(name),".gz");
     if ( ( fp = fopen( strsave, "r" ) ) != NULL )
@@ -713,7 +704,6 @@ bool load_char_obj( DESCRIPTOR_DATA *d, char *name )
 	sprintf(buf,"gzip -dfq %s",strsave);
 	system(buf);
     }
-    #endif
 
     sprintf( strsave, "%s%s", PLAYER_DIR, capitalize( name ) );
     if ( ( fp = fopen( strsave, "r" ) ) != NULL )

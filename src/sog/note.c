@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.3 1998-04-18 07:11:56 fjoe Exp $
+ * $Id: note.c,v 1.4 1998-04-26 17:08:08 efdi Exp $
  */
 
 /***************************************************************************
@@ -40,12 +40,8 @@
 *	ROM license, in the file Rom24/doc/rom.license			   *
 ***************************************************************************/
 
-#if defined(macintosh)
-#include <types.h>
-#else
 #include <sys/types.h>
 #include <sys/time.h>
-#endif
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -58,9 +54,7 @@
 #include "comm.h"
 
 /* globals from db.c for load_notes */
-#if !defined(macintosh)
 extern  int     _filbuf         args( (FILE *) );
-#endif
 extern FILE *                  fpArea;
 extern char                    strArea[MAX_INPUT_LENGTH];
 

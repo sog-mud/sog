@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.14 1998-04-24 17:06:06 efdi Exp $
+ * $Id: act_info.c,v 1.15 1998-04-26 17:08:01 efdi Exp $
  */
 
 /***************************************************************************
@@ -40,12 +40,8 @@
 *	ROM license, in the file Rom24/doc/rom.license			   *
 ***************************************************************************/
 
-#if defined(macintosh)
-#include <types.h>
-#else
 #include <sys/types.h>
 #include <sys/time.h>
-#endif
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
