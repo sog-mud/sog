@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.105 1999-02-09 09:33:57 kostik Exp $
+ * $Id: interp.c,v 1.106 1999-02-09 10:19:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -229,7 +229,6 @@ CMD_DATA cmd_table[] =
     { "identify",	do_identify,	POS_STANDING,	 0,  LOG_NORMAL	},
     { "nofollow",	do_nofollow,	POS_DEAD,        0,  LOG_NORMAL, CMD_KEEP_HIDE },
     { "nosummon",	do_nosummon,	POS_DEAD,        0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_NOORDER },
-    { "nocancel",	do_nocancel,	POS_DEAD,        0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_NOORDER },
     { "trust",		do_trust,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_NOORDER },
     { "toggle",		do_toggle,	POS_DEAD,        0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK | CMD_NOORDER },
     { "outfit",		do_outfit,	POS_RESTING,	 0,  LOG_NORMAL, CMD_KEEP_HIDE },

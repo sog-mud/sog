@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.h,v 1.9 1999-02-08 16:33:58 fjoe Exp $
+ * $Id: class.h,v 1.10 1999-02-09 10:19:11 fjoe Exp $
  */
 
 #ifndef _CLASS_H_
@@ -39,17 +39,17 @@ struct class_skill {
 };
 
 struct class_data {
-	const char *	name;			/* full name */
+	const char *	name;		/* full name */
 	const char *	file_name;
-	char		who_name[4];		/* three-letter name for 'who' */
-	int		attr_prime;		/* primary stat */
-	int		weapon;			/* school weapon vnum */
-	varr *		guild;			/* guild room list */
-	int		skill_adept;		/* max skill % */
-	int		thac0_00;		/* thac0 for level 0 */
-	int		thac0_32;		/* thac0 for level 32 */
-	int		hp_rate;		/* hp rate (when gaining level) */
-	int		mana_rate;		/* mana rate (when gaining level */
+	char		who_name[4];	/* three-letter name for 'who' */
+	int		attr_prime;	/* primary stat */
+	int		weapon;		/* school weapon vnum */
+	varr 		guild;		/* guild room list */
+	int		skill_adept;	/* max skill % */
+	int		thac0_00;	/* thac0 for level 0 */
+	int		thac0_32;	/* thac0 for level 32 */
+	int		hp_rate;	/* hp rate (when gaining level) */
+	int		mana_rate;	/* mana rate (when gaining level */
 	sflag_t		flags;			/* class flags */
 	int		points;			/* cost in exp */
 	int		stats[MAX_STATS];	/* stat modifiers */

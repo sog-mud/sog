@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.c,v 1.8 1999-02-08 16:33:58 fjoe Exp $
+ * $Id: class.c,v 1.9 1999-02-09 10:19:11 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -43,6 +43,8 @@ CLASS_DATA *class_new(void)
 	class->death_limit = -1;
 	class->poses.nsize = sizeof(POSE_DATA);
 	class->poses.nstep = 4;
+	class->guild.nsize = sizeof(int);
+	class->guild.nstep = 4;
 
 	return class;
 }
@@ -63,10 +65,13 @@ int guild_check(CHAR_DATA *ch, ROOM_INDEX_DATA *room)
 	int class = -1;
 	int iClass, iGuild;
 
+	if (!IS_SET(room->room_flags, ROOM_GUILD))
+		return 0;
+
 	for (iClass = 0; iClass < classes.nused; iClass++) {
 		CLASS_DATA *cl = CLASS(iClass);
-		for (iGuild = 0; iGuild < cl->guild->nused; iGuild++) {
-		    	if (room->vnum == *(int*) VARR_GET(cl->guild, iGuild)) {
+		for (iGuild = 0; iGuild < cl->guild.nused; iGuild++) {
+		    	if (room->vnum == *(int*)VARR_GET(&cl->guild, iGuild)) {
 				if (iClass == ch->class)
 					return 1;
 				class = iClass;

@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.38 1999-02-09 09:33:58 kostik Exp $
+ * $Id: tables.c,v 1.39 1999-02-09 10:19:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -402,6 +402,7 @@ FLAG room_flags[] =
 	{ "nomagic",		ROOM_NOMAGIC,		TRUE	},
 	{ "nosummon",		ROOM_NOSUMMON,		TRUE	},
 	{ "battle_arena",	ROOM_BATTLE_ARENA,	TRUE	},
+	{ "guild",		ROOM_GUILD,		TRUE	},
 	{ "registry",		ROOM_REGISTRY,		TRUE	},
 	{ NULL }
 };

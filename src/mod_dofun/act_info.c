@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.185 1999-02-09 09:33:55 kostik Exp $
+ * $Id: act_info.c,v 1.186 1999-02-09 10:19:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -832,7 +832,6 @@ void do_autolist(CHAR_DATA *ch, const char *argument)
 	do_print_sw(ch, "autoloot", IS_SET(ch->plr_flags, PLR_AUTOLOOT));
 	do_print_sw(ch, "autosac", IS_SET(ch->plr_flags, PLR_AUTOSAC));
 	do_print_sw(ch, "autosplit", IS_SET(ch->plr_flags, PLR_AUTOSPLIT));
-	do_print_sw(ch, "nocancel", IS_SET(ch->plr_flags, PLR_NOCANCEL));
 
 	if (IS_SET(ch->plr_flags, PLR_NOSUMMON))
 		char_puts("You can only be summoned players within "
@@ -998,21 +997,6 @@ void do_nosummon(CHAR_DATA *ch, const char *argument)
 		else 
 			char_puts("You may now be summoned by anyone.\n", ch);
 	}
-}
-
-DO_FUN(do_nocancel)
-{
-	if (IS_NPC(ch)) {
-		char_puts("Huh?\n", ch);
-		return;
-	}
-
-	TOGGLE_BIT(ch->plr_flags, PLR_NOCANCEL);
-	if (IS_SET(ch->plr_flags, PLR_NOCANCEL))
-		char_puts("You do not allow others to cast 'cancellation' "
-			  "on you.\n", ch);
-	else
-		char_puts("Anyone can cast 'cancellation' on you.\n", ch);
 }
 
 void do_look_in(CHAR_DATA* ch, const char *argument)

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.137 1999-02-09 09:33:57 kostik Exp $
+ * $Id: merc.h,v 1.138 1999-02-09 10:19:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -944,6 +944,7 @@ enum {
 #define ROOM_BANK		(U)
 #define ROOM_NOMAGIC		(W)
 #define ROOM_NOSUMMON		(X)
+#define ROOM_GUILD		(Y)
 #define ROOM_BATTLE_ARENA	(Z)
 #define ROOM_REGISTRY		(bb)
 
