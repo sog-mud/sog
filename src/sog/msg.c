@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: msg.c,v 1.17 1999-03-08 13:56:07 fjoe Exp $
+ * $Id: msg.c,v 1.18 1999-05-21 22:49:34 fjoe Exp $
  */
 
 #if	defined (LINUX) || defined (WIN32)
@@ -46,14 +46,13 @@
 varr msg_hash_table[MAX_MSG_HASH];
 
 #define msghash(s) hashstr(s, 32, MAX_MSG_HASH)
+static int cmpmsgname(const void*, const void*);
 static int cmpmsg(const void*, const void*);
-static int cmpmlstr(const void*, const void*);
 
 void load_msgdb(void)
 {
 	int i;
 	FILE *fp;
-	mlstring *ml;
 
 	line_number = 0;
 
@@ -62,12 +61,13 @@ void load_msgdb(void)
 
 	for (i = 0; i < MAX_MSG_HASH; i++) {
 		varr *v = msg_hash_table+i;
-		v->nsize = sizeof(mlstring*);
+		v->nsize = sizeof(msg_t);
 		v->nstep = 4;
 	}
 
 	for (;;) {
-		ml = mlstr_fread(fp);
+		msg_t m;
+		mlstring *ml = mlstr_fread(fp);
 
 		if (mlstr_null(ml)) {
 			db_error("msgdb_load", "no '$' found");
@@ -78,77 +78,91 @@ void load_msgdb(void)
 			mlstr_free(ml);
 			break;
 		}
-		msg_add(ml);
+
+		m.ml = ml;
+		m.gender = 0;
+		msg_add(&m);
 	}
 
 	fclose(fp);
 }
 
-mlstring **msg_add(mlstring *ml)
+msg_t *msg_add(msg_t *m)
 {
-	mlstring **mlp;
+	msg_t *m2;
 	varr *v;
-	const char *name = mlstr_mval(ml);
+	const char *name = mlstr_mval(m->ml);
 
 	if (IS_NULLSTR(name))
 		return NULL;
 
 	v = msg_hash_table+msghash(name);
 
-	if (varr_bsearch(v, name, cmpmsg)) {
+	if (varr_bsearch(v, name, cmpmsgname)) {
 		db_error("msg_add", "%s: duplicate entry", name);
 		return NULL;
 	}
 
-	mlp = varr_enew(v);
-	*mlp = ml;
-	varr_qsort(v, cmpmlstr);
-	return varr_bsearch(v, name, cmpmsg);
+	m2 = varr_enew(v);
+	*m2 = *m;
+	varr_qsort(v, cmpmsg);
+	return varr_bsearch(v, name, cmpmsgname);
 }
 
-mlstring **msg_lookup(const char *name)
+msg_t *msg_lookup(const char *name)
 {
 	if (IS_NULLSTR(name))
 		return NULL;
 
-	return varr_bsearch(msg_hash_table+msghash(name), name, cmpmsg);
+	return varr_bsearch(msg_hash_table+msghash(name), name, cmpmsgname);
 }
 
-mlstring *msg_del(const char *name)
+int msg_gender(const char *name)
+{
+	msg_t *mp = msg_lookup(name);
+	if (mp == NULL)
+		return SEX_MALE;
+	return mp->gender;
+}
+
+msg_t msg_del(const char *name)
 {
 	varr *v;
-	mlstring **mlp;
-	mlstring *ml;
+	msg_t *mp;
+	msg_t m;
 
 	v = msg_hash_table+msghash(name);
 
-	mlp = varr_bsearch(v, name, cmpmsg);
-	if (mlp == NULL)
-		return NULL;
-	ml = *mlp;
-	*mlp = NULL;
-	varr_qsort(v, cmpmlstr);
+	mp = varr_bsearch(v, name, cmpmsgname);
+	if (mp == NULL) {
+		m.ml = NULL;
+		return m;
+	}
+	m = *mp;
+	mp->ml = NULL;
+	varr_qsort(v, cmpmsg);
 	v->nused--;
-	return ml;
+	return m;
 }
 
 const char *GETMSG(const char *msg, int lang)
 {
-	mlstring **mlp = msg_lookup(msg);
-	if (mlp == NULL)
+	msg_t *m = msg_lookup(msg);
+	if (m == NULL)
 		return msg;
-	return mlstr_val(*mlp, lang);
+	return mlstr_val(m->ml, lang);
+}
+
+/* reverse order (otherwise msg_del will not work) */
+static int cmpmsgname(const void* p1, const void* p2)
+{
+	return -strcmp((char*)p1, mlstr_mval(((msg_t*) p2)->ml));
 }
 
 /* reverse order (otherwise msg_del will not work) */
 static int cmpmsg(const void* p1, const void* p2)
 {
-	return -strcmp((char*)p1, mlstr_mval(*(mlstring**)p2));
-}
-
-/* reverse order (otherwise msg_del will not work) */
-static int cmpmlstr(const void* p1, const void* p2)
-{
-	return -strcmp(mlstr_mval(*(mlstring**)p1), mlstr_mval(*(mlstring**)p2));
+	return -strcmp(mlstr_mval(((msg_t*) p1)->ml),
+		       mlstr_mval(((msg_t*) p2)->ml));
 }
 

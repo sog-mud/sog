@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.137 1999-05-21 13:04:27 fjoe Exp $
+ * $Id: db.c,v 1.138 1999-05-21 22:49:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -97,6 +97,55 @@ extern  DESCRIPTOR_DATA *descriptor_free;
 /*
  * Globals.
  */
+const char TMP_PATH		[] = "tmp";
+const char PLAYER_PATH		[] = "player";
+const char GODS_PATH		[] = "gods";
+const char NOTES_PATH		[] = "notes";
+const char ETC_PATH		[] = "etc";
+const char RACES_PATH		[] = "races";
+const char CLASSES_PATH		[] = "classes";
+const char CLANS_PATH		[] = "clans";
+const char AREA_PATH		[] = "area";
+const char LANG_PATH		[] = "lang";
+
+#if defined (WIN32)
+const char PLISTS_PATH		[] = "clans\\plists";
+const char NULL_FILE		[] = "NUL";
+#else
+const char PLISTS_PATH		[] = "clans/plists";
+const char NULL_FILE		[] = "/dev/null";
+#endif
+
+const char TMP_FILE		[] = "romtmp";
+
+const char HOMETOWNS_CONF	[] = "hometowns.conf";	/* hometowns */
+const char SKILLS_CONF		[] = "skills.conf";	/* skills */
+const char SOCIALS_CONF		[] = "socials.conf";	/* socials */
+const char SYSTEM_CONF		[] = "system.conf";	/* system conf */
+const char LANG_CONF		[] = "lang.conf";	/* lang definitions */
+const char MSG_FILE		[] = "msgdb.txt";	/* old msg db */
+const char MSGDB_FILE		[] = "msgdb";		/* msgdb */
+
+const char AREA_LIST		[] = "area.lst";	/* list of areas */
+const char CLAN_LIST		[] = "clan.lst";	/* list of clans */
+const char CLASS_LIST		[] = "class.lst";	/* list of classes */
+const char LANG_LIST		[] = "lang.lst";	/* list of languages */
+const char RACE_LIST		[] = "race.lst";	/* list of races */
+
+const char BUG_FILE		[] = "bugs.txt";	/* 'bug' and bug() */
+const char TYPO_FILE		[] = "typos.txt";	/* 'typo' */
+const char NOTE_FILE		[] = "notes.not";	/* 'notes' */
+const char IDEA_FILE		[] = "ideas.not";
+const char PENALTY_FILE		[] = "penal.not";
+const char NEWS_FILE		[] = "news.not";
+const char CHANGES_FILE		[] = "chang.not";
+const char SHUTDOWN_FILE	[] = "shutdown";	/* For 'shutdown' */
+const char EQCHECK_FILE		[] = "eqcheck";		/* limited eq checks */
+const char BAN_FILE		[] = "ban.txt";
+const char MAXON_FILE		[] = "maxon.txt";
+const char AREASTAT_FILE	[] = "areastat.txt";
+const char IMMLOG_FILE		[] = "immortals.log";
+
 flag32_t		mud_options;
 
 SHOP_DATA *		shop_first;
@@ -336,7 +385,12 @@ void boot_db(void)
 	reboot_counter = 1440;	/* 24 hours */
 
 	db_load_list(&db_langs, LANG_PATH, LANG_LIST);
-	load_msgdb();
+	if (dfexist(ETC_PATH, MSGDB_FILE)) {
+		log_printf("boot_db: loading new-style msgdb");
+		db_load_file(&db_msg, ETC_PATH, MSGDB_FILE);
+	}
+	else
+		load_msgdb();
 	db_load_file(&db_socials, ETC_PATH, SOCIALS_CONF);
 	db_load_file(&db_skills, ETC_PATH, SKILLS_CONF);
 	namedp_check(gsn_table);

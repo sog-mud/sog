@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.67 1999-05-12 18:54:51 avn Exp $
+ * $Id: olc_save.c,v 1.68 1999-05-21 22:49:34 fjoe Exp $
  */
 
 /**************************************************************************
@@ -1030,7 +1030,7 @@ void save_msgdb(CHAR_DATA *ch)
 		return;
 	}
 
-	if ((fp = dfopen(ETC_PATH, MSG_FILE, "w")) == NULL) {
+	if ((fp = dfopen(ETC_PATH, MSGDB_FILE, "w")) == NULL) {
 		save_print(ch, "%s%c%s: %s",
 			   ETC_PATH, PATH_SEPARATOR, MSG_FILE,
 			   strerror(errno));
@@ -1042,14 +1042,21 @@ void save_msgdb(CHAR_DATA *ch)
 		int j;
 
 		for (j = 0; j < v->nused; j++) {
-			mlstring **mlp = VARR_GET(v, j);
-			if (!mlstr_nlang(*mlp))
-				continue;
-			mlstr_fwrite(fp, NULL, *mlp);
+			msg_t *mp = VARR_GET(v, j);
+
+			fprintf(fp, "#MSG\n");
+
+			if (mp->gender) {
+				fprintf(fp, "Gender %s\n",
+					flag_string(gender_table, mp->gender));
+			}
+
+			mlstr_fwrite(fp, "Text", mp->ml);
+			fprintf(fp, "End\n\n");
 		}
 	}
 
-	fprintf(fp, "$~\n");
+	fprintf(fp, "#$\n");
 	fclose(fp);
 	save_print(ch, "Msgdb saved.");
 }

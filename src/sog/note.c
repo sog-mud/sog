@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.53 1999-05-17 20:05:30 avn Exp $
+ * $Id: note.c,v 1.54 1999-05-21 22:49:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -55,7 +55,7 @@
 note_t *	new_note	(void);
 void		free_note	(note_t *note);
 
-void load_thread(char *name, note_t **list, int type, time_t free_time);
+void load_thread(const char *name, note_t **list, int type, time_t free_time);
 void parse_note(CHAR_DATA *ch, const char *argument, int type);
 bool hide_note(CHAR_DATA *ch, note_t *pnote);
 void fwrite_note(FILE *fp, note_t *pnote);
@@ -178,7 +178,7 @@ void do_changes(CHAR_DATA *ch,const char *argument)
 void save_notes(int type)
 {
 	FILE *fp;
-	char *name;
+	const char *name;
 	note_t *pnote;
 
 	switch (type) {
@@ -223,7 +223,7 @@ void load_notes(void)
 	load_thread(CHANGES_FILE, &changes_list,NOTE_CHANGES, 0);
 }
 
-void load_thread(char *name, note_t **list, int type, time_t free_time)
+void load_thread(const char *name, note_t **list, int type, time_t free_time)
 {
     FILE *fp;
     note_t *pnotelast;
@@ -301,7 +301,7 @@ void load_thread(char *name, note_t **list, int type, time_t free_time)
 void append_note(note_t *pnote)
 {
 	FILE *fp;
-	char *name;
+	const char *name;
 	note_t **list;
 	note_t *last;
 

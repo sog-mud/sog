@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.20 1999-05-21 14:30:23 fjoe Exp $
+ * $Id: act.c,v 1.21 1999-05-21 22:49:34 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -265,9 +265,16 @@ act_format_obj(OBJ_DATA *obj, CHAR_DATA *to, int sp, int act_flags)
  * f
  * F
  * g - $gx{...} - gender form depending on sex of ``x'', where x is:
- *	c - char
- *	v - vch ((CHAR_DATA*) arg2)
- *	t - to (char the message is being printed to)
+ *	n	- ch ($n)
+ *	N	- vch ($N)
+ *	i	- vch1 ($i)
+ *	I	- vch3 ($I)
+ *	o	- to
+ *	p	- obj1 ($p)
+ *	P	- obj2 ($P)
+ *	t,u	- msg1 ($t, $u)
+ *	T	- msg2 ($T)
+ *	U	- msg3 ($U)
  * G
  * h
  * H
@@ -542,7 +549,7 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 						tstack[sp].arg = vch3->sex;
 						break;
 
-					case 't':
+					case 'o':
 						tstack[sp].arg = opt->to_sex;
 						break;
 
@@ -552,6 +559,22 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 
 					case 'P':
 						tstack[sp].arg = obj2->pIndexData->gender;
+						break;
+
+					case 't':
+					case 'u':
+						tstack[sp].arg =
+							msg_gender(arg1);
+						break;
+
+					case 'T':
+						tstack[sp].arg =
+							msg_gender(arg2);
+						break;
+
+					case 'U':
+						tstack[sp].arg =
+							msg_gender(arg3);
 						break;
 
 					default:

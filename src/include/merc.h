@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.192 1999-05-21 17:55:38 fjoe Exp $
+ * $Id: merc.h,v 1.193 1999-05-21 22:49:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -716,19 +716,6 @@ where_t *where_lookup(flag32_t where);
 #define RAFF_SLEEP		(R)
 #define RAFF_PLAGUE 		(X)
 #define RAFF_SLOW		(dd)
-
-/*
- * Sex.
- * Used in #MOBILES.
- */
-enum {
-	SEX_NEUTRAL,
-	SEX_MALE,
-	SEX_FEMALE,
-	SEX_EITHER,		/* used only for NPC, means random sex
-				   in create_mob */
-	SEX_PLURAL = SEX_EITHER /* used in obj genders */
-};
 
 /* AC types */
 #define AC_PIERCE			0

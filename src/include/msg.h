@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: msg.h,v 1.5 1999-02-18 13:34:33 fjoe Exp $
+ * $Id: msg.h,v 1.6 1999-05-21 22:49:34 fjoe Exp $
  */
 
 #ifndef _MSG_H_
@@ -31,9 +31,15 @@
 
 #define MAX_MSG_HASH		256
 
-mlstring **	msg_add		(mlstring *ml);
-mlstring **	msg_lookup	(const char *name);
-mlstring *	msg_del		(const char *name);
+typedef struct msg_t {
+	mlstring *ml;
+	flag32_t gender;
+} msg_t;
+
+msg_t *	msg_add		(msg_t *mp);
+msg_t *	msg_lookup	(const char *name);
+int	msg_gender	(const char *name);
+msg_t 	msg_del		(const char *name);
 
 const char *	GETMSG(const char *txt, int lang);
 
