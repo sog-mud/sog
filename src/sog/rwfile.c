@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rwfile.c,v 1.28 2003-09-30 00:31:39 fjoe Exp $
+ * $Id: rwfile.c,v 1.29 2003-09-30 00:38:38 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -120,7 +120,7 @@ rfile_open(const char *dir, const char *file)
 		return NULL;
 	}
 
-	if ((p = mmap(NULL, s.st_size, PROT_READ, MAP_PRIVATE, fd, (off_t) 0)) == MAP_FAILED) {
+	if ((p = mmap(NULL, s.st_size, PROT_READ, MAP_PRIVATE, fd, 0)) == MAP_FAILED) {
 		close(fd);
 		printlog(LOG_INFO, "%s: %s", name, strerror(errno));
 		return NULL;
