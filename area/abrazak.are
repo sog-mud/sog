@@ -30,12 +30,13 @@ r wood 100
 r silver 100
 r weapon 100
 r magic 100
-m mob_look @ ~
-static int $n[avatara_look_count];
+m mob_look @ 100~
+static int $N[avatara_look_count];
  
-$n[avatara_look_count]++;
+$N[avatara_look_count]++;
 act("You looked at me $j $qj{times}.",
-    $n, $n[avatara_look_count], NULL, TO_CHAR, POS_DEAD);
+    $N, $N[avatara_look_count], NULL, TO_CHAR);
+act("Huh!", $n, NULL, NULL, TO_ROOM);
 return 0;
 ~
 #15001
