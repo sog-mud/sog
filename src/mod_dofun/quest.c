@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.123.2.10 2001-02-11 18:52:14 fjoe Exp $
+ * $Id: quest.c,v 1.123.2.11 2001-02-14 13:17:24 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -389,8 +389,9 @@ qtrouble_t *qtrouble_lookup(CHAR_DATA *ch, int vnum)
 
 static void quest_points(CHAR_DATA *ch, char* arg)
 {
-	act("You have {W$j{x $qj{quest points}.",
-	    ch, (const void*) PC(ch)->questpoints, NULL, TO_CHAR);
+	act_puts("You have {W$j{x $qj{quest points}.",
+		 ch, (const void*) PC(ch)->questpoints, NULL,
+		 TO_CHAR, POS_DEAD);
 }
 
 static void quest_info(CHAR_DATA *ch, char* arg)
@@ -411,20 +412,20 @@ static void quest_info(CHAR_DATA *ch, char* arg)
 		qinfoobj = get_obj_index(PC(ch)->questobj);
 		if (qinfoobj != NULL) {
 			OBJ_DATA *obj = create_obj(qinfoobj, 0);
-			act("You are on a quest to recover the fabled {W$p{x!",
-			    ch, obj, NULL, TO_CHAR | ACT_FORMSH);
+			act_puts(
+			    "You are on a quest to recover the fabled {W$p{x!",
+			    ch, obj, NULL, TO_CHAR | ACT_FORMSH, POS_DEAD);
 			extract_obj(obj, 0);
 
 			if (PC(ch)->questroom) {
-				act("That location is in general area of "
+				act_puts(
+				    "That location is in general area of "
 				    "{W$T{x for {W$r{x.",
-				    ch,
-				    PC(ch)->questroom,
-				    PC(ch)->questroom->area->name, 
-				    TO_CHAR);
+				    ch, PC(ch)->questroom,
+				    PC(ch)->questroom->area->name,
+				    TO_CHAR, POS_DEAD);
 			}
-		}
-		else 
+		} else
 			char_puts("You aren't currently on a quest.\n", ch);
 		return;
 	}
@@ -435,19 +436,19 @@ static void quest_info(CHAR_DATA *ch, char* arg)
 		questinfo = get_mob_index(PC(ch)->questmob);
 		if (questinfo != NULL) {
 			CHAR_DATA *mob = create_mob(questinfo, 0);
-			act("You are on a quest to slay the dreaded {W$N{x!",
-			    ch, NULL, mob, TO_CHAR | ACT_FORMSH);
+			act_puts(
+			    "You are on a quest to slay the dreaded {W$N{x!",
+			    ch, NULL, mob, TO_CHAR | ACT_FORMSH, POS_DEAD);
 			extract_char(mob, 0);
 
 			if (PC(ch)->questroom) {
-				act("That location is in general area of "
-				    "{W$T{x for {W$r{x.",
-				    ch,
-				    PC(ch)->questroom,
-				    PC(ch)->questroom->area->name, 
-				    TO_CHAR);
+				act_puts("That location is in general area of "
+					 "{W$T{x for {W$r{x.",
+					 ch, PC(ch)->questroom,
+					 PC(ch)->questroom->area->name,
+					 TO_CHAR, POS_DEAD);
 			}
-		} else 
+		} else
 			char_puts("You aren't currently on a quest.\n", ch);
 		return;
 	}
@@ -463,11 +464,10 @@ static void quest_time(CHAR_DATA *ch, char* arg)
 			    "you can go on another quest.",
 			    ch, (const void*) -PC(ch)->questtime, NULL,
 			    TO_CHAR, POS_DEAD);
-	    	} else if (PC(ch)->questtime == -1) {
+		} else if (PC(ch)->questtime == -1) {
 			char_puts("There is less than a minute remaining until you can go on another quest.\n", ch);
 		}
-	}
-	else {
+	} else {
 		act("Time left for current quest: {W$j{x $qj{minutes}.",
 		    ch, (const void*) PC(ch)->questtime, NULL,
 		    TO_CHAR);
