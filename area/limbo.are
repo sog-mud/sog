@@ -177,7 +177,7 @@ A wolf is here, looking very angrily.
 You see nothing special about it.
 ~
 wolf~
-A 0 0 0
+A S 0 0
 0 1 1d1+1 1d1+1 3d10+12 claw
 0 0 0 0
 N 0 0 0
@@ -191,7 +191,7 @@ A lesser golem is here.
 The golem appears to be made of some kind of clay, enchanted to come to life!.
 ~
 golem~
-AT V 0 0
+AT SV 0 0
 0 1 1d1+1 1d1+1 3d10+12 crush
 0 0 0 0
 EFO 0 0 0
@@ -206,7 +206,7 @@ This is a large stone statue of a man. The statue stands eight feet tall
 and looks powerful enough to rip off your head without straining.
 ~
 golem~
-AT V 0 0
+AT SV 0 0
 0 1 1d1+1 1d1+1 3d10+12 crush
 0 0 0 0
 EFO 0 0 0
@@ -222,7 +222,7 @@ fifteen feet tall.  In fact it almost looks as if it can move.  You then glance
 at it's eyes and notice with a shock that they are watching you. 
 ~
 golem~
-AT V 0 0
+AT SV 0 0
 0 1 1d1+1 1d1+1 3d10+12 crush
 0 0 0 0
 EFO 0 0 0
@@ -237,7 +237,7 @@ It seems to be forged of dark metal.  It looks strong and durable,
 but somewhat un-intelligent.
 ~
 golem~
-AT V 0 0
+AT SV 0 0
 0 1 1d1+1 1d1+1 3d10+12 crush
 0 0 0 0
 EFO 0 0 0
@@ -265,7 +265,7 @@ A dark summoned shadow is here.
 You see nothingness.
 ~
 lion~
-AO 0 0 0
+AO S 0 0
 0 1 1d1+1 1d1+1 3d10+12 claw
 0 0 0 0
 N M 0 0

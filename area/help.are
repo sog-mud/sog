@@ -2290,7 +2290,6 @@ chaotic.  Ethos can only be set once.
 
 ~
 -2 'NEWBIE INFO' NEWBIE~
-
 Ah! Another mortal, seeking adventure.  You should go through mudschool 
 first, to gain experience to face the trials outside.  Be sure to practice 
 a weapon in the guild room, or your stay with us shall be very short  indeed.
@@ -4113,6 +4112,37 @@ depending on the sex of ch and then in the case form 4.
 Forms can be created/edited with OLC via "create/edit form" commands.
 See "help 'OLC FORMS INTRO"' for more info.
  
+~
+0 Knight~
+@eng ..Deep chaos fell on the World. Seven Cabals had come to being. Chaos, Terror 
+and Disorder had been fighting with Law, Order, and Justice. The seventh one, 
+somewhat called Equilibrium, obeyed neither the Law, nor the Chaos...
+ 
+  Years passed by. The Order have mixed with Disorder, allowing the "New Order"
+to come to the World, the Law have denied any problems save itself, punishing 
+sometimes the outlawers and innocents as well...
+ 
+  Only Knights, bold and noble defenders of Justice, have not forgotten their
+ideals. Scattered by the Darkness, they rose again and again to stand in the 
+way of Death, Chaos and Terror...
+@rus ... Хаос воцарился в мире.  Мир разделился  на семь частей.  Хаос,  Террор  и 
+Беспорядок встали с одной стороны, Закон, Порядок и Справедливость - с другой.
+Приверженцы Равновесия  поставили себя вне Закона,  но отказались подчиниться 
+Хаосу...
+  
+    Но История повторилась... Силы, призванные защищать порядок, смешали свои 
+ряды с приверженцами "Нового Порядка", забыв свое предназначение, Закон встал
+в стороне от всех дел, изредка простирая свою карающую длань над чересчур
+зарвавшимся преступником, заодно наказывая и невиновных...
+  
+    И только Рыцари,  поборники справедливости,  не оставили  своих  идеалов. 
+Рассеянные Тьмой, они возрождались снова и снова, чтобы встать на пути Хаоса, 
+Террора и Беспорядка...
+  
+    Если ты считаешь,  что защищать справедливость - твое призвание,  если ты 
+сторонник добра и уважаешь закон, ты тот, кто нам нужен! Но куда бы ты ни шел
+и что бы ты не делал,  всегда помни:  отныне и навсегда звание твое - Рыцарь, 
+имя тебе - Честь!
 ~
 -1 $~
 

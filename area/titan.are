@@ -1299,7 +1299,7 @@ stand stand male 100
 0 0 large unknown
 #18100
 Questor~
-Qeustor~
+Questor~
 Questor is here, waiting to dispense some quest.
 ~
 Questor,  towers over you.  He's over 20 feet tall, every inch of it muscle. 
@@ -5027,7 +5027,7 @@ M 18040 spec_breath_any	* a gloomy evil tree
 M 18061 spec_cast_cleric	* the King Dractax
 M 18062 spec_cast_mage	* the Queen Crystal
 M 18063 spec_assassinater	* an assassin
-M 18100 spec_cast_cleric	* Qeustor
+M 18100 spec_cast_cleric	* Questor
 M 18101 spec_cast_adept	* the healer
 S
 
@@ -5314,7 +5314,7 @@ M 0 18090 1 18125 1	* the Deadly Hydra (Store of the deadly beast)
 M 0 18054 1 18125 1	* the Visious Black Cougar (Store of the deadly beast)
 M 0 18055 1 18125 1	* the Deadly Kraken (Store of the deadly beast)
 M 0 18056 1 18125 1	* the Magical Sylph (Store of the deadly beast)
-M 0 18100 1 18126 1	* Qeustor (Temple of Titans Valley)
+M 0 18100 1 18126 1	* Questor (Temple of Titans Valley)
 O 0 18101 0 18127	* the donation pit (By the temple of Titans Valley)
 M 0 18101 5 18127 1	* the healer (By the temple of Titans Valley)
 O 0 18102 0 18140	* a fountain (Royal Bank.)

@@ -168,6 +168,15 @@ Form 5 -ом~
 End
 
 #WORD
+Name тролль~
+BaseLen 5
+Form 1 -я~
+Form 2 -ю~
+Form 3 -я~
+Form 4 -ем~
+End
+
+#WORD
 Name гар~
 BaseLen 3
 Form 1 -а~
@@ -293,6 +302,16 @@ Form 3 медовуху~
 End
 
 #WORD
+Name молодой~
+BaseLen 5
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ого~
+Form 4 -ым~
+Form 5 -ом~
+End
+
+#WORD
 Name свинья~
 BaseLen 5
 Form 1 -и~
@@ -300,6 +319,16 @@ Form 2 -е~
 Form 3 -ю~
 Form 4 -ей~
 Form 5 -е~
+End
+
+#WORD
+Name серая~
+BaseLen 3
+Form 1 -ой~
+Form 2 -ой~
+Form 3 -ую~
+Form 4 -ой~
+Form 5 -ой~
 End
 
 #WORD
@@ -373,6 +402,16 @@ Form 5 -ой~
 End
 
 #WORD
+Name жирный~
+BaseLen 4
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ого~
+Form 4 -ым~
+Form 5 -ом~
+End
+
+#WORD
 Name идущий~
 BaseLen 4
 Form 1 -его~
@@ -380,6 +419,16 @@ Form 2 -ему~
 Form 3 -его~
 Form 4 -им~
 Form 5 -ем~
+End
+
+#WORD
+Name червяк~
+BaseLen 6
+Form 1 -а~
+Form 2 -у~
+Form 3 -а~
+Form 4 -ом~
+Form 5 -е~
 End
 
 #WORD
@@ -694,6 +743,16 @@ Form 5 -е~
 End
 
 #WORD
+Name блюститель~
+BaseLen 9
+Form 1 -я~
+Form 2 -ю~
+Form 3 -я~
+Form 4 -ем~
+Form 5 -е~
+End
+
+#WORD
 Name пустой~
 BaseLen 4
 Form 1 -ого~
@@ -980,6 +1039,16 @@ Form 5 -е~
 End
 
 #WORD
+Name зверь~
+BaseLen 4
+Form 1 -я~
+Form 2 -ю~
+Form 3 -я~
+Form 4 -ем~
+Form 5 -е~
+End
+
+#WORD
 Name вооруженная~
 BaseLen 9
 Form 1 -ой~
@@ -1036,6 +1105,16 @@ Form 1 -а~
 Form 2 -у~
 Form 4 -ом~
 Form 5 -е~
+End
+
+#WORD
+Name сторожевой~
+BaseLen 8
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ого~
+Form 4 -ом~
+Form 5 -евом~
 End
 
 #WORD
@@ -1236,6 +1315,16 @@ End
 #WORD
 Name каменный голем~
 Form 1 каменного голема~
+End
+
+#WORD
+Name белочка~
+BaseLen 6
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
 End
 
 #WORD

@@ -10,7 +10,7 @@ End
 #MOBILES
 #95100
 enforcer guard~
-@eng the enforcer@rus блюститель порядка~
+@eng the enforcer@rus ~~блюститель~~ порядка~
 @eng The enforcer is waiting here protecting the enterance.
 @rus Блюститель порядка (enforcer) охраняет вход.
 ~
@@ -30,7 +30,7 @@ M grall 95100 100~
 C Ruler~
 #95101
 healer cabal ruler~
-@eng the lawful healer@rus лекарь~
+~~лекарь~~~
 @eng The healer with his white robe heals and protects his Rulers.
 @rus Лекарь в белом халате (healer) лечит и защищает членов своего клана.
 ~
@@ -201,7 +201,7 @@ M 0 95100 1 95100 1	* the enforcer (The Enterance)
 E 0 95102 0 17		*	a rolled paper: held in the hands
 O 0 95100 0 95102	* the bookstand (Room of Laws)
 P 0 95101 1 95100 1	* the bookstand: the book of laws
-M 0 95101 1 95103 1	* the lawful healer (The Rulers' chapel)
+M 0 95101 1 95103 1	* ~лекарь~ (The Rulers' chapel)
 O 0 95103 0 95104	* a silk sofa (Resting Room)
 S
 

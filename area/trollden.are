@@ -8,45 +8,55 @@ End
 
 #MOBILES
 #2800
-guardian beast~
-the guardian beast~
-A guardian beast stares at you and snarls in rage.
+guardian beast сторожевой зверь~
+@eng the guardian beast@rus ~~сторожевой~~ ~~зверь~~~
+@eng A guardian beast stares at you and snarls in rage.
+@rus Огромный зверь (beast) злобно рычит на тебя.
 ~
-Jet black fur covers this beast.  You stare at his two huge red eyes.  You can
+@eng Jet black fur covers this beast.  You stare at his two huge red eyes.  You can
 count at least 50 teeth on this monster.  You can't tell whether it is blood or
 saliva dripping from the beast's jaw.  The guardian beast snarls again.
+@rus Чудовищный зверь с блестящей черной шкурой и огромными красными глазами.
+С его зубов, которых у него не менее 50, медленно стекает слюна (или это
+кровь?). Зверь продолжает угрожающе рычать на тебя.
 ~
-human~
-ABCFG DJPQ -200 0
+dog~
+0 0 -200 0
 7 0 2d6+85 3d9+100 1d8+1 none
 4 4 4 9
-EFNU 0 0 0
+0 0 0 0
 stand stand male 0
 0 0 medium unknown
 #2801
-young troll~
-the young troll~
-A young troll is sitting down, chewing on a bone.
+young troll молодой тролль~
+@eng the young troll@rus ~~молодой~~ ~~тролль~~~
+@eng A young troll is sitting down, chewing on a bone.
+@rus Молодой тролль (troll) сидит тут и жует кость.
 ~
-He is a tall, wiry, furry humanoid.
+@eng He is a tall, wiry, furry humanoid.
 Your eyes lock with his.  He smiles, puts down his bone, and reaches for one
 of yours!!
+@rus Длинный, жилистый мохнатый тролль улыбается и откладывает в сторону свою
+кость в надежде погрызть твои.
 ~
-human~
-ACFG JP -500 0
+troll~
+BFG P -500 0
 6 0 2d7+71 3d9+100 1d7+1 none
 4 4 4 9
-EFNU 0 0 0
+0 0 0 0
 sit stand male 25
 0 0 medium unknown
 #2802
-medium troll~
-the medium troll~
-A troll is grooming his pet, a guardian beast.
+medium troll тролль~
+@eng the medium troll@rus тролль~
+@eng A troll is grooming his pet, a guardian beast.
+@rus Тролль (troll) занят воспитанием сторожевого зверя.
 ~
-He is a tall, lean, furry humanoid.
+@eng He is a tall, lean, furry humanoid.
 He is busy licking the ticks off of his beast.
 His eyes dart toward you, as he realizes you are one third his size.
+@rus Высокий и неимоверно худой гуманоид занят поркой своего зверя, однако  
+поняв что ты в три раза меньше, мгновенно переключает свое внимание на тебя.
 ~
 human~
 ABCFG JP -500 0
@@ -56,13 +66,15 @@ EFNU 0 0 0
 stand stand male 75
 0 0 medium unknown
 #2803
-baby troll~
-a baby troll~
-A baby troll is playing Doctor with a cadaver.
+baby troll тролленок~
+@eng a baby troll@rus тролленок~
+@eng A baby troll is playing Doctor with a cadaver.
+@rus Тролленок (baby troll) играет чьим-то трупом.
 ~
-He is a large, chubby, furry humanoid.
+@eng He is a large, chubby, furry humanoid.
 He is trying to stuff an arm in a hole in the wall.
 He notices you and gargles "WANNA JOIN?".
+@rus Довольно большой и упитанный, весь покрыт шерстью.
 ~
 human~
 ABCF JP -100 0
@@ -104,19 +116,21 @@ EFNU 0 0 0
 rest stand female 125
 0 0 medium unknown
 #2806
-fat worm~
-a fat worm~
-A fat worm scurries around, looking for food.
+fat worm жирный червяк~
+@eng a fat worm@rus ~~жирный~~ ~~червяк~~~
+@eng A fat worm scurries around, looking for food.
+@rus Жирный червяк (worm) суетится в поисках пищи.
 ~
-It is thick and long.  You can't find a head on this thing.
+@eng It is thick and long.  You can't find a head on this thing.
 It moves quickly, from corpse to corpse.
+@rus Нечто длинное, толстое и безголовое быстро передвигается между трупами.
 ~
 human~
 ACFH JPQ 0 0
 3 0 2d6+35 1d9+100 1d6+0 none
 7 7 7 10
 EFNU 0 0 0
-stand stand none 0
+stand stand male 0
 0 0 medium unknown
 #2807
 roving beast~
@@ -162,6 +176,7 @@ flesh~
 container 0 A
 30 0 0 30 100
 0 500 1 P
+G none
 #2801
 pile rotting heap bed~
 the heap of carnage~
@@ -170,6 +185,7 @@ unknown~
 container 0 0
 30 0 0 30 100
 0 0 0 P
+G none
 #2802
 trollskin troll skin~
 the troll skin~
@@ -185,6 +201,7 @@ troll skin~
 This is the skin from a huge (and dead) beast.  It looks bad, smells bad,
 and feels bad.
 ~
+G none
 #2803
 ring opal~
 an opal ring~
@@ -199,6 +216,7 @@ E
 ring opal~
 It is a full circle of opal, smooth and simple.
 ~
+G none
 #2804
 leather belt~
 a leather belt~
@@ -211,6 +229,7 @@ E
 leather belt~
 This old, smelly belt looks like it is barely better than rotting cloth.
 ~
+G none
 #2805
 bone cracked~
 a cracked bone~
@@ -228,13 +247,16 @@ bone~
 This piece of bone looks sturdy enough to be used as a weapon, but you
 wouldn't want to entrust your life to it.
 ~
+G none
 #0
 
 #ROOMS
 #2801
-Wastedump~
-This room is filled with bone shards and fragments.  Something (or things)
+@eng Wastedump@rus Пустырь~
+@eng This room is filled with bone shards and fragments.  Something (or things)
 very big lives here.  A small plaque is on the wall.
+@rus Все вокруг забросано обломками костей и прочим мусором весьма пугающего 
+вида. Похоже, тут живет кто-то большой (и хорошо еще, если он один).
 ~
 0 AD inside
 E

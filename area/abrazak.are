@@ -95,6 +95,23 @@ AGRTe CDEFGVZacu -1000 0
 0 ABCEFGHIJKLMNOPQRTXYZ 0 0
 stand stand male 0
 0 0 small unknown
+#15015
+белочка серая squirrel~
+@eng gray squirrel@rus ~~серая~~ ~~белочка~~~
+@eng A small squirell is sitting here.
+@rus Маленькая серая белочка (squirel) скачет вокруг своей любимой хозяйки.
+~
+@eng A small gray squirrel.
+@rus Маленький серый зверек с большими влажными глазами и очень пушистым 
+хвостом.
+~
+unique~
+B BFHPQTVZcefglm 1000 0
+50 1000 10d10+500 10d10+500 15d15+500 bite
+0 0 0 0
+ACDEFGHIJKNO AD 0 0
+stand stand female 50
+G ABCQ medium unknown
 #0
 
 #OBJECTS
@@ -210,8 +227,12 @@ scythe~
 {DScythe{x~
 unknown~
 weapon RYa ANP
-exotic 10000 10000 none ABCDEGHI
+dagger 10000 10000 pierce ABCDEGHI
 99 0 0 P
+A
+19 100000
+A
+18 100000
 G none
 #15011
 horn~

@@ -230,6 +230,21 @@ A
 A
 18 500
 G none
+#36110
+grail holy~
+@eng Holy Grail@rus Святой Грааль~
+@eng Holy Grail is here. Take it to Galahad!@rus Святой Грааль лежит на земле. Принесите его Сэру Галахаду!~
+gold~
+drink AIT AO
+100 100 'blood' 0 0
+70 100 1000000 P
+A
+13 100
+A
+24 -15
+A
+18 25
+G none
 #0
 
 #ROOMS
@@ -242,7 +257,7 @@ You feel completely relaxed...
 Небольшой водопад тихо журчит у стены...
 Вы расслабляетесь ...
 ~
-0 CKX inside
+0 CKNX inside
 D1
 ~
 ~
@@ -400,6 +415,10 @@ M 0 36101 4 36111 4	* TARGET (At the targets)
 M 0 36101 4 36111 4	* TARGET (At the targets)
 M 0 36101 4 36111 4	* TARGET (At the targets)
 M 0 36101 4 36111 4	* TARGET (At the targets)
+S
+
+#OLIMITS
+O 36110 1	* Holy Grail
 S
 
 #MOBPROGS

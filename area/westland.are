@@ -518,7 +518,7 @@ stand stand male 300
 snake желтая змейка~
 @eng a yellow snake@rus ~~желтая~~ ~~змейка~~~
 @eng There is a little yellow snake swimming in the pool of water.
-@rus Маленькая желтая змейка (snake) извивается в луже.
+@rus Маленькая желтая змейка (snake) направляется в твою сторону.
 ~
 @eng He is a tiny snake that is hardly visible to the naked eye. He
 swims through the waters up to you. You better get away fast
@@ -1203,7 +1203,7 @@ the south.
 озера разбегаются круги от важно проплывшего в камыши серого селезня. 
 Старые ивы устало склонили к воде свои ветки. Рядом с тобой раздается
 какой-то шорох -- еще одна белка что-то потащила в свою кладовку. Мир
-и спокойствие царит вокруг.
+и спокойствие царят вокруг.
 ~
 0 0 forest
 D0
@@ -1224,7 +1224,7 @@ woods. This clearing isn't very big but it sure is good to see
 the sun again. There are two large signs nailed on a tree leading
 back into another forest. You wonder what the sign says and go to
 take a closer look.
-@rus Немного пройдя по лесу, ты вышел на просеку. Неширокая, но, надо
+@rus Немного пройдя по лесу, ты выходишь на просеку. Неширокая, но, надо
 полагать исправно выполняющая свои функции. А как приятно снова
 подставиться нежным согревающим лучам солнышка. Отовсюду доносится
 пение птиц, слышится шорох лесных зверушек. Все заняты своими делами: 
@@ -1277,7 +1277,7 @@ north and south.
 @rus Дорога минует озеро и снова углубляется в лес. По обеим ее сторонам 
 возвышаются огромные вековые деревья, отбрасывающие длинные тени.
 Солнце наконец-то вышло из-за скрывавшех его ранее тучек, и принялось
-весело играться с каплями расы на травке и листьях деревьев. 
+весело играться с каплями росы на травке и листьях деревьев. 
 ~
 0 0 forest
 D0
@@ -1292,13 +1292,19 @@ The road south.
 Z 0 10003
 S
 #10005
-A Turn in the Road.~
-As you walk down the road you come across a path leading up
+@eng A turn in the road@rus Поворот дороги~
+@eng As you walk down the road you come across a path leading up
 into the mountains. Since going north will lead right into the
 lake you must go west up into the mountains. There is a little
 rabbit drinking from a small pond infront of you. You wonder
 where such a beeatiful creature came from. You could still go
 back south to the turn in the road. 
+@rus Дорога плавно сворачивает к западу и постепенно озеро совсем скрывается
+из вида. Местность тоже начинает потихоньку меняться. На смену равнине
+приходят холмы и холмики, становящиеся все круче по мере твоего продвижения
+вперед.
+  Вдруг слева от тебя хрустнула ветка. Обернувшись на звук, ты увидел
+маленького крольчонка, пьющего из родничка, почти скрытого травой.
 ~
 0 0 forest
 D2
@@ -1313,13 +1319,18 @@ The path to the mountains.
 Z 0 10006
 S
 #10006
-A Path to the Mountains.~
-As you approach the mountains, you leave the forest behind
+@eng A path to the mountains@rus На возвышенности~
+@eng As you approach the mountains, you leave the forest behind
 to open air space. The wind here is blowing more swiftly and the
 sun is even hotter. You notice the giant waywarrd pines that loom
 overhead. You wonder where such wonderous trees came from. The
 path up the mountain looks like a nice and easy one to take. You
 could retrun to the east or go up the mountain.
+@rus Лес кончился и больше не скроешься в нежной лесной тени от палящих
+лучей дневного светила. Однако, после многочасового блуждания по
+лесу, вдвойне приятно видеть открытый горизонт, а не бесконечные
+стволы деревьев. Нежный ветерок приятно холодит кожу, и все кажется
+приятным и легковыполнимым. 
 ~
 0 0 mountain
 D1
@@ -1334,13 +1345,20 @@ The trail up the mountain.
 Z 0 10007
 S
 #10007
-The Trail up the Mountain.~
-The trail is an easy one to climb and you enjoy the lovely
+@eng The trail up the mountain@rus На вершине холма~
+@eng The trail is an easy one to climb and you enjoy the lovely
 walk. As you come to the top of the trail you realize that you
 are now in Upper Ven. Upper Ven is the mountain before the city.
 The path look quite clear and easy to pass. The rocks are warm in
 the suns' rays and is just gleaming with the heated mirage.  You
 may go north or down.
+@rus Вот тропинка и привела тебя на вершину холма. Нельзя сказать, что
+подьем был очень легким, но и тяжелым его назвать нелься. С места,
+где ты стоишь открывается великолепный вид на окрестности. Где-то
+вдалеке окруженная зеленью леса поблескивает гладь Трантого озера. 
+Впереди тебя за еще одним небольшим лесным массивом виднеется город. 
+А лучи заходящего солнца придают какую-то сказачную прелесть 
+открывшемуся твоему взору пейзажу.
 ~
 0 0 mountain
 D0
@@ -1355,8 +1373,8 @@ Back down the mountain.
 Z 0 10006
 S
 #10008
-The Edge of Upper Ven.~
-You reach the end of the mountain and have to go down again.
+@eng The edge of upper ven@rus Опушка Охотничьего леса~
+@eng You reach the end of the mountain and have to go down again.
 The path leads back into another forest and seems appealing to
 you to get out of the sun. The forest is filled with trees and
 shrubs all changed colors by the on comming season. The gold and
@@ -1364,6 +1382,11 @@ bronze colors of the leaves are quite beautiful and look as if
 they are each worth morth then life itself. The mountaint air is
 freash and cooling and makes you feel like you want to sit down
 and rest. You may go down or south.
+@rus Тропинка бежит вперед, петляя среди больших и маленьких валунов, и вот 
+уже приводит тебя к опушке Охотничьего леса. Некоторое время она идет
+параллельно лесу, но постепенно начинает уходить в его глубь. Снова
+вогруг тебя возносятся ввысь вековые деревья. А ветер поет в их ветвях
+свои свистящие песенки.
 ~
 0 0 mountain
 D2
@@ -1378,8 +1401,8 @@ The trail into the forest.
 Z 0 10009
 S
 #10009
-The Trail in the Forest.~
-You have entered the forest near the town of Hartland. The
+@eng The trail in the forest@rus В лесу~
+@eng You have entered the forest near the town of Hartland. The
 path is outlined with bright yellow flowers and little purple
 plants. There is a little shack to the east that doesn't look to
 welcoming. The forest isn't very thick and you can see all around
@@ -1387,6 +1410,11 @@ you. There are wild ferns and other plants that you have never
 seen before. You see one plant you recconize, but it is from a
 book. This forest seems to be quite a sanctuary. The trail goes
 north to the outskirts of Hartland or up back to the mountain. 
+@rus Лес. Тот самый лес, что окружает Хартленд -- один из важнейших городов
+Вестландии. Он совсем не похож на тот, что ты миновал ранее. Веселый
+орнамент из разноцветных цветов и яркой зеленой травы покрывает землю.
+Солнце свободно проникает через зеленый свод, образованный листвой
+и создает повсюду веселые блики, образующие причудливый рисунок.
 ~
 0 0 forest
 D0
@@ -1401,8 +1429,8 @@ The trail up the mountain.
 Z 0 10008
 S
 #10010
-The Out-Skirts of Hartland.~
-You are on the out skirts of a little town called Hartland.
+@eng The out-skirts of Hartland@rus На окраине Хартленда~
+@eng You are on the out skirts of a little town called Hartland.
 The road you walk on is dry and dust covered. Its seems like it
 hasn't rained for quite sometime. Up ahead you can see the town
 begining to form. The town has many people in the streets
@@ -1411,6 +1439,13 @@ here. All the villagers are gathering around a speaker who is
 giving a speech about fire. The city looks like its full of happy
 people, all with wonderous jobs and families. The exits are north
 and south.
+@rus Лес кончился и показались первые дома. Дорога значительно расширилась,
+чувствуется, что ей часто пользуются. Здесь, на окраине, живут не самые
+богатые люди города, но все дома выглядят чисто и аккуратно. А садики
+вокруг них наполняют воздух благоуханием цветов. Сразу видно, что
+живущие здесь люди любят свой город и заботятся о нем. Чуть поодаль,
+по направлению к центру города, виднеется группа людей, внимательно
+слушающих мужчину в белом.
 ~
 0 0 forest
 D0
@@ -1425,8 +1460,8 @@ Back to the woods.
 Z 0 10009
 S
 #10011
-The Town of Hartland.~
-You have walked into the town of Hartand. Everyone here
+@eng The town of Hartland@rus В центре города~
+@eng You have walked into the town of Hartand. Everyone here
 seems to be happy and joyful. They all seem to be listening to a
 speech about fire which doesn't interest you. You see how the
 speaker talks and catches his audiance and it shows that he has
@@ -1434,6 +1469,11 @@ some great deal of authority. You wonder why such a small man
 could have so much power over all these people. There are little
 homes all around but seem un-welcoming. You can go north to the
 paths in the fields or south back to the woods.
+@rus В центре этого города располагается небольшая площадь, окруженная со
+всех сторон ухоженными домами. На ней стоит какая-то непонятного вида
+статуя, возле которой и собрались те люди, которых ты заметил еще
+раньше. Теперь уже слышно о чем идеть речь. Как и следовало ожидать,
+о различных нуждах и проблемах жителей городка, совсем тебя не волнующих.
 ~
 0 0 city
 D0
@@ -1448,14 +1488,19 @@ Back to the out-skirts of Hartland.
 Z 0 10010
 S
 #10012
-The Fields of Hartland.~
-You have entered the fields outside of the town and are on
+@eng The fields of Hartland@rus Поля Хартленда~
+@eng You have entered the fields outside of the town and are on
 your way to South Haven. Near South Haven is where the Narrows
 are. In order to get to South Haven you must cross the swamps on
 the way. The air here is suprizingly still and peaceful. There
 are few trees around and even fewer animals. The trail leads
 south to a swamp that steals your breath away with stench, and
 north back to the town you came from.
+@rus За городом расстилаются поистине бесконечные сельскохозяйственные угодия.
+До самого горизонта поля, поля, поля... Сколько же времени занимает
+их обработка? Наверное, много. Даже при поверхностном осмотре видно
+как много труда было сюда вложено. Ни одного сорняка не мешает росту
+культурных растений. 
 ~
 0 0 field
 D0
@@ -1470,8 +1515,8 @@ Back to the town.
 Z 0 10011
 S
 #10013
-The Path to the Swamps.~
-As you walk along the trail the forest begins to get thicker
+@eng The Path to the Swamps.@rus Дорожка в сторону болот~
+@eng As you walk along the trail the forest begins to get thicker
 and thicker. The trail becomes more and more hidden and a mist
 begins to grow. The trees begin to bunch together and the sun has
 been blocked from view. The air is still and musty and it is
@@ -1480,6 +1525,14 @@ hear the cries of the heart hounds as they are comming out to
 hunt. Just when you thought things could get no worse, you spot a
 quad of assassins out in the trail before you. Better be careful.
 The trail leads north and back to the city, south.
+@rus А вот среди зеленеющих полей появилась почти незаметная тропка, 
+убегающая в сторону от основной дороги. Наверное, именно о ней 
+рассказали тебе в городе. Похоже, что здесь очень давно никто
+не ходил. Если это действительно та тропа, о которой тебе сказали,
+то она должна привести тебя к полузаброшенной деревне, известной
+под названием Южное Пристанище. Но, как предупредили местные 
+жителитропа идет через болота, а там последнее время появились
+какие-то странные твари.
 ~
 0 0 forest
 D0
@@ -1494,13 +1547,18 @@ Back to the fields.
 Z 0 10012
 S
 #10014
-Closer to the Swamps.~
-You are getting closer to the swamp and the mist is
+@eng Closer to the swamps@rus На окраине болота~
+@eng You are getting closer to the swamp and the mist is
 thickening. The quad assassins didn't want to attack you so I
 guess you're safe. The trees are beginning to look old and dry
 and the ground begins to get muddy. The cries of the heart hounds
 are much closer now and you begin to panic. The trail continues
 to the east and south.
+@rus Ага. А вои и болота, о которых тебе рассказывали. И правда, пренеприятное
+местечко. После зеленеющих под ясным солнышком полей, совсем не хочется
+вступать в царство сырости и мрака. Да еще из тумана доносятся завывания
+каких-то весьма недружелюбных тварей. Похоже, это гончие сердца вышли
+на охоту.
 ~
 0 0 forest
 D1
@@ -1515,8 +1573,8 @@ Back to the trail.
 Z 0 10013
 S
 #10015
-The Path at the swamp.~
-You have arrived at the swamp at the same time as the heart
+@eng The path at the swamp@rus Тропа через топи~
+@eng You have arrived at the swamp at the same time as the heart
 hounds. The heart hound will not enter the swamp so it must be
 your only choice..or fight. The swamp looks univiting and you
 don't know what sort of creatures live under the murky waters.
@@ -1524,6 +1582,14 @@ There is a small island in the center of the swamp that seems
 deserted. The waters in the swamp are shallow enough to pass by
 foot. You better make diside fast, fight or get to the island.
 The exits are back east or west.
+@rus Мрачно и холодно. Солнечные лучи совсем не проникают сюда, а от земли
+поднимается неприятное зловоние. Под ногами хлюпает вода, и надо быть
+очень осторожным, чтобы случайно не сойти с тропинки и не попасть в 
+трясину. Окружающие деревья покрыты чем-то типа слизи и обвиты странными
+лианами. Они медленно умирают, не видя солнечного света, задушенные
+болотными испарениями.
+  Вдруг совсем рядом с тобой раздался вой гончих сердца. Они тебя заметили,
+и тебе ничего не остается кроме как побыстрее сматываться отсюда.
 ~
 0 0 forest
 D1
@@ -1538,13 +1604,21 @@ Back through the woods.
 Z 0 10014
 S
 #10016
-Over the Swamp Waters.~
-As you are crossing the waters you notice that the hounds don't follow
+@eng Over the swamp waters@rus В воде~
+@eng As you are crossing the waters you notice that the hounds don't follow
 you.  The water is refreashing and cool.  The island is just up ahead and
 you can't wait to get there.  You notice the water starts to move and then
 you see them.  Snakes.  Little yellow deadly snakes.  All over the place. 
 You start to run as fast as you can towards the island.  You could go east
 to the island or back west.  
+@rus Спасаясь от преследования гончих сердца, ты нырнул в небольшую протоку, 
+намереваясь пересечь ее и выбраться на тот берег. Но вот незадача...
+В воде оказалось полно маленьких желтых змеек, которые дружно поплыли
+в твою сторону. Надо поскорее делать от сюда ноги, но... Назад вернуться
+нельзя, а до того берега ты доплыть не успеешь, эти мелкие желтые 
+змейки оказались очень проворными созданиями. Придется выбираться
+на островок, посреди протоки -- на настоящий момент это единственная
+возможность остаться в живых.
 ~
 0 0 swim
 D1
@@ -1586,7 +1660,7 @@ Back on the waters.
 Z 0 10016
 S
 #10018
-@eng Over The Waters.@rus Снова в воде~
+@eng Over the waters@rus В воде~
 @eng As you set out again through the swamp, you notice that the sun is coming
 out and the mist is clearing.  The snakes haven't bothered you yet and the
 hounds have returned back to their home, in the boundary.  The swamp gets
@@ -2277,44 +2351,44 @@ O 0 10025 0 10001	* a sign (Path by a lake)
 M 0 10007 1 10003 1	* a young lady (Welcome to Westlands)
 M 0 10008 1 10003 1	* a fisherman (Welcome to Westlands)
 M 0 10009 1 10003 1	* a little boy (Welcome to Westlands)
-M 0 10005 4 10005 4	* a quad assassin (A Turn in the Road.)
-M 0 10014 2 10006 1	* a boundary warden (A Path to the Mountains.)
+M 0 10005 4 10005 4	* a quad assassin (A turn in the road)
+M 0 10014 2 10006 1	* a boundary warden (A path to the mountains)
 E 0 10012 0 1		*	a boundary warden's ring: on the left finger
 E 0 10012 0 2		*	a boundary warden's ring: on the right finger
 E 0 10013 0 7		*	boundary warden leggins: on the legs
-M 0 10010 1 10008 1	* a heart hound (The Edge of Upper Ven.)
+M 0 10010 1 10008 1	* a heart hound (The edge of upper ven)
 E 0 10015 0 3		*	a heart hound collar: around the neck (1)
-M 0 10010 1 10008 1	* a heart hound (The Edge of Upper Ven.)
+M 0 10010 1 10008 1	* a heart hound (The edge of upper ven)
 E 0 10015 0 3		*	a heart hound collar: around the neck (1)
-M 0 10001 2 10009 1	* a long-tailed gar (The Trail in the Forest.)
-M 0 10002 2 10009 1	* a long-tailed gar (The Trail in the Forest.)
-M 0 10004 4 10009 1	* a blood fly (The Trail in the Forest.)
-M 0 10004 4 10009 1	* a blood fly (The Trail in the Forest.)
-M 0 10015 1 10010 1	* a thief (The Out-Skirts of Hartland.)
-M 0 10011 1 10011 1	* a speaker (The Town of Hartland.)
-M 0 10012 2 10011 1	* a happy villager (The Town of Hartland.)
-M 0 10012 2 10011 1	* a happy villager (The Town of Hartland.)
-M 0 10013 1 10011 1	* a healer (The Town of Hartland.)
-M 0 10003 1 10012 1	* a long-tailed gar (The Fields of Hartland.)
-M 0 10004 4 10012 1	* a blood fly (The Fields of Hartland.)
-M 0 10016 2 10012 1	* a beggar (The Fields of Hartland.)
-M 0 10016 2 10012 1	* a beggar (The Fields of Hartland.)
+M 0 10001 2 10009 1	* a long-tailed gar (The trail in the forest)
+M 0 10002 2 10009 1	* a long-tailed gar (The trail in the forest)
+M 0 10004 4 10009 1	* a blood fly (The trail in the forest)
+M 0 10004 4 10009 1	* a blood fly (The trail in the forest)
+M 0 10015 1 10010 1	* a thief (The out-skirts of Hartland)
+M 0 10011 1 10011 1	* a speaker (The town of Hartland)
+M 0 10012 2 10011 1	* a happy villager (The town of Hartland)
+M 0 10012 2 10011 1	* a happy villager (The town of Hartland)
+M 0 10013 1 10011 1	* a healer (The town of Hartland)
+M 0 10003 1 10012 1	* a long-tailed gar (The fields of Hartland)
+M 0 10004 4 10012 1	* a blood fly (The fields of Hartland)
+M 0 10016 2 10012 1	* a beggar (The fields of Hartland)
+M 0 10016 2 10012 1	* a beggar (The fields of Hartland)
 M 0 10032 1 10013 1	* a short-tailed gar (The Path to the Swamps.)
 M 0 10004 1 10013 1	* a blood fly (The Path to the Swamps.)
-M 0 10032 1 10014 1	* a short-tailed gar (Closer to the Swamps.)
-M 0 10032 1 10014 1	* a short-tailed gar (Closer to the Swamps.)
-M 0 10004 1 10014 1	* a blood fly (Closer to the Swamps.)
-M 0 10004 1 10014 1	* a blood fly (Closer to the Swamps.)
-M 0 10001 2 10015 1	* a long-tailed gar (The Path at the swamp.)
-M 0 10002 2 10015 1	* a long-tailed gar (The Path at the swamp.)
-M 0 10004 4 10015 1	* a blood fly (The Path at the swamp.)
-M 0 10010 4 10015 1	* a heart hound (The Path at the swamp.)
-M 0 10010 4 10015 1	* a heart hound (The Path at the swamp.)
+M 0 10032 1 10014 1	* a short-tailed gar (Closer to the swamps)
+M 0 10032 1 10014 1	* a short-tailed gar (Closer to the swamps)
+M 0 10004 1 10014 1	* a blood fly (Closer to the swamps)
+M 0 10004 1 10014 1	* a blood fly (Closer to the swamps)
+M 0 10001 2 10015 1	* a long-tailed gar (The path at the swamp)
+M 0 10002 2 10015 1	* a long-tailed gar (The path at the swamp)
+M 0 10004 4 10015 1	* a blood fly (The path at the swamp)
+M 0 10010 4 10015 1	* a heart hound (The path at the swamp)
+M 0 10010 4 10015 1	* a heart hound (The path at the swamp)
 E 0 10015 0 3		*	a heart hound collar: around the neck (1)
-M 0 10026 4 10016 1	* a yellow snake (Over the Swamp Waters.)
-M 0 10026 4 10016 1	* a yellow snake (Over the Swamp Waters.)
-M 0 10026 4 10016 1	* a yellow snake (Over the Swamp Waters.)
-M 0 10026 4 10016 1	* a yellow snake (Over the Swamp Waters.)
+M 0 10026 4 10016 1	* a yellow snake (Over the swamp waters)
+M 0 10026 4 10016 1	* a yellow snake (Over the swamp waters)
+M 0 10026 4 10016 1	* a yellow snake (Over the swamp waters)
+M 0 10026 4 10016 1	* a yellow snake (Over the swamp waters)
 M 0 10014 2 10020 1	* a boundary warden (The trail through the woods)
 E 0 10001 0 16		*	a boundary warden's mace: wielded
 E 0 10006 0 9		*	boundary warden gloves: on the hands

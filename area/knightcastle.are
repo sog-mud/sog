@@ -128,11 +128,35 @@ treasure ORe AO
 0 0 0 0 0
 0 1 100000 P
 G none
+#95203
+round table~
+@eng Round Table@rus Круглый Стол~
+@eng Heavy round table stands here, waiting for Knights to feast at.@rus Круглый Стол приглашает присоединиться к угощению.~
+wood~
+furniture 0 0
+ABCD FHJKPQ DGN CDFI CDFI
+0 15000 0 P
+G male
+#95209
+holy lance~
+{WHoly blessed Lance{x~
+{WVery beautiful Lance{x glowing here.~
+silver~
+weapon ABIKRTa AN
+lance 12 12 charge DEI
+75 200 1000000 P
+A
+24 -50
+A
+19 20
+A
+18 20
+G none
 #0
 
 #ROOMS
 #95200
-The Enterance of Castle~
+@eng The Enterance of Castle@rus Вход в замок~
 You are standing in the entrance of the Knights' castle. You can see the
 greater hall lying towards north. South leaves the entrance into the castle.
 You see two long swords against the wall here, one is on the east wall and
@@ -236,6 +260,7 @@ S
 #RESETS
 M 0 95201 1 95200 1	* the protector (The Enterance of Castle)
 E 0 95200 0 17		*	a golden key: held in the hands
+O 0 95203 0 95201	* Round Table (Inside the Great Hall)
 M 0 95200 1 95204 1	* A healer (The Altar)
 O 0 95201 0 95204	* the altar (The Altar)
 P 0 95202 1 95201 1	* the altar: Large medal of honor
@@ -248,6 +273,10 @@ S
 #SHOPS
 95202 0 0 0 0 0 100 100 0 23
 0
+
+#OLIMITS
+O 95209 1	* {WHoly blessed Lance{x
+S
 
 #MOBPROGS
 #95200
