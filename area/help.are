@@ -822,7 +822,7 @@ is handy for talking to invisible or switched immortal players.
 Синтаксис: {ctell  {x<персонаж> <сообщение>
 Синтаксис: {creply {x<сообщение>
 
-Все эти команды предназначены для общения с джругими персонажами. GTELL посылает
+Все эти команды предназначены для общения с другими персонажами. GTELL посылает
 сообщение всем членам твоей группы, где бы они ни были, даже если они спят,
 оглушены или умирают. ; является синонимом для GTELL.
 
@@ -3656,11 +3656,16 @@ are a race of half human and half goat race. They are neutral. They
 inherently dextrerious. But not strengthful. Due the desterity they can
 steal from someone, camuflage themselves and ambush opponents very easly.
 ~
--1 GITHYANKI~
-Githyanki's are more intelligient then humanbeings. But they are constitutive
-as human race. But they are evil. And they can be either fighter, caster or
-fighter/caster races.They are good warriors . But casters use only offensive 
-spells.
+-1 GITH GITHYANKI~
+The Gith are a race descended from humans.  Once long ago, they were a
+peaceful civilization of humans that were captured by mind flayers and
+tormented for centuries.  Eventually, a savior named Gith led them to
+freedom, yet their bodies had been flayed by the mental powers of the
+illithids. The Gith found themselves, quicker, luckier and smarter than
+average humans, yet they had lost much of their faith, wisdom and stamina.
+They had yellowed skin and were very long of limb.  Sunken eyes peered
+from yellowed sockets. All githyanki has evil tendencies.
+They are good warriors, but casters use only offensive spells.
 ~
 -1 ROCKSEERS~
 Rockseers are a race of renegade elves who lives underworld in rock caves.
@@ -3718,12 +3723,18 @@ strike. At high levels, Ninjas learn the art of assassination,
 killing their foe instantly and silently.
 ~
 -1 ANTI-PALADINS ANTIPALADINS~
-- ANTI-PALADIN -
+@eng - ANTI-PALADIN -
 The opposite of Paladins, these knights have chosen evil as their course.
 Such fervor and zeal gives them deadly spells to compliment their already
 superb fighting skills.  They seek only personal gain and to cause suffering
 and pain to good.  Anti-paladins must stay evil in order to cast their 
 spells. Those who forsake evilness are frowned upon.
+@rus - АНТИ_ПАЛАДИН-
+Анти-паладины избрали путь разрушения, а не созидания. Они служат
+Великому Злу, и уничтожают Добро. Они обладают неплохими навыками боя,
+но при этом еще пользуются черной магией. Их деяния, если не
+направлены на уничтожение чего-то доброго, служат исключительно личным
+целям и персональному росту.
 ~
 -1 PALADINS~
 These warriors have chosen the path of virtue and chivalry above all others.
@@ -4014,8 +4025,11 @@ everyone else. Don't just be a human paladin....be Arthur, fights for the
 benefits of the virtue and honour. It creates a better atmosphere and
 a better playing environment. 
 
+If you're new to role-playing, or aren't quite sure what it is, don't
+panic. There are numerous on-line manuals to role-playing in general,
+so please read on.
 
-see also: PLAYERKILLING
+see also: PLAYERKILLING RPGUIDE RPTIPS-1 RPMISC
 ~
 0 PLAYERKILL PLAYERKILLING PK PKING~
 @eng Player killing in Shades of Gray is totally permitted. In fact, it is
@@ -5763,6 +5777,8 @@ Thanks to ...
 * Mail to {Csog@@any.ru{x for bug reports and suggestions.
 * Players who use russian codepages, see '{CHELP RUSSIAN{x'.
 * Check out our homepage at {Chttp://iclub.nsu.ru/mud/{x.
+* Our server supports Mud Client Compression Protocol, see '{CHELP MCCP{x'.
+  If you are able to use it, please do it.
 ~
 92 IMOTD~
 @eng Welcome Immortal!
@@ -7002,6 +7018,8 @@ ENABLE command cannot be disabled.
 Ордена Хранителей Порядка. Воры и нинзи всегда должны находиться под присталь-
 ным постоянным вниманием, дабы свести к минимуму вред, который они могут при-
 чинить. То же самое относится к так называемым chaotic'ам.
+ 
+Посетить нашу домашнюю страничку можно по адресу {Chttp://sog.narod.ru{x
 ~
 0 AREAS COMMANDS~
 @eng Syntax: {careas{x
@@ -7439,9 +7457,9 @@ But this skill workd only in forest
 Warders practioce this skill.
 @rus Синтаксис: {cblend{x
  
-BLEND - улучшенный камуфляж, замаскировавшиеся таким образом, почти не могут
-могут быть обнаружены. Но, к сожалению, это умение можно применать только
-в десу. Это умение практикует клан Защитников природы.
+BLEND - улучшенный камуфляж, замаскировавшиеся таким образом, почти не
+могут быть обнаружены. Но, к сожалению, это умение можно применять только
+в лесу. Это умение практикует клан Защитников природы.
 ~
 0 'OLC CLASS POSES'~
 Syntax: {cpose add{x <number>
@@ -7569,8 +7587,8 @@ of god/goddess you worship. There are following religions available:
 {WCariel      {gAny                 {xheal            ---
                                 cure critical   ---
 ~
--1 LIRAIL~
-{WLirail, Goddess of Order and Protection.{x
+-2 LIRAIL~
+@eng {WLirail, Goddess of Order and Protection.{x
 
   Lirail is lawful good. She promotes Order, Chivalry, Law and Protection.
 All persons following this religion always tell the truth, keep theirs word,
@@ -7579,9 +7597,23 @@ mercy and protect innocent without hesitaton.
 
         To you: cure critical
         To enemy: holy word
+@rus {WЛираиль, Богиня Порядка и Защиты.{x
+ 
+Последователем этой богини может стать лишь законопослушное (lawful)
+существо с доброй душой (good aligned). Ее кредо - Порядок, Закон,
+Рыцарство и Защита. Последователи этой богини никогда не лгут и всегда
+держат слово, помогают тем, кто в этом нуждается, и противостоят
+беспорядку и хаосу. Они бесстрашно сражаются против любого Зла, даже
+если оно сильнее. И без малейших колебаний встают на защиту невинных.
+Лираиль является покровительницей {Yордена Рыцарей{x({YKnights{x).
+Ее врагом является {RМоарит, Богиня Кровопролития.{x
+ 
+Тебе: 'cure critical'
+Твоему оппоненту: 'holy word'
+Ограничения: lawful, good aligned
 ~
--1 AMTINOR~
-{WAmtinor, God of Woodlands.{x
+-2 AMTINOR~
+@eng {CAmtinor, God of Woodlands.{x
 
   Amtinor is neutral good. He watches over all people who live in the
 forest and love the woodlands. He is worshiped by rangers. Persons who
@@ -7591,9 +7623,21 @@ of Animal, Plant and Good.
          To you: cure critical
          To you: cure poison
          To you: cure disease
+@rus {CАмтинор, Бог Лесов.{x
+ 
+Амтинор истинно доброе божество. Поэтому его последователями могут
+быть только те, кто добр (good aligned), и кто ставит себя вне социума
+(neutral ethos). Амтинор покровитель лесов и вообще всего живого. Он
+любимое божество рейнджеров, но не только они могут поклоняться ему.
+Амтинор не приемлет зла, и его последователи всегда готовы встать на
+защиту невинных и выйти супротив Зла и его порождений.
+ 
+Тебе: 'cure critical', 'cure poison', 'cure disease'
+Твоему оппоненту: нет
+Ограничения: true good
 ~
--1 AULIN~
-{WAulin, Goddess of Knowledges.{x
+-2 AULIN~
+@eng {WAulin, Goddess of Knowledges.{x
 
   Aulin is true neutral. As goddess of knowledges she is worshiped by
 any wizards. Chaos, Laws, Good and Evil are uninteresting for goddess
@@ -7601,9 +7645,21 @@ Aulin. She protects any person who devotes themself only to their art.
 
           To you: cure critical
           To enemy: bluefire
+@rus {WАулин, Богиня Знаний.{x
+ 
+Аулин истинно нейтральна. Ей безразлично противостояние добра и зла, и
+она вне отношений закона и хаоса. Поэтому только нейтралы (true
+neutral) могут стать ее последователями. Она - Богиня Знаний, и 
+поэтому часто ее последователями становятся Маги, стремящиеся к новым
+знаниям и открытиям. И вообще все те, кто ценит силу истинного знания
+и стремится к собственному совершенству.
+ 
+Тебе: 'cure critical'
+Твоему оппоненту: 'bluefire' 
+Ограничения: true neutral
 ~
--1 DAKKORN~
-{WDakkorn, God of Justice.{x
+-2 DAKKORN~
+@eng {WDakkorn, God of Justice.{x
 
    Dakkorn promotes Justice, Valor, Chivalry, and Honor. Law and War are
 the main content of this cult. All people who follow this religion live
@@ -7611,25 +7667,63 @@ for justice triumph and are always ready to die for that.
 
           To you: cure critical
           To enemy: scream
+@rus {WДаккорн, Бог Справедливости.{x
+ 
+Кредо этого бога - это Справедливость, Честь, Рыцарство, Доблесть.
+Закон и Война - вот две составляющие его культа. Как правило, его
+последователями становятся паладины. А также все те, кто живет во имя
+триумфа справедливости и готовы ради этого умереть. Наряду с Лираиль
+покровительствует {YРыцарям{x({YKnights{x), но стоит немного в стороне от их
+борьбы со Злом.
+ 
+Тебе: 'cure critical'
+Твоему оппоненту: 'scream'
+Ограничения: нет
 ~
--1 MOARITH~
-{WMoarith, Goddess of Slaughter.{x
+-2 MOARITH~
+@eng {RMoarith, Goddess of Slaughter.{x
 
   Moarith is chaotic evil. She delights in panic and slaughter. Chaos, Evil
 and War are contented this evil cult.
 
           To enemy: demonfire
+@rus {RМоарит, Богиня Кровопролития.{x
+ 
+Моарит не может смотреть спокойно на тихую счастливую жизнь обитателей
+мира. Ее культ кровав и жесток, ведь недаром она богиня кровопролития.
+Ее радует угнетение невинных, ее питает страх. Она зла и непостоянна.
+Ее последователями становятся те, кто, подобно ей, имеют злую душу
+(evil aligned) и ненавидят любые законы (chaotic). Хаос, Зло, Насилие,
+Война -вот составляющие этого культа. Убийства, совершаемые
+последователями Моарит, особо кровавы и жестоки. Она полная
+противоположность Лираиль, и между ними (и их последователями) всегда
+существует противостояние.
+ 
+Тебе: нет
+Твоему оппоненту: 'demonfire'
+Ограничения: chaotic, evil aligned
 ~
--1 ILISSA~
-{WIlissa, Goddess of Tyranny.{x
+-2 ILISSA~
+@eng {RIlissa, Goddess of Tyranny.{x
 
   Ilissa is lawful evil. She is the goddess of war, conflict, and destruction.
 She sends her followers to commit evil.
 
           To enemy: acid blast                                                  
+@rus {RИлисса, Богиня Тирании и Деспотизма.{x
+ 
+Богиня войны, разрушений и конфликтов. Она (ее последователи)
+устанавливает свои злые, жестокие законы и ото всех требует их 
+исполнения. И не дай бог нарушить их, наказание будет - смерть. Ее
+последователи подобно ей злы (evil aligned) и, естественно,
+законопослушны (lawful). Ее врагом является {WУльварк{x.
+ 
+Тебе: нет
+Твоему оппоненту: 'acid blast'
+Ограничения: lawful, evil aligned
 ~
--1 HATHIR~
-{WHathir, God of Death.{x
+-2 HATHIR~
+@eng {WHathir, God of Death.{x
 
   Hathir is neutral evil. He is the personification of pure evil of this
 world. And Hathir is the patron of whose who seek the greatest evil for
@@ -7637,18 +7731,36 @@ their own enjoyment or gain. The main contents of this cult are Death and
 Evil. Hathir is worshiped by necromancers, vampires, and anti-paladins.
 
           To enemy: fireball
+@rus {WХатир, Бог Смерти.{x
+ 
+Ему безразличны закон и хаос, и все их отношения. Он - воплощение истинного Зла, его персонификация. И служат ему 
+только те, кто зол (true evil). Он покровитель тех, кто служит злу для своего собственного удовольствия или прибыли. Зло и 
+Смерть - вот то, что составляет основу культа. Его последователи - это анти-паладины, некроманты и вампиры.
+ 
+Тебе: нет 
+Твоему оппоненту: 'fireball' 
+Ограничения: true evil 
 ~
--1 THRORGRIM~
-{WThrorgrim, God of Retribution.{x
+-2 THRORGRIM~
+@eng {WThrorgrim, God of Retribution.{x
 
   Throrgrim is lawful neutral. He exacts revenge and just punishment on
 those who transgress the law.
 
           To you: cure critical
           To enemy: faerie fire
+@rus {WТроргрим, Бог Возмездия{x
+ 
+Его кредо - Закон, Закон и еще раз Закон. Нарушивший законm должен понести наказание, и оно должно быть неотвратимо. 
+Его последователи безразличны к противостоянию добра и зла (neutral aligned) и верны закону (lawful). Трогрим ненавидит 
+Хаос, все его проявления. Он - покровитель {Cордена стражей Порядка{x, {CEnforcers{x.
+ 
+Тебе: 'cure critical' 
+Твоему оппоненту: 'faerie fire' 
+Ограничения: true lawful 
 ~
--1 IRIAN~
-{WIrian, Goddess of True Chaos.{x
+-2 IRIAN~
+@eng {WIrian, Goddess of True Chaos.{x
 
   Irian is chaotic neutral. Irian is the chaos and chaos is Irian.
 Her adepts follow only their whims and value own liberny, but never
@@ -7657,26 +7769,53 @@ stribe to protect others' freedom.
           To you: cure critical
           To you: bless
           To you: haste, shield, stone skin
+@rus {WИриан, Богиня Истинного Хаоса.{x
+ 
+Составляющими культа богини Истинного Хаоса являются Хаос и еще раз Хаос. Ее адепты служат лишь себе и своим личным 
+целям. Они не приемлют никаких ограничений собственной свободы. Они не пошевелят пальцем для защиты чужой свободы, 
+но ради своей умрут. Ириан - покровительница ордена "Несущих Хаос" (Chaos).
+ 
+Тебе: 'cure critical', 'bless', 'haste', 'stone skin', 'shield' 
+Твоему оппоненту: нет 
+Ограничения: true chaotic 
 ~
--1 STIVROSH~
-{WStivrosh, God of War.{x
+-2 STIVROSH~
+@eng {RStivrosh, God of War.{x
 
   Main Stivrosh' passion is combat. He likes wars and lives for them.
 Strong and dexterous, Stivrosh is the first in martial arts.
 
           To you: berserk
           To you: warcry
+@rus {RСтиврош, Бог Войны.{x
+ 
+В отличии от Илиссы или Моарит Стиврош - бог войны, ведущийся ради самой войны, ради наслаждения клинком в руке и 
+звуками битвы. Нет никого лучше владеющего воинским искусством, и его последователями становятся те, кто желает 
+достичь небывалых вершин в этом. Стиврош - покровитель братства воинов "{RЯростных{x-{Rв{x-{RБитве{x" ({RBattleragers{x).
+ 
+Тебе: 'warcry', 'berserk' 
+Твоему оппоненту: нет 
+Ограничения: нет 
 ~
--1 GWINNERAI~
-{WGwinnerai, Goddess of Honor.{x
+-2 GWINNERAI~
+@eng {WGwinnerai, Goddess of Honor.{x
 
   As Dakkorn, Gwinnerai promotes Justice, Valor, Chivalry, and Honor. These
 two cults resemble each other very much.
 
           To you: additional attack
+@rus {WГвиннерай, Богиня Чести.{x
+ 
+Составляющими ее культа являются Честь и Рыцарство. Культ Гвиннерай очень похож на культ Лираиль, с той разницей, 
+что Гвиннерай поклоняются в основном воины. Похож он и на культ Стивроша, только Гвиннерай отрицает несправедливую 
+войну. Но все ведь зависит от личных убеждений...
+ 
+Тебе: дополнительный удар 
+Твоему оппоненту: нет 
+Ограничения: нет 
 ~
--1 TRUSSK~
-{WTrussk, God of Desease and Suffering.{x
+-2 TRUSSK~
+@eng {WTrussk, God of Desease and Suffering.{x
 
   As ussually Trussk followers are evil and never good. Desease, Death,
 Suffenring and Decay are contented this cult.
@@ -7687,9 +7826,18 @@ Suffenring and Decay are contented this cult.
           To enemy: energy drain
           To enemy: slow
           To enemy: weaken
+@rus {WТрасск, Бог Страданий и Болезней.{x
+ 
+Последователями Трасска никогда не станут добрые существа. Ему служат те, кому причинение страданий доставляет 
+удовольствие. Нести болезни, смерть и страдания - вот цели служителей культа. И Трасск это всячески поощряет и 
+приветствует. Ненавидит добрых богов, таких как Лираиль, Амтинор или Ульварк. Его культ близок культу Хатира.
+ 
+Тебе: нет 
+Твоему оппоненту: 'poison', 'blindness', 'curse', 'energy drain', 'slow', 'weaken' 
+Ограничения: evil, neutral aligned 
 ~
--1 LESSA~
-{WLessa, Goddess of Magic.{x
+-2 LESSA~
+@eng {WLessa, Goddess of Magic.{x
 
   As goddess of magic she is worshiped by any wizards. Lessa is a favourite
 goddess for most of them. She promotes Magic and one more time Magic in the
@@ -7698,18 +7846,37 @@ world.
           To you: cure critical
           To you: bless
           To you: mana restore
+@rus {WЛесса, Богиня Магии.{x
+ 
+Как богиня магии, Лесса покровительствует ордену магов, Шалафи. Среди ее последователей множество некромантов, ведьм 
+и других магов и не встретишь воина. Основой ее культа является служение Магии. Ради магического искусства 
+последователи Лессы пойдут на любые жертвы. С презрением относится к любым воинам и отрицает грубую физическую 
+силу.
+ 
+Тебе: 'cure critical', 'bless', 'mana restore' 
+Твоему оппоненту: нет 
+Ограничения: нет 
 ~
--1 VILIRNA~
-{WVilirna, Goddess of Life.{x
+-2 VILIRNA~
+@eng {WVilirna, Goddess of Life.{x
 
   She is protector of the life in this world. People like she for her sage.
 Vilirna is worshiped by clerics.
 
           To you: dragon strength
           To enemy: dragon breath
+@rus {WВилирна, Богиня Жизни.{x
+ 
+Она защитница жизни в этом Мире. Поэтому ей чаще всего поклоняются добрые священники. Ее очень любят смертные за 
+мудрость и спокойный нрав. Она не приемлет любые войны и насилие. Своим последователям дарует силу древних мудрых 
+драконов. Подобно Кариэль противостоит Хатиру.
+ 
+Тебе: 'dragon strength' 
+Твоему оппоненту: 'dragon breath' 
+Ограничения: нет 
 ~
--1 CALAMIR~
-{WCalamir, God of Delusion.{x
+-2 CALAMIR~
+@eng {WCalamir, God of Delusion.{x
 
   Calamir is unusial god. Often he protects chaotic characters, but
 it is not rule. He creates different illusion and likes to deceive
@@ -7717,18 +7884,35 @@ mortals. You can hear his whisper in a forest, or on the sea surf.
 
           To you: cure critical
           To enemy: flamstrike
+@rus {WКаламир, Бог Иллюзий.{x
+ 
+Каламир как правило покровительствует хаотичным существам, но это не есть правило. Он мастер создавать различные 
+иллюзии, и любит обманывать смертных. Часто его голос можно услышать в шумящей кроне деревьев в лесу или в шуме 
+прибоя. В пантеоне богов стоит особняком, не вмешиваясь в отношения остальных богов.
+ 
+Тебе: 'cure critical' 
+Твоему оппоненту: 'flamestrike' 
+Ограничения: нет 
 ~
--1 CARIEL~
-{WCariel, Goddess of Revival.{x
+-2 CARIEL~
+@eng {WCariel, Goddess of Revival.{x
 
   Cariel is the exact opposite of Hathir. She loves life and hates death.
 She promotes Life, Health, Happiness and Luck.
 
           To you: cure critical
           To you: heal
+@rus {WКариэль, Богиня Возрождения.{x
+Богиня Возрождения является апологетом Бога Смерти. Их противостояние вечно и идет с переменным успехом. Когда Хатир 
+сеет смерть, Кариэль дарует жизнь. Она любит жизнь, любит видеть счастье на лицах смертных. Своим последователям 
+дарует крепкое здоровье и удачу. Культ близок культу Вилирны.
+ 
+Тебе: 'cure critical', 'heal' 
+Твоему оппоненту: нет 
+Ограничения: нет 
 ~
--1 ULWARK~
-{WUlwark, God of Dreams and Ambitions.{x
+-2 ULWARK~
+@eng {WUlwark, God of Dreams and Ambitions.{x
 
   Ulwark is chaotic good. He is fickle, and he hates any rules or laws.
 Ulwark promotes Good, Chaos, and Personality. He makes you dreams when
@@ -7736,6 +7920,16 @@ you sleep.
 
           To you: cure critical
           To enemy: ray of truth
+@rus {WУльварк, Бог Мечты и Амбиций.{x
+ 
+Ульварк он всегда сам по себе. Он добрый и не приемлет законов, такими
+же должны быть и его последователи (good aligned, chaotic). Добро, 
+Хаос и Индивидуальность - вот составляющие культа Улварка. Когда ты
+спишь он посылает тебе сны. Его противоположность - {RИлисса, Богиня Тирании{x.
+
+Тебе: 'cure critical'
+Твоему оппоненту: 'ray of truth'
+Ограничения: chaotic, good aligned
 ~
 -1 BLUR~
 @eng Syntax: {ccast 'blur'{x [self]
@@ -8202,8 +8396,798 @@ Syntax: {cponcho{x corpse
 Syntax:{c finger{x <name>
  
 This command shows info about char: last login time, race, class,
-level, clan, religion, alignment. But all info exept last login time
-is available only for immortals or members of the same clan.
+level, clan, religion, alignment. But all this information except
+the login time is available only to the immortals and to the
+members of the same clan as you.
+~
+-1 SERRE~
+Серру предстояло пережить множество совершенно различных
+перевоплощений, прежде чем достичь Нирваны. Он бывал всем, чем только
+можно побывать. Теперь он бессмертен и считает все свое бытие лишь
+одним из инструментов для существования нашего мира и процветания его.
+Он старается ухаживать за внешним видом мира, как садовник за садом.
+Если вы заметите что-то неправильное или некрасивое в нашем мире,
+то можете сообщить ему и он постарается это исправить. Серр очень хочет,
+чтобы все жители нашего мира чувствовали себя комфортно и на своем месте.
+ 
+Замечание:
+У многих жителей нашего мира часто бывают проблемы с произношением или
+правильным написанием имени Серра на каком-то языке. Во избежание таких
+проблем напишем, как это правильно делается.
+английское и французское написания -     Serre
+Русское написание:
+Именительный падеж                 -     Серр
+Родительный падеж                  -     Серра
+Дательный падеж                    -     Серру
+Винительный падеж                  -     Серра
+Творительный падеж                 -     Серром
+Предложный падеж                   -   о Серре
+ 
+~
+-2 FISHING CASTOUT REELIN~
+@eng Syntax : {ccastout{x
+Syntax : {creelin{x
+ 
+To fish, you must be near water, in a room specified as such. Also, you
+must be holding a fishing pole. If you move from your original place of
+fishing, you automatically pack up your gear and move on.
+Anyone can fish, all you need is the pole and patience.
+@rus Синтаксис: {ccastout{x
+Синтаксис: {creelin{x
+ 
+Успешная рыбалка возможна в тех местах, где рядом находится водоем,
+в котором водится рыба. Это может быть центр океана, берег речки
+или даже мост. Чтобы закинуть удочку вам следует взять ее в руку и
+воспользоваться командой '{ccastout{x'. Когда почувствуете, что
+рыба клюет - воспользуйтесь командой '{creelin{x'. При попытке уйти
+с места рыбалки вы автоматически соберете весь рыбацкий инвентарь и
+отправитесь. Каждый может рыбачить, все что от вас требуется - найти
+удочку и немного терпения.
+~
+0 'HUNTERS TROPHY'~
+@eng Syntax: {cmaketrophy corpse{x
+ 
+You can make a trophy from a corpse of the your fallen enemy.
+@rus Синтаксис: {cmaketrophy corpse{x
+ 
+С помощью этого умения можно сделать трофей из трупа поверженного врага.
+~
+0 RPGUIDE RPGUIDE-1~
+"A simple guide to On-line Role-Playing", reprinted from
+http://fly.ccs.yorku.ca/mush/rp.html. Original page design by
+Rhodna Peters, rhonda@@fly.ccs.yorku.ca.
+
+Character Development
+
+It's Not What You Know, It's Who You Are
+
+Most people would agree that the first step to enjoyable role-playing is
+characterization. After all, real people speak, think and act based on their
+personalities, upbringing and experiences, as well as what's going on at the
+moment.
+
+There are many different ways of developing a character. Some people start
+with a few key personality traits like shy, greedy, curious, whatever, and
+then build a background that would have led to the character developing
+those traits.
+
+Some people go in the opposite direction - figure out what the family and
+early environment of the character was, and then decide how that would have
+affected him/her.
+
+Other people might model themselves after a character from a book or movie,
+or someone they know in real life. For instance, you might admire Princess
+Leia's fiestiness and commitment to a cause. Or you might think it would be
+fun to play someone like Rick from Casablanca, someone who acts uncaring and
+uninvolved, but is really fooling himself.
+
+If you want to go that route, it's probably best not to base your character
+completely on the model - you should have a different name, appearance,
+maybe a few other traits, etc.
+
+There are other ways to develop a character, and don't be alarmed or
+discouraged if it takes you a while. Role-playing can be a lot like real
+life in that your character's experiences would affect his/her personality
+and attitudes. The most interesting characters are those that grow and
+change through their role-played experiences, both those planned out in
+detail, and those that might just "happen".
+
+Next: RPGUIDE-2
+
+See also: RPGUIDE-2 through RPGUIDE-10.
+~
+0 RPGUIDE-2~
+"A simple guide to On-line Role-Playing", reprinted from
+http://fly.ccs.yorku.ca/mush/rp.html. Original page design by
+Rhodna Peters, rhonda@@fly.ccs.yorku.ca.
+ 
+A Role to Play
+ 
+There Are No Small Parts, Only Small Actors
+ 
+Now that you've figured out what your character's like, you probably want to
+start thinking of who he/she could be in the context of the particular MUSH
+you're playing. If the MUSH is set modern-day, you probably have a good idea
+of what people would be doing.
+ 
+But what if the MUSH isn't set modern-day? There are MUSHes set in the past
+or in a possible future, and others are set in alternate worlds, often based
+on a book or movie. Reading the book or watching the movie can be a help,
+but usually isn't required as the MUSH should have news files or objects set
+up to provide new players with basic information on the theme.
+
+Whatever the setting of the MUSH, it's probably a good idea to spend some
+time on it, talking to people, reading the information files and looking
+around, before you decide what sort of role you'd like to take on the MUSH.
+The MUSH may limit certain character types, or may require an application
+process for certain characters. You may find that there are already a lot of
+characters playing the role you were interested in, in which case it might
+be more fun to try something else. And you'll likely get ideas that you
+hadn't thought of by spending time on the MUSH.
+
+If you're familiar with the setting of a theme MUSH, remember that a lot of
+people are going to log on hoping to fill the most famous roles of that
+theme. On the Pern MU*s, the majority of people want to log on and play a
+rider character. On the vampire MU*s, a lot of people want to play vampires
+or other supernatural characters. On most theme MUSHes, it is not possible,
+or even desirable, for everyone to play those roles.
+
+Also, those roles may come with out-of-character responsibilities such as
+coding, administration, recruiting, or a combination of other
+responsibilities outside of RPing that you might not be interested in.
+People are often interested in the "special" character types because they
+think they will have more RP opportunities, and that simply isn't true.
+
+Everyone has a life, off the MUSH and on, and that means role-playing
+opportunities.
+
+Because so few people are interested in the less "glamourous" roles, you can
+often make more of an impact and stand out in people's minds if you do take
+one of those roles on and play it well. Often, demonstrated role-playing on
+a "regular" character is a requirement to be considered for one of the other
+roles.
+
+Again, think about your real life and the people you know. You probably
+aren't movie stars and business magnates. But you still like your friends,
+still find them interesting, you're still interesting yourself. On a MUSH,
+the people who are the "stars" are those who role-play well, and are active
+and involved on the MUSH, regardless of what their titles are.
+
+Next: RPGUIDE-3
+
+See also: RPGUIDE-1 through RPGUIDE-10.
+~
+0 RPGUIDE-3~
+"A simple guide to On-line Role-Playing", reprinted from
+http://fly.ccs.yorku.ca/mush/rp.html. Original page design by
+Rhodna Peters, rhonda@@fly.ccs.yorku.ca.
+
+Conversation
+
+Say What?
+
+Okay, so you know who your character is and what he/she might like to do. Is
+that RP? Not exactly, it's more the base you need for RP. Role-playing is
+speaking, acting and reacting the way your character would, rather than as
+you would.
+
+Speech with other characters is an important way you'll be conveying your
+character's attitudes and personality. An older character with a thoughtful
+personality is going to speak differently than an impusive child would.
+
+Study the way people speak - some use accents, some have characteristic
+phrases they employ a lot ("you know", "right", whatever), some speak in a
+brief, clipped manner, others tend to ramble from topic to topic, etc. Most
+of that can be incorporated into your character's speech.
+
+You can use CAPS or _underlining_ to show emphasis on a certain word. You
+c'n use contractions an' dropped letters to show an accent. You can use a
+vocabulary appropriate to your character's age, station and background. (A
+child would say "Mummy, can I go outside today?" rather than, "Mother,
+please realize that it would be most advantageous for me to experience the
+greater world outside our humble home this afternoon.")
+
+Next: RPGUIDE-4
+
+See also: RPGUIDE-1 through RPGUIDE-10.
+~
+0 RPGUIDE-4~
+"A simple guide to On-line Role-Playing", reprinted from
+http://fly.ccs.yorku.ca/mush/rp.html. Original page design by
+Rhodna Peters, rhonda@@fly.ccs.yorku.ca.
+
+Gesturing
+
+The Way You Do The Things You Do
+
+Posing is a very useful way of expressing how your character does what
+he/she does, and helps people to visualize your character and your
+personality. Look at the people around you, how much of what you know about
+them have you picked up through non-verbal cues? How often do you meet
+someone and know they're having a bad day because their bodies are a little
+stooped, etc?
+
+Most people write poses in a "narrator" style, rather than "in character".
+You're writing from the point of view of anyone who's looking at you. It's
+also a good idea to be as descriptive and evocative as you can be in poses.
+
+It's much more interesting to read:
+
+Susan's hands are clenched into fists, and her brow is furrowed. Her tone is
+clipped as she says, "Are ye done yet, then?"
+
+than it is to read:
+
+Susan looks really angry and she says, "Are ye done yet, then?"
+
+Posing can also be used to get involved in on-going RP when there's some
+in-character reason why you wouldn't, say if your character is really shy or
+is over-hearing another conversation. If people see you active and posing,
+they're more likely to include you in the situation, or start another
+conversation with you.
+
+John sits in a quiet corner, concentrating on his cup, though his eyes
+occasionally slip above the rim of the mug to glance around at the other
+people in the room.
+
+Steve looks distracted for a moment as the couple in the corner raise their
+voices in argument, then blinks and turns back to his book.
+
+Next: RPGUIDE-5
+
+See also: RPGUIDE-1 through RPGUIDE-10.
+~
+0 RPGUIDE-5~
+"A simple guide to On-line Role-Playing", reprinted from
+http://fly.ccs.yorku.ca/mush/rp.html. Original page design by
+Rhodna Peters, rhonda@@fly.ccs.yorku.ca.
+
+Other People
+
+No Man is an Island
+
+Role-playing is more than just speaking, acting and reacting as your
+character would - it's interaction with other people. The best role-players
+aren't those who strut alone on a stage, but those who react to others' RP,
+and create an environment where others feel welcome and encouraged to RP in
+return.
+
+If you want to have a private session of role-playing involving only you and
+a select group of other characters, it's a good idea to do it in a private
+or semi-private area. If you're in a public area, you should not only expect
+other people to respond to what you do, but you should probably try to
+encourage them joining in.
+
+Remember how you act in real life. If you have something private to discuss
+with someone and you don't want others jumping in, you probably don't bring
+it up at a party. On the other hand, "joining in" doesn't always mean
+interacting directly with people, but sometimes reacting to them indirectly.
+For instance, if you're at a party where people are arguing, you don't
+necessarily have to start talking to them, and you probably wouldn't unless
+you knew them, but you might turn to your friends and make a comment or
+something like that.
+
+Next: RPGUIDE-6
+
+See also: RPGUIDE-1 through RPGUIDE-10.
+~
+0 RPGUIDE-6~
+"A simple guide to On-line Role-Playing", reprinted from
+http://fly.ccs.yorku.ca/mush/rp.html. Original page design by
+Rhodna Peters, rhonda@@fly.ccs.yorku.ca.
+
+Non-Player Characters
+
+The Extras
+
+On the majority of RP MU*s, actively played characters make up only a small
+proportion of the in-character population, something like the major
+characters in a novel. But what about all those other people, the extras and
+the background characters, where are they?
+
+Often the extras are assumed to exist. Your character probably has childhood
+friends, relatives, workmates, etc. There's no need for you to develop a
+character concept where everyone in your character's life has died or
+disappeared. You can refer to your mother even if she's not a character. You
+can talk about what your character did when you weren't able to log on last
+week, maybe he/she went to visit an elderly uncle or something.
+
+Sometimes the extras are implied in a room/object description. Or the extras
+ARE an object, such as a waitress. These extras can be used in RP, by anyone
+in the room. There's no reason you couldn't talk to the waitress in a
+restaurant, and also no reason you couldn't pose her talking back.
+
+Another MUSH device is the puppet. Puppets can be animals or even objects,
+but they can also be people. Few people use them this way, but this can be a
+great way to role-play. Your puppet could be your sibling, or your servant,
+or your employer, one of the "extras" who have a role in your character's life.
+
+Next: RPGUIDE-7
+
+See also: RPGUIDE-1 through RPGUIDE-10.
+~
+0 RPGUIDE-7~
+"A simple guide to On-line Role-Playing", reprinted from
+http://fly.ccs.yorku.ca/mush/rp.html. Original page design by
+Rhodna Peters, rhonda@@fly.ccs.yorku.ca.
+
+Props
+
+Use a Little Object-ivity
+
+Players new to MUSH often feel that they need the things in their
+characters' lives to exist on the MUSH to use them.  After all, how do you
+sit down in a chair if there isn't one there?  For that reason, players
+often rush to learn the @@create and other commands associated with making
+objects.
+
+Creating every object in your character's life, or even the most important
+ones isn't necessary, and is often actively discouraged on many MUSHes. This
+is because each thing that actively exists on the MUSH takes up space in its
+database, which should be kept as lean as possible for a number of reasons.
+
+So, how should you approach objects, and role-playing them? When you read a
+description of a room, anything mentioned in the description exists in the
+room as far as your character is concerned.  If the description mentions
+tables and chairs, all you need to do to sit down is have your character
+pose that.  If the description mentions a blooming rose bush, you don't
+need to create a rose to give to your lady friend, just RP it.
+
+In a similar way, you can role-play your character's possessions. What sort
+of things would your character likely carry around? If it would enhance your
+role-playing, assume you have it on your person. Or you can ask other
+characters in the room if they have a handkerchief/cigarette/etc. Or ask one
+of the NPCs that are probably around to bring you one.
+
+The only things you need to remember when role-playing with these props are
+the setting, and what's logical. For example, a character in a medieval
+setting wouldn't know what a gun is, let alone be carrying one. And a
+character in space is unlikely to have a medieval sword unless he's a
+collector or something. And even if the setting would allow for a canon or
+whatever, you couldn't fit one in your pocket and just suddenly spring it
+onto the role-playing.
+
+Another general rule-of-thumb you can follow is to only @@create objects when
+they have a specific purpose, like a deck of cards that will "shuffle" and
+deal random hands, or a guard dog coded to automatically react to intruders.
+Beginning MUSH players might wonder how they can learn to code if they're
+actively discouraged from creating superfluous objects. One suggestion is to
+experiment with objects on a non-themed MUSH, they are often more open to
+such experimentation than role-playing MUSHes.
+
+Next: RPGUIDE-8
+
+See also: RPGUIDE-1 through RPGUIDE-10.
+~
+0 RPGUIDE-8~
+"A simple guide to On-line Role-Playing", reprinted from
+http://fly.ccs.yorku.ca/mush/rp.html. Original page design by
+Rhodna Peters, rhonda@@fly.ccs.yorku.ca.
+
+Life Events
+
+The Soap Opera Syndrome
+
+By now you probably have some ideas of who your character could be, and how
+you could RP to express that character. But WHAT do you RP? Put on its
+simplest level, your RP your character's life. But there are different
+approaches to that virtual "life".
+
+There are a lot of different events that can occur in any life, regardless
+of the setting. Romantic unions, children, death, injuries, social events,
+occupational successes or failures, travel, etc. Those type of major events
+are an important part of life, and can affect who we are, but they aren't
+all that happens. Alot of life is day-to-day living - doing your job,
+talking with friends, eating, etc.
+
+One common complaint of long-time RP MUSH players is that too many players
+focus on the major events - their characters move from one crisis to
+another. Or that people over-play those major events. You probably wouldn't
+tell everyone you meet right away that you lost your job or your brother
+just died, you'd talk about your feelings with good friends or family. And
+eventually the traumatic effects of those events would abate.
+
+The other common complaint about people who play their characters this way
+is that it seems designed to focus attention solely on that character,
+hogging the spotlight, if you will.
+
+That doesn't mean you need to be afraid to have something major or negative
+happen to your character, those events ARE part of life. But it's generally
+a good idea to balance out those events with positive ones, or day-to-day
+role-playing.
+
+Next: RPGUIDE-9
+
+See also: RPGUIDE-1 through RPGUIDE-10.
+~
+0 RPGUIDE-9~
+"A simple guide to On-line Role-Playing", reprinted from
+http://fly.ccs.yorku.ca/mush/rp.html. Original page design by
+Rhodna Peters, rhonda@@fly.ccs.yorku.ca.
+
+Avoiding the Overdone
+
+Is There An Echo In Here?
+
+One thing to remember when you join a role-playing MUSH is that it's likely
+been in existence for a while before you join. Even if it's relatively new,
+the theme might have been used on other games that its players have been on.
+
+This is something worth bearing in mind as you create your character and
+develop him/her through role-playing, because what might seem like dynamic
+and creative RP and characterization to you might be repetitive and
+unrealistic to others on the MUSH, which may influence how they react to you.
+
+There seem to be certain character concepts or RP'd activities that people
+gravitate to in a certain theme, and this can get a little tired to the more
+experienced players, and even work against you. Because these overdone ideas
+vary from theme to theme, you might want to check your character/RP idea
+with an experienced player, or ask if there are areas you might want to
+steer away from.
+
+For instance, the Pern MUSHes have seen a great many characters developed as
+wanderers, when with Thread falling, very few Pernese would venture out
+alone. New players often develop these types of characters to have a reason
+for traveling the MUSH exploring while they're new. It's possible to have a
+character who traveled with Traders or another group which had a reason to
+move around a lot. Or you could spend your first few sessions on the MUSH
+exploring and then decide who your character is once you find a place you
+want to settle down at.
+
+Another common concept Pern MUSHes see is the character who always dreamed
+of being a dragon rider. Often this person gravitates to the nearest Weyr
+and tells everyone he/she meets of this "secret" desire. New players likely
+do this because the _player_ truly does wish the character to be a rider,
+and think this is a way to start. But again, it goes against the theme in
+many ways, and is something that experienced players begin to find tiresome.
+Dragons are assigned to players partially through an out-of-character
+application process, so the new player is advised to read the news or talk
+to staff rather than play a character that way. In fact, the character could
+even be afraid of or dislike dragons, and that won't affect the possibility
+of getting one.
+
+Some vampire themed MUSHes find themselves inundated with characters who are ex
+police/FBI/Marines/etc, characters who have a background with weapons and
+violence. This may be because the new player knows that a certain amount of
+conflict is part of the MUSH's theme, but it is unrealistic to have a great
+number of characters of this type, and such a character shouldn't be
+necessary to survive.
+
+New players should take advantage of the news, and any other material that
+the MUSH has provided on the theme and developing a character if they wish
+to avoid those sorts of problems. Most MUSHes have a system of staff or
+administration set up precisely to help new players, including helping them
+with character development. And most experienced role-players will not think
+you are "boring" to play a "normal" character who would really exist in that
+world, they're more likely to be impressed with your character and your RP.
+
+Next: RPGUIDE-10
+
+See also: RPGUIDE-1 through RPGUIDE-10.
+~
+0 RPGUIDE-10~
+"A simple guide to On-line Role-Playing", reprinted from
+http://fly.ccs.yorku.ca/mush/rp.html. Original page design by
+Rhodna Peters, rhonda@@fly.ccs.yorku.ca.
+
+Easing In
+
+Where Is Everybody?
+
+One of the most intimidating things for a new player is finding other people
+for your character to RP with, and then getting to know them. Take a few
+moments to look at the +help for utilities to help you find people. Most
+MUSHes will have something like +who/+where/+ppl, a command that will list
+where other characters currently are. Such commands are out-of-character,
+but facilitate role-playing.
+
+Most MUSHes provide in-character methods of travel like a wagon, boat or
+subway, but when you're new, it's okay to use @@tel a bit. Before you set off
+to join a group, check that they're in a public location. A place named
+Restaurant, Park or Common Room is likely a public place, whereas Joe's
+Room, Bedroom or Hideaway is likely a private place. If you're in doubt,
+page one of the people in the location and ask if it's okay for you to join
+them.
+
+Once you arrive somewhere, spend a few moments watching everyone else to
+ease into the role-playing atmosphere. Then you can gradually ease into
+conversation.  Often people will welcome you or include you in some other
+way, but if they don't, don't be afraid to join in a conversation. And
+don't let one negative experience scare you away. Sometimes a group of
+people will be too intent on their own role-playing to respond. Sometimes
+most of them may have stepped away from the keyboard. Whatever it is,
+sometimes the fault lies with the other group, and not with you, so just
+try again with a different group in a different area.
+
+Please remember that the main purpose of a role-playing MUSH is
+role-playing. The other players won't be understanding of major intrusions
+into that atmosphere. Most people are understanding of honest new player
+mistakes, but people who log on with obnoxiously out-of-character names,
+descriptions and actions are not appreciated. When in a public area, you
+should be speaking and behaving in-character. The odd out-of-character
+question or comment is quite common, but the majority of what goes on should
+be in-character. There are social and non-themed MUSHes for those more
+interested in chatting with others as themselves, rather than as a character.
+
+See also: RPGUIDE-1 through RPGUIDE-10.
+~
+0 RPMISC RPNONOS~
+This is a help-file which contains miscellaneous information about
+role-playing. Some things to avoid, some terms etc. Please read on.
+
+Terms used in Role-Playing
+
+RP- Short for "role-playing"
+
+RoLL-Playing - Term for those who are obsessed with Stats, eq, killing etc.
+A bad RoLE-player. Someone who does not role-play. Synonym for "Power-Muder"
+
+OOC - Stands for "Out of Character", a statement or action which is NOT
+Role-playing. The opposite of role-playing.
+
+Things to avoid when role-playing
+
+-Mentioning and obsessing about things which are not really part of the
+game, such as "stats", "eq", "levels" and "xp", is bad practice. If someone
+mentions these to you, either kindly inform them it's horrid role-playing,
+or mess with their minds and reply "Pardon me good sir? Xp? I know not of
+what thou are speaking? Is it some horrid beast that has appeared out of
+town?! My Word! Run! Run for your lives! Xp is coming!" etc.
+
+-Blatantly telling other people who your other characters are. This is of
+course sometimes necessary, when dealing with family lines and children, but
+this is the only exception. NEVER tell someone you're X char in hopes of
+getting a break, NEVER tell someone you're X character in OOC chatter, if
+they ask, tell them it's not really good role-playing to ask. NEVER tell
+other people you know that X person also plays character Y and Z. Why is
+this a taboo? Think on it, letting everyone know you play this, that and
+them, it will affect how they react to you in a way which has no basis in
+role-playing.
+
+-Letting your own personality dominate your character. Try to forget you're
+you when playing, pretend you ARE your character. That's the core of good
+role-playing.
+
+-Leave the real world out of it. Don't mention things like Computers, lag,
+internet, world-wide-web etc. While playing the game.
+
+See also: RPGUIDE RP RPTIPS-1
+~
+0 RPTIPS-1~
+Role-Playing Tips from Nathaniel@@Armaggedon.
+
+NOTE: Use these tips to help your role-playing technique, but remember
+they are ONLY tips and suggestions we find appropriate.
+
+Well, here's how I see it:
+
+         First and foremost, always speak consistently. If your playing a
+giant who is a bit slow, there shouldn't be any brilliant flashes of
+cunning, unless of course the thought is one of those "so simple I should
+have thought of it" ideas (a la Scarecrow in The Wizard of Oz). A man who is
+cool and confident shouldn't start fearing about his life just because the
+player behind the screen is shaking (and even then you can always have the
+"pretender" character which is fine as well, but the acting would have to be
+consistent). Sudden changes should only occur after huge transformations or
+traumatic experiences. A templar who turns to citizen after fleeing his city
+state might change his attitude toward life, but even though, he should keep
+the old habits with him.
+
+         Don't let your real life personality conflict with your
+role-playing. If your character plans to assasinate someone, and in the end
+you are reluctant to kill the character because in real life you feel bad
+that he'll lose his character, then either role-play a reason why your
+character doesn't murder him in the end, or get on with it. Just because you
+might be a great guy in real life, that doens't mean you can't play a
+maniacal mul.
+
+         Treat unto items as you would treat unto them. In real life, how
+would you react if you found an elven dagger lying on the street? Would you
+walk by it ignoring it, or would it catch your eye? If someone hands you an
+obsidian shortshord he found on a dead man, would you just toss it on the
+floor because you already have a better weapon? Perhaps in some cases you
+might ignore these things, but in most cases you would react with interest.
+Just because all elvish daggers are the same doesn't mean you can't stop to
+look at one. Perhaps when travelling in a group you stop to pick it up, and
+examine it, wondering aloud where it came from and the history behind it,
+maybe even admiring its workmanship. In the case of the obsidian shortsword,
+perhaps you would consider the shortsword bad luck if you were superstituous
+since it came from a dead man, or perhaps you'd claim it housed his soul (if
+you believe in some type of similar afterlife). Maybe you'd keep the sword,
+hoping to find a friend of the deceased and give it to him.
+
+     All these things take role-playing, since no one wants to logically
+carry extra weapon weight on them when it is going to weigh them down. The
+key is sacrifice. Wear fancy clothes if you think your character will look
+nice in them, even if they don't offer a lot of protection. If your rich and
+arrogant, you'd likely flaunt it off through silver wrist bands and jeweled
+necklaces. (Yet, logically you might want to put a duskworn neck guard or
+wrist bands, but hey! This is role-playing, and power gaming isn't
+role-playing, although in some cases it is, which I'll explain later.)
+
+NOTE: More role-playing tips are always welcomed, leave suggestions on
+our website forum.
+
+See also: RPTIPS-2 RPTIPS-3 RPTIPS-4
+~
+0 RPTIPS-2~
+Role-Playing Tips from Nathaniel@@Armaggedon.
+
+NOTE: Use these tips to help your role-playing technique, but remember
+they are ONLY tips and suggestions we find appropriate.
+
+         Death is not just a generated beep. If your in a city, playing a
+child, and three thugs start butchering an old man to bits, you'd likely
+scream and run to the guards, probably crying and sobbing at this point. If
+you are playing a character not used to death, then perhaps you should gag
+or throw up if the death is gruesome enough. Looking at a corpse in a room
+that's been there for a few days isn't a favored passtime, (unless your
+crazy) and the stench should be role-played, the horrible appearance should
+be enough to inspire some semblance of fear, and if you knew the person
+well, you might want to show some signs of emotion instead of paging him on
+the internet. Burial rites and ceremonial cremations are just two simple
+examples of what you could do with the dead. Each elemental sect probably
+has its own idea of how to take care of the dead, and if your a cleric, you
+might want to choose how you'd perform those services.
+
+         The EMOTE command is the color in vision. Without it, things can
+get pretty dull unless your using the pre-made actions properly and aren't
+over doing it. (Like smiling every five seconds) Make up custom actions that
+your character might do a lot. If he carries a fan, then make him fan
+himself a lot, if he carries a staff, make him lean on it. If your angry,
+portray yourself throwing your weapon to the ground, and fall to your knees
+pounding the floor. All of this adds so much depth to visualization, and is
+an essential part of role-playing.
+
+         Not all characters are human. A mantis wouldn't likely be impressed
+by a pile of gold, unless he could turn it into a weapon or armor. A
+halfling might see a dead gith as the next meal. When you play a strange
+character race, make sure you have a good idea of how that race performs in
+its natural environment. A good way of doing this is playing a human at
+first and observing veteran players play the other races.
+
+NOTE: More role-playing tips are always welcomed, leave suggestions on
+our website forum.
+
+See also: RPTIPS-1 RPTIPS-3 RPTIPS-4
+~
+0 RPTIPS-3~
+Role-Playing Tips from Nathaniel@@Armaggedon.
+
+NOTE: Use these tips to help your role-playing technique, but remember
+they are ONLY tips and suggestions we find appropriate.
+
+         Make mistakes. You might be some sort of God while watching over
+your player and deciding what he will do next, but your character might not
+have a complete understanding of the entire situation. A stupid half-giant
+might see the illusion of his friend attacking him, and when it vanishes, he
+seeks out his friend to kill. Of course, you, the player, might know it was
+an illusion at some point, but it is unlike that your giant would. If your a
+templar, and your in a primal rage, you might scream out some death cry in
+tatlum even though your superiors may have ordered you never to speak it in
+public. (After all, it IS the language you use amongst your fellow buddies
+and its probably instinctive, especially in a fit of anger to curse rather
+creatively in it.) Of course, when I say make mistakes, it doesn't mean go
+out and buy some poison roots and swallow them believing they are healthy
+food. All making minor mistakes does is make your character more believable.
+You get the impression he isn't some fat kid with a serious acne problem and
+glasses behind a computer screen, but more of the impression he is a rugged
+elven ranger, who's a little unfamiliar with city customs, but in the
+desert, he's a godsend.
+
+         Be sentimental. An old dagger you used once might be your prized
+possession, even though it does a mere one point of damage. A cloth that a
+gorgeous gypsy woman might be your security blanket, or maybe a lucky coin.
+These items are useless in power gaming terms, but they are amazingly fun
+when role-playing. You may even use them to your advantage. By stealing a
+noble's favored pair of boots worn by his family for the past three
+generations, you might get a rather high price, or even force him into doing
+you a specific service.
+
+         Power is deadly. Get too wrapped up in "power gaming", and you will
+lose sight of the concept of role-playing, ignoring the minor details while
+you junk all your "useless" items. This also means not taking advantage of
+bugs in the game, "Look! If you use a deck of cards against a death vulture
+he dies instantly!". However, there are some cases where a different form of
+power gaming can be a useful tool in role-playing. A crazy defiler bent on
+ruling Zalanthas might do everything he can to increase his spell power and
+gain all the money he can. Of course, he'll have his weaknesses, and will
+still abide by all the role-playing requirements, just that his greed for
+power will probably one day be his downfall. Maybe the defiler is afraid of
+Gith, because when he was a child, they caught him outside the city and beat
+him up severely. Everytime he sees Gith he runs like mad, (well, he is
+insane, isn't he?) and might react rather irrationally. Of course, if this
+player was "power gaming" in the badest of senses, he would not even bother
+making up a storyline for his character, and would sit in the desert casting
+as many spells as possible and trying to find every bug available to get
+stronger.
+
+         Watch where your going. If your in the city, look north and south,
+look all around you, and see who's standing where. You might want to
+role-play this by squinting in a given direction, but it is a very helpful
+role-playing tool. In the desert, you can see landscapes across cliffsides,
+or look at a pack of Mantises from a distance, admiring them and their pack
+mentality. Perhaps you'd spend the day watching the sands swirl outside, or
+just go for a walk to the forest, admiring all the lovely plant life.
+Scenery is very extensive in Armageddon MUD, so take advantage of it. Make
+comments on things that aren't really "there", like nice trees or flowers.
+It'll make the environment so much more entertaining.
+
+Well, I'm sure I could think up a ton more, like weather role-playing and
+more and religious beliefs, but I think this is rather sufficient for now.
+
+NOTE: More role-playing tips are always welcomed, leave suggestions on
+our website forum.
+
+See also: RPTIPS-1 RPTIPS-2 RPTIPS-4
+~
+0 RPTIPS-4~
+Role-Playing Tips from Rhudar@@Armaggedon.
+
+NOTE: Use these tips to help your role-playing technique, but remember
+they are ONLY tips and suggestions we find appropriate.
+
+How I View Correct/Good Roleplaying
+
+         Don't mention the skills you have or the class you play. Example, I
+play an assassin but I claim that in fact I am just an entertainer with some
+skills to help out the tribal rangers. with the skills I don't say that 'oo,
+i backstabbed somebody' I say 'ahh, that was a very successful ambush!! Good
+job '
+
+         Use alot of emotes that are made up on the fly. I think that using
+the exact same emotes via tintin or aliases in the game are generic unless
+its something there character always does. Watching thrain always scratch
+his chin and smile broadly got annoying because thats all he did when he got
+amused.
+
+         When it comes to combat I think that sparring is ok, hunting
+animals and tribal enemies is ok (I sing at them .. it's a big tribal joke)
+.. just going out and killing for the hell of it is kind of bad roleplaying
+.. usually kinnar and I hunt when we need food (I despise paying for food..)
+
+         Typing in a skill 50 times to get it to go up is bad. I am guilty
+of this but sometimes it's hard not to when you know your at the edge of
+gaining a new skill with that next % point. The removal of the %'s and
+putting in the vague terms has helped me a great deal with this. (I think
+the most I ever did was type in hide 5 times waiting for it to go up ..)
+
+NOTE: More role-playing tips are always welcomed, leave suggestions on
+our website forum.
+
+See also: RPTIPS-1 RPTIPS-2 RPTIPS-3
+~
+0 'BLACK MARKET'~
+   Black market is a service which allows to sale and buy limited
+   objects (only). Hunters can sell and can't buy, others can buy
+   but can't sell. Selling objects may be fellow types: light, map,
+   food, scroll, wand, boat, staff, potion, armor, treasure, pill,
+   weapon, clothing, drink, warp stone, pole, gem, fish, jewelry
+   and container. Container must be empty. 
+
+   You'll receive notification when black market bagrain will 
+   be striked (if you are buyer). In case when your bet exceeded
+   you'll also receive notification. If you are offline at that
+   moment notification will be via note.
+
+   All money transactions are made through the bank account.
+
+Syntax: {cbm list{x
+   This command show you all you can buy at black market.
+
+Syntax: {cbm bet{x <newbet> <number.item | number.>
+   This command allows you to make a bet on any object. Objects
+   name can be with index, e.g. 2.bracers. Also you can make a bet
+   on object using its ordinal number. E.g. {cbm bet <newbet> 8.{x
+   makes a bet on eight object.
+
+Syntax: {cbm propose/sell{x <object>
+   This command allows you to propose your object for sale. This
+   service is available only for hunters.
+
+Syntax: {cbm accept{x <number.item | number.>
+   This service is available only for hunters. This commands allow
+   to complete sale. (You can use object's name or ordinal number.)
 ~
 -1 $~
 

@@ -4643,7 +4643,7 @@ The chill mist of the lake tingles damply against your skin.  Through the
 white haze, you can make out a path heading east and west between the large
 boulders littering the lake floor.  The lake floor continues north.
 ~
-0 A field
+0 AF field
 D0
 The lake floor continues north.
 ~
@@ -4665,7 +4665,7 @@ Misty Lake~
 The path along the lake floor leads west and south here.  To the south, the
 path opens onto a wide misty pool.
 ~
-0 A field
+0 AF field
 D2
 A misty pool is visible to the south.
 ~

@@ -733,6 +733,9 @@ unknown~
 armor 0 AM
 20 21 20 20 0
 60 10 100 P
+S 'mute fishing' 55 A
+S 'expert fishing' 30 A
+S 'fishing lore' 80 A
 A
 13 50
 A

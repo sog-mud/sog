@@ -2332,7 +2332,7 @@ A little dart lies on the ground~
 unknown~
 weapon F AN
 arrow 1 1 slash K
-1 0 0 P
+1 0 500 P
 A
 1 -2
 A
@@ -16195,6 +16195,7 @@ G 0 16060 0		*	Hand of shocking grasp
 G 0 16061 0		*	Potion of detection
 G 0 16093 0		*	merchant's gold
 M 0 16074 1 16357 1	* Zae'tres (The Cracked Sword)
+G 0 16020 0		*	A small deadly dart
 G 0 16047 0		*	A drow sword
 G 0 16048 0		*	A drow dagger
 G 0 16049 0		*	A drow mace

@@ -906,6 +906,14 @@ Form 3 -ыми~
 End
 
 #RULE
+Name тронулся~
+BaseLen 6
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
 Name говорит~
 BaseLen 5
 Form 1 -ит~
@@ -1196,6 +1204,14 @@ BaseLen 4
 Form 1 -ая~
 Form 2 -ое~
 Form 3 -ые~
+End
+
+#RULE
+Name собрал~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
 End
 
 #RULE

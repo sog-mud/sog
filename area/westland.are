@@ -1204,7 +1204,7 @@ the south.
 какой-то шорох -- еще одна белка что-то потащила в свою кладовку. Мир
 и спокойствие царят вокруг.
 ~
-0 0 forest
+0 F forest
 D0
 @eng To the thick forest.
 @rus Вековой лес.
@@ -1678,7 +1678,7 @@ again.  The exits are to the east, and to the west.
 Мда, однако, этот островок особо дружелюбным не назовешь. Ни одного дерева,
 никакой другой растительности -- один голый песок и ничего больше.
 ~
-0 0 hills
+0 F hills
 D1
 @eng Over the waters heading south.
 @rus Протока.
@@ -1706,7 +1706,7 @@ are east the shore or back west to the island.
 Хотя при такой близости к Границе, неизвестно что может поджидать
 тебя за ближайшим деревом.
 ~
-0 0 swim
+0 F swim
 D1
 @eng On The Shore.
 @rus Сухая тропа.
@@ -1734,7 +1734,7 @@ to the swamps (west) or continue east.
 а солнышко как на зло скрылось за облаками и пока не хочет выходить из-за
 них.
 ~
-0 0 forest
+0 F forest
 D1
 @eng Trail through the woods.
 @rus Тропинка под деревьями.

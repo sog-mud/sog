@@ -2906,7 +2906,7 @@ while a rock face borders it to the west and south.
 покидать этого места. Совсем недалеко от тебя из воды торчит огромная
 скала, загораживая всю южную оконечность озера.
 ~
-0 0 noswim
+0 F noswim
 D0
 @eng The Deep end of the Lake
 @rus В глубине озера.
@@ -2932,7 +2932,7 @@ movement and to the north is more of the shore.
 дальше и дальше в глубину озера. На юге вода с шумом разбивается на тысячи
 мельчайших капелек о большой валун, непонятно откуда тут взявшийся. 
 ~
-0 0 swim
+0 F swim
 D0
 The Lake Shore
 ~
@@ -3262,7 +3262,7 @@ shore and the Forest lies east..
 к самой воде. Старые ивы тихонько перешептываются, склонив к самой воде свои
 ветви.
 ~
-0 0 swim
+0 F swim
 D0
 The Lake Shore
 ~
@@ -3325,7 +3325,7 @@ movement to the east is more of the shore and the Forest is north.
 к самой воде. Старые ивы тихонько перешептываются, склонив к самой воде свои
 ветви.
 ~
-0 0 swim
+0 F swim
 D0
 An Enchanted Forest
 ~
@@ -3355,7 +3355,7 @@ to the north and east.
 к самой воде. Старые ивы тихонько перешептываются, склонив к самой воде свои
 ветви.
 ~
-0 0 swim
+0 F swim
 D0
 An Enchanted Forest
 ~

@@ -2308,7 +2308,7 @@ to the east. The shore itself extends north away from the water's edge.
 надвигается на тебя. Ты замечаешь маленький алтарь, сияющий голубым
 светом. Побережье появляется на севере и ведет подальше от моря
 ~
-0 0 field
+0 E field
 D0
 ~
 ~
@@ -2334,7 +2334,7 @@ There are small inscriptions on the rock at the base of the portal.
 запад и восток.
  
 ~
-0 0 field
+0 E field
 E
 portal blue~
 You see a swirling blue portal of light. You think you can see glimpses of
@@ -2373,7 +2373,7 @@ radiates blue light. The shore extends north away from the water's edge.
 побережье. На западе ты видишь алтарь, излучающий синий свет.
 Побережье продолжается на север.
 ~
-0 0 field
+0 E field
 D0
 ~
 ~

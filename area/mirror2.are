@@ -2146,17 +2146,19 @@ leather~
 armor M AG
 7 7 7 0 0
 25 5 0 P
+S 'improved fishing' 60 A
 A
 2 -1
 G none
 #19089
-gaff~
-a gaff~
-A fisherman's gaff lies here.~
+gaff острога~
+@eng a gaff@rus ~~острога~~~
+@eng A fisherman's gaff lies here.@rus Рыбацкая острога опасно оставлена здесь.~
 steel~
-weapon G AN
+weapon 0 AN
 spear 5 6 pierce DK
 25 10 100 P
+S 'master fishing' 55 A
 G none
 #19090
 rain slicker~
@@ -4381,7 +4383,7 @@ odd, white light: pale, glowing fish fill the water, and small, almost
 microscopic animals have stuck their glowing bodies like barnacles onto the
 gazebo's bottom.
 ~
-0 C noswim
+0 CF noswim
 D0
 ~
 ~
@@ -4954,7 +4956,7 @@ light throughout what appears to be a relatively small room.  The only exit,
 aside from the one leading out, is a spiral staircase leading upwards through
 a closed hatch in the ceiling.
 ~
-0 CD field
+0 CDN field
 D1
 ~
 ~
@@ -4974,7 +4976,7 @@ right, while a long velvet couch sits against the southern wall.  An
 intricately patterned Persian rug covers the floor, with a small 
 octagonal section cut out above the hatch that allowed you into this room.
 ~
-0 D inside
+0 DN inside
 E
 sign light~
 You see the Sign of the Light, a rainbow surrounded in a circle of ivy.~
@@ -4996,7 +4998,7 @@ wooden throne stands against the north wall, just below the Sign of the Light;
 two snapdragons grow on its left and right, while sprigs of goldenrod grow 
 upwards just behind its head.
 ~
-0 C inside
+0 CN inside
 E
 sign light~
 You see the Sign of the Light, a rainbow surrounded in a circle of ivy.~
@@ -5016,7 +5018,7 @@ seem to amplify the outside light, giving it the power of several suns.  The
 throne on the north wall seems to blaze with its own light; the sunflowers and
 forsythia branches that surround it seem dull in comparison.
 ~
-0 CD inside
+0 CDN inside
 E
 sign light~
 You see the Sign of the Light, a rainbow surrounded in a circle of ivy.~
@@ -5037,7 +5039,7 @@ grow near the north wall; their drooping branches form a canopy for the carved
 wooden throne beneath them...and partially obscure the Sign of the Light on the
 wall.
 ~
-0 CD inside
+0 CDN inside
 E
 sign light~
 You see the Sign of the Light, a rainbow surrounded in a circle of ivy.~
@@ -5059,7 +5061,7 @@ platform, just below the Sign of the Light on the north wall.  A few
 bluebells grow in planters around the room, matching the blue 
 speedwell of the throne as well as the blue marble below your feet.
 ~
-0 CD inside
+0 CDN inside
 E
 sign light~
 You see the Sign of the Light, a rainbow inside a circle of ivy.~
@@ -5082,7 +5084,7 @@ swirling them gently around your face and hands.  Sprigs of lilac grow
 from behind the dark throne on the north wall, brushing gently against 
 the Sign of the Light.
 ~
-0 CD inside
+0 CDN inside
 E
 sign light~
 You see the Sign of the Light, a rainbow surrounded by a circle of ivy.~
@@ -5105,7 +5107,7 @@ a smooth glass throne set underneath the northern part of the curving wall.
 Above the throne hangs the Sign of the Light; here, the unfiltered light allows
 it to sparkle with all its rainbow colors.
 ~
-0 CD inside
+0 CDN inside
 E
 sign light~
 You see the Sign of the Light, a rainbow surrounded by a circle of ivy.~
@@ -5893,7 +5895,7 @@ ABCFGZ 19173 19125
 D5
 ~
 ~
-ACFGZ -1 19123
+ABCFGZ -1 19123
 S
 #19125
 Inside the Dark Tower~
@@ -5912,7 +5914,7 @@ ABCFGZ 19173 19126
 D5
 ~
 ~
-ACFGZ -1 19124
+ABCFGZ -1 19124
 S
 #19126
 Inside the Dark Tower~
@@ -5930,7 +5932,7 @@ ABCFGZ 19173 19127
 D5
 ~
 ~
-ACFGZ -1 19125
+ABCFGZ -1 19125
 S
 #19127
 The Top of the Dark Tower: Gray Mists~
@@ -5942,7 +5944,7 @@ sign of the Dark, suspended somewhere in the distance.
 D5
 ~
 ~
-ACFGZ -1 19126
+ABCFGZ -1 19126
 S
 #19128
 The Dank Room~

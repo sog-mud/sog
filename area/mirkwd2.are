@@ -1479,7 +1479,7 @@ The River~
 You are floating along a river that will carry you back through the forest,
 and eventually to Lake Town.
 ~
-0 C noswim
+0 CF noswim
 D0
 ~
 ~

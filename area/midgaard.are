@@ -3635,6 +3635,15 @@ banner~
 This is the official Merc war banner to see you through the darkest realm!
 ~
 G none
+#3370
+bottle vodka nemiroff~
+@eng the bottle of vodka '{yNemiroff{x'@rus бутылка горилки '{yNemiroff{W Украiнська {Yмедова з перцем{x'~
+@eng The bottle with golden liquid is left here.@rus Перчик плавает в стеклянной полулитровой бутылке.~
+glass~
+drink ETij AJ
+-1 -1 'vodka' 0 0
+1 1 150 P
+G none
 #3371
 ring diamond wedding~
 a diamond wedding ring~
@@ -8370,7 +8379,7 @@ part of the city wall.
 @rus Арка моста на фут поросла мхом и водорослями. Вода несет тебя через дыру 
 в нижней части западной (west) стены.
 ~
-0 CS noswim
+0 CFS noswim
 E
 wall~
 It is built from large grey rocks that have been fastened to each other with
@@ -8394,7 +8403,7 @@ river flows west towards the bridge.  The riverbanks are too steep to climb.
 @rus На севере ты видишь халупы переулка Бедняков. Река течет на запад (west)
 по направлению к мосту. Береги слишком высоки, чтобы на них взобраться.
 ~
-0 S noswim
+0 FS noswim
 D1
 ~
 ~
@@ -8413,7 +8422,7 @@ dump to the promenade.
 (west). Берег реки слишком крут, чтобы на него взобраться. Над твоей головой
 проходит мост, соединяющий свалку с бульваром на южном берегу реки.
 ~
-0 CS noswim
+0 CFS noswim
 D1
 ~
 ~
@@ -8459,7 +8468,7 @@ levee are west, in the direction of the current.
 мостом и через отверстие в стене. Ниже по течению, на западе (west), лежит
 Набережная.
 ~
-0 S noswim
+0 FS noswim
 D1
 ~
 ~

@@ -371,6 +371,17 @@ Form 6 -ую~
 End
 
 #RULE
+Name скумбрия~
+BaseLen 7
+Form 1 -и~
+Form 2 -и~
+Form 3 -ю~
+Form 4 -ей~
+Form 5 -и~
+Form 6 -ю~
+End
+
+#RULE
 Name яблоко~
 BaseLen 5
 Form 1 -а~
@@ -2023,6 +2034,17 @@ Form 1 -а~
 Form 2 -у~
 Form 4 -ом~
 Form 5 -е~
+End
+
+#RULE
+Name острога~
+BaseLen 6
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
 End
 
 #RULE
@@ -4385,6 +4407,17 @@ Form 3 -а~
 Form 4 -ом~
 Form 5 -е~
 Form 6 -а~
+End
+
+#RULE
+Name серебристый~
+BaseLen 9
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ый~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ого~
 End
 
 #RULE
@@ -11161,6 +11194,16 @@ Form 1 -а~
 Form 2 -у~
 Form 4 -ом~
 Form 5 -е~
+End
+
+#RULE
+Name серебристый лосось~
+Form 1 серебристого лосося~
+Form 2 серебристому лососю~
+Form 3 серебристого лосося~
+Form 4 серебристым лососем~
+Form 5 серебристом лососе~
+Form 6 серебристого лосося~
 End
 
 #RULE

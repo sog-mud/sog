@@ -2553,7 +2553,7 @@ A rickety bridge allows you to cross to the other side if you wish, or you
 may wish to go boating using a nearby punt.
 A sign says- "Don't Pay the Ferryman...till he gets you to the other side..."
 ~
-0 AD inside
+0 ADF inside
 D0
 the other side
 ~
@@ -2582,7 +2582,7 @@ looks deep, dark and unswimmable, though if you had a boat you may be able
 to cross it, though at this point there appears to be nothing of interest
 on the other side. Perhaps you may find a crossing further down?
 ~
-0 AD inside
+0 ADF inside
 D0
 the river
 ~
@@ -2614,7 +2614,7 @@ You are sailing along the mighty underground river that cuts through the
 dungeons of Firetop Mountain. To the west you can see a rocky beach, while
 to the east the river flows into the murky darkness that pervades here.
 ~
-0 AD noswim
+0 ADF noswim
 D1
 river
 ~
@@ -2633,7 +2633,7 @@ dungeons of Firetop Mountain. To the west you can see a rocky beach, while
 to the east the river flows towards what looks like a bridge.
 There is a small alcove to the south at which you could dock.
 ~
-0 AD noswim
+0 ADF noswim
 D1
 bridge
 ~
@@ -2656,7 +2656,7 @@ You are sailing along the mighty underground river that cuts through the
 dungeons of Firetop Mountain. To the west you can see a rickety bridge, 
 while to the east the river down a narrow crevice and is impassable.
 ~
-0 AD noswim
+0 ADF noswim
 D3
 bridge
 ~

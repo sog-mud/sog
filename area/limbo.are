@@ -1276,6 +1276,15 @@ armor 0 AK
 20 20 20 20 0
 0 1 100 P
 G none
+#78
+eye глаз~
+@eng the eye of %s@rus ~~глаз~~ %s~
+@eng The eye is lying here. Strange...@rus Странно, здесь лежит глаз (eye)...~
+eye~
+trash 0 AO
+0 0 0 0 0
+0 5 1 P
+G male
 #79
 golden staff посох~
 @eng a golden staff@rus ~~золотистый~~ посох~
@@ -1600,10 +1609,11 @@ Supermob lives here. Don't bother him.
 0 ACHLNOX inside
 S
 #13
-@eng {bIsle of Misfortune{x@rus {bОстров Невезения{x~
-@rus Весь покрытый {Gзеленью{x, абсолютно весь.
+@eng {CIsle of Fortune{x@rus {CОстров Удачи{x~
+@eng In the Land of Dreams.
+@rus Весь покрытый {gплесенью{x, абсолютно весь.
 ~
-0 HKNSUb forest
+0 FHKNSUb forest
 M 13 H 13
 S
 #0

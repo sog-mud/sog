@@ -2136,7 +2136,7 @@ You sail on a quiet cove, where the waters are a brilliant turquoise.
 To the south of you the cove enters a dark cave in the looming black 
 mountain. The water is so clear, you can see the bottom.
 ~
-0 0 noswim
+0 E noswim
 E
 bottom~
 Peering deep into the water, you see orange, red and yellow sea urchins
@@ -2753,7 +2753,7 @@ On the Seas Surrounding an Atoll~
 You have sailed into seas surrounding a rocky atoll. The surf crashes
 on the sharp jagged rocks, preventing a landing.
 ~
-0 0 noswim
+0 E noswim
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -2779,7 +2779,7 @@ You have sailed into seas surrounding a rocky atoll. The surf crashes
 on the sharp jagged rocks, preventing a landing. Sharks abound in these
 waters.
 ~
-0 0 noswim
+0 E noswim
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -2805,7 +2805,7 @@ You have sailed into seas surrounding a rocky atoll. The surf crashes
 on the sharp jagged rocks, preventing a landing. You think you see the
 glint of gold on the rocks, but when you blink, its gone.
 ~
-0 S noswim
+0 ES noswim
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -2831,7 +2831,7 @@ You have sailed into seas surrounding a rocky atoll. The surf crashes
 on the sharp jagged rocks, preventing a landing. Large single clawed
 crabs cover the rocks.
 ~
-0 0 noswim
+0 E noswim
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -2857,7 +2857,7 @@ You have sailed into seas surrounding a rocky atoll. The surf crashes
 on the sharp jagged rocks, preventing a landing. You trail your toe along
 in the water and feel a westerly current.
 ~
-0 0 noswim
+0 E noswim
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -2883,7 +2883,7 @@ You have sailed into seas surrounding a rocky atoll. The surf crashes
 on the sharp jagged rocks, preventing a landing. There on the rocks is
 what remains of a shattered galley.
 ~
-0 0 noswim
+0 E noswim
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -2909,7 +2909,7 @@ You have sailed into seas surrounding a rocky atoll. The surf crashes
 on the sharp jagged rocks, preventing a landing. You watch the gulls
 peck apart some jelly creature on the rocks.
 ~
-0 0 noswim
+0 E noswim
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -2935,7 +2935,7 @@ You have sailed into seas surrounding a rocky atoll. The surf crashes
 on the sharp jagged rocks, preventing a landing. Here the waves are 
 choppy and you taste the salt spray on your lips.
 ~
-0 0 noswim
+0 E noswim
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -2961,7 +2961,7 @@ You have sailed into seas surrounding a rocky atoll. The surf crashes
 on the sharp jagged rocks, preventing a landing. Refuse floats in the
 water, drifting alongside the boat.
 ~
-0 0 noswim
+0 E noswim
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -2994,7 +2994,7 @@ You have sailed into seas surrounding a rocky atoll. The surf crashes
 on the sharp jagged rocks, preventing a landing. You get the feeling you
 have been here before.
 ~
-0 0 noswim
+0 E noswim
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -3020,7 +3020,7 @@ You have sailed into seas surrounding a rocky atoll. The surf crashes
 on the sharp jagged rocks, preventing a landing. The lagoon opens up to
 the south, and a mild current pulls you that way.
 ~
-0 0 noswim
+0 E noswim
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -3051,7 +3051,7 @@ You have sailed into seas surrounding a rocky atoll. The surf crashes
 on the sharp jagged rocks, preventing a landing. What was that sailing
 song anyway?
 ~
-0 0 noswim
+0 E noswim
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -3077,7 +3077,7 @@ You have sailed into seas surrounding a rocky atoll. The surf crashes
 on the sharp jagged rocks, preventing a landing. There, crawling over
 the rotting carcass of a human, is a dis-Z, a rare offensive scavenger.
 ~
-0 0 noswim
+0 E noswim
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -3103,7 +3103,7 @@ You have sailed into seas surrounding a rocky atoll. The surf crashes
 on the sharp jagged rocks, preventing a landing. All of this salt water
 is making you thirsty.
 ~
-0 0 noswim
+0 E noswim
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -3129,7 +3129,7 @@ You have sailed into seas surrounding a rocky atoll. The surf crashes
 on the sharp jagged rocks, preventing a landing. For some reason the 
 fish are milling around here.
 ~
-0 0 noswim
+0 E noswim
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -3156,7 +3156,7 @@ pile sunk deep into the lagoon, and rope bridges connect all into
 a makeshift wharf. To the south are several huts on stilts, connected
 by rope bridges. The waters are calm enough to swim in here.
 ~
-0 0 swim
+0 E swim
 D0
 Out of the lagoon
 ~
@@ -4001,7 +4001,7 @@ ice pressing in on all sides. Far to your east is a huge iceberg.
 The wind whips along unhindered across the flat ice, chilling you 
 to the core.
 ~
-0 0 noswim
+0 E noswim
 D0
 ~
 ~
@@ -4018,7 +4018,7 @@ ice pressing in on all sides. Large footprints lead off towards a
 snowbank. The wind whips along unhindered across the flat ice, 
 chilling you to the core.
 ~
-0 0 noswim
+0 E noswim
 D1
 The sea of ice
 ~
@@ -4037,7 +4037,7 @@ ice pressing in on all sides. Far to your south is a huge iceberg.
 The wind whips along unhindered across the flat ice, chilling you 
 to the core.
 ~
-0 S noswim
+0 ES noswim
 D1
 The sea of ice
 ~
@@ -4056,7 +4056,7 @@ ice pressing in on all sides. White seals lie in droves on the shore.
 The wind whips along unhindered across the flat ice, chilling you 
 to the core.
 ~
-0 S noswim
+0 ES noswim
 D2
 The sea of ice
 ~
@@ -4075,7 +4075,7 @@ ice pressing in on all sides. Far to your west is a huge iceberg.
 The wind whips along unhindered across the flat ice, chilling you 
 to the core.
 ~
-0 0 noswim
+0 E noswim
 D0
 The sea of ice
 ~
@@ -4094,7 +4094,7 @@ ice pressing in on all sides. The iceberg looms closer with each day.
 The wind whips along unhindered across the flat ice, chilling you 
 to the core.
 ~
-0 0 noswim
+0 E noswim
 D0
 The sea of ice
 ~
@@ -4113,7 +4113,7 @@ to a very large iceberg. Ice shears in sheets from the iceberg to crash
 with a thunderous roar into the frosty sea. You think you can make out 
 a dark watery cave leading into the iceberg.
 ~
-0 0 noswim
+0 E noswim
 D0
 Into the cave
 ~

@@ -346,7 +346,7 @@ The river flows to the west, through the huge hole in the the
 wall which encircles Malo Village.  The village is on the
 north shore of the river to your east.
 ~
-0 C noswim
+0 CF noswim
 D1
 ~
 ~
@@ -379,7 +379,7 @@ Westward River~
 Flowing westward, the river cuts through rich grassland.  The
 aroma of growing things is strong here in the middle of nowhere.
 ~
-0 0 noswim
+0 F noswim
 D1
 ~
 ~
@@ -396,7 +396,7 @@ flowing across an ocean.  No movement can be seen for as far as
 you can see.  The four foot high grass varies in color from
 light green to golden brown.
 ~
-0 0 noswim
+0 F noswim
 D1
 ~
 ~
@@ -411,7 +411,7 @@ Small rapids~
 The river flows over small rocks creating rapids.  Tall reeds 
 have replaced the grasses growing along the river bank.
 ~
-0 0 noswim
+0 F noswim
 D1
 ~
 ~
@@ -427,7 +427,7 @@ The river is picking up speed as it flows toward the rising sun.
 Several of the rocks below the surface of the river have begun
 to push their way towards you.
 ~
-0 0 noswim
+0 F noswim
 D1
 ~
 ~
@@ -443,7 +443,7 @@ The river is slowing down and you have more time to look around.
 River banks are covered by reeds, while in the distance you see
 high grass waving with the day's breeze.
 ~
-0 0 noswim
+0 F noswim
 D1
 ~
 ~
@@ -458,7 +458,7 @@ River through grass~
 Large shapes slip beneath the waters as you travel by.  Tiny
 birds flit about you because you are disturbing their habitats.
 ~
-0 0 noswim
+0 F noswim
 D1
 ~
 ~
@@ -476,7 +476,7 @@ of the surrounding terrain.  A small mountain pokes it's head
 out of the grass to the north of you.  It's bald pate reflects
 the light.
 ~
-0 0 noswim
+0 F noswim
 D1
 ~
 ~
@@ -492,7 +492,7 @@ Strands of grass, their roots washed out of the earth which
 held them, float alongside you and are bunched into clumps 
 in spots along the bank.
 ~
-0 0 noswim
+0 F noswim
 D1
 ~
 ~
@@ -508,7 +508,7 @@ The river begins to curve south gently.  The high grass to the
 north of you begins to look matted and misused.  The bald mountain
 dominates the area as it pokes it's head out of the tall grass.
 ~
-0 0 noswim
+0 F noswim
 D1
 ~
 ~
@@ -525,7 +525,7 @@ is diverted in a southern direction.  The bedrock extends several
 feet toward the river, creating a perfect landing.  To your 
 north, matted grasses have been woven together into a natural wall.
 ~
-0 0 noswim
+0 F noswim
 D0
 A grass wall circles this area.
 ~
@@ -546,7 +546,7 @@ The river is following an exposed section of bedrock and is
 flowing in a southern direction.  The bedrock extends several
 feet over the river creating a set of natural caves.
 ~
-0 0 noswim
+0 F noswim
 D0
 ~
 ~
@@ -577,7 +577,7 @@ South flowing river~
 The cold river, heavy with grasses stripped from the river bank,
 flows quickly in a western direction.
 ~
-0 0 noswim
+0 F noswim
 D0
 ~
 ~

@@ -1470,7 +1470,7 @@ The water in the river seems to bubble and froth with magic.  Though it
 splashes playfully on you, it does not seem wet.  The path leads north closer
 to the water. To the west you see a T-intersection.
 ~
-0 0 forest
+0 F forest
 D0
 ~
 ~
@@ -1486,7 +1486,7 @@ To continue you had to walk right in the river.  Though you walk along in
 water up to your knees, you do not seem to get wet.  A bay stretches out to
 the north and the river goes south.
 ~
-0 0 swim
+0 F swim
 D0
 ~
 ~
@@ -1594,7 +1594,7 @@ The water is crystal clear here and you can see the bottom of the bay 30 feet
 below you.  Then you realize you are walking on the water itself.  Truly
 magical water indeed.  Though you splash through the bay you do not get wet.
 ~
-0 0 swim
+0 F swim
 D2
 ~
 ~
@@ -1615,7 +1615,7 @@ like it's been here for a long, long time.  Though you are 'under water' there
 is no difficulty breathing normally, and oddly you do not feel the pressure of
 the water above you.
 ~
-0 D swim
+0 DF swim
 D4
 ~
 ~

@@ -771,7 +771,7 @@ emanate a natural heat, warming your being.  A small pond spreading to
 the north looks to be an inviting place to relax and bathe, and a path
 enters the forest to the east.
 ~
-0 0 field
+0 F field
 D0
 A small pond.
 ~
@@ -873,7 +873,7 @@ that the cool water comes only up to your waist even at its deepest.
 The pond leads to the north and east while a path leads to south
 unto higher, green grounds.
 ~
-0 0 swim
+0 F swim
 D0
 A small pond.
 ~
@@ -896,7 +896,7 @@ You wade just inside the southeastern portion of this small, beautiful
 pond.  To the south a grassy beach sprawls invitingly, while the pond
 itself continues to curve to the north and to west.
 ~
-0 0 swim
+0 F swim
 D0
 A small pond.
 ~
@@ -995,7 +995,7 @@ waters seem to make your reflection look somehow more youthful.  The pond
 and its strange, shallow waters continue to the east and south, while a
 small pathway to the northeast meanders to the top of a distant hill.
 ~
-0 0 swim
+0 F swim
 E
 reflection~
 Your reflection seems to depict you as you were at the age of twenty.
@@ -1021,7 +1021,7 @@ You stand knee-deep in the northeastern portion of a small pond, stirring
 its sandy bottom into the water, turning it ever murkier with each of your
 footsteps.  The pond curves around to the south and to the west.
 ~
-0 0 swim
+0 F swim
 D2
 A small pond.
 ~

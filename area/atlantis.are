@@ -771,7 +771,7 @@ fishing-rod~
 a fishing-rod~
 A fishing-rod has been left here.~
 wood~
-trash 0 AO
+pole 0 AO
 0 0 0 0 0
 13 300 2130 P
 G none
@@ -855,7 +855,7 @@ You are standing beside the sea. The ground is very mush here. Your feet are
 getting very wet. You can see the waves coming up the ridge, one step foreward
 and you will fall into the sea.
 ~
-0 C swim
+0 CE swim
 E
 note~
 If you are below level 5, please enter, we LOVE blood, YOUR blood!
@@ -875,7 +875,7 @@ The sea~
 You are swimming in the sea. I hope you like water because everywhere you
 see... you see water. And it's really hard swimming with your clothes on.
 ~
-0 0 swim
+0 E swim
 D0
 Still the sea.
 ~
@@ -902,7 +902,7 @@ The sea~
 You are swimming in the sea. I hope you like water because everywhere you
 see... you see water. And it's really hard swimming with your clothes on.
 ~
-0 0 swim
+0 E swim
 D0
 Even more sea.
 ~
@@ -929,7 +929,7 @@ The sea~
 You are swimming in the sea. I hope you like water because everywhere you
 see... you see water. And it's really hard swimming with your clothes on.
 ~
-0 0 swim
+0 E swim
 D0
 Even more sea.
 ~
@@ -957,7 +957,7 @@ You are swimming in the sea. I hope you like water because everywhere you
 see... you see water. And it's really hard swimming with your clothes on.
 Deep down you see a sunken ship from the late Pirate Weary.
 ~
-0 0 swim
+0 E swim
 E
 ship~
 A rotting ship is lying here, there is a little sign on it.
@@ -992,7 +992,7 @@ The sea~
 You are swimming in the sea. I hope you like water because everywhere you
 see... you see water. And it's really hard swimming with your clothes on.
 ~
-0 0 swim
+0 E swim
 D0
 Even more sea.
 ~
@@ -1019,7 +1019,7 @@ The sea~
 You are swimming in the sea. I hope you like water because everywhere you
 see... you see water. And it's really hard swimming with your clothes on.
 ~
-0 0 swim
+0 E swim
 D0
 Even more sea.
 ~
@@ -1046,7 +1046,7 @@ The sea~
 You are swimming in the sea. I hope you like water because everywhere you
 see... you see water. And it's really hard swimming with your clothes on.
 ~
-0 0 swim
+0 E swim
 D0
 Even more sea.
 ~
@@ -1074,7 +1074,7 @@ The sea~
 You are swimming in the sea. I hope you like water because everywhere you
 see... you see water. And it's really hard swimming with your clothes on.
 ~
-0 0 swim
+0 E swim
 D0
 Even more sea.
 ~
@@ -1101,7 +1101,7 @@ The sea~
 You are swimming in the sea. I hope you like water because everywhere you
 see... you see water. And it's really hard swimming with your clothes on.
 ~
-0 0 swim
+0 E swim
 D0
 Even more sea.
 ~
@@ -1127,7 +1127,7 @@ S
 A Vortex~
 GOING DOWN!!!!!!
 ~
-0 AN swim
+0 AEN swim
 D5
 You can't see a thing.
 ~
@@ -1138,7 +1138,7 @@ S
 A Vortex~
 GOING DOWN!!!!!!
 ~
-0 AN swim
+0 AEN swim
 D5
 You can't see a thing.
 ~
@@ -1149,7 +1149,7 @@ S
 A Vortex~
 GOING DOWN!!!!!!
 ~
-0 N swim
+0 EN swim
 D5
 You can't see a thing.
 ~
@@ -1162,7 +1162,7 @@ What's this. You have never seen a vortex doing this. There's even a door
 out here, to the north perhaps. You lost track of all directions. There is
 a little note here moving around.
 ~
-0 N swim
+0 EN swim
 E
 note~
 Look at the Shell, ain't it screaming to get killed?
@@ -1179,7 +1179,7 @@ Wow, this is BEAUTIFUL, You have never seen anything like it. You feel like
 you never want to leave. By the way you couldn't leave if you even wanted to,
 not this way. There is a board standing here. You can only go north.
 ~
-0 C inside
+0 CE inside
 E
 board~
 <><><><><><><><><><><><><><><><><>
@@ -1200,7 +1200,7 @@ This is the main street of Atlantis. To the north you notice Atlantis
 Square. To the west is the potion shop and to the east the dining-shop. South
 leads to the Entrance of Atlantis.
 ~
-0 0 city
+0 E city
 D0
 To the north you see Atlantis Square.
 ~
@@ -1230,7 +1230,7 @@ and a plate with inscriptions in the middle. Exits lead in all directions,
 east the Martinus Street, which ends in the Temple of Atlantis. To the west
 the same street. Go north or south for the Atlantis Street.
 ~
-0 0 city
+0 E city
 E
 plate inscriptions~
 Enjoy yourself in Atlantis. A lot of thanks to Tharsis who helps me writing
@@ -1263,7 +1263,7 @@ Atlantis Street~
 This is the main street of Atlantis. To the south you notice Atlantis Square
 and to the north you see a nice looking gate. To the west is a house.
 ~
-0 0 city
+0 E city
 D0
 To the north you see the gate of Neptune's Palace.
 ~
@@ -1286,7 +1286,7 @@ Neptune Palace is a very big building. King Neptune lives very comfortable,
 and he has a lot of servants, running around in the palace. To the north you
 see a lovely garden. To the east you see the dull guards office.
 ~
-0 0 city
+0 E city
 D0
 To the north you see a garden.
 ~
@@ -1507,7 +1507,7 @@ the behaviour of the people who are living here. If something is wrong, they
 will decide what actions take to. To the wall you notice a large map of
 Atlantis.
 ~
-0 D inside
+0 DE inside
 E
 wall map~
 You see a map, but you don't understand it.
@@ -1566,7 +1566,7 @@ This street is named by the priest of Atlantis, Martinus. King Neptune is
 respecting him a lot. The Atlantis square is lying west, and east there is 
 a cemetery.
 ~
-0 0 city
+0 E city
 D0
 You see the edge of the wood.
 ~
@@ -1638,7 +1638,7 @@ ducks. The water of the pond looks very dirty, so don't drink it. The ducks
 are giving a terrible noise, but you can still hear the birds singing, how
 peaceful.
 ~
-0 C inside
+0 CE inside
 D0
 You see the hall.
 ~
@@ -1690,7 +1690,7 @@ really gets to you. Some how Bruce makes those fish smell wonderful. The
 counter is standing in a corner. There is a sign standing before it. To the
 north you go back to Martinus Street.
 ~
-0 D city
+0 DE city
 E
 sign~
 If you will see what we sell, try 'list'.

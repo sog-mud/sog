@@ -569,8 +569,8 @@ pole fishing~
 a fishing pole~
 A fishing pole is here, hooked and baited.~
 wood~
-weapon 0 AN
-exotic 3 5 none 0
+pole 0 AO
+0 0 0 0 0
 10 3 100 P
 G none
 #29207
@@ -891,7 +891,7 @@ You have reached the point of Freeport isle, a place locals
 call Dusk's edge. There is an ivory statue of a dolphin entering the 
 water from a great leap is here.
 ~
-0 0 mountain
+0 E mountain
 E
 statue~
 The statue shows the Dolphin as it is entering the water. The inscription 

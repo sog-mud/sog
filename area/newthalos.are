@@ -4224,7 +4224,7 @@ wish to exit the city via water. To do so they must open the iron grating
 in front of you from above. The horrid smell of the dump wafts down from
 the shore.
 ~
-0 S noswim
+0 FS noswim
 D1
 ~
 ~
@@ -4241,7 +4241,7 @@ couples strolling along the road. To the west you see the southern
 bridge and to the east you see the iron grating protecting the city from
 unwanted guests.
 ~
-0 S noswim
+0 FS noswim
 D0
 ~
 ~
@@ -4262,7 +4262,7 @@ construction crews have just recently finished the small ladder giving
 common-folk easy access to the river.  From here, the river flows east and
 west.
 ~
-0 S noswim
+0 FS noswim
 D1
 ~
 ~
@@ -4283,7 +4283,7 @@ docks near the ramp north of here make navigation a bit more trying.
 As the river flows eastward you can see the southern bridge in that
 direction.
 ~
-0 S noswim
+0 FS noswim
 D0
 ~
 ~
@@ -4303,7 +4303,7 @@ The river flows through a huge iron grating from the wilderness through
 the city. Strong guards above await word to open the portal
 should any citizen require exit or entry.
 ~
-0 S noswim
+0 FS noswim
 D1
 ~
 ~
@@ -6416,7 +6416,7 @@ The river calms a bit after being thrashed in the interior of
 the mountain. Although still deep within the rocks you can see
 faint traces of green to the east.
 ~
-0 S noswim
+0 FS noswim
 D1
 ~
 ~
@@ -6431,7 +6431,7 @@ Ishtar River~
 The river flows east and west through the hills. To the north you can
 see a large volcano.
 ~
-0 S noswim
+0 FS noswim
 D1
 ~
 ~
@@ -6446,7 +6446,7 @@ Ishtar River~
 The river begins its decent out of the mountains now and continues
 its flow to the east.
 ~
-0 S noswim
+0 FS noswim
 D1
 ~
 ~
@@ -6461,7 +6461,7 @@ Ishtar River~
 The river flows under the wall of the city to the east and stretches
 off towards high snow capped mountains far far to the west.
 ~
-0 S noswim
+0 FS noswim
 D1
 ~
 ~
@@ -6479,7 +6479,7 @@ and north a wide open expanse of grass. You can just barely make out
 a road that seems to be traveling alongside the river but the banks are
 too steep for you to see very far.
 ~
-0 S noswim
+0 FS noswim
 D1
 ~
 ~
@@ -6495,7 +6495,7 @@ The river continues its descent down the lowlands flowing
 ever so gently south. It's hard to believe this is the same river that
 came cascading down the mountainside.
 ~
-0 S noswim
+0 FS noswim
 D1
 ~
 ~
@@ -6511,7 +6511,7 @@ Small animals and herd animals can be heard in the distance, though
 you don't actually see any near the river. Perhaps the steep slopes
 pervent them from using the river.
 ~
-0 S noswim
+0 FS noswim
 D1
 ~
 ~
@@ -6567,7 +6567,7 @@ The River of Lost Souls~
 The river rapidly flows down this crack in the side of the mountain
 to the south. Hopefully you will hear any aproaching rapids.
 ~
-0 S noswim
+0 FS noswim
 D0
 ~
 ~
@@ -6583,7 +6583,7 @@ The river seems to calm a bit as the crevase widens lessens its
 stranglehold on the waters. The river continues to the north
 through a crack and flows to the south.
 ~
-0 S noswim
+0 FS noswim
 D0
 ~
 ~
@@ -6601,7 +6601,7 @@ course and the new river heads off to the east. To the west you notice
 a flat area in the sheer rock where it would be possible to shore your
 craft. The River of lost souls also continues to the north.
 ~
-0 S noswim
+0 FS noswim
 D0
 ~
 ~
@@ -6620,7 +6620,7 @@ The River of Lost Souls~
 The river continues north and south from here through a water
 eroded valley.
 ~
-0 S noswim
+0 FS noswim
 D0
 ~
 ~
@@ -6635,7 +6635,7 @@ The River of Lost Souls~
 The river continues north and south from here through a water
 eroded valley.
 ~
-0 S noswim
+0 FS noswim
 D0
 ~
 ~
@@ -6650,7 +6650,7 @@ The River of Lost Souls~
 The river continues north and south from here through a water
 eroded valley.
 ~
-0 S noswim
+0 FS noswim
 D0
 ~
 ~
@@ -6665,7 +6665,7 @@ The River of Lost Souls~
 The river makes a sharp bend here and heads east towards a large
 mountain and north through a valley.
 ~
-0 S noswim
+0 FS noswim
 D0
 ~
 ~
@@ -6676,7 +6676,7 @@ Ishtar River~
 The river widens here, no longer bounded by rock, and flows east
 towards a plain.
 ~
-0 S noswim
+0 FS noswim
 D1
 ~
 ~
@@ -6691,7 +6691,7 @@ Ishtar River~
 The river continues here east to west.  There is a landing area to the
 north where you can gain access to the shore.
 ~
-0 S noswim
+0 FS noswim
 D1
 ~
 ~
@@ -6707,7 +6707,7 @@ The river meanders through the foothills of the eastern mountains.
 The air is dryer on this side of the continental divide and it seems
 a bit warmer.
 ~
-0 S noswim
+0 FS noswim
 D1
 ~
 ~
@@ -6723,7 +6723,7 @@ The river continues its journey eastward flowing through the
 plains. To the west you see the peaks of large snow capped
 mountains and to the east you see the outline of a large city.
 ~
-0 S noswim
+0 FS noswim
 D1
 ~
 ~
@@ -6737,7 +6737,7 @@ S
 Ishtar River~
 The river flows east and west from here.
 ~
-0 S noswim
+0 FS noswim
 D1
 ~
 ~
@@ -6752,7 +6752,7 @@ Ishtar River~
 The river slows as it widens and meanders through the lowlands. A
 small dock give access to the north shore.
 ~
-0 S noswim
+0 FS noswim
 D1
 ~
 ~
@@ -6776,7 +6776,7 @@ On the Dark River~
 The river flows to the east under the walls of Midgaard and west
 snaking through a dark forest.
 ~
-0 S noswim
+0 FS noswim
 D1
 ~
 ~
@@ -6790,7 +6790,7 @@ S
 On the Dark River~
 The river continues east and west meandering through the woods.
 ~
-0 AS noswim
+0 AFS noswim
 D1
 ~
 ~
@@ -6805,7 +6805,7 @@ On the Dark River~
 The river continues east and west meandering through the woods. You
 hear the sounds of chopping wood far off in the distance.
 ~
-0 AS noswim
+0 AFS noswim
 D0
 ~
 ~
@@ -6823,7 +6823,7 @@ S
 On the Dark River~
 The river continues east meandering through the woods.
 ~
-0 AS noswim
+0 AFS noswim
 D1
 ~
 ~
@@ -6892,7 +6892,7 @@ smell of saltwater has reached you from the east. The Dragon Sea
 cannot be far away. To the east you can see the faint outline
 of a city and to the north you see a large expanse of grass.
 ~
-0 S noswim
+0 FS noswim
 D1
 ~
 ~
@@ -6911,7 +6911,7 @@ to the horizon. North of here is a small dock you think you should be
 able to reach with out too much trouble. The river stretches off to
 the west back towards New Thalos.
 ~
-0 S noswim
+0 FS noswim
 D1
 ~
 ~
@@ -6948,7 +6948,7 @@ The Dragon Sea comes up along the shore here, the deep blue waters
 rolling in and crashing against the beach. To the north you see a
 small dock jutting out into the surf.
 ~
-0 S noswim
+0 ES noswim
 D0
 ~
 ~
@@ -6969,7 +6969,7 @@ You are on the clear blue seas of the Dragon Sea.
  can see. Off in the distance you think you might
  see a small dock to the south.
 ~
-0 S noswim
+0 ES noswim
 D1
 ~
 ~
@@ -7093,7 +7093,7 @@ to the west. The dock seems to have been here for quite a long time
 but is still sturdy. A small ladder has been built on the eastern end
 to allow easy access to and from ships.
 ~
-0 S inside
+0 ES inside
 D0
 ~
 ~
@@ -7123,7 +7123,7 @@ You are on the clear blue seas of the Dragon Sea.
  see a small dock to the west. To the east you see  
  a cold river flows quickly through the Dragon Sea. 
 ~
-0 S noswim
+0 ES noswim
 D0
 ~
 ~
@@ -7144,7 +7144,7 @@ you can see two islands on the horizon. To the west you see the mainland.
 To the east ocean ends turning into a small dirt path leading down
 the beach of the cursed island.
 ~
-0 S noswim
+0 ES noswim
 D0
 ~
 ~
@@ -7169,7 +7169,7 @@ pylons that support the structure. The murky water clouds your vision
 as you gaze westward, but you think you can make out an iron grating in
 that direction.
 ~
-0 AS noswim
+0 AES noswim
 D1
 ~
 ~
@@ -7189,7 +7189,7 @@ Blood swirls around in the water as the Ixitxachitl devours the
 last of its meal. Swirling around quickly as you intrude upon
 its meal the large sting ray attacks!
 ~
-0 AS noswim
+0 AES noswim
 D1
 ~
 grate~
