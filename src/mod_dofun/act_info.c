@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.437 2003-10-10 16:14:24 fjoe Exp $
+ * $Id: act_info.c,v 1.438 2004-02-17 23:58:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1410,6 +1410,7 @@ DO_FUN(do_compare, ch, argument)
 
 DO_FUN(do_credits, ch, argument)
 {
+	do_help(ch, "DIKU");
 	do_help(ch, "'SHADES OF GRAY'");
 }
 
