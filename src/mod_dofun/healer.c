@@ -1,5 +1,5 @@
 /*
- * $Id: healer.c,v 1.29 1999-07-21 06:40:57 avn Exp $
+ * $Id: healer.c,v 1.30 1999-08-23 10:31:22 fjoe Exp $
  */
 
 /*-
@@ -58,7 +58,7 @@ heal_t heal_table[] =
     { "blind",	  "cure blindness",	  "cure blindness",0, 20	},
     { "disease",  "cure disease",	  "cure disease",  0, 15	},
     { "poison",	  "cure poison",	  "cure poison",   0, 25	},
-    { "uncurse",  "remove curse",	  "remove_curse",  0, 50	},
+    { "uncurse",  "remove curse",	  "remove curse",  0, 50	},
     { "refresh",  "restore movement",	  "refresh",       0, 5,	},
     { "mana",	  "restore mana",	  "mana restore", 20, 10	},
     { "master",	  "master heal spell",	  "master healing",0, 200	},
