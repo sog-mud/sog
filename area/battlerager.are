@@ -212,7 +212,7 @@ The donation room~
 writing on the floor.
       "Every battlerager is your brother."
 Then you change your mind, and want to put some good clothing and weapon
-here for all other cabal members to strengten themselves, and to destroy
+here for all other clan members to strengten themselves, and to destroy
 magicians.
 ~
 0 WXY 1
@@ -322,19 +322,19 @@ G 1 546  -1     		* sword
 G 1 547  -1     		* axe
 M 0 542 1 548 1                 * wiseman
 O 0 542 1 548 1                 * throne
-P 0 541 1 542 1                 * cabal item
+P 0 541 1 542 1                 * clan item
 O 0 543 1 544 1			* pit
 O 0 544 1 540 1			* waterfall
 S
 
 #OMPROGS
-O 541 get_prog get_prog_cabal_item
-O 541 sac_prog sac_prog_cabal_item
+O 541 get_prog get_prog_clan_item
+O 541 sac_prog sac_prog_clan_item
 M 540 greet_prog greet_prog_battle
 M 542 speech_prog speech_prog_wiseman
 S
 
 #PRACTICERS
-M 540 group_cabal	* powerman
+M 540 group_clan	* powerman
 S
 #$

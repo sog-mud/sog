@@ -267,7 +267,7 @@ _____,*-'   `==
   the rules is no excuse.
 * Important commands: help, commands, news, notes.
 * Read all helps. So many things are changed relatively before.
-* Read helps of WHATSNEW(ROM2ANATOLIA), FROM20TO21 and ALIGNORCABAL.
+* Read helps of WHATSNEW(ROM2ANATOLIA), FROM20TO21 and ALIGNORCLAN.
 * Added multi-language support command. See '{Clanguage{x' command.
 * Added short mode for flags. See '{Clong{x' command.
 * {CGossip{x and {Cmusic{x channels added.
@@ -485,12 +485,12 @@ you need the sun light to cast this spell effectively.
 * ROM BUGs are fixed.
 * PlayerKilling and Stealing is permitted for all levels, within
   restrictions of course.
-* 7 Cabals are implemented with special skills and spells.
-* If one cabal is raided and its item is taken and put to anothers cabal
-  shrine, the raided cabal cannot use their cabal powers.
+* 7 Clans are implemented with special skills and spells.
+* If one clan is raided and its item is taken and put to anothers clan
+  shrine, the raided clan cannot use their clan powers.
 * New 8 classes are added with full features.
 * New 14 races are added with full features.
-* Cabal only, race only, alignment only spells and skills implemented.
+* Clan only, race only, alignment only spells and skills implemented.
 * Some channels are removed (gossip,auction).
 * New auction channel introduced.
 * Over 200 new skills and spells are introduced.
@@ -507,7 +507,7 @@ you need the sun light to cast this spell effectively.
 * Objects and Mobile progs are implemented.
 * Ice melts in hot areas.
 * New score command is introduced.( One can use old one with nscore command)
-* In who command, one can restrict the cabals, races or PKs.
+* In who command, one can restrict the clans, races or PKs.
 * Players can pray the gods by pray channel.
 * Automaticaly generated quest is introduced.
 * Hero players can teach their 100% skills or spells to other players.
@@ -563,12 +563,12 @@ you need the sun light to cast this spell effectively.
 
 ~
 
--1 ALIGNORCABAL~
+-1 ALIGNORCLAN~
 .
 
-	- Alignment or Cabal for Roleplaying?
+	- Alignment or Clan for Roleplaying?
 	- Actually it depends on the implementor of the MUD. According
-to Chronos, alignment comes first and according to Asena, cabal comes
+to Chronos, alignment comes first and according to Asena, clan comes
 first. 
 
 ~

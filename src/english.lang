@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.25 1998-05-27 01:49:19 efdi Exp $
+# $Id: english.lang,v 1.26 1998-05-27 08:21:01 fjoe Exp $
 #
 
 INFO_NOTHING		"Nothing.\n\r"
@@ -384,7 +384,7 @@ MOVE_YOU_ARE_ALREADY_ON_GROUND	"You are already on the ground.\n\r"
 MOVE_TYPE_WITH_UP_OR_DOWN	"Type fly with 'up' or 'down'.\n\r"
 MOB_PROGS_I_DO_NOT_GET_PAID_ENOUGH "I do not get paid enough."
 UPDATE_YOUR_GAIN_IS	"Your gain is:"
-UPDATE_YOU_RAISE_A_LEVEL	"{*{CYou raise a level!!{x "
+UPDATE_YOU_RAISE_A_LEVEL	"{CYou raise a level!!{x "
 COMM_TELLS_YOU		"{W$n{x tells you '{G$t{x'"
 COMM_YOU_TELL		"You tell {W$N{x '{G$t{x'"
 COMM_YOUR_MESSAGE_DIDNT_GET_THROUGH	"Your message didn't get through.\n\r"

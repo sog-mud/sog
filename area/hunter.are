@@ -8,7 +8,7 @@ Hunter~
 #570
 keeper guardian hunter~
 the guardian~
-The guardian of Hunter Palace is here, serving his cabal.
+The guardian of Hunter Palace is here, serving his clan.
 ~
    After joining so many safaris, the guardian know implements what he
 learned as guarding this palace for very very much amounts of gold. 
@@ -21,7 +21,7 @@ CEFKNU AB 0 S
 stand stand male 5000
 0 0 medium 0
 #571
-neutral cleric cabal hunter~
+neutral cleric clan hunter~
 the cleric~
 The true neutral cleric is healing his brothers.
 ~
@@ -39,7 +39,7 @@ stand stand male 1000
 #572
 keeper guardian hunter~
 the guardian~
-The guardian of Hunter Palace is here, serving his cabal.
+The guardian of Hunter Palace is here, serving his clan.
 ~
    After joining so many safaris, the guardian know implements what he
 learned as guarding this palace for very very much amounts of gold. 
@@ -165,18 +165,18 @@ S
 
 #SPECIALS
 M 570 spec_cast_seneschal	* hunter guardian
-M 571 spec_cast_cabal		* healer of hunter
+M 571 spec_cast_clan		* healer of hunter
 S
 
 #OMPROGS
-O 571 get_prog get_prog_cabal_item		
-O 571 sac_prog sac_prog_cabal_item		
+O 571 get_prog get_prog_clan_item		
+O 571 sac_prog sac_prog_clan_item		
 M 570 greet_prog greet_prog_hunter
 M 571 speech_prog speech_prog_hunter_cleric
 S
 
 #PRACTICERS
-M 570 group_cabal	* hunter
-M 572 group_cabal	* hunter
+M 570 group_clan	* hunter
+M 572 group_clan	* hunter
 S
 #$

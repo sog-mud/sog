@@ -23,7 +23,7 @@ stand stand male 0
 A ABCDE medium 0
 
 #531
-healer adept cabal shalafi~
+healer adept clan shalafi~
 an adept~
 An adept and healer of the Arcane Arts is here.
 ~
@@ -284,26 +284,26 @@ M 0 530  1 536 1                 * Seneschal of magic
 E 0 532 -1  17                   *  key
 M 0 531  1 530 1                 * adept
 O 0 530  1 530 1                 * item container  spider shaped altar
-P 0 531  1 530 1                 *  cabal item     orb of magic
+P 0 531  1 530 1                 *  clan item     orb of magic
 D 0 536  2 1
 O 0 533  1 537
 O 0 534  1 538
 S
 
 #SPECIALS
-M 531 spec_cast_cabal
+M 531 spec_cast_clan
 M 530 spec_cast_seneschal
 M 532 spec_cast_mage
 S
 
 #OMPROGS
-O 531 get_prog get_prog_cabal_item	
-O 531 sac_prog sac_prog_cabal_item	
+O 531 get_prog get_prog_clan_item	
+O 531 sac_prog sac_prog_clan_item	
 M 530 greet_prog greet_prog_shalafi
 S
 
 #PRACTICERS
-M 530 group_cabal	*sens
+M 530 group_clan	*sens
 S
 #$
 

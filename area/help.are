@@ -329,8 +329,8 @@ of making the recall are reduced, and you will lose much more experience.
 If you are affected by pass door spell then you can flee passing the 
 closed doors.
 
-You cannot flee to inside of the cabals when you are fighting with the 
-cabal guardians.
+You cannot flee to inside of the clans when you are fighting with the 
+clan guardians.
  
 If you are Samurai, after level 10 you can NOT FLEE,so be careful.(You may 
 flee if victim's level is much higher than your level (level difference is
@@ -531,8 +531,8 @@ WEATHER shows the current game weather.
 Syntax: who
 Syntax: who <race>
 Syntax: who pk
-Syntax: who <cabal name>
-Syntax: who <race> <cabal name> pk
+Syntax: who <clan name>
+Syntax: who <race> <clan name> pk
 
 WHO shows the people currently in the game.  Some people may choose to
 remain unseen and won't appear on the WHO
@@ -547,7 +547,7 @@ For example:
 who immortal    lists all immortals playing
 who pk		lists all characters in your PK range
 who elf         lists all elven clerics
-who entropy pk  lists all characters in entropy cabal, (if you are a mamber) 
+who entropy pk  lists all characters in entropy clan, (if you are a mamber) 
 		which are in your PK range
 
 Races may be abbreviated.
@@ -2569,13 +2569,13 @@ Syntax: cast 'dragons breath'
     A warlock can't use dragon breaths, i.e 'fire breath', 'lightning 
 breath'. So he calls the Lord of Dragons to help.
 ~
-0 CABAL CABALS~
-Cabals (Pronounced "Kuh-BALL") are clans of characters dedicated to a cause.
-This cause is the sole purpose uniting the cabal, and its members strive to
-bring about this purpose.  They also seek to influence the other cabals to
-believe that their cabal is superior.
+0 CLAN CLANS~
+Clans (Pronounced "Kuh-BALL") are clans of characters dedicated to a cause.
+This cause is the sole purpose uniting the clan, and its members strive to
+bring about this purpose.  They also seek to influence the other clans to
+believe that their clan is superior.
 
-The following cabals have made their way into this world:
+The following clans have made their way into this world:
 
            "Ruler"	       The Rulers of Muddy
            "Battlerager"       The Masters of Martial Arts
@@ -2585,18 +2585,18 @@ The following cabals have made their way into this world:
            "Invader"           ? (No talent is heard about)
 	   "Hunter"	       Mercanary of Muddy
 
-Cabals have special hideouts, each with a special item that gives members
-special powers.  Cabals whose special item is in another cabal's shrine lose
+Clans have special hideouts, each with a special item that gives members
+special powers.  Clans whose special item is in another clan's shrine lose
 their special powers!
 
-Joining a cabal is meant to be a lifelong occupation.  Those that quit or
-are kicked out of a cabal are given a punishment for their leaving.  Cabal
+Joining a clan is meant to be a lifelong occupation.  Those that quit or
+are kicked out of a clan are given a punishment for their leaving.  Clan
 hopping is highly disappoved of.
 
-For more info on individual cabals or joining one, ask a cabal member or
-post a note to that cabal.
+For more info on individual clans or joining one, ask a clan member or
+post a note to that clan.
 
-e.g, note to <cabal name>  {{ cabal which you want to join}
+e.g, note to <clan name>  {{ clan which you want to join}
      note subject ????
      note + ?????????
      note post    
@@ -2643,7 +2643,7 @@ not type "counter" -- it happens automatic.
 0 ROLE-PLAYING ROLEPLAYING~
 Welcome to the world of Realms of Muddy which is based on role-playing
 and adventure. Role-playing is encouraged, and in some cases, almost
-mandatory. One can enter a cabal for protection and gaining power. We
+mandatory. One can enter a clan for protection and gaining power. We
 want unique personalities, as they make the game more fun for you and
 everyone else. Don't just be a human paladin....be Arthur, fights for the
 benefits of the virtue and honour. It creates a better atmosphere and
@@ -2805,7 +2805,7 @@ for deletion. For other matters, use common sense.
 
 ~
 0 LAWS LAW ~
-The laws of the land that shall be enforced by the Ruler Cabal are as
+The laws of the land that shall be enforced by the Ruler Clan are as
 follows :
  
     The areas that are defined as protected by the jurisdiction of the Law
@@ -2827,7 +2827,7 @@ are the entirety of Midgaard, New Thalos, Valley of Titans and  New Ofcol.
    helping them to elude punishment, to kill Ruler guards, etc.
    will result in a WANTED flag.
 								       
-4. Intrusion into the Ruler Cabal is considered illegal and an attack upon
+4. Intrusion into the Ruler Clan is considered illegal and an attack upon
    the laws themselves.  
 
 5. A dispersal that teleports the victim from a protected area directly into
@@ -2845,9 +2845,9 @@ command. Old midgaard is not a holy town.
 1 WANTED ~
 Syntax: WANTED <player> <Y or N>
 
-This is a cabal skill for the Legions of Ruler that flags or unflags
+This is a clan skill for the Legions of Ruler that flags or unflags
 a player as a criminal. Many good mobs do not take kindly to criminals.
-Only members of the Ruler cabal can flag or unflag criminals.
+Only members of the Ruler clan can flag or unflag criminals.
 ~
 
 0 BLACKJACK~
@@ -2887,7 +2887,7 @@ up and grab them, causing some damage and loss of dexterity.  This is an
 offensive spell which can only be used in locations where you can also camo.
 ~
 0 PHILOSOPHY ~
-Here is a general philosophy of each of the known cabals.
+Here is a general philosophy of each of the known clans.
 
 Ruler:  The enforcement of the laws above all.  The world exists in two
 	halves: right and wrong.  The law comes first in all respects.
@@ -2920,7 +2920,7 @@ Hunter:   Mercenary of Muddy. These pupils  kill any mobile and player
 	  for above purpose.
 
 Keep in mind these are only general guidelines.  
-See also: CABAL 
+See also: CLAN 
 ~
 
 0 REPAIR ESTIMATE~
@@ -3001,8 +3001,8 @@ enter any commands.
 0 CB ~
 Syntax: cb (message)
 
-This is the command used to talk on a cabal channel.  
-Used by itself, it is a toggle to turn the cabal channel on and off.
+This is the command used to talk on a clan channel.  
+Used by itself, it is a toggle to turn the clan channel on and off.
 ~
 0 DEPOSIT WITHDRAW BALANCE ~
 Syntax: deposit  <number>
@@ -3155,7 +3155,7 @@ then every one can see your level when they type "who", and also you
 become VULNERABLE to CHARM.
 	* Charisma is trainable.
 	* All players can have at most 25 charisma. But if you left a 
-cabal , you can have at most 24 charisma.
+clan , you can have at most 24 charisma.
 	* Charisma doesn't effect any damage.
 	* All you have killed is counted ( to see type "worth" ). And
 only for good characters every 200 mobiles that you killed having opposite
@@ -3177,35 +3177,35 @@ them protected weapon attacks.Each blink takes 1 mana.
 -1 'LION HELP'~
 Syntax: cast 'lion help'
 
-    Calls the other members of cabal lion for help.That is because of the
-eyed sword. And also this is the cabal spell. So you cannot use this spell
-if you haven't got cabal powers or eyed sword wielding.
+    Calls the other members of clan lion for help.That is because of the
+eyed sword. And also this is the clan spell. So you cannot use this spell
+if you haven't got clan powers or eyed sword wielding.
 ~
 -1 'WEAPON CALL'~
 Syntax: cast 'weapon call'
 
-	A cabal member of lion can call his eyed sword with a whisper, if 
-he/she has the cabal power with him/her.
+	A clan member of lion can call his eyed sword with a whisper, if 
+he/she has the clan power with him/her.
 ~
 -1 'EYED SWORD'~
 Syntax: cast 'eyed sword'
 
-	A lion cabal member when casts this spell , creates the special 
-weapon of its cabal. It can only be cast once.Then when one losts this
+	A lion clan member when casts this spell , creates the special 
+weapon of its clan. It can only be cast once.Then when one losts this
 sword ,one must use 'weapon call' spell to get it back.If the sword purged
-in resetting of an area then it appears in the shrine of Cabal LIONs.
+in resetting of an area then it appears in the shrine of Clan LIONs.
 ~
 -1 'MOVE CAMUFLAGED'~
 Syntax: cammove
 
-	A lion cabal member can move , without losing his/her affect of
+	A lion clan member can move , without losing his/her affect of
 camuflage.
 ~
 -1 LEADER LEADERS~
 .	
-	When you induct a player from your cabal to none, that player
+	When you induct a player from your clan to none, that player
 won't be able to change his/her title forever (unless an immortal grants
-him/her). Thus when you induct a player to your cabal be very careful.
+him/her). Thus when you induct a player to your clan be very careful.
 If any problem occurs, you are RESPONSIBLE.
 ~
 -1 RELIG RELIGION~

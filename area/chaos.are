@@ -151,27 +151,27 @@ S
 #0
 
 #RESETS
-M 0 550 1 554 1			* cabal cleric
+M 0 550 1 554 1			* clan cleric
 O 0 551 1 554 1 		* item container  
-P 0 552 1 551 1			*  cabal item     
+P 0 552 1 551 1			*  clan item     
 M 0 551 1 550 1			* ivan, guardian of the chaos 
 E 0 550 0 17 			*  key
 
 S
 
 #SPECIALS
-M 550 spec_cast_cabal 		* healer
+M 550 spec_cast_clan 		* healer
 M 551 spec_cast_seneschal 	* ivan, guardian of the chaos
 S
 
 #OMPROGS
-O 552 get_prog get_prog_cabal_item		
-O 552 sac_prog sac_prog_cabal_item		
+O 552 get_prog get_prog_clan_item		
+O 552 sac_prog sac_prog_clan_item		
 M 551 greet_prog greet_prog_chaos		
 S
 
 #PRACTICERS
-M 551 group_cabal	*guard
+M 551 group_clan	*guard
 S
 
 #$

@@ -7,7 +7,7 @@ knight~
 
 #MOBILES
 #520
-knight healer cabal~
+knight healer clan~
 A healer~
 The healer of the Knights' is here to heal you.
 ~
@@ -184,7 +184,7 @@ S
 #523
 Storage Room~
   You see some swords and armors are tossed aside in the storage of the
-Knights of Muddy. This room is used by Knights, especially in cabal
+Knights of Muddy. This room is used by Knights, especially in clan
 wars or for helping young knights.
 ~
 0 DX 0
@@ -243,17 +243,17 @@ S
 0
 
 #SPECIALS
-M 520 spec_cast_cabal
+M 520 spec_cast_clan
 S
 
 #OMPROGS
-O 522 get_prog get_prog_cabal_item
-O 522 sac_prog sac_prog_cabal_item
+O 522 get_prog get_prog_clan_item
+O 522 sac_prog sac_prog_clan_item
 M 521 greet_prog greet_prog_knight
 S
 
 #PRACTICERS
-M 521 group_cabal	*knights
+M 521 group_clan	*knights
 S
 
 #$

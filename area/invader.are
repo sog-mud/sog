@@ -8,9 +8,9 @@ Invader~
 #560
 keeper guardian invader~
 the invader guardian~
-The invader guardian is here, serving his cabal.
+The invader guardian is here, serving his clan.
 ~
-  This strong serves as the guardian of the Invader Cabal. His mission is
+  This strong serves as the guardian of the Invader Clan. His mission is
 to destroy anyone who dares to penatrate into the chamber.
 ~
 human~
@@ -22,13 +22,13 @@ stand stand male 5000
 0 0 medium 0
 
 #561
-evil cleric cabal invader~
+evil cleric clan invader~
 the evil cleric~
 The dark cleric is healing and refreshing his invader brothers.
 ~ 
  This cleric is one most powerful clerics in this realms. He saw all the
 lands being raided. In spite of his old age, he stills serves for his
-cabal. In his way, now he's using his powers to heal and refresh his cabal
+clan. In his way, now he's using his powers to heal and refresh his clan
 mates, waiting the day when he is going to have the chance to invade the
 whole Realms of Muddy as in the history.
 ~ 
@@ -262,7 +262,7 @@ S
 
 #569
 The Battle Field~
-  Most probably you fled here, if you are not a cabal member of INVADERS.
+  Most probably you fled here, if you are not a clan member of INVADERS.
 Thus the darkness of the room horrifies you. While waiting the time
 that your adrenalin will calm down, you want to rest. But you know that
 this place is NOT the safe place to rest. Because it is Battle Field of
@@ -300,16 +300,16 @@ S
 0
 #SPECIALS
 M 560 spec_cast_seneschal	* invader guardian 
-M 561 spec_cast_cabal		* healer of dark ones
+M 561 spec_cast_clan		* healer of dark ones
 S
 
 #OMPROGS
-O 561 get_prog get_prog_cabal_item		
-O 561 sac_prog sac_prog_cabal_item		
+O 561 get_prog get_prog_clan_item		
+O 561 sac_prog sac_prog_clan_item		
 M 560 greet_prog greet_prog_invader	* chro
 S
 
 #PRACTICERS
-M 560 group_cabal	*guard
+M 560 group_clan	*guard
 S
 #$

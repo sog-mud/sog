@@ -1,7 +1,7 @@
 #AREA
 lioncastle.are~
 lioncastle~
-{90 100} Cabal Castle of LionMen~
+{90 100} Clan Castle of LionMen~
 500 510
 
 
@@ -178,19 +178,19 @@ M 0 501 1 500 1			* guardian
 E 0 500 0 17			*  key
 M 0 500 1 504 1			* cleric
 O 0 501 1 504 1 		* item container  
-P 0 502 1 501 1			*  cabal item     
+P 0 502 1 501 1			*  clan item     
 M 0 502 1 502 1			* guildmaster
 S
 
 #SPECIALS
-M 500 spec_cast_cabal
+M 500 spec_cast_clan
 S
 
 #OMPROGS
 *M 501 greet_prog greet_prog_lions
-O 502 sac_prog sac_prog_cabal_item
-O 502 get_prog get_prog_cabal_item
-O 502 give_prog give_prog_cabal_item
+O 502 sac_prog sac_prog_clan_item
+O 502 get_prog get_prog_clan_item
+O 502 give_prog give_prog_clan_item
 S
 
 #$
