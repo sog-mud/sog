@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.234.2.2 1999-11-18 15:35:31 fjoe Exp $
+ * $Id: merc.h,v 1.234.2.3 1999-11-19 11:36:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -365,6 +365,13 @@ struct affect_data
 	int		modifier;
 	flag64_t 	bitvector;
 };
+
+typedef struct saff_t {
+	int 		sn;		/* affect which skill */
+	int		type;		/* affected by which skill */
+	int		mod;		/* modify skill knowledge by */
+	flag64_t	bit;		/* with bits ... */
+} saff_t;
 
 struct room_affect_data
 {
@@ -1369,6 +1376,7 @@ struct char_data
 	time_t			last_death_time;
 
 	AFFECT_DATA *		affected;
+	varr			sk_affected;
 	OBJ_DATA *		carrying;
 	OBJ_DATA *		on;
 	ROOM_INDEX_DATA *	in_room;

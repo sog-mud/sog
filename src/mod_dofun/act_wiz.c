@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.186.2.1 1999-11-10 09:52:38 fjoe Exp $
+ * $Id: act_wiz.c,v 1.186.2.2 1999-11-19 11:36:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1390,6 +1390,26 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 			break;
 		}
 	    buf_printf(output, "level {c%d{x.\n", paf->level);
+	}
+
+	if (victim->sk_affected.nused) {
+		int i;
+
+		buf_add(output, "Skill affects:\n");
+		for (i = 0; i < victim->sk_affected.nused; i++) {
+			saff_t *sa = VARR_GET(&victim->sk_affected, i);
+
+			buf_printf(output, "        '%s' by %d",
+				   skill_name(sa->sn), sa->mod);
+			if (sa->type > 0)
+				buf_printf(output, " (skill '%s')",
+					   skill_name(sa->type));
+			if (sa->bit) {
+				buf_printf(output, " with bits '%s'",
+					   flag_string(sk_aff_flags, sa->bit));
+			}
+			buf_add(output, "\n");
+		}
 	}
 
 	if (!IS_NPC(victim)) {

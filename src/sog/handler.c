@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.3 1999-11-18 15:35:32 fjoe Exp $
+ * $Id: handler.c,v 1.182.2.4 1999-11-19 11:36:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -564,8 +564,33 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 	OBJ_DATA *wield, *obj2;
 	int mod, i;
 
-	if (paf->where == TO_SKILLS)
-		return;
+	if (paf->where == TO_SKILLS) {
+		if (fAdd) {
+			saff_t *sa = varr_enew(&ch->sk_affected);
+			sa->sn = -paf->location;
+			sa->type = paf->type;
+			sa->mod = paf->modifier;
+			sa->bit =  paf->bitvector;
+			varr_qsort(&ch->sk_affected, cmpint);
+		} else {
+			int i;
+
+			for (i = 0; i < ch->sk_affected.nused;) {
+				saff_t *sa = VARR_GET(&ch->sk_affected, i);
+
+				if (sa->sn != -paf->location
+				||  sa->type != paf->type
+				||  sa->mod != paf->modifier
+				||  sa->bit != paf->bitvector) {
+					i++;
+					continue;
+				}
+
+				varr_del(&ch->sk_affected, sa);
+			}
+		}
+  		return;
+	}
 
 	mod = paf->modifier;
 	if (fAdd) {

@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.74 1999-09-08 10:40:13 fjoe Exp $
+ * $Id: skills.c,v 1.74.2.1 1999-11-19 11:36:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -244,16 +244,32 @@ const char *skill_name(int sn)
 	return "none";
 }
 
+int get_skill_mod(CHAR_DATA *ch, int sn, int percent)
+{
+	int i;
+	int mod = 0;
+	skill_t *sk = SKILL(sn);
+
+	for (i = 0; i < ch->sk_affected.nused; i++) {
+		saff_t *sa = VARR_GET(&ch->sk_affected, i);
+
+		if ((!IS_SET(sa->bit, SK_AFF_ALL) && sa->sn != sn)
+		||  (IS_SET(sa->bit, SK_AFF_NOTCLAN) &&
+		     IS_SET(sk->skill_flags, SKILL_CLAN))
+		||  (!IS_SET(sa->bit, SK_AFF_TEACH) && !percent))
+			continue;
+	
+		mod += sa->mod;
+	}
+
+	return mod;
+}
+
 /* for returning skill information */
 int get_skill(CHAR_DATA *ch, int sn)
 {
 	int skill;
 	skill_t *sk;
-	AFFECT_DATA *paf;
-
-	int add = 0;
-	bool teach = FALSE;
-
 
 	if ((sk = skill_lookup(sn)) == NULL
 	||  (IS_SET(sk->skill_flags, SKILL_CLAN) && !clan_item_ok(ch->clan)))
@@ -362,22 +378,7 @@ int get_skill(CHAR_DATA *ch, int sn)
 		skill = UMAX(1, skill);
 	}
 
-	/*
-	 * apply skill affect modifiers
-	 */
-	for (paf = ch->affected; paf; paf = paf->next) {
-		if (paf->where != TO_SKILLS
-		||  (!IS_SET(paf->bitvector, SK_AFF_ALL) &&
-		     paf->location != -sn)
-		||  (IS_SET(paf->bitvector, SK_AFF_NOTCLAN &&
-		     IS_SET(skill_lookup(sn)->skill_flags, SKILL_CLAN))))
-			continue;
-
-		add += paf->modifier;
-		teach |= IS_SET(paf->bitvector, SK_AFF_TEACH);
-	}
-
-	return UMAX(0, skill ? (skill+add) : teach ? add : 0);
+	return UMAX(0, skill + get_skill_mod(ch, sn, skill));
 }
 
 /*
@@ -559,7 +560,6 @@ int skill_level(CHAR_DATA *ch, int sn)
 	cskill_t *class_skill;
 	race_t *r;
 	rskill_t *race_skill;
-	AFFECT_DATA *paf;
 
 /* noone can use ill-defined skills */
 /* broken chars can't use any skills */
@@ -583,9 +583,9 @@ int skill_level(CHAR_DATA *ch, int sn)
 	if ((race_skill = rskill_lookup(r, sn)))
 		slevel = UMIN(slevel, race_skill->level);
 
-	for (paf = ch->affected; paf; paf = paf->next)
-	    if (paf->where == TO_SKILLS && paf->location == -sn)
+	if (get_skill_mod(ch, sn, 1))
 		slevel = 1;
+
 	return slevel;
 }
 

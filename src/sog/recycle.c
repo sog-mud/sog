@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.64.2.2 1999-11-18 15:35:33 fjoe Exp $
+ * $Id: recycle.c,v 1.64.2.3 1999-11-19 11:36:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -283,6 +283,8 @@ CHAR_DATA *char_new(MOB_INDEX_DATA *pMobIndex)
 		ch->mod_stat[i] = 0;
 	}
 
+	varr_init(&ch->sk_affected, sizeof(saff_t), 1);
+
 	if (pMobIndex) {
 		ch->pMobIndex = pMobIndex;
 		ch->comm = COMM_NOSHOUT | COMM_NOMUSIC;
@@ -301,8 +303,8 @@ CHAR_DATA *char_new(MOB_INDEX_DATA *pMobIndex)
 		pc->granted = str_empty;
 		pc->wanted_by = str_empty;
 		pc->dvdata = dvdata_new();
-		pc->condition[COND_THIRST] = 48;
 		pc->condition[COND_FULL] = 48;
+		pc->condition[COND_THIRST] = 48;
 		pc->condition[COND_HUNGER] = 48;
 		pc->condition[COND_BLOODLUST] = 48;
 		pc->condition[COND_DESIRE] = 48;

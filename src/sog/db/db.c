@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.169.2.1 1999-11-10 09:52:58 fjoe Exp $
+ * $Id: db.c,v 1.169.2.2 1999-11-19 11:36:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1222,7 +1222,6 @@ void clone_mob(CHAR_DATA *parent, CHAR_DATA *clone)
  */
 OBJ_DATA *create_obj(OBJ_INDEX_DATA *pObjIndex, int flags)
 {
-	AFFECT_DATA *paf;
 	OBJ_DATA *obj;
 	int i;
 
@@ -1267,14 +1266,6 @@ OBJ_DATA *create_obj(OBJ_INDEX_DATA *pObjIndex, int flags)
 		break;
 	}
 	
-	for (paf = pObjIndex->affected; paf != NULL; paf = paf->next) 
-		if (paf->location == APPLY_SPELL_AFFECT
-		    || paf->where == TO_SKILLS)
-			SET_BIT(obj->extra_flags, ITEM_ENCHANTED);
-	
-	if (IS_SET(obj->extra_flags, ITEM_ENCHANTED))
-		for (paf = pObjIndex->affected; paf ; paf = paf->next)
-			affect_to_obj(obj, paf);
 	obj->next	= object_list;
 	object_list	= obj;
 	if (!IS_SET(flags, CO_F_NOCOUNT))

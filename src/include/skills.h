@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: skills.h,v 1.16 1999-09-08 10:40:04 fjoe Exp $
+ * $Id: skills.h,v 1.16.2.1 1999-11-19 11:36:15 fjoe Exp $
  */
 
 #ifndef _SKILLS_H_
@@ -76,6 +76,7 @@ void *		skill_vlookup	(varr *v, const char *name);
 int		get_weapon_sn	(OBJ_DATA *obj);
 int		get_weapon_skill(CHAR_DATA *ch, int sn);
 
+int		get_skill_mod	(CHAR_DATA *ch, int sn, int percent);
 int		get_skill	(CHAR_DATA *ch, int sn);
 void		set_skill	(CHAR_DATA *ch, int sn, int value);
 void		set_skill_raw	(CHAR_DATA *ch, int sn, int value, bool repl);
