@@ -3998,11 +3998,15 @@ Z -1 12081
 S
 #12081
 @eng Before the Castle Gates@rus Перед замковыми воротами~
-The glowing gates of the Sidhe Castle stand open before you and from 
+@eng The glowing gates of the Sidhe Castle stand open before you and from 
 inside you hear the sounds of laughter and revalry.  To the south you can 
 see a meadow that extends into a forest even farther south and to the 
 north you glimpse far off mountain peaks. A dirt road extends to the west 
 toward what looks to be an inn.
+@rus Светящиеся ворота прекраснейшего замка сидов высятся прямо над тобой. Из-за
+них доносятся шутки, веселый смех и пение. На юге колышется травяное море,
+расстелающееся до самого леса на горизонте, вдали на севере белеют пики
+заснеженных гор. Дорога продолжается на запад, там же виднеется таверна.
 ~
 0 0 field
 D0
@@ -4027,10 +4031,13 @@ The Dirt Trod
 Z -1 12082
 S
 #12082
-On the Dirt Trod~
-You are on a dirt road that cuts through a field of flowers from an 
+@eng On the Dirt Trod@rus На дороге~
+@eng You are on a dirt road that cuts through a field of flowers from an 
 inn and the Sidhe castle.  The field extends to the north and south while 
 the castle is east and the inn west.
+@rus Ты стоишь на дороге, идущей прямо через цветочный луг. Поля простираются
+на север и на юг, на западе видна таверна, на востоке величественный и 
+прекрасный замок сидов.
 ~
 0 0 city
 D0
@@ -4055,10 +4062,13 @@ The Dirt Trod
 Z -1 12083
 S
 #12083
-On the Dirt Trod~
-You are on a dirt road that cuts through a field of flowers from an
-inn and the Sidhe castle.  The field extends to the north and south while
+@eng On the Dirt Trod@rus На дороге~
+@eng You are on a dirt road that cuts through a field of flowers from an 
+inn and the Sidhe castle.  The field extends to the north and south while 
 the castle is east and the inn west.
+@rus Ты стоишь на дороге, идущей прямо через цветочный луг. Поля простираются
+на север и на юг, на западе видна таверна, на востоке величественный и 
+прекрасный замок сидов.
 ~
 0 0 city
 D0

@@ -805,7 +805,7 @@ sign on the wall.  The exits are west and south.  A small plaque is on the
 wall.
 @rus Ты находишься в белой квадратной комнате. Стены чистые, окон нет. Мягкий
 свет исходит из потолка. Ну конечно, на стене ты видишь {Mзнак (sign){x.
-Выходы ведут на юг (south) и на запад (west). Ты замечаешь табличку (plague)
+Выходы ведут на юг (south) и на запад (west). Ты замечаешь {Mтабличку (plaque){x
 на стене.
 ~
 0 CDRS inside

@@ -1520,9 +1520,13 @@ Z 0 603
 S
 #603
 @eng The Blacksmith@rus Кузница~
-You are in a black and smelly room.  Pieces of metal are strewn all over
+@eng You are in a black and smelly room.  Pieces of metal are strewn all over
 the floor, and a wave of heat from a big furnace hits you.  An anvil sits on 
 one side of the room, and on the other side is a workbench.  The exit is east.
+@rus Ты заходишь в темную и задымленную комнату.  Куча железячек валяется по
+всему полу, да от звона в ушах звенит.  Всего-то интересного здесь -
+наковальня с одной стороны да верстак с другой.  Выход один - на восток
+(east).  
 ~
 0 DS inside
 D1
@@ -1578,10 +1582,14 @@ You see the Pawn Shop.
 Z 0 606
 S
 #606
-The Pawn Shop.~
-You are in a little shop filled with a lot of knick knacks and semi-
+@eng The Pawn Shop.@rus Ломбард~
+@eng You are in a little shop filled with a lot of knick knacks and semi-
 valuable goods.  There is a display case full of little treasures that you are
 sure that you or any other little kid would like to touch!  The exit is east.
+@rus К твоим услугам - здешний магазинчик со множеством безделушек и
+полудрагоценных товаров.  Перед тобой стоит витрина, полная драгоценных
+камешков, которые, по твоему убеждению, любой может взять и потрогать. 
+Выход на восток (east).  
 ~
 0 DS inside
 D1

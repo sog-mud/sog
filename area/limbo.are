@@ -271,6 +271,43 @@ AO S 0 0
 N M 0 0
 stand stand male 0
 0 0 medium unknown
+#27
+cocoon~
+@eng cocoon@rus ~~кокон~~~
+@eng Half-burrowed cocoon can be spotted here.
+@rus Полузарытый в землю кокон едва виден здесь.
+~
+@eng One more creation of black magic. What the hell will hatch out of
+this?
+@rus Еще одно порождение черной магии. Какая гадость вылупится из этого?
+~
+unique~
+V QZcd 0 0
+0 -5 0d0+0 0d0+0 0d0+0 digestion
+0 0 0 0
+CJ ABEILQ DJT HK
+rest rest none 0
+BZc KMN large unknown
+#28
+bone dragon lich~
+@eng bone dragon@rus ~~костяной~~ ~~дракон~~~
+@eng Huge undead dragon unfurls his wings.
+@rus Огромный дракон разворачивает крылья.
+~
+@eng This huge creature walks with a deadly grace. But a smell... It smells
+really BAD!
+@rus Походку этого огромного дракона можно назвать грациозной, но запах...
+Он пахнет ДЕЙСТВИТЕЛЬНО ужасно!
+~
+dracolich~
+OT DS 0 0
+0 10 0d0+0 0d0+0 0d0+0 scratch
+0 0 0 0
+CFHLO 0 0 0
+stand stand none 0
+0 0 huge unknown
+F aff JT
+F vul FI
 #50
 junkseller junk seller~
 Junkseller~
@@ -1253,6 +1290,7 @@ S
 #SPECIALS
 M 11 spec_special_guard	* the guard
 M 13 spec_cast_mage	* a fiery demon
+M 28 spec_cast_undead	* bone dragon
 M 50 spec_breath_any	* Junkseller
 S
 
