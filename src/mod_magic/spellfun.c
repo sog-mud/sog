@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.175 1999-07-09 09:34:17 kostik Exp $
+ * $Id: spellfun.c,v 1.176 1999-07-12 04:56:25 kostik Exp $
  */
 
 /***************************************************************************
@@ -2951,7 +2951,7 @@ void spell_locate_object(int sn, int level, CHAR_DATA *ch, void *vo)
 		||  (IS_SET(obj->pIndexData->extra_flags, ITEM_CHQUEST) &&
 		     chquest_carried_by(obj) == NULL)
 		||  number_percent() > 2 * level
-		||  ch->level < obj->level)
+		||  LEVEL(ch) < obj->level)
 			continue;
 
 		if (buffer == NULL)

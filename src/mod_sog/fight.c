@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.191 1999-07-11 04:00:22 osya Exp $
+ * $Id: fight.c,v 1.192 1999-07-12 04:56:23 kostik Exp $
  */
 
 /***************************************************************************
@@ -1572,17 +1572,40 @@ bool is_safe_spell(CHAR_DATA *ch, CHAR_DATA *victim, bool area)
 bool check_parry(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 {
 	int chance;
+	OBJ_DATA *v_weapon;
+	OBJ_DATA *ch_weapon;
 
 	if (!IS_AWAKE(victim))
 		return FALSE;
-
+	
+	v_weapon = get_eq_char(victim, WEAR_WIELD);
 	if (IS_NPC(victim))
 		chance	= UMIN(35, victim->level);
 	else {
-		if (get_eq_char(victim, WEAR_WIELD) == NULL)
+		if (v_weapon == NULL)
 			return FALSE;
 
 		chance = get_skill(victim, gsn_parry) / 2;
+	}
+	
+	ch_weapon = get_eq_char(ch, loc);
+	
+	if (v_weapon && (v_weapon->value[1] == WEAPON_WHIP 
+	 || v_weapon->value[1] == WEAPON_FLAIL))
+		 chance /= 2;
+
+	if (v_weapon && (v_weapon->value[1] == WEAPON_SWORD)) {
+		if (number_percent() < get_skill(victim, gsn_fence)/2) {
+			chance = chance*3/2;
+			check_improve(victim, gsn_fence, TRUE, 4);
+		}
+	}
+
+	if (ch_weapon && (ch_weapon->value[1] == WEAPON_SWORD)) {
+		if (number_percent() < get_skill(ch, gsn_fence)) {
+			chance /= 2;
+			check_improve(ch, gsn_fence, TRUE, 7);
+		}
 	}
 
 	if (check_forest(victim) == FOREST_DEFENCE
