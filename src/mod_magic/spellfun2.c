@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.41 2001-06-16 18:53:08 fjoe Exp $
+ * $Id: spellfun2.c,v 1.139.2.42 2001-07-31 09:13:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2112,6 +2112,7 @@ void spell_entangle(int sn, int level, CHAR_DATA *ch, void *vo)
 	if (!is_affected(victim, sn)) {
 		AFFECT_DATA todex;
 	  
+		todex.where	= TO_AFFECTS;
 		todex.type	= sn;
 		todex.level	= level;
 		todex.duration	= level / 10;
