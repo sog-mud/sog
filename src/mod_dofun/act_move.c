@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.158 1999-04-05 11:38:47 fjoe Exp $
+ * $Id: act_move.c,v 1.159 1999-04-10 06:55:12 kostik Exp $
  */
 
 /***************************************************************************
@@ -2306,7 +2306,8 @@ void do_vanish(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (ch->in_room == NULL
-	||  IS_SET(ch->in_room->room_flags, ROOM_NORECALL)) {
+	||  IS_SET(ch->in_room->room_flags, 
+		ROOM_NORECALL | ROOM_PEACE | ROOM_SAFE)) {
 		char_puts("You failed.\n", ch);
 		return;
 	}
