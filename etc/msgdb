@@ -104,13 +104,7 @@ channel    | status@rus .
 @eng $N allows new characters back in.@rus $N $gN{разрешил} заводить новых персонажей.~
 @eng $N already has divine favor.@rus Божественное благословение уже пребывает с $c4{$N}.~
 @eng $N already has infravision.@rus $N уже $gN{обладает} умением видеть в темноте.~
-@eng $N appears from nowhere.@rus $N $gN{появился} из ниоткуда.~
-@eng $N appears in a blinding flash of light!@rus $N $gN{появился} в ослепляющей вспышке света!~
-@eng $N appears in a flash of light!@rus $N $gN{появился} во вспышке молнии!~
-@eng $N appears in the room.@rus $N $gN{появляется} в комнате.~
 @eng $N appears to be using $p.@rus $N $gN{использует} $c3{$p}.~
-@eng $N arrives from a puff of smoke.@rus Из клуба дыма $gN{появляется} $N.~
-@eng $N arrives suddenly.@rus $N неожиданно $gN{возник} около тебя.~
 @eng $N believes $E is squeezed by the large rock fallen from the sky and dies.@rus Поверив в то, что $gN{он} $gN{раздавлен} огромной скалой, упавшей с небес, $N $gN{умирает}.~
 @eng $N believes you turn yourself into dragon and breathe fire at $M.@rus $N $gN{поверил}, что ты $gn{превратился} в дракона и $gn{выдохнул} в $gN{него} струю огня.~
 @eng $N belongs to $i, not you.@rus $N $gN{принадлежит} $c2{$i}, а не тебе.~
@@ -132,7 +126,6 @@ channel    | status@rus .
 @eng $N cannot join your group.@rus $N не $gn{может} присоединиться к твоей группе.~
 @eng $N clones $i.@rus $N $gN{создал} копию $c1{$i}.~
 @eng $N clones $p.@rus $N $gN{создал} копию $c1{$p}.~
-@eng $N coils into an ascending column of colour, vanishing into thin air.@rus Разноцветной спиралью $N $gN{вознесся} вверх, растворившись в воздухе.~
 @eng $N comes to serve $n.@rus $N $gN{прибыл} служить $c2{$n}.~
 @eng $N comes to serve you.@rus $N $gN{прибыл} служить тебе.~
 @eng $N couldn't manage to hold your attack and falls down!@rus Не отбив твой мощный удар, $N $gN{упал}!~
@@ -143,11 +136,6 @@ channel    | status@rus .
 @eng $N deflects $n's spell!@rus Заклинание $c1{$n} отразилось от $c1{$N}!~
 @eng $N deflects your attack with $S shield.@rus $N $gN{блокирует} щитом твою атаку.~
 @eng $N deflects your spell!@rus Твое заклинание отразилось от $c1{$N}!~
-@eng $N disappears in a blinding flash of light!@rus $N $gN{исчез} в ослепляющей вспышке света!~
-@eng $N disappears in a flash of light!@rus $N $gn{исчез} во вспышке молнии! ~
-@eng $N disappears suddenly.@rus $N неожиданно $gN{исчез}.~
-@eng $N disappears.@rus $N $gN{исчезает}.~
-@eng $N dissolves into a cloud of glowing mist, then vanishes!@rus $N $gN{исчез}, растворившись в облаке сияющего тумана.~
 @eng $N dodges $p that had been shot to $M.@rus $N $gN{уклонился} от $c1{$p}, $c1{$gp{выпущенный}} в $gN{него}.~
 @eng $N dodges your attack.@rus $N $gN{уклонился} от твоей атаки.~
 @eng $N does not exist anymore!
@@ -185,7 +173,6 @@ channel    | status@rus .
 @eng $N has $S hands full.@rus У $c1{$N} и так слишком много вещей. ~
 @eng $N has a pure and good aura.@rus $N $gN{излучает} целомудрие и доброту.~
 @eng $N has activated shutdown.@rus $N $gN{активизировал} останов.~
-@eng $N has arrived through a gate.@rus $N $gN{появился} из врат.~
 @eng $N has attained level $j!@rus $N $gN{достиг} $j уровня!~
 @eng $N has been killed!
 @rus $N $gN{убит}!
@@ -237,7 +224,6 @@ channel    | status@rus .
 @eng $N is dead and I can leave the realm.@rus $N $gN{мертв} и я могу покинуть эту реальность.~
 @eng $N is deleted due to $t.@rus $N $gN{прекратил} свое бренное существование из-за $c1{$t}.~
 @eng $N is fighting.@rus $N $gN{сражается}.~
-@eng $N is gone!@rus $N $gN{исчез}!~
 @eng $N is grasped by an incomprehensible hand of undead!@rus $N непостижимым образом схвачен рукой нежити!~
 @eng $N is here!@rus $N здесь!~
 @eng $N is here. Just MURDER $M.@rus $N рядом с тобой. Просто напади на $gN{него}.~
@@ -314,7 +300,6 @@ channel    | status@rus .
 @eng $N sends up $p as a burnt offering.@rus $N $gN{принес} в жертву $c3{$p}.~
 @eng $N sets your password to '$t'.@rus $N $gN{сделал} твоим паролем '$t'.~
 @eng $N shivers slightly, but it passes quickly.@rus $c6{$N} слегка передернуло, но все прошло.~
-@eng $N slowly fades into existence.@rus $N медленно $gn{вернулся} в реальность.~
 @eng $N smiles at you, hoping you will turn from your evil path.@rus $N $gN{улыбается} тебе и $gN{надеется}, что ты свернешь с пути зла.~
 @eng $N smiles happily.@rus $N благожелательно $gN{улыбнулся}.~
 @eng $N snarls and attacks $n!@rus $N $gN{зарычал} и $gN{бросился} на $c1{$n}!~
@@ -322,7 +307,6 @@ channel    | status@rus .
 @eng $N starts hallucinating.@rus У $c1{$N} начались галлюцинации.~
 @eng $N starts limping.@rus $N $gN{стал} хромать.~
 @eng $N starts snooping on $i.@rus $N $gN{начал} подглядывать за $c5{$i}.~
-@eng $N steps through a gate and vanishes.@rus $N $gN{ступил} сквозь врата и $gN{исчез}.~
 @eng $N stops guarding $n.@rus $N $gN{прекратил} охранять $c6{$n}.~
 @eng $N switches into $i.@rus $N $gN{вселился} в $c6{$i}.~
 @eng $N takes $p from $n, repairs it, and returns it back.@rus $N $gN{взял} $c3{$p} у $c1{$n}, $gN{починил} и $gN{вернул} назад.~
@@ -335,7 +319,6 @@ channel    | status@rus .
 @eng $N turns $n's attack against $m!@rus $N $gN{обратил} атаку $c1{$n} против $gn{него} $gn{самого}!~
 @eng $N turns your attack against you!@rus $N $gN{обратил} твой удар против тебя $gn{самого}!~
 @eng $N upholds the laws.@rus $N $gN{следует} велениям закона.~
-@eng $N vanishes!@rus $N $gN{пропал}!~
 @eng $N wields his second weapon as first!@rus $N $gN{перекинул} свое второе оружие в правую руку.~
 @eng $N {xis DEAD!!@rus $N {x$gN{МЕРТВ}!!~
 @eng $N {xis here, fighting with $i.@rus $N {xздесь, $gN{сражается} с $c4{$i}.~
@@ -385,13 +368,8 @@ $N преданно $gN{глядит} на тебя.~
 @eng $d is closed.@rus $d $gd{закрыт}.~
 @eng $d is open.@rus $d $gd{открыт}.~
 @eng $d is too narrow for you to pass.@rus $d слишком $gd{узок}, чтобы ты $gn{мог} в $gd{него} пролезть.~
-@eng $d opens.@rus $d открывается.~
+@eng $d opens.@rus $d $gd{открывается}.~
 @eng $e's already been blinded.@rus $gN{Он} уже $gN{ослеплен}.~
-@eng $i has arrived through $P, riding $I.@rus $i прибыл из $c1{$P}, верхом на $c5{$I}.~
-@eng $i has arrived through $P.@rus $i $gi{появился} из $c1{$P}.~
-@eng $i has arrived, riding $I.@rus $i $gi{появился} верхом на $c5{$I}.~
-@eng $i has arrived, riding $N.@rus $i $gi{прибыл} верхом на $c5{$N}.~
-@eng $i has arrived.@rus $i $gi{прибывает}.~
 @eng $j $qj{gold coins} deposited. Come again soon!@rus $j $qj{золотых монет} зачислено на твой счет. Приходи еще.~
 @eng $j $qj{penalties} $qj{have} been added.@rus Наложено $j $qj{взысканий}.~
 @eng $j $qj{silver coins} deposited. Come again soon!@rus $j $qj{серебряных монет} зачислено на твой счет. Приходи еще.~
@@ -409,8 +387,14 @@ $n $gn{нанес} на $c3{$p} смертельный яд.~
 @eng $n $u you.@rus $n $u тебя.~
 @eng $n DISARMS you and sends your weapon flying!@rus $n $gn{выбил} у тебя оружие!~
 @eng $n DISARMS you!@rus $n $gn{ОБЕЗОРУЖИЛ} тебя!~
+@eng $n appears from nowhere.@rus $n $gn{появился} из ниоткуда.~
+@eng $n appears in a blinding flash of light!@rus $n $gn{появился} в ослепляющей вспышке света!~
+@eng $n appears in a flash of light!@rus $n $gn{появился} во вспышке молнии!~
 @eng $n appears in a swirling mist.@rus $n $gn{появился} в водовороте тумана.~
+@eng $n appears in the room.@rus $n $gn{появляется} в комнате.~
 @eng $n appears to be blinded.@rus $n, похоже, $gn{ослеплен}.~
+@eng $n arrives from a puff of smoke.@rus Из клуба дыма $gn{появляется} $n.~
+@eng $n arrives suddenly.@rus $n неожиданно $gn{возник} около тебя.~
 @eng $n asks $N about current challenge quests.@rus $n $gn{спрашивает} $c6{$N} что особенного он может найти в мире.~
 @eng $n asks $N for a quest.@rus $n $gn{просит} задание у $c1{$N}.~
 @eng $n asks $N for list of quest items.@rus $n $gn{просит} у $c1{$N} список квестовых вещей.~
@@ -469,6 +453,7 @@ $n $gn{нанес} на $c3{$p} смертельный яд.~
 @eng $n closes $d.@rus $n $gn{закрывает} $c3{$d}.~
 @eng $n closes $p.@rus $n $gn{закрывает} $c3{$p}.~
 @eng $n coats $p with deadly venom.@rus $n $gn{нанес} на $c3{$p} слой смертельного яда.~
+@eng $n coils into an ascending column of colour, vanishing into thin air.@rus Разноцветной спиралью $n $gn{вознесся} вверх, растворившись в воздухе.~
 @eng $n concentrates for a moment, then resumes $s position.@rus $n ненадолго $gn{сконцентрировался}, затем $gn{вернулся} к прежнему занятию.~
 @eng $n concentrates for the next fight.@rus $n $gn{концентрируется} перед следующей битвой.~
 @eng $n conjures a cloud of purple smoke.@rus $n $gn{сотворил} облако пурпурного дыма.~
@@ -488,12 +473,17 @@ $n $gn{нанес} на $c3{$p} смертельный яд.~
 @eng $n demands $p from $N.@rus $n $gn{просит} $c3{$p} у $c1{$N}.~
 @eng $n demands $p from you.@rus $n $gn{просит} $c3{$p} у тебя.~
 @eng $n desires for $s home!@rus $n $gn{хочет} вернуться домой!~
+@eng $n disappears in a blinding flash of light!@rus $n $gn{исчез} в ослепляющей вспышке света!~
+@eng $n disappears in a flash of light!@rus $n $gn{исчез} во вспышке молнии! ~
 @eng $n disappears in a mushroom cloud.@rus $n $gn{растворился} в тумане, возникшем из ниоткуда.~
 @eng $n disappears into the void.@rus $n $gn{исчезает} в никуда.~
+@eng $n disappears suddenly.@rus $n неожиданно $gn{исчез}.~
+@eng $n disappears.@rus $n $gn{исчезает}.~
 @eng $n disarms $N!@rus $n $gn{обезоруживает} $c6{$N}!~
 @eng $n disintegrates $N.@rus $n $gn{расщепил} $c6{$N} на атомы.~
 @eng $n dismounts from $N.@rus $n $gn{спешивается} с $c1{$N}.~
 @eng $n dismounts from you.@rus $n $gn{спешивается} с тебя.~
+@eng $n dissolves into a cloud of glowing mist, then vanishes!@rus $n $gn{исчез}, растворившись в облаке сияющего тумана.~
 @eng $n dodges $p that had been shot to $m.@rus $n $gn{уклонился} от $c1{$p}, $c1{$gp{выпущенный}} в $gn{него}.~
 @eng $n does not look so green anymore.@rus $n $gn{перестал} быть $gn{таким} $gn{зеленым}.~
 @eng $n doesn't see what you are offering.@rus $n не $gn{видит} то, что ты предлагаешь.~
@@ -557,6 +547,11 @@ $n $gn{нанес} на $c3{$p} смертельный яд.~
 @eng $n grants you a new title!@rus $n $gn{пожаловал} тебе новый титул!~
 @eng $n grows back to $s normal size.@rus $n $gn{стал} своего нормального размера.~
 @eng $n hands {W$p{x to $N.@rus $n $gn{вручает} {W$p{x $c2{$N}.~
+@eng $n has arrived through $p, riding $N.@rus $n $gn{прибыл} из $c1{$p}, верхом на $c5{$N}.~
+@eng $n has arrived through $p.@rus $n $gn{появился} из $c1{$p}.~
+@eng $n has arrived through a gate.@rus $n $gn{появился} из врат.~
+@eng $n has arrived, riding $N.@rus $n $gn{прибыл} верхом на $c5{$N}.~
+@eng $n has arrived.@rus $n $gn{прибывает}.~
 @eng $n has assailed you with the demons of Hell!@rus $n $gn{наслал} на тебя злых духов ада!~
 @eng $n has assailed you with the neutrals of earth!@rus $n $gn{послал} в тебя струю голубого огня!~
 @eng $n has created $N!@rus $n $gn{создал} $c6{$N}!~
@@ -596,6 +591,7 @@ $n $gn{нанес} на $c3{$p} смертельный яд.~
 @eng $n is carrying too much to carry $p and $e drops it.@rus $n $gn{несет} слишком много, чтобы еще нести и $c3{$p}, поэтому $gn{он} $gn{бросил} его на землю.~
 @eng $n is dead, and will not rise again.@rus $n $gn{умер} и больше не $gn{возродится}.~
 @eng $n is dying of thirst!@rus $n медленно умирает от жажды.~
+@eng $n is gone!@rus $n $gn{исчез}!~
 @eng $n is incapacitated and will slowly die, if not aided.@rus $n $gn{выведен} из строя и скоро умрет, если ему срочно не помогут.~
 @eng $n is mortally wounded, and will die soon, if not aided.@rus $n смертельно $gn{ранен} и скоро $gn{умрет}, если $gn{ему} срочно не помогут.~
 @eng $n is moving less quickly.@rus $n теперь двигается не так быстро, как раньше.~
@@ -773,7 +769,7 @@ $n loses his position and falls down!~
 @eng $n slays $N in cold blood!@rus $n хладнокровно $gn{убивает} $c6{$N}! ~
 @eng $n slays you in cold blood!@rus $n хладнокровно $gn{убивает} тебя!~
 @eng $n slowly fades away.@rus $n медленно $gn{улетучился}.~
-@eng $n slowly fades into existence.@rus $n медленно $gn{появился} в реальности.~
+@eng $n slowly fades into existence.@rus $n медленно $gn{вернулся} в реальность.~
 @eng $n slowly fades into thin air.@rus $n медленно $gn{растворился} в воздухе.~
 @eng $n slowly fades out of existence.@rus $n медленно $gn{исчез} из реальности.~
 @eng $n spills $s guts all over the floor.@rus Внутренности $c1{$n} вывалились из распоротого живота наружу!~
@@ -803,6 +799,7 @@ $n loses his position and falls down!~
 @eng $n steps out from $m's cover.@rus $n $gn{вышел} из своего укрытия.~
 @eng $n steps out from $s cover.@rus $n $gn{вышел} из скрывавшего $gn{его} укрытия.~
 @eng $n steps out of shadows.@rus $n $gn{вышел} из тени.~
+@eng $n steps through a gate and vanishes.@rus $n $gn{ступил} сквозь врата и $gn{исчез}.~
 @eng $n steps up to the teller window.@rus $n $gn{отошел} от окошка кассира.~
 @eng $n stops blinking.@rus Тело $c1{$n} перестало мерцать.~
 @eng $n stops following you.@rus $n $gn{перестал} следовать за тобой.~
@@ -890,6 +887,7 @@ $n takes advantage of your fall, stabbing you down."~
 @eng $n utters the words of unholy power.@rus $n $gn{произносит} слова, призывающие дьявольские силы.~
 @eng $n utters the words, '$t'.@rus $n $gn{бормочет}: "$t".~
 @eng $n utters the words, '$v'.@rus $n $gn{бормочет}: "$v".~
+@eng $n vanishes!@rus $n $gn{пропал}!~
 @eng $n wakes and sits at $p.@rus $n $gn{просыпается} и $gn{садится} за $c3{$p}.~
 @eng $n wakes and sits in $p.@rus $n $gn{просыпается} и $gn{садится} в $c3{$p}.~
 @eng $n wakes and sits on $p.@rus $n $gn{просыпается} и $gn{садится} на $c3{$p}.~
@@ -1227,10 +1225,10 @@ $t~
 @eng A cloak of primal acid enshrouds $N, sparks form as it consumes all it touches.@rus Кислотное покрывало окутало $6{$N}, разъедая все, чего коснулось.~
 @eng A cloak of shadows protect $N.@rus Тени теперь будут защищать $c6{$N}.~
 @eng A cloud of dust fills the room.@rus Клубы пыли заполнили все вокруг.~
-@eng A cloud of glowing mist engulfs you, then withdraws to unveil $N!@rus Облако клубящегося тумана поглотило тебя, затем рассеялось, оставив тебя перед $c5{$N}!~
+@eng A cloud of glowing mist engulfs you, then withdraws to unveil $n!@rus Облако клубящегося тумана поглотило тебя, затем рассеялось, оставив тебя перед $c5{$n}!~
 @eng A cloud of poison smoke fills the room.@rus Облако ядовитого тумана повисло над этим местом.~
 @eng A clutz like you couldn't throw down a worm.@rus Да ты не сможешь кинуть наземь даже червя.~
-@eng A coil of colours descends from above, revealing $N as it dissipates.@rus На месте рассеявщейся разноцветной спирали спустившейся сверху $gN{остался} $c6{$N}.~
+@eng A coil of colours descends from above, revealing $n as it dissipates.@rus На месте рассеявщейся разноцветной спирали спустившейся сверху $gn{остался} $c6{$n}.~
 @eng A demon arrives from the underworld!@rus Демон появился из преисподней!~
 @eng A demon prince arrives from the puff of smoke.@rus Принц демонов появился из клуба дыма.~
 @eng A fist of black, otherworldly ether rams into $N, leaving $M looking stunned!@rus Сгусток черного потустороннего эфира врезался в $c6{$N}, оглушив $gN{его}!~
@@ -2139,7 +2137,7 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng The following races are available:@rus Доступны следующие расы:~
 @eng The game is newlocked.@rus Генерация новых персонажей запрещена.~
 @eng The game is wizlocked.@rus Запрещен доступ смертным персонажам.~
-@eng The gods are infuriated!@rus Боги пришли в ярость от твоих действий!~
+@eng The gods are infuriated!@rus Боги в ярости!~
 @eng The gods has forsaken the room.@rus Боги забыли об этом месте.~
 @eng The gods have forsaken you.@rus Боги покинули тебя.~
 @eng The gods have restored your channel priviliges.@rus Боги вернули тебе привилегию пользоваться общественными каналами.~
@@ -2252,13 +2250,13 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng They aren't here.@rus Тут нет таких.~
 @eng They aren't holding anything.@rus Не во что переливать.~
 @eng They aren't there.@rus Таких здесь нет.~
-@eng They should pray their gods themself.@rus В случае нужды они самостоятельно вознесут молитвы.~
 @eng They didn't petition.@rus Этот человек прошения не подавал.~
-@eng They do not trust you enough for this spell.@rus Тебе не доверяют настолько, чтобы позволить это.~
 @eng They do not trust you enough for this prayer.@rus Тебе не доверяют настолько, чтобы позволить это.~
+@eng They do not trust you enough for this spell.@rus Тебе не доверяют настолько, чтобы позволить это.~
 @eng They don't hold the same liquid.@rus Там какая-то другая жидкость.~
 @eng They must be fighting.@rus Твой противник должен сражаться.~
 @eng They must be sleeping.@rus Они должны спать.~
+@eng They should pray their gods themself.@rus В случае нужды они самостоятельно вознесут молитвы.~
 @eng They're already protected by their honor.@rus Честь защищает $gN{его}.~
 @eng They're not here.@rus Таких нет.~
 @eng Thirst range is -1 to 100.@rus Допустимый диапазон значений -1...100.~
@@ -3529,7 +3527,7 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng You throw your red-hot weapon to the ground!@rus Ты бросаешь свое обжигающе горячее оружие на землю!~
 @eng You took a deep breath but fail to concentrate.@rus Ты делаешь глубокий вдох, но тебя отвлекают, и задержать дыхание не удается.~
 @eng You transmit part of your hunger to $p.@rus Ты перемещаешь часть своей жажды на $c3{$p}.~
-@eng You travel via astral planes and go to $n.@rus Пролетев астральными сферами, ты $gn{перенесся} к $c2{$n}.~
+@eng You travel via astral planes and go to $N.@rus Пролетев астральными сферами, ты $gn{перенесся} к $c2{$N}.~
 @eng You treat $p with deadly poison.@rus Ты $gn{обработал} $c3{$p} смертельным ядом.~
 @eng You tried, but you couldn't. But for honour try again!@rus У тебя не вышло, но во имя чести стоит попытаться еще!~
 @eng You trigger a hidden alarm.@rus При твоем появлении раздался сигнал тревоги.~
