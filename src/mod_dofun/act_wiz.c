@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.166 1999-06-24 21:07:54 fjoe Exp $
+ * $Id: act_wiz.c,v 1.167 1999-06-24 21:12:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4466,7 +4466,8 @@ void do_modules(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (!str_prefix(arg, "reload")) {
+	if (!str_prefix(arg, "reload")
+	||  !str_prefix(arg, "load")) {
 		module_t *m;
 
 		one_argument(argument, arg, sizeof(arg));
