@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.54.2.6 2001-07-08 07:43:04 kostik Exp $
+ * $Id: special.c,v 1.54.2.7 2001-09-14 18:11:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -843,7 +843,7 @@ bool spec_poison(CHAR_DATA *ch)
 
 	if (ch->position != POS_FIGHTING
 	||  (victim = ch->fighting) == NULL
-	||  number_percent() > 2 * ch->level)
+	||  number_percent() > ch->level)
 		return FALSE;
 
 	act_puts("You bite $N!", ch, NULL, victim, TO_CHAR, POS_DEAD);

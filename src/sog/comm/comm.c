@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.200.2.15 2001-08-05 17:25:49 fjoe Exp $
+ * $Id: comm.c,v 1.200.2.16 2001-09-14 18:11:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1286,13 +1286,14 @@ bail_out:
 	return retval;
 }
 
-void percent_hp(CHAR_DATA *ch, char buf[MAX_STRING_LENGTH])
+static void
+percent_hp(CHAR_DATA *ch, char *buf, size_t len)
 {
 	if (ch->hit >= 0)
-		snprintf(buf, sizeof(buf), "%d%%",
+		snprintf(buf, len, "%d%%",
 			 ((100 * ch->hit) / UMAX(1,ch->max_hit)));
 	else
-		strnzcpy(buf, sizeof(buf), "BAD!");
+		strnzcpy(buf, len, "BAD!");
 }
 
 /*
@@ -1375,14 +1376,14 @@ void bust_a_prompt(DESCRIPTOR_DATA *d)
 			break;
 
 		case 'y':
-			percent_hp(ch, buf2);
+			percent_hp(ch, buf2, sizeof(buf2));
 			i = buf2;
 			break;
 
 		case 'o':
 			if ((victim = ch->fighting) != NULL) {
 				if (can_see(ch, victim)) {
-					percent_hp(victim, buf2);
+					percent_hp(victim, buf2, sizeof(buf2));
 					i = buf2;
 				} else
 					i = "???";
@@ -1393,7 +1394,7 @@ void bust_a_prompt(DESCRIPTOR_DATA *d)
 		case 'T':
 			if (ch->fighting && (victim = ch->fighting->fighting)) {
 				if (ch == victim || can_see(ch, victim)) {
-					percent_hp(victim, buf2);
+					percent_hp(victim, buf2, sizeof(buf2));
 					i = buf2;
 				} else
 					i = "???";

@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.66.2.10 2001-08-05 17:25:47 fjoe Exp $
+ * $Id: obj_prog.c,v 1.66.2.11 2001-09-14 18:11:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -625,15 +625,23 @@ int fight_prog_tattoo_amtinor(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 		act_puts("The tattoo on your shoulder glows {Cblue{x.",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		spellfun_call("cure critical", LEVEL(ch), ch, ch);
-		/*FALL THROUGH*/
-	case 4:
-	case 5:
-		act_puts("The tattoo on your shoulder glows {Cblue{x.",
-			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		if (IS_AFFECTED(ch, AFF_PLAGUE))
 			spellfun_call("cure disease", MAX_LEVEL, ch, ch);
-  		if (IS_AFFECTED(ch, AFF_POISON))
-  			spellfun_call("cure poison", MAX_LEVEL, ch, ch);
+		if (IS_AFFECTED(ch, AFF_POISON))
+			spellfun_call("cure poison", MAX_LEVEL, ch, ch);
+		break;
+	case 4:
+	case 5:
+		if (IS_AFFECTED(ch, AFF_PLAGUE)) {
+			act_puts("The tattoo on your shoulder glows {Cblue{x.",
+				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+			spellfun_call("cure disease", MAX_LEVEL, ch, ch);
+		}
+		if (IS_AFFECTED(ch, AFF_POISON)) {
+		        act_puts("The tattoo on your shoulder glows {Cblue{x.",
+				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+			spellfun_call("cure poison", MAX_LEVEL, ch, ch);
+		}
 		break;
 	}
 	return 0;
