@@ -183,6 +183,15 @@ Adept 75
 Max 100
 End
 
+#SKILL 
+Skill 'follow through'
+Level 24
+Rating 1
+Min 1
+Adept 75
+Max 100
+End
+
 #SKILL
 Skill 'invisibility'
 Level 13
@@ -337,15 +346,6 @@ Max 100
 End
 
 #SKILL
-Skill 'cure light'
-Level 9
-Rating 1
-Min 1
-Adept 75
-Max 100
-End
-
-#SKILL
 Skill 'critical strike'
 Level 25
 Rating 1
@@ -365,7 +365,7 @@ End
 
 #SKILL
 Skill 'blindness dust'
-Level 28
+Level 20
 Rating 1
 Min 1
 Adept 75
@@ -401,16 +401,7 @@ End
 
 #SKILL
 Skill 'assassinate'
-Level 32
-Rating 1
-Min 1
-Adept 75
-Max 100
-End
-
-#SKILL
-Skill 'armor'
-Level 13
+Level 33
 Rating 1
 Min 1
 Adept 75

@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.121 1999-10-25 14:41:02 kostik Exp $
+ * $Id: martial_art.c,v 1.122 1999-11-05 05:48:48 kostik Exp $
  */
 
 /***************************************************************************
@@ -2052,6 +2052,121 @@ void do_strangle(CHAR_DATA *ch, const char *argument)
 		yell(victim, ch, "Help! I'm being strangled by $i!");
 	}
 }
+
+void do_headcrush(CHAR_DATA *ch, const char *argument) 
+{
+	CHAR_DATA *victim;
+	AFFECT_DATA af;
+	OBJ_DATA *wield;
+	int chance;
+
+	if ((chance = get_skill(ch, "head crush")) == 0) {
+		act("You lack the skill to crush people heads.", 
+			ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+
+	if ((victim = get_char_room(ch,argument)) == NULL) {
+		WAIT_STATE(ch, MISSING_TARGET_DELAY);
+		char_puts("You do not see that person here.\n", ch);
+		return;
+	}
+
+	if ((wield=get_eq_char(ch, WEAR_WIELD)) == NULL
+	|| !WEAPON_IS(wield, WEAPON_MACE)) {
+		act("You need to wield a mace for that.",
+			ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	if (victim==ch) {
+		act("You try to shatter your head into small pieces, but fail.",
+			ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+
+	if (victim->position==POS_SLEEPING) {
+		act("There are many ways to kill a sleeping one, and crushing his head is not the best of them.",
+			ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+
+	if (victim->fighting) {
+		act("$E is moving too quickly.", ch, NULL, victim, TO_CHAR);
+		return;
+	}
+
+	if (victim->hit < 7 * victim->max_hit / 10) {
+		act("$N is hurt and suspicious... you couldn't sneak up.",
+			    ch, NULL, victim, TO_CHAR);
+		return;
+	}
+
+	WAIT_STATE(ch, skill_beats("head crush"));
+
+	chance += get_curr_stat(victim, STAT_INT);
+	chance += get_curr_stat(victim, STAT_WIS);
+	chance -= get_curr_stat(victim, STAT_DEX);
+	chance += get_curr_stat(ch, STAT_STR);
+	chance /= 2;
+
+	if (number_percent() > chance 
+	|| IS_IMMORTAL(victim) 
+	|| IS_CLAN_GUARD(victim)) {
+		damage(ch, victim, 0, "head crush", DAM_NONE, DAMF_SHOW);
+		check_improve(ch, "head crush", FALSE, 2);
+		return;
+	}
+	
+	chance /= 2;
+
+	if (number_percent() > chance) {
+		one_hit(ch, victim, "head crush", WEAR_WIELD);
+		check_improve(ch, "head crush", TRUE, 5);
+		return;
+	}
+
+	chance /= 2;
+	
+	if (number_percent() > chance) {
+		
+		act("You hit $N's head with your mace and $E falls asleep.",
+			ch, NULL, victim, TO_CHAR);
+		act("You feel a sudden pain erupts through your skull!",
+			ch, NULL, victim, TO_VICT);
+		act("$n hits $N's head with $s mace and $N falls asleep.",
+			ch, NULL, victim, TO_NOTVICT);
+
+		af.type		= "head crush";
+		af.where	= TO_AFFECTS;
+		af.level	= ch->level;
+		af.duration	= LEVEL(ch) / 20 + 1;
+		af.location	= APPLY_NONE;
+		af.modifier	= 0;
+		af.bitvector	= AFF_SLEEP;
+		affect_join (victim,&af);
+
+		check_improve(ch, "head crush", TRUE, 3);
+
+		if (IS_AWAKE(victim))
+			victim->position = POS_SLEEPING;
+		if (RIDDEN(victim))
+			do_dismount(RIDDEN(victim), str_empty);
+		return;
+	}
+
+	act("You shatter $N's skull into small pieces.", 
+		ch, NULL, victim, TO_CHAR);
+	act("$n shatters your skull into small pieces.",
+		ch, NULL, victim, TO_VICT);
+	act("$n shatters $N's skull into small pieces.",
+		ch, NULL, victim, TO_NOTVICT);
+	raw_kill(ch, victim);
+}
+
 
 void do_blackjack(CHAR_DATA *ch, const char *argument)
 {

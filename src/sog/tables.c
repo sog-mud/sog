@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.99 1999-10-26 13:52:53 fjoe Exp $
+ * $Id: tables.c,v 1.100 1999-11-05 05:48:51 kostik Exp $
  */
 
 /***************************************************************************
@@ -1000,6 +1000,10 @@ flag_t skill_groups[] =
 	{ "necromancy",		GROUP_NECROMANCY,	TRUE	},
 	{ "evocation",		GROUP_EVOCATION,	TRUE	},
 	{ "conjuration",	GROUP_CONJURATION,	TRUE	},
+	{ "alteration",		GROUP_ALTERATION,	TRUE	},
+	{ "summoning",		GROUP_SUMMONING,	TRUE	},
+	{ "abjuration",		GROUP_ABJURATION,	TRUE	},
+	{ "charm", 		GROUP_CHARM,		TRUE	},
 
 	{ NULL }
 };

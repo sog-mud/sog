@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.213 1999-10-23 10:20:16 fjoe Exp $
+ * $Id: fight.c,v 1.214 1999-11-05 05:48:49 kostik Exp $
  */
 
 /***************************************************************************
@@ -703,6 +703,8 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 			thac0 -= 10 * (100 - get_skill(ch, "vampiric bite"));
 		else if (IS_SKILL(dt, "charge"))
 			thac0 -= 10 * (100 - get_skill(ch, "charge"));
+		else if (IS_SKILL(dt, "head crush"))
+			thac0 -= 10 * (100 - get_skill(ch, "head crush"));
 	}
 
 	switch(dam_class) {
@@ -901,6 +903,8 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 			dam = LEVEL(ch) / 14 * dam + LEVEL(ch);
 		else if (IS_SKILL(dt, "circle"))
 			dam = (LEVEL(ch)/40 + 1) * dam + LEVEL(ch);
+		else if (IS_SKILL(dt, "head crush"))
+			dam = (LEVEL(ch)/22 + 1) * dam + LEVEL(ch);
 		else if (IS_SKILL(dt, "knife"))
 			dam = (LEVEL(ch)/28 + 1) * dam + LEVEL(ch);
 		else if (IS_SKILL(dt, "vampiric bite"))
