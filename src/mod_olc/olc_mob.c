@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.52 1999-12-11 05:09:43 kostik Exp $
+ * $Id: olc_mob.c,v 1.53 1999-12-11 07:22:20 kostik Exp $
  */
 
 #include "olc.h"
@@ -787,16 +787,16 @@ OLC_FUN(mobed_resist)
 	}
 	
 	argument = one_argument(argument, arg, sizeof(arg));
-	res = flag_value(resist_flags, arg);
 
 	if (arg[0] == '\0') {
 		char_puts("Syntax: resist damclass number.\n", ch);
 		return FALSE;
 	}
 	
+	res = flag_value(resist_flags, arg);
 	argument = one_argument(argument, arg, sizeof(arg));
 
-	if (!is_number(arg)) {
+	if (!is_number(arg) || (res < 0)) {
 		char_puts("Syntax: resist damclass number.\n", ch);
 		return FALSE;
 	}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.17 1999-12-10 11:30:07 kostik Exp $
+ * $Id: olc_race.c,v 1.18 1999-12-11 07:22:20 kostik Exp $
  */
 
 #include "olc.h"
@@ -623,7 +623,7 @@ OLC_FUN(raceed_resists)
 
 	one_argument(argument, arg, sizeof(arg));
 
-	if(arg[0] == '\0' || !is_number(arg)) {
+	if((res < 0) ||arg[0] == '\0' || !is_number(arg)) {
 		char_puts("Syntax: resists damclass number.\n", ch);
 		return FALSE;
 	}
