@@ -1,5 +1,5 @@
 /*
- * $Id: olc_help.c,v 1.11 1998-09-16 09:38:43 fjoe Exp $
+ * $Id: olc_help.c,v 1.12 1998-09-16 09:50:59 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -21,8 +21,6 @@ DECLARE_OLC_FUN(hedit_level		);
 DECLARE_OLC_FUN(hedit_keyword		);
 DECLARE_OLC_FUN(hedit_text		);
 DECLARE_OLC_FUN(hedit_del		);
-
-DECLARE_VALIDATE_FUN(validate_keyword	);
 
 OLC_CMD_DATA olc_cmds_help[] =
 {
