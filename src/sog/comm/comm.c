@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.70 1998-07-13 16:27:21 efdi Exp $
+ * $Id: comm.c,v 1.71 1998-07-13 18:44:22 efdi Exp $
  */
 
 /***************************************************************************
@@ -108,6 +108,7 @@ DECLARE_DO_FUN(do_unread	);
 /*
  * Colour stuff by Lope of Loping Through The MUD (taken from Rot)
  */
+static char EMPTY_STRING[]	= "";
 static char CLEAR[]		= "[0m";	/* Resets Color        */
 						/* Normal Colors       */
 /* static char C_BLACK[]	= "[0;30m";	-- Not used */	
@@ -2761,7 +2762,7 @@ static char * const his_her [] = { "its", "his", "her" };
  
 static
 void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
-	     const void *arg1, const void *arg2, char *str)
+	     const void *arg1, const void *arg2, char *_str)
 {
     CHAR_DATA 	*vch = (CHAR_DATA *) arg2;
     OBJ_DATA 	*obj1 = (OBJ_DATA  *) arg1;
@@ -2769,126 +2770,111 @@ void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
     char	*point;
     char 	*i;
     char 	buf[MAX_STRING_LENGTH];
-    char	tmp[MAX_STRING_LENGTH];
+    char 	tmp[MAX_STRING_LENGTH];
+    char	*i2;
+    char 	tmp2[MAX_STRING_LENGTH];
+    char 	*str = tmp2;
     char 	fname[MAX_INPUT_LENGTH];
 
     point   = buf;
-    while(*str) {
-	if(*str != '$') {
-		*point++ = *str++;
-		continue;
-	}
 
-	i = NULL;
-	switch(*str) {
-	case '$':
+    parse_colors(_str, to, str); 
+
+    while(*str)
+	if (*str == '$') {
 		++str;
 		i = " <@@@> ";
-		if (!arg2 && *str >= 'A' && *str <= 'Z' 
-		&& *str != 'G') {
-			bug("Act: missing arg2 for code %d.", 
-			    *str);
-			i = " <@@@> ";
-		} else {
-			switch (*str) {
-			default:  
-				bug("Act: bad code %d.", *str);
-				i = " <@@@> ";                                
-				break;
-
-			case 't': 
-				i = (char *) arg1;                            
-				break;
-
-			case 'T': 
-				i = (char *) arg2;                            
-				break;
-
-			case 'n':
-				i = PERS(ch,  to);
-				break;
-
-			case 'N':
-				i = PERS(vch, to);
-				break;
-
-			case 'e':
-				i = he_she[URANGE(0, ch->sex, SEX_MAX-1)];    
-				break;
-
-			case 'E':
-				i = he_she[URANGE(0, vch->sex, SEX_MAX-1)];
-				break;
-
-			case 'm':
-				i = him_her[URANGE(0, ch->sex, SEX_MAX-1)];
-				break;
-
-			case 'M':
-				i = him_her  [URANGE(0, vch->sex, SEX_MAX-1)];
-				break;
-
-			case 's':
-				i = his_her [URANGE(0, ch->sex, SEX_MAX-1)];
-				break;
-
-			case 'S':
-				i = his_her  [URANGE(0, vch->sex, SEX_MAX-1)];
-				break;
- 
-			case 'p':
-				i = can_see_obj(to, obj1)
-				  ? obj1->short_descr
-				  : "something";
-				break;
- 
-			case 'P':
-				i = can_see_obj(to, obj2)
-				  ? obj2->short_descr
-				  : "something";
-				break;
- 
-			case 'd':
-				if (!arg2 || ((char *) arg2)[0] == '\0')
-				    i = "door";
-				else {
-				    one_argument((char *) arg2, fname);
-				    i = fname;
-				}
-				break;
-
-			case 'G':
-				if (ch->alignment < 0)
-				    i = "Belan";
-				else
-				    i = "Thoth";
-				break;
-			}
+		if (!arg2 && *str >= 'A' && *str <= 'Z' &&  *str != 'G') {
+			bug("Act: missing arg2 for code %d.", (int)*str);
+			continue;
 		}
-		break;
+		switch (*str) {
+		default:  
+			bug("Act: bad code %d.", (int)*str);
+			break;
 
-	default:
+		case 't': 
+			i = (char *) arg1;                            
+			break;
+
+		case 'T': 
+			i = (char *) arg2;                            
+			break;
+
+		case 'n':
+			i = PERS(ch, to);
+			break;
+
+		case 'N':
+			i = PERS(vch, to);
+			break;
+
+		case 'e':
+			i = he_she[URANGE(0, ch->sex, SEX_MAX-1)];    
+			break;
+
+		case 'E':
+			i = he_she[URANGE(0, vch->sex, SEX_MAX-1)];
+			break;
+
+		case 'm':
+			i = him_her[URANGE(0, ch->sex, SEX_MAX-1)];
+			break;
+
+		case 'M':
+			i = him_her  [URANGE(0, vch->sex, SEX_MAX-1)];
+			break;
+
+		case 's':
+			i = his_her [URANGE(0, ch->sex, SEX_MAX-1)];
+			break;
+
+		case 'S':
+			i = his_her  [URANGE(0, vch->sex, SEX_MAX-1)];
+			break;
+
+		case 'p':
+			i = can_see_obj(to, obj1)
+			  ? obj1->short_descr
+			  : "something";
+			break;
+
+		case 'P':
+			i = can_see_obj(to, obj2)
+			  ? obj2->short_descr
+			  : "something";
+			break;
+
+		case 'd':
+			if (!arg2 || ((char *) arg2)[0] == '\0')
+			    i = "door";
+			else {
+			    one_argument((char *) arg2, fname);
+			    i = fname;
+			}
+			break;
+
+		case 'G':
+			if (ch->alignment < 0)
+			    i = "Belan";
+			else
+			    i = "Thoth";
+			break;
+		}
+		++str;
+
+		if(i) {
+			i2 = tmp;
+			parse_colors(i, to, i2); 
+			while((*point++ = *i2++));
+			point--;
+		}
+	} else
 		*point++ = *str++;
-		break;
-	}
-
-	++str;
-
-	parse_colors(i, to, tmp); 
-	strnzcpy(i, tmp, MAX_STRING_LENGTH);
-	if(i) 
-		while((*point = *i) != '\0') {
-			++point;
-			++i;
-	}
-    }
  
     *point++	= '\n';
     *point++	= '\r';
     *point	= '\0';
-
-    parse_colors(buf, to, tmp); 
-    strnzcpy(buf, tmp, MAX_STRING_LENGTH);
 
     if(to->desc)
     	write_to_buffer(to->desc, buf, 0);
@@ -3101,7 +3087,7 @@ char* color(char type, CHAR_DATA *ch)
 	case '\\':
 		return "\n\r";
 	default:
-		return CLEAR;
+		return EMPTY_STRING;
 	}
 
 	reset_color = curr_color;
