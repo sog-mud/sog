@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.67 1998-07-26 01:32:21 efdi Exp $
+ * $Id: act_comm.c,v 1.68 1998-07-30 08:26:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1857,7 +1857,7 @@ char *translate(CHAR_DATA *ch, CHAR_DATA *victim, const char *argument)
 			snprintf(trans, sizeof(trans), "{{%s} %s",
 				slang_table[ch->slang].name, argument);
 		else
-			snprintf(trans, sizeof(trans), argument);
+			snprintf(trans, sizeof(trans), "%s", argument);
 		return trans;
 	}
 
