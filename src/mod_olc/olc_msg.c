@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.43 2000-04-10 07:58:14 fjoe Exp $
+ * $Id: olc_msg.c,v 1.44 2000-04-22 13:21:44 avn Exp $
  */
 
 #include "olc.h"
@@ -263,6 +263,8 @@ OLC_FUN(msged_msg)
 {
 	char arg[MAX_INPUT_LENGTH];
 	argument = one_argument(argument, arg, sizeof(arg));
+	if (argument[0] == '.')
+		argument++;
 	return _olced_mlstrkey(ch, arg, atomsg(argument), cmd);
 }
 
