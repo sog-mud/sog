@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.73 1998-08-03 00:22:29 efdi Exp $
+ * $Id: act_move.c,v 1.74 1998-08-03 16:39:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -382,9 +382,8 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 	char_to_room(ch, to_room);
 
 	/* room record for tracking */
-	if (!IS_NPC(ch) && ch->in_room && !IS_AFFECTED(ch, AFF_FLYING))
+	if (!IS_NPC(ch) && ch->in_room)
 		room_record(ch->name, in_room, door);
-
 
 	if (!IS_AFFECTED(ch, AFF_SNEAK) && ch->invis_level < LEVEL_HERO) {
 		if (mount)
@@ -2911,13 +2910,12 @@ if ((door = find_exit(ch, arg2)) >= 0)
 		return; 
 	}
 
-	REMOVE_BIT(ch->act, PLR_GHOST);
-
 	WAIT_STATE(ch, skill_table[gsn_push].beats);
 	percent  = number_percent() + (IS_AWAKE(victim) ? 10 : -50);
 	percent += can_see(victim, ch) ? -10 : 0;
 
 	if (victim->position == POS_FIGHTING
+	||  (IS_NPC(ch) && victim->pIndexData->pShop != NULL)
 	||  (!IS_NPC(ch) && percent > get_skill(ch,gsn_push))) {
 		/*
 		 * Failure.
