@@ -1,5 +1,6 @@
 #AREADATA
 Name High Tower~
+Builders solmyr~
 VNUMs 1300 1499
 Credits Skylar~
 Security 9
@@ -906,11 +907,12 @@ FU 0 0 0
 stand stand male 1095
 0 0 medium unknown
 #1363
-cat calico familiar~
-A calico cat~
-A large calico cat is here.
+cat calico familiar кошка~
+@eng A calico cat@rus ~~Черепаховая~~ ~~кошка~~~
+@eng A large calico cat is here.
+@rus Большая черепаховая кошка (calico) сидит на задних лапках.
 ~
-It looks incredibly large for a cat, no doubt a giant of its species.
+@eng It looks incredibly large for a cat, no doubt a giant of its species.
 A beautiful jewel encrusted collar about its neck is its only adornment.
 ~
 cat~
@@ -1967,12 +1969,17 @@ G none
 
 #ROOMS
 #1300
-Entrance to the Shadow Grove~
-Before you, the grove of shadows lies. Giant grey trees are all that
+@eng Entrance to the Shadow Grove@rus Вход в дремучий лес~
+@eng Before you, the grove of shadows lies. Giant grey trees are all that
 can be seen through the thick shadows. A great sense of both power and
 menace permeates the surrounding area. You have a strange urge to turn
 back and go back the way you've come.
   A small path leads north into the shadows and back south to the road.
+@rus Перед тобой находится дремучий лес. Серые гигантские деревья -- это все, что
+можно разглядеть сквозь гущу теней. Ощущение мощи и опасности  пронизывает 
+ближайшее пространство. Ты чувствуешь странный порыв развернуться и пойти
+назад по дороге, по которой ты сюда $gn{nопал}.
+  Узкая тропа ведет вглубь леса на север, на юг простирается широкая дорога.
 ~
 0 C forest
 D0
@@ -1986,11 +1993,15 @@ D2
 Z -1 6137
 S
 #1301
-The Shadow Grove~
-You are inside the shadow grove. Giant trees seem to glare at you
+@eng The Shadow Grove@rus Дремучий лес~
+@eng You are inside the shadow grove. Giant trees seem to glare at you
 from all sides. The shadowy mist obscures most of your vision. Strange
 sounds of moaning and growling come from all directions.
   All exits lead into shadows, you are very confused.
+@rus Ты $gn{заблудился} в дремучем лесу. Гигантские деревья как-будто пристально 
+смотрят на тебя со свех сторон. Густой туман мешает тебе чётко различать
+что-либо. Странные стоны и рычание издаются со всех направлений.
+  Все тропы ведут всё глубже в чащу, ты окончательно $gn{сбит} с толку.
 ~
 0 AN forest
 D0
@@ -2015,11 +2026,15 @@ The shadows cloud your vision.
 Z -1 1303
 S
 #1302
-The Shadow Grove~
-You are inside the shadow grove. Giant trees seem to glare at you
+@eng The Shadow Grove@rus Дремучий лес~
+@eng You are inside the shadow grove. Giant trees seem to glare at you
 from all sides. The shadowy mist obscures most of your vision. Strange
 sounds moaning and growling come from all directions.
   All exits lead into shadows, you are very confused.
+@rus Ты $gn{заблудился} в дремучем лесу. Гигантские деревья как-будто пристально 
+смотрят на тебя со свех сторон. Густой туман мешает тебе чётко различать
+что-либо. Странные стоны и рычание издаются со всех направлений.
+  Все тропы ведут всё глубже в чащу, ты окончательно $gn{сбит} с толку.
 ~
 0 AN forest
 D0
@@ -2044,11 +2059,15 @@ The shadows cloud your vision.
 Z -1 1301
 S
 #1303
-The Shadow Grove~
-You are inside the shadow grove. Giant trees seem the glare at you
+@eng The Shadow Grove@rus Дремучий лес~
+@eng You are inside the shadow grove. Giant trees seem the glare at you
 from all sides. The shadowy mist obscures most of your vision. Strange
 sounds of moaning and growling come from all directions.
   All exits lead into shadows, you are very confused.
+@rus Ты $gn{заблудился} в дремучем лесу. Гигантские деревья как-будто пристально 
+смотрят на тебя со свех сторон. Густой туман мешает тебе чётко различать
+что-либо. Странные стоны и рычание издаются со всех направлений.
+  Все тропы ведут всё глубже в чащу, ты окончательно $gn{сбит} с толку.
 ~
 0 AN forest
 D0
@@ -2073,11 +2092,15 @@ The shadows cloud your vision.
 Z -1 1302
 S
 #1304
-The Shadow Grove~
-You are inside the shadow grove. Giant trees seem to glare at you
+@eng The Shadow Grove@rus Дремучий лес~
+@eng You are inside the shadow grove. Giant trees seem to glare at you
 from all sides. The shadowy mist obscures most of your vision. Strange
 sounds of moaning and growling come from all directions.
   All exits lead into shadows, you are very confused.
+@rus Ты $gn{заблудился} в дремучем лесу. Гигантские деревья как-будто пристально 
+смотрят на тебя со свех сторон. Густой туман мешает тебе чётко различать
+что-либо. Странные стоны и рычание издаются со всех направлений.
+  Все тропы ведут всё глубже в чащу, ты окончательно $gn{сбит} с толку.
 ~
 0 AN forest
 D0
@@ -2102,11 +2125,15 @@ Dark gates loom in the mist.
 Z -1 2201
 S
 #1305
-The Shadow Grove~
-You are inside the shadow grove. Giant trees seem to glare at you
+@eng The Shadow Grove@rus Дремучий лес~
+@eng You are inside the shadow grove. Giant trees seem to glare at you
 from all sides. The shadowy mist obscures most of your vision. Strange
 sounds of moaning and growling come from all directions.
   All exits lead into shadows, you are very confused.
+@rus Ты $gn{заблудился} в дремучем лесу. Гигантские деревья как-будто пристально 
+смотрят на тебя со свех сторон. Густой туман мешает тебе чётко различать
+что-либо. Странные стоны и рычание издаются со всех направлений.
+  Все тропы ведут всё глубже в чащу, ты окончательно $gn{сбит} с толку.
 ~
 0 AN forest
 D0
@@ -2131,11 +2158,15 @@ The shadows cloud your vision.
 Z -1 1304
 S
 #1306
-The Shadow Grove~
-You are inside the shadow grove. Giant trees seem to glare at you
+@eng The Shadow Grove@rus Дремучий лес~
+@eng You are inside the shadow grove. Giant trees seem to glare at you
 from all sides. The shadowy mist obscures most of your vision. Strange
 sounds of moaning and growling come from all directions.
   All exits lead into shadows, you are very confused.
+@rus Ты $gn{заблудился} в дремучем лесу. Гигантские деревья как-будто пристально 
+смотрят на тебя со свех сторон. Густой туман мешает тебе чётко различать
+что-либо. Странные стоны и рычание издаются со всех направлений.
+  Все тропы ведут всё глубже в чащу, ты окончательно $gn{сбит} с толку.
 ~
 0 AN forest
 D0
@@ -2160,11 +2191,15 @@ The shadows cloud your vision.
 Z -1 1305
 S
 #1307
-The Shadow Grove~
-You are inside the shadow grove. Giant trees seem to glare at you
+@eng The Shadow Grove@rus Дремучий лес~
+@eng You are inside the shadow grove. Giant trees seem to glare at you
 from all sides. The shadowy mist obscures most of your vision. Strange
 sounds of moaning and growling come from all directions.
   All exits lead into shadows, you are very confused.
+@rus Ты $gn{заблудился} в дремучем лесу. Гигантские деревья как-будто пристально 
+смотрят на тебя со свех сторон. Густой туман мешает тебе чётко различать
+что-либо. Странные стоны и рычание издаются со всех направлений.
+  Все тропы ведут всё глубже в чащу, ты окончательно $gn{сбит} с толку.
 ~
 0 AN forest
 D0
@@ -2189,11 +2224,15 @@ The shadows cloud your vision.
 Z -1 1309
 S
 #1308
-The Shadow Grove~
-You are inside the shadow grove. Giant trees seem to glare at you
+@eng The Shadow Grove@rus Дремучий лес~
+@eng You are inside the shadow grove. Giant trees seem to glare at you
 from all sides. The shadowy mist obscures most of your vision. Strange
 sounds of moaning and growling come from all directions.
   All exits lead into shadows, you are very confused.
+@rus Ты $gn{заблудился} в дремучем лесу. Гигантские деревья как-будто пристально 
+смотрят на тебя со свех сторон. Густой туман мешает тебе чётко различать
+что-либо. Странные стоны и рычание издаются со всех направлений.
+  Все тропы ведут всё глубже в чащу, ты окончательно $gn{сбит} с толку.
 ~
 0 AN forest
 D0
@@ -2218,11 +2257,15 @@ The shadows cloud your vision.
 Z -1 1307
 S
 #1309
-The Shadow Grove~
-You are inside the shadow grove. Giant trees seem to glare at you
+@eng The Shadow Grove@rus Дремучий лес~
+@eng You are inside the shadow grove. Giant trees seem to glare at you
 from all sides. The shadowy mist obscures most of your vision. Strange
 sounds of moaning and growling come from all directions.
   All directions lead into shadows, you are very confused.
+@rus Ты $gn{заблудился} в дремучем лесу. Гигантские деревья как-будто пристально 
+смотрят на тебя со свех сторон. Густой туман мешает тебе чётко различать
+что-либо. Странные стоны и рычание издаются со всех направлений.
+  Все тропы ведут всё глубже в чащу, ты окончательно $gn{сбит} с толку.
 ~
 0 AN forest
 D0
@@ -2247,13 +2290,19 @@ The shadows cloud your vision.
 Z -1 1308
 S
 #1311
-A small clearing~
-You are in a small clearing in the shadow grove. There is charred grass
+@eng A small clearing@rus Маленькая поляна~
+@eng You are in a small clearing in the shadow grove. There is charred grass
 underfoot, and the signs of fire here and there. It is almost as if the
 plant life shuns this spot. The shadowy mist hovers all around, obscuring
 your view into the grove.
   A small path leads north to some shadowy structure. All other exits are
 shrouded in shadowy mist.
+@rus Ты находишься на небольшой полянке посреди леса. Трава под твоими ногами
+обуглена и повсюду видны признаки пожара. Кажется даже самые малые ростки
+жизни избегают это место. Густой туман нависает в воздухе, мешая тебе
+всмотреться в глубь леса.
+  Узкая тропа ведёт на север, к какому-то сумеречному строению. Все остальные
+пути покрыты мраком.
 ~
 0 A forest
 D0
@@ -2268,12 +2317,17 @@ The shadows cloud your vision.
 Z -1 1302
 S
 #1312
-Entrance to the High Tower~
-You have reached the entrance to the high tower of sorcery. The
+@eng Entrance to the High Tower@rus Вход в высокую башню~
+@eng You have reached the entrance to the high tower of sorcery. The
 tower looms above you at an incredible height. It seems to disappear
 into the storm clouds above.
   A diamond gate is to the north, guarded by a huge golem. The trail
 back south has disappeared behind you.
+@rus Ты $gn{подошел} ко входу в высокую колдовскую башню. Башня предстала перед тобой
+своими огромными размерами. Она настолько высока, что ее вершины
+исчезают в грозовых тучах.
+  Бриллиантовые врата охраняются огромным големом. Тропинка назад на юг словно
+растворилась.
 ~
 0 D inside
 D0
@@ -2283,13 +2337,18 @@ gate diamond~
 Z -1 1313
 S
 #1313
-Inside the High Tower of Sorcerery~
-You are inside the high tower of sorcery. The sight is truly amazing.
+@eng Inside the High Tower of Sorcerery@rus Внутри колдовской башни~
+@eng You are inside the high tower of sorcery. The sight is truly amazing.
 From here, it is obvious that somehow, the tower is much larger on the
 inside than it is on the outside. Young mages walk about, completely
 oblivious to your presence.
   Exits lead north to the common room, west to the dinning room, east to
 a plain hallway and back south through the gate.
+@rus Ты находишься внутри колдовской башни. Вид дейсивительно ошеломляющий. От сюда
+становится видно, что почему-то башня внутри гораздо больше, чем она выглядит
+снаружи. Маги бродят здесь, абсолютно не замечая твоего присутсивия.
+  Выходы ведут на север в зал отдыха, на запад в столовую, на восток в прямой
+корридор и назад на юг, сквозь ворота.
 ~
 0 D inside
 D0
@@ -5090,7 +5149,7 @@ door white ivory~
 ABFZ 1475 1475
 S
 #1477
-The audience chamber~
+@eng The audience chamber@rus Зал для приёмов~
 You are in a large chamber. Small bolts of energy leap from wall to wall,
 crackling with power. The floor is a swirl of indeterminable colors and
 patterns ever changing. Bright bursts of color seem to explode into the air

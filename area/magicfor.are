@@ -2073,7 +2073,7 @@ S
 it, try as you might. Northward, the way is impassable, there is a darkness
 there. Here, the fern-like trees are surrounded by pretty flowers. Birdsong
 delights your ears.
-@rus На западе высокая стена сверкает золотым на свету. Ты не можешь ничего уви-
+@rus Высокая стена на западе отливает золотым. Ты не можешь ничего уви-
 деть за ней, как бы ты ни старался. На север невозможно пройти - мрачно там.
 Здесь растут похожие на папаратник деревья окруженные миловидными цветочками.
 Птичья трель услаждает твой слух.
@@ -2089,11 +2089,15 @@ D2
 Z -1 1833
 S
 #1826
-By the Rose Garden~
-Just off the path to the east someone has planted a rose garden and tended
+@eng By the Rose Garden@rus Розовый Садик~
+@eng Just off the path to the east someone has planted a rose garden and tended
 it very well. To the north is darkness, impenetrable, with a row of fern-like
 trees this side of it. Birdsong delights your ears here, and you can also
 hear the buzzing of bees as they visit the flowers here.
+@rus Как только сворачиваешь с тропинки что востоке, кто-то посадил розовый садик
+и тщательно ухаживает за ним. На севере непроницаемая тьма с рядами похожих на
+папоротник деревьев с этой стороны от неё. Птичьи трели улаждают твой слух,
+да жужжание пчёлок, что прилетают навестить здешние цветочки.
 ~
 0 0 forest
 D1
@@ -2110,10 +2114,12 @@ D3
 Z -1 1825
 S
 #1827
-The Path in the Faerie Wood~
-The path continues north and south. To the east you see a patch of mush-
+@eng The Path in the Faerie Wood@rus Тропинка в Волшебном Лесу~
+@eng The path continues north and south. To the east you see a patch of mush-
 rooms, and to the west a rose garden. You hear the songs of birds in the
 trees above.
+@rus Тропинка бежит с севера на юг. К востоку ты видишь грибную полянку, а к
+западу - розовый садик. Ты слышишь пение птиц в листве над головой.
 ~
 0 0 forest
 D0
@@ -2134,10 +2140,13 @@ D3
 Z -1 1826
 S
 #1828
-In the Mushroom Patch~
-You are surrounded by mushrooms, some as tiny as your big toe, others as
+@eng In the Mushroom Patch@rus На Грибной Полянке~
+@eng You are surrounded by mushrooms, some as tiny as your big toe, others as
 tall as knee-high to a giant. The majority of them are about a half foot
 high, white with brown spots.
+@rus Вокруг грибы, одни - маленькие, как большой палец у тебя на ноге, другие -
+такие высокие, что будут гиганту поколено. Но, в основном, они примерно, пол-
+фута высотой, бледные с коричневыми пятнышками.
 ~
 0 0 forest
 D0
@@ -2158,10 +2167,13 @@ D3
 Z -1 1827
 S
 #1829
-In the Faerie Wood~
-The trees here are fernlike and delicate, the green of their wispy leaves
+@eng In the Faerie Wood@rus В Волшебном Лесу~
+@eng The trees here are fernlike and delicate, the green of their wispy leaves
 bright and spring-like. At the base of the trees are small flowers and green
 grass. To the east the way is impassable.
+@rus Вокруг изящные похожие на папоротник деревья. зелень их воздушных листьев
+светла и броска. Под ними живёт зелёная травка и маленькие цветочки. Путь на
+восток непроходим.
 ~
 0 0 forest
 D0
@@ -2178,11 +2190,14 @@ D3
 Z -1 1828
 S
 #1830
-Path in the Dark Wood~
-The path continues north and south. All around you is darkness, the canopy of
+@eng Path in the Dark Wood@rus Тропа в Дремучем лесу~
+@eng The path continues north and south. All around you is darkness, the canopy of
 leaves above you barely letting in the light. Westward the way is impassable,
 but from that direction you hear faint birdsong. Eastward is dark, thick
 wood.
+@rus Тропа ведёт на север и на юг. Всё, что тебя окружает, - тьма, листва над го-
+ловой еле пропускает свет. Пройти на запад нет никакой возможности, хотя ты
+слышишь слабую птичью трель. На востоке - мрак, дремучий лес.
 ~
 0 A forest
 D0
@@ -2199,10 +2214,14 @@ D2
 Z -1 1838
 S
 #1831
-In the Dark Wood~
-The shrubbery is so thick here it's a wonder you can move. Vines and thorns
+@eng In the Dark Wood@rus В Дремучем Лесу~
+@eng The shrubbery is so thick here it's a wonder you can move. Vines and thorns
 seek to tangle and trip you. Up above, the trees form a dark canopy keeping
 most of the light out. You hear the very faint songs of birds from the west.
+@rus Кустарник настолько густ здесь, что просто удивительно, как ты ещё не за-
+стрял в нём. Колючие кусты и виноградная лоза пытаются опутать и уронить тебя.
+Лесной полог над головой сдерживает почти весь свет. До тебя доносится очень
+слабая трель с запада.
 ~
 0 A forest
 D0
@@ -2220,9 +2239,12 @@ Z -1 1839
 S
 #1832
 @eng By the Dark Eastern Wall@rus Возле Мрачной Восточной Стены~
-To the east is a dark wall too high too peek over, and all around is thick
+@eng To the east is a dark wall too high too peek over, and all around is thick
 dark foliage. Above your head, the canopy of leaves is thick and keeps light
 out.
+@rus На востоке тёмная стена, слишком высокая, чтобы за ней можно было что-то
+увидеть, а вокруг тёмная густая листва. Кроны деревьев над твоей головой сдер-
+живают весь солнечный свет.
 ~
 0 A forest
 D0
@@ -2239,11 +2261,16 @@ D3
 Z -1 1831
 S
 #1833
-By the Golden Wall~
-To the west the high wall glitters golden in the light. You cannot peer over
+@eng By the Golden Wall@rus Возле Золотой Стены~
+@eng To the west the high wall glitters golden in the light. You cannot peer over
 it, try as you might. Northward, the way is impassable, there is a darkness
 there. Here, the fern-like trees are surrounded by pretty flowers. From above
 you hear the fluttering of wings, and birdsong delights your ears.
+@rus К западу - высокая стена отливает золотом на свету. Ты не можешь ничего уви-
+деть за ней, как бы ты ни старался. На север дороги нет, там тьма. Зато здесь
+растут похожие на папоротник деревья в окружении симпатичных цветочков. Сверху
+ 
+ты слышишь хлопанье крыльев, а пение птиц услаждает твой слух.
 ~
 0 0 forest
 D0
@@ -2260,11 +2287,15 @@ D2
 Z -1 1843
 S
 #1834
-By the Magic Spring~
-A spring is here, gurgling water into a clear sparkling pool. Every so often
+@eng By the Magic Spring@rus Возле Магического Источника~
+@eng A spring is here, gurgling water into a clear sparkling pool. Every so often
 the water shoots up and sprays in the air. Fern-like trees wave gently, and
 little yellow flowers dot the soft green grass. The gentle scent of roses
 wafts in from the north.
+@rus Здесь источник журчит совей водицей в чистый искрящийся бассейн. Время от
+времени, вода вырывается вверх и разлетается на сотни маленьких капелек.
+Деревья, похожие на папоротник, тихо покачиваются. Маленькие жёлтенькие
+цветочки усеяли мягкую травку. Нежный аромат роз доносится с запада.
 ~
 0 0 forest
 D0
@@ -2285,9 +2316,11 @@ D3
 Z -1 1833
 S
 #1835
-Along the Path in the Faerie Wood~
-The path continues north and south. From the west you hear gurgling sounds.
+@eng Along the Path in the Faerie Wood@rus На тропинке в Волшебном Лесу~
+@eng The path continues north and south. From the west you hear gurgling sounds.
 All around you are delicate trees with light green fern-like leaves.
+@rus Тропинка бежит на север и на юг. С запада ты слышишь журчащие звуки. Тебя
+окружают изящные деревья с светло-зелёными похожими на папоротник листьями.
 ~
 0 0 forest
 D0
@@ -2308,9 +2341,11 @@ D3
 Z -1 1834
 S
 #1836
-The Faerie Circle~
-In the midst of this lovely glade of soft green grass is a perfectly round
+@eng The Faerie Circle@rus Волшебный Круг~
+@eng In the midst of this lovely glade of soft green grass is a perfectly round
 circle of small grey mushrooms.
+@rus В центре этой мягкой чудесной зелёной полянки - очень правильной формы
+круг из маленьких сереньких грибочков.
 ~
 0 0 forest
 D0
@@ -2331,11 +2366,15 @@ D3
 Z -1 1835
 S
 #1837
-By the Well~
-An old but well-repaired well is here. Formed of stones set just so, with a
+@eng By the Well@rus Возле Колодца~
+@eng An old but well-repaired well is here. Formed of stones set just so, with a
 wooden rack and a long rope (at the end of which is a shiney bucket), it
 appears to be usable, the water drinkable. Nearby are fern-like trees, and
 little flowers dot the grass.
+@rus Очень старый, но в хорошем состоянии, колодец стоит здесь. Аккуратно сло-
+женный из камней, с деревянным воротом и длинной верёвкой (на конце которой
+привязано блестящее ведёрко), кажется вполне пригодным, да и воду пить можно.
+А вокруг похожие на папоротник деревья, да маленькие цветочки усеяли травку.
 ~
 0 0 forest
 D0
@@ -2356,9 +2395,11 @@ D3
 Z -1 1836
 S
 #1838
-Northern Path in the Pine Wood~
-The path extends northward, to the south you see the path's intersection. To
+@eng Northern Path in the Pine Wood@rus Северная Тропа в Сосновом Лесу~
+@eng The path extends northward, to the south you see the path's intersection. To
 the east you see pine trees, to the west a well and some fern-like trees.
+@rus Тропа тянется на север, а на юге ты видишь перекрёсток.  К востоку от тебя
+сосны, к западу - колодец в окружении похожих на папоротник деревьев.
 ~
 0 0 forest
 D0
@@ -2379,10 +2420,13 @@ D3
 Z -1 1837
 S
 #1839
-In the Pine Wood~
-The trees here are all sharp and needly, but no matter the season, they're
+@eng In the Pine Wood@rus В Сосновом Лесу~
+@eng The trees here are all sharp and needly, but no matter the season, they're
 always green. Dead brown needles cover the forest floor here. West and south
 you see a path.
+@rus Вокруг вечно-зелёные деревья с грубой корой и колючими иголками вместо
+листьев. Давно опавшие и высохшие, они усыпали всё под ногами. На западе и юге
+ты видишь тропу.
 ~
 0 0 forest
 D0
@@ -2403,10 +2447,13 @@ D3
 Z -1 1838
 S
 #1840
-By the Twisted Pines~
-The pine trees here are so twisted that you cannot help but wonder what
+@eng By the Twisted Pines@rus Возле Скрученых Сосен~
+@eng The pine trees here are so twisted that you cannot help but wonder what
 force, and was it natural, did this thing to the otherwise lovely trees. The
 ground is full of dead needles, brown and sharp.
+@rus Сосны здесь так скручены, что им уже не помочь. Интересно, какая сила, и была
+ли она природной, сделала это с такими симпатичными деревцами. Земля усыпана
+усыпана сухими иголками, карими и острыми.
 ~
 0 0 forest
 D0
@@ -2427,10 +2474,13 @@ D3
 Z -1 1839
 S
 #1841
-By a High Cracked Wall~
-North is a high wall riddled with cracks. You cannot peer over it, you
+@eng By a High Cracked Wall@rus Возле Высокой Потресканой Стены~
+@eng North is a high wall riddled with cracks. You cannot peer over it, you
 cannot peek through the cracks. The trees here are bent out of shape,
 very unnatural-looking.
+@rus На севере - высокая испещрённая трещинами стена. Через неё нельзя ни пере-
+лезть, ни посмотреть сквозь трещины. Деревья здесь теряют свои привычные очер-
+тания - выглядят неестественно. 
 ~
 0 0 forest
 D1
@@ -2447,7 +2497,7 @@ D3
 Z -1 1840
 S
 #1842
-By a Corner of the High Cracked Wall~
+@eng By a Corner of the High Cracked Wall@rus В углу высокой потресканой стены~
 North and east are a high wall riddled with cracks. You cannot peer over it,
 you cannot peek through the cracks. The trees here are bent out of shape,
 very unnatural-looking.
@@ -3760,6 +3810,8 @@ S
 0
 
 #OLIMITS
+O 1806 10	* an ivory unicorn sword
+O 1808 10	* an ivory mace
 O 1811 3	* a golden eye dagger
 O 1815 3	* a violet robe
 O 1816 4	* an oaken staff

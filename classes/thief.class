@@ -2,6 +2,7 @@
 Name thief~
 ShortName Thi~
 PrimeStat dex
+SkillSpec 'class_thief'
 SchoolWeapon 3701
 GuildRoom 3028
 GuildRoom 3029
@@ -11,9 +12,7 @@ Thac0_00 18
 Thac0_32 -4
 HPRate 100
 ManaRate 50
-AddExp 0
 StatMod 0 0 0 3 0 5
-SkillSpec class_thief
 End
 
 #POSE

@@ -18,8 +18,8 @@ strangers that may pass by.
 ~
 human~
 ABDG HN 1000 0
-93 0 50d10+20500 5d5+5000 17d10+64 'divine'
--66 -66 -66 -33
+65 0 50d10+8250 10d10+1000 11d5+35 'divine'
+-35 -35 -35 -16
 FHKN 0 0 0
 stand stand male 1000
 0 0 medium unknown
@@ -36,8 +36,8 @@ and alloys such as bronze.
 ~
 human~
 ABG HN 1000 0
-73 0 50d10+20500 5d5+5000 17d10+64 'pound'
--66 -66 -66 -33
+50 0 2d1+3000 1d1+99 5d6+50 'pound'
+-7 -7 -7 -3
 FHIKN 0 0 0
 stand stand male 1000
 0 0 medium unknown
@@ -53,8 +53,8 @@ occasional crude iron oddity.
 ~
 human~
 ABGe HN 1000 0
-80 0 50d10+20500 5d5+5000 17d10+64 'pound'
--66 -66 -66 -33
+50 0 2d1+3000 1d1+99 5d6+50 'pound'
+-7 -7 -7 -3
 FHIKN 0 0 0
 stand stand male 1000
 0 0 medium unknown
@@ -67,8 +67,8 @@ Type list to see what he has to offer.
 ~
 human~
 ABGe HN 1000 0
-93 0 50d10+20500 5d5+5000 17d10+64 'slash'
--66 -66 -66 -33
+60 0 2d1+10000 1d1+99 5d6+150 'slash'
+-19 -19 -19 -9
 FHIKN 0 0 0
 stand stand male 1000
 0 0 medium unknown
@@ -83,8 +83,8 @@ marvellous potions. They taste even worse than they smell...
 ~
 human~
 ABGe HN 1000 0
-83 0 50d10+20500 5d5+5000 17d10+64 'pound'
--66 -66 -66 -33
+55 0 2d1+5000 1d1+99 5d6+50 'pound'
+-10 -10 -10 -5
 FHIKN 0 0 0
 stand stand female 1000
 0 0 medium unknown
@@ -101,8 +101,8 @@ clear day).
 ~
 human~
 ABG HN 1000 0
-83 0 50d10+20500 5d5+5000 17d10+64 'pound'
--66 -66 -66 -33
+55 0 2d1+5000 1d1+99 5d6+50 'pound'
+-10 -10 -10 -5
 FHIKN 0 0 0
 stand stand female 1000
 0 0 medium unknown
@@ -117,8 +117,8 @@ in his ability to exact obedience. That bear sure doesn't look tame...
 ~
 human~
 ABGe HN 1000 0
-80 0 50d10+20500 5d5+5000 17d10+64 'pound'
--66 -66 -66 -33
+65 0 50d10+8250 10d10+1000 11d5+35 'pound'
+-35 -35 -35 -17
 FHIKN 0 0 0
 stand stand male 1000
 0 0 medium unknown
@@ -132,8 +132,8 @@ of the year fashioning and selling basic equipment.
 ~
 human~
 ABGe HN 1000 0
-83 0 50d10+20500 5d5+5000 17d10+64 'pound'
--66 -66 -66 -33
+50 0 2d1+3000 1d1+99 5d6+50 'pound'
+-7 -7 -7 -3
 FIKN 0 0 0
 stand stand male 1000
 0 0 medium unknown
@@ -147,8 +147,8 @@ travellers and other villagers.
 ~
 human~
 ABGe HN 1000 0
-80 0 50d10+20500 5d5+5000 17d10+64 'pound'
--66 -66 -66 -33
+50 0 2d1+3000 1d1+99 5d6+50 'pound'
+-7 -7 -7 -3
 FIKN 0 0 0
 stand stand female 1000
 0 0 medium unknown
@@ -165,8 +165,8 @@ the brewer is the size of a grizzly bear, few refuse.
 ~
 human~
 ABGe HN 1000 0
-85 0 50d10+20500 5d5+5000 17d10+64 'pound'
--66 -66 -66 -33
+55 0 2d1+5000 1d1+99 5d6+50 'pound'
+-10 -10 -10 -5
 FIKN 0 0 0
 stand stand male 1000
 0 0 medium unknown
@@ -250,8 +250,8 @@ Imagine what he could do to you...
 ~
 human~
 ABDG HJN 0 0
-93 0 50d10+20500 5d5+5000 18d10+64 'crush'
--76 -76 -76 -33
+65 0 50d10+8250 10d10+1000 11d5+35 'crush'
+-35 -35 -35 -17
 0 0 0 0
 stand stand male 1000
 FIKN 0 medium unknown
@@ -265,8 +265,8 @@ very well makes conversation suddenly become much simpler- MONEY.
 ~
 human~
 ACGHe DFN 0 0
-60 0 50d10+6750 5d5+5000 8d6+28 'pound'
--30 -30 -30 -3
+50 0 2d1+3000 1d1+99 5d6+50 'pound'
+-7 -7 -7 -3
 FHIKN 0 0 0
 stand stand male 1000
 0 0 medium unknown
@@ -873,7 +873,7 @@ a wooden club~
 A wooden club is lying here.~
 copper~
 weapon G AN
-exotic 5 11 'crush' 0
+exotic 4 11 'crush' 0
 50 15 500 P
 A
 19 6
@@ -2786,5 +2786,9 @@ S
 24109 17 0 0 0 0 180 20 0 23
 24116 5 9 10 15 18 180 20 0 23
 0
+
+#OLIMITS
+O 24127 2	* the chief's club
+S
 
 #$

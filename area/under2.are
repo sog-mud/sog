@@ -354,7 +354,7 @@ make you pay.
 ~
 human~
 ABTe CDJN 0 0
-95 0 50d10+22500 5d5+5000 12d15+68 'pound'
+65 0 50d10+8250 10d10+1000 11d5+35 'pound'
 -71 -71 -71 -37
 EFIKN 0 0 0
 stand stand male 0
@@ -899,8 +899,8 @@ you to decide on which slave you wish to buy.
 ~
 human~
 ABTe J 900 0
-95 0 50d10+22500 5d5+5000 15d15+68 'pound'
--71 -71 -71 -37
+65 0 50d10+8250 10d10+1000 11d5+35 'pound'
+-35 -35 -35 -17
 CEFIJKU 0 0 0
 stand stand male 0
 0 0 medium unknown
@@ -1044,8 +1044,8 @@ to attack him.
 ~
 human~
 ABTe CJ 0 0
-95 0 50d10+22500 5d5+5000 12d15+68 'slash'
--71 -71 -71 -37
+65 0 50d10+8250 10d10+1000 11d5+35 'slash'
+-33 -33 -33 -17
 CEFIJK 0 0 0
 stand stand male 0
 0 0 medium unknown
@@ -1188,8 +1188,8 @@ those who visit this unique city.
 ~
 human~
 ABTe DJ 0 0
-95 0 50d10+22500 5d5+5000 12d15+68 'pound'
--71 -71 -71 -37
+95 0 50d10+8250 10d10+1000 11d5+35 'pound'
+-33 -33 -33 -17
 CDEFIJK 0 0 0
 stand stand male 0
 0 0 medium unknown
@@ -1205,8 +1205,8 @@ confidence of one who has seen everything and knows nothing can best
 him. ~
 human~
 ABTe DJ 0 0
-95 0 50d10+22500 5d5+5000 12d15+68 'pound'
--71 -71 -71 -37
+65 0 50d10+8250 10d10+1000 11d5+35 'pound'
+-33 -33 -33 -17
 CDEFIJK 0 0 0
 stand stand male 0
 0 0 medium unknown
@@ -1898,8 +1898,8 @@ This is the inn keep of the Traveller's Den.  He makes sure everyone gets
 what they want and provides soft beds for those who wish to stay here. ~
 human~
 ABTe J 0 0
-95 10 50d10+22500 5d5+5000 16d15+68 'pound'
--71 -71 -71 -37
+95 10 50d10+8250 10d10+1000 11d5+35 'pound'
+-33 -33 -33 -17
 EFIK 0 0 0
 stand stand male 0
 0 0 medium unknown
@@ -3242,7 +3242,7 @@ G none
 demon fire~
 Demon fire~
 A weird flame burns here~
-fire~
+flame~
 armor BEG AJ
 22 20 20 12 0
 37 5 1000 P
@@ -3255,7 +3255,7 @@ G none
 fire gem~
 A fire gem~
 A large red gem seems to be on fire~
-fire~
+flame~
 wand AG AO
 35 5 5 'fireball' 0
 30 3 1000 P

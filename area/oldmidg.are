@@ -9,8 +9,8 @@ End
 
 #MOBILES
 #5300
-baby beholder~
-the baby beholder~
+baby beholder дитя бехолдера~
+@eng the baby beholder@rus ~~дитя~~ бехолдера~
 You meet a baby beholder's cute gaze!
 ~
 @eng It has a large central eye that blinks like a guppy and eyestalks atop the 
@@ -23,15 +23,18 @@ ABCHR D 500 0
 5 0 2d7+46 5d9+100 1d5+0 'none'
 6 6 6 8
 FU 0 0 0
-stand stand none 1
+stand stand none 1000
 0 0 large unknown
 #5301
-lamia pet rus~
-the pet lamia~
-A pet lamia stands here waiting for her next command.
+lamia pet ламия~
+@eng the pet lamia@rus Домашняя ламия~
+@eng A pet lamia stands here waiting for her next command.
+@rus Здесь стоит домашняя ламия (lamia), ждущая приказов от хозяина
 ~
-This is a creature with the upper torso of a beautiful woman, but the lower
+@eng This is a creature with the upper torso of a beautiful woman, but the lower
 body of a four-legged beast.
+@rus Ты видишь перед собой странное существо - четвероногое тело животного с
+бюстом и головой красивой женщины.
 ~
 human~
 ACH 0 500 0
@@ -42,7 +45,7 @@ stand stand female 2
 0 0 medium unknown
 #5302
 citizen man~
-a citizen of Thalos~
+@eng a citizen of Thalos@rus ~~домашняя~~ ~~ламия~~~
 A citizen of Thalos is here, conversing with everyone.
 ~
 He smiles at you, almost as if he knows you.  He is so friendly, you have no
@@ -748,181 +751,200 @@ M act 5499 says 'Great Tear'~
 
 #OBJECTS
 #5300
-collar rus~
-@eng a lamia collar@rus Ошейник ламии~
-@eng A lamia collar is on the ground.@rus На земле лежит ошейник ламии~
+collar ошейник~
+@eng a lamia collar@rus ~~ошейник~~ ламии~
+@eng A lamia collar is on the ground.@rus На земле лежит ошейник ламии (collar).~
 skin~
 armor 0 AC
 3 3 3 0 0
 3 50 310 P
 E
-keyword~
-@rus Ошейник
- 
+collar ошейник~
+@eng Beautiful collar.
+@rus Cимпатичный ошейничек.
 ~
-G none
+G male
 #5301
-breast plate iron~
-a beautiful iron breast plate~
-A beautiful iron breast plate lies here.~
+breast plate iron кираса~
+@eng a beautiful iron breast plate@rus ~~красивая~~ ~~железная~~ ~~кираса~~~
+@eng A beautiful iron breast plate lies here.@rus Здесь лежит красивая железная кираса (plate).~
 iron~
 armor 0 AD
 7 7 7 0 0
 20 450 3200 P
 A
 18 1
-G none
+G female
 #5302
-staff serpentine~
-a green serpentine staff~
-A green serpentine staff has been left here.~
+staff serpentine жезл~
+@eng a green serpentine staff@rus ~~зеленый~~ ~~извилистый~~ ~~жезл~~~
+@eng A green serpentine staff has been left here.@rus Кто-то оставил здесь зеленый извилистый жезл (staff).~
 oak~
 staff FG AO
 20 2 2 'earthquake' 0
 7 120 2000 P
-G none
+G male
+#5303
+cloak green плащ~
+@eng a dark green cloak@rus ~~темно-зеленый~~ ~~плащ~~~
+@eng A beautiful dark green cloak has been dropped by someone.@rus Кто-то бросил здесь свой темно-зеленый плащ (cloak).~
+cloth~
+armor G AC
+7 7 7 2 0
+20 120 1600 P
+A
+13 5
+G male
 #5304
-scroll magic~
-a scroll of enchantment~
-A scroll of magical enchantment has been left here.~
+scroll magic свиток~
+@eng a scroll of enchantment@rus ~~волшебный~~ ~~свиток~~~
+@eng A scroll of magical enchantment has been left here.@rus Здесь лежит манускрипт с магическими заклинаниями (scroll).~
 vellum~
 scroll G A
 30 'enchant weapon' '' '' ''
 8 150 1420 P
-G none
+G male
 #5305
-scroll bound~
-a bound scroll~
-A bound scroll of detection lies at your feet.~
+scroll bound переплетенный манускрипт~
+@eng a bound scroll@rus ~~манускрипт~~ в переплете~
+@eng A bound scroll of detection lies at your feet.@rus Тут лежит переплетенный Манускрипт Обнаружения (scroll).~
 vellum~
 scroll G A
 30 'detect evil' 'detect invis' 'detect magic' ''
 0 150 800 P
-G none
+G male
 #5306
-fountain~
-a large beautiful fountain~
-An elaborate white marble fountain is here.~
+fountain фонтан~
+@eng a large beautiful fountain@rus ~~большой~~ ~~красивый~~ ~~фонтан~~~
+@eng An elaborate white marble fountain is here.@rus Тут стоит прекрасный белый фонтан из мрамора (fountain).~
 marble~
 fountain 0 0
 10 10 'water' 0 0
 0 0 0 P
 E
 fountain~
-You see the most beautiful fountain in the world.  The white marble glistens
+@eng You see the most beautiful fountain in the world.  The white marble glistens
 as sunlight hits its wet surfaces.  Fish swim around in the inner fountain, and
 an exterior fountain is reserved just for drinking.
+@rus Ты видишь перед собой самый красивый во всем мире фонтан. Белый мрамор сверкает и
+блестит под падающими на его мокрую поверхность солнечными лучами. Под водой 
+плавают рыбки, а весь внешний вид фонтана говорит что и него пить можно.
 ~
-G none
+G male
 #5307
-desk~
-the curved desk~
-A beautiful desk made from a gigantic sea shell is here.~
+desk конторка~
+@eng the curved desk@rus ~~изогнутая~~ ~~конторка~~~
+@eng A beautiful desk made from a gigantic sea shell is here.@rus Здесь стоит красивая конторка (desk), изготовленная из гигантской морской раковины.~
 wood~
 container 0 0
 100 ACD 5224 100 100
 0 0 0 P
 E
 desk~
-The sea shell desk here is just gorgeous.  The creamy white of the table
+@eng The sea shell desk here is just gorgeous.  The creamy white of the table
 surface makes you dream of being in a pool swimming among mermaids.
+@rus Стоящая здесь конторка из морской раковины просто великолепна. Кремовая
+белизна поверхности стола вызывает у тебя грезы... как приятно плескаться в
+бассейне среди русалок... м-да.
 ~
-G none
+G female
 #5308
-cabinet~
-the glass cabinet~
-A sturdy glass cabinet is here.~
+cabinet шкаф~
+@eng the glass cabinet@rus ~~стеклянный~~ ~~шкаф~~~
+@eng A sturdy glass cabinet is here.@rus Здесь стоит шкаф из прочного стекла (cabinet).~
 glass~
 container 0 0
 500 ACD 5226 100 100
 0 0 0 P
 E
 cabinet~
-A cabinet made of oak and mahogany, this piece of woodmanship is just splendid 
+@eng A cabinet made of oak and mahogany, this piece of woodmanship is just splendid 
 to view.  The wood is varnished with a very strong stain that looks as if it
 would last longer than the cabinet itself.
+@rus Шкаф отделан дубом и красным деревом, причем выглядит он просто превосходно. Дерево
+покрыто настолько крепким лаком, что кажется, что он продержится дольше, чем сам шкаф.
 ~
-G none
+G male
 #5309
-mandolin~
-a mandolin~
-A mandolin lies against the wall.~
+mandolin мандолина~
+@eng a mandolin@rus ~~мандолина~~~
+@eng A mandolin lies against the wall.@rus Около стены лежит мандолина (mandolin).~
 wood~
 staff G AO
 18 5 5 'cure critical' 0
 10 200 2800 P
-G none
+G female
 #5310
-harp golden~
-a golden harp~
-A beautiful golden harp is waiting to be played.~
+harp golden золотая арфа~
+@eng a golden harp@rus ~~золотая~~ ~~арфа~~~
+@eng A beautiful golden harp is waiting to be played.@rus Красивая золотая арфа (harp) ждет, когда на ней сыграют веселую мелодию.~
 gold~
 staff G AO
 30 1 1 'call lightning' 0
 7 1000 3200 P
 A
 2 -2
-G none
+G female
 #5311
-flute silver~
-a silver flute~
-A brilliant silver flute glimmers from its holster.~
+flute silver серебряная флейта~
+@eng a silver flute@rus ~~серебряная~~ ~~флейта~~~
+@eng A brilliant silver flute glimmers from its holster.@rus Блестящая серебряная флейта (flute) сверкает сквозь прорехи чехла.~
 silver~
 staff AG AO
 30 1 1 'charm person' 0
 9 60 3900 P
 A
 2 -2
-G none
+G female
 #5312
-potion green~
-a green potion~
-You see a green potion on the floor.~
+potion green зеленое снадобье~
+@eng a green potion@rus ~~зеленое~~ ~~снадобье~~~
+@eng You see a green potion on the floor.@rus На полу ты видишь снадобье зеленого цвета (potion).~
 glass~
 potion 0 A
 20 'gas breath' '' '' ''
 25 50 3000 P
 G none
 #5313
-bluish herbs~
-some bluish herbs~
-Some bluish herbs are scattered here.~
+bluish herbs голубоватая травка~
+@eng some bluish herbs@rus ~~немного голубоватой травки~~~
+@eng Some bluish herbs are scattered here.@rus Здесь на полу разбросано немного голубоватой травки (herb).~
 unknown~
 pill 0 A
 15 '' '' 'bless' ''
 1 10 270 P
-G none
+G female
 #5314
-purplish herbs~
+purplish herbs багрянистая травка~
 some purplish herbs~
-Some purplish herbs are scattered here.~
+@eng Some purplish herbs are scattered here.@rus Здесь на полу разбросано немного багрянистой травки (herb).~
 unknown~
 pill 0 A
 15 '' '' 'detect evil' ''
 0 10 250 P
-G none
+G female
 #5315
-grayish herbs~
-some grayish herbs~
-Some grayish herbs are scattered here.~
+grayish herbs сероватая травка~
+@eng some grayish herbs@rus ~~немного сероватой травки~~~
+@eng Some grayish herbs are scattered here.@rus Здесь на полу разбросано немного сероватой травки (herb).~
 unknown~
 pill 0 A
 5 '' 'giant strength' 'poison' ''
 5 10 360 P
-G none
+G female
 #5316
-orangish herbs~
-some orangish herbs~
-Some orangish herbs are scattered here.~
+orangish herbs оранжевая травка~
+@eng some orangish herbs@rus ~~немного оранжевой травки~~~
+@eng Some orangish herbs are scattered here.@rus Здесь на полу разбросано немного оранжевой травки (herb).~
 plant~
 pill 0 A
 5 '' '' 'cure light' ''
 0 10 150 P
-G none
+G female
 #5317
-sword~
-an imperial sword~
-You see an imperial sword here.~
+sword меч~
+@eng an imperial sword@rus ~~имперский~~ ~~меч~~~
+@eng You see an imperial sword here.@rus Ты видишь имперский меч (sword).~
 steel~
 weapon G AN
 sword 3 6 'slash' 0
@@ -933,14 +955,16 @@ A
 18 2
 E
 sword~
-You see a sword of great craftsmanship.  Imprinted on the side is:
-Merc Industries
+@eng You see a sword of great craftsmanship.  Imprinted on the side is:
+Hlodvig (c).
+@rus Ты видишь меч, изготовленный с огромным мастерством. На его лезвии выгравировано:
+Hlodvig (c).
 ~
-G none
+G male
 #5318
-mace~
-an imperial mace~
-You see an imperial mace here.~
+mace булава~
+@eng an imperial mace@rus ~~имперская~~ ~~булава~~~
+@eng You see an imperial mace here.@rus Ты видишь имперскую булаву (mace).~
 mithril~
 weapon G AN
 mace 3 7 'pound' 0
@@ -951,168 +975,195 @@ A
 18 1
 E
 mace~
-You see a mace of great craftsmanship.  Imprinted on the side is:
-Merc Industries
+@eng You see a mace of great craftsmanship.  Imprinted on the side is:
+Hlodvig (c).
+@rus Ты видишь булаву, изготовленную с огромным мастерством. На ее рукояти выгравировано:
+Hlodvig (c).
 ~
-G none
+G female
 #5319
-chest plate~
-an imperial chest plate~
-You see an imperial chest plate here.~
+chest plate нагрудная пластина~
+@eng an imperial chest plate@rus ~~имперская~~ ~~нагрудная~~ ~~пластина~~~
+@eng You see an imperial chest plate here.@rus Ты видишь имперскую нагрудную пластину (plate).~
 mithril~
 armor 0 AD
 5 5 5 0 0
 10 50 1450 P
 E
 chest plate~
-You see a chest plate of great craftsmanship.  Stamped on the side is:
-Merc Industries
+@eng You see a chest plate of great craftsmanship.  Stamped on the side is:
+Hlodvig (c).
+@rus Ты видишь нагрудную пластину, сделанную с огромным мастерством. На ней выгравировано:
+Hlodvig (c).
 ~
-G none
+G female
 #5320
-shield~
-an imperial shield~
-You see an imperial shield here.~
+shield щит~
+@eng an imperial shield@rus ~~имперский~~ ~~щит~~~
+@eng You see an imperial shield here.@rus Ты видишь имперский щит (shield).~
 mithril~
 armor 0 AJ
 5 5 5 2 0
 10 100 1190 P
 E
 shield~
-You see a shield of great craftsmanship.  Imprinted on the side is:
-Merc Industries
+@eng You see a shield of great craftsmanship.  Imprinted on the side is:
+Hlodvig (c).
+@rus Ты видишь щит, сделанный с огромным мастерством. На нем выгравировано:
+Hlodvig (c).
 ~
-G none
+G male
 #5321
-cloak~
-an imperial cloak~
-You see an imperial cloak here.~
+cloak плащ~
+@eng an imperial cloak@rus ~~имперский~~ ~~плащ~~~
+@eng You see an imperial cloak here.@rus Ты видишь имперский плащ (cloak).~
 cloth~
 armor 0 AC
 5 5 5 0 0
 10 50 730 P
 E
 cloak~
-You see a cloak of great craftsmanship.  Imprinted on the side is:
-Merc Industries
+@eng You see a cloak of great craftsmanship.  Imprinted on the side is:
+Hlodvig (c).
+@rus Ты видишь плащ, сшитый с огромным мастерством. На нем вышито:
+Hlodvig (c).
 ~
-G none
+G male
 #5322
-helm~
-an imperial helm~
-You see an imperial helm here.~
+helm шлем~
+@eng an imperial helm@rus ~~имперский~~ ~~шлем~~~
+@eng You see an imperial helm here.@rus Ты видишь имперский шлем (helm).~
 mithril~
 armor 0 AE
 5 5 5 0 0
 10 50 730 P
 E
 helm~
-You see a helm of great craftsmanship.  Imprinted on the side is:
-Merc Industries
+@eng You see a helm of great craftsmanship.  Imprinted on the side is:
+Hlodvig (c).
+@rus Ты видишь шлем, сделанный с огромным мастерством. На нем выгравировано:
+Hlodvig (c).
 ~
-G none
+G male
 #5323
-plate leggings~
-a pair of imperial plate leggings~
-You see a pair of imperial plate leggings here.~
+plate leggings пластинчатые гамаши~
+@eng a pair of imperial plate leggings@rus ~~пара~~ ~~имперских~~ ~~пластинчатых~~ ~~гамаш~~~
+@eng You see a pair of imperial plate leggings here.@rus Ты видишь пару имперских пластинчатых гамаш (leggings).~
 mithril~
 armor 0 AF
 5 5 5 0 0
 10 50 730 P
 E
 plate leggings~
-You see plate leggings of great craftsmanship.  Imprinted on the side is:
-Merc Industries
+@eng You see plate leggings of great craftsmanship.  Imprinted on the side is:
+Hlodvig (c).
+@rus Ты видишь пластинчатые гамаши, сделанные с огромным мастерством. На них выгравировано:
+Hlodvig (c).
 ~
-G none
+G plural
 #5324
-plate boots~
-a pair of imperial plate boots~
-You see a pair of imperial plate boots here.~
+plate boots пластинчатые сапоги~
+@eng a pair of imperial plate boots@rus ~~пара~~ ~~имперских~~ ~~пластинчатых~~ ~~сапог~~~
+@eng You see a pair of imperial plate boots here.@rus Ты видишь пару имперских пластинчатых сапог (boots).~
 mithril~
 armor 0 AG
 5 5 5 0 0
 10 50 730 P
 E
 plate boots~
-You see plate boots of great craftsmanship.  Imprinted on the side is:
-Merc Industries
+@eng You see plate boots of great craftsmanship.  Imprinted on the side is:
+Hlodvig (c).
+@rus Ты видишь пластинчатые сапоги, сделанные с огромным мастерством. На них выгравировано:
+Hlodvig (c).
 ~
-G none
+G plural
 #5325
-plate gloves~
-a pair of imperial plate gloves~
-You see a pair of imperial plate gloves here.~
+plate gloves пластинчатые перчатки~
+@eng a pair of imperial plate gloves@rus ~~пара~~ ~~имперских~~ ~~пластинчатых~~ ~~перчаток~~~
+@eng You see a pair of imperial plate gloves here.@rus Ты видишь пару имперских пластинчатых перчаток (gloves).~
 mithril~
 armor 0 AH
 5 5 5 0 0
 10 50 730 P
 E
 plate gloves~
-You see plate gloves of great craftsmanship.  Imprinted on the side is:
-Merc Industries
+@eng You see plate gloves of great craftsmanship.  Imprinted on the side is:
+Hlodvig (c).
+@rus Ты видишь пластинчатые перчатки, сделанные с огромным мастерством. На них
+выгравировано:
+Hlodvig (c).
 ~
-G none
+G plural
 #5326
-plate sleeves~
-a pair of imperial plate sleeves~
-You see a pair of imperial plate sleeves here.~
+plate sleeves пластинчатые наручи~
+@eng a pair of imperial plate sleeves@rus ~~пара~~ ~~имперских~~ ~~пластинчатых~~ ~~наручей~~~
+@eng You see a pair of imperial plate sleeves here.@rus Ты видишь пару имперских пластинчатых наручей (sleeves).~
 mithril~
 armor 0 AI
 5 5 5 0 0
 10 50 730 P
 E
 plate sleeves~
-You see plate sleeves of great craftsmanship.  Imprinted on the side is:
-Merc Industries
+@eng You see plate sleeves of great craftsmanship.  Imprinted on the side is:
+Hlodvig (c).
+@rus Ты видишь пластинчатые наручи, сделанные с огромным мастерством. На них
+выгравировано:
+Hlodvig (c).
 ~
-G none
+G plural
 #5327
-cape~
-an imperial cape~
-You see an imperial cape here.~
+cape накидка~
+@eng an imperial cape@rus ~~имперская~~ ~~накидка~~~
+@eng You see an imperial cape here.@rus Ты видишь имперскую накидку (cape).~
 silk~
 armor 0 AK
 5 5 5 0 0
 10 50 730 P
 E
 cape~
-You see a cape of great craftsmanship.  Imprinted on the side is:
-Merc Industries
+@eng You see a cape of great craftsmanship.  Imprinted on the side is:
+Hlodvig (c).
+@rus Ты видишь накидку, сшитую с огромным мастерством. На ней вышито:
+Hlodvig (c).
 ~
-G none
+G female
 #5328
-belt~
-an imperial belt~
-You see an imperial belt here.~
+belt портупея~
+@eng an imperial belt@rus ~~имперская~~ ~~портупея~~~
+@eng You see an imperial belt here.@rus Ты видишь имперскую портупею (belt).~
 cloth~
 armor 0 AL
 5 5 5 0 0
 10 50 730 P
 E
 belt~
-You see a belt of great craftsmanship.  Imprinted on the side is:
-Merc Industries
+@eng You see a belt of great craftsmanship.  Imprinted on the side is:
+Hlodvig (c).
+@rus Ты видишь портупею, изготовленную с огромным мастерством. На ней выбито:
+Hlodvig (c).
 ~
-G none
+G female
 #5329
-metal bracer~
-an imperial metal bracer~
-You see an imperial metal bracer here.~
+metal bracer металлический браслет~
+@eng an imperial metal bracer@rus ~~имперский~~ ~~металлический~~ ~~нарукавник~~~
+@eng You see an imperial metal bracer here.@rus Ты видишь имперский металлический нарукавник (bracer).~
 mithril~
 armor 0 AM
 3 5 5 0 0
 5 50 550 P
 E
 metal bracer~
-You see a metal bracer of great craftsmanship.  Imprinted on the side is:
-Merc Industries
+@eng You see a metal bracer of great craftsmanship.  Imprinted on the side is:
+Hlodvig (c).
+@rus Ты видишь металлический нарукавник, изготовленный с огромным мастерством. На нем
+выбито:
+Hlodvig (c).
 ~
-G none
+G male
 #5330
-ring signet~
-an imperial city guard signet ring~
-You see a ring with a strange symbol on the floor.~
+ring signet кольцо печатка~
+@eng an imperial city guard signet ring@rus ~~имперское~~ ~~кольцо~~ стражника с печатью~
+@eng You see a ring with a strange symbol on the floor.@rus Ты полу ты видишь кольцо со странными знаком (signet ring).~
 ruby~
 jewelry G AB
 0 0 0 0 0
@@ -1123,9 +1174,9 @@ A
 17 -4
 G none
 #5331
-imperial banner~
-an imperial war banner~
-An imperial war banner is on the floor here.~
+imperial banner имперское знамя~
+@eng an imperial war banner@rus ~~имперское~~ ~~боевое~~ ~~знамя~~~
+@eng An imperial war banner is on the floor here.@rus На полу лежит имперское боевое знамя (banner).~
 wood~
 light AG A
 0 0 -1 0 0
@@ -1136,13 +1187,14 @@ A
 20 -2
 E
 banner~
-This is the official Merc war banner to see you through the darkest realm!
+@eng This is the official Merc war banner to see you through the darkest realm!
+@rus Это казенное боевое знамя поможет найти тебя в самом темном царстве!
 ~
 G none
 #5332
-two-handed two sword~
-a two-handed sword~
-A nice two-handed sword hangs on a hook in the wall.~
+two-handed two sword двуручный меч~
+@eng a two-handed sword@rus ~~двуручный~~ ~~меч~~~
+@eng A nice two-handed sword hangs on a hook in the wall.@rus На крюку в стене висит прекрасный двуручный меч (sword).~
 iron~
 weapon GK AN
 sword 5 7 'cleave' DF
@@ -1151,18 +1203,18 @@ A
 19 4
 A
 18 2
-G none
+G male
 #5333
-map old midgaard~
-a map of the old midgaard~
-A rolled up map is here.~
+map old midgaard карта старого мидгаарда~
+@eng a map of the old Midgaard@rus ~~карта~~ старого Мидгаарда~
+@eng A rolled up map is here.@rus Здесь лежит скрученная карта старого Мидгаарда (map).~
 paper~
 map 0 A
 A 0 0 0 0
 0 10 500 P
 E
 map old~
-.
+@eng .
                             Old Midgaard	
 *****************************************************************************
 	   	Templeman's room
@@ -1181,8 +1233,39 @@ map old~
 						    Imperial Guards
 						  
 *****************************************************************************
+ 
+@rus  
+                            Старый Мидгаард    
+*****************************************************************************
+                     Комната жреца
+      N                      |
+      |              Храмовый алтарь                                    
+  W - + - E                  |            
+      |                Храм Мидгаарда                    Кладбище
+      S                      |                               |
+                 Волшебник   |    Пекарня   Оружейник        |            
+  Некромантская г.   |    Рыночная    |         |           пере-     
+         |---------------- площадь ----------------------- кресток -- Лес
+         |           |                |         |            |
+  г. вампиров    Ювелир          Бакалейная  Арсенал       Деревня
+                                    лавка 
+ 
+                               Охраняется
+                            имперской стражой
+*****************************************************************************
 ~
-G none
+G female
+#5343
+stone clear прозрачный камень~
+@eng a clear stone@rus ~~прозрачный~~ ~~камень~~~
+@eng A odd clear stone lies at your feet.@rus У твоих ног лежит необычный прозрачный камень (stone).~
+stone~
+gem G AQ
+0 0 0 0 0
+0 10 100 P
+A
+17 3
+G male
 #0
 
 #ROOMS
@@ -1195,13 +1278,17 @@ city is teeming with activity! There is a small gold plaque on mounted on the
 archway.
 @rus Ты стоишь под сводом гигантской каменной арки. Покрытые сложной искусной
 гравировкой стальные ворота выглядят неприступными. С другой стороны ворот до
-тебя доносится смех и приветственные возгласы. В этом городе явно вовсю кипит
+тебя доносятся смех и приветственные возгласы. В этом городе явно вовсю кипит
 жизнь! На арке укреплена небольшая золотая пластинка.
 ~
 0 0 city
 E
-sign name~
+sign~
+~
+E
+name~
 @eng plaque
+@rus алцж
 ~
 E
 sign~
@@ -1214,18 +1301,26 @@ sign~
 ~
 E
 plaque sign~
-This zone has been heavily modified by Kahn and Hatchet of MERC Industries
-and integrated by Kahn of MERC Industries.
-copyright 1993
+@eng This zone has been heavily modified by Kahn and Hatchet of MERC
+Industries and integrated by Kahn of MERC Industries.  Copyright 1993 
+@rus Эта зона быда создана крутыми ребятами из MERC Industries товарищами Kahn
+и Hatchet в 1993 году Переведена эта зона была в 1999 году товарищем Hlodvig
+
 ~
 D1
-You are saddened at the thought of leaving this beautiful place.
+@eng You are saddened at the thought of leaving this beautiful place.
+@rus Мысли о том, что тебе скоро предстоит покинуть этот город очень сильно
+печалят тебя.
 ~
 ~
 Z -1 5356
 D3
-You see happiness everywhere. Houses cover your vision. You see strange cute
+@eng You see happiness everywhere. Houses cover your vision. You see strange cute
 beasts walking hand in hand with people.
+@rus Там ты видишь счастье и радость жизни, веселье. Вот только большие дома
+закрывают почти весь обзор. Там, в городе, ты видишь как люди ходят рука
+под руку с какими-то странными, неведомыми но привлекательными и похоже 
+сообразительными животными.
 ~
 ~
 Z 0 5301
@@ -1237,30 +1332,35 @@ S
 with people rushing from building to building and a balmy zephyr blows by
 you. The whole city is teeming with activity.  A cobbled alley leads north
 and south.  Children run pass you as they play tag.
-@rus Ты идешь по великолепной безукоризненно чистой улице. Твое лицо обвевает
+@rus Ты идешь по великолепной безукоризненно чистой улице. Твое лицо овевает
 мягкий благоухающий ветерок, а бегающие от здания к зданию люди тебя не
 беспокоят. Весь город бурлит от переполняющей его энергии и активности. На
 север и на юг ведет вымощенная булыжником аллея. Внезапно мимо тебя промчались
 играющие в пятнашки дети.
+
 ~
 0 0 city
 D0
-It's a cobbled alley.
+@eng It's a cobbled alley.
+@rus Перед тобой растилается мощеная булыжником улица.
 ~
 ~
 Z 0 5339
 D1
-The entrance to the city lies this way.
+@eng The entrance to the city lies this way.
+@rus В той стороне находится вход в город.
 ~
 ~
 Z 0 5300
 D2
-It's a cobbled alley.
+@eng It's a cobbled alley.
+@rus Перед тобой растилается мощеная булыжником улица.
 ~
 ~
 Z 0 5355
 D3
-Main Street lies this way.
+@eng Main Street lies this way.
+@rus На запад идет Главная Улица.
 ~
 ~
 Z 0 5302
@@ -1273,7 +1373,7 @@ The whole city is teeming with activity.  On one side is a beautiful house
 while on the other is the entrance to a large mansion.  Sounds of people hard
 at work echo within the mansion.  Near the center of town you see a large
 domed building, magnificent and immense.
-@rus Ты идешь по великолепной безукоризненно чистой улице. Твое лицо обвевает
+@rus Ты идешь по великолепной безукоризненно чистой улице. Твое лицо овевает
 мягкий благоухающий ветерок, а бегающие от здания к зданию люди тебя не
 беспокоят. Весь город бурлит от переполняющей его энергии и активности. По
 одну сторону улица стоит красивый дом, но по другую сторону ты видишь вход
@@ -1283,7 +1383,8 @@ domed building, magnificent and immense.
 ~
 0 0 city
 D0
-A store lies this way.
+@eng A store lies this way.
+@rus Там находится какой-то склад.
 ~
 ~
 Z 0 5336
@@ -1594,7 +1695,7 @@ S
 To the north is the magnificent temple while to the east lies the entrance
 to a small friendly tavern. The street continues north and south.
 @rus Эта боковая улица идет вдоль больших зданий с великолепной архитектурой.
-На севере виднеется прекрасный храм а на востоке ты видишь приветливо
+На севере виднеется прекрасный храм, а на востоке ты видишь приветливо
 распахнутые двери маленькой уютной таверны. Сама же улица продолжается на
 север и на юг.
 ~
@@ -1651,7 +1752,8 @@ S
 @eng You stand at the base of a tall ivy covered watchtower built to protect the
 city from invaders. You get the feeling of safety here in Thalos.
 @rus Ты стоишь у подножия высокой покрытой плющом сторожевой башни, призванной
-защитить город от захватчиков. В Талосе у тебя появилось чувство безопасности.
+защищать город от захватчиков. В Талосе у тебя появилось чувство безопасности.
+
 ~
 0 0 city
 D0
@@ -1673,7 +1775,7 @@ S
 char-broiled meat catches your sense of smell.  You wipe the drool
 off your chin the instant you know it is there.
 @rus Аллея привела тебя прямо к мясной лавке. Аромат свежего поджаренного мяса
-заворожил тебя. Вытирая слюнки с подбородка ты думаешь, что это то самое
+заворожил тебя. Вытирая слюнки с подбородка, ты думаешь, что это то самое
 место, которое тебе нужно.
 ~
 0 0 city
@@ -3747,10 +3849,10 @@ M 0 5308 8 5348 2	* the stone golem (The north-east watchtower)
 E 0 5221 0 16		*	a two-handed sword: wielded
 E 0 5235 0 17		*	a pearly white stone: held in the hands
 M 0 5300 1 5350 1	* the baby beholder (The Temple of Thalos)
-E 0 5243 0 17		*	a clear stone: held in the hands
+E 0 5343 0 17		*	a clear stone: held in the hands
 M 0 5307 1 5350 1	* the priest of Thalos (The Temple of Thalos)
 E 0 5302 0 17		*	a green serpentine staff: held in the hands
-E 0 5223 0 3		*	a dark green cloak: around the neck (1)
+E 0 5303 0 3		*	a dark green cloak: around the neck (1)
 M 0 5301 20 5350 1	* the pet lamia (The Temple of Thalos)
 E 0 5300 0 3		*	a lamia collar: around the neck (1)
 M 0 5303 11 5350 1	* an imperial cityguard (The Temple of Thalos)

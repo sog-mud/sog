@@ -26,7 +26,7 @@ a few things it might fear.
 одним из величайших воинов мира.. если бы был живым...
 ~
 golem~
-ABGTe DFHJVZlmt 0 0
+ABGTe DFHJVZ 0 0
 100 50 1d1+30000 100d10+5000 10d10+200 'none'
 -5 -5 -5 -5
 ACDEFHKOPQT AB 0 HK
@@ -48,7 +48,7 @@ horse warhorse~
 Це ж Сивка-бурка!
 ~
 horse~
-AJKTZbd DFHJNOTUclmt 1000 0
+AJKTZbd DFHJNOTUc 1000 0
 50 300 100d100+10000 100d100+10000 15d15+250 'smash'
 -100 -100 -100 -100
 ACDINO CD 0 0
@@ -242,8 +242,10 @@ axe battle urukhay~
 A large two-bladed battle axe lies on the ground, humming with might.~
 steel~
 weapon ABEHPY AN
-axe 11 12 'cleave' ACDEFGH
-45 500 100 P
+axe 12 12 'cleave' DE
+45 50 100 P
+A
+8 30
 F A 0 0 a
 F A 0 0 H
 F A 0 0 V
@@ -302,7 +304,8 @@ jewelry AFGMPUZ AC
 0 0 0 0 0
 100 0 0 P
 F A 0 0 e
-F A 0 0 g
+A
+0 0
 G none
 #47018
 garland~

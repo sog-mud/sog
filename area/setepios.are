@@ -307,7 +307,7 @@ G none
 Setepios Sword~
 @eng weapon@rus тыкалка~
 @eng Big sword@rus Большая тыкалка~
-steal~
+steel~
 weapon 0 AN
 mace 1000 1000 'slash' H
 92 10 100000 P
@@ -332,7 +332,7 @@ G none
 safira armor~
 @eng Safiras Armor@rus Латы Сафиры~
 @eng Armor Plate made by master Safira is waiting for its owner here.@rus Латы изготовленные великим мастером Сафира дожидаются владельца.~
-steal~
+steel~
 armor CIRTY AK
 15 15 15 15 0
 40 5 10000 P
@@ -366,7 +366,7 @@ G none
 girdle~
 @eng Dragon belt@rus Пояс из кожи Дракона~
 @eng Dragon belt lies here@rus пояс из кожи дракона~
-soul~
+spirit~
 armor CG AL
 0 0 0 0 0
 92 1 1 P
@@ -399,7 +399,7 @@ G none
 dagger safira~
 Sword of Safira~
 Sword of Safira lies here.~
-steal~
+steel~
 weapon CI AN
 dagger 8 6 'stab' C
 10 100 4000 P
@@ -479,7 +479,7 @@ G none
 blessed shield gods~
 Blessed Shield of Gods~
 Bronze shield lies here glowing ...~
-divine~
+divinity~
 armor AIRSTa AJ
 50 50 60 70 0
 70 100 10000 P
@@ -492,7 +492,7 @@ G none
 blessed helm of honor~
 {YBlessed {WHelm {xof Honor~
 Blessed helm of Honor awaits for its owner~
-divine~
+divinity~
 armor AITa AE
 32 32 32 30 0
 85 5 100000 P
@@ -517,7 +517,7 @@ G none
 blessed ring of life~
 {RBlessed Ring of Life{x~
 Strange ring is here awaiting for its owhener~
-divine~
+divinity~
 armor AIRa AB
 25 25 25 25 0
 68 1 100000 P
@@ -538,7 +538,7 @@ G none
 blessed belt of truth~
 {YBlessed Belt of Truth{x~
 Strange belt is glowing here~
-divine~
+divinity~
 armor AIRa AL
 25 25 25 25 0
 30 1 10000 P
@@ -551,7 +551,7 @@ G none
 divine sword of andromeda~
 {MDivine Sword of Andromeda{x~
 Andromedas sword lies here ...~
-steal~
+steel~
 weapon RTa AN
 dagger 10 7 'stab' DH
 55 1 100 P
@@ -697,7 +697,7 @@ G none
 sword of honor~
 Sword of Honor~
 Strange sword is glowing here.~
-divine power~
+divinity~
 weapon AIKRa AN
 exotic 6 7 'slash' H
 27 1 1 P
@@ -714,7 +714,7 @@ G male
 kelsons helm of love~
 Kelsons Helm of Love~
 Kelsons Helm lies on the floor~
-divine~
+divinity~
 armor Ra AE
 15 15 15 15 0
 55 1 1 P
@@ -799,7 +799,7 @@ G none
 shield of seth~
 {YShield of Seth{x~
 Shield of Seth lies here.~
-divine~
+divinity~
 trash CGHRTa AJ
 0 0 0 0 0
 1 1 9000000 P
@@ -853,7 +853,7 @@ G none
 quest mace of stars~
 Mace of Stars~
 Strange glowing mace lies here.~
-steal~
+steel~
 weapon A AN
 mace 7 7 'pound' G
 45 1 1 P
@@ -878,7 +878,7 @@ G none
 true hero healing ring~
 {W({R+{W){x ring oh healing.~
 Strange ring lies here.~
-divine~
+divinity~
 treasure AIRT AB
 0 0 0 0 0
 45 1 1000000 P
@@ -942,7 +942,7 @@ G none
 winged boots~
 Demon's skin~
 armor~
-divine~
+divinity~
 armor CM AD
 200 200 200 200 0
 40 1 1 P
@@ -968,7 +968,7 @@ G none
 winged boots of setepios~
 {WWinged Boots Of Setepios -*(//{x~
 Dirty Boots lies on the ground.~
-divine~
+divinity~
 armor CI AG
 0 0 0 0 0
 94 1 1 P
@@ -1038,7 +1038,7 @@ G none
 slon слон elephant candy~
 @eng elephant@rus слоник~
 @eng Wow ! What a candy ... It looks like an animal !@rus Карамель в виде слона (elephant) просится в рот.~
-wellknown~
+unknown~
 food A A
 CE CE 0 0 0
 0 1 100000 P

@@ -54,7 +54,7 @@ key ORYf AOP
 G none
 #96001
 leaf лист~
-@eng the Leaf of Great Oak~
+the Leaf of Great Oak~
 A humming leaf of oak lays here.~
 wood~
 treasure ORe AO
@@ -132,7 +132,10 @@ G none
 
 #ROOMS
 #96000
-@eng Entrance to the Ironwood Citadel~
+Entrance to the Ironwood Citadel~
+You see a large clearing.There are different trees around you.
+It is very strange. You have a feeling: DO NOT go north if not ready.
+You don't know do you understand everything or not.Maybe return?
 ~
 0 TX forest
 D0
@@ -171,7 +174,7 @@ Z 0 96001
 S
 #96002
 @eng Between the three Pines~
-@eng You are in the circle of different trees.
+You are in the circle of different trees.
 Oops.Three pines. I've been here two minutes ago.
 You understand:first fear - fear of Mother Nature
 You hear the words of ancient song:
@@ -200,7 +203,7 @@ Z 0 96002
 S
 #96003
 @eng Between the three Pines~
-@eng You are in the circle of different trees.
+You are in the circle of different trees.
 Oops.Three pines. I've been here two minutes ago.
 You understand:first fear - fear of Mother Nature
 You hear the words of ancient song:
@@ -229,7 +232,7 @@ Z 0 96003
 S
 #96004
 @eng Between the three Pines~
-@eng You are in the circle of different trees.
+You are in the circle of different trees.
 Oops.Three pines. I've been here two minutes ago.
 You understand:first fear - fear of Mother Nature
 You hear the words of ancient song:
@@ -258,7 +261,7 @@ Z 0 96004
 S
 #96005
 @eng Before Great Oak~
-@eng Now you understand force which bring everyone to his knees
+Now you understand force which bring everyone to his knees
 Oh,greater druids!you were right.
 The song continues:
 You hear a sound of rushing water
@@ -286,7 +289,7 @@ Z 0 96006
 S
 #96006
 @eng The Great Oak~
-@eng Realy huge oak,guess you will never look at the top
+Realy huge oak,guess you will never look at the top
 And you will never know singers
 You feel that everything's untrue
 You know between the red and blue
@@ -309,7 +312,7 @@ Z 0 96005
 S
 #96007
 @eng Dark Part of the Great Oak~
-@eng You feel here like at home
+You feel here like at home
 Is this a song or  lullaby ?
 We have hard life and tire to death
 We have nice dreams and need some rest
@@ -324,7 +327,7 @@ Z 0 96006
 S
 #96008
 @eng The Top of the Great Oak~
-@eng The feeling of complainment fills you
+The feeling of complainment fills you
 The Final part of the song is:
 The wisdom of the ancients isn't a cage
 We have a strenght,we have a rage
@@ -338,7 +341,11 @@ D5
 Z 0 96006
 S
 #96009
-@eng The Room of Silence~
+The Room of Silence~
+This place is everything.Bring to your knees.Touch the tree.
+Feel the life.Your heart doesn't lie.
+Now you see part of self in everything.And when you look inside
+you see everything.
 ~
 0 NX forest
 D5

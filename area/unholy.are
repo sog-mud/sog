@@ -368,7 +368,7 @@ An ornately-fashioned sword lies here.~
 unknown~
 weapon AG AN
 sword 7 9 'pierce' 0
-63 10 15000 P
+63 50 15000 P
 A
 2 4
 A
@@ -416,9 +416,9 @@ weapon ABEGJ AN
 polearm 7 8 'stab' 0
 66 20 2000 P
 A
-18 15
+19 7
 A
-19 15
+18 7
 G none
 #30813
 manacles~
@@ -2741,6 +2741,21 @@ E 0 30814 0 16		*	a mining pick: wielded
 E 0 30813 0 10		*	a pair of manacles: on the arms
 M 0 30809 1 30898 1	* an ogre slavemaster (Under Construction)
 E 0 30815 0 16		*	a whip: wielded
+S
+
+#OLIMITS
+O 30803 2	* a mithril dagger
+O 30805 2	* the abbot's ring
+O 30808 1	* an elven longsword
+O 30812 5	* a scythe
+O 30814 2	* a mining pick
+O 30815 2	* a whip
+O 30821 1	* a suit of unholy armor
+O 30836 3	* a hand axe
+O 30838 5	* a bo stick
+O 30839 5	* a jo stick
+O 30840 3	* a quarterstaff
+O 30841 3	* a crossbow
 S
 
 #$

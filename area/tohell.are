@@ -1194,7 +1194,7 @@ a flaming claw~
 A flaming claw lies here, burning brightly.~
 unknown~
 weapon 0 AN
-exotic 7 6 'claw' A
+exotic 7 6 'flbite' A
 46 40 9400 P
 A
 19 4
@@ -1321,7 +1321,7 @@ an ice spear~
 A spear made out of ice lies here.~
 unknown~
 weapon 0 AN
-spear 6 8 'pierce' BFK
+spear 6 8 'frbite' BFK
 48 50 1330 P
 G none
 #10420
@@ -1330,7 +1330,7 @@ a large meat hook~
 A large meat hook is stuck into the ground.~
 unknown~
 weapon 0 AN
-polearm 9 5 'stab' BF
+polearm 9 5 'frbite' BF
 47 30 2400 P
 A
 19 2
@@ -1599,7 +1599,7 @@ a welding torch~
 A welding torch sits on the ground.~
 unknown~
 weapon 0 AN
-exotic 5 9 'flame' A
+mace 5 9 'flame' A
 47 70 6400 P
 A
 19 4
@@ -4872,5 +4872,14 @@ S
 10451 0 0 0 0 0 110 75 0 23
 10454 2 3 4 10 0 225 15 0 23
 0
+
+#OLIMITS
+O 10404 2	* a black-hilted sword called "Farslayer"
+O 10415 10	* a bloody black talon
+O 10419 5	* an ice spear
+O 10427 3	* the sharp teeth of a lawyer
+O 10431 3	* an ionic torque wrench
+O 10445 5	* a welding torch
+S
 
 #$

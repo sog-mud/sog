@@ -720,7 +720,7 @@ rod bone жезл~
 @eng A Rod fashioned from a human femur lies here.@rus Жезл (rod), выточенный из человеческой кости, лежит здесь.~
 femur~
 weapon EJ AN
-exotic 6 9 'crush' 0
+mace 6 9 'crush' 0
 58 25 13000 P
 A
 12 15
@@ -3126,6 +3126,9 @@ S
 
 #OLIMITS
 O 8100 1	* the Rod of Orcus
+O 8103 5	* the Sword of Kas
+O 8108 3	* a Rod of Bone
+O 8112 3	* (Diabolical) a Dark Sword
 O 8113 1	* a Suit of Dark Armor
 S
 

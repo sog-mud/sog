@@ -2097,4 +2097,8 @@ O 0 15205 0 15252	* a large telescope (Up in the Tower)
 M 0 15202 1 15254 1	* the horrible ghost (The Top of the Tower)
 S
 
+#OLIMITS
+O 15224 3	* the Executioner's evil weapon
+S
+
 #$

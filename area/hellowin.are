@@ -118,7 +118,7 @@ G none
 trunk fallen tree~
 @eng fallen tree@rus ~~ствол~~ упавшего дерева~
 @eng {cCovered with soft moss trunk of a fallen tree.{w@rus {cПокрытый мягким мхом ствол упавшего дерева.{w~
-tree~
+wood~
 furniture AIORSTYZa P
 BD ABCDEFGHIJKLMNOPQRSTUVWXYZabcde AEHKN EHI EHI
 1 0 0 P
@@ -252,19 +252,10 @@ S
 о клиентах.
 ~
 0 0 inside
-D2
-~
-~
-ABZ 0 33462
-D3
-~
-~
-Z 0 33482
 S
 #0
 
 #RESETS
-D 0 34481 2 1	* Forest Kindom Inn: door to the south: closed
 M 0 34400 1 34400 1	* {ysympathetic bear{w ({GClearing in the woods{w)
 G 0 34406 0		*	{rHot and tasty bite of roasted meat{w
 G 0 34407 0		*	{WHeeled glass filled with {BKosoruloFF{W vodka{w

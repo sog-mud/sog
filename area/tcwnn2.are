@@ -326,7 +326,7 @@ an ornate Longsword~
 An ornate Longsword is lying here.~
 copper~
 weapon G AN
-sword 5 11 'pierce' 0
+sword 4 11 'pierce' 0
 50 25 500 P
 A
 18 4
@@ -570,7 +570,7 @@ a crossbow~
 A finely-crafted crossbow lies here.~
 copper~
 weapon 0 AP
-bow 5 11 'pierce' 0
+bow 4 11 'pierce' 0
 48 10 480 P
 A
 18 6
@@ -3480,6 +3480,10 @@ M 0 31060 1 31322 1	* Dwart (The Locksmith)
 G 0 31001 0		*	a bronze key
 G 0 31085 0		*	a key to the portal chambers
 M 0 31061 1 31323 1	* Thom the Enhancer (Enhancing Shop)
+S
+
+#OLIMITS
+O 31209 3	* a finely-made broadsword
 S
 
 #$

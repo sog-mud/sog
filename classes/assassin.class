@@ -2,6 +2,7 @@
 Name assassin~
 ShortName Asn~
 PrimeStat dex
+SkillSpec 'class_assassin'
 SchoolWeapon 3701
 GuildRoom 3062
 GuildRoom 3078
@@ -11,7 +12,6 @@ HPRate 90
 ManaRate 60
 AddExp 300
 StatMod 1 0 0 2 0 5
-SkillSpec class_assassin
 End
 
 #$

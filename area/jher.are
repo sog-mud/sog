@@ -307,11 +307,11 @@ weapon ABGJ AN
 dagger 5 12 'pierce' 0
 53 3 530 P
 A
+13 50
+A
 12 120
 A
 19 10
-A
-13 100
 A
 4 2
 A
@@ -915,6 +915,10 @@ S
 #SHOPS
 32709 10 10 10 10 10 50 100 0 23
 0
+
+#OLIMITS
+O 32703 3	* jher's curved dagger
+S
 
 #MOBPROGS
 #32700

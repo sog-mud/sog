@@ -631,7 +631,7 @@ the cloak of wizardry~
 A mystical, maroon cloak lies here in a pile.~
 flesh~
 armor ABCEFT AK
-300 0 0 0 0
+30 0 0 0 0
 50 3 25000 P
 A
 12 60
@@ -1618,6 +1618,11 @@ O 0 4625 0 4637	* a coffin (A burnt room.)
 P 0 4640 0 4625 1	* a coffin: a potion of healing
 P 0 4611 0 4625 1	* a coffin: a staff of wrath
 P 0 4641 0 4625 1	* a coffin: a potion of life
+S
+
+#OLIMITS
+O 4609 3	* a guardian sword
+O 4622 4	* the Shadow Dagger
 S
 
 #$

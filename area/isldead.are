@@ -1,0 +1,1019 @@
+#AREADATA
+Name Isles Of Dead~
+Builders jiehar~
+VNUMs 22300 22399
+Credits Jiehar~
+Security 9
+LevelRange 0 0
+Flags closed~
+End
+
+#MOBILES
+#22300
+hybrid lion manticore~
+the Manticore~
+A strange hybrid of a winged lion and female sits here, guarding the entrance.
+~
+It is a winged lions body, with a human torso,it has a tail covered in vicious 
+spikes. She says: "This place is an underworld dungeon, where the most
+dreadful beasts of the world dwell.  In the ancient times the Gods
+have locked the Hall of Gorrors, and now a mighty creatures guards
+its entrance.  It is also rumored that each of the ancient beasts
+keeps some mighty weapon, which was used centures ago by divine beings.
+But beware: the Gods don't like persons who dare to enter..."
+~
+unique~
+ABRe DFHTt 0 0
+40 30 10d20+2000 100d2+700 7d7+40 'crush'
+-30 -30 -30 -25
+FKMO ABQ HILMP 0
+stand stand female 0
+AV ABCDEFPQ giant unknown
+#22301
+green glutton ghost~
+Green Glutton Ghost~
+A ghost of a warrior yells warcry and attacks!
+~
+A mighty spirit of darkness of vaguely humanoid form. Razor 
+edged claws reach out to end your life as it glides towards 
+you, seeking to suck the energy from your soul to feed its 
+power.
+~
+ghost~
+AFT DFUm -1000 0
+38 25 10d50+1500 1d1+100 8d6+25 'drain'
+-20 -20 -20 -20
+FKP 0 0 0
+stand stand none 0
+0 0 medium unknown
+#22302
+cantoras skeltal lord~
+Cantoras the Skeletal Lord~
+A skeletal form of warrior says: "You dare to disturb me? Die, bastard!"
+~
+A legion of evil undead druj animating the skeleton of a once mighty 
+sorcerer. His power is devastating in the underworld. Flee his wrath.
+~
+unique~
+AFOT DFUcm -1000 0
+45 40 100d10+5000 100d2+300 10d7+50 'blast'
+-40 -40 -40 -40
+AFJKP ABILMQ CD HN
+stand stand male 100
+BIV ABCHU huge unknown
+#22303
+shade warrior~
+the Shade~
+A ghostly form of rough, muscular warrior is here.
+~
+A shadowy form clutches at you from the darkness, a powerful 
+undead with a deadly touch.
+~
+ghost~
+ABFT DFm -1000 0
+42 30 10d50+2000 1d1+100 8d7+30 'drain'
+-30 -30 -30 -30
+FK 0 I 0
+stand stand none 0
+0 0 medium unknown
+#22399
+as~
+as~
+as
+~
+~
+human~
+A 0 0 0
+1 0 0d0+0 0d0+0 0d0+0 ''
+0 0 0 0
+0 0 0 0
+stand stand none 0
+0 0 medium unknown
+F for AHMV
+#0
+
+#OBJECTS
+#22300
+key of the crypts~
+key of the crypts~
+A small key with engraved outline of the crypt lies in the dirt.~~~
+iron~
+key Uf O
+0 0 0 0 0
+0 0 0 P
+G none
+#22301
+bushido blade sword~
+the Bushido blade~
+A thin and straight steel sword sticks from ground.~
+steel~
+weapon B AN
+sword 5 9 'cleave' 0
+45 5 40000 P
+A
+19 4
+A
+18 5
+A
+2 1
+G none
+#22302
+kabuto battle helm~
+the Kabuto~
+A horned battle helm sits on the floor.~
+steel~
+armor T AE
+8 8 8 5 0
+45 8 30000 P
+A
+19 2
+A
+18 1
+A
+4 1
+A
+3 1
+G none
+#22303
+hi-kane-do battle gown~
+the Hi-Kane-Do battle gown~
+A scaled battle gown lies here.~
+steel~
+armor 0 AD
+10 10 10 7 0
+45 20 30000 P
+A
+19 2
+A
+18 1
+G none
+#22304
+hi-kane-do battle leggings~
+the Hi-Kane-Do battle leggings~
+Some scaled battle leggins lie here.~
+steel~
+armor 0 AF
+10 9 9 6 0
+45 11 30000 P
+A
+19 2
+A
+18 1
+A
+2 2
+G none
+#22305
+hi-kane-do battle sleeves~
+the Hi-Kane-Do battle sleeves~
+Some scaled battle sleeves lie here.~
+steel~
+armor 0 AI
+10 10 10 9 0
+45 9 30000 P
+A
+19 2
+A
+18 1
+A
+5 2
+G none
+#22306
+hi-kane-do battle gloves~
+the Hi-Kane-Do battle gloves~
+Some scaled battle gloves lie here.~
+steel~
+armor 0 AH
+10 10 10 9 0
+45 8 0 P
+A
+19 2
+A
+18 1
+A
+1 1
+G none
+#22307
+hi-kane-do battle boots~
+the Hi-Kane-Do battle boots~
+Some scaled battle boots lie here.~
+steel~
+armor 0 AG
+10 10 10 7 0
+45 13 30000 P
+A
+14 70
+A
+19 2
+A
+18 1
+G none
+#22308
+bracer defence~
+a bracer of defence~
+A firm steel bracer lies here.~
+steel~
+armor C AM
+8 8 8 6 0
+40 3 30000 P
+A
+19 2
+A
+18 1
+A
+17 -6
+G none
+#22309
+black belt five flowers~
+a black belt of the 5 flowers~
+A black belt carved with ornament of five flowers lies coiled here.~
+leather~
+armor C AL
+8 8 8 7 0
+40 1 10000 P
+A
+19 1
+A
+2 1
+A
+5 2
+G none
+#22310
+midnight cloak~
+a midnight cloak~
+A cloak as black as the night lies here.~
+energy~
+armor C AC
+4 5 5 4 0
+40 2 30000 P
+A
+13 20
+A
+20 -3
+A
+19 2
+G none
+#22399
+battleaxe~
+battlaxe ~
+Axe~
+iron~
+weapon 0 AN
+sword 10 10 'cleave' BDI
+46 10 100000 P
+G none
+#0
+
+#ROOMS
+#22300
+The River of the Lost Souls~
+~
+0 A swim
+D2
+~
+~
+Z 0 22301
+S
+#22301
+The Isle of the Lost Souls~
+You stand on a small piece of earth in the middle of the river.
+This island seems to be deserted for a centuries, an eerie silence
+covers the place.  All you can see is the half-buried black gate to
+the south.
+~
+0 A field
+D0
+~
+~
+Z 0 22300
+D2
+~
+~
+Z 0 22302
+S
+#22302
+The Entrance to the Dungeon~
+There is a huge black gate half-buried into the earth by the time.
+A tattered piece of parchment is attached to the gate by one of your
+predecessors.  A forbidding sense of evil emanates from the depths of
+dungeon, you begin to think that better leave this place.
+~
+0 A field
+D0
+~
+~
+Z 0 22301
+D5
+~
+~
+ABCFGJZ 0 22322
+S
+#22303
+A Crypt~
+You stand in the big decorated crypt.  Ancient murals and paintings
+showing scenes of battle cover the walls.  You notice an open coffin here.
+Strange, but this coffin appears to be empty.  A door leads to the east.
+~
+0 ADNX inside
+D2
+~
+~
+ABLZ 0 22311
+S
+#22304
+A Crypt~
+You stand in the big decorated crypt.  Ancient murals and paintings
+showing scenes of battle cover the walls.  You notice an open coffin here.
+Strange, but this coffin appears to be empty.  A door leads to the east.
+~
+0 ADNX inside
+D2
+~
+~
+ABLZ 0 22312
+S
+#22305
+A Crypt~
+You stand in the big decorated crypt.  Ancient murals and paintings
+showing scenes of battle cover the walls.  You notice an open coffin here.
+Strange, but this coffin appears to be empty.  A door leads to the east.
+~
+0 ADNX inside
+D2
+~
+~
+ABLZ 0 22313
+S
+#22306
+The Hall of Crypts~
+You are standing in the dead end of the short passage.
+Piles of cloth and bones lie all over the floor, looks like
+remains of some unlucky adventurers.  A half-decayed piece
+of tattered parchment draws your attention among the trash,
+you notice some faint writings on it.
+There is a huge black gate that blocks the stairway down.
+A sense of evil emanates from its frame.  Maybe better leave
+this place?
+~
+0 0 inside
+D2
+~
+~
+Z 0 22314
+S
+#22307
+A Crypt~
+You stand in the big decorated crypt.  Ancient murals and paintings
+showing scenes of battle cover the walls.  You notice an open coffin here.
+Strange, but this coffin appears to be empty.  A door leads to the east.
+~
+0 ADNX inside
+D2
+~
+~
+ABLZ 0 22315
+S
+#22308
+A Crypt~
+You stand in the big decorated crypt.  Ancient murals and paintings
+showing scenes of battle cover the walls.  You notice an open coffin here.
+Strange, but this coffin appears to be empty.  A door leads to the east.
+~
+0 ADNX inside
+D2
+~
+~
+ABLZ 0 22316
+S
+#22309
+A Crypt~
+You stand in the big decorated crypt.  Ancient murals and paintings
+showing scenes of battle cover the walls.  You notice an open coffin here.
+Strange, but this coffin appears to be empty.  A door leads to the east.
+~
+0 ADNX inside
+D2
+~
+~
+ABLZ 0 22317
+S
+#22310
+A Crypt~
+You stand in the big decorated crypt.  Ancient murals and paintings
+showing scenes of battle cover the walls.  You notice an open coffin here.
+Strange, but this coffin appears to be empty.  A door leads to the east.
+~
+0 ADNX inside
+D1
+~
+~
+ABLZ 0 22311
+S
+#22311
+The End of Passage~
+You walk along a narrow passage leading east and west.  There is
+a strong smell of decay in the air, carried on a thick cloud of dust
+that swirls about as you walk through it.  To the north and south you
+notice small doors of the crypts.  To the west a large decorated door
+blocks your way.
+~
+0 ADNX inside
+D0
+~
+~
+ABLZ 0 22303
+D1
+~
+~
+Z 0 22312
+D2
+~
+~
+ABLZ 0 22319
+D3
+~
+~
+ABLZ 0 22310
+S
+#22312
+A Narrow Passage~
+You walk along a narrow passage leading east and west.  There is
+a strong smell of decay in the air, carried on a thick cloud of dust
+that swirls about as you walk through it.  To the north, south and west
+you notice small doors of the crypts.
+~
+0 ADNX inside
+D0
+~
+~
+ABLZ 0 22304
+D1
+~
+~
+Z 0 22313
+D2
+~
+~
+ABLZ 0 22320
+D3
+~
+~
+Z 0 22311
+S
+#22313
+A Narrow Passage~
+You walk along a narrow passage leading east and west.  There is
+a strong smell of decay in the air, carried on a thick cloud of dust
+that swirls about as you walk through it.  To the north, south and west
+you notice small doors of the crypts.
+~
+0 ADNX inside
+D0
+~
+~
+ABLZ 0 22305
+D1
+~
+~
+Z 0 22314
+D2
+~
+~
+ABLZ 0 22321
+D3
+~
+~
+Z 0 22312
+S
+#22314
+The Hall of the Crypts~
+The hall flattens out.  Cobwebs are everywhere; the musty smell in
+the air is stronger and seems to come from dark dead end to the north.
+As you look around at the faded colors and decay you realize that this
+must be one of the oldest parts of Thera.  The eerie silence fills the
+place.  But...  you hear strange faint noises from the passages leading
+east and west...
+~
+0 ADNX inside
+D0
+~
+~
+Z 0 22306
+D1
+~
+~
+Z 0 22315
+D2
+~
+~
+Z 0 22322
+D3
+~
+~
+Z 0 22313
+S
+#22315
+A Narrow Passage~
+You walk along a narrow passage leading east and west.  There is
+a strong smell of decay in the air, carried on a thick cloud of dust
+that swirls about as you walk through it.  To the north, south and west
+you notice small doors of the crypts.
+~
+0 ADNX inside
+D0
+~
+~
+ABLZ 0 22307
+D1
+~
+~
+Z 0 22316
+D2
+~
+~
+ABLZ 0 22323
+D3
+~
+~
+Z 0 22314
+S
+#22316
+A Narrow Passage~
+You walk along a narrow passage leading east and west.  There is
+a strong smell of decay in the air, carried on a thick cloud of dust
+that swirls about as you walk through it.  To the north, south and west
+you notice small doors of the crypts.
+~
+0 ADNX inside
+D0
+~
+~
+ABLZ 0 22308
+D1
+~
+~
+Z 0 22317
+D2
+~
+~
+ABLZ 0 22324
+D3
+~
+~
+Z 0 22315
+S
+#22317
+The End of Passage~
+You walk along a narrow passage leading east and west.  There is
+a strong smell of decay in the air, carried on a thick cloud of dust
+that swirls about as you walk through it.  To the north and south you
+notice small doors of the crypts.  To the east a large decorated door
+blocks your way.
+~
+0 ADNX inside
+D0
+~
+~
+ABLZ 0 22309
+D1
+~
+~
+ABLZ 0 22318
+D2
+~
+~
+ABLZ 0 22325
+D3
+~
+~
+Z 0 22316
+S
+#22318
+A Crypt~
+You stand in the big decorated crypt.  Ancient murals and paintings
+showing scenes of battle cover the walls.  You notice an open coffin here.
+Strange, but this coffin appears to be empty.  A door leads to the west.
+~
+0 ADNX inside
+D3
+~
+~
+ABLZ 0 22317
+S
+#22319
+A Crypt~
+You stand in the big decorated crypt.  Ancient murals and paintings
+showing scenes of battle cover the walls.  You notice an open coffin here.
+Strange, but this coffin appears to be empty.  A door leads to the north.
+~
+0 ADNX inside
+D0
+~
+~
+ABLZ 0 22311
+S
+#22320
+A Crypt~
+You stand in the big decorated crypt.  Ancient murals and paintings
+showing scenes of battle cover the walls.  You notice an open coffin here.
+Strange, but this coffin appears to be empty.  A door leads to the north.
+~
+0 ADNX inside
+D0
+~
+~
+ABLZ 0 22312
+S
+#22321
+A Crypt~
+You stand in the big decorated crypt.  Ancient murals and paintings
+showing scenes of battle cover the walls.  You notice an open coffin here.
+Strange, but this coffin appears to be empty.  A door leads to the north.
+~
+0 ADNX inside
+D0
+~
+~
+ABLZ 0 22313
+S
+#22322
+The Hall of the Crypts~
+You enter a large dark hall decorated with fine mosaics.  The hall
+is quiet and looks as though it hasn't been entered in many years.  The
+air is stale and dry, and there is a patina of dust and web everywhere.
+The hall continues downward into the darkness, and a stair leads up to
+the light of day, but a huge black gate blocks your way out.
+~
+0 ADNX inside
+D0
+~
+~
+Z 0 22314
+D4
+~
+~
+ABCFGJZ 22300 22302
+S
+#22323
+A Crypt~
+You stand in the big decorated crypt.  Ancient murals and paintings
+showing scenes of battle cover the walls.  You notice an open coffin here.
+Strange, but this coffin appears to be empty.  A door leads to the north.
+~
+0 ADNX inside
+D0
+~
+~
+ABLZ 0 22315
+S
+#22324
+A Crypt~
+You stand in the big decorated crypt.  Ancient murals and paintings
+showing scenes of battle cover the walls.  You notice an open coffin here.
+Strange, but this coffin appears to be empty.  A door leads to the north.
+~
+0 ADNX inside
+D0
+~
+~
+ABLZ 0 22316
+S
+#22325
+A Crypt~
+You stand in the big decorated crypt.  Ancient murals and paintings
+showing scenes of battle cover the walls.  You notice an open coffin here.
+Strange, but this coffin appears to be empty.  A door leads to the north.
+~
+0 ADNX inside
+D0
+~
+~
+ABLZ 0 22317
+S
+#22326
+The northwest corner of the Hall of Ringwraiths~
+You stand in the northwest corner of the Hall of Ringwraiths.  Walls
+are scorched with some great fire and burned bones crackle under your
+feet.  Main hallway leads east and a narrow corridor leads south to
+the central hallway.
+~
+0 ANX inside
+D1
+~
+~
+Z 0 22327
+D2
+~
+~
+Z 0 22334
+S
+#22327
+The northern hallway~
+You walk along the northern wall of the Hall of Ringwraiths, leading
+east and west.  Walls are scorched with some great fire and burned
+bones crackle under your feet.
+~
+0 ANX inside
+D1
+~
+~
+Z 0 22328
+D3
+~
+~
+Z 0 22326
+S
+#22328
+The northern hallway~
+You walk along the northern wall of the Hall of Ringwraiths, leading
+east and west.  Walls are scorched with some great fire and burned bones
+crackle under your feet.  To the south you see a narrow corridor leading
+to the central hallway.
+~
+0 ANX inside
+D1
+~
+~
+Z 0 22329
+D2
+~
+~
+Z 0 22335
+D3
+~
+~
+Z 0 22327
+S
+#22329
+The northern hallway~
+You walk along the northern wall of the Hall of Ringwraiths, leading
+east and west.  Walls are scorched with some great fire and burned
+bones crackle under your feet.
+~
+0 ANX inside
+D1
+~
+~
+Z 0 22330
+D3
+~
+~
+Z 0 22328
+S
+#22330
+The northern hallway~
+You walk along the northern wall of the Hall of Ringwraiths, leading
+east and west.  Walls are scorched with some great fire and burned bones
+crackle under your feet.  To the south you see a narrow corridor leading
+to the central hallway.
+~
+0 ANX inside
+D1
+~
+~
+Z 0 22331
+D2
+~
+~
+Z 0 22336
+D3
+~
+~
+Z 0 22329
+S
+#22331
+The northern hallway~
+You walk along the northern wall of the Hall of Ringwraiths, leading
+east and west.  Walls are scorched with some great fire and burned
+bones crackle under your feet.
+~
+0 ANX inside
+D1
+~
+~
+Z 0 22332
+D3
+~
+~
+Z 0 22330
+S
+#22332
+The northeast corner of the Hall of Ringwraiths~
+You stand in the northeast corner of the Hall of Ringwraiths.  Walls
+are scorched with some great fire and burned bones crackle under
+your feet.  Main hallway leads west and a narrow corridor leads south
+to the central hallway.  To the east you can see a huge black gate
+leading down to the depths of dungeon.
+~
+0 ANX inside
+D1
+~
+~
+Z 0 22333
+D2
+~
+~
+Z 0 22337
+D3
+~
+~
+Z 0 22331
+S
+#22333
+The Guards Quarters~
+You are standing in the large room filled with strange devices
+which seem to be used for various kinds of destruction.  There are
+footprints in the dust here.  You notice that somebody left some
+writings in the dust which have been added quite recently.  A huge
+black gate closes your way down to the Hall of Gorrors.  A sense of
+evil emanates from its frame.  Maybe better leave this place?
+~
+0 ANX inside
+D3
+~
+~
+Z 0 22332
+S
+#22334
+A corridor~
+You stand in the narrow corridor.  To the north you can see northwest
+corner of the Hall of Ringwraiths, and to the south there is central hallway.
+You can feel a hot breeze from the north, while from the south a cold
+wind blowing around.
+~
+0 ANX inside
+D0
+~
+~
+Z 0 22326
+D2
+~
+~
+Z 0 22338
+S
+#22335
+A corridor~
+You stand in the narrow corridor.  To the north you can see northwest
+corner of the Hall of Ringwraiths, and to the south there is central hallway.
+You can feel a hot breeze from the north, while from the south a cold
+wind blowing around.
+~
+0 ANX inside
+D0
+~
+~
+Z 0 22328
+D2
+~
+~
+Z 0 22340
+S
+#22336
+A corridor~
+You stand in the narrow corridor.  To the north you can see northwest
+corner of the Hall of Ringwraiths, and to the south there is central hallway.
+You can feel a hot breeze from the north, while from the south a cold
+wind blowing around.
+~
+0 ANX inside
+D0
+~
+~
+Z 0 22330
+S
+#22337
+A corridor~
+You stand in the narrow corridor.  To the north you can see northwest
+corner of the Hall of Ringwraiths, and to the south there is central hallway.
+You can feel a hot breeze from the north, while from the south a cold
+wind blowing around.
+~
+0 ANX inside
+D0
+~
+~
+Z 0 22332
+S
+#22338
+The central hallway~
+You walk along the central hallway of the Hall of Ringwraiths,
+continuing to the west and east.  There is almost unbearably cold
+here, walls are covered with frost, and small snowflakes are flying
+in the air.  Two narrow corridors lead north and south to the another
+hallways.
+~
+0 ANX inside
+D0
+~
+~
+Z 0 22334
+D1
+~
+~
+Z 0 22339
+S
+#22339
+The central hallway~
+You walk along the central hallway of the Hall of Ringwraiths,
+continuing to the west and east.  There is almost unbearably cold
+here, walls are covered with frost, and small snowflakes are flying
+in the air.
+~
+0 ANX inside
+D1
+~
+~
+Z 0 22340
+D3
+~
+~
+Z 0 22338
+S
+#22340
+The central hallway~
+You walk along the central hallway of the Hall of Ringwraiths,
+continuing to the west and east.  There is almost unbearably cold
+here, walls are covered with frost, and small snowflakes are flying
+in the air.  Two narrow corridors lead north and south to the another
+hallways.
+~
+0 ANX inside
+D0
+~
+~
+Z 0 22335
+D3
+~
+~
+Z 0 22339
+S
+#0
+
+#RESETS
+D 0 22302 5 2	* The Entrance to the Dungeon: door to the down: closed and locked
+D 0 22303 2 1	* A Crypt: door to the south: closed
+D 0 22304 2 1	* A Crypt: door to the south: closed
+D 0 22305 2 1	* A Crypt: door to the south: closed
+D 0 22307 2 1	* A Crypt: door to the south: closed
+D 0 22308 2 1	* A Crypt: door to the south: closed
+D 0 22309 2 1	* A Crypt: door to the south: closed
+D 0 22310 1 1	* A Crypt: door to the east: closed
+D 0 22311 0 1	* The End of Passage: door to the north: closed
+D 0 22311 2 1	* The End of Passage: door to the south: closed
+D 0 22311 3 1	* The End of Passage: door to the west: closed
+D 0 22312 0 1	* A Narrow Passage: door to the north: closed
+D 0 22312 2 1	* A Narrow Passage: door to the south: closed
+D 0 22313 0 1	* A Narrow Passage: door to the north: closed
+D 0 22313 2 1	* A Narrow Passage: door to the south: closed
+D 0 22315 0 1	* A Narrow Passage: door to the north: closed
+D 0 22315 2 1	* A Narrow Passage: door to the south: closed
+D 0 22316 0 1	* A Narrow Passage: door to the north: closed
+D 0 22316 2 1	* A Narrow Passage: door to the south: closed
+D 0 22317 0 1	* The End of Passage: door to the north: closed
+D 0 22317 1 1	* The End of Passage: door to the east: closed
+D 0 22317 2 1	* The End of Passage: door to the south: closed
+D 0 22318 3 1	* A Crypt: door to the west: closed
+D 0 22319 0 1	* A Crypt: door to the north: closed
+D 0 22320 0 1	* A Crypt: door to the north: closed
+D 0 22321 0 1	* A Crypt: door to the north: closed
+D 0 22322 4 2	* The Hall of the Crypts: door to the up: closed and locked
+D 0 22323 0 1	* A Crypt: door to the north: closed
+D 0 22324 0 1	* A Crypt: door to the north: closed
+D 0 22325 0 1	* A Crypt: door to the north: closed
+M 0 22300 1 22302 1	* the Manticore (The Entrance to the Dungeon)
+E 0 22300 0 17		*	key of the crypts: held in the hands
+M 0 22303 1 22303 1	* the Shade (A Crypt)
+E 0 22309 0 13		*	a black belt of the 5 flowers: around the waist
+E 0 22310 0 3		*	a midnight cloak: around the neck (1)
+M 0 22303 1 22304 1	* the Shade (A Crypt)
+M 0 22303 1 22305 1	* the Shade (A Crypt)
+M 0 22303 1 22307 1	* the Shade (A Crypt)
+M 0 22303 1 22308 1	* the Shade (A Crypt)
+M 0 22303 1 22309 1	* the Shade (A Crypt)
+M 0 22302 1 22310 1	* Cantoras the Skeletal Lord (A Crypt)
+E 0 22301 0 16		*	the Bushido blade: wielded
+E 0 22302 0 6		*	the Kabuto: over the head
+E 0 22304 0 7		*	the Hi-Kane-Do battle leggings: on the legs
+E 0 22303 0 5		*	the Hi-Kane-Do battle gown: on the body
+E 0 22305 0 10		*	the Hi-Kane-Do battle sleeves: on the arms
+E 0 22306 0 9		*	the Hi-Kane-Do battle gloves: on the hands
+E 0 22307 0 8		*	the Hi-Kane-Do battle boots: on the feet
+M 0 22301 1 22311 2	* Green Glutton Ghost (The End of Passage)
+M 0 22301 2 22311 2	* Green Glutton Ghost (The End of Passage)
+M 0 22301 2 22312 2	* Green Glutton Ghost (A Narrow Passage)
+M 0 22301 2 22313 2	* Green Glutton Ghost (A Narrow Passage)
+M 0 22301 2 22315 2	* Green Glutton Ghost (A Narrow Passage)
+M 0 22301 2 22316 2	* Green Glutton Ghost (A Narrow Passage)
+M 0 22301 2 22317 2	* Green Glutton Ghost (The End of Passage)
+M 0 22303 1 22319 1	* the Shade (A Crypt)
+M 0 22303 1 22320 1	* the Shade (A Crypt)
+M 0 22303 1 22321 1	* the Shade (A Crypt)
+M 0 22303 1 22323 1	* the Shade (A Crypt)
+M 0 22303 1 22324 1	* the Shade (A Crypt)
+M 0 22303 1 22325 1	* the Shade (A Crypt)
+S
+
+#OLIMITS
+O 22399 0	* battlaxe 
+S
+
+#$

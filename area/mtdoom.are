@@ -533,7 +533,7 @@ CEFIKQ 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #14733
-cloud giant~
+~
 a cloud giant~
 A cloud giant laughs mercilessly at you. Hmph.
 ~
@@ -794,7 +794,7 @@ The sword of Lord Krothgar is here.~
 steel~
 weapon BEGHJL AN
 sword 6 11 'pierce' 0
-65 15 10000 P
+65 100 10000 P
 A
 13 50
 A
@@ -3964,6 +3964,15 @@ E 0 14725 0 16		*	a dragon tooth: wielded
 E 0 14726 0 9		*	dragon claws: on the hands
 E 0 14727 0 12		*	a dragon hide: about the shoulders
 M 0 14707 4 14806 1	* a destrier (Stables)
+S
+
+#OLIMITS
+O 14701 1	* the sword of Lord Krothgar
+O 14704 2	* a two-handed sword
+O 14707 2	* a demon's barbed flail
+O 14712 3	* a sacrifical dagger
+O 14749 2	* the black sword
+O 14756 10	* a greater tentacle whip
 S
 
 #$

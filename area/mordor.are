@@ -1,6 +1,6 @@
 #AREADATA
 Name Mordor~
-Builders kromt~
+Builders kromt hegan~
 VNUMs 30000 30099
 Credits Kromt~
 Security 0
@@ -55,6 +55,39 @@ ABF F 0 0
 FHR 0 0 0
 stand stand none 0
 AGV ADFKU medium unknown
+#30004
+orc shaman шаман орк~
+@eng shaman@rus шаман~
+@eng Great Shaman of Orc Nation stay here.
+@rus Великий Шаман Орков стоит тут.
+~
+@eng You see a small orc with big red eyes. He read his spellbook and think about new spell.
+@rus Ты видишь маленького орка с горящими красными глазами. Он читает свою магическую
+книгу и думает о том как создать какое-нибудь новое заклинание.
+~
+orc~
+ABR u -1000 0
+30 0 10d100+3000 1d1+999 5d10+7 'magic'
+-30 -30 -25 -35
+FHK B CL 0
+stand stand none 1000
+0 0 medium unknown
+#30005
+orc leader предводитель орков~
+@eng leader@rus лидер~
+@eng Great Leader of Orc Nation stay here.
+@rus Великий Лидер Орков стоит тут.
+~
+@eng You see a orc with huge club in his hands. He grins evilly and prepare to smash your head.
+He say:"If you will try to run away, you can stay alive. if not...ready to die?" 
+~
+orc~
+ABFT DFO -1000 0
+36 0 10d100+4000 1d1+99 10d4+15 'smash'
+-25 -30 -20 -20
+ADEFHJKR B GL 0
+stand stand none 1000
+0 ABCDEFU medium unknown
 #30098
 moby~
 ~
@@ -90,8 +123,10 @@ orc sword меч орк~
 @eng Dirty orc'ish sword lies here.@rus Грязный меч орков валяется тут.~
 iron~
 weapon E AN
-exotic 6 5 'none' 0
+exotic 6 5 'slash' 0
 20 30 1500 P
+A
+19 3
 G none
 #30002
 shield orc'ish щит орк~
@@ -123,8 +158,10 @@ capitan helm шлем капитана~
 @eng Dark steel helmet lies here.@rus Стальной шлем темного цвета валяется тут.~
 steel~
 armor C AE
-10 15 10 12 0
+8 8 10 9 0
 30 2 1000 P
+A
+19 2
 A
 17 -10
 A
@@ -154,6 +191,8 @@ clothing G AK
 0 0 0 0 0
 30 2 1000 P
 A
+20 -3
+A
 12 25
 A
 13 10
@@ -169,6 +208,86 @@ key U AO
 0 0 0 0 0
 30 2 10 P
 G male
+#30008
+mithril chainmail~
+mithril chainmail~
+Nice mithril armor lies here.~
+mithril~
+armor ALT AD
+15 15 15 15 0
+15 3 1000 P
+A
+13 5
+A
+19 2
+G none
+#30009
+spellbook orc книга орков~
+@eng shaman spellbook@rus книга шамана~
+@eng Small book with orcish symbols lies here.@rus Небольшая книга с надписями на оркском языке лежит тут.~
+paper~
+treasure EJL AO
+0 0 0 0 0
+30 2 100 P
+A
+13 25
+S 'sleep' 75 A
+S 'curse' 75 A
+G none
+#30010
+black candle черная свеча~
+@eng black candle@rus черная свеча~
+@eng Black candle maked from human blood and dark wax lies here.@rus Черная свеча, сделанная из крови человека и темного воска, лежит тут.~
+unknown~
+light AJL AO
+0 0 -1 0 0
+30 1 0 P
+S 'meditation' 75 A
+A
+19 2
+G none
+#30011
+shaman girdle пояс шамана~
+@eng shaman girdle@rus пояс шамана~
+@eng Small girdle with black symbols lies here.@rus Небольшой пояс с черными символами лежит тут.~
+unknown~
+container J AL
+100 A 0 20 25
+30 0 0 P
+A
+4 3
+A
+12 50
+A
+20 -5
+G none
+#30012
+small necklace маленькое ожерелье bone костяное~
+@eng bone necklace@rus костяное ожерелье~
+@eng Small necklace, maked from animal bone, lies here.@rus Маленькое ожерелье из кости какого-то животного забыто здесь.~
+bone~
+treasure G AC
+0 0 0 0 0
+0 4 10 P
+A
+17 -3
+A
+13 15
+G none
+#30013
+heavy stone club тяжелая каменная дубина~
+@eng heavy stone club@rus тяжелая каменная дубина~
+@eng Huge stone club lies here.@rus Огромная каменная дубина лежит тут.~
+stone~
+weapon 0 AN
+mace 9 5 'smash' G
+35 1 15000 P
+S 'critical strike' 25 A
+A
+19 5
+A
+1 5
+G none
 #30098
 svetilka~
 svetilka~
@@ -179,36 +298,13 @@ light 0 AO
 50 0 0 P
 S 'lay hands' 100 A
 S 'cure disease' 100 A
-S 'locate object' 100 A
-S 'locate object' 100 A
-S 'locate object' 100 A
 S 'calm' 100 A
-A
-20 -1000
-A
-12 2000
-A
-13 5000
-S 'summon' 100 A
-S 'gate' 100 A
-A
-8 100
-A
-18 1000
-A
-19 1000
-F A 0 0 w
 F A 0 0 x
 F A 0 0 P
 F A 0 0 T
 F A 0 0 U
 F A 0 0 E
 F A 0 0 Z
-F A 0 0 e
-F A 0 0 g
-F A 0 0 Q
-F A 0 0 f
-F A 0 0 B
 F A 0 0 J
 F A 0 0 m
 F A 0 0 t
@@ -378,15 +474,97 @@ D3
 Z 0 30009
 S
 #30009
+@eng Path in Mountains@rus Проход в Горах~
 ~
-~
-0 0 inside
+0 0 mountain
 D1
 ~
 ~
 Z 0 30008
+D3
+~
+~
+Z 0 30010
+S
+#30010
+@eng On the Path to Orc village@rus На Пути к Деревне Орков~
+~
+0 0 mountain
+D1
+~
+~
+Z 0 30009
+D3
+~
+~
+Z 0 30011
+S
+#30011
+@eng In the Orc Village@rus В деревне Орков~
+~
+0 0 mountain
+D0
+~
+~
+Z 0 30012
+D1
+~
+~
+Z 0 30010
+D3
+~
+~
+Z 0 30013
+S
+#30012
+@eng Small Hut@rus Маленькая Хижина~
+~
+0 0 inside
+D2
+~
+~
+Z 0 30011
+S
+#30013
+@eng Center Square in Village@rus Центральная Площадь в Деревне~
+~
+0 0 inside
+D0
+~
+~
+Z 0 30014
+D1
+~
+~
+Z 0 30011
+D2
+~
+~
+Z 0 30015
+S
+#30014
+@eng Hut of Orc Shaman@rus Хижина Шамана Орков~
+~
+0 0 inside
+D2
+~
+~
+Z 0 30013
+S
+#30015
+@eng Orc Leader's Hut@rus Хижина Главного Орка~
+~
+0 0 inside
+D0
+~
+~
+Z 0 30013
 S
 #0
+
+#SPECIALS
+M 30004 spec_cast_undead	* shaman
+S
 
 #RESETS
 D 0 30001 0 1	* Before the Gate of Mordor: door to the north: closed
@@ -395,16 +573,34 @@ D 0 30005 3 2	* Guard Room: door to the west: closed and locked
 D 0 30006 1 2	* Prison behind the Guard Room: door to the east: closed and locked
 O 0 30099 0 30000	* fountain (Road to Mountain)
 M 0 30099 1 30000 1	*  (Road to Mountain)
-M 0 30098 1 30000 1	*  (Road to Mountain)
 M 0 30001 3 30002 3	* orc guard (Guard Room behind the Gate)
 E 0 30001 0 16		*	Orc'ish sword: wielded
 E 0 30002 0 11		*	orc'ish shield: as a shield
 O 0 30003 0 30003	* Case (Storing room)
+P 0 30008 0 30003 1	* Case: mithril chainmail
 M 0 30002 1 30005 1	* orc capitan (Guard Room)
 E 0 30004 0 6		*	Dark Capitan Helm: over the head
 E 0 30005 0 5		*	Orc'ish chainmail: on the body
 E 0 30006 0 12		*	Silk orc'ish robe: about the shoulders
 M 0 30003 2 30006 2	* rat (Prison behind the Guard Room)
+M 0 30004 1 30014 1	* shaman (Hut of Orc Shaman)
+E 0 30009 0 17		*	shaman spellbook: held in the hands
+E 0 30010 0 0		*	black candle: as a light
+E 0 30011 0 13		*	shaman girdle: around the waist
+E 0 30012 0 3		*	bone necklace: around the neck (1)
+M 0 30005 1 30015 1	* leader (Orc Leader's Hut)
+E 0 30013 0 16		*	heavy stone club: wielded
+S
+
+#OLIMITS
+O 30002 5	* orc'ish shield
+O 30004 5	* Dark Capitan Helm
+O 30005 5	* Orc'ish chainmail
+O 30006 3	* Silk orc'ish robe
+O 30008 7	* mithril chainmail
+O 30009 2	* shaman spellbook
+O 30010 2	* black candle
+O 30011 3	* shaman girdle
 S
 
 #MOBPROGS

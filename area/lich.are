@@ -9,118 +9,162 @@ End
 #MOBILES
 #29350
 Death Knight~
-A Death Knight~
-An undead, skeletal knight guards this room.
+@eng A Death Knight@rus ~~Рыцарь~~ Смерти~
+@eng An undead, skeletal knight guards this room.
+@rus Скелетоподобный воин (knight) охраняет это место.
 ~
-Death Knights are a powerful enemy.  Turned undead by powerful
+@eng Death Knights are a powerful enemy.  Turned undead by powerful
 necromancy, they were the most renown knights of their day.  
+@rus Рыцарь смерти - сильный противник. Могучая некромантия подарила когда-то
+ему бессмертие. Долгие годы оттачивания мастерства сделали его одним из
+лучших бойцов.
 ~
-human~
-AFGO c -750 0
-40 0 15d10+1850 45d10+950 4d8+15 'magic'
--12 -12 -12 0
-CDEIKU LPQ IJ HN
+undead~
+AFGO c -1000 0
+20 0 7d45+300 25d10+100 4d5+10 'magic'
+-2 -2 -2 4
+CDEIKU P IJ H
 stand stand none 800
-I 0 medium unknown
+0 ABCDEFGHIJK medium unknown
 #29351
 torturer inquisitor ~
-The Inquisitor~
-The Inquisitor is here preparing various torture devices.
+@eng The Inquisitor@rus ~~Инквизитор~~~
+@eng The Inquisitor is here preparing various torture devices.
+@rus Инквизитор (Inquisitor) здесь, готовит пытошый инструмент.
 ~
-This evil creature looks like a zombie but acts much more sinister.  It
+@eng This evil creature looks like a zombie but acts much more sinister.  It
 uses its magical abilities to keep its victims alive while it's torturing
 them.  
+@rus 
+Это злобное существо - всего лишь мертвяк, но это придает ее пригото-
+влениям еще большую зловещесть.  Чувствуется, что оно приложет всю свою
+магическую силу для того, что бы ее жертва подольше пожила на пытошном
+столе.  
 ~
-human~
+zombie~
 ABOQ cu -1000 0
-50 0 15d10+4250 45d10+950 5d8+19 'magic'
--20 -20 -20 -2
-CN ILQ P HN
+30 0 10d61+616 30d10+100 5d6+15 'magic'
+-9 -9 -9 0
+CN Q P HN
 stand stand none 800
-I 0 medium unknown
+0 ABCDEFGHIJK medium unknown
 #29352
 demon minor~
-A Minor Demon~
-A minor demon stands here surrounded in flames.
+@eng A Minor Demon@rus ~~Младший~~ ~~Демон~~~
+@eng A minor demon stands here surrounded in flames.
+@rus Младший Демон (demon) стоит тут, окруженный пламенем.
 ~
-An aggresive looking demon stands here in the brazier's flames.  It
+@eng An aggresive looking demon stands here in the brazier's flames.  It
 appears to have been summoned and is quite angry about it.  The long claws
 and fangs it uses as weapons make you consider running as fast as posible.  
+@rus 
+Весьма воинственно настроенное сущеcтво стоит рядом с тобой и дышит
+пламенем.  Кто-то вызвал его сюда, вырвав из привычного мира, и демон зол на
+всех вокруг.  Свои длинные клыки и когти он привык использовать как оружие,
+и тебе нужно поспешить хоть что-то противопоставить им, что бы выжить.
 ~
 human~
 ABT T -1000 0
-50 0 15d10+4250 45d10+950 5d8+19 'magic'
--20 -20 -20 -2
+30 30 10d61+1600 45d10+100 5d8+19 'magic'
+-9 -9 -9 0
 CDFHK H LPQ IN
-stand stand none 800
+stand stand male 800
 C 0 medium unknown
 #29353
 demon major~
-A Major Demon~
-A Major Demon floats here in the flames.
+@eng A Major Demon@rus ~~Старший~~ ~~Демон~~~
+@eng A Major Demon floats here in the flames.
+@rus Старший демон (demon) парит здесь, объятый пламенем.
 ~
-A large wicked looking demon floats here in the fire.  He has wings, a
+@eng A large wicked looking demon floats here in the fire.  He has wings, a
 tail, claws, fangs, he is everything you have pictured a demon would be. 
 His black scaled skin gleams in the firelight The burning flames in his eyes
 corrupt your soul.  Fear him mortal for you are about to die.  
+@rus 
+Огромный черный демон парит перед тобой в огне.  Его крылья, хвост, когти
+и клыки - все такое же как на картинке в Бестиарии, нарисованной по
+рассказам нескольких случайно выживших очевидцев.  Его черная, гладкая кожа
+переливается огненными бликами.  Обжигающее пламя его глаз искажает твою
+душу.  Смертельный ужас наполняет тебя предчувствием конца.  
 ~
 dragon~
-ABOT u -1000 0
-65 0 50d10+8250 45d10+950 11d5+35 'magic'
--35 -35 -35 -10
-CFKM HLQ DIJK CN
+ABOT 0 -1000 0
+45 45 10d150+1000 45d10+950 11d5+35 'magic'
+-18 -18 -18 -4
+ACFKM HLQ DIJK CN
 stand stand none 800
 Cc L large unknown
 #29354
 lich lord myzelak~
-Myzelak the Lich Lord~
-Myzelak the Lich Lord stands here by his throne.
+@eng Myzelak the Lich Lord@rus ~~Мизелак~~~
+@eng Myzelak the Lich Lord stands here by his throne.
+@rus Мизелак (Myzelak), Лорд-Лич стоит у трона.
 ~
-Evil incarnate, Myzelak spent years of his life perfecting his magical
+@eng Evil incarnate, Myzelak spent years of his life perfecting his magical
 abilities to grant him life after death.  The result of his work stands
 before you, a rotting representation of what the wizard used to be.  Myzelak
 now spends his time searching for ways to end all life in StormFront.  
+@rus 
+Воплощение зла, Мизелак потратил долгие годы на поиск секрета жизни после
+смерти.  Результат перед тобой, и только несколько трупных пятен портят
+картину.  А Мизелак нашел себе новое занятие - теперь он ищет пути к
+прекращению всякой жизни.  
 ~
-human~
-ABQR Ju -1000 0
-75 0 50d10+11000 45d10+1950 9d11+45 'magic'
--45 -45 -45 -14
-FIJN 0 CDHIJ N
+lich~
+ABOQR Ju -1000 0
+55 55 15d300+2000 45d10+1950 9d11+45 'magic'
+-24 -24 -24 -7
+IJN 0 C 0
 stand stand none 800
-0 0 medium unknown
+0 ABCDEFGHIJK medium unknown
 #29355
 dracolich mount dragon~
-The Dracolich~
-Myzelak's ancient dracolich mount.
+@eng The Dracolich@rus ~~Драколич~~~
+@eng Myzelak's ancient dracolich mount.
+@rus Костяной дракон (dracolich) Мизелака возвышается над тобой.
 ~
-Myzelak's Dracolich mount towers above you.  Fiery red lights gleam in
+@eng Myzelak's Dracolich mount towers above you.  Fiery red lights gleam in
 its hollow eye sockets as it growls at you.  The undead dragon is monstrous,
 perhaps you should run now, before you're dead.  ;> 
+@rus 
+ Драколич Мизелака башней возвышается перед тобой.  Вдруг в темных
+провалах его глазниц вспыхнул багровый свет, он повернул к тебе свою
+огромную голову-череп и зарычал.  Он просто ужасен, приготовься, может быть 
+тебе придется снова драться, но недолго - до самой смерти...
 ~
-dragon~
+dracolich~
 ABOT 0 -1000 0
-60 0 50d10+6750 45d10+1950 8d6+28 'magic'
--30 -30 -30 -10
-CDFMO 0 IJK KN
+40 40 10d150+1500 45d10+1950 8d6+28 'magic'
+-15 -15 -15 -2
+CDFMO 0 K N
 stand stand none 800
-c L giant unknown
+c ALPQUVX giant unknown
+F res H
+F vul I
 #29356
 elite death knight~
-An Elite Death Knight~
-An Elite Death Knight laughs an unholy cackle and attacks.
+@eng An Elite Death Knight@rus ~~Элитный~~ ~~Рыцарь~~ Смерти~
+@eng An Elite Death Knight laughs an unholy cackle and attacks.
+@rus Элитный Рыцарь (knight) Смерти гнусно расхохотался и напал.
 ~
-A huge skeletal figure confronts you.  He wields an old longsword covered
+@eng A huge skeletal figure confronts you.  He wields an old longsword covered
 in runes and carries a large black shield that can only be a dragon's scale.
 He looks very much like the Death Knights you encountered earlier except he
 is much larger and appears to be more powerful as well.  
+@rus 
+Огромный скелет стоит перед тобой.  В лапах его старый меч, покрытый
+рунами и большой черный щит из...  Да!  - это кожа дракона.  Он выглядит
+намного сильней уже встречавшихся тебе воинов Смерти - огромная и невероятно
+сильная тварь.  
 ~
-giant~
-ABOT 0 -900 0
-70 0 50d10+9750 45d10+2950 8d10+40 'magic'
--40 -40 -40 -10
-CDFIKO 0 C HN
+zombie~
+ABFOT Z -900 0
+50 50 10d169+1000 45d10+2950 8d10+40 'magic'
+-24 -24 -24 -7
+CDFIKO 0 CDH JN
 stand stand none 800
-0 0 large unknown
+0 ABCDEFGHIJK large unknown
+F vul D
 #0
 
 #OBJECTS
@@ -337,13 +381,9 @@ Some old leather boots with fish painted on them rest here in the closet.~
 mithril~
 boat G AG
 0 0 0 0 0
-40 5 1000 P
-A
-18 2
+20 5 1000 P
 A
 2 1
-A
-17 -5
 G none
 #29365
 thieve's tunic~
@@ -369,11 +409,11 @@ gem 0 AO
 G none
 #29367
 chair wooden~
-a large wooden chair~
-A large wooden chair sits here at the head of the table~
+@eng a large wooden chair@rus большое деревянное кресло~
+@eng A large wooden chair sits here at the head of the table@rus Большое деревянное кресло стоит во главе стола.~
 wood~
 furniture 0 0
-0 0 0 0 0
+0 0 D 0 0
 30 50 0 P
 G none
 #29368
@@ -423,16 +463,25 @@ container AG 0
 G none
 #29373
 cross obsidian~
-a large obsidian cross~
-A large obsidian cross~
+@eng a large obsidian cross@rus огромный обсидиановый крест~
+@eng A large obsidian cross@rus Огромный обсидиановый крест стоит у дороги.~
 stone~
-furniture 0 0
+furniture R A
 0 0 0 0 0
-1 200 0 P
+1 5000 0 P
 E
 cross~
-This Area is high level only, level 45-75.  There are aggressive mobs,
-anyone under level 45 is recomended to avoid this area.  ===RYZEN <=== 
+@eng                            R.I.P.
+ Gods! Helps to unfortunate soul of King Leorik, buries here.
+    Gods! Please, send Deliverer at this suffered place.
+ Wanderer. Remember, only your powerful expirience and great
+knowledge rescues you at the paths in these land. Abbat RYZEN.
+@rus                               R.I.P.
+   Господи! Смилуйся над грешным королем Леориком упокоенным здесь.
+Господи! Пошли Освободителя земле этой, исстрадавшейся за грехи наши.
+                  Путник. С опаской входи в земли эти.
+Только великий опыт в странствиях и большие познания спасут тебя от смерти
+                     в этих краях. Аббат Риззен.
 ~
 E
 cross~
@@ -443,7 +492,7 @@ mobs.  However, as this area is the only way to get to a few others, the
 mobs do NOT detect invis, so as long as you are invis you should be able to
 get where you want to go, Alive.  ===> RYZEN <=== 
 ~
-G none
+G male
 #0
 
 #ROOMS
@@ -882,8 +931,9 @@ S
 #0
 
 #SPECIALS
+M 29351 spec_cast_undead	* The Inquisitor
 M 29353 spec_cast_undead	* A Major Demon
-M 29354 spec_cast_mage	* Myzelak the Lich Lord
+M 29354 spec_cast_adept	* Myzelak the Lich Lord
 S
 
 #RESETS
@@ -928,6 +978,10 @@ E 0 29357 0 16		*	an Ancient Longsword: wielded
 E 0 29358 0 11		*	a black dragon scale: as a shield
 M 0 29350 4 29369 1	* A Death Knight (A Storage Room)
 E 0 29350 0 16		*	an old black mace: wielded
+S
+
+#OLIMITS
+O 29373 1	* a large obsidian cross
 S
 
 #$

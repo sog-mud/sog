@@ -340,7 +340,7 @@ is  really just a lonely lost being. All he really wants is a friend for
 eternity.
 ~
 human~
-ABG JNu -1000 0
+ABG JN -1000 0
 65 20 50d10+8250 5d5+5000 11d5+35 'pound'
 -35 -35 -35 -5
 EFHKN 0 0 0
@@ -987,9 +987,9 @@ A massive pile of dreadlocks rest here.~
 iron~
 armor ABFKL AE
 30 30 30 20 0
-90 25 110 P
+45 25 110 P
 A
-19 10
+19 6
 G none
 #32052
 Axe destruction~
@@ -997,12 +997,12 @@ an axe of destruction~
 A massive blood-stained axe of immeasurable age lies here.~
 steel~
 weapon BFG AN
-axe 5 11 'chop' DE
-90 30 0 P
+axe 6 11 'chop' DE
+45 30 0 P
 A
-17 120
+19 5
 A
-19 10
+17 60
 G none
 #32053
 trash can~
@@ -3033,6 +3033,7 @@ S
 O 32030 1	* a spiked wristguard
 O 32034 2	* a titanium shield
 O 32036 5	* a pitch black ring
+O 32043 3	* a pair of coveralls
 O 32052 1	* an axe of destruction
 S
 

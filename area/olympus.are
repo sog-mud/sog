@@ -411,7 +411,7 @@ stand stand male 50
 aegis plate~
 the Aegis~
 A powerful breast plate has been left here.~
-platinium~
+platinum~
 armor FGK AD
 12 12 11 6 0
 35 500 8400 P
@@ -437,7 +437,7 @@ G none
 helmet winged~
 a Winged Helmet~
 A helmet with small wings lies here.~
-platinium~
+platinum~
 armor FGK AE
 11 12 11 5 0
 35 50 7300 P
@@ -655,7 +655,7 @@ the Sword of the Sun~
 A beautiful sword with the rising sun etched on the pommel is lying here.~
 unknown~
 weapon FGK AN
-sword 9 9 'slash' 0
+sword 8 8 'slash' 0
 50 200 6800 P
 A
 19 8
@@ -1683,6 +1683,7 @@ S
 
 #OLIMITS
 O 901 1	* the Thunder Bolt
+O 903 6	* the spear of Ares
 O 908 2	* flaming gauntlets
 O 923 1	* the Sword of the Sun
 S

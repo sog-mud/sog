@@ -1,0 +1,3506 @@
+#AREADATA
+Name Lizard Kingdom~
+Builders vivien~
+VNUMs 22100 22299
+Credits Vivien~
+Security 1
+LevelRange 35 45
+End
+
+#MOBILES
+#22101
+lizard king~
+lizard kiing~
+The Lizard King stands here.
+~
+~
+lizard~
+A DEF 0 0
+65 0 50d10+8250 10d10+1000 11d5+35 'divine'
+-35 -35 -35 -35
+ACEFHKMR 0 0 0
+stand stand male 0
+0 0 huge unknown
+#22102
+gray lizard~
+gray lizard~
+Gray lizard stands here.
+~
+~
+lizard~
+A D 0 0
+50 0 50d10+4250 10d1+1000 5d8+25 'scratch'
+-20 -20 -20 -10
+FKM 0 0 0
+stand stand none 0
+0 0 medium unknown
+#22103
+small lizard~
+small lizard~
+Small gray lizard stands here.
+~
+~
+lizard~
+A 0 0 0
+45 0 25d10+3000 10d1+1000 8d4+18 'scratch'
+-16 -16 -16 -8
+FKM 0 0 0
+stand stand none 0
+0 0 medium unknown
+#22104
+grand lizard~
+grand lizard~
+The grand lizard stands here.
+~
+~
+lizard~
+A D 0 0
+55 0 50d10+6000 10d1+1000 10d5+28 'scratch'
+-25 -25 -25 -10
+FKM 0 0 0
+stand stand none 0
+0 0 medium unknown
+#22105
+serpent~
+serpent~
+Huge serpent is here.
+~
+~
+snake~
+A D 0 0
+50 0 50d10+4500 1d1+100 5d8+22 'bite'
+-20 -20 -20 -10
+FKM 0 0 0
+stand stand none 0
+0 0 large unknown
+#22106
+snake~
+snake~
+Huge snake is here.
+~
+~
+snake~
+A D 0 0
+50 0 50d10+4500 1d1+100 5d8+22 'bite'
+-20 -20 -20 -10
+FKM 0 0 0
+stand stand none 0
+0 0 large unknown
+#22107
+dog~
+dog~
+A dog wanna bite you.
+~
+~
+dog~
+A 0 0 0
+50 0 50d10+4500 1d1+100 5d8+22 'bite'
+-20 -20 -20 -10
+F 0 0 0
+stand stand none 0
+0 0 medium unknown
+#22108
+~
+the lion~
+The very proud lion stands here.
+~
+~
+lion~
+A 0 0 0
+50 0 50d10+4500 1d1+100 5d8+25 'slice'
+-20 -20 -20 -10
+0 0 0 0
+stand stand none 0
+0 0 huge unknown
+#22109
+lizard priest~
+lizard priest~
+The lizard priest is praying here
+~
+~
+lizard~
+A DH 0 0
+60 0 50d10+7000 10d10+1000 8d6+28 'divine'
+-30 -30 -30 -20
+0 0 0 0
+stand stand none 0
+0 0 medium unknown
+#22110
+~
+lizard monk~
+The lizard monk is here or maybe not.
+~
+~
+lizard~
+A 0 0 0
+50 0 50d10+4500 10d10+1000 5d8+25 'punch'
+-20 -20 -20 -10
+FHIKM 0 D 0
+stand stand none 0
+0 0 medium unknown
+#22111
+archbishop~
+archbishop~
+The figure in mist of gods flying here
+~
+~
+human~
+A BDFHNT 0 0
+65 0 5d10+9000 10d10+1000 10d5+35 'divine'
+-35 -35 -35 -35
+0 0 0 0
+stand stand none 0
+0 0 huge unknown
+F for AHMV
+#22112
+knocker~
+knocker~
+The lizard try to break the earth here.
+~
+~
+lizard~
+A 0 0 0
+45 0 25d10+3000 1d1+100 8d4+18 'scratch'
+-16 -16 -16 -8
+HM 0 0 0
+stand stand none 0
+0 0 medium unknown
+#22113
+arena master~
+master of arena~
+The huge man help everyone to die stands here.
+~
+~
+human~
+A 0 0 0
+60 0 50d10+8000 1d1+100 11d5+33 'shbite'
+-30 -30 -30 -15
+CHIJN 0 D 0
+stand stand none 10000
+0 0 large unknown
+#22114
+rattlesnake~
+rattlesnake~
+The huge rattlesnake is here.
+~
+~
+snake~
+A 0 0 0
+50 0 50d10+4300 0d0+0 5d8+25 'beating'
+-25 -25 -25 -15
+HM 0 0 0
+stand stand none 0
+0 0 huge unknown
+#22115
+cobra~
+cobra~
+Horrible cobra gonna bite you.
+~
+~
+snake~
+A 0 0 0
+50 0 50d10+4300 0d0+0 5d8+25 'beating'
+-25 -25 -25 -15
+HM 0 0 0
+stand stand none 0
+0 0 huge unknown
+#22116
+gladiator~
+gladiator~
+Man ready to fight with you.
+~
+~
+human~
+A 0 0 0
+55 0 50d10+6000 10d1+1000 10d5+28 'scratch'
+-25 -25 -25 -10
+0 0 0 0
+stand stand none 0
+0 0 medium unknown
+#22117
+lizard high~
+high lizard~
+Strong lizard look at someone else , not you.
+~
+~
+lizard~
+A D 0 0
+55 0 50d10+6000 10d1+1000 10d5+28 'scratch'
+-25 -25 -25 -10
+FKM 0 0 0
+stand stand none 0
+0 0 large unknown
+#22118
+lizard guard~
+lizard guard~
+Large lizard is protecting the palace.
+~
+~
+lizard~
+A D 0 0
+55 0 50d10+6000 10d1+1000 10d5+28 'scratch'
+-25 -25 -25 -10
+FKMRT 0 0 0
+stand stand none 0
+0 0 large unknown
+#22119
+bodyguard~
+bodyguard~
+Strong man ready to die for the king.
+~
+~
+human~
+A DFH 0 0
+60 0 50d10+8000 1d1+100 11d5+33 'punch'
+-30 -30 -30 -15
+CHIJNT 0 D 0
+stand stand none 10000
+0 0 large unknown
+#22120
+shaman~
+shaman~
+Strange figure slowly dancing around you.
+~
+~
+human~
+A DFHNOV 0 0
+60 0 50d10+8000 1d1+100 11d5+33 'punch'
+-30 -30 -30 -15
+CHIJN 0 DHI 0
+stand stand none 10000
+0 0 medium unknown
+#22121
+mercenary~
+mercenary~
+Strong man stands here.
+~
+~
+human~
+A u 0 0
+45 0 25d10+3000 1d1+100 8d4+18 'punch'
+-16 -16 -16 -8
+CHIJ 0 0 0
+stand stand none 10000
+0 0 medium unknown
+#22122
+fat ko~
+fat ko~
+Very fat lizard sells his cookies.
+~
+~
+lizard~
+A DFH 0 0
+60 0 50d10+8000 1d1+100 11d5+33 'punch'
+-30 -30 -30 -15
+0 0 0 0
+stand stand none 10000
+0 0 large unknown
+#22123
+sa~
+sa-long-tingue~
+Lizard with very long tingue says,'Maybe buy something?' 
+~
+~
+lizard~
+A DFH 0 0
+60 0 50d10+8000 1d1+100 11d5+33 'punch'
+-30 -30 -30 -15
+0 0 0 0
+stand stand none 10000
+0 0 large unknown
+#22124
+vi~
+Vi-heavy-hand~
+Large lizard with heavy looking hand is here.
+~
+~
+lizard~
+A DFH 0 0
+60 0 50d10+8000 1d1+100 11d5+33 'punch'
+-30 -30 -30 -15
+0 0 0 0
+stand stand none 10000
+0 0 large unknown
+#22125
+zo~
+zo-eagle-eye~
+Busy looking lizard is here.
+~
+~
+lizard~
+A DFH 0 0
+60 0 50d10+8000 1d1+100 11d5+33 'punch'
+-30 -30 -30 -15
+0 0 0 0
+stand stand none 10000
+0 0 large unknown
+#22126
+la~
+la addict~
+Lizard looks like addict is here.
+~
+~
+lizard~
+A DFH 0 0
+60 0 50d10+8000 1d1+100 11d5+33 'punch'
+-30 -30 -30 -15
+0 0 0 0
+stand stand none 10000
+0 0 large unknown
+#22127
+de~
+de alchemist~
+Lizard alchemist stands here.
+~
+~
+lizard~
+A DFH 0 0
+60 0 50d10+8000 1d1+100 11d5+33 'punch'
+-30 -30 -30 -15
+0 0 0 0
+stand stand none 10000
+0 0 large unknown
+#22128
+mu~
+mu-wand-making-lizard~
+Wand making lizard stands here.
+~
+~
+lizard~
+A DFH 0 0
+60 0 50d10+8000 1d1+100 11d5+33 'punch'
+-30 -30 -30 -15
+0 0 0 0
+stand stand none 10000
+0 0 large unknown
+#22129
+slim se~
+slim~
+Very slim bartender stands here.
+~
+~
+lizard~
+A DFH 0 0
+60 0 50d10+8000 1d1+100 11d5+33 'punch'
+-30 -30 -30 -15
+0 0 0 0
+stand stand none 10000
+0 0 large unknown
+#22130
+fat tourist~
+fat tourist~
+Very fat tourist is searching someting to make picture.
+~
+~
+human~
+A 0 0 0
+50 0 50d10+4500 1d1+100 5d8+22 'bite'
+-20 -20 -20 -10
+0 0 0 0
+stand stand none 0
+0 0 large unknown
+#22131
+female tourist~
+female tourist~
+Woman searching for fine picture.
+~
+~
+human~
+A u 0 0
+45 0 25d10+3000 1d1+100 8d4+18 'slap'
+-16 -16 -16 -8
+CHIJ 0 0 0
+stand stand none 10000
+0 0 medium unknown
+#22132
+child tourist~
+child tourist~
+Child is laughting here.
+~
+~
+human~
+A 0 0 0
+40 0 15d10+2000 1d1+100 5d5+15 'punch'
+-13 -13 -13 -7
+0 0 0 0
+stand stand none 0
+0 0 medium unknown
+F for AHMV
+#22133
+halfdead lizard~
+halfdead lizard~
+You see lizard,it is going die here.
+~
+~
+lizard~
+A 0 0 0
+40 0 15d10+2000 1d1+100 5d5+15 'bite'
+-13 -13 -13 -7
+0 0 0 0
+stand stand none 0
+0 0 medium unknown
+#22134
+halfdead snake~
+halfdead snake~
+You see snake,it is going die here.
+~
+~
+snake~
+A 0 0 0
+40 0 15d10+2000 1d1+100 5d5+15 'bite'
+-13 -13 -13 -7
+0 0 0 0
+stand stand none 0
+0 0 medium unknown
+#22135
+lizard green~
+green lizard~
+Green lizard stands here.
+~
+~
+lizard~
+A D 0 0
+50 0 50d10+4250 10d1+1000 5d8+25 'scratch'
+-20 -20 -20 -10
+FKM 0 0 0
+stand stand none 0
+0 0 medium unknown
+#22136
+small lizard~
+small lizard~
+Small green lizard stands here.
+~
+~
+lizard~
+A 0 0 0
+45 0 25d10+3000 10d1+1000 8d4+18 'scratch'
+-16 -16 -16 -8
+FKM 0 0 0
+stand stand none 0
+0 0 medium unknown
+#22137
+bird~
+bird~
+Small bird is flying here.
+~
+~
+song bird~
+A 0 0 0
+45 0 25d10+3000 10d1+1000 8d4+18 'scratch'
+-16 -16 -16 -8
+0 0 0 0
+stand stand none 0
+0 0 medium unknown
+#22138
+butterfly~
+butterfly~
+Small butterfly is flying here.
+~
+~
+song bird~
+A 0 0 0
+45 0 25d10+3000 10d1+1000 8d4+18 'scratch'
+-16 -16 -16 -8
+0 0 0 0
+stand stand none 0
+0 0 medium unknown
+#22139
+outlaw~
+outlaw~
+Horrible man jump form the shadows.
+~
+~
+human~
+A F 0 0
+50 0 50d10+4500 1d1+100 5d8+22 'bite'
+-20 -20 -20 -10
+BFHIJKN 0 0 0
+stand stand none 0
+0 0 medium unknown
+#22140
+~
+bandit~
+figure from shadow try to cleave you.
+~
+~
+human~
+A 0 0 0
+55 0 50d10+6000 10d1+1000 10d5+28 'scratch'
+-25 -25 -25 -10
+CHIJN 0 0 0
+stand stand none 0
+0 0 medium unknown
+#22141
+minister's daughter~
+minister's daughter~
+Stripped young waman stands here.
+~
+~
+human~
+A 0 0 0
+40 0 15d10+2000 1d1+100 5d5+15 'punch'
+-13 -13 -13 -7
+0 0 0 0
+stand stand female 0
+0 0 medium unknown
+F for AHMV
+#22142
+assassin~
+assassin~
+figure in black silently attack you.
+~
+~
+human~
+A 0 0 0
+60 0 50d10+8000 1d1+100 11d5+33 'shbite'
+-30 -30 -30 -15
+CHIJN 0 D 0
+stand stand male 10000
+0 0 large unknown
+#22218
+lake~
+~
+~
+~
+human~
+A 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 ''
+0 0 0 0
+0 0 0 0
+stand stand none 0
+0 0 medium unknown
+F for AHMV
+#0
+
+#ROOMS
+#22101
+Entrance to the town of the lizards~
+~
+0 0 city
+D1
+~
+~
+Z 0 22102
+S
+#22102
+Gate of the lizard town~
+~
+0 0 city
+D1
+~
+~
+Z 0 22103
+D3
+~
+~
+Z 0 22101
+S
+#22103
+Main Street before Temple of Five Serpents~
+~
+0 0 city
+D0
+~
+~
+Z 0 22136
+D1
+~
+~
+Z 0 22104
+D3
+~
+~
+Z 0 22102
+S
+#22104
+Main Street before Arena of Death~
+~
+0 0 inside
+D1
+~
+~
+Z 0 22105
+D2
+~
+~
+Z 0 22148
+D3
+~
+~
+Z 0 22103
+S
+#22105
+Main Street~
+~
+0 0 inside
+D1
+~
+~
+Z 0 22106
+D3
+~
+~
+Z 0 22104
+S
+#22106
+Main Street Before Market~
+~
+0 0 inside
+D1
+~
+~
+Z 0 22110
+D3
+~
+~
+Z 0 22105
+S
+#22107
+Market~
+~
+0 0 city
+D1
+~
+~
+Z 0 22108
+D2
+~
+~
+Z 0 22110
+S
+#22108
+Market~
+~
+0 0 city
+D0
+~
+~
+Z 0 22116
+D1
+~
+~
+Z 0 22109
+D2
+~
+~
+Z 0 22111
+D3
+~
+~
+Z 0 22107
+S
+#22109
+Market~
+~
+0 0 city
+D2
+~
+~
+Z 0 22112
+D3
+~
+~
+Z 0 22108
+S
+#22110
+Market~
+~
+0 0 city
+D0
+~
+~
+Z 0 22107
+D1
+~
+~
+Z 0 22111
+D2
+~
+~
+Z 0 22113
+D3
+~
+~
+Z 0 22106
+S
+#22111
+Market~
+~
+0 0 city
+D0
+~
+~
+Z 0 22108
+D1
+~
+~
+Z 0 22112
+D2
+~
+~
+Z 0 22114
+D3
+~
+~
+Z 0 22110
+S
+#22112
+Market~
+~
+0 0 city
+D0
+~
+~
+Z 0 22109
+D1
+~
+~
+Z 0 22126
+D2
+~
+~
+Z 0 22115
+D3
+~
+~
+Z 0 22111
+S
+#22113
+Market~
+~
+0 0 city
+D0
+~
+~
+Z 0 22110
+D1
+~
+~
+Z 0 22114
+S
+#22114
+Market~
+~
+0 0 city
+D0
+~
+~
+Z 0 22111
+D1
+~
+~
+Z 0 22115
+D2
+~
+~
+Z 0 22121
+D3
+~
+~
+Z 0 22113
+S
+#22115
+Market~
+~
+0 0 city
+D0
+~
+~
+Z 0 22112
+D3
+~
+~
+Z 0 22114
+S
+#22116
+King's street~
+~
+0 0 city
+D0
+~
+~
+Z 0 22117
+D2
+~
+~
+Z 0 22108
+S
+#22117
+King's street~
+~
+0 0 city
+D0
+~
+~
+Z 0 22118
+D1
+~
+~
+Z 0 22159
+D2
+~
+~
+Z 0 22116
+D3
+~
+~
+Z 0 22160
+S
+#22118
+King's street~
+~
+0 0 city
+D0
+~
+~
+Z 0 22119
+D2
+~
+~
+Z 0 22117
+S
+#22119
+King's street~
+~
+0 0 city
+D0
+~
+~
+Z 0 22120
+D1
+~
+~
+Z 0 22158
+D2
+~
+~
+Z 0 22118
+S
+#22120
+King's street~
+~
+0 0 city
+D2
+~
+~
+Z 0 22119
+D3
+~
+~
+Z 0 22157
+S
+#22121
+King's street~
+~
+0 0 city
+D0
+~
+~
+Z 0 22114
+D2
+~
+~
+Z 0 22122
+S
+#22122
+King's street~
+~
+0 0 city
+D0
+~
+~
+Z 0 22121
+D1
+~
+~
+Z 0 22162
+D2
+~
+~
+Z 0 22123
+D3
+~
+~
+Z 0 22161
+S
+#22123
+King's street~
+~
+0 0 city
+D0
+~
+~
+Z 0 22122
+D2
+~
+~
+Z 0 22124
+S
+#22124
+King's street~
+~
+0 0 city
+D0
+~
+~
+Z 0 22123
+D2
+~
+~
+Z 0 22125
+D3
+~
+~
+Z 0 22163
+S
+#22125
+King's street~
+~
+0 0 city
+D0
+~
+~
+Z 0 22124
+D1
+~
+~
+Z 0 22164
+S
+#22126
+Main Street Before Market~
+~
+0 0 inside
+D1
+~
+~
+Z 0 22127
+D3
+~
+~
+Z 0 22112
+S
+#22127
+Main Street Palace of Lizard King~
+~
+0 0 inside
+D1
+~
+~
+Z 0 22130
+D3
+~
+~
+Z 0 22126
+S
+#22128
+Palace of Lizard King~
+~
+0 0 inside
+D1
+~
+~
+Z 0 22129
+D2
+~
+~
+Z 0 22130
+S
+#22129
+Palace of Lizard King~
+~
+0 0 inside
+D2
+~
+~
+Z 0 22131
+D3
+~
+~
+Z 0 22128
+S
+#22130
+Palace of Lizard King~
+~
+0 0 inside
+D0
+~
+~
+Z 0 22128
+D1
+~
+~
+Z 0 22131
+D2
+~
+~
+Z 0 22132
+D3
+~
+~
+Z 0 22127
+S
+#22131
+Palace of Lizard King~
+~
+0 0 inside
+D0
+~
+~
+Z 0 22129
+D1
+~
+~
+Z 0 22134
+D2
+~
+~
+Z 0 22133
+D3
+~
+~
+Z 0 22130
+S
+#22132
+Palace of Lizard King~
+~
+0 0 inside
+D0
+~
+~
+Z 0 22130
+D1
+~
+~
+Z 0 22133
+S
+#22133
+Palace of Lizard King~
+~
+0 0 inside
+D0
+~
+~
+Z 0 22131
+D3
+~
+~
+Z 0 22132
+S
+#22134
+Buttom of the throne~
+~
+0 0 inside
+D3
+~
+~
+Z 0 22131
+D4
+~
+~
+Z 0 22135
+S
+#22135
+Throne of the lizard king~
+~
+0 0 inside
+D5
+~
+~
+Z 0 22134
+S
+#22136
+Temple Square~
+~
+0 0 inside
+D0
+~
+~
+Z 0 22138
+D2
+~
+~
+Z 0 22103
+S
+#22137
+Temple Square~
+~
+0 0 inside
+D1
+~
+~
+Z 0 22138
+S
+#22138
+Temple Square~
+~
+0 0 inside
+D0
+~
+~
+Z 0 22140
+D1
+~
+~
+Z 0 22139
+D2
+~
+~
+Z 0 22136
+D3
+~
+~
+Z 0 22137
+S
+#22139
+Temple Square~
+~
+0 0 inside
+D3
+~
+~
+Z 0 22138
+S
+#22140
+Disciple place~
+~
+0 0 inside
+D0
+~
+~
+Z 0 22141
+D2
+~
+~
+Z 0 22138
+S
+#22141
+Disciple place~
+~
+0 0 inside
+D0
+~
+~
+Z 0 22142
+D1
+~
+~
+Z 0 22144
+D2
+~
+~
+Z 0 22140
+D3
+~
+~
+Z 0 22143
+S
+#22142
+Disciple place~
+~
+0 0 inside
+D0
+~
+~
+Z 0 22147
+D1
+~
+~
+Z 0 22146
+D2
+~
+~
+Z 0 22141
+D3
+~
+~
+Z 0 22145
+S
+#22143
+Chamber of Wise Serpent~
+~
+0 0 inside
+D1
+~
+~
+Z 0 22141
+S
+#22144
+Chamber of Mother Serpent~
+~
+0 0 inside
+D3
+~
+~
+Z 0 22141
+S
+#22145
+Chamber of Angry Serpent~
+~
+0 0 inside
+D1
+~
+~
+Z 0 22142
+S
+#22146
+Chamber of Kind Serpent~
+~
+0 0 inside
+D3
+~
+~
+Z 0 22142
+S
+#22147
+Chamber of Dead Serpent~
+~
+0 0 inside
+D2
+~
+~
+Z 0 22142
+S
+#22148
+Entrace to Arena of Death~
+~
+0 0 inside
+D0
+~
+~
+Z 0 22104
+D2
+~
+~
+Z 0 22150
+S
+#22149
+Tribune~
+~
+0 0 city
+D1
+~
+~
+Z 0 22150
+D3
+~
+~
+Z 0 22151
+D5
+~
+~
+Z 0 22152
+S
+#22150
+Tribune~
+~
+0 0 city
+D0
+~
+~
+Z 0 22148
+D1
+~
+~
+Z 0 22151
+D3
+~
+~
+Z 0 22149
+D5
+~
+~
+Z 0 22153
+S
+#22151
+Tribune~
+~
+0 0 city
+D1
+~
+~
+Z 0 22149
+D3
+~
+~
+Z 0 22150
+D5
+~
+~
+Z 0 22154
+S
+#22152
+Arena of Death~
+~
+0 0 inside
+D1
+~
+~
+Z 0 22153
+D4
+~
+~
+Z 0 22149
+S
+#22153
+Arena of Death~
+~
+0 0 city
+D1
+~
+~
+Z 0 22154
+D2
+~
+~
+Z 0 22155
+D3
+~
+~
+Z 0 22152
+D4
+~
+~
+Z 0 22150
+S
+#22154
+Arena of Death~
+~
+0 0 city
+D3
+~
+~
+Z 0 22153
+D4
+~
+~
+Z 0 22151
+S
+#22155
+Arena of Death~
+~
+0 0 city
+D0
+~
+~
+Z 0 22153
+S
+#22156
+Cafe~
+~
+0 0 inside
+D1
+~
+~
+Z 0 22157
+S
+#22157
+Cafe~
+~
+0 0 inside
+D1
+~
+~
+Z 0 22120
+D3
+~
+~
+Z 0 22156
+S
+#22158
+1000 goods~
+~
+0 0 inside
+D3
+~
+~
+Z 0 22119
+S
+#22159
+Weapon shop~
+~
+0 0 inside
+D3
+~
+~
+Z 0 22117
+S
+#22160
+Armory~
+~
+0 0 inside
+D1
+~
+~
+Z 0 22117
+S
+#22161
+Herbal shop~
+~
+0 0 inside
+D1
+~
+~
+Z 0 22122
+S
+#22162
+Alchemy laboratory~
+~
+0 0 inside
+D3
+~
+~
+Z 0 22122
+S
+#22163
+Magic stuff~
+~
+0 0 inside
+D1
+~
+~
+Z 0 22124
+S
+#22164
+Bar~
+~
+0 0 inside
+D1
+~
+~
+Z 0 22165
+D3
+~
+~
+Z 0 22125
+S
+#22165
+Bar~
+~
+0 0 inside
+D3
+~
+~
+Z 0 22164
+S
+#22166
+Fossils and Caves~
+You see small dark caves where lizards live.They doesn't
+look at you.Be careful don't hurt foots,it is hard stony path.
+~
+0 0 mountain
+D1
+~
+~
+Z 0 22167
+D2
+~
+~
+Z 0 22171
+D3
+~
+~
+Z 0 22175
+S
+#22167
+Fossils and Caves~
+You see small dark caves where lizards live.They doesn't
+look at you.Be careful don't hurt foots,it is hard stony path.
+~
+0 0 mountain
+D3
+~
+~
+Z 0 22166
+S
+#22168
+Fossils and Caves~
+You see small dark caves where lizards live.They doesn't
+look at you.Be careful don't hurt foots,it is hard stony path.
+~
+0 0 mountain
+D2
+~
+~
+Z 0 22184
+S
+#22169
+Fossils and Caves~
+You see small dark caves where lizards live.They doesn't
+look at you.Be careful don't hurt foots,it is hard stony path.
+~
+0 0 mountain
+D1
+~
+~
+Z 0 22170
+S
+#22170
+Fossils and Caves~
+You see small dark caves where lizards live.They doesn't
+look at you.Be careful don't hurt foots,it is hard stony path.
+~
+0 0 mountain
+D2
+~
+~
+Z 0 22186
+D3
+~
+~
+Z 0 22169
+S
+#22171
+Fossils and Caves~
+You see small dark caves where lizards live.They doesn't
+look at you.Be careful don't hurt foots,it is hard stony path.
+~
+0 0 mountain
+D0
+~
+~
+Z 0 22166
+D1
+~
+~
+Z 0 22183
+S
+#22172
+Road~
+You on a road in Lizard Kingdom.Road as a road,nothing special.
+~
+0 0 city
+D2
+~
+~
+Z 0 22173
+S
+#22173
+Road~
+You on a road in Lizard Kingdom.Road as a road,nothing special.
+~
+0 0 city
+D0
+~
+~
+Z 0 22172
+D2
+~
+~
+Z 0 22174
+D3
+~
+~
+Z 0 22275
+S
+#22174
+Road~
+You on a road in Lizard Kingdom.Road as a road,nothing special.
+~
+0 0 city
+D0
+~
+~
+Z 0 22173
+D1
+~
+~
+Z 0 22176
+D2
+~
+~
+Z 0 22175
+D3
+~
+~
+Z 0 22277
+S
+#22175
+Road~
+You on a road in Lizard Kingdom.Road as a road,nothing special.
+~
+0 0 city
+D0
+~
+~
+Z 0 22174
+D1
+~
+~
+Z 0 22166
+D3
+~
+~
+Z 0 22280
+S
+#22176
+Road~
+You on a road in Lizard Kingdom.Road as a road,nothing special.
+~
+0 0 city
+D1
+~
+~
+Z 0 22177
+D3
+~
+~
+Z 0 22174
+S
+#22177
+Road~
+You on a road in Lizard Kingdom.Road as a road,nothing special.
+~
+0 0 city
+D1
+~
+~
+Z 0 22178
+D3
+~
+~
+Z 0 22176
+S
+#22178
+Road~
+You on a road in Lizard Kingdom.Road as a road,nothing special.
+~
+0 0 city
+D1
+~
+~
+Z 0 22179
+D3
+~
+~
+Z 0 22177
+S
+#22179
+Road~
+You on a road in Lizard Kingdom.Road as a road,nothing special.
+~
+0 0 city
+D0
+~
+~
+Z 0 22296
+D1
+~
+~
+Z 0 22180
+D3
+~
+~
+Z 0 22178
+S
+#22180
+Road~
+You on a road in Lizard Kingdom.Road as a road,nothing special.
+~
+0 0 city
+D1
+~
+~
+Z 0 22181
+D3
+~
+~
+Z 0 22179
+S
+#22181
+Road~
+You on a road in Lizard Kingdom.Road as a road,nothing special.
+~
+0 0 city
+D1
+~
+~
+Z 0 22182
+D3
+~
+~
+Z 0 22180
+S
+#22182
+Road~
+You on a road in Lizard Kingdom.Road as a road,nothing special.
+~
+0 0 city
+D3
+~
+~
+Z 0 22181
+S
+#22183
+Fossils and Caves~
+You see small dark caves where lizards live.They doesn't
+look at you.Be careful don't hurt foots,it is hard stony path.
+~
+0 0 mountain
+D1
+~
+~
+Z 0 22184
+D3
+~
+~
+Z 0 22171
+S
+#22184
+Fossils and Caves~
+You see small dark caves where lizards live.They doesn't
+look at you.Be careful don't hurt foots,it is hard stony path.
+~
+0 0 mountain
+D0
+~
+~
+Z 0 22168
+D1
+~
+~
+Z 0 22185
+D2
+~
+~
+Z 0 22189
+D3
+~
+~
+Z 0 22183
+S
+#22185
+Fossils and Caves~
+You see small dark caves where lizards live.They doesn't
+look at you.Be careful don't hurt foots,it is hard stony path.
+~
+0 0 mountain
+D3
+~
+~
+Z 0 22184
+S
+#22186
+Fossils and Caves~
+You see small dark caves where lizards live.They doesn't
+look at you.Be careful don't hurt foots,it is hard stony path.
+~
+0 0 mountain
+D0
+~
+~
+Z 0 22170
+D2
+~
+~
+Z 0 22191
+S
+#22187
+Fossils and Caves~
+You see small dark caves where lizards live.They doesn't
+look at you.Be careful don't hurt foots,it is hard stony path.
+~
+0 0 mountain
+D1
+~
+~
+Z 0 22188
+S
+#22188
+Fossils and Caves~
+You see small dark caves where lizards live.They doesn't
+look at you.Be careful don't hurt foots,it is hard stony path.
+~
+0 0 mountain
+D1
+~
+~
+Z 0 22189
+D3
+~
+~
+Z 0 22187
+S
+#22189
+Fossils and Caves~
+You see small dark caves where lizards live.They doesn't
+look at you.Be careful don't hurt foots,it is hard stony path.
+~
+0 0 mountain
+D0
+~
+~
+Z 0 22184
+D1
+~
+~
+Z 0 22190
+D3
+~
+~
+Z 0 22188
+S
+#22190
+Fossils and Caves~
+You see small dark caves where lizards live.They doesn't
+look at you.Be careful don't hurt foots,it is hard stony path.
+~
+0 0 mountain
+D1
+~
+~
+Z 0 22191
+D3
+~
+~
+Z 0 22189
+S
+#22191
+Fossils and Caves~
+You see small dark caves where lizards live.They doesn't
+look at you.Be careful don't hurt foots,it is hard stony path.
+~
+0 0 mountain
+D0
+~
+~
+Z 0 22186
+D3
+~
+~
+Z 0 22190
+S
+#22192
+Fossils and Caves~
+You see small dark caves where lizards live.They doesn't
+look at you.Be careful don't hurt foots,it is hard stony path.
+~
+0 0 mountain
+S
+#22201
+Jungle~
+There are huge trees around you.You guess if it was day
+you do not see the sun.Constantly you hear strange noises,
+sometimes they are hrorrible.First you wish get out there
+but you don't know how you can do that.
+~
+0 0 forest
+D1
+~
+~
+Z 0 22202
+D2
+~
+~
+Z 0 22203
+S
+#22202
+Jungle~
+There are huge trees around you.You guess if it was day
+you do not see the sun.Constantly you hear strange noises,
+sometimes they are hrorrible.First you wish get out there
+but you don't know how you can do that.
+~
+0 0 forest
+D3
+~
+~
+Z 0 22201
+S
+#22203
+Jungle~
+There are huge trees around you.You guess if it was day
+you do not see the sun.Constantly you hear strange noises,
+sometimes they are hrorrible.First you wish get out there
+but you don't know how you can do that.
+~
+0 0 forest
+D0
+~
+~
+Z 0 22201
+D1
+~
+~
+Z 0 22204
+D2
+~
+~
+Z 0 22205
+S
+#22204
+Jungle~
+There are huge trees around you.You guess if it was day
+you do not see the sun.Constantly you hear strange noises,
+sometimes they are hrorrible.First you wish get out there
+but you don't know how you can do that.
+~
+0 0 forest
+D2
+~
+~
+Z 0 22206
+D3
+~
+~
+Z 0 22203
+S
+#22205
+Jungle~
+There are huge trees around you.You guess if it was day
+you do not see the sun.Constantly you hear strange noises,
+sometimes they are hrorrible.First you wish get out there
+but you don't know how you can do that.
+~
+0 0 forest
+D0
+~
+~
+Z 0 22203
+D2
+~
+~
+Z 0 22207
+S
+#22206
+Jungle~
+There are huge trees around you.You guess if it was day
+you do not see the sun.Constantly you hear strange noises,
+sometimes they are hrorrible.First you wish get out there
+but you don't know how you can do that.
+~
+0 0 forest
+D0
+~
+~
+Z 0 22204
+D2
+~
+~
+Z 0 22208
+S
+#22207
+Jungle~
+There are huge trees around you.You guess if it was day
+you do not see the sun.Constantly you hear strange noises,
+sometimes they are hrorrible.First you wish get out there
+but you don't know how you can do that.
+~
+0 0 forest
+D0
+~
+~
+Z 0 22205
+S
+#22208
+Jungle~
+There are huge trees around you.You guess if it was day
+you do not see the sun.Constantly you hear strange noises,
+sometimes they are hrorrible.First you wish get out there
+but you don't know how you can do that.
+~
+0 0 forest
+D0
+~
+~
+Z 0 22206
+D1
+~
+~
+Z 0 22215
+S
+#22209
+Jungle~
+There are huge trees around you.You guess if it was day
+you do not see the sun.Constantly you hear strange noises,
+sometimes they are hrorrible.First you wish get out there
+but you don't know how you can do that.
+~
+0 0 forest
+D1
+~
+~
+Z 0 22210
+D2
+~
+~
+Z 0 22211
+S
+#22210
+Jungle~
+There are huge trees around you.You guess if it was day
+you do not see the sun.Constantly you hear strange noises,
+sometimes they are hrorrible.First you wish get out there
+but you don't know how you can do that.
+~
+0 0 forest
+D3
+~
+~
+Z 0 22209
+S
+#22211
+Jungle~
+There are huge trees around you.You guess if it was day
+you do not see the sun.Constantly you hear strange noises,
+sometimes they are hrorrible.First you wish get out there
+but you don't know how you can do that.
+~
+0 0 forest
+D0
+~
+~
+Z 0 22209
+D1
+~
+~
+Z 0 22212
+D2
+~
+~
+Z 0 22213
+S
+#22212
+Jungle~
+There are huge trees around you.You guess if it was day
+you do not see the sun.Constantly you hear strange noises,
+sometimes they are hrorrible.First you wish get out there
+but you don't know how you can do that.
+~
+0 0 forest
+D1
+~
+~
+Z 0 22217
+D3
+~
+~
+Z 0 22211
+S
+#22213
+Jungle~
+There are huge trees around you.You guess if it was day
+you do not see the sun.Constantly you hear strange noises,
+sometimes they are hrorrible.First you wish get out there
+but you don't know how you can do that.
+~
+0 0 forest
+D0
+~
+~
+Z 0 22211
+D1
+~
+~
+Z 0 22214
+S
+#22214
+Jungle~
+There are huge trees around you.You guess if it was day
+you do not see the sun.Constantly you hear strange noises,
+sometimes they are hrorrible.First you wish get out there
+but you don't know how you can do that.
+~
+0 0 forest
+D3
+~
+~
+Z 0 22213
+S
+#22215
+Jungle~
+There are huge trees around you.You guess if it was day
+you do not see the sun.Constantly you hear strange noises,
+sometimes they are hrorrible.First you wish get out there
+but you don't know how you can do that.
+~
+0 0 forest
+D1
+~
+~
+Z 0 22219
+D2
+~
+~
+Z 0 22216
+D3
+~
+~
+Z 0 22208
+S
+#22216
+Jungle~
+There are huge trees around you.You guess if it was day
+you do not see the sun.Constantly you hear strange noises,
+sometimes they are hrorrible.First you wish get out there
+but you don't know how you can do that.
+~
+0 0 forest
+D0
+~
+~
+Z 0 22215
+D2
+~
+~
+Z 0 22217
+S
+#22217
+Jungle~
+There are huge trees around you.You guess if it was day
+you do not see the sun.Constantly you hear strange noises,
+sometimes they are hrorrible.First you wish get out there
+but you don't know how you can do that.
+~
+0 0 forest
+D0
+~
+~
+Z 0 22216
+D3
+~
+~
+Z 0 22212
+S
+#22218
+Lake~
+It is very strange lake.There is no wind and you can see bottom.
+The water clean and looks frozen.But you see something is not
+enought.Fish.You don't see a fish.you affraid touch the water
+The unlive lake.
+~
+0 0 swim
+D2
+~
+~
+Z 0 22219
+S
+#22219
+Lake~
+It is very strange lake.There is no wind and you can see bottom.
+The water clean and looks frozen.But you see something is not
+enought.Fish.You don't see a fish.you affraid touch the water
+The unlive lake.
+~
+0 0 swim
+D0
+~
+~
+Z 0 22218
+D1
+~
+~
+Z 0 22220
+D2
+~
+~
+Z 0 22221
+D3
+~
+~
+Z 0 22215
+S
+#22220
+Lake~
+It is very strange lake.There is no wind and you can see bottom.
+The water clean and looks frozen.But you see something is not
+enought.Fish.You don't see a fish.you affraid touch the water
+The unlive lake.
+~
+0 0 swim
+D1
+~
+~
+Z 0 22242
+D3
+~
+~
+Z 0 22219
+S
+#22221
+Lake~
+It is very strange lake.There is no wind and you can see bottom.
+The water clean and looks frozen.But you see something is not
+enought.Fish.You don't see a fish.you affraid touch the water
+The unlive lake.
+~
+0 0 swim
+D0
+~
+~
+Z 0 22219
+D2
+~
+~
+Z 0 22222
+S
+#22222
+Lake~
+It is very strange lake.There is no wind and you can see bottom.
+The water clean and looks frozen.But you see something is not
+enought.Fish.You don't see a fish.you affraid touch the water
+The unlive lake.
+~
+0 0 swim
+D0
+~
+~
+Z 0 22221
+D1
+~
+~
+Z 0 22223
+S
+#22223
+Lake~
+It is very strange lake.There is no wind and you can see bottom.
+The water clean and looks frozen.But you see something is not
+enought.Fish.You don't see a fish.you affraid touch the water
+The unlive lake.
+~
+0 0 swim
+D3
+~
+~
+Z 0 22222
+S
+#22224
+Wood~
+What a nice place at first sight.But smile slowly disappears
+from your face.You hear only one sound - you staps.
+Strange forest:it is not dark or light.But haunted silence
+makes everything unreal.
+~
+0 0 forest
+D1
+~
+~
+Z 0 22225
+S
+#22225
+Wood~
+What a nice place at first sight.But smile slowly disappears
+from your face.You hear only one sound - you staps.
+Strange forest:it is not dark or light.But haunted silence
+makes everything unreal.
+~
+0 0 forest
+D1
+~
+~
+Z 0 22226
+D3
+~
+~
+Z 0 22224
+S
+#22226
+Wood~
+What a nice place at first sight.But smile slowly disappears
+from your face.You hear only one sound - you staps.
+Strange forest:it is not dark or light.But haunted silence
+makes everything unreal.
+~
+0 0 forest
+D1
+~
+~
+Z 0 22227
+D3
+~
+~
+Z 0 22225
+S
+#22227
+Wood~
+What a nice place at first sight.But smile slowly disappears
+from your face.You hear only one sound - you staps.
+Strange forest:it is not dark or light.But haunted silence
+makes everything unreal.
+~
+0 0 forest
+D1
+~
+~
+Z 0 22228
+D2
+~
+~
+Z 0 22229
+D3
+~
+~
+Z 0 22226
+S
+#22228
+Wood~
+What a nice place at first sight.But smile slowly disappears
+from your face.You hear only one sound - you staps.
+Strange forest:it is not dark or light.But haunted silence
+makes everything unreal.
+~
+0 0 forest
+D2
+~
+~
+Z 0 22230
+D3
+~
+~
+Z 0 22227
+S
+#22229
+Wood~
+What a nice place at first sight.But smile slowly disappears
+from your face.You hear only one sound - you staps.
+Strange forest:it is not dark or light.But haunted silence
+makes everything unreal.
+~
+0 0 forest
+D0
+~
+~
+Z 0 22227
+S
+#22230
+Wood~
+What a nice place at first sight.But smile slowly disappears
+from your face.You hear only one sound - you staps.
+Strange forest:it is not dark or light.But haunted silence
+makes everything unreal.
+~
+0 0 forest
+D0
+~
+~
+Z 0 22228
+D1
+~
+~
+Z 0 22232
+S
+#22231
+Wood~
+What a nice place at first sight.But smile slowly disappears
+from your face.You hear only one sound - you staps.
+Strange forest:it is not dark or light.But haunted silence
+makes everything unreal.
+~
+0 0 forest
+D2
+~
+~
+Z 0 22232
+S
+#22232
+Wood~
+What a nice place at first sight.But smile slowly disappears
+from your face.You hear only one sound - you staps.
+Strange forest:it is not dark or light.But haunted silence
+makes everything unreal.
+~
+0 0 forest
+D0
+~
+~
+Z 0 22231
+D2
+~
+~
+Z 0 22233
+D3
+~
+~
+Z 0 22230
+S
+#22233
+Wood~
+What a nice place at first sight.But smile slowly disappears
+from your face.You hear only one sound - you staps.
+Strange forest:it is not dark or light.But haunted silence
+makes everything unreal.
+~
+0 0 forest
+D0
+~
+~
+Z 0 22232
+D1
+~
+~
+Z 0 22248
+D2
+~
+~
+Z 0 22234
+D3
+~
+~
+Z 0 22244
+S
+#22234
+Wood~
+What a nice place at first sight.But smile slowly disappears
+from your face.You hear only one sound - you staps.
+Strange forest:it is not dark or light.But haunted silence
+makes everything unreal.
+~
+0 0 forest
+D0
+~
+~
+Z 0 22233
+D2
+~
+~
+Z 0 22237
+S
+#22235
+Wood~
+What a nice place at first sight.But smile slowly disappears
+from your face.You hear only one sound - you staps.
+Strange forest:it is not dark or light.But haunted silence
+makes everything unreal.
+~
+0 0 forest
+D1
+~
+~
+Z 0 22236
+S
+#22236
+Wood~
+What a nice place at first sight.But smile slowly disappears
+from your face.You hear only one sound - you staps.
+Strange forest:it is not dark or light.But haunted silence
+makes everything unreal.
+~
+0 0 forest
+D1
+~
+~
+Z 0 22237
+D3
+~
+~
+Z 0 22235
+S
+#22237
+Wood~
+What a nice place at first sight.But smile slowly disappears
+from your face.You hear only one sound - you staps.
+Strange forest:it is not dark or light.But haunted silence
+makes everything unreal.
+~
+0 0 forest
+D0
+~
+~
+Z 0 22234
+D3
+~
+~
+Z 0 22236
+S
+#22238
+Oulaw settlement~
+You guess people just left this place.One more detail: you feel
+someone lived here,but there are no houses ,no wells,no pathes.
+Nothing.Only grass and trees.
+~
+0 0 field
+D2
+~
+~
+Z 0 22240
+S
+#22239
+Oulaw settlement~
+You guess people just left this place.One more detail: you feel
+someone lived here,but there are no houses ,no wells,no pathes.
+Nothing.Only grass and trees.
+~
+0 0 field
+D1
+~
+~
+Z 0 22240
+D2
+~
+~
+Z 0 22242
+S
+#22240
+Oulaw settlement~
+You guess people just left this place.One more detail: you feel
+someone lived here,but there are no houses ,no wells,no pathes.
+Nothing.Only grass and trees.
+~
+0 0 field
+D0
+~
+~
+Z 0 22238
+D1
+~
+~
+Z 0 22241
+D2
+~
+~
+Z 0 22243
+D3
+~
+~
+Z 0 22239
+S
+#22241
+Oulaw settlement~
+You guess people just left this place.One more detail: you feel
+someone lived here,but there are no houses ,no wells,no pathes.
+Nothing.Only grass and trees.
+~
+0 0 field
+D2
+~
+~
+Z 0 22244
+D3
+~
+~
+Z 0 22240
+S
+#22242
+Oulaw settlement~
+You guess people just left this place.One more detail: you feel
+someone lived here,but there are no houses ,no wells,no pathes.
+Nothing.Only grass and trees.
+~
+0 0 field
+D0
+~
+~
+Z 0 22239
+D1
+~
+~
+Z 0 22243
+D2
+~
+~
+Z 0 22245
+D3
+~
+~
+Z 0 22220
+S
+#22243
+Oulaw settlement~
+You guess people just left this place.One more detail: you feel
+someone lived here,but there are no houses ,no wells,no pathes.
+Nothing.Only grass and trees.
+~
+0 0 field
+D0
+~
+~
+Z 0 22240
+D1
+~
+~
+Z 0 22244
+D2
+~
+~
+Z 0 22246
+D3
+~
+~
+Z 0 22242
+S
+#22244
+Oulaw settlement~
+You guess people just left this place.One more detail: you feel
+someone lived here,but there are no houses ,no wells,no pathes.
+Nothing.Only grass and trees.
+~
+0 0 field
+D0
+~
+~
+Z 0 22241
+D1
+~
+~
+Z 0 22233
+D2
+~
+~
+Z 0 22247
+D3
+~
+~
+Z 0 22243
+S
+#22245
+Oulaw settlement~
+You guess people just left this place.One more detail: you feel
+someone lived here,but there are no houses ,no wells,no pathes.
+Nothing.Only grass and trees.
+~
+0 0 field
+D0
+~
+~
+Z 0 22242
+D1
+~
+~
+Z 0 22246
+S
+#22246
+Oulaw settlement~
+You guess people just left this place.One more detail: you feel
+someone lived here,but there are no houses ,no wells,no pathes.
+Nothing.Only grass and trees.
+~
+0 0 field
+D0
+~
+~
+Z 0 22243
+D1
+~
+~
+Z 0 22247
+D3
+~
+~
+Z 0 22245
+S
+#22247
+Oulaw settlement~
+You guess people just left this place.One more detail: you feel
+someone lived here,but there are no houses ,no wells,no pathes.
+Nothing.Only grass and trees.
+~
+0 0 field
+D0
+~
+~
+Z 0 22244
+D3
+~
+~
+Z 0 22246
+S
+#22248
+Hills~
+The plains slowly came to the hills which make your walk horrible
+because pathes become too narrow.
+~
+0 0 hills
+D1
+~
+~
+Z 0 22255
+D3
+~
+~
+Z 0 22233
+S
+#22249
+Hills~
+The plains slowly came to the hills which make your walk horrible
+because pathes become too narrow.
+~
+0 0 hills
+D1
+~
+~
+Z 0 22250
+D2
+~
+~
+Z 0 22252
+S
+#22250
+Hills~
+The plains slowly came to the hills which make your walk horrible
+because pathes become too narrow.
+~
+0 0 hills
+D1
+~
+~
+Z 0 22251
+D3
+~
+~
+Z 0 22249
+S
+#22251
+Hills~
+The plains slowly came to the hills which make your walk horrible
+because pathes become too narrow.
+~
+0 0 hills
+D2
+~
+~
+Z 0 22254
+D3
+~
+~
+Z 0 22250
+S
+#22252
+Hills~
+The plains slowly came to the hills which make your walk horrible
+because pathes become too narrow.
+~
+0 0 hills
+D0
+~
+~
+Z 0 22249
+D2
+~
+~
+Z 0 22255
+S
+#22253
+Hills~
+The plains slowly came to the hills which make your walk horrible
+because pathes become too narrow.
+~
+0 0 hills
+D2
+~
+~
+Z 0 22256
+S
+#22254
+Hills~
+The plains slowly came to the hills which make your walk horrible
+because pathes become too narrow.
+~
+0 0 hills
+D0
+~
+~
+Z 0 22251
+D2
+~
+~
+Z 0 22257
+S
+#22255
+Hills~
+The plains slowly came to the hills which make your walk horrible
+because pathes become too narrow.
+~
+0 0 hills
+D0
+~
+~
+Z 0 22252
+D1
+~
+~
+Z 0 22256
+D2
+~
+~
+Z 0 22258
+D3
+~
+~
+Z 0 22248
+S
+#22256
+Hills~
+The plains slowly came to the hills which make your walk horrible
+because pathes become too narrow.
+~
+0 0 hills
+D0
+~
+~
+Z 0 22253
+D1
+~
+~
+Z 0 22257
+D3
+~
+~
+Z 0 22255
+S
+#22257
+Hills~
+The plains slowly came to the hills which make your walk horrible
+because pathes become too narrow.
+~
+0 0 hills
+D0
+~
+~
+Z 0 22254
+D1
+~
+~
+Z 0 22269
+D2
+~
+~
+Z 0 22259
+D3
+~
+~
+Z 0 22256
+S
+#22258
+Hills~
+The plains slowly came to the hills which make your walk horrible
+because pathes become too narrow.
+~
+0 0 hills
+D0
+~
+~
+Z 0 22255
+S
+#22259
+Hills~
+The plains slowly came to the hills which make your walk horrible
+because pathes become too narrow.
+~
+0 0 hills
+D0
+~
+~
+Z 0 22257
+S
+#22260
+Plains~
+There are so much different flowers.Sometimes you can see
+lonely trees.It's make plains are looking like endless garden.
+You don't want to leave this place.You will never forget
+the smell of flowers.
+~
+0 0 field
+D1
+~
+~
+Z 0 22261
+S
+#22261
+Plains~
+There are so much different flowers.Sometimes you can see
+lonely trees.It's make plains are looking like endless garden.
+You don't want to leave this place.You will never forget
+the smell of flowers.
+~
+0 0 field
+D1
+~
+~
+Z 0 22262
+D3
+~
+~
+Z 0 22260
+S
+#22262
+Plains~
+There are so much different flowers.Sometimes you can see
+lonely trees.It's make plains are looking like endless garden.
+You don't want to leave this place.You will never forget
+the smell of flowers.
+~
+0 0 field
+D1
+~
+~
+Z 0 22263
+D2
+~
+~
+Z 0 22264
+D3
+~
+~
+Z 0 22261
+S
+#22263
+Plains~
+There are so much different flowers.Sometimes you can see
+lonely trees.It's make plains are looking like endless garden.
+You don't want to leave this place.You will never forget
+the smell of flowers.
+~
+0 0 field
+D2
+~
+~
+Z 0 22265
+D3
+~
+~
+Z 0 22262
+S
+#22264
+Plains~
+There are so much different flowers.Sometimes you can see
+lonely trees.It's make plains are looking like endless garden.
+You don't want to leave this place.You will never forget
+the smell of flowers.
+~
+0 0 field
+D0
+~
+~
+Z 0 22262
+D1
+~
+~
+Z 0 22265
+S
+#22265
+Plains~
+There are so much different flowers.Sometimes you can see
+lonely trees.It's make plains are looking like endless garden.
+You don't want to leave this place.You will never forget
+the smell of flowers.
+~
+0 0 field
+D0
+~
+~
+Z 0 22263
+D1
+~
+~
+Z 0 22266
+D2
+~
+~
+Z 0 22267
+D3
+~
+~
+Z 0 22264
+S
+#22266
+Plains~
+There are so much different flowers.Sometimes you can see
+lonely trees.It's make plains are looking like endless garden.
+You don't want to leave this place.You will never forget
+the smell of flowers.
+~
+0 0 field
+D2
+~
+~
+Z 0 22268
+D3
+~
+~
+Z 0 22265
+S
+#22267
+Plains~
+There are so much different flowers.Sometimes you can see
+lonely trees.It's make plains are looking like endless garden.
+You don't want to leave this place.You will never forget
+the smell of flowers.
+~
+0 0 field
+D0
+~
+~
+Z 0 22265
+D1
+~
+~
+Z 0 22268
+D2
+~
+~
+Z 0 22270
+S
+#22268
+Plains~
+There are so much different flowers.Sometimes you can see
+lonely trees.It's make plains are looking like endless garden.
+You don't want to leave this place.You will never forget
+the smell of flowers.
+~
+0 0 field
+D1
+~
+~
+Z 0 22278
+D2
+~
+~
+Z 0 22271
+D3
+~
+~
+Z 0 22267
+S
+#22269
+Plains~
+There are so much different flowers.Sometimes you can see
+lonely trees.It's make plains are looking like endless garden.
+You don't want to leave this place.You will never forget
+the smell of flowers.
+~
+0 0 field
+D1
+~
+~
+Z 0 22270
+D3
+~
+~
+Z 0 22257
+S
+#22270
+Plains~
+There are so much different flowers.Sometimes you can see
+lonely trees.It's make plains are looking like endless garden.
+You don't want to leave this place.You will never forget
+the smell of flowers.
+~
+0 0 field
+D0
+~
+~
+Z 0 22267
+D1
+~
+~
+Z 0 22271
+D3
+~
+~
+Z 0 22269
+S
+#22271
+Plains~
+There are so much different flowers.Sometimes you can see
+lonely trees.It's make plains are looking like endless garden.
+You don't want to leave this place.You will never forget
+the smell of flowers.
+~
+0 0 field
+D0
+~
+~
+Z 0 22268
+D1
+~
+~
+Z 0 22282
+D3
+~
+~
+Z 0 22270
+S
+#22272
+Sands~
+You are in desert.The howling of the wind makes life untolerable.
+You guess you hear the hissing of thousand snakes.It seems endless.
+~
+0 0 desert
+D1
+~
+~
+Z 0 22273
+S
+#22273
+Sands~
+You are in desert.The howling of the wind makes life untolerable.
+You guess you hear the hissing of thousand snakes.It seems endless.
+~
+0 0 desert
+D1
+~
+~
+Z 0 22274
+D2
+~
+~
+Z 0 22276
+D3
+~
+~
+Z 0 22272
+S
+#22274
+Sands~
+You are in desert.The howling of the wind makes life untolerable.
+You guess you hear the hissing of thousand snakes.It seems endless.
+~
+0 0 desert
+D1
+~
+~
+Z 0 22275
+D3
+~
+~
+Z 0 22273
+S
+#22275
+Sands~
+You are in desert.The howling of the wind makes life untolerable.
+You guess you hear the hissing of thousand snakes.It seems endless.
+~
+0 0 desert
+D1
+~
+~
+Z 0 22173
+D2
+~
+~
+Z 0 22277
+D3
+~
+~
+Z 0 22274
+S
+#22276
+Sands~
+You are in desert.The howling of the wind makes life untolerable.
+You guess you hear the hissing of thousand snakes.It seems endless.
+~
+0 0 desert
+D0
+~
+~
+Z 0 22273
+D2
+~
+~
+Z 0 22278
+S
+#22277
+Sands~
+You are in desert.The howling of the wind makes life untolerable.
+You guess you hear the hissing of thousand snakes.It seems endless.
+~
+0 0 desert
+D0
+~
+~
+Z 0 22275
+D1
+~
+~
+Z 0 22174
+D2
+~
+~
+Z 0 22280
+S
+#22278
+Sands~
+You are in desert.The howling of the wind makes life untolerable.
+You guess you hear the hissing of thousand snakes.It seems endless.
+~
+0 0 desert
+D0
+~
+~
+Z 0 22276
+D1
+~
+~
+Z 0 22279
+D3
+~
+~
+Z 0 22268
+S
+#22279
+Sands~
+You are in desert.The howling of the wind makes life untolerable.
+You guess you hear the hissing of thousand snakes.It seems endless.
+~
+0 0 desert
+D0
+~
+~
+Z 0 22281
+D1
+~
+~
+Z 0 22280
+D3
+~
+~
+Z 0 22278
+S
+#22280
+Sands~
+You are in desert.The howling of the wind makes life untolerable.
+You guess you hear the hissing of thousand snakes.It seems endless.
+~
+0 0 desert
+D0
+~
+~
+Z 0 22277
+D1
+~
+~
+Z 0 22175
+D3
+~
+~
+Z 0 22279
+S
+#22281
+Oasis~
+Is it a miracle?No it is oasis.You hear a bable of spring.
+Some palms shadow.You don't want leave this place.It is
+a isle of life in sea of death.
+~
+0 0 forest
+D2
+~
+~
+Z 0 22279
+S
+#22282
+Mountains~
+You at the narrow path in mountains.At left a precipice.
+At right a cliff.It's horrible.Look forward forget about everything.
+~
+0 0 mountain
+D1
+~
+~
+Z 0 22283
+D2
+~
+~
+Z 0 22287
+D3
+~
+~
+Z 0 22271
+S
+#22283
+Mountains~
+You at the narrow path in mountains.At left a precipice.
+At right a cliff.It's horrible.Look forward forget about everything.
+~
+0 0 mountain
+D1
+~
+~
+Z 0 22284
+D3
+~
+~
+Z 0 22282
+S
+#22284
+Mountains~
+You at the narrow path in mountains.At left a precipice.
+At right a cliff.It's horrible.Look forward forget about everything.
+~
+0 0 mountain
+D2
+~
+~
+Z 0 22289
+D3
+~
+~
+Z 0 22283
+S
+#22285
+Mountains~
+You at the narrow path in mountains.At left a precipice.
+At right a cliff.It's horrible.Look forward forget about everything.
+~
+0 0 mountain
+D1
+~
+~
+Z 0 22286
+S
+#22286
+Mountains~
+You at the narrow path in mountains.At left a precipice.
+At right a cliff.It's horrible.Look forward forget about everything.
+~
+0 0 mountain
+D1
+~
+~
+Z 0 22287
+D3
+~
+~
+Z 0 22285
+S
+#22287
+Mountains~
+You at the narrow path in mountains.At left a precipice.
+At right a cliff.It's horrible.Look forward forget about everything.
+~
+0 0 mountain
+D0
+~
+~
+Z 0 22282
+D1
+~
+~
+Z 0 22288
+D3
+~
+~
+Z 0 22286
+S
+#22288
+Mountains~
+You at the narrow path in mountains.At left a precipice.
+At right a cliff.It's horrible.Look forward forget about everything.
+~
+0 0 mountain
+D1
+~
+~
+Z 0 22289
+D3
+~
+~
+Z 0 22287
+S
+#22289
+Mountains~
+You at the narrow path in mountains.At left a precipice.
+At right a cliff.It's horrible.Look forward forget about everything.
+~
+0 0 mountain
+D0
+~
+~
+Z 0 22284
+D3
+~
+~
+Z 0 22288
+S
+#22290
+Cemetary~
+Strange place was chosen by lizards and snakes from town
+for spending his last hours.You don't feel well here.
+~
+0 NX field
+D1
+~
+~
+Z 0 22291
+S
+#22291
+Cemetary~
+Strange place was chosen by lizards and snakes from town
+for spending his last hours.You don't feel well here.
+~
+0 0 field
+D1
+~
+~
+Z 0 22292
+D3
+~
+~
+Z 0 22290
+S
+#22292
+Cemetary~
+Strange place was chosen by lizards and snakes from town
+for spending his last hours.You don't feel well here.
+~
+0 0 field
+D1
+~
+~
+Z 0 22293
+D3
+~
+~
+Z 0 22291
+S
+#22293
+Cemetary~
+Strange place was chosen by lizards and snakes from town
+for spending his last hours.You don't feel well here.
+~
+0 0 field
+D1
+~
+~
+Z 0 22294
+D2
+~
+~
+Z 0 22296
+D3
+~
+~
+Z 0 22292
+S
+#22294
+Cemetary~
+Strange place was chosen by lizards and snakes from town
+for spending his last hours.You don't feel well here.
+~
+0 0 field
+D1
+~
+~
+Z 0 22295
+D3
+~
+~
+Z 0 22293
+S
+#22295
+Cemetary~
+Strange place was chosen by lizards and snakes from town
+for spending his last hours.You don't feel well here.
+~
+0 0 field
+D3
+~
+~
+Z 0 22294
+S
+#22296
+Cemetary~
+Strange place was chosen by lizards and snakes from town
+for spending his last hours.You don't feel well here.
+~
+0 0 field
+D0
+~
+~
+Z 0 22293
+D2
+~
+~
+Z 0 22179
+S
+#0
+
+#$
