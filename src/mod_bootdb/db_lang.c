@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_lang.c,v 1.8 1999-02-17 04:25:44 fjoe Exp $
+ * $Id: db_lang.c,v 1.9 1999-02-17 10:04:29 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -125,7 +125,7 @@ DBLOAD_FUN(load_lang)
 			KEY("Name", lang->name, str_dup(fread_word(fp)));
 			break;
 		case 'Q':
-			SKEY("QtysFile", lang->file_genders);
+			SKEY("QtysFile", lang->file_qtys);
 			break;
 		case 'S':
 			KEY("SlangOf", lang->slang_of,
