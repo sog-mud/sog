@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_form.c,v 1.11 1999-02-17 10:59:40 fjoe Exp $
+ * $Id: olc_form.c,v 1.12 1999-02-18 13:34:33 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -31,8 +31,8 @@
 
 #include "merc.h"
 #include "olc.h"
-#include "db/lang.h"
 #include "db/word.h"
+#include "db/lang.h"
 
 #define EDIT_WORD(ch, w)	(w = (WORD_DATA*) ch->desc->pEdit)
 #define EDIT_LANG(ch, l)	(l = (LANG_DATA*) ch->desc->pEdit2)
@@ -48,24 +48,27 @@ DECLARE_OLC_FUN(formed_show	);
 DECLARE_OLC_FUN(formed_list	);
 
 DECLARE_OLC_FUN(formed_name	);
-DECLARE_OLC_FUN(formed_base	);
+DECLARE_OLC_FUN(formed_baselen	);
 DECLARE_OLC_FUN(formed_form	);
 DECLARE_OLC_FUN(formed_del	);
 
+DECLARE_VALIDATE_FUN(validate_name);
+DECLARE_VALIDATE_FUN(validate_baselen);
+
 OLC_CMD_DATA olc_cmds_form[] =
 {
-	{ "create",	formed_create	},
-	{ "edit",	formed_edit	},
-	{ "touch",	formed_touch	},
-	{ "show",	formed_show	},
-	{ "list",	formed_list	},
+	{ "create",	formed_create				},
+	{ "edit",	formed_edit				},
+	{ "touch",	formed_touch				},
+	{ "show",	formed_show				},
+	{ "list",	formed_list				},
 
-	{ "name",	formed_name,	},
-	{ "base",	formed_base	},
-	{ "form",	formed_form	},
-	{ "del",	formed_del	},
+	{ "name",	formed_name,	validate_name		},
+	{ "base",	formed_baselen,	validate_baselen	},
+	{ "form",	formed_form				},
+	{ "del",	formed_del				},
 
-	{ "commands",	show_commands	},
+	{ "commands",	show_commands				},
 	{ NULL }
 };
 
@@ -204,8 +207,43 @@ OLC_FUN(formed_show)
 	WORD_DATA *w;
 	LANG_DATA *l;
 
-	EDIT_WORD(ch, w);
-	EDIT_LANG(ch, l);
+	if (ch->desc->editor == ED_LANG) {
+		varr *hash;
+		char arg[MAX_INPUT_LENGTH];
+
+		argument = one_argument(argument, arg, sizeof(arg));
+		if (argument[0] == '\0') {
+			do_help(ch, "'OLC ASHOW'");
+			return FALSE;
+		}
+
+		l = ch->desc->pEdit;
+		if (!str_prefix(arg, "case"))
+			hash = l->hash_cases;
+		else if (!str_prefix(arg, "gender"))
+			hash = l->hash_genders;
+		else if (!str_prefix(arg, "qtys")) 
+			hash = l->hash_qtys;
+		else {
+			do_help(ch, "'OLC ASHOW'");
+			return FALSE;
+		}
+
+		if ((w = word_lookup(hash, argument)) == NULL) {
+			char_printf(ch, "FormEd: %s: not found.\n", argument);
+			return FALSE;
+		}
+	}
+	else if (ch->desc->editor == ED_GENDER ||
+		 ch->desc->editor == ED_CASE ||
+		 ch->desc->editor == ED_QTY) {
+		EDIT_LANG(ch, l);
+		EDIT_WORD(ch, w);
+	}
+	else {
+		char_puts("WordEd: You must be editing a language or another word.\n", ch);
+		return FALSE;
+	}
 
 	char_printf(ch, "Name: [%s]\n"
 			"Lang: [%s]\n"
@@ -217,8 +255,13 @@ OLC_FUN(formed_show)
 		    ch->desc->editor == ED_QTY ?	"qty" :
 							"unknown");
 
-	if (!IS_NULLSTR(w->base))
-		char_printf(ch, "Base: [%s]\n", w->base);
+	if (w->base_len) {
+		char buf[MAX_STRING_LENGTH];
+		strnzcpy(buf, w->name, UMIN(w->base_len+1, sizeof(buf)));
+		char_printf(ch, "Base: [%d] (%s)\n", w->base_len, buf);
+	}
+	else
+		char_printf(ch, "Base: [%d]\n", w->base_len);
 
 	for (i = 0; i < w->f.nused; i++) {
 		char **p = VARR_GET(&w->f, i);
@@ -318,11 +361,11 @@ OLC_FUN(formed_name)
 	return TRUE;
 }
 
-OLC_FUN(formed_base)
+OLC_FUN(formed_baselen)
 {
 	WORD_DATA *w;
 	EDIT_WORD(ch, w);
-	return olced_str(ch, argument, formed_base, &w->base);
+	return olced_number(ch, argument, formed_baselen, &w->base_len);
 }
 
 OLC_FUN(formed_form)
@@ -376,3 +419,29 @@ OLC_FUN(formed_del)
 	return FALSE;
 }
 
+VALIDATE_FUN(validate_name)
+{
+	WORD_DATA *w;
+	EDIT_WORD(ch, w);
+
+	if (w->base_len) {
+		char_puts("FormEd: reset base to 0 before changing name.\n",
+			  ch);
+		return FALSE;
+	}
+	return TRUE;
+}
+
+VALIDATE_FUN(validate_baselen)
+{
+	int new_base = *(int*) arg;
+	WORD_DATA *w;
+	EDIT_WORD(ch, w);
+
+	if (new_base < 0 || new_base > strlen(w->name)) {
+		char_printf(ch, "FormEd: base must not be less than 0 "
+				"or greater than length of name.\n");
+		return FALSE;
+	}
+	return TRUE;
+}

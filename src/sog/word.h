@@ -23,17 +23,17 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: word.h,v 1.6 1999-02-16 20:26:04 fjoe Exp $
+ * $Id: word.h,v 1.7 1999-02-18 13:34:33 fjoe Exp $
  */
 
 #ifndef _WORD_H_
 #define _WORD_H_
 
-#define FORM_MAX 8
-
 struct word_data {
 	const char *	name;
-	const char *	base;
+	size_t		base_len;	/* length of base (not grammatic one --
+					 * just length of unchanged part
+					 * of the name			*/
 	varr 		f;		/* forms */
 };
 

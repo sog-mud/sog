@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.56 1999-02-17 12:10:50 fjoe Exp $
+ * $Id: olc_save.c,v 1.57 1999-02-18 13:34:33 fjoe Exp $
  */
 
 /**************************************************************************
@@ -1063,8 +1063,8 @@ void save_word(FILE *fp, WORD_DATA *w)
 
 	fprintf(fp, "#WORD\n"
 		    "Name %s~\n", w->name);
-	if (!IS_NULLSTR(w->base))
-		fprintf(fp, "Base %s~\n", w->base);
+	if (w->base_len)
+		fprintf(fp, "BaseLen %d\n", w->base_len);
 	for (i = 0; i < w->f.nused; i++) {
 		char **p = VARR_GET(&w->f, i);
 		if (IS_NULLSTR(*p))

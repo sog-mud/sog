@@ -23,11 +23,13 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: msg.h,v 1.4 1999-02-11 16:40:32 fjoe Exp $
+ * $Id: msg.h,v 1.5 1999-02-18 13:34:33 fjoe Exp $
  */
 
 #ifndef _MSG_H_
 #define _MSG_H_
+
+#define MAX_MSG_HASH		256
 
 mlstring **	msg_add		(mlstring *ml);
 mlstring **	msg_lookup	(const char *name);

@@ -23,11 +23,13 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.h,v 1.8 1999-02-17 04:25:45 fjoe Exp $
+ * $Id: lang.h,v 1.9 1999-02-18 13:34:33 fjoe Exp $
  */
 
 #ifndef _LANG_H_
 #define _LANG_H_
+
+#define MAX_WORD_HASH		256
 
 struct lang_data {
 	const char *	name;

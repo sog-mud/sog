@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: str.c,v 1.9 1999-02-17 18:58:04 fjoe Exp $
+ * $Id: str.c,v 1.10 1999-02-18 13:34:32 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -312,6 +312,24 @@ int hashs;			/* hash table size. */
 	h += (oh << 8);
     }
     return h % hashs;		/* With 16 bit ints h has to be made positive first! */
+}
+
+/*
+ * case insensitive version of hashstr, hashs must not be greater than 256
+ */
+int
+hashistr(s, maxn, hashs)
+const char *s;			/* string to hash */
+int maxn;			/* maximum number of chars to consider */
+int hashs;			/* hash table size. */
+{
+    register int h;
+    register u_char *p;
+    register int i;
+
+    for(h = 0, i = 0, p = (u_char *)s; *p && i < maxn; i++, p++)
+	h = TT[h ^ LOWER(*p)];
+    return h % hashs;
 }
 
 int cmpstr(const void *p1, const void *p2)

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_lang.c,v 1.9 1999-02-17 10:04:29 fjoe Exp $
+ * $Id: db_lang.c,v 1.10 1999-02-18 13:34:33 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -32,8 +32,8 @@
 
 #include "merc.h"
 #include "db.h"
-#include "lang.h"
 #include "word.h"
+#include "lang.h"
 
 LANG_DATA *	lang;
 
@@ -148,7 +148,12 @@ DBLOAD_FUN(load_word)
 
 		switch(UPPER(*word)) {
 		case 'B':
-			SKEY("Base", w->base);
+			if (!str_cmp(word, "Base")) {
+				free_string(fread_string(fp));
+				fMatch = TRUE;
+				break;
+			}
+			KEY("BaseLen", w->base_len, fread_number(fp));
 			break;
 
 		case 'E':

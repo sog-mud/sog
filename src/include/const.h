@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: const.h,v 1.22 1999-02-18 11:22:03 fjoe Exp $
+ * $Id: const.h,v 1.23 1999-02-18 13:34:32 fjoe Exp $
  */
 
 #ifndef _CONST_H_
@@ -110,8 +110,6 @@
  * String and memory management parameters.
  */
 #define MAX_KEY_HASH		1024
-#define MAX_WORD_HASH		128
-#define MAX_MSG_HASH		128
 #define MAX_STRING_HASH		16384
 
 #define MAX_STRING_LENGTH	8192

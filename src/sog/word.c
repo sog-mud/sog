@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: word.c,v 1.11 1999-02-17 10:45:40 fjoe Exp $
+ * $Id: word.c,v 1.12 1999-02-18 13:34:33 fjoe Exp $
  */
 
 #include <limits.h>
@@ -31,11 +31,11 @@
 #include <stdlib.h>
 
 #include "merc.h"
-#include "db/db.h"
-#include "db/lang.h"
-#include "db/word.h"
+#include "db.h"
+#include "word.h"
+#include "lang.h"
 
-#define wordhash(s) hashstr(s, 16, MAX_WORD_HASH)
+#define wordhash(s) hashistr(s, 16, MAX_WORD_HASH)
 
 const char* word_form_lookup(varr *hash, const char *word, int num);
 static int cmpword(const void *p1, const void *p2);
@@ -43,7 +43,6 @@ static int cmpword(const void *p1, const void *p2);
 WORD_DATA *word_new(void)
 {
 	WORD_DATA *w = calloc(1, sizeof(WORD_DATA));
-	w->base = str_empty;
 	w->f.nsize = sizeof(char*);
 	w->f.nstep = 4;
 	return w;
@@ -112,7 +111,6 @@ void word_free(WORD_DATA *w)
 	int i;
 
 	free_string(w->name);
-	free_string(w->base);
 
 	for (i = 0; i < w->f.nused; i++) 
 		free_string(VARR_GET(&w->f, i));
@@ -153,25 +151,23 @@ const char *word_quantity(int lang, const char *word, int num)
 
 const char* word_form_lookup(varr *hash, const char *word, int num)
 {
-	varr *v;
 	WORD_DATA *w;
 	char **p;
 	static char buf[MAX_STRING_LENGTH];
 
-	if (IS_NULLSTR(word) || num == 0)
+	if (!num)
 		return word;
 
-	v = hash + wordhash(word);
-	if ((w = varr_bsearch(v, &word, cmpword)) == NULL
+	if ((w = word_lookup(hash, word)) == NULL
 	||  (p = varr_get(&w->f, num)) == NULL
 	||  IS_NULLSTR(*p))
 		return word;
 
-	if (**p != '-')
+	if (!w->base_len || **p != '-')
 		return *p;
 
-	strnzcpy(buf, w->base, sizeof(buf));
-	strnzcat(buf, *p + 1, sizeof(buf));
+	strnzcpy(buf, word, sizeof(buf));
+	strnzcpy(buf + w->base_len, *p + 1, sizeof(buf) - w->base_len);
 	return buf;
 }
 
