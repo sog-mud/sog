@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.18 2000-08-17 12:14:09 fjoe Exp $
+ * $Id: fight.c,v 1.202.2.19 2000-10-21 17:07:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1991,6 +1991,7 @@ void set_fighting(CHAR_DATA *ch, CHAR_DATA *victim)
 	}
 
 	ch->fighting = victim;
+	ch->on = NULL;
 	ch->position = POS_FIGHTING;
 }
 
