@@ -1,5 +1,5 @@
 /*
- * $Id: act_quest.c,v 1.51 1998-07-25 15:02:40 fjoe Exp $
+ * $Id: act_quest.c,v 1.52 1998-07-25 21:19:49 efdi Exp $
  */
 
 /***************************************************************************
@@ -89,6 +89,7 @@
 #define QUEST_VNUM_SWORD	31
 #define QUEST_VNUM_DAGGER	32
 #define QUEST_VNUM_MACE		33
+#define VNUM_CANTEEN		34402
 
 #define TROUBLE_MAX 3
 
@@ -189,6 +190,9 @@ struct qitem_data qitem_table[] = {
 
 	{ "Vampire skill",		  50, CLASS_VAMPIRE,
 	   0, buy_vampire					},
+
+	{ "Bottomless canteen with cranberry juice", 350, CLASS_NONE,
+	   VNUM_CANTEEN, NULL					},
 
 	{ NULL }
 };
