@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.178 2000-03-03 04:09:10 avn Exp $
+ * $Id: spellfun2.c,v 1.179 2000-03-05 17:14:45 avn Exp $
  */
 
 /***************************************************************************
@@ -568,7 +568,7 @@ void spell_benediction(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.modifier	= strength;
 
 	affect_to_char(victim, &af);
-	act("You feel righteous.\n", victim, NULL, NULL, TO_CHAR);
+	act("You feel righteous.", victim, NULL, NULL, TO_CHAR);
 	if (victim != ch)
 		act("You grant $N favor of your god.", 
 			ch, NULL, victim, TO_CHAR);
@@ -4001,12 +4001,12 @@ void spell_resilience(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	if (!is_affected(ch, sn)) {
 		char_puts("You are now resistive to draining attacks.\n", ch);
 
-		af.where	= TO_AFFECTS;
+		af.where	= TO_RESIST;
 		af.type		= sn;
 		af.duration	= level / 10;
 		af.level	= level;
 		af.bitvector	= 0;
-		INT(af.location)= APPLY_RESIST_NEGATIVE;
+		INT(af.location)= DAM_NEGATIVE;
 		af.modifier	= 45;
 		af.owner	= NULL;
 		affect_to_char(ch, &af);
@@ -4761,12 +4761,12 @@ void spell_protection_negative (const char *sn, int level, CHAR_DATA *ch, void *
 	if (!is_affected(ch, sn)) {
 	  char_puts("You are now immune to negative attacks.\n", ch);
 
-	  af.where = TO_AFFECTS;
+	  af.where = TO_RESIST;
 	  af.type = sn;
 	  af.duration = level / 4;
 	  af.level = level;
 	  af.bitvector = 0;
-	  INT(af.location) = APPLY_RESIST_NEGATIVE;
+	  INT(af.location) = DAM_NEGATIVE;
 	  af.modifier = 100;
 	  af.owner	= NULL;
 	  affect_to_char(ch, &af);
@@ -4782,12 +4782,12 @@ void spell_ruler_aura(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	{
 	  char_puts("You now feel more self confident in rulership.\n", ch);
 
-	  af.where = TO_AFFECTS;
+	  af.where = TO_RESIST;
 	  af.type = sn;
 	  af.duration = level / 4;
 	  af.level = level;
 	  af.bitvector = 0;
-	  INT(af.location) = APPLY_RESIST_CHARM;
+	  INT(af.location) = DAM_CHARM;
 	  af.modifier = 100;
 	  af.owner	= NULL;
 	  affect_to_char(ch, &af);

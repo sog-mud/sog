@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.232 2000-02-19 14:26:56 avn Exp $
+ * $Id: act_move.c,v 1.233 2000-03-05 17:14:40 avn Exp $
  */
 
 /***************************************************************************
@@ -1631,8 +1631,8 @@ void do_vampire(CHAR_DATA *ch, const char *argument)
 	af.owner     = NULL;
 
 /* negative immunity */
-	af.where = TO_AFFECTS;
-	INT(af.location) = APPLY_RESIST_NEGATIVE;
+	af.where = TO_RESIST;
+	INT(af.location) = DAM_NEGATIVE;
 	af.modifier = 100;
 	af.bitvector = 0;
 	affect_to_char(ch, &af);

@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.205 2000-02-20 10:07:47 avn Exp $
+ * $Id: act_obj.c,v 1.206 2000-03-05 17:14:41 avn Exp $
  */
 
 /***************************************************************************
@@ -807,8 +807,8 @@ void do_feed(CHAR_DATA *ch, const char *argument)
 		af.owner	= NULL;
 
 		if (what < 10) {
-			af.where	= TO_AFFECTS;
-			INT(af.location)= APPLY_RESIST_MENTAL;
+			af.where	= TO_RESIST;
+			INT(af.location)= DAM_MENTAL;
 			af.bitvector	= 0;
 			af.duration	= obj->level/5;
 			af.modifier	= 100;
@@ -825,24 +825,24 @@ void do_feed(CHAR_DATA *ch, const char *argument)
 			vch->position	= POS_SLEEPING;
 			do_emote(vch, "yawns and goes to sleep.");
 		} else {
-			af.where	= TO_AFFECTS;
+			af.where	= TO_RESIST;
 			af.bitvector	= 0;
-			INT(af.location)= APPLY_RESIST_BASH;
+			INT(af.location)= DAM_BASH;
 			af.modifier	= 33;
 			af.duration	= 10; 
 			affect_to_char(vch, &af);
 
-			INT(af.location)= APPLY_RESIST_PIERCE;
+			INT(af.location)= DAM_PIERCE;
 			af.modifier	= 33;
 			af.duration	= 10; 
 			affect_to_char(vch, &af);
 
-			INT(af.location)= APPLY_RESIST_SLASH;
+			INT(af.location)= DAM_SLASH;
 			af.modifier	= 33;
 			af.duration	= 10;
 			affect_to_char(vch, &af);
 
-			INT(af.location)= APPLY_RESIST_ENERGY;
+			INT(af.location)= DAM_ENERGY;
 			af.modifier	= 33;
 			af.duration	= 10;
 

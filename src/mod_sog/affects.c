@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.33 2000-02-19 14:45:29 avn Exp $
+ * $Id: affects.c,v 1.34 2000-03-05 17:14:46 avn Exp $
  */
 
 /***************************************************************************
@@ -133,11 +133,13 @@ void saff_destroy(saff_t *sa)
 
 where_t where_table[] =
 {
-	{ TO_AFFECTS,	affect_flags,	"'%s' affect"			},
-	{ TO_SKILLS,	sk_aff_flags,	"'%s' skill by %d with flags %s"},
-	{ TO_RACE,	NULL,		"changes race to '%s'"		},
-	{ TO_DETECTS,	id_flags,	"detection of '%s'"		},
-	{ TO_INVIS,	id_flags,	"'%s'"				},
+	{ TO_AFFECTS,	apply_flags,	affect_flags,	"modifies {c%s{x by {c%d{x",		"adds '{c%s{x' affect"		},
+	{ TO_SKILLS,	NULL,		sk_aff_flags,	str_empty,				str_empty			},
+	{ TO_RACE,	NULL,		NULL,		"changes race to '{c%s{x'",		str_empty			},
+	{ TO_DETECTS,	apply_flags,	id_flags,	"modifies {c%s{x by {c%d{x",		"adds '{c%s{x' detection"	},
+	{ TO_INVIS,	apply_flags,	id_flags,	"modifies {c%s{x by {c%d{x",		"adds '{c%s{x'"			},
+	{ TO_RESIST,	dam_classes,	NULL,		"modifies {c%s resistance{x by {c%d{x",	str_empty			},
+	{ TO_OBJECT,	apply_flags,	affect_flags,	"modifies {c%s{x by {c%d{x",		"adds '{c%s{x' affect"		},
 	{ -1 }
 };
 
@@ -199,6 +201,10 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 	OBJ_DATA *wield, *obj2;
 	int mod, i;
 
+	mod = paf->modifier;
+	if (!fAdd)
+		mod = 0 - mod;
+
 	if (paf->where == TO_SKILLS) {
 		if (fAdd) {
 			saff_t *sa = varr_enew(&ch->sk_affected);
@@ -223,9 +229,13 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 		affect_check(ch, -1, -1);
 		spec_update(ch);
 		return;
+	} else if (paf->where == TO_RESIST) {
+		if (ch->shapeform)
+			ch->shapeform->resists[INT(paf->location)] += mod;
+		ch->resists[INT(paf->location)] += mod;
+		return;
 	}
 
-	mod = paf->modifier;
 	if (fAdd) {
 		switch (paf->where) {
 		case TO_AFFECTS:
@@ -262,7 +272,6 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 			REMOVE_BIT(ch->affected_by, paf->bitvector);
 			break;
 		}
-		mod = 0 - mod;
 	}
 
 	switch (INT(paf->location)) {
@@ -314,27 +323,6 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 	case APPLY_SAVING_BREATH:	ch->saving_throw	+= mod;	break;
 	case APPLY_SAVING_SPELL:	ch->saving_throw	+= mod;	break;
 
-	case APPLY_RESIST_BASH:
-	case APPLY_RESIST_PIERCE:
-	case APPLY_RESIST_SLASH:
-	case APPLY_RESIST_FIRE:
-	case APPLY_RESIST_COLD:
-	case APPLY_RESIST_LIGHTNING:
-	case APPLY_RESIST_ACID:
-	case APPLY_RESIST_HOLY:
-	case APPLY_RESIST_NEGATIVE:
-	case APPLY_RESIST_ENERGY:
-	case APPLY_RESIST_MENTAL:
-	case APPLY_RESIST_SOUND:
-	case APPLY_RESIST_DISEASE:
-	case APPLY_RESIST_POISON:
-	case APPLY_RESIST_CHARM:
-	case APPLY_RESIST_HARM:
-	case APPLY_RESIST_LIGHT:
-		if (paf->where == TO_FORMAFFECTS && ch->shapeform)
-			ch->shapeform->resists[INT(paf->location) - APPLY_RESIST_BASH] += mod;
-		ch->resists[INT(paf->location)-APPLY_RESIST_BASH] += mod;
-		break;
 	default:
 		if (IS_NPC(ch)) {
 			log(LOG_INFO, "affect_modify: vnum %d: in room %d: "
@@ -1007,47 +995,52 @@ void show_name(CHAR_DATA *ch, BUFFER *output,
 void show_duration(BUFFER *output, AFFECT_DATA *paf)
 {
 	if (paf->duration < 0)
-		buf_add(output, "permanently.\n");
+		buf_add(output, " permanently.\n");
 	else 
-		buf_act(output, "for {c$j{x $qj{hours}.", NULL,
+		buf_act(output, " for {c$j{x $qj{hours}.", NULL,
 			(const void*) paf->duration, NULL, NULL, ACT_NOUCASE);
 }
 
 void show_loc_affect(CHAR_DATA *ch, BUFFER *output,
 		 AFFECT_DATA *paf, AFFECT_DATA **ppaf)
 {
-	if (INT(paf->location) == APPLY_NONE
+	where_t *w;
+
+	if ((w = where_lookup(paf->where)) == NULL)
+		return;
+
+	if ((INT(paf->location) == APPLY_NONE || paf->modifier == 0)
 	&&  paf->bitvector)
 		return;
 
 	show_name(ch, output, paf, *ppaf);
-	if (paf->where == TO_SKILLS
-	||  paf->where == TO_RACE)
+	if (!IS_NULLSTR(w->loc_format)) {
 		buf_add(output, ": ");
-	else {
-		buf_printf(output, ": modifies {c%s{x by {c%d{x ",
-			   SFLAGS(apply_flags, paf->location),
-			   paf->modifier);
+		buf_printf(output, w->loc_format,
+				   w->loc_table ?
+					SFLAGS(w->loc_table, paf->location) :
+					STR(paf->location),
+				   paf->modifier);
+		show_duration(output, paf);
 	}
-	show_duration(output, paf);
 	*ppaf = paf;
 }
 
 void show_bit_affect(BUFFER *output, AFFECT_DATA *paf, AFFECT_DATA **ppaf)
 {
-	char buf[MAX_STRING_LENGTH];
 	where_t *w;
 
-	if (paf->where == TO_SKILLS
-	||  paf->where == TO_RACE
-	||  (w = where_lookup(paf->where)) == NULL
+	if ((w = where_lookup(paf->where)) == NULL
 	||  !paf->bitvector)
 		return;
 
 	show_name(NULL, output, paf, *ppaf);
-	snprintf(buf, sizeof(buf), ": adds %s ", w->format);
-	buf_printf(output, buf, flag_string(w->table, paf->bitvector));
-	show_duration(output, paf);
+	if (!IS_NULLSTR(w->bit_format)) {
+		buf_add(output, ": ");
+		buf_printf(output, w->bit_format,
+			flag_string(w->bit_table, paf->bitvector));
+		show_duration(output, paf);
+	}
 	*ppaf = paf;
 }
 
@@ -1055,24 +1048,23 @@ void show_obj_affects(CHAR_DATA *ch, BUFFER *output, AFFECT_DATA *paf)
 {
 	AFFECT_DATA *paf_last = NULL;
 
-	for (; paf; paf = paf->next) {
-		if (paf->where == TO_SKILLS
-		||  paf->where == TO_RACE)
-			continue;
+	for (; paf; paf = paf->next)
 		show_bit_affect(output, paf, &paf_last);
-	}
 }
 
-void show_affects(CHAR_DATA *ch, BUFFER *output)
+void show_affects2(CHAR_DATA *ch, CHAR_DATA *vch, BUFFER *output)
 {
 	OBJ_DATA *obj;
 	AFFECT_DATA *paf, *paf_last = NULL;
 	bool found = FALSE;
 
-	for (paf = ch->affected; paf; paf = paf->next) {
+	for (paf = vch->affected; paf; paf = paf->next) {
 		if (!found)
-			buf_add(output, 
-				"You are affected by the following spells:\n");
+			if (ch == vch)
+				buf_add(output, "You are affected by the following spells:\n");
+			else
+				buf_act(output, "$N is affected by the following spells:",
+					ch, NULL, vch, NULL, 0);
 		found = TRUE;
 		if (ch->level < 20) {
 			show_name(ch, output, paf, paf_last);
@@ -1086,7 +1078,11 @@ void show_affects(CHAR_DATA *ch, BUFFER *output)
 		show_bit_affect(output, paf, &paf_last);
 	}
 	if (!found)
-		buf_add(output, "You are not affected by any spells.\n");
+		if (ch == vch)
+			buf_add(output, "You are not affected by any spells.\n");
+		else
+			buf_act(output, "$N is not affected by any spells.",
+				ch, NULL, vch, NULL, 0);
 
 	if (ch->level < 20)
 		return;
@@ -1124,8 +1120,17 @@ void aff_fwrite(AFFECT_DATA *paf, FILE *fp)
 void aff_fwrite_list(const char *pre, AFFECT_DATA *paf, FILE *fp)
 {
 	for (; paf != NULL; paf = paf->next) {
+		/* skip empty affects */
+		if ((paf->where == TO_AFFECTS || paf->where == TO_INVIS || paf->where == TO_DETECTS)
+		&&  INT(paf->location) == APPLY_NONE
+		&&  !paf->modifier
+		&&  !paf->bitvector
+		&&  IS_NULLSTR(paf->type))
+			continue;
+
 		if (IS_SKILL(paf->type, "doppelganger"))
 			continue;
+
 		fprintf(fp, "%s ", pre);
 		aff_fwrite(paf, fp);
 	}
@@ -1137,6 +1142,8 @@ AFFECT_DATA *aff_fread(rfile_t *fp)
 
 	paf->type = fread_strkey(fp, &skills, "aff_fread");
 	paf->where = fread_fword(affect_where_types, fp);
+	if (paf->where < 0)
+		paf->where = TO_AFFECTS;
 	paf->level = fread_number(fp);
 	paf->duration = fread_number(fp);
 	paf->modifier = fread_number(fp);
@@ -1175,10 +1182,10 @@ aff_dump_list(AFFECT_DATA *paf, BUFFER *output)
 			   paf->where == TO_SKILLS ||
 			   paf->where == TO_RACE ?
 				STR(paf->location) :
-				SFLAGS(apply_flags, paf->location),
+				(w && w->loc_table) ? SFLAGS(w->loc_table, paf->location) : "none",
 			   paf->modifier,
 			   flag_string(affect_where_types, paf->where),
-			   w ? flag_string(w->table, paf->bitvector) : "none");
+			   (w && w->bit_table) ? flag_string(w->bit_table, paf->bitvector) : "none");
 		cnt++;
 	}
 }

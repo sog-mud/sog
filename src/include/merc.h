@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.294 2000-02-29 17:14:57 avn Exp $
+ * $Id: merc.h,v 1.295 2000-03-05 17:14:40 avn Exp $
  */
 
 /***************************************************************************
@@ -831,23 +831,6 @@ struct spec_type
 #define APPLY_SAVING_BREATH	23
 #define APPLY_SAVING_SPELL	24
 #define APPLY_SIZE		26
-#define APPLY_RESIST_BASH	27
-#define APPLY_RESIST_PIERCE	28
-#define APPLY_RESIST_SLASH	29
-#define APPLY_RESIST_FIRE	30
-#define APPLY_RESIST_COLD	31
-#define APPLY_RESIST_LIGHTNING	32
-#define APPLY_RESIST_ACID	33
-#define APPLY_RESIST_HOLY	34
-#define APPLY_RESIST_NEGATIVE	35
-#define APPLY_RESIST_ENERGY	36
-#define APPLY_RESIST_MENTAL	37
-#define APPLY_RESIST_SOUND	38
-#define APPLY_RESIST_DISEASE	39
-#define APPLY_RESIST_POISON	40
-#define APPLY_RESIST_CHARM	41
-#define APPLY_RESIST_HARM	42
-#define APPLY_RESIST_LIGHT	43
 
 /*
  * Skillaffects flags
@@ -1998,8 +1981,6 @@ int free_hands	(CHAR_DATA * ch);
 
 bool	check_blind	(CHAR_DATA *ch);
 bool	check_blind_raw	(CHAR_DATA *ch);
-
-void	show_affects(CHAR_DATA *ch, BUFFER *output);
 
 void	set_leader(CHAR_DATA *ch, CHAR_DATA *lch);
 

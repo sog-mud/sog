@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.113 2000-03-03 04:09:09 avn Exp $
+ * $Id: olc.c,v 1.114 2000-03-05 17:14:43 avn Exp $
  */
 
 /***************************************************************************
@@ -1072,6 +1072,7 @@ olced_addaffect(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 	int modifier = 0;
 	flag_t where;
 	flag_t bitvector = 0;
+	flaginfo_t *loctbl;
 	AFFECT_DATA *paf;
 	char arg[MAX_INPUT_LENGTH];
 	char arg1[MAX_INPUT_LENGTH];
@@ -1099,6 +1100,7 @@ olced_addaffect(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 	if (!str_cmp(arg1, "none")) {
 		w = NULL;
 		where = -1;
+		loctbl = apply_flags;
 	} else {
 		if ((where = flag_value(affect_where_types, arg1)) < 0) {
 			char_puts("Valid locations are:\n", ch);
@@ -1111,6 +1113,7 @@ olced_addaffect(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 				    flag_string(affect_where_types, where));
 			return FALSE;
 		}
+		loctbl = w->loc_table;
 	}
 
 	/*
@@ -1135,12 +1138,16 @@ olced_addaffect(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 	}
 	default:
 		if (!str_cmp(arg2, "none")) {
+			if (where == TO_RESIST) {
+				char_puts("Specify damage type.\n", ch);
+				return FALSE;
+			}
 			INT(location) = APPLY_NONE;
 			modifier = -1;
 		} else {
-			if ((INT(location) = flag_svalue(apply_flags, arg2)) < 0) {
+			if ((INT(location) = flag_svalue(loctbl, arg2)) < 0) {
 				char_puts("Valid locations are:\n", ch);
-				show_flags(ch, apply_flags);
+				show_flags(ch, loctbl);
 				return FALSE;
 			}
 			argument = one_argument(argument, arg2, sizeof(arg2));
@@ -1168,10 +1175,10 @@ olced_addaffect(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 	 */
 	if (w
 	&&  argument[0] != '\0'
-	&&  (bitvector = flag_value(w->table, argument)) == 0) {
+	&&  (bitvector = flag_value(w->bit_table, argument)) == 0) {
 		char_printf(ch, "Valid '%s' bitaffect flags are:\n",
 			    flag_string(affect_where_types, where));
-		show_flags(ch, w->table);
+		show_flags(ch, w->bit_table);
 		return FALSE;
 	}
 

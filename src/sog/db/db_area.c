@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.95 2000-03-04 15:03:37 avn Exp $
+ * $Id: db_area.c,v 1.96 2000-03-05 17:14:51 avn Exp $
  */
 
 /***************************************************************************
@@ -172,40 +172,30 @@ set_percent_resistances(flag_t imm, flag_t res, flag_t vul, int16_t resist[])
 	vm = IS_SET(vul, V0_RES_MAGIC);
 	
 	resist[DAM_BASH] 	= RES(iw || IS_SET(imm, V0_RES_BASH), rw || IS_SET(res, V0_RES_BASH), vw || IS_SET(vul, V0_RES_BASH));
-
 	resist[DAM_SLASH] 	= RES(iw || IS_SET(imm, V0_RES_SLASH), rw || IS_SET(res, V0_RES_SLASH), vw || IS_SET(vul, V0_RES_SLASH));
-
 	resist[DAM_PIERCE] 	= RES(iw || IS_SET(imm, V0_RES_PIERCE), rw || IS_SET(res, V0_RES_PIERCE), vw || IS_SET(vul, V0_RES_PIERCE));
 
-
 	resist[DAM_FIRE] 	= RES(im || IS_SET(imm, V0_RES_FIRE), rm || IS_SET(res, V0_RES_FIRE), vm || IS_SET(vul, V0_RES_FIRE));
-
 	resist[DAM_COLD] 	= RES(im || IS_SET(imm, V0_RES_COLD), rm || IS_SET(res, V0_RES_COLD), vm || IS_SET(vul, V0_RES_COLD));
-
 	resist[DAM_LIGHTNING] 	= RES(im || IS_SET(imm, V0_RES_LIGHTNING), rm || IS_SET(res, V0_RES_LIGHTNING), vm || IS_SET(vul, V0_RES_LIGHTNING));
-
 	resist[DAM_ACID] 	= RES(im || IS_SET(imm, V0_RES_ACID), rm || IS_SET(res, V0_RES_ACID), vm || IS_SET(vul, V0_RES_ACID));
-
 	resist[DAM_HOLY] 	= RES(im || IS_SET(imm, V0_RES_HOLY), rm || IS_SET(res, V0_RES_HOLY), vm || IS_SET(vul, V0_RES_HOLY));
-
 	resist[DAM_NEGATIVE]	= RES(im || IS_SET(imm, V0_RES_NEGATIVE), rm || IS_SET(res, V0_RES_NEGATIVE), vm || IS_SET(vul, V0_RES_NEGATIVE));
-
 	resist[DAM_ENERGY] 	= RES(im || IS_SET(imm, V0_RES_ENERGY), rm || IS_SET(res, V0_RES_ENERGY), vm || IS_SET(vul, V0_RES_ENERGY));
-
 	resist[DAM_MENTAL] 	= RES(im || IS_SET(imm, V0_RES_MENTAL), rm || IS_SET(res, V0_RES_MENTAL), vm || IS_SET(vul, V0_RES_MENTAL));
-
 	resist[DAM_SOUND] 	= RES(im || IS_SET(imm, V0_RES_SOUND), rm || IS_SET(res, V0_RES_SOUND), vm || IS_SET(vul, V0_RES_SOUND));
-
 	resist[DAM_DISEASE] 	= RES(im || IS_SET(imm, V0_RES_DISEASE), rm || IS_SET(res, V0_RES_DISEASE), vm || IS_SET(vul, V0_RES_DISEASE));
-
 	resist[DAM_POISON] 	= RES(im || IS_SET(imm, V0_RES_POISON), rm || IS_SET(res, V0_RES_POISON), vm || IS_SET(vul, V0_RES_POISON));
-
 	resist[DAM_CHARM] 	= RES(im || IS_SET(imm, V0_RES_CHARM), rm || IS_SET(res, V0_RES_CHARM), vm || IS_SET(vul, V0_RES_CHARM));
-
 	resist[DAM_HARM] 	= RES(im, rm, vm );
-
 	resist[DAM_LIGHT] 	= RES(im || IS_SET(imm, V0_RES_LIGHT), rm || IS_SET(res, V0_RES_LIGHT), vm || IS_SET(vul, V0_RES_LIGHT));
 }
+
+int damtbl [] = {
+	DAM_BASH, DAM_PIERCE, DAM_SLASH, DAM_FIRE, DAM_COLD, DAM_LIGHTNING,
+	DAM_ACID, DAM_HOLY, DAM_NEGATIVE, DAM_ENERGY, DAM_MENTAL, DAM_SOUND,
+	DAM_DISEASE, DAM_POISON, DAM_CHARM, DAM_HARM, DAM_LIGHT
+};
 
 DBINIT_FUN(init_area)
 {
@@ -1154,6 +1144,22 @@ DBLOAD_FUN(load_mobiles)
 
 	    if (letter == 'a') {
 		AFFECT_DATA *paf = aff_fread(fp);
+		if (area_current->ver < 4
+		&&  paf->where != TO_SKILLS
+		&&  paf->where != TO_RACE
+		&&  INT(paf->location) >= 27) {
+			AFFECT_DATA *paf2 = aff_new();
+			paf2->where = TO_RESIST;
+			paf2->type = str_empty;
+			paf2->duration = -1;
+			paf2->level = pMobIndex->level;
+			INT(paf2->location) = damtbl[INT(paf->location)-27];
+			INT(paf->location) = APPLY_NONE;
+			paf2->modifier = paf->modifier;
+			paf->modifier = 0;
+			paf2->bitvector = 0;
+			SLIST_ADD(AFFECT_DATA, pMobIndex->affected, paf2);
+		}
 		paf->level = pMobIndex->level;
 		paf->owner = NULL;
 		paf->duration = -1;
@@ -1489,6 +1495,22 @@ DBLOAD_FUN(load_objects)
 				paf->level = pObjIndex->level;
 				paf->duration = -1;
 				paf->owner = NULL;
+				if (area_current->ver < 4
+				&&  paf->where != TO_SKILLS
+				&&  paf->where != TO_RACE
+				&&  INT(paf->location) >= 27) {
+					AFFECT_DATA *paf2 = aff_new();
+					paf2->where = TO_RESIST;
+					paf2->type = str_empty;
+					paf2->duration = -1;
+					paf2->level = pObjIndex->level;
+					INT(paf2->location) = damtbl[INT(paf->location)-27];
+					INT(paf->location) = APPLY_NONE;
+					paf2->modifier = paf->modifier;
+					paf->modifier = 0;
+					paf2->bitvector = 0;
+					SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf2);
+				}
 				SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);
 				break;
 
@@ -1501,6 +1523,11 @@ DBLOAD_FUN(load_objects)
 				INT(paf->location)	= fread_number(fp);
 				paf->modifier           = fread_number(fp);
 				paf->bitvector          = 0;
+				if (area_current->ver < 4
+				&&  INT(paf->location) >= 27) {
+					paf->where = TO_RESIST;
+					INT(paf->location) = damtbl[INT(paf->location)-27];
+				}
 				SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);
 				break;
 	
@@ -1544,18 +1571,19 @@ DBLOAD_FUN(load_objects)
 					return;
 				}
 		
-				if ((af.where == V0_TO_IMMUNE)
+				if (area_current->ver == 0
+				||  (af.where == V0_TO_IMMUNE)
 				||  (af.where == V0_TO_RESIST)
 				||  (af.where == V0_TO_VULN)) {
 					int i;
 					for (i = 0; i < MAX_RESIST; i++) {
 						if (resists[i]) {
 							paf = aff_new();
-							paf->where = TO_AFFECTS;
+							paf->where = TO_RESIST;
 							paf->type = str_empty;
 							paf->level = pObjIndex->level;
 							paf->duration = -1;
-							INT(paf->location) = i + APPLY_RESIST_BASH;
+							INT(paf->location) = i;
 							paf->modifier = resists[i];
 							paf->bitvector = 0;
 							SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);
@@ -1639,6 +1667,22 @@ DBLOAD_FUN(load_objects)
 
 					af.where = TO_AFFECTS;
 					f = 0;
+				}
+
+				if (af.where == TO_AFFECTS
+				&&  INT(af.location) >= 27
+				&&  area_current->ver < 4) {
+					paf = aff_new();
+					paf->where = TO_RESIST;
+					paf->type = str_empty;
+					paf->level = pObjIndex->level;
+					paf->duration = -1;
+					INT(paf->location) = damtbl[INT(af.location)-27];
+					paf->modifier = af.modifier;
+					paf->bitvector = 0;
+					SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);
+					INT(af.location) = APPLY_NONE;
+					af.modifier = 0;
 				}
 
 				paf		= aff_new();

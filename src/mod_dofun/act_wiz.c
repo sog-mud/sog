@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.230 2000-02-20 10:10:22 avn Exp $
+ * $Id: act_wiz.c,v 1.231 2000-03-05 17:14:42 avn Exp $
  */
 
 /***************************************************************************
@@ -1095,7 +1095,6 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	char arg[MAX_INPUT_LENGTH];
-	AFFECT_DATA *paf;
 	CHAR_DATA *victim;
 	CHAR_DATA *pet;
 	BUFFER *output;
@@ -1262,32 +1261,7 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 		buf_printf(output, "Mobile has special procedure %s.\n",
 			   mob_spec_name(victim->pMobIndex->spec_fun));
 
-	for (paf = victim->affected; paf != NULL; paf = paf->next) {
-		buf_printf(output, "Spell: '{c%s{x'", paf->type);
-		if (paf->where == TO_RACE) {
-			buf_printf(output, " changes race to '{c%s{x'",
-				   STR(paf->location));
-		} else {
-			buf_printf(output, " modifies '{c%s{x' by {c%d{x",
-				paf->where == TO_SKILLS ?
-					STR(paf->location) :
-					SFLAGS(apply_flags, paf->location),
-				paf->modifier);
-		}
-
-		buf_printf(output, " for {c%d{x hours", paf->duration);
-		switch (paf->where) {
-		case TO_AFFECTS:
-			buf_printf(output, " adding '{c%s{x' affect",
-				flag_string(affect_flags, paf->bitvector));
-			break;
-		case TO_SKILLS:
-			buf_printf(output, " with flags '{c%s{x'",
-				flag_string(sk_aff_flags, paf->bitvector));
-			break;
-		}
-		buf_printf(output, ", level {c%d{x.\n", paf->level);
-	}
+	show_affects2(ch, victim, output);
 
 	if (!varr_isempty(&victim->sk_affected)) {
 		buf_add(output, "Skill affects:\n");

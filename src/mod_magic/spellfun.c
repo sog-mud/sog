@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.208 2000-02-19 14:35:21 avn Exp $
+ * $Id: spellfun.c,v 1.209 2000-03-05 17:14:44 avn Exp $
  */
 
 /***************************************************************************
@@ -1416,6 +1416,7 @@ void spell_enchant_armor(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	 	     paf != NULL; 
 		     paf = paf->next) {
 			if (paf->where == TO_SKILLS
+			||  paf->where == TO_RESIST
 			||  paf->where == TO_RACE)
 				continue;
 
@@ -1432,6 +1433,7 @@ void spell_enchant_armor(const char *sn, int level, CHAR_DATA *ch, void *vo)
  
 	for (paf = obj->affected; paf != NULL; paf = paf->next) {
 		if (paf->where == TO_SKILLS
+		||  paf->where == TO_RESIST
 		||  paf->where == TO_RACE)
 			continue;
 
@@ -1513,6 +1515,7 @@ void spell_enchant_armor(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	if (ac_found) {
 		for (paf = obj->affected; paf != NULL; paf = paf->next) {
 			if (paf->where == TO_SKILLS
+			||  paf->where == TO_RESIST
 			||  paf->where == TO_RACE)
 				continue;
 
@@ -1540,6 +1543,7 @@ void spell_enchant_armor(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	if (hp_found) {
 		for (paf = obj->affected; paf != NULL; paf = paf->next) {
 			if (paf->where == TO_SKILLS
+			||  paf->where == TO_RESIST
 			||  paf->where == TO_RACE)
 				continue;
 
@@ -1594,6 +1598,7 @@ void spell_enchant_weapon(const char *sn, int level,CHAR_DATA *ch, void *vo)
 	if (!IS_OBJ_STAT(obj, ITEM_ENCHANTED))
 		for (paf = obj->pObjIndex->affected; paf != NULL; paf = paf->next) {
 			if (paf->where == TO_SKILLS
+			||  paf->where == TO_RESIST
 			||  paf->where == TO_RACE)
 				continue;
 
@@ -1611,6 +1616,7 @@ void spell_enchant_weapon(const char *sn, int level,CHAR_DATA *ch, void *vo)
  
 	for (paf = obj->affected; paf != NULL; paf = paf->next) {
 		if (paf->where == TO_SKILLS
+		||  paf->where == TO_RESIST
 		||  paf->where == TO_RACE)
 			continue;
 
@@ -1694,6 +1700,7 @@ void spell_enchant_weapon(const char *sn, int level,CHAR_DATA *ch, void *vo)
 	if (dam_found) {
 		for (paf = obj->affected; paf != NULL; paf = paf->next) {
 			if (paf->where == TO_SKILLS
+			||  paf->where == TO_RESIST
 			||  paf->where == TO_RACE)
 				continue;
 
@@ -3385,20 +3392,20 @@ void spell_stone_skin(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	af.where     = TO_AFFECTS;
+	af.where     = TO_RESIST;
 	af.type      = sn;
 	af.level     = level;
 	af.duration  = (10 + level / 5);
 	af.bitvector = 0;
-	INT(af.location) = APPLY_RESIST_BASH;
+	INT(af.location) = DAM_BASH;
 	af.modifier  = level / 7;
 	af.owner	= NULL;
 	affect_to_char(victim, &af);
 
-	INT(af.location) = APPLY_RESIST_SLASH;
+	INT(af.location) = DAM_SLASH;
 	affect_to_char(victim, &af);
 
-	INT(af.location) = APPLY_RESIST_PIERCE;
+	INT(af.location) = DAM_PIERCE;
 	affect_to_char(victim, &af);
 
 	act("$n's skin turns to stone.", victim, NULL, NULL, TO_ROOM);

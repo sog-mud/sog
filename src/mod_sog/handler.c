@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.239 2000-02-20 10:36:40 avn Exp $
+ * $Id: handler.c,v 1.240 2000-03-05 17:14:47 avn Exp $
  */
 
 /***************************************************************************
@@ -2084,12 +2084,16 @@ void format_obj_affects(BUFFER *output, AFFECT_DATA *paf, int flags)
 	for (; paf; paf = paf->next) {
 		where_t *w;
 
-		if (paf->where != TO_SKILLS
+		if ((w = where_lookup(paf->where)) == NULL)
+			continue;
+
+		if (!IS_NULLSTR(w->loc_format)
+		&&  paf->where != TO_SKILLS
 		&&  paf->where != TO_RACE
-		&&  INT(paf->location) != APPLY_NONE
+		&& (paf->where == TO_RESIST || INT(paf->location) != APPLY_NONE)
 		&&  paf->modifier) { 
-			buf_printf(output, "Affects %s by %d",
-				   SFLAGS(apply_flags, paf->location),
+			buf_printf(output, w->loc_format,
+				   SFLAGS(w->loc_table, paf->location),
 				   paf->modifier);
 			if (!IS_SET(flags, FOA_F_NODURATION)
 			&&  paf->duration > -1)
@@ -2101,21 +2105,14 @@ void format_obj_affects(BUFFER *output, AFFECT_DATA *paf, int flags)
 		if (IS_SET(flags, FOA_F_NOAFFECTS))
 			continue;
 
-		if ((w = where_lookup(paf->where)) == NULL)
-			continue;
-
-		if (paf->where == TO_SKILLS
-		||  paf->where == TO_RACE) {
-			buf_add(output, "Affects ");
-			buf_printf(output, w->format,
-				STR(paf->location),
-				paf->modifier,
-				flag_string(w->table, paf->bitvector));
-			buf_add(output, ".\n");
-		} else if (paf->bitvector) {
-			buf_add(output, "Adds ");
-			buf_printf(output, w->format,
-				flag_string(w->table, paf->bitvector));
+		if (paf->bitvector
+		&& !IS_NULLSTR(w->bit_format)) {
+			buf_printf(output, w->bit_format,
+					flag_string(w->bit_table, paf->bitvector));
+			if (!IS_SET(flags, FOA_F_NODURATION)
+			&&  paf->duration > -1)
+				buf_printf(output, " for %d hours",
+					   paf->duration);
 			buf_add(output, ".\n");
 		}
 	}

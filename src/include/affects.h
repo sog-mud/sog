@@ -1,5 +1,5 @@
 /*
- * $Id: affects.h,v 1.12 2000-01-04 19:27:55 fjoe Exp $
+ * $Id: affects.h,v 1.13 2000-03-05 17:14:40 avn Exp $
  */
 
 /***************************************************************************
@@ -94,14 +94,17 @@ enum {
 	TO_INVIS,
 	TO_FORM,
 	TO_FORMAFFECTS,
+	TO_RESIST
 };
 
 typedef struct where_t where_t;
 struct where_t
 {
 	flag_t		where;
-	flaginfo_t *	table;
-	const char *	format;
+	flaginfo_t *	loc_table;
+	flaginfo_t *	bit_table;
+	const char *	loc_format;
+	const char *	bit_format;
 };
 
 where_t *where_lookup(flag_t where);
@@ -133,7 +136,10 @@ void	strip_raff_owner(CHAR_DATA *ch);
 #define FOA_F_NODURATION	(A)	/* do not show duration		*/
 #define FOA_F_NOAFFECTS		(B)	/* do not show bit affects	*/
 
-void format_obj(BUFFER *output, OBJ_DATA *obj);
-void format_obj_affects(BUFFER *output, AFFECT_DATA *paf, int flags);
+void	show_affects2(CHAR_DATA *ch, CHAR_DATA *vch, BUFFER *output);
+#define show_affects(ch, output)	show_affects2(ch, ch, output)
+
+void	format_obj(BUFFER *output, OBJ_DATA *obj);
+void	format_obj_affects(BUFFER *output, AFFECT_DATA *paf, int flags);
 
 #endif

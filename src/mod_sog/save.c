@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.152 2000-02-10 14:08:52 fjoe Exp $
+ * $Id: save.c,v 1.153 2000-03-05 17:14:49 avn Exp $
  */
 
 /***************************************************************************
@@ -66,6 +66,7 @@ static OBJ_DATA *rgObjNest[MAX_NEST];
  * global vars for areaed_move()
  */
 int minv, maxv, del;
+extern int *damtbl;
 
 /*
  * Local functions.
@@ -646,6 +647,20 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 			}
 			if (IS_TOKEN(fp, "Affc")) {
 				AFFECT_DATA *paf = aff_fread(fp);
+				if (PC(ch)->version < 12
+				&&  INT(paf->location) >=27) {
+					AFFECT_DATA *paf2 = aff_new();
+					paf2->where = TO_RESIST;
+					paf2->type = str_empty;
+					paf2->duration = -1;
+					paf2->level = paf->level;
+					INT(paf2->location) = damtbl[INT(paf->location)-27];
+					INT(paf->location) = APPLY_NONE;
+					paf2->modifier = paf->modifier;
+					paf->modifier = 0;
+					paf2->bitvector = 0;
+					affect_to_char(ch, paf2);
+				}
 				affect_to_char(ch, paf);
 				aff_free(paf);
 				fMatch = TRUE;
@@ -937,6 +952,20 @@ fread_pet(CHAR_DATA * ch, rfile_t * fp, int flags)
 
 			if (IS_TOKEN(fp, "Affc")) {
 				AFFECT_DATA *paf = aff_fread(fp);
+				if (PC(ch)->version < 12
+				&&  INT(paf->location) >=27) {
+					AFFECT_DATA *paf2 = aff_new();
+					paf2->where = TO_RESIST;
+					paf2->type = str_empty;
+					paf2->duration = -1;
+					paf2->level = paf->level;
+					INT(paf2->location) = damtbl[INT(paf->location)-27];
+					INT(paf->location) = APPLY_NONE;
+					paf2->modifier = paf->modifier;
+					paf->modifier = 0;
+					paf2->bitvector = 0;
+					affect_to_char(pet, paf2);
+				}
 				affect_to_char(pet, paf);
 				aff_free(paf);
 				fMatch = TRUE;
@@ -1063,6 +1092,21 @@ fread_obj(CHAR_DATA * ch, rfile_t * fp, int flags)
 		case 'A':
 			if (IS_TOKEN(fp, "Affc")) {
 				AFFECT_DATA *paf = aff_fread(fp);
+				if (PC(ch)->version < 12
+				&&  INT(paf->location) >=27) {
+					AFFECT_DATA *paf2 = aff_new();
+					paf2->where = TO_RESIST;
+					paf2->type = str_empty;
+					paf2->duration = -1;
+					paf2->level = paf->level;
+					INT(paf2->location) = damtbl[INT(paf->location)-27];
+					INT(paf->location) = APPLY_NONE;
+					paf2->modifier = paf->modifier;
+					paf->modifier = 0;
+					paf2->bitvector = 0;
+					affect_to_char(ch, paf2);
+					SLIST_ADD(AFFECT_DATA, obj->affected, paf2);
+				}
 				SLIST_ADD(AFFECT_DATA, obj->affected, paf);
 				fMatch = TRUE;
 				break;

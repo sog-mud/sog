@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.135 2000-03-03 04:09:11 avn Exp $
+ * $Id: tables.c,v 1.136 2000-03-05 17:14:50 avn Exp $
  */
 
 /***************************************************************************
@@ -641,23 +641,6 @@ flaginfo_t apply_flags[] =
 	{ "savingbreath",	APPLY_SAVING_BREATH,	TRUE	},
 	{ "savingspell",	APPLY_SAVING_SPELL,	TRUE	},
 	{ "size",		APPLY_SIZE,		TRUE	},
-	{ "resist_bash",	APPLY_RESIST_BASH,	TRUE	},
-	{ "resist_pierce",	APPLY_RESIST_PIERCE,	TRUE	},
-	{ "resist_slash",	APPLY_RESIST_SLASH,	TRUE	},
-	{ "resist_fire",	APPLY_RESIST_FIRE,	TRUE	},
-	{ "resist_cold",	APPLY_RESIST_COLD,	TRUE	},
-	{ "resist_lightning",	APPLY_RESIST_LIGHTNING, TRUE	},
-	{ "resist_acid",	APPLY_RESIST_ACID,	TRUE	},
-	{ "resist_holy", 	APPLY_RESIST_HOLY,	TRUE	},
-	{ "resist_negative",	APPLY_RESIST_NEGATIVE,	TRUE	},
-	{ "resist_energy",	APPLY_RESIST_ENERGY,	TRUE	},
-	{ "resist_mental",	APPLY_RESIST_MENTAL,	TRUE	},
-	{ "resist_sound",	APPLY_RESIST_SOUND,	TRUE	},
-	{ "resist_disease",	APPLY_RESIST_DISEASE,	TRUE	},
-	{ "resist_poison",	APPLY_RESIST_POISON,	TRUE	},
-	{ "resist_charm",	APPLY_RESIST_CHARM,	TRUE	},
-	{ "resist_harm",	APPLY_RESIST_HARM,	TRUE	},
-	{ "resist_light",	APPLY_RESIST_LIGHT,	TRUE	},
 
 	{ NULL }
 };
@@ -1420,6 +1403,7 @@ flaginfo_t affect_where_types[] =
 	{ "to_invis",		TO_INVIS,			TRUE	},
 	{ "to_form",		TO_FORM,			FALSE	},
 	{ "to_formaffects",	TO_FORMAFFECTS,			FALSE	},
+	{ "to_resist",		TO_RESIST,			TRUE	},
 
 	{ NULL }
 };

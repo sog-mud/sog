@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.221 2000-02-10 14:08:55 fjoe Exp $
+ * $Id: comm.c,v 1.222 2000-03-05 17:14:50 avn Exp $
  */
 
 /***************************************************************************
@@ -1779,7 +1779,6 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		}
 
 		d->codepage = codepages+num;
-		log(LOG_INFO, "'%s' codepage selected", d->codepage->name);
 		d->connected = CON_GET_NAME;
 		write_to_buffer(d, "By which name do you wish to be known? ", 0);
 		break;

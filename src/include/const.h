@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: const.h,v 1.58 2000-03-04 15:03:37 avn Exp $
+ * $Id: const.h,v 1.59 2000-03-05 17:14:40 avn Exp $
  */
 
 #ifndef _CONST_H_
@@ -49,8 +49,8 @@
 #	define PATH_SEPARATOR '/'
 #endif
 
-#define PFILE_VERSION	11
-#define AREA_VERSION	3
+#define PFILE_VERSION	12
+#define AREA_VERSION	4
 
 /*
  * sex or gender
