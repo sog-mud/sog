@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.156 1999-09-29 21:23:24 osya Exp $
+ * $Id: update.c,v 1.157 1999-09-30 00:23:29 avn Exp $
  */
 
 /***************************************************************************
@@ -1854,7 +1854,8 @@ void aggr_update(void)
 				victim = check_guard(victim, ch); 
 				if (get_skill(ch, gsn_backstab))
 					dofun("backstab", ch, victim->name);
-				multi_hit(ch, victim, TYPE_UNDEFINED);
+				else
+					multi_hit(ch, victim, TYPE_UNDEFINED);
 			}
 		}
 	}

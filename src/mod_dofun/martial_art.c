@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.113 1999-09-24 04:16:03 avn Exp $
+ * $Id: martial_art.c,v 1.114 1999-09-30 00:23:29 avn Exp $
  */
 
 /***************************************************************************
@@ -892,9 +892,7 @@ void do_backstab(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
-#if 0
-	OBJ_DATA *obj;
-#endif
+
 	int chance, dt = TYPE_UNDEFINED;
 
 	one_argument(argument, arg, sizeof(arg));
@@ -914,18 +912,7 @@ void do_backstab(CHAR_DATA *ch, const char *argument)
 		char_puts("You need piercing weapon to backstab.\n", ch);
 		return;
 	}
-#if 0
-	if ((obj = get_eq_char(ch, WEAR_WIELD)) == NULL) {
-		char_puts("You need to wield a weapon to backstab.\n", ch);
-		return;
-	}
 
-	if (attack_table[obj->value[3]].damage != DAM_PIERCE) {
-		char_puts("You need to wield a piercing weapon "
-			  "to backstab.\n", ch);
-		return;
-	}
-#endif
 	if (arg[0] == '\0') {
 		char_puts("Backstab whom?\n", ch);
 		return;
