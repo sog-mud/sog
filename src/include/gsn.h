@@ -23,7 +23,7 @@
 * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 * SUCH DAMAGE.
 *
-* $Id: gsn.h,v 1.30.2.20 2002-11-06 13:48:04 tatyana Exp $
+* $Id: gsn.h,v 1.30.2.21 2003-02-26 19:32:16 tatyana Exp $
 */
 
 #ifndef _GSN_H_
@@ -191,6 +191,7 @@ extern int gsn_web;
 extern int gsn_bow;
 extern int gsn_bash_door;
 extern int gsn_katana;
+extern int gsn_katana_bought;
 extern int gsn_bluefire;
 extern int gsn_crush;
 extern int gsn_charge;

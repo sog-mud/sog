@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.114.2.32 2002-12-03 14:15:00 tatyana Exp $
+ * $Id: martial_art.c,v 1.114.2.33 2003-02-26 19:32:18 tatyana Exp $
  */
 
 /***************************************************************************
@@ -3292,29 +3292,29 @@ void do_katana(CHAR_DATA *ch, const char *argument)
 	int mana;
 
 	one_argument(argument, arg, sizeof(arg));
-	
+
 	if ((chance = get_skill(ch, gsn_katana)) == 0) {
 		char_puts("Huh?\n", ch);
 		return;
 	}
-	
+
 	if (is_affected(ch, gsn_katana)) {
 		char_puts("But you've already got one katana!\n", ch);
 		return;
 	}
-	
+
 	mana = SKILL(gsn_katana)->min_mana;
 	if (ch->mana < mana) {
 		char_puts("You feel too weak to concentrate on a katana.\n",
 			  ch);
 		return;
 	}
-	
+
 	if (arg[0] == '\0') {
 		char_puts("Make a katana from what?\n", ch);
 		return;
 	}
-	
+
 	if ((part = get_obj_carry(ch, arg)) == NULL) {
 		char_puts("You do not have chunk of iron.\n", ch);
 		return;
@@ -3329,7 +3329,7 @@ void do_katana(CHAR_DATA *ch, const char *argument)
 		char_puts("You failed and destroyed it.\n", ch);
 		extract_obj(part, 0);
 		return;
-	} 
+	}
 
 	WAIT_STATE(ch, SKILL(gsn_katana)->beats);
 
@@ -3339,10 +3339,10 @@ void do_katana(CHAR_DATA *ch, const char *argument)
 		af.level	= ch->level;
 		af.duration	= ch->level;
 		af.modifier	= 0;
-		af.bitvector 	= 0;      
+		af.bitvector	= 0;
 		af.location	= 0;
 		affect_to_char(ch,&af);
-	
+
 		katana = create_obj(get_obj_index(OBJ_VNUM_KATANA_SWORD), 0);
 		katana->level = ch->level;
 		mlstr_cpy(&katana->owner, &ch->short_descr);
@@ -3350,7 +3350,7 @@ void do_katana(CHAR_DATA *ch, const char *argument)
 		ch->mana -= mana;
 
 		af.where	= TO_OBJECT;
-		af.type 	= gsn_katana;
+		af.type		= gsn_katana;
 		af.level	= ch->level;
 		af.duration	= -1;
 		af.location	= APPLY_DAMROLL;
@@ -3363,13 +3363,13 @@ void do_katana(CHAR_DATA *ch, const char *argument)
 
 		katana->value[2] = ch->level / 10;
 		katana->ed = ed_new2(katana->pObjIndex->ed, ch->name);
-			
+
 		obj_to_char(katana, ch);
 		check_improve(ch, gsn_katana, TRUE, 1);
-			
+
 		act("You make a katana from $p!",ch,part,NULL,TO_CHAR);
 		act("$n makes a katana from $p!",ch,part,NULL,TO_ROOM);
-			
+
 		extract_obj(part, 0);
 		return;
 	}
@@ -3387,7 +3387,7 @@ void do_crush(CHAR_DATA *ch, const char *argument)
 	int chance, wait;
 	int damage_crush;
 
-	if (MOUNTED(ch)) 
+	if (MOUNTED(ch))
 		return;
 
 	if ((chance = get_skill(ch, gsn_crush)) == 0) {

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: gsn.c,v 1.32.2.21 2002-11-06 13:48:13 tatyana Exp $
+ * $Id: gsn.c,v 1.32.2.22 2003-02-26 19:32:26 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -188,6 +188,7 @@ int gsn_web;
 int gsn_bow;
 int gsn_bash_door;
 int gsn_katana;
+int gsn_katana_bought;
 int gsn_bluefire;
 int gsn_crush;
 int gsn_charge;
@@ -452,6 +453,7 @@ namedp_t gsn_table[] =
 	{ "gsn_bow",			&gsn_bow			},
 	{ "gsn_bash_door",		&gsn_bash_door			},
 	{ "gsn_katana",			&gsn_katana			},
+	{ "gsn_katana_bought",		&gsn_katana_bought		},
 	{ "gsn_bluefire",		&gsn_bluefire			},
 	{ "gsn_crush",			&gsn_crush			},
 	{ "gsn_charge",			&gsn_charge			},

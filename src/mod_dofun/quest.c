@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.123.2.12 2002-08-26 16:24:37 fjoe Exp $
+ * $Id: quest.c,v 1.123.2.13 2003-02-26 19:32:22 tatyana Exp $
  */
 
 #include <sys/types.h>
@@ -1109,7 +1109,7 @@ static bool buy_katana(CHAR_DATA *ch, CHAR_DATA *questor)
 	}
 
 	af.where	= TO_WEAPON;
-	af.type 	= gsn_katana;
+	af.type		= gsn_katana_bought;
 	af.level	= 100;
 	af.duration	= -1;
 	af.modifier	= 0;

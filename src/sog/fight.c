@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.63 2002-12-03 16:57:48 tatyana Exp $
+ * $Id: fight.c,v 1.202.2.64 2003-02-26 19:32:24 tatyana Exp $
  */
 
 /***************************************************************************
@@ -893,6 +893,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 			snprintf(nmbuf, sizeof(nmbuf), "'%s'", ch->name);
 			if ((p = mlstr_mval(&katana->ed->description)) != NULL
 			&&  strstr(p, nmbuf) != NULL
+			&&  (affect_find(katana->affected, gsn_katana_bought) != NULL)
 			&&  (katana->cost = ++katana->cost % 250) == 0
 			&&  (paf = affect_find(katana->affected, gsn_katana))) {
 				int old_mod = paf->modifier;
@@ -911,9 +912,9 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 					ch->damroll += paf->modifier - old_mod;
 				}
 
-				act("$n's katana glows blue.\n",
+				act("{C$n's katana glows blue.{x\n",
 				    ch, NULL, NULL, TO_ROOM);
-				char_puts("Your katana glows blue.\n",ch);
+				char_puts("{CYour katana glows blue.{x\n",ch);
 			}
 		}
 	}
