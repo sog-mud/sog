@@ -1,6 +1,6 @@
 /*
- * $Id: mob_look_lizard_bill.mpc,v 1.1 2001-09-05 12:43:42 fjoe Exp $
+ * $Id: mob_look_lizard_bill.mpc,v 1.2 2001-09-07 13:43:32 fjoe Exp $
  */
 
-if (!is_affected($n, "armor"))
+if (!is_sn_affected($n, "armor"))
         cast_char("armor", $n, $n);

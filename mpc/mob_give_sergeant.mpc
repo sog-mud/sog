@@ -1,5 +1,5 @@
 /*
- * $Id: mob_give_sergeant.mpc,v 1.1 2001-09-04 19:36:11 fjoe Exp $
+ * $Id: mob_give_sergeant.mpc,v 1.2 2001-09-07 13:43:31 fjoe Exp $
  */
 
 dofun("say", $n, "Thanks a lot brave adventurer!");
@@ -7,4 +7,4 @@ dofun("say", $n, "You return my favorite dagger.");
 dofun("say", $n, "And I regard you for it...");
 obj o = load_obj($n, 22494);
 give_obj($n, $N, o);
-purge_obj($o);
+purge_obj($p);

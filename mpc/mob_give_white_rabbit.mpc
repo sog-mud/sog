@@ -1,6 +1,6 @@
 /*
- * $Id: mob_give_white_rabbit.mpc,v 1.1 2001-09-05 12:43:39 fjoe Exp $
+ * $Id: mob_give_white_rabbit.mpc,v 1.2 2001-09-07 13:43:31 fjoe Exp $
  */
 
 act_say($n, "Thank you $N!", $N);
-purge_obj($o);
+purge_obj($p);

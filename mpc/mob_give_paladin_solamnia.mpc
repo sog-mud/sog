@@ -1,4 +1,4 @@
-purge_obj($o);
+purge_obj($p);
 
 if (get_obj_carry($n, $N, "89"))
         return 0;
