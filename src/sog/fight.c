@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.50 2001-12-18 18:15:47 tatyana Exp $
+ * $Id: fight.c,v 1.202.2.51 2001-12-21 05:45:34 tatyana Exp $
  */
 
 /***************************************************************************
@@ -644,6 +644,19 @@ int get_dam_type(CHAR_DATA *ch, OBJ_DATA *wield, int *dt)
 	return dam_type;
 }
 
+static OBJ_DATA *
+get_katana(CHAR_DATA *ch, int wear_loc)
+{
+	OBJ_DATA *katana = get_eq_char(ch, wear_loc);
+
+	if (katana != NULL
+	&&  IS_WEAPON_STAT(katana, WEAPON_KATANA)
+	&&  katana->ed != NULL)
+		return katana;
+
+	return NULL;
+}
+
 /*
  * Hit one guy once.
  */
@@ -872,10 +885,8 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 		check_improve(ch, gsn_mastering_sword, TRUE, 6);
 		dam += dam * 110 /100;
 
-		if (((katana = get_eq_char(ch,WEAR_WIELD)) ||
-		     (katana = get_eq_char(ch, WEAR_SECOND_WIELD)))
-		&&  IS_WEAPON_STAT(katana, WEAPON_KATANA)
-		&&  katana->ed != NULL) {
+		if ((katana = get_katana(ch, WEAR_WIELD)) != NULL
+		||  (katana = get_eq_char(ch, WEAR_SECOND_WIELD)) != NULL) {
 			AFFECT_DATA *paf;
 			char nmbuf[MAX_STRING_LENGTH];
 			const char *p;
@@ -887,14 +898,20 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 			&&  (paf = affect_find(katana->affected, gsn_katana))) {
 				int old_mod = paf->modifier;
 
-				paf->modifier = UMIN(paf->modifier+1,
-						     ch->level / 3);
+				paf->modifier = UMIN(
+				    paf->modifier + 1, ch->level / 3);
 				ch->hitroll += paf->modifier - old_mod;
+
 				if (paf->next != NULL
-				&& paf->next->type == gsn_katana) {
-					paf->next->modifier = paf->modifier;
+				&&  paf->next->type == gsn_katana) {
+					paf = paf->next;
+					old_mod = paf->modifier;
+
+					paf->modifier = UMIN(
+					    paf->modifier + 1, ch->level / 3);
 					ch->damroll += paf->modifier - old_mod;
 				}
+
 				act("$n's katana glows blue.\n",
 				    ch, NULL, NULL, TO_ROOM);
 				char_puts("Your katana glows blue.\n",ch);
