@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.165.2.48 2002-12-09 21:40:24 tatyana Exp $
+ * $Id: act_obj.c,v 1.165.2.49 2002-12-10 11:33:11 tatyana Exp $
  */
 
 /***************************************************************************
@@ -114,6 +114,27 @@ void do_get(CHAR_DATA * ch, const char *argument)
 				obj_next = obj->next_content;
 				if ((arg1[3] == '\0' || is_name(arg1+4, obj->name))
 				&& can_see_obj(ch, obj)) {
+					if (HAS_SKILL(ch, gsn_spellbane)
+					&&  IS_SET(obj->extra_flags,
+						   ITEM_MAGIC)) {
+						act("$p is magic object, "
+						    "you do not wish to take "
+						    "it.", ch, obj,
+						    NULL, TO_CHAR);
+						continue;
+					}
+					if (HAS_SKILL(ch, gsn_spellbane)
+					&&  obj->pObjIndex->item_type == ITEM_CONTAINER
+					&&  obj->contains != NULL) {
+						OBJ_DATA *t_obj;
+						for (t_obj = obj->contains; t_obj != NULL; t_obj = t_obj->next_content) {
+							if (IS_SET(t_obj->extra_flags, ITEM_MAGIC)) {
+								act("$p contains magic object(s), you do not wish to take it.", ch, obj, NULL, TO_CHAR);
+								break;
+							}
+						}
+						continue;
+					}
 					found = TRUE;
 					get_obj(ch, obj, NULL, NULL);
 				}
@@ -179,7 +200,26 @@ void do_get(CHAR_DATA * ch, const char *argument)
 			obj_next = obj->next_content;
 			if ((arg1[3] == '\0' || is_name(&arg1[4], obj->name))
 			    && can_see_obj(ch, obj)) {
-				found = TRUE;
+				if (HAS_SKILL(ch, gsn_spellbane)
+				&&  IS_SET(obj->extra_flags, ITEM_MAGIC)) {
+					act("$p is magic object, "
+					    "you do not wish to take "
+					    "it.", ch, obj, NULL, TO_CHAR);
+					continue;
+				}
+
+				if (HAS_SKILL(ch, gsn_spellbane)
+				&&  obj->pObjIndex->item_type == ITEM_CONTAINER
+				&&  obj->contains != NULL) {
+					OBJ_DATA *t_obj;
+					for (t_obj = obj->contains; t_obj != NULL; t_obj = t_obj->next_content) {
+						if (IS_SET(t_obj->extra_flags, ITEM_MAGIC)) {
+							act("$p contains magic object(s), you do not wish to take it.", ch, obj, NULL, TO_CHAR);
+							break;
+						}
+					}
+					continue;
+				}
 				if (IS_SET(container->pObjIndex->extra_flags,
 					   ITEM_PIT)
 				&&  !IS_IMMORTAL(ch)) {
@@ -188,6 +228,7 @@ void do_get(CHAR_DATA * ch, const char *argument)
 						 POS_DEAD);
 					return;
 				}
+				found = TRUE;
 				get_obj(ch, obj, container, NULL);
 			}
 		}
@@ -607,6 +648,34 @@ void do_give(CHAR_DATA * ch, const char *argument)
 		act("$N do not wish take any.",
 		    ch, NULL, victim, TO_CHAR);
 		return;
+	}
+
+	if (!IS_NPC(victim)
+	&&  HAS_SKILL(victim, gsn_spellbane)
+	&&  IS_SET(obj->extra_flags, ITEM_MAGIC)) {
+		act("$p is magic object, you do not wish to take it.",
+		    victim, obj, NULL, TO_CHAR);
+		act("$p is magic object, $n does not wish to take it.",
+		    victim, obj, ch, TO_VICT);
+		return;
+	}
+
+	if (!IS_NPC(victim)
+	&&  HAS_SKILL(victim, gsn_spellbane)
+	&&  obj->pObjIndex->item_type == ITEM_CONTAINER
+	&&  obj->contains != NULL) {
+		OBJ_DATA *t_obj;
+		for (t_obj = obj->contains; t_obj != NULL; t_obj = t_obj->next_content) {
+			if (IS_SET(t_obj->extra_flags, ITEM_MAGIC)) {
+				act("$p contains magic object(s), you "
+				    "do not wish to take it.",
+				    victim, obj, NULL, TO_CHAR);
+				act("$p contains magic object(s), $n "
+				    "does not wish to take it.",
+				    victim, obj, ch, TO_VICT);
+				return;
+			}
+		}
 	}
 
 	if ((carry_n = can_carry_n(victim)) >= 0
