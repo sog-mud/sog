@@ -5,7 +5,7 @@ VNUMs 95700 95799
 Credits Asena~
 Security 9
 LevelRange 90 100
-Flags noquest update_always~
+Flags CD
 Clan Hunters
 End
 
@@ -305,7 +305,7 @@ endif
 #0
 
 #PRACTICERS
-M 95702 clan~	* the guardian
+M 95702 V	* the guardian
 S
 
 #$

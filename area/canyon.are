@@ -2483,12 +2483,12 @@ O 9205 2	* the wind boots
 S
 
 #PRACTICERS
-M 9208 draconian~	* the Earth Ruler
-M 9209 draconian~	* the Fire Ruler
-M 9210 draconian~	* The Air Ruler
-M 9211 draconian~	* The Lightning Ruler
-M 9212 draconian~	* The Water Ruler
-M 9239 combat~	* The Combat Magician
+M 9208 I	* the Earth Ruler
+M 9209 I	* the Fire Ruler
+M 9210 I	* The Air Ruler
+M 9211 I	* The Lightning Ruler
+M 9212 I	* The Water Ruler
+M 9239 E	* The Combat Magician
 S
 
 #OMPROGS

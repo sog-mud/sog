@@ -5,7 +5,7 @@ VNUMs 95200 95299
 Credits Chronos~
 Security 9
 LevelRange 90 100
-Flags noquest update_always~
+Flags CD
 Clan Knights
 End
 
@@ -805,7 +805,7 @@ mob attack $n
 #0
 
 #PRACTICERS
-M 95201 clan~	* the protector
+M 95201 V	* the protector
 S
 
 #$

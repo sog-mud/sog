@@ -5,7 +5,7 @@ VNUMs 1200 1299
 Credits Diku~
 Security 9
 LevelRange 91 100
-Flags closed~
+Flags B
 End
 
 #MOBILES
@@ -813,7 +813,7 @@ M 0 1200 1 1221 1	* Heimdall (The End of the Rainbow Bridge)
 S
 
 #PRACTICERS
-M 1200 fightmaster defensive~	* Heimdall
+M 1200 SW	* Heimdall
 S
 
 #$

@@ -5,7 +5,7 @@ VNUMs 95600 95699
 Credits Asena~
 Security 9
 LevelRange 90 100
-Flags noquest update_always~
+Flags CD
 Clan Invaders
 End
 
@@ -790,7 +790,7 @@ end
 #0
 
 #PRACTICERS
-M 95600 clan~	* the invader guardian
+M 95600 V	* the invader guardian
 S
 
 #$
