@@ -72,6 +72,40 @@ A
 20 -50
 A
 19 100
+#15111
+way~
+@eng Waybottle@rus {WСоковыжималка{w~
+@eng Waybottle lies here...@rus {wСтранная {Wсоковыжималка{w жужжит здесь...{w~
+Из прямой кишки сумашедщего КАБАНА~
+drink BGHIJKMRYZ APQ
+-1 2147483647 'orange juice' 0 0
+1 0 1 P
+A
+17 -20
+A
+20 -5
+A
+6 -5
+#15112
+aenis~
+{W'{CAenis + Leo{W' ring{w~
+{Wmagnificent work ring is here{w~
+{WCrystal{w~
+jewelry AGITYZa ABP
+0 0 0 0 0
+1 0 2147483647 P
+A
+17 -5
+A
+20 -5
+#15113
+no name~
+~
+~
+unknown~
+pill 0 0
+0 'reserved' 'reserved' 'reserved' 'reserved'
+0 0 0 P
 #0
 
 
@@ -112,6 +146,8 @@ S
 #OLIMITS
 O 15000 0	* strange pill
 O 15100 1	* a dwarven golden ring
+O 15111 1	* Waybottle
+O 15112 1	* {W'{CAenis + Leo{W' ring{w
 S
 
 
@@ -134,6 +170,8 @@ mob vforce 50 mob goto 15000
 mob vforce 50 mob cast 'teleport'
 mob vforce 50 yell Hey! I have some funny junk for you !
 endif
+~
+#15100
 ~
 #0
 
