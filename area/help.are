@@ -1,5 +1,6 @@
 #AREADATA
 Name Generic Helps~
+Builders setepios~
 VNUMs 0 0
 Credits Diku~
 Security 5
@@ -1050,6 +1051,7 @@ their groups:
  {ctransportation{x >>> {gGrand Mistress of Magic{x  (High Tower     )
  {cweaponsmaster{x  >>> {gSamurai{x                  (New Thalos     )
  {cwizard{x         >>> {gWizard{x                   (Midgaard       )
+{c necromancy     {x>>>{g Necromancer-Alchemist    {x(Elvenhame      )
  
 If you SLOOK the spell or skill and find it in group `{cnone{x', `{cweather{x',
 `{ccreation{x', `{charmful{x', `{cprotective{x' or `{cdetection{x', then you

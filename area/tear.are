@@ -352,26 +352,12 @@ fountain 0 0
 G none
 #110001
 0 starf~
-@eng ciquala's staff@rus ciquala's staff@rusoff 0~
-@eng ciquala's staff@rus ciquala's staff@rusoff 0~
+@eng 0@rus 0@rusoff 0~
+@eng 0@rus 0@rusoff 0~
 wood~
-wand GJPTUa AO
-100 200 200 'enchant weapon' 0
+armor GJPTUa O
+0 0 0 0 0
 55 50 100000 P
-F
-A 18 50 Z
-A
-26 10
-A
-13 100
-A
-19 20
-F
-A 20 -10 t
-F
-A 20 -10 F
-F
-R 8 20 D
 G none
 #110002
 0~

@@ -253,7 +253,7 @@ Use 'desc edit' to edit your description.
 @eng You start to fly.
 @rus Ты взлетаешь.
 ~
-@eng You can kill $N naked and weaponless.@rus Ты можешь убить $N раздетый и без оружия.~
+@eng You can kill $N naked and weaponless.@rus Ты можешь убить $c6{$N} раздетый и без оружия.~
 @eng Open what?
 @rus Открыть что?
 ~

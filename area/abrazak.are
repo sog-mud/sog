@@ -236,6 +236,10 @@ weapon 0 AN
 mace 2000 2000 stab BCDEGHI
 100 0 0 P
 A
+-260 1000
+A
+-355 500
+A
 8 100
 F
 A 18 10000 u

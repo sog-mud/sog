@@ -853,6 +853,21 @@ treasure IRTa AK
 0 0 0 0 0
 0 1 9000000 P
 G none
+#38108
+quest mace of stars~
+Mace of Stars~
+Strange glowing mace lies here.~
+steal~
+weapon A AN
+mace 7 7 pound G
+45 1 1 P
+F
+S 'mace' 45 A
+A
+13 20
+A
+1 5
+G none
 #38200
 bartable~
 @eng long wooden table@rus длинный деревынный стол~

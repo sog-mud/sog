@@ -45,7 +45,7 @@ training mob is here, backstab him!
 ~
 human~
 ABT AHV 0 0
-1 0 1d1+29999 1d1+1 1d1+1 none
+1 50 1d1+29999 1d1+1 1d1+1 none
 0 0 0 0
 H 0 D 0
 stand stand none 0
@@ -175,7 +175,7 @@ Skorn~
 ~
 ~
 drow~
-LTU DFVl 0 0
+ALTU DFVl 0 0
 0 15 1d1+1299 20d20+800 2d40+10 none
 0 0 0 0
 ACFIJK 0 0 0
@@ -776,6 +776,21 @@ F
 A 12 30 P
 F
 R 13 30 BCD
+G none
+#36140
+gloves glowing spiked~
+spiked glowing gloves~
+Gloves with a sharp spikes glow on the ground.~
+unknown~
+armor AORYa AH
+14 14 14 9 0
+40 100 50000 P
+F
+S 'deathblow' 40 A
+A
+1 3
+A
+19 4
 G none
 #36198
 pill yellow detection~
