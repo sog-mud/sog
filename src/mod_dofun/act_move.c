@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.15 1998-04-27 00:55:22 efdi Exp $
+ * $Id: act_move.c,v 1.16 1998-04-27 20:48:45 efdi Exp $
  */
 
 /***************************************************************************
@@ -1224,13 +1224,13 @@ void do_stand( CHAR_DATA *ch, char *argument )
     {
 	if (ch->position == POS_FIGHTING)
 	{
-	    send_to_char("Maybe you should finish fighting first?\n\r",ch);
+	    send_to_char(msg(MOVE_MAYBE_YOU_SHOULD_FINISH_FIGHTING_FIRST, ch),ch);
 	    return;
 	}
 	obj = get_obj_list(ch,argument,ch->in_room->contents);
 	if (obj == NULL)
 	{
-	    send_to_char("You don't see that here.\n\r",ch);
+	    send_to_char(msg(MOVE_YOU_DONT_SEE_THAT, ch),ch);
 	    return;
 	}
 	if (obj->item_type != ITEM_FURNITURE
@@ -1238,13 +1238,12 @@ void do_stand( CHAR_DATA *ch, char *argument )
 	&&   !IS_SET(obj->value[2],STAND_ON)
 	&&   !IS_SET(obj->value[2],STAND_IN)))
 	{
-	    send_to_char("You can't seem to find a place to stand.\n\r",ch);
+	    send_to_char(msg(MOVE_YOU_CANT_FIND_PLACE_STAND, ch),ch);
 	    return;
 	}
 	if (ch->on != obj && count_users(obj) >= obj->value[0])
 	{
-	    act_puts("There's no room to stand on $p.",
-		ch,obj,NULL,TO_ROOM,POS_DEAD);
+	    act_printf(ch, obj, NULL, TO_ROOM, POS_DEAD, MOVE_THERES_NO_ROOM_TO_STAND_ON);
 	    return;
 	}
     }
@@ -1252,33 +1251,40 @@ void do_stand( CHAR_DATA *ch, char *argument )
     {
     case POS_SLEEPING:
 	if ( IS_AFFECTED(ch, AFF_SLEEP) )
-	    { send_to_char( "You can't wake up!\n\r", ch ); return; }
+	    { send_to_char(msg(MOVE_YOU_CANT_WAKE_UP, ch), ch); return; }
 	
 	if (obj == NULL)
 	{
-	    send_to_char( "You wake and stand up.\n\r", ch );
-	    act( "$n wakes and stands up.", ch, NULL, NULL, TO_ROOM );
+	    send_to_char(msg(MOVE_YOU_WAKE_AND_STAND_UP, ch), ch);
+	    act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, 
+			MOVE_N_WAKES_AND_STANDS_UP);
 	    ch->on = NULL;
 	}
 	else if (IS_SET(obj->value[2],STAND_AT))
 	{
-	   act_puts("You wake and stand at $p.",ch,obj,NULL,TO_CHAR,POS_DEAD);
-	   act("$n wakes and stands at $p.",ch,obj,NULL,TO_ROOM);
+	   act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD, 
+			MOVE_YOU_WAKE_AND_STAND_AT);
+	   act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING, 
+			MOVE_N_WAKES_AND_STANDS_AT);
 	}
 	else if (IS_SET(obj->value[2],STAND_ON))
 	{
-	    act_puts("You wake and stand on $p.",ch,obj,NULL,TO_CHAR,POS_DEAD);
-	    act("$n wakes and stands on $p.",ch,obj,NULL,TO_ROOM);
+	   act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD, 
+			MOVE_YOU_WAKE_AND_STAND_ON);
+	   act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING, 
+			MOVE_N_WAKES_AND_STANDS_ON);
 	}
 	else 
 	{
-	    act_puts("You wake and stand in $p.",ch,obj,NULL,TO_CHAR,POS_DEAD);
-	    act("$n wakes and stands in $p.",ch,obj,NULL,TO_ROOM);
+	   act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD, 
+			MOVE_YOU_WAKE_AND_STAND_IN);
+	   act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING, 
+			MOVE_N_WAKES_AND_STANDS_IN);
 	}
 
         if (IS_HARA_KIRI(ch)) 
 	{
-	 send_to_char("You feel your blood heats your body.\n\r",ch);
+	 send_to_char(msg(MOVE_FEEL_BLOOD_HEATS, ch), ch);
 	 REMOVE_BIT(ch->act,PLR_HARA_KIRI);
 	}
 
@@ -1289,34 +1295,34 @@ void do_stand( CHAR_DATA *ch, char *argument )
     case POS_RESTING: case POS_SITTING:
 	if (obj == NULL)
 	{
-	    send_to_char( "You stand up.\n\r", ch );
-	    act( "$n stands up.", ch, NULL, NULL, TO_ROOM );
+	    send_to_char(msg(MOVE_YOU_STAND_UP, ch), ch);
+	    act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MOVE_N_STANDS_UP);
 	    ch->on = NULL;
 	}
 	else if (IS_SET(obj->value[2],STAND_AT))
 	{
-	    act("You stand at $p.",ch,obj,NULL,TO_CHAR);
-	    act("$n stands at $p.",ch,obj,NULL,TO_ROOM);
+	    act_printf(ch, obj, NULL, TO_CHAR, POS_RESTING, MOVE_YOU_STAND_AT);
+	    act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_STANDS_AT);
 	}
 	else if (IS_SET(obj->value[2],STAND_ON))
 	{
-	    act("You stand on $p.",ch,obj,NULL,TO_CHAR);
-	    act("$n stands on $p.",ch,obj,NULL,TO_ROOM);
+	    act_printf(ch, obj, NULL, TO_CHAR, POS_RESTING, MOVE_YOU_STAND_ON);
+	    act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_STANDS_ON);
 	}
 	else
 	{
-	    act("You stand in $p.",ch,obj,NULL,TO_CHAR);
-	    act("$n stands on $p.",ch,obj,NULL,TO_ROOM);
+	    act_printf(ch, obj, NULL, TO_CHAR, POS_RESTING, MOVE_YOU_STAND_IN);
+	    act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_STANDS_IN);
 	}
 	ch->position = POS_STANDING;
 	break;
 
     case POS_STANDING:
-	send_to_char( "You are already standing.\n\r", ch );
+	send_to_char(msg(MOVE_YOU_ARE_ALREADY_STANDING, ch), ch);
 	break;
 
     case POS_FIGHTING:
-	send_to_char( "You are already fighting!\n\r", ch );
+	send_to_char(msg(MOVE_YOU_ARE_ALREADY_FIGHTING, ch), ch);
 	break;
     }
 
