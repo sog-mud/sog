@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.125 1999-09-25 12:10:44 avn Exp $
+ * $Id: save.c,v 1.126 1999-10-05 10:09:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -202,9 +202,9 @@ fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 
 	fwrite_string(fp, "Desc", mlstr_mval(&ch->description));
 
-	fwrite_string(fp, "Race", race_name(ch->race));
+	fprintf(fp, "RaceW '%s'\n", race_name(ch->race));
 	fprintf(fp, "Sex  %d\n", ch->sex);
-	fwrite_string(fp, "Class", class_name(ch));
+	fprintf(fp, "ClassW '%s'\n", class_name(ch));
 	fprintf(fp, "Levl %d\n", ch->level);
 	fprintf(fp, "Room %d\n",
 		(ch->in_room == get_room_index(ROOM_VNUM_LIMBO) &&
@@ -307,8 +307,7 @@ fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 			fprintf(fp, "Trust %s\n", format_flags(pc->trust));
 
 		if (pc->race != ch->race)
-			fwrite_string(fp, "OrgRace",
-				      race_name(pc->race));
+			fprintf(fp, "OrgRaceW '%s'\n", race_name(pc->race));
 		if (pc->plevels > 0)
 			fprintf(fp, "PLev %d\n", pc->plevels);
 		fprintf(fp, "Plyd %d\n",
@@ -406,7 +405,7 @@ fwrite_pet(CHAR_DATA * pet, FILE * fp, int flags)
 	if (mlstr_cmp(&pet->description, &pet->pMobIndex->description) != 0)
 		mlstr_fwrite(fp, "Desc", &pet->short_descr);
 	if (pet->race != pet->pMobIndex->race)	/* serdar ORG_RACE */
-		fwrite_string(fp, "Race", race_name(pet->race));
+		fprintf(fp, "RaceW '%s'\n", race_name(pet->race));
 	fprintf(fp, "Sex  %d\n", pet->sex);
 	if (pet->level != pet->pMobIndex->level)
 		fprintf(fp, "Levl %d\n", pet->level);
@@ -972,6 +971,7 @@ fread_char(CHAR_DATA * ch, FILE * fp, int flags)
 			break;
 
 		case 'C':
+			KEY("ClassW", ch->class, cn_lookup(fread_word(fp)));
 			if (!str_cmp(word, "Class")) {
 				const char *cl = fread_string(fp);
 				ch->class = cn_lookup(cl);
@@ -1168,6 +1168,7 @@ fread_char(CHAR_DATA * ch, FILE * fp, int flags)
 			break;
 
 		case 'O':
+			KEY("OrgRaceW", PC(ch)->race, rn_lookup(fread_word(fp)));
 			if (!str_cmp(word, "OrgRace")) {
 				const char *race = fread_string(fp);
 				PC(ch)->race = rn_lookup(race);
@@ -1201,6 +1202,11 @@ fread_char(CHAR_DATA * ch, FILE * fp, int flags)
 
 		case 'R':
 			KEY("Relig", PC(ch)->religion, fread_number(fp));
+			if (!str_cmp(word, "RaceW")) {
+				ch->race = rn_lookup(fread_word(fp));
+				PC(ch)->race = ch->race;
+				fMatch = TRUE;
+			}
 			if (!str_cmp(word, "Race")) {
 				const char *race = fread_string(fp);
 				ch->race = rn_lookup(race);
@@ -1465,6 +1471,7 @@ fread_pet(CHAR_DATA * ch, FILE * fp, int flags)
 			break;
 
 		case 'R':
+			KEY("RaceW", pet->race, rn_lookup(fread_word(fp)));
 			if (!str_cmp(word, "Race")) {
 				const char *race = fread_string(fp);
 				pet->race = rn_lookup(race);
