@@ -1,12 +1,12 @@
 #
-# $Id: Makefile,v 1.45 1999-02-15 22:48:20 fjoe Exp $
+# $Id: Makefile,v 1.46 1999-02-19 19:46:21 fjoe Exp $
 #
 CC		= gcc
 LD		= gcc
 INCLUDES	= -I .
 
-CFLAGS		= -pg -g -Wall -O -pipe $(INCLUDES)
-LFLAGS		= -pg -g
+CFLAGS		= -g -Wall -O -pipe $(INCLUDES)
+LFLAGS		= -g
 LIBS		=
 INSTALL_PATH	= ..
 
