@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cmd.h,v 1.21 2001-11-30 21:17:56 fjoe Exp $
+ * $Id: cmd.h,v 1.22 2002-11-21 09:33:44 fjoe Exp $
  */
 
 #ifndef _CMD_H_
@@ -54,6 +54,7 @@ struct cmd_t
 {
 	const char *	name;		/* cmd name */
 	const char *	dofun_name;	/* name of do_function */
+	const char *	aliases;	/* cmd aliases */
 	int		min_pos;	/* min position for cmd */
 	int		min_level;	/* min level for cmd */
 	int		cmd_log;	/* cmd logging type */

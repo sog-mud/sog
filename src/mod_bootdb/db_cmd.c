@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_cmd.c,v 1.17 2002-03-21 13:54:00 fjoe Exp $
+ * $Id: db_cmd.c,v 1.18 2002-11-21 09:33:52 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -59,6 +59,10 @@ DBLOAD_FUN(load_cmd)
 
 		fread_keyword(fp);
 		switch(rfile_tokfl(fp)) {
+		case 'A':
+			SKEY("aliases", cmd->aliases, fread_string(fp));
+			break;
+
 		case 'D':
 			SKEY("dofun", cmd->dofun_name, fread_string(fp));
 			break;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_cmd.c,v 1.26 2001-12-03 22:28:33 fjoe Exp $
+ * $Id: olc_cmd.c,v 1.27 2002-11-21 09:34:11 fjoe Exp $
  */
 
 #include "olc.h"
@@ -40,6 +40,7 @@ DECLARE_OLC_FUN(cmded_show		);
 DECLARE_OLC_FUN(cmded_list		);
 
 DECLARE_OLC_FUN(cmded_name		);
+DECLARE_OLC_FUN(cmded_aliases		);
 DECLARE_OLC_FUN(cmded_minpos		);
 DECLARE_OLC_FUN(cmded_minlevel		);
 DECLARE_OLC_FUN(cmded_dofun		);
@@ -50,6 +51,7 @@ DECLARE_OLC_FUN(cmded_move		);
 DECLARE_OLC_FUN(cmded_delete		);
 
 static DECLARE_VALIDATE_FUN(validate_cmd_name);
+static DECLARE_VALIDATE_FUN(validate_cmd_alias);
 
 olc_cmd_t olc_cmds_cmd[] =
 {
@@ -61,6 +63,7 @@ olc_cmd_t olc_cmds_cmd[] =
 	{ "list",	cmded_list,	NULL,		NULL		},
 
 	{ "name",	cmded_name,	validate_cmd_name, NULL		},
+	{ "aliases",	cmded_aliases,	validate_cmd_alias, NULL	},
 	{ "minpos",	cmded_minpos,	NULL,		position_table	},
 	{ "minlevel",	cmded_minlevel, NULL,		level_table	},
 	{ "dofun",	cmded_dofun,	validate_funname, NULL		},
@@ -155,6 +158,7 @@ OLC_FUN(cmded_save)
 		fprintf(fp, "#CMD\n");
 		fwrite_string(fp, "name", cmnd->name);
 		fwrite_string(fp, "dofun", cmnd->dofun_name);
+		fwrite_string(fp, "aliases", cmnd->aliases);
 		fprintf(fp, "min_pos %s\n",
 			flag_string(position_table, cmnd->min_pos));
 		if (cmnd->min_level) {
@@ -223,6 +227,9 @@ OLC_FUN(cmded_show)
 		   varr_index(&commands, cmnd),
 		   cmnd->name, cmnd->dofun_name);
 	buf_printf(output, BUF_END,
+		   "Aliases    [%s]\n",
+		   cmnd->aliases);
+	buf_printf(output, BUF_END,
 		   "Min pos    [%s]\n",
 		   flag_string(position_table, cmnd->min_pos));
 	if (cmnd->min_level)
@@ -277,9 +284,14 @@ OLC_FUN(cmded_name)
 {
 	cmd_t *cmnd;
 	EDIT_CMD(ch, cmnd);
-
-	check_shadow(ch, argument);
 	return olced_str(ch, argument, cmd, &cmnd->name);
+}
+
+OLC_FUN(cmded_aliases)
+{
+	cmd_t *cmnd;
+	EDIT_CMD(ch, cmnd);
+	return olced_name(ch, argument, cmd, &cmnd->aliases);
 }
 
 OLC_FUN(cmded_dofun)
@@ -397,6 +409,38 @@ static VALIDATE_FUN(validate_cmd_name)
 		return FALSE;
 	}
 
+	check_shadow(ch, name);
+	return TRUE;
+}
+
+static VALIDATE_FUN(validate_cmd_alias)
+{
+	const char *alias = (const char*) arg;
+	cmd_t *cmnd, *cmnd2;
+	EDIT_CMD(ch, cmnd);
+
+	if (strpbrk(alias, " \t")) {
+		act_puts("CmdEd: $t: illegal character in alias name.",
+			 ch, alias, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
+		return FALSE;
+	}
+
+	if ((cmnd2 = cmd_lookup(alias))) {
+		act_puts("CmdEd: $t: command with such name already exists.",
+			 ch, alias, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
+		return FALSE;
+	}
+
+	C_FOREACH(cmnd2, &commands) {
+		if (is_name_strict(alias, cmnd2->aliases)) {
+			act_puts("CmdEd: $t: command '$T' already have such alias.",
+			    ch, alias, cmnd2->name,
+			    TO_CHAR | ACT_NOTRANS, POS_DEAD);
+			return FALSE;
+		}
+	}
+
+	check_shadow(ch, alias);
 	return TRUE;
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.419 2002-03-20 19:39:32 fjoe Exp $
+ * $Id: act_info.c,v 1.420 2002-11-21 09:33:57 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4390,6 +4390,43 @@ show_char_to_char(CHAR_DATA *list, CHAR_DATA *ch)
 			 TO_CHAR, POS_DEAD);
 }
 
+#define CMD_ALLOWED(cmd, ch)						\
+	((cmd)->min_level < LEVEL_HERO && (cmd)->min_level <= (ch)->level)
+
+#define WIZCMD_ALLOWED(cmd, ch)						\
+	((cmd)->min_level >= LEVEL_IMMORTAL &&				\
+	 ((ch)->level >= LEVEL_IMP ||					\
+	  is_name((cmd)->name, PC(ch)->granted)))
+
+static void
+show_aliases(CHAR_DATA *ch, const char *argument, bool wiz)
+{
+	cmd_t *cmd;
+	char arg[MAX_INPUT_LENGTH];
+
+	one_argument(argument, arg, sizeof(arg));
+	C_FOREACH(cmd, &commands) {
+		if ((wiz ? WIZCMD_ALLOWED(cmd, ch) : CMD_ALLOWED(cmd, ch))
+		&&  !str_prefix(arg, cmd->name)) {
+			if (!IS_NULLSTR(cmd->aliases)) {
+				act_puts("Aliases for '$t' are: [$T]",
+				    ch, cmd->name, cmd->aliases,
+				    TO_CHAR | ACT_NOTRANS, POS_DEAD);
+			} else {
+				act_puts("$Tcommand '$t' does not have aliases.",
+				    ch, cmd->name, wiz ? "wiz" : "",
+				    TO_CHAR | ACT_NOTRANS, POS_DEAD);
+			}
+
+			return;
+		}
+	}
+
+	act_puts("$t: No such $Tcommands found.",
+	    ch, arg, wiz ? "wiz" : "",
+	    TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
+}
+
 /*
  * Contributed by Alander.
  */
@@ -4398,6 +4435,11 @@ DO_FUN(do_commands, ch, argument)
 	int col;
 	varr v;
 	cmd_t *cmd;
+
+	if (!IS_NULLSTR(argument)) {
+		show_aliases(ch, argument, FALSE);
+		return;
+	}
 
 	c_init(&v, &c_info_commands);
 	C_FOREACH(cmd, &commands) {
@@ -4408,8 +4450,7 @@ DO_FUN(do_commands, ch, argument)
 
 	col = 0;
 	C_FOREACH(cmd, &v) {
-		if (cmd->min_level < LEVEL_HERO
-		&&  cmd->min_level <= ch->level
+		if (CMD_ALLOWED(cmd, ch)
 		&&  !IS_SET(cmd->cmd_flags, CMD_HIDDEN)) {
 			act_puts("$f-12{$t}", ch, cmd->name, NULL,   // notrans
 				 TO_CHAR | ACT_NOTRANS | ACT_NOLF | ACT_NOUCASE,
@@ -4436,6 +4477,11 @@ DO_FUN(do_wizhelp, ch, argument)
 		return;
 	}
 
+	if (!IS_NULLSTR(argument)) {
+		show_aliases(ch, argument, TRUE);
+		return;
+	}
+
 	c_init(&v, &c_info_commands);
 	C_FOREACH(cmd, &commands) {
 		cmd_t *ncmd = varr_enew(&v);
@@ -4445,11 +4491,7 @@ DO_FUN(do_wizhelp, ch, argument)
 
 	col = 0;
 	C_FOREACH(cmd, &v) {
-		if (cmd->min_level < LEVEL_IMMORTAL)
-			continue;
-
-		if (ch->level < LEVEL_IMP
-		&&  !is_name(cmd->name, PC(ch)->granted))
+		if (!WIZCMD_ALLOWED(cmd, ch))
 			continue;
 
 		act_puts("$f-12{$t}", ch, cmd->name, NULL,	// notrans
