@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.68 2002-11-21 10:00:41 fjoe Exp $
+ * $Id: act_info.c,v 1.271.2.69 2002-11-21 10:14:24 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1197,7 +1197,7 @@ void do_who(CHAR_DATA *ch, const char *argument)
 	 */
 	output = buf_new(GET_LANG(ch));
 
-	buf_printf(output, "Fellow persons are traveling in Shades of Gray:\n");
+	buf_printf(output, "Following persons are traveling in Shades of Gray:\n");
 	for (d = descriptor_list; d; d = d->next) {
 		CHAR_DATA *wch;
 
