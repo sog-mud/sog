@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.192 2001-08-20 16:47:27 fjoe Exp $
+ * $Id: martial_art.c,v 1.193 2001-08-21 13:23:34 kostik Exp $
  */
 
 /***************************************************************************
@@ -1032,7 +1032,6 @@ DO_FUN(do_whirl, ch, argument)
 		wear_loc = WEAPON_IS(weapon, WEAPON_AXE)? WEAR_WIELD : WEAR_SECOND_WIELD;
 
 		one_hit(ch, victim, "whirl", wear_loc);
-		check_improve(ch, "whirl", TRUE, 3);
 	}
 
 	if (attack)
@@ -1761,7 +1760,6 @@ DO_FUN(do_backstab, ch, argument)
 	}
 
 	if (!IS_AWAKE(victim) ||  number_percent() < chance) {
-		check_improve(ch, "backstab", TRUE, 1);
 		one_hit(ch, victim, "backstab", WEAR_WIELD);
 		if (number_percent() < get_skill(ch, "dual backstab") * 8 / 10) {
 			check_improve(ch, "dual backstab", TRUE, 1);
@@ -1828,7 +1826,6 @@ DO_FUN(do_knife, ch, argument)
 
 	if (number_percent() < chance) {
 		one_hit(ch, victim, "knife", WEAR_WIELD);
-		check_improve(ch, "knife", TRUE, 1);
 	} else {
 		damage(ch, victim, 0, "knife",  DAM_NONE, DAMF_SHOW);
 		check_improve(ch, "knife", FALSE, 1);
@@ -1905,7 +1902,6 @@ DO_FUN(do_cleave, ch, argument)
 	if (!IS_AWAKE(victim)
 	||  IS_NPC(ch)
 	||  number_percent() < chance) {
-		check_improve(ch, "cleave", TRUE, 1);
 		one_hit(ch, victim, "cleave", WEAR_WIELD);
 	}
 	else {
@@ -1960,7 +1956,7 @@ DO_FUN(do_impale, ch, argument)
 	}
 
 	if (victim->fighting != NULL) {
-		act_char("You can't cleave a fighting person.", ch);
+		act("$N is moving to quickly", ch, NULL, victim, TO_CHAR);
 		return;
 	}
 
@@ -1979,14 +1975,13 @@ DO_FUN(do_impale, ch, argument)
 	if (!IS_AWAKE(victim)
 	||  IS_NPC(ch)
 	||  number_percent() < chance) {
-		check_improve(ch, "impale", TRUE, 1);
 		one_hit(ch, victim, "impale", WEAR_WIELD);
 	}
 	else {
 		check_improve(ch, "impale", FALSE, 1);
 		damage(ch, victim, 0, "impale", DAM_NONE, DAMF_SHOW);
 	}
-	yell(victim, ch, "Help! $i just tryed to impale me!");
+	yell(victim, ch, "Help! $i just tried to impale me!");
 }
 
 DO_FUN(do_ambush, ch, argument)
@@ -2221,7 +2216,6 @@ DO_FUN(do_circle, ch, argument)
 
 	if (number_percent() < chance) {
 		one_hit(ch, victim, "circle", WEAR_WIELD);
-		check_improve(ch, "circle", TRUE, 1);
 	} else {
 		damage(ch, victim, 0, "circle", DAM_NONE, DAMF_SHOW);
 		check_improve(ch, "circle", FALSE, 1);
@@ -2961,14 +2955,14 @@ DO_FUN(do_headcrush, ch, argument)
 		return;
 	}
 
-	if (victim==ch) {
-		act("You try to shatter your head into small pieces, but fail.",
+	if (victim == ch) {
+		act("You try to shatter your head into small pieces, but it's too hard.",
 			ch, NULL, NULL, TO_CHAR);
 		return;
 	}
 
 
-	if (victim->position==POS_SLEEPING) {
+	if (victim->position == POS_SLEEPING) {
 		act("There are many ways to kill a sleeping one, and crushing his head is not the best of them.",
 			ch, NULL, NULL, TO_CHAR);
 		return;
@@ -3007,7 +3001,6 @@ DO_FUN(do_headcrush, ch, argument)
 
 	if (number_percent() > chance) {
 		one_hit(ch, victim, "head crush", WEAR_WIELD);
-		check_improve(ch, "head crush", TRUE, 5);
 		yell(victim, ch, "Help! $i just tried to shatter my skull!");
 		return;
 	}

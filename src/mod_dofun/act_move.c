@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.271 2001-08-20 18:18:08 fjoe Exp $
+ * $Id: act_move.c,v 1.272 2001-08-21 13:23:33 kostik Exp $
  */
 
 /***************************************************************************
@@ -1736,7 +1736,6 @@ DO_FUN(do_vbite, ch, argument)
 	&&  (IS_NPC(ch) ||
 	     number_percent() < ((chance * 7 / 10) +
 		(2 * (LEVEL(ch) - LEVEL(victim))) ))) {
-		check_improve(ch, "vampiric bite", TRUE, 1);
 		one_hit(ch, victim, "vampiric bite", WEAR_WIELD);
 		if (LEVEL(victim) > LEVEL(ch)
 		&&  number_percent() < (get_skill(ch, "resurrection") / 10 *
@@ -2820,7 +2819,7 @@ static OBJ_DATA *find_arrow(CHAR_DATA *ch)
 
 DO_FUN(do_charge, ch, argument)
 {
- 	CHAR_DATA* victim;
+	CHAR_DATA* victim;
 	OBJ_DATA* wield;
 	int chance, direction;
 	int beats;
@@ -2858,7 +2857,7 @@ DO_FUN(do_charge, ch, argument)
 		return;
 	}
 
-	if ((victim = find_char(ch, arg2, direction, 1)) == NULL) { 
+	if ((victim = find_char(ch, arg2, direction, 1)) == NULL) {
 		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		return;
 	}
@@ -2895,7 +2894,6 @@ DO_FUN(do_charge, ch, argument)
 		one_hit(ch, victim, "charge", WEAR_WIELD);
 		WAIT_STATE(victim, beats * 2);
 		WAIT_STATE(ch, beats);
-		check_improve(ch, "charge", TRUE, 1);
 	} else {
 		damage(ch, victim, 0, "charge", DAM_NONE, DAMF_SHOW);
 		check_improve(ch, "charge", FALSE, 1);

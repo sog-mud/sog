@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.391 2001-08-21 11:38:59 fjoe Exp $
+ * $Id: act_info.c,v 1.392 2001-08-21 13:23:32 kostik Exp $
  */
 
 /***************************************************************************
@@ -4300,13 +4300,15 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		if (RIDDEN(victim))
 			buf_append(output, "({GRidden{x) ");
 		if (IS_EVIL(victim) && HAS_DETECT(ch, ID_EVIL))
-			buf_append(output, "({RRed Aura{x) ");
+			buf_append(output, "({DUnholy Aura{x) ");
 		if (IS_GOOD(victim) && HAS_DETECT(ch, ID_GOOD))
-			buf_append(output, "({YGolden Aura{x) ");
+			buf_append(output, "({WHoly Aura{x) ");
 		if (IS_AFFECTED(victim, AFF_SANCTUARY))
 			buf_append(output, "({WWhite Aura{x) ");
 		if (IS_AFFECTED(victim, AFF_BLACK_SHROUD))
 			buf_append(output, "({DBlack Aura{x) ");
+		if (is_affected(victim, "golden aura"))
+			buf_append(output, "({YGolden Aura{x) ");
 		if (HAS_INVIS(victim, ID_FADE))
 			buf_append(output, "({yFade{x) ");
 		if (HAS_INVIS(victim, ID_CAMOUFLAGE))
@@ -4314,11 +4316,11 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		if (HAS_INVIS(victim, ID_BLEND))
 			buf_append(output, "({gBlending{x) ");
 		if (IS_SET(ch->comm, COMM_SHOWRACE)) {
-			buf_act(output, BUF_END, "({c$t{x) ", 	// notrans
-				NULL, victim->race, NULL, ACT_NOLF);	
+			buf_act(output, BUF_END, "({c$t{x) ",	// notrans
+				NULL, victim->race, NULL, ACT_NOLF);
 		}
 	} else {
-		static char FLAGS[] = "{x[{y.{D.{m.{c.{M.{D.{G.{b.{R.{Y.{W.{y.{g.{g."; // notrans
+		static char FLAGS[] = "{x[{y.{D.{m.{c.{M.{D.{G.{b.{x.{Y.{W.{y.{g.{g."; // notrans
 		char buf[sizeof(FLAGS)];
 		bool diff;
 
@@ -4333,16 +4335,21 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		FLAG_SET(20, 'U', IS_SET(victim->form, FORM_UNDEAD) &&
 				  HAS_DETECT(ch, ID_UNDEAD));
 		FLAG_SET(23, 'R', RIDDEN(victim));
-		FLAG_SET(29, 'E', IS_EVIL(victim) &&
-				  HAS_DETECT(ch, ID_EVIL));
-		FLAG_SET(32, 'G', IS_GOOD(victim) &&
-				  HAS_DETECT(ch, ID_GOOD));
+		if (HAS_DETECT(ch, ID_EVIL) && IS_EVIL(victim)) {
+			FLAG_SET(28, 'D', TRUE);
+			FLAG_SET(29, 'E', TRUE);
+		} else if (HAS_DETECT(ch, ID_GOOD) && IS_GOOD(victim)) {
+			FLAG_SET(28, 'W', TRUE);
+			FLAG_SET(29, 'G', TRUE);
+		}
+		FLAG_SET(32, 'Y', is_affected(victim, "golden aura"));
 		FLAG_SET(35, 'S', IS_AFFECTED(victim, AFF_SANCTUARY));
 
 		if (IS_AFFECTED(victim, AFF_BLACK_SHROUD)) {
 			FLAG_SET(35, 'B', TRUE);
 			FLAG_SET(34, 'D', TRUE);
 		}
+
 
 		FLAG_SET(38, 'F', HAS_INVIS(victim, ID_FADE));
 		FLAG_SET(41, 'C', HAS_INVIS(victim, ID_CAMOUFLAGE));

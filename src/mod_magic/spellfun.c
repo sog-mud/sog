@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.255 2001-08-21 11:39:02 fjoe Exp $
+ * $Id: spellfun.c,v 1.256 2001-08-21 13:23:36 kostik Exp $
  */
 
 /***************************************************************************
@@ -4501,12 +4501,10 @@ SPELL_FUN(spell_golden_aura, sn, level, ch, vo)
 	for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room) {
 		AFFECT_DATA *paf;
 
-		if (!is_same_group(vch, ch))
+		if (!is_same_group(vch, ch) || !IS_GOOD(ch))
 			continue;
 
-		if (is_affected(vch, sn)
-		||  is_affected(vch, "bless")
-		||  IS_AFFECTED(vch, AFF_PROTECT_EVIL)) {
+		if (is_affected(vch, sn)) {
 			if (vch == ch)
 				act_char("You are already protected by a golden aura.", ch);
 			else
@@ -4516,11 +4514,6 @@ SPELL_FUN(spell_golden_aura, sn, level, ch, vo)
 		}
 
 		paf = aff_new(TO_AFFECTS, sn);
-		paf->level	= level;
-		paf->duration	= 6 + level;
-		paf->bitvector	= AFF_PROTECT_EVIL;
-		affect_to_char(vch, paf);
-
 		INT(paf->location)= APPLY_HITROLL;
 		paf->modifier	= level / 8;
 		paf->bitvector	= 0;

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.317 2001-08-21 11:39:04 fjoe Exp $
+ * $Id: fight.c,v 1.318 2001-08-21 13:23:37 kostik Exp $
  */
 
 /***************************************************************************
@@ -405,27 +405,37 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 	}
 
 	if (!IS_SET(dam_flags, DAMF_HIT)) {
-		if (IS_SKILL(dt, "backstab") && (IS_NPC(ch) || wield))
+		if (IS_SKILL(dt, "backstab")
+		    && (IS_NPC(ch) || wield != NULL)) {
 			dam = (LEVEL(ch) / 12 + 2) * dam + LEVEL(ch);
-		else if (IS_SKILL(dt, "dual backstab") && (IS_NPC(ch) || wield))
+			check_improve(ch, "backstab", TRUE, 1);
+		} else if (IS_SKILL(dt, "dual backstab")
+		    && (IS_NPC(ch) || wield != NULL)) {
 			dam = LEVEL(ch) / 14 * dam + LEVEL(ch);
-		else if (IS_SKILL(dt, "circle"))
+			check_improve(ch, "dual backstab", TRUE, 5);
+		} else if (IS_SKILL(dt, "circle")) {
 			dam = (LEVEL(ch)/20 + 1) * dam + LEVEL(ch);
-		else if (IS_SKILL(dt, "head crush"))
+			check_improve(ch, "circle", TRUE, 1);
+		} else if (IS_SKILL(dt, "head crush")) {
 			dam = (LEVEL(ch)/22 + 1) * dam + LEVEL(ch);
-		else if (IS_SKILL(dt, "knife"))
+			check_improve(ch, "head crush", TRUE, 5);
+		} else if (IS_SKILL(dt, "knife")) {
 			dam = (LEVEL(ch)/28 + 1) * dam + LEVEL(ch);
-		else if (IS_SKILL(dt, "vampiric bite"))
+			check_improve(ch, "knife", TRUE, 1);
+		} else if (IS_SKILL(dt, "vampiric bite")) {
 			dam = (LEVEL(ch)/13 + 1) * dam + LEVEL(ch);
-		else if (IS_SKILL(dt, "twist"))
+			check_improve(ch, "vampiric bite", TRUE, 1);
+		} else if (IS_SKILL(dt, "twist")) {
 			dam = dam * 3 / 2;
-		else if (IS_SKILL(dt, "downstrike"))
+		} else if (IS_SKILL(dt, "downstrike")) {
 			dam = dam * 5 / 4;
-		else if (IS_SKILL(dt, "whirl"))
+		} else if (IS_SKILL(dt, "whirl")) {
 			dam *= 2;
-		else if (IS_SKILL(dt, "charge"))
+			check_improve(ch, "whirl", TRUE, 2);
+		} else if (IS_SKILL(dt, "charge")) {
 			dam = (LEVEL(ch)/12 + 1) * dam + LEVEL(ch);
-		else if (IS_SKILL(dt, "impale")) {
+			check_improve(ch, "charge", TRUE, 1);
+		} else if (IS_SKILL(dt, "impale")) {
 			if (dice_wlb(1, 100, victim, ch) <
 				URANGE(4, 5 + LEVEL(ch) - LEVEL(victim), 11)
 			&& !counter && !IS_IMMORTAL(victim)) {
@@ -436,6 +446,7 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 				act_puts("$n's weapon runs through $N's chest!",
 					ch, NULL, victim,
 					TO_NOTVICT, POS_RESTING);
+				check_improve(ch, "impale", TRUE, 1);
 				act_char("You die..", victim);
 				act("$n is DEAD!", victim, NULL, NULL, TO_ROOM);
 				WAIT_STATE(ch, 2);
@@ -460,6 +471,7 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 				act_puts("$n's cleave chops $N IN HALF!",
 					 ch, NULL, victim,
 					 TO_NOTVICT, POS_RESTING);
+				check_improve(ch, "cleave", TRUE, 1);
 				act_char("You die..", victim);
 				act("$n is DEAD!", victim, NULL, NULL, TO_ROOM);
 				WAIT_STATE(ch, 2);
@@ -467,7 +479,7 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 				handle_death(ch, victim);
 				return;
 			} else
-				dam = (dam * 2 + ch->level);
+				dam = (dam * 2 + LEVEL(ch));
 		} else if (IS_SKILL(dt, "assassinate")) {
 			if (dice_wlb(1, 100, victim, ch) <=
 				URANGE(10, 20+(LEVEL(ch) - LEVEL(victim))*2, 50)
@@ -1119,6 +1131,15 @@ damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 
 	if (IS_AFFECTED(victim, AFF_PROTECT_GOOD) && IS_GOOD(ch))
 		dam -= dam / 4;
+
+	if (is_affected(victim, "golden aura")) {
+		if (IS_GOOD(ch)) /* Goodies shouldn't fight each other */
+			dam /= 8;
+		else if (IS_EVIL(ch))
+			dam -= dam / 5;
+		else
+			dam -= dam / 10;
+	}
 
 	if (is_affected(victim, "toughen"))
 		dam = (3 * dam) / 5;
