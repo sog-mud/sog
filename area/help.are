@@ -5558,7 +5558,7 @@ immortal _GREETING~
 * Use '{Cbug{x' command or mail to {Csog@@any.ru{x for bug reports
   and suggestions.
 * Players who use russian codepages, see '{CHELP RUSSIAN{x'.
-* Check out our homepage at {Chttp://sog.any.ru/{x.
+* Check out our homepage at {Chttp://iclub.nsu.ru/mud/{x.
 ~
 immortal IMOTD~
 @eng Welcome Immortal!
@@ -6254,10 +6254,14 @@ death.  It is a risky spell to use, as the contagion can spread like
 wildfire if the victim makes it to a populated area.
 ~
 -1 'CREATE ROSE'~
-Syntax: cast 'create rose'
-
-A romantic spell that creates a fragrant red rose, with utterly no game
-use whatsoever.
+@eng Syntax: {ccast 'create rose'{x <single/bouquet/basket>
+ 
+A romantic spell that creates a fragrant red rose or rose bouquet or
+basket filled with many roses.
+@rus Синтаксис: {ccast 'create rose'{x <single/bouquet/basket>
+ 
+Это романтическое заклинание позволяет создать благоухающую красную
+розу, букет роз или целую корзину, наполненную алыми розами.
 ~
 60 'PROTECTION GOOD' 'PROTECTION EVIL'~
 Syntax: cast 'protection evil' <target>
@@ -7483,7 +7487,7 @@ Syntax: {ctrig{x {carg{x <num> arg
 Syntax: {ctrig{x {cshow{x <num>
 Syntax: {ctrig{x {cedit{x <num>
 Syntax: {ctrig{x {ccompile{x <num>
-Syntax: {ctrig{x {cflags{x <flags>
+Syntax: {ctrig{x {cflags{x <num> <flags>
  
 <type> is trigger type. Use '?' to get list of valid trigger types.
  
