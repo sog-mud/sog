@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.155 1999-05-31 12:36:57 fjoe Exp $
+ * $Id: handler.c,v 1.156 1999-06-03 11:17:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2311,7 +2311,7 @@ money_descr(mlstring **descr,
 	data.name1 = name1;
 	data.name2 = name2;
 
-	mlstr_for_each(descr, &data, money_cb);
+	mlstr_foreach(descr, &data, money_cb);
 }
 
 /*

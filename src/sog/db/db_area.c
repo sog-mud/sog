@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.44 1999-05-26 15:20:04 fjoe Exp $
+ * $Id: db_area.c,v 1.45 1999-06-03 11:17:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -882,6 +882,8 @@ DBLOAD_FUN(load_rooms)
 	
 				pexit			= alloc_perm(sizeof(*pexit));
 				pexit->description	= mlstr_fread(fp);
+				mlstr_addnl(&pexit->description);
+
 				pexit->keyword		= fread_string(fp);
 				pexit->exit_info	= 0;
 				pexit->rs_flags		= 0;	/* OLC */

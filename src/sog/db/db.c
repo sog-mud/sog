@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.145 1999-05-24 06:42:34 avn Exp $
+ * $Id: db.c,v 1.146 1999-06-03 11:17:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1115,9 +1115,9 @@ CHAR_DATA *create_mob_of(MOB_INDEX_DATA *pMobIndex, mlstring *owner)
 {
 	CHAR_DATA *mob = create_mob(pMobIndex);
 
-	mlstr_for_each(&mob->short_descr, owner, obj_of_callback);
-	mlstr_for_each(&mob->long_descr, owner, obj_of_callback);
-	mlstr_for_each(&mob->description, owner, obj_of_callback);
+	mlstr_foreach(&mob->short_descr, owner, obj_of_callback);
+	mlstr_foreach(&mob->long_descr, owner, obj_of_callback);
+	mlstr_foreach(&mob->description, owner, obj_of_callback);
 
 	return mob;
 }
@@ -1266,8 +1266,8 @@ OBJ_DATA *create_obj_of(OBJ_INDEX_DATA *pObjIndex, mlstring *owner)
 {
 	OBJ_DATA *obj = create_obj(pObjIndex, 0);
 
-	mlstr_for_each(&obj->short_descr, owner, obj_of_callback);
-	mlstr_for_each(&obj->description, owner, obj_of_callback);
+	mlstr_foreach(&obj->short_descr, owner, obj_of_callback);
+	mlstr_foreach(&obj->description, owner, obj_of_callback);
 
 	return obj;
 }

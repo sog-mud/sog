@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.58 1999-06-03 10:24:14 fjoe Exp $
+ * $Id: olc.c,v 1.59 1999-06-03 11:17:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -449,7 +449,7 @@ bool olced_exd(CHAR_DATA *ch, const char* argument,
 			return FALSE;
 		}
 
-		mlstr_for_each(&ed->description, NULL, cb_format);
+		mlstr_foreach(&ed->description, NULL, cb_format);
 		char_puts("Extra description formatted.\n", ch);
 		return TRUE;
 	}

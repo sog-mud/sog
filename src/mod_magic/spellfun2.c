@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.109 1999-05-23 14:09:21 fjoe Exp $
+ * $Id: spellfun2.c,v 1.110 1999-06-03 11:17:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2570,7 +2570,7 @@ void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo, int target)
 		/*
 		 * strip "The undead body of "
 		 */
-		mlstr_for_each(&ml, undead_idx->short_descr, cb_strip);
+		mlstr_foreach(&ml, undead_idx->short_descr, cb_strip);
 
 		undead = create_mob_of(undead_idx, ml);
 		mlstr_free(ml);

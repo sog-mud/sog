@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.c,v 1.34 1999-04-16 15:52:20 fjoe Exp $
+ * $Id: mlstring.c,v 1.35 1999-06-03 11:17:11 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -341,7 +341,7 @@ bool mlstr_append(CHAR_DATA *ch, mlstring **mlp, const char *arg)
 	return TRUE;
 }
 
-void mlstr_for_each(mlstring **mlp, void *arg,
+void mlstr_foreach(mlstring **mlp, void *arg,
 		    void (*cb)(int lang, const char **p, void *arg))
 {
 	int lang;
@@ -429,6 +429,26 @@ void mlstr_dump(BUFFER *buf, const char *name, const mlstring *ml)
 		buf_printf(buf, FORMAT,
 			   space, l->name, ml->u.lstr[lang]);
 	}
+}
+
+static void cb_addnl(int lang, const char **p, void *arg)
+{
+	char buf[MAX_STRING_LENGTH];
+	size_t len = strlen(*p);
+
+	if (*p == NULL
+	||  (len = strlen(*p)) == 0
+	||  (*p)[len-1] == '\n')
+		return;
+
+	snprintf(buf, sizeof(buf), "%s\n", *p);
+	free_string(*p);
+	*p = str_dup(buf);
+}
+
+void mlstr_addnl(mlstring **mlp)
+{
+	mlstr_foreach(mlp, NULL, cb_addnl);
 }
 
 static const char *smash_a(const char *s, int len)
