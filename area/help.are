@@ -1133,15 +1133,17 @@ content (*andrews*), but be careful not to accidently lock out too many
 sites with a wildcard.  Bans do not save unless the permban command is used.
 ~
 99 REBOOT SHUTDOWN~
-Syntax: reboot
-        shutdown
+Syntax: reboot status
+Syntax: reboot num
+
+Syntax: shutdown {{ status | activate | deactivate }
 
 Reboot shuts down the server.  When the normal 'startup' script is used
 to control the server, a delay of fifteen seconds will ensue (to allow
 old connections to die), followed by a reboot.
 
-Shutdown prevents the normal 'startup' script from restarting server after
-reboot.
+If shutdown status is 'active' then mud will not restart after next reboot.
+ 
 ~
 96 WIZLOCK NEWLOCK~
 Syntax: wizlock
@@ -3171,15 +3173,15 @@ Here are the types of the damages, from small to...
                             *** DEMOLISH ***
                             *** DEVASTATE ***
                             === OBLITERATE ===
-                            ==== ATOMIZE ====
-                        <*> <*> ANNIHILATE <*> <*>
-                        <*>!<*> ERADICATE <*>!<*>
-                     <*><*><*> ELECTRONIZE <*><*><*>
-                    <*>)!(<*>) SKELETONIZE (<*>)!(<*>)
-                       (*)!(*)!(*) NUKE (*)!(*)!(*)
-                     (*)!<*>!(*) TERMINATE (*)!<*>!(*)
-                     <*>!(*)!<*>> TEAR UP <<*)!(*)!<*>
-                      <*) (*>= ! POWER HIT ! =<*) (*>
+                             === ATOMIZE ===
+                            >>> ANNIHILATE <<<
+                            >>> ERADICATE <<<
+                           -==> ELECTRONIZE <==-
+                           -==> SKELETONIZE <==-
+                               ### NUKE ###
+                             ### TERMINATE ###
+                              [*] TEAR UP [*]
+                             [*] POWER HIT [*]
 
 ~
 0 WIN1251~

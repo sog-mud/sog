@@ -1,6 +1,60 @@
 #WORD
+Name МЕРТВ~
+Form 1 МЕРТВА~
+Form 2 МЕРТВО~
+End
+
+#WORD
 Name отважный~
 Form 1 отважная~
+End
+
+#WORD
+Name способен~
+BaseLen 6
+Form 1 -на~
+End
+
+#WORD
+Name разделал~
+BaseLen 8
+Form 1 -а~
+End
+
+#WORD
+Name уклонился~
+BaseLen 7
+Form 1 -ась~
+Form 2 -ось~
+End
+
+#WORD
+Name него~
+Form 1 нее~
+End
+
+#WORD
+Name бессмертный~
+BaseLen 9
+Form 1 -ая~
+End
+
+#WORD
+Name упал~
+BaseLen 4
+Form 1 -а~
+Form 2 -о~
+End
+
+#WORD
+Name он~
+Form 1 она~
+Form 2 оно~
+End
+
+#WORD
+Name создал~
+Form 1 создала~
 End
 
 #WORD
@@ -10,25 +64,19 @@ End
 
 #WORD
 Name вооруженный~
-Base вооруженн~
+BaseLen 9
 Form 1 -ая~
 End
 
 #WORD
 Name успокоился~
-Base успокоил~
+BaseLen 8
 Form 1 -ась~
 End
 
 #WORD
-Name способен~
-Base способ~
-Form 1 -на~
-End
-
-#WORD
-Name разделал~
-Form 1 разделала~
+Name его~
+Form 1 ее~
 End
 
 #$

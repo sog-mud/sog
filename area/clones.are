@@ -1,0 +1,48 @@
+#AREADATA
+Name Clones~
+VNUMs 37000 37499
+Credits fjoe~
+Security 9
+LevelRange 0 0
+Flags under_construction noquest~
+End
+
+#MOBILES
+#37000
+janitor дворничиха~
+@eng the janitor@rus дворничиха~
+@eng A janitor is walking around, cleaning up.
+@rus Дворничиха (janitor) ходит вокруг тебя, подметая мусор.
+~
+~
+human~
+AGH 0 900 0
+1 0 2d6+10 1d1+99 1d5+0 pound
+10 10 10 10
+NU 0 0 C
+stand stand either 10
+0 0 medium unknown
+#37001
+cityguard guard стражница~
+@eng the cityguard@rus стражница~
+@eng A cityguard stands here.
+@rus Стражница (cityguard) стоит здесь.
+~
+@eng A big, strong, helpful, trustworthy guard.
+@rus Большая, сильная, заслуживающая доверия, всегда готовая помочь стражница.
+~
+human~
+ACGT 0 1000 3000
+15 3 15d15+160 1d1+149 2d4+4 punch
+0 0 0 8
+CDEKLTU 0 C 0
+stand stand either 150
+0 0 medium unknown
+#0
+
+#SPECIALS
+M 37000 spec_janitor	* the janitor
+M 37001 spec_guard	* the cityguard
+S
+
+#$

@@ -72,7 +72,7 @@ stand stand male 0
 #OBJECTS
 #95300
 spider altar~
-@eng a huge violet altar carved as a spider@rus Огромный фиолетовый алтарь (spider altar), похожий на паука~
+@eng a huge violet altar carved as a spider@rus Огромный фиолетовый алтарь, похожий на паука~
 @eng A hude spider shaped altar is standing at the center of room.@rus Алтарь (spider altar), похожий на огромного паука, стоит в центре комнаты.~
 ivory~
 container AORY P
@@ -96,7 +96,7 @@ key ORYf AO
 40 4 0 P
 #95303
 white object portal~
-@eng Magical White Portal@rus Белый магический портал (White portal)~
+@eng Magical White Portal@rus Белый магический портал~
 @eng A magically created white object casts strange shadows across the clearing.
 @rus Белый объект (white portal), созданный при помощи магии, отбрасывает странные тени.~
 energy~
@@ -105,7 +105,7 @@ portal AO 0
 0 0 0 P
 #95304
 black object portal~
-@eng Magical Black Portal@rus Черный магический портал (black portal)~
+@eng Magical Black Portal@rus Черный магический портал~
 @eng A magically created black object casts strange shadows across the clearing.
 @rus Черный объект (black portal), созданный при помощи магии, отбрасывает странные тени.~
 energy~

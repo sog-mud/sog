@@ -1,4 +1,74 @@
 #WORD
+Name стражник~
+BaseLen 8
+Form 1 -а~
+Form 2 -у~
+Form 3 -а~
+Form 4 -ом~
+Form 5 -е~
+End
+
+#WORD
+Name адамантитовый голем~
+Form 1 адамантитового голема~
+End
+
+#WORD
+Name стражница~
+BaseLen 8
+Form 1 -ы~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+End
+
+#WORD
+Name фонтан~
+Form 1 фонтана~
+End
+
+#WORD
+Name медовуха~
+Form 3 медовуху~
+End
+
+#WORD
+Name золотая монета~
+Form 3 золотую монету~
+End
+
+#WORD
+Name скамейка~
+BaseLen 7
+Form 3 -у~
+End
+
+#WORD
+Name серебряная монета~
+Form 3 серебряную монету~
+End
+
+#WORD
+Name дворник~
+BaseLen 7
+Form 1 -а~
+Form 2 -у~
+Form 3 -а~
+Form 4 -ом~
+Form 5 -е~
+End
+
+#WORD
+Name золотые монеты~
+Form 3 золотых монет~
+End
+
+#WORD
+Name голем~
+End
+
+#WORD
 Name золотые~
 Form 3 золотых~
 End
@@ -9,24 +79,28 @@ Form 1 краюху хлеба~
 End
 
 #WORD
-Name адамантитовый голем~
-Form 1 адамантитового голема~
+Name бессмертная~
+BaseLen 9
+Form 1 -ой~
+Form 2 -ой~
+Form 3 -ую~
+Form 4 -ой~
+Form 5 -ой~
 End
 
 #WORD
-Name фонтан~
-Base фонтан~
-Form 1 фонтана~
-End
-
-#WORD
-Name медовуха~
-Form 3 медовуху~
+Name бессмертный~
+BaseLen 9
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ого~
+Form 4 -ым~
+Form 5 -ом~
 End
 
 #WORD
 Name вооруженная~
-Base вооруженн~
+BaseLen 9
 Form 1 -ой~
 Form 2 -ой~
 Form 3 -ую~
@@ -41,7 +115,7 @@ End
 
 #WORD
 Name вооруженный~
-Base вооруженн~
+BaseLen 9
 Form 1 -ого~
 Form 2 -ому~
 Form 3 -ого~
@@ -61,7 +135,7 @@ End
 
 #WORD
 Name вода~
-Base вод~
+BaseLen 3
 Form 3 -у~
 End
 
@@ -71,28 +145,23 @@ Form 1 каменного голема~
 End
 
 #WORD
-Name золотая монета~
-Form 3 золотую монету~
-End
-
-#WORD
-Name скамейка~
-Base скамейк~
+Name дворничиха~
+BaseLen 9
+Form 1 -и~
+Form 2 -е~
 Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
 End
 
 #WORD
-Name серебряная монета~
-Form 3 серебряную монету~
-End
-
-#WORD
-Name золотые монеты~
-Form 3 золотых монет~
-End
-
-#WORD
-Name голем~
+Name лекарь~
+BaseLen 5
+Form 1 -я~
+Form 2 -ю~
+Form 3 -я~
+Form 4 -ем~
+Form 6 е~
 End
 
 #WORD

@@ -23,6 +23,7 @@ stand stand female 0
 0 0 medium unknown
 F for AHMV
 F par ABCDEFGHIJK
+M speech 36101 gecho~
 #36101
 target~
 TARGET~
@@ -335,6 +336,7 @@ S
 
 #MOBPROGS
 #36101
+mob gecho Да успокойтесь вы. Он [*] ПРОМАЗАЛ [*].
 ~
 #0
 

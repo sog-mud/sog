@@ -283,14 +283,26 @@ paper~
 treasure CHIMZ AO
 0 0 0 0 0
 110 1 1 P
+#38017
+blessed shield gods~
+Blessed Shield of Gods~
+Bronze shield lies here glowing ...~
+divine~
+armor AIRSTa AJ
+50 50 60 70 0
+70 100 10000 P
+A
+19 10
+A
+18 10
 #38095
-{rБольшой пионерский БАРАБАН{w~
-@eng drum@rus барабан~
-@eng Whats that ?@rus Пионерский барабан~
+{rБольшой пионерский БАРАБАН{w dark glass~
+dark glass~
+Greate Dark Glass Glowing on the path ... Someone left it ...~
 wood~
-armor G J
+treasure GT A
 0 0 0 0 0
-92 1 1 P
+92 1 100000 P
 #38200
 bartable~
 @eng long wooden table@rus длинный деревынный стол~
@@ -733,6 +745,10 @@ O 0 38003 0 38101	* fountain (Coridor)
 O 0 38002 0 38101	* armchair (Coridor)
 O 0 38001 0 38102	* big bed (Bedroom)
 M 0 38001 1 38102 1	* Bargan (Bedroom)
+O 0 38095 0 38102	* dark glass (Bedroom)
+O 0 38017 0 38102	* Blessed Shield of Gods (Bedroom)
+O 0 38017 0 38102	* Blessed Shield of Gods (Bedroom)
+O 0 38010 0 38102	* Heras pie (Bedroom)
 O 0 38002 0 38103	* armchair (Cabinet)
 O 0 38004 0 38103	* table (Cabinet)
 O 0 38200 0 38200	* long wooden table (Budy's)
@@ -744,6 +760,10 @@ S
 #SHOPS
 38001 0 0 0 0 0 1 1 1 23
 0
+
+#OLIMITS
+O 38017 1	* Blessed Shield of Gods
+S
 
 #MOBPROGS
 #38500

@@ -190,12 +190,16 @@ stand stand male 0
 F vul P
 M greet 3019 10~
 #3012
-healer~
-the healer~
-A healer is here, selling spells.
+healer лекарь~
+@eng the healer@rus лекарь~
+@eng A healer is here, selling spells.
+@rus Лекарь (healer) готов вылечить тебя за плату.
 ~
-Although retired from adventuring, the healer still lends a hand.
+@eng Although retired from adventuring, the healer still lends a hand.
 Type 'heal' to see a listing of spells.
+@rus Несмотря на то, что лекарь уже давно на пенсии, он всегда готов подзаработать
+вылечив парочку раненых искателей приключений.
+Напиши "HEAL" чтобы получить список услуг.
 ~
 human~
 ABQVaef DFH 1000 0
@@ -204,6 +208,20 @@ ABQVaef DFH 1000 0
 FHIK ABC D 0
 stand stand male 5000
 0 0 huge unknown
+#3013
+janitor дворничиха~
+@eng the janitor@rus дворничиха~
+@eng A janitor is walking around, cleaning up.
+@rus Дворничиха ходит кругами, подметая мусор.
+~
+~
+human~
+AGH 0 900 0
+1 0 2d6+10 1d1+99 1d5+0 pound
+10 10 10 10
+NU 0 0 C
+stand stand either 10
+0 0 medium unknown
 #3020
 guildmaster master~
 the guildmaster~
@@ -430,11 +448,14 @@ BEFJN AB CD 0
 stand stand male 200
 0 0 medium unknown
 #3060
-cityguard guard~
-the cityguard~
-A cityguard stands here.
+cityguard guard стражник~
+@eng the cityguard@rus стражник~
+@eng A cityguard stands here.
+@rus Стражник (cityguard) стоит тут.
 ~
-A big, strong, helpful, trustworthy guard.
+@eng A big, strong, helpful, trustworthy guard.
+@rus Большой, сильный, заслуживающий доверия, всегда готовый тебе помочь 
+стражник.
 ~
 human~
 ACGT 0 1000 3000
@@ -443,10 +464,12 @@ ACGT 0 1000 3000
 CDEKLTU 0 C 0
 stand stand either 150
 0 0 medium unknown
+V 37001
 #3061
-janitor~
-the janitor~
-A janitor is walking around, cleaning up.
+janitor дворник~
+@eng the janitor@rus дворник~
+@eng A janitor is walking around, cleaning up.
+@rus Дворник (janitor) ходит вокруг тебя, подметая мусор.
 ~
 ~
 human~
@@ -457,6 +480,7 @@ NU 0 0 C
 stand stand either 10
 0 0 medium unknown
 M random 3026 10~
+V 37000
 #3062
 fido dog~
 the beastly fido~
@@ -8004,6 +8028,7 @@ M 3000 spec_cast_mage	* the wizard
 M 3005 spec_thief	* the thief
 M 3009 spec_cast_mage	* the jeweller
 M 3012 spec_cast_adept	* the healer
+M 3013 spec_janitor	* the janitor
 M 3020 spec_cast_mage	* the guildmaster
 M 3021 spec_cast_cleric	* the guildmaster
 M 3024 spec_cast_mage	* the sorcerer
