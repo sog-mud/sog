@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.54 2002-01-03 21:33:39 tatyana Exp $
+ * $Id: fight.c,v 1.202.2.55 2002-01-08 20:03:16 tatyana Exp $
  */
 
 /***************************************************************************
@@ -2408,11 +2408,12 @@ raw_kill(CHAR_DATA *ch, CHAR_DATA *victim)
 	/* RT added to prevent infinite deaths */
 	REMOVE_BIT(PC(victim)->plr_flags, PLR_BOUGHT_PET);
 
-	PC(victim)->condition[COND_THIRST] = 40;
-	PC(victim)->condition[COND_HUNGER] = 40;
-	PC(victim)->condition[COND_FULL] = 40;
-	PC(victim)->condition[COND_BLOODLUST] = 40;
-	PC(victim)->condition[COND_DESIRE] = 40;
+	PC(victim)->condition[COND_THIRST]	= 40;
+	PC(victim)->condition[COND_HUNGER]	= 40;
+	PC(victim)->condition[COND_FULL]	= 40;
+	PC(victim)->condition[COND_BLOODLUST]	= 40;
+	PC(victim)->condition[COND_DESIRE]	= 40;
+	PC(victim)->condition[COND_DRUNK]	= 0;
 
 	if (tattoo != NULL) {
 		obj_to_char(tattoo, victim);
