@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.21 2000-04-10 14:11:33 fjoe Exp $
+ * $Id: handler.c,v 1.182.2.22 2000-04-10 14:16:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -561,7 +561,7 @@ void affect_enchant(OBJ_DATA *obj)
  */
 void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 {
-	OBJ_DATA *wield, *obj2;
+	OBJ_DATA *wield;
 	int mod, i;
 
 	if (paf->where == TO_SKILLS) {

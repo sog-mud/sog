@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.169.2.6 2000-04-10 14:07:38 fjoe Exp $
+ * $Id: db.c,v 1.169.2.7 2000-04-10 14:16:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -50,6 +50,7 @@
 #include <limits.h>
 #include <sys/types.h>
 #include <sys/time.h>
+#include <sys/stat.h>
 
 #if	defined (WIN32)
 #	include <compat/compat.h>
@@ -1977,10 +1978,9 @@ void scan_pfiles()
 			continue;
 
 		/* Remove limited eq from the pfile if it's two weeks old */
-		if (stat(dp->d_name, &s) < 0) {
-			log(LOG_ERROR, "scan_pfiles: unable to stat %s.",
-			    dp->d_name);
-		} else
+		if (stat(dp->d_name, &s) < 0) 
+			log("scan_pfiles: unable to stat %s.", dp->d_name);
+		else
 			should_clear = (current_time - s.st_mtime) > 60*60*24*14;
 
 		for (obj = ch->carrying; obj; obj = obj_next) {
