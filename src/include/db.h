@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.h,v 1.86 2001-08-13 18:23:14 fjoe Exp $
+ * $Id: db.h,v 1.87 2002-03-21 13:56:24 fjoe Exp $
  */
 
 #ifndef _BOOTDB_H_
@@ -83,5 +83,6 @@ extern DBDATA db_socials;
 extern DBDATA db_spec;
 extern DBDATA db_system;
 extern DBDATA db_forms;
+extern DBDATA db_effects;
 
 #endif /* _BOOTDB_H_ */
