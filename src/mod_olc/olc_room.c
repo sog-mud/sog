@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.47 1999-05-15 13:01:31 fjoe Exp $
+ * $Id: olc_room.c,v 1.48 1999-06-10 18:19:06 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -215,8 +215,8 @@ OLC_FUN(roomed_show)
 	output = buf_new(-1);
 	
 	buf_add(output, "Description:\n");
-	mlstr_dump(output, str_empty, pRoom->description);
-	mlstr_dump(output, "Name:       ", pRoom->name);
+	mlstr_dump(output, str_empty, &pRoom->description);
+	mlstr_dump(output, "Name:       ", &pRoom->name);
 	buf_printf(output, "Area:       [%5d] %s\n",
 		   pRoom->area->vnum, pRoom->area->name);
 	buf_printf(output, "Vnum:       [%5d]\nSector:     [%s]\n",
@@ -320,7 +320,7 @@ OLC_FUN(roomed_show)
 			if (!IS_NULLSTR(pexit->keyword))
 				buf_printf(output, "Kwds: [%s]\n",
 					   pexit->keyword);
-			mlstr_dump(output, str_empty, pexit->description);
+			mlstr_dump(output, str_empty, &pexit->description);
 		}
 	}
 
@@ -348,7 +348,7 @@ OLC_FUN(roomed_list)
 		if ((pRoomIndex = get_room_index(vnum))) {
 			found = TRUE;
 			buf_printf(buffer, "[%5d] %-17.16s",
-				vnum, mlstr_mval(pRoomIndex->name));
+				vnum, mlstr_mval(&pRoomIndex->name));
 			if (++col % 3 == 0)
 				buf_add(buffer, "\n");
 		}
@@ -491,7 +491,7 @@ OLC_FUN(roomed_mreset)
 
 	char_printf(ch, "%s (%d) has been loaded and added to resets.\n"
 		"There will be a maximum of %d loaded to this room.\n",
-		mlstr_mval(pMobIndex->short_descr),
+		mlstr_mval(&pMobIndex->short_descr),
 		pMobIndex->vnum,
 		pReset->arg2);
 	act("$n has created $N!", ch, NULL, newmob, TO_ROOM);
@@ -624,7 +624,7 @@ OLC_FUN(roomed_oreset)
 		obj_to_room(newobj, pRoom);
 
 		char_printf(ch, "%s (%d) has been loaded and added to resets.\n",
-			mlstr_mval(pObjIndex->short_descr),
+			mlstr_mval(&pObjIndex->short_descr),
 			pObjIndex->vnum);
 	}
 	else
@@ -648,9 +648,9 @@ OLC_FUN(roomed_oreset)
 
 		char_printf(ch, "%s (%d) has been loaded into "
 			"%s (%d) and added to resets.\n",
-			mlstr_mval(newobj->short_descr),
+			mlstr_mval(&newobj->short_descr),
 			newobj->pIndexData->vnum,
-			mlstr_mval(to_obj->short_descr),
+			mlstr_mval(&to_obj->short_descr),
 			to_obj->pIndexData->vnum);
 	}
 	else
@@ -672,7 +672,7 @@ OLC_FUN(roomed_oreset)
 		 */
 		if (!IS_SET(pObjIndex->wear_flags, wear_bit(wear_loc))) {
 			char_printf(ch, "%s (%d) has wear flags: [%s]\n",
-				    mlstr_mval(pObjIndex->short_descr),
+				    mlstr_mval(&pObjIndex->short_descr),
 				    pObjIndex->vnum,
 				    flag_string(wear_flags,
 						pObjIndex->wear_flags));
@@ -730,10 +730,10 @@ OLC_FUN(roomed_oreset)
 
 		char_printf(ch, "%s (%d) has been loaded "
 			"%s of %s (%d) and added to resets.\n",
-			mlstr_mval(pObjIndex->short_descr),
+			mlstr_mval(&pObjIndex->short_descr),
 			pObjIndex->vnum,
 			flag_string(wear_loc_strings, pReset->arg3),
-			mlstr_mval(to_mob->short_descr),
+			mlstr_mval(&to_mob->short_descr),
 			to_mob->pIndexData->vnum);
 	}
 	else	/* Display Syntax */
@@ -821,11 +821,8 @@ OLC_FUN(roomed_clone)
 		return FALSE;
 	}
 
-	mlstr_free(room->name);
-	room->name = mlstr_dup(proto->name);
-
-	mlstr_free(room->description);
-	room->description = mlstr_dup(proto->description);
+	mlstr_cpy(&room->name, &proto->name);
+	mlstr_cpy(&room->description, &proto->description);
 
 	if (fAll) {
 		ed_free(room->ed);
@@ -1159,9 +1156,9 @@ void display_resets(CHAR_DATA *ch)
 
             pMob = pMobIndex;
             buf_printf(buf, "M[%5d] %-13.13s in room             R[%5d] %2d-%2d %-15.15s\n",
-                       pReset->arg1, mlstr_mval(pMob->short_descr),
+                       pReset->arg1, mlstr_mval(&pMob->short_descr),
 			pReset->arg3, pReset->arg2, pReset->arg4,
-			mlstr_mval(pRoomIndex->name));
+			mlstr_mval(&pRoomIndex->name));
 
 	    /*
 	     * Check for pet shop.
@@ -1194,8 +1191,8 @@ void display_resets(CHAR_DATA *ch)
 
             buf_printf(buf, "O[%5d] %-13.13s in room             "
                           "R[%5d]       %-15.15s\n",
-                          pReset->arg1, mlstr_mval(pObj->short_descr),
-                          pReset->arg3, mlstr_mval(pRoomIndex->name));
+                          pReset->arg1, mlstr_mval(&pObj->short_descr),
+                          pReset->arg3, mlstr_mval(&pRoomIndex->name));
 
 	    break;
 
@@ -1217,11 +1214,11 @@ void display_resets(CHAR_DATA *ch)
 	    buf_printf(buf,
 		"O[%5d] %-13.13s inside              O[%5d] %2d-%2d %-15.15s\n",
 		pReset->arg1,
-		mlstr_mval(pObj->short_descr),
+		mlstr_mval(&pObj->short_descr),
 		pReset->arg3,
 		pReset->arg2,
 		pReset->arg4,
-		mlstr_mval(pObjToIndex->short_descr));
+		mlstr_mval(&pObjToIndex->short_descr));
 
 	    break;
 
@@ -1244,20 +1241,20 @@ void display_resets(CHAR_DATA *ch)
 	        buf_printf(buf,
 		"O[%5d] %-13.13s in the inventory of S[%5d]       %-15.15s\n",
 		pReset->arg1,
-		mlstr_mval(pObj->short_descr),                           
+		mlstr_mval(&pObj->short_descr),                           
 		pMob->vnum,
-		mlstr_mval(pMob->short_descr));
+		mlstr_mval(&pMob->short_descr));
 	    }
 	    else
 	    buf_printf(buf,
 		"O[%5d] %-13.13s %-19.19s M[%5d]       %-15.15s\n",
 		pReset->arg1,
-		mlstr_mval(pObj->short_descr),
+		mlstr_mval(&pObj->short_descr),
 		(pReset->command == 'G') ?
 		    flag_string(wear_loc_strings, WEAR_NONE)
 		  : flag_string(wear_loc_strings, pReset->arg3),
 		  pMob->vnum,
-		  mlstr_mval(pMob->short_descr));
+		  mlstr_mval(&pMob->short_descr));
 
 	    break;
 
@@ -1271,7 +1268,7 @@ void display_resets(CHAR_DATA *ch)
 	    buf_printf(buf, "R[%5d] %s door of %-19.19s reset to %s\n",
 		pReset->arg1,
 		dir_name[pReset->arg2],
-		mlstr_mval(pRoomIndex->name),
+		mlstr_mval(&pRoomIndex->name),
 		flag_string(door_resets, pReset->arg3));
 
 	    break;
@@ -1286,7 +1283,7 @@ void display_resets(CHAR_DATA *ch)
 	    }
 
 	    buf_printf(buf, "R[%5d] Exits are randomized in %s\n",
-		pReset->arg1, mlstr_mval(pRoomIndex->name));
+		pReset->arg1, mlstr_mval(&pRoomIndex->name));
 
 	    break;
 	}

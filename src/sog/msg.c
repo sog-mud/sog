@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: msg.c,v 1.19 1999-05-23 08:44:34 fjoe Exp $
+ * $Id: msg.c,v 1.20 1999-06-10 18:19:05 fjoe Exp $
  */
 
 #if	defined (LINUX) || defined (WIN32)
@@ -53,7 +53,7 @@ msg_t *msg_add(msg_t *m)
 {
 	msg_t *m2;
 	varr *v;
-	const char *name = mlstr_mval(m->ml);
+	const char *name = mlstr_mval(&m->ml);
 
 	if (IS_NULLSTR(name))
 		return NULL;
@@ -97,11 +97,11 @@ msg_t msg_del(const char *name)
 
 	mp = varr_bsearch(v, name, cmpmsgname);
 	if (mp == NULL) {
-		m.ml = NULL;
+		mlstr_init(&m.ml, NULL);
 		return m;
 	}
 	m = *mp;
-	mp->ml = NULL;
+	mlstr_init(&mp->ml, NULL);
 	varr_qsort(v, cmpmsg);
 	v->nused--;
 	return m;
@@ -112,19 +112,19 @@ const char *GETMSG(const char *msg, int lang)
 	msg_t *m = msg_lookup(msg);
 	if (m == NULL)
 		return msg;
-	return mlstr_val(m->ml, lang);
+	return mlstr_val(&m->ml, lang);
 }
 
 /* reverse order (otherwise msg_del will not work) */
 static int cmpmsgname(const void* p1, const void* p2)
 {
-	return -strcmp((char*)p1, mlstr_mval(((msg_t*) p2)->ml));
+	return -strcmp((char*)p1, mlstr_mval(&((msg_t*) p2)->ml));
 }
 
 /* reverse order (otherwise msg_del will not work) */
 static int cmpmsg(const void* p1, const void* p2)
 {
-	return -strcmp(mlstr_mval(((msg_t*) p1)->ml),
-		       mlstr_mval(((msg_t*) p2)->ml));
+	return -strcmp(mlstr_mval(&((msg_t*) p1)->ml),
+		       mlstr_mval(&((msg_t*) p2)->ml));
 }
 

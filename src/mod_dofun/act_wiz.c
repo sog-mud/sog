@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.153 1999-06-10 14:33:23 fjoe Exp $
+ * $Id: act_wiz.c,v 1.154 1999-06-10 18:18:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -110,7 +110,7 @@ void do_objlist(CHAR_DATA *ch, const char *argument)
 
 		buf_clear(buf);
 		buf_printf(buf, "\n#Obj: %s (Vnum : %d) \n",
-			   mlstr_mval(obj->short_descr),
+			   mlstr_mval(&obj->short_descr),
 			   obj->pIndexData->vnum);
 		format_obj(buf, obj);
 		if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED))
@@ -145,7 +145,7 @@ void do_limited(CHAR_DATA *ch, const char *argument)
 	}
 	nMatch = 0;
 	      char_printf(ch, "%-35s [%5d]  Limit: %3d  Current: %3d\n", 
-			   mlstr_mval(obj_index->short_descr), 
+			   mlstr_mval(&obj_index->short_descr), 
 			   obj_index->vnum,
 		           obj_index->limit, 
 			   obj_index->count);
@@ -157,11 +157,11 @@ void do_limited(CHAR_DATA *ch, const char *argument)
 			char_printf(ch, "Carried by %-30s\n", obj->carried_by->name);
 		      else if (obj->in_room != NULL) 
 			char_printf(ch, "At %-20s [%d]\n",
-				mlstr_cval(obj->in_room->name, ch),
+				mlstr_cval(&obj->in_room->name, ch),
 				obj->in_room->vnum);
 		      else if (obj->in_obj != NULL) 
 			char_printf(ch, "In %-20s [%d] \n",
-				mlstr_mval(obj->in_obj->short_descr),
+				mlstr_mval(&obj->in_obj->short_descr),
 				obj->in_obj->pIndexData->vnum);
 		    }
 		    char_printf(ch, "  %d found in game. %d should be in pFiles.\n", 
@@ -177,7 +177,7 @@ void do_limited(CHAR_DATA *ch, const char *argument)
 		if (obj_index->limit != -1)  {
 		  lCount++;
 	      char_printf(ch, "%-37s [%5d]  Limit: %3d  Current: %3d\n", 
-			   mlstr_mval(obj_index->short_descr), 
+			   mlstr_mval(&obj_index->short_descr), 
 			   obj_index->vnum,
 		           obj_index->limit, 
 			   obj_index->count);
@@ -1023,7 +1023,7 @@ void do_rstat(CHAR_DATA *ch, const char *argument)
 		buf_printf(output, "Room Flags %s\n", 
 			   flag_string(room_flags, ch->in_room->room_flags));
 
-	mlstr_dump(output, "Name: ", location->name);
+	mlstr_dump(output, "Name: ", &location->name);
 	buf_printf(output, "Area: '%s'\nOwner: '%s'\n",
 		   location->area->name,
 		   location->owner);
@@ -1039,7 +1039,7 @@ void do_rstat(CHAR_DATA *ch, const char *argument)
 	buf_printf(output, "Room flags: [%s].\n",
 		   flag_string(room_flags, location->room_flags));
 	buf_add(output, "Description:\n");
-	mlstr_dump(output, str_empty, location->description);
+	mlstr_dump(output, str_empty, &location->description);
 
 	if (location->ed != NULL) {
 		ED_DATA *ed;
@@ -1082,7 +1082,7 @@ void do_rstat(CHAR_DATA *ch, const char *argument)
 		    		pexit->exit_info,
 		    		pexit->keyword);
 			mlstr_dump(output, "Description: ",
-				     pexit->description);
+				   &pexit->description);
 		}
 	}
 	buf_add(output, "Tracks:\n");
@@ -1114,15 +1114,15 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 
 	output = buf_new(-1);
 	buf_printf(output, "Name(s): %s\n", obj->name);
-	if (!mlstr_null(obj->owner))
-		buf_printf(output, "Owner: [%s]\n", mlstr_mval(obj->owner));
+	if (!mlstr_null(&obj->owner))
+		buf_printf(output, "Owner: [%s]\n", mlstr_mval(&obj->owner));
 	buf_printf(output, "Vnum: %d  Type: %s  Resets: %d\n",
 		obj->pIndexData->vnum,
 		flag_string(item_types, obj->pIndexData->item_type),
 		obj->pIndexData->reset_num);
 
-	mlstr_dump(output, "Short description: ", obj->short_descr);
-	mlstr_dump(output, "Long description: ", obj->description);
+	mlstr_dump(output, "Short description: ", &obj->short_descr);
+	mlstr_dump(output, "Long description: ", &obj->description);
 
 	buf_printf(output, "Wear bits: %s\n",
 		   flag_string(wear_flags, obj->wear_flags));
@@ -1140,15 +1140,15 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 	buf_printf(output,
 		"In room: %d  In object: %s  Carried by: %s  Wear_loc: %d\n",
 		obj->in_room    == NULL    ?        0 : obj->in_room->vnum,
-		obj->in_obj     == NULL    ? "(none)" : mlstr_mval(obj->in_obj->short_descr),
+		obj->in_obj     == NULL    ? "(none)" : mlstr_mval(&obj->in_obj->short_descr),
 		obj->carried_by == NULL    ? "(none)" : 
 		    can_see(ch,obj->carried_by) ? obj->carried_by->name
 					 	: "someone",
 		obj->wear_loc);
  	buf_printf(output,
 		"Next: %s   Next_content: %s\n",
-		obj->next	== NULL	   ? "(none)" : mlstr_mval(obj->next->short_descr),
-		obj->next_content == NULL  ? "(none)" : mlstr_mval(obj->next_content->short_descr));
+		obj->next	== NULL	   ? "(none)" : mlstr_mval(&obj->next->short_descr),
+		obj->next_content == NULL  ? "(none)" : mlstr_mval(&obj->next_content->short_descr));
 	buf_printf(output, "Values: %d %d %d %d %d\n",
 		obj->value[0], obj->value[1], obj->value[2], obj->value[3],
 		obj->value[4]);
@@ -1424,9 +1424,9 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 		buf_printf(output, "Security: %d.\n",
 			   victim->pcdata->security);
 
-	mlstr_dump(output, "Short description: ", victim->short_descr);
+	mlstr_dump(output, "Short description: ", &victim->short_descr);
 	if (IS_NPC(victim))
-		mlstr_dump(output, "Long description: ", victim->long_descr);
+		mlstr_dump(output, "Long description: ", &victim->long_descr);
 
 	if (IS_NPC(victim) && victim->spec_fun != 0)
 		buf_printf(output, "Mobile has special procedure %s.\n",
@@ -1621,7 +1621,7 @@ void do_mfind(CHAR_DATA *ch, const char *argument)
 		    if (is_name(argument, pMobIndex->name)) {
 			found = TRUE;
 			char_printf(ch, "[%5d] %s\n", pMobIndex->vnum,
-				    mlstr_mval(pMobIndex->short_descr));
+				    mlstr_mval(&pMobIndex->short_descr));
 		    }
 		}
 
@@ -1659,7 +1659,7 @@ void do_ofind(CHAR_DATA *ch, const char *argument)
 		    if (is_name(argument, pObjIndex->name)) {
 			found = TRUE;
 			char_printf(ch, "[%5d] %s\n", pObjIndex->vnum,
-				    mlstr_mval(pObjIndex->short_descr));
+				    mlstr_mval(&pObjIndex->short_descr));
 		    }
 		}
 
@@ -1698,18 +1698,18 @@ void do_owhere(CHAR_DATA *ch, const char *argument)
 			buf_printf(buffer,
 				   "%3d) %s is carried by %s [Room %d]\n",
 				number,
-				mlstr_mval(obj->short_descr),
+				mlstr_mval(&obj->short_descr),
 				fix_short(PERS(in_obj->carried_by, ch)),
 				in_obj->carried_by->in_room->vnum);
 		else if (in_obj->in_room != NULL
 		     &&  can_see_room(ch, in_obj->in_room))
 	        	buf_printf(buffer, "%3d) %s is in %s [Room %d]\n",
-	        		number, mlstr_mval(obj->short_descr),
-				mlstr_cval(in_obj->in_room->name, ch), 
+	        		number, mlstr_mval(&obj->short_descr),
+				mlstr_cval(&in_obj->in_room->name, ch), 
 				in_obj->in_room->vnum);
 		else
 			buf_printf(buffer, "%3d) %s is somewhere\n",number,
-				mlstr_mval(obj->short_descr));
+				mlstr_mval(&obj->short_descr));
 	
 	    if (number >= max_found)
 	        break;
@@ -1746,13 +1746,13 @@ void do_mwhere(CHAR_DATA *ch, const char *argument)
 			if (d->original != NULL)
 			    buf_printf(buffer,"%3d) %s (in the body of %s) is in %s [%d]\n",
 				count, d->original->name,
-				mlstr_mval(victim->short_descr),
-				mlstr_mval(victim->in_room->name),
+				mlstr_mval(&victim->short_descr),
+				mlstr_mval(&victim->in_room->name),
 				victim->in_room->vnum);
 			else
 			    buf_printf(buffer,"%3d) %s is in %s [%d]\n",
 				count, victim->name,
-				mlstr_mval(victim->in_room->name),
+				mlstr_mval(&victim->in_room->name),
 				victim->in_room->vnum);
 		    }
 		}
@@ -1773,9 +1773,9 @@ void do_mwhere(CHAR_DATA *ch, const char *argument)
 			buf_printf(buffer, "%3d) [%5d] %-28s [%5d] %s\n",
 			  count, IS_NPC(victim) ? victim->pIndexData->vnum : 0,
 			  IS_NPC(victim) ?
-				 mlstr_mval(victim->short_descr) : victim->name,
+			      mlstr_mval(&victim->short_descr) : victim->name,
 			  victim->in_room->vnum,
-			  mlstr_mval(victim->in_room->name));
+			  mlstr_mval(&victim->in_room->name));
 		}
 
 	if (buffer) {
@@ -2968,8 +2968,9 @@ void do_oset(CHAR_DATA *ch, const char *argument)
 	}
 		
 	if (!str_prefix(arg2, "owner")) {
-		mlstr_free(obj->owner);
-		obj->owner = mlstr_new(arg3);
+		mlstr_destroy(&obj->owner);
+		mlstr_init(&obj->owner, arg3);
+		return;
 	}
 
 	/*
@@ -4234,10 +4235,9 @@ void do_rename(CHAR_DATA* ch, const char *argument)
 
 		/* change object owners */
 		for (obj = object_list; obj; obj = obj->next)
-			if (obj->owner
-			&&  !str_cmp(mlstr_mval(obj->owner), old_name)) {
-				mlstr_free(obj->owner);
-				obj->owner = mlstr_new(new_name);
+			if (!str_cmp(mlstr_mval(&obj->owner), old_name)) {
+				mlstr_destroy(&obj->owner);
+				mlstr_init(&obj->owner, new_name);
 			}
 
 		dunlink(PLAYER_PATH, capitalize(old_name)); 
@@ -4247,8 +4247,8 @@ void do_rename(CHAR_DATA* ch, const char *argument)
  */
 	free_string(victim->name);
 	victim->name = str_dup(new_name);
-	mlstr_free(victim->short_descr);
-	victim->short_descr = mlstr_new(new_name);
+	mlstr_destroy(&victim->short_descr);
+	mlstr_init(&victim->short_descr, new_name);
 	save_char_obj(victim, 0);
 		
 	char_puts("Character renamed.\n", ch);
@@ -4328,7 +4328,7 @@ void do_affrooms(CHAR_DATA *ch, const char *argument)
 		room_next = room->aff_next;
 		count++;
 		char_printf(ch, "%d) [Vnum : %5d] %s\n",
-			count, room->vnum , mlstr_cval(room->name, ch));
+			count, room->vnum , mlstr_cval(&room->name, ch));
 	}
 }
 
@@ -4429,7 +4429,7 @@ void reboot_mud(void)
 DO_FUN(do_msgstat)
 {
 	varr *v;
-	mlstring **mlp;
+	msg_t *mp;
 	int i;
 	BUFFER *output;
 
@@ -4457,8 +4457,8 @@ DO_FUN(do_msgstat)
 	output = buf_new(-1);
 	buf_printf(output, "Dumping msgs with hash #%d\n", i);
 	for (i = 0; i < v->nused; i++) {
-		mlp = VARR_GET(v, i);
-		mlstr_dump(output, str_empty, *mlp);
+		mp = VARR_GET(v, i);
+		mlstr_dump(output, str_empty, &mp->ml);
 		buf_add(output, "\n");
 	}
 	page_to_char(buf_string(output), ch);

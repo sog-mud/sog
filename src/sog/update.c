@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.138 1999-06-10 14:33:32 fjoe Exp $
+ * $Id: update.c,v 1.139 1999-06-10 18:19:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1523,7 +1523,7 @@ save_corpse_contents(OBJ_DATA *corpse)
 				break;
 	} else {
 		log("save_corpse_contents: null altar (owner: %s)",
-			   mlstr_mval(corpse->owner));
+			   mlstr_mval(&corpse->owner));
 	}
 
 /* put contents into altar */

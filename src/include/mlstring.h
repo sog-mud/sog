@@ -23,19 +23,36 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.h,v 1.16 1999-06-03 12:13:36 fjoe Exp $
+ * $Id: mlstring.h,v 1.17 1999-06-10 18:19:00 fjoe Exp $
  */
 
 #ifndef _MLSTRING_H_
 #define _MLSTRING_H_
 
-mlstring *	mlstr_new	(const char *mval);
-mlstring * 	mlstr_fread	(FILE *fp);
+/*
+ * multi-language string
+ * if nlang == 0 the value is stored in u.str
+ * otherwise the value is stored in array of strings u.lstr
+ * the size of array is equal to 'nlang'
+ * 'ref' = number of references (COW semantics)
+ */
+typedef struct mlstring {
+	union {
+		const char* str;
+		const char** lstr;
+	} u;
+	int nlang;
+} mlstring;
+
+void		mlstr_init	(mlstring *ml, const char *mval);
+void		mlstr_destroy	(mlstring *ml);
+void		mlstr_clear	(mlstring *ml);
+
+void	 	mlstr_fread	(FILE *fp, mlstring *ml);
 void		mlstr_fwrite	(FILE *fp, const char* name,
 				 const mlstring *ml);
-void		mlstr_free	(mlstring *ml);
-mlstring *	mlstr_dup	(mlstring *ml);
-mlstring *	mlstr_printf	(mlstring *ml, ...);
+void		mlstr_cpy	(mlstring *dst, const mlstring *src);
+void		mlstr_printf	(mlstring *dst, const mlstring *format, ...);
 
 int		mlstr_nlang	(const mlstring *ml);
 const char *	mlstr_val	(const mlstring *ml, int lang);
@@ -44,16 +61,16 @@ const char *	mlstr_val	(const mlstring *ml, int lang);
 bool		mlstr_null	(const mlstring *ml);
 int		mlstr_cmp	(const mlstring *ml1, const mlstring *ml2);
 
-const char**	mlstr_convert	(mlstring **mlp, int newlang);
+const char**	mlstr_convert	(mlstring *mlp, int newlang);
 
-bool	mlstr_append	(CHAR_DATA *ch, mlstring **mlp, const char *arg);
-bool	mlstr_edit	(mlstring **mlp, const char *arg);
-bool	mlstr_editnl	(mlstring **mlp, const char *arg);
+bool	mlstr_append	(CHAR_DATA *ch, mlstring *mlp, const char *arg);
+bool	mlstr_edit	(mlstring *mlp, const char *arg);
+bool	mlstr_editnl	(mlstring *mlp, const char *arg);
 
 void	mlstr_dump	(BUFFER *buf, const char *name, const mlstring *ml);
 
-void	mlstr_foreach	(mlstring **mlp, void *arg,
+void	mlstr_foreach	(mlstring *mlp, void *arg,
 			 void (*cb)(int lang, const char **p, void *arg));
-bool	mlstr_addnl	(mlstring **mlp);
+bool	mlstr_addnl	(mlstring *mlp);
 
 #endif

@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.59 1999-06-10 11:47:30 fjoe Exp $
+ * $Id: obj_prog.c,v 1.60 1999-06-10 18:19:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1625,7 +1625,7 @@ int wear_prog_fire_shield(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	AFFECT_DATA af;
 
-	if (strstr(mlstr_mval(obj->ed->description), "cold") != NULL)  {
+	if (strstr(mlstr_mval(&obj->ed->description), "cold") != NULL)  {
 	if (!is_affected(ch, gsn_fire_shield))
 	{
 	  char_puts("As you wear shield, you become resistive to cold.\n", ch);
@@ -1663,7 +1663,7 @@ int remove_prog_fire_shield(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	if (is_affected(ch, gsn_fire_shield)) {
 		affect_strip(ch, gsn_fire_shield);
-		if (strstr(mlstr_mval(obj->ed->description), "cold") != NULL)  
+		if (strstr(mlstr_mval(&obj->ed->description), "cold") != NULL)  
 			char_puts("You have become normal to cold attacks.\n", ch);
 		else
 			char_puts("You have become normal to fire attacks.\n", ch);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: help.c,v 1.10 1999-02-17 07:53:21 fjoe Exp $
+ * $Id: help.c,v 1.11 1999-06-10 18:18:57 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -134,7 +134,7 @@ void help_show(CHAR_DATA *ch, BUFFER *output, const char *keyword)
 			buf_printf(output, "{C%s{x\n\n",
 				   pFirst->keyword);
 
-		text = mlstr_cval(pFirst->text, ch);
+		text = mlstr_cval(&pFirst->text, ch);
 
 		/*
 		 * Strip leading '.' to allow initial blanks.
@@ -188,7 +188,7 @@ void help_free(HELP_DATA *pHelp)
 
 /* free memory */
 	free_string(pHelp->keyword);
-	mlstr_free(pHelp->text);
+	mlstr_destroy(&pHelp->text);
 	free(pHelp);
 	top_help--;
 }

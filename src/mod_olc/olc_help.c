@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_help.c,v 1.33 1999-03-11 09:04:34 fjoe Exp $
+ * $Id: olc_help.c,v 1.34 1999-06-10 18:19:05 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -99,7 +99,6 @@ OLC_FUN(helped_create)
 	pHelp		= help_new();
 	pHelp->level	= 0;
 	pHelp->keyword	= str_dup(argument);
-	pHelp->text	= NULL;
 	help_add(pArea, pHelp);
 
 	ch->desc->pEdit	= (void*) pHelp;
@@ -179,7 +178,7 @@ OLC_FUN(helped_show)
 		   "Level:    [%d]\n"
 		   "Keywords: [%s]\n",
 		   pHelp->level, pHelp->keyword);
-	mlstr_dump(output, "Text:     ", pHelp->text);
+	mlstr_dump(output, "Text:     ", &pHelp->text);
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
 

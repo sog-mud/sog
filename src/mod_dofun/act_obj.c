@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.148 1999-06-10 14:33:22 fjoe Exp $
+ * $Id: act_obj.c,v 1.149 1999-06-10 18:18:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2500,7 +2500,7 @@ void obj_to_keeper(OBJ_DATA * obj, CHAR_DATA * ch)
 		t_obj_next = t_obj->next_content;
 
 		if (obj->pIndexData == t_obj->pIndexData
-		&& !mlstr_cmp(obj->short_descr, t_obj->short_descr)) {
+		&&  !mlstr_cmp(&obj->short_descr, &t_obj->short_descr)) {
 			if (IS_OBJ_STAT(t_obj, ITEM_INVENTORY)) {
 				extract_obj(obj, 0);
 				return;
@@ -2545,7 +2545,7 @@ OBJ_DATA * get_obj_keeper(CHAR_DATA * ch, CHAR_DATA * keeper, const char *argume
 			/* skip other objects of the same name */
 			while (obj->next_content != NULL
 			  && obj->pIndexData == obj->next_content->pIndexData
-			  && !mlstr_cmp(obj->short_descr, obj->next_content->short_descr))
+			  && !mlstr_cmp(&obj->short_descr, &obj->next_content->short_descr))
 				obj = obj->next_content;
 		}
 	}
@@ -2580,8 +2580,8 @@ uint get_cost(CHAR_DATA * keeper, OBJ_DATA * obj, bool fBuy)
 		if (!IS_OBJ_STAT(obj, ITEM_SELL_EXTRACT))
 			for (obj2 = keeper->carrying; obj2; obj2 = obj2->next_content) {
 				if (obj->pIndexData == obj2->pIndexData
-				&&  !mlstr_cmp(obj->short_descr,
-					       obj2->short_descr))
+				&&  !mlstr_cmp(&obj->short_descr,
+					       &obj2->short_descr))
 					return 0;
 /*
 	 	    if (IS_OBJ_STAT(obj2,ITEM_INVENTORY))
@@ -2696,7 +2696,8 @@ void do_buy_pet(CHAR_DATA * ch, const char *argument)
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] != '\0')
 		pet->name = str_printf(pet->pIndexData->name, arg);
-	pet->description = mlstr_printf(pet->pIndexData->description, ch->name);
+	mlstr_printf(&pet->description,
+		     &pet->pIndexData->description, ch->name);
 
 	char_to_room(pet, ch->in_room);
 	if (IS_EXTRACTED(pet))
@@ -2747,7 +2748,7 @@ void do_buy(CHAR_DATA * ch, const char *argument)
 		for (t_obj = obj->next_content; count < number && t_obj != NULL;
 		     t_obj = t_obj->next_content) {
 			if (t_obj->pIndexData == obj->pIndexData
-			&& !mlstr_cmp(t_obj->short_descr, obj->short_descr))
+			&& !mlstr_cmp(&t_obj->short_descr, &obj->short_descr))
 				count++;
 			else
 				break;
@@ -2852,7 +2853,7 @@ void do_list(CHAR_DATA * ch, const char *argument)
 				char_printf(ch, "[%2d] %8d - %s\n",
 					    pet->level,
 					    10 * pet->level * pet->level,
-					    format_short(pet->short_descr,
+					    format_short(&pet->short_descr,
 							 pet->name, ch));
 			}
 		}
@@ -2883,21 +2884,21 @@ void do_list(CHAR_DATA * ch, const char *argument)
 				if (IS_OBJ_STAT(obj, ITEM_INVENTORY))
 					char_printf(ch, "[%2d %5d -- ] %s\n",
 						obj->level, cost,
-						format_short(obj->short_descr,
+						format_short(&obj->short_descr,
 							     obj->name, ch));
 				else {
 					count = 1;
 
 					while (obj->next_content != NULL
 					       && obj->pIndexData == obj->next_content->pIndexData
-					       && !mlstr_cmp(obj->short_descr,
-					   obj->next_content->short_descr)) {
+					       && !mlstr_cmp(&obj->short_descr,
+					   &obj->next_content->short_descr)) {
 						obj = obj->next_content;
 						count++;
 					}
 					char_printf(ch, "[%2d %5d %2d ] %s\n",
 						obj->level, cost, count,
-						format_short(obj->short_descr,
+						format_short(&obj->short_descr,
 							     obj->name, ch));
 				}
 			}
@@ -3417,7 +3418,7 @@ void do_butcher(CHAR_DATA * ch, const char *argument)
 
 		for (i = 0; i < numsteaks; i++) {
 			steak = create_obj_of(get_obj_index(OBJ_VNUM_STEAK),
-					      obj->short_descr);
+					      &obj->short_descr);
 			obj_to_room(steak, ch->in_room);
 		}
 	} else {
@@ -3499,7 +3500,7 @@ void do_crucify(CHAR_DATA *ch, const char *argument)
 	}
 	else {
 		cross = create_obj_of(get_obj_index(OBJ_VNUM_CROSS),
-				      obj->owner);
+				      &obj->owner);
 		obj_to_room(cross, ch->in_room);
 		act("With a crunch of bone and splash of blood you nail "
 		    "$p to a sacrificial cross.", ch, obj, NULL, TO_CHAR);

@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.39 1999-04-16 15:52:24 fjoe Exp $
+ * $Id: olc.h,v 1.40 1999-06-10 18:19:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -124,17 +124,17 @@ DECLARE_OLC_FUN(olced_dummy);
 bool olced_number	(CHAR_DATA *ch, const char *argument,
 			 olc_cmd_t *cmd, int*);
 bool olced_name		(CHAR_DATA *ch, const char *argument,
-			 olc_cmd_t *cmd, const char**pStr);
+			 olc_cmd_t *cmd, const char **pStr);
 bool olced_str		(CHAR_DATA *ch, const char *argument,
-			 olc_cmd_t *cmd, const char**pStr);
+			 olc_cmd_t *cmd, const char **pStr);
 bool olced_str_text	(CHAR_DATA *ch, const char *argument,
 			 olc_cmd_t *cmd, const char **pStr);
 bool olced_mlstr	(CHAR_DATA *ch, const char *argument,
-			 olc_cmd_t *cmd, mlstring**);
+			 olc_cmd_t *cmd, mlstring*);
 bool olced_mlstrnl	(CHAR_DATA *ch, const char *argument,
-			 olc_cmd_t *cmd, mlstring**);
+			 olc_cmd_t *cmd, mlstring*);
 bool olced_mlstr_text	(CHAR_DATA *ch, const char *argument,
-			 olc_cmd_t *cmd, mlstring**);
+			 olc_cmd_t *cmd, mlstring*);
 bool olced_exd		(CHAR_DATA *ch, const char* argument,
 			 olc_cmd_t *cmd, ED_DATA**);
 bool olced_flag64	(CHAR_DATA *ch, const char* argument,

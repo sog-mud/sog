@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.183 1999-06-10 14:33:32 fjoe Exp $
+ * $Id: comm.c,v 1.184 1999-06-10 18:19:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -803,7 +803,7 @@ void init_descriptor(int control)
 	 */
 	if ((greeting = help_lookup(1, "GREETING"))) {
 		char buf[MAX_STRING_LENGTH];
-		parse_colors(mlstr_mval(greeting->text), buf, sizeof(buf),
+		parse_colors(mlstr_mval(&greeting->text), buf, sizeof(buf),
 			     FORMAT_DUMB);
 		write_to_buffer(dnew, buf + (buf[0] == '.'), 0);
 	}
@@ -1362,7 +1362,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 		case 'r':
 			if (ch->in_room)
 				i = (check_blind_raw(ch) && !room_is_dark(ch)) ?
-				     mlstr_cval(ch->in_room->name, ch) :
+				     mlstr_cval(&ch->in_room->name, ch) :
 				     "darkness";
 			else
 				i = "";

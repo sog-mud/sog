@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_msg.c,v 1.1 1999-05-21 22:54:26 fjoe Exp $
+ * $Id: db_msg.c,v 1.2 1999-06-10 18:19:05 fjoe Exp $
  */
 
 #include <limits.h>
@@ -33,8 +33,8 @@
 #include "typedef.h"
 #include "const.h"
 #include "varr.h"
-#include "msg.h"
 #include "mlstring.h"
+#include "msg.h"
 #include "db.h"
 #include "str.h"
 #include "tables.h"
@@ -63,7 +63,10 @@ DBINIT_FUN(init_msgdb)
 
 DBLOAD_FUN(load_msg)
 {
-	msg_t m = { NULL, 0 };
+	msg_t m;
+
+	mlstr_init(&m.ml, NULL);
+	m.gender = 0;
 
 	for (;;) {
 		char *word = feof(fp) ? "End" : fread_word(fp);
@@ -72,7 +75,7 @@ DBLOAD_FUN(load_msg)
 		switch (UPPER(word[0])) {
 		case 'E':
 			if (!str_cmp(word, "End")) {
-				if (mlstr_null(m.ml)) {
+				if (mlstr_null(&m.ml)) {
 					db_error("load_msg",
 						 "msg text not defined");
 				}

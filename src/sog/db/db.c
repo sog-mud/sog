@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.152 1999-06-10 14:33:33 fjoe Exp $
+ * $Id: db.c,v 1.153 1999-06-10 18:19:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -512,7 +512,7 @@ void fix_exits(void)
 void print_resetmsg(AREA_DATA *pArea)
 {
 	DESCRIPTOR_DATA *d;
-	bool is_empty = mlstr_null(pArea->resetmsg);
+	bool is_empty = mlstr_null(&pArea->resetmsg);
 	
 	for (d = descriptor_list; d != NULL; d = d->next) {
 		CHAR_DATA *ch;
@@ -528,7 +528,7 @@ void print_resetmsg(AREA_DATA *pArea)
 			act_puts("You hear some squeaking sounds...",
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		else
-			act_puts(mlstr_cval(pArea->resetmsg, ch),
+			act_puts(mlstr_cval(&pArea->resetmsg, ch),
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 	}
 }
@@ -913,7 +913,7 @@ void reset_area(AREA_DATA *pArea)
 			reset_room(pRoom, 0);
 }
 
-static void obj_of_callback(int lang, const char **p, void *arg)
+static void cb_xxx_of(int lang, const char **p, void *arg)
 {
 	mlstring *owner = (mlstring*) arg;
 	const char *q;
@@ -943,14 +943,14 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 
 	mob = new_char();
 
-	mob->pIndexData		= pMobIndex;
+	mob->pIndexData	= pMobIndex;
 
-	mob->name		= str_qdup(pMobIndex->name);
-	mob->short_descr	= mlstr_dup(pMobIndex->short_descr);
-	mob->long_descr		= mlstr_dup(pMobIndex->long_descr);
-	mob->description	= mlstr_dup(pMobIndex->description);
-	mob->spec_fun		= pMobIndex->spec_fun;
-	mob->class		= 0;
+	mob->name	= str_qdup(pMobIndex->name);
+	mlstr_cpy(&mob->short_descr, &pMobIndex->short_descr);
+	mlstr_cpy(&mob->long_descr, &pMobIndex->long_descr);
+	mlstr_cpy(&mob->description, &pMobIndex->description);
+	mob->spec_fun	= pMobIndex->spec_fun;
+	mob->class	= 0;
 
 	if (pMobIndex->wealth) {
 		long wealth;
@@ -997,9 +997,9 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 		if (mob->sex == SEX_FEMALE
 		&&  (fmob = get_mob_index(pMobIndex->fvnum))) {
 			mob->name	= str_qdup(fmob->name);
-			mob->short_descr= mlstr_dup(fmob->short_descr);
-			mob->long_descr	= mlstr_dup(fmob->long_descr);
-			mob->description= mlstr_dup(fmob->description);
+			mlstr_cpy(&mob->short_descr, &fmob->short_descr);
+			mlstr_cpy(&mob->long_descr, &fmob->long_descr);
+			mlstr_cpy(&mob->description, &fmob->description);
 		}
 	}
 
@@ -1115,9 +1115,9 @@ CHAR_DATA *create_mob_of(MOB_INDEX_DATA *pMobIndex, mlstring *owner)
 {
 	CHAR_DATA *mob = create_mob(pMobIndex);
 
-	mlstr_foreach(&mob->short_descr, owner, obj_of_callback);
-	mlstr_foreach(&mob->long_descr, owner, obj_of_callback);
-	mlstr_foreach(&mob->description, owner, obj_of_callback);
+	mlstr_foreach(&mob->short_descr, owner, cb_xxx_of);
+	mlstr_foreach(&mob->long_descr, owner, cb_xxx_of);
+	mlstr_foreach(&mob->description, owner, cb_xxx_of);
 
 	return mob;
 }
@@ -1133,9 +1133,9 @@ void clone_mob(CHAR_DATA *parent, CHAR_DATA *clone)
 	
 	/* start fixing values */ 
 	clone->name 		= str_qdup(parent->name);
-	clone->short_descr	= mlstr_dup(parent->short_descr);
-	clone->long_descr	= mlstr_dup(parent->long_descr);
-	clone->description	= mlstr_dup(parent->description);
+	mlstr_cpy(&clone->short_descr, &parent->short_descr);
+	mlstr_cpy(&clone->long_descr, &parent->long_descr);
+	mlstr_cpy(&clone->description, &parent->description);
 	clone->group		= parent->group;
 	clone->sex		= parent->sex;
 	clone->class		= parent->class;
@@ -1217,8 +1217,8 @@ OBJ_DATA *create_obj(OBJ_INDEX_DATA *pObjIndex, int flags)
 	obj->wear_loc	= -1;
 
 	obj->name		= str_qdup(pObjIndex->name);
-	obj->short_descr	= mlstr_dup(pObjIndex->short_descr);
-	obj->description	= mlstr_dup(pObjIndex->description);
+	mlstr_cpy(&obj->short_descr, &pObjIndex->short_descr);
+	mlstr_cpy(&obj->description, &pObjIndex->description);
 	obj->material		= str_qdup(pObjIndex->material);
 	obj->extra_flags	= pObjIndex->extra_flags;
 	obj->wear_flags		= pObjIndex->wear_flags;
@@ -1228,7 +1228,6 @@ OBJ_DATA *create_obj(OBJ_INDEX_DATA *pObjIndex, int flags)
 	obj->value[3]		= pObjIndex->value[3];
 	obj->value[4]		= pObjIndex->value[4];
 	obj->weight		= pObjIndex->weight;
-	obj->owner		= NULL;
 	obj->condition		= pObjIndex->condition;
 	obj->cost		= pObjIndex->cost;
 
@@ -1266,8 +1265,8 @@ OBJ_DATA *create_obj_of(OBJ_INDEX_DATA *pObjIndex, mlstring *owner)
 {
 	OBJ_DATA *obj = create_obj(pObjIndex, 0);
 
-	mlstr_foreach(&obj->short_descr, owner, obj_of_callback);
-	mlstr_foreach(&obj->description, owner, obj_of_callback);
+	mlstr_foreach(&obj->short_descr, owner, cb_xxx_of);
+	mlstr_foreach(&obj->description, owner, cb_xxx_of);
 
 	return obj;
 }
@@ -1284,8 +1283,8 @@ void clone_obj(OBJ_DATA *parent, OBJ_DATA *clone)
 
 	/* start fixing the object */
 	clone->name 		= str_qdup(parent->name);
-	clone->short_descr	= mlstr_dup(parent->short_descr);
-	clone->description	= mlstr_dup(parent->description);
+	mlstr_cpy(&clone->short_descr, &parent->short_descr);
+	mlstr_cpy(&clone->description, &parent->description);
 	clone->extra_flags	= parent->extra_flags;
 	clone->wear_flags	= parent->wear_flags;
 	clone->weight		= parent->weight;
@@ -1294,7 +1293,7 @@ void clone_obj(OBJ_DATA *parent, OBJ_DATA *clone)
 	clone->condition	= parent->condition;
 	clone->material		= str_qdup(parent->material);
 	clone->timer		= parent->timer;
-	clone->owner		= mlstr_dup(parent->owner);
+	mlstr_cpy(&clone->owner, &parent->owner);
 	clone->extracted	= parent->extracted;
 
 	for (i = 0;  i < 5; i ++)
@@ -1305,11 +1304,11 @@ void clone_obj(OBJ_DATA *parent, OBJ_DATA *clone)
 
 	/* extended desc */
 	for (ed = parent->ed; ed != NULL; ed = ed->next) {
-		ed2			= ed_new();
-		ed2->keyword		= str_qdup(ed->keyword);
-		ed2->description	= mlstr_dup(ed->description);
-		ed2->next		= clone->ed;
-		clone->ed		= ed2;
+		ed2		= ed_new();
+		ed2->keyword	= str_qdup(ed->keyword);
+		mlstr_cpy(&ed2->description, &ed->description);
+		ed2->next	= clone->ed;
+		clone->ed	= ed2;
 	}
 
 }
@@ -1765,8 +1764,6 @@ void do_areas(CHAR_DATA *ch, const char *argument)
 
 void do_memory(CHAR_DATA *ch, const char *argument)
 {
-	extern int mlstr_count;
-	extern int mlstr_real_count;
 	extern int str_count;
 	extern int str_real_count;
 
@@ -1792,8 +1789,6 @@ void do_memory(CHAR_DATA *ch, const char *argument)
 					nAllocBuf, sAllocBuf);
 	char_printf(ch, "strings  : %d (%d allocated)\n",
 			str_count, str_real_count);
-	char_printf(ch, "mlstrings: %d (%d allocated)\n",
-			mlstr_count, mlstr_real_count);
 }
 
 void do_dump(CHAR_DATA *ch, const char *argument)
@@ -1900,7 +1895,7 @@ void do_dump(CHAR_DATA *ch, const char *argument)
 		    nMatch++;
 		    fprintf(fp,"#%-4d %3d active %3d killed     %s\n",
 			pMobIndex->vnum,pMobIndex->count,
-			pMobIndex->killed,mlstr_mval(pMobIndex->short_descr));
+			pMobIndex->killed,mlstr_mval(&pMobIndex->short_descr));
 		}
 	fclose(fp);
 
@@ -1918,7 +1913,7 @@ void do_dump(CHAR_DATA *ch, const char *argument)
 		    fprintf(fp,"#%-4d %3d active %3d reset      %s\n",
 			pObjIndex->vnum,pObjIndex->count,
 			pObjIndex->reset_num,
-			mlstr_mval(pObjIndex->short_descr));
+			mlstr_mval(&pObjIndex->short_descr));
 		}
 
 	/* close file */
@@ -2196,7 +2191,7 @@ void scan_pfiles()
 			changed = TRUE;
 			log("scan_pfiles: %s: %s (vnum %d)",
 				   ch->name,
-				   mlstr_mval(obj->pIndexData->short_descr),
+				   mlstr_mval(&obj->pIndexData->short_descr),
 				   obj->pIndexData->vnum);
 			extract_obj(obj, XO_F_NORECURSE);
 		}

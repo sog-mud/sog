@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.h,v 1.43 1999-05-23 08:44:34 fjoe Exp $
+ * $Id: db.h,v 1.44 1999-06-10 18:19:05 fjoe Exp $
  */
 
 #ifndef _DB_H_
@@ -173,8 +173,7 @@ void		db_error	(const char* fn, const char* fmt, ...);
 
 #define MLSKEY(string, field)				\
 		if (!str_cmp(word, string)) {		\
-			mlstr_free(field);		\
-			field = mlstr_fread(fp);	\
+			mlstr_fread(fp, &field);	\
 			fMatch = TRUE;			\
 			break;				\
 		}

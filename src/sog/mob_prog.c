@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.48 1999-06-10 14:33:30 fjoe Exp $
+ * $Id: mob_prog.c,v 1.49 1999-06-10 18:19:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -745,7 +745,7 @@ void expand_arg(char *buf,
 		one_argument(mob->name, fname, sizeof(fname));
 		i = fname;                         		break;
 	    /* XXX */
-            case 'I': i = mlstr_mval(mob->short_descr);         break;
+            case 'I': i = mlstr_mval(&mob->short_descr);         break;
             case 'n': 
 		i = someone;
 		if (ch != NULL && can_see(mob, ch))
@@ -756,7 +756,7 @@ void expand_arg(char *buf,
             case 'N': 
 		/* XXX */
 	    	i = (ch != NULL && can_see(mob, ch))
-		? (IS_NPC(ch) ? mlstr_mval(ch->short_descr) : ch->name)
+		? (IS_NPC(ch) ? mlstr_mval(&ch->short_descr) : ch->name)
 		: someone;                         		break;
             case 't': 
 		i = someone;
@@ -768,7 +768,7 @@ void expand_arg(char *buf,
             case 'T': 
 		/* XXX */
 	    	i = (vch != NULL && can_see(mob, vch))
-		? (IS_NPC(vch) ? mlstr_mval(vch->short_descr) : vch->name)
+		? (IS_NPC(vch) ? mlstr_mval(&vch->short_descr) : vch->name)
 		: someone;                         		break;
             case 'r': 
 		if (rch == NULL) 
@@ -784,7 +784,7 @@ void expand_arg(char *buf,
 		if (rch == NULL) 
 		    rch = get_random_char(mob);
 		i  = (rch != NULL && can_see(mob, rch))
-		? (IS_NPC(ch) ? mlstr_mval(ch->short_descr) : ch->name)
+		? (IS_NPC(ch) ? mlstr_mval(&ch->short_descr) : ch->name)
 		:someone;					break;
 	    case 'q':
 		i = someone;
@@ -797,7 +797,7 @@ void expand_arg(char *buf,
 	    	i = (mob->mprog_target != NULL &&
 		     can_see(mob, mob->mprog_target)) ?
 		(IS_NPC(mob->mprog_target) ?
-		mlstr_mval(mob->mprog_target->short_descr) :
+		mlstr_mval(&mob->mprog_target->short_descr) :
 		mob->mprog_target->name) :
 		someone;                         		break;
             case 'j': i = he_she  [URANGE(0, mob->sex, 2)];     break;
@@ -864,7 +864,7 @@ void expand_arg(char *buf,
 		} 						break;
             case 'O':
                 i = (obj1 != NULL && can_see_obj(mob, obj1))
-                ? mlstr_mval(obj1->short_descr)
+                ? mlstr_mval(&obj1->short_descr)
                 : something;
 		i = fix_short(i);
 		break;
@@ -877,7 +877,7 @@ void expand_arg(char *buf,
 		} 						break;
             case 'P':
             	i = (obj2 != NULL && can_see_obj(mob, obj2))
-                ? mlstr_mval(obj2->short_descr)
+                ? mlstr_mval(&obj2->short_descr)
                 : something;
 		i = fix_short(i);
 		break;

@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.51 1999-06-10 14:33:31 fjoe Exp $
+ * $Id: recycle.c,v 1.52 1999-06-10 18:19:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -72,9 +72,9 @@ ED_DATA *ed_new(void)
 
 ED_DATA *ed_new2(const ED_DATA *ed, const char* name)
 {
-	ED_DATA *ed2		= ed_new();
-	ed2->keyword		= str_qdup(ed->keyword);
-	ed2->description	= mlstr_printf(ed->description, name);
+	ED_DATA *ed2 = ed_new();
+	ed2->keyword = str_qdup(ed->keyword);
+	mlstr_printf(&ed2->description, &ed->description, name);
 	return ed2;
 }
 
@@ -85,8 +85,8 @@ ED_DATA *ed_dup(const ED_DATA *ed)
 
 	for (; ed; ed = ed->next) {
 		*ped = ed_new();
-		(*ped)->keyword		= str_qdup(ed->keyword);
-		(*ped)->description	= mlstr_dup(ed->description);
+		(*ped)->keyword = str_qdup(ed->keyword);
+		mlstr_cpy(&(*ped)->description, &ed->description);
 		ped = &(*ped)->next;
 	}
 
@@ -101,7 +101,7 @@ void ed_free(ED_DATA *ed)
 		ed_next = ed->next;
 
 		free_string(ed->keyword);
-		mlstr_free(ed->description);
+		mlstr_destroy(&ed->description);
 		free(ed);
 		top_ed--;
 	}
@@ -111,14 +111,14 @@ void ed_fread(FILE *fp, ED_DATA **edp)
 {
 	ED_DATA *ed	= ed_new();
 	ed->keyword	= fread_string(fp);
-	ed->description	= mlstr_fread(fp);
+	mlstr_fread(fp, &ed->description);
 	SLIST_ADD(ED_DATA, *edp, ed);
 }
 
 void ed_fwrite(FILE *fp, ED_DATA *ed)
 {
        	fprintf(fp, "E\n%s~\n", fix_string(ed->keyword));
-	mlstr_fwrite(fp, NULL, ed->description);
+	mlstr_fwrite(fp, NULL, &ed->description);
 }
 
 AFFECT_DATA *aff_new(void)
@@ -196,14 +196,9 @@ void free_obj(OBJ_DATA *obj)
 	free_string(obj->name);
 	obj->name = NULL;
 
-	mlstr_free(obj->description);
-	obj->description = NULL;
-
-	mlstr_free(obj->short_descr);
-	obj->short_descr = NULL;
-
-	mlstr_free(obj->owner);
-	obj->owner = NULL;
+	mlstr_destroy(&obj->description);
+	mlstr_destroy(&obj->short_descr);
+	mlstr_destroy(&obj->owner);
 
 	free_string(obj->material);
 	obj->material = NULL;
@@ -281,14 +276,9 @@ void free_char(CHAR_DATA *ch)
 	free_string(ch->name);
 	ch->name = NULL;
 
-	mlstr_free(ch->short_descr);
-	ch->short_descr = NULL;
-
-	mlstr_free(ch->long_descr);
-	ch->long_descr = NULL;
-
-	mlstr_free(ch->description);
-	ch->description = NULL;
+	mlstr_destroy(&ch->short_descr);
+	mlstr_destroy(&ch->long_descr);
+	mlstr_destroy(&ch->description);
 
 	free_string(ch->prompt);
 	ch->prompt = NULL;
@@ -525,7 +515,7 @@ void free_exit(EXIT_DATA *pExit)
 		return;
 
 	free_string(pExit->keyword);
-	mlstr_free(pExit->description);
+	mlstr_destroy(&pExit->description);
 
 	top_exit--;
 	free(pExit);
@@ -550,8 +540,8 @@ void free_room_index(ROOM_INDEX_DATA *pRoom)
 	int door;
 	RESET_DATA *pReset;
 
-	mlstr_free(pRoom->name);
-	mlstr_free(pRoom->description);
+	mlstr_destroy(&pRoom->name);
+	mlstr_destroy(&pRoom->description);
 	free_string(pRoom->owner);
 
 	for (door = 0; door < MAX_DIR; door++)
@@ -613,8 +603,8 @@ void free_obj_index(OBJ_INDEX_DATA *pObj)
 
 	free_string(pObj->name);
 	free_string(pObj->material);
-	mlstr_free(pObj->short_descr);
-	mlstr_free(pObj->description);
+	mlstr_destroy(&pObj->short_descr);
+	mlstr_destroy(&pObj->description);
 
 	for (paf = pObj->affected; paf; paf = paf_next) {
 		paf_next = paf->next;
@@ -651,9 +641,9 @@ void free_mob_index(MOB_INDEX_DATA *pMob)
 
 	free_string(pMob->name);
 	free_string(pMob->material);
-	mlstr_free(pMob->short_descr);
-	mlstr_free(pMob->long_descr);
-	mlstr_free(pMob->description);
+	mlstr_destroy(&pMob->short_descr);
+	mlstr_destroy(&pMob->long_descr);
+	mlstr_destroy(&pMob->description);
 	mptrig_free(pMob->mptrig_list);
 	free_shop(pMob->pShop);
 

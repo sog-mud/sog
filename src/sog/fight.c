@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.177 1999-06-10 14:33:25 fjoe Exp $
+ * $Id: fight.c,v 1.178 1999-06-10 18:18:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -818,7 +818,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 		if (((katana = get_eq_char(ch,WEAR_WIELD)) ||
 		     (katana = get_eq_char(ch, WEAR_SECOND_WIELD)))
 		&&  IS_WEAPON_STAT(katana, WEAPON_KATANA)
-		&&  strstr(mlstr_mval(katana->ed->description), ch->name)) {
+		&&  strstr(mlstr_mval(&katana->ed->description), ch->name)) {
 			AFFECT_DATA *paf;
 
 			if ((katana->cost = ++katana->cost % 250) == 0
@@ -1913,7 +1913,7 @@ void make_corpse(CHAR_DATA *ch)
 
 	if (IS_NPC(ch)) {
 		corpse	= create_obj_of(get_obj_index(OBJ_VNUM_CORPSE_NPC),
-					ch->short_descr);
+					&ch->short_descr);
 		corpse->timer	= number_range(3, 6);
 		if (ch->gold > 0 || ch->silver > 0) {
 			OBJ_DATA *money = create_money(ch->gold, ch->silver);
@@ -1925,7 +1925,7 @@ void make_corpse(CHAR_DATA *ch)
 	}
 	else {
 		corpse	= create_obj_of(get_obj_index(OBJ_VNUM_CORPSE_PC),
-					ch->short_descr);
+					&ch->short_descr);
 
 		corpse->timer= number_range(25, 40);
 		corpse->altar = get_altar(ch);
@@ -1934,7 +1934,7 @@ void make_corpse(CHAR_DATA *ch)
 			obj_to_obj(create_money(ch->gold, ch->silver), corpse);
 	}
 
-	corpse->owner = mlstr_dup(ch->short_descr);
+	mlstr_cpy(&corpse->owner, &ch->short_descr);
 	corpse->level = ch->level;
 
 	ch->gold = 0;
@@ -2046,9 +2046,9 @@ void death_cry_org(CHAR_DATA *ch, int part)
 	if (vnum) {
 		OBJ_DATA *obj;
 
-		obj = create_obj_of(get_obj_index(vnum), ch->short_descr);
+		obj = create_obj_of(get_obj_index(vnum), &ch->short_descr);
 		obj->level = ch->level;
-		obj->owner = mlstr_dup(ch->short_descr);
+		mlstr_cpy(&obj->owner, &ch->short_descr);
 		obj->timer = number_range(4, 7);
 
 		if (obj->pIndexData->item_type == ITEM_FOOD) {

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.39 1999-06-10 14:33:36 fjoe Exp $
+ * $Id: olc_mob.c,v 1.40 1999-06-10 18:19:06 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -354,9 +354,9 @@ OLC_FUN(mobed_show)
 		buf_printf(buf, "Practicer:   [%s]\n",
 			flag_string(skill_groups, pMob->practicer));
 
-	mlstr_dump(buf, "Short descr: ", pMob->short_descr);
-	mlstr_dump(buf, "Long descr: ", pMob->long_descr);
-	mlstr_dump(buf, "Description: ", pMob->description);
+	mlstr_dump(buf, "Short descr: ", &pMob->short_descr);
+	mlstr_dump(buf, "Long descr: ", &pMob->long_descr);
+	mlstr_dump(buf, "Description: ", &pMob->description);
 
 	if (pMob->pShop) {
 		SHOP_DATA *pShop;
@@ -437,7 +437,7 @@ OLC_FUN(mobed_list)
 				found = TRUE;
 				buf_printf(buffer, "[%5d] %-17.16s",
 					   pMobIndex->vnum,
-					   mlstr_mval(pMobIndex->short_descr));
+					   mlstr_mval(&pMobIndex->short_descr));
 				if (++col % 3 == 0)
 					buf_add(buffer, "\n");
 			}
@@ -1152,12 +1152,9 @@ OLC_FUN(mobed_clone)
 	pMob->name		= str_qdup(pFrom->name);
 	free_string(pMob->material);
 	pMob->material		= str_qdup(pFrom->material);
-	mlstr_free(pMob->short_descr);
-	pMob->short_descr	= mlstr_dup(pFrom->short_descr);
-	mlstr_free(pMob->long_descr);
-	pMob->long_descr	= mlstr_dup(pFrom->long_descr);
-	mlstr_free(pMob->description);
-	pMob->description	= mlstr_dup(pFrom->description);
+	mlstr_cpy(&pMob->short_descr, &pFrom->short_descr);
+	mlstr_cpy(&pMob->long_descr, &pFrom->long_descr);
+	mlstr_cpy(&pMob->description, &pFrom->description);
 
 	pMob->spec_fun		= pFrom->spec_fun;
 	pMob->group		= pFrom->group;

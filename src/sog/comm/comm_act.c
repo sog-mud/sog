@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.c,v 1.25 1999-06-10 13:39:21 fjoe Exp $
+ * $Id: comm_act.c,v 1.26 1999-06-10 18:19:04 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -128,11 +128,11 @@ const char *PERS2(CHAR_DATA *ch, CHAR_DATA *looker, int act_flags)
 			const char *descr;
 
 			if (IS_SET(act_flags, ACT_FORMSH)) {
-				return format_short(ch->short_descr, ch->name,
+				return format_short(&ch->short_descr, ch->name,
 						    looker);
 			}
 
-			descr = mlstr_cval(ch->short_descr, looker);
+			descr = mlstr_cval(&ch->short_descr, looker);
 			if (IS_SET(act_flags, ACT_FIXSH))
 				return fix_short(descr);
 
@@ -237,12 +237,12 @@ act_format_obj(OBJ_DATA *obj, CHAR_DATA *to, int sp, int act_flags)
 
 	if (sp < 0) {
 		if (IS_SET(act_flags, ACT_FORMSH))
-			return format_short(obj->short_descr, obj->name, to);
+			return format_short(&obj->short_descr, obj->name, to);
 
-		return fix_short(mlstr_cval(obj->short_descr, to));
+		return fix_short(mlstr_cval(&obj->short_descr, to));
 	}
 
-	return descr = mlstr_cval(obj->short_descr, to);
+	return descr = mlstr_cval(&obj->short_descr, to);
 }
 
 static const char *
@@ -443,6 +443,11 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 				log("act_buf: '%s': bad code $%c",
 					   format, code);
 				continue;
+
+			case '$':
+				*point++ = '$';
+				continue;
+				
 /* text arguments */
 			case 't': 
 			case 'u':
@@ -477,12 +482,12 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 /* room arguments */
 			case 'r':
 				CHECK_TYPE(room1, MT_ROOM);
-				i = mlstr_mval(room1->name);
+				i = mlstr_mval(&room1->name);
 				break;
 
 			case 'R':
 				CHECK_TYPE(room3, MT_ROOM);
-				i = mlstr_mval(room3->name);
+				i = mlstr_mval(&room3->name);
 				break;
 
 /* char arguments */

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.112 1999-06-10 14:33:29 fjoe Exp $
+ * $Id: spellfun2.c,v 1.113 1999-06-10 18:18:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1556,7 +1556,7 @@ void spell_shadowlife(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	act("$n gives life to your shadow!", ch, NULL, victim, TO_VICT);
 	
 	shadow = create_mob_of(get_mob_index(MOB_VNUM_SHADOW),
-			       victim->short_descr);
+			       &victim->short_descr);
 
 	for (i = 0; i < MAX_STATS; i++)
 		shadow->perm_stat[i] = ch->perm_stat[i];
@@ -2509,7 +2509,7 @@ void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo, int target)
 	/* deal with the object case first */
 	if (target == TARGET_OBJ) {
 		MOB_INDEX_DATA *undead_idx;
-		mlstring *ml;
+		mlstring ml;
 
 		obj = (OBJ_DATA *) vo;
 
@@ -2565,15 +2565,15 @@ void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo, int target)
 		}
 
 		undead_idx = get_mob_index(MOB_VNUM_UNDEAD);
-		ml = mlstr_dup(obj->owner);
+		mlstr_cpy(&ml, &obj->owner);
 
 		/*
 		 * strip "The undead body of "
 		 */
-		mlstr_foreach(&ml, undead_idx->short_descr, cb_strip);
+		mlstr_foreach(&ml, &undead_idx->short_descr, cb_strip);
 
-		undead = create_mob_of(undead_idx, ml);
-		mlstr_free(ml);
+		undead = create_mob_of(undead_idx, &ml);
+		mlstr_destroy(&ml);
 
 		for (i = 0; i < MAX_STATS; i++)
 			undead->perm_stat[i] = UMIN(25, 15+obj->level/10);
@@ -3058,9 +3058,9 @@ void spell_eyed_sword(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	else i = 1;
 	
 	eyed	= create_obj_of(get_obj_index(OBJ_VNUM_EYED_SWORD),
-				ch->short_descr);
+				&ch->short_descr);
 	eyed->level = ch->level;
-	eyed->owner = mlstr_dup(ch->short_descr);
+	mlstr_cpy(&eyed->owner, &ch->short_descr);
 	eyed->ed = ed_new2(eyed->pIndexData->ed, ch->name);
 	eyed->value[2] = (ch->level / 10) + 3;  
 	eyed->cost = 0;
@@ -3205,9 +3205,9 @@ void spell_magic_jar(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	else i = 1;
 	
 	fire	= create_obj_of(get_obj_index(OBJ_VNUM_MAGIC_JAR),
-				victim->short_descr);
+				&victim->short_descr);
 	fire->level = ch->level;
-	fire->owner = mlstr_dup(ch->short_descr);
+	mlstr_cpy(&fire->owner, &ch->short_descr);
 
 	fire->ed = ed_new2(fire->pIndexData->ed, victim->name);
 
@@ -3439,7 +3439,7 @@ void spell_fire_shield (int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	fire->level = ch->level;
 	name_add(&fire->name, arg, NULL, NULL);
 
-	fire->owner = mlstr_dup(ch->short_descr);
+	mlstr_cpy(&fire->owner, &ch->short_descr);
 	fire->ed = ed_new2(fire->pIndexData->ed, arg);
 
 	fire->cost = 0;
@@ -5147,15 +5147,11 @@ void spell_mirror(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	for (new_mirrors = 0; mirrors + new_mirrors < level/5; new_mirrors++) {
 		gch = create_mob(get_mob_index(MOB_VNUM_MIRROR_IMAGE));
 		free_string(gch->name);
-		mlstr_free(gch->short_descr);
-		mlstr_free(gch->long_descr);
-		mlstr_free(gch->description);
 		gch->name = str_qdup(victim->name);
-		gch->short_descr = mlstr_dup(victim->short_descr);
-		gch->long_descr = mlstr_printf(gch->pIndexData->long_descr,
-					       victim->name,
-					       victim->pcdata->title);
-		gch->description = mlstr_dup(victim->description);
+		mlstr_cpy(&gch->short_descr, &victim->short_descr);
+		mlstr_printf(&gch->long_descr, &gch->pIndexData->long_descr,
+			     victim->name, victim->pcdata->title);
+		mlstr_cpy(&gch->description, &victim->description);
 		gch->sex = victim->sex;
     
 		af.type = gsn_doppelganger;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: chquest.c,v 1.10 1999-06-10 14:33:25 fjoe Exp $
+ * $Id: chquest.c,v 1.11 1999-06-10 18:18:55 fjoe Exp $
  */
 
 /*
@@ -176,7 +176,7 @@ void chquest_add(OBJ_INDEX_DATA *obj_index)
 		return;
 
 	log("chquest_add: added '%s' (vnum %d)",
-		   mlstr_mval(obj_index->short_descr), obj_index->vnum);
+		   mlstr_mval(&obj_index->short_descr), obj_index->vnum);
 
 	q = calloc(1, sizeof(*q));
 	q->obj_index = obj_index;
@@ -217,7 +217,7 @@ bool chquest_delete(CHAR_DATA *ch, OBJ_INDEX_DATA *obj_index)
 	free(q);
 
 	log("chquest_delete: deleted '%s' (vnum %d)",
-		   mlstr_mval(obj_index->short_descr), obj_index->vnum);
+		   mlstr_mval(&obj_index->short_descr), obj_index->vnum);
 	return TRUE;
 }
 
@@ -234,7 +234,7 @@ void chquest_extract(OBJ_DATA *obj)
 		return;
 
 	log("chquest_extract: finished quest for '%s' (vnum %d)",
-		   mlstr_mval(q->obj_index->short_descr), q->obj_index->vnum);
+		   mlstr_mval(&q->obj_index->short_descr), q->obj_index->vnum);
 	SET_WAITING(q, number_range(15, 20));
 }
 
@@ -287,7 +287,7 @@ static void chquest_startq(chquest_t *q)
 	ROOM_INDEX_DATA *room;
 
 	log("chquest_startq: started chquest for '%s' (vnum %d)",
-	   	   mlstr_mval(q->obj_index->short_descr), q->obj_index->vnum);
+	   	   mlstr_mval(&q->obj_index->short_descr), q->obj_index->vnum);
 
 	SET_RUNNING(q);
 	q->obj = create_obj(q->obj_index, 0);
@@ -306,7 +306,7 @@ static void chquest_stopq(chquest_t *q)
 		return;
 
 	log("chquest_stopq: stopped quest for '%s' (vnum %d)",
-		   mlstr_mval(q->obj_index->short_descr), q->obj_index->vnum);
+		   mlstr_mval(&q->obj_index->short_descr), q->obj_index->vnum);
 	if (IS_RUNNING(q))
 		extract_obj(q->obj, XO_F_NOCHQUEST);
 	SET_STOPPED(q);
@@ -321,7 +321,7 @@ static inline void chquest_status(CHAR_DATA *ch)
 		OBJ_DATA *obj;
 
 		char_printf(ch, "- %s (vnum %d) - ",
-			    mlstr_mval(q->obj_index->short_descr),
+			    mlstr_mval(&q->obj_index->short_descr),
 			    q->obj_index->vnum);
 
 		if (IS_STOPPED(q)) {

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.158 1999-06-10 14:33:26 fjoe Exp $
+ * $Id: handler.c,v 1.159 1999-06-10 18:18:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2300,7 +2300,7 @@ money_cb(int lang, const char **p, void *arg)
 }
 
 static void
-money_descr(mlstring **descr,
+money_descr(mlstring *descr,
 	    int num1, const char *name1,
 	    int num2, const char *name2)
 {

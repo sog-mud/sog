@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.245 1999-06-10 14:33:21 fjoe Exp $
+ * $Id: act_info.c,v 1.246 1999-06-10 18:18:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -116,8 +116,8 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 	static char buf[MAX_STRING_LENGTH];
 
 	buf[0] = '\0';
-	if ((fShort && mlstr_null(obj->short_descr))
-	||  mlstr_null(obj->description))
+	if ((fShort && mlstr_null(&obj->short_descr))
+	||  mlstr_null(&obj->description))
 		return str_empty;
 
 	if (IS_SET(ch->comm, COMM_LONG)) {
@@ -165,7 +165,7 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 
 	if (fShort) {
 		strnzcat(buf, sizeof(buf),
-			 format_short(obj->short_descr, obj->name, ch));
+			 format_short(&obj->short_descr, obj->name, ch));
 		if (obj->pIndexData->vnum > 5 /* not money, gold, etc */
 		&&  (obj->condition < COND_EXCELLENT ||
 		     !IS_SET(ch->comm, COMM_NOVERBOSE))) {
@@ -182,7 +182,7 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 
 		p = strchr(buf, '\0');
 		strnzcat(buf, sizeof(buf),
-			 format_short(obj->short_descr, obj->name, ch));
+			 format_short(&obj->short_descr, obj->name, ch));
 		p[0] = UPPER(p[0]);
 		switch(number_range(1, 3)) {
 		case 1:
@@ -206,7 +206,7 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 		opt.to_lang = ch->lang;
 		opt.act_flags = ACT_NOUCASE | ACT_NOLF;
 
-		act_buf(format_descr(obj->description, ch), ch, ch,
+		act_buf(format_descr(&obj->description, ch), ch, ch,
 			NULL, NULL, NULL, &opt, tmp, sizeof(tmp));
 		strnzcat(buf, sizeof(buf), tmp);
 	}
@@ -413,7 +413,7 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		char_puts("[{DIncog{x] ", ch);
 
 	if (IS_NPC(victim) && victim->position == victim->start_pos) {
-		act_puts(format_descr(victim->long_descr, ch),
+		act_puts(format_descr(&victim->long_descr, ch),
 			 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 		return;
 	}
@@ -604,9 +604,9 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 	}
 
 	if (IS_NPC(doppel))
-		desc = mlstr_cval(doppel->description, ch);
+		desc = mlstr_cval(&doppel->description, ch);
 	else
-		desc = mlstr_mval(doppel->description);
+		desc = mlstr_mval(&doppel->description);
 
 	if (!IS_NULLSTR(desc)) 
 		act_puts(desc, ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
@@ -1052,8 +1052,8 @@ void do_look_room(CHAR_DATA *ch, int flags)
 		const char *name;
 		const char *engname;
 
-		name = mlstr_cval(ch->in_room->name, ch);
-		engname = mlstr_mval(ch->in_room->name);
+		name = mlstr_cval(&ch->in_room->name, ch);
+		engname = mlstr_mval(&ch->in_room->name);
 		char_printf(ch, "{W%s", name);
 		if (ch->lang && name != engname)
 			char_printf(ch, " (%s){x", engname);
@@ -1068,8 +1068,8 @@ void do_look_room(CHAR_DATA *ch, int flags)
 
  		if (!IS_SET(flags, LOOK_F_NORDESC)) {
 			act_puts("  $b", ch,
-				 mlstr_cval(ch->in_room->description, ch), NULL,
-				 TO_CHAR | ACT_NOLF, POS_DEAD);
+				 mlstr_cval(&ch->in_room->description, ch),
+				 NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 		}
 
 		if (!IS_NPC(ch) && IS_SET(ch->plr_flags, PLR_AUTOEXIT)) {
@@ -1181,7 +1181,7 @@ void do_look(CHAR_DATA *ch, const char *argument)
 			ed = ed_lookup(arg3, obj->ed);
 			if (ed != NULL)
 				if (++count == number) {
-					act_puts(mlstr_cval(ed->description, ch),
+					act_puts(mlstr_cval(&ed->description, ch),
 						 ch, NULL, NULL,
 						 TO_CHAR | ACT_NOLF, POS_DEAD);
 					return;
@@ -1193,7 +1193,7 @@ void do_look(CHAR_DATA *ch, const char *argument)
 
 			if (ed != NULL)
 				if (++count == number) {
-					act_puts(mlstr_cval(ed->description, ch),
+					act_puts(mlstr_cval(&ed->description, ch),
 						 ch, NULL, NULL,
 						 TO_CHAR | ACT_NOLF, POS_DEAD);
 					return;
@@ -1215,7 +1215,7 @@ void do_look(CHAR_DATA *ch, const char *argument)
 			ed = ed_lookup(arg3, obj->ed);
 			if (ed != NULL)
 				if (++count == number) {
-					act_puts(mlstr_cval(ed->description, ch),
+					act_puts(mlstr_cval(&ed->description, ch),
 						 ch, NULL, NULL,
 						 TO_CHAR | ACT_NOLF, POS_DEAD);
 					return;
@@ -1224,7 +1224,7 @@ void do_look(CHAR_DATA *ch, const char *argument)
 			ed = ed_lookup(arg3, obj->pIndexData->ed);
 			if (ed != NULL)
 				if (++count == number) {
-					act_puts(mlstr_cval(ed->description, ch),
+					act_puts(mlstr_cval(&ed->description, ch),
 						 ch, NULL, NULL,
 						 TO_CHAR | ACT_NOLF, POS_DEAD);
 					return;
@@ -1233,8 +1233,8 @@ void do_look(CHAR_DATA *ch, const char *argument)
 
 		if (is_name(arg3, obj->name))
 			if (++count == number) {
-				act_puts(format_descr(obj->description, ch),
-					 ch, NULL, NULL, TO_CHAR | ACT_NOLF,
+				act_puts(format_descr(&obj->description, ch),
+					 ch, NULL, NULL, TO_CHAR,
 					 POS_DEAD);
 				return;
 			}
@@ -1243,7 +1243,7 @@ void do_look(CHAR_DATA *ch, const char *argument)
 	ed = ed_lookup(arg3, ch->in_room->ed);
 	if (ed != NULL) {
 		if (++count == number) {
-			act_puts(mlstr_cval(ed->description, ch),
+			act_puts(mlstr_cval(&ed->description, ch),
 				 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 			return;
 		}
@@ -1277,8 +1277,8 @@ void do_look(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (!IS_NULLSTR(mlstr_mval(pexit->description)))
-		act_puts(mlstr_cval(pexit->description, ch),
+	if (!IS_NULLSTR(mlstr_mval(&pexit->description)))
+		act_puts(mlstr_cval(&pexit->description, ch),
 			 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 	else
 		char_puts("Nothing special there.\n", ch);
@@ -1419,8 +1419,7 @@ void do_exits(CHAR_DATA *ch, const char *argument)
 					    show_closed ? "*" : str_empty,
 					    room_dark(pexit->to_room.r) ?
 					    GETMSG("Too dark to tell", ch->lang) :
-					    mlstr_cval(pexit->to_room.r->name,
-							ch));
+					    mlstr_cval(&pexit->to_room.r->name, ch));
 				if (IS_IMMORTAL(ch)
 				||  IS_BUILDER(ch, pexit->to_room.r->area))
 					char_printf(ch, " (room %d)",
@@ -2030,7 +2029,7 @@ void do_where(CHAR_DATA *ch, const char *argument)
 					!IS_IMMORTAL(ch)) ?
 					"{r[{RPK{r]{x " : "     ",
 					PERS2(victim, ch, ACT_FORMSH),
-					mlstr_mval(victim->in_room->name));
+					mlstr_mval(&victim->in_room->name));
 			}
 		}
 		if (!found)
@@ -2046,7 +2045,7 @@ void do_where(CHAR_DATA *ch, const char *argument)
 				found = TRUE;
 				char_printf(ch, "%-28s %s\n",
 					PERS2(victim, ch, ACT_FORMSH),
-					mlstr_mval(victim->in_room->name));
+					mlstr_mval(&victim->in_room->name));
 				break;
 			}
 		}
@@ -2181,7 +2180,7 @@ void do_description(CHAR_DATA *ch, const char *argument)
 	char_printf(ch, "Your description is:\n"
 			 "%s\n"
 			 "Use 'desc edit' to edit your description.\n",
-		    mlstr_mval(ch->description));
+		    mlstr_mval(&ch->description));
 }
 
 void do_report(CHAR_DATA *ch, const char *argument)
@@ -2290,7 +2289,7 @@ void scan_list(ROOM_INDEX_DATA *scan_room, CHAR_DATA *ch,
 		if (rch == ch || !can_see(ch, rch))
 			continue;
 		char_printf(ch, "	%s.\n",
-			    format_short(rch->short_descr, rch->name, ch));
+			    format_short(&rch->short_descr, rch->name, ch));
 	}
 }
 
@@ -2831,7 +2830,7 @@ void do_score(CHAR_DATA *ch, const char *argument)
 
 	strnzcpy(title, sizeof(title),
 		 IS_NPC(ch) ? " Believer of Chronos." : ch->pcdata->title);
-	name = IS_NPC(ch) ? capitalize(mlstr_val(ch->short_descr, ch->lang)) :
+	name = IS_NPC(ch) ? capitalize(mlstr_val(&ch->short_descr, ch->lang)) :
 			    ch->name;
 	delta = strlen(title) - cstrlen(title) + MAX_CHAR_NAME - strlen(name);
 	title[32+delta] = '\0';
@@ -3011,7 +3010,7 @@ DO_FUN(do_oscore)
 
 	buf_printf(output, "%s %s%s\n{x",
 		GETMSG("You are", ch->lang),
-		IS_NPC(ch) ? capitalize(mlstr_val(ch->short_descr, ch->lang)) :
+		IS_NPC(ch) ? capitalize(mlstr_val(&ch->short_descr, ch->lang)) :
 			     ch->name,
 		IS_NPC(ch) ? " The Believer of Chronos." : ch->pcdata->title);
 

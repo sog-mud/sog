@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.60 1999-06-10 14:33:35 fjoe Exp $
+ * $Id: olc.c,v 1.61 1999-06-10 18:19:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -284,9 +284,9 @@ bool olced_str_text(CHAR_DATA *ch, const char *argument,
 }
 
 bool olced_mlstr(CHAR_DATA *ch, const char *argument,
-		 olc_cmd_t *cmd, mlstring **pmlstr)
+		 olc_cmd_t *cmd, mlstring *mlp)
 {
-	if (!mlstr_edit(pmlstr, argument)) {
+	if (!mlstr_edit(mlp, argument)) {
 		char_printf(ch, "Syntax: %s lang string\n", cmd->name);
 		return FALSE;
 	}
@@ -295,9 +295,9 @@ bool olced_mlstr(CHAR_DATA *ch, const char *argument,
 }
 
 bool olced_mlstrnl(CHAR_DATA *ch, const char *argument,
-		   olc_cmd_t *cmd, mlstring **pmlstr)
+		   olc_cmd_t *cmd, mlstring *mlp)
 {
-	if (!mlstr_editnl(pmlstr, argument)) {
+	if (!mlstr_editnl(mlp, argument)) {
 		char_printf(ch, "Syntax: %s lang string\n", cmd->name);
 		return FALSE;
 	}
@@ -306,9 +306,9 @@ bool olced_mlstrnl(CHAR_DATA *ch, const char *argument,
 }
 
 bool olced_mlstr_text(CHAR_DATA *ch, const char *argument,
-		      olc_cmd_t *cmd, mlstring **pmlstr)
+		      olc_cmd_t *cmd, mlstring *mlp)
 {
-	if (!mlstr_append(ch, pmlstr, argument)) {
+	if (!mlstr_append(ch, mlp, argument)) {
 		char_printf(ch, "Syntax: %s lang\n", cmd->name);
 		return FALSE;
 	}
@@ -436,7 +436,7 @@ bool olced_exd(CHAR_DATA *ch, const char* argument,
 
 		output = buf_new(-1);
 		buf_printf(output, "Keyword:     [%s]\n", ed->keyword);
-		mlstr_dump(output, "Description: ", ed->description);
+		mlstr_dump(output, "Description: ", &ed->description);
 		page_to_char(buf_string(output), ch);
 		buf_free(output);
 		return FALSE;

@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.74 1999-06-10 14:33:36 fjoe Exp $
+ * $Id: olc_save.c,v 1.75 1999-06-10 18:19:06 fjoe Exp $
  */
 
 /**************************************************************************
@@ -105,9 +105,9 @@ void save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 
     fprintf(fp, "#%d\n",	pMobIndex->vnum);
     fwrite_string(fp, NULL,	pMobIndex->name);
-    mlstr_fwrite(fp, NULL,	pMobIndex->short_descr);
-    mlstr_fwrite(fp, NULL,	pMobIndex->long_descr);
-    mlstr_fwrite(fp, NULL,	pMobIndex->description);
+    mlstr_fwrite(fp, NULL,	&pMobIndex->short_descr);
+    mlstr_fwrite(fp, NULL,	&pMobIndex->long_descr);
+    mlstr_fwrite(fp, NULL,	&pMobIndex->description);
     fwrite_string(fp, NULL,	r->name);
     fprintf(fp, "%s ",		format_flags(pMobIndex->act & ~r->act));
     fprintf(fp, "%s ",		format_flags(pMobIndex->affected_by & ~r->aff));
@@ -225,8 +225,8 @@ void save_object(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
 
     fprintf(fp, "#%d\n",	pObjIndex->vnum);
     fwrite_string(fp, NULL,	pObjIndex->name);
-    mlstr_fwrite(fp, NULL,	pObjIndex->short_descr);
-    mlstr_fwrite(fp, NULL,	pObjIndex->description);
+    mlstr_fwrite(fp, NULL,	&pObjIndex->short_descr);
+    mlstr_fwrite(fp, NULL,	&pObjIndex->description);
     fwrite_string(fp, NULL,	pObjIndex->material);
     fprintf(fp, "%s ",		flag_string(item_types, pObjIndex->item_type));
     fprintf(fp, "%s ",		format_flags(pObjIndex->extra_flags &
@@ -432,8 +432,8 @@ void save_room(FILE *fp, ROOM_INDEX_DATA *pRoomIndex)
 	int max_door;
 
         fprintf(fp, "#%d\n",	pRoomIndex->vnum);
-	mlstr_fwrite(fp, NULL,	pRoomIndex->name);
-	mlstr_fwrite(fp, NULL,	pRoomIndex->description);
+	mlstr_fwrite(fp, NULL,	&pRoomIndex->name);
+	mlstr_fwrite(fp, NULL,	&pRoomIndex->description);
 	fprintf(fp, "0 ");
         fprintf(fp, "%s ",	format_flags(pRoomIndex->room_flags));
         fprintf(fp, "%s\n",	flag_string(sector_types,
@@ -468,7 +468,7 @@ void save_room(FILE *fp, ROOM_INDEX_DATA *pRoomIndex)
  				REMOVE_BIT(pExit->rs_flags, EX_ISDOOR);
  
 			fprintf(fp, "D%d\n",      pExit->orig_door);
-			mlstr_fwrite(fp, NULL,	  pExit->description);
+			mlstr_fwrite(fp, NULL,	  &pExit->description);
 			fprintf(fp, "%s~\n",      pExit->keyword);
 			fprintf(fp, "%s %d %d\n",
 				format_flags(pExit->rs_flags | EX_BITVAL),
@@ -520,7 +520,7 @@ void save_special(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 	fprintf(fp, "M %d %s\t* %s\n",
 		pMobIndex->vnum,
 		spec_name(pMobIndex->spec_fun),
-		mlstr_mval(pMobIndex->short_descr));
+		mlstr_mval(&pMobIndex->short_descr));
 #else
 	fprintf(fp, "M %d %s\n",
 		pMobIndex->vnum, spec_name(pMobIndex->spec_fun));
@@ -566,7 +566,7 @@ void save_door_reset(FILE *fp, ROOM_INDEX_DATA *pRoomIndex, EXIT_DATA *pExit)
 		pRoomIndex->vnum,
 		pExit->orig_door,
 		IS_SET(pExit->rs_flags, EX_LOCKED) ? 2 : 1,
-		mlstr_mval(pRoomIndex->name),
+		mlstr_mval(&pRoomIndex->name),
 		dir_name[pExit->orig_door],
 		IS_SET(pExit->rs_flags, EX_LOCKED) ?
 			"closed and locked" : "closed");
@@ -593,16 +593,16 @@ void save_reset(FILE *fp, AREA_DATA *pArea,
 			pReset->arg2,
 			pReset->arg3,
 			pReset->arg4,
-			mlstr_mval(get_mob_index(pReset->arg1)->short_descr),
-			mlstr_mval(get_room_index(pReset->arg3)->name));
+			mlstr_mval(&get_mob_index(pReset->arg1)->short_descr),
+			mlstr_mval(&get_room_index(pReset->arg3)->name));
 		break;
 
 	case 'O':
 		fprintf(fp, "O 0 %d 0 %d\t* %s (%s)\n", 
 			pReset->arg1,
 			pReset->arg3,
-			mlstr_mval(get_obj_index(pReset->arg1)->short_descr),
-			mlstr_mval(get_room_index(pReset->arg3)->name));
+			mlstr_mval(&get_obj_index(pReset->arg1)->short_descr),
+			mlstr_mval(&get_room_index(pReset->arg3)->name));
 		break;
 
 	case 'P':
@@ -611,21 +611,21 @@ void save_reset(FILE *fp, AREA_DATA *pArea,
 			pReset->arg2,
 			pReset->arg3,
 			pReset->arg4,
-			mlstr_mval(get_obj_index(pReset->arg3)->short_descr),
-			mlstr_mval(get_obj_index(pReset->arg1)->short_descr));
+			mlstr_mval(&get_obj_index(pReset->arg3)->short_descr),
+			mlstr_mval(&get_obj_index(pReset->arg1)->short_descr));
 		break;
 
 	case 'G':
 		fprintf(fp, "G 0 %d 0\t\t*\t%s\n",
 			pReset->arg1,
-			mlstr_mval(get_obj_index(pReset->arg1)->short_descr));
+			mlstr_mval(&get_obj_index(pReset->arg1)->short_descr));
 		break;
 
 	case 'E':
 		fprintf(fp, "E 0 %d 0 %d\t\t*\t%s: %s\n",
 			pReset->arg1,
 			pReset->arg3,
-			mlstr_mval(get_obj_index(pReset->arg1)->short_descr),
+			mlstr_mval(&get_obj_index(pReset->arg1)->short_descr),
 			flag_string(wear_loc_strings, pReset->arg3));
 		break;
 
@@ -637,7 +637,7 @@ void save_reset(FILE *fp, AREA_DATA *pArea,
 		fprintf(fp, "R 0 %d %d\t* %s: randomize\n", 
 			pReset->arg1,
 			pReset->arg2,
-			mlstr_mval(pRoomIndex->name));
+			mlstr_mval(&pRoomIndex->name));
 		break;
 #else
 	case 'M':
@@ -783,7 +783,7 @@ void save_olimits(FILE *fp, AREA_DATA *pArea)
 				found = TRUE;
 			}
 			fprintf(fp, "O %d %d\t* %s\n",
-				i, pObj->limit, mlstr_mval(pObj->short_descr));
+				i, pObj->limit, mlstr_mval(&pObj->short_descr));
 		}
 
 	if (found)
@@ -800,7 +800,7 @@ void save_omprog(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
 				pObjIndex->vnum,
 				optype_table[i],
 				oprog_name_lookup(pObjIndex->oprogs[i]),
-				mlstr_mval(pObjIndex->short_descr));
+				mlstr_mval(&pObjIndex->short_descr));
 }
 
 void save_omprogs(FILE *fp, AREA_DATA *pArea)
@@ -839,7 +839,7 @@ void save_practicers(FILE *fp, AREA_DATA *pArea)
     			fprintf(fp, "M %d %s~\t* %s\n",
 				pMobIndex->vnum,
 				flag_string(skill_groups, pMobIndex->practicer),
-				mlstr_mval(pMobIndex->short_descr));
+				mlstr_mval(&pMobIndex->short_descr));
 		}
 
 	if (found)
@@ -858,7 +858,7 @@ void save_helps(FILE *fp, AREA_DATA *pArea)
 	for (; pHelp; pHelp = pHelp->next_in_area) {
 		fprintf(fp, "%d %s~\n",
 			pHelp->level, fix_string(pHelp->keyword));
-		mlstr_fwrite(fp, NULL, pHelp->text);
+		mlstr_fwrite(fp, NULL, &pHelp->text);
 	}
 
 	fprintf(fp, "-1 $~\n\n");
@@ -885,8 +885,8 @@ void save_area(AREA_DATA *pArea)
 	fprintf(fp, "Security %d\n",	pArea->security);
 	fprintf(fp, "LevelRange %d %d\n",
 		pArea->min_level, pArea->max_level);
-	if (!mlstr_null(pArea->resetmsg))
-		mlstr_fwrite(fp, "ResetMessage", pArea->resetmsg);
+	if (!mlstr_null(&pArea->resetmsg))
+		mlstr_fwrite(fp, "ResetMessage", &pArea->resetmsg);
 	flags = pArea->area_flags & ~AREA_CHANGED;
 	if (flags)
 		fwrite_string(fp, "Flags", flag_string(area_flags, flags));
@@ -1048,7 +1048,7 @@ void save_msgdb(CHAR_DATA *ch)
 					flag_string(gender_table, mp->gender));
 			}
 
-			mlstr_fwrite(fp, "Text", mp->ml);
+			mlstr_fwrite(fp, "Text", &mp->ml);
 			fprintf(fp, "End\n\n");
 		}
 	}

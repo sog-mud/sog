@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: msg.h,v 1.6 1999-05-21 22:49:34 fjoe Exp $
+ * $Id: msg.h,v 1.7 1999-06-10 18:19:05 fjoe Exp $
  */
 
 #ifndef _MSG_H_
@@ -32,7 +32,7 @@
 #define MAX_MSG_HASH		256
 
 typedef struct msg_t {
-	mlstring *ml;
+	mlstring ml;
 	flag32_t gender;
 } msg_t;
 

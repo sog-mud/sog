@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.198 1999-06-10 14:33:30 fjoe Exp $
+ * $Id: merc.h,v 1.199 1999-06-10 18:19:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -283,7 +283,7 @@ struct help_data
 
 	int		level;
 	const char * 	keyword;
-	mlstring *	text;
+	mlstring	text;
 };
 	
 /*
@@ -1148,7 +1148,7 @@ where_t *where_lookup(flag32_t where);
 
 #define IS_HARA_KIRI(ch) (IS_SET((ch)->plr_flags, PLR_HARA_KIRI))
 #define IS_CLAN_GUARD(ch) (IS_NPC(ch) && IS_SET(ch->pIndexData->act, ACT_CLAN_GUARD))
-#define IS_OWNER(ch, obj) (!mlstr_cmp(ch->short_descr, obj->owner))
+#define IS_OWNER(ch, obj) (!mlstr_cmp(&ch->short_descr, &obj->owner))
 
 #define IS_WANTED(ch)	(!IS_NPC(ch) && !IS_NULLSTR(ch->pcdata->wanted_by))
 #define SET_WANTED(ch, w_by)					\
@@ -1253,9 +1253,9 @@ struct mob_index_data
 	int			count;
 	int			killed;
 	const char *		name;
-	mlstring *		short_descr;
-	mlstring *		long_descr;
-	mlstring *		description;
+	mlstring		short_descr;
+	mlstring		long_descr;
+	mlstring		description;
 	flag64_t		affected_by;
 	int			alignment;
 	int			level;
@@ -1315,9 +1315,9 @@ struct char_data
 	AREA_DATA * 		zone;
 	PC_DATA *		pcdata;
 	const char *		name;
-	mlstring *		short_descr;
-	mlstring *		long_descr;
-	mlstring *		description;
+	mlstring		short_descr;
+	mlstring		long_descr;
+	mlstring		description;
 	const char *		prompt;
 	const char *		prefix;
 	int			group;
@@ -1483,7 +1483,7 @@ struct ed_data
 {
 	ED_DATA *	next;		/* Next in list 	    */
 	const char *	keyword;	/* Keyword in look/examine  */
-	mlstring *	description;	/* What to see		    */
+	mlstring	description;	/* What to see		    */
 };
 
 enum {
@@ -1512,8 +1512,8 @@ struct obj_index_data
 	ED_DATA *		ed;
 	AFFECT_DATA *		affected;
 	const char *		name;
-	mlstring *		short_descr;
-	mlstring *		description;
+	mlstring		short_descr;
+	mlstring		description;
 	int			vnum;
 	int			reset_num;
 	const char *		material;
@@ -1548,8 +1548,8 @@ struct obj_data
 	OBJ_INDEX_DATA *	pIndexData;
 	ROOM_INDEX_DATA *	in_room;
 	const char *		name;
-	mlstring *		short_descr;
-	mlstring *		description;
+	mlstring		short_descr;
+	mlstring		description;
 	flag32_t 		extra_flags;
 	flag32_t 		wear_flags;
 	flag32_t		wear_loc;
@@ -1561,7 +1561,7 @@ struct obj_data
 	int			timer;
 	int 			value	[5];
 	int 			progtypes;
-	mlstring *		owner;
+	mlstring		owner;
 	altar_t *		altar;
 	bool			extracted;
 	int 			water_float;
@@ -1576,7 +1576,7 @@ struct exit_data
 	flag32_t	exit_info;
 	int		key;
 	const char *	keyword;
-	mlstring *	description;
+	mlstring	description;
 	EXIT_DATA *	next;		/* OLC */
 	flag32_t	rs_flags;	/* OLC */
 	int		orig_door;	/* OLC */
@@ -1634,7 +1634,7 @@ struct area_data
 	flag32_t	area_flags;
 	int		security;	/* area security (1..9)		*/
 	uint		count;
-	mlstring *	resetmsg;	/* reset message		*/
+	mlstring	resetmsg;	/* reset message		*/
 };
 
 struct room_history_data
@@ -1659,8 +1659,8 @@ struct room_index_data
 	EXIT_DATA * 		exit	[6];
 	RESET_DATA *		reset_first;	/* OLC */
 	RESET_DATA *		reset_last;	/* OLC */
-	mlstring *		name;
-	mlstring *		description;
+	mlstring		name;
+	mlstring		description;
 	const char *		owner;
 	int 			clan;
 	int			vnum;

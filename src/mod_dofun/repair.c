@@ -1,5 +1,5 @@
 /*
- * $Id: repair.c,v 1.19 1999-04-15 09:14:17 fjoe Exp $
+ * $Id: repair.c,v 1.20 1999-06-10 18:19:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -131,7 +131,7 @@ void do_repair(CHAR_DATA *ch, const char *argument)
 	if (obj->cost == 0) {
 		/* XXX */
 		doprintf(do_say, mob, "%s is beyond repair.\n",
-			 mlstr_mval(obj->short_descr));
+			 mlstr_mval(&obj->short_descr));
    		return;
 	}
 

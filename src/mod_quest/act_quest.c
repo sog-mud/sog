@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.109 1999-06-10 14:33:31 fjoe Exp $
+ * $Id: act_quest.c,v 1.110 1999-06-10 18:19:01 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -362,7 +362,7 @@ static void quest_info(CHAR_DATA *ch, char* arg)
 			if (ch->pcdata->questroom)
 				char_printf(ch, "That location is in general area of {W%s{x for {W%s{x.\n",
 					    ch->pcdata->questroom->area->name, 
-					    mlstr_mval(ch->pcdata->questroom->name));
+					    mlstr_mval(&ch->pcdata->questroom->name));
 		}
 		else 
 			char_puts("You aren't currently on a quest.\n", ch);
@@ -375,11 +375,11 @@ static void quest_info(CHAR_DATA *ch, char* arg)
 		questinfo = get_mob_index(ch->pcdata->questmob);
 		if (questinfo != NULL) {
 			char_printf(ch, "You are on a quest to slay the dreaded {W%s{x!\n",
-				    mlstr_mval(questinfo->short_descr));
+				    mlstr_mval(&questinfo->short_descr));
 			if (ch->pcdata->questroom)
 				char_printf(ch, "That location is in general area of {W%s{x for {W%s{x.\n",
 					    ch->pcdata->questroom->area->name, 
-					    mlstr_mval(ch->pcdata->questroom->name));
+					    mlstr_mval(&ch->pcdata->questroom->name));
 		} else 
 			char_puts("You aren't currently on a quest.\n", ch);
 		return;
@@ -567,7 +567,7 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 		obj_vnum = number_range(QUEST_OBJ_FIRST, QUEST_OBJ_LAST);
 		eyed = create_obj(get_obj_index(obj_vnum), 0);
 		eyed->level = ch->level;
-		eyed->owner = mlstr_dup(ch->short_descr);
+		mlstr_cpy(&eyed->owner, &ch->short_descr);
 		eyed->ed = ed_new2(eyed->pIndexData->ed, ch->name);
 		eyed->cost = 0;
 		eyed->timer = 30;
@@ -578,24 +578,24 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 		quest_tell(ch, questor,
 			   "Vile pilferers have stolen {W%s{z "
 			   "from the royal treasury!",
-			   mlstr_mval(eyed->short_descr));
+			   mlstr_mval(&eyed->short_descr));
 		quest_tell(ch, questor,
 			   "My court wizardess, with her magic mirror, "
 			   "has pinpointed its location.");
 		quest_tell(ch, questor,
 			   "Look in the general area of {W%s{z for {W%s{z!",
 			   victim->in_room->area->name,
-			   mlstr_mval(victim->in_room->name));
+			   mlstr_mval(&victim->in_room->name));
 	}
 	else {	/* Quest to kill a mob */
 		if (IS_GOOD(ch)) {
 			quest_tell(ch, questor,
 				   "Rune's most heinous criminal, {W%s{z, "
 				   "has escaped from the dungeon.",
-				   mlstr_mval(victim->short_descr));
+				   mlstr_mval(&victim->short_descr));
 			quest_tell(ch, questor,
 				   "Since the escape, {W%s{z has murdered {W%d{z civilians!",
-				   mlstr_mval(victim->short_descr),
+				   mlstr_mval(&victim->short_descr),
 				   number_range(2, 20));
 			quest_tell(ch, questor, "The penalty for this crime is death, and you are to deliver the sentence!");
 		}
@@ -603,15 +603,15 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 			quest_tell(ch, questor,
 				   "An enemy of mine, {W%s{z, "
 				   "is making vile threats against the crown.",
-				   mlstr_mval(victim->short_descr));
+				   mlstr_mval(&victim->short_descr));
 			quest_tell(ch, questor,
 				   "This threat must be eliminated!");
 		}
 
 		quest_tell(ch, questor,
 			   "Seek {W%s{z out in the vicinity of {W%s{z!",
-			   mlstr_mval(victim->short_descr),
-			   mlstr_mval(victim->in_room->name));
+			   mlstr_mval(&victim->short_descr),
+			   mlstr_mval(&victim->in_room->name));
 		quest_tell(ch, questor,
 			   "That location is in general area of {W%s{z.",
 			   victim->in_room->area->name);
@@ -895,14 +895,13 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 	/* ok, give him requested item */
 
 	if (IS_SET(pObjIndex->extra_flags, ITEM_QUEST)) {
-		reward->owner = mlstr_dup(ch->short_descr);
-		mlstr_free(reward->short_descr);
-		reward->short_descr =
-			mlstr_printf(reward->pIndexData->short_descr,
-				     IS_GOOD(ch) ?	"holy" :
-				     IS_NEUTRAL(ch) ?	"blue-green" : 
-							"evil", 
-				     ch->name);
+		mlstr_cpy(&reward->owner, &ch->short_descr);
+		mlstr_printf(&reward->short_descr,
+			     &reward->pIndexData->short_descr,
+			     IS_GOOD(ch) ?	"holy" :
+			     IS_NEUTRAL(ch) ?	"blue-green" : 
+						"evil", 
+			     ch->name);
 	}
 
 	obj_to_char(reward, ch);

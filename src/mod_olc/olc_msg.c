@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.30 1999-05-21 22:49:34 fjoe Exp $
+ * $Id: olc_msg.c,v 1.31 1999-06-10 18:19:06 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -96,7 +96,7 @@ OLC_FUN(msged_create)
 	if (olced_busy(ch, ED_MSG, NULL, NULL))
 		return FALSE;
 
-	m.ml = mlstr_new(argument);
+	mlstr_init(&m.ml, argument);
 	m.gender = 0;
 	ch->desc->pEdit	= (void*) msg_add(&m);
 	OLCED(ch)	= olced_lookup(ED_MSG);
@@ -174,7 +174,7 @@ OLC_FUN(msged_list)
 
 		for (j = 0; j < v->nused; j++) {
 			msg_t *mp = VARR_GET(v, j);
-			const char *name = mlstr_mval(mp->ml);
+			const char *name = mlstr_mval(&mp->ml);
 
 			if (strstr(name, argument)) {
 				if (output == NULL)
@@ -229,7 +229,7 @@ OLC_FUN(msged_msg)
 		if (olced_busy(ch, ED_MSG, NULL, NULL))
 			return FALSE;
 
-		m = msg_del(mlstr_mval(mp->ml));
+		m = msg_del(mlstr_mval(&mp->ml));
 		mp = &m;
 	}
 
@@ -259,8 +259,8 @@ OLC_FUN(msged_del)
 		return FALSE;
 
 	EDIT_MSG(ch, mp);
-	m = msg_del(mlstr_mval(mp->ml));
-	mlstr_free(m.ml);
+	m = msg_del(mlstr_mval(&mp->ml));
+	mlstr_destroy(&m.ml);
 	edit_done(ch->desc);
 
 	return FALSE;
@@ -288,7 +288,7 @@ static msg_t *msg_search(const char *argument)
 		for (j = 0; j < v->nused; j++) {
 			msg_t *mp = VARR_GET(v, j);
 
-			if (strstr(mlstr_mval(mp->ml), name) && !--num)
+			if (strstr(mlstr_mval(&mp->ml), name) && !--num)
 				return mp;
 		}
 	}
@@ -364,21 +364,21 @@ static const char* msgtoa(const char *argument)
 static void msg_dump(BUFFER *buf, msg_t *mp)
 {
 	int lang;
-	int nlang = mlstr_nlang(mp->ml);
+	int nlang = mlstr_nlang(&mp->ml);
 	static char FORMAT[] = "[%s] [%s]\n";
 
 	buf_printf(buf, "Gender: [%s]\n",
 		   flag_string(gender_table, mp->gender));
 
 	if (!nlang) {
-		buf_printf(buf, FORMAT, "all", msgtoa(mlstr_mval(mp->ml)));
+		buf_printf(buf, FORMAT, "all", msgtoa(mlstr_mval(&mp->ml)));
 		return;
 	}
 
 	for (lang = 0; lang < nlang; lang++) {
 		lang_t *l = VARR_GET(&langs, lang);
 		buf_printf(buf, FORMAT,
-			   l->name, msgtoa(mlstr_val(mp->ml, lang)));
+			   l->name, msgtoa(mlstr_val(&mp->ml, lang)));
 	}
 }
 

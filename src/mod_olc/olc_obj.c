@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.48 1999-05-26 12:44:50 fjoe Exp $
+ * $Id: olc_obj.c,v 1.49 1999-06-10 18:19:06 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -286,8 +286,8 @@ OLC_FUN(objed_show)
 		buf_add(output, "\n");
 	}
 
-	mlstr_dump(output, "Short desc: ", pObj->short_descr);
-	mlstr_dump(output, "Long desc: ", pObj->description);
+	mlstr_dump(output, "Short desc: ", &pObj->short_descr);
+	mlstr_dump(output, "Long desc: ", &pObj->description);
 
 	for (cnt = 0, paf = pObj->affected; paf; paf = paf->next) {
 		where_t *w = where_lookup(paf->where);
@@ -345,7 +345,7 @@ OLC_FUN(objed_list)
 				found = TRUE;
 				buf_printf(buffer, "[%5d] %-17.16s",
 					   pObjIndex->vnum,
-					   mlstr_mval(pObjIndex->short_descr));
+					   mlstr_mval(&pObjIndex->short_descr));
 				if (++col % 3 == 0)
 					buf_add(buffer, "\n");
 			}
@@ -866,10 +866,8 @@ OLC_FUN(objed_clone)
 	pObj->name		= str_qdup(pFrom->name);
 	free_string(pObj->material);
 	pObj->material		= str_qdup(pFrom->material);
-	mlstr_free(pObj->short_descr);
-	pObj->short_descr	= mlstr_dup(pFrom->short_descr);
-	mlstr_free(pObj->description);
-	pObj->description	= mlstr_dup(pFrom->description);
+	mlstr_cpy(&pObj->short_descr, &pFrom->short_descr);
+	mlstr_cpy(&pObj->description, &pFrom->description);
 
 	pObj->item_type		= pFrom->item_type;
 	pObj->extra_flags	= pFrom->extra_flags;
@@ -1034,7 +1032,7 @@ void show_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj)
 			pObj->value[0],
 			flag_string(cont_flags, pObj->value[1]),
 		        get_obj_index(pObj->value[2]) ?
-			mlstr_mval(get_obj_index(pObj->value[2])->short_descr) :
+			mlstr_mval(&get_obj_index(pObj->value[2])->short_descr) :
 			"none",
 		        pObj->value[2],
 		        pObj->value[3],

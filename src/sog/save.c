@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.119 1999-06-10 11:47:31 fjoe Exp $
+ * $Id: save.c,v 1.120 1999-06-10 18:19:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -174,7 +174,7 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, int flags)
 
 	fprintf(fp, "Vers %d\n", CHAR_VERSION);
 	fwrite_string(fp, "Name", ch->name);
-	mlstr_fwrite(fp, "ShD", ch->short_descr);
+	mlstr_fwrite(fp, "ShD", &ch->short_descr);
 	fprintf(fp, "LogO %ld\n",
 		IS_SET(flags, SAVE_F_PSCAN) ? ch->logoff : current_time);
 	fprintf(fp, "Ethos %s\n", flag_string(ethos_table, ch->ethos));
@@ -188,7 +188,7 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, int flags)
 	else if (ch->pcdata->petition)
 		fwrite_string(fp, "Peti", clan_name(ch->pcdata->petition));
 
-	fwrite_string(fp, "Desc", mlstr_mval(ch->description));
+	fwrite_string(fp, "Desc", mlstr_mval(&ch->description));
 	if (str_cmp(ch->prompt, DEFAULT_PROMPT)
 	&&  str_cmp(ch->prompt, OLD_DEFAULT_PROMPT))
 		fwrite_string(fp, "Prom", ch->prompt);
@@ -382,12 +382,12 @@ fwrite_pet(CHAR_DATA * pet, FILE * fp, int flags)
 		IS_SET(flags, SAVE_F_PSCAN) ? pet->logoff : current_time);
 	if (pet->clan)
 		fwrite_string(fp, "Clan", clan_name(pet->clan));
-	if (mlstr_cmp(pet->short_descr, pet->pIndexData->short_descr) != 0)
-		mlstr_fwrite(fp, "ShD", pet->short_descr);
-	if (mlstr_cmp(pet->long_descr, pet->pIndexData->long_descr) != 0)
-		mlstr_fwrite(fp, "LnD", pet->short_descr);
-	if (mlstr_cmp(pet->description, pet->pIndexData->description) != 0)
-		mlstr_fwrite(fp, "Desc", pet->short_descr);
+	if (mlstr_cmp(&pet->short_descr, &pet->pIndexData->short_descr) != 0)
+		mlstr_fwrite(fp, "ShD", &pet->short_descr);
+	if (mlstr_cmp(&pet->long_descr, &pet->pIndexData->long_descr) != 0)
+		mlstr_fwrite(fp, "LnD", &pet->short_descr);
+	if (mlstr_cmp(&pet->description, &pet->pIndexData->description) != 0)
+		mlstr_fwrite(fp, "Desc", &pet->short_descr);
 	if (pet->race != pet->pIndexData->race)	/* serdar ORG_RACE */
 		fwrite_string(fp, "Race", race_name(pet->race));
 	fprintf(fp, "Sex  %d\n", pet->sex);
@@ -466,7 +466,7 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 	&&  !IS_OWNER(ch, obj)) {
 		log("fwrite_obj: %s: '%s' of %s",
 			   ch->name, obj->name,
-			   mlstr_mval(obj->owner));
+			   mlstr_mval(&obj->owner));
 		act("$p vanishes!", ch, obj, NULL, TO_CHAR);
 		extract_obj(obj, 0);
 		return;
@@ -481,15 +481,15 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 	fprintf(fp, "Cond %d\n", obj->condition);
 
 	fprintf(fp, "Nest %d\n", iNest);
-	mlstr_fwrite(fp, "Owner", obj->owner);
+	mlstr_fwrite(fp, "Owner", &obj->owner);
 
 	if (obj->pIndexData->limit < 0) {
 		if (str_cmp(obj->name, obj->pIndexData->name))
 			fwrite_string(fp, "Name", obj->name);
-		if (mlstr_cmp(obj->short_descr, obj->pIndexData->short_descr))
-			mlstr_fwrite(fp, "ShD", obj->short_descr);
-		if (mlstr_cmp(obj->description, obj->pIndexData->description))
-			mlstr_fwrite(fp, "Desc", obj->description);
+		if (mlstr_cmp(&obj->short_descr, &obj->pIndexData->short_descr))
+			mlstr_fwrite(fp, "ShD", &obj->short_descr);
+		if (mlstr_cmp(&obj->description, &obj->pIndexData->description))
+			mlstr_fwrite(fp, "Desc", &obj->description);
 	}
 
 	if (obj->extra_flags != obj->pIndexData->extra_flags)
@@ -544,7 +544,7 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 		if (IS_NULLSTR(ed->keyword))
 			continue;
 		fwrite_string(fp, "ExDe", ed->keyword);
-		mlstr_fwrite(fp, NULL, ed->description);
+		mlstr_fwrite(fp, NULL, &ed->description);
 	}
 
 	fprintf(fp, "End\n\n");
@@ -776,7 +776,7 @@ CHAR_DATA *load_char_obj(const char *name, int flags)
 	ch->pcdata = new_pcdata();
 
 	ch->name = str_dup(capitalize(name));
-	ch->short_descr = mlstr_new(ch->name);
+	mlstr_init(&ch->short_descr, ch->name);
 	ch->race = rn_lookup("human");
 	ch->plr_flags = PLR_NOSUMMON | PLR_NOCANCEL;
 	ch->comm = COMM_COMBINE | COMM_PROMPT;
@@ -1658,9 +1658,8 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 
 				if (IS_SET(obj->pIndexData->extra_flags,
 					   ITEM_QUEST)
-				&&  IS_NULLSTR(obj->owner)) {
-					mlstr_free(obj->owner);
-					obj->owner = mlstr_dup(ch->short_descr);
+				&&  mlstr_null(&obj->owner)) {
+					mlstr_cpy(&obj->owner, &ch->short_descr);
 				}
 
 				if (iNest == 0 || rgObjNest[iNest] == NULL)

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.c,v 1.36 1999-06-03 12:13:36 fjoe Exp $
+ * $Id: mlstring.c,v 1.37 1999-06-10 18:19:00 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -40,62 +40,57 @@
  * multi-language string implementation
  */
 
-/*
- * multi-language string
- * if nlang == 0 the value is stored in u.str
- * otherwise the value is stored in array of strings u.lstr
- * the size of array is equal to 'nlang'
- * 'ref' = number of references (COW semantics)
- */
-struct mlstring {
-	union {
-		const char* str;
-		const char** lstr;
-	} u;
-	int nlang;
-	int ref;
-};
-
 static const char* smash_a(const char *s, int len);
 static char* fix_mlstring(const char* s);
-static mlstring *mlstr_split(mlstring *ml);
 
-int mlstr_count;
-int mlstr_real_count;
-
-mlstring mlstr_empty;
-
-mlstring *mlstr_new(const char *mval)
+void mlstr_init(mlstring *mlp, const char *mval)
 {
-	mlstring *res = malloc(sizeof(*res));
-	res->u.str = str_dup(mval);
-	res->nlang = 0;
-	res->ref = 1;
-	mlstr_real_count++;
-	return res;
+	mlp->u.str = str_dup(mval);
+	mlp->nlang = 0;
 }
 
-mlstring *mlstr_fread(FILE *fp)
+void mlstr_destroy(mlstring *mlp)
+{
+	if (mlp == NULL)
+		return;
+
+	if (mlp->nlang == 0)
+		free_string(mlp->u.str);
+	else {
+		int lang;
+
+		for (lang = 0; lang < mlp->nlang; lang++)
+			free_string(mlp->u.lstr[lang]);
+		free(mlp->u.lstr);
+	}
+}
+
+void mlstr_clear(mlstring *mlp)
+{
+	mlstr_destroy(mlp);
+	mlstr_init(mlp, NULL);
+}
+
+void mlstr_fread(FILE *fp, mlstring *mlp)
 {
 	const char *p;
 	const char *s;
 	int lang;
-	mlstring *res;
+
+	mlstr_clear(mlp);
 
 	p = fread_string(fp);
 	if (IS_NULLSTR(p))
-		return &mlstr_empty;
+		return;
 
-	mlstr_count++;
-	res = mlstr_new(NULL);
 	if (*p != '@' || *(p+1) == '@') {
-		res->u.str = smash_a(p, -1);
+		mlp->u.str = smash_a(p, -1);
 		free_string(p);
-		return res;
+		return;
 	}
 
-	res->u.lstr = calloc(1, sizeof(char*) * langs.nused);
-	res->nlang = langs.nused;
+	mlp->u.lstr = calloc(1, sizeof(char*) * langs.nused);
+	mlp->nlang = langs.nused;
 
 	s = p+1;
 	for (;;) {
@@ -105,17 +100,17 @@ mlstring *mlstr_fread(FILE *fp)
 		q = strchr(s, ' ');
 		if (q == NULL) {
 			db_error("mlstr_fread", "no ` ' after `@' found");
-			return res;
+			return;
 		}
 
 		if ((lang = lang_nlookup(s, q-s)) < 0) {
 			db_error("mlstr_fread", "%s: unknown language", s);
-			return res;
+			return;
 		}
 
-		if (res->u.lstr[lang] != NULL) {
+		if (mlp->u.lstr[lang] != NULL) {
 			db_error("mlstr_fread", "lang %s: redefined", s);
-			return res;
+			return;
 		}
 
 		/* find next '@', skip "@@" */
@@ -126,34 +121,33 @@ mlstring *mlstr_fread(FILE *fp)
 		}
 		if (s == NULL)
 			s = strchr(q, '\0');
-		res->u.lstr[lang] = smash_a(q, s-q);
+		mlp->u.lstr[lang] = smash_a(q, s-q);
 		if (!*s++)
 			break;
 	}
 
 	free_string(p);
-	return res;
 }
 
-void mlstr_fwrite(FILE *fp, const char* name, const mlstring *ml)
+void mlstr_fwrite(FILE *fp, const char* name, const mlstring *mlp)
 {
 	int lang;
 
 	if (name)
 		fprintf(fp, "%s ", name);
 
-	if (!ml) {
+	if (!mlp) {
 		fprintf(fp, "~\n");
 		return;
 	}
 
-	if (ml->nlang == 0) {
-		fprintf(fp, "%s~\n", fix_mlstring(ml->u.str));
+	if (mlp->nlang == 0) {
+		fprintf(fp, "%s~\n", fix_mlstring(mlp->u.str));
 		return;
 	}
 
-	for (lang = 0; lang < ml->nlang && lang < langs.nused; lang++) {
-		const char* p = ml->u.lstr[lang];
+	for (lang = 0; lang < mlp->nlang && lang < langs.nused; lang++) {
+		const char* p = mlp->u.lstr[lang];
 		lang_t *l;
 
 		if (IS_NULLSTR(p))
@@ -165,134 +159,122 @@ void mlstr_fwrite(FILE *fp, const char* name, const mlstring *ml)
 	fputs("~\n", fp);
 }
 
-void mlstr_free(mlstring *ml)
+void mlstr_cpy(mlstring *dst, const mlstring *src)
 {
-	if (ml == NULL || ml == &mlstr_empty)
+	mlstr_clear(dst);
+
+	if (src == NULL)
 		return;
 
-	mlstr_count--;
-	if (ml->ref < 1 || --ml->ref)
-		return;
-
-	if (ml->nlang == 0)
-		free_string(ml->u.str);
+	dst->nlang = src->nlang;
+	if (src->nlang == 0)
+		dst->u.str = str_dup(src->u.str);
 	else {
 		int lang;
 
-		for (lang = 0; lang < ml->nlang; lang++)
-			free_string(ml->u.lstr[lang]);
-		free(ml->u.lstr);
+		dst->u.lstr = calloc(1, sizeof(char*) * src->nlang);
+		for (lang = 0; lang < src->nlang; lang++) {
+			if (IS_NULLSTR(src->u.lstr[lang]))
+				continue;
+			dst->u.lstr[lang] = str_dup(src->u.lstr[lang]);
+		}
 	}
-	free(ml);
-	mlstr_real_count--;
 }
 
-mlstring *mlstr_dup(mlstring *ml)
-{
-	if (ml == NULL)
-		return NULL;
-	mlstr_count++;
-	if (ml != &mlstr_empty)
-		ml->ref++;
-	return ml;
-}
-
-mlstring *mlstr_printf(mlstring *ml,...)
+void mlstr_printf(mlstring *dst, const mlstring *format,...)
 {
 	char buf[MAX_STRING_LENGTH];
 	va_list ap;
-	mlstring *res;
 
-	if (ml == NULL)
-		return NULL;
+	mlstr_clear(dst);
 
-	mlstr_count++;
-	res = mlstr_new(NULL);
-	res->nlang = ml->nlang;
+	if (format == NULL)
+		return;
 
-	va_start(ap, ml);
-	if (ml->nlang == 0) {
-		vsnprintf(buf, sizeof(buf), ml->u.str, ap);
-		res->u.str = str_dup(buf);
+	dst->nlang = format->nlang;
+
+	va_start(ap, format);
+	if (format->nlang == 0) {
+		vsnprintf(buf, sizeof(buf), format->u.str, ap);
+		dst->u.str = str_dup(buf);
 	}
 	else {
 		int lang;
 
-		res->u.lstr = calloc(1, sizeof(char*) * res->nlang);
-		for (lang = 0; lang < ml->nlang; lang++) {
-			if (IS_NULLSTR(ml->u.lstr[lang]))
+		dst->u.lstr = calloc(1, sizeof(char*) * format->nlang);
+		for (lang = 0; lang < format->nlang; lang++) {
+			if (IS_NULLSTR(format->u.lstr[lang]))
 				continue;
-			vsnprintf(buf, sizeof(buf), ml->u.lstr[lang], ap);
-			res->u.lstr[lang] = str_dup(buf);
+			vsnprintf(buf, sizeof(buf), format->u.lstr[lang], ap);
+			dst->u.lstr[lang] = str_dup(buf);
 		}
 	}
 	va_end(ap);
-	return res;
 }
 
-int mlstr_nlang(const mlstring *ml)
+int mlstr_nlang(const mlstring *mlp)
 {
-	if (ml == NULL)
+	if (mlp == NULL)
 		return 0;
-	return ml->nlang;
+	return mlp->nlang;
 }
 
-const char * mlstr_val(const mlstring *ml, int lang)
+const char * mlstr_val(const mlstring *mlp, int lang)
 {
 	const char *p;
 
-	if (ml == NULL)
+	if (mlp == NULL)
 		return str_empty;
 
-	if (ml->nlang == 0) {
-		p = ml->u.str;
+	if (mlp->nlang == 0) {
+		p = mlp->u.str;
 		return (p ? p : str_empty);
 	}
 
-	if (lang >= ml->nlang
+	if (lang >= mlp->nlang
 	||  lang < 0
-	||  IS_NULLSTR(ml->u.lstr[lang])) {
+	||  IS_NULLSTR(mlp->u.lstr[lang])) {
 		lang_t *l;
 
 		if ((l = varr_get(&langs, lang))
 		&&  l->slang_of >= 0
-		&&  l->slang_of < ml->nlang)
+		&&  l->slang_of < mlp->nlang)
 			lang = l->slang_of;
 		else
 			return str_empty;
 	}
 
-	p = ml->u.lstr[lang];
+	p = mlp->u.lstr[lang];
 	return (p ? p : str_empty);
 }
 
-bool mlstr_null(const mlstring *ml)
+bool mlstr_null(const mlstring *mlp)
 {
-	const char *mval = mlstr_mval(ml);
+	const char *mval = mlstr_mval(mlp);
 	return (mval == NULL) || (*mval == '\0');
 }
 
-int mlstr_cmp(const mlstring *ml1, const mlstring *ml2)
+int mlstr_cmp(const mlstring *mlp1, const mlstring *mlp2)
 {
 	int lang;
 	int res;
 
-	if (ml1 == NULL)
-		if (ml2 == NULL)
+	if (mlp1 == NULL)
+		if (mlp2 == NULL)
 			return 0;
 		else
 			return 1;
-	else if (ml2 == NULL)
+	else if (mlp2 == NULL)
 		return -1;
 
-	if (ml1->nlang != ml2->nlang)
-		return  ml1->nlang - ml2->nlang;
+	if (mlp1->nlang != mlp2->nlang)
+		return  mlp1->nlang - mlp2->nlang;
 
-	if (ml1->nlang == 0)
-		return str_cmp(ml1->u.str, ml2->u.str);
+	if (mlp1->nlang == 0)
+		return str_cmp(mlp1->u.str, mlp2->u.str);
 
-	for (lang = 0; lang < ml1->nlang; lang++) {
-		res = str_cmp(ml1->u.lstr[lang], ml2->u.lstr[lang]);
+	for (lang = 0; lang < mlp1->nlang; lang++) {
+		res = str_cmp(mlp1->u.lstr[lang], mlp2->u.lstr[lang]);
 		if (res)
 			return res;
 	}
@@ -300,36 +282,35 @@ int mlstr_cmp(const mlstring *ml1, const mlstring *ml2)
 	return 0;
 }
 
-const char** mlstr_convert(mlstring **mlp, int newlang)
+const char** mlstr_convert(mlstring *mlp, int newlang)
 {
 	const char *old;
 	int lang;
 
-	*mlp = mlstr_split(*mlp);
 	if (newlang < 0) {
 		/* convert to language-independent */
-		if ((*mlp)->nlang) {
-			old = (*mlp)->u.lstr[0];
-			for (lang = 1; lang < (*mlp)->nlang; lang++)
-				free_string((*mlp)->u.lstr[lang]);
-			free((*mlp)->u.lstr);
-			(*mlp)->nlang = 0;
-			(*mlp)->u.str = old;
+		if (mlp->nlang) {
+			old = mlp->u.lstr[0];
+			for (lang = 1; lang < mlp->nlang; lang++)
+				free_string(mlp->u.lstr[lang]);
+			free(mlp->u.lstr);
+			mlp->nlang = 0;
+			mlp->u.str = old;
 		}
-		return &((*mlp)->u.str);
+		return &mlp->u.str;
 	}
 
 	/* convert to language-dependent */
-	if ((*mlp)->nlang == 0) {
-		old = (*mlp)->u.str;
-		(*mlp)->nlang = langs.nused;
-		(*mlp)->u.lstr = calloc(1, sizeof(char*) * langs.nused);
-		(*mlp)->u.lstr[0] = old;
+	if (mlp->nlang == 0) {
+		old = mlp->u.str;
+		mlp->nlang = langs.nused;
+		mlp->u.lstr = calloc(1, sizeof(char*) * langs.nused);
+		mlp->u.lstr[0] = old;
 	}
-	return ((*mlp)->u.lstr)+newlang;
+	return mlp->u.lstr + newlang;
 }
 
-bool mlstr_append(CHAR_DATA *ch, mlstring **mlp, const char *arg)
+bool mlstr_append(CHAR_DATA *ch, mlstring *mlp, const char *arg)
 {
 	int lang;
 
@@ -341,25 +322,24 @@ bool mlstr_append(CHAR_DATA *ch, mlstring **mlp, const char *arg)
 	return TRUE;
 }
 
-void mlstr_foreach(mlstring **mlp, void *arg,
+void mlstr_foreach(mlstring *mlp, void *arg,
 		    void (*cb)(int lang, const char **p, void *arg))
 {
 	int lang;
 
-	if (*mlp == NULL)
+	if (mlp == NULL)
 		return;
 
-	*mlp = mlstr_split(*mlp);
-	if ((*mlp)->nlang == 0) {
-		cb(0, &((*mlp)->u.str), arg);
+	if (mlp->nlang == 0) {
+		cb(0, &mlp->u.str, arg);
 		return;
 	}
 
-	for (lang = 0; lang < (*mlp)->nlang; lang++)
-		cb(lang, (*mlp)->u.lstr + lang, arg);
+	for (lang = 0; lang < mlp->nlang; lang++)
+		cb(lang, mlp->u.lstr + lang, arg);
 }
 
-bool mlstr_edit(mlstring **mlp, const char *argument)
+bool mlstr_edit(mlstring *mlp, const char *argument)
 {
 	char arg[MAX_STRING_LENGTH];
 	int lang;
@@ -379,7 +359,7 @@ bool mlstr_edit(mlstring **mlp, const char *argument)
 /*
  * The same as mlstr_edit, but '\n' is appended.
  */
-bool mlstr_editnl(mlstring **mlp, const char *argument)
+bool mlstr_editnl(mlstring *mlp, const char *argument)
 {
 	char arg[MAX_STRING_LENGTH];
 	int lang;
@@ -396,7 +376,7 @@ bool mlstr_editnl(mlstring **mlp, const char *argument)
 	return TRUE;
 }
 
-void mlstr_dump(BUFFER *buf, const char *name, const mlstring *ml)
+void mlstr_dump(BUFFER *buf, const char *name, const mlstring *mlp)
 {
 	char space[MAX_STRING_LENGTH];
 	size_t namelen;
@@ -404,9 +384,9 @@ void mlstr_dump(BUFFER *buf, const char *name, const mlstring *ml)
 	static char FORMAT[] = "%s[%s] [%s]\n";
 	lang_t *l;
 
-	if (ml == NULL || ml->nlang == 0) {
+	if (mlp == NULL || mlp->nlang == 0) {
 		buf_printf(buf, FORMAT, name, "all",
-			   ml == NULL ? "(null)" : ml->u.str);
+			   mlp == NULL ? "(null)" : mlp->u.str);
 		return;
 	}
 
@@ -414,7 +394,7 @@ void mlstr_dump(BUFFER *buf, const char *name, const mlstring *ml)
 		return;
 
 	l = VARR_GET(&langs, 0);
-	buf_printf(buf, FORMAT, name, l->name, ml->u.lstr[0]);
+	buf_printf(buf, FORMAT, name, l->name, mlp->u.lstr[0]);
 
 	if (langs.nused < 1)
 		return;
@@ -424,10 +404,10 @@ void mlstr_dump(BUFFER *buf, const char *name, const mlstring *ml)
 	memset(space, ' ', namelen);
 	space[namelen] = '\0';
 
-	for (lang = 1; lang < ml->nlang && lang < langs.nused; lang++) {
+	for (lang = 1; lang < mlp->nlang && lang < langs.nused; lang++) {
 		l = VARR_GET(&langs, lang);
 		buf_printf(buf, FORMAT,
-			   space, l->name, ml->u.lstr[lang]);
+			   space, l->name, mlp->u.lstr[lang]);
 	}
 }
 
@@ -447,7 +427,7 @@ static void cb_addnl(int lang, const char **p, void *arg)
 	*(bool*) arg = TRUE;
 }
 
-bool mlstr_addnl(mlstring **mlp)
+bool mlstr_addnl(mlstring *mlp)
 {
 	bool changed = FALSE;
 	mlstr_foreach(mlp, &changed, cb_addnl);
@@ -492,28 +472,3 @@ static char *fix_mlstring(const char *s)
 	return buf;
 }
 
-static mlstring *mlstr_split(mlstring *ml)
-{
-	int lang;
-	mlstring *res;
-
-	if (ml != NULL && ml != &mlstr_empty && ml->ref < 2) 
-		return ml;
-
-	res = mlstr_new(NULL);
-
-	if (ml == NULL || ml == &mlstr_empty) 
-		return res;
-
-	res->nlang = ml->nlang;
-	ml->ref--;
-	if (ml->nlang == 0) {
-		res->u.str = str_qdup(ml->u.str);
-		return res;
-	}
-
-	res->u.lstr = malloc(sizeof(char*) * res->nlang);
-	for (lang = 0; lang < res->nlang; lang++)
-		res->u.lstr[lang] = str_qdup(ml->u.lstr[lang]);
-	return res;
-}

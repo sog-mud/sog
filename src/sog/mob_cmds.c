@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.35 1999-06-10 11:47:29 fjoe Exp $
+ * $Id: mob_cmds.c,v 1.36 1999-06-10 18:19:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -165,7 +165,7 @@ void do_mpstat(CHAR_DATA *ch, const char *argument)
     }
 
     char_printf(ch, "Mobile #%-6d [%s]\n",
-		victim->pIndexData->vnum, mlstr_mval(victim->short_descr));
+		victim->pIndexData->vnum, mlstr_mval(&victim->short_descr));
 
     char_printf(ch, "Delay   %-6d [%s]\n",
 		victim->mprog_delay,

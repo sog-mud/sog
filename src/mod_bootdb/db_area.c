@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.48 1999-06-10 14:33:34 fjoe Exp $
+ * $Id: db_area.c,v 1.49 1999-06-10 18:19:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -134,7 +134,6 @@ DBLOAD_FUN(load_area)
 	pArea->nplayer		= 0;
 	pArea->empty		= FALSE;
 	pArea->count		= 0;
-	pArea->resetmsg		= NULL;
 	pArea->area_flags	= 0;
 
 	if (area_first == NULL)
@@ -178,7 +177,6 @@ DBLOAD_FUN(load_areadata)
 	pArea->area_flags	= 0;
 	pArea->min_level	= 0;
 	pArea->max_level	= 0;          
-	pArea->resetmsg		= NULL;
  
 	for (; ;) {
 		word   = feof(fp) ? "End" : fread_word(fp);
@@ -259,7 +257,7 @@ DBLOAD_FUN(load_helps)
 		pHelp		= help_new();
 		pHelp->level	= level;
 		pHelp->keyword	= keyword;
-		pHelp->text	= mlstr_fread(fp);
+		mlstr_fread(fp, &pHelp->text);
 
 		help_add(area_current, pHelp);
 	}
@@ -303,15 +301,12 @@ DBLOAD_FUN(load_old_mob)
 		fBootDb = TRUE;
 
 		pMobIndex		= alloc_perm(sizeof(*pMobIndex));
-		pMobIndex->short_descr	= NULL;
-		pMobIndex->long_descr	= NULL;
-		pMobIndex->description	= NULL;
 
 		pMobIndex->vnum		= vnum;
 		pMobIndex->name	= fread_string(fp);
-		pMobIndex->short_descr	= mlstr_fread(fp);
-		pMobIndex->long_descr	= mlstr_fread(fp);
-		pMobIndex->description	= mlstr_fread(fp);
+		mlstr_fread(fp, &pMobIndex->short_descr);
+		mlstr_fread(fp, &pMobIndex->long_descr);
+		mlstr_fread(fp, &pMobIndex->description);
 
 		pMobIndex->act		= fread_flags(fp) | ACT_NPC;
 		pMobIndex->affected_by	= fread_flags(fp);
@@ -482,14 +477,12 @@ DBLOAD_FUN(load_old_obj)
 		fBootDb = TRUE;
 
 		pObjIndex		= alloc_perm(sizeof(*pObjIndex));
-		pObjIndex->short_descr	= NULL;
-		pObjIndex->description	= NULL;
 		pObjIndex->vnum		= vnum;
 		pObjIndex->reset_num	= 0;
 
 		pObjIndex->name		= fread_string(fp);
-		pObjIndex->short_descr	= mlstr_fread(fp);
-		pObjIndex->description	= mlstr_fread(fp);
+		mlstr_fread(fp, &pObjIndex->short_descr);
+		mlstr_fread(fp, &pObjIndex->description);
 		/* Action description */  fread_string(fp);
 		pObjIndex->material	= str_dup("copper");
 
@@ -832,8 +825,8 @@ DBLOAD_FUN(load_rooms)
 
 		pRoomIndex->area	= area_current;
 		pRoomIndex->vnum	= vnum;
-		pRoomIndex->name	= mlstr_fread(fp);
-		pRoomIndex->description	= mlstr_fread(fp);
+		mlstr_fread(fp, &pRoomIndex->name);
+		mlstr_fread(fp, &pRoomIndex->description);
 		/* Area number */	  fread_number(fp);
 		pRoomIndex->room_flags	= fread_flags(fp);
 		pRoomIndex->sector_type	= fread_fword(sector_types, fp);
@@ -863,7 +856,7 @@ DBLOAD_FUN(load_rooms)
 				}
 	
 				pexit			= alloc_perm(sizeof(*pexit));
-				pexit->description	= mlstr_fread(fp);
+				mlstr_fread(fp, &pexit->description);
 				if (mlstr_addnl(&pexit->description))
 					touch_area(area_current);
 
@@ -1088,7 +1081,7 @@ DBLOAD_FUN(load_olimits)
 
 DBLOAD_FUN(load_resetmsg)
 {
-	area_current->resetmsg = mlstr_fread(fp);
+	mlstr_fread(fp, &area_current->resetmsg);
 }
 
 DBLOAD_FUN(load_aflag)
@@ -1132,16 +1125,13 @@ DBLOAD_FUN(load_mobiles)
         fBootDb = TRUE;
  
         pMobIndex                       = alloc_perm(sizeof(*pMobIndex));
-        pMobIndex->short_descr          = NULL;
-        pMobIndex->long_descr           = NULL;
-        pMobIndex->description          = NULL;
 
         pMobIndex->vnum                 = vnum;
 	newmobs++;
         pMobIndex->name			= fread_string(fp);
-        pMobIndex->short_descr		= mlstr_fread(fp);
-        pMobIndex->long_descr		= mlstr_fread(fp);
-        pMobIndex->description		= mlstr_fread(fp);
+        mlstr_fread(fp, &pMobIndex->short_descr);
+        mlstr_fread(fp, &pMobIndex->long_descr);
+        mlstr_fread(fp, &pMobIndex->description);
 	pMobIndex->race		 	= rn_lookup(fread_string(fp));
 	r = RACE(pMobIndex->race);
 
@@ -1343,15 +1333,13 @@ DBLOAD_FUN(load_objects)
         fBootDb = TRUE;
  
         pObjIndex                       = alloc_perm(sizeof(*pObjIndex));
-        pObjIndex->short_descr          = NULL;
-        pObjIndex->description          = NULL;
 
         pObjIndex->vnum                 = vnum;
 	pObjIndex->reset_num		= 0;
 	newobjs++;
         pObjIndex->name                 = fread_string(fp);
-        pObjIndex->short_descr		= mlstr_fread(fp);
-        pObjIndex->description		= mlstr_fread(fp);
+        mlstr_fread(fp, &pObjIndex->short_descr);
+        mlstr_fread(fp, &pObjIndex->description);
         pObjIndex->material		= fread_string(fp);
 	pObjIndex->oprogs		= NULL;
 
