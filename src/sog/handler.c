@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.164 1999-06-22 12:37:18 fjoe Exp $
+ * $Id: handler.c,v 1.165 1999-06-23 04:41:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1660,7 +1660,7 @@ void extract_obj(OBJ_DATA *obj, int flags)
 		 CHAR_DATA *wch;
 		 
 		 for (wch = char_list; wch && !IS_NPC(wch); wch = wch->next) {
-		 	if (is_name(obj->name, wch->name)) {
+		 	if (!mlstr_cmp(&obj->owner, &wch->short_descr)) {
 				REMOVE_BIT(wch->plr_flags, PLR_NOEXP);
 				char_puts("Now you catch your spirit.\n", wch);
 				break;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic.c,v 1.1 1999-06-22 12:37:17 fjoe Exp $
+ * $Id: magic.c,v 1.2 1999-06-23 04:41:33 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -511,7 +511,8 @@ void obj_cast_spell(int sn, int level, CHAR_DATA *ch, void *vo)
 	case TAR_CHAR_OFFENSIVE:
 		if (vo == NULL)
 			vo = ch->fighting;
-		if (vo == NULL) {
+		/* mem_is handles NULL vo properly (returns FALSE) */
+		if (!mem_is(vo, MT_CHAR)) {
 			char_puts("You can't do that.\n", ch);
 			return;
 		}
@@ -525,12 +526,18 @@ void obj_cast_spell(int sn, int level, CHAR_DATA *ch, void *vo)
 	case TAR_CHAR_SELF:
 		if (vo == NULL)
 			vo = ch;
+		/* mem_is handles NULL vo properly (returns FALSE) */
+		if (!mem_is(vo, MT_CHAR)) {
+			char_puts("You can't do that.\n", ch);
+			return;
+		}
 		bch = vo;
 		bane_damage = 10*bch->level;
 		break;
 
 	case TAR_OBJ_INV:
-		if (vo == NULL) {
+		/* mem_is handles NULL vo properly (returns FALSE) */
+		if (!mem_is(vo, MT_OBJ)) {
 			char_puts("You can't do that.\n", ch);
 			return;
 		}
@@ -548,6 +555,7 @@ void obj_cast_spell(int sn, int level, CHAR_DATA *ch, void *vo)
 			}
 		}
 
+		/* mem_is handles NULL vo properly (returns FALSE) */
 		if (mem_is(vo, MT_CHAR)) {
 			bch = vo;
 			bane_damage = 3*bch->level;

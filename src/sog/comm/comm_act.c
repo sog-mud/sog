@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.c,v 1.31 1999-06-22 13:50:46 fjoe Exp $
+ * $Id: comm_act.c,v 1.32 1999-06-23 04:41:34 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -876,8 +876,7 @@ void act_yell(const char *format, CHAR_DATA *ch,
 		&&  d->character->in_room != NULL
 		&&  d->character->in_room->area == ch->in_room->area)
 			act_puts3(format, ch, arg1, d->character, arg3,
-	    			  TO_VICT | ACT_STRANS | ACT_NODEAF |
-				  ACT_NOFIXSH, POS_DEAD);
+	    			  TO_VICT | ACT_SPEECH(ch), POS_DEAD);
 	}
 }
 
@@ -890,8 +889,7 @@ void act_clan(const char *format, CHAR_DATA *ch,
 	if (format == NULL)
 		format = "[CLAN] $n: {C$b{x";
 
-	flags = TO_VICT | ACT_TOBUF | ACT_NODEAF | ACT_NOFIXSH |
-		(!IS_NPC(ch) || IS_AFFECTED(ch, AFF_CHARM) ? ACT_NOTRANS : 0);
+	flags = TO_VICT | ACT_TOBUF | (ACT_SPEECH(ch) & ~ACT_STRANS);
 	for (vch = char_list; vch; vch = vch->next)
 		if (vch->clan == ch->clan
 		&&  vch != ch
@@ -908,10 +906,9 @@ void act_say(const char *format_self, const char *format_others, CHAR_DATA *ch,
 		format_others = "$n says '{G$b{x'";
 
 	act_puts3(format_self, ch, arg1, arg2, arg3,
-		  TO_CHAR | ACT_SPEECH, POS_DEAD);
+		  TO_CHAR | ACT_SPEECH(ch), POS_DEAD);
 	act_puts3(format_others, ch, arg1, arg2, arg3,
-		  TO_ROOM | ACT_TOBUF | ACT_NOTWIT | ACT_SPEECH |
-		  (!IS_NPC(ch) || IS_AFFECTED(ch, AFF_CHARM) ? ACT_NOTRANS : 0),
+		  TO_ROOM | ACT_TOBUF | ACT_NOTWIT | ACT_SPEECH(ch),
 		  POS_RESTING);
 }
 

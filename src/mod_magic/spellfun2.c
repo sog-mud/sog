@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.117 1999-06-22 19:57:44 fjoe Exp $
+ * $Id: spellfun2.c,v 1.118 1999-06-23 04:41:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3140,57 +3140,45 @@ void spell_magic_jar(int sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	OBJ_DATA *vial;
 	OBJ_DATA *fire;
-	int i;
 
-	char_puts("Spell temporarily disabled.\n", ch);
-	return;
-
-	if (victim == ch)
-	{
-	char_puts("You like yourself even better.\n",ch);
-	return;
+	if (victim == ch) {
+		char_puts("You like yourself even better.\n",ch);
+		return;
 	}
 
-	if (IS_NPC(victim))
-	{
-	char_puts("Your victim is a npc. Not necessary!.\n",ch);
-	return;
+	if (IS_NPC(victim)) {
+		char_puts("Your victim is a npc. Not necessary!\n",ch);
+		return;
 	}
 
-	if (saves_spell(level ,victim,DAM_MENTAL)) 
-	   {
-	    char_puts("You failed.\n",ch);
-	    return;
-	   }
-
-	for(vial=ch->carrying; vial != NULL; vial=vial->next_content)
-	  if (vial->pIndexData->vnum == OBJ_VNUM_POTION_VIAL)
-	    break;
-
-	if ( vial == NULL)  {
-	 char_puts("You don't have any vials to put your victim's spirit.\n"
-			, ch);
-	return;
+	if (saves_spell(level, victim, DAM_MENTAL)) {
+		char_puts("You failed.\n", ch);
+		return;
 	}
+
+	for(vial = ch->carrying; vial != NULL; vial = vial->next_content)
+		if (vial->pIndexData->vnum == OBJ_VNUM_POTION_VIAL)
+			break;
+
+	if (vial == NULL)  {
+		char_puts("You don't have any vials to put your victim's spirit.\n", ch);
+		return;
+	}
+
 	extract_obj(vial, 0);
-	if (IS_GOOD(ch))
-		i=0;
-	else if (IS_EVIL(ch))
-		i=2;
-	else i = 1;
-	
+
 	fire	= create_obj_of(get_obj_index(OBJ_VNUM_MAGIC_JAR),
 				&victim->short_descr);
 	fire->level = ch->level;
-	mlstr_cpy(&fire->owner, &ch->short_descr);
-
+	mlstr_cpy(&fire->owner, &victim->short_descr);
 	fire->ed = ed_new2(fire->pIndexData->ed, victim->name);
-
 	fire->cost = 0;
-	obj_to_char(fire , ch);    
+	obj_to_char(fire, ch);    
 	SET_BIT(victim->plr_flags, PLR_NOEXP);
-	char_printf(ch,"You catch %s's spirit in to your vial.\n",
-		    victim->name);
+	act_puts("You catch $N's spirit into your vial.",
+		 ch, NULL, victim, TO_CHAR, POS_DEAD);
+	act_puts("$n catches your spirit into vial.",
+		 ch, NULL, victim, TO_VICT, POS_DEAD);
 }
 
 void turn_spell(int sn, int level, CHAR_DATA *ch, void *vo)

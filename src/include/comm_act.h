@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.h,v 1.10 1999-06-22 13:50:46 fjoe Exp $
+ * $Id: comm_act.h,v 1.11 1999-06-23 04:41:34 fjoe Exp $
  */
 
 #ifndef _COMM_ACT_H_
@@ -49,7 +49,9 @@
 #define ACT_FORMSH	(P)	/* call format_short for short descrs */
 #define ACT_NOFIXSH	(Q)	/* do not call fix_short */
 
-#define ACT_SPEECH	(ACT_NODEAF | ACT_STRANS | ACT_NOFIXSH)
+#define ACT_SPEECH(ch)	(ACT_NODEAF | ACT_STRANS | ACT_NOFIXSH |	\
+		  	 (!IS_NPC(ch) || IS_AFFECTED(ch, AFF_CHARM) ?	\
+				ACT_NOTRANS : 0))
 
 /*
  * formatting stuff

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.210 1999-06-22 12:37:19 fjoe Exp $
+ * $Id: merc.h,v 1.211 1999-06-23 04:41:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -80,7 +80,6 @@
 #include "comm/comm_act.h"
 #include "db/memalloc.h"
 #include "db/gsn.h"
-#include "db/spellfn.h"
 #include "db/msg.h"
 #include "db/hometown.h"
 
