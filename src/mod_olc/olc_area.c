@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.49.2.5 2003-09-30 01:25:16 fjoe Exp $
+ * $Id: olc_area.c,v 1.49.2.6 2004-05-11 19:29:44 kets Exp $
  */
 
 #include "olc.h"
@@ -55,6 +55,8 @@ DECLARE_OLC_FUN(areaed_maxlevel		);
 DECLARE_OLC_FUN(areaed_clan		);
 DECLARE_OLC_FUN(areaed_markmagic	);
 DECLARE_OLC_FUN(areaed_removemagic	);
+DECLARE_OLC_FUN(areaed_markfuzzy	);
+DECLARE_OLC_FUN(areaed_removefuzzy	);
 
 DECLARE_VALIDATE_FUN(validate_security	);
 DECLARE_VALIDATE_FUN(validate_minvnum	);
@@ -89,6 +91,8 @@ olc_cmd_t olc_cmds_area[] =
 	{ "clan",	areaed_clan				},
 	{ "markmagic",  areaed_markmagic			},
 	{ "removemagic",  areaed_removemagic			},
+	{ "markfuzzy",  areaed_markfuzzy			},
+	{ "removefuzzy",  areaed_removefuzzy			},
 
 	{ "commands",	show_commands				},
 	{ "version",	show_version				},
@@ -102,6 +106,8 @@ static void save_area_list(CHAR_DATA *ch);
 static void save_area(CHAR_DATA *ch, AREA_DATA *pArea);
 static void markmagic_area(CHAR_DATA *ch, AREA_DATA *pArea, bool nomessage);
 static void removemagic_area(CHAR_DATA *ch, AREA_DATA *pArea, bool nomessage);
+static void markfuzzy_area(CHAR_DATA *ch, AREA_DATA *pArea, bool nomessage);
+static void removefuzzy_area(CHAR_DATA *ch, AREA_DATA *pArea, bool nomessage);
 
 /*
  * Area Editor Functions.
@@ -441,6 +447,50 @@ OLC_FUN(areaed_removemagic)
 	if (!str_cmp(arg, "all")) {
 		for (pArea = area_first; pArea; pArea = pArea->next) {
 			removemagic_area(ch, pArea, TRUE);
+			TOUCH_AREA(pArea);
+		}
+	}
+	return TRUE;
+}
+
+OLC_FUN(areaed_markfuzzy)
+{
+	AREA_DATA *pArea;
+	char arg[MAX_STRING_LENGTH];
+
+	one_argument(argument, arg, sizeof(arg));
+
+	if (arg[0] == '\0') {
+		EDIT_AREA(ch, pArea);
+		markfuzzy_area(ch, pArea, FALSE);
+		TOUCH_AREA(pArea);
+	}
+
+	if (!str_cmp(arg, "all")) {
+		for (pArea = area_first; pArea; pArea = pArea->next) {
+			markfuzzy_area(ch, pArea, TRUE);
+			TOUCH_AREA(pArea);
+		}
+	}
+	return TRUE;
+}
+
+OLC_FUN(areaed_removefuzzy)
+{
+	AREA_DATA *pArea;
+	char arg[MAX_STRING_LENGTH];
+
+	one_argument(argument, arg, sizeof(arg));
+
+	if (arg[0] == '\0') {
+		EDIT_AREA(ch, pArea);
+		removefuzzy_area(ch, pArea, FALSE);
+		TOUCH_AREA(pArea);
+	}
+
+	if (!str_cmp(arg, "all")) {
+		for (pArea = area_first; pArea; pArea = pArea->next) {
+			removefuzzy_area(ch, pArea, TRUE);
 			TOUCH_AREA(pArea);
 		}
 	}
@@ -1779,6 +1829,104 @@ removemagic_area(CHAR_DATA *ch, AREA_DATA *pArea, bool nomessage)
 	} else {
 		char_printf(ch, "Area: %s. %d object(s) found. Flag removed.\n",
 			    pArea->name, counter);
+	}
+
+	return;
+}
+
+/*
+ * Mark objects with hp, mana, hr, dr, svs, ac affs as fuzzy
+ */
+static void
+markfuzzy_area(CHAR_DATA *ch, AREA_DATA *pArea, bool nomessage)
+{
+	OBJ_INDEX_DATA *pObjIndex;
+	AFFECT_DATA *paf;
+	int vnum;
+	int counter = 0;
+	int fuzzy;
+
+	for (vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++) {
+		if ((pObjIndex = get_obj_index(vnum)) == NULL) 
+			continue;
+
+		if (SET_BIT(pObjIndex->extra_flags, ITEM_CHQUEST))
+			continue;
+			
+		fuzzy = 0;
+
+		for (paf = pObjIndex->affected; paf != NULL; paf = paf->next) {
+			switch(paf->location) {
+			case APPLY_MANA:
+			case APPLY_HIT:
+			case APPLY_MOVE:
+			case APPLY_AC:
+			case APPLY_HITROLL:
+			case APPLY_DAMROLL:
+			case APPLY_SAVING_PARA:
+			case APPLY_SAVING_ROD:
+			case APPLY_SAVING_PETRI:
+			case APPLY_SAVING_BREATH:
+			case APPLY_SAVING_SPELL:
+				fuzzy = 1;
+				break;
+			}
+			if (fuzzy)
+				break;
+		}
+		
+		if (fuzzy) {
+			SET_BIT(pObjIndex->extra_flags, ITEM_FUZZY);
+			if (!nomessage) {
+				char_printf(ch, "Obj %s (vnum %d) marked "
+					    "as fuzzy.\n",
+					    mlstr_mval(&pObjIndex->short_descr),
+					    vnum);
+			}
+			counter++;
+		} 
+	}
+	
+	if (counter == 0)
+		char_printf(ch, "Area: %s. No object marked.\n", pArea->name);
+	else 
+		char_printf(ch, "Area: %s. %d object(s) marked as fuzzy.\n",
+			    pArea->name, counter);
+
+	return;
+}
+
+static void
+removefuzzy_area(CHAR_DATA *ch, AREA_DATA *pArea, bool nomessage)
+{
+	OBJ_INDEX_DATA *pObjIndex;
+	int counter = 0;
+	int vnum;
+
+	for (vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++) {
+		if ((pObjIndex = get_obj_index(vnum)) == NULL) {
+			continue;
+		}
+
+		if (!IS_SET(pObjIndex->extra_flags, ITEM_FUZZY)) {
+			continue;
+		}
+
+		REMOVE_BIT(pObjIndex->extra_flags, ITEM_FUZZY);
+		if (!nomessage) {
+			char_printf(ch, "Obj %s (vnum %d), flag fuzzy "
+				    "removed.\n",
+				    mlstr_mval(&pObjIndex->short_descr),
+				    vnum);
+		}
+		counter++;
+	}
+	if (counter == 0) {
+		char_printf(ch, "Area: %s. No fuzzy object found.\n",
+			    pArea->name);
+	} else {
+		char_printf(ch, "Area: %s. %d object(s) found. Flag 'fuzzy' "
+			    "removed.\n", pArea->name, counter);
 	}
 
 	return;

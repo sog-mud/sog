@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.169.2.31 2004-02-22 21:55:28 fjoe Exp $
+ * $Id: db.c,v 1.169.2.32 2004-05-11 19:29:45 kets Exp $
  */
 
 /***************************************************************************
@@ -229,6 +229,8 @@ void	fix_exits	(void);
 void    check_mob_progs	(void);
 
 void	reset_area	(AREA_DATA * pArea);
+
+void	randomize_affs	(OBJ_DATA * pObj);
 
 int dbfuncmp(const void *p1, const void *p2)
 {
@@ -738,6 +740,8 @@ void reset_room(ROOM_INDEX_DATA *pRoom, int flags)
 
             pObj = create_obj(pObjIndex, 0);
             pObj->cost = 0;
+	    if (IS_OBJ_STAT(pObj, ITEM_FUZZY))
+		    randomize_affs(pObj);
             obj_to_room(pObj, pRoom);
 	    last = TRUE;
             break;
@@ -801,6 +805,8 @@ void reset_room(ROOM_INDEX_DATA *pRoom, int flags)
 	    while (count < pReset->arg4)
 	    {
             pObj = create_obj(pObjIndex, 0);
+	    if (IS_OBJ_STAT(pObj, ITEM_FUZZY))
+		    randomize_affs(pObj);
             obj_to_obj(pObj, LastObj);
 		count++;
 		if (pObjIndex->count >= limit)
@@ -842,6 +848,8 @@ void reset_room(ROOM_INDEX_DATA *pRoom, int flags)
 		          pObj=create_obj(pObjIndex, 0);
 		        else break;
 
+			if (IS_OBJ_STAT(pObj, ITEM_FUZZY))
+			    randomize_affs(pObj);
 		}
 
             obj_to_char(pObj, LastMob);
@@ -2312,3 +2320,30 @@ int fread_clan(FILE *fp)
 	return cln;
 }
 
+void randomize_affs(OBJ_DATA *pObj)
+{
+	AFFECT_DATA *paf;
+
+	affect_enchant(pObj);
+
+	for (paf = pObj->affected; paf != NULL; paf = paf->next)
+		switch (paf->location) {
+		case APPLY_MANA:
+		case APPLY_HIT:
+		case APPLY_MOVE:
+		case APPLY_AC:
+		case APPLY_HITROLL:
+		case APPLY_DAMROLL:
+		case APPLY_SAVING_PARA:
+		case APPLY_SAVING_ROD:
+		case APPLY_SAVING_PETRI:
+		case APPLY_SAVING_BREATH:
+		case APPLY_SAVING_SPELL:
+			paf->modifier = paf->modifier > 0 ?
+				number_range(paf->modifier * 8 / 10, 
+					     paf->modifier * 11 / 10) :
+				number_range(paf->modifier * 11 / 10, 
+					     paf->modifier * 8 / 10);
+			break;
+		}
+}

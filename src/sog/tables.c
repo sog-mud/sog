@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.89.2.23 2004-02-22 15:50:27 fjoe Exp $
+ * $Id: tables.c,v 1.89.2.24 2004-05-11 19:29:45 kets Exp $
  */
 
 /***************************************************************************
@@ -602,6 +602,7 @@ flag_t extra_flags[] =
 	{ "enchanted",		ITEM_ENCHANTED,		FALSE	},
 	{ "noident",		ITEM_NOIDENT,		TRUE	},
 	{ "kept",		ITEM_KEEP,		FALSE	},
+	{ "fuzzy",		ITEM_FUZZY,		TRUE	},
 	{ "oldstyle",		ITEM_OLDSTYLE,		FALSE	},
 
 	{ NULL }
