@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.81 1999-02-18 12:01:09 kostik Exp $
+ * $Id: spellfun2.c,v 1.82 1999-02-19 09:47:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2483,9 +2483,10 @@ void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo, int target)
 
 		/* can't animate PC corpses in ROOM_BATTLE_ARENA */
 		if (obj->pIndexData->item_type == ITEM_CORPSE_PC
-		&&  obj->in_room != NULL
+		&&  obj->in_room
 		&&  IS_SET(obj->in_room->room_flags, ROOM_BATTLE_ARENA)
-		&&  str_cmp(ch->name, obj->owner)) {
+		&&  obj->owner
+		&&  str_cmp(ch->name, mlstr_mval(obj->owner))) {
 			char_puts("You cannot do that.\n", ch);
 			return;
 		}
@@ -2972,9 +2973,9 @@ void spell_eyed_sword(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		i=2;
 	else i = 1;
 	
-	eyed	= create_named_obj(get_obj_index(OBJ_VNUM_EYED_SWORD), 0,
-				      ch->name);
-	eyed->owner = str_qdup(ch->name);
+	eyed	= create_obj_of(get_obj_index(OBJ_VNUM_EYED_SWORD),
+				ch->short_descr);
+	eyed->owner = mlstr_dup(ch->short_descr);
 	eyed->altar = hometown_table[ch->hometown].altar[i];
 	eyed->pit = hometown_table[ch->hometown].pit[i];
 	eyed->level = ch->level;
@@ -3123,9 +3124,9 @@ void spell_magic_jar(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		i=2;
 	else i = 1;
 	
-	fire	= create_named_obj(get_obj_index(OBJ_VNUM_MAGIC_JAR), 0,
-				victim->name);
-	fire->owner = str_qdup(ch->name);
+	fire	= create_obj_of(get_obj_index(OBJ_VNUM_MAGIC_JAR),
+				victim->short_descr);
+	fire->owner = mlstr_dup(ch->short_descr);
 	fire->altar = hometown_table[ch->hometown].altar[i];
 	fire->pit = hometown_table[ch->hometown].pit[i];
 	fire->level = ch->level;
@@ -3338,12 +3339,13 @@ void spell_protection_cold (int sn, int level, CHAR_DATA *ch, void *vo, int targ
 
 void spell_fire_shield (int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
+	OBJ_INDEX_DATA *pObjIndex;
 	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *fire;
 	int i;
 
 	target_name = one_argument(target_name, arg, sizeof(arg));
-	if (!(!str_cmp(arg,"cold") || !str_cmp(arg,"fire"))) {
+	if (str_cmp(arg, "cold") && str_cmp(arg, "fire")) {
 		char_puts("You must specify the type.\n",ch);
 		return;
 	}
@@ -3355,9 +3357,11 @@ void spell_fire_shield (int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	else
 		i = 1;
 	
-	fire	= create_named_obj(get_obj_index(OBJ_VNUM_FIRE_SHIELD), 0,
-				      arg);
-	fire->owner = str_qdup(ch->name);
+	pObjIndex = get_obj_index(OBJ_VNUM_FIRE_SHIELD);
+	fire	= create_obj(pObjIndex, 0);
+	name_add(&fire->name, arg, NULL, NULL);
+
+	fire->owner = mlstr_dup(ch->short_descr);
 	fire->altar = hometown_table[ch->hometown].altar[i];
 	fire->pit = hometown_table[ch->hometown].pit[i];
 	fire->level = ch->level;
@@ -4966,7 +4970,7 @@ void spell_mirror(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		mlstr_free(gch->long_descr);
 		mlstr_free(gch->description);
 		gch->name = str_qdup(tmp_vict->name);
-		gch->short_descr = mlstr_new(tmp_vict->name);
+		gch->short_descr = mlstr_dup(tmp_vict->short_descr);
 		gch->long_descr = mlstr_printf(gch->pIndexData->long_descr,
 					       tmp_vict->name,
 					       tmp_vict->pcdata->title);

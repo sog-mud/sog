@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: word.h,v 1.7 1999-02-18 13:34:33 fjoe Exp $
+ * $Id: word.h,v 1.8 1999-02-19 09:48:06 fjoe Exp $
  */
 
 #ifndef _WORD_H_
@@ -48,5 +48,7 @@ void		word_free	(WORD_DATA*);
 const char *	word_gender(int lang, const char *word, int gender);
 const char *	word_case(int lang, const char *word, int num);
 const char *	word_quantity(int lang, const char *word, int num);
+
+const char * fix_short(const char *s);
 
 #endif

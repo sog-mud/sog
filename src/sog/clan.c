@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.c,v 1.33 1999-02-17 07:53:19 fjoe Exp $
+ * $Id: clan.c,v 1.34 1999-02-19 09:47:54 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -519,22 +519,26 @@ void do_item(CHAR_DATA* ch, const char* argument)
 	for (in_obj = clan->obj_ptr; in_obj->in_obj; in_obj = in_obj->in_obj)
 		;
 
-	if (in_obj->carried_by)
-		char_printf(ch, "%s is in %s, carried by %s.\n",
-			mlstr_mval(clan->obj_ptr->short_descr),
-			mlstr_mval(in_obj->carried_by->in_room->name),
-			PERS(in_obj->carried_by, ch));
-	else if (in_obj->in_room) {
-		char_printf(ch, "%s is in %s.\n",
-			mlstr_mval(clan->obj_ptr->short_descr),
-			mlstr_mval(in_obj->in_room->name));
-		for (cn = 0; cn < clans.nused; cn++) 
-			if (in_obj->in_room->vnum == CLAN(cn)->altar_vnum)
-				char_printf(ch, "It is altar of %s.\n",
-					    CLAN(cn)->name);
+	if (in_obj->carried_by) {
+		act_puts3("$p is in $R, carried by $N.",
+			  ch, clan->obj_ptr, in_obj->carried_by,
+			  in_obj->carried_by->in_room,
+			  TO_CHAR, POS_DEAD);
 	}
-	else char_printf (ch, "%s is somethere.\n",
-			mlstr_mval(clan->obj_ptr->short_descr));
+	else if (in_obj->in_room) {
+		act_puts3("$p is in $R.",
+			  ch, clan->obj_ptr, NULL, in_obj->in_room,
+			  TO_CHAR, POS_DEAD);
+		for (cn = 0; cn < clans.nused; cn++) 
+			if (in_obj->in_room->vnum == CLAN(cn)->altar_vnum) {
+				act_puts("It is altar of $t",
+					 ch, CLAN(cn)->name, NULL,
+					 TO_CHAR | ACT_TRANS, POS_DEAD);
+			}
+	}
+	else 
+		act_puts("$p is somewhere.",
+			 ch, clan->obj_ptr, NULL, TO_CHAR, POS_DEAD);
 }
 
 bool clan_item_ok(int cn)

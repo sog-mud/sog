@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.42 1999-02-18 12:01:11 kostik Exp $
+ * $Id: mob_prog.c,v 1.43 1999-02-19 09:48:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -50,6 +50,8 @@
 #include "merc.h"
 #include "mob_cmds.h"
 #include "mob_prog.h"
+
+#include "db/word.h"	/* fix_short */
 
 /*
  * These defines correspond to the entries in fn_keyword[] table.
@@ -865,7 +867,9 @@ void expand_arg(char *buf,
             case 'O':
                 i = (obj1 != NULL && can_see_obj(mob, obj1))
                 ? mlstr_mval(obj1->short_descr)
-                : something;					break;
+                : something;
+		i = fix_short(i);
+		break;
             case 'p':
 		i = something;
 		if (obj2 != NULL && can_see_obj(mob, obj2))
@@ -876,7 +880,9 @@ void expand_arg(char *buf,
             case 'P':
             	i = (obj2 != NULL && can_see_obj(mob, obj2))
                 ? mlstr_mval(obj2->short_descr)
-                : something;					break;
+                : something;
+		i = fix_short(i);
+		break;
         }
  
         ++str;

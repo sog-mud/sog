@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.140 1999-02-17 18:57:58 fjoe Exp $
+ * $Id: act_comm.c,v 1.141 1999-02-19 09:47:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2022,6 +2022,12 @@ toggle_t toggle_table[] =
 	  comm_flags,	COMM_NOBUST,
 	  "$t set.",
 	  "$t removed."
+	},
+
+	{ "noeng",		"do not display english obj/mob names",
+	  comm_flags,	COMM_NOENG,
+	  "You will not see english obj/mob names anymore."
+	  "You will now see english obj/mob names."
 	},
 
 	{ "quiet edit",		"quiet mode in string editor",

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.118 1999-02-18 20:15:08 fjoe Exp $
+ * $Id: handler.c,v 1.119 1999-02-19 09:47:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1456,19 +1456,6 @@ void obj_from_char(OBJ_DATA *obj)
 	obj->next_content	= NULL;
 	ch->carry_number	-= get_obj_number(obj);
 	ch->carry_weight	-= get_obj_weight(obj);
-
-/* XXX */
-	if (!IS_NPC(ch)) {
-		int vnum = obj->pIndexData->vnum;
-		const char *p = mlstr_mval(obj->short_descr);
-
-		if (p && strstr(p, ch->name)
-		&&  ch->level < obj->pIndexData->level
-		&&  IS_SET(obj->pIndexData->extra_flags, ITEM_QUEST)) {
-			ch->pcdata->questpoints += 1000;
-			qtrouble_set(ch, vnum, 4);
-		}
-	}
 }
 
 /*
@@ -1930,7 +1917,6 @@ void extract_char_org(CHAR_DATA *ch, bool fPull, bool Count)
 	ch->pet = NULL; /* just in case */
 
 	if (fPull)
-
 		die_follower(ch);
 	
 	stop_fighting(ch, TRUE);

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.109 1999-02-18 15:13:13 fjoe Exp $
+ * $Id: db.c,v 1.110 1999-02-19 09:48:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -168,7 +168,6 @@ void    check_mob_progs	(void);
 void	reset_area	(AREA_DATA * pArea);
 
 #define CREATE_NOCOUNT	(A)
-#define CREATE_NAMED	(B)
 
 int dbfuncmp(const void *p1, const void *p2)
 {
@@ -1234,11 +1233,9 @@ OBJ_DATA *create_obj_org(OBJ_INDEX_DATA *pObjIndex, int level, int flags)
  	obj->level = pObjIndex->level;
 	obj->wear_loc	= -1;
 
-	if (!IS_SET(flags, CREATE_NAMED)) {
-		obj->name		= str_qdup(pObjIndex->name);
-		obj->short_descr	= mlstr_dup(pObjIndex->short_descr);
-		obj->description	= mlstr_dup(pObjIndex->description);
-	}
+	obj->name		= str_qdup(pObjIndex->name);
+	obj->short_descr	= mlstr_dup(pObjIndex->short_descr);
+	obj->description	= mlstr_dup(pObjIndex->description);
 	obj->material		= str_qdup(pObjIndex->material);
 	obj->extra_flags	= pObjIndex->extra_flags;
 	obj->wear_flags		= pObjIndex->wear_flags;
@@ -1248,7 +1245,7 @@ OBJ_DATA *create_obj_org(OBJ_INDEX_DATA *pObjIndex, int level, int flags)
 	obj->value[3]		= pObjIndex->value[3];
 	obj->value[4]		= pObjIndex->value[4];
 	obj->weight		= pObjIndex->weight;
-	obj->owner		= str_dup(str_empty); /* used with body parts */
+	obj->owner		= NULL;
 	obj->condition		= pObjIndex->condition;
 	obj->cost = pObjIndex->cost;
 
@@ -1286,18 +1283,6 @@ OBJ_DATA *create_obj(OBJ_INDEX_DATA *pObjIndex, int level)
 	return create_obj_org(pObjIndex, level, 0);
 }
 
-OBJ_DATA *create_named_obj(OBJ_INDEX_DATA *pObjIndex, int level,
-			   const char *name)
-{
-	OBJ_DATA *res;
-
-	res = create_obj_org(pObjIndex, level, CREATE_NAMED);
-	res->name		= str_printf(pObjIndex->name, name);
-	res->short_descr	= mlstr_printf(pObjIndex->short_descr, name);
-	res->description	= mlstr_printf(pObjIndex->description, name);
-	return res;
-}
-
 /*
  * for player load/quit
  * Create an object and do not modify the count 
@@ -1305,6 +1290,20 @@ OBJ_DATA *create_named_obj(OBJ_INDEX_DATA *pObjIndex, int level,
 OBJ_DATA *create_obj_nocount(OBJ_INDEX_DATA *pObjIndex, int level)
 {
 	return create_obj_org(pObjIndex, level, CREATE_NOCOUNT);
+}
+
+OBJ_DATA *create_obj_of(OBJ_INDEX_DATA *pObjIndex, mlstring *owner)
+{
+	OBJ_DATA *obj;
+
+	obj = create_obj_org(pObjIndex, 0, 0);
+	free_string(obj->name);
+	obj->name = str_dup(pObjIndex->name);
+	mlstr_free(obj->short_descr);
+	obj->short_descr = mlstr_obj_of(pObjIndex->short_descr, owner);
+	mlstr_free(obj->description);
+	obj->description = mlstr_obj_of(pObjIndex->description, owner);
+	return obj;
 }
 
 /* duplicate an object exactly -- except contents */
@@ -1329,7 +1328,7 @@ void clone_obj(OBJ_DATA *parent, OBJ_DATA *clone)
 	clone->condition	= parent->condition;
 	clone->material		= str_qdup(parent->material);
 	clone->timer		= parent->timer;
-	clone->owner		= parent->owner;
+	clone->owner		= mlstr_dup(parent->owner);
 	clone->extracted	= parent->extracted;
 	clone->pit		= parent->pit;
 	clone->altar		= parent->altar;
@@ -1455,7 +1454,7 @@ char *fix_string(const char *s)
 	if (IS_NULLSTR(s))
 		return str_empty;
 
-	for (p = buf; p-buf < sizeof(buf)-2 && *s; s++)
+	for (p = buf; *s && p-buf < sizeof(buf)-2; s++)
 		switch (*s) {
 		case '\r':
 			break;

@@ -23,12 +23,13 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: word.c,v 1.12 1999-02-18 13:34:33 fjoe Exp $
+ * $Id: word.c,v 1.13 1999-02-19 09:48:06 fjoe Exp $
  */
 
 #include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "merc.h"
 #include "db.h"
@@ -147,16 +148,67 @@ const char *word_quantity(int lang, const char *word, int num)
 	return word_form_lookup(l->hash_qtys, word, num == 11 ? num : num % 10);
 }
 
+/*
+ * smash '~'
+ */
+const char *fix_short(const char *s)
+{
+	char *p;
+	static char buf[MAX_STRING_LENGTH];
+
+	if (!strchr(s, '~'))
+		return s;
+
+	for (p = buf; *s && p-buf < sizeof(buf)-1; s++) {
+		if (*s == '~')
+			continue;
+		*p++ = *s;
+	}
+
+	*p = '\0';
+	return buf;
+}
+
 /* local functions */
 
 const char* word_form_lookup(varr *hash, const char *word, int num)
 {
 	WORD_DATA *w;
 	char **p;
+	char *q;
 	static char buf[MAX_STRING_LENGTH];
 
-	if (!num)
+	if (!num || IS_NULLSTR(word))
 		return word;
+
+	if ((q = strchr(word, '~'))) {
+		/*
+		 * translate only the part of word between tildes
+		 */
+		char buf2[MAX_STRING_LENGTH];
+		char buf3[MAX_STRING_LENGTH];
+		const char *r;
+
+		/* copy prefix */
+		strnzcpy(buf2, word, UMIN(q-word+1, sizeof(buf2)));
+
+		/*
+		 * translate infix, translation must be done
+		 * before copying the result to buf[] because buf is
+		 * static
+		 */
+		r = strchr(q+1, '~');
+		if (!r)
+			r = strchr(q+1, '\0');
+		strnzcpy(buf3, q+1, UMIN(*r ? r-q : r-q+1, sizeof(buf3)));
+		strnzcat(buf2, word_form_lookup(hash, buf3, num), sizeof(buf2));
+
+		/* copy suffix */
+		strnzcpy(buf, buf2, sizeof(buf));
+		strnzcat(buf, *r ? r+1 : r, sizeof(buf));
+
+		return buf;
+	}
 
 	if ((w = word_lookup(hash, word)) == NULL
 	||  (p = varr_get(&w->f, num)) == NULL

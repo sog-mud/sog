@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.39 1999-02-15 13:26:39 fjoe Exp $
+ * $Id: recycle.c,v 1.40 1999-02-19 09:48:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -180,7 +180,7 @@ void free_obj(OBJ_DATA *obj)
 	mlstr_free(obj->short_descr);
 	obj->short_descr = NULL;
 
-	free_string(obj->owner);
+	mlstr_free(obj->owner);
 	obj->owner = NULL;
 
 	free_string(obj->material);

@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.122 1999-02-17 12:10:48 fjoe Exp $
+ * $Id: act_obj.c,v 1.123 1999-02-19 09:47:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -80,9 +80,10 @@ bool can_loot(CHAR_DATA * ch, OBJ_DATA * obj)
 	 * PC corpses in the ROOM_BATTLE_ARENA rooms can be looted
 	 * only by owners
 	 */
-	if (obj->in_room != NULL
+	if (obj->in_room
 	&&  IS_SET(obj->in_room->room_flags, ROOM_BATTLE_ARENA)
-	&&  obj->owner != NULL && str_cmp(ch->name, obj->owner))
+	&&  obj->owner
+	&&  !is_name(mlstr_mval(obj->owner), ch->name))
 		return FALSE;
 
 	return TRUE;
@@ -99,7 +100,8 @@ void get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container)
 	      obj->pIndexData->item_type == ITEM_CORPSE_NPC) &&
 	     (!IS_NPC(ch) || IS_AFFECTED(ch, AFF_CHARM)) &&
 	     !IS_IMMORTAL(ch) &&
-	     str_cmp(ch->name, obj->owner))) {
+	     obj->owner &&
+	     !is_name(mlstr_mval(obj->owner), ch->name))) {
 		char_puts("You can't take that.\n", ch);
 		return;
 	}
@@ -1004,10 +1006,10 @@ void do_fill(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	act_puts3("You fill $p with $R from $P.",
+	act_puts3("You fill $p with $U from $P.",
 		   ch, obj, fountain, liq_table[fountain->value[2]].liq_name,
 		   TO_CHAR | ACT_TRANS, POS_DEAD);
-	act_puts3("$n fills $p with $R from $P.",
+	act_puts3("$n fills $p with $U from $P.",
 		   ch, obj, fountain, liq_table[fountain->value[2]].liq_name,
 		   TO_ROOM | ACT_TRANS, POS_RESTING);
 	obj->value[2] = fountain->value[2];
@@ -1042,12 +1044,12 @@ void do_pour(CHAR_DATA * ch, const char *argument)
 		}
 		out->value[1] = 0;
 		out->value[3] = 0;
-		act_puts3("You invert $p, spilling $T $R.",
+		act_puts3("You invert $p, spilling $T $U.",
 			  ch, out, liq_table[out->value[2]].liq_name,
 			  IS_WATER(ch->in_room) ? "in to the water" :
 						  "all over the ground",
 			  TO_CHAR | ACT_TRANS, POS_DEAD);
-		act_puts3("$n inverts $p, spilling $T $R.",
+		act_puts3("$n inverts $p, spilling $T $U.",
 			  ch, out, liq_table[out->value[2]].liq_name,
 			  IS_WATER(ch->in_room) ? "in to the water" :
 						  "all over the ground",
@@ -1099,21 +1101,21 @@ void do_pour(CHAR_DATA * ch, const char *argument)
 	in->value[2] = out->value[2];
 
 	if (vch == NULL) {
-		act_puts3("You pour $R from $p into $P.",
+		act_puts3("You pour $U from $p into $P.",
 			  ch, out, in, liq_table[out->value[2]].liq_name,
 			  TO_CHAR | ACT_TRANS, POS_DEAD);
-		act_puts3("$n pours $R from $p into $P.",
+		act_puts3("$n pours $U from $p into $P.",
 			  ch, out, in, liq_table[out->value[2]].liq_name,
 			  TO_ROOM | ACT_TRANS, POS_RESTING);
 	}
 	else {
-		act_puts3("You pour some $R for $N.",
+		act_puts3("You pour some $U for $N.",
 			  ch, NULL, vch, liq_table[out->value[2]].liq_name,
 			  TO_CHAR | ACT_TRANS, POS_DEAD);
-		act_puts3("$n pours you some $R.",
+		act_puts3("$n pours you some $U.",
 			  ch, NULL, vch, liq_table[out->value[2]].liq_name,
 			  TO_VICT | ACT_TRANS, POS_RESTING);
-		act_puts3("$n pours some $R for $N.",
+		act_puts3("$n pours some $U for $N.",
 			  ch, NULL, vch, liq_table[out->value[2]].liq_name,
 			  TO_NOTVICT | ACT_TRANS, POS_RESTING);
 	}
@@ -2770,7 +2772,7 @@ void do_list(CHAR_DATA * ch, const char *argument)
 					}
 					char_printf(ch, "[%2d %5d %2d ] %s\n",
 						    obj->level, cost, count,
-						    mlstr_cval(obj->short_descr, ch));
+						    fix_short(mlstr_cval(obj->short_descr, ch)));
 				}
 			}
 		}
@@ -3294,7 +3296,8 @@ void do_butcher(CHAR_DATA * ch, const char *argument)
 		check_improve(ch, sn, TRUE, 1);
 
 		for (i = 0; i < numsteaks; i++) {
-			steak = create_named_obj(get_obj_index(OBJ_VNUM_STEAK), 0, mlstr_mval(obj->short_descr));
+			steak = create_obj_of(get_obj_index(OBJ_VNUM_STEAK),
+					      obj->short_descr);
 			obj_to_room(steak, ch->in_room);
 		}
 	} else {

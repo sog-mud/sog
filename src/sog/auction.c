@@ -1,5 +1,5 @@
 /*
- * $Id: auction.c,v 1.25 1999-02-17 07:53:19 fjoe Exp $
+ * $Id: auction.c,v 1.26 1999-02-19 09:47:54 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -9,6 +9,8 @@
 #include <string.h>
 #include "merc.h"
 #include "auction.h"
+
+#include "db/word.h"	/* fix_short */
 
 AUCTION_DATA auction = { NULL };
 
@@ -214,13 +216,13 @@ void auction_update (void)
 	        if (auction.bet > 0)
 			/* XXX */
 			talk_auction("%s: going %s for %d.",
-				mlstr_mval(auction.item->short_descr),
+				fix_short(mlstr_mval(auction.item->short_descr)),
 	                	((auction.going == 1) ? "once" : "twice"),
 				auction.bet);
 	        else 
 			/* XXX */
 	        	talk_auction("%s: going %s, starting price %d.",
-				     mlstr_mval(auction.item->short_descr),
+				     fix_short(mlstr_mval(auction.item->short_descr)),
 	                	     ((auction.going == 1) ? "once" : "twice"),
 				     auction.starting);
 	        break;
@@ -232,7 +234,7 @@ void auction_update (void)
 
 			/* XXX */
 	        	talk_auction("%s: sold to %s for %d.",
-				     mlstr_mval(auction.item->short_descr),
+				     fix_short(mlstr_mval(auction.item->short_descr)),
 				     auction.buyer->invis_level >= LEVEL_HERO ?
 				     "someone" : auction.buyer->name,
 				     auction.bet);
@@ -252,7 +254,7 @@ void auction_update (void)
 	        else { /* not sold */
 			/* XXX */
 	        	talk_auction("No bets received for %s.",
-				     mlstr_mval(auction.item->short_descr));
+				     fix_short(mlstr_mval(auction.item->short_descr)));
 			talk_auction("object has been removed from auction.");
 			auction_give_obj(auction.seller, auction.item);
 	        }
@@ -321,7 +323,7 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 		else { /* stop the auction */
 			talk_auction("Sale of %s has been stopped "
 				     "by an Immortal.",
-				     mlstr_mval(auction.item->short_descr));
+				     fix_short(mlstr_mval(auction.item->short_descr)));
 			auction_give_obj(auction.seller, auction.item);
 			auction.item = NULL;
 
@@ -398,7 +400,8 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 	        auction.pulse = PULSE_AUCTION; /* start the auction over again */
 
 	        talk_auction("A bet of %d gold has been received on %s.",
-			     newbet, mlstr_mval(auction.item->short_descr));
+			     newbet,
+			     fix_short(mlstr_mval(auction.item->short_descr)));
 	        return;
 	}
 
@@ -468,7 +471,7 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 		auction.going = 0;
 
 		talk_auction("A new item has been received: {Y%s{x.",
-			     mlstr_mval(obj->short_descr));
+			     fix_short(mlstr_mval(obj->short_descr)));
 		break;
 	} /* switch */
 }

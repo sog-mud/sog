@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.97 1999-02-17 07:53:26 fjoe Exp $
+ * $Id: quest.c,v 1.98 1999-02-19 09:48:03 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -566,9 +566,8 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 			i = 1;
 
 		obj_vnum = number_range(QUEST_OBJ_FIRST, QUEST_OBJ_LAST);
-		eyed = create_named_obj(get_obj_index(obj_vnum), ch->level,
-					   ch->name);
-		eyed->owner = str_qdup(ch->name);
+		eyed = create_obj(get_obj_index(obj_vnum), ch->level);
+		eyed->owner = mlstr_dup(ch->short_descr);
 		eyed->altar = hometown_table[ch->hometown].altar[i];
 		eyed->pit = hometown_table[ch->hometown].pit[i];
 		eyed->level = ch->level;
@@ -804,7 +803,7 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 		}
 	}
 
-	reward = create_named_obj(pObjIndex, ch->level, ch->name);
+	reward = create_obj(pObjIndex, ch->level);
 	if (get_wear_level(ch, reward) < reward->level) {
 		quest_tell(ch, questor,
 			   "This item is too powerful for you.\n");
@@ -822,7 +821,7 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 		for (obj = object_list; obj != NULL; obj = obj_next) {
 			obj_next = obj->next;
 			if (obj->pIndexData->vnum == item_vnum 
-			&&  !str_cmp(obj->owner, ch->name)) {
+			&&  !str_cmp(mlstr_mval(obj->owner), ch->name)) {
 				extract_obj(obj);
 				break;
 			}
@@ -856,7 +855,7 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 	/* ok, give him requested item */
 
 	if (IS_SET(pObjIndex->extra_flags, ITEM_QUEST)) {
-		reward->owner = str_qdup(ch->name);
+		reward->owner = mlstr_dup(ch->short_descr);
 		mlstr_free(reward->short_descr);
 		reward->short_descr =
 			mlstr_printf(reward->pIndexData->short_descr,

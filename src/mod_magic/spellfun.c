@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.121 1999-02-18 09:57:29 fjoe Exp $
+ * $Id: spellfun.c,v 1.122 1999-02-19 09:47:57 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1455,17 +1455,9 @@ void spell_create_food(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 
 void spell_create_rose(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
-	OBJ_DATA *rose;
-	if (target_name[0] == '\0') {
-		char_puts("What rose do you want to create?\n", ch);
-		return;
-	}
-	rose = create_named_obj(get_obj_index(OBJ_VNUM_ROSE), 0,
-				   target_name);
-	rose->ed = ed_new2(rose->pIndexData->ed, target_name);
-                                                          
-	act("$n has created $p", ch, rose, NULL, TO_ROOM);
-	act("You create $p", ch, rose, NULL, TO_CHAR);
+	OBJ_DATA *rose = create_obj(get_obj_index(OBJ_VNUM_ROSE), 0);
+	act("$n has created $p.", ch, rose, NULL, TO_ROOM);
+	act("You create $p.", ch, rose, NULL, TO_CHAR);
 	obj_to_char(rose, ch);
 }
 
@@ -5238,8 +5230,7 @@ void spell_take_revenge(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 
 	for (obj = object_list; obj != NULL; obj = obj->next) {
 		if (obj->pIndexData->vnum != OBJ_VNUM_CORPSE_PC
-		/* XXX */
-		||  !is_name(ch->name, mlstr_mval(obj->short_descr)))
+		||  !str_cmp(ch->name, mlstr_mval(obj->owner)))
 			continue;
 
 		found = TRUE;

@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.98 1999-02-11 16:40:30 fjoe Exp $
+ * $Id: save.c,v 1.99 1999-02-19 09:48:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -429,9 +429,11 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 
 /* do not save named objs if ch is not owner */
 	if (!IS_IMMORTAL(ch)
-	&&  !IS_NULLSTR(obj->owner)
-	&&  str_cmp(obj->owner, ch->name)) {
-		log_printf("%s: '%s' of %s", ch->name, obj->name, obj->owner);
+	&&  !mlstr_null(obj->owner)
+	&&  str_cmp(mlstr_mval(obj->owner), ch->name)) {
+		log_printf("%s: '%s' of %s",
+			   ch->name, obj->name,
+			   mlstr_mval(obj->owner));
 		act("$p vanishes!", ch, obj, NULL, TO_CHAR);
 		extract_obj(obj);
 		return;
@@ -447,7 +449,7 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 	fprintf(fp, "Cond %d\n", obj->condition);
 
 	fprintf(fp, "Nest %d\n", iNest);
-	fwrite_string(fp, "Owner", obj->owner);
+	mlstr_fwrite(fp, "Owner", obj->owner);
 
 	if (obj->pIndexData->limit < 0) {
 		if (str_cmp(obj->name, obj->pIndexData->name))
@@ -821,6 +823,9 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 				CLAN_DATA *clan;
 				const char **nl = NULL;
 				bool touched = FALSE;
+
+				if (!ch->short_descr)
+					ch->short_descr = mlstr_new(ch->name);
 
 				/*
 				 * adjust hp mana move up  -- here for speed's
@@ -1401,8 +1406,8 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 				if (IS_SET(obj->pIndexData->extra_flags,
 					   ITEM_QUEST)
 				&&  IS_NULLSTR(obj->owner)) {
-					free_string(obj->owner);
-					obj->owner = str_qdup(ch->name);
+					mlstr_free(obj->owner);
+					obj->owner = mlstr_dup(ch->short_descr);
 				}
 
 				if (iNest == 0 || rgObjNest[iNest] == NULL)
@@ -1434,7 +1439,7 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 			break;
 
 		case 'O':
-			SKEY("Owner", obj->owner);
+			MLSKEY("Owner", obj->owner);
 			break;
 
 		case 'Q':

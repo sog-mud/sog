@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.153 1999-02-18 15:13:12 fjoe Exp $
+ * $Id: merc.h,v 1.154 1999-02-19 09:48:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1153,6 +1153,7 @@ enum {
 #define COMM_NOSHOUT		(U)
 #define COMM_NOTELL		(V)
 #define COMM_NOCHANNELS 	(W)
+#define COMM_NOENG		(X)
 #define COMM_SNOOP_PROOF	(Y)
 #define COMM_AFK		(Z)
 
@@ -1506,7 +1507,7 @@ struct obj_data
 	int			timer;
 	int 			value	[5];
 	int 			progtypes;
-	const char *		owner;
+	mlstring *		owner;
 	int 			altar;
 	int 			pit;
 	bool			extracted;
@@ -2081,9 +2082,8 @@ CHAR_DATA *	create_mob	(MOB_INDEX_DATA *pMobIndex);
 CHAR_DATA *	create_named_mob(MOB_INDEX_DATA *pMobIndex, const char *name);
 void		clone_mob	(CHAR_DATA *parent, CHAR_DATA *clone);
 OBJ_DATA *	create_obj	(OBJ_INDEX_DATA *pObjIndex, int level);
-OBJ_DATA *	create_named_obj(OBJ_INDEX_DATA *pObjIndex, int level,
-				 const char *name);
 OBJ_DATA *	create_obj_nocount (OBJ_INDEX_DATA *pObjIndex, int level);
+OBJ_DATA *	create_obj_of(OBJ_INDEX_DATA *pObjIndex, mlstring *owner);
 void	clone_obj	(OBJ_DATA *parent, OBJ_DATA *clone); 
 void	clear_char	(CHAR_DATA *ch);
 ED_DATA * ed_lookup(const char *name, ED_DATA *ed);
@@ -2138,6 +2138,7 @@ void 		do_tell_raw	(CHAR_DATA *ch, CHAR_DATA *victim,
 void	set_title	(CHAR_DATA *ch, const char *title);
 char	*get_cond_alias	(OBJ_DATA *obj);
 void	do_who_raw	(CHAR_DATA *ch, CHAR_DATA *vch, BUFFER *output);
+const char *format_descr(mlstring *desc, CHAR_DATA *looker);
 
 /* act_move.h */
 void move_char(CHAR_DATA *ch, int door, bool follow);

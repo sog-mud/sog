@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.201 1999-02-18 09:57:27 fjoe Exp $
+ * $Id: act_info.c,v 1.202 1999-02-19 09:47:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -60,6 +60,8 @@
 #include "obj_prog.h"
 #include "fight.h"
 
+#include "db/word.h"	/* fix_short */
+
 #if defined(SUNOS) || defined(SVR4)
 #	include <crypt.h>
 #endif
@@ -114,7 +116,44 @@ void	show_char_to_char_0	(CHAR_DATA *victim, CHAR_DATA *ch);
 void	show_char_to_char_1	(CHAR_DATA *victim, CHAR_DATA *ch);
 void	show_char_to_char	(CHAR_DATA *list, CHAR_DATA *ch);
 
-#define strend(s) (strchr(s, '\0'))
+char *obj_name(OBJ_DATA *obj, CHAR_DATA *ch)
+{
+        static char buf[MAX_STRING_LENGTH];
+        const char *name;
+
+        name = fix_short(mlstr_cval(obj->short_descr, ch));
+	strnzcpy(buf, name, sizeof(buf));
+
+        if (!IS_SET(ch->comm, COMM_NOENG)
+	&&  name != mlstr_mval(obj->short_descr)) {
+		char buf2[MAX_STRING_LENGTH];
+        	char engname[MAX_STRING_LENGTH];
+
+        	one_argument(obj->name, engname, sizeof(engname));
+		snprintf(buf2, sizeof(buf2), " (%s)", engname);
+		strnzcat(buf, buf2, sizeof(buf));
+	}
+
+        return buf;
+}
+
+const char *format_descr(mlstring *ml, CHAR_DATA *looker)
+{
+	const char *s;
+	const char *p, *q;
+	static char buf[MAX_STRING_LENGTH];
+
+	s = mlstr_cval(ml, looker);
+	if (IS_NULLSTR(s)
+	||  !IS_SET(looker->comm, COMM_NOENG)
+	||  (p = strchr(s, '(')) == NULL
+	||  (q = strchr(p+1, ')')) == NULL)
+		return s;
+
+	strnzcpy(buf, s, UMIN(p - s + 1, sizeof(buf)));
+	strnzcat(buf, q+1, sizeof(buf));
+	return buf;
+}
 
 char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 {
@@ -169,7 +208,7 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 	}
 
 	if (fShort) {
-		strnzcat(buf, mlstr_cval(obj->short_descr, ch), sizeof(buf));
+		strnzcat(buf, obj_name(obj, ch), sizeof(buf));
 		if (obj->pIndexData->vnum > 5 /* not money, gold, etc */
 		&&  (obj->condition < COND_EXCELLENT ||
 		     !IS_SET(ch->comm, COMM_NOVERBOSE))) {
@@ -184,8 +223,8 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 	if (obj->in_room && IS_WATER(obj->in_room)) {
 		char* p;
 
-		p = strend(buf);
-		strnzcat(buf, mlstr_cval(obj->short_descr, ch), sizeof(buf));
+		p = strchr(buf, '\0');
+		strnzcat(buf, obj_name(obj, ch), sizeof(buf));
 		p[0] = UPPER(p[0]);
 		switch(dice(1,3)) {
 		case 1:
@@ -203,7 +242,7 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 		}
 	}
 	else
-		strnzcat(buf, mlstr_cval(obj->description, ch), sizeof(buf));
+		strnzcat(buf, format_descr(obj->description, ch), sizeof(buf));
 	return buf;
 }
 
@@ -406,9 +445,7 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		char_puts("[{DIncog{x] ", ch);
 
 	if (IS_NPC(victim) && victim->position == victim->start_pos) {
-		const char *p = mlstr_cval(victim->long_descr, ch);
-		if (!IS_NULLSTR(p))	/* for the hell of "It" (#2006) :) */
-			char_puts(p, ch);
+		char_puts(format_descr(victim->long_descr, ch), ch);
 		return;
 	}
 
@@ -604,11 +641,11 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 			 victim, NULL, ch, TO_VICT, POS_DEAD);
 
 	if (MOUNTED(victim))
-		char_printf(ch, "%s is riding %s.\n",
-			    PERS(victim, ch), PERS(MOUNTED(victim), ch));
+		act_puts("$N is riding $i.",
+			 ch, MOUNTED(victim), victim, TO_CHAR, POS_DEAD);
 	if (RIDDEN(victim))
-		act("$N is being ridden by $t.",
-		    ch, PERS(RIDDEN(victim), ch), victim, TO_CHAR);
+		act_puts("$N is being ridden by $i.",
+			 ch, RIDDEN(victim), victim, TO_CHAR, POS_DEAD);
 
 	if (victim->max_hit > 0)
 		percent = (100 * victim->hit) / victim->max_hit;
@@ -3675,6 +3712,7 @@ void do_make_arrow(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *arrow;
 	AFFECT_DATA af, saf;
+	OBJ_INDEX_DATA *pObjIndex;
 	int count, color, mana, wait;
 	char arg[MAX_INPUT_LENGTH];
 	char *str = "wooden";
@@ -3746,7 +3784,8 @@ void do_make_arrow(CHAR_DATA *ch, const char *argument)
 	WAIT_STATE(ch, wait);
 
 	char_puts("You start to make arrows!\n",ch);
-	act("$n starts to make arrows!",ch,NULL,NULL,TO_ROOM);
+	act("$n starts to make arrows!", ch, NULL, NULL, TO_ROOM);
+	pObjIndex = get_obj_index(OBJ_VNUM_RANGER_ARROW);
 	for(count = 0; count < ch->level / 5; count++) {
 		if (number_percent() > chance) {
 			char_puts("You failed to make the arrow, "
@@ -3761,8 +3800,14 @@ void do_make_arrow(CHAR_DATA *ch, const char *argument)
 		if (color)
 			check_improve(ch, color, TRUE, 3);
 
-		arrow = create_named_obj(get_obj_index(OBJ_VNUM_RANGER_ARROW),
-					 ch->level, str);
+		arrow = create_obj(pObjIndex, 0);
+		free_string(arrow->name);
+		arrow->name = str_printf(pObjIndex->name, str);
+		mlstr_free(arrow->short_descr);
+		arrow->short_descr = mlstr_printf(pObjIndex->short_descr, str);
+		mlstr_free(arrow->description);
+		arrow->description = mlstr_printf(pObjIndex->description, str);
+
 		arrow->level = ch->level;
 		arrow->value[1] = 4 + ch->level / 10;
 		arrow->value[2] = 4 + ch->level / 10;

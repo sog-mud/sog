@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.121 1999-02-18 11:22:02 fjoe Exp $
+ * $Id: act_wiz.c,v 1.122 1999-02-19 09:47:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1106,8 +1106,8 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 
 	output = buf_new(-1);
 	buf_printf(output, "Name(s): %s\n", obj->name);
-	if (!IS_NULLSTR(obj->owner))
-		buf_printf(output, "Owner: [%s]\n", obj->owner);
+	if (!mlstr_null(obj->owner))
+		buf_printf(output, "Owner: [%s]\n", mlstr_mval(obj->owner));
 	buf_printf(output, "Vnum: %d  Type: %s  Resets: %d\n",
 		obj->pIndexData->vnum,
 		flag_string(item_types, obj->pIndexData->item_type),
@@ -2889,8 +2889,8 @@ void do_oset(CHAR_DATA *ch, const char *argument)
 	}
 		
 	if (!str_prefix(arg2, "owner")) {
-		free_string(obj->owner);
-		obj->owner = str_dup(arg3);
+		mlstr_free(obj->owner);
+		obj->owner = mlstr_new(arg3);
 	}
 
 	/*
@@ -4133,9 +4133,10 @@ void do_rename(CHAR_DATA* ch, const char *argument)
 
 		/* change object owners */
 		for (obj = object_list; obj; obj = obj->next)
-			if (obj->owner && !str_cmp(obj->owner, old_name)) {
-				free_string(obj->owner);
-				obj->owner = str_dup(new_name);
+			if (obj->owner
+			&&  !str_cmp(mlstr_mval(obj->owner), old_name)) {
+				mlstr_free(obj->owner);
+				obj->owner = mlstr_new(new_name);
 			}
 
 		dunlink(PLAYER_PATH, capitalize(old_name)); 
@@ -4145,6 +4146,8 @@ void do_rename(CHAR_DATA* ch, const char *argument)
  */
 	free_string(victim->name);
 	victim->name = str_dup(new_name);
+	mlstr_free(victim->short_descr);
+	victim->short_descr = mlstr_new(new_name);
 	save_char_obj(victim, FALSE);
 		
 	char_puts("Character renamed.\n", ch);

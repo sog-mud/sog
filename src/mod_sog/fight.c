@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.139 1999-02-18 12:01:08 kostik Exp $
+ * $Id: fight.c,v 1.140 1999-02-19 09:47:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1809,9 +1809,11 @@ void make_corpse(CHAR_DATA *ch)
 	OBJ_DATA *obj_next;
 	int i;
 
+	corpse	= create_obj_of(get_obj_index(OBJ_VNUM_CORPSE_NPC),
+				ch->short_descr);
+	corpse->owner = mlstr_dup(ch->short_descr);
+
 	if (IS_NPC(ch)) {
-		/* XXX */
-		corpse		= create_named_obj(get_obj_index(OBJ_VNUM_CORPSE_NPC), ch->level, mlstr_mval(ch->short_descr));
 		corpse->timer	= number_range(3, 6);
 		if (ch->gold > 0 || ch->silver > 0)
 		  {
@@ -1821,8 +1823,6 @@ void make_corpse(CHAR_DATA *ch)
 		      obj_to_obj(create_money(ch->gold, ch->silver), corpse);
 		    ch->gold = 0;
 		}
-		/* XXX */
-		corpse->owner = str_qdup(mlstr_mval(ch->short_descr));
 		corpse->cost = 0;
 		corpse->level = ch->level;
 	}
@@ -1835,10 +1835,8 @@ void make_corpse(CHAR_DATA *ch)
 		else
 		  i = 1;
 
-		corpse		= create_named_obj(get_obj_index(OBJ_VNUM_CORPSE_PC), ch->level, ch->name);
 		corpse->timer	= number_range(25, 40);
 		REMOVE_BIT(ch->plr_flags, PLR_CANLOOT);
-		corpse->owner = str_qdup(ch->name);
 		corpse->altar = hometown_table[ch->hometown].altar[i];
 		corpse->pit = hometown_table[ch->hometown].pit[i];
 		corpse->level = ch->level;
@@ -1881,9 +1879,7 @@ void make_corpse(CHAR_DATA *ch)
 	}
 
 	obj_to_room(corpse, ch->in_room);
-	return;
 }
-
 
 void death_cry(CHAR_DATA *ch)
 {
@@ -1917,37 +1913,37 @@ void death_cry_org(CHAR_DATA *ch, int part)
 		}
 		/* FALLTHRU */
 	case  2:
-		if (IS_SET(ch->parts,PART_GUTS)) {
+		if (IS_SET(ch->parts, PART_GUTS)) {
 			msg = "$n spills $s guts all over the floor.";
 			vnum = OBJ_VNUM_GUTS;
 		}
 		break;
 	case  3:
-		if (IS_SET(ch->parts,PART_HEAD)) {
+		if (IS_SET(ch->parts, PART_HEAD)) {
 			msg  = "$n's severed head plops on the ground.";
 			vnum = OBJ_VNUM_SEVERED_HEAD;
 		}
 		break;
 	case  4:
-		if (IS_SET(ch->parts,PART_HEART)) {
+		if (IS_SET(ch->parts, PART_HEART)) {
 			msg  = "$n's heart is torn from $s chest.";
 			vnum = OBJ_VNUM_TORN_HEART;
 		}
 		break;
 	case  5:
-		if (IS_SET(ch->parts,PART_ARMS)) {
+		if (IS_SET(ch->parts, PART_ARMS)) {
 			msg  = "$n's arm is sliced from $s dead body.";
 			vnum = OBJ_VNUM_SLICED_ARM;
 		}
 		break;
 	case  6:
-		if (IS_SET(ch->parts,PART_LEGS)) {
+		if (IS_SET(ch->parts, PART_LEGS)) {
 			msg  = "$n's leg is sliced from $s dead body.";
 			vnum = OBJ_VNUM_SLICED_LEG;
 		}
 		break;
 	case 7:
-		if (IS_SET(ch->parts,PART_BRAINS)) {
+		if (IS_SET(ch->parts, PART_BRAINS)) {
 			msg = "$n's head is shattered, and $s brains splash all over you.";
 			vnum = OBJ_VNUM_BRAINS;
 		}
@@ -1956,18 +1952,13 @@ void death_cry_org(CHAR_DATA *ch, int part)
 
 	act(msg, ch, NULL, NULL, TO_ROOM);
 
-	if (vnum != 0) {
+	if (vnum) {
 		OBJ_DATA *obj;
-		const char *name;
 
-		/* XXX */
-		name		= IS_NPC(ch) ? mlstr_mval(ch->short_descr) :
-						ch->name;
-		obj		= create_named_obj(get_obj_index(vnum), 0,
-					name);
-		obj->owner	= str_qdup(name);
-		obj->timer	= number_range(4, 7);
-		obj->level	= ch->level;
+		obj = create_obj_of(get_obj_index(vnum), ch->short_descr);
+		obj->owner = mlstr_dup(ch->short_descr);
+		obj->timer = number_range(4, 7);
+		obj->level = ch->level;
 
 		if (obj->pIndexData->item_type == ITEM_FOOD) {
 			if (IS_SET(ch->form,FORM_POISON))
@@ -2418,35 +2409,35 @@ void dam_message(CHAR_DATA *ch, CHAR_DATA *victim,
 		if (ch == victim) {
 			switch (dam_type) {
 			case DAM_HUNGER:
-				msg_notvict = "$n's hunger $r $mself!";
-				msg_char = "Your hunger $r yourself!";
+				msg_notvict = "$n's hunger $u $mself!";
+				msg_char = "Your hunger $u yourself!";
 				break;
 
 			case DAM_THIRST:
-				msg_notvict = "$n's thirst $r $mself!";
-				msg_char = "Your thirst $r yourself!";
+				msg_notvict = "$n's thirst $u $mself!";
+				msg_char = "Your thirst $u yourself!";
 				break;
 
 			case DAM_LIGHT_V:
-				msg_notvict = "The light of room $r $n!!";
-				msg_char = "The light of room $r you!!";
+				msg_notvict = "The light of room $u $n!";
+				msg_char = "The light of room $u you!";
 				break;
 
 			case DAM_TRAP_ROOM:
-				msg_notvict = "The trap at room $r $n!!";
-				msg_char = "The trap at room $r you!!";
+				msg_notvict = "The trap at room $u $n!";
+				msg_char = "The trap at room $u you!";
 				break;
 
 			default:
-				msg_notvict = "$n $r $mself!";
-				msg_char = "You $r yourself!";
+				msg_notvict = "$n $u $mself!";
+				msg_char = "You $u yourself!";
 				break;
 			}
 		}
 		else {
-			msg_notvict = "$n $r $N!";
-			msg_char = "You $r $N!";
-			msg_vict = "$n $r you!";
+			msg_notvict = "$n $u $N.";
+			msg_char = "You $u $N.";
+			msg_vict = "$n $u you.";
 		}
 	}
 	else {
@@ -2466,26 +2457,26 @@ void dam_message(CHAR_DATA *ch, CHAR_DATA *victim,
 
 		if (immune) {
 			if (ch == victim) {
-				msg_notvict = "$n is unaffected by $s own $R.";
+				msg_notvict = "$n is unaffected by $s own $U.";
 				msg_char = "Luckily, you are immune to that.";
 			}
 			else {
-				msg_notvict = "$N is unaffected by $n's $R!";
-				msg_char = "$N is unaffected by your $R!";
-				msg_vict = "$n's $R is powerless against you.";
+				msg_notvict = "$N is unaffected by $n's $U!";
+				msg_char = "$N is unaffected by your $U!";
+				msg_vict = "$n's $U is powerless against you.";
 			}
 		}
 		else {
 			vs = vp;
 
 			if (ch == victim) {
-				msg_notvict = "$n's $R $r $m!";
-				msg_char = "Your $R $r you!";
+				msg_notvict = "$n's $U $u $m.";
+				msg_char = "Your $U $u you.";
 			}
 			else {
-				msg_notvict = "$n's $R $r $N!";
-				msg_char = "Your $R $r $N!";
-				msg_vict = "$n's $R $r you!";
+				msg_notvict = "$n's $U $u $N.";
+				msg_char = "Your $U $u $N.";
+				msg_vict = "$n's $U $u you.";
 			}
 		}
 	}

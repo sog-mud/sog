@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.c,v 1.30 1999-02-18 15:13:13 fjoe Exp $
+ * $Id: mlstring.c,v 1.31 1999-02-19 09:48:02 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -34,6 +34,7 @@
 
 #include "merc.h"
 #include "db/db.h"
+#include "db/word.h"
 #include "db/lang.h"
 
 /*
@@ -65,10 +66,10 @@ int mlstr_real_count;
 
 mlstring mlstr_empty;
 
-mlstring *mlstr_new(const char *name)
+mlstring *mlstr_new(const char *mval)
 {
 	mlstring *res = malloc(sizeof(*res));
-	res->u.str = str_dup(name);
+	res->u.str = str_dup(mval);
 	res->nlang = 0;
 	res->ref = 1;
 	mlstr_real_count++;
@@ -428,6 +429,37 @@ void mlstr_dump(BUFFER *buf, const char *name, const mlstring *ml)
 		buf_printf(buf, FORMAT,
 			   space, l->name, ml->u.lstr[lang]);
 	}
+}
+
+mlstring *mlstr_obj_of(mlstring *obj, mlstring *owner)
+{
+	char buf[MAX_STRING_LENGTH];
+	mlstring *res;
+
+	if (!obj)
+		return NULL;
+
+	mlstr_count++;
+	res = mlstr_new(NULL);
+	res->nlang = obj->nlang;
+
+	if (obj->nlang == 0) {
+		snprintf(buf, sizeof(buf), obj->u.str, mlstr_mval(owner));
+		res->u.str = str_dup(buf);
+	}
+	else {
+		int lang;
+
+		res->u.lstr = calloc(1, sizeof(char*) * res->nlang);
+		for (lang = 0; lang < obj->nlang; lang++) {
+			if (IS_NULLSTR(obj->u.lstr[lang]))
+				continue;
+			snprintf(buf, sizeof(buf), obj->u.lstr[lang],
+				 word_case(lang, mlstr_val(owner, lang), 1));
+			res->u.lstr[lang] = str_dup(buf);
+		}
+	}
+	return res;
 }
 
 static const char *smash_a(const char *s, int len)

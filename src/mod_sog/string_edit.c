@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.c,v 1.28 1999-02-17 18:58:04 fjoe Exp $
+ * $Id: string_edit.c,v 1.29 1999-02-19 09:48:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -64,7 +64,7 @@ const char * string_replace(const char * orig, char * old, char * new)
 	if ((p = strstr(xbuf, old))) {
 		*p = '\0';
 		strnzcat(xbuf, new, sizeof(xbuf));
-		strnzcat(xbuf, p + strlen(old), sizeof(xbuf));
+		strnzcat(xbuf, orig + (p - xbuf) + strlen(old), sizeof(xbuf));
 	}
 
 	free_string(orig);

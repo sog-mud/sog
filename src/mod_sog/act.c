@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.9 1999-02-18 20:09:25 fjoe Exp $
+ * $Id: act.c,v 1.10 1999-02-19 09:48:05 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -238,14 +238,14 @@ static int SEX(CHAR_DATA *ch, CHAR_DATA *looker)
  *	j - num(arg1)
  *	J - num(arg2)
  * Q
- * r - text(arg1)
- * R - text(arg3)
+ * r - room name (arg1)
+ * R - room name (arg3)
  * s - his_her(ch)
  * S - his_her(vch)
  * t - text(arg1)
  * T - text(arg2)
- * u
- * U
+ * u - text(arg1)
+ * U - text(arg3)
  * v
  * V
  * w
@@ -267,6 +267,8 @@ static void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 	CHAR_DATA *	vch3 = (CHAR_DATA*) arg3;
 	int		num1 = (int) arg1;
 	int		num3 = (int) arg3;
+	ROOM_INDEX_DATA *room1 = (ROOM_INDEX_DATA*) arg1;
+	ROOM_INDEX_DATA *room3 = (ROOM_INDEX_DATA*) arg3;
 	OBJ_DATA *	obj1 = (OBJ_DATA*) arg1;
 	OBJ_DATA *	obj2 = (OBJ_DATA*) arg2;
 	char 		buf	[MAX_STRING_LENGTH];
@@ -342,9 +344,9 @@ static void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 	
 			case 't': 
 			case 'T':
-			case 'r':
-			case 'R':
-				i = (code == 'R') ? arg3 :
+			case 'u':
+			case 'U':
+				i = (code == 'U') ? arg3 :
 				    (code == 'T') ? arg2 : arg1;
 				if (IS_SET(flags, ACT_TRANS))
 					i = GETMSG(i, to->lang);
@@ -352,6 +354,14 @@ static void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 					i = translate(ch, to, i);
 				break;
 	
+			case 'r':
+				i = mlstr_mval(room1->name);
+				break;
+
+			case 'R':
+				i = mlstr_mval(room3->name);
+				break;
+
 			case 'n':
 				i = PERS(ch, to);
 				break;
@@ -406,12 +416,16 @@ static void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 				i = can_see_obj(to, obj1) ?
 					mlstr_cval(obj1->short_descr, to) :
 					GETMSG("something", to->lang);
+				if (sp < 0)
+					i = fix_short(i);
 				break;
 	
 			case 'P':
 				i = can_see_obj(to, obj2) ?
 					mlstr_cval(obj2->short_descr, to) :
 					GETMSG("something", to->lang);
+				if (sp < 0)
+					i = fix_short(i);
 				break;
 	
 			case 'd':

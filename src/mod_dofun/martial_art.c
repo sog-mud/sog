@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.68 1999-02-17 07:53:23 fjoe Exp $
+ * $Id: martial_art.c,v 1.69 1999-02-19 09:47:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1885,7 +1885,7 @@ void do_trophy(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_NULLSTR(part->owner)) {
+	if (mlstr_null(part->owner)) {
 		char_puts("Invalid body part.\n", ch);
 		return;
 	}
@@ -1904,8 +1904,8 @@ void do_trophy(CHAR_DATA *ch, const char *argument)
 		if (trophy_vnum != 0) {
 			level = UMIN(part->level + 5, MAX_LEVEL);
  
-			trophy = create_named_obj(get_obj_index(trophy_vnum),
-						     level, part->owner);
+			trophy = create_obj_of(get_obj_index(trophy_vnum),
+					       part->owner);
 			trophy->timer = ch->level * 2;
 			trophy->cost  = 0;
 			trophy->level = ch->level;
