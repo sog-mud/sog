@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.27 2000-11-17 12:49:31 avn Exp $
+ * $Id: act_info.c,v 1.271.2.28 2000-11-21 16:47:03 osya Exp $
  */
 
 /***************************************************************************
@@ -4821,5 +4821,41 @@ void do_areas(CHAR_DATA *ch, const char *argument)
 	buf_printf(output, "\n%d areas total.\n", maxArea);
 	page_to_char(buf_string(output), ch);	
 	buf_free(output);
+}
+
+void do_acute_vision(CHAR_DATA *ch, const char *argument)
+{
+	AFFECT_DATA	af;
+	int		chance;
+	int		sn;
+
+	if ((sn = sn_lookup("acute vision")) < 0
+	||  (chance = get_skill(ch, sn)) == 0) {
+		char_puts("Huh?\n", ch);
+		return;
+	}
+	if (IS_AFFECTED(ch, AFF_ACUTE_VISION)) {
+			char_puts("Your vision is already acute. \n",ch);
+			return;
+	}
+
+
+	if (number_percent() > chance) {
+		char_puts("You peer intently through leaf "
+			     "but they are unrevealing.\n", ch);
+		check_improve(ch, sn, FALSE, 1);
+		return;
+	}
+
+	af.where	= TO_AFFECTS;
+	af.type		= sn;
+	af.level	= LEVEL(ch);;
+	af.duration	= 3 + LEVEL(ch) / 5;
+	af.location	= APPLY_NONE;
+	af.modifier	= 0;
+	af.bitvector	= AFF_ACUTE_VISION;
+	affect_to_char(ch, &af);
+	char_puts("Your vision sharpens.\n", ch);
+	check_improve(ch, sn, TRUE, 1);
 }
 

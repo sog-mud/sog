@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.19 2000-10-21 17:07:08 fjoe Exp $
+ * $Id: fight.c,v 1.202.2.20 2000-11-21 16:47:05 osya Exp $
  */
 
 /***************************************************************************
@@ -2788,19 +2788,6 @@ bool check_obj_dodge(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj, int bonus)
 
 	if (!IS_AWAKE(victim) || MOUNTED(victim))
 		return FALSE;
-
-	if (!IS_NPC(victim) && HAS_SKILL(victim, gsn_spellbane)) {
-		if (PC(victim)->clan_status) {
-			act("You catch $p that had been shot to you.",
-			    ch, obj, victim, TO_VICT);
-			act("$N catches $p that had been shot to $M.",
-			    ch, obj, victim, TO_CHAR);
-			act("$n catches $p that had been shot to $m.",
-			    victim, obj, ch, TO_NOTVICT);
-			obj_to_char(obj, victim);
-		}
-		return TRUE;
-	}
 
 	if (IS_NPC(victim))
 		 chance  = UMIN(30, victim->level);

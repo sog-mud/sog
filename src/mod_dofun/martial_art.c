@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.114.2.11 2000-10-11 12:53:30 fjoe Exp $
+ * $Id: martial_art.c,v 1.114.2.12 2000-11-21 16:47:04 osya Exp $
  */
 
 /***************************************************************************
@@ -2329,9 +2329,6 @@ void do_truesight(CHAR_DATA *ch, const char *argument)
 		affect_to_char(ch, &af);
 
 		af.bitvector = AFF_DETECT_IMP_INVIS;
-		affect_to_char(ch,&af);
-
-		af.bitvector = AFF_ACUTE_VISION;
 		affect_to_char(ch,&af);
 
 		af.bitvector = AFF_DETECT_MAGIC;
