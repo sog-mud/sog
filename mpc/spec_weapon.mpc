@@ -1,9 +1,9 @@
 /*
- * $Id: spec_weapon.mpc,v 1.4 2001-08-26 05:49:45 fjoe Exp $
+ * $Id: spec_weapon.mpc,v 1.5 2001-09-18 13:39:07 kostik Exp $
  */
-
+act_char("Yuuhoo!", $n);
 if (!has_sp($n, "class_warrior", $rm, $add)) {
-	act_char("Ooops.", $n);
+	act_char("You aren't professional warrior.", $n);
 	return 1;
 }
 

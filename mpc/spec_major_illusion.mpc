@@ -1,10 +1,13 @@
 /*
- * $Id: spec_major_illusion.mpc,v 1.3 2001-08-26 05:49:42 fjoe Exp $
+ * $Id: spec_major_illusion.mpc,v 1.4 2001-09-18 13:39:04 kostik Exp $
  */
 
-if (has_sp($n, "minor_illusion", $rm, $add)
-||  !has_sp($n, "class_wizard", $rm, $add)) {
-	act_char("Ooops.", $n);
+if (has_sp($n, "minor_illusion", $rm, $add)) {
+	act_char("You already have illusion as your minor magic school", $n);
+	return 1;
+}
+if (!has_sp($n, "class_wizard", $rm, $add)) {
+	act_char("You are not even wizard, how can you have major school?", $n);
 	return 1;
 }
 
