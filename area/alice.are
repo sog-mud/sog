@@ -630,6 +630,13 @@ BGT 0 H 0 0 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
+m mob_give @ ~
+Obj tea;
+if ((tea = get_obj_carry(mob, mob, "21045")) == NULL)
+        tea = load_obj(mob, 21045);
+give_obj(mob, actor, tea);
+return 0;
+~
 m mob_greet @ all~
 dofun("say", mob, "No room! No room!");
 return 0;
@@ -644,13 +651,6 @@ return 0;
 ~
 m mob_tell @ ~
 dofun("say", mob, "I have no idea!");
-return 0;
-~
-m mob_give @ ~
-Obj tea;
-if ((tea = get_obj_carry(mob, mob, "21045")) == NULL)
-        tea = load_obj(mob, 21045);
-give_obj(mob, actor, tea);
 return 0;
 ~
 #21023
@@ -668,23 +668,23 @@ BGT 0 H 0 0 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-m mob_greet @ all~
-dofun("say", mob, "No room! No room!");
+m mob_give @ all~
+Obj tea;
+if ((tea = get_obj_carry(mob, mob, "21045")) == NULL)
+        tea = load_obj(mob, 21045);
+give_obj(mob, actor, tea);
 return 0;
 ~
-m mob_tell @ ~
-dofun("say", mob, "It's always tea-time!");
+m mob_greet @ all~
+dofun("say", mob, "No room! No room!");
 return 0;
 ~
 m mob_exit @ all~
 dofun("emote", mob, "begins to stuff the dormouse into a teapot.");
 return 0;
 ~
-m mob_give @ all~
-Obj tea;
-if ((tea = get_obj_carry(mob, mob, "21045")) == NULL)
-        tea = load_obj(mob, 21045);
-give_obj(mob, actor, tea);
+m mob_tell @ ~
+dofun("say", mob, "It's always tea-time!");
 return 0;
 ~
 #21024
