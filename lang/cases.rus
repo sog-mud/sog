@@ -7182,6 +7182,17 @@ Form 6 -у~
 End
 
 #RULE
+Name странник~
+BaseLen 8
+Form 1 -а~
+Form 2 -у~
+Form 3 -~
+Form 4 -ом~
+Form 5 -е~
+Form 6 -а~
+End
+
+#RULE
 Name булава~
 BaseLen 5
 Form 1 -ы~
@@ -7576,6 +7587,17 @@ Form 3 -ую~
 Form 4 -ой~
 Form 5 -ой~
 Form 6 -ую~
+End
+
+#RULE
+Name людвиг~
+BaseLen 6
+Form 1 -а~
+Form 2 -у~
+Form 3 -а~
+Form 4 -ом~
+Form 5 -е~
+Form 6 -а~
 End
 
 #RULE

@@ -16,7 +16,7 @@ He wants to see what's on the other side of the mountain too.
 ~
 human~
 ACGT 0 500 0
-3 1 10d5+15 1d1+99 1d4+1 punch
+3 1 10d5+15 1d1+99 1d4+1 'punch'
 7 7 7 8
 JN 0 HIJR 0
 stand stand male 30
@@ -30,7 +30,7 @@ He looks like he's about to have dinner (maybe it's you?).
 ~
 giant~
 ABFQT DF -700 0
-22 7 10d10+600 10d10+100 6d4+10 smash
+22 7 10d10+600 10d10+100 6d4+10 'smash'
 -7 -7 -7 -2
 ACDIO AB CD 0
 stand stand male 600
@@ -44,7 +44,7 @@ Rather small for an elemental form, looks like a reject.
 ~
 human~
 AG 0 0 0
-1 0 2d6+10 0d9+100 1d4+0 none
+1 0 2d6+10 0d9+100 1d4+0 'none'
 9 9 9 10
 EFNU 0 0 0
 stand stand none 0
@@ -58,7 +58,7 @@ You can't tell which kind of elemental it is, maybe it's a bit o' all of them?
 ~
 human~
 AB 0 0 0
-20 0 3d9+333 10d9+100 2d8+5 none
+20 0 3d9+333 10d9+100 2d8+5 'none'
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand none 500
@@ -72,7 +72,7 @@ A small elemental, a resident of the canyon.
 ~
 human~
 ABG J 0 0
-5 0 2d6+60 2d9+100 1d6+1 none
+5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
 EFNU 0 0 0
 stand stand none 12
@@ -86,7 +86,7 @@ A medium elemental, a resident of the canyon.
 ~
 human~
 ABG J 10 0
-10 0 2d7+121 5d9+100 2d4+2 none
+10 0 2d7+121 5d9+100 2d4+2 'none'
 1 1 1 8
 EFNU 0 0 0
 stand stand none 37
@@ -99,7 +99,7 @@ A large elemental.
 A large elemental, a resident of the canyon.~
 human~
 ABG 0 20 0
-15 0 3d9+208 7d9+100 2d6+3 none
+15 0 3d9+208 7d9+100 2d6+3 'none'
 -2 -2 -2 7
 EFNU 0 0 0
 stand stand none 100
@@ -115,7 +115,7 @@ he begins and the rock wall ends.
 ~
 human~
 ABKQe HJ 0 0
-30 0 6d12+853 30d9+100 5d4+8 none
+30 0 6d12+853 30d9+100 5d4+8 'none'
 -9 -9 -9 4
 EIKU AB 0 0
 stand stand none 5000
@@ -129,7 +129,7 @@ As you look at him he seems to blend in with the fire in his throne.
 ~
 human~
 ABKe H 0 0
-30 0 6d12+853 15d9+100 4d6+8 none
+30 0 6d12+853 15d9+100 4d6+8 'none'
 -9 -9 -9 6
 EFNU AB 0 0
 stand stand none 5000
@@ -143,7 +143,7 @@ As you peer at him you seem to be looking at the sky itself.
 ~
 human~
 ABKe H 0 0
-30 0 6d12+853 15d9+100 4d6+8 none
+30 0 6d12+853 15d9+100 4d6+8 'none'
 -9 -9 -9 6
 EFNU AB 0 0
 stand stand none 5000
@@ -158,7 +158,7 @@ You rub your eyes and look and the ruler is there grinning at you.
 ~
 human~
 ABKe H 0 0
-30 0 6d12+853 15d9+100 4d6+8 none
+30 0 6d12+853 15d9+100 4d6+8 'none'
 -9 -9 -9 6
 EFNU AB 0 0
 stand stand none 5000
@@ -173,7 +173,7 @@ as you get scared, it reforms in elemental form.
 ~
 water fowl~
 ABKe H 0 0
-30 0 6d12+853 15d9+100 4d6+8 none
+30 0 6d12+853 15d9+100 4d6+8 'none'
 -9 -9 -9 6
 EFNR AB 0 0
 stand stand none 5000
@@ -187,7 +187,7 @@ It trickles along the ground and gets your feet wet.
 ~
 water fowl~
 AG 0 0 0
-8 0 2d7+96 4d9+100 1d7+2 none
+8 0 2d7+96 4d9+100 1d7+2 'none'
 3 3 3 9
 EFNR 0 0 0
 stand stand none 11
@@ -201,7 +201,7 @@ It smolders along the grass aimlessly.
 ~
 human~
 AG 0 0 0
-4 0 2d7+46 2d9+100 1d5+1 none
+4 0 2d7+46 2d9+100 1d5+1 'none'
 6 6 6 9
 EFNU 0 0 0
 stand stand none 7
@@ -215,7 +215,7 @@ It looks a little blue.
 ~
 human~
 AG J 520 0
-3 0 2d6+35 1d9+100 1d6+0 none
+3 0 2d6+35 1d9+100 1d6+0 'none'
 7 7 7 10
 EFNU 0 0 0
 stand stand none 0
@@ -229,7 +229,7 @@ It seems to be a small living pebble!
 ~
 human~
 AG J 0 0
-3 0 2d6+35 1d9+100 1d6+0 none
+3 0 2d6+35 1d9+100 1d6+0 'none'
 7 7 7 10
 EFNU 0 0 0
 stand stand none 4
@@ -243,7 +243,7 @@ Zipping from place to place at the speed of light is tough work.
 ~
 human~
 AG 0 0 0
-4 0 2d7+46 2d9+100 1d5+1 none
+4 0 2d7+46 2d9+100 1d5+1 'none'
 6 6 6 9
 EFNU 0 0 0
 stand stand none 7
@@ -257,7 +257,7 @@ The magical blob of acid is a cross between lightning and water.
 ~
 human~
 AG 0 0 0
-9 0 2d6+110 4d9+100 1d8+2 none
+9 0 2d6+110 4d9+100 1d8+2 'none'
 2 2 2 8
 EFNU 0 0 0
 stand stand none 50
@@ -271,7 +271,7 @@ The magical lava beast is a cross between fire and earth.
 ~
 human~
 AG J 0 0
-8 0 2d7+96 4d9+100 1d7+2 none
+8 0 2d7+96 4d9+100 1d7+2 'none'
 3 3 3 9
 EFNU 0 0 0
 stand stand none 15
@@ -285,7 +285,7 @@ The magical mud monster is a cross between water and earth.
 ~
 human~
 AG J 0 0
-7 0 2d6+85 3d9+100 1d8+1 none
+7 0 2d6+85 3d9+100 1d8+1 'none'
 4 4 4 9
 EFNU 0 0 0
 stand stand none 20
@@ -299,7 +299,7 @@ The magical mist is a cross between water and air.
 ~
 human~
 AG 0 0 0
-6 0 2d7+71 3d9+100 1d7+1 none
+6 0 2d7+71 3d9+100 1d7+1 'none'
 4 4 4 9
 EFNU 0 0 0
 stand stand none 15
@@ -313,7 +313,7 @@ The magical manifestation of energy.
 ~
 human~
 AG J 0 0
-5 0 2d6+60 2d9+100 1d6+1 none
+5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
 EFNU 0 0 0
 stand stand none 0
@@ -327,7 +327,7 @@ The magical dust cloud is a cross between air and earth.
 ~
 human~
 AGS DFJ 0 0
-6 0 2d6+60 3d9+100 1d6+1 none
+6 0 2d6+60 3d9+100 1d6+1 'none'
 5 5 5 9
 BEFJNU 0 0 0
 stand stand none 5
@@ -341,7 +341,7 @@ The magical eddie current is a manifestation of an air elemental.
 ~
 human~
 AGS DF 0 0
-2 0 2d6+10 1d9+100 1d4+0 none
+2 0 2d6+10 1d9+100 1d4+0 'none'
 9 9 9 10
 BEFJNU 0 0 0
 stand stand none 1
@@ -356,7 +356,7 @@ humanoid figure somehow trapped in the fire.
 ~
 human~
 ABG 0 -100 0
-26 0 5d10+600 13d9+100 3d7+7 none
+26 0 5d10+600 13d9+100 3d7+7 'none'
 -7 -7 -7 6
 EFNU 0 0 0
 stand stand none 1250
@@ -370,7 +370,7 @@ A humanoid figure seems to be trapped in the field of the Magneto.
 ~
 human~
 ABG 0 -150 0
-22 0 5d10+400 11d9+100 4d4+6 none
+22 0 5d10+400 11d9+100 4d4+6 'none'
 -5 -5 -5 7
 EFNU 0 0 0
 stand stand none 500
@@ -384,7 +384,7 @@ A humanoid figure encased in ice but still apparently alive.
 ~
 human~
 ABGH P -250 0
-24 0 5d10+500 12d9+100 2d10+6 none
+24 0 5d10+500 12d9+100 2d10+6 'none'
 -6 -6 -6 6
 EFNU 0 0 0
 stand stand none 1500
@@ -398,7 +398,7 @@ A humanoid figure trapped in stone seems alive.
 ~
 human~
 ABG 0 -310 0
-23 0 5d10+450 11d9+100 3d6+6 none
+23 0 5d10+450 11d9+100 3d6+6 'none'
 -6 -6 -6 6
 EFNU 0 0 0
 stand stand none 950
@@ -412,7 +412,7 @@ A humanoid figure is trapped in the rushing wind.
 ~
 human~
 ABG P -10 0
-28 0 6d12+703 14d9+100 5d4+8 none
+28 0 6d12+703 14d9+100 5d4+8 'none'
 -8 -8 -8 6
 EFNU 0 0 0
 stand stand none 2054
@@ -427,7 +427,7 @@ Stone of Surrender which can be used to render opponents senseless.
 ~
 human~
 ABGR B -50 0
-17 0 3d9+233 17d9+100 1d12+3 none
+17 0 3d9+233 17d9+100 1d12+3 'none'
 -2 -2 -2 4
 FU 0 0 0
 stand stand none 400
@@ -442,7 +442,7 @@ the elemental forces.
 ~
 human~
 AGQ 0 150 0
-18 0 3d9+283 18d9+100 2d6+4 none
+18 0 3d9+283 18d9+100 2d6+4 'none'
 -3 -3 -3 6
 EIKU 0 0 0
 stand stand none 400
@@ -457,7 +457,7 @@ He seeks their aid for a powerful new spell of deception.
 ~
 human~
 ABGR 0 -50 0
-12 0 2d8+134 12d9+100 1d8+2 none
+12 0 2d8+134 12d9+100 1d8+2 'none'
 1 1 1 6
 FU 0 0 0
 stand stand none 95
@@ -471,7 +471,7 @@ Rare herbs are rumored to grow only in the canyon.
 ~
 human~
 AGS DF -50 0
-13 0 2d10+150 6d9+100 1d10+3 none
+13 0 2d10+150 6d9+100 1d10+3 'none'
 0 0 0 7
 BEFJNU 0 0 0
 stand stand none 95
@@ -485,7 +485,7 @@ It's only a baby by dragon standards.
 ~
 human~
 ABG DF 0 0
-16 0 3d9+233 8d9+100 2d6+4 none
+16 0 3d9+233 8d9+100 2d6+4 'none'
 -2 -2 -2 7
 EFNU 0 0 0
 stand stand none 500
@@ -499,7 +499,7 @@ The little bugger steals stuff and is generally obnoxious.
 ~
 human~
 ACGH JPQ -500 0
-5 0 2d6+60 2d9+100 1d6+1 none
+5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
 EFNU 0 0 0
 stand stand none 0
@@ -513,7 +513,7 @@ HUGE, need i say more?
 ~
 human~
 ABG 0 30 0
-20 0 3d9+333 10d9+100 2d8+5 none
+20 0 3d9+333 10d9+100 2d8+5 'none'
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand none 500
@@ -527,7 +527,7 @@ I WOULD NOT suggest you attack me ...!
 ~
 human~
 ABEGRe 0 900 0
-30 0 6d12+778 30d9+100 5d4+7 none
+30 0 6d12+778 30d9+100 5d4+7 'none'
 -9 -9 -9 1
 FU ABCD 0 0
 stand stand male 0
@@ -542,7 +542,7 @@ Stone of Surrender which can be used to render opponents senseless.
 ~
 human~
 ABGKRe D -50 0
-46 30 3d9+8233 17d9+4100 10d12+33 none
+46 30 3d9+8233 17d9+4100 10d12+33 'none'
 -12 -12 -12 -4
 F ABC 0 0
 stand stand none 400

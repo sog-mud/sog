@@ -19,7 +19,7 @@ sharp nasty teeth.
 ~
 unique~
 AFG FJ -400 0
-30 0 6d12+853 1d1+99 4d6+8 bite
+30 0 6d12+853 1d1+99 4d6+8 'bite'
 -9 -9 -9 3
 CFNQ 0 L I
 stand stand male 2000
@@ -36,7 +36,7 @@ hag breaks into an ugly fit of laughter.
 ~
 human~
 ABCGV DK 0 0
-28 0 6d12+703 1d1+399 2d12+8 slap
+28 0 6d12+703 1d1+399 2d12+8 'slap'
 -8 -8 -8 6
 FR 0 C NZ
 stand stand female 1850
@@ -55,7 +55,7 @@ hiring on to help defend Dunkeldorf?'.
 ~
 human~
 ABG MQ 500 0
-30 0 6d12+853 1d1+99 4d6+8 punch
+30 0 6d12+853 1d1+99 4d6+8 'punch'
 -9 -9 -9 6
 CDEFINP 0 0 0
 stand stand male 2000
@@ -71,7 +71,7 @@ forest? You have? Is it safe again in the forest?
 ~
 human~
 AG 0 400 0
-25 0 5d10+550 1d1+99 2d10+7 punch
+25 0 5d10+550 1d1+99 2d10+7 'punch'
 -7 -7 -7 6
 EFN 0 0 0
 stand stand male 1500
@@ -89,7 +89,7 @@ Dunkeldorf, before everyone started disappearing.
 ~
 human~
 ABGe 0 450 0
-26 0 5d10+600 1d1+99 3d7+7 slap
+26 0 5d10+600 1d1+99 3d7+7 'slap'
 -7 -7 -7 5
 CEFN 0 0 0
 stand stand male 1600
@@ -107,7 +107,7 @@ godspeed.
 ~
 human~
 ABGe 0 550 0
-27 0 5d10+650 1d1+99 5d4+7 punch
+27 0 5d10+650 1d1+99 5d4+7 'punch'
 -8 -8 -8 5
 CEFN 0 0 0
 stand stand male 1700
@@ -125,7 +125,7 @@ since collapsed and become unstable, so now he trades for it.
 ~
 human~
 ABGSe 0 600 0
-29 0 6d12+778 1d1+100 2d12+8 punch
+29 0 6d12+778 1d1+100 2d12+8 'punch'
 -9 -9 -9 5
 CEFN 0 0 0
 stand stand male 1900
@@ -142,7 +142,7 @@ forest one night, naked screaming, and never to return.
 ~
 human~
 ABGe 0 700 0
-28 0 6d12+703 1d1+100 2d12+8 punch
+28 0 6d12+703 1d1+100 2d12+8 'punch'
 -8 -8 -8 5
 CEFN 0 0 0
 stand stand male 1800
@@ -158,7 +158,7 @@ shire, and of longbottom leaf.
 ~
 human~
 AGe 0 300 0
-26 0 5d10+600 1d1+100 3d7+7 punch
+26 0 5d10+600 1d1+100 3d7+7 'punch'
 -7 -7 -7 6
 CEFN 0 0 0
 stand stand male 1600
@@ -174,7 +174,7 @@ constrictor.
 ~
 snake~
 AFG J 0 0
-32 0 10d10+1000 1d1+100 6d4+9 bite
+32 0 10d10+1000 1d1+100 6d4+9 'bite'
 -10 -10 -10 4
 H L 0 0
 stand stand none 0
@@ -204,7 +204,7 @@ with you.'
 ~
 human~
 ABG H 1 0
-33 0 10d10+1100 1d1+100 6d4+10 punch
+33 0 10d10+1100 1d1+100 6d4+10 'punch'
 -11 -11 -11 4
 CDEFN 0 0 0
 stand stand male 2300
@@ -219,7 +219,7 @@ cackles at you with an insane glee.
 ~
 human~
 AFG DJ -700 0
-32 0 6d12+885 1d1+300 4d6+8 punch
+32 0 6d12+885 1d1+300 4d6+8 'punch'
 -9 -9 -9 4
 F 0 CM ENR
 stand stand female 2200
@@ -234,7 +234,7 @@ cackles with an insane glee.
 ~
 human~
 AFG DJ -800 0
-33 0 10d10+1000 1d1+300 4d6+8 punch
+33 0 10d10+1000 1d1+300 4d6+8 'punch'
 -11 -11 -11 0
 F 0 CM ENR
 stand stand male 2300
@@ -250,7 +250,7 @@ cackles with an insane glee.
 ~
 human~
 AFG DFJ -900 0
-34 0 10d10+1100 1d1+300 4d6+9 punch
+34 0 10d10+1100 1d1+300 4d6+9 'punch'
 -11 -11 -11 1
 F M C ENR
 stand stand male 2400
@@ -268,7 +268,7 @@ battle, but you will not stop our plan!'
 ~
 unique~
 ABFG DFJu -1000 0
-28 0 6d12+703 1d1+200 2d12+8 bite
+28 0 6d12+703 1d1+200 2d12+8 'bite'
 -8 -8 -8 6
 F AHL B I
 stand stand none 1800

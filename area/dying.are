@@ -20,7 +20,7 @@ their creatures of the night.
 ~
 centaur~
 ABGT DEFJ 1000 0
-32 1 10d10+1140 1d1+100 6d4+10 pierce
+32 1 10d10+1140 1d1+100 6d4+10 'pierce'
 -10 -10 -10 0
 DEKOU 0 0 0
 stand stand male 500
@@ -38,7 +38,7 @@ battle to drive back the anti-rangers and their darkfriends.
 ~
 centaur~
 AGT DEFJ 1000 0
-44 3 25d10+3000 1d1+2000 32d4+8 slash
+44 3 25d10+3000 1d1+2000 32d4+8 'slash'
 -15 -15 -15 -6
 DEKOU 0 0 0
 stand stand male 1000
@@ -58,7 +58,7 @@ battle to drive back the anti-rangers and their darkfriends.
 ~
 centaur~
 AGT DEFJ 1000 0
-50 1 50d10+4500 1d1+2000 10d5+20 slash
+50 1 50d10+4500 1d1+2000 10d5+20 'slash'
 -20 -20 -20 -14
 DEKOU 0 0 0
 stand stand male 1000
@@ -76,7 +76,7 @@ battle to drive back the anti-rangers and their darkfriends.
 ~
 centaur~
 AGRT DEFJ 1000 0
-59 2 50d10+9000 1d1+2000 10d6+30 slash
+59 2 50d10+9000 1d1+2000 10d6+30 'slash'
 -25 -25 -25 -16
 DEKORU 0 0 0
 stand stand male 7000
@@ -94,7 +94,7 @@ to destroy.
 ~
 human~
 AGT DFJ -1000 0
-50 2 50d10+4500 1d1+100 10d8+20 pierce
+50 2 50d10+4500 1d1+100 10d8+20 'pierce'
 -20 -20 -20 -8
 DEFJKU 0 0 0
 stand stand male 400
@@ -114,7 +114,7 @@ doesn't seem much at ease.
 ~
 human~
 AGT CDEFJ -1000 0
-40 0 15d10+1850 1d1+100 4d10+10 slice
+40 0 15d10+1850 1d1+100 4d10+10 'slice'
 -13 -13 -13 -3
 CDEKM 0 C 0
 stand stand female 0
@@ -131,7 +131,7 @@ much of the forest as it can.
 ~
 giant~
 ABGT CDEFJa -1000 0
-58 3 50d10+8600 1d1+100 5d10+29 crush
+58 3 50d10+8600 1d1+100 5d10+29 'crush'
 -28 -28 -28 -12
 CDEKO E 0 0
 stand stand none 0
@@ -150,7 +150,7 @@ and destruction.
 ~
 human~
 ABGT CDEFJa -1000 0
-60 3 50d10+9500 1d1+100 8d6+29 slash
+60 3 50d10+9500 1d1+100 8d6+29 'slash'
 -30 -30 -30 -18
 CDEKO 0 0 0
 stand stand male 0
@@ -168,7 +168,7 @@ It's mortal form is that of a mass of vines with a life of their own.
 ~
 human~
 AGT CDEFJ -1000 0
-55 3 50d10+7000 1d1+100 10d4+24 beating
+55 3 50d10+7000 1d1+100 10d4+24 'beating'
 -25 -25 -24 -9
 DEKN 0 D 0
 stand stand male 0
@@ -187,7 +187,7 @@ Metagar's mortal form as it seeks to destroy nature wherever it finds it.
 ~
 giant~
 AGT CDEFJ -1000 0
-57 2 50d10+8000 1d1+100 5d10+25 smash
+57 2 50d10+8000 1d1+100 5d10+25 'smash'
 -25 -25 -24 -9
 DEKN 0 0 0
 stand stand none 0
@@ -207,7 +207,7 @@ ruined is the most satisfying thing imaginable.
 ~
 dragon~
 AGT CDE -1000 0
-59 1 50d10+9000 1d1+100 8d6+28 slice
+59 1 50d10+9000 1d1+100 8d6+28 'slice'
 -29 -27 -28 -10
 CDEFKM 0 0 0
 stand stand none 0
@@ -225,7 +225,7 @@ it.
 ~
 centaur~
 AGT DEFJ 1000 0
-38 2 10d10+1600 1d1+100 5d6+14 none
+38 2 10d10+1600 1d1+100 5d6+14 'none'
 -13 -13 -13 -4
 DEKOU 0 0 0
 stand stand either 500
@@ -242,7 +242,7 @@ powerful evil creatures slowly ravage her home.
 ~
 human~
 AGRT J 1000 0
-25 0 10d5+200 1d1+100 5d7+15 slap
+25 0 10d5+200 1d1+100 5d7+15 'slap'
 -4 -3 -5 2
 EFKQU 0 0 0
 stand stand female 0
@@ -260,7 +260,7 @@ the invasion of the evil creatures it's job has become far more involved.
 ~
 centaur~
 AGT DEFJ 1000 0
-30 1 5d10+550 1d1+100 2d10+8 none
+30 1 5d10+550 1d1+100 2d10+8 'none'
 -6 -7 -7 1
 DEKU 0 0 0
 stand stand either 0
@@ -279,7 +279,7 @@ teeth.
 ~
 human~
 AGT CDEFJ -1000 0
-35 2 10d10+1400 1d1+100 3d10+11 none
+35 2 10d10+1400 1d1+100 3d10+11 'none'
 -11 -11 -11 -6
 DEFKNU 0 0 0
 stand stand none 0
@@ -298,7 +298,7 @@ now it seeks food...
 ~
 troll~
 AGK DE -1000 0
-30 1 6d12+1000 1d1+100 4d6+9 claw
+30 1 6d12+1000 1d1+100 4d6+9 'claw'
 -10 -10 -10 -3
 CEFKNU 0 0 0
 stand stand either 0

@@ -19,7 +19,7 @@ fell domain- DEATH.
 ~
 undead~
 AFGO T -1000 0
-48 0 25d10+3750 1d10+5000 6d6+18 slash
+48 0 25d10+3750 1d10+5000 6d6+18 'slash'
 -18 -18 -18 0
 EFNQ 0 0 X
 stand stand none 5000
@@ -40,7 +40,7 @@ fell domain- DEATH.
 ~
 undead~
 AFGO T -1000 0
-47 0 25d10+3500 1d20+3440 6d6+17 pierce
+47 0 25d10+3500 1d20+3440 6d6+17 'pierce'
 -17 -17 -17 2
 EFNQ 0 0 0
 stand stand none 5000
@@ -56,7 +56,7 @@ fell domain- DEATH.
 ~
 undead~
 AFGO 0 -1000 0
-45 0 25d10+3000 10d10+330 8d4+16 slash
+45 0 25d10+3000 10d10+330 8d4+16 'slash'
 -15 -15 -15 4
 EFNQ 0 0 X
 stand stand none 4500
@@ -72,7 +72,7 @@ fell domain- DEATH.
 ~
 undead~
 AFGO T -1000 0
-48 0 25d10+3750 10d10+110 6d6+18 pound
+48 0 25d10+3750 10d10+110 6d6+18 'pound'
 -18 -18 -18 2
 EFNU 0 0 X
 stand stand none 5000
@@ -88,7 +88,7 @@ to your disturbance they have risen again!
 ~
 undead~
 ABFGO N -1000 0
-54 0 25d10+5250 10d10+1110 7d6+22 pierce
+54 0 25d10+5250 10d10+1110 7d6+22 'pierce'
 -24 -24 -24 -1
 EFNQ B 0 X
 stand stand none 5300
@@ -104,7 +104,7 @@ as a Lich, seeking revenge!
 ~
 human~
 ABFGO DFJ -1000 0
-58 0 50d10+6250 10d10+1110 5d10+25 pierce
+58 0 50d10+6250 10d10+1110 5d10+25 'pierce'
 -28 -28 -28 2
 EFNQ AB T K
 stand stand male 5800
@@ -119,7 +119,7 @@ concentration of negative material energy.
 ~
 undead~
 AFGHO 0 -1000 0
-52 0 50d10+4750 10d10+4440 6d7+20 pound
+52 0 50d10+4750 10d10+4440 6d7+20 'pound'
 -22 -22 -22 0
 EFNQ 0 0 0
 stand stand none 5000
@@ -137,7 +137,7 @@ interfere.
 ~
 undead~
 AGO N 0 0
-57 0 50d10+6000 10d10+1000 6d8+24 pierce
+57 0 50d10+6000 10d10+1000 6d8+24 'pierce'
 -27 -27 -27 -2
 EFNQ 0 0 0
 stand stand none 5300
@@ -153,7 +153,7 @@ death, his spirit remained behind to haunt the area where he met his end.
 ~
 undead~
 ABGO T 0 0
-48 0 25d10+3750 10d10+1000 6d6+18 pierce
+48 0 25d10+3750 10d10+1000 6d6+18 'pierce'
 -18 -18 -18 2
 EFNQ 0 0 0
 stand stand none 5000
@@ -168,7 +168,7 @@ taunt you, though it will not hesitate to defend itself.
 ~
 undead~
 ABGO 0 -1000 0
-55 0 50d10+5500 10d10+1000 10d4+23 pierce
+55 0 50d10+5500 10d10+1000 10d4+23 'pierce'
 -25 -25 -25 0
 EFNQ 0 0 0
 stand stand none 5300
@@ -183,7 +183,7 @@ concentration of negative material energy.
 ~
 undead~
 ABFGO T -1000 0
-58 0 50d10+6250 10d10+1000 5d10+25 pound
+58 0 50d10+6250 10d10+1000 5d10+25 'pound'
 -28 -28 -28 -2
 EFNQ 0 0 0
 stand stand none 5600
@@ -199,7 +199,7 @@ death.
 ~
 undead~
 ABFGO T -1000 0
-62 0 50d10+7250 10d10+1000 6d9+32 pound
+62 0 50d10+7250 10d10+1000 6d9+32 'pound'
 -32 -32 -32 -3
 EFNQ 0 0 0
 stand stand none 7000
@@ -215,7 +215,7 @@ fell domain- DEATH.
 ~
 undead~
 AFGO 0 -1000 0
-45 0 25d10+3000 10d10+1000 8d4+16 slash
+45 0 25d10+3000 10d10+1000 8d4+16 'slash'
 -15 -15 -15 10
 EFNQ 0 0 0
 stand stand none 5000
@@ -231,7 +231,7 @@ rat крыса giant~
 ~
 unique~
 ACFGHO DFQ -1000 0
-40 0 10d10+1850 10d10+100 4d8+13 charge
+40 0 10d10+1850 10d10+100 4d8+13 'charge'
 -13 -13 -13 4
 EFNQ 0 0 0
 stand stand none 5000
@@ -247,7 +247,7 @@ spider паук giant~
 ~
 undead~
 ACFGHO Q -1000 0
-45 0 25d10+3000 10d10+1000 8d4+16 charge
+45 0 25d10+3000 10d10+1000 8d4+16 'charge'
 -15 -15 -15 4
 EFNQ 0 0 0
 stand stand none 5000
@@ -262,7 +262,7 @@ corporeal undead avoid it...
 ~
 undead~
 ABFGHO T 0 0
-52 0 50d10+4750 10d10+1000 6d7+20 pierce
+52 0 50d10+4750 10d10+1000 6d7+20 'pierce'
 -20 -20 -20 2
 EFNQ 0 0 0
 stand stand none 5000
@@ -279,7 +279,7 @@ succubus woman суккуб~
 ~
 undead~
 ABGO Tu -1000 0
-50 0 50d10+4250 10d10+1000 5d8+19 slash
+50 0 50d10+4250 10d10+1000 5d8+19 'slash'
 -20 -20 -20 2
 EFNQ 0 0 0
 stand stand female 5000
@@ -296,7 +296,7 @@ to escape his terrible mistake.
 ~
 undead~
 ABGHO 0 -400 0
-50 0 50d10+4250 10d10+1000 5d8+19 pound
+50 0 50d10+4250 10d10+1000 5d8+19 'pound'
 -20 -20 -20 2
 EFNQ 0 0 0
 stand stand none 5000
@@ -312,7 +312,7 @@ best thing you could do for them...
 ~
 undead~
 AGO 0 0 0
-40 0 10d10+1850 10d10+1000 4d8+13 slash
+40 0 10d10+1850 10d10+1000 4d8+13 'slash'
 -13 -13 -13 3
 EFNQ 0 0 0
 stand stand none 3000
@@ -328,7 +328,7 @@ diabolically evil mage, and will not hesitate to destroy you.
 ~
 human~
 ABFGHO CDEFu -1000 0
-60 0 50d10+6750 10d10+1000 8d6+28 pierce
+60 0 50d10+6750 10d10+1000 8d6+28 'pierce'
 -30 -30 -30 0
 EFNQ 0 0 0
 stand stand none 5300
@@ -345,7 +345,7 @@ mound холм shambling~
 ~
 unique~
 AFGO JN 0 0
-45 -1 50d10+3000 10d10+1000 8d4+16 slash
+45 -1 50d10+3000 10d10+1000 8d4+16 'slash'
 -15 -14 -15 4
 EFNQ 0 0 0
 stand stand none 5200
@@ -365,7 +365,7 @@ evil- it is simply hungry.
 ~
 undead~
 AFGO N 0 0
-50 0 50d10+4250 10d10+1000 5d8+19 pierce
+50 0 50d10+4250 10d10+1000 5d8+19 'pierce'
 -20 -20 -20 2
 EFNQ 0 0 0
 stand stand male 5000
@@ -383,7 +383,7 @@ then it will devour you!
 ~
 undead~
 AFGO N 0 0
-52 0 50d10+4750 10d10+1000 6d7+20 pierce
+52 0 50d10+4750 10d10+1000 6d7+20 'pierce'
 -22 -22 -22 2
 EFNQ 0 0 0
 stand stand none 5100
@@ -400,7 +400,7 @@ skin...
 ~
 undead~
 ABFGO 0 0 0
-40 0 50d10+1850 10d10+1000 4d8+13 slash
+40 0 50d10+1850 10d10+1000 4d8+13 'slash'
 -13 -13 -13 4
 EFNQ 0 0 0
 stand stand none 5000
@@ -416,7 +416,7 @@ ooze gray лужа~
 ~
 undead~
 AFGO N -1000 0
-58 0 50d10+6250 10d10+1000 5d10+25 pierce
+58 0 50d10+6250 10d10+1000 5d10+25 'pierce'
 -28 -28 -28 0
 EFNQ 0 0 0
 stand stand none 5000
@@ -432,7 +432,7 @@ animated tree дерево~
 ~
 undead~
 AFGO 0 0 0
-45 0 50d10+3000 10d10+1000 8d4+16 pound
+45 0 50d10+3000 10d10+1000 8d4+16 'pound'
 -15 -15 -15 3
 EFNQ 0 0 0
 stand stand none 5000
@@ -451,7 +451,7 @@ while you rest, and perhaps heal your wounds if you pay her enough...
 ~
 undead~
 ABGO BN 400 0
-65 0 50d10+8250 10d10+1000 11d5+35 pierce
+65 0 50d10+8250 10d10+1000 11d5+35 'pierce'
 -35 -35 -35 -5
 EFNQ 0 0 0
 stand stand none 5000
@@ -468,7 +468,7 @@ rotting face...
 ~
 undead~
 ABFGO 0 -1000 0
-60 0 50d10+6250 10d10+1000 8d6+28 pierce
+60 0 50d10+6250 10d10+1000 8d6+28 'pierce'
 -30 -30 -30 0
 EFNQ 0 0 0
 stand stand none 5000
@@ -483,7 +483,7 @@ its business here before bearing it to its next destination.
 ~
 undead~
 ABGO T -1000 0
-45 0 50d10+3000 10d10+1000 8d4+16 pound
+45 0 50d10+3000 10d10+1000 8d4+16 'pound'
 -15 -15 -15 4
 EFNQ 0 0 0
 stand stand none 5000
@@ -498,7 +498,7 @@ and glowing gems for eyes.
 ~
 undead~
 ABFGO 0 -1000 0
-58 0 50d10+6250 10d10+1000 5d10+25 slash
+58 0 50d10+6250 10d10+1000 5d10+25 'slash'
 -28 -28 -28 0
 EFNQ 0 0 0
 stand stand none 5000
@@ -516,7 +516,7 @@ to his domination of all things Undead.
 ~
 undead~
 ACGHO EQV -1000 0
-50 0 50d10+4250 10d10+1000 5d8+19 pound
+50 0 50d10+4250 10d10+1000 5d8+19 'pound'
 -40 -40 -40 2
 EFNQ 0 0 0
 stand stand none 5000
@@ -534,7 +534,7 @@ of the powers of the Prime Material Plane by avoiding combat.
 ~
 undead~
 ABGHO BENu -1000 0
-65 0 50d10+8250 10d10+1000 11d5+35 pierce
+65 0 50d10+8250 10d10+1000 11d5+35 'pierce'
 -35 -35 -35 -4
 EFNQ 0 0 0
 stand stand none 5000
@@ -548,7 +548,7 @@ This watery snake resides in the well, which it will fight to defend.
 ~
 snake~
 ABFGO N 0 0
-51 0 50d10+4500 10d10+1000 5d8+20 bite
+51 0 50d10+4500 10d10+1000 5d8+20 'bite'
 -20 -20 -20 2
 EFNQ 0 0 0
 stand stand none 0
@@ -564,7 +564,7 @@ spider giant паук~
 ~
 undead~
 ABCFGHO Q -1000 0
-48 0 50d10+3750 10d10+1000 6d6+18 charge
+48 0 50d10+3750 10d10+1000 6d6+18 'charge'
 -18 -18 -18 3
 EFNQ 0 0 0
 stand stand none 5000
@@ -580,7 +580,7 @@ to your disturbance they have risen again!
 ~
 undead~
 ABFGO 0 -1000 0
-60 0 50d10+6750 10d10+1000 8d6+28 pierce
+60 0 50d10+6750 10d10+1000 8d6+28 'pierce'
 -30 -30 -30 0
 EFNQ B 0 X
 stand stand none 5000

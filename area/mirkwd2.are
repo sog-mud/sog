@@ -20,7 +20,7 @@ if they don't want to be seen.
 ~
 elf~
 ABCFG FQ 400 0
-5 0 2d6+60 1d1+99 1d6+1 punch
+5 0 2d6+60 1d1+99 1d6+1 'punch'
 5 5 5 10
 DF ABIN AN GH
 stand sit male 103
@@ -37,7 +37,7 @@ back down.
 ~
 elf~
 ABCFG 0 400 0
-7 2 2d6+84 1d1+99 1d8+1 slice
+7 2 2d6+84 1d1+99 1d8+1 'slice'
 5 5 7 10
 CEF AB 0 D
 rest stand male 150
@@ -54,7 +54,7 @@ sheer weight of numbers of the immense Orcish hordes.
 ~
 orc~
 ABCFGH 0 -400 0
-5 0 2d6+60 1d1+99 1d6+1 slap
+5 0 2d6+60 1d1+99 1d6+1 'slap'
 10 5 10 10
 CDF AB 0 CD
 stand stand male 211
@@ -71,7 +71,7 @@ of the immense Orcish hordes.
 ~
 orc~
 ACFG 0 -400 0
-5 1 2d6+60 1d1+99 1d6+1 grep
+5 1 2d6+60 1d1+99 1d6+1 'grep'
 5 5 7 5
 EIN AB 0 C
 stand stand male 0
@@ -86,7 +86,7 @@ will attempt to forcibly eject you.
 ~
 elf~
 AFGQT 0 400 8807
-8 0 2d7+98 1d1+99 1d7+2 smash
+8 0 2d7+98 1d1+99 1d7+2 'smash'
 3 3 3 5
 CKNRT ABHLN 0 0
 stand stand male 50
@@ -103,7 +103,7 @@ back down.
 ~
 elf~
 ABCFGQ 0 400 0
-12 1 2d10+150 1d1+99 1d10+3 claw
+12 1 2d10+150 1d1+99 1d10+3 'claw'
 1 1 0 7
 CDEFRTU HLN C 0
 stand stand male 100
@@ -118,7 +118,7 @@ truly inebriated. However that does not mean he won't react to your intrusion.
 ~
 elf~
 ABCFG 0 400 0
-10 0 2d7+120 1d1+99 2d4+2 punch
+10 0 2d7+120 1d1+99 2d4+2 'punch'
 2 2 2 8
 KN AB 0 0
 stand stand male 0
@@ -133,7 +133,7 @@ wiser (and more civilized) and he will not attack without provocation.
 ~
 elf~
 ABGR H 500 0
-15 1 3d9+180 1d1+149 2d5+1 claw
+15 1 3d9+180 1d1+149 2d5+1 'claw'
 -1 -1 -1 2
 CDEK 0 D 0
 sit sit male 0
@@ -148,7 +148,7 @@ he likes you any more than they do...
 ~
 elf~
 ACGQ 0 400 0
-6 0 2d7+70 1d1+99 1d7+1 punch
+6 0 2d7+70 1d1+99 1d7+1 'punch'
 4 4 4 5
 FR 0 0 0
 stand stand male 0
@@ -163,7 +163,7 @@ ahe likes you any more than they do...
 ~
 elf~
 ACGQ 0 400 0
-6 0 2d7+65 1d1+99 1d7+1 punch
+6 0 2d7+65 1d1+99 1d7+1 'punch'
 5 5 5 5
 FR 0 0 0
 stand stand female 0
@@ -177,7 +177,7 @@ This surly fellow is almost always passed out from copious alcohol consumption.
 ~
 elf~
 ABCG 0 0 0
-9 -1 2d6+112 1d1+99 1d8+2 slap
+9 -1 2d6+112 1d1+99 1d8+2 'slap'
 2 2 2 4
 FJ 0 0 0
 sleep sleep male 20
@@ -193,7 +193,7 @@ dragon Smaug.
 ~
 elf~
 ACGQ O 500 0
-14 0 2d10+190 1d1+99 1d12+3 punch
+14 0 2d10+190 1d1+99 1d12+3 'punch'
 -1 -1 -1 0
 IKNR 0 AIN 0
 stand stand male 40

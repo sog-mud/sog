@@ -17,7 +17,7 @@ An old man peering through ancient tomes rests here.
 ~
 human~
 ABJKRVb DF 0 0
-40 10 1d1+30000 1d1+499 5d8+5 pierce
+40 10 1d1+30000 1d1+499 5d8+5 'pierce'
 -15 -15 -15 -15
 FHN ABCD 0 0
 stand stand male 15000
@@ -31,7 +31,7 @@ An older man wrapped in purple, long-flowing robes meditates here.
 ~
 human~
 ABJKQVb DFH 250 0
-40 10 1d1+30000 1d1+499 6d7+8 bite
+40 10 1d1+30000 1d1+499 6d7+8 'bite'
 -15 -15 -15 -15
 EFGIK ABCD 0 0
 stand stand male 15000
@@ -45,7 +45,7 @@ A smaller man dressed in nothing but a tunic stands here waiting to train you.
 ~
 human~
 ABJKTVbe DF 0 0
-40 20 1d1+30000 1d1+99 2d4+30 digestion
+40 20 1d1+30000 1d1+99 2d4+30 'digestion'
 -15 -15 -15 -15
 ACEFHIK ABCD 0 0
 stand stand male 15000
@@ -61,7 +61,7 @@ will now begin, is all he says.
 ~
 elf~
 ABJKTVb DF -100 0
-40 15 1d1+30000 1d1+99 1d4+10 digestion
+40 15 1d1+30000 1d1+99 1d4+10 'digestion'
 -15 -15 -15 -15
 BEFHJKN ABCD 0 0
 stand stand male 35000
@@ -77,7 +77,7 @@ a small moon-shaped birthmark on her left cheek.
 ~
 human~
 AB 0 800 0
-20 0 3d9+333 10d9+100 2d8+5 none
+20 0 3d9+333 10d9+100 2d8+5 'none'
 -4 -4 -4 7
 EFNU 0 0 0
 sit sit female 505
@@ -91,7 +91,7 @@ He looks distracted as he pours five drinks at once without error.
 ~
 human~
 ABRVXYe D 800 0
-23 0 5d10+450 11d9+100 3d6+6 none
+23 0 5d10+450 11d9+100 3d6+6 'none'
 -6 -6 -6 6
 EFNU 0 0 0
 stand stand male 505
@@ -105,7 +105,7 @@ You see the lead singer of the Lokettes lip synching to an old Zeppelin tune.
 ~
 human~
 ABG D 0 0
-18 0 3d9+283 9d9+100 2d7+4 none
+18 0 3d9+283 9d9+100 2d7+4 'none'
 -3 -3 -3 7
 EFNU 0 0 0
 stand stand male 250
@@ -119,7 +119,7 @@ A small skinny man rests here hoping to find a warm heart.
 ~
 human~
 ACGH 0 -20 0
-2 0 2d7+21 1d9+100 1d5+0 none
+2 0 2d7+21 1d9+100 1d5+0 'none'
 8 8 8 10
 EFNU 0 0 0
 rest rest male 1
@@ -133,7 +133,7 @@ A small skinny man rests here staring at your clothes.
 ~
 human~
 ACGH 0 -20 0
-3 0 2d6+35 1d9+100 1d6+0 none
+3 0 2d6+35 1d9+100 1d6+0 'none'
 7 7 7 10
 EFNU 0 0 0
 rest rest male 2
@@ -147,7 +147,7 @@ This poor soul seems down on his luck, perhaps you might spare a dime?
 ~
 human~
 ACGHS 0 -20 0
-1 0 2d6+10 0d9+100 1d4+0 none
+1 0 2d6+10 0d9+100 1d4+0 'none'
 9 9 9 10
 EFNU 0 0 0
 stand stand male 1
@@ -161,7 +161,7 @@ You see a large man in a white apron covered in flour from head to toe.
 ~
 human~
 ABVYe D 800 0
-23 0 5d10+450 11d9+100 3d6+6 none
+23 0 5d10+450 11d9+100 3d6+6 'none'
 -6 -6 -6 6
 EFNU 0 0 0
 stand stand male 505
@@ -175,7 +175,7 @@ You see a half-elf sitting on a stool behind his counter.
 ~
 human~
 ABVYe D 800 0
-23 0 5d10+650 11d9+100 3d6+6 none
+23 0 5d10+650 11d9+100 3d6+6 'none'
 -6 -6 -6 6
 EFNU 0 0 0
 stand stand male 505
@@ -192,7 +192,7 @@ of priceless parrots.
 ~
 human~
 AB D 800 0
-23 0 5d10+650 11d9+100 3d6+6 none
+23 0 5d10+650 11d9+100 3d6+6 'none'
 -6 -6 -6 6
 EFNU ABCD 0 0
 stand stand male 505
@@ -207,7 +207,7 @@ wardrobe.
 ~
 human~
 ABVYe D 800 0
-23 0 5d10+650 11d9+100 3d6+6 none
+23 0 5d10+650 11d9+100 3d6+6 'none'
 -6 -6 -6 6
 EFNU 0 0 0
 stand stand male 505
@@ -221,7 +221,7 @@ A tall slender elf stands before you smiling broadly.
 ~
 human~
 ABVYe D 800 0
-23 0 5d10+650 11d9+100 3d6+6 none
+23 0 5d10+650 11d9+100 3d6+6 'none'
 -6 -6 -6 6
 EFNU 0 0 0
 stand stand female 505
@@ -236,7 +236,7 @@ carelessly into the air.
 ~
 human~
 ABTVXYe D 800 0
-23 0 5d10+650 11d9+100 3d6+6 none
+23 0 5d10+650 11d9+100 3d6+6 'none'
 -6 -6 -6 6
 EFNU 0 0 0
 stand stand male 505
@@ -251,7 +251,7 @@ his cold stare and place your order.
 ~
 human~
 ABTVXYe D 800 0
-23 0 5d10+650 11d9+100 3d6+6 none
+23 0 5d10+650 11d9+100 3d6+6 'none'
 -6 -6 -6 6
 EFNU 0 0 0
 stand stand male 505
@@ -265,7 +265,7 @@ You see a small dwarf with a large hump on his left shoulder.
 ~
 human~
 ABTVXYei D 800 0
-23 0 5d10+650 11d9+100 3d6+6 none
+23 0 5d10+650 11d9+100 3d6+6 'none'
 -6 -6 -6 6
 EFNU 0 0 0
 stand stand male 505
@@ -282,7 +282,7 @@ the smell that permeates the air.
 ~
 human~
 ABe D 800 0
-23 0 5d10+650 11d9+100 3d6+6 none
+23 0 5d10+650 11d9+100 3d6+6 'none'
 -6 -6 -6 6
 EFNU 0 0 0
 stand stand female 505
@@ -297,7 +297,7 @@ book and looking at his watch.
 ~
 human~
 ABGT 0 0 0
-15 0 3d9+208 7d9+100 2d6+3 none
+15 0 3d9+208 7d9+100 2d6+3 'none'
 -2 -2 -2 7
 EFNU 0 0 0
 stand stand male 125
@@ -311,7 +311,7 @@ A large sweaty looking man doesn't even return your glance.
 ~
 human~
 ABGT 0 10 0
-10 0 2d7+121 5d9+100 2d4+2 none
+10 0 2d7+121 5d9+100 2d4+2 'none'
 1 1 1 8
 EFNU 0 0 0
 stand stand male 45
@@ -324,7 +324,7 @@ The statue of Nati stands here.
 ~
 human~
 ABQT 0 1000 0
-35 0 10d10+1300 35d9+100 6d4+11 none
+35 0 10d10+1300 35d9+100 6d4+11 'none'
 -11 -11 -11 3
 EIKU 0 0 0
 stand stand female 1150
@@ -340,7 +340,7 @@ yet bears a sword carved into the glittering stone of his statue.
 ~
 human~
 ABQT 0 1000 0
-31 0 6d12+928 31d9+100 2d12+9 none
+31 0 6d12+928 31d9+100 2d12+9 'none'
 -10 -10 -10 4
 EIKU 0 0 0
 stand stand male 1150
@@ -354,7 +354,7 @@ A statue of a stocky, angry looking dwarf with a cigarette in his mouth.
 ~
 human~
 ABQT 0 1000 0
-31 0 6d12+928 31d9+100 2d12+9 none
+31 0 6d12+928 31d9+100 2d12+9 'none'
 -10 -10 -10 4
 EIKU 0 0 0
 stand stand male 1150
@@ -369,7 +369,7 @@ longer, it seems to chuckle.
 ~
 human~
 ABQT 0 1000 0
-31 0 6d12+928 31d9+100 2d12+9 none
+31 0 6d12+928 31d9+100 2d12+9 'none'
 -10 -10 -10 4
 EIKU 0 0 0
 stand stand male 1190
@@ -384,7 +384,7 @@ and her eyes twinkle with gentle humour.  You take a step back in fear.
 ~
 human~
 ABQT 0 1000 0
-31 0 6d12+928 31d9+100 2d12+9 none
+31 0 6d12+928 31d9+100 2d12+9 'none'
 -10 -10 -10 4
 EIKU 0 0 0
 stand stand female 1150
@@ -399,7 +399,7 @@ her long tresses sensibly pulled back from her smooth, smiling face.
 ~
 human~
 ABQT 0 1000 0
-31 0 6d12+928 31d9+100 2d12+9 none
+31 0 6d12+928 31d9+100 2d12+9 'none'
 -10 -10 -10 4
 EIKU 0 0 0
 stand stand female 1150
@@ -413,7 +413,7 @@ A statue of Furey.
 ~
 human~
 ABQRT 0 1000 0
-34 0 10d10+1200 34d9+100 6d4+10 none
+34 0 10d10+1200 34d9+100 6d4+10 'none'
 -11 -11 -11 3
 EIKU 0 0 0
 stand stand male 3250
@@ -428,7 +428,7 @@ to flicker over his face.  A pair of dice are enclosed in one hand.
 ~
 human~
 ABQRTUW 0 1000 0
-35 0 10d10+1300 35d9+100 6d4+11 none
+35 0 10d10+1300 35d9+100 6d4+11 'none'
 -11 -11 -11 3
 EIKU 0 0 0
 stand stand male 3250
@@ -442,7 +442,7 @@ You see nothing special...
 ~
 human~
 ACGHQR DJ 0 0
-11 0 2d7+121 11d9+100 1d7+2 none
+11 0 2d7+121 11d9+100 1d7+2 'none'
 1 1 1 6
 FU 0 0 0
 stand stand male 65
@@ -456,7 +456,7 @@ You see nothing special...
 ~
 human~
 ACGHS DFJ 0 0
-7 0 2d7+71 3d9+100 1d7+1 none
+7 0 2d7+71 3d9+100 1d7+1 'none'
 4 4 4 8
 BEFJNU 0 0 0
 stand stand male 11
@@ -470,7 +470,7 @@ You see nothing special...
 ~
 human~
 ACGHRU DJ 0 0
-9 0 2d7+96 9d9+100 1d7+1 none
+9 0 2d7+96 9d9+100 1d7+1 'none'
 3 3 3 7
 FU 0 0 0
 stand stand male 30
@@ -484,7 +484,7 @@ You see nothing special...
 ~
 human~
 ACGHT DJ 0 0
-12 0 2d10+170 6d9+100 1d10+3 none
+12 0 2d10+170 6d9+100 1d10+3 'none'
 0 0 0 8
 CDEIKLU 0 0 0
 stand stand male 60
@@ -499,7 +499,7 @@ tells you not to trust him very far.
 ~
 human~
 ACFHT 0 -100 0
-10 0 2d7+121 5d9+100 2d4+2 none
+10 0 2d7+121 5d9+100 2d4+2 'none'
 1 1 1 8
 EFNU 0 0 0
 stand stand male 45
@@ -513,7 +513,7 @@ The large half-orc quickly glances you over and returns to his duties.
 ~
 human~
 AGT 0 0 0
-12 0 2d10+150 6d9+100 1d10+3 none
+12 0 2d10+150 6d9+100 1d10+3 'none'
 0 0 0 8
 EFNU 0 0 0
 stand stand male 60
@@ -527,7 +527,7 @@ This small child sees you looking at him and quickly looks away.
 ~
 human~
 ACHS DFJ 100 0
-7 0 2d7+71 3d9+100 1d7+1 none
+7 0 2d7+71 3d9+100 1d7+1 'none'
 4 4 4 8
 BEFJNU 0 0 0
 stand stand male 11
@@ -542,7 +542,7 @@ crates from the boats like so many lilies.
 ~
 human~
 AGT 0 0 0
-12 0 2d10+150 6d9+100 1d10+3 none
+12 0 2d10+150 6d9+100 1d10+3 'none'
 0 0 0 8
 EFNU 0 0 0
 stand stand male 60
@@ -557,7 +557,7 @@ Sultan's fee for living in his grand city.
 ~
 human~
 AGH 0 0 0
-5 0 2d6+60 2d9+100 1d6+1 none
+5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
 EFNU 0 0 0
 stand stand male 3
@@ -571,7 +571,7 @@ You see nothing special.
 ~
 human~
 ACGSTU DF -200 0
-25 0 5d10+500 12d9+100 2d10+6 none
+25 0 5d10+500 12d9+100 2d10+6 'none'
 -6 -6 -6 5
 BEFJNU 0 0 0
 stand stand male 615
@@ -585,7 +585,7 @@ You see nothing special.
 ~
 human~
 AGTU 0 -200 0
-25 0 5d10+600 12d9+100 2d10+7 none
+25 0 5d10+600 12d9+100 2d10+7 'none'
 -7 -7 -7 6
 CDEIKLU 0 0 0
 stand stand male 615
@@ -599,7 +599,7 @@ You see nothing special.
 ~
 human~
 ACGHR D 200 0
-25 0 5d10+500 25d9+100 4d4+6 none
+25 0 5d10+500 25d9+100 4d4+6 'none'
 -6 -6 -6 2
 FU 0 0 0
 stand stand male 615
@@ -613,7 +613,7 @@ You see nothing special.
 ~
 human~
 AGQT D 0 0
-25 0 5d10+550 25d9+100 3d6+7 none
+25 0 5d10+550 25d9+100 3d6+7 'none'
 -7 -7 -7 5
 EIKU 0 0 0
 stand stand male 615
@@ -628,7 +628,7 @@ to stand on corners and accost passers-by with his doomsday preaching.
 ~
 human~
 AHQ 0 0 0
-7 0 2d6+85 7d9+100 1d6+1 none
+7 0 2d6+85 7d9+100 1d6+1 'none'
 4 4 4 8
 EIKU 0 0 0
 stand stand male 11
@@ -642,7 +642,7 @@ You see a small starved cat.
 ~
 human~
 ACHU J -10 0
-2 0 2d7+21 1d9+100 1d5+0 none
+2 0 2d7+21 1d9+100 1d5+0 'none'
 8 8 8 10
 EFNU 0 0 0
 stand stand male 1
@@ -656,7 +656,7 @@ As you look up at this bird, you see the only thing it wants is a corpse.
 ~
 human~
 AGH J -200 0
-2 0 2d7+21 1d9+100 1d5+0 none
+2 0 2d7+21 1d9+100 1d5+0 'none'
 8 8 8 10
 EFNU 0 0 0
 stand stand male 0
@@ -670,7 +670,7 @@ He seems intent on winning.
 ~
 human~
 AH 0 200 0
-4 0 2d7+46 2d9+100 1d5+1 none
+4 0 2d7+46 2d9+100 1d5+1 'none'
 6 6 6 9
 EFNU 0 0 0
 stand stand male 3
@@ -684,7 +684,7 @@ The huge hulking mass rises as someone asks him a question.
 ~
 human~
 ABETU 0 300 0
-20 0 3d9+333 10d9+100 2d8+5 none
+20 0 3d9+333 10d9+100 2d8+5 'none'
 -4 -4 -4 7
 EFNU 0 0 0
 sit sit male 345
@@ -698,7 +698,7 @@ What you see before you is really a baby air elemental.
 ~
 human~
 ACFU 0 -1000 0
-1 0 2d6+10 0d9+100 1d4+0 none
+1 0 2d6+10 0d9+100 1d4+0 'none'
 9 9 9 10
 EFNU 0 0 0
 stand stand male 1
@@ -712,7 +712,7 @@ A half snake half woman creature rears back to attack you.
 ~
 human~
 ACFRT 0 -500 0
-8 0 2d6+85 8d9+100 1d6+1 none
+8 0 2d6+85 8d9+100 1d6+1 'none'
 4 4 4 7
 FU 0 0 0
 stand stand female 18
@@ -726,7 +726,7 @@ This man looks like he could use a lot of rest.
 ~
 human~
 AEFR U -750 0
-9 0 2d6+110 4d9+100 1d8+2 none
+9 0 2d6+110 4d9+100 1d8+2 'none'
 2 2 2 8
 EFNU 0 0 0
 stand stand male 30
@@ -740,7 +740,7 @@ You see a large wealthy man in red robes smiling at you.
 ~
 human~
 ABTW D 200 0
-35 0 10d10+1300 17d9+100 4d7+11 none
+35 0 10d10+1300 17d9+100 4d7+11 'none'
 -11 -11 -11 5
 EFNU 0 0 0
 rest rest male 2200
@@ -755,7 +755,7 @@ light blue viel. Her loyalty to the sultan is unwavering.
 ~
 human~
 AB 0 0 0
-3 0 2d6+35 1d9+100 1d6+0 none
+3 0 2d6+35 1d9+100 1d6+0 'none'
 7 7 7 10
 EFNU 0 0 0
 stand stand female 2
@@ -770,7 +770,7 @@ out of grace with the Sultan.
 ~
 human~
 ABCHT DJ -100 0
-18 0 3d9+283 9d9+100 2d7+4 none
+18 0 3d9+283 9d9+100 2d7+4 'none'
 -3 -3 -3 7
 EFNU 0 0 0
 sleep sleep male 250
@@ -785,7 +785,7 @@ castrated for the ladies' safety.
 ~
 human~
 ABFT D 0 0
-15 0 3d9+208 7d9+100 2d6+3 none
+15 0 3d9+208 7d9+100 2d6+3 'none'
 -2 -2 -2 7
 EFNU 0 0 0
 stand stand none 125
@@ -800,7 +800,7 @@ bad she's about to kill you.
 ~
 human~
 AET D 100 0
-20 0 3d9+333 10d9+100 2d8+5 none
+20 0 3d9+333 10d9+100 2d8+5 'none'
 -4 -4 -4 7
 EFNU 0 0 0
 rest rest female 345
@@ -814,7 +814,7 @@ You see the all-knowing god.
 ~
 human~
 ABQRTUWX DHU 1000 0
-32 0 10d10+1000 32d9+100 4d6+9 none
+32 0 10d10+1000 32d9+100 4d6+9 'none'
 -10 -10 -10 4
 EIKU 0 0 0
 rest rest none 1400
@@ -828,7 +828,7 @@ This man looks like a mage/warrior, i wouldn't mess with him.
 ~
 human~
 ABRT D 0 0
-21 0 4d10+360 10d9+100 4d4+5 none
+21 0 4d10+360 10d9+100 4d4+5 'none'
 -5 -5 -5 7
 EFNU 0 0 0
 stand stand male 395
@@ -842,7 +842,7 @@ This man looks like a cleric/warrior, I wouldn't mess with him.
 ~
 human~
 ABQT D 0 0
-21 0 4d10+360 10d9+100 4d4+5 none
+21 0 4d10+360 10d9+100 4d4+5 'none'
 -5 -5 -5 7
 EFNU 0 0 0
 stand stand male 395
@@ -856,7 +856,7 @@ The man looks like Conan's cousin, I wouldn't mess with him.
 ~
 human~
 ABTU D 0 0
-21 0 4d10+360 10d9+100 4d4+5 none
+21 0 4d10+360 10d9+100 4d4+5 'none'
 -5 -5 -5 7
 EFNU 0 0 0
 stand stand male 395
@@ -871,7 +871,7 @@ and steps to bar your way. You notice his hands resting on two sheafs.
 ~
 human~
 ABST DJ 0 0
-21 0 4d10+360 10d9+100 4d4+5 none
+21 0 4d10+360 10d9+100 4d4+5 'none'
 -5 -5 -5 7
 EFNU 0 0 0
 stand stand male 395
@@ -885,7 +885,7 @@ You see a small boy running around the halls of the palace.
 ~
 human~
 AG 0 0 0
-2 0 2d7+21 1d9+100 1d5+0 none
+2 0 2d7+21 1d9+100 1d5+0 'none'
 8 8 8 10
 EFNU 0 0 0
 stand stand male 1
@@ -899,7 +899,7 @@ You see a trained fighter, ready to help those in need.
 ~
 human~
 AGHT 0 1000 0
-10 0 2d8+134 5d9+100 2d4+2 none
+10 0 2d8+134 5d9+100 2d4+2 'none'
 1 1 1 8
 CDEIKLU 0 0 0
 stand stand male 45
@@ -913,7 +913,7 @@ You see a trained fighter, ready to defend the city.
 ~
 human~
 ABGT 0 1000 0
-10 0 2d8+134 5d9+100 2d4+2 none
+10 0 2d8+134 5d9+100 2d4+2 'none'
 1 1 1 8
 CDEIKLU 0 0 0
 stand stand male 45
@@ -927,7 +927,7 @@ You see a large man skilled in hunting and killing.
 ~
 human~
 ABGTU D 1000 0
-20 0 3d9+333 10d9+100 2d8+5 none
+20 0 3d9+333 10d9+100 2d8+5 'none'
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand male 345
@@ -941,7 +941,7 @@ You see an assassin down on his luck looking to be freelanced out.
 ~
 human~
 ABTU 0 0 0
-5 0 2d7+71 2d9+100 1d6+1 none
+5 0 2d7+71 2d9+100 1d6+1 'none'
 5 5 5 9
 CDEIKLU 0 0 0
 stand stand male 3
@@ -956,7 +956,7 @@ beams a smile at you through his beard as you walk in.
 ~
 human~
 ABVYe 0 0 0
-30 0 6d12+853 15d9+100 4d6+8 none
+30 0 6d12+853 15d9+100 4d6+8 'none'
 -9 -9 -9 6
 EFNU 0 0 0
 stand stand male 1150
@@ -971,7 +971,7 @@ break from his swealtering work to bid you welcome.
 ~
 human~
 ABVYe 0 0 0
-30 0 6d12+853 15d9+100 4d6+8 none
+30 0 6d12+853 15d9+100 4d6+8 'none'
 -9 -9 -9 6
 EFNU 0 0 0
 stand stand male 1150
@@ -985,7 +985,7 @@ You see one of the fine arabian beasts known about the land.
 ~
 human~
 ACGHU 0 0 0
-4 0 2d7+46 2d9+100 1d5+1 none
+4 0 2d7+46 2d9+100 1d5+1 'none'
 6 6 6 9
 EFNU 0 0 0
 stand stand male 3
@@ -1001,7 +1001,7 @@ upside down.
 ~
 human~
 ACGH 0 0 0
-4 0 2d7+46 2d9+100 1d5+1 none
+4 0 2d7+46 2d9+100 1d5+1 'none'
 6 6 6 9
 EFNU 0 0 0
 stand stand male 3
@@ -1015,7 +1015,7 @@ You see nothing special.
 ~
 human~
 A 0 -1000 0
-30 0 6d12+853 15d9+100 4d6+8 none
+30 0 6d12+853 15d9+100 4d6+8 'none'
 -9 -9 -9 6
 EFNU 0 0 0
 stand stand male 1150
@@ -1029,7 +1029,7 @@ A grey-brown reptillian creature with amber eyes stands before you.
 ~
 human~
 AFGTW J 0 0
-8 0 2d7+96 4d9+100 1d7+2 none
+8 0 2d7+96 4d9+100 1d7+2 'none'
 3 3 3 9
 EFNU 0 0 0
 stand stand none 18
@@ -1043,7 +1043,7 @@ A huge lizard like reptile with horns like a minotaur.
 ~
 giant~
 AFGT J 0 0
-8 0 2d7+96 4d9+100 1d7+2 none
+8 0 2d7+96 4d9+100 1d7+2 'none'
 3 3 3 9
 EFNR 0 0 0
 stand stand none 18
@@ -1057,7 +1057,7 @@ A large two-headed hound barks at you viciously.
 ~
 dog~
 AFGU J 0 0
-8 0 2d7+96 4d9+100 1d7+2 none
+8 0 2d7+96 4d9+100 1d7+2 'none'
 3 3 3 9
 EFNR 0 0 0
 stand stand none 18
@@ -1071,7 +1071,7 @@ A large fierce dapple skinned lion glares at you.
 ~
 human~
 AFGU J 0 0
-8 0 2d7+96 4d9+100 1d7+2 none
+8 0 2d7+96 4d9+100 1d7+2 'none'
 3 3 3 9
 EFNU 0 0 0
 stand stand none 18
@@ -1085,7 +1085,7 @@ You see a large snake like reptile with more than a dozen legs.
 ~
 human~
 ABFT DJ -300 0
-12 0 2d10+150 6d9+100 1d10+3 none
+12 0 2d10+150 6d9+100 1d10+3 'none'
 0 0 0 8
 EFNU 0 0 0
 stand stand male 60
@@ -1101,7 +1101,7 @@ dragon.
 ~
 human~
 ABFT DJ -500 0
-9 0 2d6+110 4d9+100 1d8+2 none
+9 0 2d6+110 4d9+100 1d8+2 'none'
 2 2 2 8
 EFNU 0 0 0
 stand stand male 30
@@ -1116,7 +1116,7 @@ color of the rainbow.
 ~
 human~
 ABEQU BJ 300 0
-15 0 3d9+208 7d9+100 2d6+3 none
+15 0 3d9+208 7d9+100 2d6+3 'none'
 -2 -2 -2 7
 EFNU 0 0 0
 stand stand male 125
@@ -1131,7 +1131,7 @@ You wish you wounds would stop BLEEDING so much!
 ~
 giant~
 AFGU J 0 0
-5 0 2d6+60 2d9+100 1d6+1 none
+5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
 EFNR 0 0 0
 stand stand male 3
@@ -1146,7 +1146,7 @@ thoroughbred you've seen in the stables.
 ~
 human~
 ABHU 0 1000 0
-10 0 2d7+121 5d9+100 2d4+2 none
+10 0 2d7+121 5d9+100 2d4+2 'none'
 1 1 1 8
 EFNU 0 0 0
 stand stand male 45
@@ -1161,7 +1161,7 @@ hair to match her outfit.
 ~
 human~
 ABRVYe 0 0 0
-30 0 6d12+853 15d9+100 4d6+8 none
+30 0 6d12+853 15d9+100 4d6+8 'none'
 -9 -9 -9 6
 EFNU 0 0 0
 stand stand female 1190
@@ -1175,7 +1175,7 @@ You see a powerful but slighty insane mage.
 ~
 human~
 ABRVYe 0 0 0
-30 0 6d12+853 15d9+100 4d6+8 none
+30 0 6d12+853 15d9+100 4d6+8 'none'
 -9 -9 -9 6
 EFNU 0 0 0
 stand stand male 1190
@@ -1189,7 +1189,7 @@ He does NOT look real happy that you have disturbed him.
 ~
 human~
 ABEQ DH 1000 0
-30 0 6d12+853 15d9+100 4d6+8 none
+30 0 6d12+853 15d9+100 4d6+8 'none'
 -9 -9 -9 6
 EFNU 0 0 0
 stand stand male 1190
@@ -1204,7 +1204,7 @@ through some training.
 ~
 human~
 AGHTU DH 1000 0
-31 0 10d10+1000 15d9+100 4d6+9 none
+31 0 10d10+1000 15d9+100 4d6+9 'none'
 -10 -10 -10 5
 CDEIKLU 0 0 0
 stand stand male 1250
@@ -1219,7 +1219,7 @@ or another.
 ~
 human~
 ABHVXYe D -500 0
-20 0 3d9+333 10d9+100 2d8+5 none
+20 0 3d9+333 10d9+100 2d8+5 'none'
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand male 345
@@ -1234,7 +1234,7 @@ some sucker, um, customer to walk in his store.
 ~
 human~
 ABHVXYe D -500 0
-20 0 3d9+333 10d9+100 2d8+5 none
+20 0 3d9+333 10d9+100 2d8+5 'none'
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand male 345
@@ -1249,7 +1249,7 @@ his garden.
 ~
 human~
 ABU 0 0 0
-20 0 3d9+333 10d9+100 2d8+5 none
+20 0 3d9+333 10d9+100 2d8+5 'none'
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand male 345
@@ -1265,7 +1265,7 @@ his love.
 ~
 human~
 ABGTU BDU 1000 0
-12 0 2d10+150 6d9+100 1d10+3 none
+12 0 2d10+150 6d9+100 1d10+3 'none'
 0 0 0 8
 EFNU 0 0 0
 stand stand female 60
@@ -1280,7 +1280,7 @@ blades on it.
 ~
 human~
 ABETUW DJ 0 0
-12 0 2d10+150 6d9+100 1d10+3 none
+12 0 2d10+150 6d9+100 1d10+3 'none'
 0 0 0 8
 EFNU 0 0 0
 stand stand female 60
@@ -1294,7 +1294,7 @@ Boy is she ugly.
 ~
 human~
 ABR 0 0 0
-10 0 2d7+121 5d9+100 2d4+2 none
+10 0 2d7+121 5d9+100 2d4+2 'none'
 1 1 1 8
 EFNU 0 0 0
 stand stand male 45
@@ -1308,7 +1308,7 @@ You see a chubby hobbit dressed in his best suit.
 ~
 human~
 AG 0 1000 0
-20 0 3d9+333 10d9+100 2d8+5 none
+20 0 3d9+333 10d9+100 2d8+5 'none'
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand male 345
@@ -1322,7 +1322,7 @@ You see a very large human who seems to taste everything he makes.
 ~
 human~
 AB 0 400 0
-20 0 3d9+333 10d9+100 2d8+5 none
+20 0 3d9+333 10d9+100 2d8+5 'none'
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand male 345
@@ -1336,7 +1336,7 @@ You see a large ray with sharp fangs and a barbed tail.
 ~
 human~
 ABEQT DJ -500 0
-30 0 6d12+853 15d9+100 4d6+8 none
+30 0 6d12+853 15d9+100 4d6+8 'none'
 -9 -9 -9 6
 EFNU 0 0 0
 stand stand none 1190
@@ -1350,7 +1350,7 @@ A big, strong, helpful, trustworthy guard.
 ~
 human~
 AT 0 1000 0
-10 0 2d8+134 5d9+100 2d4+2 none
+10 0 2d8+134 5d9+100 2d4+2 'none'
 1 1 1 8
 CDEIKLU 0 0 0
 stand stand male 45
@@ -1365,7 +1365,7 @@ Type 'heal' to see a listing of spells.
 ~
 human~
 ABQVaef DFH 1000 0
-120 10 1d1+26999 1d1+999 2d4+30 divine
+120 10 1d1+26999 1d1+999 2d4+30 'divine'
 -45 -45 -45 -45
 FHIK ABC D 0
 stand stand male 5000
@@ -1381,7 +1381,7 @@ like this.
 ~
 human~
 ABKRVe DEFZ 1000 0
-96 100 1d1+29099 1d1+3999 43d48+64 slash
+96 100 1d1+29099 1d1+3999 43d48+64 'slash'
 -100 -100 -100 -60
 FG ABD C 0
 stand stand male 0

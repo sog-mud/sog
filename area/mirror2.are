@@ -21,7 +21,7 @@ on the empty space in front of him.
 ~
 human~
 ABGT DF 0 0
-23 0 5d10+450 5d5+1000 3d6+6 pound
+23 0 5d10+450 5d5+1000 3d6+6 'pound'
 -6 -6 -6 4
 CDEFIJKU 0 0 0
 stand stand male 10
@@ -38,7 +38,7 @@ eyes widen in surprise.....
 ~
 human~
 ABCFG DFJQ 0 0
-45 0 25d10+3000 5d5+1000 8d4+16 slash
+45 0 25d10+3000 5d5+1000 8d4+16 'slash'
 -15 -15 -15 2
 CDEFIJK 0 0 0
 stand stand male 0
@@ -61,7 +61,7 @@ face his failure.
 ~
 human~
 ABGT DFJNU 0 0
-49 0 50d10+4000 5d5+1000 4d10+18 pound
+49 0 50d10+4000 5d5+1000 4d10+18 'pound'
 -19 -19 -19 1
 CDEFIJKN 0 0 0
 stand stand male 0
@@ -77,7 +77,7 @@ money to help the poor and the sick....and lending a hand to the giver as well.
 ~
 human~
 ABG H 1000 0
-35 0 10d10+1300 5d5+1000 4d7+11 pound
+35 0 10d10+1300 5d5+1000 4d7+11 'pound'
 -11 -11 -11 3
 CDEFIJK 0 0 0
 stand stand male 0
@@ -94,7 +94,7 @@ he smiles at you as you walk by, and nods his head in greeting.
 ~
 human~
 AG N 1000 0
-19 0 3d9+308 5d5+1000 2d7+5 punch
+19 0 3d9+308 5d5+1000 2d7+5 'punch'
 -4 -4 -4 5
 CDEFIJ 0 0 0
 stand stand male 0
@@ -112,7 +112,7 @@ in greeting.
 ~
 human~
 AG N 1000 0
-19 0 3d9+308 5d5+1000 2d7+5 punch
+19 0 3d9+308 5d5+1000 2d7+5 'punch'
 -4 -4 -4 5
 CDEFIJ 0 0 0
 stand stand female 0
@@ -128,7 +128,7 @@ it appears to be golden, and tipped with something that looks like a diamond.
 ~
 human~
 ABG DFHN 1000 0
-39 0 15d10+1700 5d5+1000 5d6+13 charge
+39 0 15d10+1700 5d5+1000 5d6+13 'charge'
 -13 -13 -13 3
 CDEFK 0 0 0
 stand stand none 0
@@ -144,7 +144,7 @@ completely still with the hood of his robe pulled far over his head.
 ~
 human~
 ABG DFN 0 0
-19 0 3d9+308 5d5+1000 2d7+5 slap
+19 0 3d9+308 5d5+1000 2d7+5 'slap'
 -4 -4 -4 5
 CDEFIJ 0 0 0
 stand stand male 0
@@ -159,7 +159,7 @@ his eyes shines through the dark shadows inside the robe's hood.
 ~
 human~
 ABG DFJ 0 0
-19 0 3d9+308 5d5+1000 2d7+5 slap
+19 0 3d9+308 5d5+1000 2d7+5 'slap'
 -4 -4 -4 5
 DEF 0 0 0
 stand stand male 0
@@ -174,7 +174,7 @@ his eyes shines through the dark shadows inside the robe's hood.
 ~
 human~
 ABG DFJ 0 0
-19 0 3d9+308 5d5+1000 2d7+5 slap
+19 0 3d9+308 5d5+1000 2d7+5 'slap'
 -4 -4 -4 5
 DF 0 0 0
 stand stand male 0
@@ -192,7 +192,7 @@ covers his tiny ears.
 ~
 bear~
 ABGH BDFNU 1000 0
-50 0 50d10+4250 5d5+5000 5d8+19 claw
+50 0 50d10+4250 5d5+5000 5d8+19 'claw'
 -21 -21 -21 -1
 CFIJK 0 0 0
 stand stand male 0
@@ -209,7 +209,7 @@ widen in surprise....
 ~
 human~
 ABCFGT DFJQ 0 0
-45 0 25d10+3000 5d5+1000 8d4+16 slash
+45 0 25d10+3000 5d5+1000 8d4+16 'slash'
 -15 -15 -15 2
 DEF 0 0 0
 stand stand male 0
@@ -225,7 +225,7 @@ directly at your chest.
 ~
 unique~
 AG DFIP -1000 0
-45 0 25d10+3000 5d5+1000 8d4+16 magic
+45 0 25d10+3000 5d5+1000 8d4+16 'magic'
 -15 -15 -15 2
 CDFIJ 0 0 0
 stand stand none 0
@@ -241,7 +241,7 @@ silently as he blushes and smiles.
 ~
 human~
 ABG HN 1000 0
-25 0 5d10+550 5d5+1000 2d10+7 slap
+25 0 5d10+550 5d5+1000 2d10+7 'slap'
 -7 -7 -7 4
 F 0 0 0
 stand stand female 0
@@ -257,7 +257,7 @@ he relaxes, blushing faintly and smiling at her.
 ~
 human~
 ABG HN 1000 0
-25 0 5d10+550 5d5+1000 2d10+7 pound
+25 0 5d10+550 5d5+1000 2d10+7 'pound'
 -7 -7 -7 4
 FIJ 0 0 0
 stand stand male 0
@@ -273,7 +273,7 @@ intersect with thick, brownish scars.
 ~
 human~
 AG DFN 1000 0
-35 0 10d10+1300 5d5+1000 4d7+11 divine
+35 0 10d10+1300 5d5+1000 4d7+11 'divine'
 -11 -11 -11 3
 FIJK 0 0 0
 stand stand male 0
@@ -291,7 +291,7 @@ looking.
 ~
 human~
 AG DFJN 1000 0
-35 0 10d10+1300 5d5+1000 4d7+11 divine
+35 0 10d10+1300 5d5+1000 4d7+11 'divine'
 -11 -11 -11 3
 FIJK 0 0 0
 stand stand male 0
@@ -308,7 +308,7 @@ the razor-sharp crystal sword at her side.
 ~
 human~
 AG DFJN 1000 0
-35 0 10d10+1300 5d5+1000 4d7+11 divine
+35 0 10d10+1300 5d5+1000 4d7+11 'divine'
 -11 -11 -11 3
 FIJK 0 0 0
 stand stand male 0
@@ -325,7 +325,7 @@ for possible threats.
 ~
 human~
 AG DFJN 1000 0
-35 0 10d10+1300 5d5+1000 4d7+11 divine
+35 0 10d10+1300 5d5+1000 4d7+11 'divine'
 -11 -11 -11 3
 FIJK 0 0 0
 stand stand male 0
@@ -342,7 +342,7 @@ facets of his sword.
 ~
 human~
 AG DFJN 1000 0
-35 0 10d10+1300 5d5+1000 4d7+11 divine
+35 0 10d10+1300 5d5+1000 4d7+11 'divine'
 -11 -11 -11 3
 FIJK 0 0 0
 stand stand male 0
@@ -359,7 +359,7 @@ absorbs and reflects the colors of his robe.
 ~
 human~
 AG DFJN 1000 0
-35 0 10d10+1300 5d5+1000 4d7+11 divine
+35 0 10d10+1300 5d5+1000 4d7+11 'divine'
 -11 -11 -11 3
 FIJK 0 0 0
 stand stand male 0
@@ -373,7 +373,7 @@ An old lady bends over her plants, clearing away the moss and dead leaves.
 ~
 human~
 AG P 1000 0
-25 0 5d10+550 5d5+1000 2d10+7 punch
+25 0 5d10+550 5d5+1000 2d10+7 'punch'
 -7 -7 -7 4
 FIJ 0 0 0
 stand stand female 0
@@ -389,7 +389,7 @@ religious duties in the town.
 ~
 human~
 ABG H 1000 0
-39 0 15d10+1700 5d5+1000 5d6+13 pound
+39 0 15d10+1700 5d5+1000 5d6+13 'pound'
 -13 -13 -13 3
 FIJK 0 0 0
 stand stand male 0
@@ -406,7 +406,7 @@ Finishing School" diploma.
 ~
 human~
 ABGe DFGJN 1000 0
-39 0 15d10+1700 5d5+1000 5d6+13 magic
+39 0 15d10+1700 5d5+1000 5d6+13 'magic'
 -13 -13 -13 3
 F 0 0 0
 stand stand male 0
@@ -421,7 +421,7 @@ rack after rack; he smiles as you enter, then turns back to his game.
 ~
 human~
 ABG 0 1000 0
-25 0 5d10+550 5d5+1000 2d10+7 punch
+25 0 5d10+550 5d5+1000 2d10+7 'punch'
 -7 -7 -7 4
 FIJ 0 0 0
 stand stand male 0
@@ -436,7 +436,7 @@ white lace cap; she gently dusts the edge of the bar, waiting for a customer.
 ~
 human~
 ABGe 0 1000 0
-39 0 15d10+1700 5d5+1000 5d6+13 pound
+39 0 15d10+1700 5d5+1000 5d6+13 'pound'
 -13 -13 -13 3
 FIJ 0 0 0
 stand stand female 0
@@ -451,7 +451,7 @@ trying to keep track of all the checks, the food, and the special orders.
 ~
 human~
 ABGe 0 1000 0
-39 0 15d10+1700 5d5+1000 5d6+13 pound
+39 0 15d10+1700 5d5+1000 5d6+13 'pound'
 -13 -13 -13 3
 FIJ 0 0 0
 stand stand male 0
@@ -469,7 +469,7 @@ train with him.
 ~
 human~
 ABGJK DFHN 1000 0
-45 0 25d10+3000 5d5+1000 8d4+16 pound
+45 0 25d10+3000 5d5+1000 8d4+16 'pound'
 -15 -15 -15 2
 CDEFIJKN 0 0 0
 stand stand male 0
@@ -484,7 +484,7 @@ so well right now, what with the land being completely closed off and all.
 ~
 human~
 ABGJKe DFN 1000 0
-45 0 25d10+3000 5d5+1000 8d4+16 pound
+45 0 25d10+3000 5d5+1000 8d4+16 'pound'
 -15 -15 -15 2
 FIJ 0 0 0
 stand stand male 0
@@ -501,7 +501,7 @@ your books on time.
 ~
 human~
 ABGe DFN 1000 0
-45 0 25d10+3000 5d5+1000 8d4+16 pound
+45 0 25d10+3000 5d5+1000 8d4+16 'pound'
 -15 -15 -15 2
 FIJ 0 0 0
 stand stand male 0
@@ -519,7 +519,7 @@ else has become Father Franklin's responsibility.
 ~
 human~
 ABG H 1000 0
-39 0 15d10+1700 5d5+1000 5d6+13 pound
+39 0 15d10+1700 5d5+1000 5d6+13 'pound'
 -13 -13 -13 3
 FI 0 0 0
 stand stand male 0
@@ -536,7 +536,7 @@ sword.
 ~
 human~
 AG DFJP -1000 0
-35 0 10d10+1300 5d5+1000 4d7+11 slash
+35 0 10d10+1300 5d5+1000 4d7+11 'slash'
 -11 -11 -11 3
 FIK 0 0 0
 stand stand male 0
@@ -552,7 +552,7 @@ figure.
 ~
 human~
 AG DFJP -1000 0
-35 0 10d10+1300 5d5+1000 4d7+11 slash
+35 0 10d10+1300 5d5+1000 4d7+11 'slash'
 -11 -11 -11 3
 FIK 0 0 0
 stand stand male 0
@@ -569,7 +569,7 @@ forming thick, hard scars.
 ~
 human~
 AGKe DFJPQ -1000 0
-45 0 25d10+3000 5d5+1000 8d4+16 pound
+45 0 25d10+3000 5d5+1000 8d4+16 'pound'
 -15 -15 -15 2
 FIK 0 0 0
 stand stand male 0
@@ -585,7 +585,7 @@ smirks as you look at him, and taps his "Wizard's Finishing School" diploma.
 ~
 human~
 ABGe DFJ -1000 0
-45 0 25d10+3000 5d5+1000 8d4+16 magic
+45 0 25d10+3000 5d5+1000 8d4+16 'magic'
 -15 -15 -15 2
 FI 0 0 0
 stand stand male 0
@@ -599,7 +599,7 @@ The gardener grins evilly at you as she decapitates a dead rose bush.
 ~
 human~
 ACG DFJ -1000 0
-25 0 5d10+550 5d5+1000 2d10+7 punch
+25 0 5d10+550 5d5+1000 2d10+7 'punch'
 -7 -7 -7 4
 FI 0 0 0
 stand stand female 0
@@ -614,7 +614,7 @@ running; still, he looks healthy and strong.
 ~
 human~
 ABCGH 0 1000 0
-20 0 3d9+333 5d5+1000 2d8+5 punch
+20 0 3d9+333 5d5+1000 2d8+5 'punch'
 -4 -4 -4 5
 FI 0 0 0
 stand stand male 0
@@ -629,7 +629,7 @@ so that you don't disturb the fish.
 ~
 human~
 ABG 0 1000 0
-25 0 5d10+550 5d5+1000 2d10+7 pound
+25 0 5d10+550 5d5+1000 2d10+7 'pound'
 -7 -7 -7 4
 FI 0 0 0
 stand stand male 0
@@ -646,7 +646,7 @@ even if they are shaky.
 ~
 human~
 ABG 0 1000 0
-30 0 6d12+853 5d5+1000 4d6+8 charge
+30 0 6d12+853 5d5+1000 4d6+8 'charge'
 -9 -9 -9 3
 FI 0 0 0
 stand stand male 0
@@ -661,7 +661,7 @@ thick.
 ~
 unique~
 ABFG BDFINQ -1000 0
-50 0 50d10+4250 5d5+5000 5d8+19 magic
+50 0 50d10+4250 5d5+5000 5d8+19 'magic'
 -20 -20 -20 0
 F 0 0 0
 stand stand none 0
@@ -677,7 +677,7 @@ each other in their search for food.
 ~
 unique~
 ABCFG I -1000 0
-35 0 10d10+1300 5d5+1000 4d7+11 magic
+35 0 10d10+1300 5d5+1000 4d7+11 'magic'
 -11 -11 -11 3
 F 0 0 0
 stand stand none 0
@@ -693,7 +693,7 @@ light up as you enter, however, and he motions you over to play a game.
 ~
 human~
 ABCG JP -1000 0
-25 0 5d10+550 5d5+1000 2d10+7 bite
+25 0 5d10+550 5d5+1000 2d10+7 'bite'
 -7 -7 -7 4
 F 0 0 0
 stand stand male 0
@@ -711,7 +711,7 @@ order.
 ~
 human~
 ABGe DF -1000 0
-40 0 15d10+1850 5d5+1000 4d8+13 pound
+40 0 15d10+1850 5d5+1000 4d8+13 'pound'
 -13 -13 -13 3
 FI 0 0 0
 stand stand female 0
@@ -728,7 +728,7 @@ likely turn it around for a handsome profit).
 ~
 human~
 ABCGe DFJP -1000 0
-35 0 10d10+1300 5d5+1000 4d7+11 pound
+35 0 10d10+1300 5d5+1000 4d7+11 'pound'
 -11 -11 -11 3
 F 0 0 0
 stand stand male 0
@@ -745,7 +745,7 @@ go.
 ~
 human~
 AG P -1000 0
-20 0 3d9+333 5d5+1000 2d8+5 punch
+20 0 3d9+333 5d5+1000 2d8+5 'punch'
 -4 -4 -4 5
 F 0 0 0
 stand stand male 0
@@ -761,7 +761,7 @@ you.
 ~
 human~
 AG 0 -1000 0
-20 0 3d9+333 5d5+1000 2d8+5 punch
+20 0 3d9+333 5d5+1000 2d8+5 'punch'
 -4 -4 -4 5
 F 0 0 0
 stand stand female 0
@@ -778,7 +778,7 @@ Uh-oh.
 ~
 fox~
 ABFG DFJP -1000 0
-35 0 10d10+1300 5d5+1000 4d7+11 charge
+35 0 10d10+1300 5d5+1000 4d7+11 'charge'
 -11 -11 -11 3
 0 0 0 0
 stand stand none 0
@@ -796,7 +796,7 @@ he's dopey, but still.....
 ~
 human~
 ABCG 0 1000 0
-30 0 6d12+853 5d5+1000 4d6+8 bite
+30 0 6d12+853 5d5+1000 4d6+8 'bite'
 -9 -9 -9 3
 F 0 0 0
 stand stand none 0
@@ -812,7 +812,7 @@ And it's coming right at you.
 ~
 bear~
 ABCFG DFIJP -1000 0
-30 0 6d12+853 5d5+1000 4d6+8 claw
+30 0 6d12+853 5d5+1000 4d6+8 'claw'
 -9 -9 -9 3
 CF 0 0 0
 stand stand none 0
@@ -828,7 +828,7 @@ on it, then tosses the plate back on the table.
 ~
 human~
 ABCGe DFJP -1000 0
-40 0 15d10+1850 5d5+1000 4d8+13 pound
+40 0 15d10+1850 5d5+1000 4d8+13 'pound'
 -13 -13 -13 3
 F 0 0 0
 stand stand male 0
@@ -845,7 +845,7 @@ he only extends his hand towards you, silently asking for money.
 ~
 human~
 ABCG DFPQ -1000 0
-20 0 3d9+333 5d5+1000 2d8+5 punch
+20 0 3d9+333 5d5+1000 2d8+5 'punch'
 -4 -4 -4 5
 F 0 0 0
 stand stand male 0
@@ -863,7 +863,7 @@ What could she possibly want?
 ~
 human~
 ABCG DF -1000 0
-25 0 5d10+550 5d5+1000 2d10+7 slap
+25 0 5d10+550 5d5+1000 2d10+7 'slap'
 -7 -7 -7 4
 F 0 0 0
 stand stand male 0
@@ -879,7 +879,7 @@ he still eyes her carefully, seeming to watch her every move.
 ~
 human~
 ABG DF -1000 0
-35 0 10d10+1300 5d5+1000 4d7+11 pound
+35 0 10d10+1300 5d5+1000 4d7+11 'pound'
 -11 -11 -11 3
 F 0 0 0
 stand stand male 0
@@ -893,7 +893,7 @@ You see only a shifty black mass.
 ~
 human~
 ABG BDFJNPQ -1000 0
-35 0 10d10+1300 5d5+1000 4d7+11 pierce
+35 0 10d10+1300 5d5+1000 4d7+11 'pierce'
 -11 -11 -11 3
 FHJN 0 0 0
 stand stand male 0
@@ -908,7 +908,7 @@ feet are hidden somewhere inside its folds.
 ~
 human~
 ABG DFHJN 1000 0
-50 0 50d10+4250 5d5+5000 5d8+19 pound
+50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
 CDEFHK 0 0 0
 stand stand male 0
@@ -923,7 +923,7 @@ and feet are hidden somewhere inside its folds.
 ~
 human~
 ABG DFHJN 1000 0
-50 0 50d10+4250 5d5+5000 5d8+19 pound
+50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
 CDEFHK 0 0 0
 stand stand male 0
@@ -938,7 +938,7 @@ and feet are hidden somewhere inside its folds.
 ~
 human~
 ABG DFHJN 1000 0
-50 0 50d10+4250 5d5+5000 5d8+19 pound
+50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
 CDEFHK 0 0 0
 stand stand male 0
@@ -953,7 +953,7 @@ and feet are hidden somewhere inside its folds.
 ~
 human~
 ABG DFHJN 1000 0
-50 0 50d10+4250 5d5+5000 5d8+19 pound
+50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
 CDEFHK 0 0 0
 stand stand male 0
@@ -968,7 +968,7 @@ and feet are hidden somewhere inside its folds.
 ~
 human~
 ABG DFHJN 1000 0
-50 0 50d10+4250 5d5+5000 5d8+19 pound
+50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
 CDEFHK 0 0 0
 stand stand male 0
@@ -983,7 +983,7 @@ and feet are hidden somewhere in its folds.
 ~
 human~
 ABG DFHJN 1000 0
-50 0 50d10+4250 5d5+5000 5d8+19 pound
+50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
 CDEFHK 0 0 0
 stand stand male 0
@@ -1003,7 +1003,7 @@ glow.
 ~
 human~
 ABG DFHJN 1000 0
-50 0 50d10+4250 5d5+5000 5d8+19 pound
+50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
 CDEFHK 0 0 0
 stand stand none 0
@@ -1020,7 +1020,7 @@ light, with faint sparkles shining on its razor-sharp edges.
 ~
 unique~
 ABCFG DFIN 0 0
-50 0 50d10+4250 5d5+5000 5d8+19 pierce
+50 0 50d10+4250 5d5+5000 5d8+19 'pierce'
 -20 -20 -20 0
 FH 0 0 0
 stand stand none 0
@@ -1037,7 +1037,7 @@ hand.
 ~
 human~
 ABG N 1000 0
-40 0 15d10+1850 5d5+1000 4d8+13 pound
+40 0 15d10+1850 5d5+1000 4d8+13 'pound'
 -13 -13 -13 3
 FK 0 0 0
 stand stand male 0
@@ -1052,7 +1052,7 @@ can be seen.
 ~
 human~
 ABFG DFJ -1000 0
-50 0 50d10+4250 5d5+5000 5d8+19 pound
+50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
 CDEFHK 0 0 0
 stand stand male 0
@@ -1067,7 +1067,7 @@ can be seen.
 ~
 human~
 ABFG DFJ -1000 0
-50 0 50d10+4250 5d5+5000 5d8+19 pound
+50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
 CDEFHK 0 0 0
 stand stand male 0
@@ -1082,7 +1082,7 @@ and hands are visible.
 ~
 human~
 ABFG DFJ -1000 0
-50 0 50d10+4250 5d5+5000 5d8+19 pound
+50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
 CDEFHK 0 0 0
 stand stand male 0
@@ -1097,7 +1097,7 @@ and hands can be seen.
 ~
 human~
 ABFG DFJ -1000 0
-50 0 50d10+4250 5d5+5000 5d8+19 pound
+50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
 CDEFHK 0 0 0
 stand stand male 0
@@ -1112,7 +1112,7 @@ through the '90's....has returned from the dead to heal your wounds.
 ~
 human~
 ABG DFNU 0 0
-90 0 50d10+18500 5d5+5000 17d9+60 magic
+90 0 50d10+18500 5d5+5000 17d9+60 'magic'
 -60 -60 -60 -27
 CDEFHK 0 0 0
 stand stand male 0
@@ -1128,7 +1128,7 @@ you to have a seat and listen.
 ~
 human~
 ABG DFNU 1000 0
-40 0 15d10+1850 5d5+1000 4d8+13 pound
+40 0 15d10+1850 5d5+1000 4d8+13 'pound'
 -13 -13 -13 3
 CDEFHK 0 0 0
 stand stand male 0

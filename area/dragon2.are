@@ -18,7 +18,7 @@ here. It ATTACKS.
 ~
 copper dragon~
 ABFGHTZ DFHZ 350 0
-40 0 15d10+1850 5d5+1000 4d8+13 charge
+40 0 15d10+1850 5d5+1000 4d8+13 'charge'
 -13 -13 -13 -2
 CFM AB 0 I
 stand stand male 4999
@@ -33,7 +33,7 @@ for the Ice Dragon to devour you.
 ~
 white dragon~
 ABFGHT DFZu -350 0
-40 0 15d10+1850 5d5+1000 4d8+13 charge
+40 0 15d10+1850 5d5+1000 4d8+13 'charge'
 -13 -13 -13 -2
 CFM AB 0 I
 stand stand male 4999
@@ -48,7 +48,7 @@ and guess what....   It's your turn :).
 ~
 elf~
 AFGH 0 -360 0
-36 0 10d10+1400 15d5+25 3d10+11 punch
+36 0 10d10+1400 15d5+25 3d10+11 'punch'
 -12 -12 -12 0
 FHKN AB 0 D
 stand stand male 1499
@@ -63,7 +63,7 @@ who have stood sentinel over this spot. The Spirit lunges for your SOUL!!!!!!!
 ~
 dragon~
 ABFGT DFHU 0 0
-55 0 50d10+5500 20d12+100 10d4+23 charge
+55 0 50d10+5500 20d12+100 10d4+23 'charge'
 -25 -25 -25 -7
 CFM AB 0 0
 stand stand male 6499
@@ -78,7 +78,7 @@ guardians. The Spirit attempts to leech you life blood from your body.
 ~
 dragon~
 ABFGT DFHU 0 0
-55 0 50d10+5500 20d12+100 10d4+23 charge
+55 0 50d10+5500 20d12+100 10d4+23 'charge'
 -25 -25 -25 -7
 CFM AB 0 0
 stand stand male 6999
@@ -94,7 +94,7 @@ He asks you "Will you be my friend?".
 ~
 elf~
 ABFG DF 1000 0
-48 0 25d10+3500 23d8+100 6d6+18 charge
+48 0 25d10+3500 23d8+100 6d6+18 'charge'
 -16 -16 -16 -3
 EN AB 0 D
 stand stand male 2499
@@ -110,7 +110,7 @@ he does have the key that you need to continue on through the cave.
 ~
 elf~
 ABFGT DF 0 0
-45 0 25d10+2750 24d7+100 8d4+16 pound
+45 0 25d10+2750 24d7+100 8d4+16 'pound'
 -15 -15 -15 2
 EFHIKN AB 0 D
 stand stand male 2799
@@ -129,7 +129,7 @@ can tell that attacking it would be the dumbest, and last thing you ever did.
 ~
 dragon~
 AT BDFHU 0 0
-65 0 50d15+8250 52d12+100 11d5+35 charge
+65 0 50d15+8250 52d12+100 11d5+35 'charge'
 -37 -37 -37 -20
 CFM 0 0 0
 stand stand male 14999
@@ -145,7 +145,7 @@ Pixies.
 ~
 elf~
 ABGMT 0 1000 2405
-39 0 10d10+1700 5d10+50 5d6+13 pound
+39 0 10d10+1700 5d10+50 5d6+13 'pound'
 -13 -13 -13 0
 EIN 0 0 D
 stand stand male 1799
@@ -162,7 +162,7 @@ sure from where you remember it.
 ~
 elf~
 ACGHR Du -500 0
-58 0 50d10+6000 34d10+100 5d10+25 pound
+58 0 50d10+6000 34d10+100 5d10+25 'pound'
 -27 -27 -27 -10
 FHN 0 0 D
 stand stand male 4499
@@ -178,7 +178,7 @@ Pixies.
 ~
 elf~
 ABGMT 0 1000 2405
-39 0 15d9+1700 5d10+50 3d10+11 scratch
+39 0 15d9+1700 5d10+50 3d10+11 'scratch'
 -13 -13 -13 0
 E 0 0 CD
 stand stand female 1899
@@ -193,7 +193,7 @@ travelers, and guess what.... It's your turn :).
 ~
 elf~
 AHS DEQZ -500 0
-36 0 10d30+1400 100d10+100 3d10+11 pound
+36 0 10d30+1400 100d10+100 3d10+11 'pound'
 -11 -11 -11 0
 FHKN 0 0 D
 stand stand male 1499
@@ -209,7 +209,7 @@ Midgaard he retired. And found this job.
 ~
 human~
 ABHS DEJPZu -500 2402
-91 0 10d30+19000 100d10+100 15d15+10 pound
+91 0 10d30+19000 100d10+100 15d15+10 'pound'
 -81 -81 -81 -30
 FHKN 0 0 D
 stand stand male 1499
@@ -226,7 +226,7 @@ He is, the old dragon, resting and getting off tired of years.
 ~
 gold dragon~
 AHS DEPZ 1000 2402
-91 50 10d30+20400 100d10+100 5d35+60 punch
+91 50 10d30+20400 100d10+100 5d35+60 'punch'
 -75 -75 -75 -30
 FHKN 0 0 D
 stand stand male 1499
@@ -244,7 +244,7 @@ and guess what....   It's your turn :).
 ~
 elf~
 AFGH 0 -360 0
-33 0 10d10+1100 15d5+25 6d4+10 punch
+33 0 10d10+1100 15d5+25 6d4+10 'punch'
 -10 -10 -10 0
 FHKN AB 0 D
 stand stand male 1499

@@ -17,7 +17,7 @@ spider dirty~
 ~
 undead~
 ABFLR PQVaclmtu -1000 0
-80 200 1d1+15000 1d1+10000 1d1+150 claw
+80 200 1d1+15000 1d1+10000 1d1+150 'claw'
 -40 -40 -40 -40
 ACEFK ABK 0 0
 stand stand none 0
@@ -31,7 +31,7 @@ moth melancholy~
 ~
 sprite~
 ABHQR 0 1000 0
-70 200 1d1+7000 1d1+7000 1d1+100 pound
+70 200 1d1+7000 1d1+7000 1d1+100 'pound'
 -10 -10 -10 -10
 0 0 0 0
 stand stand none 0
@@ -45,7 +45,7 @@ piranha~
 ~
 fish~
 AFLT BDFVlmt -1000 0
-82 200 1d1+10000 1d1+10000 1d1+100 pierce
+82 200 1d1+10000 1d1+10000 1d1+100 'pierce'
 -30 -30 -30 -30
 EFHKR 0 0 0
 stand stand none 0
@@ -59,7 +59,7 @@ octopus~
 ~
 snake~
 ABRT DFQVfltu -1000 0
-85 500 1d1+20000 1d1+20000 1d1+250 pound
+85 500 1d1+20000 1d1+20000 1d1+250 'pound'
 -50 -50 -50 -50
 ADEFK AB 0 0
 stand stand male 0
@@ -73,7 +73,7 @@ fisherman~
 ~
 human~
 ABGTe DFHJZlmt 1000 0
-80 100 1d1+15000 1d1+15000 1d1+100 pound
+80 100 1d1+15000 1d1+15000 1d1+100 'pound'
 -20 -10 -10 -10
 CEFIJKN AB 0 0
 stand stand male 0

@@ -19,7 +19,7 @@ fashion. Small wonder she is both amazed and afraid of you!
 ~
 human~
 AGHT HN 400 0
-45 0 10d136+786 45d10+100 5d15+26 pierce
+45 0 10d136+786 45d10+100 5d15+26 'pierce'
 -18 -18 -18 -4
 EFNU 0 0 0
 stand stand female 0
@@ -39,7 +39,7 @@ accoutrements? After all, how hard could he be to slay?
 ~
 rabbit~
 AGHT HJNPT 400 0
-40 0 10d108+648 40d10+100 5d14+20 pierce
+40 0 10d108+648 40d10+100 5d14+20 'pierce'
 -15 -15 -15 -2
 ENR 0 BEI F
 stand stand male 0
@@ -63,7 +63,7 @@ to know whether you are a cat.
 ~
 rabbit~
 AGHT J 400 0
-37 0 10d92+578 37d10+100 5d12+23 pound
+37 0 10d92+578 37d10+100 5d12+23 'pound'
 -13 -13 -13 -1
 ENU 0 0 0
 stand stand male 0
@@ -86,7 +86,7 @@ tears. Although being a duck, it isn't half as worried.
 ~
 water fowl~
 AGHT 0 400 0
-36 0 10d87+555 36d10+100 5d12+21 pierce
+36 0 10d87+555 36d10+100 5d12+21 'pierce'
 -12 -12 -12 -1
 EFNU 0 0 0
 stand stand female 0
@@ -110,7 +110,7 @@ matter") and running about until they are quite dry.
 ~
 human~
 ABGT N 400 0
-36 0 10d87+555 36d10+100 5d12+21 pierce
+36 0 10d87+555 36d10+100 5d12+21 'pierce'
 -12 -12 -12 -1
 EFNU 0 0 0
 stand stand male 0
@@ -134,7 +134,7 @@ The lory is feeling rather sulky, as it feels that as the oldest present
 ~
 human~
 AGHT T 400 0
-36 0 10d87+555 36d10+100 5d12+21 slash
+36 0 10d87+555 36d10+100 5d12+21 'slash'
 -12 -12 -12 -1
 EFNU 0 0 0
 stand stand male 0
@@ -159,7 +159,7 @@ know the meaning of, and doubtless nor do any of the others present.
 ~
 human~
 ABGT T 400 0
-36 0 10d87+555 36d10+100 5d12+21 pierce
+36 0 10d87+555 36d10+100 5d12+21 'pierce'
 -12 -12 -12 -1
 EFNU 0 0 0
 stand stand male 0
@@ -182,7 +182,7 @@ cause her to become ill.
 ~
 human~
 ABGHT T 400 0
-35 0 10d82+534 35d10+100 5d12+18 slash
+35 0 10d82+534 35d10+100 5d12+18 'slash'
 -11 -11 -11 0
 EFNU 0 0 0
 stand stand female 0
@@ -205,7 +205,7 @@ wisdom of the older birds and engaging in the decidedly silly caucus race.
 ~
 human~
 ABGT T 400 0
-35 0 10d82+534 35d10+100 5d12+18 pound
+35 0 10d82+534 35d10+100 5d12+18 'pound'
 -11 -11 -11 0
 EFNU 0 0 0
 stand stand male 0
@@ -220,7 +220,7 @@ This elderly crab is enough to try the patience of an oyster!
 ~
 human~
 ABGT N 400 0
-36 0 10d87+555 36d10+100 5d12+21 pound
+36 0 10d87+555 36d10+100 5d12+21 'pound'
 -12 -12 -12 -1
 EFNU 0 0 0
 stand stand female 0
@@ -235,7 +235,7 @@ This youthful crustacean is sick of her mother's constant lecturing.
 ~
 human~
 ABGHT N 400 0
-35 0 10d82+534 35d10+100 5d12+18 pierce
+35 0 10d82+534 35d10+100 5d12+18 'pierce'
 -11 -11 -11 0
 EFNU 0 0 0
 stand stand female 0
@@ -251,7 +251,7 @@ no choice.
 ~
 lizard~
 ABGHT 0 400 0
-36 0 10d87+555 36d10+100 5d12+21 pound
+36 0 10d87+555 36d10+100 5d12+21 'pound'
 -12 -12 -12 -1
 EFNU 0 0 0
 stand stand male 0
@@ -269,7 +269,7 @@ what it is inside that is causing such a clamour.
 ~
 pig~
 ABGHT 0 400 0
-36 0 10d87+555 36d10+100 5d12+21 pound
+36 0 10d87+555 36d10+100 5d12+21 'pound'
 -12 -12 -12 -1
 EFNU 0 0 0
 stand stand male 0
@@ -286,7 +286,7 @@ someone to play with.
 ~
 dog~
 ABGHT J 400 0
-36 0 10d87+555 36d10+100 5d12+21 pound
+36 0 10d87+555 36d10+100 5d12+21 'pound'
 -12 -12 -12 -1
 EFNU 0 0 0
 stand stand male 0
@@ -310,7 +310,7 @@ inches and patiently awaits an answer. He is an infuriating conversationalist.
 ~
 human~
 ABGHT HJN 400 0
-40 0 10d108+648 40d10+100 5d14+20 slash
+40 0 10d108+648 40d10+100 5d14+20 'slash'
 -15 -15 -15 -2
 EFNU 0 0 0
 stand stand male 0
@@ -335,7 +335,7 @@ long enough to explain her actions...
 ~
 human~
 ABFGT T 400 0
-36 0 10d87+555 36d10+100 5d12+21 pound
+36 0 10d87+555 36d10+100 5d12+21 'pound'
 -12 -12 -12 -1
 EFNU 0 0 0
 stand stand female 0
@@ -360,7 +360,7 @@ eyes when he speaks. Then again, its not like he can help it.
 ~
 fish~
 ABGT 0 400 0
-37 0 10d92+578 37d10+100 5d12+23 pierce
+37 0 10d92+578 37d10+100 5d12+23 'pierce'
 -13 -13 -13 -1
 EFNR 0 0 0
 stand stand male 0
@@ -378,7 +378,7 @@ straight ahead.
 ~
 human~
 ABGT 0 400 0
-37 0 10d92+578 37d10+100 5d12+23 slash
+37 0 10d92+578 37d10+100 5d12+23 'slash'
 -13 -13 -13 -1
 EFNU 0 0 0
 stand stand male 0
@@ -395,7 +395,7 @@ short-tempered and irritable.
 ~
 human~
 ABDGT N 400 0
-43 0 10d124+733 43d10+100 5d15+21 pound
+43 0 10d124+733 43d10+100 5d15+21 'pound'
 -16 -16 -16 -3
 EFNU 0 0 0
 stand stand female 0
@@ -414,7 +414,7 @@ dirge interrupted only by periodic sneezing due to all the pepper in the air.
 ~
 pig~
 ABGT 0 0 0
-34 0 10d78+505 34d10+100 5d11+21 slash
+34 0 10d78+505 34d10+100 5d11+21 'slash'
 -11 -11 -11 0
 EFNR 0 0 0
 stand stand male 0
@@ -431,7 +431,7 @@ room, though it doesn't seem to bother most of them in the least!
 ~
 human~
 ABGT 0 0 0
-37 0 10d92+578 37d10+100 5d12+23 slash
+37 0 10d92+578 37d10+100 5d12+23 'slash'
 -13 -13 -13 -1
 EFNU 0 0 0
 stand stand female 0
@@ -458,7 +458,7 @@ in the air.
 ~
 human~
 AGHT HJNU 1000 0
-45 0 10d136+786 45d10+100 5d15+26 slash
+45 0 10d136+786 45d10+100 5d15+26 'slash'
 -18 -18 -18 -4
 EFNU 0 0 0
 stand stand male 0
@@ -493,7 +493,7 @@ the Queen, where he performed "Twinkle, twinkle, little bat"-
 ~
 human~
 ABGT H 400 0
-42 0 10d119+700 42d10+100 5d14+24 pierce
+42 0 10d119+700 42d10+100 5d14+24 'pierce'
 -16 -16 -16 -3
 EFNU 0 0 0
 stand stand male 0
@@ -519,7 +519,7 @@ seats and serving sets. The Hare wants you to tell them a story now.
 ~
 human~
 ABGT H 400 0
-41 0 10d113+678 41d10+100 5d14+22 pound
+41 0 10d113+678 41d10+100 5d14+22 'pound'
 -15 -15 -15 -2
 EFNU 0 0 0
 stand stand male 0
@@ -544,7 +544,7 @@ the Dormouse gets irritated if interrupted, so you patiently listen.
 ~
 human~
 ABGT PR 400 0
-37 0 10d92+578 37d10+100 5d12+23 slash
+37 0 10d92+578 37d10+100 5d12+23 'slash'
 -13 -13 -13 -1
 EFNU 0 0 0
 stand stand male 0
@@ -561,7 +561,7 @@ roses red before the Queen arrives.
 ~
 human~
 ABGHT 0 400 0
-36 0 10d87+555 36d10+100 5d12+21 pierce
+36 0 10d87+555 36d10+100 5d12+21 'pierce'
 -12 -12 -12 -1
 EFNU 0 0 0
 stand stand male 0
@@ -582,7 +582,7 @@ roses red before the Queen arrives.
 ~
 human~
 ABGHT 0 400 0
-36 0 10d87+555 36d10+100 5d12+21 pound
+36 0 10d87+555 36d10+100 5d12+21 'pound'
 -12 -12 -12 -1
 EFNU 0 0 0
 stand stand male 0
@@ -600,7 +600,7 @@ roses red before the Queen arrives.
 ~
 human~
 ABGHT 0 400 0
-36 0 10d87+555 36d10+100 5d12+21 slash
+36 0 10d87+555 36d10+100 5d12+21 'slash'
 -12 -12 -12 -1
 EFNU 0 0 0
 stand stand male 0
@@ -623,7 +623,7 @@ These stern cards are sworn to protect and obey the Queen.
 ~
 human~
 AGT N 400 0
-37 0 10d92+578 37d10+100 5d12+23 pierce
+37 0 10d92+578 37d10+100 5d12+23 'pierce'
 -13 -13 -13 -1
 EFNU 0 0 0
 stand stand male 0
@@ -639,7 +639,7 @@ These noble cards accompany the Queen everywhere.
 ~
 human~
 AGT 0 400 0
-37 0 10d92+578 37d10+100 5d12+23 slash
+37 0 10d92+578 37d10+100 5d12+23 'slash'
 -13 -13 -13 -1
 EFNU 0 0 0
 stand stand male 0
@@ -662,7 +662,7 @@ These small tykes are the children of the Queen.
 ~
 human~
 AGHT 0 400 0
-34 0 10d78+505 34d10+100 5d11+21 slash
+34 0 10d78+505 34d10+100 5d11+21 'slash'
 -11 -11 -11 0
 EFNU 0 0 0
 stand stand male 0
@@ -679,7 +679,7 @@ Kings you see on playing cards.
 ~
 human~
 AGT HJ 400 0
-41 0 10d113+678 41d10+100 5d14+22 pound
+41 0 10d113+678 41d10+100 5d14+22 'pound'
 -15 -15 -15 -2
 EFNU 0 0 0
 stand stand male 0
@@ -704,7 +704,7 @@ ever actually DOES get lopped off, but that doesn't deter her.
 ~
 human~
 AGIJLNPQRSTYa JN -400 0
-45 0 10d136+786 45d10+100 5d15+26 slash
+45 0 10d136+786 45d10+100 5d15+26 'slash'
 -18 -18 -18 -4
 EFNU 0 0 0
 stand stand female 0
@@ -731,7 +731,7 @@ tarts.
 ~
 human~
 AGHT 0 0 0
-40 0 10d108+648 40d10+100 5d14+20 pierce
+40 0 10d108+648 40d10+100 5d14+20 'pierce'
 -15 -15 -15 -2
 EFNU 0 0 0
 stand stand male 0
@@ -749,7 +749,7 @@ croquet mallet.
 ~
 human~
 AGHT 0 0 0
-35 0 10d82+534 35d10+100 5d12+18 pierce
+35 0 10d82+534 35d10+100 5d12+18 'pierce'
 -11 -11 -11 0
 EFNU 0 0 0
 stand stand male 0
@@ -765,7 +765,7 @@ bizarre version of the clasic game of nobility.
 ~
 human~
 AGHT 0 0 0
-35 0 10d82+534 35d10+100 5d12+18 pierce
+35 0 10d82+534 35d10+100 5d12+18 'pierce'
 -11 -11 -11 0
 EFNU 0 0 0
 stand stand male 0
@@ -783,7 +783,7 @@ from... nothing. Such are the weird ways of Wonderland.
 ~
 human~
 AGT HN 0 0
-44 0 10d130+759 44d10+100 5d15+24 pierce
+44 0 10d130+759 44d10+100 5d15+24 'pierce'
 -17 -17 -17 -3
 EFNU 0 0 0
 stand stand male 0
@@ -809,7 +809,7 @@ legs and tail of a cow. How peculiar!
 ~
 human~
 ABGT H 500 0
-42 0 10d119+700 42d10+100 5d14+24 pierce
+42 0 10d119+700 42d10+100 5d14+24 'pierce'
 -16 -16 -16 -3
 EFNU 0 0 0
 stand stand male 0
@@ -827,7 +827,7 @@ Uglification and Derision, and of course the classics- Laughing and Grief.
 ~
 human~
 ABDGT HJRT 500 0
-45 0 10d136+786 45d10+100 5d15+26 pound
+45 0 10d136+786 45d10+100 5d15+26 'pound'
 -18 -18 -18 -4
 EFNU 0 0 0
 stand stand male 0
@@ -848,7 +848,7 @@ else in this strange place.
 ~
 human~
 ABGHT 0 400 0
-38 0 10d97+603 38d10+100 5d13+20 slash
+38 0 10d97+603 38d10+100 5d13+20 'slash'
 -13 -13 -13 -1
 EFNU 0 0 0
 stand stand male 0
@@ -865,7 +865,7 @@ and sitting on them...
 ~
 human~
 ABGT N 400 0
-39 0 10d102+629 39d10+100 5d13+22 pierce
+39 0 10d102+629 39d10+100 5d13+22 'pierce'
 -14 -14 -14 -2
 EFNU 0 0 0
 stand stand male 0

@@ -16,7 +16,7 @@ Her job is to set the level for this equipment.
 ~
 human~
 A 0 1000 0
-8 0 2d7+96 4d9+100 1d7+2 none
+8 0 2d7+96 4d9+100 1d7+2 'none'
 3 3 3 9
 EFNU 0 0 0
 stand stand female 5

@@ -20,7 +20,7 @@ Ofcol.
 ~
 human~
 ACT N 1000 0
-19 0 3d9+333 9d9+100 2d7+5 none
+19 0 3d9+333 9d9+100 2d7+5 'none'
 -4 -4 -4 7
 CDEIKLU 0 0 0
 stand stand male 5
@@ -38,8 +38,8 @@ death.
 ~
 human~
 ABKQe DHN 1000 0
-73 0 10d10+12000 33d9+100 4d16+20 none
--51 -51 -51 -23
+33 16 10d73+487 33d10+100 5d11+19 'none'
+-10 -10 -10 -5
 EIKU AB 0 0
 stand stand female 250
 0 0 medium unknown
@@ -55,7 +55,7 @@ has to be hard won to be kept, and that laxity is for the weak.
 ~
 human~
 AGQ DHN 1000 0
-27 0 5d10+650 27d9+100 2d10+7 none
+27 0 5d10+650 27d9+100 2d10+7 'none'
 -8 -8 -8 4
 EIKU 0 0 0
 stand stand male 250
@@ -73,7 +73,7 @@ she need not be.
 ~
 human~
 ABR DN 1000 0
-27 0 5d10+600 27d9+100 2d10+6 none
+27 0 5d10+600 27d9+100 2d10+6 'none'
 -7 -7 -7 2
 FU 0 0 0
 stand stand female 250
@@ -89,7 +89,7 @@ the metals or the value of the coins.
 ~
 human~
 ABe N 1000 0
-30 0 6d12+1853 15d9+100 4d6+10 none
+30 0 6d12+1853 15d9+100 4d6+10 'none'
 -13 -13 -13 2
 EFNU 0 0 0
 stand stand male 750
@@ -104,7 +104,7 @@ last sale from you.  He grins at you slightly.
 ~
 human~
 ABe N 1000 0
-30 0 6d12+1853 15d9+100 4d6+10 none
+30 0 6d12+1853 15d9+100 4d6+10 'none'
 -13 -13 -13 2
 EFNU 0 0 0
 stand stand male 250
@@ -120,7 +120,7 @@ shop, trading little things (for a wee bit of profit).
 ~
 human~
 ABe N 1000 0
-20 0 3d9+1333 10d9+100 2d8+7 none
+20 0 3d9+1333 10d9+100 2d8+7 'none'
 -7 -7 -7 3
 EFNU 0 0 0
 stand stand female 450
@@ -136,7 +136,7 @@ kill, though.
 ~
 human~
 ABe N 1000 0
-30 0 6d12+1853 15d9+100 4d6+10 none
+30 0 6d12+1853 15d9+100 4d6+10 'none'
 -13 -13 -13 2
 EFNU 0 0 0
 stand stand male 50
@@ -153,7 +153,7 @@ get a good price off of you!
 ~
 human~
 ABe N 1000 0
-20 0 3d9+1333 10d9+100 2d8+7 none
+20 0 3d9+1333 10d9+100 2d8+7 'none'
 -7 -7 -7 3
 EFNU 0 0 0
 stand stand female 250
@@ -170,7 +170,7 @@ Granny Jenkins cackles again.
 ~
 human~
 AB N 500 0
-6 0 2d7+71 3d9+100 1d7+1 none
+6 0 2d7+71 3d9+100 1d7+1 'none'
 4 4 4 9
 EFNU 0 0 0
 stand stand female 5
@@ -186,7 +186,7 @@ enter.  "Came by to watch, eh?", he asks.
 ~
 human~
 ABFH 0 200 0
-12 0 2d10+150 6d9+100 1d10+3 none
+12 0 2d10+150 6d9+100 1d10+3 'none'
 0 0 0 8
 EFNU 0 0 0
 stand stand male 5
@@ -202,7 +202,7 @@ her work.
 ~
 human~
 ABH 0 800 0
-5 0 2d6+60 2d9+100 1d6+1 none
+5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
 EFNU 0 0 0
 stand stand female 5
@@ -217,7 +217,7 @@ you've ever seen one.
 ~
 human~
 AHI 0 0 0
-1 0 2d6+10 0d9+100 1d4+0 none
+1 0 2d6+10 0d9+100 1d4+0 'none'
 9 9 9 10
 EFNU 0 0 0
 stand stand female 0
@@ -231,7 +231,7 @@ The cow is here happily grazing.  It moos at you and goes back to grazing.
 ~
 human~
 AI 0 0 0
-5 0 2d6+60 2d9+100 1d6+1 none
+5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
 EFNU 0 0 0
 stand stand none 0
@@ -245,7 +245,7 @@ The cow is just standing here.  She moos at you and otherwise ignores you.
 ~
 human~
 ABI 0 0 0
-5 0 2d6+60 2d9+100 1d6+1 none
+5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
 EFNU 0 0 0
 stand stand female 0
@@ -260,7 +260,7 @@ back to grazing.
 ~
 human~
 AFHI 0 0 0
-6 0 2d7+71 3d9+100 1d7+1 none
+6 0 2d7+71 3d9+100 1d7+1 'none'
 4 4 4 9
 EFNU 0 0 0
 stand stand none 0
@@ -274,7 +274,7 @@ The pig looks dirty.  It snorts and sniffs at you, then goes back to its slop.
 ~
 pig~
 ABI 0 0 0
-4 0 2d7+46 2d9+100 1d5+1 none
+4 0 2d7+46 2d9+100 1d5+1 'none'
 6 6 6 9
 EFNR 0 0 0
 stand stand none 0
@@ -290,7 +290,7 @@ armored.
 ~
 human~
 AH 0 500 0
-5 0 2d6+60 2d9+100 1d6+1 none
+5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
 EFNU 0 0 0
 stand stand male 5
@@ -306,7 +306,7 @@ and armored.
 ~
 human~
 AH 0 500 0
-5 0 2d6+60 2d9+100 1d6+1 none
+5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
 EFNU 0 0 0
 stand stand female 5
@@ -321,7 +321,7 @@ He then smiles and runs away, remembering his game.
 ~
 human~
 AH 0 500 0
-3 0 2d6+35 1d9+100 1d6+0 none
+3 0 2d6+35 1d9+100 1d6+0 'none'
 7 7 7 10
 EFNU 0 0 0
 stand stand male 0
@@ -336,7 +336,7 @@ coin?'  She then smiles and runs away, remembering her game.
 ~
 human~
 AH 0 500 0
-3 0 2d6+35 1d9+100 1d6+0 none
+3 0 2d6+35 1d9+100 1d6+0 'none'
 7 7 7 10
 EFNU 0 0 0
 stand stand female 0
@@ -352,7 +352,7 @@ She hits you with her broom.
 ~
 human~
 AH 0 500 0
-5 0 2d6+60 2d9+100 1d6+1 none
+5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
 EFNU 0 0 0
 stand stand female 2
@@ -368,7 +368,7 @@ any.
 ~
 human~
 ABe 0 1000 0
-30 0 6d12+853 15d9+100 4d6+8 none
+30 0 6d12+853 15d9+100 4d6+8 'none'
 -9 -9 -9 6
 EFNU 0 0 0
 stand stand male 50
@@ -385,7 +385,7 @@ Ofcol.
 ~
 human~
 ABT N 1000 0
-19 0 3d9+333 9d9+100 2d7+5 none
+19 0 3d9+333 9d9+100 2d7+5 'none'
 -4 -4 -4 7
 CDEIKLU 0 0 0
 stand stand male 50
@@ -401,7 +401,7 @@ you, hinting toward a tip from you in ever a subtle way.
 ~
 human~
 AB N 800 0
-13 0 2d10+170 6d9+100 2d5+3 none
+13 0 2d10+170 6d9+100 2d5+3 'none'
 -1 -1 -1 8
 EFNU 0 0 0
 stand stand male 50
@@ -415,7 +415,7 @@ The servant smiles good-naturedly at you, then goes on his duties.
 ~
 human~
 AG N 1000 0
-6 0 2d7+71 3d9+100 1d7+1 none
+6 0 2d7+71 3d9+100 1d7+1 'none'
 4 4 4 9
 EFNU 0 0 0
 stand stand male 5
@@ -429,7 +429,7 @@ This young man smiles at you, but is too busy to chat.
 ~
 human~
 AG N 1000 0
-7 0 2d6+85 3d9+100 1d8+1 none
+7 0 2d6+85 3d9+100 1d8+1 'none'
 4 4 4 9
 EFNU 0 0 0
 stand stand male 5
@@ -443,7 +443,7 @@ The page smiles for you, asking if he can do you a favor too.
 ~
 human~
 AG N 1000 0
-5 0 2d6+60 2d9+100 1d6+1 none
+5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
 EFNU 0 0 0
 stand stand male 5
@@ -460,8 +460,8 @@ god, Bahamut.  The dragon symbol around her neck looks almost alive.
 ~
 human~
 ABKe HN 1000 0
-120 20 6d12+2853 15d9+100 4d6+18 none
--19 -19 -19 -6
+29 20 10d56+405 29d10+100 5d10+15 'none'
+-8 -8 -8 -3
 EFNU ABCD 0 0
 stand stand female 50
 0 0 medium unknown
@@ -477,7 +477,7 @@ turns to you and with a consipatory tone, whispers, "Kids!"
 ~
 human~
 AGT BHN 1000 0
-20 0 4d10+360 10d9+100 2d8+5 none
+20 0 4d10+360 10d9+100 2d8+5 'none'
 -4 -4 -4 7
 CDEIKLU 0 0 0
 stand stand male 50
@@ -493,7 +493,7 @@ look upset at your presence.
 ~
 human~
 AB BHN 1000 0
-29 0 6d12+778 14d9+100 2d12+8 none
+29 0 6d12+778 14d9+100 2d12+8 'none'
 -9 -9 -9 6
 EFNU 0 0 0
 stand stand male 50
@@ -510,7 +510,7 @@ his attendants to escort you away.
 ~
 dragon~
 ABC BHN 1000 0
-48 70 25d20+9250 21d9+900 5d17+34 none
+48 70 25d20+9250 21d9+900 5d17+34 'none'
 -54 -54 -54 -34
 EFNR 0 0 0
 stand stand male 5000
@@ -525,7 +525,7 @@ his life for his liege.
 ~
 human~
 ABR BN 1000 0
-21 0 3d9+333 21d9+100 2d7+4 none
+21 0 3d9+333 21d9+100 2d7+4 'none'
 -4 -4 -4 3
 FU 0 0 0
 stand stand male 250
@@ -541,7 +541,7 @@ He smiles at you, showing very sharp teeth.
 ~
 human~
 AG BN 1000 0
-21 0 4d10+360 10d9+100 4d4+5 none
+21 0 4d10+360 10d9+100 4d4+5 'none'
 -5 -5 -5 7
 EFNU 0 0 0
 stand stand male 250
@@ -558,7 +558,7 @@ Ofcol.
 ~
 human~
 ABT N 1000 0
-19 0 3d9+333 9d9+100 2d7+5 none
+19 0 3d9+333 9d9+100 2d7+5 'none'
 -4 -4 -4 7
 CDEIKLU 0 0 0
 stand stand male 50
@@ -572,7 +572,7 @@ He is very old. But he still waits for the enterance.
 ~
 human~
 ABCGTe N 1000 0
-81 0 3d9+13333 9d9+100 5d30+45 none
+81 0 3d9+13333 9d9+100 5d30+45 'none'
 -24 -24 -24 -7
 CDEFGIKLUe 0 0 0
 stand stand male 5
@@ -1031,14 +1031,14 @@ platinum plate~
 A pile of silvery metal is on the floor.~
 platinum~
 armor GK AD
-19 19 19 13 0
-70 500 9200 P
+9 9 9 5 0
+33 500 9200 P
+A
+19 2
 A
 5 2
 A
 13 15
-A
-19 5
 G none
 #640
 helmet platinum~
@@ -1046,14 +1046,14 @@ the platinum helmet~
 A silvery helmet is on the floor.~
 platinum~
 armor GK AE
-19 19 19 13 0
-70 300 6300 P
+9 9 9 5 0
+33 300 6300 P
+A
+13 20
+A
+12 20
 A
 4 2
-A
-12 100
-A
-19 5
 G none
 #641
 leggings platinum~
@@ -1062,13 +1062,13 @@ Some silvery leggings are on the floor.~
 platinum~
 armor GK AF
 9 9 9 3 0
-70 400 6300 P
+33 400 6300 P
+A
+19 2
+A
+13 15
 A
 2 2
-A
-13 100
-A
-19 5
 G none
 #642
 boots platinum~
@@ -1076,14 +1076,14 @@ platinum boots~
 Some silvery boots are on the floor.~
 platinum~
 armor GK AG
-19 19 19 13 0
-72 400 4100 P
+9 9 9 5 0
+33 400 4100 P
 A
-14 250
+14 100
 A
-13 100
+19 2
 A
-19 5
+13 15
 G none
 #643
 gauntlets platinum~
@@ -1091,14 +1091,14 @@ platinum gauntlets~
 A pair of silvery gauntlets are on the floor.~
 platinum~
 armor GK AH
-19 19 19 13 0
-71 400 4300 P
+9 9 9 5 0
+33 400 4300 P
 A
-18 5
+18 2
 A
-13 100
+19 2
 A
-19 5
+13 15
 G none
 #644
 sleeves platinum~
@@ -1106,14 +1106,14 @@ platinum sleeves~
 A pair of silvery sleeves are on the floor.~
 platinum~
 armor GK AI
-19 19 19 13 0
-70 400 6300 P
+9 9 9 5 0
+33 400 6300 P
+A
+19 2
+A
+13 15
 A
 1 2
-A
-13 100
-A
-19 5
 G none
 #645
 shield spiked platinum~
@@ -1121,12 +1121,12 @@ the platinum spiked shield~
 A jagged, silvery shield is on the floor.~
 platinum~
 armor GK AJ
-19 19 19 15 0
-71 400 6000 P
+9 9 9 5 0
+33 400 6000 P
 A
-19 5
+13 15
 A
-13 100
+19 2
 G none
 #646
 girth platinum~
@@ -1134,14 +1134,14 @@ the platinum girth~
 A silvery girth is on the floor.~
 platinum~
 armor GK AL
-19 19 19 13 0
-71 400 4000 P
+9 9 9 5 0
+33 400 4000 P
 A
-20 -10
+19 2
 A
-13 100
+13 15
 A
-19 5
+20 -5
 G none
 #647
 avenger holy sword~
@@ -1149,12 +1149,12 @@ the holy Avenger~
 A glowing silvery sword is hovering here, ready to possess an owner.~
 platinum~
 weapon GK AN
-sword 17 5 'slice' I
-72 250 5700 P
+sword 5 8 'slice' I
+33 250 5700 P
 A
-18 3
+19 6
 A
-19 15
+18 1
 G none
 #648
 whiskey shot~

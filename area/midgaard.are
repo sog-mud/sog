@@ -23,7 +23,7 @@ rings and bracelets.
 ~
 human~
 ABKVe DHN 900 0
-83 5 25d10+28800 1d1+1999 10d12+62 magic
+83 5 25d10+28800 1d1+1999 10d12+62 'magic'
 -95 -95 -95 -75
 AF ABC D 0
 stand stand male 15000
@@ -40,7 +40,7 @@ body.
 ~
 human~
 ABKVe HN 900 0
-60 10 20d10+18800 1d1+999 6d10+45 beating
+60 10 20d10+18800 1d1+999 6d10+45 'beating'
 -65 -65 -65 -25
 CDF AB CD 0
 stand stand male 500
@@ -57,7 +57,7 @@ grocer бакалейщик~
 ~
 human~
 ABVe HN 900 0
-55 10 25d10+15000 1d1+999 9d10+30 beating
+55 10 25d10+15000 1d1+999 9d10+30 'beating'
 -65 -65 -65 -35
 EFJ AB CD 0
 stand stand male 1300
@@ -73,7 +73,7 @@ weaponsmith~
 ~
 human~
 ABTVei HN 900 0
-86 15 25d10+28000 1d1+999 6d8+60 punch
+86 15 25d10+28000 1d1+999 6d8+60 'punch'
 -90 -90 -90 -55
 CEIK AB CD 0
 stand stand male 25000
@@ -89,7 +89,7 @@ lifetime than you have ever seen.
 ~
 human~
 ABVei N 900 0
-65 10 25d10+19300 1d1+999 7d18+50 punch
+65 10 25d10+19300 1d1+999 7d18+50 'punch'
 -85 -85 -85 -45
 CEFJKN AB CD 0
 stand stand male 25000
@@ -106,7 +106,7 @@ thief вор~
 ~
 human~
 ACHS PQ -100 0
-8 1 6d8+80 1d1+99 1d5+1 punch
+8 1 6d8+80 1d1+99 1d5+1 'punch'
 2 4 3 7
 EFJN 0 0 0
 stand stand either 100
@@ -122,7 +122,7 @@ captain капитан~
 ~
 human~
 ABTVe H 900 0
-65 15 25d20+18500 1d1+999 5d8+30 beating
+65 15 25d20+18500 1d1+999 5d8+30 'beating'
 -45 -45 -45 -15
 CEI AB CD 0
 stand stand male 1300
@@ -138,7 +138,7 @@ sailor моряк~
 ~
 human~
 ABJTVe 0 900 0
-96 20 20d20+29200 1d1+999 10d4+73 beating
+96 20 20d20+29200 1d1+999 10d4+73 'beating'
 -55 -55 -55 -25
 FHJN AB CD 0
 stand stand male 58
@@ -154,7 +154,7 @@ boy мальчик~
 ~
 human~
 ABVe H 900 0
-67 5 10d11+19700 1d1+999 4d5+35 punch
+67 5 10d11+19700 1d1+999 4d5+35 'punch'
 -45 -45 -45 -15
 0 AB CD 0
 stand stand male 4000
@@ -170,7 +170,7 @@ jeweller ювелир~
 ~
 human~
 ABVe HV 900 0
-90 10 25d10+28500 1d1+999 5d15+75 slap
+90 10 25d10+28500 1d1+999 5d15+75 'slap'
 -80 -85 -85 -50
 AF AB CD 0
 stand stand male 58000
@@ -188,7 +188,7 @@ keep herself going.
 ~
 human~
 ABVe H 900 0
-69 17 25d10+23200 1d1+999 8d8+41 punch
+69 17 25d10+23200 1d1+999 8d8+41 'punch'
 -45 -45 -45 -15
 AFN AB CD 0
 stand stand male 10000
@@ -203,11 +203,11 @@ Questor квестор~
 He knows all the zones of Shades of Gray. It would be a BAD THING to
 commit a crime in his presence. 
 @rus Квестор возвышается над вами как огромная башня. Рост его более 20 футов
-и у него огромные мускулы. Он хорошо знает каждый уголок королевств Анатолии.
+и у него огромные мускулы. Он хорошо знает каждый уголок королевств Shades of Gray.
 ~
 giant~
 ABTVXe CDFJVZ 1000 3000
-85 30 1d1+28999 1d1+1499 5d14+80 crush
+85 30 1d1+28999 1d1+1499 5d14+80 'crush'
 -70 -70 -70 -50
 ACDEFHIKLNOT ABP CD 0
 stand stand male 0
@@ -227,7 +227,7 @@ Type 'heal' to see a listing of spells.
 ~
 human~
 ABQVaef DFH 1000 0
-120 10 1d1+29099 1d1+1999 10d20+50 divine
+120 10 1d1+29099 1d1+1999 10d20+50 'divine'
 -150 -150 -150 -100
 FHIK ABC D 0
 stand stand male 5000
@@ -241,7 +241,7 @@ janitor дворничиха~
 ~
 human~
 AGH 0 900 0
-1 0 2d6+10 1d1+99 1d5+0 pound
+1 0 2d6+10 1d1+99 1d5+0 'pound'
 10 10 10 10
 NU 0 0 C
 stand stand either 10
@@ -261,7 +261,7 @@ and you notice that she is surrounded by a blue shimmering aura.
 ~
 elf~
 ABKRVe DEFZ 1000 0
-96 0 1d1+29099 1d1+999 43d48+64 magic
+96 0 1d1+29099 1d1+999 43d48+64 'magic'
 -65 -65 -65 -35
 FG ABD C 0
 stand stand female 0
@@ -280,7 +280,7 @@ a peaceful, loving look. You notice that he is surrounded by a white aura.
 ~
 human~
 ABKQVe CDEFHZ 1000 0
-96 0 1d1+29099 1d1+999 43d48+64 divine
+96 0 1d1+29099 1d1+999 43d48+64 'divine'
 -65 -65 -65 -35
 EFHIK ABD C 0
 stand stand male 0
@@ -299,7 +299,7 @@ human@rus Ты никак не можешь уследить за тем, как двигается твой наставник - нас
 ~
 human~
 ABGKSe 0 1000 0
-96 0 1d1+29099 1d1+199 43d48+64 stab
+96 0 1d1+29099 1d1+199 43d48+64 'stab'
 -65 -65 -65 -35
 0 0 0 0
 stand stand male 0
@@ -319,7 +319,7 @@ He has a calm look on his face.
 ~
 dwarf~
 ABKTVe DF 1000 0
-96 0 1d1+29099 1d1+199 43d48+64 beating
+96 0 1d1+29099 1d1+199 43d48+64 'beating'
 -60 -60 -60 -40
 ACDEIK ABD C 0
 stand stand male 0
@@ -339,7 +339,7 @@ as well as defensive spells make him a deadly opponent.
 ~
 elf~
 ABRTVe BD 800 0
-30 5 1d1+999 1d1+499 10d4+10 magic
+30 5 1d1+999 1d1+499 10d4+10 'magic'
 -12 -12 -12 -8
 AEG AB CD 0
 stand stand male 2000
@@ -361,7 +361,7 @@ opponent.
 ~
 human~
 ABQTVe DJ 800 0
-30 5 1d1+999 1d1+499 5d8+10 divine
+30 5 1d1+999 1d1+499 5d8+10 'divine'
 -12 -12 -12 -7
 DEIK AB CD 0
 stand stand male 2000
@@ -382,7 +382,7 @@ them combined with his extraordinary stealth makes him a deadly opponent.
 ~
 human~
 ABSTVe DFPQ 800 0
-30 8 1d1+999 1d1+99 4d10+12 pierce
+30 8 1d1+999 1d1+99 4d10+12 'pierce'
 -12 -12 -12 -6
 BEFJN AB CD 0
 stand stand male 2000
@@ -403,7 +403,7 @@ opponent.
 ~
 human~
 ABTVe DF 800 0
-30 10 1d1+999 1d1+199 11d4+10 punch
+30 10 1d1+999 1d1+199 11d4+10 'punch'
 -12 -12 -12 -4
 ACDEHIK AB CD 0
 stand stand male 2000
@@ -419,7 +419,7 @@ bartender бармен~
 ~
 human~
 ABVe 0 900 0
-23 0 1d1+599 1d1+99 1d8+18 beating
+23 0 1d1+599 1d1+99 1d8+18 'beating'
 -6 -6 -6 0
 FHJN AB CD 0
 stand stand male 150
@@ -433,7 +433,7 @@ A tired looking waiter.
 ~
 human~
 ABVe 0 900 0
-23 0 1d1+599 1d1+99 1d8+18 beating
+23 0 1d1+599 1d1+99 1d8+18 'beating'
 -6 -6 -6 0
 FHJN AB CD 0
 stand stand male 150
@@ -451,7 +451,7 @@ peaceful life as a waiter.
 ~
 human~
 ABRVe D 600 0
-23 0 1d1+599 1d1+99 1d8+18 beating
+23 0 1d1+599 1d1+99 1d8+18 'beating'
 -6 -6 -6 0
 FJN AB CD 0
 stand stand male 150
@@ -467,7 +467,7 @@ waiter официант~
 ~
 human~
 ABQVe 0 600 0
-23 0 1d1+599 1d1+99 1d8+18 beating
+23 0 1d1+599 1d1+99 1d8+18 'beating'
 -6 -6 -6 0
 FHJN AB CD 0
 stand stand male 150
@@ -483,7 +483,7 @@ waiter официант~
 ~
 human~
 ABSVe 0 600 0
-23 0 1d1+599 1d1+99 1d8+18 beating
+23 0 1d1+599 1d1+99 1d8+18 'beating'
 -6 -6 -6 0
 FHJN AB CD 0
 stand stand male 150
@@ -499,7 +499,7 @@ waiter официант~
 ~
 human~
 ABTVe 0 600 0
-23 0 1d1+599 1d1+99 1d8+18 beating
+23 0 1d1+599 1d1+99 1d8+18 'beating'
 -6 -6 -6 0
 BFHJN AB CD 0
 stand stand male 150
@@ -518,7 +518,7 @@ but do not mess with him or else he'll get upset.
 ~
 human~
 ABSVe 0 600 0
-23 2 1d1+599 1d1+99 1d8+18 beating
+23 2 1d1+599 1d1+99 1d8+18 'beating'
 -8 -8 -8 -4
 BEFJN AB CD 0
 stand stand male 200
@@ -535,7 +535,7 @@ cityguard guard стражник~
 ~
 human~
 ACGT 0 1000 3000
-15 3 15d15+160 1d1+149 2d4+4 punch
+15 3 15d15+160 1d1+149 2d4+4 'punch'
 0 0 0 8
 CDEKLTU 0 C 0
 stand stand either 150
@@ -550,7 +550,7 @@ janitor дворник~
 ~
 human~
 AGH 0 900 0
-1 0 2d6+10 1d1+99 1d5+0 pound
+1 0 2d6+10 1d1+99 1d5+0 'pound'
 10 10 10 10
 NU 0 0 C
 stand stand either 10
@@ -569,7 +569,7 @@ around its teeth.
 ~
 fido~
 AFGHU 0 -200 0
-0 0 1d6+4 1d1+99 1d4+0 bite
+0 0 1d6+4 1d1+99 1d4+0 'bite'
 10 10 10 10
 0 0 0 0
 stand stand female 0
@@ -585,7 +585,7 @@ vagabond бродяга~
 ~
 human~
 ACS 0 -200 0
-5 1 2d6+60 1d1+99 1d6+1 punch
+5 1 2d6+60 1d1+99 1d6+1 'punch'
 7 5 5 10
 BJNQ 0 0 C
 stand stand male 18
@@ -602,7 +602,7 @@ drunk пьяница~
 ~
 human~
 AG 0 0 0
-2 -1 2d6+22 1d1+99 1d6+0 beating
+2 -1 2d6+22 1d1+99 1d6+0 'beating'
 8 8 8 10
 U 0 0 C
 stand stand male 65
@@ -618,7 +618,7 @@ beggar попрошайка~
 ~
 human~
 AB 0 0 0
-1 0 2d6+10 1d1+99 1d5+0 beating
+1 0 2d6+10 1d1+99 1d5+0 'beating'
 8 8 8 10
 FJNU 0 0 C
 stand stand female 0
@@ -637,7 +637,7 @@ cat кот~
 ~
 cat~
 AFGHU 0 -200 0
-1 1 1d6+4 1d1+99 1d4+0 scratch
+1 1 1d6+4 1d1+99 1d4+0 'scratch'
 8 8 8 9
 DR 0 0 C
 stand stand either 0
@@ -653,7 +653,7 @@ cityguard guard стражник~
 ~
 human~
 ABT 0 1000 3000
-15 3 15d15+160 1d1+149 2d4+4 punch
+15 3 15d15+160 1d1+149 2d4+4 'punch'
 0 0 0 8
 CDEKLTU 0 C 0
 stand stand either 150
@@ -669,7 +669,7 @@ cityguard guard стражник~
 ~
 human~
 ABT 0 1000 3000
-15 3 15d15+160 1d1+149 2d4+4 punch
+15 3 15d15+160 1d1+149 2d4+4 'punch'
 0 0 0 8
 CDEKLTU 0 C 0
 stand stand either 150
@@ -685,7 +685,7 @@ cityguard guard стражник~
 ~
 human~
 ABT BQ 1000 3000
-20 4 20d20+200 1d1+199 2d4+7 punch
+20 4 20d20+200 1d1+199 2d4+7 'punch'
 -4 -6 -6 0
 CDEHKLTU 0 C 0
 stand stand either 500
@@ -701,7 +701,7 @@ shopkeeper old man аптекарь~
 ~
 human~
 ABQRVe DEFHV 1000 0
-92 0 1d1+29599 1d1+999 10d10+20 magic
+92 0 1d1+29599 1d1+999 10d10+20 'magic'
 -65 -65 -65 -25
 FGH AB CD 0
 stand stand male 5000
@@ -718,7 +718,7 @@ cityguard guard стражник~
 ~
 human~
 ABT 0 1000 3000
-15 3 15d15+160 1d1+149 2d4+4 punch
+15 3 15d15+160 1d1+149 2d4+4 'punch'
 0 0 0 8
 CDEKLTU 0 C 0
 stand stand either 150
@@ -734,7 +734,7 @@ cityguard guard стражник~
 ~
 human~
 ABT 0 1000 3000
-15 3 15d15+160 1d1+149 2d4+4 punch
+15 3 15d15+160 1d1+149 2d4+4 'punch'
 0 0 0 8
 CDEKLTU 0 C 0
 stand stand either 150
@@ -750,7 +750,7 @@ kitten cat pet котенок~
 ~
 cat~
 ABIU 0 400 0
-1 2 2d6+11 1d1+99 1d4+0 scratch
+1 2 2d6+11 1d1+99 1d4+0 'scratch'
 8 8 8 10
 0 0 C 0
 stand stand male 0
@@ -766,7 +766,7 @@ puppy dog pet щенок~
 ~
 dog~
 ABIU F 400 0
-3 2 4d6+25 1d1+99 1d6+0 bite
+3 2 4d6+25 1d1+99 1d6+0 'bite'
 7 7 7 10
 N 0 C 0
 stand stand male 0
@@ -782,7 +782,7 @@ beagle dog pet гончая~
 ~
 dog~
 ABIU F 400 0
-5 3 3d12+50 1d1+99 1d6+0 bite
+5 3 3d12+50 1d1+99 1d6+0 'bite'
 5 5 5 9
 N 0 C 0
 stand stand female 0
@@ -798,7 +798,7 @@ rottweiler dog pet ротвейлер~
 ~
 dog~
 ABIU F 400 0
-7 3 6d10+60 1d1+149 2d4+1 bite
+7 3 6d10+60 1d1+149 2d4+1 'bite'
 4 4 4 8
 CDL 0 C 0
 stand stand male 0
@@ -814,7 +814,7 @@ wolf pet волк~
 ~
 wolf~
 ABIU F 0 0
-9 3 6d10+80 1d1+99 2d5+1 bite
+9 3 6d10+80 1d1+99 2d5+1 'bite'
 4 4 4 8
 C 0 C 0
 stand stand male 0
@@ -828,7 +828,7 @@ The eagle looks like a strong fierce fighter.
 ~
 song bird~
 ABIU FZ 0 0
-12 3 6d10+130 1d1+99 2d5+3 claw
+12 3 6d10+130 1d1+99 2d5+3 'claw'
 0 0 0 8
 N 0 C 0
 stand stand either 0
@@ -842,7 +842,7 @@ The great lion looks very fierce.
 ~
 cat~
 ABIU F 0 0
-15 2 4d9+205 1d1+99 2d8+3 chomp
+15 2 4d9+205 1d1+99 2d8+3 'chomp'
 -2 -2 -2 7
 C 0 C 0
 stand stand either 0
@@ -856,7 +856,7 @@ The large, striped tiger looks like a savage fighter.
 ~
 cat~
 ABIU F 0 0
-20 3 4d9+325 1d1+99 4d4+5 claw
+20 3 4d9+325 1d1+99 4d4+5 'claw'
 -4 -4 -4 6
 CMN 0 C 0
 stand stand either 0
@@ -874,7 +874,7 @@ for coming here more often.
 ~
 human~
 ABVe 0 1000 0
-23 2 1d1+499 1d1+99 1d8+12 beating
+23 2 1d1+499 1d1+99 1d8+12 'beating'
 -15 -15 -15 -15
 FG AB CD 0
 stand stand female 180
@@ -890,7 +890,7 @@ sexton могильщик~
 ~
 human~
 ABH 0 800 0
-3 0 2d6+35 1d1+99 1d7+0 punch
+3 0 2d6+35 1d1+99 1d7+0 'punch'
 7 7 7 10
 0 0 0 C
 sit sit male 75
@@ -906,7 +906,7 @@ swan лебедь~
 ~
 water fowl~
 ABU 0 1000 0
-1 0 2d6+10 1d1+99 1d5+0 peck
+1 0 2d6+10 1d1+99 1d5+0 'peck'
 8 8 8 10
 CFR 0 0 C
 stand stand either 0
@@ -922,7 +922,7 @@ duckling утенок~
 ~
 water fowl~
 ABU 0 1000 0
-0 0 1d4+0 1d1+99 1d1+0 peckb
+0 0 1d4+0 1d1+99 1d1+0 'peckb'
 10 10 10 10
 FR 0 0 C
 stand stand either 0
@@ -938,7 +938,7 @@ sparrow воробей~
 ~
 song bird~
 AGHU 0 1000 0
-0 0 2d6+0 1d1+99 1d3+0 peck
+0 0 2d6+0 1d1+99 1d3+0 'peck'
 10 10 10 10
 R 0 0 C
 stand stand either 0
@@ -954,7 +954,7 @@ duck утка~
 ~
 water fowl~
 AGU 0 1000 0
-1 0 2d6+5 1d1+99 1d4+0 peckb
+1 0 2d6+5 1d1+99 1d4+0 'peckb'
 10 10 10 10
 FR 0 0 C
 stand stand either 0
@@ -970,7 +970,7 @@ captain капитан~
 ~
 human~
 ABCFT D 1000 3000
-17 4 15d15+190 1d1+199 2d4+6 punch
+17 4 15d15+190 1d1+199 2d4+6 'punch'
 -2 -2 -2 6
 CDEHKLU 0 C 0
 stand stand male 500
@@ -986,7 +986,7 @@ cityguard guard стражник~
 ~
 human~
 ABCFT 0 1000 3000
-15 3 15d15+10 1d1+149 2d4+4 punch
+15 3 15d15+10 1d1+149 2d4+4 'punch'
 0 0 0 8
 CDEHKLU 0 C 0
 stand stand either 150
@@ -1006,7 +1006,7 @@ The Secretary says 'Please sit down and have a seat in the meantime'.
 ~
 human~
 AB 0 900 0
-12 2 4d12+148 1d1+99 2d7+1 slap
+12 2 4d12+148 1d1+99 2d7+1 'slap'
 0 0 0 8
 FHI 0 0 0
 sit sit female 100
@@ -1022,7 +1022,7 @@ mayor мэр~
 ~
 human~
 AB N 900 3000
-23 6 6d10+600 1d1+199 1d8+12 punch
+23 6 6d10+600 1d1+199 1d8+12 'punch'
 -25 -25 -25 -20
 EFNS AB CD 0
 sleep stand male 1000
@@ -1038,7 +1038,7 @@ crier плакальщик~
 ~
 human~
 AH 0 900 0
-1 0 2d6+10 1d1+99 1d5+0 slap
+1 0 2d6+10 1d1+99 1d5+0 'slap'
 10 10 10 10
 D 0 0 C
 stand stand male 14
@@ -1055,7 +1055,7 @@ smiles warmly at you.
 ~
 human~
 ABVe 0 900 0
-25 0 1d1+999 1d1+199 1d8+10 slap
+25 0 1d1+999 1d1+199 1d8+10 'slap'
 -15 -15 -15 -15
 FG AB CD 0
 stand stand male 1000
@@ -1077,7 +1077,7 @@ at you, smiling faintly.
 ~
 human~
 ABVe 0 900 0
-84 3 20d10+28800 1d1+399 13d60+60 slap
+84 3 20d10+28800 1d1+399 13d60+60 'slap'
 -65 -65 -65 -35
 FG AB CD 0
 stand stand male 8000
@@ -1097,7 +1097,7 @@ get him drunk.
 ~
 snake~
 ABV D 200 0
-35 3 11d10+1300 1d1+99 6d6+4 bite
+35 3 11d10+1300 1d1+99 6d6+4 'bite'
 -16 -15 -12 0
 FHNR 0 F 0
 stand stand male 0
@@ -1122,7 +1122,7 @@ of his fencing services are true...
 ~
 human~
 ABVdh DF 900 0
-75 0 1d1+28099 1d1+199 15d30+60 slap
+75 0 1d1+28099 1d1+199 15d30+60 'slap'
 -65 -65 -65 -35
 FG ABU CD 0
 stand stand male 1000
@@ -1138,7 +1138,7 @@ thief вор~
 ~
 human~
 ACHS PQ -100 0
-30 1 6d8+700 1d1+99 4d5+5 stab
+30 1 6d8+700 1d1+99 4d5+5 'stab'
 2 4 3 7
 EFJN 0 0 0
 stand stand either 100
@@ -1155,7 +1155,7 @@ he cuts the beef.
 ~
 human~
 ABVe H 900 0
-48 1 25d10+6250 1d1+999 6d18+16 none
+48 1 25d10+6250 1d1+999 6d18+16 'none'
 -35 -35 -35 -15
 EFJ AB CD 0
 stand stand female 7000
@@ -1175,7 +1175,7 @@ or carrying away what is needed and what is not.
 ~
 human~
 ABce HV 500 0
-12 1 6d8+300 1d1+99 4d10+5 beating
+12 1 6d8+300 1d1+99 4d10+5 'beating'
 2 4 3 7
 EFJN AB 0 0
 stand stand male 100
@@ -1196,7 +1196,7 @@ the altar, and concentrating, to cure the others wounds.
 ~
 human~
 ABKQRVaef DEFHZ 1000 0
-120 0 1d1+1700 1d1+2000 7d4+50 divine
+120 0 1d1+1700 1d1+2000 7d4+50 'divine'
 0 0 0 0
 FG ABCD ABCD 0
 stand stand female 0
@@ -1216,7 +1216,7 @@ safe place like this. He has a long, two-handed sword next to him.
 ~
 human~
 ABKRVe DEFZ 1000 0
-96 0 1d1+29099 1d1+999 20d48+64 slash
+96 0 1d1+29099 1d1+999 20d48+64 'slash'
 -80 -80 -80 -40
 FG ABD C 0
 stand stand male 0
@@ -1234,7 +1234,7 @@ over his body,  and carries strange equipment tied on his belt.
 ~
 human~
 ABKRVe DEFZ 0 0
-96 0 1d1+29099 1d1+999 20d48+64 slash
+96 0 1d1+29099 1d1+999 20d48+64 'slash'
 -80 -80 -80 -30
 FG AB CD 0
 stand stand male 0
@@ -1256,7 +1256,7 @@ willing to practice you, as long as you serve the evil.
 ~
 dark-elf~
 ABKRVe DEFZ -300 0
-96 0 1d1+29099 1d1+999 20d50+64 slash
+96 0 1d1+29099 1d1+999 20d50+64 'slash'
 -80 -80 -80 -40
 FG AB CD 0
 stand stand male 0
@@ -1276,7 +1276,7 @@ and you notice that she is surrounded by a blue shimmering aura.
 ~
 elf~
 ABKRVe DEFZ 0 0
-96 0 1d1+29099 1d1+999 20d48+64 magic
+96 0 1d1+29099 1d1+999 20d48+64 'magic'
 -85 -85 -85 -35
 FG ABD C 0
 stand stand female 0
@@ -1296,7 +1296,7 @@ safe place like this.
 ~
 human~
 ABKRVe DEFZ 1000 0
-96 0 1d1+29099 1d1+999 20d48+64 slash
+96 0 1d1+29099 1d1+999 20d48+64 'slash'
 -80 -80 -80 -40
 FG ABD C 0
 stand stand male 0
@@ -1311,7 +1311,7 @@ help 'religion' to see a listing of religions available.
 ~
 human~
 ABKQVe DFH 1000 0
-80 10 1d1+25999 1d1+999 12d44+60 divine
+80 10 1d1+25999 1d1+999 12d44+60 'divine'
 -95 -95 -95 -15
 FHIK ABC D 0
 stand stand male 5000

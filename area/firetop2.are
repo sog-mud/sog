@@ -18,7 +18,7 @@ quite ineffective at even this simple task.
 ~
 orc~
 ABCFG R -400 5701
-11 0 2d8+134 109d1+1 1d10+2 slice
+11 0 2d8+134 109d1+1 1d10+2 'slice'
 1 1 1 8
 CFI AB K P
 stand stand male 20
@@ -34,7 +34,7 @@ quite ineffective at even this simple task.
 ~
 orc~
 ABCFG R -400 5701
-11 0 2d8+134 109d1+1 1d10+2 slice
+11 0 2d8+134 109d1+1 1d10+2 'slice'
 1 1 1 8
 CFI AB K P
 sleep sleep male 20
@@ -50,7 +50,7 @@ lethal!
 ~
 snake~
 ABFG J 0 0
-10 0 2d7+121 99d1+1 2d4+2 claw
+10 0 2d7+121 99d1+1 2d4+2 'claw'
 1 1 1 8
 CFI AB K P
 stand stand either 20
@@ -67,7 +67,7 @@ senses.
 ~
 orc~
 ABCFG M -400 5701
-10 0 2d7+121 99d1+1 2d4+2 slice
+10 0 2d7+121 99d1+1 2d4+2 'slice'
 1 1 1 8
 CFI AB K P
 stand stand either 20
@@ -83,7 +83,7 @@ this area, and as such will be a tough foe.
 ~
 orc~
 ABCFG u -400 5701
-12 0 2d10+150 119d1+1 1d10+2 slice
+12 0 2d10+150 119d1+1 1d10+2 'slice'
 0 0 0 8
 CFI AB K P
 stand stand male 100
@@ -99,7 +99,7 @@ to slay the ungrateful little wretch.
 ~
 orc~
 ABCFH 0 0 5701
-10 0 2d7+121 99d1+1 2d4+2 slice
+10 0 2d7+121 99d1+1 2d4+2 'slice'
 1 1 1 8
 CFI AB K P
 stand stand male 20
@@ -115,7 +115,7 @@ have several companions...
 ~
 orc~
 ABCG 0 -400 5701
-11 0 2d8+134 109d1+1 1d10+2 slice
+11 0 2d8+134 109d1+1 1d10+2 'slice'
 1 1 1 8
 CFI AB K P
 stand stand male 20
@@ -132,7 +132,7 @@ quite harmless, but very filthy.
 ~
 human~
 ABCH JX 0 0
-8 0 2d7+96 79d1+1 1d7+2 pierce
+8 0 2d7+96 79d1+1 1d7+2 'pierce'
 3 3 3 9
 IR A 0 Y
 stand stand male 10
@@ -148,7 +148,7 @@ for the Dwarf's premature death!
 ~
 goblin~
 ABCFG 0 -600 0
-10 0 2d7+121 99d1+1 2d4+2 smash
+10 0 2d7+121 99d1+1 2d4+2 'smash'
 1 1 1 8
 IR A 0 Y
 stand stand male 10
@@ -163,7 +163,7 @@ aggressive, it will certainly attack if you seek to take its gem.
 ~
 giant~
 ABG DHJNO 0 0
-15 0 3d9+208 149d1+1 2d6+3 bite
+15 0 3d9+208 149d1+1 2d6+3 'bite'
 -2 -2 -2 7
 IR A 0 Y
 stand stand male 10
@@ -179,7 +179,7 @@ weighing in at 280 lbs, he is certainly a force to be reckoned with.
 ~
 giant~
 ABFG JNO 0 0
-12 0 2d10+150 119d1+1 1d10+3 crush
+12 0 2d10+150 119d1+1 1d10+3 'crush'
 0 0 0 8
 IR A 0 Y
 stand stand male 10
@@ -195,7 +195,7 @@ himself. He can sell you lighting equipment for the journey ahead.
 ~
 human~
 ABCGRe CDEFHNO 400 0
-30 0 6d12+853 299d1+1 4d6+8 scratch
+30 0 6d12+853 299d1+1 4d6+8 'scratch'
 -9 -9 -9 6
 0 0 0 0
 stand stand male 500
@@ -210,7 +210,7 @@ will not hesitate to kill you if you threaten him.
 ~
 human~
 ABCG DFHJNO 0 0
-13 0 2d10+170 129d1+1 2d5+3 punch
+13 0 2d10+170 129d1+1 2d5+3 'punch'
 -1 -1 -1 8
 IR A 0 P
 stand stand male 20
@@ -226,7 +226,7 @@ well!
 ~
 human~
 ABCFG EFJNO 0 0
-12 0 2d10+150 119d1+1 1d10+3 pound
+12 0 2d10+150 119d1+1 1d10+3 'pound'
 0 0 0 8
 IR AB 0 0
 stand stand male 0
@@ -242,7 +242,7 @@ be careful with this one.
 ~
 bat~
 ABCFG DJNO -400 0
-11 0 2d8+134 109d1+1 1d10+2 beating
+11 0 2d8+134 109d1+1 1d10+2 'beating'
 1 1 1 8
 IR AB 0 0
 stand stand either 0
@@ -259,7 +259,7 @@ venom dripping from its maw burns into the stone as it falls...
 ~
 human~
 ABFG DJ -400 0
-12 0 2d10+150 119d1+1 1d10+3 beating
+12 0 2d10+150 119d1+1 1d10+3 'beating'
 0 0 0 8
 IR AB 0 0
 stand stand male 0
@@ -275,7 +275,7 @@ should you so wish...
 ~
 troll~
 ABCG NO 0 5702
-13 0 2d10+170 129d1+1 2d5+3 pierce
+13 0 2d10+170 129d1+1 2d5+3 'pierce'
 -1 -1 -1 8
 IR 0 0 0
 stand stand male 20
@@ -292,7 +292,7 @@ think fo the germs you could be infecte dwith by this grotesque.
 ~
 troll~
 ABCFGQ NO -500 5702
-13 0 2d10+170 129d1+1 2d5+3 pierce
+13 0 2d10+170 129d1+1 2d5+3 'pierce'
 -1 -1 -1 8
 IR 0 0 0
 stand stand male 20
@@ -308,7 +308,7 @@ around your neck!
 ~
 human~
 ABFG DJ -400 0
-10 0 2d7+121 99d1+1 2d4+2 smash
+10 0 2d7+121 99d1+1 2d4+2 'smash'
 1 1 1 8
 0 0 AB 0
 stand stand male 30
@@ -323,7 +323,7 @@ about it.
 ~
 giant~
 ABFG JNO 0 0
-15 0 3d9+208 149d1+1 2d6+3 crush
+15 0 3d9+208 149d1+1 2d6+3 'crush'
 -2 -2 -2 7
 IR AB 0 0
 stand stand male 0
@@ -339,7 +339,7 @@ returns for another bite, which gives you a chance to attack it.
 ~
 human~
 ABFG J 0 0
-10 0 2d7+121 99d1+1 2d4+2 beating
+10 0 2d7+121 99d1+1 2d4+2 'beating'
 1 1 1 8
 IR 0 0 P
 stand stand either 30
@@ -354,7 +354,7 @@ lined with rows and rows of teeth, all ready to bite into you!.
 ~
 human~
 ABFG DJNO 0 0
-16 0 3d9+233 159d1+1 2d6+4 crush
+16 0 3d9+233 159d1+1 2d6+4 'crush'
 -2 -2 -2 7
 IR 0 0 0
 stand stand male 10
@@ -370,7 +370,7 @@ as will its many comrades.
 ~
 human~
 ABCG DNO 0 0
-12 0 2d10+150 119d1+1 2d5+3 pound
+12 0 2d10+150 119d1+1 2d5+3 'pound'
 0 0 0 8
 R 0 0 0
 stand stand male 10
@@ -387,7 +387,7 @@ physical blows, and its nauseating stench.
 ~
 human~
 ABCFGO DJNOu -1000 0
-14 0 2d10+190 139d1+1 1d12+3 slap
+14 0 2d10+190 139d1+1 1d12+3 'slap'
 -1 -1 -1 8
 IR AB 0 K
 stand stand male 100
@@ -403,7 +403,7 @@ perpetual undead existence.
 ~
 human~
 ABFG J 0 0
-11 0 2d8+134 109d1+1 1d10+2 blast
+11 0 2d8+134 109d1+1 1d10+2 'blast'
 1 1 1 8
 R A 0 0
 stand stand male 30
@@ -419,7 +419,7 @@ and has certain abilities that may catch you by surprise...
 ~
 dog~
 ABG DFJNO 0 0
-12 0 2d10+150 119d1+1 1d10+3 cleave
+12 0 2d10+150 119d1+1 1d10+3 'cleave'
 0 0 0 8
 0 0 0 0
 stand stand male 10
@@ -435,7 +435,7 @@ you initiate hostilities by attacking him or his dog.
 ~
 human~
 ABG HJNOR 0 0
-13 0 2d1+170 129d1+1 2d5+3 slice
+13 0 2d1+170 129d1+1 2d5+3 'slice'
 -1 -1 -1 8
 I AB 0 P
 stand stand male 50
@@ -450,7 +450,7 @@ attempting to slay and devour you!
 ~
 human~
 ABFG DJNO -500 0
-13 0 2d10+170 129d1+1 2d5+3 blast
+13 0 2d10+170 129d1+1 2d5+3 'blast'
 -1 -1 -1 8
 I AB 0 0
 stand stand male 10
@@ -466,7 +466,7 @@ you and then feat upon you at its leisure.
 ~
 human~
 ABCFGO DFJTu -1000 0
-17 0 3d9+258 169d1+1 3d4+4 smash
+17 0 3d9+258 169d1+1 3d4+4 'smash'
 -3 -3 -3 7
 IR AB K 0
 stand stand male 200
@@ -482,7 +482,7 @@ noxious smoke, and invites you to join in.
 ~
 dwarf~
 ABCG 0 400 0
-12 0 2d10+150 119d1+1 1d10+3 bite
+12 0 2d10+150 119d1+1 1d10+3 'bite'
 0 0 0 8
 0 AB P 0
 stand stand male 40
@@ -498,7 +498,7 @@ potentially dangerous foe.
 ~
 human~
 ABFG J -400 0
-14 0 2d10+190 139d1+1 1d12+3 bite
+14 0 2d10+190 139d1+1 1d12+3 'bite'
 -1 -1 -1 8
 R AB 0 0
 stand stand male 40
@@ -524,7 +524,7 @@ BATTLE UPDATE : adventurer killed by an enormous red dragon.
 ~
 dragon~
 ABCFG CDEFNOu -1000 0
-20 0 4d10+360 199d1+1 2d8+5 beating
+20 0 4d10+360 199d1+1 2d8+5 'beating'
 -4 -4 -4 7
 R AB 0 K
 stand stand male 500
@@ -540,7 +540,7 @@ waiting for you to move. Already, you know you are in for a heck of a fight...
 ~
 human~
 ABCGR CDEFJNOUu -1000 0
-23 0 5d10+450 229d1+1 3d6+6 pierce
+23 0 5d10+450 229d1+1 3d6+6 'pierce'
 -6 -6 -6 6
 R AB 0 K
 stand stand male 800
@@ -554,7 +554,7 @@ This hand rises up from the floor and begins to beat you!
 ~
 human~
 ABCFGS DJ 0 0
-10 0 2d7+121 99d1+1 2d4+2 slash
+10 0 2d7+121 99d1+1 2d4+2 'slash'
 1 1 1 8
 0 0 0 0
 stand stand either 0
@@ -569,7 +569,7 @@ pointed teeth in your body!
 ~
 human~
 ABFG DJ 0 0
-12 0 2d10+150 119d1+1 1d10+3 crush
+12 0 2d10+150 119d1+1 1d10+3 'crush'
 0 0 0 8
 0 0 0 0
 stand stand either 0
@@ -584,7 +584,7 @@ and as such is very hard to kill.
 ~
 human~
 ABFG DFJNOTu -1000 0
-15 0 3d9+208 149d1+1 1d12+3 punch
+15 0 3d9+208 149d1+1 1d12+3 'punch'
 -2 -2 -2 7
 0 0 0 0
 stand stand either 10

@@ -17,7 +17,7 @@ fur and has the ugliest teeth you have ever seen.
 ~
 human~
 AF c -500 0
-10 0 2d7+121 99d1+1 2d4+2 pound
+10 0 2d7+121 99d1+1 2d4+2 'pound'
 1 1 1 8
 BKP 0 0 C
 stand stand female 0
@@ -32,7 +32,7 @@ over as he tries to decide if you are a client or a salesman.
 ~
 elf~
 ABGe 0 -1 0
-12 0 2d10+150 119d1+1 1d10+3 pound
+12 0 2d10+150 119d1+1 1d10+3 'pound'
 0 0 0 8
 DE 0 0 0
 stand stand male 300000
@@ -46,7 +46,7 @@ This merchant has the Eye of the Tiger. "Welcome my friend," he says.
 ~
 dwarf~
 ABGe 0 -1 0
-12 0 2d10+150 119d1+1 1d10+3 pound
+12 0 2d10+150 119d1+1 1d10+3 'pound'
 0 0 0 8
 DE 0 0 0
 stand stand male 300000
@@ -61,7 +61,7 @@ almost to his calves.
 ~
 human~
 AGHe 0 90 0
-12 0 2d10+150 119d1+1 1d10+3 pound
+12 0 2d10+150 119d1+1 1d10+3 'pound'
 0 0 0 8
 NU 0 0 C
 stand stand either 300000
@@ -75,7 +75,7 @@ Many of the merchants you have seen throughout your life resemble this man.
 ~
 human~
 ACSe 0 -200 0
-5 1 2d6+60 1d1+99 1d6+1 punch
+5 1 2d6+60 1d1+99 1d6+1 'punch'
 7 5 5 10
 BJNQ 0 0 C
 stand stand male 300000
@@ -90,7 +90,7 @@ seen.  His ego is writing checks his character will never be able to cash.
 ~
 human~
 ACHS 0 -200 0
-7 0 2d6+85 69d1+1 1d8+1 punch
+7 0 2d6+85 69d1+1 1d8+1 'punch'
 4 4 4 9
 BJNQ 0 0 C
 stand stand male 140
@@ -105,7 +105,7 @@ sharp sword the security he provides comes mostly from his presence.
 ~
 human~
 ABT 0 1000 3000
-15 3 15d15+160 1d1+149 2d4+4 stab
+15 3 15d15+160 1d1+149 2d4+4 'stab'
 0 0 0 8
 CDELU 0 C 0
 stand stand male 2200
@@ -120,7 +120,7 @@ sneaking up on him.
 ~
 human~
 ABT 0 1000 3000
-15 3 15d15+160 1d1+149 2d4+4 slash
+15 3 15d15+160 1d1+149 2d4+4 'slash'
 0 0 0 8
 CDEKLTU 0 C 0
 stand stand male 1530
@@ -134,7 +134,7 @@ Without looking in his eye you have no idea how tough he would be.
 ~
 human~
 ABT 0 1000 3000
-17 0 3d9+258 169d1+1 3d4+4 pierce
+17 0 3d9+258 169d1+1 3d4+4 'pierce'
 -3 -3 -3 7
 CDEKLTU 0 C 0
 sleep sleep male 2502
@@ -149,7 +149,7 @@ world from those they determine are evil.
 ~
 human~
 ABT JN 1000 3000
-20 4 20d20+200 1d1+199 2d4+7 punch
+20 4 20d20+200 1d1+199 2d4+7 'punch'
 -4 -6 -6 0
 CDEHKLTU 0 C 0
 stand stand female 3200
@@ -163,7 +163,7 @@ This fat pig is very hungry. He eats just about ANYTHING.
 ~
 pig~
 ACGH Gb 500 0
-5 0 2d6+60 49d1+1 1d6+1 bite
+5 0 2d6+60 49d1+1 1d6+1 'bite'
 5 5 5 9
 BDEI 0 0 0
 stand stand either 35
@@ -178,7 +178,7 @@ puts a cigar in it's mouth, lights it, and asks, "So..what's up bub?"
 ~
 dog~
 AB F 400 0
-7 3 6d10+60 1d1+149 2d4+1 bite
+7 3 6d10+60 1d1+149 2d4+1 'bite'
 4 4 4 8
 CDL 0 C 0
 stand stand either 0
@@ -193,7 +193,7 @@ This chicken is so skinny it WOULDN'T provide enough meat for a soup.
 ~
 song bird~
 ACG NO 0 0
-35 0 10d10+1300 349d1+1 4d7+11 peck
+35 0 10d10+1300 349d1+1 4d7+11 'peck'
 -11 -11 -11 5
 ADIJ C C GL
 stand stand female 5000
@@ -208,7 +208,7 @@ From his buckskins to his fur cap he fits the part.
 ~
 human~
 ACS 0 -200 0
-5 1 2d6+60 1d1+99 1d6+1 punch
+5 1 2d6+60 1d1+99 1d6+1 'punch'
 7 5 5 10
 BJNQ 0 0 C
 stand stand male 181
@@ -223,7 +223,7 @@ to be in good health, her eyes are puffy and red.
 ~
 human~
 ACS 0 -200 0
-8 0 2d7+96 79d1+1 1d7+2 punch
+8 0 2d7+96 79d1+1 1d7+2 'punch'
 3 3 3 9
 BJNQ 0 0 C
 stand stand female 223
@@ -237,7 +237,7 @@ The Elven Man looks at you intently before continuing on his way.
 ~
 elf~
 ABR DEFZ 500 0
-13 0 2d10+170 129d1+1 2d5+3 magic
+13 0 2d10+170 129d1+1 2d5+3 'magic'
 -1 -1 -1 8
 FG A 0 0
 stand stand male 513
@@ -251,7 +251,7 @@ Looking into her eyes causes you great fear.
 ~
 elf~
 ABR DEFZ 500 0
-16 0 3d9+233 159d1+1 2d6+4 magic
+16 0 3d9+233 159d1+1 2d6+4 'magic'
 -2 -2 -2 7
 FG A 0 0
 stand stand female 300
@@ -265,7 +265,7 @@ Stand back!  She's about to blow!!!
 ~
 unique~
 ABT DF 900 0
-16 0 3d9+233 159d1+1 2d6+4 beating
+16 0 3d9+233 159d1+1 2d6+4 'beating'
 -2 -2 -2 7
 CDEIK A LQ R
 stand stand female 122
@@ -279,7 +279,7 @@ He looks back at you, then dismisses you as unimportant.
 ~
 unique~
 ABT DF 900 0
-19 0 3d9+308 189d1+1 2d7+5 punch
+19 0 3d9+308 189d1+1 2d7+5 'punch'
 -4 -4 -4 7
 CDEIK A LQ R
 stand stand male 444
@@ -296,7 +296,7 @@ to fight.
 ~
 goblin~
 AFG 0 -300 0
-12 0 2d10+150 119d1+1 1d10+3 slash
+12 0 2d10+150 119d1+1 1d10+3 'slash'
 0 0 0 8
 CI 0 L 0
 stand stand male 123

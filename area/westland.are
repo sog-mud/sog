@@ -23,7 +23,7 @@ running in your direction. YOU'D BETTER ACT FAST!
 ~
 dragon~
 ABFT Vb -1000 0
-60 0 50d10+6750 10d10+4000 8d6+28 acbite
+60 0 50d10+6750 10d10+4000 8d6+28 'acbite'
 -30 -30 -30 0
 BCDEFIKMN AB IJKO HQY
 stand stand male 300
@@ -44,7 +44,7 @@ running in your direction. YOU'D BETTER ACT FAST!
 ~
 dragon~
 ABFT Vb -1000 0
-46 0 25d10+3250 10d10+3000 6d6+16 acbite
+46 0 25d10+3250 10d10+3000 6d6+16 'acbite'
 -16 -16 -16 4
 BCDEFIKMN AB IJKO HQY
 stand stand male 300
@@ -65,7 +65,7 @@ running in your direction. YOU'D BETTER ACT FAST!
 ~
 dragon~
 ABFT Vb -947 0
-46 0 25d10+3250 10d10+3000 6d6+16 acbite
+46 0 25d10+3250 10d10+3000 6d6+16 'acbite'
 -16 -16 -16 4
 BCDEFIKMN AB IJKO HQY
 stand stand male 300
@@ -82,7 +82,7 @@ penetrate your skin.
 ~
 unique~
 ABT BGJTVb -200 0
-40 0 25d10+1850 10d10+3000 4d8+13 shbite
+40 0 25d10+1850 10d10+3000 4d8+13 'shbite'
 -13 -13 -13 5
 BCEFKO EJL J KM
 stand stand female 300
@@ -101,7 +101,7 @@ KILL!
 ~
 human~
 ABT Vb -1000 0
-55 0 50d10+5500 10d10+3000 10d4+23 wrath
+55 0 50d10+5500 10d10+3000 10d4+23 'wrath'
 -25 -25 -25 0
 BCDEFGHIKNUV AH BL J
 stand stand male 300
@@ -120,7 +120,7 @@ KILL!
 ~
 human~
 ABT Vb -1000 0
-56 0 50d10+6000 10d10+3000 10d4+24 wrath
+56 0 50d10+6000 10d10+3000 10d4+24 'wrath'
 -25 -25 -25 0
 BCDEFGHIKNUV AH BL J
 stand stand male 300
@@ -137,7 +137,7 @@ lady девушка молодая young~
 ~
 human~
 ABT Nb 850 0
-46 0 25d10+3250 10d10+3000 6d6+16 slap
+46 0 25d10+3250 10d10+3000 6d6+16 'slap'
 -16 -16 -16 4
 BCDEFGHIK AI 0 0
 stand stand female 300
@@ -155,7 +155,7 @@ would like to catch some fish to take home.
 ~
 human~
 ABT Nb 1000 0
-50 0 25d10+4250 10d10+3000 5d8+19 slap
+50 0 25d10+4250 10d10+3000 5d8+19 'slap'
 -20 -20 -20 0
 BCDEFGHIK AI 0 0
 stand stand male 300
@@ -175,7 +175,7 @@ him.
 ~
 human~
 ABT Nb 1000 0
-50 0 25d10+4250 10d10+3000 5d8+19 punch
+50 0 25d10+4250 10d10+3000 5d8+19 'punch'
 -20 -20 -20 0
 BCDEFGHIK AI 0 0
 stand stand male 300
@@ -198,7 +198,7 @@ Others say they can hear your heart beating.
 ~
 unique~
 AFGT UVZb -1000 0
-55 0 50d10+5500 10d10+3000 10d4+23 acbite
+55 0 50d10+5500 10d10+3000 10d4+23 'acbite'
 -25 -25 -25 0
 BCDEFGHIKNO 0 0 0
 stand stand female 300
@@ -222,7 +222,7 @@ want to get on your way.
 ~
 human~
 AFGT UVZb 1000 0
-60 0 50d10+6750 10d10+4000 8d6+28 smash
+60 0 50d10+6750 10d10+4000 8d6+28 'smash'
 -30 -30 -30 0
 BCDEFGHIKNO A 0 0
 stand stand male 300
@@ -242,7 +242,7 @@ his mind!
 ~
 human~
 AFGT UVZb 1000 0
-60 0 50d10+6750 10d10+4000 8d6+28 smash
+60 0 50d10+6750 10d10+4000 8d6+28 'smash'
 -30 -30 -30 0
 BCDEFGHIKN A 0 0
 stand stand male 300
@@ -263,7 +263,7 @@ smile on her face.
 ~
 human~
 ABQ FH 1000 0
-106 0 1d1+29000 1d1+11039 4d50+80 slap
+106 0 1d1+29000 1d1+11039 4d50+80 'slap'
 -99 -99 -99 -40
 KN ABINS BPQR 0
 stand stand female 0
@@ -284,7 +284,7 @@ is a good thing that he has a friendly character.
 ~
 human~
 AGT DFHJUVb 1000 0
-70 0 50d10+9750 10d10+4000 8d10+40 acbite
+70 0 50d10+9750 10d10+4000 8d10+40 'acbite'
 -40 -40 -40 -10
 BCDEFGHIJKN ABE BH C
 stand stand male 300
@@ -305,7 +305,7 @@ buildings.
 ~
 human~
 ACT CDGPQVd -902 0
-40 0 25d10+1850 10d10+3000 4d8+13 blast
+40 0 25d10+1850 10d10+3000 4d8+13 'blast'
 -13 -13 -13 5
 BCDEFGHIJKN 0 0 0
 stand stand male 300
@@ -326,7 +326,7 @@ place to live. OH WELL, life goes on.
 ~
 human~
 ABCH DVb 100 0
-46 0 25d10+3250 10d10+3000 6d6+10 blast
+46 0 25d10+3250 10d10+3000 6d6+10 'blast'
 -16 -16 -16 4
 BCDEFGHIJKN AB 0 0
 stand stand male 300
@@ -349,7 +349,7 @@ her for it!
 ~
 human~
 ABR CDEFJTV 1000 0
-109 0 1d1+29999 1d1+9382 5d50+90 magic
+109 0 1d1+29999 1d1+9382 5d50+90 'magic'
 -93 -93 -90 -43
 CDEFIKN IP E JK
 stand stand female 11300
@@ -372,7 +372,7 @@ guy even though he is slower than a turtle.
 ~
 human~
 ACGT JV -986 0
-92 0 50d10+19500 10d10+5200 15d10+62 blast
+92 0 50d10+19500 10d10+5200 15d10+62 'blast'
 -62 -62 -62 -29
 CDEFIKN IP E J
 stand stand none 300
@@ -392,7 +392,7 @@ very dangerous so I would keep my distance if I were you.
 ~
 human~
 ABCGT JV -1000 0
-99 0 50d10+29000 10d10+3029 4d50+80 wrath
+99 0 50d10+29000 10d10+3029 4d50+80 'wrath'
 -69 -69 -69 -30
 CDEFIKN IP F JK
 stand stand female 300
@@ -414,7 +414,7 @@ the underworld and will not stop at anything to let you pass.
 ~
 human~
 ABCGT JVu -1000 0
-119 0 50d10+29000 10d10+10203 20d15+100 wrath
+119 0 50d10+29000 10d10+10203 20d15+100 'wrath'
 -77 -77 -70 -40
 CDEFIKN IP 0 JK
 stand stand male 300
@@ -436,7 +436,7 @@ or will ever see.
 ~
 dragon~
 ABCGT Gu -1000 0
-119 0 50d10+29000 10d10+10203 20d15+100 wrath
+119 0 50d10+29000 10d10+10203 20d15+100 'wrath'
 -77 -77 -70 -40
 BCEFIKN IP IJK JK
 stand stand female 300
@@ -453,7 +453,7 @@ Rahl to stop you. Beware, his touch is poison.
 ~
 human~
 ACGT GJ -1000 0
-110 0 50d10+28000 10d10+10203 20d15+95 wrath
+110 0 50d10+28000 10d10+10203 20d15+95 'wrath'
 -77 -77 -70 -40
 CDFIKN IP 0 JK
 stand stand male 300
@@ -472,7 +472,7 @@ and looks to be quite poor, yet he runs this bar.
 ~
 human~
 ABCGTe GJ 1000 0
-50 0 25d10+4250 10d10+3000 5d8+19 wrath
+50 0 25d10+4250 10d10+3000 5d8+19 'wrath'
 -20 -20 -20 0
 BCDEFIN IP 0 JK
 stand stand male 300
@@ -490,7 +490,7 @@ to vomit.
 ~
 human~
 ABCGT GJ 102 0
-50 0 25d10+4250 10d10+3000 5d8+19 wrath
+50 0 25d10+4250 10d10+3000 5d8+19 'wrath'
 -20 -20 -20 0
 CDEFIKN IP 0 K
 stand stand male 300
@@ -508,7 +508,7 @@ you.
 ~
 human~
 ACGT GJ -1000 0
-60 0 50d10+6750 10d10+4000 8d6+28 bite
+60 0 50d10+6750 10d10+4000 8d6+28 'bite'
 -30 -30 -30 0
 CDEFKN IP D 0
 stand stand male 300
@@ -528,7 +528,7 @@ before he attacks you and your body is never be found again.
 ~
 unique~
 ABCGT GJ -1000 0
-30 0 6d12+853 1d1+100 4d6+8 bite
+30 0 6d12+853 1d1+100 4d6+8 'bite'
 -9 -9 -9 2
 CDEFIKN IP 0 0
 stand stand female 300
@@ -546,7 +546,7 @@ people dead as they walk by.
 ~
 unique~
 ACGT GJ -1000 0
-69 0 50d10+9500 10d10+1000 7d11+39 bite
+69 0 50d10+9500 10d10+1000 7d11+39 'bite'
 -40 -40 -40 -10
 CDEFIKN IP 0 0
 stand stand none 300
@@ -565,7 +565,7 @@ sorry for the little fellow but there isn't anything you can do.
 ~
 unique~
 ACGT GJ 1000 0
-11 0 1d1+130 1d1+100 1d10+2 bite
+11 0 1d1+130 1d1+100 1d10+2 'bite'
 1 1 1 9
 CDEFIKN IJP 0 0
 stand stand male 300
@@ -585,7 +585,7 @@ very frightening. You better leave quick.
 ~
 human~
 ABCGT GJ -1000 0
-120 0 50d10+28000 10d10+10203 20d15+95 wrath
+120 0 50d10+28000 10d10+10203 20d15+95 'wrath'
 -77 -77 -70 -40
 CDEFIKN IP I M
 stand stand female 300
@@ -605,7 +605,7 @@ from this person also.
 ~
 human~
 ABCGT GJ -1000 0
-110 0 50d10+28000 10d10+10203 20d15+95 wrath
+110 0 50d10+28000 10d10+10203 20d15+95 'wrath'
 -77 -77 -70 -40
 BCDEFIKN IP 0 0
 stand stand male 300
@@ -626,7 +626,7 @@ the world.
 ~
 human~
 ABCGT DGJu -1000 0
-125 0 50d10+28000 10d10+10203 20d15+95 wrath
+125 0 50d10+28000 10d10+10203 20d15+95 'wrath'
 -77 -77 -70 -40
 BCDEFIJKNO LP N K
 stand stand male 300
@@ -646,7 +646,7 @@ running in your direction. YOU'D BETTER ACT FAST!
 ~
 dragon~
 ABFT Vbu -1000 0
-70 0 50d10+5000 10d10+4000 8d6+28 acbite
+70 0 50d10+5000 10d10+4000 8d6+28 'acbite'
 -30 -30 -30 0
 BCDEFIKMN AB IJKO HQY
 stand stand male 350
@@ -666,7 +666,7 @@ very frightening. You better leave quick.
 ~
 human~
 ABCGT GJV -1000 0
-120 0 50d10+30000 10d10+10203 20d15+95 wrath
+120 0 50d10+30000 10d10+10203 20d15+95 'wrath'
 -77 -77 -70 -40
 CDEFIKN IP I M
 stand stand female 300

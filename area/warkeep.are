@@ -22,7 +22,7 @@ to his eyes, and the evil grin on his thin, cruel lips.
 ~
 human~
 ABDGH CDEFJNTu -1000 0
-30 0 6d12+853 5d5+1000 4d6+8 pound
+30 0 6d12+853 5d5+1000 4d6+8 'pound'
 -9 -9 -9 3
 FHIJKN 0 0 0
 stand stand male 1000
@@ -39,7 +39,7 @@ attractive if she didn't cackle insanely so much.
 ~
 human~
 ABGH DJN -1000 0
-28 0 6d12+703 5d5+1000 2d12+8 punch
+28 0 6d12+703 5d5+1000 2d12+8 'punch'
 -8 -8 -8 4
 EIK 0 0 0
 stand stand female 1000
@@ -56,7 +56,7 @@ green skinned monstrosity from the lower planes. Great.
 ~
 unique~
 ABDFG DJTu -1000 0
-35 0 10d10+1300 5d5+1000 4d7+11 slash
+35 0 10d10+1300 5d5+1000 4d7+11 'slash'
 -11 -11 -11 3
 EIKQ 0 0 0
 stand stand none 1000
@@ -70,7 +70,7 @@ This angry feline is Alara's familiar. Do away with it.
 ~
 cat~
 ABFGH DJN -1000 0
-10 0 2d7+121 5d5+100 2d4+2 beating
+10 0 2d7+121 5d5+100 2d4+2 'beating'
 1 1 1 7
 0 0 0 0
 stand stand female 1000
@@ -84,7 +84,7 @@ This angry bird is Baragar's familiar. Do away with it.
 ~
 song bird~
 ABFGH DJN -1000 0
-12 0 2d10+150 5d5+100 1d10+3 claw
+12 0 2d10+150 5d5+100 1d10+3 'claw'
 0 0 0 7
 0 0 0 0
 stand stand none 1000
@@ -100,7 +100,7 @@ allowed and which isn't.
 ~
 troll~
 A 0 -400 0
-25 0 5d10+550 5d5+1000 2d10+7 pound
+25 0 5d10+550 5d5+1000 2d10+7 'pound'
 -7 -7 -7 4
 EFIJKQ 0 0 0
 stand stand male 1000
@@ -115,7 +115,7 @@ a fact which irritates (and worries) Alara.
 ~
 golem~
 ABG HJN 0 0
-26 0 5d10+600 5d5+1000 3d7+7 pound
+26 0 5d10+600 5d5+1000 3d7+7 'pound'
 -7 -7 -7 4
 EFNU 0 0 0
 stand stand none 1000
@@ -130,7 +130,7 @@ about it...
 ~
 unique~
 ABFG DJu -500 0
-28 0 6d12+703 5d5+1000 2d12+8 charge
+28 0 6d12+703 5d5+1000 2d12+8 'charge'
 -8 -8 -8 4
 EFNU 0 0 0
 stand stand male 1000
@@ -147,7 +147,7 @@ mindless undead. That's what a charming guy he is.
 ~
 undead~
 AG 0 0 0
-15 0 3d9+208 5d5+100 2d6+3 punch
+15 0 3d9+208 5d5+100 2d6+3 'punch'
 -2 -2 -2 6
 EFN 0 0 0
 stand stand none 1000
@@ -165,7 +165,7 @@ Well, so does he.
 ~
 human~
 ABDG J -400 0
-18 0 3d9+283 5d5+1000 2d7+4 pound
+18 0 3d9+283 5d5+1000 2d7+4 'pound'
 -3 -3 -3 6
 CDEFIJKQ 0 0 0
 stand stand male 1000
@@ -181,7 +181,7 @@ gender. She is small, cute, and evil.
 ~
 human~
 ABGH JN -400 0
-21 0 4d10+360 5d5+1000 4d4+5 punch
+21 0 4d10+360 5d5+1000 4d4+5 'punch'
 -5 -5 -5 5
 EFU 0 0 0
 stand stand female 1000
@@ -196,7 +196,7 @@ beak. It hovers in the center of the room, glaring at you menacingly.
 ~
 unique~
 ABFG JT -800 0
-24 0 5d10+500 5d5+1000 2d10+6 charge
+24 0 5d10+500 5d5+1000 2d10+6 'charge'
 -6 -6 -6 4
 EFNU 0 0 0
 stand stand female 1000
@@ -211,7 +211,7 @@ potential thieves.
 ~
 human~
 ABFG JN -400 0
-22 0 5d10+400 5d5+1000 4d4+6 charge
+22 0 5d10+400 5d5+1000 4d4+6 'charge'
 -5 -5 -5 5
 EFNU 0 0 0
 stand stand none 1000
@@ -227,7 +227,7 @@ the same mistake twice, because they are usually dead.
 ~
 lizard~
 ABFG J 0 0
-19 0 3d9+308 5d5+1000 2d7+5 cleave
+19 0 3d9+308 5d5+1000 2d7+5 'cleave'
 -4 -4 -4 5
 EFNU 0 0 0
 stand stand none 1000
@@ -243,7 +243,7 @@ friendly.
 ~
 fido~
 ABFG JN -400 0
-16 0 3d9+233 5d5+1000 2d6+4 bite
+16 0 3d9+233 5d5+1000 2d6+4 'bite'
 -2 -2 -2 6
 ENQ 0 0 0
 stand stand none 1000
@@ -259,7 +259,7 @@ blooded, ruthless fanatics devoted to their ruler.
 ~
 human~
 ABFGH JN -1000 0
-20 0 3d9+333 5d5+1000 2d8+5 pound
+20 0 3d9+333 5d5+1000 2d8+5 'pound'
 -4 -4 -4 5
 EFIJKN 0 0 0
 stand stand female 1000
@@ -275,7 +275,7 @@ However, he'd be more than happy for you to complete the task for him.
 ~
 human~
 ABG DFHJPQ 400 0
-27 0 5d10+650 5d5+1000 5d4+7 pound
+27 0 5d10+650 5d5+1000 5d4+7 'pound'
 -8 -8 -8 4
 EFIJKN 0 0 0
 stand stand male 1000
@@ -291,7 +291,7 @@ the keep.
 ~
 fido~
 AGH J -400 0
-12 0 2d10+150 5d5+100 1d10+3 bite
+12 0 2d10+150 5d5+100 1d10+3 'bite'
 0 0 0 7
 EN 0 0 0
 stand stand male 0
@@ -306,7 +306,7 @@ and laborers helping to excavate the ancient lower cavers beneath the keep.
 ~
 ogre~
 A 0 -400 0
-18 0 3d9+283 5d5+1000 2d7+4 punch
+18 0 3d9+283 5d5+1000 2d7+4 'punch'
 -3 -3 -3 6
 FS 0 0 0
 stand stand male 0
@@ -321,7 +321,7 @@ labor here, and will not tolerate any interruptions.
 ~
 human~
 ABFG JN -500 0
-20 0 3d9+333 5d5+1000 2d8+5 pound
+20 0 3d9+333 5d5+1000 2d8+5 'pound'
 -4 -4 -4 5
 EFIJKNQ 0 0 0
 stand stand male 10000
@@ -337,7 +337,7 @@ the keep.
 ~
 unique~
 ABFG HJ 0 0
-22 0 5d10+400 5d5+1000 4d4+6 charge
+22 0 5d10+400 5d5+1000 4d4+6 'charge'
 -5 -5 -5 5
 EFNU 0 0 0
 stand stand none 0

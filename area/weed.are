@@ -17,7 +17,7 @@ smoke you.
 ~
 human~
 AGH DTu -500 0
-55 0 50d10+5500 5d5+5000 10d4+23 charge
+55 0 50d10+5500 5d5+5000 10d4+23 'charge'
 -25 -25 -25 -1
 EK 0 0 0
 stand stand female 0
@@ -33,7 +33,7 @@ fraction of this plant would be enough to keep you happy for a year.
 ~
 human~
 ABG DTu -500 0
-60 0 50d10+6750 5d5+5000 8d6+28 charge
+60 0 50d10+6750 5d5+5000 8d6+28 'charge'
 -30 -30 -30 -3
 EK 0 0 0
 stand stand male 0
@@ -48,7 +48,7 @@ day of work.
 ~
 human~
 AGH PT -350 0
-40 0 15d10+1850 5d5+1000 4d8+13 charge
+40 0 15d10+1850 5d5+1000 4d8+13 'charge'
 -13 -13 -13 3
 EK 0 0 0
 stand stand male 0
@@ -63,7 +63,7 @@ owner 5 years.
 ~
 human~
 AG T -350 0
-46 0 25d10+3250 5d5+1000 6d6+16 none
+46 0 25d10+3250 5d5+1000 6d6+16 'none'
 -16 -16 -16 2
 EK 0 0 0
 stand stand male 0
@@ -78,7 +78,7 @@ you by for an hour or two.
 ~
 human~
 AGH DT -250 0
-43 0 25d10+2500 5d5+1000 3d12+15 none
+43 0 25d10+2500 5d5+1000 3d12+15 'none'
 -15 -15 -15 2
 K 0 0 0
 stand stand male 0
@@ -95,7 +95,7 @@ wouldn't really care.
 ~
 human~
 AGH DP 350 0
-51 0 50d10+4500 5d5+5000 5d8+20 charge
+51 0 50d10+4500 5d5+5000 5d8+20 'charge'
 -21 -21 -21 0
 K 0 0 0
 stand stand male 0
@@ -110,7 +110,7 @@ A big Central American looks at you and says,
 ~
 human~
 AGJ PQ -300 0
-43 0 25d10+2500 5d5+1000 3d12+15 pound
+43 0 25d10+2500 5d5+1000 3d12+15 'pound'
 -15 -15 -15 2
 K 0 0 0
 stand stand male 0
@@ -125,7 +125,7 @@ the munchies.
 ~
 unique~
 AFG BD 0 0
-38 0 10d10+1600 5d5+1000 5d6+12 none
+38 0 10d10+1600 5d5+1000 5d6+12 'none'
 -13 -13 -13 3
 K 0 0 0
 stand stand none 0
@@ -139,7 +139,7 @@ He breaks into timeless verse singing,
 ~
 human~
 AG DHPT 500 0
-57 0 50d10+6000 5d5+5000 6d8+24 pound
+57 0 50d10+6000 5d5+5000 6d8+24 'pound'
 -27 -27 -27 -2
 CEIK 0 0 0
 stand stand male 0

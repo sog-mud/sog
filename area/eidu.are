@@ -18,7 +18,7 @@ samurai~
 ~
 human~
 AZ DFHlt 1000 0
-150 500 50000d1+10000 0d0+0 200d1+100 slash
+150 500 50000d1+10000 0d0+0 200d1+100 'slash'
 100 100 100 100
 0 0 0 0
 stand stand male 0
@@ -42,7 +42,7 @@ sam~
 ~
 human~
 AZ 0 1000 0
-20 0 0d0+0 0d0+0 0d0+0 none
+20 0 0d0+0 0d0+0 0d0+0 'none'
 1000 1000 1000 1000
 0 0 0 0
 stand stand none 0
@@ -55,7 +55,7 @@ rivulet~
 ~
 human~
 A 0 0 0
-0 0 0d0+0 0d0+0 0d0+0 none
+0 0 0d0+0 0d0+0 0d0+0 'none'
 0 0 0 0
 0 0 0 0
 stand stand none 0
@@ -71,7 +71,7 @@ grand katana of war~
 japan steel~
 weapon IMT AN
 sword 100 30 'pierce' D
-96 10 0 P
+40 10 0 P
 F A 0 0 V
 A
 18 300
@@ -134,7 +134,7 @@ A large axe is here, its blade stuck in the ground.~
 medicine steel~
 weapon 0 AN
 axe 9 9 'chop' DEI
-60 0 0 P
+40 0 0 P
 G none
 #44006
 hammer great sleep~
@@ -143,7 +143,7 @@ large wooden hammer hangs here.~
 wooden~
 wand 0 AO
 300 1000000 1000000 'terangreal' 0
-96 0 0 P
+40 0 0 P
 G none
 #44007
 kit fighter's first aid~
@@ -153,6 +153,8 @@ plastic~
 container 0 AL
 1000000 A 0 1000 1
 0 0 0 P
+A
+8 50
 A
 13 1000
 A

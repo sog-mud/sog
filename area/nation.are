@@ -20,7 +20,7 @@ swarm like flies upon the unwary.  Beware!"
 ~
 human~
 ABGe 0 0 0
-25 0 5d10+550 5d5+1000 2d10+7 punch
+25 0 5d10+550 5d5+1000 2d10+7 'punch'
 -7 -7 -7 4
 EN 0 0 0
 stand stand male 10
@@ -34,7 +34,7 @@ This Dwarf has been horribly mutilated.
 ~
 dwarf~
 AFG 0 0 0
-5 0 2d6+60 5d5+100 1d6+1 punch
+5 0 2d6+60 5d5+100 1d6+1 'punch'
 5 5 5 9
 E 0 0 0
 stand stand male 10
@@ -49,7 +49,7 @@ his capture and torture.
 ~
 elf~
 AFG 0 0 0
-5 0 2d6+60 5d5+100 1d6+1 punch
+5 0 2d6+60 5d5+100 1d6+1 'punch'
 5 5 5 9
 EN 0 0 0
 stand stand male 10
@@ -63,7 +63,7 @@ This youngster is walking around in a daze.
 ~
 human~
 AFG 0 0 0
-5 0 2d6+60 5d5+100 1d6+1 punch
+5 0 2d6+60 5d5+100 1d6+1 'punch'
 5 5 5 9
 EN 0 0 0
 stand stand male 10
@@ -79,7 +79,7 @@ to no clothes on.
 ~
 goblin~
 AG 0 0 0
-5 0 2d6+60 5d5+100 1d6+1 punch
+5 0 2d6+60 5d5+100 1d6+1 'punch'
 5 5 5 9
 EN 0 0 0
 stand stand male 10
@@ -96,7 +96,7 @@ circles with dots in the middle.
 ~
 goblin~
 AG 0 0 0
-8 0 2d7+96 5d5+100 1d7+2 punch
+8 0 2d7+96 5d5+100 1d7+2 'punch'
 3 3 3 8
 EN 0 0 0
 stand stand male 10
@@ -111,7 +111,7 @@ black hair and a green complexion completes the image.
 ~
 goblin~
 AG 0 0 0
-8 0 2d7+96 5d5+100 1d7+2 punch
+8 0 2d7+96 5d5+100 1d7+2 'punch'
 3 3 3 8
 EN 0 0 0
 stand stand female 10
@@ -126,7 +126,7 @@ upon his claws and fangs to do his work.
 ~
 goblin~
 AG 0 -300 0
-15 0 3d9+208 5d5+100 2d6+3 punch
+15 0 3d9+208 5d5+100 2d6+3 'punch'
 -2 -2 -2 6
 EN 0 0 0
 stand stand male 10
@@ -142,7 +142,7 @@ He doesn't notice your intense stare.
 ~
 goblin~
 AG 0 0 0
-20 0 3d9+333 5d5+1000 2d8+5 punch
+20 0 3d9+333 5d5+1000 2d8+5 'punch'
 -4 -4 -4 5
 EN 0 0 0
 stand stand male 10
@@ -157,7 +157,7 @@ covered in blue circles with dots in the center.
 ~
 goblin~
 AG 0 -500 0
-10 0 2d7+121 5d5+100 2d4+2 punch
+10 0 2d7+121 5d5+100 2d4+2 'punch'
 1 1 1 7
 EFN 0 0 0
 stand stand male 10

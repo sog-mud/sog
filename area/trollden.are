@@ -22,7 +22,7 @@ saliva dripping from the beast's jaw.  The guardian beast snarls again.
 ~
 dog~
 A 0 -200 0
-7 0 2d6+85 3d9+100 1d8+1 none
+7 0 2d6+85 3d9+100 1d8+1 'none'
 4 4 4 9
 0 0 0 0
 stand stand male 0
@@ -41,7 +41,7 @@ of yours!!
 ~
 troll~
 ABFG P -500 0
-6 0 2d7+71 3d9+100 1d7+1 none
+6 0 2d7+71 3d9+100 1d7+1 'none'
 4 4 4 9
 0 0 0 0
 sit stand male 25
@@ -60,7 +60,7 @@ His eyes dart toward you, as he realizes you are one third his size.
 ~
 human~
 ABCFG JP -500 0
-8 0 2d7+96 4d9+100 1d7+2 none
+8 0 2d7+96 4d9+100 1d7+2 'none'
 3 3 3 9
 EFNU 0 0 0
 stand stand male 75
@@ -78,7 +78,7 @@ He notices you and gargles "WANNA JOIN?".
 ~
 human~
 ABCF JP -100 0
-5 0 2d6+60 2d9+100 1d6+1 none
+5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
 EFNU 0 0 0
 sit stand male 12
@@ -94,7 +94,7 @@ You gasp as you realize you have intruded upon his acts of passion!
 ~
 giant~
 ABCFG JP -1000 0
-13 0 2d10+170 6d9+100 2d5+3 none
+13 0 2d10+170 6d9+100 2d5+3 'none'
 -1 -1 -1 8
 EFNR 0 0 0
 rest stand male 150
@@ -110,7 +110,7 @@ Her smiles turn into snarls as she screams at you!
 ~
 human~
 ABCFG JP -800 0
-11 0 2d8+134 5d9+100 1d10+2 none
+11 0 2d8+134 5d9+100 1d10+2 'none'
 1 1 1 8
 EFNU 0 0 0
 rest stand female 125
@@ -127,7 +127,7 @@ It moves quickly, from corpse to corpse.
 ~
 human~
 ACFH JPQ 0 0
-3 0 2d6+35 1d9+100 1d6+0 none
+3 0 2d6+35 1d9+100 1d6+0 'none'
 7 7 7 10
 EFNU 0 0 0
 stand stand male 0
@@ -144,7 +144,7 @@ jaw.  The roving beast snarls at you.
 ~
 human~
 ABCFG DJP -200 0
-7 0 2d6+85 3d9+100 1d8+1 none
+7 0 2d6+85 3d9+100 1d8+1 'none'
 4 4 4 9
 EFNU 0 0 0
 stand stand male 0
@@ -163,7 +163,7 @@ He advances toward you.
 ~
 troll~
 A P -500 0
-8 0 2d7+96 4d9+100 1d7+2 none
+8 0 2d7+96 4d9+100 1d7+2 'none'
 3 3 3 9
 0 0 0 0
 stand stand male 75

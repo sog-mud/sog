@@ -16,7 +16,7 @@ The defenseless goblin begs for mercy.
 ~
 goblin~
 ABH 0 -450 0
-1 0 2d6+10 0d9+100 1d4+0 none
+1 0 2d6+10 0d9+100 1d4+0 'none'
 9 9 9 10
 EFNR 0 0 0
 sleep sleep male 0
@@ -30,7 +30,7 @@ I doubt he is the type to give directions.
 ~
 human~
 ADFG DJ -1000 0
-10 0 2d7+121 5d9+100 2d4+2 none
+10 0 2d7+121 5d9+100 2d4+2 'none'
 1 1 1 8
 EFNU 0 0 0
 stand stand male 15
@@ -44,7 +44,7 @@ He looks pissed off!
 ~
 human~
 ABF DJ -1000 0
-14 0 2d10+190 7d9+100 1d12+3 none
+14 0 2d10+190 7d9+100 1d12+3 'none'
 -1 -1 -1 8
 EFNU 0 0 0
 stand stand male 50
@@ -58,7 +58,7 @@ The mage prepares to cast a spell ... at you!!
 ~
 human~
 ABFR DJ -1000 0
-15 0 2d10+190 15d9+100 1d10+3 none
+15 0 2d10+190 15d9+100 1d10+3 'none'
 -1 -1 -1 5
 FU 0 0 0
 stand stand male 100
@@ -72,7 +72,7 @@ I wouldn't want go get on her bad side!
 ~
 human~
 ABFQ DJ -1000 0
-17 0 3d9+258 17d9+100 2d6+4 none
+17 0 3d9+258 17d9+100 2d6+4 'none'
 -3 -3 -3 6
 EIKU 0 0 0
 stand stand female 200
@@ -86,7 +86,7 @@ The drow master is ALWAYS ready for a fight.
 ~
 human~
 ABF DJ -1000 0
-21 0 4d10+360 10d9+100 4d4+5 none
+21 0 4d10+360 10d9+100 4d4+5 'none'
 -5 -5 -5 7
 EFNU 0 0 0
 stand stand male 500
@@ -100,7 +100,7 @@ He definitely knows his way around in combat.
 ~
 human~
 ABF DJ -1000 0
-23 0 5d10+450 11d9+100 3d6+6 none
+23 0 5d10+450 11d9+100 3d6+6 'none'
 -6 -6 -6 6
 EFNU 0 0 0
 stand stand male 750
@@ -114,7 +114,7 @@ She looks really pissed off!
 ~
 human~
 ABF DJ -1000 0
-24 0 5d10+500 12d9+100 2d10+6 none
+24 0 5d10+500 12d9+100 2d10+6 'none'
 -6 -6 -6 6
 EFNU 0 0 0
 stand stand female 1500
@@ -128,7 +128,7 @@ She looks like she is about to rip your head off and eat it.
 ~
 human~
 ABFQ DJu -1000 0
-26 0 5d10+600 26d9+100 2d10+7 none
+26 0 5d10+600 26d9+100 2d10+7 'none'
 -7 -7 -7 5
 EIKU 0 0 0
 stand stand female 1500
@@ -142,7 +142,7 @@ The yochlol is not in a good mood.
 ~
 human~
 ABF DJu -1000 0
-35 0 10d10+1300 17d9+100 4d7+11 none
+35 0 10d10+1300 17d9+100 4d7+11 'none'
 -11 -11 -11 5
 EFNU 0 0 0
 stand stand female 1500
@@ -156,7 +156,7 @@ The drow guard blends so well with his environment, you barely see his form.
 ~
 human~
 ABF JQ -1000 0
-12 0 2d10+150 6d9+100 1d10+3 none
+12 0 2d10+150 6d9+100 1d10+3 'none'
 0 0 0 8
 EFNU 0 0 0
 stand stand male 250
@@ -170,7 +170,7 @@ The drow scout blends so well with her environment, you barely see her form.
 ~
 human~
 AFH JPQ -1000 0
-11 0 2d8+134 5d9+100 1d10+2 none
+11 0 2d8+134 5d9+100 1d10+2 'none'
 1 1 1 8
 EFNU 0 0 0
 stand stand female 50

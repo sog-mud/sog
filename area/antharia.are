@@ -17,7 +17,7 @@ being can keep the peace...his presence is enough in itself.
 ~
 human~
 AGT bz 800 0
-25 0 5d10+550 5d5+1000 2d10+7 pound
+25 0 5d10+550 5d5+1000 2d10+7 'pound'
 -7 -7 -7 4
 CDEKLTU 0 C 0
 stand stand male 1000
@@ -33,7 +33,7 @@ god of the Antharians.
 ~
 human~
 AQ bz 1000 0
-35 0 10d10+1300 5d5+1000 4d7+11 wrath
+35 0 10d10+1300 5d5+1000 4d7+11 'wrath'
 -11 -11 -11 3
 EFK 0 0 0
 stand stand male 1000
@@ -50,7 +50,7 @@ content.
 ~
 human~
 ACG bz 0 0
-10 0 2d7+121 5d5+100 2d4+2 charge
+10 0 2d7+121 5d5+100 2d4+2 'charge'
 1 1 1 7
 0 0 0 0
 stand stand none 1000
@@ -68,7 +68,7 @@ daily schedule.
 ~
 human~
 AG bz 0 0
-15 0 3d9+208 5d5+100 2d6+3 punch
+15 0 3d9+208 5d5+100 2d6+3 'punch'
 -2 -2 -2 6
 0 0 0 0
 stand stand male 1000
@@ -86,7 +86,7 @@ daily schedule.
 ~
 human~
 AG bz 0 0
-16 0 3d9+208 5d5+100 2d6+3 punch
+16 0 3d9+208 5d5+100 2d6+3 'punch'
 -2 -2 -2 6
 0 0 0 0
 stand stand female 1000
@@ -102,7 +102,7 @@ into the fray to play with them.
 ~
 human~
 AG bz 0 0
-9 0 2d6+110 5d5+100 1d8+2 punch
+9 0 2d6+110 5d5+100 1d8+2 'punch'
 2 2 2 7
 0 0 0 0
 stand stand male 1000
@@ -118,7 +118,7 @@ their games.
 ~
 human~
 A bz 0 0
-9 0 2d6+110 5d5+100 1d8+2 punch
+9 0 2d6+110 5d5+100 1d8+2 'punch'
 2 2 2 7
 0 0 0 0
 stand stand female 1000
@@ -135,7 +135,7 @@ ceremony in the Temple of Anthar.
 ~
 human~
 A bz 0 0
-42 0 25d10+2250 5d5+1000 3d12+14 slash
+42 0 25d10+2250 5d5+1000 3d12+14 'slash'
 -14 -14 -14 3
 CDEFIJK 0 0 0
 stand stand male 1000
@@ -151,7 +151,7 @@ to make sure that law and order is maintained, and so it shall.
 ~
 human~
 AG Dbz 250 0
-32 0 10d10+1000 5d5+1000 6d4+9 pound
+32 0 10d10+1000 5d5+1000 6d4+9 'pound'
 -10 -10 -10 3
 CDEFIJK 0 0 0
 stand stand male 1000
@@ -169,7 +169,7 @@ Temple.
 ~
 human~
 ABe bz 400 0
-70 0 50d10+18500 5d5+5000 17d9+60 pound
+70 0 50d10+18500 5d5+5000 17d9+60 'pound'
 -60 -60 -60 -27
 CEFIJK 0 0 0
 stand stand male 1000
@@ -185,7 +185,7 @@ in this underwater world is not easy.
 ~
 human~
 ABe bz 500 0
-70 0 50d10+18500 5d5+5000 17d9+60 pound
+70 0 50d10+18500 5d5+5000 17d9+60 'pound'
 -60 -60 -60 -27
 CDEFIJK 0 0 0
 stand stand male 1000
@@ -202,7 +202,7 @@ portrait of death.
 ~
 human~
 ABT bz 800 0
-32 0 10d10+1000 5d5+1000 6d4+9 pound
+32 0 10d10+1000 5d5+1000 6d4+9 'pound'
 -10 -10 -10 3
 CDEFIK 0 0 0
 stand stand male 1000
@@ -219,7 +219,7 @@ rightly so -- for their's is the best.
 ~
 human~
 ABTe bz 500 0
-70 0 50d10+18500 5d5+5000 17d9+60 pound
+70 0 50d10+18500 5d5+5000 17d9+60 'pound'
 -60 -60 -60 -27
 CDEFIJK 0 0 0
 stand stand male 1000
@@ -236,7 +236,7 @@ much of this lost magic as possible.
 ~
 human~
 ABUe Nbz 400 0
-65 0 50d10+18500 5d5+5000 17d9+60 pound
+65 0 50d10+18500 5d5+5000 17d9+60 'pound'
 -60 -60 -60 -27
 CDEFIJK 0 0 0
 stand stand female 1000
@@ -251,7 +251,7 @@ from the human race here in Antharia.
 ~
 human~
 ABP bz 0 0
-40 0 15d10+1850 5d5+1000 4d8+13 pound
+40 0 15d10+1850 5d5+1000 4d8+13 'pound'
 -13 -13 -13 3
 CEFIJ 0 0 0
 stand stand female 1000
@@ -266,7 +266,7 @@ from the druids here in Antharia.
 ~
 human~
 ABN bz 0 0
-40 0 15d10+1850 5d5+1000 4d8+13 pound
+40 0 15d10+1850 5d5+1000 4d8+13 'pound'
 -13 -13 -13 3
 CEFIJK 0 0 0
 stand stand male 1000
@@ -281,7 +281,7 @@ representative from the Kender race here in Antharia.
 ~
 human~
 ABO bz 0 0
-40 0 15d10+1850 5d5+1000 4d8+13 pound
+40 0 15d10+1850 5d5+1000 4d8+13 'pound'
 -13 -13 -13 3
 CEFIJK 0 0 0
 stand stand female 1000
@@ -297,7 +297,7 @@ from visitors.
 ~
 human~
 AB bz 0 0
-40 0 15d10+1850 5d5+1000 4d8+13 pound
+40 0 15d10+1850 5d5+1000 4d8+13 'pound'
 -13 -13 -13 3
 CEFIJKQ 0 0 0
 stand stand male 1000
@@ -312,7 +312,7 @@ the elven race here in Antharia.
 ~
 elf~
 ABK bz 0 0
-40 0 15d10+1850 5d5+1000 4d8+13 pound
+40 0 15d10+1850 5d5+1000 4d8+13 'pound'
 -13 -13 -13 3
 CEFIJK 0 0 0
 stand stand female 1000
@@ -327,7 +327,7 @@ from the Dwarven race here in Antharia.
 ~
 dwarf~
 ABQ bz 0 0
-40 0 15d10+1850 5d5+1000 4d8+13 pound
+40 0 15d10+1850 5d5+1000 4d8+13 'pound'
 -13 -13 -13 3
 CEFIJK 0 0 0
 stand stand male 1000
@@ -342,7 +342,7 @@ representative from the Illithid race here in Antharia.
 ~
 human~
 ABE bz 0 0
-40 0 15d10+1850 5d5+1000 4d8+13 pound
+40 0 15d10+1850 5d5+1000 4d8+13 'pound'
 -13 -13 -13 3
 CEFIJK 0 0 0
 stand stand female 1000
@@ -357,7 +357,7 @@ representative from the avian race here in Antharia.
 ~
 human~
 ABY bz 0 0
-40 0 15d10+1850 5d5+1000 4d8+13 pound
+40 0 15d10+1850 5d5+1000 4d8+13 'pound'
 -13 -13 -13 3
 CEFIJK 0 0 0
 stand stand female 1000

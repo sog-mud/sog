@@ -22,7 +22,7 @@ decades of devotion and training, he is almost perfect at many skills.
 ~
 human~
 ABJKWef DFHJVZlmt 0 0
-92 60 1d500+25000 1d200+1600 10d40+50 none
+92 60 1d500+25000 1d200+1600 10d40+50 'none'
 -70 -70 -70 -20
 ACEFIKNOU AB 0 S
 stand stand male 5000
@@ -43,7 +43,7 @@ gods for the balance on Shades of Gray.
 ~
 human~
 ABWa DFHJVZ 0 0
-80 20 1d100+18000 1d300+900 15d30+40 divine
+80 20 1d100+18000 1d300+900 15d30+40 'divine'
 -65 -65 -61 -39
 CEFNU AB C S
 stand stand male 0

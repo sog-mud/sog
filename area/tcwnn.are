@@ -19,7 +19,7 @@ show you the cost of each service".
 ~
 human~
 ABGKe HN 1000 0
-80 5 50d10+23500 5d5+5000 13d9+50 divine
+80 5 50d10+23500 5d5+5000 13d9+50 'divine'
 -60 -60 -60 -13
 FHKN AB 0 0
 stand stand male 1000
@@ -36,7 +36,7 @@ skills or spells you may learn here".
 ~
 human~
 ABG HN 1000 0
-10 0 2d7+121 5d5+100 2d4+2 pound
+10 0 2d7+121 5d5+100 2d4+2 'pound'
 1 1 1 7
 F 0 0 0
 stand stand male 1000
@@ -52,7 +52,7 @@ nuthin' I can help ye with".
 ~
 human~
 ABG CDEFHN 1000 0
-60 0 50d10+13500 5d5+5000 13d9+50 pound
+60 0 50d10+13500 5d5+5000 13d9+50 'pound'
 -50 -50 -50 -13
 FHKN AB 0 0
 stand stand male 1000
@@ -72,7 +72,7 @@ free valuation".
 ~
 human~
 ABGe HN 1000 0
-70 0 50d10+13500 5d5+5000 13d9+50 pound
+70 0 50d10+13500 5d5+5000 13d9+50 'pound'
 -50 -50 -50 -13
 FHKN AB 0 0
 stand stand male 1000
@@ -90,7 +90,7 @@ I'll let you know what its worth for free".
 ~
 human~
 ABGe HN 1000 0
-70 0 50d10+13500 5d5+5000 13d9+50 pound
+70 0 50d10+13500 5d5+5000 13d9+50 'pound'
 -50 -50 -50 -13
 FHKN AB 0 0
 stand stand male 1000
@@ -105,7 +105,7 @@ to hire 'im. That's it. Now pay up or get out".
 ~
 human~
 ABGe HN 1000 0
-70 0 50d10+13500 5d5+5000 13d9+50 pound
+70 0 50d10+13500 5d5+5000 13d9+50 'pound'
 -50 -50 -50 -13
 FKN 0 0 0
 stand stand male 1000
@@ -122,7 +122,7 @@ a free evaluation of the item- simply type VALUE <item>".
 ~
 human~
 ABGe HN 1000 0
-80 0 50d10+13500 5d5+5000 13d9+50 pound
+80 0 50d10+13500 5d5+5000 13d9+50 'pound'
 -50 -50 -50 -13
 FHKN AB 0 0
 stand stand female 1000
@@ -140,7 +140,7 @@ eh? Hmmph... Anyway..."
 ~
 human~
 ABG CDEFHN 1000 0
-60 0 50d10+13500 5d5+5000 13d9+50 slash
+60 0 50d10+13500 5d5+5000 13d9+50 'slash'
 -50 -50 -50 -13
 FHKN AB 0 0
 stand stand male 1000
@@ -158,7 +158,7 @@ you want it to have to the same line, i.e, BUY mouse harold".
 ~
 human~
 ABGe HN 1000 0
-80 0 50d10+13500 5d5+5000 13d9+50 slap
+80 0 50d10+13500 5d5+5000 13d9+50 'slap'
 -50 -50 -50 -13
 FHKN AB 0 0
 stand stand male 1000
@@ -175,7 +175,7 @@ spells you may learn here".
 ~
 elf~
 ABGK HN 1000 0
-10 0 2d7+121 5d5+100 2d4+2 pound
+10 0 2d7+121 5d5+100 2d4+2 'pound'
 1 1 1 7
 F 0 0 0
 stand stand male 1000
@@ -192,7 +192,7 @@ a free evaluation of the item- simply type VALUE <item>".
 ~
 human~
 ABGe HN 1000 0
-60 0 50d10+13500 5d5+5000 13d9+50 pound
+60 0 50d10+13500 5d5+5000 13d9+50 'pound'
 -50 -50 -50 -13
 FHKN AB 0 0
 stand stand female 1000
@@ -209,7 +209,7 @@ I might wanna buy, type SELL <item>. Now buy up!"
 ~
 human~
 ABGe HN 1000 0
-60 0 50d10+13500 5d5+5000 13d9+50 blast
+60 0 50d10+13500 5d5+5000 13d9+50 'blast'
 -50 -50 -50 -13
 FHKN 0 0 0
 stand stand male 1000
@@ -225,7 +225,7 @@ you fancy, well, then type BUY <item>. OK?"
 ~
 human~
 ABGe HN 1000 0
-60 0 50d10+13500 5d5+5000 13d9+50 pound
+60 0 50d10+13500 5d5+5000 13d9+50 'pound'
 -50 -50 -50 -13
 FHKN 0 0 0
 stand stand male 1000
@@ -242,7 +242,7 @@ you can kill KIll KILL!"
 ~
 dwarf~
 ABGQ HN 1000 0
-10 0 2d7+121 5d5+100 2d4+2 pound
+10 0 2d7+121 5d5+100 2d4+2 'pound'
 1 1 1 7
 F 0 0 0
 stand stand male 1000
@@ -259,7 +259,7 @@ what I can teach you, and PRAC skill to learn one of the skills shown."
 ~
 human~
 ABCGO HJN 1000 0
-10 0 2d7+121 5d5+100 2d4+2 pound
+10 0 2d7+121 5d5+100 2d4+2 'pound'
 1 1 1 7
 F 0 0 0
 stand stand male 1000
@@ -274,7 +274,7 @@ Honest, Reliable and Courteous (yeah right).
 ~
 human~
 ABGe HN 0 0
-55 0 50d10+8250 5d5+5000 11d5+35 pound
+55 0 50d10+8250 5d5+5000 11d5+35 'pound'
 -35 -35 -35 -5
 F 0 0 0
 stand stand male 1000
@@ -289,7 +289,7 @@ Honest, Reliable and Courteous (yeah right).
 ~
 elf~
 ABGe HN 0 0
-60 0 50d10+8250 5d5+5000 11d5+35 pound
+60 0 50d10+8250 5d5+5000 11d5+35 'pound'
 -35 -35 -35 -5
 FKN 0 0 0
 stand stand male 1000
@@ -304,7 +304,7 @@ Honest, Reliable and Courteous (yeah right).
 ~
 dwarf~
 ABGe HN 0 0
-60 0 50d10+8250 5d5+5000 11d5+35 pound
+60 0 50d10+8250 5d5+5000 11d5+35 'pound'
 -35 -35 -35 -5
 FHKN 0 0 0
 stand stand male 1000
@@ -319,7 +319,7 @@ Honest, Reliable and Courteous (yeah right).
 ~
 human~
 ABGe HJN 0 0
-60 0 50d10+8250 5d5+5000 11d5+35 pound
+60 0 50d10+8250 5d5+5000 11d5+35 'pound'
 -35 -35 -35 -5
 FHKN 0 0 0
 stand stand male 1000
@@ -333,7 +333,7 @@ The mouse looks like a cute, little, fierce fighter.
 ~
 rabbit~
 AI 0 400 0
-4 0 2d7+46 5d5+100 1d5+1 bite
+4 0 2d7+46 5d5+100 1d5+1 'bite'
 6 6 6 9
 0 0 0 0
 stand stand none 1000
@@ -347,7 +347,7 @@ The badger looks like a fierce fighter.
 ~
 rabbit~
 AI 0 400 0
-10 0 2d7+121 5d5+100 2d4+2 charge
+10 0 2d7+121 5d5+100 2d4+2 'charge'
 1 1 1 7
 0 0 0 0
 stand stand none 1000
@@ -361,7 +361,7 @@ The eagle looks like a fierce fighter.
 ~
 song bird~
 AI 0 400 0
-15 0 3d9+208 5d5+100 2d6+3 claw
+15 0 3d9+208 5d5+100 2d6+3 'claw'
 -2 -2 -2 6
 0 0 0 0
 stand stand either 1000
@@ -375,7 +375,7 @@ The grizzly bear looks like a strong, fierce fighter.
 ~
 bear~
 AI 0 0 0
-20 0 3d9+333 5d5+1000 2d8+5 claw
+20 0 3d9+333 5d5+1000 2d8+5 'claw'
 -4 -4 -4 5
 CF 0 0 0
 stand stand either 1000
@@ -389,7 +389,7 @@ The elephant is a BAD ASS.
 ~
 human~
 AI 0 0 0
-30 0 6d12+853 5d5+1000 4d6+8 charge
+30 0 6d12+853 5d5+1000 4d6+8 'charge'
 -9 -9 -9 3
 CF 0 0 0
 stand stand either 1000
@@ -404,7 +404,7 @@ will with your weapons.
 ~
 human~
 ABG HJN 0 0
-60 0 50d10+13500 5d5+5000 13d9+50 pound
+60 0 50d10+13500 5d5+5000 13d9+50 'pound'
 -50 -50 -50 -13
 FKN 0 0 0
 stand stand male 1000
@@ -420,7 +420,7 @@ AOD apparently practices safe sex...
 ~
 human~
 ACGe DFJ 0 0
-60 5 50d10+15500 5d5+5000 13d9+50 pound
+60 5 50d10+15500 5d5+5000 13d9+50 'pound'
 -50 -50 -50 -13
 FK 0 0 0
 stand stand male 1000
@@ -437,7 +437,7 @@ have a NICE cranium..."
 ~
 human~
 ABEG HN 0 0
-10 0 2d7+121 5d5+100 2d4+2 pound
+10 0 2d7+121 5d5+100 2d4+2 'pound'
 1 1 1 7
 F 0 0 0
 stand stand male 1000
@@ -455,7 +455,7 @@ arts".
 ~
 human~
 ABGK HN 1000 0
-10 0 2d7+121 5d5+100 2d4+2 pound
+10 0 2d7+121 5d5+100 2d4+2 'pound'
 1 1 1 7
 F 0 0 0
 stand stand male 1000
@@ -471,7 +471,7 @@ type PRAC <skill>. *>SQWAAK<*"
 ~
 human~
 ABGY HN 1000 0
-10 0 2d7+121 5d5+100 2d4+2 pound
+10 0 2d7+121 5d5+100 2d4+2 'pound'
 1 1 1 7
 F 0 0 0
 stand stand female 1000
@@ -486,7 +486,7 @@ Honest, Reliable and Courteous (yeah right).
 ~
 human~
 ABGe HN 0 0
-60 0 50d10+8250 5d5+5000 11d5+35 pound
+60 0 50d10+8250 5d5+5000 11d5+35 'pound'
 -35 -35 -35 -5
 FHKN AB 0 0
 stand stand none 1000
@@ -501,7 +501,7 @@ Honest, Reliable and Courteous (yeah right).
 ~
 human~
 ABGe HN 0 0
-55 0 50d10+8250 5d5+5000 11d5+35 pound
+55 0 50d10+8250 5d5+5000 11d5+35 'pound'
 -35 -35 -35 -5
 FKN 0 0 0
 stand stand male 1000
@@ -516,7 +516,7 @@ Honest, Reliable and Courteous (yeah right).
 ~
 human~
 ABGe HN 0 0
-55 0 50d10+8250 5d5+5000 11d5+35 pound
+55 0 50d10+8250 5d5+5000 11d5+35 'pound'
 -35 -35 -35 -5
 FKN 0 0 0
 stand stand female 1000
@@ -533,7 +533,7 @@ of combat, he is not a man to be toyed with.
 ~
 human~
 AG CDHJN 1000 0
-55 0 50d10+8250 5d5+5000 11d5+35 pound
+55 0 50d10+8250 5d5+5000 11d5+35 'pound'
 -35 -35 -35 -5
 FKN 0 0 0
 stand stand male 1000
@@ -548,7 +548,7 @@ of residents, such as this fellow.
 ~
 human~
 AG 0 0 0
-5 0 2d6+60 5d5+100 1d6+1 punch
+5 0 2d6+60 5d5+100 1d6+1 'punch'
 5 5 5 9
 0 0 0 0
 stand stand male 1000
@@ -563,7 +563,7 @@ of residents, such as this lady.
 ~
 human~
 AG 0 0 0
-5 0 2d6+60 5d5+100 1d6+1 punch
+5 0 2d6+60 5d5+100 1d6+1 'punch'
 5 5 5 9
 0 0 0 0
 stand stand female 1000
@@ -579,7 +579,7 @@ visitors, who find the spoiled brats insufferable.
 ~
 human~
 AG 0 0 0
-5 0 2d6+60 5d5+100 1d6+1 punch
+5 0 2d6+60 5d5+100 1d6+1 'punch'
 5 5 5 9
 0 0 0 0
 stand stand male 1000
@@ -594,7 +594,7 @@ YOUR crap? Grumble grumble... and these BLOODSTAINS! *SIGH*"
 ~
 human~
 AG D 900 0
-5 0 2d6+60 5d5+100 1d6+1 punch
+5 0 2d6+60 5d5+100 1d6+1 'punch'
 5 5 5 9
 0 0 0 0
 stand stand male 1000
@@ -608,7 +608,7 @@ The footpad skulks about, looking for someone to conk over the head.
 ~
 human~
 ACG J -200 0
-5 0 2d6+60 5d5+100 1d6+1 punch
+5 0 2d6+60 5d5+100 1d6+1 'punch'
 5 5 5 9
 0 0 0 0
 stand stand male 1000
@@ -622,7 +622,7 @@ A drunk who seems to be too happy, and to carry too much money. He mumbles somet
 ~
 human~
 AG J 400 0
-5 0 2d6+60 5d5+100 1d6+1 punch
+5 0 2d6+60 5d5+100 1d6+1 'punch'
 5 5 5 9
 0 0 0 0
 stand stand male 1000
@@ -636,7 +636,7 @@ A beggar is here, well... begging.
 ~
 human~
 ABG 0 400 0
-5 0 2d6+60 5d5+100 1d6+1 punch
+5 0 2d6+60 5d5+100 1d6+1 'punch'
 5 5 5 9
 0 0 0 0
 stand stand male 1000
@@ -650,7 +650,7 @@ This clever fellow has robbed dozens of unsuspecting visitors to Anon.
 ~
 human~
 AGH CJPQU 0 0
-10 0 2d7+121 5d5+100 2d4+2 punch
+10 0 2d7+121 5d5+100 2d4+2 'punch'
 1 1 1 7
 F 0 0 0
 stand stand male 1000
@@ -664,7 +664,7 @@ The beastly fido is foaming at the mouth. You smell the aroma of his latest kill
 ~
 fido~
 AGH 0 0 0
-5 0 2d6+60 5d5+100 1d6+1 bite
+5 0 2d6+60 5d5+100 1d6+1 'bite'
 5 5 5 9
 0 0 0 0
 stand stand none 1000
@@ -679,7 +679,7 @@ Good.
 ~
 unique~
 AGH J 0 0
-5 0 2d6+60 5d5+100 1d6+1 bite
+5 0 2d6+60 5d5+100 1d6+1 'bite'
 5 5 5 9
 0 0 0 0
 stand stand none 1000
@@ -693,7 +693,7 @@ The cat suddenly emerges, triumphant, with a half-eaten steak, and runs off.
 ~
 cat~
 AGH 0 0 0
-5 0 2d6+60 5d5+100 1d6+1 claw
+5 0 2d6+60 5d5+100 1d6+1 'claw'
 5 5 5 9
 0 0 0 0
 stand stand female 1000
@@ -709,7 +709,7 @@ and the Anon Way :).
 ~
 human~
 AGT CN 1000 0
-50 0 50d10+4250 5d5+5000 5d8+19 pound
+50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
 CDFIJK 0 0 0
 stand stand male 1000
@@ -725,7 +725,7 @@ and the Anon Way :).
 ~
 human~
 AG CN 1000 0
-50 0 50d10+4250 5d5+5000 5d8+19 pound
+50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
 CDFIJK 0 0 0
 stand stand female 1000
@@ -741,7 +741,7 @@ and the Anon Way :).
 ~
 human~
 ABG CN 1000 0
-50 0 50d10+4250 5d5+5000 5d8+19 pound
+50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
 CDFIJK 0 0 0
 stand stand male 1000
@@ -755,7 +755,7 @@ This Merc looks big and tough. Better be careful.
 ~
 human~
 AI FJ 0 0
-15 0 3d9+208 5d5+100 2d6+3 pound
+15 0 3d9+208 5d5+100 2d6+3 'pound'
 -2 -2 -2 6
 CDF 0 0 0
 stand stand male 1000
@@ -769,7 +769,7 @@ This Merc looks big and tough. Better be careful.
 ~
 elf~
 AI D 0 0
-20 0 3d9+333 5d5+1000 2d8+5 pound
+20 0 3d9+333 5d5+1000 2d8+5 'pound'
 -4 -4 -4 5
 F 0 0 0
 stand stand male 1000
@@ -783,7 +783,7 @@ This Merc looks big and tough. Better be careful.
 ~
 dwarf~
 AI N 0 0
-25 0 5d10+550 5d5+1000 2d10+7 pound
+25 0 5d10+550 5d5+1000 2d10+7 'pound'
 -7 -7 -7 4
 DF 0 0 0
 stand stand male 1000
@@ -797,7 +797,7 @@ This Merc looks big and tough. Better be careful.
 ~
 human~
 AI JN 0 0
-30 0 6d12+853 5d5+1000 4d6+8 pound
+30 0 6d12+853 5d5+1000 4d6+8 'pound'
 -9 -9 -9 3
 CDEF 0 0 0
 stand stand male 1000
@@ -811,7 +811,7 @@ This Merc looks big and tough. Better be careful.
 ~
 giant~
 AI N 0 0
-35 0 10d10+1300 5d5+1000 4d7+11 charge
+35 0 10d10+1300 5d5+1000 4d7+11 'charge'
 -11 -11 -11 3
 CDEF 0 0 0
 stand stand male 1000
@@ -825,7 +825,7 @@ This Merc looks big and tough. Better be careful.
 ~
 dragon~
 AI DF 0 0
-40 0 15d10+1850 5d5+1000 4d8+13 claw
+40 0 15d10+1850 5d5+1000 4d8+13 'claw'
 -13 -13 -13 3
 CDEF 0 0 0
 stand stand male 1000
@@ -841,7 +841,7 @@ deep-fried. That includes the pizza...
 ~
 human~
 AGe HJN 1000 0
-60 0 50d10+13500 5d5+5000 13d9+50 pound
+60 0 50d10+13500 5d5+5000 13d9+50 'pound'
 -50 -50 -50 -13
 FHKN AB 0 0
 stand stand male 1000
@@ -857,7 +857,7 @@ and the Anon Way :).
 ~
 human~
 ABGe CN 1000 0
-50 0 50d10+4250 5d5+5000 5d8+19 pound
+50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
 CDEF 0 0 0
 stand stand male 1000
@@ -874,7 +874,7 @@ all of Anon...
 ~
 human~
 ABGe HJN 1000 0
-60 0 50d10+13500 5d5+5000 13d9+50 pound
+60 0 50d10+13500 5d5+5000 13d9+50 'pound'
 -50 -50 -50 -13
 FHKN 0 0 0
 stand stand female 1000
@@ -890,7 +890,7 @@ of Anon.
 ~
 human~
 ABG CDEFJNu -400 0
-10 0 2d7+121 5d5+100 2d4+2 pound
+10 0 2d7+121 5d5+100 2d4+2 'pound'
 1 1 1 7
 0 0 0 0
 stand stand male 1000
@@ -905,7 +905,7 @@ rid of.
 ~
 human~
 ABG CDEFHJN 1000 0
-60 0 50d10+13500 5d5+5000 13d9+50 pound
+60 0 50d10+13500 5d5+5000 13d9+50 'pound'
 -50 -50 -50 -13
 FHKN 0 0 0
 stand stand male 1000
@@ -920,7 +920,7 @@ recharging, chuckling at her deliberate innuendo as she does.
 ~
 human~
 ABG CDEFHJN 1000 0
-65 0 50d10+13500 5d5+5000 13d9+50 pound
+65 0 50d10+13500 5d5+5000 13d9+50 'pound'
 -50 -50 -50 -13
 FHKN 0 0 0
 stand stand female 1000
@@ -936,7 +936,7 @@ than willing to sell you a book.
 ~
 human~
 ABGe DH 1000 0
-55 0 50d10+13500 5d5+5000 13d9+50 pound
+55 0 50d10+13500 5d5+5000 13d9+50 'pound'
 -50 -50 -50 -13
 F 0 0 0
 stand stand male 1000
@@ -952,7 +952,7 @@ him one!
 ~
 human~
 AGe DH 1000 0
-63 0 50d10+13500 5d5+5000 13d9+50 pound
+63 0 50d10+13500 5d5+5000 13d9+50 'pound'
 -50 -50 -50 -13
 F 0 0 0
 stand stand male 1000
@@ -967,7 +967,7 @@ to do so. Type HELP ENHANCE for assistance.
 ~
 human~
 ABGJ H 0 0
-60 0 50d10+13500 5d5+5000 13d9+50 pound
+60 0 50d10+13500 5d5+5000 13d9+50 'pound'
 -50 -50 -50 -13
 F 0 0 0
 stand stand male 1000
@@ -983,7 +983,7 @@ can retrieve it for him?
 ~
 human~
 ABG HJ 0 0
-6 0 2d7+71 5d5+100 1d7+1 punch
+6 0 2d7+71 5d5+100 1d7+1 'punch'
 4 4 4 8
 0 0 0 0
 stand stand male 1000

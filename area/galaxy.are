@@ -16,7 +16,7 @@ You will become him if you are not careful.
 ~
 human~
 ACGS DF 0 0
-4 0 2d6+35 2d9+100 1d6+0 none
+4 0 2d6+35 2d9+100 1d6+0 'none'
 7 7 7 9
 BEFJNU 0 0 0
 stand stand male 5
@@ -30,7 +30,7 @@ You can't tell what the star looks like, she is too bright!
 ~
 human~
 ABG J 500 0
-8 0 2d7+96 4d9+100 1d7+2 none
+8 0 2d7+96 4d9+100 1d7+2 'none'
 3 3 3 9
 EFNU 0 0 0
 stand stand female 25
@@ -44,7 +44,7 @@ It hasn't got a definite shape, it is just a cloud of mist.
 ~
 human~
 AG J 200 0
-10 0 2d7+121 5d9+100 2d4+2 none
+10 0 2d7+121 5d9+100 2d4+2 'none'
 1 1 1 8
 EFNU 0 0 0
 stand stand female 50
@@ -58,7 +58,7 @@ You see the offspring of Halley's comet, here just to wipe everything out.
 ~
 human~
 ACFG 0 -500 0
-10 0 2d7+121 5d9+100 2d4+2 none
+10 0 2d7+121 5d9+100 2d4+2 'none'
 1 1 1 8
 EFNU 0 0 0
 stand stand male 75
@@ -73,7 +73,7 @@ Still he can be very powerful.
 ~
 human~
 ABGH J 0 0
-15 0 3d9+208 7d9+100 2d6+3 none
+15 0 3d9+208 7d9+100 2d6+3 'none'
 -2 -2 -2 7
 EFNU 0 0 0
 sleep sleep male 100
@@ -88,7 +88,7 @@ But somehow he manages to escape.  Though tiny, it can take a lot of hits!
 ~
 human~
 ACG 0 0 0
-15 0 3d9+208 7d9+100 2d6+3 none
+15 0 3d9+208 7d9+100 2d6+3 'none'
 -2 -2 -2 7
 EFNU 0 0 0
 stand stand male 100
@@ -103,7 +103,7 @@ here and his face may never be seen by anyone again.
 ~
 human~
 ABG JPQ -1000 0
-18 0 3d9+283 9d9+100 2d7+4 none
+18 0 3d9+283 9d9+100 2d7+4 'none'
 -3 -3 -3 7
 EFNU 0 0 0
 sit sit male 300
@@ -118,7 +118,7 @@ jealousy and she has to suffer here endlessly until Perseus comes.
 ~
 human~
 ABEG H 1000 0
-18 0 3d9+283 9d9+100 2d7+4 none
+18 0 3d9+283 9d9+100 2d7+4 'none'
 -3 -3 -3 7
 EFNU 0 0 0
 stand stand female 375
@@ -134,7 +134,7 @@ granted immortality. He is a very brave and strong fighter.
 ~
 human~
 ABG H 1000 0
-19 0 3d9+308 9d9+100 2d7+5 none
+19 0 3d9+308 9d9+100 2d7+5 'none'
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand male 375
@@ -148,7 +148,7 @@ It is the legendary horse with wings on its back.
 ~
 human~
 ABGH 0 300 0
-17 0 3d9+258 8d9+100 3d4+4 none
+17 0 3d9+258 8d9+100 3d4+4 'none'
 -3 -3 -3 7
 EFNU 0 0 0
 stand stand none 250
@@ -165,7 +165,7 @@ never meet.
 ~
 human~
 ABG H 300 0
-19 0 3d9+308 9d9+100 2d7+5 none
+19 0 3d9+308 9d9+100 2d7+5 'none'
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand male 375
@@ -180,7 +180,7 @@ one knows; even the Gods themselves have forgotten.
 ~
 human~
 ABG 0 300 0
-11 0 2d8+134 5d9+100 1d10+2 none
+11 0 2d8+134 5d9+100 1d10+2 'none'
 1 1 1 8
 EFNU 0 0 0
 stand stand female 150
@@ -196,7 +196,7 @@ hitting the head is certainly not easy.
 ~
 human~
 ABFG DJu -1000 0
-25 0 5d10+550 12d9+100 2d10+7 none
+25 0 5d10+550 12d9+100 2d10+7 'none'
 -7 -7 -7 6
 EFNU 0 0 0
 stand stand none 750
@@ -212,7 +212,7 @@ we are on now?
 ~
 human~
 ACGH J -700 0
-9 0 2d6+110 4d9+100 1d8+2 none
+9 0 2d6+110 4d9+100 1d8+2 'none'
 2 2 2 8
 EFNU 0 0 0
 stand stand none 200
@@ -227,7 +227,7 @@ also the ruler of Spring. He looks as if he is expecting you.
 ~
 human~
 ABGQ H 700 0
-22 0 5d10+400 22d9+100 2d8+6 none
+22 0 5d10+400 22d9+100 2d8+6 'none'
 -5 -5 -5 5
 EIKU 0 0 0
 sit sit male 500
@@ -242,7 +242,7 @@ he can fight well ... indeed he has fought with Orion before and survived.
 ~
 human~
 ABFGQ DH -100 0
-22 0 5d10+400 22d9+100 2d8+6 none
+22 0 5d10+400 22d9+100 2d8+6 'none'
 -5 -5 -5 5
 EIKU 0 0 0
 stand stand male 500
@@ -257,7 +257,7 @@ You can't find any imperfections on him.
 ~
 human~
 ABGQ H 1000 0
-22 0 5d10+400 22d9+100 2d8+6 none
+22 0 5d10+400 22d9+100 2d8+6 'none'
 -5 -5 -5 5
 EIKU 0 0 0
 stand stand male 500
@@ -272,7 +272,7 @@ How can there be such a contrast?  You wonder ...
 ~
 human~
 ABCFGHQ DUu -1000 0
-15 0 3d9+208 15d9+100 2d5+3 none
+15 0 3d9+208 15d9+100 2d5+3 'none'
 -2 -2 -2 6
 EIKU 0 0 0
 stand stand male 250
@@ -288,7 +288,7 @@ So Hera made Cancer a constellation for his work.
 ~
 human~
 ABGQ H 0 0
-22 0 5d10+400 22d9+100 2d8+6 none
+22 0 5d10+400 22d9+100 2d8+6 'none'
 -5 -5 -5 5
 EIKU 0 0 0
 stand stand male 600
@@ -304,7 +304,7 @@ his bare hands to tear the lion into two from its mouth!
 ~
 human~
 ABFGQ DH -100 0
-22 0 5d10+400 22d9+100 2d8+6 none
+22 0 5d10+400 22d9+100 2d8+6 'none'
 -5 -5 -5 5
 EIKU 0 0 0
 stand stand male 500
@@ -320,7 +320,7 @@ gorgeous and is waiting for your first move, whatever it is ...
 ~
 human~
 ABGQ H 1000 0
-22 0 5d10+400 22d9+100 2d8+6 none
+22 0 5d10+400 22d9+100 2d8+6 'none'
 -5 -5 -5 5
 EIKU 0 0 0
 sit sit female 500
@@ -335,7 +335,7 @@ Now all he can see from you is greed and bloodshed.
 ~
 human~
 ABGQ H 1000 0
-22 0 5d10+400 22d9+100 2d8+6 none
+22 0 5d10+400 22d9+100 2d8+6 'none'
 -5 -5 -5 5
 EIKU 0 0 0
 stand stand male 500
@@ -350,7 +350,7 @@ Sagittarius' arrow aimed at his heart forever.
 ~
 human~
 ABFGQ DH -200 0
-22 0 5d10+400 22d9+100 2d8+6 none
+22 0 5d10+400 22d9+100 2d8+6 'none'
 -5 -5 -5 5
 EIKU 0 0 0
 stand stand male 500
@@ -364,7 +364,7 @@ He is a centaur and a well trained archer. No one can escape his arrows.
 ~
 human~
 ABGQ H 1000 0
-22 0 5d10+400 22d9+100 2d8+6 none
+22 0 5d10+400 22d9+100 2d8+6 'none'
 -5 -5 -5 5
 EIKU 0 0 0
 stand stand male 500
@@ -380,7 +380,7 @@ days in peace.
 ~
 human~
 ABGQ H 700 0
-22 0 5d10+400 22d9+100 2d8+6 none
+22 0 5d10+400 22d9+100 2d8+6 'none'
 -5 -5 -5 5
 EIKU 0 0 0
 stand stand male 500
@@ -395,7 +395,7 @@ hand with holding the vessel.
 ~
 human~
 ABGQ H 1000 0
-22 0 5d10+400 22d9+100 2d8+6 none
+22 0 5d10+400 22d9+100 2d8+6 'none'
 -5 -5 -5 5
 EIKU 0 0 0
 stand stand female 500
@@ -410,7 +410,7 @@ fish and she deserves your pity.
 ~
 human~
 ABGQ H 1000 0
-22 0 5d10+400 22d9+100 2d8+6 none
+22 0 5d10+400 22d9+100 2d8+6 'none'
 -5 -5 -5 5
 EIKU 0 0 0
 sit sit female 500
@@ -425,7 +425,7 @@ So he becomes jealous of any living thing which is more handsome than him.
 ~
 human~
 ABFGQ u -1000 0
-22 0 5d10+400 22d9+100 2d8+6 none
+22 0 5d10+400 22d9+100 2d8+6 'none'
 -5 -5 -5 5
 EIKU 0 0 0
 stand stand male 500
@@ -440,7 +440,7 @@ You think you'd better turn back.  At least you have got a chance of survival.
 ~
 bear~
 ABFGQ DH 0 0
-27 0 5d10+650 27d9+100 2d10+7 none
+27 0 5d10+650 27d9+100 2d10+7 'none'
 -8 -8 -8 4
 IKR 0 0 0
 stand stand none 750
@@ -454,7 +454,7 @@ She is the Queen of Dignity; facing her you feel all your dignity has gone.
 ~
 human~
 ABGR DH 700 0
-26 0 5d10+550 26d9+100 3d6+6 none
+26 0 5d10+550 26d9+100 3d6+6 'none'
 -7 -7 -7 2
 FU 0 0 0
 sit sit female 600
@@ -469,7 +469,7 @@ weak and useless in front of him.
 ~
 human~
 ABGR H 700 0
-26 0 5d10+550 26d9+100 3d6+6 none
+26 0 5d10+550 26d9+100 3d6+6 'none'
 -7 -7 -7 2
 FU 0 0 0
 sit sit male 600
@@ -486,7 +486,7 @@ here at all?
 ~
 human~
 ABG BDH 1000 0
-30 0 6d12+853 15d9+100 4d6+8 none
+30 0 6d12+853 15d9+100 4d6+8 'none'
 -9 -9 -9 6
 EFNU 0 0 0
 stand stand male 1000

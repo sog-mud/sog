@@ -18,7 +18,7 @@ eye has a dark brown shell, with a huge pupil that never seems to blink.
 The pupil is a very dark green and takes in every action you do. ~
 unique~
 A CDEFJ 0 0
-32 0 10d10+1000 5d5+1000 6d4+9 none
+32 0 10d10+1000 5d5+1000 6d4+9 'none'
 -10 -10 -10 3
 EF 0 0 0
 stand stand none 0
@@ -35,7 +35,7 @@ focused.
 ~
 unique~
 A DJ -350 0
-18 0 3d9+283 5d5+1000 2d7+4 none
+18 0 3d9+283 5d5+1000 2d7+4 'none'
 -3 -3 -3 6
 EF 0 0 0
 stand stand none 0
@@ -52,7 +52,7 @@ live, you wonder what the enforcers did to him.
 ~
 human~
 AB CJ -200 0
-18 0 3d9+283 5d5+1000 2d7+4 punch
+18 0 3d9+283 5d5+1000 2d7+4 'punch'
 -3 -3 -3 6
 EIK 0 0 0
 stand stand male 0
@@ -69,7 +69,7 @@ dizzy.
 ~
 unique~
 A CDEFJ 0 0
-43 0 25d10+2500 5d5+1000 3d12+15 none
+43 0 25d10+2500 5d5+1000 3d12+15 'none'
 -15 -15 -15 2
 EF 0 0 0
 stand stand none 0
@@ -88,7 +88,7 @@ this huge eye.  The body is protected by a hard chitinous covering.
 ~
 unique~
 AB CDEFJ 0 0
-50 0 50d10+4250 5d5+5000 5d8+19 bite
+50 0 50d10+4250 5d5+5000 5d8+19 'bite'
 -20 -20 -20 0
 EF 0 0 0
 stand stand none 0
@@ -105,7 +105,7 @@ masterminds many evil operations.
 ~
 unique~
 ABC CDEFJu -1000 0
-49 0 50d10+4000 5d5+1000 4d10+18 charge
+49 0 50d10+4000 5d5+1000 4d10+18 'charge'
 -19 -19 -19 1
 EF 0 0 0
 stand stand none 0
@@ -121,7 +121,7 @@ and he is going slightly bald.
 ~
 gnome~
 AC E -500 0
-19 0 3d9+308 5d5+1000 2d7+5 punch
+19 0 3d9+308 5d5+1000 2d7+5 'punch'
 -4 -4 -4 5
 EIKR 0 0 0
 stand stand male 0
@@ -137,7 +137,7 @@ deadly and quick.
 ~
 human~
 A DJ -750 0
-16 0 3d9+233 5d5+1000 2d6+4 pound
+16 0 3d9+233 5d5+1000 2d6+4 'pound'
 -2 -2 -2 6
 EIK 0 0 0
 stand stand male 0
@@ -153,7 +153,7 @@ surroundings.
 ~
 dwarf~
 A C -600 0
-21 0 4d10+360 5d5+1000 4d4+5 pound
+21 0 4d10+360 5d5+1000 4d4+5 'pound'
 -5 -5 -5 5
 EIK 0 0 0
 stand stand male 0
@@ -168,7 +168,7 @@ through every one of her movements.  Her visage is gaunt and strained, it
 seems as if at every moment she is concentrating on a spell of some sort. ~
 human~
 AB DJ -150 0
-43 0 25d10+2500 5d5+1000 3d12+15 punch
+43 0 25d10+2500 5d5+1000 3d12+15 'punch'
 -15 -15 -15 2
 EIK 0 0 0
 stand stand female 0
@@ -186,7 +186,7 @@ grey-brown.  The belly is pale blue.
 ~
 snake~
 AB DJ -100 0
-38 0 10d10+1600 5d5+1000 5d6+12 bite
+38 0 10d10+1600 5d5+1000 5d6+12 'bite'
 -13 -13 -13 3
 EF L 0 0
 stand stand none 0
@@ -204,7 +204,7 @@ staring at him.
 ~
 human~
 ABT CJ -750 0
-43 0 25d10+2500 5d5+1000 3d12+15 pound
+43 0 25d10+2500 5d5+1000 3d12+15 'pound'
 -15 -15 -15 2
 CEIK 0 0 0
 stand stand male 0
@@ -220,7 +220,7 @@ of Xevior on his forehead.
 ~
 human~
 AB CDEFJu -666 0
-43 0 25d10+2500 5d5+1000 3d12+15 slap
+43 0 25d10+2500 5d5+1000 3d12+15 'slap'
 -15 -15 -15 2
 EFNU 0 0 0
 stand stand male 0
@@ -236,7 +236,7 @@ look at him.  Ready for any move you may make on him.
 ~
 lizard~
 A DJ -600 0
-16 0 3d9+233 5d5+1000 2d6+4 bite
+16 0 3d9+233 5d5+1000 2d6+4 'bite'
 -2 -2 -2 6
 EIKR 0 0 0
 stand stand male 0
@@ -253,7 +253,7 @@ swallowed whole.
 ~
 human~
 ABF HJQ -100 0
-44 0 25d10+2750 5d5+1000 8d4+15 none
+44 0 25d10+2750 5d5+1000 8d4+15 'none'
 -15 -15 -15 2
 EFU 0 0 0
 stand stand none 0
@@ -269,7 +269,7 @@ it looks like a small cavern.  You can only see the front of the worm since
 it's whole mass can not possibly fit in the corridor. ~
 human~
 ABF HJQ -250 0
-48 0 25d10+3750 5d5+1000 6d6+18 bite
+48 0 25d10+3750 5d5+1000 6d6+18 'bite'
 -18 -18 -18 1
 EFU 0 0 0
 stand stand none 0
@@ -286,7 +286,7 @@ with ten eyestalks around it.
 ~
 human~
 AG DFJ -750 0
-43 0 25d10+2500 5d5+1000 3d12+15 pound
+43 0 25d10+2500 5d5+1000 3d12+15 'pound'
 -15 -15 -15 2
 EF 0 0 0
 stand stand none 0
@@ -304,7 +304,7 @@ githzerai!  You wonder how that happened.
 ~
 human~
 AG DFJ -850 0
-46 0 25d10+3250 5d5+1000 6d6+16 pound
+46 0 25d10+3250 5d5+1000 6d6+16 'pound'
 -16 -16 -16 2
 EF 0 0 0
 stand stand male 0
@@ -321,7 +321,7 @@ would no easy matter to defeat him.
 ~
 human~
 AB DFJ -900 0
-48 0 25d10+3750 5d5+1000 6d6+18 pound
+48 0 25d10+3750 5d5+1000 6d6+18 'pound'
 -18 -18 -18 1
 EF 0 0 0
 stand stand male 0
@@ -338,7 +338,7 @@ grell is a drab olive colour streaked with white; the tentacles are pale
 olive-green.  This grell is the beloved pet of the beholder. ~
 human~
 ABF Ju -750 0
-46 0 25d10+3250 5d5+1000 6d6+16 none
+46 0 25d10+3250 5d5+1000 6d6+16 'none'
 -16 -16 -16 2
 F 0 0 0
 stand stand none 0
@@ -354,7 +354,7 @@ make you pay.
 ~
 human~
 ABTe CDJN 0 0
-95 0 50d10+22500 5d5+5000 12d15+68 pound
+95 0 50d10+22500 5d5+5000 12d15+68 'pound'
 -71 -71 -71 -37
 EFIKN 0 0 0
 stand stand male 0
@@ -371,7 +371,7 @@ seems to fit in.
 ~
 human~
 AG EJ -500 0
-11 0 2d8+134 5d5+100 1d10+2 punch
+11 0 2d8+134 5d5+100 1d10+2 'punch'
 1 1 1 7
 EIK 0 0 0
 stand stand male 0
@@ -385,7 +385,7 @@ The drow doesn't seem to be looking at anything at all.  His dark skin
 blends in with the murky lighting.  The drow looks quick and deadly. ~
 human~
 AB DJ -600 0
-13 0 2d10+170 5d5+100 2d5+3 punch
+13 0 2d10+170 5d5+100 2d5+3 'punch'
 -1 -1 -1 6
 EIK 0 0 0
 stand stand male 0
@@ -401,7 +401,7 @@ a gut that hangs out right over his belt, and a few scars on his face
 ~
 human~
 AG EJ -250 0
-14 -1 2d10+190 5d5+100 1d12+3 punch
+14 -1 2d10+190 5d5+100 1d12+3 'punch'
 -1 -1 -1 6
 EIK 0 0 0
 stand stand male 0
@@ -418,7 +418,7 @@ them.
 ~
 human~
 AB EJ 0 0
-22 0 5d10+400 5d5+1000 4d4+6 punch
+22 0 5d10+400 5d5+1000 4d4+6 'punch'
 -5 -5 -5 5
 EIK 0 0 0
 stand stand male 0
@@ -432,7 +432,7 @@ Antryg is dressed in long robes that cover up his body.  You can't tell how
 built he is, but you do know he looks very deadly and dangerous ~
 human~
 AB EJ 0 0
-22 0 5d10+400 5d5+1000 4d4+6 punch
+22 0 5d10+400 5d5+1000 4d4+6 'punch'
 -5 -5 -5 5
 EIK 0 0 0
 stand stand male 0
@@ -449,7 +449,7 @@ up anything.
 ~
 human~
 ACG JPQ -50 0
-17 0 3d9+258 5d5+1000 3d4+4 punch
+17 0 3d9+258 5d5+1000 3d4+4 'punch'
 -3 -3 -3 6
 EIK 0 0 0
 stand stand none 0
@@ -465,7 +465,7 @@ slowly eating it's way through the wall and floor.
 ~
 human~
 AG J 0 0
-20 0 3d9+333 5d5+1000 2d8+5 magic
+20 0 3d9+333 5d5+1000 2d8+5 'magic'
 -4 -4 -4 5
 EF 0 0 0
 stand stand none 0
@@ -481,7 +481,7 @@ The rat's fur is black and brown and very dirty.
 ~
 human~
 AG J 0 0
-19 0 3d9+308 5d5+1000 2d7+5 charge
+19 0 3d9+308 5d5+1000 2d7+5 'charge'
 -4 -4 -4 5
 EF 0 0 0
 stand stand none 0
@@ -498,7 +498,7 @@ has dirty but sharp nails.
 ~
 human~
 ACG JPQ -400 0
-22 0 5d10+400 5d5+1000 4d4+6 punch
+22 0 5d10+400 5d5+1000 4d4+6 'punch'
 -5 -5 -5 5
 EIK 0 0 0
 stand stand none 0
@@ -516,7 +516,7 @@ and bowed, with hands and feet tipped with thick nails which are filthy.
 ~
 human~
 ACG JP -600 0
-21 0 4d10+360 5d5+1000 4d4+5 punch
+21 0 4d10+360 5d5+1000 4d4+5 'punch'
 -5 -5 -5 5
 EIK 0 0 0
 stand stand none 0
@@ -534,7 +534,7 @@ ovals of large size.
 ~
 human~
 AB DFJu -999 0
-45 0 25d10+3000 5d5+1000 8d4+16 pound
+45 0 25d10+3000 5d5+1000 8d4+16 'pound'
 -15 -15 -15 2
 EIK 0 0 0
 stand stand none 0
@@ -550,7 +550,7 @@ life away and left him as this husk, skin that clings to the bones.  The mage
 stares at you, his eyes bloodshot and sunken into their sockets. ~
 human~
 ABF D -500 0
-38 0 10d10+1600 5d5+1000 5d6+12 magic
+38 0 10d10+1600 5d5+1000 5d6+12 'magic'
 -13 -13 -13 3
 EIK 0 0 0
 stand stand male 0
@@ -565,7 +565,7 @@ fifteen feet tall.  In fact it almost looks as if it can move.  You then glance
 at it's eyes and notice with a shock that they are watching you. ~
 golem~
 AB DJ 0 0
-40 0 15d10+1850 5d5+1000 4d8+13 pound
+40 0 15d10+1850 5d5+1000 4d8+13 'pound'
 -13 -13 -13 3
 EFNU 0 0 0
 stand stand none 0
@@ -581,7 +581,7 @@ looks as if it is watching you.
 ~
 golem~
 AB DJ 0 0
-39 0 15d10+1700 5d5+1000 5d6+13 pound
+39 0 15d10+1700 5d5+1000 5d6+13 'pound'
 -13 -13 -13 3
 EFNU 0 0 0
 stand stand none 0
@@ -598,7 +598,7 @@ and you are pretty sure all over his body.
 ~
 human~
 AB JN -500 0
-42 0 25d10+2250 5d5+1000 3d12+14 slap
+42 0 25d10+2250 5d5+1000 3d12+14 'slap'
 -14 -14 -14 3
 EIK 0 0 0
 stand stand male 0
@@ -613,7 +613,7 @@ eyes and ears of the bodak, if the bodak so desires.
 ~
 human~
 ABG BDFJPQ -750 0
-39 0 15d10+1700 5d5+1000 5d6+13 charge
+39 0 15d10+1700 5d5+1000 5d6+13 'charge'
 -13 -13 -13 3
 EF 0 0 0
 stand stand male 0
@@ -631,7 +631,7 @@ the size of a hill giant's.  The taloned fingers are deadly.  This is the babau.
 ~
 unique~
 ACF J -1000 0
-40 0 15d10+1850 5d5+1000 4d8+13 slash
+40 0 15d10+1850 5d5+1000 4d8+13 'slash'
 -13 -13 -13 3
 EKNU 0 0 0
 stand stand none 0
@@ -644,7 +644,7 @@ A servant stands off to the side ready to serve his master
 This is a servant.  He is ready to serve whomever his current master is.~
 human~
 ABG J 0 0
-10 0 2d7+121 5d5+100 2d4+2 punch
+10 0 2d7+121 5d5+100 2d4+2 'punch'
 1 1 1 7
 EI 0 0 0
 stand stand male 0
@@ -661,7 +661,7 @@ is basically earthy in colour.
 ~
 unique~
 ACF BEJQ -1000 0
-41 0 25d10+2000 5d5+1000 4d8+14 charge
+41 0 25d10+2000 5d5+1000 4d8+14 'charge'
 -14 -14 -14 3
 EF 0 0 0
 stand stand none 0
@@ -675,7 +675,7 @@ You behold a beautiful girl who is yours to command.. for a price.  You
 realise if you touch the goods her "boss" will be mighty upset. ~
 human~
 AC J 0 0
-12 0 2d10+150 5d5+100 1d10+3 slap
+12 0 2d10+150 5d5+100 1d10+3 'slap'
 0 0 0 7
 EK 0 0 0
 stand stand female 0
@@ -692,7 +692,7 @@ from then on.
 ~
 human~
 AC J 0 0
-13 0 2d10+170 5d5+100 2d5+3 slap
+13 0 2d10+170 5d5+100 2d5+3 'slap'
 -1 -1 -1 6
 EK 0 0 0
 stand stand female 0
@@ -708,7 +708,7 @@ ready when you have paid up.
 ~
 human~
 AC J 0 0
-11 0 2d8+134 5d5+100 1d10+2 pound
+11 0 2d8+134 5d5+100 1d10+2 'pound'
 1 1 1 7
 0 0 0 0
 stand stand male 0
@@ -724,7 +724,7 @@ spills over his pants.
 ~
 unique~
 AC J 0 0
-14 0 2d10+190 5d5+100 1d12+3 pound
+14 0 2d10+190 5d5+100 1d12+3 'pound'
 -1 -1 -1 6
 EIK 0 0 0
 stand stand male 0
@@ -739,7 +739,7 @@ expensive jewellery and has a few gold teeth.  He seems nice enough here
 but you realise that he must be a terror to his underlings. ~
 human~
 AC J -1000 0
-16 0 3d9+233 5d5+1000 2d6+4 punch
+16 0 3d9+233 5d5+1000 2d6+4 'punch'
 -2 -2 -2 6
 EIK 0 0 0
 stand stand male 0
@@ -756,7 +756,7 @@ the streets of this foul city.
 ~
 human~
 AB J -500 0
-13 0 2d10+170 5d5+100 2d5+3 punch
+13 0 2d10+170 5d5+100 2d5+3 'punch'
 -1 -1 -1 6
 EIK 0 0 0
 stand stand male 0
@@ -772,7 +772,7 @@ half-orc is guzzling down the ale looking for trouble.
 ~
 orc~
 AB 0 -900 0
-11 0 2d8+134 5d5+100 1d10+2 claw
+11 0 2d8+134 5d5+100 1d10+2 'claw'
 1 1 1 7
 EIK 0 0 0
 stand stand male 0
@@ -786,7 +786,7 @@ This deep gnome sits at the table watching for suckers to prey upon.  His
 skin is grey and his eyes are also grey.  He looks to be very dangerous. ~
 human~
 AB J -750 0
-12 0 2d10+150 5d5+100 1d10+3 punch
+12 0 2d10+150 5d5+100 1d10+3 'punch'
 0 0 0 7
 EIK 0 0 0
 stand stand male 0
@@ -803,7 +803,7 @@ here.
 ~
 human~
 ABTe J 0 0
-95 0 50d10+22500 5d5+5000 16d15+68 pound
+95 0 50d10+22500 5d5+5000 16d15+68 'pound'
 -71 -71 -71 -37
 CDEFIJK 0 0 0
 stand stand male 0
@@ -819,7 +819,7 @@ a purple worm single handed.
 ~
 human~
 AB J -500 0
-33 0 10d10+1100 5d5+1000 6d4+10 punch
+33 0 10d10+1100 5d5+1000 6d4+10 'punch'
 -11 -11 -11 3
 EIK 0 0 0
 stand stand male 0
@@ -835,7 +835,7 @@ reason many people are after his life.
 ~
 human~
 AB J -600 0
-30 0 6d12+853 5d5+1000 4d6+8 pound
+30 0 6d12+853 5d5+1000 4d6+8 'pound'
 -9 -9 -9 3
 EIK 0 0 0
 stand stand male 0
@@ -850,7 +850,7 @@ defeated the drow weapon's master without a weapon.  He is very ruthless
 and quick.  His dark skin and pointed ears makes him look like a demon. ~
 human~
 ABT J -999 0
-31 0 6d12+928 5d5+1000 4d6+9 slash
+31 0 6d12+928 5d5+1000 4d6+9 'slash'
 -10 -10 -10 3
 EFIK 0 0 0
 stand stand male 0
@@ -867,7 +867,7 @@ the door.
 ~
 orc~
 ABT 0 -999 0
-30 0 6d12+853 5d5+1000 4d6+8 slash
+30 0 6d12+853 5d5+1000 4d6+8 'slash'
 -9 -9 -9 3
 EFIK 0 0 0
 stand stand male 0
@@ -884,7 +884,7 @@ although that is better than you yourself.
 ~
 human~
 AB J 0 0
-13 0 2d10+170 5d5+100 2d5+3 punch
+13 0 2d10+170 5d5+100 2d5+3 'punch'
 -1 -1 -1 6
 EI 0 0 0
 stand stand female 0
@@ -899,7 +899,7 @@ you to decide on which slave you wish to buy.
 ~
 human~
 ABTe J 900 0
-95 0 50d10+22500 5d5+5000 15d15+68 pound
+95 0 50d10+22500 5d5+5000 15d15+68 'pound'
 -71 -71 -71 -37
 CEFIJKU 0 0 0
 stand stand male 0
@@ -915,7 +915,7 @@ trading.
 ~
 human~
 AC J -500 0
-23 0 5d10+450 5d5+1000 3d6+6 punch
+23 0 5d10+450 5d5+1000 3d6+6 'punch'
 -6 -6 -6 4
 EIK 0 0 0
 stand stand male 0
@@ -930,7 +930,7 @@ master that any slave would dread.
 ~
 human~
 AC J -900 0
-21 0 4d10+360 5d5+1000 4d4+5 pound
+21 0 4d10+360 5d5+1000 4d4+5 'pound'
 -5 -5 -5 5
 EIK 0 0 0
 stand stand male 0
@@ -944,7 +944,7 @@ The orc slave looks none to pleased about being a slave.
 ~
 orc~
 ABC 0 0 0
-18 0 3d9+283 5d5+1000 2d7+4 punch
+18 0 3d9+283 5d5+1000 2d7+4 'punch'
 -3 -3 -3 6
 EIK 0 0 0
 stand stand male 0
@@ -958,7 +958,7 @@ The goblin slave watches you with distrust and hatred.
 ~
 goblin~
 ABC 0 0 0
-16 0 3d9+233 5d5+1000 2d6+4 punch
+16 0 3d9+233 5d5+1000 2d6+4 'punch'
 -2 -2 -2 6
 EIK 0 0 0
 stand stand male 0
@@ -973,7 +973,7 @@ been broken... yet.
 ~
 human~
 ABC J 0 0
-19 0 3d9+308 5d5+1000 2d7+5 punch
+19 0 3d9+308 5d5+1000 2d7+5 'punch'
 -4 -4 -4 5
 EIK 0 0 0
 stand stand male 0
@@ -986,7 +986,7 @@ A female human slave waits for her orders.
 A female human slave stands before you watching you carefully. ~
 human~
 ABC J 0 0
-11 0 2d8+134 5d5+100 1d10+2 slap
+11 0 2d8+134 5d5+100 1d10+2 'slap'
 1 1 1 7
 EIK 0 0 0
 stand stand male 0
@@ -1000,7 +1000,7 @@ A small kobold looks like a strong fierce fighter.
 ~
 kobold~
 ABCT 0 0 0
-20 0 3d9+333 5d5+1000 2d8+5 slash
+20 0 3d9+333 5d5+1000 2d8+5 'slash'
 -4 -4 -4 5
 0 0 0 0
 stand stand male 0
@@ -1013,7 +1013,7 @@ An elven slave stands ready for orders.
 The elven slave looks as if he would defend his master, if he had to. ~
 elf~
 ABC 0 0 0
-24 0 5d10+500 5d5+1000 2d10+6 punch
+24 0 5d10+500 5d5+1000 2d10+6 'punch'
 -6 -6 -6 4
 EIKR 0 0 0
 stand stand male 0
@@ -1028,7 +1028,7 @@ if ordered to.
 ~
 dwarf~
 ABC 0 0 0
-26 0 5d10+600 5d5+1000 3d7+7 pound
+26 0 5d10+600 5d5+1000 3d7+7 'pound'
 -7 -7 -7 4
 EIKR 0 0 0
 stand stand male 0
@@ -1044,7 +1044,7 @@ to attack him.
 ~
 human~
 ABTe CJ 0 0
-95 0 50d10+22500 5d5+5000 12d15+68 slash
+95 0 50d10+22500 5d5+5000 12d15+68 'slash'
 -71 -71 -71 -37
 CEFIJK 0 0 0
 stand stand male 0
@@ -1058,7 +1058,7 @@ This adventurer's name is well known in this establishment, he goes by the
 name Prax.  He is an accomplished mage, and seems to breathe magic. ~
 human~
 AB DJ -500 0
-28 0 6d12+703 5d5+1000 2d12+8 pound
+28 0 6d12+703 5d5+1000 2d12+8 'pound'
 -8 -8 -8 4
 EIK 0 0 0
 stand stand male 0
@@ -1073,7 +1073,7 @@ entire career.  He goes by the name Thespan.
 ~
 human~
 ABT J -600 0
-26 0 5d10+600 5d5+1000 3d7+7 slash
+26 0 5d10+600 5d5+1000 3d7+7 'slash'
 -7 -7 -7 4
 EIJK 0 0 0
 stand stand male 0
@@ -1087,7 +1087,7 @@ This drow is not to be trusted, he has a well earned reputation of being
 able to steal anything off of anyone.  Maybe you should check your gold. ~
 human~
 ABS J -600 0
-26 0 5d10+600 5d5+1000 3d7+7 punch
+26 0 5d10+600 5d5+1000 3d7+7 'punch'
 -7 -7 -7 4
 EIKN 0 0 0
 stand stand male 0
@@ -1103,7 +1103,7 @@ clearly very intelligent and cunning.
 ~
 human~
 ABR DJ -600 0
-16 0 3d9+233 5d5+1000 2d6+4 punch
+16 0 3d9+233 5d5+1000 2d6+4 'punch'
 -2 -2 -2 6
 EIK 0 0 0
 stand stand female 0
@@ -1120,7 +1120,7 @@ beholder's has outfitted them and protects them.
 ~
 human~
 ABS J -700 0
-16 0 3d9+233 5d5+1000 2d6+4 pound
+16 0 3d9+233 5d5+1000 2d6+4 'pound'
 -2 -2 -2 6
 EIKN 0 0 0
 stand stand male 0
@@ -1138,7 +1138,7 @@ races.
 ~
 human~
 ABT J -800 0
-17 0 3d9+258 5d5+1000 3d4+4 slash
+17 0 3d9+258 5d5+1000 3d4+4 'slash'
 -3 -3 -3 6
 EIK 0 0 0
 stand stand male 0
@@ -1155,7 +1155,7 @@ Underdark.
 ~
 human~
 ABS J -700 0
-16 0 3d9+233 5d5+1000 2d6+4 punch
+16 0 3d9+233 5d5+1000 2d6+4 'punch'
 -2 -2 -2 6
 EIKN 0 0 0
 stand stand male 0
@@ -1171,7 +1171,7 @@ profitable business going.
 ~
 human~
 ABRe DJ 0 0
-50 0 50d10+4250 5d5+5000 5d8+19 magic
+50 0 50d10+4250 5d5+5000 5d8+19 'magic'
 -20 -20 -20 0
 EIK 0 0 0
 stand stand male 0
@@ -1188,7 +1188,7 @@ those who visit this unique city.
 ~
 human~
 ABTe DJ 0 0
-95 0 50d10+22500 5d5+5000 12d15+68 pound
+95 0 50d10+22500 5d5+5000 12d15+68 'pound'
 -71 -71 -71 -37
 CDEFIJK 0 0 0
 stand stand male 0
@@ -1205,7 +1205,7 @@ confidence of one who has seen everything and knows nothing can best
 him. ~
 human~
 ABTe DJ 0 0
-95 0 50d10+22500 5d5+5000 12d15+68 pound
+95 0 50d10+22500 5d5+5000 12d15+68 'pound'
 -71 -71 -71 -37
 CDEFIJK 0 0 0
 stand stand male 0
@@ -1221,7 +1221,7 @@ She is a beautiful lady who always gets her way.
 ~
 human~
 ABTe DJ -999 0
-40 0 15d10+1850 5d5+1000 4d8+13 slash
+40 0 15d10+1850 5d5+1000 4d8+13 'slash'
 -13 -13 -13 3
 EIK 0 0 0
 stand stand female 0
@@ -1239,7 +1239,7 @@ with.
 ~
 human~
 ABe DJ 0 0
-49 0 50d10+4000 5d5+1000 4d10+18 pound
+49 0 50d10+4000 5d5+1000 4d10+18 'pound'
 -19 -19 -19 1
 EIK 0 0 0
 stand stand male 0
@@ -1255,7 +1255,7 @@ dressed is dark grey clothing and stands a good five feet tall.
 ~
 human~
 AG J -500 0
-17 0 3d9+258 5d5+1000 3d4+4 punch
+17 0 3d9+258 5d5+1000 3d4+4 'punch'
 -3 -3 -3 6
 EIK 0 0 0
 stand stand male 0
@@ -1271,7 +1271,7 @@ come here to find comfort in the safe walls of this building.  He is dressed
 in different shades of grey and sports a nice looking necklace ~
 human~
 AG J -500 0
-16 0 3d9+233 5d5+1000 2d6+4 punch
+16 0 3d9+233 5d5+1000 2d6+4 'punch'
 -2 -2 -2 6
 EIK 0 0 0
 stand stand male 0
@@ -1288,7 +1288,7 @@ does his duty with a fanatic pride.
 ~
 human~
 AB J -700 0
-17 0 3d9+258 5d5+1000 3d4+4 punch
+17 0 3d9+258 5d5+1000 3d4+4 'punch'
 -3 -3 -3 6
 EIK 0 0 0
 stand stand male 0
@@ -1303,7 +1303,7 @@ experience, like all the thieves in the Underdark.  Although he has plenty
 of experience his skills aren't refined like those of his superiors. ~
 human~
 A JQ -450 0
-16 0 3d9+233 5d5+1000 2d6+4 pound
+16 0 3d9+233 5d5+1000 2d6+4 'pound'
 -2 -2 -2 6
 EIK 0 0 0
 stand stand male 0
@@ -1319,7 +1319,7 @@ steal or kill.
 ~
 human~
 AH JQ -600 0
-17 0 3d9+258 5d5+1000 3d4+4 punch
+17 0 3d9+258 5d5+1000 3d4+4 'punch'
 -3 -3 -3 6
 EIK 0 0 0
 stand stand male 0
@@ -1335,7 +1335,7 @@ scars from countless fights.
 ~
 human~
 AH DJ -600 0
-18 0 3d9+283 5d5+1000 2d7+4 punch
+18 0 3d9+283 5d5+1000 2d7+4 'punch'
 -3 -3 -3 6
 EIK 0 0 0
 stand stand male 0
@@ -1351,7 +1351,7 @@ willing to take greater risks.
 ~
 human~
 AHS DJQ -700 0
-19 0 3d9+308 5d5+1000 2d7+5 punch
+19 0 3d9+308 5d5+1000 2d7+5 'punch'
 -4 -4 -4 5
 EIKN 0 0 0
 stand stand male 0
@@ -1367,7 +1367,7 @@ with his life.
 ~
 human~
 ABFS D -500 0
-21 0 4d10+360 5d5+1000 4d4+5 slash
+21 0 4d10+360 5d5+1000 4d4+5 'slash'
 -5 -5 -5 5
 EIKN 0 0 0
 stand stand male 0
@@ -1383,7 +1383,7 @@ can watch him.
 ~
 human~
 ABS DJ -500 0
-23 0 5d10+450 5d5+1000 3d6+6 punch
+23 0 5d10+450 5d5+1000 3d6+6 'punch'
 -6 -6 -6 4
 EIKN 0 0 0
 stand stand male 0
@@ -1399,7 +1399,7 @@ water, he seems to flow rather than move.
 ~
 human~
 ABS DEF -700 0
-25 0 5d10+550 5d5+1000 2d10+7 slap
+25 0 5d10+550 5d5+1000 2d10+7 'slap'
 -7 -7 -7 4
 EIKN 0 0 0
 stand stand male 0
@@ -1415,7 +1415,7 @@ calculated.  The thief has a cunning that made him the head of this guild,
 and he makes sure non of the other thieves gets near him in power. ~
 human~
 ABS DEF -1000 0
-47 0 25d10+3500 5d5+1000 6d6+17 pound
+47 0 25d10+3500 5d5+1000 6d6+17 'pound'
 -17 -17 -17 2
 EFIKN 0 0 0
 stand stand male 0
@@ -1430,7 +1430,7 @@ anywhere near that of the head's.  Meliadus is dressed in a long flowing
 robe and lights the room with a rob shaped like a hand holding an orb. ~
 human~
 ABR DEFJu -500 0
-40 0 15d10+1850 5d5+1000 4d8+13 magic
+40 0 15d10+1850 5d5+1000 4d8+13 'magic'
 -13 -13 -13 3
 EIK 0 0 0
 stand stand male 0
@@ -1446,7 +1446,7 @@ is stronger than the leader.
 ~
 human~
 ABKS DN 0 0
-50 0 50d10+4250 5d5+5000 5d8+19 slash
+50 0 50d10+4250 5d5+5000 5d8+19 'slash'
 -20 -20 -20 0
 EIKN 0 0 0
 stand stand male 0
@@ -1462,7 +1462,7 @@ so watch your back.
 ~
 human~
 AG JQ -900 0
-20 0 3d9+333 5d5+1000 2d8+5 pound
+20 0 3d9+333 5d5+1000 2d8+5 'pound'
 -4 -4 -4 5
 EIKN 0 0 0
 stand stand male 0
@@ -1477,7 +1477,7 @@ the opening.
 ~
 human~
 AG DJPQ -999 0
-21 0 4d10+360 5d5+1000 4d4+5 pound
+21 0 4d10+360 5d5+1000 4d4+5 'pound'
 -5 -5 -5 5
 EIKN 0 0 0
 stand stand male 0
@@ -1492,7 +1492,7 @@ of the shadows.  As an assassin he has the capability of nailing you with a
 critical hit, watch your back and don't hang around. ~
 human~
 AG DJPQ -999 0
-22 0 5d10+400 5d5+1000 4d4+6 pound
+22 0 5d10+400 5d5+1000 4d4+6 'pound'
 -5 -5 -5 5
 EIKN 0 0 0
 stand stand male 0
@@ -1508,7 +1508,7 @@ the match up, his strike is deadly.
 ~
 human~
 AG DJQ -999 0
-23 0 5d10+450 5d5+1000 3d6+6 pound
+23 0 5d10+450 5d5+1000 3d6+6 'pound'
 -6 -6 -6 4
 EIKN 0 0 0
 stand stand male 0
@@ -1524,7 +1524,7 @@ read all of this, I caution you to move right away.
 ~
 human~
 AG DJ -999 0
-25 0 5d10+550 5d5+1000 2d10+7 pound
+25 0 5d10+550 5d5+1000 2d10+7 'pound'
 -7 -7 -7 4
 EIKN 0 0 0
 stand stand male 0
@@ -1540,7 +1540,7 @@ what this assassin really looks like.
 ~
 human~
 AG DJ -999 0
-27 0 5d10+650 5d5+1000 5d4+7 pound
+27 0 5d10+650 5d5+1000 5d4+7 'pound'
 -8 -8 -8 4
 EIKN 0 0 0
 stand stand male 0
@@ -1556,7 +1556,7 @@ take out almost foe.
 ~
 human~
 AG DJ -999 0
-29 0 6d12+778 5d5+1000 2d12+8 pound
+29 0 6d12+778 5d5+1000 2d12+8 'pound'
 -9 -9 -9 3
 EIKN 0 0 0
 stand stand male 0
@@ -1572,7 +1572,7 @@ many long hours to learn how to hit the critical spot.
 ~
 human~
 AG DJ -999 0
-31 0 6d12+928 5d5+1000 4d6+9 pound
+31 0 6d12+928 5d5+1000 4d6+9 'pound'
 -10 -10 -10 3
 EIKN 0 0 0
 stand stand male 0
@@ -1586,7 +1586,7 @@ This is the most powerful assassin in the realm, he has the ability to kill
 any mortal.  His price is extremely high, but he has never failed. ~
 human~
 AG DJ -999 0
-46 0 25d10+3250 5d5+1000 6d6+16 pound
+46 0 25d10+3250 5d5+1000 6d6+16 'pound'
 -16 -16 -16 2
 EIKN 0 0 0
 stand stand male 0
@@ -1601,7 +1601,7 @@ land and is mortal.
 ~
 human~
 ABK DJN 0 0
-50 0 50d10+4250 5d5+5000 5d8+19 pound
+50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
 EIKN 0 0 0
 stand stand male 0
@@ -1618,7 +1618,7 @@ focus right at you.
 ~
 bat~
 AG FJ -500 0
-44 0 25d10+2750 5d5+1000 8d4+15 charge
+44 0 25d10+2750 5d5+1000 8d4+15 'charge'
 -15 -15 -15 2
 EIK 0 0 0
 stand stand none 0
@@ -1638,7 +1638,7 @@ the two lower ones.
 ~
 unique~
 AG FJ -600 0
-45 0 25d10+3000 5d5+1000 8d4+16 claw
+45 0 25d10+3000 5d5+1000 8d4+16 'claw'
 -15 -15 -15 2
 EIK 0 0 0
 stand stand male 0
@@ -1656,7 +1656,7 @@ slack and slobbering with many small fangs.
 ~
 unique~
 AG FJ -800 0
-46 0 25d10+3250 5d5+1000 6d6+16 slash
+46 0 25d10+3250 5d5+1000 6d6+16 'slash'
 -16 -16 -16 2
 EFNU 0 0 0
 stand stand none 0
@@ -1671,7 +1671,7 @@ made out of platinum and it looks to be very strong.  You wouldn't want to
 end up in a battle with a foe like this if you were weak. ~
 golem~
 AG HJ 0 0
-47 0 25d10+3500 5d5+1000 6d6+17 pound
+47 0 25d10+3500 5d5+1000 6d6+17 'pound'
 -17 -17 -17 2
 EFNU 0 0 0
 stand stand male 0
@@ -1687,7 +1687,7 @@ warrior and is rarely beaten in a fight.
 ~
 human~
 AGT J -800 0
-46 0 25d10+3250 5d5+1000 6d6+16 pound
+46 0 25d10+3250 5d5+1000 6d6+16 'pound'
 -16 -16 -16 2
 EIK 0 0 0
 stand stand male 0
@@ -1704,7 +1704,7 @@ away his insanity.
 ~
 human~
 AGR Ju -999 0
-47 0 25d10+3500 5d5+1000 6d6+17 pound
+47 0 25d10+3500 5d5+1000 6d6+17 'pound'
 -17 -17 -17 2
 EIK 0 0 0
 stand stand male 0
@@ -1721,7 +1721,7 @@ tell that this man is extremely powerful.
 ~
 human~
 AGT DHJ 0 0
-49 0 50d10+4000 5d5+1000 4d10+18 pound
+49 0 50d10+4000 5d5+1000 4d10+18 'pound'
 -19 -19 -19 1
 EFIK 0 0 0
 stand stand male 0
@@ -1740,7 +1740,7 @@ thus it seems to fade into the background.
 ~
 unique~
 AB DJ -500 0
-48 0 25d10+3750 5d5+1000 6d6+18 claw
+48 0 25d10+3750 5d5+1000 6d6+18 'claw'
 -18 -18 -18 1
 EFIK 0 0 0
 stand stand none 0
@@ -1759,7 +1759,7 @@ large gaping mouth and two glowing eyespots.
 ~
 unique~
 AB FJ -999 0
-48 0 25d10+3750 5d5+1000 6d6+18 charge
+48 0 25d10+3750 5d5+1000 6d6+18 'charge'
 -18 -18 -18 1
 EFIK 0 0 0
 stand stand none 0
@@ -1776,7 +1776,7 @@ hair is black.  He looks very evil.
 ~
 human~
 ABT J -500 0
-25 0 5d10+550 5d5+1000 2d10+7 slash
+25 0 5d10+550 5d5+1000 2d10+7 'slash'
 -7 -7 -7 4
 EIK 0 0 0
 stand stand male 0
@@ -1793,7 +1793,7 @@ thieves in the Underdark.
 ~
 orc~
 ABS 0 -500 0
-26 0 5d10+600 5d5+1000 3d7+7 punch
+26 0 5d10+600 5d5+1000 3d7+7 'punch'
 -7 -7 -7 4
 EIKN 0 0 0
 stand stand male 0
@@ -1809,7 +1809,7 @@ can become the most feared drow in the land
 ~
 human~
 ABR J -700 0
-26 0 5d10+600 5d5+1000 3d7+7 punch
+26 0 5d10+600 5d5+1000 3d7+7 'punch'
 -7 -7 -7 4
 EIK 0 0 0
 stand stand male 0
@@ -1825,7 +1825,7 @@ rivals that of an ogre.
 ~
 human~
 ABT J -500 0
-24 0 5d10+500 5d5+1000 2d10+6 punch
+24 0 5d10+500 5d5+1000 2d10+6 'punch'
 -6 -6 -6 4
 EIK 0 0 0
 stand stand male 0
@@ -1839,7 +1839,7 @@ Sifrim is one of the few powerful drow clerics.  He is dressed all in black
 and stares at your with glowing eyes.  A dangerous fellow by far. ~
 human~
 ABQ J -800 0
-25 0 5d10+550 5d5+1000 2d10+7 punch
+25 0 5d10+550 5d5+1000 2d10+7 'punch'
 -7 -7 -7 4
 EIK 0 0 0
 stand stand male 0
@@ -1854,7 +1854,7 @@ and hopes to find many powerful magical items.
 ~
 human~
 ABT J -500 0
-26 0 5d10+600 5d5+1000 3d7+7 punch
+26 0 5d10+600 5d5+1000 3d7+7 'punch'
 -7 -7 -7 4
 EIK 0 0 0
 stand stand male 0
@@ -1868,7 +1868,7 @@ This is Methuen, a mage.  Methuen has come to the Underdark in search
 of magical items to enhance his considerable magical prowess. ~
 human~
 ABR J -400 0
-27 0 5d10+650 5d5+1000 5d4+7 slap
+27 0 5d10+650 5d5+1000 5d4+7 'slap'
 -8 -8 -8 4
 EIK 0 0 0
 stand stand male 0
@@ -1884,7 +1884,7 @@ Underdark.
 ~
 human~
 ABT J -250 0
-25 0 5d10+550 5d5+1000 2d10+7 slash
+25 0 5d10+550 5d5+1000 2d10+7 'slash'
 -7 -7 -7 4
 EIK 0 0 0
 stand stand female 0
@@ -1898,7 +1898,7 @@ This is the inn keep of the Traveller's Den.  He makes sure everyone gets
 what they want and provides soft beds for those who wish to stay here. ~
 human~
 ABTe J 0 0
-95 10 50d10+22500 5d5+5000 16d15+68 pound
+95 10 50d10+22500 5d5+5000 16d15+68 'pound'
 -71 -71 -71 -37
 EFIK 0 0 0
 stand stand male 0
@@ -1914,7 +1914,7 @@ fanatical desire to be one with the demons.
 ~
 human~
 ABG N -500 0
-17 0 3d9+258 5d5+1000 3d4+4 slap
+17 0 3d9+258 5d5+1000 3d4+4 'slap'
 -3 -3 -3 6
 EIKU 0 0 0
 stand stand male 0
@@ -1929,7 +1929,7 @@ He is also wearing red and black bracers.
 ~
 human~
 ABGR JN -600 0
-21 0 4d10+360 5d5+1000 4d4+5 punch
+21 0 4d10+360 5d5+1000 4d4+5 'punch'
 -5 -5 -5 5
 EIK 0 0 0
 stand stand male 0
@@ -1945,7 +1945,7 @@ possessed by an evil force.
 ~
 human~
 ABT JN -900 0
-23 0 5d10+450 5d5+1000 3d6+6 slash
+23 0 5d10+450 5d5+1000 3d6+6 'slash'
 -6 -6 -6 4
 EIKU 0 0 0
 stand stand male 0
@@ -1961,7 +1961,7 @@ to this plane of existence.
 ~
 human~
 ABR N -600 0
-27 0 5d10+650 5d5+1000 5d4+7 slap
+27 0 5d10+650 5d5+1000 5d4+7 'slap'
 -8 -8 -8 4
 EIK 0 0 0
 stand stand male 0
@@ -1977,7 +1977,7 @@ from his head.
 ~
 human~
 ABGT N -999 0
-30 0 6d12+853 5d5+1000 4d6+8 claw
+30 0 6d12+853 5d5+1000 4d6+8 'claw'
 -9 -9 -9 3
 EIK 0 0 0
 stand stand male 0
@@ -1994,7 +1994,7 @@ red fangs instead of teeth.
 ~
 human~
 ABG N -999 0
-35 0 10d10+1300 5d5+1000 4d7+11 pound
+35 0 10d10+1300 5d5+1000 4d7+11 'pound'
 -11 -11 -11 3
 EIK 0 0 0
 stand stand male 0
@@ -2011,7 +2011,7 @@ permanent gates to the abyss so the demons can come and go as they
 please. ~
 human~
 ABT Nu -999 0
-37 0 10d10+1500 5d5+1000 3d10+12 pound
+37 0 10d10+1500 5d5+1000 3d10+12 'pound'
 -12 -12 -12 3
 EIK 0 0 0
 stand stand male 0
@@ -2027,7 +2027,7 @@ the light.  He stands about six feet tall and four feet across.  Down his back
 he has spikes and his hands end with large claws. ~
 unique~
 ABF 0 -999 0
-25 0 5d10+550 5d5+1000 2d10+7 slash
+25 0 5d10+550 5d5+1000 2d10+7 'slash'
 -7 -7 -7 4
 EFNU 0 0 0
 stand stand male 0
@@ -2043,7 +2043,7 @@ sense an aura of pure evil emanating from this creature.
 ~
 unique~
 ABG J -999 0
-25 0 5d10+550 5d5+1000 2d10+7 slash
+25 0 5d10+550 5d5+1000 2d10+7 'slash'
 -7 -7 -7 4
 EIK 0 0 0
 stand stand male 0
@@ -2058,7 +2058,7 @@ skin drawn tightly over hollow cheekbones; its flesh is unusually cold and
 clammy.  Its eyes - sunken in the face - are dull and heavy lidded. ~
 human~
 ABG J -500 0
-25 0 5d10+550 5d5+1000 2d10+7 punch
+25 0 5d10+550 5d5+1000 2d10+7 'punch'
 -7 -7 -7 4
 EIK 0 0 0
 stand stand male 0
@@ -2074,7 +2074,7 @@ grey-green while the lower part is a medium green flecked with dull
 yellow. Its eyes are disproportionably large and apparently lidless. ~
 snake~
 ABG J -700 0
-24 0 5d10+500 5d5+1000 2d10+6 charge
+24 0 5d10+500 5d5+1000 2d10+6 'charge'
 -6 -6 -6 4
 EF L 0 0
 stand stand none 0

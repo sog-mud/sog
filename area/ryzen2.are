@@ -18,7 +18,7 @@ not rest until destroyed and sent into the heavens.
 ~
 human~
 AG BJTU -200 0
-25 0 5d10+550 1d50+100 2d10+7 wrath
+25 0 5d10+550 1d50+100 2d10+7 'wrath'
 -7 -7 -7 0
 EFU 0 D N
 stand stand none 0
@@ -32,7 +32,7 @@ The wraith floats slowly towards you, searching for a new soul to consume.
 ~
 human~
 AGO JU -1000 0
-34 0 9d80+1200 34d10+100 4d7+10 claw
+34 0 9d80+1200 34d10+100 4d7+10 'claw'
 -11 -10 -11 5
 CEFH 0 0 NY
 stand stand none 0
@@ -46,7 +46,7 @@ This long dead spirit is now an evil creation that longs for your blood.
 ~
 human~
 AGO JU -800 0
-32 0 5d10+1000 2d20+1000 6d4+9 slash
+32 0 5d10+1000 2d20+1000 6d4+9 'slash'
 -10 -10 -10 4
 CDFH 0 0 NYZ
 stand stand none 0
@@ -62,7 +62,7 @@ tearing the last remnants of flesh from it for food.
 ~
 human~
 AGO J -950 0
-36 0 5d25+1400 36d10+100 3d10+11 claw
+36 0 5d25+1400 36d10+100 3d10+11 'claw'
 -12 -12 -12 3
 CDHK 0 0 N
 stand stand none 500
@@ -77,7 +77,7 @@ move any faster than at a slow walk.
 ~
 human~
 AGO J -600 0
-25 0 5d10+550 1d50+100 2d10+7 charge
+25 0 5d10+550 1d50+100 2d10+7 'charge'
 0 0 0 0
 CDF 0 0 NZ
 stand stand none 0
@@ -93,7 +93,7 @@ entire body.
 ~
 human~
 AGO J -700 0
-27 0 5d10+650 27d10+100 5d4+7 charge
+27 0 5d10+650 27d10+100 5d4+7 'charge'
 -8 -8 -8 6
 CDF 0 0 NZ
 stand stand none 0
@@ -109,7 +109,7 @@ even the hardiest of warriors at bay.
 ~
 human~
 AGO JT -1000 0
-33 0 5d20+1200 39d10+1100 6d4+10 none
+33 0 5d20+1200 39d10+1100 6d4+10 'none'
 -11 -11 -11 5
 DEFIKN 0 0 N
 stand stand none 500
@@ -125,7 +125,7 @@ you.
 ~
 human~
 ABO J -1000 0
-42 0 5d50+2250 42d10+4400 3d12+14 blast
+42 0 5d50+2250 42d10+4400 3d12+14 'blast'
 -14 -14 -14 0
 CDEFHK 0 0 NZ
 stand stand male 800
@@ -141,7 +141,7 @@ well at least you get the first attack before he kills you.
 ~
 dragon~
 ABG 0 -800 0
-45 0 10d100+3000 45d10+4100 8d4+16 claw
+45 0 10d100+3000 45d10+4100 8d4+16 'claw'
 -15 -15 -15 -1
 CDEKM 0 IJK 0
 sleep stand male 20000
@@ -157,7 +157,7 @@ ribs and organs exposed.  ICK!
 ~
 unique~
 ABFGO JZ -900 0
-38 0 9d50+1600 38d10+4100 5d6+12 bite
+38 0 9d50+1600 38d10+4100 5d6+12 'bite'
 -13 -13 -13 3
 CDEF 0 0 NY
 stand stand none 500
@@ -173,7 +173,7 @@ during a battle with undead.
 ~
 human~
 ABGQ J 800 0
-35 0 10d50+1300 40d10+4150 4d7+11 none
+35 0 10d50+1300 40d10+4150 4d7+11 'none'
 -11 -11 -11 3
 CEKLS 0 0 0
 stand stand male 500
@@ -189,7 +189,7 @@ ease.
 ~
 human~
 AGT CJ 1000 0
-26 0 5d10+600 26d10+1100 3d7+17 none
+26 0 5d10+600 26d10+1100 3d7+17 'none'
 -7 -7 -7 4
 CEFIKS 0 0 0
 stand stand male 500
@@ -204,7 +204,7 @@ just running around looking for things to slip into his purses.
 ~
 unique~
 AGS J -400 0
-29 0 6d12+778 29d10+1100 4d6+8 pierce
+29 0 6d12+778 29d10+1100 4d6+8 'pierce'
 -9 -9 -9 4
 FJNS 0 0 Z
 stand stand male 1200
@@ -220,7 +220,7 @@ wears a gorgeous ring on her finger.
 ~
 human~
 AGR Ju -600 0
-31 0 10d10+928 50d10+2200 4d6+9 pierce
+31 0 10d10+928 50d10+2200 4d6+9 'pierce'
 0 0 0 0
 FNS 0 C 0
 stand stand female 1000

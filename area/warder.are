@@ -20,7 +20,7 @@ It looks realy strange. You never see that.
 ~
 unique~
 ABJKTVbef DFUVclmt 0 0
-50 25 2d1+5000 1d1+99 5d6+50 none
+50 25 2d1+5000 1d1+99 5d6+50 'none'
 -10 -10 -10 -10
 ACEFIK C 0 0
 stand stand none 0
@@ -35,7 +35,7 @@ The ancient owl sits here
 ~
 unique~
 ABQVWa DFHJVZ 0 0
-92 70 1d100+18000 1d300+900 15d30+40 divine
+92 70 1d100+18000 1d300+900 15d30+40 'divine'
 -90 -90 -90 -90
 CEFNU C 0 0
 stand stand female 0

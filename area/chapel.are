@@ -17,7 +17,7 @@ skeleton looks very mindless but still dangerous ...
 ~
 human~
 AF J 0 0
-1 0 2d6+10 0d9+100 1d4+0 none
+1 0 2d6+10 0d9+100 1d4+0 'none'
 9 9 9 10
 EFNU 0 0 E
 stand stand male 0
@@ -33,7 +33,7 @@ human.
 ~
 human~
 ABF DFJ -100 0
-4 0 2d7+46 2d9+100 1d5+1 none
+4 0 2d7+46 2d9+100 1d5+1 'none'
 6 6 6 9
 EFNU 0 0 0
 stand stand male 2
@@ -48,7 +48,7 @@ he looks like he hasn't forgot his fighting skills.
 ~
 human~
 AF DJ -500 0
-6 0 2d7+71 3d9+100 1d7+1 none
+6 0 2d7+71 3d9+100 1d7+1 'none'
 4 4 4 9
 EFNU 0 0 0
 stand stand male 7
@@ -64,7 +64,7 @@ in his eyes.
 ~
 human~
 ABF BDFJ -750 0
-12 0 2d10+150 6d9+100 1d10+3 none
+12 0 2d10+150 6d9+100 1d10+3 'none'
 0 0 0 8
 EFNU 0 0 0
 stand stand male 50
@@ -79,7 +79,7 @@ arms raises. He looks mighty tough to be just a minor minion.
 ~
 human~
 ABF DFJ -1000 0
-28 0 6d12+703 14d9+100 5d4+8 none
+28 0 6d12+703 14d9+100 5d4+8 'none'
 -8 -8 -8 6
 EFNU 0 0 0
 stand stand male 750
@@ -95,7 +95,7 @@ this man has a sacred beauty.  You see a halo around his head.
 ~
 human~
 ABQ DFH 1000 0
-15 0 3d9+208 15d9+100 2d5+3 none
+15 0 3d9+208 15d9+100 2d5+3 'none'
 -2 -2 -2 6
 EIKU 0 0 0
 stand stand male 20
@@ -113,7 +113,7 @@ beings sometimes walk on all their legs and sometimes on the hind pair only.
 ~
 human~
 AF J -500 0
-12 0 2d10+150 6d9+100 1d10+3 none
+12 0 2d10+150 6d9+100 1d10+3 'none'
 0 0 0 8
 EFNU 0 0 0
 stand stand none 32
@@ -131,7 +131,7 @@ it has no face, only a suggestive blackness where a face ought to be ...
 ~
 human~
 AFG JPQ -1000 0
-10 0 2d7+121 5d9+100 2d4+2 none
+10 0 2d7+121 5d9+100 2d4+2 'none'
 1 1 1 8
 EFNU 0 0 0
 stand stand none 7
@@ -149,7 +149,7 @@ voices.  A hunting horror is HUGE, normally around 40 feet long.
 ~
 human~
 AF DFJ -1000 0
-20 0 3d9+333 10d9+100 2d8+5 none
+20 0 3d9+333 10d9+100 2d8+5 'none'
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand none 100
@@ -163,7 +163,7 @@ Just some unpleasant looking vine-like growths ...
 ~
 human~
 ACF DJPQ 0 0
-6 0 2d7+71 3d9+100 1d7+1 none
+6 0 2d7+71 3d9+100 1d7+1 'none'
 4 4 4 9
 EFNU 0 0 0
 stand stand none 4
@@ -179,7 +179,7 @@ He is called up from his service in hell in order to aid the Undying One.
 ~
 human~
 AB DJ -750 0
-20 0 3d9+333 10d9+100 2d8+5 none
+20 0 3d9+333 10d9+100 2d8+5 'none'
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand male 111
@@ -197,7 +197,7 @@ lead you to believe that he knew that you were coming.
 ~
 human~
 ABF DJ -1000 0
-17 0 3d9+258 8d9+100 3d4+4 none
+17 0 3d9+258 8d9+100 3d4+4 'none'
 -3 -3 -3 7
 EFNU 0 0 0
 stand stand male 78
@@ -216,7 +216,7 @@ softly into the air:
 ~
 human~
 ABR DFJ 350 0
-20 0 3d9+308 20d9+100 3d4+4 none
+20 0 3d9+308 20d9+100 3d4+4 'none'
 -4 -4 -4 3
 FU 0 0 0
 stand stand male 2
@@ -230,7 +230,7 @@ It is a large brownish slug.  Got any salt?  Didn't think so ...
 ~
 human~
 AC J 0 0
-3 0 2d6+35 1d9+100 1d6+0 none
+3 0 2d6+35 1d9+100 1d6+0 'none'
 7 7 7 10
 EFNU 0 0 0
 stand stand none 0
@@ -252,7 +252,7 @@ And on he babbles ...
 ~
 human~
 AGR AJ 1000 0
-5 0 2d7+46 5d9+100 1d5+0 none
+5 0 2d7+46 5d9+100 1d5+0 'none'
 6 6 6 8
 FU 0 0 0
 sit sit male 2
@@ -270,7 +270,7 @@ resting on the shoulder of the etcher ... her husband.
 ~
 human~
 AB JQ 1000 0
-7 0 2d6+85 3d9+100 1d8+1 none
+7 0 2d6+85 3d9+100 1d8+1 'none'
 4 4 4 9
 EFNU 0 0 0
 stand stand female 6
@@ -284,7 +284,7 @@ YUK! It's ugly, disgusting ... it smells ... it also moves a bit!
 ~
 human~
 ACF J -350 0
-6 0 2d7+71 3d9+100 1d7+1 none
+6 0 2d7+71 3d9+100 1d7+1 'none'
 4 4 4 9
 EFNU 0 0 0
 stand stand male 4

@@ -18,7 +18,7 @@ Avatar of abrazak is here.
 ~
 dragon~
 ABGOVXac H 0 0
-1000 0 5d5000+5000 1d1+666 5d300+1 none
+1000 0 5d5000+5000 1d1+666 5d300+1 'none'
 6 6 66 66
 0 ABDFGIJLMOPQRTXYZ 0 0
 stand stand male 2147483647
@@ -38,7 +38,7 @@ prisoner karabas~
 ~
 human~
 A 0 0 0
-200 0 10d10+25000 0d0+0 10d10+1000 none
+200 0 10d10+25000 0d0+0 10d10+1000 'none'
 -66 -66 -66 -66
 0 ABQ 0 0
 stand stand male 0
@@ -58,7 +58,7 @@ cockroach~
 ~
 song bird~
 AZ 0 1000 0
-1 0 1d1+1 0d0+0 1d1+1 bite
+1 0 1d1+1 0d0+0 1d1+1 'bite'
 0 0 0 0
 0 BD 0 0
 stand stand either 0
@@ -74,7 +74,7 @@ rat~
 ~
 human~
 A Z 0 0
-0 0 1d1+1 0d0+0 1d1+1 bite
+0 0 1d1+1 0d0+0 1d1+1 'bite'
 0 0 0 0
 FH B 0 S
 stand stand either 0
@@ -90,7 +90,7 @@ kitten cat кошечка karapupa~
 ~
 cat~
 Ae DHPTclmt 1000 0
-150 250 1d1+28000 1d1+25000 50d60+100 divine
+150 250 1d1+28000 1d1+25000 50d60+100 'divine'
 -66 -66 -66 -66
 ACDEIJKNO BCDU 0 0
 stand stand female 100000
@@ -104,7 +104,7 @@ devil~
 ~
 pig~
 AGRTe CDEFGVZacu -1000 0
-150 1000 1d1+10000 1d1+10000 1d1+100 shbite
+150 1000 1d1+10000 1d1+10000 1d1+100 'shbite'
 -100 -100 -100 -100
 0 ABCEFGHIJKLMNOPQRTXYZ 0 0
 stand stand male 0
@@ -121,7 +121,7 @@ stand stand male 0
 ~
 unique~
 ABIX BFHPQTVZcefglm 1000 0
-95 1000 10d10+500 10d10+500 15d15+500 bite
+95 1000 10d10+500 10d10+500 15d15+500 'bite'
 0 0 0 0
 ACDEFGHIJKNO ACD 0 0
 stand stand female 50
@@ -137,7 +137,7 @@ G ABCQ medium unknown
 ~
 human~
 A 0 0 0
-0 0 0d0+0 0d0+0 0d0+0 none
+0 0 0d0+0 0d0+0 0d0+0 'none'
 0 0 0 0
 0 0 0 0
 stand stand female 0

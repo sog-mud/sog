@@ -18,7 +18,7 @@ He is praying Iluvator to grant freedom for his mistress Hera.
 ~
 troll~
 ABGQa u -1000 0
-50 300 1d1+10000 1d1+10000 0d0+0 divine
+50 300 1d1+10000 1d1+10000 0d0+0 'divine'
 -99 -99 -99 -99
 0 C 0 0
 stand stand male 0
@@ -30,7 +30,7 @@ no name~
 ~
 human~
 A 0 0 0
-0 0 0d0+0 0d0+0 0d0+0 none
+0 0 0d0+0 0d0+0 0d0+0 'none'
 0 0 0 0
 0 0 0 0
 stand stand none 0

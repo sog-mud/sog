@@ -16,7 +16,7 @@ He's lived a life of violence ever since he was little.
 ~
 human~
 ACEG 0 -100 2100
-5 0 2d6+60 1d1+99 1d6+1 punch
+5 0 2d6+60 1d1+99 1d6+1 'punch'
 5 5 5 9
 DFNU 0 0 0
 stand stand male 10
@@ -30,7 +30,7 @@ He wants to rid the world of every last Troll gang member.
 ~
 human~
 ACEG J 100 2101
-5 0 2d6+60 1d1+99 1d6+1 punch
+5 0 2d6+60 1d1+99 1d6+1 'punch'
 5 5 5 9
 FJNR 0 0 0
 stand stand male 10
@@ -45,7 +45,7 @@ guess mostly brute force from the size of his muscles.
 ~
 human~
 ABFGT J 0 2100
-13 0 2d20+170 1d1+99 2d5+5 punch
+13 0 2d20+170 1d1+99 2d5+5 'punch'
 -1 -1 -1 8
 CDEKU 0 E 0
 stand stand male 100
@@ -59,7 +59,7 @@ He's 6'6" 245 pounds and enough muscle to bash your head in. How like a Troll.
 ~
 human~
 ACFGHT D -333 2100
-11 0 4d8+134 1d1+99 1d10+3 punch
+11 0 4d8+134 1d1+99 1d10+3 'punch'
 1 1 1 8
 CDKU 0 C 0
 stand stand male 75
@@ -73,7 +73,7 @@ She's a beauty (ok in RELATIVE terms) but you better not touch!
 ~
 human~
 ACGHS 0 0 0
-7 0 2d6+85 1d1+99 1d8+1 slap
+7 0 2d6+85 1d1+99 1d8+1 'slap'
 4 4 4 9
 FHNU 0 0 0
 stand stand female 50
@@ -87,7 +87,7 @@ He'd rather be at the local pub then out here with these nasty kids.
 ~
 human~
 AGT 0 700 0
-8 0 2d7+115 1d1+99 1d7+2 punch
+8 0 2d7+115 1d1+99 1d7+2 'punch'
 3 3 3 9
 CKLU 0 0 0
 stand stand male 350
@@ -101,7 +101,7 @@ He has a wary eye and a fine hand for art.
 ~
 human~
 AGHS P -400 2101
-10 0 2d7+121 1d1+99 2d4+2 punch
+10 0 2d7+121 1d1+99 2d4+2 'punch'
 1 1 1 8
 FHJNU 0 0 0
 stand stand male 25
@@ -116,7 +116,7 @@ His fangs are blood-stained from hearty meals of ... steak?!
 ~
 dog~
 ABFG DJQ -100 0
-5 2 4d6+60 2d9+100 1d8+1 bite
+5 2 4d6+60 2d9+100 1d8+1 'bite'
 5 5 5 9
 CEGQR 0 0 0
 stand stand male 0
@@ -130,7 +130,7 @@ He's a sterling example of rehabilitation at work.  Not nice.
 ~
 human~
 AFHS P -400 2100
-10 0 2d7+121 1d1+99 2d4+2 punch
+10 0 2d7+121 1d1+99 2d4+2 'punch'
 1 1 1 8
 CDFJU 0 0 0
 stand stand male 25
@@ -144,7 +144,7 @@ He's smaller, but undoubtably smarter, than the Troll's leader.
 ~
 human~
 ABFGS J 0 2101
-13 0 2d10+160 1d1+99 2d5+3 punch
+13 0 2d10+160 1d1+99 2d5+3 'punch'
 -1 -1 -1 8
 EFHJKNU 0 G 0
 stand stand male 100
@@ -159,7 +159,7 @@ breaking heads for the Ogres.
 ~
 human~
 ACFGHT DJ -333 2101
-11 0 2d8+134 1d1+99 1d10+2 punch
+11 0 2d8+134 1d1+99 1d10+2 'punch'
 1 1 1 8
 JKNU 0 C 0
 stand stand male 75

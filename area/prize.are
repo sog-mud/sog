@@ -19,7 +19,7 @@ metrodotel~
 ~
 human~
 A 0 0 0
-55 200 1d1+40000 1d1+2000 1d1+300 none
+55 200 1d1+40000 1d1+2000 1d1+300 'none'
 0 0 0 0
 0 0 0 0
 sit stand male 5000

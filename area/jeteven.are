@@ -15,7 +15,7 @@ illari~
 ~
 human~
 A 0 0 0
-0 0 0d0+0 0d0+0 0d0+0 none
+0 0 0d0+0 0d0+0 0d0+0 'none'
 0 0 0 0
 0 0 0 0
 stand stand none 0
@@ -28,7 +28,7 @@ jet~
 ~
 human~
 A 0 0 0
-0 0 0d0+0 0d0+0 0d0+0 none
+0 0 0d0+0 0d0+0 0d0+0 'none'
 0 0 0 0
 0 0 0 0
 stand stand none 0
@@ -41,7 +41,7 @@ keravar master~
 ~
 human~
 A 0 0 0
-0 0 0d0+0 0d0+0 0d0+0 none
+0 0 0d0+0 0d0+0 0d0+0 'none'
 0 0 0 0
 0 0 0 0
 stand stand none 0
@@ -54,7 +54,7 @@ master pain~
 ~
 human~
 A 0 0 0
-0 0 0d0+0 0d0+0 0d0+0 none
+0 0 0d0+0 0d0+0 0d0+0 'none'
 0 0 0 0
 0 0 0 0
 stand stand none 0
@@ -67,7 +67,7 @@ master curses~
 ~
 human~
 A 0 0 0
-0 0 0d0+0 0d0+0 0d0+0 none
+0 0 0d0+0 0d0+0 0d0+0 'none'
 0 0 0 0
 0 0 0 0
 stand stand none 0
@@ -80,7 +80,7 @@ ahae-te~
 ~
 human~
 A 0 0 0
-0 0 0d0+0 0d0+0 0d0+0 none
+0 0 0d0+0 0d0+0 0d0+0 'none'
 0 0 0 0
 0 0 0 0
 stand stand none 0
@@ -93,7 +93,7 @@ soldier imperial~
 ~
 human~
 A 0 0 0
-0 0 0d0+0 0d0+0 0d0+0 none
+0 0 0d0+0 0d0+0 0d0+0 'none'
 0 0 0 0
 0 0 0 0
 stand stand none 0
@@ -106,7 +106,7 @@ imperial captain~
 ~
 human~
 A 0 0 0
-0 0 0d0+0 0d0+0 0d0+0 none
+0 0 0d0+0 0d0+0 0d0+0 'none'
 0 0 0 0
 0 0 0 0
 stand stand none 0
@@ -119,7 +119,7 @@ weidian mercenary~
 ~
 human~
 A 0 0 0
-0 0 0d0+0 0d0+0 0d0+0 none
+0 0 0d0+0 0d0+0 0d0+0 'none'
 0 0 0 0
 0 0 0 0
 stand stand none 0
@@ -132,7 +132,7 @@ outer guard~
 ~
 human~
 A 0 0 0
-0 0 0d0+0 0d0+0 0d0+0 none
+0 0 0d0+0 0d0+0 0d0+0 'none'
 0 0 0 0
 0 0 0 0
 stand stand none 0
@@ -145,7 +145,7 @@ inner guard~
 ~
 human~
 A 0 0 0
-0 0 0d0+0 0d0+0 0d0+0 none
+0 0 0d0+0 0d0+0 0d0+0 'none'
 0 0 0 0
 0 0 0 0
 stand stand none 0

@@ -19,7 +19,7 @@ powers have chosen him as their fell agent on Anon.
 ~
 human~
 ABG CDEJNu -1000 0
-65 0 50d10+8250 5d5+5000 11d5+35 pound
+65 0 50d10+8250 5d5+5000 11d5+35 'pound'
 -35 -35 -35 -5
 EFHIJKNU B C 0
 stand stand male 1000
@@ -37,7 +37,7 @@ facilitate the conquest of Anon.
 ~
 human~
 ABG DJu -1000 0
-56 0 50d10+5750 5d5+5000 10d4+24 punch
+56 0 50d10+5750 5d5+5000 10d4+24 'punch'
 -26 -26 -26 -2
 BCEGK AB D H
 stand stand none 1000
@@ -53,7 +53,7 @@ of one) and an executioner. It will kill on a command.
 ~
 golem~
 ABG 0 0 0
-50 0 50d10+4250 5d5+5000 5d8+19 pound
+50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
 EFNU 0 0 0
 stand stand none 1000
@@ -71,7 +71,7 @@ to the best of his considerable abilities if the need arises.
 ~
 unique~
 ABG CDEFJu -1000 0
-60 0 50d10+6750 5d5+5000 8d6+28 pierce
+60 0 50d10+6750 5d5+5000 8d6+28 'pierce'
 -30 -30 -30 -3
 EFIKU 0 H N
 stand stand male 1000
@@ -87,7 +87,7 @@ at your untimely interruption and reacts aggressively.
 ~
 human~
 ABFGH DEJu -1000 0
-54 0 50d10+5250 5d5+5000 7d6+22 punch
+54 0 50d10+5250 5d5+5000 7d6+22 'punch'
 -24 -24 -24 -1
 EFIKNU B C D
 stand stand male 1000
@@ -103,7 +103,7 @@ He is a total fanatic and will battle to the death.
 ~
 human~
 ABFG DJu -1000 0
-54 0 50d10+5250 5d5+5000 7d6+22 pound
+54 0 50d10+5250 5d5+5000 7d6+22 'pound'
 -24 -24 -24 -1
 CDEFIJKNQ 0 0 0
 stand stand male 1000
@@ -119,7 +119,7 @@ but a wooden stick. He cries out upon spotting you, and prepares for combat.
 ~
 human~
 ABFG J -1000 0
-50 0 50d10+4250 5d5+5000 5d8+19 pound
+50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
 CDEFIJKQ 0 0 0
 stand stand male 1000
@@ -135,7 +135,7 @@ astonishment at the satanic gleam in its dark red eyes.
 ~
 unique~
 ABG J -1000 0
-40 0 15d10+1850 5d5+1000 4d8+13 charge
+40 0 15d10+1850 5d5+1000 4d8+13 'charge'
 -13 -13 -13 3
 FKU 0 0 0
 stand stand none 1000
@@ -150,7 +150,7 @@ keen to send your soul to him!
 ~
 human~
 ABG J -1000 0
-40 0 15d10+1850 5d5+1000 4d8+13 punch
+40 0 15d10+1850 5d5+1000 4d8+13 'punch'
 -13 -13 -13 3
 EFIKNU 0 0 0
 stand stand male 1000
@@ -167,7 +167,7 @@ However, the vile mage who is now drooling insanely seems a little upset...
 ~
 human~
 ABFGH EJ -1000 0
-45 0 25d10+3000 5d5+1000 3d12+14 punch
+45 0 25d10+3000 5d5+1000 3d12+14 'punch'
 -15 -15 -15 2
 FIKU B C 0
 stand stand male 1000
@@ -182,7 +182,7 @@ the bulk of Lord Krothgar's evil army.
 ~
 human~
 ABFG J -1000 0
-48 0 25d10+3750 5d5+1000 6d6+18 pound
+48 0 25d10+3750 5d5+1000 6d6+18 'pound'
 -18 -18 -18 1
 CDEFIJKQ 0 0 0
 stand stand male 1000
@@ -199,7 +199,7 @@ regret your intrusion.
 ~
 red dragon~
 ABFG DFu -1000 0
-57 0 50d10+6000 5d5+5000 6d8+24 claw
+57 0 50d10+6000 5d5+5000 6d8+24 'claw'
 -27 -27 -27 -2
 CEFM 0 0 0
 stand stand none 1000
@@ -216,7 +216,7 @@ regret your intrusion.
 ~
 black dragon~
 ABFG CFu -1000 0
-48 0 25d10+3750 5d5+1000 6d6+18 claw
+48 0 25d10+3750 5d5+1000 6d6+18 'claw'
 -18 -18 -18 1
 CEFM 0 0 0
 stand stand none 1000
@@ -233,7 +233,7 @@ regret your intrusion.
 ~
 white dragon~
 ABFG DFu -1000 0
-45 0 25d10+3000 5d5+1000 8d4+16 claw
+45 0 25d10+3000 5d5+1000 8d4+16 'claw'
 -15 -15 -15 2
 CEFM 0 0 0
 stand stand none 1000
@@ -250,7 +250,7 @@ regret your intrusion.
 ~
 blue dragon~
 ABFG DFu -1000 0
-54 0 50d10+5250 5d5+5000 7d6+22 claw
+54 0 50d10+5250 5d5+5000 7d6+22 'claw'
 -24 -24 -24 -1
 CEFM 0 0 0
 stand stand none 1000
@@ -267,7 +267,7 @@ regret your intrusion.
 ~
 green dragon~
 ABFG DFu -1000 0
-51 0 50d10+4500 5d5+5000 5d8+20 claw
+51 0 50d10+4500 5d5+5000 5d8+20 'claw'
 -21 -21 -21 0
 CEFM 0 0 0
 stand stand none 1000
@@ -281,7 +281,7 @@ This magically-summoned being serves the mages of the tower- sometimes.
 ~
 unique~
 ABFG 0 0 0
-53 0 50d10+5000 5d5+5000 6d7+21 magic
+53 0 50d10+5000 5d5+5000 6d7+21 'magic'
 -23 -23 -23 -1
 EF H 0 0
 stand stand none 1000
@@ -298,7 +298,7 @@ now he will try to slay you!
 ~
 human~
 ABFG CJNT -1000 0
-49 0 50d10+4000 5d5+1000 4d10+18 pound
+49 0 50d10+4000 5d5+1000 4d10+18 'pound'
 -19 -19 -19 1
 FIK H 0 0
 stand stand male 1000
@@ -314,7 +314,7 @@ bored and will slay it soon.
 ~
 human~
 ABG HJN 1000 0
-52 0 50d10+4750 5d5+5000 6d7+20 pound
+52 0 50d10+4750 5d5+5000 6d7+20 'pound'
 -22 -22 -22 0
 FIKU 0 0 0
 stand stand male 1000
@@ -329,7 +329,7 @@ brightest of creatures it is near starvation. You are a nice surprise...
 ~
 unique~
 ABFGH DFN -1000 0
-50 0 50d10+4250 5d5+5000 5d8+19 charge
+50 0 50d10+4250 5d5+5000 5d8+19 'charge'
 -20 -20 -20 0
 EFKU 0 0 0
 stand stand none 1000
@@ -344,7 +344,7 @@ corner of the cell he gibbers insanely and begs for mercy.
 ~
 human~
 ABH J 0 0
-10 0 2d7+121 5d5+100 2d4+2 punch
+10 0 2d7+121 5d5+100 2d4+2 'punch'
 1 1 1 7
 F 0 0 0
 stand stand male 1000
@@ -359,7 +359,7 @@ corner of the cell she gibbers insanely and begs for mercy.
 ~
 human~
 ABH J 0 0
-10 0 2d7+121 5d5+100 2d4+2 slap
+10 0 2d7+121 5d5+100 2d4+2 'slap'
 1 1 1 7
 F 0 0 0
 stand stand female 1000
@@ -376,7 +376,7 @@ These failures have been condemned to a dismal life in the pits.
 ~
 human~
 ABFG FJ 0 0
-45 0 25d10+3000 5d5+1000 8d4+16 pound
+45 0 25d10+3000 5d5+1000 8d4+16 'pound'
 -15 -15 -15 2
 FIJKNU 0 0 0
 stand stand none 1000
@@ -392,7 +392,7 @@ meal ticket.
 ~
 elf~
 ABFG 0 0 0
-52 0 50d10+4750 5d5+5000 6d7+20 charge
+52 0 50d10+4750 5d5+5000 6d7+20 'charge'
 -22 -22 -22 0
 EFU 0 0 0
 stand stand none 1000
@@ -407,7 +407,7 @@ at being seen.
 ~
 unique~
 ABFGH BDFPQT -1000 0
-25 0 5d10+550 5d5+1000 2d10+7 magic
+25 0 5d10+550 5d5+1000 2d10+7 'magic'
 -7 -7 -7 4
 EFU 0 0 0
 stand stand none 1000
@@ -423,7 +423,7 @@ appetite is insatiable and she is always on the lookout for new prey... err
 ~
 unique~
 ABGH DJTu -1000 0
-49 0 50d10+4000 5d5+1000 4d10+18 pound
+49 0 50d10+4000 5d5+1000 4d10+18 'pound'
 -19 -19 -19 1
 EFIU 0 0 0
 stand stand female 1000
@@ -437,7 +437,7 @@ This magically-summoned being serves the mages of the tower- sometimes.
 ~
 unique~
 ABFG 0 0 0
-53 0 50d10+5000 5d5+5000 6d7+21 magic
+53 0 50d10+5000 5d5+5000 6d7+21 'magic'
 -23 -23 -23 -1
 EFU 0 0 0
 stand stand none 1000
@@ -451,7 +451,7 @@ This magically-summoned being serves the mages of the tower- sometimes.
 ~
 unique~
 ABFG 0 0 0
-53 0 50d10+5000 5d5+5000 6d7+21 magic
+53 0 50d10+5000 5d5+5000 6d7+21 'magic'
 -23 -23 -23 -1
 EFU I 0 0
 stand stand none 1000
@@ -465,7 +465,7 @@ This magically-summoned being serves the mages of the tower- sometimes.
 ~
 unique~
 ABFG 0 0 0
-53 0 50d10+5000 5d5+5000 6d7+21 magic
+53 0 50d10+5000 5d5+5000 6d7+21 'magic'
 -23 -23 -23 -1
 EFU 0 0 0
 stand stand none 1000
@@ -480,7 +480,7 @@ a terrible sight to behold.
 ~
 unique~
 AFG DJ -1000 0
-45 0 25d10+3000 5d5+1000 8d4+16 magic
+45 0 25d10+3000 5d5+1000 8d4+16 'magic'
 -15 -15 -15 2
 EFU 0 0 0
 stand stand none 1000
@@ -496,7 +496,7 @@ fight fearlessly to defend it.
 ~
 fire giant~
 ABG J -1000 0
-51 0 50d10+4500 5d5+5000 5d8+20 punch
+51 0 50d10+4500 5d5+5000 5d8+20 'punch'
 -21 -21 -21 0
 CEFIKQ 0 D C
 stand stand male 1000
@@ -511,7 +511,7 @@ They do not take kindly to intrusions.
 ~
 frost giant~
 ABFG J -1000 0
-48 0 25d10+3750 5d5+1000 6d6+18 punch
+48 0 25d10+3750 5d5+1000 6d6+18 'punch'
 -18 -18 -18 1
 CEFIKQ 0 0 0
 stand stand male 1000
@@ -527,7 +527,7 @@ master, Lord Krothgar. They fight fearlessly to defend it.
 ~
 giant~
 ABFG J -1000 0
-45 0 25d10+3000 5d5+1000 8d4+16 punch
+45 0 25d10+3000 5d5+1000 8d4+16 'punch'
 -15 -15 -15 2
 CEFIKQ 0 0 0
 stand stand male 1000
@@ -542,7 +542,7 @@ They do not take kindly to intrusions.
 ~
 giant~
 ABFG J -1000 0
-54 0 50d10+5250 5d5+5000 7d6+22 punch
+54 0 50d10+5250 5d5+5000 7d6+22 'punch'
 -24 -24 -24 -1
 CEFIKQ 0 0 0
 stand stand male 1000
@@ -558,7 +558,7 @@ serving food and drinks in between kicks to the head.
 ~
 human~
 ABGH J -400 0
-30 0 6d12+853 5d5+1000 4d6+8 punch
+30 0 6d12+853 5d5+1000 4d6+8 'punch'
 -9 -9 -9 3
 CEFIK 0 0 0
 stand stand male 1000
@@ -575,7 +575,7 @@ degree of caution, but not aggression.
 ~
 human~
 ABG DEJu -1000 0
-49 0 50d10+4000 5d5+1000 4d10+18 punch
+49 0 50d10+4000 5d5+1000 4d10+18 'punch'
 -19 -19 -19 1
 EFIKQ 0 0 0
 stand stand male 1000
@@ -590,7 +590,7 @@ almost killing them. They don't even notice your presence.
 ~
 human~
 ABG J -1000 0
-48 0 25d10+3750 5d5+1000 6d6+18 pound
+48 0 25d10+3750 5d5+1000 6d6+18 'pound'
 -18 -18 -18 1
 CEFIKQ 0 0 0
 stand stand male 1000
@@ -605,7 +605,7 @@ fortress. He takes his duties very seriously.
 ~
 giant~
 ABG J -1000 0
-52 0 50d10+4750 5d5+5000 6d7+20 pound
+52 0 50d10+4750 5d5+5000 6d7+20 'pound'
 -22 -22 -22 0
 CEFIKQ 0 0 0
 stand stand male 1000
@@ -621,7 +621,7 @@ and nor does she give any herself.
 ~
 human~
 ABG DJN -1000 0
-53 0 50d10+5000 5d5+5000 6d7+21 pound
+53 0 50d10+5000 5d5+5000 6d7+21 'pound'
 -23 -23 -23 -1
 CEFIK 0 0 0
 stand stand female 1000
@@ -636,7 +636,7 @@ men and women than any one hundred of his regular soldiers.
 ~
 human~
 ABFG J -1000 0
-47 0 25d10+3500 5d5+1000 6d6+17 pound
+47 0 25d10+3500 5d5+1000 6d6+17 'pound'
 -17 -17 -17 2
 CEFIK 0 0 0
 stand stand female 1000
@@ -651,7 +651,7 @@ forces. She is not happy about your intrusion into this matter.
 ~
 human~
 ABFGH DEJu -1000 0
-50 0 50d10+4250 5d5+5000 5d8+19 pound
+50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
 CEFIKQ 0 0 0
 stand stand female 1000
@@ -665,7 +665,7 @@ This beast is a servant of the hill giants who patrol the plains of Doom.
 ~
 human~
 AFG FJ -1000 0
-42 0 25d10+2250 5d5+1000 3d12+14 punch
+42 0 25d10+2250 5d5+1000 3d12+14 'punch'
 -14 -14 -14 3
 CEFIK 0 0 0
 stand stand male 1000
@@ -679,7 +679,7 @@ This hideous undead wants to feast on your flesh!
 ~
 unique~
 AFG J -1000 0
-46 0 25d10+3250 5d5+1000 6d6+16 drain
+46 0 25d10+3250 5d5+1000 6d6+16 'drain'
 -16 -16 -16 2
 EFK 0 0 0
 stand stand none 1000
@@ -694,7 +694,7 @@ her around...
 ~
 human~
 ABGH DJTUu -1000 0
-52 0 50d10+4750 5d5+5000 6d7+20 drain
+52 0 50d10+4750 5d5+5000 6d7+20 'drain'
 -22 -22 -22 0
 EFIKNQ 0 0 0
 stand stand female 1000
@@ -711,7 +711,7 @@ slick.
 ~
 human~
 ABG CDEFJNTu -1000 0
-60 0 50d10+6750 5d5+5000 8d6+28 punch
+60 0 50d10+6750 5d5+5000 8d6+28 'punch'
 -30 -30 -30 -3
 CEFIKQ 0 0 0
 stand stand none 1000
@@ -727,7 +727,7 @@ of one) and an executioner. It will kill on a command.
 ~
 golem~
 ABG 0 0 0
-50 0 50d10+4250 5d5+5000 5d8+19 pound
+50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
 EFNU 0 0 0
 stand stand none 1000
@@ -740,7 +740,7 @@ The Keeper of the Mutant Pit snarls angrily at you.
 ~
 unique~
 ABFG JN -1000 0
-46 0 25d10+3250 5d5+1000 6d6+16 bite
+46 0 25d10+3250 5d5+1000 6d6+16 'bite'
 -16 -16 -16 2
 CEFIKQ 0 0 0
 stand stand none 1000
@@ -756,7 +756,7 @@ to you so she doesn't have to expend energy fighting.
 ~
 snake~
 ABDG DJu -1000 0
-51 0 50d10+4500 5d5+5000 5d8+20 punch
+51 0 50d10+4500 5d5+5000 5d8+20 'punch'
 -21 -21 -21 0
 EFIK L Q 0
 stand stand male 1000

@@ -18,7 +18,7 @@ strangers that may pass by.
 ~
 human~
 ABDG HN 1000 0
-93 0 50d10+20500 5d5+5000 17d10+64 divine
+93 0 50d10+20500 5d5+5000 17d10+64 'divine'
 -66 -66 -66 -33
 FHKN 0 0 0
 stand stand male 1000
@@ -36,7 +36,7 @@ and alloys such as bronze.
 ~
 human~
 ABG HN 1000 0
-73 0 50d10+20500 5d5+5000 17d10+64 pound
+73 0 50d10+20500 5d5+5000 17d10+64 'pound'
 -66 -66 -66 -33
 FHIKN 0 0 0
 stand stand male 1000
@@ -53,7 +53,7 @@ occasional crude iron oddity.
 ~
 human~
 ABGe HN 1000 0
-80 0 50d10+20500 5d5+5000 17d10+64 pound
+80 0 50d10+20500 5d5+5000 17d10+64 'pound'
 -66 -66 -66 -33
 FHIKN 0 0 0
 stand stand male 1000
@@ -67,7 +67,7 @@ Type list to see what he has to offer.
 ~
 human~
 ABGe HN 1000 0
-93 0 50d10+20500 5d5+5000 17d10+64 slash
+93 0 50d10+20500 5d5+5000 17d10+64 'slash'
 -66 -66 -66 -33
 FHIKN 0 0 0
 stand stand male 1000
@@ -83,7 +83,7 @@ marvellous potions. They taste even worse than they smell...
 ~
 human~
 ABGe HN 1000 0
-83 0 50d10+20500 5d5+5000 17d10+64 pound
+83 0 50d10+20500 5d5+5000 17d10+64 'pound'
 -66 -66 -66 -33
 FHIKN 0 0 0
 stand stand female 1000
@@ -101,7 +101,7 @@ clear day).
 ~
 human~
 ABG HN 1000 0
-83 0 50d10+20500 5d5+5000 17d10+64 pound
+83 0 50d10+20500 5d5+5000 17d10+64 'pound'
 -66 -66 -66 -33
 FHIKN 0 0 0
 stand stand female 1000
@@ -117,7 +117,7 @@ in his ability to exact obedience. That bear sure doesn't look tame...
 ~
 human~
 ABGe HN 1000 0
-80 0 50d10+20500 5d5+5000 17d10+64 pound
+80 0 50d10+20500 5d5+5000 17d10+64 'pound'
 -66 -66 -66 -33
 FHIKN 0 0 0
 stand stand male 1000
@@ -132,7 +132,7 @@ of the year fashioning and selling basic equipment.
 ~
 human~
 ABGe HN 1000 0
-83 0 50d10+20500 5d5+5000 17d10+64 pound
+83 0 50d10+20500 5d5+5000 17d10+64 'pound'
 -66 -66 -66 -33
 FIKN 0 0 0
 stand stand male 1000
@@ -147,7 +147,7 @@ travellers and other villagers.
 ~
 human~
 ABGe HN 1000 0
-80 0 50d10+20500 5d5+5000 17d10+64 pound
+80 0 50d10+20500 5d5+5000 17d10+64 'pound'
 -66 -66 -66 -33
 FIKN 0 0 0
 stand stand female 1000
@@ -165,7 +165,7 @@ the brewer is the size of a grizzly bear, few refuse.
 ~
 human~
 ABGe HN 1000 0
-85 0 50d10+20500 5d5+5000 17d10+64 pound
+85 0 50d10+20500 5d5+5000 17d10+64 'pound'
 -66 -66 -66 -33
 FIKN 0 0 0
 stand stand male 1000
@@ -179,7 +179,7 @@ The hedgehog looks like a cute, little, fierce fighter.
 ~
 unique~
 AI 0 400 0
-4 0 2d7+46 5d5+100 1d5+1 charge
+4 0 2d7+46 5d5+100 1d5+1 'charge'
 6 6 6 9
 F 0 0 0
 stand stand none 1000
@@ -193,7 +193,7 @@ The otter looks like a fierce fighter.
 ~
 unique~
 AI 0 400 0
-10 0 2d7+121 5d5+100 2d4+2 claw
+10 0 2d7+121 5d5+100 2d4+2 'claw'
 1 1 1 7
 F 0 0 0
 stand stand either 1000
@@ -207,7 +207,7 @@ The hawk looks like a fierce fighter.
 ~
 song bird~
 AI 0 400 0
-15 0 3d9+208 5d5+100 2d6+3 claw
+15 0 3d9+208 5d5+100 2d6+3 'claw'
 -2 -2 -2 6
 0 0 0 0
 stand stand either 1000
@@ -221,7 +221,7 @@ The grizzly bear looks like a strong, fierce fighter.
 ~
 bear~
 AI 0 0 0
-20 0 3d9+333 5d5+1000 2d8+5 claw
+20 0 3d9+333 5d5+1000 2d8+5 'claw'
 -4 -4 -4 5
 CF 0 0 0
 stand stand either 1000
@@ -235,7 +235,7 @@ The aurochs is a BAD ASS.
 ~
 unique~
 AI 0 0 0
-30 0 6d12+853 5d5+1000 4d6+8 charge
+30 0 6d12+853 5d5+1000 4d6+8 'charge'
 -9 -9 -9 3
 F 0 0 0
 stand stand none 1000
@@ -250,7 +250,7 @@ Imagine what he could do to you...
 ~
 human~
 ABDG HJN 0 0
-93 0 50d10+20500 5d5+5000 18d10+64 crush
+93 0 50d10+20500 5d5+5000 18d10+64 'crush'
 -76 -76 -76 -33
 0 0 0 0
 stand stand male 1000
@@ -265,7 +265,7 @@ very well makes conversation suddenly become much simpler- MONEY.
 ~
 human~
 ACGHe DFN 0 0
-60 0 50d10+6750 5d5+5000 8d6+28 pound
+60 0 50d10+6750 5d5+5000 8d6+28 'pound'
 -30 -30 -30 -3
 FHIKN 0 0 0
 stand stand male 1000
@@ -284,7 +284,7 @@ village (and some women too) vie for her favours.
 ~
 human~
 AG CDHJN 1000 0
-60 0 50d10+6750 5d5+5000 8d6+28 pound
+60 0 50d10+6750 5d5+5000 8d6+28 'pound'
 -30 -30 -30 -3
 FIKN 0 0 0
 stand stand male 1000
@@ -299,7 +299,7 @@ rugged lifestyle, and you marvel at their good condition as they pass.
 ~
 human~
 AG 0 0 0
-4 0 2d7+46 5d5+100 1d5+1 punch
+4 0 2d7+46 5d5+100 1d5+1 'punch'
 6 6 6 9
 F 0 0 0
 stand stand male 1000
@@ -314,7 +314,7 @@ rugged lifestyle, and you marvel at their good condition as they pass.
 ~
 human~
 AG 0 0 0
-4 0 2d7+46 5d5+100 1d5+1 punch
+4 0 2d7+46 5d5+100 1d5+1 'punch'
 6 6 6 9
 F 0 0 0
 stand stand female 1000
@@ -329,7 +329,7 @@ and playing harder.
 ~
 human~
 AG 0 0 0
-3 0 2d7+46 5d5+100 1d5+1 punch
+3 0 2d7+46 5d5+100 1d5+1 'punch'
 6 6 6 9
 F 0 0 0
 stand stand male 1000
@@ -343,7 +343,7 @@ When he was young, this poor fellow had his skull staved in by a horse kick.
 ~
 human~
 ACGH 0 0 0
-4 0 2d7+46 5d5+100 1d5+1 punch
+4 0 2d7+46 5d5+100 1d5+1 'punch'
 6 6 6 9
 0 0 0 0
 stand stand male 1000
@@ -357,7 +357,7 @@ This fellow has evidently made many generous donations to the village brewer.
 ~
 human~
 AG 0 400 0
-4 0 2d7+46 5d5+100 1d5+1 punch
+4 0 2d7+46 5d5+100 1d5+1 'punch'
 6 6 6 9
 0 0 0 0
 stand stand male 1000
@@ -373,7 +373,7 @@ one of the more prosperous villagers.
 ~
 human~
 ABG 0 400 0
-3 0 2d7+46 5d5+100 1d5+1 punch
+3 0 2d7+46 5d5+100 1d5+1 'punch'
 6 6 6 9
 F 0 0 0
 stand stand male 1000
@@ -387,7 +387,7 @@ This unsavory fellow preys on the rich foreign merchants from the south.
 ~
 human~
 AGH BPQU 0 0
-10 0 2d7+121 5d5+100 2d4+2 punch
+10 0 2d7+121 5d5+100 2d4+2 'punch'
 1 1 1 7
 FIN 0 0 0
 stand stand male 1000
@@ -403,7 +403,7 @@ before the militia run it off.
 ~
 wolf~
 AGH 0 0 0
-5 0 2d7+46 5d5+100 1d5+1 bite
+5 0 2d7+46 5d5+100 1d5+1 'bite'
 6 6 6 9
 0 0 0 0
 stand stand either 1000
@@ -419,7 +419,7 @@ and carriers of disease.
 ~
 unique~
 AGH 0 0 0
-2 0 2d7+26 5d5+100 1d5+1 charge
+2 0 2d7+26 5d5+100 1d5+1 'charge'
 6 6 6 9
 F 0 0 0
 stand stand none 1000
@@ -434,7 +434,7 @@ fend for itself here in the village.
 ~
 fido~
 AGH 0 0 0
-3 0 2d7+46 5d5+100 1d5+1 bite
+3 0 2d7+46 5d5+100 1d5+1 'bite'
 6 6 6 9
 0 0 0 0
 stand stand female 1000
@@ -450,7 +450,7 @@ and bandits has necessitated the introduction of a militia to keep the peace.
 ~
 human~
 ADG CHN 1000 0
-50 0 50d10+4250 5d5+5000 5d8+19 pound
+50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
 EFIKN 0 0 0
 stand stand male 1000
@@ -466,7 +466,7 @@ and bandits has necessitated the introduction of a militia to keep the peace.
 ~
 human~
 ADG CHN 1000 0
-50 0 50d10+4250 5d5+5000 5d8+19 pound
+50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
 CEFIKN 0 0 0
 stand stand male 1000
@@ -482,7 +482,7 @@ and bandits has necessitated the introduction of a militia to keep the peace.
 ~
 human~
 ABDG CHN 1000 0
-50 0 50d10+4250 5d5+5000 5d8+19 pound
+50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
 CEFIKN 0 0 0
 stand stand male 1000
@@ -496,7 +496,7 @@ This Merc looks big and tough. Better be careful.
 ~
 human~
 AI FJ 0 0
-15 0 3d9+208 5d5+100 2d6+3 pound
+15 0 3d9+208 5d5+100 2d6+3 'pound'
 -2 -2 -2 6
 CDFIJK 0 0 0
 stand stand female 1000
@@ -510,7 +510,7 @@ This Merc looks big and tough. Better be careful.
 ~
 human~
 AI DJ 0 0
-20 0 3d9+333 5d5+1000 2d8+5 pound
+20 0 3d9+333 5d5+1000 2d8+5 'pound'
 -4 -4 -4 5
 FIJKN 0 0 0
 stand stand male 1000
@@ -524,7 +524,7 @@ This Merc looks big and tough. Better be careful.
 ~
 human~
 AI JN 0 0
-25 0 5d10+550 5d5+1000 2d10+7 pound
+25 0 5d10+550 5d5+1000 2d10+7 'pound'
 -7 -7 -7 4
 FIKN 0 0 0
 stand stand male 1000
@@ -538,7 +538,7 @@ This Merc looks big and tough. Better be careful.
 ~
 human~
 AI JN 0 0
-30 0 6d12+853 5d5+1000 4d6+8 slash
+30 0 6d12+853 5d5+1000 4d6+8 'slash'
 -9 -9 -9 3
 FIJK 0 0 0
 stand stand male 1000
@@ -552,7 +552,7 @@ This Merc looks big and tough. Better be careful.
 ~
 human~
 AI N 0 0
-35 0 10d10+1300 5d5+1000 4d7+11 slash
+35 0 10d10+1300 5d5+1000 4d7+11 'slash'
 -11 -11 -11 3
 FIKN 0 0 0
 stand stand male 1000
@@ -566,7 +566,7 @@ This Merc looks big and tough. Better be careful.
 ~
 human~
 AI DFJT 0 0
-40 0 15d10+1850 5d5+1000 4d8+13 slash
+40 0 15d10+1850 5d5+1000 4d8+13 'slash'
 -13 -13 -13 3
 FIKN 0 0 0
 stand stand male 1000

@@ -24,7 +24,7 @@ with his long experienced wise years.
 ~
 human~
 ABQae DFH 1000 0
-90 0 1d1+18999 1d1+999 20d24+40 divine
+90 0 1d1+18999 1d1+999 20d24+40 'divine'
 -95 -95 -95 -75
 FHIK ABC D 0
 stand stand male 1000
@@ -43,7 +43,7 @@ bright body armor is shining upon you.
 ~
 human~
 ABJKWef DFHJVZlmt 0 0
-92 40 2d500+25000 1d200+1600 10d40+50 slash
+92 40 2d500+25000 1d200+1600 10d40+50 'slash'
 -90 -90 -90 -50
 ACDEFKNU AB 0 0
 stand stand male 5000
@@ -66,7 +66,7 @@ bright body armor is shining upon you.
 ~
 human~
 ABWe DFHJVZ 0 0
-92 40 2d500+25000 1d200+1600 10d40+50 punch
+92 40 2d500+25000 1d200+1600 10d40+50 'punch'
 -90 -90 -90 -50
 ACDEFKNU AB 0 0
 stand stand male 5000
@@ -84,7 +84,7 @@ donkey ослик grey mount~
 ~
 horse~
 ABIWZ FHJV 1000 0
-25 10 2d100+1000 1d200+1600 6d4+9 wrath
+25 10 2d100+1000 1d200+1600 6d4+9 'wrath'
 -10 -10 -10 -5
 N AB 0 0
 stand stand male 5000
@@ -101,7 +101,7 @@ horse mount конь white~
 ~
 horse~
 ABIWZ FHJV 1000 0
-45 20 25d10+3000 1d200+1600 7d6+25 wrath
+45 20 25d10+3000 1d200+1600 7d6+25 'wrath'
 -20 -20 -20 -10
 N AB 0 0
 stand stand male 5000
@@ -118,7 +118,7 @@ unicorn единорог mount~
 ~
 horse~
 ABIWZ FHJPV 1000 0
-55 30 50d10+6000 1d200+1600 6d7+25 wrath
+55 30 50d10+6000 1d200+1600 6d7+25 'wrath'
 -30 -30 -30 -20
 JN AB CLQ 0
 stand stand male 5000
@@ -139,7 +139,7 @@ at you suspiciuosely and sighs saddly.
 ~
 horse~
 ABIWZ BDFHJPTUV 1000 0
-70 30 100d10+9500 1d20+1600 6d10+30 wrath
+70 30 100d10+9500 1d20+1600 6d10+30 'wrath'
 -40 -40 -40 -30
 N AB CLQ 0
 stand stand male 5000
@@ -162,7 +162,7 @@ to see in that deepness anymore...
 ~
 horse~
 ABIWZ DFHJTUValt 1000 0
-85 50 100d12+16250 1d20+1600 6d15+50 wrath
+85 50 100d12+16250 1d20+1600 6d15+50 'wrath'
 -50 -50 -50 -40
 DNO AB CHIJKLMNPQS 0
 stand stand male 5000

@@ -18,7 +18,7 @@ his squire.
 ~
 human~
 A J 500 0
-22 0 5d10+400 5d5+1000 4d4+6 pound
+22 0 5d10+400 5d5+1000 4d4+6 'pound'
 -5 -5 -5 5
 EFNU 0 0 0
 stand stand male 1000
@@ -33,7 +33,7 @@ smells bad, and looks like he is in a hurry.
 ~
 human~
 AC P 250 0
-19 0 3d9+308 5d5+1000 2d7+5 pound
+19 0 3d9+308 5d5+1000 2d7+5 'pound'
 -4 -4 -4 5
 EFNU 0 0 0
 stand stand male 1000
@@ -47,7 +47,7 @@ The knight is in full plate mail on a barded horse and carries a lance.
 ~
 human~
 A JN 750 0
-25 0 5d10+550 5d5+1000 2d10+7 slash
+25 0 5d10+550 5d5+1000 2d10+7 'slash'
 -7 -7 -7 4
 EFNU 0 0 0
 stand stand male 1000
@@ -63,7 +63,7 @@ in a strange looking sheath.
 ~
 human~
 AB DH 1000 0
-38 0 10d10+1600 5d5+1000 5d6+12 pound
+38 0 10d10+1600 5d5+1000 5d6+12 'pound'
 -13 -13 -13 3
 EFNU 0 0 0
 stand stand male 1000
@@ -78,7 +78,7 @@ to normal weaponry. He bears a huge battle axe.
 ~
 human~
 AF HJ 250 0
-30 0 6d12+853 5d5+1000 4d6+8 slash
+30 0 6d12+853 5d5+1000 4d6+8 'slash'
 -9 -9 -9 3
 EFNU 0 0 0
 stand stand male 1000
@@ -94,7 +94,7 @@ saga)
 ~
 human~
 AB CDFN 1000 0
-40 0 15d10+1850 5d5+1000 4d8+13 slash
+40 0 15d10+1850 5d5+1000 4d8+13 'slash'
 -13 -13 -13 3
 EFNU 0 0 0
 stand stand male 1000
@@ -109,7 +109,7 @@ a two handed sword.
 ~
 human~
 AB DF 0 0
-20 0 3d9+333 5d5+1000 2d8+5 pound
+20 0 3d9+333 5d5+1000 2d8+5 'pound'
 -4 -4 -4 5
 EFNU 0 0 0
 stand stand male 1000
@@ -126,7 +126,7 @@ distress.
 ~
 human~
 AB N 750 0
-34 0 10d10+1200 5d5+1000 4d7+10 pound
+34 0 10d10+1200 5d5+1000 4d7+10 'pound'
 -11 -11 -11 3
 EFNU 0 0 0
 stand stand male 1000
@@ -141,7 +141,7 @@ power by the witch of the fens for the furtherment of evil.
 ~
 human~
 ABF BDJP -1000 0
-28 0 6d12+703 5d5+1000 2d12+8 pound
+28 0 6d12+703 5d5+1000 2d12+8 'pound'
 -8 -8 -8 4
 EFNU 0 0 0
 stand stand male 1000
@@ -156,7 +156,7 @@ bears his longsword Galantine.
 ~
 human~
 AB 0 0 0
-34 0 10d10+1200 5d5+1000 4d7+10 pound
+34 0 10d10+1200 5d5+1000 4d7+10 'pound'
 -11 -11 -11 3
 EFNU 0 0 0
 stand stand male 1000
@@ -172,7 +172,7 @@ mounted.
 ~
 human~
 AB J 0 0
-30 0 6d12+853 5d5+1000 4d6+8 smash
+30 0 6d12+853 5d5+1000 4d6+8 'smash'
 -9 -9 -9 3
 EFNU 0 0 0
 stand stand male 1000
@@ -187,7 +187,7 @@ armor. His visor is up, and his lance raised in salute to you.
 ~
 human~
 ABJK DFHN 1000 0
-44 0 25d10+2750 5d5+1000 8d4+15 crush
+44 0 25d10+2750 5d5+1000 8d4+15 'crush'
 -15 -15 -15 2
 EFNU 0 0 0
 stand stand male 1000
@@ -203,7 +203,7 @@ offsets his rosy cheeks and sparkling blue eyes.
 ~
 human~
 ABCH CDEJT 750 0
-40 0 15d10+1850 5d5+1000 4d8+13 pound
+40 0 15d10+1850 5d5+1000 4d8+13 'pound'
 -13 -13 -13 3
 EFNU 0 0 0
 stand stand male 1000
@@ -219,7 +219,7 @@ hide her ugly and hateful, twisted body.
 ~
 human~
 ACFH 0 -1000 0
-24 0 5d10+500 5d5+1000 2d10+6 slap
+24 0 5d10+500 5d5+1000 2d10+6 'slap'
 -6 -6 -6 4
 EFNU 0 0 0
 stand stand female 1000
@@ -235,7 +235,7 @@ middle age, though he is still a stout fighter.
 ~
 human~
 A F 0 0
-28 0 6d12+703 5d5+1000 2d12+8 pound
+28 0 6d12+703 5d5+1000 2d12+8 'pound'
 -8 -8 -8 4
 EFNU 0 0 0
 stand stand male 1000
@@ -253,7 +253,7 @@ The Questing Beast is in perfect health.
 ~
 human~
 ABFH DFJPQ -1000 0
-24 0 5d10+500 5d5+1000 2d10+6 claw
+24 0 5d10+500 5d5+1000 2d10+6 'claw'
 -6 -6 -6 4
 FMU J HIJK FI
 stand stand none 1000
@@ -269,7 +269,7 @@ sword.
 ~
 human~
 AB 0 0 0
-36 0 10d10+1400 5d5+1000 3d10+11 blast
+36 0 10d10+1400 5d5+1000 3d10+11 'blast'
 -12 -12 -12 3
 EFNU 0 0 0
 stand stand male 1000
@@ -284,7 +284,7 @@ armor and his unholy spear.
 ~
 human~
 AFH JPu -1000 0
-34 0 10d10+1200 5d5+1000 4d7+10 pound
+34 0 10d10+1200 5d5+1000 4d7+10 'pound'
 -11 -11 -11 3
 EFNU 0 0 0
 stand stand male 1000
@@ -299,7 +299,7 @@ look to him and his eyes stare vacantly at you!
 ~
 human~
 AF JK -500 0
-21 0 4d10+360 5d5+1000 4d4+5 pound
+21 0 4d10+360 5d5+1000 4d4+5 'pound'
 -5 -5 -5 5
 EFNU 0 0 0
 stand stand male 1000
@@ -314,7 +314,7 @@ vacant, his sword is knotched, and he is unkempt.
 ~
 human~
 AFH JK -750 0
-24 0 5d10+500 5d5+1000 2d10+6 pound
+24 0 5d10+500 5d5+1000 2d10+6 'pound'
 -6 -6 -6 4
 EFNU 0 0 0
 stand stand male 1000
@@ -330,7 +330,7 @@ are in her hair.
 ~
 human~
 A S 500 0
-10 0 2d7+121 5d5+100 2d4+2 punch
+10 0 2d7+121 5d5+100 2d4+2 'punch'
 1 1 1 7
 EFNU 0 0 0
 stand stand female 1000
@@ -344,7 +344,7 @@ Gwenivere tells you a sorry tale about her forbidden love with Lancelot.
 ~
 human~
 ABC 0 0 0
-12 0 2d10+150 5d5+100 1d10+3 punch
+12 0 2d10+150 5d5+100 1d10+3 'punch'
 0 0 0 7
 EFNU 0 0 0
 stand stand female 1000
@@ -358,7 +358,7 @@ The charmed squire is wearing various leather garmets in a state of disarray.
 ~
 human~
 ACH JKP -250 0
-18 0 3d9+283 5d5+1000 2d7+4 pound
+18 0 3d9+283 5d5+1000 2d7+4 'pound'
 -3 -3 -3 6
 EFNU 0 0 0
 stand stand male 1000
@@ -374,7 +374,7 @@ grins at you.
 ~
 human~
 A 0 750 0
-28 0 6d12+703 5d5+1000 2d12+8 pound
+28 0 6d12+703 5d5+1000 2d12+8 'pound'
 -8 -8 -8 4
 EFNU 0 0 0
 stand stand male 1000
@@ -390,7 +390,7 @@ he could handle himself well in a fight.
 ~
 human~
 ABH 0 1000 0
-30 0 6d12+853 5d5+1000 4d6+8 pound
+30 0 6d12+853 5d5+1000 4d6+8 'pound'
 -9 -9 -9 3
 EFNU 0 0 0
 stand stand male 1000
@@ -405,7 +405,7 @@ of a man, and his eyes dart left and right.
 ~
 human~
 ABCH P -500 0
-32 0 10d10+1000 5d5+1000 6d4+9 pound
+32 0 10d10+1000 5d5+1000 6d4+9 'pound'
 -10 -10 -10 3
 EFNU 0 0 0
 stand stand male 1000
@@ -421,7 +421,7 @@ the silken red favor of Galenvine on his sleeve.
 ~
 human~
 AB N 500 0
-32 0 10d10+1000 5d5+1000 6d4+9 pound
+32 0 10d10+1000 5d5+1000 6d4+9 'pound'
 -10 -10 -10 3
 EFNU 0 0 0
 stand stand male 1000
@@ -437,7 +437,7 @@ tattered.
 ~
 human~
 AB J 200 0
-8 0 2d7+96 5d5+100 1d7+2 punch
+8 0 2d7+96 5d5+100 1d7+2 'punch'
 3 3 3 8
 EFNU 0 0 0
 stand stand female 1000
@@ -453,7 +453,7 @@ seems intent on going somewhere.
 ~
 human~
 AH 0 0 0
-15 0 3d9+208 5d5+100 2d6+3 punch
+15 0 3d9+208 5d5+100 2d6+3 'punch'
 -2 -2 -2 6
 EFNU 0 0 0
 stand stand male 1000
@@ -467,7 +467,7 @@ The serf is in rags, smells, and you actually think you can see lice on him.
 ~
 human~
 ACH 0 0 0
-5 0 2d6+60 5d5+100 1d6+1 punch
+5 0 2d6+60 5d5+100 1d6+1 'punch'
 5 5 5 9
 EFNU 0 0 0
 stand stand male 1000
@@ -481,7 +481,7 @@ The merchant wears a bright tunic to draw attention and signify his wares.
 ~
 human~
 ACH 0 0 0
-10 0 2d7+121 5d5+100 2d4+2 punch
+10 0 2d7+121 5d5+100 2d4+2 'punch'
 1 1 1 7
 EFNU 0 0 0
 stand stand male 1000
@@ -496,7 +496,7 @@ piece of rope. The top of his head is shaved in the Fransician fashion.
 ~
 human~
 A 0 0 0
-7 0 2d6+85 5d5+100 1d8+1 pound
+7 0 2d6+85 5d5+100 1d8+1 'pound'
 4 4 4 8
 EFNU 0 0 0
 stand stand male 1000
@@ -510,7 +510,7 @@ The troubadour is playing on a mandolin, and is dressed in festival colors.
 ~
 human~
 ABC 0 100 0
-3 0 2d6+60 5d5+100 1d6+1 punch
+3 0 2d6+60 5d5+100 1d6+1 'punch'
 5 5 5 9
 EFNU 0 0 0
 stand stand female 1000
@@ -525,7 +525,7 @@ shirt.
 ~
 human~
 ABC 0 100 0
-4 0 2d6+60 5d5+100 1d6+1 punch
+4 0 2d6+60 5d5+100 1d6+1 'punch'
 4 5 5 9
 EFNU 0 0 0
 stand stand male 1000
@@ -539,7 +539,7 @@ The entertainer is doing handsprings and backflips in a dizzying progression.
 ~
 human~
 ABC 0 100 0
-5 0 2d6+60 5d5+100 1d6+1 punch
+5 0 2d6+60 5d5+100 1d6+1 'punch'
 5 5 5 9
 EFNU 0 0 0
 stand stand male 1000
@@ -553,7 +553,7 @@ The servant has a plate of hot food that looks delicious.
 ~
 human~
 AC JP 0 0
-2 0 2d6+20 5d5+100 1d6+1 punch
+2 0 2d6+20 5d5+100 1d6+1 'punch'
 5 5 5 9
 EFNU 0 0 0
 stand stand female 1000
@@ -575,7 +575,7 @@ to encourage the downfall of Camelot (Morgana, Pict leader).
 ~
 unique~
 ABKe CDEFJKu -1000 0
-52 0 50d10+7750 5d5+5000 8d9+20 charge
+52 0 50d10+7750 5d5+5000 8d9+20 'charge'
 -22 -22 -22 0
 EFNU 0 HIJK F
 stand stand none 1000
@@ -590,7 +590,7 @@ arms.
 ~
 human~
 ABSTe 0 500 0
-30 0 6d12+853 5d5+1000 4d6+8 pound
+30 0 6d12+853 5d5+1000 4d6+8 'pound'
 -9 -9 -9 3
 EFNU 0 0 0
 stand stand male 1000
@@ -604,7 +604,7 @@ Stirrup is a short man, wearing a leather jerkin, and smells of the barn.
 ~
 human~
 ABe 0 400 0
-25 0 5d10+550 5d5+1000 2d10+7 pound
+25 0 5d10+550 5d5+1000 2d10+7 'pound'
 -7 -7 -7 4
 EFNU 0 0 0
 stand stand male 1000
@@ -619,7 +619,7 @@ for speed.
 ~
 human~
 AI 0 0 0
-18 0 3d9+283 5d5+1000 2d7+4 charge
+18 0 3d9+283 5d5+1000 2d7+4 'charge'
 -3 -3 -3 6
 EFNU 0 0 0
 stand stand male 1000
@@ -633,7 +633,7 @@ The medium warhorse is has heavy tack and leather barding.
 ~
 human~
 AI 0 0 0
-23 0 5d10+450 5d5+1000 3d6+6 charge
+23 0 5d10+450 5d5+1000 3d6+6 'charge'
 -6 -6 -6 4
 EFNU 0 0 0
 stand stand female 1000
@@ -647,7 +647,7 @@ The heavy warhorse has full chain barding and stands 17 hands.
 ~
 human~
 AI 0 0 0
-28 0 6d12+703 5d5+1000 2d12+8 charge
+28 0 6d12+703 5d5+1000 2d12+8 'charge'
 -8 -8 -8 4
 EFNU 0 0 0
 stand stand male 1000
@@ -662,7 +662,7 @@ and is dressed in various hides.
 ~
 human~
 ABCF Q -200 0
-20 0 3d9+333 5d5+1000 2d8+5 charge
+20 0 3d9+333 5d5+1000 2d8+5 'charge'
 -4 -4 -4 5
 EFNU 0 0 0
 stand stand male 1000
@@ -677,7 +677,7 @@ station and bearing.
 ~
 human~
 ACX Q 0 0
-5 0 2d6+60 5d5+100 1d6+1 punch
+5 0 2d6+60 5d5+100 1d6+1 'punch'
 5 5 5 9
 EFNU 0 0 0
 stand stand female 1000
@@ -692,7 +692,7 @@ is decked in the spoils of war. All and all you think he has lice.
 ~
 human~
 ABCF DFQ -500 0
-28 0 6d12+703 5d5+1000 2d12+8 pound
+28 0 6d12+703 5d5+1000 2d12+8 'pound'
 -8 -8 -8 4
 EFNU 0 0 0
 stand stand male 1000
@@ -706,7 +706,7 @@ The border guard wears chain armor and is equipped with a standard sword.
 ~
 human~
 AB FN 300 0
-20 0 3d9+333 5d5+1000 2d8+5 pound
+20 0 3d9+333 5d5+1000 2d8+5 'pound'
 -4 -4 -4 5
 EFNU 0 0 0
 stand stand male 1000
@@ -721,7 +721,7 @@ comes from a life of leading men in endless battle.
 ~
 human~
 ABK DFN 500 0
-25 0 5d10+550 5d5+1000 2d10+7 pound
+25 0 5d10+550 5d5+1000 2d10+7 'pound'
 -7 -7 -7 4
 EFNU 0 0 0
 stand stand male 1000
@@ -737,7 +737,7 @@ is about 4' long.
 ~
 human~
 ABC 0 0 0
-22 0 5d10+400 5d5+1000 4d4+6 punch
+22 0 5d10+400 5d5+1000 4d4+6 'punch'
 -5 -5 -5 5
 EFNU 0 0 0
 stand stand male 1000
@@ -754,7 +754,7 @@ down a barrel of ale and still have his whiskey. He looks...
 ~
 human~
 ABCJ 0 -100 0
-28 0 6d12+703 5d5+1000 2d12+8 pierce
+28 0 6d12+703 5d5+1000 2d12+8 'pierce'
 -8 -8 -8 4
 EFNU 0 0 0
 stand stand male 1000
@@ -768,7 +768,7 @@ The serf has a farm tool and a rag to cover himself.
 ~
 human~
 ABC 0 0 0
-1 0 1d1+10 1d1+1 1d1+1 punch
+1 0 1d1+10 1d1+1 1d1+1 'punch'
 10 10 10 10
 EFNU 0 0 0
 stand stand male 1000
@@ -784,7 +784,7 @@ leather armor.
 ~
 human~
 ABCF 0 -200 0
-24 0 5d10+500 5d5+1000 2d10+6 pound
+24 0 5d10+500 5d5+1000 2d10+6 'pound'
 -6 -6 -6 4
 EFNU 0 0 0
 stand stand male 1000
@@ -799,7 +799,7 @@ a deep boom at each kill.
 ~
 human~
 ABF F -700 0
-30 0 6d12+853 5d5+1000 4d6+8 pound
+30 0 6d12+853 5d5+1000 4d6+8 'pound'
 -9 -9 -9 3
 EFNU 0 0 0
 stand stand male 1000
@@ -813,7 +813,7 @@ The calvary unit consists of about 30 mounted knights on medium warhorses.
 ~
 unique~
 AB 0 200 0
-45 0 25d10+3000 5d5+1000 8d4+16 blast
+45 0 25d10+3000 5d5+1000 8d4+16 'blast'
 -15 -15 -15 2
 C 0 0 0
 stand stand none 1000
@@ -827,7 +827,7 @@ The infantry unit has about 50 squires and serfs armed with polearms.
 ~
 unique~
 AB 0 0 0
-40 0 15d10+1850 5d5+1000 4d8+13 blast
+40 0 15d10+1850 5d5+1000 4d8+13 'blast'
 -13 -13 -13 3
 CO 0 0 0
 stand stand none 1000
@@ -842,7 +842,7 @@ soldiers.
 ~
 human~
 AB 0 -100 0
-50 0 50d10+4250 5d5+5000 5d8+19 charge
+50 0 50d10+4250 5d5+5000 5d8+19 'charge'
 -20 -20 -20 0
 CO 0 0 0
 stand stand none 1000
@@ -857,7 +857,7 @@ appearance which is further augmented by his reindeer horned helmet.
 ~
 human~
 AB 0 -400 0
-40 0 15d10+1850 5d5+1000 4d8+13 pound
+40 0 15d10+1850 5d5+1000 4d8+13 'pound'
 -13 -13 -13 3
 EFNU 0 0 0
 stand stand male 1000
@@ -872,7 +872,7 @@ He is mounted on a fine charger, and is waving his blue pennant.
 ~
 human~
 A H 400 0
-35 0 10d10+1300 5d5+1000 4d7+11 pound
+35 0 10d10+1300 5d5+1000 4d7+11 'pound'
 -11 -11 -11 3
 EFNU 0 0 0
 stand stand male 1000
@@ -887,7 +887,7 @@ approach. He is mounted atop his famed steed Rue.
 ~
 human~
 A 0 100 0
-32 0 10d10+1000 5d5+1000 6d4+9 pound
+32 0 10d10+1000 5d5+1000 6d4+9 'pound'
 -10 -10 -10 3
 EFNU 0 0 0
 stand stand male 1000
@@ -902,7 +902,7 @@ is going to fall.
 ~
 human~
 A 0 300 0
-30 0 6d12+853 5d5+1000 4d6+8 pound
+30 0 6d12+853 5d5+1000 4d6+8 'pound'
 -9 -9 -9 3
 EFNU 0 0 0
 stand stand male 1000
@@ -917,7 +917,7 @@ the Angles and is cutting his way to the chief.
 ~
 human~
 AB 0 500 0
-33 0 10d10+1100 5d5+1000 6d4+10 pound
+33 0 10d10+1100 5d5+1000 6d4+10 'pound'
 -11 -11 -11 3
 EFNU 0 0 0
 stand stand male 1000
@@ -932,7 +932,7 @@ comes from a life of leading men in endless battle.
 ~
 human~
 ABK DFN 500 0
-25 0 5d10+550 5d5+1000 2d10+7 punch
+25 0 5d10+550 5d5+1000 2d10+7 'punch'
 -7 -7 -7 4
 EFNU 0 0 0
 stand stand male 1000
@@ -946,7 +946,7 @@ The border guard wears chain armor and is equipped with a standard sword.
 ~
 human~
 AB FN 300 0
-20 0 3d9+333 5d5+1000 2d8+5 pound
+20 0 3d9+333 5d5+1000 2d8+5 'pound'
 -4 -4 -4 5
 EFNU 0 0 0
 stand stand male 1000
@@ -961,7 +961,7 @@ station and bearing.
 ~
 human~
 ACX Q 0 0
-5 0 2d6+60 5d5+100 1d6+1 punch
+5 0 2d6+60 5d5+100 1d6+1 'punch'
 5 5 5 9
 EFNU 0 0 0
 stand stand female 1000

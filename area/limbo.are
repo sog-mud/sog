@@ -17,7 +17,7 @@ You see nothing.
 ~
 human~
 A 0 0 0
-0 0 0d0+0 0d0+0 0d0+0 none
+0 0 0d0+0 0d0+0 0d0+0 'none'
 0 0 0 0
 0 0 0 0
 stand stand none 0
@@ -34,7 +34,7 @@ below them for so long....better not get in its way!
 ~
 human~
 AW JPVZf 0 0
-0 0 0d0+0 0d0+0 5d3+15 slash
+0 0 0d0+0 0d0+0 5d3+15 'slash'
 0 0 0 0
 EFN EKL H IN
 stand stand male 0
@@ -48,7 +48,7 @@ Angry, very angry.
 ~
 human~
 ATc JNV 1000 0
-20 3 16d15+320 1d1+141 5d5+10 punch
+20 3 16d15+320 1d1+141 5d5+10 'punch'
 0 0 0 0
 QT 0 AB M
 stand stand male 0
@@ -62,7 +62,7 @@ You see nothing special about it.
 ~
 bear~
 A 0 0 0
-0 1 1d1+1 1d1+1 3d10+12 claw
+0 1 1d1+1 1d1+1 3d10+12 'claw'
 0 0 0 0
 N 0 0 0
 stand stand male 0
@@ -76,7 +76,7 @@ A big red demon, you feel like it is flaming.
 ~
 unique~
 AB JZ -1000 0
-40 0 1d1+1 1d1+1 2d4+20 slash
+40 0 1d1+1 1d1+1 2d4+20 'slash'
 -15 -15 -15 -15
 FHI 0 0 0
 stand stand male 0
@@ -91,7 +91,7 @@ This creature has a horible look.
 ~
 human~
 AOTc DFJS -750 0
-20 3 16d15+240 1d1+152 5d3+20 punch
+20 3 16d15+240 1d1+152 5d3+20 'punch'
 0 0 0 0
 EJ GM AB N
 stand stand male 0
@@ -105,7 +105,7 @@ Angry, very angry.
 ~
 storm giant~
 ATc FHJNVf 1000 0
-20 3 16d15+160 1d1+149 4d9+15 slash
+20 3 16d15+160 1d1+149 4d9+15 'slash'
 0 0 0 0
 0 0 AB M
 stand stand male 0
@@ -124,7 +124,7 @@ and chivalry under his master.
 ~
 human~
 ATc FHJNSVf 1000 0
-20 3 16d15+160 1d1+149 3d10+12 slash
+20 3 16d15+160 1d1+149 3d10+12 'slash'
 0 0 0 0
 EN 0 AB M
 stand stand male 0
@@ -139,7 +139,7 @@ You see nothing special about it.
 ~
 human~
 AB 0 0 0
-0 0 0d0+0 0d0+0 0d0+0 none
+0 0 0d0+0 0d0+0 0d0+0 'none'
 0 0 0 0
 EFN EKL H IN
 stand stand male 0
@@ -153,7 +153,7 @@ You see nothing special about it.
 ~
 undead~
 AO S 0 0
-0 1 1d1+1 1d1+1 3d10+12 punch
+0 1 1d1+1 1d1+1 3d10+12 'punch'
 0 0 0 0
 N 0 0 0
 stand stand male 0
@@ -167,7 +167,7 @@ You see nothing special about it.
 ~
 lion~
 A 0 0 0
-0 1 1d1+1 1d1+1 3d10+12 claw
+0 1 1d1+1 1d1+1 3d10+12 'claw'
 0 0 0 0
 N 0 0 0
 stand stand male 0
@@ -181,7 +181,7 @@ You see nothing special about it.
 ~
 wolf~
 A S 0 0
-0 1 1d1+1 1d1+1 3d10+12 claw
+0 1 1d1+1 1d1+1 3d10+12 'claw'
 0 0 0 0
 N 0 0 0
 stand stand male 0
@@ -195,7 +195,7 @@ The golem appears to be made of some kind of clay, enchanted to come to life!.
 ~
 golem~
 ATg SV 0 0
-0 1 1d1+1 1d1+1 3d10+12 crush
+0 1 1d1+1 1d1+1 3d10+12 'crush'
 0 0 0 0
 EFO 0 0 0
 stand stand male 0
@@ -210,7 +210,7 @@ and looks powerful enough to rip off your head without straining.
 ~
 golem~
 ATg SV 0 0
-0 1 1d1+1 1d1+1 3d10+12 crush
+0 1 1d1+1 1d1+1 3d10+12 'crush'
 0 0 0 0
 EFO 0 0 0
 stand stand male 0
@@ -226,7 +226,7 @@ at it's eyes and notice with a shock that they are watching you.
 ~
 golem~
 ATg SV 0 0
-0 1 1d1+1 1d1+1 3d10+12 crush
+0 1 1d1+1 1d1+1 3d10+12 'crush'
 0 0 0 0
 EFO 0 0 0
 stand stand male 0
@@ -241,7 +241,7 @@ but somewhat un-intelligent.
 ~
 golem~
 ATg SV 0 0
-0 1 1d1+1 1d1+1 3d10+12 crush
+0 1 1d1+1 1d1+1 3d10+12 'crush'
 0 0 0 0
 EFO 0 0 0
 stand stand male 0
@@ -255,7 +255,7 @@ You see nothing special about it.
 ~
 lion~
 AL 0 0 0
-0 1 1d1+1 1d1+1 3d10+12 claw
+0 1 1d1+1 1d1+1 3d10+12 'claw'
 0 0 0 0
 N 0 0 0
 stand stand male 0
@@ -269,7 +269,7 @@ You see nothingness.
 ~
 lion~
 AO S 0 0
-0 1 1d1+1 1d1+1 3d10+12 claw
+0 1 1d1+1 1d1+1 3d10+12 'claw'
 0 0 0 0
 N M 0 0
 stand stand male 0
@@ -286,7 +286,7 @@ this?
 ~
 unique~
 ABV AQZcd 0 0
-0 -5 0d0+0 0d0+0 0d0+0 digestion
+0 -5 0d0+0 0d0+0 0d0+0 'digestion'
 0 0 0 0
 CJ ABEILQ DJT HK
 rest rest none 0
@@ -304,7 +304,7 @@ really BAD!
 ~
 dracolich~
 AOT DS 0 0
-0 10 0d0+0 0d0+0 0d0+0 scratch
+0 10 0d0+0 0d0+0 0d0+0 'scratch'
 0 0 0 0
 CFHLO 0 0 0
 stand stand none 0
@@ -320,7 +320,7 @@ cat black кошка кот~
 ~
 cat~
 AIgj PS 0 0
-0 0 1d1+1 1d1+1 3d10+12 claw
+0 0 1d1+1 1d1+1 3d10+12 'claw'
 0 0 0 0
 0 AB I H
 stand stand female 0
@@ -334,7 +334,7 @@ black familiar crow ворон~
 ~
 song bird~
 AIgj S 0 0
-0 0 1d1+1 1d1+1 3d10+12 claw
+0 0 1d1+1 1d1+1 3d10+12 'claw'
 0 0 0 0
 0 AB I H
 stand stand female 0
@@ -348,7 +348,7 @@ This mighty dragon wants to sell some junk to you.
 ~
 dragon~
 Ae DEFHNOUVYc 0 0
-150 250 1d1+28000 1d1+25000 50d60+100 divine
+150 250 1d1+28000 1d1+25000 50d60+100 'divine'
 -66 -66 -66 -66
 CDEFHIKNO ABCDU 0 0
 stand stand male 100000

@@ -16,7 +16,7 @@ The killer frog looks ravenous.
 ~
 human~
 ABFG 0 -300 0
-5 0 2d6+60 2d9+100 1d6+1 none
+5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
 EFNU 0 0 0
 stand stand none 1
@@ -30,7 +30,7 @@ As you look, the figure seems to shift and move ...
 ~
 human~
 ABFGH J -400 0
-9 0 2d6+110 4d9+100 1d8+2 none
+9 0 2d6+110 4d9+100 1d8+2 'none'
 2 2 2 8
 EFNU 0 0 0
 stand stand male 20
@@ -44,7 +44,7 @@ He looks ready to attack!
 ~
 human~
 ACFG J -600 0
-10 0 2d7+121 5d9+100 2d4+2 none
+10 0 2d7+121 5d9+100 2d4+2 'none'
 1 1 1 8
 EFNU 0 0 0
 stand stand male 25
@@ -58,7 +58,7 @@ He snarls at you and says LEAVE OR DIE!
 ~
 human~
 ABC J -600 0
-12 0 2d10+150 6d9+100 1d10+3 none
+12 0 2d10+150 6d9+100 1d10+3 'none'
 0 0 0 8
 EFNU 0 0 0
 stand stand male 40
@@ -72,7 +72,7 @@ She says 'I can SEE you! I have been waiting ...'.
 ~
 human~
 ABCGQ DF -900 0
-13 0 2d10+170 13d9+100 1d10+3 none
+13 0 2d10+170 13d9+100 1d10+3 'none'
 -1 -1 -1 7
 EIKU 0 0 0
 stand stand female 150
@@ -86,7 +86,7 @@ The plant looks something like a Venus fly-trap, only MUCH larger.
 ~
 human~
 ABFG J 0 0
-9 0 2d6+110 4d9+100 1d8+2 none
+9 0 2d6+110 4d9+100 1d8+2 'none'
 2 2 2 8
 EFNU 0 0 0
 stand stand none 0
@@ -100,7 +100,7 @@ It thinks that perhaps you would make a better meal.
 ~
 human~
 ABCFG J -200 0
-10 0 2d7+121 5d9+100 2d4+2 none
+10 0 2d7+121 5d9+100 2d4+2 'none'
 1 1 1 8
 EFNU 0 0 0
 sit stand none 60
@@ -114,7 +114,7 @@ The Shadow is vaguely humanoid. Two glowing pinpoints look at you.
 ~
 human~
 ACFG BDFJ -1000 0
-10 0 2d7+121 5d9+100 2d4+2 none
+10 0 2d7+121 5d9+100 2d4+2 'none'
 1 1 1 8
 EFNU 0 0 0
 stand stand none 45
@@ -128,7 +128,7 @@ He glares at you savagely and charges!
 ~
 human~
 ABCFG DFJ -1000 0
-12 0 2d10+150 6d9+100 1d10+3 none
+12 0 2d10+150 6d9+100 1d10+3 'none'
 0 0 0 8
 EFNU 0 0 0
 stand stand male 110
@@ -142,7 +142,7 @@ This powerful creature wonders whether to kill you or not ...
 ~
 human~
 ACG DJ -600 0
-14 0 2d10+190 7d9+100 1d12+3 none
+14 0 2d10+190 7d9+100 1d12+3 'none'
 -1 -1 -1 8
 EFNU 0 0 0
 stand stand male 75
@@ -156,7 +156,7 @@ He looks up at you and screams 'SO! Coming to steal my hoard!'
 ~
 human~
 ABCFG DJ -600 0
-15 0 3d9+208 7d9+100 2d6+3 none
+15 0 3d9+208 7d9+100 2d6+3 'none'
 -2 -2 -2 7
 EFNU 0 0 0
 stand stand male 0
@@ -170,7 +170,7 @@ He looks at you, and a sinister grin slowly spreads on his face ...
 ~
 human~
 ABCFG DJ -900 0
-17 0 3d9+258 8d9+100 3d4+4 none
+17 0 3d9+258 8d9+100 3d4+4 'none'
 -3 -3 -3 7
 EFNU 0 0 0
 stand stand male 0
@@ -184,7 +184,7 @@ It is a huge black blob that oozes about the room. Its heading toward YOU!
 ~
 human~
 ACFG 0 -1000 0
-15 0 3d9+208 7d9+100 2d6+3 none
+15 0 3d9+208 7d9+100 2d6+3 'none'
 -2 -2 -2 7
 EFNU 0 0 0
 stand stand none 0
@@ -198,7 +198,7 @@ The golem appears to be made of some kind of clay, enchanted to come to life!
 ~
 golem~
 ABG D 0 0
-16 0 3d9+233 8d9+100 2d6+4 none
+16 0 3d9+233 8d9+100 2d6+4 'none'
 -2 -2 -2 7
 EFNU 0 0 0
 stand stand none 0
@@ -212,7 +212,7 @@ It thunders loudly 'I must protect my Master's wealth!'
 ~
 human~
 ACFG DF -1000 0
-18 0 3d9+283 9d9+100 2d7+4 none
+18 0 3d9+283 9d9+100 2d7+4 'none'
 -3 -3 -3 7
 EFNU 0 0 0
 stand rest male 0
@@ -226,7 +226,7 @@ Terror fills your heart as you view this master of the undead.
 ~
 human~
 ACFG BDJu -1000 0
-19 0 3d9+308 9d9+100 2d7+5 none
+19 0 3d9+308 9d9+100 2d7+5 'none'
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand male 0
@@ -240,7 +240,7 @@ The trapper is clad mostly in the fur of various animals he's caught.
 ~
 human~
 AC 0 0 0
-6 0 2d7+71 3d9+100 1d7+1 none
+6 0 2d7+71 3d9+100 1d7+1 'none'
 4 4 4 9
 EFNU 0 0 0
 stand stand male 6
@@ -254,7 +254,7 @@ The hunter is rugged and sturdy from his occupation.
 ~
 human~
 AC 0 0 0
-8 0 2d7+96 4d9+100 1d7+2 none
+8 0 2d7+96 4d9+100 1d7+2 'none'
 3 3 3 9
 EFNU 0 0 0
 rest stand male 6
@@ -268,7 +268,7 @@ The years of wanderings have left the ranger hardened and strong.
 ~
 human~
 ACG D 200 0
-12 0 2d10+150 6d9+100 1d10+3 none
+12 0 2d10+150 6d9+100 1d10+3 'none'
 0 0 0 8
 EFNU 0 0 0
 rest stand male 0
@@ -282,7 +282,7 @@ This individual has quite a reputation at the local trading posts!
 ~
 human~
 ABC D 300 0
-15 0 3d9+208 7d9+100 2d6+3 none
+15 0 3d9+208 7d9+100 2d6+3 'none'
 -2 -2 -2 7
 EFNU 0 0 0
 stand stand male 0
@@ -295,7 +295,7 @@ The Lord of the Rangers catches your eye.
 ~
 human~
 ABC D 400 0
-20 0 3d9+333 10d9+100 2d8+5 none
+20 0 3d9+333 10d9+100 2d8+5 'none'
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand male 0
@@ -309,7 +309,7 @@ The centaur has the upper torso of a man and lower body of a horse.
 ~
 human~
 AC 0 200 0
-7 0 2d6+85 3d9+100 1d8+1 none
+7 0 2d6+85 3d9+100 1d8+1 'none'
 4 4 4 9
 EFNU 0 0 0
 stand stand male 6
@@ -323,7 +323,7 @@ The centaur has the upper torso of a woman and lower body of a horse.
 ~
 human~
 AC 0 200 0
-7 0 2d6+85 3d9+100 1d8+1 none
+7 0 2d6+85 3d9+100 1d8+1 'none'
 4 4 4 9
 EFNU 0 0 0
 stand stand female 5
@@ -337,7 +337,7 @@ This centaur has lived a full life.
 ~
 human~
 AC 0 200 0
-6 0 2d7+71 3d9+100 1d7+1 none
+6 0 2d7+71 3d9+100 1d7+1 'none'
 4 4 4 9
 EFNU 0 0 0
 rest rest male 5
@@ -351,7 +351,7 @@ The elders act as counselors and advisors to the chief.
 ~
 human~
 ABC B 200 0
-9 0 2d6+110 4d9+100 1d8+2 none
+9 0 2d6+110 4d9+100 1d8+2 'none'
 2 2 2 8
 EFNU 0 0 0
 stand stand male 0
@@ -365,7 +365,7 @@ He appears to be blocking entrance to the next room.
 ~
 human~
 AB B 200 0
-10 0 2d7+121 5d9+100 2d4+2 none
+10 0 2d7+121 5d9+100 2d4+2 'none'
 1 1 1 8
 EFNU 0 0 0
 stand stand male 0
@@ -380,7 +380,7 @@ wisdom.
 ~
 human~
 ABC B 200 0
-12 0 2d10+150 6d9+100 1d10+3 none
+12 0 2d10+150 6d9+100 1d10+3 'none'
 0 0 0 8
 EFNU 0 0 0
 rest stand male 0
@@ -394,7 +394,7 @@ As you watch this strange creature, its position seems to flicker and shift.
 ~
 human~
 AH 0 0 0
-10 0 2d7+121 5d9+100 2d4+2 none
+10 0 2d7+121 5d9+100 2d4+2 'none'
 1 1 1 8
 EFNU 0 0 0
 stand stand none 0

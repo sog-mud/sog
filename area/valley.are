@@ -18,7 +18,7 @@ undetectable as it moves.
 ~
 dog~
 AGH P 0 0
-5 0 2d6+60 2d9+100 1d6+1 none
+5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
 EFNR 0 0 0
 stand stand none 0
@@ -35,7 +35,7 @@ noticing him, and quietly disappears.
 ~
 elf~
 ACFGH 0 0 0
-8 0 2d7+96 4d9+100 1d7+2 none
+8 0 2d7+96 4d9+100 1d7+2 'none'
 3 3 3 9
 EFNR 0 0 0
 stand stand male 0
@@ -50,7 +50,7 @@ She glares at you, then quickly disappears before you see more of her.
 ~
 elf~
 ACFGH 0 0 0
-8 0 2d7+96 4d9+100 1d7+2 none
+8 0 2d7+96 4d9+100 1d7+2 'none'
 3 3 3 9
 EFNR 0 0 0
 stand stand female 0
@@ -65,7 +65,7 @@ He glares at your intrusion and attacks with menace.
 ~
 elf~
 ABF 0 0 0
-7 0 2d6+85 3d9+100 1d8+1 none
+7 0 2d6+85 3d9+100 1d8+1 'none'
 4 4 4 9
 EFNR 0 0 0
 stand stand male 0
@@ -80,7 +80,7 @@ She glares at your intrusion and attacks with menace.
 ~
 elf~
 ABF 0 0 0
-7 0 2d6+85 3d9+100 1d8+1 none
+7 0 2d6+85 3d9+100 1d8+1 'none'
 4 4 4 9
 EFNR 0 0 0
 stand stand female 0
@@ -94,7 +94,7 @@ The elf notices your intrusion and attacks with determination.
 ~
 elf~
 ACFG 0 0 0
-6 0 2d7+71 3d9+100 1d7+1 none
+6 0 2d7+71 3d9+100 1d7+1 'none'
 4 4 4 9
 EFNR 0 0 0
 stand stand male 0
@@ -109,7 +109,7 @@ when you are in her way.
 ~
 elf~
 AGH 0 0 0
-6 0 2d7+71 3d9+100 1d7+1 none
+6 0 2d7+71 3d9+100 1d7+1 'none'
 4 4 4 9
 EFNR 0 0 0
 stand stand female 0
@@ -125,7 +125,7 @@ quite potent, though.
 ~
 elf~
 ABCFQ HN 0 0
-15 0 3d9+208 15d9+100 2d5+3 none
+15 0 3d9+208 15d9+100 2d5+3 'none'
 -2 -2 -2 6
 EIKR 0 0 0
 stand stand male 0
@@ -141,7 +141,7 @@ quite potent, though.
 ~
 elf~
 ABCFR N 0 0
-15 0 2d10+190 15d9+100 1d10+3 none
+15 0 2d10+190 15d9+100 1d10+3 'none'
 -1 -1 -1 5
 FR 0 0 0
 stand stand female 0
@@ -156,7 +156,7 @@ regular dragon, too.  It doesn't look happy.
 ~
 human~
 ABF J 0 0
-20 0 3d9+333 10d9+100 2d8+5 none
+20 0 3d9+333 10d9+100 2d8+5 'none'
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand none 0
@@ -170,7 +170,7 @@ He looks old and feeble.
 ~
 human~
 ABCH 0 0 0
-3 0 2d6+35 1d9+100 1d6+0 none
+3 0 2d6+35 1d9+100 1d6+0 'none'
 7 7 7 10
 EFNU 0 0 0
 stand stand male 0
@@ -184,7 +184,7 @@ Talemon looks harmless, but the fireballs he throws at you don't.
 ~
 human~
 ABCFR 0 0 0
-25 0 5d10+500 25d9+100 4d4+6 none
+25 0 5d10+500 25d9+100 4d4+6 'none'
 -6 -6 -6 2
 FU 0 0 0
 stand stand male 50
@@ -199,7 +199,7 @@ anger at you!
 ~
 human~
 ABF 0 -500 0
-25 0 5d10+550 12d9+100 2d10+7 none
+25 0 5d10+550 12d9+100 2d10+7 'none'
 -7 -7 -7 6
 EFNU 0 0 0
 stand stand none 0
@@ -213,7 +213,7 @@ The wolf is covered with brown hair.  It looks at you with fright.
 ~
 wolf~
 AFH 0 0 0
-4 0 2d7+46 2d9+100 1d5+1 none
+4 0 2d7+46 2d9+100 1d5+1 'none'
 6 6 6 9
 ENR 0 0 0
 stand stand none 0
@@ -228,7 +228,7 @@ image of ... an antelope.
 ~
 human~
 AH 0 0 0
-6 0 2d7+71 3d9+100 1d7+1 none
+6 0 2d7+71 3d9+100 1d7+1 'none'
 4 4 4 9
 EFNU 0 0 0
 stand stand none 0

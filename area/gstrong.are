@@ -16,7 +16,7 @@ You see a balding, overweight goblin, but he looks quite tough!
 ~
 goblin~
 ABFHT b -600 0
-19 0 10d5+250 1d1+99 2d4+1 none
+19 0 10d5+250 1d1+99 2d4+1 'none'
 4 4 4 1
 FKNPR A B 0
 stand stand male 800
@@ -30,7 +30,7 @@ His face is sour and pale. He probably takes his religion very seriously.
 ~
 goblin~
 ABFHQ 0 -600 0
-15 0 5d6+150 1d1+199 2d3+2 none
+15 0 5d6+150 1d1+199 2d3+2 'none'
 5 5 5 0
 PR A 0 0
 stand stand male 90
@@ -47,7 +47,7 @@ stronghold.
 ~
 goblin~
 ABFHR BCDEFVd -600 0
-15 0 5d6+150 1d1+199 1d4+1 none
+15 0 5d6+150 1d1+199 1d4+1 'none'
 2 2 2 8
 PR A 0 0
 stand stand male 100
@@ -61,7 +61,7 @@ Knarl glares right back at you.
 ~
 goblin~
 ABFT FPVb -1000 0
-20 0 5d5+350 1d1+99 2d4+2 none
+20 0 5d5+350 1d1+99 2d4+2 'none'
 5 5 5 0
 CDEFKPR A B 0
 stand stand male 100
@@ -75,7 +75,7 @@ A bit larger than your average goblin, guards are bullies to the others.
 ~
 goblin~
 ABFT 0 -600 29005
-12 0 1d5+250 1d1+99 1d3+3 none
+12 0 1d5+250 1d1+99 1d3+3 'none'
 3 3 3 0
 R A 0 0
 stand stand male 100
@@ -89,7 +89,7 @@ A bit larger than your average goblin, guards are bullies to the others.
 ~
 goblin~
 AFT 0 -600 29006
-13 0 1d5+240 1d1+99 1d3+1 none
+13 0 1d5+240 1d1+99 1d3+1 'none'
 3 3 3 0
 EKR AQ C 0
 stand stand male 100
@@ -103,7 +103,7 @@ He's ugly, green, and smelly... What's more to say?
 ~
 goblin~
 AFT 0 -600 29007
-12 0 5d12+105 1d1+99 1d3+2 none
+12 0 5d12+105 1d1+99 1d3+2 'none'
 2 2 2 0
 R A 0 0
 stand stand male 0
@@ -117,7 +117,7 @@ You notice his skin is more blueish... perhaps he's from another tribe?
 ~
 goblin~
 AT 0 -600 0
-3 0 10d2+15 1d1+99 1d4+1 none
+3 0 10d2+15 1d1+99 1d4+1 'none'
 2 2 2 0
 0 0 0 0
 sit sit male 0
@@ -131,7 +131,7 @@ He screams! Don't look at me!! Aaargh... leper outcast unclean!
 ~
 goblin~
 ACFGS FPQXbd 0 29009
-15 0 5d5+200 1d1+99 2d3+3 none
+15 0 5d5+200 1d1+99 2d3+3 'none'
 3 3 3 0
 BDEFR AB 0 Q
 stand stand male 2
@@ -145,7 +145,7 @@ He's ugly, green, and smelly... What's more to say?
 ~
 goblin~
 ABFT 0 -600 29010
-14 0 10d2+230 1d1+99 2d3+1 none
+14 0 10d2+230 1d1+99 2d3+1 'none'
 2 2 2 0
 R A 0 0
 stand stand male 20
@@ -159,7 +159,7 @@ He really wants to get out of that pentagram. Maybe you should let him out?
 ~
 human~
 ABG Jbu -1000 0
-20 0 1d1+399 1d1+149 5d4+5 none
+20 0 1d1+399 1d1+149 5d4+5 'none'
 -7 -7 -7 5
 CDEFIKMN AB HQ EN
 stand stand male 100
@@ -173,7 +173,7 @@ She is quite pretty, even for a goblin.
 ~
 goblin~
 ABFT 0 -600 0
-9 0 10d2+120 1d1+99 1d4+1 none
+9 0 10d2+120 1d1+99 1d4+1 'none'
 2 2 2 0
 R A 0 0
 stand stand female 100
@@ -187,7 +187,7 @@ He wears a stupid green suit with bells on it. You hate him.
 ~
 goblin~
 AFT 0 -600 0
-11 0 10d2+145 1d1+99 1d4+1 none
+11 0 10d2+145 1d1+99 1d4+1 'none'
 2 2 2 0
 0 A 0 0
 stand stand male 10

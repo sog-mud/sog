@@ -17,7 +17,7 @@ rottweiler ротвейлер~
 ~
 dog~
 ALSc DFJPTUVZclmtu -1000 0
-101 100 50d10+35000 10d10+10000 35d30+98 bite
+101 100 50d10+35000 10d10+10000 35d30+98 'bite'
 -82 -82 -82 -80
 CDFL BELPQ 0 H
 stand stand male 0

@@ -27,7 +27,7 @@ a few things it might fear.
 ~
 golem~
 ABGTe DFHJVZlmt 0 0
-100 50 1d1+30000 100d10+5000 10d10+200 none
+100 50 1d1+30000 100d10+5000 10d10+200 'none'
 -5 -5 -5 -5
 ACDEFHKOPQT AB 0 HK
 stand stand none 10000
@@ -49,7 +49,7 @@ horse warhorse~
 ~
 horse~
 AJKTZbd DFHJNOTUclmt 1000 0
-50 300 100d100+10000 100d100+10000 15d15+250 smash
+50 300 100d100+10000 100d100+10000 15d15+250 'smash'
 -100 -100 -100 -100
 ACDINO CD 0 0
 stand stand male 0

@@ -25,7 +25,7 @@ Seelie way, light, love, celebration, honor and wisdom.
 ~
 elf~
 ABT CDEFH 1000 0
-86 0 50d20+16500 10d20+2000 13d10+56 bite
+86 0 50d20+16500 10d20+2000 13d10+56 'bite'
 -56 -53 -51 -26
 EFHIKN BLQ 0 N
 stand stand male 5000
@@ -46,7 +46,7 @@ of the sun.
 ~
 elf~
 ABQ CDEHT 1000 0
-84 0 50d20+15500 10d20+2000 9d14+51 bite
+84 0 50d20+15500 10d20+2000 9d14+51 'bite'
 -53 -50 -52 -23
 FKN BLQ C N
 stand stand female 5000
@@ -64,7 +64,7 @@ laughter and joy, Puck is a dangerous one indeed.
 ~
 human~
 AGHS BNPQTU 0 0
-94 0 50d20+22000 10d20+2000 13d10+56 bite
+94 0 50d20+22000 10d20+2000 13d10+56 'bite'
 -55 -56 -54 -26
 BEFHIJKNY BLQ C NZ
 sit sit male 100
@@ -83,7 +83,7 @@ voice is clear and strong and his mind is much quicker than yours.
 ~
 elf~
 ABR ACDEFZ 850 0
-78 0 50d20+12500 10d20+2000 9d12+48 bite
+78 0 50d20+12500 10d20+2000 9d12+48 'bite'
 -40 -40 -42 -18
 BEFHIJKNY BLQ C N
 stand stand male 500
@@ -107,7 +107,7 @@ embodies not only the terror of death but the seductive beauty of night.
 ~
 elf~
 ABT Z -1000 0
-86 0 50d20+16500 10d20+2000 13d10+56 slash
+86 0 50d20+16500 10d20+2000 13d10+56 'slash'
 -56 -53 -51 -26
 EFHIKN BLQ 0 N
 stand stand male 500
@@ -126,7 +126,7 @@ while the Puck may be harmfull the Morrigan is deadly.
 ~
 unique~
 ACFGOT CDEFZ -1000 0
-84 0 50d20+15500 10d20+2000 9d14+51 pierce
+84 0 50d20+15500 10d20+2000 9d14+51 'pierce'
 -53 -50 -52 -23
 ABDHNY BLQ 0 NSZ
 stand stand female 5050
@@ -144,7 +144,7 @@ radiates strength, beauty, and nobility.
 ~
 elf~
 AGT 0 800 0
-77 0 50d20+12000 10d20+2000 9d12+47 pound
+77 0 50d20+12000 10d20+2000 9d12+47 'pound'
 -55 -53 -52 -25
 CFIU 0 LQ M
 stand stand male 500
@@ -162,7 +162,7 @@ radiates strength, beauty, and nobility.
 ~
 elf~
 AGT 0 800 0
-77 0 50d20+12000 10d20+2000 9d12+47 pound
+77 0 50d20+12000 10d20+2000 9d12+47 'pound'
 -55 -53 -52 -25
 CFIU 0 LQ M
 stand stand male 500
@@ -180,7 +180,7 @@ radiates strength, beauty, and nobility.
 ~
 elf~
 AGT 0 -800 0
-77 0 50d20+12000 10d20+2000 9d12+47 pound
+77 0 50d20+12000 10d20+2000 9d12+47 'pound'
 -55 -53 -52 -25
 CFIU 0 LQ M
 stand stand male 500
@@ -198,7 +198,7 @@ radiates strength, beauty, and nobility.
 ~
 elf~
 AGT 0 -800 0
-77 0 50d20+12000 10d20+2000 9d12+47 pound
+77 0 50d20+12000 10d20+2000 9d12+47 'pound'
 -55 -53 -52 -25
 CFIU 0 LQ M
 stand stand male 500
@@ -216,7 +216,7 @@ leadership that graces all of the sidhe.
 ~
 elf~
 ABT N 900 0
-66 0 50d20+8500 10d20+2000 7d9+36 pound
+66 0 50d20+8500 10d20+2000 7d9+36 'pound'
 -22 -25 -23 -5
 EIKLQRTU 0 LQ M
 stand stand male 500
@@ -235,7 +235,7 @@ not to admire.
 ~
 elf~
 ABT N -900 0
-65 0 50d20+8250 10d20+2000 11d5+35 pound
+65 0 50d20+8250 10d20+2000 11d5+35 'pound'
 -22 -25 -23 -5
 EIKLQRTU 0 LQ N
 stand stand male 500
@@ -253,7 +253,7 @@ loyalty, courage and skill in battle.
 ~
 elf~
 AGT G 1000 0
-72 0 50d20+10250 10d20+2000 8d11+42 slash
+72 0 50d20+10250 10d20+2000 8d11+42 'slash'
 -43 -41 -39 -10
 CDEFIKLS 0 LQ M
 stand stand male 500
@@ -271,7 +271,7 @@ loyalty, courage and skill in battle.
 ~
 elf~
 AGT G 1000 0
-75 0 50d20+11000 10d20+2000 9d11+45 slash
+75 0 50d20+11000 10d20+2000 9d11+45 'slash'
 -43 -41 -39 -10
 CDEFIKLS N LQ M
 stand stand female 500
@@ -289,7 +289,7 @@ skill in battle.
 ~
 elf~
 AGT G -1000 0
-75 0 50d20+11000 10d20+2000 9d11+45 slash
+75 0 50d20+11000 10d20+2000 9d11+45 'slash'
 -43 -41 -39 -10
 CDEFIKLS M LQ N
 stand stand male 500
@@ -307,7 +307,7 @@ skill in battle.
 ~
 elf~
 AGT G 1000 0
-75 0 50d20+11000 10d20+2000 9d11+45 slash
+75 0 50d20+11000 10d20+2000 9d11+45 'slash'
 -43 -41 -39 -10
 CDEFIKLS N LQ M
 stand stand female 500
@@ -325,7 +325,7 @@ loyalty, courage and skill in battle.
 ~
 elf~
 ABT G 1000 0
-75 0 50d20+11000 10d20+2000 9d11+45 slash
+75 0 50d20+11000 10d20+2000 9d11+45 'slash'
 -43 -41 -39 -10
 CDEFIKLS N LQ M
 stand stand male 500
@@ -343,7 +343,7 @@ skill in battle.
 ~
 elf~
 ABT G -1000 0
-75 0 50d20+11000 10d20+2000 9d11+45 slash
+75 0 50d20+11000 10d20+2000 9d11+45 'slash'
 -43 -41 -39 -10
 CDEFIKLS M LQ N
 stand stand male 500
@@ -361,7 +361,7 @@ skill in battle.
 ~
 elf~
 ABT G -1000 0
-75 0 50d20+11000 10d20+2000 9d11+45 slash
+75 0 50d20+11000 10d20+2000 9d11+45 'slash'
 -43 -41 -39 -10
 CDEFIKLS M LQ N
 stand stand female 500
@@ -381,7 +381,7 @@ sidhe as faithfull warriors.
 ~
 giant~
 ABT Nbcd 1000 0
-69 0 50d20+9500 10d20+2000 7d11+39 pierce
+69 0 50d20+9500 10d20+2000 7d11+39 'pierce'
 -39 -39 -39 -9
 CDIKNQU B 0 NZ
 stand stand male 500
@@ -401,7 +401,7 @@ sidhe as faithfull warriors.
 ~
 troll~
 ABT Nbd -1000 0
-71 0 50d20+10000 10d20+2000 9d9+49 pierce
+71 0 50d20+10000 10d20+2000 9d9+49 'pierce'
 -62 -63 -59 -29
 CIKNQU B 0 JNPZ
 stand stand male 500
@@ -422,7 +422,7 @@ After all, it's all in good fun.
 ~
 human~
 AGHS P 100 0
-60 0 50d20+6750 10d20+2000 8d6+28 slash
+60 0 50d20+6750 10d20+2000 8d6+28 'slash'
 -32 -33 -33 -15
 BEFHJN 0 BX NZ
 stand stand male 500
@@ -444,7 +444,7 @@ fun....
 ~
 human~
 AGHS PQ -100 0
-60 0 50d20+6750 10d20+2000 8d6+28 slash
+60 0 50d20+6750 10d20+2000 8d6+28 'slash'
 -32 -33 -33 -5
 BEFHJN 0 BX NZ
 stand stand male 500
@@ -460,7 +460,7 @@ for their great stamina they can drink more than almost any other being.
 ~
 satyr~
 ABS d -100 0
-64 0 50d20+8000 10d20+2000 8d7+34 slash
+64 0 50d20+8000 10d20+2000 8d7+34 'slash'
 -30 -35 -32 -10
 CDIN LQ C NZ
 sit sit male 1000
@@ -475,7 +475,7 @@ As you listen you too are drawn into the music.....
 ~
 satyr~
 AGR d 100 0
-66 0 50d20+8250 10d20+2000 11d5+35 slash
+66 0 50d20+8250 10d20+2000 11d5+35 'slash'
 -29 -28 -25 -10
 EHN B C NZ
 stand stand male 500
@@ -493,7 +493,7 @@ swaying of her body as she sings entrances you.
 ~
 satyr~
 AGR d 100 0
-62 0 50d20+7250 10d20+2000 6d9+32 slash
+62 0 50d20+7250 10d20+2000 6d9+32 'slash'
 -30 -26 -28 -1
 FHJ B 0 NZ
 stand stand female 500
@@ -509,7 +509,7 @@ to get in his way.
 ~
 satyr~
 ABT Vbd -100 0
-60 0 50d20+6750 10d20+2000 8d6+28 slash
+60 0 50d20+6750 10d20+2000 8d6+28 'slash'
 -28 -28 -20 -2
 CDR P BL NZ
 stand stand male 500
@@ -525,7 +525,7 @@ wrought item when he is finished.
 ~
 dwarf~
 ABT Z 300 0
-52 0 50d20+4750 10d20+2000 6d7+20 slash
+52 0 50d20+4750 10d20+2000 6d7+20 'slash'
 -34 -35 -34 -2
 C LQ C NZ
 sit sit male 320
@@ -540,7 +540,7 @@ He is working on a dark, rough-looking piece of armor.
 ~
 dwarf~
 ABT Z 300 0
-52 0 50d20+4750 10d20+2000 6d7+20 slash
+52 0 50d20+4750 10d20+2000 6d7+20 'slash'
 -34 -35 -34 -2
 C LQ C NZ
 sit sit male 320
@@ -555,7 +555,7 @@ bright purple, flowing robes with a winding turban hiding his face.
 ~
 human~
 AT TU 0 0
-58 0 50d20+6250 10d20+2000 5d10+25 pierce
+58 0 50d20+6250 10d20+2000 5d10+25 'pierce'
 -30 -30 -31 -10
 CDEI 0 C NZ
 stand stand male 500
@@ -575,7 +575,7 @@ experienced than you will ever be.
 ~
 human~
 AT TU 0 0
-58 0 50d20+6250 10d20+2000 5d10+25 pierce
+58 0 50d20+6250 10d20+2000 5d10+25 'pierce'
 -30 -30 -31 -10
 CDEI 0 0 NZ
 stand stand male 500
@@ -591,7 +591,7 @@ eshu drinker drunk эшу~
 ~
 human~
 AT TU -200 0
-58 0 50d20+6250 10d20+2000 5d10+25 pierce
+58 0 50d20+6250 10d20+2000 5d10+25 'pierce'
 -30 -30 -31 -10
 CDEI 0 0 NZ
 stand stand male 500
@@ -606,7 +606,7 @@ appendages dressed in a brown tunic with a blood red hat.
 ~
 unique~
 ACFGS JVb -850 0
-38 0 10d20+1600 10d20+2000 5d6+12 pierce
+38 0 10d20+1600 10d20+2000 5d6+12 'pierce'
 -16 -20 -18 -6
 BDJVY M LQ NZ
 stand stand male 500
@@ -620,7 +620,7 @@ This redcap is a killing machine.  All sharp teeth, claws, and talons.
 ~
 unique~
 ACFGS JVb -850 0
-43 0 10d20+2500 10d20+2000 8d4+15 pierce
+43 0 10d20+2500 10d20+2000 8d4+15 'pierce'
 -20 -18 -20 0
 BDJVY M LQ NZ
 stand stand male 500
@@ -636,7 +636,7 @@ this creature.
 ~
 unique~
 AHS BCDEFJNPQUZ -20 0
-36 0 10d20+1400 10d20+2000 3d10+11 pound
+36 0 10d20+1400 10d20+2000 3d10+11 'pound'
 -12 -12 -13 -1
 EFHJK M LQ NSZ
 stand stand female 500
@@ -651,7 +651,7 @@ leave now.
 ~
 unique~
 AHS BCDEFJNPQUZ -20 0
-36 0 10d20+1400 10d20+2000 3d10+11 pierce
+36 0 10d20+1400 10d20+2000 3d10+11 'pierce'
 -12 -12 -13 -1
 EFHJK M LQ NSZ
 stand stand female 500
@@ -668,7 +668,7 @@ pixie пикси~
 ~
 unique~
 AGR BTY 100 0
-29 0 10d20+800 10d20+2000 4d6+7 pound
+29 0 10d20+800 10d20+2000 4d6+7 'pound'
 -20 -20 -20 -1
 FHKR 0 D Z
 stand stand male 500
@@ -686,7 +686,7 @@ smile on his face.
 ~
 unique~
 AFHW BTV -300 0
-32 0 10d20+1000 10d20+2000 6d4+9 pierce
+32 0 10d20+1000 10d20+2000 6d4+9 'pierce'
 -18 -18 -18 -1
 EFIK 0 D NZ
 stand stand male 500
@@ -704,7 +704,7 @@ and form amaze and beguile you.
 ~
 unique~
 AGHQ BNT 300 0
-32 0 10d20+1000 10d20+2000 6d4+9 slash
+32 0 10d20+1000 10d20+2000 6d4+9 'slash'
 -20 -18 -16 -1
 FH 0 LQ NZ
 stand stand female 500
@@ -720,7 +720,7 @@ nymph нимфа~
 ~
 elf~
 ABHQ 0 100 0
-30 0 10d20+853 10d20+2000 4d6+8 slash
+30 0 10d20+853 10d20+2000 4d6+8 'slash'
 -20 -15 -18 -1
 FN R 0 N
 stand stand female 500
@@ -739,7 +739,7 @@ leaves runs among the trees darting in and out of sight.
 ~
 elf~
 AGHQ 0 100 0
-30 0 10d20+853 10d20+2000 4d6+8 slash
+30 0 10d20+853 10d20+2000 4d6+8 'slash'
 -20 -15 -18 -1
 FN R 0 N
 stand stand female 500
@@ -757,7 +757,7 @@ finned tail.
 ~
 unique~
 ABHT Tc 250 0
-30 0 10d20+853 10d20+2000 4d6+8 pierce
+30 0 10d20+853 10d20+2000 4d6+8 'pierce'
 -20 -15 -18 -1
 FMW R 0 JNZ
 stand stand female 500
@@ -775,7 +775,7 @@ finned tail.
 ~
 unique~
 ABHT Tc 250 0
-28 0 10d20+750 10d20+2000 4d6+7 pierce
+28 0 10d20+750 10d20+2000 4d6+7 'pierce'
 -20 -15 -18 -1
 FMW R 0 JNZ
 stand stand male 500
@@ -792,7 +792,7 @@ alive.
 ~
 unique~
 ACGU PVd 100 0
-22 0 5d10+400 10d20+2000 4d4+6 none
+22 0 5d10+400 10d20+2000 4d4+6 'none'
 -12 -10 -12 -1
 FNU ABES D GHNZ
 stand stand male 0
@@ -808,7 +808,7 @@ acorn fae фейри~
 ~
 unique~
 ACGU PVd 100 0
-22 0 5d10+400 10d20+2000 4d4+6 pound
+22 0 5d10+400 10d20+2000 4d4+6 'pound'
 -12 -10 -12 -1
 FNU ABES D GHNZ
 stand stand none 0
@@ -826,7 +826,7 @@ strange music.  He holds a small set of glowing pipes in his hands.
 ~
 unique~
 ABCU PVd 100 0
-22 0 5d10+400 10d20+2000 4d4+6 pound
+22 0 5d10+400 10d20+2000 4d4+6 'pound'
 -12 -10 -12 -1
 FNU ABES D GHNZ
 stand stand none 0
@@ -844,7 +844,7 @@ measure of intelligence rarely seen in a normal animal.
 ~
 unique~
 AITU DFPZ 0 0
-22 0 5d10+550 10d20+2000 2d10+7 claw
+22 0 5d10+550 10d20+2000 2d10+7 'claw'
 -7 -7 -7 -1
 CDFLN 0 0 NYZ
 stand stand female 0
@@ -862,7 +862,7 @@ intelligence that is not common in one of it's species.
 ~
 unique~
 AITU DFPZ 0 0
-40 0 10d20+2000 10d20+2000 4d8+13 pierce
+40 0 10d20+2000 10d20+2000 4d8+13 'pierce'
 -21 -20 -21 -2
 CDILN 0 0 YZ
 stand stand male 0
@@ -879,7 +879,7 @@ inteligence.
 ~
 cat~
 AIRU DFP 0 0
-50 0 20d20+4250 10d20+2000 5d8+19 claw
+50 0 20d20+4250 10d20+2000 5d8+19 'claw'
 -24 -25 -23 -2
 BEJKNV 0 0 Z
 stand stand female 0
@@ -899,7 +899,7 @@ only its the size of a small child.
 ~
 unique~
 AIQU DEFTZ 0 0
-70 0 50d20+9750 10d20+2000 8d10+40 claw
+70 0 50d20+9750 10d20+2000 8d10+40 'claw'
 -32 -32 -32 -3
 BEFHJKNX 0 F ENZ
 stand stand male 0

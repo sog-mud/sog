@@ -16,7 +16,7 @@ The pirate guard is clothed in rags, and smells badly.
 ~
 human~
 AFGT 0 300 0
-46 0 25d10+3250 5d5+1000 6d6+16 pound
+46 0 25d10+3250 5d5+1000 6d6+16 'pound'
 -16 -16 -16 2
 CDEIKTU 0 0 0
 stand stand male 1000
@@ -30,7 +30,7 @@ The shipwright is stripped to the waist, and is sweating profusely.
 ~
 human~
 ABGe 0 1000 0
-95 0 50d10+22500 5d5+5000 12d15+68 pound
+95 0 50d10+22500 5d5+5000 12d15+68 'pound'
 -71 -71 -71 -37
 CEFIK 0 0 0
 stand stand male 1000
@@ -44,7 +44,7 @@ The jungle savage is clad in a thong and wields a crude spear.
 ~
 human~
 AFGT 0 0 0
-40 0 15d10+1850 5d5+1000 4d8+13 claw
+40 0 15d10+1850 5d5+1000 4d8+13 'claw'
 -13 -13 -13 3
 0 0 0 0
 stand stand male 1000
@@ -60,7 +60,7 @@ scantily clad.
 ~
 human~
 ABFGT 0 1000 0
-46 0 25d10+3250 5d5+1000 6d6+16 punch
+46 0 25d10+3250 5d5+1000 6d6+16 'punch'
 -16 -16 -16 2
 0 0 0 0
 stand stand male 1000
@@ -74,7 +74,7 @@ The pirate stinks with the smell of his own vomit.
 ~
 human~
 AG 0 1000 0
-40 0 15d10+1850 5d5+1000 4d8+13 pound
+40 0 15d10+1850 5d5+1000 4d8+13 'pound'
 -13 -13 -13 3
 EFIU 0 0 0
 stand stand male 1000
@@ -88,7 +88,7 @@ The pirate smells of rum, and is dressed in rags.
 ~
 human~
 AG 0 300 0
-42 0 25d10+2250 5d5+1000 3d12+14 pound
+42 0 25d10+2250 5d5+1000 3d12+14 'pound'
 -14 -14 -14 3
 EFIU 0 0 0
 stand stand male 1000
@@ -105,7 +105,7 @@ until her manner changed.
 ~
 human~
 ABG J 500 0
-40 0 15d10+1850 5d5+1000 4d8+13 slap
+40 0 15d10+1850 5d5+1000 4d8+13 'slap'
 -13 -13 -13 3
 EIKU 0 0 0
 stand stand female 1000
@@ -121,7 +121,7 @@ that he can make a break for it on a raid.
 ~
 human~
 ABG 0 200 0
-48 0 25d10+3750 5d5+1000 6d6+18 pound
+48 0 25d10+3750 5d5+1000 6d6+18 'pound'
 -18 -18 -18 1
 EIKU 0 0 0
 stand stand male 1000
@@ -138,7 +138,7 @@ is a weathered brown from many, many voyages.
 ~
 human~
 ABFGT 0 500 0
-50 0 50d10+4250 5d5+5000 5d8+19 pound
+50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
 EIKU 0 0 0
 stand stand male 1000
@@ -154,7 +154,7 @@ or her ransom paid.
 ~
 human~
 ABG 0 200 0
-30 0 6d12+853 5d5+1000 4d6+8 slap
+30 0 6d12+853 5d5+1000 4d6+8 'slap'
 -9 -9 -9 3
 EIKU 0 0 0
 stand stand female 1000
@@ -171,7 +171,7 @@ practice, and tend to get eaten.
 ~
 unique~
 ACF E 1000 0
-50 0 50d10+4250 5d5+5000 5d8+19 claw
+50 0 50d10+4250 5d5+5000 5d8+19 'claw'
 -20 -20 -20 0
 KU 0 0 0
 stand stand female 1000
@@ -186,7 +186,7 @@ to be alert and well rested.
 ~
 human~
 ABGT 0 100 0
-54 0 50d10+5250 5d5+5000 7d6+22 pound
+54 0 50d10+5250 5d5+5000 7d6+22 'pound'
 -24 -24 -24 -1
 QT 0 0 0
 stand stand male 1000
@@ -200,7 +200,7 @@ The black snake is some 10' long, and has broad, iron hard scales.
 ~
 snake~
 A Q 0 0
-54 0 50d10+5250 5d5+5000 7d6+22 bite
+54 0 50d10+5250 5d5+5000 7d6+22 'bite'
 -24 -24 -24 -1
 FH L 0 0
 stand stand none 1000
@@ -216,7 +216,7 @@ direction.
 ~
 unique~
 A P 0 0
-50 0 50d10+4250 5d5+5000 5d8+19 slice
+50 0 50d10+4250 5d5+5000 5d8+19 'slice'
 -20 -20 -20 0
 0 0 0 0
 stand stand none 1000
@@ -234,7 +234,7 @@ rock upon which it slithers turns into a molten liquid on its skin.
 ~
 human~
 A U 100 0
-56 0 50d10+5750 5d5+5000 10d4+24 magic
+56 0 50d10+5750 5d5+5000 10d4+24 'magic'
 -26 -26 -26 -2
 U 0 0 0
 stand stand none 1000
@@ -253,7 +253,7 @@ for the season)
 ~
 lizard~
 A 0 0 0
-54 0 50d10+5250 5d5+5000 7d6+22 slash
+54 0 50d10+5250 5d5+5000 7d6+22 'slash'
 -24 -24 -24 -1
 U 0 0 0
 stand stand none 1000
@@ -268,7 +268,7 @@ and appears to be shaved and well groomed.
 ~
 unique~
 AF 0 200 0
-56 0 50d10+5750 5d5+5000 10d4+24 none
+56 0 50d10+5750 5d5+5000 10d4+24 'none'
 -26 -26 -26 -2
 0 0 0 0
 stand stand male 1000
@@ -284,7 +284,7 @@ which sails the seas. He has a funny looking eyepiece.
 ~
 human~
 AB D 400 0
-60 0 50d10+6750 5d5+5000 8d6+28 pound
+60 0 50d10+6750 5d5+5000 8d6+28 'pound'
 -30 -30 -30 -3
 0 0 0 0
 stand stand male 1000
@@ -301,7 +301,7 @@ for warmth when he was captured by Redbeard, and brought here for ransom.
 ~
 elf~
 ABT 0 1000 0
-56 0 50d10+5750 5d5+5000 10d4+24 pound
+56 0 50d10+5750 5d5+5000 10d4+24 'pound'
 -26 -26 -26 -2
 S 0 0 0
 stand stand male 1000
@@ -317,7 +317,7 @@ stands some 20' tall, and is made entirely of flame.
 ~
 unique~
 ABT DFHJ 0 0
-64 0 50d10+8000 5d5+5000 8d7+34 wrath
+64 0 50d10+8000 5d5+5000 8d7+34 'wrath'
 -34 -34 -34 -4
 CEFIK H 0 0
 stand stand none 1000
@@ -335,7 +335,7 @@ to others, and leaves all the major thinking to Shifty.
 ~
 human~
 AB 0 800 0
-70 0 50d10+9750 5d5+5000 8d10+40 pound
+70 0 50d10+9750 5d5+5000 8d10+40 'pound'
 -40 -40 -40 -6
 CEFIK 0 0 0
 stand stand male 1000
@@ -352,7 +352,7 @@ his recent fall from grace.
 ~
 human~
 ABe 0 500 0
-95 0 50d10+22500 5d5+5000 12d15+68 pound
+95 0 50d10+22500 5d5+5000 12d15+68 'pound'
 -71 -71 -71 -37
 CEFIK 0 0 0
 stand stand male 1000
@@ -367,7 +367,7 @@ cloth jerkin and leggings, and swings his cutlass with years of experience.
 ~
 human~
 AF 0 200 0
-66 0 50d10+8500 5d5+5000 7d9+36 pound
+66 0 50d10+8500 5d5+5000 7d9+36 'pound'
 -36 -36 -36 -5
 CEFIK 0 0 0
 stand stand male 1000
@@ -383,7 +383,7 @@ Right now Stiggs is in a hurry to prepare shark stew for his Lords snack.
 ~
 human~
 AB 0 100 0
-64 0 50d10+8000 5d5+5000 8d7+34 pound
+64 0 50d10+8000 5d5+5000 8d7+34 'pound'
 -34 -34 -34 -4
 CEFIK 0 0 0
 stand stand male 1000
@@ -398,7 +398,7 @@ would make a fine trophy.
 ~
 human~
 AF 0 0 0
-68 0 50d10+9000 5d5+5000 7d10+38 bite
+68 0 50d10+9000 5d5+5000 7d10+38 'bite'
 -38 -38 -38 -6
 EF 0 0 0
 stand stand none 1000
@@ -414,7 +414,7 @@ great expanse of water.
 ~
 human~
 AF 0 0 0
-70 0 50d10+9750 5d5+5000 8d10+40 bite
+70 0 50d10+9750 5d5+5000 8d10+40 'bite'
 -40 -40 -40 -6
 EF 0 0 0
 stand stand none 1000
@@ -430,7 +430,7 @@ you should drink white wine with Mako.
 ~
 human~
 AF 0 0 0
-60 0 50d10+6750 5d5+5000 8d6+28 bite
+60 0 50d10+6750 5d5+5000 8d6+28 'bite'
 -30 -30 -30 -3
 EF 0 0 0
 stand stand none 1000
@@ -445,7 +445,7 @@ to your presence.
 ~
 human~
 A 0 0 0
-66 0 50d10+8500 5d5+5000 7d9+36 bite
+66 0 50d10+8500 5d5+5000 7d9+36 'bite'
 -36 -36 -36 -5
 EF 0 0 0
 stand stand none 1000
@@ -461,7 +461,7 @@ you can get its attention.
 ~
 human~
 A 0 0 0
-62 0 50d10+7250 5d5+5000 6d9+32 bite
+62 0 50d10+7250 5d5+5000 6d9+32 'bite'
 -32 -32 -32 -4
 EF 0 0 0
 stand stand none 1000
@@ -476,7 +476,7 @@ sea. I wonder what's inside?
 ~
 giant~
 AB Q 0 0
-70 0 50d10+9750 5d5+5000 8d10+40 pound
+70 0 50d10+9750 5d5+5000 8d10+40 'pound'
 -40 -40 -40 -6
 EF 0 0 0
 stand stand none 1000
@@ -493,7 +493,7 @@ fingers.
 ~
 song bird~
 A 0 0 0
-70 0 50d10+9750 5d5+5000 8d10+40 claw
+70 0 50d10+9750 5d5+5000 8d10+40 'claw'
 -40 -40 -40 -6
 EI 0 0 0
 stand stand female 1000
@@ -510,7 +510,7 @@ back, which when extended span 12' from tip to tip.
 ~
 song bird~
 AF 0 0 0
-72 0 50d10+10250 5d5+5000 8d11+42 claw
+72 0 50d10+10250 5d5+5000 8d11+42 'claw'
 -42 -42 -42 -7
 EI 0 0 0
 stand stand male 1000
@@ -527,7 +527,7 @@ a land roving birdlike creature which roams the surface of the island.
 ~
 song bird~
 A J 100 0
-74 0 50d10+10700 5d5+5000 9d10+44 claw
+74 0 50d10+10700 5d5+5000 9d10+44 'claw'
 -44 -44 -44 -8
 EI 0 0 0
 stand stand male 1000
@@ -544,7 +544,7 @@ and finishes with a rapid burst of CAW, caw-CAW, CAH!.
 ~
 song bird~
 A F 0 0
-76 0 50d10+11500 5d5+5000 10d10+46 claw
+76 0 50d10+11500 5d5+5000 10d10+46 'claw'
 -46 -46 -46 -9
 EI 0 0 0
 stand stand none 1000
@@ -561,7 +561,7 @@ game that he did not notice you enter.
 ~
 human~
 A 0 200 0
-74 0 50d10+10700 5d5+5000 9d10+44 pound
+74 0 50d10+10700 5d5+5000 9d10+44 'pound'
 -44 -44 -44 -8
 EFIJ 0 0 0
 stand stand male 1000
@@ -580,7 +580,7 @@ standard military moves of the navy.
 ~
 human~
 AF 0 500 0
-76 0 50d10+11500 5d5+5000 10d10+46 pound
+76 0 50d10+11500 5d5+5000 10d10+46 'pound'
 -46 -46 -46 -9
 EFIJ 0 0 0
 stand stand male 1000
@@ -596,7 +596,7 @@ seldom seen.
 ~
 human~
 AF DF 400 0
-76 0 50d10+11500 5d5+5000 10d10+46 slash
+76 0 50d10+11500 5d5+5000 10d10+46 'slash'
 -46 -46 -46 -9
 EFIJ 0 0 0
 stand stand male 1000
@@ -613,7 +613,7 @@ with Vulture, in spite of his villainy.
 ~
 human~
 AB 0 300 0
-70 0 50d10+9750 5d5+5000 8d10+40 slap
+70 0 50d10+9750 5d5+5000 8d10+40 'slap'
 -40 -40 -40 -6
 EFIJ 0 0 0
 stand stand female 1000
@@ -629,7 +629,7 @@ drooling into the stew. He does seem to be unusually sweaty though.
 ~
 human~
 AB V 0 0
-74 0 50d10+10700 5d5+5000 9d10+44 pound
+74 0 50d10+10700 5d5+5000 9d10+44 'pound'
 -44 -44 -44 -8
 EFIJ 0 0 0
 stand stand male 1000
@@ -648,7 +648,7 @@ join me and become richer than your wildest dreams?'
 ~
 human~
 AB B 1000 0
-80 0 50d10+13500 5d5+5000 13d9+50 pound
+80 0 50d10+13500 5d5+5000 13d9+50 'pound'
 -50 -50 -50 -13
 EFIJ 0 0 0
 stand stand male 1000
@@ -663,7 +663,7 @@ like Free Willy.
 ~
 human~
 ABF 0 0 0
-80 0 50d10+13500 5d5+5000 13d9+50 bite
+80 0 50d10+13500 5d5+5000 13d9+50 'bite'
 -50 -50 -50 -13
 EF 0 0 0
 stand stand female 1000
@@ -679,7 +679,7 @@ landscape, making it look like a snow hill when it lands.
 ~
 song bird~
 AB 0 0 0
-80 0 50d10+13500 5d5+5000 13d9+50 claw
+80 0 50d10+13500 5d5+5000 13d9+50 'claw'
 -50 -50 -50 -13
 0 0 0 0
 stand stand male 1000
@@ -694,7 +694,7 @@ do in a pinch.
 ~
 wolf~
 ABF 0 0 0
-82 0 50d10+14500 5d5+5000 10d12+52 bite
+82 0 50d10+14500 5d5+5000 10d12+52 'bite'
 -52 -52 -52 -15
 E 0 0 0
 stand stand none 1000
@@ -710,7 +710,7 @@ you should let it sleep.
 ~
 bear~
 AB 0 0 0
-82 0 50d10+14500 5d5+5000 10d12+52 claw
+82 0 50d10+14500 5d5+5000 10d12+52 'claw'
 -52 -52 -52 -15
 CF 0 0 0
 stand stand male 1000
@@ -724,7 +724,7 @@ The pirate is well armed and dangerous.
 ~
 human~
 AT 0 400 0
-84 0 50d10+15500 5d5+5000 9d14+54 pound
+84 0 50d10+15500 5d5+5000 9d14+54 'pound'
 -54 -54 -54 -18
 DEGKL 0 0 0
 stand stand none 1000
@@ -739,7 +739,7 @@ a fight.
 ~
 human~
 AFT DFQ 500 0
-80 0 50d10+13500 5d5+5000 13d9+50 pound
+80 0 50d10+13500 5d5+5000 13d9+50 'pound'
 -50 -50 -50 -13
 EIJKTU 0 0 0
 stand stand none 1000
@@ -755,7 +755,7 @@ innumerable times.
 ~
 human~
 AT 0 600 0
-88 0 50d10+17500 5d5+5000 10d15+58 pound
+88 0 50d10+17500 5d5+5000 10d15+58 'pound'
 -58 -58 -58 -24
 EFIK 0 0 0
 stand stand male 1000
@@ -774,7 +774,7 @@ have at it', and he downs a purple potion.
 ~
 human~
 ABT H 1000 0
-90 0 50d10+18500 5d5+5000 17d9+60 pound
+90 0 50d10+18500 5d5+5000 17d9+60 'pound'
 -60 -60 -60 -27
 CDEFIJK 0 0 0
 stand stand male 1000
@@ -800,7 +800,7 @@ Lok charmed me so you wouldn't just mindlessly butcher me.'
 ~
 human~
 ABT 0 1000 0
-80 0 50d10+13500 5d5+5000 13d9+50 pound
+80 0 50d10+13500 5d5+5000 13d9+50 'pound'
 -50 -50 -50 -13
 CEFIJK 0 0 0
 stand stand none 1000

@@ -17,7 +17,7 @@ and it is drooling everywhere... looks mean too.
 ~
 bear~
 ABC J -750 0
-5 0 2d6+60 49d1+1 1d6+1 pierce
+5 0 2d6+60 49d1+1 1d6+1 'pierce'
 5 5 5 9
 B 0 0 0
 stand stand male 150
@@ -33,7 +33,7 @@ maybe you should ask if he needs help?  Nah... kill him.
 ~
 school monster~
 ABC G 0 0
-2 0 2d7+21 19d1+1 1d5+0 scratch
+2 0 2d7+21 19d1+1 1d5+0 'scratch'
 8 8 8 10
 C 0 0 0
 stand stand male 120
@@ -49,7 +49,7 @@ the truth.  But, remember, even a little dragon can be a big problem.
 ~
 dragon~
 AB 0 100 0
-4 0 2d7+46 39d1+1 1d5+1 grep
+4 0 2d7+46 39d1+1 1d5+1 'grep'
 6 6 6 9
 C 0 0 0
 stand stand male 140
@@ -66,7 +66,7 @@ him.'
 ~
 human~
 AB 0 0 0
-3 0 2d6+35 29d1+1 1d6+0 punch
+3 0 2d6+35 29d1+1 1d6+0 'punch'
 7 7 7 1
 D 0 0 0
 stand stand male 130
@@ -81,7 +81,7 @@ mix up a batch of something or other.
 ~
 human~
 AB 0 0 0
-5 0 2d6+60 49d1+1 1d6+1 punch
+5 0 2d6+60 49d1+1 1d6+1 'punch'
 5 5 5 9
 E 0 0 0
 stand stand male 150
@@ -96,7 +96,7 @@ like this disgusting, little, six-legged, brown bug.
 ~
 snake~
 ABFG 0 -250 0
-1 0 2d6+8 9d1+1 1d4+0 punch
+1 0 2d6+8 9d1+1 1d4+0 'punch'
 9 9 9 10
 F AB 0 0
 stand stand male 110
@@ -111,7 +111,7 @@ now.  You would feel sorry for it, but it is moving in to attack!
 ~
 human~
 ACFG J -500 0
-4 0 2d7+46 39d1+1 1d5+1 punch
+4 0 2d7+46 39d1+1 1d5+1 'punch'
 6 6 6 9
 G AB 0 0
 stand stand male 140
@@ -127,7 +127,7 @@ back into the shadows.
 ~
 snake~
 ACGH JP -800 0
-3 0 2d6+35 29d1+1 1d6+0 smash
+3 0 2d6+35 29d1+1 1d6+0 'smash'
 7 7 7 10
 H 0 0 0
 stand stand male 130
@@ -144,7 +144,7 @@ coming this way!
 ~
 dog~
 ABFG J -1000 0
-7 0 2d6+80 69d1+1 1d8+1 blast
+7 0 2d6+80 69d1+1 1d8+1 'blast'
 4 4 4 9
 I AB 0 0
 stand stand male 170
@@ -159,7 +159,7 @@ a chance to bring death to any who cross its path.
 ~
 water fowl~
 ABDFG BDJ -850 0
-6 0 2d7+71 59d1+1 1d7+0 bite
+6 0 2d7+71 59d1+1 1d7+0 'bite'
 4 4 4 9
 J AB 0 0
 stand stand either 140
@@ -175,7 +175,7 @@ MUHAHAHAHAHAHAHAHAHAHA!
 ~
 human~
 ABC FGJ -500 0
-2 0 2d7+21 19d1+1 1d5+0 punch
+2 0 2d7+21 19d1+1 1d5+0 'punch'
 8 8 8 10
 K 0 0 0
 stand stand male 120
@@ -191,7 +191,7 @@ it, best put him out of his misery.
 ~
 human~
 ABC GJ 0 0
-1 0 2d6+10 9d1+1 1d4+0 punch
+1 0 2d6+10 9d1+1 1d4+0 'punch'
 9 9 9 10
 L 0 0 0
 stand stand male 110
@@ -207,7 +207,7 @@ unlike some others you might see.
 ~
 human~
 ABG J 100 0
-3 0 2d6+35 29d1+1 1d6+0 punch
+3 0 2d6+35 29d1+1 1d6+0 'punch'
 7 7 7 10
 M 0 0 0
 stand stand male 130
@@ -223,7 +223,7 @@ maybe you should help him out?
 ~
 human~
 ACG J 300 0
-4 0 2d7+46 39d1+1 1d5+1 punch
+4 0 2d7+46 39d1+1 1d5+1 'punch'
 6 6 6 9
 N 0 0 0
 stand stand male 140
@@ -238,7 +238,7 @@ the help files, Eh?
 ~
 human~
 ABC GJ 0 500
-5 0 2d6+60 49d1+1 1d6+1 punch
+5 0 2d6+60 49d1+1 1d6+1 'punch'
 5 5 5 9
 IK 0 0 0
 stand stand male 150

@@ -17,7 +17,7 @@ some rest.
 ~
 human~
 ACGH P 900 0
-5 0 2d6+60 2d9+100 1d6+1 none
+5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
 EFNU 0 0 0
 stand stand male 3
@@ -32,7 +32,7 @@ LOTS of rest.
 ~
 human~
 AFG P 650 0
-8 0 2d7+96 4d9+100 1d7+2 none
+8 0 2d7+96 4d9+100 1d7+2 'none'
 3 3 3 9
 EFNU 0 0 0
 stand stand male 7
@@ -47,7 +47,7 @@ and black.
 ~
 snake~
 AG 0 -10 0
-4 0 2d7+46 2d9+100 1d5+1 none
+4 0 2d7+46 2d9+100 1d5+1 'none'
 6 6 6 9
 EFNR 0 0 0
 stand stand none 0
@@ -61,7 +61,7 @@ The little tail is mighty dangerous for such a small creature.
 ~
 human~
 AG 0 -50 0
-3 0 2d6+35 1d9+100 1d6+0 none
+3 0 2d6+35 1d9+100 1d6+0 'none'
 7 7 7 10
 EFNU 0 0 0
 stand stand none 0
@@ -75,7 +75,7 @@ He's big, mean, and purple. Watch out!
 ~
 human~
 ABF 0 -100 0
-18 0 3d9+283 9d9+100 2d7+4 none
+18 0 3d9+283 9d9+100 2d7+4 'none'
 -3 -3 -3 7
 EFNU 0 0 0
 stand stand none 127
@@ -89,7 +89,7 @@ Then adds to it, 'Prepare to die, have a nice day!'
 ~
 dragon~
 ABCF DH 450 0
-28 45 6d12+1053 15d9+100 4d40+28 none
+28 45 6d12+1053 15d9+100 4d40+28 'none'
 -19 -19 -19 -10
 EFNR 0 0 0
 stand stand female 275
@@ -105,7 +105,7 @@ about him.
 ~
 human~
 AGH 0 950 0
-14 0 2d10+190 7d9+100 1d12+3 none
+14 0 2d10+190 7d9+100 1d12+3 'none'
 -1 -1 -1 8
 EFNU 0 0 0
 sit sit male 50
@@ -120,7 +120,7 @@ woven of silk and gold thread. A nasty cutlass hangs at his side.
 ~
 human~
 AB 0 900 0
-12 0 2d10+150 6d9+100 1d10+3 none
+12 0 2d10+150 6d9+100 1d10+3 'none'
 0 0 0 8
 EFNU 0 0 0
 stand stand male 30
@@ -133,7 +133,7 @@ A proud nomad warrior stands here.
 ~
 human~
 AB 0 700 0
-10 0 2d7+121 5d9+100 2d4+2 none
+10 0 2d7+121 5d9+100 2d4+2 'none'
 1 1 1 8
 EFNU 0 0 0
 stand stand male 15
@@ -146,7 +146,7 @@ A young slave sits here staring at you with pleading eyes.
 ~
 human~
 ABH 0 1000 0
-3 0 2d6+35 1d9+100 1d6+0 none
+3 0 2d6+35 1d9+100 1d6+0 'none'
 7 7 7 10
 EFNU 0 0 0
 rest rest female 0
@@ -161,7 +161,7 @@ Obviously it no longer fears death.
 ~
 human~
 ABF DJu -1000 0
-30 0 6d12+853 15d9+100 4d6+8 none
+30 0 6d12+853 15d9+100 4d6+8 'none'
 -9 -9 -9 6
 EFNU 0 0 0
 stand stand none 3750
@@ -175,7 +175,7 @@ This half-spider, half-drow creature is a formidable opponent.
 ~
 human~
 AFG DJ -1000 0
-8 0 2d7+96 4d9+100 1d7+2 none
+8 0 2d7+96 4d9+100 1d7+2 'none'
 3 3 3 9
 EFNU 0 0 0
 stand stand female 10
@@ -189,7 +189,7 @@ The duergar could crush your head as easily as it does those rocks.
 ~
 human~
 AFG DJ -850 0
-5 0 2d6+60 2d9+100 1d6+1 none
+5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
 EFNU 0 0 0
 stand stand male 8
@@ -204,7 +204,7 @@ has the same effect).
 ~
 human~
 AGH DJ 850 0
-6 0 2d7+71 3d9+100 1d7+1 none
+6 0 2d7+71 3d9+100 1d7+1 'none'
 4 4 4 9
 EFNU 0 0 0
 stand stand male 2
@@ -218,7 +218,7 @@ The shaman shoots spores into the air.
 ~
 human~
 ABHQ DHJ 850 0
-8 0 2d7+96 8d9+100 1d7+2 none
+8 0 2d7+96 8d9+100 1d7+2 'none'
 3 3 3 8
 EIKU 0 0 0
 stand stand male 75
@@ -231,7 +231,7 @@ A small oasis invites you to dive in.
 ~
 human~
 ABCF 0 -200 0
-7 0 2d6+85 3d9+100 1d8+1 none
+7 0 2d6+85 3d9+100 1d8+1 'none'
 4 4 4 9
 EFNU 0 0 0
 stand stand none 22
@@ -245,7 +245,7 @@ Don't mess with this animal.
 ~
 human~
 ABF 0 -351 0
-5 0 2d6+60 2d9+100 1d6+1 none
+5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
 EFNU 0 0 0
 stand stand none 13

@@ -17,7 +17,7 @@ light for eyes.
 ~
 human~
 ABCF BJQT -1000 0
-43 0 25d10+2750 329d1+100 8d4+15 slash
+43 0 25d10+2750 329d1+100 8d4+15 'slash'
 -15 -15 -15 5
 BCDEH AB T K
 stand stand male 4200
@@ -33,7 +33,7 @@ twisted, warped creatures to serve Ciquala.
 ~
 human~
 ABCFH DFJ -1000 13401
-40 0 15d10+1850 219d1+100 4d8+13 beating
+40 0 15d10+1850 219d1+100 4d8+13 'beating'
 -13 -13 -13 4
 BCDEH AB T K
 stand stand male 1200
@@ -49,7 +49,7 @@ much like that of an insect.  Long talons reach out for you to shred you alive.
 ~
 human~
 AFGH DFJT -1000 0
-50 0 50d10+4500 399d1+100 5d8+19 beating
+50 0 50d10+4500 399d1+100 5d8+19 'beating'
 -20 -20 -20 2
 BCDEH AB T K
 stand stand male 5800
@@ -64,7 +64,7 @@ existence.
 ~
 human~
 AB JNOu -1000 0
-45 0 25d10+3000 349d1+100 8d4+16 pierce
+45 0 25d10+3000 349d1+100 8d4+16 'pierce'
 -15 -15 -15 5
 HO BEJ PS K
 stand stand either 5199
@@ -79,7 +79,7 @@ slowly eating the wood away.  It is a black pudding!
 ~
 human~
 ABF J -1000 0
-47 0 25d10+3500 369d1+100 6d6+17 slash
+47 0 25d10+3500 369d1+100 6d6+17 'slash'
 -17 -17 -17 3
 BEF ABI 0 K
 stand stand either 0
@@ -94,7 +94,7 @@ recognize.  He stands about 8' tall, brushing the ceiling.
 ~
 human~
 AB HJ 0 0
-59 0 50d10+7600 499d1+100 8d6+25 beating
+59 0 50d10+7600 499d1+100 8d6+25 'beating'
 -30 -30 -30 0
 BEF ABI 0 K
 stand stand male 0
@@ -109,7 +109,7 @@ to speak.  As it approaches you, a harsh chill makes you shiver.
 ~
 human~
 ABF BDJT -1000 0
-55 0 50d10+6000 449d1+100 6d8+21 beating
+55 0 50d10+6000 449d1+100 6d8+21 'beating'
 -25 -25 -25 1
 BEF ABI 0 K
 stand stand male 7500
@@ -124,7 +124,7 @@ it drops on you!
 ~
 human~
 ABFH J -1000 0
-37 0 10d10+1500 269d1+100 3d10+12 pierce
+37 0 10d10+1500 269d1+100 3d10+12 'pierce'
 -12 -12 -12 4
 BCDEH AB T K
 stand stand male 0
@@ -140,7 +140,7 @@ on him.
 ~
 human~
 ABF BDFJu -1000 0
-47 0 25d10+3500 369d1+100 6d6+17 none
+47 0 25d10+3500 369d1+100 6d6+17 'none'
 -17 -17 -17 2
 BEF AB 0 K
 stand stand male 5300
@@ -156,7 +156,7 @@ opponent.
 ~
 human~
 ABF JNO -1000 0
-42 0 25d10+2250 299d1+100 3d12+14 beating
+42 0 25d10+2250 299d1+100 3d12+14 'beating'
 -14 -14 -14 4
 BEF AB 0 K
 stand stand male 3400
@@ -172,7 +172,7 @@ opponent.
 ~
 human~
 AB JNO -250 0
-43 0 25d10+2500 329d1+100 3d12+15 beating
+43 0 25d10+2500 329d1+100 3d12+15 'beating'
 -15 -15 -15 4
 BEF AB 0 K
 stand stand male 0
@@ -188,7 +188,7 @@ opponent.
 ~
 human~
 ABF JNO 250 0
-46 0 25d10+3250 359d1+100 6d6+16 beating
+46 0 25d10+3250 359d1+100 6d6+16 'beating'
 -16 -16 -16 4
 BEF AB 0 K
 stand stand male 0
@@ -204,7 +204,7 @@ opponent.
 ~
 human~
 ABF JNO 1000 0
-49 0 50d10+4000 389d1+100 4d10+18 beating
+49 0 50d10+4000 389d1+100 4d10+18 'beating'
 -20 -20 -20 2
 BEF AB 0 K
 stand stand male 0
@@ -218,7 +218,7 @@ You'd better not look to close, he may charm you.
 ~
 human~
 ABF Ju -1000 0
-51 0 50d10+4800 409d1+100 5d8+20 pierce
+51 0 50d10+4800 409d1+100 5d8+20 'pierce'
 -22 -22 -22 2
 B AB 0 K
 stand stand male 7500
@@ -232,7 +232,7 @@ This skeletal dragon is an ancient red dragon preserved through arcane magic.
 ~
 dragon~
 ABF DFu -1000 0
-60 0 50d10+7600 499d1+100 6d8+24 beating
+60 0 50d10+7600 499d1+100 6d8+24 'beating'
 -30 -30 -30 -10
 B AB 0 K
 stand stand female 9500
@@ -248,7 +248,7 @@ see the menace in her eye as she looks at you, and prepares her first spell.
 ~
 human~
 ABF DFJTu -1000 0
-62 0 50d15+10000 519d1+100 6d9+29 pierce
+62 0 50d15+10000 519d1+100 6d9+29 'pierce'
 -35 -35 -35 -1
 BCDEH AB T K
 stand stand female 10000
@@ -263,7 +263,7 @@ light for eyes.
 ~
 human~
 ABCF BDJ -1000 0
-47 0 25d10+3500 369d1+100 6d6+17 slash
+47 0 25d10+3500 369d1+100 6d6+17 'slash'
 -17 -17 -17 1
 B AB 0 K
 stand stand male 6500
@@ -279,7 +279,7 @@ large fangs that seem to grow longer as he looks back at you.
 ~
 human~
 ABCF BDJT -1000 0
-57 0 50d10+6800 469d1+100 6d8+24 slash
+57 0 50d10+6800 469d1+100 6d8+24 'slash'
 -27 -27 -27 1
 B AB 0 K
 stand stand male 7800
@@ -295,7 +295,7 @@ twisted, warped creatures to serve Ciquala.
 ~
 human~
 ABCFH DFJ -1000 13401
-32 0 10d10+1000 219d1+100 6d4+9 beating
+32 0 10d10+1000 219d1+100 6d4+9 'beating'
 -10 -10 -10 5
 BCDEH AB T K
 stand stand female 1200

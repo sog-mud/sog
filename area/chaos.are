@@ -23,7 +23,7 @@ you live.
 ~
 human~
 ABQVae DFH 1000 0
-90 0 1d1+18999 1d1+999 10d40+30 divine
+90 0 1d1+18999 1d1+999 10d40+30 'divine'
 -45 -45 -45 -15
 FHIK ABC D 0
 stand stand male 1000
@@ -42,7 +42,7 @@ wall in front of the chaos realms.
 ~
 human~
 ABKWef DFHJVZlmt 0 0
-92 50 2d500+25000 1d200+1600 10d40+50 slash
+92 50 2d500+25000 1d200+1600 10d40+50 'slash'
 -70 -70 -70 -30
 CEFKNU AB 0 S
 stand stand male 5000

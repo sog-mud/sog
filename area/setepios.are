@@ -16,7 +16,7 @@ Blekurij is walking here ...
 ~
 human~
 ACG X 0 0
-10 1 1d1+32000 1d1+1 1d1+0 none
+10 1 1d1+32000 1d1+1 1d1+0 'none'
 0 0 0 0
 0 0 0 0
 stand stand none 2147483647
@@ -33,7 +33,7 @@ bargan~
 ~
 human~
 ABQRT DFHUVZl 0 0
-110 1000 1d1+30000 1d1+30000 1d1+1000 divine
+110 1000 1d1+30000 1d1+30000 1d1+1000 'divine'
 -100 -100 -100 -100
 0 ABCDKNU 0 0
 stand stand male 32000
@@ -47,7 +47,7 @@ Wow !!! It's a kind of mutant troll ...
 ~
 troll~
 ABGRT FVu -1000 0
-25 200 1d1+3000 1d1+6000 1d1+250 crush
+25 200 1d1+3000 1d1+6000 1d1+250 'crush'
 -30 -10 0 0
 H BJLPUX 0 0
 stand stand male 0
@@ -60,7 +60,7 @@ Rafta is here.
 ~
 troll~
 ABQRST HV 100 0
-40 120 1d1+5000 1d1+1000 10d7+120 smash
+40 120 1d1+5000 1d1+1000 10d7+120 'smash'
 -10 -10 -10 -10
 ACEFHIJKO BJKOPQU 0 0
 stand stand female 10000
@@ -73,7 +73,7 @@ Tikashu is here.
 ~
 human~
 A 0 0 0
-50 200 1d1+10000 1d1+5000 10d10+250 cleave
+50 200 1d1+10000 1d1+5000 10d10+250 'cleave'
 40 40 40 30
 0 0 0 0
 stand stand male 100000
@@ -86,7 +86,7 @@ You see a shadow off Elemental of Life
 ~
 fire elemental~
 ABGRT u -1000 0
-32 50 2000d1+1 100d10+400 10d3+4 divine
+32 50 2000d1+1 100d10+400 10d3+4 'divine'
 0 0 0 0
 0 BU 0 0
 stand stand none 0
@@ -100,7 +100,7 @@ Smells like a beggar.
 ~
 zombie~
 A Vu -1000 0
-65 300 1d1+19999 1d1+999 10d50+250 flame
+65 300 1d1+19999 1d1+999 10d50+250 'flame'
 -50 -50 -50 -50
 AEHJ 0 0 0
 stand stand male 10000
@@ -115,7 +115,7 @@ It's him !!!
 ~
 troll~
 ABCGQRST DFHV 0 0
-70 70 1d1+18999 1d1+999 10d5+100 cleave
+70 70 1d1+18999 1d1+999 10d5+100 'cleave'
 -100 -70 -70 -40
 AJ BU 0 0
 stand stand male 10000
@@ -128,7 +128,7 @@ demon of second circle red dragon~
 ~
 red dragon~
 ABCGQRT DFHUVcl 0 0
-100 800 1d1+30000 1d1+30000 1d1+500 flame
+100 800 1d1+30000 1d1+30000 1d1+500 'flame'
 -100 -100 -100 -100
 AEFHKO BU 0 0
 stand stand none 999999
@@ -142,7 +142,7 @@ You think she'll die if she smile ...
 ~
 human~
 ABCGQRST DFVl -1000 0
-100 320 1d1+29999 1d1+2999 20d10+200 scratch
+100 320 1d1+29999 1d1+2999 20d10+200 'scratch'
 -200 -200 -200 -200
 ACFHJKO BU C 0
 stand stand female 10000
@@ -157,7 +157,7 @@ sheeala~
 ~
 human~
 ABCGQRST DFTVu -1000 0
-1 220 1d1+19999 1d1+10000 10d5+100 flbite
+1 220 1d1+19999 1d1+10000 10d5+100 'flbite'
 -30 -40 -30 -50
 0 BCDU 0 0
 stand stand female 100
@@ -173,7 +173,7 @@ Natasha is dancing here
 ~
 human~
 ACG 0 0 0
-1 0 1d1+1 0d0+0 0d0+0 none
+1 0 1d1+1 0d0+0 0d0+0 'none'
 0 0 0 0
 0 0 0 0
 stand stand female 1
@@ -190,7 +190,7 @@ ded moroz~
 ~
 human~
 AGQR 0 1000 0
-90 400 1d1+2000 1d1+10000 1d500+10 divine
+90 400 1d1+2000 1d1+10000 1d500+10 'divine'
 99 99 99 99
 0 0 0 0
 stand stand male 0
@@ -205,7 +205,7 @@ barman~
 ~
 human~
 ABCGV 0 0 0
-100 0 0d0+0 0d0+0 0d0+0 none
+100 0 0d0+0 0d0+0 0d0+0 'none'
 -10 -10 -10 -10
 0 0 0 0
 stand stand male 1000000
@@ -227,7 +227,7 @@ his hand seems to be his own finger !
 ~
 troll~
 ABFGT DHZ 0 0
-110 0 100d10+20000 1d1+5000 15d15+120 smash
+110 0 100d10+20000 1d1+5000 15d15+120 'smash'
 -70 -50 -50 -30
 AEFH APQ 0 0
 stand stand male 70000
@@ -242,7 +242,7 @@ elephant слон~
 ~
 wolf~
 A S 0 0
-9 10 1d1+99 1d1+49 0d0+0 none
+9 10 1d1+99 1d1+49 0d0+0 'none'
 4 4 4 4
 0 0 0 0
 stand stand male 0
@@ -257,7 +257,7 @@ This tall man is guarding the entrance to the temple of dreams...
 ~
 gnome~
 ABGR DFl 1000 0
-107 0 50d50+15000 100d100+8000 15d12+100 magic
+107 0 50d50+15000 100d100+8000 15d12+100 'magic'
 -40 0 -50 -90
 AE ABX B 0
 stand stand male 60000

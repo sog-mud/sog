@@ -20,7 +20,7 @@ It gracefully dances around your head.
 ~
 human~
 AGR DE 500 0
-5 0 2d7+46 5d9+100 1d5+0 none
+5 0 2d7+46 5d9+100 1d5+0 'none'
 6 6 6 8
 FU 0 0 0
 stand stand male 1
@@ -38,7 +38,7 @@ for the fact it is hungry and is attacking you!
 ~
 human~
 AFG 0 300 0
-8 0 2d7+96 4d9+100 1d7+2 none
+8 0 2d7+96 4d9+100 1d7+2 'none'
 3 3 3 9
 EFNU 0 0 0
 stand stand male 25

@@ -1,5 +1,6 @@
 #AREADATA
 Name Old Midgaard~
+Builders hlodvig~
 VNUMs 5300 5499
 Credits Kahn~
 Security 9
@@ -12,16 +13,17 @@ baby beholder~
 the baby beholder~
 You meet a baby beholder's cute gaze!
 ~
-It has a large central eye that blinks like a guppy and eyestalks atop the 
+@eng It has a large central eye that blinks like a guppy and eyestalks atop the 
 round body which can charm you with its cuteness.  Baby beholders are known for
 their playful personality.  Hmmm....  It looks like the baby is teething!
+@rus It's russian?
 ~
 human~
 ABCHR D 500 0
-5 0 2d7+46 5d9+100 1d5+0 none
+5 0 2d7+46 5d9+100 1d5+0 'none'
 6 6 6 8
 FU 0 0 0
-stand stand none 11
+stand stand none 5300
 0 0 medium unknown
 #5301
 lamia pet~
@@ -33,7 +35,7 @@ body of a four-legged beast.
 ~
 human~
 ACH 0 500 0
-4 0 2d7+46 2d9+100 1d5+1 none
+4 0 2d7+46 2d9+100 1d5+1 'none'
 6 6 6 9
 EFNU 0 0 0
 stand stand female 2
@@ -48,7 +50,7 @@ choice but to reciprocate.
 ~
 human~
 AGH 0 500 0
-5 0 2d6+60 2d9+100 1d6+1 none
+5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
 EFNU 0 0 0
 stand stand male 5
@@ -63,7 +65,7 @@ he is just giggling with a kid running about.
 ~
 human~
 ACGT H 1000 0
-17 0 3d9+283 8d9+100 3d4+4 none
+17 0 3d9+283 8d9+100 3d4+4 'none'
 -3 -3 -3 7
 CDEIKLU 0 0 0
 stand stand male 75
@@ -79,7 +81,7 @@ attention, if only for a moment.
 ~
 human~
 AGH 0 500 0
-5 0 2d6+60 2d9+100 1d6+1 none
+5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
 EFNU 0 0 0
 stand stand female 5
@@ -96,7 +98,7 @@ ARMED stranger.  Better not do any funny stuff in his presence.
 ~
 human~
 AT H 1000 0
-35 0 10d10+1400 17d9+100 4d7+11 none
+35 0 10d10+1400 17d9+100 4d7+11 'none'
 -11 -11 -11 5
 CDEIKLU 0 0 0
 stand stand male 500
@@ -113,7 +115,7 @@ and he clenches it at you.  Other than that, he is dressed all in black.
 ~
 human~
 ABHQ 0 -500 0
-10 0 2d7+121 10d9+100 1d7+2 none
+10 0 2d7+121 10d9+100 1d7+2 'none'
 1 1 1 7
 EIKU 0 0 0
 stand stand male 5
@@ -128,7 +130,7 @@ the world as 'The City of Peace'.  He is very happy to be the high priest here.
 ~
 human~
 ABQ H 1000 0
-20 0 3d9+333 20d9+100 2d7+5 none
+20 0 3d9+333 20d9+100 2d7+5 'none'
 -4 -4 -4 6
 EIKU 0 0 0
 stand stand male 5
@@ -143,7 +145,7 @@ stone creature.  It stands here guarding the city.
 ~
 golem~
 AB N 1000 0
-30 0 6d12+853 15d9+100 4d6+8 none
+30 0 6d12+853 15d9+100 4d6+8 'none'
 -9 -9 -9 6
 EFNU 0 0 0
 stand stand none 212
@@ -158,7 +160,7 @@ He looks very proud of his work.
 ~
 human~
 AB 0 800 0
-20 0 3d9+333 10d9+100 2d8+5 none
+20 0 3d9+333 10d9+100 2d8+5 'none'
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand female 50
@@ -172,7 +174,7 @@ He looks at you, and says, 'What's your poison, stranger?'
 ~
 human~
 ABe 0 600 0
-30 0 6d12+1253 15d9+100 4d6+8 none
+30 0 6d12+1253 15d9+100 4d6+8 'none'
 -19 -19 -19 -6
 EFNU 0 0 0
 stand stand male 50
@@ -187,7 +189,7 @@ he asks, 'How much you want?'
 ~
 human~
 ABe 0 600 0
-30 0 6d12+1253 15d9+100 4d6+8 none
+30 0 6d12+1253 15d9+100 4d6+8 'none'
 -19 -19 -19 -6
 EFNU 0 0 0
 stand stand male 50
@@ -201,7 +203,7 @@ She smiles at you meekly.
 ~
 human~
 ABe 0 650 0
-30 0 6d12+1253 15d9+100 4d6+8 none
+30 0 6d12+1253 15d9+100 4d6+8 'none'
 -19 -19 -19 -6
 EFNU 0 0 0
 stand stand female 50
@@ -216,7 +218,7 @@ metal into items of defense and destruction.
 ~
 human~
 ABe 0 550 0
-30 0 6d12+1253 15d9+100 4d6+8 none
+30 0 6d12+1253 15d9+100 4d6+8 'none'
 -19 -19 -19 -6
 EFNU 0 0 0
 stand stand female 50
@@ -230,7 +232,7 @@ Ben tries to pawn his various wares to you.
 ~
 human~
 ABe 0 600 0
-30 0 6d12+1253 15d9+100 4d6+8 none
+30 0 6d12+1253 15d9+100 4d6+8 'none'
 -19 -19 -19 -6
 EFNU 0 0 0
 stand stand male 50
@@ -244,7 +246,7 @@ The librarian looks busy and whispers, 'Shhh!'
 ~
 human~
 ABH 0 500 0
-8 0 2d7+96 4d9+100 1d7+2 none
+8 0 2d7+96 4d9+100 1d7+2 'none'
 3 3 3 9
 EFNU 0 0 0
 stand stand female 0
@@ -258,7 +260,7 @@ This young scholar is studying to be a priest.
 ~
 human~
 ABH 0 500 0
-6 0 2d7+71 3d9+100 1d7+1 none
+6 0 2d7+71 3d9+100 1d7+1 'none'
 4 4 4 9
 EFNU 0 0 0
 stand stand male 0
@@ -272,7 +274,7 @@ This old wizard almost looks like he is about to fall over and sleep.
 ~
 human~
 ABRe D 550 0
-30 0 6d12+1278 30d9+100 5d4+9 none
+30 0 6d12+1278 30d9+100 5d4+9 'none'
 -19 -19 -19 -1
 FU 0 0 0
 stand stand male 50
@@ -288,7 +290,7 @@ attention, and you jump to her offer for a massage.
 ~
 human~
 ABH 0 700 0
-4 0 2d7+46 2d9+100 1d5+1 none
+4 0 2d7+46 2d9+100 1d5+1 'none'
 6 6 6 9
 EFNU 0 0 0
 stand stand female 2
@@ -303,7 +305,7 @@ choice but to reciprocate and join him and the others in the soothing pool.
 ~
 human~
 ABH 0 650 0
-5 0 2d6+60 2d9+100 1d6+1 none
+5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
 EFNU 0 0 0
 stand stand male 0
@@ -319,7 +321,7 @@ track of each city patrol.
 ~
 human~
 ABCGT H 1000 0
-17 0 3d9+283 8d9+100 3d4+4 none
+17 0 3d9+283 8d9+100 3d4+4 'none'
 -3 -3 -3 7
 CDEIKLU 0 0 0
 stand stand male 75
@@ -334,7 +336,7 @@ he is watching the children play with amusement.
 ~
 human~
 ABCGT H 1000 0
-17 0 3d9+283 8d9+100 3d4+4 none
+17 0 3d9+283 8d9+100 3d4+4 'none'
 -3 -3 -3 7
 CDEIKLU 0 0 0
 stand stand male 75
@@ -349,7 +351,7 @@ she sniffs at you, but she goes back to chewing some grass.
 ~
 human~
 AGH 0 0 0
-5 0 2d6+60 2d9+100 1d6+1 none
+5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
 EFNU 0 0 0
 stand stand female 0
@@ -364,7 +366,7 @@ albeit ineffectively.
 ~
 human~
 AGH 0 0 0
-6 0 2d7+71 3d9+100 1d7+1 none
+6 0 2d7+71 3d9+100 1d7+1 'none'
 4 4 4 9
 EFNU 0 0 0
 stand stand male 0
@@ -378,7 +380,7 @@ He eyes you with contained anger.  You'd better leave him alone!
 ~
 human~
 AFGH 0 0 0
-8 0 2d7+96 4d9+100 1d7+2 none
+8 0 2d7+96 4d9+100 1d7+2 'none'
 3 3 3 9
 EFNU 0 0 0
 stand stand male 0
@@ -392,7 +394,7 @@ This bunny looks so adorable, you wished you had one just like this!
 ~
 human~
 AGH 0 0 0
-2 0 2d7+21 1d9+100 1d5+0 none
+2 0 2d7+21 1d9+100 1d5+0 'none'
 8 8 8 10
 EFNU 0 0 0
 stand stand none 0
@@ -406,7 +408,7 @@ Upon careful inspection, you are sure it is NOT a cobra!
 ~
 snake~
 AFGH P 0 0
-4 0 2d7+46 2d9+100 1d5+1 none
+4 0 2d7+46 2d9+100 1d5+1 'none'
 6 6 6 9
 EFNR 0 0 0
 stand stand none 0
@@ -420,7 +422,7 @@ He doesn't like you bothering him, but is too polite to ask you to leave.
 ~
 human~
 AGHQ DN 1000 0
-10 0 2d7+121 10d9+100 1d7+2 none
+10 0 2d7+121 10d9+100 1d7+2 'none'
 1 1 1 7
 EIKU 0 0 0
 stand stand male 2
@@ -434,7 +436,7 @@ She wonders why you are staring at her, and how you got in here.
 ~
 human~
 AGHQ DN 1000 0
-10 0 2d7+121 10d9+100 1d7+2 none
+10 0 2d7+121 10d9+100 1d7+2 'none'
 1 1 1 7
 EIKU 0 0 0
 stand stand female 2
@@ -448,7 +450,7 @@ This musical fellow plays a happy song with his fellow comrades.
 ~
 human~
 ABC 0 450 0
-8 0 2d7+96 4d9+100 1d7+2 none
+8 0 2d7+96 4d9+100 1d7+2 'none'
 3 3 3 9
 EFNU 0 0 0
 stand stand male 5
@@ -462,7 +464,7 @@ This musical fellow wanders the world singing of the glory of Thalos.
 ~
 human~
 AC 0 550 0
-9 0 2d6+110 4d9+100 1d8+2 none
+9 0 2d6+110 4d9+100 1d8+2 'none'
 2 2 2 8
 EFNU 0 0 0
 stand stand male 7
@@ -476,7 +478,7 @@ A big, strong, helpful, trustworthy guard.
 ~
 human~
 ACGT 0 1000 0
-15 0 3d9+233 7d9+100 2d6+3 none
+15 0 3d9+233 7d9+100 2d6+3 'none'
 -2 -2 -2 7
 CDEIKLU 0 0 0
 stand stand male 25
@@ -489,7 +491,7 @@ A janitor is walking around, cleaning up.
 ~
 human~
 A 0 900 0
-1 0 2d6+10 0d9+100 1d4+0 none
+1 0 2d6+10 0d9+100 1d4+0 'none'
 9 9 9 10
 EFNU 0 0 0
 stand stand male 1
@@ -504,7 +506,7 @@ around his teeth.
 ~
 fido~
 AFH 0 -200 0
-0 0 2d4+2 0d1+99 1d2+0 none
+0 0 2d4+2 0d1+99 1d2+0 'none'
 10 10 10 10
 EN 0 0 0
 stand stand male 0
@@ -518,7 +520,7 @@ A big, strong, helpful, trustworthy guard.
 ~
 human~
 ABGT 0 1000 0
-15 0 3d9+233 7d9+100 2d6+3 none
+15 0 3d9+233 7d9+100 2d6+3 'none'
 -2 -2 -2 7
 CDEIKLU 0 0 0
 stand stand male 25
@@ -534,7 +536,7 @@ rings and bracelets.
 ~
 human~
 ABVe DH 900 0
-43 5 25d10+3800 1d1+1999 4d8+32 magic
+43 5 25d10+3800 1d1+1999 4d8+32 'magic'
 -35 -35 -35 -15
 AF ABC D 0
 stand stand male 15000
@@ -549,7 +551,7 @@ body.
 ~
 human~
 ABVe H 900 0
-60 10 20d10+18800 1d1+999 3d8+25 beating
+60 10 20d10+18800 1d1+999 3d8+25 'beating'
 -55 -55 -55 -35
 CDF AB CD 0
 stand stand male 500
@@ -563,7 +565,7 @@ A tall grocer, who moves two 200 pounds bag of flour around on his shoulders.
 ~
 human~
 ABVe H 900 0
-55 10 25d10+18000 1d1+999 6d5+20 beating
+55 10 25d10+18000 1d1+999 6d5+20 'beating'
 -55 -55 -55 -15
 EFJ AB CD 0
 stand stand male 1300
@@ -577,7 +579,7 @@ A young weaponsmith, who still has lots to learn.
 ~
 human~
 ABTVei H 900 0
-86 15 25d10+25000 1d1+999 6d8+20 punch
+86 15 25d10+25000 1d1+999 6d8+20 'punch'
 -50 -50 -50 -25
 CEIK AB CD 0
 stand stand male 25000
@@ -593,7 +595,7 @@ lifetime than you have ever seen.
 ~
 human~
 ABVei 0 900 0
-65 10 25d10+23300 1d1+999 7d5+20 punch
+65 10 25d10+23300 1d1+999 7d5+20 'punch'
 -55 -55 -55 -15
 CEFJKN AB CD 0
 stand stand male 25000
@@ -608,7 +610,7 @@ He is fat and has a content although watchful look on his face.
 ~
 human~
 ABVe HV 900 0
-90 10 25d10+28500 1d1+999 5d15+25 slap
+90 10 25d10+28500 1d1+999 5d15+25 'slap'
 -55 -55 -55 -50
 AF AB CD 0
 stand stand male 58000
@@ -624,7 +626,7 @@ to commit a crime in his presence.
 ~
 giant~
 ABTVXe CDFJVZ 1000 3000
-85 30 1d1+27999 1d1+1499 5d14+40 crush
+85 30 1d1+27999 1d1+1499 5d14+40 'crush'
 -50 -50 -50 -50
 ACDEFHIKLNOT ABP CD 0
 stand stand male 0
@@ -639,7 +641,7 @@ Type 'heal' to see a listing of spells.
 ~
 human~
 ABQVaef DFH 1000 0
-120 10 1d1+26999 1d1+999 2d4+30 divine
+120 10 1d1+26999 1d1+999 2d4+30 'divine'
 -45 -45 -45 -15
 FHIK ABC D 0
 stand stand male 5000
@@ -655,7 +657,7 @@ and you notice that she is surrounded by a blue shimmering aura.
 ~
 elf~
 ABKRVe DEFZ -1000 0
-96 0 1d1+29099 1d1+999 3d8+24 magic
+96 0 1d1+29099 1d1+999 3d8+24 'magic'
 -65 -65 -65 -35
 FG ABD C 0
 stand stand female 0
@@ -670,7 +672,7 @@ a peaceful, loving look. You notice that he is surrounded by a white aura.
 ~
 human~
 ABKQVe CDEFZu -1000 0
-96 0 1d1+29099 1d1+999 3d8+24 divine
+96 0 1d1+29099 1d1+999 3d8+24 'divine'
 -65 -65 -65 -35
 EFHIK ABD C 0
 stand stand male 0
@@ -685,7 +687,7 @@ help 'religion' to see a listing of religions available.
 ~
 human~
 ABQVe DFH 1000 0
-80 10 1d1+20999 1d1+999 2d4+30 divine
+80 10 1d1+20999 1d1+999 2d4+30 'divine'
 -65 -65 -65 -15
 FHIK ABC D 0
 stand stand male 5000
@@ -718,7 +720,7 @@ This huge dragon wants to sell some junk to you.
 ~
 dragon~
 AZce 0 7 0
-100 1 100d100+10000 100d10+20 100d100+100 slap
+100 1 100d100+10000 100d10+20 100d100+100 'slap'
 0 0 0 0
 0 0 0 0
 stand stand male 0
@@ -736,7 +738,7 @@ this god-cursed city? Maybe YOU?
 ~
 human~
 ACGHLOT GOZclu -5000 0
-50 200 1d10+5000 1d1+2000 4d7+150 pound
+50 200 1d10+5000 1d1+2000 4d7+150 'pound'
 -30 -30 -30 -5
 ACEFIQ ABM DE JNY
 stand stand male 0
@@ -1180,12 +1182,17 @@ G none
 
 #ROOMS
 #5300
-The Grand Gate of Thalos~
-You stand in the archway of a gigantic stone archway. The two
+@eng The Grand Gate of Thalos@rus Главные ворота Талоса~
+@eng You stand in the archway of a gigantic stone archway. The two
 steel gates look indestructible, yet they are elaborate in engravings.  You can
 hear laughter and good cheer from the other side of these gates.  Obviously, 
 the city is teeming with activity!  There is a small gold plaque on mounted
 on the archway.
+@rus Ты стоишь под сводом гигантской каменной арки. Покрытые сложной искусной
+гравировкой стальные ворота выглядят неприступными. С другой стороны ворот до
+тебя доносится смех и приветственные возгласы. Явно этот город просто бурлит
+от переполняющей его энергии! На стене прохода укреплена небольшая золотая
+пластинка.
 ~
 0 0 city
 E
@@ -1207,11 +1214,16 @@ beasts walking hand in hand with people.
 Z 0 5301
 S
 #5301
-Main Street~
-This is a magnificent street, immaculate all over. The streets are filled
+@eng Main Street@rus Главная улица~
+@eng This is a magnificent street, immaculate all over. The streets are filled
 with people rushing from building to building and a balmy zephyr blows by
 you.  The whole city is teeming with activity.  A cobbled alley leads north
 and south.  Children run pass you as they play tag.
+@rus Ты идешь по великолепной безукоризненно чистой улице. Ты замечаешь, что улицы
+этого прекрасного города заполнены людьми, а обвевающий тебя ветерок благоухает
+словно восточные пряности. Весь город бурлит от переполняющей его энергии и
+активности. На север и на юг ведет вымощенная булыжником аллея. Внезапно мимо
+тебя промчались играющие в пятнашки дети.
 ~
 0 0 city
 D0
@@ -1236,13 +1248,20 @@ Main Street lies this way.
 Z 0 5302
 S
 #5302
-Main Street~
-This is a magnificent street, immaculate all over.  The streets are filled
+@eng Main Street@rus Главная улица~
+@eng This is a magnificent street, immaculate all over.  The streets are filled
 with people rushing from building to building and a balmy zephyr blows by you.
 The whole city is teeming with activity.  On one side is a beautiful house 
 while on the other is the entrance to a large mansion.  Sounds of people hard
 at work echo within the mansion.  Near the center of town you see a large 
 domed building, magnificent and immense.
+@rus Ты идешь по великолепной безукоризненно чистой улице. Ты замечаешь, что улицы
+этого прекрасного города заполнены людьми, а обвевающий тебя ветерок благоухает
+словно восточные пряности. Весь город бурлит от переполняющей его энергии и
+активности. По одну сторону улица стоит красивый дом, но по другую сторону ты
+видишь вход в еще более великолепный огромный особняк. Внутри него громким
+эхом раздаются голоса каких-то людей. В центре города ты видишь большое
+куполообразное великолепное и изумительное здание.
 ~
 0 0 city
 D0
@@ -1267,7 +1286,7 @@ A lush, green garden path lies this way.
 Z 0 5303
 S
 #5303
-A Garden Path~
+@eng A Garden Path@rus Садовая тропинка~
 A circular path surrounds a magnificent domed temple in the center
 of the city. Flowers grow on the sides of the path and the lush trees are 
 laden with fruit.  Vines and ivy snake up the sides of the temple, making this
@@ -2862,7 +2881,7 @@ You see stars.
 Z 0 5377
 S
 #5379
-The Temple Of Midgaard~
+@eng The Temple Of Midgaard@rus Храм Мидгаарда~
 You are in the southern end of the temple hall in the Temple of Midgaard.
 The temple has been constructed from giant marble blocks, eternal in
 appearance, and most of the walls are covered by ancient wall paintings
@@ -2899,7 +2918,7 @@ D5
 Z 0 3757
 S
 #5380
-The Temple Square~
+@eng The Temple Square@rus Храмовая площадь~
 You are standing on the temple square.  Huge marble steps lead up to the
 temple gate.  The ground is just dirt but there are plans to make the road
 cobble stone.  Just south of here you see a blooming market square, the
@@ -2918,7 +2937,7 @@ You see the Market Square.
 Z -1 5381
 S
 #5381
-Market Square~
+@eng Market Square@rus Рыночная площадь~
 You are standing on the market square, the Square of Midgaard.  It seems
 that a large, peculiar looking statue is being built here in the middle of
 the square.  Roads lead to the north and east, north to the temple square,
@@ -2952,7 +2971,7 @@ You see the main street.
 Z -1 5398
 S
 #5382
-The Main Street~
+@eng The Main Street@rus Главная улица~
 You are on Main Street crossing through this booming town.  The main
 street continues east.  To the west you see and hear a small market place.
 ~
@@ -2979,7 +2998,7 @@ You see the market square.
 Z -1 5381
 S
 #5383
-The Main Street~
+@eng The Main Street@rus Главная улица~
 The main street, to the east you leave town and to the west the street
 leads to the market square.
 ~
@@ -3006,7 +3025,7 @@ You see the main street leading to the market square.
 Z -1 5382
 S
 #5384
-Inside the East Gate of Midgaard~
+@eng Inside the East Gate of Midgaard@rus Восточные ворота Мидгаарда~
 You are by two small newly built towers that have been built into the
 city wall and connected with a footbridge across the heavy wooden gate.
 Main Street leads west from here.
@@ -3045,7 +3064,7 @@ You see Main Street.
 Z -1 5383
 S
 #5385
-Outside the East Gate of Midgaard~
+@eng Outside the East Gate of Midgaard@rus Перед восточными воротами Мидгаарда~
 You are by two small towers that have been built into the city wall and
 connected with a footbridge across the heavy wooden gate.  To the east the
 plains stretch out in the distance.
@@ -3084,7 +3103,7 @@ gate~
 Z 3133 5384
 S
 #5386
-By the Temple Altar~
+@eng By the Temple Altar@rus У храмового алтаря~
 You are by the temple altar in the northern end of the Temple of Midgaard.
 A huge altar made from white polished marble is standing in front of you and
 behind it is a ten foot tall sitting statue of Odin, the King of the Gods.
@@ -3113,7 +3132,7 @@ You see the southern end of the temple.
 Z -1 5379
 S
 #5387
-The Bakery~
+@eng The Bakery@rus Пекарня~
 You are standing inside the small bakery.  A sweet scent of Danish and
 fine bread fills the room.  The bread and Danish are arranged in fine order
 on the shelves, and seem to be of the finest quality.
@@ -3145,7 +3164,7 @@ You see the main street.
 Z -1 5382
 S
 #5388
-The General Store~
+@eng The General Store@rus Бакалейная лавка~
 You are inside the general store.  All sorts of items are stacked on shelves
 behind the counter, safely out of your reach.
 A small note hangs on the wall.
@@ -3168,8 +3187,9 @@ You see the High Road .
 Z -1 5382
 S
 #5389
-The Weapon Shop~
-You are inside the weapon shop.  There is a small note on the counter.
+@eng The Weapon Shop@rus Оружейная лавка~
+@eng You are inside the weapon shop.  There is a small note on the counter.
+@rus Ты стоишь внутри небольшой оружейной лавки. На прилавке белеет небольшая записка (note).
 ~
 0 D inside
 E
@@ -3214,11 +3234,14 @@ You see the main street.
 Z -1 5383
 S
 #5391
-The Magic Shop~
-You are in a small room that smells of rare chemicals and spices.
+@eng The Magic Shop@rus Магазин магических вещей~
+@eng You are in a small room that smells of rare chemicals and spices.
 Dividing the room in two is a large desk, and on the wall behind it are
 numerous shelves crammed with jars, bottles, books and scrolls of all
 sorts and sizes.
+@rus Ты находишься в маленькой комнатке, насквозь пропахшей неизвестными химикалиями и специями.
+Длинный прилавок делит комнату пополам, и на стене позади него ты видишь пронумерованные полки,
+заставленные склянками, бутылками, книжками и свитками всех цветов, сортов и размеров. 
 ~
 0 D inside
 E
@@ -3273,8 +3296,9 @@ You see Main Street.
 Z -1 5398
 S
 #5393
-Necromancer's Bar~
-The bar of vampires smell very bad. But the mystic air relaxes you.
+@eng Necromancer's Bar@rus Бар некромантов~
+@eng The necromancer's bar smells very bad. But the mystic air relaxes you.
+@rus В баре чем-то ужасно воняет. Однако мистическая аура этого места расслабляет тебя.
 ~
 0 CDKY inside
 D1
@@ -3289,7 +3313,7 @@ Main street.
 Z -1 5399
 S
 #5394
-Necromancer's laboratory~
+@eng Necromancer's laboratory@rus Некромантская лаборатория~
 This is the Magical Experiments Laboratory of Necromancy.  Dark
 smoke-stained stones arch over numerous huge oaken tables, most of these
 cluttered with strange-looking flasks.  The floor is covered with
@@ -3312,8 +3336,9 @@ impossible to climb back up.
 Z -1 7017
 S
 #5395
-Vampires Bar~
-The bar of vampires smell very bad. But the mystic air relaxes you.
+@eng Vampires Bar@rus Бар вампиров~
+@eng The bar of vampires smell very bad. But the mystic air relaxes you.
+@rus В баре чем-то ужасно воняет. Однако мистическая аура этого места расслабляет тебя.
 ~
 0 ACDKY inside
 D0
@@ -3328,7 +3353,7 @@ You see the laboratory of vampires.
 Z -1 5396
 S
 #5396
-Vampire's laboratory~
+@eng Vampire's laboratory@rus Лаборатория вампиров~
 This is the Magical Experiments Laboratory of Vampire.  Dark smoke-stained 
 stones arch over numerous huge oaken tables, most of these cluttered with 
 strange-looking flasks. The floor is covered with half-erased pentagrams
@@ -3345,7 +3370,7 @@ To the east you see the bar..
 Z -1 5395
 S
 #5397
-Room of Templeman~
+@eng Room of Templeman@rus Комната жреца~
 You see thousands of books standing near the templeman. He looks 
 at you, wandering why you are here. But he now that every believer must 
 know him as well as its religion.The room is full of mist. You start 
@@ -3361,9 +3386,11 @@ Z -1 5386
 M 150 H 100
 S
 #5398
-The Main Street~
-You are on Main Street crossing through this booming town. The market
+@eng The Main Street@rus Главная улица~
+@eng You are on Main Street crossing through this booming town. The market
 square is at east. To the west no roads.
+@rus Ты стоишь на главной улице городка, пересекающей его из конца в конец. На востоке находится 
+рыночная площадь, а вот на западе улица заканчивается тупиком.
 ~
 0 D inside
 D0
@@ -3384,9 +3411,11 @@ D3
 Z -1 5399
 S
 #5399
-The Main Street~
-You are on Main Street crossing through this booming town. The market
+@eng The Main Street@rus Главная улица~
+@eng You are on Main Street crossing through this booming town. The market
 square is at east. To the west no roads.
+@rus Ты стоишь на главной улице городка, пересекающей его из конца в конец. На востоке находится 
+рыночная площадь, а вот на западе улица заканчивается тупиком.
 ~
 0 D inside
 D0
@@ -3403,7 +3432,7 @@ D2
 Z -1 5395
 S
 #5400
-The Bank~
+@eng The Bank@rus Банк~
 You are in a large hall, nicely lit by big chandeliers hanging from the
 ceilings. A long counter lies through the room.
 ~

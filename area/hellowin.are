@@ -21,7 +21,7 @@ but same you can see than he is corking something in leaves.
 ~
 bear~
 AGVWZe DFGHZ 1000 0
-50 0 1d1+1 0d0+0 0d0+0 bite
+50 0 1d1+1 0d0+0 0d0+0 'bite'
 0 0 0 0
 0 ABCDEFGHIKLMNOPQRTXYZ 0 0
 stand stand male 10000
@@ -39,7 +39,7 @@ It's armor is covered by blood and squashed brains.
 ~
 human~
 AUVZ CDEFGHJNOQRTZbcd 0 0
-96 1 1d1+29999 1d1+29999 1d1+0 blast
+96 1 1d1+29999 1d1+29999 1d1+0 'blast'
 -900 -900 -900 -900
 0 ABDEFGHIJLMNPQRTXY CJK S
 stand stand either 0
@@ -52,7 +52,7 @@ Test is here
 ~
 human~
 AG AV 0 0
-15 0 1d1+99 0d0+0 0d0+0 none
+15 0 1d1+99 0d0+0 0d0+0 'none'
 0 0 0 0
 FK CDEFGH 0 0
 stand stand none 0
@@ -241,9 +241,30 @@ G male
 ~
 0 C forest
 S
+#34481
+@eng Forest Kindom Inn@rus Постоялый двор 'Лесное Царство'~
+@rus Ух ты. Как интересно. Только что ты бродил по площади в центре города,
+а тут попал в какой-то лес (по сравнению с тем, что было рашьше, коне-
+чно) Неудивительно, что это место пользуется популярностью. Зайдя сюда
+словно переносишься куда-то за город. Даже птички поют, услаждая твой
+слух. Кто бы подумал, что бывают такие постоялые дворы. А вот уже и хо-
+зяин спешит тебе навстречу, чувствуется что они здесь умеют заботиться
+о клиентах.
+~
+0 0 inside
+D2
+~
+~
+ABZ 0 33462
+D3
+~
+~
+Z 0 33482
+S
 #0
 
 #RESETS
+D 0 34481 2 1	* Forest Kindom Inn: door to the south: closed
 M 0 34400 1 34400 1	* {ysympathetic bear{w ({GClearing in the woods{w)
 G 0 34406 0		*	{rHot and tasty bite of roasted meat{w
 G 0 34407 0		*	{WHeeled glass filled with {BKosoruloFF{W vodka{w

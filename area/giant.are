@@ -1,5 +1,6 @@
 #AREADATA
 Name Castle of Giants~
+Builders hlodvig~
 VNUMs 13000 13099
 Credits Outlaw~
 Security 9
@@ -17,7 +18,7 @@ castle. I wouldn't mess with him.
 ~
 giant~
 ABGT 0 0 0
-35 -2 1d1+999 1d1+100 5d8+12 smash
+35 -2 1d1+999 1d1+100 5d8+12 'smash'
 -8 -15 -10 -3
 CDEKOT 0 0 0
 stand stand male 25
@@ -33,7 +34,7 @@ spying on the guards and making sure they are loyal to the Lord.
 ~
 giant~
 ACHS DFHPU 0 0
-45 -2 1d1+3299 1d1+100 5d6+11 pound
+45 -2 1d1+3299 1d1+100 5d6+11 'pound'
 -10 -15 -7 -5
 CDEFHJKN 0 0 0
 stand stand male 0
@@ -50,7 +51,7 @@ your blood.
 ~
 giant~
 ABFGT DFGOu -1000 0
-60 -1 1d1+5000 1d1+100 10d10+25 crush
+60 -1 1d1+5000 1d1+100 10d10+25 'crush'
 -20 -20 -20 -5
 AFIJKNRVX 0 0 0
 stand stand male 200
@@ -66,7 +67,7 @@ and control to level anyone who challenges her.
 ~
 giant~
 ABFGT V 0 0
-55 0 1d1+9199 1d1+100 10d4+26 slash
+55 0 1d1+9199 1d1+100 10d4+26 'slash'
 -11 -11 -11 -6
 ACDEFIJK 0 0 0
 stand stand female 0
@@ -83,7 +84,7 @@ him seem like someone who you WOULDN'T want as an enemy)
 ~
 giant~
 ABCGHQT DFHTU 0 0
-55 0 1d1+6599 1d1+100 5d5+22 blast
+55 0 1d1+6599 1d1+100 5d5+22 'blast'
 -15 -15 -15 -10
 DEK AB 0 0
 stand stand male 2000
@@ -101,7 +102,7 @@ hold his own in combat.
 ~
 human~
 ABHT H 0 0
-50 1 1d1+9999 1d1+199 5d5+29 pierce
+50 1 1d1+9999 1d1+199 5d5+29 'pierce'
 -9 -9 -9 -9
 ACDEHT 0 0 0
 stand stand male 590
@@ -117,7 +118,7 @@ longs to pay off his debt to the Lord.
 ~
 elf~
 ACGHRY N 1000 0
-5 0 1d1+74 1d1+199 3d3+3 slap
+5 0 1d1+74 1d1+199 3d3+3 'slap'
 -3 -3 -3 -3
 FK 0 0 0
 stand stand male 500
@@ -132,7 +133,7 @@ makes him proud to be a part of the race.
 ~
 giant~
 ACT 0 0 0
-20 0 4d9+333 1d1+100 2d9+5 pound
+20 0 4d9+333 1d1+100 2d9+5 'pound'
 -4 -4 -4 -1
 CDEJKR 0 0 0
 stand stand male 900
@@ -148,7 +149,7 @@ can make out is '..was.. framed'. He then goes into another coughing fit.
 ~
 gnome~
 AH 0 0 0
-30 0 6d12+700 1d1+0 4d6+8 digestion
+30 0 6d12+700 1d1+0 4d6+8 'digestion'
 -8 -8 -8 -8
 EFJK 0 0 0
 rest rest male 0
@@ -165,7 +166,7 @@ with, but has to stay here for as long as they keep her.
 ~
 elf~
 A 0 1000 0
-30 0 6d12+850 1d1+0 5d6+8 peck
+30 0 6d12+850 1d1+0 5d6+8 'peck'
 -9 -9 -9 -9
 EFJKN 0 0 M
 stand stand female 0
@@ -182,7 +183,7 @@ with, but has to stay here for as long as they keep her.
 ~
 elf~
 A 0 1000 0
-30 0 6d12+850 1d1+0 5d6+8 peck
+30 0 6d12+850 1d1+0 5d6+8 'peck'
 -9 -9 -9 -9
 EFJKN 0 0 M
 stand stand female 0
@@ -199,7 +200,7 @@ Librarian' and has been as pleased as can be ever since.
 ~
 giant~
 ABGT 0 0 0
-35 -2 1d1+999 1d1+100 5d8+12 shbite
+35 -2 1d1+999 1d1+100 5d8+12 'shbite'
 -8 -15 -10 -3
 CDEKOT 0 0 0
 sit stand male 25
@@ -216,7 +217,7 @@ job.
 ~
 human~
 ABCFGHOT OV -1000 0
-40 0 1d1+3599 1d1+0 4d9+13 wrath
+40 0 1d1+3599 1d1+0 4d9+13 'wrath'
 -14 -14 -14 -10
 ADFHJN 0 0 N
 stand stand male 4000
@@ -233,7 +234,7 @@ wishes someone would put him out of his misery.
 ~
 elf~
 AB IN 1000 0
-40 0 1d1+3299 1d1+0 4d9+12 divine
+40 0 1d1+3299 1d1+0 4d9+12 'divine'
 -15 -15 -15 -15
 FHJKN 0 C M
 sit stand male 0
@@ -649,7 +650,7 @@ G none
 
 #ROOMS
 #13000
-A dusty path~
+@eng A dusty path@rus Пыльная тропа~
 The dust on this path is making it quite difficult to gather in your 
 surroundings. On both sides of you are trees and you think you hear birds
 chirp in the distance. Far to the north is what looks to be a Castle,

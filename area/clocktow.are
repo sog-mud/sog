@@ -23,7 +23,7 @@ and you mearly able to stay close to it.
 ~
 unique~
 AGTY HV 0 0
-30 0 10d61+400 30d10+100 5d6+18 pound
+30 0 10d61+400 30d10+100 5d6+18 'pound'
 -30 -30 -30 -10
 CEFJK HKLTX 0 N
 stand stand male 3000
@@ -44,7 +44,7 @@ seemingly does not pay any attention at you.
 ~
 human~
 AGQ FH 0 0
-30 0 10d60+450 30d10+100 5d6+15 punch
+30 0 10d60+450 30d10+100 5d6+15 'punch'
 -30 -30 -30 -20
 EFIKNV P N 0
 stand stand male 1000
@@ -64,7 +64,7 @@ to enter the Clock Tower.
 ~
 human~
 AGQ DFHNV 0 0
-28 0 10d70+430 28d10+100 6d5+20 crush
+28 0 10d70+430 28d10+100 6d5+20 'crush'
 -40 -30 -30 -20
 CDEFHIJKNc BP HIKLMOPRS J
 stand stand male 5000
@@ -84,7 +84,7 @@ City without explicit time.
 ~
 unique~
 AGTY DFHTV 0 0
-25 0 10d40+300 25d10+100 4d6+12 pound
+25 0 10d40+300 25d10+100 4d6+12 'pound'
 -25 -25 -25 -20
 CEFHK 0 CD N
 stand stand male 3456
@@ -100,7 +100,7 @@ hand long big стрелка~
 ~
 unique~
 AGTW TV 0 0
-30 0 10d60+420 30d100+100 5d6+15 charge
+30 0 10d60+420 30d100+100 5d6+15 'charge'
 -40 -30 -10 -10
 CDEFHIKNT 0 0 0
 stand stand male 2430
@@ -116,7 +116,7 @@ hand short small стрелка~
 ~
 unique~
 AGTW TV 0 0
-25 0 10d40+250 25d10+100 5d5+14 charge
+25 0 10d40+250 25d10+100 5d5+14 'charge'
 -30 -20 -10 -10
 CEFHIKNT 0 0 0
 stand stand male 2340
@@ -134,7 +134,7 @@ top of the spire each time the wind blows.
 ~
 unique~
 ABGR DT 0 0
-20 0 5d40+200 20d10+100 4d5+10 peck
+20 0 5d40+200 20d10+100 4d5+10 'peck'
 -10 -10 -10 -10
 0 M KOX 0
 stand stand male 0
@@ -155,7 +155,7 @@ scatters some bread bits around him for pigeons.
 ~
 human~
 AGHT HNPT 1000 0
-15 0 5d30+160 15d10+100 3d5+8 punch
+15 0 5d30+160 15d10+100 3d5+8 'punch'
 -15 -15 -15 -10
 EFHIJKV N 0 M
 sit sit male 230
@@ -173,7 +173,7 @@ on his armour.
 ~
 unique~
 ABGH TV 0 0
-2 0 1d3+15 2d10+100 1d2+1 punch
+2 0 1d3+15 2d10+100 1d2+1 'punch'
 -2 -3 -2 -1
 CEFKd 0 0 0
 stand stand male 120
@@ -191,7 +191,7 @@ on his armour.
 ~
 unique~
 ABGH TV 0 0
-4 0 1d12+33 4d10+100 1d3+3 punch
+4 0 1d12+33 4d10+100 1d3+3 'punch'
 -4 -5 -4 -2
 CEFKd 0 0 0
 stand stand male 120
@@ -209,7 +209,7 @@ on his armour.
 ~
 unique~
 ABGH TV 0 0
-6 0 2d10+50 6d10+100 2d3+4 punch
+6 0 2d10+50 6d10+100 2d3+4 'punch'
 -6 -7 -6 -4
 CEFKd 0 0 0
 stand stand male 130
@@ -227,7 +227,7 @@ on his armour.
 ~
 unique~
 ABGH TV 0 0
-8 0 3d18+75 8d10+100 2d5+4 punch
+8 0 3d18+75 8d10+100 2d5+4 'punch'
 -8 -9 -8 -5
 CEFKd 0 0 0
 stand stand male 150
@@ -245,7 +245,7 @@ on his armour.
 ~
 unique~
 ABGH TV 0 0
-10 0 3d23+95 10d10+100 2d5+5 punch
+10 0 3d23+95 10d10+100 2d5+5 'punch'
 -10 -13 -12 -7
 CEFKd 0 0 0
 stand stand male 220
@@ -263,7 +263,7 @@ on his armour.
 ~
 unique~
 ABGH TV 0 0
-12 0 4d20+115 12d10+100 3d5+6 punch
+12 0 4d20+115 12d10+100 3d5+6 'punch'
 -12 -13 -12 -8
 CEFKd 0 0 0
 stand stand male 620
@@ -281,7 +281,7 @@ on his armour.
 ~
 unique~
 ABGH TV 0 0
-14 0 5d25+140 14d10+100 3d5+7 punch
+14 0 5d25+140 14d10+100 3d5+7 'punch'
 -14 -16 -12 -10
 CEFKd 0 0 0
 stand stand male 520
@@ -299,7 +299,7 @@ on his armour.
 ~
 unique~
 ABGH TV 0 0
-16 0 5d33+180 16d10+100 4d5+8 punch
+16 0 5d33+180 16d10+100 4d5+8 'punch'
 -16 -18 -16 -12
 CEFKd 0 0 0
 stand stand male 1120
@@ -317,7 +317,7 @@ on his armour.
 ~
 unique~
 ABGH TV 0 0
-18 0 5d40+200 18d10+100 4d5+9 punch
+18 0 5d40+200 18d10+100 4d5+9 'punch'
 -18 -23 -20 -15
 CEFKd 0 0 0
 stand stand male 920
@@ -335,7 +335,7 @@ on his armour.
 ~
 unique~
 ABGH TV 0 0
-20 0 5d50+230 20d10+100 5d4+10 punch
+20 0 5d50+230 20d10+100 5d4+10 'punch'
 -20 -23 -20 -18
 CEFKd 0 0 0
 stand stand male 1020
@@ -353,7 +353,7 @@ on his armour.
 ~
 unique~
 ABGH TV 0 0
-22 0 6d50+270 22d10+100 4d6+12 punch
+22 0 6d50+270 22d10+100 4d6+12 'punch'
 -22 -23 -22 -19
 CEFKd 0 0 0
 stand stand male 1020
@@ -371,7 +371,7 @@ on his armour.
 ~
 unique~
 ABGH TV 0 0
-24 0 10d40+300 24d10+100 5d5+14 punch
+24 0 10d40+300 24d10+100 5d5+14 'punch'
 -25 -30 -24 -21
 CEFKd 0 0 0
 stand stand male 1200
@@ -389,7 +389,7 @@ with the others.
 ~
 unique~
 AGTY d 0 0
-20 0 5d50+250 20d10+100 5d5+15 scratch
+20 0 5d50+250 20d10+100 5d5+15 'scratch'
 -20 -40 -20 -10
 CEId 0 0 0
 stand stand female 0
@@ -408,7 +408,7 @@ with the others.
 ~
 unique~
 AGTY 0 0 0
-15 0 5d30+160 15d10+100 3d5+8 scratch
+15 0 5d30+160 15d10+100 3d5+8 'scratch'
 -15 -30 -15 -10
 EFIKd 0 0 0
 stand stand female 0
@@ -426,7 +426,7 @@ with the others.
 ~
 unique~
 AGTY 0 0 0
-10 0 3d22+96 10d10+100 2d5+5 scratch
+10 0 3d22+96 10d10+100 2d5+5 'scratch'
 -10 -20 -10 -6
 FHIKd 0 0 0
 stand stand female 0
@@ -445,7 +445,7 @@ with the others.
 ~
 unique~
 AGHTY V 0 0
-5 0 1d17+42 5d10+100 2d3+2 scratch
+5 0 1d17+42 5d10+100 2d3+2 'scratch'
 -5 -10 -5 -2
 FHIJKNd 0 0 0
 stand stand female 0
@@ -464,7 +464,7 @@ sweep.
 ~
 unique~
 ACGHQW DFNPTV 1000 0
-12 0 3d25+100 12d10+100 2d5+6 peck
+12 0 3d25+100 12d10+100 2d5+6 'peck'
 -10 -10 -10 -10
 DFHIJd N 0 0
 stand stand male 230
@@ -480,7 +480,7 @@ ghost terrifying привидение~
 ~
 ghost~
 AGR B 0 0
-10 0 10d10+100 10d10+100 3d6+5 wrath
+10 0 10d10+100 10d10+100 3d6+5 'wrath'
 0 0 0 0
 HQ 0 0 0
 stand stand none 0
@@ -494,7 +494,7 @@ bat angry мышь~
 ~
 bat~
 AFGT D -1000 0
-5 0 5d10+70 10d10+100 3d3+6 cleave
+5 0 5d10+70 10d10+100 3d3+6 'cleave'
 0 0 0 0
 0 0 0 0
 stand stand none 0
@@ -508,7 +508,7 @@ rat wimpy крыса~
 ~
 bat~
 AFGHT F -1000 0
-8 0 10d10+100 0d0+0 5d2+5 bite
+8 0 10d10+100 0d0+0 5d2+5 'bite'
 0 0 0 0
 Q 0 0 0
 stand stand female 0
@@ -523,7 +523,7 @@ spider small паук~
 ~
 centipede~
 AGHR 0 0 0
-4 0 10d5+30 10d10+100 1d3+3 bite
+4 0 10d5+30 10d10+100 1d3+3 'bite'
 0 0 0 0
 0 0 0 0
 stand stand male 0
@@ -537,7 +537,7 @@ spider huge паук~
 ~
 centipede~
 AFGHR 0 -1000 0
-6 0 5d15+40 10d10+100 3d3+3 bite
+6 0 5d15+40 10d10+100 3d3+3 'bite'
 0 0 0 0
 0 0 0 0
 stand stand male 0
@@ -551,7 +551,7 @@ A big long arrow points at the edge of the clock face.
 ~
 unique~
 AGTW TV 0 0
-30 0 10d60+420 30d100+100 5d6+15 charge
+30 0 10d60+420 30d100+100 5d6+15 'charge'
 -40 -30 -10 -10
 CDEFHIKNT 0 0 0
 stand stand male 2430
@@ -565,7 +565,7 @@ A small short arrow points at the edge of the clock face.
 ~
 unique~
 AGTW TV 0 0
-25 0 10d40+250 25d10+100 5d5+14 charge
+25 0 10d40+250 25d10+100 5d5+14 'charge'
 -30 -20 -10 -10
 CEFHIKNT 0 0 0
 stand stand male 2340
@@ -579,7 +579,7 @@ A big long arrow points at the edge of the clock face.
 ~
 unique~
 AGTW TV 0 0
-30 0 10d60+420 30d100+100 5d6+15 charge
+30 0 10d60+420 30d100+100 5d6+15 'charge'
 -40 -30 -10 -10
 CDEFHIKNT 0 0 0
 stand stand male 2430
@@ -593,7 +593,7 @@ A small short arrow points at the edge of the clock face.
 ~
 unique~
 AGTW TV 0 0
-25 0 10d40+250 25d10+100 5d5+14 charge
+25 0 10d40+250 25d10+100 5d5+14 'charge'
 -30 -20 -10 -10
 CEFHIKNT 0 0 0
 stand stand male 2340
@@ -607,7 +607,7 @@ A big long arrow points at the edge of the clock face.
 ~
 unique~
 AGTW TV 0 0
-30 0 10d60+420 30d100+100 5d6+15 charge
+30 0 10d60+420 30d100+100 5d6+15 'charge'
 -40 -30 -10 -10
 CDEFHIKNT 0 0 0
 stand stand male 2430
@@ -621,7 +621,7 @@ A small short arrow points at the edge of the clock face.
 ~
 unique~
 AGTW TV 0 0
-25 0 10d40+250 25d10+100 5d5+14 charge
+25 0 10d40+250 25d10+100 5d5+14 'charge'
 -30 -20 -10 -10
 CEFHIKNT 0 0 0
 stand stand male 2340

@@ -22,7 +22,7 @@ vandalism repairs.
 ~
 human~
 AC 0 -400 0
-5 0 2d6+60 2d9+100 1d6+1 none
+5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
 EFNU 0 0 0
 stand stand male 0
@@ -40,7 +40,7 @@ fashionable of all gangs -- the Grunge Mongers.
 ~
 human~
 ACG J -500 0
-10 0 2d7+121 5d9+100 2d4+2 none
+10 0 2d7+121 5d9+100 2d4+2 'none'
 1 1 1 8
 EFNU 0 0 0
 stand stand male 0
@@ -60,7 +60,7 @@ Justice Department.
 ~
 human~
 ABF D 0 0
-17 0 3d9+258 8d9+100 3d4+4 none
+17 0 3d9+258 8d9+100 3d4+4 'none'
 -3 -3 -3 7
 EFNU 0 0 0
 stand stand male 0
@@ -77,7 +77,7 @@ and undersupervised.
 ~
 human~
 ACG J 0 0
-16 0 3d9+233 8d9+100 2d6+4 none
+16 0 3d9+233 8d9+100 2d6+4 'none'
 -2 -2 -2 7
 EFNU 0 0 0
 stand stand male 0
@@ -93,7 +93,7 @@ dunk~
 ~
 human~
 ACGHS DF -150 0
-10 0 2d6+110 5d9+100 1d8+2 none
+10 0 2d6+110 5d9+100 1d8+2 'none'
 2 2 2 8
 BEFJNU 0 0 0
 stand stand male 0
@@ -110,7 +110,7 @@ looking you over for a possible business transaction.
 ~
 human~
 ACG 0 -400 0
-14 0 2d10+190 7d9+100 1d12+3 none
+14 0 2d10+190 7d9+100 1d12+3 'none'
 -1 -1 -1 8
 EFNU 0 0 0
 stand stand female 0
@@ -129,7 +129,7 @@ you though.
 ~
 human~
 AG DF 300 0
-20 0 3d9+333 10d9+100 2d8+5 none
+20 0 3d9+333 10d9+100 2d8+5 'none'
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand male 0
@@ -147,7 +147,7 @@ unintelligent and unimaginative, but looks can be deceiving.
 ~
 human~
 ABC DFJ -600 0
-22 0 5d10+400 11d9+100 4d4+6 none
+22 0 5d10+400 11d9+100 4d4+6 'none'
 -5 -5 -5 7
 EFNU 0 0 0
 stand stand male 0
@@ -167,7 +167,7 @@ eyes is the mention of money.
 ~
 human~
 ABCF DF -900 0
-25 0 5d10+550 12d9+100 2d10+7 none
+25 0 5d10+550 12d9+100 2d10+7 'none'
 -7 -7 -7 6
 EFNU 0 0 0
 stand stand male 0
@@ -186,7 +186,7 @@ Gleep.
 ~
 human~
 ABC 0 -400 0
-19 0 3d9+308 9d9+100 2d7+5 none
+19 0 3d9+308 9d9+100 2d7+5 'none'
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand male 0
@@ -203,7 +203,7 @@ of the Downtown Quadrant.
 ~
 human~
 AG DFH 300 0
-30 0 6d12+853 15d9+100 4d6+8 none
+30 0 6d12+853 15d9+100 4d6+8 'none'
 -9 -9 -9 6
 EFNU 0 0 0
 stand stand male 0
@@ -222,7 +222,7 @@ to enforce the LAW.
 ~
 human~
 AG DF 500 0
-25 0 5d10+550 12d9+100 2d10+7 none
+25 0 5d10+550 12d9+100 2d10+7 'none'
 -7 -7 -7 6
 EFNU 0 0 0
 stand stand female 0
@@ -238,7 +238,7 @@ bite fighter~
 ~
 human~
 ABF J -400 0
-20 0 3d9+333 10d9+100 2d8+5 none
+20 0 3d9+333 10d9+100 2d8+5 'none'
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand male 0

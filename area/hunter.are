@@ -22,7 +22,7 @@ learned as guarding this palace for very very much amounts of gold.
 ~
 beholder~
 ABJKef DFHV 0 0
-92 40 2d500+25000 1d200+600 10d35+50 slash
+92 40 2d500+25000 1d200+600 10d35+50 'slash'
 -77 -77 -77 -37
 ACEFKNR AB 0 0
 stand stand male 5000
@@ -43,7 +43,7 @@ lost your eyed sword than say to him that 'trouble'.
 ~
 human~
 ABQVae DFH 0 0
-80 0 1d1+21999 1d1+999 2d4+50 divine
+80 0 1d1+21999 1d1+999 2d4+50 'divine'
 -75 -75 -75 -15
 FHIK ABC D 0
 stand stand male 1000
@@ -62,7 +62,7 @@ learned as guarding this palace for very very much amounts of gold.
 ~
 beholder~
 ABJKef DFJVZlmtu -1000 0
-92 40 2d500+22000 1d200+600 5d35+50 slash
+92 40 2d500+22000 1d200+600 5d35+50 'slash'
 -77 -77 -77 -32
 ACEFKN AB 0 0
 stand stand male 5000

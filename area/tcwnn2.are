@@ -19,7 +19,7 @@ of evil forces.
 ~
 human~
 AGT HN 500 0
-50 0 50d10+4250 5d5+5000 5d8+19 pound
+50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
 CDEFIKTU 0 0 0
 stand stand male 200
@@ -36,7 +36,7 @@ of evil forces.
 ~
 human~
 AGT HN 500 0
-50 0 50d10+4250 5d5+5000 5d8+19 pound
+50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
 CDEFIKTU 0 0 0
 stand stand male 200
@@ -53,7 +53,7 @@ of evil forces.
 ~
 human~
 AGT HN 500 0
-50 0 50d10+4250 5d5+5000 5d8+19 pound
+50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
 CDEFIKTU 0 0 0
 stand stand male 200
@@ -70,7 +70,7 @@ of evil forces.
 ~
 human~
 AGT HN 500 0
-50 0 50d10+4250 5d5+5000 5d8+19 pound
+50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
 CDEFIKTU 0 0 0
 stand stand male 200
@@ -87,7 +87,7 @@ to handle himself in battle.
 ~
 human~
 ABGT CDEFHN 800 0
-55 0 50d10+5500 5d5+5000 10d4+23 slash
+55 0 50d10+5500 5d5+5000 10d4+23 'slash'
 -25 -25 -25 -1
 CDEFIKTU 0 0 0
 stand stand male 200
@@ -104,7 +104,7 @@ to handle himself in battle.
 ~
 human~
 ABGT CDEFHN 800 0
-55 0 50d10+5500 5d5+5000 10d4+23 slash
+55 0 50d10+5500 5d5+5000 10d4+23 'slash'
 -25 -25 -25 -1
 CDEFIKTU 0 0 0
 stand stand male 200
@@ -121,7 +121,7 @@ to handle himself in battle.
 ~
 human~
 ABGT CDEFHN 800 0
-55 0 50d10+5500 5d5+5000 10d4+23 slash
+55 0 50d10+5500 5d5+5000 10d4+23 'slash'
 -25 -25 -25 -1
 CDEFIKTU 0 0 0
 stand stand male 200
@@ -138,7 +138,7 @@ to handle himself in battle.
 ~
 human~
 ABGT CDEFHN 800 0
-55 0 50d10+5500 5d5+5000 10d4+23 slash
+55 0 50d10+5500 5d5+5000 10d4+23 'slash'
 -25 -25 -25 -1
 CDEFIKTU 0 0 0
 stand stand male 200
@@ -154,7 +154,7 @@ chaos have severely depleted their numbers, and now very few remain.
 ~
 human~
 ABGT CDEFHN 1000 0
-58 0 50d10+6250 5d5+5000 5d10+25 slash
+58 0 50d10+6250 5d5+5000 5d10+25 'slash'
 -28 -28 -28 -3
 CDEFIK 0 0 0
 stand stand male 200
@@ -172,7 +172,7 @@ good, if the price is right.
 ~
 elf~
 ABGR CDEFT 400 0
-56 0 50d10+5750 5d5+5000 10d4+24 pound
+56 0 50d10+5750 5d5+5000 10d4+24 'pound'
 -26 -26 -26 -2
 EIK 0 0 0
 stand stand male 200
@@ -188,7 +188,7 @@ duty, ever eager to make sure order is maintained on HIS walls.
 ~
 human~
 ABGT CDEFHN 800 0
-62 0 50d10+7250 5d5+5000 6d9+32 slash
+62 0 50d10+7250 5d5+5000 6d9+32 'slash'
 -32 -32 -32 -4
 CEFIK 0 0 0
 stand stand male 200
@@ -204,7 +204,7 @@ ranks.
 ~
 human~
 ABGT JN 400 0
-48 0 25d10+3750 5d5+1000 6d6+18 pound
+48 0 25d10+3750 5d5+1000 6d6+18 'pound'
 -18 -18 -18 1
 EFIKN 0 0 0
 stand stand male 200
@@ -219,7 +219,7 @@ one for much conversation.
 ~
 dwarf~
 ABGT CDEFHN 0 0
-59 0 50d10+6500 5d5+5000 8d6+26 pound
+59 0 50d10+6500 5d5+5000 8d6+26 'pound'
 -29 -29 -29 -3
 CDEFIKTU 0 0 0
 stand stand male 200
@@ -235,7 +235,7 @@ condemned to remain here for eternity in punishment for his sins.
 ~
 unique~
 ABFG CDEFJNPTu -1000 0
-60 0 50d10+6750 5d5+5000 8d6+28 charge
+60 0 50d10+6750 5d5+5000 8d6+28 'charge'
 -30 -30 -30 -3
 EFIKN 0 0 0
 stand stand none 200
@@ -252,7 +252,7 @@ her neck. Her spirit remains here, tormented by its misery.
 ~
 unique~
 ABGH BCDEFHJNPQT 1000 0
-60 0 50d10+6750 5d5+5000 8d6+28 magic
+60 0 50d10+6750 5d5+5000 8d6+28 'magic'
 -30 -30 -30 -3
 EF 0 0 0
 stand stand none 200
@@ -268,7 +268,7 @@ heal them.
 ~
 human~
 ABG CDEFHJN 1000 0
-60 0 50d10+6750 5d5+5000 8d6+28 slap
+60 0 50d10+6750 5d5+5000 8d6+28 'slap'
 -30 -30 -30 -3
 EFNU 0 0 0
 stand stand female 200
@@ -283,7 +283,7 @@ tattoos than skin, it seems, and more hair than the average Kodiak grizzly.
 ~
 human~
 AGX N 0 0
-8 0 2d7+96 5d5+100 1d7+2 punch
+8 0 2d7+96 5d5+100 1d7+2 'punch'
 3 3 3 8
 EFNU 0 0 0
 stand stand male 200
@@ -298,7 +298,7 @@ is simply waiting till its time to go.
 ~
 human~
 AGX N 0 0
-8 0 2d7+96 5d5+100 1d7+2 punch
+8 0 2d7+96 5d5+100 1d7+2 'punch'
 3 3 3 8
 EFNU 0 0 0
 stand stand male 200
@@ -312,7 +312,7 @@ He is far too busy to speak to you.
 ~
 human~
 ABG H 400 0
-12 0 2d10+150 5d5+100 1d10+3 pound
+12 0 2d10+150 5d5+100 1d10+3 'pound'
 0 0 0 7
 CEIK 0 0 0
 stand stand male 200

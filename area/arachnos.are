@@ -17,7 +17,7 @@ growing in as of late.
 ~
 human~
 ACG D 0 0
-5 0 2d6+60 2d9+100 1d6+1 none
+5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
 EFNU 0 0 0
 stand stand female 5
@@ -31,7 +31,7 @@ Old, scaly, but still with a lot of bite in him left.
 ~
 dragon~
 ABCG D -1000 0
-24 0 5d10+500 12d9+100 2d10+6 none
+24 0 5d10+500 12d9+100 2d10+6 'none'
 -6 -6 -6 6
 EFNR 0 0 0
 stand stand male 500
@@ -45,7 +45,7 @@ The Wolf Spider is hairy, very hairy.
 ~
 human~
 ABF 0 -300 0
-6 0 2d7+71 3d9+100 1d7+1 none
+6 0 2d7+71 3d9+100 1d7+1 'none'
 4 4 4 9
 EFNU 0 0 0
 stand stand female 62
@@ -59,7 +59,7 @@ You notice an evil look in his eyes.
 ~
 orc~
 AB 0 -400 0
-5 0 2d6+60 2d9+100 1d6+1 none
+5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
 EFNR 0 0 0
 stand stand male 5
@@ -74,7 +74,7 @@ You notice a glazed look in her eyes.
 ~
 human~
 ABF 0 -800 0
-12 0 2d10+150 6d9+100 1d10+3 none
+12 0 2d10+150 6d9+100 1d10+3 'none'
 0 0 0 8
 EFNU 0 0 0
 stand stand female 75
@@ -88,7 +88,7 @@ An ordinary drone spider.
 ~
 human~
 ACG 0 -300 0
-6 0 2d7+71 3d9+100 1d7+1 none
+6 0 2d7+71 3d9+100 1d7+1 'none'
 4 4 4 9
 EFNU 0 0 0
 stand stand male 10
@@ -102,7 +102,7 @@ She winks in and out.
 ~
 human~
 ACG 0 1000 0
-10 0 2d7+121 5d9+100 2d4+2 none
+10 0 2d7+121 5d9+100 2d4+2 'none'
 1 1 1 8
 EFNU 0 0 0
 stand stand female 62
@@ -116,7 +116,7 @@ The slave does not mind you, but will fight like a warrior if attacked.
 ~
 human~
 ACG 0 0 0
-8 0 2d7+96 4d9+100 1d7+2 none
+8 0 2d7+96 4d9+100 1d7+2 'none'
 3 3 3 9
 EFNU 0 0 0
 stand stand male 25
@@ -131,7 +131,7 @@ and creates a magical treasure!
 ~
 human~
 ACEH BDP 1000 0
-10 0 2d7+121 5d9+100 2d4+2 none
+10 0 2d7+121 5d9+100 2d4+2 'none'
 1 1 1 8
 EFNU 0 0 0
 stand stand male 50
@@ -145,7 +145,7 @@ The Bird Spider has very powerful jaws.
 ~
 human~
 ABF 0 -800 0
-14 0 2d10+190 7d9+100 1d12+3 none
+14 0 2d10+190 7d9+100 1d12+3 'none'
 -1 -1 -1 8
 EFNU 0 0 0
 stand stand female 87
@@ -160,7 +160,7 @@ means well.
 ~
 human~
 ABC D -400 0
-7 0 2d6+85 3d9+100 1d8+1 none
+7 0 2d6+85 3d9+100 1d8+1 'none'
 4 4 4 9
 EFNU 0 0 0
 stand stand male 37
@@ -174,7 +174,7 @@ He delves deeper into you as you stare at him.
 ~
 human~
 ABC D 1000 0
-25 0 5d10+550 12d9+100 2d10+7 none
+25 0 5d10+550 12d9+100 2d10+7 'none'
 -7 -7 -7 6
 EFNU 0 0 0
 stand stand male 300
@@ -188,7 +188,7 @@ He looks like a lazy bum who sleeps half the time.
 ~
 human~
 AFG P 250 0
-17 0 3d9+258 8d9+100 3d4+4 none
+17 0 3d9+258 8d9+100 3d4+4 'none'
 -3 -3 -3 7
 EFNU 0 0 0
 sleep sleep male 80
@@ -205,7 +205,7 @@ them.
 ~
 human~
 ABF BD -1000 0
-26 0 5d10+600 13d9+100 3d7+7 none
+26 0 5d10+600 13d9+100 3d7+7 'none'
 -7 -7 -7 6
 EFNU 0 0 0
 stand stand female 500
@@ -220,7 +220,7 @@ someday free the slaves of the Empress.
 ~
 human~
 ABC D 1000 0
-26 0 5d10+600 13d9+100 3d7+7 none
+26 0 5d10+600 13d9+100 3d7+7 'none'
 -7 -7 -7 6
 EFNU 0 0 0
 stand stand female 750
@@ -234,7 +234,7 @@ Rather small, you almost feel sad in killing it.
 ~
 dragon~
 AB D 1000 0
-10 0 2d7+121 5d9+100 2d4+2 none
+10 0 2d7+121 5d9+100 2d4+2 'none'
 1 1 1 8
 EFNR 0 0 0
 stand stand male 50
@@ -248,7 +248,7 @@ A medium-sized dragon--seems it hasn't killed anything yet by itself.
 ~
 dragon~
 AB D 100 0
-13 0 2d10+170 6d9+100 2d5+3 none
+13 0 2d10+170 6d9+100 2d5+3 'none'
 -1 -1 -1 8
 EFNR 0 0 0
 stand stand male 250
@@ -264,7 +264,7 @@ sharp poisonous fangs to paralyze or kill its prey.
 ~
 human~
 ABG J -350 0
-8 0 2d7+96 4d9+100 1d7+2 none
+8 0 2d7+96 4d9+100 1d7+2 'none'
 3 3 3 9
 EFNU 0 0 0
 stand stand none 0
@@ -280,7 +280,7 @@ if it wasn't so immensely fat.  Its large, bulbous eyes stare back at you.
 ~
 human~
 ABG DJ -1000 0
-15 0 3d9+208 7d9+100 2d6+3 none
+15 0 3d9+208 7d9+100 2d6+3 'none'
 -2 -2 -2 7
 EFNU 0 0 0
 stand stand female 0

@@ -18,7 +18,7 @@ help the innocent.
 ~
 human~
 AGKQe DH 1000 0
-29 0 6d12+778 29d9+100 5d14+18 none
+29 0 6d12+778 29d9+100 5d14+18 'none'
 -9 -9 -9 4
 EIKU AB 0 0
 stand stand male 0
@@ -33,7 +33,7 @@ responsible for the stone kassandra.
 ~
 human~
 AHSe DEPZ 1000 2402
-91 40 10d30+21400 100d10+100 5d35+60 punch
+91 40 10d30+21400 100d10+100 5d35+60 'punch'
 -41 -41 -41 0
 FHKN 0 0 D
 stand stand male 1499

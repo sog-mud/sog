@@ -17,7 +17,7 @@ Avatar~
 ~
 elf~
 AGR DFNOVZaclmtu -1000 0
-91 100 1d1+50000 1d1+40000 1d1+200 bite
+91 100 1d1+50000 1d1+40000 1d1+200 'bite'
 -30 -30 -30 -30
 ACDEFHJKO ABLQ 0 0
 stand stand male 0
@@ -30,7 +30,7 @@ Beacon is walking around
 ~
 human~
 ABGO JPTVcu -1000 0
-150 250 1d1+25000 1d1+15000 1d1+350 bite
+150 250 1d1+25000 1d1+15000 1d1+350 'bite'
 0 0 0 0
 0 BDEFGHIJKLMNOPQRTUXYZ 0 0
 stand stand female 0
@@ -44,7 +44,7 @@ cityguard head~
 ~
 human~
 AGTYce 0 0 0
-0 0 0d0+0 0d0+0 0d0+0 none
+0 0 0d0+0 0d0+0 0d0+0 'none'
 0 0 0 0
 0 0 0 0
 stand stand male 0
@@ -58,7 +58,7 @@ servant служанка~
 ~
 human~
 AB 0 0 0
-50 60 3d5+2000 3d4+1000 3d4+50 slap
+50 60 3d5+2000 3d4+1000 3d4+50 'slap'
 -24 -24 -24 -7
 K 0 H 0
 stand stand female 0
@@ -72,7 +72,7 @@ innkeeper трактирщик~
 ~
 human~
 AB HNO 0 0
-50 100 1d1+10000 1d6+1000 2d6+50 slap
+50 100 1d1+10000 1d6+1000 2d6+50 'slap'
 -27 -27 -27 -9
 CEFHK AB 0 0
 stand stand male 0
@@ -86,7 +86,7 @@ Lanfear Mierin Forsaken ланфир~
 ~
 human~
 ABGRVe BCDEFGOUVZclmopst -1000 0
-80 300 1d1+1 8d10+100000 5d15+120 magic
+80 300 1d1+1 8d10+100000 5d15+120 'magic'
 -50 -50 -50 -50
 AEF ABMUY CEIJP N
 stand stand female 0
@@ -103,7 +103,7 @@ catcher thiefcatcher ловец воров~
 ~
 human~
 AHT FV 1000 0
-40 100 4d7+2000 1d1+500 7d10+70 punch
+40 100 4d7+2000 1d1+500 7d10+70 'punch'
 -18 -18 -18 -4
 CEFIJKNS U D 0
 stand stand male 0
@@ -120,7 +120,7 @@ thief hide вор~
 ~
 human~
 AHS DFPQVclm -1000 0
-40 200 5d9+1500 1d1+100 6d12+60 punch
+40 200 5d9+1500 1d1+100 6d12+60 'punch'
 -18 -18 -18 -4
 BEFIJKNU AB D 0
 stand stand either 0
@@ -141,7 +141,7 @@ ugly fido~
 ~
 fido~
 Ac 0 0 0
-30 500 1d1+200 0d0+0 1d1+100 bite
+30 500 1d1+200 0d0+0 1d1+100 'bite'
 0 0 0 0
 C 0 0 0
 stand stand either 0
@@ -158,7 +158,7 @@ cityguard head captain старшина стражников~
 ~
 human~
 ABCGTbce DEFHNOVZlmt 1000 0
-50 100 1d1+5000 1d1+1000 5d12+100 pound
+50 100 1d1+5000 1d1+1000 5d12+100 'pound'
 -24 -24 -24 -7
 ACDEFHIJKLOT ABU D 0
 stand stand male 0
@@ -181,7 +181,7 @@ cityguard~
 ~
 human~
 ABCTWYc EHNOVZ 700 0
-45 100 4d7+2500 1d1+800 5d10+90 pound
+45 100 4d7+2500 1d1+800 5d10+90 'pound'
 -21 -21 -21 -5
 CDEFIJKNOT 0 BEFG 0
 stand stand male 100
@@ -198,7 +198,7 @@ mule~
 ~
 horse~
 ABZ 0 0 0
-30 10 2d5+2500 1d1+20 2d2+100 pound
+30 10 2d5+2500 1d1+20 2d2+100 'pound'
 -9 -9 -9 0
 P 0 0 0
 stand stand either 0
@@ -213,7 +213,7 @@ merchant~
 ~
 human~
 ABCHU NOc 0 0
-40 80 5d20+2000 1d1+700 5d12+70 pound
+40 80 5d20+2000 1d1+700 5d12+70 'pound'
 -18 -18 -18 -4
 DEFKO 0 ABEIL 0
 stand stand male 5000
@@ -229,7 +229,7 @@ horn-seeker охотник~
 ~
 human~
 AHT EFHNV 500 0
-40 100 3d12+2000 1d1+700 2d7+80 none
+40 100 3d12+2000 1d1+700 2d7+80 'none'
 -18 -18 -18 -4
 CDEFHIJKLNQ 0 AEI 0
 stand stand either 20000
@@ -248,7 +248,7 @@ traveller путешественник~
 ~
 human~
 ABCHLST Oa -100 0
-35 50 1d5+1500 1d1+200 2d7+50 pound
+35 50 1d5+1500 1d1+200 2d7+50 'pound'
 -12 -12 -12 -1
 CEFHIJKNQ 0 0 0
 stand stand male 0
@@ -264,7 +264,7 @@ fisherman рыбак~
 ~
 human~
 ACT JNb 200 0
-35 20 6d12+1500 1d1+500 2d12+20 slap
+35 20 6d12+1500 1d1+500 2d12+20 'slap'
 -12 -12 -12 -1
 FIJNQ 0 IJT 0
 stand stand male 100
@@ -283,7 +283,7 @@ peasant крестьянин~
 ~
 human~
 ACHT N 200 0
-35 0 6d12+1500 1d1+500 2d12+20 pound
+35 0 6d12+1500 1d1+500 2d12+20 'pound'
 -15 -15 -15 -2
 CFIJQ 0 TX 0
 stand stand male 100
@@ -299,7 +299,7 @@ Sand snake~
 ~
 snake~
 ABF DFHJPQVZacelmt -200 0
-40 80 2d4+1200 1d1+500 2d5+75 bite
+40 80 2d4+1200 1d1+500 2d5+75 'bite'
 -18 -18 -18 -4
 ADFHMN 0 ABCFGK 0
 stand stand female 0
@@ -316,7 +316,7 @@ snake~
 ~
 snake~
 AF PVZc -200 0
-30 50 2d5+800 1d1+300 2d4+50 bite
+30 50 2d5+800 1d1+300 2d4+50 'bite'
 -9 -9 -9 0
 FHMU 0 0 0
 stand stand female 0
@@ -332,7 +332,7 @@ tiger тигр~
 ~
 tiger~
 AFL PVZac -200 0
-30 40 3d9+1200 1d1+200 3d4+40 claw
+30 40 3d9+1200 1d1+200 3d4+40 'claw'
 -9 -9 -9 0
 ACDEJMU 0 0 0
 stand stand male 0

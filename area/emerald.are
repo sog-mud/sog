@@ -21,7 +21,7 @@ and youthful features of the faerie folk.
 ~
 unique~
 ABG DJT 1000 0
-24 6 2d10+500 1d1+99 5d5+5 punch
+24 6 2d10+500 1d1+99 5d5+5 'punch'
 -7 -7 -7 -7
 KU BJN B 0
 stand stand female 100
@@ -39,7 +39,7 @@ in the distance.  She calls out to you to join her in her dance.
 ~
 unique~
 ABG DJT 1000 0
-29 9 2d10+750 1d1+99 5d5+10 slap
+29 9 2d10+750 1d1+99 5d5+10 'slap'
 -10 -10 -10 -10
 FKU BJN B 0
 stand stand female 150
@@ -58,7 +58,7 @@ brownies.
 ~
 unique~
 AG DJ 1000 0
-13 4 2d1+175 1d1+99 4d5+7 magic
+13 4 2d1+175 1d1+99 4d5+7 'magic'
 0 0 0 0
 FU BJN B 0
 stand stand female 80
@@ -74,7 +74,7 @@ its pockets are filled with acorns and nuts.
 ~
 unique~
 AG DJT 0 0
-20 6 2d1+350 1d1+99 4d5+12 stab
+20 6 2d1+350 1d1+99 4d5+12 'stab'
 -5 -5 -5 -5
 FU BJN B 0
 stand stand male 80
@@ -93,7 +93,7 @@ no cap, her otherwise long hair tied in a pony-tail.
 ~
 unique~
 ABG DJ 1000 0
-17 5 2d1+280 1d1+99 4d5+9 punch
+17 5 2d1+280 1d1+99 4d5+9 'punch'
 -4 -4 -4 -4
 FKU BJN B 0
 stand stand male 100
@@ -112,7 +112,7 @@ it's leg.
 ~
 unique~
 ABG DJ 1000 0
-39 20 2d1+1700 1d1+99 6d6+35 punch
+39 20 2d1+1700 1d1+99 6d6+35 'punch'
 -10 -10 -10 -10
 FKNU BJLN B 0
 stand stand male 100
@@ -130,7 +130,7 @@ He unleashes a torrent of curses at you.
 ~
 unique~
 ABCGHS JPQu -900 0
-20 12 2d1+400 1d1+99 5d5+25 scratch
+20 12 2d1+400 1d1+99 5d5+25 'scratch'
 0 0 0 0
 AEFKU L L N
 stand stand none 50
@@ -149,7 +149,7 @@ language known.
 ~
 unique~
 ABG DJ -1000 0
-15 3 2d1+200 1d1+99 4d5+5 pierce
+15 3 2d1+200 1d1+99 4d5+5 'pierce'
 5 5 5 5
 CDEFJKU AB B N
 stand stand none 50
@@ -166,7 +166,7 @@ let it continue eating its weeds.  It bares large yellowed teeth at you.
 ~
 unique~
 ABG DJ -950 0
-20 8 2d1+300 1d1+99 4d5+14 beating
+20 8 2d1+300 1d1+99 4d5+14 'beating'
 0 0 0 0
 CDEFJKU B B N
 stand stand none 50
@@ -182,7 +182,7 @@ preparing for the Great Hunt and in a low voice he intones your name.
 ~
 unique~
 ABFG DJ -1000 0
-35 15 2d1+1700 1d1+99 6d6+25 punch
+35 15 2d1+1700 1d1+99 6d6+25 'punch'
 -8 -8 -8 -8
 CDEFJKU AB B N
 stand stand none 50
@@ -199,7 +199,7 @@ for a dance.  A tango perhaps, or a foxtrot.
 ~
 unique~
 ABFG DJ -1000 0
-25 10 2d1+600 1d1+99 5d5+14 scratch
+25 10 2d1+600 1d1+99 5d5+14 'scratch'
 -3 -3 -3 -3
 CDEFJKU AB B N
 stand stand male 50
@@ -218,7 +218,7 @@ the use of his staff.
 ~
 unique~
 ABGK 0 0 0
-60 20 2d1+10000 1d1+99 5d6+150 beating
+60 20 2d1+10000 1d1+99 5d6+150 'beating'
 -19 -19 -19 -19
 FK ABCD BCD 0
 stand stand male 100
@@ -236,7 +236,7 @@ arrows after he's finished with them.
 ~
 unique~
 ABGJ DFHJ 0 0
-58 30 2d1+6500 1d1+99 5d6+75 beating
+58 30 2d1+6500 1d1+99 5d6+75 'beating'
 -12 -12 -12 -12
 FKW AB BCD 0
 stand stand male 100
@@ -250,7 +250,7 @@ Smokey smiles affably at you as he beckons you over to buy his wares.
 ~
 unique~
 ABGe DF 750 0
-55 25 2d1+5000 1d1+99 5d6+50 claw
+55 25 2d1+5000 1d1+99 5d6+50 'claw'
 -10 -10 -10 -10
 DKN L L H
 stand stand male 100
@@ -270,7 +270,7 @@ robe, and seems rather busy with his duties.
 ~
 unique~
 ABG DJ 1000 0
-30 20 2d1+850 1d1+99 5d6+30 smash
+30 20 2d1+850 1d1+99 5d6+30 'smash'
 3 3 3 3
 CFK BJLN B 0
 stand stand male 100
@@ -286,7 +286,7 @@ closed eyes issuing an invitation you somehow cannot resist.
 ~
 unique~
 ABFG DFJOu -1000 0
-40 15 2d1+1500 1d1+99 5d6+35 wrath
+40 15 2d1+1500 1d1+99 5d6+35 'wrath'
 -5 -5 -5 -5
 FQ AB B HN
 stand stand female 30
@@ -303,7 +303,7 @@ an intense adhorrence for all beauty and youth.
 ~
 unique~
 ABFG DFJu -1000 0
-41 15 2d1+1600 1d1+99 5d6+40 divine
+41 15 2d1+1600 1d1+99 5d6+40 'divine'
 -6 -6 -6 -6
 FKQ AB B HN
 stand stand female 30
@@ -319,7 +319,7 @@ of the undeed to destroy you!
 ~
 unique~
 ABFG DFJu -1000 0
-40 15 2d1+1450 1d1+99 5d6+40 magic
+40 15 2d1+1450 1d1+99 5d6+40 'magic'
 -5 -5 -5 -5
 EFQ AB B HN
 stand stand female 30
@@ -338,7 +338,7 @@ a while. Love.
 ~
 unique~
 ABGH J 750 0
-15 10 2d1+200 1d1+99 5d6+0 punch
+15 10 2d1+200 1d1+99 5d6+0 'punch'
 7 7 7 7
 JK 0 0 CDEFGHIJKL
 stand stand male 30
@@ -356,7 +356,7 @@ mark him as a happy worker, and no slacker.
 ~
 unique~
 AG J 750 0
-15 12 2d1+220 1d1+99 5d6+5 punch
+15 12 2d1+220 1d1+99 5d6+5 'punch'
 2 2 2 2
 EFJK 0 0 CDEFGHIJL
 stand stand male 30
@@ -371,7 +371,7 @@ SCRAM! He looks around for Maddie, the local beauty.
 ~
 unique~
 ABG J 750 0
-15 5 2d1+320 1d1+99 4d5+8 punch
+15 5 2d1+320 1d1+99 4d5+8 'punch'
 -3 -3 -3 -3
 EFJKLR 0 0 ABCDE
 stand stand male 30
@@ -386,7 +386,7 @@ her ruffian suitors.
 ~
 unique~
 ABGH J 750 0
-20 8 2d1+320 1d1+99 4d5+15 punch
+20 8 2d1+320 1d1+99 4d5+15 'punch'
 -3 -3 -3 -3
 FK 0 0 ABC
 stand stand female 30
@@ -405,7 +405,7 @@ Tulips for the laughing, violets for the glad".
 ~
 unique~
 ABGe J 1000 0
-20 10 2d1+380 1d1+99 4d5+20 grep
+20 10 2d1+380 1d1+99 4d5+20 'grep'
 -1 -1 -1 -1
 EF AB B H
 stand stand female 30
@@ -424,7 +424,7 @@ full of delicious looking apples and pears.
 ~
 unique~
 AGH J 750 0
-15 5 2d1+180 1d1+99 4d5+8 punch
+15 5 2d1+180 1d1+99 4d5+8 'punch'
 3 3 3 3
 FK 0 0 CDEFGHIJL
 stand stand female 30
@@ -452,7 +452,7 @@ He is singing a song over and over again and you catch its words...
 ~
 unique~
 ABCG J 0 0
-13 8 2d1+150 1d1+99 5d5+5 punch
+13 8 2d1+150 1d1+99 5d5+5 'punch'
 4 4 4 4
 CDFK 0 0 CDEFGHIJL
 stand stand male 30
@@ -471,7 +471,7 @@ conscience with the Most High.
 ~
 unique~
 ABGX DHJN 1000 0
-39 15 2d1+1550 1d1+99 5d6+35 punch
+39 15 2d1+1550 1d1+99 5d6+35 'punch'
 -6 -6 -6 -6
 EFHK B B QXYZ
 stand stand male 30
@@ -490,7 +490,7 @@ the witches come to sacrifice her tonight. She looks at you pleadingly.
 ~
 unique~
 ABG DIJKN 1000 0
-15 10 2d1+80 1d1+99 4d5+0 stab
+15 10 2d1+80 1d1+99 4d5+0 'stab'
 2 2 2 2
 K AB B 0
 stand stand female 80
@@ -507,7 +507,7 @@ is almost too beautiful to describe.
 ~
 unique~
 ABCGH DHJN 1000 0
-50 15 2d1+3000 1d1+99 5d6+50 punch
+50 15 2d1+3000 1d1+99 5d6+50 'punch'
 -7 -7 -7 -7
 EFK B B QXYZ
 stand stand female 30
@@ -524,7 +524,7 @@ down the length of its body and disappears.
 ~
 unique~
 ABCGH DFJ 0 0
-40 10 2d1+3000 1d1+99 5d6+40 bite
+40 10 2d1+3000 1d1+99 5d6+40 'bite'
 0 0 0 0
 DFJK AB B 0
 stand stand female 30
@@ -541,7 +541,7 @@ have to beat it out of him.
 ~
 unique~
 ABCG DJN 0 0
-38 15 2d1+1450 1d1+99 5d6+25 suction
+38 15 2d1+1450 1d1+99 5d6+25 'suction'
 -3 -3 -3 -3
 FK AB B 0
 stand stand male 30
@@ -561,7 +561,7 @@ the members of the order.
 ~
 unique~
 ABG DHJ 1000 0
-37 12 2d1+1300 1d1+99 5d6+25 punch
+37 12 2d1+1300 1d1+99 5d6+25 'punch'
 -2 -2 -2 -2
 EK 0 0 0
 stand stand male 30
@@ -580,7 +580,7 @@ black apparel gives hint of his oriental origin.
 ~
 unique~
 ABG DHJ 1000 0
-60 25 2d1+5500 1d1+99 10d5+65 frbite
+60 25 2d1+5500 1d1+99 10d5+65 'frbite'
 -11 -11 -11 -11
 DEFHK AB BHIJKLMNOP 0
 stand stand male 30
@@ -596,7 +596,7 @@ Farmer Griff smiles and says "You musn't leave without trying my
 ~
 unique~
 ABGe J 750 0
-20 15 2d1+500 1d1+99 4d5+10 punch
+20 15 2d1+500 1d1+99 4d5+10 'punch'
 0 0 0 0
 EFQ AB B H
 stand stand female 30
@@ -612,7 +612,7 @@ consider you with an evil intelligence.
 ~
 unique~
 ABF DJ -1000 0
-30 8 2d1+900 1d1+99 5d5+16 bite
+30 8 2d1+900 1d1+99 5d5+16 'bite'
 -5 -5 -5 -5
 BEFG AB B N
 stand stand none 15
@@ -628,7 +628,7 @@ filled with sharp little teeth.
 ~
 unique~
 ABCFG DFJ -1000 0
-12 5 2d1+180 1d1+99 4d5+12 chop
+12 5 2d1+180 1d1+99 4d5+12 'chop'
 2 2 2 2
 BCF AB B 0
 stand stand male 15
@@ -645,7 +645,7 @@ spectre now wanders the edge of this dark lake forever.
 ~
 unique~
 ABCG J 1000 0
-35 25 2d1+1050 1d1+99 5d9+25 charge
+35 25 2d1+1050 1d1+99 5d9+25 'charge'
 5 5 5 5
 FGK ABCDEFGHIJKLMNOPQRS BCD 0
 stand stand none 15
@@ -663,7 +663,7 @@ smiling demon.
 ~
 unique~
 ABG DJu -1000 0
-43 10 2d1+2150 1d1+99 5d6+45 punch
+43 10 2d1+2150 1d1+99 5d6+45 'punch'
 -2 -2 -2 -2
 AFK AB B N
 stand stand female 1000
@@ -683,7 +683,7 @@ permanently on his scarred face.
 ~
 unique~
 ACGT HJ 0 0
-58 12 2d1+5900 1d1+99 5d6+105 punch
+58 12 2d1+5900 1d1+99 5d6+105 'punch'
 -5 -5 -5 -5
 ACEFJK AB C N
 stand stand male 15000
@@ -702,7 +702,7 @@ that they will have their last battle.
 ~
 unique~
 ABGHR JNu -1000 0
-54 12 2d1+4500 1d1+99 5d6+85 magic
+54 12 2d1+4500 1d1+99 5d6+85 'magic'
 -1 -1 -1 -1
 FH AB C N
 stand stand female 10000
@@ -722,7 +722,7 @@ her strikingly beautiful.
 ~
 unique~
 ABG DJ 1000 0
-34 15 2d1+1200 1d1+99 6d6+25 punch
+34 15 2d1+1200 1d1+99 6d6+25 'punch'
 -8 -8 -8 -8
 FKNU BJLN B 0
 stand stand female 100
@@ -741,7 +741,7 @@ brownies.
 ~
 unique~
 ABG DJ 1000 0
-13 4 2d1+175 1d1+99 4d5+7 magic
+13 4 2d1+175 1d1+99 4d5+7 'magic'
 0 0 0 0
 FU BJN B 0
 stand stand female 80
@@ -760,7 +760,7 @@ brownies.
 ~
 unique~
 ABG DJ 1000 0
-13 4 2d1+175 1d1+99 4d5+7 magic
+13 4 2d1+175 1d1+99 4d5+7 'magic'
 0 0 0 0
 FU BJN B 0
 stand stand female 80
@@ -779,7 +779,7 @@ brownies.
 ~
 unique~
 ABG DJ 1000 0
-13 4 2d1+175 1d1+99 4d5+7 magic
+13 4 2d1+175 1d1+99 4d5+7 'magic'
 0 0 0 0
 FU BJN B 0
 stand stand female 80
@@ -798,7 +798,7 @@ brownies.
 ~
 unique~
 ABG DJ 1000 0
-13 4 2d1+175 1d1+99 4d5+7 magic
+13 4 2d1+175 1d1+99 4d5+7 'magic'
 0 0 0 0
 FU BJN B 0
 stand stand female 80
@@ -817,7 +817,7 @@ no cap, her otherwise long hair tied in a pony-tail.
 ~
 unique~
 ABG DJ 1000 0
-17 5 2d1+280 1d1+99 4d5+9 punch
+17 5 2d1+280 1d1+99 4d5+9 'punch'
 -4 -4 -4 -4
 FKU BJN B 0
 stand stand male 100
@@ -836,7 +836,7 @@ no cap, her otherwise long hair tied in a pony-tail.
 ~
 unique~
 ABG DJ 1000 0
-17 5 2d1+280 1d1+99 4d5+9 punch
+17 5 2d1+280 1d1+99 4d5+9 'punch'
 -4 -4 -4 -4
 FKU BJN B 0
 stand stand male 100
@@ -855,7 +855,7 @@ no cap, her otherwise long hair tied in a pony-tail.
 ~
 unique~
 ABG DJ 1000 0
-17 5 2d1+280 1d1+99 4d5+9 punch
+17 5 2d1+280 1d1+99 4d5+9 'punch'
 -4 -4 -4 -4
 FKU BJN B 0
 stand stand male 100
@@ -874,7 +874,7 @@ no cap, her otherwise long hair tied in a pony-tail.
 ~
 unique~
 ABG DJ 1000 0
-17 5 2d1+280 1d1+99 4d5+9 punch
+17 5 2d1+280 1d1+99 4d5+9 'punch'
 -4 -4 -4 -4
 FKU BJN B 0
 stand stand male 100
@@ -893,7 +893,7 @@ no cap, her otherwise long hair tied in a pony-tail.
 ~
 unique~
 ABG DJ 1000 0
-17 5 2d1+280 1d1+99 4d5+9 punch
+17 5 2d1+280 1d1+99 4d5+9 'punch'
 -4 -4 -4 -4
 FKU BJN B 0
 stand stand male 100
@@ -909,7 +909,7 @@ its pockets are filled with acorns and nuts.
 ~
 unique~
 ABG DJT 0 0
-20 6 2d1+350 1d1+99 4d5+12 stab
+20 6 2d1+350 1d1+99 4d5+12 'stab'
 -5 -5 -5 -5
 FU BJN B 0
 stand stand male 80
@@ -925,7 +925,7 @@ its pockets are filled with acorns and nuts.
 ~
 unique~
 ABG DJT 0 0
-20 6 2d1+350 1d1+99 4d5+12 stab
+20 6 2d1+350 1d1+99 4d5+12 'stab'
 -5 -5 -5 -5
 FU BJN B 0
 stand stand male 80
@@ -941,7 +941,7 @@ its pockets are filled with acorns and nuts.
 ~
 unique~
 ABG DJT 0 0
-20 6 2d1+350 1d1+99 4d5+12 stab
+20 6 2d1+350 1d1+99 4d5+12 'stab'
 -5 -5 -5 -5
 FU BJN B 0
 stand stand male 80
@@ -957,7 +957,7 @@ its pockets are filled with acorns and nuts.
 ~
 unique~
 ABG DJT 0 0
-20 6 2d1+350 1d1+99 4d5+12 stab
+20 6 2d1+350 1d1+99 4d5+12 'stab'
 -5 -5 -5 -5
 FU BJN B 0
 stand stand male 80
@@ -976,7 +976,7 @@ and youthful features of the faerie folk.
 ~
 unique~
 ABG DJT 1000 0
-24 6 2d10+500 1d1+99 5d5+5 punch
+24 6 2d10+500 1d1+99 5d5+5 'punch'
 -7 -7 -7 -7
 KU BJN B 0
 stand stand female 100
@@ -995,7 +995,7 @@ and youthful features of the faerie folk.
 ~
 unique~
 ABG DJT 1000 0
-24 6 2d10+500 1d1+99 5d5+5 punch
+24 6 2d10+500 1d1+99 5d5+5 'punch'
 -7 -7 -7 -7
 KU BJN B 0
 stand stand female 100
@@ -1014,7 +1014,7 @@ and youthful features of the faerie folk.
 ~
 unique~
 ABG DJT 1000 0
-24 6 2d10+500 1d1+99 5d5+5 punch
+24 6 2d10+500 1d1+99 5d5+5 'punch'
 -7 -7 -7 -7
 KU BJN B 0
 stand stand female 100
@@ -1033,7 +1033,7 @@ and youthful features of the faerie folk.
 ~
 unique~
 ABG DJT 1000 0
-24 6 2d10+500 1d1+99 5d5+5 punch
+24 6 2d10+500 1d1+99 5d5+5 'punch'
 -7 -7 -7 -7
 KU BJN B 0
 stand stand female 100
@@ -1051,7 +1051,7 @@ in the distance.  She calls out to you to join her in her dance.
 ~
 unique~
 ABG DJT 1000 0
-29 9 2d10+750 1d1+99 5d5+10 slap
+29 9 2d10+750 1d1+99 5d5+10 'slap'
 -10 -10 -10 -10
 FKU BJN B 0
 stand stand female 150
@@ -1069,7 +1069,7 @@ in the distance.  She calls out to you to join her in her dance.
 ~
 unique~
 ABG DJT 1000 0
-29 9 2d10+750 1d1+99 5d5+10 slap
+29 9 2d10+750 1d1+99 5d5+10 'slap'
 -10 -10 -10 -10
 FKU BJN B 0
 stand stand female 150
@@ -1087,7 +1087,7 @@ in the distance.  She calls out to you to join her in her dance.
 ~
 unique~
 ABG DJT 1000 0
-29 9 2d10+750 1d1+99 5d5+10 slap
+29 9 2d10+750 1d1+99 5d5+10 'slap'
 -10 -10 -10 -10
 FKU BJN B 0
 stand stand female 150
@@ -1105,7 +1105,7 @@ in the distance.  She calls out to you to join her in her dance.
 ~
 unique~
 ABG DJT 1000 0
-29 9 2d10+750 1d1+99 5d5+10 slap
+29 9 2d10+750 1d1+99 5d5+10 'slap'
 -10 -10 -10 -10
 FKU BJN B 0
 stand stand female 150
@@ -1125,7 +1125,7 @@ her strikingly beautiful.
 ~
 unique~
 ABG DJ 1000 0
-34 15 2d1+1200 1d1+99 6d6+25 punch
+34 15 2d1+1200 1d1+99 6d6+25 'punch'
 -8 -8 -8 -8
 FKNU BJLN B 0
 stand stand female 100
@@ -1145,7 +1145,7 @@ her strikingly beautiful.
 ~
 unique~
 ABG DJ 1000 0
-34 15 2d1+1200 1d1+99 6d6+25 punch
+34 15 2d1+1200 1d1+99 6d6+25 'punch'
 -8 -8 -8 -8
 FKNU BJLN B 0
 stand stand female 100
@@ -1164,7 +1164,7 @@ it's leg.
 ~
 unique~
 ABG DJ 1000 0
-39 20 2d1+1700 1d1+99 6d6+35 punch
+39 20 2d1+1700 1d1+99 6d6+35 'punch'
 -10 -10 -10 -10
 FKNU BJLN B 0
 stand stand male 100
@@ -1183,7 +1183,7 @@ it's leg.
 ~
 unique~
 ABG DJ 1000 0
-39 20 2d1+1700 1d1+99 6d6+35 punch
+39 20 2d1+1700 1d1+99 6d6+35 'punch'
 -10 -10 -10 -10
 FKNU BJLN B 0
 stand stand male 100
@@ -1202,7 +1202,7 @@ it's leg.
 ~
 unique~
 ABG DJ 1000 0
-39 20 2d1+1700 1d1+99 6d6+35 punch
+39 20 2d1+1700 1d1+99 6d6+35 'punch'
 -10 -10 -10 -10
 FKNU BJLN B 0
 stand stand male 100
@@ -1221,7 +1221,7 @@ it's leg.
 ~
 unique~
 ABG DJ 1000 0
-39 20 2d1+1700 1d1+99 6d6+35 punch
+39 20 2d1+1700 1d1+99 6d6+35 'punch'
 -10 -10 -10 -10
 FKNU BJLN B 0
 stand stand male 100
@@ -1240,7 +1240,7 @@ language known.
 ~
 unique~
 ABG DJ -1000 0
-15 3 2d1+200 1d1+99 4d5+5 pierce
+15 3 2d1+200 1d1+99 4d5+5 'pierce'
 5 5 5 5
 CDEFJKU AB B N
 stand stand none 50
@@ -1259,7 +1259,7 @@ language known.
 ~
 unique~
 ABG DJ -1000 0
-15 3 2d1+200 1d1+99 4d5+5 pierce
+15 3 2d1+200 1d1+99 4d5+5 'pierce'
 5 5 5 5
 CDEFJKU AB B N
 stand stand none 50
@@ -1278,7 +1278,7 @@ language known.
 ~
 unique~
 ABG DJ -1000 0
-15 3 2d1+200 1d1+99 4d5+5 pierce
+15 3 2d1+200 1d1+99 4d5+5 'pierce'
 5 5 5 5
 CDEFJKU AB B N
 stand stand none 50
@@ -1297,7 +1297,7 @@ language known.
 ~
 unique~
 ABG DJ -1000 0
-15 3 2d1+200 1d1+99 4d5+5 pierce
+15 3 2d1+200 1d1+99 4d5+5 'pierce'
 5 5 5 5
 CDEFJKU AB B N
 stand stand none 50
@@ -1314,7 +1314,7 @@ for a dance.  A tango perhaps, or a foxtrot.
 ~
 unique~
 ABFG DJ -1000 0
-25 10 2d1+600 1d1+99 5d5+15 scratch
+25 10 2d1+600 1d1+99 5d5+15 'scratch'
 -3 -3 -3 -3
 CDEFJKU AB B N
 stand stand male 50
@@ -1331,7 +1331,7 @@ for a dance.  A tango perhaps, or a foxtrot.
 ~
 unique~
 ABFG DJ -1000 0
-25 10 2d1+600 1d1+99 5d5+15 scratch
+25 10 2d1+600 1d1+99 5d5+15 'scratch'
 -3 -3 -3 -3
 CDEFJKU AB B N
 stand stand male 50
@@ -1348,7 +1348,7 @@ for a dance.  A tango perhaps, or a foxtrot.
 ~
 unique~
 ABFG DJ -1000 0
-25 10 2d1+600 1d1+99 5d5+15 scratch
+25 10 2d1+600 1d1+99 5d5+15 'scratch'
 -3 -3 -3 -3
 CDEFJKU AB B N
 stand stand male 50
@@ -1365,7 +1365,7 @@ for a dance.  A tango perhaps, or a foxtrot.
 ~
 unique~
 ABFG DJ -1000 0
-25 10 2d1+600 1d1+99 5d5+15 scratch
+25 10 2d1+600 1d1+99 5d5+15 'scratch'
 -3 -3 -3 -3
 CDEFJKU AB B N
 stand stand male 50
@@ -1382,7 +1382,7 @@ let it continue eating its weeds.  It bares large yellowed teeth at you.
 ~
 unique~
 ABG DJ -950 0
-20 8 2d1+390 1d1+99 4d5+15 beating
+20 8 2d1+390 1d1+99 4d5+15 'beating'
 0 0 0 0
 CDEFJKU B B N
 stand stand none 50
@@ -1399,7 +1399,7 @@ let it continue eating its weeds.  It bares large yellowed teeth at you.
 ~
 unique~
 ABG DJ -950 0
-20 8 2d1+390 1d1+99 4d5+15 beating
+20 8 2d1+390 1d1+99 4d5+15 'beating'
 0 0 0 0
 CDEFJKU B B N
 stand stand none 50
@@ -1416,7 +1416,7 @@ let it continue eating its weeds.  It bares large yellowed teeth at you.
 ~
 unique~
 ABG DJ -950 0
-20 8 2d1+390 1d1+99 4d5+15 beating
+20 8 2d1+390 1d1+99 4d5+15 'beating'
 0 0 0 0
 CDEFJKU B B N
 stand stand none 50
@@ -1433,7 +1433,7 @@ let it continue eating its weeds.  It bares large yellowed teeth at you.
 ~
 unique~
 ABG DJ -950 0
-20 8 2d1+390 1d1+99 4d5+15 beating
+20 8 2d1+390 1d1+99 4d5+15 'beating'
 0 0 0 0
 CDEFJKU B B N
 stand stand none 50
@@ -1449,7 +1449,7 @@ consider you with an evil intelligence.
 ~
 unique~
 ABFG DJ -1000 0
-30 8 2d1+900 1d1+99 5d5+16 bite
+30 8 2d1+900 1d1+99 5d5+16 'bite'
 -5 -5 -5 -5
 BEFG AB B N
 stand stand none 15
@@ -1465,7 +1465,7 @@ consider you with an evil intelligence.
 ~
 unique~
 ABFG DJ -1000 0
-30 8 2d1+900 1d1+99 5d5+16 bite
+30 8 2d1+900 1d1+99 5d5+16 'bite'
 -5 -5 -5 -5
 BEFG AB B N
 stand stand none 15
@@ -1481,7 +1481,7 @@ consider you with an evil intelligence.
 ~
 unique~
 ABFG DJ -1000 0
-30 8 2d1+900 1d1+99 5d5+16 bite
+30 8 2d1+900 1d1+99 5d5+16 'bite'
 -5 -5 -5 -5
 BEFG AB B N
 stand stand none 15
@@ -1497,7 +1497,7 @@ preparing for the Great Hunt and in a low voice he intones your name.
 ~
 unique~
 ABFG DJ -1000 0
-35 15 2d1+1700 1d1+99 6d6+25 punch
+35 15 2d1+1700 1d1+99 6d6+25 'punch'
 -8 -8 -8 -8
 CDEFJKU AB B N
 stand stand male 50
@@ -1513,7 +1513,7 @@ preparing for the Great Hunt and in a low voice he intones your name.
 ~
 unique~
 ABFG DJ -1000 0
-35 15 2d1+1700 1d1+99 6d6+25 punch
+35 15 2d1+1700 1d1+99 6d6+25 'punch'
 -8 -8 -8 -8
 CDEFJKU AB B N
 stand stand male 50
@@ -1529,7 +1529,7 @@ preparing for the Great Hunt and in a low voice he intones your name.
 ~
 unique~
 ABFG DJ -1000 0
-35 15 2d1+1700 1d1+99 6d6+25 punch
+35 15 2d1+1700 1d1+99 6d6+25 'punch'
 -8 -8 -8 -8
 CDEFJKU AB B N
 stand stand male 50
@@ -1545,7 +1545,7 @@ preparing for the Great Hunt and in a low voice he intones your name.
 ~
 unique~
 ABFG DJ -1000 0
-35 15 2d1+1700 1d1+99 6d6+25 punch
+35 15 2d1+1700 1d1+99 6d6+25 'punch'
 -8 -8 -8 -8
 CDEFJKU AB B N
 stand stand male 50
@@ -1562,7 +1562,7 @@ loosely in a braided cloak of forest green lies among the lilac bushes.
 ~
 unique~
 ABG DJT 1000 0
-27 10 2d10+650 1d1+99 5d5+0 slap
+27 10 2d10+650 1d1+99 5d5+0 'slap'
 -8 -8 -8 -8
 FKU BJN B 0
 stand stand female 150
@@ -1581,7 +1581,7 @@ it's leg.
 ~
 unique~
 ABG DJ 1000 0
-40 20 2d1+1700 1d1+99 6d6+35 punch
+40 20 2d1+1700 1d1+99 6d6+35 'punch'
 -10 -10 -10 -10
 FKNU BJLN B 0
 stand stand male 100
@@ -1600,7 +1600,7 @@ it's leg.
 ~
 unique~
 ABG DJ 1000 0
-40 20 2d1+1700 1d1+99 6d6+35 punch
+40 20 2d1+1700 1d1+99 6d6+35 'punch'
 -10 -10 -10 -10
 FKNU BJLN B 0
 stand stand male 100
@@ -1619,7 +1619,7 @@ it's leg.
 ~
 unique~
 AG DJ 1000 0
-40 20 2d1+1700 1d1+99 6d6+35 punch
+40 20 2d1+1700 1d1+99 6d6+35 'punch'
 -10 -10 -10 -10
 FKNU BJLN B 0
 stand stand male 100
@@ -1637,7 +1637,7 @@ huntsmen in service to Gertrude.
 ~
 unique~
 ABFG DFJu -1000 0
-40 14 2d1+1600 1d1+99 8d6+30 magic
+40 14 2d1+1600 1d1+99 8d6+30 'magic'
 -7 -7 -7 -7
 FKQ AB B HN
 stand stand female 30
@@ -1655,7 +1655,7 @@ Type HEAL for list.
 ~
 elf~
 ABGQae DHct 1000 0
-100 100 1d1+50000 1d1+10000 1d1+100 divine
+100 100 1d1+50000 1d1+10000 1d1+100 'divine'
 0 0 0 0
 EFIK ABC D 0
 stand stand male 0

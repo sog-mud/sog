@@ -22,7 +22,7 @@ The left pocket is partially tinted with grass stains.
 ~
 elf~
 ACGR BQV 900 0
-80 0 100d12+13500 1d10+850 13d5+50 punch
+80 0 100d12+13500 1d10+850 13d5+50 'punch'
 -50 -52 -51 -50
 FGJN 0 CN M
 stand stand either 1000
@@ -38,7 +38,7 @@ height, you probably do resemble a bug..  yumm...
 ~
 song bird~
 ABCG 0 0 0
-65 0 65d10+8500 1d10+650 9d6+30 peck
+65 0 65d10+8500 1d10+650 9d6+30 'peck'
 -35 -33 -34 -20
 0 0 CE H
 stand stand either 0
@@ -54,7 +54,7 @@ and returns to its lunch.
 ~
 song bird~
 ACG 0 0 0
-45 0 25d10+3000 1d10+450 3d12+15 peck
+45 0 25d10+3000 1d10+450 3d12+15 'peck'
 -17 -17 -17 -17
 0 0 F O
 stand stand either 0
@@ -69,7 +69,7 @@ one hand above the book, pointing as if to emphasize one paragraph.
 ~
 unique~
 ABG 0 0 0
-60 0 50d10+7750 1d10+600 8d6+28 crush
+60 0 50d10+7750 1d10+600 8d6+28 'crush'
 -32 -31 -30 -25
 DJK CHIR FLQ NP
 stand stand female 0
@@ -86,7 +86,7 @@ puzzled frown mars the otherwise smooth young face.
 ~
 unique~
 ABCG V 0 0
-52 0 50d10+4500 1d10+520 6d7+20 punch
+52 0 50d10+4500 1d10+520 6d7+20 'punch'
 -24 -25 -23 -18
 F N 0 BL
 stand stand female 0
@@ -102,7 +102,7 @@ stone mouth is open, as if frozen in the middle of an incantation.
 ~
 unique~
 AB 0 0 0
-61 0 50d10+7500 1d10+1800 8d6+20 crush
+61 0 50d10+7500 1d10+1800 8d6+20 'crush'
 -29 -28 -29 -33
 FJ LQ CHIMN P
 stand stand male 3000
@@ -118,7 +118,7 @@ with a strange, innocent vacancy.
 ~
 horse~
 AG CDEFGHJN 1000 0
-70 2 100d10+9500 1d10+800 12d5+40 cleave
+70 2 100d10+9500 1d10+800 12d5+40 'cleave'
 -45 -45 -45 -45
 EIK LNS BGI M
 stand stand either 0
@@ -136,7 +136,7 @@ belong to the present.
 ~
 unique~
 ABGU T 0 0
-57 0 50d10+6000 1d10+570 6d8+24 pound
+57 0 50d10+6000 1d10+570 6d8+24 'pound'
 -27 -28 -26 -20
 F LQ EGHI B
 stand stand female 0
@@ -153,7 +153,7 @@ gleaming cross... white, of course.
 ~
 human~
 AGT CN 900 0
-65 3 65d10+9000 1d10+250 9d6+40 cleave
+65 3 65d10+9000 1d10+250 9d6+40 'cleave'
 -37 -38 -36 -27
 DEFIK N EG KMOP
 stand stand either 5000
@@ -169,7 +169,7 @@ chipped on one side, causing the scales to tilt slightly.
 ~
 unique~
 ABG G 0 0
-68 0 70d10+9500 1d10+680 9d6+45 pound
+68 0 70d10+9500 1d10+680 9d6+45 'pound'
 -37 -38 -38 -35
 EFK HILQ F B
 stand stand female 4000
@@ -186,7 +186,7 @@ to anything living that might get in the way..
 ~
 gnome~
 ACS V 0 0
-70 0 65d10+10300 1d10+620 9d6+25 bite
+70 0 65d10+10300 1d10+620 9d6+25 'bite'
 -40 -39 -40 -38
 DFJ 0 BIMN P
 stand stand male 1000
@@ -202,7 +202,7 @@ be the creator of this artwork..
 ~
 human~
 ACGS J 0 0
-65 0 65d10+8500 1d10+500 9d6+20 punch
+65 0 65d10+8500 1d10+500 9d6+20 'punch'
 -33 -32 -30 -30
 DEFJ 0 Q LO
 stand stand male 2500
@@ -218,7 +218,7 @@ as if in prayer.
 ~
 unique~
 ABGQ N 800 0
-60 0 50d10+7000 1d10+1000 8d6+18 pound
+60 0 50d10+7000 1d10+1000 8d6+18 'pound'
 -30 -29 -31 -28
 FK N HKL NP
 rest stand either 0
@@ -233,7 +233,7 @@ you see is thin air.
 ~
 unique~
 ABG 0 0 0
-57 0 50d10+6000 1d10+500 6d8+20 scratch
+57 0 50d10+6000 1d10+500 6d8+20 'scratch'
 -27 -28 -25 -26
 EF 0 D BC
 stand stand either 0
@@ -247,7 +247,7 @@ Aww, isn't it cute?
 ~
 rabbit~
 ACG 0 0 0
-45 0 25d10+3000 0d0+0 8d4+6 scratch
+45 0 25d10+3000 0d0+0 8d4+6 'scratch'
 -15 -16 -15 -15
 D 0 L R
 stand stand none 0
@@ -264,7 +264,7 @@ at you.
 ~
 unique~
 ABG 0 0 0
-55 0 50d10+6000 1d10+700 10d4+15 pound
+55 0 50d10+6000 1d10+700 10d4+15 'pound'
 -24 -25 -24 -23
 F N BHI KO
 stand stand male 0
@@ -281,7 +281,7 @@ weeping quietly.  You can make out a few whispered words..
 ~
 unique~
 ABG BTU 0 0
-51 0 50d10+4800 1d10+600 4d10+18 magic
+51 0 50d10+4800 1d10+600 4d10+18 'magic'
 -25 -26 -26 -25
 FG HIKLQR CD MNOP
 stand stand female 0
@@ -295,7 +295,7 @@ It seems to grow more solid as you look at it.
 ~
 unique~
 AGS JTU 0 0
-62 0 50d10+7800 1d10+620 10d5+10 magic
+62 0 50d10+7800 1d10+620 10d5+10 'magic'
 -35 -34 -33 -31
 EFG BKP D MNO
 stand stand either 0
@@ -309,7 +309,7 @@ Weird.  You can see right through it.
 ~
 unique~
 AGS TU 0 0
-61 0 50d10+7500 1d10+610 10d5+0 magic
+61 0 50d10+7500 1d10+610 10d5+0 'magic'
 -35 -34 -33 -31
 EFG BKP D MNO
 stand stand either 0
@@ -323,7 +323,7 @@ They remind you of something.. but you can't quite recall what..
 ~
 unique~
 AGS JTU 0 0
-64 0 50d10+8500 1d10+640 10d5+40 magic
+64 0 50d10+8500 1d10+640 10d5+40 'magic'
 -35 -34 -33 -31
 EFG BKP D MNO
 stand stand either 0
@@ -337,7 +337,7 @@ You are blinded by a flash of insight!
 ~
 unique~
 AGS TU 0 0
-62 0 50d10+7800 1d10+620 10d5+10 magic
+62 0 50d10+7800 1d10+620 10d5+10 'magic'
 -35 -34 -33 -31
 EFG BKP D MNO
 stand stand either 0
@@ -353,7 +353,7 @@ to watch your every move.
 ~
 cat~
 ABGT P 0 11621
-80 2 100d12+14500 1d10+850 15d5+40 claw
+80 2 100d12+14500 1d10+850 15d5+40 'claw'
 -50 -54 -52 -51
 DKM INQ E H
 stand stand male 0
@@ -369,7 +369,7 @@ lady can clearly see.. though what she is looking at is not visible to you.
 ~
 elf~
 ABGQ DGHNT 1000 11621
-85 0 100d12+15000 1d10+2000 9d10+50 crush
+85 0 100d12+15000 1d10+2000 9d10+50 'crush'
 -50 -53 -55 -53
 EFGK BGKN EHJ M
 stand stand female 0
@@ -391,7 +391,7 @@ and
 ~
 drow~
 ACGR DFPQ -900 0
-80 0 100d12+14000 1d10+1050 14d5+50 claw
+80 0 100d12+14000 1d10+1050 14d5+50 'claw'
 -50 -53 -52 -51
 EFHJ 0 CM E
 stand stand either 1000
@@ -406,7 +406,7 @@ that makes you shiver inside.
 ~
 unique~
 ABCFG DFJT 0 0
-65 2 65d10+8000 1d10+650 9d6+30 peck
+65 2 65d10+8000 1d10+650 9d6+30 'peck'
 -35 -33 -34 -20
 FH BH M I
 stand stand either 0
@@ -421,7 +421,7 @@ a cat.
 ~
 human~
 ACFGS JPQ 0 0
-52 1 50d10+4500 1d10+100 5d8+22 pierce
+52 1 50d10+4500 1d10+100 5d8+22 'pierce'
 -23 -24 -22 -24
 BEFJ 0 K P
 stand stand either 0
@@ -436,7 +436,7 @@ dull grey eyes flash restlessly from side to side searchingly.
 ~
 unique~
 ABCFG JO -500 0
-64 0 50d10+8000 1d10+500 9d6+28 digestion
+64 0 50d10+8000 1d10+500 9d6+28 'digestion'
 -33 -34 -34 -32
 CDEFJ LQ K EN
 stand stand none 0
@@ -452,7 +452,7 @@ fall to the floor.
 ~
 human~
 ABG IJU 0 0
-52 0 50d10+4500 1d10+520 6d7+0 scratch
+52 0 50d10+4500 1d10+520 6d7+0 'scratch'
 -20 -18 -17 -15
 F 0 0 D
 rest rest either 0
@@ -467,7 +467,7 @@ you notice that the fingers are clawed and bloody..
 ~
 human~
 ABCFGR DFGJO -800 0
-64 0 50d10+8000 1d10+2000 9d6+0 claw
+64 0 50d10+8000 1d10+2000 9d6+0 'claw'
 -30 -32 -31 -30
 FG M I HNY
 stand stand either 0
@@ -484,7 +484,7 @@ only by the hellish red lights of its eyes.
 ~
 horse~
 AGQ CDEFGHJN 1000 0
-70 2 100d10+10000 1d10+800 12d5+40 cleave
+70 2 100d10+10000 1d10+800 12d5+40 'cleave'
 -45 -45 -45 -45
 DEGI KM CH NOP
 stand stand either 0
@@ -501,7 +501,7 @@ terribly evil and entirely inhuman.
 ~
 human~
 ABFG JOZ -800 0
-60 0 50d10+7500 1d10+700 8d6+24 claw
+60 0 50d10+7500 1d10+700 8d6+24 'claw'
 -30 -31 -29 -28
 FGI EM B JNP
 stand stand female 8765
@@ -516,7 +516,7 @@ and the blood red eyes seem to bore into yours with an insatiable hunger..
 ~
 unique~
 ACGOT JOTUZ -400 0
-65 3 65d10+8900 1d10+250 9d6+40 drain
+65 3 65d10+8900 1d10+250 9d6+40 'drain'
 -37 -38 -36 -27
 DEFK I KM HNO
 stand stand either 4000
@@ -532,7 +532,7 @@ flicker searchingly around the room.
 ~
 human~
 ACFG JV -600 0
-68 0 70d10+9250 1d10+680 9d6+45 claw
+68 0 70d10+9250 1d10+680 9d6+45 'claw'
 -37 -38 -38 -35
 DF 0 NQ HNS
 stand stand either 3500
@@ -547,7 +547,7 @@ doing a remarkable good job, considering that his tongue is only so long..
 ~
 human~
 ACG J 0 0
-70 0 65d10+10200 1d10+630 9d6+25 chomp
+70 0 65d10+10200 1d10+630 9d6+25 'chomp'
 -38 -39 -40 -38
 F 0 0 0
 stand stand either 1000
@@ -563,7 +563,7 @@ yourself...  <g>
 ~
 unique~
 ACG JTV 0 0
-65 1 65d10+8500 0d0+0 9d6+30 chomp
+65 1 65d10+8500 0d0+0 9d6+30 'chomp'
 -33 -32 -30 -30
 DEF BCFPT EL FK
 stand stand none 0
@@ -579,7 +579,7 @@ The ghastly face turns towards you and licks its lips.
 ~
 human~
 ACFGQ JOZ -900 0
-65 0 50d10+8200 1d10+1300 9d6+20 wrath
+65 0 50d10+8200 1d10+1300 9d6+20 'wrath'
 -35 -34 -35 -33
 DEFG ILQ M NSY
 stand stand either 6200
@@ -593,7 +593,7 @@ Your guts wrench as you attempt to look at.. nothing at all.
 ~
 unique~
 AGO BJT 0 0
-57 0 50d10+6200 1d10+500 6d8+10 drain
+57 0 50d10+6200 1d10+500 6d8+10 'drain'
 -28 -29 -27 -25
 FG BD 0 HIJKMNOP
 stand stand none 0
@@ -608,7 +608,7 @@ on self destruction.
 ~
 rabbit~
 ACG J 0 0
-45 0 25d10+3000 0d0+0 8d4+6 bite
+45 0 25d10+3000 0d0+0 8d4+6 'bite'
 -15 -16 -15 -15
 0 0 0 E
 stand stand none 0
@@ -623,7 +623,7 @@ make this man a very dangerous enemy.
 ~
 human~
 AGT CJV 0 0
-70 5 50d12+10200 1d10+400 10d6+45 cleave
+70 5 50d12+10200 1d10+400 10d6+45 'cleave'
 -41 -42 -41 -40
 ADEFIK 0 D P
 stand stand male 0
@@ -638,7 +638,7 @@ red eyes gleaming sadistically against the blackness.
 ~
 unique~
 AFG BDFJOTZ -700 0
-70 0 100d10+10500 1d10+700 7d10+30 drain
+70 0 100d10+10500 1d10+700 7d10+30 'drain'
 -40 -42 -41 -39
 FG B GJK NO
 stand stand either 5650
@@ -652,7 +652,7 @@ Some dreams have been left here, forgotten.
 ~
 unique~
 AG BJTU 0 0
-62 0 50d10+8250 1d10+620 10d5+10 magic
+62 0 50d10+8250 1d10+620 10d5+10 'magic'
 -35 -34 -33 -31
 FG 0 0 S
 stand stand none 0
@@ -666,7 +666,7 @@ You feel wiser, yet somehow dirty..
 ~
 unique~
 AG IJTU 0 0
-61 0 50d10+7600 1d10+610 10d5+0 digestion
+61 0 50d10+7600 1d10+610 10d5+0 'digestion'
 -35 -34 -33 -31
 EFG N G KLPQ
 stand stand none 0
@@ -680,7 +680,7 @@ As you attempt to look at them, they bury deeper into the shadows.
 ~
 unique~
 AGHS JPQTU 0 0
-64 0 50d10+8200 1d10+640 10d5+40 drain
+64 0 50d10+8200 1d10+640 10d5+40 'drain'
 -35 -34 -33 -31
 EFGJ 0 F JPS
 stand stand none 0
@@ -694,7 +694,7 @@ An overwhelming feeling of hopelessness washes over you.
 ~
 unique~
 AG BJTU 0 0
-62 0 50d10+8200 1d10+620 10d5+10 scratch
+62 0 50d10+8200 1d10+620 10d5+10 'scratch'
 -35 -34 -33 -31
 EFG I 0 FJPS
 stand stand either 0
@@ -709,7 +709,7 @@ silently, like a living shadow.
 ~
 cat~
 ABFGT JPQV 0 11644
-80 2 100d12+15000 1d10+850 15d5+40 claw
+80 2 100d12+15000 1d10+850 15d5+40 'claw'
 -52 -51 -49 -50
 DEG HMQ G I
 stand stand female 0
@@ -725,7 +725,7 @@ the cruel smile that seems to have permanently twisted the human lips.
 ~
 human~
 ABFGRT CDJOu -1000 11644
-85 0 100d12+16500 1d10+1000 9d10+50 smash
+85 0 100d12+16500 1d10+1000 9d10+50 'smash'
 -50 -53 -55 -53
 EIK BEJM GIK N
 stand stand male 0
@@ -739,7 +739,7 @@ It leers at you mockingly.
 ~
 unique~
 ABCG QU 0 0
-58 0 5d10+6800 1d10+580 5d10+25 shbite
+58 0 5d10+6800 1d10+580 5d10+25 'shbite'
 -58 -56 -59 -57
 ACDEF B C DP
 stand stand none 0
@@ -753,7 +753,7 @@ This person is completely rigid with fear.
 ~
 human~
 ABG IJ 0 0
-58 0 5d10+6500 1d10+180 5d10+0 scratch
+58 0 5d10+6500 1d10+180 5d10+0 'scratch'
 -52 -50 -51 -46
 DFJ 0 0 P
 rest rest either 0
@@ -767,7 +767,7 @@ He appears to be taking good care of the garden.
 ~
 gnome~
 ACG 0 0 0
-65 0 65d10+8700 1d10+500 9d6+25 punch
+65 0 65d10+8700 1d10+500 9d6+25 'punch'
 -35 -34 -36 -33
 DFJ 0 BIMN P
 stand stand male 1000
@@ -782,7 +782,7 @@ clean.
 ~
 ghost~
 ABCG BIJU 0 0
-65 0 65d10+8500 1d10+6700 9d6+20 magic
+65 0 65d10+8500 1d10+6700 9d6+20 'magic'
 -39 -38 -36 -34
 F 0 E 0
 stand stand either 100
@@ -796,7 +796,7 @@ Wary green eyes glow like a cat's amidst the deep shadow.
 ~
 elf~
 ACFGS FQVZ 0 0
-82 1 100d12+15500 1d10+850 8d10+30 pierce
+82 1 100d12+15500 1d10+850 8d10+30 'pierce'
 -55 -54 -54 -54
 BEFHJ B MN HI
 stand stand female 5000
@@ -810,7 +810,7 @@ The dark eyes seem to measure you, searching for weakness.
 ~
 elf~
 ACFGS DFQZ 0 0
-51 0 50d10+4900 1d10+510 4d8+25 pierce
+51 0 50d10+4900 1d10+510 4d8+25 'pierce'
 -23 -23 -22 -21
 BEFJ 0 MN J
 stand stand either 4050
@@ -824,7 +824,7 @@ Slitted silver eyes glint menacingly.
 ~
 unique~
 ACGS DFJPQZ 0 0
-66 0 65d10+8800 1d10+660 9d6+35 claw
+66 0 65d10+8800 1d10+660 9d6+35 'claw'
 -37 -38 -36 -35
 EFH HI M J
 stand stand either 0
@@ -838,7 +838,7 @@ You think you see something there.. but maybe it's just your imagination.
 ~
 unique~
 AGS BJTU 0 0
-62 0 65d10+7800 1d10+650 8d6+30 magic
+62 0 65d10+7800 1d10+650 8d6+30 'magic'
 -33 -34 -34 -33
 EFGH J HI MNP
 stand stand none 0
@@ -853,7 +853,7 @@ black feathers forming the avian face.
 ~
 unique~
 ABCG DFJTZ 0 0
-67 0 65d10+9000 1d10+670 9d6+40 claw
+67 0 65d10+9000 1d10+670 9d6+40 'claw'
 -36 -37 -37 -35
 ADEFK EJ K F
 stand stand either 0
@@ -868,7 +868,7 @@ black talons betray a natural predator behind the seeming vulnerability.
 ~
 unique~
 ABCG JZ 0 0
-60 0 50d10+7200 1d10+600 8d6+20 peck
+60 0 50d10+7200 1d10+600 8d6+20 'peck'
 -28 -29 -28 -27
 EF 0 EJ B
 stand stand either 0
@@ -884,7 +884,7 @@ from one claw.
 ~
 unique~
 ACFG BJTUZ 0 0
-67 0 65d10+9000 1d10+670 9d6+40 drain
+67 0 65d10+9000 1d10+670 9d6+40 'drain'
 -36 -37 -37 -35
 DEFG 0 G HO
 stand stand none 3250
@@ -898,7 +898,7 @@ A dark sillouhette of a humanoid form.
 ~
 unique~
 AG BIJTV 0 0
-70 0 100d10+10500 1d10+1000 12d5+20 magic
+70 0 100d10+10500 1d10+1000 12d5+20 'magic'
 -45 -44 -43 -41
 EFGN 0 D C
 stand stand none 0
@@ -912,7 +912,7 @@ The slim form seems almost a part of the surrounding darkness.
 ~
 elf~
 ACGS QVZ 0 0
-72 1 100d12+11000 1d10+720 12d5+30 pierce
+72 1 100d12+11000 1d10+720 12d5+30 'pierce'
 -44 -44 -45 -43
 EFGJ 0 0 0
 stand stand either 2550
@@ -926,7 +926,7 @@ The figure seems to move constantly, eluding your focus.
 ~
 elf~
 ACGS QZ 0 0
-72 1 100d12+11000 1d10+720 12d5+27 pierce
+72 1 100d12+11000 1d10+720 12d5+27 'pierce'
 -45 -46 -44 -42
 EFGH 0 0 0
 stand stand either 4500
@@ -940,7 +940,7 @@ The grey figure seems to blend in with its surroundings.
 ~
 elf~
 ABCGS QZ 0 0
-80 2 100d12+14500 1d10+850 15d5+40 wrath
+80 2 100d12+14500 1d10+850 15d5+40 'wrath'
 -53 -52 -52 -51
 DEFGHJ 0 0 0
 stand stand either 6250
@@ -955,7 +955,7 @@ cat.
 ~
 elf~
 ABCGS QZ 0 0
-78 1 100d12+13500 1d10+780 15d5+10 chill
+78 1 100d12+13500 1d10+780 15d5+10 'chill'
 -49 -50 -50 -47
 EFGJ I 0 H
 stand stand female 5200
@@ -969,7 +969,7 @@ He seems to blur and shimmer like a living flame.
 ~
 elf~
 ABCGS BZ 0 0
-78 1 100d12+13500 1d10+780 15d5+10 flame
+78 1 100d12+13500 1d10+780 15d5+10 'flame'
 -51 -50 -49 -48
 EFGJ H 0 I
 stand stand male 5200
@@ -984,7 +984,7 @@ out from between sharp white fangs as the serpent hisses warningly.
 ~
 snake~
 ABFG DFJPZ 0 0
-75 0 65d10+12000 1d10+750 10d6+25 shbite
+75 0 65d10+12000 1d10+750 10d6+25 'shbite'
 -45 -46 -47 -44
 EFM J 0 0
 stand stand either 3250
@@ -998,7 +998,7 @@ The silver eyes gleam menacingly, like twin daggers in the darkness.
 ~
 elf~
 ABCFGS DFQZ 0 11664
-85 2 100d12+17000 1d10+900 9d10+60 wrath
+85 2 100d12+17000 1d10+900 9d10+60 'wrath'
 -57 -57 -56 -55
 DEFK 0 MN IP
 stand stand female 6770
@@ -1013,7 +1013,7 @@ dark hawk.
 ~
 unique~
 ABCFG DFJQTZ 0 11664
-80 0 100d12+14500 1d10+820 9d10+20 claw
+80 0 100d12+14500 1d10+820 9d10+20 'claw'
 -40 -39 -40 -38
 ACDEFG 0 MN P
 stand stand female 0
@@ -1029,7 +1029,7 @@ incredibly hyper..
 ~
 gnome~
 ACGS IV 0 0
-81 0 100d12+14900 1d10+900 9d10+0 thwack
+81 0 100d12+14900 1d10+900 9d10+0 'thwack'
 -42 -42 -41 -39
 EFGJ 0 0 0
 stand stand male 3400
@@ -1043,7 +1043,7 @@ It appears to be a bodiless brain, boggling..
 ~
 unique~
 AG T 0 0
-65 0 65d10+8500 1d10+650 9d6+30 charge
+65 0 65d10+8500 1d10+650 9d6+30 'charge'
 -32 -33 -34 -32
 CDEF 0 P D
 stand stand none 0
@@ -1057,7 +1057,7 @@ It snuffles your armpit.
 ~
 pig~
 ABGH T 0 0
-62 0 65d10+7800 1d10+620 9d6+10 crush
+62 0 65d10+7800 1d10+620 9d6+10 'crush'
 -30 -32 -31 -30
 CDEFJ 0 K 0
 stand stand none 0
@@ -1071,7 +1071,7 @@ Muh-oOoOOoo..
 ~
 pig~
 ABG 0 0 0
-63 0 65d10+8250 1d10+630 9d6+15 chomp
+63 0 65d10+8250 1d10+630 9d6+15 'chomp'
 -33 -34 -32 -31
 CDEF 0 L 0
 stand stand none 0
@@ -1085,7 +1085,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARGGGGGGHHHHHHH!!!
 ~
 unique~
 ACG T 0 0
-65 0 65d10+8000 1d10+650 9d6+30 suction
+65 0 65d10+8000 1d10+650 9d6+30 'suction'
 -35 -35 -35 -33
 ADEJ B D JP
 stand stand none 2500
@@ -1099,7 +1099,7 @@ It giggles and bonks you on the head.
 ~
 unique~
 ADEG Q 0 0
-67 0 65d10+8800 1d10+800 10d6+30 peck
+67 0 65d10+8800 1d10+800 10d6+30 'peck'
 -38 -37 -38 -36
 DFGH B HI MN
 stand stand none 1780
@@ -1114,7 +1114,7 @@ better yet, a brain?
 ~
 human~
 ACG I 0 0
-60 0 50d10+6750 1d10+10 8d6+28 beating
+60 0 50d10+6750 1d10+10 8d6+28 'beating'
 -30 -30 -30 -30
 FJ 0 0 P
 stand stand male 10
@@ -1128,7 +1128,7 @@ She peers down her nose at you and mumbles something about ids and egos.
 ~
 human~
 ABG J 0 0
-70 -1 100d10+10250 1d10+1000 12d5+30 slap
+70 -1 100d10+10250 1d10+1000 12d5+30 'slap'
 -38 -39 -40 -37
 DEF 0 P MN
 stand stand female 4750
@@ -1142,7 +1142,7 @@ It's a normal person, with neat blond hair and a trendy suit.  How boring..
 ~
 human~
 ABG 0 0 0
-61 0 50d10+7000 1d10+10 8d6+35 punch
+61 0 50d10+7000 1d10+10 8d6+35 'punch'
 -31 -31 -31 -30
 F 0 0 0
 stand stand either 3400
@@ -1156,7 +1156,7 @@ Gross..
 ~
 unique~
 ABCFGU JNOZ 0 0
-65 0 65d10+8700 1d10+650 9d6+27 suction
+65 0 65d10+8700 1d10+650 9d6+27 'suction'
 -35 -35 -36 -34
 ACD LQ 0 0
 stand stand none 0
@@ -1171,7 +1171,7 @@ into the dirt at a tremendous pace.
 ~
 pig~
 ABCGH Z 0 0
-75 0 100d12+12100 1d10+650 14d5+5 claw
+75 0 100d12+12100 1d10+650 14d5+5 'claw'
 -45 -44 -44 -43
 CDJ 0 GO PR
 stand stand either 0
@@ -1186,7 +1186,7 @@ resembles a giant rabbit.
 ~
 unique~
 ABCGR TUVZ 0 11677
-86 0 100d12+16500 1d10+1000 9d10+60 magic
+86 0 100d12+16500 1d10+1000 9d10+60 'magic'
 -57 -57 -58 -56
 ACDEFG ST OP J
 stand stand male 6740
@@ -1200,7 +1200,7 @@ He looks back at you.  You boggle, he boggles.  Argh..
 ~
 song bird~
 ABCG 0 0 11677
-80 0 100d12+13500 1d10+900 15d15+20 peckb
+80 0 100d12+13500 1d10+900 15d15+20 'peckb'
 -50 -50 -49 -48
 CDEJ 0 J K
 stand stand male 110
@@ -1215,7 +1215,7 @@ follow its master's orders until it is killed or freed.
 ~
 human~
 ABIJ BDTU 0 0
-40 0 15d10+2550 1d10+400 4d8+13 chill
+40 0 15d10+2550 1d10+400 4d8+13 'chill'
 -13 -13 -13 -10
 FG 0 0 0
 stand stand either 0
@@ -1229,7 +1229,7 @@ Hard adamantite knuckles gleam with a fierce power.
 ~
 modron~
 ABIJ T 0 0
-45 0 25d10+3000 1d10+450 8d4+16 crush
+45 0 25d10+3000 1d10+450 8d4+16 'crush'
 -15 -15 -15 -12
 CDK 0 0 0
 stand stand none 0
@@ -1244,7 +1244,7 @@ powerful cat.
 ~
 cat~
 ABIJ P 0 0
-50 0 50d10+4500 1d10+500 5d8+19 claw
+50 0 50d10+4500 1d10+500 5d8+19 'claw'
 -21 -19 -20 -19
 DE 0 MN JS
 stand stand either 0
@@ -1259,7 +1259,7 @@ impression of a living bolt of pure lightning.
 ~
 cat~
 ABIJ DP 0 0
-55 0 50d10+6000 1d10+550 10d4+23 shbite
+55 0 50d10+6000 1d10+550 10d4+23 'shbite'
 -26 -25 -25 -23
 CD J 0 M
 stand stand either 0
@@ -1274,7 +1274,7 @@ Intelligent sea blue eyes seem to follow your every move.
 ~
 pig~
 ABIJ DET 500 0
-60 0 50d10+6500 1d10+600 8d6+28 cleave
+60 0 50d10+6500 1d10+600 8d6+28 'cleave'
 -30 -30 -30 -30
 FIK 0 0 0
 stand stand either 0
@@ -1289,7 +1289,7 @@ glint like twin furnaces amidst the heat.
 ~
 cat~
 ABIJ P 0 0
-65 0 75d10+8000 1d10+650 8d6+34 flbite
+65 0 75d10+8000 1d10+650 8d6+34 'flbite'
 -36 -36 -34 -33
 DE H 0 I
 stand stand either 0
@@ -1305,7 +1305,7 @@ a killer.
 ~
 cat~
 ABIJ P 0 0
-65 0 75d10+8000 1d10+650 8d6+34 flbite
+65 0 75d10+8000 1d10+650 8d6+34 'flbite'
 -35 -36 -34 -33
 DE I J H
 stand stand either 0
@@ -1322,7 +1322,7 @@ its master..
 ~
 cat~
 ABIJ BDFPTU 0 0
-70 0 100d10+9500 1d10+700 7d10+30 wrath
+70 0 100d10+9500 1d10+700 7d10+30 'wrath'
 -40 -41 -41 -40
 DE 0 C OP
 stand stand either 0
@@ -1339,7 +1339,7 @@ neck, binding it to the will of its master.
 ~
 human~
 ABIJ E -500 0
-75 0 100d10+11250 1d10+750 7d10+35 slash
+75 0 100d10+11250 1d10+750 7d10+35 'slash'
 -45 -45 -45 -45
 CDK 0 0 0
 stand stand either 0
@@ -1355,7 +1355,7 @@ in a sharp, triangular tip.
 ~
 human~
 ABIJ ET -700 0
-80 0 100d12+13500 1d10+800 9d10+28 slash
+80 0 100d12+13500 1d10+800 9d10+28 'slash'
 -50 -50 -50 -50
 CDEKM 0 0 0
 stand stand either 0
@@ -1371,7 +1371,7 @@ either side of the broad torso, ending in wickedly sharp black talons.
 ~
 human~
 ABIJ EO -900 0
-85 0 100d12+16250 1d10+800 9d10+33 claw
+85 0 100d12+16250 1d10+800 9d10+33 'claw'
 -55 -55 -55 -55
 CDK 0 H N
 stand stand either 0
@@ -1386,7 +1386,7 @@ of a small and deadly fluffball.  Watch those incisors!
 ~
 rabbit~
 ABCIJ b 0 0
-90 0 100d12+18000 1d10+900 9d10+38 bite
+90 0 100d12+18000 1d10+900 9d10+38 'bite'
 -60 -60 -60 -58
 DJ 0 0 0
 stand stand either 0
@@ -1400,7 +1400,7 @@ It snuffles viciously.  Fatal and furry!
 ~
 rabbit~
 ABCIJ a 0 0
-92 0 100d12+17250 1d10+950 10d10+38 chomp
+92 0 100d12+17250 1d10+950 10d10+38 'chomp'
 -68 -68 -68 -68
 DEJ 0 0 0
 stand stand either 0
@@ -1415,7 +1415,7 @@ powerful magic.  It is very precise and extremely deadly.
 ~
 modron~
 ABIJT T 0 0
-92 0 100d12+17250 1d10+950 10d10+40 slash
+92 0 100d12+17250 1d10+950 10d10+40 'slash'
 -65 -65 -65 -65
 DEFK 0 0 0
 stand stand none 0
@@ -1431,7 +1431,7 @@ and training which make it an deadly fighter.
 ~
 rabbit~
 ABIJT BDFTUZ 0 0
-93 0 100d12+19000 1d10+1000 10d10+43 magic
+93 0 100d12+19000 1d10+1000 10d10+43 'magic'
 -75 -74 -74 -74
 CDEGK 0 C 0
 stand stand either 0
@@ -1446,7 +1446,7 @@ blade.  Magically empowered and honed, the blade is a lethal enemy.
 ~
 modron~
 ABIJT NOT 0 0
-90 0 100d12+19000 1d10+1000 10d10+43 cleave
+90 0 100d12+19000 1d10+1000 10d10+43 'cleave'
 -70 -70 -70 -68
 CDEFK 0 0 0
 stand stand none 0
@@ -1463,7 +1463,7 @@ A classy nametag pinned to her lapel reads:
 ~
 elf~
 ABGe DF 0 0
-93 0 100d12+19000 1d10+1000 10d10+43 wrath
+93 0 100d12+19000 1d10+1000 10d10+43 'wrath'
 -50 -50 -50 -50
 EFK A 0 0
 stand stand female 10000
@@ -1481,7 +1481,7 @@ A silver pin on her lapel reads:
 ~
 elf~
 ABGe DF 0 0
-90 0 100d12+18000 1d10+1000 10d10+43 magic
+90 0 100d12+18000 1d10+1000 10d10+43 'magic'
 -50 -50 -50 -50
 EFK A 0 0
 stand stand female 10000
@@ -1502,7 +1502,7 @@ hawk over two crossed daggers.
 ~
 elf~
 ABCFGS DFQa -500 11700
-88 5 100d12+17250 1d10+3000 10d10+49 pierce
+88 5 100d12+17250 1d10+3000 10d10+49 'pierce'
 -70 -70 -70 -69
 BDEFHJK 0 CD 0
 stand stand either 10000
@@ -1523,7 +1523,7 @@ hawk over two crossed daggers.
 ~
 elf~
 ABCFGRS DFQ 0 11700
-88 5 100d12+17700 1d10+6000 10d10+48 pierce
+88 5 100d12+17700 1d10+6000 10d10+48 'pierce'
 -70 -70 -70 -69
 BEFJK 0 CD 0
 stand stand either 10000
@@ -1541,7 +1541,7 @@ shimmers above his collarbone.
 ~
 elf~
 ABCFGRS DFOQ -500 11700
-85 2 100d12+15750 1d10+1500 9d10+33 wrath
+85 2 100d12+15750 1d10+1500 9d10+33 'wrath'
 -57 -57 -58 -56
 BEFHJK 0 0 0
 stand stand male 10000
@@ -1556,7 +1556,7 @@ Silent and deadly, the shadowmaster is a lethal enemy.
 ~
 elf~
 ABCFGS DFQ -500 11700
-80 2 100d12+13500 1d10+1200 9d10+28 pierce
+80 2 100d12+13500 1d10+1200 9d10+28 'pierce'
 -53 -53 -52 -51
 BEFJK 0 0 0
 stand stand female 8000
@@ -1572,7 +1572,7 @@ of the power and difficulty of this rank.
 ~
 elf~
 ACFGS Q -500 11700
-75 1 100d10+11250 1d10+900 7d10+35 pierce
+75 1 100d10+11250 1d10+900 7d10+35 'pierce'
 -48 -48 -48 -44
 BDEFJ 0 0 0
 stand stand either 7500
@@ -1588,7 +1588,7 @@ versatile and effective assassin.
 ~
 elf~
 ACFGRS DOQT -500 11700
-75 1 100d10+11000 1d10+1500 7d10+34 pierce
+75 1 100d10+11000 1d10+1500 7d10+34 'pierce'
 -49 -50 -49 -47
 BFGJ 0 0 0
 stand stand either 7500
@@ -1609,7 +1609,7 @@ and those above him are anything but strangers to the art.
 ~
 elf~
 ACFGS Q -500 11700
-70 1 100d10+9500 1d10+900 7d10+30 pierce
+70 1 100d10+9500 1d10+900 7d10+30 'pierce'
 -43 -44 -43 -41
 BEFJK 0 0 0
 stand stand either 7000
@@ -1624,7 +1624,7 @@ deaths to obtain this rank.
 ~
 elf~
 ACFGS Q -500 11700
-65 1 75d10+8000 1d10+750 8d6+34 pierce
+65 1 75d10+8000 1d10+750 8d6+34 'pierce'
 -37 -38 -38 -37
 BEFJK 0 0 0
 stand stand either 6500
@@ -1639,7 +1639,7 @@ repertoire of poisons to aid his assassinations.
 ~
 elf~
 ACFGS Q -500 11700
-60 1 50d10+8000 1d10+700 8d6+28 pierce
+60 1 50d10+8000 1d10+700 8d6+28 'pierce'
 -34 -33 -34 -32
 BEFJK L Q 0
 stand stand either 6000
@@ -1654,7 +1654,7 @@ blade.
 ~
 elf~
 ACFGS Q -500 11700
-55 1 50d10+5000 1d10+650 10d4+23 pierce
+55 1 50d10+5000 1d10+650 10d4+23 'pierce'
 -29 -28 -28 -26
 BEFJK 0 0 0
 stand stand either 5500
@@ -1671,7 +1671,7 @@ art and is a dangerous enemy.
 ~
 elf~
 ACFGS Q -50 11700
-50 0 50d10+4500 1d10+600 5d8+19 pierce
+50 0 50d10+4500 1d10+600 5d8+19 'pierce'
 -21 -21 -21 -19
 BFJ 0 0 0
 stand stand either 1000
@@ -1688,7 +1688,7 @@ of the guild, also resulting in death.
 ~
 elf~
 ABGS 0 -50 11700
-45 0 25d10+3000 1d10+500 8d4+16 pierce
+45 0 25d10+3000 1d10+500 8d4+16 'pierce'
 -15 -15 -15 -12
 BF 0 0 0
 stand stand either 500
@@ -1704,7 +1704,7 @@ with a powerful grace.
 ~
 cat~
 AFG JPQ 0 11700
-55 0 50d10+5000 1d10+550 10d4+23 claw
+55 0 50d10+5000 1d10+550 10d4+23 'claw'
 -28 -28 -28 -27
 DE 0 0 0
 stand stand either 0
@@ -1718,7 +1718,7 @@ Slitted green eyes watch you warily.  A black key is draped around its neck.
 ~
 cat~
 ABFG JP 0 11700
-55 0 50d10+5000 1d10+550 10d4+23 claw
+55 0 50d10+5000 1d10+550 10d4+23 'claw'
 -28 -28 -28 -27
 DE 0 0 0
 stand stand either 0
@@ -1733,7 +1733,7 @@ teach apprentices in the arts of killing magics.
 ~
 elf~
 ABCFGRS DOQT -500 11700
-75 1 100d10+11000 1d10+1500 7d10+34 pierce
+75 1 100d10+11000 1d10+1500 7d10+34 'pierce'
 -49 -50 -49 -47
 BFGJ 0 0 0
 stand stand either 7500
@@ -1750,7 +1750,7 @@ art and is a dangerous enemy.
 ~
 elf~
 ABCFGRS Q -50 11700
-50 0 50d10+4500 1d10+600 5d8+19 pierce
+50 0 50d10+4500 1d10+600 5d8+19 'pierce'
 -21 -21 -21 -19
 BFJ 0 0 0
 stand stand either 1000
@@ -1767,7 +1767,7 @@ art and is a dangerous enemy.
 ~
 elf~
 ABCFGRS Q -50 11700
-50 0 50d10+4500 1d10+600 5d8+19 pierce
+50 0 50d10+4500 1d10+600 5d8+19 'pierce'
 -21 -21 -21 -19
 BFJ 0 0 0
 stand stand either 1000
@@ -1783,7 +1783,7 @@ of the power and difficulty of this rank.
 ~
 elf~
 ABCFGS Q -500 11700
-75 1 100d10+11250 1d10+900 7d10+35 pierce
+75 1 100d10+11250 1d10+900 7d10+35 'pierce'
 -48 -48 -48 -44
 BDEFJ 0 0 0
 stand stand either 7500
@@ -1800,7 +1800,7 @@ art and is a dangerous enemy.
 ~
 elf~
 ABCFGS Q -50 11700
-50 0 50d10+4500 1d10+600 5d8+19 pierce
+50 0 50d10+4500 1d10+600 5d8+19 'pierce'
 -21 -21 -21 -19
 BFJ 0 0 0
 stand stand either 1000
@@ -1817,7 +1817,7 @@ art and is a dangerous enemy.
 ~
 elf~
 ABCFGS Q -50 11700
-50 0 50d10+4500 1d10+600 5d8+19 pierce
+50 0 50d10+4500 1d10+600 5d8+19 'pierce'
 -21 -21 -21 -19
 BFJ 0 0 0
 stand stand either 1000
@@ -1832,7 +1832,7 @@ teach apprentices in the arts of killing magics.
 ~
 elf~
 ABCFGRS DOQT -500 11700
-75 1 100d10+11000 1d10+1500 7d10+34 pierce
+75 1 100d10+11000 1d10+1500 7d10+34 'pierce'
 -49 -50 -49 -47
 BFGJ 0 0 0
 stand stand either 7500
@@ -1847,7 +1847,7 @@ repertoire of poisons to aid his assassinations.
 ~
 elf~
 ABCFGS Q -500 11700
-60 1 50d10+6750 1d10+700 8d6+28 pierce
+60 1 50d10+6750 1d10+700 8d6+28 'pierce'
 -24 -23 -24 -22
 BEFJK L Q 0
 stand stand male 6000
@@ -1862,7 +1862,7 @@ blade.
 ~
 elf~
 ABCFGS Q -500 11700
-55 1 50d10+5500 1d10+650 10d4+23 pierce
+55 1 50d10+5500 1d10+650 10d4+23 'pierce'
 -29 -28 -28 -26
 BEFJK 0 0 0
 stand stand female 5500
@@ -1877,7 +1877,7 @@ repertoire of poisons to aid his assassinations.
 ~
 elf~
 ABCFGS Q -500 11700
-60 1 50d10+6500 1d10+700 8d6+28 pierce
+60 1 50d10+6500 1d10+700 8d6+28 'pierce'
 -34 -33 -34 -32
 BEFJK L Q 0
 stand stand either 6000
@@ -1892,7 +1892,7 @@ into the captives' mouths.
 ~
 elf~
 ABCFGS Q -500 11700
-60 1 50d10+7200 1d10+700 8d6+28 pierce
+60 1 50d10+7200 1d10+700 8d6+28 'pierce'
 -34 -33 -34 -32
 BEFJK L Q 0
 stand stand either 6000
@@ -1907,7 +1907,7 @@ and only succeeds in pulling them tighter.
 ~
 human~
 ABG JM 0 11700
-30 0 6d12+853 1d10+300 4d6+6 scratch
+30 0 6d12+853 1d10+300 4d6+6 'scratch'
 -6 -6 -6 -4
 0 0 0 0
 rest rest either 0
@@ -1922,7 +1922,7 @@ strikes the metal before him.
 ~
 elf~
 ABCG 0 -200 11700
-50 0 50d10+5000 1d10+500 5d8+20 crush
+50 0 50d10+5000 1d10+500 5d8+20 'crush'
 -22 -21 -21 -18
 CDIK 0 0 0
 stand stand male 2500
@@ -1937,7 +1937,7 @@ before him into the shape of a dagger.
 ~
 elf~
 ABCG 0 -200 11700
-50 0 50d10+5000 1d10+500 5d8+20 smash
+50 0 50d10+5000 1d10+500 5d8+20 'smash'
 -22 -21 -21 -18
 CDIK 0 0 0
 stand stand male 2500
@@ -1958,7 +1958,7 @@ hawk over two crossed daggers.
 ~
 elf~
 ABCFGRS DFQa -500 11700
-89 5 100d12+18500 1d10+3500 10d10+51 wrath
+89 5 100d12+18500 1d10+3500 10d10+51 'wrath'
 -74 -74 -74 -74
 BDEFHJK 0 CD 0
 stand stand either 10000

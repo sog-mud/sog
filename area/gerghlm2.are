@@ -16,7 +16,7 @@ He is a Small squirrel, and he is SOO cute!
 ~
 dog~
 AG 0 0 7500
-1 0 2d6+10 9d1+1 1d4+0 bite
+1 0 2d6+10 9d1+1 1d4+0 'bite'
 9 9 9 10
 EKN 0 0 0
 stand stand male 10
@@ -31,7 +31,7 @@ He's got sharp teeth though....
 ~
 cat~
 AG 0 0 7501
-1 0 2d6+10 9d1+1 1d4+0 claw
+1 0 2d6+10 9d1+1 1d4+0 'claw'
 9 9 9 1
 EKN 0 0 0
 stand stand male 10
@@ -46,7 +46,7 @@ pretty about them though.
 ~
 snake~
 AG 0 0 0
-1 0 2d6+10 9d1+1 1d4+0 scratch
+1 0 2d6+10 9d1+1 1d4+0 'scratch'
 9 9 9 10
 EKN 0 0 0
 stand stand male 0
@@ -60,7 +60,7 @@ It's a swallow, what do you EXPECT to see???
 ~
 song bird~
 AG 0 0 0
-1 0 2d6+10 9d1+1 1d4+0 slap
+1 0 2d6+10 9d1+1 1d4+0 'slap'
 9 9 9 10
 EKN 0 0 0
 stand stand male 0
@@ -74,7 +74,7 @@ An African Swallow is here.... Carrying a cocanut..... :)
 ~
 song bird~
 AG 0 0 0
-2 0 2d7+21 19d1+1 1d5+0 scratch
+2 0 2d7+21 19d1+1 1d5+0 'scratch'
 8 8 8 10
 EKN 0 0 0
 stand stand male 0
@@ -88,7 +88,7 @@ He is very clean, must be from all those baths he gives his food...
 ~
 orc~
 AG 0 0 0
-2 0 2d7+21 19d1+1 1d5+0 bite
+2 0 2d7+21 19d1+1 1d5+0 'bite'
 8 8 8 10
 EKN 0 0 0
 stand stand male 10
@@ -102,7 +102,7 @@ He is doing.. Well... Well, whatever ground-hogs DO, of course!
 ~
 cat~
 AG 0 0 0
-2 0 2d7+21 19d1+1 1d5+0 stab
+2 0 2d7+21 19d1+1 1d5+0 'stab'
 8 8 8 10
 EKN 0 0 0
 stand stand male 44
@@ -116,7 +116,7 @@ He's small, and it is hard to see him clearly...
 ~
 elf~
 AG 0 0 0
-1 0 2d6+10 9d1+1 1d4+0 claw
+1 0 2d6+10 9d1+1 1d4+0 'claw'
 9 9 9 10
 EKN 0 0 0
 stand stand male 10
@@ -131,7 +131,7 @@ he's flying, and you're not.  We should fix this...
 ~
 song bird~
 AG 0 0 0
-2 0 2d7+21 19d1+1 1d5+0 punch
+2 0 2d7+21 19d1+1 1d5+0 'punch'
 8 8 8 10
 EKN 0 0 0
 stand stand male 40
@@ -146,7 +146,7 @@ must be feeling very good.
 ~
 human~
 AG 0 300 0
-4 0 2d7+46 39d1+1 1d5+1 punch
+4 0 2d7+46 39d1+1 1d5+1 'punch'
 6 6 6 9
 EKN 0 0 0
 stand stand male 350
@@ -161,7 +161,7 @@ has nabbed her..
 ~
 human~
 AG 0 300 0
-4 0 2d7+46 39d1+1 1d5+1 punch
+4 0 2d7+46 39d1+1 1d5+1 'punch'
 6 6 6 9
 EKN 0 0 0
 stand stand female 60
@@ -175,7 +175,7 @@ He is collecting herbs for use in his training, and his mentors work.
 ~
 human~
 AG 0 0 0
-6 0 2d7+71 59d1+1 1d7+1 punch
+6 0 2d7+71 59d1+1 1d7+1 'punch'
 4 4 4 9
 EKN 0 0 0
 stand stand male 90
@@ -189,7 +189,7 @@ He has green scales,  almost like his cousin in the Park.
 ~
 snake~
 AG bz 0 0
-6 0 2d7+71 59d1+1 1d7+1 whip
+6 0 2d7+71 59d1+1 1d7+1 'whip'
 4 4 4 9
 EKN 0 0 0
 stand stand male 110
@@ -203,7 +203,7 @@ He has many small sharp pointy teeth in his mouth.
 ~
 water fowl~
 AG z 0 0
-6 0 2d7+71 59d1+1 1d7+1 smash
+6 0 2d7+71 59d1+1 1d7+1 'smash'
 4 4 4 9
 EKN 0 0 0
 stand stand male 133
@@ -218,7 +218,7 @@ He has many medium sharp pointy teeth in his mouth.
 ~
 water fowl~
 AG Jz 0 0
-7 0 2d6+85 69d1+1 1d8+1 smash
+7 0 2d6+85 69d1+1 1d8+1 'smash'
 4 4 4 9
 EKN 0 0 0
 stand stand male 150
@@ -233,7 +233,7 @@ He has MANY, MANY,  sharp pointy teeth of the medium type....
 ~
 water fowl~
 AG z 0 0
-8 0 2d7+96 79d1+1 1d7+2 smash
+8 0 2d7+96 79d1+1 1d7+2 'smash'
 3 3 3 9
 EKN 0 0 0
 stand stand male 170
@@ -249,7 +249,7 @@ himself.  You should help him...
 ~
 water fowl~
 AG Jz 0 0
-5 0 2d6+60 49d1+1 1d6+1 bite
+5 0 2d6+60 49d1+1 1d6+1 'bite'
 5 5 5 9
 EKN 0 0 0
 stand stand male 170
@@ -264,7 +264,7 @@ He is almost as cute as the goldfish.  You should help him too.
 ~
 human~
 AG Jbz 0 0
-5 0 2d6+60 49d1+1 1d6+1 punch
+5 0 2d6+60 49d1+1 1d6+1 'punch'
 5 5 5 9
 EKN 0 0 0
 stand stand male 134
@@ -280,7 +280,7 @@ It's enough to make you sick....
 ~
 water fowl~
 AG z 0 0
-6 0 2d7+71 59d1+1 1d7+1 claw
+6 0 2d7+71 59d1+1 1d7+1 'claw'
 4 4 4 9
 EKN 0 0 0
 stand stand male 130
@@ -295,7 +295,7 @@ He looks evil, and mean.  You wonder what he is planning to do down here..
 ~
 bear~
 AG J -500 0
-9 0 2d6+110 89d1+1 1d8+2 pierce
+9 0 2d6+110 89d1+1 1d8+2 'pierce'
 2 2 2 9
 KN 0 0 0
 stand stand male 170
@@ -309,7 +309,7 @@ Now you know why these tunnels are so clean.
 ~
 snake~
 AFG DFJ 0 0
-10 0 2d7+121 99d1+1 2d4+2 grep
+10 0 2d7+121 99d1+1 2d4+2 'grep'
 1 1 1 8
 EKN 0 0 0
 stand stand male 200
@@ -323,7 +323,7 @@ The citizen of Gerighelm looks happy, and contented.
 ~
 human~
 AEG 0 0 7521
-6 0 2d7+71 59d1+1 1d7+1 punch
+6 0 2d7+71 59d1+1 1d7+1 'punch'
 4 4 4 9
 EKN 0 0 0
 stand stand male 120
@@ -338,7 +338,7 @@ She looks very worn from all this haggling.  But she is happy nonetheless.
 ~
 human~
 A G 0 7521
-7 0 2d6+85 69d1+1 1d8+1 punch
+7 0 2d6+85 69d1+1 1d8+1 'punch'
 4 4 4 9
 EKN 0 0 0
 stand stand female 140
@@ -353,7 +353,7 @@ His voice is clear and strong.  It makes you want to join in the song
 ~
 human~
 AGI 0 0 0
-10 0 2d7+121 99d1+1 2d4+2 punch
+10 0 2d7+121 99d1+1 2d4+2 'punch'
 1 1 1 8
 EKN 0 0 0
 stand stand male 200
@@ -367,7 +367,7 @@ She is wrinkled and bent.  She is also loud.....
 ~
 human~
 AG 0 0 0
-11 0 2d8+134 109d1+1 1d10+2 punch
+11 0 2d8+134 109d1+1 1d10+2 'punch'
 1 1 1 8
 EKN 0 0 C
 stand stand female 280
@@ -382,7 +382,7 @@ stayed to play with the kings wife.....
 ~
 human~
 AG 0 0 7525
-13 0 2d10+170 129d1+1 2d5+3 punch
+13 0 2d10+170 129d1+1 2d5+3 'punch'
 -1 -1 -1 8
 EKN 0 0 C
 stand stand male 360
@@ -397,7 +397,7 @@ with a curlycue.....
 ~
 human~
 AG 0 0 0
-4 0 2d7+46 39d1+1 1d5+1 punch
+4 0 2d7+46 39d1+1 1d5+1 'punch'
 6 6 6 9
 EKN 0 0 C
 stand stand male 100
@@ -411,7 +411,7 @@ She is telling her doll The Facts Of Life....
 ~
 human~
 AG 0 0 0
-4 0 2d7+46 39d1+1 1d5+1 punch
+4 0 2d7+46 39d1+1 1d5+1 'punch'
 6 6 6 9
 EKN 0 0 C
 stand stand female 100
@@ -426,7 +426,7 @@ Off The Streets...
 ~
 human~
 AGT 0 1000 7528
-15 0 3d9+208 149d1+1 2d6+3 scratch
+15 0 3d9+208 149d1+1 2d6+3 'scratch'
 -2 -2 -2 7
 CDEKLT 0 0 C
 stand stand male 600
@@ -440,7 +440,7 @@ She is about 16. And VERY attractive.
 ~
 human~
 AGT 0 1000 0
-14 0 2d10+190 139d1+1 1d12+3 punch
+14 0 2d10+190 139d1+1 1d12+3 'punch'
 -1 -1 -1 8
 CDEKL 0 0 C
 stand stand male 520
@@ -454,7 +454,7 @@ He is large and strong.  You are glad that he's a Good Guy....
 ~
 human~
 AGT 0 1000 7530
-15 0 3d9+208 149d1+1 2d6+3 punch
+15 0 3d9+208 149d1+1 2d6+3 'punch'
 -2 -2 -2 7
 CDEKLT 0 0 C
 stand stand male 600
@@ -468,7 +468,7 @@ He is large and strong.  You are glad that he's a Good Guy....
 ~
 human~
 AGT 0 1000 7530
-16 0 3d9+233 159d1+1 2d6+4 punch
+16 0 3d9+233 159d1+1 2d6+4 'punch'
 -2 -2 -2 7
 CDEKLT 0 0 C
 stand stand male 680
@@ -482,7 +482,7 @@ He is large and strong.  You are glad that he's a Good Guy....
 ~
 human~
 AGT 0 1000 7530
-17 0 3d9+258 169d1+1 3d4+4 punch
+17 0 3d9+258 169d1+1 3d4+4 'punch'
 -3 -3 -3 7
 CDEKLT 0 0 C
 stand stand male 740
@@ -497,7 +497,7 @@ He does his job well.....
 ~
 human~
 AG 0 0 0
-17 0 3d9+258 169d1+1 3d4+4 punch
+17 0 3d9+258 169d1+1 3d4+4 'punch'
 -3 -3 -3 7
 CDEKLT 0 0 C
 stand stand male 740
@@ -511,7 +511,7 @@ He is worn and tired (WHOA! Army training must be HARD!).
 ~
 human~
 AGT 0 1000 7534
-19 0 3d9+308 189d1+1 2d7+5 punch
+19 0 3d9+308 189d1+1 2d7+5 'punch'
 -4 -4 -4 7
 CDEKLT 0 0 C
 stand stand male 920
@@ -525,7 +525,7 @@ He is worn, and tired.  But he still stays at his job!
 ~
 human~
 AGT 0 1000 7534
-20 0 3d9+333 199d1+1 2d8+5 punch
+20 0 3d9+333 199d1+1 2d8+5 'punch'
 -4 -4 -4 7
 CDEKLT 0 0 C
 stand stand male 1000
@@ -539,7 +539,7 @@ He looks happy with life-- As he is in the best position to enjoy it..
 ~
 human~
 AGT 0 1000 7536
-20 0 3d9+333 199d1+1 2d8+5 punch
+20 0 3d9+333 199d1+1 2d8+5 'punch'
 -4 -4 -4 7
 CDEKLT 0 0 C
 stand stand male 1000
@@ -553,7 +553,7 @@ He looks happy with life-- As he is in the best position to enjoy it..
 ~
 human~
 AGT 0 1000 7536
-21 0 4d10+360 209d1+1 4d4+5 punch
+21 0 4d10+360 209d1+1 4d4+5 'punch'
 -5 -5 -5 7
 CDEKLT 0 0 C
 stand stand male 1300
@@ -567,7 +567,7 @@ He looks like one of his creampuffs.  To bad he doesn't know how to diet...
 ~
 human~
 AGT J 1000 0
-22 0 5d10+400 219d1+1 4d4+6 punch
+22 0 5d10+400 219d1+1 4d4+6 'punch'
 -5 -5 -5 7
 CDEKL 0 0 C
 stand stand male 1600
@@ -581,7 +581,7 @@ He is the standard wizard:  Old, decrepit, exceedingly powerful...
 ~
 human~
 AGHR B 1000 0
-23 0 5d10+450 229d1+1 3d6+6 punch
+23 0 5d10+450 229d1+1 3d6+6 'punch'
 -6 -6 -6 6
 N B 0 E
 stand stand male 2000
@@ -595,7 +595,7 @@ He is the standard priest:  Old, fatherly looking, REAL powerful...
 ~
 human~
 ABGR BH 1000 0
-23 0 5d10+450 229d1+1 3d6+6 punch
+23 0 5d10+450 229d1+1 3d6+6 'punch'
 -6 -6 -6 6
 EFK 0 0 E
 stand stand male 2000
@@ -609,7 +609,7 @@ He's HUGE!!!!
 ~
 human~
 AGT 0 1000 7550
-23 0 5d10+450 229d1+1 3d6+6 punch
+23 0 5d10+450 229d1+1 3d6+6 'punch'
 -6 -6 -6 6
 CDEKLT 0 0 C
 stand stand male 2000
@@ -623,7 +623,7 @@ He is grabbing weeds like there is no tomorrow...
 ~
 human~
 AGT 0 1000 0
-23 0 5d10+450 229d1+1 3d6+6 punch
+23 0 5d10+450 229d1+1 3d6+6 'punch'
 -6 -6 -6 6
 CDEKL 0 0 C
 stand stand male 2000
@@ -637,7 +637,7 @@ He looks like he will give his life for his Duke.
 ~
 human~
 AGT 0 1000 0
-24 0 5d10+500 239d1+1 2d10+6 punch
+24 0 5d10+500 239d1+1 2d10+6 'punch'
 -6 -6 -6 6
 CDEKLT 0 0 C
 stand stand male 2200
@@ -651,7 +651,7 @@ He looks like he will give his life for his Duke.
 ~
 human~
 AGT 0 1000 0
-25 0 5d10+550 249d1+1 2d10+7 punch
+25 0 5d10+550 249d1+1 2d10+7 'punch'
 -7 -7 -7 6
 CDEKLT 0 0 C
 stand stand male 2500
@@ -665,7 +665,7 @@ He looks worn, but happy.
 ~
 human~
 ABGRT 0 1000 7550
-30 0 6d12+853 299d1+1 4d6+8 punch
+30 0 6d12+853 299d1+1 4d6+8 'punch'
 -9 -9 -9 6
 CDEFJKLNU AB 0 E
 stand stand male 4000
@@ -679,7 +679,7 @@ She is a VERY social person...
 ~
 human~
 ABGR 0 1000 0
-25 0 5d10+550 249d1+1 2d10+7 punch
+25 0 5d10+550 249d1+1 2d10+7 'punch'
 -7 -7 -7 6
 FKN AB 0 E
 stand stand female 2500
@@ -693,7 +693,7 @@ He looks at you and says, what are you doing here?
 ~
 human~
 AG 0 1000 0
-20 0 3d9+333 199d1+1 2d8+5 punch
+20 0 3d9+333 199d1+1 2d8+5 'punch'
 -4 -4 -4 7
 CDEKL 0 0 C
 stand stand male 1000
@@ -707,7 +707,7 @@ Well, COUNT your money!
 ~
 human~
 ACHS PQ -100 0
-10 0 2d7+121 99d1+1 2d4+2 punch
+10 0 2d7+121 99d1+1 2d4+2 'punch'
 1 1 1 8
 EFJN 0 0 0
 stand stand either 200
@@ -721,7 +721,7 @@ He looks like a friendly old man who likes to bake.
 ~
 human~
 ABVe 0 900 0
-50 0 1d1+2999 1d1+199 1d9+30 beating
+50 0 1d1+2999 1d1+199 1d9+30 'beating'
 -25 -25 -25 -25
 CDF ABCD 0 0
 stand stand male 100000
@@ -736,7 +736,7 @@ The main reason, is that I doubt the anvil can take much more of her pounding.
 ~
 human~
 ABTVe 0 900 0
-50 10 1d1+2999 1d1+199 1d8+52 punch
+50 10 1d1+2999 1d1+199 1d8+52 'punch'
 -25 -25 -25 -25
 CEIK ABCD 0 0
 stand stand female 250000
@@ -750,7 +750,7 @@ He is a powerful old coot....
 ~
 human~
 ABVe D 900 0
-50 0 1d1+2999 1d1+999 1d8+42 magic
+50 0 1d1+2999 1d1+999 1d8+42 'magic'
 -15 -15 -15 -15
 AF ABCD 0 0
 stand stand male 150000
@@ -764,7 +764,7 @@ He looks almost like the pawn...
 ~
 human~
 ABVe 0 900 0
-50 0 1d1+2999 1d1+199 1d8+32 beating
+50 0 1d1+2999 1d1+199 1d8+32 'beating'
 -15 -15 -15 -15
 EFJ ABCD 0 0
 stand stand male 130000
@@ -778,7 +778,7 @@ HE'S A MERCHANT!
 ~
 human~
 AVe 0 900 0
-40 0 1d1+1999 1d1+99 1d8+30 beating
+40 0 1d1+1999 1d1+99 1d8+30 'beating'
 -15 -15 -15 -15
 EFJ ABCD 0 0
 stand stand male 80000
@@ -792,7 +792,7 @@ She looks like she is happy with her lot in life.
 ~
 human~
 ABVe 0 900 0
-30 0 1d1+999 1d1+99 1d8+20 beating
+30 0 1d1+999 1d1+99 1d8+20 'beating'
 -15 -15 -15 -15
 EFJ ABCD 0 0
 stand stand female 150000
@@ -806,7 +806,7 @@ He is covered in his stock..
 ~
 human~
 ABV 0 900 0
-40 0 1d1+1999 1d1+99 1d8+40 punch
+40 0 1d1+1999 1d1+99 1d8+40 'punch'
 -15 -15 -15 -15
 0 ABC 0 0
 stand stand male 9000
@@ -820,7 +820,7 @@ She is old, and ugly- very good witch material...
 ~
 human~
 ABVe D 900 7006
-40 0 1d1+1999 1d1+999 1d8+32 magic
+40 0 1d1+1999 1d1+999 1d8+32 'magic'
 -15 -15 -15 -15
 AF ABCD 0 0
 stand stand male 20000
@@ -834,7 +834,7 @@ The hawk glares at you.
 ~
 human~
 AGI 0 1000 0
-20 0 3d9+333 199d1+1 2d8+5 punch
+20 0 3d9+333 199d1+1 2d8+5 'punch'
 -4 -4 -4 7
 EKN 0 0 0
 stand stand male 10
@@ -849,7 +849,7 @@ and it says: 'Have a nice day'. Hm?... Death is your only way, probably...
 ~
 human~
 ABGIT CDF 100 0
-60 0 50d10+9500 599d1+1 8d6+28 slap
+60 0 50d10+9500 599d1+1 8d6+28 'slap'
 -30 -30 -30 0
 A 0 0 C
 stand stand either 0

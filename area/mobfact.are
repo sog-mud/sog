@@ -17,7 +17,7 @@ this factory meets ASPCA guidlines....
 ~
 fido~
 AFGH D -700 0
-6 0 2d7+71 3d9+100 1d7+1 none
+6 0 2d7+71 3d9+100 1d7+1 'none'
 4 4 4 9
 EN 0 0 0
 stand stand male 0
@@ -33,7 +33,7 @@ slayer, Floyd now creates the beasts for other adventurers to fight.
 ~
 human~
 ABG DFH 2 0
-12 0 2d10+150 6d9+100 1d10+3 none
+12 0 2d10+150 6d9+100 1d10+3 'none'
 0 0 0 8
 EFNU 0 0 0
 sit stand male 50
@@ -49,7 +49,7 @@ sharp...
 ~
 unique~
 AG T 0 0
-9 0 2d6+110 4d9+100 1d8+2 none
+9 0 2d6+110 4d9+100 1d8+2 'none'
 2 2 2 8
 EFNU 0 0 0
 stand stand none 0
@@ -64,7 +64,7 @@ in place!  Someone should tell him that he is a REVOLTING drunk.
 ~
 human~
 ACGH 0 1 0
-2 0 2d7+21 1d9+100 1d5+0 none
+2 0 2d7+21 1d9+100 1d5+0 'none'
 8 8 8 10
 EFNU 0 0 0
 stand stand male 2
@@ -79,7 +79,7 @@ hydraulic fluid is leaking again.
 ~
 human~
 ABC 0 0 0
-4 0 2d7+46 2d9+100 1d5+1 none
+4 0 2d7+46 2d9+100 1d5+1 'none'
 6 6 6 9
 EFNU 0 0 0
 sit sit none 0
@@ -94,7 +94,7 @@ Factory" written in a bright purple starburst.  Fashion plate, he's not.
 ~
 human~
 AGH 0 100 0
-3 0 2d6+35 1d9+100 1d6+0 none
+3 0 2d6+35 1d9+100 1d6+0 'none'
 7 7 7 10
 EFNU 0 0 0
 stand stand male 2
@@ -109,7 +109,7 @@ worked the late shift!
 ~
 human~
 ABH 0 150 0
-3 0 2d6+35 1d9+100 1d6+0 none
+3 0 2d6+35 1d9+100 1d6+0 'none'
 7 7 7 10
 EFNU 0 0 0
 sleep sit female 3

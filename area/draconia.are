@@ -17,7 +17,7 @@ few feet long, its sharp teeth make you think twice about petting it.
 ~
 dragon~
 ABG 0 -900 0
-7 0 2d6+85 3d9+100 1d8+1 none
+7 0 2d6+85 3d9+100 1d8+1 'none'
 4 4 4 9
 EFNU 0 0 0
 stand stand none 100
@@ -35,7 +35,7 @@ spear as you enter the room.
 ~
 human~
 ABCF D -900 0
-13 0 2d10+170 6d9+100 2d5+3 none
+13 0 2d10+170 6d9+100 2d5+3 'none'
 -1 -1 -1 8
 EFNU 0 0 0
 stand stand male 100
@@ -49,7 +49,7 @@ He doesn't look happy to see you.
 ~
 human~
 ABCF T -1000 0
-27 0 5d10+650 13d9+100 5d4+7 none
+27 0 5d10+650 13d9+100 5d4+7 'none'
 -8 -8 -8 6
 EFNU 0 0 0
 stand stand male 1750
@@ -65,7 +65,7 @@ powerful to have been accepted by the creatures which live here.
 ~
 human~
 ABR BDu -900 0
-22 0 4d10+360 22d9+100 2d7+5 none
+22 0 4d10+360 22d9+100 2d7+5 'none'
 -5 -5 -5 3
 FU 0 0 0
 stand stand male 30
@@ -80,7 +80,7 @@ notice a golden medallion in the shape of a five headed dragon.
 ~
 human~
 ABCFQ Du -900 0
-22 0 5d10+400 22d9+100 2d8+6 none
+22 0 5d10+400 22d9+100 2d8+6 'none'
 -5 -5 -5 5
 EIKU 0 0 0
 stand stand male 20
@@ -96,7 +96,7 @@ is controlled by a greater power.
 ~
 human~
 ABC Du -900 0
-26 0 5d10+600 13d9+100 3d7+7 none
+26 0 5d10+600 13d9+100 3d7+7 'none'
 -7 -7 -7 6
 EFNU 0 0 0
 stand stand male 40
@@ -112,7 +112,7 @@ prepares to defend herself.
 ~
 human~
 AB 0 -500 0
-6 0 2d7+71 3d9+100 1d7+1 none
+6 0 2d7+71 3d9+100 1d7+1 'none'
 4 4 4 9
 EFNU 0 0 0
 stand stand female 5
@@ -127,7 +127,7 @@ not pleased it.
 ~
 human~
 ABF CDF -800 0
-18 0 3d9+283 9d9+100 2d7+4 none
+18 0 3d9+283 9d9+100 2d7+4 'none'
 -3 -3 -3 7
 EFNU 0 0 0
 stand stand male 250
@@ -142,7 +142,7 @@ prepares to make you pay for your insolence ... with your lives!
 ~
 human~
 ABCF DFTV -1000 0
-52 0 50d10+5500 26d9+100 6d7+20 none
+52 0 50d10+5500 26d9+100 6d7+20 'none'
 -22 -22 -22 2
 EFNU AB CD 0
 stand stand female 2500
@@ -157,7 +157,7 @@ you and invites you to stay ... forever!
 ~
 dragon~
 ABCF DF -1000 0
-54 60 25d10+8000 22d9+900 11d11+26 none
+54 60 25d10+8000 22d9+900 11d11+26 'none'
 -85 -85 -85 -24
 EFNR H 0 0
 stand stand male 8000
@@ -173,7 +173,7 @@ going to roll over and die for you.
 ~
 dragon~
 ABCF DF -900 0
-40 40 15d10+3700 19d9+400 5d9+13 none
+40 40 15d10+3700 19d9+400 5d9+13 'none'
 -19 -19 -19 -1
 EFNR K 0 J
 stand stand male 1000
@@ -191,7 +191,7 @@ me a greater challenge than my offspring.'
 ~
 dragon~
 ABCF DF -1000 0
-39 20 10d10+3500 18d9+400 3d20+12 none
+39 20 10d10+3500 18d9+400 3d20+12 'none'
 -12 -12 -12 5
 EFNR I 0 H
 stand stand female 1750
@@ -209,7 +209,7 @@ children.  Prepare to die.'
 ~
 dragon~
 ABCF DF -1000 0
-47 70 25d10+6000 20d9+800 4d8+24 none
+47 70 25d10+6000 20d9+800 4d8+24 'none'
 -34 -34 -34 -10
 EFNR L 0 P
 stand stand female 1000
@@ -226,7 +226,7 @@ it isn't happy to see you.
 ~
 human~
 ABCF DF -800 0
-18 0 3d9+283 9d9+100 2d7+4 none
+18 0 3d9+283 9d9+100 2d7+4 'none'
 -3 -3 -3 7
 EFNU 0 0 0
 stand stand none 250
@@ -241,7 +241,7 @@ left him alone.
 ~
 human~
 ABS DF 0 0
-5 0 2d7+46 2d9+100 1d5+1 none
+5 0 2d7+46 2d9+100 1d5+1 'none'
 6 6 6 9
 BEFJNU 0 0 0
 stand stand male 5
@@ -256,7 +256,7 @@ rest, however, and now guards this corridor tirelessly as a zombie.
 ~
 human~
 ABCF DFJ -400 0
-9 0 2d6+110 4d9+100 1d8+2 none
+9 0 2d6+110 4d9+100 1d8+2 'none'
 2 2 2 8
 EFNU 0 0 0
 stand stand none 75
@@ -270,7 +270,7 @@ This small dragon looks like he's up to no good.
 ~
 dragon~
 ACFGH DF -300 0
-10 0 2d7+121 5d9+100 2d4+2 none
+10 0 2d7+121 5d9+100 2d4+2 'none'
 1 1 1 8
 EFNR 0 0 0
 stand stand male 250
@@ -285,7 +285,7 @@ suit.  As you enter the room, he points at you and laughs.
 ~
 human~
 AGHS DF 0 0
-5 0 2d7+46 2d9+100 1d5+1 none
+5 0 2d7+46 2d9+100 1d5+1 'none'
 6 6 6 9
 BEFJNU 0 0 0
 stand stand male 25
@@ -300,7 +300,7 @@ it might be a good idea to leave her alone.
 ~
 human~
 ABC DFu -600 0
-20 0 3d9+333 10d9+100 2d8+5 none
+20 0 3d9+333 10d9+100 2d8+5 'none'
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand female 500

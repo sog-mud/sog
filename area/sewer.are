@@ -18,7 +18,7 @@ flesh for breakfast and is strongly intent on having the same for dinner.
 ~
 human~
 AG JP -250 0
-12 0 2d10+150 6d9+100 1d10+3 none
+12 0 2d10+150 6d9+100 1d10+3 'none'
 0 0 0 8
 EFNU 0 0 0
 rest rest none 5
@@ -34,7 +34,7 @@ cruel creature doesn't seem appealing.
 ~
 bat~
 AFG JP -500 0
-1 0 2d6+10 0d9+100 1d4+0 none
+1 0 2d6+10 0d9+100 1d4+0 'none'
 9 9 9 10
 ENR 0 0 0
 sleep sleep none 0
@@ -47,7 +47,7 @@ The huge hungry-looking sewer rat sits here.
 ~
 human~
 AF J -1000 0
-5 0 2d6+60 2d9+100 1d6+1 none
+5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
 EFNU 0 0 0
 stand stand male 2
@@ -60,7 +60,7 @@ The small hairy spider.
 ~
 human~
 AF JP -700 0
-1 0 2d6+10 0d9+100 1d4+0 none
+1 0 2d6+10 0d9+100 1d4+0 'none'
 9 9 9 10
 EFNU 0 0 0
 stand stand male 0
@@ -73,7 +73,7 @@ The giant mean-looking earth beetle crawls towards you.
 ~
 human~
 A J -300 0
-8 0 2d7+96 4d9+100 1d7+2 none
+8 0 2d7+96 4d9+100 1d7+2 'none'
 3 3 3 9
 EFNU 0 0 0
 stand stand male 5
@@ -86,7 +86,7 @@ The giant maggot crawls toward you.
 ~
 human~
 A J 300 0
-3 0 2d6+35 1d9+100 1d6+0 none
+3 0 2d6+35 1d9+100 1d6+0 'none'
 7 7 7 10
 EFNU 0 0 0
 stand stand male 0
@@ -99,7 +99,7 @@ The snake slithers towards you.
 ~
 snake~
 AF J -500 0
-4 0 2d7+46 2d9+100 1d5+1 none
+4 0 2d7+46 2d9+100 1d5+1 'none'
 6 6 6 9
 EFNR 0 0 0
 stand stand none 0
@@ -113,7 +113,7 @@ The evil wanderer is very thin.  He is dressed in a grey cloak.
 ~
 human~
 ACH J -1000 0
-10 0 2d7+121 5d9+100 2d4+2 none
+10 0 2d7+121 5d9+100 2d4+2 'none'
 1 1 1 8
 EFNU 0 0 0
 stand stand male 15
@@ -129,7 +129,7 @@ teeth gleaming yellow.
 ~
 human~
 A DJ -780 0
-11 0 2d8+134 5d9+100 1d10+2 none
+11 0 2d8+134 5d9+100 1d10+2 'none'
 1 1 1 8
 EFNU 0 0 0
 stand stand none 25
@@ -144,7 +144,7 @@ glowing eyes. The lower body is in an orange shading.
 ~
 human~
 ACH DJP -830 0
-12 0 2d10+150 6d9+100 1d10+3 none
+12 0 2d10+150 6d9+100 1d10+3 'none'
 0 0 0 8
 EFNU 0 0 0
 stand stand none 75
@@ -160,7 +160,7 @@ at you with such a glint in the eyes that reminds you of immense hunger.
 ~
 human~
 AFH J -900 0
-10 0 2d7+121 5d9+100 2d4+2 none
+10 0 2d7+121 5d9+100 2d4+2 'none'
 1 1 1 8
 EFNU 0 0 0
 stand stand none 0
@@ -176,7 +176,7 @@ flesh for breakfast and is strongly intent on having the same for dinner.
 ~
 human~
 AFG JP -250 0
-12 0 2d10+150 6d9+100 1d10+3 none
+12 0 2d10+150 6d9+100 1d10+3 'none'
 0 0 0 8
 EFNU 0 0 0
 rest rest none 50
@@ -192,7 +192,7 @@ it moves closer.  'Can one NEVER sleep in peace ... Hsss'.
 ~
 dragon~
 ABFZ D -1000 0
-35 90 10d10+1350 16d9+100 6d4+19 none
+35 90 10d10+1350 16d9+100 6d4+19 'none'
 -70 -70 -70 -10
 EFNU 0 0 0
 stand stand none 5000
@@ -208,7 +208,7 @@ and it has small sharp horns.  It hates beauty.
 ~
 human~
 AF J -800 0
-14 0 2d10+190 7d9+100 1d12+3 none
+14 0 2d10+190 7d9+100 1d12+3 'none'
 -1 -1 -1 8
 EFNU 0 0 0
 stand stand female 0
@@ -225,7 +225,7 @@ leads to some evil creatures'.
 ~
 human~
 ABQ J 700 0
-12 0 2d10+150 12d9+100 2d4+3 none
+12 0 2d10+150 12d9+100 2d4+3 'none'
 0 0 0 7
 EIKU 0 0 0
 stand stand female 5
@@ -241,7 +241,7 @@ glowing pale green.
 ~
 human~
 ACF DJ -250 0
-13 0 2d10+170 6d9+100 2d5+3 none
+13 0 2d10+170 6d9+100 2d5+3 'none'
 -1 -1 -1 8
 EFNU 0 0 0
 stand stand male 17
@@ -258,7 +258,7 @@ mind has been burned out.
 ~
 human~
 AF JP -500 0
-5 0 2d6+60 2d9+100 1d6+1 none
+5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
 EFNU 0 0 0
 stand stand none 0
@@ -274,7 +274,7 @@ filthy and moth eaten. Jones really stinks...
 ~
 human~
 ACF J -480 0
-10 0 2d7+121 5d9+100 2d4+2 none
+10 0 2d7+121 5d9+100 2d4+2 'none'
 1 1 1 8
 EFNU 0 0 0
 rest rest male 3
@@ -290,7 +290,7 @@ hangs dead mouses and rats. He does not smell good.
 ~
 human~
 AC J 200 0
-6 0 2d7+71 3d9+100 1d7+1 none
+6 0 2d7+71 3d9+100 1d7+1 'none'
 4 4 4 9
 EFNU 0 0 0
 rest rest male 2
@@ -306,7 +306,7 @@ moment now. In the middle of its head are four tentacles with sharp points.
 ~
 human~
 ACFR DJ -800 0
-14 0 2d10+170 14d9+100 1d10+2 none
+14 0 2d10+170 14d9+100 1d10+2 'none'
 -1 -1 -1 5
 FU 0 0 0
 stand stand none 50
@@ -322,7 +322,7 @@ tentacles with very sharp points.
 ~
 human~
 ACFR DJ -600 0
-8 0 2d6+85 8d9+100 1d6+1 none
+8 0 2d6+85 8d9+100 1d6+1 'none'
 4 4 4 7
 FU 0 0 0
 stand stand none 20
@@ -338,7 +338,7 @@ center of its head.
 ~
 human~
 ACFR DJ -350 0
-6 0 2d6+60 6d9+100 1d6+0 none
+6 0 2d6+60 6d9+100 1d6+0 'none'
 5 5 5 8
 FU 0 0 0
 stand stand none 10
@@ -353,7 +353,7 @@ that it is standing.
 ~
 human~
 ACFG J -700 0
-6 0 2d7+71 3d9+100 1d7+1 none
+6 0 2d7+71 3d9+100 1d7+1 'none'
 4 4 4 9
 EFNU 0 0 0
 stand stand none 2
@@ -368,7 +368,7 @@ the size of your head looking very nasty.
 ~
 human~
 ABF J -800 0
-12 0 2d10+150 6d9+100 1d10+3 none
+12 0 2d10+150 6d9+100 1d10+3 'none'
 0 0 0 8
 EFNU 0 0 0
 sleep stand male 125

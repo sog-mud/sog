@@ -16,7 +16,7 @@ The guard looks very tough and mean.
 ~
 dwarf~
 AB D 500 0
-20 0 3d9+333 10d9+100 2d8+5 none
+20 0 3d9+333 10d9+100 2d8+5 'none'
 -4 -4 -4 7
 EFNR 0 0 0
 stand stand male 500
@@ -30,7 +30,7 @@ He is very dirty, and looks extremely over-worked.
 ~
 dwarf~
 AG 0 900 0
-12 0 2d10+150 6d9+100 1d10+3 none
+12 0 2d10+150 6d9+100 1d10+3 'none'
 0 0 0 8
 EFNR 0 0 0
 stand stand male 175
@@ -44,7 +44,7 @@ A black, almost transparent wraith.
 ~
 human~
 AB DFJ -900 0
-29 0 20d20+778 20d20+500 5d17+8 none
+29 0 20d20+778 20d20+500 5d17+8 'none'
 -9 -9 -9 6
 EFNU 0 0 0
 stand stand male 2500
@@ -58,7 +58,7 @@ The storekeeper is very rotund, but looks like a sharp guy.
 ~
 human~
 ABe 0 900 0
-35 0 10d10+1300 17d9+100 4d7+11 none
+35 0 10d10+1300 17d9+100 4d7+11 'none'
 -11 -11 -11 5
 EFNU 0 0 0
 stand stand male 5000
@@ -72,7 +72,7 @@ Granite Head is covered with flour and grains.
 ~
 human~
 ABe 0 900 0
-35 0 10d10+1700 17d9+100 4d7+11 none
+35 0 10d10+1700 17d9+100 4d7+11 'none'
 -31 -31 -31 5
 EFNU 0 0 0
 stand stand male 50
@@ -87,7 +87,7 @@ habitat.  He looks very powerful.
 ~
 lizard~
 AG D 100 0
-18 0 3d9+283 9d9+100 2d7+4 none
+18 0 3d9+283 9d9+100 2d7+4 'none'
 -3 -3 -3 7
 EFNR 0 0 0
 stand stand male 60
@@ -101,7 +101,7 @@ The giant is about 8 feet tall, with arms of steel, and looks very strong.
 ~
 giant~
 AG 0 0 0
-16 0 3d9+233 8d9+100 2d6+4 none
+16 0 3d9+233 8d9+100 2d6+4 'none'
 -2 -2 -2 7
 EFNR 0 0 0
 stand stand male 100
@@ -115,7 +115,7 @@ The mineworker is very tired, and very dirty, and he has bulging muscles.
 ~
 dwarf~
 AB 0 0 0
-8 0 2d7+96 4d9+100 1d7+2 none
+8 0 2d7+96 4d9+100 1d7+2 'none'
 3 3 3 9
 EFNR 0 0 0
 stand stand male 2
@@ -129,7 +129,7 @@ The mine leader is very big and very strong.
 ~
 dwarf~
 AB 0 0 0
-21 0 4d10+360 10d9+100 4d4+5 none
+21 0 4d10+360 10d9+100 4d4+5 'none'
 -5 -5 -5 7
 EFNR 0 0 0
 stand stand male 1000
@@ -143,7 +143,7 @@ He is a very skilled surgeon, with hands of steel.
 ~
 dwarf~
 AB DH 1000 0
-9 0 2d6+110 4d9+100 1d8+2 none
+9 0 2d6+110 4d9+100 1d8+2 'none'
 2 2 2 8
 EFNR 0 0 0
 stand stand male 75
@@ -156,7 +156,7 @@ A dwarven peon is awaiting help here.
 ~
 dwarf~
 AB 0 500 0
-3 0 2d6+35 1d9+100 1d6+0 none
+3 0 2d6+35 1d9+100 1d6+0 'none'
 7 7 7 10
 EFNR 0 0 0
 stand stand male 3
@@ -169,7 +169,7 @@ A grinning dwarf is here.
 ~
 dwarf~
 AB 0 500 0
-9 0 2d6+110 4d9+100 1d8+2 none
+9 0 2d6+110 4d9+100 1d8+2 'none'
 2 2 2 8
 EFNR 0 0 0
 stand stand male 62
@@ -182,7 +182,7 @@ An unwanted son is here.  You feel sorry for the guy.
 ~
 dwarf~
 AG 0 250 0
-9 0 2d6+110 4d9+100 1d8+2 none
+9 0 2d6+110 4d9+100 1d8+2 'none'
 2 2 2 8
 EFNR 0 0 0
 stand stand male 2
@@ -195,7 +195,7 @@ An unwanted daughter is here.  You feel sorry for her.
 ~
 dwarf~
 AG 0 250 0
-10 0 2d7+121 5d9+100 2d4+2 none
+10 0 2d7+121 5d9+100 2d4+2 'none'
 1 1 1 8
 EFNR 0 0 0
 stand stand female 2
@@ -208,7 +208,7 @@ A barrack guard is here.
 ~
 dwarf~
 AB 0 100 0
-16 0 3d9+233 8d9+100 2d6+4 none
+16 0 3d9+233 8d9+100 2d6+4 'none'
 -2 -2 -2 7
 EFNR 0 0 0
 stand stand male 150
@@ -221,7 +221,7 @@ A man in waiting is here.  He looks nervous and unsure of himself.
 ~
 human~
 AB 0 300 0
-15 0 3d9+208 7d9+100 2d6+3 none
+15 0 3d9+208 7d9+100 2d6+3 'none'
 -2 -2 -2 7
 EFNU 0 0 0
 stand stand male 348
@@ -235,7 +235,7 @@ He looks VERY tough.
 ~
 human~
 ABF Ju -1000 0
-29 0 6d12+778 14d9+100 2d12+8 none
+29 0 6d12+778 14d9+100 2d12+8 'none'
 -9 -9 -9 6
 EFNU 0 0 0
 stand stand male 4000
@@ -248,7 +248,7 @@ There is a giant snake here.
 ~
 snake~
 ABF J -1000 0
-15 0 3d9+208 7d9+100 2d6+3 none
+15 0 3d9+208 7d9+100 2d6+3 'none'
 -2 -2 -2 7
 EFNR 0 0 0
 stand stand male 150
@@ -263,7 +263,7 @@ this one seems to be waiting for someone
 ~
 dwarf~
 ABG 0 0 0
-12 0 2d10+150 6d9+100 1d10+3 none
+12 0 2d10+150 6d9+100 1d10+3 'none'
 0 0 0 8
 EFNR 0 0 0
 stand stand male 175

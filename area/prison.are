@@ -17,7 +17,7 @@ loudly and occasionally rubs his chin. Well better kill him now I guess.
 ~
 human~
 ABG 0 0 0
-6 0 2d7+71 5d5+100 1d7+1 pound
+6 0 2d7+71 5d5+100 1d7+1 'pound'
 4 4 4 8
 EFNU 0 0 0
 stand stand male 100
@@ -31,7 +31,7 @@ The rat looks as if it hasn't eaten in days....it contemplates eating YOU!
 ~
 unique~
 AG JQ 0 0
-5 0 2d6+60 5d5+100 1d6+1 bite
+5 0 2d6+60 5d5+100 1d6+1 'bite'
 5 5 5 9
 F 0 0 0
 stand stand male 100
@@ -47,7 +47,7 @@ the elite.
 ~
 human~
 ACG J 0 0
-65 0 50d10+8250 5d5+5000 11d5+35 pound
+65 0 50d10+8250 5d5+5000 11d5+35 'pound'
 -35 -35 -35 -5
 EFNU 0 0 0
 stand stand male 100
@@ -62,7 +62,7 @@ Midgaard!
 ~
 human~
 ACG DFJ 0 0
-9 0 2d6+110 5d5+100 1d8+2 slash
+9 0 2d6+110 5d5+100 1d8+2 'slash'
 2 2 2 7
 FIJ 0 0 0
 stand stand male 100
@@ -78,7 +78,7 @@ above  you.
 ~
 human~
 ABG HJ 100 0
-65 0 50d10+8250 5d5+5000 11d5+35 pound
+65 0 50d10+8250 5d5+5000 11d5+35 'pound'
 -35 -35 -35 -5
 CDEFIKU 0 0 0
 stand stand male 100
@@ -93,7 +93,7 @@ of an inmate with nothing to lose.
 ~
 human~
 AG J 0 0
-33 0 10d10+1100 5d5+1000 6d4+10 punch
+33 0 10d10+1100 5d5+1000 6d4+10 'punch'
 -11 -11 -11 3
 FIJK 0 0 0
 stand stand male 100
@@ -108,7 +108,7 @@ ge body. It is at least 2 feet long. Do you have some bug spray?
 ~
 unique~
 AG J 500 0
-8 0 2d7+96 5d5+100 1d7+2 bite
+8 0 2d7+96 5d5+100 1d7+2 'bite'
 3 3 3 8
 F 0 0 0
 stand stand none 100
@@ -123,7 +123,7 @@ The flunky is the lowest ranking scum of the prison. He is a shame to all. kinda
 ~
 human~
 AGH 0 0 0
-13 0 2d10+170 5d5+100 2d5+3 punch
+13 0 2d10+170 5d5+100 2d5+3 'punch'
 -1 -1 -1 6
 F 0 0 0
 stand stand male 100
@@ -139,7 +139,7 @@ ll you get the idea.
 ~
 human~
 ABGH 0 0 0
-44 0 25d10+2750 5d5+1000 8d4+15 pound
+44 0 25d10+2750 5d5+1000 8d4+15 'pound'
 -15 -15 -15 2
 CDEFIJKU 0 0 0
 stand stand male 100
@@ -153,7 +153,7 @@ Sadly the gangster was caught not paying taxes to the mayor.
 ~
 human~
 ACGH 0 0 0
-23 0 5d10+450 5d5+1000 3d6+6 punch
+23 0 5d10+450 5d5+1000 3d6+6 'punch'
 -6 -6 -6 4
 FIJK 0 0 0
 stand stand male 100
@@ -171,8 +171,8 @@ notice he  has a preferance for  women's clothing.
 ~
 human~
 AG HU 0 0
-84 0 50d10+15500 5d5+5000 9d14+54 pound
--54 -54 -54 -18
+65 0 50d10+8250 5d5+5000 11d5+35 'pound'
+-35 -35 -35 -5
 FHIJK 0 0 0
 stand stand male 100
 0 0 medium unknown
@@ -186,7 +186,7 @@ body.  No mind. And a great set of.....paper clips.
 ~
 human~
 AB 0 1000 0
-40 0 15d10+1850 5d5+1000 4d8+13 slap
+40 0 15d10+1850 5d5+1000 4d8+13 'slap'
 -13 -13 -13 3
 0 0 0 0
 stand stand female 100
@@ -202,7 +202,7 @@ is quite  evident. in this room
 ~
 human~
 ABG 0 0 0
-50 0 50d10+4250 5d5+5000 5d8+19 slap
+50 0 50d10+4250 5d5+5000 5d8+19 'slap'
 -20 -20 -20 0
 FIJK 0 0 0
 stand stand male 100
@@ -217,7 +217,7 @@ He works long and hard to keep this prison in working order.
 ~
 human~
 AG 0 0 0
-53 0 50d10+5000 5d5+5000 6d7+21 pound
+53 0 50d10+5000 5d5+5000 6d7+21 'pound'
 -23 -23 -23 -1
 CDEFIJK 0 0 0
 stand stand male 100
@@ -233,8 +233,8 @@ her everyday..   Her son Jacob.
 ~
 human~
 ABG HN 1000 0
-90 0 50d10+18500 5d5+5000 17d9+60 slap
--60 -60 -60 -27
+65 0 50d10+8250 5d5+5000 11d5+35 'slap'
+-35 -35 -35 -5
 CDEFIJK 0 0 0
 stand stand female 100
 0 0 medium unknown
@@ -248,7 +248,7 @@ about almost charming you in the process......
 ~
 unique~
 ABFG D 0 0
-30 0 6d12+853 5d5+1000 4d6+8 claw
+30 0 6d12+853 5d5+1000 4d6+8 'claw'
 -9 -9 -9 3
 FKN 0 0 0
 stand stand none 100
@@ -263,8 +263,8 @@ ttle on the side buying and selling.
 ~
 human~
 ABGe 0 0 0
-105 0 50d10+28500 5d5+5000 18d15+68 pound
--81 -81 -81 -47
+65 0 50d10+8250 5d5+5000 11d5+35 'pound'
+-35 -35 -35 -5
 CDEFHKN 0 D 0
 stand stand male 100
 0 0 medium unknown
@@ -279,8 +279,8 @@ ter. Unfortunately he has to resort to selling arms to pay the rent.
 ~
 human~
 ABGe 0 0 0
-105 0 50d10+28500 5d5+5000 18d15+68 pound
--81 -81 -81 -47
+65 0 50d10+8250 5d5+5000 11d5+35 'pound'
+-35 -35 -35 -5
 CDEFHKN 0 D 0
 stand stand male 100
 0 0 medium unknown
@@ -294,7 +294,7 @@ skitters away.
 ~
 unique~
 ABG 0 0 0
-1 0 2d6+10 5d5+100 1d4+0 slice
+1 0 2d6+10 5d5+100 1d4+0 'slice'
 9 9 9 10
 F 0 0 0
 stand stand male 100
@@ -310,8 +310,8 @@ hope that more and more worthy people like you will come and visit.
 ~
 human~
 ABGK HN 1000 0
-115 0 50d10+29500 5d5+5000 18d15+68 pound
--91 -91 -91 -37
+65 0 50d10+8250 5d5+5000 11d5+35 'pound'
+-35 -35 -35 -5
 CDEFHIJK B C 0
 stand stand male 100
 0 0 medium unknown
@@ -325,7 +325,7 @@ out of the shower all day long. But he keeps a few handy items on hand.
 ~
 human~
 ABG JN 0 0
-5 0 2d6+60 5d5+100 1d6+1 pound
+5 0 2d6+60 5d5+100 1d6+1 'pound'
 5 5 5 9
 FK 0 0 0
 stand stand male 100
@@ -341,8 +341,8 @@ eternity.
 ~
 human~
 ABG JNu -1000 0
-100 20 50d10+28500 5d5+5000 18d15+88 pound
--91 -91 -91 -37
+65 20 50d10+8250 5d5+5000 11d5+35 'pound'
+-35 -35 -35 -5
 EFHKN 0 0 0
 stand stand male 100
 0 0 medium unknown
@@ -356,7 +356,7 @@ of colors swirling from the outside to the inside....swirling...swirling....
 ~
 unique~
 ABFG J 0 0
-40 0 15d10+1850 5d5+1000 4d8+13 magic
+40 0 15d10+1850 5d5+1000 4d8+13 'magic'
 -13 -13 -13 3
 FK 0 0 0
 stand stand none 100
@@ -370,7 +370,7 @@ Since you are a lesser being than Mnemoth you cannot comprehend what you see her
 ~
 dragon~
 AG BDFHPU 1000 0
-1 0 2d6+10 5d5+100 1d4+0 claw
+1 0 2d6+10 5d5+100 1d4+0 'claw'
 9 9 9 10
 F 0 0 0
 stand stand male 100
@@ -386,7 +386,7 @@ grounds and flirt with Wendy his wife.
 ~
 human~
 ACHe H 0 0
-50 0 50d10+4250 5d5+5000 5d8+19 pound
+50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
 BCDEFIJK 0 C 0
 stand stand male 100
@@ -796,8 +796,8 @@ a curved  assasin's dagger~
 A curved dagger lies here.~
 steel~
 weapon EFJ AN
-dagger 8 8 'pierce' 0
-64 5 1000 P
+dagger 7 7 'pierce' 0
+45 5 1000 P
 A
 18 10
 A
@@ -809,12 +809,12 @@ a pitch black ring~
 A pitch black ring with sparkles of color lies on the ground here.~
 unknown~
 armor ABFG AB
-18 18 19 10 0
+9 9 9 4 0
 30 5 1000 P
 A
-17 -30
+13 100
 A
-13 200
+17 -15
 G none
 #32037
 iron manacle~
@@ -925,8 +925,10 @@ a golden hairnet~
 A pile of golden netting is here.~
 gold~
 armor 0 AE
-26 27 26 18 0
-80 45 3000 P
+9 9 9 5 0
+45 45 3000 P
+A
+13 50
 A
 4 2
 A
@@ -937,8 +939,6 @@ A
 1 2
 A
 5 2
-A
-13 200
 G none
 #32047
 baby jacob~
@@ -997,7 +997,7 @@ an axe of destruction~
 A massive blood-stained axe of immeasurable age lies here.~
 steel~
 weapon BFG AN
-axe 11 11 'chop' DE
+axe 5 11 'chop' DE
 90 30 0 P
 A
 17 120

@@ -23,7 +23,7 @@ good here.
 ~
 human~
 ABGe D 0 0
-20 0 3d9+333 199d1+1 2d8+5 punch
+20 0 3d9+333 199d1+1 2d8+5 'punch'
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand male 100
@@ -45,7 +45,7 @@ his clothes, you guess that he rarely goes near the animals here himself.
 ~
 human~
 AB F 0 0
-10 0 2d7+121 99d1+1 2d4+2 punch
+10 0 2d7+121 99d1+1 2d4+2 'punch'
 1 1 1 8
 E 0 0 0
 stand stand male 100
@@ -61,7 +61,7 @@ giant leech пиявка~
 ~
 bear~
 ABEF J 0 0
-7 0 2d6+35 29d1+1 1d6+0 claw
+7 0 2d6+35 29d1+1 1d6+0 'claw'
 7 7 7 10
 0 AB 0 0
 stand stand male 0
@@ -77,7 +77,7 @@ tiger тигр~
 ~
 unique~
 ABEF J 0 0
-17 0 3d9+258 169d1+1 3d4+4 claw
+17 0 3d9+258 169d1+1 3d4+4 'claw'
 -3 -3 -3 7
 H AB 0 0
 stand stand male 0
@@ -93,7 +93,7 @@ dolphin дельфин~
 ~
 unique~
 ABCE 0 50 0
-10 0 2d7+121 99d1+1 2d4+2 slap
+10 0 2d7+121 99d1+1 2d4+2 'slap'
 1 1 1 8
 0 0 0 0
 stand stand female 0
@@ -112,7 +112,7 @@ unicorn единорог~
 ~
 unique~
 AB 0 1000 0
-15 0 3d9+208 149d1+1 2d6+3 pierce
+15 0 3d9+208 149d1+1 2d6+3 'pierce'
 -2 -2 -2 7
 IJ 0 0 0
 stand stand male 0
@@ -130,7 +130,7 @@ been fed laterly.
 ~
 lizard~
 ABF 0 -100 8206
-13 0 2d10+170 129d1+1 2d5+3 cleave
+13 0 2d10+170 129d1+1 2d5+3 'cleave'
 -1 -1 -1 8
 0 AB 0 0
 stand stand male 0
@@ -149,7 +149,7 @@ huge claws can do to your face makes you shudder
 ~
 bear~
 ABF 0 0 0
-13 0 2d10+170 129d1+1 2d5+3 claw
+13 0 2d10+170 129d1+1 2d5+3 'claw'
 -1 -1 -1 8
 C AB 0 0
 stand stand male 0
@@ -170,7 +170,7 @@ he burps and a cloud of smoke comes outa of his mouth.
 ~
 dragon~
 AB 0 2 0
-19 0 3d9+308 189d1+1 2d7+5 blast
+19 0 3d9+308 189d1+1 2d7+5 'blast'
 -4 -4 -4 7
 0 0 0 0
 stand stand male 0
@@ -187,7 +187,7 @@ elephant слон~
 ~
 dragon~
 AB 0 100 0
-14 0 2d10+190 139d1+1 1d12+3 pierce
+14 0 2d10+190 139d1+1 1d12+3 'pierce'
 -1 -1 -1 8
 C 0 0 0
 stand stand male 0
@@ -203,7 +203,7 @@ gorilla горилла~
 ~
 human~
 ABF 0 0 0
-15 0 3d9+208 149d1+1 2d6+3 bite
+15 0 3d9+208 149d1+1 2d6+3 'bite'
 -2 -2 -2 7
 F AB 0 0
 stand stand male 0
@@ -221,7 +221,7 @@ assistant woman девушка zoo young~
 ~
 unique~
 AB 0 200 0
-10 0 2d7+121 99d1+1 2d4+2 punch
+10 0 2d7+121 99d1+1 2d4+2 'punch'
 1 1 1 8
 E 0 0 0
 stand stand female 0
@@ -240,7 +240,7 @@ pig свинья~
 ~
 pig~
 AB 0 0 0
-3 0 2d6+35 29d1+1 1d6+0 scratch
+3 0 2d6+35 29d1+1 1d6+0 'scratch'
 7 7 7 10
 0 0 0 0
 stand stand female 0
@@ -257,7 +257,7 @@ small bird птаха~
 ~
 song bird~
 A 0 0 0
-1 0 2d6+10 9d1+1 1d4+0 scratch
+1 0 2d6+10 9d1+1 1d4+0 'scratch'
 9 9 9 10
 0 0 0 0
 stand stand female 0
@@ -274,7 +274,7 @@ baby goat козленок~
 ~
 unique~
 ABG 0 0 8232
-2 0 2d7+21 19d1+1 1d5+0 slash
+2 0 2d7+21 19d1+1 1d5+0 'slash'
 8 8 8 10
 0 0 0 0
 stand stand male 0
@@ -292,7 +292,7 @@ wanders over and stats chewing at your clothes.
 ~
 fox~
 ABG 0 0 8232
-3 0 2d6+35 29d1+1 1d6+0 slash
+3 0 2d6+35 29d1+1 1d6+0 'slash'
 7 7 7 10
 0 0 0 0
 stand stand female 0
@@ -310,7 +310,7 @@ large horns look as if they could do a nasty bit of damage.
 ~
 fox~
 ABG 0 0 8232
-4 0 2d7+46 39d1+1 1d5+1 slash
+4 0 2d7+46 39d1+1 1d5+1 'slash'
 6 6 6 9
 0 0 0 0
 stand stand female 0
@@ -328,7 +328,7 @@ its right ears has a chunk missing from it.
 ~
 dog~
 AB 0 0 0
-5 0 2d6+60 49d1+1 1d6+1 stab
+5 0 2d6+60 49d1+1 1d6+1 'stab'
 5 5 5 9
 0 0 0 0
 stand stand male 0
@@ -346,7 +346,7 @@ can proberly still do a lot of damage despite being retired.
 ~
 fox~
 AB 0 0 0
-6 0 2d7+71 59d1+1 1d7+1 none
+6 0 2d7+71 59d1+1 1d7+1 'none'
 4 4 4 9
 I 0 C 0
 stand stand female 0
@@ -366,7 +366,7 @@ talking parrot, please mind your fingers'.
 ~
 song bird~
 AB 0 0 0
-8 0 2d7+96 79d1+1 1d7+2 peck
+8 0 2d7+96 79d1+1 1d7+2 'peck'
 3 3 3 9
 0 0 0 0
 stand stand female 0

@@ -19,7 +19,7 @@ skeletal guardian~
 ~
 undead~
 ABFOT 0 -1000 0
-35 50 11d62+500 11d62+50 6d6+20 punch
+35 50 11d62+500 11d62+50 6d6+20 'punch'
 0 0 0 0
 FI 0 0 0
 stand stand male 1239

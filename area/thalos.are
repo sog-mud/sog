@@ -18,7 +18,7 @@ to disintegrate you.  Beholders are not known for their personality.
 ~
 human~
 ABHKRe D -870 0
-25 10 5d10+2500 25d9+100 4d4+16 none
+25 10 5d10+2500 25d9+100 4d4+16 'none'
 -16 -16 -16 -2
 F ABC 0 0
 stand stand none 1128
@@ -33,7 +33,7 @@ body of a four-legged beast.  She licks her lips as she looks at you greedily.
 ~
 human~
 ACFG 0 -999 0
-9 0 2d6+110 4d9+100 1d8+2 none
+9 0 2d6+110 4d9+100 1d8+2 'none'
 2 2 2 8
 EFNU 0 0 0
 stand stand female 50
@@ -48,7 +48,7 @@ front.
 ~
 human~
 ABCFGH P 10 0
-11 0 2d8+134 5d9+100 1d10+2 none
+11 0 2d8+134 5d9+100 1d10+2 'none'
 1 1 1 8
 EFNU 0 0 0
 stand stand none 0
@@ -61,7 +61,7 @@ Two skeletons lie crushed under a large boulder.
 ~
 human~
 ABCFGH P -10 0
-11 0 2d8+134 5d9+100 1d10+2 none
+11 0 2d8+134 5d9+100 1d10+2 'none'
 1 1 1 8
 EFNU 0 0 0
 stand stand none 0
@@ -74,7 +74,7 @@ The stone floor of this house has been ripped apart.
 ~
 human~
 ABCFGH P -140 0
-11 0 2d8+134 5d9+100 1d10+2 none
+11 0 2d8+134 5d9+100 1d10+2 'none'
 1 1 1 8
 EFNU 0 0 0
 stand stand none 0
@@ -87,7 +87,7 @@ Some broken shards of pottery lie strewn about the floor.
 ~
 human~
 ABCFGH P 200 0
-11 0 2d8+134 5d9+100 1d10+2 none
+11 0 2d8+134 5d9+100 1d10+2 'none'
 1 1 1 8
 EFNU 0 0 0
 stand stand none 0
@@ -100,7 +100,7 @@ A few wooden planks lie stacked on a low shelf.
 ~
 human~
 ABCFGH P 0 0
-11 0 2d8+134 5d9+100 1d10+2 none
+11 0 2d8+134 5d9+100 1d10+2 'none'
 1 1 1 8
 EFNU 0 0 0
 stand stand none 0
@@ -114,7 +114,7 @@ A cute little lizard, that is, if you like reptiles!
 ~
 lizard~
 AH 0 0 0
-3 0 2d6+35 1d9+100 1d6+0 none
+3 0 2d6+35 1d9+100 1d6+0 'none'
 7 7 7 10
 EFNR 0 0 0
 stand stand none 0
@@ -129,7 +129,7 @@ stone creature. He stands here still guarding the city.
 ~
 golem~
 AB N 600 0
-25 0 5d10+550 12d9+100 2d10+7 none
+25 0 5d10+550 12d9+100 2d10+7 'none'
 -7 -7 -7 6
 EFNU 0 0 0
 stand stand none 212

@@ -17,7 +17,7 @@ You see a huge man wearing white clothes. He looks quiet strong.
 ~
 human~
 ABGQRTe HV 0 0
-100 100 1d1+30000 0d0+0 20d20+100 none
+100 100 1d1+30000 0d0+0 20d20+100 'none'
 0 0 0 0
 EFJK CD 0 0
 stand stand male 0
@@ -30,7 +30,7 @@ Huge man stands here, guarding the entrance.
 ~
 giant~
 ABGRT HV 0 0
-30 0 10d61+500 0d0+0 5d7+20 none
+30 0 10d61+500 0d0+0 5d7+20 'none'
 -10 -10 -10 -10
 CEFJKNO 0 0 0
 stand stand male 3000

@@ -20,7 +20,7 @@ cannot overcome.
 ~
 human~
 ABGR D 500 0
-18 0 3d9+258 18d9+100 2d6+3 none
+18 0 3d9+258 18d9+100 2d6+3 'none'
 -3 -3 -3 4
 FU 0 0 0
 stand stand male 105
@@ -38,7 +38,7 @@ to take away that which belongs to him.
 ~
 human~
 ABGS BDF 0 0
-20 0 3d9+308 10d9+100 2d7+5 none
+20 0 3d9+308 10d9+100 2d7+5 'none'
 -4 -4 -4 6
 BEFJNU 0 0 0
 stand stand male 61
@@ -54,7 +54,7 @@ chap, always ready to befriend an injured bunny rabbit.
 ~
 human~
 ABH 0 350 0
-7 0 2d6+85 3d9+100 1d8+1 none
+7 0 2d6+85 3d9+100 1d8+1 'none'
 4 4 4 9
 EFNU 0 0 0
 rest rest male 0
@@ -69,7 +69,7 @@ for he hasn't learned to walk yet.  He peers up at you and asks "da da?"
 ~
 human~
 ABH 0 100 0
-2 0 2d7+21 1d9+100 1d5+0 none
+2 0 2d7+21 1d9+100 1d5+0 'none'
 8 8 8 10
 EFNU 0 0 0
 sit sit male 0
@@ -85,7 +85,7 @@ in her eyes you can see her longing for a better life.
 ~
 human~
 AB 0 100 0
-5 0 2d6+60 2d9+100 1d6+1 none
+5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
 EFNU 0 0 0
 stand stand female 1
@@ -101,7 +101,7 @@ if provoked, her rear kick can be quite deadly.
 ~
 human~
 AGI 0 0 0
-4 0 2d7+46 2d9+100 1d5+1 none
+4 0 2d7+46 2d9+100 1d5+1 'none'
 6 6 6 9
 EFNU 0 0 0
 rest rest none 0
@@ -117,7 +117,7 @@ and consequently cannot move around very quickly.
 ~
 pig~
 AGI 0 0 0
-3 0 2d6+35 1d9+100 1d6+0 none
+3 0 2d6+35 1d9+100 1d6+0 'none'
 7 7 7 10
 EFNR 0 0 0
 rest rest none 0
@@ -131,7 +131,7 @@ The chicken is bright and healthy.  She has no weapons but her beak.
 ~
 human~
 AGI 0 0 0
-2 0 2d7+21 1d9+100 1d5+0 none
+2 0 2d7+21 1d9+100 1d5+0 'none'
 8 8 8 10
 EFNU 0 0 0
 sit sit female 0
@@ -147,7 +147,7 @@ anything.
 ~
 human~
 ABF 0 0 0
-6 0 2d7+71 3d9+100 1d7+1 none
+6 0 2d7+71 3d9+100 1d7+1 'none'
 4 4 4 9
 EFNU 0 0 0
 stand stand male 0
@@ -161,7 +161,7 @@ The horse looks at you and turns away.  You can tell that it is afraid of you.
 ~
 human~
 ABGI 0 0 0
-4 0 2d7+46 2d9+100 1d5+1 none
+4 0 2d7+46 2d9+100 1d5+1 'none'
 6 6 6 9
 EFNU 0 0 0
 stand stand none 0
@@ -178,7 +178,7 @@ This is one halfling you don't want to mess with.
 ~
 human~
 ACGT J 150 0
-8 0 2d6+110 4d9+100 1d7+2 none
+8 0 2d6+110 4d9+100 1d7+2 'none'
 3 3 3 9
 CDEIKLU 0 0 0
 sit sit male 2
@@ -195,7 +195,7 @@ This is one halfling you don't want to mess with.
 ~
 human~
 ACGT J 150 0
-8 0 2d6+110 4d9+100 1d7+2 none
+8 0 2d6+110 4d9+100 1d7+2 'none'
 3 3 3 9
 CDEIKLU 0 0 0
 sit sit male 2
@@ -212,7 +212,7 @@ Shire folk.
 ~
 human~
 AGT 0 400 0
-14 0 3d9+208 7d9+100 1d12+3 none
+14 0 3d9+208 7d9+100 1d12+3 'none'
 -1 -1 -1 8
 CDEIKLU 0 0 0
 sit sit male 25
@@ -227,7 +227,7 @@ local gossip.  In his younger days, he was quite a seasoned traveller.
 ~
 human~
 ABGe 0 200 0
-12 0 2d10+150 6d9+100 1d10+3 none
+12 0 2d10+150 6d9+100 1d10+3 'none'
 0 0 0 8
 EFNU 0 0 0
 stand stand male 35
@@ -243,7 +243,7 @@ who deserves a spanking but never got one.
 ~
 human~
 ACGH 0 50 0
-6 0 2d7+71 3d9+100 1d7+1 none
+6 0 2d7+71 3d9+100 1d7+1 'none'
 4 4 4 9
 EFNU 0 0 0
 stand stand male 10
@@ -259,7 +259,7 @@ in two without thinking about it.
 ~
 human~
 AB 0 0 0
-5 0 2d6+60 2d9+100 1d6+1 none
+5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
 EFNU 0 0 0
 stand stand male 2
@@ -275,7 +275,7 @@ longer and wearies of it.
 ~
 human~
 ABR 0 600 0
-17 0 3d9+233 17d9+100 1d12+3 none
+17 0 3d9+233 17d9+100 1d12+3 'none'
 -2 -2 -2 4
 FU 0 0 0
 sit sit male 25
@@ -291,7 +291,7 @@ beyond your gaze.
 ~
 human~
 ABQ 0 200 0
-17 0 3d9+1258 17d9+100 2d6+14 none
+17 0 3d9+1258 17d9+100 2d6+14 'none'
 -3 -3 -3 6
 EIKU 0 0 0
 sit sit male 35
@@ -306,7 +306,7 @@ like you.
 ~
 human~
 ABe 0 600 0
-21 0 4d10+1360 10d9+100 4d4+15 none
+21 0 4d10+1360 10d9+100 4d4+15 'none'
 -5 -5 -5 7
 EFNU 0 0 0
 stand stand male 600
@@ -322,7 +322,7 @@ in his power to prevent riff-raff like you from stealing it.
 ~
 human~
 ABe 0 600 0
-21 0 4d10+1360 10d9+100 4d4+15 none
+21 0 4d10+1360 10d9+100 4d4+15 'none'
 -5 -5 -5 7
 EFNU 0 0 0
 stand stand male 75
@@ -337,7 +337,7 @@ and armour would certainly help him in any fight against riff-raff like you.
 ~
 human~
 ABe 0 600 0
-50 0 50d10+8500 25d9+100 5d8+39 none
+50 0 50d10+8500 25d9+100 5d8+39 'none'
 -40 -40 -40 -23
 EFNU 0 0 0
 stand stand male 900
@@ -351,7 +351,7 @@ The battle master is a wizened fighter, with many scars to prove his worth.
 ~
 human~
 ABT 0 350 0
-25 0 5d10+600 12d9+100 2d10+7 none
+25 0 5d10+600 12d9+100 2d10+7 'none'
 -7 -7 -7 6
 CDEIKLU 0 0 0
 stand stand male 75
@@ -366,7 +366,7 @@ high and you get the sudden urge to step on him.
 ~
 human~
 AGHS DF 0 0
-3 0 2d7+21 1d9+100 1d5+0 none
+3 0 2d7+21 1d9+100 1d5+0 'none'
 8 8 8 10
 BEFJNU 0 0 0
 stand stand male 0
@@ -382,7 +382,7 @@ a good fight.
 ~
 human~
 AB 0 100 0
-8 0 2d7+96 4d9+100 1d7+2 none
+8 0 2d7+96 4d9+100 1d7+2 'none'
 3 3 3 9
 EFNU 0 0 0
 sit sit male 8
@@ -397,7 +397,7 @@ talk so much so quickly.
 ~
 human~
 ABH 0 0 0
-4 0 2d7+46 2d9+100 1d5+1 none
+4 0 2d7+46 2d9+100 1d5+1 'none'
 6 6 6 9
 EFNU 0 0 0
 sit sit female 1
@@ -414,7 +414,7 @@ harm a hair on her precious little head.
 ~
 human~
 AB 0 1000 0
-6 0 2d7+71 3d9+100 1d7+1 none
+6 0 2d7+71 3d9+100 1d7+1 'none'
 4 4 4 9
 EFNU 0 0 0
 stand stand female 3
@@ -430,7 +430,7 @@ he lacks in skill.
 ~
 human~
 AB 0 0 0
-5 0 2d6+60 2d9+100 1d6+1 none
+5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
 EFNU 0 0 0
 stand stand male 0
@@ -446,7 +446,7 @@ coins if you'd be so good as to order a drink for him.
 ~
 human~
 ABH 0 0 0
-4 0 2d7+46 2d9+100 1d5+1 none
+4 0 2d7+46 2d9+100 1d5+1 'none'
 6 6 6 9
 EFNU 0 0 0
 sit sit male 5
@@ -460,7 +460,7 @@ The country bumpkin snores noisily.
 ~
 human~
 AB J 0 0
-5 0 2d6+60 2d9+100 1d6+1 none
+5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
 EFNU 0 0 0
 sleep sleep male 3
@@ -475,7 +475,7 @@ local gossip.  In his younger days, he was quite a seasoned traveller.
 ~
 human~
 ABe 0 200 0
-12 0 2d10+150 6d9+100 1d10+3 none
+12 0 2d10+150 6d9+100 1d10+3 'none'
 0 0 0 8
 EFNU 0 0 0
 stand stand male 50
@@ -489,7 +489,7 @@ He is a very professional looking type.
 ~
 human~
 AB 0 200 0
-12 0 2d10+150 6d9+100 1d10+3 none
+12 0 2d10+150 6d9+100 1d10+3 'none'
 0 0 0 8
 EFNU 0 0 0
 stand stand male 3
@@ -505,7 +505,7 @@ somewhere outside the shire.
 ~
 human~
 ABT 0 150 0
-8 0 2d6+110 4d9+100 1d7+2 none
+8 0 2d6+110 4d9+100 1d7+2 'none'
 3 3 3 9
 CDEIKLU 0 0 0
 stand stand male 2

@@ -19,7 +19,7 @@ he greets you a good day and wishes you on your way.
 ~
 giant~
 ABT CDEFHJV 1000 0
-45 0 25d10+3000 1d1+99 3d12+15 slash
+45 0 25d10+3000 1d1+99 3d12+15 'slash'
 -15 -15 -15 4
 EIK ABL N K
 stand stand male 1200
@@ -35,7 +35,7 @@ for the little fella.
 ~
 cat~
 AB CDEFJ -1000 0
-30 0 6d12+853 299d1+5 4d6+8 none
+30 0 6d12+853 299d1+5 4d6+8 'none'
 -9 -9 -9 6
 EIK ABL N K
 stand stand either 0
@@ -49,7 +49,7 @@ Beating his drums as best he can, this bongo player really grooves.
 ~
 giant~
 ABT CDEFJ -1000 18004
-25 0 5d10+750 1d1+99 2d10+7 pierce
+25 0 5d10+750 1d1+99 2d10+7 'pierce'
 -7 -7 -7 0
 EIK ABL N K
 stand stand male 3100
@@ -65,7 +65,7 @@ a little music in the background.
 ~
 giant~
 AB CDEFJ -1000 18004
-25 0 5d10+650 1d1+99 2d10+7 pierce
+25 0 5d10+650 1d1+99 2d10+7 'pierce'
 -7 -7 -7 0
 EIK ABL N K
 stand stand male 4330
@@ -81,7 +81,7 @@ wonderful! You hope it never ends.
 ~
 giant~
 AB CDEFJ -1000 18004
-25 0 5d10+650 1d1+99 2d10+7 blast
+25 0 5d10+650 1d1+99 2d10+7 'blast'
 -7 -7 -7 6
 EIK ABL N K
 stand stand female 5300
@@ -97,7 +97,7 @@ you're in need of armour here is the place to shop!
 ~
 giant~
 ABTei CDEFJ -500 0
-53 0 50d10+13000 1d1+99 6d7+41 slice
+53 0 50d10+13000 1d1+99 6d7+41 'slice'
 -33 -33 -33 2
 EIK ABCDL N K
 stand stand male 200000
@@ -115,7 +115,7 @@ you know what they say: Don't knock 'em till you've bought 'em!
 ~
 giant~
 ABTe CDEFJ -500 0
-53 0 50d10+13000 1d1+99 6d7+31 slice
+53 0 50d10+13000 1d1+99 6d7+31 'slice'
 -43 -43 -43 -10
 EIK ABCDL N K
 stand stand female 200000
@@ -132,7 +132,7 @@ There is a big selection of meat and poultry to chose from.
 ~
 giant~
 ABTe CDEFJ -1000 0
-51 0 50d10+14000 1d1+99 5d8+39 scratch
+51 0 50d10+14000 1d1+99 5d8+39 'scratch'
 -41 -41 -41 -3
 EIK ABDL N K
 stand stand male 200000
@@ -148,7 +148,7 @@ buy some and help keep his business running?
 ~
 giant~
 ABTe CDEFJ -1000 0
-51 0 50d10+14000 1d1+140 5d8+49 scratch
+51 0 50d10+14000 1d1+140 5d8+49 'scratch'
 -41 -41 -41 -30
 EIK ABDL N K
 stand stand male 200000
@@ -166,7 +166,7 @@ place to get your weapons.
 ~
 giant~
 ABTei CDEFJ 0 0
-53 0 50d10+15000 1d1+99 6d7+41 sting
+53 0 50d10+15000 1d1+99 6d7+41 'sting'
 -43 -43 -43 -30
 CDEFIKN ABDL N K
 stand stand male 200000
@@ -183,7 +183,7 @@ books and books of lore. Perhaps you should widen your magical knowledge.
 ~
 giant~
 ABe CDEFJ 500 0
-48 0 25d10+13750 1d1+99 6d6+48 beating
+48 0 25d10+13750 1d1+99 6d6+48 'beating'
 -38 -38 -38 -12
 CDEFIKN ABDL N K
 stand stand male 200000
@@ -200,7 +200,7 @@ this is a good store to come to.
 ~
 giant~
 ABe CDEFJ -600 0
-51 0 50d10+15000 1d1+99 5d8+40 pierce
+51 0 50d10+15000 1d1+99 5d8+40 'pierce'
 -41 -41 -41 -23
 CDEFIKN ABDL BN K
 stand stand female 200000
@@ -216,7 +216,7 @@ to have a good time; and get drunk.
 ~
 giant~
 ABTe CDEFJ -100 0
-51 0 50d10+15000 1d1+99 5d8+39 slash
+51 0 50d10+15000 1d1+99 5d8+39 'slash'
 -41 -41 -41 -23
 CDEFIKN ABDL N K
 stand stand male 200000
@@ -233,7 +233,7 @@ mighty expensive.
 ~
 giant~
 ABTe CDEFJ 200 0
-45 0 25d10+14000 1d1+99 8d4+36 pierce
+45 0 25d10+14000 1d1+99 8d4+36 'pierce'
 -15 -15 -15 -1
 CDEFIKN ABL N K
 stand stand male 200000
@@ -250,7 +250,7 @@ could do."
 ~
 giant~
 ABTe CDEFJ -1000 0
-51 0 50d10+5000 1d1+99 5d8+20 pierce
+51 0 50d10+5000 1d1+99 5d8+20 'pierce'
 -21 -21 -21 -3
 CDEFIKN ABL N K
 stand stand male 200000
@@ -266,7 +266,7 @@ in your life?
 ~
 giant~
 ABTe CDEFJ -300 0
-48 0 25d10+4750 1d1+99 6d6+18 slice
+48 0 25d10+4750 1d1+99 6d6+18 'slice'
 -18 -18 -18 3
 CDEFIKN ABL N K
 stand stand female 200000
@@ -282,7 +282,7 @@ I am sure he could find room for one more unwanted tourist.
 ~
 giant~
 ABT CDEFJ 500 0
-30 0 6d12+1000 1d1+99 4d6+8 pierce
+30 0 6d12+1000 1d1+99 4d6+8 'pierce'
 -9 -9 -9 6
 CDEFIKN ABL N K
 stand stand male 2100
@@ -296,7 +296,7 @@ ZZZzzzz....ZZZzzzz....ZZZzzzz....ZZZzzzz....ZZZzzzz....
 ~
 giant~
 ABT CDEFJ -500 0
-28 0 6d12+703 1d1+99 2d12+8 claw
+28 0 6d12+703 1d1+99 2d12+8 'claw'
 -8 -8 -8 6
 CDEFIKN ABL BN K
 stand stand male 3100
@@ -311,7 +311,7 @@ Its the new prisoner! He got arrested for stinking the peace.
 ~
 giant~
 ABT CDEFJ -1000 0
-25 0 5d10+650 1d1+100 2d10+7 pierce
+25 0 5d10+650 1d1+100 2d10+7 'pierce'
 -7 -7 -7 1
 CDEFIKN ABL N KSZ
 stand stand male 0
@@ -327,7 +327,7 @@ very well. Perhaps he could show you some of the most popular.
 ~
 giant~
 ABTe CDEFJ -100 0
-45 0 25d1+13000 1d1+100 8d4+26 slice
+45 0 25d1+13000 1d1+100 8d4+26 'slice'
 -35 -35 -35 4
 CDEFIKN ABL N K
 stand stand male 200000
@@ -343,7 +343,7 @@ form, but I'll bet that they are all superb!
 ~
 giant~
 ABTe CDEFJ -100 0
-30 0 6d12+853 1d1+99 4d6+15 slap
+30 0 6d12+853 1d1+99 4d6+15 'slap'
 -9 -9 -9 6
 CDEFIKN ABL N K
 stand stand male 200000
@@ -359,7 +359,7 @@ try 'em all!
 ~
 giant~
 ABTe CDEFJ -100 0
-40 0 15d10+7850 1d1+100 4d8+13 beating
+40 0 15d10+7850 1d1+100 4d8+13 'beating'
 -33 -33 -33 -21
 CDEFIKN ABL BN K
 stand stand female 200000
@@ -375,7 +375,7 @@ Cookies! Pies!!! Try them all, the man looks willing to do business with you!
 ~
 giant~
 ABTe CDEFJ -100 0
-48 0 25d10+15050 1d1+100 6d6+38 pierce
+48 0 25d10+15050 1d1+100 6d6+38 'pierce'
 -48 -48 -48 -24
 CDEFIKN ABL N K
 stand stand male 200000
@@ -390,7 +390,7 @@ The tall young lad is here, selling his special containers. He was rated number
 ~
 giant~
 ABTe CDEFJ -100 0
-48 0 25d10+12750 1d1+100 6d6+38 pierce
+48 0 25d10+12750 1d1+100 6d6+38 'pierce'
 -38 -38 -38 -22
 CDEFIKN ABL N K
 stand stand male 200000
@@ -405,7 +405,7 @@ wands. Magically tuned to perfection. They would be mighty handy.
 ~
 giant~
 ABTe CDEFJ -100 0
-55 0 10d10+15300 1d1+100 4d7+21 slash
+55 0 10d10+15300 1d1+100 4d7+21 'slash'
 -51 -51 -51 -30
 CDEFIKN ABL N K
 stand stand male 200000
@@ -419,7 +419,7 @@ All clad in armor this guy looks quite deadly. Would want to mess with him.
 ~
 giant~
 ABT CDEFJ 1000 0
-40 0 15d10+2200 1d1+90 4d8+13 scratch
+40 0 15d10+2200 1d1+90 4d8+13 'scratch'
 -13 -13 -13 4
 CDEFIKN ABL N K
 stand stand male 5250
@@ -434,7 +434,7 @@ you, welcoming you to his city.
 ~
 giant~
 ABT CDEFJ -1000 0
-28 0 6d12+703 1d1+100 2d12+8 pierce
+28 0 6d12+703 1d1+100 2d12+8 'pierce'
 -8 -8 -8 6
 CDEFIKN ABL N K
 stand stand male 2500
@@ -449,7 +449,7 @@ away. *SSSsssssssnnnnnniiiiiifffffff!* It sure does smell nice!
 ~
 giant~
 ABT CDEFJ -500 0
-30 0 6d12+953 1d1+100 4d6+8 blast
+30 0 6d12+953 1d1+100 4d6+8 'blast'
 -9 -9 -9 6
 CDEFIKN ABL N K
 stand stand female 3900
@@ -464,7 +464,7 @@ care. He is running back and forth, carrying out orders.
 ~
 giant~
 ABT CDEFJ -500 0
-30 0 6d12+853 1d1+100 4d6+8 pierce
+30 0 6d12+853 1d1+100 4d6+8 'pierce'
 -9 -9 -9 6
 CDEFIKN ABL N K
 stand stand male 5330
@@ -479,7 +479,7 @@ beggar asks for some coins. He sure does look poor.
 ~
 giant~
 ABT CDEFJ -500 0
-25 0 5d10+650 1d1+310 2d10+7 slice
+25 0 5d10+650 1d1+310 2d10+7 'slice'
 -7 -7 -7 6
 CDEFIKN ABL N K
 stand stand male 10
@@ -494,7 +494,7 @@ does his job quite well.
 ~
 giant~
 ABT CDEFHJ 0 0
-40 0 15d10+2100 1d1+201 4d8+13 pierce
+40 0 15d10+2100 1d1+201 4d8+13 'pierce'
 -13 -13 -13 4
 CDEFIKN ABL N K
 stand stand male 3330
@@ -509,7 +509,7 @@ dancing to the music.
 ~
 giant~
 ABT CDEFJu -1000 0
-30 0 6d12+953 299d1+1 4d6+8 punch
+30 0 6d12+953 299d1+1 4d6+8 'punch'
 -9 -9 -9 6
 CDEFIKN ABL N K
 stand stand male 4003
@@ -524,7 +524,7 @@ he doesn't have any time to speak to you.
 ~
 giant~
 ABT CDEFJu -1000 0
-48 0 25d10+4750 1d1+120 6d6+18 crush
+48 0 25d10+4750 1d1+120 6d6+18 'crush'
 -18 -18 -18 3
 CDEFIN ABL N K
 stand stand male 5100
@@ -538,7 +538,7 @@ The tournament warrior is here, practicing his skills.
 ~
 giant~
 ABT CDEFJu -1000 0
-38 0 10d10+1800 1d1+100 5d6+12 slash
+38 0 10d10+1800 1d1+100 5d6+12 'slash'
 -12 -12 -12 4
 CDEFIKN ABL N K
 stand stand male 11300
@@ -553,7 +553,7 @@ perfecting her spells to speak with you. Maybe later.
 ~
 giant~
 ABR CDEFJu -1000 0
-38 0 10d10+1900 1d1+200 5d6+12 pierce
+38 0 10d10+1900 1d1+200 5d6+12 'pierce'
 -12 -12 -12 4
 CDEFIKN ABL N K
 stand stand female 6100
@@ -568,7 +568,7 @@ fighting real mobs, deadly mobs. You'd hate to get her killed!
 ~
 giant~
 ABQ CDEFJu -1000 0
-38 0 10d10+1900 1d1+200 5d6+12 pierce
+38 0 10d10+1900 1d1+200 5d6+12 'pierce'
 -12 -12 -12 4
 CDEFIKN ABL N K
 stand stand female 6800
@@ -582,7 +582,7 @@ Better not talk to this rascal, he may kick your ass!
 ~
 giant~
 ABS CDEFJu -1000 0
-38 0 10d10+1900 1d1+200 5d6+12 pierce
+38 0 10d10+1900 1d1+200 5d6+12 'pierce'
 -12 -12 -12 4
 CDEFIKN ABL N K
 stand stand male 9100
@@ -600,7 +600,7 @@ that.
 ~
 dragon~
 ABCFT CDEFUV -1000 0
-25 0 5d10+650 1d1+99 2d10+7 crush
+25 0 5d10+650 1d1+99 2d10+7 'crush'
 -7 -7 -7 0
 BCDEFGHIJLMNO ABL IJPR JKX
 stand stand male 0
@@ -618,7 +618,7 @@ glaring at you. Panic races through your veins.
 ~
 giant~
 ABR CDEFIJPV -1000 0
-30 0 6d12+853 1d1+100 4d6+8 crush
+30 0 6d12+853 1d1+100 4d6+8 'crush'
 -9 -9 -9 -1
 BCDEFGHLO AG JPQ EK
 stand stand either 0
@@ -633,7 +633,7 @@ the world. It would be a good idea not to go near this...thing.
 ~
 giant~
 ABFT CDFJTV -1000 0
-23 0 5d10+450 1d1+100 3d6+6 slash
+23 0 5d10+450 1d1+100 3d6+6 'slash'
 -6 -6 -6 1
 DEFGHL AG 0 IKRS
 stand stand either 0
@@ -650,7 +650,7 @@ Chose wisely!
 ~
 giant~
 ABCT FJTZ -1000 0
-35 0 10d10+1500 1d1+234 4d7+11 pierce
+35 0 10d10+1500 1d1+234 4d7+11 'pierce'
 -11 -11 -11 -1
 BCDEFGHIJKLMNO AGHP L EIKY
 stand stand either 0
@@ -665,7 +665,7 @@ Something deep in your heart tells you to stay away from him.
 ~
 giant~
 ABCT FJYZ -1000 0
-35 0 10d10+1500 1d1+234 4d7+11 pierce
+35 0 10d10+1500 1d1+234 4d7+11 'pierce'
 -11 -11 -11 5
 BCDEFGHIJKLMNO AGR EP IKMZ
 stand stand either 0
@@ -680,7 +680,7 @@ storms. This is another of those deadly demons, another to avoid.
 ~
 giant~
 ABCT FJYZ -1000 0
-35 0 10d10+1500 1d1+235 4d7+11 pierce
+35 0 10d10+1500 1d1+235 4d7+11 'pierce'
 -11 -11 -11 5
 BCDEFGHIJKLMNO AEFJQ N CK
 stand stand either 0
@@ -696,7 +696,7 @@ the demons of earth a destroying all in sight!
 ~
 giant~
 ABCT FJYZ -1000 0
-35 0 10d10+1500 1d1+236 4d7+11 pierce
+35 0 10d10+1500 1d1+236 4d7+11 'pierce'
 -11 -11 -11 5
 BCDEFGHIJKLMNO OPS B HIKNX
 stand stand either 0
@@ -712,7 +712,7 @@ with.
 ~
 giant~
 ABCT FJYZ -1000 0
-35 0 10d10+1500 1d1+236 4d7+11 pierce
+35 0 10d10+1500 1d1+236 4d7+11 'pierce'
 -11 -11 -11 5
 BCDEFGHIJKLMNO FS P HKQZ
 stand stand either 0
@@ -727,7 +727,7 @@ your heart, pain into your soul. This tough beast seems unstopable.
 ~
 giant~
 ABCT FJYZ -1000 0
-35 0 10d10+1500 1d1+276 4d7+11 pierce
+35 0 10d10+1500 1d1+276 4d7+11 'pierce'
 -12 -12 -12 5
 BCDEFGHIJLNO AC EOQR FKY
 stand stand either 0
@@ -741,7 +741,7 @@ Tall and strong, this Royal Titan guard patrols the castle walls.
 ~
 giant~
 ABCT FJ -1000 0
-40 0 15d10+2000 1d1+201 4d8+13 slash
+40 0 15d10+2000 1d1+201 4d8+13 'slash'
 -12 -12 -12 -2
 BCDEFGHIK ABL N K
 stand stand male 7000
@@ -755,7 +755,7 @@ This little boy is amusing himself witha few rocks.
 ~
 giant~
 ABCT FJ -1000 0
-33 0 10d10+1300 1d1+111 6d4+10 slash
+33 0 10d10+1300 1d1+111 6d4+10 'slash'
 -11 -11 -11 5
 BCDEFGHIK ABL N K
 stand stand male 330
@@ -771,7 +771,7 @@ children at the park. Perhaps all titan children look the same.
 ~
 giant~
 ABCT FJ -1000 0
-33 0 10d10+1100 1d1+111 6d4+10 slash
+33 0 10d10+1100 1d1+111 6d4+10 'slash'
 -11 -11 -11 5
 BCDEFGHIK ABL N K
 stand stand female 390
@@ -786,7 +786,7 @@ Zzzzzzz....Zzzzzzzz.....Zzzzzzzzz....
 ~
 giant~
 ABCT FJ -1000 0
-40 0 15d10+2000 1d1+111 4d8+13 pierce
+40 0 15d10+2000 1d1+111 4d8+13 'pierce'
 -13 -13 -13 4
 BCDEFGHIK ABL BN K
 sleep sleep male 5870
@@ -801,7 +801,7 @@ foolish to disturb her.
 ~
 dwarf~
 ABCT F -1000 0
-50 0 50d10+5000 1d1+212 5d8+19 beating
+50 0 50d10+5000 1d1+212 5d8+19 'beating'
 -20 -20 -20 3
 BCDEFGHIK ABL N KSZ
 stand stand female 7100
@@ -817,7 +817,7 @@ Perhaps he could interest you in some of his beasts?
 ~
 giant~
 ABTe FJ -1000 0
-50 0 50d10+14500 1d1+212 5d8+29 pierce
+50 0 50d10+14500 1d1+212 5d8+29 'pierce'
 -50 -50 -50 -23
 CDEFIKN ABL N K
 stand stand male 5000
@@ -831,7 +831,7 @@ Very large and very deadly, you would NOT want to mess with this black cougar!
 ~
 cat~
 ABITV DFHUV 1000 0
-40 1 15d10+1500 1d1+200 4d8+13 beating
+40 1 15d10+1500 1d1+200 4d8+13 'beating'
 -13 -13 -13 4
 EN HM GHIJK I
 stand stand male 0
@@ -846,7 +846,7 @@ have ever seen!
 ~
 dragon~
 ABITV DFHUV 1000 0
-45 1 25d10+2100 1d1+102 8d4+16 beating
+45 1 25d10+2100 1d1+102 8d4+16 'beating'
 -15 -15 -15 3
 EN H GIJK 0
 stand stand male 0
@@ -862,7 +862,7 @@ Shades of Gray.
 ~
 dragon~
 ABIORV DFHUV 1000 0
-50 0 50d10+3000 1d1+499 5d6+14 beating
+50 0 50d10+3000 1d1+499 5d6+14 'beating'
 -20 -20 -20 2
 CEFIOY J IJKNO B
 stand stand female 0
@@ -877,7 +877,7 @@ in their times of need.
 ~
 human~
 ABIT DV 1000 0
-20 1 3d9+300 1d1+310 2d8+5 beating
+20 1 3d9+300 1d1+310 2d8+5 'beating'
 -4 -4 -4 7
 C J DN 0
 stand stand male 0
@@ -892,7 +892,7 @@ always ready for combat.
 ~
 cat~
 ABIT DV 1000 0
-25 0 5d10+500 1d1+249 2d10+7 beating
+25 0 5d10+500 1d1+249 2d10+7 'beating'
 -7 -7 -7 5
 C J HIJKN CF
 stand stand male 0
@@ -906,7 +906,7 @@ A fearsome black wolf is here, protecting his master.
 ~
 dog~
 ABIT DTV 1000 0
-30 0 6d12+823 1d1+299 4d6+8 beating
+30 0 6d12+823 1d1+299 4d6+8 'beating'
 -9 -9 -9 6
 C J HIJKN DF
 stand stand male 0
@@ -921,7 +921,7 @@ its magical flames.
 ~
 dragon~
 ABIR DV 1000 0
-35 1 10d10+1550 1d1+904 4d7+11 beating
+35 1 10d10+1550 1d1+904 4d7+11 'beating'
 -11 -11 -11 5
 C J IJKN 0
 stand stand female 0
@@ -935,7 +935,7 @@ A tall and proud king is here, planning the future of his kingdom.
 ~
 giant~
 ABT DFJV -1000 0
-53 0 50d10+7000 1d1+401 6d7+21 pierce
+53 0 50d10+7000 1d1+401 6d7+21 'pierce'
 -22 -22 -22 2
 CDEFGKNO BO J K
 stand stand male 19990
@@ -949,7 +949,7 @@ A tall and proud queen is here, planning the future of her kingdom.
 ~
 giant~
 ABT DFJV -1000 0
-51 0 50d10+5500 1d1+502 5d8+19 pierce
+51 0 50d10+5500 1d1+502 5d8+19 'pierce'
 -21 -21 -21 3
 CDEFGKNO BO J K
 stand stand female 16990
@@ -965,7 +965,7 @@ king and queen destroyed. Why is beyon all knowledge.
 ~
 giant~
 ABT DFJV -1000 0
-45 0 25d10+3500 1d1+302 8d4+16 slash
+45 0 25d10+3500 1d1+302 8d4+16 'slash'
 -15 -15 -15 4
 CDEFGKNO ABL N K
 stand stand male 8990
@@ -979,7 +979,7 @@ An ugly rat is here, chewing on the carpet.
 ~
 giant~
 ABT DFJV -500 0
-30 0 6d12+953 1d1+201 4d6+8 beating
+30 0 6d12+953 1d1+201 4d6+8 'beating'
 -9 -9 -9 6
 CDEFGKNO ABL N K
 stand stand male 0
@@ -994,7 +994,7 @@ the calm breeze and bright warm sunshine.
 ~
 giant~
 ABT DFJu -1000 0
-28 0 6d12+703 1d1+504 2d12+8 pierce
+28 0 6d12+703 1d1+504 2d12+8 'pierce'
 -8 -8 -8 6
 CDEFGKNO ABL N K
 stand stand female 100
@@ -1008,7 +1008,7 @@ An old man peering through ancient tomes rests here.
 ~
 giant~
 ABJKRVb DFJ 0 0
-40 0 15d10+8000 1d1+499 4d8+13 slash
+40 0 15d10+8000 1d1+499 4d8+13 'slash'
 -13 -13 -13 4
 FHN AB 0 0
 stand stand male 8000
@@ -1022,7 +1022,7 @@ An young man wrapped in purple, long-flowing robes meditates here.
 ~
 giant~
 ABJKQV DFJ -250 0
-35 0 10d10+1300 1d1+499 4d7+11 pierce
+35 0 10d10+1300 1d1+499 4d7+11 'pierce'
 -11 -11 -11 5
 EFGIK AB 0 0
 stand stand male 4500
@@ -1037,7 +1037,7 @@ to fight mighty foes.
 ~
 giant~
 ABJKTV DFJ 0 0
-35 0 10d10+1300 1d1+99 4d7+11 pierce
+35 0 10d10+1300 1d1+99 4d7+11 'pierce'
 -11 -11 -11 5
 ACEFHIK AB 0 0
 stand stand male 5500
@@ -1053,7 +1053,7 @@ a knife an throws it at you. It lands the wall next to your left ear.
 ~
 giant~
 ABJKTVb DFJ -100 0
-40 0 15d10+4000 1d1+99 5d6+13 pierce
+40 0 15d10+4000 1d1+99 5d6+13 'pierce'
 -13 -13 -13 3
 BEFHJKN AB B Z
 stand stand male 3000
@@ -1067,7 +1067,7 @@ This man looks like a mage/warrior, i wouldn't mess with him.
 ~
 giant~
 ABRT DJ 0 0
-30 0 6d12+953 3d7+4 4d6+8 pierce
+30 0 6d12+953 3d7+4 4d6+8 'pierce'
 -9 -9 -9 5
 0 0 0 0
 stand stand male 3345
@@ -1081,7 +1081,7 @@ This man looks like a master cleric. I wouldn't mess with him.
 ~
 giant~
 ABQT DJ 0 0
-30 0 6d12+1003 3d7+4 4d6+8 pierce
+30 0 6d12+1003 3d7+4 4d6+8 'pierce'
 -9 -9 -9 5
 0 0 0 0
 stand stand male 4367
@@ -1095,7 +1095,7 @@ The man looks like Apollo's cousin, I wouldn't mess with him.
 ~
 giant~
 ABTU DJ 0 0
-30 0 6d12+1100 3d7+4 4d6+8 pierce
+30 0 6d12+1100 3d7+4 4d6+8 'pierce'
 -9 -9 -9 -1
 0 0 0 0
 stand stand male 4278
@@ -1110,7 +1110,7 @@ steps to bar your way. You notice his hands resting on two sheafs.
 ~
 giant~
 ABST DJ 0 0
-30 0 6d12+953 3d7+4 4d6+8 pierce
+30 0 6d12+953 3d7+4 4d6+8 'pierce'
 -9 -9 -9 -1
 0 0 0 0
 stand stand male 5657
@@ -1124,7 +1124,7 @@ You see a small boy running around the halls of the palace.
 ~
 giant~
 AG J 0 0
-25 0 5d10+650 1d6+1 2d10+7 beating
+25 0 5d10+650 1d6+1 2d10+7 'beating'
 -7 -7 -7 0
 0 0 0 0
 stand stand male 2267
@@ -1139,7 +1139,7 @@ a small tavelling map that he seems to be holding upside down.
 ~
 giant~
 ACGH J 0 0
-25 0 5d10+650 1d6+1 2d10+7 beating
+25 0 5d10+650 1d6+1 2d10+7 'beating'
 -7 -7 -7 6
 0 0 0 0
 stand stand male 3413
@@ -1154,7 +1154,7 @@ seeing several store aid's in stores allover the village!
 ~
 giant~
 ABGH J -1000 0
-25 0 5d10+650 1d6+1 2d10+7 beating
+25 0 5d10+650 1d6+1 2d10+7 'beating'
 -17 -17 -17 5
 DEF 0 B Z
 stand stand male 2333
@@ -1169,7 +1169,7 @@ clothes around. She seems quite busy and you would hate to bug her.
 ~
 giant~
 ABGH J -1000 0
-30 0 6d12+953 1d8+100 4d6+8 pierce
+30 0 6d12+953 1d8+100 4d6+8 'pierce'
 -9 -9 -9 5
 0 0 B 0
 stand stand female 4000
@@ -1184,7 +1184,7 @@ forging many new weapons to sell in his store.
 ~
 giant~
 ABGH J -1000 0
-35 0 10d10+1800 1d8+100 4d7+11 slash
+35 0 10d10+1800 1d8+100 4d7+11 'slash'
 -11 -11 -11 4
 0 0 B 0
 stand stand male 8900
@@ -1200,7 +1200,7 @@ disturb him.
 ~
 giant~
 ABGH J -1000 18062
-42 0 25d10+3250 1d8+100 3d12+14 pierce
+42 0 25d10+3250 1d8+100 3d12+14 'pierce'
 -14 -14 -14 4
 0 0 D C
 stand stand male 6699
@@ -1215,7 +1215,7 @@ He seems to just be waiting around for his next order.
 ~
 giant~
 AGH J -1000 18079
-38 0 10d10+1800 1d8+120 5d6+12 slash
+38 0 10d10+1800 1d8+120 5d6+12 'slash'
 -13 -13 -13 5
 0 0 B 0
 stand stand male 6660
@@ -1230,7 +1230,7 @@ finest armor. Perhaps he has something in your size.
 ~
 giant~
 ABGH J -1000 0
-40 0 15d10+3050 1d8+100 4d8+13 none
+40 0 15d10+3050 1d8+100 4d8+13 'none'
 -13 -13 -13 4
 0 0 B Z
 stand stand male 7999
@@ -1244,7 +1244,7 @@ A large deadly Hydra is here and will do anything to protect her master.
 ~
 dragon~
 ABIJRTV DFV 1000 0
-35 0 10d10+1550 1d1+348 4d8+13 beating
+35 0 10d10+1550 1d1+348 4d8+13 'beating'
 -11 -11 -11 5
 N H GIJK 0
 stand stand female 0
@@ -1260,7 +1260,7 @@ friends!
 ~
 giant~
 ABCT FJ -1000 0
-42 0 25d10+2250 1d1+1111 3d12+14 pierce
+42 0 25d10+2250 1d1+1111 3d12+14 'pierce'
 -14 -14 -14 5
 BCDEFH ABL N KS
 stand stand male 9233
@@ -1276,7 +1276,7 @@ anything type of cure you would need, here is where you'd get it.
 ~
 giant~
 ABTe CDEFJ -1000 0
-45 0 25d10+3000 1d1+320 8d4+16 slash
+45 0 25d10+3000 1d1+320 8d4+16 'slash'
 -15 -15 -15 -2
 CDEFIKN ABL BN K
 stand stand female 500000
@@ -1293,7 +1293,7 @@ get too happy.
 ~
 giant~
 ABT CDEFJ -1000 0
-28 0 6d12+703 1d1+195 2d12+8 pierce
+28 0 6d12+703 1d1+195 2d12+8 'pierce'
 -8 -8 -8 6
 CDEFIKN ABL N K
 stand stand male 100
@@ -1309,7 +1309,7 @@ Bad Thing to commit a crime in his presence.
 ~
 giant~
 ABTVXe CDFJVZ 1000 3000
-85 30 1d1+13999 1d1+1499 5d14+40 crush
+85 30 1d1+13999 1d1+1499 5d14+40 'crush'
 -50 -50 -50 -50
 ACDEFHIKLNOT ABP CD 0
 stand stand male 0
@@ -1324,7 +1324,7 @@ Type 'heal' to see a listing of spells.
 ~
 giant~
 ABKQVaef DFH 1000 0
-120 10 1d1+26999 1d1+999 2d4+30 divine
+120 10 1d1+26999 1d1+999 2d4+30 'divine'
 -15 -15 -15 -15
 FHIK ABC D 0
 stand stand male 5000

@@ -19,7 +19,7 @@ orc guard охранник орк~
 ~
 orc~
 ABT DF -1000 0
-20 10 10d25+1000 1d1+99 5d4+8 pound
+20 10 10d25+1000 1d1+99 5d4+8 'pound'
 -10 -10 -10 -12
 DEFIKNORU BM 0 0
 stand stand male 1000
@@ -35,7 +35,7 @@ orc capitan капитан орк~
 ~
 orc~
 ABT DFPQc -1000 0
-30 15 10d60+1400 1d1+99 5d6+12 punch
+30 15 10d60+1400 1d1+99 5d6+12 'punch'
 0 14 -12 -14
 EFHJKMR BL 0 0
 stand stand none 2500
@@ -50,7 +50,7 @@ rat крыса~
 ~
 unique~
 ABF F 0 0
-20 0 100d1+500 0d0+0 5d7+5 bite
+20 0 100d1+500 0d0+0 5d7+5 'bite'
 -10 -10 -10 -10
 FHR 0 0 0
 stand stand none 0
@@ -62,7 +62,7 @@ moby~
 ~
 human~
 A 0 0 0
-1 0 1d1+0 0d0+0 0d0+0 none
+1 0 1d1+0 0d0+0 0d0+0 'none'
 0 0 0 0
 0 0 0 0
 stand stand none 0
@@ -75,7 +75,7 @@ mobby~
 ~
 human~
 AKabhi 0 0 0
-1000 0 1d1+100000 0d0+0 0d0+0 none
+1000 0 1d1+100000 0d0+0 0d0+0 'none'
 0 0 0 0
 0 A 0 0
 stand stand none 0

@@ -16,13 +16,12 @@ Arborn's personal healer stands here.
 ~
 human~
 ABa H 1000 0
-200 0 1d1+1 1d1+1 1d1+1 magic
+200 0 1d1+1 1d1+1 1d1+1 'magic'
 0 0 0 0
 0 0 0 0
 stand stand female 0
 0 0 medium unknown
 F for AHMV
-F par ABCDEFGHIJK
 M speech 36101 gecho~
 #36101
 target~
@@ -32,7 +31,7 @@ Target stands here, practice range skills on it.
 ~
 human~
 AB JP 0 0
-100 0 1d1+29999 1d1+1 1d1+1 none
+100 0 1d1+29999 1d1+1 1d1+1 'none'
 0 0 0 0
 0 0 B Z
 stand stand none 0
@@ -45,13 +44,12 @@ training mob is here, backstab him!
 ~
 human~
 ABT AHV 0 0
-1 50 1d1+29999 1d1+1 1d1+1 none
+1 50 1d1+29999 1d1+1 1d1+1 'none'
 0 0 0 0
 H 0 D 0
 stand stand none 0
 0 0 medium unknown
 F for AHMV
-F par ABCDEFGHIJK
 #36103
 no name rancor~
 Rancor~
@@ -60,13 +58,12 @@ Rancor, brother of Muncar stands here.
 ~
 human~
 A H 0 0
-40 0 1d1+12999 0d0+0 0d0+0 none
+40 0 1d1+12999 0d0+0 0d0+0 'none'
 0 0 0 0
 0 0 0 0
 stand stand none 0
 0 0 medium unknown
 F for AHMV
-F par ABCDEFGHIJK
 #36104
 ruhabor son child~
 ~
@@ -74,13 +71,12 @@ ruhabor son child~
 ~
 human~
 A 0 0 0
-0 0 0d0+0 0d0+0 0d0+0 none
+0 0 0d0+0 0d0+0 0d0+0 'none'
 0 0 0 0
 0 0 0 0
 stand stand none 0
 0 0 medium unknown
 F for AHMV
-F par ABCDEFGHIJK
 #36105
 no name ruhanor ruhabor rumak~
 Rumak~
@@ -89,7 +85,7 @@ Rumak is here, aiding criminals.
 ~
 minotaur~
 AQa Vu -1000 0
-30 10 1d1+20000 20d100+25000 5d5+18 punch
+30 10 1d1+20000 20d100+25000 5d5+18 'punch'
 0 0 0 0
 0 0 0 0
 stand stand male 0
@@ -103,7 +99,7 @@ irlaniel~
 ~
 unique~
 AQRT DFHJMNOPTUVZclm 0 0
-65 70 1d1+9999 1d1+14999 1d99+20 shock
+65 70 1d1+9999 1d1+14999 1d99+20 'shock'
 -40 -40 -40 -40
 ACDEFHKNO ABJLMNPQR CDEFGHIK 0
 stand stand male 0
@@ -117,7 +113,7 @@ Remitoel~
 ~
 unique~
 AQRT DFHJMNOPTUVZclm 0 0
-65 70 1d1+9999 1d1+14999 1d99+20 shock
+65 70 1d1+9999 1d1+14999 1d99+20 'shock'
 -40 -40 -40 -40
 ACDEFHKNO ABJLMNPQR CDEFGHIK 0
 stand stand male 0
@@ -130,13 +126,12 @@ Stalker with an insane look in his eyes.
 ~
 human~
 A 0 0 0
-150 0 1d1+599 1d1+4999 5d5+80 none
+150 0 1d1+599 1d1+4999 5d5+80 'none'
 0 0 0 0
 0 ABCD 0 0
 stand stand none 0
 0 0 medium unknown
 F for AHMV
-F par ABCDEFGHIJK
 #36120
 horse~
 Arborn's war horse~
@@ -145,7 +140,7 @@ Arborn's war horse stands here.
 ~
 horse~
 AZ 0 0 0
-93 50 1d1+29999 5d5+70 1d500+100 none
+93 50 1d1+29999 5d5+70 1d500+100 'none'
 0 0 0 0
 CDI 0 0 0
 stand stand none 0
@@ -160,13 +155,12 @@ he looks tough, you do not feel enmity from him.
 ~
 human~
 ABGRTf DFHVclm 0 0
-150 20 1d1+29999 1d1+12999 50d5+150 magic
+150 20 1d1+29999 1d1+12999 50d5+150 'magic'
 -150 -150 -150 -150
 ACDEFHIJKNO 0 0 0
 stand stand male 0
 0 0 large unknown
 F for AHMV
-F par ABCDEFGHIJK
 M speech 36130 quest~
 M speech 36131 oahzxalq~
 #36139
@@ -176,7 +170,7 @@ Skorn~
 ~
 drow~
 ALTU DFVl 0 0
-0 15 1d1+1299 20d20+800 2d40+10 none
+0 15 1d1+1299 20d20+800 2d40+10 'none'
 0 0 0 0
 ACFIJK 0 0 0
 stand stand none 0

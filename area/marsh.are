@@ -17,7 +17,7 @@ as he approaches and raises two black taloned claws to strike you.
 ~
 troll~
 ABCFG 0 -600 0
-16 0 3d9+233 8d9+100 2d6+4 none
+16 0 3d9+233 8d9+100 2d6+4 'none'
 -2 -2 -2 7
 EFNR 0 0 0
 stand rest male 500
@@ -33,7 +33,7 @@ and cackles with glee.
 ~
 troll~
 ACFG 0 -400 0
-14 0 2d10+190 7d9+100 1d12+3 none
+14 0 2d10+190 7d9+100 1d12+3 'none'
 -1 -1 -1 8
 EFNR 0 0 0
 stand stand male 400
@@ -47,7 +47,7 @@ This mean bastard looks like he could tear you limb from limb.
 ~
 human~
 ACFG J -500 0
-20 0 3d9+333 10d9+100 2d8+5 none
+20 0 3d9+333 10d9+100 2d8+5 'none'
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand male 500
@@ -61,7 +61,7 @@ The Swamp Thing has huge fists, which look like they could pound you flat.
 ~
 human~
 ACFG J -700 0
-24 0 5d10+500 12d9+100 2d10+6 none
+24 0 5d10+500 12d9+100 2d10+6 'none'
 -6 -6 -6 6
 EFNU 0 0 0
 stand rest none 1250
@@ -75,7 +75,7 @@ The Gnoll seems annoyed at your presence.
 ~
 human~
 ACG DFJ -1000 0
-30 0 6d12+853 15d9+100 4d6+8 none
+30 0 6d12+853 15d9+100 4d6+8 'none'
 -9 -9 -9 6
 EFNU 0 0 0
 stand stand male 1250
@@ -90,7 +90,7 @@ appendages.
 ~
 human~
 ACFG DFJ -450 0
-21 0 4d10+360 10d9+100 4d4+5 none
+21 0 4d10+360 10d9+100 4d4+5 'none'
 -5 -5 -5 7
 EFNU 0 0 0
 stand stand male 500
@@ -105,7 +105,7 @@ sword blow.
 ~
 human~
 ACGH JP 0 0
-3 0 2d6+35 1d9+100 1d6+0 none
+3 0 2d6+35 1d9+100 1d6+0 'none'
 7 7 7 10
 EFNU 0 0 0
 stand stand male 25
@@ -121,7 +121,7 @@ are just able to notice a small pair of glowing eyes.
 ~
 human~
 ACGH JP 0 0
-10 0 2d7+121 5d9+100 2d4+2 none
+10 0 2d7+121 5d9+100 2d4+2 'none'
 1 1 1 8
 EFNU 0 0 0
 stand stand none 150
@@ -135,7 +135,7 @@ This 10 meter anaconda looks rather hungry.
 ~
 snake~
 ACFGH JPQ -100 0
-16 0 3d9+233 8d9+100 2d6+4 none
+16 0 3d9+233 8d9+100 2d6+4 'none'
 -2 -2 -2 7
 EFNR 0 0 0
 stand stand male 500
@@ -149,7 +149,7 @@ It's the largest Amazon python you have ever seen.
 ~
 snake~
 ACFGH JPQ -100 0
-11 0 2d8+134 5d9+100 1d10+2 none
+11 0 2d8+134 5d9+100 1d10+2 'none'
 1 1 1 8
 EFNR 0 0 0
 stand stand female 0
@@ -164,7 +164,7 @@ because she thinks you stink too, and she's about to do something about it.
 ~
 human~
 ACGS DFJ -200 0
-9 0 2d7+96 4d9+100 1d7+2 none
+9 0 2d7+96 4d9+100 1d7+2 'none'
 3 3 3 8
 BEFJNU 0 0 0
 stand stand female 50
@@ -179,7 +179,7 @@ swamp light, the blade of his scythe gleams.
 ~
 human~
 ACG DFJ -200 0
-20 0 3d9+333 10d9+100 2d8+5 none
+20 0 3d9+333 10d9+100 2d8+5 'none'
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand male 700
@@ -194,7 +194,7 @@ into the marsh.
 ~
 wolf~
 ACFG J -200 0
-8 0 2d7+96 4d9+100 1d7+2 none
+8 0 2d7+96 4d9+100 1d7+2 'none'
 3 3 3 9
 ENR 0 0 0
 stand stand female 0
@@ -208,7 +208,7 @@ This grotesque pile of plant matter fills you with utmost horror.
 ~
 human~
 ACG JQ -100 0
-13 0 2d10+170 6d9+100 2d5+3 none
+13 0 2d10+170 6d9+100 2d5+3 'none'
 -1 -1 -1 8
 EFNU 0 0 0
 stand stand none 0
@@ -223,7 +223,7 @@ painted on his face and hands.
 ~
 human~
 ABCDFGQ DF -100 0
-12 0 2d10+150 12d9+100 2d4+3 none
+12 0 2d10+150 12d9+100 2d4+3 'none'
 0 0 0 7
 EIKU 0 0 0
 stand stand male 17
@@ -237,7 +237,7 @@ This huge monster of a man has green gnarly teeth and a BIG stick.
 ~
 giant~
 ABCDFG DFJ -100 0
-15 0 3d9+208 7d9+100 2d6+3 none
+15 0 3d9+208 7d9+100 2d6+3 'none'
 -2 -2 -2 7
 EFNR 0 0 0
 stand stand male 600
@@ -251,7 +251,7 @@ This creepy fellow looks like he could use you as a meal.
 ~
 human~
 ABCDFG DFJ -100 0
-12 0 2d10+150 6d9+100 1d10+3 none
+12 0 2d10+150 6d9+100 1d10+3 'none'
 0 0 0 8
 EFNU 0 0 0
 stand stand none 100

@@ -16,7 +16,7 @@ Your typical smelly, blind flying mammal.
 ~
 bat~
 ABF FJ 0 0
-5 0 2d6+60 2d9+100 1d6+1 none
+5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
 ENR 0 0 0
 stand stand none 0
@@ -30,7 +30,7 @@ He has lost his family and everything of his former life.
 ~
 human~
 AH 0 200 0
-7 0 2d6+85 3d9+100 1d8+1 none
+7 0 2d6+85 3d9+100 1d8+1 'none'
 4 4 4 9
 EFNU 0 0 0
 stand stand male 30
@@ -47,7 +47,7 @@ probably won't last long.
 ~
 human~
 ACH FJ 100 0
-8 0 2d7+96 4d9+100 1d7+2 none
+8 0 2d7+96 4d9+100 1d7+2 'none'
 3 3 3 9
 EFNU 0 0 0
 stand stand male 40
@@ -62,7 +62,7 @@ They seem like little more than zombie servants themselves.
 ~
 human~
 ACF J -500 0
-9 0 2d6+110 4d9+100 1d8+2 none
+9 0 2d6+110 4d9+100 1d8+2 'none'
 2 2 2 8
 EFNU 0 0 0
 stand stand male 5
@@ -76,7 +76,7 @@ In fact it IS alive in a magical sort of sense.
 ~
 human~
 A HJPU 0 0
-10 0 2d7+121 5d9+100 2d4+2 none
+10 0 2d7+121 5d9+100 2d4+2 'none'
 1 1 1 8
 EFNU 0 0 0
 stand stand none 10
@@ -88,7 +88,7 @@ It~
 ~
 human~
 AF J 0 0
-10 0 2d7+121 5d9+100 2d4+2 none
+10 0 2d7+121 5d9+100 2d4+2 'none'
 1 1 1 8
 EFNU 0 0 0
 stand stand none 50
@@ -103,7 +103,7 @@ continues for him in his charmed state.
 ~
 human~
 ACF J -290 0
-11 0 2d8+134 5d9+100 1d10+2 none
+11 0 2d8+134 5d9+100 1d10+2 'none'
 1 1 1 8
 EFNU 0 0 E
 stand stand male 55
@@ -120,7 +120,7 @@ A templar tells you, "You must die for your sin!".
 ~
 human~
 ACF 0 600 0
-12 0 2d10+150 6d9+100 1d10+3 none
+12 0 2d10+150 6d9+100 1d10+3 'none'
 0 0 0 8
 EFNU 0 0 0
 stand stand male 25
@@ -134,7 +134,7 @@ Hard to tell much about the mysterious form even upon further inspection.
 ~
 human~
 ACF FJU 0 0
-12 0 2d10+150 6d9+100 1d10+3 none
+12 0 2d10+150 6d9+100 1d10+3 'none'
 0 0 0 8
 EFNU 0 0 0
 stand stand male 30
@@ -148,7 +148,7 @@ A templar officer tells you "Better move along evil one!"
 ~
 human~
 AF D 700 0
-13 0 2d10+170 6d9+100 2d5+3 none
+13 0 2d10+170 6d9+100 2d5+3 'none'
 -1 -1 -1 8
 EFNU 0 0 0
 stand stand male 30
@@ -162,7 +162,7 @@ He seems to lack real interest in what he is doing.
 ~
 human~
 ACFR J -100 0
-13 0 2d10+150 13d9+100 2d4+2 none
+13 0 2d10+150 13d9+100 2d4+2 'none'
 0 0 0 5
 FU 0 0 0
 stand stand male 27
@@ -176,7 +176,7 @@ Looks vaguely you-shaped.
 ~
 human~
 A FJPU 0 0
-14 0 2d10+190 7d9+100 1d12+3 none
+14 0 2d10+190 7d9+100 1d12+3 'none'
 -1 -1 -1 8
 EFNU 0 0 0
 stand stand none 40
@@ -190,7 +190,7 @@ A rather LARGE "bat" ...
 ~
 bat~
 ABF FJ -100 0
-15 0 3d9+208 7d9+100 2d6+3 none
+15 0 3d9+208 7d9+100 2d6+3 'none'
 -2 -2 -2 7
 ENR 0 0 0
 stand stand male 50
@@ -205,7 +205,7 @@ to kill you to get a fresh corpse!
 ~
 human~
 ABF J -888 0
-15 0 3d9+208 7d9+100 2d6+3 none
+15 0 3d9+208 7d9+100 2d6+3 'none'
 -2 -2 -2 7
 EFNU 0 0 0
 stand stand male 55
@@ -220,7 +220,7 @@ of an eye he seems stern again.
 ~
 human~
 AB DFH 1000 0
-16 0 3d9+233 8d9+100 2d6+4 none
+16 0 3d9+233 8d9+100 2d6+4 'none'
 -2 -2 -2 7
 EFNU 0 0 0
 stand stand male 75
@@ -234,7 +234,7 @@ The spray of colored light bouncing off his scales is almost blinding.
 ~
 human~
 ABF DF -303 0
-20 0 3d9+333 10d9+100 2d8+5 none
+20 0 3d9+333 10d9+100 2d8+5 'none'
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand male 1500
@@ -248,7 +248,7 @@ You see nothing more than the sense of darkness and evil.
 ~
 human~
 ABF J -1000 0
-24 0 5d10+500 12d9+100 2d10+6 none
+24 0 5d10+500 12d9+100 2d10+6 'none'
 -6 -6 -6 6
 EFNU 0 0 0
 stand stand none 1000

@@ -17,7 +17,7 @@ He seems to be in peace with himself and his surroundings.
 ~
 human~
 AGH D -500 0
-13 0 2d10+170 6d9+100 2d5+3 none
+13 0 2d10+170 6d9+100 2d5+3 'none'
 -1 -1 -1 8
 EFNU 0 0 0
 stand stand male 25
@@ -33,7 +33,7 @@ or nothing to say.
 ~
 human~
 AB 0 0 0
-4 0 2d7+46 2d9+100 1d5+1 none
+4 0 2d7+46 2d9+100 1d5+1 'none'
 6 6 6 9
 EFNU 0 0 0
 sit sit male 0
@@ -48,7 +48,7 @@ He wears normal, light clothing and has an anonymous face.
 ~
 human~
 ACG 0 0 0
-6 0 2d7+71 3d9+100 1d7+1 none
+6 0 2d7+71 3d9+100 1d7+1 'none'
 4 4 4 9
 EFNU 0 0 0
 stand stand male 10
@@ -63,7 +63,7 @@ She wears a minimum of clothing and has big ... eyes.
 ~
 human~
 ACG 0 0 0
-5 0 2d6+60 2d9+100 1d6+1 none
+5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
 EFNU 0 0 0
 stand stand female 5
@@ -79,7 +79,7 @@ for as long anyone can remember.
 ~
 human~
 ABF DJ -1000 0
-24 0 5d10+500 12d9+100 2d10+6 none
+24 0 5d10+500 12d9+100 2d10+6 'none'
 -6 -6 -6 6
 EFNU 0 0 0
 stand stand male 683
@@ -96,7 +96,7 @@ He looks very fit and capable of protecting his goods.
 ~
 human~
 ABCe 0 400 0
-23 0 5d10+450 11d9+100 3d6+6 none
+23 0 5d10+450 11d9+100 3d6+6 'none'
 -6 -6 -6 6
 EFNU 0 0 0
 stand stand male 400
@@ -111,7 +111,7 @@ wierdest drinks known. He also looks very big.
 ~
 human~
 ABe 0 -100 0
-23 0 5d10+450 11d9+100 3d6+6 none
+23 0 5d10+450 11d9+100 3d6+6 'none'
 -6 -6 -6 6
 EFNU 0 0 0
 stand stand male 5
@@ -125,7 +125,7 @@ It is a small, furry creature with long ears and big feet.
 ~
 rabbit~
 AG 0 0 0
-1 0 2d6+10 0d9+100 1d4+0 none
+1 0 2d6+10 0d9+100 1d4+0 'none'
 9 9 9 10
 ENR 0 0 0
 stand stand none 0
@@ -141,7 +141,7 @@ but so far they haven't succeeded.
 ~
 dragon~
 ABHR DH 1000 0
-10 0 2d6+110 10d9+100 1d8+1 none
+10 0 2d6+110 10d9+100 1d8+1 'none'
 2 2 2 6
 FR 0 0 0
 stand stand female 0

@@ -23,7 +23,7 @@ he waits for release.
 ~
 human~
 AB DJu -1000 0
-25 0 5d10+550 12d9+100 2d10+7 none
+25 0 5d10+550 12d9+100 2d10+7 'none'
 -7 -7 -7 6
 EFNU 0 0 0
 stand stand male 1250
@@ -44,7 +44,7 @@ wind pushes it back and forth.
 ~
 human~
 AB 0 250 0
-20 0 3d9+333 10d9+100 2d8+5 none
+20 0 3d9+333 10d9+100 2d8+5 'none'
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand none 250
@@ -64,7 +64,7 @@ It sees you and snarls.
 ~
 human~
 ABF CEJP 0 0
-15 0 3d9+208 7d9+100 2d6+3 none
+15 0 3d9+208 7d9+100 2d6+3 'none'
 -2 -2 -2 7
 EFNU 0 0 0
 stand stand none 125
@@ -81,7 +81,7 @@ toad rock жаба~
 ~
 human~
 AB 0 -250 0
-14 0 2d10+190 7d9+100 1d12+3 none
+14 0 2d10+190 7d9+100 1d12+3 'none'
 -1 -1 -1 8
 EFNU 0 0 0
 sit sit female 127
@@ -99,7 +99,7 @@ anguish and dismay. You hear a faint sound of crying.
 ~
 human~
 AB DHJ 1000 0
-25 0 5d10+550 12d9+100 2d10+7 none
+25 0 5d10+550 12d9+100 2d10+7 'none'
 -7 -7 -7 6
 EFNU 0 0 0
 stand stand female 1000
@@ -115,7 +115,7 @@ mist mistling элементаль~
 ~
 human~
 ABF JQ 0 0
-15 0 3d9+208 7d9+100 2d6+3 none
+15 0 3d9+208 7d9+100 2d6+3 'none'
 -2 -2 -2 7
 EFNU 0 0 0
 stand stand none 50
@@ -135,7 +135,7 @@ he nears you.
 ~
 human~
 ABCF J -1000 0
-20 0 3d9+333 10d9+100 2d8+5 none
+20 0 3d9+333 10d9+100 2d8+5 'none'
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand male 1250
@@ -150,7 +150,7 @@ with its head hung low. It sees you and cringes in mortal terror.
 ~
 human~
 AGH 0 -200 0
-10 0 2d7+121 5d9+100 2d4+2 none
+10 0 2d7+121 5d9+100 2d4+2 'none'
 1 1 1 8
 EFNU 0 0 0
 stand stand none 10
@@ -165,7 +165,7 @@ formidable.
 ~
 human~
 ACFGH 0 -350 0
-15 0 3d9+208 7d9+100 2d6+3 none
+15 0 3d9+208 7d9+100 2d6+3 'none'
 -2 -2 -2 7
 EFNU 0 0 0
 stand stand male 250
@@ -180,7 +180,7 @@ fight to the death before abandoning his post.
 ~
 human~
 ABCFG 0 -500 0
-19 0 3d9+308 9d9+100 2d7+5 none
+19 0 3d9+308 9d9+100 2d7+5 'none'
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand male 500
@@ -199,7 +199,7 @@ charms and holy symbols draped about him. He looks at you and snarls.
 ~
 human~
 ABCFGHQ Du -750 0
-20 0 3d9+333 20d9+100 2d7+5 none
+20 0 3d9+333 20d9+100 2d7+5 'none'
 -4 -4 -4 6
 EIKU 0 0 0
 stand stand male 2500
@@ -218,7 +218,7 @@ quite formidable. He towers high above you and growls menacingly.
 ~
 human~
 ABCFGH Du -1000 0
-25 0 5d10+550 12d9+100 2d10+7 none
+25 0 5d10+550 12d9+100 2d10+7 'none'
 -7 -7 -7 6
 EFNU 0 0 0
 stand stand male 2500
@@ -233,7 +233,7 @@ and icy wastes.
 ~
 human~
 ABCFGH 0 0 0
-20 0 3d9+333 10d9+100 2d8+5 none
+20 0 3d9+333 10d9+100 2d8+5 'none'
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand male 250
@@ -248,7 +248,7 @@ curved talons and its mouth is full of sharp teeth.
 ~
 human~
 ABCFGH 0 -350 0
-16 0 3d9+233 8d9+100 2d6+4 none
+16 0 3d9+233 8d9+100 2d6+4 'none'
 -2 -2 -2 7
 EFNU 0 0 0
 stand stand none 50
@@ -264,7 +264,7 @@ as it charges directly at you.
 ~
 human~
 ABCFG 0 0 0
-20 0 3d9+333 10d9+100 2d8+5 none
+20 0 3d9+333 10d9+100 2d8+5 'none'
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand none 175
@@ -279,7 +279,7 @@ place to seek refuge from the cold.
 ~
 human~
 ABCGH 0 100 0
-15 0 3d9+208 7d9+100 2d6+3 none
+15 0 3d9+208 7d9+100 2d6+3 'none'
 -2 -2 -2 7
 EFNU 0 0 0
 stand stand none 500
@@ -294,7 +294,7 @@ his armor.
 ~
 human~
 ABCFG 0 -330 0
-22 0 5d10+400 11d9+100 4d4+6 none
+22 0 5d10+400 11d9+100 4d4+6 'none'
 -5 -5 -5 7
 EFNU 0 0 0
 stand stand male 1250
@@ -309,7 +309,7 @@ fur and red eyes. He looks quite capable of protecting the city.
 ~
 human~
 ACFG 0 -330 0
-21 0 4d10+360 10d9+100 4d4+5 none
+21 0 4d10+360 10d9+100 4d4+5 'none'
 -5 -5 -5 7
 EFNU 0 0 0
 stand stand male 1250
@@ -324,7 +324,7 @@ miserable standing in the driven snow and ice.
 ~
 human~
 ABCG D -330 0
-25 0 5d10+550 12d9+100 2d10+7 none
+25 0 5d10+550 12d9+100 2d10+7 'none'
 -7 -7 -7 6
 EFNU 0 0 0
 stand stand none 1250
@@ -339,7 +339,7 @@ skilled.
 ~
 human~
 ABCFG D -330 0
-25 0 5d10+550 12d9+100 2d10+7 none
+25 0 5d10+550 12d9+100 2d10+7 'none'
 -7 -7 -7 6
 EFNU 0 0 0
 stand stand male 2250
@@ -354,7 +354,7 @@ huge glaive. He looks quite capable of protecting the keep.
 ~
 human~
 ABCFG D -330 0
-26 0 5d10+600 13d9+100 3d7+7 none
+26 0 5d10+600 13d9+100 3d7+7 'none'
 -7 -7 -7 6
 EFNU 0 0 0
 stand stand male 2500
@@ -369,7 +369,7 @@ furs.
 ~
 human~
 ABCFG D -250 0
-28 0 6d12+703 14d9+100 5d4+8 none
+28 0 6d12+703 14d9+100 5d4+8 'none'
 -8 -8 -8 6
 EFNU 0 0 0
 stand stand male 3750
@@ -387,7 +387,7 @@ in the harem.
 ~
 human~
 ABCGH 0 1000 0
-2 0 1d1+1 1d9+100 1d5+0 none
+2 0 1d1+1 1d9+100 1d5+0 'none'
 8 8 8 10
 EFNU 0 0 0
 stand stand female 0
@@ -401,7 +401,7 @@ He looks quite regal and refined to be a minotaur.
 ~
 human~
 ABCGH 0 250 0
-20 0 3d9+333 10d9+100 2d8+5 none
+20 0 3d9+333 10d9+100 2d8+5 'none'
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand male 250
@@ -416,7 +416,7 @@ keys hanging from his belt. He wears huge, spiked brass knuckles.
 ~
 human~
 ABCGR DH -300 0
-29 0 6d12+703 29d9+100 3d7+7 none
+29 0 6d12+703 29d9+100 3d7+7 'none'
 -8 -8 -8 1
 FU 0 0 0
 stand stand male 2500
@@ -431,7 +431,7 @@ master of the warrior guild of Mahn-Tor.
 ~
 human~
 ABF DH -300 0
-30 0 6d12+853 15d9+100 4d6+8 none
+30 0 6d12+853 15d9+100 4d6+8 'none'
 -9 -9 -9 6
 EFNU 0 0 0
 stand stand male 5000
@@ -446,7 +446,7 @@ chill runs down your spine. He is the master of the Mahn-Tor anti-paladins.
 ~
 human~
 ABF DJu -1000 0
-33 0 6d12+853 15d9+100 4d6+10 none
+33 0 6d12+853 15d9+100 4d6+10 'none'
 -9 -9 -9 6
 EFNU 0 0 0
 stand stand male 5000
@@ -461,7 +461,7 @@ presence. He is the leader of the Mahn-Tor paladins.
 ~
 human~
 AB DH 1000 0
-34 2 6d12+853 15d9+100 4d6+10 none
+34 2 6d12+853 15d9+100 4d6+10 'none'
 -9 -9 -9 6
 EFNU 0 0 0
 stand stand male 5000
@@ -477,7 +477,7 @@ mages of Mahn-Tor.
 ~
 human~
 ABFR DH 300 0
-30 0 6d12+778 30d9+100 5d4+7 none
+30 0 6d12+778 30d9+100 5d4+7 'none'
 -9 -9 -9 1
 FU 0 0 0
 stand stand male 5000
@@ -492,7 +492,7 @@ master of all the clerics of Mahn-Tor.
 ~
 human~
 ABFQ DH 1000 0
-30 0 6d12+853 30d9+100 5d4+8 none
+30 0 6d12+853 30d9+100 5d4+8 'none'
 -9 -9 -9 4
 EIKU 0 0 0
 stand stand male 5000
@@ -507,7 +507,7 @@ wears no metal of any type. He looks at you and smiles.
 ~
 human~
 ABQ DH 500 0
-30 0 6d12+853 30d9+100 5d4+8 none
+30 0 6d12+853 30d9+100 5d4+8 'none'
 -9 -9 -9 4
 EIKU 0 0 0
 stand stand male 5000
@@ -522,7 +522,7 @@ compared to the normal minotaur. He looks at you with a slight smirk.
 ~
 human~
 ABF DH 500 0
-30 0 6d12+853 15d9+100 4d6+8 none
+30 0 6d12+853 15d9+100 4d6+8 'none'
 -9 -9 -9 6
 EFNU 0 0 0
 stand stand male 5000
@@ -537,7 +537,7 @@ appears to be quite a skilled thief.
 ~
 human~
 ABCF Q -500 0
-30 0 6d12+853 15d9+100 4d6+8 none
+30 0 6d12+853 15d9+100 4d6+8 'none'
 -9 -9 -9 6
 EFNU 0 0 0
 stand stand male 5000
@@ -557,7 +557,7 @@ Mahn-Tor is the leader of the minotaurs. He is awe-inspiring.
 ~
 human~
 ABCR BDTUu -500 0
-33 0 10d10+1000 33d9+100 4d6+8 none
+33 0 10d10+1000 33d9+100 4d6+8 'none'
 -10 -10 -10 0
 FU 0 0 0
 stand stand male 5000

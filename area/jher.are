@@ -16,7 +16,7 @@ You feel incredibly overwhelmed by the power in this evil man's eyes.
 ~
 human~
 ABCDG DFHJN 0 0
-53 0 50d10+5000 5d5+5000 6d7+21 punch
+53 0 50d10+5000 5d5+5000 6d7+21 'punch'
 -23 -23 -23 -1
 EFIJK 0 0 0
 stand stand male 0
@@ -30,7 +30,7 @@ He has been waiting for you to practice his newly learned skill of thievery.
 ~
 unique~
 ACGHS DFJP 0 0
-32 0 10d10+1000 5d5+1000 6d4+9 none
+32 0 10d10+1000 5d5+1000 6d4+9 'none'
 -10 -10 -10 3
 EFIKN 0 0 0
 stand stand male 0
@@ -44,7 +44,7 @@ If Knanath hasn't ripped your throat out by now, he must not be hungry.
 ~
 fido~
 ABCFG BDFJ 0 0
-43 0 25d10+2500 5d5+1000 3d12+15 beating
+43 0 25d10+2500 5d5+1000 3d12+15 'beating'
 -15 -15 -15 2
 EI 0 0 0
 stand stand male 0
@@ -59,7 +59,7 @@ could imagine.
 ~
 unique~
 ACG DFJ 0 0
-40 0 15d10+1850 5d5+1000 4d8+13 bite
+40 0 15d10+1850 5d5+1000 4d8+13 'bite'
 -13 -13 -13 3
 EFI 0 0 0
 stand stand female 0
@@ -73,7 +73,7 @@ Don't mess with this beast, he will kill you before you can scream.
 ~
 unique~
 ACG DFJP 0 0
-42 0 25d10+2250 5d5+1000 3d12+14 bite
+42 0 25d10+2250 5d5+1000 3d12+14 'bite'
 -14 -14 -14 3
 EFI 0 0 0
 stand stand male 0
@@ -87,7 +87,7 @@ He looks at you and licks his chops.  Obviously he would rather suck on you.
 ~
 unique~
 ABCGH 0 0 0
-35 0 10d10+1300 5d5+1000 4d7+11 charge
+35 0 10d10+1300 5d5+1000 4d7+11 'charge'
 -11 -11 -11 3
 EFI 0 0 0
 stand stand male 0
@@ -101,7 +101,7 @@ You see venom dripping off its fangs.
 ~
 snake~
 ABFG DFJ 0 0
-20 0 3d9+333 5d5+1000 2d8+5 shbite
+20 0 3d9+333 5d5+1000 2d8+5 'shbite'
 -4 -4 -4 5
 FH L 0 0
 stand stand none 0
@@ -115,7 +115,7 @@ Beorn looks at you and says 'will you help me kill Jher?'
 ~
 bear~
 AG DFHJNPQU 0 0
-47 0 25d10+3500 5d5+1000 6d6+17 claw
+47 0 25d10+3500 5d5+1000 6d6+17 'claw'
 -17 -17 -17 2
 CFIK 0 0 0
 stand stand male 0
@@ -130,7 +130,7 @@ distance between it and you.
 ~
 unique~
 AFG DFJT 0 0
-34 0 10d10+1200 5d5+1000 4d7+10 charge
+34 0 10d10+1200 5d5+1000 4d7+10 'charge'
 -11 -11 -11 3
 F 0 0 0
 stand stand none 0
@@ -145,7 +145,7 @@ these new pups will feast on.
 ~
 unique~
 ABGe DFHJ 0 0
-40 0 15d10+1850 5d5+1000 4d8+13 bite
+40 0 15d10+1850 5d5+1000 4d8+13 'bite'
 -13 -13 -13 3
 EFI 0 0 0
 stand stand male 0
@@ -159,7 +159,7 @@ She growls at you and screams for help.
 ~
 unique~
 ABCG DFJ 0 0
-35 0 10d10+1300 5d5+1000 4d7+11 bite
+35 0 10d10+1300 5d5+1000 4d7+11 'bite'
 -11 -11 -11 3
 EFI 0 0 0
 stand stand female 0
@@ -174,7 +174,7 @@ brown hair and his eyes glow.
 ~
 unique~
 ABCFG DFJ 0 0
-40 0 15d10+1850 5d5+1000 4d8+13 bite
+40 0 15d10+1850 5d5+1000 4d8+13 'bite'
 -13 -13 -13 3
 EFI 0 0 0
 stand stand male 0
@@ -188,7 +188,7 @@ His eyes are pleading for someone to free him from Jher's bondage.
 ~
 human~
 ACGH DFIJ 0 0
-35 0 10d10+1300 5d5+1000 4d7+11 punch
+35 0 10d10+1300 5d5+1000 4d7+11 'punch'
 -11 -11 -11 3
 EFI 0 0 0
 stand stand male 0
@@ -202,7 +202,7 @@ Obviously a warrior, this beast was bred to fight and kill.
 ~
 unique~
 ABCGT DFJ 0 0
-40 0 15d10+1850 5d5+1000 4d8+13 pound
+40 0 15d10+1850 5d5+1000 4d8+13 'pound'
 -13 -13 -13 3
 CDEFIKTU 0 0 0
 stand stand male 0
@@ -216,7 +216,7 @@ Obviously a warrior, this beast was bred to fight and kill.
 ~
 unique~
 ABCGT DFJ 0 0
-42 0 25d10+2250 5d5+1000 3d12+14 pound
+42 0 25d10+2250 5d5+1000 3d12+14 'pound'
 -14 -14 -14 3
 CDEFIKTU 0 0 0
 stand stand male 0
@@ -231,7 +231,7 @@ body from some unthinkable torture.
 ~
 human~
 AGH DFIJQ 0 0
-37 0 10d10+1500 5d5+1000 3d10+12 slap
+37 0 10d10+1500 5d5+1000 3d10+12 'slap'
 -12 -12 -12 3
 EIK 0 0 0
 stand stand female 0
@@ -246,7 +246,7 @@ because of your distinct smell.
 ~
 human~
 AGH DFJ 0 0
-38 0 10d10+1600 5d5+1000 5d6+12 charge
+38 0 10d10+1600 5d5+1000 5d6+12 'charge'
 -13 -13 -13 3
 EF 0 0 0
 stand stand none 0
@@ -261,7 +261,7 @@ But.... if you have some spare gold....
 ~
 human~
 A BDFHIJMNOPTXl 1000 0
-1 10 1d1+10 1d1+10 1d1+1 divine
+1 10 1d1+10 1d1+10 1d1+1 'divine'
 0 0 0 0
 0 ABCDEFGHIKLMNOPQRTXYZ 0 0
 stand stand none 0

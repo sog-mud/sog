@@ -24,7 +24,7 @@ lots of trials and known the reality of life.
 ~
 ghost~
 ATf BDFU 0 0
-110 0 100d40+30000 100d10+15000 19d16+80 wrath
+110 0 100d40+30000 100d10+15000 19d16+80 'wrath'
 -80 -80 -80 -70
 DEHKO ABJP HIK 0
 stand stand male 0
@@ -50,7 +50,7 @@ stay away of the pass he is shooting.
 ~
 human~
 AGT FNPZ 1000 0
-91 0 101d20+30000 85d10+1000 13d10+70 punch
+91 0 101d20+30000 85d10+1000 13d10+70 'punch'
 -60 -60 -60 -58
 EFHIJKLNQY ABIX LQ G
 sit stand male 5000
@@ -71,7 +71,7 @@ knees and to bow before him.
 ~
 human~
 AGT JPVc 0 0
-90 0 91d20+22000 82d10+1000 11d11+60 punch
+90 0 91d20+22000 82d10+1000 11d11+60 'punch'
 -55 -55 -55 -53
 AEFHIJKN T H I
 sit stand male 10000
@@ -90,7 +90,7 @@ some memories about my life." - says Tumbu-Yumbu and smiles at you.
 ~
 human~
 AGT DOVZ -100 0
-85 0 95d18+16000 82d10+1000 11d11+60 thrust
+85 0 95d18+16000 82d10+1000 11d11+60 'thrust'
 -50 -50 -50 -49
 CFHIKN 0 H I
 sit stand male 3000
@@ -110,7 +110,7 @@ polished.
 ~
 human~
 AGT Oa -300 0
-90 0 95d20+23000 85d10+1000 11d11+70 pound
+90 0 95d20+23000 85d10+1000 11d11+70 'pound'
 -60 -65 -65 -55
 ADEFIJK 0 IP HN
 sit stand male 10000
@@ -133,7 +133,7 @@ now he cannot leave his crumpled flask filled with ale.
 ~
 human~
 AGT FTVac 100 0
-95 0 101d20+30000 82d10+1000 12d10+65 charge
+95 0 101d20+30000 82d10+1000 12d10+65 'charge'
 -60 -50 -60 -70
 ADEFHIKLN B DIKLQX EHT
 sit rest male 100
@@ -153,7 +153,7 @@ your help?
 ~
 human~
 AGQ DENTU 1000 0
-90 0 90d20+17000 85d10+10000 20d6+50 pound
+90 0 90d20+17000 85d10+10000 20d6+50 'pound'
 -58 -65 -55 -55
 CEIKNQ ABN CLMPQ FX
 stand stand male 10000
@@ -174,7 +174,7 @@ guess.
 ~
 human~
 AGH U 0 0
-10 0 3d22+100 10d10+100 2d5+10 punch
+10 0 3d22+100 10d10+100 2d5+10 'punch'
 -10 -10 -10 -5
 FJ 0 E F
 sit sit male 100
@@ -198,7 +198,7 @@ off.
 ~
 human~
 AGH U 0 0
-5 0 1d17+42 5d10+100 2d3+5 thwack
+5 0 1d17+42 5d10+100 2d3+5 'thwack'
 -10 -10 -10 -3
 FH 0 EH F
 stand stand male 20
@@ -218,7 +218,7 @@ festival suit and a powdered wig.
 ~
 human~
 AGHR H 0 0
-50 0 20d80+1000 50d10+1000 5d10+25 slap
+50 0 20d80+1000 50d10+1000 5d10+25 'slap'
 -35 -35 -35 -30
 EFIJZ 0 0 0
 stand stand female 5000
@@ -238,7 +238,7 @@ big hat on his head gets your attention.
 ~
 human~
 AEGT DFHNOU 0 0
-75 0 50d20+11000 75d10+9000 9d11+45 punch
+75 0 50d20+11000 75d10+9000 9d11+45 'punch'
 -50 -50 -50 -30
 CEFIKN AB 0 0
 stand stand male 20000
@@ -260,7 +260,7 @@ to allow him to finish.
 ~
 human~
 AGQ F 0 0
-25 0 8d45+3000 25d10+1000 5d5+15 punch
+25 0 8d45+3000 25d10+1000 5d5+15 'punch'
 -25 -20 -20 -5
 FIJKN 0 0 0
 sit sit male 1235
@@ -280,7 +280,7 @@ and looks at your over.
 ~
 human~
 AGQ DHNU 0 0
-75 0 50d20+10000 75d10+10000 9d9+45 magic
+75 0 50d20+10000 75d10+10000 9d9+45 'magic'
 -50 -46 -53 -30
 FIKN 0 0 0
 sit sit male 9856
@@ -294,7 +294,7 @@ rodent ugly rat грызун~
 ~
 bat~
 AFGH 0 -100 0
-10 0 3d22+100 10d10+100 2d5+5 bite
+10 0 3d22+100 10d10+100 2d5+5 'bite'
 -10 -10 -10 0
 0 0 0 H
 sit sit female 0
@@ -312,7 +312,7 @@ some insects.
 ~
 centipede~
 AFGH 0 0 0
-10 0 3d22+100 10d10+100 2d3+3 bite
+10 0 3d22+100 10d10+100 2d3+3 'bite'
 -10 -10 -5 -1
 FH 0 E H
 sit sit male 0
@@ -331,7 +331,7 @@ you what you need and offers to look books at the shelf behind him.
 ~
 human~
 AGQ DHU 0 0
-75 0 50d20+12000 75d10+5000 8d12+44 magic
+75 0 50d20+12000 75d10+5000 8d12+44 'magic'
 -45 -48 -50 -25
 EFIJKN 0 0 0
 sit sit male 10895
@@ -349,7 +349,7 @@ tournament weapon. He ask you for challenge.
 ~
 human~
 AGT 0 0 0
-50 0 20d80+10000 50d10+1000 7d8+30 punch
+50 0 20d80+10000 50d10+1000 7d8+30 'punch'
 -36 -38 -36 -34
 CEFIJK 0 0 0
 stand stand male 10000
@@ -368,7 +368,7 @@ wounded.
 ~
 human~
 ACGHT F 0 0
-25 0 8d40+2500 25d10+100 5d4+12 punch
+25 0 8d40+2500 25d10+100 5d4+12 'punch'
 -30 -30 -30 -20
 FHJT 0 0 0
 stand stand male 0
@@ -384,7 +384,7 @@ figure training mob strange манекен~
 ~
 human~
 ABGIT DFHc 0 0
-50 0 80d40+10000 50d10+1000 1d1+1 cleave
+50 0 80d40+10000 50d10+1000 1d1+1 'cleave'
 -50 -50 -50 -40
 AEFJK ABCHIJKLMNOPQRST D 0
 stand stand male 0
@@ -402,7 +402,7 @@ angrilly.
 ~
 modron~
 ACGHe PZ 0 0
-5 0 2d8+40 5d10+100 2d5+5 pierce
+5 0 2d8+40 5d10+100 2d5+5 'pierce'
 -10 -20 -10 -5
 FNd A 0 0
 stand stand male 0
@@ -416,7 +416,7 @@ boy small мальчик~
 ~
 human~
 AGH 0 500 0
-8 0 3d15+70 8d10+100 5d3+10 slap
+8 0 3d15+70 8d10+100 5d3+10 'slap'
 -13 -15 -13 -10
 FHd 0 0 0
 stand stand male 0
@@ -430,7 +430,7 @@ girl small девочка~
 ~
 human~
 AGH 0 300 0
-5 0 2d8+35 5d10+100 1d16+8 slap
+5 0 2d8+35 5d10+100 1d16+8 'slap'
 -5 -3 -5 -5
 Id 0 0 0
 stand stand female 0
@@ -447,7 +447,7 @@ in the celebration.
 ~
 human~
 AGHT 0 100 0
-28 0 10d40+3000 28d10+1000 5d7+17 punch
+28 0 10d40+3000 28d10+1000 5d7+17 'punch'
 -30 -25 -30 -20
 FI 0 0 0
 stand stand male 300
@@ -464,7 +464,7 @@ in the celebration.
 ~
 human~
 AGHT 0 100 0
-25 0 8d30+2400 25d10+1000 4d8+16 slap
+25 0 8d30+2400 25d10+1000 4d8+16 'slap'
 -20 -20 -20 -10
 FN 0 0 0
 stand stand female 500
@@ -482,7 +482,7 @@ nose, then sets it back and falls down laughing.
 ~
 human~
 AGH 0 0 0
-25 0 80d30+2500 25d10+1000 7d5+21 punch
+25 0 80d30+2500 25d10+1000 7d5+21 'punch'
 -25 -25 -25 -15
 HNd 0 0 0
 stand stand male 2500
@@ -500,7 +500,7 @@ from your pocket and money suddenly disappear!
 ~
 human~
 AGS 0 -100 0
-25 0 50d60+3500 25d10+1000 8d4+20 magic
+25 0 50d60+3500 25d10+1000 8d4+20 'magic'
 -23 -20 -23 -25
 FId 0 0 0
 stand stand male 3500
@@ -514,7 +514,7 @@ vendor разносчик~
 ~
 human~
 AGT 0 0 0
-50 0 80d40+12000 50d10+1000 8d8+36 punch
+50 0 80d40+12000 50d10+1000 8d8+36 'punch'
 -20 -30 -30 -30
 EJ ABCDEFGHIJKLMNOPQRSTXYZ 0 0
 stand stand male 100000
@@ -528,7 +528,7 @@ guard gate стражник~
 ~
 human~
 AGTY DFHTU 500 0
-25 0 50d40+2000 25d10+1000 10d3+20 slash
+25 0 50d40+2000 25d10+1000 10d3+20 'slash'
 -30 -30 -30 -20
 CEFHIJKLNc 0 0 0
 stand stand male 2450
@@ -546,7 +546,7 @@ angry look out from it.
 ~
 human~
 ABGHS FPQU -500 0
-10 0 2d33+90 10d10+100 5d5+12 stab
+10 0 2d33+90 10d10+100 5d5+12 'stab'
 -10 -10 -10 -2
 EFHIJKNX 0 0 0
 stand stand male 2000
@@ -560,7 +560,7 @@ pickpocket thief карманник~
 ~
 human~
 AGHS FPQ -100 0
-25 0 20d60+1900 25d10+1000 2d15+16 stab
+25 0 20d60+1900 25d10+1000 2d15+16 'stab'
 -40 -40 -40 -20
 BEFIJKN 0 0 0
 stand stand male 2300
@@ -577,7 +577,7 @@ bat мышь~
 ~
 bat~
 AFGHT DFc -1000 0
-10 0 1d66+100 10d10+100 3d6+12 bite
+10 0 1d66+100 10d10+100 3d6+12 'bite'
 -5 -10 -5 -2
 0 0 0 0
 stand stand male 0
@@ -593,7 +593,7 @@ cat black кот~
 ~
 cat~
 AFGHR DFP -1000 0
-10 0 33d2+120 10d10+100 2d8+10 scratch
+10 0 33d2+120 10d10+100 2d8+10 'scratch'
 -10 -10 -10 -5
 M 0 0 0
 stand stand male 0
@@ -609,7 +609,7 @@ mage white law маг~
 ~
 human~
 AGHR DH 1000 0
-90 0 90d20+16000 85d10+10000 11d9+50 magic
+90 0 90d20+16000 85d10+10000 11d9+50 'magic'
 -70 -65 -70 -55
 FIKVY 0 0 0
 sit sit male 20000
@@ -625,7 +625,7 @@ mage white neutral маг~
 ~
 human~
 AGHR DH 1000 0
-95 0 90d20+16000 85d10+10000 11d9+50 magic
+95 0 90d20+16000 85d10+10000 11d9+50 'magic'
 -70 -60 -70 -60
 FIKVY 0 0 0
 sit sit male 23000
@@ -641,7 +641,7 @@ mage white chaos маг~
 ~
 human~
 AGHR DH 1000 0
-90 0 90d20+16000 85d10+10000 11d9+50 magic
+90 0 90d20+16000 85d10+10000 11d9+50 'magic'
 -70 -60 -70 -60
 FIKVY 0 0 0
 sit sit male 15000
@@ -657,7 +657,7 @@ mage grey law маг~
 ~
 human~
 AGHR DH 0 0
-90 0 90d20+16000 85d10+10000 11d9+50 magic
+90 0 90d20+16000 85d10+10000 11d9+50 'magic'
 -70 -70 -70 -60
 FIKVY 0 0 0
 sit sit male 14000
@@ -673,7 +673,7 @@ mage grey neutral маг~
 ~
 human~
 AGHR DH 0 0
-90 0 90d20+16000 85d10+10000 11d9+50 magic
+90 0 90d20+16000 85d10+10000 11d9+50 'magic'
 -70 -65 -70 -60
 FIKVY 0 0 0
 sit sit male 50000
@@ -689,7 +689,7 @@ mage grey chaos маг~
 ~
 human~
 AGHR DH 0 0
-90 0 90d20+16000 85d10+10000 11d9+50 magic
+90 0 90d20+16000 85d10+10000 11d9+50 'magic'
 -70 -60 -70 -70
 FIKVY 0 0 0
 sit sit male 10000
@@ -705,7 +705,7 @@ mage dark law маг~
 ~
 human~
 AGHR Du -1000 0
-90 0 90d20+16000 85d10+10000 11d9+50 magic
+90 0 90d20+16000 85d10+10000 11d9+50 'magic'
 -70 -60 -70 -60
 FIKVY 0 0 0
 sit sit male 14000
@@ -721,7 +721,7 @@ mage dark neutral маг~
 ~
 human~
 AGHR Du -1000 0
-90 0 90d20+16000 85d10+10000 11d9+50 magic
+90 0 90d20+16000 85d10+10000 11d9+50 'magic'
 -60 -80 -60 -50
 FIKVY 0 0 0
 sit sit male 5090
@@ -737,7 +737,7 @@ mage dark chaos маг~
 ~
 human~
 AGHR Du -1000 0
-90 0 90d20+16000 85d10+10000 11d9+50 magic
+90 0 90d20+16000 85d10+10000 11d9+50 'magic'
 -65 -65 -65 -60
 FIKVY 0 0 0
 sit sit male 3500
@@ -753,7 +753,7 @@ mage earthquaker маг~
 ~
 human~
 AGR 0 0 0
-75 0 50d20+11000 75d10+10000 9d9+45 magic
+75 0 50d20+11000 75d10+10000 9d9+45 'magic'
 -50 -50 -50 -45
 FIK 0 0 0
 sit stand male 4500
@@ -769,7 +769,7 @@ mage wimpy маг~
 ~
 human~
 AGHR 0 0 0
-50 0 40d20+8000 50d10+10000 7d7+31 suction
+50 0 40d20+8000 50d10+10000 7d7+31 'suction'
 -40 -35 -40 -30
 FIK 0 0 0
 stand stand male 1300
@@ -787,7 +787,7 @@ a short tail.
 ~
 human~
 AGH P 0 0
-5 0 20d5+100 5d10+100 2d5+6 bite
+5 0 20d5+100 5d10+100 2d5+6 'bite'
 -5 -5 -5 -1
 FN 0 0 0
 stand stand male 0
@@ -801,7 +801,7 @@ servant слуга~
 ~
 human~
 AGHT 0 0 0
-25 0 40d20+1000 25d10+100 2d15+15 punch
+25 0 40d20+1000 25d10+100 2d15+15 'punch'
 -10 -10 -10 -6
 EFIK 0 0 0
 stand stand male 600
@@ -815,7 +815,7 @@ vendor разносчик~
 ~
 human~
 AGT 0 0 0
-50 0 80d40+12000 50d10+1000 8d8+36 punch
+50 0 80d40+12000 50d10+1000 8d8+36 'punch'
 -20 -30 -30 -30
 EJ ABCDEFGHIJKLMNOPQRSTXYZ 0 0
 stand stand male 100000
@@ -829,7 +829,7 @@ vendor разносчик~
 ~
 human~
 AGT 0 0 0
-50 0 80d40+12000 50d10+1000 8d8+36 punch
+50 0 80d40+12000 50d10+1000 8d8+36 'punch'
 -20 -30 -30 -30
 EJ ABCDEFGHIJKLMNOPQRSTXYZ 0 0
 stand stand male 100000
@@ -843,7 +843,7 @@ vendor разносчик~
 ~
 human~
 AGT 0 0 0
-50 0 80d40+12000 50d10+1000 8d8+36 punch
+50 0 80d40+12000 50d10+1000 8d8+36 'punch'
 -20 -30 -30 -30
 EJ ABCDEFGHIJKLMNOPQRSTXYZ 0 0
 stand stand male 100000
@@ -857,7 +857,7 @@ vendor разносчик~
 ~
 human~
 ABGT 0 0 0
-50 0 80d40+12000 50d10+1000 8d8+36 punch
+50 0 80d40+12000 50d10+1000 8d8+36 'punch'
 -20 -30 -30 -30
 EJ ABCDEFGHIJKLMNOPQRSTXYZ 0 0
 stand stand male 100000
@@ -875,7 +875,7 @@ of the wooden shield.
 ~
 unique~
 ABGHI 0 0 0
-70 0 70d30+25000 70d10+1000 1d1+1 pound
+70 0 70d30+25000 70d10+1000 1d1+1 'pound'
 -50 -50 -50 -45
 EFIJK ABCHIJKLMNOPQRST 0 X
 stand stand none 0
@@ -889,7 +889,7 @@ bird пичуга~
 ~
 bat~
 ACGHW P 0 0
-5 0 20d5+70 5d10+100 1d6+3 peck
+5 0 20d5+70 5d10+100 1d6+3 'peck'
 -5 -5 -5 0
 0 0 0 0
 stand stand female 0
@@ -903,7 +903,7 @@ centipede многоножка~
 ~
 centipede~
 AGH 0 0 0
-5 0 9d20+100 5d10+100 1d12+6 claw
+5 0 9d20+100 5d10+100 1d12+6 'claw'
 -5 -5 -5 0
 FJd 0 0 0
 stand stand female 0
@@ -917,7 +917,7 @@ snake small змейка~
 ~
 lizard~
 AGH FP 0 0
-8 0 10d20+120 10d10+100 5d2+8 claw
+8 0 10d20+120 10d10+100 5d2+8 'claw'
 -10 -10 -10 -5
 FHJN 0 0 0
 stand stand female 0
@@ -931,7 +931,7 @@ insect small мошка~
 ~
 centipede~
 AFGHT T 0 0
-6 0 10d10+100 6d10+100 6d2+6 bite
+6 0 10d10+100 6d10+100 6d2+6 'bite'
 -6 -5 -6 -2
 FHNd 0 0 CH
 stand stand female 0
@@ -945,7 +945,7 @@ salamander mother dragon саламандра~
 ~
 dragon~
 ACGR DHPRVc 0 0
-30 0 20d80+2500 30d10+1000 7d5+20 frbite
+30 0 20d80+2500 30d10+1000 7d5+20 'frbite'
 -30 -20 -30 -30
 FHI HX KOS 0
 sleep sleep female 5000
@@ -961,7 +961,7 @@ paladin паладин~
 ~
 human~
 ABGTY 0 0 0
-50 0 80d40+12000 50d10+1000 8d8+36 punch
+50 0 80d40+12000 50d10+1000 8d8+36 'punch'
 -20 -30 -30 -30
 EJ ABCDEFGHIJKLMNOPQRSTXYZ 0 0
 stand stand male 100000
@@ -975,7 +975,7 @@ ranger охотник~
 ~
 human~
 ABGTY 0 0 0
-50 0 80d40+12000 50d10+1000 8d8+36 punch
+50 0 80d40+12000 50d10+1000 8d8+36 'punch'
 -20 -30 -30 -30
 EJ ABCDEFGHIJKLMNOPQRSTXYZ 0 0
 sit sit male 100000
@@ -989,7 +989,7 @@ samurai самурай~
 ~
 human~
 ABGTY 0 0 0
-50 0 80d40+12000 50d10+1000 8d8+36 punch
+50 0 80d40+12000 50d10+1000 8d8+36 'punch'
 -20 -30 -30 -30
 EJ ABCDEFGHIJKLMNOPQRSTXYZ 0 0
 sit sit male 100000
@@ -1005,7 +1005,7 @@ warrior воин~
 ~
 human~
 ABGTY 0 0 0
-50 0 80d40+12000 50d10+1000 8d8+36 punch
+50 0 80d40+12000 50d10+1000 8d8+36 'punch'
 -20 -30 -30 -30
 EJ ABCDEFGHIJKLMNOPQRSTXYZ 0 0
 sit sit male 100000
@@ -1019,7 +1019,7 @@ witch ведьма~
 ~
 human~
 AGTY 0 0 0
-50 0 80d40+12000 50d10+1000 8d8+36 punch
+50 0 80d40+12000 50d10+1000 8d8+36 'punch'
 -20 -30 -30 -30
 EJ ABCDEFGHIJKLMNOPQRSTXYZ 0 0
 sit sit male 100000
@@ -1036,7 +1036,7 @@ red liquid.
 ~
 human~
 ABGTY 0 0 0
-50 0 80d40+12000 50d10+1000 8d8+36 punch
+50 0 80d40+12000 50d10+1000 8d8+36 'punch'
 -20 -30 -30 -30
 EJ ABCDEFGHIJKLMNOPQRSTXYZ 0 0
 sit sit male 100000
@@ -1052,7 +1052,7 @@ cleric монах~
 ~
 human~
 ABGTY 0 0 0
-50 0 80d40+12000 50d10+1000 8d8+36 punch
+50 0 80d40+12000 50d10+1000 8d8+36 'punch'
 -20 -30 -30 -30
 EJ ABCDEFGHIJKLMNOPQRSTXYZ 0 0
 sit sit male 100000
@@ -1068,7 +1068,7 @@ mage чародей~
 ~
 human~
 ABGTY 0 0 0
-50 0 80d40+12000 50d10+1000 8d8+36 punch
+50 0 80d40+12000 50d10+1000 8d8+36 'punch'
 -20 -30 -30 -30
 EJ ABCDEFGHIJKLMNOPQRSTXYZ 0 0
 stand stand male 100000
@@ -1085,7 +1085,7 @@ in the water bowl.
 ~
 human~
 AGH 0 500 0
-8 0 3d15+70 8d10+100 5d3+10 slap
+8 0 3d15+70 8d10+100 5d3+10 'slap'
 -13 -15 -13 -10
 FHd 0 0 0
 sit sit male 0
@@ -1102,7 +1102,7 @@ in the water bowl.
 ~
 human~
 AGH 0 300 0
-5 0 2d8+35 5d10+100 1d16+8 slap
+5 0 2d8+35 5d10+100 1d16+8 'slap'
 -5 -3 -5 -5
 Id 0 0 0
 sit sit female 0
@@ -1115,7 +1115,7 @@ Some frag is here, sulking in the corner.
 ~
 human~
 A 0 0 0
-83 0 1d1+10 0d0+0 0d0+0 peck
+83 0 1d1+10 0d0+0 0d0+0 'peck'
 0 0 0 0
 0 E 0 0
 stand stand none 0

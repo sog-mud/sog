@@ -1,6 +1,6 @@
 #AREADATA
 Name Magic Forest~
-Builders learza~
+Builders azrael~
 VNUMs 1800 1899
 Credits Xyza~
 Security 9
@@ -22,7 +22,7 @@ name of it. It also has wings! Such a beautiful creature...
 ~
 pig~
 ABGY JTVZ 1000 0
-40 1 15d10+1850 1d400+800 4d8+13 pierce
+40 1 15d10+1850 1d400+800 4d8+13 'pierce'
 -20 -20 -20 -20
 EFHIJK 0 LQR H
 stand stand either 400
@@ -40,7 +40,7 @@ name of it. It also has wings! Such a beautiful creature...
 ~
 pig~
 ABGY JTVZ 1000 0
-35 1 10d10+1300 1d400+800 4d7+11 pierce
+35 1 10d10+1300 1d400+800 4d7+11 'pierce'
 -17 -17 -17 -17
 EFHIJK 0 LQR H
 stand stand either 275
@@ -56,7 +56,7 @@ twitches menacingly.
 ~
 cat~
 AG H 1000 0
-60 2 5d10+9500 1d400+5000 8d6+28 slash
+60 2 5d10+9500 1d400+5000 8d6+28 'slash'
 -50 -50 -50 -50
 EIJKP 0 P HK
 stand stand male 1000
@@ -73,7 +73,7 @@ voice you have ever heard.
 ~
 human~
 ABGa 0 0 0
-42 0 25d10+2000 4d1+400 4d8+13 stab
+42 0 25d10+2000 4d1+400 4d8+13 'stab'
 -14 -14 -14 -14
 AIJKN T KLMNP RSZ
 sit sit female 454
@@ -93,7 +93,7 @@ distrust; you are intruding in his home.
 ~
 pig~
 ABGY CDEFGJTVZ 1000 0
-60 1 50d10+9500 1d400+400 8d6+28 pierce
+60 1 50d10+9500 1d400+400 8d6+28 'pierce'
 -50 -50 -50 -50
 EFHIKR 0 LQR H
 stand stand male 1200
@@ -110,7 +110,7 @@ distrust; you are intruding in his home.
 ~
 pig~
 ABGY CDEFGJTVZ 1000 0
-59 1 50d10+9000 1d400+400 8d6+26 pierce
+59 1 50d10+9000 1d400+400 8d6+26 'pierce'
 -48 -48 -48 -48
 EFHIKR 0 LQR H
 stand stand male 1100
@@ -127,7 +127,7 @@ great distrust; you are intruding in his home.
 ~
 pig~
 ABGY CDEFGJTVZ 1000 0
-58 1 50d10+8500 1d400+400 8d6+24 pierce
+58 1 50d10+8500 1d400+400 8d6+24 'pierce'
 -47 -47 -47 -47
 EFHIKR 0 LQR H
 stand stand male 1000
@@ -144,7 +144,7 @@ you are intruding in his home.
 ~
 pig~
 ABGY CDEFGJTVZ 1000 0
-54 1 50d10+6500 1d400+400 7d6+22 pierce
+54 1 50d10+6500 1d400+400 7d6+22 'pierce'
 -45 -45 -45 -45
 EFHIKR 0 LQR H
 stand stand male 900
@@ -161,7 +161,7 @@ His grey eyes regard you with great distrust; you are intruding in his home.
 ~
 pig~
 ABGY CDEFGJTVZ 1000 0
-60 1 50d10+11500 1d400+400 9d6+28 pierce
+60 1 50d10+11500 1d400+400 9d6+28 'pierce'
 -60 -60 -60 -60
 EFHIKR 0 LQR H
 stand stand male 1200
@@ -178,7 +178,7 @@ intruding in his home.
 ~
 pig~
 ABGY CDEFGJTVZ 1000 0
-50 1 50d10+4500 1d400+400 5d8+19 pierce
+50 1 50d10+4500 1d400+400 5d8+19 'pierce'
 -42 -42 -42 -42
 EFHIKR 0 LQR H
 stand stand male 800
@@ -194,7 +194,7 @@ autumn, the thing looks as though it would feed a crowd.
 ~
 fido~
 ABGHUY 0 -1000 0
-40 0 15d10+1850 1d300+340 4d8+13 suction
+40 0 15d10+1850 1d300+340 4d8+13 'suction'
 -33 -33 -33 -33
 CU 0 0 0
 stand stand either 200
@@ -210,7 +210,7 @@ bat-like wings prepare to flap hot air at you.
 ~
 dragon~
 ABGR CDEFGUZ -1000 0
-60 2 53d10+9590 1d400+400 8d6+30 flame
+60 2 53d10+9590 1d400+400 8d6+30 'flame'
 -45 -45 -45 -45
 A 0 0 0
 stand stand male 3000
@@ -227,7 +227,7 @@ hat, its color and design matching her robe.
 ~
 human~
 ABR TUZ -1000 0
-47 1 25d10+4500 2d400+400 6d6+75 magic
+47 1 25d10+4500 2d400+400 6d6+75 'magic'
 -23 -23 -23 -23
 FHU 0 KM NRX
 stand stand female 200
@@ -245,7 +245,7 @@ brown thread. Her head is uncovered, her hair moving with the breeze.
 ~
 human~
 ABR TUZ -1000 0
-49 1 50d10+5000 2d400+400 6d6+135 magic
+49 1 50d10+5000 2d400+400 6d6+135 'magic'
 -26 -26 -26 -26
 FHU 0 KM NRX
 stand stand female 250
@@ -264,7 +264,7 @@ feather stuck in the left side.
 ~
 human~
 ABR TUZ -1000 0
-51 1 5d50+6000 2d400+400 5d8+133 magic
+51 1 5d50+6000 2d400+400 5d8+133 'magic'
 -29 -29 -29 -29
 FHU 0 KM NRX
 stand stand female 300
@@ -281,7 +281,7 @@ a rope tied around her waist.
 ~
 human~
 ABR TUZ -1000 0
-53 1 50d10+7000 3d400+200 6d7+125 magic
+53 1 50d10+7000 3d400+200 6d7+125 'magic'
 -30 -30 -30 -30
 FHU 0 KM NRX
 stand stand female 300
@@ -296,7 +296,7 @@ with silver embroidery.
 ~
 human~
 ABR TUZ -1000 0
-55 1 50d10+8000 3d400+250 10d4+130 magic
+55 1 50d10+8000 3d400+250 10d4+130 'magic'
 -32 -32 -32 -32
 FHU 0 KM NRX
 stand stand female 350
@@ -314,7 +314,7 @@ pointed hat with a wide brim, indigo with silvery moons as well.
 ~
 human~
 ABR TUZ -1000 0
-57 1 50d10+9000 3d400+280 6d8+145 magic
+57 1 50d10+9000 3d400+280 6d8+145 'magic'
 -41 -41 -41 -41
 FHU 0 KM NRX
 stand stand female 440
@@ -332,7 +332,7 @@ It is hard to believe that this is an evil witch, and yet...
 ~
 human~
 ABR TUZ -1000 0
-59 1 50d10+9999 3d400+580 8d6+175 magic
+59 1 50d10+9999 3d400+580 8d6+175 'magic'
 -47 -47 -47 -47
 FHU 0 KM NRX
 stand stand female 440
@@ -348,7 +348,7 @@ he calls forth the powers of magic to harm you.
 ~
 human~
 ABR TUZ -1000 0
-48 1 25d10+4750 2d400+400 6d6+125 magic
+48 1 25d10+4750 2d400+400 6d6+125 'magic'
 -23 -23 -23 -23
 FHU 0 KM NRX
 stand stand male 200
@@ -363,7 +363,7 @@ is orange with yellow, almost golden stars sprinkled throughout.
 ~
 human~
 ABR TUZ -1000 0
-50 1 50d10+5750 2d400+400 6d6+145 magic
+50 1 50d10+5750 2d400+400 6d6+145 'magic'
 -25 -25 -25 -25
 FHU 0 KM NRX
 stand stand male 250
@@ -380,7 +380,7 @@ plain yellow.
 ~
 human~
 ABR TUZ -1000 0
-52 1 5d50+6750 2d400+400 5d8+143 magic
+52 1 5d50+6750 2d400+400 5d8+143 'magic'
 -29 -29 -29 -29
 FHU 0 KM NRX
 stand stand male 300
@@ -396,7 +396,7 @@ than learning the aesthetics of fashion.
 ~
 human~
 ABR TUZ -1000 0
-54 1 50d10+7750 3d400+200 6d7+125 magic
+54 1 50d10+7750 3d400+200 6d7+125 'magic'
 -31 -31 -31 -31
 FHU 0 KM NRX
 stand stand male 300
@@ -412,7 +412,7 @@ about him that you have seen nowhere else... this one is truly evil!
 ~
 human~
 ABR TUZ -1000 0
-56 1 50d10+8750 3d400+250 10d4+130 magic
+56 1 50d10+8750 3d400+250 10d4+130 'magic'
 -32 -32 -32 -32
 FHU 0 KM NRX
 stand stand male 350
@@ -431,7 +431,7 @@ slowly turning to anger at the interruption of his thoughts.
 ~
 human~
 ABR TUZ -1000 0
-58 1 50d10+9750 3d400+280 6d8+145 magic
+58 1 50d10+9750 3d400+280 6d8+145 'magic'
 -41 -41 -41 -41
 FHU 0 KM NRX
 stand stand male 440
@@ -449,7 +449,7 @@ tell you if you asked, do you?
 ~
 human~
 ABR TUZ -1000 0
-60 1 50d10+9999 3d400+580 8d6+175 magic
+60 1 50d10+9999 3d400+580 8d6+175 'magic'
 -47 -47 -47 -47
 FHU 0 KM NRX
 stand stand male 440
@@ -465,7 +465,7 @@ the wilds as he is for keeping shop here at the Ranger Station.
 ~
 human~
 ABGTWd HV 1000 0
-60 1 50d10+9977 3d400+580 8d6+95 cleave
+60 1 50d10+9977 3d400+580 8d6+95 'cleave'
 -54 -54 -54 -54
 CFHIJKV ABCD 0 T
 stand stand male 2324
@@ -482,7 +482,7 @@ Ranger Station.
 ~
 human~
 ABGJKTb HV 0 0
-48 1 25d10+3750 3d400+580 5d8+19 slash
+48 1 25d10+3750 3d400+580 5d8+19 'slash'
 -25 -25 -25 -25
 CEFHIJKV ABCD 0 PT
 stand stand male 2324
@@ -499,7 +499,7 @@ intruding in his home.
 ~
 pig~
 ABGY CDEFGJTVZ -1000 0
-50 1 50d10+4500 1d400+400 5d8+79 pierce
+50 1 50d10+4500 1d400+400 5d8+79 'pierce'
 -42 -42 -42 -42
 EFHIKR 0 LQR H
 stand stand male 800
@@ -516,7 +516,7 @@ tail is a mass of feathery hairs.
 ~
 rabbit~
 ACGH V 300 0
-1 1 2d6+10 1d200+200 1d4+0 bite
+1 1 2d6+10 1d200+200 1d4+0 'bite'
 9 9 9 9
 U 0 IPS HJQ
 stand stand either 10
@@ -532,7 +532,7 @@ flower, visiting the leafier plants also.
 ~
 song bird~
 AGU V 0 0
-5 0 2d6+60 2d100+100 1d6+1 none
+5 0 2d6+60 2d100+100 1d6+1 'none'
 5 5 5 5
 0 0 0 OR
 stand stand either 100
@@ -549,7 +549,7 @@ makes its nest low in thickets and shrubs.
 ~
 song bird~
 AGU V 0 0
-5 0 2d8+60 2d100+100 1d8+1 none
+5 0 2d8+60 2d100+100 1d8+1 'none'
 3 3 3 3
 U 0 J OR
 stand stand either 100
@@ -565,7 +565,7 @@ upper back.
 ~
 song bird~
 AGU V 0 0
-5 0 2d6+60 2d100+100 1d9+1 none
+5 0 2d6+60 2d100+100 1d9+1 'none'
 4 4 4 4
 0 0 J OR
 stand stand either 100
@@ -581,7 +581,7 @@ drops down to the ground to catch insects.
 ~
 song bird~
 AGU V 0 0
-5 0 2d8+60 2d100+100 1d9+5 none
+5 0 2d8+60 2d100+100 1d9+5 'none'
 2 2 2 2
 0 0 J OR
 stand stand either 100
@@ -596,7 +596,7 @@ wings and tail, this goldfinch is quite a pretty little bird.
 ~
 song bird~
 AGU V 0 0
-4 0 2d6+60 2d100+100 1d7+2 none
+4 0 2d6+60 2d100+100 1d7+2 'none'
 4 4 4 4
 0 0 J OR
 stand stand either 100
@@ -612,7 +612,7 @@ at its nest, it will attack with a vengeance.
 ~
 song bird~
 AGU V 0 0
-6 0 2d9+60 2d100+100 1d9+9 none
+6 0 2d9+60 2d100+100 1d9+9 'none'
 0 0 0 0
 0 0 J OR
 stand stand either 100
@@ -629,7 +629,7 @@ you are disturbing its feeding flowers.
 ~
 song bird~
 AGU V 0 0
-3 0 2d4+60 2d100+100 1d6+5 pierce
+3 0 2d4+60 2d100+100 1d6+5 'pierce'
 3 3 3 3
 0 0 J OR
 stand stand either 100
@@ -648,7 +648,7 @@ robe.
 ~
 human~
 ABR TUZ -1000 0
-60 1 54d10+9999 3d400+580 8d9+95 magic
+60 1 54d10+9999 3d400+580 8d9+95 'magic'
 -64 -64 -64 -64
 FHU 0 KM NRX
 stand stand male 4444
@@ -663,7 +663,7 @@ lovely white, and it has a cute little cotton-tail.
 ~
 rabbit~
 AGHUY V 0 0
-3 0 2d6+35 1d300+300 1d6+0 scratch
+3 0 2d6+35 1d300+300 1d6+0 'scratch'
 7 7 7 7
 U 0 FI EHJ
 stand stand either 40
@@ -677,7 +677,7 @@ It is small and brown with dark grey spots and a white tail.
 ~
 rabbit~
 AGHUY V 0 0
-7 0 2d6+90 1d300+400 1d8+1 bite
+7 0 2d6+90 1d300+400 1d8+1 'bite'
 4 4 4 4
 U 0 JO HKLM
 stand stand either 110
@@ -693,7 +693,7 @@ herbs to heal your wounds and diseases. Type "HEAL" to get the list.
 ~
 elf~
 ABGQUXae DHct 1000 0
-100 100 2d4+50000 1d1+10000 5d7+100 divine
+100 100 2d4+50000 1d1+10000 5d7+100 'divine'
 -100 -100 -100 -100
 FHIK ABC D 0
 stand stand male 0
@@ -1489,9 +1489,9 @@ G none
 @eng To the north and west you see a finely constructed wall, too high to peer
 over. The foliage is thick here, with tall trees. You hear the songs of
 birds overhead.
-@rus На севере и западе ты видешь хорошо отстроенную стену, слишком высокую,
-чтобы выглянуть над ней. Здесь густая растительность и высокие деревья.
-Над головой ты слышишь пение птиц.
+@rus На севере и западе ты видишь превосходно построенную стену, слишком высокую,
+чтобы за ней можно было что-то увидеть. Кругом густая растительность и высокие 
+деревья. Ты слышишь пение птиц над головой.
 ~
 0 0 forest
 D0
@@ -1514,10 +1514,10 @@ S
 foliage is thick here, preventing you from touching the wall. You hear the
 songs of birds overhead. Looking up, you see that the trees here are very
 tall.
-@rus На севере ты видишь хорошо отстроенную стену, слишком высокую чтобы
-выглянуть над ней. Густая кустарник не да÷т тебе дбраться до стены.
-Над твоей головой поют птицы. Взклянув вверх, ты понимаешь, что деревья
-здесь высокие.
+@rus На севере ты видишь превосходно построенную стену, слишком высокую чтобы
+за ней можно было что-то увидеть. Густой кустарник не даёт тебе подобраться к
+ней. Ты слышишь пение птиц над головой. Взглянув вверх, ты понимаешь, что
+деревья здесь высокие.
 ~
 0 0 forest
 D1
@@ -1538,9 +1538,9 @@ S
 @eng A finely-made wall is to your north, too high to peer over. The shrubs are
 thick here, and the trees tall. From above, you can hear the chirping of
 birds.
-@rus Хорошо построенная стена на севере прямо перед тобой, слишком высока, чтобы
-выглЯнуть над ней. Здесь высокие деревья и густой кустарник. Сверху доносится
-щебетание птиц.
+@rus Хорошо выстроенная стена на севере от тебя слишком высока, чтобы за ней
+можно было что-то увидеть. Кругом высокие деревья и густой кустарник.
+Сверху доносится щебетание птиц.
 ~
 0 0 forest
 D1
@@ -1561,9 +1561,9 @@ S
 @eng A finely-made wall is to your north, too high to peer over. A thicket of
 shrubs and vines keeps you from touching the wall. The trees are tall. From
 above, you can hear birdsong.
-@rus Хорошо построеннаЯ стена на севере прЯмо перед тобой слишком высока, чтобы
-выглЯнуть над ней. Заросли кустарника и виноградная лоза не дают приблизиться
-к ней. ДеревьЯ высокие. Сверху доносится птичья трель.
+@rus Хорошо отстроенная стена на севере слишком высока, чтобы за ней можно было
+что-то увидеть. Заросли кустарника и виноградная лоза не дают тебе прибли-
+зиться к ней. Кругом высокие деревья. Сверху доносится птичья трель.
 ~
 0 0 forest
 D1
@@ -1584,9 +1584,9 @@ S
 @eng A finely-made wall is to your north, too high to peer over. The shrubbery is
 thick here; the trees are tall. From above, you can hear the songs of birds.
 To the east the forest darkens.
-@rus Хорошо построеннаЯ стена на севере прЯмо перед тобой слишком высока, чтобы
-выглЯнуть над ней. Здесь высокие дервья и пышный кустарник. Сверху доносится
-пение птиц. На востоке лес мрачнеет.
+@rus Хорошо построенная стена на севере прямо перед тобой слишком высока, чтобы
+за ней можно было что-то увидеть. Кругом высокие деревья и густой кустарник.
+Сверху доносится пение птиц. На востоке лес мрачнеет.
 ~
 0 0 forest
 D1
@@ -1608,10 +1608,10 @@ S
 canopy of leaves above you. To the north is a high wall, too high to peer
 over. You hear faint birdsong from the west. The shrubbery is thick here,
 but not as thick as to the west.
-@rus Лес здесь мрачный, с большим трудом солнечные лучи пробиваютсЯ сквозь листву.
-На севере находится высокая стена, слишком высокая чтобы выглянуть над ней.
-С запада доносится слабая птичья трель. Кустарник тут тоже густой, правда
-не такой пышный, как на западе.
+@rus Лес здесь мрачный, с большим трудом солнечные лучи пробиваются сквозь лист-
+ву. На севере находится высокая стена, слишком высокая чтобы за ней можно было
+что-то увидеть. С запада доносится слабая птичья трель. Кустарник здесь тоже
+густой, правда не такой пышный, как на западе.
 ~
 0 A forest
 D1
@@ -1633,9 +1633,10 @@ S
 canopy of leaves above you. To the north is a high wall, too high to peer
 over. You hear very faint birdsong from the west. The shrubbery is thickening
 again here.
-@rus Лес здесь мрачный, с большим трудом солнечные лучи пробиваютсЯ сквозь листву.
-На севере находится высокая стена, слишком высокая чтобы выглянуть над ней.
-Слабая птичья трель доносится с запада. Кустарник снова сгущаетсЯ.
+@rus Лес здесь мрачный, с большим трудом солнечные лучи пробиваются сквозь лист-
+ву. На севере находится высокая стена, слишком высокая чтобы за ней можно было
+что-то увидеть. С запада доносится слабая птичья трель. Кустарник снова
+сгущается.
 ~
 0 A forest
 D1
@@ -1656,8 +1657,8 @@ S
 @eng To the north and east you see a very dark wall, too high to peer over. The
 foliage here is very thick, as is the canopy of leaves above you.
 @rus На севере и востоке ты видишь очень мрачную стену, слишком высокую чтобы
-выглянуть над ней. Растительность здесь очень пышная, как лесной полог
-над головой.
+можно было что-то увидеть за ней. Растительность здесь очень густая, как лес-
+ной полог у тебя над головой.
 ~
 0 A forest
 D2
@@ -1675,10 +1676,10 @@ S
 over. The foliage here is thick, preventing you from approaching the wall and
 examining it more closely. The trees here are tall. From above come the songs
 of birds.
-@rus Стена, что возвышаетеся на западе, неплохо отстроена, но она слишком высокая,
-чтобы выглянуть над ней. Пышная растительность мешает подойти к стене и 
-изучить ее с более близкого расстояния. Деревья здесь высокие. Сверху доносится
-пение птиц.
+@rus Стена, что возвышаетеся на западе, неплохо отстроена, но она слишком высока,
+чтобы за ней можно было что-то увидеть. Подойти и рассмотреть её поближе тебе
+мешает здешняя очень пышная растительность. Кругом высоченные деревья, а
+наверху птички поют.
 ~
 0 0 forest
 D0
@@ -1699,7 +1700,7 @@ S
 @eng All around the foliage is thick, but here the bushes and trees have given
 way to a glade of soft grass waving in the gentle breeze.
 @rus Вся растительность вокруг очень густая, но здесь лес расступается, давая
-проход на полянку с мягкой травкой, развезающейся под легким ветерком.
+проход на полянку с мягкой травкой, трепещущей от легкого ветерка.
 ~
 0 0 forest
 D0
@@ -1748,8 +1749,8 @@ S
 @eng In the Thick Woods@rus В Густом Лесу~
 @eng The shrubs are thick here, but not thick enough that you cannot navigate
 through them. The trees are tall. From above you hear the chirping of birds.
-@rus Здесь густой кустарник, хотя и недостаточно густой, чтобы ты не мог пройти
-сквозь него. Деревья высоки. Сверху ты слышишь щебетание птиц.
+@rus Здесь густой кустарник, хотя он не мешает тебе продвигаться дальше. Кругом
+высокие деревья. Сверху ты слышишь щебетание птиц.
 ~
 0 0 forest
 D0
@@ -1796,8 +1797,8 @@ S
 @eng The canopy of leaves above you has just about blocked out all the light. The
 path goes no farther north, but continues south. The shrubbery is thick
 around you. You hear the faint song of birds to the west.
-@rus Лесной полог над тобой полностью закрывает весь свет. Тропинка больше не идет
-на север, но продолжается на юг. Вокруг тебя густой кустарник. С запада
+@rus Лесной полог над тобой полностью закрывает весь свет. Тропинка больше не ве-
+дёт на север, но продолжается на юг. Вокруг тебя густой кустарник. С запада
 доносится слабая трель
 ~
 0 A forest
@@ -1842,13 +1843,13 @@ D3
 Z -1 1814
 S
 #1816
-@eng By the Dark Eastern Wall@rus Возле Тёмной Восточной Стены~
+@eng By the Dark Eastern Wall@rus Возле Мрачной Восточной Стены~
 @eng To the east is a dark wall too high too peek over, and all around is thick
 dark foliage. Above your head, the canopy of leaves is thick and keeps light
 out.
-@rus На востоке от тебя находится темная стена, слишком высокая, чтобы выглянуть
-над ней, а вокруг мрачная густая растительность.  Крона над твоей головой
-очень густая. Она сдерживает весь свет.
+@rus На востоке от тебя находится темная стена, слишком высокая, чтобы можно было
+что-то увидеть за ней, а вокруг густая мрачная растительность. Крона над твоей
+головой настолько густа, что сдерживает весь солнечный свет.
 ~
 0 A forest
 D0
@@ -1871,9 +1872,9 @@ over. The foliage here is thick and the trees tall. From above come the songs
 of birds. Looking to the south you see that the way is impassable, blocked
 by thick shrubs and thorny bushes.
 @rus Стена, что на западе от тебя, хорошо сработана, но она слишком высока, чтобы
-выглянуть над ней. Здесь пышная растительность. Сверху доносится пение птиц.
-Взглянув на юг, ты понимаешь, что пройти туда не представляется возможым,
-путь загораживает пышный и колючий кустарник.
+можно было что-то увидеть за ней. Кругом густая растительность, сверху доно-
+сится пение птиц. Одного взгляда на юг достаточно, чтобы понять, что пройти
+туда невозможно - путь преграждает пышный и колючий кустарник.
 ~
 0 0 forest
 D0
@@ -1893,9 +1894,9 @@ underground, and snaking a small ways until it finds a path back underground.
 Looking down at it, the shape is sort of like a ball with a snaky tail. Shiny
 white rocks line the perimeter of the pool. The glade continues to the north.
 @rus Окруженная пышным кустарником и высокими деревьями, мягкая травка на полянке
-соседствует лишь только с маленьким родничком с прозрачной, сладковатой водой,
+соседствует лишь только с маленьким родничком с прозрачной сладковатой водой,
 бьющей из-под земли, которая чуть струится, чтобы опять вернуться под землю.
-Посмотрев на него, создается впечатление клубка расползающихся змей. Светящиеся
+Глядя на него, создается впечатление клубка расползающихся змей. Светящиеся
 белые камни окружают источник. Полянка простирается дальше на север.
 ~
 0 0 forest
@@ -1917,9 +1918,9 @@ S
 @eng The path stretches north and south, to the east and west are thick, thorny
 shrubs. The trees are tall, and from above you can hear birds chirping. To
 the west you see a clearing, and you hear the sound of gurgling water.
-@rus Тропа идет с юга на север, на востоке и западе пышный и колючий кустарник.
-Деревья высокие, сверху доносится чириканье птиц. На западе ты видишь 
-опушку и слышишь звук журчащей воды.
+@rus Тропа ведёт с юга на север. На востоке и западе от тебя пышные заросли колю-
+чего кустарника. Кругом высокие деревья. Сверху доносится чириканье птиц. На
+западе ты видишь опушку и слышишь звук журчащей воды.
 ~
 0 0 forest
 D0
@@ -1944,7 +1945,7 @@ S
 @eng The foliage is thick here, and the trees tall. Light still shines through
 the canopy of leaves above you. From high in the trees you can hear the songs
 of birds.
-@rus Здесь пышный кустарник и высокие деревья. Свет все еще пробивается сквозь
+@rus Кругом пышный кустарник и высокие деревья. Свет все еще пробивается сквозь
 кроны деревьев над тобой. С макушек доносится пение птиц.
 ~
 0 0 forest
@@ -1971,7 +1972,7 @@ S
 canopy of leaves above you. From high in the trees you can hear the songs of
 birds. Looking east, you notice that the way is impassable, blocked by a
 tangle of shrubs and vines.
-@rus Здесь густая растительность и высокие деревья. Свет все еще пробивается 
+@rus Кругом густая растительность и высокие деревья. Свет все еще пробивается
 сквозь крону деревьев. С макушек доносится пение птиц. Взглянув на восток,
 ты понимаешь, что пройти там не удастся из-за зарослей кустарника и 
 виноградной лозы.
@@ -2015,10 +2016,13 @@ D2
 Z -1 1830
 S
 #1823
-In the Dark Wood~
-The foliage is so thick here it's a wonder you can move. Up above, the trees
+@eng In the Dark Wood@rus В Дремучем Лесу~
+@eng The foliage is so thick here it's a wonder you can move. Up above, the trees
 form a dark canopy keeping most of the light out. You hear the very faint
 songs of birds from the west.
+@rus Удивительно, как это ты ещё можешь двигаться, ведь здесь такой пышный ку-
+старник. Из-за своих темных крон, деревья собирают большую часть солнечного
+света. До тебя доносится слабая птичья трель с запада.
 ~
 0 A forest
 D0
@@ -2039,11 +2043,15 @@ D3
 Z -1 1822
 S
 #1824
-By the Dark Eastern Wall~
-To the east is a dark wall too high too peek over, and all around is thick
+@eng By the Dark Eastern Wall@rus Возле Мрачной Восточной Стены~
+@eng To the east is a dark wall too high too peek over, and all around is thick
 dark foliage. Above your head, the canopy of leaves is thick and keeps light
 out. You hear little rustling noises in the brush but cannot see what is
 causing them.
+@rus К востоку от тебя тёмная стена, слишком высокая, чтобы можно было увидеть
+что-то за ней, а кругом пышный кустарник. Густой полог над твоей головой сдер-
+живает весь свет. Ты слышишь тихие журчащие звуки в траве, но никак не уви-
+дишь, что их вызывает.
 ~
 0 A forest
 D0
@@ -2060,11 +2068,15 @@ D3
 Z -1 1823
 S
 #1825
-By the Golden Wall~
-To the west the high wall glitters golden in the light. You cannot peer over
+@eng By the Golden Wall@rus Возле Золотой Стены~
+@eng To the west the high wall glitters golden in the light. You cannot peer over
 it, try as you might. Northward, the way is impassable, there is a darkness
 there. Here, the fern-like trees are surrounded by pretty flowers. Birdsong
 delights your ears.
+@rus На западе высокая стена сверкает золотым на свету. Ты не можешь ничего уви-
+деть за ней, как бы ты ни старался. На север невозможно пройти - мрачно там.
+Здесь растут похожие на папаратник деревья окруженные миловидными цветочками.
+Птичья трель услаждает твой слух.
 ~
 0 0 forest
 D1
@@ -2207,7 +2219,7 @@ D2
 Z -1 1839
 S
 #1832
-By the Dark Eastern Wall~
+@eng By the Dark Eastern Wall@rus Возле Мрачной Восточной Стены~
 To the east is a dark wall too high too peek over, and all around is thick
 dark foliage. Above your head, the canopy of leaves is thick and keeps light
 out.

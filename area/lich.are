@@ -17,7 +17,7 @@ necromancy, they were the most renown knights of their day.
 ~
 human~
 AFGO c -750 0
-40 0 15d10+1850 45d10+950 4d8+15 magic
+40 0 15d10+1850 45d10+950 4d8+15 'magic'
 -12 -12 -12 0
 CDEIKU LPQ IJ HN
 stand stand none 800
@@ -33,7 +33,7 @@ them.
 ~
 human~
 ABOQ cu -1000 0
-50 0 15d10+4250 45d10+950 5d8+19 magic
+50 0 15d10+4250 45d10+950 5d8+19 'magic'
 -20 -20 -20 -2
 CN ILQ P HN
 stand stand none 800
@@ -49,7 +49,7 @@ and fangs it uses as weapons make you consider running as fast as posible.
 ~
 human~
 ABT T -1000 0
-50 0 15d10+4250 45d10+950 5d8+19 magic
+50 0 15d10+4250 45d10+950 5d8+19 'magic'
 -20 -20 -20 -2
 CDFHK H LPQ IN
 stand stand none 800
@@ -66,7 +66,7 @@ corrupt your soul.  Fear him mortal for you are about to die.
 ~
 dragon~
 ABOT u -1000 0
-65 0 50d10+8250 45d10+950 11d5+35 magic
+65 0 50d10+8250 45d10+950 11d5+35 'magic'
 -35 -35 -35 -10
 CFKM HLQ DIJK CN
 stand stand none 800
@@ -83,7 +83,7 @@ now spends his time searching for ways to end all life in StormFront.
 ~
 human~
 ABQR Ju -1000 0
-75 0 50d10+11000 45d10+1950 9d11+45 magic
+75 0 50d10+11000 45d10+1950 9d11+45 'magic'
 -45 -45 -45 -14
 FIJN 0 CDHIJ N
 stand stand none 800
@@ -99,7 +99,7 @@ perhaps you should run now, before you're dead.  ;>
 ~
 dragon~
 ABOT 0 -1000 0
-60 0 50d10+6750 45d10+1950 8d6+28 magic
+60 0 50d10+6750 45d10+1950 8d6+28 'magic'
 -30 -30 -30 -10
 CDFMO 0 IJK KN
 stand stand none 800
@@ -116,7 +116,7 @@ is much larger and appears to be more powerful as well.
 ~
 giant~
 ABOT 0 -900 0
-70 0 50d10+9750 45d10+2950 8d10+40 magic
+70 0 50d10+9750 45d10+2950 8d10+40 'magic'
 -40 -40 -40 -10
 CDFIKO 0 C HN
 stand stand none 800

@@ -19,7 +19,7 @@ ends in a scorpion stinger.
 ~
 unique~
 AFT DFJ -1000 0
-91 0 90d20+19000 91d10+9500 10d15+61 bite
+91 0 90d20+19000 91d10+9500 10d15+61 'bite'
 -63 -63 -63 -26
 FIKW B M NS
 stand stand none 900
@@ -37,7 +37,7 @@ and you find his voice pleasant and reasonable.
 ~
 unique~
 ABT ABIJTX -1000 0
-95 0 90d20+23000 91d10+9500 16d10+65 crush
+95 0 90d20+23000 91d10+9500 16d10+65 'crush'
 -66 -66 -66 -28
 FV BN HIM MN
 stand stand male 900
@@ -54,7 +54,7 @@ OF HARLOTS AND ABOMINATIONS OF THE EARTH.
 ~
 human~
 AHQ c -1000 0
-88 0 90d20+17500 91d10+9500 12d11+57 blast
+88 0 90d20+17500 91d10+9500 12d11+57 'blast'
 -60 -60 -60 -25
 FN 0 0 0
 stand stand female 900
@@ -69,7 +69,7 @@ He has already cast the second vial of wrath into the sea.
 ~
 unique~
 ABT BNT 1000 0
-85 0 90d20+16000 91d10+9500 10d13+55 smash
+85 0 90d20+16000 91d10+9500 10d13+55 'smash'
 -58 -58 -58 -24
 CEFKPX BNQR HIN M
 stand stand male 10
@@ -84,7 +84,7 @@ The 6th seal already has been broken.
 ~
 unique~
 ABT BNT 1000 0
-85 0 90d20+16000 91d10+9500 10d13+55 smash
+85 0 90d20+16000 91d10+9500 10d13+55 'smash'
 -58 -58 -58 -24
 CEFKPX BNQR HIN M
 stand stand male 900
@@ -99,7 +99,7 @@ He has already scattered the seventh vial of wrath on the wind.
 ~
 unique~
 ABT BJNT 1000 0
-85 0 90d20+16000 91d10+9500 10d13+55 divine
+85 0 90d20+16000 91d10+9500 10d13+55 'divine'
 -58 -58 -58 -24
 CEFKPX BNQR HIN M
 stand stand male 900
@@ -114,7 +114,7 @@ He has already poured the fourth vial of wrath upon the sun.
 ~
 unique~
 ABT BNT 1000 0
-85 0 90d20+16000 91d10+9500 10d13+55 divine
+85 0 90d20+16000 91d10+9500 10d13+55 'divine'
 -58 -58 -58 -24
 CEFKPX BNQR HIN M
 stand stand male 900
@@ -128,7 +128,7 @@ The angel has no mercy for those without seals.
 ~
 unique~
 AT BCDFNT 1000 0
-80 0 50d20+13500 91d10+9500 13d9+50 pound
+80 0 50d20+13500 91d10+9500 13d9+50 'pound'
 -54 -54 -54 -22
 CEFKPX BNQR HIN M
 stand stand male 900
@@ -143,7 +143,7 @@ armed with simple spears and shields.
 ~
 human~
 AT JN 1000 0
-75 0 50d20+11000 91d10+9000 9d11+45 slice
+75 0 50d20+11000 91d10+9000 9d11+45 'slice'
 -50 -50 -50 -20
 CEP E N M
 stand stand none 900
@@ -158,7 +158,7 @@ fire, smoke and brimstone as it rears.
 ~
 human~
 AFT DFJ -1000 0
-85 0 90d20+16000 91d10+9500 10d13+55 pound
+85 0 90d20+16000 91d10+9500 10d13+55 'pound'
 -58 -58 -58 -24
 CDEFK B MZ N
 stand stand male 900
@@ -173,7 +173,7 @@ fire, smoke and brimstone as it rears.
 ~
 human~
 AFT DFJ -1000 0
-85 0 90d20+16000 91d10+9500 10d13+55 pound
+85 0 90d20+16000 91d10+9500 10d13+55 'pound'
 -58 -58 -58 -24
 CDEFK B MZ N
 stand stand male 900
@@ -188,7 +188,7 @@ fire, smoke and brimstone as it rears.
 ~
 human~
 AFT DFJ -1000 0
-85 0 90d20+16000 91d10+9500 10d13+55 magic
+85 0 90d20+16000 91d10+9500 10d13+55 'magic'
 -58 -58 -58 -24
 CDEFK B MZ N
 stand stand male 900
@@ -203,7 +203,7 @@ fire, smoke and brimstone as it rears.
 ~
 human~
 AFT DFJ -1000 0
-85 0 90d20+16000 91d10+9500 10d13+55 magic
+85 0 90d20+16000 91d10+9500 10d13+55 'magic'
 -58 -58 -58 -24
 CDEFK B MZ N
 stand stand male 900
@@ -218,7 +218,7 @@ white of heaven. His voice booms in a deep base laugh.
 ~
 unique~
 ABT BDFJNTVd 1000 0
-91 0 90d20+19000 91d10+9500 10d15+61 divine
+91 0 90d20+19000 91d10+9500 10d15+61 'divine'
 -63 -63 -63 -30
 CEFKQX BNQS EHIN M
 stand stand male 900
@@ -234,7 +234,7 @@ blasphemy.
 ~
 dragon~
 ABR DF -1000 0
-91 0 90d20+19000 91d10+9500 10d15+61 flame
+91 0 90d20+19000 91d10+9500 10d15+61 'flame'
 -63 -63 -63 -32
 IMQWX 0 IJKM N
 stand stand male 900
@@ -250,7 +250,7 @@ gladly try to sway you to her point of view.
 ~
 human~
 AQ 0 -1000 0
-80 0 50d20+13500 91d10+9000 9d12+48 charge
+80 0 50d20+13500 91d10+9000 9d12+48 'charge'
 -54 -54 -54 -22
 FN 0 0 0
 sit sit female 900
@@ -266,7 +266,7 @@ rapt audience pays you no heed.
 ~
 human~
 AR 0 -1000 0
-80 0 50d20+13500 91d10+9500 13d9+50 blast
+80 0 50d20+13500 91d10+9500 13d9+50 'blast'
 -54 -54 -54 -22
 FN 0 0 0
 sit sit male 900
@@ -282,7 +282,7 @@ fornicate freely and eat sacrificed food.
 ~
 human~
 AQ 0 -1000 0
-80 0 50d20+13500 91d10+9500 13d9+50 blast
+80 0 50d20+13500 91d10+9500 13d9+50 'blast'
 -54 -54 -54 -22
 FN 0 0 0
 sit sit male 900
@@ -300,7 +300,7 @@ side of the dragon.
 ~
 unique~
 AR BCDJKPT -1000 0
-83 0 50d20+15000 91d10+9000 10d12+52 acbite
+83 0 50d20+15000 91d10+9000 10d12+52 'acbite'
 -56 -56 -56 -23
 F BMR FHIZ NOZ
 stand stand none 0
@@ -321,7 +321,7 @@ receive the mark.
 ~
 human~
 AR J -1000 0
-85 0 90d20+16000 91d10+9500 10d13+55 flame
+85 0 90d20+16000 91d10+9500 10d13+55 'flame'
 -58 -58 -58 -24
 FN 0 0 N
 stand stand male 900
@@ -338,7 +338,7 @@ great dragon is hunting her.
 ~
 human~
 ABT N 1000 0
-89 0 90d20+18000 91d10+9500 12d12+58 wrath
+89 0 90d20+18000 91d10+9500 12d12+58 'wrath'
 -61 -61 -61 -25
 EFKLS BLQR ANP M
 stand stand female 900
@@ -357,7 +357,7 @@ thigh is written King of Kings and Lord of Lords.
 ~
 unique~
 ABT BCDEFHJNTVd 1000 0
-95 0 90d20+23000 91d10+9500 16d10+65 wrath
+95 0 90d20+23000 91d10+9500 16d10+65 'wrath'
 -66 -66 -66 -28
 CEFHKLP ABLNQRS HIOPZ JM
 stand stand male 39000
@@ -373,7 +373,7 @@ to spare them from the wrath of God.
 ~
 human~
 AT J 1000 0
-70 0 50d20+9750 91d10+9500 10d15+61 pound
+70 0 50d20+9750 91d10+9500 10d15+61 'pound'
 -46 -46 -46 -18
 FI 0 0 0
 stand stand male 900
@@ -388,7 +388,7 @@ the final conflict. He seems to be suffering from a pox.
 ~
 human~
 AT JX -1000 0
-70 0 50d20+9750 91d10+9500 10d15+61 pound
+70 0 50d20+9750 91d10+9500 10d15+61 'pound'
 -46 -46 -46 -18
 FJ 0 0 0
 stand stand male 900
@@ -406,7 +406,7 @@ wounded and healed.
 ~
 unique~
 ABT CJTZbd -1000 0
-88 0 90d20+17500 91d10+9500 13d10+56 claw
+88 0 90d20+17500 91d10+9500 13d10+56 'claw'
 -60 -60 -60 -25
 AM M HI N
 stand stand male 100
@@ -421,7 +421,7 @@ does not see you.
 ~
 human~
 AHT J -1000 0
-75 0 50d20+11000 91d10+9000 9d11+45 pound
+75 0 50d20+11000 91d10+9000 9d11+45 'pound'
 -50 -50 -50 -20
 FJ 0 0 0
 stand stand male 900
@@ -436,7 +436,7 @@ woman, who probably is infected.
 ~
 human~
 AHT 0 -1000 0
-75 0 50d20+11000 91d10+9000 9d11+45 pound
+75 0 50d20+11000 91d10+9000 9d11+45 'pound'
 -50 -50 -50 -20
 FJ 0 0 0
 stand stand male 900
@@ -452,7 +452,7 @@ knife.
 ~
 human~
 AHT 0 -1000 0
-75 0 50d20+11000 91d10+9000 9d11+45 pound
+75 0 50d20+11000 91d10+9000 9d11+45 'pound'
 -50 -50 -50 -20
 FJ 0 0 0
 stand stand male 900
@@ -469,7 +469,7 @@ having bathed in the last week.
 ~
 human~
 AHT 0 -1000 0
-75 0 50d20+11000 91d10+9000 9d11+45 pound
+75 0 50d20+11000 91d10+9000 9d11+45 'pound'
 -50 -50 -50 -20
 FJ 0 0 0
 stand stand female 900
@@ -485,7 +485,7 @@ it to you.
 ~
 human~
 AHS J -1000 0
-75 0 50d20+11000 91d10+9000 9d11+45 pound
+75 0 50d20+11000 91d10+9000 9d11+45 'pound'
 -50 -50 -50 -20
 FJ 0 0 0
 stand stand male 900
@@ -501,7 +501,7 @@ his sins on the greedy poor.
 ~
 human~
 AHT 0 -1000 0
-75 0 50d20+11000 91d10+9000 9d11+45 pound
+75 0 50d20+11000 91d10+9000 9d11+45 'pound'
 -50 -50 -50 -20
 FJ 0 0 0
 stand stand male 900
@@ -518,7 +518,7 @@ his rivals.
 ~
 human~
 AHT J -1000 0
-75 0 50d20+11000 91d10+9000 9d11+45 pound
+75 0 50d20+11000 91d10+9000 9d11+45 'pound'
 -50 -50 -50 -20
 FJ 0 0 0
 stand stand male 900
@@ -536,7 +536,7 @@ corrupt ministers who ruined the kingdom.
 ~
 human~
 AHT 0 -1000 0
-75 0 50d20+11000 91d10+9000 9d11+45 pound
+75 0 50d20+11000 91d10+9000 9d11+45 'pound'
 -50 -50 -50 -20
 FJ 0 0 0
 stand stand male 900
@@ -551,7 +551,7 @@ He blames all his sins on his master.
 ~
 human~
 AHT 0 -1000 0
-75 0 50d20+11000 91d10+9000 9d11+45 pound
+75 0 50d20+11000 91d10+9000 9d11+45 'pound'
 -50 -50 -50 -20
 FJ 0 0 0
 stand stand male 900
@@ -566,7 +566,7 @@ all of his sins on the guild.
 ~
 human~
 AHT 0 -1000 0
-75 0 50d20+11000 91d10+9000 9d11+45 pound
+75 0 50d20+11000 91d10+9000 9d11+45 'pound'
 -50 -50 -50 -20
 FJ 0 0 0
 stand stand male 900
@@ -581,7 +581,7 @@ on the king, who ordered him to commit atrocities.
 ~
 human~
 AHT 0 -1000 0
-75 0 50d20+11000 91d10+9000 9d11+45 pound
+75 0 50d20+11000 91d10+9000 9d11+45 'pound'
 -50 -50 -50 -20
 FJ 0 0 0
 stand stand male 900
@@ -596,7 +596,7 @@ he says.
 ~
 unique~
 ABT BCDEFHJNTVd 1000 0
-100 0 90d20+30000 91d10+9500 18d16+90 divine
+100 0 90d20+30000 91d10+9500 18d16+90 'divine'
 -150 -150 -150 -150
 FGHKLO ABCDFGHIJKLMNOPQRSZ HI M
 sit sit male 900
@@ -610,7 +610,7 @@ The lamb has seven horns and seven eyes.
 ~
 unique~
 ABJKTc BCDEFHJNTWd 1000 0
-100 0 90d20+30000 91d10+9500 18d16+90 divine
+100 0 90d20+30000 91d10+9500 18d16+90 'divine'
 -150 -150 -150 -150
 FGHKLO ABCDFGHIJKLMNOPQRSZ HI M
 sit sit male 900
@@ -625,7 +625,7 @@ play harps, and swing golden bowls filled with incense.
 ~
 unique~
 ABQ BNT 1000 0
-75 0 50d20+11000 91d10+9000 9d11+45 divine
+75 0 50d20+11000 91d10+9000 9d11+45 'divine'
 -50 -50 -50 -20
 F NQ HI M
 sit stand none 900
@@ -640,7 +640,7 @@ It has 6 wings, and even eyes inside.
 ~
 unique~
 ABT CDEFJNZ 1000 0
-91 0 90d20+19000 91d10+9500 10d15+61 claw
+91 0 90d20+19000 91d10+9500 10d15+61 'claw'
 -63 -63 -63 -26
 FIMPV NQ 0 Y
 stand stand none 0
@@ -655,7 +655,7 @@ It has 6 wings, and eleven eyes inside.
 ~
 unique~
 ABT CDEFJNZ 1000 0
-91 0 90d20+19000 91d10+9500 10d15+61 claw
+91 0 90d20+19000 91d10+9500 10d15+61 'claw'
 -63 -63 -63 -26
 CDPV NQ 0 0
 stand stand none 900
@@ -670,7 +670,7 @@ It has 6 wings, and even eyes inside.
 ~
 human~
 ABT CDEFJNZ 1000 0
-91 0 90d20+19000 91d10+9500 10d15+61 pound
+91 0 90d20+19000 91d10+9500 10d15+61 'pound'
 -63 -63 -63 -26
 EFIK NQ 0 0
 stand stand none 900
@@ -685,7 +685,7 @@ It has 6 wings, and even eyes inside.
 ~
 unique~
 ABT CDEFJNTZ 1000 0
-91 0 90d20+19000 91d10+9500 10d15+61 claw
+91 0 90d20+19000 91d10+9500 10d15+61 'claw'
 -63 -63 -63 -26
 EFIK NQ 0 0
 stand stand none 900

@@ -16,7 +16,7 @@ It sways back and forth contemplating whether or not to eat you.
 ~
 snake~
 ABF D -200 0
-11 2 11d9+110 1d1+99 3d4+2 bite
+11 2 11d9+110 1d1+99 3d4+2 'bite'
 -1 0 3 6
 FHNOR 0 F 0
 stand stand either 0
@@ -30,7 +30,7 @@ It looks harmless enough.  Or is it?
 ~
 snake~
 ABU J -100 0
-7 0 7d7+60 1d1+99 1d10+1 bite
+7 0 7d7+60 1d1+99 1d10+1 'bite'
 2 3 5 8
 FHR 0 E 0
 stand stand either 0
@@ -44,7 +44,7 @@ It looks completely harmless but who knows for sure?
 ~
 centipede~
 ABU J 100 0
-3 0 3d3+30 1d1+99 1d6+0 sting
+3 0 3d3+30 1d1+99 1d6+0 'sting'
 6 7 9 10
 FR 0 0 0
 stand stand none 0
@@ -58,7 +58,7 @@ It looks ugly enough to scare its own mother.
 ~
 kobold~
 ACGT 0 -100 0
-4 0 4d4+40 1d1+99 1d4+1 claw
+4 0 4d4+40 1d1+99 1d4+1 'claw'
 7 7 7 10
 R 0 0 0
 stand stand either 18
@@ -72,7 +72,7 @@ You notice a slight tinge of madness in his eyes.
 ~
 orc~
 ACFGT 0 -400 0
-5 2 6d5+50 1d1+199 1d6+3 beating
+5 2 6d5+50 1d1+199 1d6+3 'beating'
 7 7 7 10
 CDNR 0 C 0
 stand stand male 60
@@ -86,7 +86,7 @@ The orc says, "Whatcha look'n at?"
 ~
 orc~
 ACGT 0 -500 0
-7 1 6d7+70 1d1+99 1d8+2 punch
+7 1 6d7+70 1d1+99 1d8+2 'punch'
 4 5 5 8
 CJR 0 0 0
 stand stand either 120
@@ -100,7 +100,7 @@ He's surely a strong, brainless fighter.  Like you.
 ~
 human~
 ABC J -300 0
-12 3 10d12+120 1d1+149 1d8+4 punch
+12 3 10d12+120 1d1+149 1d8+4 'punch'
 1 -1 2 5
 CIQR 0 0 0
 stand stand male 300
@@ -115,7 +115,7 @@ to show you what he can do!
 ~
 human~
 ACFT J -400 0
-7 2 8d7+70 1d1+99 1d7+2 punch
+7 2 8d7+70 1d1+99 1d7+2 'punch'
 4 5 4 8
 CIQR 0 0 C
 stand stand male 140
@@ -131,7 +131,7 @@ don't you put it out of its misery?
 ~
 hobgoblin~
 ACGHT 0 -300 0
-6 0 6d6+40 1d1+99 1d6+1 beating
+6 0 6d6+40 1d1+99 1d6+1 'beating'
 6 5 5 8
 N 0 0 C
 stand stand male 12
@@ -145,7 +145,7 @@ A closer look reveals a hungry demeanor.  Don't get too close!
 ~
 snake~
 ABFU J -600 0
-10 1 4d10+100 1d1+99 2d6+1 bite
+10 1 4d10+100 1d1+99 2d6+1 'bite'
 0 2 2 5
 FGNR 0 EF 0
 stand stand either 0
@@ -159,7 +159,7 @@ The centipede doesn't really seem to notice you.
 ~
 centipede~
 ABU J -100 0
-5 0 5d5+50 1d1+99 1d8+0 sting
+5 0 5d5+50 1d1+99 1d8+0 'sting'
 4 7 5 10
 FR 0 0 0
 stand stand none 0
@@ -174,7 +174,7 @@ wonder just how far away you should be.
 ~
 hobgoblin~
 ACGT 0 -500 0
-10 2 2d10+120 1d1+149 2d4+3 punch
+10 2 2d10+120 1d1+149 2d4+3 'punch'
 2 2 1 5
 CDJR 0 C 0
 stand stand male 210
@@ -189,7 +189,7 @@ Care to be dinner?
 ~
 orc~
 ACFGT 0 -800 0
-8 1 3d10+90 1d1+99 1d8+2 beating
+8 1 3d10+90 1d1+99 1d8+2 'beating'
 3 3 2 5
 CNR 0 0 0
 stand stand either 60
@@ -204,7 +204,7 @@ the weary.  Are you next?
 ~
 cat~
 AFG 0 -100 0
-9 2 4d10+100 1d1+99 2d6+1 claw
+9 2 4d10+100 1d1+99 2d6+1 'claw'
 0 0 0 4
 ER 0 E 0
 stand stand either 0
@@ -220,7 +220,7 @@ playmate for you.
 ~
 giant~
 AGT 0 0 0
-13 2 10d10+150 10d10+100 2d6+6 smash
+13 2 10d10+150 10d10+100 2d6+6 'smash'
 0 -2 0 4
 DOR 0 D 0
 stand stand male 500
@@ -235,7 +235,7 @@ This guy can ace the SAT with his frontal lobe tied behind his back.
 ~
 human~
 ABCFR D -100 0
-13 1 7d5+130 13d10+100 1d6+2 punch
+13 1 7d5+130 13d10+100 1d6+2 'punch'
 -2 -2 -2 2
 FQ 0 C 0
 stand stand male 400
@@ -250,7 +250,7 @@ figure just how tender you are.
 ~
 troll~
 ABCFT 0 -800 0
-12 2 7d10+150 5d10+100 2d7+3 claw
+12 2 7d10+150 5d10+100 2d7+3 'claw'
 0 -3 2 6
 CEOR 0 0 0
 stand stand male 200
@@ -265,7 +265,7 @@ bite your head off!
 ~
 snake~
 ABCF J -700 0
-10 2 4d10+100 1d1+99 2d6+1 bite
+10 2 4d10+100 1d1+99 2d6+1 'bite'
 0 0 2 6
 HMNOR 0 F G
 stand stand either 0
@@ -279,7 +279,7 @@ Well COUNT your money!
 ~
 human~
 ACHS JPQ -100 0
-8 1 6d8+80 1d1+99 1d5+1 punch
+8 1 6d8+80 1d1+99 1d5+1 'punch'
 2 4 3 7
 EFJN 0 0 0
 stand stand either 100
@@ -293,7 +293,7 @@ Yrkk..  He belches in your face!
 ~
 orc~
 ACFGHT 0 -200 0
-7 1 7d7+70 1d1+99 1d8+3 punch
+7 1 7d7+70 1d1+99 1d8+3 'punch'
 4 5 5 8
 CJR 0 0 0
 stand stand male 150
@@ -308,7 +308,7 @@ not important.
 ~
 centipede~
 ABU 0 300 0
-6 1 8d5+50 1d1+99 2d4+1 sting
+6 1 8d5+50 1d1+99 2d4+1 'sting'
 3 6 4 10
 FR 0 0 0
 stand stand none 0
@@ -322,7 +322,7 @@ He doesn't look friendly at all...  He is no Mr. Rogers!
 ~
 human~
 ACFGT J -300 0
-9 2 4d10+130 1d1+99 1d8+3 punch
+9 2 4d10+130 1d1+99 1d8+3 'punch'
 3 2 4 6
 CJQU 0 0 0
 stand stand male 300
@@ -336,7 +336,7 @@ It looks a little sick.  Something he ate maybe?
 ~
 kobold~
 ACFGT 0 -100 0
-7 1 8d4+50 1d1+99 2d4+1 claw
+7 1 8d4+50 1d1+99 2d4+1 'claw'
 5 5 5 10
 NR 0 0 0
 stand stand either 25
@@ -350,7 +350,7 @@ Bzzzt.  Zap.  Crackle.  Speak about static electricity!
 ~
 bat~
 ABF J -100 0
-7 1 3d10+70 1d1+99 1d9+1 shbite
+7 1 3d10+70 1d1+99 1d9+1 'shbite'
 4 4 4 6
 R J 0 RYZ
 stand stand either 0
@@ -364,7 +364,7 @@ You can definitely feel some heat from this thing.  A fever perhaps?
 ~
 bat~
 ABF J -100 0
-7 1 3d10+70 1d1+99 1d9+1 flbite
+7 1 3d10+70 1d1+99 1d9+1 'flbite'
 4 4 4 6
 R H 0 IR
 stand stand either 0
@@ -378,7 +378,7 @@ Whew!  What a stinker!
 ~
 bat~
 ABF J -100 0
-7 1 3d10+70 1d1+99 1d9+1 bite
+7 1 3d10+70 1d1+99 1d9+1 'bite'
 4 4 4 6
 R L 0 0
 stand stand either 0
@@ -392,7 +392,7 @@ Brrr!  You almost can't distinguish this bat from an ice cube.
 ~
 bat~
 ABF J -100 0
-7 1 3d10+70 1d1+99 1d9+1 frbite
+7 1 3d10+70 1d1+99 1d9+1 'frbite'
 4 4 4 6
 R I 0 H
 stand stand either 0
@@ -406,7 +406,7 @@ Amazing!  This bat is grooming itself with acid!
 ~
 bat~
 ABF J -100 0
-7 1 3d10+70 1d1+99 1d9+1 acbite
+7 1 3d10+70 1d1+99 1d9+1 'acbite'
 4 4 4 6
 R K 0 0
 stand stand either 0
@@ -420,7 +420,7 @@ He definitely knows what he's doing.  Trust him.
 ~
 human~
 ACGS BJQ 400 0
-12 2 3d20+130 1d1+99 2d4+3 punch
+12 2 3d20+130 1d1+99 2d4+3 'punch'
 2 0 0 6
 BFJNQU 0 0 0
 stand stand male 500
@@ -434,7 +434,7 @@ He looks quite mean.  Don't mess with him.
 ~
 troll~
 ABCFT 0 -700 0
-14 3 8d20+140 14d4+100 3d4+5 claw
+14 3 8d20+140 14d4+100 3d4+5 'claw'
 -1 -3 -1 4
 CEOR 0 0 C
 stand stand male 1000
@@ -449,7 +449,7 @@ angry should you bother his studies.
 ~
 human~
 ACFGR J -200 0
-11 0 4d10+100 11d12+100 1d6+1 beating
+11 0 4d10+100 11d12+100 1d6+1 'beating'
 0 0 0 2
 QU 0 C 0
 stand stand male 200
@@ -464,7 +464,7 @@ for dinner.
 ~
 snake~
 ABFU J 200 0
-9 1 2d10+100 1d1+99 1d12+1 bite
+9 1 2d10+100 1d1+99 1d12+1 'bite'
 1 3 3 6
 FGNR 0 EF 0
 stand stand either 0
@@ -478,7 +478,7 @@ He is so happy, you are disgusted.  Kill him now!
 ~
 troll~
 ACFGT 0 -300 0
-8 2 3d10+80 8d4+100 2d5+2 bite
+8 2 3d10+80 8d4+100 2d5+2 'bite'
 3 1 3 6
 EJR 0 0 0
 stand stand male 100
@@ -492,7 +492,7 @@ He is just looking for a fight isn't he?
 ~
 orc~
 ACFGT 0 -200 0
-9 1 3d10+100 1d1+99 1d8+2 beating
+9 1 3d10+100 1d1+99 1d8+2 'beating'
 2 2 1 5
 CJNR 0 0 0
 stand stand either 150

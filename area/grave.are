@@ -18,7 +18,7 @@ sorrow and depression.  He is haunted by a memory of a lost paradise.
 ~
 human~
 AG 0 350 0
-4 0 2d7+46 2d9+100 1d5+1 none
+4 0 2d7+46 2d9+100 1d5+1 'none'
 6 6 6 9
 EFNU 0 0 0
 sit sit male 2
@@ -32,7 +32,7 @@ Maggots crawl all over its decaying body.
 ~
 human~
 ABF J -750 0
-4 0 2d7+46 2d9+100 1d5+1 none
+4 0 2d7+46 2d9+100 1d5+1 'none'
 6 6 6 9
 EFNU 0 0 0
 stand stand male 2
@@ -47,7 +47,7 @@ resemble claws.  Its eyes are a dark yellow colour and glare hungrily at you.
 ~
 human~
 ABF J -750 0
-6 0 2d7+71 3d9+100 1d7+1 none
+6 0 2d7+71 3d9+100 1d7+1 'none'
 4 4 4 9
 EFNU 0 0 0
 stand stand male 5
@@ -62,7 +62,7 @@ time.
 ~
 human~
 ABF J -750 0
-3 0 2d6+35 1d9+100 1d6+0 none
+3 0 2d6+35 1d9+100 1d6+0 'none'
 7 7 7 10
 EFNU 0 0 E
 stand stand male 0
@@ -77,7 +77,7 @@ time.
 ~
 human~
 AF J -750 0
-3 0 2d6+35 1d9+100 1d6+0 none
+3 0 2d6+35 1d9+100 1d6+0 'none'
 7 7 7 10
 EFNU 0 0 E
 stand stand male 0
@@ -91,7 +91,7 @@ Maggots crawl all over its decaying body.
 ~
 human~
 AF J -750 0
-4 0 2d7+46 2d9+100 1d5+1 none
+4 0 2d7+46 2d9+100 1d5+1 'none'
 6 6 6 9
 EFNU 0 0 0
 stand stand male 5

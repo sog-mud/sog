@@ -18,7 +18,7 @@ urukhay урукхай troll~
 ~
 troll~
 AJKTbef DFOPVlmt -1000 0
-0 100 1d1+29999 1d1+999 1d1+200 none
+0 100 1d1+29999 1d1+999 1d1+200 'none'
 -200 -200 -200 -200
 ACEFIJKLN CD D 0
 stand stand male 1000000
@@ -40,7 +40,7 @@ griswold грисвольд~
 ~
 human~
 ABTce CDEFHNTVlmt 584 0
-70 15 25d15+25000 1d1+999 8d8+60 slash
+70 15 25d15+25000 1d1+999 8d8+60 'slash'
 -80 -80 -80 -80
 ACEFHJK ABQU CDL 0
 stand stand male 1000000
@@ -55,7 +55,7 @@ ogden огден~
 ~
 human~
 ABLT 0 -1000 0
-85 0 0d0+0 1d1+9999 0d0+0 none
+85 0 0d0+0 1d1+9999 0d0+0 'none'
 0 0 0 0
 0 0 0 0
 stand stand none 0
@@ -70,7 +70,7 @@ cain кейн~
 ~
 human~
 ABJKRXbdef DFHV 367 0
-70 50 1d1+29999 1d1+499 6d14+100 chill
+70 50 1d1+29999 1d1+499 6d14+100 'chill'
 -100 -100 -100 -100
 EFKT ABEQ CDL 0
 stand stand male 1000
@@ -85,7 +85,7 @@ healer лекарь пепин pepin~
 ~
 human~
 ABQaef DFHNTVlmt 1000 0
-120 300 1d1+29999 12d42+10000 20d10+100 divine
+120 300 1d1+29999 12d42+10000 20d10+100 'divine'
 -100 -100 -100 -100
 AN ABCMNQU DL 0
 stand stand male 1000
@@ -99,7 +99,7 @@ adria ведьма адрия witch~
 ~
 human~
 ABRcef DFVu -1000 0
-92 0 1d1+28999 1d1+999 10d10+20 none
+92 0 1d1+28999 1d1+999 10d10+20 'none'
 -70 -70 -70 -70
 F AB CD M
 stand stand female 0
@@ -114,7 +114,7 @@ farnham алкаш drunk~
 ~
 human~
 ABUe Yd 0 0
-15 0 15d15+200 1d1+149 2d4+5 punch
+15 0 15d15+200 1d1+149 2d4+5 'punch'
 10 10 10 10
 DFK A CI BPR
 stand rest male 0
@@ -129,7 +129,7 @@ wirt вирт~
 ~
 human~
 ABCSce CDFGPdlmtu -436 0
-50 0 50d10+18000 1d1+99 6d8+30 none
+50 0 50d10+18000 1d1+99 6d8+30 'none'
 -23 -54 -34 -67
 BFNT ABLQ D ER
 stand stand male 0
@@ -145,7 +145,7 @@ bank~
 ~
 human~
 ABe 0 0 0
-100 0 1d1+29999 0d0+0 0d0+0 slash
+100 0 1d1+29999 0d0+0 0d0+0 'slash'
 0 0 0 0
 0 0 0 P
 stand stand none 0
@@ -164,7 +164,7 @@ mage fire ball~
 ~
 fire elemental~
 ARf DFJVlmtu -1000 0
-60 200 1d1+19999 1d1+999 10d10+50 flame
+60 200 1d1+19999 1d1+999 10d10+50 'flame'
 -70 -70 -70 -70
 0 0 0 0
 stand stand male 0
