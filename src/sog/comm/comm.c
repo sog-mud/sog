@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.162 1999-03-11 09:04:32 fjoe Exp $
+ * $Id: comm.c,v 1.163 1999-03-16 11:06:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -670,19 +670,17 @@ static void cp_print(DESCRIPTOR_DATA* d)
 	write_to_buffer(d, "\n\rSelect your codepage (non-russian players should choose translit): ", 0);
 }
 
-extern const HELP_DATA *help_greeting;
-
 #if !defined(FNDELAY)
 #define FNDELAY O_NDELAY
 #endif
 
 void init_descriptor(int control)
 {
-	char buf[MAX_STRING_LENGTH];
 	DESCRIPTOR_DATA *dnew;
 	struct sockaddr_in sock;
 	int desc;
 	int size;
+	HELP_DATA *greeting;
 
 	size = sizeof(sock);
 	getsockname(control, (struct sockaddr *) &sock, &size);
@@ -745,9 +743,12 @@ void init_descriptor(int control)
 	/*
 	 * Send the greeting.
 	 */
-	parse_colors(mlstr_mval(help_greeting->text), buf, sizeof(buf),
-		     FORMAT_DUMB);
-	write_to_buffer(dnew, buf + (buf[0] == '.'), 0);
+	if ((greeting = help_lookup(1, "GREETING"))) {
+		char buf[MAX_STRING_LENGTH];
+		parse_colors(mlstr_mval(greeting->text), buf, sizeof(buf),
+			     FORMAT_DUMB);
+		write_to_buffer(dnew, buf + (buf[0] == '.'), 0);
+	}
 	cp_print(dnew);
 }
 

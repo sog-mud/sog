@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.33 1999-03-10 17:23:34 fjoe Exp $
+ * $Id: db_area.c,v 1.34 1999-03-16 11:06:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -92,7 +92,6 @@ DBFUN dbfun_areas[] = {
 DBDATA db_areas = { dbfun_areas, init_area };
 
 AREA_DATA *		area_current;
-const HELP_DATA *	help_greeting;
 
 static int	slot_lookup	(int slot);
 static void	convert_mobile	(MOB_INDEX_DATA *pMobIndex);
@@ -261,9 +260,6 @@ DBLOAD_FUN(load_helps)
 		pHelp->level	= level;
 		pHelp->keyword	= keyword;
 		pHelp->text	= mlstr_fread(fp);
-
-		if (!str_cmp(pHelp->keyword, "greeting"))
-			help_greeting = pHelp;
 
 		help_add(area_current, pHelp);
 	}
