@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.25 1998-06-03 20:44:13 fjoe Exp $
+ * $Id: update.c,v 1.26 1998-06-08 09:06:00 efdi Exp $
  */
 
 /***************************************************************************
@@ -101,6 +101,7 @@ void	track_update	args((void));
 int	save_number = 0;
 
 
+int	rebooter = 0;
 
 /*
  * Advancement stuff.
@@ -2206,8 +2207,15 @@ void check_reboot(void)
 	case 15:
 		for (d = descriptor_list; d != NULL; d = d->next) 
 			if (d->character != NULL)
-				char_nprintf(d->character, UPDATE_REBOOT_IN,
-					     reboot_counter);
+				if (rebooter)
+					char_nprintf(d->character, 
+						     UPDATE_REBOOT_IN,
+					    	     reboot_counter);
+				else
+					char_nprintf(d->character, 
+						     UPDATE_AUTOREBOOT_IN,
+					    	     reboot_counter);
+
 		/* FALLTHRU */
 	default: 
 		reboot_counter--;

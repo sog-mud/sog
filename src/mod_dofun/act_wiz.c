@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.17 1998-06-07 07:15:39 fjoe Exp $
+ * $Id: act_wiz.c,v 1.18 1998-06-08 09:05:59 efdi Exp $
  */
 
 /***************************************************************************
@@ -91,6 +91,7 @@ extern int max_on;
 ROOM_INDEX_DATA *	find_location	args((CHAR_DATA *ch, char *arg));
 bool write_to_descriptor  args((int desc, char *txt, int length));
 void reboot_anatolia(void);
+extern int rebooter;
 
 
 void do_clan_scan(CHAR_DATA *ch, char *argument)
@@ -5373,6 +5374,7 @@ void do_reboot(CHAR_DATA *ch, char *argument)
 	if (is_number(arg))
 	{
 	 reboot_counter = atoi(arg);
+	 rebooter = 1;
 	 sprintf(buf,"Muddy will reboot in %i ticks.\n\r",reboot_counter);
 	 send_to_char(buf,ch);
 	 return;
