@@ -1,5 +1,5 @@
 /*
- * $Id: clan.c,v 1.11 1998-09-01 18:37:57 fjoe Exp $
+ * $Id: clan.c,v 1.12 1998-09-10 22:07:52 fjoe Exp $
  */
 
 #include <sys/syslimits.h>
@@ -54,7 +54,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 				    "Usage: petition %s<accept | reject> "
 				    "<char name>\n\r",
 				    IS_IMMORTAL(ch) ? "<clan name> " : "");
-		if (ch->pcdata->clan_status != CLAN_LEADER)
+		if (!IS_IMMORTAL(ch) && ch->pcdata->clan_status != CLAN_LEADER)
 			char_puts("Usage: petition <clan name>\n\r", ch);
 		return;
 	}

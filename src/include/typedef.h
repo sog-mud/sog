@@ -2,7 +2,7 @@
 #define _TYPEDEF_H_
 
 /*
- * $Id: typedef.h,v 1.1 1998-09-01 18:38:02 fjoe Exp $
+ * $Id: typedef.h,v 1.2 1998-09-10 22:07:54 fjoe Exp $
  */
 
 #if	!defined(FALSE)
@@ -68,8 +68,8 @@ typedef void	SPELL_FUN	(int sn, int level, CHAR_DATA *ch, void *vo,
 #define DECLARE_SPEC_FUN(fun) 	SPEC_FUN  fun
 #define DECLARE_SPELL_FUN(fun)	SPELL_FUN fun
 
-typedef int64_t flag_t;		/* flags */
-typedef int32_t sflag_t;	/* short flags (less memory usage) */
+typedef u_int64_t flag_t;	/* flags */
+typedef u_int32_t sflag_t;	/* short flags (less memory usage) */
 
 #define IS_NULLSTR(str)		((str) == NULL || *(char*)(str) == '\0')
 

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.59 1998-09-04 05:27:46 fjoe Exp $
+ * $Id: interp.c,v 1.60 1998-09-10 22:07:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -399,12 +399,12 @@ const	struct	cmd_type	cmd_table	[] =
     { "freeze",		do_freeze,	POS_DEAD,	L4,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "permban",	do_permban,	POS_DEAD,	L1,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "protect",	do_protect,	POS_DEAD,	L1,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "reboo",		do_reboo,	POS_DEAD,	L1,  LOG_NORMAL, 0, CMD_KEEP_HIDE|CMD_GHOST },
+    { "reboo",		do_reboo,	POS_DEAD,	L1,  LOG_NEVER, 0, CMD_KEEP_HIDE|CMD_GHOST },
     { "reboot",		do_reboot,	POS_DEAD,	L1,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "smite",		do_smite,	POS_DEAD,	L2,  LOG_ALWAYS, 1,0 },
     { "limited",	do_limited,	POS_DEAD,	L2,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "popularity",	do_popularity,	POS_DEAD,	L2,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "shutdow",	do_shutdow,	POS_DEAD,	L1,  LOG_NORMAL, 0, CMD_KEEP_HIDE|CMD_GHOST },
+    { "shutdow",	do_shutdow,	POS_DEAD,	L1,  LOG_NEVER, 0, CMD_KEEP_HIDE|CMD_GHOST },
     { "shutdown",	do_shutdown,	POS_DEAD,	L1,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST},
     { "wizlock",	do_wizlock,	POS_DEAD,	L2,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "affrooms",	do_affrooms,	POS_DEAD,	L5,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
@@ -420,7 +420,7 @@ const	struct	cmd_type	cmd_table	[] =
     { "pecho",		do_pecho,	POS_DEAD,	L4,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST }, 
     { "purge",		do_purge,	POS_DEAD,	L4,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "restore",	do_restore,	POS_DEAD,	L4,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "sla",		do_sla,		POS_DEAD,	L3,  LOG_NORMAL, 0, CMD_KEEP_HIDE|CMD_GHOST },
+    { "sla",		do_sla,		POS_DEAD,	L3,  LOG_NEVER, 0, CMD_KEEP_HIDE|CMD_GHOST },
     { "slay",		do_slay,	POS_DEAD,	L3,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "teleport",	do_transfer,    POS_DEAD,	L5,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },	
     { "transfer",	do_transfer,	POS_DEAD,	L5,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
@@ -432,7 +432,7 @@ const	struct	cmd_type	cmd_table	[] =
     { "incognito",	do_incognito,	POS_DEAD,	IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "invis",		do_invis,	POS_DEAD,	IM,  LOG_NORMAL, 0, CMD_KEEP_HIDE|CMD_GHOST },
     { "log",		do_log,		POS_DEAD,	L1,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST  },
-    { "memory",		do_memory,	POS_DEAD,	IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
+    { "memory",		do_memory,	POS_DEAD,	IM,  LOG_NEVER, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "mwhere",		do_mwhere,	POS_DEAD,	IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "owhere",		do_owhere,	POS_DEAD,	IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "peace",		do_peace,	POS_DEAD,	L5,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
@@ -478,18 +478,12 @@ const	struct	cmd_type	cmd_table	[] =
     /*
      * OLC
      */
-    { "edit",		do_olc,		POS_DEAD,   IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
-    { "asave",          do_asave,	POS_DEAD,   IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
-    { "alist",		do_alist,	POS_DEAD,   IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
-    { "clist",		do_clist,	POS_DEAD,   IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
+    { "edit",		do_edit,	POS_DEAD,   IM,  LOG_ALWAYS, 1, CMD_KEEP_HIDE | CMD_GHOST },
+    { "create",		do_create,	POS_DEAD,   IM,  LOG_ALWAYS, 1, CMD_KEEP_HIDE | CMD_GHOST },
+    { "asave",          do_asave,	POS_DEAD,   IM,  LOG_ALWAYS, 1, CMD_KEEP_HIDE | CMD_GHOST },
+    { "alist",		do_alist,	POS_DEAD,   IM,  LOG_NEVER, 1, CMD_KEEP_HIDE | CMD_GHOST },
+    { "clist",		do_clist,	POS_DEAD,   IM,  LOG_NEVER, 1, CMD_KEEP_HIDE | CMD_GHOST },
     { "resets",		do_resets,	POS_DEAD,   IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
-    { "redit",		do_redit,	POS_DEAD,   IM,	 LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
-    { "medit",		do_medit,	POS_DEAD,   IM,	 LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
-    { "aedit",		do_aedit,	POS_DEAD,   IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
-    { "oedit",		do_oedit,	POS_DEAD,   IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
-    { "mpedit",		do_mpedit,	POS_DEAD,   IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
-    { "hedit",		do_hedit,	POS_DEAD,   IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
-    { "cedit",		do_cedit,	POS_DEAD,   IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
 
     /*
      * End of list.

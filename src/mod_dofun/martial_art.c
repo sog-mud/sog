@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.31 1998-09-04 05:27:46 fjoe Exp $
+ * $Id: martial_art.c,v 1.32 1998-09-10 22:07:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1886,7 +1886,7 @@ void do_resistance(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (is_affected(ch,gsn_resistance)) {
+	if (is_affected(ch, gsn_resistance)) {
 		send_to_char("You are as resistant as you will get.\n\r",ch);
 		return;
 	}
@@ -2615,7 +2615,7 @@ int critical_strike(CHAR_DATA *ch, CHAR_DATA *victim, int dam)
 			 ch, NULL, victim, TO_CHAR, POS_RESTING);
 		check_improve(ch, gsn_critical, TRUE, 3);
 		WAIT_STATE(victim, 2 * PULSE_VIOLENCE);
-		dam += (dam * number_range(2, 5)) / 5;			
+		dam += (dam * number_range(2, 5)) / 5;
 		return dam;
 	}   
 	else if (diceroll > 75 && diceroll < 95) {   

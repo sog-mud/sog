@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.52 1998-09-04 05:27:47 fjoe Exp $
+ * $Id: save.c,v 1.53 1998-09-10 22:07:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -67,6 +67,7 @@ extern int _filbuf args((FILE *));
 static OBJ_DATA *rgObjNest[MAX_NEST];
 
 char DEFAULT_PROMPT[] = "%hhp %mm %vmv Opp:%o {c%e{x# ";
+char OLD_DEFAULT_PROMPT[] = "<%n: {M%h{xhp {C%m{xm {W%v{xmv Opp:%o> ";
 
 /*
  * Local functions.
@@ -163,7 +164,9 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, bool reboot)
 	if (!IS_NULLSTR(mlstr_mval(ch->description)))
 		fprintf(fp, "Desc %s~\n",
 			fix_string(mlstr_mval(ch->description)));
-	if (ch->prompt != NULL || !str_cmp(ch->prompt, DEFAULT_PROMPT))
+	if (ch->prompt
+	&&  str_cmp(ch->prompt, DEFAULT_PROMPT)
+	&&  str_cmp(ch->prompt, OLD_DEFAULT_PROMPT))
 		fprintf(fp, "Prom %s~\n", ch->prompt);
 	fprintf(fp, "Race %s~\n", pc_race_table[ORG_RACE(ch)].name);
 	fprintf(fp, "Sex  %d\n", ch->sex);
@@ -190,22 +193,12 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, bool reboot)
 		fprintf(fp, "Silv %d\n", 0);
 	fprintf(fp, "Exp %d\n", ch->exp);
 	fprintf(fp, "ExpTL %d\n", ch->exp_tl);
-	if (ch->act != 0)
-		if (IS_NPC(ch))
-			fprintf(fp, "Act  %s\n", format_flags(ch->act));
-		else
-			fprintf(fp, "Act  %s\n", 
-				format_flags(ch->act & ~(PLR_NOEXP |
-							 PLR_CHANGED_AFF |
-							 PLR_GHOST)));
-	if (ch->affected_by) {
-		if (IS_NPC(ch))
-			fprintf(fp, "AfBy %s\n", format_flags(ch->affected_by));
-		else
-			fprintf(fp, "AfBy %s\n",
-			     format_flags((ch->affected_by & (~AFF_CHARM))));
-	}
-	fprintf(fp, "Comm %s\n", format_flags(ch->comm & ~(COMM_AFK)));
+	if (ch->act)
+		fprintf(fp, "Act  %s\n", format_flags(ch->act));
+	if (ch->affected_by)
+		fprintf(fp, "AfBy %s\n", format_flags(ch->affected_by));
+	if (ch->comm)
+		fprintf(fp, "Comm %s\n", format_flags(ch->comm));
 	if (ch->wiznet)
 		fprintf(fp, "Wizn %s\n", format_flags(ch->wiznet));
 	if (ch->invis_level)
@@ -541,8 +534,7 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 /*
  * Load a char and inventory into a new ch structure.
  */
-bool 
-load_char_obj(DESCRIPTOR_DATA * d, const char *name)
+void load_char_obj(DESCRIPTOR_DATA * d, const char *name)
 {
 	CHAR_DATA      *ch;
 	FILE           *fp;
@@ -563,11 +555,10 @@ load_char_obj(DESCRIPTOR_DATA * d, const char *name)
 	ch->pcdata->race = ch->race;
 	ch->pcdata->clan_status = CLAN_COMMON;
 	ch->pcdata->points = 0;
-	ch->pcdata->confirm_delete = FALSE;
-	ch->pcdata->pwd = str_dup("");
-	ch->pcdata->bamfin = str_dup("");
-	ch->pcdata->bamfout = str_dup("");
-	ch->pcdata->title = str_dup("");
+	ch->pcdata->pwd = str_empty;
+	ch->pcdata->bamfin = str_empty;
+	ch->pcdata->bamfout = str_empty;
+	ch->pcdata->title = str_empty;
 	ch->pcdata->condition[COND_THIRST] = 48;
 	ch->pcdata->condition[COND_FULL] = 48;
 	ch->pcdata->condition[COND_HUNGER] = 48;
@@ -659,10 +650,9 @@ load_char_obj(DESCRIPTOR_DATA * d, const char *name)
 	    && ch->class != CLASS_VAMPIRE)
 		ch->pcdata->condition[COND_BLOODLUST] = 48;
 
-	return found;
+	if (!found)
+		ch->act |= PLR_NEW;
 }
-
-
 
 /*
  * Read in a char.
@@ -692,9 +682,12 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 			break;
 
 		case 'A':
-			KEY("Act", ch->act, fread_flags(fp) & ~PLR_GHOST);
+			KEY("Act", ch->act, fread_flags(fp) &
+					    ~(PLR_GHOST | PLR_CONFIRM_DELETE |
+					      PLR_NOEXP | PLR_CHANGED_AFF));
 			KEY("AffectedBy", ch->affected_by, fread_flags(fp));
-			KEY("AfBy", ch->affected_by, fread_flags(fp));
+			KEY("AfBy", ch->affected_by, fread_flags(fp) &
+						     ~AFF_CHARM);
 			KEY("Alignment", ch->alignment, fread_number(fp));
 			KEY("Alig", ch->alignment, fread_number(fp));
 			KEY("AntKilled", ch->pcdata->anti_killed, fread_number(fp));
@@ -835,7 +828,7 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 				fMatch = TRUE;
 				break;
 			}
-			KEY("Comm", ch->comm, fread_flags(fp));
+			KEY("Comm", ch->comm, fread_flags(fp) & ~COMM_AFK);
 
 			break;
 
@@ -1064,6 +1057,7 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 	}
 	return;
 }
+
 /* load a pet from the forgotten reaches */
 void 
 fread_pet(CHAR_DATA * ch, FILE * fp)

@@ -1,5 +1,5 @@
 /*
- * $Id: flag.c,v 1.10 1998-09-01 18:37:57 fjoe Exp $
+ * $Id: flag.c,v 1.11 1998-09-10 22:07:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -72,7 +72,7 @@ const struct flag_stat_type flag_stat_table[] =
 	{ apply_flags,		TRUE	},
 	{ rapply_flags,		TRUE	},
 	{ sex_table,		TRUE	},
-	{ furniture_flags,	TRUE	},
+	{ furniture_flags,	FALSE	},
 	{ weapon_class,		TRUE	},
 	{ apply_types,		TRUE	},
 	{ weapon_type2,		FALSE	},

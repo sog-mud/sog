@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.76 1998-09-04 05:27:46 fjoe Exp $
+ * $Id: merc.h,v 1.77 1998-09-10 22:07:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -135,6 +135,7 @@ struct weather_data
 #define CON_GET_ETHOS			19
 #define CON_CREATE_DONE 		20
 #define CON_GET_CODEPAGE		21
+#define CON_RESOLV			22
 
 /*
  * Descriptor (channel) structure.
@@ -161,9 +162,9 @@ struct descriptor_data
 	char *			showstr_head;
 	char *			showstr_point;
 	struct codepage*	codepage;
-	void *             	pEdit;		/* OLC */
-	char **			pString;	/* OLC */
-	int			editor;		/* OLC */
+	const char *		editor;		/* editor id (OLC) */
+	void *             	pEdit;		/* edited obj (OLC) */
+	char **			pString;	/* edited string (string_edit) */
 };
 
 /*
@@ -1126,8 +1127,10 @@ enum {
 #define PLR_DENY		(X)
 #define PLR_FREEZE		(Y)
 
+#define PLR_CONFIRM_DELETE	(cc)
 #define PLR_HARA_KIRI		(dd)
 #define PLR_BLINK		(ee)
+#define PLR_NEW			(ff)
 
 #define IS_VAMPIRE(ch)	(is_affected(ch, gsn_vampire))
 #define IS_HARA_KIRI(ch) (IS_SET((ch)->act , PLR_HARA_KIRI))
@@ -1403,7 +1406,6 @@ struct pc_data
 	int			condition	[MAX_COND];
 	varr *			learned;	/* varr of ints (percentage) */
 	int			points;
-	bool			confirm_delete;
 	char *			alias[MAX_ALIAS];
 	char *			alias_sub[MAX_ALIAS];
 	int 			security;	/* OLC */ /* Builder security */
@@ -2033,7 +2035,7 @@ char* PERS(CHAR_DATA *ch, CHAR_DATA *looker);
 
 /* save.c */
 void	save_char_obj	(CHAR_DATA *ch, bool reboot);
-bool	load_char_obj	(DESCRIPTOR_DATA *d, const char *name);
+void	load_char_obj	(DESCRIPTOR_DATA *d, const char *name);
 
 /* special.c */
 SF *	spec_lookup	(const char *name);

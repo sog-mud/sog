@@ -1,5 +1,5 @@
 /*
- * $Id: util.c,v 1.6 1998-09-01 18:38:02 fjoe Exp $
+ * $Id: util.c,v 1.7 1998-09-10 22:07:54 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -178,7 +178,7 @@ int cmpstr(const void *p1, const void *p2)
 	return str_cmp(*(char**)p1, *(char**) p2);
 }
 
-size_t cstrlen(const char* cstr)
+size_t cstrlen(const char *cstr)
 {
 	size_t res;
 
@@ -197,3 +197,13 @@ size_t cstrlen(const char* cstr)
 	return res;
 }
 
+const char *cstrfirst(const char *cstr)
+{
+	if (cstr == NULL)
+		return NULL;
+
+	for (; *cstr == '{'; cstr++)
+		if (*(cstr+1))
+			cstr++;
+	return cstr;
+}

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.55 1998-09-01 18:37:56 fjoe Exp $
+ * $Id: act_wiz.c,v 1.56 1998-09-10 22:07:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2816,7 +2816,7 @@ void do_string(CHAR_DATA *ch, const char *argument)
 		}
 
 		if (!str_prefix(arg2, "long")) {
-			mlstr_edit(&obj->short_descr, arg3);
+			mlstr_editnl(&obj->description, arg3);
 			return;
 		}
 

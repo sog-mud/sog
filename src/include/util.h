@@ -2,7 +2,7 @@
 #define _UTIL_H_
 
 /*
- * $Id: util.h,v 1.5 1998-09-01 18:38:02 fjoe Exp $
+ * $Id: util.h,v 1.6 1998-09-10 22:07:54 fjoe Exp $
  */
 
 void	doprintf(DO_FUN*, CHAR_DATA*, const char *fmt, ...);
@@ -24,6 +24,7 @@ int	d2rename(const char *dir1, const char *file1,
 int cmpint(const void *p1, const void *p2);
 int cmpstr(const void *p1, const void *p2);
 
-size_t cstrlen(const char* cstr);
+size_t		cstrlen		(const char* cstr);
+const char*	cstrfirst	(const char *cstr);
 
 #endif

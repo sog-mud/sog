@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.20 1998-09-04 05:27:43 fjoe Exp $
+# $Id: Makefile,v 1.21 1998-09-10 22:07:51 fjoe Exp $
 #
 CC		= gcc
 LD		= gcc
@@ -18,9 +18,10 @@ OFILES = act_comm.o act_info.o act_move.o act_obj.o act_wiz.o auction.o\
 	 effects.o fight.o flag.o gsn.o handler.o healer.o help.o hometown.o\
 	 hunt.o interp.o log.o lookup.o magic.o magic2.o martial_art.o mem.o\
 	 mlstring.o mob_cmds.o mob_prog.o namedp.o note.o obj_prog.o quest.o\
-	 raffects.o rating.o recycle.o religion.o repair.o resource.o save.o\
-	 skills.o special.o spellfn.o string_edit.o tables.o update.o util.o\
-	 varr.o $(OLC_OFILES)
+	 raffects.o rating.o recycle.o religion.o repair.o resolver.o\
+	 resource.o save.o skills.o special.o spellfn.o string_edit.o\
+	 tables.o update.o util.o varr.o\
+	 $(OLC_OFILES)
 
 #
 # for SUNOS
@@ -52,14 +53,14 @@ depend:
 clean:
 	rm -f *.o *.core muddy
 
-resinstall:
-	install -c -m 664 ../msgdb/resource.h ../msgdb/lang.lst ../msgdb/*.lang $(INSTALL_PATH)/msgdb
-
 ctags:
 	ctags -dtw *.c *.h
 
-bininstall:
+resinstall:
+	install -c -m 664 ../msgdb/resource.h ../msgdb/lang.lst ../msgdb/*.lang $(INSTALL_PATH)/msgdb
+
+bininstall: muddy 
 	install -c -m 554 muddy $(INSTALL_PATH)/bin
 
-install: muddy resinstall bininstall
+install: bininstall resinstall
 

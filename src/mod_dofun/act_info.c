@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.123 1998-09-04 05:27:44 fjoe Exp $
+ * $Id: act_info.c,v 1.124 1998-09-10 22:07:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2137,15 +2137,18 @@ void set_title(CHAR_DATA *ch, const char *title)
 	char buf[MAX_TITLE_LENGTH];
 	static char nospace[] = ".,!?':";
 
-	if (strchr(nospace, title[0]) == NULL) {
-		buf[0] = ' ';
-		buf[1] = '\0';
-	}
-	else
-		buf[0] = '\0';
+	buf[0] = '\0';
 
-	strnzcat(buf, title, sizeof(buf));
-	smash_tilde(buf);
+	if (title) {
+		if (strchr(nospace, *cstrfirst(title)) == NULL) {
+			buf[0] = ' ';
+			buf[1] = '\0';
+		}
+
+		strnzcat(buf, title, sizeof(buf));
+		smash_tilde(buf);
+	}
+
 	free_string(ch->pcdata->title);
 	ch->pcdata->title = str_dup(buf);
 }

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.66 1998-09-04 05:27:45 fjoe Exp $
+ * $Id: fight.c,v 1.67 1998-09-10 22:07:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -158,15 +158,20 @@ void violence_update(void)
 
 		SET_FIGHT_TIME(ch);
 
-		for (obj = ch->carrying;obj != NULL; obj = obj_next) {
+		for (obj = ch->carrying; obj; obj = obj_next) {
 			obj_next = obj->next_content;
+			if (ch->fighting == NULL)
+				break;
 			oprog_call(OPROG_FIGHT, obj, ch, NULL);
 		}
+
+		if ((victim = ch->fighting) == NULL)
+			continue;
 
 		/*
 		 * Fun for the whole family!
 		 */
-		check_assist(ch,victim);
+		check_assist(ch, victim);
 		if (IS_NPC(ch)) {
 			if (HAS_TRIGGER(ch, TRIG_FIGHT))
 				mp_percent_trigger(ch, victim, NULL, NULL,
@@ -1091,7 +1096,7 @@ handle_pc_death(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (victim->class == CLASS_SAMURAI) {
 		victim->perm_stat[STAT_CHA]--;
 		if (victim->pcdata->death > 10) {
-			delete_player(victim, "10 deaths limit of Samurai");
+			delete_player(victim, "10 deaths limit for Samurai");
 			return TRUE;
 		}
 	}
@@ -1128,7 +1133,10 @@ static void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 		mp_percent_trigger(victim, ch, NULL, NULL, TRIG_DEATH);
 	}
 
+	victim->position = POS_DEAD;
 	raw_kill(ch, victim);
+	if (victim->position != POS_DEAD)
+		return;
 
 	/*
 	 * handle PC death (from NPC or being MSG_WANTED)

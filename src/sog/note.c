@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.19 1998-09-01 18:38:01 fjoe Exp $
+ * $Id: note.c,v 1.20 1998-09-10 22:07:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -895,7 +895,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 		&&  fch != ch
 		&&  is_note_to(fch, ch->pnote)
 		&&  d->connected == CON_PLAYING)
-			char_puts("You have new note.\n\r", fch);
+			do_unread(fch, "login");
 	}
 
 	ch->pnote = NULL;

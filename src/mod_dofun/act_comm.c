@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.76 1998-09-04 05:27:43 fjoe Exp $
+ * $Id: act_comm.c,v 1.77 1998-09-10 22:07:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -198,10 +198,10 @@ void do_delete(CHAR_DATA *ch, const char *argument)
 	if (IS_NPC(ch))
 		return;
 	
-	if (ch->pcdata->confirm_delete) {
+	if (IS_SET(ch->act, PLR_CONFIRM_DELETE)) {
 		if (argument[0] != '\0') {
 			send_to_char("Delete status removed.\n\r",ch);
-			ch->pcdata->confirm_delete = FALSE;
+			REMOVE_BIT(ch->act, PLR_CONFIRM_DELETE);
 			return;
 		}
 
@@ -221,7 +221,7 @@ void do_delete(CHAR_DATA *ch, const char *argument)
 		     "WARNING: this command is irreversible.\n\r"
 		     "Typing delete with an argument will undo delete status.\n\r",
 		     ch);
-	ch->pcdata->confirm_delete = TRUE;
+	SET_BIT(ch->act, PLR_CONFIRM_DELETE);
 	wiznet("$N is contemplating deletion.", ch, NULL, 0, 0, get_trust(ch));
 }
 		
@@ -1856,7 +1856,7 @@ void do_noiac(CHAR_DATA *ch, const char *argument)
 	}
 	else {
 		SET_BIT(ch->comm, COMM_NOIAC);
-		char_printf(ch, "IACs will not be sent to you anymore (will be replaced with '%c'.\n\r", IAC_REPL);
+		char_printf(ch, "IACs will not be sent to you anymore (will be replaced with '%c').\n\r", IAC_REPL);
 	}
 }
 
