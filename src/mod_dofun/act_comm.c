@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.187.2.29 2001-12-08 00:04:05 tatyana Exp $
+ * $Id: act_comm.c,v 1.187.2.30 2001-12-12 21:36:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -488,7 +488,8 @@ void do_immtalk(CHAR_DATA *ch, const char *argument)
 		do_immtalk(ch, str_empty);
 
 	flags = ACT_SPEECH(orig) & ~(ACT_STRANS | ACT_NODEAF);
-	act_puts("$n: {C$t{x", orig, argument, NULL, TO_CHAR | flags, POS_DEAD);
+	act_puts("[IMM] $n: {C$t{x",
+		 orig, argument, NULL, TO_CHAR | flags, POS_DEAD);
 
 	for (vch = char_list; vch != NULL && !IS_NPC(vch); vch = vch_next) {
 		CHAR_DATA *victim = GET_ORIGINAL(vch);
@@ -498,7 +499,7 @@ void do_immtalk(CHAR_DATA *ch, const char *argument)
 		||  IS_SET(victim->comm, COMM_NOWIZ))
 			continue;
 
-		act_puts("$n: {C$t{x", orig, argument, vch,
+		act_puts("[IMM] $n: {C$t{x", orig, argument, vch,
 			 TO_VICT | ACT_TOBUF | flags, POS_DEAD);
 	}
 }
