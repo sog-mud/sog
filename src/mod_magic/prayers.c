@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.59 2004-02-27 12:31:29 tatyana Exp $
+ * $Id: prayers.c,v 1.60 2004-02-27 14:22:23 tatyana Exp $
  */
 
 /***************************************************************************
@@ -146,6 +146,7 @@ DECLARE_SPELL_FUN(prayer_windwall);
 DECLARE_SPELL_FUN(prayer_wail_of_the_banshee);
 DECLARE_SPELL_FUN(prayer_sunbeam);
 DECLARE_SPELL_FUN(prayer_acid_fog);
+DECLARE_SPELL_FUN(prayer_ice_storm);
 
 static void
 hold(CHAR_DATA *ch, CHAR_DATA *victim, int duration, int dex_modifier, int
@@ -3396,4 +3397,23 @@ SPELL_FUN(prayer_acid_fog, sn, level, ch, vo)
 	aff_free(paf);
 
 	act("Caustic acid drops fill air.", ch, NULL, NULL, TO_ALL);
+}
+
+/* Domen: water
+ * Simple damage spell.
+ */
+SPELL_FUN(prayer_ice_storm, sn, level, ch, vo)
+{
+	CHAR_DATA *victim = (CHAR_DATA *) vo;
+	int dam = calc_spell_damage(ch, level, sn);
+
+	if (saves_spell(level, victim, DAM_COLD))
+		dam /= 2;
+
+	act("Throng ice flakes surrounds $N!", ch, NULL, victim, TO_CHAR);
+	act("Throng ice flakes surrounds you. Very cold!",
+	    ch, NULL, victim, TO_VICT);
+	act("Throng ice flakes surrounds $N!",
+	    ch, NULL, victim, TO_NOTVICT);
+	damage(ch, victim, dam, sn, DAM_F_SHOW);
 }
