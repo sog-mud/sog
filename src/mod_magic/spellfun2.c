@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.44 2001-09-23 18:57:41 fjoe Exp $
+ * $Id: spellfun2.c,v 1.139.2.45 2001-10-14 17:14:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3377,7 +3377,7 @@ void turn_spell(int sn, int level, CHAR_DATA *ch, void *vo)
 
 	dam = (dam * align * align) / 1000000;
 	damage(ch, victim, dam, sn, DAM_HOLY, TRUE);
-	if (!IS_EXTRACTED(victim))
+	if (!IS_EXTRACTED(victim) && !IS_CLAN_GUARD(victim))
 		dofun("flee", victim, str_empty);
 }
 
@@ -3388,9 +3388,10 @@ void spell_turn(int sn, int level, CHAR_DATA *ch, void *vo)
 	AFFECT_DATA af;
 
 	if (is_affected(ch, sn)) {
-		char_puts("This power is used too recently.",ch);
+		char_puts("This power is used too recently.\n",ch);
 		return;
 	}
+
 
 	af.where	= TO_AFFECTS;
 	af.type		= sn;
