@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.98 2000-04-06 05:41:03 fjoe Exp $
+ * $Id: db_area.c,v 1.99 2000-04-17 07:38:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -298,7 +298,8 @@ DBLOAD_FUN(load_areadata)
 			break;
 		case 'F':
 			KEY("Flags", pArea->area_flags,
-			    fread_flags(fp));
+			    (pArea->ver < 4 ? fread_fstring(area_flags, fp) :
+					      fread_flags(fp)));
 			break;
 		case 'L':
 			if (IS_TOKEN(fp, "LevelRange")) {
@@ -792,7 +793,9 @@ DBLOAD_FUN(load_practicers)
 				break;
 			}
 			SET_BIT(pMobIndex->practicer,
-				fread_flags(fp));
+				area_current->ver < 4 ?
+					fread_fstring(skill_groups, fp) :
+					fread_flags(fp));
 			break;
 		}
 
