@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.127 1999-02-23 07:55:34 kostik Exp $
+ * $Id: spellfun.c,v 1.128 1999-02-23 12:29:50 kostik Exp $
  */
 
 /***************************************************************************
@@ -488,7 +488,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 			for (paf = ch->affected; paf; paf = paf->next) 
 				if (paf->type == gsn_anathema
 				&& paf->location == APPLY_CHA)
-					slevel -= paf->modifier * 3;
+					slevel += paf->modifier * 3;
 		}
 
 		if (slevel < 1)
@@ -1756,7 +1756,7 @@ void spell_anathema(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	affect_to_char(victim, &af);
 
 	af.location	= APPLY_CHA;
-	af.modifier	= strength;
+	af.modifier	= -strength;
 
 	affect_to_char(victim, &af);
 	

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.86 1999-02-22 15:56:56 kostik Exp $
+ * $Id: spellfun2.c,v 1.87 1999-02-23 12:29:51 kostik Exp $
  */
 
 /***************************************************************************
@@ -2522,6 +2522,11 @@ void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo, int target)
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 			act("$n tries to animate $p, but fails and destroys it.",
 			    ch, obj, NULL, TO_ROOM);
+			for (obj2 = obj->contains; obj2; obj2 = next) {
+				next = obj2->next_content;
+				obj_from_obj(obj2);
+				obj_to_room(obj2, ch->in_room);
+			}
 			extract_obj(obj);
 			return;
 		}
