@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.114.2.28 2002-09-28 08:59:55 tatyana Exp $
+ * $Id: martial_art.c,v 1.114.2.29 2002-10-03 15:00:31 tatyana Exp $
  */
 
 /***************************************************************************
@@ -3765,15 +3765,15 @@ void do_surrender(CHAR_DATA *ch, const char *argument)
 }
 
 #define OBJ_VNUM_CHAMELEON_PONCHO	77
-
 void
 do_poncho(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *poncho;
 	AFFECT_DATA af;
 	OBJ_DATA *corpse;
+	OBJ_INDEX_DATA *index;
 	char arg[MAX_INPUT_LENGTH];
-	int chance;
+	int chance, mana, carry_w, carry_n;
 
 	if ((chance = get_skill(ch, gsn_chameleon_poncho)) == 0) {
 		char_puts("Huh?\n", ch);
@@ -3782,6 +3782,13 @@ do_poncho(CHAR_DATA *ch, const char *argument)
 
 	if (is_affected(ch, gsn_chameleon_poncho)) {
 		char_puts("But you've already got one poncho!\n", ch);
+		return;
+	}
+
+	mana = SKILL(gsn_chameleon_poncho)->min_mana;
+	if (ch->mana < mana) {
+		char_puts("You have not enought energy to make a poncho.\n",
+			  ch);
 		return;
 	}
 
@@ -3796,19 +3803,23 @@ do_poncho(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (number_percent() > chance * 2 / 3) {
-		char_puts("You failed and destroyed it.\n", ch);
-		extract_obj(corpse, 0);
-		return;
-	}
-
-	WAIT_STATE(ch, SKILL(gsn_chameleon_poncho)->beats);
-
 	if (corpse->pObjIndex->vnum != OBJ_VNUM_CORPSE_PC
 	&&  corpse->pObjIndex->vnum != OBJ_VNUM_CORPSE_NPC) {
 		char_puts("Your need a corpse for making poncho.\n", ch);
 		return;
 	}
+
+	if (number_percent() > chance * 2 / 3) {
+		char_puts("You failed and destroyed it.\n", ch);
+		extract_obj(corpse, 0);
+		check_improve(ch, gsn_chameleon_poncho, FALSE, 1);
+		WAIT_STATE(ch, SKILL(gsn_chameleon_poncho)->beats);
+		ch->mana -= mana / 2;
+		return;
+	}
+
+	WAIT_STATE(ch, SKILL(gsn_chameleon_poncho)->beats);
+	ch->mana -= mana;
 
 	if (!IS_NPC(ch) && number_percent() < chance) {
 		af.where	= TO_AFFECTS;
@@ -3821,16 +3832,29 @@ do_poncho(CHAR_DATA *ch, const char *argument)
 		af.location	= 0;
 		affect_to_char(ch, &af);
 
-		poncho = create_obj(get_obj_index(OBJ_VNUM_CHAMELEON_PONCHO), 0);
-		if (poncho == NULL)
+		index = get_obj_index(OBJ_VNUM_CHAMELEON_PONCHO);
+		if (index == NULL) {
+			log("[*****] BUG: NULL index, vnum %d.",
+			    OBJ_VNUM_CHAMELEON_PONCHO);
+			act("Something wrong, report it to immortals.",
+			    ch, NULL, NULL, TO_CHAR);
 			return;
+		}
 
+		poncho = create_obj(index, 0);
 		poncho->level = ch->level;
 		poncho->timer = ch->level * 2;
 		mlstr_cpy(&poncho->owner, &ch->short_descr);
-		poncho->cost  = 0;
+		poncho->cost  = ch->level * 10;
 
-		obj_to_char(poncho, ch);
+		if (((carry_n = can_carry_n(ch)) >= 0 &&
+		      ch->carry_number + get_obj_number(poncho) > carry_n)
+		||  ((carry_w = can_carry_w(ch)) >= 0 &&
+		      get_carry_weight(ch) + get_obj_weight(poncho) > carry_w))
+			obj_to_room(poncho, ch->in_room);
+		else
+			obj_to_char(poncho, ch);
+
 		check_improve(ch, gsn_chameleon_poncho, TRUE, 1);
 
 		act("You make a poncho from $p!",
@@ -3839,12 +3863,93 @@ do_poncho(CHAR_DATA *ch, const char *argument)
 		    ch, corpse, NULL, TO_ROOM);
 
 		extract_obj(corpse, 0);
-			return;
+		return;
 	} else {
 		char_puts("You destroyed it.\n", ch);
 		extract_obj(corpse, 0);
 		check_improve(ch, gsn_chameleon_poncho, FALSE, 1);
 	}
+}
+
+#define OBJ_VNUM_HUNTERS_TROPHY	78
+void
+do_hunters_trophy(CHAR_DATA *ch, const char *argument)
+{
+	OBJ_DATA *trophy;
+	OBJ_DATA *corpse;
+	OBJ_INDEX_DATA *index;
+	char arg[MAX_INPUT_LENGTH];
+	int chance, carry_w, carry_n, mana;
+
+	if ((chance = get_skill(ch, gsn_hunters_trophy)) == 0) {
+		char_puts("Huh?\n", ch);
+		return;
+	}
+
+	one_argument(argument, arg, sizeof(arg));
+	if (arg[0] == '\0') {
+		char_puts("Make a trophy from what?\n", ch);
+		return;
+	}
+
+	if ((corpse = get_obj_here(ch, arg)) == NULL) {
+		char_puts("You do not see any corpse here.\n", ch);
+		return;
+	}
+
+	if (corpse->pObjIndex->vnum != OBJ_VNUM_CORPSE_PC) {
+		char_puts("Your can make a trophy only from pc corpse.\n", ch);
+		return;
+	}
+
+	mana = SKILL(gsn_hunters_trophy)->min_mana;
+	if (ch->mana < mana) {
+		char_puts("You have not enought energy to make a trophy.\n",
+			  ch);
+		return;
+	}
+
+	if (number_percent() > chance * 2 / 3) {
+		char_puts("You failed and destroyed it.\n", ch);
+		check_improve(ch, gsn_hunters_trophy, FALSE, 1);
+		extract_obj(corpse, 0);
+		WAIT_STATE(ch, SKILL(gsn_hunters_trophy)->beats);
+		ch->mana -= mana / 2;
+		return;
+	}
+
+	WAIT_STATE(ch, SKILL(gsn_hunters_trophy)->beats);
+	ch->mana -= mana;
+
+	index = get_obj_index(OBJ_VNUM_HUNTERS_TROPHY);
+	if (index == NULL) {
+		log("[******] BUG: NULL index, vnum %d.",
+		    OBJ_VNUM_HUNTERS_TROPHY);
+		act("Somethinh wrong, report it to immortals.",
+		    ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	trophy = create_obj_of(index, &corpse->owner);
+
+	trophy->level = ch->level;
+	mlstr_cpy(&trophy->owner, &ch->short_descr);
+	trophy->cost  = ch->level;
+
+	if (((carry_n = can_carry_n(ch)) >= 0 &&
+	      ch->carry_number + get_obj_number(trophy) > carry_n)
+	||  ((carry_w = can_carry_w(ch)) >= 0 &&
+	      get_carry_weight(ch) + get_obj_weight(trophy) > carry_w))
+		obj_to_room(trophy, ch->in_room);
+	else
+		obj_to_char(trophy, ch);
+
+	check_improve(ch, gsn_hunters_trophy, TRUE, 1);
+
+	act("You make a trophy from $p!", ch, corpse, NULL, TO_CHAR);
+	act("$n makes a trophy from $p!", ch, corpse, NULL, TO_ROOM);
+
+	extract_obj(corpse, 0);
 }
 
 static inline bool check_yell(CHAR_DATA *ch, CHAR_DATA *victim, bool fighting)
