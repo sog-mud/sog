@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.144 2003-04-17 11:41:05 tatyana Exp $
+ * $Id: db_area.c,v 1.145 2003-04-18 19:07:28 tatyana Exp $
  */
 
 /***************************************************************************
@@ -734,6 +734,8 @@ struct spec_subst_t spec_substs[] =
   { "spec_poison",		TRIG_MOB_FIGHT,	"poison_bite"	}, // notrans
   { "spec_special_guard",	TRIG_MOB_RANDOM,"executioner"	}, // notrans
   { "spec_thief",		TRIG_MOB_RANDOM,"thief"		}, // notrans
+  { "spec_demonologist",	TRIG_MOB_RANDOM,"demonologist"	}, // notrans
+  { "spec_demonologist",	TRIG_MOB_FIGHT, "demonologist"	}, // notrans
 };
 
 #define SPEC_SUBSTS_SZ	(sizeof(spec_substs) / sizeof(spec_subst_t))
