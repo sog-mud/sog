@@ -1,5 +1,5 @@
 /*
- * $Id: raffect.c,v 1.3 1998-07-12 11:26:08 efdi Exp $
+ * $Id: raffect.c,v 1.4 1998-08-02 22:18:15 efdi Exp $
  */
 
 #include <sys/time.h>
@@ -14,6 +14,7 @@
 #include "interp.h"
 #include "lookup.h"
 #include "raffects.h"
+#include "fight.h"
 
 /* room affects by chronos */
 void	affect_modify_room	args((ROOM_INDEX_DATA *room, AFFECT_DATA *paf, bool fAdd)); 

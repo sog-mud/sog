@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.71 1998-07-27 08:45:39 efdi Exp $
+ * $Id: act_move.c,v 1.72 1998-08-02 22:18:13 efdi Exp $
  */
 
 /***************************************************************************
@@ -59,6 +59,7 @@
 #include "obj_prog.h"
 #include "mlstring.h"
 #include "interp.h"
+#include "fight.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_look		);
@@ -2941,7 +2942,7 @@ if ((door = find_exit(ch, arg2)) >= 0)
 		    if (IS_NPC(victim))
 		    {
 		        check_improve(ch,gsn_push,FALSE,2);
-			multi_hit(victim, ch, TYPE_UNDEFINED);
+			multi_hit(victim, ch, TYPE_UNDEFINED, 0);
 		    }
 		}
 
@@ -3166,7 +3167,7 @@ void do_layhands(CHAR_DATA *ch, const char *argument)
 
 }
 
-int mount_success (CHAR_DATA *ch, CHAR_DATA *mount, int canattack)
+int mount_success(CHAR_DATA *ch, CHAR_DATA *mount, int canattack)
 {
   int percent;
   int success;
@@ -3222,12 +3223,11 @@ int mount_success (CHAR_DATA *ch, CHAR_DATA *mount, int canattack)
 		act_nprintf(ch, NULL, mount, TO_VICT, POS_SLEEPING,
 				YOU_SNARL_N);  
 
-		damage(mount, ch, number_range(1, mount->level), gsn_kick,DAM_BASH,TRUE);
-
-/*      multi_hit(mount, ch, TYPE_UNDEFINED); */
+		damage(mount, ch, number_range(1, mount->level),
+			gsn_kick, DAM_BASH, TRUE);
 	}
   }
-  return(0);
+  return 0;
 }
 
 /*

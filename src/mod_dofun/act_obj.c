@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.47 1998-07-27 08:45:39 efdi Exp $
+ * $Id: act_obj.c,v 1.48 1998-08-02 22:18:13 efdi Exp $
  */
 
 /***************************************************************************
@@ -60,6 +60,7 @@
 #include "mob_prog.h"
 #include "obj_prog.h"
 #include "mlstring.h"
+#include "fight.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_split);
@@ -2246,11 +2247,9 @@ do_steal(CHAR_DATA * ch, const char *argument)
 				break;
 			}
 
-		if (!IS_NPC(ch)) {
-			if (IS_NPC(victim)) {
-				check_improve(ch, gsn_steal, FALSE, 2);
-				multi_hit(victim, ch, TYPE_UNDEFINED);
-			}
+		if (!IS_NPC(ch) && IS_NPC(victim)) {
+			check_improve(ch, gsn_steal, FALSE, 2);
+			multi_hit(victim, ch, TYPE_UNDEFINED, 0);
 		}
 		return;
 	}

@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.16 1998-07-05 16:30:56 fjoe Exp $
+ * $Id: special.c,v 1.17 1998-08-02 22:18:15 efdi Exp $
  */
 
 /***************************************************************************
@@ -55,6 +55,7 @@
 #include "util.h"
 #include "act_move.h"
 #include "lookup.h"
+#include "fight.h"
 
 void	say_spell	args((CHAR_DATA *ch, int sn));
 
@@ -239,7 +240,7 @@ bool spec_troll_member(CHAR_DATA *ch)
 
 	if (message != NULL)
 		act(message,ch,NULL,victim,TO_ALL);
-	multi_hit(ch, victim, TYPE_UNDEFINED);
+	multi_hit(ch, victim, TYPE_UNDEFINED, 0);
 	return TRUE;
 }
 
@@ -298,7 +299,7 @@ bool spec_ogre_member(CHAR_DATA *ch)
  
 	if (message != NULL)
 		act(message,ch,NULL,victim,TO_ALL);
-	multi_hit(ch, victim, TYPE_UNDEFINED);
+	multi_hit(ch, victim, TYPE_UNDEFINED, 0);
 	return TRUE;
 }
 
@@ -375,7 +376,7 @@ bool spec_patrolman(CHAR_DATA *ch)
 	if (message != NULL)
 	act(message,ch,NULL,NULL,TO_ALL);
 
-	multi_hit(ch,victim,TYPE_UNDEFINED);
+	multi_hit(ch,victim,TYPE_UNDEFINED, 0);
 
 	return TRUE;
 }
@@ -805,7 +806,7 @@ bool spec_executioner(CHAR_DATA *ch)
 	doprintf(do_yell, ch,
 		 "%s is a %s!  PROTECT THE INNOCENT!  MORE BLOOOOD!!!",
 		 victim->name, crime);
-	multi_hit(ch, victim, TYPE_UNDEFINED);
+	multi_hit(ch, victim, TYPE_UNDEFINED, 0);
 	return TRUE;
 }
 
@@ -1163,14 +1164,14 @@ bool spec_guard(CHAR_DATA *ch)
 		doprintf(do_yell, ch,
 			 "%s is a %s!  PROTECT THE INNOCENT!!  BANZAI!!",
 			 victim->name, crime);
-		multi_hit(ch, victim, TYPE_UNDEFINED);
+		multi_hit(ch, victim, TYPE_UNDEFINED, 0);
 		return TRUE;
 	}
 	
 	if (ech != NULL) {
 		act("$n screams 'PROTECT THE INNOCENT!!  BANZAI!!",
 		    ch, NULL, NULL, TO_ROOM);
-		multi_hit(ch, ech, TYPE_UNDEFINED);
+		multi_hit(ch, ech, TYPE_UNDEFINED, 0);
 		return TRUE;
 	}
 	
@@ -1204,7 +1205,7 @@ bool spec_special_guard(CHAR_DATA *ch)
 		doprintf(do_yell, ch,
 			 "%s is a %s!  PROTECT THE INNOCENT!!  BANZAI!!",
 			 victim->name, crime);
-		multi_hit(ch, victim, TYPE_UNDEFINED);
+		multi_hit(ch, victim, TYPE_UNDEFINED, 0);
 		return TRUE;
 	}
 
@@ -1315,7 +1316,7 @@ bool spec_assassinater(CHAR_DATA *ch)
 	   return FALSE;
 	}
 	do_say(ch, msg);
-	multi_hit(ch, victim ,gsn_assassinate);
+	multi_hit(ch, victim ,gsn_assassinate, 0);
 	return TRUE;
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.49 1998-07-29 10:15:36 fjoe Exp $
+ * $Id: update.c,v 1.50 1998-08-02 22:18:16 efdi Exp $
  */
 
 /***************************************************************************
@@ -59,6 +59,7 @@
 #include "mob_prog.h"
 #include "obj_prog.h"
 #include "lookup.h"
+#include "fight.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_human		);
@@ -1679,7 +1680,7 @@ void aggr_update(void)
 					 PERS(wch,ch));
 				wch = check_guard(wch, ch); 
 
-				multi_hit(ch,wch,TYPE_UNDEFINED);
+				multi_hit(ch,wch,TYPE_UNDEFINED, 0);
 				continue;
 			}
 
@@ -1718,7 +1719,7 @@ void aggr_update(void)
 
 			if (!is_safe_nomessage(ch, victim)) {
 				victim = check_guard(victim, ch); 
-				multi_hit(ch, victim, TYPE_UNDEFINED);
+				multi_hit(ch, victim, TYPE_UNDEFINED, 0);
 			}
 		}
 	}

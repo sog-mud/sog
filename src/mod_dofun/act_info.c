@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.108 1998-07-31 15:39:53 fjoe Exp $
+ * $Id: act_info.c,v 1.109 1998-08-02 22:18:12 efdi Exp $
  */
 
 /***************************************************************************
@@ -70,6 +70,7 @@
 #include "mlstring.h"
 #include "string_edit.h"
 #include "util.h"
+#include "fight.h"
 
 #if defined(SUNOS) || defined(SVR4)
 #	include <crypt.h>

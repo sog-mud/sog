@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.60 1998-07-29 14:46:29 efdi Exp $
+ * $Id: merc.h,v 1.61 1998-08-02 22:18:15 efdi Exp $
  */
 
 /***************************************************************************
@@ -2840,22 +2840,6 @@ void	shock_effect	(void *vo, int level, int dam, int target);
 void	sand_effect	(void *vo, int level, int dam, int target);
 void	scream_effect	(void *vo, int level, int dam, int target);
 
-
-/* fight.c */
-bool	is_safe 	(CHAR_DATA *ch, CHAR_DATA *victim);
-bool	is_safe_nomessage (CHAR_DATA *ch, CHAR_DATA *victim);
-bool	is_safe_spell	(CHAR_DATA *ch, CHAR_DATA *victim, bool area);
-void	violence_update (void);
-void	multi_hit	(CHAR_DATA *ch, CHAR_DATA *victim, int dt);
-bool	damage		(CHAR_DATA *ch, CHAR_DATA *victim, int dam,
-				int dt, int class, bool show);
-bool	damage_old	(CHAR_DATA *ch, CHAR_DATA *victim, int dam,
-				int dt, int class, bool show);
-void	update_pos	(CHAR_DATA *victim);
-void	stop_fighting	(CHAR_DATA *ch, bool fBoth);
-bool	can_kill	(CHAR_DATA *ch, CHAR_DATA *victim);
-void   gods_protect_msg (CHAR_DATA *ch, CHAR_DATA *victim);
-CHAR_DATA *  check_guard     (CHAR_DATA *ch, CHAR_DATA *mob);
 
 /* handler.c */
 AD	*affect_find (AFFECT_DATA *paf, int sn);

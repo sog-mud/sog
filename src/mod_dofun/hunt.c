@@ -1,5 +1,5 @@
 /*
- * $Id: hunt.c,v 1.2 1998-07-11 20:55:11 fjoe Exp $
+ * $Id: hunt.c,v 1.3 1998-08-02 22:18:14 efdi Exp $
  */
 
 #include <stdio.h>
@@ -14,6 +14,7 @@
 #include "act_comm.h"
 #include "interp.h"
 #include "act_move.h"
+#include "fight.h"
 
 /***************************************************************************
  *  Original idea from SillyMUD v1.1b (C)1993.                             *
@@ -595,7 +596,7 @@ void hunt_victim_attack(CHAR_DATA* ch)
 		    ch, NULL, ch->hunting, TO_VICT);
 		act("You glare at $N and say, '{GYe shall DIE!{x'.",
 		    ch, NULL, ch->hunting, TO_CHAR);
-		multi_hit(ch, ch->hunting, TYPE_UNDEFINED);
+		multi_hit(ch, ch->hunting, TYPE_UNDEFINED, 0);
 		ch->hunting = NULL;
 	}  
 }
@@ -718,7 +719,7 @@ void hunt_victim_old(CHAR_DATA *ch)
 	  ch, NULL, ch->hunting, TO_VICT);
 	  act("You glare at $N and say, 'Ye shall DIE!",
 	  ch, NULL, ch->hunting, TO_CHAR);
-	  multi_hit(ch, ch->hunting, TYPE_UNDEFINED);
+	  multi_hit(ch, ch->hunting, TYPE_UNDEFINED, 0);
 	  ch->hunting = NULL;
 	  return;
 	}  
@@ -770,7 +771,7 @@ void hunt_victim_old(CHAR_DATA *ch)
 	  ch, NULL, ch->hunting, TO_VICT);
 	  act("You glare at $N and say, 'Ye shall DIE!",
 	  ch, NULL, ch->hunting, TO_CHAR);
-	  multi_hit(ch, ch->hunting, TYPE_UNDEFINED);
+	  multi_hit(ch, ch->hunting, TYPE_UNDEFINED, 0);
 	  ch->hunting = NULL;
 	  return;
 	}  
@@ -848,7 +849,7 @@ void hunt_victim_old(CHAR_DATA *ch)
 	  ch, NULL, ch->hunting, TO_VICT);
 	  act("You glare at $N and say, 'Ye shall DIE!",
 	  ch, NULL, ch->hunting, TO_CHAR);
-	  multi_hit(ch, ch->hunting, TYPE_UNDEFINED);
+	  multi_hit(ch, ch->hunting, TYPE_UNDEFINED, 0);
 	  ch->hunting = NULL;
 	  return;
 	}  

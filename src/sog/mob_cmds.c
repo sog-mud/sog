@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.6 1998-07-14 07:47:48 fjoe Exp $
+ * $Id: mob_cmds.c,v 1.7 1998-08-02 22:18:15 efdi Exp $
  */
 
 /***************************************************************************
@@ -53,6 +53,7 @@
 #include "util.h"
 #include "lookup.h"
 #include "mlstring.h"
+#include "fight.h"
 
 DECLARE_DO_FUN(do_look 	);
 extern ROOM_INDEX_DATA *find_location(CHAR_DATA *, char *);
@@ -366,7 +367,7 @@ void do_mpkill(CHAR_DATA *ch, const char *argument)
 	return;
     }
 
-    multi_hit(ch, victim, TYPE_UNDEFINED);
+    multi_hit(ch, victim, TYPE_UNDEFINED, 0);
     return;
 }
 
@@ -391,7 +392,7 @@ void do_mpassist(CHAR_DATA *ch, const char *argument)
     if (victim == ch || ch->fighting != NULL || victim->fighting == NULL)
 	return;
 
-    multi_hit(ch, victim->fighting, TYPE_UNDEFINED);
+    multi_hit(ch, victim->fighting, TYPE_UNDEFINED, 0);
     return;
 }
 

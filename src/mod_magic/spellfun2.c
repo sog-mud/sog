@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.28 1998-07-25 15:02:39 fjoe Exp $
+ * $Id: spellfun2.c,v 1.29 1998-08-02 22:18:15 efdi Exp $
  */
 
 /***************************************************************************
@@ -62,6 +62,7 @@
 #include "act_move.h"
 #include "mlstring.h"
 #include "resource.h"
+#include "fight.h"
 
 DECLARE_DO_FUN(do_scan2);
 /* command procedures needed */
@@ -308,11 +309,10 @@ void spell_poison_smoke(int sn, int level, CHAR_DATA *ch, void *vo, int target) 
 	  }
 	  
 	spell_poison(gsn_poison,ch->level,ch,tmp_vict, TARGET_CHAR);
-/*        poison_effect(ch->in_room,level,level,TARGET_CHAR);  */
 	if (tmp_vict != ch)
-	  multi_hit(tmp_vict,ch,TYPE_UNDEFINED);
+	  multi_hit(tmp_vict,ch,TYPE_UNDEFINED, 0);
 	
-	  }
+	}
 	
 }
 
@@ -341,10 +341,9 @@ void spell_blindness_dust(int sn, int level, CHAR_DATA *ch, void *vo, int target
 	  
 	spell_blindness(gsn_blindness,ch->level,ch,tmp_vict, TARGET_CHAR);
 	if (tmp_vict != ch)
-	  multi_hit(tmp_vict,ch,TYPE_UNDEFINED);
-	
+	  multi_hit(tmp_vict,ch,TYPE_UNDEFINED, 0);
 
-	  }
+	}
 
 }
 

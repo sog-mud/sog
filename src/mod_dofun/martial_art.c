@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.24 1998-07-29 14:46:28 efdi Exp $
+ * $Id: martial_art.c,v 1.25 1998-08-02 22:18:15 efdi Exp $
  */
 
 /***************************************************************************
@@ -53,6 +53,7 @@
 #include "lookup.h"
 #include "mlstring.h"
 #include "resource.h"
+#include "fight.h"
 
 #ifdef SUNOS
 #	include <stdarg.h>
@@ -762,7 +763,7 @@ void do_backstab(CHAR_DATA *ch, const char *argument)
 		else
 			{
 			  check_improve(ch,gsn_dual_backstab,FALSE,1);
-			  multi_hit(ch, victim, gsn_backstab);
+			  multi_hit(ch, victim, gsn_backstab, 0);
 			}
 	}
 	else
@@ -791,10 +792,9 @@ void do_cleave(CHAR_DATA *ch, const char *argument)
 	OBJ_DATA *obj;
 	int chance;
 
-	if (MOUNTED(ch)) 
-	{
-			send_to_char("You can't cleave while riding!\n\r", ch);
-			return;
+	if (MOUNTED(ch)) {
+		send_to_char("You can't cleave while riding!\n\r", ch);
+		return;
 	}
 
 	one_argument(argument, arg);
@@ -837,9 +837,8 @@ void do_cleave(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if ((victim->hit < (0.9 * victim->max_hit)) &&
-		 (IS_AWAKE(victim)))
-	{
+	if ((victim->hit < (0.9 * victim->max_hit))
+	&&  (IS_AWAKE(victim))) {
 		act("$N is hurt and suspicious ... you can't sneak up.",
 			  ch, NULL, victim, TO_CHAR);
 		return;
@@ -850,7 +849,7 @@ void do_cleave(CHAR_DATA *ch, const char *argument)
 	||   IS_NPC(ch)
 	||   number_percent() < chance) {
 		check_improve(ch,gsn_cleave,TRUE,1);
-		multi_hit(ch,victim,gsn_cleave);
+		multi_hit(ch,victim,gsn_cleave, 0);
 	}
 	else {
 		check_improve(ch,gsn_cleave,FALSE,1);
@@ -917,16 +916,13 @@ void do_ambush(CHAR_DATA *ch, const char *argument)
 	WAIT_STATE(ch, skill_table[gsn_ambush].beats);
 	if (!IS_AWAKE(victim)
 	||   IS_NPC(ch)
-	||   number_percent() < chance)
-		{
+	||   number_percent() < chance) {
 		check_improve(ch,gsn_ambush,TRUE,1);
-		multi_hit(ch,victim,gsn_ambush);
-		}
-	else
-		{
+		multi_hit(ch,victim,gsn_ambush, 0);
+	} else {
 		check_improve(ch,gsn_ambush,FALSE,1);
 		damage(ch, victim, 0, gsn_ambush,DAM_NONE, TRUE);
-		}
+	}
 
 	/* Player shouts if he doesn't die */
 	if (!(IS_NPC(victim)) && !(IS_NPC(ch)) 
@@ -1281,9 +1277,7 @@ void do_nerve(CHAR_DATA *ch, const char *argument)
 		act("$n weakens you with $s nerve pressure.",ch,NULL,victim,TO_VICT);
 		act("$n weakens $N with $s nerve pressure.",ch,NULL,victim,TO_NOTVICT);
 		check_improve(ch,gsn_nerve,TRUE,1);
-	}
-	else
-	{
+	} else {
 		send_to_char("You press the wrong points and fail.\n\r",ch);
 		act("$n tries to weaken you with nerve pressure, but fails.",
 			ch,NULL,victim,TO_VICT);
@@ -1292,7 +1286,7 @@ void do_nerve(CHAR_DATA *ch, const char *argument)
 		check_improve(ch,gsn_nerve,FALSE,1);
 	}
 
-	multi_hit(victim,ch,TYPE_UNDEFINED);
+	multi_hit(victim,ch,TYPE_UNDEFINED, 0);
 
 	if (!(IS_NPC(victim)) && !(IS_NPC(ch)) 
 	&& victim->position != POS_FIGHTING) {
@@ -1499,10 +1493,10 @@ void do_assassinate(CHAR_DATA *ch, const char *argument)
 	WAIT_STATE(ch, skill_table[gsn_assassinate].beats);
 	if (IS_NPC(ch) || !IS_AWAKE(victim) 
 	||  number_percent() < get_skill(ch,gsn_assassinate))
-		multi_hit(ch,victim,gsn_assassinate);
+		multi_hit(ch,victim,gsn_assassinate, 0);
 	else {
-		check_improve(ch,gsn_assassinate,FALSE,1);
-		damage(ch, victim, 0, gsn_assassinate,DAM_NONE, TRUE);
+		check_improve(ch, gsn_assassinate, FALSE, 1);
+		damage(ch, victim, 0, gsn_assassinate, DAM_NONE, TRUE);
 	}
 
 	/* Player shouts if he doesn't die */
@@ -3607,7 +3601,7 @@ void do_poison_smoke(CHAR_DATA *ch, const char *argument)
 			
 		spell_poison(gsn_poison,ch->level,ch,tmp_vict, TARGET_CHAR);
 		if (tmp_vict != ch)
-			multi_hit(tmp_vict,ch,TYPE_UNDEFINED);
+			multi_hit(tmp_vict,ch,TYPE_UNDEFINED, 0);
 		
 		}
 	
@@ -3659,7 +3653,7 @@ void do_blindness_dust(CHAR_DATA *ch, const char *argument)
 			
 		spell_blindness(gsn_blindness,ch->level,ch,tmp_vict, TARGET_CHAR);
 		if (tmp_vict != ch)
-			multi_hit(tmp_vict,ch,TYPE_UNDEFINED);
+			multi_hit(tmp_vict,ch,TYPE_UNDEFINED, 0);
 	}
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.39 1998-07-29 11:36:53 fjoe Exp $
+ * $Id: spellfun.c,v 1.40 1998-08-02 22:18:14 efdi Exp $
  */
 
 /***************************************************************************
@@ -61,6 +61,7 @@
 #include "act_move.h"
 #include "mlstring.h"
 #include "resource.h"
+#include "fight.h"
 
 /*
  * Local functions.
@@ -456,7 +457,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 				act("$N deflects $n's spell!",ch,NULL,victim,
 				    TO_NOTVICT);
 				damage(victim,ch,3 * victim->level,gsn_spellbane,DAM_NEGATIVE, TRUE);
-				multi_hit(victim,ch,TYPE_UNDEFINED);
+				multi_hit(victim, ch, TYPE_UNDEFINED, 0);
 	        	}
 			return;
 		}
@@ -686,7 +687,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		    if (victim == vch && victim->fighting == NULL)
 		    {
 			if (victim->position != POS_SLEEPING)
-			multi_hit(victim, ch, TYPE_UNDEFINED);
+			multi_hit(victim, ch, TYPE_UNDEFINED, 0);
 
 			break;
 		    }
@@ -867,7 +868,7 @@ void obj_cast_spell(int sn, int level,
 		    vch_next = vch->next_in_room;
 		    if (victim == vch && victim->fighting == NULL)
 		    {
-			multi_hit(victim, ch, TYPE_UNDEFINED);
+			multi_hit(victim, ch, TYPE_UNDEFINED, 0);
 
 			break;
 		    }

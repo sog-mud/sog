@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.39 1998-07-19 17:05:07 efdi Exp $
+ * $Id: handler.c,v 1.40 1998-08-02 22:18:14 efdi Exp $
  */
 
 /***************************************************************************
@@ -59,6 +59,7 @@
 #include "interp.h"
 #include "tables.h"
 #include "mlstring.h"
+#include "fight.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_return	);
