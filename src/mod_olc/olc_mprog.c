@@ -1,5 +1,5 @@
 /*
- * $Id: olc_mprog.c,v 1.7 2001-09-13 12:03:01 fjoe Exp $
+ * $Id: olc_mprog.c,v 1.8 2001-09-13 16:22:13 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -179,7 +179,7 @@ OLC_FUN(mped_show)
 OLC_FUN(mped_list)
 {
 	BUFFER *buffer = buf_new(0);
-	strkey_printall(&mprogs, buffer);
+	c_strkey_dump(&mprogs, buffer);
 	page_to_char(buf_string(buffer), ch);
 	buf_free(buffer);
 	return FALSE;

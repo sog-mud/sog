@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_quest.c,v 1.8 2001-09-12 19:43:06 fjoe Exp $
+ * $Id: init_quest.c,v 1.9 2001-09-13 16:22:16 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -31,7 +31,6 @@
 #include <typedef.h>
 #include <memalloc.h>
 #include <varr.h>
-#include <hash.h>
 #include <container.h>
 #include <cmd.h>
 

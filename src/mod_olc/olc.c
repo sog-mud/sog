@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.144 2001-09-13 12:02:59 fjoe Exp $
+ * $Id: olc.c,v 1.145 2001-09-13 16:22:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -500,7 +500,7 @@ bool
 olced_foreign_strkey(CHAR_DATA *ch, const char *argument,
 		     olc_cmd_t *cmd, const char **pStr)
 {
-	hash_t *h;
+	void *c;
 	void *p;
 
 	if (IS_NULLSTR(argument)) {
@@ -521,17 +521,17 @@ olced_foreign_strkey(CHAR_DATA *ch, const char *argument,
 		return TRUE;
 	}
 
-	h = cmd->arg1;
+	c = cmd->arg1;
 	if (!str_cmp(argument, "?")) {
 		BUFFER *out = buf_new(0);
 		buf_printf(out, BUF_END, "Valid %ss are:\n", cmd->name);
-		strkey_printall(h, out);
+		c_strkey_dump(c, out);
 		page_to_char(buf_string(out), ch);
 		buf_free(out);
 		return FALSE;
 	}
 
-	if ((p = c_strkey_search(h, argument)) == NULL) {
+	if ((p = c_strkey_search(c, argument)) == NULL) {
 		act_puts("'$t': unknown $T.",
 			 ch, argument, cmd->name,
 			 TO_CHAR | ACT_NOTRANS, POS_DEAD);
@@ -547,7 +547,7 @@ bool
 olced_foreign_mlstrkey(CHAR_DATA *ch, const char *argument,
 		       olc_cmd_t *cmd, const char **pStr)
 {
-	hash_t *h;
+	void *c;
 	void *p;
 
 	if (IS_NULLSTR(argument)) {
@@ -568,17 +568,17 @@ olced_foreign_mlstrkey(CHAR_DATA *ch, const char *argument,
 		return TRUE;
 	}
 
-	h = cmd->arg1;
+	c = cmd->arg1;
 	if (!str_cmp(argument, "?")) {
 		BUFFER *out = buf_new(0);
 		buf_printf(out, BUF_END, "Valid %ss are:\n", cmd->name);
-		mlstrkey_printall(h, out);
+		c_mlstrkey_dump(c, out);
 		page_to_char(buf_string(out), ch);
 		buf_free(out);
 		return FALSE;
 	}
 
-	if ((p = c_mlstrkey_search(h, argument)) == NULL) {
+	if ((p = c_mlstrkey_search(c, argument)) == NULL) {
 		act_puts("'$t': unknown $T.",
 			 ch, argument, cmd->name,
 			 TO_CHAR | ACT_NOTRANS, POS_DEAD);

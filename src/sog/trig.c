@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.c,v 1.16 2001-09-13 12:03:11 fjoe Exp $
+ * $Id: trig.c,v 1.17 2001-09-13 16:22:25 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -63,19 +63,6 @@ trig_destroy(trig_t *trig)
 	}
 }
 
-trig_t *
-trig_cpy(trig_t *dst, const trig_t *src)
-{
-	dst->trig_type = src->trig_type;
-	dst->trig_prog = str_qdup(src->trig_prog);
-	trig_set_arg(dst, str_qdup(src->trig_arg));
-	/*
-	 * flags should not be copied (set in trig_set_arg)
-	 */
-
-	return dst;
-}
-
 void
 trig_fread(trig_t *trig, rfile_t *fp)
 {
@@ -102,11 +89,10 @@ trig_fwrite(const char *pre, trig_t *trig, FILE *fp)
 static varrdata_t v_trigs = {
 	&varr_ops,
 
-	sizeof(trig_t), 2,
-
 	(e_init_t) trig_init,
 	(e_destroy_t) trig_destroy,
-	(e_cpy_t) trig_cpy
+
+	sizeof(trig_t), 2
 };
 
 void

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: objval.c,v 1.16 2001-09-13 12:03:10 fjoe Exp $
+ * $Id: objval.c,v 1.17 2001-09-13 16:22:23 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -683,7 +683,7 @@ objval_set(BUFFER *output, flag_t item_type, vo_t *v,
 		case 3:
 			if (!str_cmp(argument, "?")
 			||  (d = damtype_lookup(argument)) == NULL) {
-				strkey_printall(&damtypes, output);
+				c_strkey_dump(&damtypes, output);
 				return 2;
 			}
 			buf_append(output, "WEAPON TYPE SET.\n\n");
@@ -824,7 +824,7 @@ objval_set(BUFFER *output, flag_t item_type, vo_t *v,
 		case 2:
 			if (!str_cmp(argument, "?")
 			||  (liq = liquid_search(argument)) == NULL) {
-				mlstrkey_printall(&liquids, output);
+				c_mlstrkey_dump(&liquids, output);
 				return 2;
 			}
 

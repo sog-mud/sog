@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_mpc.c,v 1.31 2001-09-13 12:02:56 fjoe Exp $
+ * $Id: init_mpc.c,v 1.32 2001-09-13 16:22:06 fjoe Exp $
  */
 
 #include <dlfcn.h>
@@ -80,14 +80,113 @@ static dynafun_data_t core_dynafun_tab[] = {
 #if !defined(MPC)
 avltree_t mpcodes;
 
-avltree_info_t avltree_info_mpcodes = {
+static varrdata_t v_swjumps = {
+	&varr_ops, NULL, NULL,
+
+	sizeof(swjump_t), 4
+};
+
+static void
+jumptab_init(varr *v)
+{
+	c_init(v, &v_swjumps);
+}
+
+static void
+jumptab_destroy(varr *v)
+{
+	c_destroy(v);
+}
+
+static varrdata_t v_ints = {
+	&varr_ops, NULL, NULL,
+
+	sizeof(int), 8
+};
+
+static varrdata_t v_jumptabs = {
+	&varr_ops,
+
+	(e_init_t) jumptab_init,
+	(e_destroy_t) jumptab_destroy,
+
+	sizeof(varr), 4
+};
+
+static varrdata_t v_iterdata = {
+	&varr_ops, NULL, NULL,
+
+	sizeof(iterdata_t), 4
+};
+
+static varrdata_t v_vos = {
+	&varr_ops, NULL, NULL,
+
+	sizeof(vo_t), 4
+};
+
+static avltree_info_t c_info_strings = {
 	&avltree_ops,
 
-	MT_PVOID, sizeof(mpcode_t), ke_cmp_csstr,
+	strkey_init,
+	strkey_destroy,
+
+	MT_PVOID, sizeof(char *), ke_cmp_csstr,
+};
+
+static void
+mpcode_init(mpcode_t *mpc)
+{
+	mpc->name = str_empty;
+	mpc->mp = NULL;
+	mpc->lineno = 0;
+
+	c_init(&mpc->strings, &c_info_strings);
+	c_init(&mpc->syms, &c_info_syms);
+
+	c_init(&mpc->cstack, &v_ints);
+	c_init(&mpc->args, &v_ints);
+	mpc->curr_block = 0;
+
+	mpc->curr_jumptab = -1;
+	mpc->curr_break_addr = INVALID_ADDR;
+	mpc->curr_continue_addr = INVALID_ADDR;
+
+	mpc->ip = 0;
+	c_init(&mpc->code, &v_ints);
+
+	c_init(&mpc->jumptabs, &v_jumptabs);
+	c_init(&mpc->iterdata, &v_iterdata);
+
+	c_init(&mpc->data, &v_vos);
+}
+
+static void
+mpcode_destroy(mpcode_t *mpc)
+{
+	free_string(mpc->name);
+
+	c_destroy(&mpc->strings);
+	c_destroy(&mpc->syms);
+
+	c_destroy(&mpc->cstack);
+	c_destroy(&mpc->args);
+
+	c_destroy(&mpc->code);
+
+	c_destroy(&mpc->jumptabs);
+	c_destroy(&mpc->iterdata);
+
+	c_destroy(&mpc->data);
+}
+
+avltree_info_t c_info_mpcodes = {
+	&avltree_ops,
 
 	(e_init_t) mpcode_init,
 	(e_destroy_t) mpcode_destroy,
-	NULL,
+
+	MT_PVOID, sizeof(mpcode_t), ke_cmp_csstr
 };
 
 static
@@ -126,7 +225,7 @@ MODINIT_FUN(_module_load, m)
 
 	dynafun_tab_register(__mod_tab(MODULE), m);
 
-	c_init(&mpcodes, &avltree_info_mpcodes);
+	c_init(&mpcodes, &c_info_mpcodes);
 	c_foreach(&mprogs, compile_mprog_cb);
 
 	return 0;
@@ -168,9 +267,11 @@ const char *mpc_dynafuns[] = {
 	"char_level",
 	"char_max_hit",
 	"char_position",
+	"char_race",
 	"char_room",
 	"char_sex",
 	"char_silver",
+	"char_size",
 	"close_door",
 	"close_obj",
 	"cold_effect",
@@ -226,6 +327,7 @@ const char *mpc_dynafuns[] = {
 	"obj_to_obj",
 	"obj_to_room",
 	"obj_wear_loc",
+	"obj_vnum",
 	"one_hit",
 	"open_door",
 	"open_obj",
@@ -271,7 +373,7 @@ mpc_init(void)
 	const char **pp;
 	module_t m;
 
-	c_init(&glob_syms, &avltree_info_syms);
+	c_init(&glob_syms, &c_info_syms);
 
 	/*
 	 * add consts to global symbol table

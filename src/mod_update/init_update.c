@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_update.c,v 1.15 2001-09-13 12:03:07 fjoe Exp $
+ * $Id: init_update.c,v 1.16 2001-09-13 16:22:17 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -40,18 +40,34 @@
 DECLARE_MODINIT_FUN(_module_load);
 DECLARE_MODINIT_FUN(_module_unload);
 
-static hashdata_t h_uhandlers = {
-	&hash_ops,
+static void
+uhandler_init(uhandler_t *hdlr)
+{
+	hdlr->name = str_empty;
+	hdlr->fun_name = str_empty;
+	hdlr->notify = str_empty;
+	hdlr->ticks = 0;
+	hdlr->iter = NULL;
+	hdlr->mod = MOD_UPDATE;
+	hdlr->cnt = 0;
+	hdlr->fun = NULL;
+}
 
-	sizeof(uhandler_t), 4,
+static void
+uhandler_destroy(uhandler_t *hdlr)
+{
+	free_string(hdlr->name);
+	free_string(hdlr->fun_name);
+	free_string(hdlr->notify);
+}
+
+static avltree_info_t c_info_uhandlers = {
+	&avltree_ops,
 
 	(e_init_t) uhandler_init,
 	(e_destroy_t) uhandler_destroy,
-	(e_cpy_t) uhandler_cpy,
 
-	STRKEY_HASH_SIZE,
-	k_hash_str,
-	ke_cmp_str
+	MT_PVOID, sizeof(uhandler_t), ke_cmp_str
 };
 
 DECLARE_DBLOAD_FUN(load_uhandler);
@@ -66,7 +82,7 @@ DBDATA db_uhandlers = { dbfun_uhandlers, NULL, 0 };
 
 MODINIT_FUN(_module_load, m)
 {
-	c_init(&uhandlers, &h_uhandlers);
+	c_init(&uhandlers, &c_info_uhandlers);
 	db_load_file(&db_uhandlers, ETC_PATH, UHANDLERS_CONF);
 
 	c_foreach(&commands, cmd_load_cb, MODULE, m);

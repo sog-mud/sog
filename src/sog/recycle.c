@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.134 2001-09-13 12:03:10 fjoe Exp $
+ * $Id: recycle.c,v 1.135 2001-09-13 16:22:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -48,6 +48,7 @@
 
 #include <merc.h>
 #include <rwfile.h>
+#include <mprog.h>
 
 flag_t		mud_options;
 
@@ -377,43 +378,57 @@ int pc_free_count;
 int npc_count;
 int pc_count;
 
-void pc_skill_init(pc_skill_t *pc_sk)
+static void
+saff_init(saff_t *sa)
 {
-	pc_sk->sn = str_empty;
-	pc_sk->percent = 0;
+	sa->sn = str_empty;
+	sa->type = str_empty;
+	sa->mod = 0;
+	sa->bit = 0;
+}
+
+static void
+saff_destroy(saff_t *sa)
+{
+	free_string(sa->sn);
+	free_string(sa->type);
 }
 
 static varrdata_t v_sk_affected =
 {
 	&varr_ops,
 
-	sizeof(saff_t), 1,
-
 	(e_init_t) saff_init,
 	(e_destroy_t) saff_destroy,
-	NULL
+
+	sizeof(saff_t), 1
 };
+
+static void
+pc_skill_init(pc_skill_t *pc_sk)
+{
+	pc_sk->sn = str_empty;
+	pc_sk->percent = 0;
+}
 
 static varrdata_t v_learned =
 {
 	&varr_ops,
 
-	sizeof(pc_skill_t), 8,
-
 	(e_init_t) pc_skill_init,
 	strkey_destroy,
-	NULL
+
+	sizeof(pc_skill_t), 8
 };
 
 static varrdata_t v_specs =
 {
 	&varr_ops,
 
-	sizeof(const char *), 2,
-
 	strkey_init,
 	strkey_destroy,
-	NULL
+
+	sizeof(const char *), 2
 };
 
 CHAR_DATA *
@@ -1050,33 +1065,31 @@ get_mob_index(int vnum)
 
 avltree_t skills;
 
-avltree_info_t avltree_info_skills =
+static void
+evf_init(evf_t *evf)
 {
-	&avltree_ops,
+	evf->event = -1;
+	evf->fun_name = str_empty;
+	evf->fun = NULL;
+}
 
-	MT_SKILL, sizeof(skill_t), ke_cmp_mlstr,
-
-	(e_init_t) skill_init,
-	(e_destroy_t) skill_destroy,
-	(e_cpy_t) skill_cpy,
-};
-
-static void	evf_init	(evf_t *);
-static void	evf_destroy	(evf_t *);
-static evf_t *	evf_cpy		(evf_t *, evf_t *);
+static void
+evf_destroy(evf_t *evf)
+{
+	free_string(evf->fun_name);
+}
 
 static varrdata_t v_evf =
 {
 	&varr_ops,
 
-	sizeof(evf_t), 1,
-
 	(e_init_t) evf_init,
 	(e_destroy_t) evf_destroy,
-	(e_cpy_t) evf_cpy
+
+	sizeof(evf_t), 1
 };
 
-void
+static void
 skill_init(skill_t *sk)
 {
 	gmlstr_init(&sk->sk_name);
@@ -1097,29 +1110,7 @@ skill_init(skill_t *sk)
 	c_init(&sk->events, &v_evf);
 }
 
-skill_t *
-skill_cpy(skill_t *dst, const skill_t *src)
-{
-	gmlstr_cpy(&dst->sk_name, &src->sk_name);
-	dst->fun_name = str_qdup(src->fun_name);
-	dst->fun = src->fun;
-	dst->target = src->target;
-	dst->min_pos = src->min_pos;
-	dst->min_mana = src->min_mana;
-	dst->rank = src->rank;
-	dst->beats = src->beats;
-	gmlstr_cpy(&dst->noun_damage, &src->noun_damage);
-	mlstr_cpy(&dst->msg_off, &src->msg_off);
-	mlstr_cpy(&dst->msg_obj, &src->msg_obj);
-	dst->skill_flags = src->skill_flags;
-	dst->restrict_race = str_qdup(src->restrict_race);
-	dst->group = src->group;
-	dst->skill_type = src->skill_type;
-	varr_cpy(&dst->events, &src->events);
-	return dst;
-}
-
-void
+static void
 skill_destroy(skill_t *sk)
 {
 	gmlstr_destroy(&sk->sk_name);
@@ -1130,6 +1121,16 @@ skill_destroy(skill_t *sk)
 	free_string(sk->restrict_race);
 	c_destroy(&sk->events);
 }
+
+avltree_info_t c_info_skills =
+{
+	&avltree_ops,
+
+	(e_init_t) skill_init,
+	(e_destroy_t) skill_destroy,
+
+	MT_SKILL, sizeof(skill_t), ke_cmp_mlstr
+};
 
 static void *
 skills_dump_cb(void *p, va_list ap)
@@ -1161,91 +1162,11 @@ skills_dump(BUFFER *output, int skill_type)
 		buf_append(output, "\n");
 }
 
-static void
-evf_init(evf_t *evf)
-{
-	evf->event = -1;
-	evf->fun_name = str_empty;
-	evf->fun = NULL;
-}
-
-static void
-evf_destroy(evf_t *evf)
-{
-	free_string(evf->fun_name);
-}
-
-static evf_t *
-evf_cpy(evf_t *dst, evf_t *src)
-{
-	dst->event = src->event;
-	dst->fun_name = str_qdup(src->fun_name);
-	dst->fun = src->fun;
-	return dst;
-}
-
 /*--------------------------------------------------------------------
  * spec_t
  */
 
-hash_t specs;
-
-hashdata_t h_specs =
-{
-	&hash_ops,
-
-	sizeof(spec_t), 1,
-	(e_init_t) spec_init,
-	(e_destroy_t) spec_destroy,
-	(e_cpy_t) spec_cpy,
-
-	STRKEY_HASH_SIZE,
-	k_hash_str,
-	ke_cmp_str
-};
-
-static void		spec_skill_init(spec_skill_t *spec_sk);
-static spec_skill_t *	spec_skill_cpy(spec_skill_t *, const spec_skill_t *);
-
-static varrdata_t v_spec_skills =
-{
-	&varr_ops,
-
-	sizeof(spec_skill_t), 4,
-
-	(e_init_t) spec_skill_init,
-	strkey_destroy,
-	(e_cpy_t) spec_skill_cpy,
-};
-
-void
-spec_init(spec_t *spec)
-{
-	spec->spec_name = str_empty;
-	spec->spec_class = 0;
-
-	c_init(&spec->spec_skills, &v_spec_skills);
-	trig_init(&spec->mp_trig);
-	spec->mp_trig.trig_type = TRIG_SPEC;
-}
-
-spec_t *
-spec_cpy(spec_t *dst, const spec_t *src)
-{
-	dst->spec_name = str_qdup(src->spec_name);
-	dst->spec_class = src->spec_class;
-	varr_cpy(&dst->spec_skills, &src->spec_skills);
-	trig_cpy(&dst->mp_trig, &src->mp_trig);
-	return dst;
-}
-
-void
-spec_destroy(spec_t *spec)
-{
-	free_string(spec->spec_name);
-	c_destroy(&spec->spec_skills);
-	trig_destroy(&spec->mp_trig);
-}
+avltree_t specs;
 
 static void
 spec_skill_init(spec_skill_t *spec_sk)
@@ -1258,39 +1179,52 @@ spec_skill_init(spec_skill_t *spec_sk)
 	spec_sk->max = 100;
 }
 
-static spec_skill_t *
-spec_skill_cpy(spec_skill_t *dst, const spec_skill_t *src)
+static varrdata_t v_spec_skills =
 {
-	dst->sn = str_qdup(src->sn);
-	dst->level = src->level;
-	dst->rating = src->rating;
-	dst->min = src->min;
-	dst->adept = src->adept;
-	dst->max = src->max;
-	return dst;
+	&varr_ops,
+
+	(e_init_t) spec_skill_init,
+	strkey_destroy,
+
+	sizeof(spec_skill_t), 4
+};
+
+static void
+spec_init(spec_t *spec)
+{
+	spec->spec_name = str_empty;
+	spec->spec_class = 0;
+
+	c_init(&spec->spec_skills, &v_spec_skills);
+	trig_init(&spec->mp_trig);
+	spec->mp_trig.trig_type = TRIG_SPEC;
 }
+
+static void
+spec_destroy(spec_t *spec)
+{
+	free_string(spec->spec_name);
+	c_destroy(&spec->spec_skills);
+	trig_destroy(&spec->mp_trig);
+}
+
+avltree_info_t c_info_specs =
+{
+	&avltree_ops,
+
+	(e_init_t) spec_init,
+	(e_destroy_t) spec_destroy,
+
+	MT_PVOID, sizeof(spec_t), ke_cmp_str
+};
 
 /*--------------------------------------------------------------------
  * form_index_t
  */
 
-hash_t forms;
+avltree_t forms;
 
-hashdata_t h_forms =
-{
-	&hash_ops,
-
-	sizeof(form_index_t), 1,
-	(e_init_t) form_init,
-	(e_destroy_t) form_destroy,
-	(e_cpy_t) form_cpy,
-
-	STRKEY_HASH_SIZE,
-	k_hash_str,
-	ke_cmp_str
-};
-
-void
+static void
 form_init(form_index_t *f)
 {
 	int i;
@@ -1312,31 +1246,7 @@ form_init(form_index_t *f)
 		f->stats[i] = 10;
 }
 
-form_index_t *
-form_cpy(form_index_t *dst, const form_index_t *src)
-{
-	int i;
-	dst->name		= str_qdup(src->name);
-	mlstr_cpy(&dst->description, &src->description);
-	mlstr_cpy(&dst->short_desc, &src->short_desc);
-	mlstr_cpy(&dst->long_desc, &src->long_desc);
-	dst->damtype		= str_qdup(src->damtype);
-	dst->hitroll		= src->hitroll;
-	dst->num_attacks	= src->num_attacks;
-	dst->skill_spec		= str_qdup(src->skill_spec);
-	dst->flags		= src->flags;
-	dst->damage[DICE_TYPE]	= src->damage[DICE_TYPE];
-	dst->damage[DICE_NUMBER]= src->damage[DICE_NUMBER];
-	dst->damage[DICE_BONUS]	= src->damage[DICE_BONUS];
-	for (i = 0; i < MAX_RESIST; i++)
-		dst->resists[i] = src->resists[i];
-	for (i = 0; i < MAX_STAT; i++)
-		dst->stats[i] = src->stats[i];
-
-	return dst;
-}
-
-void
+static void
 form_destroy(form_index_t *f)
 {
 	free_string(f->name);
@@ -1347,27 +1257,23 @@ form_destroy(form_index_t *f)
 	free_string(f->skill_spec);
 }
 
+avltree_info_t c_info_forms =
+{
+	&avltree_ops,
+
+	(e_init_t) form_init,
+	(e_destroy_t) form_destroy,
+
+	MT_PVOID, sizeof(form_index_t), ke_cmp_str
+};
+
 /*--------------------------------------------------------------------
  * liquid_t
  */
 
-hash_t liquids;
+avltree_t liquids;
 
-hashdata_t h_liquids =
-{
-	&hash_ops,
-
-	sizeof(liquid_t), 1,
-	(e_init_t) liquid_init,
-	(e_destroy_t) liquid_destroy,
-	(e_cpy_t) liquid_cpy,
-
-	STRKEY_HASH_SIZE,
-	k_hash_str,
-	ke_cmp_mlstr
-};
-
-void
+static void
 liquid_init(liquid_t *lq)
 {
 	int i;
@@ -1379,25 +1285,22 @@ liquid_init(liquid_t *lq)
 	lq->sip = 0;
 }
 
-liquid_t *
-liquid_cpy(liquid_t *dst, const liquid_t *src)
-{
-	int i;
-
-	gmlstr_cpy(&dst->lq_name, &src->lq_name);
-	mlstr_cpy(&dst->lq_color, &src->lq_color);
-	for (i = 0; i < MAX_COND; i++)
-		dst->affect[i] = src->affect[i];
-	dst->sip = src->sip;
-	return dst;
-}
-
-void
+static void
 liquid_destroy(liquid_t *lq)
 {
 	gmlstr_destroy(&lq->lq_name);
 	mlstr_destroy(&lq->lq_color);
 }
+
+avltree_info_t c_info_liquids =
+{
+	&avltree_ops,
+
+	(e_init_t) liquid_init,
+	(e_destroy_t) liquid_destroy,
+
+	MT_PVOID, sizeof(liquid_t), ke_cmp_mlstr
+};
 
 /*--------------------------------------------------------------------
  * social_t
@@ -1405,18 +1308,7 @@ liquid_destroy(liquid_t *lq)
 
 varr socials;
 
-varrdata_t v_socials =
-{
-	&varr_ops,
-
-	sizeof(social_t), 8,
-	(e_init_t) social_init,
-	(e_destroy_t) social_destroy,
-
-	NULL
-};
-
-void
+static void
 social_init(social_t *soc)
 {
 	soc->name = str_empty;
@@ -1435,7 +1327,7 @@ social_init(social_t *soc)
 	mlstr_init(&soc->notfound_char);
 }
 
-void
+static void
 social_destroy(social_t *soc)
 {
 	free_string(soc->name);
@@ -1453,56 +1345,51 @@ social_destroy(social_t *soc)
 	mlstr_destroy(&soc->notfound_char);
 }
 
+varrdata_t v_socials =
+{
+	&varr_ops,
+
+	(e_init_t) social_init,
+	(e_destroy_t) social_destroy,
+
+	sizeof(social_t), 8
+};
+
 /*--------------------------------------------------------------------
  * hint_t
  */
 
 varr hints;
 
-varrdata_t v_hints =
-{
-	&varr_ops,
-
-	sizeof(hint_t), 4,
-	(e_init_t) hint_init,
-	(e_destroy_t) hint_destroy,
-
-	NULL
-};
-
-void
+static void
 hint_init(hint_t *t)
 {
 	mlstr_init(&t->phrase);
 }
 
-void
+static void
 hint_destroy(hint_t *t)
 {
 	mlstr_destroy(&t->phrase);
 }
 
+varrdata_t v_hints =
+{
+	&varr_ops,
+
+	(e_init_t) hint_init,
+	(e_destroy_t) hint_destroy,
+
+	sizeof(hint_t), 4
+};
+
 /*--------------------------------------------------------------------
  * clan_t
  */
 
-hash_t clans;
+avltree_t clans;
 
-hashdata_t h_clans =
-{
-	&hash_ops,
-
-	sizeof(clan_t), 1,
-	(e_init_t) clan_init,
-	(e_destroy_t) clan_destroy,
-	(e_cpy_t) clan_cpy,
-
-	STRKEY_HASH_SIZE,
-	k_hash_str,
-	ke_cmp_str
-};
-
-void
+static void
 clan_init(clan_t *clan)
 {
 	clan->name = str_empty;
@@ -1519,25 +1406,7 @@ clan_init(clan_t *clan)
 	clan->second_list = str_empty;
 }
 
-clan_t *
-clan_cpy(clan_t *dst, const clan_t *src)
-{
-	dst->name = str_qdup(src->name);
-	dst->recall_vnum = src->recall_vnum;
-	dst->skill_spec = str_qdup(src->skill_spec);
-	dst->clan_flags = src->clan_flags;
-	dst->altar_vnum = src->altar_vnum;
-	dst->obj_vnum = src->obj_vnum;
-	dst->mark_vnum = src->mark_vnum;
-	dst->obj_ptr = src->obj_ptr;
-	dst->altar_ptr = src->altar_ptr;
-	dst->leader_list = str_qdup(src->leader_list);
-	dst->member_list = str_qdup(src->member_list);
-	dst->second_list = str_qdup(src->second_list);
-	return dst;
-}
-
-void
+static void
 clan_destroy(clan_t *clan)
 {
 	free_string(clan->name);
@@ -1547,24 +1416,30 @@ clan_destroy(clan_t *clan)
 	free_string(clan->second_list);
 }
 
+avltree_info_t c_info_clans =
+{
+	&avltree_ops,
+
+	(e_init_t) clan_init,
+	(e_destroy_t) clan_destroy,
+
+	MT_PVOID, sizeof(clan_t), ke_cmp_str
+};
+
 /*--------------------------------------------------------------------
  * glob_gmlstr
  */
 
-hash_t		glob_gmlstr;
+avltree_t glob_gmlstr;
 
-hashdata_t h_glob_gmlstr =
+avltree_info_t c_info_gmlstr =
 {
-	&hash_ops,
+	&avltree_ops,
 
-	sizeof(gmlstr_t), 1,
 	(e_init_t) gmlstr_init,
 	(e_destroy_t) gmlstr_destroy,
-	(e_cpy_t) gmlstr_cpy,
 
-	STRKEY_HASH_SIZE,
-	k_hash_str,
-	ke_cmp_mlstr
+	MT_GMLSTR, sizeof(gmlstr_t), ke_cmp_mlstr,
 };
 
 /*--------------------------------------------------------------------
@@ -1692,3 +1567,42 @@ dvdata_free(dvdata_t *dv)
 	free(dv);
 	dvdata_real_count--;
 }
+
+/*--------------------------------------------------------------------
+ * mprog_t
+ */
+
+avltree_t mprogs;
+
+int (*mprog_compile)(mprog_t *mp);
+int (*mprog_execute)(mprog_t *mp,
+		     void *arg1, void *arg2, void *arg3, void *arg4);
+
+static void
+mprog_init(mprog_t *mp)
+{
+	mp->name = str_empty;
+	mp->type = MP_T_NONE;
+	mp->status = MP_S_DIRTY;
+	mp->flags = 0;
+	mp->text = str_empty;
+	mp->errbuf = NULL;
+}
+
+static void
+mprog_destroy(mprog_t *mp)
+{
+	free_string(mp->name);
+	free_string(mp->text);
+	if (mp->errbuf != NULL)
+		buf_free(mp->errbuf);
+}
+
+avltree_info_t c_info_mprogs = {
+	&avltree_ops,
+
+	(e_init_t) mprog_init,
+	(e_destroy_t) mprog_destroy,
+
+	MT_PVOID, sizeof(mprog_t), ke_cmp_csstr
+};

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_skills.c,v 1.33 2001-09-13 12:02:53 fjoe Exp $
+ * $Id: db_skills.c,v 1.34 2001-09-13 16:22:00 fjoe Exp $
  */
 
 #include <assert.h>
@@ -49,7 +49,7 @@ DBDATA db_skills = { dbfun_skills, init_skills, 0 };
 DBINIT_FUN(init_skills)
 {
 	if (!DBDATA_VALID(dbdata))
-		c_init(&skills, &avltree_info_skills);
+		c_init(&skills, &c_info_skills);
 }
 
 DBLOAD_FUN(load_skill)

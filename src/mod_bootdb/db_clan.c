@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_clan.c,v 1.36 2001-09-13 12:02:50 fjoe Exp $
+ * $Id: db_clan.c,v 1.37 2001-09-13 16:21:57 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -61,7 +61,7 @@ DBINIT_FUN(init_clans)
 	if (DBDATA_VALID(dbdata))
 		db_set_arg(dbdata, "PLISTS", NULL);
 	else
-		c_init(&clans, &h_clans);
+		c_init(&clans, &c_info_clans);
 }
 
 DBLOAD_FUN(load_clan)

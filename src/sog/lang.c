@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.c,v 1.36 2001-09-12 19:43:17 fjoe Exp $
+ * $Id: lang.c,v 1.37 2001-09-13 16:22:22 fjoe Exp $
  */
 
 #include <string.h>
@@ -144,22 +144,17 @@ word_form(const char *word, uint fnum, size_t lang, int rulecl)
 	return word_form_lookup(l, l->rules + rulecl, word, fnum);
 }
 
-hash_t msgdb;
+avltree_t msgdb;
 
-hashdata_t h_msgdb =
+avltree_info_t c_info_msgdb =
 {
-	&hash_ops,
+	&avltree_ops,
 
-	sizeof(mlstring), 1,
 	(e_init_t) mlstr_init,
 	(e_destroy_t) mlstr_destroy,
-	(e_cpy_t) mlstr_cpy,
 
-	STRKEY_HASH_SIZE,
-	k_hash_csstr,
-	ke_cmp_csmlstr
+	MT_MLSTR, sizeof(mlstring), ke_cmp_csmlstr,
 };
-
 
 const char *
 GETMSG(const char *msg, size_t lang)
@@ -200,11 +195,10 @@ static varrdata_t v_forms =
 {
 	&varr_ops,
 
-	sizeof(char*), 4,
 	(e_init_t) str_init,
 	(e_init_t) str_destroy,
 
-	NULL
+	sizeof(char*), 4
 };
 
 void
@@ -345,11 +339,10 @@ static varrdata_t v_rule =
 {
 	&varr_ops,
 
-	sizeof(rule_t), 4,
 	(e_init_t) rule_init,
 	(e_destroy_t) rule_destroy,
 
-	NULL
+	sizeof(rule_t), 4
 };
 
 static void
@@ -372,17 +365,7 @@ rulecl_init(lang_t *l, size_t rulecl)
  */
 varr langs;
 
-varrdata_t v_langs =
-{
-	&varr_ops,
-
-	sizeof(lang_t), 2,
-	(e_init_t) lang_init,
-	NULL,
-	NULL
-};
-
-void
+static void
 lang_init(lang_t *l)
 {
 	size_t i;
@@ -395,6 +378,16 @@ lang_init(lang_t *l)
 	for (i = 0; i < MAX_RULECL; i++)
 		rulecl_init(l, i);
 }
+
+varrdata_t v_langs =
+{
+	&varr_ops,
+
+	(e_init_t) lang_init,
+	NULL,
+
+	sizeof(lang_t), 2
+};
 
 lang_t *
 lang_lookup(const char *name)

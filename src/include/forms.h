@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: forms.h,v 1.9 2001-09-12 19:42:34 fjoe Exp $
+ * $Id: forms.h,v 1.10 2001-09-13 16:21:51 fjoe Exp $
  */
 
 #ifndef _FORMS_H_
@@ -57,14 +57,10 @@ struct form_t {
 	int16_t		res_mod[MAX_RESIST];
 };
 
-extern hash_t forms;
-extern hashdata_t h_forms;
+extern avltree_t forms;
+extern avltree_info_t c_info_forms;
 
 #define form_lookup(fn)		((form_index_t*) c_strkey_lookup(&forms, (fn)))
 #define form_search(fn)		((form_index_t*) c_strkey_search(&forms, (fn)))
-
-void form_init(form_index_t *f);
-form_index_t* form_cpy(form_index_t *dst, const form_index_t *src);
-void form_destroy(form_index_t *f);
 
 #endif

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.h,v 1.28 2001-09-12 19:42:37 fjoe Exp $
+ * $Id: varr.h,v 1.29 2001-09-13 16:21:55 fjoe Exp $
  */
 
 #ifndef _VARR_H_
@@ -34,12 +34,11 @@ extern c_ops_t varr_ops;
 typedef struct varrdata_t {
 	c_ops_t *ops;			/**< container ops		*/
 
-	size_t nsize;			/**< size of elem		*/
-	size_t nstep;			/**< allocation step		*/
-
 	e_init_t e_init;		/**< init elem			*/
 	e_destroy_t e_destroy;		/**< destroy elem		*/
-	e_cpy_t e_cpy;			/**< copy elem			*/
+
+	size_t nsize;			/**< size of elem		*/
+	size_t nstep;			/**< allocation step		*/
 } varrdata_t;
 
 typedef struct varr varr;
@@ -54,10 +53,6 @@ struct varr {
 
 #define varr_esize(v)	((v)->v_data->nsize)
 #define varr_index(v, q) ((((const char *) q) - ((const char *) (v)->p)) / (v)->v_data->nsize)
-
-void	varr_init	(void *v, void *info);
-void	varr_destroy	(void *v);
-varr *	varr_cpy	(varr *dst, const varr *src);
 
 void *	varr_touch	(varr *, size_t i);
 void *	varr_insert	(varr *, size_t i);

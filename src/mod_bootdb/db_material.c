@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_material.c,v 1.15 2001-09-13 12:02:52 fjoe Exp $
+ * $Id: db_material.c,v 1.16 2001-09-13 16:21:59 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -48,7 +48,7 @@ DBDATA db_materials = { dbfun_materials, init_materials, 0 };
 DBINIT_FUN(init_materials)
 {
 	if (!DBDATA_VALID(dbdata))
-		c_init(&materials, &h_materials);
+		c_init(&materials, &c_info_materials);
 }
 
 DBLOAD_FUN(load_material)

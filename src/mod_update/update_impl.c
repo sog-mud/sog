@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: update_impl.c,v 1.8 2001-09-12 12:32:47 fjoe Exp $
+ * $Id: update_impl.c,v 1.9 2001-09-13 16:22:18 fjoe Exp $
  */
 
 #include <stdlib.h>
@@ -37,42 +37,7 @@
 #include <update.h>
 #include "update_impl.h"
 
-hash_t uhandlers;
-
-void
-uhandler_init(uhandler_t *hdlr)
-{
-	hdlr->name = str_empty;
-	hdlr->fun_name = str_empty;
-	hdlr->notify = str_empty;
-	hdlr->ticks = 0;
-	hdlr->iter = NULL;
-	hdlr->mod = MOD_UPDATE;
-	hdlr->cnt = 0;
-	hdlr->fun = NULL;
-}
-
-uhandler_t *
-uhandler_cpy(uhandler_t *dst, uhandler_t *src)
-{
-	dst->name = str_qdup(src->name);
-	dst->fun_name = str_qdup(src->fun_name);
-	dst->notify = str_qdup(src->notify);
-	dst->ticks = src->ticks;
-	dst->iter = src->iter;
-	dst->mod = src->mod;
-	dst->cnt = src->cnt;
-	dst->fun = src->fun;
-	return dst;
-}
-
-void
-uhandler_destroy(uhandler_t *hdlr)
-{
-	free_string(hdlr->name);
-	free_string(hdlr->fun_name);
-	free_string(hdlr->notify);
-}
+avltree_t uhandlers;
 
 void
 update_register(module_t *m)

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: module.c,v 1.29 2001-09-12 19:43:18 fjoe Exp $
+ * $Id: module.c,v 1.30 2001-09-13 16:22:22 fjoe Exp $
  */
 
 /*
@@ -64,13 +64,9 @@ static int	modset_elem_cmp	(const void *, const void *);
 static int	module_cmp	(const void *p, const void *q);
 
 static varrdata_t v_modset = {
-	&varr_ops,
+	&varr_ops, NULL, NULL,
 
-	sizeof(module_t*), 4,
-
-	NULL,
-	NULL,
-	NULL
+	sizeof(module_t*), 4
 };
 
 extern bool do_longjmp;
@@ -128,11 +124,9 @@ mod_lookup(const char *name)
 }
 
 static varrdata_t v_modules = {
-	&varr_ops,
+	&varr_ops, NULL, NULL,
 
-	sizeof(module_t), 2,
-
-	NULL, NULL, NULL
+	sizeof(module_t), 2
 };
 
 void

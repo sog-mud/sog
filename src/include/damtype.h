@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: damtype.h,v 1.16 2001-09-12 19:42:33 fjoe Exp $
+ * $Id: damtype.h,v 1.17 2001-09-13 16:21:50 fjoe Exp $
  */
 
 #ifndef _DAMTYPE_H_
@@ -82,12 +82,8 @@ struct damtype_t {
 	int		dam_slot;	/* old damtype ROM slot */
 };
 
-extern hash_t damtypes;
-extern hashdata_t h_damtypes;
-
-void damtype_init(damtype_t *d);
-damtype_t *damtype_cpy(damtype_t *dst, const damtype_t *src);
-void damtype_destroy(damtype_t *d);
+extern avltree_t damtypes;
+extern avltree_info_t c_info_damtypes;
 
 #define damtype_lookup(dn)	((damtype_t*) c_strkey_lookup(&damtypes, (dn)))
 #define damtype_search(dn)	((damtype_t*) c_strkey_search(&damtypes, (dn)))

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.56 2001-09-13 12:03:01 fjoe Exp $
+ * $Id: olc_race.c,v 1.57 2001-09-13 16:22:14 fjoe Exp $
  */
 
 #include "olc.h"
@@ -130,7 +130,7 @@ olc_cmd_t olc_cmds_race[] =
 };
 
 static DECLARE_FOREACH_CB_FUN(save_race_cb);
-static DECLARE_FOREACH_CB_FUN(print_race_cb);
+static DECLARE_FOREACH_CB_FUN(dump_race_cb);
 
 OLC_FUN(raceed_create)
 {
@@ -354,7 +354,7 @@ OLC_FUN(raceed_show)
 OLC_FUN(raceed_list)
 {
 	BUFFER *buffer = buf_new(0);
-	hash_printall(&races, buffer, print_race_cb);
+	c_dump(&races, buffer, dump_race_cb);
 	page_to_char(buf_string(buffer), ch);
 	buf_free(buffer);
 	return FALSE;
@@ -678,7 +678,7 @@ OLC_FUN(raceed_damtype)
 
 	if (!str_cmp(arg, "?")) {
 		BUFFER *output = buf_new(0);
-		strkey_printall(&damtypes, output);
+		c_strkey_dump(&damtypes, output);
 		page_to_char(buf_string(output), ch);
 		buf_free(output);
 		return FALSE;
@@ -882,8 +882,8 @@ fwrite_rstats(FILE *fp, const char *name, int *stats)
 	fprintf(fp, "\n");
 }
 
-static void *
-save_race_class_cb(void *p, va_list ap)
+static
+FOREACH_CB_FUN(save_race_class_cb, p, ap)
 {
 	rclass_t *rcl = (rclass_t *) p;
 
@@ -920,8 +920,8 @@ save_race_pcdata(pcrace_t *pcr, FILE *fp)
 	fprintf(fp, "End\n\n");
 }
 
-static void *
-save_race_cb(void *p, va_list ap)
+static
+FOREACH_CB_FUN(save_race_cb, p, ap)
 {
 	race_t *r = (race_t *) p;
 	int i;
@@ -987,14 +987,15 @@ save_race_cb(void *p, va_list ap)
 	return NULL;
 }
 
-void *
-print_race_cb(void *p, va_list ap)
+static
+FOREACH_CB_FUN(dump_race_cb, p, ap)
 {
-	static char buf[256];
-        varr *v = va_arg(ap, varr *);
-        const char **q = varr_enew(v);
+	race_t *r = (race_t *) p;
+	char buf[256];
+	const char *pbuf = buf;
+
 	snprintf(buf, sizeof(buf), "%s%s",
-		((race_t *)p)->race_pcdata ? "*" : " ", *(const char **)p );
-        *q = str_dup(buf);
-        return NULL;
+		 r->race_pcdata ? "*" : " ", r->name);
+
+	return str_dump_cb(&pbuf, ap);
 }

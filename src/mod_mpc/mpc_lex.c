@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_lex.c,v 1.19 2001-09-13 12:02:58 fjoe Exp $
+ * $Id: mpc_lex.c,v 1.20 2001-09-13 16:22:09 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -33,7 +33,6 @@
 
 #include <typedef.h>
 #include <varr.h>
-#include <hash.h>
 #include <container.h>
 #include <avltree.h>
 #include <memalloc.h>

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_rule.c,v 1.38 2001-09-12 19:43:03 fjoe Exp $
+ * $Id: olc_rule.c,v 1.39 2001-09-13 16:22:14 fjoe Exp $
  */
 
 #include "olc.h"
@@ -188,7 +188,7 @@ OLC_FUN(ruleed_create)
 	OLCED(ch)	= olced_lookup(rops->id);
 	ch->desc->pEdit = impl ? irule_insert(rcl, atoi(arg2), &rnew) :
 				 erule_add(rcl, &rnew);
-	ch->desc->pEdit2= rcl; 
+	ch->desc->pEdit2= rcl;
 	SET_BIT(rcl->rcl_flags, rops->bit);
 	act_char("RuleEd: rule created.", ch);
 	return FALSE;
@@ -481,8 +481,8 @@ OLC_FUN(eruleed_auto)
 	}
 
 	r->arg = strlen(r->name) + impl->arg;
-	varr_destroy(&r->forms);
-	varr_cpy(&r->forms, &impl->forms);
+	c_destroy(&r->forms);
+	/* XXX VARR varr_cpy(&r->forms, &impl->forms); */
 	return TRUE;
 }
 

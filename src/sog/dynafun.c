@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: dynafun.c,v 1.18 2001-09-13 12:03:09 fjoe Exp $
+ * $Id: dynafun.c,v 1.19 2001-09-13 16:22:21 fjoe Exp $
  */
 
 #include <stdlib.h>
@@ -34,13 +34,12 @@
 #include <log.h>
 #include <str.h>
 #include <varr.h>
-#include <hash.h>
-#include <strkey_hash.h>
 #include <container.h>
 #include <dynafun.h>
 #include <module.h>
 #include <flag.h>
 #include <tables.h>
+#include <avltree.h>
 
 /*
  * dynafun_build_args is highly arch-dependent
@@ -84,36 +83,44 @@
  *				.....
  */
 
-static void dynafun_init(dynafun_data_t *d);
-
-static dynafun_data_t *dynafun_cpy(dynafun_data_t *d1, const dynafun_data_t *d2);
-
-static dynafun_data_t *dynafun_build_args(const char *name, dynafun_args_t *args, int nargs, va_list ap);
+static dynafun_data_t *dynafun_build_args(
+    const char *name, dynafun_args_t *args, int nargs, va_list ap);
 
 typedef void (*dynafun_cb)(dynafun_data_t *d, void *arg);
 static void dynafun_foreach(dynafun_data_t *, dynafun_cb cb, void *arg);
 static void dynafun_register(dynafun_data_t *d, void *arg);
 static void dynafun_unregister(dynafun_data_t *d, void *arg);
 
-static hashdata_t h_dynafuns = {
-	&hash_ops,
+static void
+dynafun_init(dynafun_data_t *d)
+{
+	int i;
 
-	sizeof(dynafun_data_t), 8,
+	d->name = str_empty;
+	d->rv_tag = MT_VOID;
+	d->nargs = 0;
+	for (i = 0; i < DYNAFUN_NARGS; i++) {
+		d->argtype[i].type_tag = MT_PVOID;
+		d->argtype[i].nullable = FALSE;
+	}
+	d->fun = NULL;
+}
+
+static avltree_info_t c_info_dynafuns = {
+	&avltree_ops,
+
 	(e_init_t) dynafun_init,
 	strkey_destroy,
-	(e_cpy_t) dynafun_cpy,
 
-	STRKEY_HASH_SIZE,
-	k_hash_str,
-	ke_cmp_str
+	MT_PVOID, sizeof(dynafun_data_t), ke_cmp_str,
 };
 
-hash_t dynafuns;
+avltree_t dynafuns;
 
 void
 init_dynafuns(void)
 {
-	c_init(&dynafuns, &h_dynafuns);
+	c_init(&dynafuns, &c_info_dynafuns);
 }
 
 void *
@@ -178,6 +185,7 @@ dynafun_check_arg(dynafun_data_t *d, int i, const void *arg)
 			return FALSE;
 		}
 	} else if (d->argtype[i].type_tag != MT_STR
+	       &&  d->argtype[i].type_tag != MT_MLSTR
 	       &&  !mem_is(arg, d->argtype[i].type_tag)) {
 		log(LOG_BUG, "%s: %s: invalid arg[%d] type '%s' ('%s expected)",
 		    __FUNCTION__,
@@ -193,41 +201,6 @@ dynafun_check_arg(dynafun_data_t *d, int i, const void *arg)
 /*--------------------------------------------------------------------
  * static functions
  */
-
-static void
-dynafun_init(dynafun_data_t *d)
-{
-	int i;
-
-	d->name = str_empty;
-	d->rv_tag = MT_VOID;
-	d->nargs = 0;
-	for (i = 0; i < DYNAFUN_NARGS; i++) {
-		d->argtype[i].type_tag = MT_PVOID;
-		d->argtype[i].nullable = FALSE;
-	}
-	d->fun = NULL;
-}
-
-static dynafun_data_t *
-dynafun_cpy(dynafun_data_t *d1, const dynafun_data_t *d2)
-{
-	int i;
-
-	/*
-	 * do not use `str_qdup' here because *d2 can be (and is)
-	 * statically allocated
-	 */
-	d1->name = str_dup(d2->name);
-
-	d1->rv_tag = d2->rv_tag;
-	d1->nargs = d2->nargs;
-	for (i = 0; i < DYNAFUN_NARGS; i++)
-		d1->argtype[i] = d2->argtype[i];
-	d1->fun = d2->fun;
-
-	return d1;
-}
 
 static dynafun_data_t *
 dynafun_build_args(const char *name, dynafun_args_t *args, int nargs, va_list ap)
@@ -260,8 +233,6 @@ dynafun_build_args(const char *name, dynafun_args_t *args, int nargs, va_list ap
 		case MT_ACTOPT:
 		case MT_PCCHAR:
 		case MT_PCHAR:
-		case MT_GMLSTR:
-		case MT_MLSTRING:
 		case MT_PINT:
 		case MT_SPEC_SKILL:
 		case MT_FLAGINFO:
@@ -301,6 +272,8 @@ dynafun_build_args(const char *name, dynafun_args_t *args, int nargs, va_list ap
 		case MT_MOB_INDEX:
 		case MT_DESCRIPTOR:
 		case MT_SKILL:
+		case MT_MLSTR:
+		case MT_GMLSTR:
 			arg = va_arg(ap, void *);
 			*(const void **) args_ap = arg;
 			arg = va_arg(args_ap, void *);
@@ -337,18 +310,26 @@ dynafun_register(dynafun_data_t *d, void *arg)
 {
 	module_t *m = (module_t *) arg;
 	dynafun_data_t *d2;
+	int i;
 
 	if ((d2 = c_insert(&dynafuns, d->name)) == NULL) {
 		log(LOG_BUG, "dynafun_register: %s: duplicate dynafun name",
 		    d->name);
 	}
 
-	dynafun_cpy(d2, d);
+	/*
+	 * do not use `str_qdup' here because *d2 can be (and is)
+	 * statically allocated
+	 */
+	d2->name = str_dup(d->name);
 
-	if ((d2->fun = dlsym(m->dlh, d2->name)) == NULL) {
-		log(LOG_BUG, "dynafun_register: %s: not found",
-		    d2->name);
-	}
+	d2->rv_tag = d->rv_tag;
+	d2->nargs = d->nargs;
+	for (i = 0; i < DYNAFUN_NARGS; i++)
+		d2->argtype[i] = d->argtype[i];
+
+	if ((d2->fun = dlsym(m->dlh, d2->name)) == NULL)
+		log(LOG_BUG, "dynafun_register: %s: not found", d2->name);
 }
 
 static void

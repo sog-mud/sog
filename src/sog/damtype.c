@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: damtype.c,v 1.18 2001-09-13 12:03:08 fjoe Exp $
+ * $Id: damtype.c,v 1.19 2001-09-13 16:22:21 fjoe Exp $
  */
 
 #include <string.h>
@@ -32,23 +32,9 @@
 
 #include <merc.h>
 
-hash_t damtypes;
+avltree_t damtypes;
 
-hashdata_t h_damtypes =
-{
-	&hash_ops,
-
-	sizeof(damtype_t), 1,
-	(e_init_t) damtype_init,
-	(e_destroy_t) damtype_destroy,
-	(e_cpy_t) damtype_cpy,
-
-	STRKEY_HASH_SIZE,
-	k_hash_str,
-	ke_cmp_str
-};
-
-void
+static void
 damtype_init(damtype_t *d)
 {
 	d->dam_name = str_empty;
@@ -57,22 +43,22 @@ damtype_init(damtype_t *d)
 	d->dam_slot = -1;
 }
 
-damtype_t *
-damtype_cpy(damtype_t *dst, const damtype_t *src)
-{
-	dst->dam_name = str_qdup(src->dam_name);
-	gmlstr_cpy(&dst->dam_noun, &src->dam_noun);
-	dst->dam_class = src->dam_class;
-	dst->dam_slot = src->dam_slot;
-	return dst;
-}
-
-void
+static void
 damtype_destroy(damtype_t *d)
 {
 	free_string(d->dam_name);
 	gmlstr_destroy(&d->dam_noun);
 }
+
+avltree_info_t c_info_damtypes =
+{
+	&avltree_ops,
+
+	(e_init_t) damtype_init,
+	(e_destroy_t) damtype_destroy,
+
+	MT_PVOID, sizeof(damtype_t), ke_cmp_str
+};
 
 static const
 FOREACH_CB_FUN(damtype_slot_cb, p, ap)

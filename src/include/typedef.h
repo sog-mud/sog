@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.60 2001-09-12 19:42:37 fjoe Exp $
+ * $Id: typedef.h,v 1.61 2001-09-13 16:21:54 fjoe Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -186,7 +186,6 @@ typedef void	RUNGAME_FUN	(fd_set *, fd_set *, fd_set *);
 
 typedef void (*e_init_t)(void *);
 typedef void (*e_destroy_t)(void *);
-typedef void *(*e_cpy_t)(void *, const void *);
 
 typedef int (*k_hash_t)(const void *k, size_t hsize);
 typedef int (*ke_cmp_t)(const void *k, const void *e);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.h,v 1.10 2001-09-12 08:11:27 fjoe Exp $
+ * $Id: trig.h,v 1.11 2001-09-13 16:21:54 fjoe Exp $
  */
 
 #ifndef _TRIG_H_
@@ -100,11 +100,6 @@ void trig_init(trig_t *trig);
  * Destroy trigger
  */
 void trig_destroy(trig_t *trig);
-
-/**
- * Copy trigger
- */
-trig_t *trig_cpy(trig_t *dst, const trig_t *src);
 
 /**
  * Read trigger from file

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_damtype.c,v 1.18 2001-09-13 12:02:50 fjoe Exp $
+ * $Id: db_damtype.c,v 1.19 2001-09-13 16:21:58 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -48,7 +48,7 @@ DBDATA db_damtype = { dbfun_damtype, init_damtype, 0 };
 DBINIT_FUN(init_damtype)
 {
 	if (!DBDATA_VALID(dbdata))
-		c_init(&damtypes, &h_damtypes);
+		c_init(&damtypes, &c_info_damtypes);
 }
 
 DBLOAD_FUN(load_damtype)

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_spec.c,v 1.25 2001-09-13 12:02:53 fjoe Exp $
+ * $Id: db_spec.c,v 1.26 2001-09-13 16:22:00 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -52,7 +52,7 @@ DBINIT_FUN(init_specs)
 	if (DBDATA_VALID(dbdata)) {
 		db_set_arg(dbdata, "SKILL", NULL);
 	} else
-		c_init(&specs, &h_specs);
+		c_init(&specs, &c_info_specs);
 }
 
 DBLOAD_FUN(load_spec)

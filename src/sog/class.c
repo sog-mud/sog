@@ -23,53 +23,46 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.c,v 1.35 2001-09-12 19:43:15 fjoe Exp $
+ * $Id: class.c,v 1.36 2001-09-13 16:22:20 fjoe Exp $
  */
 
 #include <stdio.h>
 
 #include <merc.h>
 
-hash_t classes;
-
-static void	pose_init(pose_t *p);
-static pose_t *	pose_cpy(pose_t *dst, const pose_t *src);
-static void	pose_destroy(pose_t *p);
-
-hashdata_t h_classes =
-{
-	&hash_ops,
-
-	sizeof(class_t), 1,
-	(e_init_t) class_init,
-	(e_destroy_t) class_destroy,
-	(e_cpy_t) class_cpy,
-
-	STRKEY_HASH_SIZE,
-	k_hash_str,
-	ke_cmp_str
-};
+avltree_t classes;
 
 static varrdata_t v_guilds = {
-	&varr_ops,
+	&varr_ops, NULL, NULL,
 
-	sizeof(int), 4,
-
-	NULL, NULL, NULL
+	sizeof(int), 4
 };
+
+static void
+pose_init(pose_t *p)
+{
+	p->self = str_empty;
+	p->others = str_empty;
+}
+
+static void
+pose_destroy(pose_t *p)
+{
+	free_string(p->self);
+	free_string(p->others);
+}
 
 static varrdata_t v_poses =
 {
 	&varr_ops,
 
-	sizeof(pose_t), 4,
-
 	(e_init_t) pose_init,
 	(e_destroy_t) pose_destroy,
-	(e_cpy_t) pose_cpy
+
+	sizeof(pose_t), 4
 };
 
-void
+static void
 class_init(class_t *cl)
 {
 	int i;
@@ -97,37 +90,7 @@ class_init(class_t *cl)
 		cl->mod_stat[i] = 0;
 }
 
-class_t *
-class_cpy(class_t *dst, const class_t *src)
-{
-	int i;
-
-	dst->name = str_dup(src->name);
-	strnzcpy(dst->who_name, sizeof(dst->who_name), src->who_name);
-	dst->attr_prime = src->attr_prime;
-	dst->weapon = src->weapon;
-	dst->thac0_00 = src->thac0_00;
-	dst->thac0_32 = src->thac0_32;
-	dst->hp_rate = src->hp_rate;
-	dst->mana_rate = src->mana_rate;
-	dst->class_flags = src->class_flags;
-	dst->points = src->points;
-	dst->restrict_align = src->restrict_align;
-	dst->restrict_sex = str_qdup(src->restrict_sex);
-	dst->restrict_ethos = src->restrict_ethos;
-	dst->death_limit = src->death_limit;
-	dst->skill_spec = str_qdup(src->skill_spec);
-	dst->luck_bonus	= src->luck_bonus;
-
-	varr_cpy(&dst->guilds, &src->guilds);
-	varr_cpy(&dst->poses, &src->poses);
-	for (i = 0; i < MAX_STAT; i++)
-		dst->mod_stat[i] = src->mod_stat[i];
-
-	return dst;
-}
-
-void
+static void
 class_destroy(class_t *cl)
 {
 	free_string(cl->restrict_sex);
@@ -135,6 +98,16 @@ class_destroy(class_t *cl)
 	c_destroy(&cl->poses);
 	c_destroy(&cl->guilds);
 }
+
+avltree_info_t c_info_classes =
+{
+	&avltree_ops,
+
+	(e_init_t) class_init,
+	(e_destroy_t) class_destroy,
+
+	MT_PVOID, sizeof(class_t), ke_cmp_str,
+};
 
 static void *
 guild_ok_cb(void *p, va_list ap)
@@ -206,26 +179,4 @@ can_flee(CHAR_DATA *ch)
 		return TRUE;
 
 	return FALSE;
-}
-
-static void
-pose_init(pose_t *p)
-{
-	p->self = str_empty;
-	p->others = str_empty;
-}
-
-static pose_t *
-pose_cpy(pose_t *dst, const pose_t *src)
-{
-	dst->self = str_qdup(src->self);
-	dst->others = str_qdup(src->others);
-	return dst;
-}
-
-static void
-pose_destroy(pose_t *p)
-{
-	free_string(p->self);
-	free_string(p->others);
 }

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_impl.h,v 1.23 2001-09-13 12:02:57 fjoe Exp $
+ * $Id: mpc_impl.h,v 1.24 2001-09-13 16:22:08 fjoe Exp $
  */
 
 #ifndef _MPC_IMPL_H_
@@ -33,7 +33,6 @@
 
 #include <typedef.h>
 #include <varr.h>
-#include <hash.h>
 #include <str.h>
 
 /**
@@ -68,12 +67,8 @@ struct sym_t {
 };
 typedef struct sym_t sym_t;
 
-void	sym_init(sym_t *sym);
-void	sym_destroy(sym_t *sym);
-sym_t *	sym_cpy(sym_t *dst, const sym_t *src);
-
 extern avltree_t glob_syms;		/* (sym_t) */
-extern avltree_info_t avltree_info_syms;
+extern avltree_info_t c_info_syms;
 extern flaginfo_t mpc_types[];
 
 #define IS_PTR_TYPE(type_tag)						\
@@ -134,18 +129,6 @@ struct mpcode_t {
 typedef struct mpcode_t mpcode_t;
 
 extern avltree_t mpcodes;
-
-/**
- * Initialize program
- */
-void
-mpcode_init(mpcode_t *mpc);
-
-/**
- * Destroy program
- */
-void
-mpcode_destroy(mpcode_t *mpc);
 
 #define mpcode_lookup(name)	((mpcode_t *) c_lookup(&mpcodes, (name)))
 

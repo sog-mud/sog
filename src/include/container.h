@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: container.h,v 1.2 2001-09-13 12:02:46 fjoe Exp $
+ * $Id: container.h,v 1.3 2001-09-13 16:21:50 fjoe Exp $
  */
 
 #ifndef _CONTAINER_H_
@@ -67,23 +67,39 @@ struct c_ops_t {
 #define c_size(c)		(C_OPS(c)->c_size(c))
 #define c_isempty(c)		(C_OPS(c)->c_isempty(c))
 
-void *c_foreach(void *c, foreach_cb_t cb, ...);
+void *	c_foreach(void *c, foreach_cb_t cb, ...);
 
 #define c_random_elem(c)	(C_OPS(c)->c_random_elem(c))
+void *	c_random_elem_foreach(void *c);
 
-void *c_strkey_lookup(void *c, const char *name);
+void	c_dump(void *c, BUFFER *buf, foreach_cb_t cb);
+
+int	vnum_ke_cmp(const void *k, const void *e);
+
+void	strkey_init(void *);
+void	strkey_destroy(void *);
+
+int	ke_cmp_str(const void *k, const void *e);
+int	ke_cmp_csstr(const void *k, const void *e);
+int	ke_cmp_mlstr(const void *k, const void *e);
+int	ke_cmp_csmlstr(const void *k, const void *e);
+
+void *	c_strkey_lookup(void *c, const char *name);
 #define c_mlstrkey_lookup(c, name)	(c_strkey_lookup(c, name))
-void *c_strkey_search(void *c, const char *name);
-void *c_mlstrkey_search(void *c, const char *name);
+void *	c_strkey_search(void *c, const char *name);
+void *	c_mlstrkey_search(void *c, const char *name);
 
-void c_strkey_dump(void *c, BUFFER *buf);
-void c_mlstrkey_dump(void *c, BUFFER *buf);
+void	c_strkey_dump(void *c, BUFFER *buf);
+void	c_mlstrkey_dump(void *c, BUFFER *buf);
+
+DECLARE_FOREACH_CB_FUN(str_dump_cb);
+DECLARE_FOREACH_CB_FUN(mlstr_dump_cb);
 
 const char *c_fread_strkey(const char *ctx, rfile_t *fp, void *c);
 #define fread_strkey(fp, c)						\
 	c_fread_strkey(__FUNCTION__, (fp), (c))
 
-void *c_random_elem_foreach(void *c);
+char *	strkey_filename(const char *name, const char *ext);
 
 #define C_STRKEY_STRICT_CHECKS
 #if defined(C_STRKEY_STRICT_CHECKS)
@@ -101,6 +117,8 @@ void *c_random_elem_foreach(void *c);
 #endif
 
 #define DEFINE_C_OPS(name)						\
+	static void name##_init(void *c, void *info);			\
+	static void name##_destroy(void *c);				\
 	static void name##_erase(void *c);				\
 									\
 	static void *name##_lookup(void *c, const void *k);		\

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.365 2001-09-13 12:02:47 fjoe Exp $
+ * $Id: merc.h,v 1.366 2001-09-13 16:21:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -113,8 +113,6 @@ enum {
 #include <mlstring.h>
 #include <container.h>
 #include <varr.h>
-#include <hash.h>
-#include <strkey_hash.h>
 #include <flag.h>
 #include <cmd.h>
 
@@ -1557,8 +1555,6 @@ struct pc_skill_t {
 	int percent;	/* skill percentage			*/
 };
 
-void pc_skill_init(pc_skill_t *);
-
 #define pc_skill_lookup(ch, sn)						\
 	((pc_skill_t *) varr_bsearch(&PC(ch)->learned, &sn, cmpstr))
 
@@ -2070,9 +2066,6 @@ void		aff_fwrite	(AFFECT_DATA *paf, FILE *fp, int w_flags);
 void		aff_fwrite_list	(const char *pre, const char *pre_notype,
 				 AFFECT_DATA *paf, FILE *fp, int w_flags);
 
-void		saff_init(saff_t *sa);
-void		saff_destroy(saff_t *sa);
-
 typedef struct where_t where_t;
 struct where_t
 {
@@ -2153,13 +2146,9 @@ typedef struct evf_t {
 } evf_t;
 
 extern avltree_t skills;
-extern avltree_info_t avltree_info_skills;
+extern avltree_info_t c_info_skills;
 
 #define IS_SKILL(sn1, sn2)	(!str_cmp((sn1), (sn2)))
-
-void skill_init(skill_t *sk);
-skill_t *skill_cpy(skill_t *dst, const skill_t *src);
-void skill_destroy(skill_t *sk);
 
 void skills_dump(BUFFER *output, int skill_type);
 
@@ -2198,8 +2187,8 @@ struct spec_t {
 	trig_t mp_trig;		/* spec mpc trigger			*/
 };
 
-extern hash_t specs;
-extern hashdata_t h_specs;
+extern avltree_t specs;
+extern avltree_info_t c_info_specs;
 
 typedef struct spec_skill_t spec_skill_t;
 struct spec_skill_t {
@@ -2211,10 +2200,6 @@ struct spec_skill_t {
 	int		adept;		/* adept percents		*/
 	int		max;		/* max skill percents		*/
 };
-
-void	spec_init(spec_t *spec);
-spec_t *spec_cpy(spec_t *dst, const spec_t *src);
-void	spec_destroy(spec_t *spec);
 
 /* fast spec lookup by precise name */
 #define spec_lookup(spn)	((spec_t*) c_strkey_lookup(&specs, (spn)))
@@ -2251,9 +2236,6 @@ typedef struct social_t social_t;
 extern varr socials;
 extern varrdata_t v_socials;
 
-void	social_init	(social_t *soc);
-void	social_destroy	(social_t *soc);
-
 #define social_lookup(name)	((social_t *) c_strkey_lookup(&socials, (name)))
 #define social_search(name)	((social_t *) c_strkey_search(&socials, (name)))
 
@@ -2287,9 +2269,6 @@ typedef struct {
 extern varr hints;
 extern varrdata_t v_hints;
 
-void hint_init(hint_t *t);
-void hint_destroy(hint_t *t);
-
 /*----------------------------------------------------------------------
  * rating stuff
  */
@@ -2307,8 +2286,8 @@ extern rating_t rating_table[RATING_TABLE_SIZE];
  * global mlstrings with gender
  */
 
-extern hash_t glob_gmlstr;
-extern hashdata_t h_glob_gmlstr;
+extern avltree_t glob_gmlstr;
+extern avltree_info_t c_info_gmlstr;
 
 #define	glob_lookup(gn)	((gmlstr_t *) c_strkey_lookup(&glob_gmlstr, (gn)))
 

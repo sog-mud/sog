@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: avltree.c,v 1.3 2001-09-13 12:03:08 fjoe Exp $
+ * $Id: avltree.c,v 1.4 2001-09-13 16:22:19 fjoe Exp $
  */
 
 #include <assert.h>
@@ -55,8 +55,17 @@ static void avlnode_init(avlnode_t *node,
 static avlnode_t *avlnode_new(avltree_t *avl,
 			      avlnode_t *left, int left_tag,
 			      avlnode_t *right, int right_tag);
+static void avlnode_delete(avltree_t *avl, avlnode_t *node);
 
-void
+#define AVL_MAX_HEIGHT 32
+
+/*--------------------------------------------------------------------
+ * container ops
+ */
+
+DEFINE_C_OPS(avltree);
+
+static void
 avltree_init(void *c, void *info)
 {
 	avltree_t *avl = (avltree_t *) c;
@@ -66,28 +75,47 @@ avltree_init(void *c, void *info)
 	avl->count = 0;
 }
 
-static
-FOREACH_CB_FUN(destroy_cb, p, ap)
-{
-	avltree_t *avl = va_arg(ap, avltree_t *);
-
-	if (avl->info->e_destroy)
-		avl->info->e_destroy(p);
-	mem_free(p);
-	return NULL;
-}
-
-void
+static void
 avltree_destroy(void *c)
 {
-	c_foreach(c, destroy_cb, c);
+	avltree_t *avl = (avltree_t *) c;
+	avlnode_t *curr = avl->root.link[0];
+
+	avlnode_t *an[AVL_MAX_HEIGHT];
+	char ab[AVL_MAX_HEIGHT];
+	int ap = 0;
+
+	if (curr == &avl->root)
+		return;
+
+	for (;;) {
+		while (curr != NULL) {
+			ab[ap] = 0;
+			an[ap++] = curr;
+			curr = LEFT(curr);
+		}
+
+		for (; ;) {
+			if (ap == 0)
+				goto done;
+
+			curr = an[--ap];
+
+			if (ab[ap] == 0) {
+				ab[ap++] = 1;
+				if (RTAG(curr) == TAG_THREAD)
+					continue;
+				curr = RIGHT(curr);
+				break;
+			}
+
+			avlnode_delete(avl, curr);
+		}
+	}
+
+done:
+	;
 }
-
-/*--------------------------------------------------------------------
- * container ops
- */
-
-DEFINE_C_OPS(avltree);
 
 static void
 avltree_erase(void *c)
@@ -95,6 +123,8 @@ avltree_erase(void *c)
 	avltree_t *avl = (avltree_t *) c;
 
 	avltree_destroy(avl);
+
+	avlnode_init(&avl->root, NULL, TAG_TREE, &avl->root, TAG_TREE);
 	avl->count = 0;
 }
 
@@ -334,8 +364,6 @@ avltree_add(void *c, const void *k, int flags)
 	return GET_DATA(next);
 }
 
-#define AVL_MAX_HEIGHT 32
-
 void
 avltree_delete(void *c, const void *key)
 {
@@ -347,7 +375,6 @@ avltree_delete(void *c, const void *key)
 
 	avlnode_t *curr;
 	avlnode_t **q;
-	void *p;
 
 	curr = avl->root.link[0];
 	if (curr == NULL)
@@ -471,10 +498,7 @@ avltree_delete(void *c, const void *key)
 	 * call e_destroy() and free memory
 	 */
 	avl->count--;
-	p = GET_DATA(curr);
-	if (avl->info->e_destroy != NULL)
-		avl->info->e_destroy(p);
-	mem_free(p);
+	avlnode_delete(avl, curr);
 
 	/*
 	 * fixup balance
@@ -696,4 +720,13 @@ avlnode_new(avltree_t *avl,
 	avlnode_init(node, left, left_tag, right, right_tag);
 
 	return node;
+}
+
+static void
+avlnode_delete(avltree_t *avl, avlnode_t *node)
+{
+	void *p = GET_DATA(node);
+	if (avl->info->e_destroy != NULL)
+		avl->info->e_destroy(p);
+	mem_free(p);
 }

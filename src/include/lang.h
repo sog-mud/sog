@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.h,v 1.25 2001-09-12 19:42:34 fjoe Exp $
+ * $Id: lang.h,v 1.26 2001-09-13 16:21:51 fjoe Exp $
  */
 
 #ifndef _LANG_H_
@@ -53,8 +53,8 @@ struct rule_t {
 					/* of the word for implicit rules    */
 };
 
-void	rule_init(rule_t*);
-void	rule_destroy(rule_t*);
+void	rule_init(rule_t *);
+void	rule_destroy(rule_t *);
 
 void	rule_form_add	(rule_t *r, size_t fnum, const char *s);
 void	rule_form_del	(rule_t *r, size_t fnum);
@@ -116,13 +116,11 @@ struct lang_t {
 extern varr	langs;
 extern varrdata_t v_langs;
 
-void	lang_init(lang_t *);
-
 lang_t	*lang_lookup(const char*);
 lang_t	*lang_nlookup(const char*, size_t len);
 
-extern hash_t msgdb;
-extern hashdata_t h_msgdb;
+extern avltree_t msgdb;
+extern avltree_info_t c_info_msgdb;
 
 #define msg_lookup(m)	((mlstring *) c_strkey_lookup(&msgdb, (m)))
 

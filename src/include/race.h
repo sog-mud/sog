@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.h,v 1.35 2001-09-12 19:42:36 fjoe Exp $
+ * $Id: race.h,v 1.36 2001-09-13 16:21:54 fjoe Exp $
  */
 
 #ifndef _RACE_H_
@@ -80,17 +80,13 @@ struct rclass_t {
 	int		mult;		/* exp multiplier */
 };
 
-extern hash_t races;
-extern hashdata_t h_races;
+extern avltree_t races;
+extern avltree_info_t c_info_races;
 
 #define race_lookup(rn)	((race_t*) c_strkey_lookup(&races, (rn)))
 #define race_search(rn) ((race_t*) c_strkey_search(&races, (rn)))
 
 #define IS_RACE(r1, r2)		(!str_cmp((r1), (r2)))
-
-void	race_init	(race_t *r);
-race_t *race_cpy	(race_t *dst, const race_t *src);
-void	race_destroy	(race_t *r);
 
 pcrace_t *	pcrace_new(void);
 pcrace_t *	pcrace_dup(pcrace_t*);

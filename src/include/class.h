@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.h,v 1.33 2001-09-12 19:42:33 fjoe Exp $
+ * $Id: class.h,v 1.34 2001-09-13 16:21:49 fjoe Exp $
  */
 
 #ifndef _CLASS_H_
@@ -65,12 +65,8 @@ struct pose_t {
 #define CLASS_CLOSED		(C)	/* Closed for players */
 #define CLASS_CHANGED		(Z)	/* OLC internal flag */
 
-extern hash_t classes;
-extern hashdata_t h_classes;
-
-void	class_init	(class_t *cl);
-class_t *class_cpy	(class_t *dst, const class_t *src);
-void	class_destroy	(class_t *cl);
+extern avltree_t classes;
+extern avltree_info_t c_info_classes;
 
 #define class_lookup(cn)	((class_t*) c_strkey_lookup(&classes, (cn)))
 #define class_search(cn)	((class_t*) c_strkey_search(&classes, (cn)))

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_class.c,v 1.33 2001-09-13 12:03:00 fjoe Exp $
+ * $Id: olc_class.c,v 1.34 2001-09-13 16:22:11 fjoe Exp $
  */
 
 #include "olc.h"
@@ -251,7 +251,7 @@ OLC_FUN(classed_show)
 OLC_FUN(classed_list)
 {
 	BUFFER *buffer = buf_new(0);
-	strkey_printall(&classes, buffer);
+	c_strkey_dump(&classes, buffer);
 	page_to_char(buf_string(buffer), ch);
 	buf_free(buffer);
 	return FALSE;

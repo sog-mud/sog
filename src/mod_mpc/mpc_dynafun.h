@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_dynafun.h,v 1.9 2001-09-12 12:49:07 fjoe Exp $
+ * $Id: mpc_dynafun.h,v 1.10 2001-09-13 16:22:08 fjoe Exp $
  */
 
 #ifndef _MPC_DYNAFUN_H_
@@ -115,6 +115,12 @@ DECLARE_FUN1(CHAR_DATA, get_random_fighting,
 DECLARE_FUN1(int, char_gold,
 	     ARG(CHAR_DATA), ch)
 DECLARE_FUN1(int, char_silver,
+	     ARG(CHAR_DATA), ch)
+DECLARE_FUN1(cchar_t, char_race,
+	     ARG(CHAR_DATA), ch)
+DECLARE_FUN1(int, obj_vnum,
+	     ARG(OBJ_DATA), obj)
+DECLARE_FUN1(int, char_size,
 	     ARG(CHAR_DATA), ch)
 
 __MODULE_END_DECL

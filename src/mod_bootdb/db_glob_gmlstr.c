@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_glob_gmlstr.c,v 1.4 2001-09-13 12:02:51 fjoe Exp $
+ * $Id: db_glob_gmlstr.c,v 1.5 2001-09-13 16:21:59 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -45,7 +45,7 @@ DBDATA db_glob_gmlstr = { dbfun_glob_gmlstr, init_glob_gmlstr, 0 };
 DBINIT_FUN(init_glob_gmlstr)
 {
 	if (!DBDATA_VALID(dbdata))
-		c_init(&glob_gmlstr, &h_glob_gmlstr);
+		c_init(&glob_gmlstr, &c_info_gmlstr);
 }
 
 DBLOAD_FUN(load_glob_gmlstr)

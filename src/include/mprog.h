@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mprog.h,v 1.6 2001-09-12 19:42:36 fjoe Exp $
+ * $Id: mprog.h,v 1.7 2001-09-13 16:21:53 fjoe Exp $
  */
 
 #ifndef _MPROG_H_
@@ -63,12 +63,8 @@ struct mprog_t {
 	BUFFER *errbuf;		/**< buffer for error messages		*/
 };
 
-extern hash_t mprogs;
-extern hashdata_t h_mprogs;
-
-void mprog_init(mprog_t *);
-void mprog_destroy(mprog_t *);
-mprog_t *mprog_cpy(mprog_t *dst, const mprog_t *src);
+extern avltree_t mprogs;
+extern avltree_info_t c_info_mprogs;
 
 #define mprog_lookup(name)	((mprog_t *) c_lookup(&mprogs, (name)))
 #define mprog_search(name)	((mprog_t *) c_strkey_search(&mprogs, (name)))

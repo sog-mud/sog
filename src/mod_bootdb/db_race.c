@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_race.c,v 1.40 2001-09-13 12:02:52 fjoe Exp $
+ * $Id: db_race.c,v 1.41 2001-09-13 16:21:59 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -51,7 +51,7 @@ DBINIT_FUN(init_race)
 	if (DBDATA_VALID(dbdata))
 		db_set_arg(dbdata, "PCRACE", NULL);
 	else
-		c_init(&races, &h_races);
+		c_init(&races, &c_info_races);
 }
 
 DBLOAD_FUN(load_race)

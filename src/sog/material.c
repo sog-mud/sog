@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: material.c,v 1.9 2001-09-12 19:43:18 fjoe Exp $
+ * $Id: material.c,v 1.10 2001-09-13 16:22:22 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -31,23 +31,9 @@
 
 #include <merc.h>
 
-hash_t materials;
+avltree_t materials;
 
-hashdata_t h_materials =
-{
-	&hash_ops,
-
-	sizeof(material_t), 1,
-	(e_init_t) material_init,
-	(e_destroy_t) material_destroy,
-	(e_cpy_t) material_cpy,
-
-	STRKEY_HASH_SIZE,
-	k_hash_str,
-	ke_cmp_str
-};
-
-void
+static void
 material_init(material_t *mat)
 {
 	mat->name = str_empty;
@@ -56,21 +42,21 @@ material_init(material_t *mat)
 	mat->mat_flags = 0;
 }
 
-material_t *
-material_cpy(material_t *dst, const material_t *src)
-{
-	dst->name = str_qdup(src->name);
-	dst->float_time = src->float_time;
-	dst->dam_class = src->dam_class;
-	dst->mat_flags = src->mat_flags;
-	return dst;
-}
-
-void
+static void
 material_destroy(material_t *mat)
 {
 	free_string(mat->name);
 }
+
+avltree_info_t c_info_materials =
+{
+	&avltree_ops,
+
+	(e_init_t) material_init,
+	(e_destroy_t) material_destroy,
+
+	MT_PVOID, sizeof(material_t), ke_cmp_str
+};
 
 bool
 material_is(OBJ_DATA *obj, flag_t flag)

@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.168 2001-09-12 19:43:21 fjoe Exp $
+ * $Id: tables.c,v 1.169 2001-09-13 16:22:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1507,7 +1507,7 @@ flaginfo_t mt_types[] =
 	{ "const char **",	MT_PCCHAR,			FALSE	},
 	{ "char *",		MT_PCHAR,			FALSE	},
 	{ "gmlstr_t *",		MT_GMLSTR,			FALSE	},
-	{ "mlstring *",		MT_MLSTRING,			FALSE	},
+	{ "mlstring *",		MT_MLSTR,			FALSE	},
 	{ "int *",		MT_PINT,			FALSE	},
 	{ "spec_skill_t *",	MT_SPEC_SKILL,			FALSE	},
 	{ "uint",		MT_UINT,			FALSE	},

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_spec.c,v 1.17 2001-09-13 12:03:02 fjoe Exp $
+ * $Id: olc_spec.c,v 1.18 2001-09-13 16:22:15 fjoe Exp $
  */
 
 #include "olc.h"
@@ -194,7 +194,7 @@ OLC_FUN(speced_show)
 OLC_FUN(speced_list)
 {
 	BUFFER	*buffer = buf_new(0);
-	strkey_printall(&specs, buffer);
+	c_strkey_dump(&specs, buffer);
 	page_to_char(buf_string(buffer), ch);
 	buf_free(buffer);
 	return FALSE;

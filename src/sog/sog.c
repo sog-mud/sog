@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.c,v 1.3 2001-09-12 19:43:20 fjoe Exp $
+ * $Id: sog.c,v 1.4 2001-09-13 16:22:24 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -57,27 +57,21 @@ static void	gettimeofday(struct timeval *tp, void *tzp);
 #endif
 
 static varrdata_t v_control_sockets = {
-	&varr_ops,
+	&varr_ops, NULL, NULL,
 
-	sizeof(int), 2,
-
-	NULL, NULL, NULL
+	sizeof(int), 2
 };
 
 static varrdata_t v_info_sockets = {
-	&varr_ops,
+	&varr_ops, NULL, NULL,
 
-	sizeof(int), 2,
-
-	NULL, NULL, NULL
+	sizeof(int), 2
 };
 
 static varrdata_t v_info_trusted = {
-	&varr_ops,
+	&varr_ops, NULL, NULL,
 
-	sizeof(struct in_addr), 2,
-
-	NULL, NULL, NULL
+	sizeof(struct in_addr), 2
 };
 
 varr	control_sockets;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: liquid.h,v 1.10 2001-09-12 19:42:35 fjoe Exp $
+ * $Id: liquid.h,v 1.11 2001-09-13 16:21:52 fjoe Exp $
  */
 
 #ifndef _LIQUID_H_
@@ -38,12 +38,8 @@ struct liquid_t
 	int		sip;
 };
 
-extern hash_t liquids;
-extern hashdata_t h_liquids;
-
-void		liquid_init	(liquid_t *sk);
-liquid_t *	liquid_cpy	(liquid_t *dst, const liquid_t *src);
-void		liquid_destroy	(liquid_t *sk);
+extern avltree_t liquids;
+extern avltree_info_t c_info_liquids;
 
 #define liquid_lookup(ln)	((liquid_t*) c_mlstrkey_lookup(&liquids, (ln)))
 #define liquid_search(ln)	((liquid_t*) c_mlstrkey_search(&liquids, (ln)))

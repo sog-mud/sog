@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_cmd.c,v 1.22 2001-09-12 19:43:00 fjoe Exp $
+ * $Id: olc_cmd.c,v 1.23 2001-09-13 16:22:11 fjoe Exp $
  */
 
 #include "olc.h"
@@ -301,7 +301,7 @@ OLC_FUN(cmded_minlevel)
 OLC_FUN(cmded_move)
 {
 	cmd_t *cmnd;
-	cmd_t ncmnd;
+	cmd_t ncmd;
 	char arg[MAX_INPUT_LENGTH];
 	int num, num2;
 
@@ -327,26 +327,10 @@ OLC_FUN(cmded_move)
 		return FALSE;
 	}
 
-	ncmnd.name		= str_qdup(cmnd->name);
-	ncmnd.dofun_name	= str_qdup(cmnd->dofun_name);
-	ncmnd.do_fun		= cmnd->do_fun;
-	ncmnd.cmd_mod		= cmnd->cmd_mod;
-	ncmnd.cmd_log		= cmnd->cmd_log;
-	ncmnd.cmd_flags		= cmnd->cmd_flags;
-	ncmnd.min_pos		= cmnd->min_pos;
-	ncmnd.min_level		= cmnd->min_level;
-
-	varr_edelete(&commands, cmnd);
+	ncmd = *cmnd;
+	varr_edelete(&commands, cmnd);	/* XXX VARR */
 	cmnd = (cmd_t *) varr_insert(&commands, num);
-
-	cmnd->name		= ncmnd.name;
-	cmnd->dofun_name	= ncmnd.dofun_name;
-	cmnd->do_fun		= ncmnd.do_fun;
-	cmnd->cmd_mod		= ncmnd.cmd_mod;
-	cmnd->cmd_log		= ncmnd.cmd_log;
-	cmnd->cmd_flags		= ncmnd.cmd_flags;
-	cmnd->min_pos		= ncmnd.min_pos;
-	cmnd->min_level		= ncmnd.min_level;
+	*cmnd = ncmd;
 
 	ch->desc->pEdit	= cmnd;
 	act_puts("CmdEd: '$T' moved to $j position.",

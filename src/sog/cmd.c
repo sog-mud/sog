@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cmd.c,v 1.22 2001-09-12 19:43:16 fjoe Exp $
+ * $Id: cmd.c,v 1.23 2001-09-13 16:22:20 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -39,18 +39,7 @@
 
 varr commands;
 
-varrdata_t v_commands =
-{
-	&varr_ops,
-
-	sizeof(cmd_t), 16,
-
-	(e_init_t) cmd_init,
-	(e_destroy_t) cmd_destroy,
-	(e_cpy_t) cmd_cpy
-};
-
-void
+static void
 cmd_init(cmd_t *cmd)
 {
 	cmd->name = str_empty;
@@ -63,26 +52,22 @@ cmd_init(cmd_t *cmd)
 	cmd->do_fun = NULL;
 }
 
-void
+static void
 cmd_destroy(cmd_t *cmd)
 {
 	free_string(cmd->name);
 	free_string(cmd->dofun_name);
 }
 
-cmd_t *
-cmd_cpy(cmd_t *dst, cmd_t *src)
+varrdata_t v_commands =
 {
-	dst->name =		str_qdup(src->name);
-	dst->dofun_name =	str_qdup(src->dofun_name);
-	dst->min_pos =		src->min_pos;
-	dst->min_level =	src->min_level;
-	dst->cmd_log =		src->cmd_log;
-	dst->cmd_flags =	src->cmd_flags;
-	dst->cmd_mod =		src->cmd_mod;
-	dst->do_fun =		src->do_fun;
-	return dst;
-}
+	&varr_ops,
+
+	(e_init_t) cmd_init,
+	(e_destroy_t) cmd_destroy,
+
+	sizeof(cmd_t), 16
+};
 
 void *
 cmd_load_cb(void *p, va_list ap)

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_bootdb.c,v 1.10 2001-09-13 12:02:54 fjoe Exp $
+ * $Id: init_bootdb.c,v 1.11 2001-09-13 16:22:00 fjoe Exp $
  */
 
 #include <sys/stat.h>
@@ -114,7 +114,7 @@ load_msgdb(void)
 	rfile_t *fp;
 	mlstring ml;
 
-	c_init(&msgdb, &h_msgdb);
+	c_init(&msgdb, &c_info_msgdb);
 
 	line_number = 0;
 	snprintf(bootdb_filename, sizeof(bootdb_filename), "%s%c%s",
@@ -243,7 +243,7 @@ load_mprogs()
 	DIR *dirp;
 	char mask[PATH_MAX];
 
-	c_init(&mprogs, &h_mprogs);
+	c_init(&mprogs, &c_info_mprogs);
 
 	if ((dirp = opendir(MPC_PATH)) == NULL) {
 		log(LOG_ERROR, "load_mprogs: %s: %s",

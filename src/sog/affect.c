@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: affect.c,v 1.66 2001-09-13 12:03:07 fjoe Exp $
+ * $Id: affect.c,v 1.67 2001-09-13 16:22:19 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -126,22 +126,6 @@ aff_free_list(AFFECT_DATA *paf)
 		paf_next = paf->next;
 		aff_free(paf);
 	}
-}
-
-void
-saff_init(saff_t *sa)
-{
-	sa->sn = str_empty;
-	sa->type = str_empty;
-	sa->mod = 0;
-	sa->bit = 0;
-}
-
-void
-saff_destroy(saff_t *sa)
-{
-	free_string(sa->sn);
-	free_string(sa->type);
 }
 
 where_t where_table[] =

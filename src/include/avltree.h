@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: avltree.h,v 1.2 2001-09-12 19:42:32 fjoe Exp $
+ * $Id: avltree.h,v 1.3 2001-09-13 16:21:48 fjoe Exp $
  */
 
 #ifndef _AVL_TREE_H_
@@ -34,13 +34,12 @@ extern c_ops_t avltree_ops;
 struct avltree_info_t {
 	c_ops_t *ops;		/**< container ops			*/
 
+	e_init_t e_init;	/**< init elem				*/
+	e_destroy_t e_destroy;	/**< destroy elem			*/
+
 	int type_tag;		/**< type tag				*/
 	size_t esize;		/**< elem size				*/
 	ke_cmp_t ke_cmp;	/**< key vs. elem compare		*/
-
-	e_init_t e_init;	/**< init elem				*/
-	e_destroy_t e_destroy;	/**< destroy elem			*/
-	e_cpy_t e_cpy;		/**< copy elem				*/
 };
 
 struct avlnode_t {
@@ -58,8 +57,5 @@ struct avltree_t {
 	avlnode_t root;		/**< tree root				*/
 	int count;		/**< number of elems			*/
 };
-
-void avltree_init(void *avl, void *info);
-void avltree_destroy(void *avl);
 
 #endif /* _AVL_TREE_H_ */

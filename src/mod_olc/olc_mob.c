@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.85 2001-09-09 09:46:46 kostik Exp $
+ * $Id: olc_mob.c,v 1.86 2001-09-13 16:22:13 fjoe Exp $
  */
 
 #include "olc.h"
@@ -462,7 +462,7 @@ OLC_FUN(mobed_damtype)
 
 	if (!str_cmp(arg, "?")) {
 		BUFFER *output = buf_new(0);
-		strkey_printall(&damtypes, output);
+		c_strkey_dump(&damtypes, output);
 		page_to_char(buf_string(output), ch);
 		buf_free(output);
 		return FALSE;
@@ -907,7 +907,7 @@ OLC_FUN(mobed_race)
 	if (argument[0] == '?') {
 		BUFFER *buf = buf_new(0);
 		buf_append(buf, "Available races are:\n");
-		strkey_printall(&races, buf);
+		c_strkey_dump(&races, buf);
 		page_to_char(buf_string(buf), ch);
 		buf_free(buf);
 		return FALSE;

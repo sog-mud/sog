@@ -23,13 +23,13 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: update_impl.h,v 1.4 2001-09-12 19:43:13 fjoe Exp $
+ * $Id: update_impl.h,v 1.5 2001-09-13 16:22:18 fjoe Exp $
  */
 
 #ifndef _UPDATE_IMPL_H_
 #define _UPDATE_IMPL_H_
 
-extern hash_t	uhandlers;
+extern avltree_t	uhandlers;
 
 typedef void (*update_fun_t)(void);
 
@@ -53,10 +53,6 @@ struct uhandler_t {
 
 #define uhandler_lookup(ln) ((uhandler_t*) c_strkey_lookup(&uhandlers, (ln)))
 #define uhandler_search(ln) ((uhandler_t*) c_strkey_search(&uhandlers, (ln)))
-
-void		uhandler_init(uhandler_t *hdlr);
-void		uhandler_destroy(uhandler_t *hdlr);
-uhandler_t *	uhandler_cpy(uhandler_t *dest, uhandler_t *src);
 
 void		update_register(module_t *m);
 void		update_unregister(void);

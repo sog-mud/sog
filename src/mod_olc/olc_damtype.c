@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_damtype.c,v 1.10 2001-09-13 12:03:00 fjoe Exp $
+ * $Id: olc_damtype.c,v 1.11 2001-09-13 16:22:12 fjoe Exp $
  */
 
 /*
@@ -221,7 +221,7 @@ OLC_FUN(damted_list)
 	BUFFER	*buffer;
 
 	buffer = buf_new(0);
-	strkey_printall(&damtypes, buffer);
+	c_strkey_dump(&damtypes, buffer);
 	page_to_char(buf_string(buffer), ch);
 	buf_free(buffer);
 	return FALSE;

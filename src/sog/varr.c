@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.c,v 1.35 2001-09-13 12:03:11 fjoe Exp $
+ * $Id: varr.c,v 1.36 2001-09-13 16:22:26 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -40,46 +40,6 @@
 /*
  * Variable size array implementation
  */
-
-void
-varr_init(void *c, void *v_data)
-{
-	varr *v = (varr *) c;
-
-	v->p = NULL;
-	v->nused = 0;
-	v->nalloc = 0;
-	v->v_data = v_data;
-}
-
-static
-FOREACH_CB_FUN(varr_cpy_cb, p, ap)
-{
-	varr *v = va_arg(ap, varr *);
-	int *pi = va_arg(ap, int *);
-
-	if (v->v_data->e_cpy)
-		v->v_data->e_cpy(VARR_GET(v, (*pi)++), p);
-	else
-		memcpy(VARR_GET(v, (*pi)++), p, v->v_data->nsize);
-	return NULL;
-}
-
-varr *
-varr_cpy(varr *dst, const varr *src)
-{
-	dst->nused = src->nused;
-	dst->nalloc = src->nalloc;
-	dst->v_data = src->v_data;
-
-	dst->p = malloc(dst->v_data->nsize * dst->nalloc);
-	if (dst->v_data->e_cpy) {
-		int i = 0;
-		c_foreach((varr *)(uintptr_t) src, varr_cpy_cb, dst, &i);
-	} else
-		memcpy(dst->p, src->p, dst->v_data->nsize * dst->nused);
-	return dst;
-}
 
 void *
 varr_touch(varr *v, size_t i)
@@ -292,7 +252,18 @@ varr_arnforeach(const varr *v, size_t from, foreach_cb_t cb, va_list ap)
 
 DEFINE_C_OPS(varr);
 
-void
+static void
+varr_init(void *c, void *v_data)
+{
+	varr *v = (varr *) c;
+
+	v->p = NULL;
+	v->nused = 0;
+	v->nalloc = 0;
+	v->v_data = v_data;
+}
+
+static void
 varr_destroy(void *c)
 {
 	varr *v = (varr *) c;

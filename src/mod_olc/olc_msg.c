@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.56 2001-09-13 12:03:01 fjoe Exp $
+ * $Id: olc_msg.c,v 1.57 2001-09-13 16:22:13 fjoe Exp $
  */
 
 #include "olc.h"
@@ -153,11 +153,9 @@ msged_save_cb(void *p, va_list ap)
 }
 
 static varrdata_t v_msgdb = {
-	&varr_ops,
+	&varr_ops, NULL, NULL,
 
-	sizeof(const char *), 64,
-
-	NULL, NULL, NULL
+	sizeof(const char *), 64
 };
 
 OLC_FUN(msged_save)
@@ -173,11 +171,11 @@ OLC_FUN(msged_save)
 	if ((fp = olc_fopen(ETC_PATH, MSGDB_FILE, ch, SECURITY_MSGDB)) == NULL)
 		return FALSE;
 
-	varr_init(&v, &v_msgdb);
+	c_init(&v, &v_msgdb);
 	c_foreach(&msgdb, msged_add_cb, &v);
 	varr_qsort(&v, cscmpstr);
 	c_foreach(&v, msged_save_cb, fp);
-	varr_destroy(&v);
+	c_destroy(&v);
 
 	fprintf(fp, "$~\n");
 	fclose(fp);

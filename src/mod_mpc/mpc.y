@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.37 2001-09-13 12:02:57 fjoe Exp $
+ * $Id: mpc.y,v 1.38 2001-09-13 16:22:06 fjoe Exp $
  */
 
 /*
@@ -49,13 +49,11 @@
 
 #include <typedef.h>
 #include <varr.h>
-#include <hash.h>
 #include <container.h>
 #include <avltree.h>
 #include <dynafun.h>
 #include <memalloc.h>
 #include <buffer.h>
-#include <strkey_hash.h>
 #include <log.h>
 #include <util.h>
 #include <flag.h>
@@ -1122,141 +1120,27 @@ mpc_error(mpcode_t *mpc, const char *errmsg)
 
 avltree_t glob_syms;
 
-void
+static void
 sym_init(sym_t *sym)
 {
 	sym->name = NULL;
 	sym->type = SYM_KEYWORD;
 }
 
-void
+static void
 sym_destroy(sym_t *sym)
 {
 	free_string(sym->name);
 }
 
-sym_t *
-sym_cpy(sym_t *dst, const sym_t *src)
-{
-	dst->name = str_qdup(src->name);
-	dst->type = src->type;
-	dst->s = src->s;
-	return dst;
-}
-
-varrdata_t v_swjumps = {
-	&varr_ops,
-
-	sizeof(swjump_t), 4,
-
-	NULL, NULL, NULL
-};
-
-static void
-jumptab_init(varr *v)
-{
-	c_init(v, &v_swjumps);
-}
-
-varrdata_t v_ints = {
-	&varr_ops,
-
-	sizeof(int), 8,
-
-	NULL, NULL, NULL
-};
-
-varrdata_t v_jumptabs = {
-	&varr_ops,
-
-	sizeof(varr), 4,
-
-	(e_init_t) jumptab_init,
-	(e_destroy_t) varr_destroy,
-	(e_cpy_t ) varr_cpy
-};
-
-varrdata_t v_iterdata = {
-	&varr_ops,
-
-	sizeof(iterdata_t), 4,
-
-	NULL, NULL, NULL
-};
-
-avltree_info_t avltree_info_strings = {
+avltree_info_t c_info_syms = {
 	&avltree_ops,
-
-	MT_PVOID, sizeof(char *), ke_cmp_csstr,
-
-	strkey_init,
-	strkey_destroy,
-	strkey_cpy
-};
-
-avltree_info_t avltree_info_syms = {
-	&avltree_ops,
-
-	MT_PVOID, sizeof(sym_t), ke_cmp_csstr,
 
 	(e_init_t) sym_init,
 	(e_destroy_t) sym_destroy,
-	(e_cpy_t) sym_cpy
+
+	MT_PVOID, sizeof(sym_t), ke_cmp_csstr,
 };
-
-varrdata_t v_vos = {
-	&varr_ops,
-
-	sizeof(vo_t), 4,
-
-	NULL, NULL, NULL
-};
-
-void
-mpcode_init(mpcode_t *mpc)
-{
-	mpc->name = str_empty;
-	mpc->mp = NULL;
-	mpc->lineno = 0;
-
-	c_init(&mpc->strings, &avltree_info_strings);
-	c_init(&mpc->syms, &avltree_info_syms);
-
-	c_init(&mpc->cstack, &v_ints);
-	c_init(&mpc->args, &v_ints);
-	mpc->curr_block = 0;
-
-	mpc->curr_jumptab = -1;
-	mpc->curr_break_addr = INVALID_ADDR;
-	mpc->curr_continue_addr = INVALID_ADDR;
-
-	mpc->ip = 0;
-	c_init(&mpc->code, &v_ints);
-
-	c_init(&mpc->jumptabs, &v_jumptabs);
-	c_init(&mpc->iterdata, &v_iterdata);
-
-	c_init(&mpc->data, &v_vos);
-}
-
-void
-mpcode_destroy(mpcode_t *mpc)
-{
-	free_string(mpc->name);
-
-	c_destroy(&mpc->strings);
-	c_destroy(&mpc->syms);
-
-	c_destroy(&mpc->cstack);
-	c_destroy(&mpc->args);
-
-	c_destroy(&mpc->code);
-
-	c_destroy(&mpc->jumptabs);
-	c_destroy(&mpc->iterdata);
-
-	c_destroy(&mpc->data);
-}
 
 static
 FOREACH_CB_FUN(print_swjump_cb, p, ap)

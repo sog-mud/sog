@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_form.c,v 1.16 2001-09-13 12:02:51 fjoe Exp $
+ * $Id: db_form.c,v 1.17 2001-09-13 16:21:58 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -48,7 +48,7 @@ DBDATA db_forms = { dbfun_forms, init_form, 0 };
 DBINIT_FUN(init_form)
 {
 	if (!DBDATA_VALID(dbdata))
-		c_init(&forms, &h_forms);
+		c_init(&forms, &c_info_forms);
 }
 
 DBLOAD_FUN(load_form)

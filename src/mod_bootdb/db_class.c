@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_class.c,v 1.41 2001-09-13 12:02:50 fjoe Exp $
+ * $Id: db_class.c,v 1.42 2001-09-13 16:21:58 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -52,7 +52,7 @@ DBINIT_FUN(init_class)
 	if (DBDATA_VALID(dbdata))
 		db_set_arg(dbdata, "POSE", NULL);
 	else
-		c_init(&classes, &h_classes);
+		c_init(&classes, &c_info_classes);
 }
 
 DBLOAD_FUN(load_class)

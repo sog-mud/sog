@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_auction.c,v 1.4 2001-09-12 19:42:41 fjoe Exp $
+ * $Id: init_auction.c,v 1.5 2001-09-13 16:21:56 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -31,7 +31,6 @@
 #include <typedef.h>
 #include <memalloc.h>
 #include <varr.h>
-#include <hash.h>
 #include <cmd.h>
 #include <module.h>
 #include <container.h>

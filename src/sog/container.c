@@ -23,11 +23,12 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: container.c,v 1.2 2001-09-13 12:03:08 fjoe Exp $
+ * $Id: container.c,v 1.3 2001-09-13 16:22:21 fjoe Exp $
  */
 
 #include <stdio.h>
 
+#include <ctype.h>
 #include <typedef.h>
 #include <buffer.h>
 #include <container.h>
@@ -39,8 +40,6 @@
 
 static DECLARE_FOREACH_CB_FUN(str_search_cb);
 static DECLARE_FOREACH_CB_FUN(mlstr_search_cb);
-static DECLARE_FOREACH_CB_FUN(str_dump_cb);
-static DECLARE_FOREACH_CB_FUN(mlstr_dump_cb);
 
 void *
 c_foreach(void *c, foreach_cb_t cb, ...)
@@ -54,6 +53,85 @@ c_foreach(void *c, foreach_cb_t cb, ...)
 
 	return rv;
 }
+
+static
+FOREACH_CB_FUN(get_nth_elem_cb, p, ap)
+{
+	int *pnum = va_arg(ap, int *);
+
+	if (!--*pnum)
+		return p;
+
+	return NULL;
+}
+
+void *
+c_random_elem_foreach(void *c)
+{
+	size_t size = c_size(c);
+	int num;
+
+	if (!size)
+		return NULL;
+
+	num = number_range(1, size);
+	return c_foreach(c, get_nth_elem_cb, &num);
+}
+
+void
+c_dump(void *c, BUFFER *buf, foreach_cb_t cb)
+{
+	int col = 0;
+	c_foreach(c, cb, buf, &col);
+	if (col % 4 != 0)
+		buf_append(buf, "\n");
+}
+
+int
+vnum_ke_cmp(const void *k, const void *e)
+{
+	return *(const int *) k - *(const int *) e;
+}
+
+void
+strkey_init(void *p)
+{
+	*(const char **) p = str_empty;
+}
+
+#if !defined(HASHTEST)
+void
+strkey_destroy(void *p)
+{
+	free_string(*(const char **) p);
+}
+#endif
+
+int
+ke_cmp_str(const void *k, const void *e)
+{
+	return str_cmp((const char *) k, *(const char * const *) e);
+}
+
+int
+ke_cmp_csstr(const void *k, const void *e)
+{
+	return str_cscmp((const char *) k, *(const char * const *) e);
+}
+
+#if !defined(HASHTEST) && !defined(MPC)
+int
+ke_cmp_mlstr(const void *k, const void *e)
+{
+	return str_cmp((const char *) k, mlstr_mval((const mlstring *) e));
+}
+
+int
+ke_cmp_csmlstr(const void *k, const void *e)
+{
+	return str_cscmp((const char *) k, mlstr_mval((const mlstring *) e));
+}
+#endif
 
 void *
 c_strkey_lookup(void *c, const char *name)
@@ -106,73 +184,13 @@ c_mlstrkey_search(void *c, const char *name)
 void
 c_strkey_dump(void *c, BUFFER *buf)
 {
-	int col = 0;
-	c_foreach(c, str_dump_cb, buf, &col);
-	if (col % 4 != 0)
-		buf_append(buf, "\n");
+	c_dump(c, buf, str_dump_cb);
 }
 
 void
 c_mlstrkey_dump(void *c, BUFFER *buf)
 {
-	int col = 0;
-	c_foreach(c, mlstr_dump_cb, buf, &col);
-	if (col % 4 != 0)
-		buf_append(buf, "\n");
-}
-
-const char *
-c_fread_strkey(const char *ctx, rfile_t *fp, void *c)
-{
-	const char *name = fread_sword(fp);
-	C_STRKEY_CHECK(ctx, c, name);
-	return name;
-}
-
-static
-FOREACH_CB_FUN(get_nth_elem_cb, p, ap)
-{
-	int *pnum = va_arg(ap, int *);
-
-	if (!--*pnum)
-		return p;
-
-	return NULL;
-}
-
-void *
-c_random_elem_foreach(void *c)
-{
-	size_t size = c_size(c);
-	int num;
-
-	if (!size)
-		return NULL;
-
-	num = number_range(1, size);
-	return c_foreach(c, get_nth_elem_cb, &num);
-}
-
-/*--------------------------------------------------------------------
- * static functions
- */
-
-FOREACH_CB_FUN(str_search_cb, p, ap)
-{
-	const char *name = va_arg(ap, const char *);
-
-	if (!str_prefix(name, *(const char **) p))
-		return p;
-
-	return NULL;
-}
-
-FOREACH_CB_FUN(mlstr_search_cb, p, ap)
-{
-	const char *key = va_arg(ap, const char *);
-	if (!str_prefix(key, mlstr_mval((mlstring *) p)))
-		return p;
-	return NULL;
+	c_dump(c, buf, mlstr_dump_cb);
 }
 
 FOREACH_CB_FUN(str_dump_cb, p, ap)
@@ -196,5 +214,66 @@ FOREACH_CB_FUN(mlstr_dump_cb, p, ap)
 		   mlstr_mval((mlstring *) p));
 	if (++(*pcol) % 4 == 0)
 		buf_append(buf, "\n");
+	return NULL;
+}
+
+const char *
+c_fread_strkey(const char *ctx, rfile_t *fp, void *c)
+{
+	const char *name = fread_sword(fp);
+	C_STRKEY_CHECK(ctx, c, name);
+	return name;
+}
+
+char *
+strkey_filename(const char *name, const char *ext)
+{
+	static char buf[2][MAX_STRING_LENGTH];
+	static int ind = 0;
+	char *p;
+
+	if (IS_NULLSTR(name))
+		return str_empty;
+
+	ind = (ind + 1) % 2;
+	for (p = buf[ind]; *name && p < buf[ind] + sizeof(buf[0]) - 1;
+				p++, name++) {
+		switch (*name) {
+		case ' ':
+		case '\t':
+			*p = '_';
+			break;
+
+		default:
+			*p = LOWER(*name);
+			break;
+		}
+	}
+
+	*p = '\0';
+	if (!IS_NULLSTR(ext))
+		strnzcat(buf[ind], sizeof(buf[ind]), ext);
+	return buf[ind];
+}
+
+/*--------------------------------------------------------------------
+ * static functions
+ */
+
+FOREACH_CB_FUN(str_search_cb, p, ap)
+{
+	const char *name = va_arg(ap, const char *);
+
+	if (!str_prefix(name, *(const char **) p))
+		return p;
+
+	return NULL;
+}
+
+FOREACH_CB_FUN(mlstr_search_cb, p, ap)
+{
+	const char *key = va_arg(ap, const char *);
+	if (!str_prefix(key, mlstr_mval((mlstring *) p)))
+		return p;
 	return NULL;
 }

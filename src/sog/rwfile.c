@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rwfile.c,v 1.23 2001-09-12 12:32:52 fjoe Exp $
+ * $Id: rwfile.c,v 1.24 2001-09-13 16:22:24 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -36,7 +36,6 @@
 #include <rwfile.h>
 #include <log.h>
 #include <varr.h>
-#include <hash.h>
 #include <str.h>
 #include <mlstring.h>
 #include <flag.h>

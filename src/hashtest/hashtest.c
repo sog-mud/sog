@@ -1,4 +1,4 @@
-/* $Id: hashtest.c,v 1.6 2001-09-12 12:32:16 fjoe Exp $ */
+/* $Id: hashtest.c,v 1.7 2001-09-13 16:21:47 fjoe Exp $ */
 #include <sys/time.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -8,7 +8,6 @@
 #include <buffer.h>
 #include <varr.h>
 #include <hash.h>
-#include <strkey_hash.h>
 
 varr v;
 hash_t h;

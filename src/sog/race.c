@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.c,v 1.32 2001-09-12 19:43:19 fjoe Exp $
+ * $Id: race.c,v 1.33 2001-09-13 16:22:23 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -31,23 +31,9 @@
 
 #include <merc.h>
 
-hash_t races;
+avltree_t races;
 
-hashdata_t h_races =
-{
-	&hash_ops,
-
-	sizeof(race_t), 1,
-	(e_init_t) race_init,
-	(e_destroy_t) race_destroy,
-	(e_cpy_t) race_cpy,
-
-	STRKEY_HASH_SIZE,
-	k_hash_str,
-	ke_cmp_str
-};
-
-void
+static void
 race_init(race_t *r)
 {
 	int i;
@@ -68,29 +54,7 @@ race_init(race_t *r)
 	r->affected = NULL;
 }
 
-race_t *
-race_cpy(race_t *dst, const race_t *src)
-{
-	int i;
-	dst->name = str_qdup(src->name);
-	dst->act = src->act;
-	dst->aff = src->aff;
-	dst->has_invis = src->has_invis;
-	dst->has_detect = src->has_detect;
-	dst->off = src->off;
-	dst->form = src->form;
-	dst->parts = src->parts;
-	dst->luck_bonus = src->luck_bonus;
-	dst->race_flags = src->race_flags;
-	dst->damtype = str_qdup(src->damtype);
-	for (i = 0; i < MAX_RESIST; i++)
-		dst->resists[i] = src->resists[i];
-	dst->race_pcdata = pcrace_dup(src->race_pcdata);
-	dst->affected = aff_dup_list(src->affected, -1);
-	return dst;
-}
-
-void
+static void
 race_destroy(race_t *r)
 {
 	free_string(r->name);
@@ -100,15 +64,24 @@ race_destroy(race_t *r)
 		pcrace_free(r->race_pcdata);
 }
 
+avltree_info_t c_info_races =
+{
+	&avltree_ops,
+
+	(e_init_t) race_init,
+	(e_destroy_t) race_destroy,
+
+	MT_PVOID, sizeof(race_t), ke_cmp_str
+};
+
 static varrdata_t v_classes =
 {
 	&varr_ops,
 
-	sizeof(rclass_t), 4,
-
 	strkey_init,
 	strkey_destroy,
-	NULL
+
+	sizeof(rclass_t), 4
 };
 
 pcrace_t *

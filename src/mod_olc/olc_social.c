@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_social.c,v 1.34 2001-09-12 19:43:04 fjoe Exp $
+ * $Id: olc_social.c,v 1.35 2001-09-13 16:22:15 fjoe Exp $
  */
 
 /* I never wanted to be
@@ -364,34 +364,10 @@ OLC_FUN(soced_move)
 		return FALSE;
 	}
 
-	social_init(&nsoc);
-
-	nsoc.name		= str_qdup(soc->name);
-	nsoc.min_pos		= soc->min_pos;
-	mlstr_cpy(&nsoc.found_char, &soc->found_char);
-	mlstr_cpy(&nsoc.found_vict, &soc->found_vict);
-	mlstr_cpy(&nsoc.found_notvict, &soc->found_notvict);
-	mlstr_cpy(&nsoc.noarg_char, &soc->noarg_char);
-	mlstr_cpy(&nsoc.noarg_room, &soc->noarg_room);
-	mlstr_cpy(&nsoc.self_char, &soc->self_char);
-	mlstr_cpy(&nsoc.self_room, &soc->self_room);
-	mlstr_cpy(&nsoc.notfound_char, &soc->notfound_char);
-	
-	varr_edelete(&socials, soc);
-	soc = (social_t *)varr_insert(&socials, num);
-
-	soc->name		= str_qdup(nsoc.name);
-	soc->min_pos		= nsoc.min_pos;
-	mlstr_cpy(&soc->found_char, &nsoc.found_char);
-	mlstr_cpy(&soc->found_vict, &nsoc.found_vict);
-	mlstr_cpy(&soc->found_notvict, &nsoc.found_notvict);
-	mlstr_cpy(&soc->noarg_char, &nsoc.noarg_char);
-	mlstr_cpy(&soc->noarg_room, &nsoc.noarg_room);
-	mlstr_cpy(&soc->self_char, &nsoc.self_char);
-	mlstr_cpy(&soc->self_room, &nsoc.self_room);
-	mlstr_cpy(&soc->notfound_char, &nsoc.notfound_char);
-
-	social_destroy(&nsoc);
+	nsoc = *soc;
+	varr_edelete(&socials, soc);	/* XXX VARR */
+	soc = (social_t *) varr_insert(&socials, num);
+	*soc = nsoc;
 
 	ch->desc->pEdit	= soc;
 	act_puts("SocEd: '$T' moved to $j position.",

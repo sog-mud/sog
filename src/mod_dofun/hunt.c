@@ -1,5 +1,5 @@
 /*
- * $Id: hunt.c,v 1.45 2001-09-13 12:02:55 fjoe Exp $
+ * $Id: hunt.c,v 1.46 2001-09-13 16:22:04 fjoe Exp $
  */
 
 /* Kak zovut sobaku Gejtsa?
@@ -190,15 +190,10 @@ struct room_d
 	int exit;
 };
 
-static hashdata_t h_room = {
-	&hash_ops,
+static avltree_info_t c_info_room = {
+	&avltree_ops, NULL, NULL,
 
-	sizeof(room_d), 32,
-	NULL, NULL, NULL,
-
-	16384,
-	vnum_hash,
-	vnum_ke_cmp
+	MT_PVOID, sizeof(room_d), vnum_ke_cmp,
 };
 
 static int
@@ -206,7 +201,7 @@ find_path(int in_room_vnum, int out_room_vnum,
 	  CHAR_DATA *ch __attribute__((unused)), int depth, int in_zone)
 {
 	room_q *q_head, *q_tail, *tmp_q;
-	hash_t x_room;
+	avltree_t x_room;
 	room_d *d_room;
 	bool thru_doors;
 	int count;
@@ -220,7 +215,7 @@ find_path(int in_room_vnum, int out_room_vnum,
 
 	startp = get_room_index(in_room_vnum);
 
-	c_init(&x_room, &h_room);
+	c_init(&x_room, &c_info_room);
 	d_room = c_insert(&x_room, &in_room_vnum);
 	d_room->vnum = in_room_vnum;
 	d_room->exit = -1;

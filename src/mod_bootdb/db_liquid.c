@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_liquid.c,v 1.18 2001-09-13 12:02:52 fjoe Exp $
+ * $Id: db_liquid.c,v 1.19 2001-09-13 16:21:59 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -48,7 +48,7 @@ DBDATA db_liquids = { dbfun_liquids, init_liquids, 0 };
 DBINIT_FUN(init_liquids)
 {
 	if (DBDATA_VALID(dbdata))
-		c_init(&liquids, &h_liquids);
+		c_init(&liquids, &c_info_liquids);
 }
 
 DBLOAD_FUN(load_liquid)

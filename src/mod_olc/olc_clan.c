@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_clan.c,v 1.52 2001-09-13 12:02:59 fjoe Exp $
+ * $Id: olc_clan.c,v 1.53 2001-09-13 16:22:11 fjoe Exp $
  */
 
 #include "olc.h"
@@ -204,7 +204,7 @@ OLC_FUN(claned_list)
 {
 	BUFFER *out = buf_new(0);
 	buf_append(out, "List of defined clans:\n");
-	strkey_printall(&clans, out);
+	c_strkey_dump(&clans, out);
 	page_to_char(buf_string(out), ch);
 	buf_free(out);
 	return FALSE;

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.299 2001-09-12 19:42:49 fjoe Exp $
+ * $Id: act_wiz.c,v 1.300 2001-09-13 16:22:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3428,7 +3428,7 @@ DO_FUN(do_mset, ch, argument)
 		if ((cl = class_search(arg3)) == NULL) {
 			BUFFER *output = buf_new(0);
 			buf_append(output, "Possible classes are:\n");
-			strkey_printall(&classes, output);
+			c_strkey_dump(&classes, output);
 			send_to_char(buf_string(output), ch);
 			buf_free(output);
 			goto cleanup;
@@ -3450,7 +3450,7 @@ DO_FUN(do_mset, ch, argument)
 		if ((cl = clan_search(arg3)) == NULL) {
 			BUFFER *output = buf_new(0);
 			buf_append(output, "Valid clan names are: ");
-			strkey_printall(&clans, output);
+			c_strkey_dump(&clans, output);
 			send_to_char(buf_string(output), ch);
 			buf_free(output);
 			goto cleanup;

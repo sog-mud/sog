@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_dynafun.c,v 1.17 2001-09-12 19:42:56 fjoe Exp $
+ * $Id: mpc_dynafun.c,v 1.18 2001-09-13 16:22:08 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -356,6 +356,24 @@ int
 char_silver(CHAR_DATA *ch)
 {
 	return ch->silver;
+}
+
+const char *
+char_race(CHAR_DATA *ch)
+{
+	return ch->race;
+}
+
+int
+obj_vnum(OBJ_DATA *obj)
+{
+	return obj->pObjIndex->vnum;
+}
+
+int
+char_size(CHAR_DATA *ch)
+{
+	return ch->size;
 }
 
 #else /* !defined(MPC) */
