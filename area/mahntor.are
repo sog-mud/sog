@@ -1675,6 +1675,15 @@ armor 0 AD
 6 6 6 0 0
 15 60 2100 P
 G none
+#2399
+snowflake снежинка~
+@eng a snowflake@rus снежинка~
+@eng The little starkling snowflake is here.@rus Ты видишь сверкающую миниатюрную снежинку (snowflake).~
+ice~
+pill 0 A
+35 'ice sphere' 'reserved' 'reserved' 'reserved'
+25 1 500 P
+G female
 #0
 
 #ROOMS
@@ -4060,14 +4069,17 @@ E 0 2392 0 4		*	a thick fur cape: around the neck (2)
 E 0 2393 0 5		*	a fur lined tunic: on the body
 E 0 2360 0 8		*	a pair of fur lined boots: on the feet
 M 0 2314 3 2352 1	* the Ice Worm (The frigid wastelands)
+G 0 2399 0		*	a snowflake
 M 0 2312 3 2354 1	* the Plains Barbarian (The frigid wastelands)
 E 0 2392 0 4		*	a thick fur cape: around the neck (2)
 E 0 2393 0 5		*	a fur lined tunic: on the body
 E 0 2360 0 8		*	a pair of fur lined boots: on the feet
 M 0 2314 3 2354 1	* the Ice Worm (The frigid wastelands)
+G 0 2399 0		*	a snowflake
 M 0 2313 3 2355 1	* the White Yeti (The frigid wastelands)
 E 0 2361 0 12		*	the white pelt of a yeti: about the shoulders
 M 0 2314 3 2356 1	* the Ice Worm (The frigid wastelands)
+G 0 2399 0		*	a snowflake
 M 0 2313 3 2357 1	* the White Yeti (The frigid wastelands)
 E 0 2361 0 12		*	the white pelt of a yeti: about the shoulders
 M 0 2312 3 2359 1	* the Plains Barbarian (The frigid wastelands)
@@ -4227,6 +4239,7 @@ S
 #OLIMITS
 O 2340 3	* a major globe of invulnerability
 O 2390 3	* gauntlets of ogre power
+O 2399 15	* a snowflake
 S
 
 #$

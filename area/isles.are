@@ -2994,7 +2994,7 @@ You have sailed into seas surrounding a rocky atoll. The surf crashes
 on the sharp jagged rocks, preventing a landing. You get the feeling you
 have been here before.
 ~
-0 Q noswim
+0 0 noswim
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -3020,7 +3020,7 @@ You have sailed into seas surrounding a rocky atoll. The surf crashes
 on the sharp jagged rocks, preventing a landing. The lagoon opens up to
 the south, and a mild current pulls you that way.
 ~
-0 Q noswim
+0 0 noswim
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -3051,7 +3051,7 @@ You have sailed into seas surrounding a rocky atoll. The surf crashes
 on the sharp jagged rocks, preventing a landing. What was that sailing
 song anyway?
 ~
-0 R noswim
+0 0 noswim
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -3077,7 +3077,7 @@ You have sailed into seas surrounding a rocky atoll. The surf crashes
 on the sharp jagged rocks, preventing a landing. There, crawling over
 the rotting carcass of a human, is a dis-Z, a rare offensive scavenger.
 ~
-0 Q noswim
+0 0 noswim
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -3103,7 +3103,7 @@ You have sailed into seas surrounding a rocky atoll. The surf crashes
 on the sharp jagged rocks, preventing a landing. All of this salt water
 is making you thirsty.
 ~
-0 R noswim
+0 0 noswim
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -3156,7 +3156,7 @@ pile sunk deep into the lagoon, and rope bridges connect all into
 a makeshift wharf. To the south are several huts on stilts, connected
 by rope bridges. The waters are calm enough to swim in here.
 ~
-0 R swim
+0 0 swim
 D0
 Out of the lagoon
 ~

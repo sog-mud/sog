@@ -763,41 +763,6 @@ A
 8 1000
 F A 19 1000 V
 G male
-#15052
-carnage dagger~
-long slim dagger "{MCarnage{x"~
-Long and slim dagger glints in the grass.~
-steel~
-weapon H AN
-dagger 14 10 stab DE
-75 50 900000 P
-A
-18 20
-A
-19 20
-G male
-#15055
-knife sacrificers~
-@eng sacrificers knife of a dark gods@rus [освященный богами тьмы нож для жертвоприношений~
-@eng Evils dark emanates from obsidian knife from the ground@rus Зловещая тьма растекается от обсидианового ножа на земле.~
-obsidian~
-weapon CEGJL ANP
-dagger 8 15 slash CDEGH
-65 0 0 P
-A
-8 2
-S 'shielding' 50 A
-S 'power word stun' 50 A
-G none
-#15060
-wand storm~
-the wand of death storm~
-The wand of death storm is here.~
-wood~
-wand CEGJLTYa AOP
-50 10 10 'sand storm' 0
-20 10 0 P
-G none
 #15101
 aqualung акваланг~
 @eng a rubber aqualung@rus ~~резиновый~~ ~~акваланг~~~

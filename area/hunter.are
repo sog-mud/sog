@@ -21,7 +21,7 @@ learned as guarding this palace for very very much amounts of gold.
 за очень большие деньги.
 ~
 beholder~
-ABJKef DFHV 0 0
+ABJKef DFHJZlmt 0 0
 92 40 2d500+25000 1d200+600 10d35+50 slash
 -77 -77 -77 -37
 ACEFKNR AB 0 0
@@ -43,7 +43,7 @@ lost your eyed sword than say to him that 'trouble'.
 ~
 human~
 ABQVae DFH 0 0
-80 0 1d1+21999 1d1+999 2d4+50 divine
+80 0 1d1+21999 1d1+999 10d20+500 divine
 -75 -75 -75 -15
 FHIK ABC D 0
 stand stand male 1000
@@ -118,9 +118,10 @@ G none
 @eng The Well@rus Колодец~
 @eng You are standing near a shiny gold well blocked by a big boulder on
 the well mouth. A golden aura fills your body.
-@rus Вы стоите возле золотого колодца, зев в который загораживает огромный валун. Золотая аура наполняет ваше тело.
+@rus Вы стоите возле золотого колодца, зев в который загораживает огромный
+валун.  Золотая аура наполняет ваше тело.  
 ~
-0 ACDK inside
+0 ADK inside
 D2
 ~
 ~
@@ -134,9 +135,10 @@ S
 @eng Bottom of the Well@rus На дне колодца~
 @eng This place is dimly lit by a flickering torch from a doorway leading north.
 The guardians are  keeping the hunters from enemies.
-@rus Через открытую северную дверь в комнату проникает немного света от мерцающего факела. Стражи охраняют охотников от вторжения врагов.
+@rus Через открытую северную дверь в комнату проникает немного света от
+мерцающего факела.  Стражи охраняют охотников от вторжения врагов.  
 ~
-0 ACDK inside
+0 ADK inside
 D0
 ~
 ~
@@ -151,7 +153,9 @@ S
 @eng You are inside well lit chamber, with golden plates on the walls. 
 All three corridors connecting this hall, proves how easy hunters can
 find their way.
-@rus Вы стоите внутри палаты, стены которой отделаны золотыми плитами. Все три коридора соединяются с этой палатой, доказывая что охотники легко могут найти нужный путь.
+@rus Вы стоите внутри палаты, стены которой отделаны золотыми плитами.  Все
+три коридора соединяются с этой палатой, доказывая что охотники легко могут
+найти нужный путь.  
 ~
 0 ADK inside
 D0
@@ -175,7 +179,8 @@ S
 @eng Main chambers of Hunt@rus Главные палаты охотников~
 @eng The room is lit by many shiny gold pieces surrounding the room. On the
 north wall is a large skin sheet with blood script on it.
-@rus Вся комната наполнена блестящими золотыми монетами, которые освещают ее. На северной стене висит кожаная табличка с кровавой надписью.
+@rus Вся комната наполнена блестящими золотыми монетами, которые освещают ее. 
+На северной стене висит кожаная табличка с кровавой надписью.  
 ~
 0 ADK inside
 D2
@@ -193,8 +198,8 @@ S
 #RESETS
 D 0 95700 5 1	* The Well: door to the down: closed
 D 0 95701 4 1	* Bottom of the Well: door to the up: closed
-M 0 95700 1 95701 1	* the guardian (Bottom of the Well)
 M 0 95702 1 95701 1	* the guardian (Bottom of the Well)
+M 0 95700 1 95701 1	* the guardian (Bottom of the Well)
 E 0 95702 0 17		*	a gray bone: held in the hands
 M 0 95701 1 95703 1	* the cleric (Main chambers of Hunt)
 O 0 95700 0 95703	* the golden sign (Main chambers of Hunt)

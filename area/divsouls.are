@@ -1198,8 +1198,8 @@ A bright red parrot perches here, mimicking your movements.
 ~
 He looks back at you.  You boggle, he boggles.  Argh..
 ~
-song bird~
-ABCG 0 0 11677
+arial~
+AGT 0 0 11677
 80 0 100d12+13500 1d10+900 15d15+20 peckb
 -50 -50 -49 -48
 CDEJ 0 J K

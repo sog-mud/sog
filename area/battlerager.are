@@ -215,9 +215,9 @@ G none
 @eng Beyond the water fall, you are in the caven. Things getting darker. You
 seek for the light but you couldn't find. But the light coming from the
 water fall still can light the enterance of the caven.
-@rus Пройдя сквозь водопад, ты оказался в пещере. Тут темно, и ты пытаешься найти
-какой-нибудь светильник, но не можешь. Однако, света, проходящего сквозь 
-водопад, достаточно для освещения входа.
+@rus Пройдя сквозь водопад, ты оказался в пещере.  Тут темно, и ты пытаешься
+найти какой-нибудь светильник, но не можешь.  Однако, света, проходящего
+сквозь водопад, достаточно для освещения входа.  
 ~
 0 KWX hills
 D1
@@ -235,7 +235,10 @@ S
 the caven more noticable. You see lots of weapon and blood tracks on the
 wall. There are several bones on the ground. You notice that the huge man
 looking over you before you moving on.
-@rus С запада в пещеру проникает немного света, который позволяет лучше рассмотреть все вокруг. Вы видите много оружия и следы крови на стенах. На полу лежит множество костей. Проход на запад загораживает возвышающийся над вами огромный богатырь.
+@rus С запада в пещеру проникает немного света, который позволяет лучше
+рассмотреть все вокруг.  Вы видите много оружия и следы крови на стенах.  На
+полу лежит множество костей.  Проход на запад загораживает возвышающийся над
+вами огромный богатырь.  
 ~
 0 KWX hills
 D1
@@ -252,7 +255,9 @@ S
 @eng In spite of the low level light, you notice that the caven continues to
 the west. You see lots of bones again on the ground. You observe that
 there seems no way from the west of the caven.
-@rus Пол пещеры покрывают кости. Вам кажется что дальше на запад дороги нет. Однако, злясь на недостаточное количество света, вы помниче что вам следут двигаться именно в этом направлении.
+@rus Пол пещеры покрывают кости.  Вам кажется что дальше на запад дороги нет. 
+Однако, злясь на недостаточное количество света, вы помните что вам следут
+двигаться именно в этом направлении.  
 ~
 0 KWX hills
 D1
@@ -270,7 +275,9 @@ S
 and one to the south. To the north you see a large white throne. To the
 south you see some clothes and weapons left on the ground. It seems that
 the south is something like a donation room.
-@rus Эта пещера имеет два выхода, на север (north) и юг (south). Далеко на севере вы видите большой белый трон. На юге лежит множество оружия. Вам кажется, что на юге находится что-то похожее на комнату для пожертвований.
+@rus Эта пещера имеет два выхода, на север (north) и юг (south).  Далеко на
+севере вы видите большой белый трон.  На юге лежит множество оружия.  Вам
+кажется, что на юге находится что-то похожее на комнату для пожертвований.  
 ~
 0 KWX hills
 D0
@@ -294,9 +301,10 @@ writing on the floor.
 Then you change your mind, and want to put some good clothing and weapon
 here for all other cabal members to strengten themselves, and to destroy
 magicians.
-@rus На полу лежит множество обмундирования и оружия. Вы видите надпись:
-       "Каждый battlerager твой брат."
-У вас появляется желание оставить несколько хороших вещей и оружия для других членов клана, чтобы они могли увеличить свою мощь и уничтожать магов.
+@rus На полу лежит множество обмундирования и оружия.  Вы видите надпись:
+"Каждый battlerager твой брат."  У вас появляется желание оставить несколько
+хороших вещей и оружия для других членов клана, чтобы они могли увеличить
+свою мощь и уничтожать магов.  
 ~
 0 KWX hills
 D0
@@ -311,7 +319,11 @@ the place where martial arts are practiced. There are four openings in
 all directions. To the east you see the continuing of bones on the floor,
 to the north you see the shrine of battleragers, to the west you see the a
 Gordall's weapon house, to the very south you see the donation room.
-@rus На полу лежит множество костей. Вы понимаете, что именно здесь мастера боевых искусств повышают свое мастерство. На востоке (east) вы также видите множество костей, на севере (north) расположена святыня клана Battlerager, на западе (west) - оружейный магазин мастера Гордалла, далеко на юге (south) находится комната для пожертвований.
+@rus На полу лежит множество костей.  Вы понимаете, что именно здесь мастера
+боевых искусств повышают свое мастерство.  На востоке (east) вы также видите
+множество костей, на севере (north) расположена святыня клана Battlerager,
+на западе (west) - оружейный магазин мастера Гордалла, далеко на юге (south)
+находится комната для пожертвований.  
 ~
 0 KWX hills
 D0
@@ -356,7 +368,9 @@ S
 probably they are the materials that Gordall use to produce his weapons.
 And to the higher portion of the wall you see the newly finished weapons,
 daggers, swords and axes.
-@rus На стенах висят куски различных металлов. Эти материалы Гордалл наиболее часто использует для изготовления оружия. Большую часть стены занимают недавно приготовленные кинжалы, мечи и топоры.
+@rus На стенах висят куски различных металлов.  Эти материалы Гордалл наиболее
+часто использует для изготовления оружия.  Большую часть стены занимают
+недавно приготовленные кинжалы, мечи и топоры.  
 ~
 0 KWX hills
 D1
@@ -370,8 +384,9 @@ S
 shelves line the walls, upon them there are many jars inside of which are
 blood and heads of magicians. 
   A stone tabled placed on the wall, here.
-@rus Перед вами находится большой белый трон, сделанный из костей. Вдоль стен тянутся полки на которых стоят кувшины, наполненные кровью и головами магов.
-На стене висит каменная табличка.
+@rus Перед вами находится большой белый трон, сделанный из костей.  Вдоль стен
+тянутся полки на которых стоят кувшины, наполненные кровью и головами магов.
+На стене висит каменная табличка.  
 ~
 0 KWX hills
 E

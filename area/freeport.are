@@ -426,7 +426,7 @@ A scruffy sailor labors here to unload crates.
 The sailor reeks of rum and the sea.
 ~
 human~
-ACEX 0 -200 0
+ACE 0 -200 0
 45 0 25d10+3000 5d5+1000 8d4+16 slash
 -15 -15 -15 2
 EFNU 0 0 0
@@ -510,7 +510,7 @@ a stain from the red wine he had this morning. There is the gravy from
 the meat he had for lunch.
 ~
 human~
-ACEX 0 0 0
+ACE 0 0 0
 8 0 2d7+96 5d5+100 1d7+2 pound
 3 3 3 8
 EFNU 0 0 0
@@ -2675,6 +2675,7 @@ S
 0
 
 #OLIMITS
+O 29202 5	* a blue lizard tongue
 O 29234 1	* the troll stone
 S
 

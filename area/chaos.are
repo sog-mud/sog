@@ -70,7 +70,7 @@ gold~
 container ORY P
 10 ABCD 95500 15 100
 60 1 20 P
-G none
+G male
 #95502
 essence chaos~
 @eng item of chaos@rus сущность хаоса~
@@ -98,6 +98,26 @@ jewelry AMTYZ AS
 0 0 0 0 0
 0 0 0 P
 G none
+#95505
+sofa софа~
+@eng sofa@rus софа~
+@eng A cloud becames a form of sofa under your look.@rus Облако приняло форму роскошного дивана (sofa) под твоим взглядом.~
+unknown~
+furniture RT P
+BD 0 EHK DGH DGH
+0 0 0 P
+E
+sofa софа диван~
+@eng The cloud is quite palpable. You get inside and suddently feel
+lightness in all your body. Outlines of room swum around, such
+you change to the mist yourself. Yes, prabably, it's really 
+suitable to sleep here!
+@rus Облако вполне осязаемо на ощупь. Ты пробуешь забраться внутрь и 
+внезапно чувствуешь легкость во всем теле. Очертания комнаты поп-
+лыли, ты словно сам превращаешься в туман. Да, пожалуй, спать 
+здесь действительно удобно!
+~
+G female
 #0
 
 #ROOMS
@@ -192,6 +212,7 @@ E 0 95500 0 17		*	a black marble key: held in the hands
 M 0 95500 1 95504 1	* a Healer (The Altar)
 O 0 95501 0 95504	* the altar (The Altar)
 P 0 95502 1 95501 1	* the altar: item of chaos
+O 0 95505 0 95504	* sofa (The Altar)
 S
 
 #MOBPROGS

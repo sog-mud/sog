@@ -639,7 +639,7 @@ Type 'heal' to see a listing of spells.
 ~
 human~
 ABQVaef DFH 1000 0
-120 10 1d1+26999 1d1+999 2d4+30 divine
+120 10 1d1+26999 1d1+999 10d20+700 divine
 -45 -45 -45 -15
 FHIK ABC D 0
 stand stand male 5000

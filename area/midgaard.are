@@ -1196,7 +1196,7 @@ the altar, and concentrating, to cure the others wounds.
 ~
 human~
 ABKQRVaef DEFHZ 1000 0
-120 0 1d1+1700 1d1+2000 7d4+50 divine
+120 0 1d1+1700 1d1+2000 10d20+500 divine
 0 0 0 0
 FG ABCD ABCD 0
 stand stand female 0
@@ -6623,6 +6623,10 @@ D3
 ~
 ~
 Z -1 3060
+D5
+~
+~
+Z 0 7009
 S
 #3062
 @eng Underground Chamber@rus Подземная комната~

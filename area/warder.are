@@ -137,6 +137,20 @@ fountain ABORY 0
 0 0 'milk' 0 0
 0 0 0 P
 G none
+#96012
+bed inflatable~
+a large inflatable bed~
+You see large inflatable bed here waiting for one pair.~
+wood~
+furniture IY AP
+EIJKN ABCDEFGHIJKLMNOPQRSTUVWXYZabcde EHKN DGH DGH
+0 1 0 P
+E
+bed~
+You look at a inflatable bed which can be large or small.
+Long black wool hides to names: Bagira and Garsen.
+~
+G none
 #0
 
 #ROOMS
@@ -373,10 +387,6 @@ O 0 96003 0 96005	* Very nice waterfall is here (Before the Last Oak)
 O 0 96004 0 96007	* Very comforable branch is here (Dark Part of the Last Oak)
 O 0 96006 0 96009	* You see small hollow here. (Silent Place)
 O 0 96011 0 96011	* cap of milk (Before the point of no return)
-S
-
-#OLIMITS
-O 96008 1	* dragon skin
 S
 
 #PRACTICERS

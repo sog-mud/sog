@@ -262,10 +262,10 @@ smile on her face.
 и ты начинаешь улыбаться вместе с ней.
 ~
 human~
-ABQ FH 1000 0
-106 0 1d1+29000 1d1+11039 4d50+80 slap
+ABQa FH 1000 0
+106 0 1d1+29000 1d1+11039 10d10+200 slap
 -99 -99 -99 -40
-KN ABINS BPQR 0
+KN ABC D 0
 stand stand female 0
 0 0 medium unknown
 #10014
@@ -2387,6 +2387,7 @@ S
 #0
 
 #SPECIALS
+M 10013 spec_cast_cleric	* a healer
 M 10017 spec_cast_cleric	* The Bone Woman
 M 10020 spec_cast_mage	* the spirit king
 M 10021 spec_breath_fire	* Scarlet

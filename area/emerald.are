@@ -1655,7 +1655,7 @@ Type HEAL for list.
 ~
 elf~
 ABGQae DHct 1000 0
-100 100 1d1+50000 1d1+10000 1d1+100 divine
+100 100 1d1+50000 1d1+10000 10d20+1000 divine
 0 0 0 0
 EFIK ABC D 0
 stand stand male 0

@@ -852,12 +852,13 @@ She serves the Goddess of Magic by uttering magic spells which
 heal and help others.
 ~
 elf~
-ABGQVaf DFH 0 0
-55 0 50d10+4500 1d1+400 5d8+14 divine
+ABGQVa DFH 0 0
+55 0 50d10+4500 1d1+400 7d7+50 divine
 -20 -20 -20 -20
 AFH ABCD 0 0
 stand stand female 2073
 0 0 medium unknown
+F vul Z
 #40151
 necromancer shopkeeper Xaixara~
 The Necromancer-Alchemist~
@@ -2208,7 +2209,7 @@ D3
 Z -1 40125
 S
 #40125
-@eng West Main Road@rus Воровская Гильдия~
+@eng West Main Road@rus Западный Проспект~
 @eng As guildhouses go, this guild is one of the richest and most lavishly
 decorated. Tapestries adorn the walls. In one corner is a marble statue
 of  a  man on a rearing horse, his blade drawn. At the tip of the blade
@@ -3656,7 +3657,7 @@ D0
 Z -1 40151
 S
 #40187
-@eng small house@rus небольшой дом~
+@eng small house@rus Небольшой дом~
 @eng A  small  one-room house is all most elves need for shelter. This one
 is nicely furnished with beds along the north wall and a fireplace with
 a nice counter nearby and butcher-block along the south wall. Above the
@@ -3665,7 +3666,7 @@ place  pots,  pans,  and other cooking vessels. The house door was left
 open because, well, the citizens of Elvenhame expect that they are safe
 here and that there is nothing to steal or harm.
 @rus Маленький  однокомнатный  дом  удовлетворяет  потребность в жилье для
-бельшинства  эльфов. Он уютно обставлен кроватями вдоль северной стены,
+большинства  эльфов. Он уютно обставлен кроватями вдоль северной стены,
 камином,  крепким  столом  и  кухней  на  южной  стене.  Над  огнем  --
 меналлическая  конструкция,  позволяющая  живущей  здесь  семье  эльфов
 ставить на нее горшки, кастрюли и другую посуду для приготовления пищи.
@@ -3719,7 +3720,7 @@ D2
 Z -1 40152
 S
 #40189
-@eng small house@rus небольшой дом~
+@eng small house@rus Небольшой дом~
 @eng A  small  one-room house is all most elves need for shelter. This one
 is nicely furnished with beds along the north wall and a fireplace with
 a nice counter nearby and butcher-block along the south wall. Above the
@@ -3728,7 +3729,7 @@ place  pots,  pans,  and other cooking vessels. The house door was left
 open because, well, the citizens of Elvenhame expect that they are safe
 here and that there is nothing to steal or harm.
 @rus Маленький  однокомнатный  дом  удовлетворяет  потребность в жилье для
-бельшинства  эльфов. Он уютно обставлен кроватями вдоль северной стены,
+большинства  эльфов. Он уютно обставлен кроватями вдоль северной стены,
 камином,  крепким  столом  и  кухней  на  южной  стене.  Над  огнем  --
 меналлическая  конструкция,  позволяющая  живущей  здесь  семье  эльфов
 ставить на нее горшки, кастрюли и другую посуду для приготовления пищи.
@@ -3772,7 +3773,7 @@ D0
 Z -1 40152
 S
 #40191
-@eng small house@rus небольшой дом~
+@eng small house@rus Небольшой дом~
 @eng A  small  one-room house is all most elves need for shelter. This one
 is nicely furnished with beds along the north wall and a fireplace with
 a nice counter nearby and butcher-block along the south wall. Above the
@@ -3781,7 +3782,7 @@ place  pots,  pans,  and other cooking vessels. The house door was left
 open because, well, the citizens of Elvenhame expect that they are safe
 here and that there is nothing to steal or harm.
 @rus Маленький  однокомнатный  дом  удовлетворяет  потребность в жилье для
-бельшинства  эльфов. Он уютно обставлен кроватями вдоль северной стены,
+большинства  эльфов. Он уютно обставлен кроватями вдоль северной стены,
 камином,  крепким  столом  и  кухней  на  южной  стене.  Над  огнем  --
 меналлическая  конструкция,  позволяющая  живущей  здесь  семье  эльфов
 ставить на нее горшки, кастрюли и другую посуду для приготовления пищи.
@@ -3830,7 +3831,7 @@ D2
 Z -1 40153
 S
 #40193
-@eng small house@rus небольшой дом~
+@eng small house@rus Небольшой дом~
 @eng A  small  one-room house is all most elves need for shelter. This one
 is nicely furnished with beds along the north wall and a fireplace with
 a nice counter nearby and butcher-block along the south wall. Above the
@@ -3839,7 +3840,7 @@ place  pots,  pans,  and other cooking vessels. The house door was left
 open because, well, the citizens of Elvenhame expect that they are safe
 here and that there is nothing to steal or harm.
 @rus Маленький  однокомнатный  дом  удовлетворяет  потребность в жилье для
-бельшинства  эльфов. Он уютно обставлен кроватями вдоль северной стены,
+большинства  эльфов. Он уютно обставлен кроватями вдоль северной стены,
 камином,  крепким  столом  и  кухней  на  южной  стене.  Над  огнем  --
 меналлическая  конструкция,  позволяющая  живущей  здесь  семье  эльфов
 ставить на нее горшки, кастрюли и другую посуду для приготовления пищи.

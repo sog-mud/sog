@@ -19,9 +19,9 @@ show you the cost of each service".
 ~
 human~
 ABGKe HN 1000 0
-80 5 50d10+23500 5d5+5000 13d9+50 divine
+100 5 50d10+23500 5d5+5000 10d20+500 divine
 -60 -60 -60 -13
-FHKN AB 0 0
+FHKN AB D 0
 stand stand male 1000
 0 0 medium unknown
 #31001

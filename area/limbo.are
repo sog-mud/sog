@@ -94,7 +94,7 @@ human~
 AOTc DFJS -750 0
 20 3 16d15+240 1d1+152 5d3+20 punch
 0 0 0 0
-EJ GM AB N
+EJ M AB N
 stand stand male 0
 0 0 medium unknown
 #15
@@ -307,7 +307,7 @@ dracolich~
 AOT DS 0 0
 0 10 0d0+0 0d0+0 0d0+0 scratch
 0 0 0 0
-CFHLO 0 0 0
+CLO 0 0 0
 stand stand male 0
 0 0 huge unknown
 F aff JT
@@ -1153,7 +1153,7 @@ skin rabbit шкура шкурка~
 skin~
 trash Ah AG
 0 0 0 0 0
-10 0 0 P
+10 1 100 P
 F A 20 -20 T
 A
 19 20

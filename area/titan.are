@@ -1324,11 +1324,12 @@ Type 'heal' to see a listing of spells.
 ~
 giant~
 ABKQVaef DFH 1000 0
-120 10 1d1+26999 1d1+999 2d4+30 divine
+120 10 1d1+26999 1d1+999 10d20+500 divine
 -15 -15 -15 -15
 FHIK ABC D 0
 stand stand male 891
 0 0 huge unknown
+F vul JP
 #0
 
 #OBJECTS

@@ -7314,9 +7314,14 @@ This command clear the screen. CLS is a synonym for this command.
 @eng Syntax: {cdescription{x
  
 Use this command to enter your description.
+ 
+PS: Do not forget about {{x at the end of your description.
 @rus Синтаксис: {cdescription{x
 
 Используй эту команду для ввода описания твоего персонажа.
+ 
+PS. Если вы использовали цвета в своем описании, не забывайте
+о {{x в конце.
 ~
 0 PROMOTE~
 @eng Syntax: {cpromote{x <character> <position>

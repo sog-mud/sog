@@ -1479,6 +1479,15 @@ key 0 AO
 0 0 0 0 0
 0 0 0 P
 G none
+#14799
+spark искра~
+@eng a spark@rus искра~
+@eng The spark shimmers here.@rus Ты видишь мерщающую искру (spark).~
+fire~
+pill 0 A
+20 'fire sphere' 'reserved' 'reserved' 'reserved'
+15 1 500 P
+G female
 #0
 
 #ROOMS
@@ -3797,6 +3806,7 @@ E 0 14740 0 3		*	a spiked collar: around the neck (1)
 M 0 14730 2 14733 1	* a fire giant (The Upper Slopes of Mount Doom)
 E 0 14741 0 16		*	a giant sword: wielded
 G 0 14742 0		*	a throwing rock
+G 0 14799 0		*	a spark
 M 0 14732 8 14739 1	* a hill giant (The Foothills of Mount Doom)
 E 0 14743 0 16		*	a wooden club: wielded
 G 0 14742 0		*	a throwing rock
@@ -3874,6 +3884,7 @@ E 0 14710 0 12		*	robes of the archmage: about the shoulders
 G 0 14711 0		*	a vial of magic dust
 M 0 14716 1 14783 1	* a fire elemental (The Elemental Laboratories)
 G 0 14728 0		*	a bronze brazier
+G 0 14799 0		*	a spark
 M 0 14726 1 14784 1	* an earth elemental (Western End of the Lab)
 G 0 14737 0		*	a stone
 M 0 14709 3 14784 1	* an evil scientist mage (Western End of the Lab)
@@ -3970,6 +3981,7 @@ S
 O 14711 1	* a vial of magic dust
 O 14728 5	* a bronze brazier
 O 14738 5	* a bowl
+O 14799 10	* a spark
 S
 
 #$

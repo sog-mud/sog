@@ -123,7 +123,7 @@ A
 G none
 #34402
 abysmality~
-{Babysmality{w~
+{Babysmality{x~
 Canteen without bottom lies here.~
 kender's skin~
 drink RYa AP
@@ -258,7 +258,7 @@ staff necromancy посох rod~
 bone~
 staff CGJMZh AO
 70 10 10 'black shroud' 0
-40 20 0 P
+10 1 0 P
 F I 20 -15 M
 F A 19 20 n
 S 'lich' 70 A
@@ -308,14 +308,32 @@ A
 20 -10
 G male
 #34456
-cloud darkness облако~
-~
-~
-unknown~
-trash 0 0
-0 0 0 0 0
-0 0 0 P
-G none
+herb травка растение~
+@eng a herb@rus ~~лекарственная~~ ~~трава~~~
+@eng A herb is growing here.@rus Миниатюрное растение (herb) тянется к солнцу.~
+grass~
+pill Ah A
+150 'master healing' 'cure poison' 'cure disease' 'mana restore'
+1 1 100 P
+G female
+#34457
+branch ветка~
+@eng a branch@rus ветка~
+@eng A branch is lying here.@rus На земле лежит ветка (branch), кем-то сломанная.~
+wood~
+armor Ah AO
+10 10 10 10 0
+10 1 100 P
+A
+14 100
+A
+12 100
+A
+13 100
+S 'camp' 100 A
+S 'camouflage move' 100 A
+S 'camouflage' 100 A
+G female
 #34460
 shield щит metal~
 @eng metal shield@rus ~~щит~~ из неизвестного металла~

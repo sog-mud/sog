@@ -1675,6 +1675,24 @@ blood, sweat, and pain of hundreds of damned souls.  You feel vaguely ill
 as you gaze into its lustrous black heart.
 ~
 G none
+#10498
+wand жезл fire~
+@eng a fire wand@rus ~~огненный~~ ~~жезл~~~
+@eng The fire wand blazes and glows.@rus Сияние, исходящее от огненного жезла (wand) слепит тебе глаза.~
+fire~
+wand 0 AO
+75 5 5 'fire sphere' 0
+55 1 1000 P
+G male
+#10499
+wand жезл~
+@eng an ice wand@rus ~~ледяной~~ ~~жезл~~~
+@eng The sparkling ice wand is here.@rus Ты видишь искрящийся ледяной жезл (wand).~
+ice~
+wand 0 AO
+75 5 5 'ice sphere' 0
+50 1 1000 P
+G male
 #0
 
 #ROOMS
@@ -3258,12 +3276,11 @@ Z -1 10484
 S
 #10475
 Meat Locker~
-Rows of beef and other meats hang from large steel hooks. You notice that 
-many of the things hanging from the hooks are corpses of people. They 
-reach out to you as you pass them as if to plead for help from their frozen 
-mouths. 
-The meat locker continues to the south and west.
-There is a freezer door to the east.
+Rows of beef and other meats hang from large steel hooks.  You notice
+that many of the things hanging from the hooks are corpses of people.  They
+reach out to you as you pass them as if to plead for help from their frozen
+mouths.  The meat locker continues to the south and west.  There is a
+freezer door to the east.  
 ~
 0 AD inside
 D1
@@ -4755,6 +4772,7 @@ E 0 10411 0 10		*	some burning flesh: on the arms
 M 0 10468 1 10460 1	* the Greater Fire Demon (Fire Pits of Hades)
 E 0 10415 0 16		*	a bloody black talon: wielded
 G 0 10416 0		*	jar of blood
+E 0 10498 0 17		*	a fire wand: held in the hands
 M 0 10440 1 10462 1	* the Demonic Foreman (Foreman's Office)
 G 0 10422 0		*	the blueprint
 M 0 10428 3 10465 1	* the female construction worker (Construction Area)
@@ -4782,6 +4800,7 @@ M 0 10438 2 10478 1	* the I-scream worker (Ice Creamery)
 M 0 10439 1 10479 1	* the Ice Screamer (Ice Creamery)
 M 0 10434 1 10483 1	* the ice devil (Ice Room)
 E 0 10419 0 16		*	an ice spear: wielded
+E 0 10499 0 17		*	an ice wand: held in the hands
 M 0 10436 2 10484 1	* the half frozen body (Meat Locker)
 E 0 10420 0 16		*	a large meat hook: wielded
 M 0 10469 2 10485 1	* side of frozen beef (Meat Locker)
@@ -4875,6 +4894,8 @@ S
 
 #OLIMITS
 O 10425 1	* an unholy symbol
+O 10498 3	* a fire wand
+O 10499 5	* an ice wand
 S
 
 #$

@@ -1092,6 +1092,15 @@ weapon AGIOY AN
 exotic 10 11 slash D
 51 300 100000 G
 G none
+#25099
+wand жезл flaming~
+@eng a flaming wand@rus ~~пылающий~~ ~~жезл~~~
+@eng The flaming wand shines.@rus Пылающий жезл (wand) освещает все вокруг.~
+fire~
+wand 0 AO
+40 5 5 'fire sphere' 0
+30 1 0 P
+G male
 #0
 
 #ROOMS
@@ -2786,11 +2795,13 @@ M 0 25018 1 25094 1	* The Water Prince (A Small Alcove)
 M 0 25019 1 25095 1	* The Earth King (A Narrow Tunnel)
 M 0 25020 1 25096 1	* The Lord of Air (A Narrow Tunnel)
 M 0 25021 1 25097 1	* The Sultan of Fire (A Narrow Tunnel)
+E 0 25099 0 17		*	a flaming wand: held in the hands
 O 0 25028 0 25098	* portal (A Small Portal)
 S
 
 #OLIMITS
 O 25022 5	* an Ivory Bracelet
+O 25099 3	* a flaming wand
 S
 
 #HELPS

@@ -692,7 +692,7 @@ herbs to heal your wounds and diseases. Type "HEAL" to get the list.
 ~
 elf~
 ABGQUXae DHct 1000 0
-100 100 2d4+50000 1d1+10000 5d7+100 divine
+120 100 2d4+50000 1d1+10000 10d20+1000 divine
 -100 -100 -100 -100
 FHIK ABC D 0
 stand stand male 0
@@ -904,7 +904,8 @@ silk~
 armor EIM AK
 11 11 11 11 0
 59 30 5999 P
-S 'mastering spell' 30 A
+A
+8 3
 A
 7 4
 A
