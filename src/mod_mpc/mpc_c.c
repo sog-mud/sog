@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_c.c,v 1.8 2001-06-22 19:13:19 fjoe Exp $
+ * $Id: mpc_c.c,v 1.9 2001-06-23 13:07:35 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -39,6 +39,7 @@
 #include <util.h>
 
 #include "_mpc.h"
+#include "mpc_iter.h"
 
 static void push(prog_t *prog, vo_t vo);
 static vo_t *pop(prog_t *prog);
@@ -70,11 +71,11 @@ c_pop(prog_t *prog)
 
 	switch (type_tag) {
 	case MT_INT:
-		fprintf(stderr, "got: %d\n", v->i);
+		/* fprintf(stderr, "got: %d\n", v->i); */
 		break;
 
 	default:
-		fprintf(stderr, "got: (type %d)\n", type_tag);
+		/* fprintf(stderr, "got: (type %d)\n", type_tag); */
 		break;
 	}
 }
@@ -196,45 +197,40 @@ c_jmp(prog_t *prog)
 }
 
 void
-c_quecolon(prog_t *prog)
+c_jmp_addr(prog_t *prog)
 {
-	vo_t *v0;
-	int else_addr;
-	int next_addr;
+	int addr;
+	int *jmp_addr;
 
 	TRACE;
 
-	else_addr = (int) code_get(prog);
-	next_addr = (int) code_get(prog);
-
-	v0 = pop(prog);
-	if (v0->i) {
-		execute(prog, prog->ip);
-		prog->ip = next_addr;
-	} else
-		prog->ip = else_addr;
+	addr = (int) code_get(prog);
+	jmp_addr = varr_get(&prog->code, addr);
+	mpc_assert(prog, __FUNCTION__, jmp_addr != NULL,
+		   "program code exhausted");
+	prog->ip = *jmp_addr;
 }
 
 void
 c_if(prog_t *prog)
 {
-	int else_addr;
 	int next_addr;
+	int then_addr;
+	int else_addr;
 	vo_t *v;
 
 	TRACE;
 
-	else_addr = (int) code_get(prog);
 	next_addr = (int) code_get(prog);
+	then_addr = (int) code_get(prog);
+	else_addr = (int) code_get(prog);
 
+	execute(prog, prog->ip);
 	v = pop(prog);
+
 	if (v->i) {
 		/* execute then */
-		if (else_addr != INVALID_ADDR) {
-			/* 'if' with 'else' has 'stop' in 'then' part */
-			execute(prog, prog->ip);
-			prog->ip = next_addr;
-		}
+		prog->ip = then_addr;
 	} else if (else_addr != INVALID_ADDR) {
 		/* execute else */
 		prog->ip = else_addr;
@@ -256,8 +252,8 @@ c_switch(prog_t *prog)
 
 	TRACE;
 
-	jt_offset = (int) code_get(prog);
 	next_addr = (int) code_get(prog);
+	jt_offset = (int) code_get(prog);
 
 	/*
 	 * get jumptab and its size
@@ -269,6 +265,7 @@ c_switch(prog_t *prog)
 	mpc_assert(prog, __FUNCTION__,
 	    default_jump != NULL, "invalid jumptab");
 
+	execute(prog, prog->ip);
 	v = pop(prog);
 
 	/*
@@ -277,10 +274,102 @@ c_switch(prog_t *prog)
 	jump = (swjump_t *) bsearch(
 	    &v->i, ((char *) jumptab->p) + jumptab->v_data->nsize,
 	    jumptab->nused - 1, jumptab->v_data->nsize, cmpint);
-	execute(prog,
-	    jump != NULL ? jump->addr : default_jump->addr);
+	prog->ip =
+	    jump != NULL ? jump->addr :
+	    default_jump->addr != INVALID_ADDR ? default_jump->addr :
+	    next_addr;
+}
 
-	prog->ip = next_addr;
+void
+c_quecolon(prog_t *prog)
+{
+	vo_t *v0;
+	int next_addr;
+	int else_addr;
+
+	TRACE;
+
+	next_addr = (int) code_get(prog);
+	else_addr = (int) code_get(prog);
+
+	v0 = pop(prog);
+	if (v0->i) {
+		execute(prog, prog->ip);
+		prog->ip = next_addr;
+	} else
+		prog->ip = else_addr;
+}
+
+void
+c_foreach(prog_t *prog)
+{
+	int next_addr;
+	int body_addr;
+	sym_t *sym;
+	iterdata_t *id;
+	iter_t *iter;
+	vo_t v;
+	dynafun_args_t *args;
+
+	TRACE;
+
+	next_addr = (int) code_get(prog);
+	body_addr = (int) code_get(prog);
+
+	/* push iter args onto stack */
+	execute(prog, prog->ip);
+
+	/* c_foreach_next, next_addr */
+	code_get(prog);
+	code_get(prog);
+
+	sym = sym_get(prog, SYM_VAR);
+	id = (iterdata_t *) code_get(prog);
+	iter = id->iter;
+
+	/*
+	 * This code is highly non-portable (see dynafun.c/dynafun_build_args)
+	 */
+	v.s = (const char *) &sym->s.var.data;
+	push(prog, v);
+
+	v.s = (const char *) id;
+	push(prog, v);
+
+	args = (dynafun_args_t *) VARR_GET(
+	    &prog->data, varr_size(&prog->data) - (iter->init.nargs + 2));
+	mpc_assert(prog, __FUNCTION__,
+	    varr_size(&prog->data) >= iter->init.nargs + 2,
+	    "data stack underflow");
+	iter->init.fun(*args);
+	varr_size(&prog->data) -= iter->init.nargs + 2;
+
+	/* execute loop body */
+	if (iter->cond(&sym->s.var.data, id))
+		prog->ip = body_addr;
+	else
+		prog->ip = next_addr;
+}
+
+void
+c_foreach_next(prog_t *prog)
+{
+	sym_t *sym;
+	iterdata_t *id;
+	iter_t *iter;
+	int next_addr;
+
+	TRACE;
+
+	next_addr = (int) code_get(prog);
+	sym = sym_get(prog, SYM_VAR);
+	id = (iterdata_t *) code_get(prog);
+	iter = id->iter;
+
+	/* get next */
+	iter->next(&sym->s.var.data, id);
+	if (!iter->cond(&sym->s.var.data, id))
+		prog->ip = next_addr;
 }
 
 /*--------------------------------------------------------------------

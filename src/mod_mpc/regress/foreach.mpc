@@ -1,0 +1,26 @@
+int i;
+
+foo:
+foreach(i, range(1, 20)) {
+	switch (i) {
+	case 3:
+		continue;
+
+	case 5:
+		i += 2;
+		continue;
+
+	case 10:
+		i += 2;
+		break;
+
+	case 15:
+		break foo;
+	}
+
+	print(i);
+}
+
+if (i)
+	print(i);
+print(i);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_lex.c,v 1.3 2001-06-22 19:13:19 fjoe Exp $
+ * $Id: mpc_lex.c,v 1.4 2001-06-23 13:07:36 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -35,8 +35,10 @@
 #include <varr.h>
 #include <hash.h>
 #include <memalloc.h>
+#include <dynafun.h>
 
 #include "_mpc.h"
+#include "mpc_iter.h"
 #include "mpc.h"
 
 /*--------------------------------------------------------------------
@@ -200,6 +202,7 @@ mpc_lex(prog_t *prog)
 		char *yyp;
 		keyword_t *k;
 		type_t *t;
+		iter_t *iter;
 
 		switch ((ch = mpc_getc(prog))) {
 		case EOF:
@@ -377,6 +380,11 @@ mpc_lex(prog_t *prog)
 			if ((t = type_lookup(yytext)) != NULL) {
 				mpc_lval.type_tag = t->type_tag;
 				return L_TYPE;
+			}
+
+			if ((iter = iter_lookup(yytext)) != NULL) {
+				mpc_lval.iter = iter;
+				return L_ITER;
 			}
 
 			mpc_lval.string = str_dup(yytext);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_impl.h,v 1.7 2001-06-22 19:13:18 fjoe Exp $
+ * $Id: mpc_impl.h,v 1.8 2001-06-23 13:07:34 fjoe Exp $
  */
 
 #ifndef _MPC_CODE_H_
@@ -43,7 +43,8 @@
 enum symtype_t {
 	SYM_KEYWORD,		/**< 'if', 'else', 'continue' etc. */
 	SYM_FUNC,		/**< functions */
-	SYM_VAR			/**< variables */
+	SYM_VAR,		/**< variables */
+	SYM_LABEL,		/**< labels */
 };
 typedef enum symtype_t symtype_t;
 
@@ -59,6 +60,10 @@ struct sym_t {
 			vo_t data;
 			bool is_const;
 		} var;
+
+		struct {
+			int addr;
+		} label;
 	} s;
 };
 typedef struct sym_t sym_t;
@@ -92,7 +97,9 @@ struct prog_t {
 
 	varr cstack;		/**< (void *) compiler stack		*/
 	varr args;		/**< (int) argument type stack		*/
+
 	varr jumptabs;		/**< (varr ) 'switch' jump tables	*/
+	varr iterdata;		/**< (iterdata_t) 'foreach' iter data	*/
 
 	int curr_jumptab;	/**< current jumptab			*/
 	int curr_break_addr;	/**< current 'break' info		*/
@@ -191,9 +198,12 @@ void	c_push_retval(prog_t *prog);
 #define INVALID_ADDR -1
 
 void	c_jmp(prog_t *prog);		/* jmp */
+void	c_jmp_addr(prog_t *prog);	/* jmp addr */
 void	c_if(prog_t *prog);		/* if */
 void	c_switch(prog_t *prog);		/* switch */
 void	c_quecolon(prog_t *prog);	/* ?: */
+void	c_foreach(prog_t *prog);	/* foreach */
+void	c_foreach_next(prog_t *prog);	/* foreach_next */
 
 /*--------------------------------------------------------------------
  * binary operations

@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.11 2001-06-22 19:13:19 fjoe Exp $
+ * $Id: mpc.y,v 1.12 2001-06-23 13:07:35 fjoe Exp $
  */
 
 /*
@@ -65,6 +65,7 @@
 
 #include "_mpc.h"
 #include "mpc_const.h"
+#include "mpc_iter.h"
 
 #define YYPARSE_PARAM prog
 #define YYPARSE_PARAM_TYPE prog_t *
@@ -255,7 +256,7 @@ code3(prog_t *prog,
 		varr_size(&prog->cstack)--;				\
 	} while (0)
 
-#define CODE(addr)	((int *) VARR_GET(&prog->code, addr))
+#define CODE(addr)	((int *) VARR_GET(&prog->code, (addr)))
 
 #define DELIMITER_ADDR	-2
 
@@ -266,9 +267,10 @@ code3(prog_t *prog,
 	const char *string;
 	int type_tag;
 	c_fun cfun;
+	iter_t *iter;
 }
 
-%token L_IDENT L_TYPE L_INT L_STRING
+%token L_IDENT L_TYPE L_INT L_STRING L_ITER
 %token L_IF L_SWITCH L_CASE L_DEFAULT L_ELSE L_FOREACH L_CONTINUE L_BREAK
 %token L_ADD_EQ L_SUB_EQ L_DIV_EQ L_MUL_EQ L_MOD_EQ L_AND_EQ L_OR_EQ L_XOR_EQ
 %token L_SHL_EQ L_SHR_EQ
@@ -292,6 +294,7 @@ code3(prog_t *prog,
 %type <number> expr_list expr_list_ne L_INT int_const
 %type <string> L_IDENT L_STRING
 %type <cfun> assign
+%type <iter> L_ITER
 
 %%
 
@@ -309,8 +312,8 @@ stmt:	';'
 		 * simply copy $2 here -- no need for str_dup($2) and
 		 * free_string($2)
 		 */
-		sym.type = SYM_VAR;
 		sym.name = $2;
+		sym.type = SYM_VAR;
 		sym.s.var.type_tag = $1;
 		sym.s.var.is_const = FALSE;
 
@@ -346,8 +349,8 @@ stmt:	';'
 		 * simply copy $2 here -- no need for str_dup($2) and
 		 * free_string($2)
 		 */
-		sym.type = SYM_VAR;
 		sym.name = $2;
+		sym.type = SYM_VAR;
 		sym.s.var.type_tag = $1;
 		sym.s.var.is_const = FALSE;
 
@@ -366,22 +369,49 @@ stmt:	';'
 		 */
 		code2(prog, c_pop, (void *) $1);
 	}
-	| if | switch | case_label | default | break
-	| '{' stmt_list '}'
+	| label
+	| if | switch | case_label | default | break | foreach | continue
+	| '{' stmt_list '}' {
+		/* XXX remove local variables */
+	}
 	;
 
-if:	L_IF '(' comma_expr ')' {
-		code(prog, c_if);
+label:	L_IDENT ':' {
+		sym_t sym;
+		void *p;
 
-		/* else, next stmt */
+		sym.name = $1;
+		sym.type = SYM_LABEL;
+		sym.s.label.addr = varr_size(&prog->code);
+
+		if ((p = hash_insert(&prog->syms, sym.name, &sym)) == NULL) {
+			sym_destroy(&sym);
+			compile_error(prog, "%s: duplicate symbol", sym.name);
+			YYERROR;
+		}
+	}
+	;
+
+if:	L_IF {
+		code(prog, c_if);
 		PUSH_ADDR();
+		/* next stmt, then, else */
+		code(prog, (void *) INVALID_ADDR);
 		code2(prog, (void *) INVALID_ADDR, (void *) INVALID_ADDR);
-	} stmt optional_else {
-		/* save next stmt addr */
+	} '(' comma_expr ')' {
 		int addr;
 
-		POP_ADDR(addr);
+		code(prog, c_stop);
+
+		/* save then addr */
+		PEEK_ADDR(addr);
 		CODE(addr)[1] = varr_size(&prog->code);
+	} stmt optional_else {
+		int addr;
+
+		/* save next stmt addr */
+		POP_ADDR(addr);
+		CODE(addr)[0] = varr_size(&prog->code);
 	}
 	;
 
@@ -389,17 +419,20 @@ optional_else: /* empty */
 	| L_ELSE {
 		int addr;
 
-		code(prog, c_stop);
+		PEEK_ADDR(addr);
+
+		/* jmp to next stmt */
+		code2(prog, c_jmp_addr, (void *) addr);
 
 		/* save else addr */
-		PEEK_ADDR(addr);
-		CODE(addr)[0] = varr_size(&prog->code);
+		CODE(addr)[2] = varr_size(&prog->code);
 	} stmt
 	;
 
-switch:	L_SWITCH '(' expr ')' {
+switch:	L_SWITCH {
 		varr *jumptab;
 		swjump_t *jump;
+
 		code(prog, c_switch);
 
 		PUSH_ADDR();
@@ -416,30 +449,34 @@ switch:	L_SWITCH '(' expr ')' {
 		jump = varr_enew(jumptab);
 		jump->addr = INVALID_ADDR;
 
-		/* jt_offset, next_addr */
-		code(prog, (void *) prog->curr_jumptab);
+		/* next_addr, jt_offset */
 		code(prog, (void *) DELIMITER_ADDR);
 		prog->curr_break_addr = varr_size(&prog->code) - 1;
+		code(prog, (void *) prog->curr_jumptab);
+	} '(' expr ')' {
+		code(prog, c_stop);
 	} stmt {
 		int addr;
-		varr *jumptab;
-		/*
 		int next_break_addr;
-		*/
+		varr *jumptab;
 
-		/* if last case/default does not have 'break' */
-		code(prog, c_stop);
+		/*
+		 * emit `break'
+		 * (if last case label/default does not have break)
+		 */
+		code(prog, c_jmp);
+		code(prog, (void *) prog->curr_break_addr);
+		prog->curr_break_addr = varr_size(&prog->code) - 1;
 
 		/*
 		 * traverse linked list of break addresses
 		 * and emit address to jump
-		 *
+		 */
 		for (; prog->curr_break_addr != DELIMITER_ADDR;
 		     prog->curr_break_addr = next_break_addr) {
 			next_break_addr = CODE(prog->curr_break_addr)[0];
 			CODE(prog->curr_break_addr)[0] = varr_size(&prog->code);
 		}
-		*/
 
 		/* qsort jumptab */
 		jumptab = varr_get(&prog->jumptabs, prog->curr_jumptab);
@@ -461,7 +498,8 @@ switch:	L_SWITCH '(' expr ')' {
 		POP_ADDR(prog->curr_break_addr);
 		POP_ADDR(addr);
 
-		CODE(addr)[1] = varr_size(&prog->code);
+		/* store next addr */
+		CODE(addr)[0] = varr_size(&prog->code);
 	}
 	;
 
@@ -511,16 +549,140 @@ default: L_DEFAULT ':' {
 break: L_BREAK ';' {
 		if (prog->curr_break_addr == INVALID_ADDR) {
 			compile_error(prog,
-			    "break outside of loop or switch");
+			    "break outside of switch or loop");
+			YYERROR;
+		}
+
+		code2(prog, c_jmp, (void *) prog->curr_break_addr);
+		prog->curr_break_addr = varr_size(&prog->code) - 1;
+	}
+	| L_BREAK L_IDENT ';' {
+		sym_t *sym;
+		SYM_LOOKUP(sym, $2, SYM_LABEL);
+
+		if (CODE(sym->s.label.addr)[0] != (int) c_if
+		&&  CODE(sym->s.label.addr)[0] != (int) c_switch
+		&&  CODE(sym->s.label.addr)[0] != (int) c_foreach) {
+			compile_error(prog,
+			    "break outside of if or switch or loop");
+			YYERROR;
+		}
+
+		code2(prog, c_jmp_addr, (void *) (sym->s.label.addr + 1));
+	}
+	;
+
+foreach: L_FOREACH {
+		/* emit `foreach' */
+		code(prog, c_foreach);
+		PUSH_ADDR();
+
+		/* next addr, body */
+		code2(prog, (void *) INVALID_ADDR, (void *) INVALID_ADDR);
+	 } '(' L_IDENT ',' L_ITER '(' expr_list ')' ')' {
+		int i;
+		sym_t *sym;
+		iterdata_t *id;
+		int addr;
+
+		SYM_LOOKUP(sym, $4, SYM_VAR);
+
+		/*
+		 * check number of arguments
+		 */
+		if ($6->init.nargs != $8) {
+			compile_error(prog,
+			    "%s: invalid number of arguments %d (%d expected)",
+			    $6->init.name, $8, $6->init.nargs);
 			YYERROR;
 		}
 
 		/*
-		code(prog, c_jmp);
-		code(prog, (void *) prog->curr_break_addr);
-		prog->curr_break_addr = varr_size(&prog->code) - 1;
-		*/
+		 * check argument types
+		 */
+		for (i = 0; i < $6->init.nargs; i++) {
+			int got_type = argtype_get(prog, $8, i);
+			if (got_type != $6->init.argtype[i]) {
+				compile_error(prog,
+				    "%s: invalid arg %d type %d (%d expected)",
+				    $6->init.name, i + 1, got_type,
+				    $6->init.argtype[i]);
+				YYERROR;
+			}
+		}
+
+		/* emit `foreach_next' */
 		code(prog, c_stop);
+
+		PEEK_ADDR(addr);
+
+		PUSH_EXPLICIT(prog->curr_continue_addr);
+		PUSH_EXPLICIT(prog->curr_break_addr);
+		PUSH_ADDR();
+
+		prog->curr_continue_addr = DELIMITER_ADDR;
+		prog->curr_break_addr = DELIMITER_ADDR;
+
+		id = (iterdata_t *) varr_enew(&prog->iterdata);
+		id->iter = $6;
+		code(prog, c_foreach_next);
+		code3(prog, (void *) INVALID_ADDR, sym->name, id);
+
+		/* body addr */
+		CODE(addr)[1] = varr_size(&prog->code);
+	} stmt {
+		int addr;
+		int body_addr;
+		int next_continue_addr;
+
+		/* emit `continue' */
+		code(prog, c_jmp);
+		code(prog, (void *) prog->curr_continue_addr);
+		prog->curr_continue_addr = varr_size(&prog->code) - 1;
+
+		POP_ADDR(body_addr);
+
+		/*
+		 * traverse linked list of continue addresses
+		 * and emit address to jump
+		 */
+		for (; prog->curr_continue_addr != DELIMITER_ADDR;
+		     prog->curr_continue_addr = next_continue_addr) {
+			next_continue_addr = CODE(prog->curr_continue_addr)[0];
+			CODE(prog->curr_continue_addr)[0] = body_addr;
+		}
+
+		POP_ADDR(prog->curr_break_addr);
+		POP_ADDR(prog->curr_continue_addr);
+
+		/* store next stmt addr */
+		POP_ADDR(addr);
+		CODE(addr)[0] = varr_size(&prog->code);
+		CODE(body_addr)[1] = varr_size(&prog->code);
+	}
+	;
+
+continue: L_CONTINUE ';' {
+		if (prog->curr_continue_addr == INVALID_ADDR) {
+			compile_error(prog, "continue outside of loop");
+			YYERROR;
+		}
+
+		/* emit `continue' */
+		code2(prog, c_jmp, (void *) prog->curr_continue_addr);
+		prog->curr_continue_addr = varr_size(&prog->code) - 1;
+	}
+	| L_CONTINUE L_IDENT ';' {
+		sym_t *sym;
+		SYM_LOOKUP(sym, $2, SYM_LABEL);
+
+		if (CODE(sym->s.label.addr)[0] != (int) c_foreach) {
+			compile_error(prog,
+			    "continue outside of loop");
+			YYERROR;
+		}
+
+		code2(prog, c_jmp, (void *) (sym->s.label.addr + 2));
 	}
 	;
 
@@ -640,7 +802,7 @@ expr:	L_IDENT assign expr %prec '=' {
 		code(prog, c_quecolon);
 
 		PUSH_ADDR();
-		/* else_addr, next_addr */
+		/* next_addr, else_addr */
 		code2(prog, (void *) INVALID_ADDR, (void *) INVALID_ADDR);
 	} expr {
 		int addr;
@@ -649,7 +811,7 @@ expr:	L_IDENT assign expr %prec '=' {
 
 		/* else_addr */
 		PEEK_ADDR(addr);
-		CODE(addr)[0] = varr_size(&prog->code);
+		CODE(addr)[1] = varr_size(&prog->code);
 	} ':' expr %prec '?' {
 		int addr;
 
@@ -663,7 +825,7 @@ expr:	L_IDENT assign expr %prec '=' {
 		}
 
 		/* next_addr */
-		CODE(addr)[1] = varr_size(&prog->code);
+		CODE(addr)[0] = varr_size(&prog->code);
 	}
 	| expr L_LOR {
 		INT_OP("||", $1, c_bop_lor);
@@ -834,53 +996,56 @@ struct codeinfo_t {
 typedef struct codeinfo_t codeinfo_t;
 
 struct codeinfo_t codetab[] = {
-	{ c_pop,		"c_pop",		1 },
-	{ c_push_const,		"c_push_const",		1 },
-	{ c_push_var,		"c_push_var",		1 },
-	{ c_push_retval,	"c_push_retval",	3 },
-	{ c_stop,		"c_stop",		0 },
-	{ c_jmp,		"c_jmp",		1 },
-	{ c_if,			"c_if",			2 },
-	{ c_switch,		"c_switch",		2 },
-	{ c_quecolon,		"c_quecolon",		2 },
-	{ c_bop_lor,		"c_bop_lor",		1 },
-	{ c_bop_land,		"c_bop_land",		1 },
-	{ c_bop_or,		"c_bop_or",		0 },
-	{ c_bop_xor,		"c_bop_xor",		0 },
-	{ c_bop_and,		"c_bop_and",		0 },
-	{ c_bop_ne,		"c_bop_ne",		0 },
-	{ c_bop_eq,		"c_bop_eq",		0 },
-	{ c_bop_gt,		"c_bop_gt",		0 },
-	{ c_bop_ge,		"c_bop_ge",		0 },
-	{ c_bop_lt,		"c_bop_lt",		0 },
-	{ c_bop_le,		"c_bop_le",		0 },
-	{ c_bop_shl,		"c_bop_shl",		0 },
-	{ c_bop_shr,		"c_bop_shr",		0 },
-	{ c_bop_add,		"c_bop_add",		0 },
-	{ c_bop_sub,		"c_bop_sub",		0 },
-	{ c_bop_mul,		"c_bop_mul",		0 },
-	{ c_bop_mod,		"c_bop_mod",		0 },
-	{ c_bop_div,		"c_bop_div",		0 },
-	{ c_bop_ne_string,	"c_bop_ne_string",	0 },
-	{ c_bop_eq_string,	"c_bop_eq_string",	0 },
-	{ c_uop_not,		"c_uop_not",		0 },
-	{ c_uop_compl,		"c_uop_compl",		0 },
-	{ c_uop_minus,		"c_uop_minus",		0 },
-	{ c_postinc,		"c_postinc",		1 },
-	{ c_postdec,		"c_postdec",		1 },
-	{ c_preinc,		"c_preinc",		1 },
-	{ c_predec,		"c_predec",		1 },
-	{ c_assign,		"c_assign",		1 },
-	{ c_add_eq,		"c_add_eq",		1 },
-	{ c_sub_eq,		"c_sub_eq",		1 },
-	{ c_div_eq,		"c_div_eq",		1 },
-	{ c_mul_eq,		"c_mul_eq",		1 },
-	{ c_mod_eq,		"c_mod_eq",		1 },
-	{ c_and_eq,		"c_and_eq",		1 },
-	{ c_or_eq,		"c_or_eq",		1 },
-	{ c_xor_eq,		"c_xor_eq",		1 },
-	{ c_shl_eq,		"c_shl_eq",		1 },
-	{ c_shr_eq,		"c_shr_eq",		1 },
+	{ c_pop,		"pop",			1 },
+	{ c_push_const,		"push_const",		1 },
+	{ c_push_var,		"push_var",		1 },
+	{ c_push_retval,	"push_retval",		3 },
+	{ c_stop,		"stop",			0 },
+	{ c_jmp,		"jmp",			1 },
+	{ c_jmp_addr,		"jmp_addr",		1 },
+	{ c_if,			"if",			3 },
+	{ c_switch,		"switch",		2 },
+	{ c_quecolon,		"quecolon",		2 },
+	{ c_foreach,		"foreach",		2 },
+	{ c_foreach_next,	"foreach_next",		3 },
+	{ c_bop_lor,		"bop_lor",		1 },
+	{ c_bop_land,		"bop_land",		1 },
+	{ c_bop_or,		"bop_or",		0 },
+	{ c_bop_xor,		"bop_xor",		0 },
+	{ c_bop_and,		"bop_and",		0 },
+	{ c_bop_ne,		"bop_ne",		0 },
+	{ c_bop_eq,		"bop_eq",		0 },
+	{ c_bop_gt,		"bop_gt",		0 },
+	{ c_bop_ge,		"bop_ge",		0 },
+	{ c_bop_lt,		"bop_lt",		0 },
+	{ c_bop_le,		"bop_le",		0 },
+	{ c_bop_shl,		"bop_shl",		0 },
+	{ c_bop_shr,		"bop_shr",		0 },
+	{ c_bop_add,		"bop_add",		0 },
+	{ c_bop_sub,		"bop_sub",		0 },
+	{ c_bop_mul,		"bop_mul",		0 },
+	{ c_bop_mod,		"bop_mod",		0 },
+	{ c_bop_div,		"bop_div",		0 },
+	{ c_bop_ne_string,	"bop_ne_string",	0 },
+	{ c_bop_eq_string,	"bop_eq_string",	0 },
+	{ c_uop_not,		"uop_not",		0 },
+	{ c_uop_compl,		"uop_compl",		0 },
+	{ c_uop_minus,		"uop_minus",		0 },
+	{ c_postinc,		"postinc",		1 },
+	{ c_postdec,		"postdec",		1 },
+	{ c_preinc,		"preinc",		1 },
+	{ c_predec,		"predec",		1 },
+	{ c_assign,		"assign",		1 },
+	{ c_add_eq,		"add_eq",		1 },
+	{ c_sub_eq,		"sub_eq",		1 },
+	{ c_div_eq,		"div_eq",		1 },
+	{ c_mul_eq,		"mul_eq",		1 },
+	{ c_mod_eq,		"mod_eq",		1 },
+	{ c_and_eq,		"and_eq",		1 },
+	{ c_or_eq,		"or_eq",		1 },
+	{ c_xor_eq,		"xor_eq",		1 },
+	{ c_shl_eq,		"shl_eq",		1 },
+	{ c_shr_eq,		"shr_eq",		1 },
 };
 
 #define CODETAB_SZ (sizeof(codetab) / sizeof(codeinfo_t))
@@ -927,6 +1092,7 @@ sym_destroy(sym_t *sym)
 	case SYM_KEYWORD:
 	case SYM_FUNC:
 	case SYM_VAR:
+	case SYM_LABEL:
 		/* do nothing */
 		break;
 	};
@@ -946,6 +1112,10 @@ sym_cpy(sym_t *dst, const sym_t *src)
 
 	case SYM_VAR:
 		dst->s.var = src->s.var;
+		break;
+
+	case SYM_LABEL:
+		dst->s.label = src->s.label;
 		break;
 	}
 
@@ -972,6 +1142,10 @@ varrdata_t v_jumptabs = {
 	(e_init_t) jumptab_init,
 	(e_destroy_t) varr_destroy,
 	(e_cpy_t ) varr_cpy
+};
+
+varrdata_t v_iterdata = {
+	sizeof(iterdata_t), 4
 };
 
 hashdata_t h_strings = {
@@ -1022,7 +1196,9 @@ prog_init(prog_t *prog)
 
 	varr_init(&prog->cstack, &v_ints);
 	varr_init(&prog->args, &v_ints);
+
 	varr_init(&prog->jumptabs, &v_jumptabs);
+	varr_init(&prog->iterdata, &v_iterdata);
 
 	prog->curr_jumptab = -1;
 	prog->curr_break_addr = INVALID_ADDR;
@@ -1047,7 +1223,9 @@ prog_destroy(prog_t *prog)
 
 	varr_destroy(&prog->cstack);
 	varr_destroy(&prog->args);
+
 	varr_destroy(&prog->jumptabs);
+	varr_destroy(&prog->iterdata);
 
 	varr_destroy(&prog->data);
 }
@@ -1067,7 +1245,9 @@ prog_compile(prog_t *prog)
 
 	varr_erase(&prog->cstack);
 	varr_erase(&prog->args);
+
 	varr_erase(&prog->jumptabs);
+	varr_erase(&prog->iterdata);
 
 	prog->curr_jumptab = -1;
 	prog->curr_break_addr = INVALID_ADDR;
@@ -1124,6 +1304,10 @@ prog_dump(prog_t *prog)
 			ip += CODE(ip)[3];
 		} else if (p == c_jmp || p == c_bop_lor || p == c_bop_land) {
 			fprintf(stderr, " 0x%08x", CODE(ip)[1]);
+		} else if (p == c_jmp_addr) {
+			int addr = CODE(ip)[1];
+			fprintf(stderr, " (addr: 0x%08x, jmp_addr: 0x%08x)",
+				addr, CODE(addr)[0]);
 		} else if (p == c_switch) {
 			int jt_offset = CODE(ip)[1];
 			varr *jumptab;
@@ -1131,12 +1315,22 @@ prog_dump(prog_t *prog)
 			jumptab = varr_get(&prog->jumptabs, jt_offset);
 			if (jumptab != NULL)
 				varr_foreach(jumptab, print_swjump_cb);
-		} else if (p == c_if || p == c_quecolon) {
-			int else_addr = CODE(ip)[1];
-			int next_addr = CODE(ip)[2];
-
-			fprintf(stderr, " 0x%08x 0x%08x",
-				else_addr, next_addr);
+		} else if (p == c_quecolon) {
+			fprintf(stderr, " (next: 0x%08x else: 0x%08x)",
+				CODE(ip)[1], CODE(ip)[2]);
+		} else if (p == c_if) {
+			fprintf(stderr,
+				" (next: 0x%08x, then: 0x%08x, else: 0x%08x)",
+				CODE(ip)[1], CODE(ip)[2], CODE(ip)[3]);
+		} else if (p == c_foreach) {
+			fprintf(stderr,
+				" (next: 0x%08x, body: 0x%08x)",
+				CODE(ip)[1], CODE(ip)[2]);
+		} else if (p == c_foreach_next) {
+			fprintf(stderr, " (next: 0x%08x, %s, iter: %s)",
+				CODE(ip)[1],
+				(const char *) CODE(ip)[2],
+				((iterdata_t *) CODE(ip)[3])->iter->init.name);
 		}
 
 		ip += ci->gobble;
@@ -1147,10 +1341,10 @@ prog_dump(prog_t *prog)
 void
 execute(prog_t *prog, int ip)
 {
-	prog->ip = ip;
-	while (prog->ip < varr_size(&prog->code)) {
-		c_fun *c = (c_fun *) VARR_GET(&prog->code, prog->ip++);
+	c_fun *c;
 
+	prog->ip = ip;
+	while ((c = (c_fun *) varr_get(&prog->code, prog->ip++)) != NULL) {
 		if (*c == c_stop)
 			break;
 		(*c)(prog);
@@ -1239,8 +1433,8 @@ mpc_init()
 		const void *p;
 		sym_t sym;
 
-		sym.type = SYM_VAR;
 		sym.name = str_dup(ic->name);
+		sym.type = SYM_VAR;
 		sym.s.var.type_tag = MT_INT;
 		sym.s.var.data.i = ic->value;
 		sym.s.var.is_const = TRUE;
@@ -1259,8 +1453,8 @@ mpc_init()
 		const void *p;
 		sym_t sym;
 
-		sym.type = SYM_FUNC;
 		sym.name = str_dup(*pp);
+		sym.type = SYM_FUNC;
 
 		if ((p = hash_insert(&glob_syms, sym.name, &sym)) == NULL) {
 			log(LOG_ERROR, "%s: duplicate symbol (func)",
