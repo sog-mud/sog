@@ -1,5 +1,5 @@
 /*
- * $Id: raffect.c,v 1.4 1998-08-02 22:18:15 efdi Exp $
+ * $Id: raffect.c,v 1.5 1998-08-05 10:56:24 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -427,7 +427,8 @@ void do_raffects(CHAR_DATA *ch, const char *argument)
 				continue;
 		else
 			char_printf(ch, "%s {c%-15s{x", msg(AFF_SPELL, ch),
-				    skill_table[paf->type].name);
+				    paf->type > 0 ?
+				    skill_table[paf->type].name : "none");
 
 		if (ch->level >= 20) {
 			char_printf(ch, ": %s {c%s{x %s {c%d{x ",

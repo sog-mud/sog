@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.45 1998-08-03 00:22:30 efdi Exp $
+ * $Id: act_wiz.c,v 1.46 1998-08-05 10:56:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1691,8 +1691,8 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 
 	for (paf = victim->affected; paf != NULL; paf = paf->next)
 		buf_printf(output,
-		    "Spell: '%s' modifies %s by %d for %d hours with bits %s, level %d.\n\r",
-		    skill_table[(int) paf->type].name,
+		    "Spell: '{c%s{x' modifies {c%s{x by {c%d{x for {c%d{x hours with bits {c%s{x, level {c%d{x.\n\r",
+		    paf->type > 0 ? skill_table[paf->type].name : "none",
 		    affect_loc_name(paf->location),
 		    paf->modifier,
 		    paf->duration,

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.110 1998-08-03 15:09:01 fjoe Exp $
+ * $Id: act_info.c,v 1.111 1998-08-05 10:56:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3353,7 +3353,8 @@ void do_affects(CHAR_DATA *ch, const char *argument)
 				continue;
 		else
 			char_printf(ch, "%s {c%-15s{x", msg(AFF_SPELL, ch),
-				    skill_table[paf->type].name);
+				    paf->type > 0 ?
+				    skill_table[paf->type].name : "none");
 
 		if (ch->level >= 20) {
 			char_printf(ch, ": %s {c%s{x %s {c%d{x ",
