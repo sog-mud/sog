@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.189 2001-08-20 16:47:45 fjoe Exp $
+ * $Id: save.c,v 1.190 2001-08-20 17:06:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -406,7 +406,7 @@ fwrite_pet(CHAR_DATA *pet, FILE *fp, int flags __attribute__((unused)))
 	fprintf(fp, "AC %d %d %d %d\n",
 		pet->armor[0], pet->armor[1], pet->armor[2], pet->armor[3]);
 
-	aff_fwrite_list("Affc", NULL, pet->affected, fp);
+	aff_fwrite_list("Affc", pet->affected, fp);
 	fprintf(fp, "End\n\n");
 }
 
@@ -491,7 +491,7 @@ fwrite_obj(CHAR_DATA *ch, OBJ_DATA *obj, FILE *fp, int iNest)
 		fwrite_objval(obj->item_type, obj->value, fp);
 	}
 
-	aff_fwrite_list("Affc", NULL, obj->affected, fp);
+	aff_fwrite_list("Affc", obj->affected, fp);
 
 	for (ed = obj->ed; ed != NULL; ed = ed->next) {
 		if (IS_NULLSTR(ed->keyword))

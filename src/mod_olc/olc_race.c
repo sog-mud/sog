@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.50 2001-08-20 16:47:35 fjoe Exp $
+ * $Id: olc_race.c,v 1.51 2001-08-20 17:06:22 fjoe Exp $
  */
 
 #include "olc.h"
@@ -977,7 +977,7 @@ save_race_cb(void *p, va_list ap)
 
 	fprintf(fp, "LuckBonus %d\n", r->luck_bonus);
 
-	aff_fwrite_list("Affc", NULL, r->affected, fp);
+	aff_fwrite_list("Affc", r->affected, fp);
 
 	fprintf(fp, "End\n\n");
 
