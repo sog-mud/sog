@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.100 1998-12-14 12:31:31 fjoe Exp $
+ * $Id: act_wiz.c,v 1.101 1998-12-16 10:21:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4327,11 +4327,9 @@ DO_FUN(do_grant)
 
 		for (cmd = cmd_table; cmd->name; cmd++) {
 			if (cmd->level < LEVEL_HERO
-			||  cmd->level > lev
-			||  is_name(cmd->name, victim->pcdata->granted))
-				continue;
-			name_toggle(ch, cmd->name, "grant",
-				    &victim->pcdata->granted);
+			||  cmd->level > lev)
+			name_add(ch, cmd->name, "grant",
+				 &victim->pcdata->granted);
 		}
 
 		return;

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.93 1998-12-14 04:26:05 fjoe Exp $
+ * $Id: handler.c,v 1.94 1998-12-16 10:21:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -635,8 +635,11 @@ void cat_name(char *buf, const char *name, size_t len)
 		strnzcat(buf, "'", len);
 }
 
-void name_toggle(CHAR_DATA *ch, const char *name,
-		 const char *editor_name, const char **nl)
+#define NE_F_DELETE	(A)	/* delete name if found		*/
+#define NE_F_ADD	(B)	/* add name if not found	*/
+
+void name_edit(CHAR_DATA *ch, const char *name,
+	       const char *editor_name, const char **nl, int flags)
 {
 	bool found;
 	const char *p;
@@ -674,25 +677,57 @@ void name_toggle(CHAR_DATA *ch, const char *name,
 
 		if (!str_cmp(name, arg)) {
 			found = TRUE;
-			continue;
+			if (IS_SET(flags, NE_F_DELETE))
+				continue;
 		}
 
 		cat_name(buf, arg, sizeof(buf));
 	}
 
 	if (!found) {
+		if (!IS_SET(flags, NE_F_ADD))
+			return;
+
 		if (strlen(buf) + strlen(name) + 4 > MAX_STRING_LENGTH) {
-			char_printf(ch, "%s: name list too long\n", editor_name);
+			if (editor_name)
+				char_printf(ch, "%s: name list too long\n",
+					    editor_name);
 			return;
 		}
 		cat_name(buf, name, sizeof(buf));
-		char_printf(ch, "%s: %s: name added.\n", editor_name, name);
+		if (editor_name)
+			char_printf(ch, "%s: %s: name added.\n",
+				    editor_name, name);
 	}
-	else 
-		char_printf(ch, "%s: %s: name removed.\n", editor_name, name);
+	else {
+		if (!IS_SET(flags, NE_F_DELETE))
+			return;
+
+		if (editor_name)
+			char_printf(ch, "%s: %s: name removed.\n",
+				    editor_name, name);
+	}
 
 	free_string(*nl);
 	*nl = str_dup(buf);
+}
+
+void name_add(CHAR_DATA *ch, const char *name,
+	      const char *editor_name, const char **nl)
+{
+	name_edit(ch, name, editor_name, nl, NE_F_ADD);
+}
+
+void name_delete(CHAR_DATA *ch, const char *name,
+		 const char *editor_name, const char **nl)
+{
+	name_edit(ch, name, editor_name, nl, NE_F_DELETE);
+}
+
+void name_toggle(CHAR_DATA *ch, const char *name,
+		 const char *editor_name, const char **nl)
+{
+	name_edit(ch, name, editor_name, nl, NE_F_ADD | NE_F_DELETE);
 }
 
 /* enchanted stuff for eq */

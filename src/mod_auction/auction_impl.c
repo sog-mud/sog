@@ -1,5 +1,5 @@
 /*
- * $Id: auction_impl.c,v 1.21 1998-12-01 10:53:51 fjoe Exp $
+ * $Id: auction_impl.c,v 1.22 1998-12-16 10:21:35 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -338,7 +338,7 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 				auction.seller->gold +=
 					(auction.starting * 20) / 100;
 				char_puts("Your money has been returned.\n",
-					  auction.buyer);
+					  auction.seller);
 			}
 	    		return;
 		}

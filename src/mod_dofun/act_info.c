@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.175 1998-12-10 13:52:00 fjoe Exp $
+ * $Id: act_info.c,v 1.176 1998-12-16 10:21:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1685,164 +1685,178 @@ void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 	buf_add(output, "\n");
 }
 
-void do_who(CHAR_DATA *ch, const char *argument)
+#define WHO_F_IMM	(A)		/* imm only			*/
+#define WHO_F_PK	(B)		/* PK only			*/
+#define WHO_F_TATTOO	(C)		/* same tattoo only		*/
+#define WHO_F_CLAN	(D)		/* clan only			*/
+#define WHO_F_RCLAN	(E)		/* specified clans only		*/
+#define WHO_F_RRACE	(F)		/* specified races only		*/
+#define WHO_F_RCLASS	(G)		/* specified classes only	*/
+
+DO_FUN(do_who)
 {
 	BUFFER *output;
 	DESCRIPTOR_DATA *d;
-#if 0
-	int iClass;
-	int iRace;
-#endif
-	int iLevelLower;
-	int iLevelUpper;
+	int flags = 0;
+
+	int iLevelLower = 0;
+	int iLevelUpper = MAX_LEVEL;
+
+	int tattoo_vnum = 0;	/* who tattoo data */
+	OBJ_DATA *obj;
+
 	int nNumber;
-	int nMatch;
-	int vnum;
-	int count;
-#if 0
-	bool rgfRace[MAX_PC_RACE];
-	bool fClassRestrict;
-	bool fRaceRestrict;
-#endif
-	bool fImmortalOnly;
-	bool fPKRestrict;
-	bool fTattoo;
+	int nMatch = 0;
+	int count = 0;
 
-	/*
-	 * Set default arguments.
-	 */
-	iLevelLower    = 0;
-	iLevelUpper    = MAX_LEVEL;
-#if 0
-	fClassRestrict = FALSE;
-	fRaceRestrict = FALSE;
-#endif
-	fPKRestrict = FALSE;
-	fImmortalOnly  = FALSE;
-	vnum = 0;
-	fTattoo = FALSE;
-
-#if 0
-	for (iRace = 0; iRace < MAX_PC_RACE; iRace++)
-		rgfRace[iRace] = FALSE;
-#endif
+	const char *clan_names = str_empty;
+	const char *race_names = str_empty;
+	const char *class_names = str_empty;
 
 	/*
 	 * Parse arguments.
 	 */
 	nNumber = 0;
 	for (;;) {
-		char arg[MAX_STRING_LENGTH];
+		int i;
+		char arg[MAX_INPUT_LENGTH];
 
 		argument = one_argument(argument, arg);
 		if (arg[0] == '\0')
 			break;
 
-		if (!str_cmp(arg,"pk")) {
-			fPKRestrict = TRUE;
-			break;
-		}
-
-		if (!str_cmp(arg,"tattoo")) {
-			if (get_eq_char(ch,WEAR_TATTOO) == NULL) {
-				char_puts("You haven't got a tattoo yet!\n",ch);
-				return;
-			} else {
-				fTattoo = TRUE;
-				vnum = get_eq_char(ch,WEAR_TATTOO)->pIndexData->vnum;
-				break;
-			}
-		}
-
-		if (is_number(arg) && IS_IMMORTAL(ch)) {
-			switch (++nNumber) {
-			case 1: iLevelLower = atoi(arg); break;
-			case 2: iLevelUpper = atoi(arg); break;
-			default:
-				char_puts("This function of who is for "
-					     "immortals.\n",ch);
-				return;
-			}
+		if (!str_prefix(arg, "immortals")) {
+			SET_BIT(flags, WHO_F_IMM);
 			continue;
 		}
 
-		/*
-		 * Look for classes to turn on.
-		 */
-		if (arg[0] == 'i')
-			fImmortalOnly = TRUE;
-		else {
-#if 0
-			iRace = race_lookup(arg);
+		if (!str_cmp(arg, "pk")) {
+			SET_BIT(flags, WHO_F_PK);
+			continue;
+		}
 
-			if (iRace == 0 || iRace >= MAX_PC_RACE) {
-				iClass = cln_lookup(arg);
-				if (iClass == -1 || !IS_IMMORTAL(ch)) {
-					char_puts("That's not a "
-						     "valid race.\n",
-						     ch);
-					return;
-				}
-				fClassRestrict = TRUE;
-				rgfClass[iClass] = TRUE;
+		if (!str_cmp(arg, "tattoo")) {
+			if ((obj = get_eq_char(ch, WEAR_TATTOO)) == NULL) {
+				char_puts("You haven't got a tattoo yet!\n", ch);
+				goto bail_out;
 			}
-			else {
-				fRaceRestrict = TRUE;
-				rgfRace[iRace] = TRUE;
+			SET_BIT(flags, WHO_F_TATTOO);
+			tattoo_vnum = obj->pIndexData->vnum;
+			continue;
+		}
+
+		if (!str_cmp(arg, "clan")) {
+			SET_BIT(flags, WHO_F_CLAN);
+			continue;
+		}
+
+		if ((i = cn_lookup(arg)) > 0) {
+			name_add(ch, CLAN(i)->name, NULL, &clan_names);
+			SET_BIT(flags, WHO_F_RCLAN);
+			continue;
+		}
+
+		if ((i = rn_lookup(arg)) > 0 && RACE(i)->pcdata) {
+			name_add(ch, RACE(i)->name, NULL, &race_names);
+			SET_BIT(flags, WHO_F_RRACE);
+			continue;
+		}
+
+		if (!IS_IMMORTAL(ch))
+			continue;
+
+		if ((i = cln_lookup(arg)) >= 0) {
+			name_add(ch, CLASS(i)->name, NULL, &class_names);
+			SET_BIT(flags, WHO_F_RCLASS);
+			continue;
+		}
+
+		if (is_number(arg)) {
+			switch (++nNumber) {
+			case 1:
+				iLevelLower = atoi(arg);
+				break;
+			case 2:
+				iLevelUpper = atoi(arg);
+				break;
+			default:
+				char_printf(ch,
+					    "%s: explicit argument (skipped)\n",
+					    arg);
+				break;
 			}
-#endif
+			continue;
 		}
 	}
 
 	/*
 	 * Now show matching chars.
 	 */
-	nMatch = 0;
 	output = buf_new(ch->lang);
-	for (d = descriptor_list; d != NULL; d = d->next) {
+	for (d = descriptor_list; d; d = d->next) {
 		CHAR_DATA *wch;
 
-		/*
-		 * Check for match against restrictions.
-		 * Don't use trust as that exposes trusted mortals.
-		 */
-		if (d->connected != CON_PLAYING || !can_see(ch, d->character))
-				continue;
+		CLAN_DATA *clan;
+		RACE_DATA *race;
+		CLASS_DATA *class;
 
-		if (is_affected(d->character, gsn_vampire) && !IS_IMMORTAL(ch)
-		&&  ch != d->character)
+		if (d->connected != CON_PLAYING)
+			continue;
+		count++;
+
+		wch = d->original ? d->original : d->character;
+		if (!wch || !can_see(ch, wch))
 			continue;
 
-		wch = (d->original != NULL) ? d->original : d->character;
-		if (!can_see(ch, wch)) /* can't see switched wizi imms */
+		if (is_affected(wch, gsn_vampire)
+		&&  !IS_IMMORTAL(ch) && ch != wch)
 			continue;
 
 		if (wch->level < iLevelLower || wch->level > iLevelUpper
-		||  (fImmortalOnly && wch->level < LEVEL_HERO)
-#if 0
-		||  (fClassRestrict && !rgfClass[wch->class])
-		||  (fClassRestrict && IS_IMMORTAL(wch))
-		||  (fRaceRestrict && !rgfRace[RACE(wch)])
-		||  (fRaceRestrict && IS_IMMORTAL(wch))
-#endif
-		||  (fPKRestrict && !in_PK(ch, wch))
-		||  (fTattoo
-		   && (vnum == get_eq_char(wch,WEAR_TATTOO)->pIndexData->vnum)))
+		||  (IS_SET(flags, WHO_F_IMM) && wch->level < LEVEL_IMMORTAL)
+		||  (IS_SET(flags, WHO_F_PK) && !in_PK(ch, wch))
+		||  (IS_SET(flags, WHO_F_CLAN) && !wch->clan))
 			continue;
 
+		if (IS_SET(flags, WHO_F_TATTOO)) {
+			if ((obj = get_eq_char(wch, WEAR_TATTOO)) == NULL
+			||  tattoo_vnum != obj->pIndexData->vnum)
+				continue;
+		}
+
+		if (IS_SET(flags, WHO_F_RCLAN)) {
+			if (!wch->clan
+			||  (clan = clan_lookup(wch->clan)) == NULL
+			||  !is_name(clan->name, clan_names))
+				continue;
+		}
+
+		if (IS_SET(flags, WHO_F_RRACE)) {
+			if ((race = race_lookup(wch->race)) == NULL
+			||  !is_name(race->name, race_names))
+				continue;
+		}
+
+		if (IS_SET(flags, WHO_F_RCLASS)) {
+			if ((class = class_lookup(wch->class)) == NULL
+			||  !is_name(class->name, class_names))
+				continue;
+		}
+			
 		nMatch++;
 		do_who_raw(ch, wch, output);
 	}
-
-	count = 0;
-	for (d = descriptor_list; d != NULL; d = d->next)
-		count += (d->connected == CON_PLAYING);
 
 	max_on = UMAX(count, max_on);
 	buf_printf(output, "{x\nPlayers found: %d. Most so far today: %d.\n",
 		   nMatch, max_on);
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
+
+bail_out:
+	free_string(clan_names);
+	free_string(class_names);
+	free_string(race_names);
 }
 
 /* whois command */

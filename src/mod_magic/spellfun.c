@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.92 1998-12-14 09:47:11 kostik Exp $
+ * $Id: spellfun.c,v 1.93 1998-12-16 10:21:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -192,46 +192,41 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		break;
 
 	case TAR_CHAR_OFFENSIVE:
-		if (target_name[0] == '\0') {
-			if ((victim = ch->fighting) == NULL) {
-				char_puts("Cast the spell on whom?\n", ch);
-				return;
-			}
+		if (target_name[0] == '\0'
+		&&  (victim = ch->fighting) == NULL) {
+			char_puts("Cast the spell on whom?\n", ch);
+			return;
 		}
-		else {
-			if ((range = allowed_other(ch, sn)) > 0) {
-				if (!(victim = get_char_spell(ch, target_name,
-							      &door, range)))
-					return;
 
-				if (victim->in_room != ch->in_room
-				&&  room_is_private(ch->in_room)) {
+		if ((range = allowed_other(ch, sn)) > 0) {
+			if (!(victim = get_char_spell(ch, target_name,
+						      &door, range)))
+				return;
+
+			if (IS_NPC(victim)
+			&&  victim->in_room != ch->in_room) {
+				if (room_is_private(ch->in_room)) {
 					char_puts("You can't cast this spell "
 						  "from private room "
 						  "right now.\n", ch);
 					return;
 				}
 
-				if (IS_NPC(victim)
-				&&  IS_SET(victim->act, ACT_NOTRACK)
-				&&  victim->in_room != ch->in_room) {
-					act_puts("You can't cast this spell to $N at this distance.",
-						 ch, NULL, victim, TO_CHAR, POS_DEAD);
+				if (IS_SET(victim->act, ACT_NOTRACK)) {
+					act_puts("You can't cast this spell to "
+						 "$N at this distance.",
+						 ch, NULL, victim, TO_CHAR,
+						 POS_DEAD);
 					return;
 				}
-				cast_far = TRUE;
-			} else if (!(victim = get_char_room(ch, target_name))) {
-				char_puts("They aren't here.\n", ch);
-				return;
 			}
+			cast_far = TRUE;
+		}
+		else if (!(victim = get_char_room(ch, target_name))) {
+			char_puts("They aren't here.\n", ch);
+			return;
 		}
 
-		if (is_safe(ch, victim))
-			return;
-		if (!IS_NPC(ch) && victim != ch &&
-			ch->fighting != victim && victim->fighting != ch &&
-			(IS_SET(victim->affected_by,AFF_CHARM) || !IS_NPC(victim))) 
-		doprintf(do_yell,victim,"Die, %s, you sorcerous dog!",PERS(ch,victim));
 		vo = (void *) victim;
 		target = TARGET_CHAR;
 		bane_chance = 2*get_skill(victim, gsn_spellbane)/3;
@@ -240,11 +235,9 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	case TAR_CHAR_DEFENSIVE:
 		if (target_name[0] == '\0')
 			victim = ch;
-		else {
-			if ((victim = get_char_room(ch, target_name)) == NULL) {
-				char_puts("They aren't here.\n", ch);
-				return;
-			}
+		else if ((victim = get_char_room(ch, target_name)) == NULL) {
+			char_puts("They aren't here.\n", ch);
+			return;
 		}
 
 		vo = (void *) victim;
@@ -288,7 +281,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		if (target_name[0] == '\0') {
 			if ((victim = ch->fighting) == NULL) {
 				char_puts("Cast the spell on whom or what?\n",
-				ch);
+					  ch);
 				return;
 			}
 			target = TARGET_CHAR;
@@ -296,43 +289,16 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		else if ((victim = get_char_room(ch,target_name)))
 			target = TARGET_CHAR;
 
-		if (target == TARGET_CHAR) /* check the sanity of the attack */
-		{
-		    if (IS_AFFECTED(ch, AFF_CHARM) && ch->master == victim) {
-			char_puts("You can't do that on your own follower.\n",
-			    ch);
-			return;
-		    }
-
-		    if (is_safe(ch, victim)) {
-			char_puts("Your spell didn't work.\n",ch);
-			return;
-		    }
-
-		    vo = (void *) victim;
-		}
-		else if ((obj = get_obj_here(ch,target_name)) != NULL)
-		{
-		    vo = (void *) obj;
-		    target = TARGET_OBJ;
-		}
-		else
-		{
-		    char_puts("You don't see that here.\n",ch);
-		    return;
-		}
-		break;
-
-	case TAR_OBJ_CHAR_DEF:
-		if (target_name[0] == '\0') {
-			vo = (void *) ch;
-			target = TARGET_CHAR;
-		}
-		else if ((victim = get_char_room(ch,target_name))) {
+		if (target == TARGET_CHAR) {
+			if (IS_AFFECTED(ch, AFF_CHARM)
+			&&  ch->master == victim) {
+				char_puts("You can't do that on your own "
+					  "follower.\n", ch);
+				return;
+			}
 			vo = (void *) victim;
-			target = TARGET_CHAR;
 		}
-		else if ((obj = get_obj_carry(ch,target_name))) {
+		else if ((obj = get_obj_here(ch, target_name))) {
 			vo = (void *) obj;
 			target = TARGET_OBJ;
 		}
@@ -341,6 +307,40 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 		break;
+
+	case TAR_OBJ_CHAR_DEF:
+		if (target_name[0] == '\0') {
+			vo = (void *) ch;
+			target = TARGET_CHAR;
+		}
+		else if ((victim = get_char_room(ch, target_name))) {
+			vo = (void *) victim;
+			target = TARGET_CHAR;
+		}
+		else if ((obj = get_obj_carry(ch, target_name))) {
+			vo = (void *) obj;
+			target = TARGET_OBJ;
+		}
+		else {
+			char_puts("You don't see that here.\n",ch);
+			return;
+		}
+		break;
+	}
+
+	if (spell->target == TAR_CHAR_OFFENSIVE
+	||  (spell->target == TAR_OBJ_CHAR_OFF && target == TARGET_CHAR)) {
+		if (is_safe(ch, victim))
+			return;
+
+		if (!IS_NPC(ch)
+		&&  victim != ch
+		&&  ch->fighting != victim
+		&&  victim->fighting != ch
+		&&  (!IS_AFFECTED(victim, AFF_CHARM) || !IS_NPC(victim))) 
+			doprintf(do_yell, victim,
+				 "Die, %s, you sorcerous dog!",
+				 PERS(ch,victim));
 	}
 
 	if (str_cmp(spell->name, "ventriloquate"))
