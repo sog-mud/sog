@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.114.2.33 2003-02-26 19:32:18 tatyana Exp $
+ * $Id: martial_art.c,v 1.114.2.34 2003-04-05 10:13:55 tatyana Exp $
  */
 
 /***************************************************************************
@@ -3810,6 +3810,13 @@ do_poncho(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	if (IS_SET(ch->in_room->room_flags, ROOM_BATTLE_ARENA)
+	&&  corpse->pObjIndex->vnum == OBJ_VNUM_CORPSE_NPC) {
+		char_puts("Some mystical force prevents you from doing that.\n",
+		    ch);
+		return;
+	}
+
 	if (number_percent() > chance * 2 / 3) {
 		char_puts("You failed and destroyed it.\n", ch);
 		extract_obj(corpse, 0);
@@ -3900,6 +3907,12 @@ do_hunters_trophy(CHAR_DATA *ch, const char *argument)
 
 	if (corpse->pObjIndex->vnum != OBJ_VNUM_CORPSE_PC) {
 		char_puts("Your can make a trophy only from pc corpse.\n", ch);
+		return;
+	}
+
+	if (IS_SET(ch->in_room->room_flags, ROOM_BATTLE_ARENA)) {
+		char_puts("Some mystical force prevents you from doing that.\n",
+		    ch);
 		return;
 	}
 
