@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.189 1999-12-16 11:38:34 kostik Exp $
+ * $Id: act_obj.c,v 1.190 1999-12-17 08:59:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2943,7 +2943,7 @@ void do_second_wield(CHAR_DATA * ch, const char *argument)
 		char_puts("You can't use second weapon while wielding a staff.\n", ch);
 		return;
 	}
-	if (get_obj_weight(obj) > (str_app[get_curr_stat(ch, STAT_STR)].wield * 5)) {
+	if (get_obj_weight(obj) > str_app[get_curr_stat(ch, STAT_STR)].wield / 2) {
 		char_puts("This weapon is too heavy to be used as a secondary weapon by you.\n", ch);
 		return;
 	}
