@@ -1,5 +1,5 @@
 /*
- * $Id: buffer.c,v 1.22 2000-04-16 09:21:53 fjoe Exp $
+ * $Id: buffer.c,v 1.23 2000-06-02 16:41:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -56,28 +56,22 @@
 #include "comm_act.h"
 #include "db.h"
 #include "str.h"
+#include "memalloc.h"
 
 struct buf_data
 {
 	BUFFER *	next;
 	int		lang;	/* buffer language, -1 == none */
-	int		state;	/* error state of the buffer */
 	int		size;	/* buffer size in bytes */
 	char *		string; /* buffer's string */
 };
 
 #define BUF_LIST_MAX		12
 #define BUF_DEFAULT_SIZE 	1024
+#define BUF_OFLOW		1	/* overflow mem tag */
 
 int	nAllocBuf;
 int	sAllocBuf;
-
-/* valid states */
-enum {
-	BUFFER_SAFE,
-	BUFFER_OVERFLOW,
-	BUFFER_FREED
-};
 
 BUFFER *free_list;
 
@@ -89,17 +83,16 @@ BUFFER *buf_new(int lang)
 	BUFFER *buffer;
  
 	if (free_list == NULL) {
-		buffer		= malloc(sizeof(*buffer));
+		buffer		= mem_alloc(MT_BUFFER, sizeof(*buffer));
 		nAllocBuf++;
-	}
-	else {
+	} else {
 		buffer		= free_list;
 		free_list	= free_list->next;
+		mem_validate(buffer);
 	}
  
 	buffer->next		= NULL;
 	buffer->lang		= lang;
-	buffer->state		= BUFFER_SAFE;
 	buffer->size		= BUF_DEFAULT_SIZE;
 	buffer->string		= malloc(buffer->size);
 	buffer->string[0]	= '\0';
@@ -115,10 +108,10 @@ void buf_free(BUFFER *buffer)
 	free(buffer->string);
 	buffer->string	= NULL;
 	buffer->size	= 0;
-	buffer->state	= BUFFER_FREED;
 
 	buffer->next	= free_list;
 	free_list	= buffer;
+	mem_invalidate(buffer);
 }
 
 bool buf_add(BUFFER *buffer, const char *string)
@@ -159,7 +152,7 @@ bool buf_act(BUFFER *buffer, const char *format, CHAR_DATA *ch,
 void buf_clear(BUFFER *buffer)
 {
 	buffer->string[0]	= '\0';
-	buffer->state		= BUFFER_SAFE;
+	mem_untag(buffer, BUF_OFLOW);
 }
 
 char* buf_string(BUFFER *buffer)
@@ -199,7 +192,8 @@ static bool buf_cat(BUFFER *buffer, const char *string)
 	oldstr = buffer->string;
 	oldsize = buffer->size;
 
-	if (buffer->state != BUFFER_SAFE)
+	if (!mem_is(buffer, MT_BUFFER)
+	||  mem_tagged(buffer, BUF_OFLOW))
 		/* don't waste time on bad strings! */
 		return FALSE;
 
@@ -209,7 +203,7 @@ static bool buf_cat(BUFFER *buffer, const char *string)
 		buffer->size 	= get_size(len);
 		if (buffer->size == -1) { /* overflow */
 			buffer->size = oldsize;
-			buffer->state = BUFFER_OVERFLOW;
+			mem_tag(buffer, BUF_OFLOW);
 			log(LOG_INFO, "buf_add: '%s': buffer overflow", string);
 			return FALSE;
 		}
@@ -221,7 +215,7 @@ static bool buf_cat(BUFFER *buffer, const char *string)
 		p = realloc(buffer->string, buffer->size);
 		if (p == NULL) {
 			buffer->size = oldsize;
-			buffer->state = BUFFER_OVERFLOW;
+			mem_tag(buffer, BUF_OFLOW);
 			log(LOG_INFO, "buf_add: '%s': realloc failed", string);
 			return FALSE;
 		}

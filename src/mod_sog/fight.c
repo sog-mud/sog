@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.273 2000-06-01 17:57:41 fjoe Exp $
+ * $Id: fight.c,v 1.274 2000-06-02 16:40:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -52,7 +52,6 @@
 #endif
 
 #include "merc.h"
-#include "quest.h"
 #include "rating.h"
 #include "mob_prog.h"
 #include "obj_prog.h"
@@ -63,6 +62,7 @@
 
 #include "module.h"
 #include "fight.h"
+#include "quest.h"
 
 /*
  * Local functions.

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_system.c,v 1.13 2000-06-01 17:58:02 fjoe Exp $
+ * $Id: db_system.c,v 1.14 2000-06-02 16:41:13 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -97,6 +97,7 @@ DBLOAD_FUN(load_system)
 		case 'M':
 			if (IS_TOKEN(fp, "Module")) {
 				module_t *m = varr_enew(&modules);
+				m->mod_prio = fread_number(fp);
 				m->name = fread_string(fp);
 				m->mod_id = flag_value(module_names, m->name);
 				m->file_name = str_printf("%s%c%s.so.%d",

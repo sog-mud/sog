@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: module.h,v 1.7 2000-06-01 17:57:26 fjoe Exp $
+ * $Id: module.h,v 1.8 2000-06-02 16:40:40 fjoe Exp $
  */
 
 #ifndef _MODULE_H_
@@ -32,11 +32,21 @@
 #include "module_decl.h"
 
 struct module_t {
-	const char *name;		/* module name		*/
-	const char *file_name;		/* module filename	*/
-	int mod_id;			/* mod id		*/
-	void *dlh;			/* module handle	*/
-	time_t load_time;		/* module load time	*/
+	const char *name;	/* module name				*/
+	const char *file_name;	/* module filename			*/
+	int mod_id;		/* mod id				*/
+	int mod_prio;		/* module priority			*/
+				/* modules with higher priority will be	*/
+				/* [re]loaded first on `mod_load' (and	*/
+				/* will be unloaded last)		*/
+				/* load/unload order of modules with	*/
+				/* equal priority undefined		*/
+				/* module `a' priority is higher than	*/
+				/* module `b' priority if		*/
+				/* a.mod_prio > b.mod_prio		*/
+
+	void *dlh;		/* module handle			*/
+	time_t load_time;	/* module load time			*/
 };
 
 int		mod_load	(module_t *m);

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.224 2000-06-01 17:58:01 fjoe Exp $
+ * $Id: db.c,v 1.225 2000-06-02 16:41:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -58,7 +58,6 @@
 #endif
 
 #include "merc.h"
-#include "chquest.h"
 #include "rating.h"
 #include "socials.h"
 #include "db.h"
@@ -70,6 +69,7 @@
 #include "dynafun.h"
 
 #include "update.h"
+#include "quest.h"
 
 #if defined(BSD44)
 #	include <fnmatch.h>
@@ -459,10 +459,6 @@ void boot_db(void)
 	db_load_dir(&db_races, RACES_PATH, RACE_EXT);
 	db_load_dir(&db_classes, CLASSES_PATH, CLASS_EXT);
 	db_load_dir(&db_clans, CLANS_PATH, CLAN_EXT);
-	db_load_list(&db_areas, AREA_PATH, AREA_LIST);
-	db_load_file(&db_hometowns, ETC_PATH, HOMETOWNS_CONF);
-	db_load_file(&db_forms, ETC_PATH, FORMS_CONF);
-	load_tips();
 
 	/*
 	 * load modules
@@ -501,6 +497,11 @@ void boot_db(void)
 	else if (weather_info.mmhg <= 1000) weather_info.sky = SKY_RAINING;
 	else if (weather_info.mmhg <= 1020) weather_info.sky = SKY_CLOUDY;
 	else                                weather_info.sky = SKY_CLOUDLESS;
+
+	db_load_list(&db_areas, AREA_PATH, AREA_LIST);
+	db_load_file(&db_hometowns, ETC_PATH, HOMETOWNS_CONF);
+	db_load_file(&db_forms, ETC_PATH, FORMS_CONF);
+	load_tips();
 
 	/*
 	 * Fix up exits.

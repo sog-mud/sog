@@ -21,7 +21,7 @@ alnum	[a-zA-Z0-9_]
 #define yy_scan_string cc_yy_scan_string
 #define yy_delete_buffer cc_yy_delete_buffer
 
-#include "y.tab.h"
+#include "cc_parse.h"
 #include "cc_lex.h"
 
 ctx_t cc_ctx;

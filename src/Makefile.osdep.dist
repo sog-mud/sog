@@ -1,33 +1,36 @@
 #
-# $Id: Makefile.osdep.dist,v 1.7 2000-01-06 04:48:27 fjoe Exp $
+# $Id: Makefile.osdep.dist,v 1.8 2000-06-02 16:40:37 fjoe Exp $
 #
 
-.if exists(${.CURDIR}/../Makefile.inc)
-.include "${.CURDIR}/../Makefile.inc"
-.endif
+#
+# owner/group for sog binaries
+BINOWN!=	id -un
+#BINGRP=		sog
+BINGRP!=	id -gn
 
 #
 # for FreeBSD
-#CFLAGS += -DBSD44 -DUSE_MMAP
-#LIBS += -lcrypt
+#CFLAGS+=	-DBSD44 -DUSE_MMAP
+#LDADD+=		-lcrypt
 
 #
 # for Linux
-#CFLAGS	+= -DLINUX -DUSE_MMAP
-#LIBS	+= -lcrypt -ldl
-#SO_LDFLAGS += -rdynamic
-#COMPAT_CFILES = ../compat/fnmatch.c
-#MAKE = pmake
+#CFLAGS+=	-DLINUX -DUSE_MMAP
+#LDADD+=	-lcrypt -ldl
+#SO_LDFLAGS+=	-rdynamic
+#COMPAT_SRCS=	fnmatch.c
+#MAKE=		pmake
 
 #
 # for SunOS 5 (Solaris)
-#CFLAGS	+= -DSUNOS
-#LIBS += -lsocket -lnsl
-#COMPAT_CFILES = ../compat/strsep.c ../compat/snprintf.c
+#CFLAGS+=	-DSUNOS
+#LDADD+=	-lsocket -lnsl
+#COMPAT_SRCS=	strsep.c snprintf.c
+#MAKE=		pmake
 
 #
 # for Unixware 2.x
-#CFLAGS += -DSVR4 -DOLD_RAND
-#LIBS += -lsocket -lnsl -lcrypt
-#COMPAT_CFILES = ../compat/strsep.c
-
+#CFLAGS+=	-DSVR4 -DOLD_RAND
+#LDADD+=	-lsocket -lnsl -lcrypt
+#COMPAT_SRCS=	strsep.c
+#MAKE=		pmake

@@ -1,9 +1,8 @@
 #
-# $Id: Makefile,v 1.1 1999-10-12 13:56:16 avn Exp $
+# $Id: Makefile,v 1.2 2000-06-02 16:40:50 fjoe Exp $
 #
 
-MODULE = events
-CFILES = eventfun.c events.c
+MODULE=		events
+SRCS=		eventfun.c events.c
 
-.include "../Makefile.module"
-
+.include <bsd.prog.mk>

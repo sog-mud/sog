@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.101 2000-04-17 07:13:21 fjoe Exp $
+ * $Id: recycle.c,v 1.102 2000-06-02 16:41:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -583,6 +583,9 @@ void free_room_index(ROOM_INDEX_DATA *pRoom)
 	int door;
 	RESET_DATA *pReset;
 
+	if (!mem_is(pRoom, MT_ROOM))
+		return;
+
 	mlstr_destroy(&pRoom->name);
 	mlstr_destroy(&pRoom->description);
 
@@ -624,7 +627,8 @@ OBJ_INDEX_DATA *new_obj_index(void)
 {
 	OBJ_INDEX_DATA *pObj;
 
-        pObj = calloc(1, sizeof(*pObj));
+        pObj = mem_alloc(MT_OBJ_INDEX, sizeof(*pObj));
+	memset(pObj, 0, sizeof(*pObj));
 
 	pObj->name		= str_dup(str_empty);
 	pObj->item_type		= ITEM_TRASH;
@@ -639,7 +643,7 @@ OBJ_INDEX_DATA *new_obj_index(void)
 
 void free_obj_index(OBJ_INDEX_DATA *pObj)
 {
-	if (!pObj)
+	if (!mem_is(pObj, MT_OBJ_INDEX))
 		return;
 
 	free_string(pObj->name);
@@ -661,7 +665,8 @@ MOB_INDEX_DATA *new_mob_index(void)
 {
 	MOB_INDEX_DATA *pMob;
 
-        pMob = calloc(1, sizeof(*pMob));
+        pMob = mem_alloc(MT_MOB_INDEX, sizeof(*pMob));
+	memset(pMob, 0, sizeof(*pMob));
 
 	pMob->name		= str_dup(str_empty);
 	pMob->race		= str_dup("human");
@@ -677,7 +682,7 @@ MOB_INDEX_DATA *new_mob_index(void)
 
 void free_mob_index(MOB_INDEX_DATA *pMob)
 {
-	if (!pMob)
+	if (!mem_is(pMob, MT_MOB_INDEX))
 		return;
 
 	free_string(pMob->name);
@@ -694,7 +699,7 @@ void free_mob_index(MOB_INDEX_DATA *pMob)
 	aff_free_list(pMob->affected);
 
 	top_mob_index--;
-	free(pMob);
+	mem_free(pMob);
 }
 
 MPCODE *mpcode_list;

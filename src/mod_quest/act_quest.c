@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.140 2000-05-15 06:01:13 fjoe Exp $
+ * $Id: act_quest.c,v 1.141 2000-06-02 16:41:01 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -33,9 +33,10 @@
 #include <time.h>
 
 #include "merc.h"
-#include "quest.h"
-#include "chquest.h"
 #include "auction.h"
+
+#include "_quest.h"
+#include "_chquest.h"
 
 #ifdef SUNOS
 #	include "compat/compat.h"
@@ -53,7 +54,6 @@
 #define TROUBLE_MAX 3
 
 static CHAR_DATA *questor_lookup(CHAR_DATA *ch);
-qtrouble_t *qtrouble_lookup(CHAR_DATA *ch, int vnum);
 
 static void quest_points(CHAR_DATA *ch, char *arg);
 static void quest_info(CHAR_DATA *ch, char *arg);
@@ -289,21 +289,6 @@ void do_chquest(CHAR_DATA *ch, const char *argument)
 	do_chquest(ch, str_empty);
 }
 
-void qtrouble_set(CHAR_DATA *ch, int vnum, int count)
-{
-	qtrouble_t *qt;
-
-	if ((qt = qtrouble_lookup(ch, vnum)) != NULL)
-		qt->count = count;
-	else {
-		qt = malloc(sizeof(*qt));
-		qt->vnum = vnum;
-		qt->count = count;
-		qt->next = PC(ch)->qtrouble;
-		PC(ch)->qtrouble = qt;
-	}
-}
-
 /*
  * local functions
  */
@@ -341,17 +326,6 @@ static CHAR_DATA* questor_lookup(CHAR_DATA *ch)
 		return NULL;
 	}
 	return questor;
-}
-
-qtrouble_t *qtrouble_lookup(CHAR_DATA *ch, int vnum)
-{
-	qtrouble_t *qt;
-
-	for (qt = PC(ch)->qtrouble; qt != NULL; qt = qt->next)
-		if (qt->vnum == vnum)
-			return qt;
-
-	return NULL;
 }
 
 /*

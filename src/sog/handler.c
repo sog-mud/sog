@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.255 2000-06-01 17:57:53 fjoe Exp $
+ * $Id: handler.c,v 1.256 2000-06-02 16:41:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,8 +47,6 @@
 #include <time.h>
 #include "merc.h"
 #include "obj_prog.h"
-#include "quest.h"
-#include "chquest.h"
 #include "db.h"
 #include "lang.h"
 #include "mob_prog.h"
@@ -57,6 +55,7 @@
 #include "fight.h"
 #include "magic.h"
 #include "update.h"
+#include "quest.h"
 
 /*
  * Room record:

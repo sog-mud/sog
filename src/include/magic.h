@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic.h,v 1.1 2000-06-01 17:57:25 fjoe Exp $
+ * $Id: magic.h,v 1.2 2000-06-02 16:40:40 fjoe Exp $
  */
 
 #ifndef _MAGIC_H_
@@ -33,7 +33,7 @@
 #define MODULE_NAME MOD_MAGIC
 #include "dynafun_decl.h"
 
-__MODULE_START_DECL(MOD_MAGIC)
+__MODULE_START_DECL
 
 DECLARE_FUN4(void, obj_cast_spell,
 	     cchar_t, sn, int, level, CHAR_DATA, ch, void, vo)

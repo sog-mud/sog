@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: dynafun.c,v 1.2 2000-06-01 17:57:53 fjoe Exp $
+ * $Id: dynafun.c,v 1.3 2000-06-02 16:41:05 fjoe Exp $
  */
 
 #include <stdlib.h>
@@ -166,6 +166,9 @@ dynafun_call(cchar_t name, int nargs, ...)
 		case MT_OBJ:
 		case MT_ROOM:
 		case MT_AFFECT:
+		case MT_BUFFER:
+		case MT_OBJ_INDEX:
+		case MT_MOB_INDEX:
 			break;
 
 		default:

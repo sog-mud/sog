@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: update.h,v 1.3 2000-06-01 17:57:26 fjoe Exp $
+ * $Id: update.h,v 1.4 2000-06-02 16:40:40 fjoe Exp $
  */
 
 #ifndef _UPDATE_H_
@@ -33,7 +33,7 @@
 #define MODULE_NAME MOD_UPDATE
 #include "dynafun_decl.h"
 
-__MODULE_START_DECL(MOD_UPDATE)
+__MODULE_START_DECL
 
 DECLARE_FUN1(void, uhandler_load,
 	     cchar_t, mod_name)

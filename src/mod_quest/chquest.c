@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: chquest.c,v 1.18 2000-02-20 10:36:39 avn Exp $
+ * $Id: chquest.c,v 1.19 2000-06-02 16:41:01 fjoe Exp $
  */
 
 /*
@@ -44,17 +44,17 @@
 #include <stdlib.h>
 
 #include "merc.h"
-#include "chquest.h"
 #include "auction.h"
 
-#define CHQUEST_DEBUG 0
+#include "_chquest.h"
 
-chquest_t *chquest_list;
+#define CHQUEST_DEBUG 0
 
 /*
  * chquest_start -- create all objects and drop them randomly
  */
-void chquest_start(int flags)
+void *
+chquest_start(int flags)
 {
 	chquest_t *q;
 
@@ -65,14 +65,17 @@ void chquest_start(int flags)
 
 		chquest_startq(q);
 	}
+
+	return NULL;
 }
 
-void chquest_add(OBJ_INDEX_DATA *obj_index)
+void *
+chquest_add(OBJ_INDEX_DATA *obj_index)
 {
 	chquest_t *q;
 
 	if ((q = chquest_lookup(obj_index)) != NULL)
-		return;
+		return NULL;
 
 #if CHQUEST_DEBUG
 	log(LOG_INFO, "chquest_add: added '%s' (vnum %d)",
@@ -84,6 +87,8 @@ void chquest_add(OBJ_INDEX_DATA *obj_index)
 	SET_STOPPED(q);
 	q->next = chquest_list;
 	chquest_list = q;
+
+	return NULL;
 }
 
 /*
@@ -124,87 +129,30 @@ bool chquest_delete(CHAR_DATA *ch, OBJ_INDEX_DATA *obj_index)
 	return TRUE;
 }
 
-chquest_t *chquest_lookup(OBJ_INDEX_DATA *obj_index)
-{
-	chquest_t *q;
-
-	for (q = chquest_list; q; q = q->next) {
-		if (q->obj_index == obj_index)
-			return q;
-	}
-
-	return NULL;
-}
-
-chquest_t *chquest_lookup_obj(OBJ_DATA *obj)
-{
-	chquest_t *q = chquest_lookup(obj->pObjIndex);
-
-	if (q == NULL || !IS_RUNNING(q) || q->obj != obj)
-		return NULL;
-	return q;
-}
-
-/*
- * chquest_startq - start given chquest
- *
- * assumes that !IS_RUNNING(q) check is done
- */
-void chquest_startq(chquest_t *q)
-{
-	ROOM_INDEX_DATA *room;
-
-#if CHQUEST_DEBUG
-	log(LOG_INFO, "chquest_startq: started chquest for '%s' (vnum %d)",
-	   	   mlstr_mval(&q->obj_index->short_descr), q->obj_index->vnum);
-#endif
-
-	SET_RUNNING(q);
-	q->obj = create_obj(q->obj_index, 0);
-	q->obj->timer = number_range(100, 150);
-
-	do {
-		room = get_random_room(NULL, NULL);
-	} while (IS_SET(room->area->area_flags, AREA_NOQUEST));
-
-	obj_to_room(q->obj, room);
-}
-
-void chquest_stopq(chquest_t *q)
-{
-	if (IS_STOPPED(q))
-		return;
-
-#if CHQUEST_DEBUG
-	log(LOG_INFO, "chquest_stopq: stopped quest for '%s' (vnum %d)",
-		   mlstr_mval(&q->obj_index->short_descr), q->obj_index->vnum);
-#endif
-
-	if (IS_RUNNING(q))
-		extract_obj(q->obj, XO_F_NOCHQUEST);
-	SET_STOPPED(q);
-}
-
 /*
  * stop challenge quest if item is extracted. called from extract_obj
  * quest will be restarted automatically from chquest_update (mod_update) 
  * after random delay
  */
-void chquest_extract(OBJ_DATA *obj)
+void *
+chquest_extract(OBJ_DATA *obj)
 {
 	chquest_t *q;
 
 	if ((q = chquest_lookup_obj(obj)) == NULL)
-		return;
+		return NULL;
 
 #if CHQUEST_DEBUG
 	log(LOG_INFO, "chquest_extract: finished quest for '%s' (vnum %d)",
 		   mlstr_mval(&q->obj_index->short_descr), q->obj_index->vnum);
 #endif
 	SET_WAITING(q, number_range(15, 20));
+
+	return NULL;
 }
 
-CHAR_DATA *chquest_carried_by(OBJ_DATA *obj)
+CHAR_DATA *
+chquest_carried_by(OBJ_DATA *obj)
 {
 	chquest_t *q;
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: effects.h,v 1.2 2000-06-01 17:57:24 fjoe Exp $
+ * $Id: effects.h,v 1.3 2000-06-02 16:40:40 fjoe Exp $
  */
 
 #ifndef _EFFECTS_H_
@@ -33,7 +33,7 @@
 #define MODULE_NAME MOD_EFFECTS
 #include "dynafun_decl.h"
 
-__MODULE_START_DECL(MOD_EFFECTS)
+__MODULE_START_DECL
 
 DECLARE_FUN3(void, acid_effect,
 	     void, vo, int, level, int, dam)

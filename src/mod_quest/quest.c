@@ -23,20 +23,24 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.8 2000-04-06 05:40:58 fjoe Exp $
+ * $Id: quest.c,v 1.9 2000-06-02 16:41:01 fjoe Exp $
  */
 
 #include <stdio.h>
-
+#include <stdlib.h>
 #include "merc.h"
-#include "quest.h"
 
-/*
- * assumes IS_NPC(victim)
- */
-void quest_handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
+#include "_quest.h"
+
+void *
+quest_handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	CHAR_DATA *hunter;
+
+	if (!IS_NPC(victim)) {
+		log(LOG_ERROR, "quest_handle_death: victim is PC");
+		return NULL;
+	}
 
 	if (IS_NPC(ch)
 	&&  IS_SET(ch->pMobIndex->act, ACT_SUMMONED)
@@ -50,8 +54,7 @@ void quest_handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 				 "runs out!",
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 			PC(ch)->questmob = -1;
-		}
-		else {
+		} else {
 			act_puts("You have completed someone's quest.",
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 
@@ -61,15 +64,18 @@ void quest_handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 			PC(ch)->questtime = -number_range(5, 10);
 		}
 	}
+
+	return NULL;
 }
 
-void quest_cancel(CHAR_DATA *ch)
+void *
+quest_cancel(CHAR_DATA *ch)
 {
 	CHAR_DATA *fch;
 
 	if (IS_NPC(ch)) {
 		log(LOG_ERROR, "quest_cancel: called for NPC");
-		return;
+		return NULL;
 	}
 
 	/*
@@ -88,5 +94,45 @@ void quest_cancel(CHAR_DATA *ch)
 	PC(ch)->questmob = 0;
 	PC(ch)->questobj = 0;
 	PC(ch)->qroom_vnum = 0;
+
+	return NULL;
 }
 
+void *
+qtrouble_set(CHAR_DATA *ch, int vnum, int count)
+{
+	qtrouble_t *qt;
+
+	if (IS_NPC(ch)) {
+		log(LOG_ERROR, "qtrouble_set: called for NPC");
+		return NULL;
+	}
+
+	if ((qt = qtrouble_lookup(ch, vnum)) != NULL)
+		qt->count = count;
+	else {
+		qt = malloc(sizeof(*qt));
+		qt->vnum = vnum;
+		qt->count = count;
+		qt->next = PC(ch)->qtrouble;
+		PC(ch)->qtrouble = qt;
+	}
+
+	return NULL;
+}
+
+void *
+qtrouble_dump(BUFFER *output, CHAR_DATA *victim)
+{
+	qtrouble_t *qt;
+
+	if (IS_NPC(victim)) {
+		log(LOG_ERROR, "qtrouble_dump: called for NPC");
+		return NULL;
+	}
+
+	for (qt = PC(victim)->qtrouble; qt; qt = qt->next)
+		buf_printf(output, "[%d]-[%d] ", qt->vnum, qt->count-1);
+
+	return NULL;
+}

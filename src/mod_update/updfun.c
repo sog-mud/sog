@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.8 2000-06-01 17:57:51 fjoe Exp $
+ * $Id: updfun.c,v 1.9 2000-06-02 16:41:03 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -32,12 +32,10 @@
 #include <time.h>
 #include "merc.h"
 #include "db.h"
-#include "chquest.h"
 #include "auction.h"
 #include "mob_prog.h"
 #include "obj_prog.h"
 
-#include "quest.h"
 #include "fight.h"
 #include "_update.h"
 
@@ -1194,43 +1192,6 @@ area_update(void)
 			pArea->age = 15 - 2;
 		else if (pArea->nplayer == 0) 
 			pArea->empty = TRUE;
-	}
-}
-
-void chquest_update(void)
-{
-	chquest_t *q;
-
-	for (q = chquest_list; q; q = q->next) {
-		if (!IS_WAITING(q))
-			continue;
-		if (!--q->delay)
-			chquest_startq(q);
-	}
-}
-
-void quest_update(void)
-{
-	CHAR_DATA *ch, *ch_next;
-
-	for (ch = char_list; ch && !IS_NPC(ch); ch = ch_next) {
-		ch_next = ch->next;
-
-		if (PC(ch)->questtime < 0) {
-			if (++PC(ch)->questtime == 0) {
-				char_puts("{*You may now quest again.\n", ch);
-				return;
-			}
-		} else if (IS_ON_QUEST(ch)) {
-			if (--PC(ch)->questtime == 0) {
-				char_puts("You have run out of time for your quest!\n", ch);
-				quest_cancel(ch);
-				PC(ch)->questtime = -number_range(5, 10);
-			} else if (PC(ch)->questtime < 6) {
-				char_puts("Better hurry, you're almost out of time for your quest!\n", ch);
-				return;
-			}
-		}
 	}
 }
 

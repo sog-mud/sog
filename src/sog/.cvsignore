@@ -1,2 +1,4 @@
-y.tab.h
+cc_parse.h
+cc_parse.c
+cc_lex.c
 sog

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.241 2000-06-01 17:57:32 fjoe Exp $
+ * $Id: act_wiz.c,v 1.242 2000-06-02 16:40:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -62,17 +62,16 @@
 #endif
 
 #include "merc.h"
-#include "quest.h"
 #include "obj_prog.h"
-#include "fight.h"
-#include "quest.h"
-#include "chquest.h"
 #include "cmd.h"
 #include "db.h"
 #include "ban.h"
 #include "socials.h"
 #include "mob_prog.h"
 #include "string_edit.h"
+
+#include "quest.h"
+#include "fight.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_rstat	);
@@ -1288,8 +1287,6 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!IS_NPC(victim)) {
-		qtrouble_t *qt;
-
 		if (IS_ON_QUEST(victim)) {
 			buf_printf(output,
 				   "Questgiver: [%d]  QuestPnts: [%d]  Questnext: [%d]\n",
@@ -1312,8 +1309,7 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 		}
 
 		buf_add(output, "Quest Troubles: ");
-		for (qt = PC(victim)->qtrouble; qt; qt = qt->next)
-			buf_printf(output, "[%d]-[%d] ", qt->vnum, qt->count-1);
+		qtrouble_dump(output, victim);
 		buf_add(output, "\n");
 
 		if (!IS_NULLSTR(PC(victim)->twitlist))

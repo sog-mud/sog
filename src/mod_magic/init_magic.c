@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_magic.c,v 1.9 2000-06-01 17:57:44 fjoe Exp $
+ * $Id: init_magic.c,v 1.10 2000-06-02 16:40:54 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -48,17 +48,17 @@ static void *unload_cb(void *p, va_list ap);
 
 int _module_load(module_t* m)
 {
-	varr_foreach(&commands, cmd_load_cb, MOD_MAGIC, m);
+	varr_foreach(&commands, cmd_load_cb, MODULE_IMPL, m);
 	hash_foreach(&skills, load_cb, m);
-	dynafun_tab_register(__mod_tab(MOD_MAGIC), m);
+	dynafun_tab_register(__mod_tab(MODULE_IMPL), m);
 	return 0;
 }
 
 int _module_unload(module_t *m)
 {
-	dynafun_tab_unregister(__mod_tab(MOD_MAGIC));
+	dynafun_tab_unregister(__mod_tab(MODULE_IMPL));
 	hash_foreach(&skills, unload_cb, NULL);
-	varr_foreach(&commands, cmd_unload_cb, MOD_MAGIC);
+	varr_foreach(&commands, cmd_unload_cb, MODULE_IMPL);
 	return 0;
 }
 

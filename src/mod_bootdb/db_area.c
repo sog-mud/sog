@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.99 2000-04-17 07:38:06 fjoe Exp $
+ * $Id: db_area.c,v 1.100 2000-06-02 16:41:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -44,9 +44,10 @@
 #include <string.h>
 
 #include "merc.h"
-#include "chquest.h"
 #include "obj_prog.h"
 #include "db.h"
+
+#include "quest.h"
 
 DECLARE_DBLOAD_FUN(load_area);
 DECLARE_DBLOAD_FUN(load_areadata);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: update_impl.c,v 1.1 2000-06-01 17:57:50 fjoe Exp $
+ * $Id: update_impl.c,v 1.2 2000-06-02 16:41:03 fjoe Exp $
  */
 
 #include <stdlib.h>
@@ -75,13 +75,13 @@ uhandler_destroy(uhandler_t *hdlr)
 void
 update_register(module_t *m)
 {
-	dynafun_tab_register(__mod_tab(MOD_UPDATE), m);
+	dynafun_tab_register(__mod_tab(MODULE_IMPL), m);
 }
 
 void
 update_unregister()
 {
-	dynafun_tab_unregister(__mod_tab(MOD_UPDATE));
+	dynafun_tab_unregister(__mod_tab(MODULE_IMPL));
 }
 
 void

@@ -1,0 +1,30 @@
+#
+# $Id: MODULES,v 1.1 2000-06-02 16:40:37 fjoe Exp $
+#
+
+Some notes on modules implementation:
+-------------------------------------
+
+- every module should reside in mod_xxx directory
+- module's Makefile should define `MODULE' variable
+  (it should hold module name) 
+- module's exported dynafun's should be declared in the .h file
+  which should have the same name as module itself (the file
+  should be placed to common include directory)
+
+Module dependencies generator depends on the stuff mentioned above.
+
+E.g: module `foo' should reside in directory mod_foo,
+its exported dynafuns should be defined in file `foo.h'
+and its Makefile should look like this:
+
+--- cut here ---
+#
+# $Id
+#
+
+MODULE=		foo
+CFILES=		foo.c bar.c
+
+.include <bsd.prog.mk>
+--- cut here ---

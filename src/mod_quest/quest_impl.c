@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 1999 SoG Development Team
+ * Copyright (c) 1999, 2000 SoG Development Team
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -23,51 +23,49 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: memalloc.h,v 1.9 2000-06-02 16:40:40 fjoe Exp $
+ * $Id: quest_impl.c,v 1.1 2000-06-02 16:41:01 fjoe Exp $
  */
 
-#ifndef _MEMALLOC_H_
-#define _MEMALLOC_H_
+#include <stdio.h>
+#include "merc.h"
 
-enum {
-	MT_VOID,
-	MT_INT,
-	MT_STR,
-	MT_CHAR,
-	MT_OBJ,
-	MT_ROOM,
-	MT_AFFECT,
-	MT_BUFFER,
-	MT_OBJ_INDEX,
-	MT_MOB_INDEX,
+#include "_quest.h"
 
-	/* only for dynafuns */
-	MT_VA_LIST,
-};
+void
+quest_update(void)
+{
+	CHAR_DATA *ch, *ch_next;
 
-#define MEM_VALID	0x5a	/* valid chunk signature	*/
-#define MEM_INVALID	0xa5	/* invalid chunk signature	*/
+	for (ch = char_list; ch && !IS_NPC(ch); ch = ch_next) {
+		ch_next = ch->next;
 
-typedef struct memchunk_t {
-	char		mem_type;	/* memory chunk type		*/
-	char		mem_sign;	/* memory chunk signature	*/
-	unsigned char	mem_prealloc;	/* preallocated data size	*/
-	char		mem_tags;
-} memchunk_t;
+		if (PC(ch)->questtime < 0) {
+			if (++PC(ch)->questtime == 0) {
+				char_puts("{*You may now quest again.\n", ch);
+				return;
+			}
+		} else if (IS_ON_QUEST(ch)) {
+			if (--PC(ch)->questtime == 0) {
+				char_puts("You have run out of time for your quest!\n", ch);
+				quest_cancel(ch);
+				PC(ch)->questtime = -number_range(5, 10);
+			} else if (PC(ch)->questtime < 6) {
+				char_puts("Better hurry, you're almost out of time for your quest!\n", ch);
+				return;
+			}
+		}
+	}
+}
 
-#define mem_alloc(mem_type, mem_len) mem_alloc2(mem_type, mem_len, 0)
-void *	mem_alloc2(int mem_type, size_t mem_len, size_t mem_prealloc);
-void	mem_free(const void *p);
+qtrouble_t *
+qtrouble_lookup(CHAR_DATA *ch, int vnum)
+{
+	qtrouble_t *qt;
 
-#define GET_CHUNK(p) ((memchunk_t*) (((char*) p) - sizeof(memchunk_t)))
-bool	mem_is(const void *p, int mem_type);
+	for (qt = PC(ch)->qtrouble; qt != NULL; qt = qt->next)
+		if (qt->vnum == vnum)
+			return qt;
 
-void	mem_validate(const void *p);
-void	mem_invalidate(const void *p);
-
-bool	mem_tagged(const void *p, int f);
-void	mem_tag(const void *p, int f);
-void	mem_untag(const void *p, int f);
-
-#endif
+	return NULL;
+}
 

@@ -23,30 +23,46 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.h,v 1.12 2000-02-20 10:39:37 avn Exp $
+ * $Id: quest.h,v 1.13 2000-06-02 16:40:40 fjoe Exp $
  */
 
 #ifndef _QUEST_H_
 #define _QUEST_H_
 
-/*
- * Quest obj vnums must take a continuous interval for proper quest generating.
- */
-#define QUEST_OBJ_FIRST 84
-#define QUEST_OBJ_LAST  87
-
-struct qtrouble_t {
-	int vnum;
-	int count;
-	qtrouble_t *next;
-};
-
 #define IS_ON_QUEST(ch)	(PC(ch)->questtime > 0)
 
-void quest_handle_death(CHAR_DATA *ch, CHAR_DATA *victim);
-void quest_cancel(CHAR_DATA *ch);
+#undef MODULE_NAME
+#define MODULE_NAME MOD_QUEST
+#include "dynafun_decl.h"
 
-int qtrouble_get(CHAR_DATA *ch, int vnum);
-void qtrouble_set(CHAR_DATA *ch, int vnumi, int count);
+/* flags for chquest_start */
+#define CHQUEST_F_NODELAY	(A)
+
+__MODULE_START_DECL
+
+DECLARE_FUN2(void, quest_handle_death,
+	     CHAR_DATA, ch, CHAR_DATA, victim)
+DECLARE_FUN1(void, quest_cancel,
+	     CHAR_DATA, ch)
+
+DECLARE_FUN3(void, qtrouble_set,
+	     CHAR_DATA, ch, int, vnum, int, count)
+DECLARE_FUN2(void, qtrouble_dump,
+	     BUFFER, buf, CHAR_DATA, ch)
+
+DECLARE_FUN1(void, chquest_start,
+	     int, flags)
+
+DECLARE_FUN1(void, chquest_add,
+	     OBJ_INDEX_DATA, obj_index)
+DECLARE_FUN2(bool, chquest_delete,
+	     CHAR_DATA, ch, OBJ_INDEX_DATA, obj_index)
+
+DECLARE_FUN1(void, chquest_extract,
+	     OBJ_DATA, obj)
+DECLARE_FUN1(CHAR_DATA, chquest_carried_by,
+	     OBJ_DATA, obj)
+
+__MODULE_END_DECL
 
 #endif

@@ -1,5 +1,5 @@
 #
-# $Id: Makefile.inc,v 1.6 2000-01-06 04:48:27 fjoe Exp $
+# $Id: Makefile.inc,v 1.7 2000-06-02 16:40:37 fjoe Exp $
 #
 
 #
@@ -10,43 +10,40 @@ ABI_VERSION = 8
 #
 # common defines
 #
-CC		= gcc
-LD		= gcc
-INCLUDES	= -I ../include -I ..
+CC=		gcc
+INCLUDES=	-I../include -I..
 
-CFLAGS		= -g -Wall -O -pipe $(INCLUDES)
-LDFLAGS		= -g -export-dynamic
-SO_CFLAGS	= -fPIC
-SO_LDFLAGS	= -shared
-INSTALL_FLAGS	= -c -m 770
-LIBS		=
-INSTALL_PATH	= ../..
-MAKE		= make
+COPTS=		${INCLUDES}
+CFLAGS=		-Wall -O -pipe
+LDFLAGS=	-export-dynamic
 
 #
-# common rules
+# debug flags
+DEBUG_FLAGS=	-g
+STRIP=		
+
+MOD_CFLAGS=	-fPIC
+MOD_LDFLAGS=	-shared
+
 #
+# SoG root
+INSTDIR=	../..
 
-OFILES?=$(CFILES:T:.c=.o)
-OFILES+=$(OFILES_ADD)
+.if defined(MODULE)
+PROG=		${MODULE}.so.${ABI_VERSION}
+MODULE_ID!=	echo MOD_${MODULE} | tr '[a-z]' '[A-Z]'
+CFLAGS+=	${MOD_CFLAGS} -DMODULE_IMPL=${MODULE_ID}
+LDFLAGS+=	${MOD_LDFLAGS}
+BINDIR=		${INSTDIR}/modules
+.else
+BINDIR=		${INSTDIR}/bin
+.endif
 
-MODULE_EXT=.so
-MODULE_NAME?=$(MODULE)$(MODULE_EXT).$(ABI_VERSION)
+#
+# some BSD make-specific stuff
+NOOBJ=		yes
+NOMAN=		yes
 
-all: $(MODULE_NAME)
-
-$(MODULE_NAME): $(OFILES)
-	$(LD) -o $(MODULE_NAME) $(LDFLAGS) $(OFILES) $(LIBS)
-
-depend:
-	env MKDEP_CPP_OPTS=-MM mkdep $(CFLAGS) $(CFILES)
-
-module_clean:
-	rm -f $(MODULE_NAME) $(MODULE)$(MODULE_EXT).*
-
-clean: module_clean
-	rm -f $(OFILES) .depend $(CLEAN_FILES)
-
-install: $(MODULE_NAME)
-	install $(INSTALL_FLAGS) $(MODULE_NAME) $(INSTALL_PATH)/$(INSTALL_DIR)
-
+.if exists(${.CURDIR}/../Makefile.osdep)
+.include "${.CURDIR}/../Makefile.osdep"
+.endif

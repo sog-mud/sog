@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: dynafun_decl.h,v 1.2 2000-06-01 17:57:24 fjoe Exp $
+ * $Id: dynafun_decl.h,v 1.3 2000-06-02 16:40:40 fjoe Exp $
  */
 
 /* no #ifdef _XXX_H_/#define _XXX_H_/#endif */
@@ -37,7 +37,7 @@
  *	#define MODULE_NAME MOD_XXX
  *	#include "dynafun_decl.h"
  *
- *	__MODULE_START_DECL(MOD_XXX)
+ *	__MODULE_START_DECL
  *	DECLARE_FUNX(...)
  *	...
  *	__MODULE_END_DECL
@@ -68,8 +68,8 @@
 #	define __mod_tab(name) __mod_tab_name(name)
 
 #	undef __MODULE_START_DECL
-#	define __MODULE_START_DECL(name) \
-		static dynafun_data_t __mod_tab_name(name)[] = {
+#	define __MODULE_START_DECL \
+		static dynafun_data_t __mod_tab(MODULE_NAME)[] = {
 
 #	undef __MODULE_END_DECL
 #	define __MODULE_END_DECL	{ NULL } };
@@ -98,10 +98,22 @@
 #	undef AFFECT_DATA_tag
 #	define AFFECT_DATA_tag MT_AFFECT
 
+#	undef BUFFER_tag
+#	define BUFFER_tag MT_BUFFER
+
+#	undef OBJ_INDEX_DATA_tag
+#	define OBJ_INDEX_DATA_tag MT_OBJ_INDEX
+
+#	undef MOB_INDEX_DATA_tag
+#	define MOB_INDEX_DATA_tag MT_MOB_INDEX
+
+#	undef ROOM_INDEX_DATA_tag
+#	define ROOM_INDEX_DATA_tag MT_ROOM
+
 #else
 
 #	undef __MODULE_START_DECL
-#	define __MODULE_START_DECL(name)
+#	define __MODULE_START_DECL
 
 #	undef __MODULE_END_DECL
 #	define __MODULE_END_DECL
@@ -129,6 +141,18 @@
 
 #	undef AFFECT_DATA_tag
 #	define AFFECT_DATA_tag AFFECT_DATA *
+
+#	undef BUFFER_tag
+#	define BUFFER_tag BUFFER *
+
+#	undef OBJ_INDEX_DATA_tag
+#	define OBJ_INDEX_DATA_tag OBJ_INDEX_DATA *
+
+#	undef MOB_INDEX_DATA_tag
+#	define MOB_INDEX_DATA_tag MOB_INDEX_DATA *
+
+#	undef ROOM_INDEX_DATA_tag
+#	define ROOM_INDEX_DATA_tag ROOM_INDEX_DATA *
 
 #endif	/* MODULE_INIT */
 

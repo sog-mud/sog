@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_spec.c,v 1.10 2000-03-29 17:52:42 fjoe Exp $
+ * $Id: act_spec.c,v 1.11 2000-06-02 16:40:46 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -40,12 +40,13 @@
 
 #include "merc.h"
 #include "db.h"
-#include "quest.h"
 #include "obj_prog.h"
-#include "fight.h"
 #include "socials.h"
 #include "string_edit.h"
 #include "spec.h"
+
+#include "quest.h"
+#include "fight.h"
 
 void do_read(CHAR_DATA* ch, const char* argument)
 {

@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 1999 SoG Development Team
+ * Copyright (c) 1999, 2000 SoG Development Team
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -23,70 +23,26 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.8 2000-04-06 05:40:58 fjoe Exp $
+ * $Id: quest_impl.h,v 1.1 2000-06-02 16:41:01 fjoe Exp $
  */
 
-#include <stdio.h>
+#ifndef __QUEST_H_
+#define __QUEST_H_
 
-#include "merc.h"
 #include "quest.h"
 
 /*
- * assumes IS_NPC(victim)
+ * Quest obj vnums must take a continuous interval for proper quest generating.
  */
-void quest_handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
-{
-	CHAR_DATA *hunter;
+#define QUEST_OBJ_FIRST 84
+#define QUEST_OBJ_LAST  87
 
-	if (IS_NPC(ch)
-	&&  IS_SET(ch->pMobIndex->act, ACT_SUMMONED)
-	&&  ch->master != NULL)
-		ch = ch->master;
+struct qtrouble_t {
+	int vnum;
+	int count;
+	qtrouble_t *next;
+};
 
-	if ((hunter = NPC(victim)->hunter) != NULL) {
-		if (hunter == ch) {
-			act_puts("You have almost completed your QUEST!\n"
-				 "Return to questmaster before your time "
-				 "runs out!",
-				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-			PC(ch)->questmob = -1;
-		}
-		else {
-			act_puts("You have completed someone's quest.",
-				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+qtrouble_t *qtrouble_lookup(CHAR_DATA *ch, int vnum);
 
-			act_puts("Someone has completed your quest.",
-				 hunter, NULL, NULL, TO_CHAR, POS_DEAD);
-			quest_cancel(hunter);
-			PC(ch)->questtime = -number_range(5, 10);
-		}
-	}
-}
-
-void quest_cancel(CHAR_DATA *ch)
-{
-	CHAR_DATA *fch;
-
-	if (IS_NPC(ch)) {
-		log(LOG_ERROR, "quest_cancel: called for NPC");
-		return;
-	}
-
-	/*
-	 * remove NPC(mob)->hunter
-	 */
-	for (fch = npc_list; fch; fch = fch->next) {
-		NPC_DATA *npc = NPC(fch);
-		if (npc->hunter == ch) {
-			npc->hunter = NULL;
-			break;
-		}
-	}
-
-	PC(ch)->questtime = 0;
-	PC(ch)->questgiver = 0;
-	PC(ch)->questmob = 0;
-	PC(ch)->questobj = 0;
-	PC(ch)->qroom_vnum = 0;
-}
-
+#endif

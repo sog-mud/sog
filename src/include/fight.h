@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: fight.h,v 1.26 2000-06-01 17:57:24 fjoe Exp $
+ * $Id: fight.h,v 1.27 2000-06-02 16:40:40 fjoe Exp $
  */
 
 #ifndef _FIGHT_H_
@@ -46,7 +46,7 @@
 #define MODULE_NAME MOD_FIGHT
 #include "dynafun_decl.h"
 
-__MODULE_START_DECL(MOD_FIGHT)
+__MODULE_START_DECL
 
 DECLARE_FUN4(void, one_hit,
 	     CHAR_DATA, ch, CHAR_DATA, victim, cchar_t, dt, bool, secondary)

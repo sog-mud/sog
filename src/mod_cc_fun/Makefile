@@ -1,9 +1,8 @@
 #
-# $Id: Makefile,v 1.1 1999-12-14 15:31:11 fjoe Exp $
+# $Id: Makefile,v 1.2 2000-06-02 16:40:42 fjoe Exp $
 #
 
-MODULE = cc_expr
-CFILES = cc_expr.c cc_obj_wear.c cc_spec.c
+MODULE=		cc_expr
+SRCS=		cc_expr.c cc_obj_wear.c cc_spec.c
 
-.include "../Makefile.module"
-
+.include <bsd.prog.mk>

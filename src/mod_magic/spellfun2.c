@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.189 2000-06-01 17:57:45 fjoe Exp $
+ * $Id: spellfun2.c,v 1.190 2000-06-02 16:40:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -50,7 +50,6 @@
 #include "fight.h"
 #include "quest.h"
 #include "rating.h"
-#include "fight.h"
 #include "effects.h"
 #include "_magic.h"
 
