@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.199 2000-01-13 14:46:33 kostik Exp $
+ * $Id: act_obj.c,v 1.200 2000-01-14 11:45:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -976,13 +976,13 @@ void do_pour(CHAR_DATA * ch, const char *argument)
 		}
 		INT(out->value[1]) = 0;
 		INT(out->value[3]) = 0;
-		act_puts3("You invert $p, spilling $T $V.",
+		act_puts3("You invert $p, spilling $V $T.",
 			  ch, out, 
 			  IS_WATER(ch->in_room) ? "in to the water" :
 						  "all over the ground",
 			  &lq->lq_name,
 			  TO_CHAR, POS_DEAD);
-		act_puts3("$n inverts $p, spilling $T $V.",
+		act_puts3("$n inverts $p, spilling $V $T.",
 			  ch, out,
 			  IS_WATER(ch->in_room) ? "in to the water" :
 						  "all over the ground",
