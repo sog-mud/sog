@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.261 1999-07-01 15:16:38 fjoe Exp $
+ * $Id: act_info.c,v 1.262 1999-07-01 15:31:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -442,18 +442,20 @@ static void do_look_in(CHAR_DATA* ch, const char *argument)
 		break;
 
 	case ITEM_DRINK_CON:
-		if (obj->value[1] <= 0) {
+		if (obj->value[1] == 0) {
 			char_puts("It is empty.\n", ch);
 			break;
 		}
 
 		act_puts3("It's $ufilled with a $U liquid.",
 			  ch,
+			  obj->value[1] < 0 ?
+				"" :
 			  obj->value[1] < obj->value[0] / 4 ?
-				 "less than half-" :
+				"less than half-" :
 			  obj->value[1] < 3 * obj->value[0] / 4 ?
-			 	 "about half-" :
-			 	 "more than half-",
+			 	"about half-" :
+			 	"more than half-",
 			  obj, liq_table[obj->value[2]].liq_color,
 			  TO_CHAR, POS_DEAD);
 		break;
