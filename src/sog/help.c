@@ -1,5 +1,5 @@
 /*
- * $Id: help.c,v 1.2 1998-09-16 09:50:36 fjoe Exp $
+ * $Id: help.c,v 1.3 1998-09-17 05:48:57 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -128,7 +128,7 @@ void help_free(HELP_DATA *pHelp)
 	AREA_DATA *pArea;
 
 /* remove from global list */
-	for (prev = NULL, p = help_first; p != NULL; p = p->next) {
+	for (prev = NULL, p = help_first; p; p = p->next) {
 		if (p == pHelp)
 			break;
 		prev = p;
@@ -145,7 +145,7 @@ void help_free(HELP_DATA *pHelp)
 
 /* remove from area */
 	pArea = pHelp->area;
-	for (prev = NULL, p = pArea->help_first; p != NULL; p = p->next) {
+	for (prev = NULL, p = pArea->help_first; p; p = p->next_in_area) {
 		if (p == pHelp)
 			break;
 		prev = p;
@@ -153,9 +153,9 @@ void help_free(HELP_DATA *pHelp)
 
 	if (p) {
 		if (prev)
-			prev->next = pHelp->next;
+			prev->next_in_area = pHelp->next_in_area;
 		else
-			pArea->help_first = pArea->help_first->next;
+			pArea->help_first = pArea->help_first->next_in_area;
 		if (pArea->help_last == pHelp)
 			help_last = prev;
 	}
