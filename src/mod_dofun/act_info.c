@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.409 2001-09-17 18:42:22 fjoe Exp $
+ * $Id: act_info.c,v 1.410 2001-09-24 13:13:37 kostik Exp $
  */
 
 /***************************************************************************
@@ -4064,7 +4064,7 @@ show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		if (HAS_INVIS(victim, ID_HIDDEN))
 			buf_append(output, "({DHidden{x) ");
 		if (IS_AFFECTED(victim, AFF_CHARM)
-		&& HAS_DETECT(ch, ID_CHARM))
+		&& (HAS_DETECT(ch, ID_CHARM) || victim->master == ch))
 			buf_append(output, "({mCharmed{x) ");
 		if (IS_AFFECTED(victim, AFF_PASS_DOOR))
 			buf_append(output, "({cTranslucent{x) ");
@@ -4105,7 +4105,8 @@ show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		|| HAS_INVIS(victim, ID_IMP_INVIS));
 		FLAG_SET( 8, 'H', HAS_INVIS(victim, ID_HIDDEN));
 		FLAG_SET(11, 'C', IS_AFFECTED(victim, AFF_CHARM)
-				  && HAS_DETECT(ch, ID_CHARM));
+				  && (HAS_DETECT(ch, ID_CHARM)
+				  || victim->master == ch));
 		FLAG_SET(14, 'T', IS_AFFECTED(victim, AFF_PASS_DOOR));
 		FLAG_SET(17, 'P', IS_AFFECTED(victim, AFF_FAERIE_FIRE));
 		FLAG_SET(20, 'U', IS_SET(victim->form, FORM_UNDEAD) &&

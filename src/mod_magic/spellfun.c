@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.270 2001-09-23 16:24:14 fjoe Exp $
+ * $Id: spellfun.c,v 1.271 2001-09-24 13:13:40 kostik Exp $
  */
 
 /***************************************************************************
@@ -68,6 +68,7 @@ DECLARE_SPELL_FUN(spell_detect_hidden);
 DECLARE_SPELL_FUN(spell_detect_fade);
 DECLARE_SPELL_FUN(spell_detect_invis);
 DECLARE_SPELL_FUN(spell_detect_magic);
+DECLARE_SPELL_FUN(spell_detect_charm);
 DECLARE_SPELL_FUN(spell_true_seeing);
 DECLARE_SPELL_FUN(spell_enchant_armor);
 DECLARE_SPELL_FUN(spell_enchant_weapon);
@@ -755,6 +756,34 @@ SPELL_FUN(spell_detect_invis, sn, level, ch, vo)
 	aff_free(paf);
 
 	act_char("Your eyes tingle.", victim);
+	if (ch != victim)
+		act_char("Ok.", ch);
+}
+
+SPELL_FUN(spell_detect_charm, sn, level, ch, vo)
+{
+	CHAR_DATA *victim = (CHAR_DATA *) vo;
+	AFFECT_DATA *paf;
+
+	if (HAS_DETECT(victim, ID_CHARM)) {
+		if (victim == ch)
+			act_char(
+			    "You can already distinguish charmed creatures.", ch);
+		else {
+			act("$N can already distinguish charmed creatures.",
+			    ch, NULL, victim, TO_CHAR);
+		}
+		return;
+	}
+
+	paf = aff_new(TO_DETECTS, sn);
+	paf->level	= level;
+	paf->duration	= (5 + level / 3);
+	paf->bitvector	= ID_CHARM;
+	affect_to_char(victim, paf);
+	aff_free(paf);
+
+	act_char("Now you are able to detect charmed creatures.", victim);
 	if (ch != victim)
 		act_char("Ok.", ch);
 }

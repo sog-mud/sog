@@ -17,6 +17,16 @@ End
 Skill 'identify'
 Level 10
 Rating 1
+Min 1
+Adept 75
+Max 100
+End
+
+#SKILL
+Skill 'detect charm'
+Level 6
+Rating 1
+Min 1
 Adept 75
 Max 100
 End
