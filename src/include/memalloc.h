@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: memalloc.h,v 1.5 2000-01-04 19:27:55 fjoe Exp $
+ * $Id: memalloc.h,v 1.6 2000-01-05 14:53:18 fjoe Exp $
  */
 
 #ifndef _MEMALLOC_H_
@@ -39,13 +39,11 @@ enum {
 #define MEM_VALID	0x5a	/* valid chunk signature	*/
 #define MEM_INVALID	0xa5	/* invalid chunk signature	*/
 
-#define MEM_F_TAGGED	(A)
-
 typedef struct memchunk_t {
 	char		mem_type;	/* memory chunk type		*/
 	char		mem_sign;	/* memory chunk signature	*/
 	unsigned char	mem_prealloc;	/* preallocated data size	*/
-	char		mem_flags;
+	char		mem_tags;
 } memchunk_t;
 
 #define mem_alloc(mem_type, mem_len) mem_alloc2(mem_type, mem_len, 0)
@@ -58,9 +56,9 @@ bool	mem_is(const void *p, int mem_type);
 void	mem_validate(const void *p);
 void	mem_invalidate(const void *p);
 
-bool	mem_tagged(const void *p);
-void	mem_tag(const void *p);
-void	mem_untag(const void *p);
+bool	mem_tagged(const void *p, int f);
+void	mem_tag(const void *p, int f);
+void	mem_untag(const void *p, int f);
 
 #endif
 

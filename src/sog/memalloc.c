@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: memalloc.c,v 1.6 2000-01-04 19:28:01 fjoe Exp $
+ * $Id: memalloc.c,v 1.7 2000-01-05 14:53:19 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -48,7 +48,7 @@ mem_alloc2(int mem_type, size_t mem_len, size_t mem_prealloc)
 	m->mem_type = mem_type;
 	m->mem_sign = MEM_VALID;
 	m->mem_prealloc = mem_prealloc;
-	m->mem_flags = 0;
+	m->mem_tags = 0;
 
 	return ((void*) (p + mem_prealloc + sizeof(memchunk_t)));
 }
@@ -105,7 +105,7 @@ mem_invalidate(const void *p)
 }
 
 bool
-mem_tagged(const void *p)
+mem_tagged(const void *p, int f)
 {
 	memchunk_t *m;
 
@@ -113,27 +113,27 @@ mem_tagged(const void *p)
 		return FALSE;
 
 	m = GET_CHUNK(p);
-	return IS_SET(m->mem_flags, MEM_F_TAGGED);
+	return IS_SET(m->mem_tags, f);
 }
 
 void
-mem_tag(const void *p)
+mem_tag(const void *p, int f)
 {
 	memchunk_t *m;
 
 	if (p == NULL)
 		return;
 	m = GET_CHUNK(p);
-	SET_BIT(m->mem_flags, MEM_F_TAGGED);
+	SET_BIT(m->mem_tags, f);
 }
 
 void
-mem_untag(const void *p)
+mem_untag(const void *p, int f)
 {
 	memchunk_t *m;
 
 	if (p == NULL)
 		return;
 	m = GET_CHUNK(p);
-	REMOVE_BIT(m->mem_flags, MEM_F_TAGGED);
+	REMOVE_BIT(m->mem_tags, f);
 }

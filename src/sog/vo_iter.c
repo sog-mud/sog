@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: vo_iter.c,v 1.2 2000-01-05 08:55:32 fjoe Exp $
+ * $Id: vo_iter.c,v 1.3 2000-01-05 14:53:19 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -155,6 +155,13 @@ vo_foreach(void *cont, vo_iter_t *iter, vo_foreach_cb_t cb, ...)
 	void *rv = NULL;
 	void *vo, *vo_next;
 	va_list ap;
+	int ftag;
+	static int cnt;
+
+	if (cnt < 0 || cnt > 7) {
+		bug("vo_foreach: cnt overflow (%d)", cnt);
+		return NULL;
+	}
 
 	/*
 	 * sanity check
@@ -164,15 +171,16 @@ vo_foreach(void *cont, vo_iter_t *iter, vo_foreach_cb_t cb, ...)
 		return NULL;	/* short circuit */
 
 	if (!mem_is(vo, iter->mem_type)) {
-		log("vo_foreach: bad mt (expect %d)", iter->mem_type);
+		bug("vo_foreach: bad mt (expect %d)", iter->mem_type);
 		return NULL;
 	}
 
 	/*
 	 * mark all the objects in list
 	 */
+	ftag = (1 << cnt++);
 	for (; vo != NULL; vo = iter->next(vo))
-		mem_tag(vo);
+		mem_tag(vo, ftag);
 
 	va_start(ap, cb);
 
@@ -183,19 +191,21 @@ restart:
 		/*
 		 * skip untagged (already processed) objects
 		 */
-		if (!mem_tagged(vo))
+		if (!mem_tagged(vo, ftag))
 			continue;
 
 		/*
 		 * extracted object encountered -- just restart
 		 */
-		if (!mem_is(vo, iter->mem_type))
+		if (!mem_is(vo, iter->mem_type)) {
+			log("vo_foreach: restarting (mt %d)\n", iter->mem_type);
 			goto restart;
+		}
 
 		/*
 		 * untag and process an object
 		 */
-		mem_untag(vo);
+		mem_untag(vo, ftag);
 		if ((rv = cb(vo, ap)) != NULL)
 			break;
 	}
@@ -205,10 +215,11 @@ restart:
 	 */
 	if (rv != NULL) {
 		for (vo = iter->first(cont); vo != NULL; vo = iter->next(vo))
-			mem_untag(vo);
+			mem_untag(vo, ftag);
 	}
 
 	va_end(ap);
+	cnt--;
 	return rv;
 }
 

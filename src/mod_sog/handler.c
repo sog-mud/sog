@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.230 2000-01-04 19:27:58 fjoe Exp $
+ * $Id: handler.c,v 1.231 2000-01-05 14:53:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -719,7 +719,7 @@ void extract_obj(OBJ_DATA *obj, int flags)
 	/*
 	 * untag memory
 	 */
-	mem_untag(obj);
+	mem_untag(obj, -1);
 	free_obj(obj);
 }
 
@@ -763,7 +763,7 @@ void extract_char(CHAR_DATA *ch, int flags)
 	/*
 	 * untag memory
 	 */
-	mem_untag(ch);
+	mem_untag(ch, -1);
 
 	if (IS_SET(flags, XC_F_INCOMPLETE)) {
 		char_to_room(ch, get_altar(ch)->room);
