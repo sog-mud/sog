@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.15 2000-10-07 18:15:03 fjoe Exp $
+ * $Id: updfun.c,v 1.16 2000-10-10 15:04:10 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -796,11 +796,21 @@ obj_update_cb(void *vo, va_list ap)
 	if (IS_AUCTIONED(obj))
 		return NULL;
 
-	update_obj_affects(obj);
-
 	/* find the uppest obj container */
 	for(t_obj = obj; t_obj->in_obj; t_obj = t_obj->in_obj)
 		;
+
+	/*
+	 * skip objects if owner is !IS_NPC and
+	 * has not finished login or is in lost-link
+	 */
+	if (t_obj->carried_by != NULL && !IS_NPC(t_obj->carried_by)) {
+		if (t_obj->carried_by->desc == NULL
+		||  t_obj->carried_by->desc->connected != CON_PLAYING)
+			return NULL;
+	}
+
+	update_obj_affects(obj);
 
 	if ((t_obj->in_room != NULL &&
 	     t_obj->in_room->area->nplayer > 0)
