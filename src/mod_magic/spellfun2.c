@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.128 1999-08-13 03:44:07 kostik Exp $
+ * $Id: spellfun2.c,v 1.129 1999-08-19 05:12:12 kostik Exp $
  */
 
 /***************************************************************************
@@ -4678,7 +4678,7 @@ void spell_polymorph(int sn, int level, CHAR_DATA *ch, void *vo)
 
 	race = rn_lookup(target_name);
 	r = RACE(race);
-	if (!r->pcdata || !r->pcdata->classes.nused) {
+	if (race == -1 || !r->pcdata || !r->pcdata->classes.nused) {
 		char_puts("That is not a valid race to polymorph.\n",ch); 
 		return;
 	}
