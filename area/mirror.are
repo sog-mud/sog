@@ -1080,7 +1080,7 @@ map old~
       |         	Temple of Midgaard           GraveYard
       S			  |			         |
                  Wizard	  |    Bakery  Weaponsmith       |            
-    Necromencar G. |    Market    |         |          Cross    
+    Necromancer G. |    Market    |         |          Cross    
          |------------- Square ----------------------- Roads -- Forest
 	 |         |              |         |	         |
       Vampire  Jeweller        Genral   Armourer       Village
@@ -3162,7 +3162,7 @@ to the smooth stone walls.
 ~
 S
 #5393
-Necromencar's Bar~
+Necromancer's Bar~
     The bar of vampires smell very bad.But the mystic air relaxes you.
 ~
 0 CDSX 0
@@ -3178,7 +3178,7 @@ Main street.
 0 -1 5399
 S
 #5394
-Necromencar's laboratory~
+Necromancer's laboratory~
 This is the Magical Experiments Laboratory of Vampire.  Dark smoke-stained 
 stones arch over numerous huge oaken tables, most of these cluttered with 
 strange-looking  flasks.  The floor is covered with half-erased pentagrams
@@ -3623,7 +3623,7 @@ G 1 3376  -1     	*   a ruby
 G 1 3375  -1     	*   an emerald
 G 1 3374  -1     	*   a garnet
 G 1 3373  -1     	*   a small pearl
-M 0 5343   1 5394  1	* the guildmaster (Necromencar)
+M 0 5343   1 5394  1	* the guildmaster (Necromancer)
 M 0 5344   1 5396  1	* the guildmaster (Vampire)
 O 0 3135   2 5380	* a fountain
 D 0 5365   5  1
