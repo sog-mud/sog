@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.78 2000-04-11 06:47:01 fjoe Exp $
+ * $Id: olc_room.c,v 1.79 2000-06-15 11:38:09 fjoe Exp $
  */
 
 #include "olc.h"
@@ -1252,6 +1252,7 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 		}
 		reset_room(ch->in_room, RESET_F_NOPCHECK);
 		char_puts("Room reset.\n", ch);
+		return;
 	}
 
 	do_resets(ch, "?");
