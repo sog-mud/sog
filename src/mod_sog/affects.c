@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.78 2002-08-30 09:01:58 avn Exp $
+ * $Id: affects.c,v 1.79 2002-11-30 16:23:13 kostik Exp $
  */
 
 /***************************************************************************
@@ -1125,4 +1125,71 @@ reset_affects(CHAR_DATA *ch)
 		race_resetstats(ch);
 
 	affect_check(ch, -1, -1);
+}
+
+static void
+calc_affect_bonus(AFFECT_DATA *paf, int *hi, int *lo)
+{
+	for (; paf != NULL; paf++) {
+		if (IS_APPLY_AFFECT(paf)) {
+			switch (INT(paf->location)) {
+			case APPLY_HIT:
+			case APPLY_MANA:
+			case APPLY_MOVE:
+			case APPLY_AC:
+				*lo +=	paf->modifier;
+				*hi +=	paf->modifier / 30;
+				break;
+			case APPLY_LEVEL:
+				*hi +=	paf->modifier * 30;
+				*lo +=	paf->modifier;
+				break;
+			case APPLY_HITROLL:
+			case APPLY_DAMROLL:
+				*lo +=	paf->modifier * 2;
+				*hi +=	paf->modifier / 8;
+				break;
+			case APPLY_STR:
+			case APPLY_DEX:
+			case APPLY_INT:
+			case APPLY_WIS:
+			case APPLY_CON:
+			case APPLY_CHA:
+				*lo +=	paf->modifier * 8;
+				*hi +=	paf->modifier;
+				break;
+
+			default:
+				*lo +=	paf->modifier;
+			}
+		}
+		if (IS_RESIST_AFFECT(paf)) {
+			lo +=	paf->modifier * 3;
+			hi +=	paf->modifier / 3;
+		}
+	}
+}
+
+int
+obj_magic_value(OBJ_DATA *obj)
+{
+	int hi	= 0;
+	int lo	= 0;
+
+	if (obj == NULL)
+		return 0;
+
+	hi +=	obj->level * 5 / MAX_LEVEL;
+	lo +=	obj->level;
+	lo +=	obj->pObjIndex->vnum;
+
+	calc_affect_bonus(obj->pObjIndex->affected, &hi, &lo);
+	calc_affect_bonus(obj->affected, &hi, &lo);
+
+	if (IS_OBJ_STAT(obj, ITEM_GLOW)) {
+		hi +=	1;
+		lo +=	23;
+	}
+
+	return (hi << (sizeof(int) * 4) ) + lo;
 }

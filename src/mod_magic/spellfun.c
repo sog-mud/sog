@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.300 2002-11-28 21:40:23 fjoe Exp $
+ * $Id: spellfun.c,v 1.301 2002-11-30 16:23:10 kostik Exp $
  */
 
 /***************************************************************************
@@ -4215,6 +4215,8 @@ SPELL_FUN(spell_brew, sn, level, ch, vo)
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
 	OBJ_DATA *potion;
 	OBJ_DATA *vial;
+	int magic_value;
+	int spell_num;
 	const char *spell;
 
 	if (obj->item_type != ITEM_TRASH
@@ -4259,29 +4261,42 @@ SPELL_FUN(spell_brew, sn, level, ch, vo)
 
 	spell = 0;
 
+	magic_value = obj_magic_value(obj);
+
+	if (!(magic_value >> (sizeof(int) *4))) {
+		spell_num = magic_value % 3;
+	} else {
+		int i;
+		spell_num = 3;
+		for (i = 0; i < 5; i++) {
+			spell_num += magic_value % 2;
+			magic_value /= 2;
+		}
+	}
+
 	switch (obj->item_type) {
 	case ITEM_TRASH:
-		switch(number_bits(3)) {
+		switch(spell_num) {
 		case 0:
-			spell = "fireball";
-			break;
-		case 1:
 			spell = "cure poison";
 			break;
-		case 2:
+		case 1:
 			spell = "cure blindness";
 			break;
-		case 3:
+		case 2:
 			spell = "cure disease";
+			break;
+		case 3:
+			spell = "fireball";
 			break;
 		case 4:
 			spell = "word of recall";
 			break;
 		case 5:
-			spell = "protection good";
+			spell = "protection evil";
 			break;
 		case 6:
-			spell = "protection evil";
+			spell = "protection good";
 			break;
 		case 7:
 			spell = "sanctuary";
@@ -4290,59 +4305,59 @@ SPELL_FUN(spell_brew, sn, level, ch, vo)
 		break;
 
 	case ITEM_TREASURE:
-		switch(number_bits(3)) {
+		switch(spell_num) {
 		case 0:
-			spell = "cure critical wounds";
-			break;
-		case 1:
-			spell = "haste";
-			break;
-		case 2:
-			spell = "frenzy";
-			break;
-		case 3:
-			spell = "create spring";
-			break;
-		case 4:
-			spell = "holy word";
-			break;
-		case 5:
-			spell = "invisibility";
-			break;
-		case 6:
 			spell = "cure light wounds";
 			break;
-		case 7:
+		case 1:
+			spell = "create spring";
+			break;
+		case 2:
 			spell = "cure serious wounds";
+			break;
+		case 3:
+			spell = "holy word";
+			break;
+		case 4:
+			spell = "invisibility";
+			break;
+		case 5:
+			spell = "frenzy";
+			break;
+		case 6:
+			spell = "cure critical wounds";
+			break;
+		case 7:
+			spell = "haste";
 			break;
 		}
 		break;
 
 	case ITEM_KEY:
-		switch (number_bits(3)) {
+		switch (spell_num) {
 		case 0:
 			spell = "detect magic";
 			break;
 		case 1:
-			spell = "detect invis";
+			spell = "detect evil";
 			break;
 		case 2:
-			spell = "pass door";
+			spell = "detect good";
 			break;
 		case 3:
-			spell = "detect hidden";
+			spell = "acute vision";
 			break;
 		case 4:
 			spell = "improved detect";
 			break;
 		case 5:
-			spell = "acute vision";
+			spell = "detect invis";
 			break;
 		case 6:
-			spell = "detect good";
+			spell = "pass door";
 			break;
 		case 7:
-			spell = "detect evil";
+			spell = "detect hidden";
 			break;
 		}
 		break;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.41 2002-11-23 15:27:06 fjoe Exp $
+ * $Id: sog.h,v 1.42 2002-11-30 16:23:06 kostik Exp $
  */
 
 #ifndef _SOG_H_
@@ -429,6 +429,8 @@ DECLARE_FUN3(AFFECT_DATA, is_bit_affected,
 	     ARG(CHAR_DATA), ch, ARG(int), where, ARG(flag_t), bits)
 DECLARE_FUN2(bool, has_obj_affect,
 	     ARG(CHAR_DATA), ch, ARG(flag_t), vector)
+
+DECLARE_FUN1(int, obj_magic_value, ARG(OBJ_DATA), obj)
 
 /* room affects */
 DECLARE_PROC2(affect_to_room,
