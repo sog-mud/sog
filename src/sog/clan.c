@@ -57,7 +57,8 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 		victim->pcdata->petition = CLAN_NONE;
 		char_nputs(OK, ch);
 		char_puts("Greet new member!\n\r", ch);
-		char_printf(ch, "You petition to %s has been accepted.\n\r",
+		char_printf(victim, "Your petition to %s has been "
+			    "accepted.\n\r",
 			    clan_table[victim->clan].short_name);
 		char_printf(victim, "You are now one of %s!\n\r",
 			    clan_table[victim->clan].long_name);
@@ -168,12 +169,6 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (ch->pcdata->clan_status != CLAN_LEADER) {
-		char_puts("Alas, you don't have enough power to promote.\n\r",
-			  ch);
-		return;
-	}
-
 	if (ch->clan != victim->clan) {
 		char_puts("You don't have enough power to change "
 			  "there status.\n\r", ch);
@@ -186,10 +181,18 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 				  ch);
 			return;
 		}
+
+		if (victim->pcdata->clan_status == CLAN_LEADER
+		&&  !IS_IMMORTAL(ch)) {
+			char_puts("You don't have enough power to promote "
+				  "them to be secondary.\n\r", ch);
+			return;
+		}
+
 		victim->pcdata->clan_status = CLAN_SECOND;
 		char_nputs(OK, ch);
-		char_puts("They are now second in your clan.\n\r", ch);
-		char_puts("You are now second in your clan.\n\r", victim);
+		char_puts("They are now second in clan.\n\r", ch);
+		char_puts("You are now second in clan.\n\r", victim);
 		return;
 	}
 
