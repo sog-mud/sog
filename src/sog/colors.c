@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: colors.c,v 1.13 2001-08-03 11:27:49 fjoe Exp $
+ * $Id: colors.c,v 1.14 2003-06-19 07:54:14 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -174,14 +174,15 @@ static const char special_symbols[] = "\r\n&<>";	// notrans
 /*
  * Parse color symbols. len MUST BE > 1
  */
-void parse_colors(const char *i, char *o, size_t len, int format)
+void
+parse_colors(const char *i, char *o, size_t len, int format)
 {
 	char *p;
 
 	reset_color = curr_color = COLOR_CLEAR;
 	for (p = o; *i && p < o + len - 1; i++) {
 		if (strchr(special_symbols, *i) != NULL
-		||  (*i == '{' && *(i+1))) {
+		||  (*i == '{' && *(i + 1))) {
 			strnzcpy(p, len - 1 - (p - o),
 				 color(*i == '{' ? *++i : *i, format));
 			p = strchr(p, '\0');
@@ -192,7 +193,8 @@ void parse_colors(const char *i, char *o, size_t len, int format)
 	*p = '\0';
 }
 
-static const char* color(int type, int format)
+static const char *
+color(int type, int format)
 {
 	int clr;
 
@@ -280,13 +282,15 @@ static const char* color(int type, int format)
 	return format_table[format].colors[curr_color = clr];
 }
 
-int format_lookup(const char *name)
+int
+format_lookup(const char *name)
 {
 	int i;
 
-	for (i = 0; format_table[i].name; i++)
+	for (i = 0; format_table[i].name; i++) {
 		if (!str_cmp(name, format_table[i].name))
 			return i;
+	}
 
 	return FORMAT_DUMB;
 }
