@@ -1,16 +1,16 @@
 /*
- * $Id: spellfun.c,v 1.181.2.22 2001-06-19 09:22:32 kostik Exp $
+ * $Id: spellfun.c,v 1.181.2.23 2001-07-08 07:43:02 kostik Exp $
  */
 
 /***************************************************************************
- *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *	
+ *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
  *	 Serdar BULUT {Chronos}		bulut@rorqual.cc.metu.edu.tr       *
- *	 Ibrahim Canpunar  {Asena}	canpunar@rorqual.cc.metu.edu.tr    *	
- *	 Murat BICER  {KIO}		mbicer@rorqual.cc.metu.edu.tr	   *	
- *	 D.Baris ACAR {Powerman}	dbacar@rorqual.cc.metu.edu.tr	   *	
+ *	 Ibrahim Canpunar  {Asena}	canpunar@rorqual.cc.metu.edu.tr    *
+ *	 Murat BICER  {KIO}		mbicer@rorqual.cc.metu.edu.tr	   *
+ *	 D.Baris ACAR {Powerman}	dbacar@rorqual.cc.metu.edu.tr	   *
  *     By using this code, you have agreed to follow the terms of the      *
- *     ANATOLIA license, in the file Anatolia/anatolia.licence             *	
+ *     ANATOLIA license, in the file Anatolia/anatolia.licence             *
  ***************************************************************************/
 
 /***************************************************************************
@@ -4823,4 +4823,29 @@ void spell_blur(int sn, int level, CHAR_DATA *ch, void *vo)
 
 	act("$n's body becomes blurred.", ch, NULL, NULL, TO_ROOM);
 	act("Your body becomes blurred.", ch, NULL, NULL, TO_CHAR);
+}
+
+void
+spell_cloak_of_leaves(int sn, int level, CHAR_DATA *ch, void *vo)
+{
+	AFFECT_DATA af;
+	int hp_to_add;
+
+	if (is_affected(ch,sn)) {
+		char_puts("You are already protected.\n",ch);
+		return;
+	}
+	hp_to_add = number_range(level * 3 / 4, level * 4 / 3) + 15;
+	ch->hit += hp_to_add;
+
+	af.where		= TO_AFFECTS;
+	af.type			= sn;
+	af.level		= level;
+	af.duration		= level / 3 + 3;
+	af.location		= APPLY_HIT;
+	af.modifier		= hp_to_add;
+	af.bitvector		= 0;
+	affect_to_char(ch,&af);
+
+	char_puts("Many green leaves cloak you.\n",ch);
 }

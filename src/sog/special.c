@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.54.2.5 2001-05-27 20:56:43 fjoe Exp $
+ * $Id: special.c,v 1.54.2.6 2001-07-08 07:43:04 kostik Exp $
  */
 
 /***************************************************************************
@@ -867,7 +867,7 @@ bool spec_thief(CHAR_DATA *ch)
 
 		if (IS_NPC(victim)
 		||  victim->level >= LEVEL_IMMORTAL
-		||  number_bits(5) != 0 
+		||  number_bits(5) != 0
 		||  !can_see(ch,victim))
 			continue;
 
@@ -1046,16 +1046,17 @@ bool spec_nasty(CHAR_DATA *ch)
 {
 	CHAR_DATA *victim, *v_next;
 	long gold;
- 
+
 	if (!IS_AWAKE(ch))
 		return FALSE;
- 
+
 	if (ch->position != POS_FIGHTING) {
 		for (victim = ch->in_room->people; victim; victim = v_next) {
 			v_next = victim->next_in_room;
 			if (!IS_NPC(victim)
 			&&  (victim->level > ch->level)
-			&&  (victim->level < ch->level + 10)) {
+			&&  (victim->level < ch->level + 10)
+			&&  !is_safe(ch, victim)) {
 				dofun("backstab", ch, victim->name);
 				if (ch->position != POS_FIGHTING)
 					multi_hit(ch, victim, TYPE_UNDEFINED);
@@ -1065,11 +1066,11 @@ bool spec_nasty(CHAR_DATA *ch)
 		}
 		return FALSE;    /*  No one to attack */
 	}
- 
+
 	/* okay, we must be fighting.... steal some coins and flee */
 	if ((victim = ch->fighting) == NULL)
 		return FALSE;   /* let's be paranoid.... */
- 
+
 	switch (number_bits(2)) {
 	case 0:
 		act("$n rips apart your coin purse, spilling your gold!",
@@ -1082,16 +1083,16 @@ bool spec_nasty(CHAR_DATA *ch)
 		victim->gold -= gold;
 		ch->gold     += gold;
 		return TRUE;
- 
+
 	case 1:
 		dofun("flee", ch, str_empty);
 		return TRUE;
- 
+
 	default:
 		return FALSE;
 	}
 }
-	
+
 bool spec_assassinater(CHAR_DATA *ch)
 {
 	char* msg;
@@ -1118,7 +1119,7 @@ bool spec_assassinater(CHAR_DATA *ch)
 		return FALSE;
 	if (victim->level > ch->level + 7 || IS_NPC(victim))
 		return FALSE;
-	if (victim->hit < victim->max_hit) 
+	if (victim->hit < victim->max_hit)
 		return FALSE;
 
 	rnd_say = number_range(1, 40);

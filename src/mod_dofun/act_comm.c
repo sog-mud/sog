@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.187.2.24 2001-07-04 19:42:57 fjoe Exp $
+ * $Id: act_comm.c,v 1.187.2.25 2001-07-08 07:43:00 kostik Exp $
  */
 
 /***************************************************************************
@@ -872,15 +872,27 @@ void do_order(CHAR_DATA *ch, const char *argument)
 		char_puts("You have no followers here.\n", ch);
 }
 
+static bool
+is_in_opposite_cabals(CHAR_DATA *ch1, CHAR_DATA *ch2)
+{
+	return
+	   (HAS_SKILL(ch1, gsn_enforcer_badge) && HAS_SKILL(ch2, gsn_disperse))
+	|| (HAS_SKILL(ch1, gsn_disperse) && HAS_SKILL(ch2, gsn_enforcer_badge))
+	|| (HAS_SKILL(ch1, gsn_evil_spirit) && HAS_SKILL(ch2, gsn_riding))
+	|| (HAS_SKILL(ch1, gsn_riding) && HAS_SKILL(ch2, gsn_evil_spirit))
+	|| (HAS_SKILL(ch1, gsn_mastering_spell) && HAS_SKILL(ch2, gsn_spellbane))
+	|| (HAS_SKILL(ch1, gsn_spellbane) && HAS_SKILL(ch2, gsn_mastering_spell));
+}
+
 void do_group(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
+	CHAR_DATA *gch;
 
 	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
-		CHAR_DATA *gch;
 
 		act_puts("$N's group:", ch, NULL, leader_lookup(ch),
 			 TO_CHAR, POS_DEAD);
@@ -921,12 +933,12 @@ void do_group(CHAR_DATA *ch, const char *argument)
 		act("$N isn't following you.", ch, NULL, victim, TO_CHAR);
 		return;
 	}
-	
+
 	if (IS_AFFECTED(victim, AFF_CHARM)) {
 		char_puts("You can't remove charmed mobs from your group.\n",ch);
 		return;
 	}
-	
+
 	if (IS_AFFECTED(ch,AFF_CHARM)) {
 		act("You like your master too much to leave $m!",ch,NULL,victim,TO_VICT);
 		return;
@@ -950,11 +962,11 @@ void do_group(CHAR_DATA *ch, const char *argument)
 		}
 
 		victim->leader = NULL;
-		act_puts("$n removes $N from $s group.",   ch, NULL, victim, 
+		act_puts("$n removes $N from $s group.",   ch, NULL, victim,
 			 TO_NOTVICT,POS_SLEEPING);
-		act_puts("$n removes you from $s group.",  ch, NULL, victim, 
+		act_puts("$n removes you from $s group.",  ch, NULL, victim,
 			 TO_VICT,POS_SLEEPING);
-		act_puts("You remove $N from your group.", ch, NULL, victim, 
+		act_puts("You remove $N from your group.", ch, NULL, victim,
 			 TO_CHAR,POS_SLEEPING);
 
 		if (!IS_NPC(victim)
@@ -973,42 +985,43 @@ void do_group(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (ch->level - victim->level < -8 || ch->level - victim->level > 8) {
-		act_puts("$N cannot join $n's group.", ch, NULL, victim, 
+		act_puts("$N cannot join $n's group.", ch, NULL, victim,
 			 TO_NOTVICT,POS_SLEEPING);
-		act_puts("You cannot join $n's group.", ch, NULL, victim, 
+		act_puts("You cannot join $n's group.", ch, NULL, victim,
 			 TO_VICT,POS_SLEEPING);
-		act_puts("$N cannot join your group.", ch, NULL, victim, 
+		act_puts("$N cannot join your group.", ch, NULL, victim,
 			 TO_CHAR ,POS_SLEEPING);
 		return;
 	}
 
-	if (IS_GOOD(ch) && IS_EVIL(victim)) {
-		act_puts("You are too evil for $n's group.", ch, NULL, victim, 
-			 TO_VICT, POS_SLEEPING);
-		act_puts("$N is too evil for your group!", ch, NULL, victim, 
-			 TO_CHAR, POS_SLEEPING);
-		return;
-	}
-
-	if (IS_GOOD(victim) && IS_EVIL(ch)) {
-		act_puts("You are too pure to join $n's group!", ch, NULL,
-			 victim, TO_VICT, POS_SLEEPING);
-		act_puts("$N is too pure for your group!", ch, NULL, victim, 
-			 TO_CHAR,POS_SLEEPING);
-		return;
-	}
-
-	if ((HAS_SKILL(ch, gsn_enforcer_badge) && HAS_SKILL(victim, gsn_disperse))
-	||  (HAS_SKILL(ch, gsn_disperse) && HAS_SKILL(victim, gsn_enforcer_badge))
-	||  (HAS_SKILL(ch, gsn_evil_spirit) && HAS_SKILL(victim, gsn_riding))
-	||  (HAS_SKILL(ch, gsn_riding) && HAS_SKILL(victim, gsn_evil_spirit))
-	||  (HAS_SKILL(ch, gsn_mastering_spell) &&
-	     HAS_SKILL(victim, gsn_spellbane))
-	||  (HAS_SKILL(ch, gsn_spellbane) &&
-	     HAS_SKILL(victim, gsn_mastering_spell))) {
-		act_puts("You hate $n's cabal, how can you join $n's group?", ch, NULL, victim, TO_VICT, POS_SLEEPING);
-		act_puts("You hate $N's cabal, how can you want $N to join your group?", ch, NULL, victim, TO_CHAR, POS_SLEEPING);
-		return;
+	for (gch = char_list; gch; gch = gch->next) {
+		if (is_same_group(gch, ch)) {
+			if (IS_GOOD(gch) && IS_EVIL(victim)) {
+				act_puts("You are too evil for $n's group.",
+				    ch, NULL, victim, TO_VICT, POS_SLEEPING);
+				act_puts("$N is too evil for your group!",
+				    ch, NULL, victim, TO_CHAR, POS_SLEEPING);
+				return;
+			}
+			if (IS_GOOD(victim) && IS_EVIL(ch)) {
+				act_puts("You are too pure to join $n's group!",
+				    ch, NULL, victim, TO_VICT, POS_SLEEPING);
+				act_puts("$N is too pure for your group!",
+				    ch, NULL, victim, TO_CHAR,POS_SLEEPING);
+				return;
+			}
+			if (is_in_opposite_cabals(ch, gch)) {
+				act_puts("You hate $n's cabal, how can you join $n's group?",
+				    gch, NULL, victim, TO_VICT, POS_SLEEPING);
+				if (gch == ch) {
+					act_puts("You hate $N's cabal, how can you want $N to join your group?",
+					    ch, NULL, victim, TO_CHAR, POS_SLEEPING);
+				} else {
+					act_puts("There are $N cabal enemies in your group, how can $E join you?", ch, NULL, victim, TO_CHAR, POS_SLEEPING);
+				}
+			return;
+			}
+		}
 	}
 
 	victim->leader = ch;
