@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.30 1998-06-28 04:47:16 fjoe Exp $
+ * $Id: save.c,v 1.31 1998-06-29 06:48:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -84,14 +84,12 @@ static OBJ_DATA *rgObjNest[MAX_NEST];
 /*
  * Local functions.
  */
-void fwrite_char args((CHAR_DATA * ch, FILE * fp));
-void fwrite_obj 
-args((CHAR_DATA * ch, OBJ_DATA * obj,
-      FILE * fp, int iNest));
-	void fwrite_pet args((CHAR_DATA * pet, FILE * fp));
-	void fread_char args((CHAR_DATA * ch, FILE * fp));
-	void fread_pet  args((CHAR_DATA * ch, FILE * fp));
-	void fread_obj  args((CHAR_DATA * ch, FILE * fp));
+void fwrite_char (CHAR_DATA * ch, FILE * fp);
+void fwrite_obj (CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest);
+void fwrite_pet (CHAR_DATA * pet, FILE * fp);
+void fread_char (CHAR_DATA * ch, FILE * fp);
+void fread_pet  (CHAR_DATA * ch, FILE * fp);
+void fread_obj  (CHAR_DATA * ch, FILE * fp);
 
 
 
@@ -658,7 +656,7 @@ load_char_obj(DESCRIPTOR_DATA * d, char *name)
 	snprintf(strsave, sizeof(strsave),
 		 "%s%s%s", PLAYER_DIR, capitalize(name), ".gz");
 	if ((fp = fopen(strsave, "r")) != NULL) {
-		char            buf[PATH_MAX * 2];
+		char buf[PATH_MAX * 2];
 		fclose(fp);
 		snprintf(buf, sizeof(buf), "gzip -dfq %s", strsave);
 		system(buf);
@@ -794,7 +792,6 @@ load_char_obj(DESCRIPTOR_DATA * d, char *name)
 void 
 fread_char(CHAR_DATA * ch, FILE * fp)
 {
-	char            buf[MAX_STRING_LENGTH];
 	char           *word = "End";
 	bool            fMatch;
 	int             count = 0;
@@ -802,7 +799,7 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 	int             percent;
 
 
-	log_printf(buf, "Loading %s.", ch->name);
+	log_printf("Loading %s.", ch->name);
 	ch->pcdata->bank_s = 0;
 	ch->pcdata->bank_g = 0;
 

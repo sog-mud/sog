@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.1 1998-06-28 04:47:15 fjoe Exp $
+ * $Id: mob_cmds.c,v 1.2 1998-06-29 06:48:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -50,6 +50,8 @@
 #include "act_comm.h"
 #include "magic.h"
 #include "log.h"
+#include "interp.h"
+#include "util.h"
 
 DECLARE_DO_FUN(do_look 	);
 extern ROOM_INDEX_DATA *find_location(CHAR_DATA *, char *);
@@ -88,6 +90,7 @@ const	struct	mob_cmd_type	mob_cmd_table	[] =
 	{	"call",		do_mpcall	},
 	{	"flee",		do_mpflee	},
 	{	"remove",	do_mpremove	},
+	{	"religion",	do_mpreligion	},
 	{	"",		0		}
 };
 
@@ -1359,3 +1362,77 @@ void do_mpremove(CHAR_DATA *ch, char *argument)
 }
 
 
+int lookup_religion_leader (const char *name)
+{
+   int value;
+
+   for ( value = 0; value < MAX_RELIGION ; value++)
+   {
+	if (LOWER(name[0]) == LOWER(religion_table[value].leader[0])
+	&&  !str_prefix( name,religion_table[value].leader))
+	    return value;
+   }
+
+   return 0;
+} 
+
+void do_mpreligion(CHAR_DATA *ch, char *argument)
+{
+	CHAR_DATA *victim;
+	char name[MAX_STRING_LENGTH];
+	int chosen = 0, correct = 1;
+
+	argument = one_argument(argument, name);
+	if ((victim = get_char_room(ch, name)) == NULL)
+		return;
+
+	if ((chosen = lookup_religion_leader(argument)) == 0)
+		return;
+
+	if (victim->religion > 0 && victim->religion < MAX_RELIGION) {
+		doprintf(do_say, ch, "You are already in the way of %s",
+			 religion_table[victim->religion].leader);
+		return;
+	}
+
+	switch(chosen) {
+	case RELIGION_APOLLON:
+		if (!IS_GOOD(victim) && victim->ethos != 1) correct = 0;
+		break;
+	case RELIGION_ZEUS:
+		if (!IS_GOOD(victim) && victim->ethos != 2) correct = 0;
+		break;
+	case RELIGION_SIEBELE:
+		if (!IS_NEUTRAL(victim) && victim->ethos != 2) correct = 0;
+		break;
+	case RELIGION_EHRUMEN:
+		if (!IS_GOOD(victim) && victim->ethos != 3) correct = 0;
+		break;
+	case RELIGION_AHRUMAZDA:
+		if (!IS_EVIL(victim) && victim->ethos != 3) correct = 0;
+		break;
+	case RELIGION_DEIMOS:
+		if (!IS_EVIL(victim) && victim->ethos != 1) correct = 0;
+		break;
+	case RELIGION_PHOBOS:
+		if (!IS_EVIL(victim) && victim->ethos != 2) correct = 0;
+		break;
+	case RELIGION_ODIN:
+		if (!IS_NEUTRAL(victim) && victim->ethos != 1) correct = 0;
+		break;
+	case RELIGION_MARS:
+		if (!IS_NEUTRAL(victim) && victim->ethos != 3) correct = 0;
+		break;
+	}
+
+	if (!correct) {
+		do_say(ch,
+		       "That religion doesn't match your ethos and alignment.");
+		return;
+	}
+
+	victim->religion = chosen;
+	doprintf(do_say, ch,
+		 "From now on and forever, you are in the way of %s",
+		 religion_table[victim->religion].leader);
+}

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.29 1998-06-28 04:47:14 fjoe Exp $
+ * $Id: handler.c,v 1.30 1998-06-29 06:48:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3181,8 +3181,9 @@ char *act_bit_name(int act_flags)
 		if (act_flags & ACT_WARRIOR	) strcat(buf, " warrior");
 		if (act_flags & ACT_NOALIGN	) strcat(buf, " no_align");
 		if (act_flags & ACT_NOPURGE	) strcat(buf, " no_purge");
-		if (act_flags & ACT_IS_HEALER	) strcat(buf, " healer");
-		if (act_flags & ACT_IS_CHANGER ) strcat(buf, " changer");
+		if (act_flags & ACT_QUESTOR	) strcat(buf, " questor");
+		if (act_flags & ACT_HEALER	) strcat(buf, " healer");
+		if (act_flags & ACT_CHANGER ) strcat(buf, " changer");
 		if (act_flags & ACT_GAIN	) strcat(buf, " skill_train");
 		if (act_flags & ACT_UPDATE_ALWAYS) strcat(buf," update_always");
 	}

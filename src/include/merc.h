@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.39 1998-06-28 04:47:15 fjoe Exp $
+ * $Id: merc.h,v 1.40 1998-06-29 06:48:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -857,12 +857,13 @@ struct	kill_data
 #define ACT_NOALIGN		(U)
 #define ACT_NOPURGE		(V)
 #define ACT_OUTDOORS		(W)
+#define ACT_QUESTOR		(X)
 #define ACT_INDOORS		(Y)
 #define ACT_RIDEABLE		(Z)
-#define ACT_IS_HEALER		(aa)
+#define ACT_HEALER		(aa)
 #define ACT_GAIN		(bb)
 #define ACT_UPDATE_ALWAYS	(cc)
-#define ACT_IS_CHANGER		(dd)
+#define ACT_CHANGER		(dd)
 #define ACT_NOTRACK		(ee)
 
 /* damage classes */

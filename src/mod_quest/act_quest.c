@@ -1,5 +1,5 @@
 /*
- * $Id: act_quest.c,v 1.41 1998-06-24 21:46:34 efdi Exp $
+ * $Id: act_quest.c,v 1.42 1998-06-29 06:48:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -371,7 +371,7 @@ static CHAR_DATA* questor_lookup(CHAR_DATA *ch)
 	for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room) {
 		if (!IS_NPC(vch)) 
 			continue;
-		if (vch->spec_fun == spec_lookup("spec_questmaster")) {
+		if (IS_SET(vch->act, ACT_QUESTOR)) {
 			questor = vch;
 			break;
 		}
@@ -593,7 +593,7 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 		||  (IS_GOOD(victim) && IS_GOOD(ch))
 		||  IS_SET(victim->pIndexData->act, ACT_TRAIN)
 		||  IS_SET(victim->pIndexData->act, ACT_PRACTICE)
-		||  IS_SET(victim->pIndexData->act, ACT_IS_HEALER)
+		||  IS_SET(victim->pIndexData->act, ACT_HEALER)
 		||  IS_SET(victim->pIndexData->act, ACT_NOTRACK)
 		||  IS_SET(victim->pIndexData->imm_flags, IMM_SUMMON)
 		||  questor->pIndexData == victim->pIndexData

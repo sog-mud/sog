@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.35 1998-06-28 04:47:13 fjoe Exp $
+ * $Id: act_obj.c,v 1.36 1998-06-29 06:48:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -806,7 +806,7 @@ do_give(CHAR_DATA * ch, char *argument)
 			mp_bribe_trigger(victim, ch,
 					 silver ? amount : amount * 100);
 
-		if (IS_NPC(victim) && IS_SET(victim->act, ACT_IS_CHANGER)) {
+		if (IS_NPC(victim) && IS_SET(victim->act, ACT_CHANGER)) {
 			int             change;
 			change = (silver ? 95 * amount / 100 / 100
 				  : 95 * amount);

@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.13 1998-06-28 04:47:16 fjoe Exp $
+ * $Id: special.c,v 1.14 1998-06-29 06:48:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -113,7 +113,6 @@ DECLARE_SPEC_FUN(	spec_patrolman		);
 DECLARE_SPEC_FUN(      spec_cast_clan        );
 DECLARE_SPEC_FUN(      spec_special_guard     );
 DECLARE_SPEC_FUN(      spec_stalker           );
-DECLARE_SPEC_FUN(      spec_questmaster       );
 DECLARE_SPEC_FUN(      spec_assassinater      );
 DECLARE_SPEC_FUN(      spec_repairman		);
 DECLARE_SPEC_FUN(	spec_captain		);
@@ -149,7 +148,6 @@ const   struct  spec_type    spec_table[] =
 	{	"spec_cast_clan",		spec_cast_clan		},
 	{	"spec_stalker",			spec_stalker		},
 	{	"spec_special_guard",		spec_special_guard	},
-	{   "spec_questmaster",             spec_questmaster        },  
 	{   "spec_assassinater",            spec_assassinater	},  
 	{   "spec_repairman",		spec_repairman		},  
 	{	"spec_captain",			spec_captain		},
@@ -1336,16 +1334,6 @@ bool spec_nasty(CHAR_DATA *ch)
 	}
 }
 
-bool spec_questmaster(CHAR_DATA *ch)
-{
-	if (!IS_AWAKE(ch))
-	    return FALSE;
-	if (number_range(0,100) == 0) {
-	    do_say(ch, "Don't you want a quest???.");
-	    return TRUE;
-	}
-	return FALSE;
-}
 	
 bool spec_assassinater(CHAR_DATA *ch)
 {

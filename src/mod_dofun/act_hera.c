@@ -1,5 +1,5 @@
 /*
- * $Id: act_hera.c,v 1.24 1998-06-28 04:47:12 fjoe Exp $
+ * $Id: act_hera.c,v 1.25 1998-06-29 06:48:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,7 +47,7 @@
 ***************************************************************************/
 
 /*
- * $Id: act_hera.c,v 1.24 1998-06-28 04:47:12 fjoe Exp $
+ * $Id: act_hera.c,v 1.25 1998-06-29 06:48:29 fjoe Exp $
  */
 #include <sys/types.h>
 #include <sys/time.h>
@@ -1477,7 +1477,7 @@ void do_restring(CHAR_DATA *ch, char *argument)
 
 	for (mob = ch->in_room->people; mob; mob = mob->next_in_room)
 	{
-	    if (IS_NPC(mob) && IS_SET(mob->act, ACT_IS_HEALER))
+	    if (IS_NPC(mob) && IS_SET(mob->act, ACT_HEALER))
 	        break;
 	}
  

@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.55 1998-06-28 13:23:47 fjoe Exp $
+ * $Id: comm.c,v 1.56 1998-06-29 06:48:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2166,8 +2166,7 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 
 	if (strcmp(crypt(argument, ch->pcdata->pwd), ch->pcdata->pwd)) {
 	    write_to_buffer(d, "Wrong password.\n\r", 0);
-	    sprintf(buf, "Wrong password by %s@%s", ch->name, d->host);
-	    log(buf);
+	    log_printf(buf, "Wrong password by %s@%s", ch->name, d->host);
 	    if (ch->endur == 2)
 	    	close_socket(d);
 	    else {
@@ -2404,6 +2403,10 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
  */
 bool check_parse_name(char *name)
 {
+	char *pc;
+	bool fIll,adjcaps = FALSE,cleancaps = FALSE;
+ 	int total_caps = 0;
+
 	/*
 	 * Reserved words.
 	 */
@@ -2429,11 +2432,6 @@ bool check_parse_name(char *name)
 	 * Alphanumerics only.
 	 * Lock out IllIll twits.
 	 */
-	{
-	char *pc;
-	bool fIll,adjcaps = FALSE,cleancaps = FALSE;
- 	int total_caps = 0;
-
 	fIll = TRUE;
 	for (pc = name; *pc != '\0'; pc++)
 	{
@@ -2457,9 +2455,8 @@ bool check_parse_name(char *name)
 	if (fIll)
 	    return FALSE;
 
-	if ((total_caps > (strlen(name)) / 2 && strlen(name) < 3))
+	if (total_caps > strlen(name) / 2)
 	    return FALSE;
-	}
 
 	/*
 	 * Prevent players from naming themselves after mobs.
