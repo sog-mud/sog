@@ -4,7 +4,7 @@ Class domain
 End
 
 #SKILL
-Skill 'sunbirst'
+Skill 'sunburst'
 Level 15
 Rating 5
 Min 1
