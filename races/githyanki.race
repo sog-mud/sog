@@ -14,7 +14,7 @@ Class 'ninja' 100
 Class 'ranger' 100
 Class 'warlock' 100
 Class 'necromancer' 100
-BonusSkills 'sword' 'dagger ~
+BonusSkills 'sword' 'dagger'~
 Stats 0 2 -2 3 -1 0
 MaxStats 19 23 20 25 18 25
 Size medium
