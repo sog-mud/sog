@@ -2891,7 +2891,7 @@ void do_who( CHAR_DATA *ch, char *argument )
 		"(PK) " : "",
 	    cabalbuf,
 	    act_buf,
-	    IS_IMMORTAL(wch) ? "Chronos" : wch->name,
+	    /* IS_IMMORTAL(wch) ? "Chronos" : */ wch->name,
 	    titlebuf);
 
 	else
@@ -5330,7 +5330,7 @@ void do_who_col( CHAR_DATA *ch, char *argument )
 	    pk_buf,
 	    cabalbuf,
 	    act_buf,
-	    IS_IMMORTAL(wch) ? "Chronos" : wch->name,
+	    /* IS_IMMORTAL(wch) ? "Chronos" : */ wch->name,
 	    titlebuf);
 
 	else
