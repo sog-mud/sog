@@ -1,5 +1,5 @@
 #
-# $Id: mprogs.txt,v 1.18 2003-04-22 14:01:36 tatyana Exp $
+# $Id: mprogs.txt,v 1.19 2003-04-25 12:38:43 fjoe Exp $
 #
 
 MPC code style
@@ -16,14 +16,85 @@ Examples:
 // C++ style comment
 /* C style comment */
 
-MPC types
----------
+MPC types and classes
+---------------------
 
 int	-- integer
 string	-- a string
-char	-- character (mobile)
-obj	-- object
-room	-- room
+char	-- character or mobile (CHAR_DATA)
+obj	-- object (OBJ_DATA)
+room	-- room (ROOM_INDEX_DATA)
+
+'int' and 'string' are basic types and do not have properties
+'char', 'obj' and 'room' properties are listed below:
+
+class char {
+	mutable int gold;	// количество золотых монет
+	mutable int silver;	// количество серебряных монет
+
+	int stat_str;		// сила
+	int stat_int;		// интеллект
+	int stat_wis;		// мудрость
+	int stat_dex;		// ловкость
+	int stat_con;		// телосложение
+	int stat_cha;		// charisma
+
+	mutable int hit;	// текущее количество hp
+	int max_hit;		// максимальное количество hp
+	mutable int mana;	// текущее количество mana
+	int max_mana;		// максимальное количество mana
+	mutable int move;	// текущее количество moves
+	int max_move;		// максимальное количество moves
+
+	int level;		// уровень (с +lev)
+	int real_level;		// уровень (без +lev)
+
+	int ethos;		// ethos (ETHOS_LAWFUL, ETHOS_CHAOTIC, etc.)
+	char fighting;		// чар, с которым дерется ch (или NULL)
+	string hometown;	// 'hometown' для !npc,
+				// для npc зона в которой он
+				// заресечен, или (если родился не через reset)
+				// зона в которой находится в настоящий момент
+	room in_room;		// комната, в которой находится чар
+	int luck;		// удача
+	char pet;		// pet чара, или NULL
+	int position;		// позиция (POS_RESTING, POS_FIGHTING etc.)
+	int quest_time;		// quest time (-1 если нет квеста или npc)
+	string race;		// раса
+	int sex;		// пол (SEX_MALE, SEX_FEMALE etc.)
+	int size;		// размер (SIZE_LARGE, SIZE_MEDIUM etc.)
+	int vnum;		// vnum (0 для !npc)
+};
+
+class obj {
+	char carried_by;	// чар, у которого находится объект,
+				// или NULL
+	obj in_obj;		// объект, в котором находится
+				// этот объект, или NULL
+	room in_room;		// комната, в которой находится
+				// объект, или NULL
+
+	int cost;		// стоимость
+	int item_type;		// тип объекта (ITEM_STAFF, ITEM_WEAPON etc.)
+	mutable int level;	// уровень
+	int vnum;		// vnum
+	mutable int timer;	// таймер на этом объекте
+	mutable int v_dice_type;// dice type (v2) для ITEM_WEAPON,
+				// 0 для остальных
+	int wear_loc;		// слот, где одет объект (WEAR_XXX),
+				// или WEAR_NONE
+};
+
+class room {
+	int sector_type;	// тип сектора (SECTOR_XXX)
+	int vnum;		// vnum
+};
+
+Properties are read-only by default. 'multable' properties can be changed.
+Properties are accessed using '->' operator:
+
+char owner;
+owner->hit = umin(owner->hit + bonus, owner->max_hit);
 
 MPC statements
 --------------
@@ -48,7 +119,7 @@ case const:
 	...]
 }
 
-3) 'foreach' operator
+3) 'foreach' operator (see MPC Iterators)
 
 foreach (var, iter([iter args...]))
 	stmt;
@@ -132,21 +203,40 @@ MPC iterators
 -------------
 
 int range(int from, int to)
-	from should not be greater than to
+	all integers in range [from..to]
 
 char char_in_room(room r)
+	all characters in room r
 
 char char_in_world()
+	all characters in world
 
 char npc_in_world()
+	all npc (mobiles) in world
 
 obj obj_in_obj(obj o)
+	all objects in object o (without recursion)
 
 obj obj_of_char(char ch)
+	all objects that are carried by ch (without recursion)
 
 obj obj_in_room(room r)
+	all objects in room r
 
 obj obj_in_world()
+	all objects in world
+
+Examples:
+
+int i;
+foreach (i, range(0, 10)) {
+	/* do something */
+}
+
+char vch;
+foreach (vch, char_in_room(ch->in_room)) {
+	/* do something */
+}
 
 MPC triggers
 ------------
@@ -250,93 +340,11 @@ cast_char(string sn, char ch, char victim)
 cast_obj(string sn, char ch, obj p)
   чаром ch на объект p накладывается заклинание/молитва sn
 
-int char_cha(char ch)
-  возвращает charisma чара ch
-
-string char_clan(char ch)
-  возвращает clan чара ch
-
-int char_con(char ch)
-  возвращает телосложение чара ch
-
-int char_dex(char ch)
-  возвращает ловкость чара ch
-
-int char_ethos(char ch)
-  возвращает ethos чара ch
-
-char char_fighting(char ch)
-  возвращает чара, с которым дерется ch
-
 bool char_form_is(char ch, int form)
   есть ли у чара данная форма (FORM_UNDEAD, etc)
 
-int char_gold(char ch)
-  возвращает кол-во золотых монет у чара ch
-
-int char_hit(char ch)
-  возвращает текущее кол-во hp чара ch
-
-string char_hometown(char ch)
-  возвращает 'hometown' чара ch, для моба возвращает зону в которой он заресечен
-  или (если родился не через reset) зону в которой находится в настоящий момент
-
-int char_int(char ch)
-  возвращает интеллект чара ch
-
-int char_level(char ch)
-  возвращает уровень чара (с +lev)
-
-int char_luck(char ch)
-  возвращает удачу чара ch
-
-int char_mana(char ch)
-  возвращает количество mana чара ch
-
-int char_max_hit(char ch)
-  возвращает максимальное количество hp чара ch
-
-int char_max_mana(char ch)
-  возвращает максимальное количество mana чара ch
-
-int char_max_moves(char ch)
-  возвращает максимальное количество moves чара ch
-
-int char_moves(char ch)
-  возвращает количество moves чара ch
-
 bool char_name_is(char ch, string name);
   является ли name именем для чара ch
-
-int char_position(char ch)
-  позиция ch (POS_RESTING, POS_FIGHTING etc.)
-
-int char_quest_time(char ch)
-  возвращает quest time для чара ch (-1 если ch npc)
-
-string char_race(char ch)
-  возвращает расу чара ch
-
-room char_room(char ch)
-  возвращает комнату в которой находится чар ch
-
-int char_sex(char ch)
-  возвращает пол чара ch
-
-int char_silver(char ch)
-  возвращает количество серебряных монет у чара ch
-
-int char_size(char ch)
-  возвращает размер чара ch
-
-int char_str(char ch)
-  возвращает силу чара ch
-
-int char_vnum(char ch)
-  возвращает vnum чара ch
-
-int char_wis(char ch)
-  возвращает мудрость чара ch
 
 bool close_door(char ch, string door)
   чар ch закрывает (пытается) дверь
@@ -412,9 +420,6 @@ obj get_obj_wear(char ch, char victim, string arg)
 obj get_obj_world(char ch, string arg)
   чаром ch ищется в мире объект с именем arg, arg может быть vnum'ом
 
-char get_pet(char ch)
-  возвращает pet'а чара ch, если пета нет, возвращает NULL
-
 get_pulse(
 
 char get_random_fighting(char ch)
@@ -465,9 +470,6 @@ bool is_affected(char ch, int aff)
 
 bool is_awake(ch)
   char_position(ch) > POS_SLEEPING
-
-bool is_class(char ch, string cl)
-  принадлежит ли чар ch классу cl
 
 bool is_evil(char ch)
   имеет ли чар ch align evil
@@ -543,28 +545,7 @@ int number_percent()
 int number_range(int from, int to)
   возвращает случайное число в диапазоне от from до to
 
-char obj_carried_by(obj p)
-  возвращает чараm у которого находится объект p
-
 obj_cast_spell(string sn, int level, char ch, void vo)
-
-int obj_cost(obj p)
-  возвращает стоимость объекта p
-
-obj obj_in(obj p)
-  возвращает объект, в котором находится объект p
-  
-int obj_item_type(obj p)
-  item_type объекта p (ITEM_CONTAINER, ITEM_WEAPON etc.)
-
-int obj_level(obj p)
-  возвращает уровень обьекта p
-
-room obj_room(obj p)
-  возвращает комнату, в которой находится объект p
-
-int obj_timer(obj p)
-  возвращает таймер на обьекте p
 
 obj_to_char(obj p, char ch)
   объет p дается чару ch
@@ -574,12 +555,6 @@ obj_to_obj(obj p, obj obj_to)
 
 obj_to_room(obj p, room r)
   объект p помещается в комнату r
-
-int obj_vnum(obj p)
-  возвращает vnum объекта p
-
-int obj_wear_loc(obj p)
-  возвращается слот, где одет объект p
 
 one_hit(char ch, char victim, string dt, bool secondary)
   наносится один удар чаром ch по чару victim
@@ -596,52 +571,22 @@ int real_char_level(char ch)
 bool room_is(room r, int flags)
   есть ли у комнаты соответствующий флажок (ROOM_NOMAGIC, ROOM_LAW, etc)
 
-int room_sector(room r)
-  возвращает сектор в комнате r.
-
-int room_vnum(room r)
-  возвращает vnum комнаты r
-
 say_spell(char ch, string sn)
   произносится заклинание sn (или возносится молитва)
 
 bool saves_spell(int ch_level, char victim, int dam_type)
   проверяются saves в выбранному dam_type (DAM_ACID, DAM_ENERGY, etc)
 
-set_char_gold(char ch, int num)
-  устанавливает чару ch количество золота num
-
-set_char_hit(char ch, int num)
-  ставит чару количество (текущее) hp в размере num
-
-set_char_mana(char ch, int num)
-  ставит чару количество (текущее) mana в размере num
-
-set_char_moves(char ch, int num)
-  ставит чару количество (текущее) moves в размере num
-
-set_char_silver(char ch, int num)
-  устанавливает чару ch количество серебра num
-
-set_obj_level(obj p, int level)
-  ставит обьекту p уровень level
-
 set_obj_owner(obj p, char ch)
   owner'ом объекта p делается чар ch
-
-set_obj_timer(obj p, int timer)
-  устанавливает таймер на обьект p, длительностью timer
-
-set_weapon_dice_type(obj p, int dice_type)
-  оружию p ставится dice_type (v2)
 
 social_char(string name, char ch, char victim)
   делается social name (e.g "smile") чаром ch чару victim
 
 spclass_count(char ch, string spn, string spn_add, string spn_rm)
 
-spellfun_call(string fn_sn, string sn, int level, char ch, void vo)
-  зовется спеллфункция fn_sn уровня level на аргумент vo (char/obj)
+spellfun(string fn, string sn, int level, char ch, void vo)
+  зовется спеллфункция fn уровня level на аргумент vo (char/obj)
   для чара ch, sn в подавляющем большинстве случаев NULL
 
 tell_char(char ch, char victim, string msg)
