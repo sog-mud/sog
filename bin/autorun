@@ -1,7 +1,8 @@
 #!/bin/sh
 umask 002
 cd /usr/local/muddy
-index=1000
+lastlog=tmp/lastlog
+muddy=bin/muddy
 if [ "$1" = "" ]; then
 	port=4000
 else
@@ -12,20 +13,27 @@ if [ -r tmp/shutdown.txt ]; then
 	rm tmp/shutdown.txt
 fi
 
+if [ -r $lastlog ]; then
+	index=`cat $lastlog`
+else
+	index=0
+fi
+
 while [ 1 ]
 do
 	while [ 1 ]
 	do
-		logfile=log/$index.log
+		logfile=`printf "log/%05d.log" $index`
 		if [ -r $logfile ]
 		then
-			index=`echo $index + 1|bc`
+			index=$(($index + 1))
 		else
 			break
 		fi
 	done
 
-	bin/muddy $port >$logfile 2>&1
+	echo $(($index+1)) > $lastlog
+	$muddy $port >$logfile 2>&1
 	exitcode=$?
 
 	avail=`df -k /usr | tail -1 | awk '{ print $4 }'`
@@ -35,7 +43,7 @@ do
 		then
 			chmod g+rw muddy.core
 			mv muddy.core corefiles/core.$index
-			cp bin/muddy corefiles/muddy.$index
+			cp $muddy corefiles/muddy.$index
 		else
 			echo `date` "Low space (${avail}k) on disk: corefile not renamed" >> $logfile
 		fi
