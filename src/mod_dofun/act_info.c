@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.25 2000-10-15 15:46:41 fjoe Exp $
+ * $Id: act_info.c,v 1.271.2.26 2000-10-15 17:15:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1656,7 +1656,7 @@ static void scan_list(ROOM_INDEX_DATA *scan_room, CHAR_DATA *ch,
 	for (rch = scan_room->people; rch; rch = rch->next_in_room) {
 		if (rch == ch || !can_see(ch, rch))
 			continue;
-		char_printf(ch, "	%s.\n", PERS(rch, ch));
+		char_printf(ch, "    %s.\n", PERS(rch, ch));
 	}
 }
 
@@ -1680,7 +1680,7 @@ static void scan_all(CHAR_DATA *ch)
 			continue;
 		char_printf(ch, "{C%s{x:\n", dir_name[door]);
 		if (IS_SET(pExit->exit_info, EX_CLOSED)) {
-			char_puts("	You see closed door.\n", ch);
+			char_puts("    You see closed door.\n", ch);
 			continue;
 		}
 		scan_list(pExit->to_room.r, ch, 1, door);
