@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.26 1998-06-24 02:42:23 efdi Exp $
+ * $Id: handler.c,v 1.27 1998-06-24 16:39:01 efdi Exp $
  */
 
 /***************************************************************************
@@ -2996,7 +2996,7 @@ bool can_see(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (IS_AFFECTED(victim, AFF_SNEAK)
 	&&  !(IS_NPC(ch) && ch->pIndexData->pShop)
 	&&  !CAN_DETECT(ch,DETECT_HIDDEN)
-	&&  victim->fighting == NULL) {
+	&&  !IS_NPC(victim) && !victim->fighting) {
 		int chance;
 		chance = get_skill(victim, gsn_sneak);
 		chance += get_curr_stat(victim, STAT_DEX) * 3/2;
