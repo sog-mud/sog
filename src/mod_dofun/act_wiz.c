@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.318 2003-04-23 08:13:14 fjoe Exp $
+ * $Id: act_wiz.c,v 1.319 2003-04-23 11:28:37 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1730,7 +1730,7 @@ DO_FUN(do_owhere, ch, argument)
 			buf_printf(buffer, BUF_END,
 				   "%3d) %s is auction\n", number, // notrans
 				   mlstr_mval(&obj->short_descr));
-		}
+		} else
 			buf_printf(buffer, BUF_END, "%3d) %s is somewhere\n", number, // notrans
 				mlstr_mval(&obj->short_descr));
 
