@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.275 1999-12-17 09:00:13 fjoe Exp $
+ * $Id: merc.h,v 1.276 1999-12-17 10:38:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2111,7 +2111,9 @@ void move_char(CHAR_DATA *ch, int door, bool follow);
 bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge);
 bool guild_ok(CHAR_DATA *ch, ROOM_INDEX_DATA *room);
 int mount_success(CHAR_DATA *ch, CHAR_DATA *mount, int canattack);
-int	find_door	(CHAR_DATA *ch, char *arg);
+
+int	door_lookup	(CHAR_DATA *ch, const char *arg);
+int	find_door	(CHAR_DATA *ch, const char *arg);
 
 bool can_loot		(CHAR_DATA *ch, OBJ_DATA *obj);
 void get_obj		(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *container,

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.308 1999-12-16 11:38:32 kostik Exp $
+ * $Id: act_info.c,v 1.309 1999-12-17 10:38:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -739,16 +739,8 @@ void do_look(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-		   if (!str_cmp(arg1, "n") || !str_cmp(arg1, "north")) door = 0;
-	else if (!str_cmp(arg1, "e") || !str_cmp(arg1, "east")) door = 1;
-	else if (!str_cmp(arg1, "s") || !str_cmp(arg1, "south")) door = 2;
-	else if (!str_cmp(arg1, "w") || !str_cmp(arg1, "west")) door = 3;
-	else if (!str_cmp(arg1, "u") || !str_cmp(arg1, "up" )) door = 4;
-	else if (!str_cmp(arg1, "d") || !str_cmp(arg1, "down")) door = 5;
-	else {
-		char_puts("You don't see that here.\n", ch);
+	if ((door = door_lookup(ch, arg1)) < 0)
 		return;
-	}
 
 	/* 'look direction' */
 	if ((pexit = ch->in_room->exit[door]) == NULL) {
@@ -762,9 +754,7 @@ void do_look(CHAR_DATA *ch, const char *argument)
 	else
 		char_puts("Nothing special there.\n", ch);
 
-	if (pexit->keyword    != NULL
-	&&  pexit->keyword[0] != '\0'
-	&&  pexit->keyword[0] != ' ') {
+	if (IS_SET(pexit->exit_info, EX_ISDOOR)) {
 		if (IS_SET(pexit->exit_info, EX_CLOSED)) {
 			act_puts("$d is closed.",
 				 ch, &pexit->short_descr, NULL,

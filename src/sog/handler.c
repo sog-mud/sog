@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.220 1999-12-17 09:00:45 fjoe Exp $
+ * $Id: handler.c,v 1.221 1999-12-17 10:38:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3415,35 +3415,51 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 	return TRUE;
 }
 
-int find_door(CHAR_DATA *ch, char *arg)
+int
+door_lookup(CHAR_DATA *ch, const char *arg)
+{
+	int door;
+
+	     if (!str_cmp(arg, "n") || !str_cmp(arg, "north")) return 0;
+	else if (!str_cmp(arg, "e") || !str_cmp(arg, "east" )) return 1;
+	else if (!str_cmp(arg, "s") || !str_cmp(arg, "south")) return 2;
+	else if (!str_cmp(arg, "w") || !str_cmp(arg, "west" )) return 3;
+	else if (!str_cmp(arg, "u") || !str_cmp(arg, "up"   )) return 4;
+	else if (!str_cmp(arg, "d") || !str_cmp(arg, "down" )) return 5;
+
+	for (door = 0; door < MAX_DIR; door++) {
+		EXIT_DATA *pexit;
+
+		if ((pexit = ch->in_room->exit[door]) != NULL
+		&&  IS_SET(pexit->exit_info, EX_ISDOOR)
+		&&  is_name(arg, pexit->keyword))
+			return door;
+	}
+
+	char_puts("You don't see that here.\n", ch);
+	return -1;
+}
+
+int find_door(CHAR_DATA *ch, const char *arg)
 {
 	EXIT_DATA *pexit;
 	int door;
 
-	     if (!str_cmp(arg, "n") || !str_cmp(arg, "north")) door = 0;
-	else if (!str_cmp(arg, "e") || !str_cmp(arg, "east" )) door = 1;
-	else if (!str_cmp(arg, "s") || !str_cmp(arg, "south")) door = 2;
-	else if (!str_cmp(arg, "w") || !str_cmp(arg, "west" )) door = 3;
-	else if (!str_cmp(arg, "u") || !str_cmp(arg, "up"   )) door = 4;
-	else if (!str_cmp(arg, "d") || !str_cmp(arg, "down" )) door = 5;
-	else {
-		for (door = 0; door <= 5; door++) {
-		    if ((pexit = ch->in_room->exit[door]) != NULL
-		    &&   IS_SET(pexit->exit_info, EX_ISDOOR)
-		    &&   pexit->keyword != NULL
-		    &&   is_name(arg, pexit->keyword))
-			return door;
-		}
-		act_puts("I see no $T here.", ch, NULL, arg, TO_CHAR, POS_DEAD);
-		return -1;
-	}
+	if ((door = door_lookup(ch, arg)) < 0)
+		return door;
+
+	/*
+	 * the following two if's can be TRUE only
+	 * if direction was matched in `door_lookup'
+	 */
 
 	if ((pexit = ch->in_room->exit[door]) == NULL) {
 		act_puts("I see no door $T here.",
-			 ch, NULL, arg, TO_CHAR, POS_DEAD);
+			 ch, NULL, dir_name[door], TO_CHAR, POS_DEAD);
 		return -1;
 	}
 
+	/* 'look direction' */
 	if (!IS_SET(pexit->exit_info, EX_ISDOOR)) {
 		char_puts("You can't do that.\n", ch);
 		return -1;
