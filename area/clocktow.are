@@ -600,7 +600,7 @@ A
 G male
 #4903
 cabinet конторка~
-@eng cabinet@rus ~~конторка~~~
+@eng cabinet@rus конторка~
 @eng An ebony cabinet stands here.@rus Конторка (cabinet) из черного дерева стоит в углу.~
 ivory~
 container CRY 0
@@ -1037,6 +1037,15 @@ weapon 0 0
 lance 12 3 none 0
 30 100 5000 P
 G female
+#4944
+exit door дверь~
+@eng exit from the tower@rus ~~выход~~ из башни~
+@eng Through the opened door you see the town square.@rus Через открытую дверь (door) ты видишь городскую площадь.~
+unknown~
+portal 0 0
+0 0 0 36332 0
+0 0 0 P
+G none
 #0
 
 #ROOMS
@@ -3124,6 +3133,7 @@ S
 #RESETS
 D 0 4984 4 1	* Garret: door to the up: closed
 D 0 4985 5 1	* Center of the Roof: door to the down: closed
+O 0 4944 0 4900	* exit from the tower (Entrance to the Tower)
 M 0 4908 4 4901 1	* One o'clock (At One o'clock)
 M 0 4909 4 4902 1	* Two o'clock (At Two o'clock)
 M 0 4910 4 4903 1	* Three o'clock (At Three o'clock)

@@ -2735,12 +2735,12 @@ paper~
 ~
 G none
 #36437
-entrance portal дверь~
-@eng entrance to the tower@rus вход в башню~
-~
+entrance дверь door~
+@eng entrance to the tower@rus ~~вход~~ в башню~
+@eng An opened door beckons you to enter the tower.@rus Открытая дверь (door) приглашает тебя войти в башню.~
 unknown~
 portal 0 0
-ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz 0 0 4900 0
+0 0 0 4900 0
 0 0 0 P
 G none
 #0
@@ -6409,6 +6409,7 @@ G 0 36315 0		*	apple
 G 0 36316 0		*	cookie
 M 0 36322 1 36327 1	* a citizen (Small Path)
 E 0 36342 0 5		*	festival suit: on the body
+O 0 36437 0 36332	* entrance to the tower (Central Square)
 M 0 36350 10 36333 1	* tiny bird (Main Street)
 M 0 36327 3 36335 2	* Gate guard (The Gates)
 E 0 36368 0 5		*	guard breast plate: on the body

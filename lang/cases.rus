@@ -287,6 +287,15 @@ Form 6 -у~
 End
 
 #RULE
+Name набор~
+BaseLen 5
+Form 1 -а~
+Form 2 -у~
+Form 4 -ом~
+Form 5 -е~
+End
+
+#RULE
 Name большой~
 BaseLen 5
 Form 1 -ого~
@@ -295,6 +304,15 @@ Form 3 -ой~
 Form 4 -ым~
 Form 5 -ом~
 Form 6 -ого~
+End
+
+#RULE
+Name череп~
+BaseLen 5
+Form 1 -а~
+Form 2 -у~
+Form 4 -ом~
+Form 5 -е~
 End
 
 #RULE
@@ -504,6 +522,17 @@ Form 3 -ую~
 Form 4 -ой~
 Form 5 -ой~
 Form 6 -ую~
+End
+
+#RULE
+Name поножи~
+BaseLen 5
+Form 1 -ей~
+Form 2 -ам~
+Form 3 -и~
+Form 4 -ами~
+Form 5 -ах~
+Form 6 -и~
 End
 
 #RULE
@@ -2028,6 +2057,11 @@ End
 
 #RULE
 Name фартук~
+BaseLen 6
+Form 1 -а~
+Form 2 -у~
+Form 4 -ом~
+Form 5 -е~
 End
 
 #RULE
@@ -2138,6 +2172,17 @@ End
 #RULE
 Name сосна~
 BaseLen 4
+Form 1 -ы~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
+Name паутина~
+BaseLen 6
 Form 1 -ы~
 Form 2 -е~
 Form 3 -у~
@@ -2939,6 +2984,17 @@ Form 6 -а~
 End
 
 #RULE
+Name щетка~
+BaseLen 4
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
 Name кольчуга~
 BaseLen 7
 Form 1 -и~
@@ -3013,6 +3069,17 @@ Form 6 -у~
 End
 
 #RULE
+Name коготь~
+BaseLen 3
+Form 1 -тя~
+Form 2 -тю~
+Form 3 -оть~
+Form 4 -тем~
+Form 5 -те~
+Form 6 -оть~
+End
+
+#RULE
 Name шампанское~
 BaseLen 8
 Form 1 -ого~
@@ -3051,6 +3118,17 @@ Form 1 -я~
 Form 2 -ю~
 Form 4 -ем~
 Form 5 -е~
+End
+
+#RULE
+Name светящиеся~
+BaseLen 6
+Form 1 -ихся~
+Form 2 -имся~
+Form 3 -иеся~
+Form 4 -имися~
+Form 5 -ихся~
+Form 6 -иеся~
 End
 
 #RULE
@@ -3235,6 +3313,15 @@ Form 3 -у~
 Form 4 -ой~
 Form 5 -е~
 Form 6 -у~
+End
+
+#RULE
+Name цилиндр~
+BaseLen 7
+Form 1 -а~
+Form 2 -у~
+Form 4 -ом~
+Form 5 -е~
 End
 
 #RULE
@@ -3473,6 +3560,17 @@ Form 3 -ь~
 Form 4 -ью~
 Form 5 -и~
 Form 6 -ь~
+End
+
+#RULE
+Name светящаяся~
+BaseLen 6
+Form 1 -ейся~
+Form 2 -ейся~
+Form 3 -уюся~
+Form 4 -ейся~
+Form 5 -ейся~
+Form 6 -уюся~
 End
 
 #RULE
@@ -5128,6 +5226,28 @@ Form 1 -ов~
 Form 2 -ам~
 Form 4 -ами~
 Form 5 -ах~
+End
+
+#RULE
+Name крыло~
+BaseLen 4
+Form 1 -а~
+Form 2 -у~
+Form 3 -о~
+Form 4 -ом~
+Form 5 -е~
+Form 6 -о~
+End
+
+#RULE
+Name стрелка ~
+BaseLen 6
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
 End
 
 #RULE
