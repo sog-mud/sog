@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.160 1999-12-17 10:39:21 fjoe Exp $
+ * $Id: spellfun2.c,v 1.161 1999-12-18 10:14:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -5150,7 +5150,7 @@ void spell_mirror(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		mlstr_cpy(&gch->description, &victim->description);
 		mlstr_cpy(&gch->gender, &victim->gender);
     
-		af.type = "dopperlganger";
+		af.type = "doppelganger";
 		af.duration = level;
 		affect_to_char(gch, &af);
 
