@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.53 1999-06-17 21:13:26 fjoe Exp $
+ * $Id: db_area.c,v 1.54 1999-06-18 11:17:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -216,6 +216,31 @@ DBLOAD_FUN(load_areadata)
 	}
 }
  
+void cb_strip_nl(int lang, const char **p, void *arg)
+{
+	char buf[MAX_STRING_LENGTH];
+	size_t len, oldlen;
+
+	if (*p == NULL
+	||  (len = strlen(*p)) == 0)
+		return;
+
+	oldlen = len;
+	while ((*p)[len-1] == '\n') {
+		if (len < 2
+		||  (*p)[len-2] != '\n')
+			break;
+		len--;
+	}
+
+	if (oldlen != len) {
+		strnzncpy(buf, sizeof(buf), *p, len);
+		free_string(*p);
+		*p = str_dup(buf);
+		touch_area((AREA_DATA*) arg);
+	}
+}
+
 /*
  * Snarf a help section.
  */
@@ -241,7 +266,8 @@ DBLOAD_FUN(load_helps)
 		pHelp->level	= level;
 		pHelp->keyword	= keyword;
 		mlstr_fread(fp, &pHelp->text);
-
+		
+		mlstr_foreach(&pHelp->text, area_current, cb_strip_nl);
 		help_add(area_current, pHelp);
 	}
 }
@@ -549,7 +575,8 @@ DBLOAD_FUN(load_old_obj)
 			break;
 
 		case ITEM_WEAPON:
-			if (pObjIndex->value[0] == WEAPON_SPEAR) {
+			if (pObjIndex->value[0] == WEAPON_SPEAR
+			&&  !IS_SET(pObjIndex->value[4], WEAPON_THROW)) {
 				SET_BIT(pObjIndex->value[4], WEAPON_THROW);
 				touch_area(area_current);
 			}
@@ -1490,7 +1517,8 @@ DBLOAD_FUN(load_objects)
         }
  
 	if (pObjIndex->item_type == ITEM_WEAPON
-	&&  pObjIndex->value[0] == WEAPON_SPEAR) {
+	&&  pObjIndex->value[0] == WEAPON_SPEAR
+	&&  !IS_SET(pObjIndex->value[4], WEAPON_THROW)) {
 		SET_BIT(pObjIndex->value[4], WEAPON_THROW);
 		touch_area(area_current);
 	}

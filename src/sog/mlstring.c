@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.c,v 1.38 1999-06-10 22:29:50 fjoe Exp $
+ * $Id: mlstring.c,v 1.39 1999-06-18 11:17:16 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -414,7 +414,7 @@ void mlstr_dump(BUFFER *buf, const char *name, const mlstring *mlp)
 static void cb_addnl(int lang, const char **p, void *arg)
 {
 	char buf[MAX_STRING_LENGTH];
-	size_t len = strlen(*p);
+	size_t len;
 
 	if (*p == NULL
 	||  (len = strlen(*p)) == 0
@@ -461,14 +461,15 @@ static const char *smash_a(const char *s, int len)
 {
 	char buf[MAX_STRING_LENGTH];
 	char *p = buf;
+	const char *q = s;
 
 	if (len < 0 || len > sizeof(buf)-1)
 		len = sizeof(buf)-1;
 
-	while (p-buf < len && *s) {
-		if (*s == '@' && *(s+1) == '@')
-			s++;
-		*p++ = *s++;
+	while (q-s < len && *q) {
+		if (*q == '@' && *(q+1) == '@')
+			q++;
+		*p++ = *q++;
 	}
 	*p = '\0';
 	return str_dup(buf);

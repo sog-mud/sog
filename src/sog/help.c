@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: help.c,v 1.11 1999-06-10 18:18:57 fjoe Exp $
+ * $Id: help.c,v 1.12 1999-06-18 11:17:16 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -139,11 +139,10 @@ void help_show(CHAR_DATA *ch, BUFFER *output, const char *keyword)
 		/*
 		 * Strip leading '.' to allow initial blanks.
 		 */
-		if (text)
-			if (text[0] == '.')
-				buf_add(output, text+1);
-			else
-				buf_add(output, text);
+		if (text) {
+			buf_add(output, text[0] == '.' ? text+1 : text);
+			buf_add(output, "\n");
+		}
 	}
 }
 

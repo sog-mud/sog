@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.187 1999-06-17 08:37:05 fjoe Exp $
+ * $Id: comm.c,v 1.188 1999-06-18 11:17:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1183,23 +1183,21 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 	bool ga = FALSE;
 	bool retval;
 	DESCRIPTOR_DATA *snoopy;
+	CHAR_DATA *ch = d->character;
 
 	/*
 	 * Bust a prompt.
 	 */
-	if (!merc_down) {
-		CHAR_DATA *ch = d->character;
-
+	if (!merc_down && ch) {
 		if (d->showstr_point) {
-			write_to_buffer(d, "[Hit Return to continue]\n\r", 0);
+			char_puts("[Hit Return to continue]", ch);
 			ga = TRUE;
-		}
-		else if (fPrompt && d->connected == CON_PLAYING) {
+		} else if (fPrompt && d->connected == CON_PLAYING) {
 			if (d->pString) {
-				write_to_buffer(d, "  > ", 0);
+				char_puts("  > ", ch);
 				ga = TRUE;
 			}
-			else if (ch) {
+			else {
 				CHAR_DATA *victim;
 
 				/* battle prompt */
@@ -1208,20 +1206,20 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 					battle_prompt(ch, victim);
 
 				if (!IS_SET(ch->comm, COMM_COMPACT))
-					write_to_buffer(d, "\n\r", 2);
+					char_puts("\n", ch);
 
 				if (IS_SET(ch->comm, COMM_PROMPT)) {
 					if (IS_SET(ch->comm, COMM_AFK)) 
 						char_printf(ch, "{c<AFK>{x %s",
 							    ch->prefix);
 					else
-						bust_a_prompt(d->character);
+						bust_a_prompt(ch);
 				}
 				ga = TRUE;
 			}
 		}
 
-		if (ch && ga && !IS_SET(ch->comm, COMM_TELNET_GA))
+		if (ga && !IS_SET(ch->comm, COMM_TELNET_GA))
 			ga = FALSE;
 	}
 
@@ -1498,7 +1496,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 	send_to_char(buf, ch);
 
 	if (ch->prefix[0] != '\0')
-		write_to_buffer(ch->desc, ch->prefix, 0);
+		send_to_char(ch->prefix, ch);
 }
 
 /*
@@ -1653,9 +1651,9 @@ static void print_hometown(CHAR_DATA *ch)
 
 	if ((htn = hometown_permanent(ch)) >= 0) {
 		ch->hometown = htn;
-		char_printf(ch, "\nYour hometown is %s, permanently.\n"
-				"[Hit Return to continue]\n",
+		char_printf(ch, "\nYour hometown is %s, permanently.\n",
 			    hometown_name(htn));
+		char_puts("[Hit Return to Continue]", ch);
 
 /* XXX */
 		ch->endur = 100;
@@ -1675,15 +1673,12 @@ static void print_hometown(CHAR_DATA *ch)
  */
 void nanny(DESCRIPTOR_DATA *d, const char *argument)
 {
-	char buf[MAX_STRING_LENGTH];
 	DESCRIPTOR_DATA *d_old, *d_next;
-	char buf1[MAX_STRING_LENGTH];
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *ch;
 	char *pwdnew;
-	int iClass,race,i;
+	int cl, race, i;
 	int nextquest = 0;
-	struct sockaddr_in sock;
 	int size;
 	race_t *r;
 
@@ -1737,6 +1732,8 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		ch->desc = d;
 
 		if (d->host == NULL) {
+			struct sockaddr_in sock;
+
 			size = sizeof(sock);
 			if (getpeername(d->descriptor,
 					(struct sockaddr *) &sock, &size) < 0) {
@@ -1762,51 +1759,67 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		if (d->host == NULL)
 			break;
 
-	/*
-	 * Swiftest: I added the following to ban sites.  I don't
-	 * endorse banning of sites, but Copper has few descriptors now
-	 * and some people from certain sites keep abusing access by
-	 * using automated 'autodialers' and leaving connections hanging.
-	 *
-	 * Furey: added suffix check by request of Nickel of HiddenWorlds.
-	 * fjoe: replaced suffix/prefix checks with fnmatch check
-	 */
-	if (check_ban(d, BCL_ALL)) 
-		return;
-
-	if (!IS_IMMORTAL(ch)) {
-		if (check_ban(d, BCL_PLAYERS))
+		/*
+		 * Swiftest: I added the following to ban sites.  I don't
+		 * endorse banning of sites, but Copper has few descriptors now
+		 * and some people from certain sites keep abusing access by
+		 * using automated 'autodialers' and leaving connections
+		 * hanging.
+		 *
+		 * Furey: added suffix check by request of Nickel of
+		 *	HiddenWorlds.
+		 * fjoe: replaced suffix/prefix checks with fnmatch check
+		 */
+		if (check_ban(d, BCL_ALL)) 
 			return;
+
+		if (!IS_IMMORTAL(ch)) {
+			if (check_ban(d, BCL_PLAYERS))
+				return;
 
 #undef NO_PLAYING_TWICE
 #ifdef NO_PLAYING_TWICE
-		if (search_sockets(d)) {
-			write_to_buffer(d, "Playing twice is restricted...\n\r", 0);
-			close_descriptor(d);
-			return;
-		} 
+			if (search_sockets(d)) {
+				char_puts("Playing twice is restricted...\n", ch);
+				close_descriptor(d);
+				return;
+			} 
 #endif
-	  if (iNumPlayers > MAX_OLDIES && !IS_SET(ch->plr_flags, PLR_NEW))  {
-	     snprintf(buf, sizeof(buf),
-	   "\n\rThere are currently %i players mudding out of a maximum of %i.\n\rPlease try again soon.\n\r",iNumPlayers - 1, MAX_OLDIES);
-	     write_to_buffer(d, buf, 0);
-	     close_descriptor(d);
-	     return;
-	  }
-	  if (iNumPlayers > MAX_NEWBIES && IS_SET(ch->plr_flags, PLR_NEW))  {
-	     snprintf(buf, sizeof(buf),
-	   "\n\rThere are currently %i players mudding. New player creation is \n\rlimited to when there are less than %i players. Please try again soon.\n\r",
-		     iNumPlayers - 1, MAX_NEWBIES);
-	     write_to_buffer(d, buf, 0);
-	     close_descriptor(d);
-	     return;
-	  }
-	   }
+			if (iNumPlayers > MAX_OLDIES
+			&&  !IS_SET(ch->plr_flags, PLR_NEW)) {
+				act_puts3("\nThere are currently $j "
+					  "$qj{players} mudding out "
+					  "of a maximum of $J.",
+					   ch, (const void*) iNumPlayers - 1,
+					   NULL, (const void*) MAX_OLDIES,
+					   TO_CHAR, POS_DEAD);
+				act_puts("Please try again soon.",
+					 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+				close_descriptor(d);
+				return;
+			}
+
+			if (iNumPlayers > MAX_NEWBIES
+			&&  IS_SET(ch->plr_flags, PLR_NEW)) {
+				act_puts("\nThere are currently $j players "
+					 "mudding.\n"
+					 "New player creation is limited to "
+					 "when there are",
+					 ch, (const void*) iNumPlayers - 1,
+					 NULL, TO_CHAR, POS_DEAD);
+				act_puts("less than $j players. Please try "
+					 "again soon.",
+					 ch, (const void*) MAX_NEWBIES, NULL,
+					 TO_CHAR, POS_DEAD);
+				close_descriptor(d);
+				return;
+			}
+		}
 	     
 		if (check_reconnect(d, argument, FALSE))
 			REMOVE_BIT(ch->plr_flags, PLR_NEW);
 		else if (wizlock && !IS_HERO(ch)) {
-			write_to_buffer(d, "The game is wizlocked.\n\r", 0);
+			char_puts("The game is wizlocked.\n", ch);
 			close_descriptor(d);
 			return;
 		}
@@ -1814,14 +1827,14 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		if (!IS_SET(ch->plr_flags, PLR_NEW)) {
 			/* Old player */
 			write_to_descriptor(d->descriptor, echo_off_str, 0);
- 			write_to_buffer(d, "Password: ", 0);
+ 			char_puts("Password: ", ch);
 			d->connected = CON_GET_OLD_PASSWORD;
 			return;
 		}
 		else {
 			/* New player */
  			if (newlock) {
-				write_to_buffer(d, "The game is newlocked.\n\r", 0);
+				char_puts("The game is newlocked.\n", ch);
 				close_descriptor(d);
 				return;
 			}
@@ -1830,6 +1843,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 				return;
  	    
  			do_help(ch, "NAME");
+			char_puts("Do you accept? ", ch);
 			d->connected = CON_CONFIRM_NEW_NAME;
 			return;
 		}
@@ -1858,12 +1872,12 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 			if (check_reconnect(d, ch->name, TRUE))
 				return;
-			write_to_buffer(d,"Reconnect attempt failed.\n\r",0);
+			write_to_buffer(d, "Reconnect attempt failed.\n\r", 0);
 
 			/* FALLTHRU */
 
 		case 'n' : case 'N':
-	 		write_to_buffer(d,"Name: ",0);
+	 		write_to_buffer(d, "Name: ", 0);
 			if (d->character != NULL) {
 				free_char(d->character);
 				d->character = NULL;
@@ -1880,59 +1894,54 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	case CON_CONFIRM_NEW_NAME:
 		switch (*argument) {
 		case 'y': case 'Y':
-			snprintf(buf, sizeof(buf),
-				 "New character.\n\r"
-				 "Give me a password for %s: ", ch->name);
-			write_to_buffer(d, buf, 0);
+			char_puts("New character.\n", ch);
+			char_printf(ch, "Give me a password for %s: ",
+				    ch->name);
 			write_to_descriptor(d->descriptor, echo_off_str, 0);
 			d->connected = CON_GET_NEW_PASSWORD;
 			break;
 
 		case 'n': case 'N':
-			write_to_buffer(d, "Ok, what IS it, then? ", 0);
+			char_puts("Ok, what IS it, then? ", ch);
 			free_char(d->character);
 			d->character = NULL;
 			d->connected = CON_GET_NAME;
 			break;
 
 		default:
-			write_to_buffer(d, "Please type Yes or No? ", 0);
+			char_puts("Please type Yes or No? ", ch);
 			break;
 		}
 		break;
 
 	case CON_GET_NEW_PASSWORD:
-#if defined(unix)
-		write_to_buffer( d, "\n\r", 2 );
-#endif
-
+		char_puts("\n", ch);
 		if (strlen(argument) < 5) {
-			write_to_buffer(d, "Password must be at least five characters long.\n\rPassword: ", 0);
+			char_puts("Password must be at least five characters "
+				  "long.\n", ch);
+			char_puts("Password: ", ch);
 			return;
 		}
 
 		pwdnew = crypt(argument, ch->name);
 		free_string(ch->pcdata->pwd);
 		ch->pcdata->pwd	= str_dup(pwdnew);
-		write_to_buffer(d, "Please retype password: ", 0);
+		char_puts("Please retype password: ", ch);
 		d->connected = CON_CONFIRM_NEW_PASSWORD;
 		break;
 
 	case CON_CONFIRM_NEW_PASSWORD:
-#if defined(unix)
-	write_to_buffer( d, "\n\r", 2 );
-#endif
-
+		char_puts("\n", ch);
 		if (strcmp(crypt(argument, ch->pcdata->pwd), ch->pcdata->pwd)) {
-			write_to_buffer(d, "Passwords don't match.\n\r"
-					   "Retype password: ", 0);
+			char_puts("Passwords don't match.\n", ch);
+			char_puts("\nRetype password: ", ch);
 			d->connected = CON_GET_NEW_PASSWORD;
 			return;
 		}
 
 		write_to_descriptor(d->descriptor, (char *) echo_on_str, 0);
-		write_to_buffer(d, "The Shades of Gray is home for the following races:\n\r", 0);
 		do_help(ch, "RACETABLE");
+		char_puts("What is your race ('help <race>' for more information)? ", ch);
 		d->connected = CON_GET_NEW_RACE;
 		break;
 
@@ -1941,14 +1950,11 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 		if (!str_cmp(arg, "help")) {
 			argument = one_argument(argument, arg, sizeof(arg));
-			if (argument[0] == '\0') {
-				write_to_buffer(d, "The Shades of Gray is the home for the following races:\n\r", 0);
+			if (argument[0] == '\0')
 	  			do_help(ch,"RACETABLE");
-			}
-			else {
+			else 
 				do_help(ch, argument);
-				write_to_buffer(d, "What is your race? ('help <race>' for more information) ",0);
-			}	
+			char_puts("What is your race ('help <race>' for more information)? ", ch);
 			break;
 		}
 
@@ -1957,20 +1963,18 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 		if (race == 0 || !r->pcdata
 		||  IS_SET(r->race_flags, RACE_UNDEAD)) {
-			write_to_buffer(d, "That is not a valid race.\n\r", 0);
-			write_to_buffer(d, "The following races are available:\n\r  ", 0);
+			char_puts("That is not a valid race.\n", ch);
+			char_puts("The following races are available:\n  ", ch);
 			for (race = 1; race < races.nused; race++) {
 				r = RACE(race);
 		        	if (!r->pcdata)
 	        	        	break;
 				if (race == 8 || race == 14)
-					write_to_buffer(d,"\n\r  ",0);
-				write_to_buffer(d,"(",0);
-				write_to_buffer(d, r->name, 0);
-				write_to_buffer(d,") ",0);
+					char_puts("\n  ", ch);
+				char_printf(ch, "(%s) ", r->name);
 	        	}
-			write_to_buffer(d, "\n\r", 0);
-			write_to_buffer(d, "What is your race? ('help <race>' for more information) ", 0);
+			char_puts("\n", ch);
+			char_puts("What is your race ('help <race>' for more information)? ", ch);
 			break;
 		}
 
@@ -2001,172 +2005,150 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		ch->pcdata->points = r->pcdata->points;
 		ch->size = r->pcdata->size;
 
-		write_to_buffer(d, "What is your sex (M/F)? ", 0);
+		char_puts("What is your sex (M/F)? ", ch);
 		d->connected = CON_GET_NEW_SEX;
 		break;
 
 	case CON_GET_NEW_SEX:
-	switch (argument[0])
-	{
-	case 'm': case 'M': ch->sex = SEX_MALE;    
-			    ch->pcdata->true_sex = SEX_MALE;
-			    break;
-	case 'f': case 'F': ch->sex = SEX_FEMALE; 
-			    ch->pcdata->true_sex = SEX_FEMALE;
-			    break;
-	default:
-	    write_to_buffer(d, "That's not a sex.\n\rWhat IS your sex? ", 0);
-	    return;
-	}
+		switch (argument[0]) {
+		case 'm': case 'M':
+			ch->sex = ch->pcdata->true_sex = SEX_MALE;
+			break;
+		case 'f': case 'F':
+			ch->sex = ch->pcdata->true_sex = SEX_FEMALE;
+			break;
+		default:
+	    		char_puts("That's not a sex.\n", ch);
+			char_puts("What IS your sex? ", ch);
+			return;
+		}
 	
-	do_help(ch,"class help");
+		do_help(ch, "'CLASS HELP'");
 
-	strnzcpy(buf, sizeof(buf), "Select a class:\n\r[ ");
-	snprintf(buf1, sizeof(buf), "  (Continuing:) ");
-	for (iClass = 0; iClass < classes.nused; iClass++)
-	{
-	  if (class_ok(ch,iClass))
-	    {
-	     if (iClass < 7)
-	      {
-	      	strnzcat(buf, sizeof(buf), CLASS(iClass)->name);
-	      	strnzcat(buf, sizeof(buf), " ");
-	      }
-	     else
-	      {
-	      	strnzcat(buf1, sizeof(buf), CLASS(iClass)->name);
-	      	strnzcat(buf1, sizeof(buf), " ");
-	      }
-	    }
-	}
-	strnzcat(buf, sizeof(buf), "\n\r");
-	strnzcat(buf1, sizeof(buf), "]:\n\r");
-	write_to_buffer(d, buf, 0);
-	write_to_buffer(d, buf1, 0);
-	        write_to_buffer(d,
-		"What is your class ('help <class>' for more information)? ",0);
-	    d->connected = CON_GET_NEW_CLASS;
-	    break;
+		char_puts("The following classes are available:\n", ch);
+		for (cl = 0; cl < classes.nused; cl++) {
+			if (!class_ok(ch, cl))
+				continue;
+			if (cl == 8 || cl == 14)
+				char_puts("\n  ", ch);
+			char_printf(ch, "(%s) ", CLASS(cl)->name);
+	        }
+	        char_puts("\n", ch);
+		char_puts("What is your class ('help <class>' for more information)? ", ch);
+		d->connected = CON_GET_NEW_CLASS;
+		break;
 
 	case CON_GET_NEW_CLASS:
-	iClass = cn_lookup(argument);
-	argument = one_argument(argument, arg, sizeof(arg));
+		cl = cn_lookup(argument);
+		argument = one_argument(argument, arg, sizeof(arg));
 
-	if (!str_cmp(arg,"help"))
-	  {
-	    if (argument[0] == '\0')
-		do_help(ch,"class help");
-	    else
-		do_help(ch,argument);
-	        write_to_buffer(d,
-		"What is your class ('help <class>' for more information)? ",0);
-	    return;
-	  }
+		if (!str_prefix(arg, "help")) {
+			if (argument[0] == '\0')
+				do_help(ch, "'CLASS HELP'");
+			else
+				do_help(ch, argument);
+			char_puts("What is your class ('help <class>' for more information)? ", ch);
+			return;
+		}
 
-	if (iClass == -1)
-	{
-	    write_to_buffer(d,
-		"That's not a class.\n\rWhat IS your class? ", 0);
-	    return;
-	}
+		if (cl == -1) {
+			char_puts("That's not a class.\n", ch);
+			char_puts("What IS your class? ", ch);
+			return;
+		}
 
-	if (!class_ok(ch,iClass))
-	  {
-	    write_to_buffer(d, 
-	    "That class is not available for your race or sex.\n\rChoose again: ",0);
-	    return;
-	  }
+		if (!class_ok(ch, cl)) {
+			char_puts("That class is not available for your race or sex.\n", ch);
+			char_puts("Choose again: ", ch);
+			return;
+		}
 
-		ch->class = iClass;
-		ch->pcdata->points += CLASS(iClass)->points;
-		act("You are now $t.", ch, CLASS(iClass)->name, NULL, TO_CHAR);
+		ch->class = cl;
+		ch->pcdata->points += CLASS(cl)->points;
+		act("You are now $t.", ch, CLASS(cl)->name, NULL, TO_CHAR);
+
+		do_help(ch, "STATS");
+		char_puts("Now rolling for your stats (10-20+).\n", ch);
+		char_puts("You don't get many trains, so choose well.\n", ch);
 
 		for (i = 0; i < MAX_STATS; i++)
-			ch->perm_stat[i] = number_range(10, get_max_train(ch, i));
+			ch->perm_stat[i] =
+					number_range(10, get_max_train(ch, i));
 
-		snprintf(buf, sizeof(buf),
-			 "Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s  Cha:%s\n\rAccept (Y/N)? ",
+		char_printf(ch, "Str:%s  Int:%s  Wis:%s  "
+				"Dex:%s  Con:%s  Cha:%s\n",
 			 get_stat_alias(ch, STAT_STR),
 			 get_stat_alias(ch, STAT_INT),
 			 get_stat_alias(ch, STAT_WIS),
 			 get_stat_alias(ch, STAT_DEX),
 			 get_stat_alias(ch, STAT_CON),
 			 get_stat_alias(ch, STAT_CHA));
+		char_puts("Accept (Y/N)? ", ch);
 
-
-		do_help(ch, "stats");
-		write_to_buffer(d, "\n\rNow rolling for your stats (10-20+).\n\r", 0);
-		write_to_buffer(d, "You don't get many trains, so choose well.\n\r", 0);
-		write_to_buffer(d, buf, 0);
 		d->connected = CON_ACCEPT_STATS;
 		break;
 
 	case CON_ACCEPT_STATS:
-	switch(argument[0])
-	  {
-	  case 'H': case 'h': case '?':
-	    do_help(ch,"stats");
-	    break;
-	  case 'y': case 'Y':	
-	    for (i=0; i < MAX_STATS;i++)
-	      ch->mod_stat[i] = 0;
-	    write_to_buffer(d, "\n\r", 2);
-	    if (!align_restrict(ch))
-	    {
-	    write_to_buffer(d, "You may be good, neutral, or evil.\n\r",0);
-	    write_to_buffer(d, "Which alignment (G/N/E)? ",0);
-	    d->connected = CON_GET_ALIGNMENT;
-	    }
-	    else {
-		write_to_buffer(d, "[Hit Return to Continue]\n\r",0);
-		print_hometown(ch);
-	    }
-	    break;
+		switch(argument[0]) {
+		case 'H': case 'h': case '?':
+			do_help(ch, "STATS");
+			break;
+		case 'y': case 'Y':	
+			for (i = 0; i < MAX_STATS; i++)
+				ch->mod_stat[i] = 0;
+			if (!align_restrict(ch)) {
+				char_puts("You may be good, neutral, or evil.\n", ch);
+				char_puts("Which alignment (G/N/E)? ", ch);
+				d->connected = CON_GET_ALIGNMENT;
+			} else {
+				char_puts("[Hit Return to Continue]", ch);
+				print_hometown(ch);
+			}
+			break;
 	    
 		case 'n': case 'N':
 			for (i = 0; i < MAX_STATS; i++)
 				ch->perm_stat[i] = number_range(10, get_max_train(ch, i));
 
-			snprintf(buf, sizeof(buf),
-				 "Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s  Cha:%s\n\rAccept (Y/N)? ",
-				 get_stat_alias(ch, STAT_STR),
-				 get_stat_alias(ch, STAT_INT),
-				 get_stat_alias(ch, STAT_WIS),
-				 get_stat_alias(ch, STAT_DEX),
-				 get_stat_alias(ch, STAT_CON),
-				 get_stat_alias(ch, STAT_CHA));
+		char_printf(ch, "Str:%s  Int:%s  Wis:%s  "
+				"Dex:%s  Con:%s  Cha:%s\n",
+			 get_stat_alias(ch, STAT_STR),
+			 get_stat_alias(ch, STAT_INT),
+			 get_stat_alias(ch, STAT_WIS),
+			 get_stat_alias(ch, STAT_DEX),
+			 get_stat_alias(ch, STAT_CON),
+			 get_stat_alias(ch, STAT_CHA));
+		char_puts("Accept (Y/N)? ", ch);
 
-			write_to_buffer(d, buf,0);
 			d->connected = CON_ACCEPT_STATS;
 			break;
 
 		default:
-			write_to_buffer(d,"Please answer (Y/N)? ",0);
+			char_puts("Please answer (Y/N)? ", ch);
 			break;
 		}
 		break;
 	    
 	case CON_GET_ALIGNMENT:
-	switch(argument[0])
-	  {
-	  case 'g' : case 'G' : 
-		ch->alignment = 1000; 
-	        write_to_buffer(d, "Now your character is good.\n\r",0);
-		break;
-	  case 'n' : case 'N' : 
-		ch->alignment = 0;	
-	        write_to_buffer(d, "Now your character is neutral.\n\r",0);
-		break;
-	  case 'e' : case 'E' : 
-		ch->alignment = -1000; 
-	        write_to_buffer(d, "Now your character is evil.\n\r",0);
-		break;
-	  default:
-	    write_to_buffer(d,"That's not a valid alignment.\n\r",0);
-	    write_to_buffer(d,"Which alignment (G/N/E)? ",0);
-	    return;
-	  }
-		write_to_buffer(d, "\n\r[Hit Return to Continue]\n\r", 0);
+		switch(argument[0]) {
+		case 'g' : case 'G' : 
+			ch->alignment = 1000; 
+			break;
+		case 'n' : case 'N' : 
+			ch->alignment = 0;	
+			break;
+		case 'e' : case 'E' : 
+			ch->alignment = -1000; 
+			break;
+		default:
+			char_puts("That's not a valid alignment.\n", ch);
+			char_puts("Which alignment (G/N/E)? ", ch);
+			return;
+		}
+		act_puts("Now your character is $t.",
+			 ch, flag_string(align_names, NALIGN(ch)), NULL,
+			 TO_CHAR, POS_DEAD);
+		char_puts("[Hit Return to Continue]", ch);
 		print_hometown(ch);
 		break;
 	
@@ -2182,79 +2164,72 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		}
 
 		ch->hometown = htn; 
-		char_printf(ch, "\nNow your hometown is %s.\n"
-				"[Hit Return to continue]\n",
+		char_printf(ch, "\nNow your hometown is %s.\n",
 			    hometown_name(htn));
+		char_puts("[Hit Return to continue]\n", ch);
 		ch->endur = 100;
 		d->connected = CON_GET_ETHOS;
 		break;
 	}
 	
 	  case CON_GET_ETHOS:
-	if (!ch->endur)
-	 {
-	  switch(argument[0]) 
-	      {
-	   case 'H': case 'h': case '?': 
-		do_help(ch, "alignment"); return; break;
-	   case 'L': case 'l': 
-	 	snprintf(buf, sizeof(buf), "\n\rNow you are lawful-%s.\n\r",
-		   IS_GOOD(ch) ? "good" : IS_EVIL(ch) ? "evil" : "neutral");
-	        write_to_buffer(d, buf, 0);
-		ch->ethos = ETHOS_LAWFUL; 
+		if (!ch->endur) {
+			switch(argument[0]) {
+			case 'H': case 'h': case '?': 
+				do_help(ch, "ALIGNMENT");
+				return;
+				/* NOTREACHED */
+
+			case 'L': case 'l': 
+				ch->ethos = ETHOS_LAWFUL; 
+				break;
+			case 'N': case 'n': 
+				ch->ethos = ETHOS_NEUTRAL; 
+				break;
+			case 'C': case 'c': 
+				ch->ethos = ETHOS_CHAOTIC; 
+				break;
+			default:
+				char_puts("\nThat is not a valid ethos.\n", ch);
+				char_puts("What ethos do you want, (L/N/C) (type 'help' for more info)? ", ch);
+				return;
+			}
+			act_puts("Now you are $t-$T.",
+				 ch, flag_string(ethos_table, ch->ethos),
+				 flag_string(align_names, NALIGN(ch)),
+				 TO_CHAR, POS_DEAD);
+		} else {
+			ch->endur = 0;
+			if (!ethos_check(ch)) {
+				char_puts("What ethos do you want, (L/N/C) (type 'help' for more info)? ", ch);
+				d->connected = CON_GET_ETHOS;
+				return;
+			} else {
+				ch->ethos = 1;
+			}
+		}
+		char_puts("[Hit Return to Continue]", ch);
+		d->connected = CON_CREATE_DONE;
 		break;
-	   case 'N': case 'n': 
-	 	snprintf(buf, sizeof(buf), "\n\rNow you are neutral-%s.\n\r",
-		   IS_GOOD(ch) ? "good" : IS_EVIL(ch) ? "evil" : "neutral");
-	        write_to_buffer(d, buf, 0);
-		ch->ethos = ETHOS_NEUTRAL; 
-		break;
-	   case 'C': case 'c': 
-	 	snprintf(buf, sizeof(buf), "\n\rNow you are chaotic-%s.\n\r",
-		   IS_GOOD(ch) ? "good" : IS_EVIL(ch) ? "evil" : "neutral");
-	        write_to_buffer(d, buf, 0);
-		ch->ethos = ETHOS_CHAOTIC; 
-		break;
-	   default:
-	    write_to_buffer(d, "\n\rThat is not a valid ethos.\n\r", 0);
-	    write_to_buffer(d, "What ethos do you want, (L/N/C) <type help for more info>? ",0);
-	    return;
-	   }
-	} else {
-	  ch->endur = 0;
-	  if (!ethos_check(ch)) {
-		write_to_buffer(d, "What ethos do you want, (L/N/C) "
-				   "<type help for more info> ?", 0);
-		d->connected = CON_GET_ETHOS;
-		return;
-	   } else
-		ch->ethos = 1;
-	 }
-	     write_to_buffer(d, "\n\r[Hit Return to Continue]\n\r",0);
-	     d->connected = CON_CREATE_DONE;
-	     break;
 
 	case CON_CREATE_DONE:
 		log("%s@%s new player.", ch->name, d->host);
-		write_to_buffer(d, "\n\r", 2);
-		do_help(ch, "motd");
-		char_puts("[Press Enter to continue]", ch);
+		do_help(ch, "MOTD");
+		char_puts("[Hit Return to continue]", ch);
 		d->connected = CON_READ_MOTD;
 		break;
 
 	case CON_GET_OLD_PASSWORD:
-		write_to_buffer(d, "\n\r", 2);
-
+		char_puts("\n", ch);
 		if (strcmp(crypt(argument, ch->pcdata->pwd), ch->pcdata->pwd)) {
-			write_to_buffer(d, "Wrong password.\n\r", 0);
-			log("Wrong password by %s@%s",
-				   ch->name, d->host);
+			char_puts("Wrong password.\n", ch);
+			log("Wrong password by %s@%s", ch->name, d->host);
 			if (ch->endur == 2)
 				close_descriptor(d);
 			else {
 				write_to_descriptor(d->descriptor,
 						    (char *) echo_off_str, 0);
-				write_to_buffer(d, "Password: ", 0);
+				char_puts("Password: ", ch);
 				d->connected = CON_GET_OLD_PASSWORD;
 				ch->endur++;
 			}
@@ -2262,9 +2237,8 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		}
  
 		if (ch->pcdata->pwd[0] == '\0') {
-			write_to_buffer(d, "Warning! Null password!\n\r"
-					   "Type 'password null <new password>'"
-					   " to fix.\n\r", 0);
+			char_puts("Warning! Null password!\n", ch);
+			char_puts("Type 'password null <new password>' to fix.\n", ch);
 		}
 
 		write_to_descriptor(d->descriptor, (char *) echo_on_str, 0);
@@ -2279,19 +2253,17 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		/* FALL THRU */
 
 	case CON_READ_IMOTD:
-		if (IS_HERO(ch))
-			do_help(ch, "imotd");
-		write_to_buffer(d,"\n\r",2);
-		do_help(ch, "motd");
+		if (IS_IMMORTAL(ch))
+			do_help(ch, "IMOTD");
+		do_help(ch, "MOTD");
 		d->connected = CON_READ_MOTD;
 
-		/* FALL THRU */
+		/* FALLTHRU */
 
 	case CON_READ_MOTD:
+		char_puts("Welcome to Shades of Gray! Enjoy!\n\n", ch);
+
 		update_skills(ch);
-		write_to_buffer(d, 
-		"\n\rWelcome to Shades of Gray Multi User Dungeon. Enjoy!!...\n\r",
-		    0);
 		ch->next	= char_list;
 		char_list	= ch;
 		if (!char_list_lastpc)
@@ -2337,7 +2309,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		}
 
 		if (ch->gold > 6000 && !IS_IMMORTAL(ch)) {
-			char_printf(ch, "You are taxed %d gold to pay for the Mayor's bar.\n\r", (ch->gold - 6000) / 2);
+			char_printf(ch, "You are taxed %d gold to pay for the Mayor's bar.\n", (ch->gold - 6000) / 2);
 			ch->gold -= (ch->gold - 6000) / 2;
 		}
 	
@@ -2396,9 +2368,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 				set_skill_raw(ch, get_weapon_sn(wield),
 					      40, FALSE);
 
-			char_puts("\n", ch);
 			do_help(ch, "NEWBIE INFO");
-			char_puts("\n", ch);
 			char_to_room(ch, get_room_index(ROOM_VNUM_SCHOOL));
 		}
 		else {
@@ -2511,8 +2481,8 @@ bool check_playing(DESCRIPTOR_DATA *d, const char *name)
 		&&  dold->connected != CON_GET_OLD_PASSWORD
 		&&  !str_cmp(name, dold->original ?  dold->original->name :
 						     dold->character->name)) {
-			write_to_buffer(d, "That character is already playing.\n\r",0);
-			write_to_buffer(d, "Do you wish to connect anyway (Y/N)?",0);
+			write_to_buffer(d, "That character is already playing.\n\r", 0);
+			write_to_buffer(d, "Do you wish to connect anyway (Y/N)? ",0);
 			d->connected = CON_BREAK_CONNECT;
 			return TRUE;
 		}
@@ -2681,7 +2651,6 @@ bool class_ok(CHAR_DATA *ch, int class)
 
 int align_restrict(CHAR_DATA *ch)
 {
-	DESCRIPTOR_DATA *d = ch->desc;
 	race_t *r;
 
 	if ((r = race_lookup(ORG_RACE(ch))) == NULL
@@ -2690,21 +2659,21 @@ int align_restrict(CHAR_DATA *ch)
 
 	if (r->pcdata->restrict_align == RA_GOOD
 	||  CLASS(ch->class)->restrict_align == RA_GOOD) {
-		write_to_buffer(d, "Your character has good tendencies.\n\r",0);
+		char_puts("Your character has good tendencies.\n", ch);
 		ch->alignment = 1000;
 		return RA_GOOD;
 	}
 
 	if (r->pcdata->restrict_align == RA_NEUTRAL
 	||  CLASS(ch->class)->restrict_align == RA_NEUTRAL) {
-		write_to_buffer(d, "Your character has neutral tendencies.\n\r",0);
+		char_puts("Your character has neutral tendencies.\n", ch);
 		ch->alignment = 0;
 		return RA_NEUTRAL;
 	}
 
 	if (r->pcdata->restrict_align == RA_EVIL
 	||  CLASS(ch->class)->restrict_align == RA_EVIL) {
-		write_to_buffer(d, "Your character has evil tendencies.\n\r",0);
+		char_puts("Your character has evil tendencies.\n", ch);
 		ch->alignment = -1000;
 		return RA_EVIL;
 	}		
@@ -2714,7 +2683,6 @@ int align_restrict(CHAR_DATA *ch)
 
 int ethos_check(CHAR_DATA *ch)
 {
-	DESCRIPTOR_DATA *d = ch->desc;
 	class_t *cl;
 
 	if ((cl = class_lookup(ch->class))) {
@@ -2722,7 +2690,7 @@ int ethos_check(CHAR_DATA *ch)
 		 * temporary workaround for paladins
 		 */
 		if (IS_SET(cl->restrict_ethos, ETHOS_LAWFUL)) {
-			write_to_buffer(d, "You are Lawful.\n\r", 0);
+			char_puts("You are Lawful.\n", ch);
 			return 1;
 		}
 	}

@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.99 1999-06-18 04:57:11 kostik Exp $
+ * $Id: martial_art.c,v 1.100 1999-06-18 11:17:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -54,6 +54,7 @@ DECLARE_DO_FUN(do_yell		);
 DECLARE_DO_FUN(do_sleep		);
 DECLARE_DO_FUN(do_sit		);
 DECLARE_DO_FUN(do_bash_door	);
+DECLARE_DO_FUN(do_dismount	);
 
 static inline bool	check_yell	(CHAR_DATA *ch, CHAR_DATA *victim,
 					 bool fighting);
