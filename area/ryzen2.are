@@ -225,7 +225,7 @@ opponent.  He must have been out hunting because he looks awfully tired now,
 well at least you get the first attack before he kills you.  
 @rus Весь покрытый блестящей черной чешуей, которая, если верить слухам,
 прочнее лучшей стали, и вооруженный острыми, устрашающего вида когтями,
-этот дракон - безусловно могучий противник. Судя по всему, ты застал
+этот дракон - безусловно могучий противник. Судя по всему, ты $gn{застал}
 его вскоре после изматывающей охоты, потому что он выглядит очень ус-
 тавшим и спит, никак не реагируя на твое присутствие. Что ж, это тебе
 на руку - ты сможешь нанести первый удар... прежде чем умереть.
@@ -249,7 +249,7 @@ beast undead тварь неживая~
 hide, creating spear like points.  Its skin has decayed away, leaving the
 ribs and organs exposed.  ICK!  
 @rus Ее грубая шкура во многих местах проткнута торчащими во все стороны
-острыми, копьеобразными костями и кое где прогнила, открывая твоему
+острыми, копьеобразными костями и кое-где прогнила, открывая твоему
 взгляду ребра и потроха.
 ~
 unique~
@@ -689,8 +689,8 @@ S
 @eng You stand at the bottom of a flight of stairs.  You are unable to make
 out any details in this poorly lit corridor, however an exit to the
 south is noticeable.  
-@rus Ты спустился вниз по лестнице и оказался в начале слабо
-освещенного коридора. Все, что ты смог разглядеть - это то,
+@rus Ты $gn{спустился} вниз по лестнице и $gn{оказался} в начале слабо
+освещенного коридора. Все, что ты $gn{смог} разглядеть - это то,
 что он ведет на юг.
 ~
 0 AD inside
@@ -712,7 +712,7 @@ S
 @eng You stand in a dark tunnel with exits leading two directions into
 blackness.  
 @rus Стоит тебе немного осмотреться - и ты уже не можешь определить,
-откуда ты пришел.
+откуда ты $gn{пришел}.
 ~
 0 AD inside
 D0
@@ -855,7 +855,7 @@ S
 you that it is nearly impossible to see it.  You stare up into the darkness,
 pondering what kind of creatures could be hiding in those shadows.  The only
 exit is north.  
-@rus Сплошная каменная стена поднимается веотикально вверх прямо
+@rus Сплошная каменная стена поднимается вертикально вверх прямо
 перед тобой. Странные звуки доносятся откуда-то из-под потолка
 и ты задираешь голову, надеясь разглядеть их источник, но темнота
 надежно скрывает их от посторонних глаз. Раздумывая, кто же это
@@ -874,8 +874,8 @@ S
 @eng The small tunnel twists away through dark corridors, leaving you in
 question of your exact location.  The tunnel leads north or south
 from here.  
-@rus Узкий коридор виляет из стороны в сторону и ты уже знаешь,
-в какой стороне от входа оказался.
+@rus Узкий коридор виляет из стороны в сторону и ты уже не знаешь,
+в какой стороне от входа $gn{оказался}.
 ~
 0 AD inside
 D0
@@ -1164,7 +1164,7 @@ S
 @eng The Bottom of the Stairs@rus У подножия лестницы~
 @eng Stairs rise up above you into a higher tunnel.  The only exits available
 appear to be up or north.  
-@rus Ты спустился по каменным ступеням и обнаружил, что коридор
+@rus Ты $gn{спустился} по каменным ступеням и $gn{обнаружил}, что коридор
 ведет дальше на север.
 ~
 0 AD inside
@@ -1429,7 +1429,7 @@ descend through the caverns.
 @rus Пол внезапно обрывается прямо перед тобой. Ты внимательно
 смотришь вниз, пытаясь определить хотя бы глубину, но тщетно.
 Чем-то зловещим веет из темноты, и на секунду тебе кажется,
-что ты подошел близко к самому сердцу этих проклятых пещер.
+что ты $gn{подошел} близко к самому сердцу этих проклятых пещер.
 ~
 0 AD inside
 D1
@@ -1620,7 +1620,7 @@ S
 @eng The End of The Caverns@rus Выход из пещер~
 @eng CONGRATULATIONS!!!!  You've found the entrance to the River Styx, and
 Hell. I am sure the demons look forward to having you over for dinner.   
-@rus ПОЗДРАВЛЯЮ! Ты добрался-таки до выхода и стоишь на берегу Стикса.
+@rus ПОЗДРАВЛЯЮ! Ты $gn{добрался}-таки до выхода и стоишь на берегу Стикса.
 Мрачный лодочник неторопливо гребет в твою сторону, и на том берегу,
 наверное, будут рады незваному гостю.
 ~

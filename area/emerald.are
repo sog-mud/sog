@@ -4888,7 +4888,7 @@ Some are preparing to leave on their daily treks through the forest,
 while others are tending to injured woodland animals.  The Guildmaster's
 cabin lies to the north, while several smaller cabins lie to the south.
 A fair-sized lodge sits beneath a Redwood tree to your east.
-@rus Знакомый ренджер поприветствовал тебя как только ты вошел на поляну.
+@rus Знакомый ренджер поприветствовал тебя как только ты $gn{вошел} на поляну.
 Удивительно, как он сумел тебя заметить? Часть хранителей собираются
 уйти в свое ежедневное патрулирование по лесу, остальные оказывают
 помощь раненым животным. На севере ты видишь хижину мастера-лесника,
@@ -5985,7 +5985,7 @@ quiet time area.
 @rus Ты попал в поросль молодых деревьев. Они растут очень близко и их
 ветви закрывают обзор во все стороны. Ты чувстсвуешьсвежий запах
 диких лесных цветов. Небольшой зеленый коврик лежит посреди поляны,
-это аталкивает тебя на мысль, что не ты первый нашел этот укромный
+это аталкивает тебя на мысль, что не ты первый $gn{нашел} этот укромный
 уголок.
 ~
 0 A inside
@@ -7303,7 +7303,7 @@ S
 furnished.  There are four beds in the cabin, where the woodkeepers of
 the Forest may rest after their patrols.  There is a small chest by the
 foot of the bed.
-@rus Ты зашел в первую попавшуюся хижину лесника.  Она мало, но удобно
+@rus Ты $gn{зашел} в первую попавшуюся хижину лесника.  Она мало, но удобно
 обставлена.  Тут четыре кровати, где хранитель леса может отдохнуть,
 вернувшись из патруля.  Рядом с ножкой кровати стоит небольшой сундук.  
 ~

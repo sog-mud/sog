@@ -387,10 +387,10 @@ r poison -33
 citizen житель man~
 @eng a citizen of Gerighelm@rus ~~житель~~ Геригхельма~
 @eng A citizen of the fine city or Gerighelm is here, going to and from his errands
-@rus Житель славного города Геригхельма идет по своим делам.
+@rus Житель (citizen) славного города Геригхельма идет по своим делам.
 ~
 @eng The citizen of Gerighelm looks happy, and contented.
-@rus Житель Геригхельма (citizen) выглядит счастливым и довольным жизнью.
+@rus Житель Геригхельма выглядит счастливым и довольным жизнью.
 ~
 human~
 G 0 0 0 0 0 7521
@@ -4274,7 +4274,7 @@ S
 @eng Weapon shop@rus Оружейная лавка~
 @eng You are in the weapon shop. There are many fine weapons here, but all of
 them are safe and out of your reach.  There is a sign here.
-@rus Ты зашел в оружейную лавку. Здесь продается отличное оружие, но все оно
+@rus Ты $gn{зашел} в оружейную лавку. Здесь продается отличное оружие, но все оно
 находится вне твоей досягаемости. Сбоку ты видишь знак.
 ~
 0 D inside
@@ -7073,65 +7073,23 @@ O 0 7508 0 7523	* a bunch of green herbs (The Garden.)
 M 0 7511 6 7523 1	* a herbalists helper (The Garden.)
 G 0 7596 0		*	a herbalists helper: a bunch of herbs
 M 0 7519 5 7531 1	* a bugbear (The Sewers)
-M 0 7516 10 7535 1	* a goldfish (The tunnel)
-G 0 7512 0		*	a goldfish: corpse of a goldfish
-M 0 7516 10 7535 1	* a goldfish (The tunnel)
-G 0 7512 0		*	a goldfish: corpse of a goldfish
-M 0 7516 10 7535 1	* a goldfish (The tunnel)
-G 0 7512 0		*	a goldfish: corpse of a goldfish
-M 0 7516 10 7535 1	* a goldfish (The tunnel)
-G 0 7512 0		*	a goldfish: corpse of a goldfish
-M 0 7516 10 7535 1	* a goldfish (The tunnel)
-G 0 7512 0		*	a goldfish: corpse of a goldfish
-M 0 7516 10 7535 1	* a goldfish (The tunnel)
-G 0 7512 0		*	a goldfish: corpse of a goldfish
-M 0 7516 10 7535 1	* a goldfish (The tunnel)
-G 0 7512 0		*	a goldfish: corpse of a goldfish
-M 0 7516 10 7535 1	* a goldfish (The tunnel)
-G 0 7512 0		*	a goldfish: corpse of a goldfish
-M 0 7516 10 7535 1	* a goldfish (The tunnel)
-G 0 7512 0		*	a goldfish: corpse of a goldfish
-M 0 7516 10 7535 1	* a goldfish (The tunnel)
-G 0 7512 0		*	a goldfish: corpse of a goldfish
 M 0 7517 10 7537 1	* a guppy (The watery tunnel)
 G 0 7511 0		*	a guppy: corpse of a guppy
-M 0 7517 10 7537 1	* a guppy (The watery tunnel)
-G 0 7511 0		*	a guppy: corpse of a guppy
-M 0 7517 10 7537 1	* a guppy (The watery tunnel)
-G 0 7511 0		*	a guppy: corpse of a guppy
-M 0 7517 10 7537 1	* a guppy (The watery tunnel)
-G 0 7511 0		*	a guppy: corpse of a guppy
-M 0 7517 10 7537 1	* a guppy (The watery tunnel)
-G 0 7511 0		*	a guppy: corpse of a guppy
-M 0 7517 10 7537 1	* a guppy (The watery tunnel)
-G 0 7511 0		*	a guppy: corpse of a guppy
-M 0 7517 10 7537 1	* a guppy (The watery tunnel)
-G 0 7511 0		*	a guppy: corpse of a guppy
-M 0 7517 10 7537 1	* a guppy (The watery tunnel)
-G 0 7511 0		*	a guppy: corpse of a guppy
-M 0 7517 10 7537 1	* a guppy (The watery tunnel)
-G 0 7511 0		*	a guppy: corpse of a guppy
-M 0 7517 10 7537 1	* a guppy (The watery tunnel)
-G 0 7511 0		*	a guppy: corpse of a guppy
+M 0 7516 10 7537 1	* a goldfish (The watery tunnel)
+G 0 7512 0		*	a goldfish: corpse of a goldfish
+M 0 7512 5 7538 1	* water snake (The watery tunnel)
 M 0 7519 5 7539 1	* a bugbear (The end of the watery tunnel)
-M 0 7514 4 7541 1	* a medium fish will pointy teeth (The Sewers)
-M 0 7513 5 7543 1	* a small fish with pointy teeth (Underwater in the river)
-M 0 7513 5 7543 1	* a small fish with pointy teeth (Underwater in the river)
-M 0 7513 5 7543 1	* a small fish with pointy teeth (Underwater in the river)
-M 0 7513 5 7543 1	* a small fish with pointy teeth (Underwater in the river)
 M 0 7513 5 7543 1	* a small fish with pointy teeth (Underwater in the river)
 M 0 7515 5 7544 1	* a large fish with pointy teeth (Underwater)
-M 0 7515 5 7544 1	* a large fish with pointy teeth (Underwater)
-M 0 7515 5 7544 1	* a large fish with pointy teeth (Underwater)
-M 0 7515 5 7544 1	* a large fish with pointy teeth (Underwater)
-M 0 7515 5 7544 1	* a large fish with pointy teeth (Underwater)
+M 0 7514 5 7545 1	* a medium fish will pointy teeth (Underwater)
+M 0 7514 5 7546 1	* a medium fish will pointy teeth (Underwater)
+M 0 7515 5 7546 1	* a large fish with pointy teeth (Underwater)
 M 0 7518 3 7547 1	* a fish with blunted teeth (Underwater)
+M 0 7512 5 7548 1	* water snake (Half Flooded Sewers)
+M 0 7517 5 7548 1	* a guppy (Half Flooded Sewers)
 M 0 7520 6 7551 1	* a cleaner worm (Very clean Sewers)
-M 0 7520 6 7551 1	* a cleaner worm (Very clean Sewers)
-M 0 7520 6 7551 1	* a cleaner worm (Very clean Sewers)
-M 0 7520 6 7551 1	* a cleaner worm (Very clean Sewers)
-M 0 7520 6 7551 1	* a cleaner worm (Very clean Sewers)
-M 0 7520 6 7551 1	* a cleaner worm (Very clean Sewers)
+M 0 7520 6 7552 1	* a cleaner worm (Very clean Sewers)
+M 0 7520 6 7553 1	* a cleaner worm (Very clean Sewers)
 M 0 7523 30 7559 1	* a troubadour (Dirt Path)
 E 0 7514 0 17		*	a troubadour<held in the hands>: a harp
 M 0 7531 25 7564 2	* a Gerighelm cityguard (West-Street of Gerighelm)
@@ -7166,9 +7124,9 @@ G 0 7507 0		*	the herbalist: a bunch of red herbs
 G 0 7508 0		*	the herbalist: a bunch of green herbs
 M 0 7594 1 7576 1	* the mage (Magic Shop)
 G 0 7517 0		*	the mage: a bag of marbles
-G 0 7600 0		*	the mage: a green marble
-G 0 7601 0		*	the mage: a blue marble
-G 0 7602 0		*	the mage: a yellow marble
+P 0 7602 5 0 1	* a bag of marbles: a yellow marble
+P 0 7601 5 0 1	* a bag of marbles: a blue marble
+P 0 7600 5 0 1	* a bag of marbles: a green marble
 M 0 7553 3 7576 3	* a bodyguard (Magic Shop)
 E 0 7561 0 5		*	a bodyguard<on the body>: a uniform
 E 0 7562 0 16		*	a bodyguard<wielded>: a saber
@@ -7194,6 +7152,7 @@ E 0 7516 0 16		*	a little boy<wielded>: a stick
 M 0 7527 5 7582 1	* a little girl (West-Street)
 E 0 7518 0 17		*	a little girl<held in the hands>: a doll
 M 0 7523 30 7582 1	* a troubadour (West-Street)
+G 0 7514 0		*	a troubadour: a harp
 M 0 7535 10 7590 1	* a Defender of Gerighelm (Temple Street)
 E 0 7537 0 6		*	a Defender of Gerighelm<over the head>: a defenders helm
 E 0 7538 0 16		*	a Defender of Gerighelm<wielded>: a defenders sword
@@ -7249,6 +7208,7 @@ M 0 7523 30 7609 1	* a troubadour (Merchant Way)
 E 0 7513 0 17		*	a troubadour<held in the hands>: a lute
 M 0 7610 1 7610 1	* the old witch (The Potions and Wands shop)
 M 0 7523 30 7611 1	* a troubadour (Bridge over the river)
+E 0 7514 0 17		*	a troubadour<held in the hands>: a harp
 M 0 7523 30 7613 1	* a troubadour (Crowded market)
 E 0 7514 0 17		*	a troubadour<held in the hands>: a harp
 M 0 7534 10 7614 1	* a Defender of Gerighelm (Crowded market)
@@ -7289,11 +7249,6 @@ M 0 7523 30 7639 1	* a troubadour (Crowded market)
 E 0 7514 0 17		*	a troubadour<held in the hands>: a harp
 M 0 7523 30 7640 1	* a troubadour (Crowded market)
 E 0 7513 0 17		*	a troubadour<held in the hands>: a lute
-M 0 7530 25 7641 10	* a Gerighelm cityguard (Crowded market)
-E 0 7524 0 1		*	a Gerighelm cityguard<on the left finger>: Gerighelm guard ring
-E 0 7529 0 5		*	a Gerighelm cityguard<on the body>: a Gerighelm vest
-E 0 7535 0 16		*	a Gerighelm cityguard<wielded>: a Gerighelm sword
-E 0 7526 0 6		*	a Gerighelm cityguard<over the head>: a pair of Gerighelm guard sleeves
 M 0 7524 4 7641 1	* an old biddy (Crowded market)
 E 0 7523 0 16		*	an old biddy<wielded>: a sharp fingernail
 M 0 7525 4 7641 1	* an old coot (Crowded market)
@@ -7303,6 +7258,11 @@ M 0 7527 5 7641 1	* a little girl (Crowded market)
 E 0 7518 0 17		*	a little girl<held in the hands>: a doll
 M 0 7523 30 7641 1	* a troubadour (Crowded market)
 E 0 7514 0 17		*	a troubadour<held in the hands>: a harp
+M 0 7530 25 7641 3	* a Gerighelm cityguard (Crowded market)
+E 0 7526 0 6		*	a Gerighelm cityguard<over the head>: a pair of Gerighelm guard sleeves
+E 0 7535 0 16		*	a Gerighelm cityguard<wielded>: a Gerighelm sword
+E 0 7529 0 5		*	a Gerighelm cityguard<on the body>: a Gerighelm vest
+E 0 7524 0 1		*	a Gerighelm cityguard<on the left finger>: Gerighelm guard ring
 M 0 7523 30 7642 1	* a troubadour (Crowded market)
 E 0 7513 0 17		*	a troubadour<held in the hands>: a lute
 M 0 7524 4 7643 1	* an old biddy (Crowded market)
@@ -7319,6 +7279,7 @@ E 0 7514 0 17		*	a troubadour<held in the hands>: a harp
 M 0 7523 30 7646 1	* a troubadour (Crowded market)
 E 0 7513 0 17		*	a troubadour<held in the hands>: a lute
 M 0 7523 30 7647 1	* a troubadour (On the bridge)
+E 0 7513 0 17		*	a troubadour<held in the hands>: a lute
 M 0 7523 30 7649 1	* a troubadour (The market)
 E 0 7514 0 17		*	a troubadour<held in the hands>: a harp
 M 0 7535 10 7654 1	* a Defender of Gerighelm (On the path)
@@ -7418,14 +7379,12 @@ E 0 7547 0 9		*	a palace guard<on the hands>: a pair of palace guard gloves
 E 0 7548 0 13		*	a palace guard<around the waist>: a palace guard belt
 E 0 7549 0 15		*	a palace guard<on the right wrist>: a palace guard bracer
 E 0 7550 0 16		*	a palace guard<wielded>: a palace guard's sword
-E 0 7551 0 8		*	a palace guard<on the feet>: the cooks hat
 M 0 7550 1 7672 1	* the head of the guard (Great hall)
 E 0 7556 0 16		*	the head of the guard<wielded>: the sword of thunder
 E 0 7557 0 5		*	the head of the guard<on the body>: the vest of the titans
 M 0 7590 10 7672 1	* a servant (Great hall)
 M 0 7540 1 7673 1	* the palace priest (The Altar)
 E 0 7554 0 16		*	the palace priest<wielded>: a holyword
-M 0 7590 10 7674 1	* a servant (Servants Quarters)
 M 0 7590 10 7674 1	* a servant (Servants Quarters)
 M 0 7590 10 7675 1	* a servant (Servants Quarters)
 M 0 7552 3 7676 3	* a bodyguard (Throne Room)
@@ -7451,19 +7410,18 @@ E 0 7547 0 9		*	a palace guard<on the hands>: a pair of palace guard gloves
 E 0 7548 0 13		*	a palace guard<around the waist>: a palace guard belt
 E 0 7549 0 15		*	a palace guard<on the right wrist>: a palace guard bracer
 E 0 7550 0 16		*	a palace guard<wielded>: a palace guard's sword
-E 0 7551 0 8		*	a palace guard<on the feet>: the cooks hat
 M 0 7538 1 7680 1	* the cook (Beer cellar)
 E 0 7551 0 6		*	the cook<over the head>: the cooks hat
-M 0 7531 25 7681 6	* a Gerighelm cityguard (Barracks)
+M 0 7531 25 7681 2	* a Gerighelm cityguard (Barracks)
+E 0 7524 0 1		*	a Gerighelm cityguard<on the left finger>: Gerighelm guard ring
+E 0 7535 0 16		*	a Gerighelm cityguard<wielded>: a Gerighelm sword
+E 0 7529 0 5		*	a Gerighelm cityguard<on the body>: a Gerighelm vest
 E 0 7530 0 12		*	a Gerighelm cityguard<about the shoulders>: a Gerighelm guard cape
-E 0 7529 0 5		*	a Gerighelm cityguard<on the body>: a Gerighelm vest
-E 0 7535 0 16		*	a Gerighelm cityguard<wielded>: a Gerighelm sword
-E 0 7524 0 1		*	a Gerighelm cityguard<on the left finger>: Gerighelm guard ring
-M 0 7532 15 7681 6	* a Gerighelm cityguard (Barracks)
-E 0 7524 0 1		*	a Gerighelm cityguard<on the left finger>: Gerighelm guard ring
-E 0 7529 0 5		*	a Gerighelm cityguard<on the body>: a Gerighelm vest
-E 0 7535 0 16		*	a Gerighelm cityguard<wielded>: a Gerighelm sword
+M 0 7532 15 7681 2	* a Gerighelm cityguard (Barracks)
 E 0 7526 0 10		*	a Gerighelm cityguard<on the arms>: a pair of Gerighelm guard sleeves
+E 0 7535 0 16		*	a Gerighelm cityguard<wielded>: a Gerighelm sword
+E 0 7529 0 5		*	a Gerighelm cityguard<on the body>: a Gerighelm vest
+E 0 7524 0 1		*	a Gerighelm cityguard<on the left finger>: Gerighelm guard ring
 M 0 7698 1 7698 1	* a hawk (Pet Shop Warehouse)
 M 0 7699 1 7699 1	* the Death (Sacrifice Room)
 E 0 7699 0 16		*	the Death<wielded>: the Death's Scythe

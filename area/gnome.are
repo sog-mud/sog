@@ -880,7 +880,7 @@ S
 @eng A Small Gnome House@rus Небольшой гномий домик~
 @eng This is a small suburban house made from quality wood.  You can see the
 expert workmanship that went into making it, but it lacks creativity.
-@rus Ты вошел в небольшой гномий домик, сделанный из дерева. Домик сделан
+@rus Ты $gn{вошел} в небольшой гномий домик, сделанный из дерева. Домик сделан
 очень прочно и добротно, в нем недостает красоты, но это не главное.
 ~
 0 D inside
@@ -896,7 +896,7 @@ S
 @eng A Small Gnome House@rus Небольшой гномий домик~
 @eng This is a small suburban house made from quality wood.  You can see the
 expert workmanship that went into making it, but it lacks creativity.
-@rus Ты вошел в небольшой гномий домик, сделанный из дерева. Домик сделан
+@rus Ты $gn{вошел} в небольшой гномий домик, сделанный из дерева. Домик сделан
 очень прочно и добротно, в нем недостает красоты, но это не главное.
 ~
 0 D inside
@@ -912,7 +912,7 @@ S
 @eng A Small Gnome House@rus Небольшой гномий домик~
 @eng This is a small suburban house made from quality wood.  You can see the
 expert workmanship that went into making it, but it lacks creativity.
-@rus Ты вошел в небольшой гномий домик, сделанный из дерева. Домик сделан
+@rus Ты $gn{вошел} в небольшой гномий домик, сделанный из дерева. Домик сделан
 очень прочно и добротно, в нем недостает красоты, но это не главное.
 ~
 0 D inside
@@ -1184,7 +1184,7 @@ S
 @eng The Dark Cave@rus Темная пещера~
 @eng The cave gleams as your light reflects off of it.  As you squint your eyes
 and try to look ahead, you think you see something move.
-@rus Ты вошел в пещеру с каменными стенами, от которых отражается свет твоего
+@rus Ты $gn{вошел} в пещеру с каменными стенами, от которых отражается свет твоего
 факела. Пещера проболжается вглубь горы на север, и вглядываясь в темноту,
 ты замечаешь какое-то неясное движение.
 ~
@@ -1283,7 +1283,7 @@ S
 haven't killed you.  As you glance around, you notice that the walls and
 floors are spotlessly cleaned.  The barracks are to the north and a
 storage room is to the south.
-@rus Ты вошел в крепость. Тебе, должно быть, повезло, что стражники тебя
+@rus Ты $gn{вошел} в крепость. Тебе, должно быть, повезло, что стражники тебя
 не убили. Оглядевшись вокруг, ты с удивлением заметил, что здесь очень
 чисто. К северу расположены бараки воинов, а на юге - складские помещения.
 ~
@@ -1354,7 +1354,7 @@ S
 @eng You now stand in the sleeping quarters of the gnome guards.  Every bed is
 made perfectly, and not single article of clothing is on the floor.  There
 is a small storage room to the east.
-@rus Ты вошел в помещения для отдыха гномов-воинов. Каждая кровать здесь сделана
+@rus Ты $gn{вошел} в помещения для отдыха гномов-воинов. Каждая кровать здесь сделана
 качественно, и ничего не разбросано на полу - все в полном порядке. На востоке
 вход в небольшую кладовую.
 ~
@@ -1499,8 +1499,8 @@ S
 @eng You find yourself in a very old section of the fortress.  You must be the
 first person to pass through here in years.  The hallway continues south
 and a door leads off to the east.
-@rus Ты находишься в очень старой части крепости. Должно быть, ты первый, кто
-зашел сюда за много лет. Коридор продолжается на юг, а на востоке ты видишь
+@rus Ты находишься в очень старой части крепости. Должно быть, ты $gn{первый}, кто
+$gn{зашел} сюда за много лет. Коридор продолжается на юг, а на востоке ты видишь
 какую-то дверь.
 ~
 0 AD field
@@ -1916,8 +1916,8 @@ S
 @eng The End of the Hallway@rus В конце грязного туннеля~
 @eng You make your way out of the hallway, just to find yourself in greater
 danger.  Before you looms the source of the great heat.
-@rus Ты все-таки дошел до конца этого бесконечного извилистого туннеля, и
-почувствовал себя в большой опасности. Перед тобой находится источник
+@rus Ты все-таки $gn{дошел} до конца этого бесконечного извилистого туннеля, и
+$gn{почувствовал} себя в большой опасности. Перед тобой находится источник
 повышенной жары.
 ~
 0 ADN field
@@ -2042,7 +2042,7 @@ S
 @eng Entrance to the Mine Shaft@rus Вход в старую шахту~
 @eng As you enter the mine shaft, you get a sudden fear of the walls closing
 in on you.  You are surprised to notice that you don't need a light.
-@rus Как только ты вошел в шахту, тебя окутал страх, сжимающий твое сердце
+@rus Как только ты $gn{вошел} в шахту, тебя окутал страх, сжимающий твое сердце
 наступающими со всех сторон каменными стенами. Однако, ты с удивлением
 замечаешь, что тебе не нужен источник света - откуда-то льется призрачное
 свечение.

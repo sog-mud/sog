@@ -10,13 +10,17 @@ End
 
 #MOBILES
 #901
-zeus god~
-Zeus~
-Zeus sits here on a throne.
+zeus god зевс~
+@eng Zeus@rus Зевс~
+@eng Zeus sits here on a throne.
+@rus Зевс (Zeus) Олимпийский восседает на троне.
 ~
-You see before you the greatest of the Olympians.  It seems as if he could
+@eng You see before you the greatest of the Olympians.  It seems as if he could
 destroy you with a thought.  Every glance penetrates deep into your soul.
 You now know what true fear is.
+@rus Ты глядишь на величайшего из олимпийцев. Он может уничтожить тебя
+одной мыслью. Каждый его взгяд проникает в самую глубины твоей души.
+Теперь ты знаешь, что такое настоящий страх.
 ~
 human~
 BCQT 0 HNT A AB 1000 0
@@ -135,7 +139,7 @@ EFNU
 stand stand female 3000
 0 0 medium unknown
 #908
-hephaestus smith~
+hephaestus smith гефест~
 Hephaestus~
 Hephaestus the Smith is here, crafting a fine weapon.
 ~
@@ -434,19 +438,17 @@ stand stand male 50
 
 #OBJECTS
 #900
-aegis plate~
-the Aegis~
-A powerful breast plate has been left here.~
-platinum~
-armor FG 0 AK
+aegis эгида shield щит~
+@eng the Aegis@rus эгида~
+@eng The Aegis has been left here.@rus Щит-эгида (aegis), сделанная из козлиной шкуры, предстала твоему взгляду. ~
+skin~
+armor FG 0 AJ
 15 15 15 15 0
-45 350 8400 P
-a '' to_affects 45 -1 2 1 0
-a '' to_resist 45 -1 5 1 0
-a '' to_resist 45 -1 5 2 0
-a '' to_resist 45 -1 5 0 0
-a '' to_resist 45 -1 17 5 0
-g @rus none~
+45 100 8400 P
+a '' to_resist 45 -1 3 1 0
+a '' to_resist 45 -1 3 2 0
+a '' to_resist 45 -1 3 0 0
+g @rus female~
 #901
 hammer thunder bolt thunderbolt~
 the Thunder Bolt~
@@ -460,9 +462,9 @@ a '' to_object 45 -1 5 19 0
 a '' to_object 45 -1 -1 4 0
 g @rus none~
 #902
-helmet winged~
-a Winged Helmet~
-A helmet with small wings lies here.~
+helmet winged шлем~
+@eng a Winged Helmet@rus ~~шлем~~ с крылышками~
+@eng A helmet with small wings lies here.@rus Шлем (helmet) с маленькими крылышками на нем лежит здесь.~
 platinum~
 armor FGK 0 AE
 11 12 11 5 0
@@ -470,11 +472,11 @@ armor FGK 0 AE
 a '' to_affects 45 -1 25 13 0
 a '' to_affects 45 -1 -5 20 0
 a '' to_object 45 -1 2 2 0
-g @rus none~
+g @rus male~
 #903
-spear ares~
-the spear of Ares~
-A wicked spear rests on the ground here.~
+spear ares копье~
+@eng the spear of Ares@rus ~~копье~~ Ареса~
+@eng A wicked spear rests on the ground here.@rus Острое копье (spear) лежит на земле.~
 titanium~
 weapon FGJ 0 AN
 spear 5 10 'thrust' DFK
@@ -483,34 +485,34 @@ a '' to_object 45 -1 4 19 0
 a '' to_object 45 -1 4 18 0
 g @rus none~
 #904
-sandals winged~
-a pair of winged sandals~
-A pair of well made sandals lies here.~
+sandals winged крылатые сандалии~
+@eng a pair of winged sandals@rus ~~крылатые~~ ~~сандалии~~~
+@eng A pair of well made sandals lies here.@rus Пара крылатых сандалий (sandals) оставлена здесь.~
 silk~
 armor FGK 0 AG
 8 8 8 4 0
 25 50 2200 P
 a '' to_affects 25 -1 0 0 T
-g @rus none~
+g @rus plural~
 #905
-staff ivory~
-an ivory staff~
-An ivory staff.~
+staff ivory жезл~
+@eng an ivory staff@rus ~~жезл~~ из слоновой кости~
+@eng An ivory staff.@rus Ты видишь жезл (staff) из слоновой кости.~
 ivory~
 staff FGK 0 AO
 30 3 3 'sanctuary' 0
 15 80 5800 P
-g @rus none~
+g @rus male~
 #906
-trident poseidon~
-poseidon's Trident~
-A huge three pronged spear lies here.~
+trident poseidon трезубец~
+@eng poseidon's Trident@rus ~~трезубец~~ Посейдона~
+@eng A huge three pronged spear lies here.@rus Массивный трезубец (trident) оставлен здесь.~
 oak~
 weapon FGK 0 AN
 spear 7 7 'pierce' FK
 45 160 5700 P
 a '' to_object 45 -1 2 4 0
-g @rus none~
+g @rus male~
 #907
 bow silver~
 a silver bow~
@@ -1807,16 +1809,10 @@ G 0 909 0		*	Athena: ambrosia
 M 0 912 4 925 4	* A serving boy (Residence)
 E 0 915 0 17		*	A serving boy<held in the hands>: a fan made of peacock feathers
 G 0 914 0		*	A serving boy: a bunch of grapes
-M 0 912 4 925 4	* A serving boy (Residence)
-E 0 915 0 17		*	A serving boy<held in the hands>: a fan made of peacock feathers
-G 0 914 0		*	A serving boy: a bunch of grapes
 M 0 905 1 926 1	* Apollo (Residence)
 E 0 907 0 16		*	Apollo<wielded>: a silver bow
 G 0 926 0		*	Apollo: nectar
 G 0 909 0		*	Apollo: ambrosia
-M 0 911 4 926 4	* an apprentice musician (Residence)
-E 0 916 0 17		*	an apprentice musician<held in the hands>: a lute
-G 0 921 0		*	an apprentice musician: a kiwi
 M 0 911 4 926 4	* an apprentice musician (Residence)
 E 0 916 0 17		*	an apprentice musician<held in the hands>: a lute
 G 0 921 0		*	an apprentice musician: a kiwi
@@ -1882,13 +1878,13 @@ S
 0
 
 #OLIMITS
-O 900 2	* the Aegis
+O 900 1	* the Aegis
 O 901 1	* the Thunder Bolt
 O 902 8	* a Winged Helmet
-O 903 5	* the spear of Ares
-O 904 10	* a pair of winged sandals
-O 905 9	* an ivory staff
-O 906 5	* poseidon's Trident
+O 903 3	* the spear of Ares
+O 904 3	* a pair of winged sandals
+O 905 3	* an ivory staff
+O 906 3	* poseidon's Trident
 O 907 10	* a silver bow
 O 908 2	* flaming gauntlets
 O 912 2	* a brightly glowing shield

@@ -5053,8 +5053,8 @@ S
 @eng You are tresspassing in a Noble's chamber. This noble locked his door, 
 anticipating intrusion from scum like you. The chambers consist of a common 
 room, several bed chambers, and a servant area.
-@rus Ты зашел в чужую комнату! Хотя ее хозяин и закрыл дверь, уходя, ты
-все же вошел сюда! Оставь все как есть и немедленно выйди!
+@rus Ты $gn{зашел} в чужую комнату! Хотя ее хозяин и закрыл дверь, уходя, ты
+все же $gn{вошел} сюда! Оставь все как есть и немедленно выйди!
 ~
 0 0 inside
 D1

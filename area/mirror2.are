@@ -3121,11 +3121,11 @@ Z -1 3500
 S
 #19002
 The Path~
-The row of trees comes to an end here; the fields to either side of the rising
-path slope downward and away.  The path continues its rise to the north,
-climbing higher and higher until it intersects the largest mountain in the 
-range, nestled between a smaller mountain to the right and a deep ridge to the
-left.
+The row of trees comes to an end here; the fields to either side of the
+rising path slope downward and away.  The path continues its rise to the
+north, climbing higher and higher until it intersects the largest mountain
+in the range, nestled between a smaller mountain to the right and a deep
+ridge to the left.  
 ~
 0 0 hills
 D1
@@ -3250,11 +3250,11 @@ ABZ -1 19005
 S
 #19007
 Along the Path Above the Realm~
-From here it appears that this path divides this realm; not only are the two
-sides nearly identical, but you can see a house far below you that has been 
-split in two by the base of this pathway, half on either side of the rock wall.  
-The path continues to the north, passing by a guard post and heading towards
-a castle partially hidden behind a low rock wall.
+From here it appears that this path divides this realm; not only are the
+two sides nearly identical, but you can see a house far below you that has
+been split in two by the base of this pathway, half on either side of the
+rock wall.  The path continues to the north, passing by a guard post and
+heading towards a castle partially hidden behind a low rock wall.  
 ~
 0 0 field
 D0
@@ -3349,10 +3349,10 @@ Z -1 19107
 S
 #19011
 Along the Pathway Above the Realm~
-As you look northwards towards the castle, you see a faint movement that mimics
-your own: it appears that its outer walls are plated with reflective steel. 
-High rock walls still hide most of the outside of the castle; you can see only
-the entranceway and the castle's high towers.
+As you look northwards towards the castle, you see a faint movement that
+mimics your own: it appears that its outer walls are plated with reflective
+steel.  High rock walls still hide most of the outside of the castle; you
+can see only the entranceway and the castle's high towers.  
 ~
 0 0 field
 D0
@@ -3435,10 +3435,11 @@ Z -1 19023
 S
 #19014
 Right Side of the Great Hall~
-The tapestry here portrays a king rescuing a child from a deep pit; the king's
-crown has been hung from a small bush on the side of the crevice, and the king
-himself is lying down on the muddy ground, lowering the royal robes into the 
-pit so that the young beggar can hold on as the king pulls him to safety.
+The tapestry here portrays a king rescuing a child from a deep pit; the
+king's crown has been hung from a small bush on the side of the crevice, and
+the king himself is lying down on the muddy ground, lowering the royal robes
+into the pit so that the young beggar can hold on as the king pulls him to
+safety.  
 ~
 0 AD inside
 D0
@@ -3574,10 +3575,9 @@ Z -1 19027
 S
 #19018
 Before the Alcove~
-A dark, recessed alcove lies to the north, with some sort of throne inside it;
-however, it's too dark to see if anyone is sitting in it.
-
-Darkness lies in every other direction.
+A dark, recessed alcove lies to the north, with some sort of throne
+inside it; however, it's too dark to see if anyone is sitting in it. 
+Darkness lies in every other direction.  
 ~
 0 AD inside
 D0
@@ -3713,8 +3713,8 @@ Z -1 19012
 S
 #19023
 Above the Corner~
-The wall curves upward to meet the navy blue cloth that covers the ceiling; the
-blue and brown tapestries continue upwards.
+The wall curves upward to meet the navy blue cloth that covers the
+ceiling; the blue and brown tapestries continue upwards.  
 ~
 0 AD air
 D0
@@ -4829,10 +4829,10 @@ Z -1 19062
 S
 #19062
 Along the Path Behind the Buildings~
-The gravel path continues behind the row of buildings here; it banks downwards
-towards the pond to the east, and heads south towards an intersection.  Here,
-sunflowers grow on either side of the path, almost high enough to form an arch;
-they wave gently as the breeze blows through them.
+The gravel path continues behind the row of buildings here; it banks
+downwards towards the pond to the east, and heads south towards an
+intersection.  Here, sunflowers grow on either side of the path, almost high
+enough to form an arch; they wave gently as the breeze blows through them.  
 ~
 0 0 field
 D0
@@ -4890,13 +4890,13 @@ Z -1 19068
 S
 #19064
 Along the Path Behind the Wooden Buildings~
-Daffodils and tulips line this part of the path, growing in almost every color
-possible; there are even some daffodils growing just in the water of the pond
-to the east.  To the west, the flowers' growth is slowed somewhat by the 
-wooden buildings that block the sun; most look healthy, though, since they
-still get light most of the day.  Once again, the sparkling rainbow tower
-dominates the horizon to the west, seeming to reach almost as high as the
-mountain wall itself.
+Daffodils and tulips line this part of the path, growing in almost every
+color possible; there are even some daffodils growing just in the water of
+the pond to the east.  To the west, the flowers' growth is slowed somewhat
+by the wooden buildings that block the sun; most look healthy, though, since
+they still get light most of the day.  Once again, the sparkling rainbow
+tower dominates the horizon to the west, seeming to reach almost as high as
+the mountain wall itself.  
 ~
 0 0 field
 D0
@@ -5106,11 +5106,12 @@ Z -1 19069
 S
 #19071
 The bar of the Holly Bush~
-The bar of the Holly Bush is quiet right now, though from the number of stools
-and tables, it looks as though it must be rather popular.  The restaurant lies
-to the north, with a big "Seat Yourself" sign over the doorway; while there
-are a few more people in there, it's still not all that crowded.
-
+The bar of the Holly Bush is quiet right now, though from the number of
+stools and tables, it looks as though it must be rather popular.  The
+restaurant lies to the north, with a big "Seat Yourself" sign over the
+doorway; while there are a few more people in there, it's still not all that
+crowded.  
+ 
 A small wooden staircase leads upwards to the bedrooms.
 ~
 0 D inside
@@ -5229,11 +5230,11 @@ Z -1 19074
 S
 #19076
 The Library and Bookstore~
-Musty books fill the library shelves; most have boring, foreign-sounding titles
-like "Folanae Fanlo" and "Eisenspritz Achtengesellschaft."  It's just as well;
-you don't have a library card anyway, and Mrs. Truxton surely won't give one
-to a wandering soul like you.  A few books are on sale in the front, though, 
-including histories of Midgaard and the Mirror Realm.
+Musty books fill the library shelves; most have boring, foreign-sounding
+titles like "Folanae Fanlo" and "Eisenspritz Achtengesellschaft."  It's just
+as well; you don't have a library card anyway, and Mrs.  Truxton surely
+won't give one to a wandering soul like you.  A few books are on sale in the
+front, though, including histories of Midgaard and the Mirror Realm.  
 ~
 0 D inside
 D1
@@ -5245,11 +5246,11 @@ Z -1 19074
 S
 #19077
 The Chapel~
-The chapel appears to have suffered the most from the isolation of this land; 
-the pews are scratched and worn, and the hymnals are discolored and tattered.
-The icons on the altar still shine brightly, though, and the church still 
-shines with a bright, friendly light; someone still cares enough to keep 
-things mostly clean and neat.
+The chapel appears to have suffered the most from the isolation of this
+land; the pews are scratched and worn, and the hymnals are discolored and
+tattered.  The icons on the altar still shine brightly, though, and the
+church still shines with a bright, friendly light; someone still cares
+enough to keep things mostly clean and neat.  
 ~
 0 D inside
 D2
@@ -5284,10 +5285,10 @@ Z -1 19079
 S
 #19079
 Entrance to the Rainbow Tower~
-The clear walls sparkle as the light reflects off the crystal's facets, shining
-light throughout what appears to be a relatively small room.  The only exit,
-aside from the one leading out, is a spiral staircase leading upwards through
-a closed hatch in the ceiling.
+The clear walls sparkle as the light reflects off the crystal's facets,
+shining light throughout what appears to be a relatively small room.  The
+only exit, aside from the one leading out, is a spiral staircase leading
+upwards through a closed hatch in the ceiling.  
 ~
 0 CD field
 D1
@@ -5433,13 +5434,13 @@ AFZ 19162 19083
 S
 #19085
 The Violet Room~
-The violet light streaming from these eight walls gives this room an unearthly
-air: normally white objects shine with an ethereal indigo light, while almost
-all other colors are darkened to a rich, deep, purple-black.  An almost 
-imperceptible breeze stirs the violet petals that cover the floor here, 
-swirling them gently around your face and hands.  Sprigs of lilac grow 
-from behind the dark throne on the north wall, brushing gently against 
-the Sign of the Light.
+The violet light streaming from these eight walls gives this room an
+unearthly air: normally white objects shine with an ethereal indigo light,
+while almost all other colors are darkened to a rich, deep, purple-black. 
+An almost imperceptible breeze stirs the violet petals that cover the floor
+here, swirling them gently around your face and hands.  Sprigs of lilac grow
+from behind the dark throne on the north wall, brushing gently against the
+Sign of the Light.  
 ~
 0 CD inside
 E
@@ -5536,12 +5537,12 @@ Z -1 19087
 S
 #19089
 The Intersection~
-Two wooden pathways meet here before the cracked rock face, providing the only
-safe and dry passage across a stinking swamp.  Though the two boardwalks are
-fairly rickety, they seem to have held up fairly well under the gloom and muck
-surrounding them. There seems to be no color in this land, no color at all; 
-the swamp mud is a deep black, while the sun and sky themselves seem 
-dull and gray.
+Two wooden pathways meet here before the cracked rock face, providing the
+only safe and dry passage across a stinking swamp.  Though the two
+boardwalks are fairly rickety, they seem to have held up fairly well under
+the gloom and muck surrounding them.  There seems to be no color in this
+land, no color at all; the swamp mud is a deep black, while the sun and sky
+themselves seem dull and gray.  
 ~
 0 0 city
 D0
@@ -5571,13 +5572,12 @@ Z -1 19108
 S
 #19090
 The Wooden Path~
-The rickety wooden path continues along the foot of the mountain wall, 
-stretching between an intersection to the south and a darker section of swamp
-to the north.  The swamp itself lies below and to the east of the rickety path;
-its black muddy waters occasionally splash over the side of the path, leaving
-stinking puddles on the grey, rotten wood.
-To the west lies a small wooden house; the mountain wall appears to have torn
-it in two.
+The rickety wooden path continues along the foot of the mountain wall,
+stretching between an intersection to the south and a darker section of
+swamp to the north.  The swamp itself lies below and to the east of the
+rickety path; its black muddy waters occasionally splash over the side of
+the path, leaving stinking puddles on the grey, rotten wood.  To the west
+lies a small wooden house; the mountain wall appears to have torn it in two.
 ~
 0 0 city
 D0
@@ -5607,10 +5607,10 @@ Z -1 19160
 S
 #19091
 The Corner of the Wooden Path~
-The wooden path swings east and south here, matching the curve of the mountain
-wall, and curving around the murkier, more watery part of the swamp.  Strange
-plants grow in the muck here, with forked, grayish-green leaves and twisted
-brown stems.
+The wooden path swings east and south here, matching the curve of the
+mountain wall, and curving around the murkier, more watery part of the
+swamp.  Strange plants grow in the muck here, with forked, grayish-green
+leaves and twisted brown stems.  
 ~
 0 0 city
 D1
@@ -5628,10 +5628,10 @@ Z -1 19090
 S
 #19092
 A Grove of Trees~
-A thick clump of trees grows out of the marsh here; their roots twist and bend
-as they search for solid soil.  The wooden pathway becomes even darker as it
-passes underneath these uneven rows of trees, finally becoming so dark that you
-need a light to find your way.
+A thick clump of trees grows out of the marsh here; their roots twist and
+bend as they search for solid soil.  The wooden pathway becomes even darker
+as it passes underneath these uneven rows of trees, finally becoming so dark
+that you need a light to find your way.  
 ~
 0 A city
 D1
@@ -5649,12 +5649,12 @@ Z -1 19091
 S
 #19093
 The Swamp~
-The ground slopes downwards here, leading into a more liquid part of the swamp;
-the hard ground lies far below a murky pond of scum and mire.  A terrible 
-stench rises up from the various dead things lying about; brown, decaying 
-reeds and grasses cover the surface, while a school of fish is rotting 
-away in a thick cluster of bushes and cattails that hangs over the 
-northern end of the pond.
+The ground slopes downwards here, leading into a more liquid part of the
+swamp; the hard ground lies far below a murky pond of scum and mire.  A
+terrible stench rises up from the various dead things lying about; brown,
+decaying reeds and grasses cover the surface, while a school of fish is
+rotting away in a thick cluster of bushes and cattails that hangs over the
+northern end of the pond.  
 ~
 0 C noswim
 D1
@@ -5809,13 +5809,13 @@ Z -1 19093
 S
 #19099
 Under the Gazebo~
-Broken boards, fallen from the gazebo floor, poke out of the muddy water here;
-their rusty nails form a treacherous maze.  The fallen boards allow you to see
-into the gazebo above you, but it's too dark to make out much of anything,
-except for a few flickering shadows; however, you can hear the shufflings of
-what might be human footsteps.  Small slugs appear to have helped the natural
-decay process; hundreds of them are stuck to the underside of the gazebo floor,
-and appear to be happily munching away.
+Broken boards, fallen from the gazebo floor, poke out of the muddy water
+here; their rusty nails form a treacherous maze.  The fallen boards allow
+you to see into the gazebo above you, but it's too dark to make out much of
+anything, except for a few flickering shadows; however, you can hear the
+shufflings of what might be human footsteps.  Small slugs appear to have
+helped the natural decay process; hundreds of them are stuck to the
+underside of the gazebo floor, and appear to be happily munching away.  
 ~
 0 C noswim
 D0
@@ -5873,11 +5873,11 @@ Z -1 19095
 S
 #19101
 Below the Fisherman's Hut~
-A gray wooden hut teeters here on six rickety supports, hanging partially over
-the waters of the swamp; on the western side, two of the supports have 
-partially given way, making the hut lean sharply downwards.  More stable 
-ground lies to the south--at least, it's stable enough to allow a dense, 
-dark grove of trees to grow high into the air.
+A gray wooden hut teeters here on six rickety supports, hanging partially
+over the waters of the swamp; on the western side, two of the supports have
+partially given way, making the hut lean sharply downwards.  More stable
+ground lies to the south--at least, it's stable enough to allow a dense,
+dark grove of trees to grow high into the air.  
 ~
 0 0 field
 D0
@@ -5994,11 +5994,11 @@ Z -1 19121
 S
 #19105
 The Path~
-Here, the wooden path passes behind a row of decrepit wooden buildings to the 
-east; each is two stories high, and prevents you from seeing whatever lies on 
-the other side. There is a break in the row to the north, however, with a path
-leading between two of the buildings; also, the swamp lies to the west, while
-a dark forest rises in the distance to the south.
+Here, the wooden path passes behind a row of decrepit wooden buildings to
+the east; each is two stories high, and prevents you from seeing whatever
+lies on the other side.  There is a break in the row to the north, however,
+with a path leading between two of the buildings; also, the swamp lies to
+the west, while a dark forest rises in the distance to the south.  
 ~
 0 0 field
 D0
@@ -6095,12 +6095,12 @@ Z -1 19107
 S
 #19109
 Center of the Street~
-A rough, muddy path runs north and south between two rows of wooden buildings,
-each with a tarnished sign out front.  The gray wood has begun to rot away
-from all the exposure to the water and swamp muck, and the second story
-as a whole looks rather unsteady.  The glittering black tower to the east 
-seems to be the only stable building in the entire realm, unaffected by the
-mire of the swamp to its west.
+A rough, muddy path runs north and south between two rows of wooden
+buildings, each with a tarnished sign out front.  The gray wood has begun to
+rot away from all the exposure to the water and swamp muck, and the second
+story as a whole looks rather unsteady.  The glittering black tower to the
+east seems to be the only stable building in the entire realm, unaffected by
+the mire of the swamp to its west.  
 ~
 0 0 city
 D0
@@ -6172,13 +6172,13 @@ Z -1 19112
 S
 #19111
 The Bar of the Hemlock Bush~
-A huge horse's skull hangs over the grim, dirty bar; candles in its eye sockets
-make it stare at you menacingly.  Pools of strange, smelly fluids are scattered
-all over the floor; some eat away at the paint of the rickety chair legs, while
-others glow faintly in the dim light.  A few drunks have fallen asleep on a
-table just behind the bar, barricaded in by the wreckage of a few old tables
-and chairs; it looks like a few of them may have caused those puddles just
-below you.
+A huge horse's skull hangs over the grim, dirty bar; candles in its eye
+sockets make it stare at you menacingly.  Pools of strange, smelly fluids
+are scattered all over the floor; some eat away at the paint of the rickety
+chair legs, while others glow faintly in the dim light.  A few drunks have
+fallen asleep on a table just behind the bar, barricaded in by the wreckage
+of a few old tables and chairs; it looks like a few of them may have caused
+those puddles just below you.  
 ~
 0 D inside
 D0
@@ -6216,12 +6216,13 @@ Z -1 19110
 S
 #19113
 The Restaurant of the Hemlock Bush ~
-Strange murals cover the walls of this restaurant--they're apparently some sort
-of abstract art, since instead of portraying a series of figures or a broad 
-landscape, they contain dizzying (and rather unappetizing) swirls of colors,
-with only the faintest hint of demonic-looking figures here and there.  The 
-floor is liberally coated with vomit and scum, and many of the chairs look to
-have fallen victim to the same fight that took out most of the bar.
+Strange murals cover the walls of this restaurant--they're apparently
+some sort of abstract art, since instead of portraying a series of figures
+or a broad landscape, they contain dizzying (and rather unappetizing) swirls
+of colors, with only the faintest hint of demonic-looking figures here and
+there.  The floor is liberally coated with vomit and scum, and many of the
+chairs look to have fallen victim to the same fight that took out most of
+the bar.  
 ~
 0 D inside
 D2
@@ -6247,9 +6248,9 @@ Z -1 19110
 S
 #19115
 The Street~
-Two rickety shops lie to the east and west, each with sparsely stocked shelves;
-a few books lie on the windowsill to the east, while the window to the
-west is empty.
+Two rickety shops lie to the east and west, each with sparsely stocked
+shelves; a few books lie on the windowsill to the east, while the window to
+the west is empty.  
 ~
 0 0 city
 D0
@@ -6394,8 +6395,9 @@ Z -1 19120
 S
 #19122
 Entrance to the Dark Tower~
-Cold gray marble covers the walls and the floor, giving the entire room a dim, 
-dirty air.  Save for a staircase leading upwards, the room is entirely empty.
+Cold gray marble covers the walls and the floor, giving the entire room a
+dim, dirty air.  Save for a staircase leading upwards, the room is entirely
+empty.  
 ~
 0 D city
 D3
@@ -6526,14 +6528,14 @@ this?
 S
 #19129
 Merriman's Alcove~
-This small alcove is a cozy L-shaped room with wood-panelled walls and slanted 
-ceilings; a dark blue area rug covers the floor.  In the larger section of 
-the room, couches and easy chairs are arranged around a small glass table 
-strewn with books and papers; bookcases and cabinets line the walls, 
-filled to overflowing with well-worn paperbacks and old, musty hardcovers, 
-as well as a small stereo system.  The smaller section of the room, though 
-partially hidden by a deep blue tapestry, is partially in view; it holds 
-a small bed, a nightstand, and a dresser.
+This small alcove is a cozy L-shaped room with wood-panelled walls and
+slanted ceilings; a dark blue area rug covers the floor.  In the larger
+section of the room, couches and easy chairs are arranged around a small
+glass table strewn with books and papers; bookcases and cabinets line the
+walls, filled to overflowing with well-worn paperbacks and old, musty
+hardcovers, as well as a small stereo system.  The smaller section of the
+room, though partially hidden by a deep blue tapestry, is partially in view;
+it holds a small bed, a nightstand, and a dresser.  
 ~
 0 CD inside
 E
@@ -6592,10 +6594,10 @@ Z -1 19132
 S
 #19132
 The Forest ~
-A small hut lies to the north, with stilts raising it off the ground; the trees
-prevent you from seeing whether anyone is inside.  Dark forests lie in every
-other direction, with the thick pine branches again preventing you from seeing
-anyone or anything that might be nearby.
+A small hut lies to the north, with stilts raising it off the ground; the
+trees prevent you from seeing whether anyone is inside.  Dark forests lie in
+every other direction, with the thick pine branches again preventing you
+from seeing anyone or anything that might be nearby.  
 ~
 0 0 forest
 D0
@@ -6659,10 +6661,11 @@ Z -1 19132
 S
 #19134
 The Forest ~
-The thick forest comes to a halt here against the high, gray-brown rock of the
-mountain face; thick brush grows along the base of the wall, but even its thin
-roots cannot find a foothold in the sheer rock.  The forest ends to the north
-as well, meeting up with a neat gravel pathway as it enters a clearing.
+The thick forest comes to a halt here against the high, gray-brown rock
+of the mountain face; thick brush grows along the base of the wall, but even
+its thin roots cannot find a foothold in the sheer rock.  The forest ends to
+the north as well, meeting up with a neat gravel pathway as it enters a
+clearing.  
 ~
 0 0 forest
 D0
@@ -6842,12 +6845,12 @@ Z -1 19144
 S
 #19140
 Dark Forest ~
-Damp, low-hanging branches sweep your head as you pass through this section of
-forest, and the black earth squishes underneath you, covering your feet with
-bits and pieces of decaying leaves.  Ivy and wisteria hang from the trees in
-every direction, keeping you from seeing more than a few feet ahead of you;
-the hanging plants are slightly thinner to the north, though, allowing just a
-little more light to shine through.
+Damp, low-hanging branches sweep your head as you pass through this
+section of forest, and the black earth squishes underneath you, covering
+your feet with bits and pieces of decaying leaves.  Ivy and wisteria hang
+from the trees in every direction, keeping you from seeing more than a few
+feet ahead of you; the hanging plants are slightly thinner to the north,
+though, allowing just a little more light to shine through.  
 ~
 0 A forest
 D0
@@ -6877,10 +6880,10 @@ Z -1 19139
 S
 #19141
 Dark Forest~
-Strange noises echo through the damp forest; here and there yellow eyes and a 
-mouth full of teeth flash out of a clump of bracken or a fallen tree.  A cool
-breeze blows from the north, where a small, decrepit hut stands, screened 
-by the ivy and wisteria dangling from the low-hanging branches.
+Strange noises echo through the damp forest; here and there yellow eyes
+and a mouth full of teeth flash out of a clump of bracken or a fallen tree. 
+A cool breeze blows from the north, where a small, decrepit hut stands,
+screened by the ivy and wisteria dangling from the low-hanging branches.  
 ~
 0 A forest
 D0
@@ -6926,10 +6929,10 @@ Z -1 19144
 S
 #19143
 Dark Forest~
-A tall weeping willow tree droops over the forest floor here, with its branches
-brushing against the ground. Though the forest canopy is thinner here, it is
-still quite dark; the sun itself is not powerful enough to shine through the
-gloom that surrounds this land.
+A tall weeping willow tree droops over the forest floor here, with its
+branches brushing against the ground.  Though the forest canopy is thinner
+here, it is still quite dark; the sun itself is not powerful enough to shine
+through the gloom that surrounds this land.  
 ~
 0 A forest
 D0
@@ -6974,11 +6977,12 @@ Z -1 19142
 S
 #19145
 Dark Forest ~
-The trees here are covered with damp gray moss, and their branches drip slime 
-all over the rocky wall to the south, making it impossible to climb.  A thin 
-shaft of blue sky is just visible over the southern mountain wall, far 
-beyond the boundaries of this dark realm; another stretch of blue lies to the
-west, beyond the mountain wall that separates this valley from the next.
+The trees here are covered with damp gray moss, and their branches drip
+slime all over the rocky wall to the south, making it impossible to climb. 
+A thin shaft of blue sky is just visible over the southern mountain wall,
+far beyond the boundaries of this dark realm; another stretch of blue lies
+to the west, beyond the mountain wall that separates this valley from the
+next.  
 ~
 0 A forest
 D0
@@ -7108,11 +7112,11 @@ Z -1 19150
 S
 #19152
 The Crystal Altar~
-Warm rays of sun filter through cool ivy leaves, and you hear the faint splash
-of water far below you; you have entered a small room inside the top of the
-gazebo, enclosed by its wooden framework.  The wooden panel sits in the
-floorboard beneath you; a simple wooden knob is attached across from two
-shiny brass hinges.
+Warm rays of sun filter through cool ivy leaves, and you hear the faint
+splash of water far below you; you have entered a small room inside the top
+of the gazebo, enclosed by its wooden framework.  The wooden panel sits in
+the floorboard beneath you; a simple wooden knob is attached across from two
+shiny brass hinges.  
 ~
 0 C city
 D5

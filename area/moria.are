@@ -343,7 +343,7 @@ lion mountain горный лев~
 @eng Huge claws and big teeth make quite a fearsome opponent for
 the weary.  Are you next?
 @rus Огромные  когти  и  острые  зубы,  покрытые  густой шерстью... Внушительный
-соперник. Ты уверен, что пришел сюда для этого?
+соперник. Ты уверен, что $gn{пришел} сюда для этого?
 ~
 cat~
 FG 0 0 0 0 -100 0
@@ -983,7 +983,7 @@ E
 axe топор~
 @eng It has an edge sharp enough to cut a passing thought. A good find, this.
 @rus Этот топор зточен так, буд-то ты с одного маху смог бы срубить дерево.
-Ты не капельки не жалеешь, что нашел его здеcь.
+Ты не капельки не жалеешь, что $gn{нашел} его здеcь.
 ~
 g @eng none@rus male~
 #4055

@@ -692,7 +692,7 @@ r disease -25
 r charm 33
 #12027
 boggan craftsman shoe maker боггард-мастеровой~
-@eng a boggan craftsman@rus боггард-мастеровой~
+@eng a boggan craftsman@rus ~~боггард~~-~~мастеровой~~~
 @eng A boggan craftsman is here working on a project.
 @rus Боггард (boggan) что-то с увлечением мастерит.
 ~
