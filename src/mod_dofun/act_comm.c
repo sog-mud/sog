@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.187.2.42 2002-11-27 14:57:41 tatyana Exp $
+ * $Id: act_comm.c,v 1.187.2.43 2002-11-27 15:25:12 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1677,8 +1677,10 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 
 /* handle 'petition reject' */
 		if (victim->clan == cln) {
-			if (vpc->clan_status == CLAN_LEADER
-			&&  !IS_IMMORTAL(victim)) {
+			if ((vpc->clan_status == CLAN_LEADER &&
+			    !IS_IMMORTAL(ch))
+			|| (IS_IMMORTAL(victim) &&
+			    !IS_TRUSTED(ch, trust_level(victim)))) {
 				char_puts("You don't have enough power "
 					  "to do that.\n", ch);
 				return;
