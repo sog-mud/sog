@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.14 1998-04-22 07:21:42 fjoe Exp $
+ * $Id: comm.c,v 1.15 1998-04-26 11:48:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1416,7 +1416,7 @@ bool process_output( DESCRIPTOR_DATA *d, bool fPrompt )
             bust_a_prompt( d->character );
 
 	if (IS_SET(ch->comm,COMM_TELNET_GA))
-	    write_to_buffer(d,go_ahead_str,0);
+		write(d->descriptor, go_ahead_str, strlen(go_ahead_str));
     }
 
     /*
@@ -1669,28 +1669,34 @@ void write_to_buffer( DESCRIPTOR_DATA *d, const char *txt, int length )
  * If this gives errors on very long blocks (like 'ofind all'),
  *   try lowering the max block size.
  */
-bool write_to_descriptor( int desc, char *txt, int length )
+bool write_to_descriptor(int desc, char *txt, int length)
 {
-    int iStart;
-    int nWrite;
-    int nBlock;
+	int iStart;
+	int nWrite;
+	int nBlock;
 
 #if defined(macintosh) || defined(MSDOS)
-    if ( desc == 0 )
-	desc = 1;
+	if (desc == 0)
+		desc = 1;
 #endif
 
-    if ( length <= 0 )
-	length = strlen(txt);
+	if (length <= 0)
+		length = strlen(txt);
 
-    for ( iStart = 0; iStart < length; iStart += nWrite )
-    {
-	nBlock = UMIN( length - iStart, 4096 );
-	if ( ( nWrite = write( desc, txt + iStart, nBlock ) ) < 0 )
-	    { perror( "Write_to_descriptor" ); return FALSE; }
-    } 
+	for (iStart = 0; iStart < length; iStart += nWrite) {
+		char* p;
 
-    return TRUE;
+		nBlock = UMIN(length - iStart, 4096);
+		if ((p = strchr(txt+iStart, IAC)) != NULL)
+			nBlock = UMIN(nBlock, p-(txt+iStart)+1);
+		if ((nWrite = write(desc, txt + iStart, nBlock)) < 0
+		||  (p != NULL && write(desc, p, 1) < 0)) {
+			perror("Write_to_descriptor");
+			return FALSE;
+		}
+	} 
+
+	return TRUE;
 }
 
 
@@ -1834,19 +1840,16 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
 
 	}
 
-	if ( fOld )
-	{
+	if (fOld) {
 	    /* Old player */
- 	    write_to_buffer( d, "Password: ", 0 );
-	    write_to_buffer( d, (char *) echo_off_str, 0 );
+ 	    write_to_buffer(d, "Password: ", 0);
+	    write(d->descriptor, echo_off_str, strlen(echo_off_str));
 	    d->connected = CON_GET_OLD_PASSWORD;
 	    return;
 	}
-	else
-	{
+	else {
 	    /* New player */
- 	    if (newlock)
-	    {
+ 	    if (newlock) {
                 write_to_buffer( d, "The game is newlocked.\n\r", 0 );
                 close_socket( d );
                 return;
@@ -1877,14 +1880,13 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
 	    sprintf(buf, "Wrong password by %s@%s", ch->name, d->host);
 	    log_string(buf);
 	    if (ch->endur == 2)
-	    	close_socket( d );
-	    else 
-		{
- 	    	 write_to_buffer( d, "Password: ", 0 );
-	    	 write_to_buffer( d, (char *) echo_off_str, 0 );
-	    	 d->connected = CON_GET_OLD_PASSWORD;
-		 ch->endur++;
-		}
+	    	close_socket(d);
+	    else {
+ 	    	write_to_buffer(d, "Password: ", 0);
+		write(d->descriptor, echo_off_str, strlen(echo_off_str));
+	    	d->connected = CON_GET_OLD_PASSWORD;
+		ch->endur++;
+	    }
 	    return;
 	}
  
@@ -1898,7 +1900,7 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
 	}
 
 
-	write_to_buffer( d, (char *) echo_on_str, 0 );
+	write(d->descriptor, echo_on_str, strlen(echo_on_str));
 
 	if ( check_reconnect( d, ch->name, TRUE ) )
 	    return;
@@ -2016,9 +2018,11 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
 	switch ( *argument )
 	{
 	case 'y': case 'Y':
-	    sprintf( buf, "New character.\n\rGive me a password for %s: %s",
-		ch->name, (char *) echo_off_str );
-	    write_to_buffer( d, buf, 0 );
+	    sprintf(buf, "New character.\n\rGive me a password for %s: ",
+		    ch->name);
+	    write_to_buffer(d, buf, 0);
+	    write(d->descriptor, echo_off_str, strlen(echo_off_str));
+
 	    d->connected = CON_GET_NEW_PASSWORD;
 	    break;
 
@@ -2079,7 +2083,8 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
 	    return;
 	}
 
-	write_to_buffer( d, (char *) echo_on_str, 0 );
+	write(d->descriptor, echo_on_str, strlen(echo_on_str));
+
 	sprintf(buf,
 "The Anatolia MUD is home to %d different races with brief descriptions below:",
 			MAX_PC_RACE - 1);
