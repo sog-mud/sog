@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.106 1999-02-22 04:27:39 fjoe Exp $
+ * $Id: update.c,v 1.107 1999-02-22 15:13:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -604,9 +604,13 @@ void mobile_update(void)
 		if (IS_AFFECTED(ch, AFF_CORRUPTION) && ch->in_room != NULL) {
 			ch->hit -=  ch->level / 10;
 			if (ch->hit < 1) {
-				ch->position = POS_DEAD;
-				handle_death(ch, ch);
-				continue;
+				if (IS_IMMORTAL(ch)) 
+					ch->hit = 1;
+				else {
+					ch->position = POS_DEAD;
+					handle_death(ch, ch);
+					continue;
+				}
 			}
 			bust_prompt = TRUE;
 		}
@@ -1231,9 +1235,13 @@ void char_update(void)
 			affect_to_char(ch ,&witch);
 			ch->hit = UMIN(ch->hit, ch->max_hit);
 			if (ch->hit < 1) {
-				ch->position = POS_DEAD;
-				handle_death(ch, ch);
-				continue;
+				if (IS_IMMORTAL(ch))
+					ch->hit = 1;
+				else {
+					ch->position = POS_DEAD;
+					handle_death(ch, ch);
+					continue;
+				}
 			}
 		}
 
