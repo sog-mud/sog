@@ -1,16 +1,16 @@
 /*
- * $Id: spellfun.c,v 1.239 2001-06-24 21:12:45 avn Exp $
+ * $Id: spellfun.c,v 1.240 2001-06-26 18:21:44 fjoe Exp $
  */
 
 /***************************************************************************
- *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *	
+ *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
  *	 Serdar BULUT {Chronos}		bulut@rorqual.cc.metu.edu.tr       *
- *	 Ibrahim Canpunar  {Asena}	canpunar@rorqual.cc.metu.edu.tr    *	
- *	 Murat BICER  {KIO}		mbicer@rorqual.cc.metu.edu.tr	   *	
- *	 D.Baris ACAR {Powerman}	dbacar@rorqual.cc.metu.edu.tr	   *	
+ *	 Ibrahim Canpunar  {Asena}	canpunar@rorqual.cc.metu.edu.tr    *
+ *	 Murat BICER  {KIO}		mbicer@rorqual.cc.metu.edu.tr	   *
+ *	 D.Baris ACAR {Powerman}	dbacar@rorqual.cc.metu.edu.tr	   *
  *     By using this code, you have agreed to follow the terms of the      *
- *     ANATOLIA license, in the file Anatolia/anatolia.licence             *	
+ *     ANATOLIA license, in the file Anatolia/anatolia.licence             *
  ***************************************************************************/
 
 /***************************************************************************
@@ -348,7 +348,7 @@ void spell_charm_person(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	if (!IS_NPC(ch)) {
 		if (!IS_NPC(victim)) {
 			level += get_curr_stat(ch, STAT_CHA) -
-				 get_curr_stat(victim, STAT_CHA); 
+				 get_curr_stat(victim, STAT_CHA);
 		}
 
 		if (flag_value(gender_table, mlstr_mval(&ch->gender)) == SEX_FEMALE)
@@ -360,7 +360,7 @@ void spell_charm_person(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	||  !IS_AWAKE(victim)
 	||  victim->position == POS_FIGHTING
 	||  level < LEVEL(victim)
-	||  saves_spell(level, victim, DAM_CHARM) 
+	||  saves_spell(level, victim, DAM_CHARM)
 	||  (IS_NPC(victim) && victim->pMobIndex->pShop != NULL)
 	||  (victim->in_room &&
 	     IS_SET(victim->in_room->room_flags, ROOM_BATTLE_ARENA)))
@@ -5247,7 +5247,7 @@ void spell_animate_dead(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 		obj = (OBJ_DATA *) vo;
 
-		if (!(obj->item_type == ITEM_CORPSE_NPC 
+		if (!(obj->item_type == ITEM_CORPSE_NPC
 		|| obj->item_type == ITEM_CORPSE_PC)) {
 			act_char("You can animate only corpses!", ch);
 			return;
@@ -5258,7 +5258,7 @@ void spell_animate_dead(const char *sn, int level, CHAR_DATA *ch, void *vo)
 			return;
 		}
 
-		if (count_charmed(ch)) 
+		if (count_charmed(ch))
 			return;
 
 		if (ch->in_room != NULL

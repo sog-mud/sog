@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.257 2001-06-26 17:29:44 fjoe Exp $
+ * $Id: act_move.c,v 1.258 2001-06-26 18:21:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2182,15 +2182,14 @@ void do_fly(CHAR_DATA *ch, const char *argument)
 			act_char("You are already on the ground.", ch);
 			return;
 		}
-	}
- 	else {
+	} else {
 		act_char("Type fly with 'up' or 'down'.", ch);
 		return;
 	}
 
 	WAIT_STATE(ch, skill_beats("fly"));
 }
-		 
+
 void do_push(CHAR_DATA *ch, const char *argument)
 {
 	char arg1 [MAX_INPUT_LENGTH];
@@ -2218,8 +2217,9 @@ void do_push(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_NPC(ch) && IS_SET(ch->affected_by, AFF_CHARM) 
-		&& (ch->master != NULL)) {
+	if (IS_NPC(ch)
+	&&  IS_SET(ch->affected_by, AFF_CHARM)
+	&&  ch->master != NULL) {
 		act_char("You are too dazed to push anyone.", ch);
 		return;
 	}
@@ -2253,20 +2253,25 @@ void do_push(CHAR_DATA *ch, const char *argument)
 	if ((pexit = ch->in_room->exit[door])
 	&&  IS_SET(pexit->exit_info, EX_ISDOOR)) {
 		if (IS_SET(pexit->exit_info, EX_CLOSED)) {
-			act_char("The door is closed.", ch); 
+			act_char("The door is closed.", ch);
 			return;
 		}
 		if (IS_SET(pexit->exit_info, EX_LOCKED)) {
-			act_char("The door is locked.", ch); 
+			act_char("The door is locked.", ch);
 			return;
 		}
+	}
+
+	if (IS_SET(ch->in_room->room_flags, ROOM_BATTLE_ARENA)) {
+		act_char("Some mystical force prevents you from doing that.", ch);
+		return;
 	}
 
 	if (IS_AFFECTED(ch, AFF_WEB)) {
 		act_char("You're webbed, and want to do WHAT?!?", ch);
 		act("$n stupidly tries to push $N while webbed.",
 		    ch, NULL, victim, TO_ROOM);
-		return; 
+		return;
 	}
 
 	if (IS_AFFECTED(victim, AFF_WEB)) {
@@ -2274,7 +2279,7 @@ void do_push(CHAR_DATA *ch, const char *argument)
 			 "in place.", victim, NULL, ch, TO_VICT, POS_DEAD);
 		act("$n attempts to push $n, but fails as the webs hold "
 		    "$n in place.", victim, NULL, ch, TO_NOTVICT);
-		return; 
+		return;
 	}
 
 	if (is_safe(ch,victim))

@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.237 2001-06-25 16:51:15 fjoe Exp $
+ * $Id: act_obj.c,v 1.238 2001-06-26 18:21:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1688,14 +1688,14 @@ void do_steal(CHAR_DATA * ch, const char *argument)
 	OBJ_DATA       *obj;
 	OBJ_DATA       *obj_inve;
 	int             percent;
-	int 		chance;
+	int		chance;
 	int		carry_n, carry_w;
 
 	if (!(chance = get_skill(ch, "steal"))) {
 		act_char("Huh?", ch);
 		return;
 	}
-	
+
 	argument = one_argument(argument, arg1, sizeof(arg1));
 	argument = one_argument(argument, arg2, sizeof(arg2));
 
@@ -1731,7 +1731,7 @@ void do_steal(CHAR_DATA * ch, const char *argument)
 		return;
 
 	chance -= (LEVEL(ch) - LEVEL(victim)) * 3;
-	
+
 	percent = number_percent() +
 		  (IS_AWAKE(victim) ? 10 : -50) +
 		  (!can_see(victim, ch) ? -10 : 0);
@@ -1753,7 +1753,7 @@ void do_steal(CHAR_DATA * ch, const char *argument)
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 			act("$n steps out of shadows.",
 			    ch, NULL, NULL, TO_ROOM);
-        	}
+		}
 
 		if (!IS_AFFECTED(victim, AFF_SLEEP)) {
 			victim->position = victim->position == POS_SLEEPING ? POS_STANDING :
@@ -2713,6 +2713,12 @@ void do_butcher(CHAR_DATA * ch, const char *argument)
 		act_char("Butcher what?", ch);
 		return;
 	}
+
+	if (IS_SET(ch->in_room->room_flags, ROOM_BATTLE_ARENA)) {
+		act_char("This place doesn't seem to be good for your cooking experiments.", ch);
+		return;
+	}
+
 	if ((obj = get_obj_here(ch, arg)) == NULL) {
 		act_char("You do not see that here.", ch);
 		return;
@@ -2771,7 +2777,7 @@ void do_butcher(CHAR_DATA * ch, const char *argument)
 #define OBJ_VNUM_CROSS			8
 
 void do_crucify(CHAR_DATA *ch, const char *argument)
-{	
+{
 	OBJ_DATA *obj;
 	char arg[MAX_STRING_LENGTH];
 	OBJ_DATA *obj2, *next;
@@ -2789,8 +2795,13 @@ void do_crucify(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_AFFECTED(ch, AFF_BERSERK) 
-	|| is_affected(ch, "frenzy")) {
+	if (IS_SET(ch->in_room->room_flags, ROOM_BATTLE_ARENA)) {
+		act_char("Some mystical force prevents you from doing that.", ch);
+		return;
+	}
+
+	if (IS_AFFECTED(ch, AFF_BERSERK)
+	||  is_affected(ch, "frenzy")) {
 		act_char("Calm down first.", ch);
 		return;
 	}
