@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.54.2.10 2001-12-25 19:20:35 tatyana Exp $
+ * $Id: special.c,v 1.54.2.11 2003-09-11 10:39:49 tatyana Exp $
  */
 
 /***************************************************************************
@@ -958,16 +958,16 @@ bool spec_guard(CHAR_DATA *ch)
 	CHAR_DATA *victim, *v_next;
 	CHAR_DATA *ech;
 	int max_evil; 
- 
+
 	if (!IS_AWAKE(ch) || ch->fighting != NULL)
 		return FALSE;
-	
+
 	max_evil = 300; 
 	ech      = NULL;
-	
+
 	for (victim = ch->in_room->people; victim != NULL; victim = v_next) {
 		v_next = victim->next_in_room;
-	
+
 		if (IS_NPC(victim))
 			continue;
 
@@ -975,7 +975,7 @@ bool spec_guard(CHAR_DATA *ch)
 		&&  !IS_IMMORTAL(victim)
 		&&  can_see(ch, victim)) {
 			dofun("say", ch, "Do I know you?");
- 			if (str_cmp(ch->in_room->area->name,
+			if (str_cmp(ch->in_room->area->name,
 				    hometown_name(PC(victim)->hometown)))
 				dofun("say", ch,
 				      "I don't remember you. Go away!");
@@ -988,20 +988,20 @@ bool spec_guard(CHAR_DATA *ch)
 
 		if (IS_WANTED(victim) && can_see(ch, victim))
 			break;
-	
+
 		if (victim->fighting != NULL
 		&&  victim->fighting != ch
 		&&  victim->alignment < max_evil
 		&&  can_see(ch, victim)) {
 			if (IS_EVIL(victim)) {
-				max_evil = -350; 
+				max_evil = -350;
 				ech      = victim;
 			}
 			else
 				ech = victim;
 		}
 	}
-	
+
 	if (victim) {
 		act_yell(ch,
 			 "$i is a CRIMINAL!  PROTECT THE INNOCENT!!  BANZAI!!",
@@ -1009,14 +1009,14 @@ bool spec_guard(CHAR_DATA *ch)
 		multi_hit(ch, victim, TYPE_UNDEFINED);
 		return TRUE;
 	}
-	
+
 	if (ech) {
 		act("$n screams 'PROTECT THE INNOCENT!!  BANZAI!!",
 		    ch, NULL, NULL, TO_ROOM);
 		multi_hit(ch, ech, TYPE_UNDEFINED);
 		return TRUE;
 	}
-	
+
 	return FALSE;
 }
 

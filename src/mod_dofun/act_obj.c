@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.165.2.49 2002-12-10 11:33:11 tatyana Exp $
+ * $Id: act_obj.c,v 1.165.2.50 2003-09-11 10:39:42 tatyana Exp $
  */
 
 /***************************************************************************
@@ -4349,8 +4349,6 @@ do_sharpen_weapon(CHAR_DATA *ch, const char *argument)
 
 	if (IS_WEAPON_STAT(weapon, WEAPON_HOLY))
 		chance = chance * 3 / 4;
-
-	log("Chance: %d", chance);
 
 	if (number_percent() < chance) {
 		af.where	= TO_WEAPON;

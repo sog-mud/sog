@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.126.2.19 2003-03-06 16:40:32 avn Exp $
+ * $Id: save.c,v 1.126.2.20 2003-09-11 10:39:48 tatyana Exp $
  */
 
 /***************************************************************************
@@ -417,9 +417,6 @@ fwrite_pet(CHAR_DATA * pet, FILE * fp, int flags)
 		mlstr_fwrite(fp, "LnD", &pet->short_descr);
 	if (mlstr_cmp(&pet->description, &pet->pMobIndex->description) != 0)
 		mlstr_fwrite(fp, "Desc", &pet->short_descr);
-	fprintf(fp, "Sex  %d\n", pet->sex);
-	if (pet->level != pet->pMobIndex->level)
-		fprintf(fp, "Levl %d\n", pet->level);
 	fprintf(fp, "HMV %d %d %d %d %d %d\n",
 		pet->hit, pet->perm_hit,
 		pet->mana, pet->perm_mana,
@@ -431,22 +428,6 @@ fwrite_pet(CHAR_DATA * pet, FILE * fp, int flags)
 	if (pet->comm != 0)
 		fprintf(fp, "Comm %s\n", format_flags(pet->comm));
 	fprintf(fp, "Pos %d\n", pet->position = POS_FIGHTING ? POS_STANDING : pet->position);
-	if (pet->alignment != pet->pMobIndex->alignment)
-		fprintf(fp, "Alig %d\n", pet->alignment);
-	if (pet->damroll != pet->pMobIndex->damage[DICE_BONUS])
-		fprintf(fp, "Damr %d\n", pet->damroll);
-	if (NPC(pet)->dam.dice_number != pet->pMobIndex->damage[DICE_NUMBER] ||
-	    NPC(pet)->dam.dice_type != pet->pMobIndex->damage[DICE_TYPE])
-		fprintf(fp, "Damd %d %d\n",
-			NPC(pet)->dam.dice_number,
-			NPC(pet)->dam.dice_type);
-	fprintf(fp, "Attr %d %d %d %d %d %d\n",
-		pet->perm_stat[STAT_STR], pet->perm_stat[STAT_INT],
-		pet->perm_stat[STAT_WIS], pet->perm_stat[STAT_DEX],
-		pet->perm_stat[STAT_CON], pet->perm_stat[STAT_CHA]);
-	fprintf(fp, "AC %d %d %d %d\n",
-		pet->armor[0], pet->armor[1], pet->armor[2], pet->armor[3]);
-
 	for (paf = pet->affected; paf != NULL; paf = paf->next)
 		fwrite_affect(paf, fp);
 
@@ -1021,16 +1002,6 @@ fread_pet(CHAR_DATA * ch, FILE * fp, int flags)
 			break;
 
 		case 'A':
-			KEY("Alig", pet->alignment, fread_number(fp));
-
-			if (!str_cmp(word, "AC")) {
-				pet->armor[0] = fread_number(fp);
-				pet->armor[1] = fread_number(fp);
-				pet->armor[2] = fread_number(fp);
-				pet->armor[3] = fread_number(fp);
-				fMatch = TRUE;
-				break;
-			}
 
 			if (!str_cmp(word, "Affc")) {
 				AFFECT_DATA af;
@@ -1051,13 +1022,6 @@ fread_pet(CHAR_DATA * ch, FILE * fp, int flags)
 				fMatch = TRUE;
 				break;
 			}
-			if (!str_cmp(word, "Attr")) {
-				int             stat;
-				for (stat = 0; stat < MAX_STATS; stat++)
-					pet->perm_stat[stat] = fread_number(fp);
-				fMatch = TRUE;
-				break;
-			}
 			break;
 
 		case 'C':
@@ -1067,17 +1031,6 @@ fread_pet(CHAR_DATA * ch, FILE * fp, int flags)
 
 		case 'D':
 			MLSKEY("Desc", pet->description);
-			if (!str_cmp(word, "Damr")) {
-				pet->damroll = fread_number(fp);
-				fMatch = TRUE;
-				break;
-			}
-			if (!str_cmp(word, "Damd")) {
-				NPC(pet)->dam.dice_number = fread_number(fp);
-				NPC(pet)->dam.dice_type = fread_number(fp);
-				fMatch = TRUE;
-				break;
-			}
 			break;
 
 		case 'E':
@@ -1109,7 +1062,6 @@ fread_pet(CHAR_DATA * ch, FILE * fp, int flags)
 
 		case 'L':
 			MLSKEY("LnD",  pet->description);
-			KEY("Levl", pet->level, fread_number(fp));
 			break;
 
 		case 'N':
@@ -1121,7 +1073,6 @@ fread_pet(CHAR_DATA * ch, FILE * fp, int flags)
 			break;
 
 		case 'S':
-			KEY("Sex", pet->sex, fread_number(fp));
 			MLSKEY("ShD", pet->short_descr);
 			KEY("Silv", pet->silver, fread_number(fp));
 			break;

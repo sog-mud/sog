@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_item.c,v 1.1.2.2 2002-10-22 21:15:09 tatyana Exp $
+ * $Id: db_item.c,v 1.1.2.3 2003-09-11 10:39:51 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -127,7 +127,7 @@ DBLOAD_FUN(load_black_market)
 				item->obj = obj;
 				item->next = bmitem_list;
 				bmitem_list = item;
-				log("%s", item->obj->name);
+				log("Black market: %s", item->obj->name);
 				return;
 			}
 			break;
