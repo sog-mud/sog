@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.181.2.30 2002-01-03 21:33:33 tatyana Exp $
+ * $Id: spellfun.c,v 1.181.2.31 2002-01-10 15:49:33 tatyana Exp $
  */
 
 /***************************************************************************
@@ -3834,6 +3834,7 @@ void spell_summon(int sn, int level, CHAR_DATA *ch, void *vo)
 		/*
 		 * can't summon charmed creature if master
 		 * has PLR_NOSUMMON or !in_PK, the same for mounts
+		 * charmed creatures can be summoned by their master
 		 */
 		if (IS_AFFECTED(victim, AFF_CHARM)
 		&&  victim->master != NULL)
@@ -3842,7 +3843,8 @@ void spell_summon(int sn, int level, CHAR_DATA *ch, void *vo)
 			master = victim->mount;
 
 		if (master != NULL
-		&&  (!in_PK(ch, master) ||
+		&&  (master != ch ||
+		     !in_PK(ch, master) ||
 		     (!IS_NPC(master) &&
 		      IS_SET(PC(master)->plr_flags, PLR_NOSUMMON))))
 			failed = TRUE;
