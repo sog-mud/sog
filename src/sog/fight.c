@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.17 2000-07-31 13:58:55 kostik Exp $
+ * $Id: fight.c,v 1.202.2.18 2000-08-17 12:14:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1227,7 +1227,7 @@ void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 			gain_exp(victim, -vpc->exp_tl*2/3);
 	}
 
-	if ((++vpc->death % 3) != 2)
+	if ((++vpc->death % 3) != 0)
 		return;
 
 	/* Die too much and is deleted ... :( */

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.169.2.12 2000-04-25 13:04:52 fjoe Exp $
+ * $Id: db.c,v 1.169.2.13 2000-08-17 12:14:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2038,6 +2038,10 @@ void scan_pfiles()
 			set_title(ch, str_empty);
 		}
 
+		if (PC(ch)->version < 12
+		&&  PC(ch)->death >= 2)
+			PC(ch)->death -= 2;
+			
 		if (!IS_IMMORTAL(ch))
 			rating_add(ch);
 
