@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.41 1998-05-19 12:13:07 efdi Exp $
+ * $Id: act_info.c,v 1.42 1998-05-20 12:26:55 efdi Exp $
  */
 
 /***************************************************************************
@@ -2782,11 +2782,15 @@ void do_scan(CHAR_DATA *ch, char *argument)
 
 	in_room = ch->in_room;
 	for (i=1; i <= range; i++) {
-		if ((exit = in_room->exit[door]) == NULL
-		|| (to_room = exit->u1.to_room) == NULL
-		|| IS_SET(exit->exit_info,EX_CLOSED))
+		exit = in_room->exit[door];
+		to_room = exit->u1.to_room;
+		if (!exit || !to_room)
 			return;
 
+		if (IS_SET(exit->exit_info,EX_CLOSED)) {
+			send_to_char(msg(MOVE_SCAN_DOOR_CLOSED, ch), ch);
+			return;
+		}
 		for (numpeople = 0, person = to_room->people; person != NULL;
 		     person = person->next_in_room)
 			if (can_see(ch,person)) {

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.37 1998-05-15 13:32:03 efdi Exp $
+ * $Id: act_move.c,v 1.38 1998-05-20 12:26:56 efdi Exp $
  */
 
 /***************************************************************************
@@ -578,66 +578,49 @@ int find_door(CHAR_DATA *ch, char *arg)
 
 /* scan.c */
 
-int const distance[4]= {
-		MOVE_DISTANCE_HERE, 
-		MOVE_DISTANCE_NEARBY, 
-		MOVE_DISTANCE_NOT_FAR,
-		MOVE_DISTANCE_OFF_IN
-};
-
 void scan_list           args((ROOM_INDEX_DATA *scan_room, CHAR_DATA *ch,
 		                         sh_int depth, sh_int door));
-void scan_char           args((CHAR_DATA *victim, CHAR_DATA *ch,
-		                         sh_int depth, sh_int door));
+
 void do_scan2(CHAR_DATA *ch, char *argument)
 {
-   extern char *const dir_name[];
-   EXIT_DATA *pExit;
-   sh_int door;
+	extern char *const dir_name[];
+	EXIT_DATA *pExit;
+	sh_int door;
 
-   act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MOVE_N_LOOKS_ALL_AROUND);
-   send_to_char(msg(MOVE_LOOKING_AROUND_YOU_SEE, ch), ch);
-		          scan_list(ch->in_room, ch, 0, -1);
-   for (door=0;door<6;door++)
-		{
-		  if ((pExit = ch->in_room->exit[door]) == NULL
-		  || pExit->u1.to_room == NULL
-		  || IS_SET(pExit->exit_info,EX_CLOSED))
-		continue;
-		  scan_list(pExit->u1.to_room, ch, 1, door);
+	act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, 
+			MOVE_N_LOOKS_ALL_AROUND);
+	send_to_char(msg(MOVE_LOOKING_AROUND_YOU_SEE, ch), ch);
+	send_to_char(msg(MOVE_SCAN_HERE, ch), ch);
+	scan_list(ch->in_room, ch, 0, -1);
+	for (door = 0; door < 6; door++) {
+		if ((pExit = ch->in_room->exit[door]) == NULL
+		     || pExit->u1.to_room == NULL)
+			continue;
+		char_printf(ch, "{C%s{x:\n\r", dir_name[door]);
+		if (IS_SET(pExit->exit_info, EX_CLOSED)) {
+			send_to_char(msg(MOVE_SCAN_DOOR_CLOSED, ch), ch);
+			continue;
 		}
-   return;
+		scan_list(pExit->u1.to_room, ch, 1, door);
+	}
+	return;
 }
 
-void scan_list(ROOM_INDEX_DATA *scan_room, CHAR_DATA *ch, sh_int depth, sh_int door)
+void scan_list(ROOM_INDEX_DATA *scan_room, CHAR_DATA *ch, 
+		sh_int depth, sh_int door)
 {
-   CHAR_DATA *rch;
+	CHAR_DATA *rch;
 
-   if (scan_room == NULL) return;
-   for (rch=scan_room->people; rch != NULL; rch=rch->next_in_room)
-   {
-		if (rch == ch) continue;
-		if (!IS_NPC(rch) && rch->invis_level > get_trust(ch)) continue;
-		if (can_see(ch, rch)) scan_char(rch, ch, depth, door);
-   }
-   return;
-}
-
-void scan_char(CHAR_DATA *victim, CHAR_DATA *ch, sh_int depth, sh_int door)
-{
-   extern char *const dir_name[];
-   char buf[MAX_INPUT_LENGTH], buf2[MAX_INPUT_LENGTH];
-
-   buf[0] = '\0';
-
-   strcat(buf, PERS(victim, ch));
-   strcat(buf, ", ");
-   sprintf(buf2, msg(distance[depth], ch), dir_name[door]);
-   strcat(buf, buf2);
-   strcat(buf, "\n\r");
- 
-   send_to_char(buf, ch);
-   return;
+	if (scan_room == NULL) 
+		return;
+	for (rch = scan_room->people; rch != NULL; rch = rch->next_in_room) {
+		if (rch == ch || 
+		    (!IS_NPC(rch) && rch->invis_level > get_trust(ch)))
+			continue;
+		if (can_see(ch, rch)) 
+			char_printf(ch, "{W	%s{x.\n\r", PERS(rch, ch));
+	}
+	return;
 }
 
 void do_open(CHAR_DATA *ch, char *argument)
