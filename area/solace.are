@@ -1921,9 +1921,9 @@ safe deposit box~
 safe deposit box~
 A strong metal box is embedded in the wall.~
 copper~
-container 0 0
-10000 AC 0 0 0
-14 0 140 P
+container Y A
+10000 ACD 10305 100 100
+14 1000 140 P
 E
 safe deposit box~
 You see a strong metal box used to keep the town deposits in.
@@ -4974,6 +4974,7 @@ S
 
 #OLIMITS
 O 10225 3	* black hilted sword called, "Shieldbreaker"
+O 10302 1	* safe deposit box
 S
 
 #$

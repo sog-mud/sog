@@ -857,10 +857,10 @@ safe~
 a combination safe~
 A painting hangs on the wall, but it doesn't appear that valuable. Stick to 
 the cash.~
-~
-container 0 0
+iron~
+container Y A
 100 ACD 4427 100 100
-7 0 0 P
+7 800 0 P
 E
 painting~
 Behind the painting you find a safe!  It has a combination lock.  You can 

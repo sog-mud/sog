@@ -38,6 +38,7 @@ ABS DFJ -800 0
 BEFJNU 0 0 0
 stand stand none 1185
 0 0 medium unknown
+F par ABCDEFGHIJK
 #10403
 male dee demon~
 the male Dee~
@@ -82,6 +83,7 @@ ABS DFJ -800 0
 BEFJNU 0 0 0
 stand stand none 1185
 0 0 medium unknown
+F par ABCDEFGHIJK
 #10406
 chicken pot pie~
 a scrumptious chicken pot pie~
@@ -186,6 +188,7 @@ AB JV -1000 0
 EFNU 0 0 0
 stand stand none 1185
 0 0 medium unknown
+F par ABCDEFGHIJK
 #10413
 skeletal warrior~
 skeletal warrior~

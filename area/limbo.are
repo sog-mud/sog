@@ -1291,7 +1291,7 @@ golden staff посох~
 @eng A shiny gold staff is on the ground.@rus Блестящий золотой посох (staff) лежит на земле.~
 gold~
 weapon AIPTW AN
-staff 11 1 crush 0
+staff 11 1 crush I
 20 200 0 P
 G none
 #80
@@ -1300,7 +1300,7 @@ golden dagger кинжал~
 @eng There is a shiny golden dagger on the ground.@rus Блестящий золотистый кинжал (dagger) лежит на земле.~
 gold~
 weapon AIPTW AN
-dagger 10 1 pierce DK
+dagger 10 1 pierce DIK
 20 80 0 P
 G male
 #81
@@ -1309,7 +1309,7 @@ golden mace булава~
 @eng A shiny gold mace is on the ground.@rus Блестящая золотистая булава (mace) лежит на земле.~
 gold~
 weapon AIPTW AN
-mace 11 1 crush 0
+mace 11 1 crush I
 20 200 0 P
 G female
 #82
@@ -1333,7 +1333,7 @@ sword golden меч~
 @eng There is a shiny golden sword on the ground.@rus Блестящий золотистый меч (sword) лежит на земле.~
 gold~
 weapon AIPTW AN
-sword 10 1 pierce D
+sword 10 1 pierce DI
 20 80 0 P
 G male
 #84
@@ -1610,8 +1610,7 @@ Supermob lives here. Don't bother him.
 S
 #13
 @eng {CIsle of Fortune{x@rus {CОстров Удачи{x~
-@eng In the Land of Dreams.
-@rus Весь покрытый {gплесенью{x, абсолютно весь.
+In the Land of Dreams.
 ~
 0 FHKNSUb forest
 M 13 H 13

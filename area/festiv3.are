@@ -2204,9 +2204,9 @@ safe сейф~
 @eng safe@rus {Dсейф{x~
 @eng A steel safe stands in the corner.@rus Банковский сейф (safe) стоит в углу.~
 steel~
-container ABRTY 0
+container ABRY A
 300 ABCD 36343 300 100
-0 10000 0 P
+0 1500 0 P
 G male
 #36376
 key room ключ~

@@ -260,7 +260,7 @@ west, and the highway continues to the east.  An old northern road leads to
 the dwarven kingdom and the abandoned mines of Moria, while the southern road
 shows the scars of the war which destroyed Thalos.
 ~
-0 Z city
+0 0 city
 D0
 An old road leads towards the abandoned mines of Moria and the Dwarven Kingom.
 ~
@@ -281,6 +281,10 @@ The road leads west towards Midgaard.
 ~
 ~
 Z 0 3503
+D4
+~
+~
+Z 0 35300
 S
 #3503
 City Entrance~

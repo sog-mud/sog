@@ -483,7 +483,7 @@ vicinity of the beast, surrounding it with an aura of blackness, pierced
 only by the hellish red lights of its eyes.
 ~
 horse~
-AGQ CDEFGHJN 1000 0
+AGQ CDEFGJNOu -1000 0
 70 2 100d10+10000 1d10+800 12d5+40 cleave
 -45 -45 -45 -45
 DEGI KM CH NOP
@@ -1321,7 +1321,7 @@ the ability to do quite a bit of very real damage to those who oppose
 its master..
 ~
 cat~
-ABIJ BDFPTU 0 0
+ABI BDFPTU 0 0
 70 0 100d10+9500 1d10+700 7d10+30 wrath
 -40 -41 -41 -40
 DE 0 C OP

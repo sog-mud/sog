@@ -194,6 +194,7 @@ AFG T -400 0
 EFNU 0 0 0
 stand stand none 0
 0 0 medium unknown
+F par ABCDEFGHIJK
 #1313
 guardian greater eyes~
 a pair of disembodied eyes~
@@ -208,6 +209,7 @@ AFG DJT -600 0
 EFNU 0 0 0
 stand stand none 0
 0 0 medium unknown
+F par ABCDEFGHIJK
 #1314
 mage visitor~
 the mage~

@@ -1,6 +1,6 @@
 #AREADATA
 Name Heaven~
-Builders shamash sechanko~
+Builders shamash sechanko zed~
 VNUMs 15000 15199
 Credits abrazak~
 Security 7
@@ -1067,6 +1067,69 @@ jewelry RTafi A
 0 0 0 0 0
 0 0 0 P
 G none
+#15126
+tm~
+Tournament Master dagger~
+Tournament Master dagger~
+silver~
+weapon A AN
+dagger 1 70 pierce E
+35 10 10000 P
+G none
+#15127
+light~
+@eng {WS{Gm{Wa{Gr{Wt L{Gi{Wg{Gh{Wt{x@rus {WФ{Gо{Wн{Gа{Wр{Gи{Wк с{Gм{Wе{Gк{Wа{Gл{Wк{Gи{x~
+@eng An unique lantern for Smartness.@rus Фонарик за смекалку.~
+crystaline~
+light A A
+0 0 -1 0 0
+1 11 150 P
+G none
+#15128
+medal~
+{gSary's {YGOLD Medal {g"First place at July 2003 Battle Arena Toutnament"{x~
+You see a beautiful GOLD medal here.~
+gold~
+armor Y AC
+0 0 0 0 0
+1 1 100000 P
+G none
+#15129
+medal~
+{bElinor's {WSILVER Medal {b"Second place at July 2003 Battle Arena Tournament"{x~
+You see a silver medal here.~
+silver~
+armor Y AC
+0 0 0 0 0
+1 1 100000 P
+G none
+#15130
+medal~
+{CZion's {yBRONZE Medal {C"Third place at July 2003 Battle Arena Tournament"{x~
+You see a BRONZE Medal here.~
+bronze~
+armor Y AC
+0 0 0 0 0
+1 1 100000 P
+G none
+#15131
+sary~
+@eng {RSary's POWER Dagger called {W"WINNER"{x@rus {RВеликолепный Кинжал Сари {W"ПОБЕДИТЕЛЬ"{x~
+An extreemly powerfull dagger is here...~
+Magma~
+weapon BKLT AN
+dagger 7 13 pierce DI
+45 1 1000000 P
+G none
+#15132
+prize~
+@eng {Wa little boat {C"Fisherman of the Year"{x@rus {WЛодочка {C"Рыбак Года"{x~
+@eng A beautiful latex boat...@rus Отличная резиновая лодочка... надувная~
+Latex~
+boat G A
+0 0 0 0 0
+1 1 10000000 P
+G none
 #15189
 sandwich~
 @eng a sandwich@rus {BБУТЕРБРОД{x с {RКрасной Икрой{x~
@@ -1371,6 +1434,179 @@ D0
 ~
 Z 0 15024
 S
+#15050
+Battle Arena II~
+This is a part of the Battle Arena July 2003 Tournament. You see the floor is covered with sawdust, and the room is under a HUGE metal cage.
+~
+0 Z city
+D1
+~
+~
+Z 0 15051
+D2
+~
+~
+Z 0 15053
+S
+#15051
+Battle Arena II~
+This is a part of the Battle Arena July 2003 Tournament. You see the floor is covered with sawdust, and the room is under a HUGE metal cage.
+~
+0 Z city
+D1
+~
+~
+Z 0 15052
+D2
+~
+~
+Z 0 15054
+D3
+~
+~
+Z 0 15050
+S
+#15052
+Battle Arena II~
+This is a part of the Battle Arena July 2003 Tournament. You see the floor is covered with sawdust, and the room is under a HUGE metal cage.
+~
+0 Z city
+D2
+~
+~
+Z 0 15055
+D3
+~
+~
+Z 0 15051
+S
+#15053
+Battle Arena II~
+This is a part of the Battle Arena July 2003 Tournament. You see the floor is covered with sawdust, and the room is under a HUGE metal cage.
+~
+0 Z city
+D0
+~
+~
+Z 0 15050
+D1
+~
+~
+Z 0 15054
+D2
+~
+~
+Z 0 15056
+S
+#15054
+Battle Arena II~
+This is a part of the Battle Arena July 2003 Tournament. You see the floor is covered with sawdust, and the room is under a HUGE metal cage.
+~
+0 Z city
+D0
+~
+~
+Z 0 15051
+D1
+~
+~
+Z 0 15055
+D2
+~
+~
+Z 0 15057
+D3
+~
+~
+Z 0 15053
+D5
+~
+~
+Z 0 15059
+S
+#15055
+Battle Arena II~
+This is a part of the Battle Arena July 2003 Tournament. You see the floor is covered with sawdust, and the room is under a HUGE metal cage.
+~
+0 Z city
+D0
+~
+~
+Z 0 15052
+D2
+~
+~
+Z 0 15058
+D3
+~
+~
+Z 0 15054
+S
+#15056
+Battle Arena II~
+This is a part of the Battle Arena July 2003 Tournament. You see the floor is covered with sawdust, and the room is under a HUGE metal cage.
+~
+0 Z city
+D0
+~
+~
+Z 0 15053
+D1
+~
+~
+Z 0 15057
+S
+#15057
+Battle Arena II~
+This is a part of the Battle Arena July 2003 Tournament. You see the floor is covered with sawdust, and the room is under a HUGE metal cage.
+~
+0 Z city
+D0
+~
+~
+Z 0 15054
+D1
+~
+~
+Z 0 15058
+D3
+~
+~
+Z 0 15056
+S
+#15058
+Battle Arena II~
+This is a part of the Battle Arena July 2003 Tournament. You see the floor is covered with sawdust, and the room is under a HUGE metal cage.
+~
+0 Z city
+D0
+~
+~
+Z 0 15055
+D3
+~
+~
+Z 0 15057
+S
+#15059
+Battle Arena II~
+This is a part of the Battle Arena July 2003 Tournament. You see the floor is covered with sawdust, and the room is under a HUGE metal cage.
+~
+0 KZ city
+D4
+~
+~
+Z 0 15054
+D5
+~
+~
+Z 0 3014
+S
+#15099
+~
+~
+0 0 inside
+S
 #15100
 ~
 ~
@@ -1403,6 +1639,26 @@ D5
 Z 0 13
 M 13 H 13
 S
+#15160
+Entrance to SoGland~
+You're standing near the Entrance to Sogland, the great country of Joy and Fun. There're seven columns in front of you. You REALY want to enter that HUGE doors. That's like a magic. Sign on the door says 'Copyright by ZeD :)'
+~
+0 0 city
+S
+#15161
+Main Alley~
+You're standing on the main alley of the SoGland park. High trees are growing over both sides of the street. Kids are riding their bicycles. People have their rest under shady oaks...
+The atmosphere is very comfortable and you feel safe.
+~
+0 0 city
+S
+#15162
+Main Alley~
+You're standing on the main alley of the SoGland park. High trees are growing over both sides of the street. Kids are riding their bicycles. People have their rest under shady oaks...
+The atmosphere is very comfortable and you feel safe.
+~
+0 0 city
+S
 #0
 
 #SPECIALS
@@ -1419,7 +1675,7 @@ M 0 15003 1 15002 1	* a rat (Cell)
 O 0 15006 0 15002	* bed (Cell)
 M 0 15001 1 15003 1	* the prisoner (Personal Cell)
 M 0 15004 1 15003 1	* the prisoner (Personal Cell)
-M 0 15010 1 15010 1	* {DDevil{x ({DThe room of Death{x)
+O 0 15127 0 15010	* {WS{Gm{Wa{Gr{Wt L{Gi{Wg{Gh{Wt{x ({DThe room of Death{x)
 M 0 15016 1 15015 1	* pine (In the forest)
 M 0 15015 1 15016 1	* gray squirrel (In the forest)
 S
@@ -1431,6 +1687,8 @@ S
 
 #OLIMITS
 O 15055 13	* scroll of {bMisfortune{x
+O 15126 1	* Tournament Master dagger
+O 15127 0	* {WS{Gm{Wa{Gr{Wt L{Gi{Wg{Gh{Wt{x
 S
 
 #MOBPROGS

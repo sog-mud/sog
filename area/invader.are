@@ -24,12 +24,12 @@ human~
 ABJKWef DFJNOTVZclmtu -1000 0
 92 40 2d500+25000 1d200+600 10d40+40 slash
 -77 -77 -77 -42
-ACEFKNU ABMP CDEK S
+ACEFKNU AB CD S
 stand stand male 5000
 0 0 gargantuan unknown
 M grall 95600 100~
 M exall 95603 0~
-M fight 95605 30~
+M fight 95605 5~
 C Invaders~
 #95601
 cleric invader~

@@ -6928,7 +6928,7 @@ You are on the clear blue seas of the Dragon Sea.
  can see. Off in the distance you think you might
  see a small dock to the north.
 ~
-0 S noswim
+0 0 noswim
 D0
 ~
 ~
@@ -6948,7 +6948,7 @@ The Dragon Sea comes up along the shore here, the deep blue waters
 rolling in and crashing against the beach. To the north you see a
 small dock jutting out into the surf.
 ~
-0 ES noswim
+0 E noswim
 D0
 ~
 ~
@@ -6969,7 +6969,7 @@ You are on the clear blue seas of the Dragon Sea.
  can see. Off in the distance you think you might
  see a small dock to the south.
 ~
-0 ES noswim
+0 E noswim
 D1
 ~
 ~
@@ -6986,7 +6986,7 @@ You are on the clear blue seas of the Dragon Sea.
  can see. Off in the distance you think you might
  see a small dock to the west.
 ~
-0 S noswim
+0 E noswim
 D0
 ~
 ~
@@ -7123,7 +7123,7 @@ You are on the clear blue seas of the Dragon Sea.
  see a small dock to the west. To the east you see  
  a cold river flows quickly through the Dragon Sea. 
 ~
-0 ES noswim
+0 E noswim
 D0
 ~
 ~
@@ -7144,7 +7144,7 @@ you can see two islands on the horizon. To the west you see the mainland.
 To the east ocean ends turning into a small dirt path leading down
 the beach of the cursed island.
 ~
-0 ES noswim
+0 E noswim
 D0
 ~
 ~

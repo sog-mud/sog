@@ -2501,6 +2501,15 @@ potion G 0
 100 'reserved' 'reserved' 'reserved' 'reserved'
 91 0 0 P
 G none
+#34250
+dusty golden trunk chest~
+the golden chest~
+A large dusty trunk was left in the corner, looks like a good place to sit.~
+~
+container 0 0
+100 ABCD 9910 0 0
+35 5 350 P
+G none
 #0
 
 #ROOMS

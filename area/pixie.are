@@ -203,7 +203,7 @@ G none
 #35465
 bark wooden~
 a wooden bark~
-A peace of wooden bark lies here.~
+A piece of wooden bark lies here.~
 bark~
 armor 0 AD
 25 25 25 25 0
@@ -413,7 +413,7 @@ G none
 #35482
 bark wooden~
 {ya wooden bark{x~
-A peace of wooden bark lies here.~
+A piece of wooden bark lies here.~
 bark~
 armor Q AD
 25 25 25 25 0
@@ -1338,9 +1338,9 @@ mob purge
 ~
 #35485
 if wears $I 35482
-mob echo {yThe guardian tree dissapears. Only peace of wooden bark remains on the ground.{x
+mob echo {yThe guardian tree disappears. Only piece of wooden bark remains on the ground.{x
 else
-mob echo {yThe guardian tree dissapears. Only peace of wooden bark remains on the ground.{x
+mob echo {yThe guardian tree disappears. Only piece of wooden bark remains on the ground.{x
 mob oload 35465
 endif
 ~

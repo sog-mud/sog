@@ -1183,6 +1183,10 @@ M greet 3162 100~
 M fight 3162 100~
 M kill 3162 100~
 M random 3162 100~
+M give 3162 100~
+M hpcnt 3162 100~
+M death 3162 100~
+M bribe 3162 1~
 #3163
 thief вор~
 @eng the thief@rus вор~
@@ -2426,9 +2430,9 @@ safe сейф~
 @eng the safe@rus сейф~
 @eng A safe is placed in a dark corner of the room.@rus Сейф (safe) установлен в темном углу комнаты.~
 iron~
-container 0 0
+container Y A
 34 ABCD 3123 20 100
-0 0 0 G
+0 500 0 G
 E
 safe~
 @eng The safe is very heavy.
@@ -5810,7 +5814,7 @@ the sewer system.  South of here you see the river and to the north is the
 common square. A rickety old bridge leads south to the promenade.
 @rus Это свалка, куда люди со всего города сваливают свои отбросы. Сквозь кучи
 гниющего мусора тебе видно пересечение труб, выглядящее как вход в городскую
-канализацию. К юге протекает река, к северу лежит Общая площадь. Через реку
+канализацию. К югу протекает река, к северу лежит Общая площадь. Через реку
 переброшен старый шаткий мост, ведущий к Бульвару.
 ~
 0 CS field
@@ -6621,7 +6625,7 @@ S
 @eng You see a well cleaned hall. It goes to south where Samurai's Bar is placed.
 @rus Ты видишь чисто убранную прихожую. Она тЯнетсЯ на юг, к бару Самураев.
 ~
-0 DS inside
+0 DSY inside
 D0
 ~
 ~
@@ -9625,7 +9629,6 @@ M 3069 spec_guard	* the cityguard
 M 3070 spec_cast_mage	* An old man
 M 3100 spec_cast_cleric	* the maid
 M 3120 spec_cast_cleric	* the sexton
-M 3143 spec_mayor	* the mayor
 M 3163 spec_nasty	* the thief
 M 3166 spec_cast_adept	* Nacya
 M 3172 spec_cast_adept	* the templeman
@@ -10266,7 +10269,11 @@ mob echo $I says: '{GRemember them!{x'
 ~
 #3162
 mob junk gcash
+mob junk gcash
 mob junk gold
+mob junk coin
+mob junk silver
+mob junk coins
 ~
 #0
 

@@ -192,6 +192,7 @@ AG 0 0 0
 EFNR 0 0 0
 stand stand none 0
 0 0 medium unknown
+F par ACDEFHKP
 #9215
 fire flame elemental~
 a flame~
@@ -262,6 +263,7 @@ AG 0 0 0
 EFNU 0 0 0
 stand stand none 50
 0 0 medium unknown
+F par ABCDEFGHIJK
 #9220
 lava elemental~
 a lava beast~

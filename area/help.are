@@ -1464,13 +1464,17 @@ You deadly touch your victim's neck and put it/him/her to nightmares.
 Твое прикосновение к шее жертвы погружает ее в мир ночных кошмаров
 ~
 0 KATANA~
-@eng Syntax: {ckatana{x
+@eng Syntax: {ckatana{x <material>
 
 Master Samurai's can make their special sword to punish the
-enemies.
-@rus Синтаксис: {ckatana{x
+enemies. They need iron bar for making katana. And Questor
+can grant more power to this sword.
+@rus Использование: {ckatana{x <материал>
 
 Мастера самураи умеют сами ковать себе особые мечи.
+Для этого им необходимо некоторое количество железа.
+Чтобы катана обрела еще большую силу, обратитесь к
+квестору, он может помочь.
 ~
 0 DEAFEN~
 @eng Syntax: {ccast 'deafen'{x <victim>
@@ -4302,6 +4306,10 @@ safety in numbers.
 
 Remember to roleplay, not just kill anyone.
 
+SPAMKILL IS ILLEGAL. You can kill one person ovly one time per 24 hours
+of real time. SPAMKILL rule does not work if you are in clan area of not
+your own clan.
+
 Do not drop link to avoid getting pked.  This is a sure-fire way to get
 yourself killed, not by the attacker but by the immortals.
 
@@ -4323,6 +4331,11 @@ See also: ROLEPLAYING GROUP ALIGNMENT
 Пусть твои нападения не будут случайными, а будут определяться той ролью,
 которую играет твой персонаж.
  
+SPAMKILL запрещен. SPAMKILL'ом считается повторное убийство персонажа в
+течении 24 часов (реального времени). Попытки убить (если не было смерти)
+spamkill не считаются. Если ты идешь на территорию чужого клана, то на тебя
+правило SPAMKILL не распространяется.
+
 Не пытайся разорвать соединение, чтобы избежать убийства. Это верный путь
 быть наказанным если не атакующим тебя, то богами.
  
@@ -5339,6 +5352,7 @@ Syntax: alist object <all | name | item_type>
 Syntax: alist mobile <all | name>
 Syntax: alist room
 Syntax: alist {{ implicit | explicit } {{ cases | genders | qtys }
+Syntax: alist socials [keyword]
  
 From OLC editor you can use shortened version of this command ({Clist{x) with
 the same args.
@@ -5396,6 +5410,7 @@ Syntax: create social name
 Syntax: create lang name
 Syntax: create explicit {{ case | gender | qty } name
 Syntax: create implicit {{ case | gender | qty } number name
+Syntax: create social name
  
 ~
 0 'OLC EDIT'~
@@ -5413,6 +5428,7 @@ Syntax: edit social name
 Syntax: edit lang name
 Syntax: edit implicit {{ case | gender | qty } num
 Syntax: edit explicit {{ case | gender | qty } name
+Syntax: edit social name
  
 ~
 0 'OLC ASHOW'~
@@ -5427,6 +5443,7 @@ Syntax: ashow class name
 Syntax: ashow msg [msg]
 Syntax: ashow implicit {{ case | gender | qty } num
 Syntax: ashow explicit {{ case | gender | qty } name
+Syntax: ashow social [keyword]
  
 The defaults are:
 - currently edited area, the area the char is in (in that order)
@@ -5752,14 +5769,18 @@ initial percent of the skill when it is added to character.
  
 CLANLIST command lists roster of your clan of given position. Position can be
 one of the following: {cmember{x (list includes every clan member), {csecond{x (list
-of secondary leaders) or {cleader{x (list of primary leaders).
-Immortal can specify clan to list. Mortals can see only list of clan they
+of secondary leaders), {cleader{x (list of primary leaders) or {cinactive{x (list
+temporarily retired members).
+
+An immortal can specify clan to list. Mortals can see only list of clan they
 belong to.
 @rus Использование: {cclanlist {x<статус> [<клан>]
  
 Команда CLANLIST показывает  список членов клана с указанным статусом.
 Статус может быть одним из: {cmember {x (список всех членов клана), {csecond{x
-(список второстепенных лидеров)  или {cleader  {x(список главных лидеров).
+(список второстепенных лидеров), {cleader  {x(список главных лидеров) или
+{cinactive{x (список временно неактивных членов клана).
+
 Бессмертный может дополнительно указать клан. Смертные  могут  увидеть
 только список клана, к которому принадлежат.
 ~
@@ -7046,7 +7067,7 @@ basket filled with many roses.
 Это романтическое  заклинание  позволяет создать  благоухающую красную
 розу, букет роз или целую корзину, наполненную алыми розами.
 ~
-60 'PROTECTION GOOD' 'PROTECTION EVIL'~
+1 'PROTECTION GOOD' 'PROTECTION EVIL'~
 @eng Syntax: {x{c{ccast 'protection evil'{x 
         {ccast 'protection good'{x 
 
@@ -9961,6 +9982,15 @@ your inventory.
 Differently your level depends duration of affect. Vorpal, holy
 and vampiric flags decrease chance of success. You must remember
 that there is a chance to destroy your weapon.
+~
+0 RENOUNCE~
+@eng Usage: {crenounce{x
+ 
+This command allow to leave clan. Remember, renegade can't join clan anymore.
+@rus Использование: {crenounce{x
+ 
+При помощи этой команды можно выйти из клана. Но помни, ренегат больше
+не может вступить в клан.
 ~
 -1 $~
 
