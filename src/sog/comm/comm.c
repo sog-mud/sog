@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.217 1999-12-21 14:48:17 kostik Exp $
+ * $Id: comm.c,v 1.218 1999-12-31 06:16:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -885,7 +885,6 @@ void init_descriptor(int control)
 
 void close_descriptor(DESCRIPTOR_DATA *dclose, int save_flags)
 {
-	CHAR_DATA *ch;
 	DESCRIPTOR_DATA *d;
 
 	if (!outbuf_empty(dclose))
@@ -899,8 +898,8 @@ void close_descriptor(DESCRIPTOR_DATA *dclose, int save_flags)
 		if (d->snoop_by == dclose)
 			d->snoop_by = NULL;
 
-	ch = dclose->original ? dclose->original : dclose->character;
-	if (ch != NULL) {
+	if (dclose->character != NULL) {
+		CHAR_DATA *ch = dclose->original ? dclose->original : dclose->character;
 		if (!IS_SET(save_flags, SAVE_F_NONE))
 			char_save(ch, save_flags);
 		log("Closing link to %s.", ch->name);
@@ -908,7 +907,7 @@ void close_descriptor(DESCRIPTOR_DATA *dclose, int save_flags)
 			act("$n has lost $s link.", ch, NULL, NULL, TO_ROOM);
 			wiznet("Net death has claimed $N.", ch, NULL,
 			       WIZ_LINKS, 0, 0);
-			ch->desc = NULL;
+			dclose->character->desc = NULL;
 		} else 
 			char_free(ch);
 	}
