@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.56 1999-12-16 12:24:48 fjoe Exp $
+ * $Id: olc_mob.c,v 1.57 1999-12-17 12:44:35 fjoe Exp $
  */
 
 #include "olc.h"
@@ -819,7 +819,7 @@ OLC_FUN(mobed_resist)
 		return FALSE;
 	}
 	
-	res = flag_value(resist_flags, arg);
+	res = flag_svalue(resist_flags, arg);
 	argument = one_argument(argument, arg, sizeof(arg));
 
 	if (!is_number(arg) || (res < 0)) {
