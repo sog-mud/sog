@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.65 2004-02-19 17:23:12 fjoe Exp $
+ * $Id: spellfun2.c,v 1.139.2.66 2004-06-29 16:39:43 tatyana Exp $
  */
 
 /***************************************************************************
@@ -6307,5 +6307,143 @@ spell_prismatic_sphere(int sn, int level, CHAR_DATA *ch, void *vo)
 
 	char_puts("The blue-green sphere surrounds you.\n", victim);
 	act("The blue-green sphere surrounds $n.", victim, NULL, NULL, TO_ROOM);
-
 }
+
+void
+spell_aura_of_fightfire(int sn, int level, CHAR_DATA *ch, void *vo)
+{
+	CHAR_DATA *vch;
+	AFFECT_DATA af;
+	int mod = 5 + level / 6;
+	int dur = 3 + level / 10;
+	int count = 0;
+
+	if (is_affected(ch, sn)) {
+		act_char("You are already in aura of fightfire." , ch);
+		return;
+	}
+
+	if (is_affected(ch, gsn_aura_of_defences)) {
+		act_char("You are already in aura of defenses.", ch);
+		return;
+	}
+
+	for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room) {
+		if (!is_same_group(vch, ch))
+			continue;
+
+		if (is_affected(vch, sn)) {
+			act("$N is already in aura of fightfire.",
+			    ch, NULL, vch, TO_CHAR);
+			continue;
+		}
+
+		if (is_affected(vch, gsn_aura_of_defences)) {
+			act("$N is already in aura of defenses.",
+			    ch, NULL, vch, TO_CHAR);
+			continue;
+		}
+
+		if (vch != ch) {
+			af.type      = sn;
+			af.level     = level;
+			af.duration  = dur;
+			af.location  = APPLY_HITROLL;
+			af.modifier  = mod;
+			affect_to_char(vch, &af);
+
+			af.location  = APPLY_DAMROLL;
+			af.modifier  = mod;
+			affect_to_char(vch, &af);
+
+			act_char("You have lit up fighting fire.", vch);
+			act("$n begins to lit up fighting fire.",
+				vch, NULL, NULL, TO_ROOM);
+			count++;
+		}
+	}
+
+	if (count == 0) {
+		act_char("You can't use this power alone.", ch);
+		return;
+	}
+
+	af.type      = sn;
+	af.level     = level;
+	af.duration  = dur;
+	af.location  = APPLY_HITROLL;
+	af.modifier  = - UMIN(2, count) * mod;
+	affect_to_char(ch, &af);
+
+	af.location  = APPLY_DAMROLL;
+	af.modifier  = - UMIN(2, count) * mod;
+	affect_to_char(ch, &af);
+
+	act_char("You have lit up fighting fire.", ch);
+	act("$n begins to lit up fighting fire.", ch, NULL, NULL, TO_ROOM);
+}
+
+void
+spell_aura_of_defences(int sn, int level, CHAR_DATA *ch, void *vo)
+{
+	CHAR_DATA *vch;
+	AFFECT_DATA af;
+	int count = 0;
+
+	if (is_affected(ch, sn)) {
+		act_char("You are already in aura of defences." , ch);
+		return;
+	}
+
+	if (is_affected(ch, gsn_aura_of_fightfire)) {
+		act_char("You area already in aura of fightfire.", ch);
+		return;
+	}
+
+	for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room) {
+		if (!is_same_group(vch, ch))
+			continue;
+
+		if (is_affected(vch, sn)) {
+			act("You are already in aura of defences.",
+			    ch, NULL, vch, TO_CHAR);
+			continue;
+		}
+
+		if (is_affected(vch, gsn_aura_of_fightfire)) {
+			act("You area already in aura of fightfire.",
+			    ch, NULL, vch, TO_CHAR);
+			continue;
+		}
+
+		if (vch == ch)
+			continue;
+
+		af.type      = sn;
+		af.level     = level;
+		af.duration  = 3 + level / 10;
+		af.location = APPLY_SAVING_SPELL;
+		af.modifier = -UMAX(1, level/8);
+		affect_to_char(vch, &af);
+
+		act_char("You feel a aura of defenses around you.", vch);
+		act("Aura of defenses surrounds $n.", vch, NULL, NULL, TO_ROOM);
+		count++;
+	}
+
+	if (count == 0) {
+		act_char("You can't use this power alone.", ch);
+		return;
+	}
+
+	af.type      = sn;
+	af.level     = level;
+	af.duration  = 3 + level / 10;
+	af.location = APPLY_SAVING_SPELL;
+	af.modifier = -UMAX(1, level/8);
+	affect_to_char(ch, &af);
+
+	act_char("You feel a aura of defenses around you.", ch);
+	act("Aura of defenses surrounds $n.", ch, NULL, NULL, TO_ROOM);
+}
+

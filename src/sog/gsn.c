@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: gsn.c,v 1.32.2.22 2003-02-26 19:32:26 tatyana Exp $
+ * $Id: gsn.c,v 1.32.2.23 2004-06-29 16:39:44 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -293,6 +293,9 @@ int gsn_pike;
 int gsn_bream;
 int gsn_piranha;
 
+int gsn_aura_of_fightfire;
+int gsn_aura_of_defences;
+
 /* special gsns */
 int gsn_qtarget;
 
@@ -523,6 +526,8 @@ namedp_t gsn_table[] =
 	{ "gsn_hunters_trophy",		&gsn_hunters_trophy		},
 	{ "gsn_stealth",		&gsn_stealth			},
 	{ "gsn_sharpen_weapon",		&gsn_sharpen_weapon		},
+	{ "gsn_aura_of_fightfire",	&gsn_aura_of_fightfire		},
+	{ "gsn_aura_of_defences",	&gsn_aura_of_defences		},
 /*
  * Fishing.
  */

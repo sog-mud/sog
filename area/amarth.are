@@ -1,0 +1,52 @@
+#AREADATA
+Name Amarth~
+VNUMs 95800 95899
+Security 9
+LevelRange 0 0
+End
+
+#OBJECTS
+#95800
+altar алтарь~
+@eng the altar@rus ~~алтарь~~~
+The altar is here.~
+gold~
+container RY 0
+10 ABCD 95200 15 100
+60 1 20 P
+G none
+#95801
+clanitem~
+clanitem~
+Clanitem is here.~
+ebony~
+treasure ARe A
+0 0 0 0 0
+0 1 100000 P
+G none
+#95802
+tattoo clanmark~
+clantattoo~
+@eng Strange tattoo.@rus Странная татуировка (tattoo).~
+unknown~
+jewelry AMTYZ AS
+0 0 0 0 0
+0 0 0 P
+G none
+#0
+
+#ROOMS
+#95800
+Altar room~
+Empty room.
+~
+0 0 inside
+S
+#0
+
+#RESETS
+O 0 95800 0 95800	* the altar (Altar room)
+P 0 95801 1 95800 1	* the altar: clanitem
+S
+
+#$

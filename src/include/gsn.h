@@ -23,7 +23,7 @@
 * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 * SUCH DAMAGE.
 *
-* $Id: gsn.h,v 1.30.2.21 2003-02-26 19:32:16 tatyana Exp $
+* $Id: gsn.h,v 1.30.2.22 2004-06-29 16:39:42 tatyana Exp $
 */
 
 #ifndef _GSN_H_
@@ -267,6 +267,8 @@ extern int gsn_chameleon_poncho;
 extern int gsn_hunters_trophy;
 extern int gsn_stealth;
 extern int gsn_sharpen_weapon;
+extern int gsn_aura_of_fightfire;
+extern int gsn_aura_of_defences;
 
 extern int gsn_qtarget;
 
