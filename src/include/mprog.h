@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mprog.h,v 1.8 2003-04-27 14:01:03 fjoe Exp $
+ * $Id: mprog.h,v 1.9 2004-02-11 22:56:16 fjoe Exp $
  */
 
 #ifndef _MPROG_H_
@@ -71,7 +71,8 @@ extern avltree_info_t c_info_mprogs;
 
 extern int (*mprog_compile)(mprog_t *mp);
 extern int (*mprog_execute)(mprog_t *mp,
-			    void *arg1, void *arg2, void *arg3, void *arg4);
+			    void *arg1, void *arg2, void *arg3, void *arg4,
+			    void *arg5);
 
 #define MPROG_COMPILE(ch, mp)						\
 	do {								\

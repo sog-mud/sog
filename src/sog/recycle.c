@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.163 2004-02-11 21:44:12 fjoe Exp $
+ * $Id: recycle.c,v 1.164 2004-02-11 22:56:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1958,7 +1958,7 @@ avltree_t mprogs;
 
 int (*mprog_compile)(mprog_t *mp);
 int (*mprog_execute)(mprog_t *mp,
-		     void *arg1, void *arg2, void *arg3, void *arg4);
+		     void *arg1, void *arg2, void *arg3, void *arg4, void* arg5);
 
 static void
 mprog_init(mprog_t *mp)

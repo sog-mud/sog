@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.c,v 1.35 2004-02-11 21:44:12 fjoe Exp $
+ * $Id: trig.c,v 1.36 2004-02-11 22:56:17 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -437,6 +437,7 @@ pull_one_trigger(trig_t *trig, int mp_type,
 	mprog_t *mp;
 	const char *trig_arg;
 	void *arg4 = NULL;
+	void *arg5 = NULL;
 
 	if (mprog_execute == NULL) {
 #if 0
@@ -545,8 +546,10 @@ pull_one_trigger(trig_t *trig, int mp_type,
 		if (chance < number_percent())
 			return MPC_ERR_COND_FAILED;
 	}
+	if (trig->trig_paf != NULL)
+		arg5 = trig->trig_paf->owner;
 
-	return mprog_execute(mp, arg1, arg2, arg3, arg4);
+	return mprog_execute(mp, arg1, arg2, arg3, arg4, arg5);
 }
 
 static int

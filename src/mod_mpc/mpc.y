@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.53 2003-09-30 00:31:21 fjoe Exp $
+ * $Id: mpc.y,v 1.54 2004-02-11 22:56:16 fjoe Exp $
  */
 
 /*
@@ -78,7 +78,7 @@
 
 int _mprog_compile(mprog_t *mp);
 int _mprog_execute(mprog_t *mp,
-		   void *arg1, void *arg2, void *arg3, void *arg4);
+		   void *arg1, void *arg2, void *arg3, void *arg4, void *arg5);
 
 /*--------------------------------------------------------------------
  * argtype stack manipulation functions
@@ -1565,6 +1565,8 @@ _mprog_compile(mprog_t *mp)
 			return MPC_ERR_COMPILE;
 		if (var_add(mpc, "arg", MT_STR) < 0)
 			return MPC_ERR_COMPILE;
+		if (var_add(mpc, "owner", MT_STR) < 0)
+			return MPC_ERR_COMPILE;
 		break;
 
 	case MP_T_OBJ:
@@ -1576,6 +1578,8 @@ _mprog_compile(mprog_t *mp)
 			return MPC_ERR_COMPILE;
 		if (var_add(mpc, "arg", MT_STR) < 0)
 			return MPC_ERR_COMPILE;
+		if (var_add(mpc, "owner", MT_STR) < 0)
+			return MPC_ERR_COMPILE;
 		break;
 
 	case MP_T_ROOM:
@@ -1584,6 +1588,8 @@ _mprog_compile(mprog_t *mp)
 		if (var_add(mpc, "actor", MT_CHAR) < 0)
 			return MPC_ERR_COMPILE;
 		if (var_add(mpc, "arg", MT_STR) < 0)
+			return MPC_ERR_COMPILE;
+		if (var_add(mpc, "owner", MT_STR) < 0)
 			return MPC_ERR_COMPILE;
 		break;
 
@@ -1628,7 +1634,8 @@ _mprog_compile(mprog_t *mp)
 	} while (0)
 
 int
-_mprog_execute(mprog_t *mp, void *arg1, void *arg2, void *arg3, void *arg4)
+_mprog_execute(mprog_t *mp, void *arg1, void *arg2, void *arg3, void *arg4,
+	       void *arg5)
 {
 	mpcode_t *mpc;
 	int rv;
@@ -1653,6 +1660,8 @@ _mprog_execute(mprog_t *mp, void *arg1, void *arg2, void *arg3, void *arg4)
 			execerr(MPC_ERR_RUNTIME);
 		if (var_assign(mpc, "arg", MT_STR, arg4) < 0)
 			execerr(MPC_ERR_RUNTIME);
+		if (var_assign(mpc, "owner", MT_CHAR, arg5) < 0)
+			execerr(MPC_ERR_RUNTIME);
 		break;
 
 	case MP_T_OBJ:
@@ -1664,6 +1673,8 @@ _mprog_execute(mprog_t *mp, void *arg1, void *arg2, void *arg3, void *arg4)
 			execerr(MPC_ERR_RUNTIME);
 		if (var_assign(mpc, "arg", MT_STR, arg4) < 0)
 			execerr(MPC_ERR_RUNTIME);
+		if (var_assign(mpc, "owner", MT_CHAR, arg5) < 0)
+			execerr(MPC_ERR_RUNTIME);
 		break;
 
 	case MP_T_ROOM:
@@ -1673,18 +1684,17 @@ _mprog_execute(mprog_t *mp, void *arg1, void *arg2, void *arg3, void *arg4)
 			execerr(MPC_ERR_RUNTIME);
 		if (var_assign(mpc, "arg", MT_STR, arg4) < 0)
 			execerr(MPC_ERR_RUNTIME);
+		if (var_assign(mpc, "owner", MT_CHAR, arg5) < 0)
+			execerr(MPC_ERR_RUNTIME);
 		break;
 
 	case MP_T_SPEC:
 		if (var_assign(mpc, "actor", MT_CHAR, arg1) < 0)
 			execerr(MPC_ERR_RUNTIME);
-
 		if (var_assign(mpc, "rm", MT_STR, arg2) < 0)
 			execerr(MPC_ERR_RUNTIME);
-
 		if (var_assign(mpc, "add", MT_STR, arg3) < 0)
 			execerr(MPC_ERR_RUNTIME);
-
 		break;
 	}
 
