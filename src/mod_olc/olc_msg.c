@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.14 1998-12-01 10:55:10 fjoe Exp $
+ * $Id: olc_msg.c,v 1.15 1998-12-07 05:51:26 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -169,7 +169,7 @@ OLC_FUN(msged_list)
 				if (output == NULL)
 					output = buf_new(-1);
 				buf_add(output, name);
-				if (name[strlen(name)-1] != '\r')
+				if (name[strlen(name)-1] != '\n')
 					buf_add(output, "\n");
 			}
 		}
