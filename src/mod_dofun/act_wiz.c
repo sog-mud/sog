@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.237 2000-04-03 14:24:21 fjoe Exp $
+ * $Id: act_wiz.c,v 1.238 2000-04-03 15:14:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3313,14 +3313,23 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 			goto cleanup;
 		}
 
+		if (IS_CLAN(victim->clan, cl->name)) {
+			char_puts("Ok.\n", ch);
+			goto cleanup;
+		}
+			
 		if (!IS_NPC(victim)
-		&&  (clo = clan_lookup(victim->clan))) {
+		&&  (clo = clan_lookup(victim->clan))
+		&&  !IS_CLAN(clo->name, "none")) {
 			clan_update_lists(clo, victim, TRUE);
 			clan_save(clo);
 		}
 
 		free_string(victim->clan);
-		victim->clan = str_qdup(cl->name);
+		if (IS_CLAN(cl->name, "none"))
+			victim->clan = str_empty;
+		else
+			victim->clan = str_qdup(cl->name);
 
 		if ((mark = get_eq_char(victim, WEAR_CLANMARK)) != NULL) {
 			obj_from_char(mark);
@@ -3329,8 +3338,11 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 
 		if (!IS_NPC(victim)) {
 			PC(victim)->clan_status = CLAN_COMMONER;
-			name_add(&cl->member_list, victim->name, NULL, NULL);
-			clan_save(cl);
+			if (!IS_CLAN(cl->name, "none")) {
+				name_add(&cl->member_list, victim->name,
+					 NULL, NULL);
+				clan_save(cl);
+			}
 
 			spec_update(victim);
 			update_skills(victim);
@@ -3339,10 +3351,11 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 			&&  (mark = create_obj(get_obj_index(cl->mark_vnum), 0))) {
 				obj_to_char(mark, victim);
 				equip_char(victim, mark, WEAR_CLANMARK);
-			};
-
-			altered = TRUE;
+			}
 		}
+
+		char_puts("Ok.\n", ch);
+		altered = TRUE;
 		goto cleanup;
 	}
 
