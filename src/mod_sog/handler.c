@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.178 1999-09-14 03:10:56 avn Exp $
+ * $Id: handler.c,v 1.179 1999-09-15 10:57:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2752,7 +2752,7 @@ void path_to_track(CHAR_DATA *ch, CHAR_DATA *victim, int door)
 			return;
 		}
 	}
-	add_mind(ch, victim->name);
+	add_mind(victim, ch->name);
 	dofun("track", victim, str_empty);
 }
 

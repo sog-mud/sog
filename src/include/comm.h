@@ -1,5 +1,5 @@
 /*
- * $Id: comm.h,v 1.31 1999-09-08 10:40:02 fjoe Exp $
+ * $Id: comm.h,v 1.32 1999-09-15 10:57:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -53,10 +53,10 @@ bool	write_to_descriptor	(int desc, const char *txt, uint length);
 void	write_to_snoop	(DESCRIPTOR_DATA *d, const char *txt, size_t len);
 void	bust_a_prompt	(DESCRIPTOR_DATA *d);
 
-void	char_puts(const char *txt, CHAR_DATA *ch);
-void	char_printf(CHAR_DATA *ch, const char *format, ...);
+void	char_puts	(const char *txt, CHAR_DATA *ch);
+void	char_printf	(CHAR_DATA *ch, const char *format, ...);
 
-void	send_to_char(const char *txt, CHAR_DATA *ch);
-void	page_to_char( const char *txt, CHAR_DATA *ch);
+void	send_to_char	(const char *txt, CHAR_DATA *ch);
+void	page_to_char	(const char *txt, CHAR_DATA *ch);
 
 #endif

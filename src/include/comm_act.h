@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.h,v 1.15 1999-09-11 12:49:57 fjoe Exp $
+ * $Id: comm_act.h,v 1.16 1999-09-15 10:57:45 fjoe Exp $
  */
 
 #ifndef _COMM_ACT_H_
@@ -43,7 +43,7 @@
 #define ACT_NODEAF	(J)	/* skip is_affected(to, gsn_deafen) chars   */
 #define ACT_STRANS	(K)	/* do $t and $T slang translation (from ch) */
 #define ACT_NOMORTAL	(L)	/* skip mortals */
-#define ACT_VERBOSE	(M)	/* skip if (!IS_SET(ch->comm, COMM_VERBOSE)) */
+#define ACT_VERBOSE	(M)	/* skip if (!IS_SET(to->comm, COMM_VERBOSE)) */
 #define ACT_NOLF	(N)	/* do not append lf */
 #define ACT_NOUCASE	(O)	/* do not uppercase first letter */
 #define ACT_FORMSH	(P)	/* call format_short for short descrs */

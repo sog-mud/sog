@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.230 1999-09-15 07:53:39 kostik Exp $
+ * $Id: merc.h,v 1.231 1999-09-15 10:57:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1446,7 +1446,6 @@ struct npc_data {
  */
 struct pc_data
 {
-	PC_DATA *		next;
 	BUFFER *		buffer;
 	const char *		pwd;
 	const char *		bamfin;
