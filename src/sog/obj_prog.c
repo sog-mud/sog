@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.51 1998-12-23 16:11:18 fjoe Exp $
+ * $Id: obj_prog.c,v 1.52 1998-12-28 15:06:16 kostik Exp $
  */
 
 /***************************************************************************
@@ -708,7 +708,7 @@ int fight_prog_tattoo_ehrumen(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	case 0:
 		char_puts("The tattoo on your shoulder glows {Cblue{x.\n", ch);
 		spell_cure_light(gsn_cure_light, ch->level,
-				 ch, ch->fighting, TARGET_CHAR);
+				 ch, ch, TARGET_CHAR);
 		break;
 	case 1:
 		char_puts("The tattoo on your shoulder glows {Cblue{x.\n", ch);
