@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm.c,v 1.34 2004-02-24 11:07:11 fjoe Exp $
+ * $Id: comm.c,v 1.35 2004-02-24 11:12:45 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -1074,7 +1074,7 @@ read_from_buffer(DESCRIPTOR_DATA *d)
 	/*
 	 * Hold horses if pending command already.
 	 */
-	d->incomm_synced = FALSE;
+	d->incomm_synced = d->qbuf[0] == '\0';
 	if (d->incomm[0] != '\0')
 		return;
 
