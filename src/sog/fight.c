@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.156 1999-04-13 02:48:33 kostik Exp $
+ * $Id: fight.c,v 1.157 1999-04-14 05:31:35 kostik Exp $
  */
 
 /***************************************************************************
@@ -893,10 +893,12 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 		dam = LEVEL(ch) / 10 * dam + LEVEL(ch);
 	else if (dt == gsn_dual_backstab && (IS_NPC(ch) || wield))
 		dam = LEVEL(ch) / 14 * dam + LEVEL(ch);
-	else if (dt == gsn_circle || dt == gsn_knife)
+	else if (dt == gsn_circle)
 		dam = (LEVEL(ch)/40 + 1) * dam + LEVEL(ch);
+	else if (dt == gsn_knife)
+		dam = (LEVEL(ch)/28 + 1) * dam + LEVEL(ch);
 	else if (dt == gsn_vampiric_bite && is_affected(ch, gsn_vampire))
-		dam = (LEVEL(ch)/20 + 1) * dam + LEVEL(ch);
+		dam = (LEVEL(ch)/13 + 1) * dam + LEVEL(ch);
 	else if (dt == gsn_cleave && wield != NULL) {
 		if (number_percent() <
 				(URANGE(4, 5+LEVEL(ch)-LEVEL(victim), 10)
