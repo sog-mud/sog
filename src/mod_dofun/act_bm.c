@@ -31,7 +31,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_bm.c,v 1.1.2.4 2002-10-18 18:38:40 tatyana Exp $
+ * $Id: act_bm.c,v 1.1.2.5 2002-10-22 08:39:32 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -47,7 +47,7 @@ DECLARE_DO_FUN(do_help);
 
 int advatoi (const char *);
 
-static void send_notice(CHAR_DATA *victim, OBJ_DATA *obj, int type);
+static void send_notice(CHAR_DATA *victim, bmitem_t *item, int type);
 
 #define NOTICE_BUYER		1
 #define NOTICE_BET		2
@@ -116,10 +116,11 @@ void do_bm(CHAR_DATA *ch, const char *argument)
 					  TO_CHAR, POS_DEAD);
 			} else if (IS_HUNTER(ch)) {
 				act_puts3("	current bet - {C$J{x; "
-					  "seller - $t.",
+					  "seller - $t. $lu{$T}.",
 					  ch,
 					  IS_NULLSTR(item->seller) ? "nobody" : item->seller,
-					  NULL, (const void *) item->bet,
+					  IS_NULLSTR(item->buyer) ? "no buyer" : "{Rhas buyer{x",
+					  (const void *) item->bet,
 					  TO_CHAR, POS_DEAD);
 			} else {
 				act_puts3("	current bet - {C$J{x; "
@@ -212,6 +213,7 @@ void do_bm(CHAR_DATA *ch, const char *argument)
 			PC(ch)->bank_g -= newbet;
 			item->buyer = str_dup(ch->name);
 			item->bet = newbet;
+			item->timer = 0;
 			act("{D[BLACK MARKET]{x You successfully make a bet "
 			    "of $j gold on {D$P{x.",
 			    ch, (const void *) newbet, item->obj,
@@ -232,7 +234,7 @@ void do_bm(CHAR_DATA *ch, const char *argument)
 		if (!no_buyer) {
 			PC(buyer)->bank_g += item->bet;
 			if (loaded_buyer) {
-				send_notice(buyer, item->obj, NOTICE_BET);
+				send_notice(buyer, item, NOTICE_BET);
 				char_save(buyer, SAVE_F_PSCAN);
 				char_nuke(buyer);
 			} else {
@@ -245,6 +247,7 @@ void do_bm(CHAR_DATA *ch, const char *argument)
 
 		PC(ch)->bank_g -= newbet;
 		item->bet = newbet;
+		item->timer = 0;
 		free_string(item->buyer);
 		item->buyer = str_dup(ch->name);
 		act("{D[BLACK MARKET]{x You successfully make a bet of "
@@ -310,14 +313,14 @@ void do_bm(CHAR_DATA *ch, const char *argument)
 		    ch, (const void *) item->bet, item->obj,
 		    TO_CHAR | ACT_NOCANSEE);
 
-		if (loaded_buyer) {
-			send_notice(buyer, item->obj, NOTICE_BUYER);
-		} else {
-			send_notice(buyer, item->obj, NOTICE_BUYER);
+		if (!loaded_buyer) {
+			send_notice(buyer, item, NOTICE_BUYER);
 			act("{D[BLACK MARKET]{x You bought {D$p{x at black "
 			    "market.", buyer, item->obj, NULL,
 			    TO_CHAR | ACT_NOCANSEE);
 		}
+
+		send_notice(buyer, item, NOTICE_BUYER);
 		obj_to_char(item->obj, buyer);
 		char_save(buyer, loaded_buyer ? SAVE_F_PSCAN : 0);
 		if (loaded_buyer)
@@ -479,6 +482,11 @@ void do_bm(CHAR_DATA *ch, const char *argument)
 			act("You can't stop selling.", ch, NULL, NULL, TO_CHAR);
 			return;
 		}
+
+		for (item = bmitem_list; item != NULL && item->obj != NULL;
+				item = item->next) {
+
+		}
 		return;
 	}
 	do_help(ch, "'BLACK MARKET'");
@@ -486,9 +494,10 @@ void do_bm(CHAR_DATA *ch, const char *argument)
 }
 
 static void
-send_notice(CHAR_DATA *victim, OBJ_DATA *obj, int type)
+send_notice(CHAR_DATA *victim, bmitem_t *item, int type)
 {
 	note_t *note;
+	OBJ_DATA *obj = item->obj;
 
 	note = new_note();
 	note->sender = str_dup("{DShrouded figure{x");
