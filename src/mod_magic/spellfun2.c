@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.61 2003-03-04 13:05:51 tatyana Exp $
+ * $Id: spellfun2.c,v 1.139.2.62 2003-03-04 16:39:18 tatyana Exp $
  */
 
 /***************************************************************************
@@ -192,6 +192,9 @@ void spell_disintegrate(int sn, int level, CHAR_DATA *ch, void *vo)
 		damage(ch, victim, dam, sn, DAM_ENERGY, TRUE);
 		return;
 	}
+
+	/*log death */
+	log("MURDER: %s has killed %s.", ch->name, victim->name);
 
 	act_puts("$n's thin light ray {G###DISINTEGRATES###{x you!",
 	      ch, NULL, victim, TO_VICT, POS_RESTING);
@@ -5963,6 +5966,9 @@ void spell_abolish_undead(int sn, int level, CHAR_DATA *ch, void *vo)
                 damage(ch, victim, dam, sn, DAM_HOLY, TRUE);
                 return;
         }
+
+	/*log death */
+	log("MURDER: %s has killed %s.", ch->name, victim->name);
 
         act_puts("$n's holy light burns you! Your flesh decays into dust.",
               ch, NULL, victim, TO_VICT, POS_RESTING);
