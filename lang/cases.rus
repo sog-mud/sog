@@ -985,6 +985,16 @@ Form 6 -у~
 End
 
 #RULE
+Name свой~
+BaseLen 3
+Form 1 -его~
+Form 2 -ему~
+Form 4 -им~
+Form 5 -ем~
+Form 6 -его~
+End
+
+#RULE
 Name смердящий~
 BaseLen 7
 Form 1 -его~
@@ -5812,6 +5822,17 @@ Form 6 -ую~
 End
 
 #RULE
+Name повелительница~
+BaseLen 13
+Form 1 -ы~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ей~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
 Name клоун~
 BaseLen 5
 Form 1 -а~
@@ -9066,6 +9087,16 @@ Form 6 -ую~
 End
 
 #RULE
+Name свое~
+BaseLen 3
+Form 1 -его~
+Form 2 -ему~
+Form 4 -им~
+Form 5 -ем~
+Form 6 -его~
+End
+
+#RULE
 Name пыльный~
 BaseLen 5
 Form 1 -ого~
@@ -9941,6 +9972,16 @@ Form 3 -а~
 Form 4 -ом~
 Form 5 -е~
 Form 6 -а~
+End
+
+#RULE
+Name свои~
+BaseLen 3
+Form 1 -их~
+Form 2 -им~
+Form 4 -ими~
+Form 5 -их~
+Form 6 -их~
 End
 
 #RULE
@@ -13704,6 +13745,17 @@ Form 3 -у~
 Form 4 -ой~
 Form 5 -е~
 Form 6 -у~
+End
+
+#RULE
+Name своя~
+BaseLen 3
+Form 1 -ей~
+Form 2 -ей~
+Form 3 -ю~
+Form 4 -ей~
+Form 5 -ей~
+Form 6 -ю~
 End
 
 #RULE
