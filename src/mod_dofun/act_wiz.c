@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.26 1998-06-21 19:30:04 efdi Exp $
+ * $Id: act_wiz.c,v 1.27 1998-06-22 09:03:16 efdi Exp $
  */
 
 /***************************************************************************
@@ -390,7 +390,7 @@ void do_wiznet(CHAR_DATA *ch, char *argument)
 			snprintf(buf2, sizeof(buf2), "%-11s|  ", wiznet_table[flag].name);
 			strcat(buf, buf2);
 			if (wiznet_table[flag].level > get_trust(ch)) {
-				strcat(buf, "N/A");
+				strcat(buf, "N/A\n\r");
 				continue;	
 			}
 			if (IS_SET(ch->wiznet,wiznet_table[flag].flag))
