@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_form.c,v 1.13 1999-02-18 18:01:59 fjoe Exp $
+ * $Id: olc_form.c,v 1.14 1999-02-19 06:30:18 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -52,23 +52,20 @@ DECLARE_OLC_FUN(formed_baselen	);
 DECLARE_OLC_FUN(formed_form	);
 DECLARE_OLC_FUN(formed_del	);
 
-DECLARE_VALIDATE_FUN(validate_name);
-DECLARE_VALIDATE_FUN(validate_baselen);
-
 OLC_CMD_DATA olc_cmds_form[] =
 {
-	{ "create",	formed_create				},
-	{ "edit",	formed_edit				},
-	{ "touch",	formed_touch				},
-	{ "show",	formed_show				},
-	{ "list",	formed_list				},
+	{ "create",	formed_create	},
+	{ "edit",	formed_edit	},
+	{ "touch",	formed_touch	},
+	{ "show",	formed_show	},
+	{ "list",	formed_list	},
 
-	{ "name",	formed_name,	validate_name		},
-	{ "base",	formed_baselen,	validate_baselen	},
-	{ "form",	formed_form				},
-	{ "del",	formed_del				},
+	{ "name",	formed_name	},
+	{ "base",	formed_baselen	},
+	{ "form",	formed_form	},
+	{ "del",	formed_del	},
 
-	{ "commands",	show_commands				},
+	{ "commands",	show_commands	},
 	{ NULL }
 };
 
@@ -363,9 +360,19 @@ OLC_FUN(formed_name)
 
 OLC_FUN(formed_baselen)
 {
+	char arg[MAX_INPUT_LENGTH];
 	WORD_DATA *w;
 	EDIT_WORD(ch, w);
-	return olced_number(ch, argument, formed_baselen, &w->base_len);
+
+	one_argument(argument, arg, sizeof(arg));
+	if (str_prefix(arg, w->name)) {
+		char_printf(ch, "FormEd: %s: not prefix of name (%s).\n",
+			    arg, w->name);
+		return FALSE;
+	}
+
+	w->base_len = strlen(arg);
+	return TRUE;
 }
 
 OLC_FUN(formed_form)
@@ -417,31 +424,4 @@ OLC_FUN(formed_del)
 	edit_done(ch->desc);
 
 	return FALSE;
-}
-
-VALIDATE_FUN(validate_name)
-{
-	WORD_DATA *w;
-	EDIT_WORD(ch, w);
-
-	if (w->base_len) {
-		char_puts("FormEd: reset base to 0 before changing name.\n",
-			  ch);
-		return FALSE;
-	}
-	return TRUE;
-}
-
-VALIDATE_FUN(validate_baselen)
-{
-	int new_base = *(int*) arg;
-	WORD_DATA *w;
-	EDIT_WORD(ch, w);
-
-	if (new_base < 0 || new_base > strlen(w->name)) {
-		char_printf(ch, "FormEd: base must not be less than 0 "
-				"or greater than length of name.\n");
-		return FALSE;
-	}
-	return TRUE;
 }
