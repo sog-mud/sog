@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.6 2001-04-25 10:16:47 cs Exp $
+ * $Id: prayers.c,v 1.7 2001-05-21 19:06:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1065,7 +1065,7 @@ prayer_bless(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.level	= level;
 	af.duration	= (6 + level / 2);
 	INT(af.location)= APPLY_LUCK;
-	af.modifier	= level / 8;
+	af.modifier	= UMAX(1, level / 8);
 	af.bitvector	= 0;
 	af.owner	= NULL;
 	affect_to_char(victim, &af);
@@ -1143,10 +1143,10 @@ prayer_remove_fear(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (check_dispel(level,victim, "fear"))
+	if (check_dispel(level, victim, "fear"))
 	{
 	act_char("You feel more brave.", victim);
-	act("$n looks more conscious.",victim,NULL,NULL,TO_ROOM);
+	act("$n looks more conscious.", victim, NULL, NULL, TO_ROOM);
 	}
 	else act_char("You failed.", ch);
 }
@@ -1817,7 +1817,7 @@ prayer_heat_metal(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		if (number_range(1, 2 * level) < obj_lose->level
 		||  saves_spell(level, victim, DAM_FIRE)
 		||  !material_is(obj_lose, MATERIAL_METAL)
-		||  IS_OBJ_STAT(obj_lose,ITEM_BURN_PROOF))
+		||  IS_OBJ_STAT(obj_lose, ITEM_BURN_PROOF))
 			continue;
 
 		switch (obj_lose->item_type) {
@@ -2035,7 +2035,7 @@ prayer_ray_of_truth(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	dam = (dam * align * align) / 1000000;
 
-	spellfun_call("blindness", NULL, 3 * level / 4, ch, victim);
+	spellfun_call("blindness", NULL, 4 * level / 3, ch, victim);
 	damage(ch, victim, dam, sn, DAM_HOLY, DAMF_SHOW);
 }
 
@@ -2082,14 +2082,14 @@ prayer_bluefire(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	if (victim != ch) {
 		act("$n calls forth the blue fire of earth $N!",
-		    ch,NULL,victim,TO_ROOM);
+		    ch, NULL, victim, TO_ROOM);
 		act("$n has assailed you with the neutrals of earth!",
-		    ch,NULL,victim,TO_VICT);
+		    ch, NULL, victim, TO_VICT);
 		act_char("You conjure forth the blue fire!", ch);
 	}
 
 	dam = dice(level, 10);
-	if (saves_spell(level, victim,DAM_FIRE))
+	if (saves_spell(level, victim, DAM_FIRE))
 		dam /= 2;
 	damage(ch, victim, dam, sn, DAM_FIRE, DAMF_SHOW);
 }
@@ -2186,7 +2186,7 @@ prayer_benediction(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.where 	= TO_AFFECTS;
 	af.type  	= sn;
 	af.level	= level;
-	af.duration	= 5+level/2;
+	af.duration	= 5 + level / 2;
 	INT(af.location)= APPLY_HITROLL;
 	af.modifier	= level / 8 * strength;
 	af.bitvector	= 0;
@@ -2411,8 +2411,8 @@ prayer_frenzy(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.where	= TO_AFFECTS;
 	af.type		= sn;
 	af.level	= level;
-	af.duration	= level / 3;
-	af.modifier	= level / 6;
+	af.duration	= UMAX(2, level / 3);
+	af.modifier	= UMAX(1, level / 6);
 	af.bitvector	= 0;
 	af.owner	= NULL;
 
@@ -2422,7 +2422,7 @@ prayer_frenzy(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	INT(af.location)= APPLY_DAMROLL;
 	affect_to_char(victim,&af);
 
-	af.modifier	= 10 * (level / 12);
+	af.modifier	= 5 * UMAX(1, level / 6);
 	INT(af.location)= APPLY_AC;
 	affect_to_char(victim,&af);
 

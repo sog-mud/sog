@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: update.c,v 1.195 2000-10-21 17:00:54 fjoe Exp $
+ * $Id: update.c,v 1.196 2001-05-21 19:06:32 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -164,7 +164,7 @@ gain_condition(CHAR_DATA *ch, int iCond, int value)
 			break;
 
 		case COND_THIRST:
-			act_char("You are dying of thrist!", ch);
+			act_char("You are dying of thirst!", ch);
 			act("$n is dying of thirst!", ch, NULL, NULL, TO_ROOM);
 			damage_hunger = ch->max_hit * number_range(2, 4) / 100;
 			if (!damage_hunger)
@@ -176,7 +176,7 @@ gain_condition(CHAR_DATA *ch, int iCond, int value)
 			break;
 
 		case COND_BLOODLUST:
-			act_char("You are suffering from thrist of blood!", ch);
+			act_char("You are suffering from thirst of blood!", ch);
 			act("$n is suffering from thirst of blood!",
 			    ch, NULL, NULL, TO_ROOM);
 			if (ch->in_room && ch->in_room->people

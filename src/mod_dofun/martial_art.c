@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.177 2001-05-09 13:15:38 kostik Exp $
+ * $Id: martial_art.c,v 1.178 2001-05-21 19:06:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3435,13 +3435,13 @@ void do_warcry(CHAR_DATA *ch, const char *argument)
 	af.level	= ch->level;
 	af.duration	= 6 + ch->level;
 	INT(af.location)= APPLY_HITROLL;
-	af.modifier	= LEVEL(ch) / 8;
+	af.modifier	= UMAX(1, LEVEL(ch) / 8);
 	af.bitvector	= 0;
 	af.owner	= NULL;
 	affect_to_char(ch, &af);
 
 	INT(af.location)= APPLY_SAVING_SPELL;
-	af.modifier	= 0 - LEVEL(ch) / 8;
+	af.modifier	= 0 - UMAX(1, LEVEL(ch) / 8);
 	affect_to_char(ch, &af);
 	act_char("You feel righteous as you yell out your warcry.", ch);
 }

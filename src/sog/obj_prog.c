@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.90 2001-01-11 21:43:17 fjoe Exp $
+ * $Id: obj_prog.c,v 1.91 2001-05-21 19:06:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -584,11 +584,11 @@ int fight_prog_tattoo_atum_ra(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
 
-	switch(number_bits(6)) {
+	switch(number_bits(5)) {
 	case 0:
 	case 1:
 		act_char("The tattoo on your shoulder glows {Cblue{x.", ch);
-		spellfun_call("cure serious", NULL, LEVEL(ch), ch, ch);
+		spellfun_call("cure critical", NULL, LEVEL(ch), ch, ch);
 		break;
 	case 2:
 		act_char("The tattoo on your shoulder glows {Rred{x.", ch);
@@ -605,7 +605,7 @@ int fight_prog_tattoo_zeus(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
 
-	switch(number_bits(6)) {
+	switch(number_bits(5)) {
 	case 0:
 	case 1:
 	case 2:
@@ -628,10 +628,10 @@ int fight_prog_tattoo_siebele(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
 
-	switch(number_bits(6)) {
+	switch(number_bits(4)) {
 	case 0:
 		act_char("The tattoo on your shoulder glows {Cblue{x.", ch);
-		spellfun_call("cure serious", NULL, LEVEL(ch), ch, ch);
+		spellfun_call("cure critical", NULL, LEVEL(ch), ch, ch);
 		break;
 	case 1:
 		act_char("The tattoo on your shoulder glows {Rred{x.", ch);
@@ -646,14 +646,15 @@ int fight_prog_tattoo_ahuramazda(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
 
-	switch(number_bits(6)) {
+	switch(number_bits(5)) {
 	case 0:
-		act_char("The tattoo on your shoulder glows {Cblue{x.", ch);
-		spellfun_call("cure serious", NULL, LEVEL(ch), ch, ch); 
-		break;
 	case 1:
+		act_char("The tattoo on your shoulder glows {Cblue{x.", ch);
+		spellfun_call("cure critical", NULL, LEVEL(ch), ch, ch); 
+		break;
+	case 2:
 		act_char("The tattoo on your shoulder glows {Rred{x.", ch);
-		spellfun_call("dispel evil", NULL, LEVEL(ch), ch, ch->fighting);
+		spellfun_call("ray of truth", NULL, LEVEL(ch), ch, ch->fighting);
 		break;
 	}
 	return 0;
@@ -664,16 +665,16 @@ int fight_prog_tattoo_shamash(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
 
-	switch(number_bits(6)) {
+	switch(number_bits(5)) {
 	case 0:
 	case 1:
 		act_char("The tattoo on your shoulder glows {Cblue{x.", ch);
-		spellfun_call("cure serious", NULL, LEVEL(ch), ch, ch);
+		spellfun_call("cure critical", NULL, LEVEL(ch), ch, ch);
 		break;
 	case 2:
 		act_char("The tattoo on your shoulder glows {Rred{x.", ch);
 		dofun("yell", ch, "And justice for all!....");
-		spellfun_call("screa", NULL, LEVEL(ch), ch, ch->fighting);
+		spellfun_call("scream", NULL, LEVEL(ch), ch, ch->fighting);
 		break;
 	}
 	return 0;
@@ -686,13 +687,7 @@ int fight_prog_tattoo_ehrumen(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 
 	switch(number_bits(6)) {
 	case 0:
-		act_char("The tattoo on your shoulder glows {Cblue{x.", ch);
-		spellfun_call("cure light", NULL, LEVEL(ch), ch, ch);
-		break;
 	case 1:
-		act_char("The tattoo on your shoulder glows {Cblue{x.", ch);
-		spellfun_call("cure serious", NULL, LEVEL(ch), ch, ch);
-		break;
 	case 2:
 		act_char("The tattoo on your shoulder glows {Rred{x.", ch);
 		spellfun_call("demonfire", NULL, LEVEL(ch), ch, ch->fighting);
@@ -706,20 +701,20 @@ int fight_prog_tattoo_venus(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
 
-	switch(number_bits(6)) {
+	switch(number_bits(5)) {
 	case 0:
 	case 1:
 	case 2:
 		act_char("The tattoo on your shoulder glows {Cblue{x.", ch);
-		spellfun_call("cure light", NULL, LEVEL(ch), ch, ch);
+		spellfun_call("cure critical", NULL, LEVEL(ch), ch, ch);
 		break;
 	case 3:
-		act_char("The tattoo on your shoulder glows {Rred{x.", ch);
-		spellfun_call("plague", NULL, LEVEL(ch), ch, ch->fighting);
-		break;
-	case 4:
 		act_char("The tattoo on your shoulder glows {Cblue{x.", ch);
 		spellfun_call("bless", NULL, LEVEL(ch), NULL, ch);
+		break;
+ 	case 4:
+		act_char("The tattoo on your shoulder glows {Cblue{x.", ch);
+		spellfun_call("mana restore", NULL, LEVEL(ch), ch, ch);
 		break;
 	}
 	return 0;
@@ -736,6 +731,8 @@ int fight_prog_tattoo_seth(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 		spellfun_call("dragon strength", NULL, LEVEL(ch), ch, ch);
 		break;
 	case 1:
+	case 2:
+	case 3:
 		act_char("The tattoo on your shoulder glows {Rred{x.", ch);
 		spellfun_call("dragon breath", NULL, LEVEL(ch), ch, ch->fighting);
 		break;
@@ -751,12 +748,14 @@ int fight_prog_tattoo_odin(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 
 	switch(number_bits(5)) {
 	case 0:
+	case 1:
+	case 2:
 		act_char("The tattoo on your shoulder glows {Cblue{x.", ch);
 		spellfun_call("cure critical", NULL, LEVEL(ch), ch, ch);
 		break;
-	case 1:
+	case 3:
 		act_char("The tattoo on your shoulder glows {Rred{x.", ch);
-		spellfun_call("faerie fire", NULL, LEVEL(ch), ch, ch->fighting);
+		spellfun_call("faerie fire", NULL, LEVEL(ch) + 35, ch, ch->fighting);
 		break;
 	}
 	return 0;
@@ -769,12 +768,10 @@ int fight_prog_tattoo_phobos(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 
 	switch(number_bits(6)) {
 	case 0:
-		act_char("The tattoo on your shoulder glows {Cblue{x.", ch);
-		spellfun_call("cure serious", NULL, LEVEL(ch), ch, ch);
-		break;
 	case 1:
+	case 2:
 		act_char("The tattoo on your shoulder glows {Rred{x.", ch);
-		spellfun_call("colour spray", NULL, LEVEL(ch), ch, ch->fighting);
+		spellfun_call("acid breath", NULL, LEVEL(ch), ch, ch->fighting);
 		break;
 	}
 	return 0;
@@ -787,22 +784,18 @@ int fight_prog_tattoo_teshub(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 
 	switch(number_bits(6)) {
 	case 0:
-		act_char("The tattoo on your shoulder glows {Rred{x.", ch);
-		spellfun_call("blindness", NULL, LEVEL(ch), ch, ch->fighting);
-		act_char("You send out a cloud of confusion!", ch);
+		act_char("The tattoo on your shoulder glows {Cblue{x.", ch);
+		spellfun_call("cure critical", NULL, LEVEL(ch), ch, ch);
 		break;
 	case 1:
-		act_char("The tattoo on your shoulder glows {Rred{x.", ch);
-		spellfun_call("poison", NULL, LEVEL(ch), ch, ch->fighting);
-		act_char("Some of your insanity rubs off on your opponent.", ch);
+		act_char("The tattoo on your shoulder glows {Cblue{x.", ch);
+		spellfun_call("bless", NULL, LEVEL(ch), ch, ch);
 		break;
 	case 2:
+		act_char("The tattoo on your shoulder glows {Cblue{x.", ch);
 		spellfun_call("haste", NULL, LEVEL(ch), ch, ch);
-		act_char("You suddenly feel more hyperactive!", ch);
-		break;
-	case 3:
 		spellfun_call("shield", NULL, LEVEL(ch), ch, ch);
-		act_char("You feel even more paranoid!", ch);
+		spellfun_call("stone skin", NULL, LEVEL(ch), ch, ch);
 		break;
 	}
 	return 0;
@@ -879,25 +872,35 @@ int fight_prog_tattoo_ares(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 
 int fight_prog_tattoo_hera(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
+	int bonus = 3;
+
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
 
 	switch(number_bits(5)) {
 	case 0:
 		act_char("The tattoo on your shoulder glows {Rred{x.", ch);
-		spellfun_call("plague" , NULL, LEVEL(ch), ch, ch->fighting);
+		spellfun_call("poison", NULL, LEVEL(ch) + bonus, ch, ch->fighting);
 		break;
 	case 1:
 		act_char("The tattoo on your shoulder glows {Rred{x.", ch);
-		spellfun_call("poison", NULL, LEVEL(ch), ch, ch->fighting);
-		/* FALLTHRU */
+		spellfun_call("weaken", NULL, LEVEL(ch) + bonus, ch, ch->fighting);
+		break;
 	case 2:
 		act_char("The tattoo on your shoulder glows {Rred{x.", ch);
-		spellfun_call("weaken", NULL, LEVEL(ch), ch, ch->fighting);
-		/* FALLTHRU */
-	case 3:
+		spellfun_call("slow", NULL, LEVEL(ch) + bonus, ch, ch->fighting);
+		break;
+	case 3: 
 		act_char("The tattoo on your shoulder glows {Rred{x.", ch);
-		spellfun_call("slow", NULL, LEVEL(ch), ch, ch->fighting);
+		spellfun_call("energy drain", NULL, LEVEL(ch) + bonus, ch, ch->fighting);
+		break;
+	case 4: 
+		act_char("The tattoo on your shoulder glows {Rred{x.", ch);
+		spellfun_call("blindness", NULL, LEVEL(ch) + bonus, ch, ch->fighting);
+		break;
+	case 5: 
+		act_char("The tattoo on your shoulder glows {Rred{x.", ch);
+		spellfun_call("curse", NULL, LEVEL(ch) + bonus, ch, ch->fighting);
 		break;
 	}
 	return 0;
@@ -909,15 +912,10 @@ int fight_prog_tattoo_deimos(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
 
-	switch(number_bits(6)) {
+	switch(number_bits(5)) {
 	case 0:
-	case 1:
-		act_char("The tattoo on your shoulder glows {Cblue{x.", ch);
-		spellfun_call("cure serious", NULL, LEVEL(ch), ch, ch);
-		break;
-	case 2:
 		act_char("The tattoo on your shoulder glows {Rred{x.", ch);
-		spellfun_call("web", NULL, LEVEL(ch), ch, ch->fighting);
+		spellfun_call("lightning breath", NULL, LEVEL(ch), ch, ch->fighting);
 		break;
 	}
 	return 0;
@@ -928,25 +926,13 @@ int fight_prog_tattoo_enki(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	if (get_eq_char(ch, WEAR_TATTOO) == obj)
 	switch(number_bits(5)) {
 	case 0:
-		act_puts("The tattoo on your shoulder glows {Cblue{x.",
-			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+	case 1:
+		act_char("The tattoo on your shoulder glows {Cblue{x.", ch);
 		spellfun_call("cure critical", NULL, LEVEL(ch), ch, ch);
 		break;
-	case 1:
 	case 2:
-		act_puts("The tattoo on your shoulder glows {Rred{x.",
-			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-
-		if (IS_EVIL(ch->fighting) && !IS_EVIL(ch)) {
-			spellfun_call("dispel evil", NULL, LEVEL(ch) * 12 / 10,
-				      ch, ch->fighting);
-		} else if (IS_GOOD(ch->fighting) && !IS_GOOD(ch)) {
-			spellfun_call("dispel good", NULL, LEVEL(ch) * 12 / 10,
-				      ch, ch->fighting);
-		} else {
-			spellfun_call("lightning bolt", NULL, LEVEL(ch) * 12 / 10,
-				      ch, ch->fighting);
-		}
+		act_char("The tattoo on your shoulder glows {Rred{x.", ch);
+		spellfun_call("flamestrike", NULL, LEVEL(ch), ch, ch->fighting);
 		break;
 	}
 	return 0;
@@ -959,13 +945,13 @@ int fight_prog_tattoo_eros(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 
 	switch(number_bits(5)) {
 	case 0:
-	case 1:
 		act_char("The tattoo on your shoulder glows {Cblue{x.", ch);
 		spellfun_call("heal", NULL, LEVEL(ch), ch, ch);
 		break;
+	case 1:
 	case 2:
 		act_char("The tattoo on your shoulder glows {Cblue{x.", ch);
-		spellfun_call("group heal", NULL, LEVEL(ch), ch, ch);
+		spellfun_call("cure critical", NULL, LEVEL(ch), ch, ch);
 		break;
 	}
 	return 0;

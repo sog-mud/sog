@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.236 2001-05-09 13:15:41 kostik Exp $
+ * $Id: spellfun.c,v 1.237 2001-05-21 19:06:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -80,13 +80,13 @@ void spell_armor(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	}
 
 	af.where	 = TO_AFFECTS;
-	af.type      = sn;
+	af.type     	 = sn;
 	af.level	 = level;
-	af.duration  = 7 + level / 6;
-	af.modifier  = -1 * UMAX(20,10 + level / 4); /* af.modifier  = -20;*/
+	af.duration 	 = 7 + level / 6;
+	af.modifier  	 = -1 * UMAX(20,10 + level / 4); /* af.modifier  = -20;*/
 	INT(af.location) = APPLY_AC;
-	af.bitvector = 0;
-	af.owner	= NULL;
+	af.bitvector	 = 0;
+	af.owner	 = NULL;
 	affect_to_char(victim, &af);
 	act_char("You feel someone protecting you.", victim);
 	if (ch != victim)
@@ -99,22 +99,22 @@ void spell_blindness(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	AFFECT_DATA af;
 
 	if (IS_AFFECTED(victim, AFF_BLIND) || 
-	    saves_spell(level,victim,DAM_OTHER))  {
+	    saves_spell(level, victim, DAM_OTHER))  {
 	  act_char("You failed.", ch);
 		return;
 	}
 
-	af.where     = TO_AFFECTS;
-	af.type      = sn;
-	af.level     = level;
-	INT(af.location) = APPLY_HITROLL;
-	af.modifier  = -4;
-	af.duration  = 3+level / 15;
-	af.bitvector = AFF_BLIND;
-	af.owner	= NULL;
+	af.where	= TO_AFFECTS;
+	af.type     	= sn;
+	af.level    	= level;
+	INT(af.location)= APPLY_HITROLL;
+	af.modifier 	= -4;
+	af.duration 	= 3 + level / 15;
+	af.bitvector	= AFF_BLIND;
+	af.owner 	= NULL;
 	affect_to_char(victim, &af);
 	act_char("You are blinded!", victim);
-	act("$n appears to be blinded.",victim,NULL,NULL,TO_ROOM);
+	act("$n appears to be blinded.", victim, NULL, NULL, TO_ROOM);
 }
 
 void spell_burning_hands(const char *sn, int level, CHAR_DATA *ch, void *vo)
@@ -123,7 +123,7 @@ void spell_burning_hands(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	int dam;
 
 	dam = dice(level , 2) + 7;
-	if (saves_spell(level, victim,DAM_FIRE))
+	if (saves_spell(level, victim, DAM_FIRE))
 		dam /= 2;
 	damage(ch, victim, dam, sn, DAM_FIRE, DAMF_SHOW);
 }
@@ -210,10 +210,10 @@ void spell_dispel_magic(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	found = dispel(victim, level);
 
-	if (IS_AFFECTED(victim,AFF_SANCTUARY)
+	if (IS_AFFECTED(victim, AFF_SANCTUARY)
 	&&  !saves_dispel(level, LEVEL(victim), -1)
 	&&  !is_affected(victim, "sanctuary")) {
-		REMOVE_BIT(victim->affected_by,AFF_SANCTUARY);
+		REMOVE_BIT(victim->affected_by, AFF_SANCTUARY);
 		act("The white aura around $n's body vanishes.",
 		    victim, NULL, NULL, TO_ROOM);
 		found = TRUE;
@@ -324,7 +324,7 @@ void spell_chain_lightning(const char *sn, int level,CHAR_DATA *ch, void *vo)
 		last_vict = ch;
 		act("The bolt arcs to $n...whoops!", ch, NULL, NULL, TO_ROOM);
 		act_char("You are struck by your own lightning!", ch);
-		dam = dice(level,6);
+		dam = dice(level, 6);
 		if (saves_spell(level, ch, DAM_LIGHTNING))
 			dam /= 3;
 		damage(ch, ch, dam, sn, DAM_LIGHTNING, DAMF_SHOW);
@@ -407,13 +407,13 @@ void spell_chill_touch(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	if (!saves_spell(level, victim, DAM_COLD)) {
 		act("$n turns blue and shivers.", victim, NULL, NULL, TO_ROOM);
-		af.where     = TO_AFFECTS;
-		af.type      = sn;
-		af.level     = level;
-		af.duration  = 6;
-		INT(af.location) = APPLY_STR;
-		af.modifier  = -1;
-		af.bitvector = 0;
+		af.where   	= TO_AFFECTS;
+		af.type    	= sn;
+		af.level   	= level;
+		af.duration 	= 6;
+		INT(af.location)= APPLY_STR;
+		af.modifier 	= -1;
+		af.bitvector	= 0;
 		af.owner	= NULL;
 		affect_join(victim, &af);
 	} else
@@ -452,14 +452,14 @@ void spell_continual_light(const char *sn, int level,CHAR_DATA *ch,void *vo)
 		    return;
 		}
 
-		if (IS_OBJ_STAT(light,ITEM_GLOW))
+		if (IS_OBJ_STAT(light, ITEM_GLOW))
 		{
-		    act("$p is already glowing.",ch,light,NULL,TO_CHAR);
+		    act("$p is already glowing.", ch, light, NULL, TO_CHAR);
 		    return;
 		}
 
 		SET_OBJ_STAT(light, ITEM_GLOW);
-		act("$p glows with a white light.",ch,light,NULL,TO_ALL);
+		act("$p glows with a white light.", ch, light, NULL, TO_ALL);
 		return;
 	}
 
@@ -4909,7 +4909,7 @@ void spell_holy_armor(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.owner	= NULL;
 	affect_to_char(ch, &af);
 	act("$n is protected from harm.",ch,NULL,NULL,TO_ROOM);
-	act_char("Your are protected from harm.", ch);
+	act_char("You are protected from harm.", ch);
 
 }  
 

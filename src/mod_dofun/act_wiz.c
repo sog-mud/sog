@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.269 2001-03-11 21:10:56 fjoe Exp $
+ * $Id: act_wiz.c,v 1.270 2001-05-21 19:06:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1103,7 +1103,7 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 	if (obj->pObjIndex->ed) {
 		ED_DATA *ed;
 
-		buf_append(output, "Obj index exd keywords: [");
+		buf_append(output, "Obj index exd keywords: ["); // notrans
 
 		for (ed = obj->pObjIndex->ed; ed; ed = ed->next) {
 			buf_append(output, ed->keyword);
@@ -4057,7 +4057,7 @@ void do_affrooms(CHAR_DATA *ch, const char *argument)
 	AFFECT_DATA *af;
 	int count = 0;
 
-	buf = buf_new(-1);
+	buf = buf_new(GET_LANG(ch));
 
 	if (!top_affected_room) 
 		buf_append(buf, "No affected rooms.\n");
@@ -4091,7 +4091,7 @@ void do_affrooms(CHAR_DATA *ch, const char *argument)
 				continue;
 			count++;
 			buf_printf(buf, BUF_END,
-				    "%d) [%s] "
+				    "%d) [%s] "		//notrans
 				    "spell '{c%s{x', owner: %s, level {c%d{x "
 				    "for {c%d{x hours.\n",
 				    count,

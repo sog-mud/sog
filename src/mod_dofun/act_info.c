@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.372 2001-05-09 13:15:37 kostik Exp $
+ * $Id: act_info.c,v 1.373 2001-05-21 19:06:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4956,7 +4956,7 @@ void do_areas(CHAR_DATA *ch, const char *argument)
 	 * print areas list
 	 * pArea1 can't be NULL after SKIP_CLOSED because iArea < iAreaHalf
 	 */
-	output = buf_new(-1);
+	output = buf_new(GET_LANG(ch));
 	buf_append(output, "Current areas of Shades of Gray: \n");
 	for (iArea = 0; iArea < iAreaHalf; iArea++) {
 		SKIP_CLOSED(pArea1);

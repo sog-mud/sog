@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: eventfun.c,v 1.24 2001-05-09 13:15:40 kostik Exp $
+ * $Id: eventfun.c,v 1.25 2001-05-21 19:06:30 fjoe Exp $
  */
 
 
@@ -200,6 +200,10 @@ EVENT_FUN(event_enter_rlight)
 
 EVENT_FUN(event_update_rlight)
 {
+	dofun("visible", ch, str_empty);
+
+	act_char("A warm feeling fills your body.", ch);
+
 	if (IS_AFFECTED(ch, AFF_BLIND))
 		spellfun_call("cure blindness", NULL, af->level, ch, ch);
 	if (IS_AFFECTED(ch, AFF_CURSE))
@@ -210,7 +214,6 @@ EVENT_FUN(event_update_rlight)
 		spellfun_call("cure disease", NULL, af->level, ch, ch);
 	spellfun_call("cure critical", NULL, af->level, ch, ch);
 
-	act_char("A warm feeling fills your body.", ch);
 }
 
 EVENT_FUN(event_updatechar_wcurse)
