@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.107 1998-12-28 14:26:41 kostik Exp $
+ * $Id: act_obj.c,v 1.108 1999-01-25 07:26:50 kostik Exp $
  */
 
 /***************************************************************************
@@ -996,7 +996,7 @@ void do_fill(CHAR_DATA * ch, const char *argument)
 		char_puts("There is already another liquid in it.\n", ch);
 		return;
 	}
-	if (obj->value[1] >= obj->value[0]) {
+	if (obj->value[1] >= obj->value[0] && obj->value[0] >= 0) {
 		char_puts("Your container is full.\n", ch);
 		return;
 	}
@@ -1088,7 +1088,7 @@ void do_pour(CHAR_DATA * ch, const char *argument)
 	amount = UMIN(out->value[1], in->value[0] - in->value[1]);
 
 	in->value[1] += amount;
-	out->value[1] -= amount;
+	if (out->value[0]>0) out->value[1] -= amount;
 	in->value[2] = out->value[2];
 
 	if (vch == NULL) {
@@ -1155,7 +1155,7 @@ void do_drink(CHAR_DATA * ch, const char *argument)
 		break;
 
 	case ITEM_DRINK_CON:
-		if (obj->value[1] <= 0) {
+		if (obj->value[1] == 0) {
 			char_puts("It is empty.\n", ch);
 			return;
 		}
@@ -1212,7 +1212,7 @@ void do_drink(CHAR_DATA * ch, const char *argument)
 		affect_join(ch, &af);
 	}
 	if (obj->value[0] > 0)
-		obj->value[1] -= amount;
+		obj->value[1] = UMAX(obj->value[1]-amount,0);
 	return;
 }
 

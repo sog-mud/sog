@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.107 1999-01-03 14:02:35 fjoe Exp $
+ * $Id: act_wiz.c,v 1.108 1999-01-25 07:26:51 kostik Exp $
  */
 
 /***************************************************************************
@@ -841,13 +841,13 @@ void do_goto(CHAR_DATA *ch, const char *argument)
 			char_puts("You are too pumped to pray now.\n", ch);
 			return;
 		}
-
+#ifdef 0
 		if (!IS_SET(ch->in_room->room_flags, ROOM_PEACE)) {
 			char_puts("You must be in a safe place in order "
 				  "to make a transportation.\n", ch);
 			return;
 		}
-
+#endif
 		if ((area = area_vnum_lookup(location->vnum)) == NULL
 		||  !IS_BUILDER(ch, area)) {
 			char_puts("You cannot transfer yourself there.\n", ch);
