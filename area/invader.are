@@ -27,9 +27,10 @@ ACEFKNU AB 0 S
 stand stand male 5000
 0 0 medium unknown
 M grall 95600 100~
+M act 95601 says 'great night'~
 C Invader~
 #95601
-evil cleric cabal invader~
+cleric cabal invader~
 @eng the evil cleric@rus ~~жрец~~ Зла~
 @eng The dark cleric is healing and refreshing his invader brothers.
 @rus Темный монах (cleric) стоит у входа, готовый помочь своим братьям.
@@ -45,13 +46,39 @@ whole Realms of Anatolia as in the history.
 того дня, когда весь этот мир склонится перед Инвайдерами.  
 ~
 human~
-ABQVae DFmu -1000 0
+ABQVace DFmu -1000 0
 90 100 1d1+28999 1d1+999 2d14+60 magic
 -85 -85 -85 -15
 AFHIKQ ABCE D 0
 stand stand male 1000
 0 0 medium unknown
 C Invader~
+#95602
+bruks vampire~
+@eng bruks@rus ~~брукса~~~
+@eng Very small and old bruks giggles here.
+@rus Маленькая сморщенная брукса (bruks) хихикает в сторонке.
+~
+~
+undead~
+AB fg -1000 0
+1 0 1d1+1 1d1+10000 1d1+1 kiss
+-10000 -10000 -10000 -10000
+G ABCD 0 0
+stand stand female 0
+0 0 medium unknown
+#95603
+darkness~
+~
+~
+~
+unique~
+BOc BDFKPglmu -10000 0
+200 0 1d1+1000000 0d0+0 0d0+0 blast
+0 0 0 0
+G ABCDEFGHIJKLMNOPQRTUXYZ 0 0
+stand stand none 0
+0 0 medium unknown
 #0
 
 #OBJECTS
@@ -339,6 +366,41 @@ D0
 Z -1 95607
 M 50 H 50
 S
+#95610
+@eng Vampires Lair@rus Логово Вампиров~
+~
+0 0 inside
+D0
+~
+~
+Z 0 95611
+D4
+~
+~
+Z 0 95612
+S
+#95611
+@eng Dark Tunnel~
+~
+0 0 inside
+D0
+~
+~
+Z 0 95609
+D2
+~
+~
+Z 0 95610
+S
+#95612
+~
+~
+0 0 inside
+D5
+~
+~
+Z 0 95610
+S
 #0
 
 #SPECIALS
@@ -358,6 +420,7 @@ O 0 95603 0 95608	* white portal (The Pentagram)
 O 0 95606 0 95608	* shadow (The Pentagram)
 O 0 95600 0 95608	* the skull (The Pentagram)
 P 0 95601 1 95600 1	* the skull: the nothing globe
+M 0 95602 1 95610 1	* bruks (Vampires Lair)
 S
 
 #MOBPROGS
@@ -386,6 +449,9 @@ end
 endif
 clan We are attacked by $n
 mob attack $n
+~
+#95601
+gtransfer $n 95610
 ~
 #0
 

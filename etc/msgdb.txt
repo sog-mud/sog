@@ -159,6 +159,7 @@ Use 'desc edit' to edit your description.
 @eng $n has created $N!@rus $n $gn{создал} $c6{$N}!~
 @eng There are $J gold and $j $qj{silver coins} in the pile.@rus Ты $gn{насчитал} $J $c3{$qJ{золотых}} и $j $c3{$qj{серебряных монет}}.~
 @eng $n wears $p around $s neck.@rus $n надевает $c3{$p} на шею.~
+@eng It's $T.@rus Сейчас $T.~
 @eng $n drops some coins.@rus $n выбрасывает несколько монет.~
 @eng $N deflects your attack with $S shield.@rus $N блокирует щитом твою атаку.~
 @eng You sell $P for $j silver $qj{pieces}.@rus Ты продаешь $c3{$P} за $j $c3{$qj{серебряных монет}}.~

@@ -2712,44 +2712,57 @@ D3
 Z -1 12040
 S
 #12040
-The End of the Path~
-You stand at the end of what you now know to be a faery trod.  
+@eng The End of the Path@rus Конец тропы~
+@eng You stand at the end of what you now know to be a faery trod.  
 To the north stands the open gate to Arcadia.  From beyond the gates 
 strains of music and laughter catch your ear and draw you forward.
+@rus Ну вот ты и дошел до конца этой тропинки и теперь уже всего несколько
+шагов отделяют тебя от границы Аркадии. Вот он вход в это сказочное царство,
+прямо перед тобой.  Из-за ворот доносятся волшебные мелодии и мелодичный
+смех, заставляя тебя ускорить шаги.  
 ~
 0 VW field
 D0
-Arcadia
+@eng Arcadia
+@rus Аркадия.
 ~
 ~
 Z 0 12044
 D1
-Along the Path
+@eng Along the Path
+@rus Тропинка.
 ~
 ~
 Z -1 12039
 S
 #12041
-The Deep end of the Lake~
-You are in the depths of a lake of crystal blue waters.  The cool 
+@eng The Deep end of the Lake@rus В глубине озера~
+@eng You are in the depths of a lake of crystal blue waters.  The cool 
 waters carress and soothe your aches.  The water seems so peaceful that 
 you don't ever want to leave.  The lake extends to the north and east 
 while a rock face borders it to the west and south.
+@rus Ты находишься в глубине озера с кристально чистой голубой водой. 
+Холодная вола ласкает твое тело и притупляет твою боль.  Здесь столь
+спокойно и прекрасно, что тебе совсем не хочется покидать этого места. 
+Озеро простирается дальше на север и на восток.  А большая скала
+загораживает южное и западное направления.  
 ~
 0 0 noswim
 D0
-The Deep end of the Lake
+@eng The Deep end of the Lake
+@rus В глубине озера.
 ~
 ~
 Z -1 12055
 D1
-The Lake Shore
+@eng The Lake Shore
+@rus Берег.
 ~
 ~
 Z -1 12042
 S
 #12042
-The Lake Shore~
+@eng The Lake Shore@rus На берегу озера~
 You stand in the shallows of a blue crystal lake.  The water is warm 
 and inviting and you catch glimpses of what look like swimmers farther 
 out in the lake to the west.  To the south a rock face blocks all 

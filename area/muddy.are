@@ -8,7 +8,7 @@ End
 
 #HELPS
 -1 WIZLIST~
-__________           *********************          __________
+       __________           *********************          __________
       /+_+_+_+_+_\        **  The Gods of Muddy  **       /+_+_+_+_+_\ 
       \__________/          *********************         \__________/
         |::XXXX|                                            |::XXXX|
@@ -21,7 +21,7 @@ __________           *********************          __________
         |XX::XX|                *************               |XX::XX|
         |XXXX::|                Diablo, Hedin               |XXXX::|
         |::XXXX|                                            |::XXXX|
-/<<>>\/<<>>\/<<>>\/<<>>\                            /<<>>\/<<>>\/<<>>\/<<>>\ 
+/<<>>\/<<>>\/<<>>\/<<>>\                            /<<>>\/<<>>\/<<>>\/<<>>\  
 \<<>>/\<<>>/\<<>>/\<<>>/      Supremacies [98]      \<<>>/\<<>>/\<<>>/\<<>>/
        |.  /  . |             ****************             |.  /  . |
        | .//\.  |                  Phobos                  | .//\.  |
@@ -37,7 +37,7 @@ __________           *********************          __________
        | .//\.  |                                          | .//\.  |
        |.  /\ . |              Immortals [95]              |.  /  . |
        | .//\.  |              **************              | .//\.  |
-       |.  /  . |           Duncan, Leon, Arwen            |.  /  . |
+       |.  /  . |           McLeod, Leon, Arwen            |.  /  . |
        | .//\.  |                                          | .//\.  |
        |.  /  . |               DemiGods [94]              |.  /  . |
        | .//\.  |               *************              | .//\.  |
@@ -59,8 +59,7 @@ __________           *********************          __________
                             Holod, Urukhay, Lilit
                           Helge, Gargantua, Kitiara
                           Kalisto, Tempus, Ahellair
- 
- 
+                               Garold, Mitsubo
 ~
 -1 ANATOLIA~
 . 
@@ -267,7 +266,6 @@ Thanks to Ezra for drawing the originals of several maps on ROM.
                       ::                `                '     `
 ~
 -2 MOTD~
-
 * This is a Roleplaying, PlayerKilling and Adventure MUD.
 * You are responsible for knowing the rules (type 'rules').  Ignorance of 
   the rules is no excuse.

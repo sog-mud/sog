@@ -1390,6 +1390,17 @@ Form 6 -~
 End
 
 #RULE
+Name дубина~
+BaseLen 5
+Form 1 -ы~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
 Name деревянная~
 BaseLen 8
 Form 1 -ой~
@@ -1780,6 +1791,17 @@ Form 6 кока-колу~
 End
 
 #RULE
+Name брукса~
+BaseLen 5
+Form 1 -ы~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
 Name кролик~
 BaseLen 6
 Form 1 -а~
@@ -2155,6 +2177,17 @@ End
 Name королева~
 BaseLen 7
 Form 1 -ы~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
+Name секретарша~
+BaseLen 9
+Form 1 -и~
 Form 2 -е~
 Form 3 -у~
 Form 4 -ой~
