@@ -82,7 +82,7 @@ stand stand male 1000
 AB ABCDEFGHIJK medium unknown
 #23004
 trolloc dhai'mon троллок~
-@eng The trolloc@rus . троллок~
+@eng The trolloc@rus троллок~
 @eng A trolloc of the Dhai'mon tribe is here enjoying his meal.@rus Троллок (trolloc) из племени Даймон обедает здесь.~
 @eng The trolloc is a twisted creature of evil, it is huge, standing nearly 10
 feet tall.  It is branded on left arm, the mark of the Dhai'mon tribe burned
@@ -119,13 +119,14 @@ BCFGJS 0 0 0 H -1000 0
 EFHN
 stand stand none 1000
 A 0 medium unknown
+g @eng none@rus female~
 r fire -50
 r poison 999
 r disease 999
 r charm 999
 #23006
 trolloc kno'mon троллок~
-@eng The trolloc@rus . троллок~
+@eng The trolloc@rus троллок~
 @eng A trolloc of the Kno'mon charges from it's ambush!@rus Троллок (trolloc) из племени Кномон устроил здесь засаду!
 А ты в нее $gn{попался}!~
 @eng The trolloc is a twisted creature of evil, it is huge, standing nearly 10
@@ -207,6 +208,7 @@ BCFGJRT 0 0 0 AB -1000 0
 AEFGHJKNQ
 stand stand none 10000
 AB ABCDEFGHIJK medium unknown
+g @eng none@rus male~
 r fire -50
 r acid 33
 r charm 999
@@ -258,7 +260,7 @@ r disease 33
 r charm 999
 #23012
 lord лорд~
-@eng The Lord of the tower@rus Хозяин башни~
+@eng The Lord of the tower@rus ~~хозяин~~ башни~
 @eng The Lord of the tower forms beside the bed full of wrath!@rus Хозяин башни (lord), полный гнева, появляется рядом с кроватью.~
 @eng You see before you what is left of the Lord of the tower.  He died many years
 ago due to the treachery that fell mighty Malkier.  His spirit has stayed
@@ -295,7 +297,7 @@ r charm 999
 r sound 33
 #23013
 lord лорд~
-@eng The Lord of the tower@rus Хозяин башни~
+@eng The Lord of the tower@rus ~~хозяин~~ башни~
 @eng The Lord of the tower forms beside the bed full of wrath!@rus Хозяин башни (lord), полный гнева, появляется рядом с кроватью.~
 @eng You see before you what is left of the Lord of the tower.  He died many years
 ago due to the treachery that fell mighty Malkier.  His spirit has stayed
@@ -497,6 +499,7 @@ GJT 0 T 0 ABH 0 0
 EFHKP
 stand stand none 1000
 E E medium unknown
+g @eng none@rus female~
 r negative 999
 r disease 999
 #23021
@@ -800,13 +803,13 @@ a '' to_object 45 -1 3 3 0
 g @rus male~
 #23025
 ward страж strange странный~
-@eng a strange ward@rus ~~странный~~ ~~страж~~~
+@eng a strange ward@rus ~~странный страж~~~
 @eng A strange looking ward lies here.@rus Странно выглядящий страж (ward) лежит на земле.~
 unknown~
 key 0 0 A
 0 0 0 0 0
 33 1 330 P
-g @rus none~
+g @rus male~
 #23026
 spring источник~
 @eng the spring@rus источник~

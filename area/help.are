@@ -204,6 +204,7 @@ Example:  {cPROMPT <%hhp %mm %vmv>{x
        %a : покажет твой alignment
        %y : покажет твое здоровье в процентах от максимума
        %o : покажет здоровье твоего противника в процентах от максимума
+       %T : покажет здоровье "танка" в процентах
        %r : покажет название комнаты, в которой ты находишься 
        %e : покажет выходы из комнаты в виде NWSEU
        %R : покажет номер комнаты, в которой ты находишься (для богов)
@@ -2905,39 +2906,31 @@ nature.
 при помощи DETECT UNDEAD всегда распознает мертвеца, как бы хорошо тот не
 скрывал свою природу.
 ~
-0 'DETECT HIDDEN' 'DETECT INVIS' 'IMPROVED DETECT' 'DETECT FADE' 'ACUTE VISION' 'DETECT HIDE'~
+0 'DETECT HIDDEN' 'DETECT INVIS' 'DETECT FADE' 'ACUTE VISION' 'DETECT HIDE'~
 @eng Syntax: {ccast 'detect hidden'{x
 Syntax: {ccast 'detect invis'{x
-Syntax: {ccast 'improved detect'{x
 Syntax: {ccast 'detect fade'{x
 Syntax: {ccast 'acute vision'{x
 Syntax: {cdetect{x
  
 There spells and skills are to detect hiding, invisible or camouflaged
 characters. DETECT command is thieve's analogue for 'DETECT HIDE' spell.
-'DETECT INVIS' and 'IMPROVED DETECT' spells are used to detect invisibility
-and improved invisibility respectively.
+'DETECT INVIS' spells is used to detect invisibility.
 Magically sharpened with 'ACUTE VISION' eyes can see ranger in cover.
 'DETECT FADE' is used to detect faded lifeforms, though not many encountered
 them.
 @rus Синтаксис: {ccast 'detect hidden'{x
 Синтаксис: {ccast 'detect invis'{x
-Синтаксис: {ccast 'improved detect'{x
 Синтаксис: {ccast 'detect fade'{x
 Синтаксис: {ccast 'acute vision'{x
 Синтаксис: {cdetect{x
  
 Эти умения и заклинания нужны для обнаружения спрятавшихся и невидимых персо-
 нажей. 'DETECT HIDDEN' обнаружит персонажей, пытающихся укрыться в тенях.
-Команда DETECT является аналогом этого заклинания. 'DETECT INVIS' и 'IMPROVED
-DETECT' служат для обнаружения простой и улучшенной невидимости. При помощи
-'ACUTE VISION' можно обнаружить охотника даже в лесу. 'DETECT FADE' служит для
-обнаружения пропадающих существ, хотя они и встречаются очень редко.
-~
-0 'DETECT INVIS' 'IMPROVED DETECT'~
-Syntax: cast 'detect invis'
-
-This spell enables the caster to detect invisible objects and characters.
+Команда DETECT является аналогом этого заклинания. 'DETECT INVIS' служит для
+обнаружения невидимости. При помощи 'ACUTE VISION' можно обнаружить охотника
+в лесу. 'DETECT FADE' служит для обнаружения пропадающих существ, хотя они и
+встречаются очень редко.
 ~
 0 'DETECT MAGIC'~
 Syntax: cast 'detect magic'

@@ -9,11 +9,11 @@ End
 
 #MOBILES
 #13400
-lich guardian~
-Guardian Lich~
-The Guardian Lich steps out of the shadows and attacks!~
-The Guardian lich looks like a decaying corpse, with small glowing points of
-light for eyes.
+lich guardian лич стражник~
+@eng Guardian Lich@rus ~~Лич~~ ~~Стражник~~~
+@eng The Guardian Lich steps out of the shadows and attacks!@rus Лич Стражник (Guardian Lich) выходит из теней и атакует!~
+@eng The Guardian lich looks like a decaying corpse, with small glowing points of light for eyes.
+@rus Лич Стражник похож на разлагающийся труп с горящими угольками глаз.
 ~
 human~
 BCFJ 0 T AB H -1000 0
@@ -26,12 +26,15 @@ r acid -50
 r charm 999
 r sound 33
 #13401
-vampire assistant~
-the vampire lab assistant~
-A lab assistant turns toward you and bares his fangs!~
-This lab assistant was chosen from amongst the undead for both his knowledge
-of magic, and his rather nasty disposition.  He revels in creating loathesome,
+vampire assistant вампир-ассистент~
+@eng the vampire lab assistant@rus ~~вампир~~-~~ассистент~~ лаборатории~
+@eng A lab assistant turns toward you and bares his fangs!@rus Ассистент лаборатории (vampire assistant) поворачивается к тебе и обнажает свои клыки.~
+@eng This lab assistant was chosen from amongst the undead for both his knowledge of
+magic, and his rather nasty disposition.  He revels in creating loathesome,
 twisted, warped creatures to serve Ciquala.
+@rus Этот ассистент лаборатории был выбран среди нежити за знание магии
+и очень гадкий характер. Он пирует на создании отвратительных, искаженных,
+извращенных созданий для службы Цикуале.
 ~
 human~
 BCFHJ 0 0 0 ABH -1000 13401
@@ -44,12 +47,16 @@ r acid -50
 r charm 999
 r sound 33
 #13402
-creature nightmare~
-a warped creature from a nightmare~
-A warped creature as if from a nightmare is here.~
-This creature may resemble some kind of serpent, but some parts of it are
+creature nightmare творение кошмара~
+@eng a warped creature from a nightmare@rus ~~отвратительное~~ ~~создание~~ из ночного кошмара~
+@eng A warped creature as if from a nightmare is here.@rus Ты $gn{увидел} отвратительное создание (creature nightmare) из ночного кошмара.~
+@eng This creature may resemble some kind of serpent, but some parts of it are
 covered with scales, and others with hair.  It's head has 1 large bulbous eye,
 much like that of an insect.  Long talons reach out for you to shred you alive.
+@rus Это создание можно сравнить с некоторым видом змеи, но некоторые
+части тела покрыты чешуйками, а другие покрыты волосами. Его голова имеет
+1 большой грушеобразный глаз, подобный тем, которые имеют насекомые.
+Длинные когти тянутся к тебе, чтобы мелко нашинковать.
 ~
 human~
 FGHJ 0 T 0 ABH -1000 0
@@ -62,11 +69,13 @@ r acid -50
 r charm 999
 r sound 33
 #13403
-creature docile~
-a docile creature~
-A docile creature stands here, probably from an experiment that failed.~
-The creature would probably not hurt a fly.  Actually, it is unaware of its own
+creature docile послушное создание~
+@eng a docile creature@rus ~~послушное~~ ~~создание~~~
+@eng A docile creature stands here, probably from an experiment that failed.@rus Здесь стоит послушное создание (docile creature), вероятно эксперимент по его созданию провалился.~
+@eng The creature would probably not hurt a fly.  Actually, it is unaware of its own
 existence.
+@rus Это создание, вероятно, не обидит и мухи. В действительности, оно и не
+подозревает о своем существовании.
 ~
 human~
 B 0 JNO 0 H -1000 0
@@ -82,11 +91,13 @@ r mental 33
 r light 33
 r charm 999
 #13404
-black pudding crate~
-the black pudding~
-A crate stands here.~
-As you examine this crate, a black tarlike substance seeps between the boards
+black pudding черный пудинг crate ящик~
+@eng the black pudding@rus ~~черный~~ ~~пудинг~~~
+@eng A crate stands here.@rus Здесь стоит странный ящик (black pudding).~
+@eng As you examine this crate, a black tarlike substance seeps between the boards
 slowly eating the wood away.  It is a black pudding!
+@rus По мере того, как ты изучаешь этот ящик, черная смолоподобная субстанция
+просачивается между досками, медленно разъедая дерево. Это черный пудинг!
 ~
 human~
 BFJ 0 0 0 H -1000 0
@@ -99,11 +110,14 @@ r cold 999
 r acid -50
 r charm 999
 #13405
-gigantic automaton~
-a gigantic automaton~
-A gigantic automaton blocks your way.~
-This gigantic construct is made of a metallic substance that you do not
+gigantic automaton гигантский автомат~
+@eng a gigantic automaton@rus ~~гигантский~~ ~~автомат~~~
+@eng A gigantic automaton blocks your way.@rus Гигантский автомат (gigantic automaton) загораживает твой путь.~
+@eng This gigantic construct is made of a metallic substance that you do not
 recognize.  He stands about 8' tall, brushing the ceiling.
+@rus Эта гигантская конструкция сделана из какой-то металлической субстанции,
+но из какой точно -- ты не можешь определить. Ее высота около 8 футов.
+Автомат стоит здесь и чистит потолок.
 ~
 human~
 BJ 0 H 0 H 0 0
@@ -116,11 +130,14 @@ r cold 999
 r acid -50
 r charm 999
 #13406
-undead guardian~
-the undead guardian~
-An undead guardian screams at you and attacks!~
-This creature is a hovering dark shape.  It does not seem to have a body so
+undead guardian стражник-нежить~
+@eng the undead guardian@rus ~~стражник~~-~~нежить~~~
+@eng An undead guardian screams at you and attacks!@rus Стражник-нежить (undead guardian) вскрикивает и атакует!~
+@eng This creature is a hovering dark shape.  It does not seem to have a body so
 to speak.  As it approaches you, a harsh chill makes you shiver.
+@rus Это создание выглядит как темная парящая форма. Кажется, что оно не
+имеет того, что можно было бы назвать телом. Когда оно приближается к
+тебе, ты начинаешь дрожать от холода.
 ~
 human~
 BFJ 0 T A AH -1000 0
@@ -133,12 +150,15 @@ r cold 999
 r acid -50
 r charm 999
 #13407
-roof ceiling lurker above~
-the lurker above~
+roof ceiling потолок lurker above скрывающийся во тьме~
+@eng the lurker above@rus ~~скрывающийся~~ во тьме~
 ~
-The ceiling appears rather shiny.  Not like dirt at all.  You suddenly realize
+@eng The ceiling appears rather shiny.  Not like dirt at all.  You suddenly realize
 that it isn't a ceiling, but a LURKER ABOVE!  You had better attack before
 it drops on you!
+@rus Потолок кажется тебе уж очень сильно блестящим. На нем нет ничего,
+похожего на грязь. Вдруг ты понимаешь, что это не потолок, а СКРЫВАЮЩИЙСЯ
+ВО ТЬМЕ! Тебе лучше атаковать перед тем, как он упадет на тебя!
 ~
 human~
 BFHJ 0 0 0 H -1000 0
@@ -151,12 +171,15 @@ r acid -50
 r charm 999
 r sound 33
 #13408
-vampire servant~
-a vampire servant~
-A vampire servant to Ciquala is here, hungering for your blood.~
-This vampire looks very pale and thin.  Ciquala has not been allowing him
+vampire servant вампир-слуга~
+@eng a vampire servant@rus ~~вампир~~-~~слуга~~~
+@eng A vampire servant to Ciquala is here, hungering for your blood.@rus Вампир-слуга Цикуалы (vampire servant) стоит здесь, жаждая твоей крови.~
+@eng This vampire looks very pale and thin.  Ciquala has not been allowing him
 enough time at night to feed properly.  He is VERY happy that you walked in
 on him.
+@rus Этот вампир выглядит очень бледным и худым. Видимо Цикуала не давала
+ему достачно времени ночью для полноценного питания. Он ОЧЕНЬ рад, что ты
+$gn{зашел} к нему.
 ~
 human~
 BFJ 0 J A ABH -1000 0
@@ -168,12 +191,15 @@ stand stand male 5300
 r acid -50
 r charm 999
 #13409
-human automaton~
-the human automaton~
-A mindless automaton that used to be human is standing here.~
-This mindless lump of flesh used to be human.  It's flesh has been converted
+human automaton человеческий автомат~
+@eng the human automaton@rus ~~человеческий~~ ~~автомат~~~
+@eng A mindless automaton that used to be human is standing here.@rus Здесь стоит безмозглый автомат (human automaton), который раньше был обычным человеком.~
+@eng This mindless lump of flesh used to be human.  It's flesh has been converted
 to a dull grey substance.  The automaton is very strong, and will be a fierce
 opponent.
+@rus Этот безмозглый кусок плоти был раньше обычным человеком. Его плоть
+превратили в тусклую серую субстанцию. Автомат очень силен и будет
+жестоким противником.
 ~
 human~
 BFJ 0 NO 0 H -1000 0
@@ -185,12 +211,15 @@ stand stand male 3400
 r acid -50
 r charm 999
 #13410
-human automaton~
-the human automaton~
-A mindless automaton that used to be human is standing here.~
-This mindless lump of flesh used to be human.  It's flesh has been converted
+human automaton человеческий автомат~
+@eng the human automaton@rus ~~человеческий~~ ~~автомат~~~
+@eng A mindless automaton that used to be human is standing here.@rus Здесь стоит безмозглый автомат (human automaton), который раньше был обычным человеком.~
+@eng This mindless lump of flesh used to be human.  It's flesh has been converted
 to a dull grey substance.  The automaton is very strong, and will be a fierce
 opponent.
+@rus Этот безмозглый кусок плоти был раньше обычным человеком. Его плоть
+превратили в тусклую серую субстанцию. Автомат очень силен и будет
+жестоким противником.
 ~
 human~
 BJ 0 NO 0 H -250 0
@@ -202,12 +231,15 @@ stand stand male 0
 r acid -50
 r charm 999
 #13411
-human automaton~
-the human automaton~
-A mindless automaton that used to be human is standing here.~
-This mindless lump of flesh used to be human.  It's flesh has been converted
+human automaton человеческий автомат~
+@eng the human automaton@rus ~~человеческий~~ ~~автомат~~~
+@eng A mindless automaton that used to be human is standing here.@rus Здесь стоит безмозглый автомат (human automaton), который раньше был обычным человеком.~
+@eng This mindless lump of flesh used to be human.  It's flesh has been converted
 to a dull grey substance.  The automaton is very strong, and will be a fierce
 opponent.
+@rus Этот безмозглый кусок плоти был раньше обычным человеком. Его плоть
+превратили в тусклую серую субстанцию. Автомат очень силен и будет
+жестоким противником.
 ~
 human~
 BFJ 0 NO 0 H 250 0
@@ -219,12 +251,15 @@ stand stand male 0
 r acid -50
 r charm 999
 #13412
-human automaton~
-the human automaton~
-A mindless automaton that used to be human is standing here.~
-This mindless lump of flesh used to be human.  It's flesh has been converted
+human automaton человеческий автомат~
+@eng the human automaton@rus ~~человеческий~~ ~~автомат~~~
+@eng A mindless automaton that used to be human is standing here.@rus Здесь стоит безмозглый автомат (human automaton), который раньше был обычным человеком.~
+@eng This mindless lump of flesh used to be human.  It's flesh has been converted
 to a dull grey substance.  The automaton is very strong, and will be a fierce
 opponent.
+@rus Этот безмозглый кусок плоти был раньше обычным человеком. Его плоть
+превратили в тусклую серую субстанцию. Автомат очень силен и будет
+жестоким противником.
 ~
 human~
 BFJ 0 NO 0 H 1000 0
@@ -236,10 +271,11 @@ stand stand male 0
 r acid -50
 r charm 999
 #13413
-torturer lich~
-the torturer lich~
-A blackened creature stands here, ready to cause you excruciating pain.~
-You'd better not look to close, he may charm you.
+torturer lich лич мучитель~
+@eng the torturer lich@rus ~~лич~~ ~~мучитель~~~
+@eng A blackened creature stands here, ready to cause you excruciating pain.@rus Здесь стоит черное создание (torturer lich), всегда готовое причинить тебе мучительную боль.~
+@eng You'd better not look to close, he may charm you.
+@rus Тебе лучше не смотреть на него вблизи, он может очаровать тебя.
 ~
 human~
 BFJ 0 J 0 H -1000 0
@@ -251,10 +287,12 @@ stand stand male 7500
 r acid -50
 r charm 999
 #13414
-undead dragon~
-Ciquala's Undead Dragon~
-Ciquala's undead pet dragon is here, snacking on a fresh corpse.~
-This skeletal dragon is an ancient red dragon preserved through arcane magic.
+undead dragon дракон-нежить~
+@eng Ciquala's Undead Dragon@rus ~~Дракон~~-~~Нежить~~ Цикуалы~
+@eng Ciquala's undead pet dragon is here, snacking on a fresh corpse.@rus Дракон-нежить (Undead Dragon), ручная зверюшка Цикуалы, стоит здесь, закусывая свежим трупом.~
+@eng This skeletal dragon is an ancient red dragon preserved through arcane magic.
+@rus Этот костяной дракон является древним красным драконом,
+сохраненным благодаря сложнейшей магии.
 ~
 dragon~
 BFJ 0 J 0 AB -1000 0
@@ -270,12 +308,15 @@ r cold 50
 r acid -50
 r charm 999
 #13415
-Ciquala lich~
-the lich Ciquala~
-A powerful, evil looking lich stands here, Ciquala, 
-the oldest of all the undead.~
-Ciquala still looks majestic after all these thousands of years.  But you can
+Ciquala lich лич Цикуала~
+@eng the lich Ciquala@rus ~~лич~~ ~~Цикуала~~~
+@eng A powerful, evil looking lich stands here, Ciquala,
+the oldest of all the undead.@rus Здесь стоит мощная, злая лич, Цикуала (lich Ciquala), самая древняя из нежити.~
+@eng Ciquala still looks majestic after all these thousands of years.  But you can
 see the menace in her eye as she looks at you, and prepares her first spell.
+@rus Цикуала выглядит величественно, несмотря на прошедшие тысячелетия.
+Но ты можешь видеть угрозу в ее глазах в то время, когда она смотрит на
+тебя и готовит первое заклинание.
 ~
 human~
 BFJ 0 JT 0 ABH -1000 0
@@ -288,11 +329,12 @@ r acid -50
 r charm 999
 r sound 33
 #13416
-lich~
-Lich~
-The Lich wonders what you are doing in its crypt.~
-The Lich looks like a decaying corpse, with small glowing points of
+lich лич~
+@eng Lich@rus лич~
+@eng The Lich wonders what you are doing in its crypt.@rus Лич (Lich) удивленно смотрит на тебя, ведь ты $gn{зашел} в его склеп.~
+@eng The Lich looks like a decaying corpse, with small glowing points of
 light for eyes.
+@rus Лич похож на разлагающийся труп с горящими угольками глаз.
 ~
 human~
 BCFJ 0 0 A AH -1000 0
@@ -304,12 +346,15 @@ stand stand male 6500
 r acid -50
 r charm 999
 #13417
-vampire~
-vampire~
-The vampire is very hungry.  
-With you here, he won't even have to go out hunting for fresh blood tonight.~
-The vampire looks incredibly strong.  He is wearing musty clothes, and has
+vampire вампир~
+@eng vampire@rus вампир~
+@eng The vampire is very hungry.  
+With you here, he won't even have to go out hunting for fresh blood tonight.@rus Вампир (vampire) очень голоден. Но ты здесь, и ему даже не понадобится идти сегодня ночью на поиски свежей крови.~
+@eng The vampire looks incredibly strong.  He is wearing musty clothes, and has
 large fangs that seem to grow longer as he looks back at you.
+@rus Вампир выглядит невообразимо сильным. Он одет в затхлую одежду,
+и у него видны большие клыки, которые, кажется, вырастают еще больше,
+когда он оборачивается к тебе.
 ~
 human~
 BCFJ 0 T A AH -1000 0
@@ -321,12 +366,15 @@ stand stand male 7800
 r acid -50
 r charm 999
 #13418
-vampire assistant~
-the vampire lab assistant~
-A lab assistant turns toward you and bares her fangs!~
-This lab assistant was chosen from amongst the undead for both his knowledge
+vampire assistant вампир-ассистентка~
+@eng the vampire lab assistant@rus ~~вампир~~-~~ассистентка~~ лаборанта~
+@eng A lab assistant turns toward you and bares her fangs!@rus Ассистентка лаборанта (vampire assistant) поворачивается к тебе и обнажает свои клыки.~
+@eng This lab assistant was chosen from amongst the undead for both his knowledge
 of magic, and his rather nasty disposition.  She revels in creating loathesome,
 twisted, warped creatures to serve Ciquala.
+@rus Эта ассистентка была выбрана среди нежити за знание магии
+и очень гадкий характер. Она пирует на создании отвратительных,
+искаженных, извращенных созданий для службы Цикуале.
 ~
 human~
 BCFHJ 0 0 0 ABH -1000 13401
@@ -342,9 +390,9 @@ r sound 33
 
 #OBJECTS
 #13400
-ciquala's sword~
-Ciquala's sword~
-A large, black sword lies here.~
+sword меч Цикуалы ciquala's~
+@eng Ciquala's sword@rus ~~меч~~ Цикуалы~
+@eng A large, black sword lies here.@rus Большой черный меч (sword) лежит здесь.~
 iron~
 weapon BCHJM 0 AN
 sword 5 13 'slice' C
@@ -355,11 +403,11 @@ a '' to_object 55 -1 100 13 0
 a '' to_object 55 -1 -50 14 0
 a '' to_object 55 -1 2 1 0
 a '' to_object 55 -1 2 5 0
-g @rus none~
+g @rus male~
 #13401
-ciquala's robe~
-Ciquala's robe~
-A heavy pile of black cloth lies in the dust.~
+robe мантия Цикуалы ciquala's~
+@eng Ciquala's robe@rus ~~мантия~~ Цикуалы~
+@eng A heavy pile of black cloth lies in the dust.@rus Тяжелая груда черных одежд (robe) лежит в пыли.~
 leather~
 armor GHJM 0 AK
 17 17 17 2 0
@@ -367,11 +415,11 @@ armor GHJM 0 AK
 a '' to_object 51 -1 -5 20 0
 a '' to_object 51 -1 -15 17 0
 a '' to_object 51 -1 2 2 0
-g @rus none~
+g @rus female~
 #13402
-Ciquala's staff~
-ciquala's staff~
-A black staff lies on the ground.~
+staff посох Цикуалы ciquala's~
+@eng ciquala's staff@rus ~~посох~~ Цикуалы~
+@eng A black staff lies on the ground.@rus Черный посох (staff) лежит на земле.~
 wood~
 staff GHJM 0 AO
 40 20 20 'cure critical wounds' 0
@@ -379,119 +427,119 @@ staff GHJM 0 AO
 a '' to_object 54 -1 6 19 0
 a '' to_object 54 -1 3 3 0
 a '' to_object 54 -1 -2 4 0
-g @rus none~
+g @rus male~
 #13403
-crate~
-crate~
-A crate stands here.~
+crate ящик~
+@eng crate@rus ящик~
+@eng A crate stands here.@rus Ящик (crate) стоит здесь.~
 iron~
 furniture 0 0 A
 B EGHIJK NO CFG CFG
 0 0 0 P
-g @rus none~
+g @rus male~
 #13404
-key~
-a key~
-A key lies on the ground.~
+key ключ~
+@eng a key@rus ключ~
+@eng A key lies on the ground.@rus Ключ (key) лежит на земле.~
 iron~
 key 0 0 A
 0 0 0 0 0
 1 0 0 P
-g @rus none~
+g @rus male~
 #13405
-key~
-a iron key~
-A iron key lies on the ground.~
+key ключ~
+@eng a iron key@rus ~~железный~~ ~~ключ~~~
+@eng A iron key lies on the ground.@rus Железный ключ (key) лежит на земле.~
 iron~
 key 0 0 A
 0 0 0 0 0
 1 0 0 P
-g @rus none~
+g @rus male~
 #13406
-key large~
-a large key~
-A large key lies on the ground.~
+key large большой ключ~
+@eng a large key@rus ~~большой~~ ~~ключ~~~
+@eng A large key lies on the ground.@rus Большой ключ (key) лежит на земле.~
 iron~
 key 0 0 A
 0 0 0 0 0
 1 0 0 P
-g @rus none~
+g @rus male~
 #13407
-blue potion~
-a blue potion~
-A blue bottle of liquid lies here.~
+potion голубое зелье blue~
+@eng a blue potion@rus ~~голубое~~ ~~зелье~~~
+@eng A blue bottle of liquid lies here.@rus Голубая бутылка (potion) с жидкостью лежит здесь.~
 glass~
 potion H 0 A
 38 'acid arrow' 'faerie fog' 'faerie fog' 'detect invis'
 20 20 3200 P
 g @rus none~
 #13408
-emerald vial~
-an emerald vial~
-An emerald vial lies here~
+vial изумрудный флакон emerald~
+@eng an emerald vial@rus ~~изумрудный~~ ~~флакон~~~
+@eng An emerald vial lies here@rus Изумрудный флакон (vial) лежит здесь.~
 glass~
 potion 0 0 A
 25 'heal' 'heal' 'blindness' ''
 20 20 3350 P
-g @rus none~
+g @rus male~
 #13410
-testube clear~
-a clear testube~
-A clear testube contains an unknown liquid.~
+testube clear чистая пробирка~
+@eng a clear testube@rus ~~чистая~~ ~~пробирка~~~
+@eng A clear testube contains an unknown liquid.@rus Чистая пробирка (testube) наполнена неизвестной жидкостью.~
 glass~
 potion H 0 A
 38 'burning hands' 'colour spray' 'protection evil' 'giant strength'
 20 20 3300 P
-g @rus none~
+g @rus female~
 #13411
-vial green~
-a green vial~
-A green vial sits on  a shelf.~
+vial green зеленый флакон~
+@eng a green vial@rus ~~зеленый~~ ~~флакон~~~
+@eng A green vial sits on a shelf.@rus Зеленый флакон (vial) лежит на полке.~
 glass~
 potion 0 0 A
 28 'create spring' 'energy drain' 'poison' 'armor'
 20 20 2300 P
-g @rus none~
+g @rus male~
 #13412
-gold liquid vial~
-a vial with gold liquid~
-A vial with a gold colored liquid sits on the floor.~
+vial флакон с золотой жидкостью gold liquid~
+@eng a vial with gold liquid@rus ~~флакон~~ с золотой жидкостью~
+@eng A vial with a gold colored liquid sits on the floor.@rus Флакон (vial) с золотистой жидкостью лежит на полу.~
 glass~
 potion 0 0 A
 30 'weaken' 'poison' 'teleport' 'curse'
 20 20 4300 P
-g @rus none~
+g @rus male~
 #13413
-milky liquid vial~
-a vial with milky liquid~
-A vial with milky liquid sits on the shelf.~
+milky liquid vial флакон с молочной жидкостью ~
+@eng a vial with milky liquid@rus ~~флакон~~ с молочной жидкостью ~
+@eng A vial with milky liquid sits on the shelf.@rus Флакон (vial) с молочной жидкостью лежит на полке.~
 glass~
 potion 0 0 A
 30 'heal' 'pass door' 'teleport' 'sanctuary'
 20 20 4400 P
-g @rus none~
+g @rus male~
 #13414
-black potion~
-a black potion~
-A black potion is waiting to be picked up.~
+black potion черное зелье~
+@eng a black potion@rus ~~черное~~ ~~зелье~~~
+@eng A black potion is waiting to be picked up.@rus Черное зелье (potion) лежит здесь и ждет, чтоб ты его $gn{поднял}.~
 glass~
 potion 0 0 A
 30 'shield' 'infravision' 'inflict critical wounds' 'protection good'
 20 20 4900 P
 g @rus none~
 #13415
-beaker yellow~
-a beaker with yellow liquid~
-A beaker filled with yellow bubbling liquid sits on the counter.~
+beaker yellow желтая мензурка~
+@eng a beaker with yellow liquid@rus ~~мензурка~~ с желтой жидкостью~
+@eng A beaker filled with yellow bubbling liquid sits on the counter.@rus Мензурка (beaker), заполненная желтой пузырящейся жидкостью, лежит на прилавке.~
 glass~
 potion 0 0 A
 30 'harm' 'poison' 'weaken' 'sleep'
 20 20 3400 P
-g @rus none~
+g @rus female~
 #13416
-iron maiden~
-an iron maiden~
-An iron maiden sits here, looking rather unused.  Why not try it on?~
+iron maiden железная дева~
+@eng an iron maiden@rus ~~железная~~ ~~дева~~~
+@eng An iron maiden sits here, looking rather unused.  Why not try it on?@rus Здесь лежит забытая всеми железная дева (maiden). Почему бы не попробовать поднять ее?~
 iron~
 armor 0 0 AD
 20 20 20 5 0
@@ -500,11 +548,11 @@ a '' to_object 33 -1 -400 13 0
 a '' to_object 33 -1 -5 5 0
 a '' to_object 33 -1 -5 1 0
 a '' to_object 33 -1 -1 2 0
-g @rus none~
+g @rus female~
 #13417
-torturer's whip~
-the torturer's whip~
-An enormous whip lies here.~
+torturer's whip хлыст мучителя~
+@eng the torturer's whip@rus ~~хлыст~~ мучителя~
+@eng An enormous whip lies here.@rus Огромный хлыст (whip) лежит здесь.~
 iron~
 weapon ABFG 0 AN
 whip 5 10 'chop' C
@@ -512,74 +560,74 @@ whip 5 10 'chop' C
 a '' to_object 48 -1 -10 18 0
 a '' to_object 48 -1 10 19 0
 a '' to_object 48 -1 -20 17 0
-g @rus none~
+g @rus male~
 #13418
-treasure coins gold~
-a humongous pile of gold~
-A humongous pile of gold is waiting to be picked up.~
+treasure сокровища coins монеты gold золото~
+@eng a humongous pile of gold@rus ~~груда~~ золота~
+@eng A humongous pile of gold is waiting to be picked up.@rus Груда золота (pile of gold) лежит здесь и ждет, чтоб ты ее $gn{поднял}.~
 gold~
 money 0 0 A
 10000 0 0 0 0
 0 0 0 P
-g @rus none~
+g @rus female~
 #13419
-gems pile~
-a pile of gems~
-A pile of gems lies on the ground.~
+gems pile груда драгоценностей~
+@eng a pile of gems@rus ~~груда~~ драгоценностей~
+@eng A pile of gems lies on the ground.@rus Груда драгоценностей (pile of gems) лежит на земле.~
 iron~
 money A 0 A
 20000 0 0 0 0
 0 0 0 P
-g @rus none~
+g @rus female~
 #13420
-crate~
-crate~
-A crate stands here.~
+crate ящик~
+@eng crate@rus ящик~
+@eng A crate stands here.@rus Ящик (crate) стоит здесь.~
 iron~
 furniture 0 0 A
 B EGHIJK NO CFG CFG
 0 0 0 P
-g @rus none~
+g @rus male~
 #13421
-crate~
-crate~
-A crate stands here.~
+crate ящик~
+@eng crate@rus ящик~
+@eng A crate stands here.@rus Ящик (crate) стоит здесь.~
 iron~
 furniture 0 0 A
 B EGHIJK NO CFG CFG
 0 0 0 P
-g @rus none~
+g @rus male~
 #13422
-crate~
-crate~
-A crate stands here.~
+crate ящик~
+@eng crate@rus ящик~
+@eng A crate stands here.@rus Ящик (crate) стоит здесь.~
 iron~
 furniture 0 0 A
 B EGHIJK NO CFG CFG
 0 0 0 P
-g @rus none~
+g @rus male~
 #13423
-crate~
-crate~
-A crate stands here.~
+crate ящик~
+@eng crate@rus ящик~
+@eng A crate stands here.@rus Ящик (crate) стоит здесь.~
 iron~
 furniture 0 0 A
 B EGHIJK NO CFG CFG
 0 0 0 P
-g @rus none~
+g @rus male~
 #13424
-fizzing bottle~
-a fizzing bottle~
-A bottle of fizzing liquid lies here.~
+fizzing bottle шипящая бутылка~
+@eng a fizzing bottle@rus ~~шипящая~~ ~~бутылка~~~
+@eng A bottle of fizzing liquid lies here.@rus Бутылка с шипящей жидкостью (fizzing bottle) лежит здесь.~
 glass~
 potion 0 0 A
 28 'word of recall' 'sleep' 'poison' ''
 20 20 1000 P
-g @rus none~
+g @rus female~
 #13425
-grey potion~
-a grey potion~
-A grey potion sits on the counter.~
+grey potion серое зелье~
+@eng A grey potion@rus ~~серое~~ ~~зелье~~~
+@eng A grey potion sits on the counter.@rus Серое зелье (potion) лежит на прилавке.~
 glass~
 potion 0 0 A
 30 'energy drain' 'energy drain' 'create food' 'create spring'
@@ -589,15 +637,18 @@ g @rus none~
 
 #ROOMS
 #13400
-A large knothole in a tree~
-You stand in a cramped space inside an old, gnarled tree.  A frigid
+@eng A large knothole in a tree@rus Большое дупло в дереве~
+@eng You stand in a cramped space inside an old, gnarled tree.  A frigid
 breeze rises from the ground.
      There is a small (Glowing) (Humming) tablet.
+@rus Ты находишься в тесном пространстве внутри старого сучковатого дерева.
+Холодный бриз дует от земли.
+     Здесь есть маленькая (Светящаяся)(Гудящая) табличка.
 ~
 0 0 city
 E
-small tablet~
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+small tablet маленькая табличка~
+@eng ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 +                                                                  +
 +            This area has been converted and adapted by           +
 +                             Kajko                                +
@@ -612,30 +663,48 @@ small tablet~
 +                   only armed personel allowed                    +
 +                                                                  +
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+@rus ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++                                                                  +
++            Эта зона была написана и адаптирована под код         +
++                             Kajko                                +
++                                                                  +
++                               &                                  +
++                                                                  +
++                      исправлена, отлажена (?:)                   +
++               немного изменена и сбалансирована                 +
++    jaceks и после него asena            , сентябрь 1996          +
++                                                                  +
++    PS. Готовьтесь к смерти - это зона для 40-62 уровней с аграми +
++       Рекомендуется только хорошо вооруженным персонажам         +
++                                                                  +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 ~
 D2
 ~
-hole~
-the hole~
+hole дыра~
+@eng the hole@rus дыра~
 ~
 Z 1 6153
 D5
 ~
-trapdoor~
-the trapdoor~
+trapdoor люк~
+@eng the trapdoor@rus люк~
 ~
 ABZ -1 13401
 S
 #13401
-A ladder descending into the darkness!~
-You are climbing on a ladder.  Above you is a trapdoor.  Below you
+@eng A ladder descending into the darkness!@rus Лестница, исчезающая в темноте!~
+@eng You are climbing on a ladder.  Above you is a trapdoor.  Below you
 is only darkness, from which a frigid breeze blows.
+@rus Ты карабкаешься по лестнице. Над тобой люк. Под тобой -- только темнота,
+из которой дует холодный бриз.
 ~
 0 A inside
 D4
 ~
-trapdoor~
-the trapdoor~
+trapdoor люк~
+@eng the trapdoor@rus люк~
 ~
 ABZ -1 13400
 D5
@@ -646,9 +715,11 @@ D5
 Z -1 13402
 S
 #13402
-A ladder descending into the darkness!~
-You are climbing on a ladder.  Above you the ladder disappears in the
+@eng A ladder descending into the darkness!@rus Лестница, исчезающая в темноте!~
+@eng You are climbing on a ladder.  Above you the ladder disappears in the
 dark.  Below is only darkness, from which a frigid breeze blows.
+@rus Ты карабкаешься по лестнице. Над тобой лестница исчезает во тьме.
+Под тобой -- только темнота, из которой дует холодный бриз.
 ~
 0 A inside
 D4
@@ -665,11 +736,15 @@ D5
 Z -1 13403
 S
 #13403
-A dusty tunnel deep under the ground~
-You stand in a tunnel that appears to have been dug out of the dirt.
+@eng A dusty tunnel deep under the ground@rus Пыльный туннель глубоко под землей~
+@eng You stand in a tunnel that appears to have been dug out of the dirt.
 You do not understand what is keeping the tunnel walls from caving in.  This
 would probably be a very bad place to use a dispel magic spell!  You do see
 some footprints in the dust, and looking up, you see who they belong to!
+@rus Ты стоишь в туннеле, который, кажется, был выкопан в грязи. Ты не
+понимаешь, что хранит стены туннеля от обвала. Вероятно, здесь лучше не
+пользоваться заклинанием, разрушающим магию. Ты видишь какие-то следы
+в пыли, и, оглядевшись, ты понимаешь кому они принадлежат!
 ~
 0 AD inside
 D1
@@ -680,7 +755,7 @@ D1
 Z -1 13404
 D3
 ~
-door~
+door дверь~
 ~
 ~
 ABZ -1 13409
@@ -692,43 +767,63 @@ D4
 Z -1 13402
 S
 #13404
-A room with a large pool of water in the center~
-This room has a large pool of black water in the center.  You see
+@eng A room with a large pool of water in the center@rus Комната с большим бассейном в центре~
+@eng This room has a large pool of black water in the center.  You see
 many runes and glyphs surrounding it.  The room is lit by torches held in
 sconces.  Each of these items in the room merits more investigation.
+@rus В этой комнате в центре расположен большой бассейн с черной водой.
+Ты видишь, что его окружает много рун и иероглифов. Комната освещена
+факелами, вставленными в подсвечники. Каждая из этих вещей в комнате
+заслуживает большего внимания. 
 ~
 0 D inside
 E
-runes~
-These runes are carved into the rock about the pool.  You think you
+runes руны~
+@eng These runes are carved into the rock about the pool.  You think you
 recognize the rune of vision, and another that has something to do with
 projecting power at a distance.
+@rus Эти руны вырезаны в камне вокруг бассейна. Ты думаешь, что $gn{узнал}
+руну знания, и другие руны, которые действуют на расстоянии. 
 ~
 E
-glyphs~
-The glyphs are drawn upon the stone with what appears to be blood.
+glyphs иероглифы~
+@eng The glyphs are drawn upon the stone with what appears to be blood.
 You do not recognize any of them, and it would probably be a good idea not to
 touch any of them.
+@rus Иероглифы нарисованы на камне, кажется, кровью. Ты не узнаешь ни одного
+из них, и, вероятно, было бы разумно не прикасаться к любому из них. 
 ~
 E
-sconces~
-The sconces are black and shaped liked two hands, cradling the torches
+sconces подсвечники~
+@eng The sconces are black and shaped liked two hands, cradling the torches
 between their pointed nails.
+@rus Черные подсвечники сделаны в виде двух рук, держащих факелы между
+своими острыми когтями.
 ~
 E
-torches~
-The torches are made of a black wood, and as you draw nearer, you find
+torches ~
+@eng The torches are made of a black wood, and as you draw nearer, you find
 that they do not emit any heat.  Indeed, they seem to be radiating cold.  The
 flames are an icy blue, that makes you think twice about getting too close to
 them.
+@rus Факелы сделаны из черного дерева, и поскольку ты $gn{подобрался} к ним
+поближе, ты обнаруживаешь, что они не испускают какого-либо тепла.
+Скорее наоборот, они испускают холод. Пламя у них льдисто-голубое, что
+заставляет тебя подумать дважды, прежде чем приблизиться к ним.
 ~
 E
-pool~
-As you lean forward and look in the pool, you see nothing but the dark
+pool бассейн~
+@eng As you lean forward and look in the pool, you see nothing but the dark
 murky water.  Gradually though, an image forms before you.  You recognize the
 person the image shows.  It is the Avatar!  Apparently this is a pool that
 Ciquala uses to scry upon her enemies. The image is so clear, you almost
 believe you could step into the pool, and appear in Lord British's castle.
+@rus Когда ты наклоняешься и смотришь в бассейн, ты не видишь ничего, кроме
+темной мрачной воды. Хотя постепенно перед тобой формируется изображение.
+Ты узнаешь человека, чей образ показывает бассейн. Это же Аватар!
+Очевидно, это бассейн, который Цикуала использует, чтобы наблюдать за
+своими врагами. Изображение настолько правдиво, что ты почти веришь,
+что если бы $gn{шагнул} в бассейн, то $gn{появился} бы в замке Лорда Британии.
 ~
 D1
 ~
@@ -744,27 +839,31 @@ D3
 Z -1 13403
 S
 #13405
-Ciquala's Laboratory~
-This room is lined with shelves that contain a multitude of jars,
+@eng Ciquala's Laboratory@rus Лаборатория Цикуалы~
+@eng This room is lined with shelves that contain a multitude of jars,
 boxes, vials, chests, tubes, glasses, beakers, and other assorted containers.
 You think that drinking the contents of any might have undesireable effects.
+@rus Эта комната заставлена полками, содержащими множество банок, коробок,
+флаконов, ящиков, тюбиков, стаканов, мензурок и других рассортированных
+контейнеров. Ты думаешь, что питье содержимого любого из них может
+привести к нежелательным эффектам.
 ~
 0 AD inside
 D0
 ~
-celldoor~
-the celldoor~
+celldoor дверь в клетку~
+@eng the celldoor@rus ~~дверь~~ в клетку~
 ~
 ABCFZ 13404 13408
 D1
 ~
-celldoor~
-the celldoor~
+celldoor дверь в клетку~
+@eng the celldoor@rus ~~дверь~~ в клетку~
 ~
 ABCFZ 13404 13407
 D2
 ~
-door~
+door дверь~
 ~
 ~
 ABZ -1 13406
@@ -776,211 +875,256 @@ D3
 Z -1 13404
 S
 #13406
-Supply room~
-This supply room keeps many of the items that are too large to fit in
+@eng Supply room@rus Кладовка~
+@eng This supply room keeps many of the items that are too large to fit in
 the laboratory itself.  You see several corpses that are preserved by the
 ever-present cold that you have encountered in every room in this tunnel
 system.  Also several crates hold contents, whose scent is enought to make
 you wish to shut the door immediately.  You believe that you hear a noise
 from behind one of the crates.
+@rus В этой кладовке хранятся вещи, которые слишком большие для хранения в
+лаборатории. Ты видишь различные трупы, которые защищены от разложения
+холодом, и этот холод встретился тебе в каждой комнате этой системы
+туннелей. Содержимое некоторых ящиков издает такой аромат, который
+заставляет тебя их немедленно закрывать. Ты $gn{уверен}, что $gn{услышал}
+шум со стороны одного из ящиков.
 ~
 0 AD inside
 D0
 ~
-door~
+door дверь~
 ~
 ~
 ABZ -1 13405
 S
 #13407
-Holding Cell~
-This is nothing more than a small room with a very heavy iron door
+@eng Holding Cell@rus Клетка~
+@eng This is nothing more than a small room with a very heavy iron door
 closing it off from the laboratory.  This is where Ciquala's assistants keep
 the experiments they are working on.
+@rus Это ничто иное, как небольшая комната с очень тяжелой железной дверью,
+закрывающейся из лаборатории. Здесь ассистенты Цикуалы хранят образцы,
+над которыми они работают.
 ~
 0 AD inside
 D3
 ~
-celldoor~
-the celldoor~
+celldoor дверь в клетку~
+@eng the celldoor@rus ~~дверь~~ в клетку~
 ~
 ABCFZ 13404 13405
 S
 #13408
-Holding Cell~
-This is nothing more than a small room with a very heavy iron door
+@eng Holding Cell@rus Клетка~
+@eng This is nothing more than a small room with a very heavy iron door
 closing it off from the laboratory.  This is where Ciquala's minions keep
 the experiments they are working on.
+@rus Это ничто иное, как небольшая комната с очень тяжелой железной дверью,
+закрывающейся из лаборатории. Здесь ассистенты Цикуалы хранят образцы,
+над которыми они работают.
 ~
 0 AD inside
 D2
 ~
-celldoor~
-the celldoor~
+celldoor дверь в клетку ~
+@eng the celldoor@rus ~~дверь~~ в клетку~
 ~
 ABCFZ 13404 13405
 S
 #13409
-Guard room~
-The occupants of this room were obviously left here by the Lich to
+@eng Guard room@rus Комната стражи~
+@eng The occupants of this room were obviously left here by the Lich to
 keep intruders like you from bothering her, or learning her plans.  There
 are doors to both the east and west.
+@rus Входящие в эту комнату очевидно так и остались здесь. Лич охраняет
+ее от вторженцев, подобных тебе, способных потревожить Цикуалу, или
+разузнать ее планы. Видны двери на востоке и на западе.
 ~
 0 AD inside
 D1
 ~
-door~
+door дверь~
 ~
 ~
 ABZ -1 13403
 D3
 ~
-door~
+door дверь~
 ~
 ~
 ABZ -1 13410
 S
 #13410
-A seemingly empty tunnel~
-This empty tunnel has doors leading in all directions.  The roof of
+@eng A seemingly empty tunnel@rus Кажущийся пустым туннель~
+@eng This empty tunnel has doors leading in all directions.  The roof of
 the tunnel seems abnormally low and shiny, almost as if it is not dirt.  This
 room is also as cold as all the others were.
+@rus В этом туннеле есть двери во всех направлениях. Потолок туннеля кажется
+неестественно низким и блестящим, почти без грязи. В этой комнате так же
+холодно, как и во всех других, которые ты $gn{прошел}.
 ~
 0 AD inside
 D0
 ~
-door~
+door дверь~
 ~
 ~
 ABCFZ 13405 13411
 D1
 ~
-door~
+door дверь~
 ~
 ~
 ABZ -1 13409
 D2
 ~
-door~
+door дверь~
 ~
 ~
 ABZ -1 13412
 D3
 ~
-door~
+door дверь~
 ~
 ~
 ABZ -1 13413
 S
 #13411
-The Map Room~
-This room is filled with maps, apparently containing some of Ciquala's
+@eng The Map Room@rus Комната с картами~
+@eng This room is filled with maps, apparently containing some of Ciquala's
 plans.  You notice many maps of Lord British's castle.  You might be able to
 gain some information on Ciquala's plans, as well as learn your way through
 British's castle if you examine the map more closely.
+@rus В этой комнате полным-полно карт, очевидно содержащих некоторые планы
+Цикуалы. Ты замечаешь много карт замка Лорда Британии. Ты $gn{мог}
+бы получить информацию о некоторых планах Цикуалы так же легко, как
+и узнать путь через замок Британии, если бы $gn{рассмотрел} карту поближе.
 ~
 0 AD inside
 E
-map~
-As you reach for a map to examine it closer, it bursts into ice cold flames and
-disintegrates before your eyes.  Apparently Ciquala has taken precautions
+map карта~
+@eng As you reach for a map to examine it closer, it bursts into ice cold flames and disintegrates before your eyes.  Apparently Ciquala has taken precautions
 against people snooping in her Lair.
+@rus Как только ты берешь карту, чтобы рассмотреть ее поближе, она вспыхивает
+ледяным пламенем и разрушается на твоих глазах. Значит Цикуала приняла
+меры предосторожности против людей, шныряющих в ее логове.
 ~
 D2
 ~
-door~
+door дверь~
 ~
 ~
 ABCFZ 13405 13410
 S
 #13412
-Storage Room~
-You see many boxes before you, apparently this is a storage room of
+@eng Storage Room@rus Кладовка~
+@eng You see many boxes before you, apparently this is a storage room of
 some sort.  You can bet that whatever a lich is storing, that it can't be good
 for the world in general.
+@rus Ты видишь перед собой много коробок, вероятно это кладовка того же сорта,
+что и предыдущая. Но ты понимаешь, что независимо от того, что здесь
+хранит лич, это все-равно плохо для всего остального мира.
 ~
 0 AD inside
 D0
 ~
-door~
+door дверь~
 ~
 ~
 ABZ -1 13410
 S
 #13413
-A tunnel with a grate in the floor~
-You see a grate on the floor.  When you look down it, you see several
+@eng A tunnel with a grate in the floor@rus Туннель с решеткой в полу~
+@eng You see a grate on the floor.  When you look down it, you see several
 creatures below, humanoid, but you can't make out exactly what they are.
 There are also doors leading all directions but west.
+@rus Ты видишь решетку в полу. Когда ты смотришь вниз, ты видишь внизу
+несколько гуманоидных созданий, но ты не можешь точно определить что
+это за создания. Также в туннеле есть двери во всех направлениях,
+кроме западного.
 ~
 0 AD inside
 D0
 ~
-door~
+door дверь~
 ~
 ~
 ABZ -1 13415
 D1
 ~
-door~
+door дверь~
 ~
 ~
 ABZ -1 13410
 D2
 ~
-door~
+door дверь~
 ~
 ~
 ABZ -1 13416
 D5
 ~
-grate~
-the grate~
+grate решетка~
+@eng the grate@rus решетка~
 ~
 ABZ -1 13414
 S
 #13414
-The Room of the Automatons~
-You gasp as you realize that these pasty faced people do not seem to
+@eng The Room of the Automatons@rus Комната Автоматов~
+@eng You gasp as you realize that these pasty faced people do not seem to
 have a will of their own.  No doubt the work of the Lich.  If these
 monstrosities are allowed to escape into the world, they will cause no end
 of problems for Midgaard.
+@rus Ты открываешь рот от изумления, поскольку понимаешь, что эти внешне
+тестообразные люди, людьми то, собственно говоря, и не являются.
+Несомненно это работа Лича. Если этим чудовищным созданиям позволят
+сбежать в окружающий мир, то они станут постоянными проблемами Мидгарда.
 ~
 0 AD inside
 D4
 ~
-grate~
-the grate~
+grate решетка~
+@eng the grate@rus решетка~
 ~
 ABZ -1 13413
 S
 #13415
-Torture Chamber~
-This room is fitted with many instruments and tools designed to cause
+@eng Torture Chamber@rus Комната пыток~
+@eng This room is fitted with many instruments and tools designed to cause
 pain and fear in anyone who enters.  However, you don't pay as much attention
 to the racks and iron maidens as you would if were not for the lich in the
 room.
+@rus Эта комната оборудована множеством приспособлений и инструментов,
+предназначенных, чтобы вызывать боль и страх в каждом, кто сюда входит. 
+Однако, ты не $gn{обратил} бы столько внимания на стойки и железные девы,
+если бы не $gn{заметил} в комнате лича.  
 ~
 0 AD inside
 D2
 ~
-door~
+door дверь~
 ~
 ~
 ABZ -1 13413
 S
 #13416
-Entrance to Ciquala's Throne Room~
-This does not look like any of the other rooms you have been in up till
+@eng Entrance to Ciquala's Throne Room@rus Вход в Тронную Комнату Цикуалы~
+@eng This does not look like any of the other rooms you have been in up till
 now.  The ceiling rises a full 40 feet in the air above you.  The walls are
 covered with murals proclaiming the might and majesty of Ciquala.  She does
 not look old and decayed as you would have pictured her.  Instead, she looks
 rather regal and stately, but undoubtedly evil.
+@rus Эта комната ничуть не похожа на какую-либо другую комнату, где ты
+$gn{побывал} до этого.  Потолок возносится на добрых 40 футов в высоту. 
+Стены покрыты фресками, прославляющими мощь и величие Цикуалы.  Она не
+выглядит старой и слабой, то есть такой, какой ты ее себе $gn{представлял}. 
+Вместо этого она смотрится весьма царственной и величественной, но,
+несомненно, злой.  
 ~
 0 AD inside
 D0
 ~
-door~
+door дверь~
 ~
 ~
 ABZ -1 13413
@@ -992,12 +1136,17 @@ D2
 Z -1 13417
 S
 #13417
-Ciquala's Throne Room~
-This room is clothed in darkness, and a chill eminates from the foul
+@eng Ciquala's Throne Room@rus Тронная Комната Цикуалы~
+@eng This room is clothed in darkness, and a chill eminates from the foul
 monarch of the undead.  A large tapestry hangs behind her throne.  The
 ceiling rises above you, hidden in the darkness beyond the range your
 light can penetrate.  A feeling of hopelessness and insignificance overwhelms
 you as you face the Lich, Ciquala!
+@rus Комната погружена во тьму, и холод исходит от отвратительной
+повелительницы нежити. Большой гобелен висит позади ее трона.
+Потолок возвышается над тобой, скрываясь во тьме там, куда не может
+проникнуть твой свет. Чувство безнадежности и беспомощности
+овладевает тобой, когда ты смотришь на Лича, Цикуалу!
 ~
 0 AD inside
 D0
@@ -1008,47 +1157,56 @@ D0
 Z -1 13416
 D2
 ~
-tapestry~
-the tapestry~
+tapestry гобелен~
+@eng the tapestry@rus гобелен~
 ~
 ABCFZ 13406 13418
 S
 #13418
-Treasure Chamber of Ciquala~
-This room contains enough wealth to fund an army, perhaps a small
+@eng Treasure Chamber of Ciquala@rus Сокровищница Цикуалы~
+@eng This room contains enough wealth to fund an army, perhaps a small
 kingdom.  Racks or weapons, and spellbooks, and potions, not to mention large
 piles of coins that cover the floor.  A large paving stone in this room seems
 slightly disturbed.
+@rus Эта комната содержит достаточно богатства, чтобы обеспечить армию,
+возможно даже маленькое королевство. Сетки или оружие, и книги заклинаний,
+и зелья, не говоря уже о больших грудах монет, которые покрывают весь пол.
+И только большой брусчатый камень в этой комнате кажется немного странным.
 ~
 0 AD inside
 E
 paving~
-The paving stone seems to be masking a passage down into a pit below this room.
+@eng The paving stone seems to be masking a passage down into a pit below this room.
+@rus Брусчатый камень, кажется, маскирует проход вниз -- в яму
+под этой комнатой.
 ~
 D0
 ~
-tapestry~
-the tapestry~
+tapestry гобелен~
+@eng the tapestry@rus гобелен~
 ~
 ABCFZ 13406 13417
 D5
-The stone appears to hide a secret passage going down.
+@eng The stone appears to hide a secret passage going down.
+@rus Камень, кажется, скрывает секретный проход вниз.
 ~
-stone~
-the stone~
+stone камень~
+@eng the stone@rus камень~
 ~
 ABZ -1 13419
 S
 #13419
-The hidden crypt of Ciquala~
-This room contains several crypts where the lichs and vampires rest.
+@eng The hidden crypt of Ciquala@rus Потайной склеп Цикуалы~
+@eng This room contains several crypts where the lichs and vampires rest.
 Unfortunately, they all seem to be out of their crypts right now.
+@rus В этой комнате находится несколько склепов, где отдыхают личи и вампиры.
+К сожалению, кажется все они сейчас отсутствуют в своих склепах.
 ~
 0 AD inside
 D4
 ~
-stone~
-the stone~
+stone камень~
+@eng the stone@rus камень~
 ~
 ABZ -1 13418
 S
@@ -1072,7 +1230,7 @@ G 0 13413 0		*	the vampire lab assistant: a vial with milky liquid
 G 0 13414 0		*	the vampire lab assistant: a black potion
 G 0 13415 0		*	the vampire lab assistant: a beaker with yellow liquid
 G 0 13424 0		*	the vampire lab assistant: a fizzing bottle
-G 0 13425 0		*	the vampire lab assistant: a grey potion
+G 0 13425 0		*	the vampire lab assistant: A grey potion
 M 0 13418 2 13405 1	* the vampire lab assistant (Ciquala's Laboratory)
 G 0 13407 0		*	the vampire lab assistant: a blue potion
 G 0 13408 0		*	the vampire lab assistant: an emerald vial
@@ -1123,8 +1281,11 @@ S
 
 #HELPS
 -1 ciquala lair~
-Converted to standard Envy 1.x by Jason Huang (god@@sure.net)
+@eng Converted to standard Envy 1.x by Jason Huang (god@@sure.net)
 Further conversion to Rom 2.4 by Jaceks and Chicken's Den Staff
+@rus Jason Huang (god@@sure.net) преобразовал зону к стандарту Envy 1.x
+Дальнейшее преобразование под стандарт Rom 2.4 сделано Jaceks и
+Chicken's Den Staff
 ~
 -1 $~
 

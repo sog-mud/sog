@@ -7,6 +7,37 @@ Security 1
 LevelRange 1 5
 End
 
+#MOBILES
+#50200
+teacher учитель~
+@eng The Teacher@rus Учитель~
+@eng Your first Teacher looks at you smiling.@rus Твой первый Учитель (Teacher) с улыбкой глядит на тебя.~
+~
+human~
+0 0 0 0 0 0 0
+0 0 1d1+1 0d0+0 0d0+0 ''
+0 0 0 0
+0
+stand stand none 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+#50201
+shopkeeper продавец~
+@eng the shopkeeper@rus продавец~
+@eng The shopkeeper is here smiling.@rus Продавец (shopkeeper) суетится у прилавка.~
+~
+human~
+0 0 0 0 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 ''
+0 0 0 0
+0
+stand stand none 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+#0
+
 #OBJECTS
 #50201
 scroll свиток~
@@ -215,6 +246,12 @@ D4
 ~
 ~
 ABZ 0 50201
+D5
+~
+trapdoor люк~
+@eng the trapdoor@rus люк~
+@rus male~
+ABZ 0 50206
 S
 #50203
 @eng The northern chamber@rus Северная сторона~
@@ -289,6 +326,119 @@ D3
 ~
 Z 0 50202
 S
+#50206
+@eng The 6th floor@rus Шестой этаж~
+@rus У твоего персонажа есть характеристики: ловкость, мудрость, сила и др.
+Их нужно стремится сделать максимально хорошими. С помощью команды {ctrain{x
+ты увидишь, что ты можешь тренировать. А {ctrain <название>{x позволит тебе
+провести тренировочное занятие с Учителем.
+  Тебе нужно научится пользоваться своими умениями. Команда {cpractice{x
+покажет какие умения ты можешь развивать. {cPractice <название>{x позволит
+взять тебе несколько уроков. Умения обьеденяются в группы, и у каждой
+есть свой Учитель. Здесь ты можешь овладеть только самыми элементарными
+навыками.
+  Время попробывать себя в первой битве. По сторонам света, ты найдешь
+разных существ, агрессивных или не очень. Тебе нужно попытаться их
+убить. Чтобы напасть, используй комманду {ckill <название>{x. Если будет
+невмоготу, можно сбежать, используя комманду {cflee{x. Здесь ты можешь
+немного вздремнуть и восстановить силы, звери не будут тебя преследо-
+вать. Но это не всегда будет так. Часто ты сможешь надеятся только на
+быстроту своих ног, которые смогут унести от преследующего тебя чудо-
+вища.
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 50207
+D1
+~
+~
+~
+~
+Z 0 50209
+D2
+~
+~
+~
+~
+Z 0 50210
+D3
+~
+~
+~
+~
+Z 0 50208
+D4
+~
+~
+~
+~
+ABZ 0 50202
+D5
+~
+~
+@eng the trapdoor@rus люк~
+~
+ABZ 0 50211
+S
+#50207
+@eng The northern room@rus Северная комната~
+~
+0 0 inside
+D2
+~
+~
+~
+~
+Z 0 50206
+S
+#50208
+@eng The western room@rus Западная комната~
+~
+0 0 inside
+D1
+~
+~
+~
+~
+Z 0 50206
+S
+#50209
+@eng The eastern room@rus Восточная комната~
+~
+0 0 inside
+D3
+~
+~
+~
+~
+Z 0 50206
+S
+#50210
+@eng The southern room@rus Южная комната~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 50206
+S
+#50211
+@eng The 5th floor@rus Пятый этаж~
+~
+0 0 inside
+D4
+~
+~
+~
+~
+ABZ 0 50206
+S
 #0
 
 #RESETS
@@ -297,6 +447,12 @@ O 0 50202 0 50203	* an oak chest (The northern chamber)
 P 0 50203 5 0 1	* an oak chest: the treasure
 O 0 50204 0 50204	* the spring (The western chamber)
 O 0 50205 0 50204	* the mushroom (The western chamber)
+M 0 50201 1 50205 1	* the shopkeeper (The eastern chamber)
+M 0 50200 1 50206 1	* The Teacher (The 6th floor)
+S
+
+#PRACTICERS
+M 50200 AX	* The Teacher
 S
 
 #$

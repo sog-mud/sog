@@ -1682,15 +1682,15 @@ armor G 0 AE
 a '' to_object 43 -1 6 18 0
 g @rus male~
 #12051
-silver torc~
-A silver torc~
-The silver torc of the Unseelie King.~
+silver crescent серебряный полумесяц~
+@eng A silver crescent@rus ~~серебряный~~ ~~полумесяц~~~
+@eng The silver crescent of the Unseelie King.@rus Серебряный полумесяц (crescent) повелителя ночи.~
 silver~
 armor G 0 AC
 28 28 28 10 0
 43 11 2900 P
 a '' to_object 43 -1 3 4 0
-g @rus none~
+g @rus male~
 #12052
 poetry сборник поэзия~
 @eng poetry@rus ~~сборник~~ стихотворений~
@@ -1733,9 +1733,9 @@ a '' to_object 42 -1 50 12 0
 a '' to_object 42 -1 2 3 0
 g @rus male~
 #12056
-golden torc~
-A golden torc~
-The torc of Rulership of the Seelie Court.~
+golden crescent золотой полумесяц~
+@eng A golden torc@rus ~~золотой~~ ~~полумесяц~~~
+@eng The golden crescent of King of the Seelie Court..@rus Золотой полумесяц, символ власти, оставлен здесь.~
 gold~
 armor G 0 AC
 28 28 28 20 0
@@ -1743,7 +1743,7 @@ armor G 0 AC
 a '' to_affects 43 -1 30 13 0
 a '' to_object 43 -1 2 5 0
 a '' to_object 43 -1 2 4 0
-g @rus none~
+g @rus male~
 #12057
 cloak shadows пелерина~
 @eng The cloak of shadows@rus ~~пелерина~~, ~~сотканная~~ из теней~
@@ -3146,7 +3146,7 @@ D3
 Z -1 12037
 S
 #12039
-Along the path~
+@eng Along the path@rus Вдоль дороги~
 @eng You are standing on the path of dark grass. The path continues to
 the west but all other directions are hazy.  To the east and south 
 brambles block all movement.
@@ -7469,7 +7469,7 @@ E 0 12010 0 6		*	a murderous redcap<over the head>: A red cap
 M 0 12035 2 12148 1	* a sluagh guardian (The Watcher's Home)
 E 0 12008 0 16		*	a sluagh guardian<wielded>: A dull kris blade
 M 0 12004 1 12149 1	* Gwyn ap Nudd (The Hidden Court)
-E 0 12051 0 3		*	Gwyn ap Nudd<around the neck>: A silver torc
+E 0 12051 0 3		*	Gwyn ap Nudd<around the neck>: A silver crescent
 E 0 12050 0 6		*	Gwyn ap Nudd<over the head>: A stag horned helmet
 M 0 12020 5 12149 1	* a troll guard (The Hidden Court)
 E 0 12039 0 1		*	a troll guard<on the left finger>: An oath ring

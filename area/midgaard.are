@@ -7467,14 +7467,6 @@ D0
 ~
 ~
 Z -1 3046
-D4
-@eng You see machine dreams and taste violet phosphor.
-@rus Ты видишь обрывки миражей, плавающих в фиолетовом сиянии.
-~
-~
-~
-~
-Z 0 8604
 M 150 H 100
 S
 #3051
@@ -7713,14 +7705,6 @@ S
 @rus Вау! Ты умеешь летать! И ты $gn{поднялся} прямо над храмовой площадью. 
 ~
 0 CS air
-D4
-@eng More of the same.
-@rus То же самое.
-~
-~
-~
-~
-Z 0 1017
 D5
 @eng Back down on the earth where you should be!
 @rus Родная земля.
@@ -8930,9 +8914,9 @@ S
 @eng You are standing at a bend on Emerald Avenue.  The road leads north and west.
 To the east, you see some run-down slums...it looks like the bad part of
 town.
-@rus Ты стоишь на повороте Изумрудного проспекта. Проспект ведет на север (north) и
-на запад (west). К востоку (east) ты видишь городские трущобы. Не самое приятное
-место в городе.
+@rus Ты стоишь на повороте Изумрудного проспекта.  Проспект ведет на север
+(north) и на запад (west).  К востоку (east) ты видишь городские трущобы. 
+Не самое приятное место в городе.  
 ~
 0 S city
 D0
@@ -8941,14 +8925,6 @@ D0
 ~
 ~
 Z -1 3117
-D1
-@eng You see some dangerous looking slums...just the right place for a gang.
-@rus Ты видишь весьма негостеприимно выглядящие кварталы. Там заправляют банды.
-~
-~
-~
-~
-Z -1 2101
 D2
 ~
 ~
@@ -9651,14 +9627,6 @@ south.  It occurs to you that this isn't the happiest section of town.
 место в городе.
 ~
 0 S city
-D1
-@eng You see a run-down slum neighborood.
-@rus Ты видишь грязные трущобы.
-~
-~
-~
-~
-Z -1 2160
 D2
 @eng Elm street continues towards a graveyard.
 @rus Улица Вязов продолжается на юг. Чуть дальше видно кладбище.
