@@ -2,12 +2,15 @@ int i;
 
 foo:
 foreach(i, range(1, 20)) {
+	int j;
+
 	switch (i) {
 	case 3:
 		continue;
 
 	case 5:
 		i += 2;
+		print($_);
 		continue;
 
 	case 10:
@@ -15,7 +18,8 @@ foreach(i, range(1, 20)) {
 		break;
 
 	case 15:
-		break foo;
+		// break foo;
+		return 1;
 	}
 
 	print(i);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_c.c,v 1.9 2001-06-23 13:07:35 fjoe Exp $
+ * $Id: mpc_c.c,v 1.10 2001-06-23 15:49:36 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -61,6 +61,7 @@ static void mpc_assert(prog_t *prog, const char *ctx, int e,
 void
 c_pop(prog_t *prog)
 {
+	sym_t *sym;
 	vo_t *v;
 	int type_tag;
 
@@ -68,6 +69,16 @@ c_pop(prog_t *prog)
 
 	v = pop(prog);
 	type_tag = (int) code_get(prog);
+
+	sym = (sym_t *) hash_lookup(&prog->syms, "$_");
+	mpc_assert(prog, __FUNCTION__,
+	    sym != NULL, "$_: symbol not found");
+	mpc_assert(prog, __FUNCTION__,
+	    sym->type == SYM_VAR, "$_: not a %d (got symtype %d)",
+	    SYM_VAR, sym->type);
+
+	sym->s.var.type_tag = type_tag;
+	sym->s.var.data = *v;
 
 	switch (type_tag) {
 	case MT_INT:
@@ -319,6 +330,10 @@ c_foreach(prog_t *prog)
 	/* push iter args onto stack */
 	execute(prog, prog->ip);
 
+	/* c_cleanup_syms, block */
+	code_get(prog);
+	code_get(prog);
+
 	/* c_foreach_next, next_addr */
 	code_get(prog);
 	code_get(prog);
@@ -370,6 +385,84 @@ c_foreach_next(prog_t *prog)
 	iter->next(&sym->s.var.data, id);
 	if (!iter->cond(&sym->s.var.data, id))
 		prog->ip = next_addr;
+}
+
+void
+c_declare(prog_t *prog)
+{
+	sym_t sym;
+	void *p;
+
+	TRACE;
+
+	sym.name = str_dup(code_get(prog));
+	sym.type = SYM_VAR;
+	sym.s.var.type_tag = (int) code_get(prog);
+	sym.s.var.is_const = FALSE;
+	sym.s.var.block = (int) code_get(prog);
+
+	switch (sym.s.var.type_tag) {
+	case MT_STR:
+		sym.s.var.data.s = NULL;
+		break;
+
+	case MT_INT:
+	default:
+		sym.s.var.data.i = 0;
+		break;
+	};
+
+	p = hash_insert(&prog->syms, sym.name, &sym);
+	if (p == NULL)
+		sym_destroy(&sym);
+	mpc_assert(prog, __FUNCTION__,
+	    p != NULL, "%s: duplicate symbol", sym.name);
+	sym_destroy(&sym);
+}
+
+void
+c_declare_assign(prog_t *prog)
+{
+	sym_t sym;
+	sym_t *s;
+	vo_t *v;
+
+	TRACE;
+
+	sym.name = str_dup(code_get(prog));
+	sym.type = SYM_VAR;
+	sym.s.var.type_tag = (int) code_get(prog);
+	sym.s.var.is_const = FALSE;
+	sym.s.var.block = (int) code_get(prog);
+
+	s = (sym_t *) hash_insert(&prog->syms, sym.name, &sym);
+	if (s == NULL)
+		sym_destroy(&sym);
+	mpc_assert(prog, __FUNCTION__,
+	    s != NULL, "%s: duplicate symbol", sym.name);
+	sym_destroy(&sym);
+
+	v = pop(prog);
+	s->s.var.data = *v;
+}
+
+void
+c_cleanup_syms(prog_t *prog)
+{
+	int block;
+
+	TRACE;
+
+	block = (int) code_get(prog);
+	cleanup_syms(prog, block);
+}
+
+void
+c_return(prog_t *prog)
+{
+	TRACE;
+
+	prog->ip = INVALID_ADDR;
 }
 
 /*--------------------------------------------------------------------

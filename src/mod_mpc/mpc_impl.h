@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_impl.h,v 1.8 2001-06-23 13:07:34 fjoe Exp $
+ * $Id: mpc_impl.h,v 1.9 2001-06-23 15:49:36 fjoe Exp $
  */
 
 #ifndef _MPC_CODE_H_
@@ -59,6 +59,7 @@ struct sym_t {
 			int type_tag;
 			vo_t data;
 			bool is_const;
+			int block;
 		} var;
 
 		struct {
@@ -67,6 +68,10 @@ struct sym_t {
 	} s;
 };
 typedef struct sym_t sym_t;
+
+void	sym_init(sym_t *sym);
+void	sym_destroy(sym_t *sym);
+sym_t *	sym_cpy(sym_t *dst, const sym_t *src);
 
 extern hash_t glob_syms;		/* (sym_t) */
 
@@ -97,6 +102,7 @@ struct prog_t {
 
 	varr cstack;		/**< (void *) compiler stack		*/
 	varr args;		/**< (int) argument type stack		*/
+	int curr_block;		/**< current block depth		*/
 
 	varr jumptabs;		/**< (varr ) 'switch' jump tables	*/
 	varr iterdata;		/**< (iterdata_t) 'foreach' iter data	*/
@@ -132,7 +138,7 @@ prog_compile(prog_t *prog);
  * Execute program
  */
 int
-prog_execute(prog_t *prog);
+prog_execute(prog_t *prog, int *errcode);
 
 /**
  * Lexer
@@ -144,6 +150,12 @@ int mpc_lex(prog_t *prog);
  */
 sym_t *
 sym_lookup(prog_t *prog, const char *name);
+
+/**
+ * Remove symbols with block >= specified
+ */
+void
+cleanup_syms(prog_t *prog, int block);
 
 /**
  * Handle compilation error
@@ -204,6 +216,11 @@ void	c_switch(prog_t *prog);		/* switch */
 void	c_quecolon(prog_t *prog);	/* ?: */
 void	c_foreach(prog_t *prog);	/* foreach */
 void	c_foreach_next(prog_t *prog);	/* foreach_next */
+void	c_declare(prog_t *prog);	/* declare variable */
+void	c_declare_assign(prog_t *prog);	/* declare variable and assign */
+					/* initial value */
+void	c_cleanup_syms(prog_t *prog);	/* cleanup symbols */
+void	c_return(prog_t *prog);		/* return */
 
 /*--------------------------------------------------------------------
  * binary operations

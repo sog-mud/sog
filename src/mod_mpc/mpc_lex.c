@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_lex.c,v 1.4 2001-06-23 13:07:36 fjoe Exp $
+ * $Id: mpc_lex.c,v 1.5 2001-06-23 15:49:36 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -148,6 +148,7 @@ keyword_t ktab[] = {
 	{ "switch",	L_SWITCH	},
 	{ "case",	L_CASE		},
 	{ "default",	L_DEFAULT	},
+	{ "return",	L_RETURN	},
 };
 #define KTAB_SIZE	(sizeof(ktab) / sizeof(keyword_t))
 
@@ -387,7 +388,7 @@ mpc_lex(prog_t *prog)
 				return L_ITER;
 			}
 
-			mpc_lval.string = str_dup(yytext);
+			mpc_lval.string = alloc_string(prog, yytext);
 			return L_IDENT;
 			/* NOTREACHED */
 		}
