@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name Graveyard~
 VNUMs 3600 3699
 Credits Alfa~
@@ -244,8 +244,8 @@ silver~
 jewelry 0 0 AC
 0 0 0 0 0
 7 10 800 P
-f object str 1 0 7 -1
-f object ac -1 0 7 -1
+f object str 1 0
+f object ac -1 0
 E
 pendant silver серебряный кулон~
 @eng It resembles Thor's hammer and appears to be made of solid silver.
@@ -260,7 +260,7 @@ silver~
 weapon 0 0 AN
 dagger 2 4 'pierce' 0
 6 10 430 P
-f object damroll 1 0 6 -1
+f object damroll 1 0
 E
 dagger silver серебряный кинжал~
 @eng It has a long, sharp blade that is made entirely from silver.  A small rune

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name Smurfville~
 VNUMs 100 199
 Credits Generic~
@@ -204,8 +204,8 @@ glass~
 clothing A 0 AT
 0 0 0 0 0
 3 20 270 P
-f object wis 1 0 3 -1
-f object dex -1 0 3 -1
+f object wis 1 0
+f object dex -1 0
 g @rus plural~
 #102
 smurf hat шляпка~
@@ -233,7 +233,7 @@ gem~
 jewelry A 0 AC
 0 0 0 0 0
 5 20 550 P
-f object int 1 0 5 -1
+f object int 1 0
 g @rus none~
 #105
 pink potion розовая микстура~

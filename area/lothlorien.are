@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name Lothlorien~
 VNUMs 95900 95999
 Credits All'erh'mog'h'ohol~
@@ -32,8 +32,8 @@ leather~
 container KY C AK
 200 F 0 200 100
 36 0 10 P
-f object hp 75 0 36 -1
-f skills 'refresh' 100 A 36 -1
+f object hp 75 0
+f skills 'refresh' 100 A
 g @rus male~
 #0
 

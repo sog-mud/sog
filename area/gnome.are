@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name Gnome village~
 Builders dias~
 VNUMs 1500 1599
@@ -434,7 +434,7 @@ silver~
 jewelry G 0 AB
 0 0 0 0 0
 10 20 270 P
-f object move 15 0 10 -1
+f object move 15 0
 g @rus none~
 #1509
 necklace bead~
@@ -444,7 +444,7 @@ pearl~
 jewelry 0 0 AC
 0 0 0 0 0
 5 80 220 P
-f object hitroll 1 0 5 -1
+f object hitroll 1 0
 g @rus none~
 #1510
 sword electrum~
@@ -499,7 +499,7 @@ leather~
 armor 0 0 AG
 4 4 4 0 0
 7 120 610 P
-f object move 10 0 7 -1
+f object move 10 0
 g @rus none~
 #1516
 coins~
@@ -527,7 +527,7 @@ stone~
 armor 0 0 AJ
 4 4 4 2 0
 16 450 3700 P
-f object str 2 0 16 -1
+f object str 2 0
 g @rus none~
 #1520
 mail heavy banded~
@@ -546,7 +546,7 @@ wood~
 weapon 0 0 AN
 mace 1 12 'pound' F
 6 220 460 P
-f object hitroll -1 0 6 -1
+f object hitroll -1 0
 g @rus none~
 #1522
 banana~
@@ -574,7 +574,7 @@ wood~
 weapon 0 0 AN
 mace 2 3 'pound' 0
 3 100 220 P
-f object hitroll -1 0 3 -1
+f object hitroll -1 0
 g @rus none~
 #0
 

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name Circus~
 VNUMs 4400 4499
 Credits Binky~
@@ -577,8 +577,8 @@ unknown~
 armor 0 0 AI
 3 3 3 3 0
 4 8 100 P
-f object str 1 0 4 -1
-f object con 1 0 4 -1
+f object str 1 0
+f object con 1 0
 g @rus none~
 #4408
 sword small~
@@ -588,8 +588,8 @@ unknown~
 weapon 0 0 AN
 sword 3 3 'pierce' 0
 2 10 8 P
-f object hitroll 3 0 2 -1
-f object ac 8 0 2 -1
+f object hitroll 3 0
+f object ac 8 0
 g @rus none~
 #4409
 staff translucent~
@@ -599,7 +599,7 @@ unknown~
 weapon 0 0 AN
 staff 3 4 'pound' 0
 5 0 144 P
-f object hitroll 2 0 5 -1
+f object hitroll 2 0
 g @rus none~
 #4410
 sword bastard~
@@ -609,7 +609,7 @@ unknown~
 weapon 0 0 AN
 sword 2 3 'slice' 0
 1 0 10 P
-f object hitroll 1 0 1 -1
+f object hitroll 1 0
 g @rus none~
 #4411
 purse~
@@ -637,8 +637,8 @@ unknown~
 weapon 0 0 AN
 exotic 1 5 'stab' 0
 2 10 20 P
-f object damroll 2 0 2 -1
-f object ac 6 0 2 -1
+f object damroll 2 0
+f object ac 6 0
 g @rus none~
 #4414
 barbell~
@@ -674,7 +674,7 @@ unknown~
 weapon 0 0 AN
 dagger 2 3 'stab' D
 2 10 12 P
-f object hitroll 2 0 2 -1
+f object hitroll 2 0
 g @rus none~
 #4417
 blindfold~
@@ -684,8 +684,8 @@ unknown~
 armor 0 0 AE
 2 2 2 2 0
 1 1 8 P
-f object hitroll -10 0 1 -1
-f object move -50 0 1 -1
+f object hitroll -10 0
+f object move -50 0
 g @rus none~
 #4418
 whip~
@@ -695,8 +695,8 @@ unknown~
 weapon 0 0 AN
 whip 4 3 'whip' 0
 8 10 256 P
-f object hitroll 5 0 8 -1
-f object wis -1 0 8 -1
+f object hitroll 5 0
+f object wis -1 0
 g @rus none~
 #4419
 pole~
@@ -706,7 +706,7 @@ unknown~
 furniture A 0 AO
 0 0 0 0 0
 6 1 175 P
-f object dex 2 0 6 -1
+f object dex 2 0
 g @rus none~
 #4420
 clown shoes~
@@ -716,8 +716,8 @@ unknown~
 armor 0 0 AG
 3 3 3 3 0
 1 4 3 P
-f object move -20 0 1 -1
-f object dex -1 0 1 -1
+f object move -20 0
+f object dex -1 0
 g @rus none~
 #4421
 tophat hat~
@@ -727,8 +727,8 @@ unknown~
 armor 0 0 AE
 3 3 3 3 0
 7 1 280 P
-f object mana 10 0 7 -1
-f object ac 4 0 7 -1
+f object mana 10 0
+f object ac 4 0
 g @rus none~
 #4422
 chest~
@@ -901,8 +901,8 @@ unknown~
 armor 0 0 AE
 2 2 2 2 0
 1 1 4 P
-f object int -2 0 1 -1
-f object wis -1 0 1 -1
+f object int -2 0
+f object wis -1 0
 g @rus none~
 #4440
 chest~
@@ -984,8 +984,8 @@ unknown~
 weapon 0 0 AN
 dagger 4 3 'slice' D
 6 10 108 P
-f object hitroll -2 0 6 -1
-f object damroll 6 0 6 -1
+f object hitroll -2 0
+f object damroll 6 0
 g @rus none~
 #4449
 refrigerator frig fridge~
@@ -1004,8 +1004,8 @@ unknown~
 weapon 0 0 AN
 dagger 6 3 'pierce' D
 16 10 2000 P
-f object hitroll 3 0 16 -1
-f object damroll 3 0 16 -1
+f object hitroll 3 0
+f object damroll 3 0
 g @rus none~
 #0
 

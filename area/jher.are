@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name Lair of Jher~
 VNUMs 32700 32799
 Credits Garth~
@@ -294,11 +294,11 @@ unknown~
 weapon ABGJ 0 AN
 dagger 5 12 'pierce' 0
 53 30 530 P
-f object hp 50 0 53 -1
-f object mana 120 0 53 -1
-f object damroll 10 0 53 -1
-f object wis 2 0 53 -1
-f object str -1 0 53 -1
+f object hp 50 0
+f object mana 120 0
+f object damroll 10 0
+f object wis 2 0
+f object str -1 0
 g @rus none~
 #32704
 breeding formula~
@@ -317,8 +317,8 @@ unknown~
 potion G 0 AO
 35 'word of recall' 'blindness' 'sleep' ''
 0 0 0 P
-f object damroll 5 0 0 -1
-f object hp 25 0 0 -1
+f object damroll 5 0
+f object hp 25 0
 g @rus none~
 #32706
 beorn's fury~
@@ -328,8 +328,8 @@ unknown~
 weapon GKM 0 AN
 exotic 1 7 'bite' 0
 0 20 0 P
-f object hitroll 5 0 0 -1
-f object damroll 8 0 0 -1
+f object hitroll 5 0
+f object damroll 8 0
 g @rus none~
 #32707
 key~
@@ -384,7 +384,7 @@ unknown~
 armor AFG 0 AM
 10 10 10 0 0
 37 5 370 P
-f object mana 50 0 37 -1
+f object mana 50 0
 g @rus none~
 #32713
 broken scroll~
@@ -403,8 +403,8 @@ unknown~
 armor AGJM 0 AC
 10 10 10 0 0
 35 1 350 P
-f object move 100 0 35 -1
-f object damroll 4 0 35 -1
+f object move 100 0
+f object damroll 4 0
 g @rus none~
 #32715
 gold pill coin~

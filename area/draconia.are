@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name Dragon Tower~
 VNUMs 2200 2299
 Credits Wench~
@@ -308,7 +308,7 @@ silver~
 weapon 0 0 AN
 dagger 4 7 'pierce' 0
 22 10 2000 P
-f object saves -2 0 22 -1
+f object saves -2 0
 g @rus none~
 #2202
 knife tooth dragon~
@@ -318,8 +318,8 @@ bone~
 weapon 0 0 AN
 dagger 5 6 'pierce' 0
 30 80 3200 P
-f object damroll 4 0 30 -1
-f object dex 1 0 30 -1
+f object damroll 4 0
+f object dex 1 0
 g @rus none~
 #2203
 bracelet dragon~
@@ -338,7 +338,7 @@ silk~
 armor 0 0 AL
 6 6 6 2 0
 17 250 3900 P
-f object con 2 0 17 -1
+f object con 2 0
 g @rus none~
 #2210
 belt silk white~
@@ -348,7 +348,7 @@ silk~
 armor 0 0 AL
 6 6 6 2 0
 17 250 3900 P
-f object str 2 0 17 -1
+f object str 2 0
 g @rus none~
 #2211
 bracelet platinum~
@@ -367,7 +367,7 @@ gold~
 jewelry A 0 ACO
 0 0 0 0 0
 10 20 270 P
-f object mana 15 0 10 -1
+f object mana 15 0
 g @rus none~
 #2221
 robe black~
@@ -377,7 +377,7 @@ leather~
 armor 0 0 AK
 5 5 5 0 0
 21 30 2000 P
-f object damroll 2 0 21 -1
+f object damroll 2 0
 g @rus none~
 #2222
 sword emerald~
@@ -387,7 +387,7 @@ steel~
 weapon 0 0 AN
 sword 5 6 'slash' D
 28 240 2300 P
-f object damroll 2 0 28 -1
+f object damroll 2 0
 g @rus none~
 #2223
 club stone~
@@ -406,8 +406,8 @@ diamond~
 jewelry 0 0 AB
 0 0 0 0 0
 37 60 6800 P
-f object damroll 3 0 37 -1
-f object hitroll 3 0 37 -1
+f object damroll 3 0
+f object hitroll 3 0
 g @rus none~
 #2230
 ring copper~
@@ -417,7 +417,7 @@ copper~
 jewelry 0 0 AB
 0 0 0 0 0
 15 10 2600 P
-f object wis 2 0 15 -1
+f object wis 2 0
 g @rus none~
 #2231
 key steel~
@@ -490,7 +490,7 @@ steel~
 armor 0 0 AJ
 8 8 8 3 0
 25 350 3900 P
-f object con 1 0 25 -1
+f object con 1 0
 g @rus none~
 #2243
 wand golden~
@@ -563,8 +563,8 @@ iron~
 armor AG 0 AH
 4 4 4 0 0
 20 100 2500 P
-f object str 1 0 20 -1
-f object damroll 2 0 20 -1
+f object str 1 0
+f object damroll 2 0
 g @rus none~
 #2260
 scimitar golden~
@@ -574,8 +574,8 @@ gold~
 weapon A 0 AN
 sword 3 5 'slash' 0
 16 100 2500 P
-f object wis 1 0 16 -1
-f object int 1 0 16 -1
+f object wis 1 0
+f object int 1 0
 g @rus none~
 #2261
 brooch diamond~
@@ -585,7 +585,7 @@ diamond~
 jewelry G 0 AC
 0 0 0 0 0
 25 20 980 P
-f object mana 25 0 25 -1
+f object mana 25 0
 g @rus none~
 #2270
 scroll~
@@ -604,7 +604,7 @@ dragonskin~
 armor 0 0 AH
 6 6 6 3 0
 17 50 4000 P
-f object dex 2 0 17 -1
+f object dex 2 0
 g @rus none~
 #2275
 helm dragon~
@@ -614,7 +614,7 @@ dragonskin~
 armor 0 0 AE
 10 10 10 5 0
 35 150 4100 P
-f object hp 15 0 35 -1
+f object hp 15 0
 g @rus none~
 #2276
 fur cloak~
@@ -624,8 +624,8 @@ fur~
 armor 0 0 AK
 6 6 6 1 0
 16 100 1910 P
-f object hp 10 0 16 -1
-f object str 1 0 16 -1
+f object hp 10 0
+f object str 1 0
 g @rus none~
 #2280
 leggings dragon scale~
@@ -653,8 +653,8 @@ dragonskin~
 weapon BJ 0 AN
 whip 6 5 'whip' 0
 24 140 1530 P
-f object damroll 3 0 24 -1
-f object hitroll 3 0 24 -1
+f object damroll 3 0
+f object hitroll 3 0
 g @rus none~
 #2286
 hammer copper~

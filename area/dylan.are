@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name Dylan's Area~
 VNUMs 9100 9199
 Credits Dylan~
@@ -138,9 +138,9 @@ leather~
 armor G 0 AG
 3 3 3 0 0
 13 100 2800 P
-f object saves 1 0 13 -1
-f object dex 2 0 13 -1
-f affects none 0 T 13 -1
+f object saves 1 0
+f object dex 2 0
+f affects none 0 T
 g @rus plural~
 #9102
 bracer бронзовый браслет bronze~
@@ -159,8 +159,8 @@ silver~
 jewelry F 0 AC
 0 0 0 0 0
 7 100 1140 P
-f object wis 1 0 7 -1
-f object int 1 0 7 -1
+f object wis 1 0
+f object int 1 0
 g @rus none~
 #9104
 potion magenta красное зелье~

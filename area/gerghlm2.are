@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name Greater Gerighelm~
 Builders shogo~
 VNUMs 7500 7699
@@ -1029,8 +1029,8 @@ wood~
 wand G 0 AO
 20 10 10 'gas breath' 0
 9 20 810 P
-f object move -100 0 9 -1
-f object con -10 0 9 -1
+f object move -100 0
+f object con -10 0
 E
 lute лютня~
 @eng On the side it has words that say:
@@ -1048,8 +1048,8 @@ gold~
 wand G 0 AO
 35 10 10 'word of recall' 0
 9 20 4200 P
-f object hp 12 0 9 -1
-f object ac -50 0 9 -1
+f object hp 12 0
+f object ac -50 0
 E
 harp арфа~
 @eng On the side it says:
@@ -1111,7 +1111,7 @@ leather~
 armor G 0 AD
 6 6 6 0 1
 14 60 2448 P
-f object ac -10 0 14 -1
+f object ac -10 0
 E
 junior жилет guard vest стражника~
 @eng On the side it says:
@@ -1128,7 +1128,7 @@ leather~
 armor G 0 AJ
 6 6 6 0 1
 14 60 2400 P
-f object dex 2 0 14 -1
+f object dex 2 0
 E
 junior щит guard shield стражника~
 @eng On the side it says:
@@ -1172,7 +1172,7 @@ bronze~
 treasure 0 0 AB
 0 0 0 0 0
 15 10 2640 P
-f object damroll 1 0 15 -1
+f object damroll 1 0
 g @rus none~
 #7525
 helmet шлем guard gerighelm стражника геригхельма~
@@ -1236,9 +1236,9 @@ cloth~
 armor G 0 AC
 6 6 6 0 2
 16 50 2560 P
-f object str 3 0 16 -1
-f object con 3 0 16 -1
-f object ac -10 0 16 -1
+f object str 3 0
+f object con 3 0
+f object ac -10 0
 g @rus male~
 #7532
 gloves рукавицы guard gerighelm стражника геригхельма~
@@ -1311,7 +1311,7 @@ brass~
 treasure A 0 AB
 0 0 0 0 0
 22 1 5082 P
-f object damroll 1 0 22 -1
+f object damroll 1 0
 g @rus none~
 #7540
 helmet шлем palace guard стража дворца~
@@ -1375,9 +1375,9 @@ steel~
 armor ABG 0 AC
 7 7 7 -1 2
 22 40 4700 P
-f object con 2 0 22 -1
-f object ac -10 0 22 -1
-f object str 2 0 22 -1
+f object con 2 0
+f object ac -10 0
+f object str 2 0
 g @rus male~
 #7547
 gloves рукавицы palace guard стража дворца~
@@ -1454,8 +1454,8 @@ silver~
 weapon G 0 AN
 dagger 5 6 'stab' 0
 20 40 4666 P
-f object dex 3 0 20 -1
-f object hitroll 10 0 20 -1
+f object dex 3 0
+f object hitroll 10 0
 g @rus male~
 #7554
 holy слово word holyword святое~
@@ -1465,9 +1465,9 @@ crystal~
 weapon G 0 AN
 exotic 5 6 'blast' 0
 25 50 5400 P
-f object hitroll 5 0 25 -1
-f object damroll 10 0 25 -1
-f object con -2 0 25 -1
+f object hitroll 5 0
+f object damroll 10 0
+f object con -2 0
 g @rus none~
 #7555
 mace булава~
@@ -1477,8 +1477,8 @@ wood~
 weapon AG 0 AN
 mace 2 4 'pound' 0
 6 10 870 P
-f object dex 1 0 6 -1
-f object str 3 0 6 -1
+f object dex 1 0
+f object str 3 0
 g @rus female~
 #7556
 sword меч thunder грома~
@@ -1488,8 +1488,8 @@ steel~
 weapon G 0 AN
 sword 5 6 'slash' 0
 21 80 5000 P
-f object str 5 0 21 -1
-f object damroll 2 0 21 -1
+f object str 5 0
+f object damroll 2 0
 g @rus male~
 #7557
 vest кираса titans titan титанов~
@@ -1499,8 +1499,8 @@ leather~
 armor G 0 AD
 7 7 7 0 3
 21 60 5520 P
-f object hitroll 4 0 21 -1
-f object str 3 0 21 -1
+f object hitroll 4 0
+f object str 3 0
 g @rus female~
 #7558
 hoe мотыга destruction разрушения~
@@ -1510,7 +1510,7 @@ wood~
 weapon ABG 0 AN
 exotic 5 6 'blast' 0
 21 80 5175 P
-f object hitroll 10 0 21 -1
+f object hitroll 10 0
 g @rus female~
 #7559
 gardeners рукавицы gloves садовника~
@@ -1520,8 +1520,8 @@ cloth~
 armor G 0 AH
 3 3 3 0 1
 21 50 9 P
-f object dex 2 0 21 -1
-f object str 2 0 21 -1
+f object dex 2 0
+f object str 2 0
 g @rus female~
 #7560
 cutlass сабля абордажная~
@@ -1540,7 +1540,7 @@ cloth~
 armor G 0 AD
 8 8 8 0 3
 22 60 6000 P
-f object ac -15 0 22 -1
+f object ac -15 0
 g @rus female~
 #7562
 saber сабля~
@@ -1550,7 +1550,7 @@ steel~
 weapon G 0 AN
 sword 5 6 'slash' 0
 22 80 7000 P
-f object hitroll 10 0 22 -1
+f object hitroll 10 0
 g @rus female~
 #7563
 two-handed меч two handed sword двуручный~
@@ -1560,11 +1560,11 @@ steel~
 weapon G 0 AN
 sword 5 7 'slash' F
 28 8 8928 P
-f object str 3 0 28 -1
-f object dex 1 0 28 -1
-f object wis 2 0 28 -1
-f object hitroll 5 0 28 -1
-f object damroll 5 0 28 -1
+f object str 3 0
+f object dex 1 0
+f object wis 2 0
+f object hitroll 5 0
+f object damroll 5 0
 g @rus male~
 #7564
 dukes шлем duke helm герцога~
@@ -1574,7 +1574,7 @@ steel~
 armor G 0 AE
 9 9 9 0 3
 28 50 9920 P
-f object ac -25 0 28 -1
+f object ac -25 0
 g @rus male~
 #7565
 duchesses диадема tiara герцогини~
@@ -1584,8 +1584,8 @@ diamond~
 armor G 0 AE
 7 7 7 0 2
 22 10 6520 P
-f object saves 5 0 22 -1
-f object mana 100 0 22 -1
+f object saves 5 0
+f object mana 100 0
 g @rus female~
 #7566
 wedding кольцо ring обручальное~
@@ -1595,8 +1595,8 @@ gold~
 armor ABG 0 AB
 7 7 7 0 2
 22 10 6600 P
-f object hp 20 0 22 -1
-f object saves 4 0 22 -1
+f object hp 20 0
+f object saves 4 0
 g @rus none~
 #7567
 wedding кольцо ring обручальное колечко~
@@ -1606,8 +1606,8 @@ gold~
 armor ABG 0 AB
 8 8 8 0 2
 28 10 6600 P
-f object hp 20 0 28 -1
-f object saves 4 0 28 -1
+f object hp 20 0
+f object saves 4 0
 g @rus none~
 #7596
 strange трава herbs green bunch зеленая странная кустик~
@@ -1698,7 +1698,7 @@ gold~
 armor G 0 AB
 0 0 0 0 0
 18 10 3610 P
-f object hp 20 0 18 -1
+f object hp 20 0
 g @rus none~
 #7654
 vest кираса defender защитника~

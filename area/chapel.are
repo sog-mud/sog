@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name Chapel~
 VNUMs 3400 3499
 Credits Copper~
@@ -299,8 +299,8 @@ dragonskin~
 weapon H 0 AN
 whip 2 4 'slime' 0
 7 80 540 P
-f object damroll 3 0 7 -1
-f object hitroll 1 0 7 -1
+f object damroll 3 0
+f object hitroll 1 0
 E
 tickler~
 A horrid black mass of gooey tentacles obviously ripped from the corpse
@@ -370,8 +370,8 @@ marble~
 treasure GK 0 AB
 0 0 0 0 0
 3 20 26 P
-f object saves 1 0 3 -1
-f object move 10 0 3 -1
+f object saves 1 0
+f object move 10 0
 E
 black marble ring~
 It is pitch black and has beautiful swirls characteristic of marble all
@@ -386,8 +386,8 @@ steel~
 weapon B 0 AN
 sword 4 2 'pierce' 0
 16 40 3500 P
-f object hitroll 1 0 16 -1
-f object dex 2 0 16 -1
+f object hitroll 1 0
+f object dex 2 0
 E
 thin rapier~
 It seems so thin that it would be useless but at the same time it looks deadly.
@@ -569,8 +569,8 @@ leather~
 armor G 0 AK
 5 5 5 0 0
 0 100 100 P
-f object ac 10 0 0 -1
-f object hp 10 0 0 -1
+f object ac 10 0
+f object hp 10 0
 E
 dark black cape~
 The cape is gently flows and pulls in the light so evenly and perfectly
@@ -585,8 +585,8 @@ steel~
 weapon G 0 AN
 sword 3 11 'slash' AC
 28 200 2200 P
-f object hitroll 2 0 28 -1
-f object damroll 2 0 28 -1
+f object hitroll 2 0
+f object damroll 2 0
 E
 flaming sword long longsword~
 This sword is amazing! It almost wields itself! As you test it out, the

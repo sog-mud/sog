@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name Ershteep City~
 VNUMs 11000 11099
 Credits Anon~
@@ -193,8 +193,8 @@ leather~
 armor G 0 AG
 6 6 7 3 3
 13 120 330 P
-f object str 1 0 13 -1
-f object con 1 0 13 -1
+f object str 1 0
+f object con 1 0
 #11004
 claymore~
 galactic claymore~
@@ -203,9 +203,9 @@ unknown~
 weapon 0 0 AN
 sword 5 5 'slash' F
 13 200 1210 P
-f object damroll 4 0 13 -1
-f object hp -10 0 13 -1
-f object wis -3 0 13 -1
+f object damroll 4 0
+f object hp -10 0
+f object wis -3 0
 #11005
 metallic shield~
 a metallic shield~
@@ -214,8 +214,8 @@ metal~
 armor 0 0 AJ
 7 7 7 3 4
 13 350 2210 P
-f object str 1 0 13 -1
-f object saving_spell 2 0 13 -1
+f object str 1 0
+f object saving_spell 2 0
 #11006
 black tunic~
 a black tunic~
@@ -224,7 +224,7 @@ velvet~
 armor G 0 AD
 5 5 5 5 3
 8 100 730 P
-f object hp 5 0 8 -1
+f object hp 5 0
 #11007
 high heels shoes~
 high heels~
@@ -233,8 +233,8 @@ leather~
 armor G 0 AG
 5 5 5 5 3
 8 120 459 P
-f object weight 20 0 8 -1
-f object age -1 0 8 -1
+f object weight 20 0
+f object age -1 0
 #11008
 opal ring~
 an opal ring~
@@ -243,8 +243,8 @@ gold~
 treasure 0 0 AB
 0 0 0 0 0
 10 20 1210 P
-f object age 2 0 10 -1
-f object hp 15 0 10 -1
+f object age 2 0
+f object hp 15 0
 #11009
 opal bracelet~
 an opal bracelet~
@@ -253,8 +253,8 @@ gold~
 treasure 0 0 AM
 0 0 0 0 0
 10 20 1120 P
-f object con 1 0 10 -1
-f object damroll 1 0 10 -1
+f object con 1 0
+f object damroll 1 0
 #11010
 display case~
 a display case~
@@ -279,7 +279,7 @@ glass~
 potion 0 0 AO
 15 'cure poison' 'heal' 'heal' ''
 10 10 2120 P
-f object ac -5 0 10 -1
+f object ac -5 0
 #11013
 sword long~
 a long sword~
@@ -296,8 +296,8 @@ steel~
 weapon AJ 0 AN
 dagger 5 4 'stab' 0
 12 120 1675 P
-f object hitroll 1 0 12 -1
-f object damroll 1 0 12 -1
+f object hitroll 1 0
+f object damroll 1 0
 #0
 
 #ROOMS

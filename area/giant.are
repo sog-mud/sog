@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name Castle of Giants~
 VNUMs 13000 13099
 Credits Outlaw~
@@ -303,8 +303,8 @@ adamantite~
 weapon 0 0 AN
 sword 6 5 'slash' 0
 35 200 150 P
-f object str 2 0 35 -1
-f object hp 10 0 35 -1
+f object str 2 0
+f object hp 10 0
 g @rus male~
 #13001
 dagger thiulor кинжал тиулора~
@@ -314,9 +314,9 @@ adamantite~
 weapon BEIM 0 AN
 dagger 7 7 'pierce' H
 50 50 2500 P
-f skills 'knife' 20 0 50 -1
-f object hitroll 3 0 50 -1
-f object damroll 3 0 50 -1
+f skills 'knife' 20 0
+f object hitroll 3 0
+f object damroll 3 0
 g @rus male~
 #13002
 cloak stealth маскировочный плащ~
@@ -326,7 +326,7 @@ etherealness~
 armor 0 C AK
 1 1 1 1 0
 45 30 8000 P
-f invis none 0 G 45 -1
+f invis none 0 G
 g @rus male~
 #13003
 mask spy маска шпиона~
@@ -336,8 +336,8 @@ iron~
 armor ABG C AT
 1 1 1 1 0
 45 50 8000 P
-f detects none 0 A 45 -1
-f detects none 0 B 45 -1
+f detects none 0 A
+f detects none 0 B
 g @rus female~
 #13004
 banner castle giants штандарт замка гигантов~
@@ -347,8 +347,8 @@ cloth~
 light A 0 A
 0 0 -1 0 0
 50 20 5000 P
-f object str 3 0 50 -1
-f object hp 50 0 50 -1
+f object str 3 0
+f object hp 50 0
 g @rus male~
 #13005
 ring glory кольцо славы~
@@ -358,11 +358,11 @@ adamantite~
 armor ABM 0 AB
 15 40 15 10 10
 50 10 8000 P
-f object str 4 0 50 -1
-f object damroll 3 0 50 -1
-f object hp 20 0 50 -1
-f object ac -10 0 50 -1
-f object saving_spell -4 0 50 -1
+f object str 4 0
+f object damroll 3 0
+f object hp 20 0
+f object ac -10 0
+f object saving_spell -4 0
 g @rus none~
 #13006
 huge broadsword огромный палаш~
@@ -372,9 +372,9 @@ adamantite~
 weapon ABM 0 AN
 sword 10 7 'slice' CFL
 55 350 10000 P
-f object hp 25 0 55 -1
-f object hitroll 1 0 55 -1
-f object damroll 6 0 55 -1
+f object hp 25 0
+f object hitroll 1 0
+f object damroll 6 0
 g @rus male~
 #13007
 small spiked ring небольшое шипастое колечко~
@@ -384,8 +384,8 @@ iron~
 armor 0 0 AB
 7 9 3 2 2
 35 20 5000 P
-f object damroll 4 0 35 -1
-f object dex -1 0 35 -1
+f object damroll 4 0
+f object dex -1 0
 g @rus none~
 #13008
 spiked adamantite platemail шипастая адамантитовая кираса~
@@ -395,9 +395,9 @@ adamantite~
 armor AB 0 AD
 8 8 8 8 8
 50 450 8000 P
-f object damroll 6 0 50 -1
-f object dex -3 0 50 -1
-f object saves -10 0 50 -1
+f object damroll 6 0
+f object dex -3 0
+f object saves -10 0
 g @rus male~
 #13009
 spiked adamantite helm шипастый адамантитовый шлем~
@@ -407,10 +407,10 @@ adamantite~
 armor AB 0 AE
 8 8 8 8 8
 50 70 8000 P
-f object level 1 0 50 -1
-f object damroll 4 0 50 -1
-f object dex -2 0 50 -1
-f object saves -5 0 50 -1
+f object level 1 0
+f object damroll 4 0
+f object dex -2 0
+f object saves -5 0
 g @rus male~
 #13010
 spiked adamantite leggings шипастые адамантитовые поножи~
@@ -420,9 +420,9 @@ adamantite~
 armor AB 0 AF
 8 8 8 8 8
 50 8 8000 P
-f object damroll 5 0 50 -1
-f object dex -2 0 50 -1
-f object saves -5 0 50 -1
+f object damroll 5 0
+f object dex -2 0
+f object saves -5 0
 g @rus plural~
 #13011
 spiked adamantite boots шипастые адамантитовые сапоги~
@@ -432,10 +432,10 @@ adamantite~
 armor AB 0 AG
 8 8 8 8 8
 50 50 8000 P
-f skills 'kick' 30 0 50 -1
-f object damroll 5 0 50 -1
-f object dex -2 0 50 -1
-f object saves -5 0 50 -1
+f skills 'kick' 30 0
+f object damroll 5 0
+f object dex -2 0
+f object saves -5 0
 g @rus plural~
 #13012
 robe healer роба целителя~
@@ -445,12 +445,12 @@ wool~
 armor B 0 AD
 8 8 8 8 8
 45 50 8000 P
-f skills 'cure poison' 80 A 45 -1
-f skills 'cure disease' 80 A 45 -1
-f skills 'cure blindness' 100 A 45 -1
-f object int 3 0 45 -1
-f object wis 3 0 45 -1
-f object mana 75 0 45 -1
+f skills 'cure poison' 80 A
+f skills 'cure disease' 80 A
+f skills 'cure blindness' 100 A
+f object int 3 0
+f object wis 3 0
+f object mana 75 0
 g @rus female~
 #13013
 hammer power молот силы~
@@ -460,8 +460,8 @@ adamantite~
 weapon 0 0 AN
 mace 8 7 'suction' F
 45 290 8000 P
-f object str 4 0 45 -1
-f object mana 50 0 45 -1
+f object str 4 0
+f object mana 50 0
 g @rus male~
 #13014
 ring signet captain кольцо с печаткой капитана~
@@ -471,9 +471,9 @@ copper~
 armor A 0 AB
 10 10 10 10 10
 50 70 8000 P
-f object hitroll 3 0 50 -1
-f object damroll 1 0 50 -1
-f object hp 10 0 50 -1
+f object hitroll 3 0
+f object damroll 1 0
+f object hp 10 0
 g @rus none~
 #13015
 fine copper chainmail хорошая медная кольчуга~
@@ -483,9 +483,9 @@ copper~
 armor ABJK 0 AD
 10 10 10 10 10
 50 120 8000 P
-f object hitroll 2 0 50 -1
-f object damroll 4 0 50 -1
-f object hp 15 0 50 -1
+f object hitroll 2 0
+f object damroll 4 0
+f object hp 15 0
 g @rus female~
 #13016
 fine copper helmet хороший медный шлем~
@@ -495,10 +495,10 @@ copper~
 armor ABJK 0 AE
 10 10 10 10 10
 50 70 8000 P
-f resists bash 33 0 50 -1
-f object hitroll 1 0 50 -1
-f object damroll 2 0 50 -1
-f object hp 20 0 50 -1
+f resists bash 33 0
+f object hitroll 1 0
+f object damroll 2 0
+f object hp 20 0
 g @rus male~
 #13017
 fine copper leggings хорошие медные поножи~
@@ -508,9 +508,9 @@ copper~
 armor ABJK 0 AF
 8 9 8 10 10
 50 80 8000 P
-f object damroll 6 0 50 -1
-f object hitroll 3 0 50 -1
-f object hp 15 0 50 -1
+f object damroll 6 0
+f object hitroll 3 0
+f object hp 15 0
 g @rus plural~
 #13018
 fine copper boots хорошие медные сапоги~
@@ -520,10 +520,10 @@ copper~
 armor ABJK 0 AG
 8 8 8 8 8
 50 80 8000 P
-f skills 'trip' 25 0 50 -1
-f object hitroll 4 0 50 -1
-f object damroll 3 0 50 -1
-f object hp 15 0 50 -1
+f skills 'trip' 25 0
+f object hitroll 4 0
+f object damroll 3 0
+f object hp 15 0
 g @rus plural~
 #13019
 badge order знак порядка~
@@ -533,11 +533,11 @@ copper~
 armor A 0 AC
 6 7 5 0 0
 50 20 8000 P
-f resists charm 33 0 50 -1
-f object str 2 0 50 -1
-f object hp 40 0 50 -1
-f object mana 15 0 50 -1
-f object hitroll 3 0 50 -1
+f resists charm 33 0
+f object str 2 0
+f object hp 40 0
+f object mana 15 0
+f object hitroll 3 0
 g @rus male~
 #13020
 gold treasure золото сокровище~
@@ -556,10 +556,10 @@ copper~
 armor B 0 AM
 7 7 7 7 7
 45 40 8000 P
-f object hp 50 0 45 -1
-f object hitroll 1 0 45 -1
-f object damroll 3 0 45 -1
-f object dex 1 0 45 -1
+f object hp 50 0
+f object hitroll 1 0
+f object damroll 3 0
+f object dex 1 0
 g @rus male~
 #13022
 gloves bloody skin кровавые перчатки кожи~
@@ -569,10 +569,10 @@ flesh~
 armor AJ 0 AH
 5 5 5 5 5
 45 50 8000 P
-f skills 'deathblow' 30 A 45 -1
-f object hp 20 0 45 -1
-f object damroll 3 0 45 -1
-f object dex 3 0 45 -1
+f skills 'deathblow' 30 A
+f object hp 20 0
+f object damroll 3 0
+f object dex 3 0
 g @rus plural~
 #13023
 skin giant lord шкура лорда гигантов~
@@ -582,9 +582,9 @@ flesh~
 armor QY 0 AD
 6 5 7 3 2
 51 150 10000 P
-f object hitroll 2 0 51 -1
-f object damroll 3 0 51 -1
-f object hp 100 0 51 -1
+f object hitroll 2 0
+f object damroll 3 0
+f object hp 100 0
 g @rus female~
 #13024
 fur cloak плащ меховой~
@@ -594,12 +594,12 @@ fur~
 armor A 0 AC
 9 8 9 5 5
 40 150 9000 P
-f skills 'camouflage' 50 A 40 -1
-f object dex 2 0 40 -1
-f object int 1 0 40 -1
-f object wis 2 0 40 -1
-f object hp 20 0 40 -1
-f object ac -10 0 40 -1
+f skills 'camouflage' 50 A
+f object dex 2 0
+f object int 1 0
+f object wis 2 0
+f object hp 20 0
+f object ac -10 0
 g @rus male~
 #13025
 spiked adamantite sleeves шипастые адамантитовые наручи~
@@ -609,9 +609,9 @@ adamantite~
 armor A 0 AI
 7 7 7 7 0
 45 120 8000 P
-f object dex -2 0 45 -1
-f object damroll 5 0 45 -1
-f object saves -10 0 45 -1
+f object dex -2 0
+f object damroll 5 0
+f object saves -10 0
 g @rus plural~
 #13026
 ring black torturer черное кольцо палача~
@@ -621,9 +621,9 @@ onyx~
 armor BEJ 0 AB
 5 5 5 5 0
 40 20 8000 P
-f object hitroll 2 0 40 -1
-f object damroll 2 0 40 -1
-f object hp 30 0 40 -1
+f object hitroll 2 0
+f object damroll 2 0
+f object hp 30 0
 g @rus none~
 #0
 

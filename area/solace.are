@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name Solace~
 VNUMs 10200 10399
 Credits Strahd~
@@ -740,8 +740,8 @@ copper~
 armor GK 0 AE
 9 9 9 0 0
 30 30 300 P
-f object hp 1 0 30 -1
-f object str 1 0 30 -1
+f object hp 1 0
+f object str 1 0
 g @rus none~
 #10202
 sleeves obsidian~
@@ -751,8 +751,8 @@ copper~
 armor GK 0 AI
 9 9 9 0 0
 30 40 300 P
-f object con 1 0 30 -1
-f object saving_spell -5 0 30 -1
+f object con 1 0
+f object saving_spell -5 0
 g @rus none~
 #10203
 leggings obsidian~
@@ -762,8 +762,8 @@ copper~
 armor GK 0 AF
 9 9 9 0 0
 30 40 300 P
-f object move 20 0 30 -1
-f object dex 2 0 30 -1
+f object move 20 0
+f object dex 2 0
 g @rus none~
 #10204
 gauntlets obsidian~
@@ -773,8 +773,8 @@ copper~
 armor GK 0 AH
 9 9 9 0 0
 30 40 300 P
-f object hitroll 3 0 30 -1
-f object saving_breath -3 0 30 -1
+f object hitroll 3 0
+f object saving_breath -3 0
 g @rus none~
 #10205
 boots obsidian~
@@ -784,8 +784,8 @@ copper~
 armor GK 0 AG
 9 9 9 0 0
 30 40 300 P
-f object hp 10 0 30 -1
-f object saving_breath -6 0 30 -1
+f object hp 10 0
+f object saving_breath -6 0
 g @rus none~
 #10206
 cloak obsidian~
@@ -795,8 +795,8 @@ copper~
 armor GK 0 AC
 9 9 9 0 0
 30 40 300 P
-f object saving_petri -4 0 30 -1
-f object saving_spell -2 0 30 -1
+f object saving_petri -4 0
+f object saving_spell -2 0
 g @rus none~
 #10207
 girth obsidian~
@@ -806,8 +806,8 @@ copper~
 armor GK 0 AL
 9 9 9 0 0
 30 40 300 P
-f object str 1 0 30 -1
-f object saving_spell -2 0 30 -1
+f object str 1 0
+f object saving_spell -2 0
 g @rus none~
 #10208
 shield large obsidian~
@@ -817,8 +817,8 @@ obsidian~
 armor GK 0 AJ
 9 9 9 0 0
 30 350 300 P
-f object ac 4 0 30 -1
-f object damroll 3 0 30 -1
+f object ac 4 0
+f object damroll 3 0
 g @rus none~
 #10209
 amulet solace~
@@ -828,8 +828,8 @@ copper~
 armor GK 0 AC
 7 7 7 0 0
 20 40 200 P
-f object ac 3 0 20 -1
-f object damroll 1 0 20 -1
+f object ac 3 0
+f object damroll 1 0
 g @rus none~
 #10210
 obsidian key~
@@ -848,8 +848,8 @@ copper~
 weapon FG 0 AN
 sword 5 7 'slice' 0
 30 300 300 P
-f object hitroll 5 0 30 -1
-f object damroll 4 0 30 -1
+f object hitroll 5 0
+f object damroll 4 0
 E
 sword~
 The blade of the sword is a full meter long, and straight as an arrow, with
@@ -873,8 +873,8 @@ copper~
 armor G 0 AB
 7 7 7 0 0
 20 1 200 P
-f object saving_spell -2 0 20 -1
-f object hp 4 0 20 -1
+f object saving_spell -2 0
+f object hp 4 0
 g @rus none~
 #10213
 bracer~
@@ -908,9 +908,9 @@ copper~
 weapon FG 0 AN
 sword 5 7 'slice' 0
 28 300 280 P
-f object hitroll 2 0 28 -1
-f object damroll 6 0 28 -1
-f object saving_breath -15 0 28 -1
+f object hitroll 2 0
+f object damroll 6 0
+f object saving_breath -15 0
 E
 sword~
 The blade of the sword is a full meter long, and straight as an arrow, with
@@ -934,8 +934,8 @@ copper~
 armor GK 0 AE
 8 8 8 0 0
 27 25 270 P
-f object saving_rod -2 0 27 -1
-f object int 1 0 27 -1
+f object saving_rod -2 0
+f object int 1 0
 g @rus none~
 #10217
 sleeves steel~
@@ -945,8 +945,8 @@ copper~
 armor GK 0 AI
 8 8 8 0 0
 27 35 270 P
-f object saves -2 0 27 -1
-f object saving_spell -1 0 27 -1
+f object saves -2 0
+f object saving_spell -1 0
 g @rus none~
 #10218
 leggings steel~
@@ -956,8 +956,8 @@ copper~
 armor GK 0 AF
 8 8 8 0 0
 27 35 270 P
-f object move 10 0 27 -1
-f object dex 1 0 27 -1
+f object move 10 0
+f object dex 1 0
 g @rus none~
 #10219
 gauntlets steel~
@@ -967,9 +967,9 @@ copper~
 armor GK 0 AH
 8 8 8 0 0
 27 35 270 P
-f object hitroll 1 0 27 -1
-f object saving_breath -1 0 27 -1
-f object str 1 0 27 -1
+f object hitroll 1 0
+f object saving_breath -1 0
+f object str 1 0
 g @rus none~
 #10220
 boots steel~
@@ -979,8 +979,8 @@ copper~
 armor GK 0 AG
 8 8 8 0 0
 27 35 270 P
-f object hp 5 0 27 -1
-f object saving_breath -2 0 27 -1
+f object hp 5 0
+f object saving_breath -2 0
 g @rus none~
 #10221
 cloak lieutenant ~
@@ -990,8 +990,8 @@ copper~
 armor GK 0 AC
 8 8 8 0 0
 27 35 270 P
-f object saving_petri -2 0 27 -1
-f object saving_spell -1 0 27 -1
+f object saving_petri -2 0
+f object saving_spell -1 0
 g @rus none~
 #10222
 girth steel~
@@ -1001,7 +1001,7 @@ copper~
 armor GK 0 AL
 8 8 8 0 0
 27 35 270 P
-f object saving_spell -1 0 27 -1
+f object saving_spell -1 0
 g @rus none~
 #10223
 shield large steel~
@@ -1011,8 +1011,8 @@ copper~
 armor GK 0 AJ
 8 8 8 0 0
 27 350 270 P
-f object ac 2 0 27 -1
-f object damroll 1 0 27 -1
+f object ac 2 0
+f object damroll 1 0
 g @rus none~
 #10224
 bracer steel~
@@ -1022,7 +1022,7 @@ copper~
 armor 0 0 ABM
 8 8 8 0 0
 27 9 270 P
-f object mana 5 0 27 -1
+f object mana 5 0
 g @rus none~
 #10225
 sword shieldbreaker~
@@ -1032,10 +1032,10 @@ copper~
 weapon BFGM 0 AN
 sword 5 6 'pierce' 0
 27 350 270 P
-f object hp 50 0 27 -1
-f object hitroll 10 0 27 -1
-f object damroll 10 0 27 -1
-f object saving_spell -10 0 27 -1
+f object hp 50 0
+f object hitroll 10 0
+f object damroll 10 0
+f object saving_spell -10 0
 E
 sword~
 The blade of the sword is a full meter long, and straight as an arrow, with
@@ -1059,7 +1059,7 @@ copper~
 armor GK 0 AE
 7 7 7 0 0
 20 20 200 P
-f object saving_rod -1 0 20 -1
+f object saving_rod -1 0
 g @rus none~
 #10227
 sleeves red scalemail~
@@ -1069,7 +1069,7 @@ copper~
 armor GK 0 AI
 7 7 7 0 0
 20 30 200 P
-f object saves -1 0 20 -1
+f object saves -1 0
 g @rus none~
 #10228
 leggings red scalemail~
@@ -1079,7 +1079,7 @@ copper~
 armor GK 0 AF
 7 7 7 0 0
 20 30 200 P
-f object move 5 0 20 -1
+f object move 5 0
 g @rus none~
 #10229
 gauntlets red scalemail~
@@ -1089,7 +1089,7 @@ copper~
 armor GK 0 AH
 7 7 7 0 0
 20 30 200 P
-f object saving_rod -1 0 20 -1
+f object saving_rod -1 0
 g @rus none~
 #10230
 boots red scalemail~
@@ -1099,8 +1099,8 @@ copper~
 armor GK 0 AG
 7 7 7 0 0
 20 30 200 P
-f object hp 2 0 20 -1
-f object saving_breath -1 0 20 -1
+f object hp 2 0
+f object saving_breath -1 0
 g @rus none~
 #10231
 cloak red sergeant~
@@ -1110,7 +1110,7 @@ copper~
 armor GK 0 AC
 7 7 7 0 0
 20 30 200 P
-f object saving_petri -1 0 20 -1
+f object saving_petri -1 0
 g @rus none~
 #10232
 girth red scalemail~
@@ -1129,7 +1129,7 @@ copper~
 armor GK 0 AJ
 7 7 7 0 0
 20 350 200 P
-f object ac 1 0 20 -1
+f object ac 1 0
 g @rus none~
 #10234
 bracer red~
@@ -1139,7 +1139,7 @@ copper~
 armor 0 0 BM
 7 7 7 0 0
 20 9 200 P
-f object mana 1 0 20 -1
+f object mana 1 0
 g @rus none~
 #10235
 warhammer mage masher~
@@ -1149,9 +1149,9 @@ copper~
 weapon BG 0 AN
 mace 5 5 'crush' 0
 20 350 200 P
-f object hitroll 4 0 20 -1
-f object damroll 1 0 20 -1
-f object mana -50 0 20 -1
+f object hitroll 4 0
+f object damroll 1 0
+f object mana -50 0
 E
 hammer warhammer~
 This hammer has the words, "MAGE MASHER" engraved into it's head.
@@ -1167,8 +1167,8 @@ copper~
 armor G 0 AD
 6 6 6 0 0
 15 450 150 P
-f object saving_spell -1 0 15 -1
-f object hp 8 0 15 -1
+f object saving_spell -1 0
+f object hp 8 0
 g @rus none~
 #10237
 enchanted longsword~
@@ -1178,8 +1178,8 @@ copper~
 weapon G 0 AN
 sword 4 5 'none' 0
 15 70 150 P
-f object hitroll 2 0 15 -1
-f object damroll 1 0 15 -1
+f object hitroll 2 0
+f object damroll 1 0
 g @rus none~
 #10238
 enchanted hammer~
@@ -1189,7 +1189,7 @@ copper~
 weapon G 0 AN
 mace 4 5 'none' 0
 15 120 150 P
-f object hitroll 2 0 15 -1
+f object hitroll 2 0
 g @rus none~
 #10239
 enchanted pike~
@@ -1199,7 +1199,7 @@ copper~
 weapon G 0 AN
 polearm 4 5 'none' 0
 15 150 150 P
-f object hitroll 2 0 15 -1
+f object hitroll 2 0
 g @rus none~
 #10240
 chamorro ringmail~
@@ -1209,7 +1209,7 @@ copper~
 armor G 0 AN
 5 5 5 0 0
 10 6 100 P
-f object mana 15 0 10 -1
+f object mana 15 0
 E
 ringmail~
 This armor is imported from the island of Guam.
@@ -1295,7 +1295,7 @@ copper~
 weapon 0 0 AN
 exotic 5 4 'suction' 0
 17 400 170 P
-f object gold -10000 0 17 -1
+f object gold -10000 0
 g @rus none~
 #10250
 enchanted two-handed sword~
@@ -1305,7 +1305,7 @@ copper~
 weapon G 0 AN
 sword 6 6 'magic' F
 16 300 160 P
-f object hitroll 4 0 16 -1
+f object hitroll 4 0
 g @rus male~
 #10251
 carrot~
@@ -1477,7 +1477,7 @@ copper~
 weapon 0 0 AN
 spear 3 5 'none' K
 10 150 100 P
-f object hitroll 1 0 10 -1
+f object hitroll 1 0
 g @rus none~
 #10270
 mulburry extract~
@@ -1523,7 +1523,7 @@ copper~
 armor G 0 AG
 5 5 5 0 0
 10 7 100 P
-f object dex 2 0 10 -1
+f object dex 2 0
 g @rus none~
 #10277
 scuba snorkle~
@@ -1677,8 +1677,8 @@ copper~
 armor G 0 AK
 6 6 6 0 0
 19 10 190 P
-f object mana 50 0 19 -1
-f object saving_spell -5 0 19 -1
+f object mana 50 0
+f object saving_spell -5 0
 g @rus none~
 #10294
 crystal plate armor~
@@ -1688,9 +1688,9 @@ copper~
 armor FG 0 AD
 6 6 6 0 0
 18 450 180 P
-f object str 1 0 18 -1
-f object con 1 0 18 -1
-f object hp 10 0 18 -1
+f object str 1 0
+f object con 1 0
+f object hp 10 0
 g @rus none~
 #10295
 Scythe Grim Reaper~
@@ -1700,9 +1700,9 @@ copper~
 armor AGJ 0 AN
 3 3 3 0 0
 0 50 0 P
-f object hitroll 80 0 0 -1
-f object damroll 80 0 0 -1
-f object saving_spell -30 0 0 -1
+f object hitroll 80 0
+f object damroll 80 0
+f object saving_spell -30 0
 g @rus none~
 #10296
 crystal shield~
@@ -1712,7 +1712,7 @@ copper~
 armor FG 0 AJ
 6 6 6 0 0
 18 20 180 P
-f object hp 10 0 18 -1
+f object hp 10 0
 g @rus none~
 #10297
 crystal longsword~
@@ -1722,8 +1722,8 @@ copper~
 armor FG 0 AN
 6 6 6 1 0
 18 15 180 P
-f object hp 10 0 18 -1
-f object hitroll 3 0 18 -1
+f object hp 10 0
+f object hitroll 3 0
 g @rus none~
 #10298
 obsidian plate armor~
@@ -1733,8 +1733,8 @@ copper~
 armor GK 0 AD
 9 9 9 0 0
 30 450 300 P
-f object hp 20 0 30 -1
-f object move 20 0 30 -1
+f object hp 20 0
+f object move 20 0
 g @rus none~
 #10299
 steel plate armor~
@@ -1744,8 +1744,8 @@ copper~
 armor GK 0 AD
 8 8 8 0 0
 27 450 270 P
-f object hp 15 0 27 -1
-f object move 15 0 27 -1
+f object hp 15 0
+f object move 15 0
 g @rus none~
 #10300
 red plate armor~
@@ -1755,8 +1755,8 @@ copper~
 armor GK 0 AD
 7 7 7 0 0
 20 400 200 P
-f object hp 10 0 20 -1
-f object move 10 0 20 -1
+f object hp 10 0
+f object move 10 0
 g @rus none~
 #10301
 enchanted bow~
@@ -1766,7 +1766,7 @@ copper~
 armor G 0 AN
 6 6 6 0 0
 15 7 150 P
-f object hitroll 2 0 15 -1
+f object hitroll 2 0
 g @rus none~
 #10302
 safe deposit box~

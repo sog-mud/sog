@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name Zoology~
 VNUMs 400 499
 Credits Og~
@@ -199,7 +199,7 @@ coral~
 armor G 0 AC
 1 1 1 3 0
 4 20 300 P
-f object damroll 1 0 4 -1
+f object damroll 1 0
 g @rus none~
 #420
 dragonclaw sabre saber~
@@ -209,14 +209,14 @@ mithril~
 weapon ABGIY AB AN
 sword 6 8 'slash' AB
 50 120 18750000 P
-f object damroll 9 0 50 -1
-f object hitroll 9 0 50 -1
-f object str 3 0 50 -1
-f object dex 3 0 50 -1
-f object con 2 0 50 -1
-f object mana 100 0 50 -1
-f object hp 100 0 50 -1
-f object move 500 0 50 -1
+f object damroll 9 0
+f object hitroll 9 0
+f object str 3 0
+f object dex 3 0
+f object con 2 0
+f object mana 100 0
+f object hp 100 0
+f object move 500 0
 E
 claw~
 The DragonClaw has a form of a long sabre with golden blade inscribed with 

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name Faerie Ring~
 VNUMs 29101 29114
 Credits Lok~
@@ -209,10 +209,10 @@ unknown~
 light AGI 0 AO
 0 0 999 0 0
 15 0 1000 P
-f object wis 1 0 15 -1
-f object int 1 0 15 -1
-f object hitroll 1 0 15 -1
-f object damroll 1 0 15 -1
+f object wis 1 0
+f object int 1 0
+f object hitroll 1 0
+f object damroll 1 0
 g @rus male~
 #29103
 belt sprite поясок rainbow радуга~
@@ -222,7 +222,7 @@ mithril~
 armor FM 0 AL
 5 5 5 5 0
 11 1 500 P
-f object saving_spell -3 0 11 -1
+f object saving_spell -3 0
 g @rus female~
 #29104
 bracer brownie браслет~
@@ -232,8 +232,8 @@ mithril~
 armor G 0 AM
 5 5 5 5 0
 13 1 700 P
-f object dex 1 0 13 -1
-f object hp 8 0 13 -1
+f object dex 1 0
+f object hp 8 0
 g @rus male~
 #29105
 vial moonlight bottled пузырек~
@@ -252,8 +252,8 @@ cloth~
 armor IM 0 AK
 6 6 6 6 0
 15 1 1500 P
-f object mana 10 0 15 -1
-f object saving_spell -2 0 15 -1
+f object mana 10 0
+f object saving_spell -2 0
 g @rus male~
 #29107
 moonbeam луч~
@@ -263,8 +263,8 @@ unknown~
 weapon AF 0 AN
 exotic 4 4 'pierce' G
 15 0 1500 P
-f object hitroll 2 0 15 -1
-f object damroll 2 0 15 -1
+f object hitroll 2 0
+f object damroll 2 0
 g @rus male~
 #29108
 wine goblet faerie бокал вино~
@@ -283,10 +283,10 @@ leather~
 armor C 0 AF
 5 5 5 0 0
 14 0 900 P
-f object hp 10 0 14 -1
-f object hitroll 1 0 14 -1
-f object damroll 1 0 14 -1
-f object saving_breath -1 0 14 -1
+f object hp 10 0
+f object hitroll 1 0
+f object damroll 1 0
+f object saving_breath -1 0
 g @rus plural~
 #29110
 key sparkling ключ сверкающий~
@@ -305,8 +305,8 @@ leather~
 armor C 0 AC
 5 5 5 0 0
 14 2 900 P
-f object dex 1 0 14 -1
-f object str 1 0 14 -1
+f object dex 1 0
+f object str 1 0
 g @rus male~
 #29112
 wand blue diamond жезл~

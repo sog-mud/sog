@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name Wyvern's Tower~
 VNUMs 1600 1799
 Credits Tyrst~
@@ -392,8 +392,8 @@ iron~
 weapon G 0 AN
 mace 6 3 'pound' 0
 10 110 570 P
-f object damroll 1 0 10 -1
-f object hitroll 1 0 10 -1
+f object damroll 1 0
+f object hitroll 1 0
 g @rus none~
 #1603
 elven dagger~
@@ -403,7 +403,7 @@ steel~
 weapon AG 0 AN
 dagger 2 5 'pierce' 0
 8 20 700 P
-f object hitroll 2 0 8 -1
+f object hitroll 2 0
 g @rus none~
 #1604
 steel broad sword~
@@ -413,8 +413,8 @@ steel~
 weapon AG 0 AN
 sword 3 6 'slash' 0
 11 120 910 P
-f object damroll 1 0 11 -1
-f object hitroll 1 0 11 -1
+f object damroll 1 0
+f object hitroll 1 0
 g @rus none~
 #1605
 steel broad sword~
@@ -424,8 +424,8 @@ steel~
 weapon AG 0 AN
 sword 3 7 'slash' 0
 15 120 1510 P
-f object damroll 2 0 15 -1
-f object hitroll 2 0 15 -1
+f object damroll 2 0
+f object hitroll 2 0
 g @rus none~
 #1606
 rod might~
@@ -435,8 +435,8 @@ oak~
 weapon BG 0 AN
 mace 3 7 'blast' 0
 14 130 1550 P
-f object str 1 0 14 -1
-f object hitroll 2 0 14 -1
+f object str 1 0
+f object hitroll 2 0
 g @rus none~
 #1612
 black kite shield~
@@ -446,7 +446,7 @@ onyx~
 armor AG 0 AJ
 6 6 6 2 0
 13 350 1530 P
-f object saves 1 0 13 -1
+f object saves 1 0
 g @rus none~
 #1614
 helm~
@@ -456,7 +456,7 @@ steel~
 armor AG 0 AE
 7 7 7 2 0
 20 40 2300 P
-f object wis 1 0 20 -1
+f object wis 1 0
 E
 helm~
 This elegant helm is plated in mithril and silver.~
@@ -469,7 +469,7 @@ mithril~
 armor BG 0 AM
 4 6 6 2 0
 12 20 1540 P
-f object str 1 0 12 -1
+f object str 1 0
 g @rus none~
 #1616
 dark blue cloak~
@@ -479,7 +479,7 @@ cloth~
 clothing AG 0 AC
 0 0 0 0 0
 0 20 100 P
-f object ac 6 0 0 -1
+f object ac 6 0
 g @rus none~
 #1621
 dark red potion~
@@ -525,7 +525,7 @@ unknown~
 key AG 0 AO
 B 0 0 0 0
 12 10 750 P
-f object ac -3 0 12 -1
+f object ac -3 0
 E
 strange key~
 This key is of an unusual shape ... must go to an unusual lock!~
@@ -551,7 +551,7 @@ wood~
 weapon AG 0 AN
 bow 3 6 'pound' 0
 12 70 220 P
-f object hp 5 0 12 -1
+f object hp 5 0
 g @rus none~
 #1704
 ancient sword~
@@ -561,8 +561,8 @@ iron~
 weapon BG 0 AN
 sword 3 8 'slash' 0
 19 100 2500 P
-f object damroll 4 0 19 -1
-f object hitroll 3 0 19 -1
+f object damroll 4 0
+f object hitroll 3 0
 g @rus none~
 #1711
 fur cap~
@@ -581,7 +581,7 @@ fur~
 armor G 0 AG
 5 5 5 0 0
 12 20 880 P
-f object move 10 0 12 -1
+f object move 10 0
 g @rus none~
 #1713
 bronze ring~
@@ -591,7 +591,7 @@ bronze~
 jewelry G 0 AB
 0 0 0 0 0
 5 10 55 P
-f object mana 5 0 5 -1
+f object mana 5 0
 g @rus none~
 #0
 

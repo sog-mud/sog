@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name Mirror of Realm~
 VNUMs 19000 19199
 Credits Merri~
@@ -1076,7 +1076,7 @@ glass~
 armor 0 0 AJ
 7 7 7 0 0
 23 50 100 P
-f object dex 1 0 23 -1
+f object dex 1 0
 E
 mirror shield mirrored~
 You see your own reflection on the surface of the mirror shield.
@@ -1130,9 +1130,9 @@ leather~
 armor 0 0 AD
 15 15 15 10 0
 49 50 500 P
-f object dex 3 0 49 -1
-f object con 3 0 49 -1
-f object ac -10 0 49 -1
+f object dex 3 0
+f object con 3 0
+f object ac -10 0
 g @rus none~
 #19007
 circlet golden~
@@ -1142,9 +1142,9 @@ gold~
 armor AFGM 0 AE
 15 15 15 7 0
 45 30 10000 P
-f object wis 2 0 45 -1
-f object hp 25 0 45 -1
-f object mana 25 0 45 -1
+f object wis 2 0
+f object hp 25 0
+f object mana 25 0
 E
 golden circlet~
 The Golden Circlet was King Loranhir's crown when he first took the 
@@ -1161,8 +1161,8 @@ steel~
 weapon GHM 0 AN
 sword 4 11 'slash' 0
 45 10 200 P
-f object hitroll -5 0 45 -1
-f object damroll -5 0 45 -1
+f object hitroll -5 0
+f object damroll -5 0
 g @rus none~
 #19009
 worn jerkin chain mail~
@@ -1181,8 +1181,8 @@ wood~
 staff L 0 AO
 45 10 10 'heal' 0
 30 10 1000 P
-f object con 1 0 30 -1
-f object mana 20 0 30 -1
+f object con 1 0
+f object mana 20 0
 E
 royal staff king~
 King Loranhir's royal staff is a finely sculpted sceptre made of
@@ -1233,8 +1233,8 @@ silver~
 armor K 0 AC
 11 12 12 4 0
 35 20 500 P
-f object con 2 0 35 -1
-f object saving_spell -5 0 35 -1
+f object con 2 0
+f object saving_spell -5 0
 g @rus none~
 #19015
 small steel knife~
@@ -1432,8 +1432,8 @@ gold~
 weapon AGK 0 AN
 exotic 5 12 'stab' 0
 39 30 30000 P
-f object hitroll 8 0 39 -1
-f object damroll 8 0 39 -1
+f object hitroll 8 0
+f object damroll 8 0
 E
 golden horn gold~
 The unicorn's horn appears to be made of twisted gold tipped with a
@@ -1607,8 +1607,8 @@ cloth~
 armor 0 0 AL
 6 6 6 0 0
 25 10 0 P
-f object dex -1 0 25 -1
-f object str 1 0 25 -1
+f object dex -1 0
+f object str 1 0
 g @rus none~
 #19049
 big black shoes~
@@ -1618,8 +1618,8 @@ leather~
 armor 0 0 AG
 6 6 6 0 0
 25 3 0 P
-f object move -25 0 25 -1
-f object damroll 2 0 25 -1
+f object move -25 0
+f object damroll 2 0
 g @rus none~
 #19050
 engagement band ring~
@@ -1629,7 +1629,7 @@ unknown~
 jewelry AHM 0 AB
 0 0 0 AB 0
 25 5 0 P
-f object wis 1 0 25 -1
+f object wis 1 0
 E
 engagement ring band~
 "Till Death Do Us Part......"~
@@ -1642,7 +1642,7 @@ cloth~
 armor 0 0 AD
 5 5 5 0 0
 25 50 0 P
-f object con 1 0 25 -1
+f object con 1 0
 E
 wedding dress~
 The wedding dress flows smoothly, without any big ruffles or folds; a small
@@ -1659,7 +1659,7 @@ cloth~
 armor 0 0 AG
 5 5 5 0 0
 25 10 0 P
-f object move 15 0 25 -1
+f object move 15 0
 g @rus none~
 #19053
 wedding veil~
@@ -1669,7 +1669,7 @@ cloth~
 armor 0 0 AE
 5 5 5 0 0
 25 10 0 P
-f object hitroll -3 0 25 -1
+f object hitroll -3 0
 g @rus none~
 #19054
 engagement ring diamond~
@@ -1679,7 +1679,7 @@ diamond~
 jewelry AHM 0 AB
 0 0 0 0 0
 25 3 1000 P
-f object con 1 0 25 -1
+f object con 1 0
 E
 engagement diamond ring~
 "Till Death Do Us Part...."
@@ -1693,7 +1693,7 @@ cloth~
 armor 0 0 AO
 5 5 5 0 0
 25 10 0 P
-f object hp 20 0 25 -1
+f object hp 20 0
 g @rus none~
 #19056
 jar glowing fish~
@@ -1703,7 +1703,7 @@ unknown~
 light A 0 A
 0 0 -1 0 0
 15 0 0 P
-f object mana 20 0 15 -1
+f object mana 20 0
 g @rus none~
 #19057
 goldfish white~
@@ -1722,7 +1722,7 @@ cloth~
 armor 0 0 AK
 10 12 11 5 0
 35 5 100 P
-f object hp 20 0 35 -1
+f object hp 20 0
 g @rus none~
 #19059
 burnt orange robe~
@@ -1732,7 +1732,7 @@ cloth~
 armor 0 0 AK
 10 10 11 5 0
 35 5 10 P
-f object move 35 0 35 -1
+f object move 35 0
 g @rus none~
 #19060
 yellow sun robe~
@@ -1742,7 +1742,7 @@ cloth~
 armor 0 0 AK
 11 11 10 4 0
 35 5 10 P
-f object hitroll 5 0 35 -1
+f object hitroll 5 0
 g @rus none~
 #19061
 forest green robe~
@@ -1752,7 +1752,7 @@ cloth~
 armor 0 0 AK
 11 11 10 7 0
 35 5 10 P
-f object mana 35 0 35 -1
+f object mana 35 0
 g @rus none~
 #19062
 sea blue robe sea-blue~
@@ -1762,7 +1762,7 @@ cloth~
 armor 0 0 AK
 12 11 11 8 0
 35 5 10 P
-f object damroll 5 0 35 -1
+f object damroll 5 0
 g @rus none~
 #19063
 violet robe~
@@ -1772,7 +1772,7 @@ cloth~
 armor 0 0 AK
 11 11 11 6 0
 35 5 10 P
-f object hp 25 0 35 -1
+f object hp 25 0
 g @rus none~
 #19064
 prism sword~
@@ -1782,8 +1782,8 @@ glass~
 weapon G 0 AN
 sword 4 10 'slice' 0
 35 10 4000 P
-f object hitroll 5 0 35 -1
-f object saving_spell -5 0 35 -1
+f object hitroll 5 0
+f object saving_spell -5 0
 g @rus none~
 #19065
 hoe~
@@ -1847,8 +1847,8 @@ wood~
 weapon GH 0 AN
 staff 5 9 'crush' D
 45 10 100 P
-f object dex 1 0 45 -1
-f object hitroll 10 0 45 -1
+f object dex 1 0
+f object hitroll 10 0
 g @rus none~
 #19072
 karate uniform gi~
@@ -1858,8 +1858,8 @@ cloth~
 armor 0 0 AD
 15 15 15 8 0
 45 100 1000 P
-f object dex 4 0 45 -1
-f object ac -10 0 45 -1
+f object dex 4 0
+f object ac -10 0
 g @rus none~
 #19073
 red belt master~
@@ -1869,7 +1869,7 @@ silk~
 armor K 0 AL
 13 13 12 6 0
 45 5 10 P
-f object wis 2 0 45 -1
+f object wis 2 0
 g @rus none~
 #19074
 fountains fountain~
@@ -1933,7 +1933,7 @@ cloth~
 armor 0 0 AE
 13 13 13 4 0
 45 12 100 P
-f object mana 25 0 45 -1
+f object mana 25 0
 g @rus none~
 #19081
 cloak wizards wizard's~
@@ -1961,8 +1961,8 @@ brass~
 jewelry AK 0 AB
 0 0 0 0 0
 39 1 1000 P
-f object hp -25 0 39 -1
-f object int 1 0 39 -1
+f object hp -25 0
+f object int 1 0
 g @rus none~
 #19084
 clippers~
@@ -2008,7 +2008,7 @@ leather~
 armor M 0 AG
 7 7 7 0 0
 25 5 0 P
-f object dex -1 0 25 -1
+f object dex -1 0
 g @rus none~
 #19089
 gaff~
@@ -2027,7 +2027,7 @@ cloth~
 armor 0 0 AD
 5 5 5 0 0
 25 100 0 P
-f object move -50 0 25 -1
+f object move -50 0
 g @rus none~
 #19091
 dinghy boat~
@@ -2046,7 +2046,7 @@ paper~
 treasure GK 0 AO
 A 0 0 0 0
 1 0 0 P
-f object int 1 0 1 -1
+f object int 1 0
 E
 diploma wizard finishing~
 ***************************************************************************
@@ -2070,8 +2070,8 @@ cloth~
 armor 0 0 AE
 9 9 9 4 0
 30 8 10 P
-f object dex -1 0 30 -1
-f object hitroll 5 0 30 -1
+f object dex -1 0
+f object hitroll 5 0
 g @rus none~
 #19094
 nectarine tree trees~
@@ -2099,7 +2099,7 @@ paper~
 treasure GJ 0 AO
 0 0 0 0 0
 1 0 0 P
-f object int 1 0 1 -1
+f object int 1 0
 g @rus none~
 #19097
 fangs~
@@ -2109,7 +2109,7 @@ bone~
 weapon 0 0 AN
 exotic 6 6 'bite' 0
 35 5 100 P
-f object damroll 2 0 35 -1
+f object damroll 2 0
 g @rus none~
 #19098
 hemlock extract~
@@ -2146,8 +2146,8 @@ glass~
 weapon G 0 AN
 exotic 6 6 'slime' 0
 40 2 100 P
-f object hitroll -5 0 40 -1
-f object damroll 5 0 40 -1
+f object hitroll -5 0
+f object damroll 5 0
 g @rus none~
 #19102
 flask devil brew devil's~
@@ -2201,8 +2201,8 @@ bone~
 weapon EGHJ 0 AN
 exotic 6 7 'pierce' 0
 45 5 100 P
-f object str -1 0 45 -1
-f object damroll 5 0 45 -1
+f object str -1 0
+f object damroll 5 0
 g @rus none~
 #19107
 red ribbons ribbon~
@@ -2212,8 +2212,8 @@ silk~
 armor EHJM 0 AC
 9 9 9 4 0
 45 1 10 P
-f object move 50 0 45 -1
-f object con -1 0 45 -1
+f object move 50 0
+f object con -1 0
 E
 red ribbons~
 These red ribbons are just the ghosts of actual reins....
@@ -2245,9 +2245,9 @@ obsidian~
 weapon FGHJM 0 AN
 sword 5 10 'slash' DG
 35 20 20000 P
-f object hp -50 0 35 -1
-f object mana -50 0 35 -1
-f object damroll 10 0 35 -1
+f object hp -50 0
+f object mana -50 0
+f object damroll 10 0
 E
 eclipse sword obsidian~
 This dark sword seems to draw in all the light near it and swallow it up....
@@ -2348,8 +2348,8 @@ leather~
 armor JM 0 AD
 6 6 6 0 0
 25 30 0 P
-f object hp -25 0 25 -1
-f object hitroll 5 0 25 -1
+f object hp -25 0
+f object hitroll 5 0
 g @rus none~
 #19118
 leather miniskirt~
@@ -2359,7 +2359,7 @@ leather~
 armor M 0 AF
 5 5 5 0 0
 25 2 10 P
-f object dex -2 0 25 -1
+f object dex -2 0
 g @rus none~
 #19119
 squid~
@@ -2404,7 +2404,7 @@ silver~
 armor AK 0 AE
 10 10 10 0 0
 50 15 0 P
-f object mana 50 0 50 -1
+f object mana 50 0
 g @rus none~
 #19123
 robe black~
@@ -2414,9 +2414,9 @@ cloth~
 armor J 0 AK
 6 6 6 0 0
 35 5 0 P
-f object str 2 0 35 -1
-f object dex 2 0 35 -1
-f object hp -50 0 35 -1
+f object str 2 0
+f object dex 2 0
+f object hp -50 0
 g @rus none~
 #19124
 white robe~
@@ -2426,8 +2426,8 @@ cloth~
 armor J 0 AK
 6 6 6 0 0
 35 5 0 P
-f object int 1 0 35 -1
-f object mana -100 0 35 -1
+f object int 1 0
+f object mana -100 0
 g @rus none~
 #19125
 amulet death~
@@ -2437,16 +2437,16 @@ unknown~
 armor ABFGHM 0 AC
 0 0 0 0 0
 50 5 0 P
-f object str -20 0 50 -1
-f object dex -20 0 50 -1
-f object int -20 0 50 -1
-f object wis -20 0 50 -1
-f object con -20 0 50 -1
-f object mana -5000 0 50 -1
-f object hp -5000 0 50 -1
-f object ac 100 0 50 -1
-f object hitroll -100 0 50 -1
-f object damroll -100 0 50 -1
+f object str -20 0
+f object dex -20 0
+f object int -20 0
+f object wis -20 0
+f object con -20 0
+f object mana -5000 0
+f object hp -5000 0
+f object ac 100 0
+f object hitroll -100 0
+f object damroll -100 0
 g @rus none~
 #19126
 cloak black~
@@ -2465,7 +2465,7 @@ steel~
 weapon EGJ 0 AN
 dagger 6 10 'pierce' AD
 45 10 10000 P
-f object damroll 15 0 45 -1
+f object damroll 15 0
 E
 blood red dagger~
 .    The dagger before you is known as a blood dagger, and for good reason: as
@@ -2525,8 +2525,8 @@ cloth~
 armor 0 0 AE
 2 0 0 0 0
 2 0 0 P
-f object dex -1 0 2 -1
-f object saving_spell -5 0 2 -1
+f object dex -1 0
+f object saving_spell -5 0
 E
 beekeeper hat beekeeper's~
 The beekeeper's hat has white netting sewn to the brim; when zipped into the
@@ -2542,7 +2542,7 @@ cloth~
 armor J 0 AD
 16 17 16 9 0
 50 50 0 P
-f object mana 50 0 50 -1
+f object mana 50 0
 g @rus none~
 #19132
 black cloak~
@@ -2552,7 +2552,7 @@ cloth~
 armor 0 0 AD
 16 17 17 6 0
 50 50 0 P
-f object mana 50 0 50 -1
+f object mana 50 0
 g @rus none~
 #19133
 smoke can jug~
@@ -2704,7 +2704,7 @@ crystal~
 trash A 0 A
 0 0 0 0 0
 5 0 0 P
-f object mana 10 0 5 -1
+f object mana 10 0
 g @rus none~
 #19139
 altar yellow drawer~
@@ -2723,7 +2723,7 @@ unknown~
 trash 0 0 AB
 0 0 0 0 0
 5 10 0 P
-f object mana 10 0 5 -1
+f object mana 10 0
 g @rus none~
 #19141
 drawer altar amethyst purple~
@@ -2745,7 +2745,7 @@ unknown~
 treasure 0 0 AO
 0 0 0 0 0
 1 1 0 P
-f object hp 10 0 1 -1
+f object hp 10 0
 g @rus none~
 #19143
 drawer red altar~
@@ -2767,7 +2767,7 @@ unknown~
 treasure 0 0 A
 0 0 0 0 0
 2 2 10 P
-f object move 20 0 2 -1
+f object move 20 0
 g @rus none~
 #19145
 sigil sapphire~
@@ -2777,7 +2777,7 @@ unknown~
 treasure 0 0 AO
 0 0 0 0 0
 5 0 0 P
-f object hp 10 0 5 -1
+f object hp 10 0
 g @rus none~
 #19146
 drawer altar sapphire~
@@ -2811,7 +2811,7 @@ unknown~
 furniture 0 0 AO
 0 0 0 0 0
 8 0 0 P
-f object hitroll 2 0 8 -1
+f object hitroll 2 0
 g @rus none~
 #19149
 amber sigil~
@@ -2821,7 +2821,7 @@ unknown~
 furniture 0 0 AO
 0 0 0 0 0
 5 0 0 P
-f object move 20 0 5 -1
+f object move 20 0
 g @rus none~
 #19150
 honey jar~
@@ -2843,10 +2843,10 @@ gold~
 weapon GM 0 AN
 sword 8 7 'slash' DE
 45 0 1000 P
-f object hp 50 0 45 -1
-f object mana 50 0 45 -1
-f object str 1 0 45 -1
-f object dex 1 0 45 -1
+f object hp 50 0
+f object mana 50 0
+f object str 1 0
+f object dex 1 0
 E
 taliesin sword~
 Taliesin's silvery blade has been forged to incredible sharpness through
@@ -2864,9 +2864,9 @@ gold~
 armor GM 0 AJ
 5 5 5 0 0
 10 50 0 P
-f object dex 1 0 10 -1
-f object con 1 0 10 -1
-f object ac -20 0 10 -1
+f object dex 1 0
+f object con 1 0
+f object ac -20 0
 E
 sunrise shield~
 The Sunrise Shield glitters with the rainbow light of thousands of tiny
@@ -2982,7 +2982,7 @@ silver~
 armor A 0 AC
 4 0 0 0 0
 1 0 0 P
-f object hp 5 0 1 -1
+f object hp 5 0
 g @rus none~
 #19171
 bronze band~
@@ -2992,8 +2992,8 @@ bronze~
 armor A 0 AB
 2 0 0 0 0
 5 0 0 P
-f object int 1 0 5 -1
-f object move 5 0 5 -1
+f object int 1 0
+f object move 5 0
 g @rus none~
 #19172
 thick brown robe~
@@ -3003,8 +3003,8 @@ cloth~
 armor A 0 AK
 2 0 0 0 0
 5 0 0 P
-f object con 1 0 5 -1
-f object wis 1 0 5 -1
+f object con 1 0
+f object wis 1 0
 g @rus none~
 #0
 

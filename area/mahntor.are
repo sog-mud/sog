@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name Mahn-Tor~
 VNUMs 2300 2399
 Credits Chris~
@@ -528,8 +528,8 @@ leather~
 armor 0 0 AH
 8 8 8 0 0
 25 60 2600 P
-f object damroll 1 0 25 -1
-f object hitroll 1 0 25 -1
+f object damroll 1 0
+f object hitroll 1 0
 E
 gloves combat~
 These gloves are plated with metal plates that provide strength and 
@@ -544,7 +544,7 @@ iron~
 armor 0 0 AD
 7 7 7 0 0
 22 80 4200 P
-f object damroll 2 0 22 -1
+f object damroll 2 0
 g @rus none~
 #2302
 greaves black~
@@ -572,8 +572,8 @@ steel~
 weapon AGI 0 AN
 exotic 3 12 'blast' 0
 28 240 4700 P
-f object damroll 3 0 28 -1
-f object hitroll 3 0 28 -1
+f object damroll 3 0
+f object hitroll 3 0
 g @rus none~
 #2305
 cloak pitch black~
@@ -583,7 +583,7 @@ leather~
 container G 0 AK
 150 0 0 30 90
 20 30 860 P
-f object saves -2 0 20 -1
+f object saves -2 0
 E
 cloak pitch black~
 It appears to have pockets inside it.
@@ -597,7 +597,7 @@ iron~
 armor GJL 0 AC
 9 9 9 0 0
 30 100 3400 P
-f object wis 1 0 30 -1
+f object wis 1 0
 g @rus none~
 #2307
 spiked gauntlets~
@@ -607,7 +607,7 @@ leather~
 armor 0 0 AH
 3 3 3 0 0
 20 100 1570 P
-f object damroll 2 0 20 -1
+f object damroll 2 0
 E
 spiked gauntlets~
 They look pretty damaging.
@@ -621,8 +621,8 @@ oak~
 armor AGJL 0 AJ
 8 8 8 3 0
 27 150 4900 P
-f object saves -2 0 27 -1
-f object ac -2 0 27 -1
+f object saves -2 0
+f object ac -2 0
 E
 shield shadow~
 You look into the depths of the shield and shiver at the evil it contains.
@@ -636,8 +636,8 @@ unknown~
 weapon CGJL 0 AN
 sword 3 14 'pierce' 0
 39 90 3500 P
-f object damroll 4 0 39 -1
-f object hitroll 2 0 39 -1
+f object damroll 4 0
+f object hitroll 2 0
 E
 nightbringer short sword shortsword~
 The runes "NiGHtBrINgeR" are scrawled along the blade.
@@ -651,8 +651,8 @@ gold~
 armor AGKL 0 AE
 7 7 7 2 0
 20 150 3000 P
-f object int 1 0 20 -1
-f object wis 1 0 20 -1
+f object int 1 0
+f object wis 1 0
 g @rus none~
 #2311
 breast plate gilded gold~
@@ -662,7 +662,7 @@ gold~
 armor AGKL 0 AD
 9 9 9 3 0
 32 180 6700 P
-f object hp 25 0 32 -1
+f object hp 25 0
 g @rus none~
 #2312
 cape white billowing silk~
@@ -694,8 +694,8 @@ iron~
 weapon AGKL 0 AN
 mace 5 9 'blast' F
 38 240 3200 P
-f object damroll 3 0 38 -1
-f object hitroll 1 0 38 -1
+f object damroll 3 0
+f object hitroll 1 0
 E
 dawnbringer mace huge~
 The runes "DAwNbRIngER" are scrawled along the handle.
@@ -709,7 +709,7 @@ glass~
 clothing G 0 AE
 0 0 0 0 0
 15 20 2600 P
-f object int 2 0 15 -1
+f object int 2 0
 E
 spectacles wire rimmed~
 They'll make you look smart.
@@ -723,7 +723,7 @@ silver~
 jewelry AG 0 AB
 0 0 0 0 0
 30 20 1520 P
-f object mana 30 0 30 -1
+f object mana 30 0
 E
 ring banded~
 The ring has entwined bands of gold and silver.
@@ -737,7 +737,7 @@ crystal~
 armor AG 0 AK
 8 8 8 4 0
 27 10 3200 P
-f object saves -2 0 27 -1
+f object saves -2 0
 E
 globe minor~
 Shimmering colors move inside the globe.
@@ -751,9 +751,9 @@ platinum~
 weapon G 0 AN
 staff 6 5 'pound' F
 27 100 2900 P
-f object saves -2 0 27 -1
-f object damroll 3 0 27 -1
-f object hitroll 1 0 27 -1
+f object saves -2 0
+f object damroll 3 0
+f object hitroll 1 0
 E
 staff gnarled magius~
 It appears to be simply a gnarled old limb. It feels powerful though.
@@ -789,7 +789,7 @@ ivory~
 jewelry AGI 0 AC
 0 0 0 0 0
 30 50 1520 P
-f object hp 30 0 30 -1
+f object hp 30 0
 g @rus none~
 #2322
 manual arts healing book~
@@ -812,8 +812,8 @@ mithril~
 weapon AG 0 AN
 mace 5 5 'crush' 0
 26 130 1960 P
-f object damroll 3 0 26 -1
-f object hitroll 1 0 26 -1
+f object damroll 3 0
+f object hitroll 1 0
 g @rus none~
 #2324
 symbol holy golden~
@@ -823,7 +823,7 @@ gold~
 jewelry G 0 AC
 0 0 0 0 0
 5 30 110 P
-f object mana 10 0 5 -1
+f object mana 10 0
 g @rus none~
 #2325
 ring marble thick~
@@ -833,7 +833,7 @@ marble~
 jewelry G 0 AB
 0 0 0 0 0
 8 50 470 P
-f object ac -2 0 8 -1
+f object ac -2 0
 g @rus none~
 #2326
 bracelet thick marble~
@@ -843,7 +843,7 @@ marble~
 jewelry G 0 AM
 0 0 0 0 0
 5 80 550 P
-f object con 1 0 5 -1
+f object con 1 0
 g @rus none~
 #2327
 boots striding~
@@ -853,7 +853,7 @@ leather~
 armor G 0 AG
 5 5 5 0 0
 30 50 2500 P
-f object move 30 0 30 -1
+f object move 30 0
 E
 boots striding~
 They look comfortable to walk in.
@@ -880,8 +880,8 @@ ice~
 weapon G 0 AN
 staff 7 4 'pound' BF
 28 130 1470 P
-f object mana 20 0 28 -1
-f object hitroll 2 0 28 -1
+f object mana 20 0
+f object hitroll 2 0
 E
 staff ice~
 The runes "FrIgID" are inscribed in the icy staff.
@@ -895,8 +895,8 @@ wood~
 jewelry G 0 AB
 0 0 0 0 0
 7 30 460 P
-f object damroll 1 0 7 -1
-f object hitroll 1 0 7 -1
+f object damroll 1 0
+f object hitroll 1 0
 g @rus none~
 #2331
 horn life~
@@ -919,7 +919,7 @@ leather~
 clothing G 0 AL
 0 0 0 0 0
 30 90 7600 P
-f object con 3 0 30 -1
+f object con 3 0
 g @rus none~
 #2333
 stone blood red~
@@ -929,7 +929,7 @@ stone~
 warp_stone BG C AO
 AB 0 0 0 0
 20 20 580 P
-f object hp 20 0 20 -1
+f object hp 20 0
 E
 stone blood red~
 The stone pulses with your own heart beat.
@@ -943,8 +943,8 @@ wood~
 weapon G 0 AN
 exotic 3 10 'pierce' F
 27 150 4300 P
-f object damroll 2 0 27 -1
-f object hitroll 1 0 27 -1
+f object damroll 2 0
+f object hitroll 1 0
 g @rus none~
 #2335
 pack leather small~
@@ -998,7 +998,7 @@ steel~
 weapon G 0 AN
 sword 4 8 'pierce' 0
 26 110 2300 P
-f object damroll 1 0 26 -1
+f object damroll 1 0
 E
 sword wicked short shortsword~
 It looks just perfect for backstabbing.
@@ -1012,11 +1012,11 @@ glass~
 armor ABG 0 AK
 9 9 9 6 0
 31 10 4100 P
-f object dex 2 0 31 -1
-f object hitroll 5 0 31 -1
-f object damroll 4 0 31 -1
-f object cha 1 0 31 -1
-f object saves -2 0 31 -1
+f object dex 2 0
+f object hitroll 5 0
+f object damroll 4 0
+f object cha 1 0
+f object saves -2 0
 E
 globe major~
 Shimmering colors move inside the globe.
@@ -1030,8 +1030,8 @@ iron~
 armor G 0 AD
 9 9 9 2 0
 30 120 7000 P
-f object con 1 0 30 -1
-f object str 1 0 30 -1
+f object con 1 0
+f object str 1 0
 g @rus none~
 #2342
 buckler spiked~
@@ -1041,7 +1041,7 @@ unknown~
 armor 0 0 AJ
 10 10 10 3 0
 35 50 6600 P
-f object damroll 3 0 35 -1
+f object damroll 3 0
 g @rus none~
 #2343
 ring studded~
@@ -1051,8 +1051,8 @@ gem~
 jewelry G 0 AB
 0 0 0 0 0
 13 10 1020 P
-f object ac -3 0 13 -1
-f object damroll 1 0 13 -1
+f object ac -3 0
+f object damroll 1 0
 g @rus none~
 #2344
 helm horned~
@@ -1071,9 +1071,9 @@ titanium~
 weapon BG 0 AN
 axe 7 5 'slash' 0
 31 260 3400 P
-f object damroll 4 0 31 -1
-f object hitroll 1 0 31 -1
-f object cha 1 0 31 -1
+f object damroll 4 0
+f object hitroll 1 0
+f object cha 1 0
 E
 axe great~
 The runes "DeAtH" are scrawled along the blade.
@@ -1087,7 +1087,7 @@ unknown~
 armor AJ 0 AD
 8 8 8 4 0
 27 20 5500 P
-f object saves -2 0 27 -1
+f object saves -2 0
 E
 plate ethereal suit~
 @eng You can almost see through it.
@@ -1116,8 +1116,8 @@ unknown~
 weapon AJ 0 AN
 sword 3 10 'slash' 0
 25 30 3200 P
-f object damroll 1 0 25 -1
-f object hitroll 1 0 25 -1
+f object damroll 1 0
+f object hitroll 1 0
 E
 blade ethereal~
 @eng You can almost see through it.
@@ -1235,7 +1235,7 @@ fur~
 armor G 0 AG
 3 3 3 1 0
 7 50 470 P
-f object move 10 0 7 -1
+f object move 10 0
 g @rus none~
 #2361
 pelt yeti white~
@@ -1313,8 +1313,8 @@ wood~
 weapon G 0 AN
 polearm 3 8 'cleave' F
 18 180 690 P
-f object damroll 1 0 18 -1
-f object hitroll 1 0 18 -1
+f object damroll 1 0
+f object hitroll 1 0
 g @rus none~
 #2369
 visor blue steel helm~
@@ -1351,8 +1351,8 @@ steel~
 weapon G 0 AN
 sword 5 5 'slash' F
 22 180 2500 P
-f object damroll 2 0 22 -1
-f object hitroll 2 0 22 -1
+f object damroll 2 0
+f object hitroll 2 0
 g @rus none~
 #2373
 visor helm steel red~
@@ -1389,8 +1389,8 @@ bronze~
 weapon G 0 AN
 polearm 5 4 'slash' F
 22 190 830 P
-f object damroll 1 0 22 -1
-f object hitroll 1 0 22 -1
+f object damroll 1 0
+f object hitroll 1 0
 g @rus none~
 #2377
 visor helm crimson steel~
@@ -1427,8 +1427,8 @@ wood~
 weapon G 0 AN
 mace 7 5 'pound' 0
 29 200 2300 P
-f object damroll 3 0 29 -1
-f object hitroll 1 0 29 -1
+f object damroll 3 0
+f object hitroll 1 0
 E
 star morning morningstar~
 It looks damaging.
@@ -1531,8 +1531,8 @@ gold~
 armor BG 0 AH
 9 9 9 0 0
 23 130 5800 P
-f object damroll 4 0 23 -1
-f object str 4 0 23 -1
+f object damroll 4 0
+f object str 4 0
 E
 gauntlets ogre power~
 They look very "handy".

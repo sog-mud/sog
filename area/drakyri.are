@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name Drakyri Isle~
 VNUMs 11800 11899
 Credits Ydri~
@@ -1681,10 +1681,10 @@ mithril~
 armor AI 0 AC
 9 9 10 8 0
 43 30 10000 P
-f object mana 35 0 43 -1
-f object hitroll 2 0 43 -1
-f object damroll 2 0 43 -1
-f object int 2 0 43 -1
+f object mana 35 0
+f object hitroll 2 0
+f object damroll 2 0
+f object int 2 0
 E
 mithril ((+*+)) torque deriki~
 An inscription along the edge reads:
@@ -1700,8 +1700,8 @@ light~
 armor A 0 AK
 10 9 9 9 0
 43 50 10000 P
-f object mana 35 0 43 -1
-f object int 1 0 43 -1
+f object mana 35 0
+f object int 1 0
 E
 shimmering blue robe~
 An inscription along the edge reads:
@@ -1717,8 +1717,8 @@ flame~
 light A 0 A
 0 0 -1 0 0
 43 0 10000 P
-f object mana 30 0 43 -1
-f object damroll 2 0 43 -1
+f object mana 30 0
+f object damroll 2 0
 g @rus none~
 #11812
 engraved ((+*+)) ring deriki~
@@ -1728,10 +1728,10 @@ mithril~
 armor B 0 AB
 8 8 8 7 0
 43 10 10000 P
-f object hitroll 3 0 43 -1
-f object str 1 0 43 -1
-f object mana 35 0 43 -1
-f object hp 25 0 43 -1
+f object hitroll 3 0
+f object str 1 0
+f object mana 35 0
+f object hp 25 0
 E
 engraved ((+*+)) ring deriki~
 An inscription along the inside of the band reads:
@@ -1747,11 +1747,11 @@ mithril~
 armor A 0 AO
 9 9 10 6 0
 43 20 10000 P
-f object mana 30 0 43 -1
-f object ac -10 0 43 -1
-f object wis 1 0 43 -1
-f object int 1 0 43 -1
-f object dex 1 0 43 -1
+f object mana 30 0
+f object ac -10 0
+f object wis 1 0
+f object int 1 0
+f object dex 1 0
 E
 ((+*+)) crest deriki~
 An inscription along the inside of the band reads:
@@ -1767,8 +1767,8 @@ mithril~
 armor A 0 AM
 9 10 9 8 0
 42 20 9500 P
-f object mana 30 0 42 -1
-f object damroll 3 0 42 -1
+f object mana 30 0
+f object damroll 3 0
 g @rus none~
 #11815
 ((+*+)) chain belt deriki~
@@ -1778,9 +1778,9 @@ mithril~
 armor A 0 AL
 10 10 10 8 0
 42 50 9000 P
-f object mana 50 0 42 -1
-f object damroll 4 0 42 -1
-f object con -2 0 42 -1
+f object mana 50 0
+f object damroll 4 0
+f object con -2 0
 g @rus none~
 #11816
 ((+*+)) shoes deriki~
@@ -1790,11 +1790,11 @@ mithril~
 armor A 0 AG
 8 9 8 7 0
 40 50 11100 P
-f object mana 25 0 40 -1
-f object hp 15 0 40 -1
-f object int 1 0 40 -1
-f object dex 1 0 40 -1
-f object hitroll -2 0 40 -1
+f object mana 25 0
+f object hp 15 0
+f object int 1 0
+f object dex 1 0
+f object hitroll -2 0
 g @rus none~
 #11817
 ((+*+)) armbands arm bands deriki~
@@ -1804,10 +1804,10 @@ mithril~
 armor AI 0 AI
 9 9 9 8 0
 41 50 11000 P
-f object mana 30 0 41 -1
-f object damroll 2 0 41 -1
-f object wis 1 0 41 -1
-f object cha -1 0 41 -1
+f object mana 30 0
+f object damroll 2 0
+f object wis 1 0
+f object cha -1 0
 g @rus none~
 #11818
 glittering ((+*+)) earring deriki~
@@ -1817,11 +1817,11 @@ mithril~
 armor AG 0 AE
 6 6 6 5 0
 40 10 12400 P
-f object mana 30 0 40 -1
-f object hp 15 0 40 -1
-f object damroll 2 0 40 -1
-f object con -1 0 40 -1
-f object str 1 0 40 -1
+f object mana 30 0
+f object hp 15 0
+f object damroll 2 0
+f object con -1 0
+f object str 1 0
 g @rus none~
 #11819
 glowing ((+*+)) sphere deriki~
@@ -1831,10 +1831,10 @@ light~
 armor ABI 0 AQ
 13 12 13 11 0
 40 10 10000 P
-f object mana 30 0 40 -1
-f object damroll 2 0 40 -1
-f object hitroll 2 0 40 -1
-f object age -5 0 40 -1
+f object mana 30 0
+f object damroll 2 0
+f object hitroll 2 0
+f object age -5 0
 g @rus none~
 #11820
 ((+*+)) tunic deriki~
@@ -1844,10 +1844,10 @@ silk~
 armor 0 0 AD
 10 10 9 8 0
 40 40 10000 P
-f object int 2 0 40 -1
-f object mana 30 0 40 -1
-f object hp 20 0 40 -1
-f object saves -5 0 40 -1
+f object int 2 0
+f object mana 30 0
+f object hp 20 0
+f object saves -5 0
 g @rus none~
 #11821
 owl eyes feather~
@@ -1857,9 +1857,9 @@ feathers~
 armor GI 0 AE
 10 10 9 8 0
 42 10 9000 P
-f object mana 40 0 42 -1
-f object hitroll 2 0 42 -1
-f object saves -2 0 42 -1
+f object mana 40 0
+f object hitroll 2 0
+f object saves -2 0
 g @rus none~
 #11822
 staff guarding mithril~
@@ -1869,7 +1869,7 @@ mithril~
 staff B 0 AO
 50 8 6 'sanctuary' 0
 35 30 10100 P
-f object ac -20 0 35 -1
+f object ac -20 0
 g @rus none~
 #11823
 gleaming ((-*-)) circlet treniste~
@@ -1879,10 +1879,10 @@ gold~
 armor AIKL 0 AE
 12 11 13 11 0
 42 20 10500 P
-f object wis 2 0 42 -1
-f object int 2 0 42 -1
-f object hitroll 4 0 42 -1
-f object damroll 4 0 42 -1
+f object wis 2 0
+f object int 2 0
+f object hitroll 4 0
+f object damroll 4 0
 g @rus none~
 #11824
 ((-*-)) set chain armor treniste~
@@ -1892,9 +1892,9 @@ gold~
 armor IKL 0 AD
 14 12 13 11 0
 42 100 15000 P
-f object damroll 3 0 42 -1
-f object str 1 0 42 -1
-f object hp 10 0 42 -1
+f object damroll 3 0
+f object str 1 0
+f object hp 10 0
 g @rus none~
 #11825
 white ((-*-)) belt treniste~
@@ -1904,10 +1904,10 @@ leather~
 armor IKL 0 AL
 10 10 9 8 0
 42 30 10000 P
-f object damroll 3 0 42 -1
-f object wis 1 0 42 -1
-f object mana 25 0 42 -1
-f object hp 25 0 42 -1
+f object damroll 3 0
+f object wis 1 0
+f object mana 25 0
+f object hp 25 0
 g @rus none~
 #11826
 pair ((-*-)) gauntlets treniste~
@@ -1917,10 +1917,10 @@ gold~
 armor IKL 0 AH
 9 9 9 8 0
 41 50 10150 P
-f object damroll 4 0 41 -1
-f object hitroll 4 0 41 -1
-f object wis -1 0 41 -1
-f object hp 37 0 41 -1
+f object damroll 4 0
+f object hitroll 4 0
+f object wis -1 0
+f object hp 37 0
 g @rus none~
 #11827
 pair ((-*-)) leggings treniste~
@@ -1930,10 +1930,10 @@ gold~
 armor IKL 0 AF
 8 9 9 7 0
 41 50 12000 P
-f object move 20 0 41 -1
-f object mana 20 0 41 -1
-f object hp 20 0 41 -1
-f object str 1 0 41 -1
+f object move 20 0
+f object mana 20 0
+f object hp 20 0
+f object str 1 0
 g @rus none~
 #11828
 white ((-*-)) visor treniste~
@@ -1943,10 +1943,10 @@ gold~
 armor AIKL 0 AE
 8 8 8 7 0
 39 30 9000 P
-f object damroll 1 0 39 -1
-f object hp 20 0 39 -1
-f object wis 1 0 39 -1
-f object dex 1 0 39 -1
+f object damroll 1 0
+f object hp 20 0
+f object wis 1 0
+f object dex 1 0
 g @rus none~
 #11829
 golden ((-*-)) bracer treniste~
@@ -1956,10 +1956,10 @@ gold~
 armor IKL 0 AM
 9 8 8 7 0
 41 20 11000 P
-f object mana 25 0 41 -1
-f object hp 25 0 41 -1
-f object con 2 0 41 -1
-f object damroll 4 0 41 -1
+f object mana 25 0
+f object hp 25 0
+f object con 2 0
+f object damroll 4 0
 g @rus none~
 #11830
 embroidered ((-*-)) cape treniste~
@@ -1969,12 +1969,12 @@ linen~
 armor IKL 0 AK
 9 8 9 7 0
 39 40 11200 P
-f object damroll 2 0 39 -1
-f object hitroll 2 0 39 -1
-f object hp -15 0 39 -1
-f object mana 50 0 39 -1
-f object int 1 0 39 -1
-f object cha -1 0 39 -1
+f object damroll 2 0
+f object hitroll 2 0
+f object hp -15 0
+f object mana 50 0
+f object int 1 0
+f object cha -1 0
 g @rus none~
 #11831
 ancient tome~
@@ -1984,7 +1984,7 @@ parchment~
 staff BFG 0 AO
 40 4 4 'detect hidden' 0
 30 50 10000 P
-f object int 4 0 30 -1
+f object int 4 0
 g @rus none~
 #11832
 ornate mask~
@@ -1994,10 +1994,10 @@ wood~
 armor BFI 0 AE
 9 9 9 7 0
 39 20 11000 P
-f object damroll 3 0 39 -1
-f object hp 25 0 39 -1
-f object level 1 0 39 -1
-f object age 5 0 39 -1
+f object damroll 3 0
+f object hp 25 0
+f object level 1 0
+f object age 5 0
 g @rus none~
 #11833
 ((-*-)) sleeves pair golden treniste~
@@ -2007,10 +2007,10 @@ gold~
 armor IKL 0 AI
 8 9 9 7 0
 39 40 10000 P
-f object hp 15 0 39 -1
-f object damroll 2 0 39 -1
-f object wis 1 0 39 -1
-f object dex 1 0 39 -1
+f object hp 15 0
+f object damroll 2 0
+f object wis 1 0
+f object dex 1 0
 g @rus none~
 #11834
 gleaming white sword~
@@ -2020,8 +2020,8 @@ mithril~
 weapon IK 0 AN
 sword 9 5 'cleave' 0
 40 200 10000 P
-f object hitroll 5 0 40 -1
-f object damroll 5 0 40 -1
+f object hitroll 5 0
+f object damroll 5 0
 g @rus none~
 #11835
 gleaming white shield~
@@ -2031,10 +2031,10 @@ mithril~
 armor IK 0 AJ
 11 11 11 10 0
 40 50 10000 P
-f object ac -10 0 40 -1
-f object damroll 4 0 40 -1
-f object dex 3 0 40 -1
-f object str 3 0 40 -1
+f object ac -10 0
+f object damroll 4 0
+f object dex 3 0
+f object str 3 0
 g @rus none~
 #11836
 deep indigo pill~
@@ -2053,10 +2053,10 @@ obsidian~
 armor CJL 0 AE
 10 10 10 8 0
 42 40 10000 P
-f object hp 20 0 42 -1
-f object damroll 4 0 42 -1
-f object hitroll 4 0 42 -1
-f object str 2 0 42 -1
+f object hp 20 0
+f object damroll 4 0
+f object hitroll 4 0
+f object str 2 0
 g @rus none~
 #11838
 taloned gloves~
@@ -2066,10 +2066,10 @@ obsidian~
 armor JL 0 AH
 11 10 10 9 0
 42 30 10000 P
-f object damroll 5 0 42 -1
-f object hitroll 4 0 42 -1
-f object cha 1 0 42 -1
-f object mana 100 0 42 -1
+f object damroll 5 0
+f object hitroll 4 0
+f object cha 1 0
+f object mana 100 0
 g @rus none~
 #11839
 ->*<- breast plate reykaris~
@@ -2079,10 +2079,10 @@ obsidian~
 armor EJL 0 AD
 15 15 15 15 0
 42 100 15000 P
-f object hp 35 0 42 -1
-f object dex 1 0 42 -1
-f object str 1 0 42 -1
-f object damroll 4 0 42 -1
+f object hp 35 0
+f object dex 1 0
+f object str 1 0
+f object damroll 4 0
 g @rus none~
 #11840
 dark ->*<- orb reykaris~
@@ -2092,10 +2092,10 @@ nothingness~
 armor CEJL 0 AQ
 8 8 9 7 0
 41 0 10000 P
-f object damroll 2 0 41 -1
-f object mana 15 0 41 -1
-f object hp 20 0 41 -1
-f object int 1 0 41 -1
+f object damroll 2 0
+f object mana 15 0
+f object hp 20 0
+f object int 1 0
 g @rus none~
 #11841
 ->*<- legplates leg plates reykaris~
@@ -2105,10 +2105,10 @@ obsidian~
 armor EJLM 0 AF
 9 9 9 7 0
 82 50 10200 P
-f object damroll 2 0 82 -1
-f object hp 15 0 82 -1
-f object dex 1 0 82 -1
-f object str 1 0 82 -1
+f object damroll 2 0
+f object hp 15 0
+f object dex 1 0
+f object str 1 0
 g @rus none~
 #11842
 carved ->*<- ring reykaris~
@@ -2118,10 +2118,10 @@ obsidian~
 armor EJLM 0 AB
 4 4 4 5 0
 39 10 10000 P
-f object hp 25 0 39 -1
-f object damroll 4 0 39 -1
-f object hitroll 4 0 39 -1
-f object int 1 0 39 -1
+f object hp 25 0
+f object damroll 4 0
+f object hitroll 4 0
+f object int 1 0
 g @rus none~
 #11843
 cloak nightmares black~
@@ -2131,13 +2131,13 @@ shadow~
 armor CEFJ 0 AK
 8 7 8 7 0
 36 20 10000 P
-f object damroll 3 0 36 -1
-f object mana 25 0 36 -1
-f object hp 15 0 36 -1
-f object con -1 0 36 -1
-f object int -1 0 36 -1
-f object dex 3 0 36 -1
-f object age 3 0 36 -1
+f object damroll 3 0
+f object mana 25 0
+f object hp 15 0
+f object con -1 0
+f object int -1 0
+f object dex 3 0
+f object age 3 0
 g @rus none~
 #11844
 ebony ->*<- bracer reykaris~
@@ -2147,9 +2147,9 @@ ebony~
 armor EJL 0 AM
 9 9 8 8 0
 41 20 12500 P
-f object con 3 0 41 -1
-f object wis 3 0 41 -1
-f object int 3 0 41 -1
+f object con 3 0
+f object wis 3 0
+f object int 3 0
 g @rus none~
 #11845
 dark ->*<- necklace reykaris~
@@ -2159,11 +2159,11 @@ obsidian~
 treasure EL 0 AC
 0 0 0 0 0
 40 20 25000 P
-f object mana 30 0 40 -1
-f object hp 30 0 40 -1
-f object dex 3 0 40 -1
-f object age 2 0 40 -1
-f object cha 2 0 40 -1
+f object mana 30 0
+f object hp 30 0
+f object dex 3 0
+f object age 2 0
+f object cha 2 0
 g @rus none~
 #11846
 humanoid skull~
@@ -2173,10 +2173,10 @@ bone~
 treasure E 0 AO
 0 0 0 0 0
 44 20 5000 P
-f object damroll 4 0 44 -1
-f object dex 1 0 44 -1
-f object str 2 0 44 -1
-f object mana 40 0 44 -1
+f object damroll 4 0
+f object dex 1 0
+f object str 2 0
+f object mana 40 0
 g @rus none~
 #11847
 pair obsidian ->*<- boots reykaris~
@@ -2186,9 +2186,9 @@ obsidian~
 armor EJL 0 AG
 8 8 7 7 0
 42 30 11000 P
-f object mana 15 0 42 -1
-f object hp 15 0 42 -1
-f object dex 2 0 42 -1
+f object mana 15 0
+f object hp 15 0
+f object dex 2 0
 g @rus none~
 #11848
 tempered silver throwing dagger~
@@ -2198,8 +2198,8 @@ silver~
 weapon CE 0 AN
 dagger 9 5 'pierce' DHK
 40 200 15000 P
-f affects hitroll 10 0 40 -1
-f affects damroll 5 0 40 -1
+f affects hitroll 10 0
+f affects damroll 5 0
 g @rus none~
 #11849
 ->*<- sleeves obsidian reykaris~
@@ -2209,10 +2209,10 @@ obsidian~
 armor EJL 0 AI
 10 10 10 8 0
 44 30 10000 P
-f object damroll 4 0 44 -1
-f object hitroll 3 0 44 -1
-f object int 2 0 44 -1
-f object str 2 0 44 -1
+f object damroll 4 0
+f object hitroll 3 0
+f object int 2 0
+f object str 2 0
 g @rus none~
 #11850
 black collar runes runed leather~
@@ -2222,13 +2222,13 @@ leather~
 armor BEGHM 0 AC
 9 9 9 7 0
 42 30 5500 P
-f object mana 15 0 42 -1
-f object hp 15 0 42 -1
-f object damroll 3 0 42 -1
-f object str 1 0 42 -1
-f object wis -1 0 42 -1
-f object con -1 0 42 -1
-f object hitroll -2 0 42 -1
+f object mana 15 0
+f object hp 15 0
+f object damroll 3 0
+f object str 1 0
+f object wis -1 0
+f object con -1 0
+f object hitroll -2 0
 E
 runes~
 The runes are in no language that you recognize.  As you gaze at them,
@@ -2243,14 +2243,14 @@ leather~
 armor BE 0 AI
 10 10 9 15 0
 44 50 15000 P
-f object hitroll 3 0 44 -1
-f object damroll 3 0 44 -1
-f object hp 35 0 44 -1
-f object mana 40 0 44 -1
-f object cha 1 0 44 -1
-f object con 2 0 44 -1
-f object str 2 0 44 -1
-f object age 5 0 44 -1
+f object hitroll 3 0
+f object damroll 3 0
+f object hp 35 0
+f object mana 40 0
+f object cha 1 0
+f object con 2 0
+f object str 2 0
+f object age 5 0
 g @rus none~
 #11852
 onyx -=+)> earring myrxes~
@@ -2260,10 +2260,10 @@ stone~
 armor CFI 0 AE
 8 8 8 7 0
 39 10 10000 P
-f object hp 10 0 39 -1
-f object damroll 3 0 39 -1
-f object mana 15 0 39 -1
-f object dex 2 0 39 -1
+f object hp 10 0
+f object damroll 3 0
+f object mana 15 0
+f object dex 2 0
 E
 onyx -=+)> earring myrxes~
 Below the Myrxes crest is the inscription:
@@ -2279,10 +2279,10 @@ leather~
 armor CFI 0 AH
 8 9 9 7 0
 39 30 10000 P
-f object damroll 3 0 39 -1
-f object hitroll 4 0 39 -1
-f object dex 1 0 39 -1
-f object str 1 0 39 -1
+f object damroll 3 0
+f object hitroll 4 0
+f object dex 1 0
+f object str 1 0
 g @rus none~
 #11854
 sharpened stiletto sharp~
@@ -2292,8 +2292,8 @@ silver~
 weapon CHI 0 AN
 dagger 5 11 'pierce' DH
 42 200 12500 P
-f object hitroll 5 0 42 -1
-f object damroll 5 0 42 -1
+f object hitroll 5 0
+f object damroll 5 0
 g @rus none~
 #11855
 invisible flame~
@@ -2303,9 +2303,9 @@ flame~
 light CF 0 A
 0 0 -1 0 0
 40 0 11500 P
-f object dex 1 0 40 -1
-f object damroll 3 0 40 -1
-f object mana 30 0 40 -1
+f object dex 1 0
+f object damroll 3 0
+f object mana 30 0
 g @rus none~
 #11856
 pair -=+)> sleeves myrxes~
@@ -2315,10 +2315,10 @@ leather~
 armor CFI 0 AI
 9 9 9 7 0
 39 30 9900 P
-f object damroll 3 0 39 -1
-f object hitroll 3 0 39 -1
-f object int 1 0 39 -1
-f object dex 2 0 39 -1
+f object damroll 3 0
+f object hitroll 3 0
+f object int 1 0
+f object dex 2 0
 g @rus none~
 #11857
 engraved platinum ][+][ ring xaek~
@@ -2328,10 +2328,10 @@ platinum~
 armor G 0 AB
 8 8 7 6 0
 34 20 12000 P
-f object damroll 3 0 34 -1
-f object hp 15 0 34 -1
-f object dex 1 0 34 -1
-f object str 2 0 34 -1
+f object damroll 3 0
+f object hp 15 0
+f object dex 1 0
+f object str 2 0
 g @rus none~
 #11858
 -=+)> shroud shadows myrxes~
@@ -2341,9 +2341,9 @@ shadow~
 armor CFI 0 AK
 9 9 8 6 0
 37 10 10000 P
-f object damroll 4 0 37 -1
-f object hitroll 3 0 37 -1
-f object hp 25 0 37 -1
+f object damroll 4 0
+f object hitroll 3 0
+f object hp 25 0
 g @rus none~
 #11859
 black slim -=+)> bracer myrxes~
@@ -2353,10 +2353,10 @@ stone~
 armor CFI 0 AM
 7 6 8 6 0
 36 20 8000 P
-f object damroll 2 0 36 -1
-f object hitroll 2 0 36 -1
-f object ac -10 0 36 -1
-f object dex 2 0 36 -1
+f object damroll 2 0
+f object hitroll 2 0
+f object ac -10 0
+f object dex 2 0
 g @rus none~
 #11860
 shadowy -=+)> neckchain neck chain myrxes~
@@ -2366,10 +2366,10 @@ adamantite~
 armor CFI 0 AC
 8 8 8 6 0
 36 20 12000 P
-f object mana 10 0 36 -1
-f object hp 10 0 36 -1
-f object damroll 2 0 36 -1
-f object str 1 0 36 -1
+f object mana 10 0
+f object hp 10 0
+f object damroll 2 0
+f object str 1 0
 g @rus none~
 #11861
 black -=+)> leggings leather pair myrxes~
@@ -2379,10 +2379,10 @@ leather~
 armor CFI 0 AF
 8 8 8 7 0
 38 40 10000 P
-f object hitroll 2 0 38 -1
-f object damroll 2 0 38 -1
-f object hp 20 0 38 -1
-f object dex 2 0 38 -1
+f object hitroll 2 0
+f object damroll 2 0
+f object hp 20 0
+f object dex 2 0
 g @rus none~
 #11862
 silent -=+)> boots myrxes~
@@ -2392,9 +2392,9 @@ leather~
 armor CFI 0 AG
 8 8 9 7 0
 37 20 8900 P
-f object dex 2 0 37 -1
-f object hitroll 3 0 37 -1
-f object damroll 2 0 37 -1
+f object dex 2 0
+f object hitroll 3 0
+f object damroll 2 0
 g @rus none~
 #11863
 hair ring panther black~
@@ -2404,10 +2404,10 @@ fur~
 armor CFI 0 AB
 6 6 5 4 0
 37 10 10000 P
-f object dex 2 0 37 -1
-f object damroll 3 0 37 -1
-f object hitroll 3 0 37 -1
-f object mana 30 0 37 -1
+f object dex 2 0
+f object damroll 3 0
+f object hitroll 3 0
+f object mana 30 0
 g @rus none~
 #11864
 black -=+)> belt myrxes~
@@ -2417,10 +2417,10 @@ leather~
 armor CFI 0 AL
 6 7 6 6 0
 37 40 7900 P
-f object hp -100 0 37 -1
-f object mana 200 0 37 -1
-f object dex 3 0 37 -1
-f object str 3 0 37 -1
+f object hp -100 0
+f object mana 200 0
+f object dex 3 0
+f object str 3 0
 g @rus none~
 #11865
 ring lynx~
@@ -2430,10 +2430,10 @@ fur~
 armor CFGI 0 AB
 3 4 4 3 0
 37 10 10000 P
-f object str 1 0 37 -1
-f object damroll 2 0 37 -1
-f object hitroll 2 0 37 -1
-f object hp 25 0 37 -1
+f object str 1 0
+f object damroll 2 0
+f object hitroll 2 0
+f object hp 25 0
 g @rus none~
 #11866
 night hawk talons~
@@ -2443,10 +2443,10 @@ bone~
 armor CFI 0 AH
 8 8 8 7 0
 36 40 9000 P
-f object con 1 0 36 -1
-f object dex 1 0 36 -1
-f object str 1 0 36 -1
-f object damroll 3 0 36 -1
+f object con 1 0
+f object dex 1 0
+f object str 1 0
+f object damroll 3 0
 g @rus none~
 #11867
 hunter's hunters hunter arrow mithril~
@@ -2456,8 +2456,8 @@ mithril~
 weapon A 0 AN
 exotic 6 7 'pierce' EK
 35 200 10000 P
-f object damroll 5 0 35 -1
-f object hitroll 5 0 35 -1
+f object damroll 5 0
+f object hitroll 5 0
 g @rus none~
 #11868
 set ][+][ platemail plate mail xaek~
@@ -2467,8 +2467,8 @@ adamantite~
 armor 0 0 AD
 9 9 9 7 0
 39 450 10000 P
-f object damroll 3 0 39 -1
-f object hitroll 5 0 39 -1
+f object damroll 3 0
+f object hitroll 5 0
 g @rus none~
 #11869
 bracer power~
@@ -2478,11 +2478,11 @@ adamantite~
 armor B 0 AM
 8 8 8 7 0
 39 20 9900 P
-f object mana 50 0 39 -1
-f object hp 50 0 39 -1
-f object str 2 0 39 -1
-f object dex 2 0 39 -1
-f object cha 1 0 39 -1
+f object mana 50 0
+f object hp 50 0
+f object str 2 0
+f object dex 2 0
+f object cha 1 0
 g @rus none~
 #11870
 ][+][ shield xaek~
@@ -2492,9 +2492,9 @@ adamantite~
 armor 0 0 AJ
 9 10 9 7 0
 38 50 10000 P
-f object damroll 4 0 38 -1
-f object str 1 0 38 -1
-f object con 2 0 38 -1
+f object damroll 4 0
+f object str 1 0
+f object con 2 0
 g @rus none~
 #11871
 grey ][+][ legplates leg plates xaek~
@@ -2504,10 +2504,10 @@ platinum~
 armor 0 0 AF
 8 8 8 6 0
 37 90 10000 P
-f object hp 15 0 37 -1
-f object damroll 3 0 37 -1
-f object con 1 0 37 -1
-f object str 1 0 37 -1
+f object hp 15 0
+f object damroll 3 0
+f object con 1 0
+f object str 1 0
 g @rus none~
 #11872
 ][+][ helm xaek~
@@ -2517,10 +2517,10 @@ adamantite~
 armor 0 0 AE
 7 8 7 6 0
 35 50 8000 P
-f object hp 25 0 35 -1
-f object hitroll 2 0 35 -1
-f object damroll 2 0 35 -1
-f object con 1 0 35 -1
+f object hp 25 0
+f object hitroll 2 0
+f object damroll 2 0
+f object con 1 0
 g @rus none~
 #11873
 engraved ][+][ crest xaek~
@@ -2530,9 +2530,9 @@ platinum~
 armor 0 0 AO
 6 7 7 5 0
 34 50 11000 P
-f object damroll 2 0 34 -1
-f object hp 20 0 34 -1
-f object str 2 0 34 -1
+f object damroll 2 0
+f object hp 20 0
+f object str 2 0
 g @rus none~
 #11874
 ][+][ armplates arm plates xaek~
@@ -2542,10 +2542,10 @@ adamantite~
 armor 0 0 AI
 8 8 8 7 0
 36 50 10000 P
-f object damroll 3 0 36 -1
-f object hitroll 2 0 36 -1
-f object hp 20 0 36 -1
-f object con 1 0 36 -1
+f object damroll 3 0
+f object hitroll 2 0
+f object hp 20 0
+f object con 1 0
 g @rus none~
 #11875
 balanced adamantite longsword long sword~
@@ -2555,8 +2555,8 @@ adamantite~
 weapon AI 0 AN
 sword 5 9 'cleave' D
 35 300 17800 P
-f object hitroll 5 0 35 -1
-f object damroll 5 0 35 -1
+f object hitroll 5 0
+f object damroll 5 0
 g @rus none~
 #11876
 silver carven -(+)- signet ring noriva~
@@ -2566,10 +2566,10 @@ silver~
 armor AI 0 AB
 7 7 7 5 0
 39 10 10000 P
-f object hp 20 0 39 -1
-f object mana 20 0 39 -1
-f object wis 2 0 39 -1
-f object int 2 0 39 -1
+f object hp 20 0
+f object mana 20 0
+f object wis 2 0
+f object int 2 0
 g @rus none~
 #11877
 niobium -(+)- circlet noriva~
@@ -2579,9 +2579,9 @@ silver~
 armor AI 0 AE
 9 9 9 8 0
 39 20 21500 P
-f object wis 2 0 39 -1
-f object hitroll 3 0 39 -1
-f object mana 30 0 39 -1
+f object wis 2 0
+f object hitroll 3 0
+f object mana 30 0
 g @rus none~
 #11878
 light shimmering -(+)- sphere noriva~
@@ -2591,10 +2591,10 @@ light~
 armor ABI 0 AQ
 8 8 9 8 0
 38 0 15500 P
-f object int 1 0 38 -1
-f object hitroll 5 0 38 -1
-f object mana 20 0 38 -1
-f object hp 20 0 38 -1
+f object int 1 0
+f object hitroll 5 0
+f object mana 20 0
+f object hp 20 0
 g @rus none~
 #11879
 inlaid silver -(+)- bracelet noriva~
@@ -2604,10 +2604,10 @@ silver~
 armor AI 0 AM
 8 8 8 7 0
 37 20 12200 P
-f object hp 40 0 37 -1
-f object mana -50 0 37 -1
-f object hitroll 5 0 37 -1
-f object wis 1 0 37 -1
+f object hp 40 0
+f object mana -50 0
+f object hitroll 5 0
+f object wis 1 0
 g @rus none~
 #11880
 -(+)- girth noriva~
@@ -2617,10 +2617,10 @@ silver~
 armor AI 0 AL
 8 8 7 6 0
 35 50 10000 P
-f object hitroll 6 0 35 -1
-f object mana 30 0 35 -1
-f object hp 20 0 35 -1
-f object str 1 0 35 -1
+f object hitroll 6 0
+f object mana 30 0
+f object hp 20 0
+f object str 1 0
 g @rus none~
 #11881
 pair -(+)- sleeves noriva~
@@ -2630,9 +2630,9 @@ silver~
 armor AI 0 AI
 8 7 8 6 0
 34 50 9900 P
-f object damroll 2 0 34 -1
-f object hp 25 0 34 -1
-f object con 1 0 34 -1
+f object damroll 2 0
+f object hp 25 0
+f object con 1 0
 g @rus none~
 #11882
 pair -(+)- gloves noriva~
@@ -2642,10 +2642,10 @@ leather~
 armor I 0 AH
 7 7 7 7 0
 36 30 11250 P
-f object dex 1 0 36 -1
-f object hitroll 4 0 36 -1
-f object mana 35 0 36 -1
-f object con 1 0 36 -1
+f object dex 1 0
+f object hitroll 4 0
+f object mana 35 0
+f object con 1 0
 g @rus none~
 #11883
 filligree -(+)- necklace noriva~
@@ -2655,9 +2655,9 @@ silver~
 armor AI 0 AC
 7 7 7 6 0
 34 20 25500 P
-f object con 2 0 34 -1
-f object wis 2 0 34 -1
-f object int 2 0 34 -1
+f object con 2 0
+f object wis 2 0
+f object int 2 0
 g @rus none~
 #11884
 tooled -(+)- boots noriva~
@@ -2667,10 +2667,10 @@ leather~
 armor I 0 AG
 6 6 6 6 0
 34 60 11200 P
-f object damroll 2 0 34 -1
-f object hitroll 4 0 34 -1
-f object mana 20 0 34 -1
-f object con 2 0 34 -1
+f object damroll 2 0
+f object hitroll 4 0
+f object mana 20 0
+f object con 2 0
 g @rus none~
 #11885
 laerkai fury rage~
@@ -2680,10 +2680,10 @@ flame~
 armor AI 0 AQ
 14 14 14 13 0
 45 0 50000 P
-f object mana 75 0 45 -1
-f object damroll 5 0 45 -1
-f object saves -5 0 45 -1
-f object int 3 0 45 -1
+f object mana 75 0
+f object damroll 5 0
+f object saves -5 0
+f object int 3 0
 g @rus none~
 #11886
 laerkai justice shield~
@@ -2693,10 +2693,10 @@ mithril~
 armor AI 0 AJ
 29 29 29 26 0
 45 50 50000 P
-f object hp 40 0 45 -1
-f object saves -10 0 45 -1
-f object con 3 0 45 -1
-f object ac -25 0 45 -1
+f object hp 40 0
+f object saves -10 0
+f object con 3 0
+f object ac -25 0
 g @rus none~
 #11887
 laerkai pain~
@@ -2706,11 +2706,11 @@ nothingness~
 armor BI 0 AH
 15 15 15 13 0
 45 0 50000 P
-f object damroll 6 0 45 -1
-f object hitroll 4 0 45 -1
-f object hp 40 0 45 -1
-f object cha 1 0 45 -1
-f object str 2 0 45 -1
+f object damroll 6 0
+f object hitroll 4 0
+f object hp 40 0
+f object cha 1 0
+f object str 2 0
 g @rus none~
 #11888
 shadows laerkai stealth~
@@ -2720,10 +2720,10 @@ shadow~
 armor CI 0 AG
 14 14 14 13 0
 45 0 50000 P
-f object dex 3 0 45 -1
-f object mana 50 0 45 -1
-f object hitroll 10 0 45 -1
-f invis none 0 G 45 -1
+f object dex 3 0
+f object mana 50 0
+f object hitroll 10 0
+f invis none 0 G
 g @rus none~
 #11889
 laerkai might platemail plate mail~
@@ -2733,12 +2733,12 @@ mithril~
 armor BI 0 AD
 20 20 20 15 0
 45 450 50000 P
-f resists pierce 5 0 45 -1
-f resists slash 5 0 45 -1
-f resists bash 5 0 45 -1
-f object damroll 7 0 45 -1
-f object mana 100 0 45 -1
-f object str 3 0 45 -1
+f resists pierce 5 0
+f resists slash 5 0
+f resists bash 5 0
+f object damroll 7 0
+f object mana 100 0
+f object str 3 0
 g @rus none~
 #11890
 laerkai life health aura~
@@ -2748,10 +2748,10 @@ etherealness~
 armor AI 0 AC
 14 14 14 13 0
 45 0 50000 P
-f object hp 40 0 45 -1
-f affects none 0 c 45 -1
-f object hitroll 5 0 45 -1
-f object con 3 0 45 -1
+f object hp 40 0
+f affects none 0 c
+f object hitroll 5 0
+f object con 3 0
 g @rus none~
 #11891
 laerkai power presense~
@@ -2761,14 +2761,14 @@ nothingness~
 armor BI 0 AM
 20 20 20 13 0
 45 0 55000 P
-f object mana 60 0 45 -1
-f object hp 60 0 45 -1
-f object hitroll 5 0 45 -1
-f object damroll 5 0 45 -1
-f object str 2 0 45 -1
-f object dex 2 0 45 -1
-f object cha 1 0 45 -1
-f affects none 0 V 45 -1
+f object mana 60 0
+f object hp 60 0
+f object hitroll 5 0
+f object damroll 5 0
+f object str 2 0
+f object dex 2 0
+f object cha 1 0
+f affects none 0 V
 E
 laerkai power presense~
 As you focus on the presense, a thundering voice booms through your
@@ -2792,8 +2792,8 @@ mithril~
 weapon BCI 0 AN
 sword 8 7 'pierce' ADH
 45 250 55000 P
-f object damroll 10 0 45 -1
-f object hitroll 10 0 45 -1
+f object damroll 10 0
+f object hitroll 10 0
 E
 honed shortsword zedraikis~
 A wickedly sharp silvery blue blade gleams above a black wrapped leather
@@ -2813,16 +2813,16 @@ flame~
 light AFIJK 0 A
 0 0 -1 0 0
 45 0 55000 P
-f object damroll 4 0 45 -1
-f object hitroll 4 0 45 -1
-f object mana 50 0 45 -1
-f object hp 50 0 45 -1
-f object cha 1 0 45 -1
-f object con 1 0 45 -1
-f object wis 1 0 45 -1
-f object dex 1 0 45 -1
-f object int 1 0 45 -1
-f object str 1 0 45 -1
+f object damroll 4 0
+f object hitroll 4 0
+f object mana 50 0
+f object hp 50 0
+f object cha 1 0
+f object con 1 0
+f object wis 1 0
+f object dex 1 0
+f object int 1 0
+f object str 1 0
 E
 flame balance silver~
 The flame flickers blindingly, and you are forced to look away.
@@ -2836,9 +2836,9 @@ mithril~
 armor A 0 AI
 6 6 7 5 0
 31 40 7500 P
-f object damroll 2 0 31 -1
-f object dex 1 0 31 -1
-f object str 1 0 31 -1
+f object damroll 2 0
+f object dex 1 0
+f object str 1 0
 g @rus none~
 #11895
 drakyri girth silvery~
@@ -2848,9 +2848,9 @@ mithril~
 armor AI 0 AL
 7 6 6 5 0
 31 40 7500 P
-f object damroll 2 0 31 -1
-f object mana 20 0 31 -1
-f object int 1 0 31 -1
+f object damroll 2 0
+f object mana 20 0
+f object int 1 0
 g @rus none~
 #11896
 drakyri wrist guard~
@@ -2860,10 +2860,10 @@ mithril~
 armor AI 0 AM
 6 7 7 5 0
 31 20 7500 P
-f object damroll 2 0 31 -1
-f object hitroll 2 0 31 -1
-f object hp 15 0 31 -1
-f object con 1 0 31 -1
+f object damroll 2 0
+f object hitroll 2 0
+f object hp 15 0
+f object con 1 0
 g @rus none~
 #11897
 drakyri dagger mithril~
@@ -2873,9 +2873,9 @@ mithril~
 weapon AI 0 AN
 dagger 6 6 'pierce' 0
 62 200 7500 P
-f object hitroll 4 0 62 -1
-f object damroll 3 0 62 -1
-f object dex 1 0 62 -1
+f object hitroll 4 0
+f object damroll 3 0
+f object dex 1 0
 g @rus none~
 #11898
 green greenish energy pill~

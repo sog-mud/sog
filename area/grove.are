@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name Holy Grove~
 VNUMs 8900 8999
 Credits Alfa~
@@ -278,7 +278,7 @@ cloth~
 armor K 0 AD
 6 6 6 0 0
 16 50 2300 P
-f object mana 10 0 16 -1
+f object mana 10 0
 E
 robe brown cloth~
 This robe is rough, but appears quite durable.

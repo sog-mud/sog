@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name Chessboard of Midgaard~
 VNUMs 4200 4299
 Credits Exxon~
@@ -274,8 +274,8 @@ stone~
 armor J 0 AD
 8 8 8 0 5
 25 450 1250 G
-f object ac 2 0 25 -1
-f object con 1 0 25 -1
+f object ac 2 0
+f object con 1 0
 g @rus female~
 #4205
 armour white rook кольчуга~
@@ -285,8 +285,8 @@ stone~
 armor K 0 AD
 8 8 8 0 5
 25 450 1250 G
-f object ac 2 0 25 -1
-f object con 1 0 25 -1
+f object ac 2 0
+f object con 1 0
 g @rus female~
 #4206
 lance black knight копье~
@@ -296,8 +296,8 @@ bronze~
 weapon BJ 0 AN
 lance 5 5 'pierce' D
 17 50 2250 P
-f object damroll 3 0 17 -1
-f object saving_breath 5 0 17 -1
+f object damroll 3 0
+f object saving_breath 5 0
 g @rus none~
 #4207
 lance white knight копье~
@@ -307,8 +307,8 @@ bronze~
 weapon BK 0 AN
 lance 5 5 'pierce' D
 17 50 2300 P
-f object damroll 3 0 17 -1
-f object saving_breath 5 0 17 -1
+f object damroll 3 0
+f object saving_breath 5 0
 g @rus none~
 #4208
 staff black bishop посох~
@@ -336,8 +336,8 @@ gold~
 armor AGJL 0 AE
 9 9 9 1 1
 32 50 5000 G
-f object int 1 0 32 -1
-f object wis 1 0 32 -1
+f object int 1 0
+f object wis 1 0
 g @rus female~
 #4211
 crown white queen корона~
@@ -347,8 +347,8 @@ gold~
 armor AGKL 0 AE
 9 9 9 1 1
 32 50 5000 G
-f object int 1 0 32 -1
-f object wis 1 0 32 -1
+f object int 1 0
+f object wis 1 0
 g @rus female~
 #4212
 sceptre black king скипетр~
@@ -358,8 +358,8 @@ gold~
 treasure JL 0 AO
 0 0 0 0 0
 32 10 7900 P
-f object str 1 0 32 -1
-f object hitroll 1 0 32 -1
+f object str 1 0
+f object hitroll 1 0
 g @rus male~
 #4213
 sceptre white king скипетр~
@@ -369,8 +369,8 @@ gold~
 treasure KL 0 AO
 0 0 0 0 0
 32 10 7900 P
-f object str 1 0 32 -1
-f object hitroll 1 0 32 -1
+f object str 1 0
+f object hitroll 1 0
 g @rus male~
 #4214
 key black treasury ключ~
@@ -722,7 +722,7 @@ wood~
 armor ABFJK 0 AQ
 17 17 17 33 0
 51 60 55390 P
-f affects hp 95 AT 51 -1
+f affects hp 95 AT
 g @rus female~
 #4261
 shield black pawn щит~

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name SilverDale~
 VNUMs 4500 4599
 Credits Anon~
@@ -166,8 +166,8 @@ air~
 weapon GJ 0 AN
 sword 4 4 'slash' 0
 12 40 800 P
-f object hitroll 3 0 12 -1
-f object damroll 3 0 12 -1
+f object hitroll 3 0
+f object damroll 3 0
 #4502
 shadow spear~
 a shadowspear~
@@ -176,8 +176,8 @@ air~
 weapon GJ 0 AN
 spear 5 5 'pierce' K
 22 200 3800 P
-f object hitroll 5 0 22 -1
-f object damroll 2 0 22 -1
+f object hitroll 5 0
+f object damroll 2 0
 #4503
 shadow axe~
 a shadowaxe~
@@ -186,8 +186,8 @@ air~
 weapon GJ 0 AN
 axe 5 5 'chomp' 0
 22 200 3800 P
-f object hitroll 1 0 22 -1
-f object damroll 5 0 22 -1
+f object hitroll 1 0
+f object damroll 5 0
 #4504
 bracer shadow~
 shadowbracer~
@@ -196,7 +196,7 @@ air~
 armor GJ 0 AM
 7 8 7 1 2
 22 300 4800 P
-f object saving_spell 1 0 22 -1
+f object saving_spell 1 0
 #4505
 gauntlets shadow~
 shadowgauntlets~
@@ -205,7 +205,7 @@ air~
 armor GJ 0 AH
 5 5 6 1 2
 12 10 700 P
-f object str 1 0 12 -1
+f object str 1 0
 #4506
 orb stone~
 a mageorb~
@@ -214,8 +214,8 @@ stone~
 armor G 0 AQ
 7 7 7 1 0
 19 400 1200 G
-f object int 2 0 19 -1
-f object str -2 0 19 -1
+f object int 2 0
+f object str -2 0
 #4507
 orb stone~
 a priestorb~
@@ -224,8 +224,8 @@ stone~
 armor G 0 AQ
 7 7 8 1 0
 22 400 5200 G
-f object wis 2 0 22 -1
-f object dex -2 0 22 -1
+f object wis 2 0
+f object dex -2 0
 #4508
 shadow mail~
 shadowmail~
@@ -234,7 +234,7 @@ air~
 armor GJ 0 AD
 9 9 9 1 4
 29 300 6500 P
-f object con 1 0 29 -1
+f object con 1 0
 #4509
 silver ingot~
 a large silver ingot~
@@ -260,8 +260,8 @@ silver~
 weapon 0 0 AN
 dagger 5 5 'pierce' D
 20 10 8200 P
-f object hitroll 1 0 20 -1
-f object damroll 1 0 20 -1
+f object hitroll 1 0
+f object damroll 1 0
 #4512
 sword silver~
 a silver shortsword~
@@ -270,8 +270,8 @@ silver~
 weapon 0 0 AN
 sword 5 5 'slash' D
 20 1500 7300 P
-f object hitroll 1 0 20 -1
-f object damroll 1 0 20 -1
+f object hitroll 1 0
+f object damroll 1 0
 #4513
 sword silver~
 a silver longsword~
@@ -280,8 +280,8 @@ silver~
 weapon AG 0 AN
 sword 5 5 'slash' D
 20 200 6900 P
-f object hitroll 1 0 20 -1
-f object damroll 1 0 20 -1
+f object hitroll 1 0
+f object damroll 1 0
 #4514
 wood stake~
 a wooden stake~

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name Plains~
 VNUMs 300 399
 Credits Copper~
@@ -234,7 +234,7 @@ bronze~
 jewelry GH 0 AC
 0 0 0 0 0
 0 10 1 P
-f object saves 5 0 0 -1
+f object saves 5 0
 E
 amulet амулет~
 @eng Judging from the signs inscripted in the amulet, you gather it must
@@ -252,8 +252,8 @@ wood~
 weapon 0 0 AN
 staff 4 9 'pound' 0
 13 150 10 P
-f affects level 1 0 13 -1
-f resists holy 5 0 13 -1
+f affects level 1 0
+f resists holy 5 0
 E
 staff stick посох~
 @eng Then staff is about 5 ft long, engraved with mythical signs and figures.

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name Forest of Nowhere~
 Builders tranto~
 VNUMs 22450 22699
@@ -448,9 +448,9 @@ wood~
 weapon 0 0 AN
 staff 10 2 'smash' DF
 5 10 0 P
-f object ac -6 0 5 -1
-f object damroll 2 0 5 -1
-f object hitroll 2 0 5 -1
+f object ac -6 0
+f object damroll 2 0
+f object hitroll 2 0
 E
 staff~
 You see a small wooden staff maded form fresh wood.
@@ -464,9 +464,9 @@ wood~
 weapon 0 0 AN
 mace 9 2 'smash' 0
 5 10 0 P
-f object hp 8 0 5 -1
-f object damroll 1 0 5 -1
-f object hitroll 1 0 5 -1
+f object hp 8 0
+f object damroll 1 0
+f object hitroll 1 0
 g @rus none~
 #22457
 flail wooden training~
@@ -476,7 +476,7 @@ wood~
 weapon 0 0 AN
 flail 9 2 'thwack' 0
 5 10 0 P
-f object hp 15 0 5 -1
+f object hp 15 0
 g @rus none~
 #22458
 leather training whip~
@@ -486,8 +486,8 @@ leather~
 weapon 0 0 AN
 whip 9 2 'sting' 0
 5 10 0 P
-f object mana 20 0 5 -1
-f object damroll 3 0 5 -1
+f object mana 20 0
+f object damroll 3 0
 g @rus none~
 #22459
 wooden training polearm~
@@ -497,9 +497,9 @@ wood~
 weapon 0 0 AN
 polearm 10 2 'cleave' DF
 5 10 0 P
-f object ac -5 0 5 -1
-f object damroll 3 0 5 -1
-f object hitroll 3 0 5 -1
+f object ac -5 0
+f object damroll 3 0
+f object hitroll 3 0
 g @rus none~
 #22460
 wooden training sword~
@@ -509,8 +509,8 @@ wood~
 weapon 0 0 AN
 sword 9 2 'slash' 0
 5 10 0 P
-f object ac -5 0 5 -1
-f object damroll 3 0 5 -1
+f object ac -5 0
+f object damroll 3 0
 g @rus none~
 #22461
 wooden trainig dagger~
@@ -520,8 +520,8 @@ wood~
 weapon 0 0 AN
 dagger 9 2 'pierce' D
 5 10 0 P
-f object hitroll 1 0 5 -1
-f object damroll 1 0 5 -1
+f object hitroll 1 0
+f object damroll 1 0
 g @rus none~
 #22462
 mushroom food cooked~
@@ -540,7 +540,7 @@ copper~
 armor A 0 AC
 3 2 4 5 0
 5 1 0 P
-f object str 1 0 5 -1
+f object str 1 0
 g @rus none~
 #22464
 necklace intelligence magi~
@@ -550,7 +550,7 @@ copper~
 armor A 0 AC
 3 2 4 5 0
 5 1 0 P
-f object int 1 0 5 -1
+f object int 1 0
 g @rus none~
 #22465
 necklace wisdom~
@@ -560,7 +560,7 @@ copper~
 armor A 0 AC
 3 2 4 5 0
 5 1 0 P
-f object wis 2 0 5 -1
+f object wis 2 0
 g @rus none~
 #22466
 necklace speed~
@@ -570,7 +570,7 @@ copper~
 armor A 0 AC
 3 2 4 5 0
 5 1 0 P
-f object dex 1 0 5 -1
+f object dex 1 0
 g @rus none~
 #22467
 necklace life~
@@ -580,7 +580,7 @@ copper~
 armor A 0 AC
 3 2 4 5 0
 5 1 0 P
-f object con 1 0 5 -1
+f object con 1 0
 g @rus none~
 #22468
 necklace beauty~
@@ -590,7 +590,7 @@ copper~
 armor A 0 AC
 3 2 4 5 0
 5 1 0 P
-f object cha 1 0 5 -1
+f object cha 1 0
 g @rus none~
 #22469
 bloody orb~
@@ -600,12 +600,12 @@ flesh~
 armor CYb 0 AO
 4 2 3 7 0
 5 1 0 P
-f object con 1 0 5 -1
-f object str 1 0 5 -1
-f object hp 12 0 5 -1
-f object ac -5 0 5 -1
-f object damroll 2 0 5 -1
-f object hitroll 2 0 5 -1
+f object con 1 0
+f object str 1 0
+f object hp 12 0
+f object ac -5 0
+f object damroll 2 0
+f object hitroll 2 0
 g @rus none~
 #22470
 slime mold~
@@ -624,10 +624,10 @@ bearskin~
 armor 0 0 AB
 -10 0 -3 0 0
 16 2 100 P
-f object hp 15 0 16 -1
-f object damroll 1 0 16 -1
-f object hitroll 1 0 16 -1
-f object saves -5 0 16 -1
+f object hp 15 0
+f object damroll 1 0
+f object hitroll 1 0
+f object saves -5 0
 g @rus none~
 #22472
 claw serpent~
@@ -637,10 +637,10 @@ bone~
 armor ACI 0 AI
 12 12 13 16 0
 25 5 1000 P
-f object damroll 3 0 25 -1
-f object hitroll 3 0 25 -1
-f object hp 20 0 25 -1
-f object saves -12 0 25 -1
+f object damroll 3 0
+f object hitroll 3 0
+f object hp 20 0
+f object saves -12 0
 E
 runes~
 Runes says :"Its make for blood and honor.But only that can wear it which spirit is strong..."
@@ -660,10 +660,10 @@ wood~
 weapon GK 0 AN
 sword 9 4 'wrath' DH
 28 120 0 P
-f object con 2 0 28 -1
-f object saves -5 0 28 -1
-f object damroll 4 0 28 -1
-f object hitroll 3 0 28 -1
+f object con 2 0
+f object saves -5 0
+f object damroll 4 0
+f object hitroll 3 0
 E
 leaf~
 You see a large lead of unknown tree.IIt's material is very strong and it has sharp edge.
@@ -679,9 +679,9 @@ skin~
 armor 0 0 AF
 8 8 15 3 0
 28 1 0 P
-f object damroll 3 0 28 -1
-f object dex -1 0 28 -1
-f object saves -10 0 28 -1
+f object damroll 3 0
+f object dex -1 0
+f object saves -10 0
 E
 skin~
 The skin on tail is very strong and you sense magical fluid ,
@@ -696,12 +696,12 @@ crystal~
 weapon KY C AN
 staff 17 2 'wrath' BDF
 45 100 0 P
-f resists cold 5 0 45 -1
-f resists fire 5 0 45 -1
-f object ac -20 0 45 -1
-f object saves -10 0 45 -1
-f object damroll 4 0 45 -1
-f object hitroll 4 0 45 -1
+f resists cold 5 0
+f resists fire 5 0
+f object ac -20 0
+f object saves -10 0
+f object damroll 4 0
+f object hitroll 4 0
 E
 staff~
 You see a long staff maded from blue ice crystall.You sense a aura of stange
@@ -716,11 +716,11 @@ energy~
 armor AI C AB
 10 10 10 10 0
 45 2 50000 P
-f resists energy 10 0 45 -1
-f resists negative 10 0 45 -1
-f object saves -10 0 45 -1
-f object mana 15 0 45 -1
-f object hp 15 0 45 -1
+f resists energy 10 0
+f resists negative 10 0
+f object saves -10 0
+f object mana 15 0
+f object hp 15 0
 E
 ring~
 You see a ring with blue crystall surrounded by energy.
@@ -736,10 +736,10 @@ oak~
 weapon CY C AN
 bow 17 2 'flbite' D
 45 120 50000 P
-f object damroll 5 0 45 -1
-f object hitroll 5 0 45 -1
-f object saves -10 0 45 -1
-f resists fire 20 0 45 -1
+f object damroll 5 0
+f object hitroll 5 0
+f object saves -10 0
+f resists fire 20 0
 E
 bow~
 You see a beatiful bow maded from composite of wood and horn ,probably
@@ -756,11 +756,11 @@ skin~
 container AC 0 AK
 150 F 0 100 30
 45 5 0 P
-f resists cold 10 0 45 -1
-f object hp 20 0 45 -1
-f object damroll 5 0 45 -1
-f object hitroll 2 0 45 -1
-f object saves -12 0 45 -1
+f resists cold 10 0
+f object hp 20 0
+f object damroll 5 0
+f object hitroll 2 0
+f object saves -12 0
 E
 quiver~
 This quiver maded from skin of snow minotaur and encrusted by many sorts
@@ -775,10 +775,10 @@ wood~
 armor 0 0 AJ
 10 10 10 9 0
 37 60 10000 P
-f object wis -1 0 37 -1
-f object dex 1 0 37 -1
-f object damroll 5 0 37 -1
-f object hp 35 0 37 -1
+f object wis -1 0
+f object dex 1 0
+f object damroll 5 0
+f object hp 35 0
 g @rus none~
 #22490
 box matches~
@@ -788,10 +788,10 @@ wood~
 staff AC 0 AO
 35 5 5 'fireball' 0
 33 1 150000 P
-f object damroll -3 0 33 -1
-f object hitroll -3 0 33 -1
-f object hp 50 0 33 -1
-f object mana 50 0 33 -1
+f object damroll -3 0
+f object hitroll -3 0
+f object hp 50 0
+f object mana 50 0
 g @rus none~
 #22491
 twin bladed axe~
@@ -801,9 +801,9 @@ steel~
 weapon AC 0 AN
 axe 8 4 'cleave' ADH
 27 350 15000 P
-f resists fire 2 0 27 -1
-f object hitroll -5 0 27 -1
-f object damroll 8 0 27 -1
+f resists fire 2 0
+f object hitroll -5 0
+f object damroll 8 0
 g @rus none~
 #22492
 jewelled dagger~
@@ -813,8 +813,8 @@ unknown~
 weapon A 0 AN
 dagger 8 5 'pierce' HK
 30 5 0 P
-f object hitroll -2 0 30 -1
-f object damroll 8 0 30 -1
+f object hitroll -2 0
+f object damroll 8 0
 g @rus none~
 #22493
 jewelled broadsword sword~
@@ -824,8 +824,8 @@ unknown~
 weapon A 0 AN
 sword 8 5 'slash' D
 30 160 15000 P
-f object damroll 2 0 30 -1
-f object hitroll 3 0 30 -1
+f object damroll 2 0
+f object hitroll 3 0
 g @rus none~
 #22494
 wooven leather bracer~
@@ -835,13 +835,13 @@ unknown~
 armor U 0 AM
 5 5 5 8 0
 25 10 10000 P
-f object damroll 2 0 25 -1
-f resists negative 2 0 25 -1
-f resists pierce 1 0 25 -1
-f resists slash 1 0 25 -1
-f resists bash 1 0 25 -1
-f resists slash 1 0 25 -1
-f object saves -5 0 25 -1
+f object damroll 2 0
+f resists negative 2 0
+f resists pierce 1 0
+f resists slash 1 0
+f resists bash 1 0
+f resists slash 1 0
+f object saves -5 0
 g @rus none~
 #22495
 black runed key~

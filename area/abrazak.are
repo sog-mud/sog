@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name Heaven~
 Builders astonix~
 VNUMs 15000 15199
@@ -125,7 +125,7 @@ stand stand female 50
 G ABCQ medium unknown
 r weapon 100
 r magic 100
-a 'water breathing' affects none 0 0 80 -1
+a 'water breathing' affects none 0 0
 #15016
 старая сосна pine~
 @eng pine@rus ~~старая~~ ~~сосна~~~
@@ -157,9 +157,9 @@ GT 0 0 0 M 1000 0
 CDEFIKLS
 stand stand male 500
 0 0 medium unknown
-f affects hitroll 50 0 36 -1
-f resists energy 100 0 36 -1
-f skills 'swimming' 100 0 36 -1
+f affects hitroll 50 0
+f resists energy 100 0
+f skills 'swimming' 100 0
 #0
 
 #OBJECTS
@@ -198,12 +198,12 @@ unknown~
 trash 0 0 AO
 0 0 0 0 0
 0 0 0 P
-f object dex 100 0 0 -1
-f object wis 100 0 0 -1
-f object con 100 0 0 -1
-f object cha 100 0 0 -1
-f object int 100 0 0 -1
-f object str 100 0 0 -1
+f object dex 100 0
+f object wis 100 0
+f object con 100 0
+f object cha 100 0
+f object int 100 0
+f object str 100 0
 g @rus none~
 #15005
 fountain~
@@ -249,10 +249,10 @@ divinity~
 weapon 0 0 AN
 mace 2000 2000 'divine' BCDEGHI
 100 0 1000000 P
-f object level 10000 0 100 -1
-f resists holy 75 0 100 -1
-f object damroll 10000 0 100 -1
-f object level 2000 0 100 -1
+f object level 10000 0
+f resists holy 75 0
+f object damroll 10000 0
+f object level 2000 0
 g @rus none~
 #15010
 scythe~
@@ -262,8 +262,8 @@ unknown~
 weapon Y BF AN
 dagger 10000 10000 'pierce' ABCDEGHI
 99 0 0 P
-f object damroll 100000 0 99 -1
-f object hitroll 100000 0 99 -1
+f object damroll 100000 0
+f object hitroll 100000 0
 g @rus none~
 #15011
 horn~
@@ -318,32 +318,32 @@ unknown~
 clothing GIY C AE
 0 0 0 0 0
 95 0 0 P
-f resists bash 100 0 95 -1
-f resists pierce 100 0 95 -1
-f resists slash 100 0 95 -1
-f resists fire 100 0 95 -1
-f resists cold 100 0 95 -1
-f resists lightning 100 0 95 -1
-f resists acid 100 0 95 -1
-f resists holy 100 0 95 -1
-f resists negative 100 0 95 -1
-f resists energy 100 0 95 -1
-f resists mental 100 0 95 -1
-f resists sound 100 0 95 -1
-f resists disease 100 0 95 -1
-f resists poison 100 0 95 -1
-f resists charm 100 0 95 -1
-f resists harm 100 0 95 -1
-f resists light 100 0 95 -1
-f object saves -10 0 95 -1
-f detects saves -10 L 95 -1
-f detects saves -10 K 95 -1
-f detects saves -10 M 95 -1
-f detects saves -10 C 95 -1
-f detects saves -10 B 95 -1
-f detects saves -10 D 95 -1
-f detects saves -10 A 95 -1
-f detects saves -10 F 95 -1
+f resists bash 100 0
+f resists pierce 100 0
+f resists slash 100 0
+f resists fire 100 0
+f resists cold 100 0
+f resists lightning 100 0
+f resists acid 100 0
+f resists holy 100 0
+f resists negative 100 0
+f resists energy 100 0
+f resists mental 100 0
+f resists sound 100 0
+f resists disease 100 0
+f resists poison 100 0
+f resists charm 100 0
+f resists harm 100 0
+f resists light 100 0
+f object saves -10 0
+f detects saves -10 L
+f detects saves -10 K
+f detects saves -10 M
+f detects saves -10 C
+f detects saves -10 B
+f detects saves -10 D
+f detects saves -10 A
+f detects saves -10 F
 g @rus none~
 #15017
 посох staff~
@@ -362,8 +362,8 @@ pearl~
 jewelry GI C AC
 0 0 0 0 0
 95 0 0 P
-f object damroll 250 0 95 -1
-f object hitroll 250 0 95 -1
+f object damroll 250 0
+f object hitroll 250 0
 g @rus none~
 #15019
 mark~
@@ -400,7 +400,7 @@ unknown~
 weapon 0 0 AN
 exotic 0 0 'none' 0
 10 0 0 P
-f skills 'vampire' 100 A 10 -1
+f skills 'vampire' 100 A
 g @rus none~
 #15027
 elephant слон~
@@ -510,12 +510,12 @@ unknown~
 armor GIY BCF AB
 -20 -20 -20 -20 0
 0 0 0 P
-f object cha 3 0 0 -1
-f object con 3 0 0 -1
-f object int 3 0 0 -1
-f object wis 3 0 0 -1
-f object dex 3 0 0 -1
-f object str 3 0 0 -1
+f object cha 3 0
+f object con 3 0
+f object int 3 0
+f object wis 3 0
+f object dex 3 0
+f object str 3 0
 g @rus none~
 #15043
 splinter~

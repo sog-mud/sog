@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name Clock Tower~
 VNUMs 4900 4999
 Credits Kami Agrael~
@@ -599,12 +599,12 @@ bronze~
 armor BY 0 AD
 10 10 10 5 0
 30 100 100000 P
-f object str 1 0 30 -1
-f object con 2 0 30 -1
-f object ac -50 0 30 -1
-f object hitroll 5 0 30 -1
-f object damroll 5 0 30 -1
-f object saving_spell -5 0 30 -1
+f object str 1 0
+f object con 2 0
+f object ac -50 0
+f object hitroll 5 0
+f object damroll 5 0
+f object saving_spell -5 0
 g @rus male~
 #4901
 robe mechanic фартук~
@@ -614,8 +614,8 @@ silk~
 armor 0 0 AD
 15 15 15 10 0
 30 20 0 A
-f object dex -1 0 30 -1
-f object wis 3 0 30 -1
+f object dex -1 0
+f object wis 3 0
 g @rus male~
 #4902
 standart set instrument набор~
@@ -625,9 +625,9 @@ iron~
 weapon B B AN
 exotic 6 6 'cleave' G
 30 100 5000 P
-f object move -100 0 30 -1
-f object hitroll 3 0 30 -1
-f object damroll 3 0 30 -1
+f object move -100 0
+f object hitroll 3 0
+f object damroll 3 0
 g @rus male~
 #4903
 box carved шкатулка~
@@ -655,13 +655,13 @@ bronze~
 armor AY 0 AO
 0 0 0 0 0
 20 50 100000 G
-f object wis 3 0 20 -1
-f object mana 50 0 20 -1
-f object hp 50 0 20 -1
-f object ac -50 0 20 -1
-f object hitroll 5 0 20 -1
-f object damroll 5 0 20 -1
-f object saving_spell -5 0 20 -1
+f object wis 3 0
+f object mana 50 0
+f object hp 50 0
+f object ac -50 0
+f object hitroll 5 0
+f object damroll 5 0
+f object saving_spell -5 0
 g @rus male~
 #4906
 hat top black цилиндр черный~
@@ -671,10 +671,10 @@ silk~
 armor GK 0 AE
 10 10 10 8 0
 15 40 1000 P
-f object int -1 0 15 -1
-f object wis -1 0 15 -1
-f object mana 20 0 15 -1
-f object saving_spell -3 0 15 -1
+f object int -1 0
+f object wis -1 0
+f object mana 20 0
+f object saving_spell -3 0
 g @rus male~
 #4907
 vest chimney black куртка черная~
@@ -684,10 +684,10 @@ silk~
 armor GK 0 AD
 10 10 10 8 0
 15 30 1000 P
-f object str -1 0 15 -1
-f object dex 2 0 15 -1
-f object con -1 0 15 -1
-f object hp 20 0 15 -1
+f object str -1 0
+f object dex 2 0
+f object con -1 0
+f object hp 20 0
 g @rus female~
 #4908
 leggins chimney black штаны черные~
@@ -697,10 +697,10 @@ soft leather~
 armor GKM E AF
 10 10 10 8 0
 15 20 1000 P
-f object con 1 0 15 -1
-f object move 50 0 15 -1
-f object ac -5 0 15 -1
-f object damroll 2 0 15 -1
+f object con 1 0
+f object move 50 0
+f object ac -5 0
+f object damroll 2 0
 g @rus plural~
 #4909
 broom chimney black щетка черная~
@@ -737,7 +737,7 @@ soft leather~
 armor BHLM 0 AM
 3 3 3 2 0
 5 10 0 P
-f object hitroll 1 0 5 -1
+f object hitroll 1 0
 g @rus none~
 #4913
 web spider паутина~
@@ -747,9 +747,9 @@ elastic~
 armor HM 0 AK
 3 3 3 2 0
 5 0 0 P
-f object hp 5 0 5 -1
-f object move -10 0 5 -1
-f object saving_spell 3 0 5 -1
+f object hp 5 0
+f object move -10 0
+f object saving_spell 3 0
 g @rus female~
 #4914
 skull pigeon череп~
@@ -759,16 +759,16 @@ horn~
 armor 0 0 AE
 5 5 5 5 0
 10 10 0 P
-f object str -1 0 10 -1
-f object dex -1 0 10 -1
-f object int -1 0 10 -1
-f object wis -1 0 10 -1
-f object con -1 0 10 -1
-f object mana 10 0 10 -1
-f object hp 10 0 10 -1
-f object move 10 0 10 -1
-f object ac -10 0 10 -1
-f object hitroll 2 0 10 -1
+f object str -1 0
+f object dex -1 0
+f object int -1 0
+f object wis -1 0
+f object con -1 0
+f object mana 10 0
+f object hp 10 0
+f object move 10 0
+f object ac -10 0
+f object hitroll 2 0
 g @rus male~
 #4915
 talon rat коготь~
@@ -778,8 +778,8 @@ horn~
 armor U 0 AB
 3 3 3 2 0
 5 5 0 P
-f object hitroll -1 0 5 -1
-f object damroll 1 0 5 -1
+f object hitroll -1 0
+f object damroll 1 0
 g @rus male~
 #4916
 breast plate glowing кираса~

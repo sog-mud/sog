@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name Dying Forest~
 VNUMs 24300 24399
 Credits Ceran~
@@ -286,8 +286,8 @@ steel~
 armor K 0 AI
 7 5 6 0 0
 32 100 8000 P
-f object damroll 2 0 32 -1
-f object dex -1 0 32 -1
+f object damroll 2 0
+f object dex -1 0
 g @rus plural~
 #24301
 bracer браслет стальной centaur steel~
@@ -297,8 +297,8 @@ steel~
 armor 0 0 AM
 5 4 5 0 0
 30 100 8000 P
-f object damroll 2 0 30 -1
-f object dex -1 0 30 -1
+f object damroll 2 0
+f object dex -1 0
 g @rus male~
 #24302
 helm шлем~
@@ -317,8 +317,8 @@ steel~
 armor K 0 AD
 9 10 9 3 0
 35 450 8000 P
-f object damroll 2 0 35 -1
-f object dex -1 0 35 -1
+f object damroll 2 0
+f object dex -1 0
 g @rus plural~
 #24305
 spear копье steel~
@@ -328,8 +328,8 @@ steel~
 weapon KMY 0 AN
 spear 13 4 'pierce' DK
 40 140 12000 P
-f object hitroll 5 0 40 -1
-f object damroll 5 0 40 -1
+f object hitroll 5 0
+f object damroll 5 0
 E
 br~
 @rus l
@@ -344,10 +344,10 @@ flesh~
 armor AI 0 AE
 9 9 10 12 12
 50 10 20000 P
-f object saving_spell -2 0 50 -1
-f object hitroll 5 0 50 -1
-f object damroll 3 0 50 -1
-f object hp 50 0 50 -1
+f object saving_spell -2 0
+f object hitroll 5 0
+f object damroll 3 0
+f object hp 50 0
 g @rus female~
 #24308
 sword меч black bastard~
@@ -357,8 +357,8 @@ steel~
 weapon CEJY 0 AN
 sword 7 7 'pierce' DH
 40 160 9000 P
-f object hitroll 8 0 40 -1
-f object damroll 8 0 40 -1
+f object hitroll 8 0
+f object damroll 8 0
 g @rus male~
 #24309
 fist earth перчатка~
@@ -368,8 +368,8 @@ steel~
 weapon BEFMY 0 AN
 exotic 10 7 'crush' D
 51 300 100000 P
-f object hitroll 5 0 51 -1
-f object damroll 5 0 51 -1
+f object hitroll 5 0
+f object damroll 5 0
 g @rus female~
 #24312
 bark ebon ebonwood кора~
@@ -379,9 +379,9 @@ wood~
 armor CEHJ 0 AD
 100 6 7 0 0
 51 200 100000 P
-f object hitroll 3 0 51 -1
-f object damroll 3 0 51 -1
-f object hp 35 0 51 -1
+f object hitroll 3 0
+f object damroll 3 0
+f object hp 35 0
 g @rus female~
 #0
 

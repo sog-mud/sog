@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name Olympus~
 Builders orail~
 VNUMs 900 999
@@ -420,9 +420,9 @@ skin~
 armor FG 0 AJ
 15 15 15 15 0
 45 100 8400 P
-f resists pierce 3 0 45 -1
-f resists slash 3 0 45 -1
-f resists bash 3 0 45 -1
+f resists pierce 3 0
+f resists slash 3 0
+f resists bash 3 0
 g @rus female~
 #901
 thunderbolt hammer thunder bolt гром~
@@ -432,9 +432,9 @@ mithril~
 weapon FG 0 AN
 mace 8 7 'blast' G
 45 400 5400 P
-f object hitroll 5 0 45 -1
-f object damroll 5 0 45 -1
-f object wis -1 0 45 -1
+f object hitroll 5 0
+f object damroll 5 0
+f object wis -1 0
 g @rus male~
 #902
 helmet winged шлем~
@@ -444,9 +444,9 @@ platinum~
 armor FGK 0 AE
 11 12 11 5 0
 45 50 7300 P
-f affects hp 25 0 45 -1
-f affects saves -5 0 45 -1
-f object dex 2 0 45 -1
+f affects hp 25 0
+f affects saves -5 0
+f object dex 2 0
 g @rus male~
 #903
 spear ares копье~
@@ -456,8 +456,8 @@ titanium~
 weapon FGJ 0 AN
 spear 5 10 'thrust' DFK
 45 180 2000 P
-f object damroll 4 0 45 -1
-f object hitroll 4 0 45 -1
+f object damroll 4 0
+f object hitroll 4 0
 g @rus none~
 #904
 sandals winged крылатые сандалии~
@@ -467,7 +467,7 @@ silk~
 armor FGK 0 AG
 8 8 8 4 0
 25 50 2200 P
-f affects none 0 T 25 -1
+f affects none 0 T
 g @rus plural~
 #905
 staff ivory жезл~
@@ -486,7 +486,7 @@ oak~
 weapon FGK 0 AN
 spear 7 7 'pierce' FK
 45 160 5700 P
-f object wis 2 0 45 -1
+f object wis 2 0
 g @rus male~
 #907
 bow silver лук~
@@ -496,8 +496,8 @@ silver~
 weapon FGK 0 AN
 bow 6 7 'pierce' F
 45 150 10300 P
-f object damroll 1 0 45 -1
-f object hitroll 1 0 45 -1
+f object damroll 1 0
+f object hitroll 1 0
 g @rus male~
 #908
 gauntlets flaming рукавицы~
@@ -507,7 +507,7 @@ steel~
 armor G 0 AH
 7 7 7 4 0
 45 60 2900 P
-f object hp 25 0 45 -1
+f object hp 25 0
 g @rus plural~
 #909
 ambrosia амброзия vial potion~
@@ -526,7 +526,7 @@ amethyst~
 jewelry FGK 0 AC
 0 0 0 0 0
 25 20 980 P
-f object mana 25 0 25 -1
+f object mana 25 0
 g @rus none~
 #911
 ring sapphire кольцо~
@@ -536,8 +536,8 @@ sapphire~
 jewelry FGK 0 AB
 0 0 0 0 0
 35 10 6900 P
-f object damroll 3 0 35 -1
-f object wis 2 0 35 -1
+f object damroll 3 0
+f object wis 2 0
 g @rus none~
 #912
 shield glowing щит~
@@ -547,12 +547,12 @@ silver~
 armor FGK 0 AJ
 25 25 23 18 0
 45 1000 5300 P
-f resists negative 5 0 45 -1
-f resists holy 5 0 45 -1
-f affects hitroll 4 0 45 -1
-f affects damroll 4 0 45 -1
-f affects hp 30 0 45 -1
-f object wis 1 0 45 -1
+f resists negative 5 0
+f resists holy 5 0
+f affects hitroll 4 0
+f affects damroll 4 0
+f affects hp 30 0
+f object wis 1 0
 g @rus male~
 #913
 axe notched топор~
@@ -643,9 +643,9 @@ crystal~
 jewelry FGK 0 AC
 0 0 0 0 0
 45 10 4900 P
-f affects saves -10 0 45 -1
-f resists energy 15 0 45 -1
-f resists fire 15 0 45 -1
+f affects saves -10 0
+f resists energy 15 0
+f resists fire 15 0
 g @rus male~
 #923
 sword sun меч ра~
@@ -655,9 +655,9 @@ unknown~
 weapon FGK 0 AN
 sword 8 8 'slash' 0
 45 200 6800 P
-f object damroll 8 0 45 -1
-f object hitroll 6 0 45 -1
-f object cha 3 0 45 -1
+f object damroll 8 0
+f object hitroll 6 0
+f object cha 3 0
 g @rus male~
 #924
 robe blue одежды~
@@ -667,10 +667,10 @@ unknown~
 armor FGK 0 AK
 12 12 11 6 0
 45 100 1960 P
-f affects saves 3 0 45 -1
-f affects saving_spell 4 0 45 -1
-f affects saving_breath 7 0 45 -1
-f affects mana 30 0 45 -1
+f affects saves 3 0
+f affects saving_spell 4 0
+f affects saving_breath 7 0
+f affects mana 30 0
 g @rus plural~
 #925
 hat шляпа~
@@ -680,11 +680,11 @@ cloth~
 armor FGK 0 AE
 16 16 14 9 0
 45 50 580 P
-f resists harm 5 0 45 -1
-f resists cold 5 0 45 -1
-f resists energy 5 0 45 -1
-f resists mental 5 0 45 -1
-f affects hp 15 0 45 -1
+f resists harm 5 0
+f resists cold 5 0
+f resists energy 5 0
+f resists mental 5 0
+f affects hp 15 0
 g @rus female~
 #926
 nectar нектар~

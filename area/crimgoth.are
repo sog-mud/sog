@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name A Dungeon of the Lich Crimgoth~
 VNUMs 12400 12499
 Credits Nergal~
@@ -43,8 +43,8 @@ bone~
 weapon C 0 AN
 mace 7 6 'crush' 0
 20 0 0 P
-f object hitroll -2 0 20 -1
-f object damroll 3 0 20 -1
+f object hitroll -2 0
+f object damroll 3 0
 g @rus none~
 #0
 

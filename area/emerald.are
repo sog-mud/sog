@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name Emerald Forest~
 Builders dias~
 VNUMs 200 299
@@ -1830,8 +1830,8 @@ wood~
 armor AG 0 AE
 12 11 11 10 0
 42 8 80000 P
-f object hitroll 2 0 42 -1
-f object damroll 4 0 42 -1
+f object hitroll 2 0
+f object damroll 4 0
 E
 stetson helm стетсон шлем шляпа~
 @eng The ancient Ranger Lord's Stetson is a wide-brimmed affair with a living oak
@@ -1848,10 +1848,10 @@ silver~
 weapon AGHM 0 AN
 mace 12 3 'wrath' 0
 38 100 10000 G
-f object str 2 0 38 -1
-f object wis -5 0 38 -1
-f object hitroll 3 0 38 -1
-f object damroll 3 0 38 -1
+f object str 2 0
+f object wis -5 0
+f object hitroll 3 0
+f object damroll 3 0
 E
 vainglory Morning-Star Morningstar напрасная слава звезда утренняя~
 @eng Along the oaken haft of this holy weapon is engraved a faded psalm:
@@ -1869,9 +1869,9 @@ wood~
 armor A 0 AO
 9 9 9 0 0
 38 4 12000 G
-f object saving_spell -15 0 38 -1
-f object ac -2 0 38 -1
-f object str 2 0 38 -1
+f object saving_spell -15 0
+f object ac -2 0
+f object str 2 0
 E
 Relic ikon реликт икона~
 @eng Staring at the beatific face of this martyr Saint, you feel a sense of
@@ -2010,8 +2010,8 @@ cloth~
 armor 0 0 AD
 7 7 7 0 0
 20 50 500 G
-f object dex 1 0 20 -1
-f object cha 1 0 20 -1
+f object dex 1 0
+f object cha 1 0
 E
 dress платье~
 @eng It's a flouncy and frilly thing, the color of crushed lavender.
@@ -2026,7 +2026,7 @@ paper~
 trash 0 0 AO
 AC BC AC 0 0
 8 3 50 G
-f object int -1 0 8 -1
+f object int -1 0
 E
 sonnet сонет~
 @eng It's one of the Bard's...
@@ -2091,8 +2091,8 @@ silver~
 weapon GKL 0 AN
 sword 10 3 'wrath' 0
 35 80 12000 G
-f object hitroll 4 0 35 -1
-f object damroll 4 0 35 -1
+f object hitroll 4 0
+f object damroll 4 0
 E
 sword меч~
 @eng The sword you hold in your hands once belonged to a templar knight of
@@ -2112,9 +2112,9 @@ wood~
 armor GKL 0 AC
 9 9 9 0 0
 35 2 5000 G
-f object saving_spell -5 0 35 -1
-f object dex 2 0 35 -1
-f object mana 15 0 35 -1
+f object saving_spell -5 0
+f object dex 2 0
+f object mana 15 0
 E
 cross крест~
 @eng This small and nicely carved wooden cross has a long chain of black
@@ -2136,8 +2136,8 @@ cloth~
 armor KL 0 AK
 9 9 10 0 0
 35 5 5000 G
-f object dex 1 0 35 -1
-f object damroll 2 0 35 -1
+f object dex 1 0
+f object damroll 2 0
 E
 surcoat мантия~
 @eng This is a white surcoat with a red cross in the front and back of it.
@@ -2157,7 +2157,7 @@ steel~
 armor KL 0 AD
 6 6 6 0 0
 36 90 4000 G
-f object damroll 2 0 36 -1
+f object damroll 2 0
 E
 shirt mailed рубашка броня бронированная~
 @eng This shirt of steel mail is the standard armour of the Crusader
@@ -2179,8 +2179,8 @@ steel~
 armor KL 0 AF
 5 5 5 5 0
 35 6 5000 G
-f object hitroll 1 0 35 -1
-f object damroll 2 0 35 -1
+f object hitroll 1 0
+f object damroll 2 0
 E
 steel leggings стальные поножи~
 @eng This is a sturdy though battered pair of leggings worn by the
@@ -2204,8 +2204,8 @@ steel~
 armor KL 0 AG
 6 6 6 6 2
 35 8 5000 G
-f object move 40 0 35 -1
-f object hitroll 1 0 35 -1
+f object move 40 0
+f object hitroll 1 0
 E
 sollerets boots солереты ботинки~
 @eng Made for maximum protection with minimum weight, the soft fur inner
@@ -2300,9 +2300,9 @@ yew~
 weapon GKL 0 AN
 bow 5 9 'pierce' 0
 43 90 30000 G
-f object dex 2 0 43 -1
-f object hitroll 6 0 43 -1
-f object damroll 3 0 43 -1
+f object dex 2 0
+f object hitroll 6 0
+f object damroll 3 0
 E
 yew bow лук тисовый~
 @eng It is a long and supple weapon worked from yew by elven craft and
@@ -2384,8 +2384,8 @@ steel~
 armor BK 0 AJ
 8 8 9 0 0
 35 80 10000 P
-f object hp -10 0 35 -1
-f object damroll 2 0 35 -1
+f object hp -10 0
+f object damroll 2 0
 E
 shield melancholic щит рыцарь печальный~
 @eng This is a Knight Melancholic's shield, and it bears the crest of the
@@ -2406,9 +2406,9 @@ steel~
 weapon K 0 AN
 sword 10 3 'slash' 0
 35 100 10000 G
-f object hp -5 0 35 -1
-f object hitroll 4 0 35 -1
-f object damroll 4 0 35 -1
+f object hp -5 0
+f object hitroll 4 0
+f object damroll 4 0
 E
 sword swiftbird меч быстрая птица~
 @eng This sword has been beautifully crafted, meant to bring woe measure
@@ -2428,8 +2428,8 @@ energy~
 weapon FGI 0 AN
 exotic 10 4 'magic' 0
 43 100 10000 G
-f object hitroll 3 0 43 -1
-f object damroll 3 0 43 -1
+f object hitroll 3 0
+f object damroll 3 0
 E
 orb marmalade шар мармеладный~
 @eng The orb is fist-sized and pulsates with an otherworldly energy.  As
@@ -2449,9 +2449,9 @@ cloth~
 treasure A 0 AO
 0 0 0 0 0
 50 3 80000 G
-f object mana -15 0 50 -1
-f object hitroll 1 0 50 -1
-f object damroll 4 0 50 -1
+f object mana -15 0
+f object hitroll 1 0
+f object damroll 4 0
 E
 Tiancanshengong manual книга тянканшенгонг~
 @eng Browsing through the manual, you notice the following oriental words
@@ -2472,9 +2472,9 @@ wood~
 armor GIKL 0 AO
 7 8 7 0 0
 20 3 100 G
-f object mana -15 0 20 -1
-f object hitroll 2 0 20 -1
-f object saving_spell -5 0 20 -1
+f object mana -15 0
+f object hitroll 2 0
+f object saving_spell -5 0
 E
 bible библия~
 @eng This small black bible looks well thumbed and has a weathered
@@ -2570,9 +2570,9 @@ gold~
 weapon K 0 AN
 mace 10 2 'pound' 0
 15 180 8000 G
-f object dex -1 0 15 -1
-f object hitroll 1 0 15 -1
-f object damroll 3 0 15 -1
+f object dex -1 0
+f object hitroll 1 0
+f object damroll 3 0
 E
 marcel proust book книга марсель пруст~
 @eng All 7 related books of this literary masterpiece have been bound in
@@ -2630,8 +2630,8 @@ ashwood~
 weapon K 0 AN
 bow 9 3 'pierce' 0
 28 100 4700 G
-f object hitroll 3 0 28 -1
-f object damroll 1 0 28 -1
+f object hitroll 3 0
+f object damroll 1 0
 E
 bow ashen Longbow длинный ясеневый лук~
 @eng This longbow is six feet tall and made from the sturdy, supple wood
@@ -2648,8 +2648,8 @@ darkness~
 weapon CHJ 0 AN
 spear 9 3 'pierce' AK
 25 120 3000 G
-f object hitroll 1 0 25 -1
-f object damroll 4 0 25 -1
+f object hitroll 1 0
+f object damroll 4 0
 E
 hellspear spear копье яд преисподняя~
 @eng Five and half feet of night-black iron, the Hell-Spears were forged in
@@ -2905,10 +2905,10 @@ elvenskin~
 armor J 0 AC
 9 8 8 0 0
 38 8 9000 G
-f object cha -1 0 38 -1
-f object age 20 0 38 -1
-f object hp 10 0 38 -1
-f object damroll 2 0 38 -1
+f object cha -1 0
+f object age 20 0
+f object hp 10 0
+f object damroll 2 0
 E
 skin cloak накидка кожа~
 @eng An elven princess of a past age gave up her skin to the witches of the
@@ -2931,8 +2931,8 @@ wax~
 light AGJ 0 A
 0 0 999 0 0
 20 1 5500 G
-f object hitroll 1 0 20 -1
-f object damroll 1 0 20 -1
+f object hitroll 1 0
+f object damroll 1 0
 E
 candle свеча~
 @eng The blood candle burns so that only you can see its light.  It is made
@@ -2950,8 +2950,8 @@ gold~
 armor ACGJ 0 AB
 9 9 9 9 9
 38 2 15000 G
-f object mana 15 0 38 -1
-f object damroll 2 0 38 -1
+f object mana 15 0
+f object damroll 2 0
 E
 ring scarab beetle кольцо скарабей~
 @eng A large ugly beetle has been dipped in liquid gold.  Its legs curl in
@@ -2969,10 +2969,10 @@ moss~
 armor CGJ 0 AE
 9 9 9 0 0
 38 2 15500 G
-f object int 2 0 38 -1
-f object wis 2 0 38 -1
-f object hitroll 1 0 38 -1
-f object damroll 1 0 38 -1
+f object int 2 0
+f object wis 2 0
+f object hitroll 1 0
+f object damroll 1 0
 E
 wig~
 Your vision swims even as you look at the wig, a mass of small green
@@ -2989,9 +2989,9 @@ leather~
 armor EJ 0 AE
 12 11 11 0 0
 50 8 25000 G
-f object hp 20 0 50 -1
-f object hitroll 2 0 50 -1
-f object damroll 3 0 50 -1
+f object hp 20 0
+f object hitroll 2 0
+f object damroll 3 0
 E
 circlet~
 In a thick band of cracked black leather has been set a stone which
@@ -3008,9 +3008,9 @@ bronze~
 armor G 0 AD
 11 11 11 0 0
 50 60 25000 G
-f object mana 20 0 50 -1
-f object hitroll 2 0 50 -1
-f object damroll 2 0 50 -1
+f object mana 20 0
+f object hitroll 2 0
+f object damroll 2 0
 E
 gown samite~
 The gown of white samite flows long and smoothly to the ground.  It is
@@ -3028,8 +3028,8 @@ iron~
 weapon M 0 AN
 whip 8 6 'sting' 0
 50 70 25000 G
-f object hitroll 3 0 50 -1
-f object damroll 3 0 50 -1
+f object hitroll 3 0
+f object damroll 3 0
 E
 whip tail manticore~
 This exotic instrument of death is the massive tail of a manticore.
@@ -3045,9 +3045,9 @@ steel~
 weapon AEJM 0 AN
 dagger 8 6 'frbite' B
 50 70 25000 G
-f object hitroll 4 0 50 -1
-f object damroll 4 0 50 -1
-f object mana 40 0 50 -1
+f object hitroll 4 0
+f object damroll 4 0
+f object mana 40 0
 E
 dagger Yog-Sothoth~
 The name of the god Yog-Sothoth has been runed upon the blade of this
@@ -3093,8 +3093,8 @@ iron~
 weapon CHJ 0 AN
 sword 9 3 'slash' A
 25 120 4700 G
-f object hitroll 1 0 25 -1
-f object damroll 4 0 25 -1
+f object hitroll 1 0
+f object damroll 4 0
 E
 hellblade blade~
 Names of damned souls like so many pits and scratches have been burned
@@ -3111,7 +3111,7 @@ energy~
 armor HM 0 AO
 8 8 8 0 0
 35 1 3000 G
-f object hp 35 0 35 -1
+f object hp 35 0
 E
 word~
 It is written in a foreign tongue. You can't understand it.
@@ -3201,9 +3201,9 @@ gold~
 armor KL 0 AB
 7 7 7 0 0
 18 1 1500 G
-f object saving_spell -3 0 18 -1
-f object hitroll 1 0 18 -1
-f object damroll 1 0 18 -1
+f object saving_spell -3 0
+f object hitroll 1 0
+f object damroll 1 0
 E
 lancelot signet ring~
 This ring looks like a thing from another and much older age. Its band
@@ -3267,7 +3267,7 @@ leather~
 container 0 0 AK
 650 A 0 10 0
 1 2 90 P
-f object ac -4 0 1 -1
+f object ac -4 0
 E
 knapsack sack~
 A knapsack made from the finest leather rests here.
@@ -3294,9 +3294,9 @@ bone~
 armor CJQ 0 AM
 4 4 4 0 0
 40 5 5000 G
-f object mana -5 0 40 -1
-f object damroll 2 0 40 -1
-f object ac -3 0 40 -1
+f object mana -5 0
+f object damroll 2 0
+f object ac -3 0
 E
 bone bracelet~
 This ornamental chain was strung from blackened knuckle bones of an elf.
@@ -3338,9 +3338,9 @@ cashmire~
 clothing GUb B AG
 0 0 0 0 0
 10 0 12000 P
-f object saves -10 0 10 -1
-f resists cold 15 0 10 -1
-f invis hitroll 5 G 10 -1
+f object saves -10 0
+f resists cold 15 0
+f invis hitroll 5 G
 g @rus plural~
 #0
 

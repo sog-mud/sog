@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name Miden'nir~
 VNUMs 3500 3599
 Credits Copper~
@@ -154,7 +154,7 @@ iron~
 weapon 0 0 AN
 sword 2 4 'stab' 0
 5 40 460 A
-f object hitroll -1 0 5 -1
+f object hitroll -1 0
 E
 sword меч~
 @eng It looks heavier than your average short sword, but it could use some oiling.
@@ -170,7 +170,7 @@ iron~
 weapon 0 0 AN
 spear 2 7 'thrust' F
 6 80 100 A
-f object ac 2 0 6 -1
+f object ac 2 0
 E
 spear копье~
 @eng This used to be a boar spear, but it has been used for more dangerous game.
@@ -204,7 +204,7 @@ leather~
 armor 0 0 AM
 2 4 4 2 0
 7 10 690 G
-f object hitroll 1 0 7 -1
+f object hitroll 1 0
 E
 bracer нарукавники~
 @eng This bracer is covered with runes of protection and luck in combat.
@@ -219,7 +219,7 @@ mithril~
 weapon GK 0 AN
 dagger 2 4 'stab' 0
 5 10 420 P
-f object hitroll 1 0 5 -1
+f object hitroll 1 0
 E
 knife dagger нож кинжал~
 @eng It's very sharp, you suspect this knife is more effective than many swords.

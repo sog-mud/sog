@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name Pyramid~
 VNUMs 8700 8799
 Credits Andersen~
@@ -334,7 +334,7 @@ obsidian~
 weapon G 0 AN
 dagger 3 7 'pierce' 0
 15 10 910 P
-f object hitroll 1 0 15 -1
+f object hitroll 1 0
 E
 obsidian dirk~
 The blade of the dirk is black, glassy obsidian, chipped razor sharp.
@@ -348,8 +348,8 @@ cloth~
 armor G 0 AE
 5 5 5 0 0
 13 100 1470 P
-f object hp 5 0 13 -1
-f object dex 1 0 13 -1
+f object hp 5 0
+f object dex 1 0
 E
 cloth turban~
 The turban used to be white cloth, now it is covered with oil and dirt from
@@ -403,8 +403,8 @@ flame~
 light AG 0 AO
 0 0 -1 0 0
 20 100 720 P
-f object move 20 0 20 -1
-f object hp 10 0 20 -1
+f object move 20 0
+f object hp 10 0
 E
 ball fire~
 The ball of fire is hot to the touch and very very bright.
@@ -418,8 +418,8 @@ stone~
 weapon BG 0 AN
 sword 5 5 'slash' 0
 20 180 1820 P
-f object damroll 2 0 20 -1
-f object hitroll 1 0 20 -1
+f object damroll 2 0
+f object hitroll 1 0
 E
 stone scimitar~
 The scimitar is formed from solid stone, chipped and carved to perfection,
@@ -494,8 +494,8 @@ silver~
 staff ABGK 0 AO
 25 5 5 'fly' 0
 20 100 4700 P
-f object hitroll 1 0 20 -1
-f object ac -5 0 20 -1
+f object hitroll 1 0
+f object ac -5 0
 E
 lamp~
 The lamp is quite old and tarnished.  You rub at it to get some of the
@@ -510,9 +510,9 @@ brass~
 jewelry IK 0 AO
 0 0 0 0 0
 14 90 2100 P
-f object wis 1 0 14 -1
-f object int 1 0 14 -1
-f object ac -3 0 14 -1
+f object wis 1 0
+f object int 1 0
+f object ac -3 0
 E
 ankh~
 The ankh is a small brass symbol of an ancient religion.
@@ -542,9 +542,9 @@ bone~
 weapon G 0 AN
 exotic 4 15 'claw' 0
 26 200 4400 P
-f object damroll 6 0 26 -1
-f object hitroll 8 0 26 -1
-f object con 1 0 26 -1
+f object damroll 6 0
+f object hitroll 8 0
+f object con 1 0
 E
 lion paw~
 The massive paw has straps on it formed of bronze, so that it will
@@ -601,11 +601,11 @@ unknown~
 trash EGHM 0 AO
 0 0 0 0 0
 0 10 0 P
-f object move -100 0 0 -1
-f object hp -50 0 0 -1
-f object con -3 0 0 -1
-f object dex -3 0 0 -1
-f object str -3 0 0 -1
+f object move -100 0
+f object hp -50 0
+f object con -3 0
+f object dex -3 0
+f object str -3 0
 E
 curse mummy~
 Rumor has it that whomever disturbs the grave of the mummy shall be 
@@ -636,10 +636,10 @@ gold~
 armor G 0 AT
 11 11 10 5 0
 33 100 5500 P
-f object saves -1 0 33 -1
-f object move 30 0 33 -1
-f object hp 10 0 33 -1
-f object mana 25 0 33 -1
+f object saves -1 0
+f object move 30 0
+f object hp 10 0
+f object mana 25 0
 E
 golden mask~
 This beautiful mask was shaped from solid gold and magically enchanted
@@ -672,7 +672,7 @@ brass~
 wand AG 0 AO
 35 25 25 'harm' 0
 24 100 29800 P
-f object saves -2 0 24 -1
+f object saves -2 0
 E
 sun wand~
 This small brass shaft is a holy weapon used by the ancient people of 
@@ -688,8 +688,8 @@ ruby~
 jewelry BG 0 AB
 0 0 0 0 0
 20 50 1300 P
-f object mana 20 0 20 -1
-f object int 1 0 20 -1
+f object mana 20 0
+f object int 1 0
 E
 sandy ring~
 The ring is small, smooth, sandy-colored and unremarkable, save that
@@ -704,7 +704,7 @@ gold~
 treasure G 0 AO
 0 0 0 0 0
 5 50 550 P
-f object wis 1 0 5 -1
+f object wis 1 0
 E
 golden sphinx~
 The golden sphinx is incredibly detailed and very small, fitting easily
@@ -720,9 +720,9 @@ mithril~
 armor GK 0 AF
 11 11 11 4 0
 32 200 7800 P
-f object move 100 0 32 -1
-f object str 2 0 32 -1
-f object damroll 3 0 32 -1
+f object move 100 0
+f object str 2 0
+f object damroll 3 0
 E
 sphinxian leggings~
 These magically fashioned leggings impart the strength and stamina
@@ -738,8 +738,8 @@ ruby~
 jewelry BG 0 AB
 0 0 0 0 0
 40 50 44300 P
-f object damroll 5 0 40 -1
-f object ac 20 0 40 -1
+f object damroll 5 0
+f object ac 20 0
 E
 ra ring~
 The ring is bigger than other rings, smooth, metal-colored and shining, 

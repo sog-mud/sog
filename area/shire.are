@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name Shire~
 VNUMs 1100 1199
 Credits Poohb~
@@ -490,7 +490,7 @@ unknown~
 light G 0 A
 0 0 -1 0 0
 5 80 550 P
-f object wis 1 0 5 -1
+f object wis 1 0
 g @rus none~
 #1101
 sting~
@@ -500,7 +500,7 @@ mithril~
 weapon ABK 0 AN
 dagger 2 7 'bite' 0
 17 10 3500 P
-f object dex 2 0 17 -1
+f object dex 2 0
 g @rus none~
 #1102
 sign~
@@ -540,7 +540,7 @@ cloth~
 armor GK 0 AK
 6 6 6 2 0
 15 30 1320 P
-f object saves -1 0 15 -1
+f object saves -1 0
 g @rus none~
 #1105
 one ring~
@@ -550,8 +550,8 @@ copper~
 jewelry G 0 AB
 0 0 0 0 0
 20 30 1660 P
-f invis none 0 A 20 -1
-f object str -1 0 20 -1
+f invis none 0 A
+f object str -1 0
 g @rus none~
 #1106
 elven spear~
@@ -561,7 +561,7 @@ wood~
 weapon BGK 0 AN
 spear 3 7 'thrust' K
 16 50 500 P
-f object hitroll 2 0 16 -1
+f object hitroll 2 0
 g @rus none~
 #1107
 mithril axe~
@@ -571,7 +571,7 @@ mithril~
 weapon ACM A AN
 axe 3 8 'chop' 0
 17 120 1440 P
-f object damroll 3 0 17 -1
+f object damroll 3 0
 g @rus none~
 #1108
 thain girth~
@@ -581,7 +581,7 @@ cloth~
 armor 0 0 AL
 5 5 5 0 0
 17 40 3600 P
-f object wis 2 0 17 -1
+f object wis 2 0
 g @rus none~
 #1109
 tiny dagger~
@@ -627,7 +627,7 @@ wood~
 weapon 0 0 AN
 polearm 3 10 'cleave' F
 21 100 1810 P
-f object hitroll 4 0 21 -1
+f object hitroll 4 0
 g @rus none~
 #1114
 flail~
@@ -646,7 +646,7 @@ wood~
 weapon 0 0 AN
 polearm 2 3 'pound' F
 3 100 980 P
-f object hitroll 4 0 3 -1
+f object hitroll 4 0
 g @rus none~
 #1116
 dagger shiriff~
@@ -656,8 +656,8 @@ steel~
 weapon 0 0 AN
 dagger 2 4 'pierce' 0
 6 10 480 P
-f object damroll 1 0 6 -1
-f object hitroll 1 0 6 -1
+f object damroll 1 0
+f object hitroll 1 0
 g @rus none~
 #1117
 club heavy~

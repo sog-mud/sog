@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name Ghost~
 VNUMs 8100 8199
 Credits Yaegar~
@@ -642,17 +642,17 @@ wood~
 staff BEGH 0 AO
 60 100 100 'pass door' 0
 55 50 30000 P
-f object str 2 0 55 -1
-f object dex 2 0 55 -1
-f object int 2 0 55 -1
-f object wis 2 0 55 -1
-f object con 2 0 55 -1
-f object mana 250 0 55 -1
-f object ac -50 0 55 -1
-f object hitroll 25 0 55 -1
-f object damroll 25 0 55 -1
-f object saving_breath -10 0 55 -1
-f object saving_spell -10 0 55 -1
+f object str 2 0
+f object dex 2 0
+f object int 2 0
+f object wis 2 0
+f object con 2 0
+f object mana 250 0
+f object ac -50 0
+f object hitroll 25 0
+f object damroll 25 0
+f object saving_breath -10 0
+f object saving_spell -10 0
 g @rus male~
 #8101
 hand vecna рука~
@@ -662,12 +662,12 @@ leather~
 armor EHJMQ 0 AH
 18 19 18 10 0
 56 5 10000 P
-f object dex 3 0 56 -1
-f object int 3 0 56 -1
-f object mana 100 0 56 -1
-f object hitroll 3 0 56 -1
-f object damroll 3 0 56 -1
-f object saving_spell -3 0 56 -1
+f object dex 3 0
+f object int 3 0
+f object mana 100 0
+f object hitroll 3 0
+f object damroll 3 0
+f object saving_spell -3 0
 g @rus female~
 #8102
 eye vecna глаз~
@@ -677,9 +677,9 @@ leather~
 armor AEJM 0 AE
 18 18 18 10 0
 56 1 10000 P
-f object int 3 0 56 -1
-f object wis 3 0 56 -1
-f object mana 50 0 56 -1
+f object int 3 0
+f object wis 3 0
+f object mana 50 0
 g @rus male~
 #8103
 sword kas меч~
@@ -689,9 +689,9 @@ steel~
 weapon BEGJM 0 AN
 sword 5 10 'pierce' D
 47 20 17000 P
-f object ac 20 0 47 -1
-f object hitroll 5 0 47 -1
-f object damroll 5 0 47 -1
+f object ac 20 0
+f object hitroll 5 0
+f object damroll 5 0
 g @rus none~
 #8104
 circlet диадема~
@@ -701,8 +701,8 @@ steel~
 armor GM 0 AE
 17 17 17 10 0
 54 25 18000 P
-f object int -3 0 54 -1
-f object wis -3 0 54 -1
+f object int -3 0
+f object wis -3 0
 g @rus female~
 #8105
 treasure hoard сокровище~
@@ -730,8 +730,8 @@ flesh~
 armor EJ 0 AK
 15 15 15 6 0
 58 25 13000 P
-f object mana 150 0 58 -1
-f object hp 25 0 58 -1
+f object mana 150 0
+f object hp 25 0
 g @rus female~
 #8108
 rod bone жезл~
@@ -741,10 +741,10 @@ femur~
 weapon EJ 0 AN
 mace 6 9 'crush' 0
 58 25 13000 P
-f object mana 15 0 58 -1
-f object ac -10 0 58 -1
-f object hitroll 4 0 58 -1
-f object damroll 4 0 58 -1
+f object mana 15 0
+f object ac -10 0
+f object hitroll 4 0
+f object damroll 4 0
 g @rus male~
 #8109
 pile bones куча~
@@ -763,7 +763,7 @@ crystal~
 staff AG 0 AO
 50 10 10 'sanctuary' 0
 45 10 40000 P
-f object mana 50 0 45 -1
+f object mana 50 0
 g @rus male~
 #8111
 cloak black плащ~
@@ -782,11 +782,11 @@ steel~
 weapon BCEJ 0 AN
 sword 6 10 'slash' 0
 55 35 30000 P
-f object str 1 0 55 -1
-f object con 1 0 55 -1
-f object ac -20 0 55 -1
-f object hitroll 2 0 55 -1
-f object damroll 4 0 55 -1
+f object str 1 0
+f object con 1 0
+f object ac -20 0
+f object hitroll 2 0
+f object damroll 4 0
 g @rus male~
 #8113
 armor dark~
@@ -796,9 +796,9 @@ steel~
 armor CEJ 0 AD
 16 16 17 10 0
 50 450 15000 P
-f object ac -10 0 50 -1
-f object hitroll 4 0 50 -1
-f object damroll 7 0 50 -1
+f object ac -10 0
+f object hitroll 4 0
+f object damroll 7 0
 g @rus plural~
 #8114
 helm dark шлем~
@@ -808,8 +808,8 @@ steel~
 armor CHM 0 AE
 18 18 18 12 0
 55 75 15000 P
-f object int -3 0 55 -1
-f object wis -3 0 55 -1
+f object int -3 0
+f object wis -3 0
 g @rus male~
 #8115
 jar кувшин~
@@ -837,7 +837,7 @@ unknown~
 light EJ 0 A
 0 0 -1 0 0
 48 5 500 P
-f object dex 3 0 48 -1
+f object dex 3 0
 g @rus male~
 #8118
 symbol holy символ~
@@ -847,7 +847,7 @@ unknown~
 light AK 0 A
 0 0 -1 0 0
 48 5 500 P
-f object con 3 0 48 -1
+f object con 3 0
 g @rus male~
 #8119
 corpse останки~

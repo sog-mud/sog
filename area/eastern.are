@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name Sands of Sorrow~
 Builders angi~
 VNUMs 5000 5099
@@ -267,8 +267,8 @@ iron~
 armor AG 0 AD
 7 7 7 0 0
 23 150 7300 P
-f object ac -4 0 23 -1
-f object dex 2 0 23 -1
+f object ac -4 0
+f object dex 2 0
 g @rus none~
 #5002
 halberd~
@@ -278,8 +278,8 @@ steel~
 weapon GI 0 AN
 polearm 3 14 'cleave' F
 29 160 1620 P
-f object damroll 3 0 29 -1
-f object hitroll 2 0 29 -1
+f object damroll 3 0
+f object hitroll 2 0
 g @rus none~
 #5003
 amulet~
@@ -289,7 +289,7 @@ marble~
 jewelry G 0 AC
 0 0 0 0 0
 5 20 550 P
-f object con 1 0 5 -1
+f object con 1 0
 g @rus none~
 #5005
 bone~
@@ -380,7 +380,7 @@ cloth~
 clothing GH 0 AE
 0 0 0 0 0
 0 10 10 P
-f object ac 1 0 0 -1
+f object ac 1 0
 g @rus none~
 #5015
 coins pile груда деньги монеты сокровища~
@@ -399,8 +399,8 @@ steel~
 weapon L 0 AN
 sword 3 7 'slash' 0
 16 70 1410 P
-f object hitroll 3 0 16 -1
-f object damroll 1 0 16 -1
+f object hitroll 3 0
+f object damroll 1 0
 g @rus none~
 #5017
 scimitar~
@@ -410,8 +410,8 @@ steel~
 weapon L 0 AN
 sword 2 8 'slash' 0
 12 60 990 P
-f object hitroll 2 0 12 -1
-f object damroll 1 0 12 -1
+f object hitroll 2 0
+f object damroll 1 0
 g @rus none~
 #5018
 cutlass~
@@ -484,8 +484,8 @@ copper~
 jewelry GH 0 AM
 0 0 0 0 0
 20 100 1300 P
-f object damroll 3 0 20 -1
-f object hp 15 0 20 -1
+f object damroll 3 0
+f object hp 15 0
 g @rus male~
 #5026
 ruby gem самоцвет рубин~
@@ -531,7 +531,7 @@ gem~
 gem I 0 AO
 0 0 0 0 0
 5 1 550 P
-f object dex 1 0 5 -1
+f object dex 1 0
 g @rus male~
 #5031
 jewel red-eyed самоцвет~
@@ -541,7 +541,7 @@ gem~
 gem 0 0 AO
 0 0 0 0 0
 15 1 2600 P
-f object int 2 0 15 -1
+f object int 2 0
 g @rus male~
 #5032
 emerald gem изумруд~

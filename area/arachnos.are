@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name Arachnos~
 VNUMs 6200 6399
 Credits Mahatma~
@@ -278,8 +278,8 @@ cloth~
 armor FG 0 AE
 6 6 6 3 0
 18 50 4600 P
-f object ac -2 0 18 -1
-f object wis 2 0 18 -1
+f object ac -2 0
+f object wis 2 0
 g @rus none~
 #6304
 visor black knight's~
@@ -289,8 +289,8 @@ iron~
 armor FG 0 AE
 6 6 6 2 0
 17 50 4600 P
-f object con 2 0 17 -1
-f object str 1 0 17 -1
+f object con 2 0
+f object str 1 0
 g @rus none~
 #6308
 coins silver gold~

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name Magic Forest~
 Builders astonix~
 VNUMs 1800 1899
@@ -970,8 +970,8 @@ ivory~
 weapon 0 0 AN
 sword 7 7 'pierce' 0
 50 200 6700 P
-f object hitroll 3 0 50 -1
-f object damroll 4 0 50 -1
+f object hitroll 3 0
+f object damroll 4 0
 E
 ivory~
 It is unicorn ivory, you can tell from the shape, one time a part of a
@@ -995,8 +995,8 @@ ivory~
 weapon 0 0 AN
 mace 4 13 'smash' F
 50 130 8950 P
-f object hitroll 2 0 50 -1
-f object damroll 2 0 50 -1
+f object hitroll 2 0
+f object damroll 2 0
 E
 ivory~
 It is unicorn ivory, you can tell from the shape of the handle, one time
@@ -1011,9 +1011,9 @@ silk~
 armor E 0 AL
 9 9 9 9 0
 47 30 4500 P
-f object wis 1 0 47 -1
-f object ac -3 0 47 -1
-f object saves -1 0 47 -1
+f object wis 1 0
+f object ac -3 0
+f object saves -1 0
 E
 embroidery golden gold~
 The delicate embroidery on the belt is in the shape of familiar symbols:
@@ -1028,9 +1028,9 @@ silk~
 armor L 0 AK
 10 10 10 10 0
 49 30 4800 P
-f object ac -5 0 49 -1
-f object hitroll 1 0 49 -1
-f object damroll 1 0 49 -1
+f object ac -5 0
+f object hitroll 1 0
+f object damroll 1 0
 E
 robe~
 The robe is embroidered in brown thread. The pictures are of various
@@ -1045,8 +1045,8 @@ gold~
 weapon AHJ 0 AN
 dagger 7 7 'thrust' B
 51 30 4800 P
-f skills 'parry' 30 A 51 -1
-f object ac -4 0 51 -1
+f skills 'parry' 30 A
+f object ac -4 0
 g @rus none~
 #1812
 witch ring~
@@ -1056,10 +1056,10 @@ malachite~
 armor FG 0 AB
 11 11 11 11 0
 53 30 5200 P
-f object int 2 0 53 -1
-f object mana 50 0 53 -1
-f object ac -5 0 53 -1
-f object saves -3 0 53 -1
+f object int 2 0
+f object mana 50 0
+f object ac -5 0
+f object saves -3 0
 g @rus none~
 #1813
 blue amulet~
@@ -1069,8 +1069,8 @@ lapis~
 armor FGI 0 AC
 9 9 9 9 0
 55 30 5600 P
-f object ac -5 0 55 -1
-f object saves -6 0 55 -1
+f object ac -5 0
+f object saves -6 0
 g @rus none~
 #1814
 indigo robe~
@@ -1080,10 +1080,10 @@ silk~
 armor IY 0 AK
 14 14 14 14 0
 57 30 5600 P
-f object ac -7 0 57 -1
-f object hitroll 3 0 57 -1
-f object damroll 3 0 57 -1
-f object saves -3 0 57 -1
+f object ac -7 0
+f object hitroll 3 0
+f object damroll 3 0
+f object saves -3 0
 g @rus none~
 #1815
 violet robe~
@@ -1093,11 +1093,11 @@ silk~
 armor EIM 0 AK
 11 11 11 11 0
 59 30 5999 P
-f skills 'mastering spell' 30 A 59 -1
-f object sex 4 0 59 -1
-f object mana 20 0 59 -1
-f object ac -3 0 59 -1
-f object saves -4 0 59 -1
+f skills 'mastering spell' 30 A
+f object sex 4 0
+f object mana 20 0
+f object ac -3 0
+f object saves -4 0
 E
 skimpy~
 Worn by the right person, this robe could cause some major trouble. Or some
@@ -1118,10 +1118,10 @@ wood~
 staff I 0 AO
 60 5 5 'lightning bolt' 0
 48 50 3400 P
-f object cha 2 0 48 -1
-f object mana 20 0 48 -1
-f object hp 20 0 48 -1
-f object ac -10 0 48 -1
+f object cha 2 0
+f object mana 20 0
+f object hp 20 0
+f object ac -10 0
 g @rus none~
 #1817
 orange boots~
@@ -1131,11 +1131,11 @@ soft leather~
 armor BGI 0 AG
 11 11 11 11 0
 50 50 3700 P
-f skills 'kick' 50 0 50 -1
-f object int 1 0 50 -1
-f object hp 20 0 50 -1
-f object ac -10 0 50 -1
-f object saves -5 0 50 -1
+f skills 'kick' 50 0
+f object int 1 0
+f object hp 20 0
+f object ac -10 0
+f object saves -5 0
 g @rus none~
 #1818
 golden eye sword~
@@ -1145,10 +1145,10 @@ gold~
 weapon AGY 0 AN
 sword 7 10 'cleave' B
 52 50 4340 P
-f object str 2 0 52 -1
-f object dex 1 0 52 -1
-f object hitroll 4 0 52 -1
-f object damroll 3 0 52 -1
+f object str 2 0
+f object dex 1 0
+f object hitroll 4 0
+f object damroll 3 0
 g @rus none~
 #1819
 green wristband~
@@ -1158,12 +1158,12 @@ soft leather~
 armor BJ 0 AM
 9 9 9 9 0
 54 50 4100 P
-f object level 2 0 54 -1
-f object str 2 0 54 -1
-f object con 1 0 54 -1
-f object ac -6 0 54 -1
-f object hitroll 3 0 54 -1
-f object damroll 2 0 54 -1
+f object level 2 0
+f object str 2 0
+f object con 1 0
+f object ac -6 0
+f object hitroll 3 0
+f object damroll 2 0
 g @rus none~
 #1820
 blue leather whip~
@@ -1173,13 +1173,13 @@ leather~
 weapon BIM 0 AN
 whip 11 5 'thwack' G
 56 50 4400 P
-f object str -1 0 56 -1
-f object dex 3 0 56 -1
-f object con -1 0 56 -1
-f object ac -7 0 56 -1
-f object hitroll 2 0 56 -1
-f object damroll 2 0 56 -1
-f object saves -3 0 56 -1
+f object str -1 0
+f object dex 3 0
+f object con -1 0
+f object ac -7 0
+f object hitroll 2 0
+f object damroll 2 0
+f object saves -3 0
 g @rus none~
 #1821
 indigo tunic~
@@ -1189,11 +1189,11 @@ soft leather~
 armor 0 0 AD
 11 11 11 11 0
 58 50 4700 P
-f object hp 25 0 58 -1
-f object str 2 0 58 -1
-f object ac -2 0 58 -1
-f object hitroll 3 0 58 -1
-f object damroll 5 0 58 -1
+f object hp 25 0
+f object str 2 0
+f object ac -2 0
+f object hitroll 3 0
+f object damroll 5 0
 g @rus none~
 #1822
 tight violet leggings~
@@ -1203,8 +1203,8 @@ soft leather~
 armor EM 0 AF
 15 15 15 15 0
 60 50 5000 P
-f object hp 50 0 60 -1
-f object ac -3 0 60 -1
+f object hp 50 0
+f object ac -3 0
 g @rus none~
 #1823
 one horn one-horned helm~
@@ -1214,11 +1214,11 @@ copper~
 armor HKL 0 AE
 8 8 8 8 0
 54 150 7500 P
-f object con 1 0 54 -1
-f object mana 20 0 54 -1
-f object hitroll 3 0 54 -1
-f object damroll 3 0 54 -1
-f object saves -4 0 54 -1
+f object con 1 0
+f object mana 20 0
+f object hitroll 3 0
+f object damroll 3 0
+f object saves -4 0
 g @rus none~
 #1824
 filigree gold golden pendant~
@@ -1228,8 +1228,8 @@ gold~
 armor 0 0 AC
 5 5 5 5 0
 35 20 4500 P
-f object mana 10 0 35 -1
-f object damroll 2 0 35 -1
+f object mana 10 0
+f object damroll 2 0
 g @rus none~
 #1825
 orange tea rose~
@@ -1473,12 +1473,12 @@ velvet~
 armor ACEGHIJMY 0 AK
 15 15 15 15 0
 60 50 50000 P
-f skills 'mana transfer' 80 A 60 -1
-f object dex 3 0 60 -1
-f object wis -2 0 60 -1
-f object hitroll 3 0 60 -1
-f object damroll 3 0 60 -1
-f object saves -5 0 60 -1
+f skills 'mana transfer' 80 A
+f object dex 3 0
+f object wis -2 0
+f object hitroll 3 0
+f object damroll 3 0
+f object saves -5 0
 g @rus none~
 #1852
 huge cooking pot black cauldron~
@@ -1551,9 +1551,9 @@ cloth~
 armor 0 0 AH
 9 9 9 9 0
 48 30 8900 P
-f object dex 2 0 48 -1
-f object con 1 0 48 -1
-f object ac -5 0 48 -1
+f object dex 2 0
+f object con 1 0
+f object ac -5 0
 g @rus none~
 #1860
 camouflage leggings~
@@ -1563,9 +1563,9 @@ cloth~
 armor 0 0 AF
 9 9 9 9 0
 48 100 10300 P
-f object ac -5 0 48 -1
-f object hitroll 3 0 48 -1
-f object damroll 3 0 48 -1
+f object ac -5 0
+f object hitroll 3 0
+f object damroll 3 0
 g @rus none~
 #1861
 camouflage jacket~
@@ -1575,9 +1575,9 @@ cloth~
 armor 0 0 AD
 9 9 9 9 0
 48 90 10000 P
-f object str 1 0 48 -1
-f object hp 10 0 48 -1
-f object ac -3 0 48 -1
+f object str 1 0
+f object hp 10 0
+f object ac -3 0
 g @rus none~
 #1862
 camouflage boots~
@@ -1587,7 +1587,7 @@ leather~
 armor 0 0 AG
 8 8 8 8 0
 48 130 15000 P
-f object move 50 0 48 -1
+f object move 50 0
 g @rus none~
 #1863
 camouflage cap~
@@ -1597,8 +1597,8 @@ cloth~
 armor 0 0 AE
 8 8 8 8 0
 48 40 9000 P
-f object wis 2 0 48 -1
-f object hp 25 0 48 -1
+f object wis 2 0
+f object hp 25 0
 g @rus none~
 #1899
 quiver~

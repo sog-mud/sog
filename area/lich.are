@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name Lich Tower~
 VNUMs 29300 29399
 Credits Ryzen~
@@ -193,12 +193,12 @@ bone~
 light AGY 0 AO
 0 0 999 0 0
 35 5 1000 P
-f object con -2 0 35 -1
-f object hp 25 0 35 -1
-f object mana 25 0 35 -1
-f object hitroll 2 0 35 -1
-f object damroll 2 0 35 -1
-f object int 2 0 35 -1
+f object con -2 0
+f object hp 25 0
+f object mana 25 0
+f object hitroll 2 0
+f object damroll 2 0
+f object int 2 0
 g @rus none~
 #29354
 garnet ring кольцо гранат золотое~
@@ -208,11 +208,11 @@ gold~
 treasure AG 0 AB
 0 0 0 0 0
 45 1 900 P
-f object saves -15 0 45 -1
-f object damroll 2 0 45 -1
-f object mana 30 0 45 -1
-f object int 2 0 45 -1
-f object hitroll 2 0 45 -1
+f object saves -15 0
+f object damroll 2 0
+f object mana 30 0
+f object int 2 0
+f object hitroll 2 0
 g @eng none@rus neutral~
 #29355
 bracer night браслет ночи~
@@ -222,9 +222,9 @@ adamantite~
 armor BG 0 AM
 10 10 10 8 0
 30 5 1500 P
-f object hitroll 2 0 30 -1
-f object damroll 2 0 30 -1
-f object con 1 0 30 -1
+f object hitroll 2 0
+f object damroll 2 0
+f object con 1 0
 g @rus none~
 #29356
 amulet night амулет ночи~
@@ -234,10 +234,10 @@ silver~
 armor AG 0 AC
 11 11 11 9 0
 40 3 2000 P
-f object mana 30 0 40 -1
-f object move 15 0 40 -1
-f object int 1 0 40 -1
-f object wis 1 0 40 -1
+f object mana 30 0
+f object move 15 0
+f object int 1 0
+f object wis 1 0
 g @eng none@rus male~
 #29357
 ancient longsword sword древний старый меч~
@@ -247,8 +247,8 @@ adamantite~
 weapon AG 0 AN
 sword 5 9 'slash' DH
 40 200 2500 P
-f object damroll 3 0 40 -1
-f object hitroll 3 0 40 -1
+f object damroll 3 0
+f object hitroll 3 0
 g @eng none@rus male~
 #29358
 scale black dragon чешуя дракон черная~
@@ -258,11 +258,11 @@ dragonscale~
 armor G 0 AJ
 11 11 11 8 0
 40 30 1200 P
-f object hp 15 0 40 -1
-f object damroll 3 0 40 -1
-f object hitroll 2 0 40 -1
-f object str 2 0 40 -1
-f object int -2 0 40 -1
+f object hp 15 0
+f object damroll 3 0
+f object hitroll 2 0
+f object str 2 0
+f object int -2 0
 g @eng none@rus female~
 #29359
 sword hell wraith меч призрак ада~
@@ -272,12 +272,12 @@ adamantite~
 weapon ABEGM 0 AN
 exotic 10 6 'bite' CE
 45 250 5000 P
-f object dex 1 0 45 -1
-f object str 1 0 45 -1
-f object hitroll 5 0 45 -1
-f object damroll 5 0 45 -1
-f object wis -1 0 45 -1
-f object int -1 0 45 -1
+f object dex 1 0
+f object str 1 0
+f object hitroll 5 0
+f object damroll 5 0
+f object wis -1 0
+f object int -1 0
 E
 sword hell wraith меч призрак ада~
 @eng This sword was supposedly forged in the depths of Hell. It's wavy
@@ -295,8 +295,8 @@ etherealness~
 armor G 0 AK
 12 12 12 7 0
 45 10 3000 P
-f object int 2 0 45 -1
-f object mana 75 0 45 -1
+f object int 2 0
+f object mana 75 0
 g @eng none@rus female~
 #29361
 infinity scroll свиток бесконечности~
@@ -306,14 +306,14 @@ parchment~
 armor ABG 0 AO
 12 12 12 7 0
 45 4 7500 P
-f object hitroll 2 0 45 -1
-f object damroll 2 0 45 -1
-f object dex -1 0 45 -1
-f object str -2 0 45 -1
-f object wis 2 0 45 -1
-f object int 2 0 45 -1
-f object hp 50 0 45 -1
-f object mana 50 0 45 -1
+f object hitroll 2 0
+f object damroll 2 0
+f object dex -1 0
+f object str -2 0
+f object wis 2 0
+f object int 2 0
+f object hp 50 0
+f object mana 50 0
 E
 infinity scroll свиток бесконечности~
 @eng This old scroll is rumored answer all questions.. Unfortunately,
@@ -348,7 +348,7 @@ leather~
 boat G 0 AG
 0 0 0 0 0
 20 5 1000 P
-f object dex 1 0 20 -1
+f object dex 1 0
 g @eng none@rus plural~
 #29365
 thieve's tunic туника вора рубашка shirt~
@@ -358,8 +358,8 @@ cloth~
 container G 0 AD
 120 0 0 10 25
 25 15 900 P
-f object hitroll 3 0 25 -1
-f object dex 3 0 25 -1
+f object hitroll 3 0
+f object dex 3 0
 g @eng none@rus female~
 #29366
 paper бумаги обрывок чистый piece blank~

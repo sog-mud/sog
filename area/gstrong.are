@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name Goblin Stronghold~
 Builders leila~
 VNUMs 29000 29099
@@ -275,7 +275,7 @@ silver~
 armor G 0 AE
 4 6 5 3 0
 16 100 2000 P
-f object hp 21 0 16 -1
+f object hp 21 0
 g @rus none~
 #29010
 grumm axe~
@@ -285,8 +285,8 @@ iron~
 weapon ABEGLY B AN
 axe 5 5 'slash' CDF
 18 140 5000 G
-f object hitroll 3 0 18 -1
-f object damroll 4 0 18 -1
+f object hitroll 3 0
+f object damroll 4 0
 g @rus none~
 #29011
 helmet goblin horned dark~
@@ -296,8 +296,8 @@ iron~
 armor 0 0 AE
 3 5 4 0 0
 9 30 450 P
-f object int -1 0 9 -1
-f object damroll 1 0 9 -1
+f object int -1 0
+f object damroll 1 0
 g @rus none~
 #29012
 arm guards granite~
@@ -307,7 +307,7 @@ stone~
 armor GM 0 AI
 6 6 9 2 0
 15 251 1900 P
-f object con 1 0 15 -1
+f object con 1 0
 E
 arm guards armguards granite~
 These heavy armguards have been carved from the rock of these caverns.
@@ -321,9 +321,9 @@ cloth~
 armor G 0 AK
 1 2 1 1 0
 10 30 1650 P
-f object int 1 0 10 -1
-f object dex -1 0 10 -1
-f object mana 28 0 10 -1
+f object int 1 0
+f object dex -1 0
+f object mana 28 0
 E
 Filthy green cape.~
 You see a cape ridden with filth and vermin. You're not going to WEAR it are
@@ -338,8 +338,8 @@ stone~
 weapon AG 0 AN
 dagger 4 4 'stab' D
 12 10 1100 G
-f object damroll 3 0 12 -1
-f object hitroll -1 0 12 -1
+f object damroll 3 0
+f object hitroll -1 0
 E
 A stone shard~
 Looks like it would make a good weapon.
@@ -353,7 +353,7 @@ iron~
 weapon G 0 AN
 sword 4 4 'slash' D
 12 50 900 G
-f object damroll 1 0 12 -1
+f object damroll 1 0
 g @rus none~
 #29016
 potion frothing black~
@@ -376,10 +376,10 @@ iron~
 weapon AG 0 AN
 sword 4 6 'slash' DF
 20 50 7900 G
-f object hitroll 2 0 20 -1
-f object damroll 5 0 20 -1
-f object wis -2 0 20 -1
-f object con -2 0 20 -1
+f object hitroll 2 0
+f object damroll 5 0
+f object wis -2 0
+f object con -2 0
 g @rus none~
 #29018
 key shaman goblin~
@@ -425,12 +425,12 @@ stone~
 container ABGLY 0 AQ
 600 0 0 100 10
 20 20 12300 G
-f object saving_spell -2 0 20 -1
-f object saving_breath -2 0 20 -1
-f object saving_petri -2 0 20 -1
-f object saving_rod -2 0 20 -1
-f object saves -2 0 20 -1
-f object ac -2 0 20 -1
+f object saving_spell -2 0
+f object saving_breath -2 0
+f object saving_petri -2 0
+f object saving_rod -2 0
+f object saves -2 0
+f object ac -2 0
 g @rus female~
 #29023
 ring britta~
@@ -440,8 +440,8 @@ gold~
 treasure G 0 AB
 0 0 0 0 0
 9 10 1100 G
-f object mana 21 0 9 -1
-f object int 2 0 9 -1
+f object mana 21 0
+f object int 2 0
 g @rus none~
 #29024
 Bookcase~

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name Valley of the Elves~
 VNUMs 7800 7899
 Credits Hatchet~
@@ -278,7 +278,7 @@ steel~
 armor 0 0 AG
 3 3 3 0 0
 7 30 390 P
-f object move 5 0 7 -1
+f object move 5 0
 g @rus plural~
 #7802
 longsword elven sword long эльфийский клинок~
@@ -288,7 +288,7 @@ steel~
 weapon G 0 AN
 sword 3 3 'slash' 0
 7 30 670 P
-f object hitroll 1 0 7 -1
+f object hitroll 1 0
 g @rus male~
 #7803
 cloak brown коричневый плащ~
@@ -298,7 +298,7 @@ cloth~
 armor G 0 AC
 3 3 3 0 0
 7 30 900 P
-f object dex 1 0 7 -1
+f object dex 1 0
 g @rus male~
 #7804
 key ключ~
@@ -326,7 +326,7 @@ gold~
 jewelry G 0 AB
 0 0 0 0 0
 5 10 110 P
-f object mana 10 0 5 -1
+f object mana 10 0
 g @rus none~
 #7807
 quarterstaff staff two-handed посох~
@@ -336,7 +336,7 @@ wood~
 weapon G 0 AN
 staff 5 5 'pound' F
 21 50 670 P
-f object damroll 2 0 21 -1
+f object damroll 2 0
 g @rus male~
 #7808
 potion зелье~
@@ -490,7 +490,7 @@ wood~
 weapon G 0 AN
 staff 3 7 'pound' F
 14 50 310 P
-f object damroll 1 0 14 -1
+f object damroll 1 0
 g @rus male~
 #0
 

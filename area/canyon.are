@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name Elemental Canyon~
 Builders akmal~
 VNUMs 9200 9299
@@ -591,8 +591,8 @@ unknown~
 furniture I 0 AB
 0 0 0 0 0
 7 50 1140 P
-f object wis 1 0 7 -1
-f object int 1 0 7 -1
+f object wis 1 0
+f object int 1 0
 g @rus none~
 #9202
 breastplate stoney breast plate~
@@ -602,8 +602,8 @@ stone~
 armor 0 0 AD
 10 10 10 2 0
 31 400 5500 P
-f object con 1 0 31 -1
-f object dex -2 0 31 -1
+f object con 1 0
+f object dex -2 0
 g @rus none~
 #9203
 dagger fiery~
@@ -613,7 +613,7 @@ unknown~
 weapon A 0 AN
 dagger 5 6 'pierce' A
 29 20 2800 P
-f object damroll 4 0 29 -1
+f object damroll 4 0
 g @rus none~
 #9204
 cape flame flaming red~
@@ -623,7 +623,7 @@ etherealness~
 armor A 0 AC
 9 9 9 3 0
 30 30 3100 P
-f object damroll 1 0 30 -1
+f object damroll 1 0
 g @rus none~
 #9205
 boots wind~
@@ -633,7 +633,7 @@ fiber~
 armor G 0 AG
 8 8 8 2 0
 26 10 5200 P
-f object dex 2 0 26 -1
+f object dex 2 0
 g @rus none~
 #9206
 helmet hurricane~
@@ -643,7 +643,7 @@ iron~
 armor B 0 AE
 9 9 9 3 0
 31 40 3800 P
-f object saves -2 0 31 -1
+f object saves -2 0
 g @rus none~
 #9207
 sword lightning bolt~
@@ -653,8 +653,8 @@ unknown~
 weapon AB 0 AN
 sword 5 5 'slash' G
 25 100 2200 P
-f object damroll 3 0 25 -1
-f object hitroll -1 0 25 -1
+f object damroll 3 0
+f object hitroll -1 0
 g @rus none~
 #9208
 shield electric~
@@ -664,8 +664,8 @@ unknown~
 armor B 0 AJ
 9 9 9 4 0
 28 80 4500 P
-f object con 1 0 28 -1
-f object str -1 0 28 -1
+f object con 1 0
+f object str -1 0
 g @rus none~
 #9209
 girth icy~
@@ -675,7 +675,7 @@ ice~
 armor 0 0 AL
 10 10 10 3 0
 31 100 1540 P
-f object con -2 0 31 -1
+f object con -2 0
 g @rus none~
 #9210
 cloak waterfall~
@@ -685,8 +685,8 @@ unknown~
 armor 0 0 AK
 9 9 9 2 0
 30 60 3000 P
-f object hitroll -2 0 30 -1
-f object mana 25 0 30 -1
+f object hitroll -2 0
+f object mana 25 0
 g @rus none~
 #9211
 amulet elemental~
@@ -696,7 +696,7 @@ unknown~
 jewelry A 0 AC
 0 0 0 0 0
 20 10 860 P
-f object saves -2 0 20 -1
+f object saves -2 0
 g @rus none~
 #9212
 bracelet elemental~
@@ -706,7 +706,7 @@ unknown~
 gem 0 0 AM
 0 0 0 0 0
 20 40 580 P
-f object hp 20 0 20 -1
+f object hp 20 0
 g @rus none~
 #9213
 armband platinum band~
@@ -716,8 +716,8 @@ platinum~
 armor 0 0 AM
 9 9 9 2 0
 26 40 1700 P
-f object wis -2 0 26 -1
-f object str 1 0 26 -1
+f object wis -2 0
+f object str 1 0
 g @rus none~
 #9214
 legbands platinum bands~
@@ -727,8 +727,8 @@ platinum~
 armor 0 0 AF
 9 9 9 2 0
 26 40 1700 P
-f object int -2 0 26 -1
-f object dex 1 0 26 -1
+f object int -2 0
+f object dex 1 0
 g @rus none~
 #9215
 wand~
@@ -783,8 +783,8 @@ stone~
 weapon 0 0 AN
 mace 3 7 'pound' F
 13 160 730 P
-f object damroll 1 0 13 -1
-f object hitroll -2 0 13 -1
+f object damroll 1 0
+f object hitroll -2 0
 g @rus none~
 #9221
 lode load lodestone loadstone stone~
@@ -794,7 +794,7 @@ stone~
 wand 0 0 AO
 19 2 2 'harm' 0
 13 20 2800 P
-f object str -2 0 13 -1
+f object str -2 0
 g @rus none~
 #9222
 lava lamp~
@@ -840,8 +840,8 @@ flame~
 weapon A 0 AN
 lance 2 15 'thrust' A
 29 140 220 P
-f object hitroll 3 0 29 -1
-f object hp -20 0 29 -1
+f object hitroll 3 0
+f object hp -20 0
 g @rus none~
 #9227
 icicle dagger ice~
@@ -851,8 +851,8 @@ ice~
 weapon A 0 AN
 dagger 6 4 'pierce' B
 28 10 1630 P
-f object str -1 0 28 -1
-f object damroll 3 0 28 -1
+f object str -1 0
+f object damroll 3 0
 g @rus none~
 #9228
 avalanche~
@@ -862,7 +862,7 @@ unknown~
 weapon 0 0 AN
 exotic 1 25 'blast' 0
 24 160 3000 P
-f object hitroll -1 0 24 -1
+f object hitroll -1 0
 g @rus none~
 #9229
 star morning~
@@ -872,8 +872,8 @@ wood~
 weapon A 0 AN
 flail 6 4 'crush' 0
 23 110 3300 P
-f object ac -6 0 23 -1
-f object saves -4 0 23 -1
+f object ac -6 0
+f object saves -4 0
 g @rus none~
 #9230
 shock whip~
@@ -883,8 +883,8 @@ leather~
 weapon B 0 AN
 whip 3 8 'stab' 0
 20 100 64 P
-f object str -2 0 20 -1
-f object damroll 4 0 20 -1
+f object str -2 0
+f object damroll 4 0
 g @rus none~
 #9231
 elixir anti~

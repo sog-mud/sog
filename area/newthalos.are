@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name New Thalos~
 Builders alister~
 VNUMs 9500 9799
@@ -1493,7 +1493,7 @@ iron~
 armor 0 0 AD
 3 3 3 0 0
 0 360 176 P
-f object mana -20 0 0 -1
+f object mana -20 0
 g @rus none~
 #9519
 splintmail splint mail suit~
@@ -1503,7 +1503,7 @@ steel~
 armor 0 0 AD
 5 5 5 0 0
 8 450 1280 P
-f object mana -10 0 8 -1
+f object mana -10 0
 g @rus none~
 #9520
 wooden shield~
@@ -2110,7 +2110,7 @@ iron~
 armor BG 0 ACO
 1 1 1 0 0
 5 20 300 P
-f object hitroll 1 0 5 -1
+f object hitroll 1 0
 g @rus none~
 #9588
 saddle~
@@ -2201,8 +2201,8 @@ unknown~
 armor G 0 AG
 1 1 1 0 0
 7 10 770 P
-f object move 10 0 7 -1
-f object dex 1 0 7 -1
+f object move 10 0
+f object dex 1 0
 g @rus none~
 #9598
 daemon claw~
@@ -2212,7 +2212,7 @@ bone~
 weapon B 0 AN
 exotic 3 7 'claw' 0
 14 200 1520 P
-f object hitroll -2 0 14 -1
+f object hitroll -2 0
 g @rus none~
 #9599
 wolverine claw~
@@ -2231,8 +2231,8 @@ iron~
 weapon GI 0 AN
 polearm 3 8 'chop' F
 22 160 1240 P
-f object damroll 3 0 22 -1
-f object hitroll 2 0 22 -1
+f object damroll 3 0
+f object hitroll 2 0
 g @rus none~
 #9601
 fountain water~

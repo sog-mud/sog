@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name Old Troya~
 VNUMs 29500 29699
 Credits Yaegar~
@@ -678,8 +678,8 @@ unknown~
 weapon 0 0 AN
 spear 5 6 'stab' K
 25 50 250 P
-f object hitroll 2 0 25 -1
-f object damroll 2 0 25 -1
+f object hitroll 2 0
+f object damroll 2 0
 g @rus none~
 #29501
 spear~
@@ -689,7 +689,7 @@ unknown~
 warp_stone 0 0 ANO
 0 0 0 0 0
 25 10 250 P
-f object hitroll 4 0 25 -1
+f object hitroll 4 0
 g @rus none~
 #29502
 ox hide shield~
@@ -699,7 +699,7 @@ unknown~
 armor 0 0 AJ
 8 8 8 0 0
 25 50 250 P
-f object ac -10 0 25 -1
+f object ac -10 0
 g @rus none~
 #29503
 boar tusk helm~
@@ -709,8 +709,8 @@ unknown~
 armor 0 0 AE
 8 8 8 0 0
 25 5 250 P
-f object con 2 0 25 -1
-f object hp 15 0 25 -1
+f object con 2 0
+f object hp 15 0
 g @rus none~
 #29504
 leather jerkin~
@@ -729,9 +729,9 @@ unknown~
 armor 0 0 AD
 8 8 8 0 0
 28 15 280 P
-f object str 2 0 28 -1
-f object dex -1 0 28 -1
-f object ac -10 0 28 -1
+f object str 2 0
+f object dex -1 0
+f object ac -10 0
 g @rus none~
 #29506
 goblet wine~
@@ -750,7 +750,7 @@ unknown~
 trash 0 0 AO
 0 0 0 0 0
 30 5 300 P
-f object wis 2 0 30 -1
+f object wis 2 0
 g @rus none~
 #29508
 achilles breastplate~
@@ -760,8 +760,8 @@ unknown~
 armor AG 0 AD
 12 12 12 0 0
 45 50 450 P
-f object con 3 0 45 -1
-f object ac -16 0 45 -1
+f object con 3 0
+f object ac -16 0
 g @rus none~
 #29509
 achilles greaves~
@@ -771,8 +771,8 @@ unknown~
 armor AG 0 AF
 12 12 12 0 0
 45 5 450 P
-f object dex 3 0 45 -1
-f object move 60 0 45 -1
+f object dex 3 0
+f object move 60 0
 g @rus none~
 #29510
 achilles helm~
@@ -782,8 +782,8 @@ unknown~
 armor AG 0 AE
 12 12 12 0 0
 45 5 450 P
-f object wis 3 0 45 -1
-f object mana 50 0 45 -1
+f object wis 3 0
+f object mana 50 0
 g @rus none~
 #29511
 achilles' sword~
@@ -793,8 +793,8 @@ unknown~
 weapon A 0 AN
 sword 5 10 'pierce' 0
 45 100 450 P
-f object hitroll 8 0 45 -1
-f object damroll 8 0 45 -1
+f object hitroll 8 0
+f object damroll 8 0
 g @rus none~
 #29512
 bronze sword~
@@ -804,8 +804,8 @@ unknown~
 weapon 0 0 AN
 sword 5 5 'pierce' 0
 20 50 200 P
-f object hitroll -2 0 20 -1
-f object damroll 2 0 20 -1
+f object hitroll -2 0
+f object damroll 2 0
 g @rus none~
 #29513
 bronze dagger~
@@ -824,7 +824,7 @@ unknown~
 armor 0 0 AJ
 8 8 8 0 0
 28 80 280 P
-f object ac -13 0 28 -1
+f object ac -13 0
 g @rus none~
 #29515
 achilles' shield~
@@ -834,7 +834,7 @@ unknown~
 armor AG 0 AJ
 12 12 12 0 0
 45 50 450 P
-f object ac -15 0 45 -1
+f object ac -15 0
 g @rus none~
 #29516
 sandals~
@@ -871,8 +871,8 @@ unknown~
 armor 0 0 AE
 8 8 8 0 0
 28 10 280 P
-f object con 2 0 28 -1
-f object ac -11 0 28 -1
+f object con 2 0
+f object ac -11 0
 g @rus none~
 #29520
 cot~

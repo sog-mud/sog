@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name Darathorn's Pit~
 VNUMs 15400 15478
 Credits Helt~
@@ -372,9 +372,9 @@ iron~
 weapon BCG 0 AN
 dagger 5 11 'sting' DE
 47 50 16370 P
-f object str 1 0 47 -1
-f object hitroll 5 0 47 -1
-f object damroll 5 0 47 -1
+f object str 1 0
+f object hitroll 5 0
+f object damroll 5 0
 #15401
 power stone~
 the power stone~
@@ -383,9 +383,9 @@ stone~
 light ABG 0 A
 0 0 -1 0 0
 47 100 21783 P
-f object hitroll 1 0 47 -1
-f object damroll 2 0 47 -1
-f object hp 100 0 47 -1
+f object hitroll 1 0
+f object damroll 2 0
+f object hp 100 0
 #15402
 ivory statuette warrior blessing~
 the warrior's blessing~
@@ -394,8 +394,8 @@ stone~
 treasure ABFGI 0 AO
 0 0 0 0 0
 45 30 10000 P
-f object hitroll 2 0 45 -1
-f object saving_spell -1 0 45 -1
+f object hitroll 2 0
+f object saving_spell -1 0
 #15403
 boots wind~
 the Boots of the Wind~
@@ -404,27 +404,27 @@ leather~
 armor AGJ 0 AG
 12 12 12 6 1
 45 15 14000 P
-f resists bash 16692 0 45 -1
-f resists pierce 2058 0 45 -1
-f resists slash 3391 0 45 -1
-f resists fire 10278 0 45 -1
-f resists cold 8 0 45 -1
-f resists acid 16572 0 45 -1
-f resists poison 2058 0 45 -1
-f resists negative -4840 0 45 -1
-f resists holy -16449 0 45 -1
-f resists energy 6449 0 45 -1
-f resists mental 2056 0 45 -1
-f resists disease -4828 0 45 -1
-f resists unknown -16449 0 45 -1
-f resists light 16500 0 45 -1
-f resists other 2058 0 45 -1
-f resists harm 15 0 45 -1
-f resists sound 12 0 45 -1
-f resists wood 26612 0 45 -1
-f resists silver 2055 0 45 -1
-f affects move 50 0 45 -1
-f object dex 1 0 45 -1
+f resists bash 16692 0
+f resists pierce 2058 0
+f resists slash 3391 0
+f resists fire 10278 0
+f resists cold 8 0
+f resists acid 16572 0
+f resists poison 2058 0
+f resists negative -4840 0
+f resists holy -16449 0
+f resists energy 6449 0
+f resists mental 2056 0
+f resists disease -4828 0
+f resists unknown -16449 0
+f resists light 16500 0
+f resists other 2058 0
+f resists harm 15 0
+f resists sound 12 0
+f resists wood 26612 0
+f resists silver 2055 0
+f affects move 50 0
+f object dex 1 0
 #15404
 bone dagger~
 bone dagger~
@@ -433,9 +433,9 @@ stone~
 weapon ABCEFGHM 0 AN
 dagger 5 9 'pierce' D
 40 20 17560 P
-f object int -2 0 40 -1
-f object con 2 0 40 -1
-f object str 1 0 40 -1
+f object int -2 0
+f object con 2 0
+f object str 1 0
 #15405
 cloak grey~
 a grey cloak~
@@ -444,9 +444,9 @@ cloth~
 armor CFGH 0 AK
 9 9 9 2 1
 32 250 11845 P
-f object con 1 0 32 -1
-f object hp 50 0 32 -1
-f object mana -50 0 32 -1
+f object con 1 0
+f object hp 50 0
+f object mana -50 0
 #15406
 glass knife~
 a glass knife~
@@ -455,7 +455,7 @@ glass~
 weapon G 0 AN
 dagger 7 5 'stab' D
 32 70 5000 P
-f object damroll 3 0 32 -1
+f object damroll 3 0
 #15407
 glass knife~
 a glass knife~
@@ -464,8 +464,8 @@ glass~
 weapon G 0 AN
 dagger 5 7 'stab' D
 36 40 15000 P
-f object dex 1 0 36 -1
-f object damroll 5 0 36 -1
+f object dex 1 0
+f object damroll 5 0
 #15408
 red robe~
 a red robe~
@@ -474,8 +474,8 @@ cloth~
 armor ABGI 0 AK
 14 14 14 6 1
 48 75 22523 P
-f object int 3 0 48 -1
-f object mana 50 0 48 -1
+f object int 3 0
+f object mana 50 0
 #15409
 sapphire staff~
 a sapphire staff~
@@ -484,9 +484,9 @@ stone~
 weapon ABG 0 AN
 staff 11 5 'blast' AF
 48 110 27450 P
-f object hitroll 4 0 48 -1
-f object damroll 3 0 48 -1
-f object saving_breath -15 0 48 -1
+f object hitroll 4 0
+f object damroll 3 0
+f object saving_breath -15 0
 #15410
 bracer iron~
 a iron bracer~
@@ -495,8 +495,8 @@ iron~
 armor CG 0 AM
 9 9 9 1 1
 36 140 6700 P
-f object str 2 0 36 -1
-f object hitroll 2 0 36 -1
+f object str 2 0
+f object hitroll 2 0
 #15411
 wicked battle axe~
 a wicked battle axe~
@@ -505,8 +505,8 @@ iron~
 weapon G 0 AN
 axe 5 10 'cleave' D
 36 270 12500 P
-f object damroll 3 0 36 -1
-f object hitroll 5 0 36 -1
+f object damroll 3 0
+f object hitroll 5 0
 #15412
 cloak black~
 a dark black cloak~
@@ -515,8 +515,8 @@ cloth~
 armor BCEFGH 0 AC
 10 10 10 2 1
 45 250 17120 P
-f object hp 50 0 45 -1
-f object con 2 0 45 -1
+f object hp 50 0
+f object con 2 0
 #15413
 fire blade~
 a fire blade~
@@ -525,9 +525,9 @@ adamantite~
 weapon ABCEG 0 AN
 sword 5 10 'slash' A
 44 130 19000 P
-f object str 2 0 44 -1
-f object hp 25 0 44 -1
-f object damroll 3 0 44 -1
+f object str 2 0
+f object hp 25 0
+f object damroll 3 0
 #15414
 silver plate breast~
 Silver plate~
@@ -536,8 +536,8 @@ silver~
 armor G 0 AD
 13 13 13 5 1
 40 350 10044 P
-f object con 3 0 40 -1
-f object dex -1 0 40 -1
+f object con 3 0
+f object dex -1 0
 #15415
 bastard sword~
 a massive bastard sword~
@@ -546,8 +546,8 @@ steel~
 weapon BI 0 AN
 sword 13 3 'cleave' DE
 40 150 27000 P
-f object hp 50 0 40 -1
-f object move -50 0 40 -1
+f object hp 50 0
+f object move -50 0
 #15416
 green skull cap~
 a green skull cap~
@@ -556,8 +556,8 @@ cloth~
 armor CEG 0 AE
 13 13 13 6 1
 44 5 14000 P
-f object int 2 0 44 -1
-f object mana 50 0 44 -1
+f object int 2 0
+f object mana 50 0
 #15417
 green demon claw~
 a green demon claw~
@@ -566,9 +566,9 @@ gold~
 weapon ABCEG 0 AN
 exotic 5 10 'claw' D
 43 25 14000 P
-f object hitroll 3 0 43 -1
-f object damroll 3 0 43 -1
-f object int -2 0 43 -1
+f object hitroll 3 0
+f object damroll 3 0
+f object int -2 0
 #15418
 purple wand~
 a purple wand~
@@ -593,8 +593,8 @@ cloth~
 armor CFG 0 AE
 10 10 10 5 1
 38 75 13000 P
-f object hitroll 1 0 38 -1
-f object damroll 1 0 38 -1
+f object hitroll 1 0
+f object damroll 1 0
 #15421
 adamantite small sword~
 an adamantite small sword~
@@ -603,8 +603,8 @@ adamantite~
 weapon ABCEGL 0 AN
 sword 5 8 'thrust' E
 40 200 14200 P
-f object str 2 0 40 -1
-f object hitroll 4 0 40 -1
+f object str 2 0
+f object hitroll 4 0
 #15422
 shield crow~
 the crow shield~
@@ -613,8 +613,8 @@ steel~
 armor BG 0 AJ
 11 11 11 4 0
 38 250 19000 P
-f object damroll 1 0 38 -1
-f object saving_breath -1 0 38 -1
+f object damroll 1 0
+f object saving_breath -1 0
 #15423
 rusty blade~
 a rusty blade~
@@ -623,7 +623,7 @@ steel~
 weapon 0 0 AN
 dagger 5 6 'stab' 0
 23 140 3500 P
-f object dex 1 0 23 -1
+f object dex 1 0
 #15424
 iron key~
 a plain iron key~

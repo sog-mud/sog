@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name Isles Of Dead~
 Builders jiehar~
 VNUMs 22300 22449
@@ -527,9 +527,9 @@ steel~
 weapon B 0 AN
 sword 5 9 'cleave' 0
 45 5 40000 P
-f object damroll 4 0 45 -1
-f object hitroll 5 0 45 -1
-f object dex 1 0 45 -1
+f object damroll 4 0
+f object hitroll 5 0
+f object dex 1 0
 g @rus none~
 #22302
 kabuto battle helm~
@@ -539,11 +539,11 @@ steel~
 armor 0 C AE
 15 15 13 10 0
 45 8 30000 P
-f object ac -10 0 45 -1
-f object damroll 2 0 45 -1
-f object hitroll 1 0 45 -1
-f object wis 1 0 45 -1
-f object int 1 0 45 -1
+f object ac -10 0
+f object damroll 2 0
+f object hitroll 1 0
+f object wis 1 0
+f object int 1 0
 g @rus none~
 #22303
 hi-kane-do battle gown~
@@ -553,9 +553,9 @@ steel~
 armor 0 C AD
 20 20 20 15 0
 45 20 30000 P
-f object ac -15 0 45 -1
-f object damroll 2 0 45 -1
-f object hitroll 1 0 45 -1
+f object ac -15 0
+f object damroll 2 0
+f object hitroll 1 0
 g @rus none~
 #22304
 hi-kane-do battle leggings~
@@ -565,10 +565,10 @@ steel~
 armor 0 C AF
 17 17 15 13 0
 45 11 30000 P
-f object ac -10 0 45 -1
-f object damroll 2 0 45 -1
-f object hitroll 1 0 45 -1
-f object dex 2 0 45 -1
+f object ac -10 0
+f object damroll 2 0
+f object hitroll 1 0
+f object dex 2 0
 g @rus none~
 #22305
 hi-kane-do battle sleeves~
@@ -578,9 +578,9 @@ steel~
 armor 0 C AI
 10 10 10 9 0
 45 9 30000 P
-f object damroll 2 0 45 -1
-f object hitroll 1 0 45 -1
-f object con 2 0 45 -1
+f object damroll 2 0
+f object hitroll 1 0
+f object con 2 0
 g @rus none~
 #22306
 hi-kane-do battle gloves~
@@ -590,10 +590,10 @@ steel~
 armor 0 C AH
 10 10 10 9 0
 45 8 0 P
-f object ac -5 0 45 -1
-f object damroll 2 0 45 -1
-f object hitroll 1 0 45 -1
-f object str 1 0 45 -1
+f object ac -5 0
+f object damroll 2 0
+f object hitroll 1 0
+f object str 1 0
 g @rus none~
 #22307
 hi-kane-do battle boots~
@@ -603,10 +603,10 @@ steel~
 armor 0 C AG
 10 10 10 7 0
 45 13 30000 P
-f object ac -5 0 45 -1
-f object move 70 0 45 -1
-f object damroll 2 0 45 -1
-f object hitroll 1 0 45 -1
+f object ac -5 0
+f object move 70 0
+f object damroll 2 0
+f object hitroll 1 0
 g @rus none~
 #22308
 bracer defence~
@@ -616,9 +616,9 @@ steel~
 armor C 0 AM
 8 8 8 6 0
 40 3 30000 P
-f object damroll 2 0 40 -1
-f object hitroll 1 0 40 -1
-f object ac -6 0 40 -1
+f object damroll 2 0
+f object hitroll 1 0
+f object ac -6 0
 g @rus none~
 #22309
 black belt five flowers~
@@ -628,9 +628,9 @@ leather~
 armor C 0 AL
 8 8 8 7 0
 40 1 10000 P
-f object damroll 1 0 40 -1
-f object dex 1 0 40 -1
-f object con 2 0 40 -1
+f object damroll 1 0
+f object dex 1 0
+f object con 2 0
 g @rus none~
 #22310
 midnight cloak~
@@ -640,9 +640,9 @@ energy~
 armor C 0 AC
 4 5 5 4 0
 40 2 30000 P
-f object hp 20 0 40 -1
-f object saves -3 0 40 -1
-f object damroll 2 0 40 -1
+f object hp 20 0
+f object saves -3 0
+f object damroll 2 0
 g @rus none~
 #22311
 key ringwraith~
@@ -661,10 +661,10 @@ clay~
 furniture GY 0 AO
 1 100 EH 100 100
 45 4 30000 P
-f skills 'perception' 50 0 45 -1
-f object wis 2 0 45 -1
-f object int 2 0 45 -1
-f object dex 2 0 45 -1
+f skills 'perception' 50 0
+f object wis 2 0
+f object int 2 0
+f object dex 2 0
 g @rus none~
 #22313
 black gown death essence~
@@ -674,11 +674,11 @@ energy~
 armor BCHM E AD
 -10 -10 -10 -10 0
 0 10 666 P
-f object con -5 0 0 -1
-f object move -100 0 0 -1
-f object saves -10 0 0 -1
-f object ac -10 0 0 -1
-f object damroll -10 0 0 -1
+f object con -5 0
+f object move -100 0
+f object saves -10 0
+f object ac -10 0
+f object damroll -10 0
 g @rus none~
 #22314
 ring demons~
@@ -688,12 +688,12 @@ iron~
 armor CEHJM C AB
 7 6 6 15 0
 0 1 6666 P
-f object damroll 2 0 0 -1
-f object hitroll 1 0 0 -1
-f object saves -10 0 0 -1
-f object wis -2 0 0 -1
-f object int -2 0 0 -1
-f object con -2 0 0 -1
+f object damroll 2 0
+f object hitroll 1 0
+f object saves -10 0
+f object wis -2 0
+f object int -2 0
+f object con -2 0
 g @rus none~
 #22315
 mummy tomb~
@@ -712,10 +712,10 @@ iron~
 armor BY BC AC
 15 15 15 15 0
 45 30 50000 P
-f object saving_breath -10 0 45 -1
-f object hitroll -4 0 45 -1
-f object damroll 4 0 45 -1
-f object ac -30 0 45 -1
+f object saving_breath -10 0
+f object hitroll -4 0
+f object damroll 4 0
+f object ac -30 0
 g @rus none~
 #22317
 ankh death~
@@ -725,11 +725,11 @@ iron~
 treasure CEHM C AC
 0 0 0 0 0
 45 1 6666 P
-f object hitroll 2 0 45 -1
-f object damroll 2 0 45 -1
-f object move -66 0 45 -1
-f object ac -17 0 45 -1
-f object con -2 0 45 -1
+f object hitroll 2 0
+f object damroll 2 0
+f object move -66 0
+f object ac -17 0
+f object con -2 0
 g @rus none~
 #22318
 pa-ra-voz axel~
@@ -739,9 +739,9 @@ iron~
 weapon AB BC AN
 staff 10 5 'flbite' F
 0 450 50000 P
-f object hitroll 3 0 0 -1
-f object damroll 8 0 0 -1
-f object ac -10 0 0 -1
+f object hitroll 3 0
+f object damroll 8 0
+f object ac -10 0
 g @rus none~
 #22319
 staff death~
@@ -751,10 +751,10 @@ energy~
 weapon CEHJM CE AN
 exotic 5 7 'drain' CH
 45 0 6666 P
-f object hitroll 3 0 45 -1
-f object ac 10 0 45 -1
-f object hp -50 0 45 -1
-f object damroll 4 0 45 -1
+f object hitroll 3 0
+f object ac 10 0
+f object hp -50 0
+f object damroll 4 0
 g @rus none~
 #22320
 key gorrors~
@@ -773,10 +773,10 @@ iron~
 armor BCI C AJ
 25 25 25 20 0
 45 450 50000 P
-f object mana -50 0 45 -1
-f object hp 10 0 45 -1
-f object hitroll -5 0 45 -1
-f object ac -30 0 45 -1
+f object mana -50 0
+f object hp 10 0
+f object hitroll -5 0
+f object ac -30 0
 g @rus none~
 #22322
 chest~
@@ -822,11 +822,11 @@ iron~
 weapon Y BC AN
 axe 15 4 'frbite' EF
 45 450 100000 P
-f resists fire -33 0 45 -1
-f resists cold 33 0 45 -1
-f object size 1 0 45 -1
-f object damroll 5 0 45 -1
-f object hitroll 5 0 45 -1
+f resists fire -33 0
+f resists cold 33 0
+f object size 1 0
+f object damroll 5 0
+f object hitroll 5 0
 g @rus none~
 #22327
 whip flame~
@@ -836,8 +836,8 @@ flame~
 weapon ACU C AN
 whip 10 7 'flbite' A
 46 50 100000 P
-f resists cold -80 0 46 -1
-f resists fire 100 0 46 -1
+f resists cold -80 0
+f resists fire 100 0
 g @rus none~
 #22328
 stone~
@@ -982,12 +982,12 @@ silver~
 weapon BIY C AN
 mace 10 6 'shbite' 0
 46 100 100000 P
-f resists energy -33 0 46 -1
-f resists lightning 33 0 46 -1
-f object hitroll 3 0 46 -1
-f object damroll 7 0 46 -1
-f object wis 1 0 46 -1
-f object int 1 0 46 -1
+f resists energy -33 0
+f resists lightning 33 0
+f object hitroll 3 0
+f object damroll 7 0
+f object wis 1 0
+f object int 1 0
 g @rus none~
 #22341
 ebony breastplate plate~
@@ -997,13 +997,13 @@ ebony~
 armor BCGU C AD
 30 30 30 25 0
 46 15 100000 P
-f resists bash 9 0 46 -1
-f resists slash 7 0 46 -1
-f resists pierce 11 0 46 -1
-f object saves -7 0 46 -1
-f object str 1 0 46 -1
-f object damroll 3 0 46 -1
-f object hitroll 3 0 46 -1
+f resists bash 9 0
+f resists slash 7 0
+f resists pierce 11 0
+f object saves -7 0
+f object str 1 0
+f object damroll 3 0
+f object hitroll 3 0
 E
 breastplate~
 This piece of a full plate armour appears to be extremely light and
@@ -1021,12 +1021,12 @@ mithril~
 weapon BIKLY CF AN
 spear 18 3 'divine' FI
 45 200 100000 P
-f resists negative 25 0 45 -1
-f object hitroll 4 0 45 -1
-f object damroll 5 0 45 -1
-f object con 1 0 45 -1
-f object dex 1 0 45 -1
-f object ac -15 0 45 -1
+f resists negative 25 0
+f object hitroll 4 0
+f object damroll 5 0
+f object con 1 0
+f object dex 1 0
+f object ac -15 0
 E
 lance~
 The sense of holiness and purity comes over you as you look at this
@@ -1042,14 +1042,14 @@ ebony~
 armor BGY C AE
 25 25 23 20 0
 46 12 100000 P
-f resists pierce 5 0 46 -1
-f resists slash 3 0 46 -1
-f object saves -5 0 46 -1
-f resists bash 7 0 46 -1
-f object str 1 0 46 -1
-f object dex 1 0 46 -1
-f object hitroll 3 0 46 -1
-f object damroll 3 0 46 -1
+f resists pierce 5 0
+f resists slash 3 0
+f object saves -5 0
+f resists bash 7 0
+f object str 1 0
+f object dex 1 0
+f object hitroll 3 0
+f object damroll 3 0
 g @rus none~
 #22344
 ebony leggings~
@@ -1059,14 +1059,14 @@ ebony~
 armor CY C AF
 27 27 23 20 0
 46 5 100000 P
-f resists pierce 6 0 46 -1
-f object saves -5 0 46 -1
-f resists bash 2 0 46 -1
-f resists slash 5 0 46 -1
-f object dex 1 0 46 -1
-f object con 1 0 46 -1
-f object hitroll 3 0 46 -1
-f object damroll 3 0 46 -1
+f resists pierce 6 0
+f object saves -5 0
+f resists bash 2 0
+f resists slash 5 0
+f object dex 1 0
+f object con 1 0
+f object hitroll 3 0
+f object damroll 3 0
 g @rus none~
 #22345
 staff nar-i-vagil~
@@ -1076,10 +1076,10 @@ wood~
 weapon AY C AN
 staff 12 5 'flame' F
 46 250 100000 P
-f resists cold -33 0 46 -1
-f resists fire 33 0 46 -1
-f object hitroll 5 0 46 -1
-f object damroll 4 0 46 -1
+f resists cold -33 0
+f resists fire 33 0
+f object hitroll 5 0
+f object damroll 4 0
 g @rus none~
 #22346
 ebony sleeves~
@@ -1089,11 +1089,11 @@ ebony~
 armor CY C AI
 20 20 20 10 0
 46 5 100000 P
-f object saves -5 0 46 -1
-f object hitroll 3 0 46 -1
-f object damroll 3 0 46 -1
-f resists slash 4 0 46 -1
-f resists bash 5 0 46 -1
+f object saves -5 0
+f object hitroll 3 0
+f object damroll 3 0
+f resists slash 4 0
+f resists bash 5 0
 g @rus none~
 #22347
 flail thunderfist~
@@ -1103,12 +1103,12 @@ energy~
 weapon BY C AN
 flail 15 4 'shock' 0
 46 200 100000 P
-f resists energy -30 0 46 -1
-f resists lightning 30 0 46 -1
-f object saves -5 0 46 -1
-f object hp 20 0 46 -1
-f object hitroll 2 0 46 -1
-f object damroll 4 0 46 -1
+f resists energy -30 0
+f resists lightning 30 0
+f object saves -5 0
+f object hp 20 0
+f object hitroll 2 0
+f object damroll 4 0
 g @rus none~
 #22348
 ebony boots~
@@ -1118,10 +1118,10 @@ ebony~
 armor CY C AG
 20 20 20 15 0
 46 5 100000 P
-f object saves -5 0 46 -1
-f object move 80 0 46 -1
-f object damroll 3 0 46 -1
-f object hitroll 3 0 46 -1
+f object saves -5 0
+f object move 80 0
+f object damroll 3 0
+f object hitroll 3 0
 g @rus none~
 #22349
 whip careth asdriag~
@@ -1131,9 +1131,9 @@ leather~
 weapon CJY C AN
 whip 11 5 'kiss' D
 46 50 100000 P
-f object hp 20 0 46 -1
-f object damroll 3 0 46 -1
-f object hitroll 5 0 46 -1
+f object hp 20 0
+f object damroll 3 0
+f object hitroll 5 0
 E
 whip~
 A foul smell of acid surrounds nine barbed tails of this whip,
@@ -1148,10 +1148,10 @@ unknown~
 armor CY C AI
 15 15 15 15 0
 46 5 100000 P
-f object str 3 0 46 -1
-f object hitroll 3 0 46 -1
-f object saves -5 0 46 -1
-f object damroll 3 0 46 -1
+f object str 3 0
+f object hitroll 3 0
+f object saves -5 0
+f object damroll 3 0
 g @rus none~
 #22351
 key treasure~
@@ -1323,12 +1323,12 @@ silver~
 armor BY C AE
 10 10 7 5 0
 45 40 40000 P
-f object hitroll 3 0 45 -1
-f object damroll 3 0 45 -1
-f object ac -10 0 45 -1
-f resists slash 1 0 45 -1
-f resists pierce 1 0 45 -1
-f resists bash 1 0 45 -1
+f object hitroll 3 0
+f object damroll 3 0
+f object ac -10 0
+f resists slash 1 0
+f resists pierce 1 0
+f resists bash 1 0
 g @rus none~
 #22370
 silver vest~
@@ -1338,13 +1338,13 @@ silver~
 armor BY C AD
 20 20 18 15 0
 45 100 50000 P
-f object dex -1 0 45 -1
-f object size 1 0 45 -1
-f object damroll 4 0 45 -1
-f object str 2 0 45 -1
-f resists pierce 3 0 45 -1
-f resists slash 2 0 45 -1
-f resists bash 2 0 45 -1
+f object dex -1 0
+f object size 1 0
+f object damroll 4 0
+f object str 2 0
+f resists pierce 3 0
+f resists slash 2 0
+f resists bash 2 0
 g @rus none~
 #22371
 silver boot~
@@ -1354,10 +1354,10 @@ unknown~
 armor BY C AG
 10 10 8 7 0
 45 20 45000 P
-f object ac -5 0 45 -1
-f object dex 1 0 45 -1
-f object damroll 3 0 45 -1
-f object move 50 0 45 -1
+f object ac -5 0
+f object dex 1 0
+f object damroll 3 0
+f object move 50 0
 g @rus none~
 #22372
 silver sleeves~
@@ -1367,11 +1367,11 @@ silver~
 armor BY C AI
 15 15 15 10 0
 45 20 30000 P
-f object hitroll 3 0 45 -1
-f object damroll 3 0 45 -1
-f resists pierce 2 0 45 -1
-f resists bash 1 0 45 -1
-f resists slash 1 0 45 -1
+f object hitroll 3 0
+f object damroll 3 0
+f resists pierce 2 0
+f resists bash 1 0
+f resists slash 1 0
 g @rus none~
 #22373
 silver gloves~
@@ -1381,7 +1381,7 @@ silver~
 armor BY C AH
 10 10 10 7 0
 45 10 40000 P
-f object hitroll 3 0 45 -1
+f object hitroll 3 0
 g @rus none~
 #22374
 silver leggings~
@@ -1391,13 +1391,13 @@ silver~
 armor BY C AF
 18 18 16 13 0
 45 25 30000 P
-f object hitroll 1 0 45 -1
-f object damroll 1 0 45 -1
-f object hp 10 0 45 -1
-f resists bash 1 0 45 -1
-f resists pierce 1 0 45 -1
-f resists slash 1 0 45 -1
-f object ac -10 0 45 -1
+f object hitroll 1 0
+f object damroll 1 0
+f object hp 10 0
+f resists bash 1 0
+f resists pierce 1 0
+f resists slash 1 0
+f object ac -10 0
 g @rus none~
 #22375
 silver shield~
@@ -1407,9 +1407,9 @@ silver~
 armor BY C AJ
 25 25 20 15 0
 45 450 50000 P
-f resists bash 6 0 45 -1
-f resists pierce 5 0 45 -1
-f resists slash 3 0 45 -1
+f resists bash 6 0
+f resists pierce 5 0
+f resists slash 3 0
 g @rus none~
 #22376
 silver dagger~
@@ -1419,9 +1419,9 @@ silver~
 weapon Y C AN
 dagger 20 2 'stab' DH
 45 80 10000 P
-f skills 'backstab' 40 0 45 -1
-f object hitroll 5 0 45 -1
-f object damroll 2 0 45 -1
+f skills 'backstab' 40 0
+f object hitroll 5 0
+f object damroll 2 0
 g @rus none~
 #22377
 silver mace~
@@ -1431,10 +1431,10 @@ silver~
 weapon Y C AN
 mace 15 3 'smash' DG
 45 200 50000 P
-f skills 'head crush' 50 0 45 -1
-f object str 3 0 45 -1
-f object hitroll 5 0 45 -1
-f object damroll 5 0 45 -1
+f skills 'head crush' 50 0
+f object str 3 0
+f object hitroll 5 0
+f object damroll 5 0
 g @rus none~
 #22378
 silver axe~
@@ -1444,9 +1444,9 @@ silver~
 weapon Y C AN
 axe 17 4 'cleave' BD
 45 200 30000 P
-f object hitroll 3 0 45 -1
-f object damroll 5 0 45 -1
-f skills 'cleave' 50 0 45 -1
+f object hitroll 3 0
+f object damroll 5 0
+f skills 'cleave' 50 0
 g @rus none~
 #22379
 silver flail~
@@ -1456,9 +1456,9 @@ silver~
 weapon Y C AN
 flail 10 5 'charge' CD
 45 100 30000 P
-f object hitroll 3 0 45 -1
-f object damroll 3 0 45 -1
-f skills 'deathblow' 30 0 45 -1
+f object hitroll 3 0
+f object damroll 3 0
+f skills 'deathblow' 30 0
 g @rus none~
 #22380
 treasure gold~
@@ -1476,11 +1476,11 @@ steel~
 armor Y C AE
 8 8 6 5 0
 45 50 10000 P
-f resists acid 5 0 45 -1
-f resists pierce 3 0 45 -1
-f affects saves -5 0 45 -1
-f affects hitroll 3 0 45 -1
-f affects damroll 3 0 45 -1
+f resists acid 5 0
+f resists pierce 3 0
+f affects saves -5 0
+f affects hitroll 3 0
+f affects damroll 3 0
 #22382
 ancinet chainmail~
 an ancient chainmail~
@@ -1489,11 +1489,11 @@ steel~
 armor Y C AD
 15 15 13 10 0
 45 200 10000 P
-f resists acid 5 0 45 -1
-f resists slash 3 0 45 -1
-f affects hitroll 1 0 45 -1
-f affects str 2 0 45 -1
-f affects damroll 4 0 45 -1
+f resists acid 5 0
+f resists slash 3 0
+f affects hitroll 1 0
+f affects str 2 0
+f affects damroll 4 0
 #22383
 ancient boots~
 a pair of ancient boots~
@@ -1502,9 +1502,9 @@ steel~
 armor Y C AG
 8 8 6 6 0
 45 40 10000 P
-f affects none 0 T 45 -1
-f resists acid 5 0 45 -1
-f affects move 50 0 45 -1
+f affects none 0 T
+f resists acid 5 0
+f affects move 50 0
 #22384
 ancient sleeves~
 a set of ancient sleeves~
@@ -1513,10 +1513,10 @@ steel~
 armor Y C AI
 13 13 10 9 0
 45 40 10000 P
-f resists acid 5 0 45 -1
-f resists pierce 2 0 45 -1
-f affects hitroll 2 0 45 -1
-f affects damroll 2 0 45 -1
+f resists acid 5 0
+f resists pierce 2 0
+f affects hitroll 2 0
+f affects damroll 2 0
 #22385
 gloves ancient~
 a pair of ancient gloves~
@@ -1525,9 +1525,9 @@ steel~
 armor Y C AH
 7 7 6 5 0
 45 30 10000 P
-f affects dex 1 0 45 -1
-f affects hitroll 2 0 45 -1
-f resists acid 5 0 45 -1
+f affects dex 1 0
+f affects hitroll 2 0
+f resists acid 5 0
 #22386
 ancient leggings~
 a set of ancient leggings~
@@ -1536,10 +1536,10 @@ steel~
 armor Y C AF
 15 15 13 10 0
 45 70 10000 P
-f affects hitroll 1 0 45 -1
-f affects damroll 1 0 45 -1
-f resists acid 5 0 45 -1
-f resists bash 2 0 45 -1
+f affects hitroll 1 0
+f affects damroll 1 0
+f resists acid 5 0
+f resists bash 2 0
 #22387
 sword ancient~
 an ancient sword~
@@ -1548,9 +1548,9 @@ steel~
 weapon BY CFL AN
 sword 4 11 'acbite' D
 45 200 10000 P
-f affects hp 10 0 45 -1
-f affects hitroll 2 0 45 -1
-f affects damroll 4 0 45 -1
+f affects hp 10 0
+f affects hitroll 2 0
+f affects damroll 4 0
 #22388
 ancient shield~
 an ancient shield~
@@ -1559,11 +1559,11 @@ steel~
 armor GY C AJ
 20 20 15 23 0
 45 150 15000 P
-f skills 'shield block' 50 0 45 -1
-f resists fire 5 0 45 -1
-f resists pierce 2 0 45 -1
-f resists acid 5 0 45 -1
-f resists bash 2 0 45 -1
+f skills 'shield block' 50 0
+f resists fire 5 0
+f resists pierce 2 0
+f resists acid 5 0
+f resists bash 2 0
 #22399
 battleaxe dagger sword~
 battlaxe ~
@@ -1581,9 +1581,9 @@ unknown~
 armor 0 0 AM
 10000 10000 10000 10000 0
 46 0 0 P
-f object level 100 0 46 -1
-f object hp 10000 0 46 -1
-f object mana 10000 0 46 -1
+f object level 100 0
+f object hp 10000 0
+f object mana 10000 0
 g @rus none~
 #0
 

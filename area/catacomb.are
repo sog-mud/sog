@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name Catacombs~
 VNUMs 2000 2099
 Credits Raff~
@@ -259,7 +259,7 @@ granite~
 armor BJ 0 AD
 8 8 8 2 0
 23 450 3600 P
-f object dex -1 0 23 -1
+f object dex -1 0
 g @rus none~
 #2003
 onyx ring~
@@ -269,8 +269,8 @@ onyx~
 jewelry J 0 AB
 0 0 0 0 0
 7 10 800 P
-f object wis 1 0 7 -1
-f object ac -1 0 7 -1
+f object wis 1 0
+f object ac -1 0
 g @rus none~
 #2004
 neutralizer sword~
@@ -280,8 +280,8 @@ iron~
 weapon BJK 0 AN
 sword 4 5 'slash' 0
 16 90 1280 P
-f object damroll 2 0 16 -1
-f object hitroll 1 0 16 -1
+f object damroll 2 0
+f object hitroll 1 0
 g @rus none~
 #2005
 sword excalibur~
@@ -291,8 +291,8 @@ steel~
 weapon AGKL 0 AN
 sword 10 4 'slash' 0
 24 150 3400 P
-f object str 1 0 24 -1
-f object hitroll 3 0 24 -1
+f object str 1 0
+f object hitroll 3 0
 g @rus none~
 #2006
 crown~
@@ -302,7 +302,7 @@ gold~
 key I 0 AE
 0 0 0 0 0
 24 100 1850 P
-f object ac -6 0 24 -1
+f object ac -6 0
 g @rus none~
 #2007
 stone~
@@ -339,7 +339,7 @@ cloth~
 armor A 0 AC
 5 5 5 0 0
 12 30 1000 P
-f object hitroll 1 0 12 -1
+f object hitroll 1 0
 g @rus none~
 #2011
 shield defense~
@@ -349,11 +349,11 @@ iron~
 armor G 0 AJ
 6 6 6 4 0
 13 350 1920 P
-f object damroll -1 0 13 -1
-f object hitroll -2 0 13 -1
-f object hp 10 0 13 -1
-f object mana 10 0 13 -1
-f object ac -2 0 13 -1
+f object damroll -1 0
+f object hitroll -2 0
+f object hp 10 0
+f object mana 10 0
+f object ac -2 0
 g @rus none~
 #2012
 scale shield dragonscale~
@@ -363,7 +363,7 @@ dragonskin~
 armor 0 0 AJ
 7 7 7 4 0
 22 100 3500 P
-f object saves -2 0 22 -1
+f object saves -2 0
 g @rus none~
 #2013
 prism wand~
@@ -382,7 +382,7 @@ cloth~
 armor G 0 AK
 7 7 7 2 0
 14 10 210 P
-f object move -30 0 14 -1
+f object move -30 0
 g @rus none~
 #2015
 misty potion~
@@ -401,7 +401,7 @@ wood~
 weapon I 0 AN
 sword 2 6 'slash' 0
 10 60 830 P
-f object hitroll 2 0 10 -1
+f object hitroll 2 0
 g @rus none~
 #0
 

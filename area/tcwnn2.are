@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name The Walls of Anon~
 VNUMs 31200 31399
 Credits Yaegar~
@@ -310,8 +310,8 @@ copper~
 weapon G 0 AN
 sword 4 11 'pierce' 0
 50 250 500 P
-f object hitroll 4 0 50 -1
-f object damroll 4 0 50 -1
+f object hitroll 4 0
+f object damroll 4 0
 g @rus none~
 #31201
 breastplate plate~
@@ -321,8 +321,8 @@ copper~
 armor 0 0 AD
 13 13 13 0 0
 50 20 500 P
-f object con 2 0 50 -1
-f object ac -15 0 50 -1
+f object con 2 0
+f object ac -15 0
 g @rus none~
 #31202
 bracer~
@@ -332,8 +332,8 @@ copper~
 armor 0 0 AM
 13 13 13 0 0
 50 15 500 P
-f object dex 2 0 50 -1
-f object hitroll 2 0 50 -1
+f object dex 2 0
+f object hitroll 2 0
 g @rus none~
 #31203
 cloak~
@@ -343,8 +343,8 @@ copper~
 armor 0 0 AC
 13 13 13 0 0
 50 10 500 P
-f object mana 25 0 50 -1
-f object ac -15 0 50 -1
+f object mana 25 0
+f object ac -15 0
 g @rus none~
 #31204
 helm~
@@ -354,9 +354,9 @@ copper~
 armor 0 0 AE
 13 13 13 0 0
 50 10 500 P
-f object int 1 0 50 -1
-f object wis 1 0 50 -1
-f object ac -20 0 50 -1
+f object int 1 0
+f object wis 1 0
+f object ac -20 0
 g @rus none~
 #31205
 shield~
@@ -366,9 +366,9 @@ copper~
 armor 0 0 AJ
 13 13 13 0 0
 50 20 500 P
-f object ac -20 0 50 -1
-f object saving_breath -2 0 50 -1
-f object saving_spell -2 0 50 -1
+f object ac -20 0
+f object saving_breath -2 0
+f object saving_spell -2 0
 g @rus none~
 #31206
 spear~
@@ -378,8 +378,8 @@ copper~
 warp_stone G 0 ANO
 0 0 0 0 0
 50 20 500 P
-f object hitroll 2 0 50 -1
-f object damroll 2 0 50 -1
+f object hitroll 2 0
+f object damroll 2 0
 g @rus none~
 #31207
 ring~
@@ -389,10 +389,10 @@ copper~
 armor AB 0 AB
 13 13 13 0 0
 50 1 500 P
-f object dex 3 0 50 -1
-f object ac -25 0 50 -1
-f object hitroll 2 0 50 -1
-f object damroll 2 0 50 -1
+f object dex 3 0
+f object ac -25 0
+f object hitroll 2 0
+f object damroll 2 0
 g @rus none~
 #31208
 suit plate mail~
@@ -402,8 +402,8 @@ copper~
 armor K 0 AD
 14 14 14 0 0
 58 450 580 P
-f object dex -2 0 58 -1
-f object ac -45 0 58 -1
+f object dex -2 0
+f object ac -45 0
 g @rus none~
 #31209
 broadsword~
@@ -413,8 +413,8 @@ copper~
 weapon AGK 0 AN
 sword 5 13 'slash' 0
 58 100 580 P
-f object hitroll 8 0 58 -1
-f object damroll 8 0 58 -1
+f object hitroll 8 0
+f object damroll 8 0
 g @rus none~
 #31210
 shield~
@@ -424,9 +424,9 @@ copper~
 armor K 0 AJ
 14 14 14 0 0
 58 100 580 P
-f object ac -20 0 58 -1
-f object saving_breath -3 0 58 -1
-f object saving_spell -3 0 58 -1
+f object ac -20 0
+f object saving_breath -3 0
+f object saving_spell -3 0
 g @rus none~
 #31211
 helm~
@@ -436,7 +436,7 @@ copper~
 armor K 0 AE
 14 14 14 0 0
 58 5 580 P
-f object wis 3 0 58 -1
+f object wis 3 0
 g @rus none~
 #31212
 gauntlets~
@@ -446,9 +446,9 @@ copper~
 armor GK 0 AE
 14 14 14 0 0
 58 4 580 P
-f object str 2 0 58 -1
-f object hitroll 2 0 58 -1
-f object damroll 3 0 58 -1
+f object str 2 0
+f object hitroll 2 0
+f object damroll 3 0
 g @rus none~
 #31213
 ring~
@@ -467,8 +467,8 @@ copper~
 armor 0 0 AD
 15 15 15 0 0
 62 50 620 P
-f object hitroll 3 0 62 -1
-f object damroll 3 0 62 -1
+f object hitroll 3 0
+f object damroll 3 0
 g @rus none~
 #31215
 swagger stick~
@@ -521,7 +521,7 @@ copper~
 weapon 0 B A
 bow 4 11 'pierce' 0
 48 100 480 P
-f object hitroll 6 0 48 -1
+f object hitroll 6 0
 g @rus none~
 #31220
 chainmail~
@@ -531,7 +531,7 @@ copper~
 armor 0 0 AD
 12 12 12 0 0
 48 50 480 P
-f object con 2 0 48 -1
+f object con 2 0
 g @rus none~
 #31221
 leather leggings~
@@ -541,7 +541,7 @@ copper~
 armor 0 0 AF
 12 12 12 0 0
 48 5 480 P
-f object hp 25 0 48 -1
+f object hp 25 0
 g @rus none~
 #31222
 leather wristguard~
@@ -582,7 +582,7 @@ copper~
 scroll G 0 AO
 60 'flamestrike' 'flamestrike' 'flamestrike' ''
 60 1 600 P
-f object wis 3 0 60 -1
+f object wis 3 0
 E
 scroll~
 The scroll reads-
@@ -687,7 +687,7 @@ copper~
 armor 0 0 AL
 12 12 12 0 0
 48 2 480 P
-f object con 2 0 48 -1
+f object con 2 0
 g @rus none~
 #31236
 backpack~
@@ -742,8 +742,8 @@ copper~
 armor AG 0 AB
 14 14 14 0 0
 56 1 560 P
-f object int 2 0 56 -1
-f object mana 50 0 56 -1
+f object int 2 0
+f object mana 50 0
 g @rus none~
 #31242
 staff power~
@@ -753,8 +753,8 @@ copper~
 staff AG 0 AO
 55 25 25 'lightning bolt' 0
 56 1 560 P
-f object mana 25 0 56 -1
-f object ac -20 0 56 -1
+f object mana 25 0
+f object ac -20 0
 g @rus none~
 #31243
 robe magi~
@@ -764,12 +764,12 @@ copper~
 map AGK 0 AK
 0 0 0 0 0
 56 5 560 P
-f object dex 1 0 56 -1
-f object mana 20 0 56 -1
-f object hp 20 0 56 -1
-f object ac -20 0 56 -1
-f object hitroll 1 0 56 -1
-f object damroll 1 0 56 -1
+f object dex 1 0
+f object mana 20 0
+f object hp 20 0
+f object ac -20 0
+f object hitroll 1 0
+f object damroll 1 0
 g @rus none~
 #31244
 boots speed~
@@ -779,9 +779,9 @@ copper~
 armor AG 0 AG
 14 14 14 0 0
 56 2 560 P
-f object dex 3 0 56 -1
-f object move 100 0 56 -1
-f object ac -10 0 56 -1
+f object dex 3 0
+f object move 100 0
+f object ac -10 0
 g @rus none~
 #31245
 invincible plate~
@@ -791,11 +791,11 @@ copper~
 armor BCEFGHJLM 0 AD
 15 15 15 0 0
 60 450 600 P
-f object str 4 0 60 -1
-f object con 4 0 60 -1
-f object ac -25 0 60 -1
-f object saving_breath -3 0 60 -1
-f object saving_spell -3 0 60 -1
+f object str 4 0
+f object con 4 0
+f object ac -25 0
+f object saving_breath -3 0
+f object saving_spell -3 0
 g @rus none~
 #0
 

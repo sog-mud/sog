@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name Lizard Kingdom~
 VNUMs 22100 22299
 Credits ParAvoz~
@@ -548,10 +548,10 @@ snakeskin~
 armor 0 0 AM
 15 15 15 15 0
 50 1 0 P
-f object move 100 0 50 -1
-f object hp 30 0 50 -1
-f object int 1 0 50 -1
-f object str 1 0 50 -1
+f object move 100 0
+f object hp 30 0
+f object int 1 0
+f object str 1 0
 g @rus none~
 #22103
 small bracelet~
@@ -561,9 +561,9 @@ snakeskin~
 armor 0 0 AM
 10 10 10 10 0
 40 0 0 P
-f object move 100 0 40 -1
-f object hp 10 0 40 -1
-f object saves -5 0 40 -1
+f object move 100 0
+f object hp 10 0
+f object saves -5 0
 g @rus none~
 #22104
 huge bracelet~
@@ -573,12 +573,12 @@ snakeskin~
 armor I BC AM
 17 17 17 10 0
 55 1 10000 P
-f object damroll 3 0 55 -1
-f object hitroll 3 0 55 -1
-f object hp 30 0 55 -1
-f object level 1 0 55 -1
-f object con 2 0 55 -1
-f object str 1 0 55 -1
+f object damroll 3 0
+f object hitroll 3 0
+f object hp 30 0
+f object level 1 0
+f object con 2 0
+f object str 1 0
 g @rus none~
 #22105
 invisible robe~
@@ -588,9 +588,9 @@ unknown~
 armor FHIMY BCE AK
 18 18 18 18 0
 55 1 0 P
-f object mana 200 0 55 -1
-f object wis 3 0 55 -1
-f object int 3 0 55 -1
+f object mana 200 0
+f object wis 3 0
+f object int 3 0
 g @rus none~
 #22106
 white robe~
@@ -600,9 +600,9 @@ unknown~
 armor AHIMY BCE AK
 18 18 18 18 0
 55 1 0 P
-f object hp 75 0 55 -1
-f object cha 3 0 55 -1
-f object con 3 0 55 -1
+f object hp 75 0
+f object cha 3 0
+f object con 3 0
 g @rus none~
 #22107
 red robe~
@@ -612,10 +612,10 @@ unknown~
 armor AHIMY BCE AK
 17 17 17 17 0
 55 1 0 P
-f object move 300 0 55 -1
-f object hitroll 10 0 55 -1
-f object dex 3 0 55 -1
-f object str 3 0 55 -1
+f object move 300 0
+f object hitroll 10 0
+f object dex 3 0
+f object str 3 0
 g @rus none~
 #22108
 yellow robe~
@@ -625,14 +625,14 @@ unknown~
 armor AHIMY BCE AK
 17 17 17 17 0
 55 1 0 P
-f object ac -30 0 55 -1
-f object saves -15 0 55 -1
-f object cha 1 0 55 -1
-f object con 1 0 55 -1
-f object wis 1 0 55 -1
-f object int 1 0 55 -1
-f object dex 1 0 55 -1
-f object str 1 0 55 -1
+f object ac -30 0
+f object saves -15 0
+f object cha 1 0
+f object con 1 0
+f object wis 1 0
+f object int 1 0
+f object dex 1 0
+f object str 1 0
 g @rus none~
 #22109
 black robe~
@@ -642,14 +642,14 @@ unknown~
 armor AHIMY BCE AK
 17 17 17 17 0
 55 1 0 P
-f object damroll 10 0 55 -1
-f object age 5 0 55 -1
-f object cha -2 0 55 -1
-f object con -2 0 55 -1
-f object wis -2 0 55 -1
-f object int -2 0 55 -1
-f object dex -2 0 55 -1
-f object str -2 0 55 -1
+f object damroll 10 0
+f object age 5 0
+f object cha -2 0
+f object con -2 0
+f object wis -2 0
+f object int -2 0
+f object dex -2 0
+f object str -2 0
 g @rus none~
 #22110
 invisible whip~
@@ -695,7 +695,7 @@ unknown~
 weapon AHIMY BCE AN
 whip 12 4 'drain' D
 55 5 0 P
-f object damroll 10 0 55 -1
+f object damroll 10 0
 g @rus none~
 #22115
 invisible sleeves~
@@ -705,9 +705,9 @@ unknown~
 armor FHIMY BCE AK
 18 18 18 18 0
 55 1 0 P
-f object mana 200 0 55 -1
-f object wis 3 0 55 -1
-f object int 3 0 55 -1
+f object mana 200 0
+f object wis 3 0
+f object int 3 0
 g @rus none~
 #22116
 white sleeves~
@@ -717,9 +717,9 @@ unknown~
 armor AHIMY BCE AI
 18 18 18 18 0
 55 1 0 P
-f object hp 75 0 55 -1
-f object cha 3 0 55 -1
-f object con 3 0 55 -1
+f object hp 75 0
+f object cha 3 0
+f object con 3 0
 g @rus none~
 #22117
 red sleeves~
@@ -729,10 +729,10 @@ unknown~
 armor AHIMY BCE AI
 17 17 17 17 0
 55 1 0 P
-f object move 300 0 55 -1
-f object hitroll 10 0 55 -1
-f object dex 3 0 55 -1
-f object str 3 0 55 -1
+f object move 300 0
+f object hitroll 10 0
+f object dex 3 0
+f object str 3 0
 g @rus none~
 #22118
 yellow sleeves~
@@ -742,14 +742,14 @@ unknown~
 armor AHIMY BCE AI
 17 17 17 17 0
 55 1 0 P
-f object ac -30 0 55 -1
-f object saves -15 0 55 -1
-f object cha 1 0 55 -1
-f object con 1 0 55 -1
-f object wis 1 0 55 -1
-f object int 1 0 55 -1
-f object dex 1 0 55 -1
-f object str 1 0 55 -1
+f object ac -30 0
+f object saves -15 0
+f object cha 1 0
+f object con 1 0
+f object wis 1 0
+f object int 1 0
+f object dex 1 0
+f object str 1 0
 g @rus none~
 #22119
 black sleeves~
@@ -759,14 +759,14 @@ unknown~
 armor AHIMY BCE AI
 17 17 17 17 0
 55 1 0 P
-f object damroll 10 0 55 -1
-f object age 5 0 55 -1
-f object cha -2 0 55 -1
-f object con -2 0 55 -1
-f object wis -2 0 55 -1
-f object int -2 0 55 -1
-f object dex -2 0 55 -1
-f object str -2 0 55 -1
+f object damroll 10 0
+f object age 5 0
+f object cha -2 0
+f object con -2 0
+f object wis -2 0
+f object int -2 0
+f object dex -2 0
+f object str -2 0
 g @rus none~
 #22120
 gray staff~
@@ -776,10 +776,10 @@ hardwood~
 weapon A 0 AN
 staff 11 4 'smash' G
 50 50 100000 P
-f object damroll 10 0 50 -1
-f object hitroll 10 0 50 -1
-f object mana 100 0 50 -1
-f object hp 20 0 50 -1
+f object damroll 10 0
+f object hitroll 10 0
+f object mana 100 0
+f object hp 20 0
 g @rus none~
 #22121
 staff green~
@@ -789,11 +789,11 @@ softwood~
 weapon A 0 AN
 staff 11 4 'smash' G
 50 100 10000 P
-f object damroll 10 0 50 -1
-f object hitroll 10 0 50 -1
-f object move 50 0 50 -1
-f object hp 50 0 50 -1
-f object hp 40 0 50 -1
+f object damroll 10 0
+f object hitroll 10 0
+f object move 50 0
+f object hp 50 0
+f object hp 40 0
 g @rus none~
 #22122
 gray vest~
@@ -803,10 +803,10 @@ snakeskin~
 armor 0 0 AD
 15 15 15 10 0
 50 100 1000 P
-f object saves -10 0 50 -1
-f object cha 2 0 50 -1
-f object wis 2 0 50 -1
-f object int 2 0 50 -1
+f object saves -10 0
+f object cha 2 0
+f object wis 2 0
+f object int 2 0
 g @rus none~
 #22123
 vest green~
@@ -816,10 +816,10 @@ snakeskin~
 armor 0 0 AD
 15 15 15 10 0
 50 100 1000 P
-f object ac -20 0 50 -1
-f object con 1 0 50 -1
-f object dex 2 0 50 -1
-f object str 2 0 50 -1
+f object ac -20 0
+f object con 1 0
+f object dex 2 0
+f object str 2 0
 g @rus none~
 #22124
 gray boots~
@@ -829,9 +829,9 @@ snakeskin~
 armor 0 0 AG
 15 15 15 10 0
 50 10 1000 P
-f object cha 1 0 50 -1
-f object wis 2 0 50 -1
-f object int 2 0 50 -1
+f object cha 1 0
+f object wis 2 0
+f object int 2 0
 g @rus none~
 #22125
 green boots~
@@ -841,8 +841,8 @@ snakeskin~
 armor 0 0 AG
 15 15 15 10 0
 50 10 1000 P
-f object damroll 3 0 50 -1
-f object hitroll 3 0 50 -1
+f object damroll 3 0
+f object hitroll 3 0
 g @rus none~
 #22126
 mantle gods~
@@ -852,19 +852,19 @@ unknown~
 armor ABGHI AE AK
 20 20 20 20 0
 60 0 0 P
-f object damroll 5 0 60 -1
-f object hitroll 5 0 60 -1
-f object move 50 0 60 -1
-f object mana 50 0 60 -1
-f object hp 50 0 60 -1
-f object ac -20 0 60 -1
-f object saves -10 0 60 -1
-f object level 1 0 60 -1
-f object con 2 0 60 -1
-f object wis 2 0 60 -1
-f object int 2 0 60 -1
-f object dex 2 0 60 -1
-f object str 2 0 60 -1
+f object damroll 5 0
+f object hitroll 5 0
+f object move 50 0
+f object mana 50 0
+f object hp 50 0
+f object ac -20 0
+f object saves -10 0
+f object level 1 0
+f object con 2 0
+f object wis 2 0
+f object int 2 0
+f object dex 2 0
+f object str 2 0
 g @rus none~
 #22127
 huge bone~
@@ -874,8 +874,8 @@ bone~
 weapon ABI 0 AN
 mace 10 4 'smash' 0
 40 10 10000 P
-f object damroll 7 0 40 -1
-f object hitroll 7 0 40 -1
+f object damroll 7 0
+f object hitroll 7 0
 g @rus none~
 #22128
 ring death~
@@ -885,14 +885,14 @@ steel~
 armor ABCEM EF AB
 20 20 20 20 0
 60 1 0 P
-f object cha -2 0 60 -1
-f object con -2 0 60 -1
-f object wis -2 0 60 -1
-f object int -2 0 60 -1
-f object dex -2 0 60 -1
-f object str -2 0 60 -1
-f object damroll 5 0 60 -1
-f object hitroll 5 0 60 -1
+f object cha -2 0
+f object con -2 0
+f object wis -2 0
+f object int -2 0
+f object dex -2 0
+f object str -2 0
+f object damroll 5 0
+f object hitroll 5 0
 g @rus none~
 #22129
 shortsword sword~
@@ -902,8 +902,8 @@ bronze~
 weapon A 0 AN
 sword 11 4 'slash' D
 50 100 100 P
-f object damroll 8 0 50 -1
-f object hitroll 8 0 50 -1
+f object damroll 8 0
+f object hitroll 8 0
 g @rus none~
 #22130
 round shield~
@@ -913,8 +913,8 @@ bronze~
 armor A 0 AJ
 30 30 30 10 0
 50 350 22222 P
-f object damroll 3 0 50 -1
-f object hitroll 3 0 50 -1
+f object damroll 3 0
+f object hitroll 3 0
 g @rus none~
 #22131
 bronze skirt~
@@ -924,8 +924,8 @@ bronze~
 armor A 0 AF
 15 15 15 6 0
 40 100 3333 P
-f object damroll 1 0 40 -1
-f object hitroll 3 0 40 -1
+f object damroll 1 0
+f object hitroll 3 0
 g @rus none~
 #22132
 opal bracelet~
@@ -935,9 +935,9 @@ opal~
 armor ABI 0 AM
 18 18 18 12 0
 55 10 444444 P
-f object damroll 4 0 55 -1
-f object hitroll 4 0 55 -1
-f object hp 30 0 55 -1
+f object damroll 4 0
+f object hitroll 4 0
+f object hp 30 0
 g @rus none~
 #22133
 steel bracelet~
@@ -947,7 +947,7 @@ steel~
 armor 0 0 AM
 10 10 10 6 0
 30 0 0 P
-f object hp 15 0 30 -1
+f object hp 15 0
 g @rus none~
 #22134
 halberd~
@@ -957,8 +957,8 @@ steel~
 weapon 0 0 AN
 polearm 10 4 'slash' F
 30 300 11110 P
-f object damroll 2 0 30 -1
-f object hitroll 5 0 30 -1
+f object damroll 2 0
+f object hitroll 5 0
 g @rus none~
 #22135
 strange plate~
@@ -968,7 +968,7 @@ steel~
 armor 0 0 AD
 15 15 15 10 0
 30 400 1231 P
-f object hp 15 0 30 -1
+f object hp 15 0
 g @rus none~
 #22136
 mithril bracer~
@@ -978,9 +978,9 @@ mithril~
 armor BIK F AM
 20 20 20 15 0
 60 20 0 P
-f object damroll 4 0 60 -1
-f object hitroll 4 0 60 -1
-f object hp 40 0 60 -1
+f object damroll 4 0
+f object hitroll 4 0
+f object hp 40 0
 g @rus none~
 #22137
 mithril shortsword~
@@ -990,8 +990,8 @@ mithril~
 weapon BIK F AN
 sword 13 4 'slash' DE
 60 100 10000 P
-f object damroll 10 0 60 -1
-f object hitroll 10 0 60 -1
+f object damroll 10 0
+f object hitroll 10 0
 g @rus none~
 #22138
 mithril shield~
@@ -1001,10 +1001,10 @@ mithril~
 armor BIK F AJ
 20 20 20 12 0
 60 450 10000 P
-f object ac -30 0 60 -1
-f object damroll 4 0 60 -1
-f object hitroll 4 0 60 -1
-f object hp 30 0 60 -1
+f object ac -30 0
+f object damroll 4 0
+f object hitroll 4 0
+f object hp 30 0
 g @rus none~
 #22139
 mithril plate~
@@ -1014,10 +1014,10 @@ mithril~
 armor BIK F AD
 20 20 20 12 0
 60 450 10000 P
-f object hp 40 0 60 -1
-f object ac -30 0 60 -1
-f object damroll 4 0 60 -1
-f object hitroll 4 0 60 -1
+f object hp 40 0
+f object ac -30 0
+f object damroll 4 0
+f object hitroll 4 0
 g @rus none~
 #22140
 mithril bootd~
@@ -1027,9 +1027,9 @@ mithril~
 armor BIK F AG
 20 20 20 12 0
 60 1000 10000 P
-f object hp 40 0 60 -1
-f object damroll 4 0 60 -1
-f object hitroll 4 0 60 -1
+f object hp 40 0
+f object damroll 4 0
+f object hitroll 4 0
 g @rus none~
 #22141
 violet cloak~
@@ -1039,7 +1039,7 @@ silk~
 armor AB 0 AC
 20 20 20 20 0
 55 300 6666 P
-f object level 2 0 55 -1
+f object level 2 0
 g @rus none~
 #22142
 doom mace~
@@ -1049,8 +1049,8 @@ unknown~
 weapon ABE 0 AN
 mace 12 4 'acbite' DE
 60 100 6666 P
-f object damroll 9 0 60 -1
-f object hitroll 9 0 60 -1
+f object damroll 9 0
+f object hitroll 9 0
 g @rus none~
 #22143
 obsidian longsword~
@@ -1060,8 +1060,8 @@ obsidian~
 weapon BE 0 AN
 sword 12 3 'slice' DE
 40 300 3000 P
-f object damroll 6 0 40 -1
-f object hitroll 6 0 40 -1
+f object damroll 6 0
+f object hitroll 6 0
 g @rus none~
 #22144
 obsidian shield~
@@ -1071,11 +1071,11 @@ obsidian~
 armor BE 0 AJ
 10 10 10 6 0
 40 400 2000 P
-f object ac 20 0 40 -1
-f object str 3 0 40 -1
-f object damroll 1 0 40 -1
-f object hitroll 1 0 40 -1
-f object hp 20 0 40 -1
+f object ac 20 0
+f object str 3 0
+f object damroll 1 0
+f object hitroll 1 0
+f object hp 20 0
 g @rus none~
 #22145
 obsidian vest~
@@ -1085,11 +1085,11 @@ obsidian~
 armor BE 0 AD
 10 10 10 6 0
 40 100 2000 P
-f object ac 20 0 40 -1
-f object str 3 0 40 -1
-f object damroll 1 0 40 -1
-f object hitroll 1 0 40 -1
-f object hp 20 0 40 -1
+f object ac 20 0
+f object str 3 0
+f object damroll 1 0
+f object hitroll 1 0
+f object hp 20 0
 g @rus none~
 #22146
 obsidian gauntlets~
@@ -1099,10 +1099,10 @@ obsidian~
 armor BE 0 AH
 10 10 10 6 0
 40 100 2000 P
-f object dex 3 0 40 -1
-f object damroll 1 0 40 -1
-f object hitroll 1 0 40 -1
-f object hp 20 0 40 -1
+f object dex 3 0
+f object damroll 1 0
+f object hitroll 1 0
+f object hp 20 0
 g @rus none~
 #22147
 obsidian armguards~
@@ -1112,10 +1112,10 @@ obsidian~
 armor BE 0 AI
 10 10 10 6 0
 40 100 2000 P
-f object dex 3 0 40 -1
-f object damroll 1 0 40 -1
-f object hitroll 1 0 40 -1
-f object hp 20 0 40 -1
+f object dex 3 0
+f object damroll 1 0
+f object hitroll 1 0
+f object hp 20 0
 g @rus none~
 #22148
 obsidian helm~
@@ -1125,11 +1125,11 @@ obsidian~
 armor BE 0 AE
 10 10 10 6 0
 40 100 2000 P
-f object ac -5 0 40 -1
-f object int 3 0 40 -1
-f object damroll 1 0 40 -1
-f object hitroll 1 0 40 -1
-f object hp 20 0 40 -1
+f object ac -5 0
+f object int 3 0
+f object damroll 1 0
+f object hitroll 1 0
+f object hp 20 0
 g @rus none~
 #22149
 obsidian boots~
@@ -1139,10 +1139,10 @@ obsidian~
 armor BE 0 AG
 10 10 10 6 0
 40 100 2000 P
-f object con 3 0 40 -1
-f object damroll 1 0 40 -1
-f object hitroll 1 0 40 -1
-f object hp 20 0 40 -1
+f object con 3 0
+f object damroll 1 0
+f object hitroll 1 0
+f object hp 20 0
 g @rus none~
 #22150
 obsidian leggins~
@@ -1152,11 +1152,11 @@ obsidian~
 armor BE 0 AF
 10 10 10 6 0
 40 100 2000 P
-f object ac -2 0 40 -1
-f object con 3 0 40 -1
-f object damroll 1 0 40 -1
-f object hitroll 1 0 40 -1
-f object hp 20 0 40 -1
+f object ac -2 0
+f object con 3 0
+f object damroll 1 0
+f object hitroll 1 0
+f object hp 20 0
 g @rus none~
 #22151
 apron~
@@ -1166,10 +1166,10 @@ snakeskin~
 armor B 0 AF
 18 18 18 10 0
 60 100 10000 P
-f object wis -2 0 60 -1
-f object hp 50 0 60 -1
-f object damroll 1 0 60 -1
-f object hitroll 1 0 60 -1
+f object wis -2 0
+f object hp 50 0
+f object damroll 1 0
+f object hitroll 1 0
 g @rus none~
 #22152
 bracelet~
@@ -1179,10 +1179,10 @@ snakeskin~
 armor B 0 AM
 18 18 18 10 0
 60 100 10000 P
-f object wis -2 0 60 -1
-f object hp 50 0 60 -1
-f object damroll 1 0 60 -1
-f object hitroll 1 0 60 -1
+f object wis -2 0
+f object hp 50 0
+f object damroll 1 0
+f object hitroll 1 0
 g @rus none~
 #22153
 tie~
@@ -1192,10 +1192,10 @@ snakeskin~
 armor B 0 AC
 18 18 18 10 0
 60 10 1000 P
-f object int -1 0 60 -1
-f object str -1 0 60 -1
-f object move 100 0 60 -1
-f object mana 100 0 60 -1
+f object int -1 0
+f object str -1 0
+f object move 100 0
+f object mana 100 0
 g @rus none~
 #22154
 bracelet~
@@ -1205,10 +1205,10 @@ snakeskin~
 armor B 0 AM
 18 18 18 10 0
 60 10 1000 P
-f object int -1 0 60 -1
-f object str -1 0 60 -1
-f object move 100 0 60 -1
-f object mana 100 0 60 -1
+f object int -1 0
+f object str -1 0
+f object move 100 0
+f object mana 100 0
 g @rus none~
 #22155
 hammer~
@@ -1218,9 +1218,9 @@ steel~
 weapon ABI 0 AN
 mace 12 4 'chomp' A
 60 400 100000 P
-f object cha -2 0 60 -1
-f object damroll 5 0 60 -1
-f object hitroll 10 0 60 -1
+f object cha -2 0
+f object damroll 5 0
+f object hitroll 10 0
 g @rus none~
 #22156
 bracelet~
@@ -1230,10 +1230,10 @@ snakeskin~
 armor B 0 AM
 18 18 18 10 0
 60 100 10000 P
-f object con -2 0 60 -1
-f object hp 50 0 60 -1
-f object damroll 1 0 60 -1
-f object hitroll 1 0 60 -1
+f object con -2 0
+f object hp 50 0
+f object damroll 1 0
+f object hitroll 1 0
 g @rus none~
 #22157
 hammer~
@@ -1243,9 +1243,9 @@ steel~
 weapon ABI 0 AN
 mace 12 4 'flame' A
 60 400 100000 P
-f object damroll 10 0 60 -1
-f object hitroll 5 0 60 -1
-f object con -2 0 60 -1
+f object damroll 10 0
+f object hitroll 5 0
+f object con -2 0
 g @rus none~
 #22158
 bracelet~
@@ -1255,10 +1255,10 @@ snakeskin~
 armor B 0 AM
 18 18 18 10 0
 60 100 10000 P
-f object cha -2 0 60 -1
-f object hp 50 0 60 -1
-f object damroll 1 0 60 -1
-f object hitroll 1 0 60 -1
+f object cha -2 0
+f object hp 50 0
+f object damroll 1 0
+f object hitroll 1 0
 g @rus none~
 #22159
 hookah~
@@ -1268,8 +1268,8 @@ bone~
 staff ABM 0 AO
 100 20 20 'frenzy' 0
 60 10 1000 P
-f object con -1 0 60 -1
-f object dex -1 0 60 -1
+f object con -1 0
+f object dex -1 0
 g @rus none~
 #22160
 bracelet~
@@ -1279,11 +1279,11 @@ snakeskin~
 armor B 0 AM
 18 18 18 10 0
 60 100 10000 P
-f object con -1 0 60 -1
-f object dex -1 0 60 -1
-f object hp 50 0 60 -1
-f object damroll 1 0 60 -1
-f object hitroll 1 0 60 -1
+f object con -1 0
+f object dex -1 0
+f object hp 50 0
+f object damroll 1 0
+f object hitroll 1 0
 g @rus none~
 #22161
 cap~
@@ -1302,12 +1302,12 @@ snakeskin~
 armor B 0 AM
 18 18 18 10 0
 60 100 10000 P
-f object mana 80 0 60 -1
-f object hp 30 0 60 -1
-f object cha -1 0 60 -1
-f object str -1 0 60 -1
-f object damroll 1 0 60 -1
-f object hitroll 1 0 60 -1
+f object mana 80 0
+f object hp 30 0
+f object cha -1 0
+f object str -1 0
+f object damroll 1 0
+f object hitroll 1 0
 g @rus none~
 #22163
 sleeves~
@@ -1317,10 +1317,10 @@ unknown~
 armor AM 0 AI
 15 15 15 12 0
 60 10 10000 P
-f object damroll 6 0 60 -1
-f object hitroll 5 0 60 -1
-f object age 1 0 60 -1
-f object str -1 0 60 -1
+f object damroll 6 0
+f object hitroll 5 0
+f object age 1 0
+f object str -1 0
 g @rus none~
 #22164
 bracelet~
@@ -1330,11 +1330,11 @@ snakeskin~
 armor B 0 AM
 18 18 18 10 0
 60 100 10000 P
-f object damroll 6 0 60 -1
-f object hitroll 5 0 60 -1
-f object age 1 0 60 -1
-f object str -1 0 60 -1
-f object hitroll 1 0 60 -1
+f object damroll 6 0
+f object hitroll 5 0
+f object age 1 0
+f object str -1 0
+f object hitroll 1 0
 g @rus none~
 #22165
 glasses~
@@ -1344,10 +1344,10 @@ unknown~
 armor AH 0 AT
 15 15 15 15 0
 60 0 0 P
-f object hp 50 0 60 -1
-f object age -5 0 60 -1
-f object dex -1 0 60 -1
-f object str -1 0 60 -1
+f object hp 50 0
+f object age -5 0
+f object dex -1 0
+f object str -1 0
 g @rus none~
 #22166
 bracelet~
@@ -1357,9 +1357,9 @@ snakeskin~
 armor B 0 AM
 18 18 18 10 0
 60 100 10000 P
-f object hp 50 0 60 -1
-f object dex -1 0 60 -1
-f object str -1 0 60 -1
+f object hp 50 0
+f object dex -1 0
+f object str -1 0
 g @rus none~
 #22167
 hooded cloak~
@@ -1369,8 +1369,8 @@ cotton~
 armor J 0 AE
 20 20 20 9 0
 40 10 100 P
-f object hp 10 0 40 -1
-f object dex 2 0 40 -1
+f object hp 10 0
+f object dex 2 0
 g @rus none~
 #22168
 gray cape~
@@ -1380,8 +1380,8 @@ cotton~
 armor J 0 AC
 20 20 20 8 0
 40 10 1000 P
-f object hp 15 0 40 -1
-f object dex 2 0 40 -1
+f object hp 15 0
+f object dex 2 0
 g @rus none~
 #22169
 long knife~
@@ -1409,8 +1409,8 @@ gold~
 treasure AB 0 AC
 0 0 0 0 0
 0 10 10000 P
-f object sex -2 0 0 -1
-f object cha 3 0 0 -1
+f object sex -2 0
+f object cha 3 0
 g @rus none~
 #22172
 assassin mask~
@@ -1420,10 +1420,10 @@ cotton~
 armor H F AT
 20 20 20 10 0
 60 20 0 P
-f invis none 0 A 60 -1
-f object damroll 3 0 60 -1
-f object hitroll 3 0 60 -1
-f object cha -3 0 60 -1
+f invis none 0 A
+f object damroll 3 0
+f object hitroll 3 0
+f object cha -3 0
 g @rus none~
 #22173
 black vest~
@@ -1433,10 +1433,10 @@ unknown~
 armor H F AD
 20 20 20 10 0
 60 100 60000 P
-f affects none 0 U 60 -1
-f object damroll 3 0 60 -1
-f object hitroll 3 0 60 -1
-f object cha -2 0 60 -1
+f affects none 0 U
+f object damroll 3 0
+f object hitroll 3 0
+f object cha -2 0
 g @rus none~
 #22174
 black trousers~
@@ -1446,10 +1446,10 @@ unknown~
 armor H F AF
 20 20 20 10 0
 2 100 10000 P
-f affects none 0 TV 2 -1
-f object damroll 3 0 2 -1
-f object hitroll 3 0 2 -1
-f object cha -2 0 2 -1
+f affects none 0 TV
+f object damroll 3 0
+f object hitroll 3 0
+f object cha -2 0
 g @rus none~
 #22175
 black sandals~
@@ -1459,10 +1459,10 @@ unknown~
 armor 0 0 AG
 15 15 15 7 0
 60 100 10000 P
-f invis none 0 G 60 -1
-f object damroll 3 0 60 -1
-f object hitroll 3 0 60 -1
-f object cha -2 0 60 -1
+f invis none 0 G
+f object damroll 3 0
+f object hitroll 3 0
+f object cha -2 0
 g @rus none~
 #22176
 sun glasses~
@@ -1472,11 +1472,11 @@ glass~
 armor 0 0 AT
 12 12 15 5 0
 35 10 1000 P
-f object ac -5 0 35 -1
-f object damroll 2 0 35 -1
-f object hitroll 2 0 35 -1
-f object move 100 0 35 -1
-f object hp 20 0 35 -1
+f object ac -5 0
+f object damroll 2 0
+f object hitroll 2 0
+f object move 100 0
+f object hp 20 0
 g @rus none~
 #22177
 shorts~
@@ -1486,10 +1486,10 @@ cotton~
 armor 0 0 AF
 12 12 15 5 0
 35 10 1000 P
-f object ac -6 0 35 -1
-f object damroll 2 0 35 -1
-f object hitroll 2 0 35 -1
-f object hp 20 0 35 -1
+f object ac -6 0
+f object damroll 2 0
+f object hitroll 2 0
+f object hp 20 0
 g @rus none~
 #22178
 short~
@@ -1499,10 +1499,10 @@ cotton~
 armor 0 0 AD
 12 12 15 5 0
 35 100 1000 P
-f object ac -8 0 35 -1
-f object damroll 2 0 35 -1
-f object hitroll 2 0 35 -1
-f object hp 20 0 35 -1
+f object ac -8 0
+f object damroll 2 0
+f object hitroll 2 0
+f object hp 20 0
 g @rus none~
 #22179
 sneakers~
@@ -1512,11 +1512,11 @@ rubber~
 armor 0 0 AG
 12 12 15 5 0
 35 10 1000 P
-f object move 200 0 35 -1
-f object ac -6 0 35 -1
-f object damroll 2 0 35 -1
-f object hitroll 2 0 35 -1
-f object hp 20 0 35 -1
+f object move 200 0
+f object ac -6 0
+f object damroll 2 0
+f object hitroll 2 0
+f object hp 20 0
 g @rus none~
 #22180
 canon camera~
@@ -1535,10 +1535,10 @@ cotton~
 armor 0 0 AF
 12 12 15 5 0
 35 10 1000 P
-f object cha 2 0 35 -1
-f object hp 10 0 35 -1
-f object damroll 2 0 35 -1
-f object hitroll 2 0 35 -1
+f object cha 2 0
+f object hp 10 0
+f object damroll 2 0
+f object hitroll 2 0
 g @rus none~
 #22182
 camera polaroid~
@@ -1593,8 +1593,8 @@ steel~
 weapon 0 0 AN
 dagger 5 7 'pierce' 0
 20 50 2000 P
-f object mana 30 0 20 -1
-f object str 1 0 20 -1
+f object mana 30 0
+f object str 1 0
 g @rus none~
 #22188
 red dagger~
@@ -1604,8 +1604,8 @@ steel~
 weapon 0 0 AN
 dagger 5 7 'pierce' 0
 20 50 2000 P
-f object damroll 5 0 20 -1
-f object hitroll 5 0 20 -1
+f object damroll 5 0
+f object hitroll 5 0
 g @rus none~
 #22189
 yellow dagger~
@@ -1615,7 +1615,7 @@ steel~
 weapon 0 0 AN
 dagger 5 7 'pierce' 0
 20 50 2000 P
-f object hp 20 0 20 -1
+f object hp 20 0
 g @rus none~
 #22190
 black dagger~
@@ -1625,8 +1625,8 @@ steel~
 weapon 0 0 AN
 dagger 5 7 'pierce' EH
 20 50 2000 P
-f object damroll 4 0 20 -1
-f object hitroll 4 0 20 -1
+f object damroll 4 0
+f object hitroll 4 0
 g @rus none~
 #22191
 tail clear~
@@ -1636,9 +1636,9 @@ snakeskin~
 armor 0 0 AF
 10 10 10 5 0
 20 300 9000 P
-f object mana 75 0 20 -1
-f object wis 1 0 20 -1
-f object int 1 0 20 -1
+f object mana 75 0
+f object wis 1 0
+f object int 1 0
 g @rus none~
 #22192
 tail white~
@@ -1648,9 +1648,9 @@ snakeskin~
 armor 0 0 AF
 10 10 10 5 0
 20 300 9000 P
-f object hp 25 0 20 -1
-f object cha 1 0 20 -1
-f object con 1 0 20 -1
+f object hp 25 0
+f object cha 1 0
+f object con 1 0
 g @rus none~
 #22193
 tail red~
@@ -1660,9 +1660,9 @@ snakeskin~
 armor 0 0 AF
 10 10 10 5 0
 20 300 9000 P
-f object hitroll 5 0 20 -1
-f object dex 1 0 20 -1
-f object str 1 0 20 -1
+f object hitroll 5 0
+f object dex 1 0
+f object str 1 0
 g @rus none~
 #22194
 tail yellow~
@@ -1672,14 +1672,14 @@ snakeskin~
 armor 0 0 AF
 10 10 10 5 0
 20 300 9000 P
-f object ac -10 0 20 -1
-f object age -1 0 20 -1
-f object cha 1 0 20 -1
-f object con 1 0 20 -1
-f object wis 1 0 20 -1
-f object int 1 0 20 -1
-f object dex 1 0 20 -1
-f object str 1 0 20 -1
+f object ac -10 0
+f object age -1 0
+f object cha 1 0
+f object con 1 0
+f object wis 1 0
+f object int 1 0
+f object dex 1 0
+f object str 1 0
 g @rus none~
 #22195
 tail black~
@@ -1689,13 +1689,13 @@ snakeskin~
 armor 0 0 AF
 10 10 10 5 0
 20 300 9000 P
-f object damroll 3 0 20 -1
-f object cha -1 0 20 -1
-f object con -1 0 20 -1
-f object wis -1 0 20 -1
-f object int -1 0 20 -1
-f object dex -1 0 20 -1
-f object str -1 0 20 -1
+f object damroll 3 0
+f object cha -1 0
+f object con -1 0
+f object wis -1 0
+f object int -1 0
+f object dex -1 0
+f object str -1 0
 g @rus none~
 #22196
 herb clear~

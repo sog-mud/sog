@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name Dwarven Kingdom~
 VNUMs 6500 6599
 Credits Anon~
@@ -334,9 +334,9 @@ steel~
 weapon 0 0 AN
 axe 3 7 'cleave' F
 17 50 4100 P
-f object str 2 0 17 -1
-f object hitroll 2 0 17 -1
-f object damroll 2 0 17 -1
+f object str 2 0
+f object hitroll 2 0
+f object damroll 2 0
 g @rus male~
 #6510
 helmet шлем~
@@ -355,8 +355,8 @@ gold~
 gem G 0 AB
 0 0 0 0 0
 7 10 460 P
-f object damroll 1 0 7 -1
-f object hitroll 1 0 7 -1
+f object damroll 1 0
+f object hitroll 1 0
 g @rus none~
 #6512
 gloves перчатки~
@@ -366,8 +366,8 @@ leather~
 armor 0 0 AH
 5 5 5 0 0
 13 20 2000 P
-f object dex 1 0 13 -1
-f object str 1 0 13 -1
+f object dex 1 0
+f object str 1 0
 g @rus plural~
 #6513
 note записка письмо~

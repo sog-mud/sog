@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name Sewers~
 VNUMs 7000 7499
 Credits Diku~
@@ -361,8 +361,8 @@ silver~
 jewelry G 0 AB
 0 0 0 0 0
 7 10 468 P
-f object hitroll 1 0 7 -1
-f object ac -1 0 7 -1
+f object hitroll 1 0
+f object ac -1 0
 g @rus none~
 #7200
 rod devil~
@@ -372,8 +372,8 @@ oak~
 weapon G 0 AN
 exotic 4 5 'pound' C
 15 60 2300 P
-f object str 1 0 15 -1
-f object hitroll 2 0 15 -1
+f object str 1 0
+f object hitroll 2 0
 E
 devil rod~
 This is indeed a mysterious rod.  It is dark black at the base but has four
@@ -388,7 +388,7 @@ iron~
 weapon G 0 AN
 mace 2 6 'crush' 0
 8 100 610 P
-f object damroll 2 0 8 -1
+f object damroll 2 0
 E
 large mace~
 The mace is pretty large with a weight of 10 lbs.  The head is actually four
@@ -403,7 +403,7 @@ iron~
 weapon G 0 AN
 mace 2 6 'crush' 0
 8 60 480 P
-f object damroll 1 0 8 -1
+f object damroll 1 0
 E
 small mace~
 This weapon doesn't look like it does a lot of damage, but then you never know.
@@ -418,7 +418,7 @@ cloth~
 armor G 0 AC
 6 6 6 0 0
 15 200 1250 P
-f object saves -1 0 15 -1
+f object saves -1 0
 g @rus none~
 #7204
 potion neon blue~
@@ -446,7 +446,7 @@ bone~
 armor GH 0 AE
 1 1 1 0 0
 0 300 10 P
-f object dex -4 0 0 -1
+f object dex -4 0
 E
 writing text~
 You read the number '666'.
@@ -483,7 +483,7 @@ leather~
 armor G 0 AG
 3 3 3 0 0
 7 200 900 P
-f object dex 1 0 7 -1
+f object dex 1 0
 E
 The boots are muddy and they look well worn, but also very comfortable.~
 ~
@@ -509,7 +509,7 @@ iron~
 weapon 0 0 AN
 sword 2 4 'pierce' 0
 5 40 540 P
-f object hitroll 1 0 5 -1
+f object hitroll 1 0
 g @rus none~
 #7216
 claw red redclaw~
@@ -519,8 +519,8 @@ bone~
 weapon G 0 AN
 exotic 3 12 'claw' 0
 31 190 5800 P
-f object damroll 5 0 31 -1
-f object ac 2 0 31 -1
+f object damroll 5 0
+f object ac 2 0
 E
 claw red redclaw~
 This big claw looks like a part of a dragon.
@@ -534,7 +534,7 @@ silver~
 armor GIKL 0 AD
 8 8 8 2 0
 32 150 12400 P
-f object str 3 0 32 -1
+f object str 3 0
 E
 plate breast silvery~
 On the breast plate you notice a relief of large rose. The metal seems to be 
@@ -549,7 +549,7 @@ silver~
 armor GIKL 0 AF
 8 8 8 2 0
 32 200 10100 P
-f object int 3 0 32 -1
+f object int 3 0
 E
 leg plates silvery~
 They seem to be made from silver or platinum.  You see the outline of a rose.
@@ -563,8 +563,8 @@ silver~
 armor GIKL 0 AH
 8 8 8 2 0
 27 140 3700 P
-f object damroll 1 0 27 -1
-f object hitroll 2 0 27 -1
+f object damroll 1 0
+f object hitroll 2 0
 E
 gloves silvery~
 The gloves are made of silver threads.
@@ -578,7 +578,7 @@ silver~
 armor GIKL 0 AE
 9 9 9 2 0
 32 350 10600 P
-f object wis 3 0 32 -1
+f object wis 3 0
 E
 helmet silvery~
 The helmet is made from platinum or silver and has a white fur brush attached
@@ -593,7 +593,7 @@ steel~
 armor GIKL 0 AJ
 8 8 8 3 0
 30 100 5800 P
-f object ac -7 0 30 -1
+f object ac -7 0
 E
 shield~
 On the shield you see a clear and perfect painting of a dark red rose on a white
@@ -608,7 +608,7 @@ silver~
 armor GIKL 0 AG
 8 8 8 2 0
 32 400 10100 P
-f object dex 3 0 32 -1
+f object dex 3 0
 E
 boots silvery~
 The boots are made from a silvery metal.
@@ -622,7 +622,7 @@ silver~
 armor GIKL 0 AI
 8 8 8 2 0
 32 400 10100 P
-f object con 3 0 32 -1
+f object con 3 0
 E
 plates arm silvery~
 They seem to be made from silver or platinum. You see the outline of a rose.
@@ -636,7 +636,7 @@ wool~
 armor GIKL 0 AK
 9 9 9 2 0
 31 200 3700 P
-f object saves -2 0 31 -1
+f object saves -2 0
 E
 cloak white~
 This is a very fine made cloak from an unknown material, in a bright white
@@ -695,8 +695,8 @@ emerald~
 staff GJ 0 AO
 13 10 10 'sanctuary' 0
 21 50 18600 P
-f object wis 2 0 21 -1
-f object int 2 0 21 -1
+f object wis 2 0
+f object int 2 0
 g @rus none~
 #7304
 red torso~
@@ -706,8 +706,8 @@ dragonskin~
 armor GJ 0 AD
 9 9 9 4 0
 29 300 6400 P
-f object damroll 2 0 29 -1
-f object dex -1 0 29 -1
+f object damroll 2 0
+f object dex -1 0
 g @rus none~
 #7305
 leggings red~
@@ -717,8 +717,8 @@ dragonskin~
 armor GJ 0 AF
 9 9 9 4 0
 29 170 3700 P
-f object damroll 2 0 29 -1
-f object dex -1 0 29 -1
+f object damroll 2 0
+f object dex -1 0
 g @rus none~
 #7306
 claws dragonclaws red~
@@ -728,7 +728,7 @@ bone~
 furniture GJ 0 AH
 9 0 0 0 0
 20 40 1150 P
-f object damroll 2 0 20 -1
+f object damroll 2 0
 g @rus none~
 #7307
 skull dragonhelm red~
@@ -738,9 +738,9 @@ dragonskin~
 armor GJ 0 AE
 9 9 9 4 0
 29 150 7000 P
-f object wis 2 0 29 -1
-f object damroll 2 0 29 -1
-f object dex -1 0 29 -1
+f object wis 2 0
+f object damroll 2 0
+f object dex -1 0
 g @rus none~
 #7308
 shield red~
@@ -750,7 +750,7 @@ dragonskin~
 armor GJ 0 AJ
 10 10 10 5 0
 35 350 6900 P
-f object damroll 2 0 35 -1
+f object damroll 2 0
 g @rus none~
 #7309
 greaves red~
@@ -760,8 +760,8 @@ bone~
 armor GJ 0 AG
 9 9 9 4 0
 29 400 3700 P
-f object dex -1 0 29 -1
-f object damroll 2 0 29 -1
+f object dex -1 0
+f object damroll 2 0
 g @rus none~
 #7310
 arm guards red~
@@ -771,8 +771,8 @@ dragonskin~
 armor GJ 0 AI
 9 9 9 4 0
 29 400 3700 P
-f object dex -1 0 29 -1
-f object damroll 2 0 29 -1
+f object dex -1 0
+f object damroll 2 0
 g @rus none~
 #0
 

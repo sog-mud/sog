@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name The City of Anon~
 VNUMs 31000 31199
 Credits Yaegar~
@@ -1079,8 +1079,8 @@ wood~
 weapon 0 0 AN
 mace 3 3 'crush' 0
 5 300 20 P
-f object damroll 3 0 5 -1
-f object hitroll -2 0 5 -1
+f object damroll 3 0
+f object hitroll -2 0
 g @rus none~
 #31014
 mace~
@@ -1090,8 +1090,8 @@ wood~
 weapon 0 0 AN
 mace 2 4 'pound' 0
 6 200 0 P
-f object damroll 1 0 6 -1
-f object hitroll 1 0 6 -1
+f object damroll 1 0
+f object hitroll 1 0
 g @rus none~
 #31015
 dagger~
@@ -1101,8 +1101,8 @@ steel~
 weapon 0 0 AN
 dagger 3 4 'pierce' 0
 13 150 0 P
-f object damroll -2 0 13 -1
-f object hitroll 4 0 13 -1
+f object damroll -2 0
+f object hitroll 4 0
 g @rus none~
 #31016
 scimitar~
@@ -1112,8 +1112,8 @@ steel~
 weapon BEGJ 0 AN
 sword 2 4 'slash' 0
 6 250 20 P
-f object damroll 2 0 6 -1
-f object hitroll 2 0 6 -1
+f object damroll 2 0
+f object hitroll 2 0
 g @rus none~
 #31017
 boots~
@@ -1123,8 +1123,8 @@ leather~
 armor 0 0 AG
 4 4 4 0 0
 13 15 2100 P
-f object con 1 0 13 -1
-f object ac -5 0 13 -1
+f object con 1 0
+f object ac -5 0
 g @rus none~
 #31018
 belt~
@@ -1134,8 +1134,8 @@ leather~
 armor 0 0 AL
 3 3 3 0 0
 6 2 320 P
-f object saving_breath -2 0 6 -1
-f object dex 1 0 6 -1
+f object saving_breath -2 0
+f object dex 1 0
 g @rus none~
 #31019
 kamikaze headband~
@@ -1145,7 +1145,7 @@ cloth~
 armor 0 0 AE
 4 4 4 0 0
 15 5 3000 P
-f object hitroll 2 0 15 -1
+f object hitroll 2 0
 g @rus none~
 #31020
 scarf~
@@ -1155,8 +1155,8 @@ cloth~
 armor 0 0 AC
 3 3 3 0 0
 6 5 1900 P
-f object damroll 1 0 6 -1
-f object hitroll 1 0 6 -1
+f object damroll 1 0
+f object hitroll 1 0
 g @rus none~
 #31021
 fountain~
@@ -1175,7 +1175,7 @@ gold~
 armor A 0 AB
 0 0 0 0 0
 0 1 10 P
-f object move 20 0 0 -1
+f object move 20 0
 g @rus none~
 #31023
 cake ~
@@ -1248,7 +1248,7 @@ cloth~
 armor 0 0 AT
 19 18 18 12 0
 58 75 0 P
-f object hp 50 0 58 -1
+f object hp 50 0
 g @rus none~
 #31031
 sword longsword~
@@ -1258,10 +1258,10 @@ steel~
 weapon G 0 AN
 sword 6 7 'slash' 0
 53 250 1200 P
-f object saving_breath -5 0 53 -1
-f object damroll 8 0 53 -1
-f object hitroll 8 0 53 -1
-f object ac -15 0 53 -1
+f object saving_breath -5 0
+f object damroll 8 0
+f object hitroll 8 0
+f object ac -15 0
 g @rus none~
 #31032
 sap~
@@ -1280,8 +1280,8 @@ steel~
 weapon G 0 AN
 sword 8 6 'slash' 0
 54 250 2000 P
-f object damroll 4 0 54 -1
-f object hitroll 4 0 54 -1
+f object damroll 4 0
+f object hitroll 4 0
 g @rus none~
 #31034
 breastplate plate~
@@ -1291,8 +1291,8 @@ steel~
 armor 0 0 AD
 17 17 16 8 0
 52 20 1700 P
-f object ac -15 0 52 -1
-f object con 2 0 52 -1
+f object ac -15 0
+f object con 2 0
 g @rus none~
 #31035
 bracer~
@@ -1302,8 +1302,8 @@ leather~
 armor 0 0 AM
 16 17 17 8 0
 52 15 8000 P
-f object hitroll 2 0 52 -1
-f object dex 2 0 52 -1
+f object hitroll 2 0
+f object dex 2 0
 g @rus none~
 #31036
 cloak~
@@ -1313,8 +1313,8 @@ cloth~
 armor 0 0 AC
 15 17 17 8 0
 52 10 20000 P
-f object ac -15 0 52 -1
-f object mana 25 0 52 -1
+f object ac -15 0
+f object mana 25 0
 g @rus none~
 #31037
 helm~
@@ -1324,9 +1324,9 @@ steel~
 armor 0 0 AE
 17 17 17 8 0
 52 10 3000 P
-f object ac -20 0 52 -1
-f object wis 1 0 52 -1
-f object int 1 0 52 -1
+f object ac -20 0
+f object wis 1 0
+f object int 1 0
 g @rus none~
 #31038
 shield~
@@ -1336,9 +1336,9 @@ steel~
 armor 0 0 AJ
 17 17 17 8 0
 52 20 9000 P
-f object saving_spell -2 0 52 -1
-f object saving_breath -2 0 52 -1
-f object ac -20 0 52 -1
+f object saving_spell -2 0
+f object saving_breath -2 0
+f object ac -20 0
 g @rus none~
 #31039
 spear~
@@ -1348,8 +1348,8 @@ steel~
 weapon G 0 AN
 spear 6 8 'pierce' K
 52 200 3000 P
-f object damroll 3 0 52 -1
-f object hitroll 3 0 52 -1
+f object damroll 3 0
+f object hitroll 3 0
 g @rus none~
 #31040
 scroll~
@@ -1377,8 +1377,8 @@ unknown~
 armor AHM 0 AE
 0 0 0 0 0
 3 1 0 P
-f object wis -2 0 3 -1
-f object int -2 0 3 -1
+f object wis -2 0
+f object int -2 0
 E
 sticker~
 The wearer of this item has been officially marked by the deity Yaegar as 
@@ -2823,7 +2823,7 @@ unknown~
 treasure B 0 AO
 0 0 0 0 0
 0 1 10 P
-f object int 2 0 0 -1
+f object int 2 0
 E
 gem~
 This gem is worth next to nothing on the open market, but is prized by

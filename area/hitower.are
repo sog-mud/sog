@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name High Tower~
 VNUMs 1300 1499
 Credits Skylar~
@@ -1023,8 +1023,8 @@ mithril~
 weapon G 0 AN
 mace 3 6 'pound' 0
 12 190 1410 P
-f object hitroll 2 0 12 -1
-f object str 1 0 12 -1
+f object hitroll 2 0
+f object str 1 0
 g @rus none~
 #1315
 chest~
@@ -1052,8 +1052,8 @@ steel~
 weapon 0 0 AN
 sword 1 8 'slash' 0
 6 80 720 P
-f object hitroll 1 0 6 -1
-f object damroll 2 0 6 -1
+f object hitroll 1 0
+f object damroll 2 0
 g @rus none~
 #1318
 dagger silver~
@@ -1063,8 +1063,8 @@ silver~
 weapon 0 0 AN
 dagger 4 3 'pierce' 0
 10 50 970 P
-f object hitroll 2 0 10 -1
-f object damroll 2 0 10 -1
+f object hitroll 2 0
+f object damroll 2 0
 g @rus none~
 #1319
 scimitar~
@@ -1074,7 +1074,7 @@ iron~
 weapon 0 0 AN
 sword 3 7 'slash' 0
 13 100 990 P
-f object hp 3 0 13 -1
+f object hp 3 0
 g @rus none~
 #1320
 staff wooden~
@@ -1219,8 +1219,8 @@ glass~
 clothing G 0 AT
 0 0 0 0 0
 7 40 1140 P
-f object int 1 0 7 -1
-f object wis 1 0 7 -1
+f object int 1 0
+f object wis 1 0
 g @rus none~
 #1336
 altar~
@@ -1239,8 +1239,8 @@ amethyst~
 jewelry GI 0 AC
 0 0 0 0 0
 13 30 2200 P
-f object wis 2 0 13 -1
-f object con -1 0 13 -1
+f object wis 2 0
+f object con -1 0
 g @rus none~
 #1338
 chest~
@@ -1259,7 +1259,7 @@ aluminum~
 key AG 0 AO
 BDEFIK 0 0 0 0
 0 10 150 P
-f object saves -1 0 0 -1
+f object saves -1 0
 g @rus none~
 #1340
 a pile of coins~
@@ -1278,8 +1278,8 @@ wool~
 clothing 0 0 AC
 0 0 0 0 0
 35 50 4300 P
-f object ac -5 0 35 -1
-f object saves -3 0 35 -1
+f object ac -5 0
+f object saves -3 0
 g @rus none~
 #1342
 chameleon poncho~
@@ -1289,8 +1289,8 @@ wool~
 clothing G 0 AK
 0 0 0 0 0
 17 40 3600 P
-f object dex 2 0 17 -1
-f object ac -3 0 17 -1
+f object dex 2 0
+f object ac -3 0
 g @rus none~
 #1343
 boots worn~
@@ -1300,7 +1300,7 @@ leather~
 clothing G 0 AG
 0 0 0 0 0
 10 20 270 P
-f object move 15 0 10 -1
+f object move 15 0
 g @rus none~
 #1344
 ring seashell~
@@ -1355,8 +1355,8 @@ iron~
 trash GH 0 A
 0 0 0 0 0
 0 150 0 P
-f object mana -100 0 0 -1
-f object move -82 0 0 -1
+f object mana -100 0
+f object move -82 0
 g @rus none~
 #1357
 dagger silvery~
@@ -1366,7 +1366,7 @@ silver~
 weapon G 0 AN
 dagger 4 5 'pierce' 0
 15 10 910 P
-f object hitroll 1 0 15 -1
+f object hitroll 1 0
 g @rus none~
 #1359
 scroll~
@@ -1385,7 +1385,7 @@ vellum~
 scroll G 0 AO
 16 'armor' 'teleport' 'protection evil' ''
 24 30 3000 P
-f object ac -6 0 24 -1
+f object ac -6 0
 g @rus none~
 #1361
 tube~
@@ -1431,7 +1431,7 @@ silver~
 furniture G 0 AO
 0 0 0 0 0
 0 10 150 P
-f object saves -1 0 0 -1
+f object saves -1 0
 g @rus none~
 #1366
 potion blue~
@@ -1499,7 +1499,7 @@ gold~
 staff FG 0 AO
 22 1 1 'charm person' 0
 1 40 1000 P
-f object int -6 0 1 -1
+f object int -6 0
 g @rus none~
 #1373
 figurine~
@@ -1536,8 +1536,8 @@ diamond~
 weapon AG 0 AN
 dagger 3 6 'pierce' 0
 20 60 2100 P
-f object dex 1 0 20 -1
-f object damroll 2 0 20 -1
+f object dex 1 0
+f object damroll 2 0
 g @rus none~
 #1377
 pouch belt beltpouch~
@@ -1565,8 +1565,8 @@ unknown~
 clothing GJ 0 AC
 0 0 0 0 0
 26 50 2900 P
-f object ac -6 0 26 -1
-f object saves -2 0 26 -1
+f object ac -6 0
+f object saves -2 0
 g @rus none~
 #1380
 wand ashen~
@@ -1594,11 +1594,11 @@ wool~
 container GJKY 0 AK
 250 0 0 10 50
 26 80 2900 P
-f object ac -10 0 26 -1
-f object saves -8 0 26 -1
-f object hitroll 3 0 26 -1
-f object hitroll 3 0 26 -1
-f object dex 4 0 26 -1
+f object ac -10 0
+f object saves -8 0
+f object hitroll 3 0
+f object hitroll 3 0
+f object dex 4 0
 g @rus none~
 #1383
 cloak grey~
@@ -1608,8 +1608,8 @@ wool~
 clothing GJK 0 AC
 0 0 0 0 0
 29 70 3300 P
-f object ac -7 0 29 -1
-f object saves -2 0 29 -1
+f object ac -7 0
+f object saves -2 0
 g @rus none~
 #1384
 bracelet silver~
@@ -1619,8 +1619,8 @@ silver~
 jewelry G 0 AM
 0 0 0 0 0
 20 50 1440 P
-f object cha 1 0 20 -1
-f object ac -5 0 20 -1
+f object cha 1 0
+f object ac -5 0
 g @rus none~
 #1385
 staff~
@@ -1630,7 +1630,7 @@ wood~
 weapon G 0 AN
 staff 4 8 'pound' F
 27 70 1280 P
-f object hitroll 3 0 27 -1
+f object hitroll 3 0
 g @rus none~
 #1386
 minor ward cube clear~
@@ -1640,7 +1640,7 @@ crystal~
 gem AG 0 AO
 0 0 0 0 0
 20 50 1440 P
-f object ac -5 0 20 -1
+f object ac -5 0
 g @rus none~
 #1387
 robe black~
@@ -1650,8 +1650,8 @@ cloth~
 container GJLY 0 AK
 50 0 0 10 75
 22 80 2400 P
-f object ac -5 0 22 -1
-f object saves -2 0 22 -1
+f object ac -5 0
+f object saves -2 0
 g @rus none~
 #1388
 bracelet onyx~
@@ -1661,7 +1661,7 @@ onyx~
 jewelry G 0 AM
 0 0 0 0 0
 20 60 1150 P
-f object damroll 2 0 20 -1
+f object damroll 2 0
 g @rus none~
 #1389
 cloak black dark~
@@ -1671,8 +1671,8 @@ leather~
 clothing GJL 0 AC
 0 0 0 0 0
 29 80 3300 P
-f object ac -7 0 29 -1
-f object saves -2 0 29 -1
+f object ac -7 0
+f object saves -2 0
 g @rus none~
 #1390
 shard black obsidian~
@@ -1682,7 +1682,7 @@ obsidian~
 weapon J 0 AN
 dagger 4 8 'slice' 0
 29 80 2500 P
-f object damroll 3 0 29 -1
+f object damroll 3 0
 g @rus none~
 #1391
 robe white~
@@ -1692,8 +1692,8 @@ wool~
 container GKLY 0 AK
 50 0 0 10 75
 22 70 2400 P
-f object ac -5 0 22 -1
-f object saves -2 0 22 -1
+f object ac -5 0
+f object saves -2 0
 g @rus none~
 #1392
 bracelet white gold~
@@ -1703,7 +1703,7 @@ gold~
 jewelry G 0 AM
 0 0 0 0 0
 20 50 1150 P
-f object hitroll 2 0 20 -1
+f object hitroll 2 0
 g @rus none~
 #1393
 cloak white~
@@ -1713,8 +1713,8 @@ cloth~
 clothing GIKL 0 AC
 0 0 0 0 0
 29 70 3300 P
-f object ac -7 0 29 -1
-f object saves -2 0 29 -1
+f object ac -7 0
+f object saves -2 0
 g @rus none~
 #1394
 ivory dagger~
@@ -1724,8 +1724,8 @@ mithril~
 weapon GIK 0 AN
 dagger 4 7 'pierce' 0
 27 10 2100 P
-f object hitroll 1 0 27 -1
-f object damroll 2 0 27 -1
+f object hitroll 1 0
+f object damroll 2 0
 g @rus none~
 #1395
 collar spiked~
@@ -1735,8 +1735,8 @@ leather~
 armor G 0 AC
 2 2 2 0 0
 20 90 1970 P
-f object ac -2 0 20 -1
-f object damroll 2 0 20 -1
+f object ac -2 0
+f object damroll 2 0
 g @rus none~
 #1396
 cloak shimmering~
@@ -1746,8 +1746,8 @@ unknown~
 container AGY 0 AC
 100 0 0 10 25
 50 80 10800 P
-f object ac -12 0 50 -1
-f object saves -4 0 50 -1
+f object ac -12 0
+f object saves -4 0
 g @rus none~
 #1397
 emerald ring~
@@ -1757,7 +1757,7 @@ ruby~
 jewelry G 0 AB
 0 0 0 0 0
 20 50 580 P
-f object mana 20 0 20 -1
+f object mana 20 0
 g @rus none~
 #1398
 bracelet emerald~
@@ -1767,8 +1767,8 @@ bronze~
 jewelry G 0 AM
 0 0 0 0 0
 20 50 2200 P
-f object ac -5 0 20 -1
-f object int 1 0 20 -1
+f object ac -5 0
+f object int 1 0
 g @rus none~
 #1399
 ward major clear crystal~
@@ -1778,8 +1778,8 @@ crystal~
 gem AGY 0 AO
 0 0 0 0 0
 40 60 5100 P
-f object ac -10 0 40 -1
-f object saves -2 0 40 -1
+f object ac -10 0
+f object saves -2 0
 g @rus none~
 #1400
 ebony kris~
@@ -1789,9 +1789,9 @@ ebony~
 weapon G 0 AN
 dagger 6 7 'pierce' D
 46 30 10700 P
-f object dex 2 0 46 -1
-f object damroll 7 0 46 -1
-f object hitroll 5 0 46 -1
+f object dex 2 0
+f object damroll 7 0
+f object hitroll 5 0
 g @rus none~
 #1401
 green scale shirt~
@@ -1801,8 +1801,8 @@ dragonskin~
 armor G 0 AD
 12 12 13 5 0
 37 90 17800 P
-f object dex 3 0 37 -1
-f object ac -5 0 37 -1
+f object dex 3 0
+f object ac -5 0
 E
 green scale shirt~
 Green dragon scale shirt was made from a poor unfortunate green dragon.

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name Armageddon~
 VNUMs 14000 14199
 Credits Lok~
@@ -895,9 +895,9 @@ iron~
 armor 0 0 AD
 24 24 24 15 0
 45 450 3000 P
-f affects mana 50 0 45 -1
-f affects hp 50 0 45 -1
-f affects damroll 10 0 45 -1
+f affects mana 50 0
+f affects hp 50 0
+f affects damroll 10 0
 g @eng none@rus female~
 #14003
 sting locust жало~
@@ -907,7 +907,7 @@ stone~
 weapon EQ 0 AN
 dagger 6 10 'pierce' GH
 45 60 4500 G
-f object hitroll 10 0 45 -1
+f object hitroll 10 0
 g @rus none~
 #14004
 chain binding оковы~
@@ -917,11 +917,11 @@ silver~
 treasure GM 0 AD
 0 0 0 0 0
 30 20 30000 P
-f affects move -250 0 30 -1
-f object ac 100 0 30 -1
-f object con -10 0 30 -1
-f object dex -10 0 30 -1
-f object str -10 0 30 -1
+f affects move -250 0
+f object ac 100 0
+f object con -10 0
+f object dex -10 0
+f object str -10 0
 g @rus plural~
 #14005
 cup babylon чаша золотая~
@@ -946,8 +946,8 @@ gold~
 armor GIKL 0 AL
 12 12 12 0 0
 40 1 8000 P
-f affects hitroll 3 0 40 -1
-f affects damroll 4 0 40 -1
+f affects hitroll 3 0
+f affects damroll 4 0
 g @rus male~
 #14007
 sickle golden золотой серп~
@@ -957,8 +957,8 @@ gold~
 weapon GIKL 0 AN
 exotic 10 4 'slice' E
 40 450 3500 P
-f object damroll 5 0 40 -1
-f object hitroll 5 0 40 -1
+f object damroll 5 0
+f object hitroll 5 0
 g @rus male~
 #14008
 saints prayers молитвы сосуд vial~
@@ -986,10 +986,10 @@ adamantite~
 armor EJ 0 AE
 13 13 13 8 0
 43 35 10000 P
-f affects hp 25 0 43 -1
-f affects mana 25 0 43 -1
-f affects hitroll 3 0 43 -1
-f affects damroll 4 0 43 -1
+f affects hp 25 0
+f affects mana 25 0
+f affects hitroll 3 0
+f affects damroll 4 0
 g @rus male~
 #14011
 bow white conquerer лук~
@@ -999,8 +999,8 @@ adamantite~
 weapon EJM 0 AN
 bow 6 6 'blast' AFH
 43 100 12000 P
-f object damroll 5 0 43 -1
-f object hitroll 10 0 43 -1
+f object damroll 5 0
+f object hitroll 10 0
 g @rus male~
 #14012
 breastplate fire броня~
@@ -1010,9 +1010,9 @@ unknown~
 armor EJ D AD
 15 15 15 5 0
 43 300 14000 P
-f object hitroll 5 0 43 -1
-f affects damroll 5 0 43 -1
-f object ac -10 0 43 -1
+f object hitroll 5 0
+f affects damroll 5 0
+f object ac -10 0
 g @rus female~
 #14013
 sword war rus меч~
@@ -1022,8 +1022,8 @@ adamantite~
 weapon EJM 0 AN
 sword 7 10 'slash' DEFH
 43 500 14000 P
-f affects hitroll 5 0 43 -1
-f affects damroll 5 0 43 -1
+f affects hitroll 5 0
+f affects damroll 5 0
 g @rus male~
 #14014
 breastplate jacinth броня~
@@ -1033,8 +1033,8 @@ unknown~
 armor EJ D AD
 15 15 15 5 0
 43 300 14000 P
-f affects ac -15 0 43 -1
-f affects mana 40 0 43 -1
+f affects ac -15 0
+f affects mana 40 0
 g @rus female~
 #14015
 breastplate brimstone броня серная~
@@ -1044,8 +1044,8 @@ unknown~
 armor EJ D AD
 15 15 15 5 0
 43 300 14000 P
-f affects ac -10 0 43 -1
-f affects saving_spell -10 0 43 -1
+f affects ac -10 0
+f affects saving_spell -10 0
 g @rus female~
 #14016
 balances pair мера~
@@ -1055,7 +1055,7 @@ iron~
 gem G 0 AO
 0 0 0 0 0
 30 10 8000 P
-f affects saves -5 0 30 -1
+f affects saves -5 0
 E
 engrave engraved writing letters balance мера~
 The lettering says:
@@ -1081,8 +1081,8 @@ unknown~
 weapon CEFJMQ 0 AN
 polearm 8 8 'cleave' CDFH
 43 360 14000 P
-f affects damroll 5 0 43 -1
-f affects hitroll 5 0 43 -1
+f affects damroll 5 0
+f affects hitroll 5 0
 g @rus female~
 #14019
 lance holy archangel Michael~
@@ -1092,8 +1092,8 @@ adamantite~
 weapon ABGIKM 0 AN
 lance 8 7 'pierce' A
 44 200 20000 P
-f affects hitroll 7 0 44 -1
-f affects damroll 7 0 44 -1
+f affects hitroll 7 0
+f affects damroll 7 0
 g @rus female~
 #14020
 mark beast skin знак кусок кожа~
@@ -1103,9 +1103,9 @@ flesh~
 armor EJLM 0 AC
 11 11 11 11 0
 35 10 0 P
-f affects saving_spell -4 0 35 -1
-f affects hitroll 2 0 35 -1
-f affects damroll 3 0 35 -1
+f affects saving_spell -4 0
+f affects hitroll 2 0
+f affects damroll 3 0
 E
 mark~
 @eng The mark bears the number of his name: 666.
@@ -1120,9 +1120,9 @@ unknown~
 armor GIK 0 AI
 15 15 15 9 0
 44 50 19000 P
-f affects ac -5 0 44 -1
-f affects move 100 0 44 -1
-f affects dex 2 0 44 -1
+f affects ac -5 0
+f affects move 100 0
+f affects dex 2 0
 g @rus plural~
 #14022
 crown stars twelve корона венец~
@@ -1132,8 +1132,8 @@ stone~
 armor AIK 0 AE
 15 15 15 10 0
 44 5 19000 P
-f object wis 4 0 44 -1
-f object int 3 0 44 -1
+f object wis 4 0
+f object int 3 0
 g @rus female~
 #14023
 clothing sun платье солнце~
@@ -1143,10 +1143,10 @@ unknown~
 armor AIK 0 AD
 15 15 15 5 0
 44 100 19000 P
-f affects con 3 0 44 -1
-f affects dex 3 0 44 -1
-f affects str 3 0 44 -1
-f affects hp 20 0 44 -1
+f affects con 3 0
+f affects dex 3 0
+f affects str 3 0
+f affects hp 20 0
 g @rus none~
 #14024
 clothing sun платье солнце~
@@ -1156,9 +1156,9 @@ unknown~
 armor AIK 0 AF
 15 15 15 5 0
 44 10 19000 P
-f affects dex 3 0 44 -1
-f affects saving_breath -5 0 44 -1
-f affects saving_spell -5 0 44 -1
+f affects dex 3 0
+f affects saving_breath -5 0
+f affects saving_spell -5 0
 g @rus none~
 #14025
 moon частица луны~
@@ -1177,7 +1177,7 @@ unknown~
 armor AFKLQ 0 AB
 0 0 0 0 0
 45 15 25000 P
-f affects mana 100 0 45 -1
+f affects mana 100 0
 g @rus female~
 #14027
 rod iron жезл железный~
@@ -1205,7 +1205,7 @@ stone~
 armor IKL 0 AJ
 30 30 30 10 0
 45 350 15000 P
-f affects damroll 8 0 45 -1
+f affects damroll 8 0
 E
 stone white камень белый~
 @eng The stone says:
@@ -1231,7 +1231,7 @@ unknown~
 armor IKL 0 AK
 11 11 11 11 0
 35 10 5000 P
-f object ac -10 0 35 -1
+f object ac -10 0
 g @rus plural~
 #14032
 seal печать~
@@ -1241,7 +1241,7 @@ unknown~
 armor IKL 0 AE
 11 11 11 11 0
 35 0 5000 P
-f object hitroll -1 0 35 -1
+f object hitroll -1 0
 g @rus female~
 #14033
 star morning звезда~

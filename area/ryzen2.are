@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name Caverns~
 VNUMs 22000 22099
 Credits Ryzen~
@@ -289,8 +289,8 @@ adamantite~
 armor BG 0 AL
 20 20 20 10 0
 42 3 2000 P
-f object damroll 5 0 42 -1
-f object str 5 0 42 -1
+f object damroll 5 0
+f object str 5 0
 g @eng none@rus male~
 #22001
 bone key carved ключ костяной резной~
@@ -309,8 +309,8 @@ silver~
 armor A 0 AF
 9 9 9 0 0
 30 5 1000 P
-f object move 100 0 30 -1
-f object dex 2 0 30 -1
+f object move 100 0
+f object dex 2 0
 g @eng none@rus plural~
 #22003
 armor ornate plate нагрудный доспех~
@@ -320,8 +320,8 @@ silver~
 armor 0 0 AD
 8 7 7 0 0
 25 13 1200 P
-f object damroll 1 0 25 -1
-f object hitroll 1 0 25 -1
+f object damroll 1 0
+f object hitroll 1 0
 g @eng none@rus male~
 #22004
 ring magic магическое кольцо~
@@ -331,8 +331,8 @@ mithril~
 armor AG 0 AB
 9 9 9 4 0
 28 1 1000 P
-f object mana 50 0 28 -1
-f object int 2 0 28 -1
+f object mana 50 0
+f object int 2 0
 g @eng none@rus neutral~
 #22005
 sheath wrist браслет ножны~
@@ -342,10 +342,10 @@ leather~
 container GY 0 AM
 10 0 0 5 50
 26 2 500 P
-f object ac -10 0 26 -1
-f object dex 2 0 26 -1
-f object damroll 4 0 26 -1
-f object hitroll 4 0 26 -1
+f object ac -10 0
+f object dex 2 0
+f object damroll 4 0
+f object hitroll 4 0
 g @eng none@rus plural~
 #22006
 spinagon spear копье спинагона~
@@ -355,8 +355,8 @@ mithril~
 weapon EG 0 AN
 spear 5 8 'thrust' DEFHK
 35 90 1300 P
-f object damroll 6 0 35 -1
-f object hitroll 2 0 35 -1
+f object damroll 6 0
+f object hitroll 2 0
 g @eng none@rus neutral~
 #22007
 rulership rod жезл власти~
@@ -366,9 +366,9 @@ flame~
 armor ABG 0 AO
 13 12 12 5 0
 38 5 5000 P
-f object hitroll 4 0 38 -1
-f object hp 100 0 38 -1
-f object damroll 7 0 38 -1
+f object hitroll 4 0
+f object hp 100 0
+f object damroll 7 0
 g @eng none@rus male~
 #22008
 collar bloody окровавленный ошейник~
@@ -378,9 +378,9 @@ gold~
 armor G 0 AC
 12 12 12 6 0
 36 7 800 P
-f object hitroll 2 0 36 -1
-f object damroll 4 0 36 -1
-f object hp 10 0 36 -1
+f object hitroll 2 0
+f object damroll 4 0
+f object hp 10 0
 g @eng none@rus male~
 #22010
 vial holy water пузырек святая вода~
@@ -399,9 +399,9 @@ silver~
 weapon GI 0 AN
 sword 5 5 'slash' D
 23 40 1350 P
-f object hitroll 1 0 23 -1
-f object damroll 3 0 23 -1
-f object wis 1 0 23 -1
+f object hitroll 1 0
+f object damroll 3 0
+f object wis 1 0
 g @eng none@rus male~
 #0
 

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 6
+Ver 7
 Name Astral Plane~
 VNUMs 7700 7799
 Credits Andersen~
@@ -329,9 +329,9 @@ iron~
 weapon JK 0 AN
 mace 4 10 'crush' 0
 38 350 5200 P
-f object damroll 6 0 38 -1
-f object hitroll -2 0 38 -1
-f object dex -1 0 38 -1
+f object damroll 6 0
+f object hitroll -2 0
+f object dex -1 0
 E
 hammer sledge grey~
 This massive hammer is incredibly hard, heavy, and utterly grey and featureless.
@@ -385,8 +385,8 @@ ebony~
 wand EH 0 AO
 25 5 5 'energy drain' 0
 11 50 2600 P
-f object wis -1 0 11 -1
-f object int -1 0 11 -1
+f object wis -1 0
+f object int -1 0
 E
 amulet demon~
 The amulet is a small circular object made from some bizarre metallic alloy.
@@ -405,7 +405,7 @@ copper~
 staff EH 0 AO
 25 6 5 'flamestrike' 0
 14 50 5300 P
-f object hp -10 0 14 -1
+f object hp -10 0
 E
 talisman devilish~
 The talisman is a red circular stone object hanging from a metallic chain.  It
@@ -423,8 +423,8 @@ iron~
 weapon 0 0 AN
 dagger 2 4 'stab' 0
 6 30 480 P
-f object damroll 1 0 6 -1
-f object hitroll 1 0 6 -1
+f object damroll 1 0
+f object hitroll 1 0
 E
 knife silvery~
 The knife is forged from a strange silvery metal the likes of which you have
@@ -440,8 +440,8 @@ silver~
 weapon 0 0 AN
 dagger 3 6 'pierce' 0
 13 30 980 P
-f object damroll 2 0 13 -1
-f object hitroll 2 0 13 -1
+f object damroll 2 0
+f object hitroll 2 0
 E
 dagger silvery~
 The dagger is forged from a strange silvery metal the likes of which you have
@@ -457,9 +457,9 @@ steel~
 weapon 0 0 AN
 sword 4 4 'slice' 0
 16 30 2300 P
-f object damroll 3 0 16 -1
-f object hitroll 1 0 16 -1
-f object dex 1 0 16 -1
+f object damroll 3 0
+f object hitroll 1 0
+f object dex 1 0
 E
 sword thin~
 The sword is forged from a strange silvery metal.  It barely measures an inch
@@ -475,8 +475,8 @@ iron~
 weapon 0 0 AN
 sword 3 10 'slash' F
 24 160 2600 P
-f object damroll 2 0 24 -1
-f object hitroll 1 0 24 -1
+f object damroll 2 0
+f object hitroll 1 0
 E
 sword thin two two-handed~
 The sword is forged from a strange silvery metal.  It barely measures two inches
@@ -492,8 +492,8 @@ silver~
 weapon A 0 AN
 sword 5 5 'slash' F
 19 130 4600 P
-f object damroll 2 0 19 -1
-f object dex 2 0 19 -1
+f object damroll 2 0
+f object dex 2 0
 E
 sword silvery~
 The sword is forged from a strange silvery metal the likes of which you have
@@ -509,8 +509,8 @@ iron~
 weapon BE 0 AN
 flail 6 6 'claw' 0
 29 140 2800 P
-f object hitroll 3 0 29 -1
-f object damroll 3 0 29 -1
+f object hitroll 3 0
+f object damroll 3 0
 E
 flail barbed iron~
 This hideous weapon has claimed many lives.  You can tell from the bloodstains
@@ -526,11 +526,11 @@ iron~
 weapon EHM 0 AN
 sword 9 3 'slash' F
 31 250 5100 P
-f object hitroll 5 0 31 -1
-f object wis -1 0 31 -1
-f object int -1 0 31 -1
-f object damroll 2 0 31 -1
-f object str 1 0 31 -1
+f object hitroll 5 0
+f object wis -1 0
+f object int -1 0
+f object damroll 2 0
+f object str 1 0
 E
 sword gith~
 The blade of this sword is a featureless gray.  As you touch it you feel an
@@ -547,8 +547,8 @@ stone~
 light 0 0 AO
 0 0 -1 0 0
 20 10 1440 P
-f object saves -2 0 20 -1
-f object ac -2 0 20 -1
+f object saves -2 0
+f object ac -2 0
 E
 stone flame~
 This stone burns with an flame that emits great heat, yet it can be held with
@@ -618,9 +618,9 @@ iron~
 armor 0 0 AH
 7 7 7 0 0
 20 50 2700 P
-f object damroll 1 0 20 -1
-f object hitroll 1 0 20 -1
-f object str 1 0 20 -1
+f object damroll 1 0
+f object hitroll 1 0
+f object str 1 0
 E
 gauntlets ornate~
 These gauntlets have been expertly and ornately fashioned from the highest
@@ -635,8 +635,8 @@ leather~
 armor 0 0 AD
 9 9 9 2 0
 31 50 8500 P
-f object saves -2 0 31 -1
-f object ac -6 0 31 -1
+f object saves -2 0
+f object ac -6 0
 E
 vest cracked leather~
 The ancient vest is barely intact.  All of the leather has cracked and dried
