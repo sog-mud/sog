@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.56 1999-06-29 18:28:43 avn Exp $
+ * $Id: db_area.c,v 1.57 1999-06-30 20:11:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -848,6 +848,11 @@ DBLOAD_FUN(load_rooms)
 		/* Area number */	  fread_number(fp);
 		pRoomIndex->room_flags	= fread_flags(fp);
 		pRoomIndex->sector_type	= fread_fword(sector_types, fp);
+		if (pRoomIndex->sector_type < 0
+		||  pRoomIndex->sector_type > MAX_SECT) {
+			bug("load_rooms: vnum %d: invalid sector type",
+			    pRoomIndex->vnum);
+		}
 
 		for (; ;) {
 			letter = fread_letter(fp);

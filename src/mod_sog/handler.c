@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.170 1999-06-30 15:42:28 fjoe Exp $
+ * $Id: handler.c,v 1.171 1999-06-30 20:11:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1138,6 +1138,7 @@ void char_from_room(CHAR_DATA *ch)
  */
 void char_to_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 {
+	olced_t *olced;
 	OBJ_DATA *obj;
 
 	if (pRoomIndex == NULL) {
@@ -1221,8 +1222,10 @@ void char_to_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 				return;
 		}
 
-	if (ch->desc != NULL && IS_EDIT(ch, "room"))
-		dofun("aedit", ch, "room dropout");
+	if (ch->desc != NULL
+	&&  (olced = OLCED(ch)) != NULL
+	&&  !str_cmp(olced->id, "rooms"))
+		dofun("edit", ch, "rooms dropout");
 }
 
 /*
@@ -3933,7 +3936,7 @@ void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 	buf_add(output, "\n");
 }
 
-static int movement_loss[SECT_MAX] =
+static int movement_loss[MAX_SECT+1] =
 {
 	1, 2, 2, 3, 4, 6, 4, 1, 6, 10, 6
 };
@@ -4246,8 +4249,8 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 		    }
 		}
 
-		move = (movement_loss[UMIN(SECT_MAX-1, in_room->sector_type)]
-		     + movement_loss[UMIN(SECT_MAX-1, to_room->sector_type)])/2;
+		move = (movement_loss[URANGE(0, in_room->sector_type, MAX_SECT)]
+		  + movement_loss[URANGE(0, to_room->sector_type, MAX_SECT)])/2;
 
 		if (is_affected(ch, gsn_thumbling))
 			move *= 2;

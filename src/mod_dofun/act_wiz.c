@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.170 1999-06-29 18:28:36 avn Exp $
+ * $Id: act_wiz.c,v 1.171 1999-06-30 20:11:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -100,16 +100,22 @@ CHAR_DATA *get_char_punish(CHAR_DATA *ch, const char *name, flag32_t flag)
 		char_puts("They aren't here.\n", ch);
 		return NULL;
 	}
+
 	if (!IS_SET(flag, GCP_NPC) && IS_NPC(ch)) {
 		char_puts("They are mindless, you know. Forgive them.\n", ch);
 		return NULL;
 	}
-	if (IS_NPC(vch) || vch->level < ch->level) return vch;
-	if (ch == vch && IS_SET(flag, GCP_NOPUNISH)) return vch;
+
+	if (IS_NPC(vch) || vch->level < ch->level)
+		return vch;
+
+	if (ch == vch && IS_SET(flag, GCP_NOPUNISH))
+		return vch;
+
 	char_puts("You failed.\n", ch);
 	if (!IS_SET(flag, GCP_NOPUNISH))
-			act("$n tried to punish you, but failed.",
-			ch, NULL, vch, TO_VICT);
+		act("$n tried to punish you, but failed.",
+		    ch, NULL, vch, TO_VICT);
 	return NULL;
 }
 
@@ -684,10 +690,8 @@ void do_transfer(CHAR_DATA *ch, const char *argument)
 	} else
 		location = ch->in_room;
 
-	if ((victim = get_char_punish(ch, arg1, GCP_NPC)) == NULL) {
-		char_puts("They aren't here.\n", ch);
+	if ((victim = get_char_punish(ch, arg1, GCP_NPC)) == NULL)
 		return;
-	}
 
 	if (victim->in_room == NULL) {
 		char_puts("They are in limbo.\n", ch);
@@ -3042,10 +3046,8 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if ((victim = get_char_punish(ch, arg1, GCP_NOPUNISH)) == NULL) {
-		char_puts("They aren't here.\n", ch);
+	if ((victim = get_char_punish(ch, arg1, GCP_NOPUNISH)) == NULL) 
 		return;
-	}
 
 	/*
 	 * Snarf the value (which need not be numeric).
@@ -3638,11 +3640,8 @@ void do_ititle(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	victim = get_char_punish(ch, arg, 0);
-	if (victim == NULL)  {
-		char_puts("Nobody is playing with that name.\n", ch);
+	if ((victim = get_char_punish(ch, arg, 0)) == NULL)
 		return;
-	}
 
 	if (argument[0] == '\0') {
 		dofun("help", ch, "'WIZ ITITLE'");

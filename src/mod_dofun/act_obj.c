@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.158 1999-06-29 18:28:34 avn Exp $
+ * $Id: act_obj.c,v 1.159 1999-06-30 20:11:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -446,8 +446,9 @@ void do_give(CHAR_DATA * ch, const char *argument)
 
 	if (is_number(arg)) {
 		/* 'give NNNN coins victim' */
-		int             amount;
-		bool            silver;
+		int amount;
+		bool silver;
+		int carry_w;
 
 		amount = atoi(arg);
 
@@ -482,6 +483,15 @@ void do_give(CHAR_DATA * ch, const char *argument)
 		if ((!silver && ch->gold < amount)
 		||  (silver && ch->silver < amount)) {
 			char_puts("You haven't got that much.\n", ch);
+			return;
+		}
+
+		if ((carry_w = can_carry_w(victim)) >= 0
+		&&  get_carry_weight(victim) +
+		    COINS_WEIGHT(silver ? 0 : amount, silver ? amount : 0) >
+								carry_w) {
+			act("$N can't carry that much weight.",
+			    ch, NULL, victim, TO_CHAR);
 			return;
 		}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.220 1999-06-30 15:42:24 fjoe Exp $
+ * $Id: merc.h,v 1.221 1999-06-30 20:11:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1013,18 +1013,21 @@ where_t *where_lookup(flag32_t where);
  * Sector types.
  * Used in #ROOMS.
  */
-#define SECT_INSIDE		      0
-#define SECT_CITY		      1
-#define SECT_FIELD		      2
-#define SECT_FOREST		      3
-#define SECT_HILLS		      4
-#define SECT_MOUNTAIN		      5
-#define SECT_WATER_SWIM 	      6
-#define SECT_WATER_NOSWIM	      7
-#define SECT_UNUSED		      8
-#define SECT_AIR		      9
-#define SECT_DESERT		     10
-#define SECT_MAX		     11
+enum {
+	SECT_INSIDE,
+	SECT_CITY,
+	SECT_FIELD,
+	SECT_FOREST,
+	SECT_HILLS,
+	SECT_MOUNTAIN,
+	SECT_WATER_SWIM,
+	SECT_WATER_NOSWIM,
+	SECT_UNUSED,
+	SECT_AIR,
+	SECT_DESERT,
+
+	MAX_SECT = SECT_DESERT
+};
 
 /*
  * Equpiment wear locations.
