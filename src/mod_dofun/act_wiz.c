@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.186.2.12 2000-03-30 21:17:01 avn Exp $
+ * $Id: act_wiz.c,v 1.186.2.13 2000-03-31 11:57:44 osya Exp $
  */
 
 /***************************************************************************
@@ -178,6 +178,60 @@ void do_chwealth(CHAR_DATA *ch, const char *argument)
 	}
         fclose(fp);
 	char_puts("chwealth done.\n", ch);
+}
+
+void
+do_maintenance(CHAR_DATA *ch, const char *argument)
+{
+	const char *animals_table[] =
+	{
+		"bear",
+		"bat",
+		"cat",
+		"air elemental",
+		"dog",
+		"lizard",
+		"centipede",
+		"earth elemental",
+		"fox",
+		"pig",
+		"fido",
+		"water elemental",
+		"water fowl",
+		"snake",
+		"rabbit",
+		"fire elemental",
+		"tiger",
+		"wolf",
+		"song bird",
+		"fish",
+		"lion",
+		"wyvern",
+		"golem",
+		"horse",
+		NULL
+	};
+	AREA_DATA *pArea;
+	MOB_INDEX_DATA *pMobIndex;
+	int i, j;
+
+	for (pArea = area_first; pArea != NULL; pArea = pArea->next) {
+		for (i = pArea->min_vnum; i < pArea->max_vnum; i++) {
+			pMobIndex = get_mob_index(i);
+			if (pMobIndex == NULL || pMobIndex->wealth == 0)
+				continue;
+			for (j = 0; animals_table[j]; j++) {
+				if (pMobIndex->race != rn_lookup(animals_table[j])
+				&& pArea->vnum != 1)
+					continue;
+				pMobIndex->wealth = 0;
+				TOUCH_VNUM(pMobIndex->vnum);
+				break;
+			}
+		}
+	}
+	dofun("asave", ch, "changed");
+	act_puts("maintenance done.", ch, NULL, NULL, TO_CHAR, POS_DEAD);
 }
 
 
