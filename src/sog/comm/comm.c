@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.106 1998-10-08 02:46:13 fjoe Exp $
+ * $Id: comm.c,v 1.107 1998-10-08 13:29:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2525,7 +2525,45 @@ void show_string(struct descriptor_data *d, char *input)
 		}
 	}
 }
-	
+
+/* common and slang should have the same size */
+char common[] =
+	"aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ"
+	"áÁâÂ÷×çÇäÄåÅ³£öÖúÚéÉêÊëËìÌíÍîÎïÏðÐòÒóÓôÔõÕæÆèÈãÃþÞûÛýÝÿßùÙøØüÜàÀñÑ";
+char slang[] =
+	"eEcCdDfFiIgGhHjJoOkKlLmMnNpPuUqQrRsStTvVyYwWxXzZaAbB"
+	"õÕâÂâÂïÏâÂáÁùÙâÂâÂõÕâÂâÂâÂâÂéÉáÁâÂâÂòÒâÂùÙâÂâÂâÂâÂâÂâÂÿßõÕøØáÁõÕùÙ";
+
+/* ch says, victim hears */
+char *translate(CHAR_DATA *ch, CHAR_DATA *victim, const char *i)
+{
+	static char trans[MAX_STRING_LENGTH];
+	char *o;
+
+	if (*i == '\0'
+	||  (ch == NULL) || (victim == NULL)
+	||  IS_NPC(ch) || IS_NPC(victim)
+	||  IS_IMMORTAL(ch) || IS_IMMORTAL(victim)
+	||  ch->slang == SLANG_COMMON
+	||  ch->slang == pc_race_table[ORG_RACE(victim)].slang) {
+		if (IS_IMMORTAL(victim))
+			snprintf(trans, sizeof(trans), "[%s] %s",
+				 flag_string(slang_table, ch->slang), i);
+		else
+			strnzcpy(trans, i, sizeof(trans));
+		return trans;
+	}
+
+	strnzcpy(trans, flag_string(slang_table, ch->slang), sizeof(trans));
+	for (o = strchr(trans, '\0'); *i && o-trans < sizeof(trans)-1; i++, o++) {
+		char *p = strchr(common, *i);
+		*o = p ? slang[p-common] : *i;
+	}
+	*o = '\0';
+
+	return trans;
+}
+
 static char * const he_she  [] = { "it",  "he",  "she" };
 static char * const him_her [] = { "it",  "him", "her" };
 static char * const his_her [] = { "its", "his", "her" };
@@ -2553,13 +2591,6 @@ void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 
 	struct tdata	tstack[TSTACK_SZ];
 	int		sp = -1;
-
-/* twitlist handling */
-	if (IS_SET(flags, CHECK_TWIT)
-	&&  !IS_NPC(to) && !IS_IMMORTAL(to)
-	&&  !IS_NPC(ch) && !IS_IMMORTAL(ch)
-	&&  is_name(ch->name, to->pcdata->twitlist))
-		return;
 
 	while(*s) {
 		char		code;
@@ -2620,13 +2651,12 @@ void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 				continue;
 	
 			case 't': 
-				i = IS_SET(flags, TRANSLATE_TEXT) ?
-					MSG(arg1, to->lang) : (char*) arg1;
-				break;
-	
-			case 'T': 
-				i = IS_SET(flags, TRANSLATE_TEXT) ?
-					MSG(arg2, to->lang) : (char*) arg2;
+			case 'T':
+				i = code == 't' ? arg1 : arg2;
+				if (IS_SET(flags, TRANS_TEXT))
+					i = MSG(i, to->lang);
+				if (IS_SET(flags, STRANS_TEXT))
+					i = translate(ch, to, i);
 				break;
 	
 			case 'n':
@@ -2762,18 +2792,51 @@ void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 	}
 }
 
+bool act_skip(CHAR_DATA *ch, CHAR_DATA *vch, CHAR_DATA *to,
+	      int flags, int min_pos)
+{
+	if (to->position < min_pos)
+		return TRUE;
+
+/* twitlist handling */
+	if (IS_SET(flags, CHECK_TWIT)
+	&&  !IS_NPC(to) && !IS_IMMORTAL(to)
+	&&  !IS_NPC(ch) && !IS_IMMORTAL(ch)
+	&&  is_name(ch->name, to->pcdata->twitlist))
+		return TRUE;
+
+/* check "deaf dumb blind" chars */
+	if (IS_SET(flags, CHECK_DEAF) && is_affected(to, gsn_deafen))
+		return TRUE;
+
+	if (IS_NPC(to)
+	&&  to->desc == NULL
+	&&  !HAS_TRIGGER(to, TRIG_ACT))
+		return TRUE;
+ 
+	if (IS_SET(flags, TO_CHAR) && to != ch)
+		return TRUE;
+	if (IS_SET(flags, TO_VICT) && (to != vch || to == ch))
+		return TRUE;
+	if (IS_SET(flags, TO_ROOM) && to == ch)
+		return TRUE;
+	if (IS_SET(flags, TO_NOTVICT) && (to == ch || to == vch))
+		return TRUE;
+
+	return FALSE;
+}
+
 void act_nprintf(CHAR_DATA *ch, const void *arg1, 
-	      const void *arg2, int flags, int min_pos, int msgid, ...)
+		 const void *arg2, int flags, int min_pos, int msgid, ...)
 {
 	CHAR_DATA *to;
-	CHAR_DATA 	*vch = (CHAR_DATA *) arg2;
+	CHAR_DATA *vch = (CHAR_DATA *) arg2;
 	char buf[MAX_STRING_LENGTH];
 	va_list ap;
 
 	if (ch == NULL || ch->in_room == NULL)
 		return;
 
-	to = ch->in_room->people;
 	if (IS_SET(flags, TO_VICT)) {
 		if (!vch) {
 			bug("Act: null vch with TO_VICT.", 0);
@@ -2785,31 +2848,16 @@ void act_nprintf(CHAR_DATA *ch, const void *arg1,
 
 		to = vch->in_room->people;
 	}
+	else
+		to = ch->in_room->people;
  
 	va_start(ap, msgid);
-
 	for(; to ; to = to->next_in_room) {
-		if (to->position < min_pos)
+		if (act_skip(ch, vch, to, flags, min_pos))
 			continue;
-
-		if (IS_NPC(to)
-		&&  to->desc == NULL
-		&&  !HAS_TRIGGER(to, TRIG_ACT))
-	        	continue;
- 
-		if (IS_SET(flags, TO_CHAR) && to != ch)
-			continue;
-		if (IS_SET(flags, TO_VICT) && (to != vch || to == ch))
-			continue;
-		if (IS_SET(flags, TO_ROOM) && to == ch)
-			continue;
-		if (IS_SET(flags, TO_NOTVICT) && (to == ch || to == vch))
-			continue;
-	
 		vsnprintf(buf, sizeof(buf), vmsg(msgid, to, ch), ap);
 		act_raw(ch, to, arg1, arg2, buf, flags);
 	}
-
 	va_end(ap);
 }
 
@@ -2818,14 +2866,13 @@ void act_printf(CHAR_DATA *ch, const void *arg1,
 		const char* format, ...)
 {
 	CHAR_DATA *to;
-	CHAR_DATA 	*vch = (CHAR_DATA *) arg2;
+	CHAR_DATA *vch = (CHAR_DATA *) arg2;
 	char buf[MAX_STRING_LENGTH];
 	va_list ap;
 
 	if (ch == NULL || ch->in_room == NULL || format == NULL)
 		return;
 
-	to = ch->in_room->people;
 	if (IS_SET(flags, TO_VICT)) {
 		if (vch == NULL) {
 	        	bug("act_printf: null vch with TO_VICT.", 0);
@@ -2837,31 +2884,16 @@ void act_printf(CHAR_DATA *ch, const void *arg1,
 
 		to = vch->in_room->people;
 	}
+	else
+		to = ch->in_room->people;
  
 	va_start(ap, format);
-
 	for(; to ; to = to->next_in_room) {
-		if (to->position < min_pos)
+		if (act_skip(ch, vch, to, flags, min_pos))
 			continue;
-
-		if (IS_NPC(to)
-		&&  to->desc == NULL
-		&&  !HAS_TRIGGER(to, TRIG_ACT))
-	        	continue;
- 
-		if (IS_SET(flags, TO_CHAR) && to != ch)
-			continue;
-		if (IS_SET(flags, TO_VICT) && (to != vch || to == ch))
-			continue;
-		if (IS_SET(flags, TO_ROOM) && to == ch)
-			continue;
-		if (IS_SET(flags, TO_NOTVICT) && (to == ch || to == vch))
-			continue;
-	
 		vsnprintf(buf, sizeof(buf), MSG(format, to->lang), ap);
 		act_raw(ch, to, arg1, arg2, buf, flags);
 	}
-
 	va_end(ap);
 }
 
