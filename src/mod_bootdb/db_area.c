@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.128 2001-09-07 15:54:34 fjoe Exp $
+ * $Id: db_area.c,v 1.129 2001-09-07 15:56:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -793,7 +793,7 @@ DBLOAD_FUN(load_specials)
 			trig = varr_enew(&pMobIndex->mp_trigs);
 			trig->trig_type = TRIG_MOB_RANDOM;
 			trig->trig_prog = str_dup(ssubst->mprog);
-			trig_set_arg(trig, str_dup("+100"));
+			trig_set_arg(trig, str_dup("+100"));	// notrans
 			varr_qsort(&pMobIndex->mp_trigs, cmpint);
 
 			if (!str_cmp(spec, "spec_janitor"))
