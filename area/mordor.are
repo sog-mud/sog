@@ -88,8 +88,6 @@ S
 #RESETS
 D 0 30001 0 1	* Before the Gate of Mordor: door to the north: closed
 D 0 30002 2 1	* Guard Room behind the Gate: door to the south: closed
-O 0 30099 0 30000	* fountain (Road to Mountain)
-O 0 30098 0 30000	* svetilka (Road to Mountain)
 S
 
 #$

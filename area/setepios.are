@@ -981,6 +981,15 @@ armor CI AG
 A
 8 8
 G male
+#38600
+alona chair~
+@eng wonderful chair.@rus удобный стульчик~
+@eng Wonderful chair stands here.@rus Прекрасный стул обитый бархатом.~
+unknown~
+furniture AR A
+A 0 EH DGH DGH
+30 1 1 P
+G female
 #0
 
 #ROOMS

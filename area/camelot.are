@@ -62,7 +62,7 @@ armor emblazoned with the sign of a gold dragon. He carries Excalibur
 in a strange looking sheath.
 ~
 human~
-ABX DH 1000 0
+AB DH 1000 0
 38 0 10d10+1600 5d5+1000 5d6+12 pound
 -13 -13 -13 3
 EFNU 0 0 0
@@ -93,7 +93,7 @@ Sir Galahad is dressed in his white armor and carries a two handed sword
 saga)
 ~
 human~
-ABX CDFN 1000 0
+AB CDFN 1000 0
 40 0 15d10+1850 5d5+1000 4d8+13 slash
 -13 -13 -13 3
 EFNU 0 0 0
@@ -186,7 +186,7 @@ Sir Lancelot is mounted upon a white charger and is wearing polished steel
 armor. His visor is up, and his lance raised in salute to you.
 ~
 human~
-ABJKX DFHN 1000 0
+ABJK DFHN 1000 0
 44 0 25d10+2750 5d5+1000 8d4+15 crush
 -15 -15 -15 2
 EFNU 0 0 0
@@ -871,7 +871,7 @@ Persante is called the blue knight because of his brilliant blue armor.
 He is mounted on a fine charger, and is waving his blue pennant.
 ~
 human~
-AX H 400 0
+A H 400 0
 35 0 10d10+1300 5d5+1000 4d7+11 pound
 -11 -11 -11 3
 EFNU 0 0 0
@@ -886,7 +886,7 @@ Dodinas is a whirlwind of weapons and martial skill, felling all who
 approach. He is mounted atop his famed steed Rue.
 ~
 human~
-AX 0 100 0
+A 0 100 0
 32 0 10d10+1000 5d5+1000 6d4+9 pound
 -10 -10 -10 3
 EFNU 0 0 0

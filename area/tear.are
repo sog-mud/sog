@@ -359,13 +359,18 @@ armor GJPTUa O
 55 50 100000 P
 G none
 #110002
-0~
-@eng 0@rus 0~
-@eng 0@rus 0~
+pbel~
+@eng power belt@rus power belt~
+@eng power belt@rus power belt~
 glass~
-armor 0 0
-0 0 0 0 0
-0 10 100 P
+armor PU AL
+20 20 20 20 0
+50 10 100 P
+F A 26 10 Z
+S 'summon' 100 A
+F R 8 10 F
+F R 18 50 G
+F R 19 50 D
 G none
 #110004
 jukebox~

@@ -166,7 +166,7 @@ The baker stands here playing solitaire.
 You see a large man in a white apron covered in flour from head to toe.
 ~
 human~
-ABVXYe D 800 0
+ABVYe D 800 0
 23 0 5d10+450 11d9+100 3d6+6 none
 -6 -6 -6 6
 EFNU 0 0 0
@@ -181,7 +181,7 @@ The shopkeeper stands here.
 You see a half-elf sitting on a stool behind his counter.
 ~
 human~
-ABVXYe D 800 0
+ABVYe D 800 0
 23 0 5d10+650 11d9+100 3d6+6 none
 -6 -6 -6 6
 EFNU 0 0 0
@@ -215,7 +215,7 @@ This middle-aged man looks over you with disdain and quickly suggests a new
 wardrobe.
 ~
 human~
-ABVXYe D 800 0
+ABVYe D 800 0
 23 0 5d10+650 11d9+100 3d6+6 none
 -6 -6 -6 6
 EFNU 0 0 0
@@ -230,7 +230,7 @@ Vera the veggie lady beams as you look over her stand.
 A tall slender elf stands before you smiling broadly.
 ~
 human~
-ABVXYe D 800 0
+ABVYe D 800 0
 23 0 5d10+650 11d9+100 3d6+6 none
 -6 -6 -6 6
 EFNU 0 0 0
@@ -340,7 +340,7 @@ The statue of Nati stands here.
 ~
 ~
 human~
-ABQTX 0 1000 0
+ABQT 0 1000 0
 35 0 10d10+1300 35d9+100 6d4+11 none
 -11 -11 -11 3
 EIKU 0 0 0
@@ -357,7 +357,7 @@ down to some hapless victim.  He is dressed in the robes of a mage,
 yet bears a sword carved into the glittering stone of his statue.
 ~
 human~
-ABQTX 0 1000 0
+ABQT 0 1000 0
 31 0 6d12+928 31d9+100 2d12+9 none
 -10 -10 -10 4
 EIKU 0 0 0
@@ -372,7 +372,7 @@ The statue of Zump stands here.
 A statue of a stocky, angry looking dwarf with a cigarette in his mouth.
 ~
 human~
-ABQTX 0 1000 0
+ABQT 0 1000 0
 31 0 6d12+928 31d9+100 2d12+9 none
 -10 -10 -10 4
 EIKU 0 0 0
@@ -388,7 +388,7 @@ A tall, swirling dark stone formed this statue.  As you peer at him
 longer, it seems to chuckle.
 ~
 human~
-ABQTX 0 1000 0
+ABQT 0 1000 0
 31 0 6d12+928 31d9+100 2d12+9 none
 -10 -10 -10 4
 EIKU 0 0 0
@@ -404,7 +404,7 @@ The statue of Satin, a small elven woman in mage robes, smiles serenely
 and her eyes twinkle with gentle humour.  You take a step back in fear.
 ~
 human~
-ABQTX 0 1000 0
+ABQT 0 1000 0
 31 0 6d12+928 31d9+100 2d12+9 none
 -10 -10 -10 4
 EIKU 0 0 0
@@ -420,7 +420,7 @@ This statue poses the Lady of the Mountains in a simple robe, with
 her long tresses sensibly pulled back from her smooth, smiling face.
 ~
 human~
-ABQTX 0 1000 0
+ABQT 0 1000 0
 31 0 6d12+928 31d9+100 2d12+9 none
 -10 -10 -10 4
 EIKU 0 0 0
@@ -435,7 +435,7 @@ There a statue of Furey standing here.
 A statue of Furey.
 ~
 human~
-ABQRTX 0 1000 0
+ABQRT 0 1000 0
 34 0 10d10+1200 34d9+100 6d4+10 none
 -11 -11 -11 3
 EIKU 0 0 0
@@ -451,7 +451,7 @@ Landru is carved from shimmering polished hematite, and a smile seems
 to flicker over his face.  A pair of dice are enclosed in one hand.
 ~
 human~
-ABQRTUWX 0 1000 0
+ABQRTUW 0 1000 0
 35 0 10d10+1300 35d9+100 6d4+11 none
 -11 -11 -11 3
 EIKU 0 0 0
@@ -1016,7 +1016,7 @@ You see the shipwright of New Thalos, waiting to make someone a boat. He
 beams a smile at you through his beard as you walk in.
 ~
 human~
-ABVXYe 0 0 0
+ABVYe 0 0 0
 30 0 6d12+853 15d9+100 4d6+8 none
 -9 -9 -9 6
 EFNU 0 0 0
@@ -1032,7 +1032,7 @@ You see a large human, dripping in sweat, standing before you. He takes a
 break from his swealtering work to bid you welcome.
 ~
 human~
-ABVXYe 0 0 0
+ABVYe 0 0 0
 30 0 6d12+853 15d9+100 4d6+8 none
 -9 -9 -9 6
 EFNU 0 0 0
@@ -1232,7 +1232,7 @@ You see a very healthy female dressed in black, with long flowing
 hair to match her outfit.
 ~
 human~
-ABRVXYe 0 0 0
+ABRVYe 0 0 0
 30 0 6d12+853 15d9+100 4d6+8 none
 -9 -9 -9 6
 EFNU 0 0 0
@@ -1247,7 +1247,7 @@ Braheem stands here talking to the walls.
 You see a powerful but slighty insane mage.
 ~
 human~
-ABRVXYe 0 0 0
+ABRVYe 0 0 0
 30 0 6d12+853 15d9+100 4d6+8 none
 -9 -9 -9 6
 EFNU 0 0 0

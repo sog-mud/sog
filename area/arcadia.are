@@ -1177,23 +1177,25 @@ thousand different facets inviting you to watch as much as it does to drink.
 ~
 G none
 #12027
-bucket~
-A wooden bucket~
-This is the bucket the boggans use to cool items from the forge.~
+bucket ведро~
+@eng A wooden bucket@rus ~~деревянное~~ ~~ведро~~~
+@eng This is the bucket the boggans use to cool items from the forge.@rus Ведро (bucket), в котором кузнец закаливает свои изделия.~
 wood~
 drink 0 A
 5 5 'water' 8 0
 1 8 0 W
 E
-water~
-The water in the bucket looks quite dirty.  It doesn't look like it would 
+water ведро~
+@eng The water in the bucket looks quite dirty.  It doesn't look like it would 
 quench your thirst.
+@rus Вода в ведре выглядит достаточно грязной. Думаю, пить ее не стоит, а то 
+последствий не оберешься.
 ~
 G none
 #12028
-slime pool~
-slime pool~
-a slime pool is here.~
+pool slime лужа~
+@eng slime pool@rus ~~лужа~~ грязи~
+@eng a slime pool is here.@rus Большая грязная лужа (pool). ~
 unknown~
 container 0 0
 100 0 0 50 100

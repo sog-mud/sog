@@ -9,6 +9,11 @@ Form 1 silver coin~
 End
 
 #RULE
+Name quest points~
+Form 1 quest point~
+End
+
+#RULE
 Name hours~
 Form 1 hour~
 End
@@ -19,6 +24,11 @@ Form 1 steak~
 End
 
 #RULE
+Name civilians~
+Form 1 civilian~
+End
+
+#RULE
 Name coins~
 Form 1 coin~
 End
@@ -26,6 +36,26 @@ End
 #RULE
 Name pieces~
 Form 1 piece~
+End
+
+#RULE
+Name practices~
+Form 1 practice~
+End
+
+#RULE
+Name minutes~
+Form 1 minute~
+End
+
+#RULE
+Name th~
+Form 1 st~
+Form 2 nd~
+Form 3 rd~
+Form 11 th~
+Form 12 th~
+Form 13 th~
 End
 
 #$

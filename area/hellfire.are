@@ -55,14 +55,15 @@ ogden огден~
 ~
 ~
 human~
-ABR 0 -1000 0
-10000000 0 0d0+0 0d0+0 0d0+0 none
+ABLT 0 -1000 0
+85 0 0d0+0 1d1+9999 0d0+0 none
 0 0 0 0
 0 0 0 0
 stand stand none 0
 0 0 medium unknown
 F for AHMV
 F par ABCDEFGHIJK
+M act 18798 say~
 #18703
 cain кейн~
 ~~староста~~ ~~Кейн~~~
@@ -186,8 +187,8 @@ axe huge flaming fire orrin~
 @eng Huge {YFlaming{x Axe has been left here.@rus Orrin забыл здесь свою секиру (axe), может стоит вернуть?~
 fire~
 weapon ABKLRSTac ANP
-axe 1 9999 flame ADF
-95 600 2147483647 P
+axe 1 9999 flame AD
+95 300 2147483647 P
 F A 19 100000 a
 F A 18 100000 a
 F I 0 0 H
@@ -201,9 +202,7 @@ ring power кольцо силы~
 energy~
 treasure BSTYa AB
 0 0 0 0 0
-103 0 0 P
-A
-8 1000
+95 0 0 P
 F A 12 1000000 G
 F A 13 1000000 m
 F A 20 -1000000000 J
@@ -254,7 +253,7 @@ pill~
 pill~
 unknown~
 pill 0 A
-2147483647 'refresh' 'cure disease' 'reserved' 'remove curse'
+91 'sanctuary' 'haste' 'bless' 'protection evil'
 0 0 100 P
 G male
 #18706
@@ -469,15 +468,17 @@ A
 13 35
 G none
 #18799
-light holy pillar orrin~
-{WHoly Light{x~
+light holy pillar~
+holy light~
 The pillar of light falls from the heaven.~
 holy~
-light AIK A
+light AIh A
 0 0 -1 0 0
-92 0 0 P
-F I 0 0 M
-F A 0 0 J
+10 0 100000 P
+S 'wrath' 100 A
+S 'ray of truth' 100 A
+S 'frenzy' 100 A
+S 'bless' 100 A
 F A 0 0 E
 F A 0 0 C
 F A 0 0 G
@@ -485,7 +486,6 @@ F A 0 0 t
 F A 0 0 l
 F A 0 0 D
 F A 0 0 F
-F A 0 0 m
 G male
 #0
 
@@ -617,7 +617,7 @@ S
 #18707
 @eng Tavern@rus Таверна~
 ~
-0 0 inside
+0 0 forest
 D2
 ~
 ~
@@ -1418,6 +1418,7 @@ G 0 18703 0		*	potion of healing
 G 0 15000 0		*	strange pill
 G 0 15008 0		*	Anti-invader's pill
 G 0 18705 0		*	pill
+M 0 18700 1 18705 1	* Urukhay (Drugstone)
 M 0 18702 1 18707 1	* innkeeper Ogden (Tavern)
 M 0 18701 1 18710 1	* Griswold (Forge)
 G 0 18717 0		*	rusty nail
@@ -1537,9 +1538,11 @@ mob force $n drink glass
 say Хозяин будет недоволен
 ~
 #18798
-mob remember $n
-say Ты куда, мы еще с тобой неразобрались.
-mob transfer $q
+make arrow red
+make arrow blue
+make arrow white
+make arrow green
+make bow
 ~
 #18799
 mob echoat $n $i бьет тебя головой об стенку.

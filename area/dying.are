@@ -1,6 +1,5 @@
 #AREADATA
 Name Dying Forest~
-Builders hegan~
 VNUMs 24300 24399
 Credits Ceran~
 Security 9
@@ -10,13 +9,14 @@ End
 #MOBILES
 #24301
 guardian охранник кентавр~
-@eng a centaur guardian@rus ~~кентавр~~ ~~охранник~~~
+@eng a centaur guardian@rus ~~кентавр~~-~~охранник~~~
 @eng A large guardian centuar is here tending the dying foliage.
 @rus Большой кентавр-охранник (guardian) скачет по лесу.
 ~
 @eng This centaur is busy repairing the damage inflicted by the anti-rangers and
 their creatures of the night.
-@rus  Этот кентавр занят восстановлением леса после нашествия Темных Ренджеров и созданий ночи.... 
+@rus Этот кентавр занят восстановлением леса после нашествия темных ренджеров
+и других порождений ночи.
 ~
 centaur~
 ABGT DEFJ 1000 0
@@ -28,9 +28,9 @@ stand stand male 500
 V 24301
 #24302
 ranger ренджер кентавр~
-@eng centaur ranger@rus ~~кентавр~~ ~~ренджер~~~
+@eng centaur ranger@rus ~~кентавр~~-~~ренджер~~~
 @eng A centaur ranger prepares itself for the fight against the anti-rangers.
-@rus Кентавр-ренджер (ranger) готовитсЯ к сражению с Темными Ренджерами.
+@rus Кентавр-ренджер (ranger) готовится к сражению с Темными Ренджерами.
 ~
 @eng This massive centaur is flexing it's muscles in preperation for the upcoming
 battle to drive back the anti-rangers and their darkfriends.
@@ -45,7 +45,7 @@ stand stand male 1000
 0 0 large unknown
 #24303
 captain капитан кентавр~
-@eng a centaur captain@rus ~~капитан~~ ~~кентавр~~~
+@eng a centaur captain@rus ~~капитан~~ кентавров~
 @eng A centaur captain is here overseeing the preperations of the centaurs.
 @rus Капитан кентавров (capitan) наблюдает за приготовлениями к битве.
 ~
@@ -101,9 +101,9 @@ stand stand male 400
 0 0 medium unknown
 #24306
 naga нага~
-@eng a greater Forest naga@rus ~~ЛеснаЯ~~ ~~Нага~~~
+@eng a greater Forest naga@rus ~~лесная~~ ~~нага~~~
 @eng A greater forest naga is here grinding it's way through the foliage.
-@rus ЛеснаЯ Нага (naga) проламываетсЯ через завалы в лесу.
+@rus Лесная нага (naga) проламывается через завалы в лесу.
 ~
 @eng This creature is one of the dark legion from the Abyss, a demonic Naga that
 preys upon mortal flesh. It has the body of a huge serpent, but the face of
@@ -117,7 +117,7 @@ AGT CDEFJ -1000 0
 40 0 15d10+1850 1d1+100 4d10+10 slice
 -13 -13 -13 -3
 CDEKM 0 C 0
-stand stand none 0
+stand stand female 0
 0 0 large unknown
 #24307
 rimlarker juggernaut stone римлакер~
@@ -137,10 +137,10 @@ CDEKO E 0 0
 stand stand none 0
 0 0 giant unknown
 #24308
-medagar tree медагар~
-@eng Medagar@rus ~~Медагар~~~
+tree медагар medagar~
+@eng Medagar@rus Медагар~
 @eng A huge tree is here making some horrible hissing sounds.
-@rus Гигантское дерево (Medagar) издает ужасные звуки.
+@rus Гигантское дерево (tree) издает ужастные звуки.
 ~
 @eng This is the greater demon Medagar, one of the Abyss's nature demons. Wherever
 there is destruction of nature It will try to be there to feed off the death
@@ -153,13 +153,13 @@ ABGT CDEFJa -1000 0
 60 3 50d10+9500 1d1+100 8d6+29 slash
 -30 -30 -30 -18
 CDEKO 0 0 0
-stand stand none 0
+stand stand male 0
 0 0 giant unknown
 #24309
 Belqark vines белгарк~
-@eng Belqark@rus ~~Белгарк~~~
+@eng Belqark@rus Белгарк~
 @eng A seething mass of vines lies on the ground.
-@rus Нечто, похожее на большой оживший куст (Belqark) находится здесь.
+@rus Нечто, похожее на большой оживший куст (vines) находится здесь.
 ~
 @eng This is one of the demons of nature, sent to observe the death of this forest.
 It's mortal form is that of a mass of vines with a life of their own.
@@ -171,10 +171,10 @@ AGT CDEFJ -1000 0
 55 3 50d10+7000 1d1+100 10d4+24 beating
 -25 -25 -24 -9
 DEKN 0 D 0
-stand stand none 0
+stand stand male 0
 0 0 giant unknown
 #24310
-earth elemental Metagar~
+elemental Metagar earth~
 @eng Metagar@rus ~~Метагар~~~
 @eng A huge earth elemental is here smashing the forest.
 @rus Огромный земляной элементал (Metagar) давит лес.
@@ -214,13 +214,13 @@ stand stand none 0
 0 0 giant unknown
 #24312
 scout centaur кентавр~
-@eng a centaur scout@rus ~~разведчик~~ ~~кентавров~~~
+@eng a centaur scout@rus ~~кентавр~~-~~разведчик~~~
 @eng A centaur scout is here walking the dying forest.
-@rus Разведчик кентавров (scout) крадется по лесу.
+@rus Кентавр-разведчик (scout) крадется по лесу.
 ~
 @eng This scout is wandering the forest in search of the evil that is destroying
 it.
-@rus Разведчик кентавров осматривает лес в поисках созданий Тьмы, которые 
+@rus Кентавр-разведчик осматривает лес в поисках созданий Тьмы, которые 
 уничтожают природу.
 ~
 centaur~
@@ -231,10 +231,10 @@ DEKOU 0 0 0
 stand stand either 500
 0 0 large unknown
 #24313
-dryad фея~
-@eng a dryad@rus ~~леснаЯ~~ ~~феЯ~~~
+dryad дриада~
+@eng a dryad@rus ~~лесная~~ ~~дриада~~~
 @eng A beautiful dryad looks upon the dying forest in despair.
-@rus ЛеснаЯ феЯ (dryad) с печалью смотрит на лес.
+@rus Лесная дриада (dryad) с грустью смотрит на погибающий лес.
 ~
 @eng This beautiful dryad can do nothing but watch in horror as the
 powerful evil creatures slowly ravage her home.
@@ -307,7 +307,7 @@ stand stand either 0
 
 #OBJECTS
 #24300
-centaur arm armguards armguard перчатки~
+armguards armguard перчатки centaur arm~
 @eng a pair of centaur armguards@rus ~~перчатки~~ кентавра~
 @eng A set of centaur armguards have been left here.@rus Пара перчаток (armguards) из поселениЯ кентавров лежит здесь.~
 steel~
@@ -318,9 +318,9 @@ A
 19 2
 A
 2 -1
-G none
+G plural
 #24301
-centaur steel bracer браслет стальной~
+bracer браслет стальной centaur steel~
 @eng a steel centaur bracer@rus ~~стальной~~ ~~браслет~~~
 @eng A steel bracer have been left here.@rus Стальной браслет (bracer) из поселениЯ кентавров забыли здесь.~
 steel~
@@ -331,16 +331,16 @@ A
 19 2
 A
 2 -1
-G none
+G male
 #24302
-centaur helm шлем~
+helm шлем~
 @eng a centaur helm@rus ~~шлем~~ кентавра~
 @eng A fine centaur helm has been left here.@rus Красивый шлем (helm) с изображением кентавра почему-то оставили тут.~
 steel~
 armor 0 AE
 7 7 7 10 0
 30 10 8000 P
-G none
+G male
 #24303
 plate armor centaur доспехи~
 @eng a suit of centaur plate@rus ~~доспехи~~ кентавра~
@@ -353,10 +353,10 @@ A
 19 2
 A
 2 -1
-G none
+G plural
 #24305
-steel spear копье~
-@eng a steel-tipped spear@rus ~~Острое~~ ~~копье~~~
+spear копье steel~
+@eng a steel-tipped spear@rus ~~острое~~ ~~копье~~~
 @eng A superbly crafted steel spear lies on the floor.@rus Копье (spear) с острым стальным наконечником брошено тут.~
 steel~
 weapon KMY AN
@@ -388,11 +388,11 @@ A
 19 3
 A
 13 50
-G none
+G female
 #24308
-black bastard sword меч~
+sword меч black bastard~
 @eng a blackened bastard sword@rus ~~черный~~ ~~острый~~ ~~меч~~~
-@eng A charred and etched bastard sword lies here.@rus Выгравированный черный меч (black) лежит здесь.~
+@eng A charred and etched bastard sword lies here.@rus Черный меч (sword) с гравировкой на рукояти лежит здесь.~
 steel~
 weapon CEJY AN
 sword 7 7 pierce DH
@@ -401,11 +401,11 @@ A
 18 8
 A
 19 8
-G none
+G male
 #24309
 fist earth перчатка~
 @eng Fist of the Earth@rus ~~Перчатка~~ Земли~
-@eng A massive mallet of dark metal lies upon the ground.@rus Перчатка из темного металла лежит здесь.~
+@eng A massive mallet of dark metal lies upon the ground.@rus Перчатка (fist) из темного металла лежит здесь.~
 steel~
 weapon BEFMY AN
 exotic 10 7 crush D
@@ -414,9 +414,9 @@ A
 18 5
 A
 19 5
-G none
+G female
 #24312
-bark ebon ebonwood~
+bark ebon ebonwood кора~
 @eng a casing of ebonwood bark@rus ~~древесная~~ ~~кора~~~
 @eng A pile of darkened bark lies on the ground.@rus Кучка тёмной древесной коры (casing) лежит здесь.~
 wood~
@@ -429,19 +429,19 @@ A
 19 3
 A
 13 35
-G none
+G female
 #0
 
 #ROOMS
 #24300
-@eng Entrance to the Dying Forest@rus Вход в Умирающий лес~
+@eng Entrance to the Dying Forest@rus На опушке умирающего леса~
 @eng The forest around you seems to be in the last stages of life. Everywhere you
 look there is decay and rot. There are sounds of normal wildlife, but they
 seem muted and scarce. Further to the west you can see the faint glow of
 orange that seems to be from fires.
-@rus Лес вокруг тебЯ Явно в последней стадии жизни. Куда не посмотришь --
+@rus Лес вокруг тебя находится в последней стадии жизни. Куда не посмотришь --
 всё гниет и разлагается. Здесь есть еще отзвуки нормальной жизни, но они  
-приглушены и незаметны. На западе ты замечаешь багровые отблески пожара.
+тихи и незаметны. На западе ты замечаешь багровые отблески пожара.
 ~
 0 A forest
 D0
@@ -454,14 +454,16 @@ D3
 Z 0 24302
 S
 #24302
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest seems strangely subdued, as if in the last stages of life.
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядит странновато, как на последней стадии жизни.
-Здесь еще слышны звуки жизни но они тихи и незаметны. Вокруг тебя следы
-небольших побегов,начавших расти, но видно,  что-то убило их...
+@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+стадии своего существования. Еще слышны разные шорохи, говорящие о том,
+что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
+себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
+или кто-то, ненавидящее живую природу, убило их.
 ~
 0 A forest
 D1
@@ -474,14 +476,16 @@ D3
 Z 0 24303
 S
 #24303
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest seems strangely subdued, as if in the last stages of life.
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядит странновато, как на последней стадии жизни.
-Здесь еще слышны звуки жизни но они тихи и незаметны. Вокруг тебя следы
-небольших побегов,начавших расти, но видно,  что-то убило их...
+@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+стадии своего существования. Еще слышны разные шорохи, говорящие о том,
+что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
+себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
+или кто-то, ненавидящее живую природу, убило их.
 ~
 0 A forest
 D1
@@ -494,14 +498,16 @@ D3
 Z 0 24304
 S
 #24304
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest seems strangely subdued, as if in the last stages of life.
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядит странновато, как на последней стадии жизни.
-Здесь еще слышны звуки жизни но они тихи и незаметны. Вокруг тебя следы
-небольших побегов,начавших расти, но видно,  что-то убило их...
+@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+стадии своего существования. Еще слышны разные шорохи, говорящие о том,
+что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
+себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
+или кто-то, ненавидящее живую природу, убило их.
 ~
 0 A forest
 D0
@@ -518,15 +524,16 @@ D3
 Z 0 24312
 S
 #24305
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest seems strangely subdued, as if in the last stages of life.
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядит странновато, как на последней стадии жизни.
-Здесь ещё слышны звуки жизни но они тихи и незаметны. Вокруг тебЯ следы
-небольших побегов,начавших расти, но видно,  что-то убило их...
- 
+@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+стадии своего существования. Еще слышны разные шорохи, говорящие о том,
+что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
+себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
+или кто-то, ненавидящее живую природу, убило их.
 ~
 0 A forest
 D0
@@ -539,15 +546,16 @@ D2
 Z 0 24304
 S
 #24306
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest seems strangely subdued, as if in the last stages of life.
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядит странновато, как на последней стадии жизни.
-Здесь ещё слышны звуки жизни но они тихи и незаметны. Вокруг тебЯ следы
-небольших побегов,начавших расти, но видно,  что-то убило их...
- 
+@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+стадии своего существования. Еще слышны разные шорохи, говорящие о том,
+что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
+себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
+или кто-то, ненавидящее живую природу, убило их.
 ~
 0 A forest
 D0
@@ -560,15 +568,16 @@ D2
 Z 0 24305
 S
 #24307
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest seems strangely subdued, as if in the last stages of life.
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядит странновато, как на последней стадии жизни.
-Здесь еще слышны звуки жизни но они тихи и незаметны. Вокруг тебя следы
-небольших побегов,начавших расти, но видно,  что-то убило их...
- 
+@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+стадии своего существования. Еще слышны разные шорохи, говорящие о том,
+что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
+себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
+или кто-то, ненавидящее живую природу, убило их.
 ~
 0 A forest
 D0
@@ -585,15 +594,16 @@ D3
 Z 0 24308
 S
 #24308
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest seems strangely subdued, as if in the last stages of life.
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядит странновато, как на последней стадии жизни.
-Здесь еще слышны звуки жизни но они тихи и незаметны. Вокруг тебя следы
-небольших побегов,начавших расти, но видно,  что-то убило их...
- 
+@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+стадии своего существования. Еще слышны разные шорохи, говорящие о том,
+что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
+себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
+или кто-то, ненавидящее живую природу, убило их.
 ~
 0 A forest
 D1
@@ -606,15 +616,16 @@ D3
 Z 0 24309
 S
 #24309
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest seems strangely subdued, as if in the last stages of life.
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядит странновато, как на последней стадии жизни.
-Здесь еще слышны звуки жизни но они тихи и незаметны. Вокруг тебя следы
-небольших побегов,начавших расти, но видно,  что-то убило их...
- 
+@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+стадии своего существования. Еще слышны разные шорохи, говорящие о том,
+что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
+себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
+или кто-то, ненавидящее живую природу, убило их.
 ~
 0 A forest
 D1
@@ -631,15 +642,16 @@ D3
 Z 0 24323
 S
 #24310
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest seems strangely subdued, as if in the last stages of life.
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядит странновато, как на последней стадии жизни.
-Здесь еще слышны звуки жизни но они тихи и незаметны. Вокруг тебя следы
-небольших побегов,начавших расти, но видно,  что-то убило их...
- 
+@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+стадии своего существования. Еще слышны разные шорохи, говорящие о том,
+что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
+себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
+или кто-то, ненавидящее живую природу, убило их.
 ~
 0 A forest
 D0
@@ -652,15 +664,16 @@ D2
 Z 0 24311
 S
 #24311
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest seems strangely subdued, as if in the last stages of life.
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядит странновато, как на последней стадии жизни.
-Здесь еще слышны звуки жизни но они тихи и незаметны. Вокруг тебя следы
-небольших побегов,начавших расти, но видно,  что-то убило их...
- 
+@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+стадии своего существования. Еще слышны разные шорохи, говорящие о том,
+что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
+себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
+или кто-то, ненавидящее живую природу, убило их.
 ~
 0 A forest
 D0
@@ -673,15 +686,16 @@ D2
 Z 0 24313
 S
 #24312
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest seems strangely subdued, as if in the last stages of life.
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядит странновато, как на последней стадии жизни.
-Здесь ещe слышны звуки жизни но они тихи и незаметны. Вокруг тебя следы
-небольших побегов,начавших расти, но видно,  что-то убило их...
- 
+@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+стадии своего существования. Еще слышны разные шорохи, говорящие о том,
+что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
+себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
+или кто-то, ненавидящее живую природу, убило их.
 ~
 0 A forest
 D1
@@ -694,15 +708,16 @@ D3
 Z 0 24313
 S
 #24313
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest seems strangely subdued, as if in the last stages of life.
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядит странновато, как на последней стадии жизни.
-Здесь еще слышны звуки жизни но они тихи и незаметны. Вокруг тебя следы
-небольших побегов,начавших расти, но видно,  что-то убило их...
- 
+@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+стадии своего существования. Еще слышны разные шорохи, говорящие о том,
+что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
+себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
+или кто-то, ненавидящее живую природу, убило их.
 ~
 0 A forest
 D0
@@ -719,15 +734,16 @@ D3
 Z 0 24314
 S
 #24314
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest seems strangely subdued, as if in the last stages of life.
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядит странновато, как на последней стадии жизни.
-Здесь еще слышны звуки жизни но они тихи и незаметны. Вокруг тебя следы
-небольших побегов,начавших расти, но видно,  что-то убило их...
- 
+@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+стадии своего существования. Еще слышны разные шорохи, говорящие о том,
+что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
+себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
+или кто-то, ненавидящее живую природу, убило их.
 ~
 0 A forest
 D1
@@ -740,15 +756,16 @@ D3
 Z 0 24315
 S
 #24315
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest seems strangely subdued, as if in the last stages of life.
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядит странновато, как на последней стадии жизни.
-Здесь еще слышны звуки жизни но они тихи и незаметны. Вокруг тебя следы
-небольших побегов,начавших расти, но видно,  что-то убило их...
- 
+@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+стадии своего существования. Еще слышны разные шорохи, говорящие о том,
+что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
+себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
+или кто-то, ненавидящее живую природу, убило их.
 ~
 0 A forest
 D0
@@ -765,15 +782,16 @@ D3
 Z 0 24316
 S
 #24316
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest seems strangely subdued, as if in the last stages of life.
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядит странновато, как на последней стадии жизни.
-Здесь еще слышны звуки жизни но они тихи и незаметны. Вокруг тебя следы
-небольших побегов,начавших расти, но видно,  что-то убило их...
- 
+@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+стадии своего существования. Еще слышны разные шорохи, говорящие о том,
+что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
+себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
+или кто-то, ненавидящее живую природу, убило их.
 ~
 0 A forest
 D1
@@ -786,15 +804,16 @@ D3
 Z 0 24317
 S
 #24317
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest seems strangely subdued, as if in the last stages of life.
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядит странновато, как на последней стадии жизни.
-Здесь еще слышны звуки жизни но они тихи и незаметны. Вокруг тебя следы
-небольших побегов,начавших расти, но видно,  что-то убило их...
- 
+@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+стадии своего существования. Еще слышны разные шорохи, говорящие о том,
+что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
+себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
+или кто-то, ненавидящее живую природу, убило их.
 ~
 0 A forest
 D0
@@ -811,15 +830,16 @@ D3
 Z 0 24318
 S
 #24318
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest seems strangely subdued, as if in the last stages of life.
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядит странновато, как на последней стадии жизни.
-Здесь еще слышны звуки жизни но они тихи и незаметны. Вокруг тебя следы
-небольших побегов,начавших расти, но видно,  что-то убило их...
- 
+@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+стадии своего существования. Еще слышны разные шорохи, говорящие о том,
+что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
+себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
+или кто-то, ненавидящее живую природу, убило их.
 ~
 0 A forest
 D1
@@ -832,15 +852,16 @@ D3
 Z 0 24319
 S
 #24319
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest seems strangely subdued, as if in the last stages of life.
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядит странновато, как на последней стадии жизни.
-Здесь еще слышны звуки жизни но они тихи и незаметны. Вокруг тебя следы
-небольших побегов,начавших расти, но видно,  что-то убило их...
- 
+@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+стадии своего существования. Еще слышны разные шорохи, говорящие о том,
+что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
+себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
+или кто-то, ненавидящее живую природу, убило их.
 ~
 0 A forest
 D1
@@ -853,19 +874,21 @@ D3
 Z 0 24320
 S
 #24320
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest seems strangely subdued, as if in the last stages of life.
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand. To the south the forest seems much greener and full of life. In
 fact, you can now hear that most of the wildlife sounds are originating from
 that direction.
-@rus Лес выглядит странновато, как на последней стадии жизни.
-Здесь еще слышны звуки жизни но они тихи и незаметны. Вокруг тебя следы
-небольших побегов,начавших расти, но видно,  что-то убило их...
-К югу лес выглядит зелёным и полным жизни. Все звуки живого, которые  
-слышны доносятся именно с этого направления.
- 
+@rus Лес выглядит очень странно. Как будто, он находится на последней стадии
+своего существования. Еще слышны звуки, говорящие о том, что лес еще не
+совсем умер, но они совсем слабы и незаметны. Вокруг себя ты замечаешь
+следы молодых побегов, начавших расти, но погибших. Видимо, что-то или
+кто-то, ненавидящее живую природу, убило их.
+  Лес продалжается на юг, и там он еще полон жизни. Оттуда доносятся
+различные шорохи и отзвуки птичьего пения, говорящие о том, что жизнь
+продолжается и еще не все потеряно.
 ~
 0 A forest
 D1
@@ -878,15 +901,16 @@ D2
 Z 0 24336
 S
 #24321
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest seems strangely subdued, as if in the last stages of life.
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядит странновато, как на последней стадии жизни.
-Здесь еще слышны звуки жизни но они тихи и незаметны. Вокруг тебя следы
-небольших побегов,начавших расти, но видно,  что-то убило их...
- 
+@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+стадии своего существования. Еще слышны разные шорохи, говорящие о том,
+что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
+себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
+или кто-то, ненавидящее живую природу, убило их.
 ~
 0 A forest
 D0
@@ -899,15 +923,16 @@ D2
 Z 0 24315
 S
 #24322
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest seems strangely subdued, as if in the last stages of life.
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядит странновато, как на последней стадии жизни.
-Здесь еще слышны звуки жизни но они тихи и незаметны. Вокруг тебя следы
-небольших побегов,начавших расти, но видно,  что-то убило их...
- 
+@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+стадии своего существования. Еще слышны разные шорохи, говорящие о том,
+что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
+себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
+или кто-то, ненавидящее живую природу, убило их.
 ~
 0 A forest
 D0
@@ -920,15 +945,16 @@ D2
 Z 0 24321
 S
 #24323
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest seems strangely subdued, as if in the last stages of life.
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядит странновато, как на последней стадии жизни.
-Здесь еще слышны звуки жизни но они тихи и незаметны. Вокруг тебя следы
-небольших побегов,начавших расти, но видно,  что-то убило их...
- 
+@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+стадии своего существования. Еще слышны разные шорохи, говорящие о том,
+что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
+себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
+или кто-то, ненавидящее живую природу, убило их.
 ~
 0 A forest
 D0
@@ -945,15 +971,16 @@ D3
 Z 0 24324
 S
 #24324
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest seems strangely subdued, as if in the last stages of life.
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядит странновато, как на последней стадии жизни.
-Здесь еще слышны звуки жизни но они тихи и незаметны. Вокруг тебя следы
-небольших побегов,начавших расти, но видно,  что-то убило их...
- 
+@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+стадии своего существования. Еще слышны разные шорохи, говорящие о том,
+что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
+себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
+или кто-то, ненавидящее живую природу, убило их.
 ~
 0 A forest
 D1
@@ -970,15 +997,16 @@ D3
 Z 0 24325
 S
 #24325
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest seems strangely subdued, as if in the last stages of life.
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядит странновато, как на последней стадии жизни.
-Здесь ещe слышны звуки жизни но они тихи и незаметны. Вокруг тебя следы
-небольших побегов,начавших расти, но видно,  что-то убило их...
- 
+@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+стадии своего существования. Еще слышны разные шорохи, говорящие о том,
+что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
+себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
+или кто-то, ненавидящее живую природу, убило их.
 ~
 0 A forest
 D0
@@ -995,15 +1023,16 @@ D3
 Z 0 24326
 S
 #24326
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest seems strangely subdued, as if in the last stages of life.
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядит странновато, как на последней стадии жизни.
-Здесь еще слышны звуки жизни но они тихи и незаметны. Вокруг тебя следы
-небольших побегов,начавших расти, но видно,  что-то убило их...
- 
+@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+стадии своего существования. Еще слышны разные шорохи, говорящие о том,
+что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
+себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
+или кто-то, ненавидящее живую природу, убило их.
 ~
 0 A forest
 D1
@@ -1016,15 +1045,16 @@ D2
 Z 0 24327
 S
 #24327
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest seems strangely subdued, as if in the last stages of life.
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядит странновато, как на последней стадии жизни.
-Здесь еще слышны звуки жизни но они тихи и незаметны. Вокруг тебя следы
-небольших побегов,начавших расти, но видно,  что-то убило их...
- 
+@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+стадии своего существования. Еще слышны разные шорохи, говорящие о том,
+что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
+себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
+или кто-то, ненавидящее живую природу, убило их.
 ~
 0 A forest
 D0
@@ -1037,15 +1067,16 @@ D2
 Z 0 24328
 S
 #24328
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest seems strangely subdued, as if in the last stages of life.
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядит странновато, как на последней стадии жизни.
-Здесь еще слышны звуки жизни но они тихи и незаметны. Вокруг тебя следы
-небольших побегов,начавших расти, но видно,  что-то убило их...
- 
+@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+стадии своего существования. Еще слышны разные шорохи, говорящие о том,
+что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
+себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
+или кто-то, ненавидящее живую природу, убило их.
 ~
 0 A forest
 D0
@@ -1058,15 +1089,16 @@ D2
 Z 0 24317
 S
 #24329
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest seems strangely subdued, as if in the last stages of life.
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядит странновато, как на последней стадии жизни.
-Здесь еще слышны звуки жизни но они тихи и незаметны. Вокруг тебя следы
-небольших побегов,начавших расти, но видно,  что-то убило их...
- 
+@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+стадии своего существования. Еще слышны разные шорохи, говорящие о том,
+что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
+себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
+или кто-то, ненавидящее живую природу, убило их.
 ~
 0 A forest
 D2
@@ -1079,15 +1111,16 @@ D3
 Z 0 24330
 S
 #24330
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest seems strangely subdued, as if in the last stages of life.
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядит странновато, как на последней стадии жизни.
-Здесь еще слышны звуки жизни но они тихи и незаметны. Вокруг тебя следы
-небольших побегов,начавших расти, но видно,  что-то убило их...
- 
+@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+стадии своего существования. Еще слышны разные шорохи, говорящие о том,
+что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
+себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
+или кто-то, ненавидящее живую природу, убило их.
 ~
 0 A forest
 D0
@@ -1104,15 +1137,16 @@ D3
 Z 0 24331
 S
 #24331
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest seems strangely subdued, as if in the last stages of life.
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядит странновато, как на последней стадии жизни.
-Здесь еще слышны звуки жизни но они тихи и незаметны. Вокруг тебя следы
-небольших побегов,начавших расти, но видно,  что-то убило их...
- 
+@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+стадии своего существования. Еще слышны разные шорохи, говорящие о том,
+что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
+себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
+или кто-то, ненавидящее живую природу, убило их.
 ~
 0 A forest
 D1
@@ -1125,15 +1159,16 @@ D2
 Z 0 24325
 S
 #24332
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest seems strangely subdued, as if in the last stages of life.
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядит странновато, как на последней стадии жизни.
-Здесь ещё слышны звуки жизни но они тихи и незаметны. Вокруг тебЯ следы
-небольших побегов,начавших расти, но видно,  что-то убило их...
- 
+@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+стадии своего существования. Еще слышны разные шорохи, говорящие о том,
+что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
+себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
+или кто-то, ненавидящее живую природу, убило их.
 ~
 0 A forest
 D1
@@ -1146,15 +1181,16 @@ D2
 Z 0 24330
 S
 #24333
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest seems strangely subdued, as if in the last stages of life.
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядит странновато, как на последней стадии жизни.
-Здесь ещё слышны звуки жизни но они тихи и незаметны. Вокруг тебЯ следы
-небольших побегов,начавших расти, но видно,  что-то убило их...
- 
+@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+стадии своего существования. Еще слышны разные шорохи, говорящие о том,
+что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
+себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
+или кто-то, ненавидящее живую природу, убило их.
 ~
 0 A forest
 D1
@@ -1167,15 +1203,16 @@ D3
 Z 0 24332
 S
 #24334
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest seems strangely subdued, as if in the last stages of life.
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядит странновато, как на последней стадии жизни.
-Здесь ещё слышны звуки жизни но они тихи и незаметны. Вокруг тебЯ следы
-небольших побегов,начавших расти, но видно,  что-то убило их...
- 
+@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+стадии своего существования. Еще слышны разные шорохи, говорящие о том,
+что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
+себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
+или кто-то, ненавидящее живую природу, убило их.
 ~
 0 A forest
 D2
@@ -1188,15 +1225,16 @@ D3
 Z 0 24333
 S
 #24335
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest seems strangely subdued, as if in the last stages of life.
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядит странновато, как на последней стадии жизни.
-Здесь ещё слышны звуки жизни но они тихи и незаметны. Вокруг тебЯ следы
-небольших побегов,начавших расти, но видно,  что-то убило их...
- 
+@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+стадии своего существования. Еще слышны разные шорохи, говорящие о том,
+что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
+себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
+или кто-то, ненавидящее живую природу, убило их.
 ~
 0 A forest
 D0
@@ -1205,18 +1243,17 @@ D0
 Z 0 24334
 S
 #24336
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest here is well kept and seems more lush than the majority of the
 region. Plants bloom in several places and the sounds of small animals in the
 underbrush can be heard. Large hoof marks in the dirt are the only sign of any
 real large creatures. It is almost as if the darker inhabitants avoid this
 section.
-@rus Эта часть леса сохранилась намного лучше чем северная.
-Здесь даже видны в некоторых местах полянки с ромашками , слышны шорохи
-мелких зверюшек из-под травы. Большие следы в грязи говорят о том что сюда 
-забредают и по настоЯщему крупные звери. Похоже что темные создания еще не
-добрались до этой части леса.
- 
+@rus Эта часть леса сохранилась намного лучше северной. Здесь еще встречаются
+полянки с ромашками, и из кустов доносится шорох зверюшек. Большие следы,
+отпечатавшиеся в луже грязи, говорят о том, что пока сюда забредают и 
+крупные звери. Судя по всему, порождения мрака еще не успели добраться
+сюда и погубить здесь жизнь, как они сделали со всей северной частью леса.
 ~
 0 A forest
 D0
@@ -1229,18 +1266,17 @@ D2
 Z 0 24337
 S
 #24337
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest here is well kept and seems more lush than the majority of the
 region. Plants bloom in several places and the sounds of small animals in the
 underbrush can be heard. Large hoof marks in the dirt are the only sign of any
 real large creatures. It is almost as if the darker inhabitants avoid this
 section.
-@rus Эта часть леса сохранилась намного лучше чем северная.
-Здесь даже видны в некоторых местах полянки с ромашками, слышны шорохи
-мелких зверюшек из-под травы. Большие следы в грязи говорят о том что сюда 
-забредают и по настоЯщему крупные звери. Похоже что темные создания еще не
-добрались до этой части леса.
- 
+@rus Эта часть леса сохранилась намного лучше северной. Здесь еще встречаются
+полянки с ромашками, и из кустов доносится шорох зверюшек. Большие следы,
+отпечатавшиеся в луже грязи, говорят о том, что пока сюда забредают и 
+крупные звери. Судя по всему, порождения мрака еще не успели добраться
+сюда и погубить здесь жизнь, как они сделали со всей северной частью леса.
 ~
 0 A forest
 D0
@@ -1253,18 +1289,17 @@ D2
 Z 0 24338
 S
 #24338
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest here is well kept and seems more lush than the majority of the
 region. Plants bloom in several places and the sounds of small animals in the
 underbrush can be heard. Large hoof marks in the dirt are the only sign of any
 real large creatures. It is almost as if the darker inhabitants avoid this
 section.
-@rus Эта часть леса сохранилась намного лучше чем северная.
-Здесь даже видны в некоторых местах полянки с ромашками , слышны шорохи
-мелких зверюшек из-под травы. Большие следы в грязи говорят о том что сюда 
-забредают и по настоЯщему крупные звери. Похоже что темные создания еще не
-добрались до этой части леса.
- 
+@rus Эта часть леса сохранилась намного лучше северной. Здесь еще встречаются
+полянки с ромашками, и из кустов доносится шорох зверюшек. Большие следы,
+отпечатавшиеся в луже грязи, говорят о том, что пока сюда забредают и 
+крупные звери. Судя по всему, порождения мрака еще не успели добраться
+сюда и погубить здесь жизнь, как они сделали со всей северной частью леса.
 ~
 0 A forest
 D0
@@ -1277,16 +1312,17 @@ D1
 Z 0 24339
 S
 #24339
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest here is well kept and seems more lush than the majority of the
 region. Plants bloom in several places and the sounds of small animals in the
 underbrush can be heard. Large hoof marks in the dirt are the only sign of any
-real large creatures.
-@rus Эта часть леса сохранилась намного лучше чем северная.
-Здесь даже видны в некоторых местах полянки с ромашками , слышны шорохи
-мелких зверюшек из-под травы. Большие следы в грязи говорят о том что сюда 
-забредают и по настоЯщему крупные звери.
- 
+real large creatures. It is almost as if the darker inhabitants avoid this
+section.
+@rus Эта часть леса сохранилась намного лучше северной. Здесь еще встречаются
+полянки с ромашками, и из кустов доносится шорох зверюшек. Большие следы,
+отпечатавшиеся в луже грязи, говорят о том, что пока сюда забредают и 
+крупные звери. Судя по всему, порождения мрака еще не успели добраться
+сюда и погубить здесь жизнь, как они сделали со всей северной частью леса.
 ~
 0 A forest
 D1
@@ -1299,16 +1335,17 @@ D3
 Z 0 24338
 S
 #24340
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest here is well kept and seems more lush than the majority of the
 region. Plants bloom in several places and the sounds of small animals in the
 underbrush can be heard. Large hoof marks in the dirt are the only sign of any
-real large creatures.
-@rus Эта часть леса сохранилась намного лучше чем северная.
-Здесь даже видны в некоторых местах полянки с ромашками , слышны шорохи
-мелких зверюшек из-под травы. Большие следы в грязи говорят о том что сюда 
-забредают и по настоЯщему крупные звери.
- 
+real large creatures. It is almost as if the darker inhabitants avoid this
+section.
+@rus Эта часть леса сохранилась намного лучше северной. Здесь еще встречаются
+полянки с ромашками, и из кустов доносится шорох зверюшек. Большие следы,
+отпечатавшиеся в луже грязи, говорят о том, что пока сюда забредают и 
+крупные звери. Судя по всему, порождения мрака еще не успели добраться
+сюда и погубить здесь жизнь, как они сделали со всей северной частью леса.
 ~
 0 A forest
 D1
@@ -1321,16 +1358,17 @@ D3
 Z 0 24339
 S
 #24341
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest here is well kept and seems more lush than the majority of the
 region. Plants bloom in several places and the sounds of small animals in the
 underbrush can be heard. Large hoof marks in the dirt are the only sign of any
-real large creatures.
-@rus Эта часть леса сохранилась намного лучше чем северная.
-Здесь даже видны в некоторых местах полянки с ромашками , слышны шорохи
-мелких зверюшек из-под травы. Большие следы в грязи говорят о том что сюда 
-забредают и по настоЯщему крупные звери.
- 
+real large creatures. It is almost as if the darker inhabitants avoid this
+section.
+@rus Эта часть леса сохранилась намного лучше северной. Здесь еще встречаются
+полянки с ромашками, и из кустов доносится шорох зверюшек. Большие следы,
+отпечатавшиеся в луже грязи, говорят о том, что пока сюда забредают и 
+крупные звери. Судя по всему, порождения мрака еще не успели добраться
+сюда и погубить здесь жизнь, как они сделали со всей северной частью леса.
 ~
 0 A forest
 D1
@@ -1343,16 +1381,17 @@ D3
 Z 0 24340
 S
 #24342
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest here is well kept and seems more lush than the majority of the
 region. Plants bloom in several places and the sounds of small animals in the
 underbrush can be heard. Large hoof marks in the dirt are the only sign of any
-real large creatures.
-@rus Эта часть леса сохранилась намного лучше чем северная.
-Здесь даже видны в некоторых местах полянки с ромашками , слышны шорохи
-мелких зверюшек из-под травы. Большие следы в грязи говорят о том что сюда 
-забредают и по настоЯщему крупные звери.
- 
+real large creatures. It is almost as if the darker inhabitants avoid this
+section.
+@rus Эта часть леса сохранилась намного лучше северной. Здесь еще встречаются
+полянки с ромашками, и из кустов доносится шорох зверюшек. Большие следы,
+отпечатавшиеся в луже грязи, говорят о том, что пока сюда забредают и 
+крупные звери. Судя по всему, порождения мрака еще не успели добраться
+сюда и погубить здесь жизнь, как они сделали со всей северной частью леса.
 ~
 0 A forest
 D1
@@ -1369,16 +1408,17 @@ D3
 Z 0 24341
 S
 #24343
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest here is well kept and seems more lush than the majority of the
 region. Plants bloom in several places and the sounds of small animals in the
 underbrush can be heard. Large hoof marks in the dirt are the only sign of any
-real large creatures.
-@rus Эта часть леса сохранилась намного лучше чем северная.
-Здесь даже видны в некоторых местах полянки с ромашками , слышны шорохи
-мелких зверюшек из-под травы. Большие следы в грязи говорят о том что сюда 
-забредают и по настоЯщему крупные звери.
- 
+real large creatures. It is almost as if the darker inhabitants avoid this
+section.
+@rus Эта часть леса сохранилась намного лучше северной. Здесь еще встречаются
+полянки с ромашками, и из кустов доносится шорох зверюшек. Большие следы,
+отпечатавшиеся в луже грязи, говорят о том, что пока сюда забредают и 
+крупные звери. Судя по всему, порождения мрака еще не успели добраться
+сюда и погубить здесь жизнь, как они сделали со всей северной частью леса.
 ~
 0 A forest
 D1
@@ -1391,16 +1431,17 @@ D3
 Z 0 24342
 S
 #24344
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest here is well kept and seems more lush than the majority of the
 region. Plants bloom in several places and the sounds of small animals in the
 underbrush can be heard. Large hoof marks in the dirt are the only sign of any
-real large creatures.
-@rus Эта часть леса сохранилась намного лучше чем северная.
-Здесь даже видны в некоторых местах полянки с ромашками , слышны шорохи
-мелких зверюшек из-под травы. Большие следы в грязи говорят о том что сюда 
-забредают и по настоЯщему крупные звери.
- 
+real large creatures. It is almost as if the darker inhabitants avoid this
+section.
+@rus Эта часть леса сохранилась намного лучше северной. Здесь еще встречаются
+полянки с ромашками, и из кустов доносится шорох зверюшек. Большие следы,
+отпечатавшиеся в луже грязи, говорят о том, что пока сюда забредают и 
+крупные звери. Судя по всему, порождения мрака еще не успели добраться
+сюда и погубить здесь жизнь, как они сделали со всей северной частью леса.
 ~
 0 A forest
 D2
@@ -1413,16 +1454,17 @@ D3
 Z 0 24343
 S
 #24345
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest here is well kept and seems more lush than the majority of the
 region. Plants bloom in several places and the sounds of small animals in the
 underbrush can be heard. Large hoof marks in the dirt are the only sign of any
-real large creatures.
-@rus Эта часть леса сохранилась намного лучше чем северная.
-Здесь даже видны в некоторых местах полянки с ромашками , слышны шорохи
-мелких зверюшек из-под травы. Большие следы в грязи говорят о том что сюда 
-забредают и по настоЯщему крупные звери.
- 
+real large creatures. It is almost as if the darker inhabitants avoid this
+section.
+@rus Эта часть леса сохранилась намного лучше северной. Здесь еще встречаются
+полянки с ромашками, и из кустов доносится шорох зверюшек. Большие следы,
+отпечатавшиеся в луже грязи, говорят о том, что пока сюда забредают и 
+крупные звери. Судя по всему, порождения мрака еще не успели добраться
+сюда и погубить здесь жизнь, как они сделали со всей северной частью леса.
 ~
 0 A forest
 D0
@@ -1435,16 +1477,17 @@ D2
 Z 0 24346
 S
 #24346
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest here is well kept and seems more lush than the majority of the
 region. Plants bloom in several places and the sounds of small animals in the
 underbrush can be heard. Large hoof marks in the dirt are the only sign of any
-real large creatures.
-@rus Эта часть леса сохранилась намного лучше чем северная.
-Здесь даже видны в некоторых местах полянки с ромашками , слышны шорохи
-мелких зверюшек из-под травы. Большие следы в грязи говорят о том что сюда 
-забредают и по настоЯщему крупные звери.
- 
+real large creatures. It is almost as if the darker inhabitants avoid this
+section.
+@rus Эта часть леса сохранилась намного лучше северной. Здесь еще встречаются
+полянки с ромашками, и из кустов доносится шорох зверюшек. Большие следы,
+отпечатавшиеся в луже грязи, говорят о том, что пока сюда забредают и 
+крупные звери. Судя по всему, порождения мрака еще не успели добраться
+сюда и погубить здесь жизнь, как они сделали со всей северной частью леса.
 ~
 0 A forest
 D0
@@ -1457,16 +1500,17 @@ D1
 Z 0 24347
 S
 #24347
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest here is well kept and seems more lush than the majority of the
 region. Plants bloom in several places and the sounds of small animals in the
 underbrush can be heard. Large hoof marks in the dirt are the only sign of any
 real large creatures. To the north there appears to be some sort of hut.
-@rus Эта часть леса сохранилась намного лучше чем северная.
-Здесь даже видны в некоторых местах полянки с ромашками , слышны шорохи
-мелких зверюшек из-под травы. Большие следы в грязи говорят о том что сюда 
-забредают и по настоЯщему крупные звери. На севере виднеется небольшая хатка.
- 
+@rus Эта часть леса сохранилась намного лучше северной. Здесь еще встречаются
+полянки с ромашками, и из кустов доносится шорох зверюшек. Большие следы,
+отпечатавшиеся в луже грязи, говорят о том, что сюда забредают и крупные
+звери. Судя по всему, порождения мрака еще не успели добраться сюда и 
+уничтожить здесь жизнь, как они сделали это со всей северной половиной.
+  На север от этой полянки видна небольшая хатка.
 ~
 0 A forest
 D0
@@ -1483,16 +1527,17 @@ D3
 Z 0 24346
 S
 #24348
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest here is well kept and seems more lush than the majority of the
 region. Plants bloom in several places and the sounds of small animals in the
 underbrush can be heard. Large hoof marks in the dirt are the only sign of any
-real large creatures.
-@rus Эта часть леса сохранилась намного лучше чем северная.
-Здесь даже видны в некоторых местах полянки с ромашками , слышны шорохи
-мелких зверюшек из-под травы. Большие следы в грязи говорят о том что сюда 
-забредают и по настоЯщему крупные звери.
- 
+real large creatures. It is almost as if the darker inhabitants avoid this
+section.
+@rus Эта часть леса сохранилась намного лучше северной. Здесь еще встречаются
+полянки с ромашками, и из кустов доносится шорох зверюшек. Большие следы,
+отпечатавшиеся в луже грязи, говорят о том, что пока сюда забредают и 
+крупные звери. Судя по всему, порождения мрака еще не успели добраться
+сюда и погубить здесь жизнь, как они сделали со всей северной частью леса.
 ~
 0 A forest
 D0
@@ -1505,18 +1550,19 @@ D3
 Z 0 24347
 S
 #24349
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest here is well kept and seems more lush than the majority of the
 region. Plants bloom in several places and the sounds of small animals in the
 underbrush can be heard. Large hoof marks in the dirt are the only sign of any
 real large creatures. To the east there is a lot of noise, and you can see
 what looks like domesticated huts.
-@rus Эта часть леса сохранилась намного лучше чем северная.
-Здесь даже видны в некоторых местах полянки с ромашками , слышны шорохи
-мелких зверюшек из-под травы. Большие следы в грязи говорят о том что сюда 
-забредают и по настоЯщему крупные звери. С востока доносится много шума.
-Присмотревшись, можно увидеть какие-то строения, похожие на чьи-то хатки. 
- 
+@rus Эта часть леса сохранилась намного лучше северной. Здесь еще встречаются
+полянки с ромашками, и из кустов доносится шорох зверюшек. Большие следы,
+отпечатавшиеся в луже грязи, говорят о том, что пока сюда забредают и 
+крупные звери. Судя по всему, порождения мрака еще не успели добраться
+сюда и погубить здесь жизнь, как они сделали со всей северной частью леса.
+  С востока доносится много шума, и, приглядевшись, там можно заметить
+какие-то строения, похожие на дома.
 ~
 0 A forest
 D0
@@ -1533,17 +1579,17 @@ D2
 Z 0 24348
 S
 #24350
-@eng Within a Centaur Settlement@rus В Поселении Кентавров~
+@eng Within a Centaur Settlement@rus В селении кентавров~
 @eng You stand on a small pathway through what appears to be a very hastily built
 settlement. Centaur hoof marks have dug up the ground all around you and
 small huts line the pathway. The forest here is much better kept than the rest
 of the region, almost like it was in a totally sperate region. To the north is
 a small hut.
-@rus Ты стоишь на маленькой тропинке в наспех построенном поселении.Следы 
-кентавров идут во всех направлениях, сразу видно что здесь кипит 
-жизнь.Лес здесь гораздо лучше сохранился, не сравнить с тем лесом что за 
-поселком. На севере вход в маленькую хижину.
- 
+@rus Ты стоишь на узкой, совсем еще не протоптанной тропинке в наспех 
+построенном селении. Повсюду виднеются следы кентавров и сразу видно
+что здесь кипит жизнь. Лес здесь хорошо сохранился, не сравнить с 
+тем, что за поселком. 
+  На севере виден вход в маленькую хижину.
 ~
 0 A forest
 D0
@@ -1560,13 +1606,12 @@ D3
 Z 0 24349
 S
 #24351
-@eng Within a Centaur Hut@rus В Хижине Кентавров~
+@eng Within a Centaur Hut@rus В хижине~
 @eng You are within a small but well kept hut. A tiny fire has been built in the
 ground and the smell of recent cooking wafts through the air. The only exit
 appears back south to the settlment pathway.
-@rus  Ты находишьсЯ внутри небольшой хижины. На полу сооружен небольшой очаг на 
-котором сейчас варится какой-то супчик... 
- 
+@rus Ты стоишь внутри небольшого совсем помещения. На полу сложен простейший
+очаг, на котором сейчас варится какой-то супчик...
 ~
 0 D inside
 D2
@@ -1575,17 +1620,16 @@ D2
 Z 0 24350
 S
 #24352
-@eng Within a Centaur Settlement@rus В Поселении Кентавров~
+@eng Within a Centaur Settlement@rus В селении кентавров~
 @eng You stand on a small pathway through what appears to be a very hastily built
 settlement. Centaur hoof marks have dug up the ground all around you and
 small huts line the pathway. The forest here is much better kept than the rest
 of the region, almost like it was in a totally sperate region. There are small
 huts to the north and south.
-@rus Ты стоишь на маленькой тропинке в наспех построенном поселении.Следы 
-кентавров идут во всех направлениях, сразу видно что здесь кипит 
-жизнь.Лес здесь гораздо лучше сохранился, не сравнить с тем лесом что за 
-поселком. На севере и на юге стоят маленькие хижины.
- 
+@rus Ты стоишь на узкой, совсем еще не протоптанной тропинке в наспех 
+построенном селении. Повсюду виднеются следы кентавров и сразу видно
+что здесь кипит жизнь. Лес здесь хорошо сохранился, не сравнить с 
+тем, что за поселком. на севере и на юге видны маленькие хижины.
 ~
 0 A forest
 D0
@@ -1606,13 +1650,12 @@ D3
 Z 0 24350
 S
 #24353
-@eng Within a Centaur Hut@rus В Хижине Кентавров~
+@eng Within a Centaur Hut@rus В хижине~
 @eng You are within a small but well kept hut. A tiny fire has been built in the
 ground and the smell of recent cooking wafts through the air. The only exit
 appears back south to the settlment pathway.
-@rus Ты находишьсЯ внутри небольшой хижины. На полу сооружен небольшой очаг на
-котором сейчас варитсЯ какой-то супчик...
- 
+@rus Ты стоишь внутри небольшого совсем помещения. На полу сложен простейший
+очаг, на котором сейчас варится какой-то супчик...
 ~
 0 D inside
 D2
@@ -1621,13 +1664,12 @@ D2
 Z 0 24352
 S
 #24354
-@eng Within a Centaur Hut@rus В Хижине Кентавров~
+@eng Within a Centaur Hut@rus В хижине~
 @eng You are within a small but well kept hut. A tiny fire has been built in the
 ground and the smell of recent cooking wafts through the air. The only exit
-appears back north to the settlment pathway.
-@rus Ты находишьсЯ внутри небольшой хижины. На полу сооружен небольшой очаг на
-котором сейчас варитсЯ какой-то супчик...
- 
+appears back south to the settlment pathway.
+@rus Ты стоишь внутри небольшого совсем помещения. На полу сложен простейший
+очаг, на котором сейчас варится какой-то супчик...
 ~
 0 D inside
 D0
@@ -1636,16 +1678,15 @@ D0
 Z 0 24352
 S
 #24355
-@eng Within a Centaur Settlement@rus В Поселении Кентавров~
+@eng Within a Centaur Settlement@rus В селении кентавров~
 @eng You stand on a small pathway through what appears to be a very hastily built
 settlement. Centaur hoof marks have dug up the ground all around you and
-small huts line the pathway. The forest here is much better kept than the
-rest of the region, almost like it was in a totally sperate region.
-@rus Ты стоишь на маленькой тропинке в наспех построенном поселении.Следы 
-кентавров идут во всех направлениях, сразу видно что здесь кипит 
-жизнь.Лес здесь гораздо лучше сохранился, не сравнить с тем лесом что за 
-поселком. 
- 
+small huts line the pathway. The forest here is much better kept than the rest
+of the region, almost like it was in a totally sperate region. 
+@rus Ты стоишь на узкой, совсем еще не протоптанной тропинке в наспех 
+построенном селении. Повсюду виднеются следы кентавров и сразу видно
+что здесь кипит жизнь. Лес здесь хорошо сохранился, не сравнить с 
+тем, что за поселком. 
 ~
 0 A forest
 D1
@@ -1662,16 +1703,15 @@ D3
 Z 0 24352
 S
 #24356
-@eng Within a Centaur Settlement@rus В Поселении Кентавров~
+@eng Within a Centaur Settlement@rus В селении кентавров~
 @eng You stand on a small pathway through what appears to be a very hastily built
 settlement. Centaur hoof marks have dug up the ground all around you and
 small huts line the pathway. The forest here is much better kept than the rest
-of the region, almost like it was in a totally sperate region.
-@rus Ты стоишь на маленькой тропинке в наспех построенном поселении.Следы 
-кентавров идут во всех направлениях, сразу видно что здесь кипит 
-жизнь.Лес здесь гораздо лучше сохранился, не сравнить с тем лесом что за 
-поселком. 
- 
+of the region, almost like it was in a totally sperate region. 
+@rus Ты стоишь на узкой, совсем еще не протоптанной тропинке в наспех 
+построенном селении. Повсюду виднеются следы кентавров и сразу видно
+что здесь кипит жизнь. Лес здесь хорошо сохранился, не сравнить с 
+тем, что за поселком. 
 ~
 0 A forest
 D1
@@ -1684,16 +1724,15 @@ D3
 Z 0 24355
 S
 #24357
-@eng Within a Centaur Settlement@rus В Поселении Кентавров~
+@eng Within a Centaur Settlement@rus В селении кентавров~
 @eng You stand on a small pathway through what appears to be a very hastily built
 settlement. Centaur hoof marks have dug up the ground all around you and
 small huts line the pathway. The forest here is much better kept than the rest
-of the region, almost like it was in a totally sperate region.
-@rus Ты стоишь на маленькой тропинке в наспех построенном поселении.Следы 
-кентавров идут во всех направлениях, сразу видно что здесь кипит 
-жизнь.Лес здесь гораздо лучше сохранился, не сравнить с тем лесом что за 
-поселком. 
- 
+of the region, almost like it was in a totally sperate region. 
+@rus Ты стоишь на узкой, совсем еще не протоптанной тропинке в наспех 
+построенном селении. Повсюду виднеются следы кентавров и сразу видно
+что здесь кипит жизнь. Лес здесь хорошо сохранился, не сравнить с 
+тем, что за поселком. 
 ~
 0 A forest
 D2
@@ -1706,17 +1745,17 @@ D3
 Z 0 24356
 S
 #24358
-@eng Within a Centaur Settlement@rus В Поселении Кентавров~
+@eng Within a Centaur Settlement@rus В селении кентавров~
 @eng You stand on a small pathway through what appears to be a very hastily built
 settlement. Centaur hoof marks have dug up the ground all around you and
 small huts line the pathway. The forest here is much better kept than the rest
-of the region, almost like it was in a totally sperate region. A small hut
+of the region, almost like it was in a totally sperate region. A small hut 
 lies east.
-@rus Ты стоишь на маленькой тропинке в наспех построенном поселении.Следы 
-кентавров идут во всех направлениях, сразу видно что здесь кипит 
-жизнь.Лес здесь гораздо лучше сохранился, не сравнить с тем лесом что за 
-поселком. На востоке видна хижина.
- 
+@rus Ты стоишь на узкой, совсем еще не протоптанной тропинке в наспех 
+построенном селении. Повсюду виднеются следы кентавров и сразу видно
+что здесь кипит жизнь. Лес здесь хорошо сохранился, не сравнить с 
+тем, что за поселком. 
+  На востоке видна небольшая хижина.
 ~
 0 A forest
 D0
@@ -1733,13 +1772,12 @@ D2
 Z 0 24361
 S
 #24359
-@eng Within a Centaur Hut@rus В Хижине Кентавров~
+@eng Within a Centaur Hut@rus В хижине~
 @eng You are within a small but well kept hut. A tiny fire has been built in the
 ground and the smell of recent cooking wafts through the air. The only exit
-appears back west to the settlment pathway.
-@rus Ты находишьсЯ внутри небольшой хижины. На полу сооружен небольшой очаг на
-котором сейчас варитсЯ какой-то супчик...
- 
+appears back south to the settlment pathway.
+@rus Ты стоишь внутри небольшого совсем помещения. На полу сложен простейший
+очаг, на котором сейчас варится какой-то супчик...
 ~
 0 D inside
 D3
@@ -1748,13 +1786,12 @@ D3
 Z 0 24358
 S
 #24360
-@eng Within a Centaur Hut@rus В Хижине Кентавров~
+@eng Within a Centaur Hut@rus В хижине~
 @eng You are within a small but well kept hut. A tiny fire has been built in the
 ground and the smell of recent cooking wafts through the air. The only exit
-appears back west to the settlment pathway.
-@rus Ты находишьсЯ внутри небольшой хижины. На полу сооружен небольшой очаг на
-котором сейчас варитсЯ какой-то супчик...
- 
+appears back south to the settlment pathway.
+@rus Ты стоишь внутри небольшого совсем помещения. На полу сложен простейший
+очаг, на котором сейчас варится какой-то супчик...
 ~
 0 D inside
 D3
@@ -1763,17 +1800,17 @@ D3
 Z 0 24361
 S
 #24361
-@eng Within a Centaur Settlement@rus В Поселении Кентавров~
+@eng Within a Centaur Settlement@rus В селении кентавров~
 @eng You stand on a small pathway through what appears to be a very hastily built
 settlement. Centaur hoof marks have dug up the ground all around you and
 small huts line the pathway. The forest here is much better kept than the rest
-of the region, almost like it was in a totally sperate region. There is a
-small hut to the east.
-@rus Ты стоишь на маленькой тропинке в наспех построенном поселении.Следы 
-кентавров идут во всех направлениях, сразу видно что здесь кипит 
-жизнь.Лес здесь гораздо лучше сохранился, не сравнить с тем лесом что за 
-поселком. На востоке видна хижина.
- 
+of the region, almost like it was in a totally sperate region. A small hut 
+lies east.
+@rus Ты стоишь на узкой, совсем еще не протоптанной тропинке в наспех 
+построенном селении. Повсюду виднеются следы кентавров и сразу видно
+что здесь кипит жизнь. Лес здесь хорошо сохранился, не сравнить с 
+тем, что за поселком. 
+  На востоке видна небольшая хижина.
 ~
 0 A forest
 D0
@@ -1790,17 +1827,17 @@ D3
 Z 0 24362
 S
 #24362
-@eng Within a Centaur Settlement@rus В Поселении Кентавров~
+@eng Within a Centaur Settlement@rus В селении кентавров~
 @eng You stand on a small pathway through what appears to be a very hastily built
 settlement. Centaur hoof marks have dug up the ground all around you and
 small huts line the pathway. The forest here is much better kept than the rest
-of the region, almost like it was in a totally sperate region. To the north is
-a hut.
-@rus Ты стоишь на маленькой тропинке в наспех построенном поселении.Следы 
-кентавров идут во всех направлениях, сразу видно что здесь кипит 
-жизнь.Лес здесь гораздо лучше сохранился, не сравнить с тем лесом что за 
-поселком. На севере видна хижина.
- 
+of the region, almost like it was in a totally sperate region. A small hut 
+lies north.
+@rus Ты стоишь на узкой, совсем еще не протоптанной тропинке в наспех 
+построенном селении. Повсюду виднеются следы кентавров и сразу видно
+что здесь кипит жизнь. Лес здесь хорошо сохранился, не сравнить с 
+тем, что за поселком. 
+  На севере видна небольшая хижина.
 ~
 0 A forest
 D0
@@ -1817,17 +1854,17 @@ D3
 Z 0 24363
 S
 #24363
-@eng Within a Centaur Settlement@rus В Поселении Кентавров~
+@eng Within a Centaur Settlement@rus В селении кентавров~
 @eng You stand on a small pathway through what appears to be a very hastily built
 settlement. Centaur hoof marks have dug up the ground all around you and
 small huts line the pathway. The forest here is much better kept than the rest
-of the region, almost like it was in a totally sperate region. You can see a
-small hut to the west.
-@rus Ты стоишь на маленькой тропинке в наспех построенном поселении.Следы 
-кентавров идут во всех направлениях, сразу видно что здесь кипит 
-жизнь.Лес здесь гораздо лучше сохранился, не сравнить с тем лесом что за 
-поселком. На западе видна хижина.
- 
+of the region, almost like it was in a totally sperate region. A small hut 
+lies west.
+@rus Ты стоишь на узкой, совсем еще не протоптанной тропинке в наспех 
+построенном селении. Повсюду виднеются следы кентавров и сразу видно
+что здесь кипит жизнь. Лес здесь хорошо сохранился, не сравнить с 
+тем, что за поселком. 
+  На западе видна небольшая хижина.
 ~
 0 A forest
 D0
@@ -1844,16 +1881,15 @@ D3
 Z 0 24365
 S
 #24364
-@eng Within a Centaur Settlement@rus В Поселении Кентавров~
+@eng Within a Centaur Settlement@rus В селении кентавров~
 @eng You stand on a small pathway through what appears to be a very hastily built
 settlement. Centaur hoof marks have dug up the ground all around you and
 small huts line the pathway. The forest here is much better kept than the rest
-of the region, almost like it was in a totally sperate region.
-@rus Ты стоишь на маленькой тропинке в наспех построенном поселении.Следы 
-кентавров идут во всех направлениях, сразу видно что здесь кипит 
-жизнь.Лес здесь гораздо лучше сохранился, не сравнить с тем лесом что за 
-поселком.
- 
+of the region, almost like it was in a totally sperate region. 
+@rus Ты стоишь на узкой, совсем еще не протоптанной тропинке в наспех 
+построенном селении. Повсюду виднеются следы кентавров и сразу видно
+что здесь кипит жизнь. Лес здесь хорошо сохранился, не сравнить с 
+тем, что за поселком. 
 ~
 0 A forest
 D0
@@ -1866,13 +1902,12 @@ D2
 Z 0 24363
 S
 #24365
-@eng Within a Centaur Hut@rus В Хижине Кентавров~
+@eng Within a Centaur Hut@rus В хижине~
 @eng You are within a small but well kept hut. A tiny fire has been built in the
 ground and the smell of recent cooking wafts through the air. The only exit
-appears back east to the settlment pathway.
-@rus Ты находишьсЯ внутри небольшой хижины. На полу сооружен небольшой очаг на
-котором сейчас варитсЯ какой-то супчик...
- 
+appears back south to the settlment pathway.
+@rus Ты стоишь внутри небольшого совсем помещения. На полу сложен простейший
+очаг, на котором сейчас варится какой-то супчик...
 ~
 0 D inside
 D1
@@ -1881,13 +1916,12 @@ D1
 Z 0 24363
 S
 #24366
-@eng Within a Centaur Hut@rus В Хижине Кентавров~
+@eng Within a Centaur Hut@rus В хижине~
 @eng You are within a small but well kept hut. A tiny fire has been built in the
 ground and the smell of recent cooking wafts through the air. The only exit
 appears back south to the settlment pathway.
-@rus Ты находишьсЯ внутри небольшой хижины. На полу сооружен небольшой очаг на
-котором сейчас варитсЯ какой-то супчик...
- 
+@rus Ты стоишь внутри небольшого совсем помещения. На полу сложен простейший
+очаг, на котором сейчас варится какой-то супчик...
 ~
 0 D inside
 D2
@@ -1896,13 +1930,12 @@ D2
 Z 0 24362
 S
 #24367
-@eng Within a Centaur Hut@rus В Хижине Кентавров~
+@eng Within a Centaur Hut@rus В хижине~
 @eng You are within a small but well kept hut. A tiny fire has been built in the
 ground and the smell of recent cooking wafts through the air. The only exit
-appears back south.
-@rus Ты находишься внутри небольшой хижины. На полу сооружен небольшой очаг на 
-котором сейчас варится какой-то супчик... 
- 
+appears back south to the settlment pathway.
+@rus Ты стоишь внутри небольшого совсем помещения. На полу сложен простейший
+очаг, на котором сейчас варится какой-то супчик...
 ~
 0 D inside
 D2
@@ -1915,15 +1948,16 @@ door~
 ABCFGZ 0 24373
 S
 #24368
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest seems strangely subdued, as if in the last stages of life.
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядит странновато, как на последней стадии жизни.
-Здесь еще слышны звуки жизни но они тихи и незаметны. Вокруг тебя следы
-небольших побегов,начавших расти, но видно,  что-то убило их...
- 
+@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+стадии своего существования. Еще слышны разные шорохи, говорящие о том,
+что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
+себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
+или кто-то, ненавидящее живую природу, убило их.
 ~
 0 A forest
 D1
@@ -1936,15 +1970,16 @@ D2
 Z 0 24307
 S
 #24369
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest seems strangely subdued, as if in the last stages of life.
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядит странновато, как на последней стадии жизни.
-Здесь еще слышны звуки жизни но они тихи и незаметны. Вокруг тебя следы
-небольших побегов,начавших расти, но видно,  что-то убило их...
- 
+@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+стадии своего существования. Еще слышны разные шорохи, говорящие о том,
+что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
+себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
+или кто-то, ненавидящее живую природу, убило их.
 ~
 0 A forest
 D0
@@ -1961,15 +1996,16 @@ D3
 Z 0 24368
 S
 #24370
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest seems strangely subdued, as if in the last stages of life.
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядит странновато, как на последней стадии жизни.
-Здесь еще слышны звуки жизни но они тихи и незаметны. Вокруг тебя следы
-небольших побегов,начавших расти, но видно,  что-то убило их...
- 
+@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+стадии своего существования. Еще слышны разные шорохи, говорящие о том,
+что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
+себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
+или кто-то, ненавидящее живую природу, убило их.
 ~
 0 A forest
 D2
@@ -1982,15 +2018,16 @@ D3
 Z 0 24369
 S
 #24371
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest seems strangely subdued, as if in the last stages of life.
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядит странновато, как на последней стадии жизни.
-Здесь еще слышны звуки жизни но они тихи и незаметны. Вокруг тебя следы
-небольших побегов,начавших расти, но видно,  что-то убило их...
- 
+@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+стадии своего существования. Еще слышны разные шорохи, говорящие о том,
+что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
+себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
+или кто-то, ненавидящее живую природу, убило их.
 ~
 0 A forest
 D2
@@ -1999,15 +2036,16 @@ D2
 Z 0 24369
 S
 #24372
-@eng Within the Dying Forest@rus В Умирающем лесу~
+@eng Within the Dying Forest@rus В умирающем лесу~
 @eng The forest seems strangely subdued, as if in the last stages of life.
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядит странновато, как на последней стадии жизни.
-Здесь еще слышны звуки жизни но они тихи и незаметны. Вокруг тебя следы
-небольших побегов,начавших расти, но видно,  что-то убило их...
- 
+@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+стадии своего существования. Еще слышны разные шорохи, говорящие о том,
+что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
+себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
+или кто-то, ненавидящее живую природу, убило их.
 ~
 0 A forest
 D0
@@ -2019,8 +2057,8 @@ S
 @eng Work room@rus Рабочая комната~
 @eng This room seems a good place for work.
 There is no noise here, always calm....
-@rus В этой комнате очень удобно работать
-Снаружи не доносятся звуки, все тихо и спокойно.
+@rus В этой комнате очень удобно работать. Снаружи не доносится ни звука. 
+Все тихо и спокойно.
 ~
 0 CHKQTWX inside
 D4

@@ -642,7 +642,7 @@ A soldier, who is actually a playing card in the suit of clubs, marches by.
 These stern cards are sworn to protect and obey the Queen.
 ~
 human~
-AGTX N 400 0
+AGT N 400 0
 37 0 10d92+578 37d10+100 5d12+23 pierce
 -13 -13 -13 -1
 EFNU 0 0 0
@@ -659,7 +659,7 @@ A flat, oblong courtier, ornamented with diamonds, strolls by.
 These noble cards accompany the Queen everywhere.
 ~
 human~
-AGTX 0 400 0
+AGT 0 400 0
 37 0 10d92+578 37d10+100 5d12+23 slash
 -13 -13 -13 -1
 EFNU 0 0 0
@@ -676,14 +676,14 @@ M act 21067 leaves east.~
 M act 21067 leaves west.~
 M act 21067 leaves.~
 #21032
-child card hearts heart~
+child card hearts~
 a child of the Queen~
 A tiny card bearing hearts upon it scurries about like a child.
 ~
 These small tykes are the children of the Queen.
 ~
 human~
-AGHTX 0 400 0
+AGHT 0 400 0
 34 0 10d78+505 34d10+100 5d11+21 slash
 -11 -11 -11 0
 EFNU 0 0 0
@@ -701,7 +701,7 @@ defers to his overbearing wife in most matters. He strngly resembles the
 Kings you see on playing cards.
 ~
 human~
-AGTX HJ 400 0
+AGT HJ 400 0
 41 0 10d113+678 41d10+100 5d14+22 pound
 -15 -15 -15 -2
 EFNU 0 0 0
@@ -755,7 +755,7 @@ notorious thief, his biggest crime to date being the theft of the Queen's
 tarts.
 ~
 human~
-AGHTX 0 0 0
+AGHT 0 0 0
 40 0 10d108+648 40d10+100 5d14+20 pierce
 -15 -15 -15 -2
 EFNU 0 0 0
@@ -774,7 +774,7 @@ This poor bird is attempting to avoid being used by the many players as a
 croquet mallet.
 ~
 human~
-AGHTX 0 0 0
+AGHT 0 0 0
 35 0 10d82+534 35d10+100 5d12+18 pierce
 -11 -11 -11 0
 EFNU 0 0 0
@@ -791,7 +791,7 @@ The croquet players are using these unassuming creatures as balls in their
 bizarre version of the clasic game of nobility.
 ~
 human~
-AGHTX 0 0 0
+AGHT 0 0 0
 35 0 10d82+534 35d10+100 5d12+18 pierce
 -11 -11 -11 0
 EFNU 0 0 0
@@ -810,7 +810,7 @@ attempting to figure out a way to decapitate the head of the Cheshire Cat
 from... nothing. Such are the weird ways of Wonderland.
 ~
 human~
-AGTX HN 0 0
+AGT HN 0 0
 44 0 10d130+759 44d10+100 5d15+24 pierce
 -17 -17 -17 -3
 EFNU 0 0 0
@@ -878,7 +878,7 @@ course, justice in Wonderland is a very erratic process, much like everything
 else in this strange place.
 ~
 human~
-ABGHTX 0 400 0
+ABGHT 0 400 0
 38 0 10d97+603 38d10+100 5d13+20 slash
 -13 -13 -13 -1
 EFNU 0 0 0

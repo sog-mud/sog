@@ -1,6 +1,5 @@
 #AREADATA
 Name Westland~
-Builders arwen~
 VNUMs 10000 10050
 Credits Xavier~
 Security 9
@@ -1094,7 +1093,7 @@ G none
 #10026
 sign dhara d'hara дхара д'хара~
 @eng a little sign@rus ~~небольшой~~ ~~указатель~~~
-@eng There is a little sign here showing a map of D'Hara.@rus Еще один знак (sigh) с нарисованной на нем картой Д'Хары скрывается в   тени деревьев.~
+@eng There is a little sign here showing a map of D'Hara.@rus Еще один знак (sign) с нарисованной на нем картой Д'Хары скрывается в тени деревьев.~
 wood~
 furniture A 0
 0 0 0 0 0

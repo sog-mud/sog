@@ -2012,3 +2012,47 @@ New area 'Festival town' added. Thanks to Agrael and Kami.
 Travel north from Elvenhame to reach it.
        Arborn.
 ~
+Sender  Iluvatar~
+Date    Thu Jun 10 20:30:26 1999~
+Stamp   929021426
+To      imm~
+Subject obj->description, room->description, ed->description, ch->long_descr~
+Text
+hi, there!
+ 
+после [ре]бута в subj можно будет использовать $gn (скажем, если описание
+зависит от пола смотрящего)
+e.g.: Ты $gn{увидел} ...
+вместо Ты увидел
+ 
+{WIluvatar{x, Eru, the One
+ 
+PS даже не можно, а нужно. Builder's Guide еще пишется
+~
+Sender  Iluvatar~
+Date    Thu Jun 10 20:40:47 1999~
+Stamp   929022047
+To      imm~
+Subject prev change~
+Text
+hi, there!
+ 
+пример, конечно, должен был выглядеть так:
+$gn{{увидел}
+вместо
+увидел
+ 
+{WIluvatar{x, Eru, the One
+~
+Sender  Iluvatar~
+Date    Fri Jun 11 03:32:05 1999~
+Stamp   929046725
+To      all~
+Subject аукцион~
+Text
+hi, there!
+ 
+после след. ребута деньги с аукциона будут перечисляться в банк
+ 
+{WIluvatar{x, Eru, the One
+~

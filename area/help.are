@@ -5,11 +5,12 @@ VNUMs 0 0
 Credits Diku~
 Security 5
 LevelRange 0 0
+Flags closed~
 End
 
 #HELPS
 -1 SOG 'SHADES OF GRAY' MUDDY~
-Shades of Gray is based on Anatolia MUD -- see help anatolia.
+@eng Shades of Gray is based on Anatolia MUD -- see help anatolia.
                      Original idea, concept and coding:
         Farmer Joe                   [Iluvatar] (fjoe@@iclub.nsu.ru)
 	Konstantin Svintsoff          [abrazak] (kostik@@iclub.nsu.ru)
@@ -19,6 +20,18 @@ Shades of Gray is based on Anatolia MUD -- see help anatolia.
                      Web page design:
         Denis Petrakov                         (den@@oapmg.sscc.ru)
  
+@rus Shades of Gray составлен на основе MUDа Anatolia -- смотри help anatolia.
+
+                 Первоначальная идея, концепция и кодирование:
+
+        Фермер Джо                   [Iluvatar] (fjoe@@iclub.nsu.ru)
+        Константин Свинцов            [abrazak] (kostik@@iclub.nsu.ru)
+        Александр Мороховец              [Eros] (efdi@@iclub.nsu.ru)
+        Алексей Нейман                 [Arborn] (avn@@org.chem.msu.su)
+
+                             Дизайн Web-страницы:
+
+        Денис Петраков                          (den@@oapmg.sscc.ru)
 ~
 -1 DIKU~
 .                    Original game idea, concept, and design:
@@ -618,10 +631,14 @@ Syntax: cast 'protection cold'
         This spell makes you resistive against the cold attacks.
 ~
 0 KNOCK~
-Syntax: cast 'knock' <door>
+@eng Syntax: cast 'knock' <door>
  
         Knock is similar to pick, you can open a lock without having the
  key. This spell fails against no-pass doors.
+@rus Синтаксис: cast 'knock' <door>
+ 
+Это заклинание позволяет отпереть дверь без помощи ключа. Но не сильно
+обольщайтесь, не все двери вам поддадуться.
 ~
 0 BASH DOOR~
 Syntax: bashdoor <direction>
@@ -4189,7 +4206,7 @@ it from list of available quest items.
        | .//\.  |                                          | .//\.  |
        |.  /\ . |              Immortals [95]              |.  /  . |
        | .//\.  |              **************              | .//\.  |
-       |.  /  . |             JullyRoger, Leon             |.  /  . |
+       |.  /  . |         JullyRoger, Leon, McLoud         |.  /  . |
        | .//\.  |                                          | .//\.  |
        |.  /  . |               DemiGods [94]              |.  /  . |
        | .//\.  |               *************              | .//\.  |
@@ -4197,11 +4214,11 @@ it from list of available quest items.
        |.  /  . |                                          |.  /  . |
        | .//\.  |                Angels [93]               | .//\.  |
        |.  /  . |                ***********               |.  /  . |
-       |. //\ . |                                          |.  //\. | 
+       |. //\ . |                   Orrin                  |.  //\. |
        | .//\.  |                                          | .//\.  |
        |.  /  . |               Avatars [92]               |.  /  . |
        | .//\.  |               ************               | .//\.  |
-       |.  /  . |                  Orrin                   |.  /  . |
+       |.  /  . |                                          |.  /  . |
        |.  /  . |                                          |.  /  . |
         \ //\. /                                            \ //\. /
          \ /. /                                              \ /. /

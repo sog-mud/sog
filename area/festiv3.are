@@ -13,20 +13,20 @@ grand father old man~
 Grandfather~
 You see a powerful old man standing here.
 ~
-You see here a majestic old man with a gray hair and a long beard 
-lowered on his cape. He looks as a person, who past throu a lot of 
-trials and knew the reality of life.
+{x    You gaze upon a majestic old man with grey hair and long beard
+lowered on his cape. He looks like a person who has passed through
+lots of trials and known the reality of life.
 ~
 ghost~
 ATf BDFU 0 0
-100 0 100d40+30000 100d10+15000 19d16+80 wrath
+110 0 100d40+30000 100d10+15000 19d16+80 wrath
 -80 -80 -80 -70
-EFHKO ABP HIK J
+DEHKO ABJP HIK 0
 stand stand male 0
 0 0 medium unknown
 F act O
 M death 36301 100~
-M fight 36300 10~
+M fight 36300 40~
 #36301
 Green Bowman man~
 green bowman~
@@ -121,7 +121,7 @@ human~
 AGQ DENTU 1000 0
 90 0 90d20+17000 85d10+10000 20d6+50 pound
 -58 -65 -55 -55
-CEIKN ABN CLMPQ FX
+CEIKNQ ABN CLMPQ FX
 stand stand male 10000
 0 0 medium unknown
 #36307
@@ -300,7 +300,7 @@ FHJT 0 0 0
 stand stand male 0
 0 0 medium unknown
 #36318
-training mob strange~
+training mob strange figure~
 trainihg mob~
 You see a strange figure standing there.
 ~
@@ -391,8 +391,8 @@ clown~
 clown~
 A clown walks by on stilts.
 ~
-A funny clown shows you his painted face, then removes his big red
-nose, set it back and falls down laughing.
+A funny clown shows you his painted face, removes his big red
+nose, then sets it back and falls down laughing.
 ~
 human~
 AGH 0 0 0
@@ -445,7 +445,7 @@ CEFHIJKLNc 0 0 0
 stand stand male 2450
 0 0 medium unknown
 #36328
-thief~
+thief hidden figure~
 hidden figure~
 A hidden figure is here doing something.
 ~
@@ -969,6 +969,22 @@ AGH 0 300 0
 Id 0 0 0
 sit sit female 0
 0 0 medium unknown
+#36365
+test mob frag~
+Frag the Test mob~
+Some frag is here, sulking in the corner.
+~
+~
+human~
+A 0 0 0
+83 0 1d1+10 0d0+0 0d0+0 peck
+0 0 0 0
+0 E 0 0
+stand stand none 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+M fight 36302 100~
 #0
 
 #OBJECTS
@@ -1259,7 +1275,7 @@ A cloud of mist is shimmering around you.~
 air~
 armor ABCFGIORWY AK
 0 0 0 0 0
-91 0 0 P
+100 0 100000 P
 A
 3 2
 A
@@ -1282,9 +1298,9 @@ sword long illusory mist~
 illusory longsword~
 A cloud of mist shaped like a sword is floating here.~
 air~
-weapon ACFGMORWY AN
-sword 13 13 slash DFG
-91 250 100000 P
+weapon ACFGORWY AN
+sword 13 13 slash DEFG
+100 250 100000 P
 A
 2 1
 A
@@ -1553,7 +1569,7 @@ old veteran's sword~
 A rusted sword lies here.~
 steel~
 weapon BMTY AN
-sword 8 14 slash D
+sword 7 17 slash D
 90 100 10000 A
 G none
 #36335
@@ -2022,7 +2038,7 @@ G none
 #36374
 some stilts~
 some stilts~
-Some stilts has been dropped here.~
+The stilts have been carelessly droppped here.~
 wood~
 armor 0 AG
 10 12 15 5 0
@@ -2448,7 +2464,7 @@ healing pill~
 Someone has left a pill of death here.~
 food~
 pill ABG AO
-90 'heal' 'refresh' 'heal' ''
+90 'heal' 'refresh' 'heal' 'refresh'
 70 5 5500 P
 G none
 #36417
@@ -2472,7 +2488,7 @@ pill 0 AO
 10 0 1000 P
 G none
 #36419
-pill debugiing~
+pill debugging~
 strange pill~
 A pill of debugging lies here.~
 unknown~
@@ -2481,17 +2497,17 @@ pill 0 A
 0 0 0 P
 G none
 #36420
-portrait~
+portrait grandfather~
 portrait~
 A portrait of Grandfather hangs on the wall.~
-diamond~
+canvas~
 portal ARY 0
 0 EMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz A 36358 0
 0 10000 0 P
 G none
 #36421
-wall~
-wall~
+mirror wall~
+mirror~
 A long wide mirror stands by the wall.~
 glass~
 portal RY P
@@ -2509,9 +2525,9 @@ drink E AO
 G none
 #36423
 arrow titanium~
-titanium arrow~
+titanium-headed arrow~
 A heavy looking arrow lies in the dirt.~
-titanium~
+wood~
 weapon 0 AO
 arrow 11 11 pierce 0
 82 10 1500 P
@@ -2616,6 +2632,15 @@ silk~
 armor I AD
 20 21 21 18 0
 50 20 20000 P
+G none
+#36435
+coins~
+coins~
+Sone coins lies here.~
+unknown~
+money A A
+5000 1000 0 0 0
+1 0 0 P
 G none
 #0
 
@@ -3701,9 +3726,9 @@ Z -1 36352
 S
 #36357
 Great Library~
-What? Once again archives? No, you have mistaken. There
-is a Great Library, where you can find any of the book
-whenever written. Come inside and find what you want!
+What? Archives, once again? No, you have mistaken. This
+is The Great Library, where you can find any book that was
+ever written. Come on and find what you want!
 ~
 0 DE inside
 D3
@@ -5742,6 +5767,7 @@ P 0 36376 1 36377 1	* bureau: room key
 O 0 36375 0 36341	* safe (Dark Room)
 P 0 36380 1 36375 1	* safe: secret key
 P 0 36315 10 36375 1	* safe: apple
+P 0 36435 1 36375 1	* safe: coins
 M 0 36307 1 36343 1	* Banker's son (Bedroom)
 G 0 36343 0		*	boy's toy
 M 0 36357 1 36344 1	* Samurai (Samurai's House)
@@ -5749,7 +5775,7 @@ G 0 36433 0		*	katana
 G 0 36434 0		*	kimono
 M 0 36356 1 36345 1	* Ranger (Ranger's House)
 G 0 36424 0		*	green staff
-G 0 36423 0		*	titanium arrow
+G 0 36423 0		*	titanium-headed arrow
 M 0 36358 1 36346 1	* Warrior (Warrior's House)
 G 0 36428 0		*	iron helm
 G 0 36429 0		*	heavy iron mace
@@ -5805,7 +5831,7 @@ P 0 36398 1 36385 1	* bookshelf: Book of JullyRoger
 P 0 36400 1 36385 1	* bookshelf: Book of Shamash
 P 0 36401 1 36385 1	* bookshelf: Book of Orrin
 O 0 36420 0 36357	* portrait (Great Library)
-O 0 36421 0 36358	* wall (Lost in time)
+O 0 36421 0 36358	* mirror (Lost in time)
 M 0 36300 1 36358 1	* Grandfather (Lost in time)
 E 0 36318 0 12		*	illusory cloak: about the shoulders
 E 0 36319 0 16		*	illusory longsword: wielded
@@ -6024,8 +6050,8 @@ S
 
 #OLIMITS
 O 36309 3	* black scale platemail
-O 36318 1	* illusory cloak
-O 36319 1	* illusory longsword
+O 36318 2	* illusory cloak
+O 36319 2	* illusory longsword
 O 36320 3	* silver arrow
 O 36330 3	* some moccasins
 O 36344 1	* Grand Prize
@@ -6036,41 +6062,47 @@ S
 mob remember $r
 if rand 50
 mob echoat $q Grandfather swiftly pounds you in the jaw!
-mob echoaround $q Grandfather swiftly pounds $q in the jaw!
+mob  echoaround $q Grandfather swiftly pounds $q in the jaw!
 else
-mob echo Grandfather jumps high in the air, gracefully avoiding your blow
-mob echo and lands behind your back!
+mob echo Grandfather jumps high in the air, gracefully avoiding your blow and lands behind your back!
 endif
 if rand 50
-if carries self 'sword long illusory mist'
-mob echoat $q {r    Grandfather makes a few steps back, artfully deflecting your
-mob echoat $q {rblows, then suddenly leaps forth and slashes you between the ribs
-mob echoat $q {rwith his sword! You double over in pain as the blood spews from
-mob echoat $q {rthe wound!{x
-echoaround $q {rGrandfather slashes $q deeply with his sword!{x
+mob remember $r
+
+if wears $i 'sword illusory'
+mob echoat $q {r    Grandfather makes a few steps back, artfully deflecting your blows, then suddenly leaps forth and slashes you between the ribs with his sword! You double over in pain as the blood spews from the wound!{x
+mob echoaround $q {rGrandfather slashes $q deeply with his sword!{x
 mob damage $q 200 400
+break
 else
-mob echoat $q {r  Grandfather performs a flurry of brutal blows, pounding you with his
-mob echoat $q {rfists painfully! God, your guts must be a mess now..{x
+mob echoat $q {r  Grandfather performs a flurry of brutal blows, pounding you with his fists painfully! God, your guts must be a mess now..{x
 mob echoaround $q {rGrandfather pummels $q painfully with his fists!{x
 mob damage $q 150 300
+break
 endif
 else
-mob echo {W    Grandfather's ghostly form shimmers for a moment and you are blinded
-mob echo {Wby the flash of blazing white light coming from inside him. He calls out
-mob echo {Wa ferocious cry and charges you with renewed strength and vigor!{x
+if rand 50
+mob remember $r
+mob echo {W    Grandfather's ghostly form shimmers for a moment and you are blinded by the flash of blazing white light coming from inside him. He calls out a ferocious cry and charges you with renewed strength and vigor!{x
 cast nowait assist self
-cast nowait frenzy self
-cast nowait haste self
-cast nowait fear $q
+cast nowait deafen $q
+break
+endif
+break
 endif
 ~
 #36301
-mob echo {cAn unearthen wail shatters the air as Grandfather's form is dusrupted.
-mob echo {cHe shimmers one last time and dissolves into a cloud of grey mist.{x
 remove all
 drop all
+mob echo {cAn unearthen wail shatters the air as Grandfather's form is dusrupted.
+mob echo {cHe shimmers one last time and dissolves into a cloud of grey mist.{x
 mob goto 15000
+~
+#36302
+if carries $i 'shadow edge'
+say че ты мне дал?
+break
+endif
 ~
 #0
 
