@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.74 1998-07-14 18:26:24 fjoe Exp $
+ * $Id: comm.c,v 1.75 1998-07-16 10:13:28 efdi Exp $
  */
 
 /***************************************************************************
@@ -3131,7 +3131,7 @@ int istat;
 	  istat=get_curr_stat(ch,STAT_CON);
 	  if      (istat >  22) stat = "Iron";
 	  else if (istat >= 20) stat = "Hearty";
-	  else if (istat >= 18) stat = "Healty";
+	  else if (istat >= 18) stat = "Healthy";
 	  else if (istat >= 14) stat = "Average";
 	  else if (istat >= 10) stat = "Poor";
 	  else                    stat = "Fragile";

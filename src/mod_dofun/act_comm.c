@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.63 1998-07-14 07:47:39 fjoe Exp $
+ * $Id: act_comm.c,v 1.64 1998-07-16 10:13:27 efdi Exp $
  */
 
 /***************************************************************************
@@ -1051,7 +1051,8 @@ void do_quit_org(CHAR_DATA *ch, const char *argument, bool Count)
 
 	send_to_char("Alas, all good things must come to an end.\n\r", ch);
 	char_puts("You hit reality hard. Reality truth does unspeakable things to you.\n\r", ch);
-	act_puts("{W$n{x has left the game.", ch, NULL, NULL, TO_ROOM ,POS_DEAD);
+	act_puts("{W$n{x has left the game.", ch, NULL, NULL, TO_ROOM,
+		 POS_RESTING);
 	log_printf("%s has quit.", ch->name);
 	wiznet("{W$N{x rejoins the real world.",ch,NULL,WIZ_LOGINS,0,get_trust(ch));
 
