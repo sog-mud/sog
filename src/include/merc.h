@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.223 1999-07-05 12:47:45 kostik Exp $
+ * $Id: merc.h,v 1.224 1999-07-22 09:10:55 avn Exp $
  */
 
 /***************************************************************************
@@ -1657,7 +1657,7 @@ struct room_index_data
 	int			mana_rate;
 	ROOM_HISTORY_DATA * 	history;
 	ROOM_AFFECT_DATA *	affected;
-	int			affected_by;
+	flag32_t		affected_by;
 };
 
 /*

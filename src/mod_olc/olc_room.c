@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.54 1999-07-01 07:44:53 fjoe Exp $
+ * $Id: olc_room.c,v 1.55 1999-07-22 09:10:56 avn Exp $
  */
 
 #include "olc.h"
@@ -54,6 +54,7 @@ DECLARE_OLC_FUN(roomed_heal		);
 DECLARE_OLC_FUN(roomed_mana		);
 DECLARE_OLC_FUN(roomed_clan		);
 DECLARE_OLC_FUN(roomed_room		);
+DECLARE_OLC_FUN(roomed_affected		);
 DECLARE_OLC_FUN(roomed_sector		);
 DECLARE_OLC_FUN(roomed_reset		);
 DECLARE_OLC_FUN(roomed_clone		);
@@ -88,6 +89,7 @@ olc_cmd_t olc_cmds_room[] =
 	{ "mreset",	roomed_mreset			},
 	{ "oreset",	roomed_oreset			},
 	{ "room",	roomed_room,	room_flags	},
+	{ "affected",	roomed_affected,raffect_flags	},
 	{ "sector",	roomed_sector,	sector_types	},
 	{ "reset",	roomed_reset			},
 
@@ -248,6 +250,10 @@ OLC_FUN(roomed_show)
 
 	buf_printf(output, "Room flags: [%s]\n",
 		   flag_string(room_flags, pRoom->room_flags));
+
+	if (pRoom->affected_by)
+		buf_printf(output, "Affected  : [%s]\n",
+			   flag_string(raffect_flags, pRoom->affected_by));
 
 	if (pRoom->heal_rate != 100 || pRoom->mana_rate != 100)
 		buf_printf(output, "Health rec: [%d]\nMana rec  : [%d]\n",
@@ -769,6 +775,13 @@ OLC_FUN(roomed_room)
 	ROOM_INDEX_DATA *room;
 	EDIT_ROOM(ch, room);
 	return olced_flag32(ch, argument, cmd, &room->room_flags);
+}
+
+OLC_FUN(roomed_affected)
+{
+	ROOM_INDEX_DATA *room;
+	EDIT_ROOM(ch, room);
+	return olced_flag32(ch, argument, cmd, &room->affected_by);
 }
 
 OLC_FUN(roomed_sector)

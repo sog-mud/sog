@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.266 1999-07-21 04:19:15 avn Exp $
+ * $Id: act_info.c,v 1.267 1999-07-22 09:10:51 avn Exp $
  */
 
 /***************************************************************************
@@ -518,7 +518,8 @@ static void do_look_in(CHAR_DATA* ch, const char *argument)
 
 static void do_look_room(CHAR_DATA *ch, int flags)
 {
-	if (!room_is_dark(ch) && check_blind_raw(ch)) {
+	if ((!room_is_dark(ch) || IS_AFFECTED(ch, AFF_DARK_VISION))
+	&& check_blind_raw(ch)) {
 		const char *name;
 		const char *engname;
 
