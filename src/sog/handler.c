@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.235 2000-02-02 09:58:46 kostik Exp $
+ * $Id: handler.c,v 1.236 2000-02-05 11:47:52 kostik Exp $
  */
 
 /***************************************************************************
@@ -1439,27 +1439,17 @@ bool room_is_dark(CHAR_DATA *ch)
 
 	if (is_affected(ch, "vampire"))
 		return FALSE;
-		
-	if (pRoomIndex->light > 0)
-		return FALSE;
 
-	if (IS_SET(pRoomIndex->room_flags, ROOM_DARK))
-		return TRUE;
-
-	if (pRoomIndex->sector_type == SECT_INSIDE
-	||   pRoomIndex->sector_type == SECT_CITY)
-		return FALSE;
-
-	if (weather_info.sunlight == SUN_SET
-	||  weather_info.sunlight == SUN_DARK)
-		return TRUE;
-
-	return FALSE;
+	return room_dark(pRoomIndex);
 }
+		
 
 bool room_dark(ROOM_INDEX_DATA *pRoomIndex)
 {
 	if (pRoomIndex->light > 0)
+		return FALSE;
+
+	if (IS_AFFECTED(pRoomIndex, RAFF_LIGHT))
 		return FALSE;
 
 	if (IS_SET(pRoomIndex->room_flags, ROOM_DARK))

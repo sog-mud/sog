@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.289 2000-02-02 09:58:33 kostik Exp $
+ * $Id: merc.h,v 1.290 2000-02-05 11:47:45 kostik Exp $
  */
 
 /***************************************************************************
@@ -607,6 +607,7 @@ struct spec_type
 #define RAFF_RANDOMIZER		(A)
 #define RAFF_ESPIRIT		(B)
 #define RAFF_CURSE		(C)
+#define	RAFF_LIGHT		(D)
 
 /* AC types */
 #define AC_PIERCE			0
