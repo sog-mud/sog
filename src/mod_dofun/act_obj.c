@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.12 1998-05-27 15:38:56 fjoe Exp $
+ * $Id: act_obj.c,v 1.13 1998-05-30 16:01:00 efdi Exp $
  */
 
 /***************************************************************************
@@ -118,129 +118,130 @@ bool can_loot(CHAR_DATA *ch, OBJ_DATA *obj)
 
 void get_obj(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *container)
 {
-	  /* variables for AUTOSPLIT */
-	  CHAR_DATA *gch;
-	  int members;
-	  char buffer[100];
+	/* variables for AUTOSPLIT */
+	CHAR_DATA *gch;
+	int members;
+	char buffer[100];
 
-	  if (!CAN_WEAR(obj, ITEM_TAKE))
-	  {
-	send_to_char("You can't take that.\n\r", ch);
-	return;
-	  }
-
-	  if (obj->pIndexData->limit != -1)
-	  {
-	    if ((IS_OBJ_STAT(obj, ITEM_ANTI_EVIL)    && IS_EVIL(ch)   )
-	    ||   (IS_OBJ_STAT(obj, ITEM_ANTI_GOOD)    && IS_GOOD(ch)   )
-	    ||   (IS_OBJ_STAT(obj, ITEM_ANTI_NEUTRAL) && IS_NEUTRAL(ch)))
-	    {
-	act("You are zapped by $p and drop it.", ch, obj, NULL, TO_CHAR);
-	act("$n is zapped by $p and drops it.",  ch, obj, NULL, TO_ROOM);
-	return;
-	    }
-	  }
-
-	  if (ch->carry_number + get_obj_number(obj) > can_carry_n(ch))
-	  {
-	act("$d: you can't carry that many items.",
-	    ch, NULL, obj->name, TO_CHAR);
-	return;
-	  }
-
-
-	  if (get_carry_weight(ch) + get_obj_weight(obj) > can_carry_w(ch))
-	  {
-	act("$d: you can't carry that much weight.",
-	    ch, NULL, obj->name, TO_CHAR);
-	return;
-	  }
-
-	  if (obj->in_room != NULL)
-	  {
-	for (gch = obj->in_room->people; gch != NULL; gch = gch->next_in_room)
-	    if (gch->on == obj)
-	    {
-		act("$N appears to be using $p.",
-		    ch,obj,gch,TO_CHAR);
+	if (!CAN_WEAR(obj, ITEM_TAKE)) {
+		send_to_char("You can't take that.\n\r", ch);
 		return;
-	    }
-	  }
-		
-
-	  if (container != NULL)
-	  {
-	    if (container->pIndexData->vnum == OBJ_VNUM_INVADER_SKULL
-	     || container->pIndexData->vnum == OBJ_VNUM_RULER_STAND
-	     || container->pIndexData->vnum == OBJ_VNUM_BATTLE_THRONE
-	     || container->pIndexData->vnum == OBJ_VNUM_CHAOS_ALTAR
-	     || container->pIndexData->vnum == OBJ_VNUM_SHALAFI_ALTAR
-	      || container->pIndexData->vnum == OBJ_VNUM_KNIGHT_ALTAR
-	      || container->pIndexData->vnum == OBJ_VNUM_LIONS_ALTAR
-	|| container->pIndexData->vnum == OBJ_VNUM_HUNTER_ALTAR)
-	      {
-	        act("You get $p from $P.", ch, obj, container, TO_CHAR);
-	        if (!IS_AFFECTED(ch,AFF_SNEAK))
-	          act("$n gets $p from $P.", ch, obj, container, TO_ROOM);
-	        obj_from_obj(obj);
-	        act("$p fades to black, then dissapears!", ch, container, NULL, TO_ROOM);
-	        act("$p fades to black, then dissapears!", ch, container, NULL, TO_CHAR);
-	        extract_obj(container);
-	        obj_to_char(obj, ch);
-
-	        if (IS_SET(obj->progtypes,OPROG_GET))
-	          (obj->pIndexData->oprogs->get_prog) (obj,ch);
-	  return;
 	}
 
-	  	if (container->pIndexData->vnum == OBJ_VNUM_PIT
-	&&  !CAN_WEAR(container, ITEM_TAKE)
-	&&  !IS_OBJ_STAT(obj,ITEM_HAD_TIMER))
-	    obj->timer = 0;	
-	act("You get $p from $P.", ch, obj, container, TO_CHAR);
-	      if (!IS_AFFECTED(ch,AFF_SNEAK))
-	  act("$n gets $p from $P.", ch, obj, container, TO_ROOM);
-	REMOVE_BIT(obj->extra_flags,ITEM_HAD_TIMER);
-	obj_from_obj(obj);
-	  }
-	  else
-	  {
-	act("You get $p.", ch, obj, container, TO_CHAR);
-	      if (!IS_AFFECTED(ch,AFF_SNEAK))
-	  act("$n gets $p.", ch, obj, container, TO_ROOM);
-	obj_from_room(obj);
-	  }
+	if (obj->pIndexData->limit != -1) {
+		if ((IS_OBJ_STAT(obj, ITEM_ANTI_EVIL) && IS_EVIL(ch))
+		|| (IS_OBJ_STAT(obj, ITEM_ANTI_GOOD) && IS_GOOD(ch))
+		|| (IS_OBJ_STAT(obj, ITEM_ANTI_NEUTRAL) && IS_NEUTRAL(ch))) {
+			act("You are zapped by $p and drop it.", ch, obj, 
+					NULL, TO_CHAR);
+			act("$n is zapped by $p and drops it.",  ch, obj, 
+					NULL, TO_ROOM);
+			return;
+		}
+	}
 
-	  if (obj->item_type == ITEM_MONEY)
-	  {
-	ch->silver += obj->value[0];
-	ch->gold += obj->value[1];
-	      if (IS_SET(ch->act,PLR_AUTOSPLIT))
-	      { /* AUTOSPLIT code */
-	  	  members = 0;
-	  	  for (gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room)
-	  	  {
-	          if (!IS_AFFECTED(gch,AFF_CHARM) && is_same_group(gch, ch))
-	            members++;
-	  	  }
+	if (ch->carry_number + get_obj_number(obj) > can_carry_n(ch)) {
+		act("$d: you can't carry that many items.",
+			ch, NULL, obj->name, TO_CHAR);
+		return;
+	}
 
-	  if (members > 1 && (obj->value[0] > 1 || obj->value[1]))
-	  {
-	    sprintf(buffer,"%d %d",obj->value[0],obj->value[1]);
-	    do_split(ch,buffer);	
-	  }
-	      }
+
+	if (get_carry_weight(ch) + get_obj_weight(obj) > can_carry_w(ch)) {
+		act("$d: you can't carry that much weight.",
+			ch, NULL, obj->name, TO_CHAR);
+		return;
+	}
+
+	if (obj->in_room != NULL) {
+		for (gch = obj->in_room->people; gch != NULL; 	
+		     gch = gch->next_in_room)
+			if (gch->on == obj) {
+				act("$N appears to be using $p.",
+				    ch, obj, gch, TO_CHAR);
+				return;
+			}
+	}
+		
+
+	if (container != NULL) {
+		if (container->pIndexData->vnum == OBJ_VNUM_INVADER_SKULL
+		|| container->pIndexData->vnum == OBJ_VNUM_RULER_STAND
+		|| container->pIndexData->vnum == OBJ_VNUM_BATTLE_THRONE
+		|| container->pIndexData->vnum == OBJ_VNUM_CHAOS_ALTAR
+		|| container->pIndexData->vnum == OBJ_VNUM_SHALAFI_ALTAR
+		|| container->pIndexData->vnum == OBJ_VNUM_KNIGHT_ALTAR
+		|| container->pIndexData->vnum == OBJ_VNUM_LIONS_ALTAR
+		|| container->pIndexData->vnum == OBJ_VNUM_HUNTER_ALTAR) {
+			act("You get $p from $P.", ch, obj, container, TO_CHAR);
+			if (!IS_AFFECTED(ch,AFF_SNEAK))
+				act("$n gets $p from $P.", ch, obj, 
+				    container, TO_ROOM);
+			obj_from_obj(obj);
+			act("$p fades to black, then dissapears!", ch, 
+			    container, NULL, TO_ROOM);
+			act("$p fades to black, then dissapears!", ch, 
+			    container, NULL, TO_CHAR);
+			extract_obj(container);
+			obj_to_char(obj, ch);
+
+			if (IS_SET(obj->progtypes,OPROG_GET))
+				(obj->pIndexData->oprogs->get_prog) (obj,ch);
+			return;
+		}
+
+		if (container->pIndexData->vnum == OBJ_VNUM_PIT
+		&& !CAN_WEAR(container, ITEM_TAKE)
+		&& !IS_OBJ_STAT(obj,ITEM_HAD_TIMER))
+			obj->timer = 0;	
+		act("You get $p from $P.", ch, obj, container, TO_CHAR);
+		if (!IS_AFFECTED(ch,AFF_SNEAK))
+			act("$n gets $p from $P.", ch, obj, container, TO_ROOM);
+		REMOVE_BIT(obj->extra_flags,ITEM_HAD_TIMER);
+		obj_from_obj(obj);
+	} else {
+		act("You get $p.", ch, obj, container, TO_CHAR);
+		if (!IS_AFFECTED(ch,AFF_SNEAK))
+			act("$n gets $p.", ch, obj, container, TO_ROOM);
+		obj_from_room(obj);
+	}
+
+	if (obj->item_type == ITEM_MONEY) {
+		if (get_carry_weight(ch) + obj->value[0]/10 
+		    + obj->value[1]*2/5 > can_carry_w(ch)) {
+			act("$d: you can't carry that much weight.",
+				ch, NULL, obj->name, TO_CHAR);
+			return;
+		}
+
+		ch->silver += obj->value[0];
+		ch->gold += obj->value[1];
+		if (IS_SET(ch->act,PLR_AUTOSPLIT)) { 
+			/* AUTOSPLIT code */
+			members = 0;
+			for (gch = ch->in_room->people; gch != NULL; 
+			     gch = gch->next_in_room) {
+				if (!IS_AFFECTED(gch,AFF_CHARM) 
+				&& is_same_group(gch, ch))
+					members++;
+			}
+
+			if (members > 1 && (obj->value[0] > 1 
+			|| obj->value[1])) {
+				sprintf(buffer, "%d %d", obj->value[0], 
+					obj->value[1]);
+				do_split(ch,buffer);	
+			}
+		}
  
-	extract_obj(obj);
-	  }
-	  else
-	  {
-	obj_to_char(obj, ch);
-	      if (IS_SET(obj->progtypes,OPROG_GET))
-	        (obj->pIndexData->oprogs->get_prog) (obj,ch);
-	  }
+		extract_obj(obj);
+	} else {
+		obj_to_char(obj, ch);
+		if (IS_SET(obj->progtypes,OPROG_GET))
+			(obj->pIndexData->oprogs->get_prog) (obj,ch);
+	}
 
-	  return;
+	return;
 }
 
 

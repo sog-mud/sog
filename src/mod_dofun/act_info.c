@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.54 1998-05-27 08:47:19 fjoe Exp $
+ * $Id: act_info.c,v 1.55 1998-05-30 16:01:00 efdi Exp $
  */
 
 /***************************************************************************
@@ -434,6 +434,8 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 			strcat(buf, msg(INFO_SLEEPING, ch));
 			break;
 		}
+		if (victim->on->pIndexData->vnum == 1200)
+			return;
 
 		if (IS_SET(victim->on->value[2], SLEEP_AT))
 			msgnum = INFO_SLEEPING_AT;
@@ -499,7 +501,7 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		if (victim->fighting == NULL)
 			strcat(buf, "thin air??");
 		else if (victim->fighting == ch)
-			strcat(buf, "YOU!");
+			strcat(buf, msg(INFO_FIGHTING_YOU, ch));
 		else if (victim->in_room == victim->fighting->in_room) {
 			strcat(buf, PERS(victim->fighting, ch));
 			strcat(buf, ".");
