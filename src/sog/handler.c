@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.237 2000-02-10 14:08:46 fjoe Exp $
+ * $Id: handler.c,v 1.238 2000-02-19 16:23:46 avn Exp $
  */
 
 /***************************************************************************
@@ -709,6 +709,19 @@ void extract_obj(OBJ_DATA *obj, int flags)
 		}
 	}
 
+	if (obj == top_affected_obj)
+		top_affected_obj = obj->aff_next;
+	else {
+		OBJ_DATA *prev;
+
+		for (prev = top_affected_obj; prev; prev = prev->aff_next)
+			if (prev->aff_next == obj)
+				break;
+
+		if (prev != NULL)
+			prev->aff_next = obj->aff_next;
+	}
+
 	if (!IS_SET(flags, XO_F_NOCOUNT))
 		--obj->pObjIndex->count;
 
@@ -802,6 +815,19 @@ void extract_char(CHAR_DATA *ch, int flags)
 			prev->next = ch->next;
 		if (ch == char_list_lastpc)
 			char_list_lastpc = prev;
+	}
+
+	if (ch == top_affected_char)
+		top_affected_char = ch->aff_next;
+	else {
+		CHAR_DATA *prev;
+
+		for (prev = top_affected_char; prev; prev = prev->aff_next)
+			if (prev->aff_next == ch)
+				break;
+
+		if (prev != NULL)
+			prev->aff_next = ch->aff_next;
 	}
 
 	if (ch->desc)
