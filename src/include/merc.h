@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.293 2000-02-20 10:39:37 avn Exp $
+ * $Id: merc.h,v 1.294 2000-02-29 17:14:57 avn Exp $
  */
 
 /***************************************************************************
@@ -1103,6 +1103,8 @@ enum {
 #define COMM_DEAF		(B)
 #define COMM_NOFLEE		(C)
 #define COMM_NONOTE		(D)
+#define COMM_NEWBIE_TIPS	(E)
+#define COMM_SOG_TIPS		(F)
 #define COMM_QUIET_EDITOR	(K)
 #define COMM_COMPACT		(L)
 #define COMM_BRIEF		(M)

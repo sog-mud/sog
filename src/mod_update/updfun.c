@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.2 2000-02-22 20:24:48 fjoe Exp $
+ * $Id: updfun.c,v 1.3 2000-02-29 17:14:58 avn Exp $
  */
 
 #include <sys/types.h>
@@ -1203,6 +1203,42 @@ olc_asave_update(void)
 void
 song_update(void)
 {
+}
+
+void
+tip_update(void)
+{
+	DESCRIPTOR_DATA *d;
+	tip_t *t;
+	static int index;
+	int nind;
+	flag_t mask;
+	mlstring *pml;
+
+	do {
+		nind = number_range(0, tips.nused - 1);
+	} while (nind == index);
+	index = nind;
+
+	t = (tip_t *)VARR_GET(&tips, index);
+	mask = t->comm;
+	pml = &t->phrase;
+
+	/* Found tip has just been created, skip it */
+	if (mlstr_null(pml))
+		return;
+
+	for (d = descriptor_list; d; d = d->next) {
+		CHAR_DATA *ch = d->character;
+
+		if (!ch
+		|| d->connected != CON_PLAYING
+		|| !IS_SET(ch->comm, mask))
+			continue;
+
+		act_puts("{YTIP: {x", ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
+		act_mlputs(pml, ch, NULL, NULL, TO_CHAR, POS_DEAD);
+	}
 }
 
 void

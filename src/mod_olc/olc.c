@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.111 2000-02-10 14:08:42 fjoe Exp $
+ * $Id: olc.c,v 1.112 2000-02-29 17:14:58 avn Exp $
  */
 
 /***************************************************************************
@@ -87,6 +87,7 @@ const char ED_CLASS[]	= "classes";
 const char ED_MATERIAL[]= "materials";
 const char ED_LIQUID[]	= "liquids";
 const char ED_DAMT[]	= "damtypes";
+const char ED_TIP[]	= "tips";
 
 olced_t olced_table[] = {
 	{ ED_AREA,	"AreaEd",	olc_cmds_area	},
@@ -109,6 +110,7 @@ olced_t olced_table[] = {
 	{ ED_SPEC,	"SpecEd",	olc_cmds_spec	},
 	{ ED_CMD,	"CmdEd",	olc_cmds_cmd	}, 
 	{ ED_DAMT,	"DamtEd",	olc_cmds_damt	}, 
+	{ ED_TIP,	"TipEd",	olc_cmds_tip	}, 
 
 	{ NULL }
 };

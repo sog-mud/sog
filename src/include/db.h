@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.h,v 1.69 2000-02-10 14:08:41 fjoe Exp $
+ * $Id: db.h,v 1.70 2000-02-29 17:14:57 avn Exp $
  */
 
 #ifndef _DB_H_
@@ -127,6 +127,7 @@ void db_set_arg(DBDATA *, const char* name, void *arg);
 #define CF_MATERIAL	(E)
 #define CF_LIQUID	(F)
 #define CF_DAMT		(G)
+#define CF_TIP		(H)
 
 extern int changed_flags;
 
@@ -136,6 +137,13 @@ extern hash_t glob_gmlstr;	/* gmlstr_t globals */
 extern hash_t msgdb;		/* msgdb */
 #define msg_lookup(m)	((mlstring *) strkey_lookup(&msgdb, (m)))
 const char *GETMSG	(const char *txt, int lang);
+
+typedef struct {
+	mlstring phrase;
+	flag_t comm;
+} tip_t;
+
+extern varr tips;
 
 void	vnum_check	(AREA_DATA *area, int vnum);
 
@@ -231,6 +239,7 @@ extern const char LIQUIDS_CONF	[];
 extern const char CC_EXPR_CONF	[];
 
 extern const char MSGDB_FILE	[];
+extern const char TIPS_FILE	[];
 
 extern const char AREA_LIST	[];
 extern const char LANG_LIST	[];

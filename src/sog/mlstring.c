@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.c,v 1.52 2000-02-10 14:08:49 fjoe Exp $
+ * $Id: mlstring.c,v 1.53 2000-02-29 17:14:58 avn Exp $
  */
 
 #include <stdio.h>
@@ -381,13 +381,15 @@ mlstr_foreach(mlstring *mlp,
 bool mlstr_edit(mlstring *mlp, const char *argument)
 {
 	char arg[MAX_STRING_LENGTH];
-	int lang;
+	int lang = -1;
 	const char **p;
 
 	argument = one_argument(argument, arg, sizeof(arg));
-	lang = lang_lookup(arg);
-	if (lang < 0 && str_cmp(arg, "all"))
-		return FALSE;
+	if (str_cmp(arg, "all")) {
+		lang = lang_lookup(arg);
+		if (lang < 0)
+			return FALSE;
+	}
 
 	p = mlstr_convert(mlp, lang);
 	free_string(*p);

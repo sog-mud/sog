@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.132 2000-02-10 14:08:53 fjoe Exp $
+ * $Id: tables.c,v 1.133 2000-02-29 17:14:59 avn Exp $
  */
 
 /***************************************************************************
@@ -340,6 +340,8 @@ flaginfo_t comm_flags[] =
 	{ "noiac",		COMM_NOIAC,		TRUE	},
 	{ "noverbose",		COMM_NOVERBOSE,		TRUE	},
 	{ "nobust",		COMM_NOBUST,		TRUE	},
+	{ "newbietip",		COMM_NEWBIE_TIPS,	TRUE	},
+	{ "sogtip",		COMM_SOG_TIPS,		TRUE	},
 
 	{ NULL }
 };

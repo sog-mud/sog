@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.211 2000-02-20 10:36:41 avn Exp $
+ * $Id: db.c,v 1.212 2000-02-29 17:14:59 avn Exp $
  */
 
 /***************************************************************************
@@ -145,6 +145,7 @@ const char FORMS_CONF		[] = "forms.conf";	/* shapeforms */
 const char CC_EXPR_CONF		[] = "cc_expr.conf";	/* cc_exprs */
 const char GLOB_GMLSTR_FILE	[] = "glob_gmlstr";	/* global gmlstrs */
 const char MSGDB_FILE		[] = "msgdb";		/* msgdb */
+const char TIPS_FILE		[] = "tips";		/* tips */
 
 const char AREA_LIST		[] = "area.lst";	/* list of areas */
 const char LANG_LIST		[] = "lang.lst";	/* list of languages */
@@ -230,8 +231,10 @@ char	filename[PATH_MAX];
 int	changed_flags;		/* changed object flags for OLC */
 hash_t	glob_gmlstr;
 hash_t	msgdb;
+varr	tips;
 
 static void load_msgdb(void);
+static void load_tips(void);
 
 /*
  * Local booting procedures.
@@ -483,6 +486,7 @@ void boot_db(void)
 	db_load_list(&db_areas, AREA_PATH, AREA_LIST);
 	db_load_file(&db_hometowns, ETC_PATH, HOMETOWNS_CONF);
 	db_load_file(&db_forms, ETC_PATH, FORMS_CONF);
+	load_tips();
 
 	/*
 	 * load modules
@@ -2062,6 +2066,60 @@ load_msgdb(void)
 	mlstr_destroy(&ml);
 
 	log(LOG_INFO, "load_msgdb: %d msgs loaded", msgcnt);
+	rfile_close(fp);
+}
+
+static void tip_destroy(tip_t *t)
+{
+	mlstr_destroy(&t->phrase);
+}
+
+static varrdata_t v_tips =
+{
+	sizeof(tip_t), 4,
+	NULL,
+	(e_destroy_t) tip_destroy
+};
+
+static void
+load_tips(void)
+{
+	rfile_t *fp;
+	flag_t comm_mask;
+
+	varr_init(&tips, &v_tips);
+
+	line_number = 0;
+	snprintf(filename, sizeof(filename), "%s%c%s",
+		 ETC_PATH, PATH_SEPARATOR, TIPS_FILE);
+	if ((fp = rfile_open(ETC_PATH, TIPS_FILE)) == NULL) {
+		log(LOG_ERROR, "load_tips: %s", strerror(errno));
+		return;
+	}
+
+	for (;;) {
+		const char *key;
+		tip_t *t;
+
+		fread_word(fp);
+		key = rfile_tok(fp);
+
+		if (!strcmp(key, "$"))
+			break;
+
+		comm_mask = flag_value(comm_flags, key);
+		if (!IS_SET(comm_mask, COMM_NEWBIE_TIPS | COMM_SOG_TIPS)
+		|| (comm_mask & (COMM_NEWBIE_TIPS | COMM_SOG_TIPS)) == (COMM_NEWBIE_TIPS | COMM_SOG_TIPS))
+			log(LOG_ERROR, "load_tips: %s: invalid comm mask", key);
+
+
+		t = varr_enew(&tips);
+		mlstr_init(&t->phrase);
+
+		mlstr_fread(fp, &t->phrase);
+		t->comm = comm_mask;
+	}
+
 	rfile_close(fp);
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.199 2000-02-20 09:52:32 avn Exp $
+ * $Id: act_comm.c,v 1.200 2000-02-29 17:14:58 avn Exp $
  */
 
 /***************************************************************************
@@ -148,6 +148,14 @@ void do_channels(CHAR_DATA *ch, const char *argument)
 	else
 		char_puts("OFF\n", ch);
 
+	char_puts("hints          ",ch);
+	if (IS_SET(ch->comm, COMM_NEWBIE_TIPS))
+		char_puts("All\n", ch);
+	else if (IS_SET(ch->comm, COMM_SOG_TIPS))
+		char_puts("SoG-specific\n", ch);
+	else
+		char_puts("None\n", ch);
+
 	char_puts("quiet mode     ", ch);
 	if (IS_SET(ch->comm, COMM_QUIET))
 		 char_puts("ON\n", ch);
@@ -165,6 +173,36 @@ void do_channels(CHAR_DATA *ch, const char *argument)
 
 	if (IS_SET(ch->comm, COMM_NOEMOTE))
 		 char_puts("You cannot show emotions.\n", ch);
+}
+
+void do_hints(CHAR_DATA *ch, const char *argument)
+{
+	char arg[MAX_INPUT_LENGTH];
+
+	if (argument[0] == '\0') {
+		dofun("help", ch, "hints");
+		return;
+	}
+	REMOVE_BIT(ch->comm, COMM_NEWBIE_TIPS | COMM_SOG_TIPS);
+	one_argument(argument, arg, sizeof(arg));
+	if (!str_prefix(arg, "all")) {
+		SET_BIT(ch->comm, COMM_NEWBIE_TIPS | COMM_SOG_TIPS);
+		char_puts("All tips will be displayed.\n", ch);
+		return;
+	}
+
+	if (!str_prefix(arg, "sog")) {
+		SET_BIT(ch->comm, COMM_SOG_TIPS);
+		char_puts("Specific for this world tips will be displayed.\n", ch);
+		return;
+	}
+
+	if (!str_prefix(arg, "none")) {
+		char_puts("Tips disabled.\n", ch);
+		return;
+	}
+
+	dofun("help", ch, "hints");
 }
 
 void do_deaf(CHAR_DATA *ch, const char *argument)
