@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.349 2000-10-04 20:28:44 fjoe Exp $
+ * $Id: act_info.c,v 1.350 2000-10-05 19:05:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -841,8 +841,13 @@ void do_exits(CHAR_DATA *ch, const char *argument)
 		}
 	}
 
-	if (!found)
-		act_char(fAuto ? " none" : "None.", ch);
+	if (!found) {
+		if (fAuto) {
+			act_puts(" none",
+				 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
+		} else
+			act_char("None.", ch);
+	}
 
 	if (fAuto)
 		act_char("]{x", ch);

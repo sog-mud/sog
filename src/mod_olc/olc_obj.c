@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.83 2000-06-02 16:41:00 fjoe Exp $
+ * $Id: olc_obj.c,v 1.84 2000-10-05 19:05:32 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -69,6 +69,7 @@ DECLARE_OLC_FUN(objed_condition		);
 DECLARE_OLC_FUN(objed_clone		);
 DECLARE_OLC_FUN(objed_gender		);
 DECLARE_OLC_FUN(objed_restrictions	);
+DECLARE_OLC_FUN(objed_where		);
 
 DECLARE_VALIDATE_FUN(validate_condition);
 
@@ -110,6 +111,7 @@ olc_cmd_t olc_cmds_obj[] =
 	{ "clone",	objed_clone					},
 	{ "gender",	objed_gender,	NULL,		gender_table	},
 	{ "restrictions",objed_restrictions,				},	
+	{ "where",	objed_where					},
 
 	{ "version",	show_version					},
 	{ "commands",	show_commands					},
@@ -338,7 +340,7 @@ OLC_FUN(objed_del)
 	OBJ_INDEX_DATA *pObj;
 	OBJ_DATA *obj, *obj_next;
 	int i;
-	bool error = FALSE;
+	BUFFER *buf;
 
 	EDIT_OBJ(ch, pObj);
 
@@ -346,51 +348,13 @@ OLC_FUN(objed_del)
 		return FALSE;
 
 /* check that pObj is not in resets */
-	for (i = 0; i < MAX_KEY_HASH; i++) {
-		ROOM_INDEX_DATA *room;
-
-		for (room = room_index_hash[i]; room; room = room->next) {
-			int j = 0;
-			RESET_DATA *reset;
-
-			for (reset = room->reset_first; reset != NULL;
-							reset = reset->next) {
-				bool found = FALSE;
-
-				j++;
-				switch (reset->command) {
-				case 'P':
-					if (reset->arg3 == pObj->vnum)
-						found = TRUE;
-
-					/* FALLTHRU */
-
-				case 'O':
-				case 'G':
-				case 'E':
-					if (reset->arg1 == pObj->vnum)
-						found = TRUE;
-					break;
-				}
-
-				if (!found)
-					continue;
-
-				if (!error) {
-					error = TRUE;
-					char_puts("ObjEd: can't delete obj "
-						  "index: delete the "
-						  "following resets:\n", ch);
-				}
-
-				char_printf(ch, "ObjEd: room %d, reset %d\n",
-					    room->vnum, j);
-			}
-		}
-	}
-
-	if (error)
+	buf = show_obj_resets(pObj->vnum);
+	if (buf != NULL) {
+		buf_prepend(buf, "ObjEd: can't delete obj index: delete the following resets:\n");
+		page_to_char(buf_string(buf), ch);
+		buf_free(buf);
 		return FALSE;
+	}
 
 /* delete all the instances of obj index */
 	if (!chquest_delete(ch, pObj))
@@ -661,6 +625,45 @@ OLC_FUN(objed_restrictions)
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
 	return olced_cc_vexpr(ch, argument, cmd, &pObj->restrictions, "obj_wear");
+}
+
+OLC_FUN(objed_where)
+{
+	int vnum;
+	BUFFER *buf;
+	char arg[MAX_INPUT_LENGTH];
+
+	one_argument(argument, arg, sizeof(arg));
+	if (arg[0] != '\0') {
+		if (!is_number(arg)) {
+			char_puts("Syntax: where [<vnum>]\n", ch);
+			return FALSE;
+		}
+		vnum = atoi(arg);
+	} else {
+		OBJ_INDEX_DATA *obj;
+		EDIT_OBJ(ch, obj);
+		vnum = obj->vnum;
+	}
+
+	buf = show_obj_resets(vnum);
+	if (!buf) {
+		act_puts("MobEd: No resets for obj vnum $j found.",
+			 ch, (const void *) vnum, NULL, TO_CHAR, POS_DEAD);
+		return FALSE;
+	}
+
+	if (buf != NULL) {
+		act_puts("Resets for obj vnum $j:",
+			 ch, (const void *) vnum, NULL, TO_CHAR, POS_DEAD);
+		/*
+		 * XXX page_to_char here
+		 */
+		send_to_char(buf_string(buf), ch);
+		buf_free(buf);
+		return FALSE;
+	}
+	return FALSE;
 }
 
 VALIDATE_FUN(validate_condition)

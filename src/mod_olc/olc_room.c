@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.79 2000-06-15 11:38:09 fjoe Exp $
+ * $Id: olc_room.c,v 1.80 2000-10-05 19:05:33 fjoe Exp $
  */
 
 #include "olc.h"
@@ -307,7 +307,7 @@ OLC_FUN(roomed_show)
 		}
 	}
 
-	char_puts(buf_string(output), ch);
+	send_to_char(buf_string(output), ch);
 	buf_free(output);
 	return FALSE;
 }
@@ -1011,6 +1011,56 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 	 */
 	if (!str_cmp(arg1, "?")) {
 		dofun("help", ch, "'OLC RESETS'");
+		return;
+	}
+
+	if (!str_prefix(arg1, "where")) {
+		int vnum;	
+		bool show_mob;
+
+		BUFFER *buf;
+		const char *xxx;
+		BUFFER *(*show_xxx_resets)(int);
+
+		if (!str_prefix(arg2, "mob"))
+			show_mob = TRUE;
+		else if (!str_prefix(arg2, "obj"))
+			show_mob = FALSE;
+		else {
+			do_resets(ch, "?");
+			return;
+		}
+
+		if (!is_number(arg3)) {
+			do_resets(ch, "?");
+			return;
+		}
+
+		vnum = atoi(arg3);
+		if (show_mob) {
+			show_xxx_resets = show_mob_resets;
+			xxx = "mob";
+		} else {
+			show_xxx_resets = show_obj_resets;
+			xxx = "obj";
+		}
+
+		buf = show_xxx_resets(vnum);
+		if (!buf) {
+			act_puts3("No resets for $t vnum $J found.",
+				  ch, xxx, NULL, (const void *) vnum,
+				  TO_CHAR, POS_DEAD);
+			return;
+		}
+
+		act_puts3("Resets for $t vnum $J:",
+			  ch, xxx, NULL, (const void *) vnum,
+			  TO_CHAR, POS_DEAD);
+		/*
+		 * XXX page_to_char here
+		 */
+		send_to_char(buf_string(buf), ch);
+		buf_free(buf);
 		return;
 	}
 

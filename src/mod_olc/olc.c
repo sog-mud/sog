@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.117 2000-06-07 08:55:43 fjoe Exp $
+ * $Id: olc.c,v 1.118 2000-10-05 19:05:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1454,6 +1454,87 @@ FILE *olc_fopen(const char *path, const char *file,
 	}
 
 	return fp;
+}
+
+BUFFER *
+show_mob_resets(int vnum)
+{
+	int i;
+	BUFFER *buf = NULL;
+
+	for (i = 0; i < MAX_KEY_HASH; i++) {
+		ROOM_INDEX_DATA *room;
+
+		for (room = room_index_hash[i]; room; room = room->next) {
+			int j = 0;
+			RESET_DATA *reset;
+
+			for (reset = room->reset_first; reset != NULL;
+							reset = reset->next) {
+				j++;
+
+				if (reset->command != 'M'
+				||  reset->arg1 != vnum)
+					continue;
+
+				if (!buf)
+					buf = buf_new(-1);
+
+				buf_printf(buf, "        room %d, reset %d\n",
+					   room->vnum, j);
+			}
+		}
+	}
+
+	return buf;
+}
+
+BUFFER *
+show_obj_resets(int vnum)
+{
+	int i;
+	BUFFER *buf = NULL;
+
+	for (i = 0; i < MAX_KEY_HASH; i++) {
+		ROOM_INDEX_DATA *room;
+
+		for (room = room_index_hash[i]; room; room = room->next) {
+			int j = 0;
+			RESET_DATA *reset;
+
+			for (reset = room->reset_first; reset != NULL;
+							reset = reset->next) {
+				bool found = FALSE;
+
+				j++;
+				switch (reset->command) {
+				case 'P':
+					if (reset->arg3 == vnum)
+						found = TRUE;
+
+					/* FALLTHRU */
+
+				case 'O':
+				case 'G':
+				case 'E':
+					if (reset->arg1 == vnum)
+						found = TRUE;
+					break;
+				}
+
+				if (!found)
+					continue;
+
+				if (!buf)
+					buf = buf_new(-1);
+
+				buf_printf(buf, "        room %d, reset %d\n",
+					   room->vnum, j);
+			}
+		}
+	}
+
+	return buf;
 }
 
 /******************************************************************************

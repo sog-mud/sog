@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.66 2000-04-18 09:17:17 fjoe Exp $
+ * $Id: olc_mob.c,v 1.67 2000-10-05 19:05:32 fjoe Exp $
  */
 
 #include "olc.h"
@@ -82,6 +82,7 @@ DECLARE_OLC_FUN(mobed_resist		);
 DECLARE_OLC_FUN(mobed_addaffect		);
 DECLARE_OLC_FUN(mobed_delaffect		);
 DECLARE_OLC_FUN(mobed_del		);
+DECLARE_OLC_FUN(mobed_where		);
 
 DECLARE_VALIDATE_FUN(validate_fvnum	);
 
@@ -138,6 +139,7 @@ olc_cmd_t olc_cmds_mob[] =
 	{ "addaffect",	mobed_addaffect					},
 	{ "delaffect",	mobed_delaffect					},
 
+	{ "where",	mobed_where					},
 	{ "delete_mo",	olced_spell_out					},
 	{ "delete_mob", mobed_del					},
 
@@ -1294,7 +1296,7 @@ OLC_FUN(mobed_del)
 	MOB_INDEX_DATA *pMob;
 	CHAR_DATA *mob, *mob_next;
 	int i;
-	bool error = FALSE;
+	BUFFER *buf;
 
 	EDIT_MOB(ch, pMob);
 
@@ -1302,36 +1304,13 @@ OLC_FUN(mobed_del)
 		return FALSE;
 
 /* check that `pMob' is not in resets */
-	for (i = 0; i < MAX_KEY_HASH; i++) {
-		ROOM_INDEX_DATA *room;
-
-		for (room = room_index_hash[i]; room; room = room->next) {
-			int j = 0;
-			RESET_DATA *reset;
-
-			for (reset = room->reset_first; reset != NULL;
-							reset = reset->next) {
-				j++;
-
-				if (reset->command != 'M'
-				||  reset->arg1 != pMob->vnum)
-					continue;
-
-				if (!error) {
-					error = TRUE;
-					char_puts("MobEd: can't delete mob "
-						  "index: delete the "
-						  "following resets:\n", ch);
-				}
-
-				char_printf(ch, "MobEd: room %d, reset %d\n",
-					    room->vnum, j);
-			}
-		}
-	}
-
-	if (error)
+	buf = show_mob_resets(pMob->vnum);
+	if (buf != NULL) {
+		buf_prepend(buf, "MobEd: can't delete mob index: delete the following resets:\n");
+		page_to_char(buf_string(buf), ch);
+		buf_free(buf);
 		return FALSE;
+	}
 
 /* delete all the instances of mob index */
 	for (mob = npc_list; mob != NULL; mob = mob_next) {
@@ -1364,6 +1343,45 @@ OLC_FUN(mobed_del)
 	return FALSE;
 }
 
+OLC_FUN(mobed_where)
+{
+	int vnum;
+	BUFFER *buf;
+	char arg[MAX_INPUT_LENGTH];
+
+	one_argument(argument, arg, sizeof(arg));
+	if (arg[0] != '\0') {
+		if (!is_number(arg)) {
+			char_puts("Syntax: where [<vnum>]\n", ch);
+			return FALSE;
+		}
+		vnum = atoi(arg);
+	} else {
+		MOB_INDEX_DATA *mob;
+		EDIT_MOB(ch, mob);
+		vnum = mob->vnum;
+	}
+
+	buf = show_mob_resets(vnum);
+	if (!buf) {
+		act_puts("MobEd: No resets for mob vnum $j found.",
+			 ch, (const void *) vnum, NULL, TO_CHAR, POS_DEAD);
+		return FALSE;
+	}
+
+	if (buf != NULL) {
+		act_puts("Resets for mob vnum $j:",
+			 ch, (const void *) vnum, NULL, TO_CHAR, POS_DEAD);
+		/*
+		 * XXX page_to_char here
+		 */
+		send_to_char(buf_string(buf), ch);
+		buf_free(buf);
+		return FALSE;
+	}
+	return FALSE;
+}
+
 /* Local functions */
 
 static void show_spec_cmds(CHAR_DATA *ch)
@@ -1384,7 +1402,7 @@ static void show_spec_cmds(CHAR_DATA *ch)
 	if (col % 4 != 0)
 		buf_add(output, "\n");
 
-	char_puts(buf_string(output), ch);
+	send_to_char(buf_string(output), ch);
 	buf_free(output);
 }
 

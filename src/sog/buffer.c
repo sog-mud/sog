@@ -1,5 +1,5 @@
 /*
- * $Id: buffer.c,v 1.23 2000-06-02 16:41:05 fjoe Exp $
+ * $Id: buffer.c,v 1.24 2000-10-05 19:05:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -75,6 +75,7 @@ int	sAllocBuf;
 
 BUFFER *free_list;
 
+static bool buf_resize(BUFFER *buffer, const char *string);
 static bool buf_cat(BUFFER *buffer, const char *string);
 static int get_size (int val);
 
@@ -122,6 +123,21 @@ bool buf_add(BUFFER *buffer, const char *string)
 				string : GETMSG(string, buffer->lang));
 }
 
+bool buf_prepend(BUFFER *buffer, const char *string)
+{
+	if (IS_NULLSTR(string))
+		return TRUE;
+
+	string = buffer->lang < 0 ? string : GETMSG(string, buffer->lang);
+	if (!buf_resize(buffer, string))
+		return FALSE;
+
+	memmove(buffer->string + strlen(string), buffer->string,
+		strlen(buffer->string) + 1);
+	memcpy(buffer->string, string, strlen(string));
+	return TRUE;
+}
+
 bool buf_printf(BUFFER *buffer, const char *format, ...)
 {
 	char buf[MAX_STRING_LENGTH];
@@ -151,7 +167,7 @@ bool buf_act(BUFFER *buffer, const char *format, CHAR_DATA *ch,
 
 void buf_clear(BUFFER *buffer)
 {
-	buffer->string[0]	= '\0';
+	buffer->string[0] = '\0';
 	mem_untag(buffer, BUF_OFLOW);
 }
 
@@ -183,7 +199,8 @@ static int get_size (int val)
 	return -1;
 }
 
-static bool buf_cat(BUFFER *buffer, const char *string)
+static bool
+buf_resize(BUFFER *buffer, const char *string)
 {
 	int len;
 	char *oldstr;
@@ -200,7 +217,7 @@ static bool buf_cat(BUFFER *buffer, const char *string)
 	len = strlen(buffer->string) + strlen(string) + 1;
 
 	if (len >= buffer->size) { /* increase the buffer size */
-		buffer->size 	= get_size(len);
+		buffer->size = get_size(len);
 		if (buffer->size == -1) { /* overflow */
 			buffer->size = oldsize;
 			mem_tag(buffer, BUF_OFLOW);
@@ -224,7 +241,15 @@ static bool buf_cat(BUFFER *buffer, const char *string)
 		sAllocBuf += buffer->size - oldsize;
 	}
 
-	strcat(buffer->string, string);
 	return TRUE;
 }
 
+static bool
+buf_cat(BUFFER *buffer, const char *string)
+{
+	if (!buf_resize(buffer, string))
+		return FALSE;
+
+	strcat(buffer->string, string);
+	return TRUE;
+}

@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.70 2000-04-10 07:58:14 fjoe Exp $
+ * $Id: olc.h,v 1.71 2000-10-05 19:05:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -199,6 +199,9 @@ bool		olc_trusted	(CHAR_DATA *ch, int min_sec);
 FILE *		olc_fopen	(const char *path, const char *file,
 				 CHAR_DATA *ch, int min_sec);
 void		olc_printf	(CHAR_DATA *ch, const char *format, ...);
+
+BUFFER *	show_mob_resets(int vnum);
+BUFFER *	show_obj_resets(int vnum);
 
 #define SECURITY_MATERIAL	2
 #define SECURITY_RACE		3
