@@ -471,7 +471,7 @@ Merc Industries
 ~
 #3707
 leggings sub merc~
-@eng a pair of sub issue leggings@rus Семейные трусы в {GгОрОшек{x~
+a pair of sub issue leggings~
 You see a pair of sub issue leggings here.~
 leather~
 armor U AF
@@ -479,11 +479,8 @@ A A A 0 0
 0 30 72 P
 E
 leggings~
-@eng You see leggings of great but cheap craftsmanship.  Imprinted on the side is:
+You see leggings of great but cheap craftsmanship.  Imprinted on the side is:
 Merc Industries
-@rus Ты видишь трусы, который были заштопаны множество раз.
-На них изображен горошек и ты замечаешь вышитую надпись:
-Их носил Федя Бабкин!
 ~
 #3708
 boots sub merc~
@@ -741,8 +738,8 @@ go south.
 
 A sign warns 'You may not pass these doors once you have passed level 5.'
 
-P.S. {RUse 'lang rus' command, if you want russian language{x
-P.P.S. {BUse 'color' to enable full ANSI color support.{x
+P.S. Use '{Rlang rus{x' command, if you want {Rrussian language{x
+P.P.S. Use '{Bcolor{x' to enable {Bfull ANSI color support{x.
 @rus Это вход в МУД школу. Иди на север (north), чтоб пройти курс обучения
 в школе. Если ты там уже был и хочешь попасть на арену, то иди на юг (south).
 На востоке (east) ты видишь вход в музей.

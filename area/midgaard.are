@@ -7661,279 +7661,279 @@ D 0 3161 2 2	* Melancholy's Room: door to the south: closed and locked
 D 0 3048 5 1	* Grubby Inn: door to the down: closed
 D 0 3062 4 1	* Underground Chamber: door to the up: closed
 M 0 3012 6 3072 1	* the healer (By the Temple Altar)
-O 0 3010 0 3072		* The donation pit (By the Temple Altar)
+O 0 3010 0 3072		* the donation pit (By the Temple Altar)
 M 0 3170 1 3074 1	* the guildmaster (Warlock laboratory)
 M 0 3171 1 3076 1	* the guildmaster (Samurai's Shrine)
 M 0 3172 1 3077 1	* the templeman (Room of Templeman)
-O 0 3134 0 3101		* The bench (Promenade)
-O 0 3134 0 3102		* The bench (Promenade)
-O 0 3134 0 3103		* The bench (Austral Square)
+O 0 3134 0 3101		* the Bench (Promenade)
+O 0 3134 0 3102		* the Bench (Promenade)
+O 0 3134 0 3103		* the Bench (Austral Square)
 M 0 3100 1 3106 1	* the maid (Park Cafe)
-G 0 3100 0		*	A cup of tea
-G 0 3101 0		*	A cup of coffee
-G 0 3102 0		*	A cup of water
+G 0 3100 0		*	a cup of tea
+G 0 3101 0		*	a cup of coffee
+G 0 3102 0		*	a cup of water
 M 0 3120 1 3106 1	* the sexton (Park Cafe)
-G 0 3121 0		*	A key
+G 0 3121 0		*	a key
 M 0 3123 1 3109 1	* the sparrow (Small path in the park)
 M 0 3060 18 3109 1	* the cityguard (Small path in the park)
-E 0 3365 0 0		*	A war banner: as a light
-E 0 3364 0 1		*	A city guard signet ring: on the left finger
-E 0 3350 0 16		*	A standard issue sword: wielded
-E 0 3353 0 5		*	A standard issue vest: on the body
-E 0 3363 0 15		*	A standard issue bracer: on the right wrist
+E 0 3365 0 0		*	a war banner: as a light
+E 0 3364 0 1		*	a city guard signet ring: on the left finger
+E 0 3350 0 16		*	a standard issue sword: wielded
+E 0 3353 0 5		*	a standard issue vest: on the body
+E 0 3363 0 15		*	a standard issue bracer: on the right wrist
 M 0 3060 18 3111 4	* the cityguard (Park Road)
-E 0 3365 0 0		*	A war banner: as a light
-E 0 3364 0 1		*	A city guard signet ring: on the left finger
-E 0 3350 0 16		*	A standard issue sword: wielded
-E 0 3353 0 5		*	A standard issue vest: on the body
-G 0 3120 0		*	A key
+E 0 3365 0 0		*	a war banner: as a light
+E 0 3364 0 1		*	a city guard signet ring: on the left finger
+E 0 3350 0 16		*	a standard issue sword: wielded
+E 0 3353 0 5		*	a standard issue vest: on the body
+G 0 3120 0		*	a key
 M 0 3060 18 3111 4	* the cityguard (Park Road)
-E 0 3365 0 0		*	A war banner: as a light
-E 0 3364 0 1		*	A city guard signet ring: on the left finger
-E 0 3350 0 16		*	A standard issue sword: wielded
-E 0 3353 0 5		*	A standard issue vest: on the body
-E 0 3363 0 15		*	A standard issue bracer: on the right wrist
+E 0 3365 0 0		*	a war banner: as a light
+E 0 3364 0 1		*	a city guard signet ring: on the left finger
+E 0 3350 0 16		*	a standard issue sword: wielded
+E 0 3353 0 5		*	a standard issue vest: on the body
+E 0 3363 0 15		*	a standard issue bracer: on the right wrist
 M 0 3124 2 3113 1	* the duck (A path in the park)
 M 0 3121 1 3114 1	* the swan (The Pond)
 M 0 3122 1 3114 1	* the duckling (The Pond)
 M 0 3124 2 3115 1	* the duck (A path in the park)
 M 0 3060 18 3117 1	* the cityguard (Emerald Avenue)
-E 0 3365 0 0		*	A war banner: as a light
-E 0 3364 0 1		*	A city guard signet ring: on the left finger
-E 0 3350 0 16		*	A standard issue sword: wielded
-E 0 3353 0 5		*	A standard issue vest: on the body
+E 0 3365 0 0		*	a war banner: as a light
+E 0 3364 0 1		*	a city guard signet ring: on the left finger
+E 0 3350 0 16		*	a standard issue sword: wielded
+E 0 3353 0 5		*	a standard issue vest: on the body
 M 0 3060 18 3120 1	* the cityguard (Road Crossing)
-E 0 3365 0 0		*	A war banner: as a light
-E 0 3364 0 1		*	A city guard signet ring: on the left finger
-E 0 3350 0 16		*	A standard issue sword: wielded
-E 0 3353 0 5		*	A standard issue vest: on the body
+E 0 3365 0 0		*	a war banner: as a light
+E 0 3364 0 1		*	a city guard signet ring: on the left finger
+E 0 3350 0 16		*	a standard issue sword: wielded
+E 0 3353 0 5		*	a standard issue vest: on the body
 M 0 3144 1 3120 1	* the town crier (Road Crossing)
 M 0 3060 18 3125 1	* the cityguard (Emerald Avenue)
-E 0 3365 0 0		*	A war banner: as a light
-E 0 3364 0 1		*	A city guard signet ring: on the left finger
-E 0 3350 0 16		*	A standard issue sword: wielded
-E 0 3353 0 5		*	A standard issue vest: on the body
+E 0 3365 0 0		*	a war banner: as a light
+E 0 3364 0 1		*	a city guard signet ring: on the left finger
+E 0 3350 0 16		*	a standard issue sword: wielded
+E 0 3353 0 5		*	a standard issue vest: on the body
 M 0 3005 4 3128 2	* the thief (On the Concourse)
-E 0 3351 0 16		*	A standard issue dagger: wielded
-O 0 3135 0 3135		* A fountain (Park Road)
+E 0 3351 0 16		*	a standard issue dagger: wielded
+O 0 3135 0 3135		* a fountain (Park Road)
 M 0 3142 1 3137 1	* the secretary (The Waiting Room)
 M 0 3143 1 3138 1	* the mayor (The Mayor's Office)
-E 0 3124 0 16		*	A long sword: wielded
-G 0 3379 0		*	The gate key
-G 0 3379 0		*	The gate key
+E 0 3124 0 16		*	a long sword: wielded
+G 0 3379 0		*	the gate key
+G 0 3379 0		*	the gate key
 M 0 3069 4 3138 4	* the cityguard (The Mayor's Office)
-E 0 3365 0 0		*	A war banner: as a light
-E 0 3364 0 1		*	A city guard signet ring: on the left finger
-E 0 3350 0 16		*	A standard issue sword: wielded
+E 0 3365 0 0		*	a war banner: as a light
+E 0 3364 0 1		*	a city guard signet ring: on the left finger
+E 0 3350 0 16		*	a standard issue sword: wielded
 M 0 3069 4 3138 4	* the cityguard (The Mayor's Office)
-E 0 3365 0 0		*	A war banner: as a light
-E 0 3364 0 1		*	A city guard signet ring: on the left finger
-E 0 3350 0 16		*	A standard issue sword: wielded
+E 0 3365 0 0		*	a war banner: as a light
+E 0 3364 0 1		*	a city guard signet ring: on the left finger
+E 0 3350 0 16		*	a standard issue sword: wielded
 M 0 3069 4 3138 4	* the cityguard (The Mayor's Office)
-E 0 3365 0 0		*	A war banner: as a light
-E 0 3364 0 1		*	A city guard signet ring: on the left finger
-E 0 3350 0 16		*	A standard issue sword: wielded
+E 0 3365 0 0		*	a war banner: as a light
+E 0 3364 0 1		*	a city guard signet ring: on the left finger
+E 0 3350 0 16		*	a standard issue sword: wielded
 M 0 3069 4 3138 4	* the cityguard (The Mayor's Office)
-E 0 3365 0 0		*	A war banner: as a light
-E 0 3364 0 1		*	A city guard signet ring: on the left finger
-E 0 3350 0 16		*	A standard issue sword: wielded
-O 0 3135 0 3141		* A fountain (The end of Penny Lane)
-O 0 3136 0 3141		* A small pile of coins (The end of Penny Lane)
+E 0 3365 0 0		*	a war banner: as a light
+E 0 3364 0 1		*	a city guard signet ring: on the left finger
+E 0 3350 0 16		*	a standard issue sword: wielded
+O 0 3135 0 3141		* a fountain (The end of Penny Lane)
+O 0 3136 0 3141		* a small pile of coins (The end of Penny Lane)
 M 0 3140 1 3142 1	* the captain (Captain's Office)
-E 0 3350 0 16		*	A standard issue sword: wielded
-G 0 3122 0		*	A key
-G 0 3137 0		*	A steel key
+E 0 3350 0 16		*	a standard issue sword: wielded
+G 0 3122 0		*	a key
+G 0 3137 0		*	a steel key
 M 0 3141 4 3142 4	* the cityguard (Captain's Office)
-E 0 3350 0 16		*	A standard issue sword: wielded
+E 0 3350 0 16		*	a standard issue sword: wielded
 M 0 3141 4 3142 4	* the cityguard (Captain's Office)
-E 0 3350 0 16		*	A standard issue sword: wielded
+E 0 3350 0 16		*	a standard issue sword: wielded
 M 0 3141 4 3142 4	* the cityguard (Captain's Office)
-E 0 3350 0 16		*	A standard issue sword: wielded
+E 0 3350 0 16		*	a standard issue sword: wielded
 M 0 3141 4 3142 4	* the cityguard (Captain's Office)
-E 0 3350 0 16		*	A standard issue sword: wielded
-O 0 3130 0 3142		* The desk (Captain's Office)
-P 0 3123 1 3130 1	* The desk: The desk
-O 0 3131 0 3142		* The safe (Captain's Office)
-P 0 3132 1 3131 1	* The safe: The safe
+E 0 3350 0 16		*	a standard issue sword: wielded
+O 0 3130 0 3142		* the desk (Captain's Office)
+P 0 3123 1 3130 1	* the desk: a key
+O 0 3131 0 3142		* the safe (Captain's Office)
+P 0 3132 1 3131 1	* the safe: the silver coins
 M 0 3150 1 3150 1	* Esme (Kate's Diner)
-G 0 3154 0		*	A bottle of george killian's irish red
-G 0 3152 0		*	A bowl of beef stew
-G 0 3153 0		*	A biscuit
-G 0 3151 0		*	A bowl of chicken noodle soup
-G 0 3150 0		*	A cup of cinnamon coffee
-G 0 3100 0		*	A cup of tea
+G 0 3154 0		*	a bottle of George Killian's Irish Red
+G 0 3152 0		*	a bowl of beef stew
+G 0 3153 0		*	a biscuit
+G 0 3151 0		*	a bowl of chicken noodle soup
+G 0 3150 0		*	a cup of cinnamon coffee
+G 0 3100 0		*	a cup of tea
 M 0 3160 1 3160 1	* Melancholy (Melancholy's Maps)
-G 0 3394 0		*	An old book about known limited items, fascicle i
-G 0 3395 0		*	An old book about known limited items, fascicle ii
-G 0 3396 0		*	An old book
-G 0 3387 0		*	A green map
-G 0 3388 0		*	A yellow map
-G 0 3389 0		*	A red map
-G 0 3390 0		*	A blue map
-G 0 3391 0		*	A white map
-G 0 3392 0		*	A cyan map
-G 0 3393 0		*	A black map
-G 0 3168 0		*	A map of olympus
-G 0 3167 0		*	A map of new thalos 
-G 0 3166 0		*	A map of the first level of moria
-G 0 3165 0		*	A map of the dwarven kingdom
-G 0 3164 0		*	A map of southern midgaard
-G 0 3162 0		*	A map of the city of midgaard
-G 0 3383 0		*	A map of west thera
-G 0 3384 0		*	A map of east thera
-G 0 3385 0		*	A newbie map for east thera
-G 0 3386 0		*	A newbie map for west thera
+G 0 3394 0		*	an old book about known limited items, Fascicle I
+G 0 3395 0		*	an old book about known limited items, Fascicle II
+G 0 3396 0		*	an old book
+G 0 3387 0		*	a green map
+G 0 3388 0		*	a yellow map
+G 0 3389 0		*	a red map
+G 0 3390 0		*	a blue map
+G 0 3391 0		*	a white map
+G 0 3392 0		*	a cyan map
+G 0 3393 0		*	a black map
+G 0 3168 0		*	a map of Olympus
+G 0 3167 0		*	a map of New Thalos 
+G 0 3166 0		*	a map of the first level of Moria
+G 0 3165 0		*	a map of the Dwarven Kingdom
+G 0 3164 0		*	a map of southern Midgaard
+G 0 3162 0		*	a map of the city of Midgaard
+G 0 3383 0		*	a map of West Thera
+G 0 3384 0		*	a map of East Thera
+G 0 3385 0		*	a newbie map for East Thera
+G 0 3386 0		*	a newbie map for West Thera
 M 0 3161 1 3160 1	* Lister (Melancholy's Maps)
 M 0 3071 2 3255 2	* the cityguard (Inside the South Gate of Midgaard)
-E 0 3365 0 0		*	A war banner: as a light
-E 0 3364 0 1		*	A city guard signet ring: on the left finger
-E 0 3350 0 16		*	A standard issue sword: wielded
-E 0 3353 0 5		*	A standard issue vest: on the body
-E 0 3361 0 12		*	A standard issue cape: about the shoulders
+E 0 3365 0 0		*	a war banner: as a light
+E 0 3364 0 1		*	a city guard signet ring: on the left finger
+E 0 3350 0 16		*	a standard issue sword: wielded
+E 0 3353 0 5		*	a standard issue vest: on the body
+E 0 3361 0 12		*	a standard issue cape: about the shoulders
 M 0 3071 2 3255 2	* the cityguard (Inside the South Gate of Midgaard)
-E 0 3365 0 0		*	A war banner: as a light
-E 0 3364 0 1		*	A city guard signet ring: on the left finger
-E 0 3350 0 16		*	A standard issue sword: wielded
-E 0 3353 0 5		*	A standard issue vest: on the body
-E 0 3362 0 13		*	A standard issue belt: around the waist
+E 0 3365 0 0		*	a war banner: as a light
+E 0 3364 0 1		*	a city guard signet ring: on the left finger
+E 0 3350 0 16		*	a standard issue sword: wielded
+E 0 3353 0 5		*	a standard issue vest: on the body
+E 0 3362 0 13		*	a standard issue belt: around the waist
 M 0 3072 1 3262 1	* the cityguard (Inside the North Gate of Midgaard)
-E 0 3365 0 0		*	A war banner: as a light
-E 0 3364 0 1		*	A city guard signet ring: on the left finger
-E 0 3350 0 16		*	A standard issue sword: wielded
-E 0 3353 0 5		*	A standard issue vest: on the body
-E 0 3354 0 11		*	A standard issue shield: as a shield
+E 0 3365 0 0		*	a war banner: as a light
+E 0 3364 0 1		*	a city guard signet ring: on the left finger
+E 0 3350 0 16		*	a standard issue sword: wielded
+E 0 3353 0 5		*	a standard issue vest: on the body
+E 0 3354 0 11		*	a standard issue shield: as a shield
 M 0 3162 1 3334 1	* Otho the Changer (A Money Changer's Room)
 M 0 3011 1 3001 1	* Questor (The Temple Of Midgaard)
-E 0 3005 0 16		*	Quest's sword: wielded
+E 0 3005 0 16		*	quest's sword: wielded
 M 0 3021 1 3002 1	* the guildmaster (Cleric's Inner Sanctum)
 M 0 3043 1 3003 1	* the waiter (Cleric's Bar)
-G 0 3002 0		*	A bottle of ale
-G 0 3004 0		*	A bottle of local specialty
-E 0 3022 0 16		*	A long sword: wielded
+G 0 3002 0		*	a bottle of ale
+G 0 3004 0		*	a bottle of local specialty
+E 0 3022 0 16		*	a long sword: wielded
 M 0 3025 1 3004 1	* the knight templar (Entrance to Cleric's Guild)
 M 0 3060 18 3004 2	* the cityguard (Entrance to Cleric's Guild)
-E 0 3365 0 0		*	A war banner: as a light
-E 0 3364 0 1		*	A city guard signet ring: on the left finger
-E 0 3350 0 16		*	A standard issue sword: wielded
-E 0 3353 0 5		*	A standard issue vest: on the body
-E 0 3355 0 4		*	A standard issue cloak: around the neck (2)
-O 0 3135 0 3005		* A fountain (The Temple Square)
+E 0 3365 0 0		*	a war banner: as a light
+E 0 3364 0 1		*	a city guard signet ring: on the left finger
+E 0 3350 0 16		*	a standard issue sword: wielded
+E 0 3353 0 5		*	a standard issue vest: on the body
+E 0 3355 0 4		*	a standard issue cloak: around the neck (2)
+O 0 3135 0 3005		* a fountain (The Temple Square)
 M 0 3061 5 3006 5	* the janitor (Entrance to the Grunting Boar Inn)
 M 0 3040 1 3007 1	* the bartender (The Grunting Boar)
-G 0 3000 0		*	A barrel of beer
-G 0 3001 0		*	A bottle of beer
-E 0 3022 0 16		*	A long sword: wielded
+G 0 3000 0		*	a barrel of beer
+G 0 3001 0		*	a bottle of beer
+E 0 3022 0 16		*	a long sword: wielded
 M 0 3064 3 3007 3	* the drunk (The Grunting Boar)
-O 0 3139 0 3008		* The receptionist's letter of resignation (The Defunct Reception)
-O 0 3140 0 3008		* The bank's notice of liquidation (The Defunct Reception)
+O 0 3139 0 3008		* the receptionist's letter of resignation (The Defunct Reception)
+O 0 3140 0 3008		* the bank's notice of liquidation (The Defunct Reception)
 M 0 3001 1 3009 1	* the baker (The Bakery)
-G 0 3009 0		*	A big pot pie
-G 0 3011 0		*	A bread
-G 0 3012 0		*	A cinnamon roll
-G 0 3013 0		*	A batch of sara's cookies
-G 0 3014 0		*	A blueberry danish
-E 0 3022 0 16		*	A long sword: wielded
+G 0 3009 0		*	a big pot pie
+G 0 3011 0		*	a bread
+G 0 3012 0		*	a cinnamon roll
+G 0 3013 0		*	a batch of Sara's cookies
+G 0 3014 0		*	a blueberry danish
+E 0 3022 0 16		*	a long sword: wielded
 M 0 3002 1 3010 1	* the grocer (The General Store)
-G 0 3030 0		*	A torch
-G 0 3031 0		*	A hooded brass lantern
-G 0 3138 0		*	A buffalo water skin
-G 0 3032 0		*	A bag
-G 0 3033 0		*	A box
-G 0 3397 0		*	A quiver
-E 0 3022 0 16		*	A long sword: wielded
+G 0 3030 0		*	a torch
+G 0 3031 0		*	a hooded brass lantern
+G 0 3138 0		*	a buffalo water skin
+G 0 3032 0		*	a bag
+G 0 3033 0		*	a box
+G 0 3397 0		*	a quiver
+E 0 3022 0 16		*	a long sword: wielded
 M 0 3003 1 3011 1	* the weaponsmith (The Weapon Shop)
-G 0 3020 0		*	A dagger
-G 0 3021 0		*	A small sword
-G 0 3022 0		*	A long sword
-G 0 3023 0		*	A club
-G 0 3024 0		*	A mace
-G 0 3025 0		*	A hand axe
-G 0 3026 0		*	A battle axe
-G 0 3027 0		*	A spear
-G 0 3028 0		*	A wooden staff
-G 0 3029 0		*	A flail
-G 0 3093 0		*	A wooden arrow
-G 0 3094 0		*	A silver-headed arrow
-G 0 3095 0		*	A golden-headed arrow
-G 0 3096 0		*	An adamantite-headed arrow
-E 0 3022 0 16		*	A long sword: wielded
+G 0 3020 0		*	a dagger
+G 0 3021 0		*	a small sword
+G 0 3022 0		*	a long sword
+G 0 3023 0		*	a club
+G 0 3024 0		*	a mace
+G 0 3025 0		*	a hand axe
+G 0 3026 0		*	a battle axe
+G 0 3027 0		*	a spear
+G 0 3028 0		*	a wooden staff
+G 0 3029 0		*	a flail
+G 0 3093 0		*	a wooden arrow
+G 0 3094 0		*	a silver-headed arrow
+G 0 3095 0		*	a golden-headed arrow
+G 0 3096 0		*	an adamantite-headed arrow
+E 0 3022 0 16		*	a long sword: wielded
 M 0 3165 1 3011 1	* the novice boy (The Weapon Shop)
 M 0 3062 16 3012 4	* the beastly fido (Main Street)
 M 0 3060 18 3014 2	* the cityguard (Market Square)
-E 0 3365 0 0		*	A war banner: as a light
-E 0 3364 0 1		*	A city guard signet ring: on the left finger
-E 0 3350 0 16		*	A standard issue sword: wielded
-E 0 3353 0 5		*	A standard issue vest: on the body
-E 0 3356 0 6		*	A standard issue helmet: over the head
+E 0 3365 0 0		*	a war banner: as a light
+E 0 3364 0 1		*	a city guard signet ring: on the left finger
+E 0 3350 0 16		*	a standard issue sword: wielded
+E 0 3353 0 5		*	a standard issue vest: on the body
+E 0 3356 0 6		*	a standard issue helmet: over the head
 M 0 3062 16 3016 4	* the beastly fido (The Main Street)
 M 0 3024 1 3017 1	* the sorcerer (Entrance to Mage's Guild)
 M 0 3060 18 3017 2	* the cityguard (Entrance to Mage's Guild)
-E 0 3365 0 0		*	A war banner: as a light
-E 0 3364 0 1		*	A city guard signet ring: on the left finger
-E 0 3350 0 16		*	A standard issue sword: wielded
-E 0 3353 0 5		*	A standard issue vest: on the body
-E 0 3357 0 7		*	A pair of standard issue leggings: on the legs
+E 0 3365 0 0		*	a war banner: as a light
+E 0 3364 0 1		*	a city guard signet ring: on the left finger
+E 0 3350 0 16		*	a standard issue sword: wielded
+E 0 3353 0 5		*	a standard issue vest: on the body
+E 0 3357 0 7		*	a pair of standard issue leggings: on the legs
 M 0 3042 1 3018 1	* the waiter (Mage's Bar)
-G 0 3002 0		*	A bottle of ale
-G 0 3003 0		*	A bottle of firebreather
-E 0 3022 0 16		*	A long sword: wielded
+G 0 3002 0		*	a bottle of ale
+G 0 3003 0		*	a bottle of firebreather
+E 0 3022 0 16		*	a long sword: wielded
 M 0 3020 1 3019 1	* the guildmaster (Mage's Laboratory)
 M 0 3004 1 3020 1	* the armourer (The Armoury)
-G 0 3072 0		*	A scale mail jerkin
-G 0 3073 0		*	A scale mail coif
-G 0 3074 0		*	A long scale mail skirt
-G 0 3075 0		*	A pair of reinforced boots
-G 0 3076 0		*	A pair of reinforced gloves
-G 0 3077 0		*	A pair of scale mail sleeves
-G 0 3110 0		*	A chain mail shirt
-G 0 3111 0		*	A chain mail coif
-G 0 3112 0		*	A long chain mail skirt
-G 0 3113 0		*	A pair of iron-bound boots
-G 0 3114 0		*	A pair of chain mail gauntlets
-G 0 3115 0		*	A pair of chain mail sleeves
-G 0 3116 0		*	A large metal shield
-G 0 3097 0		*	A small metal shield
-G 0 3117 0		*	A small wooden shield
-E 0 3022 0 16		*	A long sword: wielded
+G 0 3072 0		*	a scale mail jerkin
+G 0 3073 0		*	a scale mail coif
+G 0 3074 0		*	a long scale mail skirt
+G 0 3075 0		*	a pair of reinforced boots
+G 0 3076 0		*	a pair of reinforced gloves
+G 0 3077 0		*	a pair of scale mail sleeves
+G 0 3110 0		*	a chain mail shirt
+G 0 3111 0		*	a chain mail coif
+G 0 3112 0		*	a long chain mail skirt
+G 0 3113 0		*	a pair of iron-bound boots
+G 0 3114 0		*	a pair of chain mail gauntlets
+G 0 3115 0		*	a pair of chain mail sleeves
+G 0 3116 0		*	a large metal shield
+G 0 3097 0		*	a small metal shield
+G 0 3117 0		*	a small wooden shield
+E 0 3022 0 16		*	a long sword: wielded
 M 0 3027 1 3021 1	* the knight (Entrance Hall to the Guild of Swordsmen)
-E 0 3349 0 16		*	A glowing long sword: wielded
+E 0 3349 0 16		*	a glowing long sword: wielded
 M 0 3060 18 3021 2	* the cityguard (Entrance Hall to the Guild of Swordsmen)
-E 0 3365 0 0		*	A war banner: as a light
-E 0 3364 0 1		*	A city guard signet ring: on the left finger
-E 0 3350 0 16		*	A standard issue sword: wielded
-E 0 3353 0 5		*	A standard issue vest: on the body
-E 0 3358 0 8		*	A pair of standard issue boots: on the feet
+E 0 3365 0 0		*	a war banner: as a light
+E 0 3364 0 1		*	a city guard signet ring: on the left finger
+E 0 3350 0 16		*	a standard issue sword: wielded
+E 0 3353 0 5		*	a standard issue vest: on the body
+E 0 3358 0 8		*	a pair of standard issue boots: on the feet
 M 0 3045 1 3022 1	* the waiter (The Bar of Swordsmen)
-G 0 3002 0		*	A bottle of ale
-G 0 3003 0		*	A bottle of firebreather
-G 0 3004 0		*	A bottle of local specialty
-E 0 3022 0 16		*	A long sword: wielded
+G 0 3002 0		*	a bottle of ale
+G 0 3003 0		*	a bottle of firebreather
+G 0 3004 0		*	a bottle of local specialty
+E 0 3022 0 16		*	a long sword: wielded
 M 0 3023 1 3023 1	* the guildmaster (The Tournament and Practice Yard)
 M 0 3062 16 3024 4	* the beastly fido (Eastern End of Poor Alley)
 M 0 3062 16 3025 4	* the beastly fido (The Common Square)
 M 0 3063 5 3026 5	* the vagabond (The Dark Alley)
-E 0 3021 0 16		*	A small sword: wielded
-E 0 3066 0 5		*	A hard leather jerkin: on the body
-E 0 3052 0 15		*	A leather bracer: on the right wrist
+E 0 3021 0 16		*	a small sword: wielded
+E 0 3066 0 5		*	a hard leather jerkin: on the body
+E 0 3052 0 15		*	a leather bracer: on the right wrist
 M 0 3063 5 3026 5	* the vagabond (The Dark Alley)
-E 0 3021 0 16		*	A small sword: wielded
-E 0 3066 0 5		*	A hard leather jerkin: on the body
-E 0 3052 0 15		*	A leather bracer: on the right wrist
+E 0 3021 0 16		*	a small sword: wielded
+E 0 3066 0 5		*	a hard leather jerkin: on the body
+E 0 3052 0 15		*	a leather bracer: on the right wrist
 M 0 3066 1 3026 1	* an alley cat (The Dark Alley)
 M 0 3026 1 3027 1	* the assassin (Entrance Hall to the Guild of Thieves)
-E 0 3349 0 16		*	A glowing long sword: wielded
+E 0 3349 0 16		*	a glowing long sword: wielded
 M 0 3060 18 3027 2	* the cityguard (Entrance Hall to the Guild of Thieves)
-E 0 3365 0 0		*	A war banner: as a light
-E 0 3364 0 1		*	A city guard signet ring: on the left finger
-E 0 3350 0 16		*	A standard issue sword: wielded
-E 0 3353 0 5		*	A standard issue vest: on the body
-E 0 3359 0 9		*	A pair of standard issue gloves: on the hands
+E 0 3365 0 0		*	a war banner: as a light
+E 0 3364 0 1		*	a city guard signet ring: on the left finger
+E 0 3350 0 16		*	a standard issue sword: wielded
+E 0 3353 0 5		*	a standard issue vest: on the body
+E 0 3359 0 9		*	a pair of standard issue gloves: on the hands
 M 0 3005 4 3027 2	* the thief (Entrance Hall to the Guild of Thieves)
-E 0 3351 0 16		*	A standard issue dagger: wielded
+E 0 3351 0 16		*	a standard issue dagger: wielded
 M 0 3044 1 3028 1	* the waiter (The Thieves Bar)
-G 0 3003 0		*	A bottle of firebreather
-G 0 3004 0		*	A bottle of local specialty
-E 0 3022 0 16		*	A long sword: wielded
+G 0 3003 0		*	a bottle of firebreather
+G 0 3004 0		*	a bottle of local specialty
+E 0 3022 0 16		*	a long sword: wielded
 M 0 3022 1 3029 1	* the guildmaster (The Secret Yard)
 M 0 3008 1 3031 1	* the pet shop boy (The Pet Shop)
 M 0 3090 1 3032 1	* the kitten (Pet Shop Store)
@@ -7942,98 +7942,98 @@ M 0 3092 1 3032 1	* the beagle (Pet Shop Store)
 M 0 3093 1 3032 1	* the rottweiler (Pet Shop Store)
 M 0 3094 1 3032 1	* the wolf (Pet Shop Store)
 M 0 3000 1 3033 1	* the wizard (The Magic Shop)
-G 0 3040 0		*	A scroll of identify
-G 0 3041 0		*	A swirling potion of return
-G 0 3039 0		*	A scroll of cancellation
-G 0 3042 0		*	A scroll of recall
-G 0 3043 0		*	A ring of protection
-G 0 3044 0		*	A wand of magic missiles
+G 0 3040 0		*	a scroll of identify
+G 0 3041 0		*	a swirling potion of return
+G 0 3039 0		*	a scroll of cancellation
+G 0 3042 0		*	a scroll of recall
+G 0 3043 0		*	a ring of protection
+G 0 3044 0		*	a wand of magic missiles
 M 0 3009 1 3034 1	* the jeweller (The Jeweller's Shop)
-G 0 3378 0		*	An opal
-G 0 3377 0		*	A diamond
-G 0 3376 0		*	A ruby
-G 0 3375 0		*	An emerald
-G 0 3374 0		*	A garnet
-G 0 3373 0		*	A small pearl
+G 0 3378 0		*	an opal
+G 0 3377 0		*	a diamond
+G 0 3376 0		*	a ruby
+G 0 3375 0		*	an emerald
+G 0 3374 0		*	a garnet
+G 0 3373 0		*	a small pearl
 M 0 3010 1 3035 1	* the leather worker (The Leather Shop)
-G 0 3060 0		*	A leather jerkin
-G 0 3061 0		*	A leather cap
-G 0 3062 0		*	A pair of leather pants
-G 0 3063 0		*	A pair of leather boots
-G 0 3064 0		*	A pair of leather gloves
-G 0 3065 0		*	A pair of leather sleeves
-G 0 3066 0		*	A hard leather jerkin
-G 0 3067 0		*	A hard leather cap
-G 0 3068 0		*	A pair of hard leather pants
-G 0 3069 0		*	A pair of hard leather boots
-G 0 3070 0		*	A pair of hard leather gloves
-G 0 3071 0		*	A pair of hard leather sleeves
-G 0 3052 0		*	A leather bracer
-G 0 3053 0		*	A leather belt
-G 0 3054 0		*	A leather girdle
+G 0 3060 0		*	a leather jerkin
+G 0 3061 0		*	a leather cap
+G 0 3062 0		*	a pair of leather pants
+G 0 3063 0		*	a pair of leather boots
+G 0 3064 0		*	a pair of leather gloves
+G 0 3065 0		*	a pair of leather sleeves
+G 0 3066 0		*	a hard leather jerkin
+G 0 3067 0		*	a hard leather cap
+G 0 3068 0		*	a pair of hard leather pants
+G 0 3069 0		*	a pair of hard leather boots
+G 0 3070 0		*	a pair of hard leather gloves
+G 0 3071 0		*	a pair of hard leather sleeves
+G 0 3052 0		*	a leather bracer
+G 0 3053 0		*	a leather belt
+G 0 3054 0		*	a leather girdle
 M 0 3068 2 3040 2	* the cityguard (Inside the West Gate of Midgaard)
-E 0 3365 0 0		*	A war banner: as a light
-E 0 3364 0 1		*	A city guard signet ring: on the left finger
-E 0 3350 0 16		*	A standard issue sword: wielded
-E 0 3353 0 5		*	A standard issue vest: on the body
-E 0 3361 0 12		*	A standard issue cape: about the shoulders
+E 0 3365 0 0		*	a war banner: as a light
+E 0 3364 0 1		*	a city guard signet ring: on the left finger
+E 0 3350 0 16		*	a standard issue sword: wielded
+E 0 3353 0 5		*	a standard issue vest: on the body
+E 0 3361 0 12		*	a standard issue cape: about the shoulders
 M 0 3068 2 3040 2	* the cityguard (Inside the West Gate of Midgaard)
-E 0 3365 0 0		*	A war banner: as a light
-E 0 3364 0 1		*	A city guard signet ring: on the left finger
-E 0 3350 0 16		*	A standard issue sword: wielded
-E 0 3353 0 5		*	A standard issue vest: on the body
-E 0 3362 0 13		*	A standard issue belt: around the waist
+E 0 3365 0 0		*	a war banner: as a light
+E 0 3364 0 1		*	a city guard signet ring: on the left finger
+E 0 3350 0 16		*	a standard issue sword: wielded
+E 0 3353 0 5		*	a standard issue vest: on the body
+E 0 3362 0 13		*	a standard issue belt: around the waist
 M 0 3067 2 3041 2	* the cityguard (Inside the East Gate of Midgaard)
-E 0 3365 0 0		*	A war banner: as a light
-E 0 3364 0 1		*	A city guard signet ring: on the left finger
-E 0 3350 0 16		*	A standard issue sword: wielded
-E 0 3353 0 5		*	A standard issue vest: on the body
-E 0 3360 0 10		*	A pair of standard issue sleeves: on the arms
+E 0 3365 0 0		*	a war banner: as a light
+E 0 3364 0 1		*	a city guard signet ring: on the left finger
+E 0 3350 0 16		*	a standard issue sword: wielded
+E 0 3353 0 5		*	a standard issue vest: on the body
+E 0 3360 0 10		*	a pair of standard issue sleeves: on the arms
 M 0 3067 2 3041 2	* the cityguard (Inside the East Gate of Midgaard)
-E 0 3365 0 0		*	A war banner: as a light
-E 0 3364 0 1		*	A city guard signet ring: on the left finger
-E 0 3350 0 16		*	A standard issue sword: wielded
-E 0 3353 0 5		*	A standard issue vest: on the body
-E 0 3354 0 11		*	A standard issue shield: as a shield
+E 0 3365 0 0		*	a war banner: as a light
+E 0 3364 0 1		*	a city guard signet ring: on the left finger
+E 0 3350 0 16		*	a standard issue sword: wielded
+E 0 3353 0 5		*	a standard issue vest: on the body
+E 0 3354 0 11		*	a standard issue shield: as a shield
 M 0 3065 2 3044 1	* the beggar (Poor Alley)
 M 0 3063 5 3045 5	* the vagabond (Alley at Levee)
-E 0 3021 0 16		*	A small sword: wielded
-E 0 3066 0 5		*	A hard leather jerkin: on the body
-E 0 3052 0 15		*	A leather bracer: on the right wrist
+E 0 3021 0 16		*	a small sword: wielded
+E 0 3066 0 5		*	a hard leather jerkin: on the body
+E 0 3052 0 15		*	a leather bracer: on the right wrist
 M 0 3046 1 3048 1	* Filthy (Grubby Inn)
-G 0 3003 0		*	A bottle of firebreather
-G 0 3004 0		*	A bottle of local specialty
-E 0 3022 0 16		*	A long sword: wielded
+G 0 3003 0		*	a bottle of firebreather
+G 0 3004 0		*	a bottle of local specialty
+E 0 3022 0 16		*	a long sword: wielded
 M 0 3163 1 3048 1	* the thief (Grubby Inn)
 M 0 3065 2 3048 1	* the beggar (Grubby Inn)
 M 0 3006 1 3049 1	* the captain (Levee)
-G 0 3050 0		*	A raft
-G 0 3051 0		*	A canoe
+G 0 3050 0		*	a raft
+G 0 3051 0		*	a canoe
 M 0 3007 1 3050 1	* the sailor (Abandoned Warehouse)
-O 0 3010 0 3054		* The donation pit (By the Temple Altar)
+O 0 3010 0 3054		* the donation pit (By the Temple Altar)
 M 0 3012 5 3054 1	* the healer (By the Temple Altar)
 M 0 3070 1 3056 1	* the ancient potion-brewer (The Fountain of Youth Apothecary)
-G 0 3041 0		*	A swirling potion of return
-G 0 3080 0		*	A potion of healing
-G 0 3081 0		*	A potion of sanctuary
-G 0 3082 0		*	A potion of divine protection
-G 0 3083 0		*	A potion of cure light wounds
-G 0 3084 0		*	A potion of cure serious wounds
-G 0 3085 0		*	A potion of cure critical wounds
-G 0 3086 0		*	A bottle of antidote
-G 0 3087 0		*	A potion of cure blindness
-G 0 3088 0		*	A vial of holy water
-G 0 3089 0		*	A potion of armor
-G 0 3090 0		*	A potion of negation
-G 0 3091 0		*	A potion of flying
-G 0 3092 0		*	A potion of true sight
+G 0 3041 0		*	a swirling potion of return
+G 0 3080 0		*	a potion of healing
+G 0 3081 0		*	a potion of sanctuary
+G 0 3082 0		*	a potion of divine protection
+G 0 3083 0		*	a potion of cure light wounds
+G 0 3084 0		*	a potion of cure serious wounds
+G 0 3085 0		*	a potion of cure critical wounds
+G 0 3086 0		*	a bottle of antidote
+G 0 3087 0		*	a potion of cure blindness
+G 0 3088 0		*	a vial of holy water
+G 0 3089 0		*	a potion of armor
+G 0 3090 0		*	a potion of negation
+G 0 3091 0		*	a potion of flying
+G 0 3092 0		*	a potion of true sight
 M 0 3169 1 3061 1	* the guildmaster (The Torture Chamber)
 M 0 3168 1 3062 1	* the guildmaster (Underground Chamber)
 M 0 3167 1 3064 1	* the guildmaster (Knight's Shrine)
 M 0 3164 1 3066 1	* the butcher (Butcher Shop)
-G 0 3380 0		*	Some beef jerky
-G 0 3381 0		*	A whole chicken
-O 0 3010 0 3070		* The donation pit (Altar)
+G 0 3380 0		*	some beef jerky
+G 0 3381 0		*	a whole chicken
+O 0 3010 0 3070		* the donation pit (Altar)
 M 0 3166 1 3070 1	* Nacya (Altar)
 S
 
