@@ -2,7 +2,7 @@
 #define _DB_H_
 
 /*
- * $Id: db.h,v 1.9 1998-06-28 04:47:14 fjoe Exp $
+ * $Id: db.h,v 1.10 1998-06-30 11:09:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -119,14 +119,11 @@ void	convert_obj(OBJ_INDEX_DATA *obj);
 /* Magic number for memory allocation */
 #define MAGIC_NUM 52571214
 
-/* func from db.c */
-extern void assign_area_vnum( int vnum );                    /* OLC */
+extern void vnum_check( int vnum );                    /* OLC */
 
-/* from db2.c */
- 
-void convert_mobile( MOB_INDEX_DATA *pMobIndex );            /* OLC ROM */
-void convert_objects( void );                                /* OLC ROM */
-void convert_object( OBJ_INDEX_DATA *pObjIndex );            /* OLC ROM */
+void convert_mobile(MOB_INDEX_DATA *pMobIndex);            /* OLC ROM */
+void convert_objects(void);                                /* OLC ROM */
+void convert_object(OBJ_INDEX_DATA *pObjIndex);            /* OLC ROM */
 
 #endif
 

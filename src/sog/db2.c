@@ -1,5 +1,5 @@
 /*
- * $Id: db2.c,v 1.10 1998-06-30 10:58:07 fjoe Exp $
+ * $Id: db2.c,v 1.11 1998-06-30 11:09:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -400,7 +400,7 @@ void load_mobiles(FILE *fp)
         mob_index_hash[iHash]   = pMobIndex;
         top_mob_index++;
         top_vnum_mob = top_vnum_mob < vnum ? vnum : top_vnum_mob;  /* OLC */
-        assign_area_vnum(vnum);                                    /* OLC */
+        vnum_check(vnum);                                    /* OLC */
         kill_table[URANGE(0, pMobIndex->level, MAX_LEVEL-1)].number++;
     }
  
@@ -622,7 +622,7 @@ void load_objects(FILE *fp)
         obj_index_hash[iHash]   = pObjIndex;
         top_obj_index++;
         top_vnum_obj = top_vnum_obj < vnum ? vnum : top_vnum_obj; /* OLC */
-        assign_area_vnum(vnum);					  /* OLC */
+        vnum_check(vnum);					  /* OLC */
     }
 }
 

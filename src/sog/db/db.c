@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.29 1998-06-30 10:58:07 fjoe Exp $
+ * $Id: db.c,v 1.30 1998-06-30 11:09:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1683,7 +1683,6 @@ void load_specials(FILE *fp)
 void fix_exits(void)
 {
 	extern const int rev_dir [];
-	char buf[MAX_STRING_LENGTH];
 	ROOM_INDEX_DATA *pRoomIndex;
 	ROOM_INDEX_DATA *to_room;
 	EXIT_DATA *pexit;

@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.37 1998-06-30 10:58:06 fjoe Exp $
+ * $Id: act_obj.c,v 1.38 1998-06-30 11:09:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -852,8 +852,7 @@ do_give(CHAR_DATA * ch, char *argument)
 	}
 	if (IS_NPC(victim) && victim->pIndexData->pShop != NULL
 	&&  !HAS_TRIGGER(victim, TRIG_GIVE)) {
-		doprintf(do_tell, victim,
-			 "%s Sorry, you'll have to sell that.", ch->name);
+		do_tell_raw(victim, ch, "Sorry, you'll have to sell that.");
 		return;
 	}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.53 1998-06-28 04:47:12 fjoe Exp $
+ * $Id: act_comm.c,v 1.54 1998-06-30 11:09:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -495,7 +495,7 @@ void do_shout(CHAR_DATA *ch, char *argument)
 }
 
 
-void do_tell_raw(CHAR_DATA *ch, char *msg, CHAR_DATA *victim)
+void do_tell_raw(CHAR_DATA *ch, CHAR_DATA *victim, char *msg)
 {
 	char buf[MAX_STRING_LENGTH];
 
@@ -563,13 +563,13 @@ void do_tell(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	do_tell_raw(ch, argument, get_char_world(ch, arg));
+	do_tell_raw(ch, get_char_world(ch, arg), argument);
 }
 
 
 void do_reply(CHAR_DATA *ch, char *argument)
 {
-	do_tell_raw(ch, argument, ch->reply);
+	do_tell_raw(ch, ch->reply, argument);
 }
 
 void do_yell(CHAR_DATA *ch, char *argument)
