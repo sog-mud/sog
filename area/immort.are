@@ -1,8 +1,8 @@
 #AREADATA
 Name Valhalla~
-Builders None~
+Builders Eros~
 VNUMs 1200 1299
-Credits ROM~
+Credits aaa~
 Security 9
 LevelRange 91 100
 End
@@ -747,8 +747,8 @@ S
 
 
 #OMPROGS
-O 1201 wear_prog wear_prog_bracer *
-O 1201 remove_prog remove_prog_bracer *
+O 1201 wear_prog wear_prog_bracer	* `riddle from patch of brume'
+O 1201 remove_prog remove_prog_bracer	* `riddle from patch of brume'
 S
 
 
