@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.24 2001-02-23 06:36:05 cs Exp $
+ * $Id: fight.c,v 1.202.2.25 2001-02-25 17:39:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1934,11 +1934,11 @@ bool check_dodge(CHAR_DATA *ch, CHAR_DATA *victim)
 
 		/* now the attack */
 		if (number_percent() < (chance / 20)) {
-			act("$n lost his postion and fall down!",
+			act("$n loses his position and falls down!",
 			    ch, NULL, victim, TO_VICT);
-			act("As $N moves you lost your position fall down!",
+			act("As $N moves you lose your position and fall down!",
 			    ch, NULL, victim, TO_CHAR);
-			act("As $N dodges $N's attack, $N lost his position "
+			act("As $N dodges $N's attack, $N loses his position "
 			    "and falls down.", ch, NULL, victim, TO_NOTVICT);
 
 			WAIT_STATE(ch, SKILL(gsn_trip)->beats);
