@@ -203,7 +203,7 @@ behind to protect what he can of the lost kingdom.  You sense no great evil,
 or good, but a sense of purpose.
 ~
 unique~
-ABCFGOTVd DFHJNVZb 0 0
+ABCFGOTd DFHJNVZb 0 0
 60 5 50d10+10000 5d5+5000 8d6+28 'wrath'
 -40 -40 -40 -4
 ADEFGHKN ABLQ CD 0
@@ -6050,7 +6050,7 @@ S
 
 #OLIMITS
 O 23019 10	* a small figurine
-O 23020 10	* a Heron marked blade
+O 23020 1	* a Heron marked blade
 O 23021 6	* a helm stylized into a golden crane
 O 23022 10	* a suit of Malkerian battle armor
 O 23023 1	* a heartstone dagger

@@ -513,6 +513,8 @@ ABCGH DHJN 1000 0
 EFK B B QXYZ
 stand stand female 30
 A ABCDEF medium unknown
+M speech 201 Irin~
+M speech 201 Ирин~
 #229
 cat~
 the marmalade cat~
@@ -1666,27 +1668,29 @@ F vul Z
 
 #OBJECTS
 #201
-Stetson helm~
-an ancient Ranger Lord's Stetson~
-A large brown hat is trying to camoflage itself on the floor.~
+Stetson helm шляпа стетсон~
+@eng an ancient Ranger Lord's Stetson@rus ~~старинная~~ ~~фетровая~~ ~~шляпа~~~
+@eng A large brown hat is trying to camoflage itself on the floor.@rus Широкополая коричневая шляпа словно пытается спрятаться на земле.~
 wood~
 armor AG AE
 12 11 11 10 0
-50 8 80000 P
+42 8 80000 P
 A
 18 2
 A
 19 4
 E
-stetson helm~
-The ancient Ranger Lord's Stetson is a wide-brimmed affair with a living oak
+stetson helm стетсон шлем шляпа~
+@eng The ancient Ranger Lord's Stetson is a wide-brimmed affair with a living oak
 leaf tacked to its front.  It seems several sizes too large for you.
+@rus Старинная ренджерская шляпа сделана из коричневого фетра и украшена
+спереди дубовым листом. Похоже, она тебе немного великовата.
 ~
-g none~
+g @eng none@rus female~
 #202
-VainGlory Morning-Star Morningstar~
-a Morning-Star named "VainGlory"~
-A large and ancient morning-star glows brightly on the floor.~
+VainGlory Morning-Star Morningstar утренняя звезда слава напрасная~
+@eng a Morning-Star named "VainGlory"@rus ~~утренняя~~ ~~звезда~~ "Напрасная Слава"~
+@eng A large and ancient morning-star glows brightly on the floor.@rus Большая и старая утренняя звезда мерцает на земле.~
 silver~
 weapon AGHM AN
 mace 12 3 'wrath' 0
@@ -1700,16 +1704,18 @@ A
 A
 19 3
 E
-vainglory Morning-Star Morningstar~
-Along the oaken haft of this holy weapon is engraved a faded psalm:
+vainglory Morning-Star Morningstar напрасная слава звезда утренняя~
+@eng Along the oaken haft of this holy weapon is engraved a faded psalm:
 " .... wilt thou hide thyself forever? shall thy wrath burn like fire?"
+@rus На рукояти ты видишь полустертые слова:
+ ... когда ты придешь, будет ли твой гнев подобен огню?
 ~
-g none~
+g @eng none@rus female~
 #203
-Relic ikon~
-a Graven Ikon of Saint Sebastian~
-Small and scarred, the wooden image of a Saint is resting here.~
-cloth~
+Relic ikon реликт икона~
+@eng a Graven Ikon of Saint Sebastian@rus ~~икона~~ Святого Себастьяна~
+@eng Small and scarred, the wooden image of a Saint is resting here.@rus Маленькая вырезанная из дерева икона какого-то святого.~
+wood~
 armor A AO
 9 9 9 0 0
 38 4 12000 G
@@ -1720,126 +1726,139 @@ A
 A
 1 2
 E
-Relic ikon~
-Staring at the beatific face of this martyr Saint, you feel a sense of
+Relic ikon реликт икона~
+@eng Staring at the beatific face of this martyr Saint, you feel a sense of
 peace come over you.  Although only a foot high, this sacred relic
 radiates an overwhelming aura of purity and holiness.
+@rus Вглядываясь в лицо Святого Великомученика Себастьяна, ты чувствуешь,
+как миролюбие переполняет тебя. Икона словно излучает ауру чистоты и
+святости.
 ~
-g none~
+g @eng none@rus female~
 #204
-Rose black flower~
-a single black Rose~
-A black long stemmed rose with single thorn lies here.~
-energy~
+Rose black flower черная роза цветок~
+@eng a single black Rose@rus ~~черная~~ ~~роза~~~
+@eng A black long stemmed rose with single thorn lies here.@rus Черная роза с одним шипом лежит тут.~
+plant~
 trash G AO
 0 0 0 0 0
 1 1 15 G
 E
-rose black flower~
-A vicious yet riveting black rose is here with a heady and sensious
+rose black flower роза черная цветок~
+@eng A vicious yet riveting black rose is here with a heady and sensious
 fragrance that assualts, yet compels your senses.
+@rus Черная роза, жестокий и красивый символ...
 ~
-g none~
+g @eng none@rus female~
 #205
-lily flower~
-a Lily of the Valley~
-A white lily is here.~
-energy~
+lily flower лилия цветок~
+@eng a Lily of the Valley@rus лилия~
+@eng A white lily is here.@rus Белая лилия приковывает внимание.~
+plant~
 trash G AO
 0 0 0 0 0
 1 1 17 G
 E
-lily flower~
-A spray of white bell-light flowers peeps shyly out at you from the
+lily flower лилия цветок~
+@eng A spray of white bell-light flowers peeps shyly out at you from the
 delicate leaves which frame it.
+@rus Белые колокольчик застенчиво выглядывает из зеленых листьев, обрамляющих
+его.
 ~
-g none~
+g @eng none@rus female~
 #206
-daisys basket flower~
-a basket of daisys~
-There is a basket of daisys here.~
-energy~
+daisys basket flower маргаритка цветок корзина~
+@eng a basket of daisys@rus ~~корзинка~~ маргариток~
+@eng There is a basket of daisys here.@rus Корзинка маргариток забыта кем-то.~
+wood~
 trash G AO
 0 0 0 0 0
 1 1 18 G
 E
-daisys basket flower~
-A simple rattaned basket holds an explosion of cheerful white daisys.
+daisys basket flower маргаритки корзинка цветы~
+@eng A simple rattaned basket holds an explosion of cheerful white daisys.
+@rus Пальмовая корзина, наполненная веселыми маргаритками.
 ~
-g none~
+g @eng none@rus female~
 #207
-Irises flower~
-English Irises~
-Many long stalks of bright blue flowers lie here.~
-energy~
+Irises flower ирисы цветы~
+@eng English Irises@rus ~~английские~~ ~~ирисы~~~
+@eng Many long stalks of bright blue flowers lie here.@rus Много синих цветов рассыпано тут.~
+plant~
 trash G AO
 0 0 0 0 0
 1 1 18 G
 E
-irises flower~
-These freshly gathered irises still bear traces of morning dew, and
+irises flower ирисы цветы~
+@eng These freshly gathered irises still bear traces of morning dew, and
 their bright blue flowers and sword-like leaves greet you cordially.
+@rus На этих свежесрезанных ирисах еще висят капельки утренней росы. Их
+ярко-синие лепестки и узкие как мечи листья словно приветствуют тебя.
 ~
-g none~
+g plural~
 #208
-Nosegay rosebuds flower~
-a nosegay of rosebuds~
-There is a bunch of pink, unopened roses here.~
-energy~
+Nosegay rosebuds flower бутоньерка розы цветы~
+@eng a nosegay of rosebuds@rus ~~бутоньерка~~ с розами~
+@eng There is a bunch of pink, unopened roses here.@rus Несколько маленьких еще не раскрывшихся роз лежат здесь.~
+plant~
 trash G AO
 0 0 0 0 0
 1 1 19 G
 E
-nosegay rose buds flower~
-A lovingly tied bouquet of pink roses in early bloom is here, held
+nosegay rose buds flower бутоньерка розы цветы~
+@eng A lovingly tied bouquet of pink roses in early bloom is here, held
 together with a red velvet bow.
+@rus Несколько маленьких едва распустившихся розочек связаны вместе ленточкой.
 ~
-g none~
+g @eng none@rus female~
 #209
-Violets box flower~
-a box of downy violets~
-A sprig of purple violets lies sleepily in a box here.~
-energy~
+Violets box flower фиалки коробочка цветы~
+@eng a box of downy violets@rus ~~коробочка~~ фиалок~
+@eng A sprig of purple violets lies sleepily in a box here.@rus Несколько фиалок лежат в бумажной коробочке.~
+paper~
 trash G AO
 0 0 0 0 0
 1 1 18 G
 E
-violets box flower~
-A strange wooden box here holds several stemless purple violets.
+violets box flower фиалки коробочка цветы~
+@eng A strange wooden box here holds several stemless purple violets.
+@rus Несколько фиалок с короткими стебельками лежат в коробочке.
 ~
-g none~
+g @eng none@rus female~
 #210
-Poppy poppies vase flower~
-a vase of snow poppies~
-A make shift vase which holds a number of delicate, white flowers is here.~
-energy~
+Poppy poppies vase flower маки ваза цветы~
+@eng a vase of snow poppies@rus ~~ваза~~ с белыми маками~
+@eng A make shift vase which holds a number of delicate, white flowers is here.@rus Белые маки стоят в вазе.~
+plant~
 trash G AO
 0 0 0 0 0
 1 1 19 G
 E
 poppy poppies vase flower~
-A vase fashioned from part of a tree trunk holds several sprays of small,
+@eng A vase fashioned from part of a tree trunk holds several sprays of small,
 scented, white, cup-like flowers here.
+@rus Белые маки стоят в вырезанной из дерева вазе.
 ~
-g none~
+g @eng none@rus female~
 #211
-Sunflower bouquet flower~
-a sunflower bouquet~
-A huge bouquet of bright orange and yellow flowers is here.~
-energy~
+Sunflower bouquet flower подсолнухи букет цветы~
+@eng a sunflower bouquet@rus ~~букет~~ подсолнухов~
+@eng A huge bouquet of bright orange and yellow flowers is here.@rus Огромный букет ярко-желтых цветов лежит здесь.~
+plant~
 trash G AO
 0 0 0 0 0
 1 1 20 G
 E
-Sunflower bouquet flower~
-Your heart instantly lifts at the bursts of vivid colour from the fiery
+Sunflower bouquet flower подсолнухи букет цветы~
+@eng Your heart instantly lifts at the bursts of vivid colour from the fiery
 red-orange centres of the flowers.
+@rus Твое настроение поднимается, когда ты смотришь на эти радостные цветы.
 ~
-g none~
+g @eng none@rus male~
 #212
-dress~
-a lavender floral dress~
-A floral dress lies here, waiting to look pretty on somebody.~
+dress платье~
+@eng a lavender floral dress@rus ~~бледно-лиловое~~ ~~платье~~~
+@eng A floral dress lies here, waiting to look pretty on somebody.@rus Бледно-лиловое платье, сделанное из лепестков, ждет своего хозяина.~
 cloth~
 armor 0 AD
 7 7 7 0 0
@@ -1849,23 +1868,24 @@ A
 A
 6 1
 E
-dress~
-It's a flouncy and frilly thing, the color of crushed lavender.
+dress платье~
+@eng It's a flouncy and frilly thing, the color of crushed lavender.
+@rus Это богато украшенное платье, несомненно, украсит любую фигуру!
 ~
 g none~
 #213
-sonnet~
-a badly-written love sonnet~
-A badly-written love sonnet lies here unrequited, full of emotion.~
-cloth~
+sonnet сонет~
+@eng a badly-written love sonnet@rus ~~неудачный~~ ~~сонет~~~
+@eng A badly-written love sonnet lies here unrequired, full of emotion.@rus Неудачный сонет выброшен, вероятно, автором или его пассией.~
+paper~
 trash 0 AO
 AC BC AC 0 0
 8 3 50 G
 A
 3 -1
 E
-sonnet~
-It's one of the Bard's...
+sonnet сонет~
+@eng It's one of the Bard's...
 
  "O me! what eyes hath Love put in my head,
   Which have no correspondence with true sight;
@@ -1883,26 +1903,46 @@ It's one of the Bard's...
   Lest eyes well-seeing thy foul faults should find."
 
 You feel like throwing it away.
+@rus "Протяни мне губенки, мой маленький птенчик,
+ Положи мне ручонку туда, куда надо,
+ Пусть твой голос звенит, как хрустальный бубенчик,
+ И глаза зеленеют, как плод авокадо.
+ 
+ Я сейчас поцелую ресниц твоих венчик,
+ Чтоб слегка погасить блеск лукавого взгляда,
+ Не крестить нам с тобою детей, человечек,
+ Ну а нехристей нам и подавно не надо.
+ 
+ Солнце, девочка, звездочка, деревце тонкое,
+ Как же мне с тобой мило, легко и свободно!
+ Как приятно зарыться с такою девчонкою
+ В то, что для зарыванья с девчонкой пригодно.
+ 
+ Поцелуй мою страшную старую харю
+ И не бойся меня, я тебя не ударю."
+ 
+Мдааа... 
 ~
-g none~
+g @eng none@rus male~
 #214
-four-leaf clover~
-a Four-Leaf Clover~
-A Four-Leaf Clover.~
-energy~
+four-leaf clover клевер четырехлистник~
+@eng a Four-Leaf Clover@rus ~~клевер~~ с четырьмя лепестками~
+@eng A Four-Leaf Clover.@rus Четырехлистный клевер.~
+plant~
 treasure G AO
 0 0 0 0 0
 1 1 50 G
 E
-four-leaf clover~
-Some like to think this rather ordinary-looking leaf a symbol of
+four-leaf clover четырехлистник клевер~
+@eng Some like to think this rather ordinary-looking leaf a symbol of
 innocent love.  Bah.
+@rus Некоторые думают, что он приносит удачу. Ха-ха.
 ~
-g none~
+g @eng none@rus male~
 #215
-Sword~
-a Crusader's Sword~
-There is a shiny steel sword with a decorated hilt here.~
+Sword меч~
+@eng a Crusader's Sword@rus ~~меч~~ крестоносца~
+@eng There is a shiny steel sword with a decorated hilt here.@rus Блестящий металлический меч с украшенной рукоятью.~
 silver~
 weapon GKL AN
 sword 10 3 'wrath' 0
@@ -1912,17 +1952,20 @@ A
 A
 19 4
 E
-sword~
-The sword you hold in your hands once belonged to a templar knight of
+sword меч~
+@eng The sword you hold in your hands once belonged to a templar knight of
 great renown and virtue as can be seen from the intricate carvings on
 the hilt of the blade. The crown, dove and cross signify great deeds
 of virtue done in honour of King, God and Church.
+@rus Как ты прочитал на рукояти, этот меч когда-то принадлежал прославленному
+рыцарю. Корона, голубь и крест говорят, что этим мечом немало врагов было
+убито во славу Короля, Господа или Церкви.
 ~
-g none~
+g @eng none@rus male~
 #216
-Cross~
-a wooden cross~
-A small wooden cross lies here.~
+Cross крест~
+@eng a wooden cross@rus ~~деревянный~~ ~~крест~~~
+@eng A small wooden cross lies here.@rus Маленький деревянный крестик лежит здесь.~
 wood~
 armor GKL AC
 9 9 9 0 0
@@ -1934,19 +1977,23 @@ A
 A
 12 15
 E
-cross~
-This small and nicely carved wooden cross has a long chain of black
+cross крест~
+@eng This small and nicely carved wooden cross has a long chain of black
 leather string attached to it so that it may be worn around the neck.
 Carved probably by one of the monks of old, you wonder whether you
 should wear it. Is it a worthless trinket, or a symbol of great
 importance ?
+@rus Этот маленький деревянный крестик висит на кожаной ленточке, так
+что его можно носить на шее. Вероятно, он очень старинный, ленточка
+сильно потерта, а дерево отполировано до блеска. Бесполезное ли это
+украшение или очень важный символ?
 ~
-g none~
+g @eng none@rus male~
 #217
-surcoat~
-a white surcoat~
-A white surcoat with an emblazoned red cross lies here.~
-leather~
+surcoat мантия~
+@eng a white surcoat@rus ~~белая~~ ~~мантия~~~
+@eng A white surcoat with an emblazoned red cross lies here.@rus Белая мантия с красным крестом лежит здесь.~
+cloth~
 armor KL AK
 9 9 10 0 0
 35 5 5000 G
@@ -1955,36 +2002,43 @@ A
 A
 19 2
 E
-surcoat~
-This is a white surcoat with a red cross in the front and back of it.
+surcoat мантия~
+@eng This is a white surcoat with a red cross in the front and back of it.
 Worn by the crusader knights of the barbarian lands, it has seen better
 days. However, the tough and fine material it was made of has allowed
 it to stand the rigors of battle and travel.
+@rus Это белая мантия с красным крестом, нарисованным спереди и сзади. Она
+совсем не новая, однако прочный материал позволил ей пережить многочис-
+ленные битвы и путешествия.
 ~
-g none~
+g @eng none@rus female~
 #218
-shirt mailed~
-a battle-worn mailed shirt~
-A shirt of tough steel mail is lying here.~
-Steel~
+shirt mailed рубашка броня бронированная~
+@eng a battle-worn mailed shirt@rus ~~видавшая~~ виды ~~бронированная~~ ~~рубашка~~~
+@eng A shirt of tough steel mail is lying here.@rus Рубашка, обшитая стальными пластинами.~
+steel~
 armor KL AD
 6 6 6 0 0
 36 9 4000 G
 A
 19 2
 E
-shirt mailed~
-This shirt of steel mail is the standard armour of the Crusader
+shirt mailed рубашка броня бронированная~
+@eng This shirt of steel mail is the standard armour of the Crusader
 Knights. Made for practical protection rather than fanfare or
 tourneys, it looks battered in a few places and has lost it's
 original luster. It can still be used though, and is much lighter
 than full plate mail.
+@rus Это типичный элемент брони крестоносцев, служащий для реальной защиты,
+а не для красивого вида. В нескольких местах видны следы ремонта или
+пришиты новые пластинки. Однако, ее еще вполне можно носить и она
+намного легче полной брони.
 ~
-g none~
+g @eng none@rus female~
 #219
-steel leggings~
-a pair of light steel leggings~
-A pair of firm looking steel leg armour lies on the ground.~
+steel leggings стальные поножи~
+@eng a pair of light steel leggings@rus ~~стальные~~ ~~поножи~~~
+@eng A pair of firm looking steel leg armour lies on the ground.@rus Комплект кольчужной брони для ног лежит на земле.~
 steel~
 armor KL AF
 5 5 5 5 0
@@ -1994,19 +2048,24 @@ A
 A
 19 2
 E
-steel leggings~
-This is a sturdy though battered pair of leggings worn by the
+steel leggings стальные поножи~
+@eng This is a sturdy though battered pair of leggings worn by the
 Crusader Knights. The closely meshed steel make it somewhat
 less protective than full steel plates, but is more comfortable
 and awards the wearer with greater movement and dexterity.
 Although it's been through much use, it's obvious that great
 care has been taken to keep it clean, shiny and whole.
+@rus Пара поножей с зарубками от ударов, от которых они спасли своего хозяина.
+Мелкоячеистая кольчуга, конечно, защищает несколько хуже, чем полная броня,
+но зато гораздо меньше стесняет движения. Владелец заботливо относился
+к ним во время своих путешествий, и эти поножи не раз защищали его от
+увечий.
 ~
-g none~
+g plural~
 #220
-sollerets boots~
-a pair of steel sollerets~
-A pair of strong steel boots rests here.~
+sollerets boots солереты ботинки~
+@eng a pair of steel sollerets@rus ~~пара~~ стальных солеретов~
+@eng A pair of strong steel boots rests here.@rus Прочные металлические ботинки забыты здесь.~
 steel~
 armor KL AG
 6 6 6 6 2
@@ -2016,82 +2075,95 @@ A
 A
 18 1
 E
-sollerets boots~
-Made for maximum protection with minimum weight, the soft fur inner
+sollerets boots солереты ботинки~
+@eng Made for maximum protection with minimum weight, the soft fur inner
 lining of the boots make it both comfortable and safe. The soles have
 been fitted with rubber and leather, reducing the clanking when walking.
+@rus Рассчитанные на максимальную защиту при минимальном весе, эти ботинки
+оплетены кольчугой снаружи и отделаны мехом внутри. Подошвы сделаны из
+грубой кожи, поэтому эти солереты почти не гремят при ходьбе.
 ~
-g none~
+g plural~
 #221
-altar~
-Altar of Sacrifice~
+altar алтарь~
+@eng Altar of Sacrifice@rus ~~алтарь~~ для кровавых жертв~
 ~
 copper~
 container 0 0
 5 AC 0 0 0
 30 100000 1000 A
 E
-altar~
-The dim torchlight of the clearing casts twisted shadows on the Altar
+altar алтарь~
+@eng The dim torchlight of the clearing casts twisted shadows on the Altar
 of Sacrifice.  It almost seems as if dwarfed shades are dancing across
 its surface.  Runnels of dried blood stain the altar to its centre,
 which has been staved in with the imprint of a monstrous cloven hoof.
+@rus Мерцающий факел, освещающий поляну, отбрасывает дрожащие тени на алтарь.
+Кажется, как будто тени совершают зловеший танец на его поверхности.
+Подтеки засохшей крови видны на всем алтаре, а в его центре нарисован
+след сатаны.
 ~
-g none~
+g @eng none@rus male~
 #222
-heart~
-the heart of a nymph~
-The heart of a nymph pumps horribly on the floor.~
+heart сердце~
+@eng the heart of a nymph@rus сердце нимфы~
+@eng The heart of a nymph pumps horribly on the floor.@rus Сердце нимфы бьется на земле.~
 flesh~
 pill ABG A
 30 'cure serious' '' '' ''
 30 5 1000 W
 E
-heart~
-It is a gruesome thing, torn from the body of a living nymph.  Evil-
+heart сердце~
+@eng It is a gruesome thing, torn from the body of a living nymph.  Evil-
 magic has kept it pulsing, and it continues to bleed painfully.
+@rus Ужасный артифакт. Сердце, изъятой из груди еще живой нимфы. Черная магия
+заставляет это сердце биться у тебя в ладонях, и из него постоянно течет
+кровь.
 ~
 g none~
 #223
-chest~
-a wooden chest~
-There is a sturdy wooden chest at the foot of the bed.~
+chest сундук~
+@eng a wooden chest@rus ~~деревянный~~ ~~сундук~~~
+@eng There is a sturdy wooden chest at the foot of the bed.@rus Массивный деревянный сундук стоит в ногах кровати.~
 wood~
 container G 0
 8 AC 0 0 0
 30 100000 1000 A
-g none~
+g @eng none@rus male~
 #224
-herbal potion~
-a herbal potion~
-A potion marked "Ranger Aid".~
+herbal potion настой трав~
+@eng a herbal potion@rus ~~настой~~ трав~
+@eng A potion marked "Ranger Aid".@rus Пузырек с надписью "Настой трав. Аптечка первой помощи, лесной комплект".~
 glass~
 potion AG A
 28 'cure poison' 'cure blindness' '' ''
 10 8 900 W
 E
-herbal potion~
-The potion is marked "Ranger Aid" and seems to have been brewed from
+herbal potion настой трав~
+@eng The potion is marked "Ranger Aid" and seems to have been brewed from
 a colorful variety of forest herbs.
+@rus На пузырьке пометка "Аптечка первой помощи, лесной комплект". Судя по
+запаху, это настой множества лесных трав.
 ~
-g none~
+g @eng none@rus male~
 #225
-mushroom~
-a blue-capped mushroom~
-A small blue-capped mushroom lies uprooted, resting on its side.~
+mushroom гриб~
+@eng a blue-capped mushroom@rus ~~гриб~~ с синей шляпкой~
+@eng A small blue-capped mushroom lies uprooted, resting on its side.@rus Гриб с синей шляпкой лежит на боку, вырванный с корнем.~
 flesh~
 pill BG A
 20 'sleep' '' '' ''
 20 3 100 W
 E
-mushroom~
-A small blue-capped mushroom lies uprooted, resting on its side.
+mushroom гриб~
+@eng A small blue-capped mushroom lies uprooted, resting on its side.
+@rus Маленький гриб с синей шляпкой вырван с корнем.
 ~
-g none~
+g @eng none@rus male~
 #226
-Yew bow~
-a yew bow~
-An elegant yew bow lies here amongst the rocks.~
+Yew bow лук тисовый~
+@eng a yew bow@rus ~~тисовый~~ ~~лук~~~
+@eng An elegant yew bow lies here amongst the rocks.@rus Элегантный тисовый лук лужит на земле.~
 yew~
 weapon GKL AN
 bow 5 9 'pierce' 0
@@ -2103,22 +2175,25 @@ A
 A
 19 3
 E
-yew bow~
-It is a long and supple weapon worked from yew by elven craft and
+yew bow лук тисовый~
+@eng It is a long and supple weapon worked from yew by elven craft and
 magic.  It is surrounded by an aura of goodness.
+@rus Надежное оружие, сделанное из тиса при помощи эльфийского умения и магии.
+Его словно окружает аура доброты.
 ~
-g none~
+g @eng none@rus male~
 #227
-sandstone altar~
-an ancient sandstone altar~
-An ancient sandstone altar sits here, weathering all time.~
+sandstone altar алтарь песчаник~
+@eng an ancient sandstone altar@rus старый ~~алтарь~~ из песчаника~
+@eng An ancient sandstone altar sits here, weathering all time.@rus Древний алтарь стоит здесь, наперекор времени.~
 stone~
 treasure I 0
 0 0 0 0 0
 10 100000 1000 A
 E
-sandstone altar~
-An ancient sandstone altar sits here, weathering all time.
+sandstone altar алтарь песчаник~
+@eng An ancient sandstone altar sits here, weathering all time.
+@rus Старый алтарь неизвестного бога выветривается, старея.
 ~
 g none~
 #228
@@ -3057,6 +3132,47 @@ This ornamental chain was strung from blackened knuckle bones of an elf.
 It is surrounded with an aura of death.
 ~
 g none~
+#282
+portal портал~
+@eng portal@rus портал~
+~
+unknown~
+portal 0 0
+0 0 0 298 0
+0 0 0 P
+g @eng none@rus male~
+#283
+portal портал~
+@eng portal@rus портал~
+~
+unknown~
+portal 0 0
+0 0 0 298 0
+0 0 0 P
+g none~
+#284
+portal портал~
+@eng portal@rus портал~
+~
+unknown~
+portal 0 0
+0 0 DE 0 0
+0 0 0 P
+g none~
+#285
+sneakers тапочки~
+@eng sneakers@rus ~~домашние~~ ~~тапочки~~~
+~
+cashmire~
+clothing GRUb AG
+0 0 0 0 0
+10 0 12000 P
+A
+20 -10
+A
+31 15
+F A 18 5 P
+g plural~
 #0
 
 #ROOMS
@@ -5860,35 +5976,44 @@ D3
 Z 0 281
 S
 #284
-South-easterly end of the forest~
-You stand at the southern most end of the Emerald Forest. The path
+@eng South-easterly end of the forest@rus У края леса~
+@eng You stand at the southern most end of the Emerald Forest. The path
 continues on north, while to the west appears to be a large clearing
 with sounds of laughter and conversation drifting in with the breeze.
 There is a sheer drop to the south, while moutains stretch on as far
 as your eyes can see. The terrain belows seems mostly rock and stone
 and has spare vegetation. You can just make out a small path heading
 roughly to the east through a cluster of bushes and trees.
+@rus Ты стоишь у юго-восточного края Изумрудного леса. Тропа уходит в лес
+на север, а с запада ветер приносит звука смеха и веселья. Отвесный
+обрыв преграждает тебе путь на юг, и насколько видит глаз, там нет
+ничего кроме гор. Внизу, в ущелье, ты видишь голую каменистую землю,
+с редкими кустиками, оживляющими этот мрачный пейзаж. Едва заметная
+тропа уходит на восток через заросли кустов.
 ~
 0 A forest
 D0
-You see a ragged trail.
+@eng You see a ragged trail.
+@rus Тропинка петляет, уходя на север.
 ~
 ~
 Z 0 267
 D1
-You see a garden.
+@eng You see a garden.
+@rus Ты видишь небольшой садик.
 ~
 ~
 Z 0 285
 D3
-A Bonanza!.
+@eng A Bonanza!.
+@rus Фестиваль шумит и веселится.
 ~
 ~
 Z 0 283
 S
 #285
-Within a garden~
-You've managed to stumble into an oriental home. A small wooden hut
+@eng Within a garden@rus В саду~
+@eng You've managed to stumble into an oriental home. A small wooden hut
 sits to the south of a garden lovingly nurtured with blooming yellow,
 white and red flower blossoms. Two stone lions sit on wooden pillars
 guarding entrance to the garden, while two jade dragons guard the door
@@ -5896,44 +6021,61 @@ to the hut proper. A small bucket pulled well stands next to a pen of
 chickens and ducks who cluck and quack away merrily. Carrots, cabbages
 and rice are grown in a medium sized plot of land to the north. There
 is a small rock pool to the east.
+@rus Ты $gn{попал} в какой-то китайский домик. Небольшая деревянная хижина
+стоит на южной окраине садика, в котором цветут ухоженные цветы
+самых разных видов. Два каменных льва охраняют вход, а два выточен-
+ных из нефрита дракона караулят вход в хижину. Небольшая корзина
+стоит рядом с загоном для кур и уток. Морковь, кабачки и рис растут
+на небольшом поле к северу. Небольшой каменный водоем расположен на
+востоке.
 ~
 0 A field
 D1
-You see a rocky pool.
+@eng You see a rocky pool.
+@rus Каменистый водоем.
 ~
 ~
 Z 0 286
 D2
-You see somebody's house.
+@eng You see somebody's house.
+@rus Домик.
 ~
 ~
 Z 0 287
 D3
-You see the southern end of the forest.
+@eng You see the southern end of the forest.
+@rus Край леса.
 ~
 ~
 Z 0 284
 S
 #286
-A peaceful rock pool~
-You've entered a very peaceful part of the mystic's home. A crystal clear
+@eng A peaceful rock pool@rus У каменного водоема~
+@eng You've entered a very peaceful part of the mystic's home. A crystal clear
 pool sits here with large smooth pebbles neatly arranged all around it's
 circumference. Peering into the pool, the unmoving mirror like surface of
 the water reflect your image. There is no way of knowing exactly how deep
 the pool is, but it must be very deep since you can't see the bottom. There
 is a small wooden bench here beckoning you to sit and rest for a while,
 and ponder things you've put aside, and think on matters you've forgotten.
+@rus Ты $gn{попал} в очень мирный и спокойный уголок. Водоем с кристально
+чистой водой заботливо выложен по краю большими гладкими камнями.
+Неподвижная вода отражает тебя не хуже самого лучшего зеркала. Этот
+водоем, наверно, очень глубок; даже приглядевшись, ты не видишь дна.
+Уютная деревянная скамейка приглашает присесть отдохнуть, подумать
+о свершенном и вспомнить о забытом.
 ~
 0 A field
 D3
-You see a garden.
+@eng You see a garden.
+@rus Садик.
 ~
 ~
 Z 0 285
 S
 #287
-Yun Fei Yang's humble abode~
-You stand in the living room of a small wooden hut. A small partioned
+@eng Yun Fei Yang's humble abode@rus Скромное жилище Юн Фей Янга~
+@eng You stand in the living room of a small wooden hut. A small partioned
 kitchen is to the south of here. The spartan furniture, tidiness and
 simple basic furniture hint at the occupier's character. There is a
 beautiful painting of a young oriental women dressed in long flowing
@@ -5941,11 +6083,19 @@ silk on one of the walls. Parchments with foreign exotic wordings in
 flowing black ink script sit on a desk. A small book catches your eye,
 it's title being "Zhuge Liang's Chinese-Theran Dictionary". Some of
 the scrolls here are written in a language you can understand.
+@rus Ты стоишь в маленькой хижине. Небольшая кухня отгорожена в южном
+углу дома. Спартанская обстановка, чистота и порядок позволяют угадать
+характер жителя этой хижины. На стене висит изображение юной восточной
+девушки, одетой в длинное шелковое платье. Манускрипты со странными
+знаками, написанными черной тушью, лежат на столе. Маленькая книжка
+привлекла твое внимание, она озаглавлена "Краткое руководство по
+переводу с китайского на человеческий. Автор: Жуг Лянг". Как ни странно,
+некоторые манускрипты написаны на понятном тебе языке.
 ~
 0 A inside
 E
-book dictionary~
-As you flip open the dictionary, it falls open to a well-read page...
+book dictionary словарь книга руководство~
+@eng As you flip open the dictionary, it falls open to a well-read page...
 
 Tian            -> Heavenly sky
 Can             -> Mystical web
@@ -5972,9 +6122,37 @@ Shen Xian       -> Immortal
 Fa Lao Sao      -> Whining
 
 -*-
+@rus Ты открыл словарь на одной из оставленных закладок:
+ 
+Tian            - Небеса
+Can             - Магическая паутина
+Shen            - Специальный
+Gong            - Сила
+Ni              - Ты
+Wo              - Я
+Gan             - Смелый, дерзкий
+Dou             - Воевать, драться
+Kan             - Видеть
+Si              - Умереть
+Gou             - Пес смердячий
+Yan Se          - Цвет
+Qi Dao          - Молить Ся
+Jiu Ming        - Помогите
+Pang Pai        - Килян
+Jing Cha        - (на человеческий не переводится)
+Ruan Dang       - (непереводимая игра слов)
+Tan Dang        - (непроизносимая игра слов)
+Shen Shi        - (неприличное ругательство)
+Zhan Shi        - (приличное ругательство)
+Yong Shi        - (личное ругательство)
+Shen Xian       - Чахлик неумиручий, иммортал, бессмертный, пес смердячий
+Fa Lao Sao      - Чахлик умиручий, мортал, смертный, Брюс Виллис
+ 
+-*-
 ~
 D0
-You see a garden.
+@eng You see a garden.
+@rus Садик.
 ~
 ~
 Z 0 285
@@ -6257,8 +6435,8 @@ boulder~
 ABZ 0 206
 S
 #298
-Inside a Cottage~
-You are inside a neat and spotlessly clean cottage. The sanded wood plank
+@eng Inside a Cottage@rus Внутри коттеджа~
+@eng You are inside a neat and spotlessly clean cottage. The sanded wood plank
 floors and timbered walls gleam in the soft light of several small oil lamps,
 polished and waxed. Small ornaments of various shapes and sizes hang on the
 walls and bright tapestries drape the rough wooden furniture and curtained
@@ -6267,17 +6445,24 @@ trestled table in the middle of the room.. Flowers from the forest, all cut
 and arranged blossom from various vases and clay pots. The whole cottage
 looks bright and cheerful even with nightfall. Obviously, someone with
 good tastes lives here!
+@rus Ты внутри чистого коттеджа. Деревянный пол и стены освещены неровным
+светом нескольких лампадок, стены расписаны причудливыми узорами,
+гобелены украшают спартанскую обстановку. Кусочки серебра и хрусталя
+разбросаны в беспорядке по столу. Лесные цветы стоят в многочисленных
+вазах и горшках. Коттедж выглядит уютным и ярким даже с наступлением
+ночи. Его владелец явно отличается хорошим вкусом.
 ~
-0 D inside
+0 DNX inside
 D1
-A Bedroom.
+@eng A Bedroom.
+@rus Дверь из красного дерева.
 ~
-rose-wood door~
+rose-wood door дверь красная~
 ABZ 0 299
 S
 #299
-Redbaron's Bedroom~
-You walk into a much smaller room filled with sculptures instead of small
+@eng Redbaron's Bedroom@rus Спальня Красного Барона~
+@eng You walk into a much smaller room filled with sculptures instead of small
 ornaments: over a hundred of them, lining the walls in holographic niches
 as well as scattered around the floor on ornate pedestals. The variety, as
 you have come to expect, is astonishing, ranging from human-style chunks of
@@ -6286,12 +6471,24 @@ than works of art. Each is illuminated by a flaming blood candle, giving a
 sharp contrast to the darkness around. You can barely make out a huge bed
 that lies in the northeast corner of this gloomy room. Several other portals
 seem to lead out of this room. You wonder where they may lead to...
+@rus Ты $gn{зашел} в маленькую комнату, обставленную скульптурами. Свыше сотни
+их стоят вдоль стен в нишах и посреди комнаты на пьедесталах. Они изображают
+самых разных животных, людей, эльфов, некоторые из них вообще ничего не
+изображают. Каждая освещена красной свечкой, выделяя ее из окружающей темноты.
+Ты едва $gn{заметил} среди этих скульптур огромную кровать, явно трехспальную.
+Несколько порталов ведут в неизвестные места...
 ~
-0 D inside
+0 DNX inside
+E
+bed кровать~
+@eng You see comfortable sneakers near it.
+@rus Ты видишь домашние тапочки рядом с ней.
+~
 D3
-You see a lovely living room.
+@eng You see a lovely living room.
+@rus Дверь красного дерева.
 ~
-rose-wood door~
+rose-wood door дверь красная~
 Z 0 298
 S
 #0
@@ -6544,6 +6741,10 @@ M 0 281 1 294 1	* a hellHound (The Witch Wood)
 M 0 236 1 295 1	* an Apparition (A Broken Jetty)
 O 0 223 0 296	* a wooden chest (A Woodkeeper's Cabin)
 P 0 224 -1 223 1	* a wooden chest: a herbal potion
+O 0 284 0 299	* portal (Redbaron's Bedroom)
+O 0 283 0 299	* portal (Redbaron's Bedroom)
+O 0 282 0 299	* portal (Redbaron's Bedroom)
+O 0 285 0 299	* sneakers (Redbaron's Bedroom)
 S
 
 #SHOPS
@@ -6556,6 +6757,17 @@ S
 O 201 6	* an ancient Ranger Lord's Stetson
 O 264 10	* the whipping tail of a manticore
 O 265 3	* the dagger of Yog-Sothoth
+O 285 1	* sneakers
 S
+
+#MOBPROGS
+#201
+mob echoat $n Irin looked at you and her eyes flashed with a bright green light.
+mob echoat $n You feel yourself transported to another place.
+mob transfer $n 298
+~
+#202
+~
+#0
 
 #$

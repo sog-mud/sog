@@ -3630,7 +3630,7 @@ The Bank
 Z 0 5381
 S
 #5499
-~
+@eng Large cavern@rus Огромная пещера~
 @rus Огромная пещера выложенная черным базальтом. Приглядевшись тыы понимаешь,
 ~
 0 0 inside
@@ -3990,6 +3990,7 @@ G 0 3373 0		*	a small pearl
 M 0 5343 1 5394 1	* the guildmaster (Necromancer's laboratory)
 M 0 5344 1 5396 1	* the guildmaster (Vampire's laboratory)
 M 0 5345 1 5397 1	* the templeman (Room of Templeman)
+M 0 36109 1 5499 1	* barbarian (Large cavern)
 S
 
 #SHOPS

@@ -1604,11 +1604,11 @@ armor AI AC
 9 9 10 8 0
 43 30 10000 P
 A
+18 2
+A
+19 2
+A
 3 2
-A
-19 3
-A
-18 3
 A
 12 45
 E
@@ -1627,9 +1627,9 @@ armor A AK
 10 9 9 9 0
 43 50 10000 P
 A
-3 1
+12 35
 A
-12 55
+3 1
 E
 shimmering blue robe~
 An inscription along the edge reads:
@@ -1659,9 +1659,9 @@ armor B AB
 8 8 8 7 0
 43 10 10000 P
 A
-1 1
+18 3
 A
-18 4
+1 1
 A
 12 35
 A
@@ -1682,6 +1682,8 @@ armor A AO
 9 9 10 6 0
 43 20 10000 P
 A
+12 30
+A
 17 -10
 A
 4 1
@@ -1689,8 +1691,6 @@ A
 3 1
 A
 2 1
-A
-12 40
 E
 ((+*+)) crest deriki~
 An inscription along the inside of the band reads:
@@ -1707,7 +1707,7 @@ armor A AM
 9 10 9 8 0
 42 20 9500 P
 A
-12 40
+12 30
 A
 19 3
 g none~
@@ -1735,7 +1735,7 @@ armor A AG
 8 9 8 7 0
 40 50 11100 P
 A
-12 35
+12 25
 A
 13 15
 A
@@ -1754,11 +1754,11 @@ armor AI AI
 9 9 9 8 0
 41 50 11000 P
 A
+12 30
+A
+19 2
+A
 4 1
-A
-19 3
-A
-12 35
 A
 6 -1
 g none~
@@ -1771,13 +1771,13 @@ armor AG AE
 6 6 6 5 0
 40 10 12400 P
 A
+12 30
+A
+13 15
+A
+19 2
+A
 5 -1
-A
-19 3
-A
-12 40
-A
-13 20
 A
 1 1
 g none~
@@ -1790,11 +1790,11 @@ armor ABI AQ
 13 12 13 11 0
 40 10 10000 P
 A
+12 30
+A
 19 2
 A
 18 2
-A
-12 50
 A
 9 -5
 g none~
@@ -1824,13 +1824,11 @@ armor GI AE
 10 10 9 8 0
 42 10 9000 P
 A
-20 -3
+12 40
 A
-12 50
+18 2
 A
-18 3
-A
-4 2
+20 -2
 g none~
 #11822
 staff guarding mithril~
@@ -1869,7 +1867,7 @@ armor IKL AD
 14 12 13 11 0
 42 100 15000 P
 A
-19 4
+19 3
 A
 1 1
 A
@@ -1884,13 +1882,13 @@ armor IKL AL
 10 10 9 8 0
 42 30 10000 P
 A
+19 3
+A
 4 1
 A
 12 25
 A
 13 25
-A
-19 4
 g none~
 #11826
 pair ((-*-)) gauntlets treniste~
@@ -1918,11 +1916,11 @@ armor IKL AF
 8 9 9 7 0
 41 50 12000 P
 A
-14 25
+14 20
 A
-12 25
+12 20
 A
-13 25
+13 20
 A
 1 1
 g none~
@@ -1935,9 +1933,9 @@ armor AIKL AE
 8 8 8 7 0
 39 30 9000 P
 A
-19 3
+13 20
 A
-13 25
+19 2
 A
 4 1
 A
@@ -1952,11 +1950,11 @@ armor IKL AM
 9 8 8 7 0
 41 20 11000 P
 A
+12 25
+A
+13 25
+A
 5 2
-A
-12 35
-A
-13 35
 A
 19 4
 g none~
@@ -2018,13 +2016,13 @@ armor IKL AI
 8 9 9 7 0
 39 40 10000 P
 A
-19 4
+13 20
+A
+19 2
 A
 4 1
 A
 2 1
-A
-13 25
 g none~
 #11834
 gleaming white sword~
@@ -2091,9 +2089,9 @@ armor JL AH
 11 10 10 9 0
 42 30 10000 P
 A
-19 6
+19 5
 A
-18 5
+18 4
 A
 6 1
 A
@@ -2125,11 +2123,11 @@ armor CEJL AQ
 8 8 9 7 0
 41 0 10000 P
 A
-12 25
+19 2
+A
+12 15
 A
 13 20
-A
-19 3
 A
 3 1
 g none~
@@ -2250,9 +2248,9 @@ armor EJL AG
 8 8 7 7 0
 42 30 11000 P
 A
-12 50
+13 20
 A
-13 25
+12 30
 A
 2 2
 g none~
@@ -2295,9 +2293,9 @@ armor BEGHM AC
 9 9 9 7 0
 42 30 5500 P
 A
-19 3
+13 20
 A
-13 25
+19 3
 A
 12 20
 A
@@ -2388,9 +2386,9 @@ weapon CHI AN
 dagger 4 11 'pierce' DH
 42 200 12500 P
 A
-19 7
+18 5
 A
-18 7
+19 5
 g none~
 #11855
 invisible flame~
@@ -2482,7 +2480,7 @@ armor CFI AC
 8 8 8 6 0
 36 20 12000 P
 A
-19 3
+19 2
 A
 13 20
 A
@@ -2499,11 +2497,11 @@ armor CFI AF
 8 8 8 7 0
 38 40 10000 P
 A
+18 2
+A
+19 2
+A
 13 20
-A
-19 3
-A
-18 3
 A
 2 2
 g none~
@@ -2625,9 +2623,9 @@ armor B AM
 8 8 8 7 0
 39 20 9900 P
 A
-13 60
+12 50
 A
-12 60
+13 50
 A
 1 2
 A
@@ -2659,9 +2657,9 @@ armor 0 AF
 8 8 8 6 0
 37 90 10000 P
 A
-19 3
+13 20
 A
-13 25
+19 3
 A
 5 1
 A
@@ -2676,11 +2674,11 @@ armor 0 AE
 7 8 7 6 0
 35 50 8000 P
 A
+13 25
+A
 18 2
 A
 19 2
-A
-13 30
 A
 5 1
 g none~
@@ -2738,9 +2736,9 @@ armor AI AB
 7 7 7 5 0
 39 10 10000 P
 A
-12 20
+13 20
 A
-13 25
+12 20
 A
 4 2
 A
@@ -2787,7 +2785,7 @@ armor AI AM
 8 8 8 7 0
 37 20 12200 P
 A
-13 50
+13 40
 A
 12 -50
 A
@@ -2885,13 +2883,13 @@ armor AI AQ
 14 14 14 13 0
 45 0 50000 P
 A
+12 75
+A
 19 5
 A
 20 -5
 A
 3 3
-A
-12 150
 g none~
 #11886
 laerkai justice shield~
@@ -6060,6 +6058,7 @@ S
 0
 
 #OLIMITS
+O 11812 10	* an engraved ((+*+)) ring
 O 11815 5	* a ((+*+)) chain belt
 O 11822 16	* a staff of guarding
 O 11823 3	* a gleaming ((-*-)) circlet
@@ -6074,11 +6073,12 @@ O 11838 2	* a pair of taloned gloves
 O 11839 2	* a  ->*<-  breast plate
 O 11842 4	* a carved  ->*<-  ring
 O 11845 4	* a dark  ->*<-  necklace
+O 11849 5	* some  ->*<-  sleeves
 O 11851 4	* demon's wings
 O 11858 5	* a -=+)> shroud
-O 11864 15	* a black -=+)> belt
+O 11864 5	* a black -=+)> belt
 O 11869 2	* a bracer of power
-O 11879 8	* an inlaid silver -(+)- bracelet
+O 11879 6	* an inlaid silver -(+)- bracelet
 O 11885 2	* laerkai fury
 O 11886 2	* laerkai justice
 O 11887 2	* laerkai pain

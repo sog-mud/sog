@@ -118,7 +118,7 @@ of the dungeon.  Cold radiating from her freezes your breath in the
 air.
 ~
 lich~
-ABFORTe DFTm -1000 0
+ABFORTVe DFTm -1000 0
 47 50 100d5+4000 100d2+1000 20d5+50 'blast'
 -50 -50 -50 -50
 K 0 0 S
@@ -135,7 +135,7 @@ mysteries of the dungeon.  Cold radiating from him freezes your
 breath in the air.
 ~
 lich~
-ABFORTe DFTm -1000 0
+ABFORTVe DFTm -1000 0
 47 50 100d5+4000 100d2+1000 20d5+50 'blast'
 -50 -50 -50 -50
 K 0 0 S
@@ -153,9 +153,9 @@ mysteries of the dungeon.  Cold radiating from him freezes your
 breath in the air.
 ~
 lich~
-ABFORTe DFTm -1000 0
+ABFORTVe DFTm -1000 0
 47 0 100d5+4000 100d2+1000 20d5+50 'blast'
-0 0 0 0
+-50 -50 -50 -50
 K 0 0 S
 stand stand male 20000
 0 0 large unknown
@@ -171,7 +171,7 @@ is set here, guarding the mysteries of the dungeon. You can feel
 a furnace cold radiating from his form.
 ~
 lich~
-ABFORTe DFTm -1000 0
+ABFORTVe DFTm -1000 0
 49 55 100d5+4500 100d2+1000 20d6+40 'drain'
 -55 -55 -55 -55
 K 0 0 S
@@ -188,7 +188,7 @@ mysteries of the dungeon. You can feel a furnace cold radiating
 from his form.
 ~
 lich~
-ABFORTe DFTm -1000 0
+ABFORTVe DFTm -1000 0
 49 55 100d5+4500 100d2+1000 20d6+40 'blast'
 -55 -55 -55 -55
 K 0 0 S
@@ -206,7 +206,7 @@ of the dungeon. You can feel a furnace cold radiating from
 his form.
 ~
 lich~
-ABFORTe DFTm -1000 0
+ABFORTVe DFTm -1000 0
 49 55 100d5+4500 100d2+1000 20d6+40 'blast'
 -55 -55 -55 -55
 K 0 0 S
@@ -223,7 +223,7 @@ guarding the mysteries of the dungeon.  The air around you
 warps with energy as you come closer.
 ~
 lich~
-ABFORTe DFTm -1000 0
+ABFORTVe DFTm -1000 0
 51 60 100d5+4800 100d2+1000 20d7+40 'blast'
 -60 -60 -60 -60
 K 0 0 S
@@ -241,7 +241,7 @@ dungeon.  The air around you warps with energy as you come
 closer.
 ~
 lich~
-ABFORTe DFTm -1000 0
+ABFORTVe DFTm -1000 0
 51 60 100d6+4800 100d2+1000 20d7+40 'blast'
 -60 -60 -60 -60
 K 0 0 S
@@ -261,10 +261,10 @@ dungeon. The air around you warps with energy as you come
 closer.
 ~
 lich~
-ABFOQRTe DFTm -1000 0
+ABFORTVe DFTZm -1000 0
 52 60 100d7+5000 100d3+1200 20d8+50 'blast'
 -65 -65 -65 -65
-AGK 0 0 0
+ACGIK 0 0 0
 stand stand male 25000
 0 0 huge unknown
 #22315
@@ -474,15 +474,16 @@ ABCTU DFHm 0 0
 60 50 100d9+6000 100d1+1000 20d5+30 'sting'
 -60 -60 -60 -60
 AGK BEHLMQ FGI 0
-stand stand male 10000
+stand stand male 0
 0 0 gargantuan unknown
 F res BEH
 F vul FI
 M give 22300 22352~
 M grall 22301 100~
+M bribe 22302 10000~
 #22328
-lord evil~
-the Evil Lord~
+lord evil tiamat dragon~
+Tiamat, Celestial Dragon of Evil~
 The essence of evil stays here.
 ~
 A huge figure in a black clothes stays in front of you. You have very strange
@@ -490,14 +491,13 @@ feeling. It is looking like a great master of evil. Suddenly you remember the
 history that your grandfather told you many years ago. You see a Lord of the 
 Darkness. He was  imprisoned in his fortress by the Gods. And now you find him.
 ~
-human~
-AFT DFTVm -1000 0
+dragon~
+AFT DFZm -1000 0
 65 50 100d5+20000 200d2+5000 20d4+50 'wrath'
-0 0 0 0
-ACDFGIKP LMQ C N
-stand stand random 100000
-0 ABCDEFH gargantuan unknown
-F for HM
+-60 -60 -60 -60
+0 LMQ 0 0
+stand stand female 100000
+0 0 gargantuan unknown
 #22399
 as~
 as~
@@ -1085,13 +1085,13 @@ armor BCGSTU AD
 30 30 30 25 0
 46 15 100000 P
 A
+27 9
+A
+29 7
+A
+28 11
+A
 20 -7
-A
-27 12
-A
-28 13
-A
-29 10
 A
 1 1
 A
@@ -1143,13 +1143,13 @@ armor BGSTY AE
 25 25 23 20 0
 46 12 100000 P
 A
+28 5
+A
+29 3
+A
 20 -5
 A
 27 7
-A
-28 8
-A
-29 5
 A
 1 1
 A
@@ -1168,11 +1168,11 @@ armor CSTY AF
 27 27 23 20 0
 46 5 100000 P
 A
+28 6
+A
 20 -5
 A
 27 2
-A
-28 9
 A
 29 5
 A
@@ -1312,6 +1312,96 @@ unknown~
 food S A
 CFG CFG 0 0 0
 45 100 2000 P
+g none~
+#22353
+key~
+the bone key~
+A small bone key lies here.~
+bone~
+key APSTUf AO
+0 0 0 0 0
+3 5 0 P
+g none~
+#22354
+key~
+the bone key~
+A small bone key lies here.~
+bone~
+key APSTUf AO
+0 0 0 0 0
+3 5 0 P
+g none~
+#22355
+key~
+the bone key~
+A small bone key lies here.~
+bone~
+trash APSTUf AO
+0 0 0 0 0
+3 5 0 P
+g none~
+#22356
+key~
+the bone key~
+A small bone key lies here.~
+bone~
+key APSTUf AO
+0 0 0 0 0
+3 5 0 P
+g none~
+#22357
+key~
+the bone key~
+A small bone key lies here.~
+bone~
+key APSTUf AO
+0 0 0 0 0
+3 5 0 P
+g none~
+#22358
+key~
+the bony key~
+A small bone key lies here.~
+bone~
+key APSTUf AO
+0 0 0 0 0
+3 5 0 P
+g none~
+#22359
+key~
+the bone key~
+A small bone key lies here.~
+bone~
+key APSTUf AO
+0 0 0 0 0
+3 5 0 P
+g none~
+#22360
+key~
+the bone key~
+A small bone key lies here.~
+bone~
+key APSTUf AO
+0 0 0 0 0
+5 5 0 P
+g none~
+#22361
+chest~
+~
+A huge wooden chest lies here.~
+wood~
+container RSY 0
+1000 ABCD 22353 100 0
+50 10000 0 P
+g none~
+#22362
+chest~
+chest~
+A huge wooden chest lies here.~
+unknown~
+container RSY 0
+1000 ABCD 22354 1000 0
+50 10000 0 P
 g none~
 #22399
 battleaxe dagger sword~
@@ -1912,10 +2002,6 @@ D3
 ~
 ~
 Z 0 22332
-D5
-~
-~
-ABCFGZ 22320 22373
 S
 #22334
 A corridor~
@@ -2669,10 +2755,6 @@ D3
 ~
 ~
 Z 0 22372
-D4
-~
-~
-ABCFGZ 0 22333
 D5
 ~
 ~
@@ -3539,7 +3621,7 @@ M 22324 spec_cast_mage	* the Balck River
 M 22325 spec_cast_mage	* the Colbran
 M 22326 spec_cast_mage	* the Gelatinous cube
 M 22327 spec_breath_fire	* Itangast, the Fire Drake
-M 22328 spec_cast_mage	* the Evil Lord
+M 22328 spec_cast_mage	* Tiamat, Celestial Dragon of Evil
 S
 
 #RESETS
@@ -3574,7 +3656,6 @@ D 0 22322 4 2	* The Hall of the Crypts: door to the up: closed and locked
 D 0 22323 0 1	* A Crypt: door to the north: closed
 D 0 22324 0 1	* A Crypt: door to the north: closed
 D 0 22325 0 1	* A Crypt: door to the north: closed
-D 0 22333 5 2	* The Guards Quarters: door to the down: closed and locked
 D 0 22356 4 2	* The entrance to the Hall of Ringwraiths: door to the up: closed and locked
 D 0 22357 2 1	* A Cage: door to the south: closed
 D 0 22358 2 1	* A Cage: door to the south: closed
@@ -3582,7 +3663,6 @@ D 0 22359 0 1	* An island in the underworld sea: door to the north: closed
 D 0 22360 0 1	* An island in the underworld sea: door to the north: closed
 D 0 22369 1 1	* A Cage: door to the east: closed
 D 0 22370 3 1	* An island in the underworld sea: door to the west: closed
-D 0 22373 4 2	* The Entrance to the Hall of Gorrors: door to the up: closed and locked
 D 0 22373 5 1	* The Entrance to the Hall of Gorrors: door to the down: closed
 D 0 22376 1 1	* An island in the underworld sea: door to the east: closed
 D 0 22377 3 1	* A Cage: door to the west: closed
@@ -3774,6 +3854,8 @@ P 0 22347 1 22335 1	* a chest: the flail named "Thunderfist"
 P 0 22348 10 22335 1	* a chest: a pair of ebony boots
 M 0 22327 1 22391 1	* Itangast, the Fire Drake (The Gate before Treasure Keep)
 E 0 22351 0 17		*	the key of treasure keep: held in the hands
+O 0 22361 0 22392	*  (The North-West Coner of Treasure Keep)
+O 0 22362 0 22394	* chest (The North Wall of Treasure Keep)
 S
 
 #OLIMITS
@@ -3806,30 +3888,26 @@ say But you should be carefull. There are no exit from there.
 mob gtransfer $n 22404
 ~
 #22301
-if people == 1
+if people == 0
+or people == 1
+or people == 2
+or people == 3
+or people == 4
+or people == 5
 , looks at you.
-else
-if people == 2
-, looks at you.
-else
-if people == 3
-, looks at you.
+break
 else 
-if people == 4
-, looks at you.
-else 
-if people == 5
-, looks at you.
-else
-if people == 6
-else
-say You want to rob this Treasure Keep so you must DIE.
 yell INTRUDERS! INTRUDERS! INTRUDERS!
-, utters some words
-mob echo Some dark figure appeares in a mist.
+, starts chanting some words.
+mob echo A dark figure appeares in a mist.
 mob mload 22328
-say Speak with my Master!
+say Now speak with my master you loosy thiefs.
 endif
+~
+#22302
+, thinks deeply.
+say I think that you can visit the Treasure Keep.
+mob transfer $n 22404
 ~
 #0
 

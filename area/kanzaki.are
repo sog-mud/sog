@@ -231,32 +231,81 @@ AHV ABCDEF medium unknown
 g @eng neutral@rus female~
 #47109
 demon~
-@eng Demon~
+@eng One-eyed and four-armed demon@rus ~~Одноглазый~~ ~~четырехрукий~~ ~~демон~~~
+@eng An unnatural wail shatters the silence as clawed hands reach out to tear you apart.
+@rus Неестественный вой пронзает тишину и когтистые лапы тянутся разорвать тебя на части.
 ~
+@eng    An enormous body with overgrown bulging muscles, covered with
+black skin, is based on two short, but strong legs, spreading two
+pairs of long and mighty arms, each ending with awful deadly ta-
+lons, capable of rending creatures much larger than you apart.
+Spherical head, pressed in the shoulders, bears several pairs of
+curved horns, varying in size; a maw that looks more like a torn
+wound, with ugly curved fangs sticking out, opens to release a
+dull, seething roar and fetid breath, and yellow eyes, filled with
+hatred, try to burn you to ashes.
+   You don't know neither who had imprisoned the demon, nor what
+for, but it seems to be done long ago... anf the prisoner is very
+angered by the centuries spent here.
+@rus    Огромное, покрытое черной кожей, из-под которой выпирают гипер-
+трофированные мышцы, тело покоится на двух коротких, но толстых и
+мощных ногах, ощетинившись двумя парами длинных и сильных рук, каж-
+дая из которых заканчивается ужасными когтями, способными, кажется,
+проткнуть тебя насквозь. Шарообразная и словно вдавленная в плечи
+голова увенчана несколькими парами кривых, разной величины, рогов;
+похожая на рваную рану пасть с торчащими из нее длинными изогнутыми
+зубами приоткрывается, выпуская наружу глухой, клокочущий рык и
+зловонное дыхание, а исполненный ненависти взгляд горящих желтым
+пламенем глаз словно пытается испепелить тебя на месте.
+   Ты не знаешь, кто и за что заточил здесь это чудовище, но, похо-
+же, было это очень давно... и демон основательно разъярен проведен-
+ными здесь тысячелетиями.
 ~
-human~
-A 0 0 0
-0 0 0d0+0 0d0+0 0d0+0 ''
-0 0 0 0
-0 0 0 0
-stand stand neutral 0
-0 0 medium unknown
-g @eng neutral@rus male~
-F for AHMV
-#47110
-dragon~
-Dragon~
-~
-~
-human~
-A 0 0 0
-0 0 0d0+0 0d0+0 0d0+0 ''
-0 0 0 0
-0 0 0 0
+unique~
+ACFT DFOQVciu -1000 0
+50 25 2d300+3200 2d250+2000 8d7+25 'claw'
+-30 -30 -30 -20
+ADEFHO ABMP HKLQ NS
 stand stand male 0
-0 0 medium unknown
+AM ABCFKU gargantuan unknown
+#47110
+dragon storn дракон синий blue~
+@eng the great Blue Dragon@rus ~~Великий~~ ~~синий~~ ~~дракон~~~
+@eng A huge dragon is lying all around you.
+@rus Огромный дракон разлегся вокруг и смотрит на тебя немигающими глазами.
+~
+@eng   The great blue dragon, also known as storm dragon is a very
+ancient being, and just as wise. One of the legends says that
+long ago, he was equal to the gods and had the power over winds,
+storms and lightnings. You can't say for sure whether it's true
+or not, but his majesty can be felt right here.. and the power
+over elements - he wouldn't need it to smite dozens of your kind
+at once. However, he doesn't seem to neither prove nor deny your
+fears about his aggresiveness. Settled at his own territory with
+comfort and moved his long body covered with blue scales to the
+sun, he watches you calmly and you can't read any thoughts behind
+this unblinking gaze.
+@rus   Великий синий дракон, также известный как Дракон бурь - существо очень
+древнее, и столь же мудрое. Одна из легенд гласит, что когда-то он был
+равен богам и ему были подвластны ветры, грозы и молнии. Насколько это
+соответствует истине - неизвестно, но величественность дракона ты можешь
+ощутить в полной мере и сам, а насчет власти над стихиями - похоже, ему
+достанет и простой физической силы, чтоб разделаться с дюжиной таких,
+как ты в случае необходимости.
+  Впрочем, он не спешит ни подтвердить, ни развеять твоих опасений по
+поводу его агрессивности. Вольготно разлегшись на своей территории и
+подставив длинное, покрытое синей чешуей тело солнцу, он безмятежно
+созерцает тебя и ты все не можешь понять, о чем он раздумывает.
+~
+dragon~
+ABGXe DFHNZt 1000 0
+50 25 2d100+2000 2d100+2000 7d8+30 'claw'
+-25 -25 -25 -15
+ADFHOZ ABJ 0 0
+stand stand male 50000
+0 AFHQUX giant unknown
 g @eng male@rus male~
-F for AHMV
+F res B
 #47111
 saki саки хозяин owner~
 @eng Saki@rus Саки~
@@ -769,6 +818,38 @@ AEFHKN APU HI 0
 stand stand male 0
 0 ABCF medium unknown
 F for H
+#47133
+man тоширо человек toshiro monk монах~
+@eng brother Toshiro@rus ~~брат~~ Тоширо~
+@eng A muscular man stands here, denying the outsiders to enter the garden.
+@rus Мускулистый человек стоит здесь, охраняя сад от посторонних.
+~
+@eng This is brother Toshiro, the best warrior among temple's
+priests and the best priest among fighters. His duty is
+to guard this sacred garden and he will not leave his post
+even faced the death itself. An amazingly beautiful and
+sharp sword in his hands is an unique artifact and was
+given to this monk rather for safety or to sign his spe-
+cial rank than to be used as a weapon. Anyway, this human
+doesn't tend to slay you or any other intruder, rather re-
+lying on their prudence and common sense.
+@rus Это брат Тоширо, лучший воин из служителей храма и лучший
+священник из всех воинов. Его миссия - охранять сад и он
+не сойдет со своего поста даже перед лицом смерти. Удиви-
+тельной красоты и остроты меч в руках монаха сам по себе
+является сокровищем и реликвией, и был дан ему скорей для
+сохранности или как символ особого положения Тоширо, чем
+в качестве оружия. Впрочем, он и не спешит пускать свой
+клинок в ход, расчитывая на твое благоразумие.
+~
+human~
+ABGTVe DJNVZ 1000 0
+43 15 2d100+1700 2d50+250 6d6+20 'slash'
+-20 -20 -20 -15
+ADEFKQ ABP CD 0
+stand stand male 20000
+0 ABCF medium unknown
+F for H
 #47151
 worshipper человек молящийся посетитель~
 @eng a worshipper@rus ~~молящийся~~ ~~человек~~~
@@ -930,6 +1011,7 @@ cloth~
 armor AKLS AK
 0 0 0 0 0
 46 0 0 P
+F A 0 0 T
 F A 0 0 b
 A
 35 100
@@ -2084,6 +2166,8 @@ clothing GIK AD
 0 0 0 0 0
 35 7 10000 P
 A
+8 2
+A
 35 15
 A
 20 -10
@@ -2197,6 +2281,211 @@ which probably is the poison.
 следы какого-то коричневатого вещества - возможно, яда.
 ~
 g @eng neutral@rus male~
+#47177
+sword ancient ivory меч древний~
+@eng an ancient ivory-hilted sword@rus ~~древний~~ ~~меч~~ с рукоятью из слоновой кости~
+@eng A wonderful sword with long hilt of ivory draws your attention.@rus Чудесный меч с длинной рукоятью из слоновой кости лежит здесь.~
+adamantite~
+weapon GIK AN
+sword 15 3 'wrath' DE
+43 18 40000 P
+A
+18 9
+A
+19 7
+A
+2 2
+S 'mastering sword' 50 A
+A
+24 -7
+A
+1 2
+E
+sword ancient ivory меч древний~
+@eng   Considerably light and extremely well balanced, this
+weapon is the best one you've ever seen. Made in tradi-
+tional oriental style, the sword has a slightly curved,
+single-edged blade and a long hilt of finest ivory with
+a silk ribbon tied to its end which flutters, following
+your hand as you slash the air. Strange carvings cover
+the hilt and small square garde, their meaning totally
+unknown to you.
+@rus Удивительно легкий и отлично сбалансированный, этот
+меч - лучший из всех, что ты когда-либо держал в ру-
+ках. Он выполнен в традиционном восточном стиле, со
+слегка выгнутым и заточенным с одного края клинком
+и длинной рукоятью из слоновой кости с привязанной
+к ней шелковой лентой, которая развевается, следуя
+за твоей рукой. Странные узоры покрывают рукоять и
+небольшую квадратную гарду и значение их тебе неиз-
+вестно.
+~
+g @eng neutral@rus male~
+#47178
+wakizashi вакизаши~
+@eng a sharp ivory-hilted wakizashi@rus ~~острый~~ вакизаши с рукоятью из слоновой кости~
+@eng A short and slightly curved sword with ivory hilt lies here.@rus Короткий и слегка изогнутый меч с костяной рукоятью лежит здесь.~
+mithril~
+weapon I AN
+sword 6 8 'slice' D
+43 7 20000 P
+S 'counter strike' 33 A
+S 'fence' 33 A
+A
+18 6
+A
+19 4
+E
+wakizashi вакизаши ivory~
+@eng This type of swords is usually wielded in off-hand and
+is used for better parrying as well as countering attacks.
+@rus Подобные мечи обычно носят во второй руке для того,
+чтобы лучше парировать вражеские атаки и иногда, поль-
+зуясь этим, наносить дополнительные удары.
+~
+g @eng neutral@rus male~
+#47179
+shield dragon scale blue щит драконий чешуя синий~
+@eng a shield of blue dragonscales@rus ~~щит~~ из синей драконьей чешуи~
+@eng A shield of blue dragonscales glitters on the ground.@rus Щит из синей драконьей чешуи поблескивает на земле.~
+dragonscale~
+armor GIQTY AJ
+20 20 20 30 0
+45 30 10000 P
+A
+13 15
+A
+32 25
+A
+20 -15
+E
+shield blue dragon scale щит синий драконьей чешуи~
+@eng This shield was made of a few blue dragon's scales.
+Even with the dragon's death, the scales has saved
+magical properties, providing you with considerable
+magical protection.
+@rus Этот щит сделан из чешуи синего дракона. Даже после
+его смерти она сохранила магические свойства, защи-
+щая того, кто оденет щит, от магии.
+~
+g @eng neutral@rus male~
+#47180
+heart сердце бури gem sapphire сапфир storms~
+@eng Heart of the Storms@rus ~~Сердце~~ Бурь~
+@eng An amazingly large sapphire gem glows brightly and hums here.@rus Невероятно большой сапфир гудит и ярко сияет здесь.~
+sapphire~
+staff ABGIKQY AO
+55 5 5 'call lightning' 0
+45 20 20000 P
+A
+23 -12
+A
+8 2
+A
+12 100
+A
+32 40
+E
+heart сердце бури gem sapphire сапфир storms~
+@eng You have never seen a gem of such size. It glows
+brightly, painting your surroundings bright blue
+and your hands tingle as you hold it. You don't
+need any special ability to feel the tremendous
+power contained within it.
+@rus Ты никогда еще не видел драгоценных камней такого
+размера. Он ярко сияет, освещая все вокруг голубым
+и твои ладони начинает пощипывать как только ты
+берешь камень в руки. Не нужно быть магом, чтобы
+почувствовать чудовищную силу, скрытую внутри него.
+~
+g neutral~
+#47181
+hammer thunder молот грома~
+@eng the Hammer of Thunder@rus ~~Молот~~ Грома~
+@eng An enormous hammer is humming with power.@rus Огромный молот гудит от заключенной в нем мощи.~
+divinity~
+weapon BGIKQa AN
+mace 7 9 'shock' FG
+45 21 0 P
+A
+12 40
+A
+8 1
+A
+20 -5
+A
+32 25
+A
+19 10
+E
+hammer thunder молот грома~
+@eng This is the great hammer of Thunder, the one Raiden
+uses to beat his drum to call the storm. You have no
+idea how it has come that you have this hammer, as
+well as how its owner will react when discovers this
+fact.
+@rus У тебя в руках - великий Молот Грома, тот самый, которым
+бог Райден бьет в свой барабан, вызывая бурю. Совершенно
+неясно, как так вышло, что этот артефакт оказался у тебя,
+как, впрочем, неясно пока, какие меры предпримет хозяин
+молота, когда обнаружит сей факт.
+~
+g none~
+#47182
+kote gauntlets mithril коте мифрильные рукавицы~
+@eng a pait of mithril gauntlets, kote@rus ~~мифрильные~~ ~~рукавицы~~, коте~
+@eng A pair of gauntlets made from some bluish metal gleam dully here.@rus Рукавицы, сделанные из синеватого металла, тускло поблескивают здесь.~
+mithril~
+armor BGI AH
+15 15 15 20 0
+43 15 30000 P
+S 'bow' 10 0
+S 'polearm' 10 0
+S 'dagger' 10 0
+S 'sword' 10 0
+A
+19 5
+A
+20 -5
+A
+1 2
+E
+kote gauntlets mithril коте мифрильные рукавицы~
+@eng Overlapping plates of mithril were connected to the
+leather base to allow enough flexibility along with
+considerable protection. Strange carvings cover the
+metal, endowing these gauntlets with a special power
+that makes them hum softly.
+@rus Мифрильные пластины прикреплены к кожаной основе,
+позволяя сочетать гибкость с достаточной защитой.
+Поверхность же металла покрыта странными знаками,
+наделяющими эти необычные рукавицы особенной ма-
+гической силой, заставляющей их тихо гудеть.
+~
+g @eng neutral@rus plural~
+#47183
+ring obsidian black кольцо обсидиан черное~
+@eng a ring of black obsidian@rus ~~обсидиановое~~ ~~кольцо~~~
+@eng A ring of obsidian lies here, absorbing the light.@rus Обсидиановое кольцо лежит здесь, поглощая свет.~
+obsidian~
+jewelry CEGHMQTVZ AB
+0 0 0 0 0
+45 15 25000 P
+F A 0 0 K
+F A 0 0 L
+A
+9 4000
+A
+34 -50
+A
+22 -10
+A
+39 50
+A
+35 50
+A
+19 10
+g neutral~
 #47217
 river water~
 @eng River@rus ~~река~~~
@@ -4274,6 +4563,8 @@ D3
 ~
 Z 0 47183
 D4
+@eng Don't even think about it! NO, you won't jump...
+@rus Нет, даже не думай! Ты не допрыгнешь...
 ~
 ~
 Z 0 47185
@@ -4296,14 +4587,16 @@ gloves over it and move further.
 руки тряпьем почище и натянув перчатки, ты двигаешься дальше.
 ~
 0 0 mountain
+E
+down вниз~
+@eng Well where is the place you made that jump from??!! *GASP*
+@rus Мда, а отсюда и не видно того места, откуда ты сюда запрыгивал.
+Ой... страшно тебе стало только сейчас...
+~
 D0
 ~
 ~
 Z 0 47186
-D5
-~
-~
-Z 0 47184
 S
 #47186
 @eng The mountain@rus На горе~
@@ -4542,7 +4835,7 @@ respect to the owner of such weapon.
 отметин внушает тебе невольное преклонение перед обладателем
 такого оружия.
 ~
-0 0 mountain
+0 X mountain
 D5
 ~
 ~
@@ -5070,6 +5363,8 @@ S
 #SPECIALS
 M 47000 spec_guard	* The statue
 M 47102 spec_poison	* a small snake
+M 47110 spec_breath_lightning	* the great Blue Dragon
+M 47133 spec_guard	* brother Toshiro
 S
 
 #RESETS
@@ -5230,10 +5525,18 @@ E 0 47176 0 16		*	a sharp sai: wielded
 E 0 47174 0 5		*	a black ninjitsu gi: on the body
 P 0 47175 2 47174 2	* a black ninjitsu gi: a razor-sharp shuriken
 P 0 47175 2 47174 2	* a black ninjitsu gi: a razor-sharp shuriken
+M 0 47133 1 47174 1	* brother Toshiro (Entrance to the sacred garden)
+E 0 47178 0 20		*	a sharp ivory-hilted wakizashi: second wielded
+E 0 47177 0 16		*	an ancient ivory-hilted sword: wielded
+E 0 47182 0 9		*	a pait of mithril gauntlets, kote: on the hands
 O 0 47127 0 47175	* {gbodhi tree{x (The sacred garden)
 O 0 47170 0 47176	* an iron bound chest (The temple treasury)
 P 0 47173 1 47170 1	* an iron bound chest: a large pile of gold and jewels
 O 0 47103 0 47188	* Mouth of a cave (The mountain)
+M 0 47110 1 47195 1	* the great Blue Dragon (At the summit)
+G 0 47179 0		*	a shield of blue dragonscales
+G 0 47180 0		*	Heart of the Storms
+G 0 47181 0		*	the Hammer of Thunder
 O 0 47104 0 47197	* Crevasse (Deeper into the cave)
 O 0 47105 0 47198	* Hole (Stone trap inside the mountain)
 M 0 47115 2 47200 1	* a servant boy (Hallway)
@@ -5320,6 +5623,13 @@ O 47173 1	* a large pile of gold and jewels
 O 47174 3	* a black ninjitsu gi
 O 47175 10	* a razor-sharp shuriken
 O 47176 4	* a sharp sai
+O 47177 1	* an ancient ivory-hilted sword
+O 47178 2	* a sharp ivory-hilted wakizashi
+O 47179 2	* a shield of blue dragonscales
+O 47180 1	* Heart of the Storms
+O 47181 1	* the Hammer of Thunder
+O 47182 2	* a pait of mithril gauntlets, kote
+O 47183 1	* a ring of black obsidian
 S
 
 #MOBPROGS

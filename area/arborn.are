@@ -100,7 +100,7 @@ The very huge barbarian, Weapon CLeaver, stands here.
 ~
 fire giant~
 A CDEFGTVlmnst 0 0
-65000 0 1d1+0 1d1+9999 1d1+0 ''
+10000 0 1d1+0 1d1+9999 1d1+0 ''
 -100 -100 -100 -100
 0 AB 0 0
 stand stand male 1000
@@ -910,7 +910,7 @@ aura аура~
 @eng {Ddark aura{x@rus {D~~темная~~ ~~аура~~{x~
 @eng {DDark Aura{x floats in the air.@rus В воздухе витает {Dтемная аура{x (aura).~
 shadow~
-armor ABCEFJSTYb AQ
+armor ABCEJSTYb AQ
 -10000 -10000 -10000 -10000 0
 0 0 1000 P
 F I 12 50000 K
