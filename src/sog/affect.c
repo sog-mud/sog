@@ -1,5 +1,5 @@
 /*
- * $Id: affect.c,v 1.28 2000-01-17 06:42:13 fjoe Exp $
+ * $Id: affect.c,v 1.29 2000-01-17 09:50:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -903,7 +903,7 @@ void show_name(CHAR_DATA *ch, BUFFER *output,
 		else
 			buf_add(output, "                           ");
 	else
-		buf_printf(output, "%-9: {c%-16s{x", aff_type, paf->type);
+		buf_printf(output, "%-9s: {c%-16s{x", aff_type, paf->type);
 }
 
 void show_duration(BUFFER *output, AFFECT_DATA *paf)
