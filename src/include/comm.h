@@ -1,5 +1,5 @@
 /*
- * $Id: comm.h,v 1.23 1998-11-21 06:00:58 fjoe Exp $
+ * $Id: comm.h,v 1.24 1998-11-25 15:17:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -44,7 +44,7 @@
 #define _COMM_H_
 
 void	show_string	(struct descriptor_data *d, char *input);
-void	close_socket	(DESCRIPTOR_DATA *dclose);
+void	close_descriptor(DESCRIPTOR_DATA *dclose);
 void	write_to_buffer	(DESCRIPTOR_DATA *d, const char *txt, unsigned int length);
 
 void	char_puts(const char *txt, CHAR_DATA *ch);

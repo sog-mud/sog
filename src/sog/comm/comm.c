@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.128 1998-11-23 06:38:10 fjoe Exp $
+ * $Id: comm.c,v 1.129 1998-11-25 15:17:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -73,16 +73,15 @@
 #endif
 
 #include <sys/time.h>
-#include <errno.h>
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <time.h>
-#include <stdarg.h>   
 #include <ctype.h>
+#include <errno.h>
 #include <fcntl.h>
 #include <locale.h>
+#include <stdarg.h>   
+#include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <time.h>
 
 #include "merc.h"
 #include "hometown.h"
@@ -96,6 +95,8 @@
 #include "olc/olc.h"
 #include "db/db.h"
 #include "db/word.h"
+#include "comm_info.h"
+#include "comm_colors.h"
 
 #include "resource.h"
 
@@ -105,51 +106,6 @@ DECLARE_DO_FUN(do_look		);
 DECLARE_DO_FUN(do_skills	);
 DECLARE_DO_FUN(do_outfit	);
 DECLARE_DO_FUN(do_unread	);
-
-/*
- * Colour stuff by Lope of Loping Through The MUD (taken from Rot)
- */
-static char CLEAR[]		= "[0m";	/* Resets Color        */
-						/* Normal Colors       */
-/* static char C_BLACK[]	= "[0;30m";	-- Not used */	
-static char C_RED[]		= "[0;31m";
-static char C_GREEN[]		= "[0;32m";
-static char C_YELLOW[]		= "[0;33m";
-static char C_BLUE[]		= "[0;34m";
-static char C_MAGENTA[]		= "[0;35m";
-static char C_CYAN[]		= "[0;36m";
-static char C_WHITE[]		= "[0;37m";
-static char C_D_GREY[]		= "[1;30m";	/* Light Colors         */
-static char C_B_RED[]		= "[1;31m";
-static char C_B_GREEN[]		= "[1;32m";
-static char C_B_YELLOW[]	= "[1;33m";
-static char C_B_BLUE[]		= "[1;34m";
-static char C_B_MAGENTA[]	= "[1;35m";
-static char C_B_CYAN[]		= "[1;36m";
-static char C_B_WHITE[]		= "[1;37m";
-/*
-static char R_BLACK[]		= "[0m[0;30m";	
-static char R_RED[]		= "[0m[0;31m";
-static char R_GREEN[]		= "[0m[0;32m";
-static char R_YELLOW[]		= "[0m[0;33m";
-static char R_BLUE[]		= "[0m[0;34m";
-static char R_MAGENTA[]		= "[0m[0;35m";
-static char R_CYAN[]		= "[0m[0;36m";
-static char R_WHITE[]		= "[0m[0;37m";
-static char R_D_GREY[]		= "[0m[1;30m";	
-static char R_B_RED[]		= "[0m[1;31m";
-static char R_B_GREEN[]		= "[0m[1;32m";
-static char R_B_YELLOW[]	= "[0m[1;33m";
-static char R_B_BLUE[]		= "[0m[1;34m";
-static char R_B_MAGENTA[]	= "[0m[1;35m";
-static char R_B_CYAN[]		= "[0m[1;36m";
-static char R_B_WHITE[]		= "[0m[1;37m";
-*/
-
-static char* reset_color = CLEAR;
-static char* curr_color = CLEAR;
-char* color(char type, CHAR_DATA *ch);
-void parse_colors(const char *i, CHAR_DATA *ch, char *o, size_t);
 
 DESCRIPTOR_DATA	*	new_descriptor	(void);
 void			free_descriptor	(DESCRIPTOR_DATA *d);
@@ -241,23 +197,25 @@ char *get_stat_alias		(CHAR_DATA* ch, int which);
 DESCRIPTOR_DATA *   descriptor_list;	/* All open descriptors		*/
 DESCRIPTOR_DATA *   d_next;		/* Next descriptor in loop	*/
 FILE *		    fpReserve;		/* Reserved file handle		*/
-bool		    god;		/* All new chars are gods!	*/
 bool		    merc_down;		/* Shutdown			*/
 bool		    wizlock;		/* Game is wizlocked		*/
 bool		    newlock;		/* Game is newlocked		*/
-char		    str_boot_time[MAX_INPUT_LENGTH];
+char		    str_boot_time[26];
 time_t		    current_time;	/* time of this pulse */	
 int                 iNumPlayers = 0; /* The number of players on */
 
-/*
- * OS-dependent local functions.
- */
-void	game_loop_unix		(int control);
-int		init_socket			(int port);
+const char *		info_trusted = "127.0.0.1";
+
+extern int		max_on;
+
+void	game_loop_unix		(int control, int infofd);
+int	init_socket		(int port);
+void	process_who		(int port);
 void	init_descriptor		(int control);
-bool	read_from_descriptor(DESCRIPTOR_DATA *d);
+void	close_descriptor	(DESCRIPTOR_DATA *d);
+bool	read_from_descriptor	(DESCRIPTOR_DATA *d);
 bool	write_to_descriptor	(int desc, char *txt, uint length);
-void	resolv_done			(void);
+void	resolv_done		(void);
 
 /*
  * Other local functions (OS-independent).
@@ -266,7 +224,7 @@ bool	check_parse_name	(const char *name);
 bool	check_reconnect		(DESCRIPTOR_DATA *d, const char *name,
 				 bool fConn);
 bool	check_playing		(DESCRIPTOR_DATA *d, const char *name);
-int		main			(int argc, char **argv);
+int	main			(int argc, char **argv);
 void	nanny			(DESCRIPTOR_DATA *d, const char *argument);
 bool	process_output		(DESCRIPTOR_DATA *d, bool fPrompt);
 void	read_from_buffer	(DESCRIPTOR_DATA *d);
@@ -278,7 +236,14 @@ int main(int argc, char **argv)
 {
 	struct timeval now_time;
 	int port;
+	int infofd;
 	int control;
+
+#if defined WIN32
+	WORD	wVersionRequested = MAKEWORD(1, 1);
+	WSADATA	wsaData;
+	int err;
+#endif
 
 	/*
 	 * Memory debugging if needed.
@@ -294,7 +259,7 @@ int main(int argc, char **argv)
 	 */
 	gettimeofday(&now_time, NULL);
 	current_time 	= (time_t) now_time.tv_sec;
-	strnzcpy(str_boot_time, ctime(&current_time), sizeof(str_boot_time));
+	strnzcpy(str_boot_time, strtime(current_time), sizeof(str_boot_time));
 
 	/*
 	 * Reserve one channel for our use.
@@ -310,7 +275,9 @@ int main(int argc, char **argv)
 	port = 6001;
 	if (argc > 1) {
 		if (!is_number(argv[1])) {
-			fprintf(stderr, "Usage: %s [port #]\n", argv[0]);
+			fprintf(stderr,
+				"Usage: %s [port #]\n",
+				get_filename(argv[0]));
 			exit(1);
 		}
 		else if ((port = atoi(argv[1])) <= 1024) {
@@ -324,24 +291,34 @@ int main(int argc, char **argv)
 	 */
 	
 #if defined (WIN32)
-	srand( (unsigned)time( NULL ) );
+	srand((unsigned) time(NULL));
+	err = WSAStartup(wVersionRequested, &wsaData); 
+	if (err) {
+		perror("WINSOCK.DLL");
+		exit(1);
+	}
 #else
 	resolver_init();
 #endif
 
 	control = init_socket(port);
+	infofd	= init_socket(port+1);
+
 	boot_db();
 	log_printf("ready to rock on port %d.", port);
-	game_loop_unix(control);
+	log_printf("who service started on port %d.", port+1);
+	game_loop_unix(control, infofd);
 
 #if defined (WIN32)
-    closesocket (control);
-    WSACleanup ();
+	closesocket(control);
+	closesocket(infofd);
+	WSACleanup();
 #else
-	close (control);
+	close(control);
+	close(infofd);
 #endif
 
-#if ! defined (WIN32)
+#if !defined (WIN32)
 	resolver_done();
 #endif
 	log_area_popularity();
@@ -358,30 +335,26 @@ DESCRIPTOR_DATA *descriptor_free;
 
 DESCRIPTOR_DATA *new_descriptor(void)
 {
-    static DESCRIPTOR_DATA d_zero;
-    DESCRIPTOR_DATA *d;
+	DESCRIPTOR_DATA *d;
 
-    if (descriptor_free == NULL)
-	d = alloc_perm(sizeof(*d));
-    else
-    {
-	d = descriptor_free;
-	descriptor_free = descriptor_free->next;
-    }
-	
-    *d = d_zero;
-    VALIDATE(d);
-    return d;
+	if (descriptor_free == NULL)
+		d = malloc(sizeof(*d));
+	else {
+		d = descriptor_free;
+		descriptor_free = descriptor_free->next;
+	}
+
+	memset(d, 0, sizeof(*d));
+	return d;
 }
 
 void free_descriptor(DESCRIPTOR_DATA *d)
 {
-	if (!IS_VALID(d))
+	if (!d)
 		return;
 
 	free_string(d->host);
 	free(d->outbuf);
-	INVALIDATE(d);
 	d->next = descriptor_free;
 	descriptor_free = d;
 }
@@ -394,39 +367,22 @@ int init_socket(int port)
 	int x = 1;
 	int fd;
 
-#if !defined (WIN32)
-
+#if defined (WIN32)
+	if ((fd = socket(PF_INET, SOCK_STREAM, 0)) < 0) {
+#else
 	if ((fd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
-		perror("Init_socket: socket");
+#endif
+		perror("init_socket: socket");
 		exit(1);
 	}
-
-#else
-
-    WORD	wVersionRequested = MAKEWORD( 1, 1 );
-    WSADATA wsaData;
-    int err = WSAStartup( wVersionRequested, &wsaData ); 
-    if ( err != 0 )
-    {
-	perror( "No useable WINSOCK.DLL" );
-	exit( 1 );
-    }
-    
-	if ( ( fd = socket( PF_INET, SOCK_STREAM, 0 ) ) < 0 )
-    {
-        perror( "Init_socket: socket" );
-		exit( 1 );
-    }
-#endif
 
 	if (setsockopt(fd, SOL_SOCKET, SO_REUSEADDR,
 		       (char *) &x, sizeof(x)) < 0) {
 		perror("Init_socket: SO_REUSEADDR");
-
 #if defined (WIN32)
-		closesocket( fd );
+		closesocket(fd);
 #else
-		close( fd );
+		close(fd);
 #endif
 		exit(1);
 	}
@@ -435,40 +391,40 @@ int init_socket(int port)
 	ld.l_linger = 1000;
 
 	if (setsockopt(fd, SOL_SOCKET, SO_LINGER,
-	    (char *) &ld, sizeof(ld)) < 0) {
-		perror("Init_socket: SO_DONTLINGER");
+		       (char *) &ld, sizeof(ld)) < 0) {
+		perror("init_socket: SO_LINGER");
 #if defined (WIN32)
-		closesocket( fd );
+		closesocket(fd);
 #else
-		close( fd );
+		close(fd);
 #endif
 		exit(1);
 	}
 
 	sa		= sa_zero;
 #if !defined (WIN32)
-    sa.sin_family   = AF_INET;
+	sa.sin_family   = AF_INET;
 #else
-    sa.sin_family   = PF_INET;
+	sa.sin_family   = PF_INET;
 #endif
 	sa.sin_port	= htons(port);
 
 	if (bind(fd, (struct sockaddr *) &sa, sizeof(sa)) < 0) {
-		perror("Init socket: bind");
+		perror("init_socket: bind");
 #if defined (WIN32)
-		closesocket( fd );
+		closesocket(fd);
 #else
-		close( fd );
+		close(fd);
 #endif
 		exit(1);
 	}
 
 	if (listen(fd, 3) < 0) {
-		perror("Init socket: listen");
+		perror("init_socket: listen");
 #if defined (WIN32)
-		closesocket( fd );
+		closesocket(fd);
 #else
-		close( fd );
+		close(fd);
 #endif
 		exit(1);
 	}
@@ -476,8 +432,7 @@ int init_socket(int port)
 	return fd;
 }
 
-
-void game_loop_unix(int control)
+void game_loop_unix(int control, int infofd)
 {
 	static struct timeval null_time;
 	struct timeval last_time;
@@ -491,6 +446,8 @@ void game_loop_unix(int control)
 		fd_set out_set;
 		fd_set exc_set;
 		DESCRIPTOR_DATA *d;
+		INFO_DESC *id;
+		INFO_DESC *id_next;
 		int maxdesc;
 
 #if defined(MALLOC_DEBUG)
@@ -508,6 +465,9 @@ void game_loop_unix(int control)
 		FD_SET(control, &in_set);
 		maxdesc	= control;
 
+		FD_SET(infofd, &in_set);
+		maxdesc = UMAX(maxdesc, infofd);
+
 #if !defined (WIN32)
 		FD_SET(fileno(rfin), &in_set);
 		maxdesc = UMAX(maxdesc, fileno(rfin));
@@ -520,9 +480,14 @@ void game_loop_unix(int control)
 			FD_SET(d->descriptor, &exc_set);
 		}
 
+		for (id = id_list; id; id = id->next) {
+			maxdesc = UMAX(maxdesc, id->fd);
+			FD_SET(id->fd, &in_set);
+		}
+
 		if (select(maxdesc+1,
 			   &in_set, &out_set, &exc_set, &null_time) < 0) {
-			perror("Game_loop: select: poll");
+			perror("game_loop: select");
 			exit(1);
 		}
 
@@ -538,9 +503,22 @@ void game_loop_unix(int control)
 			init_descriptor(control);
 
 		/*
+		 * webwho handler
+		 */
+		if (FD_ISSET(infofd, &in_set))
+			info_newconn(infofd);
+
+		for (id = id_list; id; id = id_next) {
+			id_next = id->next;
+
+			if (FD_ISSET(id->fd, &in_set))
+				info_process_cmd(id);
+		}
+
+		/*
 		 * Kick out the freaky folks.
 		 */
-		for (d = descriptor_list; d != NULL; d = d_next) {
+		for (d = descriptor_list; d; d = d_next) {
 			d_next = d->next;   
 			if (FD_ISSET(d->descriptor, &exc_set)) {
 				FD_CLR(d->descriptor, &in_set );
@@ -548,7 +526,7 @@ void game_loop_unix(int control)
 				if (d->character && d->character->level > 1)
 					save_char_obj(d->character, FALSE);
 				d->outtop = 0;
-				close_socket(d);
+				close_descriptor(d);
 			}
 		}
 
@@ -570,7 +548,7 @@ void game_loop_unix(int control)
 						save_char_obj(d->character,
 							      FALSE);
 					d->outtop = 0;
-					close_socket(d);
+					close_descriptor(d);
 					continue;
 				}
 			}
@@ -622,7 +600,7 @@ void game_loop_unix(int control)
 					&&  d->character->level > 1)
 						save_char_obj(d->character, FALSE);
 					d->outtop = 0;
-					close_socket(d);
+					close_descriptor(d);
 				}
 			}
 		}
@@ -710,6 +688,10 @@ static void cp_print(DESCRIPTOR_DATA* d)
 
 extern const HELP_DATA *help_greeting;
 
+#if !defined(FNDELAY)
+#define FNDELAY O_NDELAY
+#endif
+
 void init_descriptor(int control)
 {
 	DESCRIPTOR_DATA *dnew;
@@ -721,20 +703,17 @@ void init_descriptor(int control)
 	size = sizeof(sock);
 	getsockname(control, (struct sockaddr *) &sock, &size);
 	if ((desc = accept(control, (struct sockaddr *) &sock, &size)) < 0) {
-		perror("New_descriptor: accept");
+		perror("new_descriptor: accept");
 		return;
 	}
-
-#if !defined(FNDELAY)
-#define FNDELAY O_NDELAY
-#endif
 
 #if !defined (WIN32)
-	if (fcntl(desc, F_SETFL, FNDELAY) == -1) {
-		perror("New_descriptor: fcntl: FNDELAY");
+	if (fcntl(desc, F_SETFL, FNDELAY) < 0) {
+		perror("new_descriptor: fcntl: FNDELAY");
 		return;
 	}
 #endif
+
 	/*
 	 * Cons a new descriptor.
 	 */
@@ -759,17 +738,16 @@ void init_descriptor(int control)
 		return;
 	}
 #if defined (WIN32)
-    else
-    {
-	/* Copying from ROM 2.4b6 */
-	int addr;
-	struct hostent *from;
+	else {
+		/* Copying from ROM 2.4b6 */
+		int addr;
+		struct hostent *from;
 
-	addr = ntohl( sock.sin_addr.s_addr );
-	from = gethostbyaddr( (char *) &sock.sin_addr,
-	    sizeof(sock.sin_addr), AF_INET );
-	dnew->host = str_dup( from ? from->h_name : "unknown" );
-    }
+		addr = ntohl(sock.sin_addr.s_addr);
+		from = gethostbyaddr((char *) &sock.sin_addr,
+				     sizeof(sock.sin_addr), AF_INET);
+		dnew->host = str_dup(from ? from->h_name : "unknown");
+	}
 #endif
 
 	log_printf("sock.sinaddr: %s", inet_ntoa(sock.sin_addr));
@@ -785,7 +763,7 @@ void init_descriptor(int control)
 	cp_print(dnew);
 }
 
-void close_socket(DESCRIPTOR_DATA *dclose)
+void close_descriptor(DESCRIPTOR_DATA *dclose)
 {
 	CHAR_DATA *ch;
 	DESCRIPTOR_DATA *d;
@@ -830,9 +808,9 @@ void close_socket(DESCRIPTOR_DATA *dclose)
 	}
 
 #if !defined( WIN32 )
-    close( dclose->descriptor );
+	close(dclose->descriptor);
 #else
-    closesocket( dclose->descriptor );
+	closesocket(dclose->descriptor);
 #endif
 	free_descriptor(dclose);
 }
@@ -953,8 +931,6 @@ bool read_from_descriptor(DESCRIPTOR_DATA *d)
 	return TRUE;
 }
 
-
-
 /*
  * Transfer one line from input buffer to input line.
  */
@@ -1025,7 +1001,7 @@ void read_from_buffer(DESCRIPTOR_DATA *d)
 
 					write_to_descriptor(d->descriptor, "\n\r*** PUT A LID ON IT!!! ***\n\r", 0);
 /*		strcpy(d->incomm, "quit");	*/
-					close_socket(d);	
+					close_descriptor(d);	
 					return;
 				}
 			}
@@ -1433,7 +1409,7 @@ void write_to_buffer(DESCRIPTOR_DATA *d, const char *txt, uint length)
 
 		if (d->outsize >= 32000) {
 			bug("Buffer overflow. Closing.\n\r",0);
-			close_socket(d);
+			close_descriptor(d);
 			return;
  		}
 		outbuf = malloc(2 * d->outsize);
@@ -1461,8 +1437,6 @@ void write_to_buffer(DESCRIPTOR_DATA *d, const char *txt, uint length)
 	return;
 }
 
-
-
 /*
  * Lowest level output function.
  * Write a block of text to the file descriptor.
@@ -1481,19 +1455,16 @@ bool write_to_descriptor(int desc, char *txt, uint length)
 	for (iStart = 0; iStart < length; iStart += nWrite) {
 		nBlock = UMIN(length - iStart, 4096);
 #if !defined( WIN32 )
-	if ( ( nWrite = write( desc, txt + iStart, nBlock ) ) < 0 )
+		if ((nWrite = write(desc, txt + iStart, nBlock)) < 0) {
 #else
-	if ( ( nWrite = send( desc, txt + iStart, nBlock , 0) ) < 0 )
+		if ((nWrite = send(desc, txt + iStart, nBlock, 0)) < 0) {
 #endif
-		{
-			perror("Write_to_descriptor");
+			perror("write_to_descriptor");
 			return FALSE;
 		}
 	} 
 	return TRUE;
 }
-
-
 
 int search_sockets(DESCRIPTOR_DATA *inp)
 {
@@ -1549,14 +1520,14 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	switch (d->connected) {
 	default:
 		bug("Nanny: bad d->connected %d.", d->connected);
-		close_socket(d);
+		close_descriptor(d);
 		return;
 
 	case CON_GET_CODEPAGE: {
 		int num;
 
 		if (argument[0] == '\0') {
-			close_socket(d);
+			close_descriptor(d);
 			return;
 		}
 
@@ -1576,7 +1547,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 	case CON_GET_NAME:
 		if (argument[0] == '\0') {
-			close_socket(d);
+			close_descriptor(d);
 			return;
 		}
 
@@ -1623,14 +1594,14 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	 */
 	if (check_ban(d->host,BAN_ALL)) {
 		write_to_buffer(d, "Your site has been banned from this mud.\n\r", 0);
-		close_socket(d);
+		close_descriptor(d);
 		return;
 	}
 
 	if (!IS_IMMORTAL(ch)) {
 		if (check_ban(d->host,BAN_PLAYER)) {
 			write_to_buffer(d,"Your site has been banned for players.\n\r",0);
-			close_socket(d);
+			close_descriptor(d);
 			return;
 	        }
 
@@ -1638,7 +1609,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 #ifdef NO_PLAYING_TWICE
 		if(search_sockets(d)) {
 			write_to_buffer(d, "Playing twice is restricted...\n\r", 0);
-			close_socket(d);
+			close_descriptor(d);
 			return;
 		} 
 #endif
@@ -1646,7 +1617,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	     sprintf(buf, 
 	   "\n\rThere are currently %i players mudding out of a maximum of %i.\n\rPlease try again soon.\n\r",iNumPlayers - 1, MAX_OLDIES);
 	     write_to_buffer(d, buf, 0);
-	     close_socket(d);
+	     close_descriptor(d);
 	     return;
 	  }
 	  if (iNumPlayers > MAX_NEWBIES && IS_SET(ch->act, PLR_NEW))  {
@@ -1654,7 +1625,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	   "\n\rThere are currently %i players mudding. New player creation is \n\rlimited to when there are less than %i players. Please try again soon.\n\r",
 		     iNumPlayers - 1, MAX_NEWBIES);
 	     write_to_buffer(d, buf, 0);
-	     close_socket(d);
+	     close_descriptor(d);
 	     return;
 	  }
 	   }
@@ -1663,7 +1634,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	{
 	    log_printf("Denying access to %s@%s.", argument, d->host);
 	    write_to_buffer(d, "You are denied access.\n\r", 0);
-	    close_socket(d);
+	    close_descriptor(d);
 	    return;
 	}
 
@@ -1671,7 +1642,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			REMOVE_BIT(ch->act, PLR_NEW);
 		else if (wizlock && !IS_HERO(ch)) {
 			write_to_buffer(d, "The game is wizlocked.\n\r", 0);
-			close_socket(d);
+			close_descriptor(d);
 			return;
 		}
 
@@ -1686,13 +1657,13 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			/* New player */
  			if (newlock) {
 				write_to_buffer(d, "The game is newlocked.\n\r", 0);
-				close_socket(d);
+				close_descriptor(d);
 				return;
 			}
 
 			if (check_ban(d->host, BAN_NEWBIES)) {
 				write_to_buffer(d, "New players are not allowed from your site.\n\r", 0);
-				close_socket(d);
+				close_descriptor(d);
 				return;
 			}
  	    
@@ -1714,7 +1685,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 				if (str_cmp(ch->name,d_old->character->name))
 					continue;
 
-				close_socket(d_old);
+				close_descriptor(d_old);
 			}
 
 			if (check_reconnect(d, ch->name, TRUE))
@@ -2152,7 +2123,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	    write_to_buffer(d, "Wrong password.\n\r", 0);
 	    log_printf("Wrong password by %s@%s", ch->name, d->host);
 	    if (ch->endur == 2)
-	    	close_socket(d);
+	    	close_descriptor(d);
 	    else {
 	    	write_to_descriptor(d->descriptor, (char *) echo_off_str, 0);
  	    	write_to_buffer(d, "Password: ", 0);
@@ -2194,7 +2165,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	  write_to_buffer(d,
 			  "Please login again to create a new character.\n\r",
 			  0);
-	  close_socket(d);
+	  close_descriptor(d);
 	  return;
 	}
 	  
@@ -2247,7 +2218,6 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		d->connected	= CON_PLAYING;
 		{
 			int count;
-			extern int max_on;
 			FILE *max_on_file;
 			int tmp = 0;
 			count = 0;
@@ -2587,25 +2557,6 @@ void char_printf(CHAR_DATA *ch, const char *format, ...)
 }
 
 /*
- * Parse color symbols. len MUST BE > 1
- */
-void parse_colors(const char *i, CHAR_DATA *ch, char *o, size_t len)
-{
-	char *p;
-
-	reset_color = curr_color = CLEAR;
-	for (p = o; *i && p - o < len - 1; i++) {
-		if (*i == '{' && *(i+1)) {
-			strnzcpy(p, color(*++i, ch), len - 1 - (p - o));
-			p = strchr(p, '\0');
-			continue;
-		}
-		*p++ = *i;
-	}
-	*p = '\0';
-}
-
-/*
  * Write to one char.
  */
 void send_to_char(const char *txt, CHAR_DATA *ch)
@@ -2615,7 +2566,7 @@ void send_to_char(const char *txt, CHAR_DATA *ch)
 	if (txt == NULL || ch->desc == NULL)
 		return;
 
-	parse_colors(txt, ch, buf, sizeof(buf));
+	parse_colors(txt, buf, sizeof(buf), OUTPUT_FORMAT(ch));
 	write_to_buffer(ch->desc, buf, 0);
 }
 
@@ -2945,7 +2896,7 @@ void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 	s = (char*) cstrfirst(buf);
 	*s = UPPER(*s);
 
-	parse_colors(buf, to, tmp, sizeof(tmp)); 
+	parse_colors(buf, tmp, sizeof(tmp), OUTPUT_FORMAT(to));
 
 	if (!IS_NPC(to)) {
 		if ((IS_SET(to->comm, COMM_AFK) || to->desc == NULL)
@@ -3073,94 +3024,6 @@ void act_printf(CHAR_DATA *ch, const void *arg1,
 		act_raw(ch, to, arg1, arg2, buf, flags);
 	}
 	va_end(ap);
-}
-
-char* color(char type, CHAR_DATA *ch)
-{
-	char *color;
-
-	switch (type) {
-	case '*':
-		return "\a";
-	case '{':
-		return "{";
-	}
-
-	if (IS_NPC(ch) || !IS_SET(ch->act, PLR_COLOR))
-		return str_empty;
-
-	switch (type) {
-	case 'b':
-	case '4':
-		color = C_BLUE;
-		break;
-	case 'c':
-	case '6':
-		color = C_CYAN;
-		break;
-	case 'g':
-	case '2':
-		color = C_GREEN;
-		break;
-	case 'm':
-	case '5':
-		color = C_MAGENTA;
-		break;
-	case 'r':
-	case '1':
-		color = C_RED;
-		break;
-	case 'w':
-	case '7':
-		color = C_WHITE;
-		break;
-	case 'y':
-	case '3':
-		color = C_YELLOW;
-		break;
-	case 'B':
-	case '$':
-		color = C_B_BLUE;
-		break;
-	case 'C':
-	case '^':
-		color = C_B_CYAN;
-		break;
-	case 'G':
-	case '@':
-		color = C_B_GREEN;
-		break;
-	case 'M':
-	case '%':
-		color = C_B_MAGENTA;
-		break;
-	case 'R':
-	case '!':
-		color = C_B_RED;
-		break;
-	case 'W':
-	case '&':
-		color = C_B_WHITE;
-		break;
-	case 'Y':
-	case '#':
-		color = C_B_YELLOW;
-		break;
-	case 'D':
-	case '8':
-		color = C_D_GREY;
-		break;
-	case 'x':
-		color = CLEAR;
-		break;
-	case 'z':
-		return curr_color = reset_color;
-	default:
-		return str_empty;
-	}
-
-	reset_color = curr_color;
-	return curr_color = color;
 }
 
 /*
