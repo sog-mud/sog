@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.c,v 1.31 1999-02-24 17:55:24 fjoe Exp $
+ * $Id: string_edit.c,v 1.32 1999-03-10 11:06:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -22,6 +22,7 @@
 #include <time.h>
 
 #include "merc.h"
+#include "olc/olc.h"
 
 DECLARE_DO_FUN(do_replay);
 
@@ -69,6 +70,27 @@ const char * string_replace(const char * orig, char * old, char * new)
 
 	free_string(orig);
 	return str_dup(xbuf);
+}
+
+void string_add_exit(CHAR_DATA *ch, bool save)
+{
+	if (!save) {
+		char_puts("No changes saved.\n", ch);
+		free_string(*ch->desc->pString);
+		*ch->desc->pString = ch->desc->backup;
+	}
+	else {
+		olced_t *olced;
+
+		free_string(ch->desc->backup);
+		if ((olced = OLCED(ch)))
+			olced->cmd_table[FUN_TOUCH].olc_fun(ch, str_empty,
+					olced->cmd_table+FUN_TOUCH);
+	}
+
+	ch->desc->pString = NULL;
+	if (IS_SET(ch->comm, COMM_QUIET_EDITOR))
+		do_replay(ch, str_empty);
 }
 
 /*****************************************************************************
@@ -157,21 +179,13 @@ void string_add(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!str_cmp(arg1+1, "q!")) {
-		char_puts("No changes saved.\n", ch);
-		free_string(*ch->desc->pString);
-		*ch->desc->pString = ch->desc->backup;
-		ch->desc->pString = NULL;
-		if (IS_SET(ch->comm, COMM_QUIET_EDITOR))
-			do_replay(ch, str_empty);
+		string_add_exit(ch, FALSE);
 		return;
 	}
 
 	if (!str_cmp(arg1+1, "x")
 	||  !str_cmp(arg1+1, "wq")) {
-		free_string(ch->desc->backup);
-        	ch->desc->pString = NULL;
-		if (IS_SET(ch->comm, COMM_QUIET_EDITOR))
-			do_replay(ch, str_empty);
+		string_add_exit(ch, TRUE);
         	return;
 	}
 
@@ -197,10 +211,7 @@ void string_add(CHAR_DATA *ch, const char *argument)
     }
 
 	if (*argument == '~' || *argument == '@') {
-		free_string(ch->desc->backup);
-		ch->desc->pString = NULL;
-		if (IS_SET(ch->comm, COMM_QUIET_EDITOR))
-			do_replay(ch, str_empty);
+		string_add_exit(ch, TRUE);
 		return;
 	}
 

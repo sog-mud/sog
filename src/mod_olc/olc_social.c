@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_social.c,v 1.5 1999-03-08 13:56:08 fjoe Exp $
+ * $Id: olc_social.c,v 1.6 1999-03-10 11:06:24 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -37,7 +37,6 @@
 
 DECLARE_OLC_FUN(soced_create		);
 DECLARE_OLC_FUN(soced_edit		);
-DECLARE_OLC_FUN(soced_touch		);
 DECLARE_OLC_FUN(soced_show		);
 DECLARE_OLC_FUN(soced_list		);
 
@@ -58,7 +57,7 @@ olc_cmd_t olc_cmds_soc[] =
 {
 	{ "create",		soced_create				},
 	{ "edit",		soced_edit				},
-	{ "touch",		soced_touch				},
+	{ "touch",		olced_dummy				},
 	{ "show",		soced_show				},
 	{ "list",		soced_list				},
 
@@ -135,11 +134,6 @@ OLC_FUN(soced_edit)
 
 	ch->desc->pEdit	= soc;
 	OLCED(ch)	= olced_lookup(ED_SOC);
-	return FALSE;
-}
-
-OLC_FUN(soced_touch)
-{
 	return FALSE;
 }
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.49 1999-03-08 13:56:07 fjoe Exp $
+ * $Id: olc.c,v 1.50 1999-03-10 11:06:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -130,9 +130,8 @@ bool run_olc_editor(DESCRIPTOR_DATA *d)
 	||  cmd->olc_fun == NULL)
 		return FALSE;
 
-	if (cmd->olc_fun(d->character, argument, cmd)
-	&&  olced->cmd_table[FUN_TOUCH].olc_fun)
-		olced->cmd_table[FUN_TOUCH].olc_fun(d->character, NULL,
+	if (cmd->olc_fun(d->character, argument, cmd))
+		olced->cmd_table[FUN_TOUCH].olc_fun(d->character, str_empty,
 						    olced->cmd_table+FUN_TOUCH);
 
 	return TRUE;
@@ -191,6 +190,11 @@ bool olced_busy(CHAR_DATA *ch, void *edit, void *edit2)
 OLC_FUN(olced_spell_out)
 {
 	char_puts("Spell it out.\n", ch);
+	return FALSE;
+}
+
+OLC_FUN(olced_dummy)
+{
 	return FALSE;
 }
 
@@ -819,7 +823,7 @@ char* help_topics[FUN_MAX] =
 {
 	"'OLC CREATE'",
 	"'OLC EDIT'",
-	NULL,
+	str_empty,
 	"'OLC ASHOW'",
 	"'OLC ALIST'"
 };
@@ -828,18 +832,16 @@ static void do_olc(CHAR_DATA *ch, const char *argument, int fun)
 {
 	char command[MAX_INPUT_LENGTH];
 	olced_t *olced;
-	OLC_FUN *olcfun;
 
 	if (IS_NPC(ch))
 		return;
 
 	argument = one_argument(argument, command, sizeof(command));
-	if ((olced = olced_lookup(command)) == NULL
-	||  (olcfun = olced->cmd_table[fun].olc_fun) == NULL) {
+	if ((olced = olced_lookup(command)) == NULL) {
         	do_help(ch, help_topics[fun]);
         	return;
 	}
 
-	olcfun(ch, argument, olced->cmd_table+fun);
+	olced->cmd_table[fun].olc_fun(ch, argument, olced->cmd_table+fun);
 }
 

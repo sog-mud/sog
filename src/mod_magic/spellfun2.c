@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.92 1999-03-10 08:28:44 kostik Exp $
+ * $Id: spellfun2.c,v 1.93 1999-03-10 11:06:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2793,14 +2793,13 @@ void spell_inspire(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 void spell_mass_sanctuary(int sn, int level, CHAR_DATA *ch, void *vo, int target) 
 {
 	CHAR_DATA *gch;
-	AFFECT_DATA af;
-	int sanc_sn;
 
-	sanc_sn = sn_lookup("sanctuary");
-
-	for(gch=ch->in_room->people; gch != NULL; gch=gch->next_in_room)
-		if (is_same_group(ch, gch)) 
-			spell_sanctuary(sanc_sn, level, ch, (void*)gch, TARGET_CHAR); 
+	for (gch = ch->in_room->people; gch; gch = gch->next_in_room) {
+		if (is_same_group(ch, gch)) {
+			spell_sanctuary(gsn_sanctuary, level, ch,
+					(void*) gch, TARGET_CHAR); 
+		}
+	}
 }
 
 void spell_mend(int sn, int level, CHAR_DATA *ch, void *vo, int target)

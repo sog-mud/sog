@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_rule.c,v 1.2 1999-03-09 15:36:18 fjoe Exp $
+ * $Id: olc_rule.c,v 1.3 1999-03-10 11:06:24 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -226,9 +226,15 @@ OLC_FUN(ruleed_show)
 	EDIT_LANG(ch, l);
 	EDIT_ROPS(ch, rops);
 
-	if (IS_EDIT(ch, ED_IMPL) || IS_EDIT(ch, ED_EXPL)) {
-		EDIT_RULE(ch, r);
-		EDIT_RCL(ch, rcl);
+	if (argument[0] == '\0') {
+		if (IS_EDIT(ch, ED_IMPL) || IS_EDIT(ch, ED_EXPL)) {
+			EDIT_RULE(ch, r);
+			EDIT_RCL(ch, rcl);
+		}
+		else {
+			do_help(ch, "'OLC ASHOW'");
+			return FALSE;
+		}
 	}
 	else {
 		int rulecl;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.26 1999-03-08 13:56:08 fjoe Exp $
+ * $Id: olc_msg.c,v 1.27 1999-03-10 11:06:23 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -47,7 +47,7 @@ olc_cmd_t olc_cmds_msg[] =
 {
 	{ "create",	msged_create	},
 	{ "edit",	msged_edit	},
-	{ "touch",	NULL		},
+	{ "touch",	olced_dummy	},
 	{ "show",	msged_show	},
 	{ "list",	msged_list	},
 
