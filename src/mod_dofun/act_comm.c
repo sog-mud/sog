@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.285 2004-02-21 19:48:09 fjoe Exp $
+ * $Id: act_comm.c,v 1.286 2004-02-22 14:09:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -919,6 +919,7 @@ DO_FUN(do_order, ch, argument)
 	WAIT_STATE(ch, get_pulse("violence"));
 	act_char("Ok.", ch);
 }
+
 static bool
 is_in_opposite_clans(CHAR_DATA *ch1, CHAR_DATA *ch2)
 {
