@@ -973,7 +973,7 @@ sickle golden золотой серп~
 @eng A golden sickle is here.@rus Золотой серп (sickle) блестит на солнце.~
 gold~
 weapon GIKL 0 AN
-exotic 10 4 'slice' E
+exotic 10 5 'slice' DE
 40 450 3500 P
 f object damroll 5 0
 f object hitroll 5 0
@@ -8554,7 +8554,7 @@ S
 #OLIMITS
 O 14002 2	* An iron breastplate
 O 14003 2	* A locust stinger
-O 14007 10	* A golden sickle
+O 14007 2	* A golden sickle
 O 14009 5	* A censer
 O 14010 2	* the white crown of the conquerer
 O 14012 1	* A breastplate of fire

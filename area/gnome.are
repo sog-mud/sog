@@ -110,10 +110,11 @@ EFNR
 stand stand male 40
 0 0 medium unknown
 #1508
-mouse field~
-a field mouse~
-A small mouse runs across your foot.~
-The Mouse is a cute little creature.
+mouse field мышка полевка~
+@eng a field mouse@rus полевка~
+@eng A small mouse runs across your foot.@rus Маленькая мышка (mouse) пробежала по твоей ноге.~
+@eng The Mouse is a cute little creature.
+@rus Мышка -- очеровательное маленькое создание.
 ~
 human~
 BC 0 0 0 0 100 0
@@ -122,6 +123,7 @@ BC 0 0 0 0 100 0
 EFNU
 stand stand male 0
 0 0 medium unknown
+g @eng male@rus female~
 #1509
 rat~
 a rat~

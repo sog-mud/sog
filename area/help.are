@@ -100,33 +100,28 @@ Developed at: DIKU -- The Department of Computer Science
 @eng Midgaard's economy is based on gold and silver coinage (and the lowly
 copper, which you as an adventurer are far too proud to carry).  Gold coins
 are worth 100 silver coins, but are also four times as heavy (25 to the
-pound, as opposed to 100 to the pound for silver).  Gems can be bought to
-alleviate weight problems from the Midgaard jeweller, he charges a mere 10%
-more than they are worth.  10 gems weigh one pound, and they can be worth
-more than 100 gold pieces for the highest quality stones.
+pound, as opposed to 100 to the pound for silver).  Money can be deposited
+to alleviate weight problems, but clerks withdraw the fee for their service.
 
-See also {CHELP BANK{x
+See also {CHELP BANK{x.
 @rus Экономика Мидгарда основана на золотой и серебряной чеканке (и не использует 
 медь, которую ты, являясь авантюристом, просто не переносишь). Золотые монеты
 стоят 100 серебряных монет, но - они в четыре раза тяжелее. Чтобы облегчить
-проблемы веса у ювелира Мидгарда могут быть куплены драгоценные камни, но 
-учтите, что он имеет с перепродажи 10 % от стоимости камней. 10 драгоценных
-камней весят один фунт, и они могут стоить больше чем 100 золотых, для камней
-самого высокого качества, тогда как тот же фунт весят 25 золотых или 
-100 серебрянных монет.
+проблемы веса деньги могут быть положены в банк. Однако банковские клерки взы-
+мают некоторую пеню за свои услуги по сохранению средств.
 
-Смотри также {CHELP BANK{x
+Смотри также {CHELP BANK{x.
 ~
 -1 DEAF QUIET~
 @eng Syntax: {cdeaf{x
 Syntax: {cquiet{x
 
 The deaf toggle turns off incoming tells, helpfull if you are being bombarded
-by messages from other players.  You can still use reply (see {CHELP REPLY{x) to
-reply to people who were telling you before you went deaf, although you
+by messages from other players. You can still use reply (see {CHELP REPLY{x)
+to reply to people who were telling you before you went deaf, although you
 cannot reply to a deaf person unless you or they are a deity (it's mostly 
-useful for sending a quick "I'm being spammed so I went deaf" message to
-a person).
+useful for sending a quick "I'm being spammed so I went deaf" message to a 
+person).
  
 QUIET toggles on and of world channels (shout, music). In quiet mode you will
 hear only says and emotes.
@@ -280,10 +275,11 @@ Following and groups are not affected by death.
  
 You lose experience points for dying.  The amount you lose depends on
 your then experience points, your race, class and your previous deaths.
-After each three deaths your constitution decreases by one.
+After each three deaths your constitution decreases by one and you may
+lost a level.
 
 Corpses decay after time, but the objects inside your corpse will be
-transferred to the pitof your temple.
+transferred to the pit of your temple.
  
 If your constitution falls below 3, character will not be resurrected in
 temple, but deleted permanently.
@@ -300,6 +296,8 @@ temple, but deleted permanently.
 зависит от количества твоих очков опыта, расы, класса и предыдущих смертей.
 
 После каждых трех смертей твое телосложение ({ccon{x) уменьшается на единицу.
+Если теряемое количество опыта больше набранного тобой на уровне, то ты теряешь
+этот уровень.
 
 Тело через некоторое время разлагается, но вещи, находящиеся в твоем трупе
 попадают в жертвенную яму ({cpit{x).
@@ -308,7 +306,7 @@ temple, but deleted permanently.
 а стирается автоматически.
 ~
 0 EXPERIENCE LEVEL XP~
-@eng Your character advances in power by gaining experience.  You need growing
+@eng Your character advances in power by gaining experience. You need growing
 amount of experience points for each level based on your race and class.
 You gain experience by:
  
@@ -519,7 +517,7 @@ The <target> is optional.  Many spells which need targets will use an
 appropriate default target, especially during combat.
 
 If the spell name is more than one word, then you must quote the spell name.
-Example: {ccast 'cure critic' frag{x
+Example: {ccast 'magic arrows' frag{x
 Quoting is optional for single-word spells.
 You can abbreviate the spell name.
 
@@ -540,7 +538,7 @@ See also the {CHELP <spell name>{x
 
 Если название заклинания состоит более чем из одного слова, ты должен заключить
 его в апостроф. Названия заклинаний можно сокращать.
-Например: {ccast 'cure critic'{x lilea
+Например: {ccast 'magic arrows'{x frag
 
 Когда ты используешь боевое заклинание, жертва обычно получает возможность
 полностью или частично избежать действия этого заклинания. Эффект заклинания
@@ -553,15 +551,15 @@ See also the {CHELP <spell name>{x
 0 EXITS~
 @eng Syntax: {cexits{x
 
-Tells you the visible exits of the room you are in.  Not all exits are visible.
-You can use the 'bump' technique to find hidden exits.  (Try to walk in a
-certain direction and see what you bump into).
+Tells you the visible exits of the room you are in. Not all exits are 
+visible. You can use the 'bump' technique to find hidden exits. (Try to
+walk in a certain direction and see what you bump into).
 @rus Синтаксис: {cexits{x
 
-Сообщает вам очевидные выходы из комнаты, в которой вы находитесь.  Не все 
-выходы могут быть легко обнаружены. Для поиска скрытых выходов можно использо-
-вать методику "ударов лбом об стену".  (Попытайтесь идти в разных направлениях
-и смотрите, во что вы упираетесь).
+Сообщает тебе очевидные выходы из комнаты, в которой ты находишься. Не
+все выходы могут быть легко обнаружены. Для поиска скрытых выходов можно
+использовать методику "ударов лбом об стену". (Попытайся идти в разных
+направлениях и смотри, во что ты упираешься).
 ~
 0 DROP GET GIVE PUT TAKE~
 @eng Syntax: {cdrop{x <object>
@@ -675,7 +673,9 @@ higher), you can DISHONOR yourself and leave combat field.
 направление, в котором они будут пытаться сбежать (ESCAPE).
 
 Если ты теряешь связь в течение боя, то персонаж продолжает его, но будет
-автоматически пытаться сбежать время от времени. 
+автоматически пытаться сбежать время от времени. (Ты можешь запретить 
+пытаться бежать своему персонажу при потере связи с помощью TOGGLE NOFLEE.
+(См. {CHELP TOGGLE{x)
 
 Если ты находишься под действием заклинания 'pass door', то ты можешь сбегать
 через закрытые двери.
@@ -1460,11 +1460,11 @@ any spell.
 не может читать заклинания сам.
 ~
 0 'SANCTIFY LANDS'~
-@eng Syntax: {ccast 'sanctify lands'{x
+@eng Syntax: {cpray 'sanctify lands'{x
 
 Clerics and paladins can remove the plague, slow, poison, curse and sleep
 affects of the room. 
-@rus Синтаксис: {ccast 'sanctify lands'{x
+@rus Синтаксис: {cpray 'sanctify lands'{x
  
 Клерики и паладины могут освободить комнату от наложенных на нее проклятий -
 чумы, яда, сонного или летаргического тумана.

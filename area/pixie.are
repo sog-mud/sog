@@ -427,6 +427,25 @@ f object hp 50 0
 #0
 
 #ROOMS
+#35467
+The very small glade~
+When you pass spreading bushes you find yourself here, on
+the very small glade surrounded dence bushes.
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 35474
+D3
+~
+~
+~
+~
+Z 0 35471
+S
 #35468
 The forest meadow~
 You stand on small glade.  The trees around you are tall and
@@ -507,6 +526,7 @@ A small clearing.
 ~
 ~
 Z -1 35470
+m room_cmd room_cmd_search_amulet search~
 S
 #35472
 A small clearing~
@@ -594,6 +614,7 @@ A small clearing.
 ~
 ~
 Z -1 35473
+m room_cmd room_cmd_search_amulet search~
 S
 #35475
 A path through the forest~
@@ -1213,8 +1234,8 @@ S
 #0
 
 #RESETS
+O 0 35481 0 35467	* {ya wooden amulet{x (The very small glade)
 O 0 35466 0 35468	* an old stump (The forest meadow)
-P 0 35481 5 0 1	* an old stump: {ya wooden amulet{x
 M 0 35476 1 35469 1	* leprechaun (The secret glade)
 M 0 35471 20 35471 4	* an air sprite (A small clearing)
 M 0 35471 20 35472 2	* an air sprite (A small clearing)
@@ -1247,7 +1268,7 @@ O 35477 1	* {Da black pearl{x
 O 35478 4	* {ca hoop of flowing water{x
 O 35479 1	* {Wa crystal pixie wings{x
 O 35480 1	* {Wthe claw of a forest bear{x
-O 35481 3	* {ya wooden amulet{x
+O 35481 1	* {ya wooden amulet{x
 O 35482 1	* {ya wooden bark{x
 S
 
