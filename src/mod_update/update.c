@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.42 1998-07-12 11:26:08 efdi Exp $
+ * $Id: update.c,v 1.43 1998-07-13 00:22:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -597,7 +597,6 @@ void mobile_update(void)
 		if (ch->last_death_time != -1
 		&&  current_time - ch->last_death_time >= GHOST_DELAY_TIME) {
 			REMOVE_BIT(ch->act, PLR_GHOST);
-			ch->last_death_time = -1;
 		}
 
 		if (IS_AFFECTED(ch, AFF_REGENERATION) && ch->in_room != NULL) {
