@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.343 2001-12-08 00:08:41 tatyana Exp $
+ * $Id: fight.c,v 1.344 2001-12-12 17:42:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1135,6 +1135,8 @@ damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 	 */
 	if (HAS_INVIS(ch, ID_ALL_INVIS & ~ID_IMP_INVIS))
 		make_visible(ch, FALSE);
+	if (HAS_INVIS(victim, ID_ALL_INVIS & ~ID_IMP_INVIS))
+		make_visible(victim, FALSE);
 
 	/*
 	 * strip sneak
@@ -1142,6 +1144,10 @@ damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 	if (HAS_INVIS(ch, ID_SNEAK)) {
 		REMOVE_INVIS(ch, ID_SNEAK);
 		affect_bit_strip(ch, TO_INVIS, ID_SNEAK);
+	}
+	if (HAS_INVIS(victim, ID_SNEAK)) {
+		REMOVE_INVIS(victim, ID_SNEAK);
+		affect_bit_strip(victim, TO_INVIS, ID_SNEAK);
 	}
 
 	if (ch != victim && is_sn_affected(ch, "globe of invulnerability")) {
