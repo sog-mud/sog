@@ -256,4 +256,89 @@ Title 100 male the Implementor~
 Title 100 female the Implementress~
 End
 
+#POSE
+Self You perform a small card trick.~
+Others $n performs a small card trick.~
+End
+
+#POSE
+Self You wiggle your ears alternately.~
+Others $n wiggles $s ears alternately.~
+End
+
+#POSE
+Self You nimbly tie yourself into a knot.~
+Others $n nimbly ties $mself into a knot.~
+End
+
+#POSE
+Self You juggle with daggers, apples, and eyeballs.~
+Others $n juggles with daggers, apples, and eyeballs.~
+End
+
+#POSE
+Self You steal the underwear off every person in the room.~
+Others Your underwear is gone!  $n stole it!~
+End
+
+#POSE
+Self The dice roll ... and you win again.~
+Others The dice roll ... and $n wins again.~
+End
+
+#POSE
+Self You count the money in everyone's pockets.~
+Others Check your money, $n is counting it.~
+End
+
+#POSE
+Self You balance a pocket knife on your tongue.~
+Others $n balances a pocket knife on your tongue.~
+End
+
+#POSE
+Self You produce a coin from everyone's ear.~
+Others $n produces a coin from your ear.~
+End
+
+#POSE
+Self You step behind your shadow.~
+Others $n steps behind $s shadow.~
+End
+
+#POSE
+Self Your eyes dance with greed.~
+Others $n's eyes dance with greed.~
+End
+
+#POSE
+Self You deftly steal everyone's weapon.~
+Others $n deftly steals your weapon.~
+End
+
+#POSE
+Self The Grey Mouser buys you a beer.~
+Others The Grey Mouser buys $n a beer.~
+End
+
+#POSE
+Self Everyone's pocket explodes with your fireworks.~
+Others Your pocket explodes with $n's fireworks.~
+End
+
+#POSE
+Self Everyone discovers your dagger a centimeter from their eye.~
+Others You discover $n's dagger a centimeter from your eye.~
+End
+
+#POSE
+Self Where did you go?~
+Others Where did $n go?~
+End
+
+#POSE
+Self Click.~
+Others Click.~
+End
+
 #$

@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.80 1999-04-15 09:14:16 fjoe Exp $
+ * $Id: martial_art.c,v 1.81 1999-04-15 11:36:57 fjoe Exp $
  */
 
 /***************************************************************************
@@ -729,17 +729,17 @@ void do_knife(CHAR_DATA *ch, const char *argument)
 
 	one_argument(argument, arg, sizeof(arg));
 
-	if (arg[0]=='\0') {
+	if (arg[0] == '\0') {
 		char_puts("Knife whom?\n", ch);
 		return;
 	}
 	
-	if ((chance=get_skill(ch, gsn_knife))==0) {
+	if ((chance = get_skill(ch, gsn_knife)) == 0) {
 		act("You don't know how to knife.", ch, NULL, NULL, TO_CHAR);
 		return;
 	}
 
-	if ((knife=get_eq_char(ch, WEAR_WIELD)) == NULL) {
+	if ((knife = get_eq_char(ch, WEAR_WIELD)) == NULL) {
 		act("You need a weapon.", ch, NULL, NULL, TO_CHAR);
 		return;
 	}
@@ -749,13 +749,12 @@ void do_knife(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if ((victim=get_char_room(ch, arg)) == NULL) {
+	if ((victim = get_char_room(ch, arg)) == NULL) {
 		char_puts("They aren't here.\n", ch);
 		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		return;
 	}
 
-	
 	if (victim->fighting != NULL) {
 		act("$N is fighting.", ch, NULL, victim, TO_CHAR);
 		return;

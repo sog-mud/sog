@@ -324,4 +324,89 @@ Title 100 male the Implementor~
 Title 100 female the Implementress~
 End
 
+#POSE
+Self You sizzle with energy.~
+Others $n sizzles with energy.~
+End
+
+#POSE
+Self You turn into a butterfly, then return to your normal shape.~
+Others $n turns into a butterfly, then returns to $s normal shape.~
+End
+
+#POSE
+Self Blue sparks fly from your fingers.~
+Others Blue sparks fly from $n's fingers.~
+End
+
+#POSE
+Self Little red lights dance in your eyes.~
+Others Little red lights dance in $n's eyes.~
+End
+
+#POSE
+Self A slimy green monster appears before you and bows.~
+Others A slimy green monster appears before $n and bows.~
+End
+
+#POSE
+Self You turn everybody into a little pink elephant.~
+Others You are turned into a little pink elephant by $n.~
+End
+
+#POSE
+Self A small ball of light dances on your fingertips.~
+Others A small ball of light dances on $n's fingertips.~
+End
+
+#POSE
+Self Smoke and fumes leak from your nostrils.~
+Others Smoke and fumes leak from $n's nostrils.~
+End
+
+#POSE
+Self The light flickers as you rap in magical languages.~
+Others The light flickers as $n raps in magical languages.~
+End
+
+#POSE
+Self Your head disappears.~
+Others $n's head disappears.~
+End
+
+#POSE
+Self A fire elemental singes your hair.~
+Others A fire elemental singes $n's hair.~
+End
+
+#POSE
+Self The sky changes color to match your eyes.~
+Others The sky changes color to match $n's eyes.~
+End
+
+#POSE
+Self The stones dance to your command.~
+Others The stones dance to $n's command.~
+End
+
+#POSE
+Self The heavens and grass change colour as you smile.~
+Others The heavens and grass change colour as $n smiles.~
+End
+
+#POSE
+Self Everyone's clothes are transparent, and you are laughing.~
+Others Your clothes are transparent, and $n is laughing.~
+End
+
+#POSE
+Self A black hole swallows you.~
+Others A black hole swallows $n.~
+End
+
+#POSE
+Self The world shimmers in time with your whistling.~
+Others The world shimmers in time with $n's whistling.~
+End
+
 #$

@@ -327,4 +327,89 @@ Title 100 male the Implementor~
 Title 100 female the Implementress~
 End
 
+#POSE
+Self You feel very holy.~
+Others $n looks very holy.~
+End
+
+#POSE
+Self You nonchalantly turn wine into water.~
+Others $n nonchalantly turns wine into water.~
+End
+
+#POSE
+Self A halo appears over your head.~
+Others A halo appears over $n's head.~
+End
+
+#POSE
+Self You recite words of wisdom.~
+Others $n recites words of wisdom.~
+End
+
+#POSE
+Self Deep in prayer, you levitate.~
+Others Deep in prayer, $n levitates.~
+End
+
+#POSE
+Self An angel consults you.~
+Others An angel consults $n.~
+End
+
+#POSE
+Self Your body glows with an unearthly light.~
+Others $n's body glows with an unearthly light.~
+End
+
+#POSE
+Self A spot light hits you.~
+Others A spot light hits $n.~
+End
+
+#POSE
+Self Everyone levitates as you pray.~
+Others You levitate as $n prays.~
+End
+
+#POSE
+Self A cool breeze refreshes you.~
+Others A cool breeze refreshes $n.~
+End
+
+#POSE
+Self The sun pierces through the clouds to illuminate you.~
+Others The sun pierces through the clouds to illuminate $n.~
+End
+
+#POSE
+Self The ocean parts before you.~
+Others The ocean parts before $n.~
+End
+
+#POSE
+Self A thunder cloud kneels to you.~
+Others A thunder cloud kneels to $n.~
+End
+
+#POSE
+Self The Burning Man speaks to you.~
+Others The Burning Man speaks to $n.~
+End
+
+#POSE
+Self An eye in a pyramid winks at you.~
+Others An eye in a pyramid winks at $n.~
+End
+
+#POSE
+Self Valentine Michael Smith offers you a glass of water.~
+Others Valentine Michael Smith offers $n a glass of water.~
+End
+
+#POSE
+Self Gods give you a staff.~
+Others Gods give $n a staff.~
+End
+
 #$

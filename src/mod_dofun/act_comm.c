@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.159 1999-04-15 10:28:18 fjoe Exp $
+ * $Id: act_comm.c,v 1.160 1999-04-15 11:36:57 fjoe Exp $
  */
 
 /***************************************************************************
@@ -745,18 +745,19 @@ void do_pray(CHAR_DATA *ch, const char *argument)
 
 void do_pose(CHAR_DATA *ch, const char *argument)
 {
-#if 0
-	int level;
-	int pose;
+	CLASS_DATA *cl;
+	pose_t *pose;
+	int maxnum;
 
-	if (IS_NPC(ch))
+	if (IS_NPC(ch)
+	||  (cl = class_lookup(ch->class)) == NULL
+	||  cl->poses.nused == 0)
 		return;
 
-	level = UMIN(ch->level, sizeof(pose_table) / sizeof(pose_table[0]) - 1);
-	pose  = number_range(0, level);
-	act(pose_table[pose].message[2*ch->class+0], ch, NULL, NULL, TO_CHAR);
-	act(pose_table[pose].message[2*ch->class+1], ch, NULL, NULL, TO_ROOM | ACT_TOBUF);
-#endif
+	maxnum = UMIN(ch->level, cl->poses.nused-1);
+	pose = VARR_GET(&cl->poses, number_range(0, maxnum));
+	act(pose->self, ch, NULL, NULL, TO_CHAR);
+	act(pose->others, ch, NULL, NULL, TO_ROOM | ACT_TOBUF);
 }
 
 void do_bug(CHAR_DATA *ch, const char *argument)

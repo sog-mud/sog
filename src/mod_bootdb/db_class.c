@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_class.c,v 1.17 1999-04-15 06:51:06 fjoe Exp $
+ * $Id: db_class.c,v 1.18 1999-04-15 11:36:58 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -185,6 +185,24 @@ DBLOAD_FUN(load_pose)
 	}
 
 	pose = varr_enew(&class->poses);
-	pose->self = fread_string(fp);
-	pose->others = fread_string(fp);
+	for (;;) {
+		char *word = feof(fp) ? "End" : fread_word(fp);
+		bool fMatch = FALSE;
+
+		switch(UPPER(word[0])) {
+		case 'E':
+			if (!str_cmp(word, "End"))
+				return;
+			break;
+		case 'O':
+			SKEY("Others", pose->others);
+			break;
+		case 'S':
+			SKEY("Self", pose->self);
+			break;
+		}
+
+		if (!fMatch) 
+			db_error("load_info", "%s: Unknown keyword", word);
+	}
 }

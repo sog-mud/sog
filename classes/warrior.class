@@ -260,4 +260,89 @@ Title 100 male the Implementor~
 Title 100 female the Implementress~
 End
 
+#POSE
+Self You show your bulging muscles.~
+Others $n shows $s bulging muscles.~
+End
+
+#POSE
+Self You crack nuts between your fingers.~
+Others $n cracks nuts between $s fingers.~
+End
+
+#POSE
+Self You grizzle your teeth and look mean.~
+Others $n grizzles $s teeth and looks mean.~
+End
+
+#POSE
+Self You hit your head, and your eyes roll.~
+Others $n hits $s head, and $s eyes roll.~
+End
+
+#POSE
+Self Crunch, crunch -- you munch a bottle.~
+Others Crunch, crunch -- $n munches a bottle.~
+End
+
+#POSE
+Self ... 98, 99, 100 ... you do pushups.~
+Others ... 98, 99, 100 ... $n does pushups.~
+End
+
+#POSE
+Self Arnold Schwarzenegger admires your physique.~
+Others Arnold Schwarzenegger admires $n's physique.~
+End
+
+#POSE
+Self Watch your feet, you are juggling granite boulders.~
+Others Watch your feet, $n is juggling granite boulders.~
+End
+
+#POSE
+Self Oomph!  You squeeze water out of a granite boulder.~
+Others Oomph!  $n squeezes water out of a granite boulder.~
+End
+
+#POSE
+Self You pick your teeth with a spear.~
+Others $n picks $s teeth with a spear.~
+End
+
+#POSE
+Self Everyone is swept off their foot by your hug.~
+Others You are swept off your feet by $n's hug.~
+End
+
+#POSE
+Self Your karate chop splits a tree.~
+Others $n's karate chop splits a tree.~
+End
+
+#POSE
+Self A strap of your armor breaks over your mighty thews.~
+Others A strap of $n's armor breaks over $s mighty thews.~
+End
+
+#POSE
+Self A boulder cracks at your frown.~
+Others A boulder cracks at $n's frown.~
+End
+
+#POSE
+Self Mercenaries arrive to do your bidding.~
+Others Mercenaries arrive to do $n's bidding.~
+End
+
+#POSE
+Self Four matched Percherons bring in your chariot.~
+Others Four matched Percherons bring in $n's chariot.~
+End
+
+#POSE
+Self Atlas asks you to relieve him.~
+Others Atlas asks $n to relieve him.~
+End
+
 #$
