@@ -273,6 +273,15 @@ char *strings_rus[MSG_MAX_NUM] = {
 /* MOVE_N_DISAPPEARS */		"$n исчез.",
 /* MOVE_N_APPEARS_IN_THE_ROOM */"Здесь появился $n.",
 /* MOVE_YOU_CANT_DO_THAT_HERE */"Ты не можешь делать етого здесь.\n\r",
+/* MOVE_YOU_HAVE_D_TRAINING_SESSIONS */"У тебя есть %d сессий тренировки.\n\r",
+/* MOVE_YOU_CAN_TRAIN */	"Ты можешь тренировать:",
+/* MOVE_NOT_ENOUGH_TRAININGS */	"У тебя не достаточно сессий практики.\n\r",
+/* MOVE_YOUR_DURABILITY_INCREASES */"Твоя стойкость увеличивается!",
+/* MOVE_N_DURABILITY_INCREASES */"Стойкость $n увеличивается!",
+/* MOVE_YOUR_POWER_INCREASES */	"Твоя энергия увеличивается!",
+/* MOVE_N_POWER_INCREASES */	"Энергия $n увеличивается!",
+/* MOVE_YOUR_T_INCREASES */	"Твое $T увеличивается!",
+/* MOVE_N_T_INCREASES */	"$T $n увеличивается!",
 
 /*	Here start sex-dependent messages */
 /* INFO_IS_GUSHING_BLOOD */	"{Yсерьезно ранено{x.",

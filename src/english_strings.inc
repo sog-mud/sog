@@ -273,6 +273,15 @@ char *strings_engl[MSG_MAX_NUM] =  {
 /* MOVE_N_DISAPPEARS */		"$n disappears.",
 /* MOVE_N_APPEARS_IN_THE_ROOM */"$n appears in the room.",
 /* MOVE_YOU_CANT_DO_THAT_HERE */"You can't do that here.\n\r",
+/* MOVE_YOU_HAVE_D_TRAINING_SESSIONS */"You have %d training sessions.\n\r",
+/* MOVE_YOU_CAN_TRAIN */	"You can train:",
+/* MOVE_NOT_ENOUGH_TRAININGS */	"You don't have enough training sessions.\n\r",
+/* MOVE_YOUR_DURABILITY_INCREASES */"Your durability increases!",
+/* MOVE_N_DURABILITY_INCREASES */"$n's durability increases!",
+/* MOVE_YOUR_POWER_INCREASES */	"Your power increases!",
+/* MOVE_N_POWER_INCREASES */	"$n's power increases!",
+/* MOVE_YOUR_T_INCREASES */	"Your $T increases!",
+/* MOVE_N_T_INCREASES */	"$n's $T increases!",
 
 /*	Here start sex-dependent messages */
 /* INFO_IS_GUSHING_BLOOD */	"{Yis gushing blood{x.",

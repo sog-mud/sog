@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.27 1998-04-29 11:01:21 fjoe Exp $
+ * $Id: act_move.c,v 1.28 1998-04-29 22:31:54 efdi Exp $
  */
 
 /***************************************************************************
@@ -2089,8 +2089,7 @@ void do_train( CHAR_DATA *ch, char *argument )
 
     if ( argument[0] == '\0' )
     {
-	sprintf( buf, "You have %d training sessions.\n\r", ch->train );
-	send_to_char( buf, ch );
+	char_printf(ch, msg(MOVE_YOU_HAVE_D_TRAINING_SESSIONS, ch), ch->train);
 	argument = "foo";
     }
 
@@ -2158,7 +2157,7 @@ void do_train( CHAR_DATA *ch, char *argument )
 
     else
     {
-	strcpy( buf, "You can train:" );
+	strcpy(buf, msg(MOVE_YOU_CAN_TRAIN, ch));
 	if ( ch->perm_stat[STAT_STR] < get_max_train2(ch,STAT_STR)) 
 	    strcat( buf, " str" );
 	if ( ch->perm_stat[STAT_INT] < get_max_train2(ch,STAT_INT))  
@@ -2198,7 +2197,7 @@ void do_train( CHAR_DATA *ch, char *argument )
     {
     	if ( cost > ch->train )
     	{
-       	    send_to_char( "You don't have enough training sessions.\n\r", ch );
+       	    send_to_char(msg(MOVE_NOT_ENOUGH_TRAININGS, ch), ch);
             return;
         }
  
@@ -2206,8 +2205,10 @@ void do_train( CHAR_DATA *ch, char *argument )
         ch->pcdata->perm_hit += 10;
         ch->max_hit += 10;
         ch->hit +=10;
-        act( "Your durability increases!",ch,NULL,NULL,TO_CHAR);
-        act( "$n's durability increases!",ch,NULL,NULL,TO_ROOM);
+        act_printf(ch, NULL, NULL, TO_CHAR, POS_DEAD,
+			MOVE_YOUR_DURABILITY_INCREASES);
+        act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
+			MOVE_N_DURABILITY_INCREASES);
         return;
     }
  
@@ -2215,7 +2216,7 @@ void do_train( CHAR_DATA *ch, char *argument )
     {
         if ( cost > ch->train )
         {
-            send_to_char( "You don't have enough training sessions.\n\r", ch );
+       	    send_to_char(msg(MOVE_NOT_ENOUGH_TRAININGS, ch), ch);
             return;
         }
 
@@ -2223,28 +2224,30 @@ void do_train( CHAR_DATA *ch, char *argument )
         ch->pcdata->perm_mana += 10;
         ch->max_mana += 10;
         ch->mana += 10;
-        act( "Your power increases!",ch,NULL,NULL,TO_CHAR);
-        act( "$n's power increases!",ch,NULL,NULL,TO_ROOM);
+        act_printf(ch, NULL, NULL, TO_CHAR, POS_DEAD,
+			MOVE_YOUR_POWER_INCREASES);
+        act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
+			MOVE_N_POWER_INCREASES);
         return;
     }
 
     if ( ch->perm_stat[stat]  >= get_max_train2(ch,stat) )
     {
-	act( "Your $T is already at maximum.", ch, NULL, pOutput, TO_CHAR );
+	act_printf(ch, NULL, pOutput, TO_CHAR, POS_DEAD, MOVE_YOUR_T_IS_MAX);
 	return;
     }
 
     if ( cost > ch->train )
     {
-	send_to_char( "You don't have enough training sessions.\n\r", ch );
+        send_to_char(msg(MOVE_NOT_ENOUGH_TRAININGS, ch), ch);
 	return;
     }
 
     ch->train		-= cost;
   
     ch->perm_stat[stat]		+= 1;
-    act( "Your $T increases!", ch, NULL, pOutput, TO_CHAR );
-    act( "$n's $T increases!", ch, NULL, pOutput, TO_ROOM );
+    act_printf(ch, NULL, pOutput, TO_CHAR, POS_DEAD, MOVE_YOUR_T_INCREASES);
+    act_printf(ch, NULL, pOutput, TO_ROOM, POS_RESTING, MOVE_N_T_INCREASES);
     return;
 }
 
