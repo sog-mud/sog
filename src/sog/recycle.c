@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.143 2001-12-15 13:47:53 matrim Exp $
+ * $Id: recycle.c,v 1.144 2002-01-04 15:10:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -348,7 +348,7 @@ var_get(avltree_t *vars, const char *name, int type_tag, int var_flags)
 
 		var->name = str_dup(name);
 		var->type_tag = type_tag;
-		return NULL;
+		return var;
 	} else if (var->type_tag != type_tag)
 		return NULL;
 
