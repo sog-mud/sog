@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.187.2.26 2001-08-25 04:46:39 fjoe Exp $
+ * $Id: act_comm.c,v 1.187.2.27 2001-09-04 19:48:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -873,7 +873,7 @@ void do_order(CHAR_DATA *ch, const char *argument)
 }
 
 static bool
-is_in_opposite_cabals(CHAR_DATA *ch1, CHAR_DATA *ch2)
+is_in_opposite_clans(CHAR_DATA *ch1, CHAR_DATA *ch2)
 {
 	return
 	   (HAS_SKILL(ch1, gsn_enforcer_badge) && HAS_SKILL(ch2, gsn_disperse))
@@ -1010,14 +1010,14 @@ void do_group(CHAR_DATA *ch, const char *argument)
 				    ch, NULL, victim, TO_CHAR,POS_SLEEPING);
 				return;
 			}
-			if (is_in_opposite_cabals(ch, gch)) {
-				act_puts("You hate $n's cabal, how can you join $n's group?",
+			if (is_in_opposite_clans(ch, gch)) {
+				act_puts("You hate $n's clan, how can you join $n's group?",
 				    gch, NULL, victim, TO_VICT, POS_SLEEPING);
 				if (gch == ch) {
-					act_puts("You hate $N's cabal, how can you want $N to join your group?",
+					act_puts("You hate $N's clan, how can you want $N to join your group?",
 					    ch, NULL, victim, TO_CHAR, POS_SLEEPING);
 				} else {
-					act_puts("There are $N cabal enemies in your group, how can $E join you?", ch, NULL, victim, TO_CHAR, POS_SLEEPING);
+					act_puts("There are $N clan enemies in your group, how can $E join you?", ch, NULL, victim, TO_CHAR, POS_SLEEPING);
 				}
 			return;
 			}
