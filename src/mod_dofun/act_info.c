@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.25 1998-05-06 09:34:23 fjoe Exp $
+ * $Id: act_info.c,v 1.26 1998-05-06 09:44:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -144,7 +144,7 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 		static char FLAGS[] = "{x[{y.{D.{R.{B.{M.{Y.{W.{x] ";
 		strcpy(buf, FLAGS);
 		if (IS_OBJ_STAT(obj, ITEM_INVIS)	)   buf[5] = 'I';
-		if (IS_OBJ_STAT(obj, ITEM_DARK)		)   buf[8] = 'H';
+		if (IS_OBJ_STAT(obj, ITEM_DARK)		)   buf[8] = 'D';
 		if (CAN_DETECT(ch, DETECT_EVIL)
 		&& IS_OBJ_STAT(obj, ITEM_EVIL)		)   buf[11] = 'E';
 		if (CAN_DETECT(ch, DETECT_GOOD)
