@@ -3949,7 +3949,7 @@ Affects dexterity by 3.
 E
 old book~
 In this book you would find some short informations about the limited
-armor items of the Muddyn Mud (based on affections). For further
+armor items of the Muddy Mud (based on affections). For further
 information, try read page1, read page2, read page3, read page4, etc.
 ~
 #3396
@@ -3991,12 +3991,58 @@ container 0 A
 1 10 9 G
 #3398
 map canyon elemental~
+@eng a map of elemental canyon@rus карта elemental canyon'а~
 @eng a rolled up is here.@rus Здесь лежит свернутая карта.~
-~
 unknown~
 map 0 A
 0 0 0 0 0
-5 5 0 P
+5 5 1500 P
+E
+map canyon elemental~
+.
+  (levels 5-30) Created by RAFF       N U                                       
+ *******************************      |/                                        
+ * Map of the ELEMENTAL CANYON *   W-- --E                                      
+ *******************************     /|                                         
+                                    D S                                         
+                                                                                
+                            Lightning    Floating  Floating  Windy     Air      
+                             Chamber      in Air----in Air---Tunnel--Chamber    
+                              /             |         |                         
+                             /              |         |                         
+  Electric    Electric   Lightning          |         |                         
+ Playground--Playground--Causeway        Floating  Floating                     
+    |            |                        in Air----in Air                      
+    |            |                          |                                   
+  Electric    Electric                      |                                   
+ Playground--Playground                     |  Elemental  Elemental  Elemental  
+                 |                          |    bay--------bay--------bay      
+                 |                          |     |          |         /|       
+              Electric      Mesa           Mesa   |          |        / |       
+              Pathway-------West-----------East   |          |   Water  |       
+                             |              |     |          |  Chamber |       
+                             |              |     |          |          |       
+                             |              |  Elemental  Elemental  Elemental  
+                           Floor--Floor---Floor  bay--------bay--------bay      
+                             |      |       |     |                             
+                   Fiery     |      |       |    In the                         
+                  Pathway--Floor--Floor---Floor  River                          
+                    |        |      |       |     |                             
+ Fire    Burning   Fiery     |      |       |    By the                         
+Chamber--Gardens--Pathway  Floor--Floor---Floor--River                          
+                             |      |       |                                   
+                             |   Elemental Dark Darker Darker  Darker           
+                           Floor--Gateway--Cave--Cave--Cave----Cave             
+                                    |                   |       |               
+                                    |  Overlook         |       |               
+                                    | /    |           Darker  Darker           
+                                    |/     |           Cave----Cave             
+                            Entrance to   Vista         |       |               
+                             Elemental    /             |       |               
+                              Canyon     /             Darkest Darkest Earth    
+                                       To the          Cave----Cave----Chamber  
+                                     Mountain Path                              
+~
 #0
 
 

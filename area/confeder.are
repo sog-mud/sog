@@ -4,7 +4,7 @@ Builders Eros~
 VNUMs 33000 33099
 Credits Eros~
 Security 9
-LevelRange 0 0
+LevelRange 1 100
 End
 
 
@@ -131,7 +131,7 @@ S
 
 
 #RESETS
-O 0 33000 0 33003		* {Wa white fountain{x (Rest Room of Confederacy)
+O 0 33000 0 33003	* {Wa white fountain{x (Rest Room of Confederacy)
 M 0 33000 1 33003 1	* the healer (Rest Room of Confederacy)
 S
 
