@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_class.c,v 1.10 1999-11-18 18:41:32 fjoe Exp $
+ * $Id: olc_class.c,v 1.11 1999-11-19 13:58:18 fjoe Exp $
  */
 
 #include "olc.h"
@@ -662,13 +662,13 @@ save_class_cb(void *p, void *d)
 	for (i = 0; i < MAX_STATS; i++)
 		fprintf(fp, " %d", cl->stats[i]);
 	fprintf(fp, "\n");
-	if (cl->restrict_align)
+	if (cl->restrict_align != -1)
 		fprintf(fp, "RestrictAlign %s~\n",
 			flag_string(ralign_names, cl->restrict_align));
 	if (cl->restrict_sex != -1)
 		fprintf(fp, "RestrictSex %s~\n",
 			flag_string(sex_table, cl->restrict_sex));
-	if (cl->restrict_ethos)
+	if (cl->restrict_ethos != -1)
 		fprintf(fp, "RestrictEthos %s~\n",
 			flag_string(ethos_table, cl->restrict_ethos));
 	if (cl->death_limit != -1)
