@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.31 2000-02-10 14:08:44 fjoe Exp $
+ * $Id: affects.c,v 1.32 2000-02-11 16:40:44 avn Exp $
  */
 
 /***************************************************************************
@@ -1001,9 +1001,6 @@ void show_affects(CHAR_DATA *ch, BUFFER *output)
 
 void aff_fwrite(AFFECT_DATA *paf, FILE *fp)
 {
-	if (IS_SKILL(paf->type, "doppelganger"))
-		return;
-
 	switch (paf->where) {
 	case TO_SKILLS:
 	case TO_RACE:
@@ -1026,6 +1023,8 @@ void aff_fwrite(AFFECT_DATA *paf, FILE *fp)
 void aff_fwrite_list(const char *pre, AFFECT_DATA *paf, FILE *fp)
 {
 	for (; paf != NULL; paf = paf->next) {
+		if (IS_SKILL(paf->type, "doppelganger"))
+			continue;
 		fprintf(fp, "%s ", pre);
 		aff_fwrite(paf, fp);
 	}
