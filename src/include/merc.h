@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.179 1999-04-16 15:52:19 fjoe Exp $
+ * $Id: merc.h,v 1.180 1999-04-16 20:49:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -359,7 +359,7 @@ struct affect_data
 struct where_t
 {
 	flag32_t	where;
-	flag_t *		table;
+	flag_t *	table;
 	const char *	format;
 };
 
@@ -368,7 +368,7 @@ where_t *where_lookup(flag32_t where);
 /* where definitions for room */
 #define TO_ROOM_AFFECTS 0
 #define TO_ROOM_CONST	1
-#define TO_ROOM_flag_tS	2
+#define TO_ROOM_FLAGS	2
 
 /* room applies */
 #define APPLY_ROOM_NONE 	0
@@ -410,7 +410,7 @@ where_t *where_lookup(flag32_t where);
 #define GROUP_WIZARD		(X)
 
 /*
- * AREA flag_tS
+ * area flags
  */
 #define AREA_CLOSED		(B)	/* transportation does not work,
 					   no quests			*/
@@ -1188,7 +1188,7 @@ enum {
 #define WIZ_DEATHS		(F)
 #define WIZ_RESETS		(G)
 #define WIZ_MOBDEATHS		(H)
-#define WIZ_flag_tS		(I)
+#define WIZ_FLAGS		(I)
 #define WIZ_PENALTIES		(J)
 #define WIZ_SACCING		(K)
 #define WIZ_LEVELS		(L)

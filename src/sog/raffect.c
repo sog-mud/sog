@@ -1,5 +1,5 @@
 /*
- * $Id: raffect.c,v 1.21 1999-04-16 15:52:21 fjoe Exp $
+ * $Id: raffect.c,v 1.22 1999-04-16 20:49:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -65,7 +65,7 @@ void affect_modify_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf, bool fAdd)
 		case TO_ROOM_AFFECTS:
 		      SET_BIT(room->affected_by, paf->bitvector);
 		    break;
-		case TO_ROOM_flag_tS:
+		case TO_ROOM_FLAGS:
 		      SET_BIT(room->room_flags, paf->bitvector);
 		    break;
 		case TO_ROOM_CONST:
@@ -79,7 +79,7 @@ void affect_modify_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf, bool fAdd)
 	    case TO_ROOM_AFFECTS:
 	          REMOVE_BIT(room->affected_by, paf->bitvector);
 	        break;
-		case TO_ROOM_flag_tS:
+		case TO_ROOM_FLAGS:
 		      REMOVE_BIT(room->room_flags, paf->bitvector);
 		    break;
 	    case TO_ROOM_CONST:
@@ -149,7 +149,7 @@ void affect_check_room(ROOM_INDEX_DATA *room,int where,int vector)
 		        case TO_ROOM_AFFECTS:
 			      SET_BIT(room->affected_by,vector);
 			    break;
-			case TO_ROOM_flag_tS:
+			case TO_ROOM_FLAGS:
 		      	      SET_BIT(room->room_flags, vector);
 		    	    break;
 		        case TO_ROOM_CONST:
