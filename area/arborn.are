@@ -824,7 +824,7 @@ You feel completely relaxed...
 Небольшой водопад тихо журчит у стены...
 Вы расслабляетесь ...
 ~
-0 CKNX forest
+0 CNX forest
 S
 #36101
 Shooting place~
@@ -967,12 +967,12 @@ You're in a round room. Light comes from from everywhere, and you feel
 someone is watching you. A voice booms inside you, "You want to change
 your hometown? Well, let this be."
 ~
-0 b inside
+0 Kb inside
 S
 #36113
 ~
 ~
-0 0 inside
+0 K inside
 S
 #36130
 Balthazar's home~
@@ -980,12 +980,17 @@ It's pretty dark here. Little light came through a small window.
 Furniture is not cheap, but there is only a bed and a table in this
 room. You feel you are being watched.
 ~
-0 JNX inside
+0 JKNX inside
 S
 #36131
 Quest storage~
 ~
-0 0 inside
+0 K inside
+S
+#36199
+~
+~
+0 K inside
 S
 #0
 
@@ -1016,7 +1021,7 @@ S
 
 #MOBPROGS
 #36101
-mob gecho Behold the Ancient Warlock, Master of Frost!
+mob oload 5025
 ~
 #36130
 if level $n < 50

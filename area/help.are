@@ -4173,6 +4173,13 @@ if argument "all" is given the also room exd, owner, clan, flags, sector
 type and heal/mana rates are cloned.
  
 ~
+0 'OLC CLAN PLIST'~
+Syntax: plist [member | second | leader] [name]
+ 
+'plist xxx' will toggle name in clan xxx list. If no name parameter is given
+'plist xxx' will show current clan xxx list.
+ 
+~
 -1 $~
 
 #$

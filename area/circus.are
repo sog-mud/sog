@@ -115,11 +115,13 @@ stand stand female 108
 0 0 medium unknown
 #4406
 bearded lady~
-the Bearded Lady~
-The Bearded Lady is here.
+@eng the Bearded Lady@rus Бородачка~
+@eng The Bearded Lady is here.
+@rus Дама с бородой (lady) пугает детишек.
 ~
-The Bearded Lady is kind of scary looking.  She looks at you with lust in her
+@eng The Bearded Lady is kind of scary looking.  She looks at you with lust in her
 eyes.   RUN!!!!
+@rus Бородатая дама выглядит жутковато. Она пронзает тебя своим взглядом. БЕГИ !!!
 ~
 human~
 AB 0 0 0
@@ -163,11 +165,14 @@ stand stand male 18
 0 0 medium unknown
 #4409
 Ivan strongman man strong~
-Ivan~
-Ivan the Strongman poses for the crowd.
+@eng Ivan@rus Иван~
+@eng Ivan the Strongman poses for the crowd.
+@rus Силач Иван (Ivan) демонстрирует свои мускулы перед публикой.
 ~
-Ivan really is an impressive figure of a man.  You will want to think twice
+@eng Ivan really is an impressive figure of a man.  You will want to think twice
 before tangling with him.
+@rus У него действительно убедительная фигура. Ты подумаешь пару раз перед тем как
+связаться с ним.
 ~
 giant~
 ABCGH N 100 0
@@ -1061,7 +1066,7 @@ G none
 @eng You hear music and laughter coming from ahead of you.  Posters hang 
 from the trees, advertisements for the Circus that has just arrived in town.
 @rus Где-то совсем близко играет музыка и смеются дети. На деревьях
-расклеены афиши, прибывшего на гастроли цирка.
+расклеены афиши приехавего на гастроли цирка.
 ~
 0 0 city
 E

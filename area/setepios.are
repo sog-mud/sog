@@ -54,9 +54,9 @@ AH BJLPUX 0 0
 stand stand male 10000
 0 0 huge unknown
 #38003
-demon of eros gubund sola~
-Sola~
-Sola the Demons Queen is here.
+demon of eros gubund sola rafta~
+Rafta~
+Rafta is here.
 ~
 ~
 troll~
@@ -868,6 +868,19 @@ A
 A
 1 5
 G none
+#38109
+book of healing~
+Book of Healing~
+Old book lies here.~
+unknown~
+trash RT AO
+0 0 0 0 0
+35 1 1 P
+F
+S 'cure light' 20 A
+F
+S 'heal' 45 A
+G none
 #38200
 bartable~
 @eng long wooden table@rus длинный деревынный стол~
@@ -1385,6 +1398,7 @@ S
 #OLIMITS
 O 38024 2	* bone necklace
 O 38028 5	* Dragons Skull
+O 38109 0	* Book of Healing
 O 38500 0	* the ebony kris
 O 38501 0	* Demon's skin
 S
