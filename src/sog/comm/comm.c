@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.109 1998-10-10 04:37:10 fjoe Exp $
+ * $Id: comm.c,v 1.110 1998-10-13 12:38:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -74,6 +74,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <netdb.h>
+#include <locale.h>
 
 #include <sys/wait.h>
 #include <stdlib.h>
@@ -250,6 +251,8 @@ int main(int argc, char **argv)
 #if defined(MALLOC_DEBUG)
 	malloc_debug(2);
 #endif
+
+	setlocale(LC_ALL, "");
 
 	/*
 	 * Init time.
