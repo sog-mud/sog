@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.67 2001-08-05 16:37:01 fjoe Exp $
+ * $Id: note.c,v 1.68 2001-08-05 17:27:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -43,6 +43,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+#if defined(__FreeBSD__)
+#include <osreldate.h>
+#endif
 
 #include <merc.h>
 #include <note.h>
@@ -137,7 +141,11 @@ void fwrite_note(FILE *fp, note_t *pnote)
 {
 	fprintf(fp, "Sender  %s~\n", fix_string(pnote->sender));
 	fprintf(fp, "Date    %s~\n", fix_string(pnote->date));
+#if defined (__FreeBSD__) && __FreeBSD_version >= 500000
 	fprintf(fp, "Stamp   %d\n", pnote->date_stamp);
+#else
+	fprintf(fp, "Stamp   %ld\n", pnote->date_stamp);
+#endif
 	fprintf(fp, "To      %s~\n", fix_string(pnote->to_list));
 	fprintf(fp, "Subject %s~\n", fix_string(pnote->subject));
 	fprintf(fp, "Text\n%s~\n",   fix_string(pnote->text));

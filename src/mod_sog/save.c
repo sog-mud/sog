@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.187 2001-08-05 16:36:43 fjoe Exp $
+ * $Id: save.c,v 1.188 2001-08-05 17:27:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,6 +47,10 @@
 #include <limits.h>
 #include <stdlib.h>
 #include <dirent.h>
+
+#if defined(__FreeBSD__)
+#include <osreldate.h>
+#endif
 
 #include <merc.h>
 #include <db.h>
@@ -263,7 +267,11 @@ fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 			fprintf(fp, "Trai %d\n", pc->train);
 		fprintf(fp, "Exp %d\n", pc->exp);
 		fwrite_string(fp, "Hometown", hometown_name(pc->hometown));
+#if defined(__FreeBSD__) && __FreeBSD_version >= 500000
 		fprintf(fp, "LogO %d\n",
+#else
+		fprintf(fp, "LogO %ld\n",
+#endif
 			IS_SET(flags, SAVE_F_PSCAN) ?
 				pc->logoff : current_time);
 		if (pc->wiznet)
@@ -277,7 +285,11 @@ fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 			fprintf(fp, "PLev %d\n", pc->plevels);
 		fprintf(fp, "Plyd %d\n",
 			pc->played + (int) (current_time - pc->logon));
+#if defined(__FreeBSD__) && __FreeBSD_version >= 500000
 		fprintf(fp, "Not %d %d %d %d %d\n",
+#else
+		fprintf(fp, "Not %ld %ld %ld %ld %ld\n",
+#endif
 			pc->last_note, pc->last_idea,
 			pc->last_penalty, pc->last_news,
 			pc->last_changes);

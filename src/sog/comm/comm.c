@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.250 2001-08-05 16:37:07 fjoe Exp $
+ * $Id: comm.c,v 1.251 2001-08-05 17:27:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -656,7 +656,7 @@ void game_loop_unix(void)
 		if (select(maxdesc+1,
 			   &in_set, &out_set, &exc_set, &null_time) < 0) {
 			log(LOG_INFO, "game_loop: select: %s", strerror(errno));
-			continue;
+			goto sync;
 		}
 
 #if !defined (WIN32)
@@ -751,6 +751,7 @@ void game_loop_unix(void)
 			}
 		}
 
+sync:
 	/*
 	 * Synchronize to a clock.
 	 * Sleep(last_time + 1/PULSE_PER_SCD - now).
