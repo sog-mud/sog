@@ -13,7 +13,7 @@ avatar avatara~
 Avatar of abrazak~
 Avatar of abrazak is here.
 ~
-You see a huge man. He looks very strong and wise. You'd better never mess with him.
+@eng You see a huge man. He looks very strong and wise. You'd better never mess with him.
 ~
 dragon~
 ABGOVXac H 0 0
@@ -105,6 +105,7 @@ unknown~
 pill ABG AOQ
 66 'detect invis' 'detect hidden' 'acute vision' 'improved detect'
 1 1 100000 P
+G none
 #15001
 food~
 Food~
@@ -113,6 +114,7 @@ unknown~
 pill AG A
 300 'create food' 'create food' 'create food' 'create food'
 0 0 100 P
+G none
 #15002
 blood fountain~
 a fountain~
@@ -121,6 +123,7 @@ blood~
 fountain ABCEFI 0
 0 0 'blood' 0 0
 0 0 0 P
+G none
 #15003
 stats~
 stats~
@@ -141,6 +144,7 @@ A
 3 100
 A
 1 100
+G none
 #15004
 beer barrel~
 @eng a BIG barrel of beer for Mabutu@rus БОЛЬШОЙ бочонок пива для старого негра~
@@ -149,6 +153,7 @@ unknown~
 drink AGHIOTYZa AOP
 -1 100 'beer' 0 0
 0 0 0 P
+G none
 #15005
 fountain~
 @eng a fountain with milk@rus фонтан с молоком~
@@ -157,6 +162,7 @@ unknown~
 fountain O 0
 0 0 'milk' 0 0
 0 0 0 P
+G none
 #15006
 bed~
 @eng bed@rus нары~
@@ -165,6 +171,7 @@ unknown~
 furniture ABCEGIOY 0
 ABE ABCDEFGHIJKLMNOPQRSTUVWXYZabcde BEK DFGHIJ DFGHIJ
 0 0 0 P
+G none
 #15007
 bottle vodka absolute~
 @eng a bottle of crystal clear vodka@rus литровый пузырь кристалльно чистой водки~
@@ -173,6 +180,7 @@ glass~
 drink ABCEHJLMORYZ AO
 -1 1000 'vodka' 0 0
 99 1 2500 P
+G none
 #15008
 pill anti invader~
 Anti-invader's pill~
@@ -181,6 +189,7 @@ energy~
 pill ABOT A
 45 'detect fade' 'protection evil' 'bless' 'sanctuary'
 0 1 10000 P
+G none
 #15009
 abrazak mace~
 Abrazak's mace~
@@ -193,6 +202,7 @@ F
 A 18 10000 HIV
 F
 I 19 10000 CD
+G none
 #15010
 scythe~
 @eng {DScythe{x@rus {DКоса{x~
@@ -201,6 +211,7 @@ unknown~
 weapon RYa ANP
 exotic 10000 10000 none ABCDEGHI
 99 0 0 P
+G none
 #15011
 horn~
 @eng {DHorns{x@rus {DРога{x~
@@ -209,6 +220,7 @@ unknown~
 armor 0 AEP
 -1000 -1000 -1000 -1000 0
 99 0 0 P
+G none
 #15012
 rose~
 @eng {DBlack Rose{x@rus {DЧерная роза{x~
@@ -217,6 +229,7 @@ unknown~
 trash 0 AOP
 0 0 0 0 0
 99 0 0 P
+G none
 #15013
 hoof~
 @eng {DHooves{x@rus {DКопыта{x~
@@ -225,6 +238,7 @@ unknown~
 armor 0 AGP
 0 0 0 0 0
 0 0 0 P
+G none
 #15014
 mark beast~
 The Mark of the Beast~
@@ -233,6 +247,7 @@ darkness~
 treasure ABCEG AS
 0 0 0 0 0
 100 0 0 P
+G none
 #15020
 box~
 {Dящик ворсинского пива{x~
@@ -241,6 +256,7 @@ box~
 container GRYa AOP
 20 0 0 100 0
 1 0 0 P
+G none
 #15021
 bottle~
 {Dбутылка холодного Ворсинского пива{x~
@@ -249,6 +265,7 @@ bottle~
 drink CGRYa AOP
 20 20 'beer' 0 0
 1 0 0 P
+G none
 #15026
 no name~
 ~
@@ -257,6 +274,7 @@ unknown~
 trash 0 0
 0 0 0 0 0
 0 0 0 P
+G none
 #15027
 elephant~
 @eng HUGE elephant@rus ОГРОМНЫЙ СЛОНЯРА~
@@ -265,6 +283,7 @@ unknown~
 treasure 0 AO
 0 0 0 0 0
 0 0 0 P
+G none
 #15028
 bell~
 @eng {Wlittle magic bell{x@rus {Wмаленький глиняный колокольчик{x~
@@ -273,6 +292,7 @@ unknown~
 treasure 0 AO
 0 0 0 0 0
 0 0 0 P
+G none
 #15029
 bear~
 @eng teddy bear@rus плюшевый медвежонок~
@@ -281,6 +301,7 @@ unknown~
 treasure 0 AO
 0 0 0 0 0
 0 0 0 P
+G none
 #15030
 tron~
 {Gмаленькая удобная кроватка{x~
@@ -289,6 +310,7 @@ unknown~
 furniture RYa AP
 AC EIJKN HK CFG CFG
 0 0 0 P
+G none
 #15035
 bottle champagne~
 @eng {ga bottle of champagne{x@rus {gбутылка шампанского{x~
@@ -297,6 +319,7 @@ bottle champagne~
 drink GRYa AOP
 -1 2147483647 'champagne' 0 0
 0 0 0 P
+G none
 #15036
 chocolate sweet~
 @eng {ychocolate sweet{x@rus {yшоколадная конфета{x~
@@ -305,6 +328,7 @@ chocolate sweet~
 pill GRYa AOP
 30 'haste' 'frenzy' 'enhanced armor' 'sanctuary'
 0 0 0 P
+G none
 #15037
 box~
 @eng {ra box of chocolate sweets{x@rus {rкоробка шоколадных конфет{x~
@@ -313,6 +337,7 @@ box~
 container GRYa AOP
 100 0 0 0 0
 0 0 0 P
+G none
 #15040
 chair~
 ancient chair~
@@ -321,6 +346,7 @@ unknown~
 furniture FGRTYa AP
 A FHJKPQ H BCEH BCEH
 0 0 0 P
+G none
 #15041
 chair~
 ancient chair~
@@ -329,6 +355,7 @@ unknown~
 furniture FGRTYa AP
 A HJKMPTUX H CEFGHI CEFGHI
 0 0 0 P
+G none
 #15042
 gabagaba ring~
 gabagaba ring~
@@ -349,6 +376,7 @@ A
 2 3
 A
 1 3
+G none
 #15043
 splinter~
 splinter "p"~
@@ -357,6 +385,7 @@ unknown~
 trash GTYa AP
 0 0 0 0 0
 0 0 0 P
+G none
 #15044
 splinter~
 splinter "i"~
@@ -365,6 +394,7 @@ unknown~
 trash GTYa AP
 0 0 0 0 0
 0 0 0 P
+G none
 #15045
 splinter~
 splinter "r"~
@@ -373,6 +403,7 @@ unknown~
 trash GTYa AP
 0 0 0 0 0
 0 0 0 P
+G none
 #15046
 splinter~
 splinter "a"~
@@ -381,6 +412,7 @@ unknown~
 trash GTYa AP
 0 0 0 0 0
 0 0 0 P
+G none
 #15047
 splinter~
 splinter "t"~
@@ -389,6 +421,7 @@ unknown~
 trash GTYa AP
 0 0 0 0 0
 0 0 0 P
+G none
 #15048
 splinter~
 splinter "e"~
@@ -397,6 +430,7 @@ unknown~
 trash GTYa AP
 0 0 0 0 0
 0 0 0 P
+G none
 #15050
 eye~
 eye~
@@ -405,6 +439,7 @@ unknown~
 staff EFHMPRTYa AOP
 0 0 0 'reserved' 0
 10 10 0 P
+G none
 #15100
 cheburator~
 @eng a dwarven golden ring~
@@ -437,6 +472,7 @@ A
 20 -50
 A
 19 100
+G none
 #15112
 aenis~
 {W'{CAenis + Leo{W' ring{w~
@@ -449,6 +485,7 @@ A
 17 -5
 A
 20 -5
+G none
 #15113
 bucket rose~
 @eng Bucket full of roses@rus Ведерко для роз~
@@ -457,6 +494,7 @@ brass~
 container Yb AE
 1000 0 0 1000 10
 0 0 0 P
+G none
 #0
 
 #ROOMS

@@ -1354,3 +1354,30 @@ PPPS наверно еще надо завести базку по числительным формам слов и фраз. кстати,
 сразу фразы целиком. так что в описании выше под "словом" подразумевается
 "фраза".
 ~
+Sender  Iluvatar~
+Date    Fri Feb 19 17:03:56 1999~
+Stamp   919422236
+To      imm~
+Subject перевод~
+Text
+hi, there!
+ 
+теперь в short descr можно указывать изменяемыю часть слова, например,
+если
+Short descr: [~~труп~~ %s]
+то склоняться будет только слово труп
+ 
+{WIluvatar{x, Eru, the One
+~
+Sender  Iluvatar~
+Date    Fri Feb 19 23:11:22 1999~
+Stamp   919444282
+To      all~
+Subject toggle noeng~
+Text
+hi, there!
+ 
+if 'toggle noeng' is on english names will not be shown for objs/mobs.
+ 
+{WIluvatar{x, Eru, the One
+~

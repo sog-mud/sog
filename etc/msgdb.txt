@@ -61,7 +61,7 @@ Use 'desc edit' to edit your description.
 @rus Даже не думай об этом.
 ~
 @eng {csitting{x@rus {cсидишь{x~
-@eng You drop $p.@rus Ты бросаешь $p.~
+@eng You drop $p.@rus Ты бросаешь $c3{$p}.~
 @eng Pick what?
 @rus Взломать что?
 ~
@@ -151,12 +151,13 @@ Use 'desc edit' to edit your description.
 @eng ({cTranslucent{x) @rus ({cПрозрачно{x) ~
 @eng $n asks $N for a quest.@rus $n просит задание у $N.~
 @eng lemonade@rus лимонад~
+@eng $n's $U $u you.@rus $U $c1{$n} $u тебя.~
 @eng $n sacrifices $p to gods.@rus $n приносит $p в жертву богам.~
 @eng $n has created $N!@rus $n $gn{создал} $c3{$N}!~
 @eng $n wears $p around $s neck.@rus $n надевает $p на шею.~
 @eng $n drops some coins.@rus $n бросает несколько монет.~
 @eng $N deflects your attack with $S shield.@rus $N блокирует щитом твою атаку.~
-@eng You sell $P for $j silver $qj{pieces}.@rus Ты продаешь $c3{$P} за $j $c3{$qj{серебряные монеты}}.~
+@eng You sell $P for $j silver $qj{pieces}.@rus Ты продаешь $c3{$P} за $j $c3{$qj{серебряных монет}}.~
 @eng You rest on $p.@rus Ты садишься отдыхать на $p.~
 @eng The $d clicks.@rus $d щелкает.~
 @eng Don't you want a quest?@rus Не хочешь ли получить задание?~
@@ -179,6 +180,7 @@ Use 'desc edit' to edit your description.
 @rus Ты не можешь сесть оседланным.
 ~
 @eng $p strikes $n!@rus $p ударяет $n!~
+@eng $n buys $P.@rus $n покупает $c3{$P}.~
 @eng $N dodges your attack.@rus $N $gN{уклонился} от твоей атаки.~
 @eng  is sleeping in %s.@rus  спит в %s.~
 @eng  is sleeping here.@rus  спит здесь.~
@@ -255,7 +257,7 @@ Use 'desc edit' to edit your description.
 @eng $p feels like a part of you!@rus $p выглядит частью тебя!~
 @eng scatter on the dirt.~
 @eng gold@rus золотые~
-@eng Your $R $r $N!@rus Твой $R $r $c3{$N}!~
+@eng Your $U $u $N.@rus Твой $U $u $c3{$N}.~
 @eng You wear $p on your arms.@rus Ты надеваешь $p на плечи.~
 @eng You can't sneak while mounted.
 @rus Ты не можешь красться верхом.
@@ -359,7 +361,6 @@ Use 'desc edit' to edit your description.
 @eng Return to questmaster before your time runs out!
 @rus Вернись к тому, кто его тебе дал до того, как истечет отведенное время!
 ~
-@eng $n's $R $r $N!@rus $R $c1{$n} $r $c3{$N}!~
 @eng You don't see any tracks.
 @rus Здесь нет следов.
 ~
@@ -460,9 +461,6 @@ Use 'desc edit' to edit your description.
 @rus Ты не можешь сесть верхом.
 ~
 @eng You can't compare $p and $P.@rus $p и $P не сравнимы.~
-@eng Gods give you %d silver coins for your sacrifice.
-@rus Боги дают тебе %d серебрянных монет за твое жертвоприношение.
-~
 @eng You can recite only scrolls.
 @rus Это не свиток.
 ~
@@ -537,7 +535,6 @@ You peek at the inventory:
 Ты всматриваешься в снаряжение:
 ~
 @eng $N is standing too close to lock.@rus $N стоит слишком близко к замку.~
-@eng miss@rus промахиваешься мимо~
 @eng You are on a quest to recover the fabled {W%s{x!
 @rus У тебя задание найти {W%s{x!
 ~
@@ -646,10 +643,6 @@ You peek at the inventory:
 @eng You are hurt far too bad for that.
 @rus Тебе слишком больно делать это.
 ~
-@eng $N gives 350,000 gold pieces to $n.@rus $N дает 350,000 gold $n.~
-@eng Gods give you one silver coin for your sacrifice.
-@rus Боги дают тебе одну серебрянную монету за твое жертвоприношение.
-~
 @eng Better hurry, you're almost out of time for your quest!
 @rus Лучше поторопись, время, отведенное на задание, почти вышло!
 ~
@@ -677,7 +670,6 @@ You peek at the inventory:
 @rus Тебе туда нельзя.
 ~
 @eng rose wine@rus розовое вино~
-@eng $n tells you '{GI'll give you '{GI'll give you %d %s and $J gold $qJ{coins} for $p.{x'@rus $n говорит тебе: "Я дам тебе %d %s и $J $c3{$qJ{золотые монеты}} за $c3{$p}."~
 @eng blood@rus кровь~
 @eng It's already unlocked.
 @rus Здесь уже разомкнуто.
@@ -685,8 +677,7 @@ You peek at the inventory:
 @eng Go and ask the questor. He'll help you.
 @rus Иди к квестору и попроси у него помощи.
 ~
-@eng misses@rus промахивается мимо~
-@eng You eat $p.@rus Ты ешь $p.~
+@eng You eat $p.@rus Ты ешь $c3{$p}.~
 @eng Wow. One gold coin.
 @rus Ух ты. Целый золотой.
 ~
@@ -696,7 +687,7 @@ You peek at the inventory:
 @eng Death will thank you for your gift.@rus Ты станешь приятным подарком СМЕРТИ.~
 @eng You scan $t.@rus Ты пристально вглядываешься $t.~
 @eng You ask $N for a quest.@rus Ты просишь задание у $N.~
-@eng Gods give you $j silver $qj{coins} for your sacrifice.@rus Боги дают тебе $j $c3{$qj{серебряные монеты}} за твое жертвоприношение.~
+@eng Gods give you $j silver $qj{coins} for your sacrifice.@rus Боги дают тебе $j $c3{$qj{серебряных монет}} за твое жервоприношение.~
 @eng Eat what?
 @rus Что съесть?
 ~
@@ -752,6 +743,7 @@ Get back to questor before your time runs out!
 @eng You don't have a religion to have a tattoo.
 @rus Чтобы получить татуировку, тебе нужно поверить в какого-нибудь бога.
 ~
+@eng You buy $P[$j] for $J silver.@rus Ты покупаешь $c3{$P}[$j] за $J $c3{$qJ{серебряных}}.~
 @eng $p feels a little clumsy in your hands.@rus В твоих руках $p смотрится довольно неуклюже.~
 @eng white wine@rus белое вино~
 @eng mead@rus медовуха~
@@ -787,6 +779,7 @@ Get back to questor before your time runs out!
 @eng $n wakes and sits on $p.@rus $n просыпается и садится на $p.~
 @eng $n fades into existence.@rus $n появляется словно ниоткуда.~
 @eng You tell $N '{G$t{x'@rus Ты говоришь $N: "{G$t{x"~
+@eng You buy $P for $j silver.@rus Ты покупаешь $c3{$P} за $j $c3{$qj{серебряных}}.~
 @eng $n looks at $N.@rus $n смотрит на $c3{$N}.~
 @eng You are too dazed to push anyone.
 @rus Ты слишком удивлен, чтобы толкаться.
@@ -797,7 +790,7 @@ Get back to questor before your time runs out!
 @rus Положить что во что?
 ~
 @eng $N grins evilly at you.@rus $N зло ухмыляется тебе.~
-@eng You sell $P for $j gold $qj{pieces}.@rus Ты продаешь $c3{$P} за $j $c3{$qj{золотые монеты}}.~
+@eng You sell $P for $j gold $qj{pieces}.@rus Ты продаешь $c3{$P} за $j $c3{$qj{золотых монет}}.~
 @eng It won't fit.
 @rus Не входит.
 ~
@@ -822,7 +815,7 @@ Get back to questor before your time runs out!
 @rus Тут нет таких.
 ~
 @eng coffee@rus кофе~
-@eng You sell $P for $j gold and $J silver $qJ{pieces}.@rus Ты продаешь $c3{$P} за $j $c3{$qj{золотые}} и $J $c3{$qJ{серебряные монеты}}.~
+@eng You sell $P for $j gold and $J silver $qJ{pieces}.@rus Ты продаешь $c3{$P} за $j $c3{$qj{золотых}} и $J $c3{$qJ{серебряных монет}}.~
 @eng <worn on arms>      $t@rus <надето на плечи>      $t~
 @eng You are full.
 @rus Твой желудок полон.
@@ -854,7 +847,7 @@ Get back to questor before your time runs out!
 @eng You hear something's death cry.@rus Ты слышишь чей-то предсмертный вопль.~
 @eng $n unlocks the $d.@rus $n размыкает $d.~
 @eng Vile pilferers have stolen {W%s{z from the royal treasury!@rus Подлые жулики украли {W%s{z из королевской сокровищницы!~
-@eng $n gives you $J $t.@rus $n дает тебе $J $c3{$qJ{$t}}.~
+@eng $n gives you $J $t.@rus $n дает тебе $J $c3{$qJ{$c1{$t}}}.~
 @eng  none@rus  нет~
 @eng  is sitting here.@rus  сидит здесь.~
 @eng There's no cover here.
@@ -1001,7 +994,7 @@ Get back to questor before your time runs out!
 @eng $n eats $p.@rus $n ест $c3{$p}.~
 @eng $n wakes you.@rus $n будит тебя.~
 @eng $n locks the $d.@rus $n замыкает $d.~
-@eng You give $N $J $t.@rus Ты даешь $c2{$N} $J $c3{$qJ{$t}}.~
+@eng You give $N $J $t.@rus Ты даешь $c2{$N} $J $c3{$qJ{$c1{$t}}}.~
 @eng You don't want to drain your master.
 @rus Ты не хочешь усыплять своего хозяина.
 ~
@@ -1058,7 +1051,7 @@ Get back to questor before your time runs out!
 @eng Maybe you should finish fighting first?
 @rus Может для начала перестанешь драться?
 ~
-@eng $n drops $p.@rus $n бросает $p.~
+@eng $n drops $p.@rus $n бросает $c3{$p}.~
 @eng You wake and stand up.
 @rus Ты просыпаешься и встаешь.
 ~
@@ -1198,7 +1191,7 @@ Get back to questor before your time runs out!
 ~
 @eng $n sits at $p.@rus $n садится около $p.~
 @eng $n opens the $d.@rus $n открывает $d.~
-@eng $n butchers $P and creates $j $qj{steaks}.@rus $n $gn{разделал} $c3{$P} и $gn{приготовил} $j $c3{$qj{бифштексы}}.~
+@eng $n butchers $P and creates $j $qj{steaks}.@rus $n $gn{разделал} $c3{$P} и $gn{приготовил} $j $c3{$qj{бифштексов}}.~
 @eng You don't know how to camouflage yourself.
 @rus Ты не умеешь маскироваться.
 ~
@@ -1338,10 +1331,10 @@ Get back to questor before your time runs out!
 @eng You choke and gag.
 @rus Ты мучаешься от удушья.
 ~
-@eng $n's $R $r you!@rus $R $c1{$n} $r тебя!~
 @eng This beast is already ridden.
 @rus Этот зверь уже оседлан.
 ~
+@eng $n's $U $u $N.@rus $U $c1{$n} $u $c3{$N}.~
 @eng $n bashes the $d and breaks the lock.@rus $n ударяется с разбегу в $d и выбивает замок.~
 @eng $n spills $s guts all over the floor.@rus Внутренности $c1{$n} вывалились из распоротого живота наружу!~
 @eng You feel yourself getting greater and greater.
@@ -1350,7 +1343,7 @@ Get back to questor before your time runs out!
 @eng You fail to reach your mouth.  *Hic*
 @rus Ты не можешь дотянуться до рта. *Иик*
 ~
-@eng You get $p.@rus Ты берешь $p.~
+@eng You get $p.@rus Ты берешь $c3{$p}.~
 @eng You can't sleep while being ridden.
 @rus Ты не можешь спать оседланным.
 ~
@@ -1407,7 +1400,7 @@ Get back to questor before your time runs out!
 @rus Ты не можешь подкрасться к себе сзади.
 ~
 @eng sherry@rus херес~
-@eng You butcher $P and create $j $qj{steaks}.@rus Ты $gn{разделал} $c3{$P} и $gn{приготовил} $j $c3{$qj{бифштексы}}.~
+@eng You butcher $P and create $j $qj{steaks}.@rus Ты $gn{разделал} $c3{$P} и $gn{приготовил} $j $c3{$qj{бифштексов}}.~
 @eng But you are already on a quest!@rus У тебя уже есть задание!~
 @eng $n stands at $p.@rus $n встает около $p.~
 @eng That's not a container.

@@ -1,5 +1,6 @@
 #AREADATA
 Name Westland~
+Builders arwen~
 VNUMs 10000 10050
 Credits Xavier~
 Security 9
@@ -8,13 +9,18 @@ End
 
 #MOBILES
 #10001
-gar long tail~
-A long-tailed gar~
-A long-tailed Gar stalks you deep in the woods.
+gar long tail гар длиннохвостый~
+@eng a long-tailed gar@rus длиннохвостый гар~
+@eng A long-tailed Gar stalks you deep in the woods.
+@rus Длиннохвостый гар (gar) подкрадывается к тебе из-за деревьев.
 ~
-You see a giant flesh-eating beast that hunts by the sense of
+@eng You see a giant flesh-eating beast that hunts by the sense of
 smell. Your blood must be sweet because it has spotted you and is
 running in your direction. YOU'D BETTER ACT FAST!
+@rus Огромное чудовище плотоядным взглядом осматривает окрестности, принюхиваясь 
+к витающим в воздухе запахам, в поисках следующей жертвы. Особо сладок для
+него будет вкус твоей окровавленной плоти, так что, лучше поскорее покинуть 
+это место, не привлекая к себе лишнего внимания.
 ~
 dragon~
 ABFT Vb -1000 0
@@ -24,13 +30,18 @@ BCDEFIKMN AB IJKO HQY
 stand stand male 300
 c L huge unknown
 #10002
-gar long tail~
-a long-tailed gar~
-A long-tailed Gar stalks you deep in the woods.
+gar long tail гар длиннохвостый~
+@eng a long-tailed gar@rus длиннохвостый гар~
+@eng A long-tailed Gar stalks you deep in the woods.
+@rus Длиннохвостый гар (gar) подкрадывается к тебе из-за деревьев.
 ~
-You see a giant flesh-eating beast that hunts by the sense of
+@eng You see a giant flesh-eating beast that hunts by the sense of
 smell. Your blood must be sweet because it has spotted you and is
 running in your direction. YOU'D BETTER ACT FAST!
+@rus Огромное чудовище плотоядным взглядом осматривает окрестности, принюхиваясь
+к витающим в воздухе запахам, в поисках следующей жертвы. Особо сладок для
+него будет вкус твоей окровавленной плоти, так что, лучше поскорее покинуть
+это место, не привлекая к себе лишнего внимания.
 ~
 dragon~
 ABFT Vb -1000 0
@@ -40,13 +51,17 @@ BCDEFIKMN AB IJKO HQY
 stand stand male 300
 c L huge unknown
 #10003
-gar long tail~
-a long-tailed gar~
-A long-tailed Gar stalks you deep in the woods.
+gar long tail гар длиннохвостый~
+@eng a long-tailed gar@rus длиннохвостый гар~
+@eng Длиннохвостый гар (gar) подкрадывается к тебе из-за деревьев.
 ~
-You see a giant flesh-eating beast that hunts by the sense of
+@eng You see a giant flesh-eating beast that hunts by the sense of
 smell. Your blood must be sweet because it has spotted you and is
 running in your direction. YOU'D BETTER ACT FAST!
+@rus Огромное чудовище плотоядным взглядом осматривает окрестности, принюхиваясь
+к витающим в воздухе запахам, в поисках следующей жертвы. Особо сладок для
+него будет вкус твоей окровавленной плоти, так что, лучше поскорее покинуть 
+это место, не привлекая к себе лишнего внимания.
 ~
 dragon~
 ABFT Vb -947 0
@@ -56,12 +71,14 @@ BCDEFIKMN AB IJKO HQY
 stand stand male 300
 c L huge unknown
 #10004
-fly blood~
-a blood fly~
-A little annoying insect is waiting to suck your blood.
+fly blood муха кровавая~
+@eng a blood fly@rus кровавая муха~
+@eng A little annoying insect is waiting to suck your blood.
+@rus Маленькое надоедливое насекомое (fly) кружит вокруг тебя, пытаясь ужалить.
 ~
-You see a deformed little bug that has giant teeth waiting to
+@eng You see a deformed little bug that has giant teeth waiting to
 penetrate your skin.
+@rus Бесформенный маленький жучок с острыми зубками, жаждущий твоей теплой крови.
 ~
 unique~
 ABT BGJTVb -200 0
@@ -71,13 +88,16 @@ BCEFKO EJL J KM
 stand stand male 300
 0 0 tiny unknown
 #10005
-quad assassin~
-a quad assassin~
-A member of the quad assassins is here.
+quad assassin квод один~
+@eng a quad assassin@rus один из квода~
+@eng A member of the quad assassins is here.
+@rus Один из квода (assasin) стоит перед тобой, не давая пройти.
 ~
-You see a dangerous man wearing heavy armor and weapons. He seems
+@eng You see a dangerous man wearing heavy armor and weapons. He seems
 to be an assassin-type man with one thought in mind. KILL KILL
 KILL!
+@rus Перед тобой великолепно экипированный и вооруженный мужчина опасного вида,
+в чьих пустых глазах светится лишь жажда убийства и крови.
 ~
 human~
 ABT Vb -1000 0
@@ -87,13 +107,16 @@ BCDEFGHIKNV AH BL J
 stand stand male 300
 0 0 large unknown
 #10006
-quad assassin~
-a quad assassin~
-A member off the quad assassins is here.
+quad assassin квод один~
+@eng a quad assassin@rus один из квода~
+@eng A member off the quad assassins is here.
+@rus один из квода (assasin) стоит перед тобой, не давая пройти.
 ~
-Toy see a dangerous man wearing heavy armor and weapons. He seems
+@eng Toy see a dangerous man wearing heavy armor and weapons. He seems
 to be an assassin-type man with one thought in mind. KILL KILL
 KILL!
+@rus Перед тобой великолепно экипированный и вооруженный мужчина опасного вида,
+в чьих пустых глазах светится лишь жажда убийства и крови.
 ~
 human~
 ABT Vb -1000 0
@@ -103,11 +126,14 @@ BCDEFGHIKNV AH BL J
 stand stand male 300
 0 0 large unknown
 #10007
-young lady~
-a young lady~
-There is a nice young lady picking flowers from her garden.
+young lady девушка молодая~
+@eng a young lady@rus молодая девушка~
+@eng There is a nice young lady picking flowers from her garden.
+@rus Прелестная молодая девушка (lady) гуляет по саду, собирая цветы.
 ~
-You see a young lady picking flowers from her garden.
+@eng You see a young lady picking flowers from her garden.
+@rus Ты видишь милое юное создание с обаятельной улыбкой. Она спокойно
+выбирает цветы для букета, не обращая на тебя ни малейшего внимания.
 ~
 human~
 ABT Nb 850 0
@@ -117,12 +143,15 @@ BCDEFGHIK AI 0 0
 stand stand female 300
 0 0 medium unknown
 #10008
-fisherman man~
-a fisherman~
-You see a clam fisherman waiting for his catch of the day.
+fisherman man рыбак мужчина~
+@eng a fisherman@rus рыбак~
+@eng You see a clam fisherman waiting for his catch of the day.
+@rus Задумчивый рыбак (fisherman) спокойно занимается своим обычным делом.
 ~
-He is a tall man who seems to enjoy fishing. It looks like he
+@eng He is a tall man who seems to enjoy fishing. It looks like he
 would like to catch some fish to take home.
+@rus Высокий хорошо сложенный мужчина, искренне наслаждающийся своим делом. Он 
+неспеша складывает улов в корзину, чтобы потом отнести его домой.
 ~
 human~
 ABT Nb 1000 0
@@ -149,7 +178,7 @@ stand stand male 300
 0 0 small unknown
 #10010
 heart hound~
-a heart hound~
+@eng a heart hound@rus гончая сердца~
 There is a deadly heart hound drooling all over himself.
 ~
 This is on of the most deadly beast whom have escaped from the
@@ -538,6 +567,7 @@ warden mace~
 It is a giant mace clad with sharp deadly teeth. It was made for
 the use of killing. This truly is a strong weapon.
 ~
+G none
 #10002
 bone necklace~
 The Bone Woman's Necklace.~
@@ -557,6 +587,7 @@ bone necklace~
 This is a magical necklace that the bone woman HAD around her
 neck. It must be very powerful since the kill took awhile.
 ~
+G none
 #10003
 gripper teeth~
 Some grippers teeth~
@@ -569,6 +600,7 @@ A
 19 6
 A
 1 3
+G none
 #10004
 jug beer~
 A Jug 'o Beer~
@@ -577,6 +609,7 @@ glass~
 drink BC A
 20 20 'beer' 0 0
 1 1 1 P
+G none
 #10005
 thief boot boots black~
 A Pair of Black Boots~
@@ -591,6 +624,7 @@ A
 12 30
 A
 1 2
+G none
 #10006
 boundary glove warden gloves~
 Boundary Warden Gloves~
@@ -605,6 +639,7 @@ A
 18 8
 A
 1 2
+G none
 #10007
 boundary boot warden boots~
 Boundary Warden Boots~
@@ -619,6 +654,7 @@ A
 19 6
 A
 18 5
+G none
 #10008
 boundary sleeves warden~
 Boundary Warden Sleeves~
@@ -633,6 +669,7 @@ A
 2 2
 A
 1 2
+G none
 #10009
 boundary shield warden~
 Boundary Warden's Shield~
@@ -645,6 +682,7 @@ A
 13 40
 A
 17 -9
+G none
 #10010
 boundary tunic warden~
 Boundary Warden's Tunic~
@@ -655,6 +693,7 @@ armor BC AK
 60 10 9898 P
 A
 17 -21
+G none
 #10011
 boundary helmet warden~
 A Boundary Warden Helmet~
@@ -667,6 +706,7 @@ A
 23 -5
 A
 1 2
+G none
 #10012
 boundary ring warden~
 A Boundary Warden Ring~
@@ -677,6 +717,7 @@ treasure BC AB
 60 10 9898 P
 A
 13 75
+G none
 #10013
 boundary legging warden leggings~
 Boundary Warden Leggings~
@@ -689,6 +730,7 @@ A
 21 -1
 A
 14 30
+G none
 #10014
 robe dark~
 a Dark Robe~
@@ -701,6 +743,7 @@ A
 13 25
 A
 12 50
+G none
 #10015
 collar heart hound~
 a Heart Hound Collar~
@@ -715,6 +758,7 @@ A
 13 50
 A
 12 50
+G none
 #10016
 pouch magical leather~
 a Magical Leather Pouch~
@@ -723,6 +767,7 @@ leather~
 container BC A
 700 A 0 350 72
 70 50 1000 P
+G none
 #10017
 cookie~
 a BIG cookie!~
@@ -731,6 +776,7 @@ unknown~
 food B A
 DF 0 0 0 0
 8 10 0 P
+G none
 #10018
 cake~
 a BIG piece of cake!~
@@ -739,6 +785,7 @@ unknown~
 food B A
 BD 0 0 0 0
 1 10 0 P
+G none
 #10019
 boundary sword warden~
 a Boundary Warden Sword~
@@ -755,6 +802,7 @@ E
 boundary sword warden~
 This is a boundary warden sword that is made just for their use.
 ~
+G none
 #10020
 boundary flail warden~
 a Boundary Warden Flail~
@@ -767,6 +815,7 @@ A
 19 3
 A
 18 4
+G none
 #10021
 boundary mace warden~
 a Boundary Warden Mace~
@@ -779,6 +828,7 @@ A
 18 2
 A
 18 3
+G none
 #10022
 boundary dagger warden~
 a Boundary Warden Dagger~
@@ -791,6 +841,7 @@ A
 19 3
 A
 18 3
+G none
 #10023
 agiel sword weapon~
 a Mord-Sith's Agiel~
@@ -807,6 +858,7 @@ A
 13 20
 A
 12 20
+G none
 #10024
 bracer power~
 the Bracer of Power~
@@ -823,6 +875,7 @@ A
 13 50
 A
 12 50
+G none
 #10025
 westland ~
 a sign~
@@ -877,6 +930,7 @@ the only land that had no magic what-so-ever. He also divided the
 two lands with a magical Boundry. This boundry was created to
 stop all magic from  going into the other land.
 ~
+G none
 #10026
 sign~
 a little sign~
@@ -934,6 +988,7 @@ People's Palace before it is too late or you get lost! You really
 must hurry for Darken Rahl has almost won the battle and will
 control the lands!
 ~
+G none
 #0
 
 #ROOMS
@@ -1854,7 +1909,7 @@ E 0 10012 0 2		*	A Boundary Warden Ring: on the right finger
 E 0 10013 0 7		*	Boundary Warden Leggings: on the legs
 M 0 10010 4 10008 1	* a heart hound (The Edge of Upper Ven.)
 M 0 10010 4 10008 1	* a heart hound (The Edge of Upper Ven.)
-M 0 10001 2 10009 1	* A long-tailed gar (The Trail in the Forest.)
+M 0 10001 2 10009 1	* a long-tailed gar (The Trail in the Forest.)
 M 0 10002 2 10009 1	* a long-tailed gar (The Trail in the Forest.)
 M 0 10004 4 10009 1	* a blood fly (The Trail in the Forest.)
 M 0 10004 4 10009 1	* a blood fly (The Trail in the Forest.)
@@ -1867,7 +1922,7 @@ M 0 10003 1 10012 1	* a long-tailed gar (The Fields of Hartland.)
 M 0 10004 4 10012 1	* a blood fly (The Fields of Hartland.)
 M 0 10016 2 10012 1	* a beggar (The Fields of Hartland.)
 M 0 10016 2 10012 1	* a beggar (The Fields of Hartland.)
-M 0 10001 2 10015 1	* A long-tailed gar (The Path at the swamp.)
+M 0 10001 2 10015 1	* a long-tailed gar (The Path at the swamp.)
 M 0 10002 2 10015 1	* a long-tailed gar (The Path at the swamp.)
 M 0 10004 4 10015 1	* a blood fly (The Path at the swamp.)
 M 0 10010 4 10015 1	* a heart hound (The Path at the swamp.)

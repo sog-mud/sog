@@ -9,6 +9,15 @@ Form 5 -е~
 End
 
 #WORD
+Name бифштекс~
+BaseLen 8
+Form 1 -а~
+Form 2 -у~
+Form 4 -ом~
+Form 5 -е~
+End
+
+#WORD
 Name адамантитовый голем~
 Form 1 адамантитового голема~
 End
@@ -24,6 +33,16 @@ Form 5 -е~
 End
 
 #WORD
+Name серебряная~
+BaseLen 8
+Form 1 -ой~
+Form 2 -ой~
+Form 3 -ую~
+Form 4 -ой~
+Form 5 -ой~
+End
+
+#WORD
 Name фонтан~
 Form 1 фонтана~
 End
@@ -34,14 +53,52 @@ Form 3 медовуху~
 End
 
 #WORD
+Name монета~
+BaseLen 5
+Form 1 -ы~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+End
+
+#WORD
+Name золотая~
+BaseLen 5
+Form 1 -ой~
+Form 2 -ой~
+Form 3 -ую~
+Form 4 -ой~
+Form 5 -ой~
+End
+
+#WORD
 Name золотая монета~
 Form 3 золотую монету~
+End
+
+#WORD
+Name багровая~
+BaseLen 6
+Form 1 -ой~
+Form 2 -ой~
+Form 3 -ую~
+Form 4 -ой~
+Form 5 -ой~
 End
 
 #WORD
 Name скамейка~
 BaseLen 7
 Form 3 -у~
+End
+
+#WORD
+Name сердце~
+BaseLen 5
+Form 1 -а~
+Form 2 -у~
+Form 4 -ем~
 End
 
 #WORD
@@ -60,8 +117,17 @@ Form 5 -е~
 End
 
 #WORD
+Name внутренности~
+BaseLen 11
+Form 1 -ей~
+Form 2 -ям~
+Form 4 -ями~
+Form 5 -ях~
+End
+
+#WORD
 Name золотые монеты~
-Form 3 золотых монет~
+Form 1 золотых монет~
 End
 
 #WORD
@@ -70,12 +136,17 @@ End
 
 #WORD
 Name золотые~
-Form 3 золотых~
+Form 1 золотых~
 End
 
 #WORD
-Name краюха хлеба~
-Form 1 краюху хлеба~
+Name голубая~
+BaseLen 5
+Form 1 -ой~
+Form 2 -ой~
+Form 3 -ую~
+Form 4 -ой~
+Form 5 -ой~
 End
 
 #WORD
@@ -86,6 +157,44 @@ Form 2 -ой~
 Form 3 -ую~
 Form 4 -ой~
 Form 5 -ой~
+End
+
+#WORD
+Name деревянная~
+BaseLen 8
+Form 1 -ой~
+Form 2 -ой~
+Form 3 -ую~
+Form 4 -ой~
+Form 5 -ой~
+End
+
+#WORD
+Name что-то~
+Form 1 чего-то~
+Form 2 чему-то~
+Form 4 чем-то~
+Form 5 чем-то~
+End
+
+#WORD
+Name краюха~
+BaseLen 5
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+End
+
+#WORD
+Name монетка~
+BaseLen 6
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
 End
 
 #WORD
@@ -101,6 +210,25 @@ End
 #WORD
 Name вооруженная~
 BaseLen 9
+Form 1 -ой~
+Form 2 -ой~
+Form 3 -ую~
+Form 4 -ой~
+Form 5 -ой~
+End
+
+#WORD
+Name труп~
+BaseLen 4
+Form 1 -а~
+Form 2 -у~
+Form 4 -ом~
+Form 5 -е~
+End
+
+#WORD
+Name белая~
+BaseLen 3
 Form 1 -ой~
 Form 2 -ой~
 Form 3 -ую~
@@ -125,12 +253,46 @@ End
 
 #WORD
 Name бифштексы~
-Form 3 бифштекса~
+BaseLen 8
+Form 1 -ов~
+Form 2 -ам~
+Form 4 -ами~
+Form 5 -ах~
 End
 
 #WORD
 Name кока-кола~
 Form 3 кока-колу~
+End
+
+#WORD
+Name рука~
+BaseLen 3
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+End
+
+#WORD
+Name нога~
+BaseLen 3
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+End
+
+#WORD
+Name стрела~
+BaseLen 5
+Form 1 -ы~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
 End
 
 #WORD
@@ -165,13 +327,32 @@ Form 6 е~
 End
 
 #WORD
+Name зеленая~
+BaseLen 5
+Form 1 -ой~
+Form 2 -ой~
+Form 3 -ую~
+Form 4 -ой~
+Form 5 -ой~
+End
+
+#WORD
 Name серебряные монеты~
-Form 3 серебряных монет~
+Form 1 серебряных монет~
+End
+
+#WORD
+Name мозги~
+BaseLen 4
+Form 1 -ов~
+Form 2 -ам~
+Form 4 -ами~
+Form 5 -ах~
 End
 
 #WORD
 Name серебряные~
-Form 3 серебряных~
+Form 1 серебряных~
 End
 
 #$

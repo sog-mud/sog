@@ -1240,7 +1240,7 @@ This is where you put money and items to help Doz expand this shrine,
 ~
 #3011
 bread хлеб краюха~
-@eng bread@rus краюха хлеба~
+@eng bread@rus ~~краюха~~ хлеба~
 @eng A loaf of bread is here. It doesn't look too stale.@rus Здесь лежит краюха хлеба. Она выглядит достаточно свежей.~
 food~
 food 0 A

@@ -48,6 +48,7 @@ unknown~
 furniture A 0
 B EGIJOP EHK CEFGHI CEFGHI
 0 5000 0 P
+G none
 #36101
 ring life~
 @eng ring of Life@rus кольцо Жизни~
@@ -66,6 +67,7 @@ A
 18 25
 F
 A 0 0 c
+G none
 #36102
 helm seeing~
 @eng Helm of Seeing@rus Шлем Видения~
@@ -92,6 +94,7 @@ F
 A 0 0 F
 F
 A 0 0 D
+G none
 #36103
 ring death~
 @eng ring of Death@rus кольцо Смерти~
@@ -110,13 +113,14 @@ F
 I 0 0 P
 F
 I 0 0 M
+G none
 #36104
 dagger might~
 @eng dagger of Might@rus кинжал Силы~
 @eng dagger of might@rus dagger of might~
 unknown~
 weapon BM AN
-dagger 1 5000 scratch ABDEGH
+dagger 1 500000 scratch ABDEGH
 100 0 0 P
 A
 18 30
@@ -124,6 +128,7 @@ A
 19 70
 A
 17 -250
+G none
 #36105
 Black Hole~
 @eng Black Hole@rus Черная дыра~
@@ -142,6 +147,7 @@ F
 R 0 0 D
 A
 19 20
+G none
 #36106
 gloves universal~
 Universal Gloves.~
@@ -166,6 +172,7 @@ A
 19 500
 A
 18 500
+G none
 #0
 
 #ROOMS
@@ -336,7 +343,6 @@ S
 
 #MOBPROGS
 #36101
-mob gecho Да успокойтесь вы. Он [*] ПРОМАЗАЛ [*].
 ~
 #0
 

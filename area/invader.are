@@ -54,6 +54,7 @@ bone~
 container CEORY P
 10 ABCD 95602 15 100
 60 2 20 P
+G none
 #95601
 globe sphere~
 the nothing globe~
@@ -62,6 +63,7 @@ unknown~
 treasure CEORTe AO
 0 0 0 0 0
 0 2 10000 P
+G none
 #95602
 skull grayish jaw~
 grayish jaw of a skull~
@@ -70,6 +72,7 @@ bone~
 key CEORYf A
 0 0 0 0 0
 40 2 0 P
+G none
 #95603
 white object portal~
 Magical White Portal~
@@ -78,6 +81,7 @@ energy~
 portal AO 0
 0 0 B 95600 0
 0 0 0 P
+G none
 #95604
 dark object portal~
 Dark Portal~
@@ -86,6 +90,7 @@ energy~
 portal AO 0
 0 0 E 0 0
 0 0 0 P
+G none
 #95605
 green object portal~
 Magical Green Portal~
@@ -94,6 +99,7 @@ energy~
 portal AO 0
 0 0 B 3124 0
 0 0 0 P
+G none
 #95606
 shadow~
 shadow cloak~
@@ -102,6 +108,7 @@ unknown~
 furniture R P
 ACD 0 HK DGH DGH
 0 0 0 P
+G none
 #0
 
 #ROOMS
@@ -110,7 +117,7 @@ ACD 0 HK DGH DGH
 @eng You are standing near a ruined stone well blocked by a big boulder on
 the well mouth. A cold breeze of fear, sweeps your face, as you feel the 
 shadows watching you!
-@rus Вы стоите возле разрушенного каменного колодца, зев которого загораживает огромный валун. Вы испытываете страх, понимая что призраки сдедят за вами.
+@rus Вы стоите возле разрушенного каменного колодца, зев которого загораживает огромный валун. Вы испытываете страх, понимая что призраки следят за вами.
 ~
 0 ACDK inside
 D0

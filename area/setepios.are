@@ -23,6 +23,20 @@ ABQRT DFHUVZl 0 0
 0 0 0 0
 stand stand male 32000
 0 0 medium unknown
+#38002
+grapadij~
+Grapadij~
+Grapadij is snooping for his victims here ...
+~
+Wow !!! It's a kind of mutant troll ...
+~
+troll~
+BGRT DFHV -1000 0
+85 1000 100d1+30000 100d1+10000 1d1+400 pound
+-100 -100 -100 -100
+AH BJLPUX 0 0
+stand stand male 10000
+0 0 huge unknown
 #38102
 ded moroz~
 @eng {CFather Frost{x@rus {CДед Мороз{x~
@@ -107,6 +121,7 @@ wood~
 furniture G P
 B EIJKN EHK EIJKN EIJKN
 92 1 1 P
+G none
 #38002
 armchair~
 @eng armchair@rus {yудобое кресло{w~
@@ -115,6 +130,7 @@ wood~
 furniture G 0
 A DFGHIJ FI CEFGHI CEFGHI
 92 1 1 P
+G none
 #38003
 fountain~
 @eng fountain@rus фонтан.~
@@ -123,6 +139,7 @@ marble~
 fountain G 0
 1000 1000 'blood' 0 0
 92 1 1 P
+G none
 #38004
 table~
 @eng table@rus письменный стол~
@@ -131,6 +148,7 @@ wood~
 furniture G 0
 0 EIJKN NO 0 0
 92 1 1 P
+G none
 #38005
 Setepios Sword~
 @eng weapon@rus тыкалка~
@@ -155,6 +173,7 @@ A
 3 10
 A
 1 10
+G none
 #38006
 safira armor~
 @eng Safiras Armor@rus Латы Сафиры~
@@ -171,6 +190,7 @@ A
 18 6
 A
 19 6
+G none
 #38007
 robe~
 @eng Black Robe of Setepios@rus Черная ряса Setepiosa~
@@ -187,6 +207,7 @@ A
 12 30000
 A
 13 30000
+G none
 #38008
 girdle~
 @eng Dragon belt@rus Пояс из кожи Дракона~
@@ -195,6 +216,7 @@ soul~
 armor CG AL
 0 0 0 0 0
 92 1 1 P
+G none
 #38009
 vis card висит~
 @eng card of Setepios@rus Карточка Setepiosa~
@@ -203,6 +225,7 @@ unknown~
 trash NR A
 0 0 0 0 0
 0 1 1 P
+G none
 #38010
 pie~
 Heras pie~
@@ -215,6 +238,7 @@ A
 12 1000
 A
 13 1000
+G none
 #38011
 dagger safira~
 Sword of Safira~
@@ -227,6 +251,7 @@ A
 19 4
 A
 18 7
+G none
 #38012
 eye diamond unicorn~
 Diamond eye of Unicorn~
@@ -235,6 +260,7 @@ unknown~
 treasure RT A
 0 0 0 0 0
 110 10 100 P
+G none
 #38013
 weapon~
 Third Power~
@@ -257,6 +283,7 @@ A
 1 15
 A
 17 -9999
+G none
 #38014
 armchair~
 armchair~
@@ -265,6 +292,7 @@ unknown~
 furniture C A
 A 0 FI DFGHIJ DFGHIJ
 10 1 1 P
+G none
 #38015
 tattoo~
 @eng {rHeras Angel Tattoo{x@rus {rТатуировка Ангела Геры{x~
@@ -275,6 +303,7 @@ armor CHIM AR
 0 0 0 P
 A
 14 28000
+G none
 #38016
 book~
 @eng Book of Time@rus Летопись~
@@ -283,6 +312,7 @@ paper~
 treasure CHIMZ AO
 0 0 0 0 0
 110 1 1 P
+G none
 #38017
 blessed shield gods~
 Blessed Shield of Gods~
@@ -295,6 +325,32 @@ A
 19 10
 A
 18 10
+G none
+#38018
+blessed helm of honor~
+{YBlessed {WHelm {xof Honor~
+Blessed helm of Honor awaits for its owner~
+divine~
+armor AITa AE
+32 32 32 30 0
+85 5 100000 P
+A
+19 10
+A
+18 10
+A
+2 1
+A
+6 1
+A
+5 1
+A
+1 1
+A
+4 1
+A
+13 100
+G none
 #38095
 {rБольшой пионерский БАРАБАН{w dark glass~
 dark glass~
@@ -303,6 +359,7 @@ wood~
 treasure GT A
 0 0 0 0 0
 92 1 100000 P
+G none
 #38200
 bartable~
 @eng long wooden table@rus длинный деревынный стол~
@@ -311,6 +368,7 @@ wood~
 furniture 0 0
 BD EIJKN KN CFG CFG
 0 100000 0 P
+G none
 #38500
 club spiked skullsmasher~
 the spiked club named 'Skullsmasher'~
@@ -329,6 +387,7 @@ A
 19 15
 A
 18 15
+G none
 #0
 
 #ROOMS
@@ -745,10 +804,7 @@ O 0 38003 0 38101	* fountain (Coridor)
 O 0 38002 0 38101	* armchair (Coridor)
 O 0 38001 0 38102	* big bed (Bedroom)
 M 0 38001 1 38102 1	* Bargan (Bedroom)
-O 0 38095 0 38102	* dark glass (Bedroom)
-O 0 38017 0 38102	* Blessed Shield of Gods (Bedroom)
-O 0 38017 0 38102	* Blessed Shield of Gods (Bedroom)
-O 0 38010 0 38102	* Heras pie (Bedroom)
+O 0 38018 0 38102	* {YBlessed {WHelm {xof Honor (Bedroom)
 O 0 38002 0 38103	* armchair (Cabinet)
 O 0 38004 0 38103	* table (Cabinet)
 O 0 38200 0 38200	* long wooden table (Budy's)
@@ -763,6 +819,7 @@ S
 
 #OLIMITS
 O 38017 1	* Blessed Shield of Gods
+O 38018 1	* {YBlessed {WHelm {xof Honor
 S
 
 #MOBPROGS
