@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.204 1999-10-07 12:37:18 kostik Exp $
+ * $Id: fight.c,v 1.205 1999-10-11 11:52:17 kostik Exp $
  */
 
 /***************************************************************************
@@ -265,7 +265,24 @@ void check_assist(CHAR_DATA *ch, CHAR_DATA *victim)
 	}
 }
 
-
+void secondary_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt) 
+{
+	int chance;
+	
+	if (get_eq_char(ch, WEAR_SECOND_WIELD) != NULL) {
+		chance = get_skill(ch, "dual wield") / 2;
+		if (number_percent() < chance) {
+			one_hit(ch, victim, dt, WEAR_SECOND_WIELD);
+			check_improve(ch, "dual wield", TRUE, 2);
+		}
+	}
+	
+	if (free_hands(ch)>=2) {
+		chance = get_skill(ch, "hand to hand") / 2;
+		if (number_percent() < chance) 
+			one_hit(ch, victim, dt, WEAR_WIELD);
+	}
+}
 /*
  * Do one group of attacks.
  */
@@ -362,6 +379,11 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt)
 	||  SKILL_IS(dt, "knife"))
 		return;
 
+	secondary_hit(ch, victim, dt);
+
+	if(ch->fighting != victim) 
+		return;
+
 	chance = get_skill(ch, "second attack") / 2;
 	if (IS_AFFECTED(ch, AFF_SLOW))
 		chance /= 2;
@@ -372,15 +394,7 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt)
 		check_improve(ch, "second attack", TRUE, 5);
 		if (ch->fighting != victim)
 			return;
-		if (get_eq_char(ch, WEAR_SECOND_WIELD) != NULL) {
-			chance = get_skill(ch, "dual wield") / 2;
-			if (number_percent() < chance) {
-				one_hit(ch, victim, dt, WEAR_SECOND_WIELD);
-				check_improve(ch, "dual wield", TRUE, 2);
-				if (ch->fighting != victim)
-					return;
-			}
-		}
+		secondary_hit(ch, victim, dt);
 	}
 
 	chance = get_skill(ch, "third attack") / 3;
@@ -393,15 +407,10 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt)
 		check_improve(ch, "third attack", TRUE, 6);
 		if (ch->fighting != victim)
 			return;
-		if (get_eq_char(ch, WEAR_SECOND_WIELD) != NULL) {
-			chance = get_skill(ch, "dual wield") / 2;
-			if (number_percent() < chance) {
-				one_hit(ch, victim, dt, WEAR_SECOND_WIELD);
-				check_improve(ch, "dual wield", TRUE, 2);
-				if (ch->fighting != victim)
-					return;
-			}
-		}
+
+		secondary_hit(ch, victim, dt);
+		if (ch->fighting != victim)
+			return;
 	}
 
 	chance = get_skill(ch, "fourth attack") / 4;
@@ -414,15 +423,10 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt)
 		check_improve(ch, "fourth attack", TRUE, 7);
 		if (ch->fighting != victim)
 			return;
-		if (get_eq_char(ch, WEAR_SECOND_WIELD) != NULL) {
-			chance = get_skill(ch, "dual wield") / 2;
-			if (number_percent() < chance) {
-				one_hit(ch, victim, dt, WEAR_SECOND_WIELD);
-				check_improve(ch, "dual wield", TRUE, 2);
-				if (ch->fighting != victim)
-					return;
-			}
-		}
+
+		secondary_hit(ch, victim, dt);
+		if (ch->fighting != victim)
+			return;
 	}
 
 	chance = get_skill(ch, "fifth attack") / 5;
@@ -434,16 +438,11 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt)
 		one_hit(ch, victim, dt, WEAR_WIELD);
 		check_improve(ch, "fifth attack", TRUE, 8);
 		if (ch->fighting != victim)
-		    return;
-		if (get_eq_char(ch, WEAR_SECOND_WIELD) != NULL) {
-			chance = get_skill(ch, "dual wield") / 2;
-			if (number_percent() < chance) {
-				one_hit(ch, victim, dt, WEAR_SECOND_WIELD);
-				check_improve(ch, "dual wield", TRUE, 2);
-				if (ch->fighting != victim)
-					return;
-			}
-		}
+			return;
+
+		secondary_hit(ch, victim, dt);
+		if (ch->fighting != victim)
+			return;
 
 	}
 
@@ -452,6 +451,9 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt)
 		while (number_percent() < chance) {
 			one_hit(ch, victim, dt, WEAR_WIELD);
 			check_improve (ch, "forest fighting", TRUE, 8);
+			if (ch->fighting != victim)
+				return;
+			secondary_hit(ch, victim, dt);
 			if (ch->fighting != victim)
 				return;
 			chance /= 3;

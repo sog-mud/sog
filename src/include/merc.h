@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.235 1999-10-06 09:55:58 fjoe Exp $
+ * $Id: merc.h,v 1.236 1999-10-11 11:52:16 kostik Exp $
  */
 
 /***************************************************************************
@@ -2034,6 +2034,7 @@ void	spellfun_call	(const char *sn_fun,
 
 bool remove_obj (CHAR_DATA * ch, int iWear, bool fReplace);
 void wear_obj   (CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace);
+int free_hands	(CHAR_DATA * ch);
 
 bool	check_blind	(CHAR_DATA *ch);
 bool	check_blind_raw	(CHAR_DATA *ch);

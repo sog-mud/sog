@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.184 1999-10-07 12:37:19 kostik Exp $
+ * $Id: handler.c,v 1.185 1999-10-11 11:52:18 kostik Exp $
  */
 
 /***************************************************************************
@@ -3737,6 +3737,25 @@ bool can_loot(CHAR_DATA * ch, OBJ_DATA * obj)
 	return TRUE;
 }
 
+int free_hands(CHAR_DATA *ch)
+{
+	int free_hands = 2;
+	OBJ_DATA *weapon;
+	weapon=get_eq_char(ch, WEAR_WIELD);
+	if (weapon) {
+		free_hands--;
+		if (IS_WEAPON_STAT(weapon, WEAPON_TWO_HANDS)
+		&& ch->size<SIZE_LARGE)
+			free_hands=0;
+		if (WEAPON_IS(weapon, WEAPON_STAFF)) 
+			free_hands=0;
+	}
+	if (get_eq_char(ch, WEAR_SECOND_WIELD)) free_hands--;
+	if (get_eq_char(ch, WEAR_SHIELD)) free_hands--;
+	if (get_eq_char(ch, WEAR_HOLD)) free_hands--;
+	return UMAX(0, free_hands);
+}
+
 void get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container,
 	     const char *msg_others)
 {
@@ -4099,25 +4118,15 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 		return;
 	}
 	if (CAN_WEAR(obj, ITEM_WEAR_SHIELD)) {
-		OBJ_DATA       *weapon;
-		if (get_eq_char(ch, WEAR_SECOND_WIELD) != NULL) {
-			char_puts("You can't use a shield while using a second weapon.\n", ch);
-			return;
-		}
+		
 		if (!remove_obj(ch, WEAR_SHIELD, fReplace))
 			return;
 
-		weapon = get_eq_char(ch, WEAR_WIELD);
-		if (weapon != NULL && ch->size < SIZE_LARGE
-		&&  IS_WEAPON_STAT(weapon, WEAPON_TWO_HANDS)) {
-			char_puts("Your hands are tied up with your weapon!\n", ch);
+		if (!free_hands(ch)) {
+			char_puts("Your hands are full.\n", ch);
 			return;
 		}
-		if (weapon && WEAPON_IS(weapon, WEAPON_STAFF)) {
-			char_puts("You need both hands for this type of "
-				"weapon.\n", ch);
-			return;
-		}
+
 		act("$n wears $p as a shield.", ch, obj, NULL, TO_ROOM);
 		act_puts("You wear $p as a shield.",
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
@@ -4133,6 +4142,11 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 		if (!remove_obj(ch, WEAR_WIELD, fReplace))
 			return;
 
+		if (!free_hands(ch)) {
+			char_puts("Your hands are full.\n", ch);
+			return;
+		}
+
 		if (!IS_NPC(ch)
 		&& get_obj_weight(obj) >
 			  str_app[get_curr_stat(ch, STAT_STR)].wield * 10) {
@@ -4141,11 +4155,10 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 				equip_char(ch, dual, WEAR_SECOND_WIELD);
 			return;
 		}
-		if ((get_eq_char(ch, WEAR_SHIELD) ||
-		     get_eq_char(ch, WEAR_SECOND_WIELD))
-		&&  (WEAPON_IS(obj, WEAPON_STAFF) ||
-		     (IS_WEAPON_STAT(obj, WEAPON_TWO_HANDS) &&
-		      !IS_NPC(ch) && ch->size < SIZE_LARGE))) {
+		if ((WEAPON_IS(obj, WEAPON_STAFF) ||
+		    (IS_WEAPON_STAT(obj, WEAPON_TWO_HANDS) &&
+		     !IS_NPC(ch) && ch->size < SIZE_LARGE))
+		    && free_hands(ch) < 2) {
 				char_puts("You need two hands free for that"
 					" weapon.\n", ch);
 			if (dual)
@@ -4187,21 +4200,14 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 		return;
 	}
 	if (CAN_WEAR(obj, ITEM_HOLD)) {
-		OBJ_DATA *wield;
-
-		if (get_eq_char(ch, WEAR_SECOND_WIELD) != NULL) {
-			act_puts("You can't hold an item while using 2 weapons.",
-				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-			return;
-		}
-		if ((wield = get_eq_char(ch, WEAR_WIELD)) != NULL
-		&&  WEAPON_IS(wield, WEAPON_STAFF)) {
-			char_puts("You cannot hold something with this weapon"
-				" wielded.\n", ch);
-			return;
-		}
 		if (!remove_obj(ch, WEAR_HOLD, fReplace))
 			return;
+
+		if (!free_hands(ch)) {
+			char_puts("Your hands are full.\n", ch);
+			return;
+		}
+
 		act("$n holds $p in $s hand.", ch, obj, NULL, TO_ROOM);
 		act_puts("You hold $p in your hand.",
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
