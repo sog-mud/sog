@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.c,v 1.40.2.11 2002-10-26 16:51:36 fjoe Exp $
+ * $Id: comm_act.c,v 1.40.2.12 2002-11-20 19:13:20 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -845,7 +845,7 @@ act_args(CHAR_DATA *ch, CHAR_DATA *vch, int act_flags, const char *format)
 	if (ACT_TO(act_flags) == TO_CHAR)
 		return ch;
 
-	if (ACT_TO(act_flags) ==  TO_VICT)
+	if (ACT_TO(act_flags) == TO_VICT)
 		return vch;
 
 	if (!ch || !ch->in_room)
