@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.c,v 1.42 1999-06-10 14:33:25 fjoe Exp $
+ * $Id: clan.c,v 1.43 1999-06-21 15:56:45 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -603,7 +603,7 @@ void do_item(CHAR_DATA* ch, const char* argument)
 			if (in_obj->in_room->vnum == CLAN(cln)->altar_vnum) {
 				act_puts("It is altar of $t.",
 					 ch, CLAN(cln)->name, NULL,
-					 TO_CHAR | ACT_TRANS, POS_DEAD);
+					 TO_CHAR, POS_DEAD);
 			}
 	}
 	else 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.251 1999-06-18 04:57:07 kostik Exp $
+ * $Id: act_info.c,v 1.252 1999-06-21 15:56:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -324,7 +324,6 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	const char *msg = str_empty;
 	const void *arg = NULL;
 	const void *arg3 = NULL;
-	flag32_t flags = 0;
 
 	if (is_affected(victim, gsn_doppelganger)
 	&&  (IS_NPC(ch) || !IS_SET(ch->plr_flags, PLR_HOLYLIGHT)))
@@ -518,12 +517,10 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	case POS_FIGHTING:
 		if (victim->fighting == NULL) {
 			arg = "thin air??";
-			flags = ACT_TRANS;
 			msg = "$N {xis here, fighting with $t.";
 		}
 		else if (victim->fighting == ch) {
 			arg = "YOU!";
-			flags = ACT_TRANS;
 			msg = "$N {xis here, fighting with $t.";
 		}
 		else if (victim->in_room == victim->fighting->in_room) {
@@ -532,14 +529,12 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		}
 		else {
 			arg = "someone who left??";
-			flags = ACT_TRANS;
 			msg = "$N {xis here, fighting with $t.";
 		}
 		break;
 	}
 
-	act_puts3(msg, ch, arg, victim, arg3,
-		  TO_CHAR | ACT_FORMSH | flags, POS_DEAD);
+	act_puts3(msg, ch, arg, victim, arg3, TO_CHAR | ACT_FORMSH, POS_DEAD);
 }
 
 char* wear_loc_names[] =
@@ -574,7 +569,7 @@ void show_obj_to_char(CHAR_DATA *ch, OBJ_DATA *obj, flag32_t wear_loc)
 	bool can_see = can_see_obj(ch, obj);
 	act(wear_loc_names[wear_loc], ch,
 	    can_see ? format_obj_to_char(obj, ch, TRUE) : "something",
-	    NULL, TO_CHAR | (can_see ? 0 : ACT_TRANS));
+	    NULL, TO_CHAR | (can_see ? ACT_NOTRANS : 0));
 }
 
 void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
@@ -1085,7 +1080,7 @@ void do_look_in(CHAR_DATA* ch, const char *argument)
 			 	"about half-" :
 			 	"more than half-",
 			 liq_table[obj->value[2]].liq_color,
-			 TO_CHAR | ACT_TRANS, POS_DEAD);
+			 TO_CHAR, POS_DEAD);
 		break;
 
 	case ITEM_CONTAINER:
@@ -1510,13 +1505,13 @@ void do_worth(CHAR_DATA *ch, const char *argument)
 			 IS_GOOD(ch) ? "non-goods" :
 			 IS_EVIL(ch) ? "non-evils" : 
 				       "non-neutrals",
-			 TO_CHAR | ACT_NOLF | ACT_TRANS, POS_DEAD);
+			 TO_CHAR | ACT_NOLF, POS_DEAD);
 		act_puts(" and $j $T.",
 			 ch, (const void*) ch->pcdata->anti_killed,
 			 IS_GOOD(ch) ? "goods" :
 			 IS_EVIL(ch) ? "evils" : 
 				       "neutrals",
-			 TO_CHAR | ACT_TRANS, POS_DEAD);
+			 TO_CHAR, POS_DEAD);
 	}
 }
 
@@ -1562,7 +1557,7 @@ void do_time(CHAR_DATA *ch, const char *argument)
 			(time_info.hour>=12 && time_info.hour<18) ? "mid-day" :
 			(time_info.hour>=18 && time_info.hour<21) ? "evening" :
 								    "night",
-			TO_CHAR | ACT_TRANS, POS_DEAD);
+			TO_CHAR, POS_DEAD);
 
 	if (!IS_IMMORTAL(ch))
 		return;
@@ -2439,12 +2434,11 @@ void do_scan(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	act("$n scans $t.", ch, dir_name[door], NULL, TO_ROOM | ACT_TRANS);
+	act("$n scans $t.", ch, dir_name[door], NULL, TO_ROOM);
 	if (!check_blind(ch))
 		return;
 
-	act_puts("You scan $t.", ch, dir_name[door], NULL, TO_CHAR | ACT_TRANS,
-		 POS_DEAD);
+	act_puts("You scan $t.", ch, dir_name[door], NULL, TO_CHAR, POS_DEAD);
 
 	in_room = ch->in_room;
 	for (i = 1; i <= range; i++) {
@@ -2632,7 +2626,7 @@ void do_hometown(CHAR_DATA *ch, const char *argument)
 		act_puts("Your hometown is $t, permanently. "
 			 "You can't change your hometown.",
 			 ch, hometown_name(htn), NULL,
-			 TO_CHAR | ACT_TRANS, POS_DEAD);
+			 TO_CHAR, POS_DEAD);
 		return;
 	}
 
@@ -2656,7 +2650,7 @@ void do_hometown(CHAR_DATA *ch, const char *argument)
 	if (htn == ch->hometown) {
 		act_puts("But you already live in $t!",
 			 ch, hometown_name(htn), NULL,
-			 TO_CHAR | ACT_TRANS, POS_DEAD);
+			 TO_CHAR, POS_DEAD);
 		return;
 	}
 
@@ -2676,7 +2670,7 @@ void do_hometown(CHAR_DATA *ch, const char *argument)
 	ch->hometown = htn;
 	act_puts("Now your hometown is $t.",
 		 ch, hometown_name(ch->hometown),
-		 NULL, TO_CHAR | ACT_TRANS, POS_DEAD);
+		 NULL, TO_CHAR, POS_DEAD);
 }
 
 void do_detect_hidden(CHAR_DATA *ch, const char *argument)

@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.188 1999-06-18 11:17:16 fjoe Exp $
+ * $Id: comm.c,v 1.189 1999-06-21 15:56:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1171,7 +1171,7 @@ void battle_prompt(CHAR_DATA *ch, CHAR_DATA *victim)
         else
 		msg = "{Ris nearly dead{x.";
 
-	act_puts("$N $t", ch, msg, victim, TO_CHAR | ACT_TRANS, POS_DEAD);
+	act_puts("$N $t", ch, msg, victim, TO_CHAR, POS_DEAD);
 }
 
 /*

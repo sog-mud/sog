@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.182 1999-06-18 04:57:09 kostik Exp $
+ * $Id: fight.c,v 1.183 1999-06-21 15:56:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2591,17 +2591,17 @@ void dam_message(CHAR_DATA *ch, CHAR_DATA *victim,
 
 	if (ch == victim) {
 		act_puts3(msg_notvict, ch, vp, NULL, attack,
-			  TO_ROOM | ACT_TRANS | ACT_FIXSH, POS_RESTING);
+			  TO_ROOM, POS_RESTING);
 		act_puts3(msg_char, ch, vs, NULL, attack,
-			  TO_CHAR | ACT_TRANS | ACT_FIXSH, POS_RESTING);
+			  TO_CHAR, POS_RESTING);
 	}
 	else {
 		act_puts3(msg_notvict, ch, vp, victim, attack,
-			  TO_NOTVICT | ACT_TRANS | ACT_FIXSH, POS_RESTING);
+			  TO_NOTVICT, POS_RESTING);
 		act_puts3(msg_char, ch, vs, victim, attack,
-			  TO_CHAR | ACT_TRANS | ACT_FIXSH, POS_RESTING);
+			  TO_CHAR, POS_RESTING);
 		act_puts3(msg_vict, ch, vp, victim, attack,
-			  TO_VICT | ACT_TRANS | ACT_FIXSH, POS_RESTING);
+			  TO_VICT, POS_RESTING);
 	}
 }
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.h,v 1.7 1999-06-17 05:46:43 fjoe Exp $
+ * $Id: comm_act.h,v 1.8 1999-06-21 15:56:46 fjoe Exp $
  */
 
 #ifndef _COMM_ACT_H_
@@ -36,18 +36,17 @@
 #define TO_CHAR		(D)
 #define TO_ALL		(E)
 
-#define ACT_TOBUF	(F)
-#define ACT_NOTRIG	(G)
-#define ACT_NOTWIT	(H)
-#define ACT_TRANS	(I)	/* do $t and $T translation		    */
+#define ACT_TOBUF	(F)	/* append to replay buffer if link-dead */
+#define ACT_NOTRIG	(G)	/* do not pull act triggers */
+#define ACT_NOTWIT	(H)	/* do not perform twit list checking */
+#define ACT_NOTRANS	(I)	/* do not perform $t, $T, $u and $U transl. */
 #define ACT_NODEAF	(J)	/* skip is_affected(to, gsn_deafen) chars   */
 #define ACT_STRANS	(K)	/* do $t and $T slang translation (from ch) */
 #define ACT_NOMORTAL	(L)	/* skip mortals */
 #define ACT_VERBOSE	(M)	/* skip if (!IS_SET(ch->comm, COMM_VERBOSE)) */
 #define ACT_NOLF	(N)	/* do not append lf */
-#define ACT_FORMSH	(O)	/* call format_short for short descrs */
-#define ACT_FIXSH	(P)	/* call fix_short (used only in PERS2) */
-#define ACT_NOUCASE	(Q)	/* do not uppercase first letter */
+#define ACT_NOUCASE	(O)	/* do not uppercase first letter */
+#define ACT_FORMSH	(P)	/* call format_short for short descrs */
 
 /*
  * formatting stuff

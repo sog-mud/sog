@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.c,v 1.27 1999-06-17 05:46:43 fjoe Exp $
+ * $Id: comm_act.c,v 1.28 1999-06-21 15:56:46 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -133,10 +133,7 @@ const char *PERS2(CHAR_DATA *ch, CHAR_DATA *looker, int act_flags)
 			}
 
 			descr = mlstr_cval(&ch->short_descr, looker);
-			if (IS_SET(act_flags, ACT_FIXSH))
-				return fix_short(descr);
-
-			return descr;
+			return fix_short(descr);
 		}
 		else if (is_affected(ch, gsn_vampire) && !IS_IMMORTAL(looker)) {
 			return word_form(GETMSG("an ugly creature",
@@ -220,31 +217,23 @@ static int SEX(CHAR_DATA *ch, CHAR_DATA *looker)
 static const char *
 act_format_text(const char *text, CHAR_DATA *ch, CHAR_DATA *to, actopt_t *opt)
 {
-	if (IS_SET(opt->act_flags, ACT_TRANS))
+	if (!IS_SET(opt->act_flags, ACT_NOTRANS))
 		text = GETMSG(text, opt->to_lang);
 	if (IS_SET(opt->act_flags, ACT_STRANS))
 		text = translate(ch, to, text);
-	if (IS_SET(opt->act_flags, ACT_FIXSH))
-		text = fix_short(text);
-	return text;
+	return fix_short(text);
 }
 	
 static const char *
-act_format_obj(OBJ_DATA *obj, CHAR_DATA *to, int sp, int act_flags)
+act_format_obj(OBJ_DATA *obj, CHAR_DATA *to, int act_flags)
 {
-	const char *descr;
-
 	if (!can_see_obj(to, obj))
 		return GETMSG("something", to->lang);
 
-	if (sp < 0) {
-		if (IS_SET(act_flags, ACT_FORMSH))
-			return format_short(&obj->short_descr, obj->name, to);
+	if (IS_SET(act_flags, ACT_FORMSH))
+		return format_short(&obj->short_descr, obj->name, to);
 
-		return fix_short(mlstr_cval(&obj->short_descr, to));
-	}
-
-	return descr = mlstr_cval(&obj->short_descr, to);
+	return fix_short(mlstr_cval(&obj->short_descr, to));
 }
 
 static const char *
@@ -502,26 +491,22 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 /* char arguments */
 			case 'n':
 				CHECK_TYPE(ch, MT_CHAR);
-				i = PERS2(ch, to,
-				  (sp < 0) ? (opt->act_flags | ACT_FIXSH) : 0);
+				i = PERS2(ch, to, opt->act_flags);
 				break;
 
 			case 'N':
 				CHECK_TYPE(vch, MT_CHAR);
-				i = PERS2(vch, to,
-				  (sp < 0) ? (opt->act_flags | ACT_FIXSH) : 0);
+				i = PERS2(vch, to, opt->act_flags);
 				break;
 
 			case 'i':
 				CHECK_TYPE(vch1, MT_CHAR);
-				i = PERS2(vch1, to,
-				  (sp < 0) ? (opt->act_flags | ACT_FIXSH) : 0);
+				i = PERS2(vch1, to, opt->act_flags);
 				break;
 
 			case 'I':
 				CHECK_TYPE(vch3, MT_CHAR);
-				i = PERS2(vch3, to,
-				  (sp < 0) ? (opt->act_flags | ACT_FIXSH) : 0);
+				i = PERS2(vch3, to, opt->act_flags);
 				break;
 
 /* numeric arguments */
@@ -569,14 +554,12 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 /* obj arguments */
 			case 'p':
 				CHECK_TYPE(obj1, MT_OBJ);
-				i = act_format_obj(obj1, to, sp,
-						   opt->act_flags);
+				i = act_format_obj(obj1, to, opt->act_flags);
 				break;
 
 			case 'P':
 				CHECK_TYPE(obj2, MT_OBJ);
-				i = act_format_obj(obj2, to, sp,
-						   opt->act_flags);
+				i = act_format_obj(obj2, to, opt->act_flags);
 				break;
 
 /* door arguments */
@@ -874,7 +857,7 @@ void act_clan(const char *format, CHAR_DATA *ch,
 		format = "[CLAN] $n: {C$b{x";
 
 	flags = TO_VICT | ACT_TOBUF | ACT_NODEAF |
-		(IS_NPC(ch) && !IS_AFFECTED(ch, AFF_CHARM) ? ACT_TRANS : 0);
+		(!IS_NPC(ch) || IS_AFFECTED(ch, AFF_CHARM) ? ACT_NOTRANS : 0);
 	for (vch = char_list; vch; vch = vch->next)
 		if (vch->clan == ch->clan
 		&&  vch != ch
@@ -894,7 +877,7 @@ void act_say(const char *format_self, const char *format_others, CHAR_DATA *ch,
 		  TO_CHAR | ACT_NODEAF, POS_DEAD);
 	act_puts3(format_others, ch, arg1, arg2, arg3,
 		  TO_ROOM | ACT_TOBUF | ACT_NOTWIT | ACT_STRANS | ACT_NODEAF |
-		  (IS_NPC(ch) && !IS_AFFECTED(ch, AFF_CHARM) ? ACT_TRANS : 0),
+		  (!IS_NPC(ch) || IS_AFFECTED(ch, AFF_CHARM) ? ACT_NOTRANS : 0),
 		  POS_RESTING);
 }
 

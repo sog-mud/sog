@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.175 1999-06-17 08:37:03 fjoe Exp $
+ * $Id: act_comm.c,v 1.176 1999-06-21 15:56:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -297,7 +297,7 @@ void do_tell_raw(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
 	act_puts("$n tells you '{G$t{x'",
 		 ch, msg, victim,
 		 TO_VICT | ACT_TOBUF | ACT_NOTWIT | ACT_NODEAF |
-		 (IS_NPC(ch) && !IS_AFFECTED(ch, AFF_CHARM) ? ACT_TRANS : 0),
+		 (!IS_NPC(ch) || IS_AFFECTED(ch, AFF_CHARM) ? ACT_NOTRANS : 0),
 		 POS_SLEEPING);
 
 	if (IS_NPC(ch))
@@ -361,7 +361,7 @@ void do_gtell(CHAR_DATA *ch, const char *argument)
 
 	argument = garble(ch, argument);
 	flags = TO_VICT | ACT_TOBUF | ACT_STRANS | 
-		(IS_NPC(ch) && !IS_AFFECTED(ch, AFF_CHARM) ? ACT_TRANS : 0);
+		(!IS_NPC(ch) || IS_AFFECTED(ch, AFF_CHARM) ? ACT_NOTRANS : 0);
 	for (i = 0, gch = char_list; gch; gch = gch->next) {
 		if (IS_NPC(gch))
 			break;
@@ -394,7 +394,7 @@ void do_emote(CHAR_DATA *ch, const char *argument)
 	argument = garble(ch, argument);
 	act("$n $T", ch, NULL, argument,
 	    TO_ROOM | ACT_TOBUF | ACT_NOTRIG | ACT_NOTWIT |
-	    (IS_NPC(ch) && !IS_AFFECTED(ch, AFF_CHARM) ? ACT_TRANS : 0));
+	    (!IS_NPC(ch) || IS_AFFECTED(ch, AFF_CHARM) ? ACT_NOTRANS : 0));
 	act("$n $T", ch, NULL, argument, TO_CHAR | ACT_NOTRIG);
 }
 
@@ -420,7 +420,7 @@ void do_pmote(CHAR_DATA *ch, const char *argument)
 	act("$n $t", ch, argument, NULL, TO_CHAR);
 
 	flags = TO_CHAR | ACT_TOBUF | ACT_NOTWIT | ACT_NOTRIG |
-		(IS_NPC(ch) && !IS_AFFECTED(ch, AFF_CHARM) ? ACT_TRANS : 0);
+		(!IS_NPC(ch) || IS_AFFECTED(ch, AFF_CHARM) ? ACT_NOTRANS : 0);
 
 	for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room) {
 		if (vch->desc == NULL || vch == ch)
@@ -1868,7 +1868,7 @@ DO_FUN(do_toggle)
 
 		TOGGLE_BIT(*bits, t->bit);
 		act_puts(IS_SET(*bits, t->bit) ? t->msg_on : t->msg_off,
-			 ch, t->desc, NULL, TO_CHAR | ACT_TRANS, POS_DEAD);
+			 ch, t->desc, NULL, TO_CHAR, POS_DEAD);
 	}
 }
 
@@ -1892,7 +1892,7 @@ static void toggle_print(CHAR_DATA *ch, toggle_t *t)
 
 	snprintf(buf, sizeof(buf), "  %-11.11s - %-3.3s ($t)",
 		 t->name, IS_SET(*bits, t->bit) ? "ON" : "OFF");
-	act_puts(buf, ch, t->desc, NULL, TO_CHAR | ACT_TRANS, POS_DEAD);
+	act_puts(buf, ch, t->desc, NULL, TO_CHAR, POS_DEAD);
 }
 
 static flag64_t* toggle_bits(CHAR_DATA *ch, toggle_t *t)

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.181 1999-06-18 09:15:57 avn Exp $
+ * $Id: act_move.c,v 1.182 1999-06-21 15:56:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -378,7 +378,7 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 	else {
 		act(MOUNTED(ch) ? "$n leaves $t, riding on $N." :
 				  "$n leaves $t.",
-		    ch, dir_name[door], MOUNTED(ch), act_flags | ACT_TRANS);
+		    ch, dir_name[door], MOUNTED(ch), act_flags);
 	}
 
 	if (IS_AFFECTED(ch, AFF_CAMOUFLAGE)
@@ -1959,14 +1959,14 @@ void do_train(CHAR_DATA *ch, const char *argument)
 			    ch->sex == SEX_MALE   ? "big stud" :
 			    ch->sex == SEX_FEMALE ? "hot babe" :
 						    "wild thing",
-			    TO_CHAR | ACT_TRANS);
+			    TO_CHAR);
 		}
 		return;
 	}
 
 	if (ch->perm_stat[stat] >= get_max_train(ch,stat)) {
 		act_puts("Your $T is already at maximum.",
-			 ch, NULL, pOutput, TO_CHAR | ACT_TRANS, POS_DEAD);
+			 ch, NULL, pOutput, TO_CHAR, POS_DEAD);
 		return;
 	}
 
@@ -1978,8 +1978,8 @@ void do_train(CHAR_DATA *ch, const char *argument)
 	ch->train--;
 	ch->perm_stat[stat] += 1;
 	act_puts("Your $T increases!",
-		 ch, NULL, pOutput, TO_CHAR | ACT_TRANS, POS_DEAD);
-	act("$n's $T increases!", ch, NULL, pOutput, TO_ROOM | ACT_TRANS);
+		 ch, NULL, pOutput, TO_CHAR, POS_DEAD);
+	act("$n's $T increases!", ch, NULL, pOutput, TO_ROOM);
 }
 
 void do_track(CHAR_DATA *ch, const char *argument)
@@ -2758,11 +2758,11 @@ void do_push(CHAR_DATA *ch, const char *argument)
 	}
 
 	act_puts("You push $N to $t.",
-		 ch, dir_name[door], victim, TO_CHAR | ACT_TRANS, POS_SLEEPING);
+		 ch, dir_name[door], victim, TO_CHAR, POS_SLEEPING);
 	act_puts("$n pushes you to $t.",
-		 ch, dir_name[door], victim, TO_VICT | ACT_TRANS, POS_SLEEPING);
+		 ch, dir_name[door], victim, TO_VICT, POS_SLEEPING);
 	act("$n pushes $N to $t.",
-	    ch, dir_name[door], victim, TO_NOTVICT | ACT_TRANS);
+	    ch, dir_name[door], victim, TO_NOTVICT);
 	move_char(victim, door, FALSE);
 
 	check_improve(ch, sn, TRUE, 1);
@@ -3307,8 +3307,7 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim,OBJ_DATA *arrow,
 			if (dest_room->people) {
 			 	act("$p sails into the room from $T!",
 				    dest_room->people, arrow,
-				    from_dir_name[rev_dir[door]],
-				    TO_ALL | ACT_TRANS);
+				    from_dir_name[rev_dir[door]], TO_ALL);
 			}
 
 		}
@@ -3539,9 +3538,9 @@ DO_FUN(do_shoot)
 	chance += GET_HITROLL(ch);
 
 	act_puts("You shoot $p to $T.",
-		 ch, arrow, dir_name[direction], TO_CHAR | ACT_TRANS, POS_DEAD);
+		 ch, arrow, dir_name[direction], TO_CHAR, POS_DEAD);
 	act("$n shoots $p to $T.",
-	    ch, arrow, dir_name[direction], TO_ROOM | ACT_TRANS);
+	    ch, arrow, dir_name[direction], TO_ROOM);
 
 	if (arrow->carried_by)
 		obj_from_char(arrow);
@@ -3700,7 +3699,7 @@ void do_throw_weapon(CHAR_DATA *ch, const char *argument)
 	act_puts("You throw $p to $T.", 
 		 ch, obj, dir_name[direction], TO_CHAR, POS_DEAD);
 	act("$n throws $p to $T.",
-	    ch, obj, dir_name[direction], TO_ROOM | ACT_TRANS);
+	    ch, obj, dir_name[direction], TO_ROOM);
 
 	obj_from_char(obj);
 	success = send_arrow(ch,victim,obj,direction,chance,

@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.151 1999-06-17 19:28:00 fjoe Exp $
+ * $Id: act_obj.c,v 1.152 1999-06-21 15:56:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -730,12 +730,12 @@ void do_give(CHAR_DATA * ch, const char *argument)
 		act_puts3("$n gives you $J $t.",
 			  ch, silver ? "silver" : "gold", victim,
 			  (const void*) amount,
-			  TO_VICT | ACT_TRANS, POS_RESTING);
+			  TO_VICT, POS_RESTING);
 		act("$n gives $N some coins.", ch, NULL, victim, TO_NOTVICT);
 		act_puts3("You give $N $J $t.",
 			  ch, silver ? "silver" : "gold", victim,
 			  (const void*) amount,
-			  TO_CHAR | ACT_TRANS, POS_DEAD);
+			  TO_CHAR, POS_DEAD);
 
 		/*
 		 * Bribe trigger
@@ -1132,10 +1132,10 @@ void do_fill(CHAR_DATA * ch, const char *argument)
 
 	act_puts3("You fill $p with $U from $P.",
 		   ch, obj, fountain, liq_table[fountain->value[2]].liq_name,
-		   TO_CHAR | ACT_TRANS, POS_DEAD);
+		   TO_CHAR, POS_DEAD);
 	act_puts3("$n fills $p with $U from $P.",
 		   ch, obj, fountain, liq_table[fountain->value[2]].liq_name,
-		   TO_ROOM | ACT_TRANS, POS_RESTING);
+		   TO_ROOM, POS_RESTING);
 	obj->value[2] = fountain->value[2];
 	obj->value[1] = obj->value[0];
 
@@ -1172,12 +1172,12 @@ void do_pour(CHAR_DATA * ch, const char *argument)
 			  ch, out, liq_table[out->value[2]].liq_name,
 			  IS_WATER(ch->in_room) ? "in to the water" :
 						  "all over the ground",
-			  TO_CHAR | ACT_TRANS, POS_DEAD);
+			  TO_CHAR, POS_DEAD);
 		act_puts3("$n inverts $p, spilling $T $U.",
 			  ch, out, liq_table[out->value[2]].liq_name,
 			  IS_WATER(ch->in_room) ? "in to the water" :
 						  "all over the ground",
-			  TO_ROOM | ACT_TRANS, POS_RESTING);
+			  TO_ROOM, POS_RESTING);
 		return;
 	}
 	if ((in = get_obj_here(ch, argument)) == NULL) {
@@ -1227,21 +1227,21 @@ void do_pour(CHAR_DATA * ch, const char *argument)
 	if (vch == NULL) {
 		act_puts3("You pour $U from $p into $P.",
 			  ch, out, in, liq_table[out->value[2]].liq_name,
-			  TO_CHAR | ACT_TRANS, POS_DEAD);
+			  TO_CHAR, POS_DEAD);
 		act_puts3("$n pours $U from $p into $P.",
 			  ch, out, in, liq_table[out->value[2]].liq_name,
-			  TO_ROOM | ACT_TRANS, POS_RESTING);
+			  TO_ROOM, POS_RESTING);
 	}
 	else {
 		act_puts3("You pour some $U for $N.",
 			  ch, NULL, vch, liq_table[out->value[2]].liq_name,
-			  TO_CHAR | ACT_TRANS, POS_DEAD);
+			  TO_CHAR, POS_DEAD);
 		act_puts3("$n pours you some $U.",
 			  ch, NULL, vch, liq_table[out->value[2]].liq_name,
-			  TO_VICT | ACT_TRANS, POS_RESTING);
+			  TO_VICT, POS_RESTING);
 		act_puts3("$n pours some $U for $N.",
 			  ch, NULL, vch, liq_table[out->value[2]].liq_name,
-			  TO_NOTVICT | ACT_TRANS, POS_RESTING);
+			  TO_NOTVICT, POS_RESTING);
 	}
 
 }
@@ -1307,10 +1307,10 @@ void do_drink(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 	act("$n drinks $T from $p.",
-	    ch, obj, liq_table[liquid].liq_name, TO_ROOM | ACT_TRANS);
+	    ch, obj, liq_table[liquid].liq_name, TO_ROOM);
 	act_puts("You drink $T from $p.",
 		 ch, obj, liq_table[liquid].liq_name,
-		 TO_CHAR | ACT_TRANS, POS_DEAD);
+		 TO_CHAR, POS_DEAD);
 
 	if (ch->fighting)
 		WAIT_STATE(ch, 3 * PULSE_VIOLENCE);
@@ -1984,9 +1984,9 @@ void sac_obj(CHAR_DATA * ch, OBJ_DATA *obj)
 			}
 			act_puts("As you sacrifice the corpse, $t on it "
 				 "scatter $T.",
-				 ch, qty, where, TO_CHAR | ACT_TRANS, POS_DEAD);
+				 ch, qty, where, TO_CHAR, POS_DEAD);
 			act("As $n sacrifices the corpse, $t on it scatter $T.",
-			    ch, qty, where, TO_ROOM | ACT_TRANS);
+			    ch, qty, where, TO_ROOM);
 			break;
 		}
 	}
