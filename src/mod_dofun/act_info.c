@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.82 1998-06-23 15:22:46 fjoe Exp $
+ * $Id: act_info.c,v 1.83 1998-06-24 03:36:04 efdi Exp $
  */
 
 /***************************************************************************
@@ -1784,13 +1784,6 @@ void do_who(CHAR_DATA *ch, char *argument)
 	bool fRaceRestrict;
 	bool fImmortalOnly;
 	bool fPKRestrict;
-	bool fRulerRestrict;
-	bool fChaosRestrict;
-	bool fShalafiRestrict;
-	bool fInvaderRestrict;
-	bool fBattleRestrict;
-	bool fKnightRestrict;
-	bool fLionsRestrict;
 	bool fTattoo;
 
 	/*
@@ -1802,13 +1795,6 @@ void do_who(CHAR_DATA *ch, char *argument)
 	fRaceRestrict = FALSE;
 	fPKRestrict = FALSE;
 	fImmortalOnly  = FALSE;
-	fBattleRestrict = FALSE;
-	fChaosRestrict = FALSE;
-	fRulerRestrict = FALSE;
-	fInvaderRestrict = FALSE;
-	fShalafiRestrict = FALSE;
-	fKnightRestrict = FALSE;
-	fLionsRestrict = FALSE;
 	vnum = 0;
 	fTattoo = FALSE;
 
@@ -1834,95 +1820,11 @@ void do_who(CHAR_DATA *ch, char *argument)
 			break;
 		}
 
-		if (!str_cmp(arg,"ruler")) {
-			if (ch->clan != CLAN_RULER && !IS_IMMORTAL(ch)) {
-				send_to_char("You are not in that clan!\n\r",
-					     ch);
-				return;
-			}
-			else {
-				fRulerRestrict = TRUE;
-				break;
-			}
-		}
-
-		if (!str_cmp(arg,"shalafi")) {
-			if (ch->clan != CLAN_SHALAFI && !IS_IMMORTAL(ch)) {
-				send_to_char("You are not in that clan!\n\r",
-					     ch);
-				return;
-			}
-			else {
-				fShalafiRestrict = TRUE;
-				break;
-			}
-			}
-
-		if (!str_cmp(arg,"battle")) {
-			if (ch->clan != CLAN_BATTLE && !IS_IMMORTAL(ch)) {
-				send_to_char("You are not in that clan!\n\r",
-					     ch);
-				return;
-			}
-			else {
-				fBattleRestrict = TRUE;
-				return;
-			}
-		}
-
-		if (!str_cmp(arg,"invader")) {
-			if (ch->clan != CLAN_INVADER && !IS_IMMORTAL(ch)) {
-				send_to_char("You are not in that clan!\n\r",
-					     ch);
-				return;
-			}
-		}
-		else {
-			fInvaderRestrict = TRUE;
-			break;
-		}
-		if (!str_cmp(arg,"chaos")) {
-			if (ch->clan != CLAN_CHAOS && !IS_IMMORTAL(ch)) {
-				send_to_char("You are not in that clan!\n\r",
-					     ch);
-				return;
-			}
-			else {
-				fChaosRestrict = TRUE;
-				break;
-			}
-		}
-
-		if (!str_cmp(arg,"knight")) {
-			if (ch->clan != CLAN_KNIGHT && !IS_IMMORTAL(ch)) {
-				send_to_char("You are not in that clan!\n\r",
-					     ch);
-				return;
-			}
-			else {
-				fKnightRestrict = TRUE;
-				break;
-			}
-		}
-
-		if (!str_cmp(arg,"lions")) {
-			if (ch->clan != CLAN_LIONS && !IS_IMMORTAL(ch)) {
-				send_to_char("You are not in that clan!\n\r",
-					     ch);
-				return;
-			}
-			else {
-				fLionsRestrict = TRUE;
-				break;
-			}
-		}
-
 		if (!str_cmp(arg,"tattoo")) {
 			if (get_eq_char(ch,WEAR_TATTOO) == NULL) {
 				send_to_char("You haven't got a tattoo yet!\n\r",ch);
 				return;
-			}
-			else {
+			} else {
 				fTattoo = TRUE;
 				vnum = get_eq_char(ch,WEAR_TATTOO)->pIndexData->vnum;
 				break;
@@ -1938,33 +1840,32 @@ void do_who(CHAR_DATA *ch, char *argument)
 					     "immortals.\n\r",ch);
 				return;
 			}
+			continue;
 		}
+		/*
+		 * Look for classes to turn on.
+		 */
+		if (arg[0] == 'i')
+			fImmortalOnly = TRUE;
 		else {
-			/*
-			 * Look for classes to turn on.
-			 */
-			if (arg[0] == 'i')
-				fImmortalOnly = TRUE;
-			else {
-				iClass = class_lookup(arg);
-				if (iClass == -1 || !IS_IMMORTAL(ch)) {
-					iRace = race_lookup(arg);
+			iClass = class_lookup(arg);
+			if (iClass == -1) {
+				iRace = race_lookup(arg);
 
-					if (iRace == 0 || iRace >= MAX_PC_RACE) {
-						send_to_char("That's not a "
-							     "valid race.\n\r",
-							     ch);
-						return;
-					}
-					else {
-						fRaceRestrict = TRUE;
-						rgfRace[iRace] = TRUE;
-					}
+				if (iRace == 0 || iRace >= MAX_PC_RACE) {
+					send_to_char("That's not a "
+						     "valid race.\n\r",
+						     ch);
+					return;
 				}
 				else {
-					fClassRestrict = TRUE;
-					rgfClass[iClass] = TRUE;
+					fRaceRestrict = TRUE;
+					rgfRace[iRace] = TRUE;
 				}
+			}
+			else {
+				fClassRestrict = TRUE;
+				rgfClass[iClass] = TRUE;
 			}
 		}
 	}
@@ -1995,16 +1896,12 @@ void do_who(CHAR_DATA *ch, char *argument)
 		if (wch->level < iLevelLower || wch->level > iLevelUpper
 		||  (fImmortalOnly && wch->level < LEVEL_HERO)
 		||  (fClassRestrict && !rgfClass[wch->class])
+		||  (fClassRestrict && IS_IMMORTAL(wch))
 		||  (fRaceRestrict && !rgfRace[RACE(wch)])
+		||  (fRaceRestrict && IS_IMMORTAL(wch))
 		||  (fPKRestrict && !in_PK(ch, wch))
-		||  (fTattoo && (vnum == get_eq_char(wch,WEAR_TATTOO)->pIndexData->vnum))
-		||  (fRulerRestrict && wch->clan != CLAN_RULER)
-		||  (fChaosRestrict && wch->clan != CLAN_CHAOS)
-		||  (fBattleRestrict && wch->clan != CLAN_BATTLE)
-		||  (fInvaderRestrict && wch->clan != CLAN_INVADER)
-		||  (fShalafiRestrict && wch->clan != CLAN_SHALAFI)
-		||  (fKnightRestrict && wch->clan != CLAN_KNIGHT)
-		||  (fLionsRestrict && wch->clan != CLAN_LIONS))
+		||  (fTattoo
+		   && (vnum == get_eq_char(wch,WEAR_TATTOO)->pIndexData->vnum)))
 			continue;
 
 		nMatch++;
