@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.35.2.1 1999-12-16 12:39:56 fjoe Exp $
+ * $Id: olc_msg.c,v 1.35.2.2 2000-04-22 12:06:09 avn Exp $
  */
 
 #include "olc.h"
@@ -260,6 +260,9 @@ OLC_FUN(msged_msg)
 		dofun("help", ch, "'OLC MSG'");
 		return FALSE;
 	}
+
+	if (argument[0] == '.')
+		argument++;
 
 	argument = atomsg(argument);
 	if (!lang) {
