@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.34 1998-12-17 21:05:44 fjoe Exp $
+ * $Id: special.c,v 1.35 1999-01-18 05:15:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1008,12 +1008,12 @@ bool spec_guard(CHAR_DATA *ch)
 	
 		if (IS_SET(ch->in_room->area->flags, AREA_HOMETOWN) 
 			&& number_percent() < 2 && !IS_IMMORTAL(victim)) {
-			do_say(ch, vmsg(MSG_DO_I_KNOW_YOU, ch, victim));
+			do_say(ch, "Do I know you?");
  			if (str_cmp(ch->in_room->area->name,
 				    hometown_table[victim->hometown].name))
 				do_say(ch, "I don't remember you. Go away!");
 			else {
-				do_say(ch, vmsg(MSG_OK_MY_DEAR, victim, ch));
+				do_say(ch, "Ok, my dear! I have just remembered.");
 				interpret(ch, "smile");
 			}
 		}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.90 1999-01-04 07:39:44 fjoe Exp $
+ * $Id: act_quest.c,v 1.91 1999-01-18 05:15:18 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -867,7 +867,7 @@ static bool buy_gold(CHAR_DATA *ch, CHAR_DATA *questor)
 {
 	ch->pcdata->bank_g += 50000;
 	act("$N gives 50,000 gold pieces to $n.", ch, NULL, questor, TO_ROOM);
-	act("$N transfers 50,000 gold peaces to your bank account.\n",ch, NULL, questor, TO_CHAR);
+	act("$N transfers 50,000 gold pieces to your bank account.\n",ch, NULL, questor, TO_CHAR);
 	return TRUE;
 }
 
