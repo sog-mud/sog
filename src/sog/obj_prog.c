@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.66.2.20 2002-12-09 23:14:28 tatyana Exp $
+ * $Id: obj_prog.c,v 1.66.2.21 2003-02-28 14:12:55 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1615,7 +1615,7 @@ int wear_prog_eyed_sword(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 
 int wear_prog_katana_sword(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
-	if (obj->pObjIndex->item_type == ITEM_WEAPON 
+	if (obj->pObjIndex->item_type == ITEM_WEAPON
 	&&  IS_WEAPON_STAT(obj, WEAPON_KATANA)
 	&&  IS_OWNER(ch, obj)) {
 		if (LEVEL(ch) <= 10)
@@ -1628,14 +1628,21 @@ int wear_prog_katana_sword(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 			obj->value[2] = 6;
 		else if (LEVEL(ch) > 40 && LEVEL(ch) <= 50)
 			obj->value[2] = 7;
-		else if (LEVEL(ch) > 50 && LEVEL(ch) <= 60)
+		else if (LEVEL(ch) > 50 && LEVEL(ch) <= 55)
 			obj->value[2] = 8;
-		else if (LEVEL(ch) > 60 && LEVEL(ch) <= 70)
+		else if (LEVEL(ch) > 55 && LEVEL(ch) <= 60)
 			obj->value[2] = 9;
-		else if (LEVEL(ch) > 70 && LEVEL(ch) <= 80)
+		else if (LEVEL(ch) > 60 && LEVEL(ch) <= 70)
+			obj->value[2] = 10;
+		else if (LEVEL(ch) > 70 && LEVEL(ch) <= 75)
 			obj->value[2] = 11;
+		else if (LEVEL(ch) > 80 && LEVEL(ch) <= 85)
+			obj->value[2] = 13;
+		else if (LEVEL(ch) > 85 && LEVEL(ch) <= 90)
+			obj->value[2] = 14;
 		else
-			obj->value[2] = 12;
+			obj->value[2] = 15;
+
 		obj->level = LEVEL(ch);
 		char_puts("You feel your katana like a part of you!\n", ch);
 	}
