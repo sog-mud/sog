@@ -1,9 +1,25 @@
 #RACE
 Name centaur~
-Off bash dodge kick dirt_kick~
-Res weapon~
-Form edible sentient centaur mammal~
-Parts head arms legs heart brains guts hands feet fingers ear eye tail~
+Aff infrared~
+Res charm~
+Form edible sentient biped mammal~
+Parts head arms legs heart brains guts hands fingers ear eye~
+End
+
+#PCRACE
+Shortname Centa~
+Points 400
+Class 'cleric' 100
+Class 'ranger' 100
+Class 'warlock' 100
+Class 'warrior' 100
+Class 'witch' 100
+BonusSkills 'mastering bow'~
+Stats 2 -1 0 -2 2 0 
+MaxStats 22 19 20 18 22 25 
+Size medium
+RestrictAlign good neutral~
+Slang elvish
 End
 
 #$
