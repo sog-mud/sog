@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.186.2.20 2000-08-10 06:57:15 fjoe Exp $
+ * $Id: act_wiz.c,v 1.186.2.21 2000-09-11 07:09:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2815,6 +2815,11 @@ void do_string(CHAR_DATA *ch, const char *argument)
 		
 		if (obj->pObjIndex->limit >= 0) {
 			char_puts("You cannot string limited objs.\n", ch);
+			return;
+		}
+
+		if (CAN_WEAR(obj, ITEM_WEAR_CLANMARK)) {
+			char_puts("You cannot string clan marks.\n", ch);
 			return;
 		}
 
