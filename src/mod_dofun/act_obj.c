@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.53 1998-08-06 10:43:26 fjoe Exp $
+ * $Id: act_obj.c,v 1.54 1998-08-06 11:10:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2203,8 +2203,9 @@ do_steal(CHAR_DATA * ch, const char *argument)
 	percent = number_percent() + (IS_AWAKE(victim) ? 10 : -50);
 	percent += can_see(victim, ch) ? -10 : 0;
 
-	if (victim->position == POS_FIGHTING
-	||  (!IS_NPC(ch) && percent > get_skill(ch, gsn_steal))) {
+	if ((!IS_NPC(ch) && percent > get_skill(ch, gsn_steal))
+	||  IS_SET(victim->imm_flags, IMM_STEAL)
+	||  victim->level >= LEVEL_IMMORTAL) {
 		/*
 		 * Failure.
 		 */

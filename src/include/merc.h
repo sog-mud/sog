@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.61 1998-08-02 22:18:15 efdi Exp $
+ * $Id: merc.h,v 1.62 1998-08-06 11:10:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -918,6 +918,7 @@ struct	kill_data
 #define IMM_DROWNING		(R)
 #define IMM_LIGHT		(S)
 #define IMM_SOUND		(T)
+#define IMM_STEAL		(U)
 #define IMM_WOOD		(X)
 #define IMM_SILVER		(Y)
 #define IMM_IRON		(Z)
