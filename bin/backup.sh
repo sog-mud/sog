@@ -1,5 +1,5 @@
 #!/bin/sh
-# $Id: backup.sh,v 1.1.2.4 2001-01-18 12:00:17 avn Exp $
+# $Id: backup.sh,v 1.1.2.5 2001-01-24 18:10:09 fjoe Exp $
 
 #
 # determine our home
@@ -12,7 +12,7 @@ export SOG_HOME
 
 #
 # determine time stamp
-stamp=`LC_TIME=en_GB.ISO_8859-1 date | awk '{ printf "%s-%02d-%d", $3, $2, $6 }'`
+stamp=`LC_TIME=en_US.ISO_8859-1 date | awk '{ printf "%s-%02d-%d", $2, $3, $6 }'`
 
 cd $SOG_HOME/player || exit 1
 tar cvfz ../backup/backup-$stamp.tar.gz *
