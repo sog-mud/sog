@@ -310,15 +310,6 @@ Max 100
 End
 
 #SKILL
-Skill 'improved benediction'
-Level 30
-Rating 1
-Min 1
-Adept 75
-Max 100
-End
-
-#SKILL
 Skill 'holy word'
 Level 38
 Rating 1

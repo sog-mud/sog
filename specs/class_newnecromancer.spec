@@ -391,15 +391,6 @@ Max 100
 End
 
 #SKILL
-Skill 'improved maladiction'
-Level 35
-Rating 1
-Min 1
-Adept 75
-Max 100
-End
-
-#SKILL
 Skill 'improved detect'
 Level 40
 Rating 1

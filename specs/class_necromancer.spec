@@ -400,7 +400,7 @@ Max 100
 End
 
 #SKILL
-Skill 'lesser golem'
+Skill 'flesh golem'
 Level 25
 Rating 1
 Min 1
@@ -447,15 +447,6 @@ End
 #SKILL
 Skill 'infravision'
 Level 21
-Rating 1
-Min 1
-Adept 75
-Max 100
-End
-
-#SKILL
-Skill 'improved maladiction'
-Level 35
 Rating 1
 Min 1
 Adept 75

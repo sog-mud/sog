@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.181 2000-03-10 11:44:56 kostik Exp $
+ * $Id: spellfun2.c,v 1.182 2000-03-25 17:01:36 avn Exp $
  */
 
 /***************************************************************************
@@ -2651,24 +2651,14 @@ void spell_animate_dead(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 void spell_bone_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-	CHAR_DATA *gch, *coc;
+	CHAR_DATA *coc;
 	AFFECT_DATA af;
 	int i;
 
-	if (is_affected(ch,sn)) {
-		act("You are still tired from growing previous one.",
-		    ch, NULL, NULL, TO_CHAR);
-		return;
-	}
 
-	for (gch = npc_list; gch; gch = gch->next) {
-		if (gch->master == ch
-		&&  (gch->pMobIndex->vnum == MOB_VNUM_COCOON ||
-		     gch->pMobIndex->vnum == MOB_VNUM_BONE_DRAGON)) {
-			char_puts("You cannot control two or more dragons.\n",
-				  ch);
-			return;
-		}
+	if (PC(ch)->pet) {
+		act("You already have a pet.", ch, NULL, NULL, TO_CHAR);
+		return;
 	}
 
 	coc = create_mob(get_mob_index(MOB_VNUM_COCOON));
@@ -2698,9 +2688,6 @@ void spell_bone_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.owner	= NULL;
 	affect_to_char(coc, &af);
 
-	af.type		= sn;
-	af.duration	= 100;
-	affect_to_char(ch, &af);
 	char_to_room(coc,ch->in_room);
 
 	act("Half burrowed cocoon appears from the earth.",

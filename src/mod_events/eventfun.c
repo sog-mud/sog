@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: eventfun.c,v 1.13 2000-03-02 17:14:11 avn Exp $
+ * $Id: eventfun.c,v 1.14 2000-03-25 17:01:35 avn Exp $
  */
 
 
@@ -350,8 +350,9 @@ EVENT_FUN(event_timeoutchar_bonedragon)
 	if (!IS_NPC(ch)	|| ch->pMobIndex->vnum != MOB_VNUM_COCOON)
 		return;
 
-	if ((chm = ch->master) == NULL) {
-		log(LOG_ERROR, "hatchout_dragon: no master set!");
+	if ((chm = ch->master) == NULL || chm->in_room != ch->in_room) {
+		act("Cocoon explodes, revealing stinking flesh.",
+			ch, NULL, NULL, TO_ROOM);
 		extract_char(ch, 0);
 		return;
 	}
@@ -368,9 +369,9 @@ EVENT_FUN(event_timeoutchar_bonedragon)
 	drag->perm_stat[STAT_DEX] += 1;
 	drag->perm_stat[STAT_CON] += 1;
 	drag->max_hit = UMIN(30000, number_range(100*dlev, 200*dlev));
-	drag->hit = drag->max_hit;
+	drag->perm_hit = drag->hit = drag->max_hit;
 	drag->max_mana = dice(dlev, 30);
-	drag->mana = drag->max_mana;
+	drag->perm_mana = drag->mana = drag->max_mana;
 	drag->level = dlev;
 	for (i = 0; i < 3; i++)
 		drag->armor[i] = interpolate(dlev, 100, -120);
@@ -379,14 +380,16 @@ EVENT_FUN(event_timeoutchar_bonedragon)
 	NPC(drag)->dam.dice_number = number_fuzzy(13);
 	NPC(drag)->dam.dice_type = number_fuzzy(9);
 	drag->damroll = dlev/2 + dice(3, 11);
+	ch->master = NULL;
 
         if (GET_PET(ch) == NULL) {
 	        add_follower(drag, chm);
 	        drag->leader = chm;
 	        PC(chm)->pet = drag;
-	} else {
-        drag->master = drag->leader = chm;	
-	}
+	} 
+	else
+		act("But you already have a pet.", ch, NULL, NULL, TO_CHAR);
+
 	char_to_room(drag, ch->in_room);
 	extract_char(ch, 0);
 }

@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.156 2000-03-05 18:59:51 avn Exp $
+ * $Id: save.c,v 1.157 2000-03-25 17:01:38 avn Exp $
  */
 
 /***************************************************************************
@@ -61,6 +61,7 @@
  */
 #define MAX_NEST	100
 static OBJ_DATA *rgObjNest[MAX_NEST];
+CHAR_DATA *obj_to;
 
 /*
  * global vars for areaed_move()
@@ -195,6 +196,8 @@ void char_save(CHAR_DATA *ch, int flags)
 	if ((pet = GET_PET(ch))
 	&&  (IS_SET(flags, SAVE_F_PSCAN) || pet->in_room == ch->in_room))
 		fwrite_pet(pet, fp, flags);
+	if (pet && pet->carrying)
+		fwrite_obj(ch, pet->carrying, fp, 0);
 	fprintf(fp, "#END\n");
 	fclose(fp);
 	d2rename(PLAYER_PATH, TMP_FILE, PLAYER_PATH, name);
@@ -584,14 +587,18 @@ CHAR_DATA *char_load(const char *name, int flags)
 		}
 
 		fread_word(fp);
-		if (IS_TOKEN(fp, "PLAYER"))
+		if (IS_TOKEN(fp, "PLAYER")) {
 			fread_char(ch, fp, flags);
+			obj_to = ch;
+		}
 		else if (IS_TOKEN(fp, "OBJECT"))
 			fread_obj(ch, fp, flags);
 		else if (IS_TOKEN(fp, "O"))
 			fread_obj(ch, fp, flags);
-		else if (IS_TOKEN(fp, "PET"))
+		else if (IS_TOKEN(fp, "PET")) {
 			fread_pet(ch, fp, flags);
+			obj_to = GET_PET(ch);
+		}
 		else if (IS_TOKEN(fp, "END"))
 			break;
 		else {
@@ -1141,9 +1148,9 @@ fread_obj(CHAR_DATA * ch, rfile_t * fp, int flags)
 				}
 
 				if (iNest == 0 || rgObjNest[iNest] == NULL) {
-					obj_to_char(obj, ch);
+					obj_to_char(obj, obj_to);
 					if (obj->wear_loc != WEAR_NONE)
-						_equip_char(ch, obj);
+						_equip_char(obj_to, obj);
 				} else
 					obj_to_obj(obj, rgObjNest[iNest - 1]);
 				return;
