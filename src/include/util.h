@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: util.h,v 1.24 2001-08-05 16:36:23 fjoe Exp $
+ * $Id: util.h,v 1.25 2001-09-12 08:11:29 fjoe Exp $
  */
 
 #ifndef _UTIL_H_
@@ -82,5 +82,9 @@ int		number_bits	(int width);
 int		dice		(int number, int size);
 int		dice_wlb	(int number, int size,
 				 CHAR_DATA *ch, CHAR_DATA *victim);
+
+void *	bsearch_lower(const void *key, const void *base,
+		      size_t nmemb, size_t size,
+		      int (*cmpfun)(const void *, const void *));
 
 #endif

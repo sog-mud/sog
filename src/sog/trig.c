@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.c,v 1.13 2001-09-07 19:34:48 fjoe Exp $
+ * $Id: trig.c,v 1.14 2001-09-12 08:11:58 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -348,6 +348,12 @@ pull_one_trigger(trig_t *trig, int mp_type,
 		arg4 = (void *) (uintptr_t) argument;
 	} else if (trig->trig_type == TRIG_MOB_EXIT) {
 		if (!is_name(arg3, trig_arg))
+			return MPC_ERR_COND_FAILED;
+	} else if (trig->trig_type == TRIG_MOB_HPCNT) {
+		CHAR_DATA *ch = (CHAR_DATA *) arg1;
+		int hpcnt = atoi(trig_arg);
+
+		if (100 * ch->hit / ch->max_hit > hpcnt)
 			return MPC_ERR_COND_FAILED;
 	} else {
 		int chance;

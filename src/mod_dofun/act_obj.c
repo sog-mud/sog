@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.261 2001-09-07 19:34:30 fjoe Exp $
+ * $Id: act_obj.c,v 1.262 2001-09-12 08:11:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3626,7 +3626,7 @@ sac_obj(CHAR_DATA * ch, OBJ_DATA *obj)
 			    ch, two_objs[0], two_objs[1], TO_ROOM);
 			break;
 
-		default: 
+		default:
 			if (iScatter < 5)
 				qty = "few things";
 			else if (iScatter < 9)

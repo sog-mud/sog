@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.361 2001-09-09 09:46:43 kostik Exp $
+ * $Id: merc.h,v 1.362 2001-09-12 08:11:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -867,7 +867,10 @@ struct spec_type
 #define	WEAPON_STAFF		12
 
 #define WEAPON_IS(obj, wclass)	(INT(obj->value[0]) == (wclass))
-#define WEAPON_IS_LONG(obj) (WEAPON_IS((obj), WEAPON_STAFF) || WEAPON_IS((obj), WEAPON_SPEAR) || WEAPON_IS((obj), WEAPON_POLEARM) || WEAPON_IS((obj), WEAPON_LANCE))
+#define WEAPON_IS_LONG(obj)	(WEAPON_IS((obj), WEAPON_STAFF) ||	\
+				 WEAPON_IS((obj), WEAPON_SPEAR) ||	\
+				 WEAPON_IS((obj), WEAPON_POLEARM) ||	\
+				 WEAPON_IS((obj), WEAPON_LANCE))
 
 /* weapon types */
 #define WEAPON_FLAMING		(A)

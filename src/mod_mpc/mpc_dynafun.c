@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_dynafun.c,v 1.14 2001-09-07 19:34:38 fjoe Exp $
+ * $Id: mpc_dynafun.c,v 1.15 2001-09-12 08:11:44 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -251,6 +251,99 @@ int
 obj_wear_loc(OBJ_DATA *obj)
 {
 	return obj->wear_loc;
+}
+
+bool
+is_npc(CHAR_DATA *ch)
+{
+	return IS_NPC(ch);
+}
+
+int
+umin(int i1, int i2)
+{
+	return UMIN(i1, i2);
+}
+
+int
+umax(int i1, int i2)
+{
+	return UMAX(i1, i2);
+}
+
+int
+char_position(CHAR_DATA *ch)
+{
+	return ch->position;
+}
+
+bool
+is_wanted(CHAR_DATA *ch)
+{
+	return IS_WANTED(ch);
+}
+
+bool
+is_awake(CHAR_DATA *ch)
+{
+	return IS_AWAKE(ch);
+}
+
+int
+obj_item_type(OBJ_DATA *obj)
+{
+	return obj->item_type;
+}
+
+int
+weapon_is(OBJ_DATA *obj, int wclass)
+{
+	return WEAPON_IS(obj, wclass);
+}
+
+const char *
+char_clan(CHAR_DATA *ch)
+{
+	return ch->clan;
+}
+
+int
+time_hour()
+{
+	return time_info.hour;
+}
+
+#define IS_FIGHTING(ch, victim)						\
+	((RIDDEN(ch) && (victim)->fighting == RIDDEN(ch)) ||		\
+	 (victim)->fighting == (ch))
+
+CHAR_DATA *
+get_random_fighting(CHAR_DATA *ch)
+{
+	CHAR_DATA *victim;
+	int count = 0;
+	int num;
+
+	for (victim = ch->in_room->people;
+	     victim != NULL; victim = victim->next_in_room) {
+		if (IS_FIGHTING(ch, victim))
+			count++;
+	}
+
+	if (!count)
+		return NULL;
+
+	num = number_range(1, count);
+	count = 0;
+
+	for (victim = ch->in_room->people;
+	     victim != NULL; victim = victim->next_in_room) {
+		if (IS_FIGHTING(ch, victim)
+		&&  ++count == num)
+			break;
+	}
+
+	return victim;
 }
 
 #else /* !defined(MPC) */

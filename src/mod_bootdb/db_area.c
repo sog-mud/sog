@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.130 2001-09-09 09:46:45 kostik Exp $
+ * $Id: db_area.c,v 1.131 2001-09-12 08:11:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -702,41 +702,41 @@ DBLOAD_FUN(load_shops)
 
 struct spec_subst_t {
 	const char *spec;
+	int trig;
 	const char *mprog;
 };
 typedef struct spec_subst_t spec_subst_t;
 
 struct spec_subst_t spec_substs[] =
 {
-  { "spec_breath_any",		"mob_random_breath_any"		}, // notrans
-  { "spec_breath_acid",		"mob_random_breath_acid"	}, // notrans
-  { "spec_breath_fire",		"mob_random_breath_fire"	}, // notrans
-  { "spec_breath_frost",	"mob_random_breath_frost"	}, // notrans
-  { "spec_breath_gas",		"mob_random_breath_gas"		}, // notrans
-  { "spec_breath_lightning",	"mob_random_breath_lightning"	}, // notrans
-  { "spec_cast_adept",		"mob_random_cast_adept"		}, // notrans
-  { "spec_cast_cleric",		"mob_random_cast_cleric"	}, // notrans
-  { "spec_cast_judge",		"mob_random_cast_judge"		}, // notrans
-  { "spec_cast_mage",		"mob_random_cast_mage"		}, // notrans
-  { "spec_cast_seneschal",	"mob_random_cast_seneschal"	}, // notrans
-  { "spec_cast_beholder",	"mob_random_cast_beholder"	}, // notrans
-  { "spec_cast_undead",		"mob_random_cast_undead"	}, // notrans
-  { "spec_executioner",		"mob_random_executioner"	}, // notrans
-  { "spec_fido",		"mob_random_fido"		}, // notrans
-  { "spec_guard",		"mob_random_guard"		}, // notrans
-  { "spec_janitor",		"mob_random_janitor"		}, // notrans
-  { "spec_mayor",		"mob_random_mayor"		}, // notrans
-  { "spec_poison",		"mob_random_poison"		}, // notrans
-  { "spec_thief",		"mob_random_thief"		}, // notrans
-  { "spec_nasty",		"mob_random_nasty"		}, // notrans
-  { "spec_troll_member",	"mob_random_troll_member"	}, // notrans
-  { "spec_ogre_member",		"mob_random_ogre_member"	}, // notrans
-  { "spec_patrolman",		"mob_random_patrolman"		}, // notrans
-  { "spec_cast_clan",		"mob_random_cast_clan"		}, // notrans
-  { "spec_special_guard",	"mob_random_special_guard"	}, // notrans
-  { "spec_assassinater",        "mob_random_assassinater"	}, // notrans
-  { "spec_captain",		"mob_random_captain"		}, // notrans
-  { "spec_headlamia",		"mob_random_headlamia"		}, // notrans
+  { "spec_assassinater",	TRIG_MOB_FIGHT,	"assassinater"	}, // notrans
+  { "spec_breath_any",		TRIG_MOB_FIGHT,	"breath_any"	}, // notrans
+  { "spec_breath_acid",		TRIG_MOB_FIGHT,	"breath_acid"	}, // notrans
+  { "spec_breath_fire",		TRIG_MOB_FIGHT,	"breath_fire"	}, // notrans
+  { "spec_breath_frost",	TRIG_MOB_FIGHT,	"breath_frost"	}, // notrans
+  { "spec_breath_gas",		TRIG_MOB_FIGHT,	"breath_gas"	}, // notrans
+  { "spec_breath_lightning",	TRIG_MOB_FIGHT,	"breath_lightning" }, // notrans
+  { "spec_captain",		TRIG_MOB_RANDOM,"captain"	}, // notrans
+  { "spec_captain",		TRIG_MOB_FIGHT,	"cast_cleric"	}, // notrans
+  { "spec_cast_adept",		TRIG_MOB_RANDOM,"cast_adept"	}, // notrans
+  { "spec_cast_beholder",	TRIG_MOB_FIGHT,	"cast_beholder"	}, // notrans
+  { "spec_cast_clan",		TRIG_MOB_RANDOM,"cast_clan"	}, // notrans
+  { "spec_cast_cleric",		TRIG_MOB_FIGHT,	"cast_cleric"	}, // notrans
+  { "spec_cast_judge",		TRIG_MOB_FIGHT,	"cast_judge"	}, // notrans
+  { "spec_cast_mage",		TRIG_MOB_FIGHT,	"cast_mage"	}, // notrans
+  { "spec_cast_seneschal",	TRIG_MOB_FIGHT,	"cast_seneschal" }, // notrans
+  { "spec_cast_undead",		TRIG_MOB_FIGHT,	"cast_undead"	}, // notrans
+  { "spec_executioner",		TRIG_MOB_RANDOM,"executioner"	}, // notrans
+  { "spec_fido",		TRIG_MOB_RANDOM,"fido"		}, // notrans
+  { "spec_guard",		TRIG_MOB_RANDOM,"guard"		}, // notrans
+  { "spec_headlamia",		TRIG_MOB_RANDOM,"headlamia"	}, // notrans
+  { "spec_janitor",		TRIG_MOB_RANDOM,"janitor"	}, // notrans
+  { "spec_mayor",		TRIG_MOB_RANDOM,"mayor"		}, // notrans
+  { "spec_nasty",		TRIG_MOB_RANDOM,"nasty"		}, // notrans
+  { "spec_nasty",		TRIG_MOB_FIGHT,	"nasty"		}, // notrans
+  { "spec_poison",		TRIG_MOB_FIGHT,	"poison_bite"	}, // notrans
+  { "spec_special_guard",	TRIG_MOB_RANDOM,"special_guard" }, // notrans
+  { "spec_thief",		TRIG_MOB_RANDOM,"thief"		}, // notrans
 };
 
 #define SPEC_SUBSTS_SZ	(sizeof(spec_substs) / sizeof(spec_subst_t))
@@ -783,17 +783,27 @@ DBLOAD_FUN(load_specials)
 				spec_substs_initialized = TRUE;
 			}
 
-			ssubst = bsearch(&spec, spec_substs, SPEC_SUBSTS_SZ,
-					 sizeof(spec_subst_t), cmpstr);
+			ssubst = bsearch_lower(
+			    &spec, spec_substs, SPEC_SUBSTS_SZ,
+			    sizeof(spec_subst_t), cmpstr);
 			if (ssubst == NULL) {
 				log(LOG_ERROR, "load_specials: %s: unknown spec", spec);
 				break;
 			}
 
-			trig = varr_enew(&pMobIndex->mp_trigs);
-			trig->trig_type = TRIG_MOB_RANDOM;
-			trig->trig_prog = str_dup(ssubst->mprog);
-			trig_set_arg(trig, str_dup("+100"));	// notrans
+			while (ssubst - spec_substs < (int) SPEC_SUBSTS_SZ &&
+			       !str_cmp(spec, ssubst->spec)) {
+				trig = varr_enew(&pMobIndex->mp_trigs);
+				trig->trig_type = ssubst->trig;
+				trig->trig_prog = str_printf(
+				    "%s_%s",
+				    flag_string(mptrig_types, ssubst->trig),
+				    ssubst->mprog);
+				trig_set_arg(trig, str_dup("100")); // notrans
+
+				ssubst++;
+			}
+
 			varr_qsort(&pMobIndex->mp_trigs, cmpint);
 
 			if (!str_cmp(spec, "spec_janitor"))
@@ -1745,4 +1755,3 @@ vnum_check(AREA_DATA *area, int vnum)
 			   area->file_name, vnum);
 	}
 }
-

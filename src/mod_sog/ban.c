@@ -1,5 +1,5 @@
 /*
- * $Id: ban.c,v 1.49 2001-08-20 16:47:40 fjoe Exp $
+ * $Id: ban.c,v 1.50 2001-09-12 08:11:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -242,7 +242,7 @@ dump_bans(BUFFER *output)
 	buf_append(output, "Ban rules:\n");
 
 	for (pban = ban_list; pban != NULL; pban = pban->next)
-		buf_append(output, format_ban(pban));
+		buf_printf(output, BUF_END, "%s\n", format_ban(pban));
 }
 
 /*--------------------------------------------------------------------

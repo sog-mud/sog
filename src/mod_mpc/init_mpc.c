@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_mpc.c,v 1.26 2001-09-07 19:34:37 fjoe Exp $
+ * $Id: init_mpc.c,v 1.27 2001-09-12 08:11:42 fjoe Exp $
  */
 
 #include <dlfcn.h>
@@ -164,10 +164,12 @@ const char *mpc_dynafuns[] = {
 	"cast",
 	"cast_char",
 	"cast_obj",
+	"char_clan",
 	"char_fighting",
 	"char_hit",
 	"char_level",
 	"char_max_hit",
+	"char_position",
 	"char_room",
 	"char_sex",
 	"close_door",
@@ -190,20 +192,24 @@ const char *mpc_dynafuns[] = {
 	"get_obj_room",
 	"get_obj_wear",
 	"get_obj_world",
+	"get_random_fighting",
 	"get_pulse",
 	"get_room_index",
 	"give_obj",
 	"handle_death",
 	"has_sp",
 	"is_affected",
+	"is_awake",
 	"is_class",
 	"is_evil",
 	"is_ghost",
 	"is_good",
 	"is_immortal",
 	"is_neutral",
+	"is_npc",
 	"is_owner",
 	"is_sn_affected",
+	"is_wanted",
 	"load_obj",
 	"lock_door",
 	"lock_obj",
@@ -214,6 +220,7 @@ const char *mpc_dynafuns[] = {
 	"number_percent",
 	"number_range",
 	"obj_cast_spell",
+	"obj_item_type",
 	"obj_level",
 	"obj_timer",
 	"obj_to_char",
@@ -242,9 +249,12 @@ const char *mpc_dynafuns[] = {
 	"transfer_char",
 	"transfer_group",
 	"tell_char",
+	"umax",
+	"umin",
 	"unlock_door",
 	"unlock_obj",
 	"wait_state",
+	"weapon_is",
 #else
 	"nonexistent",
 	"number_range",

@@ -1,17 +1,16 @@
 #!/bin/sh
 #
-# $Id: genconst.sh,v 1.7 2001-09-07 15:40:17 fjoe Exp $
+# $Id: genconst.sh,v 1.8 2001-09-12 08:11:41 fjoe Exp $
 #
 
-echo "#include <stdlib.h>"
+echo "#include <stdio.h>"
 echo
-echo "#include <typedef.h>"
-echo "#include <memalloc.h>"
+echo "#include <merc.h>"
 echo
 echo "#include \"mpc_const.h\""
 echo
 echo "int_const_t ic_tab[] = {"
-egrep '#define (ACT_|AN_|SEX_|WEAR_|APPLY_|AFF_|TO_|SECT_)' ../include/merc.h | grep -v 'AFF_X_' | sed -f genconst.sed
+egrep '#define (ACT_|AN_|SEX_|WEAR_|APPLY_|AFF_|TO_|SECT_|MAX_LEVEL|LEVEL_)' ../include/merc.h | grep -v 'AFF_X_' | sed -f genconst.sed
 egrep '#define (TO_|DAMF_)' ../include/sog.h | sed -f genconst.sed
 egrep '#define (DAM_)' ../include/damtype.h | sed -f genconst.sed
 echo

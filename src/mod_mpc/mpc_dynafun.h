@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_dynafun.h,v 1.7 2001-09-07 19:34:38 fjoe Exp $
+ * $Id: mpc_dynafun.h,v 1.8 2001-09-12 08:11:45 fjoe Exp $
  */
 
 #ifndef _MPC_DYNAFUN_H_
@@ -91,6 +91,27 @@ DECLARE_FUN1(int, char_hit,
 	     ARG(CHAR_DATA), ch)
 DECLARE_FUN1(int, obj_wear_loc,
 	     ARG(OBJ_DATA), obj)
+DECLARE_FUN1(bool, is_npc,
+	     ARG(CHAR_DATA), ch)
+DECLARE_FUN2(int, umin,
+	     ARG(int), i1, ARG(int), i2)
+DECLARE_FUN2(int, umax,
+	     ARG(int), i1, ARG(int), i2)
+DECLARE_FUN1(int, char_position,
+	     ARG(CHAR_DATA), ch)
+DECLARE_FUN1(bool, is_wanted,
+	     ARG(CHAR_DATA), ch)
+DECLARE_FUN1(bool, is_awake,
+	     ARG(CHAR_DATA), ch)
+DECLARE_FUN1(int, obj_item_type,
+	     ARG(OBJ_DATA), obj)
+DECLARE_FUN2(bool, weapon_is,
+	     ARG(OBJ_DATA), obj, ARG(int), wclass)
+DECLARE_FUN1(cchar_t, char_clan,
+	     ARG(CHAR_DATA), ch)
+DECLARE_FUN0(int, time_hour)
+DECLARE_FUN1(CHAR_DATA, get_random_fighting,
+	     ARG(CHAR_DATA), ch)
 
 __MODULE_END_DECL
 

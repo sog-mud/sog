@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: util.c,v 1.36 2001-09-09 12:52:34 kostik Exp $
+ * $Id: util.c,v 1.37 2001-09-12 08:11:59 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -634,4 +634,23 @@ number_mm(void)
 		init_mm();
 	return random() >> 6;
 #endif
+}
+
+void *
+bsearch_lower(const void *key, const void *base, size_t nmemb, size_t size,
+	      int (*cmpfun)(const void *, const void *))
+{
+	char *p = bsearch(key, base, nmemb, size, cmpfun);
+
+	if (p == NULL)
+		return p;
+
+	while (p > (const char *) base) {
+		if (!!cmpfun(key, p - size))
+			break;
+
+		p -= size;
+	}
+
+	return p;
 }

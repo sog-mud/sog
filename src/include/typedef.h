@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.57 2001-08-28 16:37:30 avn Exp $
+ * $Id: typedef.h,v 1.58 2001-09-12 08:11:28 fjoe Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -120,6 +120,7 @@ union vo_t {
 	MOB_INDEX_DATA *m;
 	CHAR_DATA *ch;
 	OBJ_DATA *obj;
+	void *p;
 };
 
 #define INT(v)		((v).i)

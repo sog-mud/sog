@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.33 2001-09-07 19:34:37 fjoe Exp $
+ * $Id: mpc.y,v 1.34 2001-09-12 08:11:43 fjoe Exp $
  */
 
 /*
@@ -1463,44 +1463,27 @@ var_lookup(mpcode_t *mpc, const char *name, int type_tag)
 }
 
 static int
-str_var_assign(mpcode_t *mpc, const char *name, const char *s)
+var_assign(mpcode_t *mpc, const char *name, int type_tag, void *vo)
 {
 	sym_t *sym;
 
-	if ((sym = var_lookup(mpc, name, MT_STR)) == NULL)
+	if ((sym = var_lookup(mpc, name, type_tag)) == NULL)
 		return -1;
 
-	if (IS_SET(mpc->mp->flags, MP_F_TRACE))
-		log(LOG_INFO, "%s: (string) '%s'", name, s);
-	sym->s.var.data.s = alloc_string(mpc, s);
-	return 0;
-}
+	if (type_tag != MT_STR
+	&&  vo != NULL
+	&&  !mem_is(vo, type_tag)) {
+		log(LOG_BUG, "%s: vo is not of type '%s'",
+		    __FUNCTION__, flag_string(mpc_types, type_tag));
+	}
 
-static int
-mob_var_assign(mpcode_t *mpc, const char *name, CHAR_DATA *ch)
-{
-	sym_t *sym;
+	if (IS_SET(mpc->mp->flags, MP_F_TRACE)) {
+		log(LOG_INFO, "%s: %s: %p (type '%s')",
+		    __FUNCTION__, name, vo,
+		    flag_string(mpc_types, type_tag));
+	}
 
-	if ((sym = var_lookup(mpc, name, MT_CHAR)) == NULL)
-		return -1;
-
-	if (IS_SET(mpc->mp->flags, MP_F_TRACE))
-		log(LOG_INFO, "%s: (mob) %p", name, ch);
-	sym->s.var.data.ch = ch;
-	return 0;
-}
-
-static int
-obj_var_assign(mpcode_t *mpc, const char *name, OBJ_DATA *obj)
-{
-	sym_t *sym;
-
-	if ((sym = var_lookup(mpc, name, MT_OBJ)) == NULL)
-		return -1;
-
-	if (IS_SET(mpc->mp->flags, MP_F_TRACE))
-		log(LOG_INFO, "%s: (obj) %p", name, obj);
-	sym->s.var.data.obj = obj;
+	sym->s.var.data.p = vo;
 	return 0;
 }
 
@@ -1627,20 +1610,20 @@ _mprog_execute(mprog_t *mp, void *arg1, void *arg2, void *arg3, void *arg4)
 
 	switch (mpc->mp->type) {
 	case MP_T_MOB:
-		if (mob_var_assign(mpc, "$n", arg1) < 0)
+		if (var_assign(mpc, "$n", MT_CHAR, arg1) < 0)
 			execerr(MPC_ERR_RUNTIME);
-		if (mob_var_assign(mpc, "$N", arg2) < 0)
+		if (var_assign(mpc, "$N", MT_CHAR, arg2) < 0)
 			execerr(MPC_ERR_RUNTIME);
-		if (obj_var_assign(mpc, "$p", arg3) < 0)
+		if (var_assign(mpc, "$p", MT_OBJ, arg3) < 0)
 			execerr(MPC_ERR_RUNTIME);
-		if (str_var_assign(mpc, "$t", arg4) < 0)
+		if (var_assign(mpc, "$t", MT_STR, arg4) < 0)
 			execerr(MPC_ERR_RUNTIME);
 		break;
 
 	case MP_T_OBJ:
-		if (obj_var_assign(mpc, "$p", arg1) < 0)
+		if (var_assign(mpc, "$p", MT_OBJ, arg1) < 0)
 			execerr(MPC_ERR_RUNTIME);
-		if (mob_var_assign(mpc, "$n", arg2) < 0)
+		if (var_assign(mpc, "$n", MT_CHAR, arg2) < 0)
 			execerr(MPC_ERR_RUNTIME);
 		break;
 
@@ -1648,13 +1631,13 @@ _mprog_execute(mprog_t *mp, void *arg1, void *arg2, void *arg3, void *arg4)
 		break;
 
 	case MP_T_SPEC:
-		if (mob_var_assign(mpc, "$n", arg1) < 0)
+		if (var_assign(mpc, "$n", MT_CHAR, arg1) < 0)
 			execerr(MPC_ERR_RUNTIME);
 
-		if (str_var_assign(mpc, "$rm", arg2) < 0)
+		if (var_assign(mpc, "$rm", MT_STR, arg2) < 0)
 			execerr(MPC_ERR_RUNTIME);
 
-		if (str_var_assign(mpc, "$add", arg3) < 0)
+		if (var_assign(mpc, "$add", MT_STR, arg3) < 0)
 			execerr(MPC_ERR_RUNTIME);
 
 		break;

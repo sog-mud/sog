@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.323 2001-09-07 19:34:43 fjoe Exp $
+ * $Id: handler.c,v 1.324 2001-09-12 08:11:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -193,17 +193,15 @@ obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch)
 	obj->next_content	= ch->carrying;
 	ch->carrying		= obj;
 	obj->carried_by		= ch;
-	obj->in_room		= NULL;
-	obj->in_obj		= NULL;
 
 	if (obj->last_owner && !IS_NPC(ch) && obj->last_owner != ch) {
 		name_add(&PC(obj->last_owner)->enemy_list, ch->name, NULL,NULL);
 		PC(ch)->last_offence_time = current_time;
 	}
 
-	if (!IS_NPC(ch)) {
+	if (!IS_NPC(ch))
 		obj->last_owner		= ch;
-	}
+
 	ch->carry_number	+= get_obj_number(obj);
 	ch->carry_weight	+= get_obj_weight(obj);
 }
@@ -219,8 +217,6 @@ obj_to_room(OBJ_DATA *obj, ROOM_INDEX_DATA *pRoomIndex)
 	obj->next_content	= pRoomIndex->contents;
 	pRoomIndex->contents	= obj;
 	obj->in_room		= pRoomIndex;
-	obj->carried_by		= NULL;
-	obj->in_obj		= NULL;
 
 	if (IS_WATER(pRoomIndex))
 		obj->water_float = floating_time(obj);
@@ -243,8 +239,7 @@ obj_to_obj(OBJ_DATA *obj, OBJ_DATA *obj_to)
 	obj->next_content	= obj_to->contains;
 	obj_to->contains	= obj;
 	obj->in_obj		= obj_to;
-	obj->in_room		= NULL;
-	obj->carried_by		= NULL;
+
 	if (OBJ_IS(obj_to, OBJ_PIT))
 		obj->cost = 0;
 
@@ -1460,7 +1455,8 @@ equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 		return NULL;
 	}
 
-	if (pull_obj_trigger(TRIG_OBJ_WEAR, obj, ch, NULL) > 0)
+	if (pull_obj_trigger(TRIG_OBJ_WEAR, obj, ch, NULL) > 0
+	||  obj->carried_by != ch)
 		return NULL;
 
 	obj->wear_loc = iWear;

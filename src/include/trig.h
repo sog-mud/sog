@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.h,v 1.9 2001-09-07 15:40:03 fjoe Exp $
+ * $Id: trig.h,v 1.10 2001-09-12 08:11:27 fjoe Exp $
  */
 
 #ifndef _TRIG_H_
@@ -51,6 +51,7 @@
 #define TRIG_MOB_GET		16		/* arg: obj vnum/name	*/
 #define TRIG_MOB_TELL		17		/* arg: text		*/
 #define TRIG_MOB_CMD		18		/* arg: cmd		*/
+#define TRIG_MOB_YELL		19		/* arg: text		*/
 
 /* obj triggers */
 #define TRIG_OBJ_WEAR		100		/* arg: probability	*/
@@ -72,6 +73,7 @@
 #define HAS_TEXT_ARG(trig)	(trig->trig_type == TRIG_MOB_ACT ||	\
 				 trig->trig_type == TRIG_MOB_SPEECH ||	\
 				 trig->trig_type == TRIG_MOB_TELL ||	\
+				 trig->trig_type == TRIG_MOB_YELL ||	\
 				 trig->trig_type == TRIG_OBJ_SPEECH)
 #define HAS_OBJ_ARG(trig)	(trig->trig_type == TRIG_MOB_GIVE ||	\
 				 trig->trig_type == TRIG_MOB_OPEN ||	\

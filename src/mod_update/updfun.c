@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.42 2001-09-07 19:34:46 fjoe Exp $
+ * $Id: updfun.c,v 1.43 2001-09-12 08:11:53 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -132,19 +132,14 @@ FOREACH_CB_FUN(violence_update_cb, vo, ap)
 	 * Fun for the whole family!
 	 */
 	vo_foreach(ch->in_room, &iter_char_room, check_assist_cb, ch, victim);
-#if 0
-	XXX
-	if (IS_NPC(ch)) {
-		if (HAS_TRIGGER(ch, TRIG_FIGHT)) {
-			mp_percent_trigger(ch, victim, NULL, NULL, TRIG_FIGHT);
-			if (IS_EXTRACTED(ch)
-			||  IS_EXTRACTED(victim))
-				return NULL;
-		}
-		if (HAS_TRIGGER(ch, TRIG_HPCNT))
-			mp_hprct_trigger(ch, victim);
-	}
-#endif
+	if (IS_EXTRACTED(ch) || IS_EXTRACTED(victim))
+		return NULL;
+
+	pull_mob_trigger(TRIG_MOB_FIGHT, ch, victim, NULL);
+	if (IS_EXTRACTED(ch) || IS_EXTRACTED(victim))
+		return NULL;
+
+	pull_mob_trigger(TRIG_MOB_HPCNT, ch, victim, NULL);
 
 	return NULL;
 }

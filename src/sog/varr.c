@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.c,v 1.31 2001-08-28 17:46:24 fjoe Exp $
+ * $Id: varr.c,v 1.32 2001-09-12 08:12:00 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -35,6 +35,7 @@
 #include <varr.h>
 #include <buffer.h>
 #include <str.h>
+#include <util.h>
 
 /*
  * Variable size array implementation
@@ -183,20 +184,9 @@ void *
 varr_bsearch_lower(const varr *v, const void *e,
 		   int (*cmpfun)(const void *, const void *))
 {
-	void *elem = varr_bsearch(v, e, cmpfun);
-	size_t i;
-
-	if (elem == NULL)
+	if (v == NULL || v->nused == 0)
 		return NULL;
-
-	i = varr_index(v, elem);
-	while (i) {
-		if (!!cmpfun(VARR_GET(v, i-1), e))
-			break;
-		i--;
-	}
-
-	return VARR_GET(v, i);
+	return bsearch_lower(e, v->p, v->nused, v->v_data->nsize, cmpfun);
 }
 
 void *
