@@ -213,7 +213,11 @@ F par ABCDEFGHIJK
 #40220
 clerk клерк~
 @eng the clerk@rus клерк~
-@rus Клерк (clerk), улыбаясь глядит на тебя.~
+@eng A clerk looks at you smiling.@rus Клерк (clerk), улыбаясь глядит на тебя.~
+@eng This man has a nice face. Becouse of his sharp ears you
+understand that he is an elf. It is a strange to see elf
+here, sitting at the table with a pen. An elf with a bow
+in the forest is more usual picture.
 @rus Приятный мужчина. Судя по заостренным ушкам, он эльф.
 Как-то странно видеть эльфа не в лесу с луком, а за
 столом с пером.
@@ -940,10 +944,10 @@ g @eng none@rus male~
 #40247
 temple dark храм~
 @eng temple@rus храм~
-@rus Священный храм (temple), построенный из черного камня, подавляет своим мрачным величием.~
+@eng The sacred temple depresses its dark greatness.@rus Священный храм (temple) подавляет своим темным величием.~
 stone~
 portal 0 0 0
-0 0 0 0 0
+0 0 0 40317 0
 0 0 0 P
 E
 temple храм~
@@ -956,10 +960,10 @@ g @eng none@rus male~
 #40248
 temple light храм~
 @eng a temple@rus храм~
-@rus Священный храм (temple), словно окруженный сиянием, манит войти внутрь.~
+@eng The sacred temple surrounding brilliance radience attracs to enter inside.@rus Священный храм (temple), окруженный сиянием, манит войти внутрь.~
 stone~
 portal 0 0 0
-0 0 0 0 0
+0 0 0 40316 0
 0 0 0 P
 E
 temple~
@@ -972,10 +976,10 @@ g @eng none@rus male~
 #40249
 temple храм~
 @eng the temple@rus храм~
-@rus Священный храм (temple) в окружении невысоких голубых елей.~
+@eng Some light-blue spruces surround the sacred temple.@rus Священный храм (temple) в окружении невысоких голубых елей.~
 unknown~
 portal 0 0 0
-0 0 0 0 0
+0 0 0 40318 0
 0 0 0 P
 E
 temple~
@@ -2844,7 +2848,7 @@ D1
 Z 0 40266
 S
 #40265
-@eng Square@rus Площадь Четырех Стихий~
+@eng The Square of Elements@rus Площадь Четырех Стихий~
 @rus Ты стоишь в северо-западной части центральной площади города. Изящные
 двухэтажный дома стоят настолько близко к друг другу, что не оставляют
 шанса протиснуться между ними. В самом углу площади стоит на сером мра-
@@ -3021,7 +3025,7 @@ D3
 Z 0 40275
 S
 #40272
-@eng Square@rus Площадь Четырех Стихий~
+@eng The Square of Elements@rus Площадь Четырех Стихий~
 @rus Ты стоишь в северо-восточной части центральной площади города. Изящные
 двухэтажный дома стоят настолько близко к друг другу, что не оставляют
 шанса протиснуться между ними. В самом углу площади стоит на сером мрамор-
@@ -3056,7 +3060,7 @@ D3
 Z 0 40265
 S
 #40273
-@eng Square@rus Площадь Четырех Стихий~
+@eng The Square of Elements@rus Площадь Четырех Стихий~
 @rus Ты стоишь в юго-восточной части центральной площади города.
 Изящные двухэтажный дома стоят настолько близко к друг другу,
 что не оставляют шанса протиснуться между ними. В самом углу
@@ -3092,7 +3096,7 @@ D3
 Z 0 40274
 S
 #40274
-@eng Square@rus Площадь Четырех Стихий~
+@eng The Square of Elements@rus Площадь Четырех Стихий~
 @rus Ты стоишь в юго-западной части центральной площади города.
 Изящные двухэтажный дома стоят настолько близко к друг другу,
 что не оставляют шанса протиснуться между ними. В самом углу
@@ -3122,7 +3126,7 @@ D3
 ABZ 0 40291
 S
 #40275
-@eng South avenue@rus Южный проспект~
+@eng The south avenue@rus Южный проспект~
 @rus Ты идешь по проспекту, вымощенному серым камнем. Дорога сделана
 на совесть и идти по ней приятно и легко. Проспект, раздваиваясь,
 огибает парк, куда можно зайти и посидеть на лавочке, отдыхая от
@@ -3203,7 +3207,10 @@ D3
 Z 0 40276
 S
 #40278
-@eng Cross-roads@rus Перекресток~
+@eng The cross-roads@rus Перекресток~
+@eng On the north-west The South Avenue goes round a park and leads to
+the center square. Small path leads to the sacred grove on the east.
+Not far on the south you see the Southern Gate of the city.
 @rus Южный проспект, огибая на северо-западе парк, ведет к центральной
 площади. Небольшая улочка, ответвляющяяся на восток, ведет к священ-
 ной роще. А недалеко на юге расположены Южные Ворота города.
@@ -3418,6 +3425,11 @@ Z 0 40262
 S
 #40287
 @eng The bank@rus Банк~
+@eng You are in the large light room. There are several clers sitting
+at the rables and looking on you with an interest. All around you
+look reliable, but you want to be sure that this bank is enought
+dependable.
+  You see a sign on the wall.
 @rus Просторная светлая комната. За столами сидят несколько клерков,
 с любопытством поглядывающих на тебя. Все выглядит благопристойно
 и надежно, но все-таки хочется быть до конца $gn{уверенным} в тех, кому
@@ -3426,7 +3438,19 @@ S
 ~
 0 U inside
 E
-plague плакат~
+plague плакат sign~
+@eng .
+********************************************************************
+*  deposit <amount> gold -- deposit some gold coins                *
+*  deposit <amount> silver -- deposit some silver coins            *
+*  withdraw <amount> gold -- withdraw some gold coins              *
+*  withdraw <amount> silver -- withdraw some gold silver           *
+*  balance -- to see your deposit balance                          *
+*                                                                  *
+*  to exchange silver or gold coins give amount to clerk and he'll *
+*  make an exchange                                                *
+********************************************************************
+ 
 @rus . 
  ********************************************************************
  *  deposit <количество> gold -- положить на счет золотые монеты    *
@@ -3434,6 +3458,9 @@ plague плакат~
  *  withdraw <количество> gold -- снять нужную сумму золотом        *
  *  withdraw <количество> silver -- снять нужное количество серебра *
  *  balance -- посмотреть состояние счета                           *
+ *                                                                  *
+ *  чтобы разменять золотые монеты, или обменять серебро на золото  *
+ *  дайте монеты клерку, он произведет нужные операции              * 
  ********************************************************************
  
 ~
@@ -3456,7 +3483,11 @@ D2
 ABZ 0 40272
 S
 #40289
-@eng the trail@rus Дорожка к священной роще~
+@eng The trail to the sacred grove@rus Дорожка к священной роще~
+@eng This trails is strewn by small gravel. On the both side you see
+bright flowers making alive colour gleaming border. The several
+birch-trees bend its btanches to your head almost touch you. The
+fresh wind softly blows your face.
 @rus Дорожка посыпана мелким гравием, по краям высажены яркие
 цветы, окаймляющие ее разноцветным переливающимся бордюром.
 Несколько берез склоняют ветви к твоей голове, почти каса-
@@ -3483,7 +3514,11 @@ D3
 Z 0 40278
 S
 #40290
-@eng the trail@rus Дорожка к священной роще~
+@eng The trail to the sacred grove@rus Дорожка к священной роще~
+@eng This trails is strewn by small gravel. On the both side you see
+bright flowers making alive colour gleaming border. The several
+birch-trees bend its btanches to your head almost touch you. The
+fresh wind softly blows your face.
 @rus Дорожка посыпана мелким гравием, по краям высажены яркие
 цветы, окаймляющие ее разноцветным переливающимся бордюром.
 Несколько берез склоняют ветви к твоей голове, почти каса-
@@ -3572,7 +3607,11 @@ D5
 Z 0 40291
 S
 #40293
-@eng Holy grove@rus Священная роща~
+@eng The sacred grove@rus Священная роща~
+@eng So beautiful place! You feel that Gods protect it. Soft
+mosses form a dark-green carpet with a silvery pattern.
+Trails are strewn with gold dust and likes a bright stains
+on the dark dackground. The graceful trees rustle softly.
 @rus Какое красивое место! Чувствуется, что оно находится под
 покровительством богов. Мягкие мхи образуют темно-зеленый
 ковер с серебристым узором, на котором ярким пятном выделя-
@@ -3606,7 +3645,13 @@ D3
 Z 0 40290
 S
 #40294
-@eng The lake@rus Озеро в форме лунного серпа~
+@eng The crescent shaped lake@rus Озеро в форме лунного серпа~
+@eng This lake have a crescent shape. There are some hot springs
+on the one of the lakes end. Becouse of it water in the lake
+is warm. But you can't swim here becouse lake is sacred and
+priests keep a sharp eye on it. The lake water is so clean
+and you can see all stones on the lake's bed and many small
+colour fishes.
 @rus Озеро имеет форму лунного серпа. В одном из его концов бьют
 горячие источники, поэтому вода в озере теплая. Но не дай бог,
 искупаться здесь, озеро священное, и служители зорко следят за
@@ -3641,7 +3686,11 @@ D3
 Z 0 40293
 S
 #40295
-@eng Holy grove@rus Священная роща~
+@eng The sacred grove@rus Священная роща~
+@eng So beautiful place! You feel that Gods protect it. Soft
+mosses form a dark-green carpet with a silvery pattern.
+Trails are strewn with gold dust and likes a bright stains
+on the dark dackground. The graceful trees rustle softly.
 @rus Какое красивое место! Чувствуется, что оно находится под
 покровительством богов. Мягкие мхи образуют темно-зеленый
 ковер с серебристым узором, на котором ярким пятном выделя-
@@ -3663,7 +3712,11 @@ D2
 Z 0 40293
 S
 #40296
-@eng Holy grove@rus Священная роща~
+@eng The sacred grove@rus Священная роща~
+@eng So beautiful place! You feel that Gods protect it. Soft
+mosses form a dark-green carpet with a silvery pattern.
+Trails are strewn with gold dust and likes a bright stains
+on the dark dackground. The graceful trees rustle softly.
 @rus Какое красивое место! Чувствуется, что оно находится под
 покровительством богов. Мягкие мхи образуют темно-зеленый
 ковер с серебристым узором, на котором ярким пятном выделя-
@@ -3685,16 +3738,20 @@ D1
 Z 0 40297
 S
 #40297
-@eng Holy grove@rus Священная роща~
+@eng The sacred grove@rus Священная роща~
+@eng So beautiful place! You feel that Gods protect it. Soft
+mosses form a dark-green carpet with a silvery pattern.
+Trails are strewn with gold dust and likes a bright stains
+on the dark dackground. The graceful trees rustle softly.
+   Here trail is approaching to the stairs leading inside
+the majestic temple.
 @rus Какое красивое место! Чувствуется, что оно находится под
 покровительством богов. Мягкие мхи образуют темно-зеленый
 ковер с серебристым узором, на котором ярким пятном выделя-
 ется песок, которым посыпаны тропинки. Стройные деревья ше-
 лестят листвой и хвоей.
   И вот, тропинка подходит к лестнице ведущей внутрь вели-
-чественного храма. Отделка золотом и черным мрамором прида-
-ет ему величественный, но мрачный вид. Словно темные тучи
-сгущаются над твоей головой.
+чественного храма.
 ~
 0 A inside
 D0
@@ -3717,15 +3774,20 @@ D3
 Z 0 40296
 S
 #40298
-@eng Holy grove@rus Священная роща~
+@eng The sacred grove@rus Священная роща~
+@eng So beautiful place! You feel that Gods protect it. Soft
+mosses form a dark-green carpet with a silvery pattern.
+Trails are strewn with gold dust and likes a bright stains
+on the dark dackground. The graceful trees rustle softly.
+   Here trail is approaching to the stairs leading inside
+the majestic temple.
 @rus Какое красивое место! Чувствуется, что оно находится под
 покровительством богов. Мягкие мхи образуют темно-зеленый
 ковер с серебристым узором, на котором ярким пятном выделя-
 ется песок, которым посыпаны тропинки. Стройные деревья ше-
 лестят листвой и хвоей.
   И вот, тропинка подходит к лестнице ведущей внутрь вели-
-чественного храма. Отделка золотом и светящимся белым кам-
-нем придает ему необычайно торжественный вид.
+чественного храма.
 ~
 0 0 inside
 D1
@@ -3748,7 +3810,11 @@ D3
 Z 0 40295
 S
 #40299
-@eng Holy grove@rus Священная роща~
+@eng The sacred grove@rus Священная роща~
+@eng So beautiful place! You feel that Gods protect it. Soft
+mosses form a dark-green carpet with a silvery pattern.
+Trails are strewn with gold dust and likes a bright stains
+on the dark dackground. The graceful trees rustle softly.
 @rus Какое красивое место! Чувствуется, что оно находится под
 покровительством богов. Мягкие мхи образуют темно-зеленый
 ковер с серебристым узором, на котором ярким пятном выделя-
@@ -3770,17 +3836,20 @@ D3
 Z 0 40298
 S
 #40300
-@eng Holy grove@rus Священная роща~
+@eng The sacred grove@rus Священная роща~
+@eng So beautiful place! You feel that Gods protect it. Soft
+mosses form a dark-green carpet with a silvery pattern.
+Trails are strewn with gold dust and likes a bright stains
+on the dark dackground. The graceful trees rustle softly.
+   Here trail is approaching to the stairs leading inside
+the majestic temple.
 @rus Какое красивое место! Чувствуется, что оно находится под
 покровительством богов. Мягкие мхи образуют темно-зеленый
 ковер с серебристым узором, на котором ярким пятном выделя-
 ется песок, которым посыпаны тропинки. Стройные деревья ше-
 лестят листвой и хвоей.
   И вот, тропинка подходит к лестнице ведущей внутрь вели-
-чественного храма. Отделанный серым гранитом и еще каким-то
-серебристым материаллом он необыкновенно изящен, и при этом
-в нем нет мрачности, присущей южному соседу, или излишней
-торжественности, присущей северному.
+чественного храма.
 ~
 0 0 inside
 D0
@@ -3803,7 +3872,11 @@ D3
 Z 0 40294
 S
 #40301
-@eng Holy grove@rus Священная роща~
+@eng The sacred grove@rus Священная роща~
+@eng So beautiful place! You feel that Gods protect it. Soft
+mosses form a dark-green carpet with a silvery pattern.
+Trails are strewn with gold dust and likes a bright stains
+on the dark dackground. The graceful trees rustle softly.
 @rus Какое красивое место! Чувствуется, что оно находится под
 покровительством богов. Мягкие мхи образуют темно-зеленый
 ковер с серебристым узором, на котором ярким пятном выделя-
@@ -4044,7 +4117,14 @@ D0
 Z 0 40308
 S
 #40315
-@eng Trail to the park@rus Тропинка к парку~
+@eng The Path of the Gods@rus Аллея Богов~
+@eng You are at beginning of the Path of the Gods. This not wide
+path is strewn by a golden dust. On the both side you see the
+beautiful limdens. You feel nice smell of the limpen's flowers.
+@rus Ты стоишь в начале аллеи Богов. Это неширокая дорога,
+уходящая на юг, посыпана золотистым песком. По сторонам
+дороги растут прекрасные липы. И воздух пропин ароматом
+липового цвета.
 ~
 0 0 inside
 D0
@@ -4053,6 +4133,578 @@ D0
 ~
 ~
 Z 0 40289
+D2
+~
+~
+~
+~
+Z 0 40319
+S
+#40316
+@eng The Temple of the Light@rus Храм Света~
+~
+0 0 inside
+m room_cmd room_cmd_leave_temple_light leave~
+S
+#40317
+@eng The Temple of the Darkness@rus Храм Тьмы~
+~
+0 0 inside
+m room_cmd room_cmd_leave_temple_darkness leave~
+S
+#40318
+@eng The Temple of the Neutrality@rus Храм Нейтральности~
+~
+0 0 inside
+D1
+~
+~
+~
+~
+Z 0 40346
+m room_cmd room_cmd_leave_temple_balance leave~
+S
+#40319
+@eng The Path of the Gods@rus Аллея Богов~
+@eng You stand on the alley of the Gods. This is not wide path
+strewing a golden dust. On the both side of the path you see
+beautiful trees, possible, lindens. On the right side and on
+the left two trails leading to statues.
+@rus Ты идешь по аллее Богов. Это неширокая дорога, посыпанная
+золотистым песком. По ее сторонам растут прекрасные деревья,
+видимо, липы. Справа и слева от тебя две тропинки, проходя
+между деревьев, ведут к статуям, виднеющимся невдалеке.
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 40315
+D1
+~
+~
+~
+~
+Z 0 40320
+D2
+~
+~
+~
+~
+Z 0 40322
+D3
+~
+~
+~
+~
+Z 0 40321
+S
+#40320
+Calamir~
+~
+0 0 inside
+D3
+~
+~
+~
+~
+Z 0 40319
+S
+#40321
+Aulin~
+~
+0 0 inside
+D1
+~
+~
+~
+~
+Z 0 40319
+S
+#40322
+@eng The Path of the Gods@rus Аллея Богов~
+@eng You stand on the alley of the Gods. This is not wide path
+strewing a golden dust. On the both side of the path you see
+beautiful trees, possible, lindens. On the right side and on
+the left two trails leading to statues.
+@rus Ты идешь по аллее Богов. Это неширокая дорога, посыпанная
+золотистым песком. По ее сторонам растут прекрасные деревья,
+видимо, липы. Справа и слева от тебя две тропинки, проходя
+между деревьев, ведут к статуям, виднеющимся невдалеке.
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 40319
+D1
+~
+~
+~
+~
+Z 0 40323
+D2
+~
+~
+~
+~
+Z 0 40325
+D3
+~
+~
+~
+~
+Z 0 40324
+S
+#40323
+Gwinnerai~
+~
+0 0 inside
+D3
+~
+~
+~
+~
+Z 0 40322
+S
+#40324
+Trogrim~
+~
+0 0 inside
+D1
+~
+~
+~
+~
+Z 0 40322
+S
+#40325
+@eng The Path of the Gods@rus Аллея Богов~
+@eng You stand on the alley of the Gods. This is not wide path
+strewing a golden dust. On the both side of the path you see
+beautiful trees, possible, lindens. On the right side and on
+the left two trails leading to statues.
+@rus Ты идешь по аллее Богов. Это неширокая дорога, посыпанная
+золотистым песком. По ее сторонам растут прекрасные деревья,
+видимо, липы. Справа и слева от тебя две тропинки, проходя
+между деревьев, ведут к статуям, виднеющимся невдалеке.
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 40322
+D1
+~
+~
+~
+~
+Z 0 40327
+D2
+~
+~
+~
+~
+Z 0 40328
+D3
+~
+~
+~
+~
+Z 0 40326
+S
+#40326
+Irian~
+~
+0 0 inside
+D1
+~
+~
+~
+~
+Z 0 40325
+S
+#40327
+Stivrosh~
+~
+0 0 inside
+D3
+~
+~
+~
+~
+Z 0 40325
+S
+#40328
+@eng The Path of the Gods@rus Аллея Богов~
+@eng You are on the Path of the Gods. Here path forks. Both
+new path are the same: trees on the sides, golden dust
+under feets and soft whisper of wind.
+@rus Ты идешь по аллее Богов. И здесь дорога раздваивается. Обе
+новых дороги одинаковы. Те же деревья по сторонам, тот же зо-
+лотой песок под ногами и тихий шепот ветра в кронах деревьев.
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 40325
+D1
+~
+~
+~
+~
+Z 0 40338
+D3
+~
+~
+~
+~
+Z 0 40329
+S
+#40329
+@eng The Path of the Gods@rus Аллея Богов~
+@eng You stand on the alley of the Gods. This is not wide path
+strewing a golden dust. On the both side of the path you see
+beautiful trees, possible, lindens. On the right side and on
+the left two trails leading to statues.
+@rus Ты идешь по аллее Богов. Это неширокая дорога, посыпанная
+золотистым песком. По ее сторонам растут прекрасные деревья,
+видимо, липы. Справа и слева от тебя две тропинки, проходя
+между деревьев, ведут к статуям, виднеющимся невдалеке.
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 40330
+D1
+~
+~
+~
+~
+Z 0 40328
+D2
+~
+~
+~
+~
+Z 0 40331
+D3
+~
+~
+~
+~
+Z 0 40332
+S
+#40330
+@eng Statue of Lirail, Goddess of Order and Protection@rus Статуя Лираиль, Богини Порядка и Защиты~
+~
+0 0 inside
+D2
+~
+~
+~
+~
+Z 0 40329
+S
+#40331
+@eng Statue of Dakkorn, God of Justice@rus Статуя Даккорна, Бога Справедливости~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 40329
+S
+#40332
+@eng The Path of the Gods@rus Аллея Богов~
+@eng You stand on the alley of the Gods. This is not wide path
+strewing a golden dust. On the both side of the path you see
+beautiful trees, possible, lindens. On the right side and on
+the left two trails leading to statues.
+@rus Ты идешь по аллее Богов. Это неширокая дорога, посыпанная
+золотистым песком. По ее сторонам растут прекрасные деревья,
+видимо, липы. Справа и слева от тебя две тропинки, проходя
+между деревьев, ведут к статуям, виднеющимся невдалеке.
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 40337
+D1
+~
+~
+~
+~
+Z 0 40329
+D2
+~
+~
+~
+~
+Z 0 40336
+D3
+~
+~
+~
+~
+Z 0 40333
+S
+#40333
+@eng The Path of the Gods@rus Аллея Богов~
+@eng You stand on the alley of the Gods. This is not wide path
+strewing a golden dust. On the both side of the path you see
+beautiful trees, possible, lindens. On the right side and on
+the left two trails leading to statues.
+@rus Ты идешь по аллее Богов. Это неширокая дорога, посыпанная
+золотистым песком. По ее сторонам растут прекрасные деревья,
+видимо, липы. Справа и слева от тебя две тропинки, проходя
+между деревьев, ведут к статуям, виднеющимся невдалеке.
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 40334
+D1
+~
+~
+~
+~
+Z 0 40332
+D2
+~
+~
+~
+~
+Z 0 40335
+S
+#40334
+Amtinor~
+~
+0 0 inside
+D2
+~
+~
+~
+~
+Z 0 40333
+S
+#40335
+Cariel~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 40333
+S
+#40336
+@eng Statue of Ulwark, God of Dreams and Ambitions@rus Статуя Ульварка, Бога Мечты и Амбиций~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 40332
+S
+#40337
+Vilirna~
+~
+0 0 inside
+D2
+~
+~
+~
+~
+Z 0 40332
+S
+#40338
+@eng The Path of the Gods@rus Аллея Богов~
+@eng You stand on the alley of the Gods. This is not wide path
+strewing a golden dust. On the both side of the path you see
+beautiful trees, possible, lindens. On the right side and on
+the left two trails leading to statues.
+@rus Ты идешь по аллее Богов. Это неширокая дорога, посыпанная
+золотистым песком. По ее сторонам растут прекрасные деревья,
+видимо, липы. Справа и слева от тебя две тропинки, проходя
+между деревьев, ведут к статуям, виднеющимся невдалеке.
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 40342
+D1
+~
+~
+~
+~
+Z 0 40339
+D2
+~
+~
+~
+~
+Z 0 40341
+D3
+~
+~
+~
+~
+Z 0 40328
+S
+#40339
+@eng The Path of the Gods@rus Аллея Богов~
+@eng You stand on the alley of the Gods. This is not wide path
+strewing a golden dust. On the both side of the path you see
+beautiful trees, possible, lindens. On the right side and on
+the left two trails leading to statues.
+@rus Ты идешь по аллее Богов. Это неширокая дорога, посыпанная
+золотистым песком. По ее сторонам растут прекрасные деревья,
+видимо, липы. Справа и слева от тебя две тропинки, проходя
+между деревьев, ведут к статуям, виднеющимся невдалеке.
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 40343
+D1
+~
+~
+~
+~
+Z 0 40340
+D2
+~
+~
+~
+~
+Z 0 40344
+D3
+~
+~
+~
+~
+Z 0 40338
+S
+#40340
+@eng The Path of the Gods@rus Аллея Богов~
+@eng You stand on the alley of the Gods. This is not wide path
+strewing a golden dust. On the both side of the path you see
+beautiful trees, possible, lindens. On the right side and on
+the left two trails leading to statues.
+@rus Ты идешь по аллее Богов. Это неширокая дорога, посыпанная
+золотистым песком. По ее сторонам растут прекрасные деревья,
+видимо, липы. Справа и слева от тебя две тропинки, проходя
+между деревьев, ведут к статуям, виднеющимся невдалеке.
+~
+0 0 inside
+D2
+~
+~
+~
+~
+Z 0 40345
+D3
+~
+~
+~
+~
+Z 0 40339
+S
+#40341
+@eng Statue of Hathir, God of Death@rus Статуя Хатира, Бога Смерти~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 40338
+S
+#40342
+@eng Statue of Ilissa, Goddess of Tyranny@rus Статуя Илиссы, Богини Тирании~
+~
+0 0 inside
+D2
+~
+~
+~
+~
+Z 0 40338
+S
+#40343
+@eng Statue of Trussk, God of Desease and Wreck@rus Статуя Траска, Бога Болезни и Разрушений~
+~
+0 0 inside
+D2
+~
+~
+~
+~
+Z 0 40339
+S
+#40344
+@eng Statue of Lessa, Goddess of Storming Elements@rus Статуя Лессы, Богини Бушующей Стихии~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 40339
+S
+#40345
+@eng Statue of Moarith, Goddess of Slaugher@rus Статуя Моарит, Богини Кровопролития~
+~
+0 0 inside
+D0
+~
+~
+~
+~
+Z 0 40340
+S
+#40346
+@eng Near the altar@rus Около алтаря~
+~
+0 0 inside
+D3
+~
+~
+~
+~
+Z 0 40318
 S
 #0
 
@@ -4153,7 +4805,7 @@ M 0 40221 10 40264 1	* the guard (North avenue)
 E 0 40250 0 5		*	the guard<on the body>: hauberk
 E 0 40251 0 11		*	the guard<as a shield>: the shield
 E 0 40252 0 16		*	the guard<wielded>: sword
-O 0 40220 0 40265	* the figurine of salamander (Square)
+O 0 40220 0 40265	* the figurine of salamander (The Square of Elements)
 M 0 40202 15 40267 1	* the citizen (North avenue)
 M 0 40221 10 40268 1	* the guard (North avenue)
 E 0 40252 0 16		*	the guard<wielded>: sword
@@ -4162,28 +4814,28 @@ E 0 40250 0 5		*	the guard<on the body>: hauberk
 M 0 40202 15 40269 1	* the citizen (North avenue)
 O 0 40219 0 40270	* the bench (The park)
 O 0 40219 0 40271	* the bench (The park)
-O 0 40221 0 40272	* figurine of the undine (Square)
-M 0 40221 10 40272 1	* the guard (Square)
+O 0 40221 0 40272	* figurine of the undine (The Square of Elements)
+M 0 40221 10 40272 1	* the guard (The Square of Elements)
 E 0 40252 0 16		*	the guard<wielded>: sword
 E 0 40251 0 11		*	the guard<as a shield>: the shield
 E 0 40250 0 5		*	the guard<on the body>: hauberk
-O 0 40222 0 40273	* figurine of the teranim (Square)
-M 0 40223 1 40273 1	* figure (Square)
+O 0 40222 0 40273	* figurine of the teranim (The Square of Elements)
+M 0 40223 1 40273 1	* figure (The Square of Elements)
 E 0 40256 0 3		*	figure<around the neck>: the long dark cloak
-O 0 40223 0 40274	* Figurine of The Silver Sylph (Square)
-M 0 40202 15 40274 1	* the citizen (Square)
-M 0 40221 10 40274 1	* the guard (Square)
+O 0 40223 0 40274	* Figurine of The Silver Sylph (The Square of Elements)
+M 0 40202 15 40274 1	* the citizen (The Square of Elements)
+M 0 40221 10 40274 1	* the guard (The Square of Elements)
 E 0 40252 0 16		*	the guard<wielded>: sword
 E 0 40251 0 11		*	the guard<as a shield>: the shield
 E 0 40250 0 5		*	the guard<on the body>: hauberk
-M 0 40202 15 40275 1	* the citizen (South avenue)
-M 0 40224 10 40275 1	* a stray dog (South avenue)
+M 0 40202 15 40275 1	* the citizen (The south avenue)
+M 0 40224 10 40275 1	* a stray dog (The south avenue)
 M 0 40221 10 40276 1	* the guard (South avenue)
 E 0 40250 0 5		*	the guard<on the body>: hauberk
 E 0 40251 0 11		*	the guard<as a shield>: the shield
 E 0 40252 0 16		*	the guard<wielded>: sword
 M 0 40202 15 40277 1	* the citizen (South avenue)
-M 0 40221 10 40278 1	* the guard (Cross-roads)
+M 0 40221 10 40278 1	* the guard (The cross-roads)
 E 0 40252 0 16		*	the guard<wielded>: sword
 E 0 40251 0 11		*	the guard<as a shield>: the shield
 E 0 40250 0 5		*	the guard<on the body>: hauberk
@@ -4203,7 +4855,7 @@ M 0 40224 10 40283 1	* a stray dog (The South Gate)
 M 0 40220 1 40287 1	* the clerk (The bank)
 E 0 40232 0 3		*	the clerk<around the neck>: the short hooded cape
 E 0 40233 0 8		*	the clerk<on the feet>: the leather boots
-M 0 40224 10 40289 1	* a stray dog (the trail)
+M 0 40224 10 40289 1	* a stray dog (The trail to the sacred grove)
 M 0 40211 1 40292 1	* chemist (Chemist's shop)
 E 0 40245 0 5		*	chemist<on the body>: the white smock
 G 0 40244 0		*	chemist: the yellow potion
@@ -4216,9 +4868,9 @@ G 0 40238 0		*	chemist: strong smelling potion
 G 0 40237 0		*	chemist: the golden potion
 G 0 40236 0		*	chemist: the sparkling white remedy
 G 0 40235 0		*	chemist: the pink potion
-O 0 40247 0 40297	* temple (Holy grove)
-O 0 40248 0 40298	* a temple (Holy grove)
-O 0 40249 0 40300	* the temple (Holy grove)
+O 0 40247 0 40297	* temple (The sacred grove)
+O 0 40248 0 40298	* a temple (The sacred grove)
+O 0 40249 0 40300	* the temple (The sacred grove)
 M 0 40222 1 40305 1	* owner (The tavern)
 E 0 40255 0 13		*	owner<around the waist>: belt
 E 0 40254 0 5		*	owner<on the body>: shirt

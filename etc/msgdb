@@ -3921,6 +3921,7 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @rus запущен (%d тиков до конца).
 ~
 @eng screams and attacks!@rus вскрикивает и нападает!~
+@eng short affects mode@rus краткий вид воздействий, оказываемых на персонажа~
 @eng short equipment mode@rus компактный вид твоего обмундирования~
 @eng shout          $t@rus всеобщий канал             $t~
 @eng show affects in score@rus выводить оказываемые воздействия в суммарной инфо (score)~

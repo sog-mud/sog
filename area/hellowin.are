@@ -310,6 +310,60 @@ tablet табличка~
 @eng Tablet with symbol 'Г' carved on it.
 @rus Табличка с выгравированным на ней символом 'Г'.
 ~
+#34422
+vial life чаша жизни~
+@eng {YT{yh{Ye{y {YV{yi{Ya{yl {Yo{yf {YL{yi{Yf{ye{x@rus {YЧ{yа{Yш{yа {YЖ{yи{Yз{yн{Yи{x~
+@eng A golden vial lies here forgotten.@rus Золотая чаша (vial), забытая кем-то, лежит здесь.~
+gold~
+treasure 0 C AO
+0 0 0 0 0
+40 10 10000 P
+g @eng none@rus female~
+#34423
+harp wind арфа ветров~
+@eng {CT{ch{Ce {cH{Ca{cr{Cp {co{Cf {ct{Ch{ce {CW{ci{Cn{cd{Cs{x@rus {CА{cр{Cф{cа {CВ{cе{Cт{cр{Cо{cв{x~
+@eng A beautiful harp lies here forgotten.@rus Прекрасная арфа (harp), забытая кем-то, лежит на земле.~
+wood~
+treasure 0 C AO
+0 0 0 0 0
+40 10 10000 P
+E
+harp winds арфа ветров~
+@rus Арфа изготовлена из орехового дерева и покрыта темным лаком. Она
+таинственно мерцает, когда ее косаются лучи солнца или луны. Струны
+этого волшебного инструмента шелковисты и нежны на ощупь, будто бы,
+это волосы сказочной красавицы.
+~
+g @eng none@rus female~
+#34424
+sword flaming пламенеющий меч~
+@eng {RT{rh{Re {rF{Rl{ra{Rm{ri{Rn{rg {RS{rw{Ro{rr{Rd{x@rus {RП{rл{Rа{rм{Rе{rн{Rе{rю{Rщ{rи{Rй {rМ{Rе{rч{x~
+@eng A flaming sword lies here forgotten.@rus Огненный меч (sword), забытый кем-то, лежит здесь.~
+fire~
+treasure 0 0 AO
+0 0 0 0 0
+40 10 10000 P
+g @eng none@rus male~
+#34425
+staff earth посох земли~
+@eng {GT{gh{Ge {gS{Gt{ga{Gf{gf {Go{gf {Gt{gh{Ge {gE{Ga{gr{Gt{gh{x@rus {GП{gо{Gс{gо{Gх {gЗ{Gе{gм{Gл{gи{x~
+@eng The oak staff lies here fogotten.@rus Дубовый посох (staff) лежит на земле, забытый кем-то.~
+wood~
+treasure 0 C AO
+0 0 0 0 0
+40 10 10000 P
+E
+staff earth посох земли~
+@eng This staff is made from massive oak branch. On one of the staff's end
+you see the dragon's figure. Dragon holds an emerald in its paws and
+dragons tail entwines arounds staff and finishes on the other staff's
+end. You feel mightly power in this staff.
+@rus Посох этот вырезан из тостой дубовой ветви. На его конце -- фигурка
+дракона, сжимающего в лапах огромный изумруд. Хвост дракона обвивает
+посох и заканчивается на другом его конце. Ты ощущает могучую силу,
+скрытую в посохе.
+~
+g @eng none@rus male~
 #34450
 claws когти~
 @eng tiger's claws@rus ~~когти~~ тигра~
@@ -741,6 +795,10 @@ S
 
 #OLIMITS
 O 34403 1	* Ring of Vitality
+O 34422 1	* {YT{yh{Ye{y {YV{yi{Ya{yl {Yo{yf {YL{yi{Yf{ye{x
+O 34423 1	* {CT{ch{Ce {cH{Ca{cr{Cp {co{Cf {ct{Ch{ce {CW{ci{Cn{cd{Cs{x
+O 34424 1	* {RT{rh{Re {rF{Rl{ra{Rm{ri{Rn{rg {RS{rw{Ro{rr{Rd{x
+O 34425 1	* {GT{gh{Ge {gS{Gt{ga{Gf{gf {Go{gf {Gt{gh{Ge {gE{Ga{gr{Gt{gh{x
 S
 
 #$

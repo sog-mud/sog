@@ -3664,7 +3664,7 @@ of all the classes, but lack the subtle skills of thieves and the magical
 talents of mages and priests.  Warriors are best for those who don't mind
 taking the direct approach, even when another method might be called for.
 ~
--1 WARLOCKS~
+immortal WARLOCKS~
 Male Magicians...Stronger, but less efective on charm..
 ~
 -1 SAMURAIS~
@@ -4401,7 +4401,7 @@ Syntax: cammove
 	A lion clan member can move, without losing his/her affect of
 camuflage.
 ~
--1 RELIGION~
+immortal RELIGION~
 @eng Syntax: {csay{x <god name>
  
 Find the Templeman in Midgaard and say the name of the god you worship.
@@ -4478,12 +4478,6 @@ There are following religions available:
 {WSeth        {gAny                 {xdragon strength dragon breath
 {WEros        {gAny                 {xheal            ---
                                 cure critical   ---
-~
-0 ZEUS~
-.
-	To you : cure critical
-	To you : cure disease
-	To you : cure poison
 ~
 -2 STATS~
 @eng There are currently 6 stats, which are STR,INT,WIS,DEX,CON,CHA. Each
@@ -5830,6 +5824,7 @@ Syntax: {craffect{x
 low levels, only the spell name will be displayed, at higher levels the
 effects and duration of the spell will also be shown.  Spell effects
 are no longer shown on score (this can be changed by using 'TOGGLE' command).
+To see only name and duration of affects use 'TOGGLE SHORT AFFEC'.
  
 'RAFFECT' command is used to show all the spells affecting room you stand in.
 At low levels, only the spell name will be displayed, at higher levels the
@@ -5839,17 +5834,17 @@ See also: {CHELP TOGGLE{x
 @rus Синтаксис: {caffect{x
 Синтаксис: {craffect{x
  
-Команда 'AFFECT' используется для определения заклинаний, наложенных на твой
-персонаж. На низких уровнях будет показано только название заклинания, на более
-высоких - длительность и эффект заклинания.
-Заклинания, наложенные на твой персонаж, больше не показываются командой
-'SCORE', но это можно изменить командой 'TOGGLE AFFECTS'.
+Команда {caffect{x используется для определения воздействий, наложенных
+на твой персонаж (это может быть воздейтсвие наложенных заклинаний, молитв
+или объектов), их длительности и оказываемого эффекта. На небольших уров-
+нях показывается только название и длительность воздействия. Чтобы видеть
+оказываемые воздействия командой score, используй toggle affects. Чтобы
+на высоких уровнях видеть только название и длительность воздействия, ис-
+пользуй toggle short affec.
  
-Команда 'RAFFECT' используется для определения заклинаний, наложенных на ком-
-нату, в которой ты находишься. На низких уровнях ты увидишь только название
-заклинания, на высоких - продолжительность и эффекты.
-
-Смотри также: {CHELP TOGGLE{x
+Команда {craffect{x покажет заклинания, наложенные на место, где ты находишься.
+ 
+Смотри также: {CHELP TOGGLE{x.
 ~
 -1 LANGUAGE~
 @eng Syntax: {clanguage{x <language>
@@ -6437,6 +6432,13 @@ Toggles given option on/off. Available options are:
 {cprompt{x     - enables/disable prompt showing.
 {ctelnet GA{x  - some clients require special symbol (GA) to be sent to them.
 {cquiet edit{x - buffer all output when you write a note.
+{cshow race{x  - show race in description of char when look in room
+{cshort equip{x- do not show empty slots in char's eq
+{craw string{x - colors in string editor shows as {{c, {{y, etc
+{cshort affec{x- show affects in short mode (only duration and name)
+ 
+immortal only:
+{ctrans mode{x - show only description in olc
 @rus Переключает различные настройки, такие как:
 {caffects{x    - определяет, показывать ли заклинания, наложенные на тебя, по
            - команде SCORE. Смотри {CHELP AFFECTS{x
@@ -6458,6 +6460,14 @@ Toggles given option on/off. Available options are:
 {cprompt{x     - отключает показ приглашения.
 {ctelnet GA{x  - некоторым клиентам необходимо посылать спец. символ (GA)
 {cquiet edit{x - помещает все сообщения в буфер, когда ты находишься в редакторе.
+{cshow race{x  - показывает расу персонажа, находящегося рядом с тобой, при
+           - look в комнате
+{cshort equip{x- не показываются незанятые позиции в обмундировании
+{craw string{x - цвета показываются в виде {{c, {{y... при использовании редактора
+{cshort affec{x- краткий вывод воздействий (только название и длительность)
+ 
+только для имморталов:
+{ctrans mode{x - режим olc, показываются только описания
 ~
 0 FLAGS~
 You can see following flags on mobiles:
