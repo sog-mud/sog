@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.34 2001-03-10 09:19:02 cs Exp $
+ * $Id: spellfun2.c,v 1.139.2.35 2001-03-15 09:54:09 cs Exp $
  */
 
 /***************************************************************************
@@ -3590,7 +3590,7 @@ void spell_witch_curse(int sn, int level, CHAR_DATA *ch, void *vo)
 
 	if (IS_IMMORTAL(victim)
 	||  IS_CLAN_GUARD(victim)
-	|| (IS_NPC(victim) && victim->level > ch->level)) {
+	|| (IS_NPC(victim) && LEVEL(victim) > level)) {
 		damage(ch, victim, dice(level, 8), sn, DAM_NEGATIVE, TRUE);
 		return;
 	}
@@ -3599,7 +3599,7 @@ void spell_witch_curse(int sn, int level, CHAR_DATA *ch, void *vo)
 
 	af.where	= TO_AFFECTS;
 	af.type         = gsn_witch_curse;
-	af.level        = level; 
+	af.level        = level;
 	af.duration     = 24;
 	af.location     = APPLY_HIT;
 	af.modifier     = - level;

@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.114.2.15 2001-02-28 19:59:59 fjoe Exp $
+ * $Id: martial_art.c,v 1.114.2.16 2001-03-15 09:54:08 cs Exp $
  */
 
 /***************************************************************************
@@ -2723,6 +2723,22 @@ void do_tiger(CHAR_DATA *ch, const char *argument)
 	}
 }
 
+static AFFECT_DATA *
+find_spell_affect(CHAR_DATA *ch)
+{
+	AFFECT_DATA *paf;
+
+	for(paf = ch->affected; paf; paf = paf->next) {
+		skill_t *sk;
+		if ((sk = skill_lookup(paf->type)) == NULL ||
+		    sk->skill_type != ST_SPELL)
+			continue;
+		else
+			return paf;
+	}
+	return NULL;
+}
+
 void do_hara(CHAR_DATA *ch, const char *argument)
 {
 	int chance;
@@ -2751,15 +2767,16 @@ void do_hara(CHAR_DATA *ch, const char *argument)
 
 	if (number_percent() < chance) {
 		AFFECT_DATA af;
+		AFFECT_DATA *paf;
 
 		WAIT_STATE(ch, SKILL(gsn_hara_kiri)->beats);
+
+		while ((paf = find_spell_affect(ch)) != NULL)
+			affect_remove(ch, paf);
 
 		ch->hit = 1;
 		ch->mana = 1;
 		ch->move = 1;
-
-		while (ch->affected)
-			affect_remove(ch, ch->affected);
 
 		if (PC(ch)->condition[COND_HUNGER] < 40)
 			PC(ch)->condition[COND_HUNGER] = 40;
