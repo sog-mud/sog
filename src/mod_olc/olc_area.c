@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.114 2003-05-08 14:00:10 fjoe Exp $
+ * $Id: olc_area.c,v 1.115 2003-05-08 15:30:12 fjoe Exp $
  */
 
 #include "olc.h"
@@ -488,11 +488,14 @@ varr_info_t c_info_p =
 
 #define MOVE_OBJECTS(c, o)						\
 	do {								\
+		void **p;						\
+									\
 		c_init(&v_##c, &c_info_p);				\
 		C_FOREACH (o, &c)					\
 			move_##o(&v_##c, o, pArea, delta);		\
 		avltree_move_prepare(&c, &v_##c);			\
-		C_FOREACH (o, &v_##c) {					\
+		C_FOREACH (p, &v_##c) {					\
+			o = *p;						\
 			o->vnum += delta;				\
 			if (top_vnum_##o < o->vnum)			\
 				top_vnum_##o = o->vnum;			\
