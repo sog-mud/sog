@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.37 2002-08-02 13:10:38 tatyana Exp $
+ * $Id: prayers.c,v 1.38 2002-08-02 13:25:25 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1999,14 +1999,9 @@ SPELL_FUN(prayer_bless_weapon, sn, level, ch, vo)
 		return;
 	}
 
-	if (IS_WEAPON_STAT(obj, WEAPON_FLAMING)
-	||  IS_WEAPON_STAT(obj, WEAPON_FROST)
-	||  IS_WEAPON_STAT(obj, WEAPON_VAMPIRIC)
-	||  IS_WEAPON_STAT(obj, WEAPON_SHARP)
+	if (IS_WEAPON_STAT(obj, WEAPON_VAMPIRIC)
 	||  IS_WEAPON_STAT(obj, WEAPON_VORPAL)
-	||  IS_WEAPON_STAT(obj, WEAPON_SHOCKING)
-	||  IS_OBJ_STAT(obj, ITEM_BLESS)
-	||  IS_OBJ_STAT(obj, ITEM_BURN_PROOF)) {
+	||  IS_OBJ_STAT(obj, ITEM_BLESS)) {
 		act("You can't seem to bless $p.", ch, obj, NULL, TO_CHAR);
 		return;
 	}
