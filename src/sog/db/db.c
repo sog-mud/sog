@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.128 1999-04-15 12:22:59 fjoe Exp $
+ * $Id: db.c,v 1.129 1999-04-15 12:58:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1675,7 +1675,7 @@ void do_areas(CHAR_DATA *ch, const char *argument)
 		pArea2 = pArea2->next;
 
 	output = buf_new(-1);
-	buf_add(output, "Current areas of Shades of Gray Realms: \n");
+	buf_add(output, "Current areas of Shades of Gray: \n");
 	for (iArea = 0; iArea < iAreaHalf; iArea++) {
 		buf_printf(output,"{{%2d %3d} {B%-20.20s{x %8.8s ",
 			pArea1->min_level,pArea1->max_level,

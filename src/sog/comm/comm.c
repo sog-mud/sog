@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.171 1999-04-15 06:51:06 fjoe Exp $
+ * $Id: comm.c,v 1.172 1999-04-15 12:58:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1848,7 +1848,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		}
 
 		write_to_descriptor(d->descriptor, (char *) echo_on_str, 0);
-		write_to_buffer(d, "The Shades of Gray Realms is home for the following races:\n\r", 0);
+		write_to_buffer(d, "The Shades of Gray is home for the following races:\n\r", 0);
 		do_help(ch, "RACETABLE");
 		d->connected = CON_GET_NEW_RACE;
 		break;
@@ -1859,7 +1859,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		if (!str_cmp(arg, "help")) {
 			argument = one_argument(argument, arg, sizeof(arg));
 			if (argument[0] == '\0') {
-				write_to_buffer(d, "The Shades of Gray Realms is the home for the following races:\n\r", 0);
+				write_to_buffer(d, "The Shades of Gray is the home for the following races:\n\r", 0);
 	  			do_help(ch,"RACETABLE");
 			}
 			else {
