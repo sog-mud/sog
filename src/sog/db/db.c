@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.206 1999-12-22 05:51:26 fjoe Exp $
+ * $Id: db.c,v 1.207 1999-12-22 08:29:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1432,12 +1432,13 @@ OBJ_DATA *create_obj(OBJ_INDEX_DATA *pObjIndex, int flags)
 	/*
 	 * objval_destroy is not needed since obj was just created
 	 */
-	objval_cpy(pObjIndex->item_type, obj->value, pObjIndex->value);
+	obj->item_type = pObjIndex->item_type;
+	objval_cpy(obj->item_type, obj->value, pObjIndex->value);
 
 	/*
 	 * Mess with object properties.
 	 */
-	switch (pObjIndex->item_type) {
+	switch (obj->item_type) {
 	case ITEM_LIGHT:
 		if (INT(obj->value[2]) == 999)
 			INT(obj->value[2]) = -1;
@@ -1495,8 +1496,8 @@ clone_obj(OBJ_DATA *parent)
 	/*
 	 * obj values
 	 */
-	objval_destroy(parent->pObjIndex->item_type, clone->value);
-	objval_cpy(parent->pObjIndex->item_type, clone->value, parent->value);
+	objval_destroy(parent->item_type, clone->value);
+	objval_cpy(parent->item_type, clone->value, parent->value);
 
 	/*
 	 * affects

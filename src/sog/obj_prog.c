@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.74 1999-12-11 15:31:18 fjoe Exp $
+ * $Id: obj_prog.c,v 1.75 1999-12-22 08:29:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1509,7 +1509,7 @@ int wear_prog_eyed_sword(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 
 int wear_prog_katana_sword(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
-	if (obj->pObjIndex->item_type == ITEM_WEAPON 
+	if (obj->item_type == ITEM_WEAPON 
 	&&  IS_WEAPON_STAT(obj, WEAPON_KATANA)
 	&&  IS_OWNER(ch, obj)) {
 		int v2;

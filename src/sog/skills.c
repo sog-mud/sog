@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.102 1999-12-21 06:36:31 fjoe Exp $
+ * $Id: skills.c,v 1.103 1999-12-22 08:29:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -277,7 +277,7 @@ const char* get_weapon_sn(OBJ_DATA *wield)
 	if (wield == NULL)
 		return "hand to hand";
 
-	if (wield->pObjIndex->item_type != ITEM_WEAPON)
+	if (wield->item_type != ITEM_WEAPON)
 		return NULL;
 
 	switch (INT(wield->value[0])) {

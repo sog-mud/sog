@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.223 1999-12-21 06:36:14 fjoe Exp $
+ * $Id: act_move.c,v 1.224 1999-12-22 08:28:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -105,7 +105,7 @@ void do_open(CHAR_DATA *ch, const char *argument)
 
 	if ((obj = get_obj_here(ch, arg)) != NULL) {
  	/* open portal */
-		if (obj->pObjIndex->item_type == ITEM_PORTAL)
+		if (obj->item_type == ITEM_PORTAL)
 		{
 		    if (!IS_SET(INT(obj->value[1]), EX_ISDOOR))
 		    {
@@ -130,7 +130,7 @@ void do_open(CHAR_DATA *ch, const char *argument)
  	}
 
 		/* 'open object' */
-		if (obj->pObjIndex->item_type != ITEM_CONTAINER)
+		if (obj->item_type != ITEM_CONTAINER)
 		    { char_puts("That's not a container.\n", ch); return; }
 		if (!IS_SET(INT(obj->value[1]), CONT_CLOSED))
 		    { char_puts("It's already open.\n", ch); return; }
@@ -202,7 +202,7 @@ void do_close(CHAR_DATA *ch, const char *argument)
 
 	if ((obj = get_obj_here(ch, arg)) != NULL) {
 		/* portal stuff */
-		if (obj->pObjIndex->item_type == ITEM_PORTAL)
+		if (obj->item_type == ITEM_PORTAL)
 		{
 
 		    if (!IS_SET(INT(obj->value[1]),EX_ISDOOR)
@@ -224,7 +224,7 @@ void do_close(CHAR_DATA *ch, const char *argument)
 		}
 
 		/* 'close object' */
-		if (obj->pObjIndex->item_type != ITEM_CONTAINER)
+		if (obj->item_type != ITEM_CONTAINER)
 		    { char_puts("That's not a container.\n", ch); return; }
 		if (IS_SET(INT(obj->value[1]), CONT_CLOSED))
 		    { char_puts("It's already closed.\n", ch); return; }
@@ -286,7 +286,7 @@ void do_lock(CHAR_DATA *ch, const char *argument)
 
 	if ((obj = get_obj_here(ch, arg)) != NULL) {
 		/* portal stuff */
-		if (obj->pObjIndex->item_type == ITEM_PORTAL) {
+		if (obj->item_type == ITEM_PORTAL) {
 		    if (!IS_SET(INT(obj->value[1]), EX_ISDOOR)
 		    ||  IS_SET(INT(obj->value[1]), EX_NOCLOSE)) {
 			char_puts("You can't do that.\n", ch);
@@ -319,7 +319,7 @@ void do_lock(CHAR_DATA *ch, const char *argument)
 		}
 
 		/* 'lock object' */
-		if (obj->pObjIndex->item_type != ITEM_CONTAINER)
+		if (obj->item_type != ITEM_CONTAINER)
 		    { char_puts("That's not a container.\n", ch); return; }
 		if (!IS_SET(INT(obj->value[1]), CONT_CLOSED))
 		    { char_puts("It's not closed.\n", ch); return; }
@@ -405,7 +405,7 @@ void do_unlock(CHAR_DATA *ch, const char *argument)
 
 	if ((obj = get_obj_here(ch, arg)) != NULL) {
  	/* portal stuff */
-		if (obj->pObjIndex->item_type == ITEM_PORTAL) {
+		if (obj->item_type == ITEM_PORTAL) {
 		    if (IS_SET(INT(obj->value[1]),EX_ISDOOR)) {
 			char_puts("You can't do that.\n", ch);
 			return;
@@ -438,7 +438,7 @@ void do_unlock(CHAR_DATA *ch, const char *argument)
 		}
 
 		/* 'unlock object' */
-		if (obj->pObjIndex->item_type != ITEM_CONTAINER)
+		if (obj->item_type != ITEM_CONTAINER)
 		    { char_puts("That's not a container.\n", ch); return; }
 		if (!IS_SET(INT(obj->value[1]), CONT_CLOSED))
 		    { char_puts("It's not closed.\n", ch); return; }
@@ -550,7 +550,7 @@ void do_pick(CHAR_DATA *ch, const char *argument)
 
 	if ((obj = get_obj_here(ch, arg)) != NULL) {
 		/* portal stuff */
-		if (obj->pObjIndex->item_type == ITEM_PORTAL) {
+		if (obj->item_type == ITEM_PORTAL) {
 			if (!IS_SET(INT(obj->value[1]), EX_ISDOOR)) {	
 				char_puts("You can't do that.\n", ch);
 				return;
@@ -586,7 +586,7 @@ void do_pick(CHAR_DATA *ch, const char *argument)
 		}
 		
 		/* 'pick object' */
-		if (obj->pObjIndex->item_type != ITEM_CONTAINER) {
+		if (obj->item_type != ITEM_CONTAINER) {
 			char_puts("That's not a container.\n", ch);
 			return;
 		}
@@ -695,7 +695,7 @@ void do_stand(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		if (obj->pObjIndex->item_type != ITEM_FURNITURE
+		if (obj->item_type != ITEM_FURNITURE
 		||  (!IS_SET(INT(obj->value[2]), STAND_AT) &&
 		     !IS_SET(INT(obj->value[2]), STAND_ON) &&
 		     !IS_SET(INT(obj->value[2]), STAND_IN))) {
@@ -819,7 +819,7 @@ void do_rest(CHAR_DATA *ch, const char *argument)
 	else obj = ch->on;
 
 	if (obj != NULL) {
-		if (obj->pObjIndex->item_type != ITEM_FURNITURE 
+		if (obj->item_type != ITEM_FURNITURE 
 		||  (!IS_SET(INT(obj->value[2]), REST_ON) &&
 		     !IS_SET(INT(obj->value[2]), REST_IN) &&
 		     !IS_SET(INT(obj->value[2]), REST_AT))) {
@@ -956,7 +956,7 @@ void do_sit(CHAR_DATA *ch, const char *argument)
 		obj = ch->on;
 
 	if (obj != NULL) {
-		if (obj->pObjIndex->item_type != ITEM_FURNITURE
+		if (obj->item_type != ITEM_FURNITURE
 		||  (!IS_SET(INT(obj->value[2]), SIT_ON) &&
 		     !IS_SET(INT(obj->value[2]), SIT_IN) &&
 		     !IS_SET(INT(obj->value[2]), SIT_AT))) {
@@ -1086,7 +1086,7 @@ void do_sleep(CHAR_DATA *ch, const char *argument)
 				return;
 			}
 
-			if (obj->pObjIndex->item_type != ITEM_FURNITURE
+			if (obj->item_type != ITEM_FURNITURE
 			||  (!IS_SET(INT(obj->value[2]), SLEEP_ON) &&
 			     !IS_SET(INT(obj->value[2]), SLEEP_IN) &&
 			     !IS_SET(INT(obj->value[2]), SLEEP_AT))) {
@@ -2808,7 +2808,7 @@ static OBJ_DATA *find_arrow(CHAR_DATA *ch)
 
 	for (obj = ch->carrying; obj; obj = obj->next_content) {
 		if (obj->wear_loc == WEAR_NONE
-		||  obj->pObjIndex->item_type != ITEM_CONTAINER
+		||  obj->item_type != ITEM_CONTAINER
 		||  !IS_SET(INT(obj->value[1]), CONT_QUIVER)
 		||  !obj->contains)
 			continue;
@@ -2988,7 +2988,7 @@ void do_shoot(CHAR_DATA *ch, const char *argument)
 	wield = get_eq_char(ch, WEAR_WIELD);
 
 	if (!wield
-	||  wield->pObjIndex->item_type != ITEM_WEAPON
+	||  wield->item_type != ITEM_WEAPON
 	||  !WEAPON_IS(wield, WEAPON_BOW)) {
 		char_puts("You need a bow to shoot!\n", ch);
 		return;    	
@@ -3005,7 +3005,7 @@ void do_shoot(CHAR_DATA *ch, const char *argument)
 		 return;    	
 	}
 		
-	if (arrow->pObjIndex->item_type != ITEM_WEAPON
+	if (arrow->item_type != ITEM_WEAPON
 	||  !WEAPON_IS(arrow, WEAPON_ARROW)) {
 		char_puts("That's not the right kind of arrow!\n", ch);
 		return;
@@ -3131,7 +3131,7 @@ void do_throw_weapon(CHAR_DATA *ch, const char *argument)
 	    return;
 	}
 
-	if (obj->pObjIndex->item_type != ITEM_WEAPON) {
+	if (obj->item_type != ITEM_WEAPON) {
 		char_puts("Throwing cakes will not wound your foes. "
 			"Try weapons.\n", ch);
 		return;    	
@@ -3203,7 +3203,7 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (portal->pObjIndex->item_type != ITEM_PORTAL 
+	if (portal->item_type != ITEM_PORTAL 
 	||  (IS_SET(INT(portal->value[1]), EX_CLOSED) &&
 	     !IS_TRUSTED(ch, LEVEL_IMMORTAL))) {
 		char_puts("You can't seem to find a way in.\n", ch);

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.221 1999-12-20 08:31:18 fjoe Exp $
+ * $Id: act_wiz.c,v 1.222 1999-12-22 08:29:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1035,7 +1035,7 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 		buf_printf(output, "Owner: [%s]\n", mlstr_mval(&obj->owner));
 	buf_printf(output, "Vnum: %d  Type: %s  Resets: %d\n",
 		obj->pObjIndex->vnum,
-		flag_string(item_types, obj->pObjIndex->item_type),
+		flag_string(item_types, obj->item_type),
 		obj->pObjIndex->reset_num);
 
 	mlstr_dump(output, "Short description: ", &obj->short_descr);
@@ -1074,7 +1074,7 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 			obj->altar->room->vnum);
 	}
 
-	objval_show(output, obj->pObjIndex->item_type, obj->value);
+	objval_show(output, obj->item_type, obj->value);
 
 	if (obj->ed) {
 		ED_DATA *ed;
@@ -2669,9 +2669,9 @@ void do_oset(CHAR_DATA *ch, const char *argument)
 		BUFFER *output = buf_new(-1);
 
 		if (argument[0] == '\0'
-		||  objval_set(output, obj->pObjIndex->item_type, obj->value,
+		||  objval_set(output, obj->item_type, obj->value,
 			       val_num, argument) < 2) {
-			objval_show(output, obj->pObjIndex->item_type,
+			objval_show(output, obj->item_type,
 				    obj->value);
 		}
 

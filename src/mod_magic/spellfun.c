@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.201 1999-12-21 14:48:18 kostik Exp $
+ * $Id: spellfun.c,v 1.202 1999-12-22 08:29:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -735,7 +735,7 @@ void spell_create_water(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
 	int water;
 
-	if (obj->pObjIndex->item_type != ITEM_DRINK_CON) {
+	if (obj->item_type != ITEM_DRINK_CON) {
 		char_puts("It is unable to hold water.\n", ch);
 		return;
 	}
@@ -1211,7 +1211,7 @@ void spell_detect_poison(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
 
-	if (obj->pObjIndex->item_type == ITEM_DRINK_CON || obj->pObjIndex->item_type == ITEM_FOOD)
+	if (obj->item_type == ITEM_DRINK_CON || obj->item_type == ITEM_FOOD)
 	{
 		if (INT(obj->value[3]) != 0)
 		    char_puts("You smell poisonous fumes.\n", ch);
@@ -1322,7 +1322,7 @@ void spell_enchant_armor(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	bool ac_found = FALSE;
 	bool hp_found = FALSE;
 
-	if (obj->pObjIndex->item_type != ITEM_ARMOR) {
+	if (obj->item_type != ITEM_ARMOR) {
 		char_puts("That isn't an armor.\n",ch);
 		return;
 	}
@@ -1501,7 +1501,7 @@ void spell_enchant_weapon(const char *sn, int level,CHAR_DATA *ch, void *vo)
 	int hit_bonus, dam_bonus, added;
 	bool hit_found = FALSE, dam_found = FALSE;
 
-	if (obj->pObjIndex->item_type != ITEM_WEAPON) {
+	if (obj->item_type != ITEM_WEAPON) {
 		char_puts("That isn't a weapon.\n",ch);
 		return;
 	}
@@ -2224,7 +2224,7 @@ void spell_heat_metal(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		    &&   material_is(obj_lose, MATERIAL_METAL)
 		    &&   !IS_OBJ_STAT(obj_lose,ITEM_BURN_PROOF))
 		    {
-			switch (obj_lose->pObjIndex->item_type)
+			switch (obj_lose->item_type)
 			{
 			case ITEM_ARMOR:
 			if (obj_lose->wear_loc != -1) /* remove the item */
@@ -2752,7 +2752,7 @@ void spell_poison(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	if (mem_is(vo, MT_OBJ)) {
 		OBJ_DATA *obj = (OBJ_DATA *) vo;
 
-		if (obj->pObjIndex->item_type == ITEM_FOOD || obj->pObjIndex->item_type == ITEM_DRINK_CON)
+		if (obj->item_type == ITEM_FOOD || obj->item_type == ITEM_DRINK_CON)
 		{
 		    if (IS_OBJ_STAT(obj,ITEM_BLESS) || IS_OBJ_STAT(obj,ITEM_BURN_PROOF))
 		    {
@@ -2764,7 +2764,7 @@ void spell_poison(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		    return;
 		}
 
-		if (obj->pObjIndex->item_type == ITEM_WEAPON)
+		if (obj->item_type == ITEM_WEAPON)
 		{
 		    if (IS_WEAPON_STAT(obj,WEAPON_FLAMING)
 		    ||  IS_WEAPON_STAT(obj,WEAPON_FROST)
@@ -2923,8 +2923,8 @@ void spell_recharge(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
 	int chance, percent;
 
-	if (obj->pObjIndex->item_type != ITEM_WAND
-	&&  obj->pObjIndex->item_type != ITEM_STAFF) {
+	if (obj->item_type != ITEM_WAND
+	&&  obj->item_type != ITEM_STAFF) {
 		char_puts("That item does not carry charges.\n",ch);
 		return;
 	}

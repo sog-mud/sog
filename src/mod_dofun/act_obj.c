@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.193 1999-12-21 06:36:18 fjoe Exp $
+ * $Id: act_obj.c,v 1.194 1999-12-22 08:28:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -147,7 +147,7 @@ void do_get(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	switch (container->pObjIndex->item_type) {
+	switch (container->item_type) {
 	default:
 		char_puts("That is not a container.\n", ch);
 		return;
@@ -240,7 +240,7 @@ void do_put(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	if (container->pObjIndex->item_type != ITEM_CONTAINER) {
+	if (container->item_type != ITEM_CONTAINER) {
 		char_puts("That is not a container.\n", ch);
 		return;
 	}
@@ -667,7 +667,7 @@ void do_envenom(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	if (obj->pObjIndex->item_type == ITEM_FOOD || obj->pObjIndex->item_type == ITEM_DRINK_CON) {
+	if (obj->item_type == ITEM_FOOD || obj->item_type == ITEM_DRINK_CON) {
 		if (IS_OBJ_STAT(obj, ITEM_BLESS)
 		||  IS_OBJ_STAT(obj, ITEM_BURN_PROOF)) {
 			act("You fail to poison $p.", ch, obj, NULL, TO_CHAR);
@@ -690,7 +690,7 @@ void do_envenom(CHAR_DATA * ch, const char *argument)
 		if (!INT(obj->value[3]))
 			check_improve(ch, "envenom", FALSE, 4);
 		return;
-	} else if (obj->pObjIndex->item_type == ITEM_WEAPON) {
+	} else if (obj->item_type == ITEM_WEAPON) {
 		if (IS_WEAPON_STAT(obj, WEAPON_FLAMING)
 		||  IS_WEAPON_STAT(obj, WEAPON_FROST)
 		||  IS_WEAPON_STAT(obj, WEAPON_VAMPIRIC)
@@ -775,8 +775,8 @@ void do_feed(CHAR_DATA *ch, const char *argument)
 	}
 
 	for (obj = ch->carrying; obj; obj = obj->next_content)
-		if (obj->pObjIndex->item_type == ITEM_CORPSE_NPC
-		||  obj->pObjIndex->item_type == ITEM_CORPSE_PC)
+		if (obj->item_type == ITEM_CORPSE_NPC
+		||  obj->item_type == ITEM_CORPSE_PC)
 			break;
 
 	if (!obj) {
@@ -904,7 +904,7 @@ void do_fill(CHAR_DATA * ch, const char *argument)
 	found = FALSE;
 	for (fountain = ch->in_room->contents; fountain != NULL;
 	     fountain = fountain->next_content) {
-		if (fountain->pObjIndex->item_type == ITEM_FOUNTAIN) {
+		if (fountain->item_type == ITEM_FOUNTAIN) {
 			found = TRUE;
 			break;
 		}
@@ -915,7 +915,7 @@ void do_fill(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	if (obj->pObjIndex->item_type != ITEM_DRINK_CON) {
+	if (obj->item_type != ITEM_DRINK_CON) {
 		char_puts("You can't fill that.\n", ch);
 		return;
 	}
@@ -961,7 +961,7 @@ void do_pour(CHAR_DATA * ch, const char *argument)
 		char_puts("You don't have that item.\n", ch);
 		return;
 	}
-	if (out->pObjIndex->item_type != ITEM_DRINK_CON) {
+	if (out->item_type != ITEM_DRINK_CON) {
 		char_puts("That's not a drink container.\n", ch);
 		return;
 	}
@@ -1004,7 +1004,7 @@ void do_pour(CHAR_DATA * ch, const char *argument)
 			return;
 		}
 	}
-	if (in->pObjIndex->item_type != ITEM_DRINK_CON) {
+	if (in->item_type != ITEM_DRINK_CON) {
 		char_puts("You can only pour into other drink containers.\n", ch);
 		return;
 	}
@@ -1064,7 +1064,7 @@ void do_drink(CHAR_DATA * ch, const char *argument)
 
 	if (arg[0] == '\0') {
 		for (obj = ch->in_room->contents; obj; obj= obj->next_content) {
-			if (obj->pObjIndex->item_type == ITEM_FOUNTAIN)
+			if (obj->item_type == ITEM_FOUNTAIN)
 				break;
 		}
 
@@ -1084,7 +1084,7 @@ void do_drink(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	switch (obj->pObjIndex->item_type) {
+	switch (obj->item_type) {
 	default:
 		char_puts("You can't drink from that.\n", ch);
 		return;
@@ -1165,9 +1165,9 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 	if (!IS_IMMORTAL(ch)) {
-		if ((obj->pObjIndex->item_type != ITEM_FOOD ||
+		if ((obj->item_type != ITEM_FOOD ||
 		     IS_OBJ_STAT(obj, ITEM_NOT_EDIBLE))
-		&& obj->pObjIndex->item_type != ITEM_PILL) {
+		&& obj->item_type != ITEM_PILL) {
 			char_puts("That's not edible.\n", ch);
 			return;
 		}
@@ -1181,7 +1181,7 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 	if (ch->fighting != NULL)
 		WAIT_STATE(ch, 3 * PULSE_VIOLENCE);
 
-	switch (obj->pObjIndex->item_type) {
+	switch (obj->item_type) {
 
 	case ITEM_FOOD:
 		if (!IS_NPC(ch)) {
@@ -1376,7 +1376,7 @@ void do_quaff(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	if (obj->pObjIndex->item_type != ITEM_POTION) {
+	if (obj->item_type != ITEM_POTION) {
 		char_puts("You can quaff only potions.\n", ch);
 		return;
 	}
@@ -1408,7 +1408,7 @@ void do_recite(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	if (scroll->pObjIndex->item_type != ITEM_SCROLL) {
+	if (scroll->item_type != ITEM_SCROLL) {
 		char_puts("You can recite only scrolls.\n", ch);
 		return;
 	}
@@ -1477,7 +1477,7 @@ void do_brandish(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	if (staff->pObjIndex->item_type != ITEM_STAFF) {
+	if (staff->item_type != ITEM_STAFF) {
 		char_puts("You can brandish only with a staff.\n", ch);
 		return;
 	}
@@ -1563,7 +1563,7 @@ void do_zap(CHAR_DATA * ch, const char *argument)
 		char_puts("You hold nothing in your hand.\n", ch);
 		return;
 	}
-	if (wand->pObjIndex->item_type != ITEM_WAND) {
+	if (wand->item_type != ITEM_WAND) {
 		char_puts("You can zap only with a wand.\n", ch);
 		return;
 	}
@@ -2184,7 +2184,7 @@ void do_sell(CHAR_DATA * ch, const char *argument)
 	ch->silver += silver;
 	deduct_cost(keeper, cost);
 
-	if (obj->pObjIndex->item_type == ITEM_TRASH
+	if (obj->item_type == ITEM_TRASH
 	||  OBJ_IS(obj, OBJ_SELL_EXTRACT))
 		extract_obj(obj, 0);
 	else {
@@ -2377,7 +2377,7 @@ void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 			    "Weight is %d, value is %d, level is %d.\n"
 			    "Material is %s.\n",
 			    obj->name,
-			    flag_string(item_types, obj->pObjIndex->item_type),
+			    flag_string(item_types, obj->item_type),
 			    flag_string(stat_flags, obj->stat_flags),
 			    flag_string(obj_flags, obj->pObjIndex->obj_flags),
 			    obj->weight,
@@ -2394,7 +2394,7 @@ void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 			    "Weight is %d, value is %d, level is %d.\n"
 			    "Material is %s.\n",
 			    obj->name,
-			    flag_string(item_types, obj->pObjIndex->item_type),
+			    flag_string(item_types, obj->item_type),
 			    flag_string(stat_flags, obj->stat_flags),
 			    flag_string(obj_flags, obj->pObjIndex->obj_flags),
 			    obj->weight,
@@ -2410,7 +2410,7 @@ void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 			    "Weight is %d, value is %d, level is %d.\n"
 			    "Material is %s.\n",
 			    obj->name,
-			    flag_string(item_types, obj->pObjIndex->item_type),
+			    flag_string(item_types, obj->item_type),
 			    flag_string(stat_flags, obj->stat_flags),
 			    flag_string(obj_flags, obj->pObjIndex->obj_flags),
 			    obj->weight,
@@ -2427,7 +2427,7 @@ void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 	v3 = obj->value[3];
 	v4 = obj->value[4];
 
-	switch (obj->pObjIndex->item_type) {
+	switch (obj->item_type) {
 	case ITEM_SCROLL:
 	case ITEM_POTION:
 	case ITEM_PILL:
@@ -2594,8 +2594,8 @@ void do_butcher(CHAR_DATA * ch, const char *argument)
 		char_puts("You do not see that here.\n", ch);
 		return;
 	}
-	if (obj->pObjIndex->item_type != ITEM_CORPSE_PC
-	&&  obj->pObjIndex->item_type != ITEM_CORPSE_NPC) {
+	if (obj->item_type != ITEM_CORPSE_PC
+	&&  obj->item_type != ITEM_CORPSE_NPC) {
 		char_puts("You can't butcher that.\n", ch);
 		return;
 	}
@@ -2682,8 +2682,8 @@ void do_crucify(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (obj->pObjIndex->item_type != ITEM_CORPSE_PC
-	 && obj->pObjIndex->item_type != ITEM_CORPSE_NPC) {
+	if (obj->item_type != ITEM_CORPSE_PC
+	 && obj->item_type != ITEM_CORPSE_NPC) {
 		char_puts("You cannot crucify that.\n", ch);
 		return;
 	 }
@@ -3462,7 +3462,7 @@ static uint get_cost(CHAR_DATA *keeper, OBJ_DATA *obj, bool fBuy)
 		int             itype;
 		cost = 0;
 		for (itype = 0; itype < MAX_TRADE; itype++) {
-			if (obj->pObjIndex->item_type == pShop->buy_type[itype]) {
+			if (obj->item_type == pShop->buy_type[itype]) {
 				cost = obj->cost * pShop->profit_sell / 100;
 				break;
 			}
@@ -3483,8 +3483,8 @@ static uint get_cost(CHAR_DATA *keeper, OBJ_DATA *obj, bool fBuy)
 			}
 	}
 
-	if (obj->pObjIndex->item_type == ITEM_STAFF
-	||  obj->pObjIndex->item_type == ITEM_WAND) {
+	if (obj->item_type == ITEM_STAFF
+	||  obj->item_type == ITEM_WAND) {
 		if (INT(obj->value[1]) == 0)
 			cost /= 4;
 		else
@@ -3506,8 +3506,8 @@ static void sac_obj(CHAR_DATA * ch, OBJ_DATA *obj)
 	}
 	silver = UMAX(1, number_fuzzy(obj->level));
 
-	if (obj->pObjIndex->item_type != ITEM_CORPSE_NPC
-	&&  obj->pObjIndex->item_type != ITEM_CORPSE_PC)
+	if (obj->item_type != ITEM_CORPSE_NPC
+	&&  obj->item_type != ITEM_CORPSE_PC)
 		silver = UMIN(silver, obj->cost);
 
 	act_puts("Gods give you $j silver $qj{coins} for your sacrifice.",
@@ -3533,8 +3533,8 @@ static void sac_obj(CHAR_DATA * ch, OBJ_DATA *obj)
 
 	wiznet("$N sends up $p as a burnt offering.",
 	       ch, obj, WIZ_SACCING, 0, 0);
-	if (obj->pObjIndex->item_type == ITEM_CORPSE_NPC
-	||  obj->pObjIndex->item_type == ITEM_CORPSE_PC) {
+	if (obj->item_type == ITEM_CORPSE_NPC
+	||  obj->item_type == ITEM_CORPSE_PC) {
 		OBJ_DATA       *obj_content;
 		OBJ_DATA       *obj_next;
 		OBJ_DATA       *two_objs[2];
@@ -3627,7 +3627,7 @@ static bool put_obj(CHAR_DATA *ch, OBJ_DATA *container,
 	}
 
 	if (IS_SET(INT(container->value[1]), CONT_QUIVER)
-	&&  (obj->pObjIndex->item_type != ITEM_WEAPON ||
+	&&  (obj->item_type != ITEM_WEAPON ||
 	     !WEAPON_IS(obj, WEAPON_ARROW))) {
 		act_puts("You can only put arrows in $p.",
 			 ch, container, NULL, TO_CHAR, POS_DEAD);
@@ -3649,11 +3649,11 @@ static bool put_obj(CHAR_DATA *ch, OBJ_DATA *container,
 		return TRUE;
 	}
 
-	if (obj->pObjIndex->item_type == ITEM_POTION
+	if (obj->item_type == ITEM_POTION
 	&&  IS_SET(container->wear_flags, ITEM_TAKE)) {
 		int pcount = 0;
 		for (objc = container->contains; objc; objc = objc->next_content)
-			if (objc->pObjIndex->item_type == ITEM_POTION)
+			if (objc->item_type == ITEM_POTION)
 				pcount++;
 		if (pcount > 15) {
 			act_puts("It's not safe to put more potions into $p.",
@@ -3962,13 +3962,13 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	switch (obj->pObjIndex->item_type) {
+	switch (obj->item_type) {
 	default:
 		if (!OBJ_IS(obj, OBJ_CHQUEST)) {
 			act_puts("You cannot auction $T.",
 				 ch, NULL,
 				 flag_string(item_types,
-					     obj->pObjIndex->item_type),
+					     obj->item_type),
 				 TO_CHAR, POS_SLEEPING);
 			break;
 		}

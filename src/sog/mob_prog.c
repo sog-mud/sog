@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.56 1999-12-10 11:30:08 kostik Exp $
+ * $Id: mob_prog.c,v 1.57 1999-12-22 08:29:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -341,7 +341,7 @@ bool has_item(CHAR_DATA *ch, int vnum, int item_type, bool fWear)
     OBJ_DATA *obj;
     for (obj = ch->carrying; obj; obj = obj->next_content)
 	if ((vnum < 0 || obj->pObjIndex->vnum == vnum)
-	&&   (item_type < 0 || obj->pObjIndex->item_type == item_type)
+	&&   (item_type < 0 || obj->item_type == item_type)
 	&&   (!fWear || obj->wear_loc != WEAR_NONE))
 	    return TRUE;
     return FALSE;
@@ -619,7 +619,7 @@ int cmd_eval(int vnum, const char *line, int check,
 	case CHK_CLASS:
 	    return(lval_char != NULL && !IS_NPC(lval_char) && IS_CLASS(lval_char->class, buf));
 	case CHK_OBJTYPE:
-	    return(lval_obj != NULL && lval_obj->pObjIndex->item_type == flag_value(item_types, buf));
+	    return(lval_obj != NULL && lval_obj->item_type == flag_value(item_types, buf));
 	default:;
     }
 

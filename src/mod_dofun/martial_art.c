@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.145 1999-12-21 06:36:20 fjoe Exp $
+ * $Id: martial_art.c,v 1.146 1999-12-22 08:29:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -718,7 +718,7 @@ void do_gash(CHAR_DATA *ch, const char *argument) {
 	} else {
 		gauntlets = get_eq_char(victim, WEAR_HANDS);
 		if(gauntlets) {
-			if((gauntlets->pObjIndex->item_type != ITEM_ARMOR)
+			if((gauntlets->item_type != ITEM_ARMOR)
 			|| !(material_is(gauntlets, MATERIAL_METAL)
 			|| material_is(gauntlets, MATERIAL_INDESTRUCT))) {
 				damage_to_obj(victim, dagger, gauntlets,

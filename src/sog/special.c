@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.63 1999-12-16 10:06:39 fjoe Exp $
+ * $Id: special.c,v 1.64 1999-12-22 08:29:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -688,7 +688,7 @@ bool spec_fido(CHAR_DATA *ch)
 
 	for (corpse = ch->in_room->contents; corpse; corpse = c_next) {
 		c_next = corpse->next_content;
-		if (corpse->pObjIndex->item_type != ITEM_CORPSE_NPC)
+		if (corpse->item_type != ITEM_CORPSE_NPC)
 			continue;
 
 		act("$n savagely devours a corpse.", ch, NULL, NULL, TO_ROOM);
@@ -717,8 +717,8 @@ bool spec_janitor(CHAR_DATA *ch)
 		if (!IS_SET(trash->wear_flags, ITEM_TAKE)
 		||  !can_loot(ch, trash))
 			continue;
-		if (trash->pObjIndex->item_type == ITEM_DRINK_CON
-		||  trash->pObjIndex->item_type == ITEM_TRASH
+		if (trash->item_type == ITEM_DRINK_CON
+		||  trash->item_type == ITEM_TRASH
 		||  trash->cost < 10) {
 			get_obj(ch, trash, NULL, "$n picks up some trash.");
 			return TRUE;

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.316 1999-12-22 04:43:21 fjoe Exp $
+ * $Id: act_info.c,v 1.317 1999-12-22 08:28:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -422,7 +422,7 @@ static void do_look_in(CHAR_DATA* ch, const char *argument)
 		return;
 	}
 
-	switch (obj->pObjIndex->item_type) {
+	switch (obj->item_type) {
 	default:
 		char_puts("That is not a container.\n", ch);
 		break;
@@ -742,7 +742,7 @@ void do_examine(CHAR_DATA *ch, const char *argument)
 	if ((obj = get_obj_here(ch, arg)) == NULL)
 		return;
 
-	switch (obj->pObjIndex->item_type) {
+	switch (obj->item_type) {
 	case ITEM_MONEY: {
 		const char *msg;
 
@@ -1266,7 +1266,7 @@ void do_compare(CHAR_DATA *ch, const char *argument)
 		     obj2 != NULL; obj2 = obj2->next_content)
 			if (obj2->wear_loc != WEAR_NONE
 			&&  can_see_obj(ch,obj2)
-			&&  obj1->pObjIndex->item_type == obj2->pObjIndex->item_type
+			&&  obj1->item_type == obj2->item_type
 			&&  (obj1->wear_flags & obj2->wear_flags & ~ITEM_TAKE))
 				break;
 
@@ -1286,10 +1286,10 @@ void do_compare(CHAR_DATA *ch, const char *argument)
 
 	if (obj1 == obj2)
 		cmsg = "You compare $p to itself.  It looks about the same.";
-	else if (obj1->pObjIndex->item_type != obj2->pObjIndex->item_type)
+	else if (obj1->item_type != obj2->item_type)
 		cmsg = "You can't compare $p and $P.";
 	else {
-		switch (obj1->pObjIndex->item_type) {
+		switch (obj1->item_type) {
 		default:
 			cmsg = "You can't compare $p and $P.";
 			break;

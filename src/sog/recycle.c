@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.95 1999-12-21 06:36:30 fjoe Exp $
+ * $Id: recycle.c,v 1.96 1999-12-22 08:29:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -169,7 +169,7 @@ void free_obj(OBJ_DATA *obj)
 	free_string(obj->material);
 	obj->material = NULL;
 
-	objval_destroy(obj->pObjIndex->item_type, obj->value);
+	objval_destroy(obj->item_type, obj->value);
 
 	obj->next = free_obj_list;
 	free_obj_list = obj;

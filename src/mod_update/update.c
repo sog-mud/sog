@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.179 1999-12-18 12:20:08 fjoe Exp $
+ * $Id: update.c,v 1.180 1999-12-22 08:29:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -336,7 +336,7 @@ int hit_gain(CHAR_DATA *ch)
 
 	gain = gain * ch->in_room->heal_rate / 100;
 	
-	if (ch->on != NULL && ch->on->pObjIndex->item_type == ITEM_FURNITURE)
+	if (ch->on != NULL && ch->on->item_type == ITEM_FURNITURE)
 		gain = gain * INT(ch->on->value[3]) / 100;
 
 	if (IS_AFFECTED(ch, AFF_POISON))
@@ -412,7 +412,7 @@ int mana_gain(CHAR_DATA *ch)
 
 	gain = gain * ch->in_room->mana_rate / 100;
 
-	if (ch->on != NULL && ch->on->pObjIndex->item_type == ITEM_FURNITURE)
+	if (ch->on != NULL && ch->on->item_type == ITEM_FURNITURE)
 		gain = gain * INT(ch->on->value[4]) / 100;
 
 	if (IS_AFFECTED(ch, AFF_POISON))
@@ -468,7 +468,7 @@ int move_gain(CHAR_DATA *ch)
 
 	gain = gain * ch->in_room->heal_rate/100;
 
-	if (ch->on != NULL && ch->on->pObjIndex->item_type == ITEM_FURNITURE)
+	if (ch->on != NULL && ch->on->item_type == ITEM_FURNITURE)
 		gain = gain * INT(ch->on->value[3]) / 100;
 
 	if (IS_AFFECTED(ch, AFF_POISON))
@@ -784,7 +784,7 @@ void mobile_update(void)
 		     IS_AFFECTED(ch, AFF_PLAGUE) ||
 		     ch->fighting != NULL)) {
 			for (obj = ch->carrying; obj; obj = obj->next_content) {
-				if (obj->pObjIndex->item_type != ITEM_POTION)
+				if (obj->item_type != ITEM_POTION)
 					continue;
 
 				if (ch->hit < ch->max_hit * 90 / 100) {
@@ -1213,7 +1213,7 @@ void char_update(void)
 			PC_DATA *pc = PC(ch);
 
 			if ((obj = get_eq_char(ch, WEAR_LIGHT))
-			&&  obj->pObjIndex->item_type == ITEM_LIGHT
+			&&  obj->item_type == ITEM_LIGHT
 			&&  INT(obj->value[2]) > 0) {
 				if (--INT(obj->value[2]) == 0) {
 					if (ch->in_room->light > 0)
@@ -1330,7 +1330,7 @@ void water_float_update(void)
 		obj->water_float = obj->water_float > 0 ?
 						obj->water_float - 1 : -1;
 
-		if (obj->pObjIndex->item_type == ITEM_DRINK_CON) {
+		if (obj->item_type == ITEM_DRINK_CON) {
 			INT(obj->value[1]) =
 				URANGE(1, INT(obj->value[1]) + 8,
 				       INT(obj->value[0]));
@@ -1556,18 +1556,18 @@ void update_one_obj(OBJ_DATA *obj)
 	&&  update_melt_obj(obj))
 		return;
 
-	if (obj->pObjIndex->item_type == ITEM_POTION
+	if (obj->item_type == ITEM_POTION
 	&& update_potion(obj))
 		return;
 
-	if (obj->pObjIndex->item_type == ITEM_DRINK_CON
+	if (obj->item_type == ITEM_DRINK_CON
 	&& update_drinkcon(obj))
 		return;
 
 	if (obj->condition > -1 && (obj->timer <= 0 || --obj->timer > 0))
 		return;
 
-	switch (obj->pObjIndex->item_type) {
+	switch (obj->item_type) {
 	default:
 		message = "$p crumbles into dust.";
 		break;
@@ -1617,7 +1617,7 @@ void update_one_obj(OBJ_DATA *obj)
 	&&  !OBJ_IS(obj, OBJ_PIT))
 		act(message, rch, obj, NULL, TO_ALL);
 
-	if (obj->pObjIndex->item_type == ITEM_CORPSE_PC && obj->contains)
+	if (obj->item_type == ITEM_CORPSE_PC && obj->contains)
 		save_corpse_contents(obj);
 	extract_obj(obj, 0);
 }

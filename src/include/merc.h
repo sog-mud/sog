@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.281 1999-12-21 06:36:24 fjoe Exp $
+ * $Id: merc.h,v 1.282 1999-12-22 08:29:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1464,7 +1464,6 @@ struct obj_index_data
 	int			vnum;
 	int			reset_num;
 	const char *		material;
-	flag_t			item_type;
 	flag_t			stat_flags;
 	flag_t			obj_flags;
 	flag_t			wear_flags;
@@ -1473,6 +1472,7 @@ struct obj_index_data
 	int			count;
 	int			weight;
 	uint 			cost;
+	flag_t			item_type;
 	vo_t 			value[5];
 	int 			limit;
 	OPROG_FUN **		oprogs;
@@ -1508,6 +1508,7 @@ struct obj_data
 	int			condition;
 	const char *		material;
 	int			timer;
+	flag_t			item_type;
 	vo_t 			value[5];
 	int 			progtypes;
 	mlstring		owner;
