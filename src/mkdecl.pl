@@ -58,4 +58,4 @@ print COUT << "__END__";
 	{ NULL }
 };
 __END__
-close(HOUT);
+close(COUT);
