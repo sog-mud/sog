@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.125 2001-08-22 07:14:20 fjoe Exp $
+ * $Id: db_area.c,v 1.126 2001-08-22 20:45:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1141,6 +1141,8 @@ DBLOAD_FUN(load_mobiles)
 				paf->duration = -1;
 				SLIST_ADD(
 				    AFFECT_DATA, pMobIndex->affected, paf);
+			} else if (letter == 'm') {
+				trig_fread_list(&pMobIndex->mp_trigs, fp);
 			} else if (letter == 'f') {
 				AFFECT_DATA *paf = aff_fread(
 				    fp, AFF_X_NOTYPE | AFF_X_NOLD);

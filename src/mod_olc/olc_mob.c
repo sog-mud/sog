@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.81 2001-08-20 16:58:10 fjoe Exp $
+ * $Id: olc_mob.c,v 1.82 2001-08-22 20:45:48 fjoe Exp $
  */
 
 #include "olc.h"
@@ -70,11 +70,8 @@ DECLARE_OLC_FUN(mobed_gold		);  /* ROM */
 DECLARE_OLC_FUN(mobed_hitroll		);  /* ROM */
 DECLARE_OLC_FUN(mobed_damtype		);  /* ROM */
 DECLARE_OLC_FUN(mobed_group		);  /* ROM */
-#if 0
-XXX
 DECLARE_OLC_FUN(mobed_trigadd		);  /* ROM */
 DECLARE_OLC_FUN(mobed_trigdel		);  /* ROM */
-#endif
 DECLARE_OLC_FUN(mobed_prac		);
 DECLARE_OLC_FUN(mobed_clan		);
 DECLARE_OLC_FUN(mobed_clone		);
@@ -132,11 +129,8 @@ olc_cmd_t olc_cmds_mob[] =
 	{ "damtype",	mobed_damtype,	NULL,		NULL		},
 	{ "group",	mobed_group,	NULL,		NULL		},
 	{ "clan",	mobed_clan,	NULL,		&clans		},
-#if 0
-	XXX
 	{ "trigadd",	mobed_trigadd,	NULL,		NULL		},
 	{ "trigdel",	mobed_trigdel,	NULL,		NULL		},
-#endif
 	{ "clone",	mobed_clone,	NULL,		NULL		},
 	{ "wizi",	mobed_wizi,	NULL,		NULL		},
 	{ "incog",	mobed_incog,	NULL,		NULL		},
@@ -244,10 +238,6 @@ OLC_FUN(mobed_show)
 	char arg[MAX_INPUT_LENGTH];
 	MOB_INDEX_DATA	*pMob;
 	AREA_DATA	*pArea;
-#if 0
-	XXX
-	MPTRIG *mptrig;
-#endif
 	BUFFER *buf;
 
 	one_argument(argument, arg, sizeof(arg));
@@ -405,27 +395,7 @@ OLC_FUN(mobed_show)
 		}
 	}
 
-#if 0
-	XXX
-	if (pMob->mptrig_list) {
-		int cnt = 0;
-
-		buf_printf(buf, BUF_END, "\nMOBPrograms for [%5d]:\n", pMob->vnum);
-
-		for (mptrig = pMob->mptrig_list; mptrig; mptrig = mptrig->next) {
-			if (cnt == 0) {
-				buf_append(buf, " Number Vnum Trigger Phrase [Flags]\n");
-				buf_append(buf, " ------ ---- ------- ----------------------------------------------------------\n");
-			}
-
-			buf_printf(buf, BUF_END, "[%5d] %4d %7s %s [%s]\n", cnt,
-			mptrig->vnum, flag_string(mptrig_types, mptrig->type),
-			mptrig->phrase,
-			flag_string(mptrig_flags, mptrig->mptrig_flags));
-			cnt++;
-		}
-	}
-#endif
+	trig_dump_list(&pMob->mp_trigs, buf);
 
 bamfout:
 	page_to_char(buf_string(buf), ch);
@@ -1063,7 +1033,7 @@ OLC_FUN(mobed_group)
 		buf_free(buffer);
 		return FALSE;
 	}
-	
+
 	return FALSE;
 }
 
@@ -1074,103 +1044,19 @@ OLC_FUN(mobed_clan)
 	return olced_foreign_strkey(ch, argument, cmd, &pMob->clan);
 }
 
-#if 0
-XXX
 OLC_FUN(mobed_trigadd)
 {
-	int value;
 	MOB_INDEX_DATA *pMob;
-	MPTRIG *mptrig;
-	MPCODE *mpcode;
-	char trigger[MAX_STRING_LENGTH];
-	char num[MAX_STRING_LENGTH];
-
 	EDIT_MOB(ch, pMob);
-	argument = one_argument(argument, num, sizeof(num));
-	argument = one_argument(argument, trigger, sizeof(trigger));
-
-	if (!str_cmp(num, "?")) {
-		show_flags(ch, mptrig_types);
-		return FALSE;
-	}
-
-	if (!is_number(num) || trigger[0] =='\0' || argument[0] =='\0') {
-		 act_char("Syntax: trigadd [vnum] [trigger] [phrase]", ch);
-		 return FALSE;
-	}
-
-	if ((value = flag_value(mptrig_types, trigger)) < 0) {
-		act_char("Invalid trigger type.", ch);
-		act_char("Use 'trigadd ?' for list of triggers.", ch);
-		return FALSE;
-	}
-
-	if ((mpcode = mpcode_lookup(atoi(num))) == NULL) {
-		 act_char("No such MOBProgram.", ch);
-		 return FALSE;
-	}
-
-	mptrig = mptrig_new(value, argument, atoi(num));
-	mptrig_add(pMob, mptrig);
-	act_char("Trigger added.", ch);
-	return TRUE;
+	return olced_trigadd(ch, argument, &pMob->mp_trigs);
 }
 
 OLC_FUN(mobed_trigdel)
 {
 	MOB_INDEX_DATA *pMob;
-	MPTRIG *mptrig;
-	MPTRIG *mptrig_next;
-	char mprog[MAX_STRING_LENGTH];
-	int value;
-	int cnt = 0;
-
 	EDIT_MOB(ch, pMob);
-
-	one_argument(argument, mprog, sizeof(mprog));
-	if (!is_number(mprog) || mprog[0] == '\0') {
-		act_char("Syntax:  trigdel [#mprog]", ch);
-		return FALSE;
-	}
-
-	value = atoi (mprog);
-
-	if (value < 0) {
-		 act_char("Only non-negative mprog-numbers allowed.", ch);
-		 return FALSE;
-	}
-
-	if (!(mptrig = pMob->mptrig_list)) {
-		 act_char("MobEd:  Nonexistent trigger.", ch);
-		 return FALSE;
-	}
-
-	if (value == 0) {
-		REMOVE_BIT(pMob->mptrig_types, pMob->mptrig_list->type);
-		mptrig = pMob->mptrig_list;
-		pMob->mptrig_list = mptrig->next;
-		mptrig_free(mptrig);
-	}
-	else {
-		while ((mptrig_next = mptrig->next) && (++cnt < value))
-			mptrig = mptrig_next;
-
-		if (mptrig_next) {
-			REMOVE_BIT(pMob->mptrig_types, mptrig_next->type);
-		        mptrig->next = mptrig_next->next;
-			mptrig_free(mptrig_next);
-		}
-		else {
-		        act_char("No such trigger.", ch);
-		        return FALSE;
-		}
-	}
-	mptrig_fix(pMob);
-
-	act_char("Trigger removed.", ch);
-	return TRUE;
+	return olced_trigdel(ch, argument, &pMob->mp_trigs);
 }
-#endif
 
 OLC_FUN(mobed_clone)
 {

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.99 2001-08-21 09:35:18 fjoe Exp $
+ * $Id: olc_area.c,v 1.100 2001-08-22 20:45:48 fjoe Exp $
  */
 
 #include "olc.h"
@@ -517,11 +517,8 @@ VALIDATE_FUN(validate_move)
 	int new_min = *(const int *) arg;
 	int delta, oldmin, oldmax;
 	bool touched = FALSE;
-#if 0
-	XXX
-	MPCODE *mpc;
-#endif
 	BUFFER *buf;
+
 	AREA_DATA *pArea;
 	EDIT_AREA(ch, pArea);
 
@@ -553,13 +550,6 @@ VALIDATE_FUN(validate_move)
 		act_char("AreaEd: Changed clans:", ch);
 		hash_foreach(&clans, move_print_clan_cb, ch);
 	}
-
-#if 0
-	XXX
-/* XXX fix mprogs */
-	for (mpc = mpcode_list; mpc; mpc = mpc->next)
-		MOVE(mpc->vnum);
-#endif
 
 /* fix mobs */
 	for (i = 0; i < MAX_KEY_HASH; i++) {
@@ -706,22 +696,12 @@ static void
 move_mob(MOB_INDEX_DATA *mob, AREA_DATA *pArea, int delta)
 {
 	bool touched = FALSE;
-#if 0
-	XXX
-	MPTRIG *mp;
-#endif
 	int old_vnum = mob->vnum;
 
 	MOVE(mob->vnum);
 
 	if (mob->pShop)
 		MOVE(mob->pShop->keeper);
-
-#if 0
-	XXX
-	for (mp = mob->mptrig_list; mp; mp = mp->next)
-		MOVE(mp->vnum);
-#endif
 
 	MOVE(mob->fvnum);
 
@@ -840,31 +820,6 @@ save_area_list(CHAR_DATA *ch)
 	fclose(fp);
 }
 
-#if 0
-XXX
-static void
-save_mobprogs(FILE *fp, AREA_DATA *pArea)
-{
-	MPCODE *mpcode;
-        int i;
-	bool found = FALSE;
-
-	for (i = pArea->min_vnum; i <= pArea->max_vnum; i++) {
-		if ((mpcode = mpcode_lookup(i)) != NULL) {
-			if (!found) {
-				fprintf(fp, "#MOBPROGS\n");
-				found = TRUE;
-			}
-			fprintf(fp, "#%d\n", i);
-			fwrite_string(fp, NULL, mpcode->code);
-		}
-        }
-
-	if (found)
-		fprintf(fp,"#0\n\n");
-}
-#endif
-
 /*****************************************************************************
  Name:		save_mobile
  Purpose:	Save one mobile to file, new format -- Hugin
@@ -874,10 +829,6 @@ static void
 save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 {
 	race_t *r = race_lookup(pMobIndex->race);
-#if 0
-	XXX
-	MPTRIG *mptrig;
-#endif
 	flag_t temp;
 	const char *p;
 	int i;
@@ -952,15 +903,6 @@ save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 	if ((temp = DIFF_BIT(r->parts, pMobIndex->parts)))
 		fprintf(fp, "F par %s\n", format_flags(temp));
 
-#if 0
-	XXX
-	for (mptrig = pMobIndex->mptrig_list; mptrig; mptrig = mptrig->next) {
-		fprintf(fp, "M %s %d %s~\n",
-			flag_string(mptrig_types, mptrig->type), mptrig->vnum,
-			fix_string(mptrig->phrase));
-	}
-#endif
-
 	fwrite_word(fp, "C", pMobIndex->clan);
 	if (pMobIndex->invis_level)
 		fprintf(fp, "W %d\n", pMobIndex->invis_level);
@@ -976,6 +918,7 @@ save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 			flag_string(dam_classes, i), pMobIndex->resists[i]);
 	}
 	aff_fwrite_list("a", "f", pMobIndex->affected, fp, AFF_X_NOLD);
+	trig_fwrite_list("m", &pMobIndex->mp_trigs, fp);
 }
 
 /*****************************************************************************
@@ -1039,16 +982,13 @@ save_object(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
 		pObjIndex->level, pObjIndex->weight, pObjIndex->cost, letter);
 
 	aff_fwrite_list("a", "f", pObjIndex->affected, fp, AFF_X_NOLD);
+	trig_fwrite_list("m", &pObjIndex->mp_trigs, fp);
 
 	for (pEd = pObjIndex->ed; pEd; pEd = pEd->next)
 		ed_fwrite(fp, pEd);
 
 	if (mlstr_nlang(&pObjIndex->gender) > 1)
 		mlstr_fwrite(fp, "g", &pObjIndex->gender);
-#if 0
-	XXX
-	fwrite_cc_vexpr(&pObjIndex->restrictions, "R", fp);
-#endif
 }
 
 /*****************************************************************************
@@ -1440,47 +1380,6 @@ save_olimits(FILE *fp, AREA_DATA *pArea)
 		fprintf(fp, "S\n\n");
 }
 
-#if 0
-XXX
-static void
-save_omprog(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
-{
-	int i;
-
-	for (i = 0; i < OPROG_MAX; i++) {
-		if (pObjIndex->oprogs[i] != NULL) {
-			fprintf(fp, "O %d %s %s\t* `%s'\n",
-				pObjIndex->vnum,
-				optype_table[i],
-				oprog_name_lookup(pObjIndex->oprogs[i]),
-				mlstr_mval(&pObjIndex->short_descr));
-		}
-	}
-}
-
-static void
-save_omprogs(FILE *fp, AREA_DATA *pArea)
-{
-	int i;
-	OBJ_INDEX_DATA *pObjIndex;
-	bool found = FALSE;
-
-	for (i = pArea->min_vnum; i <= pArea->max_vnum; i++) {
-		if ((pObjIndex = get_obj_index(i)) != NULL
-		&&  pObjIndex->oprogs) {
-			if (!found) {
-				fprintf(fp, "#OMPROGS\n");
-				found = TRUE;
-			}
-			save_omprog(fp, pObjIndex);
-		}
-	}
-
-	if (found)
-		fprintf(fp, "S\n\n");
-}
-#endif
-
 static void
 save_practicers(FILE *fp, AREA_DATA *pArea)
 {
@@ -1563,15 +1462,7 @@ save_area(CHAR_DATA *ch, AREA_DATA *pArea)
 		save_resets(fp, pArea);
 		save_shops(fp, pArea);
 		save_olimits(fp, pArea);
-#if 0
-		XXX
-		save_mobprogs(fp, pArea);
-#endif
 		save_practicers(fp, pArea);
-#if 0
-		XXX
-		save_omprogs(fp, pArea);
-#endif
 	}
 	save_helps(fp, pArea);
 

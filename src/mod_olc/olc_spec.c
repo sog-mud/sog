@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_spec.c,v 1.12 2001-08-14 16:07:07 fjoe Exp $
+ * $Id: olc_spec.c,v 1.13 2001-08-22 20:45:49 fjoe Exp $
  */
 
 #include "olc.h"
@@ -40,7 +40,7 @@ DECLARE_OLC_FUN(speced_list		);
 DECLARE_OLC_FUN(speced_class		);
 DECLARE_OLC_FUN(speced_skill		);
 #if 0
-XXX
+XXX MPC
 DECLARE_OLC_FUN(speced_depend		);
 #endif
 DECLARE_OLC_FUN(speced_flags		);
@@ -62,7 +62,7 @@ olc_cmd_t olc_cmds_spec[] =
 	{ "class",	speced_class,	NULL,		spec_classes	},
 	{ "skill",	speced_skill,	NULL,		&skills		},
 #if 0
-	XXX
+	XXX MPC
 	{ "depend",	speced_depend,	NULL,		NULL		},
 #endif
 	{ "flags",	speced_flags,	NULL,		spec_flags	},
@@ -184,7 +184,7 @@ OLC_FUN(speced_show)
 			flag_string(spec_classes, s->spec_class),
 			flag_string(spec_flags, s->spec_flags));
 #if 0
-	XXX
+	XXX MPC
 	print_cc_vexpr(&s->spec_deps, "Dependencies:", output);
 #endif
 	if (s->spec_skills.nused == 0)
@@ -194,7 +194,7 @@ OLC_FUN(speced_show)
 		buf_printf(output, BUF_END, "--------------------------------------------------------------\n");
 		varr_foreach(&s->spec_skills, show_spec_skill_cb, output, &s->spec_skills);
 	}
-	
+
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
 
@@ -287,7 +287,7 @@ OLC_FUN(speced_skill)
 }
 
 #if 0
-XXX
+XXX MPC
 OLC_FUN(speced_depend)
 {
 	spec_t *s;
@@ -353,16 +353,13 @@ save_spec_cb(void *p, va_list ap)
 	fprintf(fp, "#SPEC\n");
 	fwrite_string(fp, "Name", s->spec_name);
 	fprintf(fp, "Class %s\n", flag_string(spec_classes, s->spec_class));
-	fwrite_string(fp, "Trigger", s->trigger);
+	fwrite_string(fp, "Trigger", s->mp_trig.trig_prog);
 	if (s->spec_flags) {
 		fprintf(fp, "Flags %s~\n",
 				flag_string(spec_flags, s->spec_flags));
 	}
 	fprintf(fp, "End\n");
-#if 0
-	XXX
-	fwrite_cc_vexpr(&s->spec_deps, "\n#R", fp);
-#endif
+
 	varr_foreach(&s->spec_skills, save_spec_skill_cb, fp);
 	fprintf(fp, "\n#$\n");
 	fclose(fp);

@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.125 2001-08-21 11:39:08 fjoe Exp $
+ * $Id: recycle.c,v 1.126 2001-08-22 20:45:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -886,6 +886,8 @@ new_obj_index(void)
 	pObj->condition		= 100;
 	pObj->limit		= -1;
 	mlstr_init2(&pObj->gender, flag_string(gender_table, SEX_NEUTRAL));
+	trig_init_list(&pObj->mp_trigs);
+
         obj_index_count++;
 	return pObj;
 }
@@ -905,6 +907,7 @@ free_obj_index(OBJ_INDEX_DATA *pObj)
 	aff_free_list(pObj->affected);
 	ed_free(pObj->ed);
 	objval_destroy(pObj->item_type, pObj->value);
+	trig_destroy_list(&pObj->mp_trigs);
 
 	obj_index_count--;
 	mem_free(pObj);
@@ -956,6 +959,8 @@ new_mob_index(void)
 	mlstr_init2(&pMob->gender, flag_string(gender_table, SEX_NEUTRAL));
 	for (i = 0; i < MAX_RESIST; i++)
 		pMob->resists[i] = RES_UNDEF;
+	trig_init_list(&pMob->mp_trigs);
+
 	mob_index_count++;
 	return pMob;
 }
@@ -977,6 +982,7 @@ free_mob_index(MOB_INDEX_DATA *pMob)
 	mlstr_destroy(&pMob->description);
 	free_shop(pMob->pShop);
 	aff_free_list(pMob->affected);
+	trig_destroy_list(&pMob->mp_trigs);
 
 	mob_index_count--;
 	mem_free(pMob);
@@ -1176,7 +1182,8 @@ spec_init(spec_t *spec)
 	spec->spec_class = 0;
 
 	varr_init(&spec->spec_skills, &v_spec_skills);
-	spec->trigger = str_empty;
+	trig_init(&spec->mp_trig);
+	spec->mp_trig.trig_type = TRIG_SPEC;
 }
 
 spec_t *
@@ -1185,7 +1192,7 @@ spec_cpy(spec_t *dst, const spec_t *src)
 	dst->spec_name = str_qdup(src->spec_name);
 	dst->spec_class = src->spec_class;
 	varr_cpy(&dst->spec_skills, &src->spec_skills);
-	dst->trigger = str_qdup(src->trigger);
+	trig_cpy(&dst->mp_trig, &src->mp_trig);
 	return dst;
 }
 
@@ -1194,7 +1201,7 @@ spec_destroy(spec_t *spec)
 {
 	free_string(spec->spec_name);
 	varr_destroy(&spec->spec_skills);
-	free_string(spec->trigger);
+	trig_destroy(&spec->mp_trig);
 }
 
 static void

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.95 2001-08-20 16:47:34 fjoe Exp $
+ * $Id: olc_obj.c,v 1.96 2001-08-22 20:45:49 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -69,6 +69,8 @@ DECLARE_OLC_FUN(objed_condition		);
 DECLARE_OLC_FUN(objed_clone		);
 DECLARE_OLC_FUN(objed_gender		);
 DECLARE_OLC_FUN(objed_where		);
+DECLARE_OLC_FUN(objed_trigadd		);
+DECLARE_OLC_FUN(objed_trigdel		);
 
 DECLARE_VALIDATE_FUN(validate_condition);
 
@@ -110,6 +112,8 @@ olc_cmd_t olc_cmds_obj[] =
 	{ "clone",	objed_clone,	NULL,		NULL		},
 	{ "gender",	objed_gender,	NULL,		gender_table	},
 	{ "where",	objed_where,	NULL,		NULL		},
+	{ "trigadd",	objed_trigadd,	NULL,		NULL		},
+	{ "trigdel",	objed_trigdel,	NULL,		NULL		},
 
 	{ "commands",	show_commands,	NULL,		NULL		},
 	{ "version",	show_version,	NULL,		NULL		},
@@ -286,10 +290,8 @@ OLC_FUN(objed_show)
 
 	aff_dump_list(pObj->affected, output);
 	objval_show(output, pObj->item_type, pObj->value);
-#if 0
-	XXX
-	print_cc_vexpr(&pObj->restrictions, "Restrictions:", output);
-#endif
+
+	trig_dump_list(&pObj->mp_trigs, output);
 
 bamfout:
 	page_to_char(buf_string(output), ch);
@@ -632,16 +634,6 @@ OLC_FUN(objed_gender)
 	return olced_gender(ch, argument, cmd, &pObj->gender);
 }
 
-#if 0
-XXX
-OLC_FUN(objed_restrictions)
-{
-	OBJ_INDEX_DATA *pObj;
-	EDIT_OBJ(ch, pObj);
-	return olced_cc_vexpr(ch, argument, cmd, &pObj->restrictions, "obj_wear");
-}
-#endif
-
 OLC_FUN(objed_where)
 {
 	int vnum;
@@ -662,6 +654,20 @@ OLC_FUN(objed_where)
 
 	show_resets(ch, vnum, "obj", show_obj_resets);
 	return FALSE;
+}
+
+OLC_FUN(objed_trigadd)
+{
+	OBJ_INDEX_DATA *pObj;
+	EDIT_OBJ(ch, pObj);
+	return olced_trigadd(ch, argument, &pObj->mp_trigs);
+}
+
+OLC_FUN(objed_trigdel)
+{
+	OBJ_INDEX_DATA *pObj;
+	EDIT_OBJ(ch, pObj);
+	return olced_trigdel(ch, argument, &pObj->mp_trigs);
 }
 
 VALIDATE_FUN(validate_condition)

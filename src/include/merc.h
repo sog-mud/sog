@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.352 2001-08-21 11:38:58 fjoe Exp $
+ * $Id: merc.h,v 1.353 2001-08-22 20:45:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -138,6 +138,7 @@ enum {
 #include <liquid.h>
 #include <forms.h>
 #include <vo_iter.h>
+#include <trig.h>
 
 #define PFILE_VERSION	12
 #define AREA_VERSION	7
@@ -1320,6 +1321,7 @@ struct mob_index_data
 	int			invis_level;	/* mobinvis level */
 	int			incog_level;	/* mobincog level */
 	AFFECT_DATA *		affected;
+	varr			mp_trigs;
 };
 
 #define NPC(ch)	((NPC_DATA *) ((ch) + 1))
@@ -1596,6 +1598,7 @@ struct obj_index_data
 	vo_t			value[5];
 	int			limit;
 	mlstring		gender;
+	varr			mp_trigs;
 };
 
 /*
@@ -2192,8 +2195,8 @@ struct spec_t {
 	const char *spec_name;	/* spec name, also used as file name	*/
 	flag_t spec_class;	/* spec class				*/
 	varr spec_skills;	/* spec_skill_t				*/
-	const char *trigger;	/* mpc trigger				*/
-	flag_t spec_flags;	/* SPF_CHANGED - for OLC		*/
+	flag_t spec_flags;	/* spec flags				*/
+	trig_t mp_trig;		/* spec mpc trigger			*/
 };
 
 extern hash_t specs;

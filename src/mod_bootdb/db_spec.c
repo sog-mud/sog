@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_spec.c,v 1.22 2001-08-05 16:36:30 fjoe Exp $
+ * $Id: db_spec.c,v 1.23 2001-08-22 20:45:46 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -90,7 +90,7 @@ DBLOAD_FUN(load_spec)
 			SKEY("Name", sp.spec_name, fread_string(fp));
 			break;
 		case 'T':
-			SKEY("Trigger", sp.trigger, fread_string(fp));
+			SKEY("Trigger", sp.mp_trig.trig_prog, fread_string(fp));
 			break;
 		}
 

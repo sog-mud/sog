@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.137 2001-08-20 18:18:11 fjoe Exp $
+ * $Id: olc.c,v 1.138 2001-08-22 20:45:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -106,7 +106,7 @@ olced_t olced_table[] = {
 	{ ED_OBJ,	"ObjEd",	olc_cmds_obj	},
 	{ ED_MOB,	"MobEd",	olc_cmds_mob	},
 #if 0
-	XXX
+	XXX MPC
 	{ ED_MPCODE,	"MPEd",		olc_cmds_mpcode	},
 #endif
 	{ ED_HELP,	"HelpEd",	olc_cmds_help	},
@@ -1306,6 +1306,71 @@ olced_resists(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 	return TRUE;
 }
 
+bool
+olced_trigadd(CHAR_DATA *ch, const char *argument, varr *v)
+{
+	char arg1[MAX_INPUT_LENGTH];
+	char arg2[MAX_INPUT_LENGTH];
+	int trig_type;
+	trig_t *trig;
+
+	argument = one_argument(argument, arg1, sizeof(arg1));
+	argument = one_argument(argument, arg2, sizeof(arg2));
+
+	if (!str_cmp(arg1, "?")) {
+		show_flags(ch, mptrig_types);
+		return FALSE;
+	}
+
+	if ((trig_type = flag_value(mptrig_types, arg1)) < 0) {
+		act_char("Invalid trigger type.", ch);
+		act_char("Use 'trigadd ?' for list of triggers.", ch);
+		return FALSE;
+	}
+
+	if (arg2[0] == '\0') {
+		 act_char("Syntax: trigadd <type> <prog> [arg]", ch);
+		 return FALSE;
+	}
+
+	/* XXX MPC lookup program and complain if there is no such program */
+
+	trig = varr_enew(v);
+	trig->trig_type = trig_type;
+	trig->trig_prog = str_dup(arg2); /* XXX MPC str_qdup(prog->name) */
+	log_setchar(ch);
+	trig_set_arg(trig, str_dup(argument));
+	log_unsetchar();
+
+	act_char("Trigger added.", ch);
+	return TRUE;
+}
+
+bool
+olced_trigdel(CHAR_DATA *ch, const char *argument, varr *v)
+{
+	char arg[MAX_INPUT_LENGTH];
+	int num;
+
+	one_argument(argument, arg, sizeof(arg));
+	if (!is_number(arg)) {
+		act_char("Syntax: trigdel <num>", ch);
+		return FALSE;
+	}
+
+	num = atoi(arg);
+	if (varr_get(v, num) == NULL) {
+		act_puts("$t: $T: no such trigger",
+			 ch, OLCED(ch)->name, arg,
+			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
+		return FALSE;
+	}
+
+	act_char("Ok.", ch);
+	varr_delete(v, num);
+	return TRUE;
+}
+
 VALIDATE_FUN(validate_filename)
 {
 	if (strpbrk(arg, "/")) {
@@ -1412,11 +1477,6 @@ get_edited_area(CHAR_DATA *ch)
 		vnum = ((OBJ_INDEX_DATA*) p)->vnum;
 	else if (olced->id == ED_MOB)
 		vnum = ((MOB_INDEX_DATA*) p)->vnum;
-#if 0
-	XXX
-	else if (olced->id == ED_MPCODE)
-		vnum = ((MPCODE*) p)->vnum;
-#endif
 	else
 		return NULL;
 

@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.158 2001-08-20 18:18:13 fjoe Exp $
+ * $Id: tables.c,v 1.159 2001-08-22 20:45:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1507,6 +1507,45 @@ flaginfo_t mt_types[] =
 	{ "int *",		MT_PINT,			FALSE	},
 	{ "spec_skill_t *",	MT_SPEC_SKILL,			FALSE	},
 	{ "uint",		MT_UINT,			FALSE	},
+
+	{ NULL, 0, FALSE }
+};
+
+flaginfo_t mptrig_types[] =
+{
+	{ "",			TABLE_INTVAL,		FALSE	},
+
+	{ "spec",		TRIG_SPEC,		TRUE	},
+
+#if 0
+	XXX MPC
+	{ "act",		TRIG_ACT,		TRUE	},
+	{ "bribe",		TRIG_BRIBE,		TRUE	},
+	{ "death",		TRIG_DEATH,		TRUE    },
+	{ "entry",		TRIG_ENTRY,		TRUE	},
+	{ "fight",		TRIG_FIGHT,		TRUE	},
+	{ "give",		TRIG_GIVE,		TRUE	},
+	{ "greet",		TRIG_GREET,		TRUE    },
+	{ "grall",		TRIG_GRALL,		TRUE	},
+	{ "kill",		TRIG_KILL,		TRUE	},
+	{ "hpcnt",		TRIG_HPCNT,		TRUE    },
+	{ "random",		TRIG_RANDOM,		TRUE	},
+	{ "speech",		TRIG_SPEECH,		TRUE	},
+	{ "exit",		TRIG_EXIT,		TRUE    },
+	{ "exall",		TRIG_EXALL,		TRUE    },
+	{ "delay",		TRIG_DELAY,		TRUE    },
+	{ "surr",		TRIG_SURR,		TRUE    },
+#endif
+
+	{ NULL, 0, FALSE }
+};
+
+flaginfo_t mptrig_flags[] =
+{
+	{ "",			TABLE_BITVAL,		FALSE	},
+
+	{ "case-sensitive",	TRIG_F_CASEDEP,		FALSE	},
+	{ "regexp",		TRIG_F_REGEXP,		FALSE	},
 
 	{ NULL, 0, FALSE }
 };
