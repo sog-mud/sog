@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.41 2001-08-02 18:20:15 fjoe Exp $
+# $Id: Makefile,v 1.42 2001-08-02 18:34:49 fjoe Exp $
 #
 
 PROG=		sog
@@ -20,6 +20,6 @@ SRCS+=		${COMPAT_SRCS}
 COMM_SRCS=	ban.c charset.c comm.c comm_act.c comm_colors.c comm_info.c\
 		resolver.c
 
-.PATH:		.. ../compat comm db
+.PATH:		${.CURDIR}/.. ${.CURDIR}/../compat ${.CURDIR}/comm
 
 .include <bsd.prog.mk>
