@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.111 1998-10-14 18:10:35 fjoe Exp $
+ * $Id: comm.c,v 1.112 1998-10-15 08:21:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1482,45 +1482,42 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	    return;
 	}
 
-	if (check_reconnect(d, argument, FALSE))
-		REMOVE_BIT(ch->act, PLR_NEW);
-	else if (wizlock && !IS_HERO(ch)) 
-	    {
-		write_to_buffer(d, "The game is wizlocked.\n\r", 0);
-		close_socket(d);
-		return;
-	    }
+		if (check_reconnect(d, argument, FALSE))
+			REMOVE_BIT(ch->act, PLR_NEW);
+		else if (wizlock && !IS_HERO(ch)) {
+			write_to_buffer(d, "The game is wizlocked.\n\r", 0);
+			close_socket(d);
+			return;
+		}
 
-	if (!IS_SET(ch->act, PLR_NEW)) {
-	    /* Old player */
-	    write_to_descriptor(d->descriptor, (char *) echo_off_str, 0);
- 	    write_to_buffer(d, "Password: ", 0);
-	    d->connected = CON_GET_OLD_PASSWORD;
-	    return;
-	} else {
-	    /* New player */
- 	    if (newlock) {
-	            write_to_buffer(d, "The game is newlocked.\n\r", 0);
-	            close_socket(d);
-	            return;
-	        }
+		if (!IS_SET(ch->act, PLR_NEW)) {
+			/* Old player */
+			write_to_descriptor(d->descriptor, echo_off_str, 0);
+ 			write_to_buffer(d, "Password: ", 0);
+			d->connected = CON_GET_OLD_PASSWORD;
+			return;
+		}
+		else {
+			/* New player */
+ 			if (newlock) {
+				write_to_buffer(d, "The game is newlocked.\n\r", 0);
+				close_socket(d);
+				return;
+			}
 
-	        if (check_ban(d->host,BAN_NEWBIES))
-	        {
-	            write_to_buffer(d,
-	                "New players are not allowed from your site.\n\r",0);
-	            close_socket(d);
-	            return;
-	        }
+			if (check_ban(d->host, BAN_NEWBIES)) {
+				write_to_buffer(d, "New players are not allowed from your site.\n\r", 0);
+				close_socket(d);
+				return;
+			}
  	    
- 	    do_help(ch,"NAME");
-	    d->connected = CON_CONFIRM_NEW_NAME;
-	    return;
-	}
-	break;
+ 			do_help(ch,"NAME");
+			d->connected = CON_CONFIRM_NEW_NAME;
+			return;
+		}
+		break;
 
 /* RT code for breaking link */
- 
 	case CON_BREAK_CONNECT:
 		switch(*argument) {
 		case 'y' : case 'Y':
@@ -1581,61 +1578,49 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		break;
 
 	case CON_GET_NEW_PASSWORD:
-	write_to_buffer(d, "\n\r", 2);
+		write_to_buffer(d, "\n\r", 2);
 
-	if (strlen(argument) < 5)
-	{
-	    write_to_buffer(d,
-		"Password must be at least five characters long.\n\rPassword: ",
-		0);
-	    return;
-	}
+		if (strlen(argument) < 5) {
+			write_to_buffer(d, "Password must be at least five characters long.\n\rPassword: ", 0);
+			return;
+		}
 
-	pwdnew = crypt(argument, ch->name);
-	for (p = pwdnew; *p != '\0'; p++)
-	{
-	    if (*p == '~')
-	    {
-		write_to_buffer(d,
-		    "New password not acceptable, try again.\n\rPassword: ",
-		    0);
-		return;
-	    }
-	}
+		pwdnew = crypt(argument, ch->name);
+		for (p = pwdnew; *p != '\0'; p++) {
+			if (*p == '~') {
+				write_to_buffer(d, "New password not acceptable, try again.\n\rPassword: ", 0);
+				return;
+			}
+		}
 
-	free_string(ch->pcdata->pwd);
-	ch->pcdata->pwd	= str_dup(pwdnew);
-	write_to_buffer(d, "Please retype password: ", 0);
-	d->connected = CON_CONFIRM_NEW_PASSWORD;
-	break;
+		free_string(ch->pcdata->pwd);
+		ch->pcdata->pwd	= str_dup(pwdnew);
+		write_to_buffer(d, "Please retype password: ", 0);
+		d->connected = CON_CONFIRM_NEW_PASSWORD;
+		break;
 
 	case CON_CONFIRM_NEW_PASSWORD:
-	write_to_buffer(d, "\n\r", 2);
+		write_to_buffer(d, "\n\r", 2);
 
-	if (strcmp(crypt(argument, ch->pcdata->pwd), ch->pcdata->pwd))
-	{
-	    write_to_buffer(d, "Passwords don't match.\n\rRetype password: ",
-		0);
-	    d->connected = CON_GET_NEW_PASSWORD;
-	    return;
-	}
+		if (strcmp(crypt(argument, ch->pcdata->pwd), ch->pcdata->pwd)) {
+			write_to_buffer(d, "Passwords don't match.\n\r"
+					   "Retype password: ", 0);
+			d->connected = CON_GET_NEW_PASSWORD;
+			return;
+		}
 
-	write_to_descriptor(d->descriptor, (char *) echo_on_str, 0);
-	sprintf(buf,
-"The Muddy MUD is home to %d different races with brief descriptions below:",
-			MAX_PC_RACE - 1);
-	write_to_buffer(d, buf, 0);
-	write_to_buffer(d, "\n\r", 0);
-	do_help(ch,"RACETABLE");
-	d->connected = CON_GET_NEW_RACE;
-	break;
+		write_to_descriptor(d->descriptor, (char *) echo_on_str, 0);
+		snprintf(buf, sizeof(buf), "The Muddy MUD is home to %d different races with brief descriptions below:\n\r", MAX_PC_RACE - 1);
+		write_to_buffer(d, buf, 0);
+		do_help(ch,"RACETABLE");
+		d->connected = CON_GET_NEW_RACE;
+		break;
 
 	case CON_GET_NEW_RACE:
-	one_argument(argument,arg);
+		one_argument(argument, arg);
 
-	if (!str_cmp(arg,"help"))
-	{
-	    argument = one_argument(argument,arg);
+		if (!str_cmp(arg, "help")) {
+			argument = one_argument(argument, arg);
 	    if (argument[0] == '\0')
 	      {
 		sprintf(buf,
@@ -2013,8 +1998,7 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 	}
  
 
-	if (ch->pcdata->pwd[0] == (int) NULL)
-	{
+	if (ch->pcdata->pwd[0] == (int) NULL) {
 	    write_to_buffer(d, "Warning! Null password!\n\r",0);
 	    write_to_buffer(d, "Please report old password with bug.\n\r",0);
 	    write_to_buffer(d, 
@@ -2248,7 +2232,6 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 
 	break;
     }
-    return;
 }
 
 /*
@@ -2336,41 +2319,52 @@ bool check_parse_name(const char *name)
 bool check_reconnect(DESCRIPTOR_DATA *d, const char *name, bool fConn)
 {
 	CHAR_DATA *ch;
+	DESCRIPTOR_DATA *d2;
 
-	for (ch = char_list; ch != NULL; ch = ch->next)
-	{
-	if (!IS_NPC(ch)
-	&&   (!fConn || ch->desc == NULL)
-	&&   !str_cmp(d->character->name, ch->name))
-	{
-	    if (fConn == FALSE)
-	    {
-		free_string(d->character->pcdata->pwd);
-		d->character->pcdata->pwd = str_dup(ch->pcdata->pwd);
-	    }
-	    else
-	    {
-		OBJ_DATA *obj;
-
-		free_char(d->character);
-		d->character = ch;
-		ch->desc	 = d;
-		ch->timer	 = 0;
-		char_puts(
-		    "Reconnecting. Type replay to see missed tells.\n\r", ch);
-		act("$n has reconnected.", ch, NULL, NULL, TO_ROOM);
-		if ((obj = get_eq_char(ch, WEAR_LIGHT)) != NULL
-		&&  obj->pIndexData->item_type == ITEM_LIGHT
-		&&  obj->value[2] != 0)
-		    --ch->in_room->light;
-
-		log_printf("%s@%s reconnected.", ch->name, d->host);
-		wiznet("$N groks the fullness of $S link.",
-		    ch,NULL,WIZ_LINKS,0,0);
-		d->connected = CON_PLAYING;
-	    }
-	    return TRUE;
+	if (!fConn) {
+		for (d2 = descriptor_list; d2; d2 = d2->next) {
+			if (d2 == d)
+				continue;
+			ch = d2->original ? d2->original : d2->character;
+			if (ch && !str_cmp(d->character->name, ch->name)) {
+				free_string(d->character->pcdata->pwd);
+				d->character->pcdata->pwd = str_dup(ch->pcdata->pwd);
+				return TRUE;
+			}
+		}
 	}
+
+	for (ch = char_list; ch != NULL; ch = ch->next) {
+		if (!IS_NPC(ch)
+		&&  (!fConn || ch->desc == NULL)
+		&&  !str_cmp(d->character->name, ch->name)) {
+			if (!fConn) {
+				free_string(d->character->pcdata->pwd);
+				d->character->pcdata->pwd = str_dup(ch->pcdata->pwd);
+			}
+			else {
+				OBJ_DATA *obj;
+
+				free_char(d->character);
+				d->character	= ch;
+				ch->desc	= d;
+				ch->timer	= 0;
+				char_puts("Reconnecting. Type replay to see missed tells.\n\r", ch);
+				act("$n has reconnected.",
+				    ch, NULL, NULL, TO_ROOM);
+				if ((obj = get_eq_char(ch, WEAR_LIGHT))
+				&&  obj->pIndexData->item_type == ITEM_LIGHT
+				&&  obj->value[2] != 0)
+					--ch->in_room->light;
+
+				log_printf("%s@%s reconnected.",
+					   ch->name, d->host);
+				wiznet("$N groks the fullness of $S link.",
+				       ch, NULL, WIZ_LINKS, 0, 0);
+				d->connected = CON_PLAYING;
+			}
+			return TRUE;
+		}
 	}
 
 	return FALSE;
