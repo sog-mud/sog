@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.88 1998-11-07 09:09:12 fjoe Exp $
+ * $Id: db.c,v 1.89 1998-11-23 06:38:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2175,21 +2175,6 @@ int dice(int number, int size)
 int interpolate(int level, int value_00, int value_32)
 {
 	return value_00 + level * (value_32 - value_00) / 32;
-}
-
-/*
- * Removes the tildes from a string.
- * Used for player-entered strings that go into disk files.
- */
-char *smash_tilde(const char *str)
-{
-	static char buf[MAX_STRING_LENGTH];
-	char *p;
-
-	for (p = buf; p-buf < sizeof(buf)-1 && *str; str++, p++) 
-		*p = *str == '~' ? '-' : *str;
-	*p = '\0';
-	return buf;
 }
 
 /*
