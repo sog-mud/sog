@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id:
+ * $Id: act_fishing.c,v 1.1.2.2 2002-08-31 17:41:34 tatyana Exp $
  */
 
 #include <sys/types.h>
