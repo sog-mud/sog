@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.294 2004-02-18 21:43:32 fjoe Exp $
+ * $Id: act_obj.c,v 1.295 2004-02-18 22:17:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3665,6 +3665,7 @@ sac_obj(CHAR_DATA * ch, OBJ_DATA *obj)
 		act_puts("Gods give you $j silver $qj{coins} for your sacrifice.",
 			 ch, (const void *) silver, NULL, TO_CHAR, POS_DEAD);
 		ch->silver += silver;
+
 		if (!IS_NPC(ch) && IS_SET(PC(ch)->plr_flags, PLR_AUTOSPLIT)) {
 			/* AUTOSPLIT code */
 			members = 0;
