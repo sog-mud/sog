@@ -152,7 +152,7 @@ PROMPT <%*> where the %* are the various variables you may set yourself.
         %a :  Display your alignment
         %y :  Display your percent hit
         %o :  Display opponents percent hit
-       %T : Display 'tank' percent hit
+        %T :  Display 'tank' percent hit
         %r :  Display the room name you are in
         %e :  Display the exits from the room in NESWDU style
         %R :  Display the vnum you are in (IMMORTAL ONLY)
@@ -163,6 +163,8 @@ PROMPT <%*> where the %* are the various variables you may set yourself.
         %W :  Display current wizi level (IMMORTAL or trusted players only)
         %I :  Display current incog level (IMMORTAL or trusted playes only)
         %c :  New line
+        %q :  Display your quest points
+        %Q :  Display your quest time
 
 Example:  {cPROMPT <%hhp %mm %vmv>{x
         Will set your prompt to "<10hp 100m 100mv>"
@@ -202,6 +204,8 @@ Example:  {cPROMPT <%hhp %mm %vmv>{x
        %W : покажет уровень wisinvis (для богов)
        %I : покажет уровень incognito (для богов)
        %c : сделает перевод строки
+       %q : покажет набранное тобой количество квестовых очков
+       %Q : покажет время до окончания квеста/начала следующего
  
 Пример: {cprompt <%hhp %mmana %vmv>{x -- установит тебе следующее
 приглашение: <10hp 100mana 120mv>
