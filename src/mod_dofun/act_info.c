@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.76 1998-06-20 20:53:24 fjoe Exp $
+ * $Id: act_info.c,v 1.77 1998-06-20 23:20:14 efdi Exp $
  */
 
 /***************************************************************************
@@ -1716,7 +1716,7 @@ static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, char* output)
 		clan = EMPTY_STRING;
 */
 
-	if (ch->invis_level >= LEVEL_HERO)
+	if (wch->invis_level >= LEVEL_HERO)
 		wizi = "[{WWizi{x] ";
 	else
 		wizi = EMPTY_STRING;
