@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.115 1999-05-15 10:32:42 fjoe Exp $
+ * $Id: save.c,v 1.116 1999-05-20 01:39:25 avn Exp $
  */
 
 /***************************************************************************
@@ -1444,8 +1444,6 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 					obj_to_obj(obj, rgObjNest[iNest - 1]);
 				if (obj->wear_loc != WEAR_NONE) {
 					wl = obj->wear_loc;
-					unequip_char(ch, obj);
-					equip_char(ch, obj, wl);
 				}
 				return;
 			}

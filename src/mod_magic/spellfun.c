@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.150 1999-05-19 15:00:32 kostik Exp $
+ * $Id: spellfun.c,v 1.151 1999-05-20 01:39:25 avn Exp $
  */
 
 /***************************************************************************
@@ -1548,10 +1548,7 @@ void spell_cure_disease(int sn, int level, CHAR_DATA *ch,void *vo, int target)
 	}
 
 	if (check_dispel(level,victim,gsn_plague))
-	{
-		char_puts("Your sores vanish.\n",victim);
 		act("$n looks relieved as $s sores vanish.",victim,NULL,NULL,TO_ROOM);
-	}
 	else
 		char_puts("Spell failed.\n",ch);
 }

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.140 1999-05-19 08:05:20 fjoe Exp $
+ * $Id: handler.c,v 1.141 1999-05-20 01:39:25 avn Exp $
  */
 
 /***************************************************************************
@@ -375,6 +375,7 @@ void reset_obj_affects(CHAR_DATA *ch, OBJ_DATA *obj, AFFECT_DATA *af)
 			ch->max_move	-= mod;
 			break;
 		}
+
 	}
 }
 
@@ -479,6 +480,7 @@ void reset_char(CHAR_DATA *ch)
  
 	    for (af = obj->affected; af != NULL; af = af->next)
 	    {
+		if (af->where == TO_SKILLS) affect_to_char(ch, af);
 	        mod = af->modifier;
 	        switch(af->location)
 	        {
