@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.h,v 1.12 1999-06-28 10:13:03 fjoe Exp $
+ * $Id: comm_act.h,v 1.13 1999-07-02 12:24:23 fjoe Exp $
  */
 
 #ifndef _COMM_ACT_H_
@@ -59,8 +59,9 @@
  */
 
 const char *fix_short	(const char *short_descr);
-const char *format_short(mlstring *mshort, const char *name, CHAR_DATA *to);
-const char *format_long(mlstring *desc, CHAR_DATA *to);
+const char *format_short(mlstring *mshort, const char *name,
+			 CHAR_DATA *to, int act_flags);
+const char *format_long	(mlstring *desc, CHAR_DATA *to);
 
 #define PERS(ch, looker) PERS2(ch, looker, 0)
 const char* PERS2(CHAR_DATA *ch, CHAR_DATA *looker, int act_flags);

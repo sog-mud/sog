@@ -23,13 +23,13 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: version.h,v 1.3 1999-06-29 18:28:38 avn Exp $
+ * $Id: version.h,v 1.4 1999-07-02 12:24:24 fjoe Exp $
  */
 
 #ifndef _VERSION_H_
 #define _VERSION_H_
 
-#define ABI_VERSION 0x0001
+#define ABI_VERSION 0x0002
 
 #define VERSION_HI(i) ((i >> 8) & 0xff)
 #define VERSION_LO(i) (i & 0xff)

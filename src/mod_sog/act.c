@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.36 1999-07-01 15:27:53 fjoe Exp $
+ * $Id: act.c,v 1.37 1999-07-02 12:24:24 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -66,25 +66,33 @@ const char *fix_short(const char *s)
  * name expected to be eng equiv. and is appended in form " (name)"
  * if ACT_NOENG is not set
  */
-const char *format_short(mlstring *mlshort, const char *name, CHAR_DATA *to)
+const char *format_short(mlstring *mlshort, const char *name, CHAR_DATA *to,
+			 int act_flags)
 {
-        static char buf[MAX_STRING_LENGTH];
         const char *sshort;
 
-        sshort = fix_short(mlstr_cval(mlshort, to));
-	strnzcpy(buf, sizeof(buf), sshort);
+        sshort = mlstr_cval(mlshort, to);
 
         if (!IS_SET(to->comm, COMM_NOENG)
 	&&  sshort != mlstr_mval(mlshort)) {
+        	static char buf[MAX_STRING_LENGTH];
 		char buf2[MAX_STRING_LENGTH];
-        	char buf3[MAX_STRING_LENGTH];
+		const char *format;
 
-        	one_argument(name, buf3, sizeof(buf3));
-		snprintf(buf2, sizeof(buf2), " (%s)", buf3);
-		strnzcat(buf, sizeof(buf), buf2);
+		if (IS_SET(act_flags, ACT_NOFIXSH)
+		&&  strchr(sshort, '~') == NULL)
+			format = "~%s~ (%s)";
+		else
+			format = "%s (%s)";
+
+        	one_argument(name, buf2, sizeof(buf2));
+		snprintf(buf, sizeof(buf), format, sshort, buf2);
+		sshort = buf;
 	}
 
-        return buf;
+	if (IS_SET(act_flags, ACT_NOFIXSH))
+		return sshort;
+	return fix_short(sshort);
 }
 
 /*
@@ -129,7 +137,7 @@ const char *PERS2(CHAR_DATA *ch, CHAR_DATA *looker, int act_flags)
 
 			if (IS_SET(act_flags, ACT_FORMSH)) {
 				return format_short(&ch->short_descr, ch->name,
-						    looker);
+						    looker, act_flags);
 			}
 
 			descr = mlstr_cval(&ch->short_descr, looker);
@@ -238,8 +246,10 @@ act_format_obj(OBJ_DATA *obj, CHAR_DATA *to, int act_flags)
 	if (!can_see_obj(to, obj))
 		return GETMSG("something", to->lang);
 
-	if (IS_SET(act_flags, ACT_FORMSH))
-		return format_short(&obj->short_descr, obj->name, to);
+	if (IS_SET(act_flags, ACT_FORMSH)) {
+		return format_short(&obj->short_descr, obj->name,
+				    to, act_flags);
+	}
 
 	descr = mlstr_cval(&obj->short_descr, to);
 	if (IS_SET(act_flags, ACT_NOFIXSH))

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.262 1999-07-01 15:31:12 fjoe Exp $
+ * $Id: act_info.c,v 1.263 1999-07-02 12:24:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -464,9 +464,9 @@ static void do_look_in(CHAR_DATA* ch, const char *argument)
 	case ITEM_CORPSE_NPC:
 	case ITEM_CORPSE_PC:
 		if (IS_SET(obj->value[1], CONT_CLOSED) 
-		&& (!ch->clan ||
-		clan_lookup(ch->clan)->altar_ptr != obj)) {
-			char_puts("It is closed.\n", ch);
+		&&  (!ch->clan ||
+		     clan_lookup(ch->clan)->altar_ptr != obj)) {
+			act("It is closed.", ch, obj, NULL, TO_CHAR);
 			break;
 		}
 
@@ -3880,7 +3880,7 @@ static char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 
 	if (fShort) {
 		strnzcat(buf, sizeof(buf),
-			 format_short(&obj->short_descr, obj->name, ch));
+			 format_short(&obj->short_descr, obj->name, ch, 0));
 		if (obj->pIndexData->vnum > 5 /* not money, gold, etc */
 		&&  (obj->condition < COND_EXCELLENT ||
 		     !IS_SET(ch->comm, COMM_NOVERBOSE))) {
@@ -3897,7 +3897,7 @@ static char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 
 		p = strchr(buf, '\0');
 		strnzcat(buf, sizeof(buf),
-			 format_short(&obj->short_descr, obj->name, ch));
+			 format_short(&obj->short_descr, obj->name, ch, 0));
 		p[0] = UPPER(p[0]);
 		switch(number_range(1, 3)) {
 		case 1:

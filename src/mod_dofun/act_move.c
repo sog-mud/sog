@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.188 1999-06-28 09:04:12 fjoe Exp $
+ * $Id: act_move.c,v 1.189 1999-07-02 12:24:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -599,29 +599,33 @@ void do_stand(CHAR_DATA *ch, const char *argument)
 
 	if (argument[0] != '\0') {
 		if (ch->position == POS_FIGHTING) {
-		    char_puts("Maybe you should finish fighting first?\n", ch);
-		    return;
+			char_puts("Maybe you should finish fighting first?\n",
+				  ch);
+			return;
 		}
+
 		obj = get_obj_list(ch,argument,ch->in_room->contents);
-		if (obj == NULL)
-		{
-		    char_puts("You don't see that here.\n", ch);
-		    return;
+		if (obj == NULL) {
+			char_puts("You don't see that here.\n", ch);
+			return;
 		}
+
 		if (obj->pIndexData->item_type != ITEM_FURNITURE
-		||  (!IS_SET(obj->value[2],STAND_AT)
-		&&   !IS_SET(obj->value[2],STAND_ON)
-		&&   !IS_SET(obj->value[2],STAND_IN)))
-		{
-		    char_puts("You can't seem to find a place to stand.\n", ch);
-		    return;
+		||  (!IS_SET(obj->value[2], STAND_AT) &&
+		     !IS_SET(obj->value[2], STAND_ON) &&
+		     !IS_SET(obj->value[2], STAND_IN))) {
+			char_puts("You can't seem to find a place to stand.\n",
+				  ch);
+			return;
 		}
-		if (ch->on != obj && count_users(obj) >= obj->value[0])
-		{
-		    act_puts("There's no room to stand on $p.", ch, obj, NULL, TO_ROOM, POS_DEAD);
-		    return;
+
+		if (ch->on != obj && count_users(obj) >= obj->value[0]) {
+			act_puts("There's no room to stand on $p.",
+				 ch, obj, NULL, TO_ROOM, POS_DEAD);
+			return;
 		}
 	}
+
 	switch (ch->position) {
 	case POS_SLEEPING:
 		if (IS_AFFECTED(ch, AFF_SLEEP))
@@ -730,10 +734,10 @@ void do_rest(CHAR_DATA *ch, const char *argument)
 	else obj = ch->on;
 
 	if (obj != NULL) {
-		if (!IS_SET(obj->pIndexData->item_type,ITEM_FURNITURE) 
-		||  (!IS_SET(obj->value[2],REST_ON) &&
-		     !IS_SET(obj->value[2],REST_IN) &&
-		     !IS_SET(obj->value[2],REST_AT))) {
+		if (obj->pIndexData->item_type != ITEM_FURNITURE 
+		||  (!IS_SET(obj->value[2], REST_ON) &&
+		     !IS_SET(obj->value[2], REST_IN) &&
+		     !IS_SET(obj->value[2], REST_AT))) {
 		    char_puts("You can't rest on that.\n", ch);
 		    return;
 		}
@@ -873,10 +877,10 @@ void do_sit(CHAR_DATA *ch, const char *argument)
 		obj = ch->on;
 
 	if (obj != NULL) {
-		if (!IS_SET(obj->pIndexData->item_type,ITEM_FURNITURE)
-		||  (!IS_SET(obj->value[2],SIT_ON)
-		&&   !IS_SET(obj->value[2],SIT_IN)
-		&&   !IS_SET(obj->value[2],SIT_AT))) {
+		if (obj->pIndexData->item_type != ITEM_FURNITURE
+		||  (!IS_SET(obj->value[2], SIT_ON) &&
+		     !IS_SET(obj->value[2], SIT_IN) &&
+		     !IS_SET(obj->value[2], SIT_AT))) {
 			char_puts("You can't sit on that.\n", ch);
 			return;
 		}
@@ -1013,8 +1017,8 @@ void do_sleep(CHAR_DATA *ch, const char *argument)
 
 			if (obj->pIndexData->item_type != ITEM_FURNITURE
 			||  (!IS_SET(obj->value[2], SLEEP_ON) &&
-			     !IS_SET(obj->value[2],SLEEP_IN) &&
-			     !IS_SET(obj->value[2],SLEEP_AT))) {
+			     !IS_SET(obj->value[2], SLEEP_IN) &&
+			     !IS_SET(obj->value[2], SLEEP_AT))) {
 				char_puts("You can't sleep on that.\n", ch);
 				return;
 			}

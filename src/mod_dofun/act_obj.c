@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.160 1999-07-01 18:13:44 avn Exp $
+ * $Id: act_obj.c,v 1.161 1999-07-02 12:24:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2047,7 +2047,7 @@ void do_list(CHAR_DATA * ch, const char *argument)
 					char_printf(ch, "[%2d %5d -- ] %s\n",
 						obj->level, cost,
 						format_short(&obj->short_descr,
-							     obj->name, ch));
+							     obj->name, ch, 0));
 				else {
 					count = 1;
 
@@ -2061,7 +2061,7 @@ void do_list(CHAR_DATA * ch, const char *argument)
 					char_printf(ch, "[%2d %5d %2d ] %s\n",
 						obj->level, cost, count,
 						format_short(&obj->short_descr,
-							     obj->name, ch));
+							     obj->name, ch, 0));
 				}
 			}
 		}
