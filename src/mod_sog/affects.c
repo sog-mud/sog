@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.6 1999-10-25 12:05:21 fjoe Exp $
+ * $Id: affects.c,v 1.7 1999-11-18 15:31:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -151,12 +151,12 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 
 	case APPLY_HITROLL:	ch->hitroll		+= mod;	break;
 	case APPLY_DAMROLL:	ch->damroll		+= mod;	break;
-	case APPLY_LEVEL:	ch->drain_level		+= mod; break;
+	case APPLY_LEVEL:	ch->add_level		+= mod; break;
 
-	case APPLY_SIZE:	ch->size	+= mod;			break;
-	case APPLY_AGE:		
+	case APPLY_SIZE:	ch->size		+= mod;	break;
+	case APPLY_AGE:	
 		if (!IS_NPC(ch))
-			PC(ch)->played += age_to_num(mod);
+			PC(ch)->add_age += age_to_num(mod);
 		break;
 
 	case APPLY_AC:
@@ -234,8 +234,11 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 	/*
 	 * Check for weapon wielding.
 	 * Guard against recursion (for weapons with affects).
+	 * May be called from char_load (ch->in_room will be NULL)
 	 */
-	if (!IS_NPC(ch) && (wield = get_eq_char(ch, WEAR_WIELD)) != NULL
+	if (!IS_NPC(ch)
+	&&  ch->in_room != NULL
+	&&  (wield = get_eq_char(ch, WEAR_WIELD)) != NULL
 	&&  get_obj_weight(wield) > (str_app[get_curr_stat(ch,STAT_STR)].wield*10))
 	{
 		static int depth;

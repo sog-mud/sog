@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.c,v 1.8 1999-10-21 12:52:04 fjoe Exp $
+ * $Id: race.c,v 1.9 1999-11-18 15:31:31 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -94,5 +94,24 @@ pcrace_free(pcrace_t *pcr)
 	free_string(pcr->skill_spec);
 	free_string(pcr->bonus_skills);
 	free(pcr);
+}
+
+void race_setstats(CHAR_DATA *ch, const char *rn)
+{
+	race_t *r;
+
+	if ((r = race_lookup(rn)) == NULL)
+		return;
+
+	if (r->race_pcdata != NULL)
+		ch->size = r->race_pcdata->size;
+
+	ch->damtype = str_dup("punch");
+	ch->affected_by = r->aff;
+	ch->imm_flags = r->imm;
+	ch->res_flags = r->res;
+	ch->vuln_flags = r->vuln;
+	ch->form = r->form;
+	ch->parts = r->parts;
 }
 

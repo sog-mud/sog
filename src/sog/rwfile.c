@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rwfile.c,v 1.3 1999-10-29 06:54:18 fjoe Exp $
+ * $Id: rwfile.c,v 1.4 1999-11-18 15:31:31 fjoe Exp $
  */
 
 static char str_end[] = "End";
@@ -396,6 +396,16 @@ void fread_to_eol(rfile_t *fp)
 	} while (c == '\n' || c == '\r');
 
 	xungetc(fp);
+}
+
+void fread_to_end(rfile_t *fp)
+{
+	for (;;) {
+		fread_to_eol(fp);
+		fread_keyword(fp);
+		if (!IS_TOKEN(fp, "End"))
+			break;
+	}
 }
 
 /*

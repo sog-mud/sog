@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.192 1999-10-25 08:23:33 fjoe Exp $
+ * $Id: handler.c,v 1.193 1999-11-18 15:31:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -502,14 +502,30 @@ OBJ_DATA *get_eq_char(CHAR_DATA *ch, int iWear)
 	return NULL;
 }
 
+void _equip_char(CHAR_DATA *ch, OBJ_DATA *obj)
+{
+	int i;
+	AFFECT_DATA *paf;
+
+	if (obj->wear_loc == WEAR_STUCK_IN)
+		return;
+
+	for (i = 0; i < 4; i++)
+		ch->armor[i] -= apply_ac(obj, obj->wear_loc, i);
+
+	if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED))
+		for (paf = obj->pObjIndex->affected; paf; paf = paf->next)
+			affect_modify(ch, paf, TRUE);
+
+	for (paf = obj->affected; paf; paf = paf->next)
+		affect_modify(ch, paf, TRUE);
+}
+
 /*
  * Equip a char with an obj. Return obj on success. Otherwise returns NULL.
  */
 OBJ_DATA * equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 {
-	AFFECT_DATA *paf;
-	int i;
-
 	if (iWear == WEAR_STUCK_IN) {
 		obj->wear_loc = iWear;
 		return obj;
@@ -546,21 +562,8 @@ OBJ_DATA * equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 		return NULL;
 	}
 
-	for (i = 0; i < 4; i++)
-		ch->armor[i]      	-= apply_ac(obj, iWear,i);
-	obj->wear_loc	 = iWear;
-
-	if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED))
-		for (paf = obj->pObjIndex->affected; paf; paf = paf->next)
-			if (paf->where != TO_SKILLS
-			&&  INT_VAL(paf->location) != APPLY_SPELL_AFFECT)
-				affect_modify(ch, paf, TRUE);
-	for (paf = obj->affected; paf; paf = paf->next)
-		if (paf->where != TO_SKILLS
-		&&  INT_VAL(paf->location) != APPLY_SPELL_AFFECT)
-			affect_modify(ch, paf, TRUE);
-		else
-			affect_to_char(ch, paf);
+	obj->wear_loc = iWear;
+	_equip_char(ch, obj);
 
 	if (obj->pObjIndex->item_type == ITEM_LIGHT
 	&&  INT_VAL(obj->value[2]) != 0
@@ -573,29 +576,11 @@ OBJ_DATA * equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 
 void strip_obj_affects(CHAR_DATA *ch, OBJ_DATA *obj, AFFECT_DATA *paf)
 {
-	AFFECT_DATA *lpaf_next = NULL;
-	AFFECT_DATA *lpaf = NULL;
-
 	for (; paf != NULL; paf = paf->next) {
-		if (paf->where != TO_SKILLS
-		&&  INT_VAL(paf->location) != APPLY_SPELL_AFFECT) {
-			affect_modify(ch, paf, FALSE);
-			affect_check(ch, paf->where, paf->bitvector);
-		} else {
-		        for (lpaf = ch->affected; lpaf; lpaf = lpaf_next) {
-				lpaf_next = lpaf->next;
-				if ((IS_SKILL(lpaf->type, paf->type))
-				&&  (lpaf->level == paf->level)
-				&&  (INT_VAL(lpaf->location) ==
-				     INT_VAL(paf->location))) {
-					affect_remove(ch, lpaf);
-					lpaf_next = NULL;
-				}
-		        }
-		}
+		affect_modify(ch, paf, FALSE);
+		affect_check(ch, paf->where, paf->bitvector);
 	}
 }
-
 
 /*
  * Unequip a char with an obj.
@@ -615,8 +600,8 @@ void unequip_char(CHAR_DATA *ch, OBJ_DATA *obj)
 	}
 
 	for (i = 0; i < 4; i++)
-		ch->armor[i]	+= apply_ac(obj, obj->wear_loc,i);
-	obj->wear_loc	 = -1;
+		ch->armor[i] += apply_ac(obj, obj->wear_loc,i);
+	obj->wear_loc = -1;
 
 	if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED))
 		strip_obj_affects(ch, obj, obj->pObjIndex->affected);
@@ -640,8 +625,7 @@ int count_obj_list(OBJ_INDEX_DATA *pObjIndex, OBJ_DATA *list)
 	int nMatch;
 
 	nMatch = 0;
-	for (obj = list; obj != NULL; obj = obj->next_content)
-	{
+	for (obj = list; obj != NULL; obj = obj->next_content) {
 		if (obj->pObjIndex == pObjIndex)
 		    nMatch++;
 	}
@@ -2265,7 +2249,7 @@ bool saves_spell(int level, CHAR_DATA *victim, int dam_type)
 	class_t *vcl;
 	int save;
 
-	save = 40 + (victim->level + victim->drain_level - level) * 4 - 
+	save = 40 + (LEVEL(victim) - level) * 4 - 
 		(victim->saving_throw * 90) / UMAX(45, victim->level);
 
 	if (IS_AFFECTED(victim, AFF_BERSERK))
@@ -4368,8 +4352,10 @@ static inline
 int
 get_played(CHAR_DATA *ch)
 {
-	return IS_NPC(ch) ?
-		0 : current_time - PC(ch)->logon + PC(ch)->played;
+	if (IS_NPC(ch))
+		return 0;
+
+	return current_time - PC(ch)->logon + PC(ch)->played + PC(ch)->add_age;
 }
 
 int get_age(CHAR_DATA *ch)

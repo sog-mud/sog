@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.167 1999-11-18 12:44:38 kostik Exp $
+ * $Id: update.c,v 1.168 1999-11-18 15:31:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -111,36 +111,25 @@ void advance_level(CHAR_DATA *ch)
 	update_skills(ch);
 
 	add_hp = number_range(min_hit_gain(ch), max_hit_gain(ch));
-
 	add_mana = number_range(min_mana_gain(ch), max_mana_gain(ch));
-
 	add_move = number_range(min_move_gain(ch), max_move_gain(ch));
-
-
-/* No more sex discrimination :) 
-	if (ch->sex == SEX_FEMALE) {
-		add_hp   -= 1;
-		add_mana += 2;
-	}
-*/
 
 	ch->max_hit += add_hp;
 	ch->max_mana += add_mana;
 	ch->max_move += add_move;
-	PC(ch)->practice += add_prac;
 
+	ch->perm_hit += add_hp;
+	ch->perm_mana += add_mana;
+	ch->perm_move += add_move;
+
+	PC(ch)->practice += add_prac;
 
 	if (PC(ch)->plevels > 0) {
 		PC(ch)->plevels--;
-	}
-	else {
+	} else {
 		PC(ch)->train += ch->level % 5 ? 0 : 1;
 		add_prac = wis_app[get_curr_stat(ch,STAT_WIS)].practice;
 	}
-
-	PC(ch)->perm_hit += add_hp;
-	PC(ch)->perm_mana += add_mana;
-	PC(ch)->perm_move += add_move;
 
 	char_printf(ch, "Your gain is {C%d{x hp, {C%d{x mana, {C%d{x mv {C%d{x prac.\n",
 			add_hp, add_mana, add_move, add_prac);
@@ -176,25 +165,23 @@ void delevel(CHAR_DATA *ch)
 	ch->max_mana -= lost_mana;
 	ch->max_move -= lost_move;
 
-	PC(ch)->perm_hit  -= lost_hitp;
-	PC(ch)->perm_mana -= lost_mana;
-	PC(ch)->perm_move -= lost_move;
+	ch->perm_hit  -= lost_hitp;
+	ch->perm_mana -= lost_mana;
+	ch->perm_move -= lost_move;
 
 	PC(ch)->plevels++;
 
 	char_printf(ch, "You loose {C%d{x hp, {C%d{x mana, {C%d{x mv.\n",
 			lost_hitp, lost_mana, lost_move);
 
-	if(PC(ch)->perm_hit <= 0) {
-		act("You lost your life power.", ch, NULL, NULL, TO_CHAR);
+	if(ch->perm_hit <= 0) {
+		act("You've lost your life power.", ch, NULL, NULL, TO_CHAR);
 		delete_player(ch, "lack of HP");
-	}
-	else if (PC(ch)->perm_mana <= 0) {
-		act("You lost all your power.", ch, NULL, NULL, TO_CHAR);
+	} else if (ch->perm_mana <= 0) {
+		act("You've lost all your power.", ch, NULL, NULL, TO_CHAR);
 		delete_player(ch, "lack of mana");
-	}
-	else if (PC(ch)->perm_move <= 0) {
-		act("You lost all your ability to move.", ch, NULL, NULL, TO_CHAR);
+	} else if (ch->perm_move <= 0) {
+		act("You've lost all your ability to move.", ch, NULL, NULL, TO_CHAR);
 		delete_player(ch, "lack of move");
 	}
 }
@@ -224,22 +211,14 @@ void advance(CHAR_DATA *victim, int level)
 
 		char_puts("**** OOOOHHHHHHHHHH  NNNNOOOO ****\n", victim);
 		temp_prac = PC(victim)->practice;
-		victim->level		= 1;
+		victim->level = 1;
 		PC(victim)->exp	= base_exp(victim);
-		victim->max_hit		= 10;
-		victim->max_mana	= 100;
-		victim->max_move	= 100;
-		PC(victim)->practice= 0;
-		victim->hit		= victim->max_hit;
-		victim->mana		= victim->max_mana;
-		victim->move		= victim->max_move;
-		PC(victim)->perm_hit	= victim->max_hit;
-		PC(victim)->perm_mana	= victim->max_mana;
-		PC(victim)->perm_move	= victim->max_move;
+		SET_HIT(victim, 20);
+		SET_MANA(victim, 100);
+		SET_MOVE(victim, 100);
 		advance_level(victim);
 		PC(victim)->practice= temp_prac;
-	}
-	else 
+	} else 
 		char_puts("**** OOOOHHHHHHHHHH  YYYYEEEESSS ****\n", victim);
 
 	for (iLevel = victim->level; iLevel < level; iLevel++) {

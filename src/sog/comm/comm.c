@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.205 1999-10-26 13:52:55 fjoe Exp $
+ * $Id: comm.c,v 1.206 1999-11-18 15:31:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1728,6 +1728,21 @@ print_class_cb(void *p, void *d)
 	return NULL;
 }
 
+void adjust_hmv(CHAR_DATA *ch, int percent)
+{
+	if (percent > 0
+	&&  !IS_AFFECTED(ch, AFF_POISON | AFF_PLAGUE)) {
+		ch->hit += (ch->max_hit - ch->hit) * percent / 100;
+		ch->mana += (ch->max_mana - ch->mana) * percent / 100;
+		ch->move += (ch->max_move - ch->move) * percent / 100;
+
+		if (!IS_NPC(ch)) {
+			PC(ch)->questtime = -abs(PC(ch)->questtime *
+				(100 - UMIN(5 * percent, 100)) / 100);
+		}
+	}
+}
+
 /*
  * Deal with sockets that haven't logged in yet.
  */
@@ -2052,21 +2067,10 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			ch->mod_stat[i] += r->race_pcdata->stats[i];	*/
 
 		/* Add race modifiers */
-		ch->max_hit += r->race_pcdata->hp_bonus;
-		ch->hit = ch->max_hit;
-		ch->max_mana += r->race_pcdata->mana_bonus;
-		ch->mana = ch->max_mana;
+		SET_HIT(ch, ch->perm_hit + r->race_pcdata->hp_bonus);
+		SET_MANA(ch, ch->perm_mana + r->race_pcdata->mana_bonus);
 		PC(ch)->practice = r->race_pcdata->prac_bonus;
-
-		ch->affected_by = ch->affected_by| r->aff;
-		ch->imm_flags	= ch->imm_flags| r->imm;
-		ch->res_flags	= ch->res_flags| r->res;
-		ch->vuln_flags	= ch->vuln_flags| r->vuln;
-		ch->form	= r->form;
-		ch->parts	= r->parts;
-
-		PC(ch)->points = r->race_pcdata->points;
-		ch->size = r->race_pcdata->size;
+		race_setstats(ch, ch->race);
 
 		char_puts("What is your sex (M/F)? ", ch);
 		d->connected = CON_GET_NEW_SEX;
@@ -2075,10 +2079,10 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	case CON_GET_NEW_SEX: 
 		switch (argument[0]) {
 		case 'm': case 'M':
-			ch->sex = PC(ch)->true_sex = SEX_MALE;
+			ch->sex = SEX_MALE;
 			break;
 		case 'f': case 'F':
-			ch->sex = PC(ch)->true_sex = SEX_FEMALE;
+			ch->sex = SEX_FEMALE;
 			break;
 		default:
 	    		char_puts("That's not a sex.\n", ch);
@@ -2122,7 +2126,6 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		}
 
 		ch->class = str_qdup(cl->name);
-		PC(ch)->points += cl->points;
 		act("You are now $t.", ch, cl->name, NULL, TO_CHAR);
 
 		dofun("help", ch, "STATS");
@@ -2374,14 +2377,11 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			OBJ_DATA *wield;
 			OBJ_INDEX_DATA *map;
 
-			ch->level		= 1;
-			PC(ch)->exp		= base_exp(ch);
-			ch->hit			= ch->max_hit;
-			ch->mana		= ch->max_mana;
-			ch->move		= ch->max_move;
-			PC(ch)->train	= 3;
-			PC(ch)->practice   += 5;
-			PC(ch)->death	= 0;
+			ch->level = 1;
+			PC(ch)->exp = base_exp(ch);
+			PC(ch)->train = 3;
+			PC(ch)->practice += 5;
+			PC(ch)->death = 0;
 
 			spec_update(ch);
 
@@ -2403,6 +2403,18 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		} else {
 			CHAR_DATA *pet;
 			ROOM_INDEX_DATA *to_room;
+			int logoff = PC(ch)->logoff;
+			int percent;
+
+			if (!logoff)
+				logoff = current_time;
+
+			/*
+			 * adjust hp/mana/move up
+			 */
+			percent = (current_time - logoff) * 25 / (2 * 60 * 60);
+			percent = UMIN(percent, 100);
+			adjust_hmv(ch, percent);
 
 			if (ch->in_room
 			&&  (room_is_private(ch->in_room) ||
@@ -2423,6 +2435,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			char_to_room(ch, to_room);
 
 			if (pet) {
+				adjust_hmv(pet, percent);
 				act("$N has entered the game.",
 				    to_room->people, NULL, pet, TO_ROOM);
 				char_to_room(pet, to_room);

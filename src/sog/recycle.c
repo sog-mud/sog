@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.72 1999-10-26 13:52:51 fjoe Exp $
+ * $Id: recycle.c,v 1.73 1999-11-18 15:31:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -276,23 +276,29 @@ CHAR_DATA *char_new(MOB_INDEX_DATA *pMobIndex)
 	memset(ch, 0, size);
 
 	ch->last_death_time	= -1;
-	ch->hit			= 20;
-	ch->max_hit		= 20;
-	ch->mana		= 100;
-	ch->max_mana		= 100;
-	ch->move		= 100;
-	ch->max_move		= 100;
+	SET_HIT(ch, 20);
+	SET_MANA(ch, 100);
+	SET_MOVE(ch, 100);
 	ch->position		= POS_STANDING;
 	ch->damtype		= str_empty;
+	ch->hitroll		= 0;
+	ch->damroll		= 0;
+	ch->saving_throw	= 0;
+	ch->add_level		= 0;
+
 	for (i = 0; i < 4; i++)
-		ch->armor[i]	= 100;
-	for (i = 0; i < MAX_STATS; i ++)
+		ch->armor[i] = 100;
+	for (i = 0; i < MAX_STATS; i++) {
 		ch->perm_stat[i] = 13;
+		ch->mod_stat[i] = 0;
+	}
 
 	if (pMobIndex) {
 		ch->pMobIndex = pMobIndex;
+		ch->comm = COMM_NOSHOUT | COMM_NOMUSIC;
 	} else {
 		PC_DATA *pc = PC(ch);
+		pc->add_age = 0;
 		pc->logon = current_time;
 		pc->version = PFILE_VERSION;
 		pc->buffer = buf_new(-1);
@@ -313,6 +319,17 @@ CHAR_DATA *char_new(MOB_INDEX_DATA *pMobIndex)
 		pc->granted = str_empty;
 		pc->wanted_by = str_empty;
 		pc->dvdata = dvdata_new();
+		pc->condition[COND_THIRST] = 48;
+		pc->condition[COND_FULL] = 48;
+		pc->condition[COND_HUNGER] = 48;
+		pc->condition[COND_BLOODLUST] = 48;
+		pc->condition[COND_DESIRE] = 48;
+		pc->race = str_dup("human");
+		pc->clan_status = CLAN_COMMONER;
+		pc->plr_flags = PLR_NOSUMMON | PLR_NOCANCEL;
+		pc->bank_s = 0;
+		pc->bank_g = 0;
+		ch->comm = COMM_COMBINE | COMM_PROMPT;
 	}
 	RESET_FIGHT_TIME(ch);
 	return ch;

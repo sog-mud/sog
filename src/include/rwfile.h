@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rwfile.h,v 1.3 1999-10-29 06:54:17 fjoe Exp $
+ * $Id: rwfile.h,v 1.4 1999-11-18 15:31:30 fjoe Exp $
  */
 
 #ifndef _RFILE_H_
@@ -74,6 +74,7 @@ const char *	fread_string	(rfile_t *fp);
 char		fread_letter	(rfile_t *fp);
 int		fread_number	(rfile_t *fp);
 flag64_t 	fread_flags	(rfile_t *fp);
+void		fread_to_end	(rfile_t *fp);
 void		fread_to_eol	(rfile_t *fp);
 flag64_t	fread_fword	(const flag_t *table, rfile_t *fp); 
 flag64_t	fread_fstring	(const flag_t *table, rfile_t *fp);
