@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.284 2001-08-03 11:27:36 fjoe Exp $
+ * $Id: act_wiz.c,v 1.285 2001-08-03 12:39:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3362,8 +3362,8 @@ do_mset(CHAR_DATA *ch, const char *argument)
 			if (!IS_NPC(victim)
 			&&  (clo = clan_lookup(victim->clan))
 			&&  !IS_CLAN(clo->name, "none")) {
-				clan_update_lists(clo, victim, TRUE);
-				clan_save(clo);
+				clan_update_lists(clo->name, victim, TRUE);
+				clan_save(clo->name);
 			}
 
 			free_string(victim->clan);
@@ -3388,7 +3388,7 @@ do_mset(CHAR_DATA *ch, const char *argument)
 			if (!IS_CLAN(cl->name, "none")) {
 				name_add(&cl->member_list, victim->name,
 					 NULL, NULL);
-				clan_save(cl);
+				clan_save(cl->name);
 			}
 
 			spec_update(victim);
@@ -3927,7 +3927,7 @@ void do_rename(CHAR_DATA* ch, const char *argument)
 		}
 
 		if (touched)
-			clan_save(clan);
+			clan_save(clan->name);
 	}
 
 	/* change object owners */
