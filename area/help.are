@@ -1752,13 +1752,26 @@ freeze is usually preferred.
 ~
 92 'WIZ DISCONNECT' DISCONNECT~
 @eng Syntax: {cdisconnect{x <name>
+Syntax: {cdisconnect{x <number>
 
-Disconnect breaks a player's link to the game, dumping them back to the telnet
+DISCONNECT breaks a player's link to the game, dumping them back to the telnet
 prompt.  This is a non-lethal way of getting rid of spammers and annoying
 players.
+ 
+DISCONNECT with a numeric argument is used to disconnect characters not fully
+logged in. Number of channel to disconnect may be taken from SOCKETS command.
+ 
+See also {CHELP SOCKETS{x
 @rus Синтаксис: {cdisconnect{x <имя>
+Синтаксис: {cdisconnect{x <номер>
 
 Эта команда разрывает связь с указанным игроком.
+ 
+DISCONNECT с числовым аргументом служит для закрытия соединения еще не полнос-
+тью вошедшего в игру персонажа. Номер соединения можно выяснить при помощи
+команды SOCKETS.
+ 
+Смотри также {CHELP SOCKETS{x
 ~
 92 'WIZ FREEZE' FREEZE~
 Syntax: freeze <name>
@@ -1780,17 +1793,29 @@ FORCE 'all' forces all player characters to execute a command.
 This is typically used for 'force all save'.
 ~
 92 'WIZ SOCKETS' SOCKETS~
-Syntax: sockets
-	sockets <name> 
-
-SOCKETS reports all of the visible users connected to the server, including 
-users in the process of logging in.  The two numbers inside brackets are the 
-channel number and the 'connected' state.  The 'connected' states are listed in 
-merc.h: 0 is CON_PLAYING; non-zero values are various states of logging in.
-
+@eng Syntax: {csockets{x
+Syntax: {csockets{x <name>
+ 
+SOCKETS reports all of the visible users connected to the server, including
+users in the process of logging in.  The two numbers inside brackets are the
+channel number and the 'connected' state.  The 'connected' states are listed
+in merc.h: 0 is CON_PLAYING; non-zero values are various states of logging in.
+ 
 The optional name argument shows the site of a player, or optional can be used
-to identify switched gods (i.e. socket orc shows the name of anyone switched
+to identify switched gods (i.e. SOCKET ORC shows the name of anyone switched
 into an orc).
+@rus Синтаксис: {csockets{x
+Синтаксис: {csockets{x <имя>
+ 
+SOCKETS показывает всех пользователей, подключенных к серверу, включая тех,
+кто в этот момент нахохдится в процессе подключения. Два числа в скобках
+означают номер канала и состояние поключения. Все состояния перечислены в
+файле merc.h. 0 - это играющий персонаж, ненулевые значения соответствуют
+различным стадиям входа в игру.
+ 
+Вместе с аргументом SOCKETS показывает сервер, с которого вошел персонаж. Это
+может также быть использовано для определения "переключившихся" богов. Напри-
+мер, SOCKETS ORC покажет имя того, кто переключился в орка.
 ~
 92 'WIZ LOAD' LOAD~
 @eng Syntax: {cload mob{x <vnum>
@@ -2206,9 +2231,12 @@ WIZNET <параметр> определяет, информацию о каких сообщениях ты будешь получать.
 {cwizlog{x    : получать копию сообщений, идущих в лог-файл
 ~
 92 'WIZ WIZHELP' WIZHELP~
-Syntax: wizhelp
+@eng Syntax: {cwizhelp{x
 
 Wizhelp provides a list of all the immortal commands.
+@rus Синтаксис: {cwizhelp{x
+ 
+WIZHELP показывает список всех команд для бессмертных, доступных тебе.
 ~
 0 ARMOR~
 Syntax: cast armor <character>
@@ -4937,10 +4965,10 @@ Thanks to Ezra for drawing the originals of several maps on ROM.
 * This is a Roleplaying, PlayerKilling and Adventure MUD.
 * You are responsible for knowing the rules (type 'rules').  Ignorance of 
   the rules is no excuse.
-* Important commands: help, commands, news, notes.
+* Important cammands: help, commands, news, notes, changes.
 * Read all helps. So many things are changed relatively before.
 * Added multi-language support command. See '{Clanguage{x' command.
-* Added short mode for flags. See '{Clong{x' command.
+* Added short mode for flags. See '{CHELP TOGGLE{x'.
 * {CGossip{x and {Cmusic{x channels added.
 * Use '{Cbug{x' command or mail to {Cmud@@iclub.nsu.ru{x for bug reports
   and suggestions.
@@ -5649,15 +5677,15 @@ This automatic skill allows ninjas to fight more efficiently then unarmed.
 ~
 0 'WIZ MODULES' MODULES~
 @eng Syntax: {cmodules reload{x <name>
+Syntax: {cmodules list{x
  
 MODULES RELOAD command will reload module with name NAME
-Available modules:
-   spellfun    - all spell functions
+MODULES LIST lists all loaded modules.
 @rus Синтаксис: {cmodules reload{x <название>
+Синтаксис: {cmodules list{x
  
-MODULES RELOAD перезагрузит указанный модуль.
-Доступные модули:
-   spellfun    - все функции заклинаний
+MODULES RELOAD перезагружает указанный модуль.
+MODULES LIST показывает список всех загруженных модулей.
 ~
 0 TOGGLE~
 Syntax: {ctoggle{x <option>

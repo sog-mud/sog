@@ -853,7 +853,7 @@ a wooden mallet~
 A wooden mallet is here.~
 wood~
 weapon 0 AN
-exotic 8 10 crush 0
+mace 8 10 crush 0
 90 10 7000 P
 A
 18 -1
@@ -1444,7 +1444,7 @@ a garrote wire~
 A long piece of wire lies on the ground.~
 metal~
 weapon 0 AN
-exotic 10 9 grep 0
+whip 10 9 grep 0
 80 1 1000 P
 G none
 #17060

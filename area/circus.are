@@ -1188,10 +1188,14 @@ Z 0 4403
 S
 #4406
 @eng The Path to the Big Top@rus Дорожка в Шапито~
-This way to the Big Top is lined with people.  They seem to be having 
+@eng This way to the Big Top is lined with people.  They seem to be having 
 a good time.  Everyone that is, except the people waiting in line for the 
 Big Top.  They seem annoyed at you as you push your way past them.  To the
 east you see the freak shows.  To the west you see a vendor.  
+@rus Эта дорожка ведет в шапито. Она полна людей и всякого сброда. Вроде они не
+плохо проводят время, но твое поведение раздражает их (ты распихиваешь очередь)
+На востоке расположенны причудливые шоу, а на западе торгуют
+сувенирами и прочим хламом.
 ~
 0 0 city
 D0
@@ -1212,9 +1216,11 @@ D3
 Z 0 4407
 S
 #4407
-The Cotton Candy Vendor~
-The smell of cotton candy makes your mouth water.  Be careful about
+@eng The Cotton Candy Vendor@rus Торовая палатка~
+@eng The smell of cotton candy makes your mouth water.  Be careful about
 eating too much, all that sugar may make you hyper.
+@rus От запаха кофет и леденцов ты глотаешь слюнки. Буть осторожней !
+Много сладкого не пойдет тебе на пользу.
 ~
 0 0 city
 D1
@@ -1223,12 +1229,17 @@ D1
 Z 0 4406
 S
 #4408
-The Entrance to the Freak Shows~
-This area is filled with posters of the attractions the Circus has 
+@eng The Entrance to the Freak Shows@rus Вперед к развлечениям~
+@eng This area is filled with posters of the attractions the Circus has 
 to offer to the curious.  You are invited to watch feats of strength from the
 strong man, gasp as a man swallows a sword, see a real, Bearded Lady, 
 be amazed by the midget's feats of acrobatics, and be dazzled by the great
 magical powers of the Illusionist.
+@rus Это место полно афиш и объявлений с описаниями атракционов предлагаемых в
+цирке. Вас приглашают взлянуть на даму с бородой, помериться силенкой с
+атлетом, посмотреть шоу фокусников и акрабатов, удивиться их ловкости, про
+ворности и умению ! Похлопать и поопладировать им, но и конечно внизу 
+виднеется список цен. Да ... наверное они не плохо зарабатывают.
 ~
 0 0 city
 D1
@@ -1345,11 +1356,15 @@ You see the Strongman's Tent.
 Z 0 4413
 S
 #4413
-The Strongman's Tent~
-This tent is the largest one in The Circus besides the Big Top.  It
+@eng The Strongman's Tent@rus Палатка силача~
+@eng This tent is the largest one in The Circus besides the Big Top.  It
 is decorated with pictures and drawings of huge men lifting huger weights.
 You see heavy objects at the front of the room, that must be part of the act.
 If Ivan the Strongman can lift those, then he really must be strong.
+@rus Это второя по велечине палатка в цирке (после шапито). Тут полно плакатов с
+изображениями силачей, которые поднимают всякие тяжести. На полу лежит
+несколько огромных снарядов... должно быть это часть шоу. Силач Иван может
+поднять их все сразу. Он наверное очень силен.
 ~
 0 D inside
 D0

@@ -2331,7 +2331,7 @@ A small deadly dart~
 A little dart lies on the ground~
 unknown~
 weapon F AN
-exotic 1 1 slash 0
+arrow 1 1 slash K
 1 0 0 P
 A
 1 -2
@@ -3084,7 +3084,7 @@ A choke wire~
 A thin wire lies on the ground humming~
 unknown~
 weapon BC AN
-exotic 5 5 crush 0
+whip 5 5 crush 0
 25 1 0 P
 A
 18 -5

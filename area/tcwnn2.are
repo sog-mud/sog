@@ -326,7 +326,7 @@ an ornate Longsword~
 An ornate Longsword is lying here.~
 copper~
 weapon G AN
-exotic 5 11 pierce 0
+sword 5 11 pierce 0
 50 25 500 P
 A
 18 4
@@ -451,7 +451,7 @@ a finely-made broadsword~
 A knight's broadsword lies here.~
 copper~
 weapon AGK AN
-exotic 5 13 slash 0
+sword 5 13 slash 0
 58 10 580 P
 A
 18 8
@@ -570,7 +570,7 @@ a crossbow~
 A finely-crafted crossbow lies here.~
 copper~
 weapon 0 AP
-exotic 5 11 pierce 0
+bow 5 11 pierce 0
 48 10 480 P
 A
 18 6

@@ -376,8 +376,8 @@ stand stand female 30
 #OBJECTS
 #3700
 mace sub merc булава~
-@eng a sub issue mace@rus ~~тренировочная~~ ~~булава~~~
-@eng You see a sub issue mace here.@rus Ты видишь тренировочную булаву (mace).~
+@eng a sub issue mace@rus ~~учебная~~ ~~булава~~~
+@eng You see a sub issue mace here.@rus Учебная булава (mace) брошена здесь.~
 bronze~
 weapon U AN
 mace 1 6 pound 0
@@ -394,8 +394,8 @@ Merc Industries
 G female
 #3701
 dagger sub merc кинжал~
-@eng a sub issue dagger@rus тренировочный кинжал~
-@eng You see a sub issue dagger here.@rus Ты видишь тренировочный кинжал (dagger).~
+@eng a sub issue dagger@rus ~~учебный~~ ~~кинжал~~~
+@eng You see a sub issue dagger here.@rus Учебный кинжал (dagger) брошен здесь.~
 bronze~
 weapon U AN
 dagger 1 4 pierce 0
@@ -407,11 +407,11 @@ dagger~
 You see a dagger of great but cheap craftsmanship.  Imprinted on the side is:
 Merc Industries
 ~
-G none
+G male
 #3702
-sword sub merc~
-a sub issue sword~
-You see a sub issue sword here.~
+sword sub merc меч~
+@eng a sub issue sword@rus ~~учебный~~ ~~меч~~~
+@eng You see a sub issue sword here.@rus Учебный меч (sword) оставлен здесь.~
 bronze~
 weapon U AN
 sword 1 6 slash 0
@@ -423,11 +423,11 @@ sword~
 You see a sword of great but cheap craftsmanship.  Imprinted on the side is:
 Merc Industries
 ~
-G none
+G male
 #3703
-vest sub merc~
-a sub issue vest~
-You see a sub issue vest here.~
+vest sub merc жилет~
+@eng a sub issue vest@rus ~~тренировочный~~ ~~жилет~~~
+@eng You see a sub issue vest here.@rus Тренировочный жилет (vest) оставлен здесь.~
 leather~
 armor U AD
 1 1 1 0 0
@@ -437,7 +437,7 @@ vest~
 You see a vest of great but cheap craftsmanship.  Stamped on the side is:
 Merc Industries
 ~
-G none
+G male
 #3704
 shield sub merc~
 a sub issue shield~

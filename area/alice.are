@@ -1484,7 +1484,7 @@ a soldier's club~
 A soldier's club lies here. It looks like the club off a playing card.~
 copper~
 weapon 0 AN
-exotic 5 8 crush 0
+mace 5 8 crush 0
 37 15 370 P
 A
 5 2
@@ -1580,7 +1580,7 @@ the executioner's axe~
 The executioner's axe is leaning against one wall here.~
 copper~
 weapon AEGM ANP
-exotic 5 10 slice 0
+axe 5 10 slice 0
 44 20 440 P
 A
 1 4

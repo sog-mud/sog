@@ -99,13 +99,12 @@ but they see so many strange creatures here they aren't sure which type is
 allowed and which isn't.
 ~
 troll~
-0 0 -400 0
+A 0 -400 0
 25 0 5d10+550 5d5+1000 2d10+7 pound
 -7 -7 -7 4
 EFIJKQ 0 0 0
 stand stand male 1000
 0 0 medium unknown
-F off D
 #15706
 flesh golem~
 a flesh golem~
@@ -306,7 +305,7 @@ These evil giant-kin have been captured by Baragar and set to work as miners
 and laborers helping to excavate the ancient lower cavers beneath the keep.
 ~
 ogre~
-0 0 -400 0
+A 0 -400 0
 18 0 3d9+283 5d5+1000 2d7+4 punch
 -3 -3 -3 6
 FS 0 0 0
@@ -376,7 +375,7 @@ a bone sword~
 A bone sword is stuck in the ground here.~
 copper~
 weapon AGJ AN
-exotic 5 7 pierce 0
+sword 5 7 pierce 0
 30 10 300 P
 A
 18 4
@@ -460,7 +459,7 @@ a dagger~
 A rune-covered dagger has been left here.~
 copper~
 weapon BEGJ AN
-exotic 5 7 pierce 0
+dagger 5 7 pierce 0
 28 5 280 P
 A
 18 6
@@ -490,8 +489,8 @@ spiked club~
 a spiked club~
 A spiked club lies here.~
 copper~
-weapon J AP
-exotic 5 6 crush 0
+weapon J ANP
+mace 5 6 crush 0
 25 20 250 P
 A
 18 -4
@@ -551,7 +550,7 @@ a bronze sword~
 A bronze sword is buried in the ground here.~
 copper~
 weapon 0 AN
-exotic 5 5 slash 0
+sword 5 5 slash 0
 18 12 180 P
 G none
 #15720
@@ -572,7 +571,7 @@ staff~
 a wooden staff~
 A wooden staff with a bronze head lies here.~
 copper~
-weapon 0 AP
+weapon 0 ANP
 exotic 5 5 pound 0
 21 9 210 P
 A
@@ -639,7 +638,7 @@ a steel sword~
 A rare steel sword covered in runes lies here.~
 copper~
 weapon AG AN
-exotic 5 6 slash 0
+sword 5 6 slash 0
 27 10 270 P
 A
 18 4
@@ -694,8 +693,8 @@ pick~
 a pick~
 A pick rests here.~
 copper~
-weapon 0 AP
-exotic 4 4 stab 0
+weapon 0 ANP
+axe 4 4 stab 0
 12 10 120 P
 G none
 #15732
@@ -703,7 +702,7 @@ shovel~
 a shovel~
 A shovel rests here.~
 copper~
-weapon 0 AP
+weapon 0 ANP
 exotic 4 4 pound 0
 12 10 120 P
 G none
@@ -722,7 +721,7 @@ a whip~
 A whip has been curled up here.~
 copper~
 weapon 0 AN
-exotic 5 5 whip 0
+whip 5 5 whip 0
 20 5 200 P
 G none
 #15735

@@ -944,7 +944,7 @@ a wooden mallet~
 A wooden mallet is here.~
 wood~
 weapon 0 AN
-exotic 3 5 slash 0
+mace 3 5 slash 0
 12 75 10 P
 E
 mallet~
@@ -1021,7 +1021,7 @@ wood~
 a piece of y-shaped wood~
 This would make an excellent frame for a slingshot. ~
 wood~
-weapon 0 AO
+weapon 0 AN
 exotic 2 6 crush 0
 10 25 100 P
 A

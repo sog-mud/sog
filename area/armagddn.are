@@ -780,7 +780,7 @@ A golden sickle~
 A golden sickle is here.~
 gold~
 weapon GIKL AN
-sword 10 10 slice E
+exotic 10 10 slice E
 80 45 3500 P
 A
 19 5
@@ -5348,7 +5348,7 @@ corner is the infinite nothing. You feel at peace here. As you
 relax you hear the 7th horn and a SIGHT unfolds before your eyes.
 Floating in the wind is a vial.
 ~
-0 ATU unknown
+0 ATU air
 E
 sight~
 You look skyward, and see the temple of God opening.

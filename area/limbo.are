@@ -642,7 +642,7 @@ sword hero~
 the %s Sword of %s~
 An enormous, huge SWORD lies here, filling the room with its power.~
 energy~
-weapon AGIOYc AP
+weapon AGIOYc ANP
 sword 10 4 slash D
 21 100 100000 G
 G male
@@ -651,7 +651,7 @@ dagger hero~
 the %s Dagger of %s~
 An enormous, huge DAGGER lies here, filling the room with its power.~
 energy~
-weapon AGIOYc AP
+weapon AGIOYc ANP
 dagger 10 4 pierce D
 21 100 100000 G
 A
@@ -678,7 +678,7 @@ mace hero~
 the %s Mace of %s~
 An enormous, huge MACE lies here, filling the room with its power.~
 energy~
-weapon AGIOYc AP
+weapon AGIOYc ANP
 mace 10 4 pound D
 21 100 100000 G
 A
