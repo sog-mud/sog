@@ -1,9 +1,8 @@
 #
-# $Id: Makefile,v 1.6 1999-09-08 10:39:45 fjoe Exp $
+# $Id: Makefile,v 1.6.2.1 2003-09-08 17:15:25 fjoe Exp $
 #
 
-MODULE = core
-CFILES = core.c
+MODULE=	core
+SRCS=	core.c
 
-.include "../Makefile.module"
-
+.include <bsd.prog.mk>

@@ -1,9 +1,8 @@
 #
-# $Id: Makefile,v 1.9.2.3 2000-06-01 11:16:48 fjoe Exp $
+# $Id: Makefile,v 1.9.2.4 2003-09-08 17:15:32 fjoe Exp $
 #
 
-MODULE = magic
-CFILES = init_magic.c spellfun.c spellfun2.c
+MODULE=	magic
+SRCS=	init_magic.c spellfun.c spellfun2.c
 
-.include "../Makefile.module"
-
+.include <bsd.prog.mk>

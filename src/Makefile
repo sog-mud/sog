@@ -1,28 +1,38 @@
 #
-# $Id: Makefile,v 1.60.2.3 2002-08-02 07:23:42 fjoe Exp $
+# $Id: Makefile,v 1.60.2.4 2003-09-08 17:15:19 fjoe Exp $
 #
 
-SUBDIR = sog mod_core mod_dofun mod_magic mod_olc mod_rspells
+.include "${.CURDIR}/Makefile.modules"
 
-all: abi_version.h _SUBDIR
+SUBDIR=		sog ${MODULES}
 
-install: abi_version.h _SUBDIR
+HFILES=		abi_version.h #module_decl.h
 
-depend: abi_version.h _SUBDIR
+depend: ${HFILES} _SUBDIR
 
-clean: _SUBDIR
-	rm -f abi_version.h
-
-module_clean: _SUBDIR
+cleandepend: _SUBDIR
+	rm -f ${HFILES} #module_decl.c
 
 abi_version.h: Makefile.inc
-	echo "#define" `grep ^ABI_VERSION Makefile.inc | sed s/=//` > abi_version.h
+	@echo Creating abi_version.h
+	@echo "#define" `grep ^ABI_VERSION Makefile.inc | sed s/=//` > abi_version.h
+
+module_decl.h: Makefile.modules mkdecl.pl mkutil.pl
+	@${.CURDIR}/mkdecl.pl ${MODULES}
 
 ctags:
 	ctags -dtw include/*.h sog/*.[ch] sog/*/*.[ch] mod_*/*.[ch]
 
 gtags:
 	gtags -co .
+
+#CHECKTRANS_FILES!=	ls mod_*/*.c sog/*.c ../mpc/*.mpc |\
+#	egrep -v '^sog/tables.c$$|^mod_sog/info.c$$|/_depend.c$$' |\
+#	egrep -v '^mod_olc/|^mod_mpc/|^sog/objval.c$$' |\
+#	egrep -v '^sog/special.c$$'
+
+checktrans: .PHONY
+	./checktrans.pl -u ${CHECKTRANS_FILES}
 
 .include "Makefile.osdep"
 .include <bsd.subdir.mk>

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.78 2003-02-27 16:55:15 tatyana Exp $
+ * $Id: act_info.c,v 1.271.2.79 2003-09-08 17:15:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -61,6 +61,7 @@
 #include "socials.h"
 #include "rating.h"
 #include "string_edit.h"
+#include "mccp.h"
 
 #include "toggle.h"
 

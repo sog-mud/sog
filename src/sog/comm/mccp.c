@@ -8,7 +8,7 @@
  * This code may be freely distributed and used if this copyright notice is
  * retained intact.
  *
- * $Id: mccp.c,v 1.1.2.1 2002-01-05 16:22:01 matrim Exp $
+ * $Id: mccp.c,v 1.1.2.2 2003-09-08 17:15:39 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -21,10 +21,12 @@
 #include <stdlib.h>
 #include <time.h>
 #include <unistd.h>
+#include <zlib.h>
 
 #include <merc.h>
 
 #include "comm.h"
+#include "mccp.h"
 
 static const char compress_start  [] = { IAC, SB, TELOPT_COMPRESS, WILL, SE, '\0' };
 static const char compress_start2 [] = { IAC, SB, TELOPT_COMPRESS2, IAC, SE, '\0' };

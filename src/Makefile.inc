@@ -1,51 +1,87 @@
 #
-# $Id: Makefile.inc,v 1.2.2.4 2000-11-17 12:49:30 avn Exp $
+# $Id: Makefile.inc,v 1.2.2.5 2003-09-08 17:15:19 fjoe Exp $
 #
 
 #
 # core version
 #
-ABI_VERSION = 11
+ABI_VERSION=	11
 
 #
 # common defines
 #
-CC		= gcc
-LD		= gcc
-INCLUDES	= -I ../include -I ..
+CC=		gcc
+INCLUDES=	-I../include -I..
 
-CFLAGS		= -g -Wall -O -pipe $(INCLUDES)
-LFLAGS		= -g -export-dynamic
-SO_CFLAGS	= -fPIC
-SO_LFLAGS	= -shared
-INSTALL_FLAGS	= -c -m 770
-LIBS		=
-INSTALL_PATH	= ../..
-MAKE		= make
+COPTS=		${INCLUDES}
+CFLAGS=		-O -pipe -Wall
+LDFLAGS=	-export-dynamic
 
 #
-# common rules
+# additional flags for gcc 3.0.x
+#CFLAGS+=	-std=c99
+
 #
+# BDECFLAGS minus -Wconversion, -ansi and -pedantic
+#CFLAGS+=	-W -Wbad-function-cast -Wcast-align\
+#		-Wcast-qual -Wchar-subscripts -Winline\
+#		-Wmissing-prototypes -Wnested-externs -Wpointer-arith\
+#		-Wredundant-decls -Wshadow -Wstrict-prototypes -Wwrite-strings
+#CFLAGS+=	-Werror
 
-OFILES?=$(CFILES:T:.c=.o)
+#
+# debug flags
+DEBUG_FLAGS=	-g
+STRIP=		
 
-MODULE_EXT=.so
-MODULE_NAME?=$(MODULE)$(MODULE_EXT).$(ABI_VERSION)
+MOD_CFLAGS=	-fPIC
+MOD_LDFLAGS=	-shared
 
-all: $(MODULE_NAME)
+#
+# SoG root
+INSTDIR=	../..
 
-$(MODULE_NAME): $(OFILES)
-	$(LD) -o $(MODULE_NAME) $(LFLAGS) $(OFILES) $(LIBS)
+.if !defined(MODULE)
 
-depend:
-	mkdep $(CFLAGS) $(CFILES)
+BINDIR=		${INSTDIR}/bin
 
-module_clean:
-	rm -f $(MODULE_NAME) $(MODULE)$(MODULE_EXT).*
+.else
 
-clean: module_clean
-	rm -f $(OFILES) .depend
+PROG=		${MODULE}.so.${ABI_VERSION}
+MODULE_ID!=	echo MOD_${MODULE} | tr '[a-z]' '[A-Z]'
+CFLAGS+=	${MOD_CFLAGS} #-DMODULE=${MODULE_ID}
+LDFLAGS+=	${MOD_LDFLAGS}
+CLEANFILES+=	${MODULE}.so.*
 
-install: $(MODULE_NAME)
-	install $(INSTALL_FLAGS) $(MODULE_NAME) $(INSTALL_PATH)/$(INSTALL_DIR)
+BINDIR=		${INSTDIR}/modules
 
+CDEPFILE=	_depend.c
+DEPCLEANFILES=	${DEPENDFILE}
+
+#cleandepend:	_SUBDIR
+#	rm -f ${DEPCLEANFILES}
+
+#.if !make(depend)
+#SRCS+=		${CDEPFILE}
+#.endif
+
+#.if make(cleandepend)
+#DEPCLEANFILES+=	${CDEPFILE}
+#.endif
+
+${CDEPFILE}: ${DEPENDFILE} ${.CURDIR}/../Makefile.modules\
+	     ${.CURDIR}/../mkdep.pl ${.CURDIR}/../mkutil.pl
+	@${.CURDIR}/../mkdep.pl ${MODULE} ${DEPENDFILE} ${CDEPFILE} ${MODULES}
+
+.include "${.CURDIR}/../Makefile.modules"
+
+.endif
+
+#
+# some BSD make-specific stuff
+NOOBJ=		yes
+NOMAN=		yes
+
+.if exists(${.CURDIR}/../Makefile.osdep)
+.include "${.CURDIR}/../Makefile.osdep"
+.endif

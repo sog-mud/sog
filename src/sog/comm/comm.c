@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.200.2.32 2003-03-06 10:01:42 avn Exp $
+ * $Id: comm.c,v 1.200.2.33 2003-09-08 17:15:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -82,6 +82,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <zlib.h>
 
 #if defined(SUNOS) || defined(SVR4) || defined(LINUX)
 #	include <crypt.h>
@@ -97,6 +98,7 @@
 #include "lang.h"
 #include "db.h"
 #include "string_edit.h"
+#include "mccp.h"
 
 bool class_ok(CHAR_DATA *ch , int class);
 

@@ -1,9 +1,8 @@
 #
-# $Id: Makefile,v 1.2 1999-09-08 10:40:06 fjoe Exp $
+# $Id: Makefile,v 1.2.2.1 2003-09-08 17:15:35 fjoe Exp $
 #
 
-MODULE = rspells
-CFILES = rmagic.c rspellfn.c
+MODULE=	rspells
+SRCS=	rmagic.c rspellfn.c
 
-.include "../Makefile.module"
-
+.include <bsd.prog.mk>

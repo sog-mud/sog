@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.234.2.38 2002-12-11 14:13:53 fjoe Exp $
+ * $Id: merc.h,v 1.234.2.39 2003-09-08 17:15:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -95,7 +95,6 @@
 #include "skills.h"
 #include "raffect.h"
 #include "religion.h"
-#include "mccp.h"
 #include "msgq.h"
 
 /*
@@ -249,7 +248,7 @@ struct descriptor_data
 	struct codepage*	codepage;
 
 /* mccp data */
-	z_stream *              out_compress;
+	struct z_stream_s *	out_compress;
 	unsigned char *         out_compress_buf;
 	int                     mccp_support;
 	unsigned int            bytes_sent;
