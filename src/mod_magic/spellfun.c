@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.303 2003-04-17 19:33:11 fjoe Exp $
+ * $Id: spellfun.c,v 1.304 2003-04-19 12:54:48 tatyana Exp $
  */
 
 /***************************************************************************
@@ -239,6 +239,7 @@ DECLARE_SPELL_FUN(spell_protection_from_missiles);
 DECLARE_SPELL_FUN(spell_alarm);
 DECLARE_SPELL_FUN(spell_globe_of_invulnerability);
 DECLARE_SPELL_FUN(spell_cloak_of_leaves);
+DECLARE_SPELL_FUN(spell_deathspell);
 
 SPELL_FUN(generic_damage_spellfun, sn, level, ch, vo)
 {
@@ -8053,4 +8054,50 @@ SPELL_FUN(spell_cloak_of_leaves, sn, level, ch, vo)
 	aff_free(paf);
 
 	act_char("Many green leaves cloak you.",ch);
+}
+static void *
+deathspell_cb(void *vo, va_list ap)
+{
+	CHAR_DATA *vch = (CHAR_DATA *) vo;
+
+	const char *sn = va_arg(ap, const char *);
+	int level = va_arg(ap, int);
+	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
+	int *pdam;
+
+	if (is_safe_spell(ch, vch, TRUE))
+		return NULL;
+
+	pdam = va_arg(ap, int *);
+
+	if (saves_spell(level, vch, DAM_NEGATIVE))
+		*pdam /= 2;
+	else if (!saves_spell(level - 7, vch, DAM_NEGATIVE)
+	     &&  !saves_spell(level, vch, DAM_NEGATIVE)
+	     &&	 number_bits(1) == 0
+	     &&	 !IS_IMMORTAL(vch)) {
+		act("$n gets a horrible look in $gn{his} eye's then keels "
+		    "over dead!", vch, NULL, NULL, TO_ROOM);
+		act("You feel your an intense pain in your head as the energy "
+		    "ruptures your skull!", vch, NULL, NULL, TO_CHAR);
+		raw_kill(ch, vch);
+		return NULL;
+	}
+
+	damage(ch, vch, *pdam, sn, DAM_F_SHOW);
+	return NULL;
+}
+
+SPELL_FUN(spell_deathspell, sn, level, ch, vo)
+{
+	int dam = calc_spell_damage(ch, level, sn);
+	dam = dam * 4 / 5;
+
+	act("$n utters a word of power and the negative energy explodes in the"
+	    " room!", ch, NULL, NULL, TO_ROOM);
+	act("You utter a word of power and negative energy explodes into the "
+	    "room!", ch, NULL, NULL, TO_CHAR);
+
+	vo_foreach(ch->in_room, &iter_char_room, deathspell_cb,
+		   sn, level, ch, &dam, number_range(level, 2 * level));
 }
