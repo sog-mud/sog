@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.134 1999-02-02 15:50:22 kostik Exp $
+ * $Id: merc.h,v 1.135 1999-02-08 08:48:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1932,7 +1932,6 @@ void	extract_char	(CHAR_DATA *ch, bool fPull);
 void	extract_char_nocount	(CHAR_DATA *ch, bool fPull);
 void	extract_char_org	(CHAR_DATA *ch, bool fPull, bool Count);
 CHAR_DATA *	get_char_room	(CHAR_DATA *ch, const char *argument);
-CHAR_DATA *	get_char_room2	(CHAR_DATA *ch, ROOM_INDEX_DATA *room,const char *argument, int *number);
 CHAR_DATA *	get_char_world	(CHAR_DATA *ch, const char *argument);
 CHAR_DATA *	get_char_area	(CHAR_DATA *ch, const char *argument);
 OBJ_DATA *	get_obj_type	(OBJ_INDEX_DATA *pObjIndexData);

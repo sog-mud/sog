@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.102 1999-02-03 14:03:17 kostik Exp $
+ * $Id: handler.c,v 1.103 1999-02-08 08:48:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1938,43 +1938,30 @@ void extract_char_org(CHAR_DATA *ch, bool fPull, bool Count)
 /*
  * Find a char in the room.
  */
-CHAR_DATA *get_char_room(CHAR_DATA *ch, const char *argument)
+CHAR_DATA *get_char_room_raw(CHAR_DATA *ch, ROOM_INDEX_DATA *room,
+			     const char *argument, int *number)
 {
-	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *rch;
-	int number;
-	int count;
-	bool ugly = FALSE;
+	bool ugly = !str_cmp(argument, "ugly");
 
-	if (IS_NULLSTR(argument))
-		return NULL;
-
-	number = number_argument(argument, arg);
-	count  = 0;
-
-	if (!str_cmp(arg, "self"))
-		return ch;
-
-	if (!str_cmp(arg, "ugly"))
-		ugly = TRUE;
-
-	for (rch = ch->in_room->people; rch; rch = rch->next_in_room) {
+	for (rch = room->people; rch; rch = rch->next_in_room) {
 		CHAR_DATA *vch;
 
 		if (!can_see(ch, rch))
 			continue;
 
-		if (ugly && (count + 1) == number
+		if (ugly
+		&&  *number == 1
 		&&  is_affected(rch, gsn_vampire))
 			return rch;
 
 		vch = (is_affected(rch, gsn_doppelganger) &&
 		       (IS_NPC(ch) || !IS_SET(ch->plr_flags, PLR_HOLYLIGHT))) ?
-		      rch->doppel : rch;
-		if (!is_name(arg, vch->name))
+					rch->doppel : rch;
+		if (!is_name(argument, vch->name))
 			continue;
 
-		if (++count == number)
+		if (!--*number)
 			return rch;
 	}
 
@@ -1983,47 +1970,49 @@ CHAR_DATA *get_char_room(CHAR_DATA *ch, const char *argument)
 
 /*
  * Find a char in the room.
- * Chronos uses in act_move.c
  */
-CHAR_DATA *get_char_room2(CHAR_DATA *ch, ROOM_INDEX_DATA *room, const char *argument, int *number)
+CHAR_DATA *get_char_room(CHAR_DATA *ch, const char *argument)
 {
-	CHAR_DATA *rch;
-	int count;
-	bool ugly = FALSE;
+	char arg[MAX_INPUT_LENGTH];
+	int number;
 
-	if (IS_NULLSTR(argument))
+	number = number_argument(argument, arg);
+	if (arg[0] == '\0')
 		return NULL;
+	if (!str_cmp(arg, "self"))
+		return ch;
 
-	if (room == NULL) return NULL;
-	count  = 0;
-
-	if (!str_cmp(argument, "ugly"))
-		ugly = TRUE;
-
-	for (rch = room->people; rch != NULL; rch = rch->next_in_room) {
-		CHAR_DATA *vch;
-
-		if (!can_see(ch, rch))
-		    continue;
-
-		if (ugly && (count + 1) == *number
-		&&  is_affected(rch, gsn_vampire))
-		   return rch;
-
-		vch = (is_affected(rch, gsn_doppelganger) &&
-		       (IS_NPC(ch) || !IS_SET(ch->plr_flags, PLR_HOLYLIGHT))) ?
-		      rch->doppel : rch;
-		if (!is_name(argument, vch->name))
-			continue;
-
-		if (++count == *number)
-		    return rch;
-	}
-
-	number -= count;
-	return NULL;
+	return get_char_room_raw(ch, ch->in_room, arg, &number);
 }
 
+CHAR_DATA *get_char_area(CHAR_DATA *ch, const char *argument)
+{
+	char arg[MAX_INPUT_LENGTH];
+	CHAR_DATA *ach;
+	int number;
+
+	number = number_argument(argument, arg);
+	if (arg[0] == '\0')
+		return NULL;
+
+	if ((ach = get_char_room_raw(ch, ch->in_room, arg, &number)))
+		return ach;
+
+	for(ach = char_list; ach; ach = ach->next) { 
+		if (!ach->in_room
+		||  ach->in_room == ch->in_room)
+			continue;
+
+		if (ach->in_room->area != ch->in_room->area
+		||  !can_see(ch, ach)
+		||  !is_name(arg, ach->name))
+			continue;
+
+		if (!--number)
+			return ach;
+	}
+	return NULL;
+}
 
 /*
  * Find a char in the world.
@@ -2033,30 +2022,87 @@ CHAR_DATA *get_char_world(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *wch;
 	int number;
-	int count;
-
-	if (IS_NULLSTR(argument))
-		return NULL;
-
-	if ((wch = get_char_room(ch, argument)) != NULL)
-		return wch;
 
 	number = number_argument(argument, arg);
-	count  = 0;
-	for (wch = char_list; wch != NULL ; wch = wch->next)
-	{
-		if (wch->in_room == NULL || !can_see(ch, wch) 
-		||   !is_name(arg, wch->name))
-		    continue;
+	if (arg[0] == '\0')
+		return NULL;
 
-		if (++count == number)
-		    return wch;
+	if ((wch = get_char_room_raw(ch, ch->in_room, arg, &number)))
+		return wch;
+
+	for (wch = char_list; wch; wch = wch->next) {
+		if (wch->in_room == NULL
+		||  wch->in_room == ch->in_room
+		||  !can_see(ch, wch) 
+		||  !is_name(arg, wch->name))
+			continue;
+
+		if (!--number)
+			return wch;
 	}
 
 	return NULL;
 }
 
+int opposite_door(int door)
+{
+	int opdoor;
 
+	switch (door) {
+	case 0: opdoor=2;	break;
+	case 1: opdoor=3;	break;
+	case 2: opdoor=0;	break;
+	case 3: opdoor=1;	break;
+	case 4: opdoor=5;	break;
+	case 5: opdoor=4;	break;
+	default: opdoor=-1;	break;
+	}
+
+	return opdoor;
+}
+
+CHAR_DATA *find_char(CHAR_DATA *ch, const char *argument, int door, int range) 
+{
+	EXIT_DATA *pExit, *bExit;
+	ROOM_INDEX_DATA *dest_room = ch->in_room;
+	ROOM_INDEX_DATA *back_room;
+	CHAR_DATA *target;
+	int number, opdoor;
+	char arg[MAX_INPUT_LENGTH];
+
+	number = number_argument(argument, arg);
+	if ((target = get_char_room_raw(ch, dest_room, arg, &number)))
+		return target;
+
+	if ((opdoor = opposite_door(door)) == -1) {
+		bug("In find_char wrong door: %d", door);
+		char_puts("You don't see that there.\n", ch);
+		return NULL;
+	}
+
+	while (range > 0) {
+		range--;
+
+		/* find target room */
+		back_room = dest_room;
+		if ((pExit = dest_room->exit[door]) == NULL
+		||  (dest_room = pExit->u1.to_room) == NULL
+		||  IS_SET(pExit->exit_info, EX_CLOSED))
+			break;
+
+		if ((bExit = dest_room->exit[opdoor]) == NULL
+		||  bExit->u1.to_room != back_room) {
+			char_puts("The path you choose prevents your power "
+				  "to pass.\n",ch);
+			return NULL;
+		}
+		if ((target = get_char_room_raw(ch, dest_room, arg, &number))) 
+			return target;
+	}
+
+	char_puts("You don't see that there.\n", ch);
+	return NULL;
+}
 
 /*
  * Find some object with a given index data.
@@ -2066,15 +2112,12 @@ OBJ_DATA *get_obj_type(OBJ_INDEX_DATA *pObjIndex)
 {
 	OBJ_DATA *obj;
 
-	for (obj = object_list; obj != NULL; obj = obj->next)
-	{
+	for (obj = object_list; obj; obj = obj->next)
 		if (obj->pIndexData == pObjIndex)
-		    return obj;
-	}
+			return obj;
 
 	return NULL;
 }
-
 
 /*
  * Find an obj in a list.
@@ -2098,8 +2141,6 @@ OBJ_DATA *get_obj_list(CHAR_DATA *ch, const char *argument, OBJ_DATA *list)
 
 	return NULL;
 }
-
-
 
 /*
  * Find an obj in player's inventory.
@@ -2684,23 +2725,6 @@ void remove_mind(CHAR_DATA *ch, const char *str)
 		ch->in_mind = str_dup(buf);
 }
 
-int opposite_door(int door)
-{
-	int opdoor;
-
-	switch (door) {
-	case 0: opdoor=2;	break;
-	case 1: opdoor=3;	break;
-	case 2: opdoor=0;	break;
-	case 3: opdoor=1;	break;
-	case 4: opdoor=5;	break;
-	case 5: opdoor=4;	break;
-	default: opdoor=-1;	break;
-	}
-
-	return opdoor;
-}
-
 void back_home(CHAR_DATA *ch)
 {
 	ROOM_INDEX_DATA *location;
@@ -2723,49 +2747,6 @@ void back_home(CHAR_DATA *ch)
 	}
 }
 
-
-CHAR_DATA * find_char(CHAR_DATA *ch, const char *argument,int door, int range) 
-{
- EXIT_DATA *pExit,*bExit;
- ROOM_INDEX_DATA *dest_room,*back_room;
- CHAR_DATA *target;
- int number = 0,opdoor;
- char arg[MAX_INPUT_LENGTH];
-
- number = number_argument(argument,arg);
- dest_room = ch->in_room;
- if ((target = get_char_room2(ch,dest_room,arg,&number)) != NULL)
-		return target;
-
- if ((opdoor = opposite_door(door)) == -1)
-  {
-   bug("In find_char wrong door: %d",door);
-   char_puts("You don't see that there.\n",ch);
-   return NULL;
- }
- while (range > 0)
- {
-  range--;
-  /* find target room */
-  back_room = dest_room;
-  if ((pExit = dest_room->exit[door]) == NULL
-	  || (dest_room = pExit->u1.to_room) == NULL
-	  || IS_SET(pExit->exit_info,EX_CLOSED))
-   break;
-  if ((bExit = dest_room->exit[opdoor]) == NULL
-	  || bExit->u1.to_room != back_room)
-   {
-	char_puts("The path you choose prevents your power to pass.\n",ch);
-	return NULL;
-   }
-  if ((target = get_char_room2(ch,dest_room,arg,&number)) != NULL) 
-		return target;
- }
-
- char_puts("You don't see that there.\n",ch);
- return NULL;
-}
-		
 int check_exit(char *arg)
 {
 	int door = -1;

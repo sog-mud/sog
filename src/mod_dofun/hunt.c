@@ -1,5 +1,5 @@
 /*
- * $Id: hunt.c,v 1.17 1998-12-23 16:11:15 fjoe Exp $
+ * $Id: hunt.c,v 1.18 1999-02-08 08:48:06 fjoe Exp $
  */
 
 /* Kak zovut sobaku Gejtsa?
@@ -84,38 +84,6 @@ void init_world(ROOM_INDEX_DATA *room_db[])
   /* zero out the world */
   bzero((char *)room_db,sizeof(ROOM_INDEX_DATA *)*WORLD_SIZE);
 }
-
-CHAR_DATA *get_char_area(CHAR_DATA *ch, const char *argument)
-{
-   char arg[MAX_INPUT_LENGTH];
-   CHAR_DATA *ach;
-   int number;
-   int count;
-
-   if(argument[0] == '\0')
-	 return NULL;
-
-   number = number_argument(argument, arg);
-/*    if (arg[0] == NULL) return NULL; */
-   if (arg[0] == '\0') return NULL;
-   count = 0;     
-
-   if((ach = get_char_room(ch, argument)) != NULL)
-	 return ach;
-
-
-
-   for(ach = char_list; ach != NULL; ach = ach->next)
-   { 
-	 if(ach->in_room && (ach->in_room->area != ch->in_room->area
-	|| !can_see(ch, ach) || !is_name(arg, ach->name)))
-	continue;
-	 if(++count == number)
-	   return ach;
-   }
-   return NULL;
-}
-
 
 void destroy_hash_table(struct hash_header *ht,void (*gman)())
 {

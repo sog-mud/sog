@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.102 1999-02-02 15:50:21 kostik Exp $
+ * $Id: interp.c,v 1.103 1999-02-08 08:48:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -870,6 +870,11 @@ static uint x_argument(const char *argument, char arg[MAX_INPUT_LENGTH], char c)
 	char *q;
 	int number;
     
+	if (IS_NULLSTR(argument)) {
+		arg[0] = '\0';
+		return 0;
+	}
+
 	p = strchr(argument, c);
 	if (p == NULL) {
 		strcpy(arg, argument);
