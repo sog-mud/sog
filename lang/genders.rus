@@ -581,6 +581,14 @@ Form 3 -ли~
 End
 
 #RULE
+Name nопал~
+BaseLen 4
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
 Name сидит~
 BaseLen 3
 Form 1 -ит~
