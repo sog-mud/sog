@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.71 1998-09-28 09:44:05 fjoe Exp $
+ * $Id: act_obj.c,v 1.72 1998-09-29 01:06:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -52,6 +52,8 @@
 #include "obj_prog.h"
 #include "fight.h"
 #include "interp.h"
+
+#include "resource.h"
 
 /*
  * Local functions.
@@ -1562,9 +1564,9 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 			return;
 		}
 		if (IS_WEAPON_STAT(obj, WEAPON_TWO_HANDS)
-		    && ((!IS_NPC(ch) && ch->size < SIZE_LARGE
-			 && get_eq_char(ch, WEAR_SHIELD) != NULL)
-			|| get_eq_char(ch, WEAR_SECOND_WIELD) != NULL)) {
+		&&  ((!IS_NPC(ch) && ch->size < SIZE_LARGE &&
+		      get_eq_char(ch, WEAR_SHIELD) != NULL) ||
+		     get_eq_char(ch, WEAR_SECOND_WIELD) != NULL)) {
 			char_puts("You need two hands free for that weapon.\n\r", ch);
 			if (dual)
 				equip_char(ch, dual, WEAR_SECOND_WIELD);
@@ -1608,7 +1610,8 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 	}
 	if (CAN_WEAR(obj, ITEM_HOLD)) {
 		if (get_eq_char(ch, WEAR_SECOND_WIELD) != NULL) {
-			char_nputs(MSG_CANT_HOLD_WHILE_2_WEAPONS, ch);
+			act_puts("You can't hold an item while using 2 weapons.",
+				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 			return;
 		}
 		if (!remove_obj(ch, WEAR_HOLD, fReplace))
@@ -3405,6 +3408,7 @@ void do_second_wield(CHAR_DATA * ch, const char *argument)
 {
 	OBJ_DATA       *obj;
 	int             sn, skill;
+	int		wear_lev;
 
 	if (get_skill(ch, gsn_second_weapon) == 0) {
 		char_puts("You don't know how to wield a second weapon.\n\r", ch);
@@ -3425,18 +3429,19 @@ void do_second_wield(CHAR_DATA * ch, const char *argument)
 	}
 	if ((get_eq_char(ch, WEAR_SHIELD) != NULL) ||
 	    (get_eq_char(ch, WEAR_HOLD) != NULL)) {
-		char_puts("You cannot use a secondary weapon while using a shield or holding an item\n\r", ch);
+		char_puts("You cannot use a secondary weapon while using a shield or holding an item.\n\r", ch);
 		return;
 	}
-	if (ch->level < (obj->level - 3)) {
+	wear_lev = get_wear_level(ch, obj);
+	if (ch->level < wear_lev) {
 		char_printf(ch, "You must be level %d to use this object.\n\r",
-			    obj->level);
+			    wear_lev);
 		act("$n tries to use $p, but is too inexperienced.",
 		    ch, obj, NULL, TO_ROOM);
 		return;
 	}
 	if (IS_WEAPON_STAT(obj, WEAPON_TWO_HANDS)) {
-		char_puts("It mustn't be a two-handed weapon!\n\r", ch);
+		char_puts("You can't dual wield two-handed weapon!\n\r", ch);
 		return;
 	}
 	if (get_eq_char(ch, WEAR_WIELD) == NULL) {

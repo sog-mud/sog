@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.83 1998-09-28 09:44:05 fjoe Exp $
+ * $Id: merc.h,v 1.84 1998-09-29 01:06:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -43,11 +43,11 @@
 #ifndef _MERC_H_
 #define _MERC_H_
 
+#include <sys/syslimits.h>
 #include <ctype.h>
 #include "typedef.h"
 #include "const.h"
 #include "tables.h"
-#include "resource.h"
 #include "comm/comm.h"
 #include "db/gsn.h"
 #include "db/spellfn.h"

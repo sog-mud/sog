@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.6 1998-09-24 14:07:42 fjoe Exp $
+ * $Id: tables.c,v 1.7 1998-09-29 01:06:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -45,6 +45,7 @@
 #include <time.h>
 #include "merc.h"
 #include "interp.h"
+#include "db/lang.h"
 
 FLAG slang_table[] =
 {
@@ -902,6 +903,12 @@ FLAG align_names[] =
 	{ "evil",		CR_EVIL,		TRUE	},
 	{ "neutral",		CR_NEUTRAL,		TRUE	},
 	{ "good",		CR_GOOD,		TRUE	},
+	{ NULL }
+};
+
+FLAG lang_flags[] =
+{
+	{ "hidden",		LANG_HIDDEN,		TRUE	},
 	{ NULL }
 };
 

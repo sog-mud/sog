@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.65 1998-09-25 04:40:49 fjoe Exp $
+ * $Id: act_wiz.c,v 1.66 1998-09-29 01:06:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -57,6 +57,8 @@
 #include "fight.h"
 #include "quest.h"
 
+#include "resource.h"
+
 /* command procedures needed */
 DECLARE_DO_FUN(do_rstat		);
 DECLARE_DO_FUN(do_mstat		);
@@ -80,12 +82,7 @@ DECLARE_DO_FUN(do_limited      );
 DECLARE_DO_FUN(do_help	       );
 QTROUBLE_DATA *qtrouble_lookup(CHAR_DATA *ch, int vnum);
 
-extern int max_on;
-
-/*
- * Local functions.
- */
-bool write_to_descriptor  args((int desc, char *txt, int length));
+bool write_to_descriptor  (int desc, char *txt, int length);
 void reboot_muddy(void);
 extern int rebooter;
 
@@ -4314,16 +4311,8 @@ void do_reboot(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (is_name(arg, "auto") && get_trust(ch) == MAX_LEVEL) {
-		rebooter = 0;
-		char_printf(ch, "Reboot will now be shown as automatic.\n\r");
-		do_reboot(ch, "status");
-		return;
-	}
-
-	do_reboot(ch, str_empty);   
+	do_reboot(ch, "");   
 }
-
 
 void reboot_muddy(void)
 {

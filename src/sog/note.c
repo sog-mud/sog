@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.26 1998-09-24 14:07:41 fjoe Exp $
+ * $Id: note.c,v 1.27 1998-09-29 01:06:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -73,11 +73,6 @@ struct note_data
 	char *		text;
 	time_t		date_stamp;
 };
-
-/* globals from db.c for load_notes */
-extern  int     _filbuf         args((FILE *));
-extern FILE *                  fpArea;
-extern char                    filename[MAX_INPUT_LENGTH];
 
 /* local procedures */
 void load_thread(char *name, NOTE_DATA **list, int type, time_t free_time);
@@ -331,11 +326,9 @@ void load_thread(char *name, NOTE_DATA **list, int type, time_t free_time)
         pnotelast       = pnote;
     }
  
-    strcpy(filename, NOTE_FILE);
-    fpArea = fp;
-    bug("Load_notes: bad key word.", 0);
-    exit(1);
-    return;
+	strnzcpy(filename, NOTES_PATH, sizeof(filename));
+	strnzcat(filename, name, sizeof(filename));
+	db_error("load_notes", "bad keyword");
 }
 
 void append_note(NOTE_DATA *pnote)

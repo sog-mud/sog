@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.74 1998-09-24 14:07:39 fjoe Exp $
+ * $Id: fight.c,v 1.75 1998-09-29 01:06:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -56,6 +56,8 @@
 #include "mob_prog.h"
 #include "obj_prog.h"
 #include "interp.h"
+
+#include "resource.h"
 
 DECLARE_DO_FUN(do_quit_count	);
 DECLARE_DO_FUN(do_crush		);
@@ -2614,7 +2616,7 @@ void do_flee(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	char_puts("{RPANIC!{x You couldn't escape!\n\r", ch);
+	char_puts("PANIC! You couldn't escape!\n\r", ch);
 	return;
 }
 

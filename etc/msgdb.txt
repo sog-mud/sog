@@ -262,7 +262,7 @@ Get back to questor before your time runs out!
 ~
 @eng You sit at $p@rus Ты садишься около $p~
 @eng Your $T increases!@rus Твое $T увеличивается!~
-@eng scatter around.@rus ~
+@eng scatter around.~
 @eng {cstanding{x@rus {cстоишь{x~
 @eng  (room %d)
 @rus  (комната %d)
@@ -351,12 +351,10 @@ Get back to questor before your time runs out!
 @rus У тебя нет этого свитка.
 ~
 @eng You rest on $p.@rus Ты садишься отдыхать на $p.~
+~
 @eng $n slams into $d, and tries to break it!@rus $n с разбегу ударяется в $d!~
 @eng Bashing? What's that?
 @rus Bash? А это чего?
-~
-@eng You can't bite a fighting person.
-@rus Ты не можешь кусать сражающего.
 ~
 @eng $n asks $N for list of quest items.@rus $n просит у $N список квестовых вещей.~
 @eng $n wakes up and rests at $p.@rus $n просыпается и садится отдыхать около $p.~
@@ -381,6 +379,7 @@ Get back to questor before your time runs out!
 @rus Ты слишком слаб чтобы держать такое тяжелое оружие и щит!
 ~
 @eng $n dismounts from you.@rus $n спешивается с тебя.~
+@eng You feel too bloody to go in there now.@rus Ты чувствуешь, что $gc{способен} осквернить это место еще свежей кровью на твоих руках.~
 @eng $n pushes $N to %s.@rus $n выталкивает $N на %s.~
 @eng $n wears $p about $s waist.@rus $n надевает $p на талию.~
 @eng $n wears $p around $s right wrist.@rus $n надевает $p на правое запястье.~
@@ -524,7 +523,7 @@ Get back to questor before your time runs out!
 ~
 @eng You put $p on $P.@rus Ты кладешь $p он $P.~
 @eng You wear $p on your arms.@rus Ты надеваешь $p на плечи.~
-@eng scatter on the dirt.@rus ~
+@eng scatter on the dirt.~
 @eng $n wakes and stands in $p.@rus $n просыпается и встает в $p.~
 @eng $n wears $p on $s arms.@rus $n надевает $p на плечи.~
 @eng $n wears $p on $s legs.@rus $n надевает $p на ноги.~
@@ -642,7 +641,7 @@ Get back to questor before your time runs out!
 @eng You trample around loudly again.
 @rus Теперь ты опять топаешь как слон.
 ~
-@eng scatter over the water.@rus ~
+@eng scatter over the water.~
 @eng $n puts $p on $P.@rus $n кладет $p на $P.~
 @eng ({bImproved{x) @rus ({bУл. Невидимость{x) ~
 @eng You are anti-social!
@@ -1163,13 +1162,14 @@ Players found: %d. Most so far today: %d.
 @rus У тебя создается впечатление, что это плохая идея.
 ~
 @eng You wake and stand on $p.@rus Ты просыпаешься и встаешь на $p.~
-@eng on it, @rus ~
+@eng on it, ~
 @eng $n stands up.@rus $n встает.~
 @eng $n wears $p on $s head.@rus $n надевает $p на голову.~
 @eng ({WGlowing{x) @rus ({WПылающее{x) ~
 @eng Players near you:
 @rus Игроки недалеко от тебя:
 ~
+@eng You can't hold an item while using 2 weapons.@rus Ты не можешь ничего взять в руку, будучи $c4{$gc{вооруженный}} двумя оружиями.~
 @eng less than half-@rus меньше, чем наполовину~
 @eng {Rmortally wounded{x@rus {Rумираешь{x~
 @eng <held>              $t@rus <зажато в руке>        $t~

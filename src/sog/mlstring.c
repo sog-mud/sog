@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.c,v 1.18 1998-09-20 17:01:01 fjoe Exp $
+ * $Id: mlstring.c,v 1.19 1998-09-29 01:06:39 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -34,6 +34,7 @@
 
 #include "merc.h"
 #include "db/db.h"
+#include "db/lang.h"
 
 /*
  * multi-language string implementation
@@ -90,8 +91,8 @@ mlstring *mlstr_fread(FILE *fp)
 		return res;
 	}
 
-	res->u.lstr = calloc(1, sizeof(char*) * nlang);
-	res->nlang = nlang;
+	res->u.lstr = calloc(1, sizeof(char*) * langs->nused);
+	res->nlang = langs->nused;
 
 	s = p+1;
 	while (*s) {
@@ -99,16 +100,17 @@ mlstring *mlstr_fread(FILE *fp)
 
 		/* s points at lang id */
 		q = strchr(s, ' ');
-		if (q == NULL)
+		if (q == NULL) {
 			db_error("mlstr_fread", "no ` ' after `@' found");
+			return res;
+		}
 		*q++ = '\0';
 
 		lang = lang_lookup(s);
-		if (lang < 0) 
-			db_error("mlstr_fread",
-				 "lang %s: unknown language", s); 
-		if (res->u.lstr[lang] != NULL)
+		if (res->u.lstr[lang] != NULL) {
 			db_error("mlstr_fread", "lang %s: redefined", s);
+			return res;
+		}
 
 		/* q points at msg */
 
@@ -130,13 +132,6 @@ mlstring *mlstr_fread(FILE *fp)
 		res->u.lstr[lang] = str_dup(q);
 	}
 
-	/* some diagnostics */
-	for (lang = 0; lang < nlang; lang++)
-		if (res->u.lstr[lang] == NULL) {
-			log_printf("mlstr_fread: lang %s: undefined",
-				 lang_table[lang]);
-			res->u.lstr[lang] = str_empty;
-		}
 	free_string(p);
 	return res;
 }
@@ -158,9 +153,16 @@ void mlstr_fwrite(FILE *fp, const char* name, const mlstring *ml)
 		return;
 	}
 
-	for (lang = 0; lang < ml->nlang; lang++) 
-		fprintf(fp, "@%s %s",
-			lang_table[lang], fix_mlstring(ml->u.lstr[lang]));
+	for (lang = 0; lang < ml->nlang && lang < langs->nused; lang++) {
+		char* p = ml->u.lstr[lang];
+		LANG_DATA *l;
+
+		if (IS_NULLSTR(p))
+			continue;
+
+		l = VARR_GET(langs, lang);
+		fprintf(fp, "@%s %s", l->name, fix_mlstring(p));
+	}
 	fputs("~\n", fp);
 }
 
@@ -220,15 +222,34 @@ mlstring *mlstr_printf(mlstring *ml,...)
 	return res;
 }
 
-char * mlstr_val(const mlstring *ml, int lang)
+int mlstr_nlang(const mlstring *ml)
 {
 	if (ml == NULL)
+		return 0;
+	return ml->nlang;
+}
+
+char * mlstr_val(const mlstring *ml, int lang)
+{
+	char *p;
+	LANG_DATA *l;
+
+	if (ml == NULL)
 		return str_empty;
+
 	if (ml->nlang == 0)
 		return ml->u.str;
+
+	if ((l = varr_get(langs, lang)) == NULL)
+		return str_empty;
+
 	if (lang >= ml->nlang || lang < 0)
-		lang = 0;
-	return ml->u.lstr[lang];
+		lang = l->slang_of;
+
+	p = ml->u.lstr[lang];
+	if (IS_NULLSTR(p))
+		p = ml->u.lstr[0];
+	return p;
 }
 
 bool mlstr_null(const mlstring *ml)
@@ -287,8 +308,8 @@ char** mlstr_convert(mlstring **mlp, int newlang)
 	/* convert to language-dependent */
 	if ((*mlp)->nlang == 0) {
 		old = (*mlp)->u.str;
-		(*mlp)->nlang = nlang;
-		(*mlp)->u.lstr = calloc(1, sizeof(char*) * nlang);
+		(*mlp)->nlang = langs->nused;
+		(*mlp)->u.lstr = calloc(1, sizeof(char*) * langs->nused);
 		(*mlp)->u.lstr[0] = old;
 	}
 	return ((*mlp)->u.lstr)+newlang;
@@ -368,6 +389,7 @@ void mlstr_dump(BUFFER *buf, const char *name, const mlstring *ml)
 	size_t namelen;
 	int lang;
 	static char FORMAT[] = "%s[%s] [%s]\n\r";
+	LANG_DATA *l;
 
 	if (ml == NULL || ml->nlang == 0) {
 		buf_printf(buf, FORMAT, name, "all",
@@ -375,15 +397,25 @@ void mlstr_dump(BUFFER *buf, const char *name, const mlstring *ml)
 		return;
 	}
 
+	if (langs->nused == 0)
+		return;
+
+	l = VARR_GET(langs, 0);
+	buf_printf(buf, FORMAT, name, l->name, ml->u.lstr[0]);
+
+	if (langs->nused < 1)
+		return;
+
 	namelen = strlen(name);
 	namelen = URANGE(0, namelen, sizeof(space)-1);
 	memset(space, ' ', namelen);
 	space[namelen] = '\0';
 
-	buf_printf(buf, FORMAT, name, lang_table[0], ml->u.lstr[0]);
-	for (lang = 1; lang < ml->nlang; lang++)
+	for (lang = 1; lang < ml->nlang && lang < langs->nused; lang++) {
+		l = VARR_GET(langs, lang);
 		buf_printf(buf, FORMAT,
-			   space, lang_table[lang], ml->u.lstr[lang]);
+			   space, l->name, ml->u.lstr[lang]);
+	}
 }
 
 static void smash_a(char *s)

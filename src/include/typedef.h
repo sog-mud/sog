@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.5 1998-09-17 15:51:23 fjoe Exp $
+ * $Id: typedef.h,v 1.6 1998-09-29 01:06:40 fjoe Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -83,6 +83,8 @@ typedef struct class_data		CLASS_DATA;
 typedef struct pose_data		POSE_DATA;
 typedef struct skill_data		SKILL_DATA;
 typedef struct namedp			NAMEDP;
+typedef struct lang_data		LANG_DATA;
+typedef struct word_data		WORD_DATA;
 
 typedef void	DO_FUN		(CHAR_DATA *ch, const char *argument);
 typedef bool	SPEC_FUN	(CHAR_DATA *ch);

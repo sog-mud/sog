@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.64 1998-09-24 14:07:42 fjoe Exp $
+ * $Id: update.c,v 1.65 1998-09-29 01:06:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -50,6 +50,8 @@
 #include "obj_prog.h"
 #include "fight.h"
 
+#include "resource.h"
+
 /* command procedures needed */
 DECLARE_DO_FUN(do_human		);
 DECLARE_DO_FUN(do_murder	);
@@ -62,27 +64,24 @@ DECLARE_DO_FUN(do_stand		);
 DECLARE_DO_FUN(do_track		);
 DECLARE_DO_FUN(do_yell		);
 
-void	back_home		args((CHAR_DATA *ch));
-
-#include <unistd.h>     
-#include <signal.h>     
+void	back_home		(CHAR_DATA *ch);
 
 /*
  * Local functions.
  */
-int	hit_gain	args((CHAR_DATA *ch));
-int	mana_gain	args((CHAR_DATA *ch));
-int	move_gain	args((CHAR_DATA *ch));
-void	mobile_update	args((void));
-void	weather_update	args((void));
-void	char_update	args((void));
-void	obj_update	args((void));
-void	aggr_update	args((void));
-int	potion_cure_level	args((OBJ_DATA *potion));
-int	potion_arm_level	args((OBJ_DATA *potion));
-bool	potion_cure_blind	args((OBJ_DATA *potion));
-bool	potion_cure_poison	args((OBJ_DATA *potion));
-bool	potion_cure_disease	args((OBJ_DATA *potion));
+int	hit_gain	(CHAR_DATA *ch);
+int	mana_gain	(CHAR_DATA *ch);
+int	move_gain	(CHAR_DATA *ch);
+void	mobile_update	(void);
+void	weather_update	(void);
+void	char_update	(void);
+void	obj_update	(void);
+void	aggr_update	(void);
+int	potion_cure_level	(OBJ_DATA *potion);
+int	potion_arm_level	(OBJ_DATA *potion);
+bool	potion_cure_blind	(OBJ_DATA *potion);
+bool	potion_cure_poison	(OBJ_DATA *potion);
+bool	potion_cure_disease	(OBJ_DATA *potion);
 
 /* below done by chronos */
 void    quest_update    args((void));

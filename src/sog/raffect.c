@@ -1,5 +1,5 @@
 /*
- * $Id: raffect.c,v 1.12 1998-09-24 14:07:41 fjoe Exp $
+ * $Id: raffect.c,v 1.13 1998-09-29 01:06:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,9 +47,6 @@
 #include "interp.h"
 #include "raffects.h"
 #include "fight.h"
-
-/* room affects by chronos */
-void	affect_modify_room	args((ROOM_INDEX_DATA *room, AFFECT_DATA *paf, bool fAdd)); 
 
 /*
  * Apply or remove an affect to a room.

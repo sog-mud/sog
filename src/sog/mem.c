@@ -1,5 +1,5 @@
 /*
- * $Id: mem.c,v 1.15 1998-09-24 14:07:41 fjoe Exp $
+ * $Id: mem.c,v 1.16 1998-09-29 01:06:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -40,8 +40,8 @@ SHOP_DATA		*	shop_free;
 MOB_INDEX_DATA		*	mob_index_free;
 RESET_DATA		*	reset_free;
 
-void	ed_free	args((ED_DATA *pExtra));
-void	free_affect		args((AFFECT_DATA *af));
+void	ed_free		(ED_DATA *pExtra);
+void	free_affect	(AFFECT_DATA *af);
 
 RESET_DATA *new_reset_data(void)
 {

@@ -23,10 +23,9 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.c,v 1.17 1998-09-24 14:07:39 fjoe Exp $
+ * $Id: clan.c,v 1.18 1998-09-29 01:06:38 fjoe Exp $
  */
 
-#include <sys/syslimits.h>
 #include <sys/time.h>
 #include <stdio.h>
 #include <stdlib.h>

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: resource.c,v 1.38 1998-09-24 14:09:02 fjoe Exp $
+ * $Id: resource.c,v 1.39 1998-09-29 01:07:01 fjoe Exp $
  */
 
 #include <limits.h>
@@ -79,51 +79,6 @@ char *vmsg(int msgid, CHAR_DATA *ch, CHAR_DATA *victim)
 	}
 	else
 		return (char*)m->p;
-}
-
-int lang_lookup(const char *name)
-{
-	int lang;
-
-	if (IS_NULLSTR(name))
-		return -1;
-
-	for (lang = 0; lang < nlang; lang++)
-		if (str_cmp(lang_table[lang], name) == 0)
-			return lang;
-	return -1;
-}
-
-void do_lang(CHAR_DATA *ch, const char *argument)
-{
-	char arg[MAX_STRING_LENGTH];
-	int lang;
-
-	argument = one_argument(argument, arg);
-
-	if (*arg == '\0') {
-		if (ch->lang >= nlang) {
-			log_printf("do_lang: %s: lang == %d\n",
-				   ch->name, ch->lang);
-			ch->lang = 0;
-		}
-		char_printf(ch, "Interface language is '%s'.\n\r", lang_table[ch->lang]);
-		return;
-	}
-
-	lang = lang_lookup(arg);
-	if (lang < 0) {
-		char_puts("Usage: lang [ ", ch);
-		for (lang = 0; lang < nlang; lang++)
-			char_printf(ch, "%s%s",
-				    lang == 0 ? str_empty : " | ", lang_table[lang]);
-		char_puts(" ]\\n\\r", ch);
-		return;
-	}
-
-	ch->lang = lang;
-	do_lang(ch, str_empty);
-	do_look(ch, str_empty);
 }
 
 /*
@@ -191,7 +146,7 @@ char *fix_msg(char* p)
 	return buf;
 }
 
-void load_lang(void)
+void load_oldmsgdb(void)
 {
 	int i;
 	FILE *f;

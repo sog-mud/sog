@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: util.c,v 1.10 1998-09-20 17:01:03 fjoe Exp $
+ * $Id: util.c,v 1.11 1998-09-29 01:06:41 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -197,7 +197,7 @@ int cmpint(const void *p1, const void *p2)
 	return *(int*) p1 - *(int*) p2;
 }
 
-int cmpstr(const void *p1, const void *p2)
+int cmpstrp(const void *p1, const void *p2)
 {
 	return str_cmp(*(char**)p1, *(char**) p2);
 }

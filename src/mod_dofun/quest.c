@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.71 1998-09-22 18:07:17 fjoe Exp $
+ * $Id: quest.c,v 1.72 1998-09-29 01:06:40 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -36,6 +36,8 @@
 #include "merc.h"
 #include "hometown.h"
 #include "quest.h"
+
+#include "resource.h"
 
 #ifdef SUNOS
 #	include <stdarg.h>

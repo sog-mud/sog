@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.94 1998-09-25 04:40:49 fjoe Exp $
+ * $Id: act_move.c,v 1.95 1998-09-29 01:06:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -51,6 +51,8 @@
 #include "obj_prog.h"
 #include "interp.h"
 #include "fight.h"
+
+#include "resource.h"
 
 char *	const	dir_name	[]		=
 {
@@ -216,22 +218,16 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 
 	if (!IS_NPC(ch)) {
 		int move;
-		int i;
 
-		if ((i = guild_check(ch, to_room)) > 0) {
-			if (IS_PUMPED(ch)) {
-				char_nputs(MSG_YOU_FEEL_TOO_BLOODY, ch);
-				return;
-			}
-		}
-		else if (i < 0) {
+		if (guild_check(ch, to_room) < 0) {
 			char_puts("You aren't allowed there.\n\r", ch);
 			return;
 		}
 
 		if (!IS_IMMORTAL(ch) && IS_PUMPED(ch)
 		&&  IS_SET(to_room->room_flags, ROOM_SAFE)) {
-			char_nputs(MSG_YOU_FEEL_TOO_BLOODY, ch);
+			act_puts("You feel too bloody to go in there now.",
+				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 			return;
 		}
 
@@ -539,8 +535,7 @@ int find_door(CHAR_DATA *ch, char *arg)
 
 /* scan.c */
 
-void scan_list           args((ROOM_INDEX_DATA *scan_room, CHAR_DATA *ch,
-		                         int depth, int door));
+void scan_list(ROOM_INDEX_DATA *scan_room, CHAR_DATA *ch, int depth, int door);
 
 void do_scan2(CHAR_DATA *ch, const char *argument)
 {

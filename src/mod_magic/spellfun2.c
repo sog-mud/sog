@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.41 1998-09-23 05:18:25 fjoe Exp $
+ * $Id: spellfun2.c,v 1.42 1998-09-29 01:06:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -60,8 +60,8 @@ DECLARE_DO_FUN(do_yell		);
 DECLARE_DO_FUN(do_say		);
 DECLARE_DO_FUN(do_murder	);
 DECLARE_DO_FUN(do_kill		);
-int	find_door	args((CHAR_DATA *ch, char *arg));
-int	check_exit	args((const char *argument));
+int	find_door	(CHAR_DATA *ch, char *arg);
+int	check_exit	(const char *argument);
 
 extern const char *target_name;
 

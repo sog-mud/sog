@@ -23,9 +23,10 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: msg.c,v 1.4 1998-09-24 14:09:02 fjoe Exp $
+ * $Id: msg.c,v 1.5 1998-09-29 01:07:01 fjoe Exp $
  */
 
+#include <sys/syslimits.h>
 #include <stdio.h>
 
 #include "const.h"

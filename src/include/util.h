@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: util.h,v 1.8 1998-09-20 17:01:03 fjoe Exp $
+ * $Id: util.h,v 1.9 1998-09-29 01:06:41 fjoe Exp $
  */
 
 #ifndef _UTIL_H_
@@ -46,7 +46,7 @@ int	d2rename(const char *dir1, const char *file1,
 		 const char *dir2, const char *file2);
 
 int cmpint(const void *p1, const void *p2);
-int cmpstr(const void *p1, const void *p2);
+int cmpstrp(const void *p1, const void *p2);
 
 size_t		cstrlen		(const char* cstr);
 const char*	cstrfirst	(const char *cstr);

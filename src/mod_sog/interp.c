@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.72 1998-09-28 09:44:05 fjoe Exp $
+ * $Id: interp.c,v 1.73 1998-09-29 01:06:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -51,10 +51,11 @@
 #include "interp.h"
 #include "olc/olc.h"
 
+#include "resource.h"
+
 #undef IMMORTALS_LOGS
 
-bool	check_social	args((CHAR_DATA *ch, char *command,const char *argument));
-
+bool	check_social	(CHAR_DATA *ch, char *command,const char *argument);
 
 /*
  * Command logging types.
@@ -62,8 +63,6 @@ bool	check_social	args((CHAR_DATA *ch, char *command,const char *argument));
 #define LOG_NORMAL	0
 #define LOG_ALWAYS	1
 #define LOG_NEVER	2
-
-
 
 /*
  * Log-all switch.

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.60 1998-09-24 14:07:40 fjoe Exp $
+ * $Id: handler.c,v 1.61 1998-09-29 01:06:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -55,8 +55,8 @@
 /*
  * Local functions.
  */
-void	affect_modify	args((CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd));
-int	age_to_num	args((int age));
+void	affect_modify	(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd);
+int	age_to_num	(int age);
 
 /* friend stuff -- for NPC's mostly */
 bool is_friend(CHAR_DATA *ch,CHAR_DATA *victim)

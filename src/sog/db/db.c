@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.67 1998-09-24 14:09:01 fjoe Exp $
+ * $Id: db.c,v 1.68 1998-09-29 01:07:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -150,7 +150,6 @@ int	sAllocBuf;
  * Semi-locals.
  */
 bool			fBootDb;
-FILE *			fpArea;
 char			filename[PATH_MAX];
 
 /*
@@ -183,9 +182,11 @@ int dbfun_qsort(DBFUN *dbfun_table)
 void db_parse_file(const char *path, const char *file,
 		   DBFUN *dbfun_table, int dbfun_count)
 {
-	strnzcpy(filename, file, sizeof(filename));
+	FILE *fp;
 
-	if ((fpArea = dfopen(path, filename, "r")) == NULL) {
+	snprintf(filename, sizeof(filename), "%s%s", path, file);
+
+	if ((fp = fopen(filename, "r")) == NULL) {
 		perror(filename);
 		exit(1);
 	}
@@ -196,23 +197,23 @@ void db_parse_file(const char *path, const char *file,
 		DBFUN *fn;
 		char *word;
 
-		if (fread_letter(fpArea) != '#') 
+		if (fread_letter(fp) != '#') 
 			db_error("db_parse_file", "'#' not found");
 
-		word = fread_word(fpArea);
+		word = fread_word(fp);
 		if (word[0] == '$')
 			break;
 		fn = bsearch(&word, dbfun_table, dbfun_count,
 			     sizeof(*dbfun_table), dbfuncmp);
 
 		if (fn) 
-			fn->fun(fpArea);
+			fn->fun(fp);
 		else {
 			log("boot_db: bad section name.");
 			exit(1);
 		}
 	}
-	fclose(fpArea);
+	fclose(fp);
 }
 
 void db_load_file(const char *path, const char *file,
@@ -300,6 +301,11 @@ void boot_db(void)
 	/* reboot counter */
 	reboot_counter = 1440;	/* 12 hours */
 
+	fBootDb = TRUE;
+
+	db_load_file(ETC_PATH, LANG_CONF, db_load_langs, init_langs);
+	load_oldmsgdb();
+	load_msgdb();
 	db_load_file(ETC_PATH, SKILLS_CONF, db_load_skills, init_skills);
 	init_classes();
 	db_load_list(CLASSES_PATH, CLASS_LIST, db_load_classes, init_class);
@@ -317,6 +323,14 @@ void boot_db(void)
 	check_mob_progs();
 	load_limited_objects();
 	log_printf("Total non-immortal levels > 5: %d", total_levels);
+
+	fBootDb = FALSE;
+
+	convert_objects();           /* ROM OLC */
+	area_update();
+	load_notes();
+	load_bans();
+
 }
 
 /*
@@ -1744,8 +1758,7 @@ char *fread_word(FILE *fp)
 		}
 	}
 
-	bug("Fread_word: word too long.", 0);
-	exit(1);
+	db_error("fread_word", "word too long");
 	return NULL;
 }
 

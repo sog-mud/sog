@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.27 1998-09-24 14:07:41 fjoe Exp $
+ * $Id: skills.c,v 1.28 1998-09-29 01:06:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,6 +47,8 @@
 #include <stdlib.h>
 #include "merc.h"
 #include "update.h"
+
+#include "resource.h"
 
 varr * skills;
 

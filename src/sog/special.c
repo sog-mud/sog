@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.27 1998-09-24 14:07:42 fjoe Exp $
+ * $Id: special.c,v 1.28 1998-09-29 01:06:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -49,7 +49,7 @@
 #include "hometown.h"
 #include "fight.h"
 
-void	say_spell	args((CHAR_DATA *ch, int sn));
+#include "resource.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_yell		);

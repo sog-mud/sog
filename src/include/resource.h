@@ -2,18 +2,14 @@
 #define _RESOURCE_H_
 
 /*
- * $Id: resource.h,v 1.94 1998-09-22 18:07:10 fjoe Exp $
+ * $Id: resource.h,v 1.95 1998-09-29 01:06:33 fjoe Exp $
  */
 
 #define msg(msgid, ch) vmsg(msgid, ch, ch)
 char* vmsg(int msgid, CHAR_DATA *ch, CHAR_DATA *victim);
 void msgdb_load();
-int lang_lookup(const char*);
-extern char** lang_table;
-extern nlang;
 
 enum {
-	MSG_YOU_FEEL_TOO_BLOODY,
 	MSG_YOU_TOO_EXHAUSTED,
 	MSG_YOU_CANT_WAKE_M,
 	MSG_ARRIVED,
@@ -87,7 +83,6 @@ enum {
 	MSG_N_WANDERS_ON_HOME,
 	MSG_N_SHIVERS_ILL,
 	MSG_N_TRIES_TO_USE,
-	MSG_CANT_HOLD_WHILE_2_WEAPONS,
 	MSG_N_SACS_SELF,
 	MSG_MISPRONOUNCE_SYLLABLE,
 	MSG_YOUR_THIRST_QUENCHED,

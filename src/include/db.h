@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.h,v 1.25 1998-09-20 17:01:27 fjoe Exp $
+ * $Id: db.h,v 1.26 1998-09-29 01:07:01 fjoe Exp $
  */
 
 #ifndef _DB_H_
@@ -67,9 +67,9 @@
 *	ROM license, in the file Rom24/doc/rom.license			   *
 ***************************************************************************/
 
-typedef void DBLOAD_FUN(FILE*);
+typedef void DBLOAD_FUN(FILE *fp);
 #define DECLARE_DBLOAD_FUN(fun) DBLOAD_FUN fun
-#define DBLOAD_FUN(fun) void fun(FILE* fp)
+#define DBLOAD_FUN(fun) void fun(FILE *fp)
 
 struct dbfun {
 	char *		name;
@@ -81,13 +81,15 @@ typedef void DBINIT_FUN(void);
 #define DECLARE_DBINIT_FUN(fun) DBINIT_FUN fun
 #define DBINIT_FUN(fun) void fun(void)
 
-extern DBFUN db_load_skills[];
-extern DBFUN db_load_classes[];
-extern DBFUN db_load_clans[];
 extern DBFUN db_load_areas[];
+extern DBFUN db_load_clans[];
+extern DBFUN db_load_classes[];
+extern DBFUN db_load_langs[];
+extern DBFUN db_load_skills[];
 
 DECLARE_DBINIT_FUN(init_area);
 DECLARE_DBINIT_FUN(init_class);
+DECLARE_DBINIT_FUN(init_langs);
 DECLARE_DBINIT_FUN(init_skills);
 
 void init_classes(void);
@@ -95,7 +97,7 @@ void init_clans(void);
 
 extern int fBootDb;
 
-void	load_lang	(void);
+void	load_oldmsgdb	(void);
 void	load_msgdb	(void);
 void	load_notes	(void);
 void	load_bans	(void);
@@ -111,8 +113,11 @@ flag_t		fread_fstring	(const FLAG *table, FILE *fp);
 void *		fread_namedp	(NAMEDP *table, FILE *fp);
 int		fread_clan	(FILE *fp);
 
-#include <sys/syslimits.h>
-char		filename	[PATH_MAX];
+void db_load_file(const char *path, const char *file,
+		  DBFUN *dbfun_table, DBINIT_FUN *dbinit);
+
+extern char	filename	[PATH_MAX];
+extern int	line_number;
 void		db_error	(const char* fn, const char* fmt, ...);
 
 #define SLIST_ADD(type, list, item)					\

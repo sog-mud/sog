@@ -1,8 +1,7 @@
 #
-# $Id: english.lang,v 1.84 1998-09-22 18:07:09 fjoe Exp $
+# $Id: english.lang,v 1.85 1998-09-29 01:06:33 fjoe Exp $
 #
 
-MSG_YOU_FEEL_TOO_BLOODY "You feel too bloody to go in there now.\n\r"
 MSG_YOU_TOO_EXHAUSTED "You are too exhausted.\n\r"
 MSG_YOU_CANT_WAKE_M "You can't wake $M!"
 MSG_ARRIVED "$n has arrived."
@@ -76,7 +75,6 @@ MSG_DONT_BE_SO_GREEDY "Don't be so greedy!\n\r"
 MSG_N_WANDERS_ON_HOME "$n wanders on home."
 MSG_N_SHIVERS_ILL "$n shivers and looks very ill."
 MSG_N_TRIES_TO_USE "$n tries to use $p, but is too inexperienced."
-MSG_CANT_HOLD_WHILE_2_WEAPONS "You can't hold an item while using 2 weapons.\n\r"
 MSG_N_SACS_SELF "$n offers $mself to gods, who graciously declines."
 MSG_MISPRONOUNCE_SYLLABLE "You mispronounce a syllable.\n\r"
 MSG_YOUR_THIRST_QUENCHED "Your thirst is quenched.\n\r"

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: const.h,v 1.3 1998-09-20 17:01:00 fjoe Exp $
+ * $Id: const.h,v 1.4 1998-09-29 01:06:38 fjoe Exp $
  */
 
 #ifndef _CONST_H_
@@ -55,6 +55,7 @@
 #define NULL_FILE	"/dev/null"	/* To reserve one stream */
 
 #define SKILLS_CONF	"skills.conf"	/* skills */
+#define LANG_CONF	"lang.conf"	/* lang definitions */
 #define MSG_FILE	"msgdb.txt"	/* msg db */
 
 #define CLASS_LIST	"class.lst"	/* list of classes */
@@ -78,6 +79,9 @@
  * String and memory management parameters.
  */
 #define MAX_KEY_HASH		1024
+#define MAX_WORD_HASH		128
+#define MAX_MSG_HASH		128
+
 #define MAX_STRING_LENGTH	(4096+512)
 #define MAX_INPUT_LENGTH	1024
 

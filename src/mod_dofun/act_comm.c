@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.88 1998-09-28 09:44:04 fjoe Exp $
+ * $Id: act_comm.c,v 1.89 1998-09-29 01:06:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -55,13 +55,14 @@
 #include "mob_prog.h"
 #include "obj_prog.h"
 #include "auction.h"
+#include "db/lang.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_quit	);
 DECLARE_DO_FUN(do_quit_count);
 
-void do_quit_org	args((CHAR_DATA *ch, const char *argument, bool Count));
-bool proper_order	args((CHAR_DATA *ch, const char *argument));
+void do_quit_org	(CHAR_DATA *ch, const char *argument, bool Count);
+bool proper_order	(CHAR_DATA *ch, const char *argument);
 char *translate(CHAR_DATA *ch, CHAR_DATA *victim, const char *argument);
 
 void do_afk(CHAR_DATA *ch, const char *argument)
@@ -1870,3 +1871,45 @@ DO_FUN(do_twit)
 	name_toggle(ch, arg, "Twitlist", &ch->pcdata->twitlist);
 }
 
+DO_FUN(do_lang)
+{
+	char arg[MAX_STRING_LENGTH];
+	int lang;
+	LANG_DATA *l;
+
+	if (langs->nused == 0) {
+		char_puts("No languages defined.\n\r", ch);
+		return;
+	}
+
+	argument = one_argument(argument, arg);
+
+	if (*arg == '\0') {
+		l = varr_get(langs, ch->lang);
+		if (l == NULL) {
+			log_printf("do_lang: %s: lang == %d\n",
+				   ch->name, ch->lang);
+			l = VARR_GET(langs, ch->lang = 0);
+		}
+		char_printf(ch, "Interface language is '%s'.\n\r", l->name);
+		return;
+	}
+
+	lang = lang_lookup(arg);
+	if (lang < 0) {
+		char_puts("Usage: lang [ ", ch);
+		for (lang = 0; lang < langs->nused; lang++) {
+			l = VARR_GET(langs, lang);
+			if (IS_SET(l->flags, LANG_HIDDEN))
+				continue;
+			char_printf(ch, "%s%s",
+				    lang == 0 ? str_empty : " | ", l->name);
+		}
+		char_puts(" ]\n\r", ch);
+		return;
+	}
+
+	ch->lang = lang;
+	do_lang(ch, str_empty);
+	do_look(ch, str_empty);
+}

@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.60 1998-09-28 09:44:05 fjoe Exp $
+ * $Id: save.c,v 1.61 1998-09-29 01:06:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -56,8 +56,6 @@
 #include "hometown.h"
 #include "quest.h"
 #include "db/db.h"
-
-extern int _filbuf args((FILE *));
 
 /*
  * Array of containers read for proper re-nesting of objects.
