@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.124 2001-08-21 11:35:14 fjoe Exp $
+ * $Id: db_area.c,v 1.125 2001-08-22 07:14:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -213,13 +213,6 @@ set_percent_resistances(flag_t imm, flag_t res, flag_t vul, int16_t *resist)
 	resist[DAM_WEAPON]	= RES(imm, res, vul, V0_RES_WEAPON);
 	resist[DAM_MAGIC]	= RES(imm, res, vul, V0_RES_MAGIC);
 }
-
-int damtbl[] = {
-	DAM_BASH, DAM_PIERCE, DAM_SLASH, DAM_FIRE, DAM_COLD, DAM_LIGHTNING,
-	DAM_ACID, DAM_HOLY, DAM_NEGATIVE, DAM_ENERGY, DAM_MENTAL, DAM_SOUND,
-	DAM_DISEASE, DAM_POISON, DAM_CHARM, DAM_HARM, DAM_LIGHT
-};
-#define DAMTBL_SZ	(sizeof(damtbl) / sizeof(*damtbl))
 
 DBINIT_FUN(init_area)
 {
@@ -1133,29 +1126,9 @@ DBLOAD_FUN(load_mobiles)
 			if (letter == 'a') {
 				AFFECT_DATA *paf;
 
-				if (area_current->ver < 6) {
+				if (area_current->ver < 6)
 					paf = aff_fread_v5(fp);
-
-					if (area_current->ver < 4
-					&&  IS_APPLY_AFFECT(paf)
-					&&  INT(paf->location) >= 27) {
-						AFFECT_DATA *paf2 = aff_new(
-						    TO_RESISTS, str_empty);
-
-						INT(paf2->location) = damtbl[
-						    UMIN(INT(paf->location)-27,
-							 (int) DAMTBL_SZ-1)];
-						paf2->modifier = paf->modifier;
-
-						paf2->level = pMobIndex->level;
-						paf2->duration = -1;
-						SLIST_ADD(AFFECT_DATA,
-						    pMobIndex->affected, paf2);
-
-						INT(paf->location) = APPLY_NONE;
-						paf->modifier = 0;
-					}
-				} else {
+				else {
 					paf = aff_fread(fp, AFF_X_NOLD);
 
 					if (area_current->ver == 6) {
@@ -1166,8 +1139,8 @@ DBLOAD_FUN(load_mobiles)
 
 				paf->level = pMobIndex->level;
 				paf->duration = -1;
-				SLIST_ADD(AFFECT_DATA,
-				     pMobIndex->affected, paf);
+				SLIST_ADD(
+				    AFFECT_DATA, pMobIndex->affected, paf);
 			} else if (letter == 'f') {
 				AFFECT_DATA *paf = aff_fread(
 				    fp, AFF_X_NOTYPE | AFF_X_NOLD);
@@ -1179,8 +1152,8 @@ DBLOAD_FUN(load_mobiles)
 
 				paf->level = pMobIndex->level;
 				paf->duration = -1;
-				SLIST_ADD(AFFECT_DATA,
-				     pMobIndex->affected, paf);
+				SLIST_ADD(
+				    AFFECT_DATA, pMobIndex->affected, paf);
 			} else if (letter == 'A') {
 				fread_word(fp);
 				if (!IS_TOKEN(fp, "det")) {
@@ -1467,29 +1440,9 @@ DBLOAD_FUN(load_objects)
 
 			switch (letter = fread_letter(fp)) {
 			case 'a':
-				if (area_current->ver < 6) {
+				if (area_current->ver < 6)
 					paf = aff_fread_v5(fp);
-
-					if (area_current->ver < 4
-					&&  IS_APPLY_AFFECT(paf)
-					&&  INT(paf->location) >= 27) {
-						AFFECT_DATA *paf2 = aff_new(
-						    TO_RESISTS, str_empty);
-
-						INT(paf2->location) = damtbl[
-						    UMIN(INT(paf->location)-27,
-							 (int) DAMTBL_SZ - 1)];
-						paf2->modifier = paf->modifier;
-
-						paf2->duration = -1;
-						paf2->level = pObjIndex->level;
-						SLIST_ADD(AFFECT_DATA,
-						    pObjIndex->affected, paf2);
-
-						INT(paf->location) = APPLY_NONE;
-						paf->modifier = 0;
-					}
-				} else {
+				else {
 					paf = aff_fread(fp, AFF_X_NOLD);
 
 					if (area_current->ver == 6) {
@@ -1500,8 +1453,8 @@ DBLOAD_FUN(load_objects)
 
 				paf->level = pObjIndex->level;
 				paf->duration = -1;
-				SLIST_ADD(AFFECT_DATA,
-				    pObjIndex->affected, paf);
+				SLIST_ADD(
+				    AFFECT_DATA, pObjIndex->affected, paf);
 				break;
 
 			case 'f':
@@ -1514,26 +1467,20 @@ DBLOAD_FUN(load_objects)
 
 				paf->level = pObjIndex->level;
 				paf->duration = -1;
-				SLIST_ADD(AFFECT_DATA,
-				    pObjIndex->affected, paf);
+				SLIST_ADD(
+				    AFFECT_DATA, pObjIndex->affected, paf);
 				break;
 
 			case 'A':
 				paf = aff_new(TO_OBJECT, str_empty);
+
 				INT(paf->location)	= fread_number(fp);
 				paf->modifier           = fread_number(fp);
 
-				if (area_current->ver < 4
-				&&  INT(paf->location) >= 27) {
-					paf->where = TO_RESISTS;
-					INT(paf->location) = damtbl[
-					    UMIN(INT(paf->location)-27,
-						 (int) DAMTBL_SZ-1)];
-				}
-
 				paf->level              = pObjIndex->level;
 				paf->duration           = -1;
-				SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);
+				SLIST_ADD(
+				    AFFECT_DATA, pObjIndex->affected, paf);
 				break;
 
 			case 'E':
@@ -1595,7 +1542,8 @@ DBLOAD_FUN(load_objects)
 						INT(paf->location) = i;
 						paf->modifier = resists[i];
 						paf->bitvector = 0;
-						SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);
+						SLIST_ADD(AFFECT_DATA,
+						    pObjIndex->affected, paf);
 					}
 
 					if (modifier) {
@@ -1606,7 +1554,8 @@ DBLOAD_FUN(load_objects)
 						paf->location = location;
 						paf->bitvector = 0;
 						paf->modifier = modifier;
-						SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);
+						SLIST_ADD(AFFECT_DATA,
+						    pObjIndex->affected, paf);
 					}
 					break;
 				}
@@ -1626,7 +1575,8 @@ DBLOAD_FUN(load_objects)
 						paf->location = location;
 						paf->modifier = modifier;
 						paf->bitvector = f2;
-						SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);
+						SLIST_ADD(AFFECT_DATA,
+						    pObjIndex->affected, paf);
 						INT(location) = APPLY_NONE;
 						modifier = 0;
 					}
@@ -1643,7 +1593,8 @@ DBLOAD_FUN(load_objects)
 						paf->location = location;
 						paf->modifier = modifier;
 						paf->bitvector = f2;
-						SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);
+						SLIST_ADD(AFFECT_DATA,
+						    pObjIndex->affected, paf);
 						INT(location) = APPLY_NONE;
 						modifier = 0;
 					}
@@ -1660,7 +1611,8 @@ DBLOAD_FUN(load_objects)
 						paf->location = location;
 						paf->modifier = modifier;
 						paf->bitvector = f2;
-						SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);
+						SLIST_ADD(AFFECT_DATA,
+						    pObjIndex->affected, paf);
 						INT(location) = APPLY_NONE;
 						modifier = 0;
 					}
@@ -1672,22 +1624,6 @@ DBLOAD_FUN(load_objects)
 					f = 0;
 				}
 
-				if (where == TO_AFFECTS
-				&&  INT(location) >= 27
-				&&  area_current->ver < 4) {
-					paf = aff_new(TO_RESISTS, str_empty);
-					paf->level = pObjIndex->level;
-					paf->duration = -1;
-					INT(paf->location) = damtbl[
-					    UMIN(INT(location)-27,
-						 (int) DAMTBL_SZ-1)];
-					paf->modifier = modifier;
-					paf->bitvector = 0;
-					SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);
-					INT(location) = APPLY_NONE;
-					modifier = 0;
-				}
-
 				paf		= aff_new(where, str_empty);
 				paf->level	= pObjIndex->level;
 				paf->duration	= -1;
@@ -1695,7 +1631,8 @@ DBLOAD_FUN(load_objects)
 				paf->modifier	= modifier;
 				paf->bitvector	= f;
 
-				SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);
+				SLIST_ADD(
+				    AFFECT_DATA, pObjIndex->affected, paf);
 				break;
 
 			case 'g':
@@ -1724,7 +1661,8 @@ DBLOAD_FUN(load_objects)
 				    fp, &skills, "load_objects"); // notrans
 				paf->modifier = fread_number(fp);
 				paf->bitvector = fread_flags(fp);
-				SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);
+				SLIST_ADD(
+				    AFFECT_DATA, pObjIndex->affected, paf);
 				break;
 
 			default:
