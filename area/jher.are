@@ -984,7 +984,7 @@ M 0 32717 1 32724 1	* a small statue (The Secret Room)
 S
 
 #SHOPS
-32709 10 10 10 10 10 50 100 0 23
+32709 10 0 0 0 0 50 100 0 23
 0
 
 #OLIMITS
