@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.273 1999-12-16 05:34:34 fjoe Exp $
+ * $Id: merc.h,v 1.274 1999-12-16 11:38:37 kostik Exp $
  */
 
 /***************************************************************************
@@ -101,6 +101,7 @@
 #include "damtype.h"
 #include "material.h"
 #include "liquid.h"
+#include "forms.h"
 
 /*
  * configuration parameters
@@ -1246,6 +1247,7 @@ struct char_data
 	int			wait;
 	int 			add_level;
 	int			daze;
+	form_t *		shapeform;
 
 	int			hit;
 	int 			max_hit;
@@ -1712,9 +1714,9 @@ int trust_level(CHAR_DATA *ch);
 			+ (IS_AWAKE(ch)			    \
 			? dex_app[get_curr_stat(ch,STAT_DEX)].defensive : 0))
 #define GET_HITROLL(ch) \
-		((ch)->hitroll+str_app[get_curr_stat(ch,STAT_STR)].tohit)
+		(((ch)->shapeform) ? ((ch)->shapeform->hitroll) : ((ch)->hitroll+str_app[get_curr_stat(ch,STAT_STR)].tohit))
 #define GET_DAMROLL(ch) \
-		((ch)->damroll+str_app[get_curr_stat(ch,STAT_STR)].todam)
+		(((ch)->shapeform) ? ((ch)->shapeform->damroll) : ((ch)->damroll+str_app[get_curr_stat(ch,STAT_STR)].todam))
 
 #define IS_OUTSIDE(ch)	(!IS_SET((ch)->in_room->room_flags, ROOM_INDOORS))
 

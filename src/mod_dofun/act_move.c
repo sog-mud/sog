@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.219 1999-12-16 07:06:54 fjoe Exp $
+ * $Id: act_move.c,v 1.220 1999-12-16 11:38:33 kostik Exp $
  */
 
 /***************************************************************************
@@ -3030,6 +3030,28 @@ void do_human(CHAR_DATA *ch, const char *argument)
 
 	affect_strip(ch, "vampire");
 	char_puts("You return to your original size.\n", ch);
+}
+
+void do_revert(CHAR_DATA *ch, const char *argument)
+{
+	AFFECT_DATA *paf;
+	AFFECT_DATA *paf_next;
+
+	if (!ch->shapeform) {
+		char_puts("You aren't shapeshifted.\n", ch);
+	}
+
+	for (paf = ch->affected; paf; paf = paf_next) {
+		paf_next = paf->next;
+
+		if (paf->where == TO_FORM) 
+			affect_remove(ch, paf);
+	}
+
+	if (ch->shapeform)
+		revert(ch);
+
+
 }
 
 void do_throw_weapon(CHAR_DATA *ch, const char *argument)

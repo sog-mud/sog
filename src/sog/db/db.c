@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.198 1999-12-16 07:06:57 fjoe Exp $
+ * $Id: db.c,v 1.199 1999-12-16 11:38:42 kostik Exp $
  */
 
 /***************************************************************************
@@ -142,6 +142,7 @@ const char CMD_CONF		[] = "cmd.conf";	/* commands */
 const char DAMTYPE_CONF		[] = "damtype.conf";	/* damtypes */
 const char MATERIALS_CONF	[] = "materials.conf";	/* materials */
 const char LIQUIDS_CONF		[] = "liquids.conf";	/* liquids */
+const char FORMS_CONF		[] = "forms.conf";	/* shapeforms */
 const char CC_EXPR_CONF		[] = "cc_expr.conf";	/* cc_exprs */
 const char GLOB_GMLSTR_FILE	[] = "glob_gmlstr";	/* global gmlstrs */
 
@@ -472,6 +473,7 @@ void boot_db(void)
 	db_load_dir(&db_clans, CLANS_PATH, CLAN_EXT);
 	db_load_list(&db_areas, AREA_PATH, AREA_LIST);
 	db_load_file(&db_hometowns, ETC_PATH, HOMETOWNS_CONF);
+	db_load_file(&db_forms, ETC_PATH, FORMS_CONF);
 
 	/*
 	 * load modules

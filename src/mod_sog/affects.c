@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.19 1999-12-15 15:35:40 fjoe Exp $
+ * $Id: affects.c,v 1.20 1999-12-16 11:38:39 kostik Exp $
  */
 
 /***************************************************************************
@@ -232,6 +232,12 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 		case TO_INVIS:
 			SET_INVIS(ch, paf->bitvector);
 			break;
+		case TO_FORM:
+			shapeshift(ch, paf->location.s);
+			return;
+		case TO_FORMAFFECTS:
+			SET_BIT(ch->affected_by, paf->bitvector);
+			break;
 		}
 	} else {
 		switch (paf->where) {
@@ -243,6 +249,12 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 			break;
 		case TO_INVIS:
 			REMOVE_INVIS(ch, paf->bitvector);
+			break;
+		case TO_FORM:
+			revert(ch);
+			return;
+		case TO_FORMAFFECTS:
+			REMOVE_BIT(ch->affected_by, paf->bitvector);
 			break;
 		}
 		mod = 0 - mod;
@@ -268,8 +280,16 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 	case APPLY_HIT:		ch->max_hit		+= mod;	break;
 	case APPLY_MOVE:	ch->max_move		+= mod;	break;
 
-	case APPLY_HITROLL:	ch->hitroll		+= mod;	break;
-	case APPLY_DAMROLL:	ch->damroll		+= mod;	break;
+	case APPLY_HITROLL:	
+				if ((paf->where == TO_FORMAFFECTS) 
+				&& ch->shapeform)
+					ch->shapeform->hitroll += mod;
+				ch->hitroll		+= mod;	break;
+	case APPLY_DAMROLL:	
+				if ((paf->where == TO_FORMAFFECTS) 
+				&& ch->shapeform)
+					ch->shapeform->damroll += mod;
+				ch->damroll		+= mod;	break;
 	case APPLY_LEVEL:	ch->add_level		+= mod; break;
 
 	case APPLY_SIZE:	ch->size		+= mod;	break;
@@ -306,7 +326,8 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 	case APPLY_RESIST_CHARM:
 	case APPLY_RESIST_HARM:
 	case APPLY_RESIST_LIGHT:
-
+		if (paf->where == TO_FORMAFFECTS && ch->shapeform)
+			ch->shapeform->resists[INT(paf->location) - APPLY_RESIST_BASH] += mod;
 		ch->resists[INT(paf->location)-APPLY_RESIST_BASH] += mod;
 		break;
 	default:
@@ -854,13 +875,35 @@ void strip_raff_owner(CHAR_DATA *ch)
 void show_name(CHAR_DATA *ch, BUFFER *output,
 	       AFFECT_DATA *paf, AFFECT_DATA *paf_last)
 {
+	skill_t *aff;
+	char * aff_type;
+	
+	if (IS_NULLSTR(paf->type)) 
+		aff_type = "Item";
+	else if ((aff = skill_lookup(paf->type)) != NULL) {
+		switch(aff->skill_type) {
+		case ST_SPELL:
+			aff_type = "Spell";
+			break;
+		case ST_SKILL:
+			aff_type = "Skill";
+			break;
+		case ST_PRAYER:
+			aff_type = "Prayer";
+			break;
+		default:
+			aff_type = "Something";
+		}
+	} else 
+		aff_type = "Something";
+
 	if (paf_last && paf->type == paf_last->type)
 		if (ch && ch->level < 20)
 			return;
 		else
-			buf_add(output, "                      ");
+			buf_add(output, "                           ");
 	else
-		buf_printf(output, "Spell: {c%-15s{x", paf->type);
+		buf_printf(output, "%-9s: {c%-15s{x", aff_type, paf->type);
 }
 
 void show_duration(BUFFER *output, AFFECT_DATA *paf)
@@ -926,9 +969,13 @@ void show_affects(CHAR_DATA *ch, BUFFER *output)
 {
 	OBJ_DATA *obj;
 	AFFECT_DATA *paf, *paf_last = NULL;
+	bool found = FALSE;
 
-	buf_add(output, "You are affected by the following spells:\n");
 	for (paf = ch->affected; paf; paf = paf->next) {
+		if (!found)
+			buf_add(output, 
+				"You are affected by the following spells:\n");
+		found = TRUE;
 		if (ch->level < 20) {
 			show_name(ch, output, paf, paf_last);
 			if (paf_last && paf_last->type == paf->type)
@@ -940,6 +987,8 @@ void show_affects(CHAR_DATA *ch, BUFFER *output)
 		show_loc_affect(ch, output, paf, &paf_last);
 		show_bit_affect(output, paf, &paf_last);
 	}
+	if (!found)
+		buf_add(output, "You are not affected by any spells.\n");
 
 	if (ch->level < 20)
 		return;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.50 1999-12-16 07:18:49 fjoe Exp $
+ * $Id: act.c,v 1.51 1999-12-16 11:38:41 kostik Exp $
  */
 
 #include <stdio.h>
@@ -136,6 +136,22 @@ const char *PERS2(CHAR_DATA *ch, CHAR_DATA *to, int to_lang, int act_flags)
 		ch = ch->doppel;
 
 	if (can_see(to, ch)) {
+		if (ch->shapeform) {
+			const char *descr;
+
+			if (IS_SET(act_flags, ACT_FORMSH)) {
+				return _format_short(
+					&ch->shapeform->index->short_desc, 
+					ch->shapeform->index->name,
+				     	to, to_lang, act_flags);
+			}
+
+			descr = mlstr_val(&ch->shapeform->index->short_desc, 
+				to_lang);
+			if (IS_SET(act_flags, ACT_NOFIXSH))
+				return descr;
+			return fix_short(descr);
+		}
 		if (IS_NPC(ch)) {
 			const char *descr;
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.36 1999-12-11 15:31:10 fjoe Exp $
+ * $Id: typedef.h,v 1.37 1999-12-16 11:38:39 kostik Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -74,6 +74,8 @@ typedef struct race_t			race_t;
 typedef struct clan_t			clan_t;
 typedef struct pcrace_t			pcrace_t;
 typedef struct rclass_t			rclass_t;
+typedef struct form_index_t		form_index_t;
+typedef struct form_t			form_t;
 
 typedef struct event_fun_t		event_fun_t;
 typedef struct lang_t			lang_t;

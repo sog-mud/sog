@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cast.c,v 1.15 1999-12-16 05:34:34 fjoe Exp $
+ * $Id: cast.c,v 1.16 1999-12-16 11:38:36 kostik Exp $
  */
 
 #include <stdio.h>
@@ -64,7 +64,8 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (is_affected(ch, "garble") || is_affected(ch, "deafen")) {
+	if (is_affected(ch, "garble") || is_affected(ch, "deafen") 
+	|| (ch->shapeform && IS_SET(ch->shapeform->index->flags, FORM_NOCAST))){
 		char_puts("You can't get the right intonations.\n", ch);
 		return;
 	}
@@ -283,6 +284,13 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		break;
 	}
 
+	if ((obj || (victim && victim != ch)) && (ch->shapeform) 
+	&& IS_SET(ch->shapeform->index->flags, FORM_CASTSELF)) {
+		act("You can only affect yourself in this form.",
+			ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
 	if (str_cmp(sn, "ventriloquate"))
 		say_spell(ch, spell);
 
@@ -457,7 +465,8 @@ void do_pray(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (is_affected(ch, "garble") || is_affected(ch, "deafen")) {
+	if (is_affected(ch, "garble") || is_affected(ch, "deafen") 
+	|| (ch->shapeform && IS_SET(ch->shapeform->index->flags, FORM_NOCAST))){
 		char_puts("You can't get the right intonations.\n", ch);
 		return;
 	}
@@ -649,6 +658,13 @@ void do_pray(CHAR_DATA *ch, const char *argument)
 		break;
 	}
 
+	if ((obj || (victim && victim != ch)) && (ch->shapeform) 
+	&& IS_SET(ch->shapeform->index->flags, FORM_CASTSELF)) {
+		act("You can only affect yourself in this form.",
+			ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
 	say_spell(ch, prayer);
 
 	if (mem_is(vo, MT_CHAR)) {
@@ -687,6 +703,7 @@ void do_pray(CHAR_DATA *ch, const char *argument)
 			}
 		}
 	}
+	
 
 	WAIT_STATE(ch, prayer->beats);
 

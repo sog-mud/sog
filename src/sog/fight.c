@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.242 1999-12-16 07:09:44 fjoe Exp $
+ * $Id: fight.c,v 1.243 1999-12-16 11:38:39 kostik Exp $
  */
 
 /***************************************************************************
@@ -79,6 +79,8 @@ bool	is_safe 		(CHAR_DATA *ch, CHAR_DATA *victim);
 
 void	make_corpse		(CHAR_DATA *ch);
 void	mob_hit 		(CHAR_DATA *ch, CHAR_DATA *victim,
+				 const char *dt);
+void	form_hit 		(CHAR_DATA *ch, CHAR_DATA *victim,
 				 const char *dt);
 void	disarm			(CHAR_DATA *ch, CHAR_DATA *victim,
 				 int disarm_second);
@@ -325,6 +327,11 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt)
 		return;
 	}
 
+	if (ch->shapeform) {
+		form_hit(ch, victim, dt);
+		return;
+	}
+
 	if (IS_NPC(ch)) {
 		mob_hit(ch, victim, dt);
 		return;
@@ -458,6 +465,27 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt)
 				return;
 			chance /= 3;
 		}
+	}
+}
+/* version of multi_hit() for shapeshifted people */
+void form_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt)
+{
+	int chance = 100;
+	int i;
+	int num_attacks = ch->shapeform->index->num_attacks;
+
+	for (i = 0; i < num_attacks; i++) {
+		if (IS_EXTRACTED(ch) || IS_EXTRACTED(victim)) 
+			return;
+		one_hit(ch, victim, dt, WEAR_WIELD);
+		chance = chance * 3 / 4;
+		if (IS_AFFECTED(ch, AFF_HASTE))
+			chance = chance * 5 / 4;
+		if (IS_AFFECTED(ch, AFF_SLOW))
+			chance = chance * 2 / 3;
+		if (number_percent() > chance)
+			return;
+
 	}
 }
 
@@ -606,16 +634,22 @@ int get_dam_class(CHAR_DATA *ch, OBJ_DATA *wield,
 {
 	if (IS_NULLSTR(*dt)) {
 		SET_BIT(*dam_flags, DAMF_HIT);
-		if (wield && wield->pObjIndex->item_type == ITEM_WEAPON)
+		if (wield && wield->pObjIndex->item_type == ITEM_WEAPON) {
 			*dt = wield->value[3].s;
-		else
+		} else if (ch->shapeform) {
+			*dt = ch->shapeform->index->damtype;
+		} else {
 			*dt = ch->damtype;
+		}
 	}
 
-	if (wield && wield->pObjIndex->item_type == ITEM_WEAPON)
+	if (wield && wield->pObjIndex->item_type == ITEM_WEAPON) {
 		return damtype_class(wield->value[3].s);
-	else
+	} else if (ch->shapeform) {
+		return damtype_class(ch->shapeform->index->damtype);
+	} else {
 		return damtype_class(ch->damtype);
+	}
 }
 
 /*
@@ -797,6 +831,10 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 				act_puts("Your flesh is burned with the holy aura of $p.", victim, wield, NULL, TO_CHAR, POS_DEAD);
 				dam += dam * 120 / 100;
 			}
+		} else if (ch->shapeform) {
+			dam = dice(ch->shapeform->index->damage[DICE_NUMBER],
+				ch->shapeform->index->damage[DICE_TYPE]) + 
+				ch->shapeform->index->damage[DICE_BONUS];
 		} else {
 			dam = number_range(1 + 4 * sk / 100,
 					   2 * LEVEL(ch) / 3 * sk / 100);
@@ -1264,39 +1302,45 @@ void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 
 int get_resist(CHAR_DATA *ch, int dam_class) 
 {
+	int16_t *resists;
+	if (ch->shapeform)
+		resists = ch->shapeform->resists;
+	else
+		resists = ch->resists;
+
 	switch(dam_class) {
 	case DAM_BASH:
-		return URANGE(-100, ch->resists[RESIST_BASH], 100);
+		return URANGE(-100, resists[RESIST_BASH], 100);
 	case DAM_SLASH:
-		return URANGE(-100, ch->resists[RESIST_SLASH], 100);
+		return URANGE(-100, resists[RESIST_SLASH], 100);
 	case DAM_PIERCE:
-		return URANGE(-100, ch->resists[RESIST_PIERCE], 100);
+		return URANGE(-100, resists[RESIST_PIERCE], 100);
 	case DAM_FIRE:
-		return URANGE(-100, ch->resists[RESIST_FIRE], 100);
+		return URANGE(-100, resists[RESIST_FIRE], 100);
 	case DAM_COLD:
-		return URANGE(-100, ch->resists[RESIST_COLD], 100);
+		return URANGE(-100, resists[RESIST_COLD], 100);
 	case DAM_LIGHTNING:
-		return URANGE(-100, ch->resists[RESIST_LIGHTNING], 100);
+		return URANGE(-100, resists[RESIST_LIGHTNING], 100);
 	case DAM_ACID:
-		return URANGE(-100, ch->resists[RESIST_ACID], 100);
+		return URANGE(-100, resists[RESIST_ACID], 100);
 	case DAM_NEGATIVE:
-		return URANGE(-100, ch->resists[RESIST_NEGATIVE], 100);
+		return URANGE(-100, resists[RESIST_NEGATIVE], 100);
 	case DAM_HOLY:
-		return URANGE(-100, ch->resists[RESIST_HOLY], 100);
+		return URANGE(-100, resists[RESIST_HOLY], 100);
 	case DAM_LIGHT:
-		return URANGE(-100, ch->resists[RESIST_LIGHT], 100);
+		return URANGE(-100, resists[RESIST_LIGHT], 100);
 	case DAM_ENERGY:
-		return URANGE(-100, ch->resists[RESIST_ENERGY], 100);
+		return URANGE(-100, resists[RESIST_ENERGY], 100);
 	case DAM_MENTAL:
-		return URANGE(-100, ch->resists[RESIST_MENTAL], 100);
+		return URANGE(-100, resists[RESIST_MENTAL], 100);
 	case DAM_DISEASE:
-		return URANGE(-100, ch->resists[RESIST_DISEASE], 100);
+		return URANGE(-100, resists[RESIST_DISEASE], 100);
 	case DAM_POISON:
-		return URANGE(-100, ch->resists[RESIST_POISON], 100);
+		return URANGE(-100, resists[RESIST_POISON], 100);
 	case DAM_SOUND:
-		return URANGE(-100, ch->resists[RESIST_SOUND], 100);
+		return URANGE(-100, resists[RESIST_SOUND], 100);
 	case DAM_HARM:
-		return URANGE(-100, ch->resists[RESIST_HARM], 100);
+		return URANGE(-100, resists[RESIST_HARM], 100);
 	default:
 		return IS_IMMORTAL(ch)? 100 : 0;
 	}
@@ -2156,7 +2200,9 @@ void make_corpse(CHAR_DATA *ch)
 	if (IS_NPC(ch)) {
 		if (!IS_SET(ch->form, FORM_INSTANT_DECAY)) {
 			corpse	= create_obj_of(get_obj_index(OBJ_VNUM_CORPSE_NPC),
-					&ch->short_descr);
+					(ch->shapeform) ? 
+					(&ch->shapeform->index->short_desc) 
+					: (&ch->short_descr));
 			corpse->timer	= number_range(3, 6);
 		}
 
@@ -2168,8 +2214,14 @@ void make_corpse(CHAR_DATA *ch)
 				obj_to_room(money, ch->in_room);
 		}
 	} else {
-		corpse	= create_obj_of(get_obj_index(OBJ_VNUM_CORPSE_PC),
-					&ch->short_descr);
+		if (ch->shapeform)
+			corpse	= create_obj_of(
+				get_obj_index(OBJ_VNUM_CORPSE_PC),
+				&ch->shapeform->index->short_desc);
+		else
+			corpse	= create_obj_of(
+				get_obj_index(OBJ_VNUM_CORPSE_PC),
+				&ch->short_descr);
 
 		corpse->timer= number_range(25, 40);
 		corpse->altar = get_altar(ch);

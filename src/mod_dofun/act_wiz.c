@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.215 1999-12-16 05:34:31 fjoe Exp $
+ * $Id: act_wiz.c,v 1.216 1999-12-16 11:38:35 kostik Exp $
  */
 
 /***************************************************************************
@@ -4472,6 +4472,31 @@ void do_mob(CHAR_DATA *ch, const char *argument)
 		return;
 	mob_interpret(ch, argument);
 }
+
+void do_shapeshift(CHAR_DATA *ch, const char *argument)
+{
+	char arg[MAX_STRING_LENGTH];
+	form_index_t *form;
+	
+	one_argument(argument, arg, sizeof(arg));
+
+	if (arg[0] == '\0') {
+		char_puts("Shapeshift into what?.\n", ch);
+		return;
+	}
+
+	if (!(form = form_lookup(arg))) {
+		char_puts("No such form.\n", ch);
+		return;
+	}
+
+	shapeshift(ch, arg);
+
+}
+
+
+
+
 
 /* 
  * Displays MOBprogram triggers of a mobile

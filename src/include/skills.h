@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: skills.h,v 1.29 1999-12-16 07:06:54 fjoe Exp $
+ * $Id: skills.h,v 1.30 1999-12-16 11:38:38 kostik Exp $
  */
 
 #ifndef _SKILLS_H_
@@ -37,6 +37,7 @@
 #define SKILL_RANGE		(B)
 #define SKILL_AREA_ATTACK	(C)
 #define SKILL_QUESTIONABLE	(D)
+#define SKILL_FORM		(E)
 
 #define ST_SKILL	0
 #define ST_SPELL	1

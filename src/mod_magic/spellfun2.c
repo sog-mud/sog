@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.158 1999-12-16 07:06:57 fjoe Exp $
+ * $Id: spellfun2.c,v 1.159 1999-12-16 11:38:43 kostik Exp $
  */
 
 /***************************************************************************
@@ -4569,6 +4569,29 @@ void spell_mysterious_dream(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	char_puts("The room starts to be seen good place to sleep.\n",ch);   
 	act("The room starts to be seen good place to you.\n",ch,NULL,NULL,TO_ROOM);
+}
+
+void spell_ratform(const char *sn, int level, CHAR_DATA *ch, void *vo)
+{
+	AFFECT_DATA af;
+
+	if (is_affected(ch, sn)) {
+		char_puts("You are rat already.\n", ch);
+		return;
+	}
+	
+	af.where 	= TO_FORM;
+	af.type		= sn;
+	af.level	= level;
+	af.duration	= level / 10;
+	af.location.s	= "rat";
+	af.modifier	= 0;
+	af.bitvector	= 0;
+
+	affect_to_char(ch, &af);
+
+	act("You turn into a small rat for a few hours.", 
+		ch, NULL, NULL, TO_CHAR);
 }
 
 void spell_polymorph(const char *sn, int level, CHAR_DATA *ch, void *vo)

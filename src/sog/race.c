@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.c,v 1.18 1999-12-14 15:31:15 fjoe Exp $
+ * $Id: race.c,v 1.19 1999-12-16 11:38:41 kostik Exp $
  */
 
 #include <stdio.h>
@@ -156,7 +156,10 @@ int get_curr_stat(CHAR_DATA *ch, int stat)
 	else 
 		max = get_max_train(ch, stat);
   
-	return URANGE(3, ch->perm_stat[stat] + ch->mod_stat[stat], max);
+	if (!ch->shapeform)
+		return URANGE(3, ch->perm_stat[stat] + ch->mod_stat[stat], max);
+	else 
+		return URANGE(3, ch->shapeform->index->stats[stat], 25);
 }
 
 /* return max stats */

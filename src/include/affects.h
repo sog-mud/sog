@@ -1,5 +1,5 @@
 /*
- * $Id: affects.h,v 1.8 1999-12-14 15:31:10 fjoe Exp $
+ * $Id: affects.h,v 1.9 1999-12-16 11:38:36 kostik Exp $
  */
 
 /***************************************************************************
@@ -89,7 +89,9 @@ enum {
 	TO_SKILLS,
 	TO_RACE,
 	TO_DETECTS,
-	TO_INVIS
+	TO_INVIS,
+	TO_FORM,
+	TO_FORMAFFECTS,
 };
 
 typedef struct where_t where_t;

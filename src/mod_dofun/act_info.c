@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.307 1999-12-16 07:18:26 fjoe Exp $
+ * $Id: act_info.c,v 1.308 1999-12-16 11:38:32 kostik Exp $
  */
 
 /***************************************************************************
@@ -2751,20 +2751,25 @@ static const char * get_resist_alias(int resist)
 void do_resistances(CHAR_DATA *ch, const char *argument)
 {
 	int i;
+	int16_t* resists;
 	bool found = FALSE;
+	if (ch->shapeform)
+		resists = ch->shapeform->resists;
+	else
+		resists = ch->resists;
 	for (i=0; i < MAX_RESIST; i++) {
-		if (!ch->resists[i] || i == RESIST_CHARM)
+		if (!resists[i] || i == RESIST_CHARM)
 			continue;
 		found = TRUE;
 		if (ch->level < 20) {
 			char_printf(ch, "You are %s %s.\n", 
-				get_resist_alias(ch->resists[i]), 
+				get_resist_alias(resists[i]), 
 				flag_string(resist_info_flags, i));
 		} else {
 			char_printf(ch, "You are %s %s (%d%%).\n", 
-				get_resist_alias(ch->resists[i]),
+				get_resist_alias(resists[i]),
 				flag_string(resist_info_flags, i),
-				UMIN(ch->resists[i], 100));
+				UMIN(resists[i], 100));
 		}
 	}
 	if (!found)
@@ -3218,11 +3223,24 @@ skill_knowledge_alias(CHAR_DATA *ch, pc_skill_t *pc_sk, spec_skill_t *spec_sk)
 /* RT spells and skills show the players spells (or skills) */
 void do_prayers(CHAR_DATA *ch, const char *argument)
 {
+	if (ch->shapeform &&
+	IS_SET(ch->shapeform->index->flags, FORM_NOCAST)) {
+		act("You are unable to pray in this form.",
+			ch, NULL, NULL, TO_CHAR);
+		return;
+	}
 	list_spells(ST_PRAYER, ch, argument);
 }
 
 void do_spells(CHAR_DATA *ch, const char *argument) 
 {
+	if (ch->shapeform &&
+	IS_SET(ch->shapeform->index->flags, FORM_NOCAST)) {
+		act("You cannot cast any spells in this form.",
+			ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
 	list_spells(ST_SPELL, ch, argument);
 }
 
@@ -4257,6 +4275,12 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		return;
 	}
 
+	if (victim->shapeform && victim->position == POS_STANDING) {
+		act_puts(format_long(&victim->shapeform->index->long_desc, ch),
+			 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
+		return;
+	}
+
 	if (IS_IMMORTAL(victim))
 		char_puts("{W", ch);
 	else
@@ -4440,7 +4464,9 @@ static void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 		}
 	}
 
-	if (IS_NPC(doppel))
+	if (doppel->shapeform) 
+		desc = mlstr_cval(&doppel->shapeform->index->description, ch);
+	else if (IS_NPC(doppel))
 		desc = mlstr_cval(&doppel->description, ch);
 	else
 		desc = mlstr_mval(&doppel->description);

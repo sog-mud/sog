@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.141 1999-12-11 15:31:06 fjoe Exp $
+ * $Id: martial_art.c,v 1.142 1999-12-16 11:38:36 kostik Exp $
  */
 
 /***************************************************************************
@@ -808,6 +808,29 @@ void do_cut(CHAR_DATA *ch, const char *argument)
 
 	if (attack) 
 		yell(victim, ch, "Help! $i is attacking me!");
+}
+
+void do_hunger(CHAR_DATA *ch, const char *argument)
+{	
+	AFFECT_DATA af;
+	if (!get_skill(ch, "hungry rat"))
+		return;
+
+	af.where	= TO_FORMAFFECTS;
+	af.type		= "hungry rat";
+	af.level	= LEVEL(ch);
+	af.duration	= number_fuzzy(ch->level / 8);
+	af.modifier	= UMAX(1,LEVEL(ch)/5);
+	af.bitvector 	= AFF_BERSERK;
+	INT(af.location)= APPLY_HITROLL;
+	affect_to_char(ch,&af);
+
+	af.bitvector 	= 0;
+	INT(af.location)= APPLY_DAMROLL;
+	affect_to_char(ch,&af);
+
+	act("You feel so hungry now.", ch, NULL, NULL, TO_CHAR);
+
 }
 
 void do_whirl(CHAR_DATA *ch, const char *argument) 

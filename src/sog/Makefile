@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.21 1999-12-15 15:35:40 fjoe Exp $
+# $Id: Makefile,v 1.22 1999-12-16 11:38:39 kostik Exp $
 #
 
 MODULE_NAME = sog
@@ -12,7 +12,7 @@ DB_CFILES = db/db.c db/db_area.c db/db_cc_expr.c db/db_clan.c\
 	    db/db_class.c db/db_cmd.c db/db_damtype.c db/db_hometown.c\
 	    db/db_lang.c db/db_liquid.c db/db_msg.c db/db_material.c\
 	    db/db_race.c db/db_skills.c db/db_socials.c db/db_spec.c\
-	    db/db_system.c
+	    db/db_system.c db/db_form.c
 
 CFILES = auction.c affect.c buffer.c cc_expr.c chquest.c clan.c class.c cmd.c\
 	 damtype.c effects.c fight.c flag.c handler.c hash.c help.c\
@@ -21,7 +21,7 @@ CFILES = auction.c affect.c buffer.c cc_expr.c chquest.c clan.c class.c cmd.c\
 	 msg.c namelist.c note.c obj_prog.c quest.c race.c\
 	 rating.c recycle.c religion.c rfile.c save.c skills.c\
 	 socials.c spec.c special.c str.c string_edit.c strkey_hash.c\
-	 tables.c update.c util.c varr.c\
+	 tables.c update.c util.c varr.c forms.c\
 	 $(COMM_CFILES) $(DB_CFILES) $(COMPAT_CFILES)
 
 OFILES_ADD = cc_parse.o cc_lex.o

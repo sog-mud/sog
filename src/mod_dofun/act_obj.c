@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.188 1999-12-16 05:34:30 fjoe Exp $
+ * $Id: act_obj.c,v 1.189 1999-12-16 11:38:34 kostik Exp $
  */
 
 /***************************************************************************
@@ -83,6 +83,14 @@ void do_get(CHAR_DATA * ch, const char *argument)
 
 	argument = one_argument(argument, arg1, sizeof(arg1));
 	argument = one_argument(argument, arg2, sizeof(arg2));
+
+	if (ch->shapeform &&
+	IS_SET(ch->shapeform->index->flags, FORM_NOGET)) {
+		act("You aren't able to take anything in this form.\n", 
+			ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
 
 	if (!str_cmp(arg2, "from"))
 		argument = one_argument(argument, arg2, sizeof(arg2));
@@ -1256,6 +1264,11 @@ void do_wear(CHAR_DATA * ch, const char *argument)
 	OBJ_DATA       *obj_next;
 	one_argument(argument, arg, sizeof(arg));
 
+	if (ch->shapeform) {
+		act("You can't reach your items.", ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
 	if (arg[0] == '\0') {
 		char_puts("Wear, wield, or hold what?\n", ch);
 		return;
@@ -1279,6 +1292,11 @@ void do_remove(CHAR_DATA * ch, const char *argument)
 	char            arg[MAX_INPUT_LENGTH];
 	OBJ_DATA       *obj;
 	one_argument(argument, arg, sizeof(arg));
+
+	if (ch->shapeform) {
+		act("You can't reach your items.", ch, NULL, NULL, TO_CHAR);
+		return;
+	}
 
 	if (arg[0] == '\0') {
 		char_puts("Remove what?\n", ch);

@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.114 1999-12-15 00:14:14 avn Exp $
+ * $Id: tables.c,v 1.115 1999-12-16 11:38:41 kostik Exp $
  */
 
 /***************************************************************************
@@ -1084,6 +1084,7 @@ flaginfo_t skill_flags[] =
 	{ "range",		SKILL_RANGE,		TRUE	},
 	{ "area_attack",	SKILL_AREA_ATTACK,	TRUE	},
 	{ "questionable",	SKILL_QUESTIONABLE,	TRUE	},
+	{ "form",		SKILL_FORM,		TRUE	},
 
 	{ NULL }
 };
@@ -1118,6 +1119,17 @@ flaginfo_t race_flags[] =
 	{ "changed",		RACE_CHANGED,		FALSE	},
 
 	{ NULL }
+};
+
+flaginfo_t shapeform_flags[] = 
+{
+	{ "",			TABLE_BITVAL			},
+	{ "nospeak",		FORM_NOSPEAK,		TRUE	},
+	{ "nocast",		FORM_NOCAST,		TRUE	},
+	{ "castself",		FORM_CASTSELF,		TRUE	},
+	{ "noget",		FORM_NOGET,		TRUE	},
+
+	{ NULL}
 };
 
 flaginfo_t ralign_names[] =

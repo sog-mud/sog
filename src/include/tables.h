@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: tables.h,v 1.26 1999-12-14 15:31:11 fjoe Exp $
+ * $Id: tables.h,v 1.27 1999-12-16 11:38:38 kostik Exp $
  */
 
 #ifndef _TABLES_H_
@@ -101,6 +101,7 @@ extern flaginfo_t	spec_flags[];
 extern flaginfo_t	cond_table[];
 extern flaginfo_t	resist_flags[];
 extern flaginfo_t	resist_info_flags[];
+extern flaginfo_t	shapeform_flags[];
 
 #endif
 

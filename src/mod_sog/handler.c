@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.218 1999-12-16 07:06:55 fjoe Exp $
+ * $Id: handler.c,v 1.219 1999-12-16 11:38:40 kostik Exp $
  */
 
 /***************************************************************************
@@ -410,6 +410,9 @@ OBJ_DATA *get_eq_char(CHAR_DATA *ch, int iWear)
 	if (ch == NULL)
 		return NULL;
 
+	if (ch->shapeform) 
+		return NULL;
+
 	for (obj = ch->carrying; obj != NULL; obj = obj->next_content)
 		if (obj->wear_loc == iWear)
 			return obj;
@@ -441,6 +444,9 @@ void _equip_char(CHAR_DATA *ch, OBJ_DATA *obj)
  */
 OBJ_DATA * equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 {
+	if (ch->shapeform)
+		return NULL;
+
 	if (iWear == WEAR_STUCK_IN) {
 		obj->wear_loc = iWear;
 		return obj;
@@ -503,6 +509,9 @@ void strip_obj_affects(CHAR_DATA *ch, OBJ_DATA *obj, AFFECT_DATA *paf)
 void unequip_char(CHAR_DATA *ch, OBJ_DATA *obj)
 {
 	int i;
+
+	if (ch->shapeform)
+		return;
 
 	if (obj->wear_loc == WEAR_NONE) {
 		bug("Unequip_char: already unequipped.", 0);
@@ -1318,6 +1327,13 @@ money_form(int lang, char *buf, size_t len, int num, const char *name)
 		 word_form(GETMSG(name, lang), 1, lang, RULES_CASE));
 	strnzcpy(buf, len, word_form(tmp, num, lang, RULES_QTY));
 }
+
+struct _data {
+	int num1;
+	const char *name1;
+	int num2;
+	const char *name2;
+};
 
 static const char *
 money_descr_cb(int lang, const char **p, va_list ap)
@@ -2361,6 +2377,12 @@ void do_tell_raw(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
 		return;
 	}
 
+	if (ch->shapeform 
+	&& IS_SET(ch->shapeform->index->flags, FORM_NOSPEAK)) {
+		act("You can't speak in this form.", ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
 	if (IS_SET(ch->comm, COMM_NOTELL)) {
 		char_puts("Your message didn't get through.\n", ch);
 		return;
@@ -2517,6 +2539,16 @@ void quit_char(CHAR_DATA *ch, int flags)
 	if (IS_AFFECTED(ch, AFF_SLEEP)) {
 		char_puts("You cannot quit, you are in deep sleep.\n", ch);
 		return;
+	}
+
+	if (ch->shapeform) {
+		AFFECT_DATA *paf;
+		AFFECT_DATA *paf_next;
+		for (paf = ch->affected; paf; paf = paf_next) {
+			paf_next = paf->next;
+			if (paf->where == TO_FORM)
+				affect_remove (ch, paf);
+		}
 	}
 
 	for (vch=npc_list; vch; vch=vch->next) {
@@ -3593,6 +3625,11 @@ bool remove_obj(CHAR_DATA * ch, int iWear, bool fReplace)
 	if (!fReplace)
 		return FALSE;
 
+	if (ch->shapeform) {
+		act("You cannot reach your items.", ch, NULL, NULL, TO_CHAR);
+		return FALSE;
+	}
+
 	if (IS_OBJ_STAT(obj, ITEM_NOREMOVE)) {
 		act_puts("You can't remove $p.",
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
@@ -3642,6 +3679,12 @@ void wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 	if (cc_vexpr_check(&obj->pObjIndex->restrictions, "obj_wear", ch)) {
 		act("You can't wear, wield or hold $p.",
 		    ch, obj, NULL, TO_CHAR);
+		return;
+	}
+
+	if (ch->shapeform) {
+		act("You cannot reach your items.",
+			ch, NULL, NULL, TO_CHAR);
 		return;
 	}
 

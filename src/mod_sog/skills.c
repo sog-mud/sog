@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.97 1999-12-16 07:06:56 fjoe Exp $
+ * $Id: skills.c,v 1.98 1999-12-16 11:38:41 kostik Exp $
  */
 
 /***************************************************************************
@@ -215,6 +215,26 @@ int get_skill(CHAR_DATA *ch, const char *sn)
 
 	if ((sk = skill_lookup(sn)) == NULL) 
 		return 0;
+
+	if (ch->shapeform) {
+		if (!IS_NULLSTR(ch->shapeform->index->skill_spec)) {
+			spec_skill_t *sp_sk;
+			spec_t * fsp;
+			if (!(fsp=spec_lookup(ch->shapeform->index->skill_spec))) {
+				bug("get_skill: bad form (%s) spec (%s).\n",
+					ch->shapeform->index->name,
+					ch->shapeform->index->skill_spec);
+				return 0;
+			}
+			
+			if ((sp_sk = spec_skill_lookup(fsp, sn)) != NULL)
+				return sp_sk->adept;
+			}
+		if (sk->skill_type == ST_SKILL 
+		&& !IS_SET(sk->skill_flags, SKILL_FORM))
+			return 0;
+
+	}
 
 	if (!IS_NPC(ch)) {
 		pc_skill_t *pc_sk;

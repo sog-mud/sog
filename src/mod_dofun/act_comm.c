@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.195 1999-12-11 15:30:58 fjoe Exp $
+ * $Id: act_comm.c,v 1.196 1999-12-16 11:38:32 kostik Exp $
  */
 
 /***************************************************************************
@@ -210,6 +210,13 @@ void do_say(CHAR_DATA *ch, const char *argument)
   
 	if (argument[0] == '\0') {
 		char_puts("Say what?\n", ch);
+		return;
+	}
+
+	if (ch->shapeform 
+	&& IS_SET(ch->shapeform->index->flags, FORM_NOSPEAK)) {
+		act("You cannot say anything in this form.", 
+			ch, NULL, NULL, TO_CHAR);
 		return;
 	}
 
@@ -450,6 +457,12 @@ void do_yell(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	if (ch->shapeform
+	&& IS_SET(ch->shapeform->index->flags, FORM_NOSPEAK)) {
+		act("You cannot yell in this form.", ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
 	argument = garble(ch, argument);
 	act_puts("You yell '{M$t{x'",
 		 ch, argument, NULL, TO_CHAR | ACT_SPEECH(ch), POS_DEAD);
@@ -477,6 +490,12 @@ void do_shout(CHAR_DATA *ch, const char *argument)
 		 return;
 	}
 	
+	if (ch->shapeform
+	&& IS_SET(ch->shapeform->index->flags, FORM_NOSPEAK)) {
+		act("You cannot shout in this form.", ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
 	if (IS_SET(ch->chan, CHAN_NOSHOUT))
 		do_shout(ch, str_empty);
 	WAIT_STATE(ch, PULSE_VIOLENCE);
@@ -548,6 +567,12 @@ void do_gossip(CHAR_DATA *ch, const char *argument)
 	if (IS_SET(ch->chan, CHAN_NOCHANNELS)) {
 		 char_puts("The gods have revoked your channel privileges.\n", ch);
 		 return;
+	}
+
+	if (ch->shapeform
+	&& IS_SET(ch->shapeform->index->flags, FORM_NOSPEAK)) {
+		act("You cannot gossip in this form.", ch, NULL, NULL, TO_CHAR);
+		return;
 	}
 	
 	if (argument[0] == '\0') {
