@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.164.2.12 2004-02-22 20:33:06 fjoe Exp $
+ * $Id: interp.c,v 1.164.2.13 2004-02-24 10:24:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -219,6 +219,14 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 		cmd_level = cmd->min_level;
 	}
 
+	if (!IS_SET(cmd_flg, CMD_HARMLESS)
+	&&  !IS_NPC(ch)
+	&&  ch->desc != NULL
+	&&  (ch->wait > 0 || !QBUF_IN_SYNC(ch->desc))) {
+		append_to_qbuf(ch->desc, save_argument);
+		return;
+	}
+
 	/*
 	 * Implement freeze command.
 	 */
@@ -248,14 +256,9 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 		}
 	}
 
-	if (IS_AFFECTED(ch, AFF_STUN)
-	&&  !IS_SET(cmd_flg, CMD_HARMLESS)) {
+	if (!IS_SET(cmd_flg, CMD_HARMLESS)
+	&&  IS_AFFECTED(ch, AFF_STUN)) {
 		char_puts("You are STUNNED to do that.\n", ch);
-		return;
-	}
-
-	if (!IS_NPC(ch) && ch->wait > 0 && !IS_SET(cmd_flg, CMD_HARMLESS)) {
-		append_to_qbuf(ch->desc, save_argument);
 		return;
 	}
 

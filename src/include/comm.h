@@ -1,5 +1,5 @@
 /*
- * $Id: comm.h,v 1.32.2.3 2004-02-22 20:37:43 fjoe Exp $
+ * $Id: comm.h,v 1.32.2.4 2004-02-24 10:24:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -59,5 +59,7 @@ void	char_printf	(CHAR_DATA *ch, const char *format, ...);
 
 void	send_to_char	(const char *txt, CHAR_DATA *ch);
 void	page_to_char	(const char *txt, CHAR_DATA *ch);
+
+#define QBUF_IN_SYNC(d)	((d)->incomm_from_qbuf || (d)->qbuf[0] == '\0')
 
 #endif
