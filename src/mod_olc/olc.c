@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.31 1998-10-17 11:45:42 fjoe Exp $
+ * $Id: olc.c,v 1.32 1998-10-22 04:31:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -318,8 +318,6 @@ bool olced_exd(CHAR_DATA *ch, const char* argument, ED_DATA **ped)
 	if (!str_cmp(command, "add")) {
 		ed		= ed_new();
 		ed->keyword	= str_dup(keyword);
-		ed->next	= *ped;
-		*ped		= ed;
 
 		if (!mlstr_append(ch, &ed->description, lang)) {
 			ed_free(ed);
@@ -327,6 +325,8 @@ bool olced_exd(CHAR_DATA *ch, const char* argument, ED_DATA **ped)
 			return FALSE;
 		}
 
+		ed->next	= *ped;
+		*ped		= ed;
 		char_puts("Extra description added.\n\r", ch);
 		return TRUE;
 	}
