@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.103 2001-08-28 17:46:20 fjoe Exp $
+ * $Id: olc_area.c,v 1.104 2001-08-28 21:52:17 fjoe Exp $
  */
 
 #include "olc.h"
@@ -1022,8 +1022,8 @@ save_objects(FILE *fp, AREA_DATA *pArea)
 static int
 exitcmp(const void *p1, const void *p2)
 {
-	return (*(const EXIT_DATA **)p1)->orig_door -
-	    (*(const EXIT_DATA **)p2)->orig_door;
+	return (*(const EXIT_DATA * const *)p1)->orig_door -
+	    (*(const EXIT_DATA * const *)p2)->orig_door;
 }
 
 static void

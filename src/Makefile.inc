@@ -1,5 +1,5 @@
 #
-# $Id: Makefile.inc,v 1.25 2001-08-14 16:29:26 fjoe Exp $
+# $Id: Makefile.inc,v 1.26 2001-08-28 21:52:15 fjoe Exp $
 #
 
 #
@@ -16,6 +16,10 @@ INCLUDES=	-I../include -I..
 COPTS=		${INCLUDES}
 CFLAGS=		-O -pipe -Wall
 LDFLAGS=	-export-dynamic
+
+#
+# additional flags for gcc 3.0.x
+#CFLAGS+=	-std=c99
 
 #
 # BDECFLAGS minus -Wconversion, -ansi and -pedantic

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: module.c,v 1.27 2001-08-28 17:46:23 fjoe Exp $
+ * $Id: module.c,v 1.28 2001-08-28 21:52:18 fjoe Exp $
  */
 
 /*
@@ -447,8 +447,8 @@ modset_search(varr *v, const char *name)
 static int
 modset_elem_cmp(const void *p, const void *q)
 {
-	const module_t *m1 = *(const module_t **) p;
-	const module_t *m2 = *(const module_t **) q;
+	const module_t *m1 = *(const module_t * const *) p;
+	const module_t *m2 = *(const module_t * const *) q;
 
 	return m2->mod_prio - m1->mod_prio;
 }

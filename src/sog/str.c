@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: str.c,v 1.31 2001-08-28 17:46:23 fjoe Exp $
+ * $Id: str.c,v 1.32 2001-08-28 21:52:18 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -406,13 +406,13 @@ size_t hashs;			/* hash table size. */
 int
 cmpstr(const void *p1, const void *p2)
 {
-	return str_cmp(*(const char **) p1, *(const char **) p2);
+	return str_cmp(*(const char * const *) p1, *(const char * const *) p2);
 }
 
 int
 cscmpstr(const void *p1, const void *p2)
 {
-	return str_cscmp(*(const char **) p1, *(const char **) p2);
+	return str_cscmp(*(const char * const *) p1, *(const char * const *) p2);
 }
 
 int

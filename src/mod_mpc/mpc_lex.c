@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_lex.c,v 1.14 2001-08-28 17:46:18 fjoe Exp $
+ * $Id: mpc_lex.c,v 1.15 2001-08-28 21:52:16 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -405,6 +405,7 @@ mpc_lex(mpcode_t *mpc)
 		}
 
 nextch:
+		;
 	}
 
 badch:
