@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.84 2001-08-21 09:30:39 fjoe Exp $
+# $Id: Makefile,v 1.85 2001-09-07 19:20:53 fjoe Exp $
 #
 
 .include "${.CURDIR}/Makefile.modules"
@@ -26,7 +26,7 @@ ctags:
 gtags:
 	gtags -co .
 
-CHECKTRANS_FILES!=	ls mod_*/*.c sog/*.c |\
+CHECKTRANS_FILES!=	ls mod_*/*.c sog/*.c ../mpc/*.mpc |\
 	egrep -v '^sog/tables.c$$|^mod_sog/info.c$$|/_depend.c$$' |\
 	egrep -v '^mod_olc/|^mod_mpc/|^sog/objval.c$$' |\
 	egrep -v '^sog/special.c$$'
