@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.161 1999-04-17 06:56:34 fjoe Exp $
+ * $Id: fight.c,v 1.162 1999-04-17 08:28:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2878,16 +2878,9 @@ bool check_obj_dodge(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj, int bonus)
 	if (IS_NPC(victim))
 		 chance  = UMIN(30, victim->level);
 	else {
-		class_t *vcl;
-		cskill_t *vcsk;
-
 		chance  = get_skill(victim, gsn_dodge) / 2;
 		/* chance for high dex. */
 		chance += 2 * (get_curr_stat(victim, STAT_DEX) - 20);
-
-		if ((vcl = class_lookup(ch->class)) != NULL
-		&&  (vcsk = cskill_lookup(vcl, gsn_dodge))) 
-			chance = chance * vcsk->mod / 100;
 	}
 
 	chance -= (bonus - 90);
