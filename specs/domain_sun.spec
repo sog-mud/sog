@@ -6,7 +6,7 @@ End
 #SKILL
 Skill 'sunburst'
 Level 15
-Rating 5
+Rating 1
 Min 1
 Adept 75
 Max 100
