@@ -483,9 +483,9 @@ G none
 #ROOMS
 #6000
 The edge of the forest~
-You are standing at the eastern edge of a big forest.  To the east is the West
-Gate of Midgaard and to the west is a narrow trail, leading in through the
-forest.  A dimly lit path leads north.
+You are standing at the eastern edge of a big forest.  To the east is the
+West Gate of Midgaard and to the west is a narrow trail, leading in through
+the forest.  A dimly lit path leads north.  
 ~
 0 C field
 E

@@ -1,6 +1,5 @@
 #AREADATA
 Name Festival Town~
-Builders agrael kami thorn diogen~
 VNUMs 36300 36499
 Credits Agrael Kami~
 Security 9
@@ -404,7 +403,7 @@ modron~
 ACGHe PZ 0 0
 5 0 2d8+40 5d10+100 2d5+5 pierce
 -10 -20 -10 -5
-FNd A 0 0
+Nd A 0 0
 stand stand male 0
 AG DEF small unknown
 #36320

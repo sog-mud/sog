@@ -1,6 +1,5 @@
 #AREADATA
 Name Mordor~
-Builders kromt~
 VNUMs 30000 30099
 Credits Kromt~
 Security 0
@@ -62,7 +61,7 @@ moby~
 ~
 human~
 A 0 0 0
-300 -10000 1d1+0 0d0+0 0d0+0 none
+500 -10000 1d1+0 0d0+0 0d0+0 none
 0 0 0 0
 0 0 0 0
 stand stand none 0
@@ -365,9 +364,15 @@ D2
 Z 0 30005
 S
 #30008
-@eng West side of Hill~
+@eng The Hill@rus Холм~
+@eng You step from a darkness of tunnels to valley, filled with shadows.
+You can see a small village no so far in west side of hill.
+Main road runs from one hill to another, directed to north.
+@rus Ты вышел из темноты туннелей в долину, наполненную тенями от высоких горю
+Не так далеко на западном склоне холма ты видишь деревню.
+Основная же дорога идет по холмам на север.
 ~
-0 0 inside
+0 0 mountain
 D2
 ~
 ~
@@ -378,13 +383,65 @@ D3
 Z 0 30009
 S
 #30009
+@eng Path to the Orc Village@rus Дорога в деревню орков.~
 ~
+0 0 mountain
+D1
+~
+~
+Z 0 30008
+D3
+~
+~
+Z 0 30010
+S
+#30010
+@eng East Gate of Village@rus Восточные Ворота~
 ~
 0 0 inside
 D1
 ~
 ~
-Z 0 30008
+Z 0 30009
+D3
+~
+~
+Z 0 30011
+S
+#30011
+@eng East Street@rus Восточная Улица~
+~
+0 0 inside
+D1
+~
+~
+Z 0 30010
+D3
+~
+~
+Z 0 30012
+S
+#30012
+@eng East Street near Central Square@rus Восточная Улица около Центра~
+~
+0 0 inside
+D1
+~
+~
+Z 0 30011
+D3
+~
+~
+Z 0 30013
+S
+#30013
+@eng Central Square@rus Центральная Площадь~
+~
+0 0 inside
+D1
+~
+~
+Z 0 30012
 S
 #0
 
@@ -395,7 +452,6 @@ D 0 30005 3 2	* Guard Room: door to the west: closed and locked
 D 0 30006 1 2	* Prison behind the Guard Room: door to the east: closed and locked
 O 0 30099 0 30000	* fountain (Road to Mountain)
 M 0 30099 1 30000 1	*  (Road to Mountain)
-M 0 30098 1 30000 1	*  (Road to Mountain)
 M 0 30001 3 30002 3	* orc guard (Guard Room behind the Gate)
 E 0 30001 0 16		*	Orc'ish sword: wielded
 E 0 30002 0 11		*	orc'ish shield: as a shield

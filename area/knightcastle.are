@@ -1,6 +1,5 @@
 #AREADATA
 Name Knight~
-Builders diogen~
 VNUMs 95200 95299
 Credits Chronos~
 Security 9
@@ -249,7 +248,7 @@ A
 G none
 #95210
 aura majesty ореол~
-@eng Aura of {BMajesty{x@rus ~~Ореол~~ {w{GВеличия{g~
+@eng Aura of {BMajesty{x@rus ~~Ореол~~ {GВеличия{x~
 @eng Something strange is here.@rus Что-то странное здесь.~
 unknown~
 jewelry AIMTYZ AS
