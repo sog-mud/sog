@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: objval.c,v 1.2 1999-12-18 06:55:45 avn Exp $
+ * $Id: objval.c,v 1.3 2000-03-29 14:50:14 kostik Exp $
  */
 
 #include <stdarg.h>
@@ -78,6 +78,13 @@ void objval_init(flag_t item_type, vo_t *v)
 		for (i = 1; i < 5; i++)
 			v[i].s = str_empty;
 		break;
+	case ITEM_BOOK:
+		INT(v[0]) = 0;
+		v[1].s = str_empty;
+		INT(v[2]) = 0;
+		INT(v[3]) = 0;
+		v[4].s = str_empty;
+		break;
 	}
 }
 
@@ -121,6 +128,14 @@ void objval_cpy(flag_t item_type, vo_t *dst, vo_t *src)
 		for (i = 1; i < 5; i++)
 			dst[i].s = str_qdup(src[i].s);
 		break;
+
+	case ITEM_BOOK:
+		dst[0] = src[0];
+		dst[1] = str_qdup(src[1].s);
+		dst[2] = src[2];
+		dst[3] = src[3];
+		dst[4] = str_qdup(src[4].s);
+		break;
 	}
 }
 
@@ -145,6 +160,11 @@ void objval_destroy(flag_t item_type, vo_t *v)
 	case ITEM_SCROLL:
 		for (i = 1; i < 5; i++)
 			free_string(v[i].s);
+		break;
+
+	case ITEM_BOOK:
+		free_string(v[1].s);
+		free_string(v[4].s);
 		break;
 	}
 }
@@ -246,6 +266,17 @@ void fwrite_objval(flag_t item_type, vo_t *v, FILE *fp)
 			FLAGS(v[3]),
 			FLAGS(v[4]));
 		break;
+
+	case ITEM_BOOK:
+		fprintf(fp, "%s %s %d %s '%s'\n",
+			SFLAGS(book_class, v[0]),
+			STR(v[1]),
+			INT(v[2]),
+			SFLAGS(fail_effects, v[3]),
+			STR(v[4]));
+		break;
+
+
 	}
 }
 
@@ -294,6 +325,14 @@ void fread_objval(flag_t item_type, vo_t *v, rfile_t *fp)
 		INT(v[0]) = fread_number(fp);
 		for (i = 1; i < 5; i++)
 			STR_ASSIGN(v[i], fread_strkey(fp, &skills, "fread_obj_val"));
+		break;
+
+	case ITEM_BOOK:
+		INT(v[0]) = fread_fword(book_class, fp);
+		STR_ASSIGN(v[1], fread_strkey(fp, &specs, "fread_obj_val"));
+		INT(v[2]) = fread_number(fp);
+		INT(v[3]) = fread_fword(fail_effects, fp);
+		STR_ASSIGN(v[4], fread_sword(fp));
 		break;
 	}
 }
@@ -462,7 +501,22 @@ void objval_show(BUFFER *output, flag_t item_type, vo_t *v)
 				   "[v1] Gold:   [%d]\n",
 			   INT(v[0]), INT(v[1]));
 		break;
+
+	case ITEM_BOOK:
+		buf_printf(output, 
+			"[v0] Book class 	%s\n"
+			"[v1] Spec		%s\n"
+			"[v2] Base chance 	[%d%%]\n"
+			"[v3] Fail effect	%s\n"
+			"[v4] Success message	[%s]\n",
+			SFLAGS(book_class, v[0]),
+			STR(v[1]),
+			INT(v[2]),
+			SFLAGS(fail_effects, v[3]),
+			STR(v[4]));
+		break;
 	}
+					
 }
 
 /*
@@ -478,6 +532,7 @@ int objval_set(BUFFER *output, flag_t item_type, vo_t *v,
 	skill_t *sk;
 	damtype_t *d;
 	liquid_t *liq;
+	spec_t *spc;
 
 	switch (item_type) {
 	default:
@@ -797,6 +852,55 @@ int objval_set(BUFFER *output, flag_t item_type, vo_t *v,
 			break;
 		}
 		break;
+
+	case ITEM_BOOK:
+		switch (value_num) {
+		case 0:
+			if (!str_cmp(argument, "?")
+			||  (val = flag_value(book_class, argument)) < 0) {
+				show_flags_buf(output, book_class);
+				return 2;
+			}
+			buf_add(output, "BOOK CLASS SET.\n\n");
+			INT(v[0]) = val;
+			break;
+		case 1:
+			
+			if (!str_cmp(argument, "none")) {
+				STR_ASSIGN(v[1], str_empty);
+				break;
+			}
+
+			if (!str_cmp(argument, "?")
+			||  (spc = spec_lookup(argument)) == 0) {
+				buf_add(output, "No such spec.\n");	
+				return 2;
+			}
+
+			buf_add(output, "SPEC SET.\n\n");
+			STR_ASSIGN(v[1], str_qdup(spc->spec_name));
+			break;
+
+		case 2:
+			buf_add(output, "BASE CHANCE SET.\n\n");
+			INT(v[2]) = atoi(argument);
+			break;
+
+		case 3:
+			if (!str_cmp(argument, "?")
+			||  (val = flag_value(fail_effects, argument)) < 0) {
+				show_flags_buf(output, fail_effects);
+				return 2;
+			}
+			buf_add(output, "FAIL EFFECT SET.\n\n");
+			INT(v[3]) = val;
+			break;
+
+		case 4:
+			STR_ASSIGN(v[4], str_dup(argument));
+			buf_add(output, "SUCCESS MESSAGE SET.\n\n");
+			break;
+		}
 	}
 
 	return 0;

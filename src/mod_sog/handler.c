@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.243 2000-03-25 13:17:39 avn Exp $
+ * $Id: handler.c,v 1.244 2000-03-29 14:50:13 kostik Exp $
  */
 
 /***************************************************************************
@@ -4602,5 +4602,22 @@ void gain_exp(CHAR_DATA *ch, int gain)
 		advance_level(ch);
 		update_skills(ch);
 		char_save(ch, 0);
+	}
+}
+
+void bad_effect(CHAR_DATA* ch, int effect)
+{
+	switch(effect) {
+	case FAIL_NONE:
+	default:
+		act("Nothing happens.", ch, NULL, NULL, TO_CHAR);
+		return;
+	case FAIL_DEATH:
+		act("You die..", ch, NULL, NULL, TO_CHAR);
+		raw_kill(ch, ch);
+		return;
+	case FAIL_HALLUCINATION:
+		spellfun_call("hallucination", NULL, ch->level, ch, ch);
+		return;
 	}
 }

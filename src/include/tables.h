@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: tables.h,v 1.32 2000-03-03 04:09:08 avn Exp $
+ * $Id: tables.h,v 1.33 2000-03-29 14:50:10 kostik Exp $
  */
 
 #ifndef _TABLES_H_
@@ -103,6 +103,8 @@ extern flaginfo_t	shapeform_flags[];
 extern flaginfo_t	affect_where_types[];
 extern flaginfo_t	www_flags_table[];
 extern flaginfo_t	clan_status_table[];
+extern flaginfo_t	book_class[];
+extern flaginfo_t	fail_effects[];
 
 #endif
 

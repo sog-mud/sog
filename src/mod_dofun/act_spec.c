@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_spec.c,v 1.8 2000-03-10 11:44:56 kostik Exp $
+ * $Id: act_spec.c,v 1.9 2000-03-29 14:50:12 kostik Exp $
  */
 
 #include <sys/types.h>
@@ -46,6 +46,61 @@
 #include "socials.h"
 #include "string_edit.h"
 #include "spec.h"
+
+void do_read(CHAR_DATA* ch, const char* argument)
+{
+	OBJ_DATA *book;
+	int chance;
+
+	if(IS_NPC(ch)) {
+		act("You don't know how to read.", ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	if(!(book = get_eq_char(ch, WEAR_HOLD))
+	|| (book->item_type != ITEM_BOOK)) {
+		act("You do not hold any book in your hands.",
+			ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	if (spec_lookup(STR(book->value[1])) == NULL) {
+		act("This $t appears to be blank.",
+			ch, flag_string(book_class, INT(book->value[0])),
+			NULL, TO_CHAR);
+		return;
+	}
+
+	if (has_spec(ch, STR(book->value[1]))) {
+		act("You page through the $t, but haven't found anything new.",
+			ch, flag_string(book_class, INT(book->value[0])), 
+			NULL, TO_CHAR);
+		return;
+	}
+
+	chance = INT(book->value[2]);
+	chance = (chance * get_curr_stat(ch, STAT_INT)) / 18;
+
+	if(number_percent() > chance || 
+	(spec_replace(ch, NULL, STR(book->value[1])) != NULL)) {
+		int eff = INT(book->value[3]);
+		act("You didn't understand contents of $t.",
+			ch, flag_string(book_class, INT(book->value[0])), 
+			NULL, TO_CHAR);
+		act("$p glows with strange red light, than disappears.", 
+			ch, book, NULL, TO_CHAR);
+
+		obj_from_char(book);
+		extract_obj(book, 0);
+		bad_effect(ch, eff);
+	} else {
+		act(STR(book->value[4]), ch, NULL, NULL, TO_CHAR);
+		act("$p suddenly disappears.", ch, book, NULL, TO_CHAR);
+		obj_from_char(book);
+		extract_obj(book, 0);
+	}
+
+}
 
 void do_specialize(CHAR_DATA* ch, const char* argument) 
 {

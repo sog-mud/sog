@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.296 2000-03-10 11:44:56 kostik Exp $
+ * $Id: merc.h,v 1.297 2000-03-29 14:50:09 kostik Exp $
  */
 
 /***************************************************************************
@@ -664,6 +664,7 @@ struct spec_type
 #define ITEM_JEWELRY		33
 #define ITEM_JUKEBOX		34
 #define ITEM_TATTOO		35
+#define ITEM_BOOK		36
 
 /*
  * obj_data->stat_flags (variable obj flags)
@@ -799,6 +800,20 @@ struct spec_type
 #define PUT_ON			(N)
 #define PUT_IN			(O)
 #define PUT_INSIDE		(P)
+
+/*
+ * Book types
+ */
+#define BOOK_MANUAL		0
+#define BOOK_SPELLS		1
+#define BOOK_PRAYERS		2
+
+/*
+ * Types of bad effects
+ */
+#define FAIL_NONE		0
+#define FAIL_DEATH		1
+#define FAIL_HALLUCINATION	2
 
 /*
  * Apply types (for affects).
@@ -1887,6 +1902,7 @@ void	obj_from_room	(OBJ_DATA *obj);
 void	obj_to_room	(OBJ_DATA *obj, ROOM_INDEX_DATA *pRoomIndex);
 void	obj_to_obj	(OBJ_DATA *obj, OBJ_DATA *obj_to);
 void	obj_from_obj	(OBJ_DATA *obj);
+void 	bad_effect	(CHAR_DATA *ch, int effect);
 
 /* extract obj flags */
 #define XO_F_NOCOUNT	(A)	/* do not update obj count		*/

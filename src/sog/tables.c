@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.137 2000-03-10 11:44:57 kostik Exp $
+ * $Id: tables.c,v 1.138 2000-03-29 14:50:15 kostik Exp $
  */
 
 /***************************************************************************
@@ -526,6 +526,7 @@ flaginfo_t item_types[] =
 	{ "gem",		ITEM_GEM,		TRUE	},
 	{ "jewelry",		ITEM_JEWELRY,		TRUE	},
 	{ "jukebox",		ITEM_JUKEBOX,		TRUE	},
+	{ "book",		ITEM_BOOK,		TRUE	},
 	{ "tattoo",		ITEM_TATTOO,		FALSE	},
 
 	{ NULL }
@@ -1438,6 +1439,28 @@ flaginfo_t clan_status_table[] =
 	{ "leader",		CLAN_LEADER,			TRUE	},
 
 	{ NULL }
+};
+
+flaginfo_t book_class[] =
+{
+	{ "", 			TABLE_INTVAL				},
+
+	{ "spellbook",		BOOK_SPELLS,			TRUE	},
+	{ "manual",		BOOK_MANUAL,			TRUE	},
+	{ "prayerbook",		BOOK_PRAYERS,			TRUE	},
+
+	{ NULL}
+};
+
+flaginfo_t fail_effects[] = 
+{
+	{ "",			TABLE_INTVAL				},
+
+	{ "none",		FAIL_NONE,			TRUE	},
+	{ "death",		FAIL_DEATH,			TRUE	},
+	{ "hallucination",	FAIL_HALLUCINATION,		TRUE	},
+
+	{ NULL}
 };
 
 /*
