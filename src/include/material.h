@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: material.h,v 1.3 1999-10-21 12:51:53 fjoe Exp $
+ * $Id: material.h,v 1.4 1999-10-21 14:06:57 fjoe Exp $
  */
 
 #ifndef _MATERIAL_H_
@@ -50,7 +50,7 @@ void 		material_init	(material_t *sk);
 material_t *	material_cpy	(material_t *dst, const material_t *src);
 void		material_destroy	(material_t *sk);
 
-#define material_lookup(mn)	((material_t *) hash_lookup(&materials, (mn)))
+#define material_lookup(mn)	((material_t *) strkey_lookup(&materials, (mn)))
 #define material_search(mn)	((material_t *) strkey_search(&materials, (mn)))
 
 bool		material_is	(OBJ_DATA *obj, flag32_t flag);

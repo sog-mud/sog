@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: damtype.h,v 1.2 1999-10-18 19:34:33 avn Exp $
+ * $Id: damtype.h,v 1.3 1999-10-21 14:06:57 fjoe Exp $
  */
 
 #ifndef _DAMTYPE_H_
@@ -73,7 +73,7 @@ void damtype_init(damtype_t *d);
 damtype_t *damtype_cpy(damtype_t *dst, damtype_t *src);
 void damtype_destroy(damtype_t *d);
 
-#define damtype_lookup(dn)	((damtype_t*) hash_lookup(&damtypes, (dn)))
+#define damtype_lookup(dn)	((damtype_t*) strkey_lookup(&damtypes, (dn)))
 const char *	damtype_slot_lookup(int slot);
 
 const char *	damtype_noun(const char *dn);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: strkey_hash.h,v 1.1 1999-10-21 12:51:54 fjoe Exp $
+ * $Id: strkey_hash.h,v 1.2 1999-10-21 14:06:57 fjoe Exp $
  */
 
 #ifndef _STRKEY_HASH_H_
@@ -58,7 +58,7 @@ char *		strkey_filename(const char *name);
 #define STRKEY_CHECK(h, key, id)					\
 	do {								\
 		if (!IS_NULLSTR(key)					\
-		&&  hash_lookup(h, (key)) == NULL) 			\
+		&&  strkey_lookup(h, (key)) == NULL) 			\
 			wizlog("%s: unknown string key '%s'", id, key);	\
 	} while (0);
 #else
