@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.102 1998-10-17 09:44:00 fjoe Exp $
+ * $Id: merc.h,v 1.103 1998-10-17 16:20:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1302,7 +1302,6 @@ struct char_data
 	int			hometown;
 	int			ethos;
 	int			level;
-	int			trust;
 	int 			played;
 	int 			lines;	/* for the pager */
 	time_t			logon;
@@ -1379,6 +1378,7 @@ struct pc_data
 	const char *		bamfout;
 	const char *		title;
 	const char *		twitlist;
+	const char *		granted;	/* granted wiz commands */
 	time_t			last_note;
 	time_t			last_idea;
 	time_t			last_penalty;
@@ -1721,8 +1721,10 @@ struct mpcode
 #define IS_NPC(ch)		(IS_SET((ch)->act, ACT_NPC))
 #define IS_IMMORTAL(ch) 	(!IS_NPC(ch) && (ch)->level >= LEVEL_IMMORTAL)
 #define IS_HERO(ch)		(!IS_NPC(ch) && (ch)->level >= LEVEL_HERO)
-#define IS_TRUSTED(ch,level)	(get_trust((ch)) >= (level))
-#define IS_AFFECTED(ch, sn)	(IS_SET((ch)->affected_by, (sn)))
+#define IS_TRUSTED(ch, lev)	((IS_NPC(ch) ?				    \
+					UMIN((ch)->level, LEVEL_HERO - 1) : \
+					(ch)->level) >= (lev))
+#define IS_AFFECTED(ch, bit)	(IS_SET((ch)->affected_by, (bit)))
 
 #define IS_PK(ch, vt)		(!IS_NPC((ch)) & !IS_NPC((vt)))
 
@@ -1823,7 +1825,6 @@ extern	const	struct wis_app_type	wis_app 	[26];
 extern	const	struct dex_app_type	dex_app 	[26];
 extern	const	struct con_app_type	con_app 	[26];
 
-extern	const	struct cmd_type	cmd_table	[];
 extern	const	struct wiznet_type	wiznet_table	[];
 extern	const	struct attack_type	attack_table	[];
 extern	const	struct race_type	race_table	[];
@@ -1904,7 +1905,6 @@ bool	check_material	(OBJ_DATA *obj, char *material);
 bool	is_metal	(OBJ_DATA *obj);
 int	get_age 	(CHAR_DATA *ch);
 void	reset_char	(CHAR_DATA *ch);
-int	get_trust	(CHAR_DATA *ch);
 int	get_curr_stat	(CHAR_DATA *ch, int stat);
 int	get_max_train	(CHAR_DATA *ch, int stat);
 int	get_max_train2	(CHAR_DATA *ch, int stat);

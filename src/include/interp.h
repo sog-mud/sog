@@ -1,5 +1,5 @@
 /*
- * $Id: interp.h,v 1.26 1998-10-17 09:44:00 fjoe Exp $
+ * $Id: interp.h,v 1.27 1998-10-17 16:20:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -45,34 +45,8 @@
 
 /* this is a listing of all the commands and command related data */
 
-/* for command types */
-#define ML 	MAX_LEVEL	/* implementor */
-#define L1	MAX_LEVEL - 1  	/* creator */
-#define L2	MAX_LEVEL - 2	/* supreme being */
-#define L3	MAX_LEVEL - 3	/* deity */
-#define L4 	MAX_LEVEL - 4	/* god */
-#define L5	MAX_LEVEL - 5	/* immortal */
-#define L6	MAX_LEVEL - 6	/* demigod */
-#define L7	MAX_LEVEL - 7	/* angel */
-#define L8	MAX_LEVEL - 8	/* avatar */
-#define IM	LEVEL_IMMORTAL 	/* angel */
-#define HE	LEVEL_HERO	/* hero */
-
-/*
- * Structure for a command in the command lookup table.
- */
-struct	cmd_type
-{
-	char * const	name;
-	DO_FUN *	do_fun;
-	int		position;
-	int		level;
-	int		log;
-	int		flags;
-};
-
 /* the command table itself */
-extern	const	struct	cmd_type	cmd_table	[];
+extern	CMD_DATA cmd_table[];
 
 void	substitute_alias (DESCRIPTOR_DATA *d, const char *input);
 

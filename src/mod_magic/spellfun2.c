@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.52 1998-10-14 12:37:11 fjoe Exp $
+ * $Id: spellfun2.c,v 1.53 1998-10-17 16:20:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -886,25 +886,20 @@ void spell_confuse(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	af.bitvector = 0;
 	affect_to_char(victim,&af);
 
-	for (rch = ch->in_room->people; rch != NULL; rch = rch->next_in_room)
-	{
-	 if (rch == ch 
-	      && !can_see(ch, rch) 
-	  && get_trust(ch) < rch->invis_level)
-	  count++;
-	    continue;
+	for (rch = ch->in_room->people; rch; rch = rch->next_in_room)
+		if (rch == ch 
+		&&  !can_see(ch, rch))
+			count++;
+
+	for (rch = ch->in_room->people; rch; rch = rch->next_in_room) {
+		if (rch != ch 
+		&&  can_see(ch, rch) 
+		&&  number_range(1, count) == 1)
+			break;
 	}
 
-	for (rch = ch->in_room->people; rch != NULL; rch = rch->next_in_room)
-	{
-	 if (rch != ch 
-	      && can_see(ch, rch) 
-	  && get_trust(ch) >= rch->invis_level
-	  && number_range(1,count) == 1)
-	 break;
-	}
-
-	if (rch)   do_murder(victim,rch->name); 
+	if (rch)
+		do_murder(victim, rch->name); 
 	do_murder(victim, ch->name);
 }
 

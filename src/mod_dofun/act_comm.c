@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.99 1998-10-17 09:43:59 fjoe Exp $
+ * $Id: act_comm.c,v 1.100 1998-10-17 16:20:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -62,7 +62,6 @@ DECLARE_DO_FUN(do_quit	);
 DECLARE_DO_FUN(do_quit_count);
 
 void do_quit_org	(CHAR_DATA *ch, const char *argument, bool Count);
-bool proper_order	(CHAR_DATA *ch, const char *argument);
 
 void do_afk(CHAR_DATA *ch, const char *argument)
 {
@@ -118,7 +117,7 @@ void do_delete(CHAR_DATA *ch, const char *argument)
 		     "Typing delete with an argument will undo delete status.\n\r",
 		     ch);
 	SET_BIT(ch->act, PLR_CONFIRM_DELETE);
-	wiznet("$N is contemplating deletion.", ch, NULL, 0, 0, get_trust(ch));
+	wiznet("$N is contemplating deletion.", ch, NULL, 0, 0, ch->level);
 }
 		
 
@@ -1087,7 +1086,7 @@ void do_quit_org(CHAR_DATA *ch, const char *argument, bool Count)
 	act_puts("$n has left the game.", ch, NULL, NULL, TO_ROOM,
 		 POS_RESTING);
 	log_printf("%s has quit.", ch->name);
-	wiznet("{W$N{x rejoins the real world.",ch,NULL,WIZ_LOGINS,0,get_trust(ch));
+	wiznet("{W$N{x rejoins the real world.",ch,NULL,WIZ_LOGINS,0,ch->level);
 
 	/*
 	 * remove quest objs for this char, drop quest objs for other chars
@@ -1339,7 +1338,7 @@ void do_order(CHAR_DATA *ch, const char *argument)
 		}
 
 		if (!IS_AFFECTED(victim, AFF_CHARM) || victim->master != ch 
-		||(IS_IMMORTAL(victim) && get_trust(victim) >= get_trust(ch))) {
+		||(IS_IMMORTAL(victim) && victim->level >= ch->level)) {
 			char_puts("Do it yourself!\n\r", ch);
 			return;
 		}
@@ -1353,8 +1352,6 @@ void do_order(CHAR_DATA *ch, const char *argument)
 		&&   och->master == ch
 		&& (fAll || och == victim)) {
 			found = TRUE;
-			if (!proper_order(och, argument))
-				continue;
 			act_printf(ch, NULL, och, TO_VICT, POS_RESTING,
 				   "$n orders you to '%s', you do.", argument);
 			interpret_raw(och, argument, TRUE);
@@ -1367,73 +1364,6 @@ void do_order(CHAR_DATA *ch, const char *argument)
 	}
 	else
 		char_puts("You have no followers here.\n\r", ch);
-}
-
-
-bool proper_order(CHAR_DATA *ch, const char *argument)
-{
-	char command[MAX_INPUT_LENGTH];
-	bool found;
-	int trust, cmd_num;
-	DO_FUN *cmd;
-
-	if (!IS_NPC(ch))
-		return TRUE;
-
-	one_argument(argument, command);
-	found = FALSE;
-
-	trust = get_trust(ch);
-
-	for (cmd_num = 0; cmd_table[cmd_num].name; cmd_num++)
-		if (command[0] == cmd_table[cmd_num].name[0]
-		&& !str_prefix(command, cmd_table[cmd_num].name)
-		&& cmd_table[cmd_num].level <= trust) {
-			found = TRUE;
-			break;
-		}
-
-	if (!found)
-		return TRUE;
-
-	cmd = cmd_table[cmd_num].do_fun;
-
-	if (((cmd == do_bash) || (cmd == do_dirt) || (cmd == do_kick)
-	|| (cmd == do_murder) || (cmd == do_trip)) 
-	&& ch->fighting == NULL) 
-		return FALSE;
-
-	if ((cmd == do_assassinate) || (cmd == do_ambush)
-	|| (cmd == do_blackjack) || (cmd == do_cleave) || (cmd == do_kill)
-	|| (cmd == do_murder) || (cmd == do_recall) || (cmd == do_strangle)
-	|| (cmd == do_vtouch))
-		return FALSE;
-
-	if (cmd == do_close || cmd == do_lock || cmd == do_open
-	||  cmd == do_unlock )  {
-		if (race_table[RACE(ch)].pc_race)
-			return TRUE;
-		if (RACE(ch) != 34	/* doll */
-		&&  RACE(ch) != 37	/* goblin */
-		&&  RACE(ch) != 38	/* hobgoblin */
-		&&  RACE(ch) != 39	/* kobolt */
-		&&  RACE(ch) != 40	/* lizard */
-		&&  RACE(ch) != 41	/* modron */
-		&&  RACE(ch) != 42)	/* orc */
-			return FALSE;
-		else 
-			return TRUE;
-	}
-
-	if ((cmd == do_backstab) || (cmd == do_hide) || (cmd == do_pick) 
-	|| (cmd == do_sneak)) {
-		if (IS_SET(ch->act, ACT_THIEF))
-			return TRUE;
-		else
-			return FALSE;
-	}
-
-	return TRUE;
 }
 
 CHAR_DATA* leader_lookup(CHAR_DATA* ch)

@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.17 1998-10-11 17:17:56 fjoe Exp $
+ * $Id: mob_cmds.c,v 1.18 1998-10-17 16:20:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -86,12 +86,12 @@ const	struct	mob_cmd_type	mob_cmd_table	[] =
 
 void do_mob(CHAR_DATA *ch, const char *argument)
 {
-    /*
-     * Security check!
-     */
-    if (ch->desc != NULL && get_trust(ch) < MAX_LEVEL)
-	return;
-    mob_interpret(ch, argument);
+	/*
+	 * Security check!
+	 */
+	if (ch->desc && ch->level < MAX_LEVEL)
+		return;
+	mob_interpret(ch, argument);
 }
 
 /*
@@ -491,15 +491,13 @@ void do_mpoload(CHAR_DATA *ch, const char *argument)
 {
     char arg1[ MAX_INPUT_LENGTH ];
     char arg2[ MAX_INPUT_LENGTH ];
-    char arg3[ MAX_INPUT_LENGTH ];
     OBJ_INDEX_DATA *pObjIndex;
     OBJ_DATA       *obj;
-    int             level;
+    int             level = 0;
     bool            fToroom = FALSE, fWear = FALSE;
 
     argument = one_argument(argument, arg1);
-    argument = one_argument(argument, arg2);
-               one_argument(argument, arg3);
+               one_argument(argument, arg2);
  
     if (arg1[0] == '\0' || !is_number(arg1))
     {
@@ -508,39 +506,14 @@ void do_mpoload(CHAR_DATA *ch, const char *argument)
         return;
     }
  
-    if (arg2[0] == '\0')
-    {
-	level = get_trust(ch);
-    }
-    else
-    {
-	/*
-	 * New feature from Alander.
-	 */
-        if (!is_number(arg2))
-        {
-	    bug("Mpoload - Bad syntax from vnum %d.", 
-		IS_NPC(ch) ? ch->pIndexData->vnum : 0);
-	    return;
-        }
-	level = atoi(arg2);
-	if (level < 0 || level > get_trust(ch))
-	{
-	    bug("Mpoload - Bad level from vnum %d.", 
-		IS_NPC(ch) ? ch->pIndexData->vnum : 0);
-	    return;
-	}
-    }
-
     /*
-     * Added 3rd argument
      * omitted - load to mobile's inventory
      * 'R'     - load to room
      * 'W'     - load to mobile and force wear
      */
-    if (arg3[0] == 'R' || arg3[0] == 'r')
+    if (arg2[0] == 'R' || arg2[0] == 'r')
 	fToroom = TRUE;
-    else if (arg3[0] == 'W' || arg3[0] == 'w')
+    else if (arg2[0] == 'W' || arg2[0] == 'w')
 	fWear = TRUE;
 
     if ((pObjIndex = get_obj_index(atoi(arg1))) == NULL)
@@ -558,11 +531,7 @@ void do_mpoload(CHAR_DATA *ch, const char *argument)
 	    wear_obj(ch, obj, TRUE);
     }
     else
-    {
 	obj_to_room(obj, ch->in_room);
-    }
-
-    return;
 }
 
 /*
@@ -857,11 +826,9 @@ void do_mpforce(CHAR_DATA *ch, const char *argument)
 	    vch_next = vch->next;
 
 	    if (vch->in_room == ch->in_room
-		&& get_trust(vch) < get_trust(ch) 
-		&& can_see(ch, vch))
-	    {
+	    &&  IS_TRUSTED(ch, vch->level)
+	    &&  can_see(ch, vch))
 		interpret(vch, argument);
-	    }
 	}
     }
     else

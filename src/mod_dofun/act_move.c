@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.107 1998-10-14 18:10:16 fjoe Exp $
+ * $Id: act_move.c,v 1.108 1998-10-17 16:20:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -176,8 +176,8 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 	}
 
 	if (IS_SET(pexit->exit_info, EX_CLOSED) 
-	&& (!IS_AFFECTED(ch, AFF_PASS_DOOR) ||
-	    IS_SET(pexit->exit_info, EX_NOPASS))
+	&&  (!IS_AFFECTED(ch, AFF_PASS_DOOR) ||
+	     IS_SET(pexit->exit_info, EX_NOPASS))
 	&&  !IS_TRUSTED(ch, ANGEL)) {
 		if (IS_AFFECTED(ch, AFF_PASS_DOOR)
 		&&  IS_SET(pexit->exit_info, EX_NOPASS))  {
@@ -950,11 +950,9 @@ void do_pick(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *gch;
 	OBJ_DATA *obj;
 	int door;
-	int sn;
 	int chance;
 
-	if ((sn = sn_lookup("pick lock")) < 0
-	||  (chance = get_skill(ch, sn)) == 0) {
+	if ((chance = get_skill(ch, gsn_pick)) == 0) {
 		char_puts("Huh?\n\r", ch);
 		return;
 	}
@@ -971,7 +969,7 @@ void do_pick(CHAR_DATA *ch, const char *argument)
 		  return;
 	}
 
-	WAIT_STATE(ch, SKILL(sn)->beats);
+	WAIT_STATE(ch, SKILL(gsn_pick)->beats);
 
 	/* look for guards */
 	for (gch = ch->in_room->people; gch; gch = gch->next_in_room) {
@@ -986,7 +984,7 @@ void do_pick(CHAR_DATA *ch, const char *argument)
 
 	if (!IS_NPC(ch) && number_percent() > chance) {
 		char_puts("You failed.\n\r", ch);
-		check_improve(ch, sn, FALSE, 2);
+		check_improve(ch, gsn_pick, FALSE, 2);
 		return;
 	}
 
@@ -1016,7 +1014,7 @@ void do_pick(CHAR_DATA *ch, const char *argument)
 		    REMOVE_BIT(obj->value[1],EX_LOCKED);
 		    act_puts("You pick the lock on $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
 		    act("$n picks the lock on $p.", ch, obj, NULL, TO_ROOM);
-		    check_improve(ch, sn, TRUE, 2);
+		    check_improve(ch, gsn_pick, TRUE, 2);
 		    return;
 		}
 
@@ -1036,7 +1034,7 @@ void do_pick(CHAR_DATA *ch, const char *argument)
 		REMOVE_BIT(obj->value[1], CONT_LOCKED);
 		act_puts("You pick the lock on $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
 		act("$n picks the lock on $p.", ch, obj, NULL, TO_ROOM);
-		check_improve(ch, sn, TRUE, 2);
+		check_improve(ch, gsn_pick, TRUE, 2);
 		return;
 	}
 
@@ -1059,7 +1057,7 @@ void do_pick(CHAR_DATA *ch, const char *argument)
 		REMOVE_BIT(pexit->exit_info, EX_LOCKED);
 		char_puts("*Click*\n\r", ch);
 		act("$n picks the $d.", ch, NULL, pexit->keyword, TO_ROOM);
-		check_improve(ch, sn, TRUE, 2);
+		check_improve(ch, gsn_pick, TRUE, 2);
 
 		/* pick the other side */
 		if ((to_room   = pexit->u1.to_room           ) != NULL
@@ -2705,7 +2703,7 @@ void do_escape(CHAR_DATA *ch, const char *argument)
 	    (!IS_AFFECTED(ch, AFF_PASS_DOOR) 
 	||  IS_SET(pexit->exit_info, EX_NOPASS)) &&
 	    !IS_TRUSTED(ch, ANGEL))
-	||  (IS_SET(pexit->exit_info , EX_NOFLEE))
+	||  (IS_SET(pexit->exit_info, EX_NOFLEE))
 	||  (IS_NPC(ch) &&
 	     IS_SET(pexit->u1.to_room->room_flags, ROOM_NOMOB))) {
 		char_puts("Something prevents you to escape that direction.\n\r", ch); 

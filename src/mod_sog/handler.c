@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.75 1998-10-16 13:24:58 fjoe Exp $
+ * $Id: handler.c,v 1.76 1998-10-17 16:20:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -528,23 +528,6 @@ void reset_char(CHAR_DATA *ch)
 	if (ch->sex < 0 || ch->sex > 2)
 		ch->sex = ch->pcdata->true_sex;
  
-}
-
-/*
- * Retrieve a character's trusted level for permission checking.
- */
-int get_trust(CHAR_DATA *ch)
-{
-	if (ch->desc != NULL && ch->desc->original != NULL)
-		ch = ch->desc->original;
-
-	if (ch->trust != 0)
-		return ch->trust;
-
-	if (IS_NPC(ch) && ch->level >= LEVEL_HERO)
-		return LEVEL_HERO - 1;
-	else
-		return ch->level;
 }
 
 /*
@@ -2073,21 +2056,15 @@ OBJ_DATA *get_obj_carry(CHAR_DATA *ch, const char *argument)
 
 	number = number_argument(argument, arg);
 	count  = 0;
-	for (obj = ch->carrying; obj != NULL; obj = obj->next_content)
-	{
+	for (obj = ch->carrying; obj; obj = obj->next_content)
 		if (obj->wear_loc == WEAR_NONE
-		&&   (can_see_obj(ch, obj)) 
-		&&   is_name(arg, obj->name))
-		{
-		    if (++count == number)
+		&&  can_see_obj(ch, obj) 
+		&&  is_name(arg, obj->name)
+		&&  ++count == number) 
 			return obj;
-		}
-	}
 
 	return NULL;
 }
-
-
 
 /*
  * Find an obj in player's equipment.
@@ -2104,21 +2081,15 @@ OBJ_DATA *get_obj_wear(CHAR_DATA *ch, const char *argument)
 
 	number = number_argument(argument, arg);
 	count  = 0;
-	for (obj = ch->carrying; obj != NULL; obj = obj->next_content)
-	{
+	for (obj = ch->carrying; obj; obj = obj->next_content)
 		if (obj->wear_loc != WEAR_NONE
-		&&   can_see_obj(ch, obj)
-		&&   is_name(arg, obj->name))
-		{
-		    if (++count == number)
+		&&  can_see_obj(ch, obj)
+		&&  is_name(arg, obj->name)
+		&&  ++count == number)
 			return obj;
-		}
-	}
 
 	return NULL;
 }
-
-
 
 /*
  * Find an obj in the room or in inventory.
@@ -2183,15 +2154,11 @@ OBJ_DATA *get_obj_world(CHAR_DATA *ch, const char *argument)
 
 	number = number_argument(argument, arg);
 	count  = 0;
-	for (obj = object_list; obj != NULL; obj = obj->next)
-	{
-		if (can_see_obj(ch, obj) && is_name(arg, obj->name))
-		{
-		    if (++count == number)
+	for (obj = object_list; obj; obj = obj->next)
+		if (can_see_obj(ch, obj)
+		&&  is_name(arg, obj->name)
+		&&  ++count == number)
 			return obj;
-		}
-
-	}
 
 	return NULL;
 }
@@ -2428,25 +2395,23 @@ bool room_is_private(ROOM_INDEX_DATA *pRoomIndex)
 bool can_see_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 {
 	if (IS_SET(pRoomIndex->room_flags, ROOM_IMP_ONLY) 
-	&&  get_trust(ch) < IMPLEMENTOR)
+	&&  !IS_TRUSTED(ch, IMPLEMENTOR))
 		return FALSE;
 
 	if (IS_SET(pRoomIndex->room_flags, ROOM_GODS_ONLY)
-	&&  get_trust(ch) < GOD)
+	&&  !IS_TRUSTED(ch, GOD))
 		return FALSE;
 
 	if (IS_SET(pRoomIndex->room_flags, ROOM_HEROES_ONLY)
-	&&  get_trust(ch) < HERO)
+	&&  !IS_TRUSTED(ch, HERO))
 		return FALSE;
 
-	if (IS_SET(pRoomIndex->room_flags,ROOM_NEWBIES_ONLY)
-	&&  ch->level > 5 && !IS_IMMORTAL(ch))
+	if (IS_SET(pRoomIndex->room_flags, ROOM_NEWBIES_ONLY)
+	&&  ch->level > LEVEL_NEWBIE && !IS_IMMORTAL(ch))
 		return FALSE;
 
 	return TRUE;
 }
-
-
 
 /*
  * True if char can see victim.
@@ -2460,11 +2425,11 @@ bool can_see(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (ch == NULL || victim == NULL)
 		dump_to_scr(">>>>>>>> CAN_ SEE ERROR <<<<<<<<<<<\n\r");
 	
-	if (get_trust(ch) < victim->invis_level)
+	if (!IS_TRUSTED(ch, victim->invis_level))
 		return FALSE;
 
-
-	if (get_trust(ch) < victim->incog_level && ch->in_room != victim->in_room)
+	if (!IS_TRUSTED(ch, victim->incog_level)
+	&&  ch->in_room != victim->in_room)
 		return FALSE;
 
 	if ((!IS_NPC(ch) && IS_SET(ch->act, PLR_HOLYLIGHT)) 
@@ -2521,8 +2486,6 @@ bool can_see(CHAR_DATA *ch, CHAR_DATA *victim)
 	return TRUE;
 }
 
-
-
 /*
  * True if char can see obj.
  */
@@ -2552,8 +2515,6 @@ bool can_see_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 
 	return TRUE;
 }
-
-
 
 /*
  * True if char can drop obj.

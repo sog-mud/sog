@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.30 1998-10-06 13:18:29 fjoe Exp $
+ * $Id: note.c,v 1.31 1998-10-17 16:20:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -727,7 +727,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 		return;
 	}
  
-	if (!str_prefix(arg, "delete") && get_trust(ch) >= MAX_LEVEL - 1) {
+	if (!str_prefix(arg, "delete") && ch->level >= MAX_LEVEL - 1) {
 		if (!is_number(argument)) {
 			char_puts("Note delete which number?\n\r", ch);
 			return;

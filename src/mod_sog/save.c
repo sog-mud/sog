@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.74 1998-10-16 13:27:01 fjoe Exp $
+ * $Id: save.c,v 1.75 1998-10-17 16:20:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -104,7 +104,7 @@ void save_char_obj(CHAR_DATA * ch, bool reboot)
 			perror(ch->name);
 		}
 		fprintf(fp, "Lev %2d Trust %2d  %s%s\n",
-		      ch->level, get_trust(ch), ch->name, ch->pcdata->title);
+		      ch->level, ch->level, ch->name, ch->pcdata->title);
 		fclose(fp);
 		fpReserve = fopen(NULL_FILE, "r");
 		if (fpReserve == NULL)
@@ -169,8 +169,6 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, bool reboot)
 	fprintf(fp, "Sex  %d\n", ch->sex);
 	fprintf(fp, "Cla  %d\n", ch->class);
 	fprintf(fp, "Levl %d\n", ch->level);
-	if (ch->trust != 0)
-		fprintf(fp, "Tru  %d\n", ch->trust);
 	fprintf(fp, "Scro %d\n", ch->lines);
 	fprintf(fp, "Room %d\n",
 		(ch->in_room == get_room_index(ROOM_VNUM_LIMBO)
@@ -326,6 +324,8 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, bool reboot)
 		fprintf(fp, "Antkilled %d\n", ch->pcdata->anti_killed);
 		if (!IS_NULLSTR(ch->pcdata->twitlist))
 			fprintf(fp, "Twitlist %s~\n", ch->pcdata->twitlist);
+		if (!IS_NULLSTR(ch->pcdata->granted))
+			fprintf(fp, "Grantlist %s~\n", ch->pcdata->granted);
 	}
 
 	for (paf = ch->affected; paf != NULL; paf = paf->next) {
@@ -842,6 +842,7 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 
 		case 'G':
 			KEY("Gold", ch->gold, fread_number(fp));
+			SKEY("Grantlist", ch->pcdata->granted);
 			if (!str_cmp(word, "Group") || !str_cmp(word, "Gr")) {
 				fread_word(fp);
 				fMatch = TRUE;
@@ -989,8 +990,6 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 			KEY("TrueSex", ch->pcdata->true_sex, fread_number(fp));
 			KEY("TSex", ch->pcdata->true_sex, fread_number(fp));
 			KEY("Trai", ch->train, fread_number(fp));
-			KEY("Trust", ch->trust, fread_number(fp));
-			KEY("Tru", ch->trust, fread_number(fp));
 			SKEY("Twitlist", ch->pcdata->twitlist);
 			if (!str_cmp(word, "Title") || !str_cmp(word, "Titl")) {
 				const char *p = fread_string(fp);

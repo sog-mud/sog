@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.87 1998-10-15 08:21:13 fjoe Exp $
+ * $Id: fight.c,v 1.88 1998-10-17 16:20:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2628,8 +2628,7 @@ void do_slay(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if ((!IS_NPC(victim) && victim->level >= get_trust(ch))
-	||  IS_IMMORTAL(victim)) {
+	if (IS_IMMORTAL(victim)) {
 		char_puts("You failed.\n\r", ch);
 		return;
 	}

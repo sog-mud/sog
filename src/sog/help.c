@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: help.c,v 1.6 1998-10-06 13:18:26 fjoe Exp $
+ * $Id: help.c,v 1.7 1998-10-17 16:20:11 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -96,7 +96,7 @@ void help_show(CHAR_DATA *ch, BUFFER *output, const char *keyword)
 	}
 	else {
 		for (pHelp = help_first; pHelp; pHelp = pHelp->next) {
-			if (pHelp->level > get_trust(ch))
+			if (pHelp->level > ch->level)
 				continue;
 
 			if (is_name(keyword, pHelp->keyword)) {

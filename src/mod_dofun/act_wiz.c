@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.76 1998-10-17 09:43:59 fjoe Exp $
+ * $Id: act_wiz.c,v 1.77 1998-10-17 16:20:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -56,31 +56,29 @@
 #include "interp.h"
 #include "fight.h"
 #include "quest.h"
+#include "db/cmd.h"
 #include "db/db.h"
 
 #include "resource.h"
 
 /* command procedures needed */
-DECLARE_DO_FUN(do_rstat		);
-DECLARE_DO_FUN(do_mstat		);
-DECLARE_DO_FUN(do_ostat		);
-DECLARE_DO_FUN(do_rset		);
-DECLARE_DO_FUN(do_mset		);
-DECLARE_DO_FUN(do_oset		);
-DECLARE_DO_FUN(do_sset		);
-DECLARE_DO_FUN(do_mfind		);
-DECLARE_DO_FUN(do_ofind		);
-DECLARE_DO_FUN(do_mload		);
-DECLARE_DO_FUN(do_oload		);
-DECLARE_DO_FUN(do_force		);
-DECLARE_DO_FUN(do_quit		);
-DECLARE_DO_FUN(do_save		);
-DECLARE_DO_FUN(do_look		);
-DECLARE_DO_FUN(do_force		);
-DECLARE_DO_FUN(do_stand		);
-DECLARE_DO_FUN(do_grant        );
-DECLARE_DO_FUN(do_limited      );
-DECLARE_DO_FUN(do_help	       );
+DECLARE_DO_FUN(do_rstat	);
+DECLARE_DO_FUN(do_mstat	);
+DECLARE_DO_FUN(do_ostat	);
+DECLARE_DO_FUN(do_rset	);
+DECLARE_DO_FUN(do_mset	);
+DECLARE_DO_FUN(do_oset	);
+DECLARE_DO_FUN(do_sset	);
+DECLARE_DO_FUN(do_mfind	);
+DECLARE_DO_FUN(do_ofind	);
+DECLARE_DO_FUN(do_mload	);
+DECLARE_DO_FUN(do_oload	);
+DECLARE_DO_FUN(do_quit	);
+DECLARE_DO_FUN(do_save	);
+DECLARE_DO_FUN(do_look	);
+DECLARE_DO_FUN(do_stand	);
+DECLARE_DO_FUN(do_help	);
+
 QTROUBLE_DATA *qtrouble_lookup(CHAR_DATA *ch, int vnum);
 
 bool write_to_descriptor  (int desc, char *txt, int length);
@@ -195,7 +193,7 @@ void do_wiznet(CHAR_DATA *ch, const char *argument)
 		for (flag = 0; wiznet_table[flag].name != NULL; flag++)
 			buf_printf(output, "%-11s|  %s\n\r",
 				   wiznet_table[flag].name,
-				   wiznet_table[flag].level > get_trust(ch) ?
+				   wiznet_table[flag].level > ch->level ?
 				   "N/A" :
 				   IS_SET(ch->wiznet, wiznet_table[flag].flag) ?
 				   "ON" : "OFF");
@@ -218,7 +216,7 @@ void do_wiznet(CHAR_DATA *ch, const char *argument)
 
 	flag = wiznet_lookup(argument);
 
-	if (flag == -1 || get_trust(ch) < wiznet_table[flag].level) {
+	if (flag == -1 || ch->level < wiznet_table[flag].level) {
 		char_puts("No such option.\n\r", ch);
 		return;
 	}
@@ -252,7 +250,7 @@ void wiznet_printf(CHAR_DATA *ch, OBJ_DATA *obj,
 		    IS_SET(d->character->wiznet,WIZ_ON) &&
 		    (!flag || IS_SET(d->character->wiznet,flag)) &&
 		    (!flag_skip || !IS_SET(d->character->wiznet,flag_skip)) &&
-		    get_trust(d->character) >= min_level &&
+		    d->character->level >= min_level &&
 		    d->character != ch) {
 			if (IS_SET(d->character->wiznet,WIZ_PREFIX))
 				char_puts("--> ",d->character);
@@ -380,7 +378,7 @@ void do_nochannels(CHAR_DATA *ch, const char *argument)
 	    return;
 	}
 	
-	if (get_trust(victim) >= get_trust(ch)) {
+	if (victim->level >= ch->level) {
 	    char_puts("You failed.\n\r", ch);
 	    return;
 	}
@@ -549,7 +547,7 @@ void do_deny(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (get_trust(victim) >= get_trust(ch)) {
+	if (victim->level >= ch->level) {
 		char_puts("You failed.\n\r", ch);
 		return;
 	}
@@ -625,7 +623,7 @@ void do_echo(CHAR_DATA *ch, const char *argument)
 	
 	for (d = descriptor_list; d; d = d->next)
 		if (d->connected == CON_PLAYING) {
-			if (get_trust(d->character) >= get_trust(ch))
+			if (d->character->level >= ch->level)
 				char_puts("global> ", d->character);
 			char_printf(d->character, "%s\n\r", argument);
 		}
@@ -645,7 +643,7 @@ void do_recho(CHAR_DATA *ch, const char *argument)
 	for (d = descriptor_list; d; d = d->next)
 		if (d->connected == CON_PLAYING
 		&&   d->character->in_room == ch->in_room) {
-			if (get_trust(d->character) >= get_trust(ch))
+			if (d->character->level >= ch->level)
 				char_puts("local> ",d->character);
 			char_printf(d->character, "%s\n\r", argument);
 		}
@@ -664,7 +662,7 @@ void do_zecho(CHAR_DATA *ch, const char *argument)
 		if (d->connected == CON_PLAYING
 		&&  d->character->in_room != NULL && ch->in_room != NULL
 		&&  d->character->in_room->area == ch->in_room->area) {
-			if (get_trust(d->character) >= get_trust(ch))
+			if (d->character->level >= ch->level)
 				char_puts("zone> ", d->character);
 			char_printf(d->character, "%s\n\r", argument);
 		}
@@ -687,7 +685,7 @@ void do_pecho(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (get_trust(victim) >= get_trust(ch) && get_trust(ch) != MAX_LEVEL)
+	if (victim->level >= ch->level && ch->level != MAX_LEVEL)
 		char_puts("personal> ", victim);
 
 	char_printf(victim, "%s\n\r", argument);
@@ -750,7 +748,7 @@ void do_transfer(CHAR_DATA *ch, const char *argument)
 		    return;
 		}
 
-		if (room_is_private(location) && get_trust(ch) < MAX_LEVEL) {
+		if (room_is_private(location) && ch->level < MAX_LEVEL) {
 		    char_puts("That room is private right now.\n\r", ch);
 		    return;
 		}
@@ -802,7 +800,7 @@ void do_at(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (room_is_private(location) 	
-	&&  get_trust(ch) < MAX_LEVEL) {
+	&&  ch->level < MAX_LEVEL) {
 		char_puts("That room is private right now.\n\r", ch);
 		return;
 	}
@@ -825,8 +823,6 @@ void do_at(CHAR_DATA *ch, const char *argument)
 			break;
 		}
 }
-
-
 
 void do_goto(CHAR_DATA *ch, const char *argument)
 {
@@ -852,7 +848,7 @@ void do_goto(CHAR_DATA *ch, const char *argument)
 		stop_fighting(ch, TRUE);
 
 	for (rch = ch->in_room->people; rch != NULL; rch = rch->next_in_room)
-		if (get_trust(rch) >= ch->invis_level)
+		if (IS_TRUSTED(rch, ch->invis_level))
 			if (ch->pcdata != NULL
 			&&  ch->pcdata->bamfout[0] != '\0')
 				act("$t", ch, ch->pcdata->bamfout,
@@ -866,7 +862,7 @@ void do_goto(CHAR_DATA *ch, const char *argument)
 
 
 	for (rch = ch->in_room->people; rch != NULL; rch = rch->next_in_room)
-		if (get_trust(rch) >= ch->invis_level)
+		if (IS_TRUSTED(rch, ch->invis_level))
 			if (ch->pcdata != NULL
 			&&  ch->pcdata->bamfin[0] != '\0')
 				act("$t", ch, ch->pcdata->bamfin, rch, TO_VICT);
@@ -901,7 +897,7 @@ void do_violate(CHAR_DATA *ch, const char *argument)
 		stop_fighting(ch, TRUE);
 	
 	for (rch = ch->in_room->people; rch != NULL; rch = rch->next_in_room)
-		if (get_trust(rch) >= ch->invis_level)
+		if (IS_TRUSTED(rch, ch->invis_level))
 			if (ch->pcdata != NULL
 			&&  ch->pcdata->bamfout[0] != '\0')
 				act("$t", ch, ch->pcdata->bamfout,
@@ -913,9 +909,8 @@ void do_violate(CHAR_DATA *ch, const char *argument)
 	char_from_room(ch);
 	char_to_room(ch, location);
 	
-	
 	for (rch = ch->in_room->people; rch != NULL; rch = rch->next_in_room)
-		if (get_trust(rch) >= ch->invis_level)
+		if (IS_TRUSTED(rch, ch->invis_level))
 			if (ch->pcdata != NULL && ch->pcdata->bamfin[0] != '\0')
 				act("$t", ch, ch->pcdata->bamfin, rch, TO_VICT);
 			else
@@ -1251,8 +1246,6 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 	buf_free(output);
 }
 
-
-
 void do_mstat(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
@@ -1435,26 +1428,41 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 		   );
 
 	if (!IS_NPC(victim)) {
-		if (IS_ON_QUEST(victim)) {
-		 buf_printf(output,"Questgiver: %d QuestPnts: %d	Questnext: %d\n\r",
-			victim->pcdata->questgiver,victim->pcdata->questpoints,
-			victim->pcdata->questtime < 0 ? -victim->pcdata->questtime : 0);
-		 buf_printf(output,"QuestCntDown: %d	QuestObj: %d	Questmob: %d\n\r",
-			victim->pcdata->questtime > 0 ? victim->pcdata->questtime : 0,
-			victim->pcdata->questobj, victim->pcdata->questmob);
-		}
-		if  (!IS_ON_QUEST(victim))
-		 buf_printf(output,"QuestPnts: %d	Questnext: %d    NOT QUESTING\n\r",
-			victim->pcdata->questpoints,
-			victim->pcdata->questtime < 0 ? -victim->pcdata->questtime : 0);
-	   }	
-
-	if (!IS_NPC(victim)) {
 		QTROUBLE_DATA *qt;
-		buf_add(output, "quest troubles: ");
+
+		if (IS_ON_QUEST(victim)) {
+			buf_printf(output,
+				   "Questgiver: [%d]  QuestPnts: [%d]  Questnext: [%d]\n\r",
+				   victim->pcdata->questgiver,
+				   victim->pcdata->questpoints,
+				   victim->pcdata->questtime < 0 ?
+					-victim->pcdata->questtime : 0);
+		 	buf_printf(output,
+				   "QuestCntDown: [%d]  QuestObj:  [%d]  Questmob: [%d]\n\r",
+				   victim->pcdata->questtime > 0 ?
+					victim->pcdata->questtime : 0,
+				   victim->pcdata->questobj,
+				   victim->pcdata->questmob);
+		}
+		else {
+			buf_printf(output,
+				   "QuestPnts: [%d]  Questnext: [%d]  NOT QUESTING\n\r",
+				   victim->pcdata->questpoints,
+				   victim->pcdata->questtime < 0 ?
+					-victim->pcdata->questtime : 0);
+		}
+
+		buf_add(output, "Quest Troubles: ");
 		for (qt = victim->pcdata->qtrouble; qt; qt = qt->next)
 			buf_printf(output, "[%d]-[%d] ", qt->vnum, qt->count-1);
 		buf_add(output, "\n\r");
+
+		if (!IS_NULLSTR(victim->pcdata->twitlist))
+			buf_printf(output, "Twitlist: [%s]\n\r",
+				   victim->pcdata->twitlist);
+		if (!IS_NULLSTR(victim->pcdata->granted))
+			buf_printf(output, "Granted: [%s]\n\r",
+				   victim->pcdata->granted);
 	}
 
 	buf_printf(output,
@@ -1465,7 +1473,6 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 		buf_add(output, "Adrenalin is gushing.\n\r");
 	buf_printf(output, "In_mind: [%s]\n\r", 
 			victim->in_mind ? victim->in_mind : "none");
-
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
 }
@@ -1774,7 +1781,7 @@ void do_snoop(CHAR_DATA *ch, const char *argument)
 	if (victim == ch) {
 		char_puts("Cancelling all snoops.\n\r", ch);
 		wiznet("$N stops being such a snoop.", ch, NULL, WIZ_SNOOPS,
-		       WIZ_SECURE, get_trust(ch));
+		       WIZ_SECURE, ch->level);
 		for (d = descriptor_list; d != NULL; d = d->next)
 			if (d->snoop_by == ch->desc)
 				d->snoop_by = NULL;
@@ -1794,7 +1801,7 @@ void do_snoop(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (get_trust(victim) >= get_trust(ch) 
+	if (victim->level >= ch->level 
 	||   IS_SET(victim->comm, COMM_SNOOP_PROOF)) {
 		char_puts("You failed.\n\r", ch);
 		return;
@@ -1808,7 +1815,7 @@ void do_snoop(CHAR_DATA *ch, const char *argument)
 		    }
 
 	victim->desc->snoop_by = ch->desc;
-	wiznet_printf(ch, NULL, WIZ_SNOOPS, WIZ_SECURE, get_trust(ch),
+	wiznet_printf(ch, NULL, WIZ_SNOOPS, WIZ_SECURE, ch->level,
 		      "$N starts snooping on %s",
 		      (IS_NPC(ch) ?
 			  mlstr_mval(victim->short_descr) : victim->name));
@@ -1865,7 +1872,7 @@ void do_switch(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	wiznet_printf(ch, NULL, WIZ_SWITCHES, WIZ_SECURE, get_trust(ch),
+	wiznet_printf(ch, NULL, WIZ_SWITCHES, WIZ_SECURE, ch->level,
 		      "$N switches into %s", mlstr_mval(victim->short_descr));
 
 	ch->desc->character = victim;
@@ -1885,10 +1892,8 @@ void do_return(CHAR_DATA *ch, const char *argument)
 	if (ch->desc == NULL)
 		return;
 
-	if (ch->desc->original == NULL) {
-		char_puts("You aren't switched.\n\r", ch);
+	if (ch->desc->original == NULL)
 		return;
-	}
 
 	char_puts("You return to your original body.\n\r", ch);
 
@@ -1898,7 +1903,7 @@ void do_return(CHAR_DATA *ch, const char *argument)
 	}
 
 	wiznet_printf(ch->desc->original, 0, WIZ_SWITCHES, WIZ_SECURE,
-		      get_trust(ch), "$N returns from %s.",
+		      ch->level, "$N returns from %s.",
 		      mlstr_mval(ch->short_descr));
 	ch->desc->character       = ch->desc->original;
 	ch->desc->original        = NULL;
@@ -2003,7 +2008,7 @@ void do_clone(CHAR_DATA *ch, const char *argument)
 
 		act("$n has created $p.",ch,clone,NULL,TO_ROOM);
 		act("You clone $p.",ch,clone,NULL,TO_CHAR);
-		wiznet("$N clones $p.",ch,clone,WIZ_LOAD,WIZ_SECURE,get_trust(ch));
+		wiznet("$N clones $p.",ch,clone,WIZ_LOAD,WIZ_SECURE,ch->level);
 		return;
 	} else if (mob != NULL) {
 		CHAR_DATA *clone;
@@ -2033,7 +2038,7 @@ void do_clone(CHAR_DATA *ch, const char *argument)
 		char_to_room(clone, ch->in_room);
 		act("$n has created $N.", ch, NULL, clone, TO_ROOM);
 		act("You clone $N.", ch, NULL, clone, TO_CHAR);
-		wiznet_printf(ch, NULL, WIZ_LOAD, WIZ_SECURE, get_trust(ch),
+		wiznet_printf(ch, NULL, WIZ_LOAD, WIZ_SECURE, ch->level,
 			      "$N clones %s.", mlstr_mval(clone->short_descr));
 	}
 }
@@ -2088,11 +2093,10 @@ void do_mload(CHAR_DATA *ch, const char *argument)
 	victim = create_mob(pMobIndex);
 	char_to_room(victim, ch->in_room);
 	act("$n has created $N!", ch, NULL, victim, TO_ROOM);
-	wiznet_printf(ch, NULL, WIZ_LOAD, WIZ_SECURE, get_trust(ch),
+	wiznet_printf(ch, NULL, WIZ_LOAD, WIZ_SECURE, ch->level,
 		      "$N loads %s.", mlstr_mval(victim->short_descr));
 	char_puts("Ok.\n\r", ch);
 }
-
 
 
 void do_oload(CHAR_DATA *ch, const char *argument)
@@ -2100,33 +2104,22 @@ void do_oload(CHAR_DATA *ch, const char *argument)
 	char arg1[MAX_INPUT_LENGTH] ,arg2[MAX_INPUT_LENGTH];
 	OBJ_INDEX_DATA *pObjIndex;
 	OBJ_DATA *obj;
-	int level;
+	int level = 0;
+	int vnum;
 	
 	argument = one_argument(argument, arg1);
 	one_argument(argument, arg2);
 
 	if (arg1[0] == '\0' || !is_number(arg1)) {
-		char_puts("Syntax: load obj <vnum> <level>.\n\r", ch);
+		char_puts("Syntax: load obj <vnum>.\n\r", ch);
 		return;
 	}
 	
-	level = get_trust(ch); /* default */
-	
-	if (arg2[0] != '\0') /* load with a level */
-		if (!is_number(arg2)) {
-			char_puts("Syntax: oload <vnum> <level>.\n\r", ch);
-			return;
-		}
-		level = atoi(arg2);
-		if (level < 0 || level > get_trust(ch)) {
-			char_puts("Level can't be more than yours.\n\r", ch);
-			return;
-		}
-
-		if ((pObjIndex = get_obj_index(atoi(arg1))) == NULL) {
-			char_puts("No object has that vnum.\n\r", ch);
-			return;
-		}
+	vnum = atoi(arg1);
+	if ((pObjIndex = get_obj_index(vnum)) == NULL) {
+		char_printf(ch, "%s: No objects with this vnum.\n\r", vnum);
+		return;
+	}
 
 	obj = create_obj(pObjIndex, level);
 	if (CAN_WEAR(obj, ITEM_TAKE))
@@ -2134,9 +2127,8 @@ void do_oload(CHAR_DATA *ch, const char *argument)
 	else
 		obj_to_room(obj, ch->in_room);
 	act("$n has created $p!", ch, obj, NULL, TO_ROOM);
-	wiznet("$N loads $p.", ch, obj, WIZ_LOAD, WIZ_SECURE, get_trust(ch));
+	wiznet("$N loads $p.", ch, obj, WIZ_LOAD, WIZ_SECURE, ch->level);
 	char_puts("Ok.\n\r", ch);
-	return;
 }
 
 void do_purge(CHAR_DATA *ch, const char *argument)
@@ -2182,7 +2174,7 @@ void do_purge(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		if (get_trust(ch) <= get_trust(victim)) {
+		if (ch->level <= victim->level) {
 			char_puts("Maybe that wasn't a good idea...\n\r",ch);
 			char_printf(ch,"%s tried to purge you!\n\r",ch->name);
 			return;
@@ -2202,43 +2194,6 @@ void do_purge(CHAR_DATA *ch, const char *argument)
 	act("$n purges $N.", ch, NULL, victim, TO_NOTVICT);
 	extract_char(victim, TRUE);
 }
-
-
-void do_trust(CHAR_DATA *ch, const char *argument)
-{
-	char arg1[MAX_INPUT_LENGTH];
-	char arg2[MAX_INPUT_LENGTH];
-	CHAR_DATA *victim;
-	int level;
-
-	argument = one_argument(argument, arg1);
-	argument = one_argument(argument, arg2);
-
-	if (arg1[0] == '\0' || arg2[0] == '\0' || !is_number(arg2)) {
-		char_puts("Syntax: trust <char> <level>.\n\r", ch);
-		return;
-	}
-
-	if ((victim = get_char_world(ch, arg1)) == NULL) {
-		char_puts("That player is not here.\n\r", ch);
-		return;
-	}
-
-	if ((level = atoi(arg2)) < 0 || level > 100) {
-		char_puts("Level must be 0 (reset) or 1 to 100.\n\r", ch);
-		return;
-	}
-
-	if (level > get_trust(ch)) {
-		char_puts("Limited to your trust.\n\r", ch);
-		return;
-	}
-
-	victim->trust = level;
-	return;
-}
-
-
 
 void do_restore(CHAR_DATA *ch, const char *argument)
 {
@@ -2265,7 +2220,7 @@ void do_restore(CHAR_DATA *ch, const char *argument)
 	        act("$n has restored you.",ch,NULL,vch,TO_VICT);
 	    }
 
-	    wiznet_printf(ch,NULL,WIZ_RESTORE,WIZ_SECURE,get_trust(ch),
+	    wiznet_printf(ch,NULL,WIZ_RESTORE,WIZ_SECURE,ch->level,
 	    		"$N restored room %d.",ch->in_room->vnum);
 	    
 	    char_puts("Room restored.\n\r",ch);
@@ -2273,7 +2228,7 @@ void do_restore(CHAR_DATA *ch, const char *argument)
 
 	}
 	
-	if (get_trust(ch) >=  MAX_LEVEL - 1 && !str_cmp(arg,"all")) {
+	if (ch->level >=  MAX_LEVEL - 1 && !str_cmp(arg,"all")) {
 	/* cure all */
 	    for (d = descriptor_list; d != NULL; d = d->next) {
 		    victim = d->character;
@@ -2313,7 +2268,7 @@ void do_restore(CHAR_DATA *ch, const char *argument)
 	victim->move = victim->max_move;
 	update_pos(victim);
 	act("$n has restored you.", ch, NULL, victim, TO_VICT);
-	wiznet_printf(ch,NULL,WIZ_RESTORE,WIZ_SECURE,get_trust(ch),
+	wiznet_printf(ch,NULL,WIZ_RESTORE,WIZ_SECURE,ch->level,
 			"$N restored %s",
 	      IS_NPC(victim) ? mlstr_mval(victim->short_descr) : victim->name);
 	char_puts("Ok.\n\r", ch);
@@ -2342,7 +2297,7 @@ void do_freeze(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (get_trust(victim) >= get_trust(ch)) {
+	if (victim->level >= ch->level) {
 		char_puts("You failed.\n\r", ch);
 		return;
 	}
@@ -2430,7 +2385,7 @@ void do_noemote(CHAR_DATA *ch, const char *argument)
 	}
 
 
-	if (get_trust(victim) >= get_trust(ch)) {
+	if (victim->level >= ch->level) {
 		char_puts("You failed.\n\r", ch);
 		return;
 	}
@@ -2472,7 +2427,7 @@ void do_noshout(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (get_trust(victim) >= get_trust(ch)) {
+	if (victim->level >= ch->level) {
 		char_puts("You failed.\n\r", ch);
 		return;
 	}
@@ -2511,7 +2466,7 @@ void do_notell(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (get_trust(victim) >= get_trust(ch)) {
+	if (victim->level >= ch->level) {
 		char_puts("You failed.\n\r", ch);
 		return;
 	}
@@ -3037,7 +2992,7 @@ void do_force(CHAR_DATA *ch, const char *argument)
 		CHAR_DATA *vch;
 		CHAR_DATA *vch_next;
 
-		if (get_trust(ch) < MAX_LEVEL - 3) {
+		if (ch->level < MAX_LEVEL - 3) {
 		    char_puts("Not at your level!\n\r",ch);
 		    return;
 		}
@@ -3045,7 +3000,7 @@ void do_force(CHAR_DATA *ch, const char *argument)
 		for (vch = char_list; vch != NULL; vch = vch_next) {
 		    vch_next = vch->next;
 
-		    if (!IS_NPC(vch) && get_trust(vch) < get_trust(ch)) {
+		    if (!IS_NPC(vch) && vch->level < ch->level) {
 			act(buf, ch, NULL, vch, TO_VICT);
 			interpret_raw(vch, argument, TRUE);
 		    }
@@ -3054,7 +3009,7 @@ void do_force(CHAR_DATA *ch, const char *argument)
 	    CHAR_DATA *vch;
 	    CHAR_DATA *vch_next;
 	
-	    if (get_trust(ch) < MAX_LEVEL - 2) {
+	    if (ch->level < MAX_LEVEL - 2) {
 	        char_puts("Not at your level!\n\r",ch);
 	        return;
 	    }
@@ -3062,7 +3017,7 @@ void do_force(CHAR_DATA *ch, const char *argument)
 	    for (vch = char_list; vch != NULL; vch = vch_next) {
 	        vch_next = vch->next;
 	
-	        if (!IS_NPC(vch) && get_trust(vch) < get_trust(ch) 
+	        if (!IS_NPC(vch) && vch->level < ch->level 
 		    &&	 vch->level < LEVEL_HERO) {
 	            act(buf, ch, NULL, vch, TO_VICT);
 	            interpret(vch, argument);
@@ -3072,7 +3027,7 @@ void do_force(CHAR_DATA *ch, const char *argument)
 	    CHAR_DATA *vch;
 	    CHAR_DATA *vch_next;
 	
-	    if (get_trust(ch) < MAX_LEVEL - 2) {
+	    if (ch->level < MAX_LEVEL - 2) {
 	        char_puts("Not at your level!\n\r",ch);
 	        return;
 	    }
@@ -3080,7 +3035,7 @@ void do_force(CHAR_DATA *ch, const char *argument)
 	    for (vch = char_list; vch != NULL; vch = vch_next) {
 	        vch_next = vch->next;
 	
-	        if (!IS_NPC(vch) && get_trust(vch) < get_trust(ch)
+	        if (!IS_NPC(vch) && vch->level < ch->level
 	        &&   vch->level >= LEVEL_HERO)
 	        {
 	            act(buf, ch, NULL, vch, TO_VICT);
@@ -3110,13 +3065,13 @@ void do_force(CHAR_DATA *ch, const char *argument)
 	        return;
 	    }
 
-		if (get_trust(victim) >= get_trust(ch))
+		if (victim->level >= ch->level)
 		{
 		    char_puts("Do it yourself!\n\r", ch);
 		    return;
 		}
 
-		if (!IS_NPC(victim) && get_trust(ch) < MAX_LEVEL -3)
+		if (!IS_NPC(victim) && ch->level < MAX_LEVEL -3)
 		{
 		    char_puts("Not at your level!\n\r",ch);
 		    return;
@@ -3162,7 +3117,7 @@ void do_invis(CHAR_DATA *ch, const char *argument)
 	/* do the level thing */
 	{
 	  level = atoi(arg);
-	  if (level < 2 || level > get_trust(ch))
+	  if (level < 2 || level > ch->level)
 	  {
 		char_puts("Invis level must be between 2 and your level.\n\r",ch);
 	    return;
@@ -3207,7 +3162,7 @@ void do_incognito(CHAR_DATA *ch, const char *argument)
 	/* do the level thing */
 	{
 	  level = atoi(arg);
-	  if (level < 2 || level > get_trust(ch))
+	  if (level < 2 || level > ch->level)
 	  {
 	    char_puts("Incog level must be between 2 and your level.\n\r",ch);
 	    return;
@@ -3312,7 +3267,6 @@ void advance(CHAR_DATA *victim, int level)
 		victim->level += 1;
 		advance_level(victim);
 	}
-	victim->trust = 0;
 	victim->exp_tl		= 0;
 	victim->train		= tra;
 	victim->practice	= pra;
@@ -3349,7 +3303,7 @@ void do_advance(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (level > get_trust(ch)) {
+	if (level > ch->level) {
 		char_puts("Limited to your trust level.\n\r", ch);
 		return;
 	}
@@ -3961,7 +3915,7 @@ void do_smite(CHAR_DATA *ch, const char *argument)
 	  return;
 	}
 
-	if (get_trust(victim) > get_trust(ch)) {
+	if (victim->level > ch->level) {
 	  char_puts("How dare you!\n\r", ch);
 	  return;
 	}
@@ -4066,7 +4020,7 @@ void do_rename(CHAR_DATA* ch, const char *argument)
 		return;
 	}
 
-	if ((victim != ch) && (get_trust (victim) >= get_trust (ch))) {
+	if ((victim != ch) && (victim->level >= ch->level)) {
 		char_puts("You failed.\n\r",ch);
 		return;
 	}
@@ -4341,5 +4295,37 @@ DO_FUN(do_strstat)
 
 DO_FUN(do_grant)
 {
-}
+	CMD_DATA *cmd;
+	char arg1[MAX_INPUT_LENGTH];
+	char arg2[MAX_INPUT_LENGTH];
+	CHAR_DATA *victim;
 
+	argument = one_argument(argument, arg1);
+	one_argument(argument, arg2);
+	if (arg1[0] == '\0' || arg2[0] == '\0') {
+		do_help(ch, "'WIZ GRANT'");
+		return;
+	}
+
+	if ((victim = get_char_room(ch, arg1)) == NULL) {
+		char_puts("They aren't here.\n\r", ch);
+		return;
+	}
+
+	if (IS_NPC(victim)) {
+		char_puts("Not on NPC.\n\r", ch);
+		return;
+	}
+
+	if ((cmd = cmd_lookup(arg2)) == NULL) {
+		char_printf(ch, "%s: command not found.\n\r", arg2);
+		return;
+	}
+
+	if (cmd->level <= LEVEL_HERO) {
+		char_printf(ch, "%s: not a wizard command.\n\r", arg2);
+		return;
+	}
+
+	name_toggle(ch, arg2, "Grant", &victim->pcdata->granted);
+}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: const.h,v 1.9 1998-10-11 16:52:44 fjoe Exp $
+ * $Id: const.h,v 1.10 1998-10-17 16:20:10 fjoe Exp $
  */
 
 #ifndef _CONST_H_
@@ -108,11 +108,35 @@
 #define MAX_COND		6	/* number of char condition stats */
 #define MAX_DIR			6	/* number of exits */
 #define MAX_ALIAS		50	/* number of aliases char can have */
-#define MAX_LEVEL		100
 #define RATING_TABLE_SIZE	20	/* rating table size */
+#define MAX_LEVEL		100
 
 #define LEVEL_HERO		(MAX_LEVEL - 9)
 #define LEVEL_IMMORTAL		(MAX_LEVEL - 8)
+#define LEVEL_NEWBIE		5
+
+#define IMPLEMENTOR		MAX_LEVEL
+#define CREATOR 		(MAX_LEVEL - 1)
+#define SUPREME 		(MAX_LEVEL - 2)
+#define DEITY			(MAX_LEVEL - 3)
+#define GOD			(MAX_LEVEL - 4)
+#define IMMORTAL		(MAX_LEVEL - 5)
+#define DEMI			(MAX_LEVEL - 6)
+#define ANGEL			(MAX_LEVEL - 7)
+#define AVATAR			(MAX_LEVEL - 8)
+#define HERO			LEVEL_HERO
+
+#define ML 	MAX_LEVEL	/* implementor */
+#define L1	(MAX_LEVEL - 1) /* creator */
+#define L2	(MAX_LEVEL - 2)	/* supreme being */
+#define L3	(MAX_LEVEL - 3)	/* deity */
+#define L4 	(MAX_LEVEL - 4)	/* god */
+#define L5	(MAX_LEVEL - 5)	/* immortal */
+#define L6	(MAX_LEVEL - 6)	/* demigod */
+#define L7	(MAX_LEVEL - 7)	/* angel */
+#define L8	(MAX_LEVEL - 8)	/* avatar */
+#define IM	LEVEL_IMMORTAL 	/* angel */
+#define HE	LEVEL_HERO	/* hero */
 
 #undef ANATOLIA_MACHINE
 #if defined(ANATOLIA_MACHINE)
@@ -138,17 +162,6 @@
 
 #define FIGHT_DELAY_TIME	(20 * PULSE_PER_SECOND)
 #define GHOST_DELAY_TIME	600
-
-#define IMPLEMENTOR		MAX_LEVEL
-#define CREATOR 		(MAX_LEVEL - 1)
-#define SUPREME 		(MAX_LEVEL - 2)
-#define DEITY			(MAX_LEVEL - 3)
-#define GOD			(MAX_LEVEL - 4)
-#define IMMORTAL		(MAX_LEVEL - 5)
-#define DEMI			(MAX_LEVEL - 6)
-#define ANGEL			(MAX_LEVEL - 7)
-#define AVATAR			(MAX_LEVEL - 8)
-#define HERO			LEVEL_HERO
 
 /*
  * Well known mob virtual numbers.

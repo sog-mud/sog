@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.146 1998-10-13 12:38:03 fjoe Exp $
+ * $Id: act_info.c,v 1.147 1998-10-17 16:20:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -667,12 +667,12 @@ void show_char_to_char(CHAR_DATA *list, CHAR_DATA *ch)
 	int life_count=0;
 
 	for (rch = list; rch != NULL; rch = rch->next_in_room) {
-		if (rch == ch)
+		if (rch == ch
+		||  !IS_TRUSTED(ch, rch->invis_level)
+		||  (!IS_TRUSTED(ch, rch->incog_level) &&
+		     ch->in_room != rch->in_room))
 			continue;
-
-		if (get_trust(ch) < rch->invis_level)
-			continue;
-
+			
 		if (can_see(ch, rch))
 			show_char_to_char_0(rch, ch);
 		else if (room_is_dark(ch) && IS_AFFECTED(rch, AFF_INFRARED)) {
@@ -2297,12 +2297,11 @@ void scan_list(ROOM_INDEX_DATA *scan_room, CHAR_DATA *ch,
 
 	if (scan_room == NULL) 
 		return;
+
 	for (rch = scan_room->people; rch != NULL; rch = rch->next_in_room) {
-		if (rch == ch || 
-		    (!IS_NPC(rch) && rch->invis_level > get_trust(ch)))
+		if (rch == ch || !can_see(ch, rch))
 			continue;
-		if (can_see(ch, rch)) 
-			char_printf(ch, "	%s.\n\r", PERS(rch, ch));
+		char_printf(ch, "	%s.\n\r", PERS(rch, ch));
 	}
 }
 
@@ -2993,9 +2992,6 @@ void do_oscore(CHAR_DATA *ch, const char *argument)
 		ch->name,
 		IS_NPC(ch) ? str_empty : ch->pcdata->title, ch->level, get_age(ch),
 		(ch->played + (int) (current_time - ch->logon)) / 3600);
-
-	if (get_trust(ch) != ch->level)
-		buf_printf(output, "You are trusted at level %d.\n\r", get_trust(ch));
 
 	buf_printf(output,
 		"Race: {c%s{x  Sex: {c%s{x  Class: {c%s{x  "

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.83 1998-10-17 09:44:00 fjoe Exp $
+ * $Id: interp.c,v 1.84 1998-10-17 16:20:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -50,6 +50,7 @@
 #include "merc.h"
 #include "interp.h"
 #include "olc/olc.h"
+#include "db/cmd.h"
 
 #include "resource.h"
 
@@ -79,7 +80,7 @@ FILE				*imm_log;
 /*
  * Command table.
  */
-const	struct	cmd_type	cmd_table	[] =
+CMD_DATA cmd_table[] =
 {
     /*
      * Common movement commands.
@@ -108,7 +109,7 @@ const	struct	cmd_type	cmd_table	[] =
     { "goto",           do_goto,        POS_DEAD,       L8,  LOG_NORMAL, CMD_KEEP_HIDE },
     { "glist",          do_glist,       POS_DEAD,        0,  LOG_NEVER	},
     { "group",          do_group,       POS_SLEEPING,    0,  LOG_NORMAL, CMD_KEEP_HIDE },
-    { "hit",		do_kill,	POS_FIGHTING,	 0,  LOG_NORMAL, CMD_HIDDEN },
+    { "hit",		do_kill,	POS_FIGHTING,	 0,  LOG_NORMAL, CMD_HIDDEN | CMD_NOORDER },
     { "inventory",	do_inventory,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE },
     { "kill",		do_kill,	POS_FIGHTING,	 0,  LOG_NORMAL	},
     { "look",		do_look,	POS_RESTING,	 0,  LOG_NORMAL, CMD_KEEP_HIDE },
@@ -319,31 +320,31 @@ const	struct	cmd_type	cmd_table	[] =
     { "wear",		do_wear,	POS_RESTING,	 0,  LOG_NORMAL	},
     { "zap",		do_zap,		POS_RESTING,	 0,  LOG_NORMAL	},
 
-    { "recall",		do_recall,	POS_FIGHTING,	 0,  LOG_NORMAL	},
-    { "/",		do_recall,	POS_FIGHTING,	 0,  LOG_NORMAL, CMD_HIDDEN },
+    { "recall",		do_recall,	POS_FIGHTING,	 0,  LOG_NORMAL, CMD_NOORDER	},
+    { "/",		do_recall,	POS_FIGHTING,	 0,  LOG_NORMAL, CMD_HIDDEN | CMD_NOORDER },
 
     /*
      * Combat commands.
      */
-    { "ambush",         do_ambush,      POS_STANDING,    0,  LOG_NORMAL	},
-    { "assassinate",    do_assassinate, POS_STANDING,    0,  LOG_NORMAL	},
+    { "ambush",         do_ambush,      POS_STANDING,    0,  LOG_NORMAL, CMD_NOORDER	},
+    { "assassinate",    do_assassinate, POS_STANDING,    0,  LOG_NORMAL, CMD_NOORDER	},
     { "backstab",	do_backstab,	POS_STANDING,	 0,  LOG_NORMAL	},
-    { "bash",		do_bash,	POS_FIGHTING,    0,  LOG_NORMAL	},
+    { "bash",		do_bash,	POS_FIGHTING,    0,  LOG_NORMAL, CMD_NOORDER	},
     { "bashdoor",	do_bash_door,	POS_FIGHTING,    0,  LOG_NORMAL	},
     { "bs",		do_backstab,	POS_STANDING,	 0,  LOG_NORMAL, CMD_HIDDEN },
     { "bite",		do_vbite,	POS_STANDING,	 0,  LOG_NORMAL, CMD_HIDDEN },
     { "blindness",	do_blindness_dust,POS_FIGHTING,	 0,  LOG_ALWAYS	},
-    { "touch",		do_vtouch,	POS_STANDING,	 0,  LOG_NORMAL, CMD_HIDDEN },
+    { "touch",		do_vtouch,	POS_STANDING,	 0,  LOG_NORMAL, CMD_HIDDEN | CMD_NOORDER	},
     { "berserk",	do_berserk,	POS_FIGHTING,	 0,  LOG_NORMAL	},
     { "bloodthirst",	do_bloodthirst,	POS_FIGHTING,	 0,  LOG_NORMAL	},
-    { "blackjack",	do_blackjack,	POS_STANDING,	 0,  LOG_NORMAL	},
+    { "blackjack",	do_blackjack,	POS_STANDING,	 0,  LOG_NORMAL, CMD_NOORDER	},
     { "caltrops",       do_caltrops,    POS_FIGHTING,    0,  LOG_NORMAL	},
     { "explode",	do_explode, 	POS_FIGHTING,    0,  LOG_NORMAL	},
     { "camouflage",     do_camouflage,  POS_STANDING,    0,  LOG_NORMAL	},
     { "circle",         do_circle,      POS_FIGHTING,    0,  LOG_NORMAL	},
-    { "cleave",         do_cleave,      POS_STANDING,    0,  LOG_NORMAL	},
+    { "cleave",         do_cleave,      POS_STANDING,    0,  LOG_NORMAL, CMD_NOORDER	},
 
-    { "dirt",		do_dirt,	POS_FIGHTING,	 0,  LOG_NORMAL	},
+    { "dirt",		do_dirt,	POS_FIGHTING,	 0,  LOG_NORMAL, CMD_NOORDER	},
     { "disarm",		do_disarm,	POS_FIGHTING,	 0,  LOG_NORMAL	},
     { "dishonor",	do_dishonor,	POS_FIGHTING,	 0,  LOG_NORMAL	},
     { "dismount",       do_dismount,    POS_STANDING,    0,  LOG_NORMAL	},
@@ -355,7 +356,7 @@ const	struct	cmd_type	cmd_table	[] =
     { "make",           do_make,        POS_STANDING,    0,  LOG_NORMAL	},
     { "mount",          do_mount,       POS_STANDING,    0,  LOG_NORMAL	},
     { "murde",		do_murde,	POS_FIGHTING,	 0,  LOG_NORMAL, CMD_HIDDEN },
-    { "murder",		do_murder,	POS_FIGHTING,	 0,  LOG_ALWAYS	},
+    { "murder",		do_murder,	POS_FIGHTING,	 0,  LOG_ALWAYS, CMD_NOORDER	},
     { "nerve",          do_nerve,       POS_FIGHTING,    0,  LOG_NORMAL	},
     { "poison",		do_poison_smoke,POS_FIGHTING,	 0,  LOG_ALWAYS	},
     { "rescue",		do_rescue,	POS_FIGHTING,	 0,  LOG_NORMAL	},
@@ -364,12 +365,12 @@ const	struct	cmd_type	cmd_table	[] =
     { "thumbling",	do_thumbling,	POS_FIGHTING,	 0,  LOG_NORMAL, CMD_KEEP_HIDE },
     { "shield",		do_shield,	POS_FIGHTING,	 0,  LOG_NORMAL	},
     { "spellbane",      do_spellbane,   POS_FIGHTING,    0,  LOG_NORMAL	},
-    { "strangle",       do_strangle,    POS_STANDING,    0,  LOG_NORMAL	},
+    { "strangle",       do_strangle,    POS_STANDING,    0,  LOG_NORMAL, CMD_NOORDER	},
     { "surrender",	do_surrender,	POS_FIGHTING,    0,  LOG_NORMAL	},
     { "tame",           do_tame,        POS_FIGHTING,    0,  LOG_NORMAL	},
     { "throw",          do_throw,       POS_FIGHTING,    0,  LOG_NORMAL	},
     { "tiger",		do_tiger,	POS_FIGHTING,	 0,  LOG_NORMAL	},
-    { "trip",		do_trip,	POS_FIGHTING,    0,  LOG_NORMAL	},
+    { "trip",		do_trip,	POS_FIGHTING,    0,  LOG_NORMAL, CMD_NOORDER	},
     { "target",		do_target,	POS_FIGHTING,    0,  LOG_NORMAL	},
     { "vampire",	do_vampire,	POS_FIGHTING,    0,  LOG_NORMAL	},
     { "vanish",		do_vanish,	POS_FIGHTING,    0,  LOG_NORMAL	},
@@ -386,7 +387,6 @@ const	struct	cmd_type	cmd_table	[] =
     { "rename",		do_rename,	POS_DEAD,	ML,  LOG_ALWAYS	},
     { "violate",	do_violate,	POS_DEAD,	ML,  LOG_ALWAYS	},
     { "track",          do_track,       POS_STANDING,    0,  LOG_NORMAL	},
-    { "trust",		do_trust,	POS_DEAD,	ML,  LOG_ALWAYS	},
 
     { "allow",		do_allow,	POS_DEAD,	L2,  LOG_ALWAYS	},
     { "ban",		do_ban,		POS_DEAD,	L2,  LOG_ALWAYS	},
@@ -434,7 +434,7 @@ const	struct	cmd_type	cmd_table	[] =
     { "peace",		do_peace,	POS_DEAD,	L5,  LOG_NORMAL	},
     { "penalty",	do_penalty,	POS_DEAD,	L7,  LOG_NORMAL	},
     { "echo",		do_recho,	POS_DEAD,	L6,  LOG_ALWAYS	},
-    { "return",         do_return,      POS_DEAD,       L6,  LOG_NORMAL, CMD_CHARMED_OK },
+    { "return",         do_return,      POS_DEAD,       0,  LOG_NORMAL, CMD_CHARMED_OK | CMD_HIDDEN },
     { "snoop",		do_snoop,	POS_DEAD,	ML,  LOG_ALWAYS	},
     { "stat",		do_stat,	POS_DEAD,	IM,  LOG_NORMAL	},
     { "string",		do_string,	POS_DEAD,	L5,  LOG_ALWAYS	},
@@ -512,8 +512,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	char buf[MAX_INPUT_LENGTH];
 	char *strtime;
 #endif
-	int cmd;
-	int trust;
+	CMD_DATA *cmd;
 	bool found;
 
 	/*
@@ -568,12 +567,20 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	 * Look for command in command table.
 	 */
 	found = FALSE;
-	trust = get_trust(ch);
-	for (cmd = 0; cmd_table[cmd].name; cmd++) {
-		if (command[0] != cmd_table[cmd].name[0]
-		||  str_prefix(command, cmd_table[cmd].name)
-		||  cmd_table[cmd].level > trust)
+	for (cmd = cmd_table; cmd->name; cmd++) {
+		if (str_prefix(command, cmd->name))
 			continue;
+
+		if (IS_NPC(ch)) {
+			if (cmd->level >= LEVEL_HERO
+			||  cmd->level > ch->level)
+				continue;
+		}
+		else {
+			if (cmd->level > ch->level
+			&&  !is_name(cmd->name, ch->pcdata->granted))
+				continue;
+		}
 
 #if 0
 		if (is_order && !IS_NPC(ch) && IS_AFFECTED(ch, AFF_CHARM)) {
@@ -586,14 +593,14 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 #endif
 
 		if (is_order) {
-			if (IS_SET(cmd_table[cmd].flags, CMD_NOORDER)
-			||  cmd_table[cmd].level >= LEVEL_IMMORTAL)
+			if (IS_SET(cmd->flags, CMD_NOORDER)
+			||  cmd->level >= LEVEL_IMMORTAL)
 				return;
 		}
 		else {
 			if (IS_AFFECTED(ch, AFF_CHARM)
-			&&  !IS_SET(cmd_table[cmd].flags, CMD_CHARMED_OK)
-			&&  cmd_table[cmd].level < LEVEL_IMMORTAL) {
+			&&  !IS_SET(cmd->flags, CMD_CHARMED_OK)
+			&&  cmd->level < LEVEL_IMMORTAL) {
 				char_puts("First ask your beloved master!\n\r",
 					  ch);
 				return;
@@ -601,14 +608,14 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 		}
 
 		if (IS_AFFECTED(ch, AFF_STUN) 
-		&&  !(cmd_table[cmd].flags & CMD_KEEP_HIDE)) {
+		&&  !(cmd->flags & CMD_KEEP_HIDE)) {
 			char_puts("You are STUNNED to do that.\n\r", ch);
 			return;
 		}
 
 		/* Come out of hiding for most commands */
 		if (IS_AFFECTED(ch, AFF_HIDE | AFF_FADE) && !IS_NPC(ch)
-		&& !(cmd_table[cmd].flags & CMD_KEEP_HIDE)) {
+		&& !(cmd->flags & CMD_KEEP_HIDE)) {
 			REMOVE_BIT(ch->affected_by, AFF_HIDE | AFF_FADE);
 			char_nputs(MSG_YOU_STEP_OUT_SHADOWS, ch);
 			act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, 
@@ -616,7 +623,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
         	}
 
 		if (IS_AFFECTED(ch, AFF_IMP_INVIS) && !IS_NPC(ch)
-		&& (cmd_table[cmd].position == POS_FIGHTING)) {
+		&& (cmd->position == POS_FIGHTING)) {
 			affect_bit_strip(ch, TO_AFFECTS, AFF_IMP_INVIS);
 			char_puts("You fade into existence.", ch);
 			act("$n fades into existence.",
@@ -630,15 +637,15 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	/*
 	 * Log and snoop.
 	 */
-	if (cmd_table[cmd].log == LOG_NEVER)
+	if (cmd->log == LOG_NEVER)
 		strcpy(logline, str_empty);
 
 	if (((!IS_NPC(ch) && IS_SET(ch->act, PLR_LOG))
 	||   fLogAll
-	||   cmd_table[cmd].log == LOG_ALWAYS) && logline[0] != '\0' 
+	||   cmd->log == LOG_ALWAYS) && logline[0] != '\0' 
 	&&   logline[0] != '\n') {
 		log_printf("Log %s: %s", ch->name, logline);
-		wiznet_printf(ch, NULL, WIZ_SECURE, 0, get_trust(ch),
+		wiznet_printf(ch, NULL, WIZ_SECURE, 0, ch->level,
 				"Log %s: %s", ch->name, logline);
 	}
 
@@ -663,7 +670,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	/*
 	 * Character not in position for command?
 	 */
-	if (ch->position < cmd_table[cmd].position) {
+	if (ch->position < cmd->position) {
 		switch(ch->position) {
 			case POS_DEAD:
 				char_puts("Lie still; You are DEAD.\n\r", ch);
@@ -701,7 +708,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	/*
 	 * Dispatch the command.
 	 */
-	(*cmd_table[cmd].do_fun) (ch, argument);
+	cmd->do_fun(ch, argument);
 
 	tail_chain();
 }
@@ -940,15 +947,15 @@ const char *first_arg(const char *argument, char *arg_first, bool fCase)
  */
 void do_commands(CHAR_DATA *ch, const char *argument)
 {
-	int cmd;
+	CMD_DATA *cmd;
 	int col;
  
 	col = 0;
-	for (cmd = 0; cmd_table[cmd].name; cmd++) {
-		if (cmd_table[cmd].level <  LEVEL_HERO
-		&&  cmd_table[cmd].level <= get_trust(ch) 
-		&&  !IS_SET(cmd_table[cmd].flags, CMD_HIDDEN)) {
-			char_printf(ch, "%-12s", cmd_table[cmd].name);
+	for (cmd = cmd_table; cmd->name; cmd++) {
+		if (cmd->level < LEVEL_HERO
+		&&  cmd->level <= ch->level 
+		&&  !IS_SET(cmd->flags, CMD_HIDDEN)) {
+			char_printf(ch, "%-12s", cmd->name);
 			if (++col % 6 == 0)
 				char_puts("\n\r", ch);
 		}
@@ -960,15 +967,21 @@ void do_commands(CHAR_DATA *ch, const char *argument)
 
 void do_wizhelp(CHAR_DATA *ch, const char *argument)
 {
-	int cmd;
+	CMD_DATA *cmd;
 	int col;
  
+	if (IS_NPC(ch)) {
+		char_puts("Huh?\n\r", ch);
+		return;
+	}
+
 	col = 0;
-	for (cmd = 0; cmd_table[cmd].name; cmd++) {
-		if (cmd_table[cmd].level >= LEVEL_HERO
-		&&  cmd_table[cmd].level <= get_trust(ch) 
-		&&  !IS_SET(cmd_table[cmd].flags, CMD_HIDDEN)) {
-			char_printf(ch, "%-12s", cmd_table[cmd].name);
+	for (cmd = cmd_table; cmd->name; cmd++) {
+		if (cmd->level >= LEVEL_HERO
+		&&  (cmd->level <= ch->level ||
+		     is_name(cmd->name, ch->pcdata->granted))
+		&&  !IS_SET(cmd->flags, CMD_HIDDEN)) {
+			char_printf(ch, "%-12s", cmd->name);
 			if (++col % 6 == 0)
 				char_puts("\n\r", ch);
 		}

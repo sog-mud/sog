@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.32 1998-10-09 13:42:43 fjoe Exp $
+ * $Id: skills.c,v 1.33 1998-10-17 16:20:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -613,7 +613,9 @@ int get_skill(CHAR_DATA *ch, int sn)
 			skill = 40 + 2 * ch->level;
 		else if (sn == gsn_track)
 			skill = 100;
-		else if (sn == gsn_sneak || sn == gsn_hide)
+		else if ((sn == gsn_sneak || sn == gsn_hide ||
+			  sn == gsn_pick || sn == gsn_backstab) &&
+			 IS_SET(ch->act, ACT_THIEF))
 			skill = ch->level * 2 + 20;
 		else if ((sn == gsn_dodge && IS_SET(ch->off_flags,OFF_DODGE)) ||
  		         (sn == gsn_parry && IS_SET(ch->off_flags,OFF_PARRY)) ||
@@ -652,8 +654,6 @@ int get_skill(CHAR_DATA *ch, int sn)
 			skill = 3 * ch->level;
 		else if (sn == gsn_kick)
 			skill = 10 + 3 * ch->level;
-		else if (sn == gsn_backstab && IS_SET(ch->act,ACT_THIEF))
-			skill = 20 + 2 * ch->level;
 		else if (sn == gsn_rescue)
 			skill = 40 + ch->level; 
 		else if (sn == gsn_sword || sn == gsn_dagger ||

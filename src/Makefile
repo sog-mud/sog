@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.33 1998-10-17 11:45:21 fjoe Exp $
+# $Id: Makefile,v 1.34 1998-10-17 16:20:09 fjoe Exp $
 #
 CC		= gcc
 LD		= gcc
@@ -40,11 +40,11 @@ LIBS	+= -lcrypt
 COMM_CFILES = comm/ban.c comm/charset.c comm/comm.c comm/resolver.c
 COMM_OFILES = ban.o charset.o comm.o resolver.o
 
-DB_CFILES = db/db.c db/db_area.c db/db_clan.c db/db_class.c db/db_skills.c\
-	    db/db_lang.c\
+DB_CFILES = db/cmd.c db/db.c db/db_area.c db/db_clan.c db/db_class.c\
+	    db/db_skills.c db/db_lang.c\
 	    db/gsn.c db/lang.c db/msg.c db/resource.c db/spellfn.c db/word.c
-DB_OFILES = db.o db_area.o db_clan.o db_class.o db_skills.o\
-	    db_lang.o\
+DB_OFILES = cmd.o db.o db_area.o db_clan.o db_class.o\
+	    db_skills.o db_lang.o\
 	    gsn.o lang.o msg.o resource.o spellfn.o word.o
 
 OLC_CFILES = olc/olc.c olc/olc_area.c olc/olc_clan.c olc/olc_help.c\
