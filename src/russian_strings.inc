@@ -99,5 +99,18 @@ char *strings_rus[] = {
 /* UPDATE_WEATHER_LIGHTNING_FLASHES */	"Молния озарило небо.\n\r",
 /* UPDATE_WEATHER_THE_RAIN_STOPPED */	"Дождь прекратился.\n\r",
 /* UPDATE_WEATHER_LIGHTNING_STOPPED */	"Гроза кончилась.\n\r",
+
+/* MOVE_LEAVES_M */		"$n ушёл.",
+/* MOVE_LEAVES_F */		"$n ушла.",
+/* MOVE_LEAVES_RIDING_ON_M */	"$n уехал, верхом на %s.",
+/* MOVE_LEAVES_RIDING_ON_F */	"$n уехала, верхом на %s.",
+/* MOVE_LEAVES_T_M */		"$n ушёл на $T.",
+/* MOVE_LEAVES_T_F */		"$n ушла на $T.",
+/* MOVE_LEAVES_T_RIDING_ON_M */	"$n уехал на $T, верхом на %s.",
+/* MOVE_LEAVES_T_RIDING_ON_F */	"$n уехала на $T, верхом на %s.",
+/* MOVE_ARRIVED_M */		"$n пришёл.",
+/* MOVE_ARRIVED_F */		"$n пришла.",
+/* MOVE_ARRIVED_RIDING_M */	"$n пришёл, верхом на $N.",
+/* MOVE_ARRIVED_RIDING_F */	"$n пришла, верхом на $N.",
 };
 

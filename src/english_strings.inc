@@ -99,5 +99,19 @@ char *strings_engl[] =  {
 /* UPDATE_WEATHER_LIGHTNING_FLASHES */	"Lightning flashes in the sky.\n\r",
 /* UPDATE_WEATHER_THE_RAIN_STOPPED */	"The rain stopped.\n\r",
 /* UPDATE_WEATHER_LIGHTNING_STOPPED */	"The lightning has stopped.\n\r",
+
+/* MOVE_LEAVES_M */		"$n leaves.",
+/* MOVE_LEAVES_F */		"$n leaves.",
+/* MOVE_LEAVES_RIDING_ON_M */	"$n leaves, riding on %s.",
+/* MOVE_LEAVES_RIDING_ON_F */	"$n leaves, riding on %s.",
+/* MOVE_LEAVES_T_M */		"$n leaves $T.",
+/* MOVE_LEAVES_T_F */		"$n leaves $T.",
+/* MOVE_LEAVES_T_RIDING_ON_M */	"$n leaves $T, riding on %s.",
+/* MOVE_LEAVES_T_RIDING_ON_F */	"$n leaves $T, riding on %s.",
+/* MOVE_ARRIVED_M */		"$n has arrived.",
+/* MOVE_ARRIVED_F */		"$n has arrived.",
+/* MOVE_ARRIVED_RIDING_M */	"$n has arrived, riding $N.",
+/* MOVE_ARRIVED_RIDING_F */	"$n has arrived, riding $N.",
+
 };
 

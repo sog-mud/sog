@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.2 1998-04-14 08:54:26 fjoe Exp $
+ * $Id: act_move.c,v 1.3 1998-04-18 04:05:25 efdi Exp $
  */
 
 /***************************************************************************
@@ -53,6 +53,7 @@
 #include "recycle.h"
 #include "db.h"
 #include "comm.h"
+#include "resource.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_look		);
@@ -342,17 +343,27 @@ void move_char( CHAR_DATA *ch, int door, bool follow )
             number_percent() < get_skill(ch,gsn_quiet_movement) )
           {
 	    if (MOUNTED(ch))
-	        sprintf(buf,"$n leaves, riding on %s.", 
+	        sprintf(buf, 
+			msg(ch->sex == SEX_FEMALE ? MOVE_LEAVES_RIDING_ON_F : 
+					MOVE_LEAVES_RIDING_ON_M, ch->i_lang), 
 			MOUNTED(ch)->short_descr );
-            else sprintf(buf,"$n leaves.");
+            else sprintf(buf, 
+			msg(ch->sex == SEX_FEMALE ? MOVE_LEAVES_F : 
+					MOVE_LEAVES_M, ch->i_lang)
+			);
             check_improve(ch,gsn_quiet_movement,TRUE,1);
           }
 	else 
 	  {
            if (MOUNTED(ch))
-		sprintf(buf,"$n leaves $T, riding on %s.",
+		sprintf(buf, 
+			msg(ch->sex == SEX_FEMALE ? MOVE_LEAVES_T_RIDING_ON_F :
+					MOVE_LEAVES_T_RIDING_ON_M, ch->i_lang),
 			MOUNTED(ch)->short_descr );
-  	   else sprintf(buf,"$n leaves $T." );
+  	   else sprintf(buf, 
+			msg(ch->sex == SEX_FEMALE ? MOVE_LEAVES_T_F : 
+					MOVE_LEAVES_T_M, ch->i_lang)
+			);
 	  }
   	  act( buf, ch, NULL, dir_name[door], TO_ROOM );
      }
@@ -380,8 +391,8 @@ void move_char( CHAR_DATA *ch, int door, bool follow )
     &&   ch->invis_level < LEVEL_HERO)
       {
 	if (mount)
-	     act( "$n has arrived, riding $N.", ch, NULL, mount,TO_ROOM );
-	else act( "$n has arrived.", ch, NULL, NULL, TO_ROOM );
+	     act( msg(ch->sex == SEX_FEMALE ? MOVE_ARRIVED_RIDING_F : MOVE_ARRIVED_RIDING_M, ch->i_lang), ch, NULL, mount,TO_ROOM );
+	else act( msg(ch->sex == SEX_FEMALE ? MOVE_ARRIVED_F : MOVE_ARRIVED_M, ch->i_lang), ch, NULL, NULL, TO_ROOM );
       }
 
     do_look( ch, "auto" );
