@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: dynafun.c,v 1.19 2001-09-13 16:22:21 fjoe Exp $
+ * $Id: dynafun.c,v 1.20 2002-01-16 13:22:57 fjoe Exp $
  */
 
 #include <stdlib.h>
@@ -80,7 +80,10 @@
  * O frabjous day! Calloh! Callay!
  *	He chortled in his joy.
  *
- *				.....
+ * Twas brillig, and the slithy toves
+ *	Did gyre and gimble in the wabe;
+ * All mimsy were the borogoves,
+ *	And the mome raths outgrabe.
  */
 
 static dynafun_data_t *dynafun_build_args(
