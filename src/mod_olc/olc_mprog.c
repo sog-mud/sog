@@ -1,5 +1,5 @@
 /*
- * $Id: olc_mprog.c,v 1.13 2003-04-27 14:01:05 fjoe Exp $
+ * $Id: olc_mprog.c,v 1.14 2003-05-08 10:39:44 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -24,6 +24,7 @@ DECLARE_OLC_FUN(mped_flags		);
 DECLARE_OLC_FUN(mped_code		);
 DECLARE_OLC_FUN(mped_compile		);
 DECLARE_OLC_FUN(mped_dump		);
+DECLARE_OLC_FUN(mped_where		);
 
 static DECLARE_VALIDATE_FUN(validate_name);
 
@@ -45,6 +46,7 @@ olc_cmd_t olc_cmds_mprog[] =
 	{ "code",	mped_code,	NULL,		NULL		},
 	{ "compile",	mped_compile,	NULL,		NULL		},
 	{ "dump",	mped_dump,	NULL,		NULL		},
+	{ "where",	mped_where,	NULL,		NULL		},
 
 	{ "commands",	show_commands,	NULL,		NULL		},
 	{ "version",	show_version,	NULL,		NULL		},
@@ -53,6 +55,7 @@ olc_cmd_t olc_cmds_mprog[] =
 };
 
 static void mprog_update_type(CHAR_DATA *ch, mprog_t *mp);
+static void mptrig_dump(BUFFER *buf, mprog_t *mp, varr *v, void *vo);
 
 OLC_FUN(mped_create)
 {
@@ -274,6 +277,57 @@ OLC_FUN(mped_dump)
 	return FALSE;
 }
 
+OLC_FUN(mped_where)
+{
+	BUFFER *buf;
+	int i;
+
+	mprog_t *mp;
+	EDIT_MPROG(ch, mp);
+
+	buf = buf_new(-1);
+	switch (mp->type) {
+	case MP_T_MOB:
+		for (i = 0; i < MAX_KEY_HASH; i++) {
+			MOB_INDEX_DATA *pMob;
+
+			for (pMob = mob_index_hash[i]; pMob != NULL; pMob = pMob->next)
+				mptrig_dump(buf, mp, &pMob->mp_trigs, pMob);
+		}
+		break;
+	case MP_T_OBJ:
+		for (i = 0; i < MAX_KEY_HASH; i++) {
+			OBJ_INDEX_DATA *pObj;
+
+			for (pObj = obj_index_hash[i]; pObj != NULL; pObj = pObj->next)
+				mptrig_dump(buf, mp, &pObj->mp_trigs, pObj);
+		}
+		break;
+	case MP_T_ROOM:
+		for (i = 0; i < MAX_KEY_HASH; i++) {
+			ROOM_INDEX_DATA *pRoom;
+
+			for (pRoom = room_index_hash[i]; pRoom != NULL; pRoom = pRoom->next)
+				mptrig_dump(buf, mp, &pRoom->mp_trigs, pRoom);
+		}
+		break;
+
+	default:
+		buf_printf(buf, BUF_END,
+		    "MprogEd: %s: invalid mprog type [%s] (%d).\n",
+		    mp->name, flag_string(mprog_types, mp->type), mp->type);
+		break;
+	}
+
+	if (IS_NULLSTR(buf_string(buf))) {
+		buf_printf(buf, BUF_END, "MprogEd: %s: Not found anywhere.\n",
+		    mp->name);
+	}
+	page_to_char(buf_string(buf), ch);
+	buf_free(buf);
+	return FALSE;
+}
+
 bool
 touch_mprog(mprog_t *mprog)
 {
@@ -322,4 +376,54 @@ mprog_update_type(CHAR_DATA *ch, mprog_t *mp)
 	act_puts("MProgEd: $t: type: $T.",
 		 ch, mp->name, flag_string(mprog_types, mp->type),
 		 TO_CHAR | ACT_NOTRANS, POS_DEAD);
+}
+
+static void
+mptrig_dump(BUFFER *buf, mprog_t *mp, varr *v, void *vo)
+{
+	trig_t *t;
+	bool found = FALSE;
+
+	C_FOREACH(t, v) {
+		if (!!strcmp(t->trig_prog, mp->name))
+			continue;
+
+		if (!found) {
+			MOB_INDEX_DATA *pMob;
+			OBJ_INDEX_DATA *pObj;
+			ROOM_INDEX_DATA *pRoom;
+
+			switch (mp->type) {
+			case MP_T_MOB:
+				pMob = (MOB_INDEX_DATA *) vo;
+				buf_printf(buf, BUF_END,
+				    "Mob  #%5d (%s)\n",
+				    pMob->vnum, mlstr_mval(&pMob->short_descr));
+				break;
+			case MP_T_OBJ:
+				pObj = (OBJ_INDEX_DATA *) vo;
+				buf_printf(buf, BUF_END,
+				    "Obj  #%5d (%s)\n",
+				    pObj->vnum, mlstr_mval(&pObj->short_descr));
+				break;
+			case MP_T_ROOM:
+				pRoom = (ROOM_INDEX_DATA *) vo;
+				buf_printf(buf, BUF_END,
+				    "Room #%5d (%s)\n",
+				    pRoom->vnum, mlstr_mval(&pRoom->name));
+				break;
+			}
+			found = TRUE;
+		}
+
+		buf_printf(buf, BUF_END,
+		    "    Num: %2d  Arg: [%s]",
+		    varr_index(v, t), t->trig_arg);
+		if (t->trig_flags) {
+			buf_printf(buf, BUF_END,
+			    " Flags: [%s]",
+			    flag_string(mptrig_flags, t->trig_flags));
+		}
+		buf_append(buf, "\n");
+	}
 }
