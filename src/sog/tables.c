@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.194 2003-04-17 17:20:46 fjoe Exp $
+ * $Id: tables.c,v 1.195 2003-04-19 00:26:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -330,6 +330,7 @@ flaginfo_t comm_flags[] =
 	{ "short_eq",		COMM_SHORT_EQ,		TRUE	},
 	{ "short_aff",		COMM_SHORT_AFF,		TRUE	},
 	{ "battle",		COMM_NO_BATTLE_PROMPT,	TRUE	},
+	{ "mudftp_editor",	COMM_MUDFTP_EDITOR,	TRUE	},
 	{ "quiet_editor",	COMM_QUIET_EDITOR,	TRUE	},
 	{ "compact",		COMM_COMPACT,		TRUE	},
 	{ "brief",		COMM_BRIEF,		TRUE	},
@@ -1140,8 +1141,8 @@ flaginfo_t ban_actions[] =
 {
 	{ "",			TABLE_INTVAL,		FALSE	},
 
-	{ "allow",		BA_ALLOW,		FALSE	},
-	{ "deny",		BA_DENY,		FALSE	},
+	{ "allow",		BAN_ALLOW,		FALSE	},
+	{ "deny",		BAN_DENY,		FALSE	},
 
 	{ NULL, 0, FALSE }
 };
@@ -1153,6 +1154,8 @@ flaginfo_t ban_classes[] =
 	{ "all",		BCL_ALL,		FALSE	},
 	{ "players",		BCL_PLAYERS,		FALSE	},
 	{ "newbies",		BCL_NEWBIES,		FALSE	},
+	{ "info",		BCL_INFO,		FALSE	},
+	{ "mudftp",		BCL_MUDFTP,		FALSE	},
 
 	{ NULL, 0, FALSE }
 };
@@ -1250,7 +1253,20 @@ flaginfo_t desc_con_table[] =
 	{ "get ethos",		CON_GET_ETHOS,			FALSE	},
 	{ "create done",	CON_CREATE_DONE,		FALSE	},
 	{ "get charset",	CON_GET_CODEPAGE,		FALSE	},
-	{ "resolving",		CON_RESOLV,			FALSE	},
+	{ "resolve",		CON_RESOLV,			FALSE	},
+	{ "command",		CON_INFO_COMMAND,		FALSE	},
+	{ "auth",		CON_MUDFTP_AUTH,		FALSE	},
+	{ "command",		CON_MUDFTP_COMMAND,		FALSE	},
+	{ "data",		CON_MUDFTP_DATA,		FALSE	},
+	{ NULL, 0, FALSE }
+};
+
+flaginfo_t descriptor_types[] =
+{
+	{ "",			TABLE_INTVAL,		FALSE	},
+	{ "normal",		D_NORMAL,		FALSE	},
+	{ "info",		D_INFO,			FALSE	},
+	{ "mudftp",		D_MUDFTP,		FALSE	},
 	{ NULL, 0, FALSE }
 };
 

@@ -5,7 +5,7 @@
 # this script in production use
 #
 umask 002
-port="-p 6666 -i 6667"
+port="-p 7000 -i 7001 -f 7002"
 sog=bin/sog
 index=1000
 cd ..

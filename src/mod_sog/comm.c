@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm.c,v 1.17 2002-11-30 19:43:38 fjoe Exp $
+ * $Id: comm.c,v 1.18 2003-04-19 00:26:46 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -35,6 +35,7 @@
 #include <arpa/telnet.h>
 #include <errno.h>
 #include <fcntl.h>
+#include <netdb.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -49,7 +50,6 @@
 #include <quest.h>
 
 #include "handler_impl.h"
-#include "info.h"
 #include "charset.h"
 #include "comm.h"
 
@@ -57,12 +57,10 @@ DECLARE_RUNGAME_FUN(_run_game);
 DECLARE_RUNGAME_FUN(_run_game_bottom);
 
 static void	add_fds(varr *v, fd_set *in_set, int *maxdesc);
-static void	check_fds(varr *v, fd_set *in_set, void (*new_conn_cb)(int));
+static void	check_fds(varr *v, fd_set *in_set, int d_type);
 
-static void	init_descriptor	(int control);
+static void	init_descriptor(int control, int d_type);
 static bool	read_from_descriptor(DESCRIPTOR_DATA *d);
-
-static void	read_from_buffer(DESCRIPTOR_DATA *d);
 
 static bool	process_output	(DESCRIPTOR_DATA *d, bool fPrompt);
 static void	show_string	(DESCRIPTOR_DATA *d, const char *input);
@@ -188,7 +186,7 @@ bust_a_prompt(DESCRIPTOR_DATA *d)
 			snprintf(buf2, sizeof(buf2),
 				 "%d%s",			// notrans
 				 (time_info.hour % 12 == 0) ?
-					12 : time_info.hour % 12, 
+					12 : time_info.hour % 12,
 				 time_info.hour >= 12 ? "pm" : "am");
 			i = buf2;
 			break;
@@ -498,8 +496,11 @@ void
 write_to_buffer(DESCRIPTOR_DATA *d, const char *txt, size_t len)
 {
 	size_t size;
-	bool noiac = (d->character != NULL &&
-		      IS_SET(d->character->comm, COMM_NOIAC));
+	bool noiac;
+
+	if (!mem_is(d, MT_DESCRIPTOR))
+		return;
+	noiac = (d->character != NULL && IS_SET(d->character->comm, COMM_NOIAC));
 
 	/*
 	 * Find length in case caller didn't.
@@ -516,7 +517,8 @@ write_to_buffer(DESCRIPTOR_DATA *d, const char *txt, size_t len)
 	/*
 	 * Initial \n\r if needed.
 	 */
-	if (d->out_buf.top == 0
+	if (outbuf_empty(d)
+	&&  !D_IS_SERVICE(d)
 	&&  !d->fcommand
 	&&  (!d->character || !IS_SET(d->character->comm, COMM_TELNET_GA))) {
 		d->out_buf.buf[0]	= '\n';
@@ -601,7 +603,7 @@ write_to_descriptor(DESCRIPTOR_DATA *d, const char *txt, size_t length)
 
 	for (iStart = 0; iStart < length; iStart += nWrite) {
 		nBlock = UMIN(length - iStart, 4096);
-#if !defined( WIN32 )
+#if !defined(WIN32)
 		if ((nWrite = write(d->descriptor, txt + iStart, nBlock)) < 0) {
 #else
 		if ((nWrite = send(d->descriptor, txt + iStart, nBlock, 0)) < 0) {
@@ -632,8 +634,6 @@ charset_print(DESCRIPTOR_DATA *d)
 RUNGAME_FUN(_run_game, in_set, out_set, exc_set)
 {
 	DESCRIPTOR_DATA *d;
-	INFO_DESC *id;
-	INFO_DESC *id_next;
 	int maxdesc;
 	static struct timeval null_time;
 
@@ -647,6 +647,7 @@ RUNGAME_FUN(_run_game, in_set, out_set, exc_set)
 	maxdesc = 0;
 	add_fds(&control_sockets, in_set, &maxdesc);
 	add_fds(&info_sockets, in_set, &maxdesc);
+	add_fds(&mudftp_sockets, in_set, &maxdesc);
 
 #if !defined (WIN32)
 	if (rpid > 0) {
@@ -662,11 +663,6 @@ RUNGAME_FUN(_run_game, in_set, out_set, exc_set)
 		FD_SET(d->descriptor, exc_set);
 	}
 
-	for (id = id_list; id; id = id->next) {
-		maxdesc = UMAX(maxdesc, id->fd);
-		FD_SET(id->fd, in_set);
-	}
-
 	if (select(maxdesc+1, in_set, out_set, exc_set, &null_time) < 0) {
 		log(LOG_INFO, "game_loop: select: %s", strerror(errno));
 		return;
@@ -677,15 +673,9 @@ RUNGAME_FUN(_run_game, in_set, out_set, exc_set)
 		resolv_done();
 #endif
 
-	check_fds(&control_sockets, in_set, init_descriptor);
-	check_fds(&info_sockets, in_set, info_newconn);
-
-	for (id = id_list; id; id = id_next) {
-		id_next = id->next;
-
-		if (FD_ISSET(id->fd, in_set))
-			info_process_cmd(id);
-	}
+	check_fds(&control_sockets, in_set, D_NORMAL);
+	check_fds(&info_sockets, in_set, D_INFO);
+	check_fds(&mudftp_sockets, in_set, D_MUDFTP);
 
 	vo_foreach_init(NULL, &iter_descriptor, NULL);
 	_run_game_bottom(in_set, out_set, exc_set);
@@ -724,30 +714,34 @@ RUNGAME_FUN(_run_game_bottom, in_set, out_set, exc_set)
 			}
 		}
 
-		if (d->character != NULL && d->character->daze > 0)
-			--d->character->daze;
+		if (d->character != NULL) {
+			if (d->character->daze > 0)
+				--d->character->daze;
 
-		if (d->character != NULL && d->character->wait > 0) {
-			--d->character->wait;
-			continue;
+			if (d->character->wait > 0) {
+				--d->character->wait;
+				continue;
+			}
 		}
 
 		read_from_buffer(d);
-		if (d->incomm[0] != '\0') {
+		if (d->connected != CON_RESOLV && d->incomm[0] != '\0') {
 			d->fcommand = TRUE;
 			stop_idling(d);
 
-			if (d->showstr_point)
+			if (D_IS_INFO(d))
+				handle_info(d);
+			else if (D_IS_MUDFTP(d))
+				handle_mudftp(d);
+			else if (d->showstr_point)
 				show_string(d, d->incomm);
 			else if (d->pString)
 				string_add(d->character, d->incomm);
-			else if (d->connected == CON_PLAYING) {
+			else if (d->connected == CON_PLAYING)
 				substitute_alias(d, d->incomm);
-			} else
+			else
 				nanny(d, d->incomm);
-
-			if (d->connected != CON_RESOLV)
-				d->incomm[0]	= '\0';
+			d->incomm[0] = '\0';
 		}
 	}
 	vo_foreach_destroy(NULL, &iter_descriptor, NULL, d_next);
@@ -777,6 +771,12 @@ RUNGAME_FUN(_run_game_bottom, in_set, out_set, exc_set)
 				outbuf_flush(d);
 				close_descriptor(d, SAVE_F_NORMAL);
 			}
+
+			/*
+			 * info descriptors are immediately closed
+			 */
+			if (outbuf_empty(d) && D_IS_INFO(d))
+				close_descriptor(d, 0);
 		}
 	}
 
@@ -820,13 +820,13 @@ add_fds(varr *v, fd_set *in_set, int *maxdesc)
 }
 
 static void
-check_fds(varr *v, fd_set *in_set, void (*new_conn_cb)(int))
+check_fds(varr *v, fd_set *in_set, int d_type)
 {
 	int *pfd;
 
 	C_FOREACH(pfd, v) {
 		if (FD_ISSET(*pfd, in_set))
-			new_conn_cb(*pfd);
+			init_descriptor(*pfd, d_type);
 	}
 }
 
@@ -835,75 +835,81 @@ check_fds(varr *v, fd_set *in_set, void (*new_conn_cb)(int))
 #endif
 
 static void
-init_descriptor(int control)
+init_descriptor(int control, int d_type)
 {
-	DESCRIPTOR_DATA *dnew;
-	struct sockaddr_in sock;
+	DESCRIPTOR_DATA *d;
 	int desc;
 	int size;
+	struct sockaddr_in sock;
 	HELP_DATA *greeting;
+	char ctx[128];
 
+	snprintf(ctx, sizeof(ctx), "conn[%s]",
+		 flag_string(descriptor_types, d_type));
+#if 0
 	size = sizeof(sock);
-	getsockname(control, (struct sockaddr *) &sock, &size);
+	if (getsockname(control, (struct sockaddr *) &sock, &size) < 0) {
+		log(LOG_INFO, "%s: getsockname: %s",
+		    ctx, strerror(errno));
+		return NULL;
+	}
+#endif
+	size = sizeof(sock);
 	if ((desc = accept(control, (struct sockaddr *) &sock, &size)) < 0) {
-		log(LOG_INFO, "init_descriptor: accept: %s", strerror(errno));
+		log(LOG_INFO, "%s: accept: %s", ctx, strerror(errno));
 		return;
 	}
-
+	size = sizeof(sock);
+	if (getpeername(desc, (struct sockaddr *) &sock, &size) < 0) {
+		log(LOG_INFO, "%s: getpeername: %s", ctx, strerror(errno));
+		return;
+	}
 #if !defined (WIN32)
 	if (fcntl(desc, F_SETFL, FNDELAY) < 0) {
-		log(LOG_INFO, "init_descriptor: fcntl: FNDELAY: %s",
-			   strerror(errno));
+		log(LOG_INFO, "%s: fcntl: FNDELAY: %s", ctx, strerror(errno));
+		close(desc);
 		return;
 	}
 #endif
 
 	/*
-	 * Cons a new descriptor.
+	 * Create a new descriptor.
 	 */
-	dnew = new_descriptor(desc);
-
-	size = sizeof(sock);
-	if (getpeername(desc, (struct sockaddr *) &sock, &size) < 0) {
-		log(LOG_INFO, "init_descriptor: getpeername: %s",
-			   strerror(errno));
-		return;
-	}
-#if defined (WIN32)
-	else {
-		/* Copying from ROM 2.4b6 */
+	d = new_descriptor(desc, d_type, inet_ntoa(sock.sin_addr));
+	log(LOG_INFO, "%s: sock.sinaddr: %s", ctx, d->ip);
+	if (rpid > 0) {
+		d->host	= str_qdup(d->ip);
+		fprintf(rfout, "%s\n", d->ip); // notrans
+	} else {
 		int addr;
 		struct hostent *from;
 
 		addr = ntohl(sock.sin_addr.s_addr);
 		from = gethostbyaddr((char *) &sock.sin_addr,
-				     sizeof(sock.sin_addr), AF_INET);
-		dnew->host = str_dup(
-		    from ? from->h_name : "unknown");		// notrans
+			     sizeof(sock.sin_addr), AF_INET);
+		d->host = str_dup(from ? from->h_name : "unknown"); // notrans
+		d->connected = CON_GET_CODEPAGE;
 	}
-#endif
 
-	log(LOG_INFO, "sock.sinaddr: %s", inet_ntoa(sock.sin_addr));
+	if (d->d_type == D_NORMAL) {
+		/*
+		 * tell the client we support compression
+		 */
+		write_to_descriptor(d, compress2_will, 0);
+		write_to_descriptor(d, compress_will, 0);
 
-	dnew->next		= descriptor_list;
-	descriptor_list		= dnew;
-
-	/* mccp
-	 * tell the client we support compression 
-	 */
-	write_to_descriptor(dnew, compress2_will, 0);
-	write_to_descriptor(dnew, compress_will, 0);
-
-	/*
-	 * Send the greeting.
-	 */
-	if ((greeting = help_lookup(1, "GREETING"))) {		// notrans
-		char buf[MAX_STRING_LENGTH];
-		parse_colors(mlstr_mval(&greeting->text), buf, sizeof(buf),
-			     FORMAT_DUMB);
-		write_to_buffer(dnew, buf + (buf[0] == '.'), 0);
+		/*
+		 * Send the greeting.
+		 */
+		if ((greeting = help_lookup(1, "GREETING"))) {	// notrans
+			char buf[MAX_STRING_LENGTH];
+			parse_colors(
+			    mlstr_mval(&greeting->text), buf, sizeof(buf),
+			    FORMAT_DUMB);
+			write_to_buffer(d, buf + (buf[0] == '.'), 0);
+		}
+		charset_print(d);
 	}
-	charset_print(dnew);
 }
 
 static bool
@@ -930,12 +936,14 @@ read_from_descriptor(DESCRIPTOR_DATA *d)
 	for (; ;) {
 		int nRead;
 
+		if (sizeof(d->inbuf) - 10 - iStart == 0)
+			break;
 #if !defined (WIN32)
-	nRead = read( d->descriptor, d->inbuf + iStart,
-		     sizeof( d->inbuf ) - 10 - iStart );
+		nRead = read(d->descriptor, d->inbuf + iStart,
+		     sizeof(d->inbuf) - 10 - iStart);
 #else
-	nRead = recv( d->descriptor, d->inbuf + iStart,
-		     sizeof( d->inbuf ) - 10 - iStart, 0 );
+		nRead = recv(d->descriptor, d->inbuf + iStart,
+		     sizeof(d->inbuf) - 10 - iStart, 0);
 #endif
 		if (nRead > 0) {
 			iStart += nRead;
@@ -1008,7 +1016,7 @@ read_from_descriptor(DESCRIPTOR_DATA *d)
 			break;
 
 		case IAC:
-			if (d->character 
+			if (d->character
 			&& !IS_SET(d->character->comm, COMM_NOTELNET))
 				memmove(p, p+1, strlen(p));
 			p++;
@@ -1036,7 +1044,7 @@ read_from_descriptor(DESCRIPTOR_DATA *d)
 /*
  * Transfer one line from input buffer to input line.
  */
-static void
+void
 read_from_buffer(DESCRIPTOR_DATA *d)
 {
 	int i, j, k;
@@ -1083,19 +1091,22 @@ read_from_buffer(DESCRIPTOR_DATA *d)
 	 * Finish off the line.
 	 */
 	if (k == 0)
-		d->incomm[k++] = ' ';
+		d->incomm[k++] = d->connected == CON_MUDFTP_DATA ? '\n' : ' ';
+	else if (d->connected == CON_MUDFTP_DATA)
+		d->incomm[k++] = '\n';
 	d->incomm[k] = '\0';
 
 	/*
 	 * Deal with bozos with #repeat 1000 ...
 	 */
 	repeat = !str_cmp(d->incomm, "!");
-	if (k > 1 || repeat) {
-		if (!repeat && strcmp(d->incomm, d->inlast))
+	if ((k > 1 || repeat) && !D_IS_SERVICE(d)) {
+		if (!repeat && !!strcmp(d->incomm, d->inlast))
 			d->repeat = 0;
 		else {
-			CHAR_DATA *ch = d->original ? d->original :
-						      d->character;
+			CHAR_DATA *ch;
+
+			ch = d->original ? d->original : d->character;
 			if (ch && ++d->repeat >= 100) {
 				char buf[MAX_STRING_LENGTH];
 
@@ -1131,7 +1142,7 @@ read_from_buffer(DESCRIPTOR_DATA *d)
 	/*
 	 * Do '!' substitution.
 	 */
-	if (repeat)
+	if (repeat && !D_IS_SERVICE(d))
 		strnzcpy(d->incomm, sizeof(d->incomm), d->inlast);
 	else
 		strnzcpy(d->inlast, sizeof(d->inlast), d->incomm);
@@ -1139,10 +1150,38 @@ read_from_buffer(DESCRIPTOR_DATA *d)
 	/*
 	 * Shift the input buffer.
 	 */
-	while (d->inbuf[i] == '\n' || d->inbuf[i] == '\r')
+	while (d->inbuf[i] == '\n' || d->inbuf[i] == '\r') {
 		i++;
+		if (D_IS_SERVICE(d))
+			break;
+	}
 	for (j = 0; (d->inbuf[j] = d->inbuf[i+j]) != '\0'; j++)
 		;
+}
+
+/*
+ * Handle service request
+ */
+void handle_service(DESCRIPTOR_DATA *d, service_cmd_t *cmds)
+{
+	char cmd_name[MAX_INPUT_LENGTH];
+	const char *argument;
+	service_cmd_t *cmd;
+
+	argument = one_argument(d->incomm, cmd_name, sizeof(cmd_name));
+	for (cmd = cmds; cmd->name != NULL; cmd++) {
+		if (!str_cmp(cmd->name, cmd_name))
+			break;
+	}
+	if (cmd->fun)
+		cmd->fun(d, cmd_name, argument);
+}
+
+SERVICE_FUN(service_unimpl)
+{
+	write_to_buffer(d, "ERROR: ", 0);
+	write_to_buffer(d, name, 0);
+	write_to_buffer(d, ": invalid or unimplemented command.\n", 0);
 }
 
 /*
@@ -1248,7 +1287,7 @@ process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 	/*
 	 * OS-dependent output.
 	 */
-	if (d->out_buf.top > 0) {
+	if (!outbuf_empty(d)) {
 		if (!write_to_descriptor(d, d->out_buf.buf, d->out_buf.top)) {
 			retval = FALSE;
 			goto bail_out;
@@ -1325,7 +1364,7 @@ show_string(DESCRIPTOR_DATA *d, const char *input)
 		/*
 		 * simple copy if not eos and not eol
 		 */
-		if ((*scan = *d->showstr_point) && (*scan) != '\n') 
+		if ((*scan = *d->showstr_point) && (*scan) != '\n')
 			continue;
 
 		/*
@@ -1359,8 +1398,8 @@ outbuf_empty(DESCRIPTOR_DATA *d)
 	return (d->out_buf.top == 0);
 }
 
-static
-void outbuf_flush(DESCRIPTOR_DATA *d)
+static void
+outbuf_flush(DESCRIPTOR_DATA *d)
 {
 	d->out_buf.top = 0;
 	d->snoop_buf.top = 0;

@@ -23,18 +23,9 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_system.c,v 1.25 2002-03-21 13:54:00 fjoe Exp $
+ * $Id: db_system.c,v 1.26 2003-04-19 00:26:41 fjoe Exp $
  */
 
-#if !defined(WIN32)
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <arpa/inet.h>
-#include <netdb.h>
-#else
-#include <winsock.h>
-#endif
 #include <stdio.h>
 #include <string.h>
 
@@ -43,20 +34,21 @@
 #include <db.h>
 #include <rwfile.h>
 
+static void load_service(varr *v, rfile_t *fp);
+
 DECLARE_DBLOAD_FUN(load_system);
 DECLARE_DBLOAD_FUN(load_info);
-DECLARE_DBLOAD_FUN(load_module);
+DECLARE_DBLOAD_FUN(load_mudftp);
 
 DBFUN dbfun_system[] =
 {
 	{ "SYSTEM",	load_system,	NULL	},		// notrans
 	{ "INFO",	load_info,	NULL	},		// notrans
+	{ "MUDFTP",	load_mudftp,	NULL	},		// notrans
 	{ NULL, NULL, NULL }
 };
 
 DBDATA db_system = { dbfun_system, NULL, 0 };
-
-static void fread_host(rfile_t *fp, varr *v);
 
 DBLOAD_FUN(load_system)
 {
@@ -108,26 +100,30 @@ DBLOAD_FUN(load_system)
 
 DBLOAD_FUN(load_info)
 {
+	load_service(&info_sockets, fp);
+}
+
+DBLOAD_FUN(load_mudftp)
+{
+	load_service(&mudftp_sockets, fp);
+}
+
+static void
+load_service(varr *v, rfile_t *fp)
+{
 	bool fListen;
 
 	/*
 	 * command line parameters override
 	 * configuration settings
 	 */
-	fListen = c_isempty(&info_sockets);
+	fListen = c_isempty(v);
 
 	for (;;) {
 		bool fMatch = FALSE;
 
 		fread_keyword(fp);
 		switch(rfile_tokfl(fp)) {
-		case 'A':
-			if (IS_TOKEN(fp, "Allow")) {
-				fread_host(fp, &info_trusted);
-				fMatch = TRUE;
-			}
-			break;
-
 		case 'E':
 			if (IS_TOKEN(fp, "End"))
 				return;
@@ -139,7 +135,7 @@ DBLOAD_FUN(load_info)
 
 				port = fread_number(fp);
 				if (fListen) {
-					int *p = varr_enew(&info_sockets);
+					int *p = varr_enew(v);
 					*p = port;
 				}
 
@@ -152,26 +148,6 @@ DBLOAD_FUN(load_info)
 			log(LOG_ERROR, "%s: %s: Unknown keyword",
 			    __FUNCTION__, rfile_tok(fp));
 			fread_to_eol(fp);
-		}
-	}
-}
-
-static void
-fread_host(rfile_t *fp, varr *v)
-{
-	const char *s = fread_string(fp);
-	struct hostent *h = gethostbyname(s);
-
-	free_string(s);
-	if (!h)
-		log(LOG_INFO, "load_info: gethostbyname: %s", hstrerror(h_errno));
-	else {
-		for (; *h->h_addr_list; h->h_addr_list++) {
-			struct in_addr *in_addr;
-			in_addr = varr_enew(v);
-			memcpy(in_addr, *h->h_addr_list, sizeof(*in_addr));
-			log(LOG_INFO, "load_info: added '%s' to trusted list",
-				   inet_ntoa(*in_addr));
 		}
 	}
 }

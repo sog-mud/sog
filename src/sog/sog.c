@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.c,v 1.8 2002-03-20 19:51:15 fjoe Exp $
+ * $Id: sog.c,v 1.9 2003-04-19 00:26:49 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -63,15 +63,9 @@ static varr_info_t c_info_sockets = {
 	sizeof(int), 2
 };
 
-static varr_info_t c_info_trusted = {
-	&varr_ops, NULL, NULL,
-
-	sizeof(struct in_addr), 2
-};
-
 varr	control_sockets;
 varr	info_sockets;
-varr	info_trusted;
+varr	mudftp_sockets;
 
 int
 main(int argc, char **argv)
@@ -79,6 +73,7 @@ main(int argc, char **argv)
 	struct timeval now_time;
 	int ch;
 	int check_info;
+	int check_mudftp;
 	module_t *m;
 
 #if defined WIN32
@@ -112,10 +107,10 @@ main(int argc, char **argv)
 
 	c_init(&control_sockets, &c_info_sockets);
 	c_init(&info_sockets, &c_info_sockets);
-	c_init(&info_trusted, &c_info_trusted);
+	c_init(&mudftp_sockets, &c_info_sockets);
 
 	opterr = 0;
-	while ((ch = getopt(argc, argv, "p:i:")) != -1) { // notrans
+	while ((ch = getopt(argc, argv, "p:i:f:")) != -1) { // notrans
 		int *p;
 
 		switch (ch) {
@@ -130,6 +125,13 @@ main(int argc, char **argv)
 			if (!is_number(optarg))
 				usage(argv[0]);
 			p = varr_enew(&info_sockets);
+			*p = atoi(optarg);
+			break;
+
+		case 'f':
+			if (!is_number(optarg))
+				usage(argv[0]);
+			p = varr_enew(&mudftp_sockets);
 			*p = atoi(optarg);
 			break;
 
@@ -164,11 +166,14 @@ main(int argc, char **argv)
 		exit(1);
 	}
 	check_info = !c_isempty(&info_sockets);
+	check_mudftp = !c_isempty(&mudftp_sockets);
 
 	open_sockets(&control_sockets,
 		     "ready to rock on port %d");		// notrans
 	open_sockets(&info_sockets,
 		     "info service started on port %d");	// notrans
+	open_sockets(&mudftp_sockets,
+		     "mudftp service started on port %d");	// notrans
 
 	if (c_isempty(&control_sockets)) {
 		log(LOG_INFO, "no control sockets could be opened");
@@ -180,10 +185,16 @@ main(int argc, char **argv)
 		exit(1);
 	}
 
+	if (check_mudftp && c_isempty(&mudftp_sockets)) {
+		log(LOG_INFO, "no mudftp Service sockets could be opened");
+		exit(1);
+	}
+
 	game_loop();
 
 	close_sockets(&control_sockets);
 	close_sockets(&info_sockets);
+	close_sockets(&mudftp_sockets);
 
 #if defined (WIN32)
 	WSACleanup();
@@ -202,10 +213,11 @@ main(int argc, char **argv)
 static void
 usage(const char *name)
 {
-	fprintf(stderr, "Usage: %s [-p port...] [-i port...]\n"	// notrans
+	fprintf(stderr, "Usage: %s [-p port] [-i port] [-f port]\n" // notrans
 			"Where:\n"				// notrans
 			"\t-p -- listen port\n"			// notrans
-			"\t-i -- info service port\n",		// notrans
+			"\t-i -- info service port\n"		// notrans
+			"\t-f -- mudftp service port\n",	// notrans
 		get_filename(name));
 	exit(1);
 }

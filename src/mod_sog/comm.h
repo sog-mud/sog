@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm.h,v 1.4 2002-11-28 20:25:42 fjoe Exp $
+ * $Id: comm.h,v 1.5 2003-04-19 00:26:46 fjoe Exp $
  */
 
 #ifndef _COMM_H_
@@ -38,10 +38,35 @@ struct codepage {
 extern struct codepage codepages[];
 extern size_t codepages_sz;
 
+void read_from_buffer(DESCRIPTOR_DATA *d);
 void write_to_buffer(DESCRIPTOR_DATA *d, const char *txt, size_t len);
 void write_to_snoop(DESCRIPTOR_DATA *d, const char *txt, size_t len);
 bool write_to_descriptor(DESCRIPTOR_DATA *d, const char *txt, size_t length);
 
 void charset_print(DESCRIPTOR_DATA *d);
+
+/*
+ * services
+ */
+typedef void SERVICE_FUN (DESCRIPTOR_DATA *d,
+			  const char *name, const char *argument);
+typedef struct service_cmd_t service_cmd_t;
+struct service_cmd_t {
+	const char	*name;
+	SERVICE_FUN	*fun;
+};
+#define DECLARE_SERVICE_FUN(fun) SERVICE_FUN fun
+#define SERVICE_FUN(fun)					\
+	void fun(DESCRIPTOR_DATA *d,				\
+		 const char *name __attribute__((unused)),	\
+		 const char *argument __attribute__((unused)))
+
+void handle_service(DESCRIPTOR_DATA *d, service_cmd_t *cmds);
+DECLARE_SERVICE_FUN(service_unimpl);
+
+void handle_info(DESCRIPTOR_DATA *d);
+
+void handle_mudftp(DESCRIPTOR_DATA *d);
+bool mudftp_push(DESCRIPTOR_DATA *d);
 
 #endif /* _COMM_H_ */

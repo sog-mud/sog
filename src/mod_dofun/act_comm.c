@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.275 2003-04-17 17:20:33 fjoe Exp $
+ * $Id: act_comm.c,v 1.276 2003-04-19 00:26:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2338,6 +2338,13 @@ toggle_t toggle_table[] =
 	  NULL, comm_flags,	COMM_NO_BATTLE_PROMPT,
 	  "You will no longer see battle prompt when fighting.",
 	  "You will now see battle prompt when fighting.",
+	},
+
+	{ "mudftp",						// notrans
+	  "mudFTP editor mode",
+	  "create edit", comm_flags, COMM_MUDFTP_EDITOR,
+	  "mudFTP editor mode on.",
+	  "mudFTP editor mode off."
 	},
 
 	{ NULL, NULL, NULL, NULL, 0, NULL, NULL }

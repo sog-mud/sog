@@ -23,24 +23,13 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: info.c,v 1.35 2002-11-28 21:40:29 fjoe Exp $
+ * $Id: info.c,v 1.36 2003-04-19 00:26:46 fjoe Exp $
  */
 
-#if !defined (WIN32)
-#	include <sys/types.h>
-#	include <sys/socket.h>
-#	include <netinet/in.h>
-#	include <arpa/inet.h>
-#	include <unistd.h>
-#else
-#	include <winsock.h>
-#endif
-
-#include <errno.h>
-#include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 
 #if defined(SUNOS) || defined(SVR4) || defined(LINUX)
 #	include <crypt.h>
@@ -52,214 +41,56 @@
 
 #include <sog.h>
 
-#include "info.h"
+#include "comm.h"
 
-INFO_DESC *	id_list;
-int		top_id;
-char		buf[2 * MAX_STRING_LENGTH];
-
-static INFO_DESC *	id_free_list;
-
-static INFO_DESC *	info_desc_new(int fd);
-static void		info_desc_free(INFO_DESC *id);
-
-typedef void CMD_FUN (const char *argument);
-typedef struct {
-	const char	*name;
-	CMD_FUN	*fun;
-} infocmd_t;
-#define DECLARE_CMD_FUN(fun)	static CMD_FUN fun
-#define CMD_FUN(fun)						\
-	static void fun(const char *argument __attribute__((unused)))
-
-DECLARE_CMD_FUN(cmd_who);
-DECLARE_CMD_FUN(cmd_auth);
-DECLARE_CMD_FUN(cmd_help);
-DECLARE_CMD_FUN(cmd_show);
-DECLARE_CMD_FUN(cmd_setf);
-DECLARE_CMD_FUN(cmd_dumb);
+static DECLARE_SERVICE_FUN(cmd_who);
+static DECLARE_SERVICE_FUN(cmd_auth);
+static DECLARE_SERVICE_FUN(cmd_help);
+static DECLARE_SERVICE_FUN(cmd_show);
+static DECLARE_SERVICE_FUN(cmd_setf);
 
 /* Currently supported commands:
  * WHO <fmt>				- outputs list of visible players
  * AUTH <plr> <pwd>			- authentificate a player
  * HELP <fmt> <lang> <lev> <topic>	- show help
- * SHOW	<fmt> <plr>				- dump player's information
+ * SHOW	<fmt> <plr>			- dump player's information
  * SETF <plr> <pwd> <flags>		- set www_show_flags equal to <flags>
  */
 
-infocmd_t info_cmds[] =
+static service_cmd_t info_cmds[] =
 {
 	{ "WHO",	cmd_who			},
 	{ "AUTH",	cmd_auth		},
 	{ "HELP",	cmd_help		},
 	{ "SHOW",	cmd_show		},
 	{ "SETF",	cmd_setf		},
-	{ NULL,		cmd_dumb		}
+	{ NULL,		service_unimpl		},
 };
 
-void info_newconn(int infofd)
+void
+handle_info(DESCRIPTOR_DATA *d)
 {
-	int fd;
-	struct sockaddr_in sock;
-	int size = sizeof(sock);
-	INFO_DESC *id;
-	struct in_addr *in_addr;
-	bool found = FALSE;
-
-	getsockname(infofd, (struct sockaddr*) &sock, &size);
-	if ((fd = accept(infofd, (struct sockaddr*) &sock, &size)) < 0) {
-		log(LOG_INFO, "info_newconn: accept: %s", strerror(errno));
+	if (check_ban(d, BCL_INFO) == BAN_DENY)
 		return;
-	}
-
-	if (getpeername(fd, (struct sockaddr *) &sock, &size) < 0) {
-		log(LOG_INFO, "info_newconn: getpeername: %s", strerror(errno));
-#ifdef WIN32
-		closesocket(fd);
-#else
-		close(fd);
-#endif
-		return;
-	}
-
-	C_FOREACH(in_addr, &info_trusted) {
-		if (!memcmp(in_addr, &sock.sin_addr, sizeof(struct in_addr))) {
-			found = TRUE;
-			break;
-		}
-	}
-
-	if (!found) {
-		log(LOG_INFO, "info_newconn: incoming connection refused");
-#ifdef WIN32
-		closesocket(fd);
-#else
-		close(fd);
-#endif
-		return;
-	}
-
-#if !defined (WIN32)
-	if (fcntl(fd, F_SETFL, FNDELAY) < 0) {
-		log(LOG_INFO, "info_newconn: fcntl: FNDELAY: %s", strerror(errno));
-		close(fd);
-		return;
-	}
-#endif
-
-	id = info_desc_new(fd);
-	id->next = id_list;
-	id_list = id;
+	handle_service(d, info_cmds);
 }
 
-void info_process_cmd(INFO_DESC *id)
-{
-	char cmd_name[10];
-	const char *p;
-	char *q;
-        int nread;
-	infocmd_t *icmd;
-
-#if !defined (WIN32)
-	if ((nread = read(id->fd, buf, sizeof(buf))) < 0)
-	 {
-		if (errno == EWOULDBLOCK)
-#else
-	if ((nread = recv(id->fd, buf, sizeof(buf), 0)) < 0)
-	 {
-        if ( WSAGetLastError() == WSAEWOULDBLOCK)
-#endif
-			return;
-		log(LOG_INFO, "info_input: read: %s", strerror(errno));
-		info_desc_free(id);
-		return;
-	}
-	buf[nread] = '\0';
-	q = strchr(buf, '\n');
-	if (q)
-		*q = '\0';
-
-	p = one_argument(buf, cmd_name, sizeof(cmd_name));
-
-	for (icmd = info_cmds; icmd->name; icmd++)
-		if (!str_cmp(icmd->name, cmd_name))
-			break;
-
-	if (icmd->fun)
-		icmd->fun(p);
-
-#if !defined (WIN32)
-		write(id->fd, buf, strlen(buf));
-#else
-		send(id->fd, buf, strlen(buf), 0);
-#endif
-	info_desc_free(id);
-}
-
-static INFO_DESC *info_desc_new(int fd)
-{
-	INFO_DESC *id;
-
-	if (id_free_list) {
-		id = id_free_list;
-		id_free_list = id_free_list->next;
-	}
-	else {
-		top_id++;
-		id = malloc(sizeof(*id));
-	}
-
-	id->fd = fd;
-
-	return id;
-}
-
-static void info_desc_free(INFO_DESC *id)
-{
-	if (id == id_list)
-		id_list = id_list->next;
-	else {
-		INFO_DESC *prev;
-
-		for (prev = id_list; prev; prev = prev->next)
-			if (prev->next == id)
-				break;
-
-		if (!prev) {
-			log(LOG_INFO, "info_desc_free: descriptor not found");
-			return;
-		}
-
-		prev->next = id->next;
-	}
-
-#ifdef WIN32
-	closesocket(id->fd);
-#else
-	close(id->fd);
-#endif
-
-	id->next = id_free_list;
-	id_free_list = id;
-}
-
-CMD_FUN(cmd_who)
+static
+SERVICE_FUN(cmd_who)
 {
 	BUFFER *output;
-	DESCRIPTOR_DATA *d;
+	DESCRIPTOR_DATA *d2;
 	int format;
 	char arg[MAX_INPUT_LENGTH];
+	char buf[MAX_STRING_LENGTH * 4];
 
 	one_argument(argument, arg, sizeof(arg));
-
-	output = buf_new(0);
-
+	output = buf_new(-1);
 	buf_printf(output, BUF_END, "%d\n", top_player);
+	for (d2 = descriptor_list; d2 != NULL; d2 = d2->next) {
+		CHAR_DATA *wch = d2->original ? d2->original : d2->character;
 
-	for (d = descriptor_list; d; d = d->next) {
-		CHAR_DATA *wch = d->original ? d->original : d->character;
-
-		if (d->connected != CON_PLAYING
+		if (d2->connected != CON_PLAYING
 		||  wch->invis_level
 		||  wch->incog_level
 		||  HAS_INVIS(wch, ID_ALL_INVIS)
@@ -270,10 +101,12 @@ CMD_FUN(cmd_who)
 	}
 	format = format_lookup(arg);
 	parse_colors(buf_string(output), buf, sizeof(buf), format);
+	write_to_buffer(d, buf, 0);
 	buf_free(output);
 }
 
-CMD_FUN(cmd_auth)
+static
+SERVICE_FUN(cmd_auth)
 {
 	char arg1[MAX_INPUT_LENGTH],arg2[MAX_INPUT_LENGTH];
 	CHAR_DATA *ch;
@@ -283,20 +116,22 @@ CMD_FUN(cmd_auth)
 
 	ch = char_load(arg1, LOAD_F_NOCREATE);
 	if (!ch || strcmp(crypt(arg2, ch->name), PC(ch)->pwd)) {
-		strncpy(buf, "AUTH FAILED.\n", sizeof(buf));
+		write_to_buffer(d, "AUTH FAILED.\n", 0);
 		if (ch)
 			char_nuke(ch);
 		return;
 	}
-	strncpy(buf, "AUTH OK.\n", sizeof(buf));
+	write_to_buffer(d, "AUTH OK.\n", 0);
 	char_nuke(ch);
 }
 
-CMD_FUN(cmd_help)
+static
+SERVICE_FUN(cmd_help)
 {
 	BUFFER *output;
 	int format, lev;
 	char arg[MAX_INPUT_LENGTH];
+	char buf[MAX_STRING_LENGTH * 4];
 	lang_t *l;
 	size_t lang;
 
@@ -312,15 +147,18 @@ CMD_FUN(cmd_help)
 	argument = one_argument(argument, arg, sizeof(arg));
 	lev = atoi(arg);
 
-	output = buf_new(0);
+	output = buf_new(-1);
 	help_show_raw(lev, lang, output, argument);
 	parse_colors(buf_string(output), buf, sizeof(buf), format);
+	write_to_buffer(d, buf, 0);
 	buf_free(output);
 }
 
-CMD_FUN(cmd_show)
+static
+SERVICE_FUN(cmd_show)
 {
 	char arg[MAX_INPUT_LENGTH];
+	char buf[MAX_STRING_LENGTH * 4];
 	CHAR_DATA *ch;
 	BUFFER *output;
 	int format;
@@ -331,13 +169,11 @@ CMD_FUN(cmd_show)
 	argument = first_arg(argument, arg, sizeof(arg), FALSE);
 	ch = char_load(arg, LOAD_F_NOCREATE);
 	if (!ch) {
-		strncpy(buf, "This character has not born yet.\n", sizeof(buf));
+		write_to_buffer(d, "This character has not born yet.\n", 0);
 		return;
 	}
 
-	buf[0] = '\0';
-
-	output = buf_new(0);
+	output = buf_new(-1);
 	buf_printf(output, BUF_END, "%s\n%s\n%s %s\n%d\n%s\n%s\n%s\n%s\n%d\n%d %d\n%d\n%s\n%s\n%d\n%s\n",
 		IS_SET(PC(ch)->www_show_flags, WSHOW_RACE) ? PC(ch)->race : "Unknown",
 		IS_SET(PC(ch)->www_show_flags, WSHOW_CLASS) ? ch->class : "Unknown",
@@ -358,12 +194,15 @@ CMD_FUN(cmd_show)
 		IS_WANTED(ch) ? "WANTED" : "");
 
 	parse_colors(buf_string(output), buf, sizeof(buf), format);
+	write_to_buffer(d, buf, 0);
 	buf_free(output);
 	char_nuke(ch);
 }
 
-CMD_FUN(cmd_setf)
+static
+SERVICE_FUN(cmd_setf)
 {
+	BUFFER *output;
 	char arg1[MAX_INPUT_LENGTH],arg2[MAX_INPUT_LENGTH];
 	CHAR_DATA *ch, *vch;
 
@@ -372,28 +211,26 @@ CMD_FUN(cmd_setf)
 
 	ch = char_load(arg1, LOAD_F_NOCREATE);
 	if (!ch || strcmp(crypt(arg2, ch->name), PC(ch)->pwd)) {
-		strncpy(buf, "AUTH FAILED.\n", sizeof(buf));
+		write_to_buffer(d, "AUTH FAILED.\n", 0);
 		if (ch)
 			char_nuke(ch);
 		return;
 	}
 
-	for (vch = char_list; vch && !IS_NPC(vch); vch = vch->next)
+	for (vch = char_list; vch && !IS_NPC(vch); vch = vch->next) {
 		if (!str_cmp(ch->name, vch->name)) {
-			strncpy(buf, "CHAR LOGGED IN.\n", sizeof(buf));
+			write_to_buffer(d, "CHAR LOGGED IN.\n", 0);
 			char_nuke(ch);
 			return;
 		}
-	
+	}
+
 	PC(ch)->www_show_flags = flag_value(www_flags_table, argument);
 	char_save(ch, SAVE_F_PSCAN);
-	strncpy(buf, "FLAGS SET: ", sizeof(buf));
-	snprintf(buf, sizeof(buf), "%s%s\n", buf,
-		flag_string(www_flags_table, PC(ch)->www_show_flags));
+	output = buf_new(-1);
+	buf_printf(output, BUF_END, "FLAGS SET: %s",
+	    flag_string(www_flags_table, PC(ch)->www_show_flags));
+	write_to_buffer(d, buf_string(output), 0);
+	buf_free(output);
 	char_nuke(ch);
-}
-
-CMD_FUN(cmd_dumb)
-{
-	strncpy(buf, "ERROR: unsupported or illegal function.\n", sizeof(buf));
 }

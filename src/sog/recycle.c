@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.155 2002-11-30 19:54:42 fjoe Exp $
+ * $Id: recycle.c,v 1.156 2003-04-19 00:26:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1763,7 +1763,7 @@ static void outbuf_init(outbuf_t *o, size_t size);
 static void outbuf_destroy(outbuf_t *o);
 
 DESCRIPTOR_DATA *
-new_descriptor(int fd)
+new_descriptor(int fd, int d_type, const char *ip)
 {
 	DESCRIPTOR_DATA *d;
 
@@ -1779,7 +1779,9 @@ new_descriptor(int fd)
 	desc_count++;
 	memset(d, 0, sizeof(*d));
 	d->descriptor = fd;
-	d->connected = CON_GET_CODEPAGE;
+	d->d_type = d_type;
+	d->ip = str_dup(ip);
+	d->connected = CON_RESOLV;
 	d->codepage = 0;
 
 	/* mccp data init */
@@ -1790,8 +1792,11 @@ new_descriptor(int fd)
 
 	outbuf_init(&d->out_buf, 1024);
 	outbuf_init(&d->snoop_buf, 0);
+	d->mftp_data = str_empty;
 	d->dvdata = dvdata_new();
 
+	d->next	= descriptor_list;
+	descriptor_list	= d;
 	return d;
 }
 
@@ -1815,6 +1820,9 @@ free_descriptor(DESCRIPTOR_DATA *d)
 	free_string(d->ip);
 	outbuf_destroy(&d->out_buf);
 	outbuf_destroy(&d->snoop_buf);
+	free_string(d->mftp_username);
+	free_string(d->mftp_filename);
+	free_string(d->mftp_data);
 	dvdata_free(d->dvdata);
 
 	d->next = descriptor_free;

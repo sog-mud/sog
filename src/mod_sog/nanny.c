@@ -1,5 +1,5 @@
 /*
- * $Id: nanny.c,v 1.11 2002-03-06 11:08:35 tatyana Exp $
+ * $Id: nanny.c,v 1.12 2003-04-19 00:26:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -53,6 +53,10 @@
 #include <stdlib.h>
 #include <string.h>
 
+#if defined(LINUX)
+#include <crypt.h>
+#endif
+
 #include <merc.h>
 #include <resolver.h>
 
@@ -61,10 +65,6 @@
 
 #include "handler_impl.h"
 #include "comm.h"
-
-#if defined(LINUX)
-extern char *crypt(const char *key, const char *salt);
-#endif
 
 static bool	check_reconnect(DESCRIPTOR_DATA *d, bool fConn);
 static bool	check_playing(DESCRIPTOR_DATA *d, const char *name);
@@ -110,7 +110,6 @@ nanny(DESCRIPTOR_DATA *d, const char *argument)
 	char *pwdnew;
 	int i;
 	int nextquest = 0;
-	int size;
 	race_t *r;
 	class_t *cl;
 	int col;
@@ -164,40 +163,6 @@ nanny(DESCRIPTOR_DATA *d, const char *argument)
 		dvdata_free(d->dvdata);
 		d->dvdata = dvdata_dup(PC(ch)->dvdata);
 
-		if (d->host == NULL) {
-			struct sockaddr_in sock;
-
-			size = sizeof(sock);
-			if (getpeername(d->descriptor,
-					(struct sockaddr *) &sock, &size) < 0) {
-				d->ip = str_dup("(unknown)");	// notrans
-				d->host = str_qdup(d->ip);
-			} else {
-				d->ip = str_dup(inet_ntoa(sock.sin_addr));
-#if defined (WIN32)
-				printf("%s@%s\n",		// notrans
-				    ch->name, d->ip);
-#else
-				if (rpid > 0)
-					fprintf(rfout, "%s@%s\n", // notrans
-					    ch->name, d->ip);
-#endif
-				d->connected = CON_RESOLV;
-/* wait until sock.sin_addr gets resolved */
-				break;
-			}
-		}
-
-		/* FALLTHRU */
-
-	case CON_RESOLV:
-		if (d->host == NULL) {
-			if (rpid > 0)
-				break;
-			else
-				d->host = str_qdup(d->ip);
-		}
-
 		/*
 		 * Swiftest: I added the following to ban sites.  I don't
 		 * endorse banning of sites, but Copper has few descriptors now
@@ -209,11 +174,11 @@ nanny(DESCRIPTOR_DATA *d, const char *argument)
 		 *	HiddenWorlds.
 		 * fjoe: replaced suffix/prefix checks with fnmatch check
 		 */
-		if (check_ban(d, BCL_ALL))
+		if (check_ban(d, BCL_ALL) == BAN_DENY)
 			return;
 
 		if (!IS_IMMORTAL(ch)) {
-			if (check_ban(d, BCL_PLAYERS))
+			if (check_ban(d, BCL_PLAYERS) == BAN_DENY)
 				return;
 
 #ifdef NO_PLAYING_TWICE
@@ -277,7 +242,7 @@ nanny(DESCRIPTOR_DATA *d, const char *argument)
 				return;
 			}
 
-			if (check_ban(d, BCL_NEWBIES))
+			if (check_ban(d, BCL_NEWBIES) == BAN_DENY)
 				return;
 
 			dofun("help", ch, "NAME");
@@ -376,7 +341,7 @@ nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 	case CON_CONFIRM_NEW_PASSWORD:
 		send_to_char("\n", ch);
-		if (strcmp(crypt(argument, PC(ch)->pwd), PC(ch)->pwd)) {
+		if (!!strcmp(crypt(argument, PC(ch)->pwd), PC(ch)->pwd)) {
 			act_char("Passwords don't match.", ch);
 			act_puts("\nRetype password: ",
 				 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
@@ -916,7 +881,6 @@ check_playing(DESCRIPTOR_DATA *d, const char *name)
 		&&  dold->character != NULL
 		&&  dold->connected != CON_GET_CODEPAGE
 		&&  dold->connected != CON_GET_NAME
-		&&  dold->connected != CON_RESOLV
 		&&  dold->connected != CON_GET_OLD_PASSWORD
 		&&  !str_cmp(name, dold->original ?  dold->original->name :
 						     dold->character->name)) {

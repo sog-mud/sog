@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.397 2003-04-17 11:12:20 tatyana Exp $
+ * $Id: merc.h,v 1.398 2003-04-19 00:26:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -262,7 +262,7 @@ enum {
  */
 extern varr control_sockets;
 extern varr info_sockets;
-extern varr info_trusted;
+extern varr mudftp_sockets;
 
 /* mud server options (etc/system.conf) */
 #define OPT_ASCII_ONLY_NAMES	(A)
@@ -316,7 +316,6 @@ struct weather_data
 enum {
 	CON_GET_CODEPAGE,
 	CON_GET_NAME,
-	CON_RESOLV,
 	CON_CONFIRM_NEW_NAME,
 	CON_GET_NEW_PASSWORD,
 	CON_CONFIRM_NEW_PASSWORD,
@@ -332,7 +331,25 @@ enum {
 	CON_GET_OLD_PASSWORD,
 	CON_READ_IMOTD,
 	CON_READ_MOTD,
-	CON_PLAYING
+	CON_PLAYING,
+
+	CON_RESOLV,
+	CON_INFO_COMMAND,
+	CON_MUDFTP_AUTH,
+	CON_MUDFTP_COMMAND,
+	CON_MUDFTP_DATA
+};
+
+#define D_IS_INFO(d)	((d)->connected == CON_INFO_COMMAND)
+#define D_IS_MUDFTP(d)	((d)->connected == CON_MUDFTP_AUTH ||		\
+			 (d)->connected == CON_MUDFTP_COMMAND ||	\
+			 (d)->connected == CON_MUDFTP_DATA)
+#define D_IS_SERVICE(d)	(D_IS_INFO(d) || D_IS_MUDFTP(d))
+
+enum {
+	D_NORMAL,
+	D_INFO,
+	D_MUDFTP
 };
 
 typedef struct outbuf_t {
@@ -380,12 +397,19 @@ dvdata_t *	dvdata_new	(void);
 dvdata_t *	dvdata_dup	(dvdata_t*);
 void		dvdata_free	(dvdata_t*);
 
+enum {
+	MUDFTP_NORMAL,
+	MUDFTP_PUSH,
+	MUDFTP_PUSH_WAIT
+};
+
 /*
  * Descriptor (channel) structure.
  */
 struct descriptor_data
 {
 	DESCRIPTOR_DATA *	next;
+	int			d_type;
 	DESCRIPTOR_DATA *	snoop_by;
 	CHAR_DATA *		character;
 	CHAR_DATA *		original;
@@ -421,10 +445,18 @@ struct descriptor_data
 	const char **		pString;	/* edited string	*/
 	const char *		backup;		/* backup		*/
 
+/* mudftp stuff */
+	const char *		mftp_username;	/* user name */
+	const char *		mftp_filename;	/* file being written to */
+	const char *		mftp_data;	/* data being written */
+	int			mftp_lines_left;/* lines left */
+	int			mftp_lines_sent;/* lines sent */
+	int			mftp_mode;
+
 	dvdata_t *		dvdata;
 };
 
-DESCRIPTOR_DATA *	new_descriptor(int fd);
+DESCRIPTOR_DATA *	new_descriptor(int fd, int d_type, const char *ip);
 void			free_descriptor(DESCRIPTOR_DATA *d);
 
 /*
@@ -1283,6 +1315,7 @@ enum {
 #define COMM_SHORT_EQ		(F)
 #define COMM_SHORT_AFF		(G)
 #define COMM_NO_BATTLE_PROMPT	(H)
+#define COMM_MUDFTP_EDITOR	(I)
 #define COMM_QUIET_EDITOR	(K)
 #define COMM_COMPACT		(L)
 #define COMM_BRIEF		(M)
@@ -2424,15 +2457,17 @@ extern avltree_info_t c_info_gmlstr;
 
 /* ban actions */
 enum {
-	BA_ALLOW,
-	BA_DENY
+	BAN_ALLOW,
+	BAN_DENY
 };
 
 /* ban classes */
 enum {
 	BCL_ALL,
 	BCL_PLAYERS,
-	BCL_NEWBIES
+	BCL_NEWBIES,
+	BCL_INFO,
+	BCL_MUDFTP
 };
 
 struct ban_t

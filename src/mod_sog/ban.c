@@ -1,5 +1,5 @@
 /*
- * $Id: ban.c,v 1.52 2003-04-17 05:58:58 fjoe Exp $
+ * $Id: ban.c,v 1.53 2003-04-19 00:26:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -64,6 +64,22 @@
 
 static const char *format_ban(ban_t *);
 static void save_bans(void);
+
+flaginfo_t ban_messages[] =
+{
+	{ "",			TABLE_INTVAL,		FALSE	},
+	{ "Your site has been banned from this mud.",		// notrans
+	  BCL_ALL, FALSE },
+	{ "Players are not allowed from your site.",		// notrans
+	  BCL_PLAYERS, FALSE },
+	{ "New players are not allowed from your site.",	// notrans
+	  BCL_NEWBIES, FALSE },
+	{ "Access to info service is not allowed for your site.",// notrans
+	  BCL_INFO, FALSE },
+	{ "Access to mudftp service is not allowed for your site.",// notrans
+	  BCL_MUDFTP, FALSE },
+	{ NULL, 0, FALSE }
+};
 
 /*
  * ban_add must work properly if ch == NULL
@@ -201,10 +217,10 @@ int
 check_ban(DESCRIPTOR_DATA *d, int ban_class)
 {
 	ban_t *pban;
-	int ban_action = BA_ALLOW;
-
-	const char *m1 = str_printf("%s@%s", d->character->name, d->host);
-	const char *m2 = str_printf("%s@%s", d->character->name, d->ip);
+	int ban_action = (ban_class == BCL_INFO ? BAN_DENY : BAN_ALLOW);
+	const char *name = (d->character == NULL ? "" : d->character->name);
+	const char *m1 = str_printf("%s@%s", name, d->host);
+	const char *m2 = str_printf("%s@%s", name, d->ip);
 
 	for (pban = ban_list; pban; pban = pban->next) {
 		if (pban->ban_class != ban_class)
@@ -220,8 +236,9 @@ check_ban(DESCRIPTOR_DATA *d, int ban_class)
 	free_string(m1);
 	free_string(m2);
 
-	if (ban_action == BA_DENY) {
-		write_to_buffer(d, "You are banned from this mud.\n\r", 0);
+	if (ban_action == BAN_DENY) {
+		write_to_buffer(d, flag_string(ban_messages, ban_class), 0);
+		write_to_buffer(d, "\n\r", 0);
 		close_descriptor(d, SAVE_F_NONE);
 	}
 
@@ -265,7 +282,7 @@ load_bans(void)
 		char *p;
 		const char *argument = buf;
 
-		if ((p = strchr(buf, '\n'))) 
+		if ((p = strchr(buf, '\n')))
 			*p = '\0';
 
 		one_argument(argument, arg, sizeof(arg));

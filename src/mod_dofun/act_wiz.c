@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.315 2003-04-17 19:33:09 fjoe Exp $
+ * $Id: act_wiz.c,v 1.316 2003-04-19 00:26:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2909,7 +2909,7 @@ DO_FUN(do_sockets, ch, argument)
 	output = buf_new(GET_LANG(ch));
 
 	one_argument(argument, arg, sizeof(arg));
-	if (strchr(arg, '@') == NULL) 
+	if (strchr(arg, '@') == NULL)
 		strnzcat(arg, sizeof(arg), "*@*");		// notrans
 
 	for (d = descriptor_list; d; d = d->next) {
@@ -2920,7 +2920,7 @@ DO_FUN(do_sockets, ch, argument)
 			continue;
 
 		snprintf(buf, sizeof(buf), "%s@%s",		// notrans
-			 vch ? vch->name : NULL,
+			 vch ? vch->name : "(none)",
 			 d->host);
 
 		if (fnmatch(arg, buf, FNM_CASEFOLD) != 0)
@@ -2928,8 +2928,9 @@ DO_FUN(do_sockets, ch, argument)
 
 		count++;
 		buf_printf(output, BUF_END,
-			   "[%3d %12s] %s (%s)",		// notrans
+			   "[%3d %6s#%12s] %s (%s)",		// notrans
 			   d->descriptor,
+			   flag_string(descriptor_types, d->d_type),
 			   flag_string(desc_con_table, d->connected),
 			   buf,
 			   d->ip);
@@ -2944,7 +2945,7 @@ DO_FUN(do_sockets, ch, argument)
 		return;
 	}
 
-	buf_printf(output, BUF_END, "%d user%s\n",		// notrans
+	buf_printf(output, BUF_END, "%d socket%s\n",		// notrans
 		   count, count == 1 ? str_empty : "s");	// notrans
 	page_to_char(buf_string(output), ch);
 	buf_free(output);

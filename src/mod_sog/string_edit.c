@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.c,v 1.53 2001-09-12 12:32:43 fjoe Exp $
+ * $Id: string_edit.c,v 1.54 2003-04-19 00:26:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -24,6 +24,8 @@
 #include <lang.h>
 
 #include <sog.h>
+
+#include "comm.h"
 
 static char *numlines(const char *, int dump_level);
 
@@ -220,9 +222,21 @@ string_add(CHAR_DATA *ch, const char *argument)
 	size_t len;
         char arg1[MAX_INPUT_LENGTH];
 
-	/*
-	 * Thanks to James Seng
-	*/
+	if (IS_SET(ch->comm, COMM_MUDFTP_EDITOR)
+	&&  !!str_cmp(argument, "@")
+	&&  !!str_cmp(argument, "~")
+	&&  !!str_cmp(argument, ":q")
+	&&  !!str_cmp(argument, ":q!")
+	&&  !!str_cmp(argument, ":x")
+	&&  !!str_cmp(argument, ":h")) {
+		act("Type :q to manually abort mudFTP mode.",
+		    ch, NULL, NULL, TO_CHAR | ACT_SEDIT);
+		act("If mudFTP is not supported by your client,",
+		    ch, NULL, NULL, TO_CHAR | ACT_SEDIT);
+		act("abort this edit and toggle mudftp off.",
+		    ch, NULL, NULL, TO_CHAR | ACT_SEDIT | ACT_NOUCASE);
+		return;
+	}
 
 	if (*argument == ':') {
 		char arg2[MAX_INPUT_LENGTH];
@@ -344,7 +358,7 @@ string_add(CHAR_DATA *ch, const char *argument)
 		/*
 		 * quit, do not save changes
 		 */
-		if (!str_cscmp(arg1+1, "q!")) {
+		if (!str_cscmp(arg1+1, "q") || !str_cscmp(arg1+1, "q!")) {
 			string_add_exit(ch, FALSE);
 			return;
 		}
@@ -352,8 +366,7 @@ string_add(CHAR_DATA *ch, const char *argument)
 		/*
 		 * quit, save changes
 		 */
-		if (!str_cscmp(arg1+1, "x")
-		||  !str_cscmp(arg1+1, "wq")) {
+		if (!str_cscmp(arg1+1, "x")) {
 			string_add_exit(ch, TRUE);
 			return;
 		}
@@ -377,8 +390,8 @@ string_add(CHAR_DATA *ch, const char *argument)
 				 ":ld <num>        - delete line #num\n"
 				 ":li <num> <str>  - insert <str> before line #num\n"
 				 ":lr <num> <str>  - replace line #num with <str>\n"
-				 "@, ~, :x, :wq    - finish editing (save changes)\n"
-				 ":q!              - abort editing (do not save changes)",
+				 "@, ~, :x         - finish editing (save changes)\n"
+				 ":q               - abort editing (do not save changes)",
 				 ch, NULL, NULL, TO_CHAR | ACT_SEDIT, POS_DEAD);
 			return;
 		}
@@ -399,7 +412,7 @@ string_add(CHAR_DATA *ch, const char *argument)
 	/*
 	 * Truncate strings to MAX_STRING_LENGTH.
 	 * --------------------------------------
-	*/
+	 */
 	len = strlen(argument);
 	if (strlen(*ch->desc->pString) + len >= (MAX_STRING_LENGTH - 4)) {
 		act_puts("Text too long, last line skipped.",
@@ -512,6 +525,19 @@ string_append(CHAR_DATA *ch, const char **pString)
 
 	ch->desc->pString = pString;
 	ch->desc->backup = str_dup(*pString);
+
+	if (IS_SET(ch->comm, COMM_MUDFTP_EDITOR)) {
+		if (mudftp_push(ch->desc)) {
+			act("Editing string via mudFTP push connection. Use :q to abort.",
+			    ch, NULL, NULL, TO_CHAR | ACT_SEDIT);
+			return;
+		}
+		act("Unable to initiate mudFTP push connection.",
+		    ch, NULL, NULL, TO_CHAR | ACT_SEDIT);
+		act("Toggle mudftp off and try again.",
+		    ch, NULL, NULL, TO_CHAR | ACT_SEDIT);
+		return;
+	}
 
 	act_puts("-=======- Entering APPEND Mode -========-\n"
 		 "    Type :h on a new line for help\n"

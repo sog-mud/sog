@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: resolver.c,v 1.20 2001-11-21 18:30:54 avn Exp $
+ * $Id: resolver.c,v 1.21 2003-04-19 00:26:49 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -149,14 +149,26 @@ resolv_done(void)
 			continue;
 		*host++ = '\0';
 
-		log(LOG_INFO, "resolv_done: %s@%s", buf, host);
+		log(LOG_INFO, "resolv_done: %s -> %s", buf, host);
 
 		for (d = descriptor_list; d; d = d->next) {
-			if (d->host
-			||  d->character == NULL
-			||  str_cmp(buf, d->character->name))
+			if (!!str_cmp(buf, d->ip))
 				continue;
+			free_string(d->host);
 			d->host = str_dup(host);
+			if (d->connected == CON_RESOLV) {
+				switch (d->d_type) {
+				case D_NORMAL:
+					d->connected = CON_GET_CODEPAGE;
+					break;
+				case D_INFO:
+					d->connected = CON_INFO_COMMAND;
+					break;
+				case D_MUDFTP:
+					d->connected = CON_MUDFTP_AUTH;
+					break;
+				}
+			}
 		}
 	}
 }
@@ -202,16 +214,12 @@ resolver_loop(void)
 		}
 		*p = '\0';
 
-		if ((p = strchr(buf, '@')) == NULL)
-			return;
-		*p++ = '\0';
+		log(LOG_INFO, "resolver_loop: %s", buf);
 
-		log(LOG_INFO, "resolver_loop: %s@%s", buf, p);
-
-		inet_aton(p, &addr);
-		hostent = gethostbyaddr((char*) &addr, sizeof(addr), AF_INET);
+		inet_aton(buf, &addr);
+		hostent = gethostbyaddr((char *) &addr, sizeof(addr), AF_INET);
 		fprintf(fout, "%s@%s\n",
-			buf, hostent ? hostent->h_name : p);
+			buf, hostent ? hostent->h_name : buf);
 	}
 
 	if (errno)
