@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.35 2001-06-26 18:02:22 fjoe Exp $
+ * $Id: act_info.c,v 1.271.2.36 2001-06-27 08:34:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4376,11 +4376,35 @@ static char* wear_loc_names[] =
 
 static void show_obj_to_char(CHAR_DATA *ch, OBJ_DATA *obj, flag32_t wear_loc)
 {
+	OBJ_DATA *wield;
 	bool can_see;
 
-	if (obj == NULL
-	&&  (wear_loc == WEAR_TATTOO || wear_loc == WEAR_CLANMARK))
-		return;
+	if (obj == NULL) {
+		switch (wear_loc) {
+		case WEAR_TATTOO:
+		case WEAR_CLANMARK:
+			return;
+			/* NOTREACHED */
+
+		case WEAR_SECOND_WIELD:
+			if (get_skill(ch, gsn_second_weapon) == 0
+			||  get_eq_char(ch, WEAR_SHIELD) != NULL
+			||  get_eq_char(ch, WEAR_HOLD) != NULL)
+				return;
+			break;
+
+		case WEAR_HOLD:
+			if ((wield = get_eq_char(ch, WEAR_WIELD)) != NULL
+			&&   wield->value[0] == WEAPON_STAFF)
+				return;
+			/* FALLTHRU */
+
+		case WEAR_SHIELD:
+			if (get_eq_char(ch, WEAR_SECOND_WIELD) != NULL)
+				return;
+			break;
+		}
+	}
 
 	can_see = obj == NULL ? FALSE : can_see_obj(ch, obj);
 	act(wear_loc_names[wear_loc], ch,
