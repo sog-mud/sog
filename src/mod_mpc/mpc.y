@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.1 2001-06-16 18:20:38 fjoe Exp $
+ * $Id: mpc.y,v 1.2 2001-06-16 18:50:02 fjoe Exp $
  */
 
 /*
@@ -60,7 +60,7 @@
 #define YYPARSE_PARAM_TYPE prog_t *
 
 #if 0
-#if defined(MPTEST)
+#if defined(MPC)
 #define YYDEBUG 1
 #endif
 #endif
@@ -873,7 +873,7 @@ compile_error(prog_t *prog, const char *fmt, ...)
 		   prog->name, prog->lineno, buf);
 }
 
-#if defined(MPTEST)
+#if defined(MPC)
 static void
 usage()
 {

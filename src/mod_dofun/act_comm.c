@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.229 2001-03-11 21:28:34 fjoe Exp $
+ * $Id: act_comm.c,v 1.230 2001-06-16 18:49:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1155,11 +1155,11 @@ void do_speak(CHAR_DATA *ch, const char *argument)
 	if (arg[0] == '\0') {
 		act_puts("You now speak $t.",
 			 ch, flag_string(slang_table, ch->slang), NULL,
-			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
-		act_char("You can speak :", ch);
+			 TO_CHAR | ACT_NOUCASE, POS_DEAD);
+		act_char("You can speak:", ch);
 		act_puts("       common, $t",
 			 ch, flag_string(slang_table, r->race_pcdata->slang),
-			 NULL, TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
+			 NULL, TO_CHAR | ACT_NOUCASE, POS_DEAD);
 		return;
 	}
 
@@ -1168,14 +1168,18 @@ void do_speak(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (language >= SLANG_MAX)
-		ch->slang = r->race_pcdata->slang;
-	else
-		ch->slang = language;
-	
+	if (language != SLANG_COMMON
+	&&  (language != r->race_pcdata->slang && !IS_IMMORTAL(ch))) {
+		act_puts("You do not know how to speak $t.",
+			 ch, flag_string(slang_table, r->race_pcdata->slang),
+			 NULL, TO_CHAR | ACT_NOUCASE, POS_DEAD);
+		return;
+	}
+
+	ch->slang = language;
 	act_puts("Now you speak $t.",
 		 ch, flag_string(slang_table, ch->slang), NULL,
-		 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
+		 TO_CHAR | ACT_NOUCASE, POS_DEAD);
 }
 
 void do_twit(CHAR_DATA *ch, const char *argument)

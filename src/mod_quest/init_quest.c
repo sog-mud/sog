@@ -23,20 +23,21 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_quest.c,v 1.2 2000-06-05 12:06:24 fjoe Exp $
+ * $Id: init_quest.c,v 1.3 2001-06-16 18:50:02 fjoe Exp $
  */
 
 #include <stdio.h>
 #include <stdarg.h>
 
-#include "typedef.h"
-#include "memalloc.h"
-#include "varr.h"
-#include "cmd.h"
+#include <typedef.h>
+#include <memalloc.h>
+#include <varr.h>
+#include <hash.h>
+#include <cmd.h>
 
 #include "update.h"
 
-#include "module.h"
+#include <module.h>
 #define MODULE_INIT MOD_QUEST
 #include "quest.h"
 

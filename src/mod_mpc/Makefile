@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.1 2001-06-16 18:20:37 fjoe Exp $
+# $Id: Makefile,v 1.2 2001-06-16 18:50:01 fjoe Exp $
 #
 
 .undef MODULE
@@ -15,7 +15,7 @@ NOOBJ=		yes
 
 .include <bsd.prog.mk>
 
-CFLAGS+=	-DMPTEST
+CFLAGS+=	-DMPC
 YFLAGS+=	-p mp_
 .PATH:	${.CURDIR}/../sog
 

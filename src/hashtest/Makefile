@@ -1,12 +1,12 @@
 #
-# $Id: Makefile,v 1.1 2000-03-28 21:59:37 fjoe Exp $
+# $Id: Makefile,v 1.2 2001-06-16 18:49:58 fjoe Exp $
 #
 
-.PATH: ${.CURDIR}/../sog
+PROG=		hashtest
+SRCS=		hashtest.c\
+		hash.c varr.c strkey_hash.c str.c
 
-MODULE_NAME=	hashtest
-OFILES=		hashtest.o hash.o varr.o strkey_hash.o str.o
+.include <bsd.prog.mk>
 
-.include "../Makefile.osdep"
-
-CFLAGS+= -DHASHTEST
+.PATH:		${.CURDIR}/../sog
+CFLAGS+=	-DHASHTEST

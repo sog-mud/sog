@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.294 2001-05-09 13:15:40 kostik Exp $
+ * $Id: fight.c,v 1.295 2001-06-16 18:50:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2755,21 +2755,21 @@ xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels, int members)
 	int neg_cha = 0, pos_cha = 0;
 	double diff;
 
-	base_exp = 125 * (victim->level + 1); 
+	base_exp = 125 * (victim->level + 1);
 	diff = (double) (victim->level + gch->level) / (2.0 * gch->level);
 	diff *= diff;
 	diff *= diff;
 	if (diff > gch->level / 10 + 1)
 		diff = gch->level / 10 + 1;
 	base_exp *= diff;
-	
+
 	if ((IS_EVIL(gch) && IS_GOOD(victim))
 	||  (IS_EVIL(victim) && IS_GOOD(gch)))
 		xp = base_exp * 8 / 5;
 	else if (!IS_NEUTRAL(gch) && IS_NEUTRAL(victim))
-		xp = base_exp * 1.1;
+		xp = base_exp * 11 / 10;
 	else if (IS_NEUTRAL(gch) && !IS_NEUTRAL(victim))
-		xp = base_exp * 1.3;
+		xp = base_exp * 13 / 10;
 	else
 		xp = base_exp;
 
@@ -2779,7 +2779,6 @@ xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels, int members)
 
 	/* randomize the rewards */
 	xp = number_range(xp * 3/4, xp * 5/4);
-
 
 /* adjust for grouping */
 	xp = xp * gch->level/total_levels;
@@ -2825,8 +2824,8 @@ xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels, int members)
 			neg_cha = 1;
 		}
 	}
-	
-	if (IS_GOOD(gch) && IS_GOOD(victim)) 
+
+	if (IS_GOOD(gch) && IS_GOOD(victim))
 		xp = -xp;
 
 	if (neg_cha) {
