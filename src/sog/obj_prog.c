@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.26 1998-09-17 10:06:48 fjoe Exp $
+ * $Id: obj_prog.c,v 1.27 1998-09-17 11:13:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1466,7 +1466,7 @@ int fight_prog_lion_claw(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 	if ((obj == get_eq_char(ch,WEAR_WIELD)) || 
 		(obj == get_eq_char(ch,WEAR_SECOND_WIELD)))
 {
-	send_to_char("The nails of your claw appears form its fingers.\n\r",ch);
+	send_to_char("The nails of your claw appears from its fingers.\n\r",ch);
 	act_puts("the nails of $n's claw appears for an instant.",
 			ch,NULL,NULL,TO_ROOM,POS_DEAD);
 	one_hit(ch,ch->fighting,TYPE_HIT,FALSE);

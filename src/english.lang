@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.80 1998-09-11 16:14:55 fjoe Exp $
+# $Id: english.lang,v 1.81 1998-09-17 11:13:04 fjoe Exp $
 #
 
 MSG_NOTHING		"Nothing.\n\r"
@@ -357,7 +357,7 @@ MSG_IS_S_A_STATUS	"What's that? Is %s a status?\n\r"
 MSG_DONT_HAVE_POWER	"You don't have enough power.\n\r"
 MSG_N_THROWS_GLOBE	"$n throws down a small globe."
 MSG_N_IS_GONE		"$n is gone!"
-MSG_N_APPEARS_FROM_NOWHERE	"$n appears form nowhere."
+MSG_N_APPEARS_FROM_NOWHERE	"$n appears from nowhere."
 MSG_CANT_FADE_MOUNTED	"You can't fade while mounted.\n\r"
 MSG_CANT_FADE_RIDDEN	"You can't fade while being ridden.\n\r"
 MSG_YOU_ATTEMPT_TO_FADE	"You attempt to fade.\n\r"
