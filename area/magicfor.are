@@ -101,7 +101,7 @@ r acid -50
 r mental 33
 #1804
 bard girl singer девушка молодая~
-@eng a young girl with a lovely voice@rus ~~молодая~~ ~~девушка~~ с приЯтным голосом~
+@eng a young girl with a lovely voice@rus ~~молодая~~ ~~девушка~~ с приятным голосом~
 @eng A young girl sits on the swing, strums her harp, and sings sweetly.@rus Молодая девушка (young girl) сидит на качелях, играет на арфе и нежно напевает.~
 @eng Long black hair and emerald green eyes catch your attention when you look at
 this singing beauty. She sits upon the swing and plays the harp easily, as
@@ -150,7 +150,7 @@ return 0;
 ~
 #1805
 unicorn silver единорог серебряный~
-@eng the silver unicorn@rus ~~серебрЯный~~ ~~единорог~~~
+@eng the silver unicorn@rus ~~серебряный~~ ~~единорог~~~
 @eng The silver unicorn stands here, ready to pierce you with his horn.@rus Тут стоит серебряный единорог (silver unicorn), готовый пронзить тебя своим рогом.~
 This magnificent animal has a spiral horn of some crystal, and his cloven
 hooves are made of crystal as well. Wings folded at his side prepare to un-
@@ -304,7 +304,7 @@ c 0 small unknown
 #1812
 shadow dragon дракон теневой~
 @eng a shadow dragon@rus ~~теневой~~ ~~дракон~~~
-@eng A shadow dragon sucks in a deep breath and prepares to blast you.@rus Теневой дракон (shadow dragon) набрал побольше воздуха, готовЯсь поразить тебЯ.~
+@eng A shadow dragon sucks in a deep breath and prepares to blast you.@rus Теневой дракон (shadow dragon) набрал побольше воздуха, готовясь поразить тебя.~
 @eng Ethereal in form, and yet solid, this serpentine monster is dark green in
 color with multicolored eyes, like two rainbow gems staring at you. His
 bat-like wings prepare to flap hot air at you.
@@ -323,7 +323,7 @@ m mob_fight mob_fight_cast_mage 100~
 #1813
 witch red ведьма красная~
 @eng the red witch@rus ~~красная~~ ~~ведьма~~~
-@eng The red witch is here, stirring a bubbling cauldron.@rus КраснаЯ ведьма (red witch) помешивает в кипЯщем котле.~
+@eng The red witch is here, stirring a bubbling cauldron.@rus Красная ведьма (red witch) помешивает в кипящем котле.~
 @eng She has scraggly grey hair, a face that badly needs beauty cream (but even
 so, it seems too little too late), and a nose that has been broken one time
 too many. Her robe is red with golden embroidery. On her head is a pointed
@@ -353,7 +353,7 @@ return 0;
 #1814
 witch orange ведьма рыжая~
 @eng the orange witch@rus ~~рыжая~~ ~~ведьма~~~
-@eng The orange witch is here, waving a magic wand.@rus РыжаЯ ведьма (orange witch) помахивает волшебной палочкой.~
+@eng The orange witch is here, waving a magic wand.@rus Рыжая ведьма (orange witch) помахивает волшебной палочкой.~
 @eng She has hair of black streaked with grey, a face that appears to have gotten
 too close to a dragon's claws while they were still attached to the dragon,
 and eyes as black as midnight. Her robe is orange with embroidery done in
@@ -383,7 +383,7 @@ return 0;
 #1815
 witch yellow ведьма желтая~
 @eng the yellow witch@rus ~~желтая~~ ~~ведьма~~~
-@eng The yellow witch is here, mumbling a spell.@rus ЖелтаЯ ведьма (yellow witch) бормочет заклинание.~
+@eng The yellow witch is here, mumbling a spell.@rus Желтая ведьма (yellow witch) бормочет заклинание.~
 @eng Her hair is blonde, a golden yellow blonde, and her face is young and
 without wrinkles. Her eyes regard you with curiosity, curiosity of the
 order of what kind of animal she can turn you into. Her robe is yellow
@@ -873,7 +873,7 @@ return 0;
 #1835
 bird finch goldfinch yellow gold птичка канарейка желтая~
 @eng a goldfinch@rus ~~канарейка~~~
-@eng A bright yellow bird sings nearby.@rus Ярко-желтаЯ птичка (goldfinch) поет неподалеку.~
+@eng A bright yellow bird sings nearby.@rus Ярко-желтая птичка (goldfinch) поет неподалеку.~
 @eng Bright yellow with a black cap, white rump, and white edges on its black
 wings and tail, this goldfinch is quite a pretty little bird.
 @rus Птичка с ярко-желтым оперением, черным хохолком, белым брюшком и белой
@@ -920,7 +920,7 @@ return 0;
 #1837
 bird hummingbird humming колибри птичка птица~
 @eng a tiny hummingbird@rus ~~маленькая~~ ~~колибри~~~
-@eng A tiny hummingbird hovers over a flower.@rus МаленькаЯ колибри (hummingbird) висит над цветком.~
+@eng A tiny hummingbird hovers over a flower.@rus Маленькая колибри (hummingbird) висит над цветком.~
 @eng Metallic green above with a gorget of white with purple-violet rays, this
 tiny bird will rise up out of sight and then swoop down on you if it thinks
 you are disturbing its feeding flowers.
@@ -947,7 +947,7 @@ return 0;
 #1838
 warlock black колдун черный~
 @eng the black warlock@rus ~~черный~~ ~~колдун~~~
-@eng The black warlock brews another bubbly potion.@rus Черный колдун (warlock) готовит очередное кипЯщее зелье.~
+@eng The black warlock brews another bubbly potion.@rus Черный колдун (warlock) готовит очередное кипящее зелье.~
 @eng He looks back at you with mild disinterest, for you are below his station
 and therefore do not truly deserve any attention. If this dark warlock
 thought you worthy of attention, it would probably be of a negative sort.
@@ -995,7 +995,7 @@ r lightning -50
 #1840
 fallow deer small косуля маленькая~
 @eng a fallow deer@rus ~~косуля~~~
-@eng A fallow deer nibbles on the leaves of a bush.@rus КосулЯ (a fallow deer) щиплет листву кустарника.~
+@eng A fallow deer nibbles on the leaves of a bush.@rus Косуля (a fallow deer) щиплет листву кустарника.~
 @eng It is small and brown with dark grey spots and a white tail.
 @rus Она маленькая, коричневая с темно-серыми пятнами и белым хвостом.
 ~
@@ -1039,7 +1039,7 @@ m mob_random mob_random_cast_adept 100~
 #OBJECTS
 #1801
 lamp light лампа свет~
-@eng a ranger's lamp@rus ~~егерскаЯ~~ ~~лампа~~~
+@eng a ranger's lamp@rus ~~егерская~~ ~~лампа~~~
 @eng A brass ranger's lamp has been left here.@rus латунная егерская лампа оставлена здесь.~
 brass~
 light 0 0 A
@@ -1048,7 +1048,7 @@ light 0 0 A
 g @rus female~
 #1802
 canteen camper's фляжка туриста~
-@eng a camper's canteen@rus ~~флЯжка~~ туриста~
+@eng a camper's canteen@rus ~~фляжка~~ туриста~
 @eng A camper's canteen is on the floor.@rus На земле лежит туристическая фляжка.~
 steel~
 drink 0 0 A
@@ -1990,7 +1990,7 @@ S
 foliage here is very thick, as is the canopy of leaves above you.
 @rus На севере и востоке ты видишь очень мрачную стену, слишком высокую чтобы
 можно было что-то увидеть за ней. Густая растительность смыкается, образуя
-полог у тебЯ над головой.
+полог у тебя над головой.
 ~
 0 A forest
 D2
@@ -3063,7 +3063,7 @@ S
 @eng North and east are a high wall riddled with cracks. You cannot peer over it,
 you cannot peek through the cracks. The trees here are bent out of shape,
 very unnatural-looking.
-@rus .  К северу и к востоку -- высокаЯ стена, испещренная трещинами. Ты не
+@rus .  К северу и к востоку -- высокая стена, испещренная трещинами. Ты не
 можешь перелезть через нее, а сквозь трещины ничего не разглядеть.
 Бесформенно скрученные деревья выглядят очень неестественно.
 ~
@@ -3466,7 +3466,7 @@ it for butchering their kills.
 резьбой по мрамору. Такое впечатление, что старый алтарь по-прежнему
 используется. Ты видишь потеки крови на его поверхности, где явно
 приносили жертву. Впрочем, возможно, что охотники используют его для
-разделываниЯ добычи.
+разделывания добычи.
 ~
 0 SUb forest
 D0

@@ -311,7 +311,7 @@ m obj_look @ 100~
  */
 
 if (is_immortal(actor)) {
-        act("mprog: {Cто что далее пишетсЯ только чарам AFF_DETECT_INVIS и иммам.{x",
+        act("mprog: {Cто что далее пишется только чарам AFF_DETECT_INVIS и иммам.{x",
             actor, NULL, NULL, TO_CHAR);
 }
 
@@ -338,12 +338,12 @@ m obj_look @ 100~
  */
   
 if (is_immortal(actor)) {
-        act("mprog: {Cто что далее пишетсЯ только чарам AFF_DETECT_INVIS и иммам.{x",
+        act("mprog: {Cто что далее пишется только чарам AFF_DETECT_INVIS и иммам.{x",
             actor, NULL, NULL, TO_CHAR);
 }
 
 if (is_immortal(actor) || is_sn_affected(actor, "detect invis")) {
-        act("Древние руны на камушке гласЯт:", actor, NULL, NULL, TO_CHAR);
+        act("Древние руны на камушке гласят:", actor, NULL, NULL, TO_CHAR);
         act("                               {CFCE{x",
 	    actor, NULL, NULL, TO_CHAR);
 }
@@ -370,7 +370,7 @@ if (is_immortal(actor)) {
 }
 
 if (is_immortal(actor) || is_sn_affected(actor, "detect invis")) {
-        act("Древние руны на камушке гласЯт:", actor, NULL, NULL, TO_CHAR);
+        act("Древние руны на камушке гласят:", actor, NULL, NULL, TO_CHAR);
         act("                               {CNHF{x",
 	    actor, NULL, NULL, TO_CHAR);
 }
@@ -465,7 +465,7 @@ g @eng none@rus male~
 #51213
 dagger sacrifice кинжал~
 @eng sacrifice dagger@rus ~~жертвенный~~ ~~кинжал~~~
-@eng Кривой кинжал (dagger) длЯ жертвопринашей с эбонитовой ручкой лежит здесь.@rus Кривой кинжал (dagger) длЯ жертвопринашей с эбонитовой ручкой лежит здесь.~
+@eng Кривой кинжал (dagger) для жертвопринашей с эбонитовой ручкой лежит здесь.@rus Кривой кинжал (dagger) для жертвопринашей с эбонитовой ручкой лежит здесь.~
 unknown~
 weapon K CF AN
 dagger 5 10 'pierce' 0
@@ -540,7 +540,7 @@ key U I A
 #51222
 chear taburet стул табурет~
 @eng chear@rus деревянный табурет~
-@eng Chear is here.@rus Ветхий деревЯнный табурет (chear) со сломанной ножкой стоит около стола.~
+@eng Chear is here.@rus Ветхий деревянный табурет (chear) со сломанной ножкой стоит около стола.~
 unknown~
 furniture 0 0 0
 13 100000 EHK 300 300
@@ -2400,7 +2400,7 @@ sign~
 {x          | |__ | |
 {x          |_____| |
 {x          ________|
-КажетсЯ ты где-то его уже видел...
+Кажется ты где-то его уже видел...
 Что бы это значило ?
 ~
 D0

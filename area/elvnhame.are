@@ -58,13 +58,13 @@ r magic 100
 GuildMaster наставник~
 @eng the Guildmaster@rus ~~наставник~~~
 @eng Your Guildmaster stands here, glowing with energies
-he is channeling from the floor upon which he stands.@rus Твой наставник (guildmaster) стоит тут, сиЯЯ магической энергией.~
+he is channeling from the floor upon which he stands.@rus Твой наставник (guildmaster) стоит тут, сияя магической энергией.~
 @eng You feel a tingling as the Guildmaster summons 
 forth a Vortex of Mystical Power. His robe sparks 
 with flashing lights as he pulls in more and more 
 energy from the world around him.
 @rus Ты чувствуешь, как наставник заклинает водоворот мистической мощи. 
-Его одежды мерцают огнем, впитываЯ все больше энергии из всего,
+Его одежды мерцают огнем, впитывая все больше энергии из всего,
 что находится рядом.
 ~
 elf~
@@ -81,7 +81,7 @@ m mob_fight mob_fight_cast_mage 100~
 GuildMaster Master WeaponsMaster Weapons~
 @eng the WeaponsMaster@rus ~~мастер~~ оружия~
 @eng Your Guildmaster, the Master of Weapons, stands here, 
-patiently waiting to teach you.@rus Твой наставник, (weaponmaster) мастер оружиЯ, стоит тут.~
+patiently waiting to teach you.@rus Твой наставник, (weaponmaster) мастер оружия, стоит тут.~
 @eng Tordril Thedrilson wears light but strong armor. 
 On his head is a jeweled helm, a gift from an
 elven queen. At his side is his most prized weapon,
@@ -104,7 +104,7 @@ r magic 100
 #40105
 GuildMaster Master~
 @eng the Guildmaster@rus ~~наставник~~~
-@eng Your Guildmaster stands here, morphing constantly.@rus Твой наставник (guildmaster) стоит тут, хмурЯсь при мысли о Паладинах, наводнивших мир.~
+@eng Your Guildmaster stands here, morphing constantly.@rus Твой наставник (guildmaster) стоит тут, хмурясь при мысли о Паладинах, наводнивших мир.~
 @eng He changes shape so often, you don't really know
 what he'll be next, or if you're even looking at
 him. Once in a while he looks like something
@@ -158,7 +158,7 @@ m mob_fight mob_fight_cast_cleric 100~
 GuildMaster Master Paladin~
 @eng the Guildmaster@rus ~~наставник~~~
 @eng Your Guildmaster stands here, patiently waiting to 
-teach you.@rus Твой наставник (guildmaster) стоит тут, терпеливо ожидаЯ начала занЯтий.~
+teach you.@rus Твой наставник (guildmaster) стоит тут, терпеливо ожидая начала занятий.~
 @eng The Guildmaster stands here, patiently waiting to 
 teach you spells and skills tried and tested against
 those who would bring darkness upon the world. So 
@@ -261,7 +261,7 @@ r magic 100
 #40111
 GuildMaster~
 @eng the Guildmaster@rus ~~наставник~~~
-@eng Your Guildmaster adjusts the settings on the telescope.@rus Твой наставник (guildmaster) возитсЯ у телескопа.~
+@eng Your Guildmaster adjusts the settings on the telescope.@rus Твой наставник (guildmaster) возится у телескопа.~
 @eng The GuildMaster wears a dark blue robe with silver
 moons and stars. Partially covering his grey hair
 is a small matching cap. Peeking out from many pockets
@@ -286,7 +286,7 @@ m mob_fight mob_fight_cast_mage 100~
 GuildMaster~
 @eng the Guildmaster@rus ~~наставник~~~
 @eng Your Guildmaster stands here, patiently waiting to 
-teach you.@rus Твой наставник (guildmaster) стоит тут, ожидаЯ начала занЯтий.~
+teach you.@rus Твой наставник (guildmaster) стоит тут, ожидая начала занятий.~
 @eng The Guildmaster stands here, patiently waiting to 
 teach you something new. At his side is his most 
 prized weapon, and his hands are ready to grab it 

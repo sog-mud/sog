@@ -301,7 +301,7 @@ f resists cold 0 0
 f resists fire 0 0
 #51399
 ring кольцо~
-@eng Ring named "Opposition of {WAir{x and {yLand{x"@rus Кольцо, названное "ПротивостоЯние {WВоздуха{x и {yЗемли{x"~
+@eng Ring named "Opposition of {WAir{x and {yLand{x"@rus Кольцо, названное "Противостояние {WВоздуха{x и {yЗемли{x"~
 @eng Imperceptible flicker shines in water.@rus Незаметный огонёк (ring) сияет в воде.~
 unknown~
 trash B 0 AB
