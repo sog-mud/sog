@@ -61,7 +61,7 @@ Use 'desc edit' to edit your description.
 @eng <worn about body>   $t@rus <накинуто сверху>      $t~
 @eng <scratched tattoo>  $t@rus <татуировка>           $t~
 @eng $n locks $p.@rus $n $gn{замыкает} $c3{$p}.~
-@eng     You gain {W$j{x $qj{practices}!@rus     Ты получаешь {W$j{x $qj{практик}!~
+@eng     You gain {W$j{x $qj{practices}!@rus     Ты получаешь {W$j{x $c3{$qj{практик}}!~
 @eng Starting price for this item is $j gold.@rus Стартовая цена $j $qj{золотых}.~
 @eng Don't even think about it.
 @rus Даже не думай об этом.
@@ -416,7 +416,7 @@ Typing delete with an argument will undo delete status.
 @eng Ok, my dear! I have just remembered.@rus Ааа, это ты! Помню, помню.~
 @eng $p goes out.@rus $p $gp{прогорел}.~
 @eng $N {xis sleeping here.@rus $N {x$gN{спит} здесь.~
-@eng     As a reward, I am giving you {W$j{x $qj{quest points} and {W$J{x $qJ{gold}.@rus     В награду я даю тебе {W$j{x $qj{квестовых очков} и {W$J{x $c3{$qJ{золотых монет}}.~
+@eng     As a reward, I am giving you {W$j{x $qj{quest points} and {W$J{x gold.@rus     В награду я даю тебе {W$j{x $qj{квестовых очков} и {W$J{x $c3{$qJ{золотых монет}}.~
 @eng You can't take $p.@rus Ты не можешь взять $c3{$p}.~
 @eng {MMUTILATE{x@rus {MУРОДУЕШЬ{x~
 @eng You already wear two neck items.
@@ -462,7 +462,7 @@ Typing delete with an argument will undo delete status.
 @eng {Gis covered with bleeding wounds{x.@rus {Gимеет довольно много ран{x.~
 @eng You wear $p around your right wrist.@rus Ты надеваешь $c3{$p} на правое запястье.~
 @eng You get $p from $P.@rus Ты достаешь $c3{$p} из $c1{$P}.~
-@eng The auctioneer pays you $j gold, charging an auction fee of $J gold.@rus Ты получаешь $j $c3{$qj{золотых}}, $J $qJ{золотых} $qJ{идут} организаторам аукциона.~
+@eng The auctioneer pays you $j gold, charging an auction fee of $J gold.@rus Ты получаешь $j $c3{$qj{золотых}}, $J $c3{$qJ{золотых}} $qJ{идут} организаторам аукциона.~
 @eng ({DUndead{x) @rus ({DВосставший{x) ~
 @eng $p holds:@rus $p $gp{содержит}:~
 @eng $n wears $p on $s feet.@rus $n $gn{обувается} в $c3{$p}.~
@@ -1008,7 +1008,7 @@ Get back to questor before your time runs out!
 @eng $n's heart is torn from $s chest.@rus Сердце $c1{$n} вырвано из рассеченной груди.~
 @eng     You haven't completed the quest yet, but there is still time!@rus     Ты еще не $gN{выполнил} свое задание, но у тебя еще есть время.~
 @eng $n is blinded by the dirt in $s eyes!@rus $n $gn{ослеплен} грязью, попавшей в глаза!~
-@eng $N looks like an easy kill.@rus Ты, похоже, легко убьешь $N.~
+@eng $N looks like an easy kill.@rus Ты, похоже, легко убьешь $c1{$N}.~
 @eng     This item is beyond the trouble option.@rus     Я не могу помочь тебе с твоими неприятностями.~
 @eng {MMUTILATES{x@rus {MУРОДУЕТ{x~
 @eng You ask $N about current challenge quests.@rus Ты спрашиваешь у $c1{$N} какие особенные вещи ты можешь найти в мире.~

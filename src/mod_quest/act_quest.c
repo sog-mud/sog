@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.139 2000-04-10 14:14:27 fjoe Exp $
+ * $Id: act_quest.c,v 1.140 2000-05-15 06:01:13 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -749,7 +749,7 @@ static void quest_complete(CHAR_DATA *ch, char *arg)
 	act_puts("    Congratulations on completing your quest!",
 		 questor, NULL, ch, TO_VICT, POS_DEAD);
 	act_puts3("    As a reward, I am giving you {W$j{x $qj{quest points} "
-		  "and {W$J{x $qJ{gold}.",
+		  "and {W$J{x gold.",
 		  questor, (const void*) qp_reward,
 		  ch, (const void*) gold_reward,
 		  TO_VICT, POS_DEAD);
