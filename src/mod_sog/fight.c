@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.173 1999-05-21 13:04:24 fjoe Exp $
+ * $Id: fight.c,v 1.174 1999-05-23 14:09:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1910,7 +1910,6 @@ void make_corpse(CHAR_DATA *ch)
 	OBJ_DATA *corpse;
 	OBJ_DATA *obj;
 	OBJ_DATA *obj_next;
-	int i;
 
 	if (IS_NPC(ch)) {
 		corpse	= create_obj_of(get_obj_index(OBJ_VNUM_CORPSE_NPC),
@@ -1927,12 +1926,6 @@ void make_corpse(CHAR_DATA *ch)
 	else {
 		corpse	= create_obj_of(get_obj_index(OBJ_VNUM_CORPSE_PC),
 					ch->short_descr);
-		if (IS_GOOD(ch))
-		  i = 0;
-		if (IS_EVIL(ch))
-		  i = 2;
-		else
-		  i = 1;
 
 		corpse->timer= number_range(25, 40);
 		corpse->altar = get_altar(ch);

@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.131 1999-05-22 16:21:07 avn Exp $
+ * $Id: update.c,v 1.132 1999-05-23 14:09:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1516,10 +1516,13 @@ save_corpse_contents(OBJ_DATA *corpse)
 
 /* pit lookup */
 	pit = NULL;
-	altar = corpse->altar;
-	for (pit = altar->room->contents; pit; pit = pit->next_content) {
-		if (pit->pIndexData == altar->pit)
-			break;
+	if ((altar = corpse->altar)) {
+		for (pit = altar->room->contents; pit; pit = pit->next_content)
+			if (pit->pIndexData == altar->pit)
+				break;
+	} else {
+		log_printf("save_corpse_contents: null altar (owner: %s)",
+			   mlstr_mval(corpse->owner));
 	}
 
 /* put contents into altar */

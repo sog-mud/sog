@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.108 1999-05-22 16:21:06 avn Exp $
+ * $Id: spellfun2.c,v 1.109 1999-05-23 14:09:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4889,7 +4889,8 @@ void spell_control_undead(int sn, int level, CHAR_DATA *ch, void *vo, int target
  			 get_curr_stat(victim, STAT_CHA); 
  
  
- 	if (IS_AFFECTED(victim, AFF_CHARM)
+ 	if (IS_IMMORTAL(victim)
+	||  IS_AFFECTED(victim, AFF_CHARM)
  	||  IS_AFFECTED(ch, AFF_CHARM)
  	||  saves_spell(level, victim, DAM_OTHER) 
  	||  (IS_NPC(victim) && victim->pIndexData->pShop != NULL)
@@ -5055,6 +5056,11 @@ void spell_summon_shadow(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 void spell_farsight(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
 	ROOM_INDEX_DATA *room;
+
+	if (IS_NULLSTR(target_name)) {
+		act("Farsight which direction?", ch, NULL, NULL, TO_CHAR);
+		return;
+	}
 
 	if ((room = check_place(ch, target_name)) == NULL) {
 		char_puts("You cannot see that much far.\n", ch);

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.147 1999-05-22 16:21:05 avn Exp $
+ * $Id: handler.c,v 1.148 1999-05-23 14:09:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3243,8 +3243,10 @@ void show_duration(BUFFER *output, AFFECT_DATA *paf)
 void show_loc_affect(CHAR_DATA *ch, BUFFER *output,
 		 AFFECT_DATA *paf, AFFECT_DATA **ppaf)
 {
+	if (paf->where == TO_SKILLS)
+		return;
+
 	if (paf->location == APPLY_NONE
-	&&  paf->where == TO_AFFECTS
 	&&  paf->bitvector)
 		return;
 
@@ -3259,13 +3261,12 @@ void show_loc_affect(CHAR_DATA *ch, BUFFER *output,
 	*ppaf = paf;
 }
 
-void show_bit_affect(BUFFER *output, AFFECT_DATA *paf, AFFECT_DATA **ppaf,
-		     flag32_t where)
+void show_bit_affect(BUFFER *output, AFFECT_DATA *paf, AFFECT_DATA **ppaf)
 {
 	char buf[MAX_STRING_LENGTH];
 	where_t *w;
 
-	if (paf->where != where
+	if (paf->where == TO_SKILLS
 	||  (w = where_lookup(paf->where)) == NULL
 	||  !paf->bitvector)
 		return;
@@ -3283,7 +3284,7 @@ void show_obj_affects(CHAR_DATA *ch, BUFFER *output, AFFECT_DATA *paf)
 
 	for (; paf; paf = paf->next)
 		if (paf->location != APPLY_SPELL_AFFECT)
-			show_bit_affect(output, paf, &paf_last, TO_AFFECTS);
+			show_bit_affect(output, paf, &paf_last);
 }
 
 void show_affects(CHAR_DATA *ch, BUFFER *output)
@@ -3302,7 +3303,7 @@ void show_affects(CHAR_DATA *ch, BUFFER *output)
 			continue;
 		}
 		show_loc_affect(ch, output, paf, &paf_last);
-		show_bit_affect(output, paf, &paf_last, TO_AFFECTS);
+		show_bit_affect(output, paf, &paf_last);
 	}
 
 	if (ch->level < 20)

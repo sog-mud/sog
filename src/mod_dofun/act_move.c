@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.172 1999-05-22 16:21:04 avn Exp $
+ * $Id: act_move.c,v 1.173 1999-05-23 14:09:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2008,7 +2008,7 @@ void do_vampire(CHAR_DATA *ch, const char *argument)
 	af.where     = TO_AFFECTS;
 	af.location  = APPLY_DEX;
 	af.modifier  = 1 + (level /20);
-	af.bitvector = AFF_HASTE;
+	af.bitvector = AFF_HASTE | AFF_BERSERK;
 	affect_to_char(ch, &af);
 
 /* giant strength + infrared */
@@ -2023,10 +2023,8 @@ void do_vampire(CHAR_DATA *ch, const char *argument)
 	affect_to_char(ch, &af);
 
 /* damroll */
-	af.where     = TO_AFFECTS;
 	af.location  = APPLY_DAMROLL;
 	af.modifier  = ch->damroll;
-	af.bitvector = AFF_BERSERK;
 	affect_to_char(ch, &af);
 
 /* flying, infrared */
