@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.4 1998-09-19 10:39:07 fjoe Exp $
+ * $Id: db_area.c,v 1.5 1998-09-19 11:13:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -92,6 +92,8 @@ char *		help_greeting;
 
 struct		social_type	social_table		[MAX_SOCIALS];
 int		social_count;
+
+static int slot_lookup(int slot);
 
 DBINIT_FUN(init_area)
 {
@@ -1493,5 +1495,24 @@ DBLOAD_FUN(load_omprogs)
 
 	fread_to_eol(fp);
     }
+}
+
+/*
+ * Lookup a skill by slot number.
+ * Used for object loading.
+ */
+static int slot_lookup(int slot)
+{
+	int sn;
+
+	if (slot <= 0)
+		return -1;
+
+	for (sn = 0; sn < skills->nused; sn++)
+		if (slot == SKILL(sn)->slot)
+			return sn;
+
+	db_error("slot_lookup", "bad slot %d.", slot);
+	return -1;
 }
 

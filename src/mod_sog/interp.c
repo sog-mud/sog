@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.66 1998-09-19 10:38:59 fjoe Exp $
+ * $Id: interp.c,v 1.67 1998-09-19 11:13:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -49,9 +49,6 @@
 
 #include "merc.h"
 #include "interp.h"
-#include "comm.h"
-#include "resource.h"
-#include "log.h"
 #include "olc/olc.h"
 
 #undef IMMORTALS_LOGS

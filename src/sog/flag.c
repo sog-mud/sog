@@ -1,5 +1,5 @@
 /*
- * $Id: flag.c,v 1.12 1998-09-17 15:51:19 fjoe Exp $
+ * $Id: flag.c,v 1.13 1998-09-19 11:13:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -28,7 +28,6 @@
 #include <time.h>
 #include "merc.h"
 #include "util.h"
-#include "comm.h"
 #include "log.h"
 
 struct flag_stat_type

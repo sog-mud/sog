@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.96 1998-09-19 10:38:58 fjoe Exp $
+ * $Id: comm.c,v 1.97 1998-09-19 11:13:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -79,14 +79,14 @@
 #include <stdlib.h>
 
 #include "merc.h"
-#include "charset.h"
 #include "hometown.h"
 #include "quest.h"
 #include "update.h"
 #include "interp.h"
 #include "mob_prog.h"
-#include "ban.h"
-#include "resolver.h"
+#include "comm/ban.h"
+#include "comm/charset.h"
+#include "comm/resolver.h"
 #include "olc/olc.h"
 
 /* command procedures needed */

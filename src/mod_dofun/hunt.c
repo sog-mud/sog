@@ -1,15 +1,11 @@
 /*
- * $Id: hunt.c,v 1.9 1998-09-17 15:51:19 fjoe Exp $
+ * $Id: hunt.c,v 1.10 1998-09-19 11:13:24 fjoe Exp $
  */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "merc.h"
-#include "comm.h"
-#include "util.h"
-#include "resource.h"
-#include "log.h"
 #include "interp.h"
 #include "fight.h"
 

@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.22 1998-09-19 10:38:59 fjoe Exp $
+ * $Id: note.c,v 1.23 1998-09-19 11:13:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -60,6 +60,7 @@
 #define NOTE_PENALTY	2
 #define NOTE_NEWS	3
 #define NOTE_CHANGES	4
+
 struct note_data
 {
 	NOTE_DATA *	next;
@@ -175,7 +176,7 @@ void do_unread(CHAR_DATA *ch, const char *argument)
     }
 
     if (!found && str_cmp(argument, "login"))
-	char_puts("You have no unread notes.\n\r",ch);
+	char_nputs(MSG_YOU_HAVE_NO_UNREAD, ch);
 }
 
 void do_note(CHAR_DATA *ch,const char *argument)

@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.23 1998-09-19 10:38:59 fjoe Exp $
+ * $Id: skills.c,v 1.24 1998-09-19 11:13:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -716,25 +716,6 @@ int char_sn_lookup(CHAR_DATA *ch, const char *name)
 			return ps->sn;
 	}
 
-	return -1;
-}
-
-/*
- * Lookup a skill by slot number.
- * Used for object loading.
- */
-int slot_lookup(int slot)
-{
-	int sn;
-
-	if (slot <= 0)
-		return -1;
-
-	for (sn = 0; sn < skills->nused; sn++)
-		if (slot == SKILL(sn)->slot)
-			return sn;
-
-	db_error("slot_lookup", "bad slot %d.", slot);
 	return -1;
 }
 
