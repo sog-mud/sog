@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.33 1998-12-22 16:22:40 fjoe Exp $
+ * $Id: tables.c,v 1.34 1998-12-22 17:59:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -488,6 +488,7 @@ FLAG extra_flags[] =
 	{ "not_edible",		ITEM_NOT_EDIBLE,	TRUE	},
 	{ "quest",		ITEM_QUEST,		TRUE	},
 	{ "enchanted",		ITEM_ENCHANTED,		FALSE	},
+	{ "oldstyle",		ITEM_OLDSTYLE,		FALSE	},
 	{ NULL }
 };
 

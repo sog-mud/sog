@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.129 1998-12-22 16:22:40 fjoe Exp $
+ * $Id: merc.h,v 1.130 1998-12-22 17:59:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -789,7 +789,8 @@ enum {
 #define ITEM_NOSELL		(aa)
 #define ITEM_NOT_EDIBLE		(bb)
 #define ITEM_QUEST		(cc)
-#define ITEM_ENCHANTED		(dd)	/* replacement for enchanted */
+#define ITEM_ENCHANTED		(dd)	/* obj is enchanted */
+#define ITEM_OLDSTYLE		(zz)	/* obj is in oldstyle format */
 
 /*
  * Wear flags.	 *WEAR*
@@ -1180,7 +1181,6 @@ struct mob_index_data
 	int			mptrig_types;
 	int			vnum;
 	int			group;
-	bool			new_format;
 	int			count;
 	int			killed;
 	const char *		name;
@@ -1432,7 +1432,6 @@ struct obj_index_data
 	OBJ_INDEX_DATA *	next;
 	ED_DATA *		ed;
 	AFFECT_DATA *		affected;
-	bool			new_format;
 	const char *		name;
 	mlstring *		short_descr;
 	mlstring *		description;

@@ -1,5 +1,5 @@
 /*
- * $Id: mem.c,v 1.23 1998-10-30 06:56:34 fjoe Exp $
+ * $Id: mem.c,v 1.24 1998-12-22 17:59:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -202,7 +202,6 @@ OBJ_INDEX_DATA *new_obj_index(void)
 	pObj->material		= str_dup("unknown");
 	pObj->condition		= 100;
 	pObj->limit		= -1;
-	pObj->new_format	= TRUE;
 
         top_obj_index++;
 	return pObj;
@@ -243,7 +242,6 @@ MOB_INDEX_DATA *new_mob_index(void)
 	pMob->size		= SIZE_MEDIUM;
 	pMob->start_pos		= POS_STANDING;
 	pMob->default_pos	= POS_STANDING;
-	pMob->new_format	= TRUE;
 
 	top_mob_index++;
 	return pMob;
