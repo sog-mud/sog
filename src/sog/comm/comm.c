@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.101 1998-09-29 01:06:54 fjoe Exp $
+ * $Id: comm.c,v 1.102 1998-10-01 06:39:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2603,12 +2603,10 @@ void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 			continue;
 
 		case '{':
-			if (*(s+1) == '}') {
+			if (*(s+1) == '}')
 				s++;
-				*point++ = *s++;
-				continue;
-			}
-			break;
+			*point++ = *s++;
+			continue;
 
 		case '$':
 			s++;
