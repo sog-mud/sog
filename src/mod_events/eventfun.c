@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: eventfun.c,v 1.31 2001-07-31 14:56:08 fjoe Exp $
+ * $Id: eventfun.c,v 1.32 2001-07-31 18:14:45 fjoe Exp $
  */
 
 
@@ -32,10 +32,8 @@
 
 #include <merc.h>
 
-#include "affects.h"
-#include "handler.h"
-#include "fight.h"
-#include "magic.h"
+#include <handler.h>
+#include <magic.h>
 
 static void show_owner(CHAR_DATA *ch, AFFECT_DATA *af)
 {

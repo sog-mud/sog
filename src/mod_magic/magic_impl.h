@@ -23,13 +23,11 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic_impl.h,v 1.1 2000-06-01 17:57:44 fjoe Exp $
+ * $Id: magic_impl.h,v 1.2 2001-07-31 18:14:53 fjoe Exp $
  */
 
-#ifndef __MAGIC_H_
-#define __MAGIC_H_
-
-#include "magic.h"
+#ifndef _MAGIC_IMPL_H_
+#define _MAGIC_IMPL_H_
 
 extern const char *target_name;
 
@@ -38,4 +36,4 @@ bool	spellbane	(CHAR_DATA *bch, CHAR_DATA *ch,
 			 int bane_chance, int bane_damage);
 bool	saves_dispel	(int dis_level, int spell_level, int duration);
 
-#endif
+#endif /* _MAGIC_IMPL_H_ */

@@ -23,17 +23,17 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_magic.c,v 1.35 2001-07-30 13:05:49 fjoe Exp $
+ * $Id: act_magic.c,v 1.36 2001-07-31 18:14:52 fjoe Exp $
  */
 
 #include <stdio.h>
-#include "merc.h"
 
-#include "affects.h"
-#include "fight.h"
-#include "handler.h"
+#include <merc.h>
 
-#include "_magic.h"
+#include <handler.h>
+
+#include <magic.h>
+#include "magic_impl.h"
 
 static int allowed_other(CHAR_DATA *ch, skill_t *sk);
 
@@ -313,8 +313,8 @@ do_cast(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (str_cmp(sn, "ventriloquate"))
-		say_spell(ch, spell);
+	if (!!str_cmp(sn, "ventriloquate"))
+		say_spell(ch, sn);
 
 	if (mem_is(vo, MT_CHAR)) {
 		vo = (void*) victim;
@@ -722,7 +722,7 @@ void do_pray(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	say_spell(ch, prayer);
+	say_spell(ch, sn);
 
 	if (mem_is(vo, MT_CHAR)) {
 		vo = (void*) victim;

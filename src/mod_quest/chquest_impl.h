@@ -23,13 +23,11 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: chquest_impl.h,v 1.2 2001-07-31 14:56:18 fjoe Exp $
+ * $Id: chquest_impl.h,v 1.3 2001-07-31 18:15:05 fjoe Exp $
  */
 
-#ifndef __CHQUEST_H_
-#define __CHQUEST_H_
-
-#include "quest.h"
+#ifndef _CHQUEST_IMPL_H_
+#define _CHQUEST_IMPL_H_
 
 typedef struct chquest_t chquest_t;
 struct chquest_t {
@@ -66,4 +64,4 @@ void chquest_stopq(chquest_t *q);
 chquest_t *chquest_lookup(OBJ_INDEX_DATA *obj_index);
 chquest_t *chquest_lookup_obj(OBJ_DATA *obj);
 
-#endif
+#endif /* _CHQUEST_IMPL_H_ */

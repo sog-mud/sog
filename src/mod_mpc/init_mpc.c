@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_mpc.c,v 1.6 2001-07-29 20:14:51 fjoe Exp $
+ * $Id: init_mpc.c,v 1.7 2001-07-31 18:14:56 fjoe Exp $
  */
 
 #include <sys/stat.h>
@@ -51,7 +51,7 @@
 #include <flag.h>
 #include <buffer.h>
 
-#include "_mpc.h"
+#include "mpc_impl.h"
 #include "mpc_const.h"
 
 #if !defined(MPC)

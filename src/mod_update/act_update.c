@@ -10,7 +10,7 @@
  * 2. Redistributions in binary form must reproduce the above copyright
  *    notice, this list of conditions and the following disclaimer in the
  *    documentation and/or other materials provided with the distribution.
- * 3. Follow all guidelines in the diku license (contained in the file 
+ * 3. Follow all guidelines in the diku license (contained in the file
  *    license.doc)
  * 4. Follow all guidelines in the Merc license (contained in the file
  *    license.txt)
@@ -31,15 +31,17 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_update.c,v 1.8 2001-06-22 07:13:50 avn Exp $
+ * $Id: act_update.c,v 1.9 2001-07-31 18:15:09 fjoe Exp $
  */
+
 #include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "merc.h"
+#include <merc.h>
 
-#include "_update.h"
+#include <update.h>
+#include "update_impl.h"
 
 static void *
 update_print_cb(void *p, va_list ap)

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_quest.c,v 1.4 2001-07-31 14:56:19 fjoe Exp $
+ * $Id: init_quest.c,v 1.5 2001-07-31 18:15:06 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -41,7 +41,7 @@
 #define MODULE_INIT MOD_QUEST
 #include <quest.h>
 
-#include "_chquest.h"
+#include "chquest_impl.h"
 
 int
 _module_load(module_t *m)

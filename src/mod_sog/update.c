@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: update.c,v 1.199 2001-07-31 14:56:20 fjoe Exp $
+ * $Id: update.c,v 1.200 2001-07-31 18:15:09 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -33,10 +33,10 @@
 #include <merc.h>
 #include <module.h>
 
-#include "fight.h"
-#include "handler.h"
+#include <handler.h>
 
-#include "_update.h"
+#include <update.h>
+#include "update_impl.h"
 
 static void *uhandler_load_cb(void *p, va_list ap);
 static void *uhandler_unload_cb(void *p, va_list ap);

@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.244 2001-07-31 14:56:03 fjoe Exp $
+ * $Id: act_obj.c,v 1.245 2001-07-31 18:14:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -50,11 +50,9 @@
 #include <lang.h>
 #include <auction.h>
 
-#include "affects.h"
-#include "fight.h"
-#include "handler.h"
-#include "magic.h"
-#include "update.h"
+#include <handler.h>
+#include <magic.h>
+#include <update.h>
 
 DECLARE_DO_FUN(do_split		);
 DECLARE_DO_FUN(do_say		);

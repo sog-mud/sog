@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: healer.c,v 1.51 2001-07-29 20:14:39 fjoe Exp $
+ * $Id: healer.c,v 1.52 2001-07-31 18:14:42 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -183,7 +183,7 @@ void do_heal(CHAR_DATA *ch, const char *argument)
 	}
 
 	deduct_cost(ch, cost);
-	say_spell(mob, skill_search(h->spellname));
+	say_spell(mob, h->spellname);
 	spellfun_call(h->spellname, NULL,
 		      h->level ? h->level : mob->level, mob, ch);
 }

@@ -23,17 +23,17 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic_impl.c,v 1.3 2001-07-29 20:14:47 fjoe Exp $
+ * $Id: magic_impl.c,v 1.4 2001-07-31 18:14:53 fjoe Exp $
  */
 
 #include <stdio.h>
 
 #include <merc.h>
 
-#include "fight.h"
-#include "handler.h"
+#include <handler.h>
 
-#include "_magic.h"
+#include <magic.h>
+#include "magic_impl.h"
 
 /*
  * The kludgy global is for spells who want more stuff from command line.

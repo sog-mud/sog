@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.153 2001-07-29 20:14:56 fjoe Exp $
+ * $Id: act_quest.c,v 1.154 2001-07-31 18:15:04 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -35,10 +35,11 @@
 #include <merc.h>
 #include <auction.h>
 
-#include "handler.h"
+#include <handler.h>
 
-#include "_quest.h"
-#include "_chquest.h"
+#include <quest.h>
+#include "quest_impl.h"
+#include "chquest_impl.h"
 
 #ifdef SUNOS
 #	include "compat/compat.h"

@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 1999 SoG Development Team
+ * Copyright (c) 2001 SoG Development Team
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -23,40 +23,13 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: liquid.c,v 1.7 2001-07-29 09:43:21 fjoe Exp $
+ * $Id: skills_impl.h,v 1.1 2001-07-31 18:14:50 fjoe Exp $
  */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include "merc.h"
+#ifndef _SKILLS_IMPL_H_
+#define _SKILLS_IMPL_H_
 
-hash_t liquids;
+int get_skill_mod(CHAR_DATA *ch, skill_t *sk, int percent);
+int get_mob_skill(const CHAR_DATA *ch, skill_t *sk);
 
-void liquid_init(liquid_t *lq)
-{
-	int i;
-
-	gmlstr_init(&lq->lq_name);
-	mlstr_init2(&lq->lq_color, str_empty);
-	for (i = 0; i < MAX_COND; i++)
-		lq->affect[i] = 0;
-	lq->sip = 0;
-}
-
-liquid_t *liquid_cpy(liquid_t *dst, const liquid_t *src)
-{
-	int i;
-
-	gmlstr_cpy(&dst->lq_name, &src->lq_name);
-	mlstr_cpy(&dst->lq_color, &src->lq_color);
-	for (i = 0; i < MAX_COND; i++)
-		dst->affect[i] = src->affect[i];
-	dst->sip = src->sip;
-	return dst;
-}
-
-void liquid_destroy(liquid_t *lq)
-{
-	gmlstr_destroy(&lq->lq_name);
-	mlstr_destroy(&lq->lq_color);
-}
+#endif /* _SKILLS_IMPL_H_ */

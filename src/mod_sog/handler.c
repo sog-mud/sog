@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.300 2001-07-31 14:56:11 fjoe Exp $
+ * $Id: handler.c,v 1.301 2001-07-31 18:14:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -51,8 +51,6 @@
 #include <lang.h>
 #include <auction.h>
 
-#include <affects.h>
-#include <fight.h>
 #include <magic.h>
 #include <update.h>
 #include <quest.h>

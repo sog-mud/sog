@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.181 2001-07-31 14:56:24 fjoe Exp $
+ * $Id: interp.c,v 1.182 2001-07-31 18:15:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -49,7 +49,6 @@
 
 #include <merc.h>
 #include <cmd.h>
-#include <socials.h>
 
 #include "handler.h"	// interpret_social
 

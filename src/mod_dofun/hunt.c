@@ -1,5 +1,5 @@
 /*
- * $Id: hunt.c,v 1.37 2001-07-29 20:14:39 fjoe Exp $
+ * $Id: hunt.c,v 1.38 2001-07-31 18:14:42 fjoe Exp $
  */
 
 /* Kak zovut sobaku Gejtsa?
@@ -13,8 +13,7 @@
 
 #include <merc.h>
 
-#include "fight.h"
-#include "handler.h"
+#include <handler.h>
 
 /***************************************************************************
  *  Original idea from SillyMUD v1.1b (C)1993.                             *

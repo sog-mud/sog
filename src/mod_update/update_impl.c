@@ -23,17 +23,18 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: update_impl.c,v 1.4 2000-06-06 09:43:48 fjoe Exp $
+ * $Id: update_impl.c,v 1.5 2001-07-31 18:15:10 fjoe Exp $
  */
 
 #include <stdlib.h>
 #include <stdarg.h>
 #include <stdio.h>
 
-#include "merc.h"
+#include <merc.h>
 
 #define MODULE_INIT MOD_UPDATE
-#include "_update.h"
+#include <update.h>
+#include "update_impl.h"
 
 hash_t uhandlers;
 

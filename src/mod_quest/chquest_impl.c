@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: chquest_impl.c,v 1.3 2001-07-31 14:56:18 fjoe Exp $
+ * $Id: chquest_impl.c,v 1.4 2001-07-31 18:15:05 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -33,7 +33,8 @@
 
 #include <handler.h>
 
-#include "_chquest.h"
+#include <quest.h>
+#include "chquest_impl.h"
 
 chquest_t *chquest_list;		/* global list of chquests	     */
 

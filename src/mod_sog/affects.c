@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.58 2001-07-31 14:55:58 fjoe Exp $
+ * $Id: affects.c,v 1.59 2001-07-31 18:14:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,8 +47,7 @@
 #include <merc.h>
 #include <db.h>
 
-#include "affects.h"
-#include "handler.h"
+#include <handler.h>
 
 static void show_name(CHAR_DATA *ch, BUFFER *output,
 		      AFFECT_DATA *paf, AFFECT_DATA *paf_last);

@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.115 2001-07-31 14:56:25 fjoe Exp $
+ * $Id: recycle.c,v 1.116 2001-07-31 18:15:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -626,4 +626,314 @@ void free_mob_index(MOB_INDEX_DATA *pMob)
 
 	top_mob_index--;
 	mem_free(pMob);
+}
+
+/*--------------------------------------------------------------------
+ * skill_t
+ */
+
+hash_t skills;
+
+static void	evf_init	(evf_t *);
+static void	evf_destroy	(evf_t *);
+static evf_t *	evf_cpy		(evf_t *, evf_t *);
+
+static varrdata_t v_evf =
+{
+	sizeof(evf_t), 1,
+	(e_init_t) evf_init,
+	(e_destroy_t) evf_destroy,
+	(e_cpy_t) evf_cpy
+};
+
+void
+skill_init(skill_t *sk)
+{
+	gmlstr_init(&sk->sk_name);
+	sk->fun_name = str_empty;
+	sk->fun = NULL;
+	sk->target = 0;
+	sk->min_pos = 0;
+	sk->slot = 0;
+	sk->min_mana = 0;
+	sk->rank = 0;
+	sk->beats = 0;
+	gmlstr_init(&sk->noun_damage);
+	mlstr_init2(&sk->msg_off, str_empty);
+	mlstr_init2(&sk->msg_obj, str_empty);
+	sk->skill_flags = 0;
+	sk->restrict_race = str_empty;
+	sk->group = 0;
+	sk->skill_type = 0;
+	varr_init(&sk->events, &v_evf);
+}
+
+skill_t *
+skill_cpy(skill_t *dst, const skill_t *src)
+{
+	gmlstr_cpy(&dst->sk_name, &src->sk_name);
+	dst->fun_name = str_qdup(src->fun_name);
+	dst->fun = src->fun;
+	dst->target = src->target;
+	dst->min_pos = src->min_pos;
+	dst->slot = src->slot;
+	dst->min_mana = src->min_mana;
+	dst->rank = src->rank;
+	dst->beats = src->beats;
+	gmlstr_cpy(&dst->noun_damage, &src->noun_damage);
+	mlstr_cpy(&dst->msg_off, &src->msg_off);
+	mlstr_cpy(&dst->msg_obj, &src->msg_obj);
+	dst->skill_flags = src->skill_flags;
+	dst->restrict_race = str_qdup(src->restrict_race);
+	dst->group = src->group;
+	dst->skill_type = src->skill_type;
+	varr_cpy(&dst->events, &src->events);
+	return dst;
+}
+
+void
+skill_destroy(skill_t *sk)
+{
+	gmlstr_destroy(&sk->sk_name);
+	free_string(sk->fun_name);
+	gmlstr_destroy(&sk->noun_damage);
+	mlstr_destroy(&sk->msg_off);
+	mlstr_destroy(&sk->msg_obj);
+	free_string(sk->restrict_race);
+	varr_destroy(&sk->events);
+}
+
+static void
+evf_init(evf_t *evf)
+{
+	evf->event = -1;
+	evf->fun_name = str_empty;
+	evf->fun = NULL;
+}
+
+static void
+evf_destroy(evf_t *evf)
+{
+	free_string(evf->fun_name);
+}
+
+static evf_t *
+evf_cpy(evf_t *dst, evf_t *src)
+{
+	dst->event = src->event;
+	dst->fun_name = str_qdup(src->fun_name);
+	dst->fun = src->fun;
+	return dst;
+}
+
+/*--------------------------------------------------------------------
+ * spec_t
+ */
+
+hash_t specs;
+
+static void		spec_skill_init(spec_skill_t *spec_sk);
+static spec_skill_t *	spec_skill_cpy(spec_skill_t *, const spec_skill_t *);
+
+static varrdata_t v_spec_skills =
+{
+	sizeof(spec_skill_t), 4,
+	(e_init_t) spec_skill_init,
+	strkey_destroy,
+	(e_cpy_t) spec_skill_cpy,
+};
+
+void
+spec_init(spec_t *spec)
+{
+	spec->spec_name = str_empty;
+	spec->spec_class = 0;
+
+	varr_init(&spec->spec_skills, &v_spec_skills);
+	spec->trigger = str_empty;
+}
+
+spec_t *
+spec_cpy(spec_t *dst, const spec_t *src)
+{
+	dst->spec_name = str_qdup(src->spec_name);
+	dst->spec_class = src->spec_class;
+	varr_cpy(&dst->spec_skills, &src->spec_skills);
+	dst->trigger = str_qdup(src->trigger);
+	return dst;
+}
+
+void
+spec_destroy(spec_t *spec)
+{
+	free_string(spec->spec_name);
+	varr_destroy(&spec->spec_skills);
+	free_string(spec->trigger);
+}
+
+static void
+spec_skill_init(spec_skill_t *spec_sk)
+{
+	spec_sk->sn = str_empty;
+	spec_sk->level = 1;
+	spec_sk->rating = 1;
+	spec_sk->min = 1;
+	spec_sk->adept = 75;
+	spec_sk->max = 100;
+}
+
+static spec_skill_t *
+spec_skill_cpy(spec_skill_t *dst, const spec_skill_t *src)
+{
+	dst->sn = str_qdup(src->sn);
+	dst->level = src->level;
+	dst->rating = src->rating;
+	dst->min = src->min;
+	dst->adept = src->adept;
+	dst->max = src->max;
+	return dst;
+}
+
+/*--------------------------------------------------------------------
+ * form_index_t
+ */
+
+hash_t forms;
+
+void
+form_init(form_index_t *f)
+{
+	int i;
+	f->name			= str_empty;
+	mlstr_init2(&f->description, str_empty);
+	mlstr_init2(&f->short_desc, str_empty);
+	mlstr_init2(&f->long_desc, str_empty);
+	f->damtype		= str_empty;
+	f->damage[DICE_TYPE]	= 0;
+	f->damage[DICE_NUMBER]	= 0;
+	f->damage[DICE_BONUS]	= 1;
+	f->hitroll		= 0;
+	f->num_attacks		= 0;
+	f->flags		= 0;
+	f->skill_spec	= str_empty;
+	for (i = 0; i < MAX_RESIST; i++)
+		f->resists[i] = 0;
+	for (i = 0; i < MAX_STAT; i++)
+		f->stats[i] = 10;
+}
+
+form_index_t *
+form_cpy(form_index_t *dst, const form_index_t *src)
+{
+	int i;
+	dst->name		= str_qdup(src->name);
+	mlstr_cpy(&dst->description, &src->description);
+	mlstr_cpy(&dst->short_desc, &src->short_desc);
+	mlstr_cpy(&dst->long_desc, &src->long_desc);
+	dst->damtype		= str_qdup(src->damtype);
+	dst->hitroll		= src->hitroll;
+	dst->num_attacks	= src->num_attacks;
+	dst->skill_spec		= str_qdup(src->skill_spec);
+	dst->flags		= src->flags;
+	dst->damage[DICE_TYPE]	= src->damage[DICE_TYPE];
+	dst->damage[DICE_NUMBER]= src->damage[DICE_NUMBER];
+	dst->damage[DICE_BONUS]	= src->damage[DICE_BONUS];
+	for (i = 0; i < MAX_RESIST; i++)
+		dst->resists[i] = src->resists[i];
+	for (i = 0; i < MAX_STAT; i++)
+		dst->stats[i] = src->stats[i];
+
+	return dst;
+}
+
+void
+form_destroy(form_index_t *f)
+{
+	free_string(f->name);
+	mlstr_destroy(&f->description);
+	mlstr_destroy(&f->short_desc);
+	mlstr_destroy(&f->long_desc);
+	free_string(f->damtype);
+	free_string(f->skill_spec);
+}
+
+/*--------------------------------------------------------------------
+ * liquid_t
+ */
+
+hash_t liquids;
+
+void
+liquid_init(liquid_t *lq)
+{
+	int i;
+
+	gmlstr_init(&lq->lq_name);
+	mlstr_init2(&lq->lq_color, str_empty);
+	for (i = 0; i < MAX_COND; i++)
+		lq->affect[i] = 0;
+	lq->sip = 0;
+}
+
+liquid_t *
+liquid_cpy(liquid_t *dst, const liquid_t *src)
+{
+	int i;
+
+	gmlstr_cpy(&dst->lq_name, &src->lq_name);
+	mlstr_cpy(&dst->lq_color, &src->lq_color);
+	for (i = 0; i < MAX_COND; i++)
+		dst->affect[i] = src->affect[i];
+	dst->sip = src->sip;
+	return dst;
+}
+
+void
+liquid_destroy(liquid_t *lq)
+{
+	gmlstr_destroy(&lq->lq_name);
+	mlstr_destroy(&lq->lq_color);
+}
+
+/*--------------------------------------------------------------------
+ * social_t
+ */
+
+varr socials;
+
+void
+social_init(social_t *soc)
+{
+	soc->name = str_empty;
+	soc->min_pos = 0;
+
+	mlstr_init(&soc->found_char);
+	mlstr_init(&soc->found_vict);
+	mlstr_init(&soc->found_notvict);
+
+	mlstr_init(&soc->noarg_char);
+	mlstr_init(&soc->noarg_room);
+
+	mlstr_init(&soc->self_char);
+	mlstr_init(&soc->self_room);
+
+	mlstr_init(&soc->notfound_char);
+}
+
+void
+social_destroy(social_t *soc)
+{
+	free_string(soc->name);
+
+	mlstr_destroy(&soc->found_char);
+	mlstr_destroy(&soc->found_vict);
+	mlstr_destroy(&soc->found_notvict);
+
+	mlstr_destroy(&soc->noarg_char);
+	mlstr_destroy(&soc->noarg_room);
+
+	mlstr_destroy(&soc->self_char);
+	mlstr_destroy(&soc->self_room);
+
+	mlstr_destroy(&soc->notfound_char);
 }

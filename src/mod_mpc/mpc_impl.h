@@ -23,11 +23,11 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_impl.h,v 1.12 2001-07-08 20:16:32 fjoe Exp $
+ * $Id: mpc_impl.h,v 1.13 2001-07-31 18:14:58 fjoe Exp $
  */
 
-#ifndef _MPC_CODE_H_
-#define _MPC_CODE_H_
+#ifndef _MPC_IMPL_H_
+#define _MPC_IMPL_H_
 
 #include <stdarg.h>
 #include <stdlib.h>
@@ -329,4 +329,4 @@ void	c_xor_eq(prog_t *prog);		/* ^= */
 void	c_shl_eq(prog_t *prog);		/* <<= */
 void	c_shr_eq(prog_t *prog);		/* >>= */
 
-#endif /* _MPC_OP_H_ */
+#endif /* _MPC_IMPL_H_ */

@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.182 2001-07-31 14:56:25 fjoe Exp $
+ * $Id: save.c,v 1.183 2001-07-31 18:15:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -55,8 +55,7 @@
 #include <db.h>
 #include <rfile.h>
 
-#include "affects.h"
-#include "handler.h"
+#include <handler.h>
 
 /*
  * Array of containers read for proper re-nesting of objects.

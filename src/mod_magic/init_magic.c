@@ -23,25 +23,18 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_magic.c,v 1.13 2001-07-30 13:05:49 fjoe Exp $
+ * $Id: init_magic.c,v 1.14 2001-07-31 18:14:52 fjoe Exp $
  */
 
 #include <stdarg.h>
 #include <stdio.h>
 #include <dlfcn.h>
 
-#include "typedef.h"
-#include "varr.h"
-#include "hash.h"
-#include "mlstring.h"
-#include "skills.h"
-#include "log.h"
-#include "memalloc.h"
-#include "cmd.h"
+#include <merc.h>
 
-#include "module.h"
+#include <module.h>
 #define MODULE_INIT MOD_MAGIC
-#include "magic.h"
+#include <magic.h>
 
 static void *load_cb(void *p, va_list ap);
 static void *unload_cb(void *p, va_list ap);

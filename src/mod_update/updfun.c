@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.31 2001-07-31 14:56:21 fjoe Exp $
+ * $Id: updfun.c,v 1.32 2001-07-31 18:15:10 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -35,12 +35,11 @@
 #include <db.h>
 #include <auction.h>
 
-#include "affects.h"
-#include "core.h"
-#include "fight.h"
-#include "handler.h"
+#include <core.h>
+#include <handler.h>
 
-#include "_update.h"
+#include <update.h>
+#include "update_impl.h"
 
 /* locals */
 static void	*check_assist_cb(void *vo, va_list ap);

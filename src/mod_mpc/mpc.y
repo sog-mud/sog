@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.18 2001-07-29 20:14:51 fjoe Exp $
+ * $Id: mpc.y,v 1.19 2001-07-31 18:14:57 fjoe Exp $
  */
 
 /*
@@ -63,7 +63,7 @@
 #include <module.h>
 #endif
 
-#include "_mpc.h"
+#include "mpc_impl.h"
 #include "mpc_const.h"
 #include "mpc_iter.h"
 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.236 2001-07-29 20:14:35 fjoe Exp $
+ * $Id: act_comm.c,v 1.237 2001-07-31 18:14:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -56,9 +56,8 @@
 #include <lang.h>
 #include <note.h>
 
-#include "affects.h"
-#include "handler.h"
-#include "update.h"
+#include <handler.h>
+#include <update.h>
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_replay	);

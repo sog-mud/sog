@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.11 2001-07-31 14:56:14 fjoe Exp $
+ * $Id: prayers.c,v 1.12 2001-07-31 18:14:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -44,12 +44,10 @@
 
 #include <merc.h>
 
-#include <affects.h>
-#include <effects.h>
-#include <fight.h>
 #include <handler.h>
 
-#include "_magic.h"
+#include <magic.h>
+#include "magic_impl.h"
 
 void
 prayer_detect_good(const char *sn, int level, CHAR_DATA *ch, void *vo)

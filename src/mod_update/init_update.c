@@ -23,18 +23,19 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_update.c,v 1.8 2001-01-23 21:46:59 fjoe Exp $
+ * $Id: init_update.c,v 1.9 2001-07-31 18:15:09 fjoe Exp $
  */
 
 #include <stdarg.h>
 #include <stdio.h>
 #include <dlfcn.h>
 
-#include "merc.h"
-#include "module.h"
-#include "db.h"
+#include <merc.h>
+#include <module.h>
+#include <db.h>
 
-#include "_update.h"
+#include <update.h>
+#include "update_impl.h"
 
 static hashdata_t h_uhandlers = {
 	sizeof(uhandler_t), 4,

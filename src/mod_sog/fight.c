@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.311 2001-07-31 14:56:09 fjoe Exp $
+ * $Id: fight.c,v 1.312 2001-07-31 18:14:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -54,14 +54,11 @@
 #include <merc.h>
 #include <rating.h>
 
-#include <affects.h>
-#include <effects.h>
-#include <handler.h>
 #include <magic.h>
 #include <update.h>
 #include <quest.h>
 
-#include <fight.h>
+#include <handler.h>
 
 /*
  * Local functions.

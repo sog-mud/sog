@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_social.c,v 1.30 2001-06-22 07:13:48 avn Exp $
+ * $Id: olc_social.c,v 1.31 2001-07-31 18:15:02 fjoe Exp $
  */
 
 /* I never wanted to be
@@ -34,7 +34,6 @@
  */
 
 #include "olc.h"
-#include "socials.h"
 
 #define EDIT_SOC(ch, soc)	(soc = (social_t*) ch->desc->pEdit)
 

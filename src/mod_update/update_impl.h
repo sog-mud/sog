@@ -23,13 +23,11 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: update_impl.h,v 1.2 2000-10-21 17:00:54 fjoe Exp $
+ * $Id: update_impl.h,v 1.3 2001-07-31 18:15:10 fjoe Exp $
  */
 
-#ifndef __UPDATE_H_
-#define __UPDATE_H_
-
-#include "update.h"
+#ifndef _UPDATE_IMPL_H_
+#define _UPDATE_IMPL_H_
 
 extern hash_t	uhandlers;
 
@@ -67,4 +65,4 @@ void		uhandler_update(uhandler_t *hdlr);
 
 void *		bloodthirst_cb(void *vo, va_list ap);
 
-#endif
+#endif /* _UPDATE_IMPL_H_ */

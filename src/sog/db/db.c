@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.251 2001-07-31 14:56:29 fjoe Exp $
+ * $Id: db.c,v 1.252 2001-07-31 18:15:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -58,7 +58,6 @@
 #endif
 
 #include <merc.h>
-#include <socials.h>
 #include <db.h>
 #include <module.h>
 #include <lang.h>

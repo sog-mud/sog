@@ -23,12 +23,12 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_cmd.c,v 1.17 2001-07-09 06:18:38 fjoe Exp $
+ * $Id: olc_cmd.c,v 1.18 2001-07-31 18:15:00 fjoe Exp $
  */
 
 #include "olc.h"
-#include "socials.h"
-#include "module.h"
+
+#include <module.h>
 
 #define EDIT_CMD(ch, cmd)	(cmd = (cmd_t*) ch->desc->pEdit)
 

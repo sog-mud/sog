@@ -23,14 +23,16 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.14 2001-07-31 14:56:19 fjoe Exp $
+ * $Id: quest.c,v 1.15 2001-07-31 18:15:06 fjoe Exp $
  */
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "merc.h"
 
-#include "_quest.h"
+#include <merc.h>
+
+#include <quest.h>
+#include "quest_impl.h"
 
 void
 quest_handle_death(CHAR_DATA *ch, CHAR_DATA *victim)

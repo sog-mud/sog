@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.76 2001-07-30 13:33:01 fjoe Exp $
+ * $Id: act.c,v 1.77 2001-07-31 18:15:19 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -35,8 +35,7 @@
 #include <memalloc.h>
 #include <db.h>
 
-#include "affects.h"
-#include "handler.h"
+#include <handler.h>
 
 #include "comm_colors.h"
 

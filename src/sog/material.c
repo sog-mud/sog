@@ -23,16 +23,18 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: material.c,v 1.6 2001-07-29 09:43:22 fjoe Exp $
+ * $Id: material.c,v 1.7 2001-07-31 18:15:14 fjoe Exp $
  */
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "merc.h"
+
+#include <merc.h>
 
 hash_t materials;
 
-void material_init(material_t *mat)
+void
+material_init(material_t *mat)
 {
 	mat->name = str_empty;
 	mat->float_time = 0;
@@ -40,7 +42,8 @@ void material_init(material_t *mat)
 	mat->mat_flags = 0;
 }
 
-material_t *material_cpy(material_t *dst, const material_t *src)
+material_t *
+material_cpy(material_t *dst, const material_t *src)
 {
 	dst->name = str_qdup(src->name);
 	dst->float_time = src->float_time;
@@ -49,12 +52,14 @@ material_t *material_cpy(material_t *dst, const material_t *src)
 	return dst;
 }
 
-void material_destroy(material_t *mat)
+void
+material_destroy(material_t *mat)
 {
 	free_string(mat->name);
 }
 
-bool material_is(OBJ_DATA *obj, flag_t flag)
+bool
+material_is(OBJ_DATA *obj, flag_t flag)
 {
 	material_t *mat;
 
@@ -64,7 +69,8 @@ bool material_is(OBJ_DATA *obj, flag_t flag)
 	return IS_SET(mat->mat_flags, flag);
 }
 
-flag_t get_mat_flags(OBJ_DATA *obj)
+flag_t
+get_mat_flags(OBJ_DATA *obj)
 {
 	material_t *mat;
 
@@ -74,7 +80,8 @@ flag_t get_mat_flags(OBJ_DATA *obj)
 	return mat->mat_flags;
 }
 
-int floating_time(OBJ_DATA *obj)
+int
+floating_time(OBJ_DATA *obj)
 {
 	int  ftime = 0;
 	material_t *mat;

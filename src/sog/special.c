@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.76 2001-07-29 20:15:04 fjoe Exp $
+ * $Id: special.c,v 1.77 2001-07-31 18:15:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -48,10 +48,8 @@
 
 #include <merc.h>
 
-#include "affects.h"
-#include "fight.h"
-#include "handler.h"
-#include "magic.h"
+#include <handler.h>
+#include <magic.h>
 
 /*
  * The following special functions are available for mobiles.

@@ -23,13 +23,11 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest_impl.h,v 1.1 2000-06-02 16:41:01 fjoe Exp $
+ * $Id: quest_impl.h,v 1.2 2001-07-31 18:15:07 fjoe Exp $
  */
 
-#ifndef __QUEST_H_
-#define __QUEST_H_
-
-#include "quest.h"
+#ifndef _QUEST_IMPL_H_
+#define _QUEST_IMPL_H_
 
 /*
  * Quest obj vnums must take a continuous interval for proper quest generating.
@@ -45,4 +43,4 @@ struct qtrouble_t {
 
 qtrouble_t *qtrouble_lookup(CHAR_DATA *ch, int vnum);
 
-#endif
+#endif /* _QUEST_IMPL_H_ */

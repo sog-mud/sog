@@ -1,8 +1,9 @@
 #
-# $Id: Makefile,v 1.1 2000-06-02 16:41:01 fjoe Exp $
+# $Id: Makefile,v 1.2 2001-07-31 18:15:04 fjoe Exp $
 #
 
 MODULE=		quest
-SRCS=		init_quest.c quest.c chquest.c _quest.c _chquest.c act_quest.c
+SRCS=		init_quest.c quest.c chquest.c act_quest.c\
+		chquest_impl.c quest_impl.c
 
 .include <bsd.prog.mk>

@@ -23,15 +23,17 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: objval.c,v 1.9 2001-07-29 09:43:23 fjoe Exp $
+ * $Id: objval.c,v 1.10 2001-07-31 18:15:14 fjoe Exp $
  */
 
 #include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "merc.h"
-#include "db.h"
+#include <merc.h>
+#include <db.h>
+
+#include "handler.h"
 
 /*-
  *

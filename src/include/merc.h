@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.339 2001-07-31 14:55:53 fjoe Exp $
+ * $Id: merc.h,v 1.340 2001-07-31 18:14:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -136,8 +136,6 @@ enum {
 #include <race.h>
 #include <class.h>
 #include <clan.h>
-#include <spec.h>
-#include <skills.h>
 #include <damtype.h>
 #include <material.h>
 #include <liquid.h>
@@ -1574,9 +1572,10 @@ struct pc_skill_t {
 	int percent;	/* skill percentage			*/
 };
 
-pc_skill_t *pc_skill_lookup(CHAR_DATA *ch, const char *sn);
-
 void pc_skill_init(pc_skill_t *);
+
+#define pc_skill_lookup(ch, sn)						\
+	((pc_skill_t *) varr_bsearch(&PC(ch)->learned, &sn, cmpstr))
 
 /*
  * Extra description data for a room or object.
@@ -1938,8 +1937,6 @@ const char *	one_argument	(const char *argument, char *arg_first, size_t);
 const char *	first_arg	(const char *argument, char *arg_first, size_t,
 				 bool fCase);
 
-int	get_luck	(CHAR_DATA *ch);
-
 /*
  * victim is assumed to be !IS_NPC
  */
@@ -2064,6 +2061,21 @@ extern bool merc_down;
  * affects stuff
  */
 
+/* where definitions */
+enum {
+	TO_AFFECTS,
+	TO_OBJECT,
+	TO_WEAPON,
+	TO_SKILLS,
+	TO_RACE,
+	TO_DETECTS,
+	TO_INVIS,
+	TO_FORM,
+	TO_FORMAFFECTS,
+	TO_FORMRESIST,
+	TO_RESIST
+};
+
 struct affect_data
 {
 	AFFECT_DATA *	next;
@@ -2099,21 +2111,6 @@ void		aff_fwrite_list	(const char *pre, AFFECT_DATA *paf, FILE *fp);
 void		saff_init(saff_t *sa);
 void		saff_destroy(saff_t *sa);
 
-/* where definitions */
-enum {
-	TO_AFFECTS,
-	TO_OBJECT,
-	TO_WEAPON,
-	TO_SKILLS,
-	TO_RACE,
-	TO_DETECTS,
-	TO_INVIS,
-	TO_FORM,
-	TO_FORMAFFECTS,
-	TO_FORMRESIST,
-	TO_RESIST
-};
-
 typedef struct where_t where_t;
 struct where_t
 {
@@ -2125,5 +2122,173 @@ struct where_t
 };
 
 where_t *where_lookup(flag_t where);
+
+#define IS_APPLY_AFFECT(paf)					\
+		((paf)->where == TO_AFFECTS ||			\
+		 (paf)->where == TO_OBJECT ||			\
+		 (paf)->where == TO_WEAPON ||			\
+		 (paf)->where == TO_DETECTS ||			\
+		 (paf)->where == TO_INVIS ||			\
+		 (paf)->where == TO_FORMAFFECTS)
+
+/*----------------------------------------------------------------------
+ * skills stuff
+ */
+
+/* skill flags */
+#define SKILL_CLAN		(A)
+#define SKILL_RANGE		(B)
+#define SKILL_AREA_ATTACK	(C)
+#define SKILL_QUESTIONABLE	(D)
+#define SKILL_FORM		(E)
+#define SKILL_MISSILE		(F)
+#define SKILL_SHADOW		(G)	/* for "shadow magic" skill */
+
+/* skill types */
+#define ST_SKILL	0
+#define ST_SPELL	1
+#define ST_PRAYER	2
+
+/*
+ * EVENTs for room affects
+ */
+enum {
+	EVENT_ROOM_ENTER,
+	EVENT_ROOM_LEAVE,
+	EVENT_ROOM_UPDATE,
+	EVENT_ROOM_TIMEOUT,
+	EVENT_CHAR_UPDATE,
+	EVENT_CHAR_UPDFAST,
+	EVENT_CHAR_TIMEOUT,
+};
+
+typedef struct skill_t skill_t;
+struct skill_t {
+	gmlstr_t	sk_name;		/* skill name */
+	const char *	fun_name;		/* skill function name */
+	SPELL_FUN *	fun;			/* skill function */
+	flag_t		target;			/* legal target */
+	flag_t		min_pos;		/* position for caster */
+	int		slot;			/* slot for #OBJOLD loading */
+	int		min_mana;		/* min mana used */
+	int		beats;			/* waiting time after use */
+	int		rank;			/* Shows rank of difficulty of
+						 * spell or prayer (0..7) */
+	gmlstr_t	noun_damage;		/* damage message */
+	mlstring	msg_off;		/* wear off message */
+	mlstring	msg_obj;		/* wear off message for obj */
+	flag_t		skill_flags;		/* skill flags */
+	const char *	restrict_race;		/* race restrictions */
+	flag_t		group;			/* skill group */
+	flag_t		skill_type;		/* skill type */
+	varr		events;			/* evf_t, sorted by event */
+};
+
+typedef struct evf_t {
+	flag_t			event;
+	const char *		fun_name;
+	EVENT_FUN *		fun;
+} evf_t;
+
+extern hash_t skills;
+
+#define IS_SKILL(sn1, sn2)	(!str_cmp((sn1), (sn2)))
+
+void skill_init(skill_t *sk);
+skill_t *skill_cpy(skill_t *dst, const skill_t *src);
+void skill_destroy(skill_t *sk);
+
+/*
+ * misc skill lookup functions
+ */
+
+/* fast skill lookup by precise name */
+#define skill_lookup(sn)	((skill_t*) strkey_lookup(&skills, (sn)))
+#define skill_search(sn)	((skill_t*) mlstrkey_search(&skills, (sn)))
+
+/*----------------------------------------------------------------------
+ * specs stuff
+ */
+
+/*
+ * spec classes
+ */
+enum {
+	SPEC_CLASS,
+	SPEC_RACE,
+	SPEC_CLAN,
+	SPEC_WEAPON,
+	SPEC_FORM,
+	SPEC_MAJORSCHOOL,
+	SPEC_MINORSCHOOL
+};
+
+#define	SPF_CHANGED	(Z)
+
+typedef struct spec_t spec_t;
+struct spec_t {
+	const char *spec_name;	/* spec name, also used as file name	*/
+	flag_t spec_class;	/* spec class				*/
+	varr spec_skills;	/* spec_skill_t				*/
+	const char *trigger;	/* mpc trigger				*/
+	flag_t spec_flags;	/* SPF_CHANGED - for OLC		*/
+};
+
+extern hash_t specs;
+
+typedef struct spec_skill_t spec_skill_t;
+struct spec_skill_t {
+	const char *	sn;		/* skill name			*/
+	int		level;		/* level needed to gain skill	*/
+	int		rating;		/* how hard it is to learn	*/
+
+	int		min;		/* min (initial) skill percents */
+	int		adept;		/* adept percents		*/
+	int		max;		/* max skill percents		*/
+};
+
+void	spec_init(spec_t *spec);
+spec_t *spec_cpy(spec_t *dst, const spec_t *src);
+void	spec_destroy(spec_t *spec);
+
+/* fast spec lookup by precise name */
+#define spec_lookup(spn)	((spec_t*) strkey_lookup(&specs, (spn)))
+#define spec_search(spn)	((spec_t*) strkey_search(&specs, (spn)))
+#define spec_skill_lookup(spec, sn)					\
+	((spec_skill_t*) varr_bsearch(&spec->spec_skills, &sn, cmpstr))
+
+/*----------------------------------------------------------------------
+ * socials stuff
+ */
+
+/*
+ * Structure for a social in the socials table.
+ */
+struct social_t
+{
+	const char *	name;
+	flag_t		min_pos;
+
+	mlstring	found_char;
+	mlstring	found_vict;
+	mlstring	found_notvict;
+
+	mlstring	noarg_char;
+	mlstring	noarg_room;
+
+	mlstring	self_char;
+	mlstring	self_room;
+
+	mlstring	notfound_char;
+};
+typedef struct social_t social_t;
+
+extern varr socials;
+
+void	social_init	(social_t *soc);
+void	social_destroy	(social_t *soc);
+
+#define social_lookup(name)	((social_t *) vstr_lookup(&socials, (name)))
+#define social_search(name)	((social_t *) vstr_search(&socials, (name)))
 
 #endif

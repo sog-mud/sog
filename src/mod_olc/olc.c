@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.131 2001-07-30 13:02:03 fjoe Exp $
+ * $Id: olc.c,v 1.132 2001-07-31 18:14:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -44,9 +44,12 @@
 #include <dlfcn.h>
 
 #include "olc.h"
-#include "lang.h"
-#include "string_edit.h"
-#include "module.h"
+
+#include <lang.h>
+#include <string_edit.h>
+#include <module.h>
+
+#include <handler.h>
 
 /*
  * The version info.  Please use this info when reporting bugs.

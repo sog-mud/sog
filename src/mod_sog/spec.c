@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 1999 SoG Development Team
+ * Copyright (c) 2001 SoG Development Team
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -23,11 +23,16 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spec.c,v 1.27 2001-07-30 13:02:08 fjoe Exp $
+ * $Id: spec.c,v 1.28 2001-07-31 18:14:50 fjoe Exp $
  */
 
 #include <stdio.h>
-#include "merc.h"
+
+#include <merc.h>
+
+#include <handler.h>
+
+#include "skills_impl.h"
 
 /*
  *	Simple Simon met a pieman
@@ -45,54 +50,106 @@
  */
 
 /*-------------------------------------------------------------------
- * funcs for hashing
+ * spec_stats stuff
  */
 
-hash_t specs;
-
-static void		spec_skill_init(spec_skill_t *spec_sk);
-static spec_skill_t *	spec_skill_cpy(spec_skill_t *, const spec_skill_t *);
-
-static varrdata_t v_spec_skills =
+static void
+spec_apply(spec_skill_t *spec_sk, spec_skill_t *spec_sk2)
 {
-	sizeof(spec_skill_t), 4,
-	(e_init_t) spec_skill_init,
-	strkey_destroy,
-	(e_cpy_t) spec_skill_cpy,
-};
+	spec_sk->level = UMIN(spec_sk->level, spec_sk2->level);
+	if (spec_sk->rating == 0)
+		spec_sk->rating = spec_sk2->rating;
+	else
+		spec_sk->rating = UMIN(spec_sk->rating,
+					  spec_sk2->rating);
+	spec_sk->min = UMAX(spec_sk->min, spec_sk2->min);
+	spec_sk->adept = UMAX(spec_sk->adept, spec_sk2->adept);
+	spec_sk->max = UMAX(spec_sk->max, spec_sk2->max);
+}
 
+static
+FOREACH_CB_FUN(spec_stats_cb, p, ap)
+{
+	const char *spn = *(const char **) p;
+
+	spec_skill_t *spec_sk = va_arg(ap, spec_skill_t *);
+	const char *bonus_skills = va_arg(ap, const char *);
+
+	spec_t *spec;
+	spec_skill_t *spec_sk2;
+
+/* lookup spec */
+	spec = spec_lookup(spn);
+	if (spec == NULL) {
+#ifdef STRKEY_STRICT_CHECKS
+		log(LOG_INFO, "spec_stats: %s: unknown spec", spn);
+#endif
+		return NULL;
+	}
+
+/* lookup skill in the given spec */
+	spec_sk2 = varr_bsearch(&spec->spec_skills,
+			        &spec_sk->sn, cmpstr);
+	if (spec_sk2 == NULL)
+		return NULL;
+
+/* apply spec skill */
+	spec_apply(spec_sk, spec_sk2);
+
+/* apply bonus skills for race */
+	if (spec->spec_class == SPEC_CLASS
+	&&  is_name(spec_sk->sn, bonus_skills))
+		spec_sk->level = 1;
+
+	return NULL;
+}
+
+/*
+ * spec_stats -- find spec stats of the skill for char,
+ */
 void
-spec_init(spec_t *spec)
+spec_stats(CHAR_DATA *ch, spec_skill_t *spec_sk)
 {
-	spec->spec_name = str_empty;
-	spec->spec_class = 0;
+	race_t *r;
+	skill_t *sk;
+	const char *bonus_skills;
 
-	varr_init(&spec->spec_skills, &v_spec_skills);
-	spec->trigger = str_empty;
-}
+	spec_sk->level = LEVEL_IMMORTAL;	/* will find min */
+	spec_sk->rating = 0;			/* will find min */
+	spec_sk->min = 0;			/* will find max */
+	spec_sk->adept = 0;			/* will find max */
+	spec_sk->max = IS_IMMORTAL(ch) ? 1 : 0;	/* will find max */
 
-spec_t *
-spec_cpy(spec_t *dst, const spec_t *src)
-{
-	dst->spec_name = str_qdup(src->spec_name);
-	dst->spec_class = src->spec_class;
-	varr_cpy(&dst->spec_skills, &src->spec_skills);
-	dst->trigger = str_qdup(src->trigger);
-	return dst;
-}
+/* noone can use ill-defined skills */
+	if ((sk = skill_lookup(spec_sk->sn)) == NULL) {
+#ifdef STRKEY_STRICT_CHECKS
+		log(LOG_BUG, "spec_stats: %s: unknown skill", spec_sk->sn);
+#endif
+		goto bailout;
+	}
 
-void
-spec_destroy(spec_t *spec)
-{
-	free_string(spec->spec_name);
-	varr_destroy(&spec->spec_skills);
-	free_string(spec->trigger);
-}
+/* check specs */
+	if ((r = race_lookup(ch->race)) != NULL
+	&&  r->race_pcdata != NULL)
+		bonus_skills = r->race_pcdata->bonus_skills;
+	else
+		bonus_skills = NULL;
+	varr_foreach(&PC(ch)->specs, spec_stats_cb, spec_sk, bonus_skills);
 
-spec_skill_t *
-spec_skill_lookup(spec_t *s, const char *sn)
-{
-	return (spec_skill_t*) varr_bsearch(&s->spec_skills, &sn, cmpstr);
+/* check skill affects */
+	if (get_skill_mod(ch, sk, 1))
+		spec_sk->level = 1;
+
+bailout:
+	/*
+	 * sanity checks
+	 */
+	spec_sk->level = URANGE(1, spec_sk->level, MAX_LEVEL);
+	spec_sk->rating = UMAX(1, spec_sk->rating);
+	spec_sk->max = UMAX(0, spec_sk->max);
+	spec_sk->min = URANGE(0, spec_sk->min, spec_sk->max);
+	spec_sk->adept = URANGE(spec_sk->min, spec_sk->adept,
+				   spec_sk->max);
 }
 
 /*-------------------------------------------------------------------
@@ -188,167 +245,10 @@ update_skills(CHAR_DATA *ch)
 }
 
 /*-------------------------------------------------------------------
- * spec_stats stuff
- */
-
-static void
-spec_apply(spec_skill_t *spec_sk, spec_skill_t *spec_sk2)
-{
-	spec_sk->level = UMIN(spec_sk->level, spec_sk2->level);
-	if (spec_sk->rating == 0)
-		spec_sk->rating = spec_sk2->rating;
-	else
-		spec_sk->rating = UMIN(spec_sk->rating,
-					  spec_sk2->rating);
-	spec_sk->min = UMAX(spec_sk->min, spec_sk2->min);
-	spec_sk->adept = UMAX(spec_sk->adept, spec_sk2->adept);
-	spec_sk->max = UMAX(spec_sk->max, spec_sk2->max);
-}
-
-static FOREACH_CB_FUN(spec_stats_cb, p, ap)
-{
-	const char *spn = *(const char **) p;
-
-	spec_skill_t *spec_sk = va_arg(ap, spec_skill_t *);
-	const char *bonus_skills = va_arg(ap, const char *);
-
-	spec_t *spec;
-	spec_skill_t *spec_sk2;
-
-/* lookup spec */
-	spec = spec_lookup(spn);
-	if (spec == NULL) {
-#ifdef STRKEY_STRICT_CHECKS
-		log(LOG_INFO, "spec_stats: %s: unknown spec", spn);
-#endif
-		return NULL;
-	}
-
-/* lookup skill in the given spec */
-	spec_sk2 = varr_bsearch(&spec->spec_skills,
-			        &spec_sk->sn, cmpstr);
-	if (spec_sk2 == NULL)
-		return NULL;
-
-/* apply spec skill */
-	spec_apply(spec_sk, spec_sk2);
-
-/* apply bonus skills for race */
-	if (spec->spec_class == SPEC_CLASS
-	&&  is_name(spec_sk->sn, bonus_skills))
-		spec_sk->level = 1;
-
-	return NULL;
-}
-
-/*
- * spec_stats -- find spec stats of the skill for char,
- */
-void
-spec_stats(CHAR_DATA *ch, spec_skill_t *spec_sk)
-{
-	race_t *r;
-	skill_t *sk;
-	const char *bonus_skills;
-
-	spec_sk->level = LEVEL_IMMORTAL;	/* will find min */
-	spec_sk->rating = 0;			/* will find min */
-	spec_sk->min = 0;			/* will find max */
-	spec_sk->adept = 0;			/* will find max */
-	spec_sk->max = IS_IMMORTAL(ch) ? 1 : 0;	/* will find max */
-
-/* noone can use ill-defined skills */
-	if ((sk = skill_lookup(spec_sk->sn)) == NULL) {
-#ifdef STRKEY_STRICT_CHECKS
-		log(LOG_BUG, "spec_stats: %s: unknown skill", spec_sk->sn);
-#endif
-		goto bailout;
-	}
-
-/* check specs */
-	if ((r = race_lookup(ch->race)) != NULL
-	&&  r->race_pcdata != NULL)
-		bonus_skills = r->race_pcdata->bonus_skills;
-	else
-		bonus_skills = NULL;
-	varr_foreach(&PC(ch)->specs, spec_stats_cb, spec_sk, bonus_skills);
-
-/* check skill affects */
-	if (get_skill_mod(ch, sk, 1))
-		spec_sk->level = 1;
-
-bailout:
-	/*
-	 * sanity checks
-	 */
-	spec_sk->level = URANGE(1, spec_sk->level, MAX_LEVEL);
-	spec_sk->rating = UMAX(1, spec_sk->rating);
-	spec_sk->max = UMAX(0, spec_sk->max);
-	spec_sk->min = URANGE(0, spec_sk->min, spec_sk->max);
-	spec_sk->adept = URANGE(spec_sk->min, spec_sk->adept,
-				   spec_sk->max);
-}
-
-/*-------------------------------------------------------------------
  * adding/deleting and other spec handling
  *
  * the caller should call update_skills him/her(oh, no:)self
  */
-
-/*
- * has_spec -- true, if `ch' has `spn'
- */
-bool
-has_spec(CHAR_DATA *ch, const char *spn)
-{
-	if (IS_NPC(ch) || IS_NULLSTR(spn))
-		return FALSE;
-
-	STRKEY_CHECK(&specs, spn, "spec_add");			// notrans
-
-	return varr_bsearch(&PC(ch)->specs, &spn, cmpstr) != NULL;
-}
-
-/*
- * spec_add -- add spec `spn' to `ch'
- */
-bool
-spec_add(CHAR_DATA *ch, const char *spn)
-{
-	const char **pspn;
-
-	if (IS_NULLSTR(spn))
-		return TRUE;
-
-	STRKEY_CHECK(&specs, spn, "spec_add");			// notrans
-
-	pspn = varr_bsearch(&PC(ch)->specs, &spn, cmpstr);
-	if (pspn != NULL)
-		return FALSE;
-
-	pspn = varr_enew(&PC(ch)->specs);
-	*pspn = str_dup(spn);
-	varr_qsort(&PC(ch)->specs, cmpstr);
-	return TRUE;
-}
-
-bool
-spec_del(CHAR_DATA *ch, const char *spn)
-{
-	const char **pspn;
-
-	if (IS_NULLSTR(spn))
-		return TRUE;
-
-	STRKEY_CHECK(&specs, spn, "spec_add");			// notrans
-
-	pspn = varr_bsearch(&PC(ch)->specs, &spn, cmpstr);
-	if (pspn == NULL)
-		return FALSE;
-
-	varr_edelete(&PC(ch)->specs, pspn);
-	return TRUE;
-}
 
 #define SU_F_SEEN_RACE	(A)
 #define SU_F_SEEN_CLASS	(B)
@@ -491,6 +391,61 @@ FOREACH_CB_FUN(replace_cb, p, ap)
 	return NULL;
 }
 
+/*
+ * has_spec -- true, if `ch' has `spn'
+ */
+bool
+has_spec(CHAR_DATA *ch, const char *spn)
+{
+	if (IS_NPC(ch) || IS_NULLSTR(spn))
+		return FALSE;
+
+	STRKEY_CHECK(&specs, spn, "spec_add");			// notrans
+
+	return varr_bsearch(&PC(ch)->specs, &spn, cmpstr) != NULL;
+}
+
+/*
+ * spec_add -- add spec `spn' to `ch'
+ */
+bool
+spec_add(CHAR_DATA *ch, const char *spn)
+{
+	const char **pspn;
+
+	if (IS_NULLSTR(spn))
+		return TRUE;
+
+	STRKEY_CHECK(&specs, spn, "spec_add");			// notrans
+
+	pspn = varr_bsearch(&PC(ch)->specs, &spn, cmpstr);
+	if (pspn != NULL)
+		return FALSE;
+
+	pspn = varr_enew(&PC(ch)->specs);
+	*pspn = str_dup(spn);
+	varr_qsort(&PC(ch)->specs, cmpstr);
+	return TRUE;
+}
+
+bool
+spec_del(CHAR_DATA *ch, const char *spn)
+{
+	const char **pspn;
+
+	if (IS_NULLSTR(spn))
+		return TRUE;
+
+	STRKEY_CHECK(&specs, spn, "spec_add");			// notrans
+
+	pspn = varr_bsearch(&PC(ch)->specs, &spn, cmpstr);
+	if (pspn == NULL)
+		return FALSE;
+
+	varr_edelete(&PC(ch)->specs, pspn);
+	return TRUE;
+}
+
 const char *
 spec_replace(CHAR_DATA *ch, const char *spn_rm, const char *spn_add)
 {
@@ -524,27 +479,4 @@ spec_replace(CHAR_DATA *ch, const char *spn_rm, const char *spn_add)
 	}
 
 	return NULL;
-}
-
-static void
-spec_skill_init(spec_skill_t *spec_sk)
-{
-	spec_sk->sn = str_empty;
-	spec_sk->level = 1;
-	spec_sk->rating = 1;
-	spec_sk->min = 1;
-	spec_sk->adept = 75;
-	spec_sk->max = 100;
-}
-
-static spec_skill_t *
-spec_skill_cpy(spec_skill_t *dst, const spec_skill_t *src)
-{
-	dst->sn = str_qdup(src->sn);
-	dst->level = src->level;
-	dst->rating = src->rating;
-	dst->min = src->min;
-	dst->adept = src->adept;
-	dst->max = src->max;
-	return dst;
 }

@@ -1,5 +1,5 @@
 /*
- * $Id: effects.c,v 1.40 2001-07-31 14:56:07 fjoe Exp $
+ * $Id: effects.c,v 1.41 2001-07-31 18:14:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -48,13 +48,10 @@
 
 #include <merc.h>
 
-#include "affects.h"
-#include "handler.h"
-#include "magic.h"
-#include "update.h"
+#include <magic.h>
+#include <update.h>
 
-#include "module.h"
-#include "effects.h"
+#include <handler.h>
 
 typedef void (*effect_cb)(void *vo, int level, int dam);
 

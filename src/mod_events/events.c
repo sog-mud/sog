@@ -23,20 +23,15 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: events.c,v 1.9 2001-01-12 15:33:49 cs Exp $
+ * $Id: events.c,v 1.10 2001-07-31 18:14:45 fjoe Exp $
  */
 
 #include <stdarg.h>
 #include <stdio.h>
 #include <dlfcn.h>
 
-#include "typedef.h"
-#include "varr.h"
-#include "hash.h"
-#include "log.h"
-#include "mlstring.h"
-#include "skills.h"
-#include "module.h"
+#include <merc.h>
+#include <module.h>
 
 static void *load_cb(void *p, va_list ap);
 static void *unload_cb(void *p, va_list ap);

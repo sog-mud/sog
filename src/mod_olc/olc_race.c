@@ -23,12 +23,12 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.46 2001-07-30 13:02:04 fjoe Exp $
+ * $Id: olc_race.c,v 1.47 2001-07-31 18:15:01 fjoe Exp $
  */
 
 #include "olc.h"
 
-#include "affects.h"
+#include <handler.h>
 
 #define EDIT_RACE(ch, race)	(race = (race_t*) ch->desc->pEdit)
 

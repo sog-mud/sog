@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.280 2001-07-31 14:56:04 fjoe Exp $
+ * $Id: act_wiz.c,v 1.281 2001-07-31 18:14:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -65,13 +65,10 @@
 #include <cmd.h>
 #include <db.h>
 #include <ban.h>
-#include <socials.h>
 #include <string_edit.h>
 
-#include "affects.h"
-#include "handler.h"
-#include "fight.h"
-#include "quest.h"
+#include <handler.h>
+#include <quest.h>
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_rstat	);

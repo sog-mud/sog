@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.c,v 1.31 2001-07-29 09:43:21 fjoe Exp $
+ * $Id: lang.c,v 1.32 2001-07-31 18:15:13 fjoe Exp $
  */
 
 #include <string.h>
@@ -31,13 +31,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "merc.h"
-#include "lang.h"
-#include "db.h"
+#include <merc.h>
+#include <lang.h>
+#include <db.h>
 
 static void str_init(const char **p);
 static void str_destroy(const char **p);
-
 
 /*----------------------------------------------------------------------------
  * main language support functions
@@ -115,7 +114,8 @@ word_form_lookup(lang_t *l, rulecl_t *rcl, const char *word, uint fnum)
 	return buf;
 }
 
-const char *word_form(const char *word, uint fnum, size_t lang, int rulecl)
+const char *
+word_form(const char *word, uint fnum, size_t lang, int rulecl)
 {
 	lang_t *l;
 
@@ -153,7 +153,8 @@ const char *word_form(const char *word, uint fnum, size_t lang, int rulecl)
 #define rulehash(s) hashcasestr(s, 16, MAX_RULE_HASH)
 
 /* reverse order (otherwise word_del will not work) */
-static int cmprule(const void *p1, const void *p2)
+static int
+cmprule(const void *p1, const void *p2)
 {
 	return -str_cmp(((const rule_t*) p1)->name, ((const rule_t*) p2)->name);
 }
@@ -178,14 +179,16 @@ static varrdata_t v_forms =
 	NULL
 };
 
-void rule_init(rule_t *r)
+void
+rule_init(rule_t *r)
 {
 	r->name = NULL;
 	r->arg = 0;
 	varr_init(&r->forms, &v_forms);
 }
 
-void rule_destroy(rule_t *r)
+void
+rule_destroy(rule_t *r)
 {
 	free_string(r->name);
 	r->name = NULL;
@@ -213,14 +216,16 @@ rule_form_del(rule_t *r, size_t fnum)
 /*----------------------------------------------------------------------------
  * implicit rules operations
  */
-rule_t *irule_add(rulecl_t *rcl, rule_t *r)
+rule_t *
+irule_add(rulecl_t *rcl, rule_t *r)
 {
 	rule_t *rnew = varr_enew(&rcl->impl);
 	*rnew = *r;
 	return rnew;
 }
 
-rule_t *irule_insert(rulecl_t *rcl, size_t num, rule_t *r)
+rule_t *
+irule_insert(rulecl_t *rcl, size_t num, rule_t *r)
 {
 	rule_t *rnew;
 	if (num > rcl->impl.nused)
@@ -230,12 +235,14 @@ rule_t *irule_insert(rulecl_t *rcl, size_t num, rule_t *r)
 	return rnew;
 }
 
-void irule_del(rulecl_t *rcl, rule_t *r)
+void
+irule_del(rulecl_t *rcl, rule_t *r)
 {
 	varr_edelete(&rcl->impl, r);
 }
 
-rule_t *irule_lookup(rulecl_t *rcl, const char *num)
+rule_t *
+irule_lookup(rulecl_t *rcl, const char *num)
 {
 	char *q;
 	size_t i;
@@ -250,7 +257,8 @@ rule_t *irule_lookup(rulecl_t *rcl, const char *num)
 	return VARR_GET(&rcl->impl, i);
 }
 
-rule_t *irule_find(rulecl_t *rcl, const char *word)
+rule_t *
+irule_find(rulecl_t *rcl, const char *word)
 {
 	size_t i;
 
@@ -268,7 +276,8 @@ rule_t *irule_find(rulecl_t *rcl, const char *word)
 /*----------------------------------------------------------------------------
  * explicit rules operations
  */
-rule_t *erule_add(rulecl_t *rcl, rule_t *r)
+rule_t *
+erule_add(rulecl_t *rcl, rule_t *r)
 {
 	rule_t *rnew;
 	varr *v;
@@ -292,7 +301,8 @@ void erule_del(rulecl_t *rcl, rule_t *r)
 	varr_edelete(v, r);
 }
 
-rule_t *erule_lookup(rulecl_t *rcl, const char *name)
+rule_t *
+erule_lookup(rulecl_t *rcl, const char *name)
 {
 	if (IS_NULLSTR(name))
 		return NULL;
@@ -311,7 +321,8 @@ static varrdata_t v_rule =
 	NULL
 };
 
-static void rulecl_init(lang_t *l, size_t rulecl)
+static void
+rulecl_init(lang_t *l, size_t rulecl)
 {
 	int i;
 	rulecl_t *rcl = l->rules + rulecl;
@@ -330,7 +341,8 @@ static void rulecl_init(lang_t *l, size_t rulecl)
  */
 varr langs;
 
-void lang_init(lang_t *l)
+void
+lang_init(lang_t *l)
 {
 	size_t i;
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.3 2001-07-31 14:55:52 fjoe Exp $
+ * $Id: sog.h,v 1.4 2001-07-31 18:14:33 fjoe Exp $
  */
 
 #ifndef _HANDLER_H_
@@ -35,6 +35,7 @@
 
 __MODULE_START_DECL
 
+/*--- handler.c */
 DECLARE_PROC2(char_to_room,
 	      ARG(CHAR_DATA), ch, ARG(ROOM_INDEX_DATA), pRoomIndex)
 DECLARE_PROC1(char_from_room,
@@ -258,21 +259,6 @@ DECLARE_FUN2(bool, can_drop_obj,
 DECLARE_FUN2(bool, can_loot,
 	     ARG(CHAR_DATA), ch, ARG(OBJ_DATA), obj)
 
-DECLARE_FUN2(bool, shapeshift,
-	     ARG(CHAR_DATA), ch, ARG(cchar_t), form)
-DECLARE_FUN1(bool, revert,
-	     ARG(CHAR_DATA), ch)
-
-DECLARE_PROC0(scan_pfiles)
-
-/* reset_room flags */
-#define RESET_F_NOPCHECK (A)
-
-DECLARE_PROC2(reset_room,
-	      ARG(ROOM_INDEX_DATA), room, ARG(int), flags)
-DECLARE_PROC1(reset_area,
-	      ARG(AREA_DATA), pArea)
-
 DECLARE_FUN1(bool, pc_name_ok,
 	     ARG(cchar_t), name)
 DECLARE_FUN1(bool, char_in_dark_room,
@@ -328,6 +314,220 @@ DECLARE_FUN4(CHAR_DATA,	find_char,
 DECLARE_FUN4(CHAR_DATA, get_char_spell,
 	     ARG(CHAR_DATA), ch, ARG(cchar_t), argument, ARG(pvoid_t), door,
 	     ARG(int), range)
+
+DECLARE_FUN2(bool, shapeshift,
+	     ARG(CHAR_DATA), ch, ARG(cchar_t), form)
+DECLARE_FUN1(bool, revert,
+	     ARG(CHAR_DATA), ch)
+
+/*--- scan_pfiles.c */
+DECLARE_PROC0(scan_pfiles)
+
+/*--- reset.c */
+
+/* reset_room flags */
+#define RESET_F_NOPCHECK (A)
+
+DECLARE_PROC2(reset_room,
+	      ARG(ROOM_INDEX_DATA), room, ARG(int), flags)
+DECLARE_PROC1(reset_area,
+	      ARG(AREA_DATA), pArea)
+
+/*--- effects.c */
+DECLARE_PROC3(acid_effect,
+	      ARG(pvoid_t), vo, ARG(int), level, ARG(int), dam)
+DECLARE_PROC3(cold_effect,
+	      ARG(pvoid_t), vo, ARG(int), level, ARG(int), dam)
+DECLARE_PROC3(fire_effect,
+	      ARG(pvoid_t), vo, ARG(int), level, ARG(int), dam)
+DECLARE_PROC3(poison_effect,
+	      ARG(pvoid_t), vo, ARG(int), level, ARG(int), dam)
+DECLARE_PROC3(shock_effect,
+	      ARG(pvoid_t), vo, ARG(int), level, ARG(int), dam)
+DECLARE_PROC3(sand_effect,
+	      ARG(pvoid_t), vo, ARG(int), level, ARG(int), dam)
+DECLARE_PROC3(scream_effect,
+	      ARG(pvoid_t), vo, ARG(int), level, ARG(int), dam)
+
+/*--- affects.c */
+DECLARE_PROC3(affect_modify,
+	      ARG(CHAR_DATA), ch, ARG(AFFECT_DATA), paf, ARG(bool), fAdd)
+DECLARE_PROC3(affect_modify_room,
+	      ARG(ROOM_INDEX_DATA), room, ARG(AFFECT_DATA), paf,
+	      ARG(bool), fAdd)
+DECLARE_FUN2(AFFECT_DATA, affect_find,
+	     NULLABLE_ARG(AFFECT_DATA), paf, ARG(cchar_t), sn)
+DECLARE_PROC3(affect_check,
+	      ARG(CHAR_DATA), ch, ARG(int), where, ARG(flag_t), vector)
+DECLARE_PROC4(affect_check_list,
+	      ARG(CHAR_DATA), ch, ARG(AFFECT_DATA), paf, ARG(int), where,
+	      ARG(flag_t), vector)
+DECLARE_PROC1(affect_enchant,
+	      ARG(OBJ_DATA), obj)
+
+DECLARE_PROC2(affect_to_char,
+	      ARG(CHAR_DATA), ch, ARG(AFFECT_DATA), paf)
+DECLARE_PROC2(affect_to_obj,
+	      ARG(OBJ_DATA), obj, ARG(AFFECT_DATA), paf)
+DECLARE_PROC2(affect_remove,
+	      ARG(CHAR_DATA), ch, ARG(AFFECT_DATA), paf)
+DECLARE_PROC2(affect_remove_obj,
+	      ARG(OBJ_DATA), obj, ARG(AFFECT_DATA), paf)
+DECLARE_PROC2(affect_strip,
+	      ARG(CHAR_DATA), ch, ARG(cchar_t), sn)
+DECLARE_PROC3(affect_bit_strip,
+	      ARG(CHAR_DATA), ch, ARG(int), where, ARG(flag_t), bits)
+DECLARE_PROC2(affect_join,
+	      ARG(CHAR_DATA), ch, ARG(AFFECT_DATA), paf)
+
+DECLARE_FUN2(bool, is_affected,
+	     ARG(CHAR_DATA), ch, ARG(cchar_t), sn)
+DECLARE_FUN3(AFFECT_DATA, is_bit_affected,
+	     ARG(CHAR_DATA), ch, ARG(int), where, ARG(flag_t), bits)
+DECLARE_FUN2(bool, has_obj_affect,
+	     ARG(CHAR_DATA), ch, ARG(flag_t), vector)
+
+/* room affects */
+DECLARE_PROC2(affect_to_room,
+	      ARG(ROOM_INDEX_DATA), room, ARG(AFFECT_DATA), paf)
+DECLARE_PROC2(affect_remove_room,
+	      ARG(ROOM_INDEX_DATA), room, ARG(AFFECT_DATA), paf)
+DECLARE_PROC2(affect_strip_room,
+	      ARG(ROOM_INDEX_DATA), ch, ARG(cchar_t), sn)
+DECLARE_FUN2(bool, is_affected_room,
+	     ARG(ROOM_INDEX_DATA), ch, ARG(cchar_t), sn)
+DECLARE_PROC1(strip_raff_owner,
+	      ARG(CHAR_DATA), ch)
+
+DECLARE_PROC2(aff_dump_list,
+	      ARG(AFFECT_DATA), paf, ARG(BUFFER), output)
+DECLARE_PROC3(show_affects,
+	      ARG(CHAR_DATA), ch, ARG(CHAR_DATA), vch, ARG(BUFFER), output)
+
+/* format_obj_affects flags */
+#define FOA_F_NODURATION	(A)	/* do not show duration		*/
+#define FOA_F_NOAFFECTS		(B)	/* do not show bit affects	*/
+
+DECLARE_PROC3(format_obj_affects,
+	      ARG(BUFFER), output, ARG(AFFECT_DATA), paf, ARG(int), flags)
+
+/*--- fight.c */
+
+/*
+ * damage() flags
+ */
+#define DAMF_NONE	(0)
+#define DAMF_SHOW	(A)	/* show dam message */
+#define DAMF_SECOND	(B)	/* damage inflicted by second weapon */
+#define DAMF_HIT	(C)	/* damage by hit */
+#define DAMF_HUNGER	(D)	/* damage by hunger */
+#define DAMF_NOREDUCE	(E)	/* damage should not be reduced */
+#define DAMF_THIRST	(F)	/* damage by thirst */
+#define DAMF_LIGHT_V	(G)	/* light in room */
+#define DAMF_TRAP_ROOM	(H)	/* room trap damage */
+
+DECLARE_PROC4(one_hit,
+	      ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim, ARG(cchar_t), dt,
+	      ARG(bool), secondary)
+DECLARE_PROC2(handle_death,
+	      ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim)
+DECLARE_PROC3(multi_hit,
+	      ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim, ARG(cchar_t), dt)
+DECLARE_FUN6(bool, damage,
+	     ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim, ARG(int), dam,
+	     ARG(cchar_t), dt, ARG(int), class, ARG(int), dam_flags)
+DECLARE_PROC1(update_pos,
+	      ARG(CHAR_DATA), victim)
+DECLARE_PROC2(set_fighting,
+	      ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim)
+DECLARE_PROC2(stop_fighting,
+	      ARG(CHAR_DATA), ch, ARG(bool), fBoth)
+DECLARE_FUN2(OBJ_DATA, raw_kill,
+	     ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim)
+DECLARE_FUN1(cchar_t, vs_dam_alias,
+	     ARG(int), dam)
+DECLARE_FUN1(cchar_t, vp_dam_alias,
+	     ARG(int), dam)
+DECLARE_FUN4(bool, check_obj_dodge,
+	     ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim,
+	     ARG(OBJ_DATA), obj, ARG(int), bonus)
+DECLARE_FUN2(bool, is_safe,
+	     ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim)
+DECLARE_FUN2(bool, is_safe_nomessage,
+	     ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim)
+DECLARE_FUN3(bool, is_safe_spell,
+	     ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim, ARG(bool), area)
+DECLARE_FUN2(bool, is_safe_rspell,
+	     ARG(AFFECT_DATA), af, ARG(CHAR_DATA), victim)
+DECLARE_FUN2(int, get_dam_class,
+	     ARG(CHAR_DATA), ch, ARG(OBJ_DATA), wield)
+DECLARE_FUN2(CHAR_DATA, check_guard,
+	     ARG(CHAR_DATA), ch, ARG(CHAR_DATA), mob)
+DECLARE_FUN2(bool, in_PK,
+	     ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim)
+
+DECLARE_PROC4(focus_positive_energy,
+	      ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim, ARG(cchar_t), sn,
+	      ARG(int), amount)
+DECLARE_PROC4(focus_negative_energy,
+	      ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim, ARG(cchar_t), sn,
+	      ARG(int), amount)
+
+/*--- skills.c */
+DECLARE_FUN2(int, skill_level,
+	     ARG(CHAR_DATA), ch, ARG(cchar_t), sn)
+DECLARE_FUN1(int, skill_beats,
+	     ARG(cchar_t), sn)
+DECLARE_FUN2(int, skill_mana,
+	     ARG(CHAR_DATA), ch, ARG(cchar_t), sn)
+DECLARE_FUN1(gmlstr_t, skill_noun,
+	     ARG(cchar_t), sn)
+
+DECLARE_FUN2(int, get_skill,
+	     ARG(CHAR_DATA), ch, ARG(cchar_t), sn)
+DECLARE_PROC3(set_skill,
+	      ARG(CHAR_DATA), ch, ARG(cchar_t), sn, ARG(int), value)
+DECLARE_PROC4(_set_skill,
+	      ARG(CHAR_DATA), ch, ARG(cchar_t), sn, ARG(int), value,
+	      ARG(bool), repl)
+
+DECLARE_PROC4(check_improve,
+	      ARG(CHAR_DATA), ch, ARG(cchar_t), sn,
+	      ARG(bool), success, ARG(int), mult)
+
+DECLARE_FUN1(cchar_t, get_weapon_sn,
+	     ARG(OBJ_DATA), obj)
+DECLARE_FUN2(int, get_weapon_skill,
+	     ARG(CHAR_DATA), ch, ARG(cchar_t), sn)
+
+DECLARE_PROC2(skills_dump,
+	      ARG(BUFFER), output, ARG(int), skill_type)
+DECLARE_PROC2(say_spell,
+	      ARG(CHAR_DATA), ch, ARG(cchar_t), sn)
+
+DECLARE_PROC3(check_one_event,
+	      ARG(CHAR_DATA), ch, ARG(AFFECT_DATA), af, ARG(flag_t), event)
+DECLARE_PROC3(check_events,
+	      ARG(CHAR_DATA), ch, NULLABLE_ARG(AFFECT_DATA), list,
+	      ARG(flag_t), event)
+
+/*--- spec.c */
+DECLARE_PROC2(spec_stats,
+	      ARG(CHAR_DATA), ch, ARG(spec_skill_t), spec_sk)
+
+DECLARE_PROC1(update_skills,
+	     ARG(CHAR_DATA), ch)
+DECLARE_PROC1(spec_update,
+	      ARG(CHAR_DATA), ch)
+
+DECLARE_FUN2(bool, has_spec,
+	     ARG(CHAR_DATA), ch, ARG(cchar_t), spn)
+DECLARE_FUN2(bool, spec_add,
+	     ARG(CHAR_DATA), ch, ARG(cchar_t), spn)
+DECLARE_FUN2(bool, spec_del,
+	     ARG(CHAR_DATA), ch, ARG(cchar_t), spn)
+DECLARE_FUN3(cchar_t, spec_replace,
+	     ARG(CHAR_DATA), ch, ARG(cchar_t), spn_rm, ARG(cchar_t), spn_add)
 
 __MODULE_END_DECL
 

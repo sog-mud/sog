@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: dynafun_decl.h,v 1.11 2001-07-31 14:55:51 fjoe Exp $
+ * $Id: dynafun_decl.h,v 1.12 2001-07-31 18:14:32 fjoe Exp $
  */
 
 /* no #ifdef _XXX_H_/#define _XXX_H_/#endif */
@@ -124,10 +124,20 @@
 #undef cchar_t_tag_t
 #define cchar_t_tag_t cchar_t
 
+#undef gmlstr_t_tag
+#define gmlstr_t_tag MT_PVOID
+#undef gmlstr_t_tag_t
+#define gmlstr_t_tag_t gmlstr_t *
+
 #undef mlstring_tag
 #define mlstring_tag MT_PVOID
 #undef mlstring_tag_t
 #define mlstring_tag_t mlstring *
+
+#undef spec_skill_t_tag
+#define spec_skill_t_tag MT_PVOID
+#undef spec_skill_t_tag_t
+#define spec_skill_t_tag_t spec_skill_t *
 
 #undef va_list_tag
 #define va_list_tag MT_VA_LIST

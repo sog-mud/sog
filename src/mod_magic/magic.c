@@ -23,18 +23,17 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic.c,v 1.29 2001-07-30 13:05:49 fjoe Exp $
+ * $Id: magic.c,v 1.30 2001-07-31 18:14:53 fjoe Exp $
  */
 
 #include <stdio.h>
 
 #include <merc.h>
 
-#include "affects.h"
-#include "fight.h"
-#include "handler.h"
+#include <handler.h>
 
-#include "_magic.h"
+#include <magic.h>
+#include "magic_impl.h"
 
 /*
  * Cast spells at targets using a magical object.

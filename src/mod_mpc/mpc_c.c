@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_c.c,v 1.12 2001-07-29 20:14:52 fjoe Exp $
+ * $Id: mpc_c.c,v 1.13 2001-07-31 18:14:57 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -38,7 +38,7 @@
 #include <dynafun.h>
 #include <util.h>
 
-#include "_mpc.h"
+#include "mpc_impl.h"
 #include "mpc_iter.h"
 
 static void push(prog_t *prog, vo_t vo);
