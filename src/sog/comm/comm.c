@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.108 1998-10-09 13:42:59 fjoe Exp $
+ * $Id: comm.c,v 1.109 1998-10-10 04:37:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1063,6 +1063,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 				if ((pexit = ch->in_room->exit[door]) != NULL
 				&&  pexit ->u1.to_room != NULL
 				&&  can_see_room(ch, pexit->u1.to_room)
+				&&  check_blind_raw(ch)
 				&&  (!IS_SET(pexit->exit_info, EX_CLOSED) ||
 				     IS_IMMORTAL(ch))) {
 					found = TRUE;
@@ -2798,6 +2799,9 @@ bool act_skip(CHAR_DATA *ch, CHAR_DATA *vch, CHAR_DATA *to,
 	      int flags, int min_pos)
 {
 	if (to->position < min_pos)
+		return TRUE;
+
+	if (IS_SET(flags, SKIP_MORTAL) && !IS_NPC(to) && !IS_IMMORTAL(to))
 		return TRUE;
 
 /* twitlist handling */

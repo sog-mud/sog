@@ -1,5 +1,5 @@
 /*
- * $Id: comm.h,v 1.19 1998-10-08 13:29:29 fjoe Exp $
+ * $Id: comm.h,v 1.20 1998-10-10 04:37:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -67,8 +67,8 @@ void	page_to_char( const char *txt, CHAR_DATA *ch);
 #define CHECK_TWIT	(H)
 #define TRANS_TEXT	(I)	/* do $t and $T translation		    */
 #define CHECK_DEAF	(J)	/* skip is_affected(to, gsn_deafen) chars   */
-#define GARBLE_TEXT	(K)	/* garble $t if is_affected(ch, gsn_garble) */
-#define STRANS_TEXT	(L)	/* do $t and $T slang translation (from ch) */
+#define STRANS_TEXT	(K)	/* do $t and $T slang translation (from ch) */
+#define SKIP_MORTAL	(L)	/* skip mortals */
 
 #define act(format, ch, arg1, arg2, type) \
 		act_printf(ch, arg1, arg2, type, POS_RESTING, format)
