@@ -1,12 +1,12 @@
 #type spec
 
 /*
- * $Id: spec_minor_charm.mpc,v 1.1 2001-07-08 17:17:11 fjoe Exp $
+ * $Id: spec_minor_charm.mpc,v 1.2 2001-07-08 19:02:40 fjoe Exp $
  */
 
 if (has_sp($n, "major_charm", $rm, $add)
 ||  !has_sp($n, "class_wizard", $rm, $add)) {
-	act_char($n, "Ooops.");
+	act_char("Ooops.", $n);
 	return 1;
 }
 return 0;
