@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.43 1998-07-14 11:16:05 fjoe Exp $
+ * $Id: db.c,v 1.44 1998-07-14 12:29:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -855,10 +855,10 @@ void load_helps(FILE *fp, char *fname)
 		pHelp		= new_help();
 		pHelp->level	= level;
 		pHelp->keyword	= keyword;
-		pHelp->text	= fread_string(fp);
+		pHelp->text	= mlstr_fread(fp);
 
 		if (!str_cmp(pHelp->keyword, "greeting"))
-			help_greeting = pHelp->text;
+			help_greeting = mlstr_mval(pHelp->text);
 
 		if (help_first == NULL)
 			help_first = pHelp;

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.96 1998-07-14 11:16:05 fjoe Exp $
+ * $Id: act_info.c,v 1.97 1998-07-14 12:29:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1165,10 +1165,20 @@ void do_look(CHAR_DATA *ch, const char *argument)
 	count = 0;
 
 	if (arg1[0] == '\0' || !str_cmp(arg1, "auto")) {
-		/* 'look' or 'look auto' */
-		char_printf(ch, "{W%s{x",
-			    mlstr_cval(ch->in_room->name, ch), ch);
 
+		/* 'look' or 'look auto' */
+
+		char *name;
+		char *engname;
+
+		name = mlstr_cval(ch->in_room->name, ch);
+		engname = mlstr_mval(ch->in_room->name);
+		char_printf(ch, "{W%s", name);
+		if (ch->lang && name != engname)
+			char_printf(ch, " (%s){x", engname);
+		else
+			char_puts("{x", ch);
+		
 		if ((IS_IMMORTAL(ch) && (IS_NPC(ch) ||
 					 IS_SET(ch->act, PLR_HOLYLIGHT)))
 		||  IS_BUILDER(ch, ch->in_room->area))
@@ -1657,6 +1667,8 @@ void do_help(CHAR_DATA *ch, const char *argument)
 			continue;
 
 		if (is_name(argall, pHelp->keyword)) {
+			char *text;
+
 			if (output == NULL)
 				output = buf_new(0);
 			else
@@ -1667,14 +1679,15 @@ void do_help(CHAR_DATA *ch, const char *argument)
 				buf_printf(output, "{C%s{x\n\r\n\r",
 					 pHelp->keyword);
 
+			text = mlstr_cval(pHelp->text, ch);
+
 			/*
 			 * Strip leading '.' to allow initial blanks.
 			 */
-			if (pHelp->text[0] == '.')
-				buf_add(output, pHelp->text+1);
+			if (text[0] == '.')
+				buf_add(output, text+1);
 			else
-				buf_add(output, pHelp->text);
-
+				buf_add(output, text);
 		}
 	}
 

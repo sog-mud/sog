@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.50 1998-07-14 07:47:47 fjoe Exp $
+ * $Id: merc.h,v 1.51 1998-07-14 12:29:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -415,7 +415,7 @@ struct	help_data
 	HELP_DATA *	next_area;
 	int		level;
 	char * 		keyword;
-	char *		text;
+	mlstring *	text;
 };
 	
 struct help_area_data

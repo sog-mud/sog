@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.10 1998-07-14 11:16:06 fjoe Exp $
+ * $Id: olc_save.c,v 1.11 1998-07-14 12:29:40 fjoe Exp $
  */
 
 /**************************************************************************
@@ -956,10 +956,9 @@ void save_helps(FILE *fp, HELP_AREA *ha)
 
 	fprintf(fp, "#HELPS\n");
 
-	for (; help; help = help->next_area)
-	{
+	for (; help; help = help->next_area) {
 		fprintf(fp, "%d %s~\n", help->level, help->keyword);
-		fprintf(fp, "%s~\n\n", fix_string(help->text));
+		mlstr_fwrite(fp, NULL, help->text);
 	}
 
 	fprintf(fp, "-1 $~\n\n");
