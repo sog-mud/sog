@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.126.2.8 2000-04-10 11:19:01 fjoe Exp $
+ * $Id: save.c,v 1.126.2.9 2000-08-18 09:05:56 avn Exp $
  */
 
 /***************************************************************************
@@ -425,8 +425,9 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 
 	/*
 	 * Castrate storage characters.
+	 * Leave stuck-in objects, containers even if their level is high
 	 */
-	if (!IS_IMMORTAL(ch)) {
+	if (!IS_IMMORTAL(ch) && obj->wear_loc != WEAR_STUCK_IN) {
 		if ((get_wear_level(ch, obj) < obj->level &&
 		     obj->pObjIndex->item_type != ITEM_CONTAINER)
 		||  (IS_SET(obj->pObjIndex->extra_flags, ITEM_QUEST) &&
