@@ -20,8 +20,6 @@ BFGJOT 0 0 0 L -1000 0
 CDEK
 stand stand none 0
 0 0 medium unknown
-r negative 100
-r charm 100
 #26401
 undead warrior~
 an undead elven warrior~
@@ -29,13 +27,11 @@ An ancient elven warrior raises his sword and attacks!~
 ~
 undead~
 BFGJOT 0 0 0 L -1000 0
-49 1 25d10+4700 1d1+100 6d6+24 'dwave'
+49 1 25d10+4700 1d1+100 6d6+24 'wrath'
 -30 -30 -30 -15
 CDEK
 stand stand none 0
 0 0 medium unknown
-r negative 100
-r charm 100
 #26402
 undead paladin~
 an undead paladin~
@@ -48,29 +44,21 @@ BFGJOT 0 0 0 L -1000 0
 CDEK
 stand stand none 0
 0 0 medium unknown
-r negative 100
-r charm 100
 #26403
 elf deathknight elven~
 the elven deathknight~
 An elven knight stares at you with burning red eyes that devour your soul.~
-This elf has surrended his soul to the darkness that descended upon his city
-so long ago. There is no feeling in his movements, no soul in his eyes, just
-death and an uncaring need to destroy life where he has none.
+This elf has surrended his soul to the darkness that descended upon his
+city so long ago.  There is no feeling in his movements, no soul in his
+eyes, just death and an uncaring need to destroy life where he has none.  
 ~
-human~
-BGJT 0 J 0 ABL -1000 0
+undead~
+BGJT 0 J 0 L -1000 0
 50 2 50d10+5500 1d1+100 5d8+25 'wrath'
 -30 -30 -30 -30
 ACDEFGKWX
 stand stand male 0
-I 0 medium unknown
-r acid 100
-r poison 100
-r negative 100
-r mental 100
-r disease 100
-r charm 100
+0 0 medium unknown
 m mob_fight mob_fight_cast_undead 100~
 #0
 
@@ -175,11 +163,12 @@ f object damroll 3 0
 #ROOMS
 #26400
 Entrance to the Red Tower~
-You are standing at the bottom of a wide stone stairwell. The walls around you
-are bathed in a bloody red colour that looks like freshly splashed blood, yet
-which could not possibly be such after so long a time. A chilling rapsing sound
-can be heard from above, along with the familiar noises of chinking armor and
-rattling weapons. A door of red tinged stone lies in the east wall.
+You are standing at the bottom of a wide stone stairwell.  The walls
+around you are bathed in a bloody red colour that looks like freshly
+splashed blood, yet which could not possibly be such after so long a time. 
+A chilling rapsing sound can be heard from above, along with the familiar
+noises of chinking armor and rattling weapons.  A door of red tinged stone
+lies in the east wall.  
 ~
 0 D inside
 D1
@@ -237,9 +226,10 @@ Z 0 26400
 S
 #26402
 Beneath a bloody stairwell~
-The stairs here are coated in what appears to be thick, recently shed blood. A
-faint trail of steam rises from the red and wafts up into the chilling air. The
-stairs lead up to where the sounds of armor clinking can be heard.
+The stairs here are coated in what appears to be thick, recently shed
+blood.  A faint trail of steam rises from the red and wafts up into the
+chilling air.  The stairs lead up to where the sounds of armor clinking can
+be heard.  
 ~
 0 D inside
 D2
@@ -257,9 +247,10 @@ Z 0 26411
 S
 #26403
 Beneath a bloody stairwell~
-The stairs here are coated in what appears to be thick, recently shed blood. A
-faint trail of steam rises from the red and wafts up into the chilling air. The
-stairs lead up to where the sounds of armor clinking can be heard.
+The stairs here are coated in what appears to be thick, recently shed
+blood.  A faint trail of steam rises from the red and wafts up into the
+chilling air.  The stairs lead up to where the sounds of armor clinking can
+be heard.  
 ~
 0 D inside
 D3
@@ -277,29 +268,30 @@ Z 0 26416
 S
 #26404
 Beneath a bloody stairwell~
-The stairs here are coated in what appears to be thick, recently shed blood. A
-faint trail of steam rises from the red and wafts up into the chilling air. To
-the south is a large blood red door.
+The stairs here are coated in what appears to be thick, recently shed
+blood.  A faint trail of steam rises from the red and wafts up into the
+chilling air.  To the south is a large blood red door.  
 ~
 0 D inside
 D0
 ~
 ~
 ~
-~
+@rus none~
 Z 0 26401
 D2
 ~
-blood red door~
-the blood~
-~
+door blood red~
+@eng the blood red door@rus кроваво-~~красная~~ ~~дверь~~~
+@rus female~
 ABCFZ 26401 26421
 S
 #26405
 Beneath a bloody stairwell~
-The stairs here are coated in what appears to be thick, recently shed blood. A
-faint trail of steam rises from the red and wafts up into the chilling air. The
-stairs lead up to where the sounds of armor clinking can be heard.
+The stairs here are coated in what appears to be thick, recently shed
+blood.  A faint trail of steam rises from the red and wafts up into the
+chilling air.  The stairs lead up to where the sounds of armor clinking can
+be heard.  
 ~
 0 D inside
 D1
@@ -641,8 +633,8 @@ normal castle room. To the north is a large red door.
 D0
 ~
 blood red door~
-the blood~
-~
+@eng the blood red door@rus кроваво-~~красная~~ ~~дверь~~~
+@rus female~
 ABCFZ 26401 26404
 S
 #0
