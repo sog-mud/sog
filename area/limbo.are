@@ -1184,6 +1184,10 @@ O 64 fight_prog fight_prog_tattoo_venus	* `tattoo of venus, god of beauty'
 O 65 fight_prog fight_prog_tattoo_seth	* `tattoo of set, god of anger'
 O 66 fight_prog fight_prog_tattoo_enki	* `tattoo of enki, god of knowledge'
 O 67 fight_prog fight_prog_tattoo_eros	* `tattoo of eros, god of love'
+O 71 wear_prog wear_prog_ruler_shield
+O 72 wear_prog wear_prog_ruler_shield
+O 73 wear_prog wear_prog_ruler_shield
+O 74 wear_prog wear_prog_ruler_shield
 O 80 fight_prog fight_prog_golden_weapon	* `a golden dagger'
 O 80 death_prog death_prog_golden_weapon	* `a golden dagger'
 O 81 fight_prog fight_prog_golden_weapon	* `a golden mace'
