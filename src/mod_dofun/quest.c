@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.123.2.17 2004-05-26 06:26:43 tatyana Exp $
+ * $Id: quest.c,v 1.123.2.18 2004-06-09 11:26:07 tatyana Exp $
  */
 
 #include <sys/types.h>
@@ -79,6 +79,7 @@ static bool buy_death(CHAR_DATA *ch, CHAR_DATA *questor);
 static bool buy_katana(CHAR_DATA *ch, CHAR_DATA *questor);
 static bool buy_vampire(CHAR_DATA *ch, CHAR_DATA *questor);
 static bool buy_restoration(CHAR_DATA *ch, CHAR_DATA *questor);
+static bool buy_train(CHAR_DATA *ch, CHAR_DATA *questor);
 
 enum qitem_type {
 	TYPE_ITEM,
@@ -103,6 +104,9 @@ qitem_t qitem_table[] = {
 
 	{ "20 practices",		 500, NULL,
 	   0, buy_prac						},
+
+	{ "1 train",			275, NULL,
+	   0, buy_train						},
 
 	{ "tattoo of your religion",	 200, NULL,
 	   0, buy_tattoo					},
@@ -187,7 +191,7 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 			qcmd->do_fn(ch, arg);
 			return;
 		}
-		
+
 	char_puts("QUEST COMMANDS:", ch);
 	for (qcmd = qcmd_table; qcmd->name != NULL; qcmd++) {
 		char_printf(ch, " %s", qcmd->name);
@@ -1148,5 +1152,14 @@ static bool buy_restoration(CHAR_DATA *ch, CHAR_DATA *questor)
 	ch->hit = ch->max_hit;
 	ch->mana = ch->max_mana;
 	ch->move = ch->max_move;
+	return TRUE;
+}
+
+static bool buy_train(CHAR_DATA *ch, CHAR_DATA *questor)
+{
+	PC(ch)->train += 1;
+	act("$N gives train session to $n.", ch, NULL, questor, TO_ROOM);
+	act_puts("$N gives train session to you.",
+		 ch, NULL, questor, TO_CHAR, POS_DEAD);
 	return TRUE;
 }
