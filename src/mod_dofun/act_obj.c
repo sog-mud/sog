@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.141 1999-05-19 09:19:30 fjoe Exp $
+ * $Id: act_obj.c,v 1.142 1999-05-20 07:18:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2238,8 +2238,18 @@ void do_zap(CHAR_DATA * ch, const char *argument)
 
 	if (wand->value[2] > 0) {
 		if (victim != NULL) {
-			act("$n zaps $N with $p.", ch, wand, victim, TO_ROOM);
-			act("You zap $N with $p.", ch, wand, victim, TO_CHAR);
+			if (victim == ch) {
+				act("$n zaps $mself with $p.",
+				    ch, wand, victim, TO_ROOM);
+				act("You zap yourself with $p.",
+				    ch, wand, victim, TO_CHAR);
+			}
+			else {
+				act("$n zaps $N with $p.",
+				    ch, wand, victim, TO_ROOM);
+				act("You zap $N with $p.",
+				    ch, wand, victim, TO_CHAR);
+			}
 		} else {
 			act("$n zaps $P with $p.", ch, wand, obj, TO_ROOM);
 			act("You zap $P with $p.", ch, wand, obj, TO_CHAR);
