@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.207 1999-11-27 11:06:11 fjoe Exp $
+ * $Id: handler.c,v 1.208 1999-11-28 12:40:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3716,22 +3716,20 @@ void quaff_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 	if (IS_PUMPED(ch) || ch->fighting != NULL)
 		WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
 
-	extract_obj(obj, 0);
 	obj_to_char(create_obj(get_obj_index(OBJ_VNUM_POTION_VIAL), 0), ch);
 
 	obj_cast_spell(obj->value[1].s, INT_VAL(obj->value[0]), ch, ch);
-	if (IS_EXTRACTED(ch))
-		return;
 
-	obj_cast_spell(obj->value[2].s, INT_VAL(obj->value[0]), ch, ch);
-	if (IS_EXTRACTED(ch))
-		return;
+	if (!IS_EXTRACTED(ch))
+		obj_cast_spell(obj->value[2].s, INT_VAL(obj->value[0]), ch, ch);
 
-	obj_cast_spell(obj->value[3].s, INT_VAL(obj->value[0]), ch, ch);
-	if (IS_EXTRACTED(ch))
-		return;
+	if (!IS_EXTRACTED(ch))
+		obj_cast_spell(obj->value[3].s, INT_VAL(obj->value[0]), ch, ch);
 
-	obj_cast_spell(obj->value[4].s, INT_VAL(obj->value[0]), ch, ch);
+	if (!IS_EXTRACTED(ch))
+		obj_cast_spell(obj->value[4].s, INT_VAL(obj->value[0]), ch, ch);
+
+	extract_obj(obj, 0);
 }
 
 /*
