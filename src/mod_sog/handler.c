@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.97 1998-12-22 16:22:39 fjoe Exp $
+ * $Id: handler.c,v 1.98 1998-12-22 18:23:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3019,7 +3019,7 @@ void format_obj(BUFFER *output, OBJ_DATA *obj)
 	}
 }
 
-void format_obj_affects(BUFFER *output, AFFECT_DATA *paf, bool duration)
+void format_obj_affects(BUFFER *output, AFFECT_DATA *paf, int flags)
 {
 	for (; paf; paf = paf->next) {
 		WHERE_DATA *w;
@@ -3028,11 +3028,15 @@ void format_obj_affects(BUFFER *output, AFFECT_DATA *paf, bool duration)
 			buf_printf(output, "Affects %s by %d",
 				   flag_string(apply_flags, paf->location),
 				   paf->modifier);
-			if (duration && paf->duration > -1)
+			if (!IS_SET(flags, FOA_F_NODURATION)
+			&&  paf->duration > -1)
 				buf_printf(output, " for %d hours",
 					   paf->duration);
 			buf_add(output, ".\n");
 		}
+
+		if (IS_SET(flags, FOA_F_NOAFFECTS))
+			continue;
 
 		if ((w = where_lookup(paf->where)) && paf->bitvector) {
 			buf_add(output, "Adds ");

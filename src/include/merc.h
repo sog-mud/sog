@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.130 1998-12-22 17:59:54 fjoe Exp $
+ * $Id: merc.h,v 1.131 1998-12-22 18:23:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1965,14 +1965,20 @@ void	path_to_track	(CHAR_DATA *ch, CHAR_DATA *victim, int door);
 bool	in_PK(CHAR_DATA *ch, CHAR_DATA *victim);
 bool	can_gate(CHAR_DATA *ch, CHAR_DATA *victim);
 bool	obj_is_pit(OBJ_DATA *obj);
+
+/* format_obj_affects flags */
+#define FOA_F_NODURATION	(A)	/* do not show duration		*/
+#define FOA_F_NOAFFECTS		(B)	/* do not show bit affects	*/
+
 void format_obj(BUFFER *output, OBJ_DATA *obj);
-void format_obj_affects(BUFFER *output, AFFECT_DATA *paf, bool duration);
+void format_obj_affects(BUFFER *output, AFFECT_DATA *paf, int flags);
+
 int	get_wear_level(CHAR_DATA *ch, OBJ_DATA *obj);
 
-bool	saves_spell	(int level, CHAR_DATA *victim, int dam_type );
+bool	saves_spell	(int level, CHAR_DATA *victim, int dam_type);
 bool	check_dispel	(int dis_level, CHAR_DATA *victim, int sn);
 void	obj_cast_spell	(int sn, int level, CHAR_DATA *ch, CHAR_DATA *victim,
-			 OBJ_DATA *obj );
+			 OBJ_DATA *obj);
 bool	saves_dispel	(int dis_level, int spell_level, int duration);
 
 bool remove_obj (CHAR_DATA * ch, int iWear, bool fReplace);

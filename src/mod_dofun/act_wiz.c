@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.103 1998-12-21 04:23:38 fjoe Exp $
+ * $Id: act_wiz.c,v 1.104 1998-12-22 18:23:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -108,7 +108,10 @@ void do_objlist(CHAR_DATA *ch, const char *argument)
 			   mlstr_mval(obj->short_descr),
 			   obj->pIndexData->vnum);
 		format_obj(buf, obj);
-		format_obj_affects(buf, obj->pIndexData->affected, FALSE);
+		if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED))
+			format_obj_affects(buf, obj->pIndexData->affected,
+					   FOA_F_NODURATION);
+		format_obj_affects(buf, obj->affected, 0);
 		fprintf(fp, "%s", fix_string(buf_string(buf)));
 	}
 	buf_free(buf);
@@ -1232,9 +1235,10 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 		buf_add(output, "'\n");
 	}
 
-	format_obj_affects(output, obj->affected, TRUE);
 	if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED))
-		format_obj_affects(output, obj->pIndexData->affected, FALSE);
+		format_obj_affects(output, obj->pIndexData->affected,
+				   FOA_F_NODURATION);
+	format_obj_affects(output, obj->affected, 0);
 
 	if (obj->pIndexData->oprogs) {
 		buf_add(output, "Object progs:\n");

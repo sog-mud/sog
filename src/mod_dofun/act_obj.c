@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.102 1998-12-22 16:22:39 fjoe Exp $
+ * $Id: act_obj.c,v 1.103 1998-12-22 18:23:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3193,8 +3193,9 @@ void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 	}
 
 	if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED))
-		format_obj_affects(output, obj->pIndexData->affected, TRUE);
-	format_obj_affects(output, obj->affected, TRUE);
+		format_obj_affects(output, obj->pIndexData->affected,
+				   FOA_F_NODURATION);
+	format_obj_affects(output, obj->affected, 0);
 	check_improve(ch, sn, TRUE, 5);
 }
 

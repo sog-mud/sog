@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.97 1998-12-19 10:19:27 kostik Exp $
+ * $Id: spellfun.c,v 1.98 1998-12-22 18:23:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3164,8 +3164,9 @@ void spell_identify(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	output = buf_new(-1);
 	format_obj(output, obj);
 	if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED))
-		format_obj_affects(output, obj->pIndexData->affected, FALSE);
-	format_obj_affects(output, obj->affected, TRUE);
+		format_obj_affects(output, obj->pIndexData->affected,
+				   FOA_F_NODURATION | FOA_F_NOAFFECTS);
+	format_obj_affects(output, obj->affected, FOA_F_NOAFFECTS);
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
 }
