@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.26 1998-05-18 14:00:11 efdi Exp $
+ * $Id: comm.c,v 1.27 1998-05-20 21:20:45 efdi Exp $
  */
 
 /***************************************************************************
@@ -1069,7 +1069,7 @@ void read_from_buffer( DESCRIPTOR_DATA *d )
 	}
 	else
 	{
-	    if ( ++d->repeat >= 25 )	/* corrected by chronos */
+	    if ( ++d->repeat >= 100 )	/* corrected by efdi */
 	    {
 		sprintf( log_buf, "%s input spamming!", d->host );
 		log_string( log_buf );
