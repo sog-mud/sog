@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.4 2000-03-16 05:28:33 osya Exp $
+ * $Id: spellfun2.c,v 1.139.2.5 2000-03-16 08:57:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -193,11 +193,11 @@ void spell_disintegrate(int sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	act_puts("$N's thin light ray ###DISINTEGRATES### you!", 
+	act_puts("$n's thin light ray ###DISINTEGRATES### you!", 
 	      ch, NULL, victim, TO_VICT, POS_RESTING);
-	act_puts("$n's thin light ray ###DISINTEGRATES### $n!", 
+	act_puts("$n's thin light ray ###DISINTEGRATES### $N!", 
 	      ch, NULL, victim, TO_NOTVICT, POS_RESTING);
-	act_puts("Your thin light ray ###DISINTEGRATES### $n!", 
+	act_puts("Your thin light ray ###DISINTEGRATES### $N!", 
 	      ch, NULL, victim, TO_CHAR, POS_RESTING);
 	char_puts("You have been KILLED!\n", victim);
 
@@ -5758,11 +5758,11 @@ void spell_abolish_undead(int sn, int level, CHAR_DATA *ch, void *vo)
                 return;
         }
 
-        act_puts("$N's holy light burns you! Your flesh decays into dust.",
+        act_puts("$n's holy light burns you! Your flesh decays into dust.",
               ch, NULL, victim, TO_VICT, POS_RESTING);
-        act_puts("$N's holy light burns $n! $n's flesh decays into dust.",
+        act_puts("$n's holy light burns $N! $N's flesh decays into dust.",
               ch, NULL, victim, TO_NOTVICT, POS_RESTING);
-        act_puts("Your holy light burns $n! $n's flesh decays into dust.",
+        act_puts("Your holy light burns $N! $N's flesh decays into dust.",
               ch, NULL, victim, TO_CHAR, POS_RESTING);
         char_puts("You have been KILLED!\n", victim);
 
