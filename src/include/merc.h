@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.266 1999-12-07 14:20:59 fjoe Exp $
+ * $Id: merc.h,v 1.267 1999-12-10 11:30:05 kostik Exp $
  */
 
 /***************************************************************************
@@ -437,6 +437,8 @@ struct spec_type
 #define ACT_SAGE		(hh)		/* sage (Otho etc.)	*/
 #define ACT_REPAIRMAN		(ii)
 #define ACT_FAMILIAR		(jj)		/* familiar 		*/
+#define ACT_IMMSTEAL		(kk)
+#define ACT_IMMSUMMON		(ll)
 
 /* OFF bits for mobiles *OFF  */
 #define OFF_AREA_ATTACK 	(A)
@@ -907,6 +909,10 @@ struct spec_type
 #define APPLY_RESIST_MENTAL	37
 #define APPLY_RESIST_SOUND	38
 #define APPLY_RESIST_DISEASE	39
+#define APPLY_RESIST_POISON	40
+#define APPLY_RESIST_CHARM	41
+#define APPLY_RESIST_HARM	42
+#define APPLY_RESIST_LIGHT	43
 
 /*
  * Skillaffects flags
@@ -1231,9 +1237,6 @@ struct mob_index_data
 	const char *		damtype;
 	flag64_t		act;
 	flag32_t		off_flags;
-	flag32_t		imm_flags;
-	flag32_t		res_flags;
-	flag32_t		vuln_flags;
 	flag32_t		start_pos;
 	flag32_t		default_pos;
 	mlstring		gender;
@@ -1242,6 +1245,7 @@ struct mob_index_data
 	flag32_t		form;
 	flag32_t		parts;
 	flag32_t		size;
+	int16_t			resists[MAX_RESIST]; /* Resistances */
 	const char *		material;
 	flag32_t		practicer;
 	const char *		clan;
@@ -1337,9 +1341,6 @@ struct char_data
 	int			gold;
 	int			silver;
 	flag64_t		comm;	/* RT added to pad the vector */
-	flag32_t		imm_flags;
-	flag32_t		res_flags;
-	flag32_t		vuln_flags;
 	int			invis_level;
 	int			incog_level;
 	flag64_t		affected_by;
@@ -1359,7 +1360,7 @@ struct char_data
 	int			mod_stat[MAX_STATS];
 
 	/* resistances */
-	int			resists[MAX_RESIST];
+	int16_t			resists[MAX_RESIST];
 
 	/* parts stuff */
 	flag32_t		form;
@@ -1903,7 +1904,6 @@ void	scream_effect	(void *vo, int level, int dam);
 const char *get_stat_alias(CHAR_DATA *ch, int stat);
 int	count_users	(OBJ_DATA *obj);
 void	deduct_cost	(CHAR_DATA *ch, uint cost);
-int	check_immune	(CHAR_DATA *ch, int dam_class);
 int	check_exit	(const char *arg);
 
 int	get_hours	(CHAR_DATA *ch);
@@ -1930,6 +1930,9 @@ void	obj_from_room	(OBJ_DATA *obj);
 void	obj_to_room	(OBJ_DATA *obj, ROOM_INDEX_DATA *pRoomIndex);
 void	obj_to_obj	(OBJ_DATA *obj, OBJ_DATA *obj_to);
 void	obj_from_obj	(OBJ_DATA *obj);
+
+void 	set_percent_resistances
+		(flag64_t imm, flag64_t res, flag64_t vul, int16_t resist[]);
 
 /* extract obj flags */
 #define XO_F_NOCOUNT	(A)	/* do not update obj count		*/

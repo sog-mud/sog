@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.50 1999-12-04 08:52:30 fjoe Exp $
+ * $Id: olc_mob.c,v 1.51 1999-12-10 11:30:06 kostik Exp $
  */
 
 #include "olc.h"
@@ -78,6 +78,7 @@ DECLARE_OLC_FUN(mobed_clone		);
 DECLARE_OLC_FUN(mobed_invis		);
 DECLARE_OLC_FUN(mobed_incog		);
 DECLARE_OLC_FUN(mobed_fvnum		);
+DECLARE_OLC_FUN(mobed_resist		);
 
 DECLARE_VALIDATE_FUN(validate_fvnum	);
 
@@ -107,9 +108,6 @@ olc_cmd_t olc_cmds_mob[] =
 	{ "armor",	mobed_ac					},
 	{ "form",	mobed_form,	NULL,		form_flags	},
 	{ "part",	mobed_part,	NULL,		part_flags	},
-	{ "imm",	mobed_imm,	NULL,		imm_flags	},
-	{ "res",	mobed_res,	NULL,		res_flags	},
-	{ "vuln",	mobed_vuln,	NULL,		vuln_flags	},
 	{ "material",	mobed_material					},
 	{ "off",	mobed_off,	NULL,		off_flags	},
 	{ "size",	mobed_size,	NULL,		size_table	},
@@ -130,6 +128,7 @@ olc_cmd_t olc_cmds_mob[] =
 	{ "invis",	mobed_invis					},
 	{ "incog",	mobed_incog					},
 	{ "fvnum",	mobed_fvnum,	validate_fvnum			},
+	{ "resist",	mobed_resist					},
 
 	{ "commands",	show_commands					},
 	{ "version",	show_version					},
@@ -233,6 +232,7 @@ OLC_FUN(mobed_show)
 	AREA_DATA	*pArea;
 	MPTRIG *mptrig;
 	BUFFER *buf;
+	int i;
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
@@ -308,15 +308,6 @@ OLC_FUN(mobed_show)
 	buf_printf(buf, "Parts:       [%s]\n",
 		flag_string(part_flags, pMob->parts));
 
-	buf_printf(buf, "Imm:         [%s]\n",
-		flag_string(imm_flags, pMob->imm_flags));
-
-	buf_printf(buf, "Res:         [%s]\n",
-		flag_string(res_flags, pMob->res_flags));
-
-	buf_printf(buf, "Vuln:        [%s]\n",
-		flag_string(vuln_flags, pMob->vuln_flags));
-
 	buf_printf(buf, "Off:         [%s]\n",
 		flag_string(off_flags,  pMob->off_flags));
 
@@ -354,6 +345,24 @@ OLC_FUN(mobed_show)
 	mlstr_dump(buf, "Short descr: ", &pMob->short_descr);
 	mlstr_dump(buf, "Long descr: ", &pMob->long_descr);
 	mlstr_dump(buf, "Description: ", &pMob->description);
+
+	buf_add(buf, "Resist");
+
+	for (i = 0; i < MAX_RESIST; i++) {
+		if (strlen(flag_string(resist_flags, i)) > 7)
+			buf_printf(buf, "\t%s\t%d%%", 
+				flag_string(resist_flags, i),
+				pMob->resists[i]);
+		else
+			buf_printf(buf, "\t%s\t\t%d%%", 
+				flag_string(resist_flags, i),
+				pMob->resists[i]);
+			
+		if(!((i+1) % 3))
+			buf_add(buf, "\n");
+	}
+	
+	buf_add(buf, "\n");
 
 	if (pMob->pShop) {
 		SHOP_DATA *pShop;
@@ -764,6 +773,39 @@ OLC_FUN(mobed_prac)
 	return olced_flag32(ch, argument, cmd, &pMob->practicer);
 }
 
+OLC_FUN(mobed_resist)
+{
+	MOB_INDEX_DATA *pMob;
+	char arg[MAX_INPUT_LENGTH];
+	int res;
+
+	EDIT_MOB(ch, pMob);
+
+	if (argument[0] == '\0') {
+		char_puts("Syntax: resist damclass number.\n", ch);
+		return FALSE;
+	}
+	
+	argument = one_argument(argument, arg, sizeof(arg));
+
+	if (arg[0] == '\0') {
+		char_puts("Syntax: resist damclass number.\n", ch);
+		return FALSE;
+	}
+	
+	argument = one_argument(argument, arg, sizeof(arg));
+
+	if (!is_number(arg)) {
+		char_puts("Syntax: resist damclass number.\n", ch);
+		return FALSE;
+	}
+	
+	res = flag_value(resist_flags, arg);
+	pMob->resists[res] = atoi(arg);
+	char_puts("Resistance set.\n", ch);
+	return TRUE;
+}
+
 OLC_FUN(mobed_ac)
 {
 	MOB_INDEX_DATA *pMob;
@@ -835,27 +877,6 @@ OLC_FUN(mobed_part)
 	return olced_flag32(ch, argument, cmd, &pMob->parts);
 }
 
-OLC_FUN(mobed_imm)
-{
-	MOB_INDEX_DATA *pMob;
-	EDIT_MOB(ch, pMob);
-	return olced_flag32(ch, argument, cmd, &pMob->imm_flags);
-}
-
-OLC_FUN(mobed_res)
-{
-	MOB_INDEX_DATA *pMob;
-	EDIT_MOB(ch, pMob);
-	return olced_flag32(ch, argument, cmd, &pMob->res_flags);
-}
-
-OLC_FUN(mobed_vuln)
-{
-	MOB_INDEX_DATA *pMob;
-	EDIT_MOB(ch, pMob);
-	return olced_flag32(ch, argument, cmd, &pMob->vuln_flags);
-}
-
 OLC_FUN(mobed_material)
 {
 	MOB_INDEX_DATA *pMob;
@@ -905,6 +926,7 @@ OLC_FUN(mobed_race)
 
 	if (argument[0]
 	&&  (r = race_search(argument)) != NULL) {
+		int i;
 		EDIT_MOB(ch, pMob);
 
 		free_string(pMob->race);
@@ -912,11 +934,10 @@ OLC_FUN(mobed_race)
 		pMob->act	  = r->act;
 		pMob->affected_by = r->aff;
 		pMob->off_flags   = r->off;
-		pMob->imm_flags   = r->imm;
-		pMob->res_flags   = r->res;
-		pMob->vuln_flags  = r->vuln;
 		pMob->form        = r->form;
 		pMob->parts       = r->parts;
+		for (i = 0; i < MAX_RESIST; i++)
+			pMob->resists[i] = r->resists[i];
 
 		char_puts("Race set.\n", ch);
 		return TRUE;
@@ -1162,9 +1183,6 @@ OLC_FUN(mobed_clone)
 	pMob->level		= pFrom->level;
 	pMob->hitroll		= pFrom->hitroll;
 	pMob->off_flags		= pFrom->off_flags;
-	pMob->imm_flags		= pFrom->imm_flags;
-	pMob->res_flags		= pFrom->res_flags;
-	pMob->vuln_flags	= pFrom->vuln_flags;
 	pMob->start_pos		= pFrom->start_pos;
 	pMob->default_pos	= pFrom->default_pos;
 	mlstr_cpy(&pMob->gender, &pFrom->gender);

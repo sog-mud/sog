@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.129 1999-12-01 09:07:08 fjoe Exp $
+ * $Id: act_quest.c,v 1.130 1999-12-10 11:29:48 kostik Exp $
  */
 
 #include <sys/types.h>
@@ -589,7 +589,7 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 		||  IS_SET(victim->pMobIndex->act,
 			   ACT_TRAIN | ACT_PRACTICE | ACT_HEALER |
 			   ACT_NOTRACK | ACT_PET)
-		||  IS_SET(victim->pMobIndex->imm_flags, IMM_SUMMON)
+		||  IS_SET(victim->pMobIndex->act, ACT_IMMSUMMON)
 		||  questor->pMobIndex == victim->pMobIndex
 		||  victim->in_room == NULL
 		||  victim->in_room->sector_type == SECT_UNDERWATER

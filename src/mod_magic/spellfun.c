@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.193 1999-12-03 11:57:19 fjoe Exp $
+ * $Id: spellfun.c,v 1.194 1999-12-10 11:30:12 kostik Exp $
  */
 
 /***************************************************************************
@@ -281,8 +281,7 @@ void spell_calm(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	if (number_range(0, chance) >= mlevel) { /* hard to stop large fights */
 		for (vch = ch->in_room->people; vch; vch = vch->next_in_room) {
 			if (IS_NPC(vch)
-			&&  (IS_SET(vch->imm_flags, IMM_MAGIC) ||
-			     IS_SET(vch->pMobIndex->act, ACT_UNDEAD)))
+			&& IS_SET(vch->pMobIndex->act, ACT_UNDEAD))
 				return;
 
 			if (IS_AFFECTED(vch, AFF_CALM | AFF_BERSERK)
@@ -585,7 +584,6 @@ void spell_charm_person(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	||  IS_AFFECTED(ch, AFF_CHARM)
 	||  !IS_AWAKE(victim)
 	||  level < LEVEL(victim)
-	||  IS_SET(victim->imm_flags, IMM_CHARM)
 	||  saves_spell(level, victim, DAM_CHARM) 
 	||  (IS_NPC(victim) && victim->pMobIndex->pShop != NULL)
 	||  (victim->in_room &&
@@ -2214,8 +2212,7 @@ void spell_heat_metal(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	int dam = 0;
 	bool fail = TRUE;
 
-   if (!saves_spell(level + 2,victim,DAM_FIRE)
-   &&  !IS_SET(victim->imm_flags,IMM_FIRE))
+   if (!saves_spell(level + 2,victim,DAM_FIRE))
    {
 		for (obj_lose = victim->carrying;
 		      obj_lose != NULL;
@@ -3233,8 +3230,7 @@ void spell_slow(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	if (saves_spell(level,victim, DAM_OTHER)
-	||  IS_SET(victim->imm_flags, IMM_MAGIC))
+	if (saves_spell(level,victim, DAM_OTHER))
 		return;
 
 	if (IS_AFFECTED(victim, AFF_HASTE)) {
@@ -3305,7 +3301,6 @@ void spell_summon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 						ROOM_PEACE | ROOM_NOSUMMON)
 	||  IS_SET(ch->in_room->area->area_flags, AREA_CLOSED)
 	||  room_is_private(ch->in_room)
-	||  IS_SET(victim->imm_flags, IMM_SUMMON)
 	||  (victim->in_room->exit[0] == NULL &&
 	     victim->in_room->exit[1] == NULL &&
 	     victim->in_room->exit[2] == NULL &&
@@ -3318,6 +3313,7 @@ void spell_summon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		||  saves_spell(level, victim, DAM_OTHER)
 		||  IS_SET(victim->pMobIndex->act, ACT_AGGRESSIVE)
 		||  IS_SET(ch->in_room->room_flags, ROOM_NOMOB)
+		||  IS_SET(ch->pMobIndex->act, ACT_IMMSUMMON)
 		||  NPC(victim)->hunter)
 			failed = TRUE;
 	}
@@ -3353,7 +3349,6 @@ void spell_teleport(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	if (victim->in_room == NULL
 	||  IS_SET(victim->in_room->room_flags, ROOM_NORECALL)
-	||  (victim != ch && IS_SET(victim->imm_flags,IMM_SUMMON))
 	||  (!IS_NPC(ch) && victim->fighting != NULL)
 	||  (victim != ch
 	&&  (saves_spell(level - 5, victim,DAM_OTHER)))) {

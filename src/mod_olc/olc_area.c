@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.64 1999-12-07 14:20:59 fjoe Exp $
+ * $Id: olc_area.c,v 1.65 1999-12-10 11:30:06 kostik Exp $
  */
 
 #include "olc.h"
@@ -845,6 +845,7 @@ static void save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 	MPTRIG *mptrig;
 	flag64_t temp;
 	const char *p;
+	int i;
 
 	if (r == NULL) {
 		wizlog("save_mobile: vnum %d: %s: unknown race",
@@ -880,9 +881,9 @@ static void save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 				pMobIndex->ac[AC_SLASH]  / 10, 
 				pMobIndex->ac[AC_EXOTIC] / 10);
 	fprintf(fp, "%s ",	format_flags(pMobIndex->off_flags & ~r->off));
-	fprintf(fp, "%s ",	format_flags(pMobIndex->imm_flags & ~r->imm));
-	fprintf(fp, "%s ",	format_flags(pMobIndex->res_flags & ~r->res));
-	fprintf(fp, "%s\n",	format_flags(pMobIndex->vuln_flags & ~r->vuln));
+	
+	fprintf(fp, "0 0 0\n"); /* Write old-styled imm/res/vuln flags for
+				compatibility */
 
 	p = mlstr_mval(&pMobIndex->gender);
 	if (IS_NULLSTR(p))
@@ -911,15 +912,6 @@ static void save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 	if ((temp = DIFF_BIT(r->off, pMobIndex->off_flags)))
 		fprintf(fp, "F off %s\n", format_flags(temp));
 
-	if ((temp = DIFF_BIT(r->imm, pMobIndex->imm_flags)))
-		fprintf(fp, "F imm %s\n", format_flags(temp));
-
-	if ((temp = DIFF_BIT(r->res, pMobIndex->res_flags)))
-		fprintf(fp, "F res %s\n", format_flags(temp));
-
-	if ((temp = DIFF_BIT(r->vuln, pMobIndex->vuln_flags)))
-		fprintf(fp, "F vul %s\n", format_flags(temp));
-
 	if ((temp = DIFF_BIT(r->form, pMobIndex->form)))
 		fprintf(fp, "F for %s\n", format_flags(temp));
 
@@ -939,6 +931,13 @@ static void save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 		fprintf(fp, "I %d\n", pMobIndex->incog_level);
 	if (pMobIndex->fvnum)
 		fprintf(fp, "V %d\n", pMobIndex->fvnum);
+	for (i = 0; i < MAX_RESIST; i++) {
+		if (pMobIndex->resists[i] != r->resists[i]) {
+			fprintf(fp, "r %s %d\n", 
+				flag_string(resist_flags, i), 
+				pMobIndex->resists[i]);
+		}
+	}
 }
 
 /*****************************************************************************
@@ -1015,15 +1014,6 @@ static void save_object(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
 			switch(pAf->where) {
 			case TO_AFFECTS:
 				letter = 'A';
-				break;
-			case TO_IMMUNE:
-				letter = 'I';
-				break;
-			case TO_RESIST:
-				letter = 'R';
-				break;
-			case TO_VULN:
-				letter = 'V';
 				break;
 			default:
 				log("olc_save: vnum %d: "

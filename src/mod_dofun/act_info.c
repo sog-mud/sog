@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.297 1999-12-07 14:20:54 fjoe Exp $
+ * $Id: act_info.c,v 1.298 1999-12-10 11:29:43 kostik Exp $
  */
 
 /***************************************************************************
@@ -457,12 +457,7 @@ void do_nofollow(CHAR_DATA *ch, const char *argument)
 void do_nosummon(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch)) {
-		TOGGLE_BIT(ch->imm_flags, IMM_SUMMON);
-		if (IS_SET(ch->imm_flags, IMM_SUMMON))
-			char_puts("You are now immune to summoning.\n", ch);
-		else
-			char_puts("You are no longer immune "
-				  "to summoning.\n", ch);
+		char_puts("Huh?\n", ch);
 	}
 	else {
 		TOGGLE_BIT(PC(ch)->plr_flags, PLR_NOSUMMON);
@@ -2757,12 +2752,12 @@ void do_resistances(CHAR_DATA *ch, const char *argument)
 	int i;
 	bool found = FALSE;
 	for (i=0; i < MAX_RESIST; i++) {
-		if (!ch->resists[i])
+		if (!ch->resists[i] || i == RESIST_CHARM)
 			continue;
 		found = TRUE;
 		if (ch->level < 20) {
 			char_printf(ch, "You are %s %s.\n", 
-				get_resist_alias(ch->resists[i]),
+				get_resist_alias(ch->resists[i]), 
 				flag_string(resist_info_flags, i));
 		} else {
 			char_printf(ch, "You are %s %s (%d%%).\n", 
@@ -3667,7 +3662,7 @@ void do_control(CHAR_DATA *ch, const char *argument)
 	||  IS_AFFECTED(ch, AFF_CHARM)
 	||  number_percent() > chance
 	||  ch->level < (victim->level + 2)
-	||  IS_SET(victim->imm_flags,IMM_CHARM)
+	||  (get_resist(victim, RESIST_CHARM) == 100)
 	||  (IS_NPC(victim) && victim->pMobIndex->pShop != NULL)) {
 		check_improve(ch, "control animal", FALSE, 2);
 		do_say(victim, "I'm not about to follow you!");

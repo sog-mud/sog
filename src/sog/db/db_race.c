@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_race.c,v 1.15 1999-12-02 10:54:12 kostik Exp $
+ * $Id: db_race.c,v 1.16 1999-12-10 11:30:11 kostik Exp $
  */
 
 #include <stdio.h>
@@ -62,8 +62,11 @@ DBINIT_FUN(init_race)
 DBLOAD_FUN(load_race)
 {
 	race_t r;
-	race_init(&r);
+	flag64_t imm = 0;
+	flag64_t res = 0;
+	flag64_t vul = 0;
 
+	race_init(&r);
 	for (;;) {
 		bool fMatch = FALSE;
 		
@@ -80,13 +83,29 @@ DBLOAD_FUN(load_race)
 				if (IS_NULLSTR(r.name)) {
 					db_error("load_race",
 						 "race name undefined");
-				} else if ((pr = hash_insert(&races, r.name,
+					race_destroy(&r);
+					return;
+				}
+
+				if (imm | res | vul) {
+					if (IS_SET(imm, IMM_SUMMON)) 
+						SET_BIT(r.act, ACT_IMMSUMMON);
+
+					if (IS_SET(imm, IMM_STEAL))
+						SET_BIT(r.act, ACT_IMMSTEAL);
+
+					set_percent_resistances(imm, res, vul, 
+						r.resists);
+				}
+
+				if ((pr = hash_insert(&races, r.name,
 							     &r)) == NULL) {
 					db_error("load_race",
 						 "duplicate race name");
 				} else {
 					db_set_arg(dbdata, "PCRACE", pr);
 				}
+
 				race_destroy(&r);
 				return;
 			}
@@ -96,7 +115,7 @@ DBLOAD_FUN(load_race)
 			KEY("Flags", r.race_flags, fread_fstring(race_flags, fp));
 			break;
 		case 'I':
-			KEY("Imm", r.imm, fread_fstring(imm_flags, fp));
+			KEY("Imm", imm, fread_fstring(imm_flags, fp));
 			break;
 		case 'N':
 			SKEY("Name", r.name, fread_string(fp));
@@ -108,16 +127,20 @@ DBLOAD_FUN(load_race)
 			KEY("Parts", r.parts, fread_fstring(part_flags, fp));
 			break;
 		case 'R':
-			KEY("Res", r.res, fread_fstring(res_flags, fp));
 			if (IS_TOKEN(fp, "Resist")) {
+				char *cres;
 				int res;
-				res = fread_fword(resist_flags, fp);
+				fread_word(fp);
+				cres = rfile_tok(fp);
+				res = flag_svalue(resist_flags, cres);
 				r.resists[res] = fread_number(fp);
 				fMatch = TRUE;
-			}
+				break;
+			};
+			KEY("Res", res, fread_fstring(res_flags, fp));
 			break;
 		case 'V':
-			KEY("Vuln", r.vuln, fread_fstring(vuln_flags, fp));
+			KEY("Vuln", vul, fread_fstring(vuln_flags, fp));
 			break;
 		}
 

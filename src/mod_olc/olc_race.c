@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.16 1999-11-22 14:54:25 fjoe Exp $
+ * $Id: olc_race.c,v 1.17 1999-12-10 11:30:07 kostik Exp $
  */
 
 #include "olc.h"
@@ -46,6 +46,7 @@ DECLARE_OLC_FUN(raceed_vuln		);
 DECLARE_OLC_FUN(raceed_form		);
 DECLARE_OLC_FUN(raceed_parts		);
 DECLARE_OLC_FUN(raceed_flags		);
+DECLARE_OLC_FUN(raceed_resists		);
 
 DECLARE_OLC_FUN(raceed_addpcdata	);
 DECLARE_OLC_FUN(raceed_delpcdata	);
@@ -87,12 +88,11 @@ olc_cmd_t olc_cmds_race[] =
 	{ "act",	raceed_act,	NULL,		act_flags	},
 	{ "affect",	raceed_affect,	NULL,		affect_flags	},
 	{ "off",	raceed_off,	NULL,		off_flags	},
-	{ "imm",	raceed_imm,	NULL,		imm_flags	},
-	{ "res",	raceed_res,	NULL,		res_flags	},
-	{ "vuln",	raceed_vuln,	NULL,		vuln_flags	},
        	{ "form",	raceed_form,	NULL,		form_flags	},
 	{ "parts",	raceed_parts,	NULL,		part_flags	},
 	{ "flags",	raceed_flags,	NULL,		race_flags	},
+
+	{ "resists",	raceed_resists					},
 
 	{ "addpcdata",	raceed_addpcdata,validate_whoname		},
 	{ "delpcdata",	raceed_delpcdata				},
@@ -205,7 +205,7 @@ OLC_FUN(raceed_touch)
 
 OLC_FUN(raceed_show)
 {
-	int i;
+	int i, j;
 	BUFFER *output;
 	race_t *r;
 	bool found;
@@ -235,15 +235,6 @@ OLC_FUN(raceed_show)
 	if (r->off)
 		buf_printf(output, "Off flags:     [%s]\n",
 			   flag_string(off_flags, r->off));
-	if (r->imm)
-		buf_printf(output, "Imm flags:     [%s]\n",
-			   flag_string(imm_flags, r->imm));
-	if (r->res)
-		buf_printf(output, "Res flags:     [%s]\n",
-			   flag_string(res_flags, r->res));
-	if (r->vuln)
-		buf_printf(output, "Vuln flags:    [%s]\n",
-			   flag_string(vuln_flags, r->vuln));
 	if (r->form)
 		buf_printf(output, "Form:          [%s]\n",
 			   flag_string(form_flags, r->form));
@@ -253,6 +244,24 @@ OLC_FUN(raceed_show)
 	if (r->race_flags)
 		buf_printf(output, "General flags: [%s]\n",
 			   flag_string(race_flags, r->race_flags));
+	for (i = 0, j = 0; i < MAX_RESIST; i++) {
+		if (r->resists[i]) {
+			if (!j)
+				buf_add(output, "Resists");
+			if (strlen(flag_string(resist_flags, i)) > 7)
+				buf_printf(output, "\t%s\t%d%%",
+					flag_string(resist_flags, i),
+					r->resists[i]);
+			else 
+				buf_printf(output, "\t%s\t\t%d%%",
+					flag_string(resist_flags, i),
+					r->resists[i]);
+			if (!(++j%3))
+				buf_add(output, "\n");
+		}
+	}
+	if (j)
+		buf_add(output, "\n");
 	if (!r->race_pcdata) {               
 		buf_add(output, "=== No PC race defined ===\n");
 		page_to_char(buf_string(output), ch);
@@ -595,6 +604,37 @@ OLC_FUN(raceed_ethos)
 	return olced_flag32(ch, argument, cmd, &race->race_pcdata->restrict_ethos);
 }
 
+OLC_FUN(raceed_resists) 
+{
+	race_t *race;
+	char arg[MAX_INPUT_LENGTH];
+	int res;
+
+	EDIT_RACE(ch, race);
+	argument = one_argument(argument, arg, sizeof(arg));
+
+
+	if (arg[0] == '\0') {
+		char_puts("Syntax: resists damclass number.\n", ch);
+		return FALSE;
+	}
+
+	res = flag_value(resist_flags, arg);
+
+	one_argument(argument, arg, sizeof(arg));
+
+	if(arg[0] == '\0' || !is_number(arg)) {
+		char_puts("Syntax: resists damclass number.\n", ch);
+		return FALSE;
+	}
+
+	race->resists[res] = atoi(arg);
+	char_puts("Resistance set.\n", ch);
+
+	return TRUE;
+}
+			
+
 OLC_FUN(raceed_addclass)
 {
 	class_t *cl;
@@ -775,6 +815,7 @@ static void *
 save_race_cb(void *p, va_list ap)
 {
 	race_t *r = (race_t *) p;
+	int i;
 
 	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
 	bool *pfound = va_arg(ap, bool *);
@@ -800,18 +841,19 @@ save_race_cb(void *p, va_list ap)
 		fprintf(fp, "Aff %s~\n", flag_string(affect_flags, r->aff));
 	if (r->off)
 		fprintf(fp, "Off %s~\n", flag_string(off_flags, r->off));
-	if (r->imm)
-		fprintf(fp, "Imm %s~\n", flag_string(imm_flags, r->imm));
-	if (r->res)
-		fprintf(fp, "Res %s~\n", flag_string(res_flags, r->res));
-	if (r->vuln)
-		fprintf(fp, "Vuln %s~\n", flag_string(vuln_flags, r->vuln));
 	if (r->form)
 		fprintf(fp, "Form %s~\n", flag_string(form_flags, r->form));
 	if (r->parts)
 		fprintf(fp, "Parts %s~\n", flag_string(part_flags, r->parts));
 	if (r->race_flags)
 		fprintf(fp, "Flags %s~\n", flag_string(race_flags, r->race_flags));
+	for (i = 0; i < MAX_RESIST; i++) {
+		if (r->resists[i])
+			fprintf(fp,"Resist %s %d\n", 
+				flag_string(resist_flags, i),
+				r->resists[i]);
+	}
+
 	fprintf(fp, "End\n\n");
 
 	if (r->race_pcdata)

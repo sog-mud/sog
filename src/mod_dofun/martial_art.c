@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.139 1999-12-07 14:20:58 fjoe Exp $
+ * $Id: martial_art.c,v 1.140 1999-12-10 11:29:47 kostik Exp $
  */
 
 /***************************************************************************
@@ -2520,16 +2520,6 @@ void do_assassinate(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 	
-/*
-	if (IS_SET(victim->imm_flags, IMM_WEAPON)) {
-		act("$N seems immune to your assassination attempt.",
-		    ch, NULL, victim, TO_CHAR);
-		act("$N seems immune to $n's assassination attempt.",
-		    ch, NULL, victim, TO_ROOM);
-		return;
-	}
-*/
-
 	if (is_safe(ch, victim))
 		return;
 

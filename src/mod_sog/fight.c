@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.230 1999-12-08 18:41:51 avn Exp $
+ * $Id: fight.c,v 1.231 1999-12-10 11:30:07 kostik Exp $
  */
 
 /***************************************************************************
@@ -458,23 +458,6 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt)
 			chance /= 3;
 		}
 	}
-}
-
-int get_resistance(CHAR_DATA *ch, int dam_type)
-{
-	int imm;
-	imm = check_immune(ch, dam_type);
-	switch (imm) {
-	case IS_IMMUNE:
-		return 100;
-	case IS_RESISTANT:
-		return 33;
-	case IS_VULNERABLE:
-		return -33;
-	case IS_NORMAL:
-		return 100 - reduce_damage(ch, 100, dam_type);
-	}
-	return 0;
 }
 
 /* procedure for all mobile attacks */
@@ -1258,41 +1241,46 @@ void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 	gain_exp(victim, -lost_exp);
 }
 
-int reduce_damage(CHAR_DATA *ch, int dam, int dam_class) 
+int get_resist(CHAR_DATA *ch, int dam_class) 
 {
 	switch(dam_class) {
 	case DAM_BASH:
-		return dam - dam*UMIN(ch->resists[RESIST_BASH],100) / 100;
+		return URANGE(-100, ch->resists[RESIST_BASH], 100);
 	case DAM_SLASH:
-		return dam - dam*UMIN(ch->resists[RESIST_SLASH],100) / 100;
+		return URANGE(-100, ch->resists[RESIST_SLASH], 100);
 	case DAM_PIERCE:
-		return dam - dam*UMIN(ch->resists[RESIST_PIERCE],100) / 100;
+		return URANGE(-100, ch->resists[RESIST_PIERCE], 100);
 	case DAM_FIRE:
-		return dam - dam*UMIN(ch->resists[RESIST_FIRE],100) / 100;
+		return URANGE(-100, ch->resists[RESIST_FIRE], 100);
 	case DAM_COLD:
-		return dam - dam*UMIN(ch->resists[RESIST_COLD],100) / 100;
+		return URANGE(-100, ch->resists[RESIST_COLD], 100);
 	case DAM_LIGHTNING:
-		return dam - dam*UMIN(ch->resists[RESIST_LIGHTNING],100) / 100;
+		return URANGE(-100, ch->resists[RESIST_LIGHTNING], 100);
 	case DAM_ACID:
-		return dam - dam*UMIN(ch->resists[RESIST_ACID],100) / 100;
+		return URANGE(-100, ch->resists[RESIST_ACID], 100);
 	case DAM_NEGATIVE:
-		return dam - dam*UMIN(ch->resists[RESIST_NEGATIVE],100) / 100;
+		return URANGE(-100, ch->resists[RESIST_NEGATIVE], 100);
 	case DAM_HOLY:
+		return URANGE(-100, ch->resists[RESIST_HOLY], 100);
 	case DAM_LIGHT:
-		return dam - dam*UMIN(ch->resists[RESIST_HOLY],100) / 100;
+		return URANGE(-100, ch->resists[RESIST_LIGHT], 100);
 	case DAM_ENERGY:
-		return dam - dam*UMIN(ch->resists[RESIST_ENERGY],100) / 100;
+		return URANGE(-100, ch->resists[RESIST_ENERGY], 100);
 	case DAM_MENTAL:
-		return dam - dam*UMIN(ch->resists[RESIST_MENTAL],100) / 100;
+		return URANGE(-100, ch->resists[RESIST_MENTAL], 100);
 	case DAM_DISEASE:
+		return URANGE(-100, ch->resists[RESIST_DISEASE], 100);
 	case DAM_POISON:
-		return dam - dam*UMIN(ch->resists[RESIST_DISEASE],100) / 100;
+		return URANGE(-100, ch->resists[RESIST_POISON], 100);
 	case DAM_SOUND:
-		return dam - dam*UMIN(ch->resists[RESIST_SOUND],100) / 100;
+		return URANGE(-100, ch->resists[RESIST_SOUND], 100);
+	case DAM_HARM:
+		return URANGE(-100, ch->resists[RESIST_HARM], 100);
 	default:
-		return dam;
+		return IS_IMMORTAL(ch)? 100 : 0;
 	}
 }
+
 /*
  * Inflict damage from a hit.
  */
@@ -1433,27 +1421,15 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 			return FALSE;
 	}
 
-	switch(check_immune(victim, dam_class)) {
-	case IS_IMMUNE:
+	if (get_resist(victim, dam_class) == 100)
 		immune = TRUE;
-		dam = 0;
-		break;
-
-	case IS_RESISTANT:
-		dam -= dam/3;
-		break;
-
-	case IS_VULNERABLE:
-		dam += dam/2;
-		break;
-	}
 
 	if (IS_SET(dam_flags, DAMF_HIT) && ch != victim) {
 		if ((dam2 = critical_strike(ch, victim, dam)) != 0)
 			dam = dam2;
 	}
 
-	dam = reduce_damage(victim, dam, dam_class);
+	dam -= dam*get_resist(victim, dam_class) / 100;
 
 	if (IS_SET(dam_flags, DAMF_SHOW))
 		dam_message(ch, victim, dam, dt, immune, dam_class, dam_flags);

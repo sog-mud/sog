@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.152 1999-12-06 11:10:22 fjoe Exp $
+ * $Id: spellfun2.c,v 1.153 1999-12-10 11:30:12 kostik Exp $
  */
 
 /***************************************************************************
@@ -2260,12 +2260,12 @@ void spell_disperse(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		if (vch == ch
 		||  !vch->in_room
 		||  IS_SET(vch->in_room->room_flags, ROOM_NORECALL)
-		||  IS_SET(vch->imm_flags, IMM_SUMMON)
 		||  IS_IMMORTAL(vch))
 			continue;
 
 		if (IS_NPC(vch)) {
-			if (IS_SET(vch->pMobIndex->act, ACT_AGGRESSIVE))
+			if (IS_SET(vch->pMobIndex->act, ACT_AGGRESSIVE)
+			||  IS_SET(vch->pMobIndex->act, ACT_IMMSUMMON))
 				continue;
 		}
 		else {
@@ -3666,26 +3666,6 @@ void spell_knock (const char *sn, int level, CHAR_DATA *ch, void *vo)
 	char_puts("You can't see that here.\n",ch);
 }
 
-void spell_magic_resistance (const char *sn, int level, CHAR_DATA *ch, void *vo)
-{
-	AFFECT_DATA af;
-
-	if (!is_affected(ch, sn))
-	{
-	  char_puts("You are now resistive to magic.\n", ch);
-
-	  af.where = TO_RESIST;
-	  af.type = sn;
-	  af.duration = level / 10;
-	  af.level = level;
-	  af.bitvector = RES_MAGIC;
-	  INT(af.location) = 0;
-	  af.modifier = 0;
-	  affect_to_char(ch, &af);
-	} else 
-	  char_puts("You are already resistive to magic.\n", ch);
-}
-
 void spell_hallucination (const char *sn, int level, CHAR_DATA *ch, void *vo) 
 {
  char_puts("That spell is under construction.\n",ch);
@@ -4051,13 +4031,13 @@ void spell_resilience(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	{
 	  char_puts("You are now resistive to draining attacks.\n", ch);
 
-	  af.where = TO_RESIST;
+	  af.where = TO_AFFECTS;
 	  af.type = sn;
 	  af.duration = level / 10;
 	  af.level = level;
-	  af.bitvector = RES_ENERGY;
-	  INT(af.location) = 0;
-	  af.modifier = 0;
+	  af.bitvector = 0;
+	  af.location = APPLY_RESIST_NEGATIVE;
+	  af.modifier = 45;
 	  affect_to_char(ch, &af);
 	}
 	else 
@@ -4792,13 +4772,13 @@ void spell_protection_negative (const char *sn, int level, CHAR_DATA *ch, void *
 	if (!is_affected(ch, sn)) {
 	  char_puts("You are now immune to negative attacks.\n", ch);
 
-	  af.where = TO_IMMUNE;
+	  af.where = TO_AFFECTS;
 	  af.type = sn;
 	  af.duration = level / 4;
 	  af.level = level;
-	  af.bitvector = IMM_NEGATIVE;
-	  INT(af.location) = 0;
-	  af.modifier = 0;
+	  af.bitvector = 0;
+	  INT(af.location) = APPLY_RESIST_NEGATIVE;
+	  af.modifier = 100;
 	  affect_to_char(ch, &af);
 	} else 
 	  char_puts("You are already immune to negative attacks.\n", ch);
@@ -4812,13 +4792,13 @@ void spell_ruler_aura(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	{
 	  char_puts("You now feel more self confident in rulership.\n", ch);
 
-	  af.where = TO_IMMUNE;
+	  af.where = TO_AFFECTS;
 	  af.type = sn;
 	  af.duration = level / 4;
 	  af.level = level;
-	  af.bitvector = IMM_CHARM;
-	  INT(af.location) = 0;
-	  af.modifier = 0;
+	  af.bitvector = 0;
+	  INT(af.location) = APPLY_RESIST_CHARM;
+	  af.modifier = 100;
 	  affect_to_char(ch, &af);
 	}
 	else 

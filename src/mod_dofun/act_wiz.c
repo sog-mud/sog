@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.208 1999-12-06 11:10:05 fjoe Exp $
+ * $Id: act_wiz.c,v 1.209 1999-12-10 11:29:46 kostik Exp $
  */
 
 /***************************************************************************
@@ -1343,18 +1343,6 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 			   flag_string(off_flags,
 				       victim->pMobIndex->off_flags));
 
-	if (victim->imm_flags)
-		buf_printf(output, "Immune: [%s]\n",
-			   flag_string(imm_flags, victim->imm_flags));
-	
-	if (victim->res_flags)
-		buf_printf(output, "Resist: [%s]\n",
-			   flag_string(res_flags, victim->res_flags));
-
-	if (victim->vuln_flags)
-		buf_printf(output, "Vulnerable: [%s]\n",
-			   flag_string(vuln_flags, victim->vuln_flags));
-
 	buf_printf(output, "Form: [%s]\n",
 		   flag_string(form_flags, victim->form));
 	buf_printf(output, "Parts: [%s]\n",
@@ -1401,18 +1389,6 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 		case TO_AFFECTS:
 			buf_printf(output, " adding '{c%s{x' affect",
 				flag_string(affect_flags, paf->bitvector));
-			break;
-		case TO_IMMUNE:
-			buf_printf(output, " adding '{c%s{x' immunity",
-				flag_string(imm_flags, paf->bitvector));
-			break;
-		case TO_RESIST:
-			buf_printf(output, " adding '{c%s{x' resistance",
-				flag_string(res_flags, paf->bitvector));
-			break;
-		case TO_VULN:
-			buf_printf(output, " adding '{c%s{x' vulnerability",
-				flag_string(vuln_flags, paf->bitvector));
 			break;
 		case TO_SKILLS:
 			buf_printf(output, " with flags '{c%s{x'",

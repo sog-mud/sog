@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.184 1999-12-06 11:10:04 fjoe Exp $
+ * $Id: act_obj.c,v 1.185 1999-12-10 11:29:45 kostik Exp $
  */
 
 /***************************************************************************
@@ -798,9 +798,11 @@ void do_feed(CHAR_DATA *ch, const char *argument)
 		INT(af.location)= 0;
 
 		if (what < 10) {
-			af.where	= TO_IMMUNE;
-			af.bitvector	= IMM_MENTAL; 
-			af.duration	= obj->level/5; 
+			af.where	= TO_AFFECTS;
+			af.location	= APPLY_RESIST_MENTAL;
+			af.bitvector	= 0;
+			af.duration	= obj->level/5;
+			af.modifier	= 100;
 			do_emote(vch, "looks clever!");
 		}
 		else if (what < 40) {
@@ -817,9 +819,27 @@ void do_feed(CHAR_DATA *ch, const char *argument)
 			do_emote(vch, "yawns and goes to sleep.");
 		}
 		else {
-			af.where	= TO_RESIST;
-			af.bitvector	= RES_MAGIC | RES_WEAPON;
+			af.where	= TO_AFFECTS;
+			af.bitvector	= 0;
+			af.location	= APPLY_RESIST_BASH;
+			af.modifier	= 33;
 			af.duration	= 10; 
+			affect_to_char(vch, &af);
+
+			af.location	= APPLY_RESIST_PIERCE;
+			af.modifier	= 33;
+			af.duration	= 10; 
+			affect_to_char(vch, &af);
+
+			af.location	= APPLY_RESIST_SLASH;
+			af.modifier	= 33;
+			af.duration	= 10;
+			affect_to_char(vch, &af);
+
+			af.location	= APPLY_RESIST_ENERGY;
+			af.modifier	= 33;
+			af.duration	= 10;
+
 			do_emote(vch, "flexes his muscles, looking tough.");
 		}
 
@@ -1647,7 +1667,7 @@ void do_steal(CHAR_DATA * ch, const char *argument)
 		  (!can_see(victim, ch) ? -10 : 0);
 
 	if ((!IS_NPC(ch) && percent > chance)
-	||  IS_SET(victim->imm_flags, IMM_STEAL)
+	||  (IS_NPC(victim) && IS_SET(victim->pMobIndex->act, ACT_IMMSTEAL))
 	||  IS_IMMORTAL(victim)
 	||  (victim->in_room &&
 	     IS_SET(victim->in_room->room_flags, ROOM_BATTLE_ARENA))) {

@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.72 1999-12-04 07:45:59 kostik Exp $
+ * $Id: obj_prog.c,v 1.73 1999-12-10 11:30:09 kostik Exp $
  */
 
 /***************************************************************************
@@ -1603,13 +1603,13 @@ int wear_prog_fire_shield(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	{
 	  char_puts("As you wear shield, you become resistive to cold.\n", ch);
 
-	  af.where = TO_RESIST;
+	  af.where = TO_AFFECTS;
 	  af.type = "fire shield";
 	  af.duration = -2;
 	  af.level = LEVEL(ch);
-	  af.bitvector = RES_COLD;
-	  INT(af.location) = 0;
-	  af.modifier = 0;
+	  af.bitvector = 0;
+	  af.location = APPLY_RESIST_COLD;
+	  af.modifier = 50;
 	  affect_to_char(ch, &af);
 	}
 	}
@@ -1619,13 +1619,13 @@ int wear_prog_fire_shield(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	{
 	  char_puts("As you wear shield, you become resistive to fire.\n", ch);
 
-	  af.where = TO_RESIST;
+	  af.where = TO_AFFECTS;
 	  af.type = "fire shield";
 	  af.duration = -2;
 	  af.level = LEVEL(ch);
-	  af.bitvector = RES_FIRE;
-	  INT(af.location) = 0;
-	  af.modifier = 0;
+	  af.bitvector = 0;
+	  af.location = APPLY_RESIST_FIRE;
+	  af.modifier = 50;
 	  affect_to_char(ch, &af);
 	}
 	}  

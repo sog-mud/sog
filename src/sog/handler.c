@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.210 1999-12-02 10:54:11 kostik Exp $
+ * $Id: handler.c,v 1.211 1999-12-10 11:30:08 kostik Exp $
  */
 
 /***************************************************************************
@@ -104,96 +104,55 @@ int count_users(OBJ_DATA *obj)
 	return count;
 }
 
-/* for immunity, vulnerabiltiy, and resistant
-   the 'globals' (magic and weapons) may be overriden
-   three other cases -- wood, silver, and iron -- are checked in fight.c */
-
-int check_immune(CHAR_DATA *ch, int dam_type)
+#define RES(i,r,v) (((i) && !(v)) ? 100 : ((i) && (v)) ? 33 : ((r) && (v)) ? 0 : ((v) ? -50 : ((r) ? 33 : 0)))
+void 
+set_percent_resistances(flag64_t imm, flag64_t res, flag64_t vul, int16_t resist[])
 {
-	int immune, def;
-	int bit;
+	bool iw, im, rw, rm, vw, vm;
+	iw = IS_SET(imm, IMM_WEAPON);
+	im = IS_SET(imm, IMM_MAGIC);
+	rw = IS_SET(res, RES_WEAPON);
+	rm = IS_SET(res, RES_MAGIC);
+	vw = IS_SET(vul, VULN_WEAPON);
+	vm = IS_SET(vul, VULN_MAGIC);
+	
+	resist[RESIST_BASH] 	= RES(iw || IS_SET(imm, IMM_BASH), rw || IS_SET(res, RES_BASH), vw || IS_SET(vul, VULN_BASH));
 
-	immune = -1;
-	def = IS_NORMAL;
+	resist[RESIST_SLASH] 	= RES(iw || IS_SET(imm, IMM_SLASH), rw || IS_SET(res, RES_SLASH), vw || IS_SET(vul, VULN_SLASH));
 
-	if (dam_type == DAM_NONE)
-		return immune;
+	resist[RESIST_PIERCE] 	= RES(iw || IS_SET(imm, IMM_PIERCE), rw || IS_SET(res, RES_PIERCE), vw || IS_SET(vul, VULN_PIERCE));
 
-	if (dam_type <= 3)
-	{
-		if (IS_SET(ch->imm_flags,IMM_WEAPON))
-		    def = IS_IMMUNE;
-		else if (IS_SET(ch->res_flags,RES_WEAPON))
-		    def = IS_RESISTANT;
-		else if (IS_SET(ch->vuln_flags,VULN_WEAPON))
-		    def = IS_VULNERABLE;
-	}
-	else /* magical attack */
-	{	
-		if (IS_SET(ch->imm_flags,IMM_MAGIC))
-		    def = IS_IMMUNE;
-		else if (IS_SET(ch->res_flags,RES_MAGIC))
-		    def = IS_RESISTANT;
-		else if (IS_SET(ch->vuln_flags,VULN_MAGIC))
-		    def = IS_VULNERABLE;
-	}
 
-	/* set bits to check -- VULN etc. must ALL be the same or this will fail */
-	switch (dam_type)
-	{
-		case(DAM_BASH):		bit = IMM_BASH;		break;
-		case(DAM_PIERCE):	bit = IMM_PIERCE;	break;
-		case(DAM_SLASH):	bit = IMM_SLASH;	break;
-		case(DAM_FIRE):		bit = IMM_FIRE;		break;
-		case(DAM_COLD):		bit = IMM_COLD;		break;
-		case(DAM_LIGHTNING):	bit = IMM_LIGHTNING;	break;
-		case(DAM_ACID):		bit = IMM_ACID;		break;
-		case(DAM_POISON):	bit = IMM_POISON;	break;
-		case(DAM_NEGATIVE):	bit = IMM_NEGATIVE;	break;
-		case(DAM_HOLY):		bit = IMM_HOLY;		break;
-		case(DAM_ENERGY):	bit = IMM_ENERGY;	break;
-		case(DAM_MENTAL):
-			if (IS_IMMORTAL(ch))
-				return IS_IMMUNE;
-			bit = IMM_MENTAL;
-			break;
-		case(DAM_DISEASE):	bit = IMM_DISEASE;	break;
-		case(DAM_DROWNING):	bit = IMM_DROWNING;	break;
-		case(DAM_LIGHT):	bit = IMM_LIGHT;	break;
-		case(DAM_CHARM):
-			if (IS_IMMORTAL(ch))
-				return IS_IMMUNE;
-			bit = IMM_CHARM;
-			break;
-		case(DAM_SOUND):	bit = IMM_SOUND;	break;
-		default:		return def;
-	}
+	resist[RESIST_FIRE] 	= RES(im || IS_SET(imm, IMM_FIRE), rm || IS_SET(res, RES_FIRE), vm || IS_SET(vul, VULN_FIRE));
 
-	if (IS_SET(ch->imm_flags, bit))
-		immune = IS_IMMUNE;
-	else if (IS_SET(ch->res_flags, bit) && immune != IS_IMMUNE)
-		immune = IS_RESISTANT;
-	else if (IS_SET(ch->vuln_flags, bit)) {
-		if (immune == IS_IMMUNE)
-		    immune = IS_RESISTANT;
-		else if (immune == IS_RESISTANT)
-		    immune = IS_NORMAL;
-		else
-		    immune = IS_VULNERABLE;
-	}
+	resist[RESIST_COLD] 	= RES(im || IS_SET(imm, IMM_COLD), rm || IS_SET(res, RES_COLD), vm || IS_SET(vul, VULN_COLD));
 
-	if (!reduce_damage(ch, 100, dam_type))
-		return IS_IMMUNE;
+	resist[RESIST_LIGHTNING] 	= RES(im || IS_SET(imm, IMM_LIGHTNING), rm || IS_SET(res, RES_LIGHTNING), vm || IS_SET(vul, VULN_LIGHTNING));
 
-	if (!IS_NPC(ch) && get_curr_stat(ch, STAT_CHA) < 18 
-			&& dam_type == DAM_CHARM)
-		immune = IS_VULNERABLE;
+	resist[RESIST_ACID] 	= RES(im || IS_SET(imm, IMM_ACID), rm || IS_SET(res, RES_ACID), vm || IS_SET(vul, VULN_ACID));
 
-	if (immune == -1)
-		return def;
-	else
-	  	return immune;
+	resist[RESIST_HOLY] 	= RES(im || IS_SET(imm, IMM_HOLY), rm || IS_SET(res, RES_HOLY), vm || IS_SET(vul, VULN_HOLY));
+
+	resist[RESIST_NEGATIVE] = RES(im || IS_SET(imm, IMM_NEGATIVE), rm || IS_SET(res, RES_NEGATIVE), vm || IS_SET(vul, VULN_NEGATIVE));
+
+	resist[RESIST_ENERGY] 	= RES(im || IS_SET(imm, IMM_ENERGY), rm || IS_SET(res, RES_ENERGY), vm || IS_SET(vul, VULN_ENERGY));
+
+	resist[RESIST_MENTAL] 	= RES(im || IS_SET(imm, IMM_MENTAL), rm || IS_SET(res, RES_MENTAL), vm || IS_SET(vul, VULN_MENTAL));
+
+	resist[RESIST_SOUND] 	= RES(im || IS_SET(imm, IMM_SOUND), rm || IS_SET(res, RES_SOUND), vm || IS_SET(vul, VULN_SOUND));
+
+	resist[RESIST_DISEASE] 	= RES(im || IS_SET(imm, IMM_DISEASE), rm || IS_SET(res, RES_DISEASE), vm || IS_SET(vul, VULN_DISEASE));
+
+	resist[RESIST_POISON] 	= RES(im || IS_SET(imm, IMM_POISON), rm || IS_SET(res, RES_POISON), vm || IS_SET(vul, VULN_POISON));
+
+	resist[RESIST_CHARM] 	= RES(im || IS_SET(imm, IMM_CHARM), rm || IS_SET(res, RES_CHARM), vm || IS_SET(vul, VULN_CHARM));
+
+	resist[RESIST_HARM] 	= RES(im, rm, vm );
+
+	resist[RESIST_LIGHT] 	= RES(im || IS_SET(imm, IMM_LIGHT), rm || IS_SET(res, RES_LIGHT), vm || IS_SET(vul, VULN_LIGHT));
+
 }
+
 
 int age_to_num(int age)
 {
@@ -1987,11 +1946,12 @@ bool can_gate(CHAR_DATA *ch, CHAR_DATA *victim)
 	||  IS_SET(victim->in_room->room_flags, ROOM_SAFE | ROOM_NORECALL |
 						ROOM_PEACE | ROOM_NOSUMMON)
 	||  IS_SET(ch->in_room->area->area_flags, AREA_CLOSED)
-	||  room_is_private(victim->in_room)
-	||  IS_SET(victim->imm_flags, IMM_SUMMON))
+	||  room_is_private(victim->in_room))
 		return FALSE;
 
 	if (IS_NPC(victim)) {
+		if (IS_SET(victim->pMobIndex->act, ACT_IMMSUMMON))
+			return FALSE;
 		if (NPC(victim)->hunter)
 			return FALSE;
 		return TRUE;
@@ -2228,21 +2188,15 @@ bool saves_spell(int level, CHAR_DATA *victim, int dam_type)
 	int save;
 
 	save = 40 + (LEVEL(victim) - level) * 4 - 
-		(victim->saving_throw * 90) / UMAX(45, victim->level);
+		(victim->saving_throw * 50) / UMAX(25, victim->level);
 
 	if (IS_AFFECTED(victim, AFF_BERSERK))
 		save += victim->level / 5;
-
-	switch(check_immune(victim, dam_type)) {
-	case IS_IMMUNE:
+	
+	if (get_resist(victim, dam_type) == 100)
 		return TRUE;
-	case IS_RESISTANT:
-		save += victim->level / 5;
-		break;
-	case IS_VULNERABLE:
-		save -= victim->level / 5;
-		break;
-	}
+
+	save += get_resist(victim, dam_type) / 7;
 
 	if (!IS_NPC(victim) && (vcl = class_lookup(victim->class))
 	&&  IS_SET(vcl->class_flags, CLASS_MAGIC))

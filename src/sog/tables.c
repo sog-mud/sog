@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.107 1999-12-02 10:54:12 kostik Exp $
+ * $Id: tables.c,v 1.108 1999-12-10 11:30:10 kostik Exp $
  */
 
 /***************************************************************************
@@ -120,6 +120,8 @@ flag_t act_flags[] =
 	{ "sage",		ACT_SAGE,		TRUE	},
 	{ "repairman",		ACT_REPAIRMAN,		TRUE	},
 	{ "familiar",		ACT_FAMILIAR,		TRUE	},
+	{ "imm_summon",		ACT_IMMSUMMON,		TRUE	},
+	{ "imm_steal",		ACT_IMMSTEAL,		TRUE	},
 
 	{ NULL }
 };
@@ -663,6 +665,10 @@ flag_t apply_flags[] =
 	{ "resist_mental",	APPLY_RESIST_MENTAL,	TRUE	},
 	{ "resist_sound",	APPLY_RESIST_SOUND,	TRUE	},
 	{ "resist_disease",	APPLY_RESIST_DISEASE,	TRUE	},
+	{ "resist_poison",	APPLY_RESIST_POISON,	TRUE	},
+	{ "resist_charm",	APPLY_RESIST_CHARM,	TRUE	},
+	{ "resist_harm",	APPLY_RESIST_HARM,	TRUE	},
+	{ "resist_light",	APPLY_RESIST_LIGHT,	TRUE	},
 
 	{ NULL }
 };
@@ -693,7 +699,11 @@ flag_t resist_flags[] =
 	{ "energy",		RESIST_ENERGY,		TRUE	},	
 	{ "mental",		RESIST_MENTAL,		TRUE	},	
 	{ "sound",		RESIST_SOUND,		TRUE	},	
-	{ "disease",		RESIST_DISEASE,		TRUE	},	
+	{ "disease",		RESIST_DISEASE,		TRUE	},
+	{ "poison",		RESIST_POISON,		TRUE	},
+	{ "charm",		RESIST_CHARM,		TRUE	},
+	{ "harm",		RESIST_HARM,		TRUE	},
+	{ "light",		RESIST_LIGHT,		TRUE	},
 
 	{ NULL }
 };
@@ -714,7 +724,11 @@ flag_t resist_info_flags[] =
 	{ "energy attacks",	RESIST_ENERGY,		TRUE	},	
 	{ "mental attacks",	RESIST_MENTAL,		TRUE	},	
 	{ "sound based attack",	RESIST_SOUND,		TRUE	},	
-	{ "poison and disease",	RESIST_DISEASE,		TRUE	},	
+	{ "disease",		RESIST_DISEASE,		TRUE	},	
+	{ "poison",		RESIST_POISON,		TRUE	},
+	{ "charming spells",	RESIST_CHARM,		TRUE	},
+	{ "harm spells",	RESIST_HARM,		TRUE	},
+	{ "light based attacks",RESIST_LIGHT,		TRUE	},
 
 	{ NULL }
 };

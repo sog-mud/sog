@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.70 1999-12-03 11:57:18 fjoe Exp $
+ * $Id: db_area.c,v 1.71 1999-12-10 11:30:10 kostik Exp $
  */
 
 /***************************************************************************
@@ -297,6 +297,7 @@ DBLOAD_FUN(load_old_mob)
 		int vnum;
 		char letter;
 		int iHash;
+		int i;
 
 		letter	= fread_letter(fp);
 		if (letter != '#') {
@@ -377,9 +378,6 @@ DBLOAD_FUN(load_old_mob)
 						 (r ? r->aff : 0);
 			pMobIndex->off_flags = OFF_DODGE | OFF_DISARM |
 				OFF_TRIP | ASSIST_VNUM;
-			pMobIndex->imm_flags = 0;
-			pMobIndex->res_flags = 0;
-			pMobIndex->vuln_flags = 0;
 			pMobIndex->form = FORM_EDIBLE | FORM_SENTIENT |
 				FORM_BIPED | FORM_MAMMAL;
 			pMobIndex->parts = PART_HEAD | PART_ARMS | PART_LEGS |
@@ -391,12 +389,12 @@ DBLOAD_FUN(load_old_mob)
 				pMobIndex->affected_by | r->aff;
 			pMobIndex->off_flags = OFF_DODGE | OFF_DISARM |
 				OFF_TRIP | ASSIST_RACE | r->off;
-			pMobIndex->imm_flags = r->imm;
-			pMobIndex->res_flags = r->res;
-			pMobIndex->vuln_flags = r->vuln;
 			pMobIndex->form = r->form;
 			pMobIndex->parts = r->parts;
 		}
+		
+		for (i = 0; i < MAX_RESIST; i++)
+			pMobIndex->resists[i] = r->resists[i];
 
 		if (letter != 'S') {
 			db_error("load_old_mob", "vnum %d non-S.", vnum);
@@ -1013,7 +1011,15 @@ DBLOAD_FUN(load_aflag)
 DBLOAD_FUN(load_mobiles)
 {
     MOB_INDEX_DATA *pMobIndex;
+    flag64_t res = 0;
+    flag64_t imm = 0;
+    flag64_t vul = 0;
  
+    flag64_t res_r = 0;
+    flag64_t imm_r = 0;
+    flag64_t vul_r = 0;
+    int16_t rresists[MAX_RESIST];
+
     if (!area_current) {
         db_error("load_mobiles", "no #AREA seen yet.");
 	return;
@@ -1024,6 +1030,8 @@ DBLOAD_FUN(load_mobiles)
         int vnum;
         char letter;
         int iHash;
+	int i;
+	bool found_res = FALSE;
  
         letter                          = fread_letter(fp);
         if (letter != '#') {
@@ -1099,9 +1107,13 @@ DBLOAD_FUN(load_mobiles)
 
 	/* read flags and add in data from the race table */
 	pMobIndex->off_flags		= fread_flags(fp) | (r ? r->off : 0);
-	pMobIndex->imm_flags		= fread_flags(fp) | (r ? r->imm : 0);
-	pMobIndex->res_flags		= fread_flags(fp) | (r ? r->res : 0);
-	pMobIndex->vuln_flags		= fread_flags(fp) | (r ? r->vuln : 0);
+	imm				= fread_flags(fp);
+	res				= fread_flags(fp);
+	vul				= fread_flags(fp);
+	
+	/* Set race resists to pMobIndex.*/
+	for (i = 0; i < MAX_RESIST; i++)
+		pMobIndex->resists[i] = r->resists[i];
 
 	/* vital statistics */
 	pMobIndex->start_pos		= fread_fword(position_table, fp);
@@ -1149,11 +1161,11 @@ DBLOAD_FUN(load_mobiles)
 		else if (IS_TOKEN(fp, "off"))
 		    REMOVE_BIT(pMobIndex->affected_by, fread_flags(fp));
 		else if (IS_TOKEN(fp, "imm"))
-		    REMOVE_BIT(pMobIndex->imm_flags, fread_flags(fp));
+		    imm_r = fread_flags(fp);
 		else if (IS_TOKEN(fp, "res"))
-		    REMOVE_BIT(pMobIndex->res_flags, fread_flags(fp));
+		    res_r = fread_flags(fp);
 		else if (IS_TOKEN(fp, "vul"))
-		    REMOVE_BIT(pMobIndex->vuln_flags, fread_flags(fp));
+		    vul_r = fread_flags(fp);
 		else if (IS_TOKEN(fp, "for"))
 		    REMOVE_BIT(pMobIndex->form, fread_flags(fp));
 		else if (IS_TOKEN(fp, "par"))
@@ -1183,6 +1195,14 @@ DBLOAD_FUN(load_mobiles)
 		free_string(phrase);
 	     } else if (letter == 'g') {
 		mlstr_fread(fp, &pMobIndex->gender);
+	     } else if (letter == 'r') {   /* Resists */
+		char *cres;
+		int res;
+		fread_word(fp);
+		cres = rfile_tok(fp);
+		res = flag_svalue(resist_flags, cres);
+		found_res = TRUE;
+		pMobIndex->resists[res] = fread_number(fp);
 	     } else {
 		xungetc(fp);
 		break;
@@ -1194,6 +1214,56 @@ DBLOAD_FUN(load_mobiles)
 		TOUCH_VNUM(pMobIndex->vnum);
 		REMOVE_BIT(pMobIndex->affected_by, AFF_SANCTUARY);
 		SET_BIT(pMobIndex->affected_by, AFF_BLACK_SHROUD);
+	}
+
+	if (!found_res && (imm | res | vul)) {
+	/* Calculate percent resistances for mobile */
+		if (IS_SET(imm, IMM_SUMMON) && !IS_SET(imm_r, IMM_SUMMON))
+			SET_BIT(pMobIndex->act, ACT_IMMSUMMON);
+
+		if (IS_SET(imm, IMM_STEAL) && !IS_SET(imm_r, IMM_STEAL))
+			SET_BIT(pMobIndex->act, ACT_IMMSTEAL);
+
+		set_percent_resistances(imm, res, vul, pMobIndex->resists);
+		for (i = 0; i < MAX_RESIST; i++) {
+			int max, min;
+			max = UMAX(r->resists[i], pMobIndex->resists[i]);
+			min = UMIN(r->resists[i], pMobIndex->resists[i]);
+			if ((max == 100) && (min < 0))
+				pMobIndex->resists[i] = 33;
+			else if (max == 100)
+				pMobIndex->resists[i] = 100;
+			else if ((max > 0) && (min < 0))
+				pMobIndex->resists[i] = 0;
+			else if (max > 0)
+				pMobIndex->resists[i] = max;
+			else if (min < 0)
+				pMobIndex->resists[i] = min;
+			else 
+				pMobIndex->resists[i] = 0;
+		}
+
+		set_percent_resistances(imm_r, 0, 0, rresists);
+		for (i = 0; i < MAX_RESIST; i++) {
+			if ((rresists[i] == 100) 
+			&& (pMobIndex->resists[i] == 100))
+				pMobIndex->resists[i] = 33;
+		}
+
+		set_percent_resistances(res_r, 0, 0, rresists);
+		for (i = 0; i < MAX_RESIST; i++) {
+			if ((rresists[i] == 100)   
+			&& (pMobIndex->resists[i] < 100) 
+			&& (pMobIndex->resists[i] > 0))
+				pMobIndex->resists[i] = 0;
+		}
+
+		set_percent_resistances(vul_r, 0, 0, rresists);
+		for (i = 0; i < MAX_RESIST; i++) {
+			if ((rresists[i] == 100)   
+			&& (pMobIndex->resists[i] < 0)) 
+				pMobIndex->resists[i] = 0;
+		}
 	}
 
         iHash                   = vnum % MAX_KEY_HASH;
@@ -1303,6 +1373,8 @@ DBLOAD_FUN(load_objects)
 		for (done = FALSE; !done;) {
 			char letter = fread_letter(fp);
 			AFFECT_DATA *paf;
+			AFFECT_DATA af;
+			int16_t resists[MAX_RESIST];
 	 
 			switch (letter) {
 			case 'A':
@@ -1322,23 +1394,33 @@ DBLOAD_FUN(load_objects)
 				break;
 
 			case 'F':
-				paf = aff_new();
 				letter = fread_letter(fp);
+
+				INT(af.location)	= fread_number(fp);
+				af.modifier           = fread_number(fp);
+				af.bitvector          = fread_flags(fp);
+
 				switch (letter) {
 				case 'A':
-					paf->where = TO_AFFECTS;
+					af.where = TO_AFFECTS;
 					break;
 				case 'I':
-					paf->where = TO_IMMUNE;
+					af.where = TO_IMMUNE;
+					set_percent_resistances(af.bitvector,
+						0, 0, resists);
 					break;
 				case 'R':
-					paf->where = TO_RESIST;
+					af.where = TO_RESIST;
+					set_percent_resistances(0, af.bitvector,
+						0, resists);
 					break;
 				case 'V':
-					paf->where = TO_VULN;
+					af.where = TO_VULN;
+					set_percent_resistances(0, 0,
+						af.bitvector, resists);
 					break;
 				case 'D':
-					paf->where = TO_AFFECTS;
+					af.where = TO_AFFECTS;
 					break;
 				default:
 					db_error("load_objects",
@@ -1346,13 +1428,47 @@ DBLOAD_FUN(load_objects)
 						pObjIndex->vnum, letter);
 					return;
 				}
-	
+		
+				if ((af.where == TO_IMMUNE)
+				|| (af.where == TO_RESIST)
+				|| (af.where == TO_VULN)) {
+					int i;
+					for (i = 0; i < MAX_RESIST; i++) {
+						if (resists[i]) {
+							paf = aff_new();
+							paf->where = TO_AFFECTS;
+							paf->type = str_empty;
+							paf->level = pObjIndex->level;
+							paf->duration = -1;
+							paf->location=i+APPLY_RESIST_BASH;
+							paf->modifier = resists[i];
+							paf->bitvector = 0;
+							SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);
+						}
+					}
+					if (af.modifier) {
+						paf = aff_new();
+						paf->where = TO_AFFECTS;
+						paf->type = str_empty;
+						paf->level = pObjIndex->level;
+						paf->duration = -1;
+						paf->location = af.location;
+						paf->bitvector = 0;
+						paf->modifier = af.modifier;
+						SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);
+					}
+					break;
+				}
+				paf = aff_new();
+
+				paf->where		= af.where;	
 				paf->type               = str_empty;
 				paf->level              = pObjIndex->level;
 				paf->duration           = -1;
-				INT(paf->location)	= fread_number(fp);
-				paf->modifier           = fread_number(fp);
-				paf->bitvector          = fread_flags(fp);
+				paf->location		= af.location;
+				paf->modifier		= af.modifier;
+				paf->bitvector		= af.bitvector;
+
 				SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);
 				break;
 	

@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.13 1999-12-02 10:54:10 kostik Exp $
+ * $Id: affects.c,v 1.14 1999-12-10 11:30:07 kostik Exp $
  */
 
 /***************************************************************************
@@ -104,9 +104,6 @@ void saff_destroy(saff_t *sa)
 where_t where_table[] =
 {
 	{ TO_AFFECTS,	affect_flags,	"'%s' affect"			},
-	{ TO_IMMUNE,	imm_flags,	"immunity to '%s'"		},
-	{ TO_RESIST,	res_flags,	"resistance to '%s'"		},
-	{ TO_VULN,	vuln_flags,	"vulnerability to '%s'"		},
 	{ TO_SKILLS,	sk_aff_flags,	"'%s' skill by %d with flags %s"},
 	{ TO_RACE,	NULL,		"changes race to '%s'"		},
 	{ -1 }
@@ -202,30 +199,12 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 		case TO_AFFECTS:
 			SET_BIT(ch->affected_by, paf->bitvector);
 			break;
-		case TO_IMMUNE:
-			SET_BIT(ch->imm_flags, paf->bitvector);
-			break;
-		case TO_RESIST:
-			SET_BIT(ch->res_flags, paf->bitvector);
-			break;
-		case TO_VULN:
-			SET_BIT(ch->vuln_flags, paf->bitvector);
-			break;
 		}
 	} else {
 		switch (paf->where) {
 		case TO_AFFECTS:
 			REMOVE_BIT(ch->affected_by, paf->bitvector);
 			break;
-		case TO_IMMUNE:
-			REMOVE_BIT(ch->imm_flags, paf->bitvector);
-			break;
-		case TO_RESIST:
-			REMOVE_BIT(ch->res_flags, paf->bitvector);
-			break;
-		case TO_VULN:
-	        	REMOVE_BIT(ch->vuln_flags, paf->bitvector);
-	        	break;
 		}
 		mod = 0 - mod;
 	}
@@ -284,6 +263,11 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 	case APPLY_RESIST_MENTAL:
 	case APPLY_RESIST_SOUND:
 	case APPLY_RESIST_DISEASE:
+	case APPLY_RESIST_POISON:
+	case APPLY_RESIST_CHARM:
+	case APPLY_RESIST_HARM:
+	case APPLY_RESIST_LIGHT:
+
 		ch->resists[INT(paf->location)-APPLY_RESIST_BASH] += mod;
 		break;
 	default:
@@ -355,15 +339,6 @@ void affect_check_list(CHAR_DATA *ch, AFFECT_DATA *paf,
 			switch (paf->where) {
 			case TO_AFFECTS:
 				SET_BIT(ch->affected_by, paf->bitvector);
-				break;
-			case TO_IMMUNE:
-				SET_BIT(ch->imm_flags, paf->bitvector);   
-				break;
-			case TO_RESIST:
-				SET_BIT(ch->res_flags, paf->bitvector);
-				break;
-			case TO_VULN:
-				SET_BIT(ch->vuln_flags, paf->bitvector);
 				break;
 			}
 		}

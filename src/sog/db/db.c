@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.191 1999-12-07 14:21:00 fjoe Exp $
+ * $Id: db.c,v 1.192 1999-12-10 11:30:10 kostik Exp $
  */
 
 /***************************************************************************
@@ -1185,9 +1185,6 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 	mob->affected_by	= pMobIndex->affected_by;
 	mob->alignment		= pMobIndex->alignment;
 	mob->level		= pMobIndex->level;
-	mob->imm_flags		= pMobIndex->imm_flags;
-	mob->res_flags		= pMobIndex->res_flags;
-	mob->vuln_flags		= pMobIndex->vuln_flags;
 	mob->position		= pMobIndex->start_pos;
 	free_string(mob->race);
 	mob->race		= str_qdup(pMobIndex->race);
@@ -1232,6 +1229,9 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 	} else {
 		mlstr_cpy(&mob->gender, &pMobIndex->gender);
 	}
+
+	for (i = 0; i < MAX_RESIST; i++) 
+		mob->resists[i] = pMobIndex->resists[i];
 
 	for (i = 0; i < MAX_STATS; i ++)
 		mob->perm_stat[i] = UMIN(25, 11 + mob->level/4);
@@ -1388,9 +1388,6 @@ clone_mob(CHAR_DATA *parent)
 	clone->gold		= parent->gold;
 	clone->silver		= parent->silver;
 	clone->comm		= parent->comm;
-	clone->imm_flags	= parent->imm_flags;
-	clone->res_flags	= parent->res_flags;
-	clone->vuln_flags	= parent->vuln_flags;
 	clone->invis_level	= parent->invis_level;
 	clone->incog_level	= parent->incog_level;
 	clone->affected_by	= parent->affected_by;

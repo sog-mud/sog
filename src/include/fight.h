@@ -1,5 +1,5 @@
 /*
- * $Id: fight.h,v 1.17 1999-12-04 07:45:58 kostik Exp $
+ * $Id: fight.h,v 1.18 1999-12-10 11:30:05 kostik Exp $
  */
 
 /***************************************************************************
@@ -53,7 +53,7 @@ void	violence_update (void);
 void	multi_hit	(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt);
 bool	damage		(CHAR_DATA *ch, CHAR_DATA *victim, int dam,
 			 const char *dt, int class, int dam_flags);
-int 	reduce_damage	(CHAR_DATA *ch, int dam, int dam_class);
+int  	get_resist	(CHAR_DATA *ch, int dam_class);
 void	update_pos	(CHAR_DATA *victim);
 void	set_fighting	(CHAR_DATA *ch, CHAR_DATA *victim);
 void	stop_fighting	(CHAR_DATA *ch, bool fBoth);
@@ -68,7 +68,6 @@ int	get_dam_class	(CHAR_DATA *ch, OBJ_DATA *wield, const char **dt,
 bool	backstab_ok	(CHAR_DATA *ch, CHAR_DATA *victim);
 void	backstab	(CHAR_DATA *ch, CHAR_DATA *victim, int chance);
 void	yell		(CHAR_DATA *victim, CHAR_DATA *ch, const char * argument);
-int	get_resistance	(CHAR_DATA *ch, int dam_type);
 
 #define DAMF_NONE	(0)
 #define DAMF_SHOW	(A)	/* show dam message */

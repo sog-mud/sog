@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.c,v 1.12 1999-12-02 10:54:11 kostik Exp $
+ * $Id: race.c,v 1.13 1999-12-10 11:30:09 kostik Exp $
  */
 
 #include <stdio.h>
@@ -121,9 +121,6 @@ void race_resetstats(CHAR_DATA *ch)
 
 	ch->damtype = str_dup("punch");
 	ch->affected_by = r->aff;
-	ch->imm_flags = r->imm;
-	ch->res_flags = r->res;
-	ch->vuln_flags = r->vuln;
 	ch->form = r->form;
 	ch->parts = r->parts;
 
