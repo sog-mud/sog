@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.401 2003-04-24 12:41:49 fjoe Exp $
+ * $Id: merc.h,v 1.402 2003-04-27 14:01:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -367,8 +367,10 @@ struct olced_t {
 	olc_cmd_t *	cmd_table;
 };
 
-#define OLCED(ch) (ch->desc->olced)
-#define IS_EDIT(ch, ed_id) (OLCED(ch) && OLCED(ch)->id == ed_id)
+#define OLCED(ch)		(ch->desc->olced)
+#define OLCED2(ch)		(ch->desc->olced2)
+#define IS_EDIT(ch, editor)	(OLCED(ch) && !strcmp(OLCED(ch)->id, editor))
+#define IS_EDIT2(ch, editor)	(OLCED2(ch) && !strcmp(OLCED2(ch)->id, editor))
 
 /*
  * descriptor variable data (that is stored in pfile)
@@ -438,6 +440,7 @@ struct descriptor_data
 
 /* OLC stuff */
 	olced_t	*		olced;
+	olced_t *		olced2;
 	void *			pEdit;		/* edited obj	*/
 	void *			pEdit2;		/* edited obj 2	*/
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mprog.h,v 1.7 2001-09-13 16:21:53 fjoe Exp $
+ * $Id: mprog.h,v 1.8 2003-04-27 14:01:03 fjoe Exp $
  */
 
 #ifndef _MPROG_H_
@@ -72,6 +72,16 @@ extern avltree_info_t c_info_mprogs;
 extern int (*mprog_compile)(mprog_t *mp);
 extern int (*mprog_execute)(mprog_t *mp,
 			    void *arg1, void *arg2, void *arg3, void *arg4);
+
+#define MPROG_COMPILE(ch, mp)						\
+	do {								\
+		if (mprog_compile == NULL)				\
+			act_char("Module mod_mpc is not loaded.", ch);	\
+		else if (mprog_compile(mp) < 0)				\
+			page_to_char(buf_string(mp->errbuf), ch);	\
+		else							\
+			act_char("Compile ok.", ch);			\
+	} while(0)
 
 /**
  * mprog_execute error codes

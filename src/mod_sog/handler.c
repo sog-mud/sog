@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.369 2003-04-25 12:49:35 fjoe Exp $
+ * $Id: handler.c,v 1.370 2003-04-27 14:01:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -93,7 +93,6 @@ static char * format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, int flags);
 void
 char_to_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 {
-	olced_t *olced;
 	OBJ_DATA *obj;
 
 	if (pRoomIndex == NULL) {
@@ -138,9 +137,7 @@ char_to_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 		}
 	}
 
-	if (ch->desc != NULL
-	&&  (olced = OLCED(ch)) != NULL
-	&&  !str_cmp(olced->id, "rooms"))
+	if (ch->desc != NULL && IS_EDIT(ch, "rooms"))
 		dofun("edit", ch, "rooms dropout");		// notrans
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.c,v 1.54 2003-04-19 00:26:46 fjoe Exp $
+ * $Id: string_edit.c,v 1.55 2003-04-27 14:01:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -22,6 +22,7 @@
 
 #include <merc.h>
 #include <lang.h>
+#include <mprog.h>
 
 #include <sog.h>
 
@@ -437,15 +438,25 @@ string_add_exit(CHAR_DATA *ch, bool save)
 {
 	DESCRIPTOR_DATA *d = ch->desc;
 
-	if (!save) {
+	if (save) {
+		free_string(d->backup);
+		if (OLCED(ch) && olc_interpret)
+			olc_interpret(d, "touch");
+	} else {
 		act_puts("No changes saved.",
 			 ch, NULL, NULL, TO_CHAR | ACT_SEDIT, POS_DEAD);
 		free_string(*d->pString);
 		*d->pString = d->backup;
-	} else {
-		free_string(d->backup);
-		if (OLCED(ch) && olc_interpret)
-			olc_interpret(d, "touch");
+	}
+
+	if (IS_EDIT2(ch, "mprogs")) {
+		if (save) {
+			mprog_t *mp = d->pEdit2;
+			mp->status = MP_S_DIRTY;
+			MPROG_COMPILE(ch, mp);
+		}
+		OLCED2(ch) = NULL;
+		d->pEdit2 = NULL;
 	}
 
 	d->pString = NULL;

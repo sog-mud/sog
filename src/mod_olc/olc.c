@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.156 2003-04-17 18:27:17 tatyana Exp $
+ * $Id: olc.c,v 1.157 2003-04-27 14:01:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1447,26 +1447,14 @@ olced_trig(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 	}
 
 	if (!str_prefix(arg, "edit")) {
-		mp->status = MP_S_DIRTY;
-		if (mp->name[0] != '@')
-			touch_mprog(mp);
-
+		OLCED2(ch) = olced_lookup(ED_MPROG);
+		ch->desc->pEdit2 = mp;
 		string_append(ch, &mp->text);
 		return FALSE;
 	}
 
 	if (!str_prefix(arg, "compile")) {
-		if (mprog_compile == NULL) {
-			act_char("Module mod_mpc is not loaded.", ch);
-			return FALSE;
-		}
-
-		if (mprog_compile(mp) < 0) {
-			page_to_char(buf_string(mp->errbuf), ch);
-			return FALSE;
-		}
-
-		act_char("Ok.", ch);
+		MPROG_COMPILE(ch, mp);
 		return FALSE;
 	}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: olc_mprog.c,v 1.12 2001-12-08 10:22:49 fjoe Exp $
+ * $Id: olc_mprog.c,v 1.13 2003-04-27 14:01:05 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -265,17 +265,7 @@ OLC_FUN(mped_compile)
 	mprog_t *mp;
 	EDIT_MPROG(ch, mp);
 
-	if (mprog_compile == NULL) {
-		act_char("Module mod_mpc is not loaded.", ch);
-		return FALSE;
-	}
-
-	if (mprog_compile(mp) < 0) {
-		page_to_char(buf_string(mp->errbuf), ch);
-		return FALSE;
-	}
-
-	act_char("Ok.", ch);
+	MPROG_COMPILE(ch, mp);
 	return FALSE;
 }
 
