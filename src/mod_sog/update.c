@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.181 2000-01-04 19:28:03 fjoe Exp $
+ * $Id: update.c,v 1.182 2000-01-05 07:06:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1836,7 +1836,7 @@ find_aggr_cb(void *vo, va_list ap)
 		&&  ch->level >= vch->level - 5 
 		&&  (!IS_SET(act, ACT_WIMPY) || !IS_AWAKE(vch))
 		&&  can_see(ch, vch)
-		&&  !is_safe_nomessage(ch, victim)
+		&&  !is_safe_nomessage(ch, vch)
 		/* do not attack vampires */
 		&&  !IS_VAMPIRE(vch)
 		/* good vs good :( */
