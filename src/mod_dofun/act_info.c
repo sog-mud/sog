@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.70 2002-11-21 13:56:27 fjoe Exp $
+ * $Id: act_info.c,v 1.271.2.71 2002-11-22 16:24:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4699,13 +4699,14 @@ show_aliases(CHAR_DATA *ch, const char *argument, bool wiz)
 {
 	int i;
 	char arg[MAX_INPUT_LENGTH];
+	CHAR_DATA *vch = wiz ? GET_ORIGINAL(ch) : ch;
 
 	one_argument(argument, arg, sizeof(arg));
 	for (i = 0; i < commands.nused; i++) {
 		int sn;
 		cmd_t *cmd = VARR_GET(&commands, i);
 
-		if ((wiz ? WIZCMD_ALLOWED(cmd, ch) : CMD_ALLOWED(cmd, ch))
+		if ((wiz ? WIZCMD_ALLOWED(cmd, vch) : CMD_ALLOWED(cmd, vch))
 		&&  !str_prefix(arg, cmd->name)) {
 			if (!IS_NULLSTR(cmd->aliases)) {
 				act_puts("Aliases for '$t' are: [$T]",
@@ -4726,41 +4727,20 @@ show_aliases(CHAR_DATA *ch, const char *argument, bool wiz)
 	    TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 }
 
-/*
- * Contributed by Alander.
- */
-void do_commands(CHAR_DATA *ch, const char *argument)
+#define GET_VCMD(p)	((cmd_t *) VARR_GET(&commands, *(int *) (p)))
+
+static int
+cmpcmd(const void *a, const void *b)
 {
-	int col;
-	int i;
-
-	if (!IS_NULLSTR(argument)) {
-		show_aliases(ch, argument, FALSE);
-		return;
-	}
-
-	col = 0;
-	for (i = 0; i < commands.nused; i++) {
-		int sn;
-		cmd_t *cmd = VARR_GET(&commands, i);
-
-		if (CMD_ALLOWED(cmd, ch)
-		&&  !IS_SET(cmd->cmd_flags, CMD_HIDDEN)) {
-			char_printf(ch, "%-12s", cmd->name);
-			if (++col % 6 == 0)
-				char_puts("\n", ch);
-		}
-	}
-
-	if (col % 6 != 0)
-		char_puts("\n", ch);
+	return str_cmp(GET_VCMD(a)->name, GET_VCMD(b)->name);
 }
 
-void do_wizhelp(CHAR_DATA *ch, const char *argument)
+static void
+show_commands(CHAR_DATA *ch, const char *argument, bool wiz)
 {
-	int i;
-	int col;
-	CHAR_DATA *vch = GET_ORIGINAL(ch);
+	int i, col;
+	varr v;
+	CHAR_DATA *vch = wiz ? GET_ORIGINAL(ch) : ch;
 
 	if (IS_NPC(vch)) {
 		char_puts("Huh?\n", ch);
@@ -4768,16 +4748,27 @@ void do_wizhelp(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!IS_NULLSTR(argument)) {
-		show_aliases(ch, argument, TRUE);
+		show_aliases(ch, argument, wiz);
 		return;
 	}
 
-	col = 0;
+	varr_init(&v, sizeof(int), commands.nused);
 	for (i = 0; i < commands.nused; i++) {
-		cmd_t *cmd = VARR_GET(&commands, i);
+		int sn;
+		cmd_t *cmd = (cmd_t *) VARR_GET(&commands, i);
 
-		if (!WIZCMD_ALLOWED(cmd, vch))
-			continue;
+		if (wiz ? WIZCMD_ALLOWED(cmd, vch) :
+			  CMD_ALLOWED(cmd, vch) &&
+			  !IS_SET(cmd->cmd_flags, CMD_HIDDEN)) {
+			int *p = (int *) varr_enew(&v);
+			*p = i;
+		}
+	}
+	varr_qsort(&v, cmpcmd);
+
+	col = 0;
+	for (i = 0; i < v.nused; i++) {
+		cmd_t *cmd = GET_VCMD(VARR_GET(&v, i));
 
 		char_printf(ch, "%-12s", cmd->name);
 		if (++col % 6 == 0)
@@ -4786,6 +4777,18 @@ void do_wizhelp(CHAR_DATA *ch, const char *argument)
 
 	if (col % 6 != 0)
 		char_puts("\n", ch);
+
+	varr_destroy(&v);
+}
+
+void do_commands(CHAR_DATA *ch, const char *argument)
+{
+	show_commands(ch, argument, FALSE);
+}
+
+void do_wizhelp(CHAR_DATA *ch, const char *argument)
+{
+	show_commands(ch, argument, TRUE);
 }
 
 static void
