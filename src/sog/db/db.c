@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.215 2000-03-21 13:44:12 fjoe Exp $
+ * $Id: db.c,v 1.216 2000-03-27 21:13:05 avn Exp $
  */
 
 /***************************************************************************
@@ -1839,7 +1839,7 @@ void scan_pfiles()
 	struct dirent *dp;
 	DIR *dirp;
 	bool eqcheck = dfexist(TMP_PATH, EQCHECK_FILE);
-	bool should_clear;
+	bool should_clear, pet;
 	char fullname [PATH_MAX];
 
 	log(LOG_INFO, "scan_pfiles: start (eqcheck is %s)",
@@ -1885,8 +1885,14 @@ void scan_pfiles()
 			should_clear = (time(NULL) - s.st_mtime) > 60*60*24*14;
 		}
 
+		pet = FALSE;
 		for (obj = ch->carrying; obj; obj = obj_next) {
 			obj_next = obj->next_content;
+
+			if (!obj_next && !pet && GET_PET(ch)) {
+				obj_next = GET_PET(ch)->carrying;
+				pet = TRUE;
+			}
 
 			obj->pObjIndex->count++;
 
