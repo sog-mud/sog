@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.72 1999-12-16 12:24:49 fjoe Exp $
+ * $Id: olc_room.c,v 1.73 1999-12-17 06:38:39 fjoe Exp $
  */
 
 #include "olc.h"
@@ -294,10 +294,18 @@ OLC_FUN(roomed_show)
 				buf_add(output, " ");
 			}
 
-			buf_printf(output, "Kwds:   [%s]\n", pexit->keyword);
-			mlstr_dump(output, "Short:  ", &pexit->short_descr.ml);
-			mlstr_dump(output, "Gender: ",
-				   &pexit->short_descr.gender);
+			if (!IS_NULLSTR(pexit->keyword)) {
+				buf_printf(output, "Kwds:   [%s]\n",
+					   pexit->keyword);
+			}
+
+			if (!mlstr_null(&pexit->short_descr.ml)) {
+				mlstr_dump(output, "Short:  ",
+					   &pexit->short_descr.ml);
+				mlstr_dump(output, "Gender: ",
+				   	   &pexit->short_descr.gender);
+			}
+
 			mlstr_dump(output, str_empty, &pexit->description);
 		}
 	}
