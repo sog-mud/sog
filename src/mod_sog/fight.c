@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.267 2000-03-28 09:36:37 avn Exp $
+ * $Id: fight.c,v 1.268 2000-04-01 13:18:59 kostik Exp $
  */
 
 /***************************************************************************
@@ -86,6 +86,7 @@ void	disarm			(CHAR_DATA *ch, CHAR_DATA *victim,
 				 int disarm_second);
 int	critical_strike		(CHAR_DATA *ch, CHAR_DATA *victim, int dam);
 int 	check_forest		(CHAR_DATA *ch);
+int 	num_enemies		(CHAR_DATA *ch);
 
 #define FOREST_ATTACK 1
 #define FOREST_DEFENCE 2
@@ -123,6 +124,21 @@ int check_forest(CHAR_DATA* ch)
 	else 
 		return FOREST_ATTACK;
 }
+
+int num_enemies(CHAR_DATA *ch)
+{
+	int num = 0;
+	CHAR_DATA * ech;
+
+	if (!ch->in_room) 
+		return 0;
+
+	for (ech = ch->in_room->people; ech; ech=ech->next_in_room)
+		if (ech->fighting == ch) num++;
+
+	return num;
+}
+
 
 void secondary_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt) 
 {
@@ -1199,13 +1215,34 @@ void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 int get_resist(CHAR_DATA *ch, int dam_class) 
 {
 	int16_t *resists;
+	int16_t bonus=0;
+
 	if (ch->shapeform)
 		resists = ch->shapeform->resists;
 	else
 		resists = ch->resists;
 
+	switch(dam_class) {
+	case DAM_POISON:
+	case DAM_DISEASE:
+		bonus = get_curr_stat(ch, STAT_CON) - 18;
+		break;
+	case DAM_BASH:
+		bonus = (get_curr_stat(ch, STAT_CON) - 18) / 2;
+		break;
+	case DAM_MENTAL:
+		bonus = (get_curr_stat(ch, STAT_WIS) + get_curr_stat(ch, STAT_INT) - 36) / 2;
+		break;
+	case DAM_HOLY:
+		bonus = ch->alignment / 500;
+		break;
+	case DAM_NEGATIVE:
+		bonus = - ch->alignment / 500;
+		break;
+	}
+
 	if (dam_class != DAM_NONE)
-		return URANGE(-100, resists[dam_class], 100);
+		return URANGE(-100, resists[dam_class] + bonus, 100);
 
 	return IS_IMMORTAL(ch)? 100 : 0;
 }
@@ -1776,7 +1813,11 @@ bool check_parry(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 		check_improve (victim, "forest fighting", TRUE, 7);
 	}
 
-	if (number_percent() >= chance + LEVEL(victim) - LEVEL(ch))
+	chance += LEVEL(victim) - LEVEL(ch);
+
+	chance = chance * 2 / UMAX(2, num_enemies(ch));
+
+	if (number_percent() >= chance)
 		return FALSE;
 
 	if (v_weapon && WEAPON_IS(v_weapon, WEAPON_SWORD)
@@ -1903,7 +1944,11 @@ bool check_block(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 	if (MOUNTED(victim))
 		chance *= 1.2;
 
-	if (number_percent() >= chance + LEVEL(victim) - LEVEL(ch))
+	chance += LEVEL(victim) - LEVEL(ch);
+
+	chance = chance * 2 / UMAX(2, num_enemies(ch));
+
+	if (number_percent() >= chance)
 		return FALSE;
 
 	act("Your shield blocks $n's attack.",
@@ -1931,7 +1976,8 @@ bool check_hand_block(CHAR_DATA *ch, CHAR_DATA *victim)
 	|| (chance = get_skill(victim, "hand block") == 0)) 
 		return FALSE;
 
-	chance = URANGE(5, chance*2/5 + LEVEL(victim) - LEVEL(ch), 55);
+	chance = URANGE(5, chance * 3/7 + LEVEL(victim) - LEVEL(ch), 85);
+	chance = chance * 2 / UMAX(2, num_enemies(ch));
 
 	if (number_percent() < chance) {
 		act("Your hand blocks $n's attack.", 
@@ -1973,7 +2019,11 @@ bool check_dodge(CHAR_DATA *ch, CHAR_DATA *victim)
 		check_improve (victim, "forest fighting", TRUE, 7);
 	}
 
-	if (number_percent() >= chance + (victim->level - ch->level) / 2)
+	chance += LEVEL(victim) - LEVEL(ch);
+
+	chance = chance * 2 / UMAX(2, num_enemies(ch));
+
+	if (number_percent() >= chance / 2)
 		return FALSE;
 
 	act("You dodge $n's attack.", ch, NULL, victim, TO_VICT | ACT_VERBOSE);

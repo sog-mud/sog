@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.335 2000-03-31 05:47:18 fjoe Exp $
+ * $Id: act_info.c,v 1.336 2000-04-01 13:18:52 kostik Exp $
  */
 
 /***************************************************************************
@@ -2657,24 +2657,22 @@ void do_resistances(CHAR_DATA *ch, const char *argument)
 {
 	int i;
 	int16_t* resists;
+
 	bool found = FALSE;
-	if (ch->shapeform)
-		resists = ch->shapeform->resists;
-	else
-		resists = ch->resists;
+
 	for (i=0; i < MAX_RESIST; i++) {
-		if (!resists[i] || i == DAM_CHARM)
+		if (!get_resist(ch,i) || i == DAM_CHARM)
 			continue;
 		found = TRUE;
 		if (ch->level < MAX_LEVEL / 3) {
 			char_printf(ch, "You are %s %s.\n", 
-				get_resist_alias(resists[i]), 
+				get_resist_alias(get_resist(ch, i)), 
 				flag_string(resist_info_flags, i));
 		} else {
 			char_printf(ch, "You are %s %s (%d%%).\n", 
-				get_resist_alias(resists[i]),
+				get_resist_alias(get_resist(ch,i)),
 				flag_string(resist_info_flags, i),
-				UMIN(resists[i], 100));
+				get_resist(ch, i));
 		}
 	}
 	if (!found)
