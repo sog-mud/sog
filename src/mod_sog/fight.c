@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.162 1999-04-17 08:28:38 fjoe Exp $
+ * $Id: fight.c,v 1.163 1999-04-17 16:14:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -817,7 +817,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 	if ((sk2 = get_skill(ch, gsn_enhanced_damage))
 	&&  (diceroll = number_percent()) <= sk2) {
 		check_improve(ch, gsn_enhanced_damage, TRUE, 6);
-		dam += dam * sk2 / 100;
+		dam += dam * diceroll * sk2 / 10000;
 	}
 
 	if (sn == gsn_sword
@@ -888,7 +888,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 		check_improve(victim, gsn_counter, FALSE, 1);
 
 	if (dt == gsn_backstab && (IS_NPC(ch) || wield))
-		dam = LEVEL(ch) / 10 * dam + LEVEL(ch);
+		dam = LEVEL(ch) / 11 * dam + LEVEL(ch);
 	else if (dt == gsn_dual_backstab && (IS_NPC(ch) || wield))
 		dam = LEVEL(ch) / 14 * dam + LEVEL(ch);
 	else if (dt == gsn_circle)
@@ -2134,6 +2134,7 @@ void raw_kill_org(CHAR_DATA *ch, CHAR_DATA *victim, int part)
 	victim->hit		= victim->max_hit / 10;
 	victim->mana		= victim->max_mana / 10;
 	victim->move		= victim->max_move;
+	update_pos(victim);
 
 	/* RT added to prevent infinite deaths */
 	REMOVE_BIT(victim->plr_flags, PLR_BOUGHT_PET);

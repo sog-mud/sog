@@ -15,60 +15,60 @@ ManaRate 60
 AddExp 500
 StatMod 2 1 1 1 1 5
 DeathLimit 10
-Skill 'armor' 10 1 100
-Skill 'bless' 12 1 100
-Skill 'calm' 60 1 100
-Skill 'cure blindness' 20 1 100
-Skill 'cure critical' 25 1 100
-Skill 'cure light' 10 1 100
-Skill 'cure poison' 35 1 100
-Skill 'cure serious' 18 1 100
-Skill 'detect magic' 30 1 100
-Skill 'detect poison' 39 1 100
-Skill 'pass door' 24 1 100
-Skill 'refresh' 28 1 100
-Skill 'word of recall' 38 1 100
-Skill 'dagger' 1 1 100
-Skill 'mace' 1 1 100
-Skill 'shield block' 10 1 100
-Skill 'spear' 1 1 100
-Skill 'sword' 1 1 100
-Skill 'second weapon' 24 1 100
-Skill 'area attack' 69 1 100
-Skill 'berserk' 20 1 100
-Skill 'blind fighting' 23 1 100
-Skill 'caltrops' 36 1 100
-Skill 'counter' 28 1 100
-Skill 'critical strike' 62 1 100
-Skill 'disarm' 21 1 100
-Skill 'dodge' 15 1 240
-Skill 'enchant sword' 42 1 100
-Skill 'enhanced damage' 8 1 100
-Skill 'explode' 46 1 100
-Skill 'hand to hand' 12 1 100
-Skill 'hara kiri' 25 1 100
-Skill 'kick' 2 1 100
-Skill 'parry' 1 1 240
-Skill 'hand block' 20 1 100
-Skill 'rescue' 23 1 100
-Skill 'shield cleave' 26 1 100
-Skill 'target' 40 1 100
-Skill 'throw' 37 1 100
-Skill 'trip' 20 1 100
-Skill 'warcry' 30 1 100
-Skill 'weapon cleave' 29 1 100
-Skill 'second attack' 10 1 100
-Skill 'third attack' 20 1 100
-Skill 'fast healing' 3 1 100
-Skill 'haggle' 19 1 100
-Skill 'katana' 72 1 100
-Skill 'lore' 22 2 100
-Skill 'mastering sword' 61 1 100
-Skill 'meditation' 16 1 100
-Skill 'scrolls' 6 1 100
-Skill 'staves' 1 1 100
-Skill 'wands' 5 1 100
-Skill 'dishonor' 10 1 100
+Skill 'armor' 10 1 0
+Skill 'bless' 12 1 0
+Skill 'calm' 60 1 0
+Skill 'cure blindness' 20 1 0
+Skill 'cure critical' 25 1 0
+Skill 'cure light' 10 1 0
+Skill 'cure poison' 35 1 0
+Skill 'cure serious' 18 1 0
+Skill 'detect magic' 30 1 0
+Skill 'detect poison' 39 1 0
+Skill 'pass door' 24 1 0
+Skill 'refresh' 28 1 0
+Skill 'word of recall' 38 1 0
+Skill 'dagger' 1 1 0
+Skill 'mace' 1 1 0
+Skill 'shield block' 10 1 -5
+Skill 'spear' 1 1 0
+Skill 'sword' 1 1 0
+Skill 'second weapon' 24 1 0
+Skill 'area attack' 69 1 0
+Skill 'berserk' 20 1 0
+Skill 'blind fighting' 23 1 0
+Skill 'caltrops' 36 1 0
+Skill 'counter' 28 1 0
+Skill 'critical strike' 62 1 0
+Skill 'disarm' 21 1 0
+Skill 'dodge' 15 1 40
+Skill 'enchant sword' 42 1 0
+Skill 'enhanced damage' 8 1 -15
+Skill 'explode' 46 1 0
+Skill 'hand to hand' 12 1 0
+Skill 'hara kiri' 25 1 0
+Skill 'kick' 2 1 0
+Skill 'parry' 1 1 40
+Skill 'hand block' 20 1 0
+Skill 'rescue' 23 1 0
+Skill 'shield cleave' 26 1 0
+Skill 'target' 40 1 0
+Skill 'throw' 37 1 0
+Skill 'trip' 20 1 0
+Skill 'warcry' 30 1 0
+Skill 'weapon cleave' 29 1 0
+Skill 'second attack' 10 1 0
+Skill 'third attack' 20 1 0
+Skill 'fast healing' 3 1 0
+Skill 'haggle' 19 1 0
+Skill 'katana' 72 1 0
+Skill 'lore' 22 2 0
+Skill 'mastering sword' 61 1 0
+Skill 'meditation' 16 1 0
+Skill 'scrolls' 6 1 0
+Skill 'staves' 1 1 0
+Skill 'wands' 5 1 0
+Skill 'dishonor' 10 1 0
 Title 0 male the Man~
 Title 0 female the Woman~
 Title 1 male the Swordpupil~

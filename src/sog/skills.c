@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.59 1999-04-17 06:56:35 fjoe Exp $
+ * $Id: skills.c,v 1.60 1999-04-17 16:14:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -739,9 +739,10 @@ int get_skill(CHAR_DATA *ch, int sn)
 		class_t *cl;
 		cskill_t *csk;
 
-		if ((cl = class_lookup(ch->class)) != NULL
+		if (sk->spell_fun == NULL
+		&&  (cl = class_lookup(ch->class)) != NULL
 		&&  (csk = cskill_lookup(cl, sn)) != NULL)
-			skill = skill * csk->mod / 100;
+			skill += csk->mod;
 	}
 
 	return skill;

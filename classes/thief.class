@@ -14,44 +14,44 @@ HPRate 100
 ManaRate 50
 AddExp 0
 StatMod 0 0 0 3 0 5
-Skill 'detect hide' 10 1 100
-Skill 'dagger' 1 1 100
-Skill 'mace' 1 1 100
-Skill 'shield block' 7 1 85
-Skill 'spear' 1 1 100
-Skill 'sword' 1 1 100
-Skill 'backstab' 11 1 100
-Skill 'blackjack' 30 1 100
-Skill 'circle' 7 1 100
-Skill 'dirt kicking' 3 1 100
-Skill 'disarm' 28 1 100
-Skill 'dodge' 1 1 220
-Skill 'dual backstab' 38 1 100
-Skill 'enhanced damage' 25 1 87
-Skill 'envenom' 15 1 100
-Skill 'escape' 45 1 100
-Skill 'hand to hand' 18 1 100
-Skill 'kick' 14 1 100
-Skill 'parry' 19 1 100
-Skill 'perception' 23 1 100
-Skill 'push' 53 1 100
-Skill 'settraps' 59 1 100
-Skill 'shield cleave' 33 1 100
-Skill 'trip' 3 1 100
-Skill 'weapon cleave' 37 1 100
-Skill 'second attack' 18 1 100
-Skill 'third attack' 36 1 100
-Skill 'fast healing' 16 1 100
-Skill 'haggle' 1 1 100
-Skill 'hide' 1 1 100
-Skill 'lore' 13 2 100
-Skill 'meditation' 15 2 100
-Skill 'peek' 1 1 100
-Skill 'pick lock' 17 1 100
-Skill 'sneak' 4 1 100
-Skill 'steal' 12 1 100
-Skill 'scrolls' 1 2 100
-Skill 'knife' 10 1 100
+Skill 'detect hide' 10 1 0
+Skill 'dagger' 1 1 20
+Skill 'mace' 1 1 0
+Skill 'shield block' 7 1 -15
+Skill 'spear' 1 1 0
+Skill 'sword' 1 1 0
+Skill 'backstab' 11 1 0
+Skill 'blackjack' 30 1 0
+Skill 'circle' 7 1 0
+Skill 'dirt kicking' 3 1 0
+Skill 'disarm' 28 1 0
+Skill 'dodge' 1 1 20
+Skill 'dual backstab' 38 1 0
+Skill 'enhanced damage' 25 1 -15
+Skill 'envenom' 15 1 0
+Skill 'escape' 45 1 0
+Skill 'hand to hand' 18 1 0
+Skill 'kick' 14 1 0
+Skill 'parry' 19 1 0
+Skill 'perception' 23 1 0
+Skill 'push' 53 1 0
+Skill 'settraps' 59 1 0
+Skill 'shield cleave' 33 1 0
+Skill 'trip' 3 1 0
+Skill 'weapon cleave' 37 1 0
+Skill 'second attack' 18 1 0
+Skill 'third attack' 36 1 0
+Skill 'fast healing' 16 1 0
+Skill 'haggle' 1 1 0
+Skill 'hide' 1 1 0
+Skill 'lore' 13 2 0
+Skill 'meditation' 15 2 0
+Skill 'peek' 1 1 0
+Skill 'pick lock' 17 1 0
+Skill 'sneak' 4 1 0
+Skill 'steal' 12 1 0
+Skill 'scrolls' 1 2 0
+Skill 'knife' 10 1 0
 Title 0 male the Man~
 Title 0 female the Woman~
 Title 1 male the Pilferer~

@@ -17,98 +17,98 @@ Flags magic noch~
 AddExp 200
 StatMod 0 2 1 0 0 5
 RestrictAlign evil~
-Skill 'acid arrow' 48 1 100
-Skill 'acid blast' 63 1 100
-Skill 'adamantite golem' 71 1 100
-Skill 'animate dead' 38 1 100
-Skill 'armor' 13 1 100
-Skill 'assist' 43 1 100
-Skill 'burning hands' 14 1 100
-Skill 'cancellation' 28 1 100
-Skill 'chain lightning' 33 1 100
-Skill 'control undead' 57 1 100
-Skill 'chill touch' 7 1 100
-Skill 'control weather' 24 1 100
-Skill 'corruption' 63 1 100
-Skill 'create food' 12 1 100
-Skill 'create rose' 26 1 100
-Skill 'create spring' 31 1 100
-Skill 'create water' 11 1 100
-Skill 'curse' 34 1 100
-Skill 'cursed lands' 64 1 100
-Skill 'detect good' 13 1 100
-Skill 'detect invis' 13 1 100
-Skill 'detect magic' 15 1 100
-Skill 'detect poison' 21 1 100
-Skill 'detect undead' 13 1 100
-Skill 'dispel good' 32 1 100
-Skill 'dispel magic' 24 1 100
-Skill 'disruption' 40 1 100
-Skill 'energy drain' 45 1 100
-Skill 'fireproof' 42 1 100
-Skill 'fly' 23 1 100
-Skill 'gate' 33 1 100
-Skill 'giant strength' 28 1 100
-Skill 'hallucination' 55 1 100
-Skill 'hand of undead' 44 1 100
-Skill 'hurricane' 65 1 100
-Skill 'improved detect' 40 1 100
-Skill 'infravision' 21 1 100
-Skill 'insanity' 59 1 100
-Skill 'iron golem' 52 1 100
-Skill 'knock' 62 1 100
-Skill 'know alignment' 22 1 100
-Skill 'lesser golem' 25 1 100
-Skill 'lightning bolt' 23 1 100
-Skill 'lightning shield' 41 1 100
-Skill 'link' 33 1 100
-Skill 'magic jar' 68 1 100
-Skill 'magic missile' 2 1 100
-Skill 'magic resistance' 69 1 100
-Skill 'mysterious dream' 27 1 100
-Skill 'nexus' 63 1 100
-Skill 'pass door' 27 1 100
-Skill 'plague' 36 1 100
-Skill 'poison' 23 1 100
-Skill 'portal' 43 1 100
-Skill 'protection cold' 50 1 100
-Skill 'protection good' 17 1 100
-Skill 'protection heat' 48 1 100
-Skill 'protection negative' 15 1 100
-Skill 'protective shield' 18 1 100
-Skill 'power word kill' 78 1 100
-Skill 'refresh' 14 1 100
-Skill 'shield' 20 1 100
-Skill 'shielding' 53 1 100
-Skill 'shocking trap' 37 1 100
-Skill 'slow' 29 1 100
-Skill 'sonic resonance' 28 1 100
-Skill 'spectral furor' 35 1 100
-Skill 'stone golem' 39 1 100
-Skill 'improved maladiction' 35 1 100
-Skill 'black shroud' 30 1 100
-Skill 'stone skin' 30 1 100
-Skill 'summon' 30 1 100
-Skill 'summon shadow' 50 1 100
-Skill 'teleport' 16 1 100
-Skill 'web' 58 1 100
-Skill 'weaken' 29 1 100
-Skill 'word of recall' 10 1 100
-Skill 'dagger' 1 1 100
-Skill 'whip' 1 1 100
-Skill 'blink' 1 1 100
-Skill 'hand to hand' 45 1 100
-Skill 'parry' 27 1 100
-Skill 'spell craft' 20 1 100
-Skill 'second attack' 34 1 100
-Skill 'fast healing' 9 1 100
-Skill 'haggle' 5 1 100
-Skill 'meditation' 6 1 100
-Skill 'quiet movement' 10 1 100
-Skill 'scrolls' 1 1 100
-Skill 'staves' 1 1 100
-Skill 'trance' 21 1 100
-Skill 'wands' 1 1 100
+Skill 'acid arrow' 48 1 0
+Skill 'acid blast' 63 1 0
+Skill 'adamantite golem' 71 1 0
+Skill 'animate dead' 38 1 0
+Skill 'armor' 13 1 0
+Skill 'assist' 43 1 0
+Skill 'burning hands' 14 1 0
+Skill 'cancellation' 28 1 0
+Skill 'chain lightning' 33 1 0
+Skill 'control undead' 57 1 0
+Skill 'chill touch' 7 1 0
+Skill 'control weather' 24 1 0
+Skill 'corruption' 63 1 0
+Skill 'create food' 12 1 0
+Skill 'create rose' 26 1 0
+Skill 'create spring' 31 1 0
+Skill 'create water' 11 1 0
+Skill 'curse' 34 1 0
+Skill 'cursed lands' 64 1 0
+Skill 'detect good' 13 1 0
+Skill 'detect invis' 13 1 0
+Skill 'detect magic' 15 1 0
+Skill 'detect poison' 21 1 0
+Skill 'detect undead' 13 1 0
+Skill 'dispel good' 32 1 0
+Skill 'dispel magic' 24 1 0
+Skill 'disruption' 40 1 0
+Skill 'energy drain' 45 1 0
+Skill 'fireproof' 42 1 0
+Skill 'fly' 23 1 0
+Skill 'gate' 33 1 0
+Skill 'giant strength' 28 1 0
+Skill 'hallucination' 55 1 0
+Skill 'hand of undead' 44 1 0
+Skill 'hurricane' 65 1 0
+Skill 'improved detect' 40 1 0
+Skill 'infravision' 21 1 0
+Skill 'insanity' 59 1 0
+Skill 'iron golem' 52 1 0
+Skill 'knock' 62 1 0
+Skill 'know alignment' 22 1 0
+Skill 'lesser golem' 25 1 0
+Skill 'lightning bolt' 23 1 0
+Skill 'lightning shield' 41 1 0
+Skill 'link' 33 1 0
+Skill 'magic jar' 68 1 0
+Skill 'magic missile' 2 1 0
+Skill 'magic resistance' 69 1 0
+Skill 'mysterious dream' 27 1 0
+Skill 'nexus' 63 1 0
+Skill 'pass door' 27 1 0
+Skill 'plague' 36 1 0
+Skill 'poison' 23 1 0
+Skill 'portal' 43 1 0
+Skill 'protection cold' 50 1 0
+Skill 'protection good' 17 1 0
+Skill 'protection heat' 48 1 0
+Skill 'protection negative' 15 1 0
+Skill 'protective shield' 18 1 0
+Skill 'power word kill' 78 1 0
+Skill 'refresh' 14 1 0
+Skill 'shield' 20 1 0
+Skill 'shielding' 53 1 0
+Skill 'shocking trap' 37 1 0
+Skill 'slow' 29 1 0
+Skill 'sonic resonance' 28 1 0
+Skill 'spectral furor' 35 1 0
+Skill 'stone golem' 39 1 0
+Skill 'improved maladiction' 35 1 0
+Skill 'black shroud' 30 1 0
+Skill 'stone skin' 30 1 0
+Skill 'summon' 30 1 0
+Skill 'summon shadow' 50 1 0
+Skill 'teleport' 16 1 0
+Skill 'web' 58 1 0
+Skill 'weaken' 29 1 0
+Skill 'word of recall' 10 1 0
+Skill 'dagger' 1 1 0
+Skill 'whip' 1 1 0
+Skill 'blink' 1 1 0
+Skill 'hand to hand' 45 1 0
+Skill 'parry' 27 1 0
+Skill 'spell craft' 20 1 0
+Skill 'second attack' 34 1 0
+Skill 'fast healing' 9 1 0
+Skill 'haggle' 5 1 0
+Skill 'meditation' 6 1 0
+Skill 'quiet movement' 10 1 0
+Skill 'scrolls' 1 1 0
+Skill 'staves' 1 1 0
+Skill 'trance' 21 1 0
+Skill 'wands' 1 1 0
 Title 0 male the Man~
 Title 0 female the Woman~
 Title 1 male the Apprentice of Magic~
