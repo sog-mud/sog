@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.c,v 1.55 2003-04-27 14:01:08 fjoe Exp $
+ * $Id: string_edit.c,v 1.56 2003-06-10 13:55:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -531,6 +531,9 @@ string_lineadd(const char *string, const char *newstr, int line)
 void
 string_append(CHAR_DATA *ch, const char **pString)
 {
+	if (ch->desc == NULL)
+		return;
+
 	if (*pString == NULL)
 		*pString = str_dup(str_empty);
 
