@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.71 2004-03-03 15:37:30 tatyana Exp $
+ * $Id: prayers.c,v 1.72 2004-03-03 16:05:06 tatyana Exp $
  */
 
 /***************************************************************************
@@ -162,6 +162,7 @@ DECLARE_SPELL_FUN(prayer_ice_sphere);
 DECLARE_SPELL_FUN(prayer_cloak_of_death);
 DECLARE_SPELL_FUN(prayer_water_walk);
 DECLARE_SPELL_FUN(prayer_breath_under_water);
+DECLARE_SPELL_FUN(prayer_geyser);
 
 static void
 hold(CHAR_DATA *ch, CHAR_DATA *victim, int duration, int dex_modifier, int
@@ -3901,6 +3902,7 @@ SPELL_FUN(prayer_water_walk, sn, level, ch, vo)
 	} else
 		act_char("You are already have water walking ability.", ch);
 }
+
 SPELL_FUN(prayer_breath_under_water, sn, level, ch, vo)
 {
 	if (!is_sn_affected(ch, sn)) {
@@ -3916,4 +3918,43 @@ SPELL_FUN(prayer_breath_under_water, sn, level, ch, vo)
 		    ch, NULL, NULL, TO_CHAR);
 	} else
 		act_char("You are already can breath under water.", ch);
+}
+
+SPELL_FUN(prayer_geyser, sn, level, ch, vo)
+{
+	CHAR_DATA *victim;
+	int dam;
+
+	if (ch->in_room->sector_type == SECT_UNDERWATER
+	||  IS_WATER(ch->in_room)) {
+		act_char("You cannot create a geyser in deep sea.", ch);
+		return;
+	}
+
+	act("$n rise $gn{his} hands and call divine help to create a"
+	    " geyser.", ch, NULL, NULL, TO_ROOM);
+	act_char("You call for divine help to create a geyser.", ch);
+
+	dam = calc_spell_damage(ch, level, sn);
+
+	foreach (victim, char_in_room(ch->in_room)) {
+		if (ch == victim
+		||  IS_IMMORTAL(victim)
+		||  is_safe_nomessage(ch, victim))
+			continue;
+
+		if (saves_spell(level, victim, DAM_WATER))
+			dam /= 3;
+
+		if (ch->in_room->sector_type == SECT_MOUNTAIN)
+			dam *= 4 / 3;
+
+		if (ch->in_room->sector_type == SECT_HILLS)
+			dam *= 6 / 5;
+
+		damage(ch, victim, dam, sn, DAM_F_SHOW);
+	} end_foreach(victim);
+
+	act("$n's geyser dries up and dissapears.", ch, NULL, NULL, TO_ROOM);
+	act_char("Your geyser dries up and dissapears.", ch);
 }
