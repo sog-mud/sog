@@ -297,6 +297,22 @@ ABQ DEHJN 150 0
 EIKU 0 0 0
 stand stand male 4400
 0 0 medium unknown
+#8718
+oldstyle caryatid column~
+A caryatid~
+A sandstone column stands here, carved into a feminine figure.
+~
+The column has been carved into a set of four shapely women, each facing
+outward into the room.  The sandstone of the caryatid is smooth with age,
+but you can still make out a deadly stone sword in the hands of each figure.
+~
+human~
+A J 0 0
+24 0 5d10+500 12d9+100 2d10+6 none
+-6 -6 -6 6
+EFNU 0 0 0
+stand stand female 1750
+0 0 medium unknown
 #0
 
 #OBJECTS
@@ -431,7 +447,7 @@ stone key~
 a stone key~
 A stone key has been dropped here.~
 stone~
-key 0 A
+key 0 AO
 0 0 0 0 0
 0 150 0 P
 E
@@ -2286,9 +2302,9 @@ P 0 8711 1 8710 1	* a mighty stone sarcophagus: some ancient dust
 P 0 8712 1 8710 1	* a mighty stone sarcophagus: a small emerald scarab
 M 0 8710 1 8745 1	* A caryatid (The Tomb of the Pharoahs)
 E 0 8708 0 16		*	a stone scimitar: wielded
-M 0 8710 1 8745 1	* A caryatid (The Tomb of the Pharoahs)
+M 0 8718 1 8745 1	* A caryatid (The Tomb of the Pharoahs)
 E 0 8708 0 16		*	a stone scimitar: wielded
-G 0 8709 0		*	a stone key
+E 0 8709 0 17		*	a stone key: held in the hands
 M 0 8715 1 8747 1	* An androsphinx (A Sandstone Crypt)
 G 0 8716 0		*	a lion's paw
 M 0 8712 3 8748 1	* A hieracosphinx (An Arched Hall)

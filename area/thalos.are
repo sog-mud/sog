@@ -1665,6 +1665,10 @@ You can't see into the gloom of this forest.
 ~
 ~
 Z 0 5262
+D2
+~
+~
+Z 0 24300
 D3
 You see the trail branch off.
 ~
@@ -2038,6 +2042,10 @@ You are in a trail in the dwarf forest.  The trees are stunted and it
 looks dry around here.  The trail leads east and west.
 ~
 0 0 forest
+D0
+~
+~
+Z 0 13000
 D1
 The trail continues east.
 ~

@@ -1,0 +1,156 @@
+#AREADATA
+Name Eidu~
+Builders eidu lothar~
+VNUMs 44000 44999
+Credits Eidu~
+Security 1
+LevelRange 0 0
+End
+
+#MOBILES
+#44000
+samurai~
+@eng Samurai@rus Самурай~
+@eng A big samurai stands here. Seems like he doesn't see you.
+@rus Здоровенный самурай безучастно смотрит в одну точку. Его взгляд проходит мимо тебя как-будто не замечая.
+~
+~
+human~
+A DFHlt 1000 0
+150 500 50000d1+10000 0d0+0 200d1+100 slash
+100 100 100 100
+0 0 0 0
+stand stand male 0
+Z LPQUX medium unknown
+F for AHMV
+F par CEFGHJ
+#0
+
+#OBJECTS
+#44000
+grand katana of war~
+@eng {RGrand Katana of War{x@rus {RGrand Katana of War{x~
+@eng A long curved sword lying here.@rus длинный изогнутый меч лежит здесь~
+japan steel~
+weapon IMT AN
+sword 100 30 pierce D
+96 150 0 P
+F
+A 0 0 V
+A
+18 300
+A
+19 300
+#44001
+mat~
+@eng mat@rus Циновка~
+@eng A soft and comfortable mat lying here.@rus Мягкая циновка лежит здесь.~
+straw~
+furniture R 0
+A EIJKN DG 0 0
+0 0 0 P
+#44002
+low table~
+@eng low table@rus низенький столик~
+@eng Low table stands in the middle.@rus Низенький столик стоит посредине.~
+unknown~
+furniture 0 0
+0 0 M 0 0
+0 0 0 P
+E
+table~
+На столике стоят фарфоровые чашки и чайник. Похоже что здесь кто-то собирался попить чаю.
+~
+#44003
+life of Eidu~
+@eng Life@rus Жизнь Eidu~
+@eng Life@rus Жизнь Eidu~
+unknown~
+armor 0 AB
+0 0 0 0 0
+0 0 0 P
+F
+A 0 0 H
+A
+12 20000
+A
+13 20000
+#44004
+Statue of Eidu~
+@eng Статуя главного самурая~
+~
+мрамор~
+fountain R 0
+0 0 'water' 0 0
+0 0 0 P
+#0
+
+#ROOMS
+#44000
+@eng The grand samurai's house@rus Хата главного самурая~
+~
+0 C inside
+D1
+~
+~
+Z 0 44001
+D3
+~
+~
+Z 0 44002
+D5
+~
+~
+Z 0 44003
+S
+#44001
+@eng Hall@rus Холл~
+~
+0 0 inside
+D3
+~
+~
+Z 0 44000
+S
+#44002
+~
+~
+0 0 inside
+D1
+~
+painting~
+Z 0 44000
+S
+#44003
+@eng Path to the grand samurai's house@rus Дорога к хате главного самурая~
+~
+0 N inside
+D4
+~
+~
+Z 0 44000
+S
+#0
+
+#MOBPROGS
+#44000
+--- speech "Hi"
+smile $n
+say Hi
+~
+#44001
+echoat $n Ты, ничего не подозревая поднимаешься наверх, но вдруг что-то тебя останавливает. Не понимая в чем дело, ты опускаешь глаза и замечаешь стальной клинок готовый разрезать тебя пополам. $n тихо спрашивает тебя :'{GКуда это ты собрался ?{x'
+mob echoaround $n $n пытается пройти на up, но вдруг останавливается, почувствовав холодный японский металл чуть пониже своего живота.
+~
+#44002
+mob echoat $n $i спрашивает тебя :'{Gа зачем тебе на up?{x'
+mob echoaround $n $i спрашивает $n зачем ему на up
+~
+#44003
+mob echoat $n $i говорит тебе :'{Gну иди{x'
+mob echoaround $n $i пропускает $n.
+mob transfer $n 44000
+~
+#0
+
+#$

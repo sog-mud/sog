@@ -972,8 +972,7 @@ stand stand female 1000
 #17301
 dagger squire~
 a squire's dagger~
-A leather hilted dagger lies here
-~
+A leather hilted dagger lies here.~
 iron~
 weapon 0 AN
 dagger 5 5 pierce 0
@@ -985,8 +984,7 @@ A
 #17302
 mace knight knight's~
 a knight's mace~
-A clublike weapon with a spiked balled head lies here
-~
+A clublike weapon with a spiked balled head lies here.~
 iron~
 weapon 0 AN
 mace 5 6 crush 0
@@ -998,8 +996,7 @@ A
 #17303
 lance knight knight's~
 a knight's lance~
-An 18' pole is sunk into the ground here
-~
+An 18' pole is sunk into the ground here.~
 iron~
 weapon 0 AN
 lance 5 6 stab 0
@@ -1015,8 +1012,7 @@ This pole looks alot like a lance.
 #17304
 armor green~
 a suit of green armor~
-A fine suit of green armor bearing the crest of Hautdesert glistens here!
-~
+A fine suit of green armor bearing the crest of Hautdesert glistens here!~
 mithril~
 armor GK AD
 9 9 9 9 0
@@ -1034,8 +1030,7 @@ The crest has a stag on a verdant field
 #17305
 axe benlad benlad's~
 benlad's axe~
-A two headed axe with the Hautdesert crest lies here
-~
+A two headed axe with the Hautdesert crest lies here.~
 iron~
 weapon GK AN
 axe 5 7 slash 0
@@ -1053,8 +1048,7 @@ The crest has a stag on a verdant field
 #17306
 bracer white~
 a white bracer~
-A humming, blinding white bracer lies here!
-~
+A humming, blinding white bracer lies here!~
 admantite~
 armor ABGK AM
 11 11 11 11 0
@@ -1074,8 +1068,7 @@ A
 #17307
 grail holy~
 the holy grail~
-A beat-up, dirty, wooden cup lies here
-~
+A beat-up, dirty, wooden cup lies here.~
 wood~
 potion GKL AO
 40 'heal' 'heal' 'heal' ''
@@ -1083,8 +1076,7 @@ potion GKL AO
 #17308
 cloak many orkney~
 a many colored cloak~
-A cloak of many colors and the crest of Orkney lies here
-~
+A cloak of many colors and the crest of Orkney lies here.~
 leather~
 armor GK AK
 9 9 9 9 0
@@ -1096,8 +1088,7 @@ A
 #17309
 shield~
 a shield of many colors~
-A rainbow of colors is reflected from the shield which lies here!
-~
+A rainbow of colors is reflected from the shield which lies here!~
 silver~
 armor GK AJ
 9 9 9 9 0
@@ -1107,8 +1098,7 @@ A
 #17310
 sword excalibur~
 excalibur~
-A beautiful dragon hilted sword lies here!
-~
+A beautiful dragon hilted sword lies here!~
 admantite~
 weapon BKL AN
 sword 5 8 slice D
@@ -1134,8 +1124,7 @@ gradually fade leaving you with only a lingering warm feeling.
 #17311
 scabbard arthur arthur's golden~
 arthur's scabbard~
-A beautiful golden scabbard lies here!
-~
+A beautiful golden scabbard lies here!~
 gold~
 container CIKL AL
 30 0 -1 15 75
@@ -1151,8 +1140,7 @@ A
 #17312
 armband armbands garlon garlon's~
 garlon's invisible armbands~
-A set of armbands of black iron lie here.
-~
+A set of armbands of black iron lie here.~
 iron~
 armor FGJ AI
 8 8 8 0 0
@@ -1164,8 +1152,7 @@ A
 #17313
 helm horned gawaine gawaine's~
 gawaine's horned helm~
-A burnished steel helm with oxen horns lies here.
-~
+A burnished steel helm with oxen horns lies here.~
 iron~
 armor C AE
 9 9 9 9 0
@@ -1173,8 +1160,7 @@ armor C AE
 #17314
 spurs silver lamorak lamorak's~
 lamorak's spurs~
-A set of silver spurs lies here.
-~
+A set of silver spurs lies here.~
 silver~
 armor 0 AG
 9 9 9 0 0
@@ -1186,8 +1172,7 @@ A
 #17315
 gauntlets bravery~
 gauntlets of bravery~
-A glowing pair of burnished chain mesh gauntlets lies here
-~
+A glowing pair of burnished chain mesh gauntlets lies here.~
 iron~
 armor GIKL AH
 11 11 11 11 0
@@ -1199,8 +1184,7 @@ A
 #17316
 ring incubus crest gold~
 the Incubus crest ring~
-A ring of twisted red gold bearing the likeness of an Incubus lies here
-~
+A ring of twisted red gold bearing the likeness of an Incubus lies here.~
 gold~
 armor CMQ AB
 11 11 11 6 0
@@ -1214,8 +1198,7 @@ A
 #17317
 staff merlin merlin's~
 merlin's staff~
-A staff of two intertwined vines lies here in a circle of power!
-~
+A staff of two intertwined vines lies here in a circle of power!~
 wood~
 wand ABCGH AO
 80 20 20 'dispel magic' 0
@@ -1233,8 +1216,7 @@ show
 #17318
 greaves blackened steel~
 a pair of blackened steel greaves~
-A pair of blackened steel greaves lies here. There is an inscription on them.
-~
+A pair of blackened steel greaves lies here. There is an inscription on them.~
 iron~
 armor CHM AF
 7 7 7 0 0
@@ -1252,8 +1234,7 @@ as I have promised Morgana in exchange for the favor of Eveline"
 #17319
 wand rod~
 a marble rod with a white hot tip~
-A marble rod with a white hot tip is smouldering here
-~
+A marble rod with a white hot tip is smouldering here.~
 stone~
 wand ACGHJ AO
 40 20 20 'charm person' 0
@@ -1268,8 +1249,7 @@ red eyes bore into your head. As the vison fades you hear the message '
 #17320
 pack backpack trailpack leather pellinore pellinore's~
 pellinore's trailpack~
-A backpack made of fine leather sits here. You see lettering on its corner.
-~
+A backpack made of fine leather sits here. You see lettering on its corner.~
 leather~
 container GH AD
 500 0 17321 250 75
@@ -1286,8 +1266,7 @@ the letter P). May you succeed in your quest!     - Merlin".
 #17321
 key p letter~
 a key with the letter "P" on it~
-A key with the letter "P" on it is here.
-~
+A key with the letter "P" on it is here.~
 brass~
 key 0 AO
 0 0 0 0 0
@@ -1295,8 +1274,7 @@ key 0 AO
 #17322
 rations trail~
 some trail rations~
-Some trail rations (nuts, dried fuits, dried meats) are here.
-~
+Some trail rations (nuts, dried fuits, dried meats) are here.~
 flesh~
 food 0 A
 EF EF 0 0 0
@@ -1304,8 +1282,7 @@ EF EF 0 0 0
 #17323
 flask wine~
 a flask of a nice red wine~
-A flask of nice, cold Pinot Noir wine is here, just waiting to be tasted.
-~
+A flask of nice, cold Pinot Noir wine is here, just waiting to be tasted.~
 glass~
 drink 0 A
 10 10 'red wine' 0 0
@@ -1317,8 +1294,7 @@ The wine is a beautiful deep red in color, and it goes well with all food.
 #17324
 bones bone pile~
 a pile of bones~
-A pile of bones lies here.
-~
+A pile of bones lies here.~
 stone~
 trash 0 A
 0 0 0 0 0
@@ -1326,8 +1302,7 @@ trash 0 A
 #17325
 skull human~
 a human skull~
-A human skull lies here.
-~
+A human skull lies here.~
 stone~
 trash 0 A
 0 0 0 0 0
@@ -1354,8 +1329,7 @@ happen. This looks like one of those.
 #17327
 letter love~
 a love letter~
-A love letter addressed to Tristram is rolled and sealed with a wax emblem.
-~
+A love letter addressed to Tristram is rolled and sealed with a wax emblem.~
 paper~
 scroll G AO
 40 'pass door' 'invisibility' 'fly' ''
@@ -1380,8 +1354,7 @@ Isolde
 #17328
 armor golden~
 a suit of golden armor~
-A suit of golden armor shines here
-~
+A suit of golden armor shines here.~
 gold~
 armor EJL AD
 9 9 9 9 0
@@ -1393,8 +1366,7 @@ A
 #17329
 spear unholy~
 a spear glowing in an unholy dark light~
-A spear is here, glowing with an unholy dark light.
-~
+A spear is here, glowing with an unholy dark light.~
 admantite~
 weapon ACEG AN
 spear 5 8 pierce C
@@ -1416,8 +1388,7 @@ fills you, you want to kill. Rend. Tear. Rape. Murder - ahhahahahah!
 #17330
 favor silken~
 a silken favor~
-A silken favor is here. Maybe it belongs to your lady?
-~
+A silken favor is here. Maybe it belongs to your lady?~
 cloth~
 trash 0 AO
 0 0 0 0 0
@@ -1425,9 +1396,7 @@ trash 0 AO
 #17331
 necklace~
 an emerald necklace~
-An exquisite emerald necklace with intricate gold settings has 
-been left here!
-~
+An exquisite emerald necklace with intricate gold settings has been left here!~
 gold~
 treasure 0 AC
 0 0 0 0 0
@@ -1435,8 +1404,7 @@ treasure 0 AC
 #17332
 ball chain~
 a massive spiked ball and chain~
-A massive spiked iron ball attached to a iron handle by a 3' chain is here.
-~
+A massive spiked iron ball attached to a iron handle by a 3' chain is here.~
 iron~
 weapon 0 AN
 exotic 5 7 crush 0
@@ -1446,8 +1414,7 @@ A
 #17333
 motley fool fools~
 fool's motley~
-Some fool has left his motley here.
-~
+Some fool has left his motley here.~
 cloth~
 armor 0 AE
 1 1 1 0 0
@@ -1457,8 +1424,7 @@ A
 #17334
 helm wolf helmet~
 a wolf helm~
-A helm with the semblance of a wolf is here
-~
+A helm with the semblance of a wolf is here.~
 iron~
 armor G AE
 9 9 9 9 0
@@ -1470,8 +1436,7 @@ A
 #17335
 armor shimmering red~
 a suit of shimmering red armor~
-A suit of shimmering red armor glistens in the sunlight.
-~
+A suit of shimmering red armor glistens in the sunlight.~
 mithril~
 armor AG AD
 9 9 9 4 0
@@ -1481,8 +1446,7 @@ A
 #17336
 key rusty~
 a rusty key~
-A key is here, lying in the dirt, rusting.
-~
+A key is here, lying in the dirt, rusting.~
 iron~
 key 0 A
 0 0 0 0 0
@@ -1490,8 +1454,7 @@ key 0 A
 #17337
 reward~
 the reward~
-A deed of payment for the rescue of a damsel in distress is here.
-~
+A deed of payment for the rescue of a damsel in distress is here.~
 paper~
 treasure 0 A
 0 0 0 0 0
@@ -1499,8 +1462,7 @@ treasure 0 A
 #17338
 key room~
 a room key~
-A brass key made depicting a young girl is here.
-~
+A brass key made depicting a young girl is here.~
 brass~
 key 0 A
 0 0 0 0 0
@@ -1508,8 +1470,7 @@ key 0 A
 #17339
 purse heavy~
 a rather heavy looking purse~
-A rather heavy looking purse is here.
-~
+A rather heavy looking purse is here.~
 leather~
 money 0 A
 1000 0 0 0 0
@@ -1517,8 +1478,7 @@ money 0 A
 #17340
 cloak lice infested~
 a lice infested cloak~
-A lice infested cloak made of the skin of some animal is here.
-~
+A lice infested cloak made of the skin of some animal is here.~
 leather~
 armor 0 AK
 8 8 8 0 0
@@ -1530,8 +1490,7 @@ A
 #17341
 sword broad steel commander commander's~
 a commander's steel broad sword~
-A commanders steel broad sword catches your eye.
-~
+A commanders steel broad sword catches your eye.~
 iron~
 weapon 0 AN
 sword 5 6 slash 0
@@ -1543,8 +1502,7 @@ A
 #17342
 skin whiskey~
 a skin of whiskey~
-A skin smelling of whiskey is here, on the ground.
-~
+A skin smelling of whiskey is here, on the ground.~
 leather~
 drink 0 A
 50 50 'whisky' 0 0
@@ -1552,8 +1510,7 @@ drink 0 A
 #17343
 ship dragon~
 a dragon ship~
-A dragon ship is beached here- where are those Angle raiders?
-~
+A dragon ship is beached here- where are those Angle raiders?~
 wood~
 furniture OT 0
 BD EGIJOP L BCEH BCEH
@@ -1561,8 +1518,7 @@ BD EGIJOP L BCEH BCEH
 #17344
 angle~
 an angle~
-An angle is here. A raider must be nearby.
-~
+An angle is here. A raider must be nearby.~
 iron~
 weapon 0 AN
 sword 5 7 slash 0
@@ -1574,8 +1530,7 @@ A
 #17345
 rod command~
 a rod of command~
-A rod of black, runed metal swallows light here.
-~
+A rod of black, runed metal swallows light here.~
 iron~
 staff CJL AO
 55 24 24 'charm person' 0
@@ -1596,8 +1551,7 @@ you become mine..."
 #17346
 banner war persante blue~
 the blue war banner of Persante of Inde~
-The blue war banner of Persante of Inde lies here. Persante has fallen!
-~
+The blue war banner of Persante of Inde lies here. Persante has fallen!~
 wood~
 light AK AO
 0 0 999 0 0
@@ -1619,8 +1573,7 @@ The banner depicts a Griffon on a pale blue sky
 #17347
 lifecutter~
 lifecutter~
-A blue black crusader hilt sword is stuck in the ground
-~
+A blue black crusader hilt sword is stuck in the ground~
 admantite~
 weapon C AN
 sword 5 7 slash C
@@ -1640,8 +1593,7 @@ slay evil!
 #17348
 armor plate full~
 a suit of full plate armor~
-A suit of full plate armor gleams on the ground
-~
+A suit of full plate armor gleams on the ground.~
 iron~
 armor 0 AD
 11 13 12 0 0
@@ -1651,8 +1603,7 @@ A
 #17349
 axe~
 an enormous axe~
-An enormous axe is resting here.
-~
+An enormous axe is resting here.~
 iron~
 weapon 0 AN
 axe 9 4 chop F
@@ -1666,8 +1617,7 @@ The axe handle has the name 'Gaheris' inscibed on it.
 #17350
 hat top black Lok Lok's~
 lok's black top hat~
-Lok's black top hat is here- maybe you should give it to him- nah
-~
+Lok's black top hat is here- maybe you should give it to him- nah.~
 unknown~
 armor 0 AE
 3 3 3 0 0

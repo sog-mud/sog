@@ -58,7 +58,7 @@ Syntax: prompt all
 Syntax: prompt <%*>
  
 PROMPT with out an argument will turn your prompt on or off.
- 
+PROMPT SHOW will show your current prompt.
 PROMPT ALL will give you the standard prompt.
  
 PROMPT <%*> where the %* are the various variables you may set yourself.
@@ -83,6 +83,8 @@ PROMPT <%*> where the %* are the various variables you may set yourself.
         %n :  Display your name
         %S :  Display your sex
         %t :  Display current MUD time
+        %W :  Display current wizi level (IMMORTAL or trusted players only)
+        %I :  Display current incog level (IMMORTAL or trusted playes only)
 
 Example:  PROMPT <%hhp %mm %vmv>
         Will set your prompt to "<10hp 100m 100mv>"
@@ -3073,9 +3075,8 @@ mana at each tick, gaining hitpoint,mana and movement at gaining level,etc.
 0 LIMITED LIMIT 'LIMIT EQUIPMENTS' 'LIMITED EQUIPMENTS'~
 Some of the items have been limited. You may find more information about
 some of the limited items in the books which Melancholy sells.
-Don't forget that you cannot save limited items if your level is 35
-level greater than limited equipments and limit of the equipment is more
-than 1.
+Don't forget that you cannot save limited items if your level is 20
+level greater than limited equipments.
 ~
 90 RRACE 'REMORT RACE'~
 You are remorting and following is a brief description of each
@@ -3222,42 +3223,6 @@ type         	    - type of object, type ? TYPE for a list
 extra		    - attributes of object, type ? EXTRA for a list
 wear                - where object is worn, type ? WEAR for a list
 material            - material the object is made from
-~
-0 MEDIT~
-Syntax: medit <vnum>		-Enters the editor for the selected mobile.
-
-The following commands are available from within the MEDITOR:
-
-alignment <value>   - set the mobile's alignment
-commands            - prints a list of possible commands
-create <vnum>       - creates mobile with specified vnum
-desc                - edit the mobile's description (when looked at)
-done                - exits the mobile editor and returns to normal play
-level <level>       - set the mobile's level
-long                - edit long description (the one in the room)
-name <keywords>     - sets the keywords on an mobile
-shop                - type this command for further information
-short <desc>        - sets the 'name' of an mobile (a sword, a fish etc)
-show                - hitting return, or 'show' shows the mobile stats
-spec                - sets a mobiles spec proc, type ? SPEC for a list
-sex                 - set the mobile's sex, type ? SEX for a list
-act                 - mobiles actions, type ? ACT for a list
-affect              - mobile affects, type ? AFFECT for a list
-ac		    - set the mobile's ac, type ? AC for a list
-form		    - mobiles body-form, type ? FORM for a list
-part		    - mobiles bodyparts, type ? PART for a list
-imm		    - mobile is immune to, type ? IMM for a list
-res		    - mobile is resistant to, type ? RES for a list
-vuln		    - mobile is vulnerable to, type ? VULN for a list
-material	    - material mobile is made from, type ? MATERIAL for a list
-off		    - offensive behaviour, type ? OFF for a list
-size		    - size, type ? SIZE for a list
-hitdice		    - dice to toss to get mobile's hitpoints
-manadice	    - dice to toss to get mobile's mana
-damdice		    - dice to toss to get mobile's hand to hand damage
-
-type 'help HITDICE', 'help MANADICE', 'help DAMDICE' for lists of reasonable dice 
-combinations on different levels.
 ~
 0 HITDICE~
 A high number of dice makes for less variance in mobiles hitpoints.
@@ -3674,6 +3639,7 @@ riding -- skill - самый что ни на есть riding.
 Syntax: exd add keyword lang
         exd edit keyword lang
         exd delete keyword
+        exd show keyword
         exd format keyword
  
 ~
@@ -3823,7 +3789,7 @@ Syntax: alist room
  
 From OLC editor you can use shortened version of this command ({Clist{x) with
 the same args.
-Default area for 'alist mobile/object' is the currently edit area or the
+Default area for 'alist mobile/object' is the currently edited area or the
 area currently edited object is in.
  
 ~
@@ -3899,6 +3865,137 @@ This function is available in shortened form from OLC editors
 0 'OLC ADDAFFECT'~
 Syntax: addaffect <location | none> <modifier> [<bitloc> <bits...>]
  
+~
+0 TWIT~
+Syntax: twit [name...]
+ 
+Use 'twit' command to toggle names of chars in your twitlist. You won't hear
+says, tells, socials, gossips etc. from chars listed in your twitlist.
+ 
+~
+0 SHOOT~
+You can use this command only when you have the bow skill. To shoot,
+you must wield a bow and hold an arrow in your hand.
+ 
+The syntax is: {Wshoot direction mob-name{x, a.e. {Wshoot south fido{x.
+ 
+The range is equal to your scan range (check it with {Wscan [direction]{x
+command). You can choose the target you want to shoot at with standard
+[num.] prefix.
+~
+0 'OLC MPCODE COMMANDS'~
+Syntax: create mp vnum
+Syntax: edit mp vnum
+In MobEdit: trigadd/trigdel
+ 
+See also: help 'OLC MPCODE TRIGGERS', 'OLC MPCODE VARIABLES',
+               'OLC MPCODE IFCHECKS', 'OLC MPCODE MOBCOMMANDS'.
+~
+0 'OLC MPCODE TRIGGERS'~
+-----------------------------------------------------------------------------
+trigger    argument and what must happen to activate trigger
+-----------------------------------------------------------------------------
+act        STRING       to match from act() to mobile
+speech     STRING       to match in dialogue (say, tell) to mobile
+rand       PERCENT      chance to check whenever a PC is in the mobiles zone
+bribe      INTEGER      miminum amount of silver coins given to mobile
+give       OBJECT NAME, OBJECT VNUM or ALL to match when obj given to mobile
+greet      PERCENT      chance to check if visible char enters mobile's room
+grall      PERCENT      chance to check when any char enters mobile's room
+entry      PERCENT      chance to check when mobile moves to a new room
+exit       EXIT NUMBER  a visible char tries to exit mobile's room
+exall      EXIT NUMBER  any char tries to exit mobile's room
+kill       PERCENT      chance to check when the mobile begins fighting
+fight      PERCENT      chance to check at fight_pulse if mobile is fighting
+hpcnt      PERCENT      lower than mobile's hit/max_hit if mobile is fighting
+death      PERCENT      chance to check after mobile has been slain
+surr       PERCENT      chance to activate when a char surrenders to mobile
+~
+0 'OLC MPCODE VARIABLES'~
+----------------------------------------------------------------------------
+variable         mobile actor victim random target    object 2nd_object
+-----------------------------------------------------------------------------
+  name             $i    $n     $t     $r    $q       $o       $p
+shrt_desc/title    $I    $N     $T     $R    $Q       $O       $P
+he/she/it          $j    $e     $E     $J    $X       --       --
+him/her/it         $l    $m     $M     $L    $Y       --       --
+his/hers/its       $k    $s     $S     $K    $Z       --       --
+a/an               --    --     --     --    --       --       --
+~
+0 'OLC MPCODE IFCHECKS'~
+----------------------------------------------------------------------------
+ifcheck    argument(s)     meaning
+-----------------------------------------------------------------------------
+rand       num             Is random percentage less than or equal to num
+mobhere    vnum            Is a NPC with this vnum in the room
+mobhere    name            Is a NPC with this name in the room
+objhere    vnum            Is an object with this vnum in the room
+objhere    name            Is an object with this name in the room
+mobexists  name            Does NPC 'name' exist somewhere in the world
+objexists  name            Does object 'name' exist somewhere in the world
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+people     ==   integer    Is the number of people in the room equal to integer
+players    ==   integer    Is the number of PCs in the room equal to integer
+mobs       ==   integer    Is the number of NPCs in the room equal to integer
+clones     ==   integer    Is the number of NPCs in the room with the same
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+isnpc      $*              Is $* an NPC
+ispc       $*              Is $* a PC
+isgood     $*              Does $* have a good alignment
+isneutral  $*              Does $* have a neutral alignment
+isevil     $*              Does $* have an evil alignment
+isimmort   $*              Is $* an immortal (level of $* > LEVEL_HERO)
+ischarm    $*              Is $* affected by charm
+isfollow   $*              Is $* a follower with their master in the room
+isactive   $*              Is $*'s position > POS_SLEEPING
+isdelay    $*              Does $* have a delayed MOBprogram pending
+isvisible  $*              Is $* visible to NPC who activated the program
+hastarget  $*              Does $* have a MOBprogram target in the room
+istarget   $*              Is $* the target of NPC who activated the program
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+affected   $*   'affect'   Is $* affected by 'affect'
+act        $*   'act'      Is $*'s ACT bit 'act' set
+off        $*   'off'      Is $*'s OFF bit 'off' set
+imm        $*   'imm'      Is $*'s IMM bit 'imm' set
+carries    $*   'name'     Is $* carrying object 'name'
+wears      $*   'name'     Is $* wearing object 'name'
+has        $*   'type'     Does $* have object of item_type 'type'
+uses       $*   'type'     Is $* wearing object of item_type 'type'
+name       $*   'name'     Is $*'s name 'name'
+pos        $*   'position' Is $*'s position 'position' (sleeping etc.)
+clan       $*   'name'     Does $* belong to clan 'name'
+race       $*   'name'     Is $* of race 'name'
+class      $*   'name'     Is $*'s class 'name'
+objtype    $*   'type'     Is $*'s item_type 'type'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+vnum       $*   == integer Is $*'s virtual number equal to integer
+hpcnt      $*   == integer Is $*'s hitpoint percentage equal to integer
+room       $*   == integer Is vnum of the room $* is in equal to integer
+sex        $*   == integer Is $*'s sex equal to integer
+level      $*   == integer Is $*'s level equal to integer
+align      $*   == integer Is $*'s alignment equal to integer
+money      $*   == integer Does $* have money (in silver) equal to integer
+objval#    $*   == integer Is $*->value[#] equal to integer (# from 0-4)
+~
+0 'OLC MPCODE MOBCOMMANDS'~
+-----------------------------------------------------------------------------
+MOBcommand argument_list           MOBcommand argument_list
+-----------------------------------------------------------------------------
+ASOUND     [text_string]           ECHO       [text_string]
+GECHO      [text_string]           ZECHO      [text_string]
+ECHOAT     [victim] [text_string]  ECHOAROUND [victim] [text_string]
+MLOAD      [vnum]                  OLOAD      [vnum] [level] [wear|room]
+KILL       [victim]                FLEE
+REMOVE     [victim] [vnum]         MOB JUNK   [object]
+PURGE      [argument]              AT         [dest] [command]
+GOTO       [dest]                  TRANSFER   [victim] [dest]
+GTRANSFER  [victim] [dest]         OTRANSFER  [object] [dest]
+FORCE      [victim] [command]      GFORCE     [victim] [command]
+VFORCE     [vnum]   [command]      CAST       [spell] [victim]
+DAMAGE     [victim] [min] [max] <lethal>
+DELAY                              CANCEL
+REMEMBER   [victim]                FORGET
+CALL       [vnum] [victim] [target1] [target2]
 ~
 -1 $~
 

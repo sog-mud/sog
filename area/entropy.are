@@ -4,6 +4,7 @@ VNUMs 45000 45999
 Credits Diablo~
 Security 5
 LevelRange 0 0
+Clan Entropy~
 End
 
 #MOBILES
@@ -116,7 +117,7 @@ Z 0 45004
 D2
 ~
 ~
-Z 0 36123
+Z 0 33100
 S
 #45001
 @eng Eternal Chaos.@rus Вечный Хаос.~

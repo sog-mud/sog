@@ -1,1610 +1,1557 @@
 #AREADATA
 Name Chaos~
-VNUMs 36100 36199
-Credits Chaos~
-Security 1
-LevelRange 0 0
+Builders root eidu maedhros~
+VNUMs 33100 33299
+Credits root~
+Security 9
+LevelRange 1 100
 End
 
 #MOBILES
-#36100
-demon~
+#33100
+elven maiden~
+@eng elven maiden@rus elven maiden@rusoff Beautiful elven maid rests here in very challenging poses.~
+@eng elven maiden
+@rus elven maiden
+@rusoff Beautiful elven maid rests here in very challenging poses.
+~
+~
+elf~
+A 0 1000 0
+100 1000 1d1+10000 1d1+1 1d1+1000 kiss
+0 0 0 0
+0 0 0 0
+sleep sleep female 0
+0 0 medium unknown
+#33102
+wizard Xanathos~
+@eng wizard@rus cказочник~
+@eng Wizard of Chaos
+@rus Дядька с длинными волосами и красными глазами что-то непрерывно бормочет
+~
+~
+human~
+A DFHNOUVlmnt 0 0
+200 1000 1d32000+64000 1d1+100000 1d64000+32000 magic
+0 0 0 0
+0 CDU 0 0
+stand stand male 0
+0 0 gargantuan unknown
+F for AHMV
+F par ABCDEFGHIJK
+M speech 33101 worship chaos~
+#33103
+professor Preobrazhenskyi~
+@eng professor Preobrazhenskii@rus профессор Преображенский~
+@eng Professor Preobrazhenskyi , equiped with scalpel , stands here.
+@rus Профессор Преображенский , вооруженный скальпелем , стоит тут.
+~
+~
+human~
+ABGOW DFHNOZlmnt 0 0
+100 100 1d1+30000 1d1+10000 1d1+200 pierce
+0 0 0 0
+ABEFHK 0 CD 0
+stand stand male 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+#33104
+eng Chaos Demon~
 @eng {rChaos Demon{x@rus {rChaos Demon{x~
-@eng {mA strange condensed flame is here.{x
-@rus {mПеред тобой плавает в воздухе странный сгусток энергии.{x
+@eng {mA strange condensed flame is here.
 ~
-@eng {x
 ~
 human~
-ABGQe DFHVZc 0 0
-50 1000 1d1+25000 10d10+10000 10d10+10000 none
--100 -100 -100 -100
-0 AB CD 0
-stand stand male 0
-C PW medium unknown
-F for AHMV
-F par ABDEFHIJK
-M act 36100 sacrifice~
-#36101
-small demongirl~
-@eng Small pretty demongirl@rus Маленькая скромненькая демоница~
-@eng Small pretty demongirl
-@rus МаленькаЯ скромненькаЯ демоница
-~
-@eng {x
-~
-human~
-AG DFHTXZclt 0 0
-1 300 100d100+300 100d100+300 10d10+100 none
+ABa 0 0 0
+100 100 1d1+100000 1d1000+1000 1d10000+1 wrath
 0 0 0 0
 0 0 0 0
-stand stand female 0
-0 0 small unknown
-F for AHMV
-F par ABCDEFGHIJK
-M greet 36101 100~
-#36102
-Armourer~
-@eng Armourer@rus Одевальщик, обувальщик, надувальщик.~
-@eng Drunk armourer is lying here.
-@rus Бухой мужик пытается привстать и продать тебе чего-нибудь.
-~
-@rus {x
-~
-human~
-ABGe FHVct 0 0
-95 300 100d100+10000 100d100+1000 100d10+500 none
--50 -50 -50 -50
-0 AB 0 0
-stand stand male 1000
-0 0 medium unknown
-F for AHMV
-F par ABCDEFGHIJK
-#36103
-Bartender~
-@eng {gChaos bartender{x@rus {gРаздолбай бармен.{x~
-@eng A drunk bartender is here.
-@rus В доску пьяный бармен протягивает тебе кружку.
-~
-@eng Drunk
-@rus Обычный бухарик.
-~
-human~
-ABGe DFHVZcmot 0 0
-95 300 300d300+30000 300d300+30000 100d10+300 none
--50 -50 -50 -50
-H AB 0 0
-stand stand male 0
-C 0 medium unknown
-F for AHMV
-F par ABCDEFGHIJK
-M bribe 36131 20000~
-#36104
-bookseller~
-@eng Bookseller@rus Книжный червь.~
-@eng A bookseller tries to sell you some papers here.
-@rus Хитрый старичок пытаетсЯ всучить тебе какие то бумажки.
-~
-@eng {x
-~
-human~
-ABGe DFHVclt 0 0
-95 300 100d100+10000 100d100+1000 100d10+1000 none
-0 0 0 0
-0 AB 0 0
-stand stand male 0
-0 0 medium unknown
-F for AHMV
-F par ABCDEFGHIJK
-#36105
-weaponsmith~
-@eng weaponsmith@rus Приколист кузнец~
-@eng A man smile at you and continue sharpen a sword.
-@rus Веселый парень подмигивает тебе, доставая из кармана ножик.
-~
-@rus {x
-~
-human~
-ABGe FHVclt 0 0
-95 300 100d100+10000 100d100+10000 10d100+1000 none
--50 -50 -50 -50
-0 AB 0 0
-stand stand male 1000
-0 0 medium unknown
-F for AHMV
-F par ABCDEFGHIJK
-#36106
-wizard~
-@eng wizard@rus Хитрый колдун~
-@eng A wizard with flaming staff is here.
-@rus Старик с большой белой бородой и безумными глазами сейчас тебе что то продаст.
-~
-@rus {x
-~
-human~
-ABGRe DFHVclt 0 0
-95 300 100d100+10000 100d100+10000 100d10+1000 none
--50 -50 -50 -50
-0 AB 0 0
-stand stand male 1000
-0 0 medium unknown
-F for AHMV
-F par ABCDEFGHIJK
-M bribe 36130 100000~
-#36107
-jeweller~
-@eng Jeweller@rus Ювелир~
-@eng A jeweller is here.
-@rus Добродушный старичек с удовольствием оберет тебя до нитки.
-~
-~
-human~
-ABGe DFHVclmnt 0 0
-95 300 100d100+10000 100d100+10000 100d10+1000 none
--50 -50 -50 -50
-0 AB 0 0
-stand stand male 0
-0 0 medium unknown
-F for AHMV
-F par ABCDEFGHIJK
-#36108
-grocer~
-@eng Grocer@rus Бакалейщик~
-@eng A grocer is here.
-@rus Мужик с наглой, рыжей мордой задумчиво смотрит на тебя.
-~
-@rus {x
-~
-human~
-ABGe DFHVlt 0 0
-95 300 100d10+10000 100d10+10000 100d10+500 none
--50 -50 -50 -50
-0 AB 0 0
-stand stand male 0
-0 0 medium unknown
-F for AHMV
-F par ABCDEFGHIJK
-#36109
-old swordsman~
-@eng Soul of swordsman@rus Душа мечника~
-@eng A soul of a swordsman, guarding the sword, is here.
-@rus Душа мечника летает здесь, охраняя Меч.
-~
-~
-human~
-ABFGQTe DFHVlmnt 0 0
-100 150 100d100+10000 100d100+10000 100d10+500 slash
--50 -50 -50 -50
-AF AB 0 0
 stand stand none 0
-0 0 giant unknown
+0 0 gargantuan unknown
 F for AHMV
 F par ABCDEFGHIJK
-#36110
-fire~
-@eng {x@rus {x~
+M give 33104 33103~
+#33105
+warlock chaos~
+@eng Elder Warlock of Chaos~
+@eng Very old warlock stands here, making strange various gests
 ~
 ~
 human~
-ABGe BQg 0 0
-95 300 10d10+1000 10d10+1000 10d10+1000 none
+ABR 0 0 0
+100 1000 1d30000+30000 1d1+1000 1d1000+1000 none
+0 0 0 0
+0 0 0 0
+stand stand male 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+M random 33105 3~
+#33106
+Bormental~
+@eng Bormental@rus Bormental~
+@eng Bormental
+@rus Bormental
+~
+~
+human~
+A 0 0 0
+100 0 0d0+0 0d0+0 0d0+0 none
 0 0 0 0
 0 0 0 0
 stand stand none 0
 0 0 medium unknown
 F for AHMV
 F par ABCDEFGHIJK
-M greet 36132 100~
-#36111
-secretary~
-@eng pretty secretary@rus СмазливаЯ секретарша~
-@eng A pretty girl is sitting here, playing lines.
-@rus Хорошенькая девушка играет здесь в lines.
+M speech 33106 bormi~
+#33107
+seth lord chaos~
+@eng Lord Seth@rus {DЛорд{x {rСет{х~
+@eng {DEvil Lord{x of {rAnger{x grins with you evilly here.
+@rus {DТемный Лорд{x {rЯрости{x злобно ухмыльнулся тебе
 ~
 ~
 human~
-ABGe DFHVclmt 0 0
-95 300 100d100+10000 100d100+10000 100d10+1000 slap
--50 -50 -50 -50
-0 AB 0 0
-stand stand female 0
-0 0 small unknown
+ABGRSTVe CDEFGHNOPQUVZacefgilmnst -1000 0
+200 500 1d300000+50000 1d1+10000 1d1+300 wrath
+-66 -66 -66 -66
+ABDEFGHJK ABHIKLMOQTUXYZ CDEFGNP 0
+stand stand none 1000000
+0 0 gargantuan unknown
+#33200
+bell~
+@eng Bell~
+@eng Bell Diamant Emerald Tagol
+~
+~
+human~
+A 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 none
+0 0 0 0
+0 0 0 0
+stand stand none 0
+0 0 medium unknown
 F for AHMV
 F par ABCDEFGHIJK
-M greet 36133 100~
+M speech 33103 kill him~
 #0
 
 #OBJECTS
-#36100
-altar~
-@eng {rFlaming Altar{x@rus {rПылающий Алтарь{x~
-@eng {rA huge Altar in flame is here.{x@rus {rОгромный Алтарь обьЯтый пламенем пылает перед тобой.{x~
-chaos~
-treasure 0 0
-0 0 0 0 0
-0 1000000 1000000 P
-#36101
-eng Board~
-@eng A bar board is here.@rus Стойка бара уютно расположилась здесь.~
-@eng A bar board is here.@rus Стойка бара уютно расположилась здесь.~
-Доска~
-furniture R 0
-AB 0 AGJ DGH DGH
-0 10000000 0 P
-#36102
-sign~
-@eng NO BEER IS NOW!@rus ПЫВА НЭТ!~
-@eng A sign over the board. {\ NO BEER IS NOW!@rus Вывеска висит над стойкой. {\ ПЫВА НЭТ!~
+#33100
+oblivion~
+@eng {DOblivion{x@rus {DЗабвение{x@rusoff {DЗабвение{x~
+@eng {DOblivion{x@rus {DЗабвение{x@rusoff {DЗабвение{x~
 unknown~
-trash R 0
-0 0 0 0 0
-0 1 0 P
-#36103
-sign~
-@eng All came to drink.@rus Все ушли бухать.~
-@eng A sign with write: "All came drink" is here.@rus Вывеска с надписью: "Все ушли бухать" висит здесь.~
-unknown~
-map R 0
-0 0 0 0 0
-0 0 0 P
-#36104
-beer~
-@eng Beer@rus Пыво~
-@eng Beer@rus Пыво~
-Хмель~
-drink 0 A
-64 64 'beer' 0 0
-0 0 100 P
-#36105
-paper~
-@eng paper@rus газетенка~
-@eng paper@rus газетенка~
-paper~
-trash 0 A
-0 0 0 0 0
-0 0 110 P
-#36106
-sword~
-@eng {rTiny chaos sword{x@rus {rКрошечный меч хаоса{x~
-@eng A small flaming sword is here.@rus Маленький сверкающий меч лежит здесь.~
-energy~
-weapon 0 AN
-sword 2 5 slash AD
-7 0 610 P
-#36107
-jerkin~
-@eng {rTiny chaos jerkin{x@rus {rМалюсенькая жилетка хаоса{x~
-@eng A tiny chaos jerkin is lying on the ground.@rus Крошечная жилетка лежит здесь.~
-energy~
-armor AG AD
-4 4 4 4 0
-5 0 850 P
+weapon CEFHJLMNOSTWYZa AN
+dagger 1 159 bite CDEGH
+100 10 2147483647 P
+F
+A 24 -30 g
 A
-14 50
+13 100
 A
-15 50
-#36108
-wand~
-@eng {rTiny chaos wand{x@rus {rМаленькая горящая палка{x~
-@eng A tiny chaos wand is lying here.@rus Горящая палка валяется здесь.~
-energy~
-wand A AO
-5 10 10 'fireball' 0
-1 0 400 P
-#36109
-potion~
-@eng potion@rus склянка~
-@eng potion@rus склянка~
-energy~
-potion G A
-90 'frenzy' 'reserved' 'reserved' 'reserved'
-30 0 100 P
-#36110
-vodka~
-@eng small bottle@rus маленькая бутылочка~
-@eng small bottle@rus маленькая бутылочка~
-energy~
-potion 0 A
-30 'frenzy' 'reserved' 'reserved' 'reserved'
-20 0 500 P
-#36111
-sword~
-@eng sword@rus меч~
-@eng sw@rus sw~
-unknown~
-weapon P AN
-exotic 0 0 none 0
-0 0 0 P
-#36112
-flame~
-@eng flame@rus {rЗажигалка{x~
-@eng flame@rus зажигалка~
-energy~
-light A A
+19 16
+A
+18 16
+C Entropy~
+#33102
+Millennium~
+@eng {WMillennium{x@rus {WMillennium{x~
+@eng Millenium@rus Millenium~
+ages~
+wand GT AO
+100 100 100 'pass door' 0
+90 1000 1000000 P
+A
+12 200
+A
+9 1000
+A
+4 100
+#33103
+lifebane~
+@eng Lifebane@rus Lifebane~
+@eng Lifebane@rus Lifebane~
+antimatter~
+weapon CGMOPT AN
+sword 75 1 thrust DE
+94 1 0 P
+F
+R 19 10 D
+F
+V 19 10 J
+F
+V 19 10 I
+F
+V 19 10 H
+F
+V 19 10 P
+#33104
+love~
+@eng {CLove{x@rus {CLove{x~
+@eng {CLove{x@rus {CLove{x~
+love~
+light ABFGHIMORSTYZ A
 0 0 -1 0 0
-5 0 10000 P
+100 1 1000000000 P
 A
-19 1
-A
-3 1
-A
-17 -2
-#36113
-Chaos sword~
-@eng {rChaos Sword of Hero{x@rus {rГорящий Меч Героя{x~
-@eng Chaos Sword of Hero is here.@rus Горящий Меч Героя здесь.~
-energy~
-weapon A AN
-sword 12 10 cleave ADH
-91 0 55000 P
-A
-19 20
-A
-18 20
-#36114
-Tiny staff~
-@eng Small staff@rus Маленький жезл украшенный драгоценностями.~
-@eng A small staff is here.@rus Маленький жезл украшенный драгоценностями лежит здесь.~
-unknown~
-treasure A AO
-0 0 0 0 0
-5 0 10000 P
-A
-2 1
-A
-1 1
-A
-18 1
-A
-19 1
-#36189
+20 -10
+F
+R 26 4 D
+F
+I 6 100 B
+#33105
+tattoo reykaris~
+@eng a dark ->*<- tattoo@rus a dark ->*<- tattoo@rusoff ->*<-~
+@eng a dark ->*<- tattoo@rus a dark ->*<- tattoo@rusoff ->*<-~
+skin~
+armor CEHJLMOYZ AR
+666 666 666 666 0
+91 1 2147483647 P
+#33200
 no name~
 ~
 ~
 unknown~
-treasure 0 0
+trash 0 0
 0 0 0 0 0
 0 0 0 P
-#36197
-ninjitsu gi black~
-@eng {DNinjitsu Gi{x@rus {DNinjitsu Gi{x~
-@eng Someone's black silk combat suit lies here.@rus Someone's black silk combat suit lies here.~
-black silk~
-container GIKLORSTYa AK
-100 0 0 600 10
-91 0 0 P
-A
-20 -10
-A
-19 15
-A
-18 15
-A
-13 100
-#36198
-cloak ebony~
-@eng {DEbony Cloak{x@rus {DEbony Cloak{x~
-@eng This wonderful ebony cloak is a symbol of thy membership in the thief guild.@rus This wonderful ebony cloak is a symbol of thy membership in the thief guild.~
-shadow~
-container CFJKMRSTYa AK
-100 0 0 600 10
-91 0 0 P
-A
-13 100
-A
-20 -10
-A
-18 15
-A
-19 15
-#36199
-shadow sai~
-@eng {Dthe Shadow Sai{x@rus {Dthe Shadow Sai{x~
-@eng {Dthe Shadow Sai{x@rus {Dthe Shadow Sai{x~
-titanium~
-weapon CFMT AN
-dagger 50 50 slice ACD
-92 20 100000 P
-A
-17 -20000
-A
-14 100000
-A
-12 5000
-A
-13 5000
-A
-18 200
-A
-19 200
 #0
 
 #ROOMS
-#36100
-@eng {x      {gTemple of Chaos      {x@rus {x       {gХрам Хаоса{x~
-@eng {gSpacious room surround you.{x
-@rus {gПросторное помещение окружает тебя со всех сторон.{x
-{gСплохи пламени мелькают на стенах, пытаясь дотянуться до тебя.
-Здесь те кто смел могут поклониться Хаосу и принести свои дары (sac).
-{g             Но будь осторожен, играя с огнем!{x
-~
-0 C inside
-D0
-~
-~
-Z 0 36101
-D1
-~
-~
-Z 0 36103
-D2
-~
-~
-Z 0 3077
-D3
-~
-~
-Z 0 36105
-S
-#36101
-@eng Temple Square@rus Храмовая площадь~
-@eng You stand on a square, big square... 
+#33100
+@eng The World Fabrication.@rus Фабрика миров.@rusoff Фабрика миров~
+@rus Все видимое пространство объЯто мельчайшими движущимися частицами
+Разлетаясь и собираясь в новые группы они создают образы миров
+появляющихся и исчезающих в различных измерениях Muddy .
+Ты замечаешь что миров становится все больше и больше.
+Из чего же они создаютсЯ ?..
  
-On the north you can see a town. It's a Chaos town.
-No law is in the this town. You may be killed or smth stealed from you here.
-@rus Ты стоишь на площади, большой площади...
- 
-На севере ты видишь большой город. Это город Хаоса.
-В нем есть только один закон, никакого закона.
-Там можно убивать и воровать, никто вас не осудит и никто не спасет.
-И врядли стоит расстраиваться если вас обворовали или убили в нем.
+Внезапно ты почувствовал утечку сил и... погрузился в дремучий сон.
 ~
-0 0 inside
-D0
-~
-~
-Z 0 36106
-D1
-~
-~
-Z 0 36102
-D2
-~
-~
-Z 0 36100
-D3
-~
-~
-Z 0 36104
-S
-#36102
-@eng Temple Square@rus ХрамоваЯ площадь~
-@eng You stand on a square, big square...
-@rus Ты стоишь на площади, большой площади...
-~
-0 0 inside
-D2
-~
-~
-Z 0 36103
-D3
-~
-~
-Z 0 36101
-S
-#36103
-@eng Temple Square@rus ХрамоваЯ площадь~
-@eng You stand on a square, big square...
-@rus Ты стоишь на площади, большой площади...
-~
-0 0 inside
-D0
-~
-~
-Z 0 36102
-D3
-~
-~
-Z 0 36100
-S
-#36104
-@eng Temple Square@rus ХрамоваЯ площадь~
-@eng You stand on a square, big square...
-@rus Ты стоишь на площади, большой площади...
-~
-0 0 inside
-D1
-~
-~
-Z 0 36101
-D2
-~
-~
-Z 0 36105
-S
-#36105
-@eng Temple Square@rus ХрамоваЯ площадь~
-@eng You stand on a square, big square...
-@rus Ты стоишь на площади, большой площади...
-~
-0 0 inside
-D0
-~
-~
-Z 0 36104
-D1
-~
-~
-Z 0 36100
-S
-#36106
-@eng Chaos street@rus Хаотичная улица~
-@eng You see a bar on the west, and the book shop on the east.
-@rus Направо пойдешь, пыво найдешь, налево пойдешь, чтива прикупишь.
-~
-0 0 inside
-D0
-~
-~
-Z 0 36107
-D1
-~
-~
-Z 0 36111
-D3
-~
-~
-Z 0 36109
-S
-#36107
-@eng Chaos street@rus ХаотичнаЯ улица~
-@eng You can see an armory on the east, and weaponry on the west.
-@rus Направо оружием торгуют, налево одежкой, а прямо улочка вьется.
-~
-0 0 inside
-D0
-~
-~
-Z 0 36108
-D1
-~
-~
-Z 0 36113
-D2
-~
-~
-Z 0 36106
-D3
-~
-~
-Z 0 36112
-S
-#36108
-@eng Chaos street@rus ХаотичнаЯ улица~
-@eng A magic is here.
-@rus Странный аромат магии вьется вокруг.
-~
-0 0 inside
-D0
-~
-~
-Z 0 36116
-D1
-~
-~
-Z 0 36115
-D2
-~
-~
-Z 0 36107
-D3
-~
-~
-Z 0 36114
-S
-#36109
-@eng Bar@rus Бар~
-@eng Here you can rest and drink a beer.
-@rus Здесь в тишине и покое можно расслабится, да пивка попить.
-~
-0 N inside
-D1
-~
-~
-Z 0 36106
-M 120 H 2
-S
-#36110
-@eng Rest room@rus Комната отдыха~
-~
-0 C inside
-S
-#36111
-@eng Book shop@rus Книжный киоск~
-@eng You can buy a books, newspapers, maps etc here.
-@rus Здесь можно купить книжек, газет и всякой прочей муры.
-~
-0 0 inside
-D3
-~
-~
-Z 0 36106
-S
-#36112
-@eng Weapon Shop@rus Оружейная~
-@eng A weapon, a more weapon, and a more weapon...
-@rus Оружие, много оружия, очень много оружия...
-~
-0 0 inside
-D1
-~
-~
-Z 0 36107
-S
-#36113
-@eng Armory@rus Магазин доспехов~
-@eng An armors of some heroes is on the shells here.
-@rus Доспехи героев из разных веков разлеглись по разным полкам.
-~
-0 0 inside
-D3
-~
-~
-Z 0 36107
-S
-#36114
-@eng Magic Shop@rus Магический магазин.~
-@eng Hmm.. A potions, scrolls, wands, staves, what may it mean?
-@rus Куча склянок, книжек, свитков, и еще всяческой чертовщины навалено здесь.
-~
-0 0 inside
-D1
-~
-~
-Z 0 36108
-S
-#36115
-@eng A strange place.@rus Странное место.~
-@eng Hmm.. Strange place.
-@rus Ну и местечко.
-~
-0 0 inside
-D2
-~
-~
-Z 0 36100
-D3
-~
-~
-Z 0 36108
-D5
-~
-~
-Z 0 36152
-S
-#36116
-@eng Chaos street@rus ХаотичнаЯ улица~
-@eng An averege street, you can see a square at the north.
-@rus Обычная улица с видом на площадь.
-~
-0 0 inside
-D0
-~
-~
-Z 0 36119
-D1
-~
-~
-Z 0 36117
-D2
-~
-~
-Z 0 36108
-D3
-~
-~
-Z 0 36118
-S
-#36117
-@eng Chaos street@rus ХаотичнаЯ улица~
-@eng An averege street.
-@rus Обычная улица.
-~
-0 0 inside
-D0
-~
-~
-Z 0 36121
-D3
-~
-~
-Z 0 36116
-S
-#36118
-@eng Chaos street@rus ХаотичнаЯ улица~
-@eng An averege street.
-@rus Обычная улица.
-~
-0 0 inside
-D0
-~
-~
-Z 0 36120
-D1
-~
-~
-Z 0 36116
-S
-#36119
-@eng Chaos Square@rus Площадь хаоса.~
-@eng A big square with many people.
-You can see all town from here.
-@rus Оживленная площадь кажется очень огромной.
-Сплохи пламени пробегающие иногда по ней скрывают ее границы.
-И все же отсюда можно увидеть почти весь город.
-~
-0 0 inside
-D0
-~
-~
-Z 0 36124
-D1
-~
-~
-Z 0 36121
-D2
-~
-~
-Z 0 36116
-D3
-~
-~
-Z 0 36120
-S
-#36120
-@eng Bank@rus Банк~
-@eng You can see no money here, money is in a safes.
-@rus Вполне понятно, что деньги здесь увидишь редко, они надежно укрыты в сейфах.
-За сохранность ваших вложений банк ответственности не несет.
-~
-0 0 inside
-D0
-~
-~
-Z 0 36122
-D1
-~
-~
-Z 0 36119
-D2
-~
-~
-Z 0 36118
-S
-#36121
-@eng White House.@rus Белый Дом.~
-@eng Wow! This town has a goverment!
-@rus Вот это да! Здесь есть правительство!
-~
-0 0 inside
-D0
-~
-~
-Z 0 36123
-D1
-~
-~
-Z 0 36128
-D2
-~
-~
-Z 0 36117
-D3
-~
-~
-Z 0 36119
-S
-#36122
-@eng Chaos street@rus ХаотичнаЯ улица~
-@eng An averege street.
-@rus Обычная улица.
-~
-0 0 inside
-D1
-~
-~
-Z 0 36124
-D2
-~
-~
-Z 0 36120
-S
-#36123
-@eng Chaos street@rus ХаотичнаЯ улица~
-@eng An averege street.
-@rus Обычная улица.
-~
-0 0 inside
+0 JKNTXb inside
 D0
 ~
 ~
 Z 0 45000
-D2
-~
-~
-Z 0 36121
-D3
-~
-~
-Z 0 36124
-S
-#36124
-@eng Chaos street@rus ХаотичнаЯ улица~
-@eng An averege street, you can see a square at the south.
-@rus ОбычнаЯ улица с видом на площадь
-~
-0 0 inside
-D0
-~
-~
-Z 0 36125
-D1
-~
-~
-Z 0 36123
-D2
-~
-~
-Z 0 36119
-D3
-~
-~
-Z 0 36122
-S
-#36125
-@eng Chaos street@rus ХаотичнаЯ улица~
-@eng You can see a grocer shop at the east and a jeweller on the west.
-@rus Универмаг торчит напротив магазина брюликов.
-~
-0 0 inside
-D1
-~
-~
-Z 0 36126
-D2
-~
-~
-Z 0 36124
-D3
-~
-~
-Z 0 36127
-S
-#36126
-@eng Grocer shop@rus Универмаг~
-@eng A shells contains a many different products.
-@rus Полки магазина забиты всякой всячиной, по большей мере не нужной.
-~
-0 0 inside
-D3
-~
-~
-Z 0 36125
-S
-#36127
-@eng Jeweller shop@rus Ювелирный магазин~
-@eng Hmm, a brilliants...
-@rus Под пуленепробиваемыми стеклами здесь разложены какие то камушки.
-~
-0 0 inside
-D1
-~
-~
-Z 0 36125
-S
-#36128
-@eng The Waiting Room@rus Приемная Хаоса~
-~
-0 0 inside
-D1
-~
-~
-Z 0 36129
-D3
-~
-~
-Z 0 36121
-S
-#36129
-@eng Office of Chaos@rus Кабинет Хаоса~
-~
-0 0 inside
-D3
-~
-~
-Z 0 36128
-S
-#36130
-@eng {rLake of flame{x@rus {rОгненое озеро{x~
-@rus {x
-~
-0 AN inside
-D0
-~
-~
-Z 0 36133
-D1
-~
-~
-Z 0 36131
-D2
-~
-~
-Z 0 36152
-D3
-~
-~
-Z 0 36131
-S
-#36131
-@eng {rLake of flame{x@rus {rОгненое озеро{x~
-@rus {x
-~
-0 AN inside
-D0
-~
-~
-Z 0 36132
-D1
-~
-~
-Z 0 36130
-D3
-~
-~
-Z 0 36130
-S
-#36132
-@eng {rLake of flame{x@rus {rОгненое озеро{x~
-@rus {x
-~
-0 AN inside
-D0
-~
-~
-Z 0 36135
-D1
-~
-~
-Z 0 36133
-D2
-~
-~
-Z 0 36131
-D3
-~
-~
-Z 0 36133
-S
-#36133
-@eng {rLake of flame{x@rus {rОгненое озеро{x~
-@rus {x
-~
-0 AN inside
-D0
-~
-~
-Z 0 36134
-D1
-~
-~
-Z 0 36132
-D2
-~
-~
-Z 0 36130
-D3
-~
-~
-Z 0 36132
-S
-#36134
-@eng {rLake of flame{x@rus {rОгненое озеро{x~
-@rus {x
-~
-0 AN inside
-D0
-~
-~
-Z 0 36137
-D1
-~
-~
-Z 0 36135
-D2
-~
-~
-Z 0 36133
-D3
-~
-~
-Z 0 36135
-S
-#36135
-@eng {rLake of flame{x@rus {rОгненое озеро{x~
-@rus {x
-~
-0 AN inside
-D0
-~
-~
-Z 0 36136
-D1
-~
-~
-Z 0 36134
-D2
-~
-~
-Z 0 36132
-D3
-~
-~
-Z 0 36134
-S
-#36136
-@eng {rLake of flame{x@rus {rОгненое озеро{x~
-@rus {x
-~
-0 AN inside
-D0
-~
-~
-Z 0 36139
-D1
-~
-~
-Z 0 36137
-D2
-~
-~
-Z 0 36135
-D3
-~
-~
-Z 0 36137
-S
-#36137
-@eng {rLake of flame{x@rus {rОгненое озеро{x~
-@rus {x
-~
-0 AN inside
-D0
-~
-~
-Z 0 36138
-D1
-~
-~
-Z 0 36136
-D2
-~
-~
-Z 0 36134
-D3
-~
-~
-Z 0 36136
-S
-#36138
-@eng {rLake of flame{x@rus {rОгненое озеро{x~
-@rus {x
-~
-0 AN inside
-D0
-~
-~
-Z 0 36141
-D1
-~
-~
-Z 0 36139
-D2
-~
-~
-Z 0 36137
-D3
-~
-~
-Z 0 36139
-S
-#36139
-@eng {rLake of flame{x@rus {rОгненое озеро{x~
-@rus {x
-~
-0 AN inside
-D0
-~
-~
-Z 0 36140
-D1
-~
-~
-Z 0 36138
-D2
-~
-~
-Z 0 36136
-D3
-~
-~
-Z 0 36138
-S
-#36140
-@eng {rLake of flame{x@rus {rОгненое озеро{x~
-@rus {x
-~
-0 AN inside
-D0
-~
-~
-Z 0 36143
-D1
-~
-~
-Z 0 36141
-D2
-~
-~
-Z 0 36139
-D3
-~
-~
-Z 0 36141
-S
-#36141
-@eng {rLake of flame{x@rus {rОгненое озеро{x~
-@rus {x
-~
-0 AN inside
-D0
-~
-~
-Z 0 36142
-D1
-~
-~
-Z 0 36140
-D2
-~
-~
-Z 0 36138
-D3
-~
-~
-Z 0 36140
-S
-#36142
-@eng {rLake of flame{x@rus {rОгненое озеро{x~
-@rus {x
-~
-0 AN inside
-D0
-~
-~
-Z 0 36145
-D1
-~
-~
-Z 0 36143
-D2
-~
-~
-Z 0 36141
-D3
-~
-~
-Z 0 36143
-S
-#36143
-@eng {rLake of flame{x@rus {rОгненое озеро{x~
-@rus {x
-~
-0 AN inside
-D0
-~
-~
-Z 0 36144
-D1
-~
-~
-Z 0 36142
-D2
-~
-~
-Z 0 36140
-D3
-~
-~
-Z 0 36142
-S
-#36144
-@eng {rLake of flame{x@rus {rОгненое озеро{x~
-@rus {x
-~
-0 AN inside
-D0
-~
-~
-Z 0 36147
-D1
-~
-~
-Z 0 36145
-D2
-~
-~
-Z 0 36143
-D3
-~
-~
-Z 0 36145
-S
-#36145
-@eng {rLake of flame{x@rus {rОгненое озеро{x~
-@rus {x
-~
-0 AN inside
-D0
-~
-~
-Z 0 36146
-D1
-~
-~
-Z 0 36144
-D2
-~
-~
-Z 0 36142
-D3
-~
-~
-Z 0 36144
-S
-#36146
-@eng {rLake of flame{x@rus {rОгненое озеро{x~
-@rus {x
-~
-0 AN inside
-D0
-~
-~
-Z 0 36149
-D1
-~
-~
-Z 0 36147
-D2
-~
-~
-Z 0 36145
-D3
-~
-~
-Z 0 36147
-S
-#36147
-@eng {rLake of flame{x@rus {rОгненое озеро{x~
-@rus {x
-~
-0 AN inside
-D0
-~
-~
-Z 0 36148
-D1
-~
-~
-Z 0 36146
-D2
-~
-~
-Z 0 36144
-D3
-~
-~
-Z 0 36146
-S
-#36148
-@eng {rLake of flame{x@rus {rОгненое озеро{x~
-@rus {x
-~
-0 AN inside
-D0
-~
-~
-Z 0 36151
-D1
-~
-~
-Z 0 36149
-D2
-~
-~
-Z 0 36147
-D3
-~
-~
-Z 0 36149
-S
-#36149
-@eng {rLake of flame{x@rus {rОгненое озеро{x~
-@rus {x
-~
-0 AN inside
-D0
-~
-~
-Z 0 36150
-D1
-~
-~
-Z 0 36148
-D2
-~
-~
-Z 0 36146
-D3
-~
-~
-Z 0 36148
-S
-#36150
-@eng {rLake of flame{x@rus {rОгненое озеро{x~
-@rus {x
-~
-0 AN inside
-D0
-~
-~
-Z 0 36135
-D1
-~
-~
-Z 0 36151
-D2
-~
-~
-Z 0 36149
-D3
-~
-~
-Z 0 36146
-S
-#36151
-@eng Island@rus Остров~
-@rus {x
-~
-0 N inside
-D0
-~
-~
-Z 0 36141
-D1
-~
-~
-Z 0 36144
-D2
-~
-~
-Z 0 36148
-D3
-~
-~
-Z 0 36150
-S
-#36152
-@eng Enterance@rus Вход в подземелье~
-@eng If you are not a Hero, stop here!
-@rus Когда то давным давно великая битва была здесь.
-Великолепные земли, лежавшие здесь, покрылись огнем.
-Говорят, что на острове, посреди огненого озера, душа погибшего воина охраняет древний меч.
-Жаль, что трупы героев, отправившихся за ним, ничего уже нам не расскажут.
-~
-0 Q inside
-D0
-~
-~
-Z 0 36130
 D4
 ~
 ~
-Z 0 36115
+Z 0 33102
+D5
+~
+~
+Z 0 33101
+M 1000 H 1000
+C Entropy~
+S
+#33101
+@eng Entrance to the ruined city of chaos.~
+@eng You stand at the remains of ancient fortress of chaos.
+~
+0 0 city
+D0
+~
+~
+Z 0 33103
+D4
+~
+~
+Z 0 33100
+S
+#33102
+@eng Entrance to the New Chaos !@rus Въезд в Новый Хаос!~
+@eng Swirling Vortex in the centre leads you to the new reality of Chaos.
+~
+0 0 city
+D0
+~
+~
+Z 0 33140
+D5
+~
+~
+Z 0 33100
+S
+#33103
+@eng Temple of Chaos@rus Храм Хаоса~
+@eng {gSpacious room surround you.{x
+~
+0 0 inside
+D0
+~
+~
+Z 0 33104
+D1
+~
+~
+Z 0 33106
+D2
+~
+~
+Z 0 33101
+D3
+~
+~
+Z 0 33108
+S
+#33104
+@eng Temple Square.@rus Храмовая площадь~
+@eng You stand on a square, big square...
+ 
+On the north you can see a ruined town. It was a Chaos town.
+This town still same chaotic, as in early ages. Absolutely no law.
+Probably , absolutely anything can happen here...
+~
+0 0 city
+D0
+~
+~
+Z 0 33109
+D1
+~
+~
+Z 0 33105
+D2
+~
+~
+Z 0 33103
+D3
+~
+~
+Z 0 33107
+S
+#33105
+@eng Temple Square.@rus Храмовая площадь~
+@eng You stand on a square, big square...
+~
+0 0 inside
+D2
+~
+~
+Z 0 33106
+D3
+~
+~
+Z 0 33104
+S
+#33106
+@eng Temple Square.@rus Храмовая площадь~
+@eng You stand on a square, big square...
+~
+0 0 inside
+D0
+~
+~
+Z 0 33105
+D3
+~
+~
+Z 0 33103
+S
+#33107
+@eng Temple Square.@rus Храмовая площадь~
+@eng You stand on a square, big square...
+~
+0 0 inside
+D1
+~
+~
+Z 0 33104
+D2
+~
+~
+Z 0 33108
+S
+#33108
+@eng Temple Square.@rus Храмовая площадь~
+@eng You stand on a square, big square...
+~
+0 0 inside
+D0
+~
+~
+Z 0 33107
+D1
+~
+~
+Z 0 33103
+S
+#33109
+@eng Chaos Street@rus Хаотичная улица~
+@eng You see a bar on the west and the book shop on the east.
+~
+0 0 inside
+D0
+~
+~
+Z 0 33110
+D1
+~
+~
+Z 0 33114
+D2
+~
+~
+Z 0 33104
+D3
+~
+~
+Z 0 33112
+S
+#33110
+@eng Chaos Street.@rus Хаотичная улица~
+@eng You can see an armory an the east and weaponry on the west.
+~
+0 0 inside
+D0
+~
+~
+Z 0 33111
+D1
+~
+~
+Z 0 33116
+D2
+~
+~
+Z 0 33109
+D3
+~
+~
+Z 0 33115
+S
+#33111
+@eng Chaos street@rus Хаотичная улица~
+@eng A magic is here.
+~
+0 0 inside
+D0
+~
+~
+Z 0 33119
+D1
+~
+~
+Z 0 33118
+D2
+~
+~
+Z 0 33110
+D3
+~
+~
+Z 0 33117
+S
+#33112
+@eng Bar@rus Бар~
+@eng Here you can rest and drink a beer.
+~
+0 0 inside
+D1
+~
+~
+Z 0 33109
+S
+#33114
+@eng Book shop@rus Книжный киоск~
+@eng You can buy a books, newspapers, maps etc here.
+~
+0 0 inside
+D3
+~
+~
+Z 0 33109
+S
+#33115
+@eng Weapon Shop@rus Оружейная~
+@eng Weapon,more weapon, and more weapon ...
+~
+0 0 inside
+D1
+~
+~
+Z 0 33110
+S
+#33116
+@eng Armoury@rus Магазин Доспехов~
+@eng An armours of some heroes lies here on the shelfs.
+~
+0 0 inside
+D3
+~
+~
+Z 0 33110
+S
+#33117
+@eng Magic shop@rus Магический Магазин~
+@eng Hmm... A potions,scrolls,wands,staves, what may it mean ?
+~
+0 0 inside
+D1
+~
+~
+Z 0 33111
+S
+#33118
+@eng A strange place...@rus Странное место~
+@eng Hmm... what a strange place !
+~
+0 0 inside
+D3
+~
+~
+Z 0 33111
+S
+#33119
+@eng Chaos Street@rus Хаотичная улица~
+@eng An average street, you can see a square at the north.
+~
+0 0 inside
+D0
+~
+~
+Z 0 33122
+D1
+~
+~
+Z 0 33120
+D2
+~
+~
+Z 0 33111
+D3
+~
+~
+Z 0 33121
+S
+#33120
+@eng Chaos Street@rus Хаотичная улица~
+@eng An average street.
+~
+0 0 inside
+D0
+~
+~
+Z 0 33124
+D3
+~
+~
+Z 0 33119
+S
+#33121
+@eng Chaos Street.@rus Хаотичная улица~
+@eng An average street.
+~
+0 0 inside
+D0
+~
+~
+Z 0 33123
+D1
+~
+~
+Z 0 33119
+S
+#33122
+@eng Chaos Square@rus Площадь Хаоса~
+@eng Large square with mass of people , moving absolutely unruly there...
+Completely all town is viewed at this point.
+~
+0 0 inside
+D0
+~
+~
+Z 0 33127
+D1
+~
+~
+Z 0 33124
+D2
+~
+~
+Z 0 33119
+D3
+~
+~
+Z 0 33123
+S
+#33123
+@eng Bank@rus Банк~
+@eng You can't see here money, they all pushed in safes.
+~
+0 0 inside
+D0
+~
+~
+Z 0 33125
+D1
+~
+~
+Z 0 33122
+D2
+~
+~
+Z 0 33121
+S
+#33124
+@eng Ruins of White House.@rus Руины Белого Дома~
+@eng Sometime this town haved the goverment, but now you yet
+don't know what functions it haved.
+Entrance to the eastern building is blocked by the fallen columns.
+@rusoff Sometime this town haved the goverment ...
+no yavno perestaralsya i goverment sdohlo ;)
+~
+0 0 inside
+D0
+~
+~
+Z 0 33126
+D2
+~
+~
+Z 0 33120
+D3
+~
+~
+Z 0 33122
+S
+#33125
+@eng Chaos Street@rus Хаотичная улица~
+@eng An average street
+~
+0 0 inside
+D1
+~
+~
+Z 0 33127
+D2
+~
+~
+Z 0 33123
+S
+#33126
+@eng Chaos Street@rus Хаотичная улица~
+@eng An Average street.
+~
+0 0 inside
+D2
+~
+~
+Z 0 33124
+D3
+~
+~
+Z 0 33127
+S
+#33127
+@eng Chaos Street@rus Хаотичная улица~
+@eng An average street, you can see a square at the south.
+~
+0 0 inside
+D0
+~
+~
+Z 0 33128
+D1
+~
+~
+Z 0 33126
+D2
+~
+~
+Z 0 33122
+D3
+~
+~
+Z 0 33125
+S
+#33128
+@eng Chaos Street@rus Хаотичная улица~
+@eng You can see a grocer shop at the east and the jeweller on the west.
+~
+0 0 inside
+D1
+~
+~
+Z 0 33129
+D2
+~
+~
+Z 0 33127
+D3
+~
+~
+Z 0 33130
+S
+#33129
+@eng Grocer shop@rus Универмаг~
+@eng A shells contains many different products.
+~
+0 0 inside
+D3
+~
+~
+Z 0 33128
+S
+#33130
+@eng Jeweller shop@rus Ювелирный Магазин~
+@eng Hmm, a brilliants !..
+~
+0 0 inside
+D1
+~
+~
+Z 0 33128
+S
+#33131
+@eng Home , Sweet Home@rus Хакерка@rusoff Скромная обитель root'а~
+@eng Ты появляешься в небольшой тусклой комнатёнке , заваленной всяческим хламом.
+Эдесь царит Хаос , Великий Хаос , Полнейший Хаос , Идеальный Хаос !
+Буквально, на каждом шагу валяются пустые бутылки пива и всякой другой дряни.
+По краям соблазнительно стоят компуторы. Тебе кажется, что на каждом написано:
+'Включи меня!'
+В уголке несколько мрачно, угрюмо, но как всегда очаровательно, гудит сервер.
+Сразу заметно, что все здешние обитатели всегда не прочь "погудеть".
+А что это за до боли знакомый запах охватывает всю комнату ?..
+КОНЕЧНО - Спи-и-ирт !!! Вот это да !!!
+Рядом с сервером стоит магическое оборудование синтезируущее 100% спирт.
+Поражаясь этим дивом, ты понимаешь - Отныне для тебя Магия и Жизнь неотделимы!
+В середине комнаты стоит огромная кровать - неужели все так серьезно ?!!
+@rus Ты появляешься в небольшой тусклой комнатёнке , заваленной всяческим хламом.
+Эдесь царит Хаос , Великий Хаос , Полнейший Хаос , Идеальный Хаос !
+Буквально, на каждом шагу валяются пустые бутылки пива и всякой другой дряни.
+По краям соблазнительно стоят компуторы. Тебе кажется, что на каждом написано:
+'Включи меня!'
+В уголке несколько мрачно, угрюмо, но как всегда очаровательно, гудит сервер.
+Сразу заметно, что все здешние обитатели всегда не прочь "погудеть".
+А что это за до боли знакомый запах охватывает всю комнату ?..
+КОНЕЧНО - Спи-и-ирт !!! Вот это да !!!
+Рядом с сервером стоит магическое оборудование синтезируущее 100% спирт.
+Поражаясь этим дивом, ты понимаешь - Отныне для тебя Магия и Жизнь неотделимы!
+В середине комнаты стоит огромная кровать - неужели все так серьезно ?!!
+@rusoff Ты появляешься в небольшой тусклой комнатёнке , заваленной всяческим хламом.
+Эдесь царит Хаос , Великий Хаос , Полнейший Хаос , Идеальный Хаос !
+Буквально, на каждом шагу валяются пустые бутылки пива и всякой другой дряни.
+По краям соблазнительно стоят компуторы. Тебе кажется, что на каждом написано:
+'Включи меня!'
+В уголке несколько мрачно, угрюмо, но как всегда очаровательно, гудит сервер.
+Сразу заметно, что все здешние обитатели всегда не прочь "погудеть".
+А что это за до боли знакомый запах охватывает всю комнату ?..
+КОНЕЧНО - Спи-и-ирт !!! Вот это да !!!
+Рядом с сервером стоит магическое оборудование синтезируущее 100% спирт.
+Поражаясь этим дивом, ты понимаешь - Отныне для тебя Магия и Жизнь неотделимы!
+В середине комнаты стоит огромная кровать - неужели все так серьезно ?!!
+~
+0 ADTU inside
+D0
+~
+~
+Z 0 33192
+M 10000 H 10000
+O root~
+C Entropy~
+S
+#33140
+@eng Southern gate of New Chaos.@rus Южные врата Хаоса.~
+~
+0 0 inside
+D1
+~
+~
+Z 0 33142
+D2
+~
+~
+Z 0 33102
+D3
+~
+~
+Z 0 33141
+S
+#33141
+@eng Chaos Highway@rus Проспект Хаоса~
+~
+0 0 inside
+D0
+~
+~
+Z 0 33143
+D1
+~
+~
+Z 0 33140
+S
+#33142
+@eng Chaos Highway@rus Проспект Хаоса~
+~
+0 0 inside
+D0
+~
+~
+Z 0 33144
+D3
+~
+~
+Z 0 33140
+S
+#33143
+@eng Chaos Highway@rus Проспект Хаоса~
+~
+0 0 inside
+D0
+~
+~
+Z 0 33145
+D1
+~
+~
+Z 0 33144
+D2
+~
+~
+Z 0 33141
+D3
+~
+~
+Z 0 33151
+S
+#33144
+@eng Chaos Highway@rus Проспект Хаоса~
+~
+0 0 inside
+D0
+~
+~
+Z 0 33146
+D1
+~
+~
+Z 0 33152
+D2
+~
+~
+Z 0 33142
+D3
+~
+~
+Z 0 33143
+S
+#33145
+@eng Chaos Highway@rus Проспект Хаоса~
+~
+0 0 inside
+D0
+~
+~
+Z 0 33147
+D1
+~
+~
+Z 0 33146
+D2
+~
+~
+Z 0 33143
+D3
+~
+~
+Z 0 33153
+S
+#33146
+@eng Chaos Highway@rus Проспект Хаоса~
+~
+0 0 inside
+D0
+~
+~
+Z 0 33148
+D1
+~
+~
+Z 0 33154
+D2
+~
+~
+Z 0 33144
+D3
+~
+~
+Z 0 33145
+S
+#33147
+@eng Chaos Highway@rus Проспект Хаоса~
+~
+0 0 inside
+D0
+~
+~
+Z 0 33149
+D1
+~
+~
+Z 0 33148
+D2
+~
+~
+Z 0 33145
+D3
+~
+~
+Z 0 33155
+S
+#33148
+@eng Chaos Highway@rus Проспект Хаоса~
+~
+0 0 inside
+D0
+~
+~
+Z 0 33150
+D1
+~
+~
+Z 0 33156
+D2
+~
+~
+Z 0 33146
+D3
+~
+~
+Z 0 33147
+S
+#33149
+@eng Chaos Highway@rus Проспект Хаоса~
+~
+0 0 inside
+D1
+~
+~
+Z 0 33150
+D2
+~
+~
+Z 0 33147
+D3
+~
+~
+Z 0 33157
+S
+#33150
+@eng Chaos Highway@rus Проспект Хаоса~
+~
+0 0 inside
+D1
+~
+~
+Z 0 33158
+D2
+~
+~
+Z 0 33148
+D3
+~
+~
+Z 0 33149
+S
+#33151
+@eng Entrance@rus Приемная~
+@rus {CВы стоите в полутемной комнате, вдоль стен которой раслположены
+лавочки с сидящими на них больными, ждущими своей очереди.
+На западе (west) вы видите дверь, ведущую в операционную, над которой
+гороит лампочка с надписью "Идет операция", означающая что Посторонним
+{R            ВХОД ВОСПРЕЩЕН.
+~
+0 0 inside
+D1
+~
+~
+Z 0 33143
+D3
+~
+~
+Z 0 33160
+S
+#33152
+@eng Morgue@rus Морг~
+~
+0 0 inside
+D1
+~
+~
+Z 0 33164
+D3
+~
+~
+Z 0 33144
+S
+#33153
+@eng Apothecary@rus Аптека~
+~
+0 0 inside
+D1
+~
+~
+Z 0 33145
+D3
+~
+~
+Z 0 33168
+S
+#33154
+@eng Crematorium@rus Крематорий~
+~
+0 0 inside
+D1
+~
+~
+Z 0 33172
+D3
+~
+~
+Z 0 33146
+S
+#33155
+@eng Bathes@rus Бани~
+~
+0 0 inside
+D1
+~
+~
+Z 0 33147
+D3
+~
+~
+Z 0 33176
+S
+#33156
+@eng Cafeterium@rus Кафетерий~
+~
+0 0 inside
+D1
+~
+~
+Z 0 33179
+D3
+~
+~
+Z 0 33148
+S
+#33157
+@eng University of Science Magic@rus Университет Научной Магии~
+~
+0 0 inside
+D1
+~
+~
+Z 0 33149
+D3
+~
+~
+Z 0 33183
+S
+#33158
+@eng Corporation@rus Заведение~
+~
+0 0 inside
+D1
+~
+~
+Z 0 33187
+D3
+~
+~
+Z 0 33150
+S
+#33160
+@rus Операционная~
+@rus {CВы находитесь в небольшой, но очень хорошо освещенной комнате.
+Посреди комнаты стоит стол, на котором лежит оперируемый человек, a
+рядом на столе поменьше лежит спящая собака. Вдоль стен стоят столы на которых
+лежит всяческая утварь, необходимая для операций:скальпели, бинты, шприцы и т.п.
+Два доктора стоят около столов, о чем-то оживленно споря. Вы понимаете, что лучше
+их сейчас не отвлекать, поскольку это опасно дла жизни больного, да и скальпель
+в руках одного из них выглядит {Rугрожающе.
+~
+0 0 inside
+D0
+~
+~
+Z 0 33161
+D1
+~
+~
+Z 0 33151
+D2
+~
+~
+Z 0 33163
+D3
+~
+~
+Z 0 33162
+D4
+~
+~
+Z 0 33191
+S
+#33161
+@eng Apothecary shop@rus Аптечный киоск~
+@rus {CВы стоите в светлой большой комнате.В комнате расположен небольшой
+ларек с надписью "Аптечный киоск".На прилавке Вы видите 
+разные лекарства, которые Вы всегда можете купить. В киоске сидит
+очаровательная девушка в белом, работающая в киоске продавцом.
+~
+0 KX inside
+D2
+~
+~
+Z 0 33160
+O maedhros~
+S
+#33162
+@eng 6'th palate@rus Шестая палата~
+@rus {CВы стоите в красивой полутемной комнате, уставленной вдоль
+стен мЯгкими кроватЯми. В этой палате отдыхают после своей
+тяжелой изнуряющей работы доктора. В этой палате им всегда
+поможет прекрасная Медсестра.
+~
+0 KX inside
+D1
+~
+~
+Z 0 33160
+M 1000 H 1000
+O maedhros~
+S
+#33163
+@rus Курилка~
+@rus {CВы стоите в небольшой задымленной комнате.Кругом витает сигаретный запах
+и дым. По всей комнате расставлены мягкие кресла и небольшие столики с
+хрустальными пепельницами на них. В комнате очень спокойная и умиротворяющая
+обстановка. Здесь доктора отдыхают в перерывах между работой и обсуждают свои
+профессиональные и непрофессиональные проблемы с коллегами. Здесь всегда можно
+получить дельный совет у знающих профессоров.
+~
+0 KX inside
+D0
+~
+~
+Z 0 33160
+O maedhros~
+S
+#33164
+@eng Morgue~
+~
+0 0 inside
+D0
+~
+~
+Z 0 33165
+D1
+~
+~
+Z 0 33166
+D2
+~
+~
+Z 0 33167
+D3
+~
+~
+Z 0 33152
+S
+#33165
+@eng Morgue~
+~
+0 0 inside
+D2
+~
+~
+Z 0 33164
+S
+#33166
+@eng Morgue~
+~
+0 0 inside
+D3
+~
+~
+Z 0 33164
+S
+#33167
+@eng Morgue~
+~
+0 0 inside
+D0
+~
+~
+Z 0 33164
+S
+#33168
+@eng Apothecary~
+~
+0 0 inside
+D0
+~
+~
+Z 0 33169
+D1
+~
+~
+Z 0 33153
+D2
+~
+~
+Z 0 33171
+D3
+~
+~
+Z 0 33170
+S
+#33169
+@eng Apothecary~
+~
+0 0 inside
+D2
+~
+~
+Z 0 33168
+S
+#33170
+@eng Apothecary~
+~
+0 0 inside
+D1
+~
+~
+Z 0 33168
+S
+#33171
+@eng Apothecary~
+~
+0 0 inside
+D0
+~
+~
+Z 0 33168
+S
+#33172
+@eng Crematorium~
+~
+0 0 inside
+D0
+~
+~
+Z 0 33173
+D1
+~
+~
+Z 0 33174
+D2
+~
+~
+Z 0 33175
+D3
+~
+~
+Z 0 33154
+S
+#33173
+@eng Crematorium~
+~
+0 0 inside
+D2
+~
+~
+Z 0 33172
+S
+#33174
+@eng Crematorium~
+~
+0 0 inside
+D3
+~
+~
+Z 0 33172
+S
+#33175
+@eng Crematorium~
+~
+0 0 inside
+D0
+~
+~
+Z 0 33172
+S
+#33176
+@eng Bathes~
+~
+0 0 inside
+D0
+~
+~
+Z 0 33176
+D1
+~
+~
+Z 0 33155
+D2
+~
+~
+Z 0 33178
+D3
+~
+~
+Z 0 33177
+S
+#33177
+@eng Bathes~
+~
+0 0 inside
+D1
+~
+~
+Z 0 33176
+S
+#33178
+@eng Bathes~
+~
+0 0 inside
+D0
+~
+~
+Z 0 33176
+S
+#33179
+@eng Cafeterium~
+~
+0 0 inside
+D0
+~
+~
+Z 0 33180
+D1
+~
+~
+Z 0 33181
+D2
+~
+~
+Z 0 33182
+D3
+~
+~
+Z 0 33156
+S
+#33180
+@eng Cafeterium~
+~
+0 0 inside
+D2
+~
+~
+Z 0 33179
+S
+#33181
+@eng Cafeterium~
+~
+0 0 inside
+D3
+~
+~
+Z 0 33179
+S
+#33182
+@eng Cafeterium~
+~
+0 0 inside
+D0
+~
+~
+Z 0 33179
+S
+#33183
+@eng Science Magic~
+~
+0 0 inside
+D0
+~
+~
+Z 0 33184
+D1
+~
+~
+Z 0 33157
+D2
+~
+~
+Z 0 33186
+D3
+~
+~
+Z 0 33185
+S
+#33184
+@eng Science Magic~
+~
+0 0 inside
+D2
+~
+~
+Z 0 33183
+S
+#33185
+@eng Science Magic~
+~
+0 0 inside
+D1
+~
+~
+Z 0 33183
+S
+#33186
+@eng Science Magic~
+~
+0 0 inside
+D0
+~
+~
+Z 0 33183
+S
+#33187
+@eng Corporation~
+~
+0 0 inside
+D0
+~
+~
+Z 0 33188
+D1
+~
+~
+Z 0 33189
+D2
+~
+~
+Z 0 33190
+D3
+~
+~
+Z 0 33158
+S
+#33188
+@eng Corporation~
+~
+0 0 inside
+D2
+~
+~
+Z 0 33187
+S
+#33189
+@eng Corporation~
+~
+0 0 inside
+D3
+~
+~
+Z 0 33187
+D4
+~
+~
+Z 0 33192
+S
+#33190
+@eng Corporation~
+~
+0 0 inside
+D0
+~
+~
+Z 0 33187
+S
+#33191
+@eng Hall of fame@rus Зал славы~
+~
+0 AC inside
+D5
+~
+~
+Z 0 33160
+S
+#33192
+@eng Private Sector~
+~
+0 0 inside
+D2
+~
+~
+Z 0 33131
+D5
+~
+~
+Z 0 33189
 S
 #0
 
 #RESETS
-O 0 36100 0 36100	* {rFlaming Altar{x ({x      {gTemple of Chaos      {x)
-M 0 36100 1 36100 1	* {rChaos Demon{x ({x      {gTemple of Chaos      {x)
-M 0 36101 1 36108 1	* Small pretty demongirl (Chaos street)
-O 0 36101 0 36109	* A bar board is here. (Bar)
-M 0 36103 1 36109 1	* {gChaos bartender{x (Bar)
-G 0 36104 0		*	Beer
-M 0 36104 1 36111 1	* Bookseller (Book shop)
-G 0 36105 0		*	paper
-M 0 36105 1 36112 1	* weaponsmith (Weapon Shop)
-G 0 36106 0		*	{rTiny chaos sword{x
-M 0 36102 1 36113 1	* Armourer (Armory)
-G 0 36107 0		*	{rTiny chaos jerkin{x
-M 0 36106 1 36114 1	* wizard (Magic Shop)
-G 0 36108 0		*	{rTiny chaos wand{x
-M 0 36101 1 36115 1	* Small pretty demongirl (A strange place.)
-M 0 36101 1 36116 1	* Small pretty demongirl (Chaos street)
-M 0 36101 1 36119 1	* Small pretty demongirl (Chaos Square)
-O 0 36103 0 36121	* All came to drink. (White House.)
-M 0 36108 1 36126 1	* Grocer (Grocer shop)
-G 0 36112 0		*	flame
-M 0 36107 1 36127 1	* Jeweller (Jeweller shop)
-G 0 36114 0		*	Small staff
-M 0 36111 1 36128 1	* pretty secretary (The Waiting Room)
-R 0 36130 4	* {rLake of flame{x: randomize
-R 0 36131 4	* {rLake of flame{x: randomize
-R 0 36132 4	* {rLake of flame{x: randomize
-R 0 36133 4	* {rLake of flame{x: randomize
-M 0 36110 1 36133 6	* {x ({rLake of flame{x)
-R 0 36134 4	* {rLake of flame{x: randomize
-R 0 36135 4	* {rLake of flame{x: randomize
-R 0 36136 4	* {rLake of flame{x: randomize
-M 0 36110 1 36136 6	* {x ({rLake of flame{x)
-R 0 36137 4	* {rLake of flame{x: randomize
-R 0 36138 4	* {rLake of flame{x: randomize
-R 0 36139 4	* {rLake of flame{x: randomize
-M 0 36110 1 36139 6	* {x ({rLake of flame{x)
-R 0 36140 4	* {rLake of flame{x: randomize
-R 0 36141 4	* {rLake of flame{x: randomize
-R 0 36142 4	* {rLake of flame{x: randomize
-M 0 36110 1 36142 6	* {x ({rLake of flame{x)
-R 0 36143 4	* {rLake of flame{x: randomize
-R 0 36144 4	* {rLake of flame{x: randomize
-R 0 36145 4	* {rLake of flame{x: randomize
-M 0 36110 1 36145 6	* {x ({rLake of flame{x)
-R 0 36146 4	* {rLake of flame{x: randomize
-R 0 36147 4	* {rLake of flame{x: randomize
-R 0 36148 4	* {rLake of flame{x: randomize
-M 0 36110 1 36148 6	* {x ({rLake of flame{x)
-R 0 36149 4	* {rLake of flame{x: randomize
-R 0 36150 4	* {rLake of flame{x: randomize
-M 0 36109 1 36151 1	* Soul of swordsman (Island)
-E 0 36113 0 16		*	{rChaos Sword of Hero{x: wielded
+M 0 33104 1 33101 1	* {rChaos Demon{x (Entrance to the ruined city of chaos.)
+M 0 33103 1 33160 1	* professor Preobrazhenskii ()
+M 0 33105 1 33183 1	* Elder Warlock of Chaos (Science Magic)
+M 0 33200 1 33192 1	* Bell (Private Sector)
 S
 
-#SHOPS
-36102 0 9 0 0 0 100 100 0 23
-36103 0 17 0 0 0 100 100 0 23
-36104 0 13 0 0 0 100 100 0 23
-36105 0 5 0 0 0 100 100 0 23
-36106 0 3 0 0 0 100 100 0 23
-36107 0 8 0 0 0 100 100 0 23
-36108 0 1 0 0 0 100 100 0 23
-0
+#OLIMITS
+O 33100 13	* {DOblivion{x
+O 33103 1	* Lifebane
+O 33104 2	* {CLove{x
+O 33105 1	* a dark ->*<- tattoo
+S
 
 #MOBPROGS
-#36100
-if rand 97
-smile $n
+#33100
+if mobexists Xanathos
+mob purge $i
+end
 endif
-if rand 97
-cast 'blindness' $n
-endif
-if rand 97
-cast 'cause critical' $n
-endif
-if rand 97
-cast 'earthquake' $n
-endif
-if rand 97
-cast 'poison' $n
-endif
-if rand 97
-cast 'heal' $n
-endif
-if rand 97
-cast 'heat metal' $n
-endif
-if rand 97
-cast 'curse' $n
-endif
-if rand 97
-cast 'dragonfire' $n
-endif
-if rand 97
-cast 'giant strength' $n
-endif
-if rand 97
-cast 'cancel' $n
-endif
-mob goto 36100
-if rand 95
-cast 'heal' $n
-endif
+c teleport
+yell Не хочет ли кто послушать сказку?
+~
+#33101
+say Счастливого путешествия
+wave $n
+mob transfer $n 33100
+~
+#33102
+~
+#33103
+mob oload 33100 room
+~
+#33104
+bow $n
+say Жизнь прекрасна , зачем от нее отрекаться ?
+mob junk lifebane
 if rand 90
-cast 'haste' $n
-endif
-if rand 90
-cast 'armor' $n
-endif
-if rand 90
-cast 'enhanced armor' $n
-endif
-if rand 90
-cast 'bless' $n
-endif
-if rand 90
-cast 'frenzy' $n
-endif
-if rand 90
-cast 'sanctuary' $n
-endif
-if rand 90
-cast 'shield' $n
+mob oload 33100 room
+mob otransfer oblivion 33100
+say Дурное волочить существование или ...
+say Забыться, Умереть, Уснуть ...
 endif
 ~
-#36101
-if isimmort $n 
-kiss $n
+#33105
+if mobexists Xanathos
 else
-if rand 80
-slap $n
+mob mload 33102
 endif
-if rand 80
-kiss $n
-endif
-if rand 80
-fren $n
-endif
-if rand 80
-love $n
-endif
-if rand 80
-flirt $n
-endif
-if rand 80
-wrestle $n
-endif
-if rand 80
-hug $n
-endif
-if rand 80
-strip $n
-endif
-if rand 80
-undres $n
-endif
-if rand 80
-massage $n
-endif
-endif
+mob vforce 33102 wave
+mob vforce 33102 mob goto 33184
+mob vforce 33102 cast teleport
+mob vforce 33102 yell Не хочет ли кто послушать сказку?
 ~
-#36130
-emote воровато оглядывается.
-smile $n
-mob oload 36109
-emote еще раз воровато оглядывается.
-give potion $n
-~
-#36131
-emote достает из под прилавка бутылку водки.
-mob oload 36110
-give vodka $n
-~
-#36132
-c 'flamestrike' $n
-mob transfer $n 36131
-~
-#36133
-say Бога нет!
-mob transfer $n 36121
+#33106
 ~
 #0
 

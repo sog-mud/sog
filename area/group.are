@@ -16,7 +16,7 @@ scrolls		The reading of magical scrolls and books (see 'help recite')
 staves		The use of staves and similar devices (see 'help brandish')
 wands		The use of wands and similar items (see 'help zap') 
 ~
--1 EXOTIC WEAPONS WEAPON WEAPONSMASTER AXE DAGGER FLAIL MACE POLEARM SPEAR SWORD WHIP~
+-1 EXOTIC WEAPONS WEAPON WEAPONSMASTER AXE DAGGER FLAIL MACE POLEARM SPEAR SWORD WHIP BOW~
 Each weapon skill applies to a specific group of armaments, and determines how
 well a character fights with a particular weapon.
 If the character has the parry skill as well, he can parry incoming attacks.
@@ -33,9 +33,10 @@ polearm		the use of pole weapons (except spears), including halberds
 spear		this skill covers both spears and staves, but not polearms
 sword		the warrior's standby, from rapier to claymore
 whip		the use of whips, chains, and bullwhips
-exotic		the use of strange magical weapons
-
-The exotic skill can neither be known nor practiced, and is dependent solely 
+bow             the use of missile weapons           
+exotic          the use of strange magical weapons
+ 
+The exotic skill can neither be known nor practiced, and is dependent solely
 upon level. 
 ~
 -1 'SHIELD BLOCK'~

@@ -37,12 +37,51 @@ stand stand male 1000000
 0 0 medium unknown
 F for AHMV
 F par ABCDEFGHIJK
+#38500
+War-rawan~
+@eng war-rawan@rus Вар-Раван~
+@eng Big troll War-rawan
+@rus Большой тролль Вар-Раван
+~
+@eng This big, dirty green troll will be glad to have you as his next meal.
+His stench is so sharp, that even dead can awake from it. Huge mace in
+his hand seems to be his own finger !
+@rus Большой и противный зеленый тролль будет рад тобой отобедать. С его 
+клыков капает слизь, а страшное зловоние может и мертвого разбудить.
+Огромная палица в его руке выглядит естественным продолжением его
+конечности.
+~
+troll~
+ABFGT DHZ 0 0
+110 0 100d10+20000 1d1+5000 15d15+120 smash
+-70 -50 -50 -30
+AEFH APQ 0 0
+stand stand male 70000
+0 0 large unknown
+M greet 38500 100~
+#38510
+ga-nocry~
+@eng Ga-nocry@rus Га-ноцри~
+@eng Ga-nocry is here, guarding the temple of dreams.
+@rus Га-ноцри охраняет храм сновидений
+~
+This tall man is guarding the entrance to the temple of dreams...
+~
+gnome~
+ABGR DFl 1000 0
+107 0 50d50+15000 100d100+8000 15d12+100 magic
+-40 0 -50 -90
+AE ABX B 0
+stand stand male 60000
+0 0 medium unknown
+M exall 38501 3~
+M speech 38502 Я Степа~
 #0
 
 #OBJECTS
 #38001
 bed~
-@eng big bed@rus {Cбольшую кровать{w~
+@eng big bed@rus {Cбольшая кровать{w~
 @eng Big Bed@rus {CБольшая удобная кровать{w~
 wood~
 furniture G P
@@ -120,6 +159,24 @@ wood~
 furniture 0 0
 BD EIJKN KN CFG CFG
 0 100000 0 P
+#38500
+club spiked skullsmasher~
+the spiked club named 'Skullsmasher'~
+A huge spiked club belonging to a troll lies here in the dirt.~
+stone~
+weapon MY AN
+mace 11 11 pound DFH
+89 300 100000 P
+A
+26 2
+A
+5 6
+A
+1 6
+A
+19 15
+A
+18 15
 #0
 
 #ROOMS
@@ -211,7 +268,314 @@ Wooden floor is clearned by barmen. The room is lighted by tourches.
 ~
 0 CK inside
 S
+#38500
+@eng The Gates of Nightmare@rus Врата ужаса~
+@eng High steal gates are closing your way to the nightmares zone. Your blood
+is really cold of looking there. All nightmares wich have evere been seen
+are hidding there.
+@rus Стальные врата закрывают перед тобой вход в зону сновидений,
+которая заполненна самыми страшными ночными кошмарами, какие только
+могут присниться.
+~
+0 0 mountain
+D3
+~
+~
+Z 0 38501
+S
+#38501
+@eng Your nightmares starting@rus Вход в зону кошмаров~
+@eng High mountains are around you. You make a step and ...
+Aa-a-a-a-a-a-a-a !!!!
+ 
+          A-a-a-a-a-a !!!     U-a-u-u-o-o-o !!!
+        Ah !!!
+                      Helpppp !!!
+                    Ha-ha-ha-ha-ha-ha !!!
+                 
+         Wellcome to your Nigh{RMares{w !!!
+@rus Высокие скалы окружают тебя. Ты делаешь шаг и ... .. .. ... ...
+А !!! 
+              А-а-а-аа-аа-а-а-а !!!!!
+                               
+ 
+ 
+ А-а-а-аа-а !!!                 А-а-а-а-а !!!!!
+Страшные вопли и крики оглушают тебя. От стонов и плача мороз пробегает по твоей коже ...
+Вот оно ... Кладбище ночных ужасов и снов.
+~
+0 0 mountain
+D0
+~
+~
+Z 0 38502
+D1
+~
+~
+Z 0 38500
+S
+#38502
+@eng BloodFalls@rus Кровепад~
+@eng You see how blood falls from mountains to the ground. In that red river
+you see legs, heads, hands, bones ... You are scared by screams, wich
+you don't know....
+@rus Большой поток крови сваливается сверху в пропасть. В потоке и месеве ты
+замечаешь части тела, кости, черепа и прочие ... Ужас охватывает тебя
+от криков сверху, но прямого пути туда нет ...
+~
+0 N inside
+D0
+~
+~
+Z 0 38503
+D2
+~
+~
+Z 0 38501
+S
+#38503
+@eng Magic Bridge@rus Магический мост~
+@eng When you entered this room. The demonic fire lighted this room by red light
+You see the magic stones wich are fling in the air making the four-way
+bridge
+@rus При твоем появлении место мгновенно осветилось снизу красным огнем.
+Ты увидил самый странный мост, какой только можно было придумать ...
+Камни сами собой висят в горячем воздухе, образуя крест. Они переливабтся
+и блестят.
+~
+0 N inside
+D0
+~
+~
+Z 0 38504
+D1
+~
+~
+Z 0 38505
+D2
+~
+~
+Z 0 38502
+D3
+~
+~
+Z 0 38510
+S
+#38504
+@rus Комната бессоницы~
+~
+0 N mountain
+D0
+~
+~
+Z 0 38511
+D2
+~
+~
+Z 0 38503
+S
+#38505
+~
+~
+0 N inside
+D1
+~
+~
+Z 0 38506
+D3
+~
+~
+Z 0 38503
+S
+#38506
+~
+~
+0 C inside
+D3
+~
+~
+Z 0 38505
+S
+#38510
+@eng Enterance to the temple of Dreams@rus Вход в храм сновидений~
+@eng There is the temple of your dreams
+In montains you see
+Like dream you also will be keeped
+Forever in this hills
+@rus                В большой скале покоится
+                     Сновидений храм
+                  Как сон и ты укроешься
+                     Навеки будешь там
+~
+0 0 mountain
+D1
+~
+~
+Z 0 38503
+D3
+~
+~
+Z 0 38526
+S
+#38511
+~
+~
+0 0 inside
+D2
+~
+~
+Z 0 38504
+S
+#38521
+~
+~
+0 0 inside
+D1
+~
+~
+Z 0 38522
+D2
+~
+~
+Z 0 38524
+S
+#38522
+~
+~
+0 0 inside
+D1
+~
+~
+Z 0 38523
+D2
+~
+~
+Z 0 38525
+D3
+~
+~
+Z 0 38521
+S
+#38523
+~
+~
+0 0 inside
+D2
+~
+~
+Z 0 38526
+D3
+~
+~
+Z 0 38522
+S
+#38524
+~
+~
+0 0 inside
+D0
+~
+~
+Z 0 38521
+D1
+~
+~
+Z 0 38525
+D2
+~
+~
+Z 0 38527
+S
+#38525
+~
+~
+0 0 inside
+D0
+~
+~
+Z 0 38522
+D1
+~
+~
+Z 0 38526
+D2
+~
+~
+Z 0 38528
+D3
+~
+~
+Z 0 38524
+S
+#38526
+~
+~
+0 0 inside
+D0
+~
+~
+Z 0 38523
+D1
+~
+~
+Z 0 38510
+D2
+~
+~
+Z 0 38529
+D3
+~
+~
+Z 0 38525
+S
+#38527
+~
+~
+0 0 inside
+D0
+~
+~
+Z 0 38524
+D1
+~
+~
+Z 0 38528
+S
+#38528
+~
+~
+0 0 inside
+D0
+~
+~
+Z 0 38525
+D1
+~
+~
+Z 0 38529
+D3
+~
+~
+Z 0 38527
+S
+#38529
+~
+~
+0 0 inside
+D0
+~
+~
+Z 0 38526
+D3
+~
+~
+Z 0 38528
+S
 #0
+
+#SPECIALS
+M 38510 spec_cast_mage	* Ga-nocry
+S
 
 #RESETS
 O 0 38003 0 38101	* fountain (Coridor)
@@ -219,10 +583,38 @@ O 0 38001 0 38102	* big bed (Bedroom)
 O 0 38002 0 38103	* armchair (Cabinet)
 O 0 38004 0 38103	* table (Cabinet)
 O 0 38200 0 38200	* long wooden table (Budy's)
+M 0 38500 1 38500 1	* war-rawan (The Gates of Nightmare)
+E 0 38500 0 16		*	the spiked club named 'Skullsmasher': wielded
+M 0 38510 1 38510 1	* Ga-nocry (Enterance to the temple of Dreams)
 S
 
 #SHOPS
 38001 0 0 0 0 0 1 1 1 23
 0
+
+#MOBPROGS
+#38500
+mob echoat $n $i grunts at you.
+mob echoaround $n $i grunts at $n.
+yell Fresh meat!
+~
+#38501
+mob echoat $n $I спрашивает тебя, '{GA знаешь ли ты пароль ?{x'
+mob echoaround $n $I blocks $N's passage.
+~
+#38502
+if name $n 'setepios'
+mob echoat $n $I говорит тебе, '{GИзвини, не признал.{x'
+mob echoaround $n $I внимательно разглядывает $N.
+mob echoaround $n $I произносит, '{GИ правда Степа!{x'
+say Проходите, проходите.
+mob gtransfer $n 38526
+else
+say Don't fool me, $N! Get Lost!
+mob echoaround $n $I utters the word and $N vanishes!
+mob transfer $n 3001
+endif
+~
+#0
 
 #$

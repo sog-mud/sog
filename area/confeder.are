@@ -4,6 +4,7 @@ VNUMs 33000 33099
 Credits Eros~
 Security 5
 LevelRange 1 100
+Clan Confederacy~
 End
 
 #MOBILES
@@ -62,7 +63,7 @@ ABEFHJKO AB CDEFGHIJK 0
 stand stand none 0
 0 0 medium unknown
 F par BCDEFGHI
-M greet 33000 100~
+M grall 33000 100~
 #33010
 grey master~
 @eng grey master@rus серый мастер~

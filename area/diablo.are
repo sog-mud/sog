@@ -1,0 +1,338 @@
+#AREADATA
+Name Valley of Death~
+VNUMs 33300 33399
+Credits Diablo~
+Security 9
+LevelRange 70 100
+End
+
+#MOBILES
+#33300
+spider dirty~
+@eng the dirty spider@rus грязный паук~
+@eng A dirty spider wants to kill you.
+@rus Огромный грязный паук (spider) тянет к тебе шесть мерзких лапок.
+~
+~
+undead~
+ABFLR HPQVaclmt -1000 0
+80 200 1d1+15000 1d1+10000 1d1+150 claw
+-40 -40 -40 -40
+ACEFK ABK 0 0
+stand stand none 0
+0 0 medium unknown
+#33301
+moth melancholy~
+@eng the melancholy moth@rus грустный мотылек~
+@eng A melancholy moth in the web here.
+@rus Грустный мотылек (moth) в агонии бьется в паутине.
+~
+~
+sprite~
+ABHQR 0 1000 0
+70 200 1d1+7000 1d1+7000 1d1+100 pound
+-10 -10 -10 -10
+0 0 0 0
+stand stand none 0
+0 0 medium unknown
+#33302
+piranha~
+@eng the stupid piranha@rus глупая пиранья~
+@eng A stupid piranha wants to bite you.
+@rus Глупая но очень страшная пиранья (piranha) хочет вонзить в тебя свои острые зубы.
+~
+~
+fish~
+AFLT BDFVlmt -1000 0
+82 200 1d1+10000 1d1+10000 1d1+100 pierce
+-30 -30 -30 -30
+EFHKR 0 0 0
+stand stand none 0
+0 0 medium unknown
+#33303
+octopus~
+@eng the octopus@rus осьминог~
+@eng A giant octopus very hungry today.
+@rus Огромный осьминог (octopus) сегодня еще ничего не ел.
+~
+~
+snake~
+ABRT DFHQVflt -1000 0
+85 500 1d1+20000 1d1+20000 1d1+250 pound
+-50 -50 -50 -50
+ADEFK AB 0 0
+stand stand male 0
+0 0 giant unknown
+#33304
+fisherman~
+@eng the fisherman@rus рыболов~
+@eng A fisherman smile at you.
+@rus Рыболов (fisherman) весело улыбается тебе.
+~
+~
+human~
+ABGTe DFHJZlmt 1000 0
+80 100 1d1+15000 1d1+15000 1d1+100 pound
+-20 -10 -10 -10
+CEFIJKN AB 0 0
+stand stand male 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+#0
+
+#OBJECTS
+#33300
+web~
+@eng a magic web@rus магическая паутина~
+@eng A strange magic web is lies here.@rus Странная магическая паутина (web) висит здесь.~
+unknown~
+wand CGHMY AO
+91 5 5 'web' 0
+80 100 1000 P
+#33301
+tooth~
+@eng a tooth of piranha@rus зуб пираньи~
+@eng A tooth of piranha lies here.@rus Сломаный зуб (tooth) пираньи лежит здесь.~
+unknown~
+weapon FH AN
+spear 10 11 pierce DH
+75 150 1000 P
+#33302
+wings moth~
+@eng a moth wings@rus крылья мотылька~
+@eng A moth wings flying here.@rus Крылья (wings) мотылька парят над землей.~
+unknown~
+light FGIK A
+0 0 -1 0 0
+70 0 0 P
+A
+18 10
+A
+24 -10
+A
+12 300
+A
+2 5
+#33303
+pole fishing~
+@eng a fishing pole@rus удочка~
+@eng A broken fishing pole lies here.@rus Сломаная удочка (fishing pole) плавает в воде.~
+wood~
+weapon 0 AN
+mace 11 10 pound 0
+75 50 324 P
+#0
+
+#ROOMS
+#33300
+@eng Entrance to hill@rus У подножья горы~
+@rus Твой путь преградила огромная гора. Видимо за этой горой и расположена
+знаменитая Долина Смерти. Сколько людей ходило туда искать скрытые
+в ней сокровища и лишь немногие возвращались. Говорят там можно встретить
+самого Дьявола. Оглядевшись ты замечаешь внизу (down) затемненый грот.
+Видимо это единственный путь попасть в долину - пройти сквозь гору.
+~
+0 AN hills
+D5
+~
+~
+Z 0 33301
+S
+#33301
+@eng Grotto@rus Грот~
+@rus Ты очутился в темной пещере, только теперь ты заметил, что все затянуто
+крепкой паутиной и в ней висят безжизненные тела. Огромный паук караулит
+тут очередную жертву.
+~
+0 AN hills
+D5
+~
+~
+Z 0 33302
+S
+#33302
+@eng Grotto@rus Грот~
+@rus Все та же темная пещера без проблеска света. На востоке (east) ты видишь
+пещерное озеро кишашее милыми рыбками, но почему-то тебе не очень хочется
+пуститься в плавь по нему, может попробовать обойти его с севера (north).
+~
+0 AN hills
+D0
+~
+~
+Z 0 33303
+D1
+~
+~
+Z 0 33304
+D4
+~
+~
+Z 0 33301
+S
+#33303
+@eng Grotto@rus Грот~
+@rus Ты уперся в каменную стену на на востоке (east) все еще плещется озеро
+Похоже другого пути как через него у тебя нет. Еще раз подумай стоит ли
+туда ходить, если нет моли богов о помощи, возможно чем дальше ты
+зайдешь тем сложнее им будет тебя услышать.
+~
+0 AX hills
+D1
+~
+~
+Z 0 33304
+S
+#33304
+@eng The subterranean lake@rus Пещерное озеро~
+~
+0 AN swim
+D0
+~
+~
+Z 0 33305
+D1
+~
+~
+Z 0 33305
+D2
+~
+~
+Z 0 33305
+D3
+~
+~
+Z 0 33306
+S
+#33305
+@eng The subterranean lake@rus Пещерное озеро~
+~
+0 AN swim
+D0
+~
+~
+Z 0 33304
+D1
+~
+~
+Z 0 33309
+D2
+~
+~
+Z 0 33304
+D3
+~
+~
+Z 0 33304
+D5
+~
+~
+Z 0 33308
+S
+#33306
+@eng The subterranean lake@rus Пещерное озеро~
+~
+0 AN swim
+D0
+~
+~
+Z 0 33304
+D1
+~
+~
+Z 0 33304
+D2
+~
+~
+Z 0 33307
+D3
+~
+~
+Z 0 33304
+S
+#33307
+@eng The subterranean lake@rus Пещерное озеро~
+~
+0 A swim
+D0
+~
+~
+Z 0 33306
+D1
+~
+~
+Z 0 33305
+D2
+~
+~
+Z 0 33305
+D3
+~
+~
+Z 0 33304
+S
+#33308
+@eng The cave under water@rus Пещера под водой~
+~
+0 AN swim
+D4
+~
+~
+Z 0 33305
+S
+#33309
+@eng The subterranean lake@rus Пещерное озеро~
+~
+0 AN swim
+D0
+~
+~
+Z 0 33304
+D1
+~
+~
+Z 0 33306
+D2
+~
+~
+Z 0 33305
+D3
+~
+~
+Z 0 33305
+S
+#0
+
+#SPECIALS
+M 33300 spec_breath_acid	* the dirty spider
+M 33302 spec_poison	* the stupid piranha
+M 33303 spec_breath_any	* the octopus
+S
+
+#RESETS
+M 0 33300 1 33301 1	* the dirty spider (Grotto)
+E 0 33300 0 17		*	a magic web: held in the hands
+M 0 33301 3 33301 3	* the melancholy moth (Grotto)
+E 0 33302 0 0		*	a moth wings: as a light
+M 0 33301 3 33301 3	* the melancholy moth (Grotto)
+E 0 33302 0 0		*	a moth wings: as a light
+M 0 33301 3 33301 3	* the melancholy moth (Grotto)
+E 0 33302 0 0		*	a moth wings: as a light
+M 0 33302 8 33304 8	* the stupid piranha (The subterranean lake)
+M 0 33302 8 33304 8	* the stupid piranha (The subterranean lake)
+E 0 33301 0 16		*	a tooth of piranha: wielded
+M 0 33302 8 33304 8	* the stupid piranha (The subterranean lake)
+M 0 33302 8 33304 8	* the stupid piranha (The subterranean lake)
+E 0 33301 0 16		*	a tooth of piranha: wielded
+M 0 33302 8 33304 8	* the stupid piranha (The subterranean lake)
+M 0 33302 8 33304 8	* the stupid piranha (The subterranean lake)
+M 0 33302 8 33304 8	* the stupid piranha (The subterranean lake)
+M 0 33302 8 33304 8	* the stupid piranha (The subterranean lake)
+E 0 33301 0 16		*	a tooth of piranha: wielded
+M 0 33304 1 33307 1	* the fisherman (The subterranean lake)
+E 0 33303 0 16		*	a fishing pole: wielded
+M 0 33303 1 33308 1	* the octopus (The cave under water)
+S
+
+#$

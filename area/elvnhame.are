@@ -1,0 +1,3931 @@
+#AREADATA
+Name Elvenhame~
+VNUMs 40100 40199
+Credits Xyza~
+Security 9
+LevelRange 1 100
+End
+
+#MOBILES
+#40101
+GuildMaster Master~
+the Guildmaster~
+Your Guildmaster stands here, patiently waiting to 
+teach you.
+~
+G'hirjil D'Umordin regards you, reading your soul.
+At his side is his most prized weapon, a scythe of 
+great power, and his hands are ready to grab it in 
+a flash. He wears a long dark robe, and daring to 
+look closely at him, you see that he is a lichdrow.
+~
+elf~
+ABGRV H -900 0
+30 0 50d10+9500 8d6+28 8d6+28 none
+-30 -30 -30 -30
+E ABCD 0 0
+stand stand male 3400
+0 0 medium unknown
+#40102
+GuildMaster Master~
+the Guildmaster~
+Your Guildmaster stands here, patiently waiting to 
+teach you.
+~
+He wears a colorful tunic and patchwork leggings.
+In his hands is his most prized possession, a harp 
+of gold, whose strings sparkle in the torchlight.
+~
+elf~
+ABGV H 900 0
+30 0 50d10+9500 8d6+28 8d6+28 none
+-30 -30 -30 -30
+E ABCD 0 0
+stand stand male 3400
+0 0 medium unknown
+#40103
+GuildMaster~
+the Guildmaster~
+Your Guildmaster stands here, glowing with energies
+he is channeling from the floor upon which he stands.
+~
+You feel a tingling as the Guildmaster summons 
+forth a Vortex of Mystical Power. His robe sparks 
+with flashing lights as he pulls in more and more 
+energy from the world around him.
+~
+elf~
+ABGRV H -900 0
+30 0 50d10+9500 8d6+28 8d6+28 none
+-30 -30 -30 -30
+E ABCD 0 0
+stand stand male 3400
+0 0 medium unknown
+#40104
+GuildMaster Master WeaponsMaster Weapons~
+the WeaponsMaster~
+Your Guildmaster, the Master of Weapons, stands here, 
+patiently waiting to teach you.
+~
+Tordril Thedrilson wears light but strong armor. 
+On his head is a jeweled helm, a gift from an
+elven queen. At his side is his most prized weapon,
+an enchanted broadsword with a jeweled hilt. He
+stands ready to grab it in a flash.
+~
+elf~
+ABGTV H 0 0
+30 0 50d10+9500 8d6+28 8d6+28 none
+-30 -30 -30 -30
+E ABCD 0 0
+stand stand male 3400
+0 0 medium unknown
+#40105
+GuildMaster Master~
+the Guildmaster~
+Your Guildmaster stands here, morphing constantly.
+~
+He changes shape so often, you don't really know
+what he'll be next, or if you're even looking at
+him. Once in a while he looks like something
+recognizable, an elf, or a drow, or a giant, or a
+wererat...
+~
+elf~
+ABGRV H 0 0
+30 0 50d10+9500 8d6+28 8d6+28 none
+-30 -30 -30 -30
+E ABCD 0 0
+stand stand male 3400
+0 0 medium unknown
+#40106
+GuildMaster Master~
+the Guildmaster~
+Your Guildmaster stands here, scowling at the thought
+of Paladins roaming the world.
+~
+Your Guildmaster stands here, patiently waiting to 
+teach you the dark arts and skills needed to combat
+those cleric-warriors known as Paladins, whose sole
+purpose in life appears to be to destroy all that
+do not walk in the light. He wears dark armor, 
+bloodstained in a few places, and his huge axe is
+within ready reach.
+~
+elf~
+ABGQV H -1000 0
+30 0 50d10+9500 8d6+28 8d6+28 none
+-30 -30 -30 -30
+E ABCD 0 0
+stand stand male 3400
+0 0 medium unknown
+#40107
+GuildMaster Master Paladin~
+the Guildmaster~
+Your Guildmaster stands here, patiently waiting to 
+teach you.
+~
+The Guildmaster stands here, patiently waiting to 
+teach you spells and skills tried and tested against
+those who would bring darkness upon the world. So 
+bright is his armor that you think it glows of its
+own inner light. His longsword is engraved with
+magical runes of power, its hilt sparkling with
+diamonds and rubies.
+~
+elf~
+ABGQV H 1000 0
+30 0 50d10+9500 8d6+28 8d6+28 none
+-30 -30 -30 -30
+E ABCD 0 0
+stand stand male 3400
+0 0 medium unknown
+#40108
+GuildMaster Master~
+the Guildmaster~
+Your Guildmaster stands here quietly praying. 
+~
+The Guildmaster quietly prays to his god that 
+you will learn much and please the powers that 
+be. He wears clerical robes, and on his head is
+a mitre. The beatific look on his face tells you
+at once that he is at one with his god.
+~
+elf~
+ABGQV H 0 0
+30 0 50d10+9500 8d6+28 8d6+28 none
+-30 -30 -30 -30
+E ABCD 0 0
+stand stand male 3400
+0 0 medium unknown
+#40109
+GuildMaster Master~
+the Guildmaster~
+Your Guildmaster hovers here.
+~
+The Guildmaster hovers here, patiently waiting to 
+teach you something new in the black arts. You look 
+at him and see that he is nearly entirely cloaked
+from your sight, but you vaguely make out the features
+of the dreaded lichdrow. You will learn... yes, you
+will learn...
+~
+elf~
+ABGRV H -1000 0
+30 0 50d10+9500 8d6+28 8d6+28 none
+-30 -30 -30 -30
+E ABCD 0 0
+sit sit male 3400
+0 0 medium unknown
+#40110
+GuildMaster~
+the Guildmaster~
+Your Guildmaster sits with his back against the
+wall.
+~
+The Guildmaster has learned the wisdom of keeping
+the wall to his back, for it prevents a backstab.
+He regards you with shifty eyes, one hand absently
+twirling his moustache, knowing at all times who is
+where in his guild. His clothing is fashionable but 
+not gaudy. 
+~
+elf~
+ABGV H -900 0
+30 0 50d10+9500 8d6+28 8d6+28 none
+-30 -30 -30 -30
+E ABCD 0 0
+stand stand male 3400
+0 0 medium unknown
+#40111
+GuildMaster~
+the Guildmaster~
+Your Guildmaster adjusts the settings on the telescope.
+~
+The GuildMaster wears a dark blue robe with silver
+moons and stars. Partially covering his grey hair
+is a small matching cap. Peeking out from many pockets
+in his robe are scrolls and a compass. A small telescope
+also threatens to fall out of one of his pockets.
+~
+elf~
+ABGRV H 0 0
+30 0 50d10+9500 8d6+28 8d6+28 none
+-30 -30 -30 -30
+E ABCD 0 0
+stand stand male 3400
+0 0 medium unknown
+#40112
+GuildMaster~
+the Guildmaster~
+Your Guildmaster stands here, patiently waiting to 
+teach you.
+~
+The Guildmaster stands here, patiently waiting to 
+teach you something new. At his side is his most 
+prized weapon, and his hands are ready to grab it 
+in a flash. 
+~
+elf~
+ABGV H -900 0
+30 0 50d10+9500 8d6+28 8d6+28 none
+-30 -30 -30 -30
+E ABCD 0 0
+stand stand male 3400
+0 0 medium unknown
+#40113
+Bank President Banker~
+the President of the Bank~
+The President of the Bank hopes you will deposit more gold.
+~
+Wearing conservative clothing, the President of the Bank is
+here to see that the tellers treat the bank customers with
+courtesy (and also that they do not embe401le). He is a grey-
+elf, welcoming all to the bank.
+~
+elf~
+ABGTV Hc 0 0
+50 0 50d10+4500 8d6+28 5d8+19 none
+-30 -30 -30 -30
+CDEFHIJKN ABCD 0 0
+stand stand male 5000
+0 0 medium unknown
+#40114
+cityguard guard captain~
+the Captain of the City Guard~
+The Captain of the City Guard sits at his cluttered desk.
+~
+Wearing the uniform of a captain of the City Guard, he 
+looks up from his work and wonders what crime you wish
+to report.
+~
+elf~
+ABGTV 0 0 0
+40 0 15d10+1850 1d1+400 4d8+13 none
+-13 -13 -13 -13
+EFHIJKT 0 EG 0
+sit sit male 500
+0 0 medium unknown
+#40115
+cityguard guard~
+the Cityguard~
+The Cityguard stands ready to defend the lawful.
+~
+He looks watchful and alert. Better be careful.
+~
+elf~
+AGTV 0 0 0
+30 0 6d12+853 1d1+400 4d6+8 none
+-9 -9 -9 -9
+CFT 0 EG 0
+stand stand male 200
+0 0 medium unknown
+#40116
+cityguard guard patroller~
+the Cityguard Patroller~
+The Cityguard Patroller searches for criminals.
+~
+He looks watchful and alert, his eyes icy, his
+demeanor no-nonsense. 
+~
+elf~
+AGTV 0 0 0
+30 0 6d12+853 1d1+400 4d6+8 none
+-9 -9 -9 -9
+CFT 0 EG 0
+stand stand male 200
+0 0 medium unknown
+#40117
+cityguard gate guard gateguard~
+the Gate Guard~
+The Gate Guard stands watch against invaders.
+~
+He watches the gate and those who enter and leave
+the city, hoping to stop troublemakers before they
+get too far into the city.
+~
+elf~
+AGTV 0 0 0
+30 0 6d12+853 1d1+400 4d6+8 none
+-9 -9 -9 -9
+CFT 0 EG 0
+stand stand male 200
+0 0 medium unknown
+#40118
+lieutenant cityguard guard~
+the Lieutenant of the Cityguard~
+The Lieutenant of the Cityguard stands here looking bored.
+~
+He looks like he hasn't been in a good fight in a long time.
+Want to make his day?
+~
+elf~
+AGTV 0 0 0
+35 0 10d10+1300 1d1+400 4d7+11 none
+-11 -11 -11 -11
+CFT 0 EG 0
+stand stand male 200
+0 0 medium unknown
+#40119
+tavernkeeper barkeep blane~
+Blane the Tavernkeeper~
+Blane the Tavernkeeper prepares his special drinks.
+~
+He has a lean and hungry look, unexpected for one who works with
+food and drink all day and all night, but Blane prepares drinks,
+he has a cook who prepares the meals, and he is careful of his
+figure because he likes the looks the local girls give him. He
+never married, but word has it he once had a girlfriend and nearly
+married her. It is also said that he is wise beyond his years (and
+he has a lot of years on him) and will gladly spend a little time
+giving people some training if they'll keep those gold pieces
+coming and enjoy the drinks.
+~
+elf~
+ABGHKTV H 0 0
+35 0 10d10+1300 1d1+400 4d7+11 none
+-11 -11 -11 -11
+BCEFHIJN 0 FIJ 0
+stand stand male 1200
+0 0 medium unknown
+#40120
+Ilse barmaid maid~
+Ilse the Barmaid~
+Ilse the Barmaid balances a tray of foaming beer mugs.
+~
+This shapely lass has been a barmaid for as long as anyone can
+remember. Her welcome smile and low cut blouse make her a favorite
+among the patrons of the tavern. Her blonde hair is braided and 
+wrapped around her head, and her blue eyes sparkle with friendship.
+~
+elf~
+ABGV 0 0 0
+20 0 3d9+333 1d1+400 2d8+5 none
+-4 -4 -4 -4
+IJN 0 P 0
+stand stand female 1000
+0 0 medium unknown
+#40121
+Sam harpsichordist player~
+Sam the harpsichord player~
+Sam is sitting at the harpsichord waiting for your request.
+~
+An overweight human who has obviously spent more time sitting
+at harpsichords in bars than exercising his muscles out on
+adventures, Sam plays the instrument like a dream. His black
+skin shines in the torchlight as his fingers lightly dance
+over the keys. Whatever you ask him to play, don't ask him to 
+play it again.
+~
+human~
+ABGV 0 0 0
+10 0 2d7+121 1d1+200 1d8+1 none
+1 1 1 1
+FHIJN 0 T 0
+sit sit male 200
+0 0 medium unknown
+#40122
+Laslow gambler~
+Laslow the gambler~
+Laslow the gambler deals out the cards.
+~
+Tall, thin, pale, this man looks as though he hasn't seen much
+sunlight. Indeed, look at his wrists, and you could swear he
+has spent much time shackled in a prison cell. His clothes are
+rumpled and his hair needs a brushing.
+~
+elf~
+ABG 0 600 0
+12 0 2d10+150 1d1+200 1d10+3 none
+0 0 0 0
+IJN 0 LN M
+sit sit male 155
+0 0 medium unknown
+#40123
+Frenschi gambler~
+Frenschi the gambler~
+Frenschi the gambler counts his winnings.
+~
+Frenschi has a short moustache and bushy eyebrows. His
+pale skin reflects an aversion to sunlight. His brown
+eyes dart here and there as he keeps track of everyone
+at the table.
+~
+human~
+ABG 0 600 0
+12 0 2d10+150 1d1+200 1d10+3 none
+0 0 0 0
+IJN 0 LN M
+sit sit male 155
+0 0 medium unknown
+#40124
+Jeaves~
+Jeaves the seller of servants~
+Jeaves is here waiting to sell you a servant.
+~
+He is dressed neatly and formally, and has an air of 
+superiority and wisdom about him.
+~
+elf~
+ABGV 0 900 0
+40 0 15d10+1850 1d1+400 4d8+13 none
+-13 -13 -13 -13
+BCEFHIJN AB 0 0
+sit sit male 1400
+0 0 medium unknown
+#40125
+kitten cat pet~
+the kitten~
+A small loyal kitten with grey and black stripes is here.
+~
+The kitten looks like a cute, little, fierce fighter.
+~
+cat~
+ABU 0 400 0
+1 2 2d6+11 1d1+99 1d4+0 scratch
+8 8 8 10
+U 0 P H
+stand stand either 1
+0 0 tiny unknown
+#40126
+puppy dog pet~
+the puppy~
+A small loyal puppy with big brown eyes is here.
+~
+The puppy looks like a cute, little, fierce fighter.
+~
+dog~
+ABJU F 400 0
+3 2 4d6+25 1d1+99 1d6+0 bite
+7 7 7 10
+N 0 C 0
+stand stand either 0
+0 Q small unknown
+#40127
+doberman dog pet~
+the doberman~
+A large, loyal doberman is here.
+~
+The doberman looks like a strong, fierce, tenacious fighter.
+~
+dog~
+ABJU F 400 0
+7 3 6d10+60 1d1+149 2d4+1 bite
+4 4 4 8
+CDL 0 C 0
+stand stand either 0
+0 0 medium unknown
+#40128
+falcon bird pet~
+the falcon~
+A loyal falcon circles overhead.
+~
+The falcon looks like a strong, fierce fighter.
+~
+song bird~
+ABIJU FZ 0 0
+12 3 6d10+130 1d1+99 2d5+3 claw
+0 0 0 8
+N 0 C 0
+stand stand either 0
+0 U small unknown
+#40129
+human mercenary~
+the human mercenary~
+A mercenary stands here waiting for a job.
+~
+You see an assassin down on his luck looking to be freelanced out.
+~
+human~
+ABJTU 0 0 0
+15 0 3d9+208 1d1+200 2d6+3 pierce
+-2 -2 -2 -5
+CDEIKLU 0 0 0
+stand stand male 5
+0 0 medium unknown
+F par GHIJK
+#40130
+dwarven mercenary~
+the dwarven mercenary~
+A dwarf stands here waiting to serve his master.
+~
+You see a warrior who thinks nothing of selling his services.
+~
+dwarf~
+ABGJ 0 600 0
+20 0 3d9+333 1d1+400 2d8+5 thwack
+-4 -4 -4 -8
+CDEIKLU 0 0 0
+stand stand male 5
+0 0 medium unknown
+#40131
+giant mercenary~
+the giant mercenary~
+A giant stands by awaiting his master's command.
+~
+You see a giant who will be loyal to his master... for a price.
+~
+giant~
+ABGJ 0 0 0
+30 0 6d12+853 1d1+200 3d10+12 smash
+-9 -9 -9 -13
+CDEIKLU 0 0 0
+stand stand male 5
+0 0 huge unknown
+#40132
+Thedril Saphorson mayor~
+Thedril Saphorson, Mayor of Elvenhame~
+Thedril Saphorson, Mayor of Elvenhame, is here.
+~
+He has been Mayor of Elvenhame nearly forever, or so most of the
+citizens will tell you. You can tell he doesn't spend much time
+sitting at his desk in City Hall, for he's much too lean and
+muscular, obviously a man to take his exercise walking around the
+city and greeting citizens. Nobody has yet caught him kissing a
+baby, but then, there are very few babies out on the streets of
+Elvenhame.
+~
+elf~
+AGHT 0 0 0
+48 2 15d10+1850 1d1+400 4d8+13 punch
+-13 -13 -13 -14
+CDEFIJKNS 0 MNO Q
+stand stand male 1999
+0 0 medium unknown
+#40133
+kitten cat~
+the little kitten~
+A tan kitten with blue eyes is here.
+~
+The kitten's ears are tipped with dark brown, as is
+its nose. Its tail is entirely dark brown. It looks
+soft and cuddly.
+~
+cat~
+AU 0 200 0
+3 2 2d6+51 1d1+99 1d6+0 scratch
+5 5 5 2
+U 0 P H
+stand stand either 2
+0 0 tiny unknown
+#40134
+alley cat alleycat~
+the scrawny alleycat~
+A scrawny alleycat searches for food.
+~
+It looks as though it hasn't eaten in days, and its
+fur has lost that lustre you find on the fur of loved
+pets. Plaintively it mews, hoping you have something 
+for it to eat.
+~
+cat~
+AU 0 200 0
+6 2 2d7+80 1d1+99 1d7+1 scratch
+4 4 4 4
+U 0 P H
+stand stand either 5
+0 0 small unknown
+#40135
+drunk man~
+the drunk~
+The drunk wobbles as he walks.
+~
+He has liquor on his breath and bloodshot eyes.
+~
+human~
+AG 0 -100 0
+12 0 2d10+150 1d1+200 1d10+3 none
+0 0 0 0
+IJN 0 LN M
+stand stand male 90
+0 0 medium unknown
+#40136
+shopkeeper man Kal'ille~
+Kal'ille M'Gorn~
+Kal'ille M'Gorn, the shopkeeper, waits for you to make up 
+your mind.
+~
+He wipes the counter, dusts the shelves of goods, and
+whistles a happy tune. Whenever you're ready, buy
+something. He'll gladly stop cleaning to take your
+gold and give you a necessity in return.
+~
+elf~
+AGHTV 0 0 0
+48 2 15d10+1850 1d1+400 4d8+13 punch
+-13 -13 -13 -14
+CDEFIJKNS 0 MNO Q
+stand stand male 2400
+0 0 medium unknown
+#40137
+citizen man~
+a citizen~
+An elvish citizen is here, wondering what you are looking at.
+~
+Wearing a green robe, this citizen appears to be one of the
+many magic users who lives in the city. He does not much like
+being stared at, and considers weaving a spell to keep you from
+harming him. In hopes of preserving his mental power, he smiles
+at you, hoping that you are friendly.
+~
+elf~
+AGHR O 500 0
+13 0 2d10+150 1d1+400 2d4+2 magic
+-1 -1 -1 -3
+FU 0 OP EFG
+stand stand male 100
+0 0 medium unknown
+#40138
+citizen woman~
+a citizen~
+An elvish citizen is here, showing off her new robe.
+~
+She is very proud of the purple cloth and golden belt
+and thinks it goes good with her eyes.
+~
+elf~
+AGHR O 500 0
+13 0 2d10+150 1d1+400 2d4+2 magic
+-1 -1 -1 -3
+U 0 OP EFG
+stand stand female 75
+0 0 medium unknown
+#40139
+elf child~
+the elf child~
+The elf child is here, playing with a toy.
+~
+The child is too busy playing to pay 
+attention to you. 
+~
+elf~
+AGH O 500 0
+4 0 2d7+46 1d1+400 1d5+1 none
+6 6 6 0
+U 0 OP EFG
+stand stand either 3
+0 0 medium unknown
+#40140
+citizen man~
+a citizen~
+A drow citizen is here, wondering what you are looking at.
+~
+Wearing a red robe, this citizen appears to be one of the
+many magic users who lives in the city. He does not much like
+being stared at, and considers weaving a spell to keep you from
+harming him. 
+~
+elf~
+AGHR O -500 0
+13 0 2d10+150 1d1+400 2d4+2 magic
+-1 -1 -1 -3
+U 0 OP EFG
+stand stand male 100
+0 0 medium unknown
+#40141
+citizen woman~
+a citizen~
+A drow citizen is here, showing off her new whip.
+~
+She is very proud of the snake-headed whip and can't wait
+to see what kind of damage it does.
+~
+elf~
+AGHR O -500 0
+13 0 2d10+150 1d1+400 2d4+10 magic
+-1 -1 -1 -3
+U 0 OP EFG
+stand stand female 175
+0 0 medium unknown
+#40142
+drow child~
+the drow child~
+The drow child is here, playing with a toy.
+~
+The child is too busy playing to pay 
+attention to you. 
+~
+elf~
+AGH O -500 0
+4 0 2d7+46 1d1+400 1d5+1 none
+6 6 6 0
+U 0 OP EFG
+stand stand either 3
+0 0 medium unknown
+#40143
+citizen man~
+a citizen~
+A grey-elven citizen is here, wondering what you are looking at.
+~
+Wearing a blue robe, this citizen appears to be one of the
+many magic users who lives in the city. He does not much like
+being stared at, and considers weaving a spell to keep you from
+harming him. In hopes of preserving his mental power, he smiles
+at you, hoping that you are friendly.
+~
+elf~
+AGHR O 0 0
+13 0 2d10+150 1d1+400 2d4+2 magic
+-1 -1 -1 -3
+U 0 OP EFG
+stand stand male 140
+0 0 medium unknown
+#40144
+citizen woman~
+a citizen~
+A grey-elven citizen is here, showing off her new robe.
+~
+She is very proud of the blue velvet robe and silver belt
+and thinks it goes good with her eyes.
+~
+elf~
+AGHR O 0 0
+13 0 2d10+150 1d1+400 2d4+2 magic
+-1 -1 -1 -3
+U 0 OP EFG
+stand stand female 125
+0 0 medium unknown
+#40145
+grey-elven elf child~
+the grey-elven child~
+The grey-elven child is here, playing with a toy.
+~
+The child is too busy playing to pay 
+attention to you. 
+~
+elf~
+AGH O 0 0
+4 0 2d7+46 1d1+400 1d5+3 none
+6 6 6 0
+U 0 OP EFG
+stand stand either 3
+0 0 medium unknown
+#40146
+butcher~
+De'Lyron P'Gille the butcher~
+De'Lyron P'Gille the butcher is here waiting for your order.
+~
+He wields a mean meat cleaver, and the clean cut of his meat
+is proof enough he knows how to use it.
+~
+elf~
+ABGV 0 -900 0
+40 0 15d10+1850 1d1+400 4d8+13 cleave
+-13 -13 -13 -13
+BCEFHIJN ABCD 0 0
+stand stand male 2000
+0 0 medium unknown
+#40147
+Nech'lir blacksmith~
+Nech'lir the blacksmith~
+Nech'lir the blacksmith hammers the finishing touches on a vest.
+~
+This mighty drow is more muscular than most because of his calling
+in life. The forge is his friend, the hammer an extension of his
+arm. He appreciates fine armor and fine workmanship.
+~
+elf~
+ABGV 0 -900 0
+40 0 15d10+1850 1d1+400 4d8+13 pound
+-13 -13 -13 -13
+CDEFHIJKN ABCD 0 0
+stand stand male 2000
+0 0 medium unknown
+#40148
+Sarn'otha jeweller~
+Sarn'otha Vent'Mir the jeweller~
+Sarn'otha Vent'Mir, the jeweller, stands behind the counter.
+~
+The jeweller looks older than old, unusual for one of the drowish
+race. Her black skin is wrinkled, her white hair without the lively
+lustre seen on most drow manes. She wears a light blue tunic, dark
+blue leggings, and a necklace of brilliant sapphires. For a moment
+she is busy looking at a gem under a magnifying lens. Then she
+notices you are at the counter and looks up, hoping you will buy
+something from her.
+~
+elf~
+ABGV 0 -900 0
+40 0 15d10+1850 1d1+400 4d8+13 pound
+-13 -13 -13 -13
+CDEFHIJKN ABCD 0 0
+stand stand female 2000
+0 0 medium unknown
+#40149
+Gethnir'Rah weaponssmith~
+Gethnir'Rah F'nith the weaponsmith~
+Gethnir'Rah F'nith, the weaponsmith, beats upon the metal of a 
+newly formed blade.
+~
+The weaponsmith has bulging muscles and his skin glistens with
+sweat. Unusual for an elf, but this one is dedicated to the
+making of weapons and blades. His skin is ruddy from exposure
+to the flames of his forge. One arm is white-scarred with what 
+looks like cuts from sword battles, but his bare chest and 
+other arm are free of blemish. Gethnir'Rah F'nith looks up at
+you absently and wonders if he should return to his work or
+sell you something.
+~
+elf~
+ABGV 0 900 0
+40 0 15d10+2050 1d1+400 4d8+13 pound
+-13 -13 -13 -13
+CDEFHIJKN ABCD 0 0
+stand stand male 2000
+0 0 medium unknown
+#40150
+healer adept~
+The Healer Adept~
+The Healer Adept is here.
+~
+You see a grey-elven maiden with long reddish-brown hair tied
+back with ribbons of every rainbow color. Her long robe shimmers.
+She serves the Goddess of Magic by uttering magic spells which
+heal and help others.
+~
+elf~
+ABGQVa DFH 0 0
+55 0 50d10+4500 1d1+400 5d8+14 divine
+-20 -20 -20 -20
+AFH ABCD 0 0
+stand stand female 5000
+0 0 medium unknown
+#40151
+necromancer shopkeeper Xaixara~
+The Necromancer-Alchemist~
+The Necromancer-Alchemist is here brewing another potion.
+~
+You see a dark-elven maiden with long brown hair streaked
+with gold. Unlike most drow, she has light skin and looks
+more like a grey-elf or a light-elf. Her lavender eyes
+spark with amusement as she brews a deep-red potion and 
+sets it on the shelf behind her. At her throat is a tattoo
+of a fiery-winged bird rising from flames. At her side in
+a silver loop she has a long scythe etched with the runes
+of five magics and glowing with a magical aura. Her black
+robe is embroidered in silver with pictures of skulls. An
+aura of knowledge and discipline surrounds her. Looking
+closer, you realize that the nearly absolute beauty you
+see of her is illusion, covering the fact that she is a
+lichdrow.
+~
+elf~
+ABGRV DHNUZc -1000 0
+51 0 50d10+4500 1d1+400 5d8+14 acbite
+-40 -40 -40 -40
+AFHK ABCD 0 0
+stand stand female 10000
+0 0 medium unknown
+#0
+
+#OBJECTS
+#40101
+fountain water light~
+the Fountain of Light~
+(Good Aura) The Fountain of Light is here, offering water to the thirsty.~
+quartz~
+fountain AGIOR 0
+100000 100000 'water' 0 0
+0 0 0 P
+E
+fountain water light~
+This fountain was formed of a single huge piece of quartz.
+An aura of goodness surrounds it. The water is clear and
+clean.
+~
+#40102
+fountain water magic lapis~
+The Fountain of Magic~
+The Fountain of Magic shoots clear water into the air.~
+quartz~
+fountain ABGOR 0
+100000 100000 'water' 0 0
+0 0 0 P
+E
+fountain water magic lapis~
+This fountain was formed of a single huge piece of lapis
+lazuli. In the center of the fountain pool is a lapis 
+statue of Xyza, Goddess Source of All Magic, dual streams 
+of clear water shooting from her outstretched hands.
+~
+#40103
+fountain blood darkness shadow gore~
+the Fountain of Gore~
+The Fountain of Gore is here, blood shooting up and falling back down into the pool.~
+obsidian~
+fountain CGOR 0
+10000 10000 'blood' 0 0
+0 0 0 P
+E
+fountain blood darkness shadow gore~
+This fountain was formed of a single huge piece of obsidian
+and its content is not water but blood, the blood of innocents
+sacrificed to the evil gods. Around the outside of the pool
+are carvings of demons torturing babies.
+~
+#40104
+pit donation~
+the donation pit~
+The donation pit is here.~
+granite~
+container O 0
+10000 0 0 1000 100
+0 0 0 P
+E
+pit donation~
+The donation pit in the Temple of Light receives articles
+given for the use of those less fortunate, in hopes that
+they will see the Light and follow the path of goodness.
+~
+#40105
+pit donation~
+the donation pit~
+The donation pit is here.~
+granite~
+container O 0
+10000 0 0 1000 100
+0 0 0 P
+E
+pit donation~
+The donation pit receives articles given for the use of
+those less fortunate, in hopes that they will turn to
+the ways of magic, tolerating all regardless of paths 
+followed.
+~
+#40106
+pit donation~
+the donation pit~
+The donation pit is here.~
+granite~
+container O 0
+10000 0 0 1000 100
+0 0 0 P
+E
+pit donation~
+The donation pit receives articles given for sacrifice
+to the gods of darkness and evil.
+~
+#40107
+vest uniform~
+City Guard vest~
+Looks like a uniform vest on the floor here.~
+cloth~
+armor 0 AD
+-4 -4 -4 0 0
+6 50 75 P
+#40108
+trousers uniform~
+City Guard trousers~
+A pile of cloth has been dumped on the floor.~
+cloth~
+armor 0 AF
+-4 -4 -4 0 0
+6 60 80 P
+#40109
+helmet helm~
+City Guard helmet~
+The City Guard helmet shines with reflected light.~
+steel~
+armor 0 AE
+-4 -4 -4 0 0
+6 100 100 P
+#40110
+standard boots~
+City Guard boots~
+A pair of boots is here, shiny but worn.~
+leather~
+armor 0 AG
+-4 -4 -4 0 0
+6 110 100 P
+#40111
+standard armguards~
+City Guard armguards~
+A pair of armguards lies here neglected.~
+cloth~
+armor 0 AI
+-4 -4 -4 0 0
+6 80 90 P
+#40112
+plain ring cityguard~
+City Guard Ring~
+A plain ring of pewter glints faintly on the floor.~
+pewter~
+treasure G AB
+0 0 0 0 0
+6 10 500 P
+A
+2 1
+A
+4 1
+#40113
+standard shield~
+City Guard shield~
+A shield lies forgotten here.~
+steel~
+armor 0 AJ
+-4 -4 -4 -4 2
+6 120 400 P
+#40114
+citysword blade~
+City Guard sword~
+A nondescript blade lies here gathering dust.~
+steel~
+weapon G AN
+sword 2 5 slash D
+6 70 100 P
+A
+18 2
+A
+19 2
+E
+sword blade~
+While it doesn't look like anything special, this
+sword has a sharp blade and might yet be worth
+something to someone if wielded.
+~
+#40115
+shillelagh stick~
+City Guard shillelagh~
+A thick stick of oak lies here.~
+wood~
+weapon G AN
+mace 2 6 smash 0
+6 90 90 P
+A
+18 1
+A
+19 3
+E
+shillelagh stick club~
+It's a little worn in places where its former owner
+smashed the hard heads of some criminals in town.
+~
+#40116
+standard chain mail chainmail~
+City Guard chainmail~
+You see a City Guard's chainmail vest.~
+steel~
+armor G AD
+-5 -5 -5 -5 2
+8 140 300 P
+A
+1 1
+#40117
+dashing cape~
+a dashing City Guard cape~
+You see a dashing City Guard cape neatly folded here.~
+cloth~
+armor G AK
+-5 -5 -5 -5 0
+8 50 500 P
+A
+5 1
+A
+7 2
+E
+dashing cape~
+There is something about this cape... You've seen them
+before, on certain City Guardsmen... They always look
+so dashing in them...
+~
+#40118
+lieutenant sword~
+City Guard Lieutenant Sword~
+s Modifier Affects Bitvector      ~
+steel~
+weapon G AN
+sword 4 8 slice 0
+8 100 1000 P
+A
+18 3
+A
+19 2
+#40119
+lieutenant helmet helm~
+City Guard Lieutenant Helmet~
+A shiny helmet lies here waiting to be used.~
+steel~
+armor G AE
+-5 -5 -5 -5 2
+8 130 2000 P
+A
+20 -5
+#40120
+captain helmet helm~
+City Guard Captain's Helmet~
+The City Guard Captain left his helmet here.~
+silver~
+armor G AE
+-6 -6 -6 -6 2
+10 140 2600 P
+A
+3 1
+#40121
+captain jacket~
+City Guard Captain's Jacket~
+The City Guard Captain left his jacket here.~
+cloth~
+armor G AD
+-6 -6 -6 -6 0
+10 100 1900 P
+A
+2 1
+A
+4 1
+A
+5 1
+#40122
+captain cape blue~
+blue City Guard Captain's Cape~
+The City Guard Captain left his blue cape here.~
+velvet~
+armor G AK
+-6 -7 -7 -6 0
+10 120 2300 P
+A
+1 1
+#40123
+captain gloves blue~
+City Guard Captain's blue gloves~
+A pair of pretty blue gloves is here.~
+velvet~
+armor G AH
+-6 -6 -6 -6 0
+10 20 1000 P
+A
+2 1
+#40124
+golden scimitar captain~
+City Guard Captain's Golden Scimitar~
+A shiny golden scimitar waits to be bloodied.~
+gold~
+weapon G AN
+sword 4 5 slice 0
+10 80 2190 P
+A
+18 4
+A
+19 3
+#40125
+captain boots~
+City Guard Captain's Boots~
+A pair of worn boots sits here undisturbed.~
+leather~
+armor G AG
+-6 -6 -6 -6 1
+10 150 2900 P
+A
+13 10
+A
+14 25
+#40126
+captain striped trousers~
+City Guard Captain's Striped Trousers~
+A pair of striped trousers lay here in a heap.~
+cloth~
+armor G AF
+-6 -6 -6 -6 0
+10 110 2600 P
+A
+2 1
+A
+13 10
+A
+20 -5
+#40127
+mug beer~
+a foaming mug of beer~
+A foaming mug of beer is here, chilled to perfection.~
+glass~
+drink N A
+64 64 'beer' 0 0
+5 40 25 P
+#40128
+flagon ale~
+a flagon of ale~
+A flagon of ale is here, waiting to be drunk.~
+brass~
+drink N A
+64 64 'ale' 0 0
+10 90 35 P
+#40129
+carafe elvish wine~
+a carafe of fine elvish wine~
+A carafe of fine elvish wine sits here.~
+glass~
+drink N A
+64 64 'elvish wine' 0 0
+15 120 90 P
+#40130
+goblet icewine~
+a chilled goblet of icewine~
+A chilled goblet of purple icewine is here.~
+silver~
+drink N A
+64 64 'icewine' 0 0
+20 110 110 P
+#40131
+signet-ring ring~
+the Mayor's Signet-Ring~
+A silver ring studded with emeralds lies here.~
+silver~
+armor GJK AB
+-15 -14 -15 -16 0
+50 10 6500 P
+A
+7 3
+A
+13 20
+A
+20 -9
+E
+signet-ring ring~
+This silver ring looks flawless, close examination of 
+the gems reveals that each gem, if not flawless, is 
+nearly so.
+~
+#40132
+tuxedo suit~
+a tuxedo~
+A suit of formal clothes is neatly laid out for use.~
+silk~
+armor GY AK
+-10 -14 -14 -9 0
+40 40 7000 P
+A
+4 1
+A
+7 2
+A
+17 -10
+E
+tuxedo~
+Although it is made of silk, it is a sturdy suit of clothing
+and lends a certain debonair attitude to its wearer. It is
+said that clothes maketh the man. Wear this and see how true
+that old saying is.
+~
+#40133
+canteen water~
+a canteen of water~
+You see a canteen of water here.~
+metal~
+drink N A
+64 64 'water' 0 0
+0 40 30 P
+#40134
+large sack~
+a large canvas sack~
+A large canvas sack is here.~
+canvas~
+container N A
+300 0 0 15 75
+2 20 60 P
+#40135
+backpack leather~
+a leather backpack~
+A leather backpack is here.~
+leather~
+container N AD
+700 0 0 25 100
+10 60 120 P
+#40136
+sleeping bag sleepingbag~
+a sleeping bag~
+A quilted sleeping bag is here.~
+cloth~
+furniture N A
+B DFGHIJ HIKL DGH DGH
+30 200 200 P
+E
+sleeping bag sleepingbag~
+It is made of quilted cotton filled with some
+stuff that makes it warm to sleep in on a cold
+night. There is a small label near the seam.
+~
+E
+label~
+It says, 
+            Capacity: 2 persons, 1000 lbs. 
+            Weight: 20
+            To use: Drop on floor/ground and
+            rest or sleep on or in it.
+            Manufacturer guarrantees nothing.
+            WARNING: Flammable, keep away from
+            lamps, torches, campfires, and 
+            fire-breathing dragons.
+~
+#40137
+bacon slice~
+a slice of bacon~
+A slice of bacon looks delicious.~
+food~
+food N A
+AC AC 0 0 0
+0 10 20 P
+#40138
+link sausage~
+a link of sausage~
+A juicy link of sausage tempts you.~
+food~
+food N A
+D AC 0 0 0
+0 10 35 P
+#40139
+spicy nuggets chicken~
+some spicy chicken nuggets~
+A plate of spicy chicken nuggets is here.~
+food~
+food N A
+BD D 0 0 0
+5 30 75 P
+#40140
+pork ribs~
+some port ribs~
+A plate of steaming pork ribs is here.~
+food~
+food N A
+ACD ABD 0 0 0
+8 30 75 P
+#40141
+barbecue brisket beef~
+some strips of barbecue brisket~
+You see a plateful of delicious barbecue brisket.~
+food~
+food N A
+ABCD ACD 0 0 0
+10 40 75 P
+#40142
+veal tenders~
+a plateful of veal tenders~
+A plateful of veal tenders tempts you to eat.~
+food~
+food N A
+CE AE 0 0 0
+15 40 99 P
+#40143
+chainmail vest~
+a chainmail vest~
+A vest is lying on the ground.~
+steel~
+armor N AD
+-4 -4 -4 -4 2
+5 150 290 P
+#40144
+scale mail jacket~
+a scale mail jacket~
+A scale mail jacket is gathering dust on the ground.~
+steel~
+armor N AD
+-5 -5 -5 -5 2
+6 160 350 P
+#40145
+chainmail skirt~
+a chainmail skirt~
+A chainmail skirt lies here.~
+steel~
+armor N AF
+-5 -5 -5 -5 2
+6 140 330 P
+#40146
+chainmail leggings~
+a pair of chainmail leggings~
+You see a pair of chainmail leggings on the ground.~
+steel~
+armor N AF
+-5 -5 -5 -5 2
+6 160 375 P
+#40147
+steel-toed steel boots~
+a pair of steel-toed boots~
+A pair of steel-toed boots lies neglected on the ground.~
+steel~
+armor N AG
+-5 -5 -5 -4 1
+6 110 340 P
+#40148
+steel reinforced gloves~
+a pair of steel-reinforced gloves~
+You see a pair of heavy gloves here.~
+steel~
+armor N AH
+-3 -3 -3 -3 1
+5 80 250 P
+#40149
+platemail jacket~
+a jacket of platemail~
+You see a heavy jacket on the floor.~
+steel~
+armor N AD
+-7 -7 -7 -4 2
+8 180 500 P
+#40150
+steel bracers~
+a pair of plain steel bracers~
+A couple of small hoops lie here.~
+steel~
+armor N AM
+-2 -2 -2 -2 0
+3 40 50 P
+#40151
+ruby~
+a sparkling ruby~
+A small sparkling red stone is here.~
+corundum~
+gem GN AO
+0 0 0 0 0
+10 10 1000 P
+A
+2 2
+#40152
+emerald~
+an emerald~
+A polished green stone, emerald shaped, is sitting here.~
+corundum~
+gem GN AO
+0 0 0 0 0
+14 10 1000 P
+A
+3 2
+#40153
+sapphire~
+a sapphire~
+A sapphire sparkles from its lowly position on the ground.~
+corundum~
+gem GN AO
+0 0 0 0 0
+18 10 1300 P
+A
+4 1
+A
+12 20
+#40154
+diamond~
+a diamond~
+A diamond glitters in the light.~
+diamond~
+gem GN AO
+0 0 0 0 0
+23 10 2000 P
+A
+1 2
+A
+5 2
+#40155
+diamond ring~
+a diamond engagement ring~
+A diamond engagement ring is here.~
+diamond~
+jewelry N AB
+0 0 0 0 0
+30 10 4000 P
+A
+7 1
+#40156
+golden bracelet gold~
+a golden bracelet~
+A small hoop of gold glitters here.~
+gold~
+jewelry N AM
+0 0 0 0 0
+15 30 1200 P
+#40157
+silver bracer~
+a silver bracer~
+You see a silver bracer on the ground.~
+silver~
+jewelry N AB
+0 0 0 0 0
+13 20 110 P
+#40158
+topaz collar~
+a topaz-encrusted collar~
+A collar encrusted with amber-hued gems glitters here.~
+quartz~
+jewelry GN AB
+0 0 0 0 0
+25 40 14500 P
+A
+3 3
+A
+12 25
+#40159
+dagger~
+a dagger~
+A dagger stands upright in the dirt here.~
+steel~
+weapon N AN
+dagger 2 6 slice 0
+3 30 60 P
+#40160
+knife sharp~
+a sharp knife~
+A sharp knife is here.~
+iron~
+weapon N AN
+dagger 3 6 slash 0
+4 40 90 P
+#40161
+short sword~
+a short sword~
+You see a short sword lying neglected in the dirt.~
+steel~
+weapon N AN
+sword 8 4 bite 0
+6 50 130 P
+#40162
+long sword longsword~
+a longsword~
+A longsword of iron lies on the ground.~
+iron~
+weapon N AN
+sword 3 8 grep 0
+9 90 250 P
+#40163
+small axe~
+a small axe~
+A small axe lies in a pool of blood.~
+steel~
+weapon N AN
+axe 3 9 cleave 0
+13 110 320 P
+#40164
+mace small~
+a small mace~
+A small mace leans against the wall.~
+steel~
+weapon N AN
+mace 3 4 crush 0
+8 100 280 P
+#40165
+flail~
+a flail~
+A flail lies neglected on the ground.~
+steel~
+weapon N AN
+flail 3 5 none 0
+9 90 240 P
+#40166
+whip leather~
+a leather whip~
+A long curled bit of leather lies here.~
+leather~
+weapon N AN
+whip 4 4 whip 0
+9 80 244 P
+#40167
+staff sturdy~
+a sturdy staff~
+A sturdy staff waits to be taken.~
+wood~
+weapon N AN
+spear 4 4 thwack 0
+11 120 300 P
+#0
+
+#ROOMS
+#40100
+Outside the East Gate of Elvenhame~
+You are outside the East Gate of Elvenhame. To the
+west is the gate itself.
+~
+0 0 city
+D1
+~
+~
+Z 0 318
+D3
+~
+~
+Z 0 40101
+S
+#40101
+Inside the East Gate of Elvenhame~
+You are inside the East Gate of Elvenhame. To the west is 
+the Elven city, with its magnificent buildings and wonderful
+plant life. To the east is wilderness. The gate itself is made
+of a silvery metal, thick, with sparkling runes engraved upon
+it. 
+~
+0 0 city
+D1
+~
+~
+Z 0 40100
+D3
+~
+~
+Z 0 40102
+S
+#40102
+East Main Road~
+You are on the eastern part of the Main Road in Elvenhame. 
+Fiery-red-leafed maple trees line the road, at the bases of 
+which grow small lavender flowers. To the east is the East 
+Gate.
+~
+0 0 city
+D1
+~
+~
+Z -1 40101
+D3
+~
+~
+Z -1 40103
+S
+#40103
+East Main Road~
+You are on the eastern part of the Main Road in Elvenhame. 
+Fiery-red-leafed maple trees line the road, at the bases of 
+which grow small lavender flowers.
+~
+0 0 city
+D1
+~
+~
+Z -1 40102
+D2
+~
+~
+ABZ -1 40196
+D3
+~
+~
+Z -1 40104
+S
+#40104
+East Main Road~
+You are on the eastern part of the Main Road in Elvenhame. 
+Fiery-red-leafed maple trees line the road, at the bases of 
+which grow small lavender flowers. 
+~
+0 0 city
+D1
+~
+~
+Z -1 40103
+D3
+~
+~
+Z -1 40105
+S
+#40105
+Guild Square~
+Guild Square is the intersection of Main Road and Guild Road.
+Lined with fiery-red-leaved maple trees and lavender flowers, 
+this intersection is one of the busiest in Elvenhame. 
+~
+0 0 city
+D0
+~
+~
+Z -1 40108
+D1
+~
+~
+Z -1 40104
+D2
+~
+~
+Z -1 40111
+D3
+~
+~
+Z -1 40106
+S
+#40106
+East Main Road~
+You are on the eastern part of the Main Road in Elvenhame. 
+Fiery-red-leafed maple trees line the road, at the bases of 
+which grow small lavender flowers.
+~
+0 0 city
+D1
+~
+~
+Z -1 40105
+D3
+~
+~
+Z -1 40107
+S
+#40107
+East Main Street~
+You are on the eastern part of the Main Road in Elvenhame. 
+Fiery-red-leafed maple trees line the road, at the bases of 
+which grow small lavender flowers. 
+~
+0 0 city
+D1
+~
+~
+Z -1 40106
+D3
+~
+~
+Z -1 40121
+S
+#40108
+Guild Road~
+You are on Guild Road. East you see a newly painted building 
+surrounded by little blue and red flowers, the Music Guild. 
+West you see a dark building surrounded by wild flowers and 
+poorly landscaped, the Necromancers' Guild.
+~
+0 0 city
+D0
+~
+~
+Z -1 40109
+D1
+~
+~
+Z -1 40116
+D2
+~
+~
+Z -1 40105
+D3
+~
+~
+Z -1 40115
+S
+#40109
+Guild Road~
+You are on Guild Road. The road is lined with fiery-red 
+leaved maple trees and lavender flowers. To the east is 
+a store with a large sign on the door.
+~
+0 0 city
+E
+sign~
+OPENING SOON
+          STRADI'S VARIOUS INSTRUMENTS
+
+               (watch this space)
+~
+D0
+~
+~
+Z -1 40110
+D1
+~
+~
+ABZ -1 40167
+D2
+~
+~
+Z -1 40108
+S
+#40110
+Guild Road~
+You are on Guild Road. The road is lined with fiery-red 
+leaved maple trees and lavender flowers. 
+~
+0 0 city
+D0
+~
+~
+Z -1 40169
+D1
+~
+~
+Z -1 40191
+D2
+~
+~
+Z -1 40109
+S
+#40111
+Guild Road~
+You are on Guild Road. The road is lined with fiery-leaved 
+maple trees and lavender flowers.
+~
+0 0 city
+D0
+~
+~
+Z -1 40105
+D1
+~
+~
+Z -1 40118
+D2
+~
+~
+Z -1 40112
+D3
+~
+~
+Z -1 40117
+S
+#40112
+Guild Road~
+You are on Guild Road. The road is lined with fiery-red 
+leaved maple trees and lavender flowers. 
+~
+0 0 city
+D0
+~
+~
+Z -1 40111
+D2
+~
+~
+Z -1 40113
+S
+#40113
+Guild Road~
+You are on Guild Road. The road is lined with fiery-red 
+leaved maple trees and lavender flowers. 
+~
+0 0 city
+D0
+~
+~
+Z -1 40112
+D1
+~
+~
+Z -1 40120
+D2
+~
+~
+Z -1 40114
+D3
+~
+~
+Z -1 40119
+S
+#40114
+Guild Road~
+You are on Guild Road. The road is lined with fiery-red 
+leaved maple trees and small lavender flowers. 
+~
+0 0 city
+D0
+~
+~
+Z -1 40113
+S
+#40115
+The Necromancer's Guild~
+Darkness, gloom, the stench of rotting bodies, fresh and old
+blood, formaldehyde and embalming fluids... Bodies in a 
+corner, parts of bodies in another corner... Several tables 
+with corpses and experimenting Necromancers... G'hirjil 
+D'Umordin, Drow Guildmaster and Lich Lord, prepares to teach 
+you another lesson in the Art of Death and Undeath... 
+~
+0 ADK inside
+D1
+~
+~
+Z -1 40108
+S
+#40116
+Music Guild~
+Drunken revelry abounds in this happy place as one or another
+bard breaks into song, plays an instrument, or dares to drink
+another under the table.
+~
+0 DK inside
+D3
+~
+~
+Z -1 40108
+S
+#40117
+The Channellers' Guild~
+The walls are magically protected from sudden outbursts of 
+energy. The entire room glows. In the center of the room, 
+your Guildmaster forms a ball of energy and levitates it, 
+sending it flying around the room.
+~
+0 D inside
+D1
+~
+~
+Z -1 40111
+S
+#40118
+The WeaponMaster's School~
+Walls of stained brown hardwood, adorned with weapons, is
+what first catches your eye when you enter your guildhouse.
+Axes, long swords, scimitars gleam in the torchlight. Mats
+cover the floor. Some warriors are practicing tripping and
+kicking techniques, others are fencing with different 
+blades. Farther back, you see a class in the art of axe
+fighting, and another in the art of the mace/club and 
+flail/whip. Tordril Thedrilson, the Guildmaster, knows all
+weapons and all techniques.
+~
+0 D inside
+D3
+~
+~
+Z -1 40111
+S
+#40119
+Changeling Guild~
+The walls of your guild are always changing color, a
+kaleidoscope of pattern and lack of pattern. Looking around,
+you see furniture in the room... or do you? Nothing stays 
+the same for very long, and what was once a sofa now 
+resembles an end-table, now a straight-chair, now a divan...
+~
+0 D inside
+D1
+~
+~
+Z -1 40113
+S
+#40120
+Anti-Paladins' Guild~
+Instruments of torture adorn the walls except for one ancient
+harpsichord in a far corner. Atop the harp box are the 
+skeletal remains of the last music guildmaster to ever bring
+a tuning fork near this instrument. The Anti-Paladin 
+Guildmaster eagerly awaits the next Anti-Paladin who wishes 
+to learn some new fighting skill or magical torture method.
+~
+0 D inside
+D3
+~
+~
+Z -1 40113
+S
+#40121
+East Main Road~
+You are on the main road in Elvenhame. This stretch of road 
+is lined with dark green leafed trees offset with dainty 
+white and pink flowers. At the base of these trees are Elven 
+Paint Brush flowers, a native strain.
+~
+0 0 city
+D1
+* Looking east on Main Road
+~
+~
+Z -1 40107
+D3
+~
+~
+Z -1 40122
+S
+#40122
+East Main Road~
+You are on the main road in Elvenham. This stretch of road 
+is lined with dark green leafed trees offset with dainty 
+white and pink flowers. At the base of these trees are Elven
+Paint Brush flowers, a native strain. 
+~
+0 0 city
+D0
+~
+~
+Z -1 40140
+D1
+~
+~
+Z -1 40121
+D2
+~
+~
+Z -1 40143
+D3
+~
+~
+Z -1 40123
+S
+#40123
+East Main Road~
+You are on the main road in Elvenhame. This stretch of road 
+is lined with dark green leafed trees offset with dainty 
+white and pink flowers. At the base of these trees are Elven
+Paint Brush flowers, a native strain.
+~
+0 0 city
+D0
+~
+~
+Z -1 40141
+D1
+~
+~
+Z -1 40122
+D2
+~
+~
+Z -1 40142
+D3
+~
+~
+Z -1 40124
+S
+#40124
+Center Square~
+Center Square is one of the busiest intersections in
+Elvenhame. It is equidistant from the fountains and the 
+temples in the center of the city.
+~
+0 0 city
+D0
+~
+~
+Z -1 40132
+D1
+~
+~
+Z -1 40123
+D2
+~
+~
+Z -1 40128
+D3
+~
+~
+Z -1 40125
+S
+#40125
+West Main Road~
+You are on the main road in Elvenhame. This stretch of road 
+is lined with dark green leafed trees offset with dainty 
+white and pink flowers. At the base of these trees are Elven
+Paint Brush flowers, a native strain. 
+~
+0 0 city
+D1
+~
+~
+Z -1 40124
+D2
+~
+~
+Z -1 40146
+D3
+~
+~
+Z -1 40126
+S
+#40126
+West Main Road~
+The trees that line this stretch of road arch over it, 
+forming a dark green tunnel. It is cooler here than on the 
+more open portions of road, although on very sunny days a 
+ray or two of sunshine may penetrate and kiss the road. 
+~
+0 A city
+D0
+~
+~
+Z -1 40179
+D1
+~
+~
+Z -1 40125
+D2
+~
+~
+Z -1 40149
+D3
+~
+~
+Z -1 40127
+S
+#40127
+West Main Road~
+The trees that line this stretch of road arch over it,
+forming a dark green tunnel. It is cooler here than on the 
+more open portions of road, although on very sunny days a 
+ray or two of sunshine may penetrate and kiss the road.
+~
+0 A city
+D0
+~
+~
+Z -1 40180
+D1
+~
+~
+Z -1 40126
+D2
+~
+~
+Z -1 40182
+D3
+~
+~
+Z -1 40151
+S
+#40128
+Middle Road (South)~
+The road is lined with nice trees, green leaved, pink flowered. 
+At the bases of the trees are tiny blood-red flowers.
+~
+0 0 city
+D0
+~
+~
+Z -1 40124
+D1
+~
+~
+Z -1 40142
+D2
+~
+~
+Z -1 40129
+D3
+~
+~
+Z -1 40146
+S
+#40129
+Middle Road (south)~
+You are on a road lined with dark green leafed trees offset 
+with dainty white and pink flowers. At the base of the trees
+are Elven Paint Brush flowers, a native strain. 
+~
+0 0 city
+D0
+~
+~
+Z -1 40128
+D1
+~
+~
+Z -1 40145
+D2
+~
+~
+Z -1 40130
+D3
+~
+~
+Z -1 40147
+S
+#40130
+Middle Road (south)~
+When the weather is bright this stretch of road is bathed in
+sunlight. No trees line the road, but flowers, lots of 
+flowers. Every color of the rainbow is represented. You even 
+recognize some herbs among them. 
+~
+0 0 city
+D0
+~
+~
+Z -1 40129
+D1
+~
+~
+Z -1 40136
+D2
+~
+~
+Z -1 40131
+D3
+~
+~
+Z -1 40137
+S
+#40131
+Middle Road (south)~
+This stretch of the road is neatly landscaped with trimmed
+green shrubbery.
+~
+0 0 city
+D0
+~
+~
+Z -1 40130
+D1
+~
+~
+Z -1 40177
+D2
+~
+~
+Z -1 40159
+S
+#40132
+Middle Road (north)~
+When the weather is bright this stretch of road is bathed in
+sunlight. No trees line the road, but flowers of every color
+of the rainbow. You even recognize some herbs among them. 
+~
+0 0 city
+D0
+~
+~
+Z -1 40133
+D1
+~
+~
+Z -1 40141
+D2
+~
+~
+Z -1 40124
+D3
+~
+~
+Z -1 40150
+S
+#40133
+Middle Road (north)~
+When the weather is bright this stretch of road is bathed in
+sunlight. No trees line the road, but flowers of every color
+of the rainbow. You even recognize some herbs among them. 
+~
+0 0 city
+D0
+~
+~
+Z -1 40134
+D1
+~
+~
+Z -1 40138
+D2
+~
+~
+Z -1 40132
+S
+#40134
+Middle Road (north)~
+When the weather is bright this stretch of road is bathed in 
+sunlight. No trees line the road, but flowers of every color 
+of the rainbow. You even recognize some herbs among them. 
+~
+0 0 city
+D0
+~
+~
+Z -1 40162
+D1
+~
+~
+Z -1 40135
+D2
+~
+~
+Z -1 40133
+S
+#40135
+Paladin Guild Hall~
+A combination of weaponry and sacred objects decorate the 
+walls here. Scullery pages polish the white tile floor while 
+apprentices prepare to go into the city to help those in 
+need. Paladins of every rank, awaiting lessons with the
+Paladin Guildmaster, do what they can to improve the looks 
+of the place.
+~
+0 DK inside
+D2
+~
+~
+Z -1 40138
+D3
+~
+~
+Z -1 40134
+S
+#40136
+The Sanctuary (Clerics' Guild)~
+The plain wooden altar at the far wall catches your eye. On 
+either side, torches burn, flames of red, blue and green 
+casting dancing light upon it. Incense fills the room. Along
+the walls are stained glass windows depicting various gods/
+goddesses and their holy symbols. The Guildmaster patiently 
+waits for the next young cleric to request a lesson in the
+ways of the gods and their magic. 
+~
+0 DK inside
+D0
+~
+~
+Z -1 40145
+D3
+~
+~
+Z -1 40130
+S
+#40137
+The Cave (NightWalkers' Guild)~
+Darkness rules here. You can hardly see anything but shadows.
+The walls are adorned with weapons which you cannot see 
+without a light source or infravision, and even then, you 
+must strain to discern what they are. Your Guildmaster is 
+cloaked in shadow, difficult to see, but aware of your 
+presence and awaiting your request for another lesson.
+~
+0 AD inside
+D0
+~
+~
+Z -1 40147
+D1
+~
+~
+Z -1 40130
+S
+#40138
+The Temple of Light~
+This building of gold is golden bright on the inside as well
+as on the outside. Here acolytes keep the candles burning 
+brightly. Bright stained glass windows celebrate the sunshine
+and life itself, some devoted to plant life and some to 
+animal life. The stone beneath your feet is of light marble.
+~
+0 D inside
+D0
+~
+~
+Z -1 40135
+D1
+~
+~
+Z -1 40139
+D2
+~
+~
+Z -1 40141
+D3
+~
+~
+Z -1 40133
+S
+#40139
+The Altar of Light~
+The golden Altar of Light sits in the center of this bright 
+room. Stained glass windows adorn the walls, each depicting 
+different races of beings who walk in the light. On every 
+wall are braziers of bright flame, lightening everything. 
+Looking up, you see that the ceiling is made of a transparent
+substance, allowing the sky to show through, allowing the
+sun, on a good day, to shine in. Beneath your feet, the 
+floor is made of light marble. A pit of granite for receiving
+donations for the poor is located near the altar.
+~
+0 D inside
+D2
+~
+~
+Z -1 40140
+D3
+~
+~
+Z -1 40138
+S
+#40140
+The Temple of Light~
+This building of gold is golden bright on the inside as well
+as on the outside. Here acolytes keep the candles burning 
+brightly. Bright stained glass windows celebrate the sunshine
+and life itself, some devoted to plant life and some to 
+animal life. The stone beneath your feet is of light marble.
+~
+0 CD inside
+D0
+~
+~
+Z -1 40139
+D2
+~
+~
+Z -1 40122
+D3
+~
+~
+Z -1 40141
+S
+#40141
+By the Fountain of Light~
+In the center of this bright room is a fountain of rare
+beauty. Cool crystal clear water shoots into the air and
+sprinkles down into a pool encased by white quartz. The
+stone beneath your feet is light marble. 
+~
+0 D inside
+D0
+~
+~
+Z -1 40138
+D1
+~
+~
+Z -1 40140
+D2
+~
+~
+Z -1 40123
+D3
+~
+~
+Z -1 40132
+S
+#40142
+The Fountain of Magic~
+You stand before the Lapis Fountain in the temple square. In 
+the center of the fountain pool is a lapis statue of Xyza, 
+dual streams of water shooting from her outstretched hands. 
+Your feet on granite, you gaze at the high shooting water 
+and feel the cool wetness as a breeze blows it in your face. 
+~
+0 0 city
+D0
+~
+~
+Z -1 40123
+D1
+~
+~
+Z -1 40143
+D2
+~
+~
+Z -1 40145
+D3
+~
+~
+Z -1 40128
+S
+#40143
+The Temple of Magic~
+The Temple of Magic, while constructed of a grey granite on 
+the outside, is walled with smooth lapis lazuli. Stained 
+glass windows depict various magic spells being used by
+different mages. Runic lettering at the bottom of each 
+window tell the exact incantation and what it does, but 
+nowhere is there a guide to pronunciation. 
+~
+0 D inside
+D0
+~
+~
+Z -1 40122
+D2
+~
+~
+Z -1 40144
+D3
+~
+~
+Z -1 40142
+S
+#40144
+By the Altar of Magic~
+The lapis lazuli Altar sits in the middle of a room filled 
+with a soft violet glow. The stained glass windows on the 
+upper walls, each depicting magicians using spells, do not 
+hold the eye as does the Altar. Upon the Altar are four 
+objects. The entire Altar and its contents are bathed in a 
+golden glow. North and west are more of the Temple. A granite
+donation pit is located near the altar. 
+~
+0 D inside
+E
+four objects~
+On the Altar are a chunk of granite, finely polished and 
+glittering, a chalice of clear water, a lit candle, its 
+flame flickering in a soft breeze, and a clear globe inside 
+of which you see sparks and tiny bolts of lightning.
+~
+D0
+~
+~
+Z -1 40143
+D3
+~
+~
+Z -1 40145
+S
+#40145
+The Temple of Magic~
+The Temple of Magic, while constructed of a grey granite on 
+the outside, is walled with smooth lapis lazuli. Stained 
+glass windows depict various magic spells being used by
+different mages. Runic lettering at the bottom of each 
+window tell the exact incantation and what it does, but 
+nowhere is there a guide to pronunciation. 
+~
+0 D inside
+D0
+~
+~
+Z -1 40142
+D1
+~
+~
+Z -1 40144
+D2
+~
+~
+Z -1 40136
+D3
+~
+~
+Z -1 40129
+S
+#40146
+The Fountain of Gore~
+Blood shoots up from the obsidian demon's maw in the middle 
+of this dark fountain in the temple square. The stone beneath
+your feet is basalt, and the whole place reeks of evil. 
+~
+0 0 city
+D0
+~
+~
+Z -1 40125
+D1
+~
+~
+Z -1 40128
+D2
+~
+~
+Z -1 40147
+D3
+~
+~
+Z -1 40149
+S
+#40147
+The Temple of Darkness~
+It is so dark inside here that all is shadow, and only with 
+a light source or infravision can you see anything. Evenso, 
+an aura of evil permeates. The walls are carved with pictures
+of tortures carried out against members of the goodly races,
+and demons laughing -- at you?
+~
+0 AD inside
+D0
+~
+~
+Z -1 40146
+D1
+~
+~
+Z -1 40129
+D2
+~
+~
+Z -1 40137
+D3
+~
+~
+Z -1 40148
+S
+#40148
+By the Altar of Shadows~
+Surrounded by a black aura of evil, the Altar of Shadows 
+seems to greedily suck in all available light. A statue of 
+Styx Barvakis stands guard nearby, it, too, surrounded by a 
+black aura of pure evil. The eyes of the statue seem to 
+watch your every move. Hard to see what is north or east of
+you, it's so dark... You have to move in here carefully,
+for in the floor near the altar is a dark granite donation
+pit, into which you really do not want to fall... 
+~
+0 AD inside
+D0
+~
+~
+Z -1 40149
+D1
+~
+~
+Z -1 40147
+S
+#40149
+The Temple of Darkness~
+The very walls of this place seem to drink in whatever light
+shines here, and the atmosphere is purely shadow, purely 
+evil. You strain to see carvings in the walls depicting 
+demons and other fell creatures, tortures of the innocent, 
+and up near the ceiling you *think* you see the face of Styx
+Barvakis watching over all. It looks like a face, anyway...
+~
+0 AD inside
+D0
+~
+~
+Z -1 40126
+D1
+~
+~
+Z -1 40146
+D2
+~
+~
+Z -1 40148
+S
+#40150
+Guild of Thieves~
+As guildhouses go, this guild is one of the richest and
+most lavishly decorated. Tapestries adorn the walls. 
+In one corner is a marble statue of a man on a rearing
+horse, his blade drawn. At the tip of the blade is
+someone's cap, resting until the thief who tossed it 
+there retrieves it.
+~
+0 D inside
+D1
+~
+~
+Z -1 40132
+S
+#40151
+West Main Road~
+The trees that line this stretch of road arch over it,
+forming a dark green tunnel. It is cooler here than on the 
+more open portions of road, although on very sunny days a 
+ray or two of sunshine may penetrate and kiss the road. 
+~
+0 A city
+D0
+~
+~
+Z -1 40184
+D1
+~
+~
+Z -1 40127
+D2
+~
+~
+Z -1 40186
+D3
+~
+~
+Z -1 40152
+S
+#40152
+West Main Road~
+The trees that line this stretch of road arch over it,
+forming a dark green tunnel. It is cooler here than on the 
+more open portions of road, although on very sunny days a 
+ray or two of sunshine may penetrate and kiss the road. 
+~
+0 A city
+D0
+~
+~
+Z -1 40188
+D1
+~
+~
+Z -1 40151
+D2
+~
+~
+Z -1 40190
+D3
+~
+~
+Z -1 40153
+S
+#40153
+West Main Road~
+The trees that line this stretch of road arch over it,
+forming a dark green tunnel. It is cooler here than on the 
+more open portions of road, although on very sunny days a 
+ray or two of sunshine may penetrate and kiss the road.
+~
+0 A city
+D0
+~
+~
+Z -1 40192
+D1
+~
+~
+Z -1 40152
+D2
+~
+~
+Z -1 40194
+D3
+~
+~
+Z -1 40154
+S
+#40154
+West Main Road~
+The trees that line this stretch of road arch over it,
+forming a dark green tunnel. It is cooler here than on the 
+more open portions of road, although on very sunny days a 
+ray or two of sunshine may penetrate and kiss the road. 
+~
+0 A city
+D1
+~
+~
+Z -1 40153
+D3
+~
+~
+Z -1 40155
+S
+#40155
+West Main Road~
+The trees that line this stretch of road arch over it,
+forming a dark green tunnel. It is cooler here than on the 
+more open portions of road, although on very sunny days a 
+ray or two of sunshine may penetrate and kiss the road.
+~
+0 A city
+D1
+~
+~
+Z -1 40154
+D3
+~
+~
+Z -1 40156
+S
+#40156
+West Main Road~
+The trees that line this stretch of road arch over it,
+forming a dark green tunnel. It is cooler here than on the 
+more open portions of road, although on very sunny days a 
+ray or two of sunshine may penetrate and kiss the road. To
+the west you discern an end to the canopy of leaves.
+~
+0 A city
+D1
+~
+~
+Z -1 40155
+D3
+~
+~
+Z -1 40157
+S
+#40157
+Inside the West Gate of Elvenhame~
+To the east the road is dark, hidden in the shadows of the
+tunnel caused by the arching of thich trees. To the west is
+beyond the gate of the city, wilderness. The gate itself is
+of a silvery metal, thick, and engraved with sparkling runes.
+~
+0 0 city
+D1
+~
+~
+Z -1 40156
+D3
+~
+~
+Z -1 40158
+S
+#40158
+Outside the West Gate of Elvenhame~
+You see the West Gate of Elvenhame, made of silver and bearing 
+sparkling runic engravings. To the west is wilderness, to the 
+east civilization as the elves know it. 
+~
+0 0 city
+D1
+~
+~
+Z -1 40157
+D3
+~
+~
+Z 0 1877
+S
+#40159
+Middle Road (south)~
+The road here is lined with wild flowers, indiginous to the area,
+and well-loved by the elves who dwell in Elvenhame. Pinks and
+yellows dominate, but you also see purples and reds and the
+occasional blues.
+~
+0 0 city
+D0
+~
+~
+Z -1 40131
+D2
+~
+~
+Z -1 40160
+S
+#40160
+Middle Road (south)~
+The road here is lined with wild flowers, indiginous to the area,
+and well-loved by the elves who dwell in Elvenhame. Pinks and
+yellows dominate, but you also see purples and reds and the
+occasional blues.
+~
+0 0 city
+D0
+~
+~
+Z -1 40159
+D2
+~
+~
+Z -1 40161
+S
+#40161
+Inside the South Gate of Elvenhame~
+The gate is made of a silvery metal, thick, and engraved
+with sparkling runes. Beyond it to the south is wilderness.
+To the north is the city of Elvenhame.
+~
+0 0 city
+D0
+~
+~
+Z -1 40160
+S
+#40162
+Middle Road (north)~
+When the weather is bright this stretch of road is bathed in 
+sunlight. No trees line the road, but flowers of every color 
+of the rainbow. You even recognize some herbs among them. 
+~
+0 0 city
+D0
+~
+~
+Z -1 40163
+D2
+~
+~
+Z -1 40134
+S
+#40163
+Middle Road (north)~
+When the weather is bright this stretch of road is bathed in 
+sunlight. No trees line the road, but flowers of every color 
+of the rainbow. You even recognize some herbs among them. 
+~
+0 0 city
+D0
+~
+~
+Z -1 40164
+D1
+~
+~
+Z -1 40187
+D2
+~
+~
+Z -1 40162
+D3
+~
+~
+Z -1 40189
+S
+#40164
+Middle Road (north)~
+When the weather is bright this stretch of road is bathed in 
+sunlight. No trees line the road, but flowers of every color 
+of the rainbow. You even recognize some herbs among them. 
+~
+0 0 city
+D0
+~
+~
+Z -1 40165
+D2
+~
+~
+Z -1 40163
+S
+#40165
+Inside the North Gate of Elvenhame~
+The gate is of a silvery metal, thick, with sparkling runes
+engraved upon it. To the north is wilderness, to the south
+elven civilization.
+~
+0 0 city
+D0
+~
+~
+Z -1 40166
+D2
+~
+~
+Z -1 40164
+S
+#40166
+Outside the North Gate of Elvenhame~
+Beyond this gate to the south is elven civilization as we
+know it, the city of the elves. To the north is wilderness.
+~
+0 0 city
+D2
+~
+~
+Z -1 40165
+S
+#40167
+Stradi's Various Instruments~
+Along the walls and on shelves you see instruments, mostly
+stringed instruments, but the occasional horn and drum are
+also here. Stradi, the most famous maker of musical
+instruments, plans to open his shop soon, but right now he
+is much too busy fashioning yet another violin.
+~
+0 CD inside
+D3
+~
+~
+ABZ -1 40109
+D4
+~
+~
+Z -1 40168
+S
+#40168
+The Workshop~
+Here is where the magic happens. Here is where the famous
+instrument maker, Stradi, fashions the most wonderful
+stringed instruments ever played. A worktable houses 
+several tools and a few partly constructed violins. On 
+one wall three mandolins hang, their polished wood gleaming
+in the torchlight. Against another wall two viols are 
+leaning, much too large and heavy to hang or set on a table.
+A set of shelves house various instrument cases and several
+violins.
+~
+0 CD inside
+D5
+~
+~
+Z -1 40167
+S
+#40169
+Guild Road~
+You are on Guild Road. To the north and south you see more 
+of the road. The road is lined with fiery-red leaved maple 
+trees and lavender flowers. 
+~
+0 0 city
+D0
+~
+~
+Z -1 40170
+D1
+~
+~
+Z -1 40193
+D2
+~
+~
+Z -1 40110
+S
+#40170
+Guild Road~
+You are on Guild Road. The road is lined with fiery-red 
+leaved maple trees and lavender flowers. 
+~
+0 0 city
+D0
+~
+~
+Z -1 40171
+D2
+~
+~
+Z -1 40169
+S
+#40171
+Guild Road~
+You are on Guild Road. The road is lined with fiery-red 
+leaved maple trees and lavender flowers. 
+~
+0 0 city
+D0
+~
+~
+Z -1 40172
+D2
+~
+~
+Z -1 40170
+S
+#40172
+Guild Road~
+You are on Guild Road. The road is lined with fiery-red 
+leaved maple trees and lavender flowers. 
+~
+0 0 city
+D0
+~
+~
+Z -1 40173
+D2
+~
+~
+Z -1 40171
+S
+#40173
+Guild Road~
+You are on Guild Road. The road is lined with fiery-red 
+leaved maple trees and lavender flowers. To the east you 
+see a tower, the great Observatory of the Astrologers.
+~
+0 0 city
+D1
+~
+~
+Z -1 40174
+D2
+~
+~
+Z -1 40172
+S
+#40174
+Entrance to the Observatory (Astrologers Guild)~
+You are at the entrance to the Observatory where the Astrologers
+observe the movements in the heavens. On the walls are fine
+tapestries depicting the most popular of constellations in the
+night sky.
+~
+0 D inside
+D3
+~
+~
+Z -1 40173
+D4
+~
+~
+Z -1 40175
+S
+#40175
+The Astrologers' Guild~
+A laboratory of the mind this room is. Tables throughout the
+room are filled with scrolls and fountain pens. You look at
+one scroll and see the chart of the lunar eclipses. Another
+scroll shows you a schedule of meteor storms. Looking at a
+third scroll, you notice that this is someone's natal
+horoscope, as yet unfinished because the astrologer drawing
+it up has taken leave of the guild in order to see the
+world below the dome of stars.
+~
+0 DM inside
+D4
+~
+~
+Z -1 40176
+D5
+~
+~
+Z -1 40174
+S
+#40176
+The Observatory~
+The massive telescope positioned to look at the heavens
+takes up almost all the room here. In one corner is a
+mobile depicting the universe as we know it today. The
+astrologers keep it mostly dark in here so that they
+may view the universe without much disturbance from the
+civilized world as they know it.
+~
+0 AD inside
+D5
+~
+~
+Z -1 40175
+S
+#40177
+First Bank of Elvenhame~
+The floor here is carpeted, and the walls are tastefully
+decorated with tapestries of woodland, brook, and mountain
+scenes. At least one teller is available for your financial
+transaction.
+~
+0 CD inside
+D3
+~
+~
+Z -1 40131
+D5
+~
+~
+Z -1 40178
+S
+#40178
+The Bank Vault~
+Here is where all the vault boxes of the bank are located.
+~
+0 AD inside
+D4
+~
+~
+Z -1 40177
+S
+#40179
+City Guard Headquarters~
+A desk with a messy pile of scrolls and parchments sits in one
+corner. On the walls are pictures of known criminals. A parchment
+is nailed to one wall. 
+~
+0 D inside
+E
+parchment~
+.                  LAWS OF ELVENHAME
+
+1. Thou shalt not murder another person within the city
+   limits of Elvenhame. 
+2. Looting corpses is strictly forbidden within the city
+   limits of Elvenhame.
+3. Especially commit not harmful acts upon another
+   while on holy ground. Holy ground is the Temple of
+   Light (and its altar room and fountain), the Temple
+   of Xyza (and its altar room and fountain), and the
+   Temple of Darkness (and its altar room and fountain).
+   The gods themselves have been known to deal out 
+   justice when their holy places have been so defiled.
+4. Thou shalt not loot the pits at the holy places within
+   the city limits of Elvenhame.
+5. Thou shalt not steal within the city limits.
+
+These laws be subject to change without notice.
+
+                -- Thedril Saphorson
+                   Mayor, Elvenhame
+~
+D2
+~
+~
+Z -1 40126
+S
+#40180
+City Hall~
+Here is the bastion of politics and getting things done slower
+than necessary (if at all). The Mayor works here, and the city's
+guardsmen get their paychecks here.
+~
+0 D inside
+D0
+~
+~
+Z -1 40181
+D2
+~
+~
+Z -1 40127
+S
+#40181
+Registry Office~
+Here is where all the scrolls containing all the information about 
+who was born, who died, who married, etc., are located. Shelves and
+shelves and shelves line the walls, and each of them crammed with
+scrolls, some of them dusty and cobweb-ridden, others new. The whole
+room is cluttered with stuff.
+~
+0 D inside
+D2
+~
+~
+Z -1 40180
+S
+#40182
+The Gaping Maw~
+Of all the beer joints in all the cities in all the world, you
+had to walk into this one. Elvenhame's centrally located tavern is
+said to have the best drinks in the world, bar none. Blane the
+barkeep has owned the place since its opening centuries ago, and
+everyone expects he'll own it for more than a millenium. The bar
+is centrally located, with tables surrounding it, and a dance floor
+far to the south near the door to the back room.
+~
+0 D inside
+D0
+~
+~
+Z -1 40127
+D2
+~
+~
+Z -1 40183
+S
+#40183
+The Back Room~
+A private dining area with a dance floor, The Back Room of The
+Gaping Maw tavern is the site of many a private party, mostly
+of the gambling sort. The floor is carpeted in crimson and gold 
+brocade, and tapestries adorn the walls. 
+~
+0 D inside
+D0
+~
+~
+Z -1 40182
+S
+#40184
+Thou Good and Faithful Servant, Inc.~
+Here is where you may purchase pets to aid you, or mercenaries
+who have put themselves up for hire. Animals have been trained
+to obey, and the mercenaries have been schooled in the finer
+arts of serving others.
+~
+0 DM inside
+D2
+~
+~
+Z -1 40151
+S
+#40185
+Obedience School~
+Here is where the pets and mercenaries learn how to become
+good and faithful servants to those who purchase their 
+services. You don't belong here. Magically remove yourself
+or pray that an Immortal mercifully transfers you to a
+safer place.
+~
+0 CD inside
+S
+#40186
+Necessities 'R' Us~
+The shelves are full of the necessities of life. On the 
+counter is a locked box and a small card. Behind the
+counter is a parchment framed in oak.
+~
+0 D inside
+E
+box~
+It probably holds all the money earned today through the
+sales of necessary items.
+~
+E
+card small~
+.           To Purchase an Item, type buy <item>
+            To learn what is sold here, type list
+~
+E
+parchment~
+.           You Are Respectfully Requested
+                         Not 
+                     To Track Mud
+                          Or
+                      Shed Blood 
+              In This Fine Establishment.
+
+                         -- The Management
+~
+D0
+~
+~
+Z -1 40151
+S
+#40187
+small house~
+A small one-room house is all most elves need for shelter. This
+one is nicely furnished with beds along the north wall and a 
+fireplace with a nice counter nearby and butcher-block along the 
+south wall. Above the fire is a metal construct which allows the
+family which lives here to place pots, pans, and other cooking
+vessels. The house door was left open because, well, the citizens
+of Elvenhame expect that they are safe here and that there is
+nothing to steal or harm.
+~
+0 D inside
+D3
+~
+~
+Z -1 40163
+S
+#40188
+The Butcher Block~
+Along one wall is a long vat with a glass cover, magically
+chilled. Inside it are different cuts of meat, some spiced
+and some waiting to be spiced. On the counter is a small
+card and a locked box. Behind the counter, hung on the wall,
+is a faded, stained parchment.
+~
+0 D inside
+E
+box~
+It probably holds all the money earned today through the
+sales of meat.
+~
+E
+card small~
+.           To Purchase an Item, type buy <item>
+            To learn what is sold here, type list
+~
+E
+parchment~
+.           You Are Respectfully Requested
+                         Not 
+                     To Track Mud
+                          Or
+                      Shed Blood 
+              In This Fine Establishment.
+
+                         -- The Management
+~
+D2
+~
+~
+Z -1 40152
+S
+#40189
+small house~
+A small one-room house is all most elves need for shelter. This
+one is nicely furnished with beds along the north wall and a 
+fireplace with a nice counter nearby and butcher-block along the 
+south wall. Above the fire is a metal construct which allows the
+family which lives here to place pots, pans, and other cooking
+vessels. The house door was left open because, well, the citizens
+of Elvenhame expect that they are safe here and that there is
+nothing to steal or harm.
+~
+0 D inside
+D1
+~
+~
+Z -1 40163
+S
+#40190
+The Armory~
+The first thing you notice is the heat. This store is
+hot. Very hot. By the far stone wall is a small forge,
+where the blacksmith works, and everywhere else you
+see piles of stuff: vests, leggings, boots, gloves,
+armguards... The blacksmith has been busy. The counter
+near the door is surprisingly clean. A locked box and
+a card sit upon it.
+~
+0 D inside
+E
+box~
+It probably holds all the money earned today through the
+sales of armor.
+~
+E
+card small~
+.           To Purchase an Item, type buy <item>
+            To learn what is sold here, type list
+~
+D0
+~
+~
+Z -1 40152
+S
+#40191
+small house~
+A small one-room house is all most elves need for shelter. This
+one is nicely furnished with beds along the north wall and a 
+fireplace with a nice counter nearby and butcher-block along the 
+south wall. Above the fire is a metal construct which allows the
+family which lives here to place pots, pans, and other cooking
+vessels. The house door was left open because, well, the citizens
+of Elvenhame expect that they are safe here and that there is
+nothing to steal or harm.
+~
+0 D inside
+D3
+~
+~
+Z -1 40110
+S
+#40192
+All That Glitters~
+You have never seen so many riches in one place before,
+although you have heard legends of dragons' hoards, their
+mounds of gold and glittering jewels. In this shop the
+jewels and gold are tastefully set out for viewing, most 
+of them beyond your ability to purchase. Try to touch the
+golden chalice encrusted with rubies and the protection
+spell set upon it will burn your hand. A few affordable
+pieces are displayed near the locked cash box, and a card
+is displayed nearby.
+~
+0 D inside
+E
+box~
+It probably holds all the money earned today through the
+sales of gems and jewelry.
+~
+E
+card small~
+.           To Purchase an Item, type buy <item>
+            To learn what is sold here, type list
+~
+D2
+~
+~
+Z -1 40153
+S
+#40193
+small house~
+A small one-room house is all most elves need for shelter. This
+one is nicely furnished with beds along the north wall and a 
+fireplace with a nice counter nearby and butcher-block along the 
+south wall. Above the fire is a metal construct which allows the
+family which lives here to place pots, pans, and other cooking
+vessels. The house door was left open because, well, the citizens
+of Elvenhame expect that they are safe here and that there is
+nothing to steal or harm.
+~
+0 D inside
+D3
+~
+~
+Z -1 40169
+S
+#40194
+He Who Lives By The Sword (R) Weapons Boutique~
+The first thing you notice is the heat. This store is
+hot. Very hot. By the far stone wall is a small forge,
+where the weaponsmith works, and everywhere else you
+see piles of swords, axes, daggers... some blades 
+without hilts... On one wall is a collection of whips
+and flails. The weaponsmith has been busy. The counter
+near the door is surprisingly clean. A locked box and
+a card sit upon it.
+~
+0 D inside
+E
+box~
+It probably holds all the money earned today through the
+sales of weapons.
+~
+E
+card small~
+.           To Purchase an Item, type buy <item>
+            To learn what is sold here, type list
+~
+D0
+~
+~
+Z -1 40153
+S
+#40195
+small house~
+A small one-room house is all most elves need for shelter. This
+one is nicely furnished with beds along the north wall and a 
+fireplace with a nice counter nearby and butcher-block along the 
+south wall. Above the fire is a metal construct which allows the
+family which lives here to place pots, pans, and other cooking
+vessels. The house door was left open because, well, the citizens
+of Elvenhame expect that they are safe here and that there is
+nothing to steal or harm.
+~
+0 D inside
+D3
+~
+~
+Z -1 40170
+S
+#40196
+Necromancers' Supply Shoppe~
+The room is dark, but for a small red-flamed candle on 
+the counter. Shelves line the walls, shelves filled 
+with wonderful things: vials and flasks of potions,
+scrolls, wands. There is a card on the counter, and
+a locked box.
+~
+0 AD inside
+E
+box~
+It probably holds all the money earned today through the
+sales of potions, wands, and staves.
+~
+E
+card small~
+.           To Purchase an Item, type buy <item>
+            To learn what is sold here, type list
+~
+D0
+~
+~
+ABZ -1 40103
+S
+#0
+
+#SPECIALS
+M 40101 spec_cast_mage	* the Guildmaster
+M 40103 spec_cast_mage	* the Guildmaster
+M 40105 spec_cast_mage	* the Guildmaster
+M 40106 spec_cast_cleric	* the Guildmaster
+M 40107 spec_cast_cleric	* the Guildmaster
+M 40108 spec_cast_cleric	* the Guildmaster
+M 40109 spec_cast_mage	* the Guildmaster
+M 40111 spec_cast_mage	* the Guildmaster
+M 40132 spec_mayor	* Thedril Saphorson, Mayor of Elvenhame
+M 40137 spec_cast_mage	* a citizen
+M 40138 spec_cast_mage	* a citizen
+M 40140 spec_cast_mage	* a citizen
+M 40141 spec_cast_mage	* a citizen
+M 40143 spec_cast_mage	* a citizen
+M 40144 spec_cast_mage	* a citizen
+M 40150 spec_cast_cleric	* The Healer Adept
+M 40151 spec_cast_mage	* The Necromancer-Alchemist
+S
+
+#RESETS
+D 0 40103 2 1	* East Main Road: door to the south: closed
+D 0 40109 1 1	* Guild Road: door to the east: closed
+D 0 40167 3 1	* Stradi's Various Instruments: door to the west: closed
+D 0 40196 0 1	* Necromancers' Supply Shoppe: door to the north: closed
+M 0 40117 11 40100 1	* the Gate Guard (Outside the East Gate of Elvenhame)
+E 0 40107 0 5		*	City Guard vest: on the body
+E 0 40108 0 7		*	City Guard trousers: on the legs
+E 0 40110 0 8		*	City Guard boots: on the feet
+E 0 40109 0 6		*	City Guard helmet: over the head
+E 0 40111 0 10		*	City Guard armguards: on the arms
+E 0 40112 0 1		*	City Guard Ring: on the left finger
+E 0 40114 0 16		*	City Guard sword: wielded
+M 0 40116 11 40101 1	* the Cityguard Patroller (Inside the East Gate of Elvenhame)
+E 0 40107 0 5		*	City Guard vest: on the body
+E 0 40108 0 7		*	City Guard trousers: on the legs
+E 0 40110 0 8		*	City Guard boots: on the feet
+E 0 40109 0 6		*	City Guard helmet: over the head
+E 0 40111 0 10		*	City Guard armguards: on the arms
+E 0 40112 0 1		*	City Guard Ring: on the left finger
+E 0 40115 0 16		*	City Guard shillelagh: wielded
+M 0 40117 11 40101 2	* the Gate Guard (Inside the East Gate of Elvenhame)
+E 0 40107 0 5		*	City Guard vest: on the body
+E 0 40108 0 7		*	City Guard trousers: on the legs
+E 0 40110 0 8		*	City Guard boots: on the feet
+E 0 40109 0 6		*	City Guard helmet: over the head
+E 0 40111 0 10		*	City Guard armguards: on the arms
+E 0 40112 0 1		*	City Guard Ring: on the left finger
+E 0 40114 0 16		*	City Guard sword: wielded
+M 0 40117 11 40101 2	* the Gate Guard (Inside the East Gate of Elvenhame)
+E 0 40107 0 5		*	City Guard vest: on the body
+E 0 40108 0 7		*	City Guard trousers: on the legs
+E 0 40110 0 8		*	City Guard boots: on the feet
+E 0 40109 0 6		*	City Guard helmet: over the head
+E 0 40111 0 10		*	City Guard armguards: on the arms
+E 0 40112 0 1		*	City Guard Ring: on the left finger
+E 0 40114 0 16		*	City Guard sword: wielded
+M 0 40115 10 40105 1	* the Cityguard (Guild Square)
+E 0 40107 0 5		*	City Guard vest: on the body
+E 0 40108 0 7		*	City Guard trousers: on the legs
+E 0 40110 0 8		*	City Guard boots: on the feet
+E 0 40115 0 16		*	City Guard shillelagh: wielded
+E 0 40112 0 1		*	City Guard Ring: on the left finger
+E 0 40113 0 11		*	City Guard shield: as a shield
+M 0 40133 4 40107 1	* the little kitten (East Main Street)
+M 0 40116 11 40108 1	* the Cityguard Patroller (Guild Road)
+E 0 40107 0 5		*	City Guard vest: on the body
+E 0 40108 0 7		*	City Guard trousers: on the legs
+E 0 40110 0 8		*	City Guard boots: on the feet
+E 0 40109 0 6		*	City Guard helmet: over the head
+E 0 40111 0 10		*	City Guard armguards: on the arms
+E 0 40112 0 1		*	City Guard Ring: on the left finger
+E 0 40115 0 16		*	City Guard shillelagh: wielded
+M 0 40116 11 40111 1	* the Cityguard Patroller (Guild Road)
+E 0 40107 0 5		*	City Guard vest: on the body
+E 0 40108 0 7		*	City Guard trousers: on the legs
+E 0 40110 0 8		*	City Guard boots: on the feet
+E 0 40109 0 6		*	City Guard helmet: over the head
+E 0 40111 0 10		*	City Guard armguards: on the arms
+E 0 40112 0 1		*	City Guard Ring: on the left finger
+E 0 40115 0 16		*	City Guard shillelagh: wielded
+M 0 40116 11 40113 1	* the Cityguard Patroller (Guild Road)
+E 0 40107 0 5		*	City Guard vest: on the body
+E 0 40108 0 7		*	City Guard trousers: on the legs
+E 0 40110 0 8		*	City Guard boots: on the feet
+E 0 40109 0 6		*	City Guard helmet: over the head
+E 0 40111 0 10		*	City Guard armguards: on the arms
+E 0 40112 0 1		*	City Guard Ring: on the left finger
+E 0 40115 0 16		*	City Guard shillelagh: wielded
+M 0 40101 1 40115 1	* the Guildmaster (The Necromancer's Guild)
+M 0 40102 1 40116 1	* the Guildmaster (Music Guild)
+M 0 40103 1 40117 1	* the Guildmaster (The Channellers' Guild)
+M 0 40104 1 40118 1	* the WeaponsMaster (The WeaponMaster's School)
+M 0 40105 1 40119 1	* the Guildmaster (Changeling Guild)
+M 0 40106 1 40120 1	* the Guildmaster (Anti-Paladins' Guild)
+M 0 40115 10 40124 1	* the Cityguard (Center Square)
+E 0 40107 0 5		*	City Guard vest: on the body
+E 0 40108 0 7		*	City Guard trousers: on the legs
+E 0 40110 0 8		*	City Guard boots: on the feet
+E 0 40109 0 6		*	City Guard helmet: over the head
+E 0 40111 0 10		*	City Guard armguards: on the arms
+E 0 40112 0 1		*	City Guard Ring: on the left finger
+E 0 40114 0 16		*	City Guard sword: wielded
+M 0 40115 10 40126 1	* the Cityguard (West Main Road)
+E 0 40107 0 5		*	City Guard vest: on the body
+E 0 40108 0 7		*	City Guard trousers: on the legs
+E 0 40110 0 8		*	City Guard boots: on the feet
+E 0 40109 0 6		*	City Guard helmet: over the head
+E 0 40111 0 10		*	City Guard armguards: on the arms
+E 0 40112 0 1		*	City Guard Ring: on the left finger
+E 0 40115 0 16		*	City Guard shillelagh: wielded
+M 0 40134 5 40129 1	* the scrawny alleycat (Middle Road (south))
+M 0 40116 11 40130 1	* the Cityguard Patroller (Middle Road (south))
+E 0 40107 0 5		*	City Guard vest: on the body
+E 0 40108 0 7		*	City Guard trousers: on the legs
+E 0 40110 0 8		*	City Guard boots: on the feet
+E 0 40109 0 6		*	City Guard helmet: over the head
+E 0 40111 0 10		*	City Guard armguards: on the arms
+E 0 40112 0 1		*	City Guard Ring: on the left finger
+E 0 40115 0 16		*	City Guard shillelagh: wielded
+M 0 40115 10 40131 1	* the Cityguard (Middle Road (south))
+E 0 40107 0 5		*	City Guard vest: on the body
+E 0 40108 0 7		*	City Guard trousers: on the legs
+E 0 40110 0 8		*	City Guard boots: on the feet
+E 0 40109 0 6		*	City Guard helmet: over the head
+E 0 40114 0 16		*	City Guard sword: wielded
+E 0 40112 0 1		*	City Guard Ring: on the left finger
+E 0 40113 0 11		*	City Guard shield: as a shield
+M 0 40116 11 40131 1	* the Cityguard Patroller (Middle Road (south))
+E 0 40107 0 5		*	City Guard vest: on the body
+E 0 40108 0 7		*	City Guard trousers: on the legs
+E 0 40110 0 8		*	City Guard boots: on the feet
+E 0 40109 0 6		*	City Guard helmet: over the head
+E 0 40111 0 10		*	City Guard armguards: on the arms
+E 0 40112 0 1		*	City Guard Ring: on the left finger
+E 0 40115 0 16		*	City Guard shillelagh: wielded
+M 0 40116 11 40132 1	* the Cityguard Patroller (Middle Road (north))
+E 0 40107 0 5		*	City Guard vest: on the body
+E 0 40108 0 7		*	City Guard trousers: on the legs
+E 0 40110 0 8		*	City Guard boots: on the feet
+E 0 40109 0 6		*	City Guard helmet: over the head
+E 0 40111 0 10		*	City Guard armguards: on the arms
+E 0 40112 0 1		*	City Guard Ring: on the left finger
+E 0 40115 0 16		*	City Guard shillelagh: wielded
+M 0 40133 4 40134 1	* the little kitten (Middle Road (north))
+M 0 40107 1 40135 1	* the Guildmaster (Paladin Guild Hall)
+M 0 40108 1 40136 1	* the Guildmaster (The Sanctuary (Clerics' Guild))
+M 0 40109 1 40137 1	* the Guildmaster (The Cave (NightWalkers' Guild))
+M 0 40115 10 40138 1	* the Cityguard (The Temple of Light)
+E 0 40107 0 5		*	City Guard vest: on the body
+E 0 40108 0 7		*	City Guard trousers: on the legs
+E 0 40110 0 8		*	City Guard boots: on the feet
+E 0 40109 0 6		*	City Guard helmet: over the head
+E 0 40111 0 10		*	City Guard armguards: on the arms
+E 0 40112 0 1		*	City Guard Ring: on the left finger
+E 0 40114 0 16		*	City Guard sword: wielded
+O 0 40104 0 40139	* the donation pit (The Altar of Light)
+M 0 40133 4 40141 1	* the little kitten (By the Fountain of Light)
+O 0 40101 0 40141	* the Fountain of Light (By the Fountain of Light)
+O 0 40102 0 40142	* The Fountain of Magic (The Fountain of Magic)
+M 0 40115 10 40143 1	* the Cityguard (The Temple of Magic)
+E 0 40107 0 5		*	City Guard vest: on the body
+E 0 40108 0 7		*	City Guard trousers: on the legs
+E 0 40110 0 8		*	City Guard boots: on the feet
+E 0 40109 0 6		*	City Guard helmet: over the head
+E 0 40111 0 10		*	City Guard armguards: on the arms
+E 0 40112 0 1		*	City Guard Ring: on the left finger
+E 0 40115 0 16		*	City Guard shillelagh: wielded
+M 0 40150 1 40144 1	* The Healer Adept (By the Altar of Magic)
+O 0 40105 0 40144	* the donation pit (By the Altar of Magic)
+M 0 40134 5 40146 1	* the scrawny alleycat (The Fountain of Gore)
+O 0 40103 0 40146	* the Fountain of Gore (The Fountain of Gore)
+O 0 40106 0 40148	* the donation pit (By the Altar of Shadows)
+M 0 40115 10 40149 1	* the Cityguard (The Temple of Darkness)
+E 0 40107 0 5		*	City Guard vest: on the body
+E 0 40108 0 7		*	City Guard trousers: on the legs
+E 0 40110 0 8		*	City Guard boots: on the feet
+E 0 40109 0 6		*	City Guard helmet: over the head
+E 0 40111 0 10		*	City Guard armguards: on the arms
+E 0 40112 0 1		*	City Guard Ring: on the left finger
+E 0 40115 0 16		*	City Guard shillelagh: wielded
+M 0 40110 1 40150 1	* the Guildmaster (Guild of Thieves)
+M 0 40134 5 40151 1	* the scrawny alleycat (West Main Road)
+M 0 40115 10 40153 1	* the Cityguard (West Main Road)
+E 0 40107 0 5		*	City Guard vest: on the body
+E 0 40108 0 7		*	City Guard trousers: on the legs
+E 0 40110 0 8		*	City Guard boots: on the feet
+E 0 40109 0 6		*	City Guard helmet: over the head
+E 0 40111 0 10		*	City Guard armguards: on the arms
+E 0 40112 0 1		*	City Guard Ring: on the left finger
+E 0 40114 0 16		*	City Guard sword: wielded
+M 0 40116 11 40155 1	* the Cityguard Patroller (West Main Road)
+E 0 40107 0 5		*	City Guard vest: on the body
+E 0 40108 0 7		*	City Guard trousers: on the legs
+E 0 40110 0 8		*	City Guard boots: on the feet
+E 0 40109 0 6		*	City Guard helmet: over the head
+E 0 40111 0 10		*	City Guard armguards: on the arms
+E 0 40112 0 1		*	City Guard Ring: on the left finger
+E 0 40115 0 16		*	City Guard shillelagh: wielded
+M 0 40116 11 40157 1	* the Cityguard Patroller (Inside the West Gate of Elvenhame)
+E 0 40107 0 5		*	City Guard vest: on the body
+E 0 40108 0 7		*	City Guard trousers: on the legs
+E 0 40110 0 8		*	City Guard boots: on the feet
+E 0 40109 0 6		*	City Guard helmet: over the head
+E 0 40111 0 10		*	City Guard armguards: on the arms
+E 0 40112 0 1		*	City Guard Ring: on the left finger
+E 0 40115 0 16		*	City Guard shillelagh: wielded
+M 0 40117 11 40157 2	* the Gate Guard (Inside the West Gate of Elvenhame)
+E 0 40107 0 5		*	City Guard vest: on the body
+E 0 40108 0 7		*	City Guard trousers: on the legs
+E 0 40110 0 8		*	City Guard boots: on the feet
+E 0 40109 0 6		*	City Guard helmet: over the head
+E 0 40111 0 10		*	City Guard armguards: on the arms
+E 0 40112 0 1		*	City Guard Ring: on the left finger
+E 0 40114 0 16		*	City Guard sword: wielded
+M 0 40117 11 40157 2	* the Gate Guard (Inside the West Gate of Elvenhame)
+E 0 40107 0 5		*	City Guard vest: on the body
+E 0 40108 0 7		*	City Guard trousers: on the legs
+E 0 40110 0 8		*	City Guard boots: on the feet
+E 0 40109 0 6		*	City Guard helmet: over the head
+E 0 40111 0 10		*	City Guard armguards: on the arms
+E 0 40112 0 1		*	City Guard Ring: on the left finger
+E 0 40114 0 16		*	City Guard sword: wielded
+M 0 40117 11 40158 1	* the Gate Guard (Outside the West Gate of Elvenhame)
+E 0 40107 0 5		*	City Guard vest: on the body
+E 0 40108 0 7		*	City Guard trousers: on the legs
+E 0 40110 0 8		*	City Guard boots: on the feet
+E 0 40109 0 6		*	City Guard helmet: over the head
+E 0 40111 0 10		*	City Guard armguards: on the arms
+E 0 40112 0 1		*	City Guard Ring: on the left finger
+E 0 40114 0 16		*	City Guard sword: wielded
+M 0 40116 11 40161 1	* the Cityguard Patroller (Inside the South Gate of Elvenhame)
+E 0 40107 0 5		*	City Guard vest: on the body
+E 0 40108 0 7		*	City Guard trousers: on the legs
+E 0 40110 0 8		*	City Guard boots: on the feet
+E 0 40109 0 6		*	City Guard helmet: over the head
+E 0 40111 0 10		*	City Guard armguards: on the arms
+E 0 40112 0 1		*	City Guard Ring: on the left finger
+E 0 40115 0 16		*	City Guard shillelagh: wielded
+M 0 40117 11 40161 2	* the Gate Guard (Inside the South Gate of Elvenhame)
+E 0 40107 0 5		*	City Guard vest: on the body
+E 0 40108 0 7		*	City Guard trousers: on the legs
+E 0 40110 0 8		*	City Guard boots: on the feet
+E 0 40109 0 6		*	City Guard helmet: over the head
+E 0 40111 0 10		*	City Guard armguards: on the arms
+E 0 40112 0 1		*	City Guard Ring: on the left finger
+E 0 40114 0 16		*	City Guard sword: wielded
+M 0 40117 11 40161 2	* the Gate Guard (Inside the South Gate of Elvenhame)
+E 0 40107 0 5		*	City Guard vest: on the body
+E 0 40108 0 7		*	City Guard trousers: on the legs
+E 0 40110 0 8		*	City Guard boots: on the feet
+E 0 40109 0 6		*	City Guard helmet: over the head
+E 0 40111 0 10		*	City Guard armguards: on the arms
+E 0 40112 0 1		*	City Guard Ring: on the left finger
+E 0 40114 0 16		*	City Guard sword: wielded
+M 0 40133 4 40164 1	* the little kitten (Middle Road (north))
+M 0 40116 11 40165 1	* the Cityguard Patroller (Inside the North Gate of Elvenhame)
+E 0 40107 0 5		*	City Guard vest: on the body
+E 0 40108 0 7		*	City Guard trousers: on the legs
+E 0 40110 0 8		*	City Guard boots: on the feet
+E 0 40109 0 6		*	City Guard helmet: over the head
+E 0 40111 0 10		*	City Guard armguards: on the arms
+E 0 40112 0 1		*	City Guard Ring: on the left finger
+E 0 40115 0 16		*	City Guard shillelagh: wielded
+M 0 40117 11 40165 2	* the Gate Guard (Inside the North Gate of Elvenhame)
+E 0 40107 0 5		*	City Guard vest: on the body
+E 0 40108 0 7		*	City Guard trousers: on the legs
+E 0 40110 0 8		*	City Guard boots: on the feet
+E 0 40109 0 6		*	City Guard helmet: over the head
+E 0 40111 0 10		*	City Guard armguards: on the arms
+E 0 40112 0 1		*	City Guard Ring: on the left finger
+E 0 40114 0 16		*	City Guard sword: wielded
+M 0 40117 11 40165 2	* the Gate Guard (Inside the North Gate of Elvenhame)
+E 0 40107 0 5		*	City Guard vest: on the body
+E 0 40108 0 7		*	City Guard trousers: on the legs
+E 0 40110 0 8		*	City Guard boots: on the feet
+E 0 40109 0 6		*	City Guard helmet: over the head
+E 0 40111 0 10		*	City Guard armguards: on the arms
+E 0 40112 0 1		*	City Guard Ring: on the left finger
+E 0 40114 0 16		*	City Guard sword: wielded
+M 0 40117 11 40166 1	* the Gate Guard (Outside the North Gate of Elvenhame)
+E 0 40107 0 5		*	City Guard vest: on the body
+E 0 40108 0 7		*	City Guard trousers: on the legs
+E 0 40110 0 8		*	City Guard boots: on the feet
+E 0 40109 0 6		*	City Guard helmet: over the head
+E 0 40111 0 10		*	City Guard armguards: on the arms
+E 0 40112 0 1		*	City Guard Ring: on the left finger
+E 0 40114 0 16		*	City Guard sword: wielded
+M 0 40134 5 40172 1	* the scrawny alleycat (Guild Road)
+M 0 40111 1 40176 1	* the Guildmaster (The Observatory)
+M 0 40113 1 40177 1	* the President of the Bank (First Bank of Elvenhame)
+M 0 40115 10 40177 1	* the Cityguard (First Bank of Elvenhame)
+E 0 40107 0 5		*	City Guard vest: on the body
+E 0 40108 0 7		*	City Guard trousers: on the legs
+E 0 40110 0 8		*	City Guard boots: on the feet
+E 0 40109 0 6		*	City Guard helmet: over the head
+E 0 40111 0 10		*	City Guard armguards: on the arms
+E 0 40115 0 16		*	City Guard shillelagh: wielded
+E 0 40112 0 1		*	City Guard Ring: on the left finger
+E 0 40113 0 11		*	City Guard shield: as a shield
+M 0 40114 1 40179 1	* the Captain of the City Guard (City Guard Headquarters)
+E 0 40120 0 6		*	City Guard Captain's Helmet: over the head
+E 0 40121 0 5		*	City Guard Captain's Jacket: on the body
+E 0 40122 0 12		*	blue City Guard Captain's Cape: about the shoulders
+E 0 40123 0 9		*	City Guard Captain's blue gloves: on the hands
+E 0 40124 0 16		*	City Guard Captain's Golden Scimitar: wielded
+E 0 40125 0 8		*	City Guard Captain's Boots: on the feet
+E 0 40126 0 7		*	City Guard Captain's Striped Trousers: on the legs
+M 0 40115 10 40179 1	* the Cityguard (City Guard Headquarters)
+E 0 40107 0 5		*	City Guard vest: on the body
+E 0 40108 0 7		*	City Guard trousers: on the legs
+E 0 40110 0 8		*	City Guard boots: on the feet
+E 0 40112 0 1		*	City Guard Ring: on the left finger
+E 0 40113 0 11		*	City Guard shield: as a shield
+E 0 40114 0 16		*	City Guard sword: wielded
+M 0 40118 2 40179 2	* the Lieutenant of the Cityguard (City Guard Headquarters)
+E 0 40116 0 5		*	City Guard chainmail: on the body
+E 0 40117 0 12		*	a dashing City Guard cape: about the shoulders
+E 0 40118 0 16		*	City Guard Lieutenant Sword: wielded
+E 0 40119 0 6		*	City Guard Lieutenant Helmet: over the head
+M 0 40118 2 40179 2	* the Lieutenant of the Cityguard (City Guard Headquarters)
+E 0 40116 0 5		*	City Guard chainmail: on the body
+E 0 40117 0 12		*	a dashing City Guard cape: about the shoulders
+E 0 40118 0 16		*	City Guard Lieutenant Sword: wielded
+E 0 40119 0 6		*	City Guard Lieutenant Helmet: over the head
+M 0 40134 5 40179 1	* the scrawny alleycat (City Guard Headquarters)
+M 0 40132 1 40180 1	* Thedril Saphorson, Mayor of Elvenhame (City Hall)
+E 0 40131 0 1		*	the Mayor's Signet-Ring: on the left finger
+M 0 40119 1 40182 1	* Blane the Tavernkeeper (The Gaping Maw)
+G 0 40127 0		*	a foaming mug of beer
+G 0 40128 0		*	a flagon of ale
+G 0 40129 0		*	a carafe of fine elvish wine
+G 0 40130 0		*	a chilled goblet of icewine
+M 0 40120 1 40182 1	* Ilse the Barmaid (The Gaping Maw)
+M 0 40121 1 40182 1	* Sam the harpsichord player (The Gaping Maw)
+M 0 40135 3 40182 3	* the drunk (The Gaping Maw)
+M 0 40135 3 40182 3	* the drunk (The Gaping Maw)
+M 0 40135 3 40182 3	* the drunk (The Gaping Maw)
+M 0 40122 1 40183 1	* Laslow the gambler (The Back Room)
+M 0 40123 1 40183 1	* Frenschi the gambler (The Back Room)
+M 0 40124 1 40184 1	* Jeaves the seller of servants (Thou Good and Faithful Servant, Inc.)
+E 0 40132 0 12		*	a tuxedo: about the shoulders
+M 0 40125 1 40185 1	* the kitten (Obedience School)
+M 0 40126 1 40185 1	* the puppy (Obedience School)
+M 0 40127 1 40185 1	* the doberman (Obedience School)
+M 0 40128 1 40185 1	* the falcon (Obedience School)
+M 0 40129 1 40185 1	* the human mercenary (Obedience School)
+M 0 40130 1 40185 1	* the dwarven mercenary (Obedience School)
+M 0 40131 1 40185 1	* the giant mercenary (Obedience School)
+M 0 40136 1 40186 1	* Kal'ille M'Gorn (Necessities 'R' Us)
+G 0 40133 0		*	a canteen of water
+G 0 40134 0		*	a large canvas sack
+G 0 40135 0		*	a leather backpack
+G 0 40136 0		*	a sleeping bag
+M 0 40137 1 40187 1	* a citizen (small house)
+M 0 40138 1 40187 1	* a citizen (small house)
+M 0 40139 1 40187 1	* the elf child (small house)
+M 0 40146 1 40188 1	* De'Lyron P'Gille the butcher (The Butcher Block)
+G 0 40137 0		*	a slice of bacon
+G 0 40138 0		*	a link of sausage
+G 0 40139 0		*	some spicy chicken nuggets
+G 0 40140 0		*	some port ribs
+G 0 40141 0		*	some strips of barbecue brisket
+G 0 40142 0		*	a plateful of veal tenders
+M 0 40140 2 40189 1	* a citizen (small house)
+M 0 40141 2 40189 1	* a citizen (small house)
+M 0 40142 4 40189 1	* the drow child (small house)
+M 0 40147 1 40190 1	* Nech'lir the blacksmith (The Armory)
+G 0 40150 0		*	a pair of plain steel bracers
+G 0 40148 0		*	a pair of steel-reinforced gloves
+G 0 40143 0		*	a chainmail vest
+G 0 40144 0		*	a scale mail jacket
+G 0 40145 0		*	a chainmail skirt
+G 0 40147 0		*	a pair of steel-toed boots
+G 0 40146 0		*	a pair of chainmail leggings
+G 0 40149 0		*	a jacket of platemail
+M 0 40143 2 40191 1	* a citizen (small house)
+M 0 40144 2 40191 1	* a citizen (small house)
+M 0 40145 3 40191 1	* the grey-elven child (small house)
+M 0 40148 1 40192 1	* Sarn'otha Vent'Mir the jeweller (All That Glitters)
+G 0 40156 0		*	a golden bracelet
+G 0 40151 0		*	a sparkling ruby
+G 0 40152 0		*	an emerald
+G 0 40157 0		*	a silver bracer
+G 0 40153 0		*	a sapphire
+G 0 40154 0		*	a diamond
+G 0 40155 0		*	a diamond engagement ring
+G 0 40158 0		*	a topaz-encrusted collar
+M 0 40143 2 40193 1	* a citizen (small house)
+M 0 40144 2 40193 1	* a citizen (small house)
+M 0 40145 3 40193 2	* the grey-elven child (small house)
+M 0 40145 3 40193 2	* the grey-elven child (small house)
+M 0 40149 1 40194 1	* Gethnir'Rah F'nith the weaponsmith (He Who Lives By The Sword (R) Weapons Boutique)
+G 0 40159 0		*	a dagger
+G 0 40160 0		*	a sharp knife
+G 0 40161 0		*	a short sword
+G 0 40162 0		*	a longsword
+G 0 40163 0		*	a small axe
+G 0 40164 0		*	a small mace
+G 0 40165 0		*	a flail
+G 0 40166 0		*	a leather whip
+G 0 40167 0		*	a sturdy staff
+M 0 40140 2 40195 1	* a citizen (small house)
+M 0 40141 2 40195 1	* a citizen (small house)
+M 0 40142 4 40195 3	* the drow child (small house)
+M 0 40142 4 40195 3	* the drow child (small house)
+M 0 40142 4 40195 3	* the drow child (small house)
+M 0 40151 1 40196 1	* The Necromancer-Alchemist (Necromancers' Supply Shoppe)
+S
+
+#SHOPS
+40119 2 10 28 30 33 105 50 0 23
+40124 0 0 0 0 0 100 10 0 23
+40136 1 15 17 0 0 100 30 5 20
+40146 0 0 0 0 0 100 100 5 20
+40147 9 11 0 0 0 110 25 5 20
+40148 8 30 32 33 0 120 33 5 20
+40149 5 30 0 0 0 110 33 5 20
+40151 2 3 4 10 30 100 100 0 23
+0
+
+#$

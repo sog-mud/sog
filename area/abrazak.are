@@ -27,7 +27,7 @@ M bribe 15000 1~
 M speech 15001 shadow~
 M speech 15002 demon~
 #15001
-prisoner~
+prisoner karabas~
 @eng the prisoner@rus узник~
 @eng Another prisoner is here.
 @rus Другой узник сидит с тобой и не дает тебе скучать...
@@ -161,15 +161,15 @@ bed~
 @eng A bed is here.@rus Нары здесь.~
 unknown~
 furniture ABCEGIOY 0
-ABE ABCDEFGHIJKLMNOPQRSTUVWXYZabcde BFL DFGHIJ DFGHIJ
+ABE ABCDEFGHIJKLMNOPQRSTUVWXYZabcde BEK DFGHIJ DFGHIJ
 0 0 0 P
 #15010
-eng kosa~
+scythe~
 @eng {DScythe{x@rus {DКоса{x~
 {DScythe{x~
 unknown~
 weapon RYa ANP
-exotic 1000 1000 none ABCDEGHI
+exotic 10000 10000 none ABCDEGHI
 99 0 0 P
 #15011
 horn~
@@ -371,6 +371,14 @@ A
 17 -5
 A
 20 -5
+#15113
+bucket rose~
+@eng Bucket full of roses@rus Ведерко для роз~
+@eng A bucket full of roses stands here.@rus Кто-то оставил тут ведерко с розами.~
+brass~
+container Yb AE
+1000 0 0 1000 10
+0 0 0 P
 #0
 
 #ROOMS
@@ -403,7 +411,7 @@ S
 @eng {DThe room of Death{x@rus {DКомната Смерти{x~
 @rus  
 ~
-0 CNX inside
+0 CJNX inside
 S
 #15100
 ~

@@ -519,6 +519,37 @@ ABFG DFHJ -1000 25017
 CDIK AB 0 0
 stand stand male 5400
 0 0 medium unknown
+#25037
+black slayer~
+a Black Slayer~
+A huge, shadowy figure materializes from the shadows around you.
+~
+The black slayer is a shadowy figure, about 7 feet in height. Garbed in
+a heavey, black cloak, in his right hand, he wields a wicked dagger.
+~
+human~
+ABCF DJP -1000 0
+25 0 5d10+550 249d1+1 2d10+7 punch
+-7 -7 -7 6
+ACFHIK A C B
+stand stand male 999
+0 0 medium unknown
+F par ABCDEFGHIJK
+#25038
+black slayer~
+a Black Slayer~
+A huge, shadowy figure materializes from the shadows around you.
+~
+The black slayer is a shadowy figure, about 7 feet in height. Garbed in
+a heavey, black cloak, in his right hand, he wields a wicked dagger.
+~
+human~
+ABCF DJP -1000 0
+25 0 5d10+550 249d1+1 2d10+7 punch
+0 0 0 0
+ACFHIK A C B
+stand stand male 0
+0 0 medium unknown
 #0
 
 #OBJECTS
@@ -2692,9 +2723,9 @@ E 0 25002 0 10		*	a pair of silver sleeves: on the arms
 E 0 25008 0 12		*	a Black and Silver Cloak: about the shoulders
 M 0 25004 5 25082 1	* a Black Slayer (The Sanctuary)
 E 0 25008 0 12		*	a Black and Silver Cloak: about the shoulders
-M 0 25004 5 25082 1	* a Black Slayer (The Sanctuary)
+M 0 25038 1 25082 1	* a Black Slayer (The Sanctuary)
 E 0 25014 0 16		*	the Shadowshiv: wielded
-M 0 25004 5 25082 1	* a Black Slayer (The Sanctuary)
+M 0 25037 1 25082 1	* a Black Slayer (The Sanctuary)
 E 0 25024 0 16		*	the fire blade: wielded
 M 0 25006 6 25084 1	* a Storm Giant (Sanctuary Guard Post)
 E 0 25009 0 7		*	a Pair of Metallic Leg Plates: on the legs
@@ -2716,6 +2747,10 @@ M 0 25019 1 25095 1	* The Earth King (A Narrow Tunnel)
 M 0 25020 1 25096 1	* The Lord of Air (A Narrow Tunnel)
 M 0 25021 1 25097 1	* The Sultan of Fire (A Narrow Tunnel)
 O 0 25028 0 25098	* portal (A Small Portal)
+S
+
+#OLIMITS
+O 25022 5	* an Ivory Bracelet
 S
 
 #HELPS

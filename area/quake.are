@@ -29,10 +29,11 @@ F for AH
 F par IK
 #35261
 Fiend~
-@eng Fiend@rus Демон бродит здесь в поисках свежего МЯСА~
-@eng Fiend
-@rus Демон
+@eng Fiend@rus Демон~
+@eng Fiend is walking around here seeking for some meat 
+@rus Демон бродит здесь в поисках свежего МЯСА
 ~
+@rus Рыжая тварь с огромными руками - бичами. 
 ~
 ghoul~
 AFT JOVhs -1000 0
@@ -42,6 +43,19 @@ EN A N O
 stand stand either 250
 a NW large unknown
 F par BGJ
+#35262
+chton~
+~
+~
+~
+fire giant~
+AT 0 -1000 0
+100 90 0d0+0 0d0+0 0d0+0 none
+0 0 0 0
+0 0 0 0
+stand stand none 1200
+0 0 gargantuan unknown
+F par CHJK
 #0
 
 #OBJECTS
@@ -199,12 +213,12 @@ D0
 Z 0 35200
 S
 #35203
-@eng Before the abode of {DChton{x@rus Рядом с обителью {DХтона{x~
+@eng Black cave@rus Черная пещера~
 @eng Silent sounds of falling drops pacifies you. You looks on the walls and see usual cave. But this spots and skeletons in the dust...
 The air slowly wawes as if it will be somethings' heavy breathing. 
 @rus Тихий звук падающих капель умиротворяет тебя. Ты смотришь на стены -- обычная пещера, если бы не эти недвусмысленные пятна на стенах и скелеты, полузарытые в пыль. Воздух медленно колышется, словно в такт чьему-то дыханию. Но каким же должен быть этот кто-то, если его дыхание даже здесь колыхает тебя как пушинку?  
 ~
-0 AN inside
+0 ADN inside
 D5
 ~
 ~
@@ -213,7 +227,7 @@ S
 #35204
 @eng The dark hallway@rus Темный коридор~
 ~
-0 AN inside
+0 ADN inside
 D4
 ~
 ~
@@ -226,7 +240,7 @@ S
 #35205
 @eng The dark hallway@rus Темный коридор~
 ~
-0 AN inside
+0 ADN inside
 D0
 ~
 ~
@@ -241,9 +255,13 @@ D4
 Z 0 35204
 S
 #35206
-@eng The house of {DChton{x@rus Обитель {DХтона{x~
+@eng The dark hallway@rus Темный коридор~
 ~
-0 AN inside
+0 ADN inside
+D0
+~
+~
+Z 0 35211
 D2
 ~
 ~
@@ -252,7 +270,7 @@ S
 #35207
 ~
 ~
-0 AN inside
+0 ADN inside
 D1
 ~
 ~
@@ -265,7 +283,7 @@ S
 #35208
 ~
 ~
-0 AN inside
+0 ADN inside
 D0
 ~
 ~
@@ -278,7 +296,7 @@ S
 #35209
 ~
 ~
-0 0 inside
+0 D inside
 D4
 ~
 ~
@@ -291,11 +309,20 @@ S
 #35210
 ~
 ~
-0 0 inside
+0 D inside
 D5
 ~
 ~
 Z 0 35209
+S
+#35211
+@eng The house of {DChton{x@rus Обитель {DХтона{x~
+~
+0 ADN inside
+D2
+~
+~
+Z 0 35206
 S
 #0
 
@@ -311,7 +338,8 @@ D 0 35207 1 1	* : door to the east: closed
 O 0 35259 0 35200	* Anchar (Plateau)
 M 0 35260 1 35201 1	* Shambler (The door to {DChton{x)
 E 0 35257 0 3		*	Kalarit key: around the neck (1)
-O 0 35258 0 35203	* Massive torch (Before the abode of {DChton{x)
+O 0 35258 0 35203	* Massive torch (Black cave)
+M 0 35261 1 35207 1	* Fiend ()
 S
 
 #$

@@ -4,6 +4,7 @@ VNUMs 35000 35100
 Credits Diablo~
 Security 5
 LevelRange 0 0
+Clan HKBD~
 End
 
 #MOBILES
@@ -15,7 +16,7 @@ Comrade Dzerzhinskii~
 Перед тобой живая легенда. Твои колени подкашиваются в благовейном трепете.
 ~
 human~
-ABRTVe DFHNOVa 1000 0
+ABRTVe DFHNOValt 1000 0
 91 100 1d1+25000 1d1+4000 1d1+200 none
 -10 -10 -10 -10
 AEFIJKN AB 0 0
@@ -32,7 +33,7 @@ Comrade Mauzer~
 Это конец.
 ~
 human~
-ABRTVe DFHVa 1000 0
+ABRTVe DFHValt 1000 0
 91 100 1d1+25000 1d1+4000 1d1+200 none
 -10 -10 -10 -10
 AEFIJKN AB 0 0
@@ -353,23 +354,23 @@ if isimmort $n
 bow $n
 say Welcome, товарищ $n!
 end
-endif
-if clan $n Hkbd 
-say Приветствую , товарищ $n.
-end
-endif
+else 
 if ischarm $n
 say Charmies are not allowed here
 mob transfer $n 32000
 end
-end if
+else 
 if isghost $n
 say А вас , товарищ $n , я попрошу задержаться.
 mob transfer $n 32000
 end
-endif
-yell Товарищи , в наших рядах есть товарищ $n , который нам вовсе не товарищ ! 
+else 
+if clan $n 'hkbd'
+say Приветствую , товарищ $n.
+else 
+yell Товарищи , в наших рядах есть товарищ $n , который нам вовсе не товарищ! 
 mob kill $n
+endif
 ~
 #35001
 mob echo Скрипучим голоском она спрашивает: "{GЧто пожелаете, дорогой товарищ?{x"
