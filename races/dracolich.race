@@ -4,11 +4,10 @@ Aff flying~
 Det infrared~
 Form edible sentient undead dragon~
 Parts head legs heart brains guts hands feet fingers ear eye wings tail claws fangs scales~
-Resist bash 33
-Resist pierce -50
-Resist fire 33
-Resist cold 33
-Resist lightning 100
+Resist weapon 35
+Resist cold 50
+Resist holy -100
+Resist negative 100
 Resist charm 100
 End
 
