@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.175 2000-02-02 09:58:54 kostik Exp $
+ * $Id: spellfun2.c,v 1.176 2000-02-05 11:48:15 kostik Exp $
  */
 
 /***************************************************************************
@@ -3756,6 +3756,12 @@ void spell_improved_invis(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	if (HAS_INVIS(victim, ID_IMP_INVIS))
 		return;
 
+	if (ch != victim && !has_spec(ch, "major_illusion")) {
+		act("You can't cast this spell on another.",
+			ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
 	act("$n fades out of existence.", victim, NULL, NULL, TO_ROOM);
 
 	af.where	= TO_INVIS;
@@ -4340,6 +4346,37 @@ void spell_deadly_venom(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	char_puts("The room starts to be filled by poison.\n",ch);   
 	act("The room starts to be filled by poison.\n",ch,NULL,NULL,TO_ROOM);
+}
+
+void spell_light(const char *sn, int level, CHAR_DATA *ch, void *vo)
+{
+	AFFECT_DATA af;
+	
+	if (IS_AFFECTED(ch->in_room, RAFF_LIGHT)) {
+		act("You cannot add more light to this room.", 
+			ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+	
+	af.where	= TO_ROOM_AFFECTS;
+	af.type		= sn;
+	af.level	= level;
+	af.duration	= level / 3;
+	INT(af.location)= APPLY_NONE;
+	af.modifier	= 0;
+	af.bitvector	= RAFF_LIGHT;
+	af.owner	= ch;
+
+	if (room_dark(ch->in_room)) {
+		act("The room is lit by a magical light.",
+			ch, NULL, NULL, TO_ALL);
+	} else {
+		act("Light seems to be somewhat better now.",
+			ch, NULL, NULL, TO_ALL);
+	}
+
+	affect_to_room(ch->in_room, &af);
+
 }
 
 void spell_cursed_lands(const char *sn, int level, CHAR_DATA *ch, void *vo)
