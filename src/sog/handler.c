@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.42 2001-08-17 17:53:01 fjoe Exp $
+ * $Id: handler.c,v 1.182.2.43 2001-11-15 13:52:51 tatyana Exp $
  */
 
 /***************************************************************************
@@ -3285,7 +3285,7 @@ void show_affects(CHAR_DATA *ch, BUFFER *output)
 bool pc_name_ok(const char *name)
 {
 	const unsigned char *pc;
-	bool fIll,adjcaps = FALSE,cleancaps = FALSE;
+	bool fIll, adjcaps = FALSE, cleancaps = FALSE;
  	int total_caps = 0;
 	int i;
 
@@ -3293,8 +3293,10 @@ bool pc_name_ok(const char *name)
 	 * Reserved words.
 	 */
 	if (is_name(name, "chronos all auto immortals self someone something "
-			  "the you demise balance circle loner honor "
-			  "none clan"))
+			  "the you demise balance circle loner honor none clan "
+			  "aulin lirail dakkorn amtinor cariel ulwark vilirna "
+			  "calamir trorgrim gwinnerai irian stivrosh moarith "
+			  "lessa trussk hathir ilissa sog"))
 		return FALSE;
 	
 	/*

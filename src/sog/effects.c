@@ -1,5 +1,5 @@
 /*
- * $Id: effects.c,v 1.17.2.2 2000-04-25 12:03:51 osya Exp $
+ * $Id: effects.c,v 1.17.2.3 2001-11-15 13:52:50 tatyana Exp $
  */
 
 /***************************************************************************
@@ -83,8 +83,9 @@ void acid_effect(void *vo, int level, int dam, int target)
 	int chance;
 	char *msg;
 
-	if (IS_OBJ_STAT(obj,ITEM_BURN_PROOF)
-	||  IS_OBJ_STAT(obj,ITEM_NOPURGE)
+	if (IS_OBJ_STAT(obj, ITEM_BURN_PROOF)
+	||  IS_OBJ_STAT(obj, ITEM_NOPURGE)
+	||  CAN_WEAR(obj, ITEM_WEAR_CLANMARK)
 	||  number_range(0,4) == 0)
 	    return;
 
@@ -393,6 +394,7 @@ void fire_effect(void *vo, int level, int dam, int target)
 
     	if (IS_OBJ_STAT(obj,ITEM_BURN_PROOF)
         ||  IS_OBJ_STAT(obj,ITEM_NOPURGE)
+	||  CAN_WEAR(obj, ITEM_WEAR_CLANMARK)
 	||  number_range(0,4) == 0)
             return;
  
@@ -612,6 +614,7 @@ void shock_effect(void *vo,int level, int dam, int target)
 
 	if (IS_OBJ_STAT(obj,ITEM_BURN_PROOF)
 	||  IS_OBJ_STAT(obj,ITEM_NOPURGE)
+	||  CAN_WEAR(obj, ITEM_WEAR_CLANMARK)
 	||  number_range(0,4) == 0)
 	    return;
 
@@ -713,6 +716,7 @@ void sand_effect(void *vo, int level, int dam, int target)
 
 	if (IS_OBJ_STAT(obj,ITEM_BURN_PROOF)
 	||  IS_OBJ_STAT(obj,ITEM_NOPURGE)
+	||  CAN_WEAR(obj, ITEM_WEAR_CLANMARK)
 	||  number_range(0,4) == 0)
 	    return;
 
