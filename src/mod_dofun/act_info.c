@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.338 2000-04-03 14:24:20 fjoe Exp $
+ * $Id: act_info.c,v 1.339 2000-04-05 06:04:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3066,11 +3066,11 @@ void do_gain(CHAR_DATA *ch, const char *argument)
 
 	if (!str_prefix(arg, "revert")) {
 		if (pc->train < 1) {
-			do_tell_raw(tr, ch, "You are not yet ready.");
+			do_tell_raw(tr, ch, "You are not ready yet.");
 			return;
 		}
 
-		act("$N helps you apply your training to practice",
+		act("$N helps you apply your training to practice.",
 		    ch, NULL, tr, TO_CHAR);
 		pc->practice += 10;
 		pc->train -=1 ;
@@ -3079,11 +3079,11 @@ void do_gain(CHAR_DATA *ch, const char *argument)
 
 	if (!str_prefix(arg, "convert")) {
 		if (pc->practice < 10) {
-			do_tell_raw(tr, ch, "You are not yet ready.");
+			do_tell_raw(tr, ch, "You are not ready yet.");
 			return;
 		}
 
-		act("$N helps you apply your practice to training",
+		act("$N helps you apply your practice to training.",
 		    ch, NULL, tr, TO_CHAR);
 		pc->practice -= 10;
 		pc->train +=1 ;
