@@ -1,5 +1,5 @@
 #
-# $Id: Makefile.dist,v 1.3 1999-03-10 17:29:15 fjoe Exp $
+# $Id: Makefile.dist,v 1.4 1999-03-10 17:33:32 fjoe Exp $
 #
 CC		= gcc
 LD		= gcc
@@ -88,6 +88,7 @@ muddy: $(OFILES)
 	$(CC) $(CFLAGS) -c $<
 
 depend:
+	-rm -f .depend
 	mkdep $(CFLAGS) $(CFILES)
 
 clean:
