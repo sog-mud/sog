@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.128 1998-09-16 09:38:26 fjoe Exp $
+ * $Id: act_info.c,v 1.129 1998-09-16 09:50:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1579,10 +1579,6 @@ void do_weather(CHAR_DATA *ch, const char *argument)
 void do_help(CHAR_DATA *ch, const char *argument)
 {
 	BUFFER *output;
-
-	if (argument[0] == '\0')
-		argument = "summary";
-
 	output = buf_new(0);
 	help_show(ch, output, argument);
 	page_to_char(buf_string(output), ch);

@@ -1,9 +1,10 @@
 /*
- * $Id: help.c,v 1.1 1998-09-01 18:38:00 fjoe Exp $
+ * $Id: help.c,v 1.2 1998-09-16 09:50:36 fjoe Exp $
  */
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "typedef.h"
 #include "merc.h"
@@ -60,24 +61,37 @@ void help_show(CHAR_DATA *ch, BUFFER *output, const char *keyword)
 	HELP_DATA *pFirst = NULL;
 	bool topic_list = FALSE;
 
-	for (pHelp = help_first; pHelp != NULL; pHelp = pHelp->next) {
-		if (pHelp->level > get_trust(ch))
-			continue;
+	if (IS_NULLSTR(keyword)) 
+		keyword = "summary";
 
-		if (is_name(keyword, pHelp->keyword)) {
-			if (pFirst == NULL) {
-				pFirst = pHelp;
+	if (strchr(keyword, '.')) {
+		int num;
+		char buf[MAX_STRING_LENGTH];
+		num = number_argument(keyword, buf);
+		pFirst = help_lookup(num, buf);
+	}
+	else {
+		for (pHelp = help_first; pHelp; pHelp = pHelp->next) {
+			if (pHelp->level > get_trust(ch))
 				continue;
-			}
 
-			/* found second matched help topic */
-			if (!topic_list) {
-				buf_add(output, "Available topics:\n\r");
+			if (is_name(keyword, pHelp->keyword)) {
+				if (pFirst == NULL) {
+					pFirst = pHelp;
+					continue;
+				}
+
+				/* found second matched help topic */
+				if (!topic_list) {
+					buf_add(output,
+						"Available topics:\n\r");
+					buf_printf(output, "    o %s\n\r",
+						   pFirst->keyword);
+					topic_list = TRUE;
+				}
 				buf_printf(output, "    o %s\n\r",
-					   pFirst->keyword);
-				topic_list = TRUE;
+					   pHelp->keyword);
 			}
-			buf_printf(output, "    o %s\n\r", pHelp->keyword);
 		}
 	}
 
