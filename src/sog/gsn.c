@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: gsn.c,v 1.30 1999-09-14 03:10:56 avn Exp $
+ * $Id: gsn.c,v 1.31 1999-09-28 14:56:47 osya Exp $
  */
 
 #include <stdio.h>
@@ -208,6 +208,7 @@ int gsn_poison_smoke;
 int gsn_mastering_spell;
 int gsn_lich;
 int gsn_bone_dragon;
+int gsn_deathen;
 
 /* new_gsns */
 
@@ -465,6 +466,7 @@ namedp_t gsn_table[] =
 	{ "gsn_fence",			&gsn_fence			},
 	{ "gsn_resurrection",		&gsn_resurrection		},
 	{ "gsn_free_action",		&gsn_free_action		},
+        { "gsn_deathen",                &gsn_deathen                    },
 	{ NULL }
 };
 

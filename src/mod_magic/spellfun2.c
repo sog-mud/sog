@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.133 1999-09-15 07:53:40 kostik Exp $
+ * $Id: spellfun2.c,v 1.134 1999-09-28 14:57:14 osya Exp $
  */
 
 /***************************************************************************
@@ -4690,6 +4690,46 @@ void spell_polymorph(int sn, int level, CHAR_DATA *ch, void *vo)
 
 	act("$n polymorphes $mself to $t.", ch, r->name, NULL, TO_ROOM);
 	act("You polymorph yourself to $t.", ch, r->name, NULL, TO_CHAR);
+}
+
+void spell_deathen(int sn, int level, CHAR_DATA *ch, void *vo)
+{
+        AFFECT_DATA af;
+        CHAR_DATA *victim = (CHAR_DATA *) vo;
+        int race;
+        race_t *r;
+
+        if (is_affected(victim,sn)) {
+	        act("$N is already decays.",ch,NULL,victim,TO_CHAR);
+	        return;
+        }
+
+        if (saves_spell(level,victim, DAM_NEGATIVE)) {
+	        act("You failed.", ch, NULL, NULL, TO_CHAR);
+	        return;
+	}
+
+        race = rn_lookup("ghoul");
+        r = RACE(race);
+ 
+       if (!r->race_pcdata || !IS_SET(r->form, FORM_UNDEAD)) {
+                char_puts("This is not a valid undead type.\n", ch);
+                return;
+        }
+ 
+
+        af.where        = TO_AFFECTS;
+        af.type         = gsn_deathen;
+        af.level        = level;
+        af.duration     = level/15;
+        af.location     = APPLY_RACE;
+        af.modifier     = race;
+        af.bitvector    = 0;
+        affect_to_char(victim, &af);
+
+        act("$n's flesh starts to decay.", victim, NULL, NULL, TO_CHAR);
+        act("Your flesh starts to decay.", victim, NULL, NULL, TO_CHAR);
+
 }
 
 void spell_lich(int sn, int level, CHAR_DATA *ch, void *vo)
