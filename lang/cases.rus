@@ -5150,6 +5150,7 @@ End
 
 #RULE
 Name часов~
+BaseLen 3
 Form 1 -ов~
 Form 2 -ам~
 Form 3 -ов~

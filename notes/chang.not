@@ -2584,3 +2584,18 @@ damroll жертвы.
  
 {WMarewell{x.
 ~
+Sender  Tyan~
+Date    Tue Apr  4 17:56:27 2000~
+Stamp   954856587
+To      all~
+Subject `note +' и `note -'~
+Text
+hi, there!
+
+`note + xxx' и `note - [<num>]' are back.
+<num> -- необязательный параметр (номер строки). при его отсутствии
+удаляется последняя строка
+ 
+happy mudding,
+{WTyan{x
+~
