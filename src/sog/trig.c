@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.c,v 1.31 2003-05-14 19:20:14 fjoe Exp $
+ * $Id: trig.c,v 1.32 2003-07-21 22:17:43 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -462,6 +462,7 @@ pull_one_trigger(trig_t *trig, int mp_type,
 
 		if (silver < silver_needed)
 			return MPC_ERR_COND_FAILED;
+		arg3 = NULL;
 	} else if (HAS_TEXT_ARG(trig)) {
 		char *arg_lwr = strlwr(arg3);
 		bool match = FALSE;
@@ -476,6 +477,8 @@ pull_one_trigger(trig_t *trig, int mp_type,
 
 		if (!match)
 			return MPC_ERR_COND_FAILED;
+		arg4 = arg3;
+		arg3 = NULL;
 	} else if (HAS_OBJ_ARG(trig)) {
 		OBJ_DATA *obj = (OBJ_DATA *) arg3;
 		bool match = FALSE;
@@ -511,25 +514,13 @@ pull_one_trigger(trig_t *trig, int mp_type,
 	} else if (HAS_EXIT_ARG(trig)) {
 		if (!is_name(arg3, trig_arg))
 			return MPC_ERR_COND_FAILED;
+		arg4 = arg3;
+		arg3 = NULL;
 	} else {
-		int chance;
-
-		if (trig->trig_type == TRIG_MOB_GREET) {
-			CHAR_DATA *ch = (CHAR_DATA *) arg1;
-
-			if (trig->trig_type == TRIG_MOB_EXIT
-			&&  ch->position != ch->pMobIndex->default_pos)
-				return MPC_ERR_COND_FAILED;
-		}
-
-		chance = atoi(trig_arg);
+		int chance = atoi(trig_arg);
 		if (chance < number_percent())
 			return MPC_ERR_COND_FAILED;
 	}
-
-	if (trig->trig_type != TRIG_MOB_GIVE
-	&&  trig->trig_type != TRIG_SPEC)
-		arg3 = NULL;
 
 	return mprog_execute(mp, arg1, arg2, arg3, arg4);
 }

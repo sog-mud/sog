@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.50 2003-05-14 17:42:10 fjoe Exp $
+ * $Id: mpc.y,v 1.51 2003-07-21 22:17:41 fjoe Exp $
  */
 
 /*
@@ -1557,38 +1557,42 @@ _mprog_compile(mprog_t *mp)
 
 	switch (mpc->mp->type) {
 	case MP_T_MOB:
-		if (var_add(mpc, "$n", MT_CHAR) < 0)
+		if (var_add(mpc, "mob", MT_CHAR) < 0)
 			return MPC_ERR_COMPILE;
-		if (var_add(mpc, "$N", MT_CHAR) < 0)
+		if (var_add(mpc, "actor", MT_CHAR) < 0)
 			return MPC_ERR_COMPILE;
-		if (var_add(mpc, "$p", MT_OBJ) < 0)
+		if (var_add(mpc, "obj", MT_OBJ) < 0)
 			return MPC_ERR_COMPILE;
-		if (var_add(mpc, "$t", MT_STR) < 0)
+		if (var_add(mpc, "arg", MT_STR) < 0)
 			return MPC_ERR_COMPILE;
 		break;
 
 	case MP_T_OBJ:
-		if (var_add(mpc, "$p", MT_OBJ) < 0)
+		if (var_add(mpc, "obj", MT_OBJ) < 0)
 			return MPC_ERR_COMPILE;
-		if (var_add(mpc, "$n", MT_CHAR) < 0)
+		if (var_add(mpc, "actor", MT_CHAR) < 0)
 			return MPC_ERR_COMPILE;
-		if (var_add(mpc, "$N", MT_CHAR) < 0)
+		if (var_add(mpc, "mob", MT_CHAR) < 0)
+			return MPC_ERR_COMPILE;
+		if (var_add(mpc, "arg", MT_STR) < 0)
 			return MPC_ERR_COMPILE;
 		break;
 
 	case MP_T_ROOM:
-		if (var_add(mpc, "$r", MT_ROOM) < 0)
+		if (var_add(mpc, "room", MT_ROOM) < 0)
 			return MPC_ERR_COMPILE;
-		if (var_add(mpc, "$n", MT_CHAR) < 0)
+		if (var_add(mpc, "actor", MT_CHAR) < 0)
+			return MPC_ERR_COMPILE;
+		if (var_add(mpc, "arg", MT_STR) < 0)
 			return MPC_ERR_COMPILE;
 		break;
 
 	case MP_T_SPEC:
-		if (var_add(mpc, "$n", MT_CHAR) < 0)
+		if (var_add(mpc, "actor", MT_CHAR) < 0)
 			return MPC_ERR_COMPILE;
-		if (var_add(mpc, "$rm", MT_STR) < 0)
+		if (var_add(mpc, "rm", MT_STR) < 0)
 			return MPC_ERR_COMPILE;
-		if (var_add(mpc, "$add", MT_STR) < 0)
+		if (var_add(mpc, "add", MT_STR) < 0)
 			return MPC_ERR_COMPILE;
 		break;
 	}
@@ -1641,40 +1645,44 @@ _mprog_execute(mprog_t *mp, void *arg1, void *arg2, void *arg3, void *arg4)
 
 	switch (mpc->mp->type) {
 	case MP_T_MOB:
-		if (var_assign(mpc, "$n", MT_CHAR, arg1) < 0)
+		if (var_assign(mpc, "mob", MT_CHAR, arg1) < 0)
 			execerr(MPC_ERR_RUNTIME);
-		if (var_assign(mpc, "$N", MT_CHAR, arg2) < 0)
+		if (var_assign(mpc, "actor", MT_CHAR, arg2) < 0)
 			execerr(MPC_ERR_RUNTIME);
-		if (var_assign(mpc, "$p", MT_OBJ, arg3) < 0)
+		if (var_assign(mpc, "obj", MT_OBJ, arg3) < 0)
 			execerr(MPC_ERR_RUNTIME);
-		if (var_assign(mpc, "$t", MT_STR, arg4) < 0)
+		if (var_assign(mpc, "arg", MT_STR, arg4) < 0)
 			execerr(MPC_ERR_RUNTIME);
 		break;
 
 	case MP_T_OBJ:
-		if (var_assign(mpc, "$p", MT_OBJ, arg1) < 0)
+		if (var_assign(mpc, "obj", MT_OBJ, arg1) < 0)
 			execerr(MPC_ERR_RUNTIME);
-		if (var_assign(mpc, "$n", MT_CHAR, arg2) < 0)
+		if (var_assign(mpc, "actor", MT_CHAR, arg2) < 0)
 			execerr(MPC_ERR_RUNTIME);
-		if (var_assign(mpc, "$N", MT_CHAR, arg2) < 0)
+		if (var_assign(mpc, "mob", MT_CHAR, arg3) < 0)
+			execerr(MPC_ERR_RUNTIME);
+		if (var_assign(mpc, "arg", MT_STR, arg4) < 0)
 			execerr(MPC_ERR_RUNTIME);
 		break;
 
 	case MP_T_ROOM:
-		if (var_assign(mpc, "$r", MT_ROOM, arg1) < 0)
+		if (var_assign(mpc, "room", MT_ROOM, arg1) < 0)
 			execerr(MPC_ERR_RUNTIME);
-		if (var_assign(mpc, "$n", MT_CHAR, arg2) < 0)
+		if (var_assign(mpc, "actor", MT_CHAR, arg2) < 0)
+			execerr(MPC_ERR_RUNTIME);
+		if (var_assign(mpc, "arg", MT_STR, arg4) < 0)
 			execerr(MPC_ERR_RUNTIME);
 		break;
 
 	case MP_T_SPEC:
-		if (var_assign(mpc, "$n", MT_CHAR, arg1) < 0)
+		if (var_assign(mpc, "actor", MT_CHAR, arg1) < 0)
 			execerr(MPC_ERR_RUNTIME);
 
-		if (var_assign(mpc, "$rm", MT_STR, arg2) < 0)
+		if (var_assign(mpc, "rm", MT_STR, arg2) < 0)
 			execerr(MPC_ERR_RUNTIME);
 
-		if (var_assign(mpc, "$add", MT_STR, arg3) < 0)
+		if (var_assign(mpc, "add", MT_STR, arg3) < 0)
 			execerr(MPC_ERR_RUNTIME);
 
 		break;

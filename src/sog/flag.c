@@ -1,5 +1,5 @@
 /*
- * $Id: flag.c,v 1.41 2002-03-20 19:39:49 fjoe Exp $
+ * $Id: flag.c,v 1.42 2003-07-21 22:17:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -53,6 +53,12 @@ const flaginfo_t *
 flag_slookup(const flaginfo_t *f, const char *name)
 {
 	return _flag_lookup(f, name, str_cmp);
+}
+
+const flaginfo_t *
+flag_cslookup(const flaginfo_t *f, const char *name)
+{
+	return _flag_lookup(f, name, strcmp);
 }
 
 const flaginfo_t *

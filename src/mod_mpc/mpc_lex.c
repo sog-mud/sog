@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_lex.c,v 1.24 2003-04-25 12:49:32 fjoe Exp $
+ * $Id: mpc_lex.c,v 1.25 2003-07-21 22:17:41 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -173,9 +173,9 @@ struct flaginfo_t mpc_types[] =
 
 	{ "int",	MT_INT,			FALSE	},
 	{ "string",	MT_STR,			FALSE	},
-	{ "char",	MT_CHAR,		FALSE	},
-	{ "obj",	MT_OBJ,			FALSE	},
-	{ "room",	MT_ROOM,		FALSE	},
+	{ "Char",	MT_CHAR,		FALSE	},
+	{ "Obj",	MT_OBJ,			FALSE	},
+	{ "Room",	MT_ROOM,		FALSE	},
 
 	{ NULL, 0, FALSE }
 };
@@ -371,8 +371,7 @@ mpc_lex(mpcode_t *mpc)
 			/* NOTREACHED */
 
 		default:
-			/* allow '$' to be first letter of identifier */
-			if (!IS_IDENT_CH(ch) && ch != '$')
+			if (!IS_IDENT_CH(ch))
 				goto badch;
 
 			yyp = yytext;
@@ -391,7 +390,7 @@ mpc_lex(mpcode_t *mpc)
 			if ((k = keyword_lookup(yytext)) != NULL)
 				return k->lexval;
 
-			if ((type_tag = flag_svalue(mpc_types, yytext)) >= 0) {
+			if ((type_tag = flag_csvalue(mpc_types, yytext)) >= 0) {
 				mpc_lval.type_tag = type_tag;
 				return L_TYPE;
 			}
