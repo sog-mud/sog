@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.97 1999-10-20 05:49:50 avn Exp $
+ * $Id: tables.c,v 1.98 1999-10-25 14:41:06 kostik Exp $
  */
 
 /***************************************************************************
@@ -980,7 +980,7 @@ flag_t skill_groups[] =
 	{ "combat",		GROUP_COMBAT,		TRUE	},
 	{ "creation",		GROUP_CREATION,		TRUE	},
 	{ "curative",		GROUP_CURATIVE,		TRUE	},
-	{ "detection",		GROUP_DETECTION,	TRUE	},
+	{ "divination",		GROUP_DIVINATION,	TRUE	},
 	{ "draconian",		GROUP_DRACONIAN,	TRUE	},
 	{ "enchantment",	GROUP_ENCHANTMENT,	TRUE	},
 	{ "enhancement",	GROUP_ENHANCEMENT,	TRUE	},
@@ -998,6 +998,8 @@ flag_t skill_groups[] =
 	{ "defensive",		GROUP_DEFENSIVE,	TRUE	},
 	{ "wizard",		GROUP_WIZARD,		TRUE	},
 	{ "necromancy",		GROUP_NECROMANCY,	TRUE	},
+	{ "evocation",		GROUP_EVOCATION,	TRUE	},
+	{ "conjuration",	GROUP_CONJURATION,	TRUE	},
 
 	{ NULL }
 };

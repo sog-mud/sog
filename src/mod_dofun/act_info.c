@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.280 1999-10-25 08:23:27 fjoe Exp $
+ * $Id: act_info.c,v 1.281 1999-10-25 14:41:00 kostik Exp $
  */
 
 /***************************************************************************
@@ -2927,7 +2927,7 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 		if ((mob->pMobIndex->practicer == 0 &&
 		    (sk->group == GROUP_NONE ||
 		     IS_SET(sk->group,	GROUP_CREATION | GROUP_HARMFUL |
-					GROUP_PROTECTIVE | GROUP_DETECTION |
+					GROUP_PROTECTIVE | GROUP_DIVINATION |
 					GROUP_WEATHER)))
 		||  IS_SET(mob->pMobIndex->practicer, sk->group))
 			break;
@@ -3296,7 +3296,7 @@ void do_skills(CHAR_DATA *ch, const char *argument)
 	}
 	
 	output = buf_new(-1);
-	for (lev = 0; lev <= UMIN(ch->level, LEVEL_IMMORTAL+1); lev++)
+	for (lev = 0; lev <= UMIN(ch->level, LEVEL_IMMORTAL); lev++)
 		if (skill_list[lev] != NULL) {
 			buf_add(output, buf_string(skill_list[lev]));
 			buf_free(skill_list[lev]);

@@ -13,17 +13,8 @@ Max 100
 End
 
 #SKILL
-Skill 'weapon cleave'
-Level 29
-Rating 1
-Min 1
-Adept 75
-Max 100
-End
-
-#SKILL
 Skill 'warcry'
-Level 31
+Level 12
 Rating 1
 Min 1
 Adept 75
@@ -32,7 +23,7 @@ End
 
 #SKILL
 Skill 'trip'
-Level 25
+Level 15
 Rating 1
 Min 1
 Adept 75
@@ -50,7 +41,7 @@ End
 
 #SKILL
 Skill 'third attack'
-Level 19
+Level 17
 Rating 1
 Min 1
 Adept 75
@@ -86,16 +77,7 @@ End
 
 #SKILL
 Skill 'smithing'
-Level 50
-Rating 1
-Min 1
-Adept 75
-Max 100
-End
-
-#SKILL
-Skill 'shield cleave'
-Level 26
+Level 38
 Rating 1
 Min 1
 Adept 75
@@ -113,7 +95,7 @@ End
 
 #SKILL
 Skill 'second attack'
-Level 10
+Level 8
 Rating 1
 Min 1
 Adept 75
@@ -149,7 +131,7 @@ End
 
 #SKILL
 Skill 'meditation'
-Level 15
+Level 10
 Rating 2
 Min 1
 Adept 75
@@ -167,7 +149,7 @@ End
 
 #SKILL
 Skill 'lore'
-Level 21
+Level 17
 Rating 2
 Min 1
 Adept 75
@@ -176,7 +158,7 @@ End
 
 #SKILL
 Skill 'kick'
-Level 5
+Level 3
 Rating 1
 Min 1
 Adept 75
@@ -185,16 +167,7 @@ End
 
 #SKILL
 Skill 'hand to hand'
-Level 9
-Rating 1
-Min 1
-Adept 75
-Max 100
-End
-
-#SKILL
-Skill 'hand block'
-Level 15
+Level 4
 Rating 1
 Min 1
 Adept 75
@@ -212,7 +185,7 @@ End
 
 #SKILL
 Skill 'grip'
-Level 43
+Level 23
 Rating 1
 Min 1
 Adept 75
@@ -221,7 +194,7 @@ End
 
 #SKILL
 Skill 'fourth attack'
-Level 30
+Level 22
 Rating 1
 Min 1
 Adept 75
@@ -239,7 +212,7 @@ End
 
 #SKILL
 Skill 'fifth attack'
-Level 52
+Level 38
 Rating 1
 Min 1
 Adept 75
@@ -248,7 +221,7 @@ End
 
 #SKILL
 Skill 'fast healing'
-Level 6
+Level 5
 Rating 1
 Min 1
 Adept 75
@@ -257,7 +230,7 @@ End
 
 #SKILL
 Skill 'enhanced damage'
-Level 3
+Level 2
 Rating 1
 Min 1
 Adept 75
@@ -266,7 +239,7 @@ End
 
 #SKILL
 Skill 'dodge'
-Level 13
+Level 10
 Rating 1
 Min 1
 Adept 75
@@ -275,7 +248,7 @@ End
 
 #SKILL
 Skill 'disarm'
-Level 20
+Level 12
 Rating 1
 Min 1
 Adept 75
@@ -284,7 +257,7 @@ End
 
 #SKILL
 Skill 'dirt kicking'
-Level 8
+Level 5
 Rating 1
 Min 1
 Adept 75
@@ -311,7 +284,7 @@ End
 
 #SKILL
 Skill 'concentrate'
-Level 59
+Level 40
 Rating 1
 Min 1
 Adept 75
@@ -338,7 +311,7 @@ End
 
 #SKILL
 Skill 'berserk'
-Level 18
+Level 12
 Rating 1
 Min 1
 Adept 75
@@ -374,7 +347,7 @@ End
 
 #SKILL
 Skill 'area attack'
-Level 73
+Level 41
 Rating 1
 Min 1
 Adept 75

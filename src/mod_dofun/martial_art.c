@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.120 1999-10-23 10:20:13 fjoe Exp $
+ * $Id: martial_art.c,v 1.121 1999-10-25 14:41:02 kostik Exp $
  */
 
 /***************************************************************************
@@ -1402,6 +1402,114 @@ void do_disarm(CHAR_DATA *ch, const char *argument)
 		act("$n tries to disarm $N, but fails.",
 		    ch, NULL, victim, TO_NOTVICT);
 		check_improve(ch, "disarm", FALSE, 1);
+	}
+}
+
+void do_strip(CHAR_DATA *ch, const char *argument)
+{
+	CHAR_DATA *victim;
+	OBJ_DATA *wield;
+	OBJ_DATA *vwield;
+	OBJ_DATA *obj2;
+	int chance, ch_weapon, vict_weapon;
+	int loc = WEAR_WIELD;
+	char arg[MAX_INPUT_LENGTH];
+
+	if (ch->master != NULL && IS_NPC(ch))
+		return;
+
+	if ((chance = get_skill(ch, "weapon strip")) == 0) {
+		char_puts("You don't know how to disarm opponents.\n", ch);
+		return;
+	}
+
+	if ((wield = get_eq_char(ch, WEAR_WIELD)) == NULL ||
+	!(WEAPON_IS(wield, WEAPON_WHIP) || WEAPON_IS(wield, WEAPON_FLAIL))) {
+		char_puts("You must wield a whip or flail to strip enemy weapon.\n", ch);
+		return;
+	}
+
+	if ((victim = ch->fighting) == NULL) {
+		char_puts("You aren't fighting anyone.\n", ch);
+		return;
+	}
+
+	argument = one_argument(argument, arg, sizeof(arg));
+	if (arg[0] && !str_prefix(arg, "second"))
+		loc = WEAR_SECOND_WIELD;
+
+	if ((vwield = get_eq_char(victim, loc)) == NULL) {
+		char_puts("Your opponent is not wielding a weapon.\n", ch);
+		return;
+	}
+
+	/* find weapon skills */
+	ch_weapon = get_weapon_skill(ch, get_weapon_sn(wield));
+	vict_weapon = get_weapon_skill(victim, get_weapon_sn(vwield));
+
+	/* modifiers */
+
+	/* skill */
+	chance = chance * ch_weapon/100;
+
+	chance += (ch_weapon/2 - vict_weapon) / 2; 
+
+	if (WEAPON_IS(vwield, WEAPON_STAFF))
+		chance -= 30;
+
+	/* dex vs. strength */
+	chance += get_curr_stat(ch,STAT_DEX);
+	chance -= 2 * get_curr_stat(victim,STAT_STR);
+
+	/* level */
+	chance += (LEVEL(ch) - LEVEL(victim)) * 2;
+ 
+	/* and now the attack */
+	WAIT_STATE(ch, skill_beats("weapon strip"));
+	if (number_percent() < chance) {
+		if (IS_OBJ_STAT(vwield, ITEM_NOREMOVE)) {
+			act("$S weapon won't budge!", 
+				ch, NULL, victim, TO_CHAR);
+			act("$n tries to disarm you, but your weapon won't budge!",
+		    		ch, NULL, victim, TO_VICT);
+			act("$n tries to disarm $N, but fails.",
+		    		ch, NULL, victim, TO_NOTVICT);
+			return;
+		}
+
+		act_puts("$n DISARMS you!", 
+		 	ch, NULL, victim, TO_VICT, POS_FIGHTING);
+		act_puts("You disarm $N!", 
+			ch,NULL, victim, TO_CHAR, POS_FIGHTING);
+		act_puts("$n disarms $N!", 
+			ch, NULL, victim, TO_NOTVICT, POS_FIGHTING);
+
+		obj_from_char(vwield);
+		if (IS_OBJ_STAT(vwield, ITEM_NODROP))
+			obj_to_char(vwield, victim);
+		else
+			obj_to_char(vwield, ch);
+	
+
+		if ((obj2 = get_eq_char(victim, WEAR_SECOND_WIELD)) != NULL) {
+			act_puts("You wield your second weapon as your first!.",
+			 ch, NULL, victim, TO_VICT, POS_FIGHTING);
+			act_puts("$N wields his second weapon as first!",
+			 ch, NULL, victim, TO_CHAR, POS_FIGHTING);
+			act_puts("$N wields his second weapon as first!",
+			 ch, NULL, victim, TO_NOTVICT, POS_FIGHTING);
+			unequip_char(victim, obj2);
+			equip_char(victim, obj2, WEAR_WIELD);
+		}
+		check_improve(ch, "weapon strip", TRUE, 1);
+	}
+	else {
+		act("You fail to disarm $N.", ch, NULL, victim, TO_CHAR);
+		act("$n tries to disarm you, but fails.",
+		    ch, NULL, victim, TO_VICT);
+		act("$n tries to disarm $N, but fails.",
+		    ch, NULL, victim, TO_NOTVICT);
+		check_improve(ch, "weapon strip", FALSE, 1);
 	}
 }
 

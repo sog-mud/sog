@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.244 1999-10-25 12:05:18 fjoe Exp $
+ * $Id: merc.h,v 1.245 1999-10-25 14:41:05 kostik Exp $
  */
 
 /***************************************************************************
@@ -363,7 +363,7 @@ struct spec_type
 #define GROUP_COMBAT		(E)
 #define GROUP_CREATION		(F)
 #define GROUP_CURATIVE		(G)
-#define GROUP_DETECTION 	(H)
+#define GROUP_DIVINATION 	(H)
 #define GROUP_DRACONIAN 	(I)
 #define GROUP_ENCHANTMENT	(J)
 #define GROUP_ENHANCEMENT	(K)
@@ -381,6 +381,12 @@ struct spec_type
 #define GROUP_DEFENSIVE 	(W)
 #define GROUP_WIZARD		(X)
 #define GROUP_NECROMANCY	(Y)
+#define GROUP_EVOCATION		(Z)
+#define GROUP_CONJURATION	(aa)
+#define GROUP_SUMMONING		(bb)
+#define GROUP_ALTERATION	(cc)
+#define GROUP_ABJURATION	(dd)
+#define GROUP_CHARM		(ee)
 
 /*
  * area flags
