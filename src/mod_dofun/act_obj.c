@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.36 1998-06-29 06:48:29 fjoe Exp $
+ * $Id: act_obj.c,v 1.37 1998-06-30 10:58:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -850,12 +850,13 @@ do_give(CHAR_DATA * ch, char *argument)
 		send_to_char("They aren't here.\n\r", ch);
 		return;
 	}
-	if (IS_NPC(victim) && victim->pIndexData->pShop != NULL) {
-		act("$N tells you 'Sorry, you'll have to sell that.'",
-		    ch, NULL, victim, TO_CHAR);
-		ch->reply = victim;
+	if (IS_NPC(victim) && victim->pIndexData->pShop != NULL
+	&&  !HAS_TRIGGER(victim, TRIG_GIVE)) {
+		doprintf(do_tell, victim,
+			 "%s Sorry, you'll have to sell that.", ch->name);
 		return;
 	}
+
 	if (!can_drop_obj(ch, obj)) {
 		send_to_char("You can't let go of it.\n\r", ch);
 		return;

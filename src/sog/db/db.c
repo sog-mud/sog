@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.28 1998-06-28 04:47:14 fjoe Exp $
+ * $Id: db.c,v 1.29 1998-06-30 10:58:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -471,7 +471,7 @@ void boot_db(void)
 	 * Init some data space stuff.
 	 */
 	if ((string_space = calloc(1, MAX_STRING)) == NULL) {
-		bug("Boot_db: can't alloc %d string space.", MAX_STRING);
+		log_printf("boot_db: can't alloc %d string space.", MAX_STRING);
 		exit(1);
 	}
 	top_string	= string_space;
@@ -518,7 +518,7 @@ void boot_db(void)
 
 	auction = (AUCTION_DATA *) malloc (sizeof(AUCTION_DATA)); 
 	if (auction == NULL) {
-		bug("malloc'ing AUCTION_DATA didn't give %d bytes",
+		log_printf("malloc'ing AUCTION_DATA didn't give %d bytes",
 		    sizeof(AUCTION_DATA));
 		exit(1);
 	}
@@ -566,7 +566,7 @@ void boot_db(void)
 			char *word;
 
 			if (fread_letter(fpArea) != '#') {
-				bug("Boot_db: # not found.", 0);
+				log("boot_db: # not found.");
 				exit(1);
 			}
 
@@ -592,7 +592,7 @@ void boot_db(void)
 			else if (!str_cmp(word, "RESETMESSAGE")) load_resetmsg(fpArea);
 			else if (!str_cmp(word, "FLAG"))	 load_aflag(fpArea);
 			else {
-			    bug("Boot_db: bad section name.", 0);
+			    log("boot_db: bad section name.");
 			    exit(1);
 			}
 		}
@@ -788,16 +788,26 @@ void load_areadata(FILE *fp)
 /*
  * Sets vnum range for area using OLC protection features.
  */
-void assign_area_vnum(int vnum)
+void vnum_check(int vnum)
 {
-   if (area_last->min_vnum == 0 || area_last->max_vnum == 0)
-       area_last->min_vnum = area_last->max_vnum = vnum;
-   if (vnum != URANGE(area_last->min_vnum, vnum, area_last->max_vnum))
-       if (vnum < area_last->min_vnum)
-           area_last->min_vnum = vnum;
-       else
-           area_last->max_vnum = vnum;
-   return;
+	if (area_last->min_vnum == 0 || area_last->max_vnum == 0) {
+		log_printf("%s: min_vnum or max_vnum not assigned",
+			   area_last->file_name);
+#if 0
+		area_last->min_vnum = area_last->max_vnum = vnum;
+#endif
+	}
+
+	if (vnum != URANGE(area_last->min_vnum, vnum, area_last->max_vnum)) {
+		log_printf("%s: %d not in area vnum range",
+			   area_last->file_name, vnum);
+#if 0
+		if (vnum < area_last->min_vnum)
+			area_last->min_vnum = vnum;
+		else
+			area_last->max_vnum = vnum;
+#endif
+	}
 }
  
 
@@ -881,7 +891,7 @@ void load_old_mob(FILE *fp)
 	char name[MAX_STRING_LENGTH];
 
 	if (!area_last) {  /* OLC */
-		bug("Load_mobiles: no #AREA seen yet.", 0);
+		log("load_mobiles: no #AREA seen yet.");
 		exit(1);
 	}
 
@@ -892,7 +902,7 @@ void load_old_mob(FILE *fp)
 
 		letter	= fread_letter(fp);
 		if (letter != '#') {
-			bug("Load_mobiles: # not found.", 0);
+			log("load_mobiles: # not found.");
 			exit(1);
 		}
 
@@ -902,7 +912,7 @@ void load_old_mob(FILE *fp)
 
 		fBootDb = FALSE;
 		if (get_mob_index(vnum) != NULL) {
-			bug("Load_mobiles: vnum %d duplicated.", vnum);
+			log_printf("load_mobiles: vnum %d duplicated.", vnum);
 			exit(1);
 		}
 		fBootDb = TRUE;
@@ -1009,7 +1019,7 @@ void load_old_mob(FILE *fp)
 		}
 
 		if (letter != 'S') {
-			bug("Load_mobiles: vnum %d non-S.", vnum);
+			log_printf("load_mobiles: vnum %d non-S.", vnum);
 			exit(1);
 		}
 
@@ -1021,7 +1031,7 @@ void load_old_mob(FILE *fp)
 		top_mob_index++;
 							/* OLC */
 		top_vnum_mob = top_vnum_mob < vnum ? vnum : top_vnum_mob;
-		assign_area_vnum(vnum);			/* OLC */
+		vnum_check(vnum);			/* OLC */
 		kill_table[URANGE(0, pMobIndex->level, MAX_LEVEL-1)].number++;
 	}
 }
@@ -1035,7 +1045,7 @@ void load_old_obj(FILE *fp)
 	OBJ_INDEX_DATA *pObjIndex;
 
 	if (!area_last) {  /* OLC */
-		bug("Load_objects: no #AREA seen yet.", 0);
+		log("load_objects: no #AREA seen yet.");
 		exit(1);
 	}
 
@@ -1047,7 +1057,7 @@ void load_old_obj(FILE *fp)
 
 		letter = fread_letter(fp);
 		if (letter != '#') {
-			bug("Load_objects: # not found.", 0);
+			log("load_objects: # not found.");
 			exit(1);
 		}
 
@@ -1057,7 +1067,7 @@ void load_old_obj(FILE *fp)
 
 		fBootDb = FALSE;
 		if (get_obj_index(vnum) != NULL) {
-			bug("Load_objects: vnum %d duplicated.", vnum);
+			log_printf("load_objects: vnum %d duplicated.", vnum);
 			exit(1);
 		}
 		fBootDb = TRUE;
@@ -1169,7 +1179,7 @@ void load_old_obj(FILE *fp)
 		top_obj_index++;
 								/* OLC */
 		top_vnum_obj = top_vnum_obj < vnum ? vnum : top_vnum_obj;
-		assign_area_vnum(vnum);				/* OLC */
+		vnum_check(vnum);				/* OLC */
 	}
 }
 
@@ -1211,7 +1221,7 @@ void load_resets(FILE *fp)
 	int iLastObj  = 0;
 
 	if (area_last == NULL) {
-		bug("Load_resets: no #AREA seen yet.", 0);
+		log("load_resets: no #AREA seen yet.");
 		exit(1);
 	}
 
@@ -1246,7 +1256,7 @@ void load_resets(FILE *fp)
 		 */
 		switch (letter) {
 		default:
-			bug("Load_resets: bad command '%c'.", letter);
+			log_printf("load_resets: bad command '%c'.", letter);
 			exit(1);
 			break;
 
@@ -1292,14 +1302,14 @@ void load_resets(FILE *fp)
 			||  pRoomIndex == NULL
 			||  (pexit = pRoomIndex->exit[pReset->arg2]) == NULL
 			||  !IS_SET( pexit->rs_flags, EX_ISDOOR)) {
-				bug("Load_resets: 'D': exit %d not door.",
+				log_printf("load_resets: 'D': exit %d not door.",
 					pReset->arg2);
 				exit(1);
 			}
 
 			switch (pReset->arg3) {
 			default:
-				bug("Load_resets: 'D': bad 'locks': %d.",
+				log_printf("load_resets: 'D': bad 'locks': %d.",
 					pReset->arg3);
 			case 0:
 				break;
@@ -1319,7 +1329,7 @@ void load_resets(FILE *fp)
 			pRoomIndex = get_room_index(pReset->arg1);
 
 			if (pReset->arg2 < 0 || pReset->arg2 > MAX_DIR) {
-				bug("Load_resets: 'R': bad exit %d.",
+				log_printf("load_resets: 'R': bad exit %d.",
 					pReset->arg2);
 				exit(1);
 			}
@@ -1341,7 +1351,7 @@ void load_rooms(FILE *fp)
 	ROOM_INDEX_DATA *pRoomIndex;
 
 	if (area_last == NULL) {
-		bug("Load_resets: no #AREA seen yet.", 0);
+		log("load_rooms: no #AREA seen yet.");
 		exit(1);
 	}
 
@@ -1353,7 +1363,7 @@ void load_rooms(FILE *fp)
 
 		letter = fread_letter(fp);
 		if (letter != '#') {
-			bug("Load_rooms: # not found.", 0);
+			log("load_rooms: # not found.");
 			exit(1);
 		}
 
@@ -1363,7 +1373,7 @@ void load_rooms(FILE *fp)
 
 		fBootDb = FALSE;
 		if (get_room_index(vnum) != NULL) {
-			bug("Load_rooms: vnum %d duplicated.", vnum);
+			log_printf("load_rooms: vnum %d duplicated.", vnum);
 			exit(1);
 		}
 		fBootDb = TRUE;
@@ -1414,8 +1424,8 @@ void load_rooms(FILE *fp)
 	
 				door = fread_number(fp);
 				if (door < 0 || door > 5) {
-					bug("Fread_rooms: vnum %d has bad door "
-					    "number.", vnum);
+					log_printf("load_rooms: vnum %d has "
+						   "bad door number.", vnum);
 					exit(1);
 				}
 	
@@ -1476,7 +1486,7 @@ void load_rooms(FILE *fp)
 
 			else if (letter == 'O') {
 				if (pRoomIndex->owner[0] != '\0') {
-					bug("Load_rooms: duplicate owner.", 0);
+					log("load_rooms: duplicate owner.");
 					exit(1);
 				}
 
@@ -1484,8 +1494,9 @@ void load_rooms(FILE *fp)
 			}
 
 			else {
-				bug("Load_rooms: vnum %d has flag not 'DES'.",
-					vnum);
+				log_printf("load_rooms: vnum %d has flag "
+					   "'%c' (not 'DES').",
+					   vnum, letter);
 				exit(1);
 			}
 		}
@@ -1496,7 +1507,7 @@ void load_rooms(FILE *fp)
 		top_room++;
 								/* OLC */
 		top_vnum_room = top_vnum_room < vnum ? vnum : top_vnum_room;
-		assign_area_vnum(vnum);				/* OLC */
+		vnum_check(vnum);				/* OLC */
 	}
 }
 
@@ -1510,7 +1521,7 @@ void load_mobprogs(FILE *fp)
 
     if (area_last == NULL)
     {
-	bug("Load_mobprogs: no #AREA seen yet.", 0);
+	log("load_mobprogs: no #AREA seen yet.");
 	exit(1);
     }
 
@@ -1522,7 +1533,7 @@ void load_mobprogs(FILE *fp)
 	letter		  = fread_letter(fp);
 	if (letter != '#')
 	{
-	    bug("Load_mobprogs: # not found.", 0);
+	    log("load_mobprogs: # not found.");
 	    exit(1);
 	}
 
@@ -1533,7 +1544,7 @@ void load_mobprogs(FILE *fp)
 	fBootDb = FALSE;
 	if (get_mprog_index(vnum) != NULL)
 	{
-	    bug("Load_mobprogs: vnum %d duplicated.", vnum);
+	    log_printf("load_mobprogs: vnum %d duplicated.", vnum);
 	    exit(1);
 	}
 	fBootDb = TRUE;
@@ -1576,7 +1587,8 @@ void fix_mobprogs(void)
 		    list->code = prog->code;
 		else
 		{
-		    bug("Fix_mobprogs: code vnum %d not found.", list->vnum);
+		    log_printf("fix_mobprogs: code vnum %d not found.",
+			       list->vnum);
 		    exit(1);
 		}
 	    }
@@ -1638,7 +1650,7 @@ void load_specials(FILE *fp)
 		switch (letter = fread_letter(fp))
 		{
 		default:
-		    bug("Load_specials: letter '%c' not *MS.", letter);
+		    log_printf("load_specials: letter '%c' not *MS.", letter);
 		    exit(1);
 
 		case 'S':
@@ -1650,9 +1662,9 @@ void load_specials(FILE *fp)
 		case 'M':
 		    pMobIndex		= get_mob_index	(fread_number (fp));
 		    pMobIndex->spec_fun	= spec_lookup	(fread_word   (fp));
-		    if (pMobIndex->spec_fun == 0)
-		    {
-			bug("Load_specials: 'M': vnum %d.", pMobIndex->vnum);
+		    if (pMobIndex->spec_fun == 0) {
+			log_printf("load_specials: 'M': vnum %d.",
+				   pMobIndex->vnum);
 			exit(1);
 		    }
 		    break;
@@ -1720,14 +1732,11 @@ void fix_exits(void)
 			&&   (pexit_rev = to_room->exit[rev_dir[door]]) != NULL
 			&&   pexit_rev->u1.to_room != pRoomIndex 
 			&&   (pRoomIndex->vnum < 1200 || pRoomIndex->vnum > 1299))
-			{
-			    sprintf(buf, "Fix_exits: %d:%d -> %d:%d -> %d.",
+			    log_printf("fix_exits: %d:%d -> %d:%d -> %d.",
 				pRoomIndex->vnum, door,
 				to_room->vnum,    rev_dir[door],
 				(pexit_rev->u1.to_room == NULL)
 				    ? 0 : pexit_rev->u1.to_room->vnum);
-			    bug(buf, 0);
-			}
 		    }
 		}
 	}
@@ -1861,7 +1870,7 @@ void reset_area(AREA_DATA *pArea)
 		switch (pReset->command)
 		{
 		default:
-		    bug("Reset_area: bad command %c.", pReset->command);
+		    log_printf("Reset_area: bad command %c.", pReset->command);
 		    break;
 
 		case 'M':

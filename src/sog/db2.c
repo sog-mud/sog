@@ -1,5 +1,5 @@
 /*
- * $Id: db2.c,v 1.9 1998-06-28 04:47:14 fjoe Exp $
+ * $Id: db2.c,v 1.10 1998-06-30 10:58:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -421,6 +421,7 @@ void load_objects(FILE *fp)
 
     for (; ;)
     {
+	char *p;
 	int i;
         int vnum;
         char letter;
@@ -455,9 +456,13 @@ void load_objects(FILE *fp)
         pObjIndex->short_descr          = fread_string(fp);
         pObjIndex->description          = fread_string(fp);
         pObjIndex->material		= fread_string(fp);
- 
 
-	CHECK_POS(pObjIndex->item_type, item_lookup(fread_word( fp )), "item_type" );
+	p = fread_word(fp);
+	pObjIndex->item_type		= item_lookup(p);
+	if (pObjIndex->item_type < 0) 
+		log_printf("load_objects: vnum %d: unknown item type '%s'",
+			   pObjIndex->vnum, p);
+
 /*        pObjIndex->item_type            = item_lookup(fread_word(fp)); */
         pObjIndex->extra_flags          = fread_flags(fp);
         pObjIndex->wear_flags           = fread_flags(fp);
