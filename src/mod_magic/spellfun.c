@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.231 2001-02-18 10:20:14 fjoe Exp $
+ * $Id: spellfun.c,v 1.232 2001-02-21 19:07:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -5047,7 +5047,8 @@ void spell_honor_shield(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	  if (victim == ch)
 	    act_char("But you're already protected by your honor.", ch);
 	  else
-	act_char("They're already protected by their honor.", ch);
+	act("They're already protected by their honor.",
+	    ch, NULL, victim, TO_CHAR);
 	  return;
 	}
 
@@ -6961,7 +6962,8 @@ void spell_evil_spirit(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	 if ((room = get_room_index(i)) == NULL) continue;
 	 affect_to_room(room, &af);
 	 if (room->people)
-	act("The zone is starts to be filled with evil spirit.",room->people,NULL,NULL,TO_ALL);
+	act("The zone is starts to be filled with evil spirit.",
+	    room->people, NULL, NULL, TO_ALL);
 	}
 
 }
@@ -7970,7 +7972,7 @@ spell_alarm(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	AFFECT_DATA af;
 
 	if (is_affected_room(ch->in_room, sn)) {
-		act_char("The alarm in this room had been already set", ch);
+		act_char("The alarm in this room had been already set.", ch);
 		return;
 	}
 

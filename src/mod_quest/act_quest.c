@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.151 2001-02-14 13:15:15 fjoe Exp $
+ * $Id: act_quest.c,v 1.152 2001-02-21 19:07:10 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -158,7 +158,7 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 		}
 	}
 		
-	act_puts("QUEST COMMANDS:",
+	act_puts("QUEST COMMANDS:",				// notrans
 		 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 	for (qcmd = qcmd_table; qcmd->name != NULL; qcmd++) {
 		act_puts(" $t", ch, qcmd->name, NULL,		// notrans
@@ -966,9 +966,9 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 		mlstr_cpy(&reward->owner, &ch->short_descr);
 		mlstr_printf(&reward->short_descr,
 			     &reward->pObjIndex->short_descr,
-			     IS_GOOD(ch) ?	"holy" :
-			     IS_NEUTRAL(ch) ?	"blue-green" : 
-						"evil", 
+			     IS_GOOD(ch) ?	"holy" :	// notrans
+			     IS_NEUTRAL(ch) ?	"blue-green" :  // notrans
+						"evil", 	// notrans
 			     ch->name);
 	}
 

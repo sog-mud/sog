@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.368 2001-02-18 10:20:12 fjoe Exp $
+ * $Id: act_info.c,v 1.369 2001-02-21 19:07:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1703,7 +1703,7 @@ static void scan_all(CHAR_DATA *ch)
 		|| !pExit->to_room.r
 		|| !can_see_room(ch,pExit->to_room.r))
 			continue;
-		act_puts("{C$t{x:", ch, dir_name[door], NULL,
+		act_puts("{C$t{x:", ch, dir_name[door], NULL,	// notrans
 			 TO_CHAR, POS_DEAD);
 		if (IS_SET(pExit->exit_info, EX_CLOSED)) {
 			act_char("    You see closed door.", ch);
@@ -2924,7 +2924,7 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 		int col = 0;
 		int i;
 
-		output = buf_new(-1);
+		output = buf_new(GET_LANG(ch));
 
 		for (i = 0; i < pc->learned.nused; i++) {
 			spec_skill_t spec_sk;
@@ -4056,7 +4056,7 @@ static char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 		&&  (obj->condition < COND_EXCELLENT ||
 		     !IS_SET(ch->comm, COMM_NOVERBOSE))) {
 			char buf2[MAX_STRING_LENGTH];
-			snprintf(buf2, sizeof(buf2), " [{g%s{x]",
+			snprintf(buf2, sizeof(buf2), " [{g%s{x]",  // notrans
 				 GETMSG(get_cond_alias(obj), GET_LANG(ch)));
 			strnzcat(buf, sizeof(buf), buf2);
 		}

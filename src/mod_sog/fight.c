@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.288 2001-02-11 14:35:40 fjoe Exp $
+ * $Id: fight.c,v 1.289 2001-02-21 19:07:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2409,7 +2409,7 @@ check_dodge(CHAR_DATA *ch, CHAR_DATA *victim)
 			    ch, NULL, victim, TO_VICT);
 			act("As $N moves you lost your position fall down!",
 			    ch, NULL, victim, TO_CHAR);
-			act("As $N dodges $N's attack, $N lost his position "
+			act("As $N dodges $n's attack, $n lost his position "
 			    "and falls down.", ch, NULL, victim, TO_NOTVICT);
 
 			WAIT_STATE(ch, skill_beats("trip"));

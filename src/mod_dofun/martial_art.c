@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.174 2001-02-18 10:20:13 fjoe Exp $
+ * $Id: martial_art.c,v 1.175 2001-02-21 19:07:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2828,7 +2828,7 @@ void do_strangle(CHAR_DATA *ch, const char *argument)
 
 
 	if (IS_AFFECTED(ch, AFF_CHARM))  {
-		act_char("You don't want to grap your beloved masters' neck.", ch);
+		act("You don't want to grap your beloved masters' neck.", ch, NULL, ch->master, TO_CHAR);
 		return;
 	}
 
@@ -3051,7 +3051,7 @@ void do_blackjack(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (IS_AFFECTED(ch, AFF_CHARM))  {
-		act_char("You don't want to hit your beloved masters' head with a full filled jack.", ch);
+		act("You don't want to hit your beloved masters' head with a full filled jack.", ch, NULL, ch->master, TO_CHAR);
 		return;
 	}
 
@@ -4138,7 +4138,7 @@ void do_tail(CHAR_DATA *ch, const char *argument)
 		damage(ch, victim, 0, "tail", DAM_BASH, DAMF_SHOW);
 		act("You lost your position and fall down!",
 		    ch, NULL, victim, TO_CHAR);
-		act("$n lost $s position and fall down!.",
+		act("$n lost $s position and fall down!",
 		    ch, NULL, victim, TO_NOTVICT);
 		act("You evade $n's tail, causing $m to fall down.",
 		    ch, NULL, victim, TO_VICT);

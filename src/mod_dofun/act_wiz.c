@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.267 2001-02-18 10:20:13 fjoe Exp $
+ * $Id: act_wiz.c,v 1.268 2001-02-21 19:07:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -225,7 +225,7 @@ void do_wiznet(CHAR_DATA *ch, const char *argument)
 		/* show wiznet status */
 		BUFFER *output;
 
-		output = buf_new(-1);
+		output = buf_new(GET_LANG(ch));
 		buf_printf(output, BUF_END, "Wiznet status: %s\n",
 			   IS_SET(PC(vch)->wiznet, WIZ_ON) ? "ON" : "OFF");
 
@@ -238,7 +238,7 @@ void do_wiznet(CHAR_DATA *ch, const char *argument)
 				   "N/A" :		// notrans
 				   IS_SET(PC(vch)->wiznet,
 					  wiznet_table[flag].flag) ?
-				   "ON" : "OFF");	
+				   "ON" : "OFF");	// notrans
 		page_to_char(buf_string(output), ch);
 		buf_free(output);
 		return;
@@ -1685,7 +1685,7 @@ void do_mwhere(CHAR_DATA *ch, const char *argument)
 
 			count++;
 			buf_printf(buffer, BUF_END,
-				   "%3d) [%5d] %-28s [%5d] %s\n",
+				   "%3d) [%5d] %-28s [%5d] %s\n",  // notrans
 				   count,
 				   IS_NPC(victim) ? victim->pMobIndex->vnum : 0,
 				   IS_NPC(victim) ?
@@ -3029,9 +3029,9 @@ void do_holylight(CHAR_DATA *ch, const char *argument)
 		return;
 
 	TOGGLE_BIT(PC(vch)->plr_flags, PLR_HOLYLIGHT);
-	act_puts("Holy light mode $t.",
-		 ch, IS_SET(PC(vch)->plr_flags, PLR_HOLYLIGHT) ?  "on" : "off",
-		 NULL, TO_CHAR, POS_DEAD);
+	act_puts(IS_SET(PC(vch)->plr_flags, PLR_HOLYLIGHT) ?
+		     "Holy light mode on." : "Holy light mode off",
+		 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 }
 
 /* prefix command: it will put the string typed on each line typed */

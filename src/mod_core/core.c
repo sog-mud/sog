@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: core.c,v 1.18 2001-02-11 14:35:36 fjoe Exp $
+ * $Id: core.c,v 1.19 2001-02-21 19:07:06 fjoe Exp $
  */
 
 #include <errno.h>
@@ -101,7 +101,7 @@ do_modules(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		buf = buf_new(-1);
+		buf = buf_new(GET_LANG(ch));
 		buf_append(buf, "  Module  Prio          Load time         Deps\n");
 		buf_append(buf, "--------- ---- -------------------------- -----------------------------------\n");	// notrans
 		for (i = 0; i < modules.nused; i++) {
@@ -144,9 +144,9 @@ do_shutdown(CHAR_DATA *ch, const char *argument)
 	active = dfexist(TMP_PATH, SHUTDOWN_FILE);
 		
 	if (!str_prefix(arg, "status")) {
-		act_puts("Shutdown status: $t",
-			 ch, active ? "active" : "inactive", NULL,
-			 TO_CHAR | ACT_NOTRANS, POS_DEAD);
+		act_puts(active ? "Shutdown status: active" :
+				  "Shutdown status: inactive",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		return;
 	}
 

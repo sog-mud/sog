@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.226 2001-02-12 19:07:16 fjoe Exp $
+ * $Id: act_comm.c,v 1.227 2001-02-21 19:07:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1771,7 +1771,7 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 
 	if ((clan = clan_lookup(victim->clan)) == NULL
 	||  (!IS_CLAN(victim->clan, ch->clan) && !IS_IMMORTAL(ch))) {
-		act_char("They are not an a clan.", ch);
+		act("They are not an a clan.", ch, NULL, victim, TO_CHAR);
 		goto cleanup;
 	}
 
@@ -2047,8 +2047,8 @@ toggle_t toggle_table[] =
 	{ "compact",						// notrans
 	  "compact mode",
 	  NULL, comm_flags,	COMM_COMPACT,
-	  "$t on.",
-	  "$t off."
+	  "Compact mode on.",
+	  "Compact mode off."
 	},
 
 	{ "combine",						// notrans
@@ -2061,15 +2061,15 @@ toggle_t toggle_table[] =
 	{ "long flags",						// notrans
 	  "long flags mode",
 	  NULL, comm_flags,	COMM_LONG,
-	  "$t on.",
-	  "$t off."
+	  "Long flags mode on.",
+	  "Long flags mode off."
 	},
 
 	{ "nobust",						// notrans
 	  "do not bust prompt if hp/mana/move changed mode",
 	  NULL, comm_flags,	COMM_NOBUST,
-	  "$t on.",
-	  "$t off."
+	  "Do not bust prompt if hp/mana/move changed mode on.",
+	  "Do not bust prompt if hp/mana/move changed mode off."
 	},
 
 	{ "noeng",						// notrans
@@ -2124,8 +2124,8 @@ toggle_t toggle_table[] =
 	{ "quiet edit",						// notrans
 	  "quiet mode in string editor",
 	  NULL, comm_flags,	COMM_QUIET_EDITOR,
-	  "$t on.",
-	  "$t off."
+	  "Quiet mode on.",
+	  "Quiet mode off."
 	},
 
 	{ "show race",						// notrans
@@ -2138,15 +2138,15 @@ toggle_t toggle_table[] =
 	{ "trans mode",						// notrans
 	  "OLC translation mode",
 	  "create edit ashow", olc_flags,	OLC_MODE_TRANS,	// notrans
-	  "$t on.",
-	  "$t off."
+	  "OLC translation mode on.",
+	  "OLC translation mode off."
 	},
 
 	{ "raw strings",					// notrans
 	  "raw strings mode",
 	  "create edit ashow stat", olc_flags,	OLC_MODE_RAW,	// notrans
-	  "$t on.",
-	  "$t off."
+	  "Raw string mode on.",
+	  "Raw string mode off."
 	},
 
 	{ NULL }
