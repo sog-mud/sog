@@ -89,7 +89,6 @@ Skill 'protection heat' 46 1 0
 Skill 'protective shield' 26 1 0
 Skill 'recharge' 29 1 0
 Skill 'refresh' 7 1 0
-Skill 'sanctuary' 36 1 0
 Skill 'sand storm' 51 1 0
 Skill 'scream' 48 1 0
 Skill 'shield' 30 1 0
@@ -125,6 +124,8 @@ Skill 'trance' 14 1 0
 Skill 'wands' 1 1 0
 Skill 'throwing weapons' 56 3 -5
 Skill 'water breathing' 43 1 0
+Skill 'ice sphere' 36 1 1
+Skill 'fire sphere' 51 1 1
 End
 
 #POSE

@@ -1101,6 +1101,15 @@ Form 6 -ого~
 End
 
 #RULE
+Name акваланг~
+BaseLen 8
+Form 1 -а~
+Form 2 -у~
+Form 4 -ом~
+Form 5 -е~
+End
+
+#RULE
 Name оружейник~
 BaseLen 9
 Form 1 -а~
@@ -5753,6 +5762,17 @@ Form 6 -ую~
 End
 
 #RULE
+Name винный~
+BaseLen 4
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ый~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ого~
+End
+
+#RULE
 Name розовая~
 BaseLen 5
 Form 1 -ой~
@@ -6197,6 +6217,16 @@ Form 3 -~
 Form 4 -ом~
 Form 5 -е~
 Form 6 -а~
+End
+
+#RULE
+Name кто-то~
+Form 1 кого-то~
+Form 2 кому-то~
+Form 3 кого-то~
+Form 4 кем-то~
+Form 5 ком-то~
+Form 6 кого-то~
 End
 
 #RULE
@@ -7911,6 +7941,17 @@ Form 3 -а~
 Form 4 -ом~
 Form 5 -е~
 Form 6 -а~
+End
+
+#RULE
+Name резиновый~
+BaseLen 7
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ый~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ого~
 End
 
 #RULE

@@ -13,7 +13,7 @@ grandfather old man дедушка~
 @eng You see a powerful old man standing here.
 @rus Ты видишь могучего старика (grandfather), стоящего тут.
 ~
-@eng {x    You gaze upon a majestic old man with grey hair and long beard
+@eng You gaze upon a majestic old man with grey hair and long beard
 lowered on his cape. He looks like a person who has passed through
 lots of trials and known the reality of life.
 @rus Ты смотришь на величественного старика с седыми волосами
@@ -1997,7 +1997,7 @@ A
 G plural
 #36355
 boots plated tournament сапоги~
-@eng tournament plated boots@rus {D~~турнирные~~ ~~сапоги~~ {x~
+@eng tournament plated boots@rus {D~~турнирные~~ ~~сапоги~~{x~
 @eng Hard heavy boots sit here.@rus Тяжелые сапоги (boots) стоят тут.~
 iron~
 armor 0 AG
@@ -2008,7 +2008,7 @@ A
 G plural
 #36356
 arm plate tournament наручи~
-@eng tournament arm plates@rus {m~~турнирные~~ ~~наручи~~ {x~
+@eng tournament arm plates@rus {m~~турнирные~~ ~~наручи~~{x~
 @eng Some plates lie here.@rus Какие-то пластины (arm) лежат тут.~
 iron~
 armor 0 AI
@@ -2019,7 +2019,7 @@ A
 G plural
 #36357
 shield tournament щит~
-@eng tournament shield@rus {D~~турнирный~~ ~~щит~~ {x~
+@eng tournament shield@rus {D~~турнирный~~ ~~щит~~{x~
 @eng A small shield lies on the ground.@rus Небольшой щит (shield) лежит на земле.~
 iron~
 armor 0 AJ
@@ -2030,7 +2030,7 @@ A
 G male
 #36358
 cloak tournament накидка~
-@eng tournament cloak@rus {b~~турнирная~~ ~~накидка~~ {x~
+@eng tournament cloak@rus {b~~турнирная~~ ~~накидка~~{x~
 @eng A cloak with an inscription lies here.@rus Накидка (cloak) с какой-то надписью лежит здесь.~
 iron~
 armor 0 AK
@@ -2045,7 +2045,7 @@ Made by Agrael.
 G female
 #36359
 gauntlets tournament латные рукавицы~
-@eng tournament gauntlets@rus {w~~турнирные~~ ~~латные~~ ~~рукавицы~~ {x~
+@eng tournament gauntlets@rus {w~~турнирные~~ ~~латные~~ ~~рукавицы~~{x~
 @eng Some gauntlets has been dropped here.@rus Латные рукавицы (gauntlets) брошены здесь.~
 iron~
 armor 0 AH
@@ -2056,7 +2056,7 @@ A
 G plural
 #36360
 tournament sword меч~
-@eng tournament sword@rus {w~~турнирный~~ ~~меч~~ {x~
+@eng tournament sword@rus {w~~турнирный~~ ~~меч~~{x~
 @eng A long sword is stuck in the ground.@rus Длинный меч (sword) воткнут в землю.~
 iron~
 weapon 0 AN
@@ -2065,7 +2065,7 @@ sword 7 7 slash 0
 G male
 #36361
 statue mayor статуя~
-@eng Mayor's statue@rus {w~~статуя~~ Мэра {x~
+@eng Mayor's statue@rus {w~~статуя~~ Мэра{x~
 @eng A bronze statue of Mayor stands here.@rus Бронзовая статуя (statue) Мэра стоит тут.~
 bronze~
 jewelry RY A
@@ -2074,7 +2074,7 @@ jewelry RY A
 G female
 #36362
 mace tournament булава~
-@eng tournament mace@rus {D~~турнирная~~ ~~булава~~ {x~
+@eng tournament mace@rus {D~~турнирная~~ ~~булава~~{x~
 @eng A large mace lies on the ground.@rus Большая булава (mace) лежит на земле.~
 iron~
 weapon 0 AN
@@ -2083,7 +2083,7 @@ mace 10 5 crush 0
 G female
 #36363
 statue статуя~
-@eng statue@rus {Yстатуя {x~
+@eng statue@rus {Yстатуя{x~
 @eng WOW! You see YOUR statue standing here!@rus ВОТ ЭТО ДА! Ты видишь ТВОЮ статую, стоящую здесь!~
 bronze~
 jewelry RY A
@@ -2092,7 +2092,7 @@ jewelry RY A
 G female
 #36364
 battle pill пилюля~
-@eng battle pill@rus {M~~боевая~~ ~~пилюля~~ {x~
+@eng battle pill@rus {M~~боевая~~ ~~пилюля~~{x~
 @eng A battle pill lies here.@rus Боевая пилюля (pill) лежит здесь.~
 food~
 pill 0 AO
@@ -2101,7 +2101,7 @@ pill 0 AO
 G female
 #36365
 pill magic пилюля~
-@eng magic pill@rus {Y~~магическая~~ ~~пилюля~~ {x~
+@eng magic pill@rus {Y~~магическая~~ ~~пилюля~~{x~
 @eng A magic pill lies here.@rus Магическая пилюля (pill) лежит здесь.~
 food~
 pill 0 AO
@@ -2110,7 +2110,7 @@ pill 0 AO
 G female
 #36366
 star morning tournament моргенштерн~
-@eng tournament morningstar@rus {w~~турнирный~~ ~~моргенштерн~~ {x~
+@eng tournament morningstar@rus {w~~турнирный~~ ~~моргенштерн~~{x~
 @eng A heavy metal ball glows on the grass.@rus Большой металлический шар (star) сверкает среди травы.~
 iron~
 weapon A AN
@@ -2119,7 +2119,7 @@ flail 16 3 crush 0
 G male
 #36367
 fountain marble water фонтан~
-@eng marble fountain@rus {M~~мраморный~~ ~~фонтан~~ {x~
+@eng marble fountain@rus {M~~мраморный~~ ~~фонтан~~{x~
 @eng A marble Fountain is in the middle of the stone basin.@rus Фонтан (fountain) из мрамора стоит в середине каменного бассейна.~
 marble~
 fountain ABRY 0
@@ -2128,7 +2128,7 @@ fountain ABRY 0
 G male
 #36368
 plate кираса guard breast~
-@eng guard breast plate@rus {w~~кираса~~ стражника {x~
+@eng guard breast plate@rus {w~~кираса~~ стражника{x~
 @eng A pile of armor lies here.@rus Груда доспехов (plate) лежит здесь.~
 steel~
 armor 0 AD
@@ -2139,7 +2139,7 @@ A
 G female
 #36369
 shield guard щит~
-@eng guard shield@rus {w~~щит~~ стражника {x~
+@eng guard shield@rus {w~~щит~~ стражника{x~
 @eng A shield lies here.@rus Щит (shield) лежит здесь.~
 shell~
 armor 0 AJ
@@ -2152,7 +2152,7 @@ A
 G male
 #36370
 cape guard накидка~
-@eng guard cape@rus {w~~накидка~~ стражника {x~
+@eng guard cape@rus {w~~накидка~~ стражника{x~
 @eng A guard cape lies on the ground.@rus Накидка (cape) стражника лежит здесь.~
 fur~
 armor 0 AK
@@ -2163,7 +2163,7 @@ A
 G female
 #36371
 sword guard меч~
-@eng guard sword@rus {w~~меч~~ стражника {x~
+@eng guard sword@rus {w~~меч~~ стражника{x~
 @eng A short sword gleams here.@rus Короткий меч (sword) блестит на полу.~
 steel~
 weapon A AN
@@ -2172,7 +2172,7 @@ sword 6 6 pierce 0
 G male
 #36372
 axe tournament топор~
-@eng tournament axe@rus {D~~турнирый~~ ~~топор~~ {x~
+@eng tournament axe@rus {D~~турнирый~~ ~~топор~~{x~
 @eng A HUGE axe lies here.@rus ЗДОРОВЕННЫЙ топор (axe) лежит на земле.~
 iron~
 weapon 0 AN
@@ -2181,7 +2181,7 @@ axe 6 9 chop 0
 G male
 #36373
 gloves hedgehog рукавицы~
-@eng hedgehog's gloves@rus {D~~ежовые~~ ~~рукавицы~~ {x~
+@eng hedgehog's gloves@rus {D~~ежовые~~ ~~рукавицы~~{x~
 @eng Some gloves lies on the grass.@rus Рукавицы (gloves) лежат на траве.~
 fur~
 armor BGIM AH
@@ -2198,7 +2198,7 @@ A
 G plural
 #36374
 some stilts ходули~
-@eng some stilts@rus {yходули {x~
+@eng some stilts@rus {yходули{x~
 @eng The stilts have been carelessly droppped here.@rus Ходули (stilts) небрежно брошены здесь.~
 wood~
 armor 0 AG
@@ -2211,7 +2211,7 @@ A
 G plural
 #36375
 safe сейф~
-@eng safe@rus {Dсейф {x~
+@eng safe@rus {Dсейф{x~
 @eng A steel safe stands in the corner.@rus Банковский сейф (safe) стоит в углу.~
 steel~
 container ABRTY 0
@@ -2232,7 +2232,7 @@ bureau конторка~
 @eng bureau@rus конторка~
 @eng A bureau stands at the south wall.@rus Конторка (bureau) стоит у южной стены.~
 hardwood~
-container R AO
+container 0 OP
 100 ABCD 36378 10 100
 0 10 0 P
 G female
@@ -2256,7 +2256,7 @@ container R 0
 G male
 #36380
 key secret ключ~
-@eng secret key@rus {D~~секретный~~ ~~ключ~~ {x~
+@eng secret key@rus {D~~секретный~~ ~~ключ~~{x~
 @eng A secret key lies here.@rus Секретный ключ (key) лежит тут.~
 adamantite~
 key FTU AO
@@ -2265,7 +2265,7 @@ key FTU AO
 G male
 #36381
 cell secret тайник~
-@eng secret cell@rus {wтайник {x~
+@eng secret cell@rus {wтайник{x~
 @eng A secret cell is set in the wall.@rus Тайник (cell) вделан в стену.~
 steel~
 container ABFGRTY 0
@@ -2274,7 +2274,7 @@ container ABFGRTY 0
 G male
 #36382
 shield paladin щит~
-@eng Holy shield of Paladins@rus {w~~Священный~~ ~~щит~~ Паладина {x~
+@eng Holy shield of Paladins@rus {w~~Священный~~ ~~щит~~ Паладина{x~
 @eng A small shield lies here.@rus Небольшой щит (shield) лежит здесь.~
 titanium~
 armor IKLR AJ
@@ -2283,7 +2283,7 @@ armor IKLR AJ
 G male
 #36383
 lance paladin пика~
-@eng Holy lance of Paladin@rus {w~~Священная~~ ~~пика~~ Паладина {x~
+@eng Holy lance of Paladin@rus {w~~Священная~~ ~~пика~~ Паладина{x~
 @eng A long lance lies here.@rus Длинная пика (lance) лежит здесь.~
 titanium~
 weapon IKLR AN
@@ -2292,7 +2292,7 @@ lance 11 5 charge 0
 G female
 #36384
 hole dark нора~
-@eng hole@rus {Dнора {x~
+@eng hole@rus {Dнора{x~
 @eng A dark hole beckons you amidst the bushes.@rus Темная нора (hole) виднеется среди кустов.~
 ebony~
 portal RY 0
@@ -2301,16 +2301,16 @@ portal RY 0
 G female
 #36385
 book shelf полка~
-@eng bookshelf@rus {y~~книжная~~ ~~полка~~ {x~
+@eng bookshelf@rus {y~~книжная~~ ~~полка~~{x~
 @eng A bookshelf hangs on the wall.@rus Книжная полка (bookshelf) висит на стене.~
 wood~
-container ARTY AO
+container ATY OP
 100 E -1 100 100
 0 10000 0 P
 G female
 #36386
 book iluvatar one книга~
-@eng Book of Iluvatar@rus {Y~~книга~~ ~~Илуватара~~ {x~
+@eng Book of Iluvatar@rus {Y~~книга~~ ~~Илуватара~~{x~
 @eng A huge volume stands on the shelf.@rus Большая красиво переплетенная книга (book) лежит здесь.~
 kid leather~
 treasure ARY AO
@@ -2332,7 +2332,7 @@ book~
 G female
 #36387
 book книга nergal~
-@eng Book of Nergal@rus {D~~книга~~ Нергала {x~
+@eng Book of Nergal@rus {D~~книга~~ Нергала{x~
 @eng A huge volume stands on the shelf.@rus Большая красиво переплетенная книга (book) лежит здесь.~
 kid leather~
 treasure ARY AO
@@ -2355,7 +2355,7 @@ book~
 G female
 #36388
 book diablo книга~
-@eng Book of Diablo@rus {D~~книга~~ Дьябло {x~
+@eng Book of Diablo@rus {D~~книга~~ Дьябло{x~
 @eng A huge volume stands on the shelf.@rus Большая красиво переплетенная книга (book) лежит здесь.~
 kid leather~
 treasure AERY AO
@@ -2378,7 +2378,7 @@ book~
 G female
 #36389
 book hedin книга~
-@eng Book of Hedin@rus {Y~~книга~~ Хедина {x~
+@eng Book of Hedin@rus {Y~~книга~~ Хедина{x~
 @eng A huge volume stands on the shelf.@rus Большая красиво переплетенная книга (book) лежит здесь.~
 kid leather~
 treasure ARY AO
@@ -2396,7 +2396,7 @@ book~
 G female
 #36390
 book phobos книга~
-@eng Book of Phobos@rus {R~~книга~~ Фобоса {x~
+@eng Book of Phobos@rus {R~~книга~~ Фобоса{x~
 @eng A huge volume stands on the shelf.@rus Большая красиво переплетенная книга (book) лежит здесь.~
 kid leather~
 treasure ARY AO
@@ -2411,7 +2411,7 @@ book~
 G female
 #36391
 book книга rondor~
-@eng Book of Rondor@rus {Y~~книга~~ Рондора {x~
+@eng Book of Rondor@rus {Y~~книга~~ Рондора{x~
 @eng A huge volume stands on the shelf.@rus Большая красиво переплетенная книга (book) лежит здесь.~
 kid leather~
 treasure ARY AO
@@ -2426,7 +2426,7 @@ book~
 G female
 #36392
 book eidu книга~
-@eng Book of Eidu@rus {Y~~книга~~ Эйду {x~
+@eng Book of Eidu@rus {Y~~книга~~ Эйду{x~
 @eng A huge volume stands on the shelf.@rus Большая красиво переплетенная книга (book) лежит здесь.~
 kid leather~
 treasure ARY AO
@@ -2454,7 +2454,7 @@ bok~
 G female
 #36393
 book marewell книга~
-@eng Book of Marewell@rus {Y~~книга~~ Маревелла {x~
+@eng Book of Marewell@rus {Y~~книга~~ Маревелла{x~
 @eng A huge volume stands on the shelf.@rus Большая красиво переплетенная книга (book) лежит здесь.~
 kid leather~
 treasure A AO
@@ -2478,7 +2478,7 @@ book~
 G female
 #36394
 duncan book~
-@eng Book of Dunkan@rus {Y~~книга Дункана {x~
+@eng Book of Dunkan@rus {Y~~книга Дункана{x~
 A huge volume stands on the shelf.~
 kid leather~
 treasure ARY A
@@ -2487,7 +2487,7 @@ treasure ARY A
 G none
 #36395
 book leon книга~
-@eng Book of Leon@rus {Y~~книга~~ Леона {x~
+@eng Book of Leon@rus {Y~~книга~~ Леона{x~
 @eng A huge volume stands on the shelf.@rus Большая красиво переплетенная книга (book) лежит здесь.~
 kid leather~
 treasure AGRY AO
@@ -2503,7 +2503,7 @@ book~
 G female
 #36396
 book arwen книга~
-@eng Book of Arwen@rus {G~~книга~~ Арвен {x~
+@eng Book of Arwen@rus {G~~книга~~ Арвен{x~
 @eng A huge volume stands on the shelf.@rus Большая красиво переплетенная книга (book) лежит здесь.~
 kid leather~
 treasure ARY AO
@@ -2524,7 +2524,7 @@ book~
 G female
 #36397
 book arborn книга~
-@eng Book of Arborn@rus {Y~~книга~~ Арборна {x~
+@eng Book of Arborn@rus {Y~~книга~~ Арборна{x~
 @eng A huge volume stands on the shelf.@rus Большая красиво переплетенная книга (book) лежит здесь.~
 kid leather~
 treasure AIRY A
@@ -2544,7 +2544,7 @@ book~
 G female
 #36398
 book jullyroger~
-@eng Book of JullyRoger@rus {Y~~книга~~ Веселого Роджера {x~
+@eng Book of JullyRoger@rus {Y~~книга~~ Веселого Роджера{x~
 @eng A huge volume stands on the shelf.@rus Большая красиво переплетенная книга (book) лежит здесь.~
 kid leather~
 treasure AGRY AO
@@ -2563,7 +2563,7 @@ book~
 G female
 #36399
 book gelios~
-@eng Book of Gelios@rus {r~~книга~~ Гелиоса {x~
+@eng Book of Gelios@rus {r~~книга~~ Гелиоса{x~
 A huge volume stands on the shelf.~
 kid leather~
 treasure ARY AO
@@ -2572,7 +2572,7 @@ treasure ARY AO
 G none
 #36400
 book shamash книга~
-@eng Book of Shamash@rus {Y~~книга~~ Шамаша {x~
+@eng Book of Shamash@rus {Y~~книга~~ Шамаша{x~
 @eng A huge volume stands on the shelf.@rus Большая красиво переплетенная книга (book) лежит здесь.~
 kid leather~
 treasure ARY AO
@@ -2593,7 +2593,7 @@ book~
 G female
 #36401
 book orrin книга~
-@eng Book of Orrin@rus {Y~~книга~~ Оррина {x~
+@eng Book of Orrin@rus {Y~~книга~~ Оррина{x~
 @eng A huge volume stands on the shelf.@rus Большая красиво переплетенная книга (book) лежит здесь.~
 kid leather~
 treasure ARY A
@@ -2658,7 +2658,7 @@ treasure 0 A
 G none
 #36408
 club monk дубинка~
-@eng Monk's club@rus {Y~~дубинка~~ Монаха {x~
+@eng Monk's club@rus {Y~~дубинка~~ Монаха{x~
 @eng A heavy looking club stands here.@rus Тяжелая дубинка (club) прислонена к дереву.~
 wood~
 weapon GI AN
@@ -2667,7 +2667,7 @@ mace 8 13 crush K
 G female
 #36409
 barrel huge ale бочка~
-@eng barrel of ale@rus {Y~~бочка~~ эля {x~
+@eng barrel of ale@rus {Y~~бочка~~ эля{x~
 @eng A HUGE barrel of ale sits here.@rus ОГРОМНАЯ бочка (barrel) эля стоит тут.~
 wood~
 drink B A
@@ -2676,7 +2676,7 @@ drink B A
 G female
 #36410
 gap щель~
-@eng gap@rus {Dщель {x~
+@eng gap@rus {Dщель{x~
 @eng A gap between the roots of the shrub looks very interesting.@rus Щель (gap) между корнями куста выглядит интригующе.~
 wood~
 portal Y 0
@@ -2685,7 +2685,7 @@ portal Y 0
 G female
 #36411
 cape white накидка~
-@eng white cape@rus {w~~белая~~ ~~накидка~~ {x~
+@eng white cape@rus {w~~белая~~ ~~накидка~~{x~
 @eng A white cape lies here.@rus Белая накидка (cape) лежит здесь.~
 silk~
 armor AGHKLM AK
@@ -2719,7 +2719,7 @@ A
 G female
 #36413
 cape dark накидка~
-@eng dark cape@rus {D~~черная~~ ~~накидка~~ {x~
+@eng dark cape@rus {D~~черная~~ ~~накидка~~{x~
 @eng A dark cape lies here.@rus Черная накидка (cape) лежит здесь.~
 silk~
 armor AEGHJLM AK
@@ -2736,7 +2736,7 @@ A
 G female
 #36414
 mask clown маска~
-@eng clown mask@rus {M~~маска~~ клоуна {x~
+@eng clown mask@rus {M~~маска~~ клоуна{x~
 @eng A strange painted face looks at you from the grass.@rus Странное раскрашенное лицо (mask) смотрит на тебя из травы.~
 plastic~
 armor CEM AE
@@ -2757,7 +2757,7 @@ A
 G female
 #36415
 ball crystall quartz шар~
-@eng quartz crystall@rus {R({r({Y({G({C({b(){C){G){Y){r){R) {w~~кварцевый~~ ~~шар~~ {x~
+@eng quartz crystall@rus {R({r({Y({G({C({b(){C){G){Y){r){R) {w~~кварцевый~~ ~~шар~~{x~
 @eng A strange glowing ball shimmers in the dirt.@rus Странный светящийся шар (ball) мерцает в пыли.~
 quartz~
 light AG A
@@ -2780,7 +2780,7 @@ A
 G male
 #36416
 heal пилюля pill~
-@eng healing pill@rus {w~~пилюля~~ отдохновения {x~
+@eng healing pill@rus {w~~пилюля~~ отдохновения{x~
 @eng Someone has left a pill of death here.@rus Кто-то оставил тут отравленную пилюлю (pill).~
 food~
 pill ABG AO
@@ -2789,7 +2789,7 @@ pill ABG AO
 G female
 #36417
 pill energize пилюля~
-@eng an energize pill@rus {D~~освежающая~~ ~~пилюля~~ {x~
+@eng an energize pill@rus {D~~освежающая~~ ~~пилюля~~{x~
 @eng Someone has left a deadly-looking pill here.@rus Смертельная пилюля (pill) лежит здесь.~
 food~
 pill ABGM AO
@@ -2800,7 +2800,7 @@ A
 G female
 #36418
 pill great пилюля~
-@eng great battle pill@rus {C~~большая~~ ~~боевая~~ ~~пилюля~~ {x~
+@eng great battle pill@rus {C~~большая~~ ~~боевая~~ ~~пилюля~~{x~
 @eng A HUGE pill seems to be able to heal all of your wounds.@rus Здесь лежит очень полезная лечебная пилюля (pill).~
 gut~
 pill 0 AO
@@ -2818,7 +2818,7 @@ pill 0 A
 G none
 #36420
 portrait grandfather портрет~
-@eng portrait@rus {Yпортрет {x~
+@eng portrait@rus {Yпортрет{x~
 @eng A portrait of Grandfather hangs on the wall.@rus Портрет Дедушки (portrait) висит на стене.~
 canvas~
 portal ARY 0
@@ -2827,7 +2827,7 @@ portal ARY 0
 G male
 #36421
 mirror wall зеркало~
-@eng mirror@rus {cзеркало {x~
+@eng mirror@rus {cзеркало{x~
 @eng A long wide mirror stands by the wall.@rus Высокое и широкое зеркало (mirror) стоит у стены (wall).~
 glass~
 portal RY P
@@ -2836,7 +2836,7 @@ portal RY P
 G none
 #36422
 flask blood фляжка~
-@eng flask of blood@rus {R~~фляжка~~ крови {x~
+@eng flask of blood@rus {R~~фляжка~~ крови{x~
 @eng A flask of blood lies here.@rus Фляжка (flask), наполненная кровью, лежит здесь.~
 glass~
 drink E AO
@@ -2845,7 +2845,7 @@ drink E AO
 G female
 #36423
 arrow titanium стрела~
-@eng titanium-headed arrow@rus {Y~~стрела~~ с титановым наконечником {x~
+@eng titanium-headed arrow@rus {Y~~стрела~~ с титановым наконечником{x~
 @eng A heavy looking arrow lies in the dirt.@rus Тяжелая стрела (arrow) лежит в грязи.~
 wood~
 weapon 0 AO
@@ -2854,7 +2854,7 @@ arrow 12 12 pierce K
 G female
 #36424
 staff green cold посох~
-@eng green staff@rus {G~~зеленый~~ ~~посох~~ {x~
+@eng green staff@rus {G~~зеленый~~ ~~посох~~{x~
 @eng A staff covered in bark lies here.@rus Неошкуренный посох (staff) лежит здесь.~
 wood~
 staff B AO
@@ -2863,7 +2863,7 @@ staff B AO
 G male
 #36425
 staff broom метла~
-@eng witch's broom@rus {D~~ведьмина~~ ~~метла~~ {x~
+@eng witch's broom@rus {D~~ведьмина~~ ~~метла~~{x~
 @eng Witch's broom sweeps around you in a cloud of dust.@rus Метла ведьмы (broom) подняла вокруг тебя облако пыли.~
 wood~
 staff B AO
@@ -2872,7 +2872,7 @@ staff B AO
 G female
 #36426
 ring holy silver кольцо~
-@eng holy ring@rus {w~~святое~~ ~~кольцо~~ {x~
+@eng holy ring@rus {w~~святое~~ ~~кольцо~~{x~
 @eng A silver ring lies here.@rus Серебряное кольцо (ring) позабыто здесь.~
 silver~
 armor I AB
@@ -2885,7 +2885,7 @@ A
 G none
 #36427
 amulet holy silver амулет~
-@eng holy amulet@rus {w~~святой~~ ~~амулет~~ {x~
+@eng holy amulet@rus {w~~святой~~ ~~амулет~~{x~
 @eng Shiny silver amulet glows in the dirt.@rus Сверкающий серебряный амулет (amulet) блестит в пыли.~
 silver~
 armor AI AC
@@ -2898,7 +2898,7 @@ A
 G male
 #36428
 helm iron шлем~
-@eng iron helm@rus {r~~железный~~ ~~шлем~~ {x~
+@eng iron helm@rus {r~~железный~~ ~~шлем~~{x~
 @eng An iron helm lies here.@rus Шлем (helm) из железа лежит тут.~
 iron~
 armor 0 AE
@@ -2907,7 +2907,7 @@ armor 0 AE
 G male
 #36429
 mace iron heavy палица~
-@eng heavy iron mace@rus {r~~тяжелая~~ ~~железная~~ ~~палица~~ {x~
+@eng heavy iron mace@rus {r~~тяжелая~~ ~~железная~~ ~~палица~~{x~
 @eng A huge mace stands at the corner.@rus Большая палица (mace) стоит в углу.~
 iron~
 weapon 0 AN
@@ -2916,7 +2916,7 @@ mace 8 8 crush 0
 G female
 #36430
 eye dragon глаз~
-@eng eye of the dragon@rus {c({R.{c) {C~~глаз~~ дракона {x~
+@eng eye of the dragon@rus {c({R.{c) {C~~глаз~~ дракона{x~
 @eng Dragon Eye lies in dust.@rus Драконий глаз (eye) валяется в грязи.~
 unknown~
 trash GU AO
@@ -2926,7 +2926,7 @@ S 'farsight' 30 A
 G male
 #36431
 toad tongue язык~
-@eng toad tongue@rus {M~~жабий~~ ~~язык~~ {x~
+@eng toad tongue@rus {M~~жабий~~ ~~язык~~{x~
 @eng A tongue of toad is convulsing on the floor.@rus Язык (tongue) жабы дергается в конвульсиях.~
 unknown~
 trash GU AO
@@ -2936,7 +2936,7 @@ S 'ventriloquate' 30 A
 G male
 #36432
 dried bat мышь~
-@eng dried bat@rus {G~~сушеная~~ ~~летучая~~ ~~мышь~~ {x~
+@eng dried bat@rus {G~~сушеная~~ ~~летучая~~ ~~мышь~~{x~
 @eng Dried bat rustles with wings.@rus Сушеная летучая мышь (bat) трепещет крыльями.~
 unknown~
 trash GU AO
@@ -2946,7 +2946,7 @@ S 'control weather' 50 A
 G female
 #36433
 sword katana samurai катана~
-@eng katana@rus {wкатана {x~
+@eng katana@rus {wкатана{x~
 @eng A Sword of samurai humms quietly in your hands.@rus Меч (sword) Самурая тихо звенит в твоих руках.~
 steel~
 weapon AHM AN
@@ -2955,7 +2955,7 @@ sword 5 10 slash DE
 G female
 #36434
 kimono кимоно~
-@eng kimono@rus {w кимоно {x~
+@eng kimono@rus {w кимоно{x~
 @eng Kimono hangs here.@rus Кимоно (kimono) висит тут.~
 silk~
 armor I AD
@@ -2966,7 +2966,7 @@ A
 G none
 #36435
 coins кучка~
-@eng some coins@rus {Y()))~~несколько~~ ~~монет~~ {x~
+@eng some coins@rus {Y()))~~несколько~~ ~~монет~~{x~
 @eng A pile of coins lies here.@rus Кучка монет (coins) лежит здесь.~
 unknown~
 money A A
@@ -2975,7 +2975,7 @@ money A A
 G plural
 #36436
 map town карта~
-@eng map of the Festival Town@rus {w~~карта~~ Города Фестивалей {x~
+@eng map of the Festival Town@rus {w~~карта~~ Города Фестивалей{x~
 @eng A brightly colored map lies here.@rus Ярко раскрашенная карта (map) лежит здесь.~
 paper~
 map 0 AO
@@ -3114,7 +3114,7 @@ paper~
 G female
 #36437
 entrance дверь door~
-@eng entrance to the tower@rus {D~~вход~~ в башню {x~
+@eng entrance to the tower@rus {D~~вход~~ в башню{x~
 @eng An opened door beckons you to enter the tower.@rus Открытая дверь (door) приглашает тебя войти в башню.~
 unknown~
 portal 0 0
@@ -3123,7 +3123,7 @@ portal 0 0
 G none
 #36438
 robe brown ряса~
-@eng brown robe@rus {Rряса {x~
+@eng brown robe@rus {Rряса{x~
 @eng A simple brown robe hangs on the branch.@rus Простая бурая ряса (robe) висит на ветке.~
 wool~
 armor I AD

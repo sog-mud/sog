@@ -90,7 +90,6 @@ Skill 'protective shield' 26 1 0
 Skill 'quantum spike' 41 1 0
 Skill 'recharge' 29 1 0
 Skill 'refresh' 14 1 0
-Skill 'sanctuary' 36 1 0
 Skill 'scream' 52 1 0
 Skill 'shield' 20 1 0
 Skill 'shielding' 57 1 0
@@ -122,6 +121,7 @@ Skill 'staves' 1 1 0
 Skill 'trance' 14 1 0
 Skill 'wands' 1 1 0
 Skill 'water breathing' 49 1 0
+Skill 'ice sphere' 36 2 1
 End
 
 #POSE

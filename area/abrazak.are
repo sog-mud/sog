@@ -427,6 +427,10 @@ sword 100 100 slash CDE
 99 50 0 P
 A
 8 100
+A
+23 -1000
+A
+24 -1000
 F A 19 500 u
 A
 17 -1000
@@ -670,6 +674,16 @@ wood~
 wand CEGJLTYa AOP
 50 10 10 'sand storm' 0
 20 10 0 P
+G none
+#15101
+aqualung~
+@eng a rubber aqualung@rus резиновый акваланг~
+@eng The rubber aqualung is here.@rus Небольшой резиновый акваланг ожидает своего владельца.~
+rubber~
+clothing GRTa AE
+0 0 0 0 0
+1 10 0 P
+F A 0 0 bz
 G none
 #15113
 bucket rose~
