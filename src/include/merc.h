@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.234.2.41 2004-02-18 22:26:52 fjoe Exp $
+ * $Id: merc.h,v 1.234.2.42 2004-02-18 23:23:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1339,7 +1339,7 @@ struct mob_index_data
 	int			wealth;
 	flag32_t		form;
 	flag32_t		parts;
-	flag32_t		size;
+	int			size;		/* should be signed */
 	const char *		material;
 	flag32_t		practicer;
 	int			clan;
@@ -1456,7 +1456,7 @@ struct char_data
 	/* parts stuff */
 	flag32_t		form;
 	flag32_t		parts;
-	flag32_t		size;
+	int			size;		/* should be signed */
 	const char *		material;
 
 	bool			riding;		/* mount data */
