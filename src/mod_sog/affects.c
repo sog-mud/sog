@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.37 2000-03-21 14:57:35 fjoe Exp $
+ * $Id: affects.c,v 1.38 2000-04-06 05:40:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -724,62 +724,55 @@ void affect_join(CHAR_DATA *ch, AFFECT_DATA *paf)
 	affect_to_char(ch, paf);
 }
 
+/*----------------------------------------------------------------------------
+ * room affects stuff
+ */
+
 /*
  * Apply or remove an affect to a room.
  */
-void affect_modify_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf, bool fAdd)
+void
+affect_modify_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf, bool fAdd)
 {
 	int mod;
 
-	mod = paf->modifier;
-
-	if (fAdd)
-	{
-		switch (paf->where)
-		{
+	if (fAdd) {
+		switch (paf->where) {
 		case TO_ROOM_AFFECTS:
-		      SET_BIT(room->affected_by, paf->bitvector);
-		    break;
-		case TO_ROOM_FLAGS:
-		      SET_BIT(room->room_flags, paf->bitvector);
-		    break;
-		case TO_ROOM_CONST:
-		    break;
+			SET_BIT(room->affected_by, paf->bitvector);
+			break;
 		}
-	}
-	else
-	{
-	    switch (paf->where)
-	    {
-	    case TO_ROOM_AFFECTS:
-	          REMOVE_BIT(room->affected_by, paf->bitvector);
-	        break;
-		case TO_ROOM_FLAGS:
-		      REMOVE_BIT(room->room_flags, paf->bitvector);
-		    break;
-	    case TO_ROOM_CONST:
-	        break;
-	    }
-		mod = 0 - mod;
+		mod = paf->modifier;
+	} else {
+		switch (paf->where) {
+		case TO_ROOM_AFFECTS:
+			REMOVE_BIT(room->affected_by, paf->bitvector);
+			break;
+		}
+		mod = -paf->modifier;
 	}
 
-	switch (INT(paf->location))
-	{
+	switch (INT(paf->location)) {
 	default:
-		log(LOG_ERROR, "affect_modify_room: unknown location %d", INT(paf->location));
-		return;
-
-	case APPLY_ROOM_NONE:					break;
-	case APPLY_ROOM_HEAL:	room->heal_rate   += mod;	break;
-	case APPLY_ROOM_MANA:	room->mana_rate   += mod;	break;
-	case APPLY_ROOM_SECT:	room->sector_type += mod;	break;
+		log(LOG_ERROR, "affect_modify_room: unknown location %d",
+		    INT(paf->location));
+		break;
+	case APPLY_ROOM_NONE:
+		break;
+	case APPLY_ROOM_HEAL:
+		room->heal_rate_mod += mod;
+		break;
+	case APPLY_ROOM_MANA:
+		room->mana_rate_mod += mod;
+		break;
 	}
 }
 
 /*
  * Give an affect to a room.
  */
-void affect_to_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf)
+void
+affect_to_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf)
 {
 	AFFECT_DATA *paf_new;
 
@@ -794,99 +787,75 @@ void affect_to_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf)
 	}
 
 	paf_new = aff_new();
-
 	*paf_new	= *paf;
 	paf_new->next	= room->affected;
 	room->affected	= paf_new;
-
 	affect_modify_room(room, paf_new, TRUE);
 }
 
-void affect_check_room(ROOM_INDEX_DATA *room,int where,int vector)
+static void
+affect_check_room(ROOM_INDEX_DATA *room, int where)
 {
 	AFFECT_DATA *paf;
 
-	if (vector == 0)
-		return;
-
-	for (paf = room->affected; paf != NULL; paf = paf->next)
-		if (paf->where == where && paf->bitvector == vector)
-		{
-		    switch (where)
-		    {
-		        case TO_ROOM_AFFECTS:
-			      SET_BIT(room->affected_by,vector);
-			    break;
-			case TO_ROOM_FLAGS:
-		      	      SET_BIT(room->room_flags, vector);
-		    	    break;
-		        case TO_ROOM_CONST:
-			    break;
-		    }
-		    return;
+	for (paf = room->affected; paf != NULL; paf = paf->next) {
+		if (paf->where == where) {
+			switch (where) {
+			case TO_ROOM_AFFECTS:
+				SET_BIT(room->affected_by, paf->where);
+				break;
+			}
 		}
+	}
 }
 
 /*
  * Remove an affect from a room.
  */
-void affect_remove_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf)
+void
+affect_remove_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf)
 {
-	int where;
-	int vector;
+	AFFECT_DATA *af;
+	AFFECT_DATA *af_prev = NULL;
 
-	if (room->affected == NULL) {
-		log(LOG_ERROR, "affect_remove_room: no affect");
+/* remove `paf' from this room affects */
+	for (af = room->affected; af != NULL; af = af->next) {
+		if (af == paf)
+			break;
+		af_prev = af;
+	}
+
+	if (af == NULL) {
+		log(LOG_ERROR, "affect_remove_room: cannot find paf");
 		return;
 	}
 
-	affect_modify_room(room, paf, FALSE);
-	where = paf->where;
-	vector = paf->bitvector;
-
-	if (paf == room->affected)
-		room->affected	= paf->next;
+	if (af_prev == NULL)
+		room->affected = paf->next;
 	else
-	{
-		AFFECT_DATA *prev;
+		af_prev->next = paf->next;
 
-		for (prev = room->affected; prev != NULL; prev = prev->next)
-		{
-		    if (prev->next == paf)
-		    {
-			prev->next = paf->next;
-			break;
-		    }
-		}
-
-		if (prev == NULL)
-		{
-		    log(LOG_ERROR, "affect_remove_room: cannot find paf");
-		    return;
-		}
-	}
-
-	if (!room->affected) {
-		ROOM_INDEX_DATA *prev;
-
-		if (top_affected_room  == room)
-			top_affected_room = room->aff_next;
-		else {
-			for(prev = top_affected_room;
-				prev->aff_next && prev->aff_next != room;
-				prev = prev->aff_next);
-			if (prev == NULL) {
-				log(LOG_ERROR, "affect_remove_room: cannot find room");
-				return;
-			}
-			prev->aff_next = room->aff_next;
-		}
-		room->aff_next = NULL;
-	}
-
+	affect_modify_room(room, paf, FALSE);
+	affect_check_room(room, paf->where);
 	aff_free(paf);
 
-	affect_check_room(room,where,vector);
+/* remove room from affected rooms list if there are no other affects */
+	if (room->affected == NULL) {
+		ROOM_INDEX_DATA *r;
+		ROOM_INDEX_DATA *r_prev = NULL;
+
+		for (r = top_affected_room; r != NULL; r = r->next) {
+			if (r == room)
+				break;
+			r_prev = r;
+		}
+
+		if (r_prev == NULL)
+			top_affected_room = room->aff_next;
+		else
+			r_prev->next = room->next;
+		room->aff_next = NULL;
+	}
 }
 
 /*
@@ -953,6 +922,7 @@ void strip_raff_owner(CHAR_DATA *ch)
 		}
 	}
 }
+
 /*----------------------------------------------------------------------------
  * show affects stuff
  */

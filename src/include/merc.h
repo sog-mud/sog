@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.299 2000-04-03 14:24:18 fjoe Exp $
+ * $Id: merc.h,v 1.300 2000-04-06 05:40:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -592,14 +592,11 @@ struct spec_type
 
 /* where definitions for room */
 #define TO_ROOM_AFFECTS 0
-#define TO_ROOM_CONST	1
-#define TO_ROOM_FLAGS	2
 
 /* room applies */
 #define APPLY_ROOM_NONE 	0
 #define APPLY_ROOM_HEAL 	1
 #define APPLY_ROOM_MANA 	2
-#define APPLY_ROOM_SECT 	3
 
 /*
  * *AFF* bits for rooms
@@ -1394,7 +1391,7 @@ struct pc_data
 	int			questobj;
 	int			questmob;
 	qtrouble_t *		qtrouble;
-	ROOM_INDEX_DATA *	questroom;
+	int			qroom_vnum;	/* quest location */
 
 	const char *		race;
 	int			pc_killed;
@@ -1424,7 +1421,7 @@ struct pc_data
 
 	int			idle_timer;
 
-	ROOM_INDEX_DATA *	was_in_room;
+	int			was_in_vnum;	/* room vnum char was in */
 	CHAR_DATA * 		pet;
 	CHAR_DATA *	 	guarding;
 	CHAR_DATA * 		guarded_by;
@@ -1577,6 +1574,7 @@ struct reset_data
 {
 	RESET_DATA *	next;
 	char		command;
+	int		arg0;
 	int		arg1;
 	int		arg2;
 	int		arg3;
@@ -1641,11 +1639,16 @@ struct room_index_data
 	int			light;
 	flag_t			sector_type;
 	int			heal_rate;
+	int			heal_rate_mod;
 	int			mana_rate;
+	int			mana_rate_mod;
 	ROOM_HISTORY_DATA * 	history;
 	AFFECT_DATA *		affected;
 	flag_t			affected_by;
 };
+
+#define GET_HEAL_RATE(r)	((r)->heal_rate + (r)->heal_rate_mod)
+#define GET_MANA_RATE(r)	((r)->mana_rate + (r)->mana_rate_mod)
 
 /*
  * MOBprog definitions

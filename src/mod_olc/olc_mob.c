@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.64 2000-03-27 23:53:51 avn Exp $
+ * $Id: olc_mob.c,v 1.65 2000-04-06 05:40:50 fjoe Exp $
  */
 
 #include "olc.h"
@@ -81,6 +81,7 @@ DECLARE_OLC_FUN(mobed_fvnum		);
 DECLARE_OLC_FUN(mobed_resist		);
 DECLARE_OLC_FUN(mobed_addaffect		);
 DECLARE_OLC_FUN(mobed_delaffect		);
+DECLARE_OLC_FUN(mobed_del		);
 
 DECLARE_VALIDATE_FUN(validate_fvnum	);
 
@@ -136,6 +137,9 @@ olc_cmd_t olc_cmds_mob[] =
 	{ "resist",	mobed_resist					},
 	{ "addaffect",	mobed_addaffect					},
 	{ "delaffect",	mobed_delaffect					},
+
+	{ "delete_mo",	olced_spell_out					},
+	{ "delete_mob", mobed_del					},
 
 	{ "commands",	show_commands					},
 	{ "version",	show_version					},
@@ -1260,6 +1264,81 @@ OLC_FUN(mobed_delaffect)
 	MOB_INDEX_DATA *mob;
 	EDIT_MOB(ch, mob);
 	return olced_delaffect(ch, argument, cmd, &mob->affected);
+}
+
+OLC_FUN(mobed_del)
+{
+	MOB_INDEX_DATA *pMob;
+	CHAR_DATA *mob, *mob_next;
+	int i;
+	bool error = FALSE;
+
+	EDIT_MOB(ch, pMob);
+
+	if (olced_busy(ch, ED_MOB, pMob, NULL))
+		return FALSE;
+
+/* check that `pMob' is not in resets */
+	for (i = 0; i < MAX_KEY_HASH; i++) {
+		ROOM_INDEX_DATA *room;
+
+		for (room = room_index_hash[i]; room; room = room->next) {
+			int j = 0;
+			RESET_DATA *reset;
+
+			for (reset = room->reset_first; reset != NULL;
+							reset = reset->next) {
+				j++;
+
+				if (reset->command != 'M'
+				||  reset->arg1 != pMob->vnum)
+					continue;
+
+				if (!error) {
+					error = TRUE;
+					char_puts("MobEd: can't delete mob "
+						  "index: delete the "
+						  "following resets:\n", ch);
+				}
+
+				char_printf(ch, "MobEd: room %d, reset %d\n",
+					    room->vnum, j);
+			}
+		}
+	}
+
+	if (error)
+		return FALSE;
+
+/* delete all the instances of mob index */
+	for (mob = npc_list; mob != NULL; mob = mob_next) {
+		mob_next = mob->next;
+
+		if (mob->pMobIndex == pMob)
+			extract_char(mob, 0);
+	}
+
+	TOUCH_VNUM(pMob->vnum);
+
+/* delete mob index itself */
+	i = pMob->vnum % MAX_KEY_HASH;
+	if (pMob == mob_index_hash[i])
+		mob_index_hash[i] = pMob->next;
+	else {
+		MOB_INDEX_DATA *prev;
+
+		for (prev = mob_index_hash[i]; prev; prev = prev->next)
+			if (prev->next == pMob)
+				break;
+
+		if (prev)
+			prev->next = pMob->next;
+	}
+
+	free_mob_index(pMob);
+	char_puts("MobEd: Mob index deleted.\n", ch);
+	edit_done(ch->desc);
+	return FALSE;
 }
 
 /* Local functions */

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.81 2000-01-04 19:27:56 fjoe Exp $
+ * $Id: olc_obj.c,v 1.82 2000-04-06 05:40:50 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -336,7 +336,6 @@ OLC_FUN(objed_del)
 {
 	OBJ_INDEX_DATA *pObj;
 	OBJ_DATA *obj, *obj_next;
-	AREA_DATA *area;
 	int i;
 	bool error = FALSE;
 
@@ -353,7 +352,7 @@ OLC_FUN(objed_del)
 			int j = 0;
 			RESET_DATA *reset;
 
-			for (reset = room->reset_first; reset;
+			for (reset = room->reset_first; reset != NULL;
 							reset = reset->next) {
 				bool found = FALSE;
 
@@ -400,15 +399,14 @@ OLC_FUN(objed_del)
 	 * extract_obj with XO_F_NORECURSE is safe
 	 * (cannot trash obj_next)
 	 */
-	for (obj = object_list; obj; obj = obj_next) {
+	for (obj = object_list; obj != NULL; obj = obj_next) {
 		obj_next = obj->next;
 
 		if (obj->pObjIndex == pObj)
 			extract_obj(obj, XO_F_NORECURSE);
 	}
 
-	if ((area = area_vnum_lookup(pObj->vnum)))
-		TOUCH_AREA(area);
+	TOUCH_VNUM(pObj->vnum);
 
 /* delete obj index itself */
 	i = pObj->vnum % MAX_KEY_HASH;

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.217 2000-03-28 07:01:37 fjoe Exp $
+ * $Id: db.c,v 1.218 2000-04-06 05:41:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -899,6 +899,11 @@ void reset_room(ROOM_INDEX_DATA *pRoom, int flags)
 				break;
 			}
 
+			if (number_percent() < pReset->arg0) {
+				lobj = FALSE;
+				break;
+			}
+
 			last_obj = create_obj(pObjIndex, 0);
 			if (pReset->command == 'G'
 			&&  last_mob->pMobIndex->pShop) /* Shop-keeper? */
@@ -921,6 +926,11 @@ void reset_room(ROOM_INDEX_DATA *pRoom, int flags)
 			 */
 			if ((pObjIndex = get_obj_index(pReset->arg1)) == NULL) {
 				log(LOG_ERROR, "%d: no such obj", pReset->arg1);
+				lobj = FALSE;
+				break;
+			}
+
+			if (number_percent() < pReset->arg0) {
 				lobj = FALSE;
 				break;
 			}
@@ -969,6 +979,9 @@ void reset_room(ROOM_INDEX_DATA *pRoom, int flags)
 				limit = 999;
 			else
 				limit = pReset->arg2;
+
+			if (number_percent() < pReset->arg0)
+				break;
 
 			if (pRoom->area->nplayer > 0
 			&&  !IS_SET(flags, RESET_F_NOPCHECK))

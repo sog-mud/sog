@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.268 2000-04-01 13:18:59 kostik Exp $
+ * $Id: fight.c,v 1.269 2000-04-06 05:40:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -77,7 +77,7 @@ int	xp_compute		(CHAR_DATA *gch, CHAR_DATA *victim,
 				 int total_levels, int members);
 bool	is_safe 		(CHAR_DATA *ch, CHAR_DATA *victim);
 
-void	make_corpse		(CHAR_DATA *ch);
+OBJ_DATA *make_corpse		(CHAR_DATA *ch);
 void	mob_hit 		(CHAR_DATA *ch, CHAR_DATA *victim,
 				 const char *dt);
 void	form_hit 		(CHAR_DATA *ch, CHAR_DATA *victim,
@@ -1145,10 +1145,9 @@ void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 	/*
 	 * IS_NPC victim is not valid after raw_kill
 	 */
-	raw_kill(ch, victim);
+	corpse = raw_kill(ch, victim);
 
-	if (!IS_NPC(ch) && vnpc && vroom == ch->in_room
-	&&  (corpse = get_obj_list(ch, "corpse", ch->in_room->contents))) {
+	if (!IS_NPC(ch) && vnpc && vroom == ch->in_room && corpse) {
 		flag_t plr_flags = PC(ch)->plr_flags;
 
 		if (IS_VAMPIRE(ch) && !IS_IMMORTAL(ch)) {
@@ -2153,7 +2152,8 @@ void stop_fighting(CHAR_DATA *ch, bool fBoth)
 /*
  * Make a corpse out of a character.
  */
-void make_corpse(CHAR_DATA *ch)
+OBJ_DATA *
+make_corpse(CHAR_DATA *ch)
 {
 	OBJ_DATA *corpse = NULL;
 	OBJ_DATA *obj;
@@ -2230,6 +2230,7 @@ void make_corpse(CHAR_DATA *ch)
 
 	if (corpse)
 		obj_to_room(corpse, ch->in_room);
+	return corpse;
 }
 
 /*
@@ -2336,12 +2337,14 @@ void death_cry(CHAR_DATA *ch)
 	}
 }
 
-void raw_kill(CHAR_DATA *ch, CHAR_DATA *victim)
+OBJ_DATA *
+raw_kill(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	CHAR_DATA *vch, *vch_next;
 	OBJ_DATA *obj, *obj_next;
 	int i;
 	OBJ_DATA *tattoo, *clanmark;
+	OBJ_DATA *corpse = NULL;
 
 	if (is_affected(victim, "resurrection")) {
 		act_puts("Yess! Your Great Master resurrects you!",
@@ -2361,7 +2364,7 @@ void raw_kill(CHAR_DATA *ch, CHAR_DATA *victim)
 			char_puts("Your muscles stop responding.\n", ch);
 			DAZE_STATE(ch, victim->level);
 		}
-		return;
+		return NULL;
 	}
 
 	for (obj = victim->carrying; obj != NULL; obj = obj_next) {
@@ -2369,7 +2372,7 @@ void raw_kill(CHAR_DATA *ch, CHAR_DATA *victim)
 		if (obj->wear_loc != WEAR_NONE
 		&&  oprog_call(OPROG_DEATH, obj, victim, NULL)) {
 			victim->position = POS_STANDING;
-			return;
+			return NULL;
 		}
 	}
 
@@ -2389,7 +2392,7 @@ void raw_kill(CHAR_DATA *ch, CHAR_DATA *victim)
 		obj_from_char(tattoo);
 	if (clanmark != NULL)
 		obj_from_char(clanmark);
-	make_corpse(victim);
+	corpse = make_corpse(victim);
 
 	/*
 	 * don't remember killed victims anymore
@@ -2408,7 +2411,7 @@ void raw_kill(CHAR_DATA *ch, CHAR_DATA *victim)
 			extract_obj(clanmark, 0);
 		victim->pMobIndex->killed++;
 		extract_char(victim, 0);
-		return;
+		return corpse;
 	}
 
 	SET_BIT(PC(victim)->plr_flags, PLR_GHOST);
@@ -2478,6 +2481,8 @@ void raw_kill(CHAR_DATA *ch, CHAR_DATA *victim)
 		if (NPC(vch)->last_fought == victim)
 			NPC(vch)->last_fought = NULL;
 	}
+
+	return corpse;
 }
 
 void group_gain(CHAR_DATA *ch, CHAR_DATA *victim)

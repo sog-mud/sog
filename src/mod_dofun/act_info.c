@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.339 2000-04-05 06:04:35 fjoe Exp $
+ * $Id: act_info.c,v 1.340 2000-04-06 05:40:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3434,7 +3434,7 @@ void do_camp(CHAR_DATA *ch, const char *argument)
 	af.owner	= NULL;
 	affect_to_char(ch, &af);
 
-	af.where	= TO_ROOM_CONST;
+	af.where	= TO_ROOM_AFFECTS;
 	af.type		= "camp";
 	af.level	= ch->level;
 	af.duration	= ch->level / 20;

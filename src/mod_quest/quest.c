@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.7 2000-02-20 10:36:41 avn Exp $
+ * $Id: quest.c,v 1.8 2000-04-06 05:40:58 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -87,6 +87,6 @@ void quest_cancel(CHAR_DATA *ch)
 	PC(ch)->questgiver = 0;
 	PC(ch)->questmob = 0;
 	PC(ch)->questobj = 0;
-	PC(ch)->questroom = NULL;
+	PC(ch)->qroom_vnum = 0;
 }
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.6 2000-03-27 09:25:10 fjoe Exp $
+ * $Id: updfun.c,v 1.7 2000-04-06 05:40:56 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -759,14 +759,13 @@ char_update_cb(void *vo, va_list ap)
 		}
 
 		if (++pc->idle_timer >= 12) {
-			if (pc->was_in_room == NULL) {
-				pc->was_in_room = ch->in_room;
+			if (!pc->was_in_vnum) {
+				pc->was_in_vnum = ch->in_room->vnum;
 				if (ch->fighting != NULL)
 					stop_fighting(ch, TRUE);
 				act("$n disappears into the void.",
 				    ch, NULL, NULL, TO_ROOM);
-				char_puts("You disappear "
-					  "into the void.\n", ch);
+				char_puts("You disappear into the void.\n", ch);
 				char_save(ch, 0);
   				char_from_room(ch);
 				char_to_room(ch, get_room_index(ROOM_VNUM_LIMBO));
@@ -775,7 +774,7 @@ char_update_cb(void *vo, va_list ap)
 			}
 		}
 
-		if (!pc->was_in_room) {
+		if (!pc->was_in_vnum) {
 			gain_condition(ch, COND_DRUNK, -1);
 			if (IS_VAMPIRE(ch))
 				gain_condition(ch, COND_BLOODLUST, -1);
@@ -1593,7 +1592,7 @@ hit_gain(CHAR_DATA *ch)
 			gain = 0;
 	}
 
-	gain = gain * ch->in_room->heal_rate / 100;
+	gain = gain * GET_HEAL_RATE(ch->in_room) / 100;
 	
 	if (ch->on != NULL && ch->on->item_type == ITEM_FURNITURE)
 		gain = gain * INT(ch->on->value[3]) / 100;
@@ -1670,7 +1669,7 @@ mana_gain(CHAR_DATA *ch)
 			gain = 0;
 	}
 
-	gain = gain * ch->in_room->mana_rate / 100;
+	gain = gain * GET_MANA_RATE(ch->in_room) / 100;
 
 	if (ch->on != NULL && ch->on->item_type == ITEM_FURNITURE)
 		gain = gain * INT(ch->on->value[4]) / 100;
@@ -1727,7 +1726,7 @@ move_gain(CHAR_DATA *ch)
 			gain = 3;
 	}
 
-	gain = gain * ch->in_room->heal_rate/100;
+	gain = gain * GET_HEAL_RATE(ch->in_room) / 100;
 
 	if (ch->on != NULL && ch->on->item_type == ITEM_FURNITURE)
 		gain = gain * INT(ch->on->value[3]) / 100;

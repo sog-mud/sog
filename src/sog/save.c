@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.160 2000-04-03 14:24:28 fjoe Exp $
+ * $Id: save.c,v 1.161 2000-04-06 05:40:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -253,9 +253,10 @@ fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 	fprintf(fp, "Levl %d\n", ch->level);
 	fprintf(fp, "Room %d\n",
 		(ch->in_room == get_room_index(ROOM_VNUM_LIMBO) &&
-		 !IS_NPC(ch) && PC(ch)->was_in_room != NULL) ?
-			PC(ch)->was_in_room->vnum : ch->in_room == NULL ?
-			3001 : ch->in_room->vnum);
+		 !IS_NPC(ch) && PC(ch)->was_in_vnum) ?
+			PC(ch)->was_in_vnum :
+		 ch->in_room == NULL ?
+			ROOM_VNUM_TEMPLE : ch->in_room->vnum);
 
 	fprintf(fp, "HMV %d %d %d %d %d %d\n",
 		ch->hit, ch->perm_hit,

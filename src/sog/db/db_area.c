@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.97 2000-03-29 07:24:38 fjoe Exp $
+ * $Id: db_area.c,v 1.98 2000-04-06 05:41:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -464,7 +464,7 @@ DBLOAD_FUN(load_resets)
 
 		pReset		= reset_new();
 		pReset->command	= letter;
-		/* if_flag */	  fread_number(fp);
+		pReset->arg0	= fread_number(fp);
 		pReset->arg1	= fread_number(fp);
 		pReset->arg2	= fread_number(fp);
 		pReset->arg3	= (letter == 'G' || letter == 'R') ?

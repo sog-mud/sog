@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.76 2000-02-10 14:08:43 fjoe Exp $
+ * $Id: olc_room.c,v 1.77 2000-04-06 05:40:50 fjoe Exp $
  */
 
 #include "olc.h"
@@ -54,6 +54,7 @@ DECLARE_OLC_FUN(roomed_room		);
 DECLARE_OLC_FUN(roomed_sector		);
 DECLARE_OLC_FUN(roomed_reset		);
 DECLARE_OLC_FUN(roomed_clone		);
+DECLARE_OLC_FUN(roomed_del		);
 
 olc_cmd_t olc_cmds_room[] =
 {
@@ -80,10 +81,12 @@ olc_cmd_t olc_cmds_room[] =
 	{ "up",		roomed_up					},
 	{ "down",	roomed_down					},
 
-/* New reset commands. */
 	{ "room",	roomed_room,	NULL,		room_flags	},
 	{ "sector",	roomed_sector,	NULL,		sector_types	},
 	{ "reset",	roomed_reset					},
+
+	{ "delete_roo",	olced_spell_out					},
+	{ "delete_room",roomed_del					},
 
 	{ "commands",	show_commands					},
 	{ "version",	show_version					},
@@ -485,6 +488,87 @@ OLC_FUN(roomed_clone)
 	return TRUE;
 }
 
+OLC_FUN(roomed_del)
+{
+	ROOM_INDEX_DATA *pRoom;
+	ROOM_INDEX_DATA *r, *r_prev;
+	int i;
+	AFFECT_DATA *paf, *paf_next;
+
+	EDIT_ROOM(ch, pRoom);
+
+	if (olced_busy(ch, ED_ROOM, pRoom, NULL))
+		return FALSE;
+
+	if (pRoom->reset_first != NULL) {
+		char_puts("RoomEd: delete resets in this room first.\n", ch);
+		return FALSE;
+	}
+
+	if (pRoom->people != ch
+	||  pRoom->people->next_in_room != NULL) {
+		char_puts("RoomEd: there are other characters in this room.\n", ch);
+		return FALSE;
+	}
+
+	if (pRoom->contents != NULL) {
+		char_puts("RoomEd: move objects from this room away first.\n", ch);
+		return FALSE;
+	}
+
+/* remove affects from this room (slightly suboptimal) */
+	for (paf = pRoom->affected; paf != NULL; paf = paf_next) {
+		paf_next = paf->next;
+		affect_remove_room(pRoom, paf);
+	}
+
+/* remove from room index hash and remove from exits */
+	for (i = 0; i < MAX_KEY_HASH; i++) {
+		bool found = FALSE;
+
+		r_prev = NULL;
+		for (r = room_index_hash[i]; r != NULL; r = r->next) {
+			int door;
+
+			if (!found) {
+				if (r == pRoom) {
+					found = TRUE;
+					continue;
+				}
+				r_prev = r;
+			}
+
+			for (door = 0; door < MAX_DIR; door++) {
+				EXIT_DATA *pExit = r->exit[door];
+
+				if (pExit == NULL
+				||  pExit->to_room.r != pRoom)
+					continue;
+
+				pExit->to_room.r = NULL;
+			}
+		}
+
+		if (found) {
+			if (r_prev)
+				r_prev->next = pRoom->next;
+			else
+				room_index_hash[i] = pRoom->next;
+		}
+	}
+
+	char_puts("RoomEd: Room index deleted.\n", ch);
+	edit_done(ch->desc);
+
+	char_from_room(ch);
+	char_to_room(ch, get_room_index(ROOM_VNUM_LIMBO));
+	dofun("look", ch, str_empty);
+
+	TOUCH_VNUM(pRoom->vnum);
+	free_room_index(pRoom);
+	return FALSE;
+}
+
 static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		       olc_cmd_t *cmd, int door)
 {
@@ -835,8 +919,9 @@ void display_resets(CHAR_DATA *ch)
 			}
 
 			last_obj = r;
-			buf_printf(buf, "O[%5d] %-26.26s\n",
-				   r->arg1, mlstr_mval(&obj->short_descr));
+			buf_printf(buf, "O[%5d:%3d%%] %-26.26s\n",
+				   r->arg1, 100 - r->arg0,
+				   mlstr_mval(&obj->short_descr));
 			break;
 
 		case 'P':
@@ -861,8 +946,9 @@ void display_resets(CHAR_DATA *ch)
 				break;
 			}
 
-			buf_printf(buf, "P[%5d] %-26.26s <inside> [%2d-%2d]\n",
-				   r->arg1, mlstr_mval(&obj->short_descr),
+			buf_printf(buf, "P[%5d:%3d%%] %-26.26s <inside> [%2d-%2d]\n",
+				   r->arg1, 100 - r->arg0,
+				   mlstr_mval(&obj->short_descr),
 				   r->arg2, r->arg4);
 			break;
 
@@ -879,9 +965,10 @@ void display_resets(CHAR_DATA *ch)
 			}
 
 			last_obj = r;
-			buf_printf(buf, "%s%c[%5d] %-26.26s <%s>\n",
+			buf_printf(buf, "%s%c[%5d:%3d%%] %-26.26s <%s>\n",
 				   tab, r->command,
-				   r->arg1, mlstr_mval(&obj->short_descr),
+				   r->arg1, 100 - r->arg0,
+				   mlstr_mval(&obj->short_descr),
 				   flag_string(wear_loc_strings, r->command == 'G' ?  WEAR_NONE : r->arg3));
 			break;
 
@@ -951,7 +1038,7 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 		}
 
 		if ((reset = reset_lookup(room, atoi(arg2))) == NULL) {
-			char_printf(ch, "%s: no resets with such num in this room.\n", arg1);
+			char_printf(ch, "%s: no resets with such num in this room.\n", arg2);
 			return;			
 		}
 
@@ -962,7 +1049,7 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (!str_cmp(arg1, "mob")) {
+	if (!str_prefix(arg1, "mob")) {
 		/*
 		 * mob reset
 		 * ---------
@@ -994,7 +1081,7 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (!str_cmp(arg1, "obj")) {
+	if (!str_prefix(arg1, "obj")) {
 		/*
 		 * obj reset
 		 * ---------
@@ -1106,7 +1193,7 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (!str_cmp(arg1, "random")) {
+	if (!str_prefix(arg1, "random")) {
 		int exit_num = atoi(arg2);
 		RESET_DATA *rnd_reset;
 
@@ -1123,6 +1210,49 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 		reset_add(room, rnd_reset, NULL);
 		TOUCH_AREA(room->area);
 		char_puts("Random exits reset added.\n", ch);
+		return;
+	}
+
+	if (!str_prefix(arg1, "probability")) {
+		/*
+		 * set probability of obj reset
+		 * ----------------------------
+		 */
+		int prob;
+		RESET_DATA *reset;
+
+		if (room->reset_first == NULL) {
+			char_puts("No resets in this room.\n", ch);
+			return;
+		}
+
+		if ((reset = reset_lookup(room, atoi(arg2))) == NULL) {
+			char_printf(ch, "%s: no resets with such num in this room.\n", arg1);
+			return;			
+		}
+
+		if (!is_number(arg3)
+		||  (prob = atoi(arg3)) < 0
+		||  prob > 100) {
+			char_printf(ch, "%s: Invalid argument.\n", arg3);
+			return;
+		}
+
+		switch (reset->command) {
+		case 'P':
+		case 'O':
+		case 'G':
+		case 'E':
+			reset->arg0 = 100 - prob;
+			TOUCH_AREA(room->area);
+			char_puts("Reset probability set.\n", ch);
+			break;
+		default:
+			char_printf(ch, "Reset #%s is not an obj reset.\n",
+				    arg2);
+			break;
+		}
+
 		return;
 	}
 

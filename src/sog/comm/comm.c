@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.225 2000-03-28 07:01:35 fjoe Exp $
+ * $Id: comm.c,v 1.226 2000-04-06 05:41:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2510,20 +2510,26 @@ void stop_idling(DESCRIPTOR_DATA *d)
 {
 	CHAR_DATA *ch = d->character;
 	PC_DATA *pc;
+	ROOM_INDEX_DATA *to_room;
 
 	if (ch == NULL
 	||  IS_NPC(ch)
 	||  d->connected != CON_PLAYING
-	||  (pc = PC(ch))->was_in_room == NULL
+	||  !(pc = PC(ch))->was_in_vnum
 	||  ch->in_room->vnum != ROOM_VNUM_LIMBO)
 		return;
 
+	to_room = get_room_index(pc->was_in_vnum);
+	if (to_room == NULL)
+		to_room = get_room_index(ROOM_VNUM_TEMPLE);
+
 	pc->idle_timer = 0;
+	pc->was_in_vnum = 0;
+
 	char_from_room(ch);
 	act("$N has returned from the void.",
-	    pc->was_in_room->people, NULL, ch, TO_ALL);
-	char_to_room(ch, pc->was_in_room);
-	pc->was_in_room = NULL;
+	    to_room->people, NULL, ch, TO_ALL);
+	char_to_room(ch, to_room);
 }
 
 void char_puts(const char *txt, CHAR_DATA *ch)

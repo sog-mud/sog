@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.210 2000-03-07 09:21:52 avn Exp $
+ * $Id: spellfun.c,v 1.211 2000-04-06 05:40:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -558,7 +558,7 @@ void spell_healing_light(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	af.where     = TO_ROOM_CONST;
+	af.where     = TO_ROOM_AFFECTS;
 	af.type      = sn;
 	af.level     = level;
 	af.duration  = level / 25;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.137 2000-04-03 14:24:23 fjoe Exp $
+ * $Id: quest.c,v 1.138 2000-04-06 05:40:48 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -380,20 +380,20 @@ static void quest_info(CHAR_DATA *ch, char* arg)
 		qinfoobj = get_obj_index(PC(ch)->questobj);
 		if (qinfoobj != NULL) {
 			OBJ_DATA *obj = create_obj(qinfoobj, 0);
+			ROOM_INDEX_DATA *qroom;
+
 			act("You are on a quest to recover the fabled {W$p{x!",
 			    ch, obj, NULL, TO_CHAR | ACT_FORMSH);
 			extract_obj(obj, 0);
 
-			if (PC(ch)->questroom) {
+			if (PC(ch)->qroom_vnum
+			&&  (qroom = get_room_index(PC(ch)->qroom_vnum))) {
 				act("That location is in general area of "
 				    "{W$T{x for {W$r{x.",
-				    ch,
-				    PC(ch)->questroom,
-				    PC(ch)->questroom->area->name, 
+				    ch, qroom, qroom->area->name,
 				    TO_CHAR);
 			}
-		}
-		else 
+		} else 
 			char_puts("You aren't currently on a quest.\n", ch);
 		return;
 	}
@@ -404,16 +404,17 @@ static void quest_info(CHAR_DATA *ch, char* arg)
 		questinfo = get_mob_index(PC(ch)->questmob);
 		if (questinfo != NULL) {
 			CHAR_DATA *mob = create_mob(questinfo);
+			ROOM_INDEX_DATA *qroom;
+
 			act("You are on a quest to slay the dreaded {W$N{x!",
 			    ch, NULL, mob, TO_CHAR | ACT_FORMSH);
 			extract_char(mob, 0);
 
-			if (PC(ch)->questroom) {
+			if (PC(ch)->qroom_vnum
+			&&  (qroom = get_room_index(PC(ch)->qroom_vnum))) {
 				act("That location is in general area of "
 				    "{W$T{x for {W$r{x.",
-				    ch,
-				    PC(ch)->questroom,
-				    PC(ch)->questroom->area->name, 
+				    ch, qroom, qroom->area->name,
 				    TO_CHAR);
 			}
 		} else 
@@ -594,7 +595,7 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 	}
 
 	victim = mobs[number_range(0, mob_count-1)];
-	PC(ch)->questroom = victim->in_room;
+	PC(ch)->qroom_vnum = victim->in_room->vnum;
 
 	if (chance(40)) { /* Quest to find an obj */
 		OBJ_DATA *eyed;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.80 2000-03-03 04:09:10 avn Exp $
+ * $Id: olc_area.c,v 1.81 2000-04-06 05:40:50 fjoe Exp $
  */
 
 #include "olc.h"
@@ -1220,7 +1220,8 @@ save_resets_room(FILE *fp, ROOM_INDEX_DATA *pRoomIndex, bool *pfound)
 		case 'O':
 			obj = get_obj_index(r->arg1);
 			room = get_room_index(r->arg3);
-			fprintf(fp, "O 0 %d 0 %d\t* %s (%s)\n", 
+			fprintf(fp, "O %d %d 0 %d\t* %s (%s)\n", 
+				r->arg0,
 				r->arg1,
 				r->arg3,
 				SHORT(obj), NAME(room));
@@ -1229,7 +1230,8 @@ save_resets_room(FILE *fp, ROOM_INDEX_DATA *pRoomIndex, bool *pfound)
 
 		case 'P':
 			obj = get_obj_index(r->arg1);
-			fprintf(fp, "P 0 %d %d 0 %d\t* %s: %s\n", 
+			fprintf(fp, "P %d %d %d 0 %d\t* %s: %s\n", 
+				r->arg0,
 				r->arg1,
 				r->arg2,
 				r->arg4,
@@ -1238,7 +1240,8 @@ save_resets_room(FILE *fp, ROOM_INDEX_DATA *pRoomIndex, bool *pfound)
 
 		case 'G':
 			obj = get_obj_index(r->arg1);
-			fprintf(fp, "G 0 %d 0\t\t*\t%s: %s\n",
+			fprintf(fp, "G %d %d 0\t\t*\t%s: %s\n",
+				r->arg0,
 				r->arg1,
 				SHORT(last_mob), SHORT(obj));
 			last_obj = obj;
@@ -1246,7 +1249,8 @@ save_resets_room(FILE *fp, ROOM_INDEX_DATA *pRoomIndex, bool *pfound)
 
 		case 'E':
 			obj = get_obj_index(r->arg1);
-			fprintf(fp, "E 0 %d 0 %d\t\t*\t%s<%s>: %s\n",
+			fprintf(fp, "E %d %d 0 %d\t\t*\t%s<%s>: %s\n",
+				r->arg0,
 				r->arg1,
 				r->arg3,
 				SHORT(last_mob),
@@ -1272,24 +1276,29 @@ save_resets_room(FILE *fp, ROOM_INDEX_DATA *pRoomIndex, bool *pfound)
 			break;
 
 		case 'O':
-			fprintf(fp, "O 0 %d 0 %d\n", 
+			fprintf(fp, "O %d %d 0 %d\n", 
+				r->arg0,
 				r->arg1,
 				r->arg3);
 			break;
 
 		case 'P':
-			fprintf(fp, "P 0 %d %d 0 %d\n", 
+			fprintf(fp, "P %d %d %d 0 %d\n", 
+				r->arg0,
 				r->arg1,
 				r->arg2,
 				r->arg4);
 			break;
 
 		case 'G':
-			fprintf(fp, "G 0 %d 0\n", r->arg1);
+			fprintf(fp, "G %d %d 0\n",
+				r->arg0,
+				r->arg1);
 			break;
 
 		case 'E':
-			fprintf(fp, "E 0 %d 0 %d\n",
+			fprintf(fp, "E %d %d 0 %d\n",
+				r->arg0,
 				r->arg1,
 				r->arg3);
 			break;

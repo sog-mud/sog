@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.183 2000-04-03 14:24:26 fjoe Exp $
+ * $Id: spellfun2.c,v 1.184 2000-04-06 05:40:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3664,7 +3664,7 @@ void spell_mind_light(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	return;
 	}
 
-	af.where     = TO_ROOM_CONST;
+	af.where     = TO_ROOM_AFFECTS;
 	af.type      = sn;
 	af.level     = level;
 	af.duration  = level / 30;
