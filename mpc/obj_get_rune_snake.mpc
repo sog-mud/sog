@@ -1,0 +1,19 @@
+/*
+ * $Id: obj_get_rune_snake.mpc,v 1.1 2004-02-12 21:08:00 sg Exp $
+ */
+
+if (affowner == actor)
+	return 0;
+if (!is_sn_affected_obj(obj, "snake rune"))
+	return 0;
+
+act("As you touch $p, a rune on it glows and snake appears.",
+actor, obj, NULL, TO_CHAR);
+act("Snake appears from rune on $p.", actor, obj, NULL, TO_ROOM);
+act("Snake from $p bites you!", actor, obj, NULL, TO_CHAR);
+act("Snake from $p bites $n!", actor, obj, NULL, TO_ROOM);
+
+inflict_effect("poison", actor, (actor->level + obj->level) / 2, obj->level);
+affect_strip_obj(obj, "snake rune");
+
+return 0;
