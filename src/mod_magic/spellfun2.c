@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.47 2001-10-25 18:53:09 tatyana Exp $
+ * $Id: spellfun2.c,v 1.139.2.48 2001-10-26 19:19:59 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1716,8 +1716,13 @@ void spell_golden_aura(int sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *vch = vo;
 
 	for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room) {
-		if (!is_same_group(vch, ch) || !IS_GOOD(vch))
+		if (!is_same_group(vch, ch)) 
 			continue;
+
+		if (!IS_GOOD(vch)) {
+			act("Only goods can be protected by golden aura.",
+		    	ch, NULL, NULL, TO_CHAR);
+		}
 
 		if (is_affected(vch, sn)) {
 			if (vch == ch)
