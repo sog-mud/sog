@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.219 1999-11-29 15:02:23 kostik Exp $
+ * $Id: fight.c,v 1.220 1999-11-30 06:12:30 kostik Exp $
  */
 
 /***************************************************************************
@@ -910,6 +910,8 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 			dam = (LEVEL(ch)/28 + 1) * dam + LEVEL(ch);
 		else if (IS_SKILL(dt, "vampiric bite"))
 			dam = (LEVEL(ch)/13 + 1) * dam + LEVEL(ch);
+		else if (IS_SKILL(dt, "twist"))
+			dam = dam * 3 / 2;
 		else if (IS_SKILL(dt, "charge"))
 			dam = (LEVEL(ch)/12 + 1) * dam + LEVEL(ch);
 		else if (IS_SKILL(dt, "cleave") && wield != NULL) {
@@ -997,6 +999,17 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 	} 
 
 	result = damage(ch, victim, dam, dt, dam_class, dam_flags);
+
+	if (ch->fighting == victim 
+	&& IS_SKILL(weapon_sn, "dagger") 
+	&& number_percent() < UMIN(get_skill(ch, "twist") / 8, 40)) {
+		act("You twist your dagger in $N's wound.",
+			ch, NULL, victim, TO_CHAR);
+		act("$n twists $s dagger in your wound.",
+			ch, NULL, victim, TO_ROOM);
+		one_hit(ch, victim, "twist", loc);
+		check_improve(ch, "twist", 6, TRUE);
+	}
 
 	/* vampiric bite gives hp to ch from victim */
 	if (!IS_SET(dam_flags, DAMF_HIT) && IS_SKILL(dt, "vampiric bite")) {
@@ -1109,6 +1122,17 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 			    victim, wield, NULL, TO_CHAR);
 			shock_effect(victim, wield->level/2, dam);
 			damage(ch, victim, dam, NULL, DAM_LIGHTNING, DAMF_NONE);
+		}
+
+		if (ch->fighting == victim 
+		&& IS_SKILL(weapon_sn, "dagger") 
+		&& number_percent() < get_skill(ch, "twist") / 8) {
+			act("You twist your dagger in $N's wound.",
+				ch, NULL, victim, TO_CHAR);
+			act("$n twists $s dagger in your wound.",
+				ch, NULL, victim, TO_ROOM);
+			one_hit(ch, victim, "twist", loc);
+			check_improve(ch, "twist", 6, TRUE);
 		}
 	}
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_spec.c,v 1.3 1999-11-27 09:52:50 fjoe Exp $
+ * $Id: act_spec.c,v 1.4 1999-11-30 06:12:29 kostik Exp $
  */
 
 #include <sys/types.h>
@@ -83,10 +83,19 @@ void do_specialize(CHAR_DATA* ch, const char* argument)
 	} else if (!str_prefix(argument, "hands")) {
 		weapon = "weapon_hands";
 		output = "hand to hand";
+	} else if (!str_prefix(argument, "daggers")) {
+		weapon = "weapon_dagger";
+		output = "dagger";
 	} else if (!str_prefix(argument, "whips")
 		|| !str_prefix(argument, "flails")) {
 		weapon = "weapon_whip";
 		output = "whip/flail";
+	} else if (!str_prefix(argument, "staves")
+		|| !str_prefix(argument, "staff")
+		|| !str_prefix(argument, "polearms")
+		|| !str_prefix(argument, "spears")) {
+		weapon = "weapon_spear";
+		output = "spear/staff/polearm";
 	} else {
 		dofun("help", ch, "'SPECIALIZE'");
 		return;

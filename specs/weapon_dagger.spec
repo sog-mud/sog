@@ -1,5 +1,5 @@
 #SPEC
-Name weapon_mace~
+Name weapon_dagger~
 Class weapon
 End
 
@@ -9,8 +9,8 @@ allow class_warrior~
 end
 
 #SKILL
-Skill 'head crush'
-Level 25
+Skill 'twist'
+Level 20
 Rating 2
 Min 1
 Adept 75
@@ -18,21 +18,12 @@ Max 100
 End
 
 #SKILL
-Skill 'mace'
+Skill 'dagger'
 Level 1
 Rating 1
 Min 1
 Adept 75
 Max 110
-End
-
-#SKILL
-Skill 'pound'
-Level 18
-Rating 2
-Min 1
-Adept 75
-Max 100
 End
 
 #$
