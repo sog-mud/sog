@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.c,v 1.50 2001-08-20 16:47:46 fjoe Exp $
+ * $Id: string_edit.c,v 1.51 2001-08-22 11:20:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -27,6 +27,8 @@
 #include <sog.h>
 
 static char *numlines(const char *, int dump_level);
+
+#define ACT_SEDIT_DUMP	(ACT_SEDIT | ACT_NOTRANS | ACT_NOFIXSH)
 
 /*****************************************************************************
  Name:		string_replace
@@ -251,8 +253,7 @@ string_add(CHAR_DATA *ch, const char *argument)
 			act_puts("Text so far:\n"
 				 "$t", ch,
 				 numlines(*ch->desc->pString, DL_COLOR), NULL,
-				 TO_CHAR | ACT_SEDIT | ACT_NOTRANS | ACT_NOLF,
-				 POS_DEAD);
+				 TO_CHAR | ACT_SEDIT_DUMP | ACT_NOLF, POS_DEAD);
 			return;
 		}
 
@@ -263,8 +264,7 @@ string_add(CHAR_DATA *ch, const char *argument)
 			act_puts("Text so far (preview):\n"
 				 "$t{x", ch,
 				 numlines(*ch->desc->pString, DL_NONE), NULL,
-				 TO_CHAR | ACT_SEDIT | ACT_NOTRANS | ACT_NOLF,
-				 POS_DEAD);
+				 TO_CHAR | ACT_SEDIT_DUMP | ACT_NOLF, POS_DEAD);
 			return;
 		}
 
@@ -287,14 +287,12 @@ string_add(CHAR_DATA *ch, const char *argument)
 				act_puts("'$t' replaced with '$T'.",
 				    ch, strdump(arg2, DL_COLOR),
 				    strdump(arg3, DL_COLOR),
-				    TO_CHAR | ACT_NOTRANS | ACT_SEDIT,
-				    POS_DEAD);
+				    TO_CHAR | ACT_SEDIT_DUMP, POS_DEAD);
 			} else {
 				act_puts("All occurences of '$t' replaced with '$T'.",
 				    ch, strdump(arg2, DL_COLOR),
 				    strdump(arg3, DL_COLOR),
-				    TO_CHAR | ACT_NOTRANS | ACT_SEDIT,
-				    POS_DEAD);
+				    TO_CHAR | ACT_SEDIT_DUMP, POS_DEAD);
 			}
 			return;
 		}
@@ -522,7 +520,7 @@ string_append(CHAR_DATA *ch, const char **pString)
 		 "-=======================================-\n"
 		 "$t",
 		 ch, numlines(*pString, DL_COLOR), NULL,
-		 TO_CHAR | ACT_SEDIT | ACT_NOTRANS | ACT_NOLF, POS_DEAD);
+		 TO_CHAR | ACT_SEDIT_DUMP | ACT_NOLF, POS_DEAD);
 }
 
 bool
