@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.234.2.36 2002-10-26 16:51:25 fjoe Exp $
+ * $Id: merc.h,v 1.234.2.37 2002-10-27 06:48:56 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1542,10 +1542,11 @@ struct pc_data
 	ROOM_INDEX_DATA	*	homepoint;
 
 	const char *		wanted_by;
-	CHAR_DATA * 		reply;		/* for do_reply */
-	note_t * 		pnote;
+	CHAR_DATA *		reply;		/* for do_reply */
+	CHAR_DATA *		retell;		/* for do_retell */
+	note_t *		pnote;
 
-	int 			exp;	/* total exp */
+	int			exp;	/* total exp */
 	int			exp_tl;	/* exp gained this level */
 
 	int			practice;

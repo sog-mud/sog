@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.187.2.37 2002-10-26 16:51:27 fjoe Exp $
+ * $Id: act_comm.c,v 1.187.2.38 2002-10-27 06:48:59 tatyana Exp $
  */
 
 /***************************************************************************
@@ -2332,7 +2332,8 @@ void do_toggle(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_ooc(CHAR_DATA *ch, const char *argument)
+void
+do_ooc(CHAR_DATA *ch, const char *argument)
 {
 	DESCRIPTOR_DATA *d;
 
@@ -2388,7 +2389,8 @@ void do_ooc(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_oocme(CHAR_DATA *ch, const char *argument)
+void
+do_oocme(CHAR_DATA *ch, const char *argument)
 {
 	DESCRIPTOR_DATA *d;
 
@@ -2433,6 +2435,23 @@ void do_oocme(CHAR_DATA *ch, const char *argument)
 				 POS_DEAD);
 		}
 	}
+}
+
+void
+do_retell(CHAR_DATA *ch, const char *argument)
+{
+	if (IS_NPC(ch)) {
+		char_puts("Huh?\n", ch);
+		return;
+	}
+
+        if (IS_SET(ch->in_room->room_flags, ROOM_SILENT)
+        &&  !IS_IMMORTAL(ch)
+        &&  !IS_IMMORTAL(PC(ch)->retell)) {
+                char_puts("You are in silent room, you can't tell.\n", ch);
+                return;
+        }
+	do_tell_raw(ch, PC(ch)->retell, argument);
 }
 
 static toggle_t *toggle_lookup(const char *name)

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.64 2002-10-26 16:51:30 fjoe Exp $
+ * $Id: handler.c,v 1.182.2.65 2002-10-27 06:49:02 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1742,6 +1742,8 @@ void extract_char(CHAR_DATA *ch, int flags)
 	for (wch = char_list; wch && !IS_NPC(wch); wch = wch->next) {
 		if (PC(wch)->reply == ch)
 			PC(wch)->reply = NULL;
+		if (PC(wch)->retell == ch)
+			PC(wch)->retell = NULL;
 	}
 
 	if (IS_SET(flags, XC_F_INCOMPLETE)) {
@@ -3508,7 +3510,7 @@ void do_tell_raw(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
 		return;
 	}
 
-	if (victim == NULL 
+	if (victim == NULL
 	|| (IS_NPC(victim) && victim->in_room != ch->in_room)) {
 		char_puts("They aren't here.\n", ch);
 		return;
@@ -3560,6 +3562,7 @@ void do_tell_raw(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
 				 "when $E returns.",
 				 ch, NULL, victim, TO_CHAR, POS_DEAD);
 		PC(victim)->reply = ch;
+		PC(ch)->retell = victim;
 	}
 }
 
