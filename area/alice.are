@@ -24,6 +24,9 @@ GHT 0 HN 0 0 400 0
 EFNU
 stand stand female 0
 0 0 medium unknown
+m mob_greet mob_greet_alice 100~
+m mob_kill mob_kill_alice 100~
+m mob_look mob_look_alice 100~
 #21001
 white rabbit~
 a white rabbit~
@@ -96,6 +99,7 @@ stand stand male 0
 0 0 medium unknown
 m mob_greet mob_greet_dodo 100~
 m mob_exit mob_exit_dodo all~
+m mob_look mob_look_dodo 100~
 #21005
 lory~
 a lory~
@@ -112,6 +116,7 @@ stand stand male 0
 0 0 medium unknown
 m mob_greet mob_greet_lory 100~
 m mob_exit mob_exit_lory all~
+m mob_look mob_look_lory 100~
 #21006
 eaglet~
 an eaglet~
@@ -218,6 +223,8 @@ BGHT 0 0 0 0 400 0
 EFNU
 stand stand male 0
 HM B medium unknown
+m mob_greet mob_greet_guinea_pig 100~
+m mob_look mob_look_guinea_pig 100~
 #21013
 puppy~
 a puppy dog~
@@ -267,6 +274,7 @@ stand stand female 0
 0 0 medium unknown
 m mob_greet mob_greet_pigeon 100~
 m mob_exit mob_exit_pigeon all~
+m mob_look mob_look_pigeon 100~
 #21016
 fish footman~
 a fish-footman~
@@ -282,6 +290,7 @@ BGT 0 0 0 0 400 0
 EFNR
 stand stand male 0
 0 0 medium unknown
+m mob_look mob_look_fish_footman 100~
 #21017
 frog footman~
 a frog-footman~
@@ -393,6 +402,7 @@ stand stand male 0
 0 0 medium unknown
 m mob_greet mob_greet_no_room 100~
 m mob_exit mob_exit_stuff_dormouse all~
+m mob_look mob_look_mad_hatter 100~
 #21023
 march hare~
 the March Hare~
@@ -426,6 +436,8 @@ BGT 0 R G 0 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
+m mob_greet mob_greet_dormouse 100~
+m mob_random mob_random_dormouse 1~
 #21027
 gardener heart five card~
 a gardener~
@@ -440,6 +452,7 @@ BGHT 0 0 0 0 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
+m mob_greet mob_greet_gardener_five 100~
 #21028
 gardener heart seven card~
 a gardener~
@@ -454,6 +467,7 @@ BGHT 0 0 0 0 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
+m mob_greet mob_greet_gardener_seven 100~
 #21029
 gardener heart two card~
 a gardener~
@@ -484,6 +498,8 @@ GT 0 N 0 0 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
+m mob_greet mob_greet_soldier_card 100~
+m mob_look mob_look_soldier_card 100~
 #21031
 courtier diamond card~
 a courtier~
@@ -530,8 +546,8 @@ EFNU
 stand stand male 0
 0 0 medium unknown
 m mob_greet mob_greet_king_of_hearts 100~
-m mob_exit mob_king_of_hearts all~
-m mob_look mob_king_of_hearts 100~
+m mob_exit mob_exit_king_of_hearts all~
+m mob_look mob_look_king_of_hearts 100~
 #21034
 queen hearts~
 @eng the Queen of Hearts@rus ~~Червовая~~ ~~Королева~~~
