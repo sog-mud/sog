@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.55 2004-02-11 23:08:52 fjoe Exp $
+ * $Id: mpc.y,v 1.56 2004-02-11 23:37:48 fjoe Exp $
  */
 
 /*
@@ -1565,7 +1565,7 @@ _mprog_compile(mprog_t *mp)
 			return MPC_ERR_COMPILE;
 		if (var_add(mpc, "arg", MT_STR) < 0)
 			return MPC_ERR_COMPILE;
-		if (var_add(mpc, "affowner", MT_STR) < 0)
+		if (var_add(mpc, "affowner", MT_CHAR) < 0)
 			return MPC_ERR_COMPILE;
 		break;
 
@@ -1578,7 +1578,7 @@ _mprog_compile(mprog_t *mp)
 			return MPC_ERR_COMPILE;
 		if (var_add(mpc, "arg", MT_STR) < 0)
 			return MPC_ERR_COMPILE;
-		if (var_add(mpc, "affowner", MT_STR) < 0)
+		if (var_add(mpc, "affowner", MT_CHAR) < 0)
 			return MPC_ERR_COMPILE;
 		break;
 
@@ -1589,7 +1589,7 @@ _mprog_compile(mprog_t *mp)
 			return MPC_ERR_COMPILE;
 		if (var_add(mpc, "arg", MT_STR) < 0)
 			return MPC_ERR_COMPILE;
-		if (var_add(mpc, "affowner", MT_STR) < 0)
+		if (var_add(mpc, "affowner", MT_CHAR) < 0)
 			return MPC_ERR_COMPILE;
 		break;
 
