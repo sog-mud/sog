@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.203 2004-02-22 14:20:15 fjoe Exp $
+ * $Id: interp.c,v 1.204 2004-02-22 14:45:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -274,7 +274,8 @@ interpret(CHAR_DATA *ch, const char *argument, bool is_order)
 	if (!IS_NPC(ch)) {
 		/* Come out of hiding for most commands */
 		if (HAS_INVIS(ch, ID_HIDDEN | ID_FADE)
-		&&  !IS_SET(cmd_flg, CMD_HARMLESS | CMD_KEEP_HIDE)
+		&&  (!IS_SET(cmd_flg, CMD_HARMLESS | CMD_KEEP_HIDE) ||
+		     IS_SET(cmd_flg, CMD_STRIP_HIDE))
 		&&  cmd_level < LEVEL_IMMORTAL) {
 			REMOVE_INVIS(ch, ID_HIDDEN | ID_FADE);
 			act_puts("You step out of shadows.",

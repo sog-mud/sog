@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.205 2004-02-22 14:21:00 fjoe Exp $
+ * $Id: tables.c,v 1.206 2004-02-22 14:45:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1190,6 +1190,7 @@ flaginfo_t cmd_flags[] =
 	{ "disabled",		CMD_DISABLED,		TRUE	},
 	{ "frozen_ok",		CMD_FROZEN_OK,		TRUE	},
 	{ "strict_match",	CMD_STRICT_MATCH,	TRUE	},
+	{ "strip_hide",		CMD_STRIP_HIDE,		TRUE	},
 
 	{ NULL, 0, FALSE }
 };
