@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.123.2.1 1999-12-16 12:39:50 fjoe Exp $
+ * $Id: act_quest.c,v 1.123.2.2 2000-04-04 06:12:23 osya Exp $
  */
 
 #include <sys/types.h>
@@ -95,7 +95,7 @@ qitem_t qitem_table[] = {
 	{ "small magic rug",		 750, NULL,
 	   QUEST_VNUM_RUG, NULL					},
 
-	{ "50,000 gold pieces",		 500, NULL,
+	{ "5,000 gold pieces",		 500, NULL,
 	   0, buy_gold						},
 
 	{ "60 practices",		 500, NULL,
@@ -761,7 +761,7 @@ static void quest_complete(CHAR_DATA *ch, char *arg)
 		if (chance(2))
 			prac_reward = number_range(1, 6);
 		qp_reward = number_range(15, 35);
-		gold_reward = dice(ch->level/10 + 1, 30);
+		gold_reward = dice(ch->level/20 + 1, 10);
 		gold_reward = URANGE(0, gold_reward, 20*ch->level);
 		complete = TRUE;
 	}
@@ -998,9 +998,9 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 
 static bool buy_gold(CHAR_DATA *ch, CHAR_DATA *questor)
 {
-	PC(ch)->bank_g += 50000;
-	act("$N gives 50,000 gold pieces to $n.", ch, NULL, questor, TO_ROOM);
-	act("$N transfers 50,000 gold pieces to your bank account.",ch, NULL, questor, TO_CHAR);
+	PC(ch)->bank_g += 5000;
+	act("$N gives 5,000 gold pieces to $n.", ch, NULL, questor, TO_ROOM);
+	act("$N transfers 5,000 gold pieces to your bank account.",ch, NULL, questor, TO_CHAR);
 	return TRUE;
 }
 

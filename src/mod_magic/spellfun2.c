@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.14 2000-04-04 05:42:15 fjoe Exp $
+ * $Id: spellfun2.c,v 1.139.2.15 2000-04-04 06:12:25 osya Exp $
  */
 
 /***************************************************************************
@@ -573,6 +573,11 @@ void spell_manacles(int sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
+        if (victim == ch) {
+                char_puts("You like yourself even better!\n", ch);
+                return;
+        }
+ 
 	if (!IS_WANTED(victim)) {
 		act("But $N is not wanted.", ch, NULL, victim, TO_CHAR);
 		return;
@@ -592,17 +597,21 @@ void spell_manacles(int sn, int level, CHAR_DATA *ch, void *vo)
 	  af.location           = APPLY_DEX;
 	  affect_to_char(victim, &af);
 
-	  af.modifier           = -5;
+	  af.modifier           = -level;
 	  af.location           = APPLY_HITROLL;
 	  affect_to_char(victim, &af);
 
 	
-	  af.modifier           = -10;
+	  af.modifier           = -level/2;
 	  af.location           = APPLY_DAMROLL;
 	  affect_to_char(victim, &af);
 
-	  spellfun_call2("charm person", sn, level, ch, vo);
+        act("$n locks your hands in magical manacles.", ch, NULL, victim, TO_VICT);
+        act("$n locks $N's hands in magical manacles.", ch, NULL, victim, TO_NOTVICT);
+	act("You lock $N's hands in magical manacles.", ch, NULL, victim, TO_CHAR);
 	}
+	  spellfun_call2("charm person", sn, level, ch, vo);
+	
 }
 
 void spell_shield_of_enforcer(int sn, int level, CHAR_DATA *ch, void *vo) 
