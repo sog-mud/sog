@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.46 1999-02-18 07:54:44 fjoe Exp $
+ * $Id: note.c,v 1.47 1999-02-19 19:35:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1045,10 +1045,10 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 
 void fwrite_note(FILE *fp, NOTE_DATA *pnote)
 {
-	fprintf(fp, "Sender  %s~\n", pnote->sender);
-	fprintf(fp, "Date    %s~\n", pnote->date);
+	fprintf(fp, "Sender  %s~\n", fix_string(pnote->sender));
+	fprintf(fp, "Date    %s~\n", fix_string(pnote->date));
 	fprintf(fp, "Stamp   %ld\n", pnote->date_stamp);
-	fprintf(fp, "To      %s~\n", pnote->to_list);
-	fprintf(fp, "Subject %s~\n", pnote->subject);
-	fprintf(fp, "Text\n%s~\n",   pnote->text);
+	fprintf(fp, "To      %s~\n", fix_string(pnote->to_list));
+	fprintf(fp, "Subject %s~\n", fix_string(pnote->subject));
+	fprintf(fp, "Text\n%s~\n",   fix_string(pnote->text));
 }
