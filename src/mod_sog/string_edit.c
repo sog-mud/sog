@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.c,v 1.24 1998-12-23 16:11:18 fjoe Exp $
+ * $Id: string_edit.c,v 1.25 1999-02-12 07:32:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -30,47 +30,24 @@ const char *string_lineadd(const char *, char *, int);
 char *numlines(const char *);
 
 /*****************************************************************************
- Name:		string_edit
- Purpose:	Clears string and puts player into editing mode.
- Called by:	none
- ****************************************************************************/
-void string_edit(CHAR_DATA *ch, const char **pString)
-{
-	char_puts("-========- Entering EDIT Mode -=========-\n"
-		  "    Type :h on a new line for help\n"
-		  " Terminate with a ~ or @ on a blank line.\n"
-		  "-=======================================-\n", ch);
-	free_string(*pString);
-	*pString = str_empty;
-	ch->desc->pString = pString;
-}
-
-/*****************************************************************************
  Name:		string_append
  Purpose:	Puts player into append mode for given string.
  Called by:	(many)olc_act.c
  ****************************************************************************/
 void string_append(CHAR_DATA *ch, const char **pString)
 {
-    char_puts("-=======- Entering APPEND Mode -========-\n", ch);
-    char_puts("    Type :h on a new line for help\n", ch);
-    char_puts(" Terminate with a ~ or @ on a blank line.\n", ch);
-    char_puts("-=======================================-\n", ch);
+	char_puts("-=======- Entering APPEND Mode -========-\n", ch);
+	char_puts("    Type :h on a new line for help\n", ch);
+	char_puts(" Terminate with a ~ or @ on a blank line.\n", ch);
+	char_puts("-=======================================-\n", ch);
 
-    if (*pString == NULL)
-	*pString = str_dup(str_empty);
-    char_puts(numlines(*pString), ch);
+	if (*pString == NULL)
+		*pString = str_dup(str_empty);
+	char_puts(numlines(*pString), ch);
 
-/* numlines entrega el string con \n */
-/*  if (*(*pString + strlen(*pString) - 1) != '\r')
-	char_puts("\n", ch); */
-
-    ch->desc->pString = pString;
-
-    return;
+	ch->desc->pString = pString;
+	ch->desc->backup = str_dup(*pString);
 }
-
-
 
 /*****************************************************************************
  Name:		string_replace
@@ -106,6 +83,8 @@ const char * string_replace(const char * orig, char * old, char * new)
 void string_add(CHAR_DATA *ch, const char *argument)
 {
 	const char *p;
+	size_t len;
+        char arg1[MAX_INPUT_LENGTH];
 
     /*
      * Thanks to James Seng
@@ -113,7 +92,6 @@ void string_add(CHAR_DATA *ch, const char *argument)
 
     if (*argument == ':')
     {
-        char arg1 [MAX_INPUT_LENGTH];
         char arg2 [MAX_INPUT_LENGTH];
         char arg3 [MAX_INPUT_LENGTH];
         char tmparg3 [MAX_INPUT_LENGTH];
@@ -182,27 +160,35 @@ void string_add(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	if (!str_cmp(arg1+1, "q!")) {
+		char_puts("No changes saved.\n", ch);
+		free_string(*ch->desc->pString);
+		*ch->desc->pString = ch->desc->backup;
+		ch->desc->pString = NULL;
+		return;
+	}
+
 	if (!str_cmp(arg1+1, "x")
-	||  !str_cmp(arg1+1, "q")
 	||  !str_cmp(arg1+1, "wq")) {
+		free_string(ch->desc->backup);
         	ch->desc->pString = NULL;
         	return;
 	}
 
         if (!str_cmp(arg1+1, "h"))
         {
-            char_puts("Sedit help (commands on blank line):   \n", ch);
-            char_puts(":r 'old' 'new'   - replace a substring \n", ch);
-            char_puts("                   (requires '', \"\") \n", ch);
+            char_puts("Sedit help (commands on blank line):\n", ch);
+            char_puts(":r 'old' 'new'   - replace a substring\n", ch);
+            char_puts("                   (requires '', \"\")\n", ch);
             char_puts(":h               - get help (this info)\n", ch);
-            char_puts(":s               - show string so far  \n", ch);
-            char_puts(":f               - (word wrap) string  \n", ch);
-            char_puts(":c               - clear string so far \n", ch);
+            char_puts(":s               - show string so far\n", ch);
+            char_puts(":f               - (word wrap) string\n", ch);
+            char_puts(":c               - clear string so far\n", ch);
             char_puts(":ld <num>        - delete line #num\n", ch);
             char_puts(":li <num> <str>  - insert <str> before line #num\n", ch);
 	    char_puts(":lr <num> <str>  - replace line #num with <str>\n", ch);
-            char_puts("@                - end string          \n", ch);
-            char_puts(":x, :q, :wq      - end string          \n", ch);
+            char_puts("@, ~, :x, :wq    - finish editing (save changes)\n", ch);
+            char_puts(":q!              - abort editing (do not save changes)\n", ch);
             return;
         }
 
@@ -210,36 +196,36 @@ void string_add(CHAR_DATA *ch, const char *argument)
         return;
     }
 
-    if (*argument == '~' || *argument == '@')
-    {
-        ch->desc->pString = NULL;
-	if (IS_SET(ch->comm, COMM_QUIET_EDITOR))
-		do_replay(ch, str_empty);
-        return;
-    }
+	if (*argument == '~' || *argument == '@') {
+		free_string(ch->desc->backup);
+		ch->desc->pString = NULL;
+		if (IS_SET(ch->comm, COMM_QUIET_EDITOR))
+			do_replay(ch, str_empty);
+		return;
+	}
 
 	if (*argument == '.')
 		argument++;
 
-    /*
-     * Truncate strings to MAX_STRING_LENGTH.
-     * --------------------------------------
-     */
-    if (strlen(*ch->desc->pString)+strlen(argument) >= (MAX_STRING_LENGTH - 4))
-    {
-        char_puts("String too long, last line skipped.\n", ch);
-
-	/* Force character out of editing mode. */
-        ch->desc->pString = NULL;
-        return;
-    }
+	/*
+	 * Truncate strings to MAX_STRING_LENGTH.
+	 * --------------------------------------
+	*/
+	len = strlen(argument);
+	if (strlen(*ch->desc->pString) + len >= (MAX_STRING_LENGTH - 4)) {
+		char_puts("String too long, last line skipped.\n", ch);
+		return;
+	}
 
 	p = *ch->desc->pString;
-	if (p[strlen(p)-1] != '\\') {
+	if (argument[len-1] == '\\') {
+		strnzcpy(arg1, argument, UMIN(len, sizeof(arg1)));
+		*ch->desc->pString = str_add(*ch->desc->pString, arg1, NULL);
+	}
+	else
 		*ch->desc->pString = str_add(*ch->desc->pString, argument,
 					     "\n", NULL);
-		free_string(p);
-	}
+	free_string(p);
 }
 
 /*
@@ -457,31 +443,26 @@ const char *string_lineadd(const char *string, char *newstr, int line)
 	return str_dup(buf);
 }
 
-/* buf queda con la linea sin \n */
-const char *getline(const char *str, char *buf)
+/*
+ * getline -- copy str to buf up to '\n', len is buf size
+ */
+const char *getline(const char *str, char *buf, size_t len)
 {
-	int tmp = 0;
-	bool found = FALSE;
+	const char *p;
 
-	while (*str) {
-		if (*str == '\n') {
-			found = TRUE;
-			break;
-		}
+	p = strchr(str, '\n');
+	if (!p) 
+		p = strchr(str, '\0');
 
-		buf[tmp++] = *(str++);
+	strnzcpy(buf, str, UMIN(p - str + 1, len));
+
+	if (*p == '\n') {
+		p++;
+		if (*p == '\r')
+			p++;
 	}
 
-	if (found) {
-		if (*(str + 1) == '\r')
-			str += 2;
-		else
-			str += 1;
-	} /* para que quedemos en el inicio de la prox linea */
-
-	buf[tmp] = '\0';
-
-	return str;
+	return p;
 }
 
 char *numlines(const char *string)
@@ -493,7 +474,7 @@ char *numlines(const char *string)
 	buf[0] = '\0';
 
 	while (*string) {
-		string = getline(string, tmpb);
+		string = getline(string, tmpb, sizeof(tmpb));
 		sprintf(buf2, "%2d. %s\n", cnt++, tmpb);
 		strcat(buf, buf2);
 	}

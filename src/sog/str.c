@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: str.c,v 1.6 1999-02-11 16:40:30 fjoe Exp $
+ * $Id: str.c,v 1.7 1999-02-12 07:32:22 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -191,17 +191,12 @@ char *strnzcat(char *dest, const char *src, size_t len)
 char *strnzncat(char *dest, const char *src, size_t len, size_t count)
 {
 	size_t old_len;
-	size_t ncopy;
 
 	old_len = strlen(dest);
 	if (old_len >= len - 1)
 		return dest;
 
-	ncopy = len - old_len - 1;
-	if (count < ncopy)
-		ncopy = count;
-
-	strncat(dest, src, ncopy);
+	strncat(dest, src, UMIN(len - old_len - 1, count));
 	return dest;
 }
 

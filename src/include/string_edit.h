@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.h,v 1.4 1998-10-06 13:18:32 fjoe Exp $
+ * $Id: string_edit.h,v 1.5 1999-02-12 07:32:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -17,7 +17,6 @@
 #ifndef _STRING_EDIT_H_
 #define _STRING_EDIT_H_
 
-void		string_edit	(CHAR_DATA *ch, const char **pString);
 void		string_append   (CHAR_DATA *ch, const char **pString);
 const char *	string_replace	(const char * orig, char * old, char * new);
 void		string_add      (CHAR_DATA *ch, const char *argument);
