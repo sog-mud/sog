@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.46 1999-02-02 15:50:23 kostik Exp $
+ * $Id: skills.c,v 1.47 1999-02-03 07:01:49 kostik Exp $
  */
 
 /***************************************************************************
@@ -317,20 +317,29 @@ void check_improve(CHAR_DATA *ch, int sn, bool success, int multiplier)
 	if (success) {
 		chance = URANGE(5, 100 - ps->percent, 95);
 		if (number_percent() < chance) {
-			act_nprintf(ch, NULL, NULL, TO_CHAR, POS_DEAD,
-				    MSG_HAVE_BECOME_BETTER, skill_name(sn));
 			ps->percent++;
 			gain_exp(ch, 2 * rating);
+			if (ps->percent == 100) char_printf(ch, 
+				"{gYou mastered {W%s{g!{x\n",
+				skill_name(sn));
+			else char_printf(ch, 
+		 		"{gYou have become better at {W%s{g!{x\n",
+				skill_name(sn));
 		}
 	}
 	else {
 		chance = URANGE(5, ps->percent / 2, 30);
 		if (number_percent() < chance) {
-			act_nprintf(ch, NULL, NULL, TO_CHAR, POS_DEAD,
-				    MSG_LEARN_FROM_MISTAKES, skill_name(sn));
 			if ((ps->percent += number_range(1, 3)) > 100)
 				ps->percent = 100;
 			gain_exp(ch, 2 * rating);
+			if (ps->percent == 100) char_printf(ch,
+				"{gYou learn from your mistakes and you manage to master {W%s{g!{x\n",
+				skill_name(sn));
+			else char_printf(ch,
+				"{gYou learn from your mistakes and your {W%s{g skill improves!{x\n",
+				skill_name(sn));
+
 		}
 	}
 }
