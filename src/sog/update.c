@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.43 2002-08-30 14:37:27 avn Exp $
+ * $Id: update.c,v 1.157.2.44 2002-08-31 17:18:56 tatyana Exp $
  */
 
 /***************************************************************************
@@ -80,6 +80,8 @@ void	room_update	args((void));
 void	room_affect_update	args((void));
 void	check_reboot	args((void));
 void	track_update	args((void));
+
+void    check_fishing   args((void));
 
 /* used for saving */
 int	rebooter = 0;
@@ -2055,7 +2057,8 @@ void update_handler(void)
 		for (ch = char_list; ch && !IS_NPC(ch); ch = ch->next)
 			if (ch->in_room)
 				ch->in_room->area->count++;
-	}
+	} else if (pulse_point == PULSE_TICK / 2)
+		check_fishing();
 
 	aggr_update();
 	auction_update();
@@ -2065,7 +2068,7 @@ void update_handler(void)
 }
 
 void light_update(void)
-{   
+{
 	CHAR_DATA *ch;
 	int dam_light;
 	DESCRIPTOR_DATA *d;
@@ -2369,3 +2372,40 @@ void hatchout_dragon(CHAR_DATA *coc, AFFECT_DATA *paf)
 	extract_char(coc, 0);
 }
 
+void check_fishing()
+{
+        struct descriptor_data *d;
+        int bite;
+
+        for (d = descriptor_list; d; d = d->next) {
+		CHAR_DATA *ch;
+
+                if (d->connected != CON_PLAYING
+		||  (ch = d->character) == NULL
+		||  IS_NPC(ch))
+			continue;
+
+		if (IS_SET(PC(ch)->plr_flags, PLR_FISHING)
+		&&  (!IS_SET(ch->in_room->room_flags, ROOM_SALTWATER) &&
+		     !IS_SET(ch->in_room->room_flags, ROOM_FRESHWATER)))
+			REMOVE_BIT(ch->comm, PLR_FISHING);
+
+		if (IS_SET(PC(ch)->plr_flags, PLR_FISHING)
+		&&  !IS_SET(PC(ch)->plr_flags, PLR_FISH_ON)) {
+			bite = number_range(1, 10);
+			if (bite >= 7 && bite <= 8) {
+				char_puts("Time goes by... not even a "
+					  "nibble.\n", ch);
+			} else if (bite >= 6) {
+				char_puts("You feel a slight jiggle on "
+					  "your line.\n", ch);
+				SET_FIGHT_TIME(ch);
+			} else if (bite >= 4) {
+				char_puts("You feel a very solid pull on your "
+				    "line!\n", ch);
+				SET_BIT(PC(ch)->plr_flags, PLR_FISH_ON);
+				SET_FIGHT_TIME(ch);
+			}
+		}
+	}
+}

@@ -522,6 +522,69 @@ treasure 0 A
 0 0 0 0 0
 0 200 0 P
 G female
+#34432
+codfish треска fish рыба~
+@eng a codfish@rus треска~
+@eng The large silvery fish is here.@rus Большая серебристая рыбина (fish) лежит здесь.~
+fish~
+food 0 AO
+A 0 0 0 0
+0 10 100 P
+G female
+#34433
+herring селедка fish рыба~
+@eng a herring@rus селедка~
+@eng The large silvery fish is here.@rus Большая серебристая рыбина (fish) лежит здесь.~
+fish~
+food 0 AO
+AC A 0 0 0
+0 10 100 P
+G female
+#34434
+salmon лосось рыба fish silvery серебристый~
+@eng a silvery salmon@rus ~~серебристый~~ ~~лосось~~~
+@eng The large silvery fish is here.@rus Большая серебристая рыбина (fish) лежит здесь.~
+fish~
+food 0 AO
+AC A 0 0 0
+0 10 100 P
+G male
+#34435
+barracuda барракуда fish рыба~
+@eng a barracuda@rus барракуда~
+@eng The large silvery fish is here.@rus Большая серебристая рыбина (fish) лежит здесь.~
+fish~
+food 0 AO
+AC A 0 0 0
+0 10 100 P
+G female
+#34436
+mackerel макрель fish рыба~
+@eng a mackerel@rus макрель~
+@eng The large silvery fish is here.@rus Большая серебристая рыбина (fish) лежит здесь.~
+fish~
+food 0 AO
+AC A 0 0 0
+0 10 100 P
+G female
+#34437
+swordfish рыба-мечь fish~
+@eng a swordfish@rus ~~рыба~~-~~мечь~~~
+@eng The large silvery fish is here.@rus Большая серебристая рыбина (fish) лежит здесь.~
+fish~
+food 0 AO
+AC A 0 0 0
+0 10 100 P
+G female
+#34438
+skate скат fish рыба~
+~
+@eng The large silvery fish is here.@rus Большая серебристая рыбина (fish) лежит здесь.~
+fish~
+food 0 AO
+AC A 0 0 0
+0 10 100 P
+G male
 #34439
 amulet амулет~
 @eng golden amulet@rus ~~золотой~~ ~~амулет~~~
@@ -540,6 +603,78 @@ portal 0 0
 0 0 0 3502 0
 0 0 150 P
 G none
+#34441
+crusian карась fish рыба~
+@eng a crusian@rus карась~
+@eng The small silvery fish is here.@rus Маленькая серебристая рыбка (fish) лежит здесь.~
+fish~
+food 0 AO
+AC A 0 0 0
+0 10 100 P
+G male
+#34442
+perch окунь fish рыба~
+@eng a perch@rus окунь~
+@eng The small silvery fish is here.@rus Маленькая серебристая рыбка (fish) лежит здесь.~
+fish~
+food 0 AO
+AC A 0 0 0
+0 10 100 P
+G male
+#34443
+carp карп fish рыба~
+@eng a carp@rus карп~
+@eng The silvery fish is here.@rus Серебристая рыба (fish) лежит здесь.~
+fish~
+food 0 AO
+AC A 0 0 0
+0 10 100 P
+G male
+#34444
+omul омуль fish рыба~
+@eng a omul@rus омуль~
+@eng The silvery fish is here.@rus Серебристая рыба (fish) лежит здесь.~
+fish~
+food 0 AO
+AC A 0 0 0
+0 10 100 P
+G male
+#34445
+sazan сазан fish рыба~
+@eng a sazan@rus сазан~
+@eng The silvery fish is here.@rus Серебристая рыба (fish) лежит здесь.~
+fish~
+food 0 AO
+AC A 0 0 0
+0 10 100 P
+G male
+#34446
+pike щука fish рыба~
+@eng a pike@rus щука~
+@eng The silvery fish is here.@rus Серебристая рыба (fish) лежит здесь.~
+fish~
+food 0 AO
+AC A 0 0 0
+0 10 100 P
+G male
+#34447
+bream лещ fish рыба~
+@eng a bream@rus лещ~
+@eng The silvery fish is here.@rus Серебристая рыба (fish) лежит здесь.~
+fish~
+food 0 AO
+AC A 0 0 0
+0 10 100 P
+G male
+#34448
+piranha пиранья fish рыба~
+@eng a piranha@rus пиранья~
+@eng The small silvery fish is here.@rus Маленькая серебристая рыбка (fish) лежит здесь.~
+fish~
+food 0 AO
+AC A 0 0 0
+0 10 100 P
+G male
 #34449
 mace дубина~
 @eng wooden mace@rus ~~массивная~~ ~~дубина~~~

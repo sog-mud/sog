@@ -1221,6 +1221,14 @@ Form 3 -ли~
 End
 
 #RULE
+Name поймал~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
 Name потерявшим~
 BaseLen 8
 Form 1 -ей~

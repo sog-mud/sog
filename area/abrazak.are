@@ -922,6 +922,15 @@ ring кольцо~
 @rus Это драгоценное {Yк{Wо{Yл{Wе{Yч{Wк{Yо {CМикаэла{x подарила {CФлагару{x в День их Свадьбы.
 ~
 G none
+#15065
+pole~
+pole~
+pole~
+unknown~
+fishing_pole 0 AO
+0 0 0 0 0
+0 0 0 P
+G none
 #15087
 nut орех~
 @eng the gold nut@rus ~~золотой~~ ~~орех~~~
@@ -1061,7 +1070,7 @@ G none
 @eng You are in Abrazak's office..  Hmmm...  It's very strange place.  
 @rus Ты попал в огромную пещеру. Здесь темно и страшно. В углу - фонтан с водкой.
 ~
-0 0 forest
+0 F mountain
 D2
 ~
 ~

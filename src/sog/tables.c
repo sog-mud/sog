@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.89.2.14 2002-01-31 19:28:03 tatyana Exp $
+ * $Id: tables.c,v 1.89.2.15 2002-08-31 17:18:55 tatyana Exp $
  */
 
 /***************************************************************************
@@ -146,6 +146,8 @@ flag_t plr_flags[] =
 	{ "ghost",		PLR_GHOST,		FALSE	},
 	{ "noexp",		PLR_NOEXP,		FALSE	},
 	{ "hara_kiri",		PLR_HARA_KIRI,		FALSE	},
+	{ "fishing",		PLR_FISHING,		FALSE	},
+	{ "fish_on",		PLR_FISH_ON,		FALSE	},
 
 	{ NULL }
 };
@@ -493,6 +495,8 @@ flag_t room_flags[] =
 	{ "battle_arena",	ROOM_BATTLE_ARENA,	TRUE	},
 	{ "guild",		ROOM_GUILD,		TRUE	},
 	{ "registry",		ROOM_REGISTRY,		TRUE	},
+	{ "saltwater",		ROOM_SALTWATER,		TRUE	},
+	{ "freshwater",		ROOM_FRESHWATER,	TRUE	},
 
 	{ NULL }
 };
@@ -550,6 +554,7 @@ flag_t item_types[] =
 	{ "jewelry",		ITEM_JEWELRY,		TRUE	},
 	{ "jukebox",		ITEM_JUKEBOX,		TRUE	},
 	{ "tattoo",		ITEM_TATTOO,		FALSE	},
+	{ "fishing_pole",	ITEM_FISHING_POLE,	TRUE	},
 
 	{ NULL }
 };

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.234.2.29 2002-02-19 20:43:11 tatyana Exp $
+ * $Id: merc.h,v 1.234.2.30 2002-08-31 17:18:46 tatyana Exp $
  */
 
 /***************************************************************************
@@ -818,6 +818,7 @@ where_t *where_lookup(flag32_t where);
 #define ITEM_JEWELRY		33
 #define ITEM_JUKEBOX		34
 #define ITEM_TATTOO		35
+#define ITEM_FISHING_POLE	36
 
 /*
  * Extra flags.  *EXT*
@@ -1008,6 +1009,8 @@ where_t *where_lookup(flag32_t where);
 #define ROOM_SILENT		(B)
 #define ROOM_NOMOB		(C)
 #define ROOM_INDOORS		(D)
+#define ROOM_SALTWATER		(E)
+#define ROOM_FRESHWATER		(F)
 #define ROOM_PEACE		(H)
 #define ROOM_PRIVATE		(J)
 #define ROOM_SAFE		(K)
@@ -1162,6 +1165,8 @@ enum {
 #define PLR_NOSUMMON		(Q)
 #define PLR_NOFOLLOW		(R)
 #define PLR_GHOST		(T)
+#define PLR_FISHING		(U)
+#define PLR_FISH_ON		(V)
 
 /* penalty flags */
 #define PLR_LOG 		(W)

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.55.2.1 1999-12-16 12:39:56 fjoe Exp $
+ * $Id: olc_obj.c,v 1.55.2.2 2002-08-31 17:18:51 tatyana Exp $
  */
 
 #include <sys/types.h>
@@ -927,6 +927,7 @@ void show_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj)
 	case ITEM_JEWELRY:
 	case ITEM_JUKEBOX:
 	case ITEM_TATTOO:
+	case ITEM_FISHING_POLE:
 		break;
 		     
 	case ITEM_LIGHT:

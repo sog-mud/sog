@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.53 2002-08-30 14:37:24 avn Exp $
+ * $Id: handler.c,v 1.182.2.54 2002-08-31 17:18:53 tatyana Exp $
  */
 
 /***************************************************************************
@@ -4424,6 +4424,14 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 	/* room record for tracking */
 	if (!IS_NPC(ch) && !is_affected(ch, gsn_notrack))
 		room_record(ch->name, in_room, door);
+
+	if (!IS_NPC(ch)
+	&&  (IS_SET(PC(ch)->plr_flags, PLR_FISHING) ||
+	     IS_SET(PC(ch)->plr_flags, PLR_FISH_ON))) {
+		REMOVE_BIT(PC(ch)->plr_flags, PLR_FISHING);
+		REMOVE_BIT(PC(ch)->plr_flags, PLR_FISH_ON);
+		char_puts("You pack up your fishing gear and move on.\n", ch);
+	}
 
 	/*
 	 * now, after all the checks are done we should
