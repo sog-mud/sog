@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.54 1998-06-28 04:47:14 fjoe Exp $
+ * $Id: comm.c,v 1.55 1998-06-28 13:23:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -96,6 +96,7 @@
 #include "interp.h"
 #include "olc.h"
 #include "mob_prog.h"
+#include "string_edit.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_help		);
@@ -589,8 +590,12 @@ void game_loop_unix(int control)
 
 		if (d->showstr_point)
 		    show_string(d,d->incomm);
-		else if (d->connected == CON_PLAYING)
-		    substitute_alias(d, d->incomm);
+		else if (d->pString)
+			string_add(d->character, d->incomm);
+		else if (d->connected == CON_PLAYING) {
+			if (!run_olc_editor(d))
+		    		substitute_alias(d, d->incomm);
+		}
 		else
 		    nanny(d, d->incomm);
 
