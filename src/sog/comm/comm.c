@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.64 1998-07-09 14:12:11 fjoe Exp $
+ * $Id: comm.c,v 1.65 1998-07-10 10:39:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -95,6 +95,7 @@
 #include "olc.h"
 #include "mob_prog.h"
 #include "string_edit.h"
+#include "mlstring.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_help		);
@@ -1366,7 +1367,8 @@ void bust_a_prompt(CHAR_DATA *ch)
 				      IS_SET(ch->act,PLR_HOLYLIGHT)) ||
 				     (check_blind_raw(ch) &&
 				      !room_is_dark(ch))) ?
-				     ch->in_room->name : "darkness";
+				     ml_string(ch, ch->in_room->name) :
+				     "darkness";
 			else
 				i = " ";
 			break;

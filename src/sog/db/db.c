@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.37 1998-07-09 15:29:59 fjoe Exp $
+ * $Id: db.c,v 1.38 1998-07-10 10:39:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -65,6 +65,7 @@
 #include "log.h"
 #include "tables.h"
 #include "buffer.h"
+#include "mlstring.h"
 
 #ifdef SUNOS
 #include "compat.h"
@@ -1373,8 +1374,8 @@ void load_rooms(FILE *fp)
 		pRoomIndex->history     = NULL;
 		pRoomIndex->area	= area_last;
 		pRoomIndex->vnum	= vnum;
-		pRoomIndex->name	= fread_string(fp);
-		pRoomIndex->description	= fread_string(fp);
+		pRoomIndex->name	= fread_mlstring(fp);
+		pRoomIndex->description	= fread_mlstring(fp);
 		/* Area number */	  fread_number(fp);
 		pRoomIndex->room_flags	= fread_flags(fp);
  
@@ -1417,7 +1418,7 @@ void load_rooms(FILE *fp)
 				}
 	
 				pexit			= alloc_perm(sizeof(*pexit));
-				pexit->description	= fread_string(fp);
+				pexit->description	= fread_mlstring(fp);
 				pexit->keyword		= fread_string(fp);
 				pexit->exit_info	= 0;
 				pexit->rs_flags		= 0;	/* OLC */
@@ -4755,3 +4756,39 @@ MPROG_CODE *get_mprog_index(int vnum)
 	return NULL;
 }    
  
+void db_error(const char* fn, const char* fmt,...)
+{
+	char buf[MAX_STRING_LENGTH];
+	va_list ap;
+
+	va_start(ap, fmt);
+	vsnprintf(buf, sizeof(buf), fmt, ap);
+	va_end(ap);
+
+	log_printf("%s: %s", fn, buf);
+	exit(1);
+}
+
+/*****************************************************************************
+ Name:		fix_string
+ Purpose:	Returns a string without \r and ~.
+ ****************************************************************************/
+char *fix_string(const char *str)
+{
+    static char strfix[MAX_STRING_LENGTH * 2];
+    int i;
+    int o;
+
+    if (str == NULL)
+        return '\0';
+
+    for (o = i = 0; str[i+o] != '\0'; i++)
+    {
+        if (str[i+o] == '\r' || str[i+o] == '~')
+            o++;
+        strfix[i] = str[i+o];
+    }
+    strfix[i] = '\0';
+    return strfix;
+}
+

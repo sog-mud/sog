@@ -1,5 +1,5 @@
 /*
- * $Id: olc_act.c,v 1.4 1998-07-06 07:32:55 fjoe Exp $
+ * $Id: olc_act.c,v 1.5 1998-07-10 10:39:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -35,6 +35,7 @@
 #include "interp.h"
 #include "buffer.h"
 #include "tables.h"
+#include "mlstring.h"
 
 char * mprog_type_to_name (int type);
 
@@ -320,7 +321,8 @@ REDIT(redit_rlist)
 		if ((pRoomIndex = get_room_index(vnum))) {
 			found = TRUE;
 			buf_printf(buffer, "[%5d] %-17.16s",
-				   vnum, capitalize(pRoomIndex->name));
+				vnum,
+				capitalize(ml_string(ch, pRoomIndex->name)));
 			if (++col % 3 == 0)
 				buf_add(buffer, "\n\r");
 		}
@@ -1007,9 +1009,11 @@ REDIT(redit_show)
 
 	output = buf_new(0);
 	
-	buf_printf(output, "Description:\n\r%s", pRoom->description);
-	buf_printf(output, "Name:       [%s]\n\rArea:       [%5d] %s\n\r",
-		   pRoom->name, pRoom->area->vnum, pRoom->area->name);
+	buf_add(output, "Description:\n\r");
+	mlstring_buf(output, "", pRoom->description);
+	mlstring_buf(output, "Name:       ", pRoom->name);
+	buf_printf(output, "Area:       [%5d] %s\n\r",
+		   pRoom->area->vnum, pRoom->area->name);
 	buf_printf(output, "Vnum:       [%5d]\n\rSector:     [%s]\n\r",
 		   pRoom->vnum, flag_string(sector_flags, pRoom->sector_type));
 	buf_printf(output, "Room flags: [%s]\n\r",
@@ -1110,8 +1114,7 @@ REDIT(redit_show)
 			if (!IS_NULLSTR(pexit->keyword))
 				buf_printf(output, "Kwds: [%s]\n\r",
 					   pexit->keyword);
-			if (!IS_NULLSTR(pexit->description))
-				buf_add(output, pexit->description);
+			mlstring_buf(output, "", pexit->description);
 		}
 	}
 
@@ -1176,7 +1179,7 @@ bool change_exit(CHAR_DATA *ch, char *argument, int door)
 	 * Now parse the arguments.
 	 */
 	argument = one_argument(argument, command);
-	one_argument(argument, arg);
+	argument = one_argument(argument, arg);
 
 	if (command[0] == '\0' && argument[0] == '\0')	/* Move command. */
 	{
@@ -1389,27 +1392,22 @@ bool change_exit(CHAR_DATA *ch, char *argument, int door)
 		return TRUE;
 	}
 
-	if (!str_prefix(command, "description"))
-	{
-		if (arg[0] == '\0')
-		{
-		   if (!pRoom->exit[door])
-		   {
+	if (!str_prefix(command, "description")) {
+		if (!pRoom->exit[door]) {
 		   	send_to_char("Salida no existe.\n\r",ch);
 		   	return FALSE;
-		   }
+		}
 
 /*	    if (!pRoom->exit[door])
 			{
 			    pRoom->exit[door] = new_exit();
 			} */
 
-			string_append(ch, &pRoom->exit[door]->description);
-			return TRUE;
+		if (!mlstring_append(ch, pRoom->exit[door]->description, arg)) {
+			send_to_char("Syntax:  [direction] desc lang\n\r", ch);
+			return FALSE;
 		}
-
-		send_to_char("Syntax:  [direction] desc\n\r", ch);
-		return FALSE;
+		return TRUE;
 	}
 
 	return FALSE;
@@ -1671,14 +1669,10 @@ REDIT(redit_name)
 
 	EDIT_ROOM(ch, pRoom);
 
-	if (argument[0] == '\0')
-	{
-		send_to_char("Syntax:  name [name]\n\r", ch);
+	if (!mlstring_change(pRoom->name, argument)) {
+		send_to_char("Syntax: name lang name\n\r", ch);
 		return FALSE;
 	}
-
-	free_string(pRoom->name);
-	pRoom->name = str_dup(argument);
 
 	send_to_char("Name set.\n\r", ch);
 	return TRUE;
@@ -1692,14 +1686,11 @@ REDIT(redit_desc)
 
 	EDIT_ROOM(ch, pRoom);
 
-	if (argument[0] == '\0')
-	{
-		string_append(ch, &pRoom->description);
-		return TRUE;
+	if (!mlstring_append(ch, pRoom->description, argument)) {
+		send_to_char("Syntax: desc lang\n\r", ch);
+		return FALSE;
 	}
-
-	send_to_char("Syntax:  desc\n\r", ch);
-	return FALSE;
+	return TRUE;
 }
 
 REDIT(redit_heal)
@@ -1754,7 +1745,7 @@ REDIT(redit_format)
 
 	EDIT_ROOM(ch, pRoom);
 
-	pRoom->description = format_string(pRoom->description);
+	format_mlstring(pRoom->description);
 
 	send_to_char("String formatted.\n\r", ch);
 	return TRUE;

@@ -1,5 +1,5 @@
 /*
- * $Id: buffer.c,v 1.1 1998-07-03 15:18:40 fjoe Exp $
+ * $Id: buffer.c,v 1.2 1998-07-10 10:39:39 fjoe Exp $
  */
 #include <stdio.h>
 #include <stdarg.h>
@@ -87,7 +87,7 @@ void buf_free(BUFFER *buffer)
 }
 
 
-bool buf_add(BUFFER *buffer, char *string)
+bool buf_add(BUFFER *buffer, const char *string)
 {
 	int len;
 	char *oldstr;

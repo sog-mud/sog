@@ -1,5 +1,5 @@
 /*
- * $Id: mem.c,v 1.2 1998-07-03 15:18:42 fjoe Exp $
+ * $Id: mem.c,v 1.3 1998-07-10 10:39:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -27,6 +27,7 @@
 #include "db.h"
 #include "lookup.h"
 #include "recycle.h"
+#include "mlstring.h"
 
 /*
  * Globals
@@ -162,7 +163,7 @@ EXIT_DATA *new_exit( void )
     pExit->exit_info    =   0;
     pExit->key          =   0;
     pExit->keyword      =   &str_empty[0];
-    pExit->description  =   &str_empty[0];
+    pExit->description  =   &mlstr_empty;
     pExit->rs_flags     =   0;
 
     return pExit;
@@ -172,8 +173,8 @@ EXIT_DATA *new_exit( void )
 
 void free_exit( EXIT_DATA *pExit )
 {
-    free_string( pExit->keyword );
-    free_string( pExit->description );
+    free_string(pExit->keyword);
+    free_mlstring(pExit->description);
 
     pExit->next         =   exit_free;
     exit_free           =   pExit;
@@ -206,8 +207,8 @@ ROOM_INDEX_DATA *new_room_index( void )
     for ( door=0; door < MAX_DIR; door++ )
         pRoom->exit[door]   =   NULL;
 
-    pRoom->name             =   &str_empty[0];
-    pRoom->description      =   &str_empty[0];
+    pRoom->name             =   &mlstr_empty;
+    pRoom->description      =   &mlstr_empty;
     pRoom->owner	    =	&str_empty[0];
     pRoom->vnum             =   0;
     pRoom->room_flags       =   0;
@@ -228,8 +229,8 @@ void free_room_index( ROOM_INDEX_DATA *pRoom )
     EXTRA_DESCR_DATA *pExtra;
     RESET_DATA *pReset;
 
-    free_string( pRoom->name );
-    free_string( pRoom->description );
+    free_mlstring(pRoom->name);
+    free_mlstring( pRoom->description );
     free_string( pRoom->owner );
 
     for ( door = 0; door < MAX_DIR; door++ )

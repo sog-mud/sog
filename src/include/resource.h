@@ -2,14 +2,14 @@
 #define _RESOURCE_H_
 
 /*
- * $Id: resource.h,v 1.82 1998-07-09 13:41:32 fjoe Exp $
+ * $Id: resource.h,v 1.83 1998-07-10 10:39:42 fjoe Exp $
  */
 
 #define msg(msgid, ch) vmsg(msgid, ch, ch)
 char* vmsg(int msgid, CHAR_DATA *ch, CHAR_DATA *victim);
 char* exact_msg(int msgid, int lang, int sex);
 void msgdb_load();
-int lang_lookup(char*);
+int lang_lookup(const char*);
 extern char** lang_table;
 extern nlang;
 

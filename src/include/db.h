@@ -2,7 +2,7 @@
 #define _DB_H_
 
 /*
- * $Id: db.h,v 1.12 1998-07-09 15:29:59 fjoe Exp $
+ * $Id: db.h,v 1.13 1998-07-10 10:39:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -103,6 +103,7 @@ bool	str_suffix	(const char *astr, const char *bstr);
 char *	capitalize	(const char *str);
 void	append_file	(CHAR_DATA *ch, char *file, char *str);
 void	tail_chain	(void);
+void	db_error	(const char* fn, const char* fmt, ...);
 char *format_flags(int flags);
 
 #define chance(num) (number_range(1, 100) <= num)
@@ -139,6 +140,8 @@ void convert_object(OBJ_INDEX_DATA *pObjIndex);            /* OLC ROM */
 		}							\
 		(item)->next = NULL;					\
 	}
+
+char * fix_string(const char *);
 
 #endif
 

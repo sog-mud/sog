@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.6 1998-07-09 16:05:47 fjoe Exp $
+ * $Id: olc_save.c,v 1.7 1998-07-10 10:39:42 fjoe Exp $
  */
 
 /**************************************************************************
@@ -36,6 +36,7 @@
 #include "comm.h"
 #include "obj_prog.h"
 #include "tables.h"
+#include "mlstring.h"
 
 #define DIF(a,b) (~((~a)|(b)))
 
@@ -44,33 +45,7 @@
  *  section of the resets.  It makes areas considerably larger but
  *  may aid in debugging.
  */
-
 #define VERBOSE
-
-/*****************************************************************************
- Name:		fix_string
- Purpose:	Returns a string without \r and ~.
- ****************************************************************************/
-char *fix_string(const char *str)
-{
-    static char strfix[MAX_STRING_LENGTH * 2];
-    int i;
-    int o;
-
-    if (str == NULL)
-        return '\0';
-
-    for (o = i = 0; str[i+o] != '\0'; i++)
-    {
-        if (str[i+o] == '\r' || str[i+o] == '~')
-            o++;
-        strfix[i] = str[i+o];
-    }
-    strfix[i] = '\0';
-    return strfix;
-}
-
-
 
 /*****************************************************************************
  Name:		save_area_list
@@ -535,8 +510,8 @@ void save_rooms(FILE *fp, AREA_DATA *pArea)
     		char buf[MAX_STRING_LENGTH];
 
                 fprintf(fp, "#%d\n",	pRoomIndex->vnum);
-                fprintf(fp, "%s~\n",	pRoomIndex->name);
-                fprintf(fp, "%s~\n",	fix_string(pRoomIndex->description));
+		fwrite_mlstring(fp,	pRoomIndex->name);
+		fwrite_mlstring(fp,	pRoomIndex->description);
 		fprintf(fp, "0 ");
                 fprintf(fp, "%s ",	fwrite_flag(pRoomIndex->room_flags,
 						    buf));
@@ -590,7 +565,7 @@ void save_rooms(FILE *fp, AREA_DATA *pArea)
 			    locks = 4;
 
                         fprintf(fp, "D%d\n",      pExit->orig_door);
-                        fprintf(fp, "%s~\n",      fix_string(pExit->description));
+			fwrite_mlstring(fp,	pExit->description);
                         fprintf(fp, "%s~\n",      pExit->keyword);
                         fprintf(fp, "%d %d %d\n", locks,
                                                    pExit->key,
@@ -683,7 +658,7 @@ void save_door_resets(FILE *fp, AREA_DATA *pArea)
 				pRoomIndex->vnum,
 				pExit->orig_door,
 				IS_SET(pExit->rs_flags, EX_LOCKED) ? 2 : 1,
-				pRoomIndex->name,
+				ml_estring(pRoomIndex->name),
 				dir_name[pExit->orig_door],
 				IS_SET(pExit->rs_flags, EX_LOCKED) ?
 					"closed and locked" : "closed");
@@ -744,7 +719,7 @@ void save_resets(FILE *fp, AREA_DATA *pArea)
                 pReset->arg3,
 		pReset->arg4,
                 pLastMob->short_descr,
-                pRoom->name);
+                ml_estring(pRoom->name));
             break;
 
 	case 'O':
@@ -754,7 +729,7 @@ void save_resets(FILE *fp, AREA_DATA *pArea)
 	        pReset->arg1,
                 pReset->arg3,
                 capitalize(pLastObj->short_descr),
-                pRoom->name);
+                ml_estring(pRoom->name));
             break;
 
 	case 'P':
@@ -794,7 +769,7 @@ void save_resets(FILE *fp, AREA_DATA *pArea)
 	    fprintf(fp, "R 0 %d %d\t* %s: randomize\n", 
 	        pReset->arg1,
                 pReset->arg2,
-                pRoom->name);
+                ml_estring(pRoom->name));
             break;
             }
 #else

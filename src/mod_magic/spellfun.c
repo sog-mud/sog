@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.23 1998-07-08 09:57:14 fjoe Exp $
+ * $Id: spellfun.c,v 1.24 1998-07-10 10:39:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -59,6 +59,7 @@
 #include "lookup.h"
 #include "interp.h"
 #include "act_move.h"
+#include "mlstring.h"
 
 /*
  * Local functions.
@@ -3976,8 +3977,9 @@ void spell_locate_object(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 			    in_obj->in_room->name, in_obj->in_room->vnum);
 		    else
 			buf_printf(buffer, "One is in %s\n\r",
-			    in_obj->in_room == NULL
-				? "somewhere" : in_obj->in_room->name);
+			    in_obj->in_room == NULL ?
+			    "somewhere" :
+			    ml_string(ch, in_obj->in_room->name));
 		}
 
 		if (number >= max_found)
@@ -5209,12 +5211,13 @@ void spell_find_object(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 		else {
 			if (IS_IMMORTAL(ch) && in_obj->in_room != NULL)
 				buf_printf(buffer, "One is in %s [Room %d]\n\r",
-					   in_obj->in_room->name,
-					   in_obj->in_room->vnum);
+					in_obj->in_room->name,
+					in_obj->in_room->vnum);
 			else
 				buf_printf(buffer, "One is in %s\n\r",
-					   in_obj->in_room == NULL ?
-					   "somewhere" : in_obj->in_room->name);
+					in_obj->in_room == NULL ?
+					"somewhere" :
+					ml_string(ch, in_obj->in_room->name));
 		}
 
 		if (number >= max_found)

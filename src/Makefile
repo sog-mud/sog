@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.9 1998-07-04 11:28:18 fjoe Exp $
+# $Id: Makefile,v 1.10 1998-07-10 10:39:38 fjoe Exp $
 #
 CC		= gcc
 LD		= gcc
@@ -10,10 +10,10 @@ INSTALL_PATH	= /usr/local/muddy
 OFILES = act_comm.o act_info.o act_move.o act_obj.o act_wiz.o auction.o\
          ban.o bit.o buffer.o charset.o comm.o const.o db.o db2.o effects.o \
 	 fight.o flags.o handler.o healer.o hometown.o hunt.o interp.o log.o \
-	 lookup.o magic.o magic2.o martial_art.o mem.o mob_cmds.o mob_prog.o \
-	 note.o obj_prog.o olc.o olc_act.o olc_mpcode.o olc_save.o quest.o \
-	 raffects.o rating.o recycle.o repair.o resource.o save.o skills.o \
-	 special.o string_edit.o tables.o update.o util.o
+	 lookup.o magic.o magic2.o martial_art.o mem.o mlstring.o mob_cmds.o \
+	 mob_prog.o note.o obj_prog.o olc.o olc_act.o olc_mpcode.o olc_save.o \
+	 quest.o raffects.o rating.o recycle.o repair.o resource.o save.o \
+	 skills.o special.o string_edit.o tables.o update.o util.o
 
 #
 # for SUNOS

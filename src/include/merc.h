@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.45 1998-07-09 12:01:36 fjoe Exp $
+ * $Id: merc.h,v 1.46 1998-07-10 10:39:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -90,6 +90,7 @@ typedef struct	room_history_data	ROOM_HISTORY_DATA;
 typedef struct  mprog_list		MPROG_LIST;
 typedef struct  mprog_code		MPROG_CODE;
 typedef struct	qtrouble_data		QTROUBLE_DATA;
+typedef struct	mlstring		mlstring;
 
 /*
  * Function types.
@@ -2056,7 +2057,7 @@ struct	exit_data
 	int		exit_info;
 	int		key;
 	char *		keyword;
-	char *		description;
+	mlstring *	description;
 	EXIT_DATA *	next;		/* OLC */
 	int		rs_flags;	/* OLC */
 	int		orig_door;	/* OLC */
@@ -2143,8 +2144,8 @@ struct	room_index_data
 	EXIT_DATA * 		exit	[6];
 	RESET_DATA *		reset_first;	/* OLC */
 	RESET_DATA *		reset_last;	/* OLC */
-	char *			name;
-	char *			description;
+	mlstring *		name;
+	mlstring *		description;
 	char *			owner;
 	int			vnum;
 	int			clan;

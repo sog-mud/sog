@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.88 1998-07-08 09:57:12 fjoe Exp $
+ * $Id: act_info.c,v 1.89 1998-07-10 10:39:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -67,6 +67,7 @@
 #include "log.h"
 #include "obj_prog.h"
 #include "buffer.h"
+#include "mlstring.h"
 
 #if defined(SUNOS) || defined(SVR4)
 #	include <crypt.h>
@@ -1158,7 +1159,7 @@ void do_look(CHAR_DATA *ch, char *argument)
 
 	if (arg1[0] == '\0' || !str_cmp(arg1, "auto")) {
 		/* 'look' or 'look auto' */
-		char_printf(ch, "{W%s{x", ch->in_room->name, ch);
+		char_printf(ch, "{W%s{x", ml_string(ch, ch->in_room->name), ch);
 
 		if ((IS_IMMORTAL(ch) && (IS_NPC(ch) ||
 					 IS_SET(ch->act, PLR_HOLYLIGHT)))
@@ -1168,10 +1169,9 @@ void do_look(CHAR_DATA *ch, char *argument)
 		send_to_char("\n\r", ch);
 
 		if (arg1[0] == '\0'
-		||  (!IS_NPC(ch) && !IS_SET(ch->comm, COMM_BRIEF))) {
-			send_to_char("  ", ch);
-			send_to_char(ch->in_room->description, ch);
-		}
+		||  (!IS_NPC(ch) && !IS_SET(ch->comm, COMM_BRIEF)))
+			char_printf(ch, "  %s",
+				    ml_string(ch, ch->in_room->description));
 
 		if (!IS_NPC(ch) && IS_SET(ch->act, PLR_AUTOEXIT)) {
 			send_to_char("\n\r", ch);
@@ -1320,10 +1320,11 @@ void do_look(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	if (pexit->description != NULL && pexit->description[0] != '\0')
-		send_to_char(pexit->description, ch);
+	pdesc = ml_string(ch, pexit->description);
+	if (pdesc != NULL && pdesc != '\0')
+		send_to_char(pdesc, ch);
 	else
-		send_to_char(msg(NOTHING_SPECIAL_THERE, ch), ch);
+		char_nputs(NOTHING_SPECIAL_THERE, ch);
 
 	if (pexit->keyword    != NULL
 	&&  pexit->keyword[0] != '\0'
@@ -1463,7 +1464,7 @@ void do_exits(CHAR_DATA *ch, char *argument)
 					capitalize(dir_name[door]),
 					room_dark(pexit->u1.to_room) ?
 					msg(TOO_DARK_TO_TELL, ch) :
-					pexit->u1.to_room->name);
+					ml_string(ch, pexit->u1.to_room->name));
 				p = strend(buf);
 				if (IS_IMMORTAL(ch))
 					sprintf(p, msg(ROOM_D, ch),
