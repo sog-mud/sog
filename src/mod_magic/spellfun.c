@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.181.2.3 2000-02-01 09:25:24 fjoe Exp $
+ * $Id: spellfun.c,v 1.181.2.4 2000-03-29 07:22:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4136,6 +4136,7 @@ void spell_find_object(int sn, int level, CHAR_DATA *ch, void *vo)
 
 	for (obj = object_list; obj != NULL; obj = obj->next) {
 		if (!can_see_obj(ch, obj) || !is_name(target_name, obj->name)
+		||  IS_OBJ_STAT(obj, ITEM_NOFIND)
 		||  number_percent() > 2 * level
 		||  LEVEL(ch) < obj->level
 		||  (IS_SET(obj->pObjIndex->extra_flags, ITEM_CHQUEST) &&
