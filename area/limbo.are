@@ -1322,6 +1322,14 @@ pill G 0 AO
 0 'reserved' 'reserved' 'reserved' 'reserved'
 0 1 1 P
 g @rus none~
+#76
+spot renegade~
+@eng Bloody spot of renegade@rus Кровавое пятно ренегада~
+@eng Whisp of skin with bloody spot lies here.@rus Кусок кожи с кровавым пятном лежит здесь.~
+flesh~
+trash HM CE AS
+0 0 0 0 0
+0 0 0 P
 #80
 golden dagger кинжал~
 @eng a golden dagger@rus ~~золотистый~~ ~~кинжал~~~

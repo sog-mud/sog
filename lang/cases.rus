@@ -4563,6 +4563,17 @@ Form 5 -ьем~
 End
 
 #RULE
+Name бурый~
+BaseLen 3
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ый~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ого~
+End
+
+#RULE
 Name принц~
 BaseLen 5
 Form 1 -а~
@@ -4893,6 +4904,17 @@ Form 3 -у~
 Form 4 -ой~
 Form 5 -е~
 Form 6 -у~
+End
+
+#RULE
+Name кольчужный~
+BaseLen 8
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ый~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ого~
 End
 
 #RULE
@@ -7508,6 +7530,17 @@ Form 6 -а~
 End
 
 #RULE
+Name ежевичные~
+BaseLen 8
+Form 1 -х~
+Form 2 -м~
+Form 3 -е~
+Form 4 -ми~
+Form 5 -х~
+Form 6 -х~
+End
+
+#RULE
 Name цилиндр~
 BaseLen 7
 Form 1 -а~
@@ -8124,6 +8157,17 @@ Form 6 -уюся~
 End
 
 #RULE
+Name капитанское~
+BaseLen 9
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ое~
+Form 4 -им~
+Form 5 -ом~
+Form 6 -ое~
+End
+
+#RULE
 Name Дагонет~
 BaseLen 7
 Form 1 -а~
@@ -8132,6 +8176,17 @@ Form 3 -а~
 Form 4 -ом~
 Form 5 -е~
 Form 6 -а~
+End
+
+#RULE
+Name чешуйка~
+BaseLen 6
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
 End
 
 #RULE
@@ -9788,6 +9843,17 @@ Form 5 -е~
 End
 
 #RULE
+Name бифштекса~
+BaseLen 8
+Form 1 -ы~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
 Name сверкающий~
 BaseLen 8
 Form 1 -его~
@@ -11294,6 +11360,17 @@ Form 3 -у~
 Form 4 -ой~
 Form 5 -е~
 Form 6 -у~
+End
+
+#RULE
+Name щупалце~
+BaseLen 6
+Form 1 -а~
+Form 2 -у~
+Form 3 -е~
+Form 4 -ем~
+Form 5 -е~
+Form 6 -е~
 End
 
 #RULE
