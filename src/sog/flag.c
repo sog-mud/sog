@@ -1,5 +1,5 @@
 /*
- * $Id: flag.c,v 1.28 1999-12-04 08:52:31 fjoe Exp $
+ * $Id: flag.c,v 1.29 1999-12-07 14:21:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -106,7 +106,7 @@ _flag_value(const flag_t *flag64_table, const char *argument,
 	return 0;
 }
 
-const flag_t*
+static const flag_t*
 flag_ilookup(const flag_t *f, flag64_t val)
 {
 	for (f++; f->name != NULL; f++) {
@@ -115,6 +115,18 @@ flag_ilookup(const flag_t *f, flag64_t val)
 	}
 
 	return NULL;
+}
+
+const char *
+flag_istring(const flag_t *f, flag64_t val)
+{
+	static char buf[MAX_STRING_LENGTH];
+
+	if ((f = flag_ilookup(f, val)) != NULL)
+		return f->name;
+
+	snprintf(buf, sizeof(buf), "%d", (int) val);
+	return buf;
 }
 
 #define NBUFS 3

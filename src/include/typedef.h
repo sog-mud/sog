@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.34 1999-12-01 09:07:09 fjoe Exp $
+ * $Id: typedef.h,v 1.35 1999-12-07 14:20:59 fjoe Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -107,7 +107,7 @@ union vo_t {
 #define INT(v)		((v).i)
 #define STR(v)		(IS_NULLSTR((v).s) ? str_empty: (v).s)
 #define STR1(v)		(IS_NULLSTR((v).s) ? "none" : (v).s)
-#define FLAGS(v)		(format_flags(INT(v)))
+#define FLAGS(v)	(format_flags(INT(v)))
 #define SFLAGS(t, v)	(flag_string((t), INT(v)))
 #define STR_ASSIGN(v, str)			\
 	do {					\

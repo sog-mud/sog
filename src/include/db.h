@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.h,v 1.59 1999-11-23 12:14:29 fjoe Exp $
+ * $Id: db.h,v 1.60 1999-12-07 14:20:59 fjoe Exp $
  */
 
 #ifndef _DB_H_
@@ -135,8 +135,6 @@ void	reset_room	(ROOM_INDEX_DATA *pRoom, int flags);
 const char *	fix_word	(const char *s);
 char *		fix_string	(const char *s);
 
-void		fwrite_ival	(FILE *fp, const flag_t *table,
-				 const char *name, int);
 void		fwrite_string	(FILE *fp, const char *name, const char *str);
 void		fwrite_word	(FILE *fp, const char *name, const char *w);
 void		fwrite_number	(FILE *fp, const char *name, int num);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.67 1999-12-05 09:15:03 avn Exp $
+ * $Id: olc_room.c,v 1.68 1999-12-07 14:21:00 fjoe Exp $
  */
 
 #include "olc.h"
@@ -398,7 +398,6 @@ OLC_FUN(roomed_desc)
 	ROOM_INDEX_DATA *pRoom;
 	EDIT_ROOM(ch, pRoom);
 	rv = olced_mlstr_text(ch, argument, cmd, &pRoom->description);
-	dofun("look", ch, str_empty);
 	return rv;
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.265 1999-12-06 11:10:19 fjoe Exp $
+ * $Id: merc.h,v 1.266 1999-12-07 14:20:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1813,6 +1813,9 @@ int trust_level(CHAR_DATA *ch);
 
 #define IS_EXTRACTED(ch)	(!mem_is(ch, MT_CHAR) || \
 				 ch->last_death_time >= current_time)
+
+#define FLEE_EXP(ch)	(number_range(10, (ch)->level * 100))
+
 /*
  * Object macros.
  */

@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.138 1999-12-06 11:10:06 fjoe Exp $
+ * $Id: martial_art.c,v 1.139 1999-12-07 14:20:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -436,8 +436,9 @@ void do_flee(CHAR_DATA *ch, const char *argument)
 			act_puts("You fled from combat!",
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 			if (ch->level < LEVEL_HERO) {
-				char_printf(ch, "You lose %d exps.\n", 10);
-				gain_exp(ch, -10);
+				int exp = FLEE_EXP(ch);
+				char_printf(ch, "You lose %d exps.\n", exp);
+				gain_exp(ch, -exp);
 			}
 		} else {
 			/* Once fled, the mob will not go after */
@@ -685,7 +686,7 @@ void do_gash(CHAR_DATA *ch, const char *argument) {
 		af.where = TO_AFFECTS;
 		af.type = "crippled hands";
 		af.level = ch->level;
-		af.location = APPLY_HITROLL;
+		INT(af.location) = APPLY_HITROLL;
 		af.duration = ch->level/15;
 		af.modifier = -ch->level/5;
 		af.events = EVENT_CHAR_UPDATE;
@@ -4639,9 +4640,9 @@ void do_dishonor(CHAR_DATA *ch, const char *argument)
 			char_puts("You dishonored yourself "
 				     "and flee from combat.\n",ch);
 			if (ch->level < LEVEL_HERO) {
-				char_printf(ch, "You lose %d exps.\n",
-					    ch->level);
-				gain_exp(ch, -(ch->level));
+				int exp = FLEE_EXP(ch) * 3;
+				char_printf(ch, "You lose %d exps.\n", exp);
+				gain_exp(ch, -exp);
 			}
 		}
 		else {

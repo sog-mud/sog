@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.190 1999-12-06 11:10:21 fjoe Exp $
+ * $Id: db.c,v 1.191 1999-12-07 14:21:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1674,22 +1674,6 @@ fix_word(const char *w)
 
 	snprintf(buf, sizeof(buf), "'%s'", w);
 	return buf;
-}
-
-void fwrite_ival(FILE *fp, const flag_t *table, const char *name, int val)
-{
-	const flag_t *f;
-
-	if (!IS_NULLSTR(name))
-		fprintf(fp, "%s ", name);
-
-	if ((f = flag_ilookup(table, val)) != NULL)
-		fprintf(fp, "'%s'", f->name);
-	else
-		fprintf(fp, "%d", val);
-
-	if (!IS_NULLSTR(name))
-		fputc('\n', fp);
 }
 
 void fwrite_string(FILE *fp, const char *name, const char *str)

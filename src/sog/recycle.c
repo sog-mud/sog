@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.85 1999-12-06 11:10:21 fjoe Exp $
+ * $Id: recycle.c,v 1.86 1999-12-07 14:21:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -809,7 +809,7 @@ void objval_cpy(flag32_t item_type, vo_t *dst, vo_t *src)
 	case ITEM_FOUNTAIN:
 		dst[0] = src[0];
 		dst[1] = src[1];
-		dst[2] = str_qdup(src[2].s);
+		dst[2].s = str_qdup(src[2].s);
 		dst[3] = src[3];
 		dst[4] = src[4];
 		break;
@@ -820,7 +820,7 @@ void objval_cpy(flag32_t item_type, vo_t *dst, vo_t *src)
 		dst[0] = src[0];
 		dst[1] = src[1];
 		dst[2] = src[2];
-		dst[3] = str_qdup(src[3].s);
+		dst[3].s = str_qdup(src[3].s);
 		dst[4] = src[4];
 		break;
 
@@ -829,7 +829,7 @@ void objval_cpy(flag32_t item_type, vo_t *dst, vo_t *src)
 	case ITEM_SCROLL:
 		dst[0] = src[0];
 		for (i = 1; i < 5; i++)
-			dst[i] = str_qdup(src[i].s);
+			dst[i].s = str_qdup(src[i].s);
 		break;
 	}
 }

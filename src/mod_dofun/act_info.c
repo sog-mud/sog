@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.296 1999-12-06 11:10:03 fjoe Exp $
+ * $Id: act_info.c,v 1.297 1999-12-07 14:20:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2755,20 +2755,21 @@ static const char * get_resist_alias(int resist)
 void do_resistances(CHAR_DATA *ch, const char *argument)
 {
 	int i;
-	const flag_t *flp;
 	bool found = FALSE;
 	for (i=0; i < MAX_RESIST; i++) {
 		if (!ch->resists[i])
 			continue;
 		found = TRUE;
-		flp = flag_ilookup(resist_info_flags, i);
-		if (ch->level < 20) 
+		if (ch->level < 20) {
 			char_printf(ch, "You are %s %s.\n", 
-				get_resist_alias(ch->resists[i]), flp->name);
-		else
+				get_resist_alias(ch->resists[i]),
+				flag_string(resist_info_flags, i));
+		} else {
 			char_printf(ch, "You are %s %s (%d%%).\n", 
-				get_resist_alias(ch->resists[i]), flp->name,
+				get_resist_alias(ch->resists[i]),
+				flag_string(resist_info_flags, i),
 				UMIN(ch->resists[i], 100));
+		}
 	}
 	if (!found)
 		act("You don't have any resistances and vulnerabilities.",

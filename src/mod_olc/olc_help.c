@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_help.c,v 1.39 1999-10-17 08:55:45 fjoe Exp $
+ * $Id: olc_help.c,v 1.40 1999-12-07 14:20:59 fjoe Exp $
  */
 
 #include "olc.h"
@@ -165,9 +165,10 @@ OLC_FUN(helped_show)
 
 	output = buf_new(-1);
 	buf_printf(output,
-		   "Level:    [%d]\n"
+		   "Level:    [%s]\n"
 		   "Keywords: [%s]\n",
-		   pHelp->level, pHelp->keyword);
+		   flag_istring(level_table, pHelp->level),
+		   pHelp->keyword);
 	mlstr_dump(output, "Text:     ", &pHelp->text);
 	page_to_char(buf_string(output), ch);
 	buf_free(output);

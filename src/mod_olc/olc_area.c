@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.63 1999-12-04 08:52:29 fjoe Exp $
+ * $Id: olc_area.c,v 1.64 1999-12-07 14:20:59 fjoe Exp $
  */
 
 #include "olc.h"
@@ -1505,8 +1505,9 @@ static void save_helps(FILE *fp, AREA_DATA *pArea)
 	fprintf(fp, "#HELPS\n");
 
 	for (; pHelp; pHelp = pHelp->next_in_area) {
-		fwrite_ival(fp, level_table, NULL, pHelp->level);
-		fprintf(fp, " %s~\n", fix_string(pHelp->keyword));
+		fprintf(fp, "%s %s~\n",
+			fix_word(flag_istring(level_table, pHelp->level)),
+			fix_string(pHelp->keyword));
 		mlstr_fwrite(fp, NULL, &pHelp->text);
 	}
 
