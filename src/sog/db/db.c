@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.176 1999-10-21 12:52:07 fjoe Exp $
+ * $Id: db.c,v 1.177 1999-10-21 13:07:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -143,7 +143,6 @@ const char MATERIALS_CONF	[] = "materials.conf";	/* materials */
 const char LIQUIDS_CONF		[] = "liquids.conf";	/* liquids */
 
 const char AREA_LIST		[] = "area.lst";	/* list of areas */
-const char CLAN_LIST		[] = "clan.lst";	/* list of clans */
 const char LANG_LIST		[] = "lang.lst";	/* list of languages */
 
 const char BUG_FILE		[] = "bugs.txt";	/* 'bug' and bug() */
@@ -456,7 +455,7 @@ void boot_db(void)
 
 	db_load_dir(&db_races, RACES_PATH, RACE_EXT);
 	db_load_dir(&db_classes, CLASSES_PATH, CLASS_EXT);
-	db_load_list(&db_clans, CLANS_PATH, CLAN_LIST);
+	db_load_dir(&db_clans, CLANS_PATH, CLAN_EXT);
 	db_load_list(&db_areas, AREA_PATH, AREA_LIST);
 	db_load_file(&db_hometowns, ETC_PATH, HOMETOWNS_CONF);
 
