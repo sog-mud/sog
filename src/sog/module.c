@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: module.c,v 1.33 2001-12-03 22:28:48 fjoe Exp $
+ * $Id: module.c,v 1.34 2001-12-10 12:12:41 fjoe Exp $
  */
 
 /*
@@ -159,7 +159,7 @@ mod_unload(module_t *m)
 		 */
 		if (m_dep->dlh == NULL
 		||  !str_cmp(m_dep->name, m->name))
-			return NULL;
+			continue;
 
 		if (is_name_strict(m->name, m_dep->mod_deps)) {
 			log(LOG_ERROR, "module `%s' (%s) can't be unloaded: module `%s' (%s) depends on it",
