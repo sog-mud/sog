@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_mpc.c,v 1.14 2001-08-26 05:49:11 fjoe Exp $
+ * $Id: init_mpc.c,v 1.15 2001-08-26 09:17:16 fjoe Exp $
  */
 
 #include <dlfcn.h>
@@ -40,32 +40,17 @@
 #include <rwfile.h>
 #include <mprog.h>
 
-#undef MODULE_NAME
-#define MODULE_NAME MOD_MPC
-#define MODULE_INIT MOD_MPC
-#include <dynafun_decl.h>
-
 #include "mpc_impl.h"
 #include "mpc_const.h"
 #include "mpc_iter.h"
 
 #if !defined(MPC)
+#define MODULE_INIT MOD_MPC
+#include "mpc_dynafun.h"
+
 DECLARE_MODINIT_FUN(_module_load);
 DECLARE_MODINIT_FUN(_module_unload);
 
-static dynafun_data_t local_dynafun_tab[] = {
-	DECLARE_FUN4(int, has_sp,
-		     ARG(CHAR_DATA), ch, ARG(cchar_t), spn,
-		     ARG(cchar_t), spn_add, ARG(cchar_t), spn_rm)
-	DECLARE_FUN1(int, level,
-		     ARG(CHAR_DATA), ch)
-	DECLARE_FUN4(int, spclass_count,
-		     ARG(CHAR_DATA), ch, ARG(cchar_t), spn,
-		     ARG(cchar_t), spn_add, ARG(cchar_t), spn_rm)
-	DECLARE_PROC2(mob_interpret,
-		      ARG(CHAR_DATA), ch, ARG(cchar_t), argument)
-	NULL_DYNAFUN_DATA
-};
 #endif
 
 static dynafun_data_t core_dynafun_tab[] = {
@@ -132,7 +117,7 @@ MODINIT_FUN(_module_load, m)
 	if (mpc_init() < 0)
 		return -1;
 
-	dynafun_tab_register(local_dynafun_tab, m);
+	dynafun_tab_register(__mod_tab(MODULE), m);
 
 	hash_init(&mpcodes, &h_mpcodes);
 	hash_foreach(&mprogs, compile_mprog_cb);
@@ -147,7 +132,7 @@ MODINIT_FUN(_module_unload, m)
 
 	hash_destroy(&mpcodes);
 
-	dynafun_tab_unregister(local_dynafun_tab);
+	dynafun_tab_unregister(__mod_tab(MODULE));
 	mpc_fini();
 	return 0;
 }
