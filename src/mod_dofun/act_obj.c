@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.165.2.37 2002-08-24 14:57:17 tatyana Exp $
+ * $Id: act_obj.c,v 1.165.2.38 2002-09-01 16:56:45 tatyana Exp $
  */
 
 /***************************************************************************
@@ -683,6 +683,7 @@ void do_envenom(CHAR_DATA * ch, const char *argument)
 	}
 
 	if (obj->pObjIndex->item_type == ITEM_FOOD
+	||  obj->pObjIndex->item_type == ITEM_FISH
 	||  obj->pObjIndex->item_type == ITEM_DRINK_CON) {
 		if (IS_OBJ_STAT(obj, ITEM_BLESS)
 		||  IS_OBJ_STAT(obj, ITEM_BURN_PROOF)) {
@@ -1169,7 +1170,8 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 
 	if (!IS_IMMORTAL(ch)) {
 		if ((obj->pObjIndex->item_type != ITEM_FOOD ||
-		     IS_SET(obj->extra_flags, ITEM_NOT_EDIBLE))
+		     IS_SET(obj->extra_flags, ITEM_NOT_EDIBLE) ||
+		     obj->pObjIndex->item_type != ITEM_FISH)
 		&& obj->pObjIndex->item_type != ITEM_PILL) {
 			char_puts("That's not edible.\n", ch);
 			return;
@@ -1180,7 +1182,8 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 		}
 	}
 
-	if (obj->pObjIndex->item_type == ITEM_FOOD
+	if ((obj->pObjIndex->item_type == ITEM_FOOD ||
+	     obj->pObjIndex->item_type == ITEM_FISH)
 	&&  ch->fighting != NULL) {
 		act_puts("You can't eat while fighting.",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
@@ -1199,6 +1202,7 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 
 	switch (obj->pObjIndex->item_type) {
 	case ITEM_FOOD:
+	case ITEM_FISH:
 		if (!IS_NPC(ch)) {
 			int             condition;
 			condition = PC(ch)->condition[COND_HUNGER];
@@ -4076,6 +4080,7 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 	case ITEM_JEWELRY:
 	case ITEM_FURNITURE:
 	case ITEM_FOOD:
+	case ITEM_FISH:
 		tax = (auction.starting * 20) / 100;
 		if (PC(ch)->bank_g < tax && ch->gold < tax) {
 			act_puts("You do not have enough gold to pay "

@@ -78,7 +78,7 @@ you really should try the blue-tongued lizards which hide in the
 jetty rocks.
 ~
 human~
-ABCE 0 200 0
+ABCEK 0 200 0
 10 0 2d7+121 5d5+100 2d4+2 pierce
 1 1 1 7
 EFNU 0 0 0
@@ -2677,6 +2677,10 @@ S
 #OLIMITS
 O 29202 5	* a blue lizard tongue
 O 29234 1	* the troll stone
+S
+
+#PRACTICERS
+M 29205 fishing~	* the fisherman
 S
 
 #$

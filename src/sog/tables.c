@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.89.2.15 2002-08-31 17:18:55 tatyana Exp $
+ * $Id: tables.c,v 1.89.2.16 2002-09-01 16:57:01 tatyana Exp $
  */
 
 /***************************************************************************
@@ -555,6 +555,7 @@ flag_t item_types[] =
 	{ "jukebox",		ITEM_JUKEBOX,		TRUE	},
 	{ "tattoo",		ITEM_TATTOO,		FALSE	},
 	{ "fishing_pole",	ITEM_FISHING_POLE,	TRUE	},
+	{ "fish",		ITEM_FISH,		TRUE	},
 
 	{ NULL }
 };
@@ -1017,6 +1018,8 @@ flag_t skill_groups[] =
 	{ "defensive",		GROUP_DEFENSIVE,	TRUE	},
 	{ "wizard",		GROUP_WIZARD,		TRUE	},
 	{ "necromancy",		GROUP_NECROMANCY,	TRUE	},
+	{ "fishing",		GROUP_FISHING,		TRUE	},
+	{ "mining",		GROUP_MINING,		TRUE	},
 
 	{ NULL }
 };

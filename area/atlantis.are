@@ -17,7 +17,7 @@ is hidden by his cape but you can see his glowing eyes staring at you. He
 looks very dangerous, however you can't see if he's very strong.
 ~
 human~
-ABCHT JZ 0 0
+ABCHKT JZ 0 0
 13 0 2d10+170 129d1+1 2d5+3 punch
 -1 -1 -1 8
 EFNU 0 0 0
@@ -2115,6 +2115,10 @@ S
 #OLIMITS
 O 35001 3	* sword Sharkbite
 O 35019 3	* Samuel's axe
+S
+
+#PRACTICERS
+M 35000 fishing~	* the Fisherman
 S
 
 #$

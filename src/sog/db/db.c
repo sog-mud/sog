@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.169.2.22 2001-12-25 19:24:04 tatyana Exp $
+ * $Id: db.c,v 1.169.2.23 2002-09-01 16:57:05 tatyana Exp $
  */
 
 /***************************************************************************
@@ -2194,6 +2194,7 @@ void convert_object(OBJ_INDEX_DATA *pObjIndex)
         case ITEM_MAP:
         case ITEM_CLOTHING:
         case ITEM_SCROLL:
+        case ITEM_FISH:
 	    break;
 
         case ITEM_WAND:

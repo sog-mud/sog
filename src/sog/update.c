@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.44 2002-08-31 17:18:56 tatyana Exp $
+ * $Id: update.c,v 1.157.2.45 2002-09-01 16:57:02 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1751,6 +1751,7 @@ void update_one_obj(OBJ_DATA *obj)
 		message = "$p decays into dust.";
 		break;
 	case ITEM_FOOD:
+	case ITEM_FISH:
 		message = "$p decomposes.";
 		break;
 	case ITEM_POTION:

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.55.2.2 2002-08-31 17:18:51 tatyana Exp $
+ * $Id: olc_obj.c,v 1.55.2.3 2002-09-01 16:56:57 tatyana Exp $
  */
 
 #include <sys/types.h>
@@ -1062,6 +1062,7 @@ void show_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj)
 		break;
 			    
 	case ITEM_FOOD:
+	case ITEM_FISH:
 		buf_printf(output,
 			"[v0] Food hours: [%d]\n"
 			"[v1] Full hours: [%d]\n"
@@ -1384,6 +1385,7 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 		break;
 			    	
 	case ITEM_FOOD:
+	case ITEM_FISH:
 		switch (value_num) {
 		default:
 			return 1;

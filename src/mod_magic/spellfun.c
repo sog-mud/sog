@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.181.2.33 2002-08-30 20:16:17 tatyana Exp $
+ * $Id: spellfun.c,v 1.181.2.34 2002-09-01 16:56:49 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1337,17 +1337,15 @@ void spell_detect_poison(int sn, int level, CHAR_DATA *ch, void *vo)
 {
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
 
-	if (obj->pObjIndex->item_type == ITEM_DRINK_CON || obj->pObjIndex->item_type == ITEM_FOOD)
-	{
+	if (obj->pObjIndex->item_type == ITEM_DRINK_CON
+	||  obj->pObjIndex->item_type == ITEM_FOOD
+	||  obj->pObjIndex->item_type == ITEM_FISH) {
 		if (obj->value[3] != 0)
-		    char_puts("You smell poisonous fumes.\n", ch);
+			char_puts("You smell poisonous fumes.\n", ch);
 		else
-		    char_puts("It looks delicious.\n", ch);
-	}
-	else
-	{
+			char_puts("It looks delicious.\n", ch);
+	} else
 		char_puts("It doesn't look poisoned.\n", ch);
-	}
 }
 
 void spell_dispel_evil(int sn, int level, CHAR_DATA *ch, void *vo)
@@ -3256,16 +3254,20 @@ void spell_poison(int sn, int level, CHAR_DATA *ch, void *vo)
 	if (mem_is(vo, MT_OBJ)) {
 		OBJ_DATA *obj = (OBJ_DATA *) vo;
 
-		if (obj->pObjIndex->item_type == ITEM_FOOD || obj->pObjIndex->item_type == ITEM_DRINK_CON)
-		{
-		    if (IS_OBJ_STAT(obj,ITEM_BLESS) || IS_OBJ_STAT(obj,ITEM_BURN_PROOF))
-		    {
-			act("Your spell fails to corrupt $p.",ch,obj,NULL,TO_CHAR);
-			return;
-		    }
-		    obj->value[3] = 1;
-		    act("$p is infused with poisonous vapors.",ch,obj,NULL,TO_ALL);
-		    return;
+		if (obj->pObjIndex->item_type == ITEM_FOOD
+		||  obj->pObjIndex->item_type == ITEM_DRINK_CON
+		||  obj->pObjIndex->item_type == ITEM_FISH) {
+			if (IS_OBJ_STAT(obj,ITEM_BLESS)
+			||  IS_OBJ_STAT(obj,ITEM_BURN_PROOF)) {
+				act("Your spell fails to corrupt $p.",
+				    ch, obj, NULL, TO_CHAR);
+				return;
+			}
+
+		obj->value[3] = 1;
+		act("$p is infused with poisonous vapors.",
+		    ch, obj, NULL, TO_ALL);
+		return;
 		}
 
 		if (obj->pObjIndex->item_type == ITEM_WEAPON)

@@ -29,7 +29,7 @@ A dwarven mining worker is here.
 He is very dirty, and looks extremely over-worked.
 ~
 dwarf~
-AG 0 900 0
+AGK 0 900 0
 12 0 2d10+150 6d9+100 1d10+3 none
 0 0 0 8
 EFNR 0 0 0
@@ -114,7 +114,7 @@ A dwarven miner is here.
 The mineworker is very tired, and very dirty, and he has bulging muscles.
 ~
 dwarf~
-AB 0 0 0
+ABK 0 0 0
 8 0 2d7+96 4d9+100 1d7+2 none
 3 3 3 9
 EFNR 0 0 0
@@ -1705,5 +1705,10 @@ S
 6503 0 0 0 0 0 150 50 0 23
 6504 0 0 0 0 0 150 50 0 23
 0
+
+#PRACTICERS
+M 6501 mining~	* the dwarven worker
+M 6507 mining~	* the dwarven miner
+S
 
 #$

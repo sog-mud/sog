@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.234.2.30 2002-08-31 17:18:46 tatyana Exp $
+ * $Id: merc.h,v 1.234.2.31 2002-09-01 16:56:42 tatyana Exp $
  */
 
 /***************************************************************************
@@ -425,13 +425,13 @@ where_t *where_lookup(flag32_t where);
 #define GROUP_NONE		0
 #define GROUP_WEAPONSMASTER	(A)
 #define GROUP_ATTACK		(B)
-#define GROUP_BEGUILING 	(C)
+#define GROUP_BEGUILING		(C)
 #define GROUP_BENEDICTIONS	(D)
 #define GROUP_COMBAT		(E)
 #define GROUP_CREATION		(F)
 #define GROUP_CURATIVE		(G)
-#define GROUP_DETECTION 	(H)
-#define GROUP_DRACONIAN 	(I)
+#define GROUP_DETECTION		(H)
+#define GROUP_DRACONIAN		(I)
 #define GROUP_ENCHANTMENT	(J)
 #define GROUP_ENHANCEMENT	(K)
 #define GROUP_HARMFUL		(L)
@@ -445,10 +445,11 @@ where_t *where_lookup(flag32_t where);
 #define GROUP_SUDDENDEATH	(T)
 #define GROUP_MEDITATION	(U)
 #define GROUP_CLAN		(V)
-#define GROUP_DEFENSIVE 	(W)
+#define GROUP_DEFENSIVE		(W)
 #define GROUP_WIZARD		(X)
 #define GROUP_NECROMANCY	(Y)
-
+#define GROUP_FISHING		(Z)
+#define GROUP_MINING		(aa)
 /*
  * area flags
  */
@@ -819,6 +820,7 @@ where_t *where_lookup(flag32_t where);
 #define ITEM_JUKEBOX		34
 #define ITEM_TATTOO		35
 #define ITEM_FISHING_POLE	36
+#define ITEM_FISH		37
 
 /*
  * Extra flags.  *EXT*

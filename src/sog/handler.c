@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.54 2002-08-31 17:18:53 tatyana Exp $
+ * $Id: handler.c,v 1.182.2.55 2002-09-01 16:56:59 tatyana Exp $
  */
 
 /***************************************************************************
@@ -211,6 +211,7 @@ int floating_time(OBJ_DATA *obj)
 	case ITEM_POTION 	: ftime = 3;	break;
 	case ITEM_TRASH 	: ftime = 3;	break;
 	case ITEM_FOOD 	: ftime = 4;	break;
+	case ITEM_FISH 	: ftime = 10;	break;
 	case ITEM_CONTAINER	: ftime = 5;	break;
 	case ITEM_CORPSE_NPC: ftime = 10;	break;
 	case ITEM_CORPSE_PC	: ftime = 10;	break;
