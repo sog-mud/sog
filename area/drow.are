@@ -30,13 +30,12 @@ A drow commoner walks on guard duty.
 I doubt he is the type to give directions.
 ~
 human~
-ADFG J -1000 0
+ADFG DJ -1000 0
 10 0 2d7+121 5d9+100 2d4+2 none
 1 1 1 8
 EFNU 0 0 0
 stand stand male 15
 0 0 medium unknown
-A det D
 #5102
 oldstyle drow noble warrior~
 the drow warrior noble~
@@ -45,13 +44,12 @@ The drow warrior noble stands here guarding his home.
 He looks pissed off!
 ~
 human~
-ABF J -1000 0
+ABF DJ -1000 0
 14 0 2d10+190 7d9+100 1d12+3 none
 -1 -1 -1 8
 EFNU 0 0 0
 stand stand male 50
 0 0 medium unknown
-A det D
 #5103
 oldstyle drow noble mage~
 the drow mage noble~
@@ -60,13 +58,12 @@ The drow mage noble is here protecting his home.
 The mage prepares to cast a spell ... at you!!
 ~
 human~
-ABFR J -1000 0
+ABFR DJ -1000 0
 15 0 2d10+190 15d9+100 1d10+3 none
 -1 -1 -1 5
 FU 0 0 0
 stand stand male 100
 0 0 medium unknown
-A det D
 #5104
 oldstyle drow priestess~
 the drow priestess~
@@ -75,13 +72,12 @@ The drow priestess is here shouting orders.
 I wouldn't want go get on her bad side!
 ~
 human~
-ABFQ J -1000 0
+ABFQ DJ -1000 0
 17 0 3d9+258 17d9+100 2d6+4 none
 -3 -3 -3 6
 EIKU 0 0 0
 stand stand female 200
 0 0 medium unknown
-A det D
 #5105
 oldstyle drow master~
 The drow master~
@@ -90,13 +86,12 @@ The drow master stares at you angrily.
 The drow master is ALWAYS ready for a fight.
 ~
 human~
-ABF J -1000 0
+ABF DJ -1000 0
 21 0 4d10+360 10d9+100 4d4+5 none
 -5 -5 -5 7
 EFNU 0 0 0
 stand stand male 500
 0 0 medium unknown
-A det D
 #5106
 oldstyle drow weapons master~
 The weapons master~
@@ -105,13 +100,12 @@ The drow weapons master is here shadow boxing.
 He definitely knows his way around in combat.
 ~
 human~
-ABF J -1000 0
+ABF DJ -1000 0
 23 0 5d10+450 11d9+100 3d6+6 none
 -6 -6 -6 6
 EFNU 0 0 0
 stand stand male 750
 0 0 medium unknown
-A det D
 #5107
 oldstyle drow matron mother~
 the matron mother~
@@ -120,13 +114,12 @@ The matron mother of the house is standing here.
 She looks really pissed off!
 ~
 human~
-ABF J -1000 0
+ABF DJ -1000 0
 24 0 5d10+500 12d9+100 2d10+6 none
 -6 -6 -6 6
 EFNU 0 0 0
 stand stand female 1500
 0 0 medium unknown
-A det D
 #5108
 oldstyle drow matron mother~
 the matron mother~
@@ -135,13 +128,12 @@ The matron mother of the 1st house is waiting for you.
 She looks like she is about to rip your head off and eat it.
 ~
 human~
-ABFQ HJ -1000 0
+ABFQ DHJ -1000 0
 26 0 5d10+600 26d9+100 2d10+7 none
 -7 -7 -7 5
 EIKU 0 0 0
 stand stand female 1500
 0 0 medium unknown
-A det D
 #5109
 oldstyle yochlol~
 the yochlol~
@@ -150,13 +142,12 @@ A yochlol forms out of a swirling mist.
 The yochlol is not in a good mood.
 ~
 human~
-ABF HJ -1000 0
+ABF DHJ -1000 0
 35 0 10d10+1300 17d9+100 4d7+11 none
 -11 -11 -11 5
 EFNU 0 0 0
 stand stand female 1500
 0 0 medium unknown
-A det D
 #5110
 oldstyle drow guard~
 the drow guard~
@@ -290,7 +281,7 @@ an iron bracer~
 An iron bracer has been dropped here.~
 iron~
 armor AG AM
-C ABC ABC B 0
+4 7 7 2 0
 15 30 1150 P
 #5109
 gauntlets iron~
@@ -298,7 +289,7 @@ a pair of gauntlets~
 A pair of gauntlets has been dropped here.~
 iron~
 armor A AH
-AC AC AC 0 0
+5 5 5 0 0
 17 20 3600 P
 A
 1 2
@@ -316,7 +307,7 @@ a small helmet~
 A small helmet lies up against a rock.~
 steel~
 armor G AE
-C C C 0 0
+4 4 4 0 0
 16 50 3300 P
 A
 3 2
@@ -348,7 +339,7 @@ a small bright green hat~
 A small bright green hat lies in the dirt.~
 cloth~
 armor H AE
-C AC AC 0 0
+4 5 5 0 0
 12 10 1180 P
 A
 17 -2
@@ -372,7 +363,7 @@ City Entrance~
 You are at the entrance to a small underground city. A great adamantite
 gate lies open to the west allowing entrance into the city.
 ~
-0 AD 0
+0 AD inside
 E
 hole~
 A small hole that looks to have been sealed at one time.
@@ -395,7 +386,7 @@ City street~
 You walk along a highly ornate street going north-south. A large gate
 lies to the east while a building lies to the west.
 ~
-0 AD 0
+0 AD inside
 D0
 ~
 ~
@@ -417,7 +408,7 @@ S
 City street~
 You walk along a highly ornate city street going north and west.
 ~
-0 AD 0
+0 AD inside
 D0
 ~
 ~
@@ -432,7 +423,7 @@ City street~
 You walk along a highly ornate city street going east-west. A large house
 stands to the south.
 ~
-0 AD 0
+0 AD inside
 D1
 ~
 ~
@@ -452,7 +443,7 @@ You stand inside the 3rd house of the city; it is fairly well decorated
 by drow standards having a few statues, murals and such. A door leads to the
 south.
 ~
-0 AD 0
+0 AD inside
 D0
 ~
 ~
@@ -467,7 +458,7 @@ Throne Room~
 The throne room of the 3rd house is about as decorated as the inner
 courtyard except with a blood covered altar in the center of the room.
 ~
-0 AD 0
+0 AD inside
 D0
 ~
 ~
@@ -478,7 +469,7 @@ City street~
 You walk along a highly ornate city street going east-west. To the north
 is a large building.
 ~
-0 AD 0
+0 AD inside
 D0
 ~
 ~
@@ -497,7 +488,7 @@ City street~
 You walk along a highly ornate city street leading north and east. To the
 south is an extremely large house.
 ~
-0 AD 0
+0 AD inside
 D0
 ~
 ~
@@ -516,7 +507,7 @@ S
 You stand inside the 2nd house of the city. The room is highly decorated
 with statues of spiders and murals everywhere.
 ~
-0 AD 0
+0 AD inside
 D0
 ~
 ~
@@ -531,7 +522,7 @@ Throne Room~
 The throne room of the 2nd house is just a little more decorative than
 the inner courtyard having an altar in the center of the room.
 ~
-0 AD 0
+0 AD inside
 D1
 ~
 ~
@@ -542,7 +533,7 @@ Main Gate~
 You are at the entrance to the 1st house of the city. A large gate, almost
 as big and elegant as the one at the entrance to the city, stands here.
 ~
-0 AD 0
+0 AD inside
 D0
 ~
 ~
@@ -562,7 +553,7 @@ You stand in the inner courtyard of the 1st and largest house in the city.
 The room is extremely large and decorative. Mural and paintings hang on the
 walls depicting some battles and a spider queen.
 ~
-0 AD 0
+0 AD inside
 D1
 ~
 ~
@@ -577,7 +568,7 @@ Throne Room~
 The throne room of the 1st house is in one word...awesome. It is so
 horrifying it is almost beautiful.
 ~
-0 AD 0
+0 AD inside
 D0
 ~
 ~
@@ -592,7 +583,7 @@ Main Chamber~
 This is the council chamber for the Matron Mother herself. A huge table
 and chairs surrounding it sits in the center of the room.
 ~
-0 AD 0
+0 AD inside
 D2
 ~
 ~
@@ -602,7 +593,7 @@ S
 City street~
 You walk along a highly ornate city street leading north-south and east.
 ~
-0 AD 0
+0 AD inside
 D0
 ~
 ~
@@ -621,7 +612,7 @@ City street~
 You walk along a highly ornate city street leading south. A building is
 to the west.
 ~
-0 AD 0
+0 AD inside
 D2
 ~
 ~
@@ -635,7 +626,7 @@ S
 Cleric Academy~
 This is the most lavish of the academies being that it is for the clerics.
 ~
-0 AD 0
+0 AD inside
 D1
 ~
 ~
@@ -646,7 +637,7 @@ City street~
 You walk along a highly ornate city street going east-west. To the north
 is a giant temple.
 ~
-0 AD 0
+0 AD inside
 D0
 The entrance to the temple of Lloth.~
 ~
@@ -664,7 +655,7 @@ S
 Warrior's Academy~
 This looks more like a barracks than a school.
 ~
-0 AD 0
+0 AD inside
 D2
 ~
 ~
@@ -676,7 +667,7 @@ The temple is the largest building in the city. Even it's doors are beyond
 imagination. Inside of the temple entrance, the walls are made of gold and
 adamantite.
 ~
-0 AD 0
+0 AD inside
 D2
 ~
 ~
@@ -691,7 +682,7 @@ Mage's Academy~
 The mages academy is fairly well decorated see that the drow prefer magic
 over physical power greatly.
 ~
-0 AD 0
+0 AD inside
 D2
 ~
 ~
@@ -702,7 +693,7 @@ City street~
 You walk along a highly ornate city street going eastward. To the north is
 a building.
 ~
-0 AD 0
+0 AD inside
 D0
 ~
 ~
@@ -725,7 +716,7 @@ Slave Chamber~
 The room is in shambles. Straw is strewn all about the room as beds for the
 unfortunate creatures who have fallen prey to drow imperialism.
 ~
-0 AD 0
+0 AD inside
 D0
 ~
 ~
@@ -740,7 +731,7 @@ City street~
 You walk along a highly ornate city street leading west and south. To the
 north is a relatively small house.
 ~
-0 AD 0
+0 AD inside
 D0
 ~
 ~
@@ -759,7 +750,7 @@ S
 You stand inside the 4th house of the city. Its inner courtyard is rather
 dull by drow standards and rather small as well.
 ~
-0 AD 0
+0 AD inside
 D1
 ~
 ~
@@ -774,7 +765,7 @@ Throne Room~
 The throne room is basically similar to the inner courtyard in regards
 to decor. there is a small throne behind the altar but that is about it.
 ~
-0 AD 0
+0 AD inside
 D3
 ~
 ~
@@ -786,7 +777,7 @@ You stand in the entrance way to the temple which opens up to the north
 into a large hallway going east and west. Small statues of spiders line the
 entrance way's walls.
 ~
-0 AD 0
+0 AD inside
 D0
 ~
 ~
@@ -803,7 +794,7 @@ with pictures of elves and spiders. The hallway continues east and west. As you
 look down the hallway you can make out one or two figures moving away from you.
 To the north is a obsidian stairway.
 ~
-0 AD 0
+0 AD inside
 D0
 ~
 ~
@@ -827,7 +818,7 @@ You are in a long hallway lined with adamantite. The walls are engraved
 with pictures of elves and spiders. The hallway continues east and west. As you
 look down the hallway you can make out one or two figures moving away from you.
 ~
-0 AD 0
+0 AD inside
 D1
 ~
 ~
@@ -844,7 +835,7 @@ with pictures of elves and spiders. The hallway continues east and west. As you
 look down the hallway you can make out one or two figures moving away from you.
 To the north is a door.
 ~
-0 AD 0
+0 AD inside
 D0
 ~
 ~
@@ -864,7 +855,7 @@ You are in a long hallway lined with adamantite. The walls are engraved
 with pictures of elves and spiders. The hallway continues east and west. As you
 look down the hallway you can make out one or two figures moving away from you.
 ~
-0 AD 0
+0 AD inside
 D1
 ~
 ~
@@ -880,7 +871,7 @@ You are in a long hallway lined with adamantite. The walls are engraved
 with pictures of elves and spiders. The hallway continues east and west. As you
 look down the hallway you can make out one or two figures moving away from you.
 ~
-0 AD 0
+0 AD inside
 D1
 ~
 ~
@@ -897,7 +888,7 @@ with pictures of elves and spiders. The hallway continues east and west. As you
 look down the hallway you can make out one or two figures moving away from you.
 To the south is a door.
 ~
-0 AD 0
+0 AD inside
 D1
 ~
 ~
@@ -917,7 +908,7 @@ The room is a complete mess. None of the beds are made, clothes and other
 items have been left all about the room. Well drow warriors never were known
 for neatness.
 ~
-0 AD 0
+0 AD inside
 D0
 ~
 ~
@@ -929,7 +920,7 @@ You are in a long hallway lined with adamantite. The walls are engraved
 with pictures of elves and spiders. The hallway continues east and west. As you
 look down the hallway you can make out one or two figures moving away from you.
 ~
-0 AD 0
+0 AD inside
 D1
 ~
 ~
@@ -944,7 +935,7 @@ Grand Stairway~
 You are standing at the bottom of a giant obsidian and adamantite
 stairway. The edges are trimmed with gold.
 ~
-0 AD 0
+0 AD inside
 D2
 ~
 ~
@@ -959,7 +950,7 @@ Grand Hallway~
 You are standing in the middle of a grand hallway. The walls are
 of the purest adamantite with gold trim. Mosaics line the walls.
 ~
-0 AD 0
+0 AD inside
 D0
 ~
 ~
@@ -979,7 +970,7 @@ The mage's living quarters is rather clean with the exception of a few
 used component containers. It is rather well decorated as well. Cots line the
 floor for the mages to sleep on. the only door is to the west.
 ~
-0 AD 0
+0 AD inside
 D3
 ~
 ~
@@ -991,7 +982,7 @@ You are walking down a grand hallway, heavily decorated with adamantite
 and gold. To the north the hall goes down a flight of stairs while a door is
 too the west.
 ~
-0 AD 0
+0 AD inside
 D2
 ~
 ~
@@ -1011,7 +1002,7 @@ The bed chamber is brightly decorated with spider shaped statues, murals
 and the like. Large beds line the floor making this a comfortable room to live
 in.
 ~
-0 AD 0
+0 AD inside
 D1
 ~
 ~
@@ -1022,7 +1013,7 @@ Grand Stairway~
 You are climbing a set of obsidian stairs surrounded by adamantite walls.
 To the north are a set of large golden doors.
 ~
-0 AD 0
+0 AD inside
 D0
 ~
 ~
@@ -1038,7 +1029,7 @@ This is the south side of a large auditorium used for services by the
 drow priestesses. In the center is a large sacrificial pit and beyond that is
 an altar.
 ~
-0 AD 0
+0 AD inside
 D1
 ~
 ~
@@ -1057,7 +1048,7 @@ Eastern side of Chamber~
 You are on the eastern side of the chamber overlooking the pit. To the east
 is a door while to the north is an altar.
 ~
-0 AD 0
+0 AD inside
 D0
 ~
 ~
@@ -1078,14 +1069,14 @@ body to shreds.
 Lloth thanks you for your sacrifice.
 You've fallen, and you can't get up!!!
 ~
-0 CD 0
+0 CD inside
 S
 #5144
 Western side of Chamber~
 You are on the western side of the main chamber overlooking a sacrificial
 pit. To the north is an altar.
 ~
-0 AD 0
+0 AD inside
 D0
 ~
 ~
@@ -1101,7 +1092,7 @@ You are standing in front of a highly and freshly bloodstained altar.
 Engraved on the top of the altar is a giant spider with a human head. Looking
 down from the altar you see a large sacrificial pit.
 ~
-0 AD 0
+0 AD inside
 D0
 ~
 ~
@@ -1124,7 +1115,7 @@ Slave Cells~
 This is the main room to the cell chambers for the slaves to be
 sacrificed. You notice there are no guards around.
 ~
-0 AD 0
+0 AD inside
 D0
 ~
 ~
@@ -1140,7 +1131,7 @@ Rotten meat and breads lie about the floor while shackles hang from the
 walls. The room wreaks of death. You almost become nauseous and decide to leave
 the room since you were obviously too late to save the slave.
 ~
-0 AD 0
+0 AD inside
 D2
 ~
 ~
@@ -1152,7 +1143,7 @@ You stand upon a dais behind the altar. Above you is a enormous illusion
 of a female drow turning into a giant spider and back again. There is a door
 to the west.
 ~
-0 AD 0
+0 AD inside
 D2
 ~
 ~
@@ -1167,7 +1158,7 @@ The Treasury~
 This is obviously only a temporary storage place for the collected
 treasure being rather bare.
 ~
-0 AD 0
+0 AD inside
 D1
 ~
 ~
@@ -1178,7 +1169,7 @@ Weaponsmaster's Chamber~
 This one person bedchamber is very elegant. The owner must be held in high
 to get this kind of treatment.
 ~
-0 AD 0
+0 AD inside
 D2
 ~
 ~

@@ -117,13 +117,12 @@ This is a big mean bully who is tired of being lost in this maze.
 You suddenly think that you had better flee.
 ~
 dwarf~
-ABCT 0 -800 0
+ABCT D -800 0
 8 1 3d10+100 8d4+100 1d7+3 punch
 3 2 3 8
 CDJR 0 0 0
 stand stand male 120
 0 0 medium unknown
-A det D
 #6608
 brat spoiled~
 the spoiled brat~
@@ -177,7 +176,7 @@ a linen robe~
 A linen robe is crumpled into a ball here.~
 cloth~
 armor G AK
-A B A A A
+1 2 1 1 1
 7 50 780 G
 A
 12 5
@@ -193,7 +192,7 @@ a broom~
 A stout straw broom lies on the floor.~
 wood~
 weapon 0 AN
-staff 2 3 pound F
+spear 2 3 pound F
 4 30 270 W
 A
 18 -1
@@ -238,7 +237,7 @@ a toy gun~
 A toy gun with a sharp bayonet lies here.~
 wood~
 weapon 0 AN
-staff 2 3 stab F
+spear 2 3 stab F
 4 20 300 G
 A
 17 -1
@@ -255,7 +254,7 @@ The Dwarven Drop Off~
 This is where the dwarven mommies and daddies come to drop off their
 annoying little brats.  You have the urge to leave.  There is a sign here.
 ~
-0 CD 0
+0 CD inside
 E
 sign~
 This is an area for newbies, so have fun.  -- Sandman
@@ -275,7 +274,7 @@ Day Care Center~
 You are in the north-east corner of the main part of the center.  Toys and
 toddlers are all over the room.  There is a kitchen to the east.
 ~
-0 D 0
+0 D inside
 D0
 You see the drop off.
 ~
@@ -302,7 +301,7 @@ Day Care Center~
 You are in the north-west corner of the main part of the center.  Toys and
 toddlers are all over the room.  There is a bathroom to the west.
 ~
-0 D 0
+0 D inside
 D1
 You see a large room full of noisy brats.
 ~
@@ -324,7 +323,7 @@ Day Care Center~
 You are in the south-east corner of the main part of the center.  Toys and
 toddlers are all over the room.  There is a playground to the east.
 ~
-0 D 0
+0 D inside
 D0
 You see a large room full of noisy brats.
 ~
@@ -346,7 +345,7 @@ Day Care Center~
 You are in the south-west corner of the main part of the center.  Toys and
 toddlers are all over the room.  There is a staircase to the west.
 ~
-0 D 0
+0 D inside
 D0
 You see a large room full of noisy brats.
 ~
@@ -368,7 +367,7 @@ The Messy Bathroom~
 You hold your nose as you realize you have made the worst mistake of your
 life.  The air is rancid and the walls are stained.
 ~
-0 D 0
+0 D inside
 D1
 You see a large room full of noisy brats.
 ~
@@ -380,7 +379,7 @@ The Staircase~
 You stand on top of a staircase leading down, and wonder what mystery could
 lie down under.  Beware!
 ~
-0 D 0
+0 D inside
 D1
 You see a large room full of noisy brats.
 ~
@@ -396,7 +395,7 @@ S
 The Playground~
 You are in the north-west corner of the playground.
 ~
-0 0 2
+0 0 field
 D1
 You see the playground.
 ~
@@ -412,7 +411,7 @@ S
 The Playground~
 You are in the north-east corner of the playground.
 ~
-0 0 2
+0 0 field
 D2
 You see the playground.
 ~
@@ -428,7 +427,7 @@ S
 The Playground~
 You are in the south-west corner of the playground.
 ~
-0 0 2
+0 0 field
 D0
 You see the playground.
 ~
@@ -449,7 +448,7 @@ S
 The Playground~
 You are in the south-east corner of the playground.
 ~
-0 0 2
+0 0 field
 D0
 You see the playground.
 ~
@@ -466,7 +465,7 @@ Entrance to the Mini-Maze~
 You stand in the entrance to a small, but confusing maze.  You really hope
 that you don't get lost.
 ~
-0 ACD 2
+0 ACD field
 D1
 ~
 ~
@@ -481,7 +480,7 @@ S
 Mini-Maze~
 You are in a small passage that looks just like every other one.
 ~
-0 AD 2
+0 AD field
 D1
 ~
 ~
@@ -499,7 +498,7 @@ S
 Mini-Maze~
 You are in a small passage that looks just like every other one.
 ~
-0 AD 2
+0 AD field
 D2
 ~
 ~
@@ -513,7 +512,7 @@ S
 Mini-Maze~
 You are in a small passage that looks just like every other one.
 ~
-0 AD 2
+0 AD field
 D0
 ~
 ~
@@ -527,7 +526,7 @@ S
 Mini-Maze~
 You are in a small passage that looks just like every other one.
 ~
-0 AD 2
+0 AD field
 D0
 ~
 ~
@@ -546,7 +545,7 @@ End of the Mini-Maze~
 You stand at the end of your journey.  There is a big sign here and you had
 better read it!
 ~
-0 AD 2
+0 AD field
 E
 sign~
 If you are not level 6 or above, then don't go south!!!!  It is a dangerous
@@ -566,7 +565,7 @@ Messy Kitchen~
 You stand in the kitchen and eating area of the day care center.  Pots and
 pans are everywhere, while the toddlers continue to create chaos.
 ~
-0 D 0
+0 D inside
 D3
 You see a large room full of noisy brats.
 ~
@@ -578,7 +577,7 @@ The End?~
 You have reached the final lair.  It is dominated by a huge five headed
 dragon (actually an overgrown brat with a Halloween mask).
 ~
-0 AD 2
+0 AD field
 D0
 ~
 ~

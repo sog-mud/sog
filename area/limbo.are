@@ -17,13 +17,12 @@ This dark form seems like it wants to get back at %s for keeping it
 below them for so long....better not get in its way!
 ~
 human~
-AW JPVf 0 0
+AW JPVZf 0 0
 0 0 0d0+0 0d0+0 5d3+15 slash
 0 0 0 0
 EFN EKL H IN
 stand stand male 0
 0 0 medium unknown
-A det Z
 #11
 special guard~
 the guard~
@@ -60,13 +59,12 @@ A red, fiery demon is looking around very angry.
 A big red demon, you feel like it is flaming.
 ~
 unique~
-AB J -1000 0
+AB JZ -1000 0
 40 0 1d1+1 1d1+1 2d4+20 slash
 -15 -15 -15 -15
 FHI 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det Z
 #14
 nightwalker~
 A Nightwalker~
@@ -76,13 +74,12 @@ This is a Nightwalker summoned from the shadows. Bloody eyes seem glowing.
 This creature has a horible look.
 ~
 human~
-AOTc J -750 0
+AOTc DFJ -750 0
 20 3 16d15+240 1d1+152 5d3+20 punch
 0 0 0 0
 DEJ G AB M
 stand stand male 0
 0 0 medium unknown
-A det DF
 #15
 stalker guard~
 the stalker~
@@ -91,13 +88,12 @@ A Stalker stands here, red with anger!
 Angry, very angry.
 ~
 storm giant~
-ATc HJNVf 1000 0
+ATc FHJNVf 1000 0
 20 3 16d15+160 1d1+149 4d9+15 slash
 0 0 0 0
 QT 0 AB M
 stand stand male 0
 0 0 medium unknown
-A det F
 #16
 squire~
 the squire~
@@ -107,13 +103,12 @@ This noble squire is serving his apprenticeship in the ways of honor
 and chivalry under his master.
 ~
 human~
-ATc HJNVf 1000 0
+ATc FHJNVf 1000 0
 20 3 16d15+160 1d1+149 3d10+12 slash
 0 0 0 0
 EN 0 AB M
 stand stand male 0
 0 0 medium unknown
-A det F
 #17
 mirror~
 the mirror~
@@ -266,13 +261,12 @@ A HUGE dragon is here, selling junk.
 This mighty dragon wants to sell some junk to you.
 ~
 dragon~
-Ae HNOUVYc 0 0
+Ae DEFHNOUVYc 0 0
 150 250 1d1+28000 1d1+1 50d60+100 divine
 -66 -66 -66 -66
 CDEFHIKNO AB 0 0
 stand stand male 100000
 0 0 huge unknown
-A det DEFe
 #0
 
 #OBJECTS
@@ -282,7 +276,7 @@ a silver coin~
 One miserable silver coin.~
 silver~
 money 0 A
-A 0 0 0 0
+1 0 0 0 0
 0 10 0 P
 #2
 coin gold gcash~
@@ -290,7 +284,7 @@ a gold coin~
 One valuable gold coin.~
 gold~
 money 0 A
-0 A 0 0 0
+0 1 0 0 0
 0 10 0 P
 #3
 coins gold gcash~
@@ -462,7 +456,7 @@ a ranger staff~
 There is a Ranger's Staff here on the ground.~
 ebony~
 weapon A AN
-staff 0 0 pierce 0
+spear 0 0 pierce 0
 0 160 0 P
 #30
 dummy object~
@@ -751,14 +745,14 @@ treasure MOTWZ A
 0 0 0 0 0
 50 4 0 P
 F
-D 0 0 F
+A 0 0 F
 #71
 buckler ruler shield~
 Rulers' Buckler~
 A buckler of a Ruler is on the ground.~
 steel~
 armor GIKRYZ AJ
-D D D AB 0
+8 8 8 3 0
 0 200 10000 P
 #72
 great ruler shield~
@@ -766,7 +760,7 @@ Rulers' Great Shield~
 There is a Great Ruler Shield on the ground.~
 steel~
 armor GIKRYZ AJ
-CE CE CE BD 0
+20 20 20 10 0
 0 300 15000 P
 #73
 kite ruler shield~
@@ -774,7 +768,7 @@ Rulers' Kite Shield~
 You see a large Kite Shield of Ruler on the ground.~
 steel~
 armor GIKRYZ AJ
-CE CE CE BD 0
+20 20 20 10 0
 0 310 20000 P
 A
 17 -10
@@ -788,7 +782,7 @@ Rulers' Tower Shield~
 A very big shield with a symbol of Ruler covers the ground.~
 steel~
 armor GIKRYZ AJ
-BCDE BCDE BCDE CE 0
+30 30 30 20 0
 0 240 20000 P
 #80
 golden dagger~
@@ -812,7 +806,7 @@ Dragonplate~
 A Dragonplate is left here.~
 gold~
 armor GIY AD
-BCDE BCDE BCDE BCDE 0
+30 30 30 30 0
 0 250 10000 P
 A
 6 2
@@ -906,7 +900,7 @@ dress~
 A dress of a white gown out of the bolt of silk lying here..~
 silk~
 armor G AD
-A A A A A
+1 1 1 1 1
 1 90 100 P
 E
 dress~
@@ -927,7 +921,7 @@ fire shield~
 An energy shield is left here.~
 energy~
 armor GPUY AJ
-CE CE CE CE B
+20 20 20 20 2
 0 250 10000 P
 E
 shield energy~
@@ -951,7 +945,7 @@ the %s Girth of %s~
 An enormous, huge GIRTH lies here, filling the room with its power.~
 energy~
 armor AGIOY ALP
-CD CD CD AD B
+12 12 12 9 2
 21 30 100000 G
 A
 1 2
@@ -976,14 +970,14 @@ R 19 10 C
 F
 A 17 -30 J
 F
-D 0 0 CDEG
+A 0 0 CDEG
 #95
 ring hero~
 the %s Ring of %s~
 An enormous, RING lies here, filling the room with its power.~
 energy~
 armor AGIOY ABP
-CD CD CD AD A
+12 12 12 9 1
 21 30 100000 G
 A
 6 1
@@ -1060,7 +1054,7 @@ lance 10 1 none D
 The Void~
 You are floating in nothing.
 ~
-0 CDKNX 1
+0 CDKNX city
 D4
 ~
 ~
@@ -1073,7 +1067,7 @@ matter, surrounded by swirling glowing light, which fades into the relative
 darkness around you without any trace of edges or shadow.
    There is a "No Tipping" notice pinned to the darkness.
 ~
-0 D 1
+0 D city
 D4
 ~
 ~

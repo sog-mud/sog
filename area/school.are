@@ -20,13 +20,12 @@ the acolyte of Zump~
 К чему бы это????
 ~
 human~
-ABGQTV H 1000 0
+ABGQTV CH 1000 0
 30 10 1d1+999 1d1+999 2d4+30 beating
 -15 -15 -15 -15
 ACEFHIKN ABCD 0 0
 stand stand male 0
 0 0 medium unknown
-A det C
 #3701
 blob~
 the blob~
@@ -41,13 +40,12 @@ would really suffer the consequences.
 убежишь, то вероятно пострадаешь от него.
 ~
 unique~
-ABGe 0 0 0
+ABGe C 0 0
 5 -5 1d1+49 1d1+99 1d1+0 digestion
 -15 -15 -15 -15
 AN AB CD 0
 stand stand none 0
 BSc 0 large unknown
-A det C
 #3702
 monster~
 the monster~
@@ -132,13 +130,12 @@ looks like a great prize!!!
 его, но выглядит он очень аппетитно.
 ~
 school monster~
-AB J 0 0
+AB JZ 0 0
 2 1 2d2+20 1d1+99 1d4+1 claw
 8 8 8 10
 FN 0 0 0
 stand stand none 25
 0 0 medium unknown
-A det Z
 #3707
 adept cleric~
 the adept of ~
@@ -151,13 +148,12 @@ the adept of ~
 ...чтоб его... Бабкина на мыло... @@#$%^#@@$$&*!!!
 ~
 human~
-ABGQTV H 1000 0
+ABGQTV CH 1000 0
 30 10 1d1+999 1d1+999 2d4+30 beating
 -15 -15 -15 -15
 ACEFHIKN ABCD 0 0
 stand stand male 0
 0 0 medium unknown
-A det C
 #3708
 adept~
 the adept of Alander~
@@ -168,13 +164,12 @@ the adept of Alander~
 @rus Он большой и вредный. Не приставай к нему!
 ~
 human~
-ABGQTV H 1000 0
+ABGQTV CH 1000 0
 30 10 1d1+999 1d1+999 2d4+30 beating
 -15 -15 -15 -15
 ACEFHIKN ABCD 0 0
 stand stand male 0
 0 0 medium unknown
-A det C
 #3709
 rabbit~
 the rabbit~
@@ -266,13 +261,12 @@ the beast~
 @rus У! Она выглядит недоброжелательно. Лучше убежа-а-а-ть!
 ~
 school monster~
-AFT J 0 0
+AFT JZ 0 0
 5 1 5d5+55 1d1+99 1d6+3 bite
 5 5 5 8
 EKM 0 HI 0
 stand stand none 50
 0 0 large unknown
-A det Z
 #3715
 bear~
 the bear~
@@ -315,13 +309,12 @@ the adept of Selene~
 @rus Он большой и вредный. Смотри... допрыгаешься.
 ~
 human~
-ABCQTVe H 1000 0
+ABCQTVe CH 1000 0
 30 10 1d1+999 1d1+999 2d4+30 beating
 -15 -15 -15 -15
 ACEFHIKN ABCD 0 0
 stand stand male 0
 0 0 medium unknown
-A det C
 #3718
 adept cleric~
 the adept of Furey~
@@ -332,13 +325,12 @@ the adept of Furey~
 @rus Он большой и вредный. Отстань от него!
 ~
 human~
-ABCJQTV H 1000 0
+ABCJQTV CH 1000 0
 30 10 1d1+999 1d1+999 2d4+30 beating
 -15 -15 -15 -15
 ACEFHIKN ABCD 0 0
 stand stand male 0
 0 0 medium unknown
-A det C
 #3719
 priest cleric~
 the priest of Circe~
@@ -349,13 +341,12 @@ the priest of Circe~
 @rus Он большой и вредный. Отстань от него!
 ~
 human~
-ABCKQTV H 1000 0
+ABCKQTV CH 1000 0
 30 10 1d1+999 1d1+999 2d4+30 beating
 -15 -15 -15 -15
 ACEFHIKN ABCD 0 0
 stand stand male 0
 0 0 medium unknown
-A det C
 #3720
 diploma beast~
 the diploma beast~
@@ -428,7 +419,7 @@ a sub issue vest~
 You see a sub issue vest here.~
 leather~
 armor U AD
-A A A 0 0
+1 1 1 0 0
 0 50 144 P
 E
 vest~
@@ -441,7 +432,7 @@ a sub issue shield~
 You see a sub issue shield here.~
 wood~
 armor U AJ
-A A A 0 0
+1 1 1 0 0
 0 30 108 P
 E
 shield~
@@ -454,7 +445,7 @@ a sub issue cloak~
 You see a sub issue cloak here.~
 cloth~
 armor U AC
-A A A 0 A
+1 1 1 0 1
 0 40 72 P
 E
 cloak~
@@ -467,7 +458,7 @@ a sub issue helmet~
 You see a sub issue helmet here.~
 leather~
 armor U AE
-A A A 0 0
+1 1 1 0 0
 0 30 72 P
 E
 helmet~
@@ -480,7 +471,7 @@ a pair of sub issue leggings~
 You see a pair of sub issue leggings here.~
 leather~
 armor U AF
-A A A 0 0
+1 1 1 0 0
 0 30 72 P
 E
 leggings~
@@ -493,7 +484,7 @@ a pair of sub issue boots~
 You see a pair of sub issue boots here.~
 leather~
 armor U AG
-A A A 0 0
+1 1 1 0 0
 0 30 72 P
 E
 boots~
@@ -506,7 +497,7 @@ a pair of sub issue gloves~
 You see a pair of sub issue gloves here.~
 leather~
 armor U AH
-A A A 0 0
+1 1 1 0 0
 0 10 72 P
 E
 gloves~
@@ -519,7 +510,7 @@ a pair of sub issue sleeves~
 You see a pair of sub issue sleeves here.~
 leather~
 armor U AI
-A A A 0 0
+1 1 1 0 0
 0 20 72 P
 E
 sleeves~
@@ -532,7 +523,7 @@ a sub issue cape~
 You see a sub issue cape here.~
 cloth~
 armor U AK
-A A A 0 0
+1 1 1 0 0
 0 20 72 P
 E
 cape~
@@ -545,7 +536,7 @@ a sub issue belt~
 You see a sub issue belt here.~
 leather~
 armor U AL
-A A A 0 0
+1 1 1 0 0
 0 10 72 P
 E
 belt~
@@ -558,7 +549,7 @@ a sub issue bracer~
 You see a sub issue bracer here.~
 bronze~
 armor U AM
-0 A A 0 0
+0 1 1 0 0
 0 10 48 P
 E
 bracer~
@@ -614,7 +605,7 @@ a sub issue spear~
 You see a sub issue spear here.~
 wood~
 weapon U AN
-staff 1 6 thrust 0
+spear 1 6 thrust 0
 1 50 111 P
 A
 18 1
@@ -629,7 +620,7 @@ a sub issue staff~
 You see a sub issue staff here.~
 wood~
 weapon U AN
-staff 1 5 pound F
+spear 1 5 pound F
 1 40 290 P
 A
 18 2
@@ -750,7 +741,7 @@ P.P.S. Use '{Bcolor{x' to enable {Bfull ANSI color support{x.
 Над дверью ты видишь знак:
 {R'Ты не можешь войти в эти двери, если ты достиг 6 уровня.'{x
 ~
-0 CDS 0
+0 CDS inside
 D0
 @eng You see the doorway into the Mud School Building.
 @rus Ты видишь проход ведущий в МУД школу.
@@ -787,7 +778,7 @@ wall.
 Выходы ведут на юг (south) и на запад (west). Ты замечаешь табличку (plague)
 на стене.
 ~
-0 CDRS 0
+0 CDRS inside
 E
 sign~
 @eng Equipment check time!  Type 'EQUIPMENT' to see your current equipment.  Right
@@ -845,7 +836,7 @@ sign on the wall.  Exits lead in ALL directions.
 свет исходит из потолка. Ну конечно, на стене ты видишь {Mзнак (sign){x.
 Выходы ведут во ВСЕХ направлениях.
 ~
-0 CDRS 0
+0 CDRS inside
 E
 sign~
 @eng This is the direction practicing room.  The directions you can go in any
@@ -916,7 +907,7 @@ sign on the wall.  Exits lead north and south.
 свет исходит из потолка. Ну конечно, на стене ты видишь {Mзнак (sign){x.
 Выходы ведут на север (north) и на юг (south).
 ~
-0 CDRS 0
+0 CDRS inside
 E
 sign~
 @eng Since you are here, let us have another lesson.  You can see the statistics on
@@ -950,7 +941,7 @@ sign on the wall.  The only exit is east.
 свет исходит из потолка. Ну конечно, на стене ты видишь {Mзнак (sign){x.
 Единственный выход на востоке (east).
 ~
-0 CDRS 0
+0 CDRS inside
 E
 sign~
 @eng Just go east to the central room.
@@ -972,7 +963,7 @@ sign on the wall.  The only exit is north.
 свет исходит из потолка. Ну конечно, на стене ты видишь {Mзнак (sign){x.
 Единственный выход на севере (north).
 ~
-0 CDRS 0
+0 CDRS inside
 E
 sign~
 @eng Just go north to the central room.
@@ -994,7 +985,7 @@ sign on the wall.  The only exit is up.
 свет исходит из потолка. Ну конечно, на стене ты видишь {Mзнак (sign){x.
 Единственный выход вверху (up).
 ~
-0 CDRS 0
+0 CDRS inside
 E
 sign~
 @eng Just go up to the central room.
@@ -1016,7 +1007,7 @@ sign on the wall.  The only exit is down.
 свет исходит из потолка. Ну конечно, на стене ты видишь {Mзнак (sign){x.
 Единственный выход внизу (down).
 ~
-0 CDRS 0
+0 CDRS inside
 E
 sign~
 @eng Just go down to the central room.
@@ -1038,7 +1029,7 @@ sign on the wall.  Exits reach west and down.
 свет исходит из потолка. Ну конечно, на стене ты видишь {Mзнак (sign){x.
 Выходы ведут на запад (west) и вниз (down).
 ~
-0 CDRS 0
+0 CDRS inside
 E
 sign~
 @eng Welcome to combat training.
@@ -1094,7 +1085,7 @@ You see a sign here.  The only exit is up.
 @rus Ты находишься в вонючей клетке. Странно, но стены все еще чистые!
 Ты видишь {Mзнак (sign) тут{x. Единственный выход -- наверх (up).
 ~
-0 DRS 0
+0 DRS inside
 E
 sign~
 @eng Remember, don't fight the blob to the finish!  Just type 'KILL BLOB', then
@@ -1117,7 +1108,7 @@ sign on the wall.
 @rus Ты находишься в белой квадратной комнате. Стены чистые, окон нет. Мягкий
 свет исходит из потолка. Ну конечно, на стене ты видишь {Mзнак (sign){x.
 ~
-0 CDRS 0
+0 CDRS inside
 E
 sign~
 @eng Welcome to the next station.  Here, you will actually fight real monsters,
@@ -1151,7 +1142,7 @@ Exits lead into the cardinal directions plus down.
 исходит из потолка. Ты видишь {Mбольшой знак (sign) на стене{x. Выходы ведут во
 всех направлениях.
 ~
-0 CDRS 0
+0 CDRS inside
 E
 sign~
 @eng Welcome to the cage room.  The adepts of mud school have captured some
@@ -1222,7 +1213,7 @@ in the upkeep here!  There is a sign on the wall.  The only exit is south.
 @rus Ты в клетке. Кровь повсюду. Тут давно никто не прибирася.
 На стене ты видишь {Mзнак (sign){x. Единственный выход на юг (south).
 ~
-0 DRS 0
+0 DRS inside
 E
 sign~
 @eng There is an aggressive monster in this room.  Kill him and get out of here
@@ -1244,7 +1235,7 @@ in the upkeep here!  There is a sign on the wall.  The only exit is east.
 @rus Ты в клетке. Кровь повсюду. Тут давно никто не прибирася.
 На стене ты видишь {Mзнак (sign){x. Единственный выход на востоке (east).
 ~
-0 DRS 0
+0 DRS inside
 E
 sign~
 @eng There is a wimpy, aggressive monster in this room.  Kill him and get out of
@@ -1266,7 +1257,7 @@ in the upkeep here!  There is a sign on the wall.  The only exit is north.
 @rus Ты в клетке. Кровь повсюду. Тут давно никто не прибирася.
 На стене ты видишь {Mзнак (sign){x. Единственный выход на севере (north).
 ~
-0 DRS 0
+0 DRS inside
 E
 sign~
 @eng There is a wimpy monster in this room.  Kill him and get out of here fast!
@@ -1288,7 +1279,7 @@ in the upkeep here!  There is a sign on the wall.  The only exit is west.
 @rus Ты в клетке. Кровь повсюду. Тут давно никто не прибирася.
 На стене ты видишь {Mзнак (sign){x. Единственный выход на западе (west).
 ~
-0 DRS 0
+0 DRS inside
 E
 sign~
 @eng There is a monster in this room.  Kill him and get out of here fast!
@@ -1312,7 +1303,7 @@ sign on the wall.  Find your own exit here.
 свет исходит из потолка. Ну конечно, на стене ты видишь {Mзнак (sign){x.
 Найди выход сам.
 ~
-0 CDRS 0
+0 CDRS inside
 E
 sign~
 @eng By now, you must be hungry and thirsty.  Time to buy groceries!
@@ -1357,7 +1348,7 @@ course, there is a sign on the wall.  The only exit is north.
 и свертки. Потолок испускает ровный белый свет. На стене - {Mзнак (sign){x.
 Единственный выход на севере (north).
 ~
-0 DRS 0
+0 DRS inside
 E
 sign~
 @eng The sign reads:
@@ -1391,7 +1382,7 @@ sign on the wall.  The exits are north and west, with a door to the east.
 Выходы ведут на север (north) и запад (west), на востоке (east) ты видишь
 закрытую дверь (door). 
 ~
-0 CDRS 0
+0 CDRS inside
 E
 sign~
 @eng North of you is a dark room.  I hope you still have the lantern!  If not,
@@ -1434,7 +1425,7 @@ The only exit is south.
 был взять в руки светильник (а вобще banner'a хватает) и пройти внутрь. Стены
 конечно белые и неисписанные. Единственный выход на юге (south).
 ~
-0 ADRS 0
+0 ADRS inside
 D2
 @eng You see the room that you have come from.
 @rus Ты видишь комнату их которой пришел.
@@ -1454,7 +1445,7 @@ The only exit is on the other side of the gate north of you.
 Ты видишь {Mбольшой знак (sign) тут{x. Единственный выход -- это ворота
 на севере (north).
 ~
-0 DRS 0
+0 DRS inside
 E
 sign~
 @eng You have graduated from Mud School!  Take your diploma...if you can.
@@ -1501,7 +1492,7 @@ being watched by some divine being.
 верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
 так, как будто за тобой наблюдает божественное существо.
 ~
-0 DS 0
+0 DS inside
 D0
 ~
 ~
@@ -1530,7 +1521,7 @@ being watched by some divine being.
 верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
 так, как будто за тобой наблюдает божественное существо.
 ~
-0 DS 0
+0 DS inside
 D0
 ~
 ~
@@ -1559,7 +1550,7 @@ being watched by some divine being.
 верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
 так, как будто за тобой наблюдает божественное существо.
 ~
-0 DS 0
+0 DS inside
 D0
 ~
 ~
@@ -1584,7 +1575,7 @@ being watched by some divine being.
 верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
 так, как будто за тобой наблюдает божественное существо.
 ~
-0 DS 0
+0 DS inside
 D0
 ~
 ~
@@ -1613,7 +1604,7 @@ being watched by some divine being.
 верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
 так, как будто за тобой наблюдает божественное существо.
 ~
-0 DS 0
+0 DS inside
 D0
 ~
 ~
@@ -1638,7 +1629,7 @@ being watched by some divine being.
 верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
 так, как будто за тобой наблюдает божественное существо.
 ~
-0 DS 0
+0 DS inside
 D0
 ~
 ~
@@ -1667,7 +1658,7 @@ being watched by some divine being.
 верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
 так, как будто за тобой наблюдает божественное существо. Чтоб ему тошно стало.
 ~
-0 DS 0
+0 DS inside
 D0
 ~
 ~
@@ -1700,7 +1691,7 @@ being watched by some divine being.
 верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
 так, как будто за тобой наблюдает божественное существо.
 ~
-0 DS 0
+0 DS inside
 D0
 ~
 ~
@@ -1733,7 +1724,7 @@ being watched by some divine being.
 верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
 так, как будто за тобой наблюдает божественное существо.
 ~
-0 DS 0
+0 DS inside
 D0
 ~
 ~
@@ -1766,7 +1757,7 @@ being watched by some divine being.
 верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
 так, как будто за тобой наблюдает божественное существо.
 ~
-0 DS 0
+0 DS inside
 D0
 ~
 ~
@@ -1795,7 +1786,7 @@ being watched by some divine being.
 верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
 так, как будто за тобой наблюдает божественное существо.
 ~
-0 DS 0
+0 DS inside
 D0
 ~
 ~
@@ -1824,7 +1815,7 @@ being watched by some divine being.
 верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
 так, как будто за тобой наблюдает божественное существо.
 ~
-0 DS 0
+0 DS inside
 D0
 ~
 ~
@@ -1858,7 +1849,7 @@ being watched by some divine being.  There is a BIG SIGN here.
 так, как будто за тобой наблюдает божественное существо.
 Ты видишь {MБОЛЬШОЙ ЗНАК (sign){x.
 ~
-0 DS 0
+0 DS inside
 E
 sign~
 @eng Those with high bravery or low senses of cautiousness might wish to go below
@@ -1906,7 +1897,7 @@ being watched by some divine being.
 верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
 так, как будто за тобой наблюдает божественное существо.
 ~
-0 DS 0
+0 DS inside
 D0
 ~
 ~
@@ -1939,7 +1930,7 @@ being watched by some divine being.
 верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
 так, как будто за тобой наблюдает божественное существо.
 ~
-0 DS 0
+0 DS inside
 D0
 ~
 ~
@@ -1968,7 +1959,7 @@ being watched by some divine being.
 верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
 так, как будто за тобой наблюдает божественное существо.
 ~
-0 DS 0
+0 DS inside
 D0
 ~
 ~
@@ -1997,7 +1988,7 @@ being watched by some divine being.
 верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
 так, как будто за тобой наблюдает божественное существо.
 ~
-0 DS 0
+0 DS inside
 D0
 ~
 ~
@@ -2030,7 +2021,7 @@ being watched by some divine being.
 верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
 так, как будто за тобой наблюдает божественное существо.
 ~
-0 DS 0
+0 DS inside
 D0
 ~
 ~
@@ -2063,7 +2054,7 @@ being watched by some divine being.
 верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
 так, как будто за тобой наблюдает божественное существо.
 ~
-0 DS 0
+0 DS inside
 D0
 ~
 ~
@@ -2096,7 +2087,7 @@ being watched by some divine being.
 верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
 так, как будто за тобой наблюдает божественное существо.
 ~
-0 DS 0
+0 DS inside
 D0
 ~
 ~
@@ -2125,7 +2116,7 @@ being watched by some divine being.
 верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
 так, как будто за тобой наблюдает божественное существо.
 ~
-0 DS 0
+0 DS inside
 D1
 ~
 ~
@@ -2150,7 +2141,7 @@ by some divine being.
 верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
 так, как будто за тобой наблюдает божественное существо.
 ~
-0 DS 0
+0 DS inside
 D1
 ~
 ~
@@ -2179,7 +2170,7 @@ being watched by some divine being.
 верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
 так, как будто за тобой наблюдает божественное существо.
 ~
-0 DS 0
+0 DS inside
 D1
 ~
 ~
@@ -2208,7 +2199,7 @@ being watched by some divine being.
 верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
 так, как будто за тобой наблюдает божественное существо.
 ~
-0 DS 0
+0 DS inside
 D1
 ~
 ~
@@ -2237,7 +2228,7 @@ being watched by some divine being.
 верх (up). Потолок гигантской арены едва различим в высоте. Ты чувствуешь себя
 так, как будто за тобой наблюдает божественное существо.
 ~
-0 DS 0
+0 DS inside
 D2
 ~
 ~
@@ -2264,7 +2255,7 @@ Of special note is the one that brings you back up!!!
 лучшее место для прогулок. Выходы ведут во все стороны, но стоит учесть, что
 выход которые тебя отсюда выведет - на верху (up).
 ~
-0 DS 0
+0 DS inside
 D0
 @eng You see the north wall.
 @rus Ты видишь северную стену.
@@ -2303,7 +2294,7 @@ any windows in the area explains the smell around you.
 @rus Ты напротив стены подземелья. Здесь достаточно темно. Недостаток окон тут
 объясняет вонь, которая стоит вокруг.
 ~
-0 ADS 0
+0 ADS inside
 D1
 @eng You see the north wall.
 @rus Ты видишь северную стену.
@@ -2324,7 +2315,7 @@ any windows in the area explains the smell around you.
 @rus Ты напротив стены подземелья. Здесь достаточно темно. Недостаток окон тут
 объясняет вонь, которая стоит вокруг.
 ~
-0 ADS 0
+0 ADS inside
 D1
 @eng You see the north east corner.
 @rus Ты видишь северо-восточный угол.
@@ -2351,7 +2342,7 @@ any windows in the area explains the smell around you.
 @rus Ты напротив стены подземелья. Здесь достаточно темно. Недостаток окон тут
 объясняет вонь, которая стоит вокруг.
 ~
-0 ADS 0
+0 ADS inside
 D2
 @eng You see the east wall.
 @rus Ты видишь восточную стену.
@@ -2372,7 +2363,7 @@ any windows in the area explains the smell around you.
 @rus Ты напротив стены подземелья. Здесь достаточно темно. Недостаток окон тут
 объясняет вонь, которая стоит вокруг.
 ~
-0 ADS 0
+0 ADS inside
 D0
 @eng You see the north west corner.
 @rus Ты видишь северо-западный угол.
@@ -2399,7 +2390,7 @@ any windows in the area explains the smell around you.
 @rus Ты напротив стены подземелья. Здесь достаточно темно. Недостаток окон тут
 объясняет вонь, которая стоит вокруг.
 ~
-0 ADS 0
+0 ADS inside
 D0
 @eng You see the north east corner.
 @rus Ты видишь северо-восточный угол.
@@ -2426,7 +2417,7 @@ any windows in the area explains the smell around you.
 @rus Ты напротив стены подземелья. Здесь достаточно темно. Недостаток окон тут
 объясняет вонь, которая стоит вокруг.
 ~
-0 ADS 0
+0 ADS inside
 D0
 @eng You see the north wall.
 @rus Ты видишь северную стену.
@@ -2447,7 +2438,7 @@ any windows in the area explains the smell around you.
 @rus Ты напротив стены подземелья. Здесь достаточно темно. Недостаток окон тут
 объясняет вонь, которая стоит вокруг.
 ~
-0 ADS 0
+0 ADS inside
 D0
 @eng You see the center of the dungeon.
 @rus Ты видишь центр подземелья.
@@ -2474,7 +2465,7 @@ any windows in the area explains the smell around you.
 @rus Ты напротив стены подземелья. Здесь достаточно темно. Недостаток окон тут
 объясняет вонь, которая стоит вокруг.
 ~
-0 ADS 0
+0 ADS inside
 D0
 @eng You see the east wall.
 @rus Ты видишь восточную стену.
@@ -2499,7 +2490,7 @@ There is a sign on the wall (type 'LOOK SIGN' to read it).
 востоке (east) - гильдия Зуки, на севере (north) - другая комната. 
 На стене ты видишь {Mзнак (sign) - набери 'LOOK SIGN' для прочтения!{x
 ~
-0 CDRS 1
+0 CDRS city
 E
 sign~
 @eng To find out your attributes, type 'score'.  You can improve your attributes
@@ -2553,7 +2544,7 @@ and sweat.  There is a sign on the wall.
 виды тренажеров, для физических и умственных упражнений. Комната наполнена
 магией, святостью и запахом пота. На стене ты видишь {Mзнак (sign){x.
 ~
-0 CDRS 1
+0 CDRS city
 E
 sign~
 @eng Welcome to Furey's Training Room.  Here you can train your attributes.  To 
@@ -2584,7 +2575,7 @@ sweat and an aura of magic.  There is a sign on the wall.
 черноты. Комната наполнена запахом пота и ты чувствуешь ауру магии. 
 На стене ты видишь {Mзнак (sign){x.
 ~
-0 CDRS 1
+0 CDRS city
 E
 sign~
 @eng Welcome to Zump's Guild Room.  Here you will learn your skills and spells.
@@ -2615,7 +2606,7 @@ You can rest here, and go up to go back to the Temple of Midgaard.
 @rus Ты в безопасности, в дали от злых кроликов и улиток арены. Здесь ты
 можешь спокойно отдохнуть, а потом пойти вверх (up) в храм Мидгарда.
 ~
-0 CDS 0
+0 CDS inside
 D4
 @eng You see the Temple of Midgaard.
 @rus Ты видишь храм Мидгарда.

@@ -304,13 +304,12 @@ A LARGE Cleaner Worm is here!
 Now you know why these tunnels are so clean.
 ~
 snake~
-AFG J 0 0
+AFG DFJ 0 0
 10 0 2d7+121 99d1+1 2d4+2 grep
 1 1 1 8
 EKN 0 0 0
 stand stand male 200
 0 0 medium unknown
-A det DF
 #7521
 citizen man~
 a citizen of Gerighelm~
@@ -334,13 +333,12 @@ market.
 She looks very worn from all this haggling.  But she is happy nonetheless.
 ~
 human~
-A 0 0 7521
+A G 0 7521
 7 0 2d6+85 69d1+1 1d8+1 punch
 4 4 4 9
 EKN 0 0 0
 stand stand female 140
 0 0 medium unknown
-A det G
 #7523
 troubadour bard~
 a troubadour~
@@ -747,13 +745,12 @@ The Mage is here, selling things.
 He is a powerful old coot....
 ~
 human~
-ABVe 0 900 0
+ABVe D 900 0
 50 0 1d1+2999 1d1+999 1d8+42 magic
 -15 -15 -15 -15
 AF ABCD 0 0
 stand stand male 150000
 0 0 medium unknown
-A det D
 #7595
 pawn shop runner~
 the pawn shop owner~
@@ -818,13 +815,12 @@ The old Witch is here, selling things.
 She is old, and ugly- very good witch material...
 ~
 human~
-ABVe 0 900 7006
+ABVe D 900 7006
 40 0 1d1+1999 1d1+999 1d8+32 magic
 -15 -15 -15 -15
 AF ABCD 0 0
 stand stand male 20000
 0 0 medium unknown
-A det D
 #7698
 hawk~
 a hawk~
@@ -848,13 +844,12 @@ It is strong, impertubable looking creature. It notice that you look at its,
 and it says: 'Have a nice day'. Hm?... Death is your only way, probably...
 ~
 human~
-ABGIT 0 100 0
+ABGIT CDF 100 0
 60 0 50d10+9500 599d1+1 8d6+28 slap
 -30 -30 -30 0
 A 0 0 C
 stand stand either 0
 0 0 medium unknown
-A det CDF
 #0
 
 #OBJECTS
@@ -1025,7 +1020,7 @@ a junior guard vest~
 A junior guard vest is here. forgotten.~
 leather~
 armor G AD
-BC BC BC 0 A
+6 6 6 0 1
 14 60 2448 P
 A
 17 -10
@@ -1040,7 +1035,7 @@ a junior guard shield~
 A junior guard shield is here.  Forgotten.~
 leather~
 armor G AJ
-BC BC BC 0 A
+6 6 6 0 1
 14 60 2400 P
 A
 2 2
@@ -1089,7 +1084,7 @@ a Gerighelm guard helmet~
 A Gerighelm guard helmet is here.~
 bronze~
 armor 0 AE
-AB AB AB 0 B
+3 3 3 0 2
 17 20 10 P
 #7526
 sleeves guard gerighelm~
@@ -1097,7 +1092,7 @@ a pair of Gerighelm guard sleeves~
 A set of Sleeves are here.~
 bronze~
 armor 0 AI
-BC BC BC 0 B
+6 6 6 0 2
 17 40 2295 P
 #7527
 leggings guard gerighelm~
@@ -1105,7 +1100,7 @@ a pair of Gerighelm guard leggings~
 A set of leggings is here.~
 bronze~
 armor 0 AF
-BC BC BC 0 B
+6 6 6 0 2
 16 50 2448 P
 #7528
 shield guard gerighelm~
@@ -1113,7 +1108,7 @@ a Gerighelm shield~
 A Gerighelm shield is here. getting buried in the dust.~
 bronze~
 armor 0 AJ
-BC BC BC 0 B
+6 6 6 0 2
 16 60 2400 P
 #7529
 vest guard gerighelm~
@@ -1121,7 +1116,7 @@ a Gerighelm vest~
 a Gerighelm guard vest is here.~
 bronze~
 armor 0 AD
-BC BC BC 0 B
+6 6 6 0 2
 16 70 2720 P
 #7530
 cape guard gerighelm~
@@ -1129,7 +1124,7 @@ a Gerighelm guard cape~
 A Gerighelm guard's cape is here.~
 cloth~
 armor 0 AK
-BC BC BC 0 B
+6 6 6 0 2
 16 50 2560 P
 #7531
 cloak guard gerighelm~
@@ -1137,7 +1132,7 @@ a Gerighelm cloak~
 A Gerighelm guard's cloak is here.~
 cloth~
 armor G AC
-BC BC BC 0 B
+6 6 6 0 2
 16 50 2560 P
 A
 1 3
@@ -1151,7 +1146,7 @@ a pair of Gerighelm gloves~
 A pair of Gerighelm gloves are here.~
 bronze~
 armor 0 AH
-BC BC BC 0 B
+6 6 6 0 2
 16 30 2448 P
 #7533
 belt guard gerighelm~
@@ -1159,7 +1154,7 @@ a Gerighelm belt~
 A Gerighelm belt is lieing here.~
 bronze~
 armor 0 AL
-BC BC BC 0 B
+6 6 6 0 2
 16 20 2400 P
 #7534
 bracer guard gerighelm~
@@ -1167,7 +1162,7 @@ a Gerighelm bracer~
 A Gerighelm bracer is lieing here.~
 bronze~
 armor 0 AM
-BC BC BC 0 B
+6 6 6 0 2
 16 20 2560 P
 #7535
 sword guard gerighelm~
@@ -1183,7 +1178,7 @@ a pair of Gerighelm boots~
 A pair of Gerighelm boots are here.~
 bronze~
 armor 0 AG
-BC BC BC 0 B
+6 6 6 0 2
 16 50 3060 P
 #7537
 helm defenders~
@@ -1191,7 +1186,7 @@ a defenders helm~
 the helm of one of Gerighelms defenders is here.~
 gold~
 armor 0 AE
-BC BC BC 0 B
+6 6 6 0 2
 20 40 3800 P
 #7538
 sword defenders~
@@ -1217,7 +1212,7 @@ a palace guard helmet~
 A helmet that glows!~
 steel~
 armor A AE
-ABC ABC ABC 0 B
+7 7 7 0 2
 22 30 3780 P
 #7541
 sleeves palace guard~
@@ -1225,7 +1220,7 @@ a pair of palace guard sleeves~
 Some sleeves that glow!~
 steel~
 armor A AI
-ABC ABC ABC 0 B
+7 7 7 0 2
 22 50 5082 P
 #7542
 leggings palace guard~
@@ -1233,7 +1228,7 @@ a pair of palace guard leggings~
 Some leggings that glow!~
 steel~
 armor A AF
-ABC ABC ABC 0 B
+7 7 7 0 2
 22 60 4851 P
 #7543
 shield palace guard~
@@ -1241,7 +1236,7 @@ a palace guard shield~
 A shield that glows!~
 steel~
 armor A AJ
-ABC ABC ABC 0 B
+7 7 7 0 2
 22 50 5082 P
 #7544
 vest palace guard~
@@ -1249,7 +1244,7 @@ a palace guard vest~
 A vest that glows!~
 steel~
 armor A AD
-ABC ABC ABC 0 B
+7 7 7 0 2
 22 60 4840 P
 #7545
 cape palace guard~
@@ -1257,7 +1252,7 @@ a palace guard cape~
 A cape that glows!~
 steel~
 armor A AK
-ABC ABC ABC 0 B
+7 7 7 0 2
 22 40 4620 P
 #7546
 cloak palace guard~
@@ -1265,7 +1260,7 @@ a palace guard cloak~
 a cloak that glows! And Humms too!!~
 steel~
 armor ABG AC
-ABC ABC ABC ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef B
+7 7 7 -1 2
 22 40 4700 P
 A
 5 2
@@ -1279,7 +1274,7 @@ a pair of palace guard gloves~
 A pair of gloves that glow!~
 steel~
 armor A AH
-ABC ABC ABC 0 B
+7 7 7 0 2
 22 40 4400 P
 #7548
 belt palace guard~
@@ -1287,7 +1282,7 @@ a palace guard belt~
 A belt the glows!~
 steel~
 armor A AL
-ABC ABC ABC 0 B
+7 7 7 0 2
 22 60 4620 P
 #7549
 bracer palace guard~
@@ -1295,7 +1290,7 @@ a palace guard bracer~
 A bracer that glows!~
 steel~
 armor A AM
-ABC ABC ABC 0 B
+7 7 7 0 2
 22 30 4410 P
 #7550
 sword palace guard~
@@ -1385,7 +1380,7 @@ the vest of the titans~
 A vest is here.~
 leather~
 armor G AD
-ABC ABC ABC 0 AB
+7 7 7 0 3
 21 60 5520 P
 A
 18 4
@@ -1407,7 +1402,7 @@ the gardeners gloves~
 Some gloves are here.~
 cloth~
 armor G AH
-AB AB AB 0 A
+3 3 3 0 1
 21 50 9 P
 A
 2 2
@@ -1427,7 +1422,7 @@ a uniform~
 A uniform is here.~
 cloth~
 armor G AD
-D D D 0 AB
+8 8 8 0 3
 22 60 6000 P
 A
 17 -15
@@ -1465,7 +1460,7 @@ the Dukes Helm~
 A helmet is here.~
 steel~
 armor G AE
-AD AD AD 0 AB
+9 9 9 0 3
 28 50 9920 P
 A
 17 -25
@@ -1475,7 +1470,7 @@ the Duchesses Tiara~
 A Tiara is here.~
 diamond~
 armor G AE
-ABC ABC ABC 0 B
+7 7 7 0 2
 22 10 6520 P
 A
 20 5
@@ -1487,7 +1482,7 @@ a wedding ring~
 A wedding ring is here.~
 gold~
 armor ABG AB
-ABC ABC ABC 0 B
+7 7 7 0 2
 22 10 6600 P
 A
 13 20
@@ -1499,7 +1494,7 @@ a wedding ring~
 A wedding ring is here.~
 gold~
 armor ABG AB
-D D D 0 B
+8 8 8 0 2
 28 10 6600 P
 A
 13 20
@@ -1557,7 +1552,7 @@ a defenders sleeves~
 A pair of sleeves are here, collecting dust.~
 gold~
 armor 0 AI
-BC BC BC 0 B
+6 6 6 0 2
 18 60 4000 P
 #7651
 leggings defenders~
@@ -1565,7 +1560,7 @@ a defenders leggings~
 A pair of leggings are here, collecting dust.~
 silver~
 armor 0 AF
-BC BC BC 0 B
+6 6 6 0 2
 18 70 4180 P
 #7652
 shield defenders~
@@ -1573,7 +1568,7 @@ a defenders shield~
 A shield is here, emblazoned with Gerighelms coat of arms.~
 silver~
 armor 0 AJ
-BC BC BC 0 B
+6 6 6 0 2
 18 80 3610 P
 #7653
 ring defender~
@@ -1591,7 +1586,7 @@ a defenders vest~
 A gold and silver vest is lieing on the side of the road.~
 silver~
 armor 0 AD
-AC AC AC ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef B
+5 5 5 -1 2
 18 60 3600 P
 #7655
 cape defender~
@@ -1599,7 +1594,7 @@ a defenders cape~
 A cape is hanging by a tree branch.~
 gold~
 armor 0 AK
-BC BC BC 0 B
+6 6 6 0 2
 18 80 3800 P
 #7656
 cloak defender~
@@ -1607,7 +1602,7 @@ a defenders cloak~
 A heap of gold and silver cloth is on the ground here.~
 silver~
 armor 0 AC
-BC BC BC 0 B
+6 6 6 0 2
 18 60 3240 P
 #7657
 gloves defender~
@@ -1615,7 +1610,7 @@ a defenders gloves~
 A pair of gloves are on the side of the road here.~
 gold~
 armor 0 AH
-BC BC BC 0 B
+6 6 6 0 2
 18 70 4000 P
 #7658
 belt defender~
@@ -1623,7 +1618,7 @@ a defenders belt~
 A gold belt is lieing here.~
 gold~
 armor 0 AL
-BC BC BC 0 B
+6 6 6 0 2
 18 70 3420 P
 #7659
 bracer defender~
@@ -1631,7 +1626,7 @@ a defenders bracer~
 A silver bracer is lieing here.~
 silver~
 armor 0 AM
-BC BC BC 0 B
+6 6 6 0 2
 18 30 3800 P
 #7660
 boots defender~
@@ -1639,7 +1634,7 @@ a defenders pair of boots~
 A pair of silver boots are here.~
 silver~
 armor 0 AG
-BC BC BC 0 B
+6 6 6 0 2
 18 50 3420 P
 #7661
 boots palace guard~
@@ -1647,7 +1642,7 @@ a palace guards boots~
 A pair of boots are here, glowing!!~
 steel~
 armor A AG
-AB AB AB 0 B
+3 3 3 0 2
 18 50 10 P
 #7699
 scythe~
@@ -1666,7 +1661,7 @@ This is the entrance to a small park. You see that it is full of animals,
 birds, and reptiles.  There are also people here, strolling around in the
 romantic setting.
 ~
-0 0 3
+0 0 forest
 D2
 You see the park.
 ~
@@ -1678,7 +1673,7 @@ Inside the park.~
 You are standing inside what looks like a park--probably because it is
 one...
 ~
-0 0 3
+0 0 forest
 D0
 You see the entrance to the park.
 ~
@@ -1700,7 +1695,7 @@ The Park.~
 You are in the park, it is green, and bright, but for some reason,
 someone placed a wall to the north, east, and south....
 ~
-0 0 3
+0 0 forest
 D3
 You see the park.
 ~
@@ -1712,7 +1707,7 @@ The Park.~
 You are in the park.  The breeze flows around you like a current of
 refreshing water.
 ~
-0 0 3
+0 0 forest
 D0
 You see the park.
 ~
@@ -1729,7 +1724,7 @@ The Park.~
 You are in the Park. You think that it is cool and refreshing to be here,
 and that you should really come here more often.
 ~
-0 0 3
+0 0 forest
 D0
 You see the park.
 ~
@@ -1745,7 +1740,7 @@ S
 The Park.~
 You are in the Park.  This is a really nice place to be.
 ~
-0 0 3
+0 0 forest
 D1
 You see the park.
 ~
@@ -1767,7 +1762,7 @@ The Park.~
 You are in the Park.  The cool breezes bring on memorys of when you were
 a small child.
 ~
-0 0 3
+0 0 forest
 D1
 You see the park.
 ~
@@ -1790,7 +1785,7 @@ You are in the Park.  here, at the edge of the park, you find several
 benches.  However, they are all occupied by the people who got here first.
 'Da*n' you think, as you see them all so full of grins.
 ~
-0 0 3
+0 0 forest
 D1
 You see the park.
 ~
@@ -1806,7 +1801,7 @@ S
 The Park.~
 You are in the Park.  You feel intoxicated by the night breeze.
 ~
-0 0 3
+0 0 forest
 D0
 You see the park.
 ~
@@ -1827,7 +1822,7 @@ S
 The Park.~
 You are in the Park.  Gods, this is beautiful!
 ~
-0 0 3
+0 0 forest
 D0
 You see the park.
 ~
@@ -1854,7 +1849,7 @@ The Park.~
 You are in the Park.  You think 'This is THE most BEAUTIFUL place I've
 ever been to!'.
 ~
-0 0 3
+0 0 forest
 D0
 You see the park.
 ~
@@ -1876,7 +1871,7 @@ The trail in the Park.~
 You are in the Park.  You are on a small worn trail to a building to the
 east.
 ~
-0 0 3
+0 0 forest
 D0
 You see the park.
 ~
@@ -1898,7 +1893,7 @@ The trail in the Park.~
 You are in the Park.  The trail that you are on leads east toward that
 building that your see there.
 ~
-0 0 3
+0 0 forest
 D0
 You see the park.
 ~
@@ -1919,7 +1914,7 @@ S
 The split in the trail in the Park.~
 The trail goes east, and south here. There is a building to the east.
 ~
-0 0 3
+0 0 forest
 D1
 You see the caretakers house.
 ~
@@ -1941,7 +1936,7 @@ Care-Takers House.~
 You are in the home of the Caretaker of this Park.  You see shiny spades,
 hoes, and watering-cans that the Caretaker must like a lot.
 ~
-0 D 0
+0 D inside
 D3
 You see the trail.
 ~
@@ -1953,7 +1948,7 @@ The trail.~
 You are along a trail in the park that is going south at the moment.
 You wonder what could be at the end of it...
 ~
-0 0 3
+0 0 forest
 D0
 You see the trail.
 ~
@@ -1970,7 +1965,7 @@ The trail.~
 You are along the trail in the park that is going somewhere.... You
 wonder where....
 ~
-0 0 3
+0 0 forest
 D0
 You see the trail.
 ~
@@ -1987,7 +1982,7 @@ The end of the trail.~
 Ah, at last!  The end of the trail!  But um, there really isn't much to
 see...  I'm sorry.
 ~
-0 0 3
+0 0 forest
 D1
 You see the trail.
 ~
@@ -1999,7 +1994,7 @@ The Park.~
 You are in the Park.  You feel that it is so peaceful here that you
 want to drop your gear and just rest a moment.
 ~
-0 0 3
+0 0 forest
 D0
 You see the park.
 ~
@@ -2021,7 +2016,7 @@ The Entrance to the Garden in the Park.~
 You are in a large garden now.  It has violets, and other flowers that you
 can't begin to name. (sorry that you slept through that class aren't you?).
 ~
-0 0 1
+0 0 city
 D0
 You see the park.
 ~
@@ -2037,7 +2032,7 @@ S
 The Garden.~
 You are inside the garden now, and you see even MORE flowers!
 ~
-0 0 1
+0 0 city
 D0
 You see the Entrance to the garden.
 ~
@@ -2053,7 +2048,7 @@ S
 The Garden.~
 You are in the garden, there are many lovers here who are (Ahem) 'necking'.
 ~
-0 0 1
+0 0 city
 D1
 You see the garden.
 ~
@@ -2074,7 +2069,7 @@ S
 The Garden.~
 You are in the garden.  This section seems to be devoted to roses.
 ~
-0 0 1
+0 0 city
 D0
 You see the garden.
 ~
@@ -2085,7 +2080,7 @@ S
 The Garden.~
 You are in the section of the garden that is devoted to lilacs.
 ~
-0 0 1
+0 0 city
 D1
 You see the garden.
 ~
@@ -2097,7 +2092,7 @@ In the Sewers.~
 You are inside the dark, dank sewers of Gerighelm.  There is a faint
 scent of mud in the air.  To the north, there is a wall.....
 ~
-0 A 2
+0 A field
 D1
 You see the sewers.
 ~
@@ -2113,7 +2108,7 @@ S
 The Sewers.~
 You are in the old sewer system of Gerighelm.  It is dark and hard to see.
 ~
-0 A 2
+0 A field
 D0
 You see the sewers.
 ~
@@ -2139,7 +2134,7 @@ S
 The Sewers.~
 Hmm, another dead end.
 ~
-0 A 2
+0 A field
 D0
 You see the sewers.
 ~
@@ -2150,7 +2145,7 @@ S
 The Sewers.~
 You are in a tunnel that leads north-south.  The walls here are moist.
 ~
-0 A 2
+0 A field
 D0
 You see the sewers.
 ~
@@ -2166,7 +2161,7 @@ S
 The Sewers.~
 You are in a tunnel that leads north-south.  The walls are moist here.
 ~
-0 A 2
+0 A field
 D0
 You see the sewers.
 ~
@@ -2184,7 +2179,7 @@ You are at one end of a tunnel that leads north-south.  I wonder where
 it goes.  Oh well, you can keep wondering, because there is a magic sign
 that says 'UNDER CONSTRUCTION' to the west......
 ~
-0 A 2
+0 A field
 D2
 You see the sewers.
 ~
@@ -2195,7 +2190,7 @@ S
 The Sewers.~
 You are in one of the twisting tunnels that abound in these sewers.
 ~
-0 AC 2
+0 AC field
 D1
 You see some VERY clean sewers.
 ~
@@ -2211,7 +2206,7 @@ S
 The Sewers.~
 You are in one of the twisting tunnels in this maze of messy water.
 ~
-0 A 2
+0 A field
 D0
 You see the sewers.
 ~
@@ -2229,7 +2224,7 @@ You are in the sewers.  Not a very nice area to be.
 Especially because it doesn't exactly smell nice.
 ( You just realized it wasn't your breath...)
 ~
-0 A 2
+0 A field
 D0
 You see the sewers.
 ~
@@ -2251,7 +2246,7 @@ The Sewers.~
 The tunnel continues on, to the east, and west.  There is a tunnel to the
 south.
 ~
-0 A 2
+0 A field
 D1
 You see the sewers.
 ~
@@ -2273,7 +2268,7 @@ The tunnel.~
 You are going down a tunnel that runs north-south.  To
 the south there is a wet scent.
 ~
-0 A 1
+0 A city
 D0
 You see the sewers.
 ~
@@ -2290,7 +2285,7 @@ The tunnel.~
 You are going down a tunnel that leads north-south.  There is some water
 to the south.
 ~
-0 A 2
+0 A field
 D0
 You see the tunnel.
 ~
@@ -2307,7 +2302,7 @@ The watery tunnel.~
 There is some water here, it is up to your waist.  It is calm enough
 to swim or wade though.
 ~
-0 A 6
+0 A swim
 D0
 You see the tunnel.
 ~
@@ -2323,7 +2318,7 @@ S
 The watery tunnel.~
 The water gets deeper here, it is up to your chin.
 ~
-0 A 6
+0 A swim
 D0
 You see the tunnel.
 ~
@@ -2340,7 +2335,7 @@ The end of the watery tunnel.~
 The tunnel ends here, with all that water in the tunnel pouring out.
 The water here is rough, it is all you can do to keep your head afloat.
 To the east and west, there a walls in the way of your movement.~
-0 AC 6
+0 AC swim
 D0
 You see the tunnel.
 ~
@@ -2351,7 +2346,7 @@ S
 The Sewers.~
 You are in the sewers.  There is the familiar dank smell to everything...
 ~
-0 AC 2
+0 AC field
 D0
 You see the sewers.
 ~
@@ -2372,7 +2367,7 @@ S
 The Sewers.~
 You are in the sewers, to the east, the tunnel ends.  So it seems.
 ~
-0 A 2
+0 A field
 D1
 You see the sewers.
 ~
@@ -2390,7 +2385,7 @@ You are at the end of one of the countless tunnels in these sewers.
 To the east, there is a grate that seems to have a force field in between
 the holes in it.
 ~
-0 A 2
+0 A field
 D1
 You see the grate.
 ~
@@ -2407,7 +2402,7 @@ Underwater in the river.~
 You are swimming underwater in the river.  It looks so different from
 down here.
 ~
-0 0 7
+0 0 noswim
 D0
 You see the river.
 ~
@@ -2429,7 +2424,7 @@ Underwater.~
 You are underwater in the river.  There seems to be a force field
 to the south....
 ~
-0 0 8
+0 0 unused
 D0
 You see the river.
 ~
@@ -2440,7 +2435,7 @@ S
 Underwater.~
 You are underwater in the river.
 ~
-0 0 7
+0 0 noswim
 D0
 You see the river.
 ~
@@ -2456,7 +2451,7 @@ S
 Underwater.~
 You are underwater in the river.
 ~
-0 0 7
+0 0 noswim
 D0
 You see the river.
 ~
@@ -2475,7 +2470,7 @@ To the west there is a ledge that is just above the water, some of it
 is underwater.  As you look closer to the north, you see that there is a
 force field blocking your passage.
 ~
-0 0 7
+0 0 noswim
 D2
 You see the river.
 ~
@@ -2492,7 +2487,7 @@ Half Flooded Sewers.~
 You are up to your waist in river water.  To the west there are some VERY
 clean sewers...
 ~
-0 C 6
+0 C swim
 D1
 You see the river.
 ~
@@ -2509,7 +2504,7 @@ Very clean Sewers.~
 You are standing at the start of a section of sewers that are VERY
 clean...  There is a sign here.
 ~
-0 A 0
+0 A inside
 E
 sign~
 The sign reads:
@@ -2536,7 +2531,7 @@ Very clean Sewers.~
 You are in some VERY clean sewers.  You have been wondering what that
 sign meant by 'MAGIC WORMS'.......
 ~
-0 A 1
+0 A city
 D0
 You see the clean sewers.
 ~
@@ -2552,7 +2547,7 @@ S
 Very clean Sewers.~
 You are in the VERY clean sewers.
 ~
-0 A 1
+0 A city
 D1
 You see the clean sewers.
 ~
@@ -2568,7 +2563,7 @@ S
 Very clean Sewers.~
 You are in the VERY clean sewers.
 ~
-0 A 1
+0 A city
 D0
 You see the clean sewers.
 ~
@@ -2589,7 +2584,7 @@ S
 Very clean Sewers.~
 You are in the VERY clean sewers.
 ~
-0 A 1
+0 A city
 D0
 You see the clean sewers.
 ~
@@ -2605,7 +2600,7 @@ S
 Very clean Sewers.~
 You are in some EXTREEMLY clean sewers!  There is a sign here.
 ~
-0 A 1
+0 A city
 E
 sign~
 The sign reads:
@@ -2639,7 +2634,7 @@ You are in the VERY clean sewers.  There are some benches here, as well
 as some old books that are aged bye time..  You are afraid to touch them,
 unless they may crumble to dust with your touch.  One of the books is open.
 ~
-0 AC 2
+0 AC field
 E
 book old~
 The page reads:
@@ -2671,7 +2666,7 @@ S
 Junction in the dark Forest~
 You are at a junction in the Dark Forest.
 ~
-0 0 3
+0 0 forest
 D2
 You see the dirt path.
 ~
@@ -2693,7 +2688,7 @@ Dirt path~
 You are on a dirt path that leads to a town. (you can tell this because
 a passerby told you.), the path continues north and south.
 ~
-0 0 1
+0 0 city
 D0
 You see the junction.
 ~
@@ -2709,7 +2704,7 @@ S
 Dirt Path~
 You are on a dirt path.
 ~
-0 0 1
+0 0 city
 D0
 You see the dirt path.
 ~
@@ -2725,7 +2720,7 @@ S
 Dirt Path~
 You are on the dirt path.
 ~
-0 0 1
+0 0 city
 D0
 You see the dirt path.
 ~
@@ -2741,7 +2736,7 @@ S
 Dirt Path~
 You are on the dirt path.
 ~
-0 C 1
+0 C city
 D1
 You see the dirt path.
 ~
@@ -2757,7 +2752,7 @@ S
 Dirt Path~
 You are on the dirt path.
 ~
-0 0 1
+0 0 city
 D2
 You see the dirt path.
 ~
@@ -2773,7 +2768,7 @@ S
 Dirt Path~
 You are on the dirt path.  Up ahead, you see a LARGE city.
 ~
-0 0 1
+0 0 city
 D0
 You see the dirt path.
 ~
@@ -2792,7 +2787,7 @@ because the town is surrounded by mountains.  Of course, there is a lot
 of traffic here.
      There is a small (Glowing) (Humming) tablet.
 ~
-0 0 1
+0 0 city
 E
 small tablet~
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -2823,7 +2818,7 @@ West-Street of Gerighelm~
 This is the western most street of Gerighelm.  To the east, there is
 a street with a sign proclaiming:  Peter Ave.
 ~
-0 0 1
+0 0 city
 D0
 You see the Gate of Gerighelm.
 ~
@@ -2845,7 +2840,7 @@ Peter Ave~
 You are on Peter Ave.  To the south, you can see the park, but the entrance
 to the park is still to the east.
 ~
-0 0 1
+0 0 city
 D1
 You see peter ave.
 ~
@@ -2861,7 +2856,7 @@ S
 Peter Ave~
 You are on Peter Ave. The the south, you see the entrance to the park.
 ~
-0 0 1
+0 0 city
 D1
 You see peter ave.
 ~
@@ -2882,7 +2877,7 @@ S
 Peter Ave~
 You are on Peter ave. The the west, you see the entrance to the park.
 ~
-0 0 1
+0 0 city
 D2
 You see peter ave.
 ~
@@ -2899,7 +2894,7 @@ Peter Ave~
 You are on Peter Ave.  To the west, you can see the park, but it's entrance
 is not in sight.
 ~
-0 0 1
+0 0 city
 D0
 You see peter ave.
 ~
@@ -2916,7 +2911,7 @@ Merchant Way~
 You are on the Merchant Way.  There are vendors selling everything that you
 could possibly need.
 ~
-0 0 1
+0 0 city
 D0
 You see peter ave.
 ~
@@ -2943,7 +2938,7 @@ The shop with lots of food~
 This shop has lots of food in it. Apples, pies, carrots, you name it.
 There is a sign here.
 ~
-0 D 0
+0 D inside
 E
 sign~
 The sign reads:
@@ -2963,7 +2958,7 @@ S
 Merchant Way~
 You are on the Merchant Way.  To the south, there is a weapon shop.
 ~
-0 0 1
+0 0 city
 D1
 You see the end of merchant way.
 ~
@@ -2985,7 +2980,7 @@ Weapon shop~
 You are in the weapon shop. There are many fine weapons here, but all of
 them are safe and out of your reach.  There is a sign here.
 ~
-0 D 0
+0 D inside
 E
 sign~
 The sign reads:
@@ -3007,7 +3002,7 @@ End of Merchant Way~
 You are at the end of merchant way, yet there is still another store
 south of here.
 ~
-0 0 1
+0 0 city
 D2
 You see the Herbalist shop.
 ~
@@ -3024,7 +3019,7 @@ Herbalist Shop~
 You are inside the Herbalist Shop.  There are many herbs here- Lord knows
 WHAT some of them do... There is a sign here too, on the table.
 ~
-0 D 0
+0 D inside
 E
 sign~
 The sign reads:
@@ -3044,7 +3039,7 @@ S
 Merchant Way~
 You are on merchant way. To the south, there is another shop.
 ~
-0 0 1
+0 0 city
 D1
 You see the merchant way.
 ~
@@ -3066,7 +3061,7 @@ Magic Shop~
 You are inside the magic shop.  There are many many many magical things
 of unknown nature.  There is a sign here.
 ~
-0 D 0
+0 D inside
 E
 sign~
 the sign reads:
@@ -3087,7 +3082,7 @@ Merchant Way~
 You are on the merchant way.  To the south, there is the local branch
 of the Pawn Shop.  And to the west, Merchant ave. ends.
 ~
-0 0 1
+0 0 city
 D1
 You see the merchant way.
 ~
@@ -3109,7 +3104,7 @@ The Pawn Shop~
 You are in the Pawn shop.  Unfourtuatly, there is no pawn here,
 just a hired merchant.
 ~
-0 D 0
+0 D inside
 D0
 You see the merchant way.
 ~
@@ -3120,7 +3115,7 @@ S
 West-Street~
 You are on West-Street.  To the east, the Merchant Way begins.
 ~
-0 0 1
+0 0 city
 D0
 You see West-Street.
 ~
@@ -3141,7 +3136,7 @@ S
 West-Street~
 You are on the West-Street.  To the north, you approach the North Gate.
 ~
-0 0 1
+0 0 city
 D0
 You see the West-Street.
 ~
@@ -3158,7 +3153,7 @@ West-Street~
 You are on the West-Street.  To the south, Merchant way begins. As well as
 to the north.
 ~
-0 0 1
+0 0 city
 D0
 You see West-Street.
 ~
@@ -3175,7 +3170,7 @@ West-Street~
 You are on West-Street. To the west, Mable Road begins, and to the east
 Merchant way travels.
 ~
-0 0 1
+0 0 city
 D0
 You see West-Street.
 ~
@@ -3202,7 +3197,7 @@ Mable Road~
 You are on Mable road.  It was called this after the late Kings wife.
 To the north, the Palace of the Duke grows to the horizon.
 ~
-0 0 1
+0 0 city
 D0
 You see the Dukes Palace.
 ~
@@ -3225,7 +3220,7 @@ You are on Mable road. To the north, the palace looms large, but the
 entrance to the palace is to the east.  There is a sewer pipe exposed in
 the side of the road.
 ~
-0 0 1
+0 0 city
 D1
 You see Mable road.
 ~
@@ -3246,7 +3241,7 @@ S
 Mable Road~
 You are on Mable road. To the north, the palace STILL looms big.
 ~
-0 0 1
+0 0 city
 D0
 You see Mable road.
 ~
@@ -3263,7 +3258,7 @@ Mable Road~
 You are on Mable road.  To the north, the palace looms majesticly on
 the horizon.
 ~
-0 0 1
+0 0 city
 D0
 You see Mable road.
 ~
@@ -3280,7 +3275,7 @@ Mable Road~
 You are on Mable road.  To the southeast, you see the path leaving
 Gerighelm.  Also, to the east, West-Street takes over.
 ~
-0 0 1
+0 0 city
 D1
 You see West-Street
 ~
@@ -3296,7 +3291,7 @@ S
 West-Street~
 You are on the West-Street.  To the south, a path leading out of town begins.
 ~
-0 0 1
+0 0 city
 D0
 You see West-Street
 ~
@@ -3319,7 +3314,7 @@ You are on West-Street.  To the north, there is an intersection of
 Merchant Way, West-street, and  Mable road.  And, to the east, Temple
 Street wends.
 ~
-0 0 1
+0 0 city
 D0
 You see West-street.
 ~
@@ -3341,7 +3336,7 @@ Temple Street~
 You are on Temple Street.  To the south, there is some construction work
 going on.
 ~
-0 0 1
+0 0 city
 D1
 You see Temple Street.
 ~
@@ -3364,7 +3359,7 @@ You are standing before a large construction site in which men are building a
 new temple.
 Who's it for?
 ~
-0 0 3
+0 0 forest
 D0
 You see Temple Street.
 ~
@@ -3375,7 +3370,7 @@ S
 Temple Street~
 You are on Temple Street.  To the south is the Temple to Time.
 ~
-0 0 1
+0 0 city
 D1
 You see Temple Street.
 ~
@@ -3397,7 +3392,7 @@ Temple to Time~
 You are standing inside the Temple to time. There are many clocks here, to say 
 the least.
 ~
-0 0 1
+0 0 city
 D0
 You see the Temple Street.
 ~
@@ -3408,7 +3403,7 @@ S
 Temple Street~
 You are on Temple street. to the south, you see the cathedral.
 ~
-0 0 1
+0 0 city
 D2
 You see an old, run down cathedral.  There are Gargoyles, vampires, and
 others.  They seem to be moving....
@@ -3426,7 +3421,7 @@ Temple of Death~
 You are standing inside the temple of Death. It's kinda scary in here, how
 about running away hmm?
 ~
-0 D 0
+0 D inside
 E
 altar~
 It is a coffin.  It's kinda scary, maybe you should just run away now, hmm?
@@ -3447,7 +3442,7 @@ Temple Street~
 You are standing on Temple street.  To the south a Temple is leaking.
 Blood!
 ~
-0 0 1
+0 0 city
 D2
 You see the Temple to War!
 ~
@@ -3466,7 +3461,7 @@ the place.  Some of it has been captured, and is sent streaming into veritable
 RIVERS of blood!  It's very artistic.  The altar contains: Blood, guts, a few
 sacrificial offerings (corpses, soon to be corpses, whatever).
 ~
-0 D 0
+0 D inside
 E
 altar~
 On the altar you see: babes, men, women, and, of course, ducklings.
@@ -3481,7 +3476,7 @@ S
 Path from Gerighelm~
 You are at the beginning of a path from Gerighelm.
 ~
-0 0 2
+0 0 field
 D0
 You see West-Street.
 ~
@@ -3497,7 +3492,7 @@ S
 The Dump~
 You are at the Dump.
 ~
-0 0 4
+0 0 hills
 D0
 You see the path from Gerighelm.
 ~
@@ -3513,7 +3508,7 @@ S
 The Dump~
 You are at the Dump.  Need I say more?
 ~
-0 0 4
+0 0 hills
 D0
 You see the Dump.
 ~
@@ -3526,7 +3521,7 @@ You are at the beginning of Merchant way.  To the north, there is a shop
 that proclaims itself 'Ye Olde Pet Shope'.  Those look like healthy, handsome
 pets.
 ~
-0 0 1
+0 0 city
 D0
 You see the olde pet shope.
 ~
@@ -3548,7 +3543,7 @@ Ye Olde Pet Shope~
 You are standing inside the pet shop.  There are pets EVERYWHERE.
 There are dogs, cats, kittens, puppy's, wolves, you name it.
 ~
-0 DKM 0
+0 DKM inside
 D2
 You see the merchant way.
 ~
@@ -3560,7 +3555,7 @@ Merchant Way~
 You are on the merchant way.  To the north, there is yet another shop.
 This one is: Greghimles furniture store.
 ~
-0 0 1
+0 0 city
 D0
 You see Greghimles furniture store.
 ~
@@ -3582,7 +3577,7 @@ Greghimles furniture store~
 You are inside Greghimles furniture store.  There are lamps, boxes, great
 stuffed chairs, that sort of thing.
 ~
-0 D 0
+0 D inside
 D2
 You see the Merchant way.
 ~
@@ -3595,7 +3590,7 @@ You are on the Merchant way.  To the north, there is yet another store.
 This one is:  Crazy Himshlick's portable fountains.  To the south, you see
 the Barracks.
 ~
-0 0 1
+0 0 city
 D0
 You see Crazy Himshlick's portable fountains.
 ~
@@ -3623,7 +3618,7 @@ You are inside a ramshakle building, probably just thrown together for this
 guys shop.  You see a sign advertising his 'low prices' and 'low interest
 rates'....
 ~
-0 0 1
+0 0 city
 D2
 You see the Merchant way.
 ~
@@ -3635,7 +3630,7 @@ Merchant Way~
 You are on the Merchant way.  To the north, there is another shop.
 This one is:  Water bottles and beer.
 ~
-0 0 1
+0 0 city
 D0
 You see the Water bottles and beer.
 ~
@@ -3656,7 +3651,7 @@ S
 Water bottles and Beer~
 You are inside a shop with a small bar.
 ~
-0 D 0
+0 D inside
 D2
 You see the Merchant way.
 ~
@@ -3669,7 +3664,7 @@ You are on the Merchant way.  To the north, there is yet another shop.
 The sign out front reads: potions and wands.  To the east, there is a river,
 but there is a bridge crossing it.
 ~
-0 0 1
+0 0 city
 D0
 You see the Potions and Wands.
 ~
@@ -3691,7 +3686,7 @@ The Potions and Wands shop~
 This shop is tended by an old witch.  There are boiling pots and cauldrons
 all over.
 ~
-0 D 0
+0 D inside
 D2
 You see the Merchant way.
 ~
@@ -3702,7 +3697,7 @@ S
 Bridge over the river~
 You are on a bridge over the river.
 ~
-0 0 1
+0 0 city
 D1
 You see the Merchant Way.
 ~
@@ -3720,7 +3715,7 @@ You are on Merchant way.  This part of Merchant way is much more crowded.
 the vendors have taken to wandering the streets, selling their stock as they
 go.
 ~
-0 0 2
+0 0 field
 D1
 You see the crowded market.
 ~
@@ -3741,7 +3736,7 @@ S
 Crowded market~
 You wonder if you are going to get out of this crowded market.....
 ~
-0 0 4
+0 0 hills
 D0
 You see Merchant way.
 ~
@@ -3753,7 +3748,7 @@ Crowded market~
 You think that you can get away from the crowd!  To the north, there
 is a long path the wends it's way into the distance.
 ~
-0 0 4
+0 0 hills
 D0
 You see the long path.
 ~
@@ -3780,7 +3775,7 @@ Long path~
 You are on the long path.  To the south, you see the crowded market.
 To the north, you see the path as peaceful as can be.
 ~
-0 0 2
+0 0 field
 D0
 You see the long path.
 ~
@@ -3796,7 +3791,7 @@ S
 Long path~
 You are on the long path. To the north and south is peace.
 ~
-0 0 2
+0 0 field
 D0
 You see the junction.
 ~
@@ -3813,7 +3808,7 @@ Junction~
 You are at a junction on the long path.  To the east, there is a bunch of
 homes.
 ~
-0 0 3
+0 0 forest
 D0
 You see the long path.
 ~
@@ -3835,7 +3830,7 @@ Rurals~
 You are surrounded by people as they go about their errands from house to
 house.
 ~
-0 0 2
+0 0 field
 D1
 You see the houses.
 ~
@@ -3852,7 +3847,7 @@ Rurals~
 Up ahead, you see a pair of paths, that lead up to the front doors
 of the houses.
 ~
-0 0 1
+0 0 city
 D1
 You see the paths.
 ~
@@ -3869,7 +3864,7 @@ Pair of paths~
 The paths are under you feet now.  You can choose which house to go to
 first.
 ~
-0 0 1
+0 0 city
 D0
 You see the house.
 ~
@@ -3890,7 +3885,7 @@ S
 House~
 You are inside a house. the house continues to the east and west.
 ~
-0 D 0
+0 D inside
 D0
 You see the door.
 ~
@@ -3911,7 +3906,7 @@ S
 House~
 You are inside a house.  The house continues to the west, and east.
 ~
-0 D 0
+0 D inside
 D1
 You see the dining room.
 ~
@@ -3932,7 +3927,7 @@ S
 Dining room~
 You are inside the dining room.
 ~
-0 D 0
+0 D inside
 D3
 You see the entrance to the house.
 ~
@@ -3943,7 +3938,7 @@ S
 Sitting room~
 You are inside the sitting room.
 ~
-0 D 0
+0 D inside
 D1
 You see the entrance to the house.
 ~
@@ -3954,7 +3949,7 @@ S
 Living room~
 You are inside the living room in the house.
 ~
-0 D 0
+0 D inside
 D3
 You see the entrance to the house.
 ~
@@ -3965,7 +3960,7 @@ S
 Drawing room~
 You are inside the drawing room in the house.
 ~
-0 D 0
+0 D inside
 D1
 You see the entrance to the house.
 ~
@@ -3976,7 +3971,7 @@ S
 Long path~
 You are on the long path.  To the north, you see that the path ends.
 ~
-0 0 2
+0 0 field
 D0
 You see the end of the path.
 ~
@@ -3994,7 +3989,7 @@ You are at the end of the long path, there is a sign here that says:
 'under construction'  with an arrow pointing north.. To the north, you see
 a building being coded.....
 ~
-0 0 2
+0 0 field
 D2
 You see the path.
 ~
@@ -4005,7 +4000,7 @@ S
 Crowded market~
 Gods, this place is STUFFED with people!
 ~
-0 0 2
+0 0 field
 D0
 You see the crowded market.
 ~
@@ -4017,7 +4012,7 @@ Crowded market~
 You are in the crowded market.  To the east, there is a bridge over the
 river.
 ~
-0 0 2
+0 0 field
 D1
 You see the bridge.
 ~
@@ -4040,7 +4035,7 @@ You are in the crowded market.  The vendors here are getting on your
 nerves. it's always 'Come see my fresh fish!' or 'my jewelry is THE BEST!'
 etc....
 ~
-0 0 2
+0 0 field
 D0
 You see the crowded market.
 ~
@@ -4057,7 +4052,7 @@ Crowded market~
 You are in the crowded market.  How many people can there BE?! You ask
 yourself.....
 ~
-0 0 2
+0 0 field
 D0
 You see the crowded market.
 ~
@@ -4073,7 +4068,7 @@ S
 Crowded market~
 You are in the crowded market.  There are too many people here..
 ~
-0 0 2
+0 0 field
 D0
 You see the crowded market.
 ~
@@ -4094,7 +4089,7 @@ S
 Crowded market~
 You are in the crowded market.  It's just so big...
 ~
-0 0 3
+0 0 forest
 D2
 You see the crowded market.
 ~
@@ -4105,7 +4100,7 @@ S
 Crowded market~
 You are in the crowded market.  So many people, it's making you crazy!
 ~
-0 0 3
+0 0 forest
 D0
 You see the crowded market.
 ~
@@ -4121,7 +4116,7 @@ S
 Crowded market~
 You are in the crowded market.  You start jabbering mindlessly....
 ~
-0 0 3
+0 0 forest
 D2
 You see the crowded market.
 ~
@@ -4135,7 +4130,7 @@ One of the reasons it's beautiful, is because it's made of some kind of magic
 mirror.  And, if thats not enough to convince you that it's beautiful, get
 this-  There are women walking over it..... >:)
 ~
-0 0 1
+0 0 city
 D1
 You see the market.
 ~
@@ -4153,7 +4148,7 @@ You are in a market, but it's much less crowded than the last one.
 The vendors are still in open air setups, but at least they are
 quieter about it...
 ~
-0 0 1
+0 0 city
 D1
 You see the market.
 ~
@@ -4175,7 +4170,7 @@ The market~
 Yes, you think, this arrangement is much better than the crowded one.
 Vendors are quietly calling out their wares.
 ~
-0 0 1
+0 0 city
 D0
 You see the market.
 ~
@@ -4196,7 +4191,7 @@ S
 Market~
 You are in the market.  To the east, you can see the edge of the market.
 ~
-0 0 1
+0 0 city
 D1
 You see the market.
 ~
@@ -4217,7 +4212,7 @@ S
 Market~
 You are in the middle of the market.  The vendors are selling EVERYTHING!
 ~
-0 0 1
+0 0 city
 D0
 You see the market.
 ~
@@ -4244,7 +4239,7 @@ Market~
 You are at one of the corners of the market.  To the east, a path out of
 town begins.
 ~
-0 0 1
+0 0 city
 D1
 You see the path out of town.
 ~
@@ -4266,7 +4261,7 @@ Market~
 You are in the market.  There must be everything that man can sell or
 buy being traded here...
 ~
-0 0 1
+0 0 city
 D0
 You see the market.
 ~
@@ -4289,7 +4284,7 @@ The path takes you near a large town.  On the west, there is a
 small hole in the wall of the market, that you might crawl through.There is
 a sign here.
 ~
-0 0 1
+0 0 city
 E
 sign~
 The sign reads:
@@ -4317,7 +4312,7 @@ The path travels by a market. To the west you see it, full of food,
 clothing, and jewelry! You have another chance to go to the
 town to the north, and to the south.
 ~
-0 0 2
+0 0 field
 D0
 You see the path.
 ~
@@ -4334,7 +4329,7 @@ On the path~
 The path leads you to a small gate to a large town.  The gate is unguarded
 and there is a sign here.
 ~
-0 0 1
+0 0 city
 E
 sign~
 The sign reads:
@@ -4360,7 +4355,7 @@ You are in the market.  To the east there is an old gate, but it's not
 guarded.  These vendors, you just can't get over it-- they buy ANYTHING.
 If you can find the right one...
 ~
-0 0 1
+0 0 city
 D0
 You see the market.
 ~
@@ -4383,7 +4378,7 @@ You are in the market.  To the east, you catch a faint glimmering of what
 may be a path, but you are not sure.  You get back to marvelling over these
 vendors...
 ~
-0 0 1
+0 0 city
 D0
 You see the market.
 ~
@@ -4404,7 +4399,7 @@ S
 Market~
 You are in the market.  Gods, these vendors are cool!
 ~
-0 0 1
+0 0 city
 D0
 You see the market.
 ~
@@ -4425,7 +4420,7 @@ S
 Market~
 You are in the market.  To you, this is the niftiest place to be,
 ~
-0 0 1
+0 0 city
 D0
 You see the market.
 ~
@@ -4451,7 +4446,7 @@ S
 Market~
 You are in the market.  To the south and west, the market turns into a wall.
 ~
-0 0 1
+0 0 city
 D0
 You see the market.
 ~
@@ -4468,7 +4463,7 @@ Market~
 You are in the market.  To the west, you can see the river flowing into
 the underground sewers system.
 ~
-0 0 1
+0 0 city
 D0
 You see the market.
 ~
@@ -4491,7 +4486,7 @@ You are standing beside the entrance to the Knights' castle.
 To the west, the palace stretches on, covered with silks, furs, and gold.
 To the south there is mable road
 ~
-0 D 0
+0 D inside
 E
 silks silk~
 The silks are very fine, they must have been purchased from China or Japan.
@@ -4519,7 +4514,7 @@ S
 The palace~
 You are inside the palace.  It's a very fine place to be you realize.
 ~
-0 D 0
+0 D inside
 D1
 You see the entrance to the palace.
 ~
@@ -4537,7 +4532,7 @@ You are inside the palace of Gerighelm.  To the north, you see a room
 that is guarded by an old man.  To the east and west, the palace continues
 it's splendor.
 ~
-0 D 0
+0 D inside
 D0
 You see the room guarded by the old man.
 ~
@@ -4559,7 +4554,7 @@ Treasury~
 You are standing just outside the treasury.  there is a huge iron door
 to the east.  The old man says 'STOP'. He says 'You cannot enter here.'  'Go.'
 ~
-0 D 0
+0 D inside
 D1
 You see the huge iron door.
 ~
@@ -4577,7 +4572,7 @@ You see the final defenses of the Treasury.  Three bugbears!!!
 Aside from you certain doom, you see lots of gold, silver, and other such
 valuables...
 ~
-0 D 0
+0 D inside
 D3
 You see the huge iron door
 ~
@@ -4589,7 +4584,7 @@ Inside the palace~
 You are inside the palace of Gerighelm.  here, the palace opens into
 a large garden.  Complete with birds, chipmunks, and bugs OUCH <stupid fly>
 ~
-0 D 0
+0 D inside
 D0
 You see the garden.
 ~
@@ -4606,7 +4601,7 @@ Garden~
 You are in the palace garden.  You hope that the Gardener won't catch
 you wandering about like this..
 ~
-0 D 0
+0 D inside
 D0
 You see the garden ending.
 ~
@@ -4628,7 +4623,7 @@ Garden~
 Here the garden is blocked by a wall to the north, west, and south.
 But the flowers are still as pretty though.
 ~
-0 D 0
+0 D inside
 D1
 You see the garden.
 ~
@@ -4640,7 +4635,7 @@ End of the garden~
 You are at the and of the garden.  To the north there is a GRAND hall.
 I wonder whats at the end of it?.
 ~
-0 D 0
+0 D inside
 D0
 You see the great hall.
 ~
@@ -4658,7 +4653,7 @@ You are in the great hall of the palace of Gerighelm. To the north, you
 see what may be a throne room. To the east however, there seems to be an altar.
 And to the west, there is some servants quarters.
 ~
-0 D 0
+0 D inside
 D0
 You see the throne room.
 ~
@@ -4684,7 +4679,7 @@ S
 The Altar~
 What luck! It's the altar to your very own God! Better pray here and now!
 ~
-0 D 0
+0 D inside
 D3
 You see the great hall.
 ~
@@ -4698,7 +4693,7 @@ The quarters themselves are much like quarters indeed.  there are 4 beds to
 a room. and 4 boxes under each bed.  The boxes are locked, and pickproof,
 so don't be getting any ideas...
 ~
-0 D 0
+0 D inside
 D1
 You see the Great hall.
 ~
@@ -4715,7 +4710,7 @@ Servants Quarters~
 You are in some servants quarters.  They are much like the last one you
 saw, except there are only 3 beds and boxes.
 ~
-0 D 0
+0 D inside
 D0
 You see the servants quarters.
 ~
@@ -4729,7 +4724,7 @@ respective thrones, which are carved out of the finest ebony and ivory.
 The furs, gold, and silks are VERY VERY VERY resplendent here.  There is a
 staircase that leads upward, and a staircase that leads down.
 ~
-0 D 0
+0 D inside
 D2
 You see the great hall.
 ~
@@ -4752,7 +4747,7 @@ You are in a hall way that leads to two bedrooms.  The door to the north
 has some gold words on it that say 'Dukes room' and the words on the south
 door say 'Duchesses room'.  This is all so formal, you think.
 ~
-0 D 0
+0 D inside
 D0
 You see the door to the dukes room.
 ~
@@ -4770,7 +4765,7 @@ This is the Duchesses room.  She must come here when she and her husband
 have a spat.  You know this because the room is relatively dusty compared
 with all the other rooms here.
 ~
-0 D 0
+0 D inside
 D0
 You see the door of this room.
 ~
@@ -4783,7 +4778,7 @@ This room is well used to say the least.  I'd say more, but it's not the
 kinda thing to transmit over phone lines.  But I can tell you this:
 The Duke and his wife have, shall we say, _interesting_ habits >:)
 ~
-0 D 0
+0 D inside
 D2
 You see the door to this room.
 ~
@@ -4797,7 +4792,7 @@ Throne room, but the Duke designed it himself, and..-Well anyway:
 The room is your standard cellar, there are many empty racks here, and only
 2 bottle left. Hmmm...
 ~
-0 AD 0
+0 AD inside
 D4
 You see the Throne room.
 ~
@@ -4808,7 +4803,7 @@ S
 Barracks~
 You are in the barracks.  There are guards all around you, coming and going.
 ~
-0 D 0
+0 D inside
 D0
 You see the Merchant way.
 ~
@@ -4818,13 +4813,13 @@ S
 #7698
 Pet Shop Warehouse~
 ~
-0 CM 0
+0 CM inside
 S
 #7699
 Sacrifice Room~
 Blood, blood, blood, guts, flesh, corpses....
 ~
-0 CM 0
+0 CM inside
 S
 #0
 

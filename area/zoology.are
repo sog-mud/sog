@@ -200,7 +200,7 @@ A wire with a shark tooth has been left here.
 ~
 coral~
 armor G AC
-A A A AB 0
+1 1 1 3 0
 4 20 300 P
 A
 19 1
@@ -264,7 +264,7 @@ and now is your chance! Through these doors is a great new exhibit about
 the evolution of life as we know it.  You're so excited you think you're 
 about to wet your armor! So just head right on in to the south.
 ~
-0 C 0
+0 C inside
 D2
 The entrance lies just ahead of you! What are you waiting for?
 ~
@@ -284,7 +284,7 @@ upstairs you see a souviniere shop.  To the south is the Hall of the Beefed
 up Tinsy Animals, while to the west is the Wide World of Chordates.  Finally
 to the east you see the special marine section of the museum.  
 ~
-0 D 0
+0 D inside
 D0
 The entrance to the museum.~
 ~
@@ -312,7 +312,7 @@ This is the Hall of Chordates.  All around you are really boring
 examples of what a chordate is.  A beastly fido is a chordate, as is the 
 mayor of Midgaard.  This is boring, you think.
 ~
-0 D 0
+0 D inside
 D1
 ~
 ~
@@ -328,7 +328,7 @@ This is the underwater exhibit of the museum.  Through the aid of
 magic, these underwater creatures have been enabled to breathe air and 
 come out and visit you.
 ~
-0 D 0
+0 D inside
 D2
 ~
 ~
@@ -343,7 +343,7 @@ Tinsy Animal Exhibit~
 All the tinsy animals here have been made bigger so that you can see 
 them.  You sure hope they forgot to magnify the pubic lice!
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -360,7 +360,7 @@ you've been on.  All around you are slime molds, and tardigradas, all
 sized up for your conveyence.  You thank the Gods that you think you see 
 the exit to the south.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -377,7 +377,7 @@ grows in between your toes.  Oh, that's in another hall in this museum.
 Silly you.  You contemplate pulling a fire alarm to make this trip a 
 little more interesting.  The hall of chordates continues to the south.  
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -393,7 +393,7 @@ You are now pulling your hair out!  This is so boring!  Type recall and
 end it all!!!  The gorilla cage is to the west, if you want to inflict 
 more punishment on yourself.  Wait!  Over there, to the south, is the exit!
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -414,7 +414,7 @@ garbage, oil coated ducks; it's so realistic you think!  Only problem is,
 you don't have an ounce of interest.  You spot the shark tank to the east 
 and the hall continues to the south.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -435,7 +435,7 @@ Wow look at all the sharks in here!  Now this is neat, since of course,
 you're not supposed to be here.  There are sand sharks, hammer-head sharks,
 and many more sharks to play with!  
 ~
-0 D 0
+0 D inside
 D3
 ~
 tank~
@@ -447,7 +447,7 @@ You see the end of this exhibit to the south.  All around you corals
 and other pretty things flourish all thanks to the wonders of modern 
 science.  Thank the Gods this stupid field trip is almost over.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -464,7 +464,7 @@ with your classmates as you pass through the turnstyle with your
 classmates and head on the bus.  To you south you can return to the 
 M.U.D.U. arena.
 ~
-0 CD 0
+0 CD inside
 D2
 ~
 ~
@@ -475,7 +475,7 @@ The Gorilla Cage~
 Heres where all the gorillas are kept.  It smells really bad in here.  
 You feel sorry for the guy who has to clean up after all of these gorillas.
 ~
-0 D 0
+0 D inside
 D1
 ~
 cage~
@@ -487,7 +487,7 @@ Wow, look at all the souvenires.  Too bad you can't afford half of it.
 Uh oh, you'd better get out of here, you think you hear your M.U.D.U. 
 teacher coming up the stairs to bring you back together with the class.
 ~
-0 D 0
+0 D inside
 D5
 ~
 ~

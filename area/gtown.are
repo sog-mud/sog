@@ -98,13 +98,12 @@ and slew. But he underestimated his master's power, and now he as returned
 as a Lich, seeking revenge!
 ~
 human~
-ABFGO J -1000 0
+ABFGO DFJ -1000 0
 58 0 50d10+6250 10d10+1110 5d10+25 pierce
 -28 -28 -28 2
 EFNQ AB T K
 stand stand male 5800
 0 0 medium unknown
-A det DF
 #8106
 demon~
 a lesser demon~
@@ -224,13 +223,12 @@ A GIANT Rat savagely charges you!
 When I say GIANT, I am talking ten feet high...
 ~
 unique~
-ACFGHO Q -1000 0
+ACFGHO DFQ -1000 0
 40 0 10d10+1850 10d10+100 4d8+13 charge
 -13 -13 -13 4
 EFNQ 0 0 0
 stand stand none 5000
 0 0 medium unknown
-A det DF
 #8114
 giant spider~
 a giant spider~
@@ -317,13 +315,12 @@ after the weak Xantharus lost control of his creations. He is a powerful,
 diabolically evil mage, and will not hesitate to destroy you.
 ~
 human~
-ABFGHO H -1000 0
+ABFGHO CDEFH -1000 0
 60 0 50d10+6750 10d10+1000 8d6+28 pierce
 -30 -30 -30 0
 EFNQ 0 0 0
 stand stand none 5300
 0 0 medium unknown
-A det CDEF
 #8120
 shambling mound~
 a shambling mound~
@@ -486,13 +483,12 @@ master, and inform his master if the strange man poses a significant threat
 to his domination of all things Undead.
 ~
 undead~
-ACGHO QV -1000 0
+ACGHO EQV -1000 0
 50 0 50d10+4250 10d10+1000 5d8+19 pound
 -40 -40 -40 2
 EFNQ 0 0 0
 stand stand none 5000
 0 0 medium unknown
-A det E
 #8131
 orcus~
 Orcus~
@@ -505,13 +501,12 @@ He is not really meant to be here, and thus will avoid attracting attention
 of the powers of the Prime Material Plane by avoiding combat.
 ~
 undead~
-ABGHO BHN -1000 0
+ABGHO BEHN -1000 0
 65 0 50d10+8250 10d10+1000 11d5+35 pierce
 -35 -35 -35 -4
 EFNQ 0 0 0
 stand stand none 5000
 I 0 medium unknown
-A det E
 #8132
 water weird~
 a water weird~
@@ -597,7 +592,7 @@ The Hand of Vecna lies here.
 ~
 leather steel~
 armor EHJMQ AH
-BE ABE BE BD 0
+18 19 18 10 0
 56 5 10000 P
 A
 2 3
@@ -618,7 +613,7 @@ The Eye of Vecna glows evilly here.
 ~
 leather steel~
 armor AEJM AE
-BE BE BE BD 0
+18 18 18 10 0
 56 1 10000 P
 A
 3 3
@@ -648,7 +643,7 @@ A Circlet lies here, gathering dust.
 ~
 steel~
 armor GM AE
-AE AE AE BD 0
+17 17 17 10 0
 54 25 18000 P
 A
 3 -3
@@ -679,7 +674,7 @@ Robes made of human flesh are piled here.
 ~
 human flesh~
 armor EJ AK
-ABCD ABCD ABCD BC 0
+15 15 15 6 0
 58 25 13000 P
 A
 12 150
@@ -729,7 +724,7 @@ A black cloak is piled here.
 ~
 unknown~
 armor 0 AK
-AE AE AE ABD 0
+17 17 17 11 0
 51 10 0 P
 #8112
 sword~
@@ -757,7 +752,7 @@ A Suit of Dark Armor lies here.
 ~
 steel~
 armor CEJ AE
-E E AE BD 0
+16 16 17 10 0
 50 25 15000 P
 A
 17 -10
@@ -772,7 +767,7 @@ A Dark Helm seeks to possess you!
 ~
 steel~
 armor CHM AE
-BE BE BE CD 0
+18 18 18 12 0
 55 75 15000 P
 A
 3 -3
@@ -853,7 +848,7 @@ A Dusty Trail~
 You are heading along a dusty trail that runs toward the town ahead. There
 is a horrid stench detectable even here. You see a sign up ahead.
 ~
-0 C 2
+0 C field
 E
 sign~
 W E L C O M E    T O    G H O S T T O W N
@@ -879,7 +874,7 @@ you may find yourself unable to return home by conventional means, and
 instead have to travel through until you find another means of escape. Your
 choice.
 ~
-0 C 1
+0 C city
 D0
 ~
 ~
@@ -896,7 +891,7 @@ wash over you. Shaking, you collect yourself and prepare to advance into
 this literally god-forsaken area. Houses line the street to the left and
 right. Up ahead lies a small town square.
 ~
-0 N 1
+0 N city
 D0
 ~
 ~
@@ -917,7 +912,7 @@ walls and the piles of bones on the floor bespeak of the fate of the former
 inhabitants of this residence. The current inhabitants may not be so easy
 to kill...
 ~
-0 DN 0
+0 DN inside
 D1
 ~
 ~
@@ -930,7 +925,7 @@ walls and the piles of bones on the floor bespeak of the fate of the former
 inhabitants of this residence. The current inhabitants may not be so easy
 to kill...
 ~
-0 DN 0
+0 DN inside
 D3
 ~
 ~
@@ -943,7 +938,7 @@ here across the square, which is now nothing more than a flat square of
 scorched earth and decimated vegetation, or down one of the side streets.
 There is a well in the middle of the square.
 ~
-0 N 1
+0 N city
 D0
 ~
 ~
@@ -960,7 +955,7 @@ here across the square, which is now nothing more than a flat square of
 scorched earth and decimated vegetation, or down one of the side streets.
 There is a well in the middle of the square.
 ~
-0 N 1
+0 N city
 D0
 ~
 ~
@@ -985,7 +980,7 @@ here across the square, which is now nothing more than a flat square of
 scorched earth and decimated vegetation, or down one of the side streets.
 There is a well in the middle of the square.
 ~
-0 N 1
+0 N city
 D0
 ~
 ~
@@ -1002,7 +997,7 @@ here across the square, which is now nothing more than a flat square of
 scorched earth and decimated vegetation, or down one of the side streets.
 There is a well in the middle of the square.
 ~
-0 N 1
+0 N city
 D0
 ~
 ~
@@ -1026,7 +1021,7 @@ You are standing in the middle of the town square, at the well. Paths stretch
 past houses and shops in every direction. There must still be some water in
 the well, as a small amount of grass has managed to grow around it.
 ~
-0 N 1
+0 N city
 D0
 ~
 ~
@@ -1051,7 +1046,7 @@ here across the square, which is now nothing more than a flat square of
 scorched earth and decimated vegetation, or down one of the side streets.
 There is a well in the middle of the square.
 ~
-0 N 1
+0 N city
 D0
 ~
 ~
@@ -1076,7 +1071,7 @@ here across the square, which is now nothing more than a flat square of
 scorched earth and decimated vegetation, or down one of the side streets.
 There is a well in the middle of the square.
 ~
-0 N 1
+0 N city
 D1
 ~
 ~
@@ -1093,7 +1088,7 @@ here across the square, which is now nothing more than a flat square of
 scorched earth and decimated vegetation, or down one of the side streets.
 There is a well in the middle of the square.
 ~
-0 N 1
+0 N city
 D0
 ~
 ~
@@ -1118,7 +1113,7 @@ here across the square, which is now nothing more than a flat square of
 scorched earth and decimated vegetation, or down one of the side streets.
 There is a well in the middle of the square.
 ~
-0 N 1
+0 N city
 D2
 ~
 ~
@@ -1133,7 +1128,7 @@ A Side Street~
 You are advancing along a side street that runs west away from the Town
 Square. Houses lie to the north and south.
 ~
-0 N 1
+0 N city
 D0
 ~
 ~
@@ -1158,7 +1153,7 @@ walls and the piles of bones on the floor bespeak of the fate of the former
 inhabitants of this residence. The current inhabitants may not be so easy
 to kill...
 ~
-0 DN 0
+0 DN inside
 D2
 ~
 ~
@@ -1171,7 +1166,7 @@ walls and the piles of bones on the floor bespeak of the fate of the former
 inhabitants of this residence. The current inhabitants may not be so easy
 to kill...
 ~
-0 DN 0
+0 DN inside
 D0
 ~
 ~
@@ -1182,7 +1177,7 @@ A Side Street~
 You are advancing along a side street that runs west away from the Town
 Square. Houses lie to the north and south.
 ~
-0 N 1
+0 N city
 D0
 ~
 ~
@@ -1207,7 +1202,7 @@ walls and the piles of bones on the floor bespeak of the fate of the former
 inhabitants of this residence. The current inhabitants may not be so easy
 to kill...
 ~
-0 DN 0
+0 DN inside
 D2
 ~
 ~
@@ -1220,7 +1215,7 @@ walls and the piles of bones on the floor bespeak of the fate of the former
 inhabitants of this residence. The current inhabitants may not be so easy
 to kill...
 ~
-0 DN 0
+0 DN inside
 D0
 ~
 ~
@@ -1231,7 +1226,7 @@ A Side Street~
 You have reached the end of a side street that runs west away from the Town
 Square. Houses lie to the north, west and south.
 ~
-0 N 1
+0 N city
 D0
 ~
 ~
@@ -1256,7 +1251,7 @@ walls and the piles of bones on the floor bespeak of the fate of the former
 inhabitants of this residence. The current inhabitants may not be so easy
 to kill...
 ~
-0 DN 0
+0 DN inside
 D2
 ~
 ~
@@ -1269,7 +1264,7 @@ walls and the piles of bones on the floor bespeak of the fate of the former
 inhabitants of this residence. The current inhabitants may not be so easy
 to kill...
 ~
-0 DN 0
+0 DN inside
 D0
 ~
 ~
@@ -1282,7 +1277,7 @@ walls and the piles of bones on the floor bespeak of the fate of the former
 inhabitants of this residence. The current inhabitants may not be so easy
 to kill...
 ~
-0 DN 0
+0 DN inside
 D1
 ~
 ~
@@ -1293,7 +1288,7 @@ A Side Street~
 You are advancing along a side street that runs east away from the Town
 Square. Houses lie to the north and south.
 ~
-0 N 1
+0 N city
 D0
 ~
 ~
@@ -1318,7 +1313,7 @@ walls and the piles of bones on the floor bespeak of the fate of the former
 inhabitants of this residence. The current inhabitants may not be so easy
 to kill...
 ~
-0 DN 0
+0 DN inside
 D2
 ~
 ~
@@ -1331,7 +1326,7 @@ walls and the piles of bones on the floor bespeak of the fate of the former
 inhabitants of this residence. The current inhabitants may not be so easy
 to kill...
 ~
-0 DN 0
+0 DN inside
 D0
 ~
 ~
@@ -1342,7 +1337,7 @@ A Side Street~
 You are advancing along a side street that runs east away from the Town
 Square. Houses lie to the north and south.
 ~
-0 N 1
+0 N city
 D0
 ~
 ~
@@ -1367,7 +1362,7 @@ walls and the piles of bones on the floor bespeak of the fate of the former
 inhabitants of this residence. The current inhabitants may not be so easy
 to kill...
 ~
-0 DN 0
+0 DN inside
 D2
 ~
 ~
@@ -1380,7 +1375,7 @@ walls and the piles of bones on the floor bespeak of the fate of the former
 inhabitants of this residence. The current inhabitants may not be so easy
 to kill...
 ~
-0 DN 0
+0 DN inside
 D0
 ~
 ~
@@ -1391,7 +1386,7 @@ A Side Street~
 You have reached the end of a side street that runs east away from the Town
 Square. Houses lie to the north, east and south.
 ~
-0 N 1
+0 N city
 D0
 ~
 ~
@@ -1416,7 +1411,7 @@ walls and the piles of bones on the floor bespeak of the fate of the former
 inhabitants of this residence. The current inhabitants may not be so easy
 to kill...
 ~
-0 DN 0
+0 DN inside
 D2
 ~
 ~
@@ -1429,7 +1424,7 @@ walls and the piles of bones on the floor bespeak of the fate of the former
 inhabitants of this residence. The current inhabitants may not be so easy
 to kill...
 ~
-0 DN 0
+0 DN inside
 D0
 ~
 ~
@@ -1442,7 +1437,7 @@ walls and the piles of bones on the floor bespeak of the fate of the former
 inhabitants of this residence. The current inhabitants may not be so easy
 to kill...
 ~
-0 DN 0
+0 DN inside
 D3
 ~
 ~
@@ -1453,7 +1448,7 @@ Main Street~
 You are heading along Main Street, which heads south to the Town Square and
 North toward an intersection. Houses line the street.
 ~
-0 N 1
+0 N city
 D0
 ~
 ~
@@ -1478,7 +1473,7 @@ walls and the piles of bones on the floor bespeak of the fate of the former
 inhabitants of this residence. The current inhabitants may not be so easy
 to kill...
 ~
-0 DN 0
+0 DN inside
 D1
 ~
 ~
@@ -1491,7 +1486,7 @@ walls and the piles of bones on the floor bespeak of the fate of the former
 inhabitants of this residence. The current inhabitants may not be so easy
 to kill...
 ~
-0 DN 0
+0 DN inside
 D3
 ~
 ~
@@ -1504,7 +1499,7 @@ northwest of here, while the former residences of the Mayor lie directly
 west. You aren't sure where the northern path goes, as that area is
 enshrouded in dark fog...
 ~
-0 N 1
+0 N city
 D0
 ~
 ~
@@ -1525,7 +1520,7 @@ debris and overgrown with tough, gray weeds that have sprouted through the
 carefully-laid cobblestones. There are junctions to the east and west of
 here.
 ~
-0 N 1
+0 N city
 D1
 ~
 ~
@@ -1542,7 +1537,7 @@ once flourished with the most beautiful flora on the continent, but is now
 home to the same sickly-gray weeds that sprout through the footpath, as well
 as some very tall, sinister-looking trees.
 ~
-0 N 1
+0 N city
 D0
 ~
 ~
@@ -1563,7 +1558,7 @@ of this town. Since the incursion of the undead, it has fallen into
 disrepair, though not to the state that the other dwellings have, leading
 you to suspect that perhaps someone (or thing) important now resides here...
 ~
-0 N 1
+0 N city
 D1
 ~
 ~
@@ -1580,7 +1575,7 @@ rather macabre-looking members of some decadent family. To the west lies
 a crooked stairway that leads up to the next level. Doors lie to the north and
 south of here.
 ~
-0 ADN 0
+0 ADN inside
 D0
 ~
 ~
@@ -1605,7 +1600,7 @@ about. Blood has been smeared all over the walls, and a sickly-looking vine
 has crawled in through the broken panes of the windows. You gag and try
 not to vomit.
 ~
-0 ADN 0
+0 ADN inside
 D0
 ~
 ~
@@ -1618,7 +1613,7 @@ about. Blood has been smeared all over the walls, and a sickly-looking vine
 has crawled in through the broken panes of the windows. You gag and try
 not to vomit.
 ~
-0 ADN 0
+0 ADN inside
 D2
 ~
 ~
@@ -1631,7 +1626,7 @@ rather macabre-looking members of some decadent family. To the west lies
 a crooked stairway that leads up to the next level. Doors lie to the north and
 south of here.
 ~
-0 ADN 0
+0 ADN inside
 D0
 ~
 ~
@@ -1656,7 +1651,7 @@ about. Blood has been smeared all over the walls, and a sickly-looking vine
 has crawled in through the broken panes of the windows. You gag and try
 not to vomit.
 ~
-0 ADN 0
+0 ADN inside
 D0
 ~
 ~
@@ -1669,7 +1664,7 @@ about. Blood has been smeared all over the walls, and a sickly-looking vine
 has crawled in through the broken panes of the windows. You gag and try
 not to vomit.
 ~
-0 ADN 0
+0 ADN inside
 D2
 ~
 ~
@@ -1680,7 +1675,7 @@ The Stairway~
 This crooked staircase looks very unstable, and this, coupled with the 
 dreadful stench emanating from upstairs, makes you reluctant to proceed...
 ~
-0 ADN 0
+0 ADN inside
 D1
 ~
 ~
@@ -1696,7 +1691,7 @@ At the top of the stairs you pause to catch your breath, and are immediately
 sorry as horrid-smelling air fills your lungs. Coughing, you fight to 
 breathe, and steel yourself to continue.
 ~
-0 ADN 0
+0 ADN inside
 D1
 ~
 ~
@@ -1712,7 +1707,7 @@ You are advancing along a dimly-lit hall lined with garish paintings depicting
 rather macabre-looking members of some decadent family. Doors lie to the north 
 and south of here. The hall ends at an impressive portal to the east.
 ~
-0 ADN 0
+0 ADN inside
 D0
 ~
 ~
@@ -1737,7 +1732,7 @@ about. Blood has been smeared all over the walls, and a sickly-looking vine
 has crawled in through the broken panes of the windows. You gag and try
 not to vomit.
 ~
-0 ADN 0
+0 ADN inside
 D2
 ~
 ~
@@ -1750,7 +1745,7 @@ about. Blood has been smeared all over the walls, and a sickly-looking vine
 has crawled in through the broken panes of the windows. You gag and try
 not to vomit.
 ~
-0 ADN 0
+0 ADN inside
 D0
 ~
 ~
@@ -1764,7 +1759,7 @@ the surprisingly good condition of this study, a comfortable den lined with
 shelves full of ancient texts. A large oak desk dominates the room, and
 behind this sits a plush leather chair. Wonder whose domain this is...?
 ~
-0 DN 0
+0 DN inside
 D0
 ~
 ~
@@ -1784,7 +1779,7 @@ In this room lies an ornately-carved four poster bed with satin sheets.
 Opposite it lies a comfortable divan, upon which the maidens of the master
 of this domain usually recline. A painting on one wall catches your eye.
 ~
-0 ADN 0
+0 ADN inside
 E
 painting~
 It is a painting of one Count Philippe Gaspar duGascoigne, a handsome but
@@ -1804,7 +1799,7 @@ the walls, and a corpse hangs by a rope from the chandelier in the center
 of the room. Whoever lives here must have a disagreeable personality to say
 the very least...
 ~
-0 ADN 0
+0 ADN inside
 D0
 ~
 ~
@@ -1817,7 +1812,7 @@ You can still make it out beneath your feet, but only barely. Howls, screams
 and shouts of anger and terror ring out on all sides, and you feel fear 
 clutching at your heart.
 ~
-0 AN 1
+0 AN city
 D1
 ~
 ~
@@ -1834,7 +1829,7 @@ You can still make it out beneath your feet, but only barely. Howls, screams
 and shouts of anger and terror ring out on all sides, and you feel fear 
 clutching at your heart.
 ~
-0 AN 1
+0 AN city
 D0
 ~
 ~
@@ -1854,7 +1849,7 @@ The mist clears suddenly, and you find yourself standing outside a rather
 creepy little stone dwelling, with no windows, but a stout oak door 
 directly to the east.
 ~
-0 N 1
+0 N city
 D0
 ~
 ~
@@ -1872,7 +1867,7 @@ You have inadvertently stumbled upon the temporary Prime Material Plane lair
 of ORCUS! If he isn't here, leave quickly. If he is...
 
 ~
-0 DN 0
+0 DN inside
 D3
 ~
 ~
@@ -1885,7 +1880,7 @@ You can still make it out beneath your feet, but only barely. Howls, screams
 and shouts of anger and terror ring out on all sides, and you feel fear 
 clutching at your heart.
 ~
-0 AN 1
+0 AN city
 D0
 ~
 ~
@@ -1905,7 +1900,7 @@ You have reached an area devoid of mist, the front yard of a ruined cottage
 whose door lies to the east. Peering through the windows, you imagine you
 can see shapes moving about.
 ~
-0 N 1
+0 N city
 D1
 ~
 ~
@@ -1921,7 +1916,7 @@ This cottage is, as all the other residences of this place, a ruined mess.
 Broken furniture and decaying corpses litter the floor. To the east, you
 can see a staircase leading down.
 ~
-0 AN 0
+0 AN inside
 D1
 ~
 ~
@@ -1937,7 +1932,7 @@ This staircase is an ancient stone structure that looks far older than the
 other structures in the village. You peer down in an attempt to ascertain
 what may below, but can see only darkness.
 ~
-0 ACN 0
+0 ACN inside
 D3
 ~
 ~
@@ -1950,7 +1945,7 @@ You can still make it out beneath your feet, but only barely. Howls, screams
 and shouts of anger and terror ring out on all sides, and you feel fear 
 clutching at your heart.
 ~
-0 AN 1
+0 AN city
 D0
 ~
 ~
@@ -1968,7 +1963,7 @@ and shouts of anger and terror ring out on all sides, and you feel fear
 clutching at your heart. You think you can make out a small stone building
 to the east.
 ~
-0 AN 1
+0 AN city
 D0
 ~
 ~
@@ -1989,7 +1984,7 @@ not surprising considering the nature of the current inhabitants of this
 ghoulish town. A large iron door looms to the east, and you notice runes
 inscribed into its surface in silver.
 ~
-0 CN 1
+0 CN city
 E
 runes door~
 The runes on the door read-
@@ -2017,7 +2012,7 @@ no-one has been here in centuries. A layer of dust ankle-deep makes progress
 difficult, as do the hanging cobwebs, with strands as thick as your wrist.
 You hope you don't run into the spinner of these webs.
 ~
-0 AHN 0
+0 AHN inside
 D3
 ~
 ~
@@ -2034,7 +2029,7 @@ prominent urge you have right now as you glance about the hellish murals
 on the walls, and the rotting corpses hanging in metal frames from the 
 arched ceiling.
 ~
-0 AHN 0
+0 AHN inside
 D0
 ~
 ~
@@ -2059,7 +2054,7 @@ identical- a raised stone sarcophagus with a bas-relief of the image of its
 occupant in life embossed on the lid. Other than that, the place is bare. Or
 is it...?
 ~
-0 AHN 0
+0 AHN inside
 D2
 ~
 ~
@@ -2072,7 +2067,7 @@ identical- a raised stone sarcophagus with a bas-relief of the image of its
 occupant in life embossed on the lid. Other than that, the place is bare. Or
 is it...?
 ~
-0 AHN 0
+0 AHN inside
 D0
 ~
 ~
@@ -2085,7 +2080,7 @@ identical- a raised stone sarcophagus with a bas-relief of the image of its
 occupant in life embossed on the lid. Other than that, the place is bare. Or
 is it...?
 ~
-0 AHN 0
+0 AHN inside
 D3
 ~
 ~
@@ -2097,7 +2092,7 @@ This path runs past some very ugly, dead plants that look like they've had
 the life drained from them by some disturbingly healthy looking plants with
 thorns that look like teeth...
 ~
-0 N 3
+0 N forest
 D0
 ~
 ~
@@ -2115,7 +2110,7 @@ thorns that look like teeth. You suddenly curse as you nearly fall into a
 small hole in the center of the path which was partially covered by a nest
 of branches.
 ~
-0 CN 3
+0 CN forest
 D0
 ~
 ~
@@ -2136,7 +2131,7 @@ the life drained from them by some disturbingly healthy looking plants with
 thorns that look like teeth. The garden gates are directly ahead... Peering
 through, you become reluctant to enter. It looks like a virtual maze...
 ~
-0 CN 3
+0 CN forest
 D0
 ~
 ~
@@ -2152,7 +2147,7 @@ Here the cowardly necromancer Xantharus lurks, terrified of the evil he
 brought to his village. He would do anything to escape, but is currently
 too petrified to leave his hole.
 ~
-0 AN 0
+0 AN inside
 D4
 ~
 ~
@@ -2166,7 +2161,7 @@ pain and delight occasionally rent the still air- otherwise you are engulfed
 by a silent dimness that only exaggerates the already-eerie quality of
 your surroundings.
 ~
-0 AN 3
+0 AN forest
 D0
 ~
 ~
@@ -2184,7 +2179,7 @@ pain and delight occasionally rent the still air- otherwise you are engulfed
 by a silent dimness that only exaggerates the already-eerie quality of
 your surroundings.
 ~
-0 AN 3
+0 AN forest
 D0
 ~
 ~
@@ -2206,7 +2201,7 @@ pain and delight occasionally rent the still air- otherwise you are engulfed
 by a silent dimness that only exaggerates the already-eerie quality of
 your surroundings.
 ~
-0 AN 3
+0 AN forest
 D0
 ~
 ~
@@ -2228,7 +2223,7 @@ pain and delight occasionally rent the still air- otherwise you are engulfed
 by a silent dimness that only exaggerates the already-eerie quality of
 your surroundings.
 ~
-0 AN 3
+0 AN forest
 D0
 ~
 ~
@@ -2250,7 +2245,7 @@ pain and delight occasionally rent the still air- otherwise you are engulfed
 by a silent dimness that only exaggerates the already-eerie quality of
 your surroundings.
 ~
-0 AN 3
+0 AN forest
 D0
 ~
 ~
@@ -2268,7 +2263,7 @@ pain and delight occasionally rent the still air- otherwise you are engulfed
 by a silent dimness that only exaggerates the already-eerie quality of
 your surroundings.
 ~
-0 AN 3
+0 AN forest
 D0
 ~
 ~
@@ -2290,7 +2285,7 @@ pain and delight occasionally rent the still air- otherwise you are engulfed
 by a silent dimness that only exaggerates the already-eerie quality of
 your surroundings.
 ~
-0 AN 3
+0 AN forest
 D0
 ~
 ~
@@ -2316,7 +2311,7 @@ pain and delight occasionally rent the still air- otherwise you are engulfed
 by a silent dimness that only exaggerates the already-eerie quality of
 your surroundings.
 ~
-0 AN 3
+0 AN forest
 D0
 ~
 ~
@@ -2342,7 +2337,7 @@ pain and delight occasionally rent the still air- otherwise you are engulfed
 by a silent dimness that only exaggerates the already-eerie quality of
 your surroundings.
 ~
-0 AN 3
+0 AN forest
 D0
 ~
 ~
@@ -2368,7 +2363,7 @@ pain and delight occasionally rent the still air- otherwise you are engulfed
 by a silent dimness that only exaggerates the already-eerie quality of
 your surroundings.
 ~
-0 AN 3
+0 AN forest
 D0
 ~
 ~
@@ -2390,7 +2385,7 @@ pain and delight occasionally rent the still air- otherwise you are engulfed
 by a silent dimness that only exaggerates the already-eerie quality of
 your surroundings.
 ~
-0 AN 3
+0 AN forest
 D0
 ~
 ~
@@ -2412,7 +2407,7 @@ pain and delight occasionally rent the still air- otherwise you are engulfed
 by a silent dimness that only exaggerates the already-eerie quality of
 your surroundings.
 ~
-0 AN 3
+0 AN forest
 D0
 ~
 ~
@@ -2438,7 +2433,7 @@ pain and delight occasionally rent the still air- otherwise you are engulfed
 by a silent dimness that only exaggerates the already-eerie quality of
 your surroundings.
 ~
-0 AN 3
+0 AN forest
 D0
 ~
 ~
@@ -2464,7 +2459,7 @@ pain and delight occasionally rent the still air- otherwise you are engulfed
 by a silent dimness that only exaggerates the already-eerie quality of
 your surroundings.
 ~
-0 AN 3
+0 AN forest
 D0
 ~
 ~
@@ -2490,7 +2485,7 @@ pain and delight occasionally rent the still air- otherwise you are engulfed
 by a silent dimness that only exaggerates the already-eerie quality of
 your surroundings.
 ~
-0 AN 3
+0 AN forest
 D0
 ~
 ~
@@ -2512,7 +2507,7 @@ pain and delight occasionally rent the still air- otherwise you are engulfed
 by a silent dimness that only exaggerates the already-eerie quality of
 your surroundings.
 ~
-0 AN 3
+0 AN forest
 D1
 ~
 ~
@@ -2530,7 +2525,7 @@ pain and delight occasionally rent the still air- otherwise you are engulfed
 by a silent dimness that only exaggerates the already-eerie quality of
 your surroundings.
 ~
-0 AN 3
+0 AN forest
 D1
 ~
 ~
@@ -2552,7 +2547,7 @@ this realm of darkness, to aid those stranded or trapped here. You may rest
 in peace (if you'll pardon the inappropriate euphemism) for as long as you
 wish here.
 ~
-0 CK 3
+0 CK forest
 D1
 ~
 ~
@@ -2574,7 +2569,7 @@ pain and delight occasionally rent the still air- otherwise you are engulfed
 by a silent dimness that only exaggerates the already-eerie quality of
 your surroundings.
 ~
-0 AN 3
+0 AN forest
 D1
 ~
 ~
@@ -2596,7 +2591,7 @@ pain and delight occasionally rent the still air- otherwise you are engulfed
 by a silent dimness that only exaggerates the already-eerie quality of
 your surroundings.
 ~
-0 AN 3
+0 AN forest
 D2
 ~
 ~
@@ -2614,7 +2609,7 @@ and shouts of anger and terror ring out on all sides, and you feel fear
 clutching at your heart. You think you can make out a small stone building
 to the east. A gaping hole looms out of the fog in the ground to the right.
 ~
-0 AN 1
+0 AN city
 D0
 ~
 ~
@@ -2635,7 +2630,7 @@ is how they decorate their lair. So when you enter and see treasure splashed
 everywhere, along with a generous helping of blood and fried corpses, you are
 at least 90% sure you have entered the lair of one...
 ~
-0 AN 0
+0 AN inside
 D4
 ~
 ~
@@ -2649,7 +2644,7 @@ and shouts of anger and terror ring out on all sides, and you feel fear
 clutching at your heart. You think you can make out a small stone building
 to the east.
 ~
-0 AN 1
+0 AN city
 D0
 ~
 ~
@@ -2668,7 +2663,7 @@ clutching at your heart. You think you can make out a small stone building
 to the east. You aren't sure, but you think you can see a dark tunnel up
 ahead.
 ~
-0 AN 1
+0 AN city
 D0
 ~
 ~
@@ -2686,7 +2681,7 @@ the tunnel is so narrow you doubt you'd be able to return through it. But
 you feel that this room has been blessed by gods, hence you may recall to 
 escape.
 ~
-0 AC 1
+0 AC city
 D2
 ~
 ~

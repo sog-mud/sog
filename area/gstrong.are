@@ -47,13 +47,12 @@ your dog would not sleep in, he is much smaller than the other goblins in the
 stronghold.
 ~
 goblin~
-ABFHR BVd -600 0
+ABFHR BCDEFVd -600 0
 15 0 5d6+150 1d1+199 1d4+1 none
 2 2 2 8
 PR A 0 0
 stand stand male 100
 0 0 medium unknown
-A det CDEF
 #29004
 champion goblin knarl~
 Knarl~
@@ -62,13 +61,12 @@ Before you is the biggest goblin you have ever seen.
 Knarl glares right back at you.
 ~
 goblin~
-ABFT PVb -1000 0
+ABFT FPVb -1000 0
 20 0 5d5+350 1d1+99 2d4+2 none
 5 5 5 0
 CDEFKPR A B 0
 stand stand male 100
 0 0 medium unknown
-A det F
 #29005
 guard goblin~
 goblin guard~
@@ -133,13 +131,12 @@ This goblin looks very sick.
 He screams! Don't look at me!! Aaargh... leper outcast unclean!
 ~
 goblin~
-ACFGS PQXbd 0 29009
+ACFGS FPQXbd 0 29009
 15 0 5d5+200 1d1+99 2d3+3 none
 3 3 3 0
 BDEFR AB 0 Q
 stand stand male 2
 0 0 small unknown
-A det F
 #29010
 goblin~
 the goblin~
@@ -205,7 +202,7 @@ a goblin scale mail jacket~
 A goblin scale mail jacket is lying on the ground.~
 bone~
 armor 0 AD
-AB C C 0 0
+3 4 4 0 0
 10 100 849 G
 #29002
 jerkin goblin scale mail~
@@ -213,7 +210,7 @@ a goblin scale mail jerkin~
 A goblin scale mail jerkin is lying on the ground.~
 bone~
 armor 0 AD
-AB C C 0 0
+3 4 4 0 0
 9 90 530 G
 #29003
 skirt goblin scale mail~
@@ -221,7 +218,7 @@ a goblin long scale mail skirt~
 A goblin long scale mail skirt is lying on the ground.~
 bone~
 armor 0 AF
-AB AC C 0 0
+3 5 4 0 0
 11 120 500 G
 #29004
 sleeves goblin scale mail~
@@ -229,7 +226,7 @@ a pair of goblin scale mail sleeves~
 A pair of goblin scale mail sleeves is lying on the ground.~
 bone~
 armor 0 AI
-AB C C 0 0
+3 4 4 0 0
 8 60 400 G
 #29005
 shirt goblin chain mail~
@@ -237,7 +234,7 @@ a goblin chain mail shirt~
 A goblin chain mail shirt is lying on the ground.~
 steel~
 armor 0 AD
-AC C AC 0 0
+5 4 5 0 0
 12 180 800 G
 #29006
 skirt goblin chain mail~
@@ -245,7 +242,7 @@ a goblin long chain mail skirt~
 A goblin long chain mail skirt is lying on the ground.~
 steel~
 armor 0 AF
-AC C AC 0 0
+5 4 5 0 0
 12 100 800 G
 #29007
 gauntlets goblin chain mail~
@@ -253,7 +250,7 @@ a pair of goblin chain mail gauntlets~
 A pair of goblin chain mail gauntlets is lying on the ground.~
 steel~
 armor 0 AH
-AC C AC 0 0
+5 4 5 0 0
 10 40 700 P
 #29008
 sleeves goblin chain mail~
@@ -261,7 +258,7 @@ a pair of goblin chain mail sleeves~
 A pair of goblin chain mail sleeves is lying on the ground.~
 steel~
 armor 0 AI
-AC C AC 0 0
+5 4 5 0 0
 10 80 390 P
 #29009
 crown king goblin~
@@ -269,7 +266,7 @@ the Great Crown of the Goblin King~
 A simple crown of silver lies here. It looks quite old.~
 silver~
 armor G AE
-C BC AC AB 0
+4 6 5 3 0
 16 100 2000 P
 A
 13 21
@@ -291,7 +288,7 @@ a dark goblin horned helmet~
 A dark goblin horned helmet lies here~
 iron~
 armor 0 AE
-AB AC C 0 0
+3 5 4 0 0
 9 30 450 P
 A
 3 -1
@@ -303,7 +300,7 @@ a pair of carved granite armguards.~
 You see a large hollow tube carved of granite.~
 stone~
 armor GM AI
-BC BC AD B 0
+6 6 9 2 0
 15 251 1900 P
 A
 5 1
@@ -317,7 +314,7 @@ a filthy green cape~
 You see a pile of green rags on the floor~
 cloth~
 armor G AK
-A B A A 0
+1 2 1 1 0
 10 30 1650 P
 A
 3 1
@@ -519,7 +516,7 @@ a small pile of gold~
 A small pile of gold is here glitering.~
 gold~
 money 0 A
-0 ABDG 0 0 0
+0 75 0 0 0
 0 0 0 P
 #29030
 mace heavy iron~
@@ -542,7 +539,7 @@ purpose here, you must put a stop to it. You see a hallways leading east
 and west, and a set of great doors to the south.
    There is a small (Glowing) (Huming) tablet.
 ~
-0 D 0
+0 D inside
 E
 small tablet~
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -590,7 +587,7 @@ drove the dwarves out. In any event, your work has just begun. The guards
 have noticed you. You better be ready. The Great Hall continues south, with
 doors east and west.
 ~
-0 D 0
+0 D inside
 D0
 The Entry Hall to the Goblin Stronghold.
 ~
@@ -624,7 +621,7 @@ table stretches for a full twenty yards, well into the north end of the
 Great Hall. A grand archway leads south, and through it you can see a
 throne.
 ~
-0 D 0
+0 D inside
 D0
 North End of the Great Hall.
 ~
@@ -648,7 +645,7 @@ king leaps to his feat, and goblin guards bar your escape back south. Grumm
 dosen't look like he wants to talk! There is a doorway to your east, and
 another to the west.
 ~
-0 D 0
+0 D inside
 D0
 South End of the Great Hall.
 ~
@@ -677,7 +674,7 @@ air is sweet with the smell of incence, and the room is clean (by goblin
 standards anyways). There is a large bookcase on the north wall, and before
 it, a desk and chair.
 ~
-0 D 0
+0 D inside
 D1
 King Grumm's Throne Room.
 ~
@@ -692,7 +689,7 @@ pentagram has been added to the granite stonework. The room is otherwise
 spartan, though you can see a small cot and a desk. Otherwise the room is
 barren.
 ~
-0 ADN 0
+0 ADN inside
 D3
 King Grumm's Throne Room.
 ~
@@ -704,7 +701,7 @@ Hidden Passage~
 This passage s obscured behind the curtian. It leads north into the
 Throne Room, and to the south there is a door.
 ~
-0 D 0
+0 D inside
 D0
 King Grumm's Throne Room.
 ~
@@ -721,7 +718,7 @@ Hidden Passage~
 After opening the first door, you are dismayed to be confronted with a
 second. The door leads south, with another leading back north.
 ~
-0 D 0
+0 D inside
 D0
 Hidden Passage.
 ~
@@ -738,7 +735,7 @@ Hidden Passage~
 After opening the second door, you are dismayed to be confronted with
 a third. The door leads south, with another leading back north.
 ~
-0 D 0
+0 D inside
 D0
 Hidden Passage.
 ~
@@ -755,7 +752,7 @@ The Treasure Chamber of the Goblin Stronghold~
 After opening the third door you come opon a cache of gold and
 jewelry. There are no exits, save the door you came through.
 ~
-0 D 0
+0 D inside
 D0
 Hidden Passage.
 ~
@@ -770,7 +767,7 @@ and locked. You hear maniacal laughter coming from the far side of the
 door. There is no escape. You will spend your days rotting in this goblin
 prision.
 ~
-0 D 0
+0 D inside
 D5
 A Tiny Crawlspace.
 ~
@@ -783,7 +780,7 @@ This is a little 6x6 cell with a floor of straw. The air is damp here.
 The far wall has a set of shackles set in the stone. Nice place to visit,
 but you wouldn't want to live here.
 ~
-0 D 0
+0 D inside
 D2
 A Hall in the Dungeon.
 ~
@@ -796,7 +793,7 @@ This is a little 6x6 cell with a floor of straw. The air is damp here.
 The far wall has a set of shackles set in the stone. Nice place to visit,
 but you wouldn't want to live here.
 ~
-0 D 0
+0 D inside
 D0
 A Hall in the Dungeon.
 ~
@@ -809,7 +806,7 @@ This is a little 6x6 cell with a floor of straw. The air is damp here.
 The far wall has a set of shackles set in the stone. Nice place to visit,
 but you wouldn't want to live here.
 ~
-0 D 0
+0 D inside
 D2
 A Hall in the Dungeon.
 ~
@@ -822,7 +819,7 @@ This is a little 6x6 cell with a floor of straw. The air is damp here.
 The far wall has a set of shackles set in the stone. Nice place to visit,
 but you wouldn't want to live here.
 ~
-0 D 0
+0 D inside
 D0
 A Hall in the Dungeon.
 ~
@@ -835,7 +832,7 @@ Below the iron grate is a small guardroom. There is a table and some
 chairs, but not much else of interest. A hallway leads west, with the iron
 grate exiting up.
 ~
-0 D 0
+0 D inside
 D3
 A Hall in the Dungeon.
 ~
@@ -853,7 +850,7 @@ This corridor is lit by torches set in wall brackets. An iron grate is
 set in the floor, and from below you can hear moaning and scraping. The
 hallway leads east with a large room to the south.
 ~
-0 D 0
+0 D inside
 D1
 A Hallway in the Stronghold.
 ~
@@ -877,7 +874,7 @@ continues to the west, and the Entry Hall is to your east. There is also an
 arched doorway to the south. You can hear the sounds of combat to the
 south.
 ~
-0 D 0
+0 D inside
 D1
 The Entry Hall to the Goblin Stronghold.
 ~
@@ -900,7 +897,7 @@ This corridor is lit by torches set in wall brackets. The hallway
 continues to the east, and the Entry Hall is to your west. There is also an
 arched doorway to the south. Something smells foul there.
 ~
-0 D 0
+0 D inside
 D1
 A Hallway in the Stronghold.
 ~
@@ -922,7 +919,7 @@ A Hallway in the Stronghold~
 This corridor is lit by torches set in wall brackets. The hallway
 continues to the west, and there is an arched doorway to the south.
 ~
-0 D 0
+0 D inside
 D2
 Goblin Barraks.
 ~
@@ -941,7 +938,7 @@ fighting unit. Assorted dummies and training equipment lie around. The room
 has a sticky film of blood on the floor. Apparently the goblins believe in
 the Darwinian theory of military training.
 ~
-0 D 0
+0 D inside
 D0
 A Hallway in the Stronghold.
 ~
@@ -961,7 +958,7 @@ graphitti scrawled on the walls, but it's in goblin and all you can make
 out are the drawings of goblin females. There is an arched doorway leading
 north.
 ~
-0 D 0
+0 D inside
 D0
 A Hallway in the Stronghold.
 ~
@@ -974,7 +971,7 @@ A large kitchen area fills this room. Large pots bubble with
 foul-smelling goblin cuisine. There is nothing in this room to interest
 you. There is a door to your west, and an arched doorway to the north.
 ~
-0 D 0
+0 D inside
 D0
 A Hallway in the Stronghold.
 ~
@@ -990,7 +987,7 @@ S
 A Tiny Crawlspace~
 Below the cell there is a tiny crawlspace. There is a portal here.
 ~
-0 D 0
+0 D inside
 D4
 A Small Cell in the Dungeon.
 ~
@@ -1003,7 +1000,7 @@ This place is a new addition to the Stronghold. The hallway is little
 more than a tunnel through the rock. The hall leads east, with doors to
 your north, south, and west.
 ~
-0 D 0
+0 D inside
 D0
 A Small Cell in the Dungeon.
 ~
@@ -1031,7 +1028,7 @@ This place is a new addition to the Stronghold. The hallway is little
 more than a tunnel through the rock. The hall leads west, with doors to
 your north and south, a room to your east.
 ~
-0 D 0
+0 D inside
 D0
 A Small Cell in the Dungeon.
 ~
@@ -1061,7 +1058,7 @@ graphitti scrawled on the walls, but it's in goblin and all you can make
 out are the drawings of goblin females. There is an arched doorway leading
 north.
 ~
-0 D 0
+0 D inside
 D0
 A Hallway in the Stronghold.
 ~

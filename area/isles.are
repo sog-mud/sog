@@ -171,13 +171,12 @@ and the beast lets him pass. Others, however, are ignorant of this
 practice, and tend to get eaten.
 ~
 unique~
-ACF 0 1000 0
+ACF E 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 claw
 -20 -20 -20 0
 KU 0 0 0
 stand stand female 1000
 0 0 medium unknown
-A det E
 #17022
 guard dock~
 the dock guard~
@@ -285,13 +284,12 @@ He holds his men to a higher standard then the rest of the pirate scum
 which sails the seas. He has a funny looking eyepiece.
 ~
 human~
-AB 0 400 0
+AB D 400 0
 60 0 50d10+6750 5d5+5000 8d6+28 pound
 -30 -30 -30 -3
 0 0 0 0
 stand stand male 1000
 0 0 medium unknown
-A det D
 #17029
 lalila elf prince~
 Lalila, the Elven Prince~
@@ -319,13 +317,12 @@ little interest in the affairs of men, dwarves, elves, etc. He
 stands some 20' tall, and is made entirely of flame.
 ~
 unique~
-ABT HJ 0 0
+ABT DFHJ 0 0
 64 0 50d10+8000 5d5+5000 8d7+34 wrath
 -34 -34 -34 -4
 CEFIK H 0 0
 stand stand none 1000
 0 0 medium unknown
-A det DF
 #17031
 mizzenmast pirate lord~
 Mizzenmast~
@@ -547,13 +544,12 @@ landing on its unsuspecting prey's back. Its squawk begins as a low warble
 and finishes with a rapid burst of CAW, caw-CAW, CAH!.
 ~
 song bird~
-A 0 0 0
+A F 0 0
 76 0 50d10+11500 5d5+5000 10d10+46 claw
 -46 -46 -46 -9
 EI 0 0 0
 stand stand none 1000
 0 0 medium unknown
-A det F
 #17045
 pirate gambling~
 the gambling pirate~
@@ -600,13 +596,12 @@ buttons and buckles. He wields a military saber with a precision you have
 seldom seen.
 ~
 human~
-AF 0 400 0
+AF DF 400 0
 76 0 50d10+11500 5d5+5000 10d10+46 slash
 -46 -46 -46 -9
 EFIJ 0 0 0
 stand stand male 1000
 0 0 medium unknown
-A det DF
 #17048
 alindra slave woman~
 Alindra of Dunkeldorf~
@@ -744,13 +739,12 @@ The guard is lean, alert, hardened, and itching for
 a fight.
 ~
 human~
-AFT Q 500 0
+AFT DFQ 500 0
 80 0 50d10+13500 5d5+5000 13d9+50 pound
 -50 -50 -50 -13
 EIJKTU 0 0 0
 stand stand none 1000
 0 0 medium unknown
-A det DF
 #17068
 pirate~
 the helmsman~
@@ -879,7 +873,7 @@ A robe maid of brilliant tropical bird plumage is here.
 ~
 unknown~
 armor 0 AK
-ABCD ABCD ABCD ABC 0
+15 15 15 7 0
 46 8 1000 P
 E
 robe feather~
@@ -901,7 +895,7 @@ Are you going to get lucky?
 ~
 gold~
 money 0 A
-DFGHIJ 0 0 0 0
+1000 0 0 0 0
 0 3 0 P
 #17018
 sextant~
@@ -925,7 +919,7 @@ A well crafted weapons belt is lying here.
 ~
 mithril~
 armor G AL
-AE E E D 0
+17 16 16 8 0
 50 5 1000 P
 A
 5 4
@@ -948,7 +942,7 @@ A pair of gauntlets with arrows on them lies here.
 ~
 leather~
 armor G AH
-AE E E BD 0
+17 16 16 10 0
 50 2 1000 P
 A
 18 15
@@ -1014,7 +1008,7 @@ Armbands made of fire are smoldering on the ground.
 ~
 fire~
 armor AGQ AI
-ADE ADE ADE ADE 0
+25 25 25 25 0
 64 5 1000 P
 A
 13 100
@@ -1038,7 +1032,7 @@ A well balanced javelin is here.
 ~
 unknown~
 armor 0 AO
-CE CE CE BD 0
+20 20 20 10 0
 60 3 1000 P
 A
 18 7
@@ -1049,7 +1043,7 @@ You see a suspicious looking cloak here. Hmmm.
 ~
 cloth~
 armor FG AK
-CE CE CE BD 0
+20 20 20 10 0
 60 4 2000 P
 A
 2 3
@@ -1077,7 +1071,7 @@ You see a big old fucking pile o' loot!
 ~
 gold~
 money 0 A
-FHJKPQ 0 0 0 0
+100000 0 0 0 0
 0 30 0 P
 #17031
 pants sharkskin~
@@ -1086,7 +1080,7 @@ A pair of pants cut from the skin of a fish lie here.
 ~
 snakeskin~
 armor G AF
-ABCE DE ABCE CE 0
+23 24 23 20 0
 70 4 7000 P
 A
 17 -20
@@ -1214,7 +1208,7 @@ You see a trove of doubloons and booty!
 ~
 gold~
 money 0 A
-FHJKPQ 0 0 0 0
+100000 0 0 0 0
 0 30 0 P
 #17041
 key golden hawk~
@@ -1307,7 +1301,7 @@ A mountain of silver is here. Take it and be rich!
 ~
 silver~
 money 0 A
-FHJKPQ 0 0 0 0
+100000 0 0 0 0
 0 500 0 P
 E
 silver mountain~
@@ -1334,7 +1328,7 @@ Wings from an ENORMOUS black bird lie well preserved on the ground.
 ~
 unknown~
 armor FG AI
-BDE BDE BDE CE 0
+26 26 26 20 0
 80 50 10000 P
 A
 1 3
@@ -1394,7 +1388,7 @@ A white fur skin cloak is here.
 ~
 fur~
 armor 0 AK
-BDE BDE BDE CE 0
+26 26 26 20 0
 80 7 2000 P
 #17054
 vest fur skin~
@@ -1403,7 +1397,7 @@ A white fur skin vest is here.
 ~
 fur~
 armor 0 AD
-BDE BDE BDE CE 0
+26 26 26 20 0
 80 5 5000 P
 #17055
 leggings fur skin~
@@ -1412,7 +1406,7 @@ Some white fur skin leggings are here.
 ~
 fur~
 armor 0 AF
-ADE ABDE ABDE CE 0
+25 27 27 20 0
 80 8 5000 P
 #17056
 buckler spiked~
@@ -1421,7 +1415,7 @@ A spiked buckler is here.
 ~
 unknown~
 armor 0 AJ
-ABDE ADE BDE BE 0
+27 25 26 18 0
 80 1 3000 P
 A
 17 -10
@@ -1481,7 +1475,7 @@ A suit of armor fashioned from ice lies melting on the ground.
 ~
 ice~
 armor FG AD
-F ABCDE ABCDE DE 0
+32 31 31 24 0
 90 50 1000 P
 A
 1 -3
@@ -1532,7 +1526,7 @@ A heavy bulging bag of gold lies here.
 ~
 leather~
 money 0 A
-EGIJOP 0 0 0 0
+50000 0 0 0 0
 0 30 0 P
 #17065
 bag silver~
@@ -1541,7 +1535,7 @@ A heavy bulging bag of silver lies here.
 ~
 leather~
 money 0 A
-DFHINO 0 0 0 0
+25000 0 0 0 0
 0 30 0 P
 #17066
 bag gems~
@@ -1550,7 +1544,7 @@ A heavy bulging bag of gems lies here.
 ~
 leather~
 money 0 A
-DEFGHKNQ 0 0 0 0
+75000 0 0 0 0
 0 30 0 P
 #17067
 bag jewelry~
@@ -1559,7 +1553,7 @@ A heavy bulging bag of jewelry lies here.
 ~
 leather~
 money 0 A
-FHJKPQ 0 0 0 0
+100000 0 0 0 0
 0 30 0 P
 #17068
 eye evil~
@@ -1601,7 +1595,7 @@ You stand on the beach. Raider ships have been beached further up,
 towards the jungle, where a small hut is located. A dense tropical
 jungle surrounds you.
 ~
-0 0 2
+0 0 field
 E
 hut~
 You look inside the hut. It contains the hammers, saws, brushes, 
@@ -1632,7 +1626,7 @@ You are in a dense tropical jungle. Towering trees block out the sun
 with a palm canopy. Around you are stumps and piles of delimbed trees.
 A small path winds into the jungle.
 ~
-0 0 3
+0 0 forest
 E
 stumps piles trees delimbed~
 After examining the stumps and piles of lumber, you conclude that
@@ -1654,7 +1648,7 @@ You are in a dense tropical jungle, on a cliff overlooking a wide sea.
 The green ocean crashes on the rocks far below. Around you some of the 
 trees have buckets on them. A path leads back into the jungle.
 ~
-0 0 3
+0 0 forest
 E
 buckets trees~
 You look in the buckets. Sap flows from a spout which has been hammered
@@ -1676,7 +1670,7 @@ You are in a dense tropical jungle at a junction of paths. You squat
 and look at the trail and see the fairly recent prints of a wild boar.
 The heavy humidity of the jungle is making you sweat profusely.
 ~
-0 0 3
+0 0 forest
 D1
 The jungle~
 ~
@@ -1695,7 +1689,7 @@ In the Jungle~
 You are following a dirt path though a dense tropical jungle. Around you 
 fruit is plentiful. A parrot above you caws as you stop.
 ~
-0 0 3
+0 0 forest
 E
 parrot bird~
 You stop and listen to the parrot. It says '*caw* Come along little
@@ -1720,7 +1714,7 @@ You are in a dense jungle. The overgrowth is terrible. You hate to
 think about what lives in the thorn thicket to the east. The trail 
 stretches north and south.
 ~
-0 0 3
+0 0 forest
 E
 thorn thicket~
 You notice on closer inspection that the thorn thicket is nothing
@@ -1744,7 +1738,7 @@ At the Mouth of a Cave~
 You have followed a trail to a mountain. Above you there is
 a mouth of a cave.
 ~
-0 C 3
+0 C forest
 E
 cave~
 You stare intently at the cave for a while. There is smoke coming out 
@@ -1764,7 +1758,7 @@ In the Jungle~
 You are on a trail in a dense jungle, in front of a stake with a skull
 attached to it. The path continues along the trail.
 ~
-0 C 3
+0 C forest
 E
 stake skull~
 The skull upon closer inspection, is too small for a man, and has
@@ -1785,7 +1779,7 @@ You have blundered into the camp of several savages. Rude huts and lean-to's
 are erected in a circular clearing. There is a central fire, upon which some
 animal is being roasted.
 ~
-0 0 3
+0 0 forest
 E
 animal fire~
 There is a monkey roasting on the fire.
@@ -1809,7 +1803,7 @@ You have blundered into the camp of several savages. Rude huts and lean-to's
 are erected in a circular clearing. A tree is being hollowed out for a canoe 
 with fire and shell axes.
 ~
-0 0 3
+0 0 forest
 E
 canoe tree~
 The canoe has a long way to go.
@@ -1828,7 +1822,7 @@ In the Savage Camp~
 You have blundered into the camp of several savages. Rude huts and lean-to's
 are erected in a circular clearing. Fish is being dried over a smoky pit.
 ~
-0 0 3
+0 0 forest
 E
 smoky pit fish~
 The fish looks like its tarpon.
@@ -1847,7 +1841,7 @@ In the Savage Camp~
 You have blundered into the camp of several savages. Rude huts and lean-to's 
 are erected in a circular clearing. Women are fashioning baskets here.
 ~
-0 0 4
+0 0 hills
 E
 women baskets~
 Several fat, toothless, naked women are twisting palm fronds into baskets.
@@ -1868,7 +1862,7 @@ miscellaneous cargo boxes. Pallets lie here and there, marking each pirates
 own little area. A trail winds down the mountain, or you can go further
 into the cave.
 ~
-0 0 2
+0 0 field
 D0
 The entryway~
 ~
@@ -1896,7 +1890,7 @@ You are at the entryway to a vast cave, crammed to the ceiling with
 miscellaneous cargo boxes. Pallets lie here and there, marking each pirates
 own little area.
 ~
-0 0 2
+0 0 field
 D1
 Inside the cave~
 ~
@@ -1912,7 +1906,7 @@ You are at the entryway to a vast cave, crammed to the ceiling with
 miscellaneous cargo boxes. Pallets lie here and there, marking each pirates
 own little area.
 ~
-0 0 2
+0 0 field
 D0
 The entryway~
 ~
@@ -1928,7 +1922,7 @@ You are inside the pirates cave. Around you the riches of many a raid
 lie piled in heaps. Drunken pirates cavort and sing bawdy songs. Torches
 cast menacing shadows on the ceiling.
 ~
-0 D 0
+0 D inside
 D1
 Inside the cave~
 ~
@@ -1948,7 +1942,7 @@ You are inside the pirates cave. Around you the riches of many a raid
 lie piled in heaps. Drunken pirates cavort and sing bawdy songs. A huge
 sunken fire pit roars here.
 ~
-0 D 0
+0 D inside
 D0
 Inside the cave~
 ~
@@ -1972,7 +1966,7 @@ You are inside the pirates cave. Around you the riches of many a raid
 lie piled in heaps. Drunken pirates cavort and sing bawdy songs. Torches
 cast menacing shadows on the ceiling.
 ~
-0 D 0
+0 D inside
 D0
 Inside the cave~
 ~
@@ -1992,7 +1986,7 @@ You are inside the pirates cave. Around you the riches of many a raid
 lie piled in heaps. Drunken pirates cavort and sing bawdy songs. Torches
 cast menacing shadows on the ceiling.
 ~
-0 D 0
+0 D inside
 D2
 Inside the cave~
 ~
@@ -2009,7 +2003,7 @@ at the feet of the throne to serve the every whim of their lord. The
 throne rests on a beautiful oriental carpet. Behind the throne, iron rungs
 go upward into a shaft above.
 ~
-0 D 0
+0 D inside
 E
 carpet oriental~
 As you examine the carpet, you discover a secret trap door!
@@ -2041,7 +2035,7 @@ You are inside the pirates cave. Around you the riches of many a raid
 lie piled in heaps. Drunken pirates cavort and sing bawdy songs. Torches
 cast menacing shadows on the ceiling.
 ~
-0 D 0
+0 D inside
 D0
 Inside the cave~
 ~
@@ -2061,7 +2055,7 @@ You stand ankle deep in festering refuse. The sludge reeks and stains
 the walls. In the corner an attempt has been made to make a pallet high
 enough to stay out of the sewage.
 ~
-0 AD 0
+0 AD inside
 D4
 Out of the hole~
 trapdoor trap door rug oriental carpet~
@@ -2075,7 +2069,7 @@ have had to endure. Waves break on the rocks around the tropical island.
 To the west, you see a small tribal camp, with warriors dancing around 
 the fires.
 ~
-0 0 5
+0 0 mountain
 D5
 Down the iron rungs~
 ~
@@ -2087,7 +2081,7 @@ You sail on a quiet cove, where the waters are a brilliant turquoise.
 To the south of you the cove enters a dark cave in the looming black 
 mountain. The water is so clear, you can see the bottom.
 ~
-0 0 7
+0 0 noswim
 E
 bottom~
 Peering deep into the water, you see orange, red and yellow sea urchins
@@ -2108,7 +2102,7 @@ You stand on an exotic black sand beach. There is no vegetation on this
 island, for as far as you can see. To the south of you a black mountain
 looms. The sand is soft, and your feet sink deeply into its warmth.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -2129,7 +2123,7 @@ island, for as far as you can see. To the south and east of you a
 black mountain looms. Waves curl on a reef 150' off shore, and gently
 roll in to crash at your feet.
 ~
-0 0 2
+0 0 field
 D1
 The beach~
 ~
@@ -2145,7 +2139,7 @@ You are climbing on the steep slopes of a black rock mountain. Hot searing
 gas bursts from vents around you. From this vantage you have a commanding
 view of the seas and black sand beach.
 ~
-0 0 5
+0 0 mountain
 E
 seas view~
 Off in the distance you watch a pirate ship board a merchant galley.
@@ -2176,7 +2170,7 @@ You are climbing on the steep slopes of a black rock mountain. Hot searing
 gas bursts from vents around you. To the south of you, you can climb up and
 over the rim of the black mountain. To the north stretches a calm cove.
 ~
-0 0 5
+0 0 mountain
 D1
 The mountain~
 ~
@@ -2197,7 +2191,7 @@ gas bursts from vents around you. From this vantage you have a commanding
 view of the red hot lava flows. The lava seems to be flowing steadily from
 two main fissures, and winds its way to the sea to cool in a roaring hiss.
 ~
-0 0 5
+0 0 mountain
 D0
 The lava flows~
 ~
@@ -2221,7 +2215,7 @@ You are walking the shiny black lava flows that flow from the mountain
 down into the sea, being careful to avoid the gas vents and hot lava.
 There are plenty of exits into the mountain, but none of them look safe.
 ~
-0 0 2
+0 0 field
 E
 exits~
 You look into one of the fissures, and watch two lava worms mating.
@@ -2243,7 +2237,7 @@ There are plenty of exits into the mountain, but none of them look safe.
 At the waters edge the red hot lava boils the surrounding ocean in a
 deafening roar.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -2263,7 +2257,7 @@ You are walking the shiny black lava flows that flow from the mountain
 down into the sea, being careful to avoid the gas vents and hot lava.
 There are plenty of exits into the mountain, but none of them look safe.
 ~
-0 0 2
+0 0 field
 E
 vents~
 You stand for a while and watch a gas vent. Gas seems to steadily emit
@@ -2286,7 +2280,7 @@ looms. The dappled sunlight makes its way through the cool palm canopy
 to gently warm the soft black sand. You dream of that lover you once had 
 in a far off city, and wish they could have been here now.
 ~
-0 0 2
+0 0 field
 D0
 The beach~
 ~
@@ -2306,7 +2300,7 @@ You stand on an exotic black sand beach. There is no vegetation on this
 island, for as far as you can see. To the east of you a black mountain
 looms. To the west you see a sea that there may be sharks.
 ~
-0 0 2
+0 0 field
 D0
 The beach~
 ~
@@ -2327,7 +2321,7 @@ gas bursts from vents around you. Below you and to the west are the black
 sand beaches. If you climb up to the east, you can go over the rim. You 
 don't know if you will be able to come back though.
 ~
-0 0 5
+0 0 mountain
 D0
 The mountain~
 ~
@@ -2353,7 +2347,7 @@ sea below, much too dangerous to descend. Wind whips around the mountain
 into your face. You think that if you could just hold open your cloak, you
 could fly away, across the sea.
 ~
-0 0 5
+0 0 mountain
 D0
 The mountain~
 ~
@@ -2371,7 +2365,7 @@ sea below, much too dangerous to descend. Down and to your north, you can
 make out the glowing red crater floor of the heart of the black mountain.
 You see a path going downward.
 ~
-0 0 5
+0 0 mountain
 D0
 The crater~
 ~
@@ -2392,7 +2386,7 @@ gas bursts from vents around you. The mountain drops steeply into a churning
 sea below, much too dangerous to descend. Far below a blowhole spurts over
 and over with the rhythm of the sea.
 ~
-0 0 5
+0 0 mountain
 D0
 The mountain~
 ~
@@ -2410,7 +2404,7 @@ sea below, much too dangerous to descend. You can climb up to your west
 and go over the rim of the mountain. Terns fly in ever ascending spirals,
 gliding on the hot updraft of the mountain.
 ~
-0 0 5
+0 0 mountain
 D0
 The mountain~
 ~
@@ -2431,7 +2425,7 @@ is a series of high spots which you may step on which take you south to
 a path up the mountain, or down a shaft in the center. It is hard to breathe
 here in the noxious gasses of the volcano.
 ~
-0 0 2
+0 0 field
 D2
 Up the southern path~
 ~
@@ -2448,7 +2442,7 @@ bounces off the lapping waves and dances along the cavern ceiling. Docked
 are two triremes, showing the scars of many a battle. A stone staircase 
 winds upwards into the mountain.
 ~
-0 0 7
+0 0 noswim
 E
 trireme triremes~
 The vessels are well guarded by a force of some 30 odd men. You think
@@ -2471,7 +2465,7 @@ air circulates to you from the south. From below you can hear the sounds of
 water. The natural passage seems to have been widened with mining tools, and
 braced with wooden timbers.
 ~
-0 D 0
+0 D inside
 D1
 Caverns~
 ~
@@ -2496,7 +2490,7 @@ goods have been racked and stacked in orderly rows. All of the boxes bear
 the stamp of different owners, never having reached their intended 
 destinations.
 ~
-0 D 0
+0 D inside
 E
 stamps boxes crates stamp box crate~
 You read the dwarven markings of one box. It reads 'Deliver to
@@ -2514,7 +2508,7 @@ the like have been stored for future use. Most of the weapons seem to be
 
 of poor quality, except for a few which stand out.
 ~
-0 D 2
+0 D field
 D1
 Caverns~
 gate~
@@ -2528,7 +2522,7 @@ air circulates to you from the south. The natural passage seems to have
 been widened with mining tools, and braced with wooden timbers. There is
 a painting on the wall.
 ~
-0 D 0
+0 D inside
 E
 painting wall~
 The painting is of a never ending forest of old hardwoods. Elves climb
@@ -2551,7 +2545,7 @@ bear torch sconces, which light everything in a flickering orange glow. Warm
 air circulates to you from the east. The natural passage seems to have 
 been widened with mining tools, and braced with wooden timbers.
 ~
-0 D 0
+0 D inside
 D0
 Caverns~
 ~
@@ -2569,7 +2563,7 @@ air circulates to you from the south. The natural passage seems to have been
 widened with mining tools, and braced with wooden timbers. To the south you
 hear the sounds of laughter.
 ~
-0 D 0
+0 D inside
 D2
 Caverns~
 ~
@@ -2588,7 +2582,7 @@ area, and to the west is an iron gate. Stairs wind upwards into a shaft
 from which hot air emanates. It is up these stairs that most of the pirates
 scurry when you enter the room.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -2613,7 +2607,7 @@ Each bed is numbered by a charcoal mark. The beds are neat. At the foot of
 each bed is a trunk, also numbered, matching the bed. The bedding looks 
 fresh and free of insects.
 ~
-0 D 0
+0 D inside
 D3
 The hall~
 ~
@@ -2625,7 +2619,7 @@ You stand in a dimly lit dark cave. There is a cot in the corner, and
 a trunk on the floor. The room is very hot, oppressively so. The walls 
 bear strange scratches.
 ~
-0 AD 0
+0 AD inside
 E
 walls wall scratches scratch~
 The scratches upon closer examination under a light, actually are a sketch
@@ -2641,7 +2635,7 @@ On the Seas Surrounding an Atoll~
 You have sailed into seas surrounding a rocky atoll. The surf crashes
 on the sharp jagged rocks, preventing a landing.
 ~
-0 R 7
+0 R noswim
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -2665,7 +2659,7 @@ You have sailed into seas surrounding a rocky atoll. The surf crashes
 on the sharp jagged rocks, preventing a landing. Sharks abound in these
 waters.
 ~
-0 S 7
+0 S noswim
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -2689,7 +2683,7 @@ You have sailed into seas surrounding a rocky atoll. The surf crashes
 on the sharp jagged rocks, preventing a landing. You think you see the
 glint of gold on the rocks, but when you blink, its gone.
 ~
-0 S 7
+0 S noswim
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -2713,7 +2707,7 @@ You have sailed into seas surrounding a rocky atoll. The surf crashes
 on the sharp jagged rocks, preventing a landing. Large single clawed
 crabs cover the rocks.
 ~
-0 P 7
+0 P noswim
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -2737,7 +2731,7 @@ You have sailed into seas surrounding a rocky atoll. The surf crashes
 on the sharp jagged rocks, preventing a landing. You trail your toe along
 in the water and feel a westerly current.
 ~
-0 S 7
+0 S noswim
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -2761,7 +2755,7 @@ You have sailed into seas surrounding a rocky atoll. The surf crashes
 on the sharp jagged rocks, preventing a landing. There on the rocks is
 what remains of a shattered galley.
 ~
-0 P 7
+0 P noswim
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -2785,7 +2779,7 @@ You have sailed into seas surrounding a rocky atoll. The surf crashes
 on the sharp jagged rocks, preventing a landing. You watch the gulls
 peck apart some jelly creature on the rocks.
 ~
-0 P 7
+0 P noswim
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -2809,7 +2803,7 @@ You have sailed into seas surrounding a rocky atoll. The surf crashes
 on the sharp jagged rocks, preventing a landing. Here the waves are 
 choppy and you taste the salt spray on your lips.
 ~
-0 Q 7
+0 Q noswim
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -2833,7 +2827,7 @@ You have sailed into seas surrounding a rocky atoll. The surf crashes
 on the sharp jagged rocks, preventing a landing. Refuse floats in the
 water, drifting alongside the boat.
 ~
-0 P 7
+0 P noswim
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -2864,7 +2858,7 @@ You have sailed into seas surrounding a rocky atoll. The surf crashes
 on the sharp jagged rocks, preventing a landing. You get the feeling you
 have been here before.
 ~
-0 Q 7
+0 Q noswim
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -2888,7 +2882,7 @@ You have sailed into seas surrounding a rocky atoll. The surf crashes
 on the sharp jagged rocks, preventing a landing. The lagoon opens up to
 the south, and a mild current pulls you that way.
 ~
-0 Q 7
+0 Q noswim
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -2916,7 +2910,7 @@ You have sailed into seas surrounding a rocky atoll. The surf crashes
 on the sharp jagged rocks, preventing a landing. What was that sailing
 song anyway?
 ~
-0 R 7
+0 R noswim
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -2940,7 +2934,7 @@ You have sailed into seas surrounding a rocky atoll. The surf crashes
 on the sharp jagged rocks, preventing a landing. There, crawling over
 the rotting carcass of a human, is a dis-Z, a rare offensive scavenger.
 ~
-0 Q 7
+0 Q noswim
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -2964,7 +2958,7 @@ You have sailed into seas surrounding a rocky atoll. The surf crashes
 on the sharp jagged rocks, preventing a landing. All of this salt water
 is making you thirsty.
 ~
-0 R 7
+0 R noswim
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -2988,7 +2982,7 @@ You have sailed into seas surrounding a rocky atoll. The surf crashes
 on the sharp jagged rocks, preventing a landing. For some reason the 
 fish are milling around here.
 ~
-0 0 7
+0 0 noswim
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -3014,7 +3008,7 @@ pile sunk deep into the lagoon, and rope bridges connect all into
 a makeshift wharf. To the south are several huts on stilts, connected
 by rope bridges. The waters are calm enough to swim in here.
 ~
-0 R 6
+0 R swim
 D0
 Out of the lagoon~
 ~
@@ -3033,7 +3027,7 @@ is a barred shack, and to the east, you can make out the shack
 which houses most of the pirates. To the south, a large house stands
 on stilts.
 ~
-0 0 0
+0 0 inside
 D0
 The docks~
 ~
@@ -3058,7 +3052,7 @@ of this shack are of bamboo, and a palm frond thatch roof has been
 hastily constructed and poorly maintained. From below you can hear the
 surf pounding against the piles.
 ~
-0 0 0
+0 0 inside
 D3
 The central shack~
 ~
@@ -3071,7 +3065,7 @@ many a raid. Chests, crates, bolts of cloth, furs, weapons, plates, and
 a vast array of other items fills this area. Shackles have been affixed
 to the wooden frame of the hut. Flies buzz around in lazy circles.
 ~
-0 0 0
+0 0 inside
 D1
 The central shack~
 ~
@@ -3084,7 +3078,7 @@ of his various raids. Here a sword. There a skirt. From the ceiling, a flag.
 Hides of many different animals are nailed to the walls and floor. Maps
 lie in rolls in an open chest. A low bunk is set against the far wall.
 ~
-0 D 0
+0 D inside
 E
 flag~
 The flag is that of Antharia.
@@ -3100,7 +3094,7 @@ You soar in the turbulent air beneath the flying mountain. Wind
 whips and whistles in fierce blasting gusts sending you in all 
 directions.
 ~
-0 P 9
+0 P air
 D0
 In the air~
 ~
@@ -3132,7 +3126,7 @@ You soar in the turbulent air beneath the flying mountain. Wind
 whips and whistles in fierce blasting gusts sending you in all 
 directions.
 ~
-0 Q 9
+0 Q air
 D0
 In the air~
 ~
@@ -3164,7 +3158,7 @@ You soar in the turbulent air beneath the flying mountain. Wind
 whips and whistles in fierce blasting gusts sending you in all 
 directions.
 ~
-0 T 9
+0 T air
 D0
 In the air~
 ~
@@ -3196,7 +3190,7 @@ You soar in the turbulent air beneath the flying mountain. Wind
 whips and whistles in fierce blasting gusts sending you in all 
 directions.
 ~
-0 R 9
+0 R air
 D0
 In the air~
 ~
@@ -3228,7 +3222,7 @@ You soar in the turbulent air beneath the flying mountain. Wind
 whips and whistles in fierce blasting gusts sending you in all 
 directions.
 ~
-0 S 9
+0 S air
 D0
 In the air~
 ~
@@ -3260,7 +3254,7 @@ You soar in the turbulent air beneath the flying mountain. Wind
 whips and whistles in fierce blasting gusts sending you in all 
 directions.
 ~
-0 U 9
+0 U air
 D0
 In the air~
 ~
@@ -3293,7 +3287,7 @@ Below you through the turbulent winds lies the sea. Here in the
 thick rock of the mountain you sea caves which serve as nests for
 the hawkmen which terrorize the area.
 ~
-0 0 9
+0 0 air
 D0
 In the calm air~
 ~
@@ -3317,7 +3311,7 @@ You soar effortlessly in the calm air beneath the flying mountain.
 Below you through the turbulent winds lies the sea. You notice a 
 strange inscription on the rock.
 ~
-0 0 9
+0 0 air
 E
 inscription strange rock~
 Carved into the rock in wizard runes is the following:
@@ -3350,7 +3344,7 @@ You soar effortlessly in the calm air beneath the flying mountain.
 Below you through the turbulent winds lies the sea. Here, much to
 your irritation, hangs the dangling end of the rope ladder.
 ~
-0 0 9
+0 0 air
 D2
 In the calm air~
 ~
@@ -3371,7 +3365,7 @@ Below you through the turbulent winds lies the sea. About you, cradled
 in iron chain slings which run up to a massive winch mechanism are
 three triremes.
 ~
-0 0 9
+0 0 air
 D0
 In the calm air~
 ~
@@ -3388,7 +3382,7 @@ that clouds drift across the island like thick fog banks. Far below
 you shines the seas of the Pirate Lords. In the center of the island
 stands a granite keep. A winch with a rope ladder offers passage downward.
 ~
-0 0 2
+0 0 field
 D0
 On the flying island~
 ~
@@ -3409,7 +3403,7 @@ that clouds drift across the island like thick fog banks. To the north
 of you is the granite keep, and south, at the island's edge, is a rope
 winch.
 ~
-0 0 2
+0 0 field
 D0
 On the flying island~
 ~
@@ -3435,7 +3429,7 @@ you shines the seas of the Pirate Lords. In the center of the island
 stands a granite keep. Off in the distance you here the squawk of a
 very large bird.
 ~
-0 0 2
+0 0 field
 D0
 On the flying island~
 ~
@@ -3453,7 +3447,7 @@ you shines the seas of the Pirate Lords. In the center of the island
 stands a granite keep. Off in the distance you here the squawk of a
 very large bird.
 ~
-0 0 2
+0 0 field
 D0
 On the flying island~
 ~
@@ -3471,7 +3465,7 @@ you shines the seas of the Pirate Lords. In the center of the island
 stands a granite keep. Off in the distance you here the squawk of a
 very large bird.
 ~
-0 0 2
+0 0 field
 D1
 On the flying island~
 ~
@@ -3487,7 +3481,7 @@ You stand on the firm ground of the flying mountain. You are so high
 that clouds drift across the island like thick fog banks. Up a wide 
 paved ramp stands the looming hold of the 4th Pirate Lord.
 ~
-0 0 2
+0 0 field
 D0
 On the flying island~
 ~
@@ -3517,7 +3511,7 @@ you shines the seas of the Pirate Lords. In the center of the island
 stands a granite keep. Off in the distance you here the squawk of a
 very large bird.
 ~
-0 0 2
+0 0 field
 D2
 On the flying island~
 ~
@@ -3531,7 +3525,7 @@ you shines the seas of the Pirate Lords. In the center of the island
 stands a granite keep. Off in the distance you here the squawk of a
 very large bird.
 ~
-0 0 2
+0 0 field
 D2
 On the flying island~
 ~
@@ -3549,7 +3543,7 @@ open it if you slide a slender object through the gap and lift the
 bar. Fortunately for you a long slender bar has been left lying on the
 ground next to you.
 ~
-0 0 4
+0 0 hills
 E
 keep hold~
 The keep is a simple block design, with four walls and iron barred windows.
@@ -3570,7 +3564,7 @@ You are in a long hallway inside the hold. Granite walls rise up around you.
 Torches flicker and gutter in iron holders. Several doors line the hall. Far
 to your south is a massive double door. To your north is the keep entrance.
 ~
-0 D 0
+0 D inside
 D0
 Outside the keep~
 door~
@@ -3596,7 +3590,7 @@ a pit in the room center, and the smoke winds its way upward and out
 a high iron barred window. Near the window is a platform from which
 an archer could stand and fire.
 ~
-0 D 0
+0 D inside
 D3
 A door~
 door~
@@ -3610,7 +3604,7 @@ a pit in the room center, and the smoke winds its way upward and out
 a high iron barred window. Near the window is a platform from which
 an archer could stand and fire.
 ~
-0 D 0
+0 D inside
 D1
 A door~
 door~
@@ -3622,7 +3616,7 @@ You are in a long hallway inside the hold. Granite walls rise up around you.
 Torches flicker and gutter in iron holders. Several doors line the hall. To
 your south is a massive double door. To your north is the keep entrance.
 ~
-0 D 0
+0 D inside
 D0
 Up the hall~
 ~
@@ -3648,7 +3642,7 @@ a pit in the room center, and the smoke winds its way upward and out
 a high iron barred window. Near the window is a platform from which
 an archer could stand and fire.
 ~
-0 D 0
+0 D inside
 D3
 A door~
 door~
@@ -3662,7 +3656,7 @@ a pit in the room center, and the smoke winds its way upward and out
 a high iron barred window. Near the window is a platform from which
 an archer could stand and fire.
 ~
-0 D 0
+0 D inside
 D1
 A door~
 door~
@@ -3675,7 +3669,7 @@ Torches flicker and gutter in iron holders. Several doors line the hall. Far
 to your north is the keep entrance. Immediately south is a large pair of 
 doors.
 ~
-0 D 0
+0 D inside
 D0
 Up the hall~
 ~
@@ -3701,7 +3695,7 @@ a pit in the room center, and the smoke winds its way upward and out
 a high iron barred window. Near the window is a platform from which
 an archer could stand and fire.
 ~
-0 D 0
+0 D inside
 D3
 A door~
 door~
@@ -3715,7 +3709,7 @@ a pit in the room center, and the smoke winds its way upward and out
 a high iron barred window. Near the window is a platform from which
 an archer could stand and fire.
 ~
-0 D 0
+0 D inside
 D1
 A door~
 door~
@@ -3730,7 +3724,7 @@ ends with bonfires. The south end is an elevated dias with a table and
 a long couch upon which lies several beautiful slaves. A stone staircase 
 is accessible through the south end of the hall.
 ~
-0 D 0
+0 D inside
 D0
 Into the hallway~
 door double~
@@ -3748,7 +3742,7 @@ fires blaze. To the south is the canopied bed of the Lord, and here
 at the northern end, is the screened off section of his female slaves.
 Articles of conquest fill the room, and the floor is of polished stone.
 ~
-0 D 0
+0 D inside
 D5
 Down the stairs~
 ~
@@ -3761,7 +3755,7 @@ ice pressing in on all sides. Far to your east is a huge iceberg.
 The wind whips along unhindered across the flat ice, chilling you 
 to the core.
 ~
-0 R 7
+0 R noswim
 D0
 The sea of ice~
 ~
@@ -3778,7 +3772,7 @@ ice pressing in on all sides. Large footprints lead off towards a
 snowbank. The wind whips along unhindered across the flat ice, 
 chilling you to the core.
 ~
-0 R 7
+0 R noswim
 D1
 The sea of ice~
 ~
@@ -3795,7 +3789,7 @@ ice pressing in on all sides. Far to your south is a huge iceberg.
 The wind whips along unhindered across the flat ice, chilling you 
 to the core.
 ~
-0 S 7
+0 S noswim
 D1
 The sea of ice~
 ~
@@ -3812,7 +3806,7 @@ ice pressing in on all sides. White seals lie in droves on the shore.
 The wind whips along unhindered across the flat ice, chilling you 
 to the core.
 ~
-0 S 7
+0 S noswim
 D2
 The sea of ice~
 ~
@@ -3829,7 +3823,7 @@ ice pressing in on all sides. Far to your west is a huge iceberg.
 The wind whips along unhindered across the flat ice, chilling you 
 to the core.
 ~
-0 P 7
+0 P noswim
 D0
 The sea of ice~
 ~
@@ -3846,7 +3840,7 @@ ice pressing in on all sides. The iceberg looms closer with each day.
 The wind whips along unhindered across the flat ice, chilling you 
 to the core.
 ~
-0 P 7
+0 P noswim
 D0
 The sea of ice~
 ~
@@ -3863,7 +3857,7 @@ to a very large iceberg. Ice shears in sheets from the iceberg to crash
 with a thunderous roar into the frosty sea. You think you can make out 
 a dark watery cave leading into the iceberg.
 ~
-0 Q 7
+0 Q noswim
 D0
 Into the cave~
 ~
@@ -3882,7 +3876,7 @@ anchored at bay. You anchor and hop down onto the hard packed ice,
 following a trail of footprints to a dead end passage. Puzzled, you get on
 your hands and knees, and feel the outline of an ice trap door beneath you.
 ~
-0 R 7
+0 R noswim
 D2
 The sea of ice~
 ~
@@ -3898,7 +3892,7 @@ WHEEEEEEEEE! You are sliding head over heels down an icy shoot, which winds
 downward in a counterclockwise spiral. There is no stopping and no turning 
 around.
 ~
-0 ADS 0
+0 ADS inside
 D3
 The icy shoot~
 ~
@@ -3910,7 +3904,7 @@ WHEEEEEEEEE! You are sliding head over heels down an icy shoot, which winds
 downward in a counterclockwise spiral. There is no stopping and no turning 
 around.
 ~
-0 ADR 0
+0 ADR inside
 D2
 The icy shoot~
 ~
@@ -3922,7 +3916,7 @@ WHEEEEEEEEE! You are sliding head over heels down an icy shoot, which winds
 downward in a counterclockwise spiral. There is no stopping and no turning 
 around.
 ~
-0 ADQ 0
+0 ADQ inside
 D1
 The icy shoot~
 ~
@@ -3934,7 +3928,7 @@ WHEEEEEEEEE! You are sliding head over heels down an icy shoot, which winds
 downward in a counterclockwise spiral. There is no stopping and no turning 
 around.
 ~
-0 ADFHIMPQ 0
+0 ADFHIMPQ inside
 D5
 The icy shoot~
 ~
@@ -3946,7 +3940,7 @@ WHEEEEEEEEE! You are sliding head over heels down an icy shoot, which winds
 downward in a counterclockwise spiral. There is no stopping and no turning 
 around.
 ~
-0 ADR 0
+0 ADR inside
 D2
 The icy shoot~
 ~
@@ -3958,7 +3952,7 @@ WHEEEEEEEEE! You are sliding head over heels down an icy shoot, which winds
 downward in a counterclockwise spiral. There is no stopping and no turning 
 around.
 ~
-0 ADQ 0
+0 ADQ inside
 D1
 The icy shoot~
 ~
@@ -3970,7 +3964,7 @@ WHEEEEEEEEE! You are sliding head over heels down an icy shoot, which winds
 downward in a counterclockwise spiral. There is no stopping and no turning 
 around.
 ~
-0 ADP 0
+0 ADP inside
 D0
 The icy shoot~
 ~
@@ -3982,7 +3976,7 @@ WHEEEEEEEEE! You are sliding head over heels down an icy shoot, which winds
 downward in a counterclockwise spiral. There is no stopping and no turning 
 around.
 ~
-0 ADU 0
+0 ADU inside
 D5
 The icy shoot~
 ~
@@ -3994,7 +3988,7 @@ WHEEEEEEEEE! You are sliding head over heels down an icy shoot, which winds
 downward in a counterclockwise spiral. There is no stopping and no turning 
 around.
 ~
-0 ADR 0
+0 ADR inside
 D2
 The icy shoot~
 ~
@@ -4006,7 +4000,7 @@ WHEEEEEEEEE! You are sliding head over heels down an icy shoot, which winds
 downward in a counterclockwise spiral. There is no stopping and no turning 
 around.
 ~
-0 ADQ 0
+0 ADQ inside
 D1
 The icy shoot~
 ~
@@ -4018,7 +4012,7 @@ WHEEEEEEEEE! You are sliding head over heels down an icy shoot, which winds
 downward in a counterclockwise spiral. There is no stopping and no turning 
 around.
 ~
-0 ADP 0
+0 ADP inside
 D0
 The icy shoot~
 ~
@@ -4030,7 +4024,7 @@ You stand in a huge ice cavern, the ceiling is some 80' above you. In the
 center of the cavern, a bonfire roars, making the stalactites and stalagmites 
 leap and lurch as if the entire cavern were a demons mouth laughing at you.
 ~
-0 D 3
+0 D forest
 D0
 In the great ice cavern~
 ~
@@ -4046,7 +4040,7 @@ You stand in a huge ice cavern, the ceiling is some 80' above you. In the
 center of the cavern, a bonfire roars, making the stalactites and stalagmites 
 leap and lurch as if the entire cavern were a demons mouth laughing at you.
 ~
-0 D 3
+0 D forest
 D0
 In the great ice cavern~
 ~
@@ -4066,7 +4060,7 @@ You stand in a huge ice cavern, the ceiling is some 80' above you. In the
 center of the cavern, a bonfire roars, making the stalactites and stalagmites 
 leap and lurch as if the entire cavern were a demons mouth laughing at you.
 ~
-0 D 3
+0 D forest
 D1
 In the great ice cavern~
 ~
@@ -4082,7 +4076,7 @@ You stand in a huge ice cavern, the ceiling is some 80' above you. In the
 center of the cavern, a bonfire roars, making the stalactites and stalagmites 
 leap and lurch as if the entire cavern were a demons mouth laughing at you.
 ~
-0 D 3
+0 D forest
 D1
 In the great ice cavern~
 ~
@@ -4105,7 +4099,7 @@ about the fire, and primitive shelving has been carved into the surrounding
 stalagmites. The heat from the fire is so great that it has melted the ice into
 a pool of water.
 ~
-0 D 3
+0 D forest
 D0
 In the great ice cavern~
 ~
@@ -4129,7 +4123,7 @@ You stand in a huge ice cavern, the ceiling is some 80' above you. In the
 center of the cavern, a bonfire roars, making the stalactites and stalagmites 
 leap and lurch as if the entire cavern were a demons mouth laughing at you.
 ~
-0 D 3
+0 D forest
 D0
 In the great ice cavern~
 ~
@@ -4149,7 +4143,7 @@ You stand in a huge ice cavern, the ceiling is some 80' above you. In the
 center of the cavern, a bonfire roars, making the stalactites and stalagmites 
 leap and lurch as if the entire cavern were a demons mouth laughing at you.
 ~
-0 D 3
+0 D forest
 D2
 In the great ice cavern~
 ~
@@ -4165,7 +4159,7 @@ Here a long wooden table and benches has been placed to serve as the dining
 are for the men. Food is stored in hollowed stalagmites. Two smaller fires 
 blaze on either side of the bench.
 ~
-0 D 3
+0 D forest
 D0
 In the great ice cavern~
 ~
@@ -4189,7 +4183,7 @@ You stand in a huge ice cavern, the ceiling is some 80' above you. In the
 center of the cavern, a bonfire roars, making the stalactites and stalagmites 
 leap and lurch as if the entire cavern were a demons mouth laughing at you.
 ~
-0 D 3
+0 D forest
 E
 runes wall~
 Thraxton was here.
@@ -4212,7 +4206,7 @@ on the western half. Two fires are lit here, well illuminating the room.
 Carpeting covers the floor shorn of its stalagmites. Your spells flicker and 
 dim here. A rope ladder leads up.
 ~
-0 DHN 2
+0 DHN field
 E
 ladder rope~
 You will kick yourself when you climb this ladder.

@@ -30,13 +30,12 @@ A hungry cyclops snarls at you!
 He looks like he's about to have dinner (maybe it's you?).
 ~
 giant~
-ABFQT 0 -700 0
+ABFQT DF -700 0
 22 7 10d10+600 10d10+100 6d4+10 smash
 -7 -7 -7 -2
 ACDIO AB CD 0
 stand stand male 600
 0 0 huge unknown
-A det DF
 #9203
 oldstyle tiny elemental~
 a tiny elemental~
@@ -328,13 +327,12 @@ A dust cloud blowing by makes you sneeze.
 The magical dust cloud is a cross between air and earth.
 ~
 human~
-AGS J 0 0
+AGS DFJ 0 0
 6 0 2d6+60 3d9+100 1d6+1 none
 5 5 5 9
 BEFJNU 0 0 0
 stand stand none 5
 0 0 medium unknown
-A det DF
 #9225
 oldstyle eddie elemental~
 an eddie~
@@ -343,13 +341,12 @@ A small eddie current swirls junk around here.
 The magical eddie current is a manifestation of an air elemental.
 ~
 human~
-AGS 0 0 0
+AGS DF 0 0
 2 0 2d6+10 1d9+100 1d4+0 none
 9 9 9 10
 BEFJNU 0 0 0
 stand stand none 1
 0 0 medium unknown
-A det DF
 #9226
 oldstyle blue flame~
 the Blue Flame~
@@ -474,13 +471,12 @@ An alchemist wanders by in search of magical herbs.
 Rare herbs are rumored to grow only in the canyon.
 ~
 human~
-AGS 0 -50 0
+AGS DF -50 0
 13 0 2d10+150 6d9+100 1d10+3 none
 0 0 0 7
 BEFJNU 0 0 0
 stand stand none 95
 0 0 medium unknown
-A det DF
 #9235
 oldstyle baby rainbow dragon~
 a baby rainbow dragon~
@@ -489,13 +485,12 @@ A baby rainbow dragon plays among the elements here.
 It's only a baby by dragon standards.
 ~
 human~
-ABG 0 0 0
+ABG DF 0 0
 16 0 3d9+233 8d9+100 2d6+4 none
 -2 -2 -2 7
 EFNU 0 0 0
 stand stand none 500
 0 0 medium unknown
-A det DF
 #9236
 oldstyle imp~
 a little imp~
@@ -547,13 +542,12 @@ The elemental magician has come here in search of the fabled
 Stone of Surrender which can be used to render opponents senseless.
 ~
 human~
-ABGKRe 0 -50 0
+ABGKRe D -50 0
 46 30 3d9+8233 17d9+4100 10d12+33 none
 -12 -12 -12 -4
 F ABC 0 0
 stand stand none 400
 0 0 medium unknown
-A det D
 #0
 
 #OBJECTS
@@ -575,7 +569,7 @@ a stoney breastplate~
 A breastplate made of the stone from deep within the earth lies here.~
 stone~
 armor 0 AD
-BD BD BD B 0
+10 10 10 2 0
 31 700 5500 P
 A
 5 1
@@ -597,7 +591,7 @@ a flame red cape~
 A cape made of ethereal red fiber lies neatly folded on the ground here.~
 ethereal~
 armor A AC
-AD AD AD AB 0
+9 9 9 3 0
 30 30 3100 P
 A
 19 1
@@ -607,7 +601,7 @@ the wind boots~
 A pair of boots that look fast standing still are here.~
 fiber~
 armor G AG
-D D D B 0
+8 8 8 2 0
 26 10 5200 P
 A
 2 2
@@ -617,7 +611,7 @@ a hurricane helmet~
 A helmet that looks like it has weathered many storms has been set here.~
 iron~
 armor B AE
-AD AD AD AB 0
+9 9 9 3 0
 31 40 3800 P
 A
 20 -2
@@ -639,7 +633,7 @@ an electric shield~
 A shield made entirely of energy buzzes here.~
 unknown~
 armor B AJ
-AD AD AD C 0
+9 9 9 4 0
 28 80 4500 P
 A
 5 1
@@ -651,7 +645,7 @@ an icy girth~
 A girth made of magical ice has been left here.~
 ice~
 armor 0 AL
-BD BD BD AB 0
+10 10 10 3 0
 31 100 1540 P
 A
 5 -2
@@ -661,7 +655,7 @@ a waterfall cloak~
 A cloak fashioned from a small magical waterfall is here.~
 unknown~
 armor 0 AK
-AD AD AD B 0
+9 9 9 2 0
 30 60 3000 P
 A
 18 -2
@@ -693,7 +687,7 @@ a platinum arm band~
 A platinum arm band, once worn by the Cyclops, lie here.~
 platinium~
 armor 0 AM
-AD AD AD B 0
+9 9 9 2 0
 26 40 1700 P
 A
 4 -2
@@ -705,7 +699,7 @@ some platinum leg bands~
 A pair of platinum leg bands, once worn by the Cyclops, lie here.~
 platinium~
 armor 0 AF
-AD AD AD B 0
+9 9 9 2 0
 26 40 1700 P
 A
 3 -2
@@ -880,7 +874,7 @@ You are on a mountain path which ascends a steep mountainside.  The trail
 curves around the mountain so that you cannot really see what lies ahead.
 You do sense great power though coming from the area behind the mountain.
 ~
-0 0 5
+0 0 mountain
 D0
 ~
 ~
@@ -895,7 +889,7 @@ A Mountain Path~
 You are on a rocky mountain path leading up and around a steep mountainside.
 You sense a glow from the area beyond the mountain, which you cannot see yet.
 ~
-0 0 5
+0 0 mountain
 D0
 Gateway to abysis.
 ~
@@ -917,7 +911,7 @@ last the arduous journey up the mountain.  Curiously you notice a few
 uncovered bodies which don't seem to have died of exhaustion.  The path curves
 east around the mountain.
 ~
-0 0 5
+0 0 mountain
 E
 bodies body dead~
 They look as if their necks have been broken and their flesh, chewed.
@@ -943,7 +937,7 @@ This looks like a normal mountain path, but it is NOT!  This section of the
 path is habitated by a huge (and of course, man-eating) Cyclops.  The path
 makes its final ascent to an overlook.
 ~
-0 0 5
+0 0 mountain
 D4
 ~
 ~
@@ -964,7 +958,7 @@ river flowing through the canyon.  Also to the east you spy a cave entrance
 leading into the canyon wall.  The path descends to the north to another
 overlook.
 ~
-0 0 5
+0 0 mountain
 D0
 ~
 ~
@@ -980,7 +974,7 @@ You see various elemental servants wandering around the canyon.  The noise of
 humming coming from the canyon gets louder.  The path makes a steep descent
 into the canyon here.
 ~
-0 0 5
+0 0 mountain
 D2
 ~
 ~
@@ -997,7 +991,7 @@ Elemental servants bustle back and forth doing the biddings of the elemental
 rulers.  You see a sort of cross roads to the north, and you can climb up to
 the overlook here.
 ~
-0 0 3
+0 0 forest
 D0
 ~
 ~
@@ -1014,7 +1008,7 @@ going about their business, while others seem to have no business at all.
 In general, it is calm, yet there is always a incessant buzz of things
 going on about.  The canyon continues north and east.
 ~
-0 0 3
+0 0 forest
 D0
 ~
 ~
@@ -1035,7 +1029,7 @@ elemental forms wander the canyon floor, which extends in a wide swath
 northwards. To the up you see the Combat Magician Chamber and a magical
 force helps you to fly through to chamber.
 ~
-0 CD 0
+0 CD inside
 D0
 ~
 ~
@@ -1066,7 +1060,7 @@ all.  In general, it is calm, yet there is always a incessant buzz of
 things going on about.  The canyon floor extends north and west.  There is a
 cave mouth set into the canyon wall to the east.
 ~
-0 0 3
+0 0 forest
 D0
 ~
 ~
@@ -1088,7 +1082,7 @@ all.  In general, it is calm, yet there is always an incessant buzz of
 things going on about.  The canyon floor extends off to the north, east,
 and south.
 ~
-0 0 3
+0 0 forest
 D0
 ~
 ~
@@ -1109,7 +1103,7 @@ going about their business, while others seem to have no business at
 all.  In general, it is calm, yet there is always an incessant buzz of
 things going on about.  The canyon floor extends in all directions.
 ~
-0 0 3
+0 0 forest
 D0
 ~
 ~
@@ -1135,7 +1129,7 @@ all.  In general, it is calm, yet there is always an incessant buzz of
 things going on about.  The canyon floor extends north, south, and west.
 A path follows a stream to the east.
 ~
-0 0 3
+0 0 forest
 D0
 ~
 ~
@@ -1161,7 +1155,7 @@ all.  In general, it is calm, yet there is always an incessant buzz of
 things going on about. The canyon floor extends north, east, and south.
 To the west a garden is on fire.
 ~
-0 0 3
+0 0 forest
 D0
 ~
 ~
@@ -1186,7 +1180,7 @@ going about their business, while others seem to have no business at
 all.  In general, it is calm, yet there is always an incessant buzz of
 things going on about.  The canyon floor extends in all directions.
 ~
-0 0 3
+0 0 forest
 D0
 ~
 ~
@@ -1211,7 +1205,7 @@ going about their business, while others seem to have no business at
 all.  In general, it is calm, yet there is always an incessant buzz of
 things going on about.  The Canyon floor extends north, south and west.
 ~
-0 0 3
+0 0 forest
 D0
 ~
 ~
@@ -1233,7 +1227,7 @@ all.  In general, it is calm, yet there is always an incessant buzz of
 things going on about. The canyon floor extends east and south.  You can
 climb a rise in the canyon floor to the north.
 ~
-0 0 3
+0 0 forest
 D0
 ~
 ~
@@ -1254,7 +1248,7 @@ going about their business, while others seem to have no business at
 all.  In general, it is calm, yet there is always an incessant buzz of
 things going on about.  The canyon floor extends east, south, and west.
 ~
-0 0 3
+0 0 forest
 D1
 ~
 ~
@@ -1276,7 +1270,7 @@ all.  In general, it is calm, yet there is always an incessant buzz of
 things going on about.  The canyon floor extends south and west.  You can
 climb a rise in the canyon floor to the north.
 ~
-0 0 3
+0 0 forest
 D0
 ~
 ~
@@ -1295,7 +1289,7 @@ Dark Cave~
 You notice a path winding east among some huge boulders.  You feel a powerful
 source of energy from that direction.
 ~
-0 AD 3
+0 AD forest
 D1
 ~
 ~
@@ -1312,7 +1306,7 @@ are even darker than the darkness.  You hear a powerful humming all around
 you.  Cave paths go south and east roughly, its hard to tell exactly when you
 can't see where you are going.
 ~
-0 AD 3
+0 AD forest
 D1
 ~
 ~
@@ -1333,7 +1327,7 @@ are even darker than the darkness.  You hear a powerful humming all around
 you.  Cave paths go south and west roughly; it's hard to tell exactly when you
 can't see where you are going.
 ~
-0 AD 3
+0 AD forest
 D2
 ~
 ~
@@ -1350,7 +1344,7 @@ are even darker than the darkness.  You hear a powerful humming all around you.
 Cave paths go north, south and east roughly; it's hard to tell exactly when
 you can't see where you are going.
 ~
-0 AD 3
+0 AD forest
 D0
 ~
 ~
@@ -1371,7 +1365,7 @@ are even darker than the darkness.  You hear a powerful humming all around you.
 Cave paths go north, south and west roughly, it's hard to tell exactly when you
 can't see where you are going.
 ~
-0 AD 3
+0 AD forest
 D0
 ~
 ~
@@ -1392,7 +1386,7 @@ only to illuminate about a foot ahead of you.  You suddenly realize that the
 path has descended quite a bit but you didn't notice before because of the
 darkness.  You sense a great presence off to the east aways.
 ~
-0 AD 3
+0 AD forest
 D0
 ~
 ~
@@ -1409,7 +1403,7 @@ only to illuminate about a foot ahead of you.  You suddenly realize that the
 path has descended quite a bit but you didn't notice before because of the
 darkness.  You sense a great presence directly to the east.
 ~
-0 AD 3
+0 AD forest
 D0
 ~
 ~
@@ -1429,7 +1423,7 @@ This is the abode of the Earth Ruler.  He decides about earthquakes,
 landslides, and avalanches.  The Earth Ruler sits upon a huge marble throne
 carved into the wall.
 ~
-0 AD 3
+0 AD forest
 E
 marble throne~
 The ruler notices your stare, and doesn't like it one bit!  The whole
@@ -1446,7 +1440,7 @@ The water in the river seems to bubble and froth with magic.  Though it
 splashes playfully on you, it does not seem wet.  The path leads north closer
 to the water. To the west you see a T-intersection.
 ~
-0 0 3
+0 0 forest
 D0
 ~
 ~
@@ -1462,7 +1456,7 @@ To continue you had to walk right in the river.  Though you walk along in
 water up to your knees, you do not seem to get wet.  A bay stretches out to
 the north and the river goes south.
 ~
-0 0 6
+0 0 swim
 D0
 ~
 ~
@@ -1478,7 +1472,7 @@ The water is crystal clear here and you can see the bottom of the bay 30 feet
 below you.  Then you realize you are walking on the water itself.  Truly
 magical water indeed.  Though you splash through the bay you do not get wet.
 ~
-0 0 6
+0 0 swim
 D0
 ~
 ~
@@ -1498,7 +1492,7 @@ The water is crystal clear here and you can see the bottom of the bay 30 feet
 below you.  Then you realize you are walking on the water itself.  Truly
 magical water indeed.  Though you splash through the bay you do not get wet.
 ~
-0 0 6
+0 0 swim
 D0
 ~
 ~
@@ -1518,7 +1512,7 @@ The water is crystal clear here and you can see the bottom of the bay 30 feet
 below you.  Then you realize you are walking on the water itself.  Truly
 magical water indeed.  Though you splash through the bay you do not get wet.
 ~
-0 0 6
+0 0 swim
 D0
 ~
 ~
@@ -1534,7 +1528,7 @@ The water is crystal clear here and you can see the bottom of the bay 30 feet
 below you.  Then you realize you are walking on the water itself.  Truly
 magical water indeed.  Though you splash through the bay you do not get wet.
 ~
-0 0 6
+0 0 swim
 D1
 ~
 ~
@@ -1550,7 +1544,7 @@ The water is crystal clear here and you can see the bottom of the bay 30 feet
 below you.  Then you realize you are walking on the water itself.  Truly
 magical water indeed.  Though you splash through the bay you do not get wet.
 ~
-0 0 6
+0 0 swim
 D1
 ~
 ~
@@ -1570,7 +1564,7 @@ The water is crystal clear here and you can see the bottom of the bay 30 feet
 below you.  Then you realize you are walking on the water itself.  Truly
 magical water indeed.  Though you splash through the bay you do not get wet.
 ~
-0 0 6
+0 0 swim
 D2
 ~
 ~
@@ -1591,7 +1585,7 @@ like it's been here for a long, long time.  Though you are 'under water' there
 is no difficulty breathing normally, and oddly you do not feel the pressure of
 the water above you.
 ~
-0 D 6
+0 D swim
 D4
 ~
 ~
@@ -1603,7 +1597,7 @@ You tread carefully along a path which dips and turns among geysers of fire.
 Miniature volcanoes spew lava in rivers.  The fire is hot but not altogether
 dangerous.  The path extends east and south.
 ~
-0 0 5
+0 0 mountain
 D1
 ~
 ~
@@ -1618,7 +1612,7 @@ A Fiery Pathway~
 You tread carefully along a path which dips and turns among pits of fire and
 beds of coals.  A garden to the west glows with an everlasting fire.
 ~
-0 0 5
+0 0 mountain
 D0
 ~
 ~
@@ -1634,7 +1628,7 @@ Everywhere around you the landscape is afire; the rocks, the shrubs and even
 the air seems to be aflame.  Curiously, the magical fire does not seem to
 consume its hosts.  A path leads east among some fire pits.
 ~
-0 0 5
+0 0 mountain
 D1
 ~
 ~
@@ -1649,7 +1643,7 @@ The Fire Chamber~
 The fire ruler sits upon a throne made of blue flame.  Little flickers of
 flame dance to and fro for the entertainment of the ruler.
 ~
-0 0 3
+0 0 forest
 D1
 ~
 ~
@@ -1661,7 +1655,7 @@ The pathway glows and hums because of the electricity pulsing through it.
 It seems almost soothing to your weary feet.  To the north there is a
 sunken-in area.  A path leads east also.
 ~
-0 0 3
+0 0 forest
 D0
 ~
 ~
@@ -1677,7 +1671,7 @@ Though there is a seemingly carefree atmosphere here, you sense that
 something much more important takes place near by.  The electric playground
 extends north and east.
 ~
-0 0 4
+0 0 hills
 D0
 ~
 ~
@@ -1693,7 +1687,7 @@ Though there is a seemingly carefree atmosphere here, you sense that
 something much more important takes place near by.  There is an electric
 path heading away south.  The playground extends north and west.
 ~
-0 0 4
+0 0 hills
 D0
 ~
 ~
@@ -1713,7 +1707,7 @@ Though there is a seemingly carefree atmosphere here, you sense that
 something much more important takes place near by.  The playground continues
 south and east.
 ~
-0 0 4
+0 0 hills
 D1
 ~
 ~
@@ -1729,7 +1723,7 @@ Though there is a seemingly carefree atmosphere here, you sense that
 something much more important takes place near by.  The playground is
 south and west.  Something more important catches your eye to the east.
 ~
-0 0 4
+0 0 hills
 D1
 ~
 ~
@@ -1749,7 +1743,7 @@ Up a set of stairs carved into the hill you see intermittent flashes of
 lightning.  A continuous hum also comes form that direction.  To the west
 is the electric playground.
 ~
-0 0 4
+0 0 hills
 D3
 ~
 ~
@@ -1765,7 +1759,7 @@ There is some sort of control panel here. Apparently the Lightning Ruler
 observes and controls electric forces from here.  A set of steps carved into
 the hill lead down to a causeway.
 ~
-0 D 6
+0 D swim
 D5
 ~
 ~
@@ -1776,7 +1770,7 @@ Mesa West~
 An electric path starts to the west.  The mesa continues to the east.
 Or you can climb down to the canyon floor to the south.
 ~
-0 0 4
+0 0 hills
 D1
 ~
 ~
@@ -1795,7 +1789,7 @@ Mesa East~
 A path starts to the north.  The mesa continues to the west.
 Or you can climb down to the canyon floor to the south.
 ~
-0 0 4
+0 0 hills
 D0
 ~
 ~
@@ -1817,7 +1811,7 @@ plunging to your death, you seemingly miss the ground and begin walking
 on air.  The space to the north and east seems just thin air, but you can
 walk there.  The pathway you came from is to the south.
 ~
-0 0 4
+0 0 hills
 D0
 ~
 ~
@@ -1837,7 +1831,7 @@ You look down and see the ground 100 feet below you.  The wind whispering
 in your ear seems to reassure you that this is fine.  To the north aways
 you spy a portal of sorts.  To the west is more thin air.
 ~
-0 0 4
+0 0 hills
 D0
 ~
 ~
@@ -1853,7 +1847,7 @@ You look down and see the ground 100 feet below you.  The wind whispering
 in your ear seems to reassure you that this is fine.  To the east aways
 you spy a portal of sorts.  To the south is more thin air.
 ~
-0 0 4
+0 0 hills
 D1
 ~
 ~
@@ -1870,7 +1864,7 @@ in your ear seems to reassure you that this is fine. There is a portal
 hanging in midair here. It is to the east.  You can float south or west
 if you'd like.
 ~
-0 0 4
+0 0 hills
 E
 portal~
 Through the portal you see a tunnel.
@@ -1898,7 +1892,7 @@ Windy Tunnel~
 A tunnel leads east.  To the west you can enter a portal. The wind in
 this tunnel is quite fierce, it seems as if it's forced.  
 ~
-0 0 4
+0 0 hills
 E
 portal~
 Through the portal you see nothing but sky.
@@ -1918,7 +1912,7 @@ Tiny tornadoes come and go and dance along the ground here.  At the back
 of the chamber you notice a huge throne made of swirling clouds.
 A tunnel leads west.
 ~
-0 D 6
+0 D swim
 E
 throne clouds~
 Although the cloud throne appears solid enough to sit on, I wouldn't try
@@ -1936,7 +1930,7 @@ room is full of shelves which hold various spell components. The entire
 room smells of smoke and incense. This room is obviously used by a 
 practicing mage.
 ~
-0 0 0
+0 0 inside
 D5
 ~
 ~

@@ -20,13 +20,12 @@ back down. As natives of Mirkwood, they are virtually imposssible to see
 if they don't want to be seen.
 ~
 elf~
-ABCFG Q 400 0
+ABCFG FQ 400 0
 5 0 2d6+60 1d1+99 1d6+1 punch
 5 5 5 10
 DF ABIN AN GH
 stand sit male 103
 0 0 small unknown
-A det F
 #8801
 sylvan elf warrior~
 a sylvan elf warrior~
@@ -232,7 +231,7 @@ a plain elven cloak~
 A plain, but practical, Elven cloak lies here.~
 cloth~
 armor G AC
-AB AB AB 0 A
+3 3 3 0 1
 5 40 200 G
 A
 13 5
@@ -244,7 +243,7 @@ a pair of plain elven boots~
 A plain, but practical, pair of Elven boots.~
 leather~
 armor G AG
-AB C C 0 B
+3 4 4 0 2
 5 30 400 G
 A
 2 1
@@ -264,7 +263,7 @@ a spiked metal shield~
 An Orcish spiked metal shield has been left here.~
 steel~
 armor 0 AJ
-AB C C 0 AB
+3 4 4 0 3
 5 40 400 G
 #8806
 scimitar~
@@ -284,7 +283,7 @@ an ugly spiked helm~
 An ugly Orcish spiked helm has been left here.~
 bronze~
 armor G AE
-C AB AB 0 B
+4 3 3 0 2
 5 140 200 G
 A
 17 -5
@@ -355,7 +354,7 @@ away from the prying eyes of strangers.
 There is a sign tacked to a tree nearby.
      There is a small (Glowing) (Huming) tablet.
 ~
-0 C 3
+0 C forest
 E
 sign~
 This area serves as a connector for many areas with an Elven or Faerie flavour,
@@ -403,7 +402,7 @@ Mirkwood. Giant, ancient trees tower over you to either side, and sweet
 songbirds sing in their lofty branches. However, despite this serene scene,
 you can't shake the feeling that you're being watched.
 ~
-0 0 3
+0 0 forest
 D0
 ~
 ~
@@ -420,7 +419,7 @@ Mirkwood. Giant, ancient trees tower over you to either side, and sweet
 songbirds sing in their lofty branches. However, despite this serene scene,
 you can't shake the feeling that you're being watched.
 ~
-0 0 3
+0 0 forest
 D0
 ~
 ~
@@ -436,7 +435,7 @@ You have reached a point where the path branches, with paths running to the
 east and west. A wild animal suddenly howls angrily some distance away, and
 you involuntarily jump.
 ~
-0 0 3
+0 0 forest
 D1
 ~
 ~
@@ -457,7 +456,7 @@ signs of heavy use, evidently by non-Elves, as Elves do not leave footprints.
 The trees are thinner and smaller in this part of the forest, giving the
 impression that it has been recently cleared.
 ~
-0 0 3
+0 0 forest
 D1
 ~
 ~
@@ -473,7 +472,7 @@ The path once again divides, this time into northern and southern branches.
 To the north an impressive-looking citadel looms over the treetops, while
 to the south the trail becomes significantly narrower, and overgrown.
 ~
-0 0 3
+0 0 forest
 D0
 ~
 ~
@@ -493,7 +492,7 @@ The northern road bends to the east at this point, allowing you to gaze
 upon a wondrous Elven Fortress. Although you are more than a mile away,
 it still looms large ahead of you.
 ~
-0 0 3
+0 0 forest
 D1
 ~
 ~
@@ -509,7 +508,7 @@ The road opens onto an area cleared of trees here, a broad plain dotted with
 the occasional hedge or distant farmhouse. There is a marked path running
 due east toward the west gate of the distant fortress.
 ~
-0 0 2
+0 0 field
 D3
 ~
 ~
@@ -521,7 +520,7 @@ Progress along this narrow, overgrown path is next to impossible, and you
 find yourself having to stop several times for a rest. There doesn't seem to
 be any quick end to it either.
 ~
-0 0 3
+0 0 forest
 D0
 ~
 ~
@@ -538,7 +537,7 @@ find yourself having to stop several times for a rest. There doesn't seem to
 be any quick end to it either.
 You spy a rope ladder ascending to a platform in a nearby tree.
 ~
-0 0 3
+0 0 forest
 D0
 ~
 ~
@@ -559,7 +558,7 @@ watch out for intruding Orcs or Goblins. They dislike strangers in general,
 and detest interlopers into their personal areas even more. Expect a violent
 reception if there is a guard present...
 ~
-0 0 3
+0 0 forest
 D5
 ~
 ~
@@ -573,7 +572,7 @@ be any quick end to it either.
 At this point you may follow a side trail which runs to the east. It seems
 to be a little less overgrown.
 ~
-0 0 3
+0 0 forest
 D0
 ~
 ~
@@ -592,7 +591,7 @@ A Dead End~
 WHAT? After all that exertion, the path ends at a DEAD END??? Ah well, I
 guess you had better turn back...
 ~
-0 0 3
+0 0 forest
 D0
 ~
 ~
@@ -604,7 +603,7 @@ This path is certainly less overgrown than the north-south one. You actually
 find yourself able to move relatively quickly through the forest, stopping
 only occasionally to hack away an overhanging branch or vine.
 ~
-0 0 3
+0 0 forest
 D1
 ~
 ~
@@ -620,7 +619,7 @@ This path is certainly less overgrown than the north-south one. You actually
 find yourself able to move relatively quickly through the forest, stopping
 only occasionally to hack away an overhanging branch or vine.
 ~
-0 0 3
+0 0 forest
 D1
 ~
 ~
@@ -634,7 +633,7 @@ S
 A Bend in the Path~
 You have reached a point where the path bends to the north.
 ~
-0 0 3
+0 0 forest
 D0
 ~
 ~
@@ -650,7 +649,7 @@ The path here is fairly clear and free of vegetation. It actually looks
 fairly well-maintained. You think you can hear a distant singing to the
 north.
 ~
-0 0 3
+0 0 forest
 D0
 ~
 ~
@@ -667,7 +666,7 @@ fairly well-maintained. You think you can hear a distant singing to the
 north.
 Another path runs to the east of here.
 ~
-0 0 3
+0 0 forest
 D0
 ~
 ~
@@ -686,7 +685,7 @@ The End of the Path~
 The path ends here in a small clearing with a small shallow pool of crystal
 clear water. You feel strangely at ease here.
 ~
-0 0 3
+0 0 forest
 D3
 ~
 ~
@@ -699,7 +698,7 @@ grove to the east. Dimly visible are all manner of man and beast, and
 although they would usually feed upon each other, they all seem to be at
 peace.
 ~
-0 0 3
+0 0 forest
 D2
 ~
 ~
@@ -715,7 +714,7 @@ This path is rather overgrown but it is still easily navigable. You fancy
 you can see a rope ladder ascending into the brances of a tall oak near the
 eastern side of the road.
 ~
-0 0 3
+0 0 forest
 D1
 ~
 ~
@@ -736,7 +735,7 @@ watch out for intruding Orcs or Goblins. They dislike strangers in general,
 and detest interlopers into their personal areas even more. Expect a violent
 reception if there is a guard present...
 ~
-0 0 3
+0 0 forest
 D5
 ~
 ~
@@ -746,7 +745,7 @@ S
 A Bend to the North~
 The path bends to the north here, running for some distance toward a stream.
 ~
-0 0 3
+0 0 forest
 D0
 ~
 ~
@@ -761,7 +760,7 @@ A Northern Path~
 This path is fairly even and well-used, so going is not as rough as the
 previous paths. There is a wide stream dead ahead.
 ~
-0 0 3
+0 0 forest
 D0
 ~
 ~
@@ -776,7 +775,7 @@ A Stream~
 This stream is too wide and deep to wade across. You'll need a boat or a
 spell. Mind you, you could always whip out your rod and start angling :)
 ~
-0 0 6
+0 0 swim
 D0
 ~
 ~
@@ -796,7 +795,7 @@ This path is fairly even and well-used, so going is not as rough as the
 previous paths. There is a wide stream to the south.
 A broad, tree-lined path runs to the east.
 ~
-0 C 3
+0 C forest
 D0
 ~
 ~
@@ -815,7 +814,7 @@ A Junction~
 You have reached a point where you can proceed either north or west. Your
 choice. You still have the feeling you're being watched...
 ~
-0 0 3
+0 0 forest
 D0
 ~
 ~
@@ -834,7 +833,7 @@ The Western Path~
 The path you are on here runs down a gently sloping hill, to the base of a
 beautiful valley below.
 ~
-0 0 4
+0 0 hills
 D1
 ~
 ~
@@ -849,7 +848,7 @@ The Hill~
 The path you are on here runs down a gently sloping hill, to the base of a
 beautiful valley below.
 ~
-0 0 4
+0 0 hills
 D4
 ~
 ~
@@ -864,7 +863,7 @@ The Base of the Hill~
 You can proceed east toward the valley from here, or return to the summit
 above.
 ~
-0 0 4
+0 0 hills
 D1
 ~
 ~
@@ -879,7 +878,7 @@ A Northern Path~
 This path is fairly even and well-used, so going is not as rough as the
 previous paths. There is a narrow path to the east.
 ~
-0 0 3
+0 0 forest
 D0
 ~
 ~
@@ -898,7 +897,7 @@ A Narrow Path~
 You are walking along a narrow path that runs from the major northern path
 through Mirkwood. Up ahead the path ends in a dead end.
 ~
-0 0 3
+0 0 forest
 D3
 ~
 ~
@@ -909,7 +908,7 @@ A Northern Path~
 This path is fairly even and well-used, so going is not as rough as the
 previous paths.
 ~
-0 0 3
+0 0 forest
 D0
 ~
 ~
@@ -924,7 +923,7 @@ A Northern Path~
 This path is fairly even and well-used, so going is not as rough as the
 previous paths. There is a broad junction to the north.
 ~
-0 0 3
+0 0 forest
 D0
 ~
 ~
@@ -940,7 +939,7 @@ You have come to another junction in the forest. The path to the east runs
 through some handsome aspen and pine, but the northern passage is lined by
 sickly-looking, dying trees of unidentifiable type.
 ~
-0 0 3
+0 0 forest
 D0
 ~
 ~
@@ -961,7 +960,7 @@ by the blighted vegetation that lines this twisted gray path. The sky can
 no longer be seen overhead- instead a canopy of decaying leaves and rotten
 branches obscures your view.
 ~
-0 0 3
+0 0 forest
 D0
 ~
 ~
@@ -978,7 +977,7 @@ by the blighted vegetation that lines this twisted gray path. The sky can
 no longer be seen overhead- instead a canopy of decaying leaves and rotten
 branches obscures your view.
 ~
-0 0 3
+0 0 forest
 D2
 ~
 ~
@@ -996,7 +995,7 @@ no longer be seen overhead- instead a canopy of decaying leaves and rotten
 branches obscures your view.
 The dying screams of some animal can be heard.
 ~
-0 0 3
+0 0 forest
 D1
 ~
 ~
@@ -1016,7 +1015,7 @@ Maggots crawl from a decaying Elven corpse hanging from an overhead branch.
 The stench is unbearable.
 To the north you see a shadowy area of the forest.
 ~
-0 0 3
+0 0 forest
 D0
 ~
 ~
@@ -1039,7 +1038,7 @@ branches obscures your view.
 At this point the twisting turning path runs sharply downward toward a large
 gash in the side of a grey cliff face.
 ~
-0 0 3
+0 0 forest
 D1
 ~
 ~
@@ -1054,7 +1053,7 @@ The Cliff Face~
 You are standing before the gash in the cliff-face now, wondering whether
 you should continue into the inky darkness beyond...
 ~
-0 0 4
+0 0 hills
 D0
 ~
 ~
@@ -1064,7 +1063,7 @@ S
 A Bend in the Path~
 You reach a bend in the path, where you can head north or west.
 ~
-0 0 3
+0 0 forest
 D0
 ~
 ~
@@ -1078,7 +1077,7 @@ S
 A Bend in the Path~
 You reach a bend in the path, where you can head south or east.
 ~
-0 0 3
+0 0 forest
 D1
 ~
 ~
@@ -1094,7 +1093,7 @@ The path once again divides, this time into northern and southern branches.
 To the north lies another bend in the trail, while to the south the trail
 becomes significantly narrower, and overgrown.
 ~
-0 0 3
+0 0 forest
 D0
 ~
 ~
@@ -1113,7 +1112,7 @@ A Dead End~
 The passage ends in a dead end, but you see a small rope ladder hanging down
 from a nearby oak tree, disappearing in its bushy branches above.
 ~
-0 0 3
+0 0 forest
 D0
 ~
 ~
@@ -1129,7 +1128,7 @@ Here, the path bends sharply to the east, heading toward an area of the
 forest that is very different from the previous section. A second path
 runs to the north.
 ~
-0 0 3
+0 0 forest
 D0
 ~
 ~
@@ -1150,7 +1149,7 @@ watch out for intruding Orcs or Goblins. They dislike strangers in general,
 and detest interlopers into their personal areas even more. Expect a violent
 reception if there is a guard present...
 ~
-0 0 3
+0 0 forest
 D5
 ~
 ~
@@ -1162,7 +1161,7 @@ You have come out of Mirkwood onto a rather dusty trail. At this point you
 may proceed east toward some well-cultivated fields, or south and west back
 into the forest.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -1181,7 +1180,7 @@ Cultivated Field~
 This field borders on a neatly-tended area with several small farmhouses and
 a small watch-tower near a wide stream.
 ~
-0 0 2
+0 0 field
 D3
 ~
 ~
@@ -1193,7 +1192,7 @@ You have entered a rather forlorn section of the forest, littered with dead
 and dying trees, plus the occasional corpse. Howls and cries of pain sound
 far off to the south.
 ~
-0 0 3
+0 0 forest
 D0
 ~
 ~
@@ -1209,7 +1208,7 @@ You have entered a rather forlorn section of the forest, littered with dead
 and dying trees, plus the occasional corpse. Howls and cries of pain sound
 far off to the south.
 ~
-0 0 3
+0 0 forest
 D2
 ~
 ~
@@ -1226,7 +1225,7 @@ and dying trees, plus the occasional corpse. Howls and cries of pain sound
 far off to the south.
 To the south is a particularly dark patch of forest.
 ~
-0 0 3
+0 0 forest
 D0
 ~
 ~
@@ -1241,7 +1240,7 @@ The Path to Firetop Mountain~
 The path runs past the rubble and up into the foothills of an immense
 mountain range. far in the distance looms Firetop Mountain.
 ~
-0 0 4
+0 0 hills
 D0
 ~
 ~
@@ -1256,7 +1255,7 @@ The Path Continues~
 You continue for what seems like an eternity, drawing slowly closer to the
 distant peak.
 ~
-0 0 4
+0 0 hills
 D0
 ~
 ~
@@ -1271,7 +1270,7 @@ The Path Continues~
 You continue for what seems like an eternity, drawing slowly closer to the
 distant peak.
 ~
-0 0 4
+0 0 hills
 D0
 It is entrance to Firetop Mountain 
 ~
@@ -1287,7 +1286,7 @@ Approaching Mirkwood~
 The forest begins to surround you as you step into its depths. The path
 abruptly turns to the north and you continue.
 ~
-0 0 3
+0 0 forest
 D0
 ~
 ~
@@ -1304,7 +1303,7 @@ restricted by a massive, handsome door that glows with magic. Magnificent
 oaks tower high to either side, and everywhere there is light and beauty.
 However, intruders are frowned upon here, so be on your guard.
 ~
-0 0 3
+0 0 forest
 D1
 ~
 ~
@@ -1322,7 +1321,7 @@ oaks tower high to either side, and everywhere there is light and beauty.
 However, intruders are frowned upon here, so be on your guard.
 The entrance is directly before you.
 ~
-0 0 3
+0 0 forest
 D1
 ~
 ~
@@ -1339,7 +1338,7 @@ is usually deserted. It would be advisable to keep a low profile, as the
 natives are hostile...
 The enchantments here prohibit spellcasting of any form.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -1359,7 +1358,7 @@ You are in the castle of the Wood Elven King Thranduil. The corridor here
 is usually deserted. It would be advisable to keep a low profile, as the
 natives are hostile...
 ~
-0 D 0
+0 D inside
 D1
 ~
 ~
@@ -1374,7 +1373,7 @@ A Guard Room~
 You have stumbled into the guard room! The guards will definitely not
 be happy to see you. You fancy you can hear muffled cries for help.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -1395,7 +1394,7 @@ A trapdoor in the floor allows access to the river, and it is through here
 that the Elves deposit their empty barrels, so that the river may carry
 them down to Lake Town.
 ~
-0 D 0
+0 D inside
 D3
 ~
 ~
@@ -1410,7 +1409,7 @@ The River~
 You are floating along a river that will carry you back through the forest,
 and eventually to Lake Town.
 ~
-0 C 7
+0 C noswim
 D2
 ~
 ~
@@ -1425,7 +1424,7 @@ The River~
 You are floating along a river that will carry you back through the forest,
 and eventually to Lake Town.
 ~
-0 C 7
+0 C noswim
 D0
 ~
 ~
@@ -1441,7 +1440,7 @@ You are in the castle of the Wood Elven King Thranduil. The corridor here
 is usually deserted. It would be advisable to keep a low profile, as the
 natives are hostile...
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -1457,7 +1456,7 @@ Now you've blown it. You've gone and stumbled into the King's Throne Room.
 He is seated upon an intricately-carved wooden throne at the end of the hall.
 Dour guards glare at you on all sides.
 ~
-0 D 0
+0 D inside
 D3
 ~
 ~
@@ -1468,7 +1467,7 @@ The River~
 You are floating along a river that will carry you back through the forest,
 and eventually to Lake Town.
 ~
-0 C 7
+0 C noswim
 D0
 ~
 ~
@@ -1483,7 +1482,7 @@ A Cell~
 This damp cell is small and cramped, and offers little comfort to its
 single inhabitant.
 ~
-0 AD 0
+0 AD inside
 D2
 ~
 ~
@@ -1494,7 +1493,7 @@ A Northern Path~
 This path runs more or less directly north toward a rather old-looking
 section of the woods.
 ~
-0 0 3
+0 0 forest
 D0
 ~
 ~
@@ -1509,7 +1508,7 @@ A Northern Path~
 You are progressing along a long, straight northern path. Up ahead, you can
 see some sort of clearing.
 ~
-0 0 3
+0 0 forest
 D0
 ~
 ~

@@ -19,13 +19,12 @@ Despite that, you know he is well-loved throughout the land, and has
 a reputation as a wise and just ruler.
 ~
 human~
-AB H 1000 0
+AB DH 1000 0
 48 0 25d10+3750 479d1+11 6d6+18 punch
 -18 -18 -18 3
 ADEK 0 0 D
 stand stand male 10000
 0 0 medium unknown
-A det D
 #15202
 ghost horrible~
 the horrible ghost~
@@ -34,13 +33,12 @@ You hear a frightening wail, and see a horrible Ghost approaching.
 The Ghost is almost translucent, and looks really SCARY!
 ~
 modron~
-ACFHR BITU -900 0
+ACFHR BDFITU -900 0
 30 0 6d12+778 299d1+1 5d4+7 wrath
 -9 -9 -9 1
 FGK A 0 D
 stand stand either 0
 0 0 small unknown
-A det DF
 #15203
 jim guard royal~
 Jim the Royal guard~
@@ -316,13 +314,12 @@ doubt that he is completely prepared to give his life
 for the King, if necessary.
 ~
 human~
-AB 0 900 15201
+AB D 900 15201
 51 0 50d10+5000 509d1+1 5d8+20 punch
 -21 -21 -21 2
 CDEFHIKR 0 0 0
 stand stand male 10000
 0 0 medium unknown
-A det D
 #15221
 tom guard lifeguard~
 Tom, the King's Lifeguard~
@@ -333,13 +330,12 @@ doubt that he is completely prepared to give his life
 for the King, if necessary.
 ~
 human~
-AB 0 900 15201
+AB D 900 15201
 51 0 50d10+5000 509d1+1 5d8+20 punch
 -21 -21 -21 2
 CDEFHIKR 0 0 0
 stand stand male 10000
 0 0 medium unknown
-A det D
 #15222
 chef cook~
 the Chef~
@@ -378,13 +374,12 @@ He really is big, and you get the feeling he wouldn't take kindly
 to an attempt to get past him.
 ~
 human~
-AB 0 250 0
+AB D 250 0
 36 0 10d10+1400 359d1+1 3d10+11 punch
 -12 -12 -12 5
 CDEFIKR 0 0 0
 stand stand male 3600
 0 0 medium unknown
-A det D
 #15225
 dick guard~
 Dick~
@@ -394,13 +389,12 @@ He really is big, and you get the feeling he wouldn't take kindly
 to an attempt to get past him.
 ~
 human~
-AB 0 250 0
+AB D 250 0
 36 0 10d10+1400 359d1+1 3d10+11 punch
 -12 -12 -12 5
 CEFIKR 0 0 0
 stand stand male 3600
 0 0 medium unknown
-A det D
 #15226
 jerry guard royal~
 Jerry the Royal guard~
@@ -473,13 +467,12 @@ Executioner is here on duty.
 Big. Very big. Not stupid like Hassan but dagerous like one.
 ~
 giant~
-ABFTc NOVc 1000 0
+ABFTc CDEFGNOVc 1000 0
 60 0 50d10+9500 599d1+1 8d6+28 punch
 -30 -30 -30 0
 CDEFGHIJKN 0 0 C
 stand stand male 8457
 0 0 large unknown
-A det CDEFG
 #0
 
 #OBJECTS
@@ -522,7 +515,7 @@ a golden crown~
 A magnificently jewelled golden crown has been left here.~
 gold~
 armor GK AE
-E AE E BC 0
+16 17 16 6 0
 50 400 28244 G
 A
 12 30
@@ -645,7 +638,7 @@ a guard's chain mail hauberk~
 A chain mail hauberk lies on the floor~
 steel~
 armor 0 AD
-CD CD CD AC 0
+12 12 12 5 0
 37 600 6240 G
 #15215
 sword large broadsword~
@@ -697,7 +690,7 @@ a lifeguard's chain mail hauberk~
 A chain mail hauberk lies on the floor~
 steel~
 armor G AD
-E E E ABC 0
+16 16 16 7 0
 48 300 26240 G
 A
 17 -30
@@ -707,7 +700,7 @@ a chain mail hauberk~
 A chain mail hauberk lies on the floor~
 steel~
 armor G AD
-ACD ACD CD AB 0
+13 13 12 3 0
 40 400 16278 G
 A
 17 -15
@@ -725,7 +718,7 @@ the silver and gold coins~
 A lot of silver and gold is here.~
 gold~
 money 0 A
-EGIJOP 0 0 0 0
+50000 0 0 0 0
 0 0 0 P
 E
 silver~
@@ -761,7 +754,7 @@ key M AO
 #15200
 ~
 ~
-0 C 0
+0 C inside
 S
 #15201
 The King's Road~
@@ -769,7 +762,7 @@ You come out onto the great King's Road. The road is very well
 built, and goes in a straight line due east-west.
    There is a small (Glowing) (Humming) tablet.
 ~
-0 C 1
+0 C city
 E
 small tablet~
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -799,7 +792,7 @@ You stand on the King's Road, which leads east and west. The
 skill of the builders is apparent, since it is impossible to notice
 any turn or irregularity in the road.
 ~
-0 0 1
+0 0 city
 D1
 You see a Castle in the far east.
 ~
@@ -819,7 +812,7 @@ It is not totally without defences, though, for it is surrounded
 by a deep moat, and its windows are just narrow slits for archers
 to shoot through. To the north there is a drawbridge across the moat.
 ~
-0 0 1
+0 0 city
 D0
 You see the drawbridge.
 ~
@@ -837,7 +830,7 @@ You have arrived at the drawbridge leading into the Castle. Before
 you is a huge, double-doored gate. It seems very strong. You see some
 whirls in the moat.
 ~
-0 C 1
+0 C city
 E
 whirls whirl moat~
 You can't see much, but it seems that something beneath the surface
@@ -863,7 +856,7 @@ All around the room, there are shelves with different kinds of cooking
 gear stacked on them. There is an exit to the north, and one to the east;
 both leading to small passages.
 ~
-0 D 0
+0 D inside
 D0
 You see a small, dimly lit passage.
 ~
@@ -881,7 +874,7 @@ You are standing in a small passage, that is clearly intended mostly
 for the servants of the Castle. It is only dimly lit and quite narrow.
 The passage leads west, and to the east there is a small door.
 ~
-0 D 0
+0 D inside
 D1
 The door is small and uninteresting.
 ~
@@ -899,7 +892,7 @@ You are standing in the impressive Entrance Hall of the Castle.
 To the north is an exit into the Great Hall. There is also an exit
 east, and a small door to the west.
 ~
-0 D 0
+0 D inside
 D0
 You see the King's Great Hall.
 ~
@@ -926,7 +919,7 @@ The Guard Room~
 You are in a small room, evidently meant for guards currently
 not on duty. There is only one exit, back to the entrance hall.
 ~
-0 D 0
+0 D inside
 D3
 You see the Castle Entrance.
 ~
@@ -940,7 +933,7 @@ no guards here, and you sense that this part of the Castle is largely
 unused. There are stairs going up to the tower, and there is also an
 exit to the north.
 ~
-0 CD 0
+0 CD inside
 E
 stairs~
 The stairs are old, but in good repair. They lead up into the tower.
@@ -962,7 +955,7 @@ You are standing in a small passage, that is clearly intended
 mainly for the servants of the Castle. The passage leads north
 and south.
 ~
-0 D 0
+0 D inside
 D0
 You see a small, dimly lit passage.
 ~
@@ -982,7 +975,7 @@ closer than the clouds outside. The roof is beautifully painted, by
 someone who must have been a true master. The hall is very large,
 and could easily seat several hundred people at a banquet.
 ~
-0 D 0
+0 D inside
 E
 roof paintings paint~
 The paintings on the roof depict the great heroes and gods. One of
@@ -1011,7 +1004,7 @@ and could easily seat several hundred people at a banquet. To your
 north, you see King Welmar's great throne, and to the south is the
 Castle Entrance.
 ~
-0 D 0
+0 D inside
 E
 roof paintings paint~
 The paintings on the roof depict the great heroes and gods. One of
@@ -1048,7 +1041,7 @@ closer than the clouds outside. The roof is beautifully painted, by
 someone who must have been a true master. The hall is very large,
 and could easily seat several hundred people at a banquet.
 ~
-0 D 0
+0 D inside
 E
 roof paintings paint~
 The paintings on the roof depict the great heroes and gods. One of
@@ -1072,7 +1065,7 @@ A passage~
 You are standing in a passage, that leads north and south. To the south
 it leads towards one of towers.
 ~
-0 D 0
+0 D inside
 D0
 You see the small passage continue.
 ~
@@ -1088,7 +1081,7 @@ The passage~
 You are in a passage, that leads north and south. To the east there
 is an exit to the Great Hall.
 ~
-0 D 0
+0 D inside
 D0
 You see the passage continue.
 ~
@@ -1115,7 +1108,7 @@ and could easily seat several hundred people at a banquet. To your
 east, you see King Welmar's great throne, and to the west there is
 an exit to a passage.
 ~
-0 D 0
+0 D inside
 E
 roof paintings paint~
 The paintings on the roof depict the great heroes and gods. One of
@@ -1148,7 +1141,7 @@ single block of ivory, though you shiver at the thought of meeting
 the animal that died to yield a piece of that size. The Hall continues
 to the east, west and south.
 ~
-0 D 0
+0 D inside
 E
 roof paintings paint~
 The paintings on the roof depict the great heroes and gods. One of
@@ -1187,7 +1180,7 @@ and could easily seat several hundred people at a banquet. To your
 west, you see King Welmar's great throne, and to the east there is
 an exit to a small passage.
 ~
-0 D 0
+0 D inside
 E
 roof paintings paint~
 The paintings on the roof depict the great heroes and gods. One of
@@ -1216,7 +1209,7 @@ The small passage~
 You are standing in a small passage, that leads north and south.
 To the west, there is an exit into the Great Hall.
 ~
-0 D 0
+0 D inside
 D0
 The passage continues to the north.
 ~
@@ -1238,7 +1231,7 @@ The passage~
 You are standing in a north-south leading passage. There is a door
 to the east.
 ~
-0 D 0
+0 D inside
 D0
 The passage leads to a staircase.
 ~
@@ -1262,7 +1255,7 @@ There are doors to the north and west. The corridor itself is mainly
 used by servants, and lacks some of the beauty of the rest of the
 castle.
 ~
-0 D 0
+0 D inside
 D0
 There is door there!!!
 ~
@@ -1284,7 +1277,7 @@ The end of the servants' corridor~
 The corridor leads only west from here, but there is a door to
 the north.
 ~
-0 D 0
+0 D inside
 D0
 The door leads to a room intended for the butler.
 ~
@@ -1304,7 +1297,7 @@ of the weapons seem to be intended for training only, with blunt
 edges and the like, but there are some that might be useful for
 real fighting. There is a door to the north.
 ~
-0 D 0
+0 D inside
 D0
 The door is large and heavy.
 ~
@@ -1322,7 +1315,7 @@ You are standing in a small passage leading north and south. There
 is also an exit to the west, from which grunts, cheers and heavy
 blows can be heard.
 ~
-0 D 0
+0 D inside
 D0
 The passage leads north to some stairs.
 ~
@@ -1346,7 +1339,7 @@ second floor of the Castle. The stairs are made of marble, and there
 are pillars carved in the likenesses of trees with little animals running
 up and down the trunks.
 ~
-0 D 0
+0 D inside
 E
 stairs stair~
 Made out of marble, and as all the rest of the Castle made primarily
@@ -1373,7 +1366,7 @@ You are standing in a large room, that seems to house many of the
 servants. The room is full of comfortable-looking beds. There is also
 a large chest, probably containing some of the servants' belongings.
 ~
-0 D 0
+0 D inside
 E
 bed~
 The beds all look comfortable, despite the fact that this is just
@@ -1392,7 +1385,7 @@ in the servants' wing, and still it is large and comfortable; almost
 luxurious, in fact. There is a large bed and a drawer in the room.
 The only exit is via the door to the south.
 ~
-0 D 0
+0 D inside
 E
 bed~
 Looks very comfortable indeed.
@@ -1409,7 +1402,7 @@ You are standing in a very large room with bunks all over. It is
 obvious, that this is where the guards off duty spend most of their
 time, drinking and gambling or, probably, mostly sleeping.
 ~
-0 D 0
+0 D inside
 E
 bunk bunks~
 They look a bit hard, but you could sleep in them.
@@ -1427,7 +1420,7 @@ you notice that for the first time since you entered the castle,
 things are not aesthetically made. Instead it looks more functional
 and prison-like.
 ~
-0 D 0
+0 D inside
 E
 stairs stair staircase~
 They seem to be made of granite, and stretch down into a more dimly
@@ -1443,7 +1436,7 @@ S
 At a bend in the corridor~
 You are standing where the corridor bends from east to north.
 ~
-0 D 0
+0 D inside
 D0
 You see the corridor continue.
 ~
@@ -1460,7 +1453,7 @@ The corridor~
 You are standing in a long corridor, decorated with tapestries
 depicting old times and old heroes. It leads east and west.
 ~
-0 D 0
+0 D inside
 D1
 You see the corridor continue.
 ~
@@ -1477,7 +1470,7 @@ The corridor~
 You are standing in a long corridor, decorated with tapestries
 depicting old times and old heroes. It leads east and west.
 ~
-0 D 0
+0 D inside
 D1
 You see the corridor continue.
 ~
@@ -1495,7 +1488,7 @@ You are standing in a long corridor, decorated with tapestries
 depicting old times and old heroes. The corridor continues west,
 and to the north you see the luxurious guest wing.
 ~
-0 D 0
+0 D inside
 D0
 You see the guest wing.
 ~
@@ -1512,7 +1505,7 @@ In the south-east tower.~
 This part of the tower is fairly uninteresting, but it leads further
 upwards...
 ~
-0 D 0
+0 D inside
 D4
 The room at the top of the tower seems darkish for some reason.
 ~
@@ -1530,7 +1523,7 @@ You are standing in a long corridor, decorated with tapestries
 depicting old times and old heroes. It leads north and south. There
 is also an exit to the east here.
 ~
-0 D 0
+0 D inside
 D0
 You see the corridor continue.
 ~
@@ -1552,7 +1545,7 @@ By the treasure room~
 You are standing by a great iron door. The door is very large, and
 seems very solid indeed. There is a sign posted by it.
 ~
-0 D 0
+0 D inside
 E
 sign~
 TREASURE ROOM
@@ -1580,7 +1573,7 @@ however, that most of these things are too well known to be sold
 anywhere, without branding yourself as a thief, and condemning yourself
 to instant death at the hands of the Royal Guard.
 ~
-0 DN 0
+0 DN inside
 E
 painting paintings carving carvings sculptures tapestries~
 It seems they are stored here temporarily to enable changing
@@ -1598,7 +1591,7 @@ You have arrived at the part of the Castle where prominent
 guests are housed. To the east there is a large, ornamented
 door, and a somewhat smaller one leads north.
 ~
-0 D 0
+0 D inside
 D0
 The door seems to lead to a guest room.
 ~
@@ -1623,7 +1616,7 @@ room of the suite, but it is huge and tastefully decorated. All the
 furniture is not only beautiful, but also made for comfort. To the
 north, there is an exit to the bedroom, and there is a door to the west.
 ~
-0 D 0
+0 D inside
 D0
 You see the bedroom.
 ~
@@ -1640,7 +1633,7 @@ The corridor~
 You are standing in a long corridor, decorated with tapestries
 depicting old times and old heroes. It leads north and south.
 ~
-0 D 0
+0 D inside
 D0
 You see the corridor continue.
 ~
@@ -1657,7 +1650,7 @@ The Ball Room~
 You are standing in the great Ball Room. It is a truly large room,
 with a stage for an orchestra in the south-east end.
 ~
-0 D 0
+0 D inside
 D0
 You see the Ball Room.
 ~
@@ -1675,7 +1668,7 @@ Before you you see the stage. It is large enough for some 40
 musicians to play on at the same time. The Ball Room continues
 to the west and north.
 ~
-0 D 0
+0 D inside
 E
 stage~
 ~
@@ -1696,7 +1689,7 @@ You are standing in a large room. Although it is comfortable enough,
 you can tell it is not meant for any of the most illustrious guests,
 since it lacks that extreme luxury found elsewhere in the Castle.
 ~
-0 D 0
+0 D inside
 D2
 Behind the door, you see the entrance to the Guest Wing.
 ~
@@ -1709,7 +1702,7 @@ This room is dominated by the huge four-poster bed, that stands
 against the northern wall. The room is large and cosy, and the bed
 virtually begs you to lie down in it and sleep.
 ~
-0 D 0
+0 D inside
 E
 bed~
 Large, comfortable, bolstered... Invites you to sleep in it.
@@ -1726,7 +1719,7 @@ You are standing in a long corridor, decorated with tapestries
 depicting old times and old heroes. It leads north and south. There
 is an exit to the east, that leads to a large room.
 ~
-0 D 0
+0 D inside
 D0
 You see the corridor continue.
 ~
@@ -1748,7 +1741,7 @@ The Ball Room~
 You are standing in the great Ball Room. It is a truly large room,
 with a stage for an orchestra in the south-east end.
 ~
-0 D 0
+0 D inside
 D1
 You see the Ball Room.
 ~
@@ -1770,7 +1763,7 @@ The Ball Room~
 You are standing in the great Ball Room. It is a truly large room,
 with a stage for an orchestra in the south-east end.
 ~
-0 D 0
+0 D inside
 D1
 To the east, you can enter a tower.
 ~
@@ -1793,7 +1786,7 @@ You are standing in the north-eastern of the three great watch-
 towers of the Castle. To the west, you can enter the Ball Room and
 there are stairs leading up into the Tower.
 ~
-0 D 0
+0 D inside
 E
 stairs~
 The stairs are made out of granite, and seem solid enough.
@@ -1814,7 +1807,7 @@ The Grand Staircase~
 You are standing on a great staircase, that leads up and down. To
 the east, there is a large oak door, and a corridor leads south.
 ~
-0 D 0
+0 D inside
 E
 stairs~
 The stairs are made of marble, and there are pillars carved in the
@@ -1847,7 +1840,7 @@ You have entered a large, cosy living room. There is a fireplace
 with a fire burning, and a few comfortable chairs around a little
 table. There is a door to the west, and also an exit to the east.
 ~
-0 D 0
+0 D inside
 E
 fire fireplace~
 The fire is built out of logs, and seems to be able to burn for
@@ -1881,7 +1874,7 @@ works such as: 'A Treatise on the History of Midgaard and surrounding
 areas', 'Magic - A Beginner's Introduction' and many others. There is
 an exit to the west.
 ~
-0 D 0
+0 D inside
 E
 books book shelf shelves bookshelf bookshelves~
 Most of the books seem worn, as if thoroughly studied. The King
@@ -1914,7 +1907,7 @@ room is small, and the only light source is a flickering candle, on
 a cluttered table, in the middle of the room. The only obvious exit
 is back down the stairs.
 ~
-0 D 0
+0 D inside
 E
 table~
 On the table are various objects, all very strange-looking.
@@ -1937,7 +1930,7 @@ guarding. The windows are slits for bowmen, very narrow on the
 outward side and broad inwards to allow a wide shooting angle.
 The only evident exit is down the stairs again.
 ~
-0 D 0
+0 D inside
 E
 window slit~
 As you look out the windows, you are granted a view of the country..
@@ -1958,7 +1951,7 @@ north and east you see a vast mountain range, and far to the west
 a beautiful lake. A bit closer, the town of Midgaard lies at the
 end of the King's Road. The only exit you can see is down again.
 ~
-0 D 0
+0 D inside
 D5
 You see the stairs going back down to the second floor.
 ~

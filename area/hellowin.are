@@ -20,13 +20,12 @@ but same you can see than he is corking something in leaves.
 которая растет тут. Но ты замечаешь, что он что-то заныкивает в кустах...
 ~
 bear~
-AGVWZe H 1000 0
+AGVWZe DFGHZ 1000 0
 50 0 1d1+1 0d0+0 0d0+0 bite
 0 0 0 0
 0 ABCDEFGHIKLMNOPQRTXYZ 0 0
 stand stand male 10000
 H 0 small unknown
-A det DFGZe
 #34401
 tank t-34~
 @eng {DTank Abrams A1M1{w@rus {DТанк Т-34{w~
@@ -39,13 +38,12 @@ It's armor is covered by blood and squashed brains.
 Его броня заляпана мозгами и кровью тех кого он раздавил.
 ~
 human~
-AUVZ HJNOQRTbcd 0 0
+AUVZ CDEFGHJNOQRTZbcd 0 0
 96 1 1d1+29999 1d1+29999 1d1+0 blast
 -900 -900 -900 -900
 0 ABDEFGHIJLMNPQRTXY CJK S
 stand stand either 0
 EIc X giant unknown
-A det CDEFGZe
 #34403
 test~
 test~
@@ -166,7 +164,7 @@ hero helm oleg~
 First hero's helm lies here.~
 unknown~
 armor ABKTYZa AEP
-AF AF AF AF 0
+33 33 33 33 0
 91 0 2147483647 P
 A
 20 -15
@@ -204,7 +202,7 @@ fountain RTYa AP
 ягоды, по середине  -  журчит родник с кристальной чистой водой и
 маленький ручеек скрывается в глубине леса.
 ~
-0 C 3
+0 C forest
 S
 #0
 

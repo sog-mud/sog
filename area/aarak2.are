@@ -145,13 +145,12 @@ The humming commander was moving tokens representing Aarakocran
 soldiers around a map, but he pushes that aside and lunges at your throat!
 ~
 song bird~
-ABCFG HQ 0 0
+ABCFG DFHQ 0 0
 30 0 3d30+1200 1d9+250 4d6+8 crush
 -9 -9 -9 5
 CER A 0 0
 stand stand male 1000
 0 0 medium unknown
-A det DF
 #5610
 bird aarakocra commander holy~
 the glowing commander~
@@ -161,13 +160,12 @@ The commander was calculating a new backbreaking tax on an abacus, but
  he pushes that aside and lunges at your throat!
 ~
 song bird~
-ABCFG HNQ 0 0
+ABCFG DFHNQ 0 0
 30 0 3d30+1200 1d9+250 6d4+8 crush
 -9 -9 -9 5
 CER 0 0 0
 stand stand male 1000
 0 0 medium unknown
-A det DF
 #5611
 bird aarakocran warrior~
 the fierce warrior~
@@ -177,13 +175,12 @@ The proud Aarakocran warrior defends his city against all threats.  He has
 decided you are a threat.  Prepare to die, dirt dweller!
 ~
 song bird~
-AFG 0 -100 0
+AFG DF -100 0
 27 0 5d10+650 4d60+4 5d4+7 crush
 -5 -6 -6 5
 CEIR 0 0 0
 stand stand male 1000
 0 0 medium unknown
-A det DF
 #5612
 bird aarakocran guard~
 the stalwart guard~
@@ -193,13 +190,12 @@ The proud Aarakocran warrior defends his city against all threats.  He has
 decided you are a threat.  Prepare to die, dirt dweller!
 ~
 song bird~
-ABFGT 0 100 5612
+ABFGT DF 100 5612
 24 0 20d6+470 4d60+4 2d10+6 crush
 -6 -6 -6 6
 CDEIJKR 0 0 0
 stand stand male 1000
 0 0 medium unknown
-A det DF
 #5613
 bird aarakocran revolutionary castro~
 the aarakocran revolutionary~
@@ -212,13 +208,12 @@ much better off before merchant outsiders corrupt Aarakocran ideals.  You
 represent such a threat, and you can see his eyes smoldering with inner hatred.
 ~
 song bird~
-ABGH 0 100 0
+ABGH CDF 100 0
 24 0 20d8+430 4d60+4 2d10+6 crush
 -6 -6 -6 4
 E 0 0 0
 stand stand male 1000
 0 0 medium unknown
-A det CDF
 #5614
 bird aarakocra junk dealer fred~
 the junk dealer~
@@ -290,13 +285,12 @@ can still hold her own in a scrape.  The bald patches in her feathers are not a
 sign of disease but reminders of the day she slew two dragons singlehandedly.
 ~
 song bird~
-ABFG 0 -100 0
+ABFG DF -100 0
 28 0 5d10+560 4d60+40 5d4+7 crush
 -8 -8 -8 5
 CER 0 0 0
 stand stand male 1000
 0 0 medium unknown
-A det DF
 #5619
 bird aarakocran secretary~
 the secretary~
@@ -308,13 +302,12 @@ impressively, and you notice this is the first aarakocran you have seen with
 really beefy legs as a powerful KICK knocks the wind out of you.
 ~
 song bird~
-ABFG 0 -100 0
+ABFG DF -100 0
 25 0 5d10+550 4d60+40 2d10+7 crush
 -7 -7 -7 6
 CE 0 0 0
 stand stand male 1000
 0 0 medium unknown
-A det DF
 #5620
 bird aarakocra aarakocran weapons vendor~
 the weapons vendor~
@@ -531,7 +524,7 @@ some talon extenders~
 Some shiny metal talons catch your fancy.~
 steel~
 armor 0 AH
-AC BC AC A 0
+5 6 5 1 0
 5 100 800 G
 A
 19 2
@@ -780,7 +773,7 @@ a thick collar and chain~
 An empty chain and collar rest here.~
 copper~
 armor 0 AC
-AC AC AC A 0
+5 5 5 1 0
 1 1000 100 G
 #5634
 bottle potion clear~
@@ -828,7 +821,7 @@ an open-winged vest~
 You see an Aarakocran-manufacture open-winged vest here.~
 steel~
 armor AO AD
-AC AC AC A A
+5 5 5 1 1
 5 100 1000 G
 E
 vest~
@@ -842,7 +835,7 @@ a wicked, spiked shield~
 You see a shield here.~
 steel~
 armor AO AJ
-AC AC AC A A
+5 5 5 1 1
 5 100 1000 G
 A
 19 5
@@ -852,7 +845,7 @@ a cloak~
 You see a cloak here.~
 wool~
 armor A AC
-AC AC AC A A
+5 5 5 1 1
 5 100 1000 G
 #5641
 helmet~
@@ -860,7 +853,7 @@ a full-view helmet~
 You see an Aarakocran-manufacture full-view helmet here.~
 steel~
 armor AO AE
-AC A A A A
+5 1 1 1 1
 5 100 100 G
 E
 helmet~
@@ -874,7 +867,7 @@ a pair of leggings~
 You see a pair of leggings here.~
 steel~
 armor AO AF
-AC BD BD A A
+5 10 10 1 1
 5 100 1000 G
 #5643
 boots~
@@ -882,7 +875,7 @@ a pair of open-toe boots~
 You see a pair of Aarakocran-manufacture boots here.~
 snakeskin~
 armor A AG
-AC AC AC A A
+5 5 5 1 1
 17 100 800 G
 A
 17 1
@@ -898,7 +891,7 @@ a pair of talon extenders~
 You see a pair of talon extenders here.~
 tin~
 armor AO AH
-AC A A A A
+5 1 1 1 1
 5 100 1000 G
 A
 19 4
@@ -908,7 +901,7 @@ a pair of wing guards~
 You see a pair of wing guards here.~
 iron~
 armor AO AI
-AC AC AC A A
+5 5 5 1 1
 5 100 1000 G
 #5646
 cape~
@@ -916,7 +909,7 @@ a cape~
 You see a cape here.~
 snakeskin~
 armor A AK
-AC AB AB A A
+5 3 3 1 1
 5 100 1000 G
 #5647
 belt~
@@ -924,7 +917,7 @@ a belt~
 You see a belt here.~
 copper~
 armor A AL
-AC AB AB A A
+5 3 3 1 1
 3 100 1000 G
 #5648
 bracer~
@@ -932,7 +925,7 @@ a bracer~
 You see a bracer here.~
 tin~
 armor AO AM
-AC AC AC B A
+5 5 5 2 1
 5 100 1000 G
 #5649
 vest~
@@ -940,7 +933,7 @@ an open-winged vest~
 You see an Aarakocran-manufacture open-winged vest here.~
 steel~
 armor B AD
-AC AC AC AC A
+5 5 5 5 1
 5 100 1000 G
 E
 vest~
@@ -954,7 +947,7 @@ a wicked, spiked shield~
 You see a wicked, spiked shield here.~
 steel~
 armor BO AJ
-AC AC AC AC AC
+5 5 5 5 5
 5 100 1000 G
 A
 19 5
@@ -964,7 +957,7 @@ a cloak~
 You see a cloak here.~
 wool~
 armor B AC
-AC AB C A A
+5 3 4 1 1
 5 100 1000 G
 #5652
 helmet~
@@ -972,7 +965,7 @@ a full-view helmet~
 You see an Aarakocran-manufacture full-view helmet here.~
 brass~
 armor BO AE
-AC AB C A A
+5 3 4 1 1
 5 100 1000 G
 E
 helmet~
@@ -986,7 +979,7 @@ a pair of leggings~
 You see a pair of leggings here.~
 steel~
 armor BO AF
-AC AC AC AB A
+5 5 5 3 1
 5 100 1000 G
 #5654
 boots~
@@ -994,7 +987,7 @@ a pair of open-toe boots~
 You see a pair of Aarakocran-mangufacture boots here.~
 brass~
 armor B AG
-AC AB C AB A
+5 3 4 3 1
 5 110 1000 G
 A
 17 1
@@ -1010,7 +1003,7 @@ a pair of talon extenders~
 You see a pair of talon extenders here.~
 bronze~
 armor BO AH
-AC A A A 0
+5 1 1 1 0
 5 100 1000 G
 A
 19 4
@@ -1020,7 +1013,7 @@ a pair of sleeves~
 You see a pair of sleeves here.~
 steel~
 armor BO AI
-AC AB AB A A
+5 3 3 1 1
 5 100 1000 G
 #5657
 cape~
@@ -1028,7 +1021,7 @@ a cape~
 You see a cape here.~
 wool~
 armor BO AK
-AC C C A A
+5 4 4 1 1
 5 100 1000 G
 #5658
 belt~
@@ -1036,7 +1029,7 @@ a belt~
 You see a belt here.~
 tin~
 armor B AL
-AC AC AC A A
+5 5 5 1 1
 5 100 1000 G
 #5659
 bracer~
@@ -1044,7 +1037,7 @@ a bracer~
 You see a bracer here.~
 steel~
 armor BO AM
-AC AC AC A A
+5 5 5 1 1
 5 100 1000 G
 #5660
 purse~
@@ -1092,7 +1085,7 @@ some small talon extenders~
 A pair of small shiny metal talons catch your fancy.~
 iron~
 armor 0 AH
-AC AC AC AB A
+5 5 5 3 1
 17 70 700 G
 A
 19 2
@@ -1150,7 +1143,7 @@ a full-view helmet of plate~
 You see an Aarakocran-manufacture full-view helmet here.~
 steel~
 armor O AE
-AC AC AC A A
+5 5 5 1 1
 15 100 1000 G
 E
 helmet~
@@ -1164,7 +1157,7 @@ an open-winged vest~
 You see an Aarakocran-manufacture open-winged vest here.~
 snakeskin~
 armor 0 AD
-BC AC ABC A A
+6 5 7 1 1
 16 100 1000 G
 E
 vest~
@@ -1178,7 +1171,7 @@ a pair of open-toe boots~
 You see a pair of Aarakocran-mangufacture boots here.~
 brass~
 armor 0 AG
-AC BC ABC A A
+5 6 7 1 1
 5 100 1000 G
 A
 17 1
@@ -1247,7 +1240,7 @@ a leather flying helmet~
 You see an Aarakocran-manufacture leather flying helmet here.~
 steel~
 armor 0 AE
-AC BC ABC AB A
+5 6 7 3 1
 16 100 1200 G
 E
 helmet~
@@ -1260,7 +1253,7 @@ a pair of tough leather wing guards~
 You see a pair of tough leather wing guards here.~
 iron~
 armor 0 AI
-AC AC AC AB A
+5 5 5 3 1
 12 100 400 G
 #5679
 fountain water~
@@ -1308,7 +1301,7 @@ Ahh; to be in the air again, unencumbered by the cares of the material world
 and flying free above all other creatures.  You sense that the wind patterns
 are shifting, something very strange is going on below.
 ~
-0 C 9
+0 C air
 D1
 ~
 ~
@@ -1325,7 +1318,7 @@ Ahh; to be in the air again, unencumbered by the cares of the material world
 and flying free above all other creatures.  You stop paying attention to your
 location and adventuring ceases to interest you.
 ~
-0 0 9
+0 0 air
 D1
 ~
 ~
@@ -1341,7 +1334,7 @@ Ahh; to be in the air again, unencumbered by the cares of the material world
 and flying free above all other creatures.  You stop paying attention to your
 location and adventuring ceases to interest you.
 ~
-0 0 9
+0 0 air
 D1
 ~
 ~
@@ -1360,7 +1353,7 @@ The Taxidermist's Gallery~
 You gape in amazement at how incredibly lifelike some of the stuffed animals
 and trophies appear.
 ~
-0 D 0
+0 D inside
 D1
 You see the sales counter.
 ~
@@ -1373,7 +1366,7 @@ You stand in a huge temple hewn directly from the cliff wall.  Giant murals
 depict fierce Aarakocran warriors flying into battle on the tails of
 whirlwinds.  There is a small plaque at eye level.
 ~
-0 DK 1
+0 DK city
 E
 plaque~
 Slash decided when he was 17 years old to leave behind the strife and class
@@ -1419,7 +1412,7 @@ You are standing on a small ledge on the South face of the cliff.  There is
 nothing to the North, and you are totally blocked on all sides by steep cliff
 walls.
 ~
-0 C 5
+0 C mountain
 E
 stone~
 The stone looks pretty heavy.  In fact, this would be the perfect stone to
@@ -1441,7 +1434,7 @@ There is a large cave entrance to the South, and you can walk East along a
 narrow ledge.  There is nothing to the North.
    There is some (Flaming) writing on the cave entrance.
 ~
-0 C 5
+0 C mountain
 E
 wall cave entrance writing~
 The wall reads:
@@ -1477,7 +1470,7 @@ On the south cliff face~
 You are walking on a narrow East-West ledge on the south face of a steep
 cliff.  There is nothing to the North.
 ~
-0 0 5
+0 0 mountain
 D0
 You see the freedom of the air!  Ah, to soar again, free of all your cares
 gliding on thermals above the clouds...
@@ -1499,7 +1492,7 @@ Wait, this isn't the dump!  Behind all of this mess is a beaten up table.
 You see a lot of things, but nothing here is very pretty or very shiny, and you
 decide to leave.
 ~
-0 0 1
+0 0 city
 E
 lamont~
 Lamont is not here, you idiot!  He is out driving the truck.  Get back to
@@ -1514,7 +1507,7 @@ S
 Runed stall~
 This stall is painted with strange gold runes, such as triangles and eyes.
 ~
-0 0 1
+0 0 city
 D1
 ~
 ~
@@ -1533,7 +1526,7 @@ A Food vendor's stall~
 You stand before a brightly colored stall.  Small animals and large insects
 are hanging from racks all around you.
 ~
-0 0 1
+0 0 city
 D1
 ~
 ~
@@ -1554,7 +1547,7 @@ East.  A staircase has been built out of sandstone leading down, and you see
 some more stalls down there.  If you attempt to go South you will fall off the
 side of the cliff city.
 ~
-0 0 1
+0 0 city
 D1
 ~
 ~
@@ -1583,7 +1576,7 @@ A Food vendor's stall~
 You stand before a drab colored stall.  Small animals and large insects are
 hanging from racks all around you.
 ~
-0 0 1
+0 0 city
 D1
 You see the warrior's guild.
 ~
@@ -1610,7 +1603,7 @@ This building has no exit to the south, as the warriors do not like having
 their privacy violated.  You see lots of equipment to practice with, and a
 huge set of weights.
 ~
-0 CD 1
+0 CD city
 D3
 ~
 ~
@@ -1625,7 +1618,7 @@ On the south cliff face~
 You are walking on a narrow East-West ledge on the south face of a steep
 cliff.  There is nothing to the North.
 ~
-0 0 5
+0 0 mountain
 D0
 You see the freedom of the air!  Ah, to soar again, free of all your cares
 gliding on thermals above the clouds...
@@ -1646,7 +1639,7 @@ On the south cliff face~
 You are walking on a narrow East-West ledge on the south face of a steep
 cliff.  There is nothing to the North.
 ~
-0 0 5
+0 0 mountain
 D0
 You see the freedom of the air!  Ah, to soar again, free of all your cares
 gliding on thermals above the clouds...
@@ -1679,7 +1672,7 @@ A giant grizzly bear's slash *** DEMOLISHES *** you.
 collection of heads, including a roc's, a dragon's, and a minotaur's.  There
 is a large gallery to the east.
 ~
-0 D 0
+0 D inside
 D1
 ~
 ~
@@ -1706,7 +1699,7 @@ There is a large, battered anvil here and a bunch of little bits of metal
 and bronze.  Most of what the armorer is selling looks pretty old, but you
 stop to ask if he has anything newer under the counter.
 ~
-0 0 1
+0 0 city
 D1
 ~
 ~
@@ -1732,7 +1725,7 @@ You are at the bottom of the market square.  Stalls continue to your East
 and West, while dwellings lie to the Down.  To the South, you see a (Glowing)
 (Shimmering) (Pulsating) blue ball, about 10' across, hovering in the air.
 ~
-0 0 1
+0 0 city
 D1
 ~
 ~
@@ -1766,7 +1759,7 @@ You stand in front of a big beautiful bird with bright plumage.  The stall
 is painted in bright colors and features a mural of fierce bird warriors
 attacking a dragon sitting on a huge pile of gold and gems.
 ~
-0 0 1
+0 0 city
 D1
 ~
 ~
@@ -1787,7 +1780,7 @@ shop.  It doesn't look like the weaponsmith couldn't take down the stall very
 easily, as he has installed a blast furnace, a grinding wheel, and some forging
 equipment.
 ~
-0 0 1
+0 0 city
 D3
 ~
 ~
@@ -1803,7 +1796,7 @@ A stone dwelling~
 You are inside a large building constructed from standstone and mortar.  There
 is a latrine in the southeast corner.
 ~
-0 0 5
+0 0 mountain
 D1
 ~
 ~
@@ -1815,7 +1808,7 @@ You see a small wooden shack before you.  It doesn't look very well designed
 to you.  There is a big sign in front of the shack.  The sign is covered with
 what you consider chicken scratchings.
 ~
-0 0 5
+0 0 mountain
 D2
 You see a temple.
 ~
@@ -1827,7 +1820,7 @@ A stone dwelling~
 You are inside a large building constructed from standstone and mortar.  There
 is a latrine in the southeast corner.
 ~
-0 0 5
+0 0 mountain
 D1
 ~
 ~
@@ -1848,7 +1841,7 @@ A stone dwelling~
 You are inside a large building constructed from standstone and mortar.  There
 is a latrine in the southeast corner.
 ~
-0 0 5
+0 0 mountain
 D1
 ~
 ~
@@ -1870,7 +1863,7 @@ You stand in the middle of the Town Square.  Stone dwellings lie to the East
 and West, and the Bazaar lies to the Up.  There is a path to the Down.  There
 is nothing to the South.
 ~
-0 0 5
+0 0 mountain
 D1
 ~
 ~
@@ -1902,7 +1895,7 @@ A stone dwelling~
 You are inside a large building constructed from sandstone and mortar on the
 south wall, and using the north face of the canyon as the north wall.
 ~
-0 0 5
+0 0 mountain
 D1
 ~
 ~
@@ -1923,7 +1916,7 @@ A stone dwelling~
 You are inside a large building constructed from sandstone and mortar on the
 south wall, and using the north face of the canyon as the north wall.
 ~
-0 0 5
+0 0 mountain
 D3
 ~
 ~
@@ -1939,7 +1932,7 @@ You are at the end of a narrow ledge on the south face of a steep cliff.
 You are blocked to the East, but the West looks passable.   There is nothing to
 the North.
 ~
-0 0 5
+0 0 mountain
 D0
 ~
 ~
@@ -1958,7 +1951,7 @@ the south face of the valley is not reachable except from the air.
 able to find some very valuable shiny stuff.  Your heart races as you imagine
 yourself living in such splendor one day.
 ~
-0 D 1
+0 D city
 D0
 ~
 ~
@@ -1981,7 +1974,7 @@ ground Down from here, but there is no way you could reach it.  You see the
 outside of a stone building built right into the cliff face above you, but the
 climb is too steep.
 ~
-0 0 5
+0 0 mountain
 D1
 ~
 ~
@@ -2001,7 +1994,7 @@ structures do not have the natural permanence of the well built buildings or
 the traditional nests, and the residents spend most of their time keeping them
 together.
 ~
-0 0 5
+0 0 mountain
 D2
 You see the freedom of the air!  Ah, to soar again, free of all your cares
 gliding on thermals above the clouds...
@@ -2023,7 +2016,7 @@ You are on a rough stone path on the north cliff face.  Your passage East and
 West is blocked, but you may still move Up and Down.  There is nothing to the
 south.
 ~
-0 0 5
+0 0 mountain
 D2
 You see the freedom of the air!  Ah, to soar again, free of all your cares
 gliding on thermals above the clouds...
@@ -2046,7 +2039,7 @@ bigger and better booties, but the recent prosperity of the shopkeepers has
 caused operations to begin expanding again.
 You see a thin leather book tied to a string on the wall.
 ~
-0 ADK 5
+0 ADK mountain
 E
 book~
 The book is titled 'So You Want to be a Thief', by someone named Slash.
@@ -2116,7 +2109,7 @@ On the north cliff face~
 You can easily climb up to a stone building built into the shelf above you.
 You *might* be able to go down, but I wouldn't try it...
 ~
-0 0 5
+0 0 mountain
 D4
 ~
 ~
@@ -2137,7 +2130,7 @@ and sturdy geological formation.
    There are too many clouds below to see if the buzzards circle below this
 point.
 ~
-0 0 5
+0 0 mountain
 D5
 ~
 ~
@@ -2150,7 +2143,7 @@ looks like a single step in any direction would leave you heading down at a
 rapid speed.  The good news is that the cliff is so steep here you would
 probably survive your fall all the way to the bottom far below...
 ~
-0 0 5
+0 0 mountain
 D2
 You see the freedom of the air!  Ah, to soar again, free of all your cares
 gliding on thermals above the clouds...
@@ -2165,7 +2158,7 @@ half a mile.  You wish to stay here and soak up nature's beauty almost as much
 as the last guy who stopped here, and he left claw marks for at least 50' down
 the side of the crag.  You wave at his bones below and commend his good taste.
 ~
-0 0 5
+0 0 mountain
 D2
 You see the freedom of the air!  Ah, to soar again, free of all your cares
 gliding on thermals above the clouds...
@@ -2185,7 +2178,7 @@ structures do not have the natural permanence of the well built buildings or
 the traditional nests, and the residents spend most of their time keeping them
 together.
 ~
-0 0 5
+0 0 mountain
 D2
 You see the freedom of the air!  Ah, to soar again, free of all your cares
 gliding on thermals above the clouds...
@@ -2202,7 +2195,7 @@ Bend in the path~
 Actually more of a natural feature of the north cliff wall than a path, this
 bend allows you to leave Up or continue East.  There is nothing to the South.
 ~
-0 0 5
+0 0 mountain
 D1
 ~
 ~
@@ -2228,7 +2221,7 @@ together.
 You spy some footprints leading to the North, which stop suddenly right at
 the cliff wall.
 ~
-0 0 5
+0 0 mountain
 D0
 There appears to be some kind of opening in the cliff face to the north.  In
 fact, what you thought was the cliff face is a cave that is completely
@@ -2259,7 +2252,7 @@ structures have neither the natural permanence of the well built buildings or
 the strength of traditional nests, and the residents spend most of their time
 keeping these huts together.
 ~
-0 0 5
+0 0 mountain
 D3
 ~
 ~
@@ -2275,7 +2268,7 @@ The vegetation has thinned out here and you can't see much of anything
 except stone.  You way is blocked to the West, but you can continue East.
 There is nothing to the south.
 ~
-0 0 5
+0 0 mountain
 D1
 ~
 ~
@@ -2292,7 +2285,7 @@ traditional family nests which look warm and friendly.  There is none of the
 hustle and bustle of the sprawling city to the north.  You wish things looked a
 little less drab, though.  The cliff face looks impassible to the west.
 ~
-0 0 5
+0 0 mountain
 D1
 ~
 ~
@@ -2309,7 +2302,7 @@ traditional family nests which look warm and friendly.  There is none of the
 hustle and bustle of the sprawling city to the north.  You wish things looked a
 little less drab, though.
 ~
-0 0 5
+0 0 mountain
 D1
 ~
 ~
@@ -2331,7 +2324,7 @@ You feel much more secure than the last guy who tried to walk here, and you can
 still see his sun bleached bones on a small outcropping about 1500' down...
    The shelf widens to the West.
 ~
-0 0 5
+0 0 mountain
 D1
 ~
 ~
@@ -2348,7 +2341,7 @@ traditional family nests which look warm and friendly.  There is none of the
 hustle and bustle of the sprawling city to the north.  You wish things looked a
 little less drab, though.
 ~
-0 0 5
+0 0 mountain
 D1
 ~
 ~
@@ -2365,7 +2358,7 @@ traditional family nests which look warm and friendly.  There is none of the
 hustle and bustle of the sprawling city to the north.  You wish things looked a
 little less drab, though.
 ~
-0 0 5
+0 0 mountain
 D1
 ~
 ~
@@ -2382,7 +2375,7 @@ blocked to the East, and Down is much too steep.  There is nothing to the
 South.  You can probably get back up if the tree limb you are holding on to
 doesn't snap off under the weight of your armor.
 ~
-0 0 5
+0 0 mountain
 D3
 ~
 ~
@@ -2397,7 +2390,7 @@ Inside the stronghold~
 You wonder where all the valuables are kept.  You see some nice tapestries
 around, but nothing you can take home with you.
 ~
-0 D 1
+0 D city
 D1
 ~
 ~
@@ -2417,7 +2410,7 @@ Inside the stronghold~
 You wonder where all the valuables are kept.  You see some nice tapestries
 around, but nothing you can take home with you.
 ~
-0 D 1
+0 D city
 D1
 ~
 ~
@@ -2437,7 +2430,7 @@ Inside the stronghold~
 You wonder where all the valuables are kept.  You see some nice tapestries
 around, but nothing you can take home with you.
 ~
-0 D 1
+0 D city
 D1
 ~
 ~
@@ -2457,7 +2450,7 @@ Inside the stronghold~
 You wonder where all the valuables are kept.  You see some nice tapestries
 around, but nothing you can take home with you.  The corridor dead ends here.
 ~
-0 D 1
+0 D city
 D3
 ~
 ~
@@ -2469,7 +2462,7 @@ Ahh; to be in the air again, unencumbered by the cares of the material world
 and flying free above all other creatures.  You feel proud to be an Aarakocran,
 and you catch a new thermal...
 ~
-0 0 9
+0 0 air
 D0
 You see a bright white temple.
 ~
@@ -2490,7 +2483,7 @@ This corridor splits into two sections heading N and E, both sections look
 equally interesting and you have a hard time making up your mind.  It is
 obvious from your footprints that W leads out of this confusing area.
 ~
-0 D 1
+0 D city
 D0
 ~
 ~
@@ -2510,7 +2503,7 @@ This corridor splits into two sections heading N and E, both sections look
 equally interesting and you have a hard time making up your mind.  It is
 obvious from your footprints that W leads out of this confusing area.
 ~
-0 D 1
+0 D city
 D0
 ~
 ~
@@ -2530,7 +2523,7 @@ This corridor splits into two sections heading N and E, both sections look
 equally interesting and you have a hard time making up your mind.  It is
 obvious from your footprints that W leads out of this confusing area.
 ~
-0 D 1
+0 D city
 D0
 ~
 ~
@@ -2550,7 +2543,7 @@ This corridor splits into two sections heading N and E, both sections look
 equally interesting and you have a hard time making up your mind.  It is
 obvious from your footprints that W leads out of this confusing area.
 ~
-0 D 1
+0 D city
 D3
 ~
 ~
@@ -2562,7 +2555,7 @@ This corridor splits into two sections heading N and E, both sections look
 equally interesting and you have a hard time making up your mind.  It is
 obvious from your footprints that W leads out of this confusing area.
 ~
-0 D 1
+0 D city
 D4
 ~
 ~
@@ -2574,7 +2567,7 @@ This corridor splits into two sections heading N and E, both sections look
 equally interesting and you have a hard time making up your mind.  It is
 obvious from your footprints that W leads out of this confusing area.
 ~
-0 D 1
+0 D city
 D3
 ~
 ~
@@ -2586,7 +2579,7 @@ Ahh; to be in the air again, unencumbered by the cares of the material world
 and flying free above all other creatures.  You feel proud to be an Aarakocran,
 and you catch a new thermal...
 ~
-0 0 9
+0 0 air
 D0
 You see the market square.
 ~
@@ -2611,7 +2604,7 @@ Ahh; to be in the air again, unencumbered by the cares of the material world
 and flying free above all other creatures.  You stop paying attention to your
 location and adventuring ceases to interest you.
 ~
-0 0 9
+0 0 air
 D0
 ~
 ~
@@ -2627,7 +2620,7 @@ You are standing on a small ledge on the South face of the cliff.  There is
 nothing to the North, and you are totally blocked on all sides by steep cliff
 walls.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -2639,7 +2632,7 @@ This corridor splits into two sections heading N and E, both sections look
 equally interesting and you have a hard time making up your mind.  It is
 obvious from your footprints that W leads out of this confusing area.
 ~
-0 D 1
+0 D city
 D0
 ~
 ~
@@ -2659,7 +2652,7 @@ Ahh; to be in the air again, unencumbered by the cares of the material world
 and flying free above all other creatures.  You stop paying attention to your
 location and adventuring ceases to interest you.
 ~
-0 0 9
+0 0 air
 D1
 ~
 ~
@@ -2675,7 +2668,7 @@ Ahh; to be in the air again, unencumbered by the cares of the material world
 and flying free above all other creatures.  You stop paying attention to your
 location and adventuring ceases to interest you.
 ~
-0 0 9
+0 0 air
 D0
 ~
 ~
@@ -2699,7 +2692,7 @@ Ahh; to be in the air again, unencumbered by the cares of the material world
 and flying free above all other creatures.  You stop paying attention to your
 location and adventuring ceases to interest you.
 ~
-0 0 9
+0 0 air
 D0
 ~
 ~
@@ -2723,7 +2716,7 @@ Ahh; to be in the air again, unencumbered by the cares of the material world
 and flying free above all other creatures.  You stop paying attention to your
 location and adventuring ceases to interest you.
 ~
-0 0 9
+0 0 air
 D3
 ~
 ~
@@ -2743,7 +2736,7 @@ This corridor splits into two sections heading N and E, both sections look
 equally interesting and you have a hard time making up your mind.  It is
 obvious from your footprints that W leads out of this confusing area.
 ~
-0 D 1
+0 D city
 D4
 ~
 ~
@@ -2755,7 +2748,7 @@ This corridor splits into two sections heading N and E, both sections look
 equally interesting and you have a hard time making up your mind.  It is
 obvious from your footprints that W leads out of this confusing area.
 ~
-0 D 1
+0 D city
 D3
 ~
 ~
@@ -2767,7 +2760,7 @@ This corridor splits into two sections heading N and E, both sections look
 equally interesting and you have a hard time making up your mind.  It is
 obvious from your footprints that W leads out of this confusing area.
 ~
-0 D 1
+0 D city
 D4
 ~
 ~
@@ -2779,7 +2772,7 @@ Ahh; to be in the air again, unencumbered by the cares of the material world
 and flying free above all other creatures.  You stop paying attention to your
 location and adventuring ceases to interest you.
 ~
-0 0 9
+0 0 air
 D0
 ~
 ~
@@ -2807,7 +2800,7 @@ Ahh; to be in the air again, unencumbered by the cares of the material world
 and flying free above all other creatures.  You stop paying attention to your
 location and adventuring ceases to interest you.
 ~
-0 0 9
+0 0 air
 D0
 ~
 ~
@@ -2839,7 +2832,7 @@ Ahh; to be in the air again, unencumbered by the cares of the material world
 and flying free above all other creatures.  You stop paying attention to your
 location and adventuring ceases to interest you.
 ~
-0 0 9
+0 0 air
 D0
 ~
 ~
@@ -2871,7 +2864,7 @@ Ahh; to be in the air again, unencumbered by the cares of the material world
 and flying free above all other creatures.  You stop paying attention to your
 location and adventuring ceases to interest you.
 ~
-0 0 9
+0 0 air
 D0
 ~
 ~
@@ -2903,7 +2896,7 @@ Ahh; to be in the air again, unencumbered by the cares of the material world
 and flying free above all other creatures.  You stop paying attention to your
 location and adventuring ceases to interest you.
 ~
-0 0 9
+0 0 air
 D0
 ~
 ~
@@ -2927,7 +2920,7 @@ This corridor splits into two sections heading N and E, both sections look
 equally interesting and you have a hard time making up your mind.  It is
 obvious from your footprints that W leads out of this confusing area.
 ~
-0 D 1
+0 D city
 D0
 ~
 ~
@@ -2947,7 +2940,7 @@ This corridor splits into two sections heading N and E, both sections look
 equally interesting and you have a hard time making up your mind.  It is
 obvious from your footprints that W leads out of this confusing area.
 ~
-0 D 1
+0 D city
 D0
 ~
 ~
@@ -2967,7 +2960,7 @@ Ahh; to be in the air again, unencumbered by the cares of the material world
 and flying free above all other creatures.  You stop paying attention to your
 location and adventuring ceases to interest you.
 ~
-0 0 9
+0 0 air
 D1
 ~
 ~
@@ -2991,7 +2984,7 @@ Ahh; to be in the air again, unencumbered by the cares of the material world
 and flying free above all other creatures.  You stop paying attention to your
 location and adventuring ceases to interest you.
 ~
-0 0 9
+0 0 air
 D0
 ~
 ~
@@ -3019,7 +3012,7 @@ Ahh; to be in the air again, unencumbered by the cares of the material world
 and flying free above all other creatures.  You stop paying attention to your
 location and adventuring ceases to interest you.
 ~
-0 0 9
+0 0 air
 D0
 ~
 ~
@@ -3047,7 +3040,7 @@ Ahh; to be in the air again, unencumbered by the cares of the material world
 and flying free above all other creatures.  You stop paying attention to your
 location and adventuring ceases to interest you.
 ~
-0 0 9
+0 0 air
 D0
 ~
 ~
@@ -3075,7 +3068,7 @@ Ahh; to be in the air again, unencumbered by the cares of the material world
 and flying free above all other creatures.  You stop paying attention to your
 location and adventuring ceases to interest you.
 ~
-0 0 9
+0 0 air
 D3
 ~
 ~
@@ -3095,7 +3088,7 @@ This corridor splits into two sections heading N and E, both sections look
 equally interesting and you have a hard time making up your mind.  It is
 obvious from your footprints that W leads out of this confusing area.
 ~
-0 D 1
+0 D city
 D3
 ~
 ~
@@ -3106,7 +3099,7 @@ Corridor~
 This corridor looks frequently traveled, so you hunch down and try to look
 inconspicuous.
 ~
-0 D 1
+0 D city
 D1
 ~
 ~
@@ -3122,7 +3115,7 @@ Ahh; to be in the air again, unencumbered by the cares of the material world
 and flying free above all other creatures.  You stop paying attention to your
 location and adventuring ceases to interest you.
 ~
-0 0 9
+0 0 air
 D0
 ~
 ~
@@ -3150,7 +3143,7 @@ Ahh; to be in the air again, unencumbered by the cares of the material world
 and flying free above all other creatures.  You stop paying attention to your
 location and adventuring ceases to interest you.
 ~
-0 0 9
+0 0 air
 D0
 ~
 ~
@@ -3174,7 +3167,7 @@ Ahh; to be in the air again, unencumbered by the cares of the material world
 and flying free above all other creatures.  You stop paying attention to your
 location and adventuring ceases to interest you.
 ~
-0 0 9
+0 0 air
 D0
 ~
 ~
@@ -3198,7 +3191,7 @@ Ahh; to be in the air again, unencumbered by the cares of the material world
 and flying free above all other creatures.  You stop paying attention to your
 location and adventuring ceases to interest you.
 ~
-0 0 9
+0 0 air
 D0
 ~
 ~
@@ -3222,7 +3215,7 @@ Ahh; to be in the air again, unencumbered by the cares of the material world
 and flying free above all other creatures.  You stop paying attention to your
 location and adventuring ceases to interest you.
 ~
-0 0 9
+0 0 air
 D0
 ~
 ~
@@ -3242,7 +3235,7 @@ It doesn't look like there are any valuables here.  You don't understand how
 anyone could plan anything without nice things around to bring peace and
 comfort.
 ~
-0 D 1
+0 D city
 D4
 ~
 ~
@@ -3254,7 +3247,7 @@ It doesn't look like there are any valuables here.  You don't understand how
 anyone could fight anyone without nice things around to bring peace and
 comfort.
 ~
-0 D 1
+0 D city
 D4
 ~
 ~
@@ -3264,7 +3257,7 @@ S
 Empty Room~
 It doesn't look like there are any valuables here.
 ~
-0 D 1
+0 D city
 D4
 ~
 ~
@@ -3274,7 +3267,7 @@ S
 Walkway~
 It doesn't look like there are any valuables here.
 ~
-0 D 1
+0 D city
 D4
 ~
 ~
@@ -3289,7 +3282,7 @@ Captain of the Guard's office~
 It doesn't look like there are any valuables here.  You don't understand how
 anyone could work without nice things around to bring peace and comfort.
 ~
-0 D 1
+0 D city
 D1
 ~
 ~
@@ -3300,7 +3293,7 @@ Secretary's Office~
 It doesn't look like there are any valuables here.  You don't understand how
 anyone could work without nice things around to bring peace and comfort.
 ~
-0 D 1
+0 D city
 E
 stone~
 The stone is so big it looks like the hole it is filling would be big enough
@@ -3325,7 +3318,7 @@ Three way intersection~
 You see a very nice carpet leading off to the West, and a hole leads Down.
 To leave the cave complex, go Up.
 ~
-0 D 1
+0 D city
 D2
 ~
 door~
@@ -3349,7 +3342,7 @@ Strangely, this 'storage room' seems to be full of boxes of drab colored
 equipment and bland seed rations.  You wonder why they call it a storage room
 if they are not storing anything really valuable here.
 ~
-0 D 1
+0 D city
 D4
 ~
 ~
@@ -3360,7 +3353,7 @@ Corridor~
 This corridor looks frequently traveled, so you hunch down and try to look
 inconspicuous.
 ~
-0 D 1
+0 D city
 D0
 ~
 door~
@@ -3380,7 +3373,7 @@ calendars, and star charts.
    In the center of the room is a huge mosaic, made of thousands of bits of
 glass.
 ~
-0 DK 1
+0 DK city
 E
 mosaic~
 You stare in awe at the aching beauty of a quarter-completed mosaic of a huge

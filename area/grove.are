@@ -18,13 +18,12 @@ clear blue eyes you can see that He is aware of the world, and wise to its
 traps and pitfalls.
 ~
 human~
-AGHKQe HN 1000 0
+AGHKQe DHN 1000 0
 20 0 3d9+1033 20d9+100 2d7+10 none
 -4 -4 -4 6
 EIKU AB 0 0
 stand stand male 2
 0 0 medium unknown
-A det D
 #8901
 oldstyle hierophant~
 The Hierophant~
@@ -35,13 +34,12 @@ clear blue eyes you can see that She is aware of the world, and wise to its
 traps and pitfalls.
 ~
 human~
-AGHQ HN 1000 0
+AGHQ DHN 1000 0
 20 0 3d9+333 20d9+100 2d7+5 none
 -4 -4 -4 6
 EIKU 0 0 0
 stand stand female 2
 0 0 medium unknown
-A det D
 #8902
 oldstyle elder druid~
 an elder druid~
@@ -151,13 +149,12 @@ A druid is here in meditation.
 He doesn't like you bothering him, but is too polite to ask you to leave.
 ~
 human~
-AGHQ N 1000 0
+AGHQ DN 1000 0
 10 0 2d7+121 10d9+100 1d7+2 none
 1 1 1 7
 EIKU 0 0 0
 stand stand male 2
 0 0 medium unknown
-A det D
 #8910
 oldstyle druidess~
 a druidess~
@@ -166,13 +163,12 @@ A druidess is here, peering at you.
 She wonders why you are staring at her, and how you got in here.
 ~
 human~
-AGHQ N 1000 0
+AGHQ DN 1000 0
 10 0 2d7+121 10d9+100 1d7+2 none
 1 1 1 7
 EIKU 0 0 0
 stand stand female 2
 0 0 medium unknown
-A det D
 #0
 
 #OBJECTS
@@ -202,7 +198,7 @@ some black powder~
 Some strong-smelling black powder has been carelessly scattered here.~
 food~
 food 0 A
-BCDEFGHIJKLMNOPQRSTUVWXYZabcdef BCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0 0
+BCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz BCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz 0 0 0
 0 10 0 P
 E
 powder~
@@ -284,7 +280,7 @@ a brown robe~
 Some brown cloth is on the floor.~
 cloth~
 armor K AD
-BC BC BC 0 0
+6 6 6 0 0
 16 50 2300 P
 A
 12 10
@@ -358,7 +354,7 @@ can feel a strange sensation of contentedness and relief seeping through You,
 as if great burdens have been lifted from Your shoulders. From here, friendly-
 looking paths lead east and south.
 ~
-0 0 3
+0 0 forest
 D1
 The path wind its way through the tall trees, disappearing out of sight.
 ~
@@ -376,7 +372,7 @@ You are standing amidst the ancient oaks and poplars in the holy grove. You
 feel unusually happy here, as if great burdens have been lifted from Your
 shoulders. From here, pleasant-looking paths lead east, west and south.
 ~
-0 0 3
+0 0 forest
 D1
 The path wind its way through the tall trees, towards a clearing faintly seen.
 ~
@@ -401,7 +397,7 @@ seems powerfully DIFFERENT from the rest of the forest, as if something is
 severely strained in the fabric of reality here.  There is a small tablet 
 on one of the trees.
 ~
-0 C 3
+0 C forest
 E
 tablet~
 This zone has been populated by Merc.  1993
@@ -432,7 +428,7 @@ shoulders. From here, pleasant-looking paths lead east, north and south. To
 the west, through the trees, You can see a faint trail leading towards the
 eastern road.
 ~
-0 C 3
+0 C forest
 D0
 The path wind its way through the tall trees, disappearing out of sight.
 ~
@@ -465,7 +461,7 @@ holy grove to the east, north and west, while to the south a wide, sunny field
 slopes down to a sparkling lake.  Above you is a strange shimmering, almost
 like something from another world....
 ~
-0 0 3
+0 0 forest
 D0
 The path wind its way north, disappearing through the tall trees.
 ~
@@ -501,7 +497,7 @@ can feel a strange sensation of joy and calm seeping through You, as if great
 burdens have been lifted from Your shoulders. To the south, You glimpse an open
 area through the trees, while paths lead away north and west.
 ~
-0 0 3
+0 0 forest
 E
 mansion~
 The mansion is a sprawling, two-story affair with three wings, where the top
@@ -534,7 +530,7 @@ field, sloping gently down towards a bright, glittering lake. Somehow, here
 you feel an inexplicable happiness, as if the world's troubles no longer
 really matter to you.
 ~
-0 0 3
+0 0 forest
 E
 mansion~
 The mansion is a sprawling, two-story affair with three wings, where the top
@@ -566,7 +562,7 @@ sion, shimmering softly through the colors of the rainbow. You feel as if You
 could spend the rest of your life here, lying on your back and looking at the
 patterns of the clouds as they gently drift across the sky.
 ~
-0 D 2
+0 D field
 E
 mansion~
 The mansion is a sprawling, two-story affair with three wings, where the top
@@ -600,7 +596,7 @@ from the wood's edge to the north, to the softly shimmering, rainbow-colored
 mansion to the south. This place enjoys a perpetual cool, sunny summers after-
 noon.
 ~
-0 C 2
+0 C field
 E
 mansion~
 The mansion is a sprawling, two-story affair with three wings, where the top
@@ -626,7 +622,7 @@ the croquet lawn is to the north, flanked by large windows. The walls are
 panelled in oak and hung with strange paintings.  There is door in the south
 wall.
 ~
-0 CD 0
+0 CD inside
 E
 painting paintings~
 They are strange indeed, works of breathtaking precision depicting obviously
@@ -652,7 +648,7 @@ You are in the north end of a connecting hallway, tastefully decorated with
 oak paneling and the coat-of-arms of various famous nobles hung on the walls.
 The hallway leads south, and there is a door in the eastern wall.
 ~
-0 D 0
+0 D inside
 D0
 ~
 door~
@@ -674,7 +670,7 @@ shades, producing a very nice, cool effect. There is a large bed and a
 matching set of sofas, easy-chairs and a coffee table. Through the venetian
 blinds in front of the large east window you can see the edge of the grove.
 ~
-0 DJ 0
+0 DJ inside
 D3
 ~
 door~
@@ -686,7 +682,7 @@ You are standing in the south end of the hallway. There are doors in the
 elegant oak-panelled walls to the south, east and west. Many different
 coat-of-arms adorn the walls here.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -712,7 +708,7 @@ plements them. There is a large, warm waterbed and a sofa group in dark wood
 with leather upholstery, including a coffee table. Heavy brown curtains are
 pulled away from the wide windows, to reveal a nice view towards the grove.
 ~
-0 DJ 0
+0 DJ inside
 D3
 ~
 door~
@@ -728,7 +724,7 @@ along several shelves and a large combo refrigerator/freezer. A big oven and
 stove is lurking in a corner. There is some proof here that Dragon is a less
 than meticulous housekeeper... There are doors to the north and west.
 ~
-0 D 0
+0 D inside
 D0
 ~
 door~
@@ -746,7 +742,7 @@ standing forlornly in a corner suggests that this does not happen often.
 There are doors in the south and east walls, while to the west there is a
 short corridor to the greenhouse.
 ~
-0 D 0
+0 D inside
 D1
 ~
 door~
@@ -770,7 +766,7 @@ see out for all the greenery here. There is a set of easy-chairs and a glass
 coffee table. To the south, there is a wide double door out to a sunlit 
 terrace.
 ~
-0 DJ 0
+0 DJ inside
 D1
 ~
 ~
@@ -787,7 +783,7 @@ seating at least 24, with heavy, wooden chairs to match. The oak panel walls
 are filled with paintings. There are doors to the north and east, and to the
 west there is a wide double door opening out onto the sunlit terrace.
 ~
-0 D 0
+0 D inside
 E
 painting paintings~
 There are many, many beautiful paintings of famous dragons of history and
@@ -824,7 +820,7 @@ colors, while a double door leads into the house proper to the east. It is
 warm and calm here. There is a white-painted table with a parasol here,
 together with a matched set of chairs.
 ~
-0 CD 0
+0 CD inside
 D0
 ~
 door~
@@ -845,7 +841,7 @@ heart is filled with pure, peaceful thoughts.  This looks like a safe place
 to recover from the wounds of adventuring.  A faint path through the grove
 lies to the north, and you can see the eastern road to the south.
 ~
-0 0 3
+0 0 forest
 D0
 A faint trail leads deeper into the grove.
 ~
@@ -865,7 +861,7 @@ so tranquil.  The trail turns towards the east, leading into the secluded
 trees of the druids' holy grove, and a path back to the eastern road lies
 south.
 ~
-0 0 3
+0 0 forest
 D1
 You see the stately oaks and poplars of the holy grove.
 ~
@@ -885,7 +881,7 @@ and falling ...
 ...
 .
 ~
-0 C 0
+0 C inside
 S
 #0
 

@@ -54,13 +54,12 @@ with his quick wits, which keep him alive long after all his allies have
 died.
 ~
 human~
-ABGT H 600 0
+ABGT DFH 600 0
 40 0 15d10+1850 5d5+1000 4d8+13 pound
 -13 -13 -13 3
 CDEFIK 0 0 0
 stand stand male 1000
 0 0 medium unknown
-A det DF
 #29503
 agamemnon~
 King Agamemnon~
@@ -723,7 +722,7 @@ a short thrusting spear~
 A short thrusting spear is jabbed in the dirt here.~
 ~
 weapon 0 AN
-staff 5 6 stab 0
+spear 5 6 stab 0
 25 5 250 P
 A
 18 2
@@ -745,7 +744,7 @@ an ox hide shield~
 An ox hide shield rests on the ground here.~
 ~
 armor 0 AJ
-D D D 0 0
+8 8 8 0 0
 25 5 250 P
 A
 17 -10
@@ -755,7 +754,7 @@ a boar tusk helm~
 A boar tusk helm lies here.~
 ~
 armor 0 AE
-D D D 0 0
+8 8 8 0 0
 25 5 250 P
 A
 5 2
@@ -767,7 +766,7 @@ a leather jerkin~
 A leather jerkin lies in the dirt here.~
 ~
 armor 0 AD
-D D D 0 0
+8 8 8 0 0
 25 7 250 P
 #29505
 bronze breastplate~
@@ -775,7 +774,7 @@ a bronze breastplate~
 A bronze breastplate has been left here.~
 ~
 armor 0 AD
-D D D 0 0
+8 8 8 0 0
 28 15 280 P
 A
 1 2
@@ -807,7 +806,7 @@ achilles' breastplate~
 Achilles' breastplate lies here.~
 ~
 armor AGJ AD
-CD CD CD 0 0
+12 12 12 0 0
 45 5 450 P
 A
 5 3
@@ -819,7 +818,7 @@ achilles' greaves~
 Achilles' greaves lie here.~
 ~
 armor AGJ AF
-CD CD CD 0 0
+12 12 12 0 0
 45 5 450 P
 A
 2 3
@@ -831,7 +830,7 @@ achilles' helm~
 Achilles' helm lies here.~
 ~
 armor AGJ AE
-CD CD CD 0 0
+12 12 12 0 0
 45 5 450 P
 A
 4 3
@@ -875,7 +874,7 @@ a bronze shield~
 A bronze shield has been left here.~
 ~
 armor 0 AJ
-D D D 0 0
+8 8 8 0 0
 28 8 280 P
 A
 17 -13
@@ -885,7 +884,7 @@ achilles' shield~
 Achilles' shield lies here.~
 ~
 armor AGJ AJ
-CD CD CD 0 0
+12 12 12 0 0
 45 5 450 P
 A
 17 -15
@@ -895,7 +894,7 @@ a pair of sandals~
 A pair of sandals lie here.~
 ~
 armor 0 AG
-D D D 0 0
+8 8 8 0 0
 28 3 280 P
 #29517
 stone axe~
@@ -919,7 +918,7 @@ a bronze helm~
 A bronze helm with horsehair plume lies here.~
 ~
 armor 0 AE
-D D D 0 0
+8 8 8 0 0
 28 10 280 P
 A
 5 2
@@ -942,7 +941,7 @@ You are sailing across the deep seas of the north. Dawn appears, fresh and
 rosy-fingered, and catches you making your way across the wine dark stretches
 of the deep sea, sailing toward whatever adventures may wait.
 ~
-0 0 7
+0 0 noswim
 D0
 ~
 ~
@@ -962,7 +961,7 @@ You are sailing across the deep seas of the north. Dawn appears, fresh and
 rosy-fingered, and catches you making your way across the wine dark stretches
 of the deep sea, sailing toward whatever adventures may wait.
 ~
-0 0 7
+0 0 noswim
 D0
 ~
 ~
@@ -985,7 +984,7 @@ of the deep sea, sailing toward whatever adventures may wait.
 Mountains loom to the south, though you do see a point where you could 
 set ashore.
 ~
-0 0 7
+0 0 noswim
 D0
 ~
 ~
@@ -1005,7 +1004,7 @@ You are sailing across the deep seas of the north. Dawn appears, fresh and
 rosy-fingered, and catches you making your way across the wine dark stretches
 of the deep sea, sailing toward whatever adventures may wait.
 ~
-0 0 7
+0 0 noswim
 D0
 ~
 ~
@@ -1025,7 +1024,7 @@ You are sailing across the deep seas of the north. Dawn appears, fresh and
 rosy-fingered, and catches you making your way across the wine dark stretches
 of the deep sea, sailing toward whatever adventures may wait.
 ~
-0 0 7
+0 0 noswim
 D0
 ~
 ~
@@ -1041,7 +1040,7 @@ You are sailing across the deep seas of the north. Dawn appears, fresh and
 rosy-fingered, and catches you making your way across the wine dark stretches
 of the deep sea, sailing toward whatever adventures may wait.
 ~
-0 0 7
+0 0 noswim
 D0
 ~
 ~
@@ -1061,7 +1060,7 @@ You are sailing across the deep seas of the north. Dawn appears, fresh and
 rosy-fingered, and catches you making your way across the wine dark stretches
 of the deep sea, sailing toward whatever adventures may wait.
 ~
-0 0 7
+0 0 noswim
 D0
 ~
 ~
@@ -1085,7 +1084,7 @@ You are sailing across the deep seas of the north. Dawn appears, fresh and
 rosy-fingered, and catches you making your way across the wine dark stretches
 of the deep sea, sailing toward whatever adventures may wait.
 ~
-0 0 7
+0 0 noswim
 D0
 ~
 ~
@@ -1109,7 +1108,7 @@ You are sailing across the deep seas of the north. Dawn appears, fresh and
 rosy-fingered, and catches you making your way across the wine dark stretches
 of the deep sea, sailing toward whatever adventures may wait.
 ~
-0 0 7
+0 0 noswim
 D0
 ~
 ~
@@ -1133,7 +1132,7 @@ You are sailing across the deep seas of the north. Dawn appears, fresh and
 rosy-fingered, and catches you making your way across the wine dark stretches
 of the deep sea, sailing toward whatever adventures may wait.
 ~
-0 0 7
+0 0 noswim
 D0
 ~
 ~
@@ -1153,7 +1152,7 @@ You are sailing across the deep seas of the north. Dawn appears, fresh and
 rosy-fingered, and catches you making your way across the wine dark stretches
 of the deep sea, sailing toward whatever adventures may wait.
 ~
-0 0 7
+0 0 noswim
 D0
 ~
 ~
@@ -1173,7 +1172,7 @@ You are sailing across the deep seas of the north. Dawn appears, fresh and
 rosy-fingered, and catches you making your way across the wine dark stretches
 of the deep sea, sailing toward whatever adventures may wait.
 ~
-0 0 7
+0 0 noswim
 D0
 ~
 ~
@@ -1197,7 +1196,7 @@ You are sailing across the deep seas of the north. Dawn appears, fresh and
 rosy-fingered, and catches you making your way across the wine dark stretches
 of the deep sea, sailing toward whatever adventures may wait.
 ~
-0 0 7
+0 0 noswim
 D0
 ~
 ~
@@ -1221,7 +1220,7 @@ You are sailing across the deep seas of the north. Dawn appears, fresh and
 rosy-fingered, and catches you making your way across the wine dark stretches
 of the deep sea, sailing toward whatever adventures may wait.
 ~
-0 0 7
+0 0 noswim
 D0
 ~
 ~
@@ -1245,7 +1244,7 @@ You are sailing across the deep seas of the north. Dawn appears, fresh and
 rosy-fingered, and catches you making your way across the wine dark stretches
 of the deep sea, sailing toward whatever adventures may wait.
 ~
-0 0 7
+0 0 noswim
 D0
 ~
 ~
@@ -1265,7 +1264,7 @@ You are sailing across the deep seas of the north. Dawn appears, fresh and
 rosy-fingered, and catches you making your way across the wine dark stretches
 of the deep sea, sailing toward whatever adventures may wait.
 ~
-0 0 7
+0 0 noswim
 D0
 ~
 ~
@@ -1285,7 +1284,7 @@ You are sailing across the deep seas of the north. Dawn appears, fresh and
 rosy-fingered, and catches you making your way across the wine dark stretches
 of the deep sea, sailing toward whatever adventures may wait.
 ~
-0 0 7
+0 0 noswim
 D0
 ~
 ~
@@ -1309,7 +1308,7 @@ You are sailing across the deep seas of the north. Dawn appears, fresh and
 rosy-fingered, and catches you making your way across the wine dark stretches
 of the deep sea, sailing toward whatever adventures may wait.
 ~
-0 0 7
+0 0 noswim
 D0
 ~
 ~
@@ -1333,7 +1332,7 @@ You are sailing across the deep seas of the north. Dawn appears, fresh and
 rosy-fingered, and catches you making your way across the wine dark stretches
 of the deep sea, sailing toward whatever adventures may wait.
 ~
-0 0 7
+0 0 noswim
 D0
 ~
 ~
@@ -1357,7 +1356,7 @@ You are sailing across the deep seas of the north. Dawn appears, fresh and
 rosy-fingered, and catches you making your way across the wine dark stretches
 of the deep sea, sailing toward whatever adventures may wait.
 ~
-0 0 7
+0 0 noswim
 D0
 ~
 ~
@@ -1377,7 +1376,7 @@ You are sailing across the deep seas of the north. Dawn appears, fresh and
 rosy-fingered, and catches you making your way across the wine dark stretches
 of the deep sea, sailing toward whatever adventures may wait.
 ~
-0 0 7
+0 0 noswim
 D0
 ~
 ~
@@ -1399,7 +1398,7 @@ of the deep sea, sailing toward whatever adventures may wait.
 
 The coastline is visible from here, though there is no place to land.
 ~
-0 0 7
+0 0 noswim
 D0
 ~
 ~
@@ -1425,7 +1424,7 @@ of the deep sea, sailing toward whatever adventures may wait.
 
 The coastline is visible from here, though there is no place to land.
 ~
-0 0 7
+0 0 noswim
 D1
 ~
 ~
@@ -1448,7 +1447,7 @@ of the deep sea, sailing toward whatever adventures may wait.
 The coastline is visible from here, as are several black hulled ships, all
 moored to the north.
 ~
-0 0 7
+0 0 noswim
 D0
 ~
 ~
@@ -1474,7 +1473,7 @@ of the deep sea, sailing toward whatever adventures may wait.
 
 The coastline is visible from here, though there is no place to land.
 ~
-0 0 7
+0 0 noswim
 D2
 ~
 ~
@@ -1490,7 +1489,7 @@ You are sailing across the deep seas of the north. Dawn appears, fresh and
 rosy-fingered, and catches you making your way across the wine dark stretches
 of the deep sea, sailing toward whatever adventures may wait.
 ~
-0 0 7
+0 0 noswim
 D0
 ~
 ~
@@ -1512,7 +1511,7 @@ of the deep sea, sailing toward whatever adventures may wait.
 
 The coastline is visible from here, though there is no place to land.
 ~
-0 0 7
+0 0 noswim
 D2
 ~
 ~
@@ -1531,7 +1530,7 @@ of the deep sea, sailing toward whatever adventures may wait.
 The coastline is visible from here. You could moor in a small inlet to the
 east near the walls of a great city.
 ~
-0 0 7
+0 0 noswim
 D1
 ~
 ~
@@ -1548,7 +1547,7 @@ a huge plain, littered with tents and armored men, who are grouped around
 the walls of a huge city. It looks as if some fierce fighting has taken
 place here.
 ~
-0 0 7
+0 0 noswim
 D0
 ~
 ~
@@ -1565,7 +1564,7 @@ the walls of a massive city- TROY. You could ascend this way, if you have
 the means, otherwise you will have to sail round till you find a more
 convenient disemarkation point.
 ~
-0 0 7
+0 0 noswim
 D3
 ~
 ~
@@ -1582,7 +1581,7 @@ flight. If they could fly the war would have ended years ago. You chuckle
 at their misfortune and continue to travel. The walls lie to the east of you.
 Below lies the wine-dark sea.
 ~
-0 0 9
+0 0 air
 D1
 ~
 ~
@@ -1599,7 +1598,7 @@ besieging army of the Achaeans, led by Agamemnon, have sat encamped for
 years, the monotony only broken by the occasional battle. Tents lay
 everywhere, housing the many soldiers that currently call this place home.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -1616,7 +1615,7 @@ besieging army of the Achaeans, led by Agamemnon, have sat encamped for
 years, the monotony only broken by the occasional battle. Tents lay
 everywhere, housing the many soldiers that currently call this place home.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -1637,7 +1636,7 @@ besieging army of the Achaeans, led by Agamemnon, have sat encamped for
 years, the monotony only broken by the occasional battle. Tents lay
 everywhere, housing the many soldiers that currently call this place home.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -1658,7 +1657,7 @@ him, and he is punishing the Mycenaean ruler by refusing to take to the
 field, a move which is costing the Achaeans dearly, as he is their best
 warrior.
 ~
-0 D 0
+0 D inside
 D2
 ~
 ~
@@ -1669,7 +1668,7 @@ Ajax's Tent~
 This tent is the abode of the hero Ajax. He is usually not here, as he
 prefers to be out fighting or in the wine tent drinking.
 ~
-0 D 0
+0 D inside
 D2
 ~
 ~
@@ -1682,7 +1681,7 @@ besieging army of the Achaeans, led by Agamemnon, have sat encamped for
 years, the monotony only broken by the occasional battle. Tents lay
 everywhere, housing the many soldiers that currently call this place home.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -1703,7 +1702,7 @@ besieging army of the Achaeans, led by Agamemnon, have sat encamped for
 years, the monotony only broken by the occasional battle. Tents lay
 everywhere, housing the many soldiers that currently call this place home.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -1727,7 +1726,7 @@ This is the tent of King Nestor, leader of the contingent from Pylos. He
 is one of the older generals here, and one of the more wiser. However,
 he is not one of the more influential.
 ~
-0 D 0
+0 D inside
 D2
 ~
 ~
@@ -1739,7 +1738,7 @@ This is the tent of noble Odysseus, the most notable of all the heroes
 assembled for this battle. Chances are he won't be here, but rather off
 fixing up his little equine surprise for the Trojans...
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -1752,7 +1751,7 @@ besieging army of the Achaeans, led by Agamemnon, have sat encamped for
 years, the monotony only broken by the occasional battle. Tents lay
 everywhere, housing the many soldiers that currently call this place home.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -1777,7 +1776,7 @@ the trouble, for it is his wife (Helen) everyone from all over Greece is
 here to rescue. He must feel terribly embarrassed for having dragged half of
 Greece to some remote Turkish city for 9 years.
 ~
-0 D 0
+0 D inside
 D2
 ~
 ~
@@ -1790,7 +1789,7 @@ meetings. Battle plans hang on the walls and are also strewn over tables,
 chairs, cots and the floor. Agamemnon is rather irritated at having spent
 nine years in this tent, and the stress is starting to show.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -1801,7 +1800,7 @@ The Physicians' Tent~
 Here Machaon, son of Asclepius, and his brother tend to the sick and the
 wounded. They will even tend your injuries, for a fee.
 ~
-0 D 0
+0 D inside
 D3
 ~
 ~
@@ -1814,7 +1813,7 @@ besieging army of the Achaeans, led by Agamemnon, have sat encamped for
 years, the monotony only broken by the occasional battle. Tents lay
 everywhere, housing the many soldiers that currently call this place home.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -1835,7 +1834,7 @@ besieging army of the Achaeans, led by Agamemnon, have sat encamped for
 years, the monotony only broken by the occasional battle. Tents lay
 everywhere, housing the many soldiers that currently call this place home.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -1852,7 +1851,7 @@ meets, and this war is no exception. This area has been converted into
 a rudimentary arena, with lanes for running and chariot racing, circles
 for discus and shotput, and a ring for boxing.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -1869,7 +1868,7 @@ meets, and this war is no exception. This area has been converted into
 a rudimentary arena, with lanes for running and chariot racing, circles
 for discus and shotput, and a ring for boxing.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -1882,7 +1881,7 @@ besieging army of the Achaeans, led by Agamemnon, have sat encamped for
 years, the monotony only broken by the occasional battle. Tents lay
 everywhere, housing the many soldiers that currently call this place home.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -1907,7 +1906,7 @@ besieging army of the Achaeans, led by Agamemnon, have sat encamped for
 years, the monotony only broken by the occasional battle. Tents lay
 everywhere, housing the many soldiers that currently call this place home.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -1931,7 +1930,7 @@ This is the tent of Idomeneus, King of the Cretans (NOT Cretins ;P). He is
 Agamemnon's best and most trusted captain, and as such is highly respected
 by the Achaeans.
 ~
-0 D 0
+0 D inside
 D2
 ~
 ~
@@ -1943,7 +1942,7 @@ Menestheus is a prince from Athens, and leader of the Athenian contingent
 sent to the war. He is not a major player so I won't give him a major
 room description.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -1956,7 +1955,7 @@ besieging army of the Achaeans, led by Agamemnon, have sat encamped for
 years, the monotony only broken by the occasional battle. Tents lay
 everywhere, housing the many soldiers that currently call this place home.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -1980,7 +1979,7 @@ This is the tent of the Argive prince Tlepolemus, son of the legendary
 Heracles. He is a mighty warrior and a great ally of the Achaean forces.
 Notice how all these Achaeans have names ending with 's'?
 ~
-0 D 0
+0 D inside
 D2
 ~
 ~
@@ -1992,7 +1991,7 @@ This is the tent of Aias the Greater, the best archer of all the Achaeans,
 and a superb athlete. He is most probably currently competing in some
 competition even as we speak.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -2005,7 +2004,7 @@ horse. You see scattered about the clearing wooden rabbits, badgers, stoats,
 turtles, hawks and echidnas. Evidently a lot of thought went into the final
 choice for the lure...
 ~
-0 0 3
+0 0 forest
 D3
 ~
 ~
@@ -2018,7 +2017,7 @@ besieging army of the Achaeans, led by Agamemnon, have sat encamped for
 years, the monotony only broken by the occasional battle. Tents lay
 everywhere, housing the many soldiers that currently call this place home.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -2035,7 +2034,7 @@ liked of the Achaean leaders on the field. He is also a competent warrior
 and military leader, and engenders great likeness and respect from the
 troops.
 ~
-0 D 0
+0 D inside
 D1
 ~
 ~
@@ -2048,7 +2047,7 @@ bulk of the senseless conflict between Achaean and Trojan. The blood of
 thousands slain on both sides has soaked into the soil here, and there are
 weapons, armor and bones littered all about here.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -2073,7 +2072,7 @@ bulk of the senseless conflict between Achaean and Trojan. The blood of
 thousands slain on both sides has soaked into the soil here, and there are
 weapons, armor and bones littered all about here.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -2090,7 +2089,7 @@ bulk of the senseless conflict between Achaean and Trojan. The blood of
 thousands slain on both sides has soaked into the soil here, and there are
 weapons, armor and bones littered all about here.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -2111,7 +2110,7 @@ bulk of the senseless conflict between Achaean and Trojan. The blood of
 thousands slain on both sides has soaked into the soil here, and there are
 weapons, armor and bones littered all about here.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -2132,7 +2131,7 @@ bulk of the senseless conflict between Achaean and Trojan. The blood of
 thousands slain on both sides has soaked into the soil here, and there are
 weapons, armor and bones littered all about here.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -2149,7 +2148,7 @@ bulk of the senseless conflict between Achaean and Trojan. The blood of
 thousands slain on both sides has soaked into the soil here, and there are
 weapons, armor and bones littered all about here.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -2172,7 +2171,7 @@ weapons, armor and bones littered all about here.
 
 The City of Troy lies directly to the north.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -2195,7 +2194,7 @@ weapons, armor and bones littered all about here.
 
 The City of Troy lies directly to the north.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -2222,7 +2221,7 @@ weapons, armor and bones littered all about here.
 
 The City of Troy lies directly to the north.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -2243,7 +2242,7 @@ bulk of the senseless conflict between Achaean and Trojan. The blood of
 thousands slain on both sides has soaked into the soil here, and there are
 weapons, armor and bones littered all about here.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -2266,7 +2265,7 @@ weapons, armor and bones littered all about here.
 
 The City of Troy lies directly to the east.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -2285,7 +2284,7 @@ weapons, armor and bones littered all about here.
 
 The City of Troy lies directly to the east.
 ~
-0 0 2
+0 0 field
 D2
 ~
 ~
@@ -2300,7 +2299,7 @@ weapons, armor and bones littered all about here.
 
 The City of Troy lies directly to the west.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -2319,7 +2318,7 @@ weapons, armor and bones littered all about here.
 
 The City of Troy lies directly to the west.
 ~
-0 0 2
+0 0 field
 D2
 ~
 ~
@@ -2331,7 +2330,7 @@ The Gates of Ilium loom before you, tall and magnificent. They are crafted
 of solid oak bound with bronze. Surprisingly, they are closed but unlocked-
 the Achaean never thought to turn the handle...;)
 ~
-0 C 2
+0 C field
 D0
 ~
 ~
@@ -2349,7 +2348,7 @@ are concerned for the safety of their city and their families during this
 war. This state of war has lasted for nine years, with no sign of abating.
 The city gates lie to the south.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -2376,7 +2375,7 @@ war. This state of war has lasted for nine years, with no sign of abating.
 The massive walls of the city that loom to the west look strong enough to
 repel any foe, though.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -2395,7 +2394,7 @@ war. This state of war has lasted for nine years, with no sign of abating.
 The massive walls of the city that loom to the south look strong enough to
 repel any foe, though.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -2418,7 +2417,7 @@ war. This state of war has lasted for nine years, with no sign of abating.
 The massive walls of the city that loom to the south look strong enough to
 repel any foe, though.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -2441,7 +2440,7 @@ war. This state of war has lasted for nine years, with no sign of abating.
 The massive walls of the city that loom to the east look strong enough to
 repel any foe, though.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -2460,7 +2459,7 @@ war. This state of war has lasted for nine years, with no sign of abating.
 The massive walls of the city that loom to the west look strong enough to
 repel any foe, though.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -2477,7 +2476,7 @@ the walls, while a thick rug woven from materials unfamiliar to you
 covers the stone floor. There is an ornate sofa near one wall, and a table
 holding a bronze urn near the doorway.
 ~
-0 D 0
+0 D inside
 D2
 ~
 ~
@@ -2492,7 +2491,7 @@ war. This state of war has lasted for nine years, with no sign of abating.
 The massive walls of the city that loom to the south look strong enough to
 repel any foe, though. The palace lies to the north of here.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -2509,7 +2508,7 @@ the walls, while a thick rug woven from materials unfamiliar to you
 covers the stone floor. There is an ornate sofa near one wall, and a table
 holding a bronze urn near the doorway.
 ~
-0 D 0
+0 D inside
 D2
 ~
 ~
@@ -2524,7 +2523,7 @@ war. This state of war has lasted for nine years, with no sign of abating.
 The massive walls of the city that loom to the east look strong enough to
 repel any foe, though.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -2543,7 +2542,7 @@ war. This state of war has lasted for nine years, with no sign of abating.
 The massive walls of the city that loom to the west look strong enough to
 repel any foe, though.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -2563,7 +2562,7 @@ The massive walls of the city that loom to the south look strong enough to
 repel any foe, though. The walls of the magnificent palace loom to the
 north.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -2582,7 +2581,7 @@ war. This state of war has lasted for nine years, with no sign of abating.
 The massive walls of the city that loom to the east look strong enough to
 repel any foe, though.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -2601,7 +2600,7 @@ war. This state of war has lasted for nine years, with no sign of abating.
 The massive walls of the city that loom to the west look strong enough to
 repel any foe, though.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -2622,7 +2621,7 @@ the walls, while a thick rug woven from materials unfamiliar to you
 covers the stone floor. There is an ornate sofa near one wall, and a table
 holding a bronze urn near the doorway.
 ~
-0 D 0
+0 D inside
 D3
 ~
 ~
@@ -2638,7 +2637,7 @@ The massive walls of the city that loom to the south look strong enough to
 repel any foe, though. The entrance to the palace is directly north of
 you.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -2655,7 +2654,7 @@ the walls, while a thick rug woven from materials unfamiliar to you
 covers the stone floor. There is an ornate sofa near one wall, and a table
 holding a bronze urn near the doorway.
 ~
-0 D 0
+0 D inside
 D1
 ~
 ~
@@ -2670,7 +2669,7 @@ war. This state of war has lasted for nine years, with no sign of abating.
 The massive walls of the city that loom to the east look strong enough to
 repel any foe, though.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -2692,7 +2691,7 @@ of Ilium.
 
 However, you may climb the wall here at a weak point should you wish to.
 ~
-0 D 0
+0 D inside
 D2
 ~
 ~
@@ -2708,7 +2707,7 @@ This opulent abode is heavily furnished with items of bronze, gold and silver.
 There is a central throne room to the north of here. This place appears to
 be fairly deserted compared to the rest of the city.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -2724,7 +2723,7 @@ The road ends here at the sheer face of the northern wall of the city, which
 faces onto the tall, impenetrable mountains that loom north of the plains
 of Ilium.
 ~
-0 0 1
+0 0 city
 D2
 ~
 ~
@@ -2736,7 +2735,7 @@ You are strolling along the battlements of the mammoth walls of Troy. To
 the south lies the massive battlefield where Trojans have fought Achaeans
 for the last nine years. To the west lies the wine-dark sea.
 ~
-0 C 1
+0 C city
 D2
 ~
 ~
@@ -2756,7 +2755,7 @@ You are strolling along the battlements of the mammoth walls of Troy. To
 the south lies the massive battlefield where Trojans have fought Achaeans
 for the last nine years. To the west lies the wine-dark sea.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -2775,7 +2774,7 @@ for the last nine years. To the east lies the wine-dark sea.
 Progress further south is prevented by a new barricade. Evidently this
 section of the city has been hard-pressed in the siege.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -2787,7 +2786,7 @@ Here stands the throne of King Priam, and is the room in which he conducts
 business and receives visitors. To the north, east and west lie the chambers
 of his family.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -2812,7 +2811,7 @@ cushions and fabrics are draped over ornate furniture while naked slaves
 walk about pouring wine for the residents who are currently relaxing here.
 Even in times of war, the rich citizens of Ilium live well.
 ~
-0 D 0
+0 D inside
 D3
 ~
 ~
@@ -2825,7 +2824,7 @@ cushions and fabrics are draped over ornate furniture while naked slaves
 walk about pouring wine for the residents who are currently relaxing here.
 Even in times of war, the rich citizens of Ilium live well.
 ~
-0 D 0
+0 D inside
 D1
 ~
 ~
@@ -2838,7 +2837,7 @@ cushions and fabrics are draped over ornate furniture while naked slaves
 walk about pouring wine for the residents who are currently relaxing here.
 Even in times of war, the rich citizens of Ilium live well.
 ~
-0 D 0
+0 D inside
 D2
 ~
 ~

@@ -15,7 +15,7 @@ From here you see small houses and only few people.
 North of here the village street continues up to the small
 square where some people are gathered as always.
 ~
-0 0 1
+0 0 city
 D0
 You look up the village street noticing nothing special at all.
 ~
@@ -33,7 +33,7 @@ You are standing on the village street of Ofcol.
 East from here is a small alley and north you enter the village
 square. Towards the south you can leave Ofcol.
 ~
-0 0 1
+0 0 city
 D0
 The village square is as usual not overcrowded.
 ~
@@ -57,7 +57,7 @@ to talk, trade and sell items and just have a good time.
 You see a small shop to the west and the local inn to the north.
 If you leave south you go to village street.
 ~
-0 0 1
+0 0 city
 D0
 You see a local inn called 'The Ofcol Local Inn'. Looks nice.
 ~
@@ -79,7 +79,7 @@ The small alley~
 You are in a small, quiet alley.  From here you see the village street
 to the west and a small room lies to the south.
 ~
-0 0 1
+0 0 city
 D1
 You see a big intersection.
 ~
@@ -101,7 +101,7 @@ The future training room~
 This is the future site of a training room.  The only exit is north
 leading to the small alley.
 ~
-0 D 1
+0 D city
 D0
 You are able to see the small alley, really not very interesting.
 ~
@@ -114,7 +114,7 @@ You are standing in a small shop, filled with all kinds of goods.
 Here you might be able to find just the thing you're looking for.
 The only exit is east to village square.
 ~
-0 D 1
+0 D city
 D1
 The village square is as usual not overcrowded.
 ~
@@ -129,7 +129,7 @@ You can't help thinking that Ofcol is a dry city, when you see the
 many people here.
 The only exit is south to the village square.
 ~
-0 D 1
+0 D city
 D2
 The village square is as usual not overcrowded.
 ~
@@ -143,7 +143,7 @@ the time. The room has little decoration except for some pictures
 on the wall.
 You notice that there are no exits from this room.
 ~
-0 C 0
+0 C inside
 E
 friend friends~
 The list include such prominent names as : God, Lottie, Kurgan,

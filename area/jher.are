@@ -16,13 +16,12 @@ Jher looks into your eyes, and freezes you with his stare.
 You feel incredibly overwhelmed by the power in this evil man's eyes.
 ~
 human~
-ABCDG HJN 0 0
+ABCDG DFHJN 0 0
 53 0 50d10+5000 5d5+5000 6d7+21 punch
 -23 -23 -23 -1
 EFIJK 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DF
 #32701
 warg young~
 a young warg~
@@ -31,13 +30,12 @@ A young warg notices you and grins evilly.
 He has been waiting for you to practice his newly learned skill of thievery.
 ~
 unique~
-ACGHS JP 0 0
+ACGHS DFJP 0 0
 32 0 10d10+1000 5d5+1000 6d4+9 none
 -10 -10 -10 3
 EFIKN 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DF
 #32702
 knanath~
 Knanath~
@@ -46,13 +44,12 @@ Knanath, Jher's pet, bares his fangs as he lunges at your throat.
 If Knanath hasn't ripped your throat out by now, he must not be hungry.
 ~
 fido~
-ABCFG BJ 0 0
+ABCFG BDFJ 0 0
 43 0 25d10+2500 5d5+1000 3d12+15 beating
 -15 -15 -15 2
 EI 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DF
 #32703
 adult mother warg~
 warg mother~
@@ -62,13 +59,12 @@ Stay away from her children or she will protect them more viciously than you
 could imagine.
 ~
 unique~
-ACG J 0 0
+ACG DFJ 0 0
 40 0 15d10+1850 5d5+1000 4d8+13 bite
 -13 -13 -13 3
 EFI 0 0 0
 stand stand female 0
 0 0 medium unknown
-A det DF
 #32704
 warg father~
 warg father~
@@ -77,13 +73,12 @@ A large warg stands here looking for anything to attack for fun.
 Don't mess with this beast, he will kill you before you can scream.
 ~
 unique~
-ACG JP 0 0
+ACG DFJP 0 0
 42 0 25d10+2250 5d5+1000 3d12+14 bite
 -14 -14 -14 3
 EFI 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DF
 #32705
 young hungry warg~
 the young hungry warg~
@@ -106,13 +101,12 @@ A snake senses your fear with his tongue as he wraps himself around your legs.
 You see venom dripping off its fangs.
 ~
 snake~
-ABFG J 0 0
+ABFG DFJ 0 0
 20 0 3d9+333 5d5+1000 2d8+5 shbite
 -4 -4 -4 5
 FH L 0 0
 stand stand none 0
 0 0 small unknown
-A det DF
 #32707
 beorn~
 Beorn~
@@ -121,13 +115,12 @@ A huge black bear is hidden in the shadows.
 Beorn looks at you and says 'will you help me kill Jher?'
 ~
 bear~
-AG HJNPQU 0 0
+AG DFHJNPQU 0 0
 47 0 25d10+3500 5d5+1000 6d6+17 claw
 -17 -17 -17 2
 CFIK 0 0 0
 stand stand male 0
 0 0 large unknown
-A det DF
 #32708
 bat~
 the bat~
@@ -137,13 +130,12 @@ You can see his black eyes, and hear his sonic screech as he judges the
 distance between it and you.
 ~
 unique~
-AFG JT 0 0
+AFG DFJT 0 0
 34 0 10d10+1200 5d5+1000 4d7+10 charge
 -11 -11 -11 3
 F 0 0 0
 stand stand none 0
 0 0 small unknown
-A det DF
 #32709
 Htrag warg breeder~
 Htrag~
@@ -153,13 +145,12 @@ Htrag looks back at you and flashes his fangs because he knows what he and
 these new pups will feast on.
 ~
 unique~
-ABGe HJ 0 0
+ABGe DFHJ 0 0
 40 0 15d10+1850 5d5+1000 4d8+13 bite
 -13 -13 -13 3
 EFI 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DF
 #32710
 female warg breeder~
 the female warg~
@@ -168,13 +159,12 @@ A female warg shies against the far wall of the cage.
 She growls at you and screams for help.
 ~
 unique~
-ABCG J 0 0
+ABCG DFJ 0 0
 35 0 10d10+1300 5d5+1000 4d7+11 bite
 -11 -11 -11 3
 EFI 0 0 0
 stand stand female 0
 0 0 medium unknown
-A det DF
 #32711
 male warg breeder~
 the male warg~
@@ -184,13 +174,12 @@ You see a creature with huge fangs dripping drool.  He is covered in matted
 brown hair and his eyes glow.
 ~
 unique~
-ABCFG J 0 0
+ABCFG DFJ 0 0
 40 0 15d10+1850 5d5+1000 4d8+13 bite
 -13 -13 -13 3
 EFI 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DF
 #32712
 Sapth slave~
 Sapth~
@@ -199,13 +188,12 @@ Sapth, Jher's slave, looks to you for help.
 His eyes are pleading for someone to free him from Jher's bondage.
 ~
 human~
-ACGH IJ 0 0
+ACGH DFIJ 0 0
 35 0 10d10+1300 5d5+1000 4d7+11 punch
 -11 -11 -11 3
 EFI 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DF
 #32713
 left huge warg guard~
 the guard~
@@ -214,13 +202,12 @@ A huge warg stands to the left of the door guarding whatever is inside.
 Obviously a warrior, this beast was bred to fight and kill.
 ~
 unique~
-ABCGT J 0 0
+ABCGT DFJ 0 0
 40 0 15d10+1850 5d5+1000 4d8+13 pound
 -13 -13 -13 3
 CDEFIKTU 0 0 0
 stand stand male 0
 0 0 large unknown
-A det DF
 #32714
 right huge warg guard~
 the guard~
@@ -229,13 +216,12 @@ A huge warg stands to the right of the door guarding whatever is inside.
 Obviously a warrior, this beast was bred to fight and kill.
 ~
 unique~
-ABCGT J 0 0
+ABCGT DFJ 0 0
 42 0 25d10+2250 5d5+1000 3d12+14 pound
 -14 -14 -14 3
 CDEFIKTU 0 0 0
 stand stand male 0
 0 0 large unknown
-A det DF
 #32715
 shaanh~
 Shaanh~
@@ -245,13 +231,12 @@ She is wearing close to nothing and she has marks and slashes all over her
 body from some unthinkable torture.
 ~
 human~
-AGH IJQ 0 0
+AGH DFIJQ 0 0
 37 0 10d10+1500 5d5+1000 3d10+12 slap
 -12 -12 -12 3
 EIK 0 0 0
 stand stand female 0
 0 0 medium unknown
-A det DF
 #32716
 fish hideous one-eyed~
 the hideous one-eyed fish~
@@ -261,13 +246,12 @@ The fish is disgusting.  It has one clouded eye, but it can sense you're there
 because of your distinct smell.
 ~
 human~
-AGH J 0 0
+AGH DFJ 0 0
 38 0 10d10+1600 5d5+1000 5d6+12 charge
 -13 -13 -13 3
 EF 0 0 0
 stand stand none 0
 0 0 medium unknown
-A det DF
 #32717
 statue~
 A small statue~
@@ -295,7 +279,7 @@ a pile of gold~
 A small glistening pile of gold catches your eye.~
 ~
 money A A
-CEFH 0 0 0 0
+180 0 0 0 0
 18 0 180 P
 #32701
 bone key~
@@ -409,7 +393,7 @@ a diamond bracelet~
 A diamond bracelet sparkles here.~
 ~
 armor AFG AM
-BD BD BD 0 0
+10 10 10 0 0
 37 5 370 P
 A
 12 50
@@ -427,7 +411,7 @@ a glowing zapath necklace~
 A necklace carved from a blood red stone was left here.~
 ~
 armor AGJM AC
-BD BD BD 0 0
+10 10 10 0 0
 35 1 350 P
 A
 14 100
@@ -450,7 +434,7 @@ As you descend deeper into the lair, you hear the sound of howling
 wargs.  You feel a tingling in your back, and the hair on the back of your 
 neck stands on end.
 ~
-0 A 3
+0 A forest
 D1
 ~
 ~
@@ -469,7 +453,7 @@ Mouth of a Cave~
 You see an eerie crack in the mountain face.  Some strange power 
 creates an urge to explore further.
 ~
-0 A 3
+0 A forest
 D0
 ~
 ~
@@ -481,7 +465,7 @@ As you descend deeper into this realm of unknown, you sense an
 impending danger and reconsider your travel into the darkness.  Only if you 
 are among the strong will you continue.
 ~
-0 A 2
+0 A field
 D3
 ~
 ~
@@ -498,7 +482,7 @@ wargs that come to this room to feast.  These creatures are unique because
 they are continuously hungry.  This is not a good place to be.  Your gaze 
 passes from a young warg's glowing eyes to his drooling mouth.
 ~
-0 D 2
+0 D field
 D2
 ~
 ~
@@ -519,7 +503,7 @@ with bones from old kills.  One dim torch in the corner provides the only
 light.  You feel very frightened.  As you look in disgust at the bones, you can
 see the traces of a trapdoor underneath.
 ~
-0 D 2
+0 D field
 D0
 ~
 ~
@@ -536,7 +520,7 @@ a young man studying the ways of taming the wild.  Your eyes are stunned by a
 glistening pile of gold at your feet.  Once you can pry your eyes away from 
 the pile of gold, you notice the snakes slithering up and around your legs.
 ~
-0 AD 2
+0 AD field
 D4
 ~
 ~
@@ -549,7 +533,7 @@ However, the only thing you can hear is the sound of your pounding heart.  The
 hallway continues west, but you also see a crack you may be able to pass 
 through to the south.  You hear the sound of bats flapping overhead.
 ~
-0 AD 2
+0 AD field
 D1
 ~
 ~
@@ -570,7 +554,7 @@ thing you never know about caves is when you might fall into a bottomless pit.
 You hear the dripping of an underground stream, and think about the horrible 
 things that may be swimming or growing in it.
 ~
-0 ACD 2
+0 ACD field
 D0
 ~
 ~
@@ -586,7 +570,7 @@ You find youself up to your waist in muck.  The stench is overwhelming
 and you have the urge to vomit, but are afraid what creatures that might 
 attract.
 ~
-0 AD 6
+0 AD swim
 D1
 ~
 ~
@@ -604,7 +588,7 @@ S
 The Disgusting Underground Pool~
 You are waist deep in muck.  The stench is overwhelming.
 ~
-0 AD 6
+0 AD swim
 D0
 ~
 ~
@@ -618,7 +602,7 @@ S
 The Disgusting Underground Pool~
 You are waist deep in muck.  The stench is overwhelming.
 ~
-0 AD 6
+0 AD swim
 D0
 ~
 ~
@@ -632,7 +616,7 @@ S
 The Disgusting Underground Pool~
 You are waist deep in muck.  The stench is overwhelming.
 ~
-0 AD 6
+0 AD swim
 D1
 ~
 ~
@@ -648,7 +632,7 @@ The celing of this hall is getting higher.  You do not have to be in a
 crouch as you walk.  As you straighten your back and look ahead you see the 
 most hideous thing you have ever seen.
 ~
-0 CD 2
+0 CD field
 D1
 ~
 ~
@@ -664,7 +648,7 @@ You see two cages, one to the north, and one to the south.  The
 screaming and howling from the two cages blend together into a terrifying 
 sound which brings you to the border of insanity.
 ~
-0 D 2
+0 D field
 D0
 ~
 ~
@@ -689,7 +673,7 @@ door you just opened provides the fastest route to the female cage across the
 room.  These disgusting wargs never get enough of two things, food and female 
 wargs.  You may have just provided them with both.
 ~
-0 AD 2
+0 AD field
 D0
 ~
 ~
@@ -702,7 +686,7 @@ across the room.  As you entered this cage, they mistake you for a male sent
 in to proliferate the dirty warg race.  However once they realize it is only 
 you, they try to remember when the last time they ate was.
 ~
-0 AD 2
+0 AD field
 D2
 ~
 ~
@@ -714,7 +698,7 @@ This path is totally devoid of light.  As you keep walking west you
 bump into a slimy wall and by feeling determine that the tunnel now turns 
 southward.
 ~
-0 AD 2
+0 AD field
 D1
 ~
 ~
@@ -730,7 +714,7 @@ After making the turn southwards, you are dismayed to discover that
 once again the tunnel goes down.  But you are comforted because you know that 
 you have at least made it this far alive.
 ~
-0 AD 2
+0 AD field
 D0
 ~
 ~
@@ -747,7 +731,7 @@ northwards.  There is a huge wood and iron door, with a round brass handle.
 There are two large warg warriors standing guard at either side of this door.
 To get by, you will either have to kill them or sneak by and pick the lock.
 ~
-0 AD 2
+0 AD field
 D0
 ~
 ~
@@ -763,7 +747,7 @@ This must be a throne room.  The ruler of these wargs must be very
 wealthy, but he also must be cruel to live in such luxury while all his slaves 
 suffer.
 ~
-0 D 2
+0 D field
 D0
 ~
 ~
@@ -779,7 +763,7 @@ There is a huge throne made of the finest gold and glistening with the
 finest jewels.  Even with all this brightness, you are overwhelmed by darkness,
 for Jher sits on the throne.
 ~
-0 D 2
+0 D field
 D0
 ~
 ~
@@ -797,7 +781,7 @@ bedroom is dark, for Jher loves the darkness.  Above the bed you see a hole to
 another tunnel.  This was to be his escape route if was ever trapped in his 
 room.
 ~
-0 AD 1
+0 AD city
 D2
 ~
 ~
@@ -812,7 +796,7 @@ Tunnel Above Jher's Bedroom~
 This tunnel has never been used because Jher never had the need.  
 After the climb up here, it levels off and turns south.
 ~
-0 AD 3
+0 AD forest
 D2
 ~
 ~
@@ -827,7 +811,7 @@ A Small Tunnel~
 Since Jher had never used this tunnel, he never paid any attention to 
 its upkeep.  You have to crawl now, and as you crawl, you seem to be ascending.
 ~
-0 AD 3
+0 AD forest
 D0
 ~
 ~
@@ -846,7 +830,7 @@ you try to open it, you realize in disappointment that it is locked.
 However 
 if you look around, you may find something hidden that will open it.
 ~
-0 ACDN 3
+0 ACDN forest
 S
 #0
 

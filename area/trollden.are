@@ -18,13 +18,12 @@ count at least 50 teeth on this monster.  You can't tell whether it is blood or
 saliva dripping from the beast's jaw.  The guardian beast snarls again.
 ~
 human~
-ABCFG JPQ -200 0
+ABCFG DJPQ -200 0
 7 0 2d6+85 3d9+100 1d8+1 none
 4 4 4 9
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det D
 #2801
 oldstyle young troll~
 the young troll~
@@ -131,13 +130,12 @@ beast.  You can't tell whether it is blood or saliva dripping from the beast's
 jaw.  The roving beast snarls at you.
 ~
 human~
-ABCFG JP -200 0
+ABCFG DJP -200 0
 7 0 2d6+85 3d9+100 1d8+1 none
 4 4 4 9
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det D
 #2808
 oldstyle medium troll~
 the medium troll~
@@ -179,7 +177,7 @@ the troll skin~
 The filthy hide of a beast is laying here.~
 skin~
 armor 0 AK
-AC AC AC 0 0
+5 5 5 0 0
 12 200 1380 P
 A
 1 1
@@ -208,7 +206,7 @@ a leather belt~
 An old leather belt is left on the floor.~
 leather~
 armor G AL
-BC BC BC 0 0
+6 6 6 0 0
 15 50 1050 P
 E
 leather belt~
@@ -239,7 +237,7 @@ Wastedump~
 This room is filled with bone shards and fragments.  Something (or things)
 very big lives here.  A small plaque is on the wall.
 ~
-0 AD 0
+0 AD inside
 E
 plaque~
 This zone (trollden) is created by MERC for any MERC Mud.
@@ -263,7 +261,7 @@ insects crawling up them.  The resident is definitely uncivilized.  Half-eaten
 and rotting body parts scatter the floor, each having its own colony of flies,
 worms, and maggots.
 ~
-0 AD 0
+0 AD inside
 E
 Half-eaten body rotting corpse~
 YUCK!  You find worms crawling in and out this poor unfortunate former human.
@@ -280,7 +278,7 @@ Troll's Living Room~
 This small cave opens to the north, south, east, and west.  You are
 overcome by the stench and consider turning around.
 ~
-0 AD 0
+0 AD inside
 D0
 There is a trail of bone shards and fragments leading north.
 ~
@@ -311,7 +309,7 @@ The walls are covered with blood (and body parts!?!?).  Plastered on the far
 wall you see what looks like a human arm.  A half-eaten body lies here with
 its chest ripped out.  The predator seems disinterested in it.
 ~
-0 AD 0
+0 AD inside
 E
 arm rotting~
 This reminds you of what a baby would do to its formula during dinnertime,
@@ -332,7 +330,7 @@ orcs, (and humans?) strewn across the floor.  There is a larger, more
 prominent pile of rotten parts over in a corner.  It seems to have been
 flattened by something.
 ~
-0 ACD 5
+0 ACD mountain
 D0
 You welcome the fresh breeze coming from the north, but wrinkle your nose when
 the stench bears down on you once more.

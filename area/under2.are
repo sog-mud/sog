@@ -18,13 +18,12 @@ obeyed.  They are just that, huge eyes that float above the ground.  The
 eye has a dark brown shell, with a huge pupil that never seems to blink.
 The pupil is a very dark green and takes in every action you do. ~
 unique~
-A J 0 0
+A CDEFJ 0 0
 32 0 10d10+1000 5d5+1000 6d4+9 none
 -10 -10 -10 3
 EF 0 0 0
 stand stand none 0
 0 0 medium unknown
-A det CDEF
 #16002
 floating eye~
 The floating eye~
@@ -36,13 +35,12 @@ others.  The eye's pupil is a very dark grey and you can't tell where it is
 focused.
 ~
 unique~
-A J -350 0
+A DJ -350 0
 18 0 3d9+283 5d5+1000 2d7+4 none
 -3 -3 -3 6
 EF 0 0 0
 stand stand none 0
 0 0 medium unknown
-A det D
 #16003
 prisoner~
 The prisoner~
@@ -54,13 +52,12 @@ stares at you and does nothing else.  It looks as if he has lost the will to
 live, you wonder what the enforcers did to him.
 ~
 human~
-AB J -200 0
+AB CJ -200 0
 18 0 3d9+283 5d5+1000 2d7+4 punch
 -3 -3 -3 6
 EIK 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det C
 #16004
 great enforcer eye~
 The great enforcing eye~
@@ -72,13 +69,12 @@ The pupil of this eye is a very deep red.  Looking at it makes you slightly
 dizzy.
 ~
 unique~
-A J 0 0
+A CDEFJ 0 0
 43 0 25d10+2500 5d5+1000 3d12+15 none
 -15 -15 -15 2
 EF 0 0 0
 stand stand none 0
 0 0 medium unknown
-A det CDEF
 #16005
 beholder eye~
 The huge beholder~
@@ -92,13 +88,12 @@ resides in the central area.  A large mouth with razor sharp teeth lies below
 this huge eye.  The body is protected by a hard chitinous covering.
 ~
 unique~
-AB J 0 0
+AB CDEFJ 0 0
 50 0 50d10+4250 5d5+5000 5d8+19 bite
 -20 -20 -20 0
 EF 0 0 0
 stand stand none 0
 0 0 medium unknown
-A det CDEF
 #16006
 beholder~
 The beholder~
@@ -110,13 +105,12 @@ seems to disrupt your casting abilities.  This beholder lives in this city and
 masterminds many evil operations.
 ~
 unique~
-ABC HJ -1000 0
+ABC CDEFHJ -1000 0
 49 0 50d10+4000 5d5+1000 4d10+18 charge
 -19 -19 -19 1
 EF 0 0 0
 stand stand none 0
 0 0 medium unknown
-A det CDEF
 #16007
 svirfneblin deep gnome~
 The svirfneblin~
@@ -127,13 +121,12 @@ the only real difference is the fact that this gnome's skin is a brownish grey
 and he is going slightly bald.
 ~
 gnome~
-AC 0 -500 0
+AC E -500 0
 19 0 3d9+308 5d5+1000 2d7+5 punch
 -4 -4 -4 5
 EIKR 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det E
 #16008
 drow trader~
 The drow trader~
@@ -144,13 +137,12 @@ with a purpose to sell his goods.  Although he looks skinny he looks very
 deadly and quick.
 ~
 human~
-A J -750 0
+A DJ -750 0
 16 0 3d9+233 5d5+1000 2d6+4 pound
 -2 -2 -2 6
 EIK 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det D
 #16009
 dwarf duergar~
 The duergar~
@@ -161,13 +153,12 @@ He wears clothing that is a dark grey, he seems to blend into his
 surroundings.
 ~
 dwarf~
-A 0 -600 0
+A C -600 0
 21 0 4d10+360 5d5+1000 4d4+5 pound
 -5 -5 -5 5
 EIK 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det C
 #16010
 necromancer mage~
 The necromancer~
@@ -177,13 +168,12 @@ You turn your gaze on a necromancer who seems to have power flowing
 through every one of her movements.  Her visage is gaunt and strained, it
 seems as if at every moment she is concentrating on a spell of some sort. ~
 human~
-AB J -150 0
+AB DJ -150 0
 43 0 25d10+2500 5d5+1000 3d12+15 punch
 -15 -15 -15 2
 EIK 0 0 0
 stand stand female 0
 0 0 medium unknown
-A det D
 #16011
 behir~
 The behir~
@@ -196,13 +186,12 @@ crocodilian than snake-like.  The scales are ultramarine with bands of
 grey-brown.  The belly is pale blue.
 ~
 snake~
-AB J -100 0
+AB DJ -100 0
 38 0 10d10+1600 5d5+1000 5d6+12 bite
 -13 -13 -13 3
 EF L 0 0
 stand stand none 0
 0 0 medium unknown
-A det D
 #16012
 fighter~
 The fighter~
@@ -215,13 +204,12 @@ whatever the reason is the fighter doesn't seem that happy that you are
 staring at him.
 ~
 human~
-ABT J -750 0
+ABT CJ -750 0
 43 0 25d10+2500 5d5+1000 3d12+15 pound
 -15 -15 -15 2
 CEIK 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det C
 #16013
 high priest~
 A high priest of Xevior~
@@ -232,13 +220,12 @@ shimmer in and out of existence much like a mirage.  He bears the design
 of Xevior on his forehead.
 ~
 human~
-AB HJ -666 0
+AB CDEFHJ -666 0
 43 0 25d10+2500 5d5+1000 3d12+15 slap
 -15 -15 -15 2
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det CDEF
 #16014
 lizard man~
 The lizard man~
@@ -249,13 +236,12 @@ little scales and seems to be light green in colour.  He stares at you as you
 look at him.  Ready for any move you may make on him.
 ~
 lizard~
-A J -600 0
+A DJ -600 0
 16 0 3d9+233 5d5+1000 2d6+4 bite
 -2 -2 -2 6
 EIKR 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det D
 #16015
 purple worm~
 The purple worm~
@@ -300,13 +286,12 @@ hands he wears a pair of gauntlets that bear the beholders symbol, an eye
 with ten eyestalks around it.
 ~
 human~
-AG J -750 0
+AG DFJ -750 0
 43 0 25d10+2500 5d5+1000 3d12+15 pound
 -15 -15 -15 2
 EF 0 0 0
 stand stand none 0
 0 0 medium unknown
-A det DF
 #16018
 beholder legionnaire~
 The beholder legionnaire~
@@ -319,13 +304,12 @@ looks straight at you and you see glowing red eyes.  This figure is a
 githzerai!  You wonder how that happened.
 ~
 human~
-AG J -850 0
+AG DFJ -850 0
 46 0 25d10+3250 5d5+1000 6d6+16 pound
 -16 -16 -16 2
 EF 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DF
 #16019
 beholder attendant~
 The supreme attendant~
@@ -337,13 +321,12 @@ leave him in peace.  He holds himself with confidence and you realise it
 would no easy matter to defeat him.
 ~
 human~
-AB J -900 0
+AB DFJ -900 0
 48 0 25d10+3750 5d5+1000 6d6+18 pound
 -18 -18 -18 1
 EF 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DF
 #16020
 grell brain~
 The grell~
@@ -371,13 +354,12 @@ and you get the feeling if you do anything destructive or stupid he will
 make you pay.
 ~
 human~
-ABTe JN 0 0
+ABTe CDJN 0 0
 95 0 50d10+22500 5d5+5000 12d15+68 pound
 -71 -71 -71 -37
 EFIKN 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det CD
 #16022
 patron duergar~
 The duergar patron~
@@ -389,13 +371,12 @@ easily pick you up.  You figure he frequents the Gemstone since he just
 seems to fit in.
 ~
 human~
-AG J -500 0
+AG EJ -500 0
 11 0 2d8+134 5d5+100 1d10+2 punch
 1 1 1 7
 EIK 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det E
 #16023
 patron drow~
 The drow patron~
@@ -404,13 +385,12 @@ A drow sits here quietly minding his own business
 The drow doesn't seem to be looking at anything at all.  His dark skin
 blends in with the murky lighting.  The drow looks quick and deadly. ~
 human~
-AB J -600 0
+AB DJ -600 0
 13 0 2d10+170 5d5+100 2d5+3 punch
 -1 -1 -1 6
 EIK 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det D
 #16024
 patron human~
 The human patron~
@@ -421,13 +401,12 @@ shape, the only thing going for him is the fact that he looks strong.  He has
 a gut that hangs out right over his belt, and a few scars on his face
 ~
 human~
-AG J -250 0
+AG EJ -250 0
 14 -1 2d10+190 5d5+100 1d12+3 punch
 -1 -1 -1 6
 EIK 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det E
 #16025
 adventurer caris~
 Caris~
@@ -439,13 +418,12 @@ good looking.  His eyes are green and seem to hold the key to power in
 them.
 ~
 human~
-AB J 0 0
+AB EJ 0 0
 22 0 5d10+400 5d5+1000 4d4+6 punch
 -5 -5 -5 5
 EIK 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det E
 #16026
 adventurer antryg~
 Antryg~
@@ -454,13 +432,12 @@ Antryg sits here sipping on his beer
 Antryg is dressed in long robes that cover up his body.  You can't tell how
 built he is, but you do know he looks very deadly and dangerous ~
 human~
-AB J 0 0
+AB EJ 0 0
 22 0 5d10+400 5d5+1000 4d4+6 punch
 -5 -5 -5 5
 EIK 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det E
 #16027
 gremlin form~
 The gremlin~
@@ -557,13 +534,12 @@ long with oddly distorted features.  The eyes are milky-white, vertical
 ovals of large size.
 ~
 human~
-AB HJ -999 0
+AB DFHJ -999 0
 45 0 25d10+3000 5d5+1000 8d4+16 pound
 -15 -15 -15 2
 EIK 0 0 0
 stand stand none 0
 0 0 medium unknown
-A det DF
 #16033
 mage~
 The mage~
@@ -574,13 +550,12 @@ then found out just how little his own power was.  The bodak sucked his
 life away and left him as this husk, skin that clings to the bones.  The mage
 stares at you, his eyes bloodshot and sunken into their sockets. ~
 human~
-ABF 0 -500 0
+ABF D -500 0
 38 0 10d10+1600 5d5+1000 5d6+12 magic
 -13 -13 -13 3
 EIK 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det D
 #16034
 iron golem~
 The iron golem~
@@ -590,13 +565,12 @@ This looks to be an iron statue of a human.  The statue stands a good
 fifteen feet tall.  In fact it almost looks as if it can move.  You then glance
 at it's eyes and notice with a shock that they are watching you. ~
 golem~
-AB J 0 0
+AB DJ 0 0
 40 0 15d10+1850 5d5+1000 4d8+13 pound
 -13 -13 -13 3
 EFNU 0 0 0
 stand stand none 0
 0 0 medium unknown
-A det D
 #16035
 stone golem~
 The stone golem~
@@ -607,13 +581,12 @@ looks powerful enough to rip off your head without straining.  The statue
 looks as if it is watching you.
 ~
 golem~
-AB J 0 0
+AB DJ 0 0
 39 0 15d10+1700 5d5+1000 5d6+13 pound
 -13 -13 -13 3
 EFNU 0 0 0
 stand stand none 0
 0 0 medium unknown
-A det D
 #16036
 human warlord itreres~
 Itreres~
@@ -640,13 +613,12 @@ This is a small imp who has become the familiar of the bodak.  He is the
 eyes and ears of the bodak, if the bodak so desires.
 ~
 human~
-ABG BJPQ -750 0
+ABG BDFJPQ -750 0
 39 0 15d10+1700 5d5+1000 5d6+13 charge
 -13 -13 -13 3
 EF 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DF
 #16038
 minor demon babau~
 The babau~
@@ -689,13 +661,12 @@ thing looks like a large blob that has eyes and mouths all over it, the blob
 is basically earthy in colour.
 ~
 unique~
-ACF BJQ -1000 0
+ACF BEJQ -1000 0
 41 0 25d10+2000 5d5+1000 4d8+14 charge
 -14 -14 -14 3
 EF 0 0 0
 stand stand none 0
 0 0 medium unknown
-A det E
 #16041
 worker female~
 The worker of the night~
@@ -1073,13 +1044,12 @@ retired adventurer and can defeat any mortal who would be idiotic enough
 to attack him.
 ~
 human~
-ABTe J 0 0
+ABTe CJ 0 0
 95 0 50d10+22500 5d5+5000 12d15+68 slash
 -71 -71 -71 -37
 CEFIJK 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det C
 #16066
 drow adventurer~
 Prax~
@@ -1088,13 +1058,12 @@ A drow adventurer sits with his party watching you.
 This adventurer's name is well known in this establishment, he goes by the
 name Prax.  He is an accomplished mage, and seems to breathe magic. ~
 human~
-AB J -500 0
+AB DJ -500 0
 28 0 6d12+703 5d5+1000 2d12+8 pound
 -8 -8 -8 4
 EIK 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det D
 #16067
 drow warrior~
 Thespan~
@@ -1134,13 +1103,12 @@ the threshold of becoming powerful, no easy feat in the Underdark.  She is
 clearly very intelligent and cunning.
 ~
 human~
-ABR J -600 0
+ABR DJ -600 0
 16 0 3d9+233 5d5+1000 2d6+4 punch
 -2 -2 -2 6
 EIK 0 0 0
 stand stand female 0
 0 0 medium unknown
-A det D
 #16070
 gnome thief~
 Anmictes~
@@ -1203,13 +1171,12 @@ shop even while others have tried to take it from him.  He has a very
 profitable business going.
 ~
 human~
-ABRe J 0 0
+ABRe DJ 0 0
 50 0 50d10+4250 5d5+5000 5d8+19 magic
 -20 -20 -20 0
 EIK 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det D
 #16074
 drow zae'tres~
 Zae'tres~
@@ -1221,13 +1188,12 @@ there would be a profitable trade in selling arms, especially drow arms to
 those who visit this unique city.
 ~
 human~
-ABTe J 0 0
+ABTe DJ 0 0
 95 0 50d10+22500 5d5+5000 12d15+68 pound
 -71 -71 -71 -37
 CDEFIJK 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det D
 #16075
 duergar Raesarnt~
 Raesarnt~
@@ -1239,13 +1205,12 @@ obviously has been through a lot in his life.  He walks with a quiet
 confidence of one who has seen everything and knows nothing can best
 him. ~
 human~
-ABTe J 0 0
+ABTe DJ 0 0
 95 0 50d10+22500 5d5+5000 12d15+68 pound
 -71 -71 -71 -37
 CDEFIJK 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det D
 #16076
 satori human~
 Satori~
@@ -1256,13 +1221,12 @@ rumoured that she killed all her rivals by murdering them while they slept.
 She is a beautiful lady who always gets her way.
 ~
 human~
-ABTe J -999 0
+ABTe DJ -999 0
 40 0 15d10+1850 5d5+1000 4d8+13 slash
 -13 -13 -13 3
 EIK 0 0 0
 stand stand female 0
 0 0 medium unknown
-A det D
 #16077
 jiestis~
 Jiestis~
@@ -1275,13 +1239,12 @@ overlook, yet he seems to be very very powerful, not a person to mess
 with.
 ~
 human~
-ABe J 0 0
+ABe DJ 0 0
 49 0 50d10+4000 5d5+1000 4d10+18 pound
 -19 -19 -19 1
 EIK 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det D
 #16078
 svirfneblin gnome~
 The svirfneblin~
@@ -1372,13 +1335,12 @@ and knows who to pick on.  He is lean but covered in muscles, with many
 scars from countless fights.
 ~
 human~
-AH J -600 0
+AH DJ -600 0
 18 0 3d9+283 5d5+1000 2d7+4 punch
 -3 -3 -3 6
 EIK 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det D
 #16084
 rogue~
 The rogue~
@@ -1389,13 +1351,12 @@ guild.  He only has to make his name even and bigger, and thus he is
 willing to take greater risks.
 ~
 human~
-AHS JQ -700 0
+AHS DJQ -700 0
 19 0 3d9+308 5d5+1000 2d7+5 punch
 -4 -4 -4 5
 EIKN 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det D
 #16085
 sharper~
 The sharper~
@@ -1406,13 +1367,12 @@ he is proud to be in the guild's main building.  He will defend the guild
 with his life.
 ~
 human~
-ABFS 0 -500 0
+ABFS D -500 0
 21 0 4d10+360 5d5+1000 4d4+5 slash
 -5 -5 -5 5
 EIKN 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det D
 #16086
 magsman thief~
 The magsman~
@@ -1423,13 +1383,12 @@ his ability to both kill and steal.  He lives in the guild where the head thief
 can watch him.
 ~
 human~
-ABS J -500 0
+ABS DJ -500 0
 23 0 5d10+450 5d5+1000 3d6+6 punch
 -6 -6 -6 4
 EIKN 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det D
 #16087
 master thief~
 The master thief~
@@ -1440,13 +1399,12 @@ silk and has many items of jewellery.  The thief movements are as fluid as
 water, he seems to flow rather than move.
 ~
 human~
-ABS 0 -700 0
+ABS DEF -700 0
 25 0 5d10+550 5d5+1000 2d10+7 slap
 -7 -7 -7 4
 EIKN 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DEF
 #16088
 head thief~
 The head thief~
@@ -1457,13 +1415,12 @@ he has a quiet certainty about him, all his movements are precise and
 calculated.  The thief has a cunning that made him the head of this guild,
 and he makes sure non of the other thieves gets near him in power. ~
 human~
-ABS 0 -1000 0
+ABS DEF -1000 0
 47 0 25d10+3500 5d5+1000 6d6+17 pound
 -17 -17 -17 2
 EFIKN 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DEF
 #16089
 mage~
 Meliadus~
@@ -1473,13 +1430,12 @@ This is the thieve's guild main mage.  He is the only one who power
 anywhere near that of the head's.  Meliadus is dressed in a long flowing
 robe and lights the room with a rob shaped like a hand holding an orb. ~
 human~
-ABR HJ -500 0
+ABR DEFHJ -500 0
 40 0 15d10+1850 5d5+1000 4d8+13 magic
 -13 -13 -13 3
 EIK 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DEF
 #16090
 trainer~
 The trainer~
@@ -1490,13 +1446,12 @@ increase in ability and skill.  He is also the only member of the guild who
 is stronger than the leader.
 ~
 human~
-ABKS N 0 0
+ABKS DN 0 0
 50 0 50d10+4250 5d5+5000 5d8+19 slash
 -20 -20 -20 0
 EIKN 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det D
 #16091
 bravo assassin~
 The bravo~
@@ -1522,13 +1477,12 @@ street.  You can barely make out his form as he moves silently, looking for
 the opening.
 ~
 human~
-AG JPQ -999 0
+AG DJPQ -999 0
 21 0 4d10+360 5d5+1000 4d4+5 pound
 -5 -5 -5 5
 EIKN 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det D
 #16093
 thug assassin~
 The thug~
@@ -1538,13 +1492,12 @@ This assassin is very dangerous, he is built and strong.  He flits in and out
 of the shadows.  As an assassin he has the capability of nailing you with a
 critical hit, watch your back and don't hang around. ~
 human~
-AG JPQ -999 0
+AG DJPQ -999 0
 22 0 5d10+400 5d5+1000 4d4+6 pound
 -5 -5 -5 5
 EIKN 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det D
 #16094
 killer assassin~
 The killer~
@@ -1555,13 +1508,12 @@ survive the first hit, you may be able to kill him.  Do not be deceived by
 the match up, his strike is deadly.
 ~
 human~
-AG JQ -999 0
+AG DJQ -999 0
 23 0 5d10+450 5d5+1000 3d6+6 pound
 -6 -6 -6 4
 EIKN 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det D
 #16095
 assassin~
 The assassin~
@@ -1572,13 +1524,12 @@ who match up with the power of the assassin.  Should you take the time to
 read all of this, I caution you to move right away.
 ~
 human~
-AG J -999 0
+AG DJ -999 0
 25 0 5d10+550 5d5+1000 2d10+7 pound
 -7 -7 -7 4
 EIKN 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det D
 #16096
 expert assassin~
 The expert assassin~
@@ -1589,13 +1540,12 @@ assassin is sheathed completely in black.  Wearing a mask you can not tell
 what this assassin really looks like.
 ~
 human~
-AG J -999 0
+AG DJ -999 0
 27 0 5d10+650 5d5+1000 5d4+7 pound
 -8 -8 -8 4
 EIKN 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det D
 #16097
 senior assassin~
 The senior assassin~
@@ -1606,13 +1556,12 @@ long to write out.  One of the most powerful assassins of the land, he can
 take out almost foe.
 ~
 human~
-AG J -999 0
+AG DJ -999 0
 29 0 6d12+778 5d5+1000 2d12+8 pound
 -9 -9 -9 3
 EIKN 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det D
 #16098
 prime assassin~
 The prime assassin~
@@ -1623,13 +1572,12 @@ beyond just fighting, he is versed in the art of death.  He has practised
 many long hours to learn how to hit the critical spot.
 ~
 human~
-AG J -999 0
+AG DJ -999 0
 31 0 6d12+928 5d5+1000 4d6+9 pound
 -10 -10 -10 3
 EIKN 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det D
 #16099
 guildmaster assassin~
 The guildmaster~
@@ -1638,13 +1586,12 @@ An assassin of awesome repute stands here debating to kill you
 This is the most powerful assassin in the realm, he has the ability to kill
 any mortal.  His price is extremely high, but he has never failed. ~
 human~
-AG J -999 0
+AG DJ -999 0
 46 0 25d10+3250 5d5+1000 6d6+16 pound
 -16 -16 -16 2
 EIKN 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det D
 #16100
 assassin trainer~
 The trainer~
@@ -1654,13 +1601,12 @@ This is a figure of extreme power.  He can defeat anything that walks the
 land and is mortal.
 ~
 human~
-ABK JN 0 0
+ABK DJN 0 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
 EIKN 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det D
 #16101
 darken beast~
 The darken beast~
@@ -1672,13 +1618,12 @@ pulsating through them.  The beast's eyes are a dirty reddish colour and the
 focus right at you.
 ~
 bat~
-AG J -500 0
+AG FJ -500 0
 44 0 25d10+2750 5d5+1000 8d4+15 charge
 -15 -15 -15 2
 EIK 0 0 0
 stand stand none 0
 0 0 medium unknown
-A det F
 #16102
 skyzorr'n~
 The skyzorr'n~
@@ -1693,13 +1638,12 @@ developed pincer-hands on the two uppermost and dagger-like claws on
 the two lower ones.
 ~
 unique~
-AG J -600 0
+AG FJ -600 0
 45 0 25d10+3000 5d5+1000 8d4+16 claw
 -15 -15 -15 2
 EIK 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det F
 #16103
 dretch demon~
 The dretch~
@@ -1712,13 +1656,12 @@ slanted downward and the nose appears to be squashed.  The mouth is
 slack and slobbering with many small fangs.
 ~
 unique~
-AG J -800 0
+AG FJ -800 0
 46 0 25d10+3250 5d5+1000 6d6+16 slash
 -16 -16 -16 2
 EFNU 0 0 0
 stand stand none 0
 0 0 medium unknown
-A det F
 #16104
 platinum golem statue~
 The platinum golem~
@@ -1778,13 +1721,12 @@ darkness between you and him and penetrates into your mind.  You can
 tell that this man is extremely powerful.
 ~
 human~
-AGT HJ 0 0
+AGT DHJ 0 0
 49 0 50d10+4000 5d5+1000 4d10+18 pound
 -19 -19 -19 1
 EFIK 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det D
 #16108
 xaren~
 The xaren~
@@ -1798,13 +1740,12 @@ you are two large eyes.  The skin of this creature looks just like rock and
 thus it seems to fade into the background.
 ~
 unique~
-AB J -500 0
+AB DJ -500 0
 48 0 25d10+3750 5d5+1000 6d6+18 claw
 -18 -18 -18 1
 EFIK 0 0 0
 stand stand none 0
 0 0 medium unknown
-A det D
 #16109
 cloaker cloak~
 The cloaker~
@@ -1818,13 +1759,12 @@ impossible to distinguish from a real cloak.  In the middle of the front is a
 large gaping mouth and two glowing eyespots.
 ~
 unique~
-AB J -999 0
+AB FJ -999 0
 48 0 25d10+3750 5d5+1000 6d6+18 charge
 -18 -18 -18 1
 EFIK 0 0 0
 stand stand none 0
 0 0 medium unknown
-A det F
 #16110
 human fighter~
 Lord Rygar~
@@ -2149,7 +2089,7 @@ Scale of the enforcer~
 A brown scale glitters somewhat in the lighting~
 cloth~
 armor C AD
-AD AD AD 0 0
+9 9 9 0 0
 30 5 10 P
 A
 1 1
@@ -2221,7 +2161,7 @@ Dark grey helm~
 A helm of duergar make lies abandoned off to the side~
 steel~
 armor G AE
-AC AC AC 0 0
+5 5 5 0 0
 20 3 10 P
 A
 1 1
@@ -2233,7 +2173,7 @@ Sleeves of knowledge~
 Sleeves that bear many arcane signs rest here~
 steel~
 armor FG AI
-BCD BCD ACD BD 0
+14 14 13 10 0
 43 3 110 P
 A
 3 2
@@ -2253,7 +2193,7 @@ Breast plate of strength~
 A breast plate emits an aura of power~
 unknown~
 armor AG AD
-ADE ADE ADE CE 0
+25 25 25 20 0
 43 4 100 P
 A
 1 5
@@ -2279,7 +2219,7 @@ Ripped leather pants~
 A pair of dirty ripped leather pants lies abandoned on the floor~
 leather~
 armor C AF
-AC AC AC 0 0
+5 5 5 0 0
 16 3 0 P
 #16014
 purple worm scale~
@@ -2287,7 +2227,7 @@ Small purple worm scale~
 A small scale from a purple looks as if it can be worn on the arm~
 cloth~
 armor I AM
-BCD ABCD ACD BC 0
+14 15 13 6 0
 44 3 220 P
 A
 13 25
@@ -2299,7 +2239,7 @@ Huge purple worm scale~
 A huge purple worm scale lies discarded off to the side~
 cloth~
 armor C AJ
-ABCD ABCD E AC 0
+15 15 16 5 0
 46 4 10 P
 A
 12 20
@@ -2313,7 +2253,7 @@ Gauntlets of the eye~
 A pair of gauntlets with the design of an eye on them rest here~
 gold amethyst~
 armor A AH
-BCD ACD BCD AC 0
+14 13 14 5 0
 43 3 1000 P
 A
 13 30
@@ -2325,7 +2265,7 @@ Helm of the eye~
 A helm lies here with a huge eye centred on it~
 steel~
 armor A AE
-ABCD BCD BCD BC 0
+15 14 14 6 0
 46 4 100 P
 A
 5 2
@@ -2395,7 +2335,7 @@ Girth of protection~
 A girth lies here glowing softly with power~
 mithril~
 armor AGM AL
-ABCD BCD ABCD BC 0
+15 14 15 6 0
 45 2 100 P
 A
 13 20
@@ -2407,7 +2347,7 @@ Dull eyes~
 Two small eyes that have lost their shine wait to be used~
 unknown~
 armor ABHM AE
-ABD CD ABD 0 0
+11 12 11 0 0
 38 1 100 P
 A
 4 -3
@@ -2447,7 +2387,7 @@ Black Shield of Protection~
 A black shield waits to protect it's owner~
 steel~
 armor BIM AJ
-BCD BCD BCD BC 0
+14 14 14 6 0
 42 4 100 P
 A
 17 -15
@@ -2489,7 +2429,7 @@ Translucent Robe~
 A semi-transparent robe lies on the floor~
 cloth~
 armor I AK
-C C C 0 0
+4 4 4 0 0
 13 2 0 P
 A
 5 1
@@ -2501,7 +2441,7 @@ Belt of pleasure~
 A thin belt lies on the ground offering you much joy~
 leather~
 armor I AL
-C C C 0 0
+4 4 4 0 0
 11 1 0 P
 A
 2 1
@@ -2525,7 +2465,7 @@ Gold Teeth~
 A couple golden teeth wait to be used~
 gold~
 armor I AE
-C C C 0 0
+4 4 4 0 0
 16 1 0 P
 A
 1 -1
@@ -2549,7 +2489,7 @@ A pair of dusty boots~
 A pair of dusty boots lie forgotten on the ground~
 leather~
 armor CM AG
-D D D 0 0
+8 8 8 0 0
 33 2 600 P
 A
 2 -3
@@ -2563,7 +2503,7 @@ A gnome hat~
 A gnome hat rests here just waiting to be taken~
 steel~
 armor B AE
-BD BD BD 0 0
+10 10 10 0 0
 30 2 2300 P
 A
 2 2
@@ -2575,7 +2515,7 @@ Boots of flying~
 A pair of boots hover just above the ground~
 unknown~
 armor FGM AG
-BE BE BE AD 0
+18 18 18 9 0
 31 2 1000 P
 A
 14 200
@@ -2587,7 +2527,7 @@ Bracer of strength~
 A very powerful looking bracer hums on the ground~
 platinum~
 armor BG AL
-ACE CE ACE CD 0
+21 20 21 12 0
 30 3 0 P
 A
 1 4
@@ -2629,7 +2569,7 @@ A mage cloak~
 A long flowing cloak that glows lies here~
 cloth~
 armor A AC
-AD AD AD 0 0
+9 9 9 0 0
 28 2 600 P
 A
 12 25
@@ -2675,7 +2615,7 @@ A midnight blue bracer~
 A dark blue bracer lies on the ground~
 bronze~
 armor B AM
-C AC AC 0 0
+4 5 5 0 0
 16 3 1900 P
 A
 2 1
@@ -2699,7 +2639,7 @@ Black drow chainmail~
 A black suit of chainmail lies ready to be taken~
 iron~
 armor B AD
-AC AC AC 0 0
+5 5 5 0 0
 16 5 120 P
 A
 2 1
@@ -2747,7 +2687,7 @@ Duergar breastplate~
 A breastplate of duergar make lies ready~
 brass~
 armor G AD
-AC AC AC 0 0
+5 5 5 0 0
 12 4 1180 P
 A
 17 -5
@@ -2757,7 +2697,7 @@ A duergar helm~
 A helm of duergar make lies ready~
 brass~
 armor G AE
-AB AB AB 0 0
+3 3 3 0 0
 6 2 420 P
 A
 17 -3
@@ -2767,7 +2707,7 @@ A duergar shield~
 A shield of duergar designs lies ready~
 brass~
 armor G AJ
-AB AB AB 0 0
+3 3 3 0 0
 6 3 420 P
 A
 17 -2
@@ -2777,7 +2717,7 @@ Duergar leggings~
 A pair of leggings lie ready~
 brass~
 armor G AF
-AC AC AC 0 0
+5 5 5 0 0
 12 4 1800 P
 A
 17 -2
@@ -2787,7 +2727,7 @@ A duergar bracer~
 A bracer of duergar design lies ready~
 silver~
 armor G AM
-BC BC BC 0 0
+6 6 6 0 0
 11 3 1800 P
 A
 17 -2
@@ -2853,7 +2793,7 @@ Svirfneblin leggings~
 A pair of svirfneblin leggings lies on the ground waiting to be taken~
 steel~
 armor G AF
-BC BC BC 0 0
+6 6 6 0 0
 17 3 110 P
 A
 1 1
@@ -2865,7 +2805,7 @@ Necklace of nobility~
 A beautiful necklace waits to be worn~
 cloth~
 armor G AC
-AC AC AC 0 P
+5 5 5 0 32768
 16 3 100 P
 A
 1 1
@@ -2899,7 +2839,7 @@ Thieve's patch~
 A small patch lies on the ground~
 cloth~
 armor F AM
-AC AC AC 0 0
+5 5 5 0 0
 16 2 1000 P
 A
 2 2
@@ -2911,7 +2851,7 @@ Thieve's gloves~
 A pair of thin leather gloves rests on the ground~
 leather~
 armor G AH
-AC AC AC 0 0
+5 5 5 0 0
 18 2 1100 P
 A
 2 2
@@ -2923,7 +2863,7 @@ A gold chain~
 A gold chain glints in the light~
 gold~
 armor G AC
-AC AC BC 0 0
+5 5 6 0 0
 19 2 11 P
 A
 18 1
@@ -2965,7 +2905,7 @@ A dark cloak~
 A very dark cloak lies in the shadows~
 cloth~
 armor CG AC
-ABC BC BC 0 0
+7 6 6 0 0
 23 3 1000 P
 A
 2 2
@@ -2979,7 +2919,7 @@ Golden earring~
 A small golden earring glints softly in the light~
 gold~
 armor G EFH
-D D D AC 0
+8 8 8 5 0
 25 1 1000 P
 A
 2 1
@@ -3021,7 +2961,7 @@ A long flowing robe~
 A beautiful robe lies pooled on the ground~
 leather~
 armor G AK
-ACD ACD ACD BC 0
+13 13 13 6 0
 40 4 5000 P
 A
 12 50
@@ -3045,7 +2985,7 @@ Assassin's sleeves~
 A pair of black sleeves rests here~
 cloth~
 armor CG AI
-BC BC ABC 0 0
+6 6 7 0 0
 22 3 100 P
 A
 18 1
@@ -3081,7 +3021,7 @@ An assassin's mask~
 A mask keep changing on the ground~
 cloth~
 armor CG AE
-AD AD ABC AC 0
+9 9 7 5 0
 27 3 100 P
 A
 1 1
@@ -3095,7 +3035,7 @@ Flaming dagger tattoo~
 A weird glimmer lies on the ground, shaped like a dagger~
 unknown~
 armor G AM
-AD AD D C 0
+9 9 8 4 0
 29 1 10 P
 A
 19 2
@@ -3105,7 +3045,7 @@ Wyvern tattoo~
 A weird glimmer lies on the ground, shaped like a wyvern~
 unknown~
 armor G AM
-ABC ABC ABC 0 0
+7 7 7 0 0
 31 1 100 P
 A
 18 1
@@ -3117,7 +3057,7 @@ Dragon tattoo~
 A weird glimmer lies on the ground, shaped like a dragon~
 unknown~
 armor G AM
-ABE ABE ABE ABC 0
+19 19 19 7 0
 46 1 100 P
 A
 18 5
@@ -3129,7 +3069,7 @@ A diamond helm~
 A helm sparkles and glints in the light~
 diamond~
 armor G AE
-ABCD E ABCD D 0
+15 16 15 8 0
 47 2 1000 P
 A
 13 25
@@ -3141,7 +3081,7 @@ The keeper's shield~
 A large shield that looks as if it were made of stone lies here~
 stone~
 armor G AJ
-E ABCD E D 0
+16 15 16 8 0
 49 10 1000 P
 A
 13 50
@@ -3173,7 +3113,7 @@ Demon bracer~
 A black and red bracer lies on the ground~
 steel~
 armor ABEG AM
-ABC ABC AC 0 0
+7 7 5 0 0
 21 3 500 P
 A
 12 15
@@ -3205,7 +3145,7 @@ Demon Plate~
 A black suite of plate mail rests on the ground~
 steel~
 armor BEGJ AD
-BD BD BD C 0
+10 10 10 4 0
 30 9 1000 P
 A
 17 -5
@@ -3217,7 +3157,7 @@ Demon fire~
 A weird flame burns here~
 fire~
 armor BEG AJ
-BCE CE CE CD 0
+22 20 20 12 0
 37 5 1000 P
 A
 17 -15
@@ -3275,7 +3215,7 @@ the south wall stands a large window.
 
 There are no exits from Silence's Chamber.
 ~
-0 D 1
+0 D city
 E
 map~
 The map sits against the north wall.  It is a rough sketch of the Underdark,
@@ -3335,7 +3275,7 @@ glints in the light on the walls.
 
 Worm Street goes east, and Sunset goes south
 ~
-0 ADN 1
+0 ADN city
 D1
 Wyrm street goes on
 ~
@@ -3355,7 +3295,7 @@ slaves.
 
 Wyrm streets continues to the east and west.
 ~
-0 ADN 1
+0 ADN city
 D1
 Wyrm street goes on
 ~
@@ -3375,7 +3315,7 @@ slaves.
 
 Wyrm streets continues to the east and west.
 ~
-0 ADN 1
+0 ADN city
 D1
 Wyrm street goes on
 ~
@@ -3395,7 +3335,7 @@ slaves.
 
 Wyrm streets continues to the east and west.
 ~
-0 ADN 1
+0 ADN city
 D1
 Wyrm street goes on
 ~
@@ -3415,7 +3355,7 @@ slaves.
 
 Wyrm streets continues to the east and west.
 ~
-0 ADN 1
+0 ADN city
 D1
 Wyrm street goes on
 ~
@@ -3435,7 +3375,7 @@ slaves.
 
 Wyrm streets continues to the east and west.
 ~
-0 ADN 1
+0 ADN city
 D1
 Wyrm street goes on
 ~
@@ -3455,7 +3395,7 @@ slaves.
 
 Wyrm streets continues to the east and west.
 ~
-0 ADN 1
+0 ADN city
 D1
 Wyrm street goes on
 ~
@@ -3475,7 +3415,7 @@ slaves.  The floating orbs flicker on and off creating a chaotic lighting.
 
 Wyrm streets goes east and west. Ruby Avenue lies to the south 
 ~
-0 AD 1
+0 AD city
 D1
 Wyrm street goes on
 ~
@@ -3500,7 +3440,7 @@ slaves.
 
 Wyrm streets continues to the east and west.
 ~
-0 ADN 1
+0 ADN city
 D1
 Wyrm street goes on
 ~
@@ -3520,7 +3460,7 @@ slaves.
 
 Wyrm streets continues to the east and west.
 ~
-0 ADN 1
+0 ADN city
 D1
 Wyrm street goes on
 ~
@@ -3540,7 +3480,7 @@ slaves.  The orbs flicker on and off chaoticly.
 
 Wyrm streets continues to the east and west.
 ~
-0 AD 1
+0 AD city
 D1
 Wyrm street goes on
 ~
@@ -3565,7 +3505,7 @@ slaves.
 
 Wyrm streets continues to the east and west.
 ~
-0 ADN 1
+0 ADN city
 D1
 Wyrm street goes on
 ~
@@ -3585,7 +3525,7 @@ slaves.
 
 Wyrm streets continues to the east and west.
 ~
-0 ADN 1
+0 ADN city
 D1
 Wyrm street goes on
 ~
@@ -3605,7 +3545,7 @@ slaves.
 
 Wyrm streets continues to the east and west.
 ~
-0 ADN 1
+0 ADN city
 D1
 Wyrm street goes on
 ~
@@ -3625,7 +3565,7 @@ slaves.
 
 Wyrm streets continues to the east and west.
 ~
-0 ADN 1
+0 ADN city
 D1
 Wyrm street goes on
 ~
@@ -3645,7 +3585,7 @@ slaves.
 
 Wyrm streets continues to the east and west.
 ~
-0 ADN 1
+0 ADN city
 D1
 Wyrm street goes on
 ~
@@ -3665,7 +3605,7 @@ slaves.
 
 Wyrm streets continues to the east and west.
 ~
-0 ADN 1
+0 ADN city
 D1
 Wyrm street goes on
 ~
@@ -3685,7 +3625,7 @@ slaves.
 
 Wyrm streets continues to the east and west.
 ~
-0 ADN 1
+0 ADN city
 D1
 Wyrm street goes on
 ~
@@ -3705,7 +3645,7 @@ slaves.  The floating orbs at this section of the road flicker on and off.
 
 Wyrm streets continues to the east and west.
 ~
-0 AD 1
+0 AD city
 D1
 Wyrm street goes on
 ~
@@ -3729,7 +3669,7 @@ Midgaard, but alas, that is impossible.
 
 Wyrm street goes to the west and Sunrise lies to the south.
 ~
-0 ADN 1
+0 ADN city
 D2
 Sunrise will eventually lead to the way out
 ~
@@ -3752,7 +3692,7 @@ door seems to be rusted shut.
 
 North and south moonlight continues, east is the door.
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is old and is beginning to rust.  You notice what you think are
@@ -3784,7 +3724,7 @@ just be the darkness that lies just beyond your insignificant circle of light.
 
 To the north is the corner of the city, to the south sunset continues 
 ~
-0 ADN 1
+0 ADN city
 D0
 The northwest corner of the city is there
 ~
@@ -3808,7 +3748,7 @@ your west glints with wetness.
 
 Sunset continues north and south
 ~
-0 ADN 1
+0 ADN city
 D0
 Sunset goes north
 ~
@@ -3830,7 +3770,7 @@ orb flickers on and off.
 
 Sunset goes on to the north and south
 ~
-0 AD 1
+0 AD city
 D0
 Sunset continues
 ~
@@ -3851,7 +3791,7 @@ smooth and glint in your light.  The entrance is to the north.
 
 To the north is a door, to the south is sunset
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 This is a huge door with nothing of note on it.  The door is very polished
@@ -3877,7 +3817,7 @@ the only thing that greets your gaze is pitch black.
 
 To the north is Wyrm street, to the south ruby street
 ~
-0 ADN 1
+0 ADN city
 D0
 Wyrm street
 ~
@@ -3898,7 +3838,7 @@ feel as if things are watching you, sizing you, seeing if you are weak.
 
 Ruby street continues north and south
 ~
-0 ADN 1
+0 ADN city
 D0
 Ruby street
 ~
@@ -3921,7 +3861,7 @@ here.
 
 Ruby street goes on north and south, east is Sapphire street
 ~
-0 ADN 1
+0 ADN city
 D0
 Ruby street
 ~
@@ -3946,7 +3886,7 @@ burning on a building.
 
 Ruby street is to the west, Sapphire continues east.
 ~
-0 ADN 1
+0 ADN city
 D1
 Sapphire street
 ~
@@ -3968,7 +3908,7 @@ make out bits and pieces of conversation.
 
 To the east is Moonlight Avenues, to the west Sapphire
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door to the Gemstone seems to be well used.  The paint is beginning
@@ -4000,7 +3940,7 @@ street somewhat.
 
 To the north is Wyrm street, moonlight stretches south
 ~
-0 ADN 1
+0 ADN city
 D0
 Wyrm street
 ~
@@ -4020,7 +3960,7 @@ moist and cool.
 
 Moonlight continues north and south. Sapphire street is west 
 ~
-0 ADN 1
+0 ADN city
 D0
 Moonlight avenue
 ~
@@ -4046,7 +3986,7 @@ the cavern walls.
 
 North is the northeastern corner of the city,  south Sunrise goes on. 
 ~
-0 ADN 1
+0 ADN city
 D0
 The northeastern corner of the Underdark
 ~
@@ -4066,7 +4006,7 @@ floats in the air above your head.
 
 Sunrise continues to the north and south
 ~
-0 ADN 1
+0 ADN city
 D0
 Sunrise
 ~
@@ -4086,7 +4026,7 @@ floats in the air above your head.
 
 Sunrise continues to the north and south
 ~
-0 ADN 1
+0 ADN city
 D0
 Sunrise
 ~
@@ -4107,7 +4047,7 @@ dark city.
 
 Sunset continues north and east, to the south is a door.
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is made of a dark metal.  The handle seems to be regular.  The
@@ -4136,7 +4076,7 @@ the south lies one of the residential homes
 
 Sunset goes on to the east and west.  To the south is a door 
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is made of a dark metal.  The handle seems to be regular.  The
@@ -4165,7 +4105,7 @@ the south lies one of the residential homes
 
 Sunset goes on to the east and west.  To the south is a door 
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is made of a dark metal.  The handle seems to be regular.  The
@@ -4194,7 +4134,7 @@ entrance to a home is to the south.
 
 Sunset goes east and west.  To the north is a walkway, south is a door
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 A simple door made of a grey material serves as the entrance to this house. 
@@ -4229,7 +4169,7 @@ well travelled.
 
 Sunset goes south and west.  Ruby street is west.
 ~
-0 ADN 1
+0 ADN city
 D1
 Ruby street
 ~
@@ -4252,7 +4192,7 @@ of you and they seem to breath with their own life.
 
 Ruby continues to the east, to the west is Sunset
 ~
-0 ADN 1
+0 ADN city
 D1
 Ruby street
 ~
@@ -4272,7 +4212,7 @@ of you and they seem to breath with their own life.
 
 Ruby continues to the east, to the west is Sunset
 ~
-0 ADN 1
+0 ADN city
 D1
 Ruby street
 ~
@@ -4292,7 +4232,7 @@ blackness.  The air is cold and damp here.
 
 Ruby street continues north and west
 ~
-0 ADN 1
+0 ADN city
 D0
 Ruby street
 ~
@@ -4312,7 +4252,7 @@ anyways.  Little orbs of light float above your head.
 
 Moonlight continues north and south
 ~
-0 ADN 1
+0 ADN city
 D0
 Moonlight Avenue
 ~
@@ -4334,7 +4274,7 @@ out.
 
 Moonlight Avenues goes north and south, to the east is Diamond street 
 ~
-0 AD 1
+0 AD city
 D0
 Moonlight avenue
 ~
@@ -4360,7 +4300,7 @@ and screaming reach your ears.
 
 Diamond street continues east, to the west is Moonlight Avenue 
 ~
-0 ADN 1
+0 ADN city
 D1
 Diamond street
 ~
@@ -4380,7 +4320,7 @@ darkness.  Screams from the slaves reach your ears.
 
 Diamond streets continues east and west.
 ~
-0 ADN 1
+0 ADN city
 D1
 Diamond street
 ~
@@ -4400,7 +4340,7 @@ Only a few glowing orbs shine here.
 
 Diamond street lies east and south
 ~
-0 ADN 1
+0 ADN city
 D1
 Diamond street
 ~
@@ -4419,7 +4359,7 @@ light to make the shadows fade.
 
 Diamond street lies east, south and west
 ~
-0 ADN 1
+0 ADN city
 D1
 Diamond street
 ~
@@ -4443,7 +4383,7 @@ light to make the shadows fade.
 
 Diamond street lies east, south and west
 ~
-0 ADN 1
+0 ADN city
 D1
 Diamond street
 ~
@@ -4468,7 +4408,7 @@ Only a few glowing orbs shine here.
 
 Diamond street lies east and south
 ~
-0 ADN 1
+0 ADN city
 D2
 Diamond street
 ~
@@ -4489,7 +4429,7 @@ frightening hollow scream of shear horror and pain.
 
 Diamond street goes east, north, west.  Emerald street is south 
 ~
-0 ADN 1
+0 ADN city
 D0
 Diamond street
 ~
@@ -4519,7 +4459,7 @@ orbs didn't do anything.  An impenetrable field of black.
 
 Diamond street lies north, east and west
 ~
-0 ADN 1
+0 ADN city
 D0
 Diamond street
 ~
@@ -4545,7 +4485,7 @@ begin to see shapes forming in the shadows.
 
 Diamond street continues north, east and west
 ~
-0 ADN 1
+0 ADN city
 D0
 Diamond street
 ~
@@ -4570,7 +4510,7 @@ air is cool, and shadows seem to cling to everything.
 
 Diamond street continues north, east and west
 ~
-0 ADN 1
+0 ADN city
 D0
 Diamond street
 ~
@@ -4596,7 +4536,7 @@ street sparkles in the vague light.
 
 Diamond Street continues to the east and west
 ~
-0 ADN 1
+0 ADN city
 D1
 Diamond street
 ~
@@ -4617,7 +4557,7 @@ as if it were covered in diamonds.
 
 Sunrise is to the east, Diamond street to the west
 ~
-0 ADN 1
+0 ADN city
 D1
 Sunrise
 ~
@@ -4639,7 +4579,7 @@ your western side seem menacing, anything could be hiding in them.
 
 Sunrise continues north and south
 ~
-0 ADN 1
+0 ADN city
 D0
 Sunrise
 ~
@@ -4660,7 +4600,7 @@ quite audible here bouncing off the cavern wall into your ear.
 
 Sunrise goes north and south, Diamond goes west
 ~
-0 ADN 1
+0 ADN city
 D0
 Sunrise
 ~
@@ -4686,7 +4626,7 @@ You feel as if you are walking in a dream.
 
 Sunset continues north and south
 ~
-0 ADN 1
+0 ADN city
 D0
 Sunset
 ~
@@ -4706,7 +4646,7 @@ street, off to the side the street remains shrouded in black.
 
 Sunset continues north and south
 ~
-0 ADN 1
+0 ADN city
 D0
 Sunset
 ~
@@ -4726,7 +4666,7 @@ street, off to the side the street remains shrouded in black.
 
 Sunset continues north and south
 ~
-0 ADN 1
+0 ADN city
 D0
 Sunset
 ~
@@ -4749,7 +4689,7 @@ have been set up in most places.
 
 South is Sunset and Slaver's Route, north Sunset stretches on 
 ~
-0 ADN 1
+0 ADN city
 D0
 Sunset
 ~
@@ -4771,7 +4711,7 @@ barrier of black.
 
 Moonlight lies to the north and south.
 ~
-0 ADN 1
+0 ADN city
 D0
 Moonlight Avenue
 ~
@@ -4793,7 +4733,7 @@ what it above you, you can see quit well in your immediate surroundings.
 
 Moonlight avenue continues north and south
 ~
-0 ADN 1
+0 ADN city
 D0
 Moonlight Avenue
 ~
@@ -4814,7 +4754,7 @@ Slaver's Square inspecting the goods.
 
 Moonlight avenue continues north, to the south is the Slaver's Route 
 ~
-0 ADN 1
+0 ADN city
 D0
 Moonlight Avenue
 ~
@@ -4834,7 +4774,7 @@ street is greenish.
 
 To the north is Diamond street, Emerald continues south
 ~
-0 ADN 1
+0 ADN city
 D0
 Diamond street
 ~
@@ -4854,7 +4794,7 @@ and the inn.  The ground is greenish and sparkles gently in the light.
 
 Emerald street continues north and south
 ~
-0 ADN 1
+0 ADN city
 D0
 Emerald street
 ~
@@ -4876,7 +4816,7 @@ form.  This street is rarely used, 'cept by those fleeing.
 
 Emerald street continues north, the Slaver's Route is south 
 ~
-0 AD 1
+0 AD city
 D0
 Emerald street
 ~
@@ -4896,7 +4836,7 @@ east side of the street is the cavern wall, to the west the city stretches out.
 
 Sunrise continues north and south
 ~
-0 AD 1
+0 AD city
 D0
 Sunrise and Diamond
 ~
@@ -4917,7 +4857,7 @@ snuff out the little orbs that glow every ten feet.
 
 Sunrise continues north and south
 ~
-0 ADN 1
+0 ADN city
 D0
 Sunrise
 ~
@@ -4939,7 +4879,7 @@ repugnant.
 
 Sunrise continues north, to the south is The Slaver's Route 
 ~
-0 ADN 1
+0 ADN city
 D0
 Sunrise
 ~
@@ -4959,7 +4899,7 @@ reach you ears.  The road is well lit with the little floating orbs.
 
 Residential homes lie north and south.  The route stretches west 
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 A relatively common door stand before you.~
@@ -4989,7 +4929,7 @@ penetrate to this section of the street.
 
 Houses are the north and south.  The Slaver's Route is east and west 
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 A small regular looking door, it has all the normal door stuff~
@@ -5024,7 +4964,7 @@ off in the distance.
 
 The Slaver's Route is east and west.  Doors are to the north and south. 
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 A normal wooden door stands before you, nothing special about it~
@@ -5059,7 +4999,7 @@ light to basically illuminate everything.
 To the east and west the route goes on.  To the south is gathering space,
 and to the north is a door to a home
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 A simple metal door with bars over the windows~
@@ -5090,7 +5030,7 @@ The ground is charred and you see little bits of what was once a humanoid.
 The slaver's route is east and west.  To the north lies Sunset, south is the
 gathering space.
 ~
-0 AD 1
+0 AD city
 E
 charred bits humanoid~
 On the ground here lie little burnt chunks of what was probably some
@@ -5127,7 +5067,7 @@ almost everything around you.
 To the north is the entrance to Bodak's residence.  The slaver's route
 continues east and west.
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 This door is highly ornate and covered with many magical symbols.  The
@@ -5159,7 +5099,7 @@ coming from all around you.
 
 The slaver's route goes on east and west
 ~
-0 ADN 1
+0 ADN city
 D1
 Slaver's route
 ~
@@ -5180,7 +5120,7 @@ everything.
 
 Slaver's routes continues east and west.
 ~
-0 ADN 1
+0 ADN city
 D1
 Slaver's route
 ~
@@ -5202,7 +5142,7 @@ the many opportunities that a person can have down here...
 
 The slaver's route continues east and west.
 ~
-0 ADN 1
+0 ADN city
 D1
 Slaver's route
 ~
@@ -5223,7 +5163,7 @@ evenly spaced light the way, well they sorta light the way.
 
 Slaver's route continues east and west, south is the Slave's square 
 ~
-0 ADN 1
+0 ADN city
 D1
 Slaver's route
 ~
@@ -5250,7 +5190,7 @@ market, dead centre of the Underdark.
 East and west is the slaver's route.  North is moonlight avenue, to the south
 is the slave's square and beyond that the market area. 
 ~
-0 ADN 1
+0 ADN city
 D0
 Moonlight avenue
 ~
@@ -5283,7 +5223,7 @@ interact in relative safety.
 
 To the north is the whore house, east and west the Slaver's route 
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 This door has carved into it a naked female human in the act of making
@@ -5316,7 +5256,7 @@ about.
 
 The slaver's route continues east and west
 ~
-0 ADN 1
+0 ADN city
 D1
 Slaver's route
 ~
@@ -5338,7 +5278,7 @@ rules after all...
 
 To the north is Emerald street, Slaver's goes east and west 
 ~
-0 ADN 1
+0 ADN city
 D0
 Emerald street
 ~
@@ -5365,7 +5305,7 @@ you CAN'T RECALL...
 
 To the north is The Floating Eye (an inn).  Slaver's does east and west.
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 This is the door to The Floating Eye, in the dead centre of it is has a large
@@ -5404,7 +5344,7 @@ South is the entrance to the Guardian Eye's headquarters and the prisons.
 
 Slaver's route continues east and west
 ~
-0 AD 1
+0 AD city
 E
 door~
 This door is massive and seems to be extremely strong.  There is no handle
@@ -5435,7 +5375,7 @@ the way for you.
 
 The slaver's route continues east and west
 ~
-0 ADN 1
+0 ADN city
 D1
 Slaver's route
 ~
@@ -5458,7 +5398,7 @@ to the side of the road.
 
 The slaver's route continues east and west
 ~
-0 ADN 1
+0 ADN city
 E
 form body huddled~
 You see a huddled form of what seems to be a slave.  It is dressed in dirty
@@ -5489,7 +5429,7 @@ with a dim light.
 
 To the east is the eastern entrance, to the west, the slaver's route. 
 ~
-0 ADN 1
+0 ADN city
 E
 floating orbs orb light~
 A small glowing orb of light is floating a few feet above your head.  The
@@ -5523,7 +5463,7 @@ death.  Welcome to the Underdark.
 The north and south is Sunrise, to the east is the entrance and to the west is
 the Slaver's route and farther down, the market area.
 ~
-0 ADN 1
+0 ADN city
 E
 floating orbs orb light~
 A small glowing orb of light is floating a few feet above your head.  The
@@ -5571,7 +5511,7 @@ orbs have stopped working.
 
 North is the Slaver's Route, the meeting place continues east and south 
 ~
-0 AD 1
+0 AD city
 D0
 Slaver's route
 ~
@@ -5599,7 +5539,7 @@ imagination or reality.
 
 North is the Slaver's route, west and south the gathering place lies
 ~
-0 ADN 1
+0 ADN city
 D0
 Slaver's route
 ~
@@ -5625,7 +5565,7 @@ this area for discrete meetings.
 
 North and east the place goes on.  South is the street of the gods 
 ~
-0 ADN 1
+0 ADN city
 D0
 The gathering place
 ~
@@ -5658,7 +5598,7 @@ threatens to overcome your entire being.
 The gathering place continues north and west.  To the south lies the street
 of the Gods
 ~
-0 ADN 1
+0 ADN city
 D0
 The gathering place
 ~
@@ -5691,7 +5631,7 @@ square.
 
 To the north is the Slaver's route, east and south lies the square 
 ~
-0 ADN 1
+0 ADN city
 E
 stocks~
 You see before the symbol of pure oppression.  Blood stained and well
@@ -5729,7 +5669,7 @@ The dark brown stains are stains of blood.
 
 North is the slaver's route, west and south lies the slave's square 
 ~
-0 ADN 1
+0 ADN city
 D0
 Slaver's route
 ~
@@ -5759,7 +5699,7 @@ can realise this desire to the west.
 The slave's square continues north and east.  South is the street of the Gods
 and to the west is the entrance to the Slave Market.
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 A great iron door that has a huge stock engraved into it.~
@@ -5793,7 +5733,7 @@ pain fill your being with pity and excitement.
 
 North and west is the square, south is the street of the gods. 
 ~
-0 ADN 1
+0 ADN city
 E
 mosaic stain~
 A mosaic of a large whip striking a defiant slave lies on the ground here. 
@@ -5827,7 +5767,7 @@ could kinda see.
 
 North is the eastern entrance, south Sunrise continues.
 ~
-0 ADN 1
+0 ADN city
 E
 floating orbs orb light~
 A small glowing orb of light is floating a few feet above your head.  The
@@ -5857,7 +5797,7 @@ your sight, a shape flits in and out of the shadows.
 
 North and west sunrise goes on.  South is the entrance to the cages. 
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 A huge oaken door stands in your way.  Emblazed on it is sketch of an iron
@@ -5898,7 +5838,7 @@ dwell beneath the earth.
 
 Sunrise continues east and west.
 ~
-0 ADN 1
+0 ADN city
 E
 floating orbs orb light~
 A small glowing orb of light is floating a few feet above your head.  The
@@ -5928,7 +5868,7 @@ basically nothing but giving some light.
 
 Sunrise goes east and south
 ~
-0 ADN 1
+0 ADN city
 D1
 Sunrise
 ~
@@ -5950,7 +5890,7 @@ smell it at all.
 
 Sunrise continues east and south
 ~
-0 ADN 1
+0 ADN city
 D1
 Sunrise
 ~
@@ -5972,7 +5912,7 @@ cast spells to allow you to hear the past, the present and the future.
 
 Sunrise goes north and south, a door to the prisons is west 
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 A huge door stands before you.  There is no handle on this door, all you
@@ -6006,7 +5946,7 @@ of a githzerai seems to be kneeling to a statue of Silence.
 
 To the North lies an entrance to a house, east the street goes onwards 
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The regular looking door, decorated with the symbol of Silence. ~
@@ -6051,7 +5991,7 @@ rest of the city.  To the side of the street stands a statue of a weird alien.
 
 The street continues east and west, to the north is a door to a home 
 ~
-0 AD 1
+0 AD city
 E
 door~
 A regular looking door with a huge symbol of Snikt emblazed onto it.~
@@ -6088,7 +6028,7 @@ you presume are mystic symbols of some sort.
 The street of the gods continues east and west, north is the entrance to a
 home.  South Sunset goes on.
 ~
-0 ADN 1
+0 ADN city
 E
 symbols ground~
 The symbols are as follows.  They stand out because they glow in a deep
@@ -6139,7 +6079,7 @@ statue of a martial artist.
 The street of the gods goes east and west, north is the gathering place.  To
 the south is the entrance to the darkened root.
 ~
-0 ADN 1
+0 ADN city
 E
 statue martial artist~
 Before you stands a statue of a martial artist.  He is dressed in long robes
@@ -6194,7 +6134,7 @@ street is a statue of a monkey.
 East and west the street of the gods continues, north is gathering place To
 the south is the entrance to the Sparkling Jewel
 ~
-0 AD 1
+0 AD city
 E
 list~
 A list floats above the ground showing off all of Lenny's creations.  These
@@ -6237,7 +6177,7 @@ you.
 
 East and west the street continues, south is the Dented Shield 
 ~
-0 ADN 1
+0 ADN city
 D1
 The street of the gods
 ~
@@ -6264,7 +6204,7 @@ this beauty into your soul.
 
 The street of the gods goes east and west, south is the Cracked Sword 
 ~
-0 ADN 1
+0 ADN city
 D1
 The street of the gods
 ~
@@ -6290,7 +6230,7 @@ down, left and right.  The ground seems to be rising up to your face.
 
 The street of the gods continues east and west, south is the Glowing Hand 
 ~
-0 ADN 1
+0 ADN city
 D1
 The street of the gods
 ~
@@ -6317,7 +6257,7 @@ symbols.
 The street goes on east and west, to the north is the entrance to the slave
 market, and south is Jasper avenue
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 A simple wooden door, with a guillotine engraved into it~
@@ -6369,7 +6309,7 @@ lie holy symbols of Farside, RoX's playground.
 East and west the street continues, north is the slave's square and south is
 the entrance to Shadow's Shadow (a tavern)
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 A well built oaken door.  On the door is an engraving of a person walking. 
@@ -6427,7 +6367,7 @@ symbols.
 
 The street goes on east and west, to north is the gathering place. 
 ~
-0 ADN 1
+0 ADN city
 E
 ground arcane symbols~
 The following glows green on the ground:
@@ -6463,7 +6403,7 @@ defend themselves from their enemies and unite for a common goal.
 
 The street goes on east and west.
 ~
-0 ADN 1
+0 ADN city
 D1
 The street of the gods
 ~
@@ -6485,7 +6425,7 @@ a huge black obsidian ball.
 
 The street goes on south and west.
 ~
-0 ADN 1
+0 ADN city
 E
 ball~
 This ball reflects your light as you come closer to get a better look.
@@ -6513,7 +6453,7 @@ Garth's love for the day lit world, maybe this space provides the access?
 
 The street continues west and south
 ~
-0 AD 1
+0 AD city
 D2
 The street of the gods
 ~
@@ -6535,7 +6475,7 @@ showing their devotion.
 The street continues south and north.  To the east is the entrance to the
 guardian prisons.
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 A huge iron bound door sits in this doorway.  There is one item of note
@@ -6568,7 +6508,7 @@ the gods have come to accept the street.
 
 To the south is the road of shadows, north the street continues 
 ~
-0 DN 1
+0 DN city
 D0
 The street of the gods
 ~
@@ -6589,7 +6529,7 @@ casting everything in a dim light, like the light of the predawn.
 
 North is the street of the gods, south lies sunset
 ~
-0 ADN 1
+0 ADN city
 D0
 Street of the gods
 ~
@@ -6614,7 +6554,7 @@ there a little floating orbs that float in the air, giving the area a dim look.
 
 Sunset continues north and south.
 ~
-0 ADN 1
+0 ADN city
 D0
 Sunset
 ~
@@ -6634,7 +6574,7 @@ illuminating very little.  The hustling market area can be seen to the north.
 
 North is the street of the gods, south azurite continues
 ~
-0 ADN 1
+0 ADN city
 D0
 Street of the gods
 ~
@@ -6657,7 +6597,7 @@ nothing.
 
 North and south Azurite street continues
 ~
-0 ADN 1
+0 ADN city
 D0
 Azurite street
 ~
@@ -6677,7 +6617,7 @@ be form.  Everything seems to be cloaked in it's own shadow.  The light of
 the orbs and from your light source does nothing to illuminate the area. 
 
 Sunset goes north and south.  The road of shadows heads east. ~
-0 ADN 1
+0 ADN city
 D0
 Sunset
 ~
@@ -6703,7 +6643,7 @@ the shadows.  The hum of the city buzzes constantly in your ears.
 
 The road of shadows continues east and west
 ~
-0 ADN 1
+0 ADN city
 D1
 Road of shadows
 ~
@@ -6725,7 +6665,7 @@ you..
 
 The road of shadows continues east and west
 ~
-0 ADN 1
+0 ADN city
 D1
 Road of shadows
 ~
@@ -6746,7 +6686,7 @@ they normally do, don't give off enough light here to light up the area.
 
 The road of shadows continues east and west
 ~
-0 ADN 1
+0 ADN city
 D1
 Road of shadows
 ~
@@ -6767,7 +6707,7 @@ seems to cast a shadow on everything.
 
 The road of shadows continues east and west
 ~
-0 ADN 1
+0 ADN city
 D1
 The road of shadows
 ~
@@ -6789,7 +6729,7 @@ all around you, you feel you are being sized up and inspected...
 
 The road of shadows continues east and west
 ~
-0 ADN 1
+0 ADN city
 D1
 The road of shadows at Azurite street
 ~
@@ -6810,7 +6750,7 @@ to the east and west, north and south they seem to clear up some.
 To the north and south Azurite runs, to the east and west the road of
 Shadows seems to disappear into darkness.
 ~
-0 ADN 1
+0 ADN city
 D0
 Azurite street
 ~
@@ -6841,7 +6781,7 @@ Underdark like the shadows thus they walk this road frequently.
 
 East the road of shadows goes on.  West the road of shadows meet Azurite. 
 ~
-0 ADN 1
+0 ADN city
 D1
 Road of shadows
 ~
@@ -6863,7 +6803,7 @@ is, you can barely see anything around you.
 
 The road of shadows continues east and west
 ~
-0 ADN 1
+0 ADN city
 D1
 The road of shadows
 ~
@@ -6884,7 +6824,7 @@ head, but they don't seem to shed much light and they flicker on and off.
 
 The road of shadows continues east and west.  South stand a shadowy door 
 ~
-0 AD 1
+0 AD city
 E
 door~
 A door stands here, partially obscured by shadows.  You see small scribble
@@ -6923,7 +6863,7 @@ light onto the street.  Everything is dark.
 
 The road of shadows continues east and west
 ~
-0 ADN 1
+0 ADN city
 D1
 The road of shadows
 ~
@@ -6946,7 +6886,7 @@ north, the darkness clears up considerably.
 North is the beginning of the street of Gods.  East and west the road of
 shadows stretches onwards.
 ~
-0 ADN 1
+0 ADN city
 D0
 The street of the gods
 ~
@@ -6973,7 +6913,7 @@ exist on this road.
 
 The road of shadows continues east and west
 ~
-0 ADN 1
+0 ADN city
 D1
 The road of shadows
 ~
@@ -6994,7 +6934,7 @@ everything loses it's colour and becomes black and white.
 
 The road of shadows continues east and west.
 ~
-0 ADN 1
+0 ADN city
 D1
 The road of shadows
 ~
@@ -7015,7 +6955,7 @@ light does not exist.  Nothing has colour, just a different shade of grey.
 
 The road of shadows travels west.  East and south is Sunrise 
 ~
-0 ADN 1
+0 ADN city
 D1
 Sunrise
 ~
@@ -7041,7 +6981,7 @@ down on you.
 
 Sunrise goes north and south.  West is the road of shadows 
 ~
-0 ADN 1
+0 ADN city
 D0
 Sunrise
 ~
@@ -7066,7 +7006,7 @@ every ten feet casting an eerie dim on all the light strikes.
 
 Sunrise goes north and south, to the east the forgotten alley begins 
 ~
-0 ADN 1
+0 ADN city
 D0
 Sunrise
 ~
@@ -7092,7 +7032,7 @@ the street darker than most.
 
 To the east they alley leads into darkness.  West is Sunrise 
 ~
-0 ADN 1
+0 ADN city
 D1
 The forgotten alley
 ~
@@ -7113,7 +7053,7 @@ ahead of you, while the floating orbs barely light up anything.
 
 The alley continues east and west
 ~
-0 ADN 1
+0 ADN city
 D1
 The forgotten alley
 ~
@@ -7133,7 +7073,7 @@ never travelled it.  The floating orbs glow dimly every fifteen feet.
 
 The alley goes on east and west
 ~
-0 ADN 1
+0 ADN city
 D1
 The forgotten alley
 ~
@@ -7154,7 +7094,7 @@ the city has died down.
 
 The alley continues east and west
 ~
-0 ADN 1
+0 ADN city
 D1
 The forgotten alley
 ~
@@ -7175,7 +7115,7 @@ you flickers in and out chaotically.
 
 The alley continues east and west
 ~
-0 AD 1
+0 AD city
 D1
 The forgotten alley
 ~
@@ -7196,7 +7136,7 @@ you...
 
 The alley goes north and west
 ~
-0 ADN 1
+0 ADN city
 D0
 The forgotten alley
 ~
@@ -7217,7 +7157,7 @@ makes it any colour.
 
 The alley goes north and south
 ~
-0 ADN 1
+0 ADN city
 D0
 The forgotten alley
 ~
@@ -7237,7 +7177,7 @@ ahead of you for five feet.
 
 The alley continues north and south
 ~
-0 ADN 1
+0 ADN city
 D0
 The forgotten alley
 ~
@@ -7256,7 +7196,7 @@ make out a glowing orb far to the south and nothing to the east.
 
 The alley goes east and south
 ~
-0 ADN 1
+0 ADN city
 D1
 The forgotten alley
 ~
@@ -7276,7 +7216,7 @@ walls that rise up to the north and east of you.
 
 The alley continues south and west
 ~
-0 ADN 1
+0 ADN city
 D2
 The forgotten alley
 ~
@@ -7296,7 +7236,7 @@ anything that may be dangerous.
 
 The alley continues north and south.
 ~
-0 ADN 1
+0 ADN city
 D0
 The forgotten alley
 ~
@@ -7315,7 +7255,7 @@ orbs float here and there sporadically.
 
 The alley goes north and south
 ~
-0 ADN 1
+0 ADN city
 D0
 The forgotten alley
 ~
@@ -7334,7 +7274,7 @@ orbs float here and there sporadically.
 
 The alley continues north and south
 ~
-0 ADN 1
+0 ADN city
 D0
 The forgotten alley
 ~
@@ -7354,7 +7294,7 @@ a dark, quiet and dangerous place like this.  There are no lights around.
 
 To the east is the forgotten alley, west is the door in.
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 This is a huge black door.  There is little of note on the door, 'cept that it
@@ -7378,7 +7318,7 @@ light apart from your light source.
 
 The alley goes north and south, to the west is a dark entrance way 
 ~
-0 AD 16159
+0 AD unknown
 D0
 The forgotten alley
 ~
@@ -7403,7 +7343,7 @@ person walking behind you.
 
 The alley continues north and south
 ~
-0 ADN 1
+0 ADN city
 D0
 The forgotten alley
 ~
@@ -7423,7 +7363,7 @@ that you are travelling along.
 
 The alley goes north and west
 ~
-0 ADN 1
+0 ADN city
 D0
 The forgotten alley
 ~
@@ -7443,7 +7383,7 @@ Underdark do not venture into this area.
 
 The alley goes east and west
 ~
-0 ADN 1
+0 ADN city
 D1
 The forgotten alley
 ~
@@ -7462,7 +7402,7 @@ light.  A solitary orb floats above your head casting it's glow on the street.
 
 The alley goes east and west.
 ~
-0 ADN 1
+0 ADN city
 D1
 The forgotten alley
 ~
@@ -7482,7 +7422,7 @@ is so quiet that it seems as if it is the silence of death.
 
 The alley continues east and west.
 ~
-0 ADN 1
+0 ADN city
 D1
 The forgotten alley
 ~
@@ -7503,7 +7443,7 @@ off giving off a little illumination so you can barely see the road.
 
 The alley goes north and south
 ~
-0 AD 1
+0 AD city
 D0
 The forgotten alley
 ~
@@ -7524,7 +7464,7 @@ why the citizens of the Underdark do not venture here.
 
 To the east and north the alley continues, west is a dark door. 
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 A dark door stands here.  A dark dagger has been engraved deep into the
@@ -7553,7 +7493,7 @@ that is all around you.
 
 The alley continues north and south.
 ~
-0 ADN 1
+0 ADN city
 D0
 The forgotten alley
 ~
@@ -7572,7 +7512,7 @@ being.  Your light source does little to relieve the dark.
 
 The alley goes west and south
 ~
-0 ADN 1
+0 ADN city
 D2
 The forgotten alley
 ~
@@ -7592,7 +7532,7 @@ from the west.
 
 The alley continues east and west
 ~
-0 ADN 1
+0 ADN city
 D1
 The forgotten alley
 ~
@@ -7613,7 +7553,7 @@ travelled through the Underdark.
 
 To the east the forgotten alley disappears into darkness.  West is Sunrise 
 ~
-0 ADN 1
+0 ADN city
 D1
 The forgotten alley
 ~
@@ -7632,7 +7572,7 @@ feet along this long road.  Everything is bathed in the soft glow of the orbs.
 
 To the east lies the forgotten alley.  North and west is Sunrise 
 ~
-0 ADN 1
+0 ADN city
 D0
 Sunrise
 ~
@@ -7657,7 +7597,7 @@ city reach you ears clearly.
 
 Sunrise continues east and south.  North is the road of shadows 
 ~
-0 ADN 1
+0 ADN city
 D0
 The road of shadows
 ~
@@ -7681,7 +7621,7 @@ to the rest of the city.  Floating orbs float every five feet in the air.
 
 Sunrise continues north and south.
 ~
-0 ADN 1
+0 ADN city
 D0
 Sunrise
 ~
@@ -7701,7 +7641,7 @@ sense of humour.  Floating orbs have been placed every five feet.
 
 Sunrise goes on north and south
 ~
-0 ADN 1
+0 ADN city
 D0
 Sunrise
 ~
@@ -7723,7 +7663,7 @@ off.
 
 Sunrise continues north and south
 ~
-0 AD 1
+0 AD city
 D0
 Sunrise
 ~
@@ -7746,7 +7686,7 @@ or so feet in the air above your head.
 
 Sunrise continues to the north, south is Death's lane
 ~
-0 ADN 1
+0 ADN city
 E
 floating orbs orb light~
 A small glowing orb of light is floating a few feet above your head.  The
@@ -7773,7 +7713,7 @@ be heard clearly here.
 
 To the north azurite meets the road of shadows and south it continues 
 ~
-0 ADN 1
+0 ADN city
 D0
 Azurite at road of shadows
 ~
@@ -7795,7 +7735,7 @@ Where the mighty veins once were now only roads exist.
 
 North and south azurite street stretches onwards
 ~
-0 ADN 1
+0 ADN city
 D0
 Azurite street
 ~
@@ -7816,7 +7756,7 @@ lighting is very erratic and strange.
 
 Azurite continues north and south
 ~
-0 AD 1
+0 AD city
 E
 wall~
 The wall at this section of the street seems to have a very very faint outline
@@ -7846,7 +7786,7 @@ the street is slight blueish.
 
 Azurite continues north and south
 ~
-0 ADN 1
+0 ADN city
 D0
 Azurite
 ~
@@ -7869,7 +7809,7 @@ nothing.
 
 North Azurite street continues, south is the start of Death's lane 
 ~
-0 ADN 1
+0 ADN city
 D0
 Azurite street
 ~
@@ -7891,7 +7831,7 @@ your ears.
 
 To the east death's lane stretches, north azurite street begins. 
 ~
-0 ADN 1
+0 ADN city
 D0
 Azurite street
 ~
@@ -7912,7 +7852,7 @@ memory.  Glowing orbs grow more scarce to the east.
 
 East and west death's lane continues
 ~
-0 ADN 1
+0 ADN city
 D1
 Death's lane
 ~
@@ -7933,7 +7873,7 @@ your blood rushes through you head.
 
 Death's lane goes on east and west
 ~
-0 ADN 1
+0 ADN city
 D1
 Death's lane
 ~
@@ -7953,7 +7893,7 @@ your light source barely pierces the veil that shrouds all in a blanket.
 
 East and west death's lane stretches onwards
 ~
-0 ADN 1
+0 ADN city
 D1
 Death's lane
 ~
@@ -7975,7 +7915,7 @@ surrounded by a solid wall of darkness.
 
 Death's lane continues east and west.
 ~
-0 ADN 1
+0 ADN city
 D1
 Death's lane
 ~
@@ -7996,7 +7936,7 @@ being seen.
 
 Death's lane goes east and west
 ~
-0 ADN 1
+0 ADN city
 D1
 Death's lane
 ~
@@ -8016,7 +7956,7 @@ existent.  The air seems to whisper of death.
 
 Death's lane continues east and west
 ~
-0 ADN 1
+0 ADN city
 D1
 Death's lane
 ~
@@ -8037,7 +7977,7 @@ a small circle a little to the east.
 
 Death's Lane continues east and west
 ~
-0 ADN 1
+0 ADN city
 D1
 Death's lane
 ~
@@ -8057,7 +7997,7 @@ street is when a person is trying to find an assassin to either kill or hire.
 
 South death's lane continues, north is Sunrise begins.
 @rus ~
-0 ADN 1
+0 ADN city
 D0
 Sunrise
 ~
@@ -8082,7 +8022,7 @@ is cool.  Darkness seems to pool in every crevice.
 
 Death's lane heads north and east
 ~
-0 ADN 1
+0 ADN city
 D0
 Death's lane
 ~
@@ -8103,7 +8043,7 @@ seems to weigh down on you.
 
 Death's lane continues east and west
 ~
-0 ADN 1
+0 ADN city
 D1
 Death's lane
 ~
@@ -8123,7 +8063,7 @@ guild.  The darkness seems to hold your fate with a concealed dagger.
 
 West and east the lane continues
 ~
-0 ADN 1
+0 ADN city
 E
 wall~
 The wall is grubby and slimy.  But as you inspect it, it seems as if there is
@@ -8154,7 +8094,7 @@ to be surrounding you.
 
 West and south the lane goes onwards
 ~
-0 ADN 1
+0 ADN city
 D2
 Death's lane
 ~
@@ -8177,7 +8117,7 @@ painful clarity.  The cavern walls rise up all around you but north.
 
 Death's lane goes on to the north
 ~
-0 AD 1
+0 AD city
 E
 wall~
 This is the cavern wall. It is wet and glistens in your light source.  On the
@@ -8211,7 +8151,7 @@ through the loud hum of the city.
 
 North sunset meets the road of shadows.  South is traveller's crescent. 
 ~
-0 ADN 1
+0 ADN city
 D0
 Sunset at the road of shadows
 ~
@@ -8234,7 +8174,7 @@ to your nose, and tangy to your taste.
 
 Traveller's crescent goes east and south
 ~
-0 D 1
+0 D city
 E
 wall~
 The cavern wall looms above you to the west.  The wall is covered with
@@ -8272,7 +8212,7 @@ problem here.
 
 The crescent continues east and west
 ~
-0 DN 1
+0 DN city
 E
 floating orbs orb light~
 A small glowing orb of light is floating a few feet above your head.  The
@@ -8300,7 +8240,7 @@ the rest of the city, the inn provides a secluded spot to conduct business.
 
 North is Sunset, east and west the crescent continues
 ~
-0 DN 1
+0 DN city
 D0
 Sunrise
 ~
@@ -8325,7 +8265,7 @@ to squint.  The sounds of the city buzz at a bearable level.
 
 East and west the crescent stretches
 ~
-0 DN 1
+0 DN city
 D1
 Traveller's crescent
 ~
@@ -8345,7 +8285,7 @@ nice background hum.
 
 The crescent continues east and west
 ~
-0 DN 1
+0 DN city
 D1
 Traveller's crescent
 ~
@@ -8365,7 +8305,7 @@ You hear laughter dancing through the air.
 
 The crescent goes on east and west
 ~
-0 DN 1
+0 DN city
 D1
 Traveller's crescent
 ~
@@ -8386,7 +8326,7 @@ menacing here.
 
 The crescent continues south and west
 ~
-0 DN 1
+0 DN city
 D2
 Traveller's crescent
 ~
@@ -8407,7 +8347,7 @@ laughter drifts past your ears.
 
 The crescent continues north and south
 ~
-0 DN 1
+0 DN city
 D0
 Traveller's crescent
 ~
@@ -8428,7 +8368,7 @@ air.
 
 South and north the crescent continues
 ~
-0 DN 1
+0 DN city
 D0
 Traveller's crescent
 ~
@@ -8449,7 +8389,7 @@ lie around this area.
 
 Traveller's crescent goes north and south, to the west is the inn 
 ~
-0 DN 1
+0 DN city
 E
 door~
 The large purple door stands just before you.  Upon the door you see a
@@ -8479,7 +8419,7 @@ caresses your face and cools you down.
 
 Traveller's crescent heads north and west
 ~
-0 D 1
+0 D city
 D0
 Traveller's crescent
 ~
@@ -8499,7 +8439,7 @@ the inn rises up to your north.  The crescent travels along the wall.
 
 The crescent goes east and west
 ~
-0 DN 1
+0 DN city
 D1
 Traveller's crescent
 ~
@@ -8519,7 +8459,7 @@ the midday sun.
 
 The crescent travels east and west
 ~
-0 DN 1
+0 DN city
 D1
 Traveller's crescent
 ~
@@ -8539,7 +8479,7 @@ existent.  A quiet sanctuary in the southwest end of the Underdark.
 
 Traveller's crescent continues east and west
 ~
-0 DN 1
+0 DN city
 D1
 Traveller's crescent
 ~
@@ -8559,7 +8499,7 @@ here brighten everything up.  The street is clean and glows in the light.
 
 Traveller's crescent heads east and west
 ~
-0 DN 1
+0 DN city
 D1
 Traveller's crescent
 ~
@@ -8580,7 +8520,7 @@ street seems to glow with life.
 
 The crescent continues east and west
 ~
-0 D 1
+0 D city
 D1
 Traveller's crescent
 ~
@@ -8600,7 +8540,7 @@ walls into your eyes.  It's a blinding effect and forces you to squint.
 
 The crescent continues north and east
 ~
-0 DN 1
+0 DN city
 D0
 Traveller's crescent
 ~
@@ -8620,7 +8560,7 @@ street is clean and a light grey.
 
 The crescent continues north and south
 ~
-0 DN 1
+0 DN city
 D0
 Traveller's crescent
 ~
@@ -8641,7 +8581,7 @@ part of the Underdark.
 
 The crescent heads north and south
 ~
-0 DN 1
+0 DN city
 D0
 Traveller's crescent
 ~
@@ -8662,7 +8602,7 @@ you are, you realise that when you notice the blood stain on the road.
 
 The crescents goes north and south
 ~
-0 DN 1
+0 DN city
 D0
 Traveller's crescent
 ~
@@ -8687,7 +8627,7 @@ tunnel, only to the north are there any marks at all.
 
 The tunnel plunges into darkness to the south
 ~
-0 AD 1
+0 AD city
 E
 marks wall north panel~
 The north wall seems to have a small handle on it, you look carefully and
@@ -8713,7 +8653,7 @@ better move before you get nailed.
 
 The tunnel heads north and east
 ~
-0 AD 1
+0 AD city
 E
 bones~
 Bones lie scattered everywhere.  It seems as if they have all been broken
@@ -8740,7 +8680,7 @@ this section of the tunnel.
 
 The tunnel continues east and west
 ~
-0 AD 1
+0 AD city
 D1
 You can not see what lies in that direction
 ~
@@ -8760,7 +8700,7 @@ are no scratches in the walls, floor or ceiling.  The air is dry and cool.
 
 The tunnel plunges into darkness to the west
 ~
-0 AD 1
+0 AD city
 E
 door wall markings~
 On the east wall you see the following
@@ -8789,7 +8729,7 @@ corridor seems to descend into darkness.
 
 Up leads to the sewers of Midgaard, down the corridor continues 
 ~
-0 AD 1
+0 AD city
 D4
 The sewers of Midgaard
 ~
@@ -8810,7 +8750,7 @@ world.  An series of uninteresting scribbles sit on the walls.
 
 The corridor heads up and down
 ~
-0 AD 1
+0 AD city
 E
 scribbles~
 You see the following written in a glowing blue:
@@ -8840,7 +8780,7 @@ world.
 
 The corridor continues down and up
 ~
-0 AD 1
+0 AD city
 E
 wall~
 The northern wall is almost black in colour.  It's as if it has been burnt by a
@@ -8871,7 +8811,7 @@ your light source.
 
 The corridor heads downwards and up
 ~
-0 ADN 1
+0 ADN city
 D4
 The vast corridor
 ~
@@ -8896,7 +8836,7 @@ markings that you can't make out at this distance.
 
 A huge door stands to the west, the way to the surface is up. 
 ~
-0 AD 1
+0 AD city
 E
 markings wall~
 The following has been scratched into the wall:
@@ -8938,7 +8878,7 @@ a small closet in it.
 
 The hall delves further into the house to the north.  South is the door 
 ~
-0 ADN 1
+0 ADN city
 E
 fur skin~
 The fur of this skin is a very dark red, so dark that it seems black.  The fur
@@ -8979,7 +8919,7 @@ The scope of these halls just takes your breath away.
 
 The hall stretches to the east
 ~
-0 ADN 1
+0 ADN city
 D1
 The hall goes onwards
 ~
@@ -8995,7 +8935,7 @@ light source seems harsh compared to the soft light that fills the hall.
 
 The hall continues east and west, south is a beautiful door 
 ~
-0 ADN 1
+0 ADN city
 E
 door beautiful~
 The door seems to have been made of pure onyx.  It is a black so deep that
@@ -9026,7 +8966,7 @@ incense.  The floor is made of onyx.
 
 The entrance lies to the south, the hall goes east and west 
 ~
-0 ADN 1
+0 ADN city
 D1
 The hall goes on
 ~
@@ -9054,7 +8994,7 @@ Along the north wall stands a statue.
 
 The hall continues east and west
 ~
-0 ADN 1
+0 ADN city
 E
 statue~
 This looks to be a statue of a githzerai.  The githzerai, a humanoid race
@@ -9086,7 +9026,7 @@ colours to come scintillating out of the wall.
 
 South stretches a corridor, west the hall goes onwards
 ~
-0 ADN 1
+0 ADN city
 D2
 A corridor makes it's way south
 ~
@@ -9107,7 +9047,7 @@ across and to the ceiling it is about twenty feet.
 
 East and west are doors, north and south the corridor goes on 
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 This door is regular sized and has a handle on it.  The door is made of a
@@ -9143,7 +9083,7 @@ polished onyx.
 
 East and west are doors, the corridor heads north
 ~
-0 AD 1
+0 AD city
 E
 door~
 This door is regular sized and has a handle on it.  The door is made of a
@@ -9174,7 +9114,7 @@ wielding a flawing silver sword defending a huge beholder.
 
 The hall stretches south and east
 ~
-0 ADN 1
+0 ADN city
 D1
 The vast hall stretches onwards
 ~
@@ -9195,7 +9135,7 @@ large glowing eye woven into it.
 
 A beautiful door stands to the north, south and west the hall lies 
 ~
-0 ADN 1
+0 ADN city
 E
 beautiful door~
 This door seems to have been made of pure onyx.  It is a black so deep that
@@ -9227,7 +9167,7 @@ make.  The ceiling floats about thirty feet above your head.
 
 The hall continues to the north and east
 ~
-0 ADN 1
+0 ADN city
 E
 tapestries~
 The tapestries on the wall depict a strange scene.  There are two tapestries,
@@ -9258,7 +9198,7 @@ glow green.
 
 The hall goes north and to the west
 ~
-0 ADN 1
+0 ADN city
 D0
 The vast hall
 ~
@@ -9279,7 +9219,7 @@ ground.
 
 The only exit is the door to the west
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 This door is regular sized and has a handle on it.  The door is made of a
@@ -9299,7 +9239,7 @@ you fear to tread here in case you mess it up.
 
 The sole exit is the door to the east
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 This door is regular sized and has a handle on it.  The door is made of a
@@ -9320,7 +9260,7 @@ green but here they have thin veins of gold in them.
 
 The only way out is the door to the west
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 This door is regular sized and has a handle on it.  The door is made of a
@@ -9341,7 +9281,7 @@ painted onto the south wall.
 
 The solitary exit is the door to the east
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 This door is regular sized and has a handle on it.  The door is made of a
@@ -9363,7 +9303,7 @@ tankards of ale.
 
 The tavern continues south and west
 ~
-0 ADN 1
+0 ADN city
 D2
 The tavern lies there
 ~
@@ -9384,7 +9324,7 @@ lighting.  One the walls are small cases of different gemstones.
 
 The tavern continues east and north
 ~
-0 ADN 1
+0 ADN city
 D0
 The tavern goes on in this direction
 ~
@@ -9406,7 +9346,7 @@ enough place, well as friendly as you can get in the Underdark.
 
 The exit is a door to the south, the tavern lies to the north and west 
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door on this side is scratched and has many sword marks in it.  You
@@ -9439,7 +9379,7 @@ slumped form lies against the north wall.
 
 The tavern goes east and south
 ~
-0 ADN 1
+0 ADN city
 E
 form slumped~
 This is the body of a very very drunk duergar.  So drunk that he has passed
@@ -9467,7 +9407,7 @@ walls that look as if they will fall over with even the slightest pressure.
 
 West goes towards the entrance and you can go north, east and south 
 ~
-0 ADN 1
+0 ADN city
 D0
 You can't tell
 ~
@@ -9499,7 +9439,7 @@ have been erected by chance rather than by planning.
 
 There is a small door to the west, the warehouse continues south 
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 This is a small wooden door
@@ -9524,7 +9464,7 @@ few rafters are broken and touch the floor near the middle of this room.
 
 The sole exit is east
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 This is a small wooden door
@@ -9545,7 +9485,7 @@ thin.
 The main corridor is to the north, west is a small wooden panel that looks
 as if it can be opened.  South is a small door.
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 This is a small wooden door
@@ -9578,7 +9518,7 @@ within hands reach.
 
 The only exit is the panel to the east
 ~
-0 ADN 1
+0 ADN city
 E
 panel~
 A panel on the east walls looks as if it can easily be moved. ~
@@ -9597,7 +9537,7 @@ are rough and are in shambles.
 
 The solitary exit it to the north
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 A small wooden door~
@@ -9618,7 +9558,7 @@ wood with panels here and there.
 The corridor continues east and west, panels to the north and south offer
 exits.
 ~
-0 ADN 1
+0 ADN city
 E
 panel~
 This is a wooden panel about three feet wide, it would barely allow you to
@@ -9654,7 +9594,7 @@ side.
 
 The sole exit is north, through the panel
 ~
-0 ADN 1
+0 ADN city
 E
 panel~
 This panel is made of a dark brown wood, and has a huge crack right down
@@ -9674,7 +9614,7 @@ is covered with dust and broken bits of furniture.
 
 The sole exit is the panel to the south
 ~
-0 ADJN 1
+0 ADJN city
 E
 panel~
 This is a wooden panel that slides to give access to what is beyond it.  The
@@ -9695,7 +9635,7 @@ standing.
 
 The corridor goes west and south to the north is a small door 
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 This is a small wooden door that looks very old, the wood is beginning to
@@ -9725,7 +9665,7 @@ without getting wet.
 
 The sole exit is the door to the south
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 This is a very old door, it shows it's age with a series of cracks that run
@@ -9745,7 +9685,7 @@ Broken boards and furniture cover the floor.  The walls are well ventilated.
 
 The corridor continues north and east
 ~
-0 ADN 1
+0 ADN city
 D0
 The dark corridor continues
 ~
@@ -9766,7 +9706,7 @@ complete, with only the odd hole here and there.
 
 The corridor continues north and west.  A door stands to the east 
 ~
-0 ADN 1
+0 ADN city
 D0
 The dark corridor becomes very chaotic
 ~
@@ -9790,7 +9730,7 @@ above it that casts a thin light into this small room.  The ceiling is
 scattered on the floor in a large jumble of wooden beams and planks. 
 A door stands to the west
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 This is a smallish door that is made of old dark wood.
@@ -9809,7 +9749,7 @@ hear knocking on the wood every once in awhile.
 
 The corridor continues north and south, to the east is a door 
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 This door was once painted, and now the black paint is peeling off.  The
@@ -9838,7 +9778,7 @@ floor, and you see dark areas on the wall.
 
 A door stands to the west
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 This door was once painted black, now the paint lies in a pile on the floor. 
@@ -9857,7 +9797,7 @@ beyond the walls.
 
 The corridor continues east and south.
 ~
-0 ADN 1
+0 ADN city
 D1
 The corridor goes onwards
 ~
@@ -9878,7 +9818,7 @@ with you.
 
 The corridor continues east and west
 ~
-0 D 1
+0 D city
 D1
 The corridor plunges into darkness
 ~
@@ -9899,7 +9839,7 @@ hidden beam lying on the ground.
 
 The corridor goes south and west.  To the east is a door
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is a door, small but you can pass through it.
@@ -9929,7 +9869,7 @@ this building.
 
 A door allows passage to the west
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 This is a small door, but it is large enough for you to pass through it.~
@@ -9947,7 +9887,7 @@ from the rafters and the walls.
 
 The corridor goes north and west, to the south a door stands. 
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 This is a regular door that is very old.
@@ -9976,7 +9916,7 @@ The floor is covered with dust, but has many foot prints in it.
 
 A door stands to the north.
 ~
-0 AD 1
+0 AD city
 E
 desk~
 The desk is very old and you are afraid to touch it lest it fall apart.  The
@@ -10001,7 +9941,7 @@ light, beyond which you can't see a thing.
 
 The corridor continues west and south.
 ~
-0 ADN 1
+0 ADN city
 D2
 The corridor is there also
 ~
@@ -10022,7 +9962,7 @@ deposited these items.
 
 The corridor heads north, to the south lies a door.
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 This door is very old, and the hinges are rusty.  There is a large crack that
@@ -10048,7 +9988,7 @@ thousands of little hands.
 
 A door lies to the north and to the west
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is just your regular very old door
@@ -10073,7 +10013,7 @@ a round hole in the ground.
 
 The door to the rec room is to the east
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is just your typical door.
@@ -10098,7 +10038,7 @@ abandoned...
 
 A corridor that leads into the building heads east, west is a door to the city.
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door on this side has many small scratch marks and it looks as if
@@ -10123,7 +10063,7 @@ incense filtering through the air.
 
 To the east lies the main hall, south is the door out
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door on this side has many designs carved into it.  The handle seems
@@ -10149,7 +10089,7 @@ perfectly white.
 
 The hall splits north and east, to the west is the entrance hall 
 ~
-0 ADN 1
+0 ADN city
 D0
 The hall heads onwards
 ~
@@ -10174,7 +10114,7 @@ from azure to a deep crimson.
 
 A door lies to the west, the hallway continues north and south 
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is a simple wooden door.
@@ -10205,7 +10145,7 @@ to be used.
 
 The sole exit is to the east.
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is a simple wooden door.
@@ -10224,7 +10164,7 @@ is crimson a striking contrast against the white floor.
 
 The hallway heads north, east and south, along the west wall a door stands 
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is highly ornate~
@@ -10257,7 +10197,7 @@ The floor is wooden and the walls are also wooden.
 
 The sole exit is the door to the east
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is very ornate~
@@ -10276,7 +10216,7 @@ exotic plants and animals.
 
 A door stands to the south, and to the west the hallway stretches. 
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is ornate with a large tree that has been carved onto it~
@@ -10300,7 +10240,7 @@ the west all is a shower head.
 
 A door stands to the east
 ~
-0 ADLN 1
+0 ADLN city
 E
 door~
 The door is a simple wooden door~
@@ -10319,7 +10259,7 @@ candle burns low on the table.
 
 A door is to the west
 ~
-0 DN 1
+0 DN city
 E
 door~
 A well made door of oak.  There are many mystic symbols inlaid with
@@ -10339,7 +10279,7 @@ is crimson.
 
 Doors are to the east and west.  The hall heads south
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is oaken and well made.~
@@ -10368,7 +10308,7 @@ table.
 
 The hall stretches to the east.  To the north is a door.
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 A simple wooden door~
@@ -10387,7 +10327,7 @@ seems to be staring right at you.
 
 The dining hall stretches to the west
 ~
-0 ADN 1
+0 ADN city
 E
 painting~
 As you look closely at the painting you think you notice a small knob that
@@ -10410,7 +10350,7 @@ series of mystic symbols on the floor and the walls around you.
 
 There are no obvious exits...
 ~
-0 ADN 1
+0 ADN city
 D0
 ~
 wall~
@@ -10428,7 +10368,7 @@ the hall stand statues of different creatures, perhaps of arcane design.
 
 The hall continues east and west
 ~
-0 ADN 1
+0 ADN city
 E
 statue statues~
 These statues are of different creatures.  They all look weird and fierce,
@@ -10454,7 +10394,7 @@ floor is pure white.
 
 The hall continues east and west
 ~
-0 ADN 1
+0 ADN city
 E
 statues statue~
 The statues are of many different creatures.  Some seem to be of arcane
@@ -10480,7 +10420,7 @@ above your head.  A statue stands in the southeast corner.
 
 The hall goes north and west.
 ~
-0 AD 1
+0 AD city
 E
 statue~
 This is a statue of a demon.  The demon seems to have no sex and looks
@@ -10505,7 +10445,7 @@ both sides of the hall.
 
 The hall continues north and south
 ~
-0 ADN 1
+0 ADN city
 E
 statues statue~
 The statues are those of many different exotic birds.  You see many of the
@@ -10533,7 +10473,7 @@ the ceiling is way above your head.
 
 A large door stands to the north, the hall continues south 
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 Before you stand two huge doors made of oak.~
@@ -10557,7 +10497,7 @@ You see a throne in the northwest corner of the chamber.
 
 The chamber goes on north and west.  A door stands to the south 
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 Before you stand two huge doors made of oak.~
@@ -10586,7 +10526,7 @@ blue.  You notice the lack of any furniture except the throne to the north.
 
 The chamber continues north and east.
 ~
-0 ADN 1
+0 ADN city
 E
 painting~
 As you look carefully at this painting you notice that there seems to be a
@@ -10616,7 +10556,7 @@ room is the throne to the west.
 
 The chamber continues south and west
 ~
-0 ADN 1
+0 ADN city
 D2
 The audience chamber
 ~
@@ -10637,7 +10577,7 @@ walls remain constant with the midnight blue.
 
 The chamber continues south and east
 ~
-0 ADN 1
+0 ADN city
 E
 throne~
 The throne is very black, so black that is catches and keeps the light that
@@ -10662,7 +10602,7 @@ have been placed in holders that stand off against the walls.
 
 Doors stand north, east and south.
 ~
-0 DN 1
+0 DN city
 E
 door~
 The door is a simple wooden door.~
@@ -10692,7 +10632,7 @@ notice a sign on the wall.
 
 The sole exit is the door to the west.
 ~
-0 DN 1
+0 DN city
 E
 door~
 The door is a simple wooden door.~
@@ -10718,7 +10658,7 @@ you.
 
 The room spreads out north and east, and a door lies to the south 
 ~
-0 DN 1
+0 DN city
 E
 door~
 A simple wooden door.
@@ -10748,7 +10688,7 @@ interesting couples engaged in one of life's greatest experiences.
 
 The room continues north and west.
 ~
-0 DN 1
+0 DN city
 D0
 The room goes on
 ~
@@ -10770,7 +10710,7 @@ thought possible.
 
 The room continues east and south
 ~
-0 DN 1
+0 DN city
 D1
 The room goes on
 ~
@@ -10792,7 +10732,7 @@ sweat.
 
 The room goes on south and west
 ~
-0 DN 1
+0 DN city
 D2
 The room continues
 ~
@@ -10812,7 +10752,7 @@ fresh food being cooked for all the patrons.
 
 The door out is to the south, the way into the inn is north 
 ~
-0 DN 1
+0 DN city
 E
 door~
 The door is large and well built~
@@ -10835,7 +10775,7 @@ can hear the buzz of many conversations coming from the east.
 
 A door stands to the north, east is the common room.
 ~
-0 DN 1
+0 DN city
 E
 door~
 This is obviously the door to the washroom.  The words "rest room"
@@ -10864,7 +10804,7 @@ yourself in.  All in all, this washroom is very clean and neat.
 
 The sole exit is the door to the south
 ~
-0 DLN 1
+0 DLN city
 E
 door~
 On this side, the door is a regular door
@@ -10884,7 +10824,7 @@ room.  Patrons fill the room and there is some smoke in the air.
 The common room continues north and east, west is the hall, and south is
 a door to a room.
 ~
-0 DN 1
+0 DN city
 E
 door~
 The door is a simple wooden door
@@ -10918,7 +10858,7 @@ made.
 
 The way out if the door to the north
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is a simple wooden door
@@ -10938,7 +10878,7 @@ normally is in a place where they serve many alcoholic beverages.
 
 The common room continues east and south
 ~
-0 DN 1
+0 DN city
 D1
 The common room and bar
 ~
@@ -10959,7 +10899,7 @@ you can see figures huddled over their mugs of ale discussing business.
 The common rooms goes on north and west.  A door stands to the east and
 leads to more rooms.  There is also a door to the south
 ~
-0 DN 1
+0 DN city
 E
 door~
 The door is a normal wooden door~
@@ -10992,7 +10932,7 @@ bed and a chester drawers.
 
 The sole exit is the door to the north
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is a normal wooden door~
@@ -11011,7 +10951,7 @@ torches burn to light the area, although they don't do a very good job.
 To the west is a door, north and south are doors to room and the hall
 continues to the east.
 ~
-0 DN 1
+0 DN city
 E
 door~
 The door is regular wooden door~
@@ -11044,7 +10984,7 @@ watching alertly for trouble.
 
 The common room continues south and west
 ~
-0 DN 1
+0 DN city
 D2
 The common room
 ~
@@ -11064,7 +11004,7 @@ either.
 
 The door is the to south
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is a simple wooden door~
@@ -11082,7 +11022,7 @@ made.
 
 The way out if the door to the north
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is a simple wooden door
@@ -11100,7 +11040,7 @@ by a few torches that hang off between the doors.
 
 A Door leads to a room to the south, the hallway heads west 
 ~
-0 DN 1
+0 DN city
 E
 door~
 The door is of the simple wooden variety~
@@ -11123,7 +11063,7 @@ the bed has been made ready to be slept in.
 
 The sole exit is the door to the north
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is a simple wooden door~
@@ -11143,7 +11083,7 @@ screams of the slaves from behind the bars or their cages.
 North a door offers a way into the dirty cages of the slaves, you can leave
 by going east or south and west goes further into this building 
 ~
-0 ADN 1
+0 ADN city
 E
 bars~
 These bars have the shape of a door in them~
@@ -11180,7 +11120,7 @@ threatens to release your last meal.
 
 The cages continues west, a door in the bars is to the south 
 ~
-0 ADN 1
+0 ADN city
 E
 bars~
 These bars have the shape of a door in them~
@@ -11204,7 +11144,7 @@ scents that should accompany this scene.
 
 The hall continues east and west
 ~
-0 ADN 1
+0 ADN city
 D1
 The slave hall
 ~
@@ -11225,7 +11165,7 @@ some hay, it's as if these slaves are not humanoids.
 
 The cage continues east and west
 ~
-0 ADN 1
+0 ADN city
 D1
 The cage continues
 ~
@@ -11246,7 +11186,7 @@ blatant statement of wealth in the midst of this oppression.
 
 The hall continues east and west
 ~
-0 ADN 1
+0 ADN city
 D1
 The slave hall
 ~
@@ -11267,7 +11207,7 @@ barbed whip, to remind the slaves that they are slaves.
 
 The cage continues east and west
 ~
-0 ADN 1
+0 ADN city
 D1
 The cage continues
 ~
@@ -11289,7 +11229,7 @@ desire by simply buying a slave from the Slave Dealer.
 
 The hall continues to the east, a door through the bars is north 
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door offers an entrance to the slave cage
@@ -11314,7 +11254,7 @@ smell of sweat, garbage and death hang in the air.
 
 The cage continues to the east, south is a door through the bars 
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 This door has been placed between the bars and seems to be solid enough~
@@ -11339,7 +11279,7 @@ good thirty feet above your head.
 
 A door exits north, a prison cell is east, the hall continues south and west.
 ~
-0 DN 1
+0 DN city
 E
 door~
 This door is huge and has no handle on it.  The door is large enough to
@@ -11378,7 +11318,7 @@ sound of your own breathing.
 
 The sole exit is through the door to the west
 ~
-0 ADLN 1
+0 ADLN city
 E
 door~
 The door is a solid series of bars that allow only your arm to pass while
@@ -11398,7 +11338,7 @@ rests far above your head.  The walls are grey and the ground is black.
 
 The hall continues east and west.
 ~
-0 ADN 1
+0 ADN city
 D1
 Before the northern entrance
 ~
@@ -11418,7 +11358,7 @@ grey.
 
 The hall continues north and south, east and west are doors to cells. 
 ~
-0 ADN 1
+0 ADN city
 E
 prison door~
 The door is made out of solid iron.  It is huge and extremely hard to budge. 
@@ -11452,7 +11392,7 @@ the far wall and a hole in the ground in the corner.
 
 The sole exit is the door to the west.
 ~
-0 ADJN 1
+0 ADJN city
 E
 door~
 The door is made of solid iron.  You strain against it and it finally gives
@@ -11475,7 +11415,7 @@ the far wall and a hole in the ground in the corner.
 
 The sole exit is the door to the east
 ~
-0 ADJN 1
+0 ADJN city
 E
 door~
 The door is made of solid iron.  You strain against it and it finally gives
@@ -11500,7 +11440,7 @@ the eyes.
 
 The hall continues north and south, prison cells lie east and west. 
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is made of solid iron and looks as if nothing could dent or break
@@ -11535,7 +11475,7 @@ the far wall and a hole in the ground in the corner.
 
 The sole exit is the door to the east
 ~
-0 ADJN 1
+0 ADJN city
 E
 door~
 The door is made of solid iron.  You strain against it and it finally gives
@@ -11558,7 +11498,7 @@ the far wall and a hole in the ground in the corner.
 
 The sole exit is the door to the west
 ~
-0 ADJN 1
+0 ADJN city
 E
 door~
 The door is made of solid iron.  You strain against it and it finally gives
@@ -11582,7 +11522,7 @@ coming from the cells.
 
 The hall continues north, east and west.  South is a prison cell 
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is made of solid iron and looks as if nothing could harm it ~
@@ -11618,7 +11558,7 @@ and the ceiling lies about thirty feet above your head.
 The door out is east, to the south is a prison cell guarded by an iron door
 and west the hall continues.
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 This door is huge and has no handle, it allows the enforcer eyes to come in
@@ -11654,7 +11594,7 @@ laws that are kept.
 The hall continues east, there is a prison cell to the south, and the exit to
 the Underdark is west.
 ~
-0 ADN 1
+0 ADN city
 E
 prison~
 This door is built completely of iron.  It is huge and very very hard to
@@ -11688,7 +11628,7 @@ the far wall and a hole in the ground in the corner.
 
 The sole exit is the door to the north
 ~
-0 ADJN 1
+0 ADJN city
 E
 door~
 The door is made of solid iron.  You strain against it and it finally gives
@@ -11711,7 +11651,7 @@ the far wall and a hole in the ground in the corner.
 
 The sole exit is the door to the north
 ~
-0 ADJN 1
+0 ADJN city
 E
 door~
 The door is made of solid iron.  You strain against it and it finally gives
@@ -11734,7 +11674,7 @@ the far wall and a hole in the ground in the corner.
 
 The sole exit is the door to the north
 ~
-0 ADJN 1
+0 ADJN city
 E
 door~
 The door is made of solid iron.  You strain against it and it finally gives
@@ -11758,7 +11698,7 @@ head.
 
 The hall continues east and west.  To the south is a prison cell 
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is made of solid iron.
@@ -11788,7 +11728,7 @@ hole in the corner.
 
 The sole exit is through the door to the north
 ~
-0 ADLN 1
+0 ADLN city
 E
 door~
 The door is made of solid iron.  You strain against it and it finally gives
@@ -11811,7 +11751,7 @@ cells.
 
 The hall continues east and west, to the south is a prison cell 
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is made of solid iron.  You strain against it and it finally gives
@@ -11840,7 +11780,7 @@ the far wall and a hole in the ground in the corner.
 
 The sole exit is the door to the north
 ~
-0 ADJN 1
+0 ADJN city
 E
 door~
 The door is made of solid iron.  You strain against it and it finally gives
@@ -11863,7 +11803,7 @@ agonized screams of the prisoners.
 
 The hall stretches east, to the south is a large iron door. 
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 This door is made of iron and has no handle.  You apply a little force on it
@@ -11889,7 +11829,7 @@ hovers in the air way above your head.
 
 The sole exit is the door to the north
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 This door is made of iron and has no handle.  You apply a little force on it
@@ -11909,7 +11849,7 @@ various topics.  The tavern is dark and smells of smoke and alcohol.
 
 The tavern lies to the south, north is the entrance
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is a simple wooden door~
@@ -11933,7 +11873,7 @@ and alcohol permeates everything here.
 
 The tavern hall goes east and the entrance is to the north 
 ~
-0 ADN 1
+0 ADN city
 E
 heads~
 These are all stuffed heads of many different animals.  You see the head of
@@ -11964,7 +11904,7 @@ them.
 
 The common room is to the east, the hall goes west
 ~
-0 ADN 1
+0 ADN city
 D1
 The common room
 ~
@@ -11985,7 +11925,7 @@ and smells deeply of alcohol.
 
 The dining area continues north and east, the entrance hall is west 
 ~
-0 ADN 1
+0 ADN city
 D0
 The dining area
 ~
@@ -12011,7 +11951,7 @@ tables.
 
 The area continues north and west
 ~
-0 ADN 1
+0 ADN city
 E
 bar~
 The bar is long and covered with glasses of ale and other alcohols.  The
@@ -12036,7 +11976,7 @@ can see the bar to the south.
 
 The area continues to the south and west.
 ~
-0 ADN 1
+0 ADN city
 D2
 The dining area
 ~
@@ -12057,7 +11997,7 @@ wenches.  The air is thick with smoke.
 
 The dining area continues east and south, the washroom is west. 
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is a simple wooden door with the words "rest room" engraved
@@ -12087,7 +12027,7 @@ northern wall.
 
 The sole exit is the door to the east.
 ~
-0 ADLN 1
+0 ADLN city
 E
 door~
 The door is a simple wooden door~
@@ -12106,7 +12046,7 @@ far side of the shop behind a counter.
 
 The only way out is north
 ~
-0 ADN 1
+0 ADN city
 D0
 The street of the gods
 ~
@@ -12123,7 +12063,7 @@ buy and sell merchandise.
 
 The sole way out is north
 ~
-0 ADN 1
+0 ADN city
 D0
 The street of the gods
 ~
@@ -12140,7 +12080,7 @@ waiting for you to buy something
 
 The sole exit is to the north
 ~
-0 ADN 1
+0 ADN city
 D0
 The street of the gods
 ~
@@ -12157,7 +12097,7 @@ do not steal anything.
 
 The only exit is north
 ~
-0 ADN 1
+0 ADN city
 D0
 The street of the gods
 ~
@@ -12172,7 +12112,7 @@ spice.  There are many counters with all sorts of spices and foods on them.
 
 The sole exit is to the north
 ~
-0 ADN 1
+0 ADN city
 D0
 The street of the gods
 ~
@@ -12189,7 +12129,7 @@ texture.
 
 The door out is east, and the hallway goes west
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is short and made of oak reinforced with bands of iron. ~
@@ -12211,7 +12151,7 @@ dark in the hallway and cool.
 
 The entrance is to the east, the hallway continues south
 ~
-0 ADN 1
+0 ADN city
 D1
 The foyer
 ~
@@ -12232,7 +12172,7 @@ memory.
 
 The hallway continues north and south, to the east is a door 
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is small and made out of oak
@@ -12262,7 +12202,7 @@ obvious that people are not meant to stay here long.
 
 The only way out is the door to the west
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is small and made out of oak
@@ -12281,7 +12221,7 @@ rock, as this entire structure was carved out of the living rock years ago.
 
 The hallway continues north and south, there is a door to the east. 
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is small and stout
@@ -12311,7 +12251,7 @@ half feet high here.  There is a large rug that covers the floor.
 
 The sole exit is the door to the west
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is small and stout
@@ -12333,7 +12273,7 @@ air is cool and moist.
 
 The hallway goes north and there is a door to the east.
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is small, wooden and looks to be very strong
@@ -12358,7 +12298,7 @@ ground.  The room is about fifteen feet by fifteen.
 
 The sole exit is the door to the west
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is small, wooden and looks to be very strong
@@ -12378,7 +12318,7 @@ polished.  The walls are white marble.
 
 The hall continues to the south, there are doors east and west 
 ~
-0 DN 1
+0 DN city
 E
 exit~
 The exit door is huge and well built.  There is little else to say about it
@@ -12418,7 +12358,7 @@ light the room.
 
 The sole exit it the door to the west
 ~
-0 DN 1
+0 DN city
 E
 door~
 The door is a beautiful oak door
@@ -12438,7 +12378,7 @@ are black.  Small rods light the room.
 
 The only exit it the door to the east
 ~
-0 DN 1
+0 DN city
 E
 door~
 The door is a beautiful oak door
@@ -12458,7 +12398,7 @@ that the thieve's guild is probably richer than most kingdoms.
 
 The hallway branches north, east, south and west.
 ~
-0 DN 1
+0 DN city
 D0
 The entrance hall
 ~
@@ -12489,7 +12429,7 @@ Small rods that are being held on the walls light the way.
 
 The hallway continues east and west
 ~
-0 ADN 1
+0 ADN city
 D1
 The hallway
 ~
@@ -12510,7 +12450,7 @@ pedestal with a large glowing hand.
 
 Door lie north and south, the hallway continues east
 ~
-0 DN 1
+0 DN city
 E
 door~
 The door is a solid oaken door~
@@ -12553,7 +12493,7 @@ couple bunks lie against the north and east wall respectively.
 
 The sole exit is the door to the south
 ~
-0 DN 1
+0 DN city
 E
 door~
 The door is a solid oaken door~
@@ -12573,7 +12513,7 @@ cards.
 
 The sole exit is the door to the north
 ~
-0 DN 1
+0 DN city
 E
 door~
 The door is a solid oaken door~
@@ -12592,7 +12532,7 @@ with shelves.  The shelves are lined with these items.
 
 The sole exit is the door to the east
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is a simple wooden door~
@@ -12611,7 +12551,7 @@ gold since there are little rivulets of gold that create many chaotic patterns.
 
 The hallway continues north and south, there is a door to the west 
 ~
-0 DN 1
+0 DN city
 E
 door~
 The door is a simple wooden door
@@ -12642,7 +12582,7 @@ were in a holy place of worship.
 
 The hallway heads north, there is a door to the west
 ~
-0 DN 1
+0 DN city
 E
 door~
 The door is a simple wooden door~
@@ -12666,7 +12606,7 @@ Small rods provide a soft glow that lights everything in the room.
 
 There are doors to the east and west
 ~
-0 DN 1
+0 DN city
 E
 door~
 The door is a simple wooden door~
@@ -12691,7 +12631,7 @@ black and the walls are dark blue.
 
 The sole exit is the door to the east
 ~
-0 DN 1
+0 DN city
 E
 door~
 The door is a simple wooden door
@@ -12710,7 +12650,7 @@ hallway are statues in the design of many different creatures.
 
 The hallway continue east and west, to the south is a door 
 ~
-0 DN 1
+0 DN city
 E
 door~
 The door is a simple wooden door~
@@ -12739,7 +12679,7 @@ and rewards.
 
 There is a door to the north, the chamber continues east and south 
 ~
-0 DN 1
+0 DN city
 E
 door~
 The door is a simple wooden door.~
@@ -12769,7 +12709,7 @@ enough room for about twenty people, and at the head sits the master thief.
 
 The chamber continues west and south
 ~
-0 DN 1
+0 DN city
 D2
 The council chamber
 ~
@@ -12791,7 +12731,7 @@ guild is more powerful than that of their rival the assassin's guild.
 
 The chamber continues north and west
 ~
-0 DN 1
+0 DN city
 D0
 The council chamber
 ~
@@ -12813,7 +12753,7 @@ the assassin's guild attempts to prevent it's growth.
 
 The chamber continues to the north and east
 ~
-0 DN 1
+0 DN city
 D0
 The council chamber
 ~
@@ -12833,7 +12773,7 @@ exhibition in a museum, there are statues along the sides of the hall.
 
 The hallway continues east and west, there is a door to the north 
 ~
-0 DN 1
+0 DN city
 E
 door~
 The door is a well crafted wooden door~
@@ -12866,7 +12806,7 @@ window looking out over the city.
 
 The sole exit is the door to the south
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is a well crafted wooden door~
@@ -12885,7 +12825,7 @@ smell of incense caresses your sense of smell.
 
 The hallway goes west and south, doors lie to the north and east 
 ~
-0 DN 1
+0 DN city
 E
 door~
 The door is made of oak and is well built.~
@@ -12919,7 +12859,7 @@ and a pentagon engraved on the floor.
 
 The sole exit is the door to the south
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is a well built and made of oak~
@@ -12938,7 +12878,7 @@ walls are dark grey with streaks of silver and gold in them.
 
 There is a door to the north and one to the west.
 ~
-0 DN 1
+0 DN city
 E
 door~
 The door is made of oak and is well built.~
@@ -12962,7 +12902,7 @@ chandelier hangs down from it.
 
 There is a door to the south
 ~
-0 DN 1
+0 DN city
 E
 door~
 The door is a solid oak door
@@ -12986,7 +12926,7 @@ white and glint with silver.
 
 The hallway continues north and south.  There is a door to the east 
 ~
-0 DN 1
+0 DN city
 E
 statues~
 The statues are those of many different creatures.  Every creature you have
@@ -13020,7 +12960,7 @@ ground.
 
 The sole exit is the door to the west
 ~
-0 DN 1
+0 DN city
 E
 door~
 The door is a well built oak door~
@@ -13040,7 +12980,7 @@ stands.
 
 The hallway goes north, there is a door to the east.
 ~
-0 DN 1
+0 DN city
 E
 door~
 The door is a regular wooden door~
@@ -13072,7 +13012,7 @@ large fur rug on the floor.
 
 The sole exit is to the west
 ~
-0 DN 1
+0 DN city
 E
 door~
 The door is a solid oaken door~
@@ -13094,7 +13034,7 @@ and it is cool.
 
 The hallways goes west, the door out is east.
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is large and made of a dark material.~
@@ -13117,7 +13057,7 @@ a way it does.
 
 The hallway goes east and south
 ~
-0 ADN 1
+0 ADN city
 D1
 The hallway
 ~
@@ -13137,7 +13077,7 @@ hallway.
 
 The hallway goes north and south
 ~
-0 ADN 1
+0 ADN city
 D0
 The hallway
 ~
@@ -13157,7 +13097,7 @@ thin red lines form the shape of a skull.
 
 The hallway goes north and west, there is a door to the east. 
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 This door is made of a dark substance, much like wood.~
@@ -13185,7 +13125,7 @@ patterns and gleam in the light.
 
 The corridor goes east, there are doors to the north, south and west. 
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is black and made out of a wood like substance.~
@@ -13218,7 +13158,7 @@ the room.
 
 The only way out is the door to the south
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is black and made out of a wood like substance.~
@@ -13236,7 +13176,7 @@ floor and walls are dark grey.
 
 The only way out is the door to the north
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is black and made out of a wood like substance.~
@@ -13257,7 +13197,7 @@ walls are black.  You notice that it is rather cool and quiet in this corridor.
 
 The corridor goes east and west.  Doors lie to the north and south. 
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is very dark, so dark that it is black.~
@@ -13290,7 +13230,7 @@ ground.  Apart from that, there is nothing else.
 
 The sole exit is the door to the north
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is solid black.~
@@ -13308,7 +13248,7 @@ and the floor is black.
 
 The sole exit is the door to the south
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is solid black.~
@@ -13330,7 +13270,7 @@ your heart pumping and the loud thud of each of your foot steps.
 
 There are doors to the north, east and south.  The corridor heads west 
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is dark and solid.~
@@ -13363,7 +13303,7 @@ and that is all the furniture in this room.
 
 The sole exit is the door to the south
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is black~
@@ -13381,7 +13321,7 @@ wall.
 
 The only way out is the door to the north
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is a simple black door~
@@ -13399,7 +13339,7 @@ with glowing lines of red in it.
 
 The chamber stretches to the east and south, to the west is a door 
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is black and very strong.~
@@ -13427,7 +13367,7 @@ the walls are dark grey with glowing lines of red.
 
 The chamber goes west and south
 ~
-0 ADN 1
+0 ADN city
 D2
 The meeting chamber
 ~
@@ -13448,7 +13388,7 @@ will send someone out after you.
 
 The chamber continues north and west
 ~
-0 ADN 1
+0 ADN city
 D0
 The meeting chamber
 ~
@@ -13469,7 +13409,7 @@ open hand.  A weird chamber by far.
 
 The chamber stretches north and east
 ~
-0 ADN 1
+0 ADN city
 D0
 The meeting chamber
 ~
@@ -13490,7 +13430,7 @@ out a shape, but you can't tell what.
 
 The hallway continues north and east
 ~
-0 ADN 1
+0 ADN city
 E
 wall~
 The glowing bands of green form a distorted door.  You wonder if this
@@ -13518,7 +13458,7 @@ or bright, everything is either black or shades of grey.
 
 The hallway continues north and south
 ~
-0 ADN 1
+0 ADN city
 D0
 The hallway
 ~
@@ -13539,7 +13479,7 @@ here, making you shiver.
 There is a door to the north while the hall heads west and east, the hallway
 goes south.
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is a bleak black door, with nothing of note on it~
@@ -13573,7 +13513,7 @@ other critters.  Everything you see is protected by a barrier of magic.
 
 The sole exit is the door to the south
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is black~
@@ -13590,7 +13530,7 @@ It is very dark here.  You can't hear anything but the sounds that you make.
 
 To the north is a door, the hall goes on to the east
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is black.~
@@ -13614,7 +13554,7 @@ building, this room is actually messy.
 
 The sole exit is the door to the south
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is black.~
@@ -13631,7 +13571,7 @@ blue.  The hall is devoid of any decorations.  The air is chilly and dry.
 
 There is a door to the north while the hall continues east and west. 
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is black~
@@ -13660,7 +13600,7 @@ stretch a person 'till they either talk or split in half.
 
 The only exit is the door to the south
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is black~
@@ -13680,7 +13620,7 @@ bunch do not even live in the Underdark.
 
 There is a door to the north and the hall stretches to the west 
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is black~
@@ -13703,7 +13643,7 @@ some words scribbled.  The rest of the chamber is black.
 
 The sole exit is to the south
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is black~
@@ -13731,7 +13671,7 @@ of habitation.  What type of man is Eurandus?
 
 The way out is east, a hall goes north
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is a simple wooden door~
@@ -13759,7 +13699,7 @@ useful, but interesting enough to spend hours staring at.
 
 The only exit is the door to the east
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is a simple wooden door~
@@ -13778,7 +13718,7 @@ pure power coming from this hall.
 
 The hall stretches east, south and north, to the west is a door
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is a stout wooden door~
@@ -13812,7 +13752,7 @@ insects crawling along the floor.
 
 The hall continues north and west
 ~
-0 ADN 1
+0 ADN city
 D0
 The large hall
 ~
@@ -13833,7 +13773,7 @@ rest of the normal room stuff.
 
 The sole exit is the door to the east
 ~
-0 DN 1
+0 DN city
 E
 door~
 The door is a stout wooden door~
@@ -13851,7 +13791,7 @@ figures standing off to the side, yet you can't quite make them out.
 
 The hall continues east and south.  There is a door to the west 
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door has a face carved into it~
@@ -13885,7 +13825,7 @@ you.
 
 To the north is a door, the hall goes south and west
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is a simple wooden door~
@@ -13914,7 +13854,7 @@ soft and comfortable.  The rest of the room is dark and uninteresting.
 
 The sole exit is the door to the east
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is a simple wooden door~
@@ -13933,7 +13873,7 @@ Most of them die within hours of being created, yet others survive...
 
 The room continues to the north, there is a door to the south 
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is a solid oak door~
@@ -13958,7 +13898,7 @@ under the table.
 
 The room continues to the south
 ~
-0 ADN 1
+0 ADN city
 D2
 The experimenting room
 ~
@@ -13975,7 +13915,7 @@ the sounds of snarling and growls.
 
 There is a door to the north, south and west.
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is a sturdy wooden door~
@@ -14007,7 +13947,7 @@ creature who is very fearsome and dangerous.
 
 The sole exit is the door to the east
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 A sturdy wooden door~
@@ -14031,7 +13971,7 @@ ceiling rests twenty feet above the ground.
 
 The cavern continues to the west, there is a door to the north 
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is grey and been coloured so it look like part of the wall.~
@@ -14054,7 +13994,7 @@ The ceiling stretches about thirty feet into the air at this end of the cavern.
 
 The cavern goes to the east
 ~
-0 ADN 1
+0 ADN city
 D1
 The cavern extends in this direction
 ~
@@ -14071,7 +14011,7 @@ lies to the north.
 
 The room continues north and west, a door to the east leads out 
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is a solid oaken door~
@@ -14101,7 +14041,7 @@ and you can't make out a single word.
 
 The common room spreads out to the south and west
 ~
-0 ADN 1
+0 ADN city
 E
 bar~
 The bar is about fifteen feet long and is covered by many mugs of ale.  The
@@ -14127,7 +14067,7 @@ about anything here knowing that no one can hear what you are saying.
 
 The common room extends to the east and south, a door lies to the west. 
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is a solid oaken door~
@@ -14152,7 +14092,7 @@ pleasure.
 
 The common room lies to the north and the east
 ~
-0 ADN 1
+0 ADN city
 D0
 The common room
 ~
@@ -14172,7 +14112,7 @@ about ten feet off the ground and the hallway is about seven feet wide.
 
 The hallway stretches westwards.  Doors lie to the north, east and south 
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is a solid oaken door~
@@ -14206,7 +14146,7 @@ lies against the far wall and there is a bear skin rug on the floor.
 
 The sole exit is the door to the south
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is a simple wooden door~
@@ -14225,7 +14165,7 @@ walls.
 
 The sole exit is the door to the north
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is a solid oaken door~
@@ -14243,7 +14183,7 @@ so.  The hallway is silent and warm.
 
 The hallway goes east and west.  There are doors to the north and south 
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is a solid oaken door~
@@ -14277,7 +14217,7 @@ lies against the far wall and there is a bear skin rug on the floor.
 
 The sole exit is the door to the north
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is a simple wooden door~
@@ -14296,7 +14236,7 @@ walls.
 
 The sole exit is the door to the south
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is a solid oaken door~
@@ -14314,7 +14254,7 @@ out of stone.
 
 There are doors to the north and south, the hallway goes back to the east 
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is a strong oaken door~
@@ -14343,7 +14283,7 @@ lies against the far wall and there is a bear skin rug on the floor.
 
 The sole exit is the door to the south
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is a simple wooden door~
@@ -14362,7 +14302,7 @@ walls.
 
 The sole exit is the door to the north
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is a solid oaken door~
@@ -14381,7 +14321,7 @@ been burnt up by a major spell from a mage.
 
 The hallway goes deeper into the clan to the north, a door is to the south 
 ~
-0 AD 1
+0 AD city
 E
 door~
 The door on this side is just a grey block with a handle.~
@@ -14404,7 +14344,7 @@ grey.  You can hear screams and the air is hot.
 
 The hallway goes north and south
 ~
-0 D 1
+0 D city
 D0
 The hallways
 ~
@@ -14424,7 +14364,7 @@ beings of great power in these halls.
 
 The hallway goes east, south and west.
 ~
-0 D 1
+0 D city
 D1
 The hallway
 ~
@@ -14450,7 +14390,7 @@ the forests.
 
 The hallway goes north and west, doors lie to the east and south 
 ~
-0 ADN 1
+0 ADN city
 E
 door~
 The door is a huge iron door covered with mystic symbols~
@@ -14485,7 +14425,7 @@ the Abyss.
 
 The sole exit is the door to the west
 ~
-0 D 1
+0 D city
 E
 door~
 The door is a strong iron door, covered with mystic symbols~
@@ -14505,7 +14445,7 @@ specializes on the level of the abyss that Graz'zt rules.
 
 There is a door to the north, the chamber goes to the east and south 
 ~
-0 DN 1
+0 DN city
 E
 door~
 The door is a huge iron door covered with mystic symbols~
@@ -14534,7 +14474,7 @@ silver and gold.
 
 The chamber continues south and west
 ~
-0 DN 1
+0 DN city
 D2
 The summoning chamber
 ~
@@ -14555,7 +14495,7 @@ demon prince whom the clan members worship and revere.
 
 The chamber continues north and west
 ~
-0 DN 1
+0 DN city
 D0
 The summoning chamber
 ~
@@ -14576,7 +14516,7 @@ silver.  The floor is black and polish so it gleams in the light.
 
 The chamber continues to the north and east
 ~
-0 DN 1
+0 DN city
 D0
 The summoning chamber
 ~
@@ -14597,7 +14537,7 @@ the sleeping chambers.
 
 The hallway continues north and south
 ~
-0 D 1
+0 D city
 E
 door~
 The door is made of iron and is covered with many mystic symbols~
@@ -14627,7 +14567,7 @@ Yeenoghu's layer to the ariel creatures of Pazuzu's level.
 
 The sole exit is the door to the west
 ~
-0 D 1
+0 D city
 E
 door~
 The door is made of iron and is covered with many mystic symbols~
@@ -14647,7 +14587,7 @@ the abyss.
 
 The hallway continues north and south, there is a door to the east 
 ~
-0 D 1
+0 D city
 E
 door~
 The door is made out of iron and is covered with many mystic symbols~
@@ -14677,7 +14617,7 @@ the Abyss.
 
 The sole exit is the door to the west
 ~
-0 D 1
+0 D city
 E
 door~
 The door is a strong iron door, covered with mystic symbols~
@@ -14696,7 +14636,7 @@ the sleeping chambers.
 
 The hallway continues north and south
 ~
-0 D 1
+0 D city
 E
 door~
 The door is made of iron and is covered with many mystic symbols~
@@ -14726,7 +14666,7 @@ Yeenoghu's layer to the ariel creatures of Pazuzu's level.
 
 The sole exit is the door to the west
 ~
-0 D 1
+0 D city
 E
 door~
 The door is made of iron and is covered with many mystic symbols~
@@ -14744,7 +14684,7 @@ levels of the abyss on them.
 
 There is a door to the east, and the hallway goes to the south 
 ~
-0 D 1
+0 D city
 E
 door~
 The door is made of iron and is covered with many mystic symbols~
@@ -14769,7 +14709,7 @@ the Abyss.
 
 The sole exit is the door to the west
 ~
-0 D 1
+0 D city
 E
 door~
 The door is a strong iron door, covered with mystic symbols~
@@ -14789,7 +14729,7 @@ Graz'zt to Orcus.
 
 The hallway continues east and west
 ~
-0 D 1
+0 D city
 D1
 A split in the hallway
 ~
@@ -14809,7 +14749,7 @@ and the ceiling is black.
 
 The hallway goes north and east, there is a door to the south 
 ~
-0 D 1
+0 D city
 E
 door~
 The door is made of iron and covered with many mystic symbols~
@@ -14838,7 +14778,7 @@ hexagon.
 
 There is a door to the north, the chamber stretches east and south 
 ~
-0 DN 1
+0 DN city
 E
 door~
 The door is made  of iron and covered with many mystic symbols~
@@ -14867,7 +14807,7 @@ confinement.
 
 The chamber continues to the south and west
 ~
-0 DN 1
+0 DN city
 D2
 The summoning chamber
 ~
@@ -14887,7 +14827,7 @@ green light.  The symbols on the room glint in the light.
 
 The chamber continues north and west
 ~
-0 DN 1
+0 DN city
 D0
 The summoning chamber
 ~
@@ -14908,7 +14848,7 @@ greenish light that comes from the hexagon.
 
 The chamber continues to the north and east
 ~
-0 DN 1
+0 DN city
 D0
 The summoning chamber
 ~
@@ -14929,7 +14869,7 @@ depict all the planes of the abyss, constantly changing.
 
 There is a door to the east, and the hallway goes to the south 
 ~
-0 D 1
+0 D city
 E
 door~
 The door is made out of iron and covered with many mystic symbols~
@@ -14953,7 +14893,7 @@ There is a large pentagon in the centre of the chamber.
 
 The room continues to the north and east, there is a door to the west 
 ~
-0 DN 1
+0 DN city
 E
 door~
 The door is made of iron and covered with magical wards and symbols~
@@ -14982,7 +14922,7 @@ this room.
 
 The room continues to the north and west
 ~
-0 DN 1
+0 DN city
 D0
 The summoning room
 ~
@@ -15004,7 +14944,7 @@ is about twenty feet wide and long.
 
 The room goes to the south and west
 ~
-0 DN 1
+0 DN city
 D2
 The summoning room
 ~
@@ -15026,7 +14966,7 @@ symbols that recalling would be impossible.
 
 The room stretches to the east and south
 ~
-0 DN 1
+0 DN city
 D1
 The summoning room
 ~
@@ -15046,7 +14986,7 @@ that is truly interesting.
 
 The way out is to the north
 ~
-0 DN 1
+0 DN city
 E
 door~
 The door is a simple wooden door~
@@ -15065,7 +15005,7 @@ write home about.
 
 The exit back to the city is to the north
 ~
-0 DN 1
+0 DN city
 E
 door~
 The door is a simple wooden door~
@@ -15083,7 +15023,7 @@ that is truly interesting.
 
 The way out is to the north
 ~
-0 DN 1
+0 DN city
 E
 door~
 The door is a simple wooden door~
@@ -15102,7 +15042,7 @@ write home about.
 
 The exit back to the city is to the north
 ~
-0 DN 1
+0 DN city
 E
 door~
 The door is a simple wooden door~
@@ -15120,7 +15060,7 @@ pieces of furniture.
 
 The way back to the city is through the door to the south
 ~
-0 DN 1
+0 DN city
 E
 door~
 The door is a simple wooden door~
@@ -15138,7 +15078,7 @@ lie empty.  The house is silent and dark.
 
 The exit to the city is to the south
 ~
-0 ADN 1
+0 ADN city
 D2
 The door leads back to the city
 ~
@@ -15154,7 +15094,7 @@ write home about.
 
 The exit back to the city is to the south
 ~
-0 DN 1
+0 DN city
 E
 door~
 The door is a simple wooden door~
@@ -15172,7 +15112,7 @@ pieces of furniture.
 
 The way back to the city is through the door to the south
 ~
-0 DN 1
+0 DN city
 E
 door~
 The door is a simple wooden door~
@@ -15190,7 +15130,7 @@ that is truly interesting.
 
 The way out is to the north
 ~
-0 DN 1
+0 DN city
 E
 door~
 The door is a simple wooden door~
@@ -15209,7 +15149,7 @@ write home about.
 
 The exit back to the city is to the north
 ~
-0 DN 1
+0 DN city
 E
 door~
 The door is a simple wooden door~
@@ -15227,7 +15167,7 @@ lie empty.  The house is silent and dark.
 
 The exit to the city is to the north
 ~
-0 ADN 1
+0 ADN city
 D0
 The door leads back to the city
 ~
@@ -15243,7 +15183,7 @@ write home about.
 
 The exit back to the city is to the south
 ~
-0 DN 1
+0 DN city
 E
 door~
 The door is a simple wooden door~
@@ -15261,7 +15201,7 @@ pieces of furniture.
 
 The way back to the city is through the door to the south
 ~
-0 DN 1
+0 DN city
 E
 door~
 The door is a simple wooden door~
@@ -15281,7 +15221,7 @@ interesting place.
 
 The way back to the city is to the south
 ~
-0 DN 1
+0 DN city
 E
 door~
 The door is a simple wooden door~

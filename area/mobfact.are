@@ -17,13 +17,12 @@ You see a mutant beastly fido, glaring at you with green eyes!  You wonder if
 this factory meets ASPCA guidlines....
 ~
 fido~
-AFGH 0 -700 0
+AFGH D -700 0
 6 0 2d7+71 3d9+100 1d7+1 none
 4 4 4 9
 EN 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det D
 #9402
 oldstyle foreman floyd~
 Foreman Floyd~
@@ -34,13 +33,12 @@ of dedicated Mudding!  Rewarded for his years of dedication as a monster
 slayer, Floyd now creates the beasts for other adventurers to fight.
 ~
 human~
-ABG H 2 0
+ABG DFH 2 0
 12 0 2d10+150 6d9+100 1d10+3 none
 0 0 0 8
 EFNU 0 0 0
 sit stand male 50
 0 0 medium unknown
-A det DF
 #9403
 oldstyle cityguard guard head~
 The Cityguard head~
@@ -129,7 +127,7 @@ crazy! To the north you see the storage area, to the south the
 foreman's office, to the east the entrance hallway, and to the west the
 familiar paving of wall road.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -155,7 +153,7 @@ containing wigs and a bottle mysteriously labelled "solution x". Exits
 are more of storage to the east and north, and entrance to the mob
 factory to the south.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -176,7 +174,7 @@ stored. You see sacks of sawdust, cans of pink paint, a large box
 containing wigs and a bottle mysteriously labelled "solution X". Exits
 are more of storage to the east and south.
 ~
-0 D 0
+0 D inside
 D1
 ~
 ~
@@ -194,7 +192,7 @@ of various sizes and a Sports Illustrated Swimsuit calendar on the west
 wall. Exits lead north to the mob factory entrance and south to the
 foreman's bathroom.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -212,7 +210,7 @@ shower to the back, and a urinal to the left. On the floor you can
 see stains of a very suspicious nature. The only exit leads north to
 the foreman's office.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -226,7 +224,7 @@ containing wigs and a bottle mysteriously labelled "solution X". Exits
 are more of storage to the west and south, and an inspection room to
 the east.
 ~
-0 D 0
+0 D inside
 D1
 ~
 ~
@@ -248,7 +246,7 @@ containing wigs and a bottle mysteriously labelled "solution X". Exits
 are more of storage to the west and north, an inspection room to the
 east and the entrance hallway to the south.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -275,7 +273,7 @@ eyes is observing you...... Exits are north to the storage area, east
 to the entrance hallway, south to the cafeteria and west to the mob
 factory entrance.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -302,7 +300,7 @@ seem to care. There are many places where food and drink have been
 spilled on the ground. Exits are north to the entrance hallway and
 south to the mob factory cafeteria.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -321,7 +319,7 @@ seem to care. There are many places where food and drink have been
 spilled on the ground. The only exit is north to the mob factory
 cafeteria.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -336,7 +334,7 @@ standing around, trying to look busy. Exits are south to the mob
 factory inspection room, east to the primary assembly line and west to
 the storage area.
 ~
-0 D 0
+0 D inside
 D1
 ~
 ~
@@ -359,7 +357,7 @@ standing around, trying to look busy. Exits are south to the mob
 factory inspection room, east to the primary assembly line and west to
 the storage area.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -386,7 +384,7 @@ eyes is observing you...... Exits are north to the inspection room,
 east to the primary assembly line, south to the reject room and west
 to the entrance hallway.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -412,7 +410,7 @@ destruction. You shudder at the many deformed and grotesque shapes
 present before you. Exits are south to the reject room and north to
 the entrance hallway.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -429,7 +427,7 @@ incorrectly or have some defect are placed here before subsequent
 destruction. You shudder at the many deformed and grotesque shapes
 present before you. The only exit is north to the reject room.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -444,7 +442,7 @@ of noise! It seems that the workers are making drunks today. Exits are
 east to the secondary assembly line, south to the primary assembly
 line and west to the inspection room.
 ~
-0 D 0
+0 D inside
 D1
 ~
 ~
@@ -467,7 +465,7 @@ of noise! It seems that the workers are making drunks today. Exits are
 east to the secondary assembly line, north and south to the primary
 assembly line and west to the inspection room.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -494,7 +492,7 @@ of noise! It seems that the workers are making drunks today. Exits are
 east to the secondary assembly line, north and south to the primary
 assembly line and west to the entrance hallway.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -521,7 +519,7 @@ of noise! It seems that the workers are making drunks today. Exits are
 east to the secondary assembly line, north and south to the primary
 assembly line.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -544,7 +542,7 @@ of noise! It seems that the workers are making drunks today. Exits are
 east to the secondary assembly line and north to the primary
 assembly line.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -562,7 +560,7 @@ The very sight is sickening, but the workers seem to be quite
 cheerful about their work. Exits are south to the secondary assembly
 line and west to the primary assembly line.
 ~
-0 D 0
+0 D inside
 D2
 ~
 ~
@@ -580,7 +578,7 @@ The very sight is sickening, but the workers seem to be quite
 cheerful about their work. Exits are north and south to the secondary
 assembly line and west to the primary assembly line.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -602,7 +600,7 @@ The very sight is sickening, but the workers seem to be quite
 cheerful about their work. Exits are north and south to the secondary
 assembly line and west to the primary assembly line.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -624,7 +622,7 @@ The very sight is sickening, but the workers seem to be quite
 cheerful about their work. Exits are north and south to the secondary
 assembly line and west to the primary assembly line.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -646,7 +644,7 @@ The very sight is sickening, but the workers seem to be quite
 cheerful about their work. Exits are north to the secondary
 assembly line and west to the primary assembly line.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~

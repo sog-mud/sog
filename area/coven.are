@@ -19,13 +19,12 @@ has a dog like snout, perky ears, and 6 legs, and has many more long
 sharp nasty teeth.
 ~
 unique~
-AFGX J -400 0
+AFGX FJ -400 0
 30 0 6d12+853 1d1+99 4d6+8 bite
 -9 -9 -9 3
 CFNQ 0 L I
 stand stand male 2000
 AGHMVXc ABCDEFGHIJKPQUVX large unknown
-A det F
 #29121
 hag gelda~
 The hag Gelda~
@@ -37,13 +36,12 @@ battle with a minion of hell, and you die horribly!' . With that the
 hag breaks into an ugly fit of laughter.
 ~
 human~
-ABCGVX K 0 0
+ABCGVX DK 0 0
 28 0 6d12+703 1d1+399 2d12+8 slap
 -8 -8 -8 6
 FR 0 C NZ
 stand stand female 1850
 0 0 medium unknown
-A det D
 #29122
 guard woodsman~
 The woodsman guard~
@@ -221,13 +219,12 @@ The witch looks harried and driven. Her eyes dance wildly, and she
 cackles at you with an insane glee.
 ~
 human~
-AFGX J -700 0
+AFGX DJ -700 0
 32 0 6d12+885 1d1+300 4d6+8 punch
 -9 -9 -9 4
 F 0 CM ENR
 stand stand female 2200
 0 0 medium unknown
-A det D
 #29132
 warlock man~
 The warlock~
@@ -237,13 +234,12 @@ The warlock looks harried and driven. His eyes dart wildly, and he
 cackles with an insane glee.
 ~
 human~
-AFGX J -800 0
+AFGX DJ -800 0
 33 0 10d10+1000 1d1+300 4d6+8 punch
 -11 -11 -11 0
 F 0 CM ENR
 stand stand male 2300
 0 0 medium unknown
-A det D
 #29133
 leader coven~
 The coven leader~
@@ -254,13 +250,12 @@ The coven leader looks harried and driven. His eyes dart wildly, and he
 cackles with an insane glee.
 ~
 human~
-AFGX J -900 0
+AFGX DFJ -900 0
 34 0 10d10+1100 1d1+300 4d6+9 punch
 -11 -11 -11 1
 F M C ENR
 stand stand male 2400
 0 0 medium unknown
-A det DF
 #29134
 beast hell flaming~
 The flaming beast from hell~
@@ -273,13 +268,12 @@ terrible talons. It looks at you, and with a fiery laughter, it says:
 battle, but you will not stop our plan!'
 ~
 unique~
-ABFGX HJ -1000 0
+ABFGX DFHJ -1000 0
 28 0 6d12+703 1d1+200 2d12+8 bite
 -8 -8 -8 6
 F AHL B I
 stand stand none 1800
 ABG ABCDEFJKLMPUV large unknown
-A det DF
 #0
 
 #OBJECTS
@@ -386,7 +380,7 @@ A forest colored cloak is here
 ~
 wood~
 armor 0 AD
-ABC ABC ABC AB A
+7 7 7 3 1
 28 80 1500 P
 A
 17 -10
@@ -407,7 +401,7 @@ An ink black robe is here, beckoning to you. Put it on! Ha Ha Ha ....
 ~
 silk~
 armor CEHJM AD
-BC BC BC AB 0
+6 6 6 3 0
 25 25 300 P
 A
 4 -2
@@ -456,7 +450,7 @@ A ring of fire is here, smoldering on the ground.
 ~
 fire~
 armor AQ AB
-A A A A 0
+1 1 1 1 0
 30 50 3000 P
 A
 23 -3
@@ -515,7 +509,7 @@ hardened and honed your skills to admirable levels. Are you ready to
 face your own inner demons and enter? As you gaze at the road leading 
 into the dark woods, you notice a small plaque nailed to a tree.
 ~
-0 C 3
+0 C forest
 E
 plaque small~
 Coven, 1996 by MacAsp, levels 25-35
@@ -539,7 +533,7 @@ blocking out all light. It is humid here, so much so that the mist
 envelops you in a suffocating grip. Far above you birds cackle and 
 chatter to one and another, marking your presence for all predators.
 ~
-0 A 3
+0 A forest
 E
 road broad~
 The road has been heavily traveled, mainly by wagons.
@@ -560,7 +554,7 @@ walnuts, oaks, and hickory trees spread their leaves in a high arbor,
 blocking out all light. Sweat streams down your face. The road is muddy 
 here, and your boots stick with a sucking pop with each stride.
 ~
-0 A 3
+0 A forest
 E
 road broad~
 The road has been heavily traveled, mainly by wagons.
@@ -582,7 +576,7 @@ again see the sky. There is a small outpost here, made of logs. There
 is a sign staked into the road, pointing to the western road. The road 
 re-enters the dark forest to the north and south.
 ~
-0 0 3
+0 0 forest
 E
 road~
 The road has been heavily traveled, mainly by wagons. Most traffic 
@@ -614,7 +608,7 @@ an eastern and western going logging trail. There is a huge rack of
 de-limbed trees here. There is a large brush pile into created by years 
 of dumping. A broad road heads off to the south.
 ~
-0 A 3
+0 A forest
 E
 road broad~
 The road has been heavily traveled, mainly by wagons. Most traffic 
@@ -652,7 +646,7 @@ evidenced by the deep tracks in the mud. Far above you in the trees a
 black raven squawks at you, almost as if it were laughing at you. You 
 wing a rock at the bird, and it flies off.
 ~
-0 A 3
+0 A forest
 E
 bird raven fly flies~
 The bird has flown off to the northeast, at least you think its 
@@ -676,7 +670,7 @@ hardwoods. The smell of rotting flesh leads you towards the carcass of
 a dead animal wedged in the crook of a tree. Again, tales of the 
 ravening beast well up in your mind.
 ~
-0 A 3
+0 A forest
 E
 corpse animal dead carcass~
 As you get closer to the carcass you recoil in horror as you recognize 
@@ -706,7 +700,7 @@ blocking out the sky above. The underbrush surrounds you, closing off
 all avenues of escape. There is a smell of death in the air, and you 
 feel eyes on the back of your neck.
 ~
-0 A 3
+0 A forest
 E
 eyes eye~
 You quickly turn around, staring hard into the gloom, but there is 
@@ -734,7 +728,7 @@ blocking out the sky above. The underbrush surrounds you, closing off
 all avenues of escape. There is a smell of death in the air, and you 
 feel eyes on the back of your neck.
 ~
-0 A 3
+0 A forest
 E
 eyes eye~
 You quickly turn around, staring hard into the gloom, but there is 
@@ -758,7 +752,7 @@ blocking out the sky above. The underbrush surrounds you, closing off
 all avenues of escape. There is a smell of death in the air, and you 
 feel eyes on the back of your neck.
 ~
-0 A 3
+0 A forest
 E
 eyes eye~
 You quickly turn around, staring hard into the gloom, and see a dark 
@@ -782,7 +776,7 @@ blocking out the sky above. The underbrush surrounds you, closing off
 all avenues of escape. There is a smell of death in the air, and you 
 feel eyes on the back of your neck.
 ~
-0 A 3
+0 A forest
 E
 eyes eye~
 You quickly turn around, staring hard into the gloom, but there is 
@@ -811,7 +805,7 @@ to the trail. Above you, high in a tree, a black raven cackles at you
 in the language of its kind. You wing a rock at it and miss. The raven 
 continues to laugh at you.
 ~
-0 A 3
+0 A forest
 E
 bird raven black~
 You scowl at the raven, but it still sits there laughing at you.
@@ -837,7 +831,7 @@ foul mood lightens only to immediately plunge downward once again at
 the sight of many bodies lying about the clearing in twisted broken 
 heaps.
 ~
-0 0 3
+0 0 forest
 E
 body bodies~
 You examine the dead lumberjacks here. There are 2 of them, and they 
@@ -865,7 +859,7 @@ foul mood lightens only to immediately plunge downward once again at
 the sight of many bodies lying about the clearing in twisted broken 
 heaps.
 ~
-0 0 3
+0 0 forest
 E
 body bodies~
 You examine the dead lumberjacks here. There are 4 of them, and they 
@@ -895,7 +889,7 @@ foul mood lightens only to immediately plunge downward once again at
 the sight of many bodies lying about the clearing in twisted broken 
 heaps.
 ~
-0 0 3
+0 0 forest
 E
 body bodies~
 You examine the dead lumberjacks here. There are 3 of them, and they 
@@ -919,7 +913,7 @@ foul mood lightens only to immediately plunge downward once again at
 the sight of many bodies lying about the clearing in twisted broken 
 heaps.
 ~
-0 0 3
+0 0 forest
 E
 body bodies~
 You examine the dead lumberjacks here. There are 2 of them, and they 
@@ -947,7 +941,7 @@ looming hardwood trees have blocked off all but the sky just above the
 cave. Underbrush, so thick you cant see through it, presses from all 
 sides.
 ~
-0 0 3
+0 0 forest
 E
 rubble pile cave stones~
 You look at the pile of rubble. You think with a good shovel and time, 
@@ -979,7 +973,7 @@ through it, presses from all sides. There are piles of logs on either
 side of the trail, shorn of all limbs. From deep within the darkness, 
 you hear a strange inhuman cry.
 ~
-0 A 3
+0 A forest
 E
 logs piles~
 The logs are still green, oozing sap from the saw cuts.
@@ -1007,7 +1001,7 @@ street. Sawing can be heard down the street, and you can also hear the
 rhythmic clang, clang, clang of the village smith. People stare long 
 and hard at you.
 ~
-0 0 1
+0 0 city
 E
 houses house log~
 The log houses are simple one story houses made from a notch and stack 
@@ -1037,7 +1031,7 @@ floor and mud thatch chinking. There are no windows. The house is
 heated by stone fireplace. There are a few cots and a wash basin in 
 addition to the various personal possessions of the occupants.
 ~
-0 0 0
+0 0 inside
 E
 possessions personal possession~
 You snoop through the possessions of the occupants. You see a nice 
@@ -1057,7 +1051,7 @@ heated by stone fireplace. There are a few cots and a wash basin in
 addition to the various personal possessions of the occupants. A little 
 girl is crying here.
 ~
-0 0 0
+0 0 inside
 E
 possessions personal possession~
 You snoop through the possessions of the occupants. You see a nice 
@@ -1084,7 +1078,7 @@ street. Sawing can be heard down the street, and you can also hear the
 rhythmic clang, clang, clang of the village smith. People stare long 
 and hard at you.
 ~
-0 0 1
+0 0 city
 E
 houses house log~
 The log houses are simple one story houses made from a notch and stack 
@@ -1115,7 +1109,7 @@ heated by stone fireplace. There are a few cots and a wash basin in
 addition to the various personal possessions of the occupants. A woman 
 screams in terror at your entrance!
 ~
-0 0 0
+0 0 inside
 E
 possessions personal possession~
 You snoop through the possessions of the occupants. You see a nice 
@@ -1141,7 +1135,7 @@ heated by stone fireplace. There are a few cots and a wash basin in
 addition to the various personal possessions of the occupants. A little 
 girl is crying here.
 ~
-0 0 0
+0 0 inside
 E
 possessions personal possession~
 You snoop through the possessions of the occupants. You see a nice 
@@ -1169,7 +1163,7 @@ of the village smith. People stare long and hard at you. North of you
 is a two story building with a sign picturing a full mug. To the west 
 of you is a huge sawmill.
 ~
-0 0 1
+0 0 city
 E
 houses house log~
 The log houses are simple one story houses made from a notch and stack 
@@ -1211,7 +1205,7 @@ workers on the table. The noise is deafening, and the mill workers take
 no notice of you. You look over and see a variety of fine work being 
 done, mainly furniture items and one craftsman working on a sign.
 ~
-0 0 0
+0 0 inside
 E
 sign~
 *******************
@@ -1231,7 +1225,7 @@ The floor is being washed by a young lad with a mop, who is patiently
 working around the paying patrons of the inn. A large sign is nailed to 
 the wall, and a set of stairs goes up.
 ~
-0 0 0
+0 0 inside
 E
 sign large~
 Beer, pilsner   5
@@ -1254,7 +1248,7 @@ You stand at the top of the stairs inside a log building. There are 4
 doors in the cardinal directions, all made of wood with iron latches. A 
 flickering lamp lights the landing.
 ~
-0 0 0
+0 0 inside
 E
 lamp flickering~
 It is just an ordinary oil lamp.
@@ -1286,7 +1280,7 @@ You are inside a small room in the Dunkeldorf inn. The interior is
 sparse and clean. There is a single bed, a washbasin, a bedpan, and an 
 armoire. A simple glass window overlooks the town.
 ~
-0 0 0
+0 0 inside
 E
 bed~
 The bed looks like it has clean sheets, and there is no sign of 
@@ -1311,7 +1305,7 @@ You are inside a small room in the Dunkeldorf inn. The interior is
 sparse and clean. There is a single bed, a washbasin, a bedpan, and an 
 armoire. A simple glass window overlooks the town.
 ~
-0 0 0
+0 0 inside
 E
 bed~
 The bed looks like it has clean sheets, and there is no sign of 
@@ -1336,7 +1330,7 @@ You are inside a small room in the Dunkeldorf inn. The interior is
 sparse and clean. There is a single bed, a washbasin, a bedpan, and an 
 armoire. A simple glass window overlooks the town.
 ~
-0 0 0
+0 0 inside
 E
 bed~
 The bed looks like it has clean sheets, and there is no sign of 
@@ -1361,7 +1355,7 @@ You are inside a small room in the Dunkeldorf inn. The interior is
 sparse and clean. There is a single bed, a washbasin, a bedpan, and an 
 armoire. A simple glass window overlooks the town.
 ~
-0 0 0
+0 0 inside
 E
 bed~
 The bed looks like it has clean sheets, and there is no sign of 
@@ -1388,7 +1382,7 @@ There are mule teams hauling logs, down the street. To the west of you
 is a general store, to the east a stables, and to the south, the 
 village smith.
 ~
-0 0 1
+0 0 city
 D0
 Main Street~
 ~
@@ -1412,7 +1406,7 @@ You are inside the pitiful general store of Dunkeldorf. The single rack
 of shelves is empty of most goods, and what there is way overpriced. 
 You probably own more than this store does.
 ~
-0 0 0
+0 0 inside
 D1
 Main Street~
 ~
@@ -1425,7 +1419,7 @@ stalls and one stable boy. The proprietor is busy brushing a mule while
 his hand is removing the tack and harness from another team. The floor 
 is very muddy as are the mules.
 ~
-0 0 0
+0 0 inside
 E
 mud mules floor muddy~
 The mud looks exactly like the mud on your boots.
@@ -1441,7 +1435,7 @@ You are in the way at the village smithy. The towns only smith is busy
 working a single anvil and the bellows. About him are a variety of 
 ordinary items in various states of repair. There is a sign here.
 ~
-0 0 0
+0 0 inside
 E
 sign~
 The sign says type list to see what I have today.
@@ -1458,7 +1452,7 @@ comes from a shaft that goes up and out. White cylindrical rocks lie on
 the floor in heaps. The walls of the cave appear regular. Rubble is 
 strewn about the cave mouth, which appears to be unstable.
 ~
-0 A 0
+0 A inside
 E
 shaft~
 The air shaft is too small to climb through for you.
@@ -1490,7 +1484,7 @@ Inside the Dark Cave~
 You are inside a dark cave which smells of rot. White cylindrical rocks 
 lie on the floor in heaps. The walls of the cave appear regular.
 ~
-0 A 0
+0 A inside
 E
 rocks cylindrical~
 The rocks upon closer examination are human bones.
@@ -1514,7 +1508,7 @@ Inside the Dark Cave~
 You are inside a dark cave which smells of rot. White cylindrical rocks 
 lie on the floor in heaps. The walls of the cave appear regular.
 ~
-0 A 0
+0 A inside
 E
 rocks cylindrical~
 The rocks upon closer examination are human bones.
@@ -1539,7 +1533,7 @@ You are inside a dark cave which smells of rot. White cylindrical rocks
 lie on the floor in heaps. The walls of the cave appear regular. There 
 are markings on the wall here.
 ~
-0 A 0
+0 A inside
 E
 rocks cylindrical~
 The rocks upon closer examination are human bones.
@@ -1569,7 +1563,7 @@ You are inside a cave. Light streams in through a tight opening to the
 north. Beyond you can see a bright green meadow. Your spirits lift at 
 the thought of getting out of the cave.
 ~
-0 0 0
+0 0 inside
 D0
 The green meadow~
 ~
@@ -1588,7 +1582,7 @@ sky. As you enter the chapel, a feeling of peace comes over you. You
 feel the worlds wind whistle through the columns, making a strange 
 keening sound.
 ~
-0 N 2
+0 N field
 D2
 The dark cave~
 ~
@@ -1603,7 +1597,7 @@ ground you stand on has a silvery sheen to the dirt, as if some
 precious metal has been sprinkled here. To the center of the clearing a 
 bright fire roars, and reaches for the treetops in a hellish blaze.
 ~
-0 A 2
+0 A field
 E
 trees center~
 You stare at the trees in the center, and in your mind's eye, you 
@@ -1650,7 +1644,7 @@ ground you stand on has a silvery sheen to the dirt, as if some
 precious metal has been sprinkled here. To the center of the clearing a 
 bright fire roars, and reaches for the treetops in a hellish blaze.
 ~
-0 A 2
+0 A field
 E
 trees center~
 You stare at the trees in the center, and in your mind's eye, you 
@@ -1692,7 +1686,7 @@ ground you stand on has a silvery sheen to the dirt, as if some
 precious metal has been sprinkled here. To the center of the clearing a 
 bright fire roars, and reaches for the treetops in a hellish blaze.
 ~
-0 A 2
+0 A field
 E
 trees center~
 You stare at the trees in the center, and in your mind's eye, you 
@@ -1735,7 +1729,7 @@ ground you stand on has a silvery sheen to the dirt, as if some
 precious metal has been sprinkled here. To the center of the clearing a 
 bright fire roars, and reaches for the treetops in a hellish blaze.
 ~
-0 A 2
+0 A field
 E
 trees center~
 You stare at the trees in the center, and in your mind's eye, you 
@@ -1777,7 +1771,7 @@ fist-sized something into the pit, and the fire leaps higher, greedily
 consuming the item. There is a heavy aura of evil here which threatens 
 and beckons to you.
 ~
-0 A 3
+0 A forest
 E
 trees center~
 You stare at the trees in the center, and in your mind's eye, you 
@@ -1824,7 +1818,7 @@ fist-sized something into the pit, and the fire leaps higher, greedily
 consuming the item. There is a heavy aura of evil here which threatens 
 and beckons to you.
 ~
-0 A 3
+0 A forest
 E
 trees center~
 You stare at the trees in the center, and in your mind's eye, you 
@@ -1871,7 +1865,7 @@ ground you stand on has a silvery sheen to the dirt, as if some
 precious metal has been sprinkled here. To the center of the clearing a 
 bright fire roars, and reaches for the treetops in a hellish blaze.
 ~
-0 A 2
+0 A field
 E
 trees center~
 You stare at the trees in the center, and in your mind's eye, you 
@@ -1913,7 +1907,7 @@ fist-sized something into the pit, and the fire leaps higher, greedily
 consuming the item. There is a heavy aura of evil here which threatens 
 and beckons to you.
 ~
-0 AC 3
+0 AC forest
 E
 trees center~
 You stare at the trees in the center, and in your mind's eye, you 
@@ -1964,7 +1958,7 @@ fist-sized something into the pit, and the fire leaps higher, greedily
 consuming the item. There is a heavy aura of evil here which threatens 
 and beckons to you.
 ~
-0 A 3
+0 A forest
 E
 trees center~
 You stare at the trees in the center, and in your mind's eye, you 
@@ -2011,7 +2005,7 @@ ground you stand on has a silvery sheen to the dirt, as if some
 precious metal has been sprinkled here. To the center of the clearing a 
 bright fire roars, and reaches for the treetops in a hellish blaze.
 ~
-0 A 2
+0 A field
 E
 trees center~
 You stare at the trees in the center, and in your mind's eye, you 
@@ -2053,7 +2047,7 @@ ground you stand on has a silvery sheen to the dirt, as if some
 precious metal has been sprinkled here. To the center of the clearing a 
 bright fire roars, and reaches for the treetops in a hellish blaze.
 ~
-0 A 2
+0 A field
 E
 trees center~
 You stare at the trees in the center, and in your mind's eye, you 
@@ -2095,7 +2089,7 @@ ground you stand on has a silvery sheen to the dirt, as if some
 precious metal has been sprinkled here. To the center of the clearing a 
 bright fire roars, and reaches for the treetops in a hellish blaze.
 ~
-0 A 2
+0 A field
 E
 trees center~
 You stare at the trees in the center, and in your mind's eye, you 
@@ -2139,7 +2133,7 @@ the flame barrier and allow you to return to the real world. Remember
 always to stay on the path of righteousness.' And with that, the voice 
 and warmth vanish.
 ~
-0 ADN 0
+0 ADN inside
 D4
 The inner circle~
 barrier flame~
@@ -2154,7 +2148,7 @@ ground you stand on has a silvery sheen to the dirt, as if some
 precious metal has been sprinkled here. To the center of the clearing a 
 bright fire roars, and reaches for the treetops in a hellish blaze.
 ~
-0 A 3
+0 A forest
 E
 trees center~
 You stare at the trees in the center, and in your mind's eye, you 
@@ -2188,7 +2182,7 @@ ground you stand on has a silvery sheen to the dirt, as if some
 precious metal has been sprinkled here. To the center of the clearing a 
 bright fire roars, and reaches for the treetops in a hellish blaze.
 ~
-0 A 3
+0 A forest
 E
 trees center~
 You stare at the trees in the center, and in your mind's eye, you 
@@ -2222,7 +2216,7 @@ ground you stand on has a silvery sheen to the dirt, as if some
 precious metal has been sprinkled here. To the center of the clearing a 
 bright fire roars, and reaches for the treetops in a hellish blaze.
 ~
-0 A 3
+0 A forest
 E
 trees center~
 You stare at the trees in the center, and in your mind's eye, you 
@@ -2256,7 +2250,7 @@ ground you stand on has a silvery sheen to the dirt, as if some
 precious metal has been sprinkled here. To the center of the clearing a 
 bright fire roars, and reaches for the treetops in a hellish blaze.
 ~
-0 A 3
+0 A forest
 E
 trees center~
 You stare at the trees in the center, and in your mind's eye, you 

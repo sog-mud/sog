@@ -17,13 +17,12 @@ The Black Pawn looks quite like a small knight without his powerful steed.
 His armor is shiny and black. He stands ready to give his life for the Crown.
 ~
 human~
-ACF 0 -400 4200
+ACF D -400 4200
 10 0 2d7+121 1d1+99 2d4+1 beating
 1 1 1 8
 EG A 0 0
 stand stand male 60
 B 0 medium unknown
-A det D
 M bribe 4200 1~
 M random 4200 20~
 #4201
@@ -36,13 +35,12 @@ His armor is spotless and white. He stands ready to give his life for the
 Crown.
 ~
 human~
-AC 0 400 4201
+AC D 400 4201
 10 0 2d7+121 1d1+99 2d4+1 beating
 1 1 1 8
 EG 0 0 0
 stand stand male 55
 0 0 medium unknown
-A det D
 #4202
 black rook castle~
 the Black Rook~
@@ -68,13 +66,12 @@ The White Rook is a very large man-made tomb on wheels.  Just
 from the looks of it, it will probably be YOUR tomb.
 ~
 human~
-AH 0 600 0
+AH D 600 0
 27 0 5d10+650 1d1+99 5d4+7 punch
 -8 -8 -8 6
 CEI 0 0 0
 stand stand male 470
 0 0 medium unknown
-A det D
 #4204
 black knight~
 the Black Knight~
@@ -131,13 +128,12 @@ The White Bishop seems willing to help you in any possible so that he can
 attain a higher spirituality.
 ~
 human~
-A N 500 0
+A DN 500 0
 24 0 5d15+500 1d1+239 2d10+6 punch
 -6 -6 -6 6
 CDEF A 0 0
 stand stand male 590
 0 0 medium unknown
-A det D
 #4208
 black queen~
 the Black Queen~
@@ -148,13 +144,12 @@ dark hair that crowns her head like a black cloud.  If looks could kill, you
 would already be dead.
 ~
 human~
-ABFH H -750 4210
+ABFH DFH -750 4210
 32 0 10d10+1000 1d1+319 6d4+9 magic
 -10 -10 -10 5
 AFJK A 0 0
 stand stand female 856
 0 0 medium unknown
-A det DF
 M random 4200 20~
 #4209
 white queen~
@@ -166,13 +161,12 @@ of light hair that frames her head like the sun.  This is surely love at
 first sight for you.
 ~
 human~
-ABH HN 750 2411
+ABH DFHN 750 2411
 32 0 10d10+1000 1d1+319 6d4+9 magic
 -10 -10 -10 5
 AFJK 0 0 0
 stand stand female 854
 0 0 medium unknown
-A det DF
 #4210
 black king~
 the Black King~
@@ -182,13 +176,12 @@ The Black King is a menacing figure.  You can easily understand why he
 is the king and you are not.
 ~
 human~
-ABH HU -999 0
+ABH DFHU -999 0
 36 0 10d10+1400 1d35+99 3d10+12 beating
 -12 -12 -12 4
 BCDEF A 0 0
 stand stand male 984
 0 0 medium unknown
-A det DF
 M random 4200 21~
 #4211
 white king~
@@ -199,13 +192,12 @@ The White King is a stately figure.  You can easily understand why he
 is the king and you are not.
 ~
 human~
-ABH HNU 999 0
+ABH DFHNU 999 0
 36 0 10d10+1400 1d1+359 3d10+12 beating
 -12 -12 -12 4
 BCDEF 0 0 0
 stand stand male 988
 0 0 medium unknown
-A det DF
 #4212
 caliph omar ghost~
 the Ghost of Caliph Omar~
@@ -215,13 +207,12 @@ Caliph Omar was person who sanctions chess for islamic people.
 His ghost is here small, and looks like made from smoke.
 ~
 human~
-AHT BHPQTUV 0 0
+AHT BDFHPQTUV 0 0
 60 0 50d10+9500 599d1+1 8d6+28 wrath
 -30 -30 -30 0
 FGK 0 0 HIJK
 stand stand male 14999
 0 0 small unknown
-A det DF
 #0
 
 #OBJECTS
@@ -231,7 +222,7 @@ some Black Pawn Armour~
 A pile of black armour is here.~
 steel~
 armor J AD
-AC AC AC 0 B
+5 5 5 0 2
 10 75 600 G
 #4201
 armour white pawn~
@@ -239,7 +230,7 @@ some White Pawn Armour~
 A pile of white armour is here.~
 steel~
 armor K AD
-AC AC AC 0 B
+5 5 5 0 2
 10 75 600 G
 #4202
 axe black pawn~
@@ -263,7 +254,7 @@ some Black Rook Armour~
 Some armour made from the remains of a black rook lies heaped on the floor.~
 stone~
 armor J AD
-D D D 0 AC
+8 8 8 0 5
 25 70 1250 G
 A
 17 2
@@ -275,7 +266,7 @@ some White Rook Armour~
 Some armour made from the remains of a white rook lies heaped on the floor.~
 stone~
 armor K AD
-D D D 0 AC
+8 8 8 0 5
 25 70 1250 G
 A
 17 2
@@ -327,7 +318,7 @@ the Crown of the Black Queen~
 The Crown of the Black Queen lies here, looking neglected.~
 gold~
 armor AGJL AE
-AD AD AD A A
+9 9 9 1 1
 32 50 5000 G
 A
 3 1
@@ -339,7 +330,7 @@ the Crown of the White Queen~
 The Crown of the White Queen lies here, looking neglected.~
 gold~
 armor AGKL AE
-AD AD AD A A
+9 9 9 1 1
 32 50 5000 G
 A
 3 1
@@ -391,7 +382,7 @@ the Black Royal Treasure~
 There are a LOT of coins here.~
 silver~
 money 0 A
-EIJKN 0 0 0 0
+10000 0 0 0 0
 0 0 0 P
 #4217
 coins gold white royal treasure~
@@ -399,7 +390,7 @@ the White Royal Treasure~
 There are a LOT of coins here.~
 silver~
 money 0 A
-EIJKN 0 0 0 0
+10000 0 0 0 0
 0 0 0 P
 #4218
 flail black pawn~
@@ -439,7 +430,7 @@ a Black Pawn's Spear~
 The spear of a Black Pawn lies here.~
 steel~
 weapon J AN
-staff 2 7 thrust 0
+spear 2 7 thrust 0
 10 100 750 G
 #4223
 spear white pawn~
@@ -447,7 +438,7 @@ a White Pawn's Spear~
 The spear of a White Pawn lies here.~
 steel~
 weapon K AN
-staff 2 7 thrust 0
+spear 2 7 thrust 0
 10 100 750 G
 #4224
 halberd black pawn~
@@ -519,7 +510,7 @@ a Black Pawn's Shield ~
 You see a Black Pawn's shield here.~
 steel~
 armor J AJ
-D ABC ABC B B
+8 7 7 2 2
 10 30 1210 P
 #4233
 shield white pawn~
@@ -527,7 +518,7 @@ a White Pawn's Shield ~
 You see a White Pawn's shield here.~
 steel~
 armor K AJ
-D ABC ABC B B
+8 7 7 2 2
 10 30 1210 P
 #4234
 cloak black pawn~
@@ -535,7 +526,7 @@ a Black Pawn's Cloak~
 You see a Black Pawn's cloak here.~
 cloth~
 armor J AC
-AC ABC ABC A A
+5 7 7 1 1
 10 40 1510 P
 #4235
 cloak white pawn~
@@ -543,7 +534,7 @@ a White Pawn's Cloak~
 You see a White Pawn's cloak here.~
 cloth~
 armor K AC
-AC ABC ABC A A
+5 7 7 1 1
 10 40 1510 P
 #4236
 helmet black pawn~
@@ -551,7 +542,7 @@ a Black Pawn's Helmet~
 You see a Black Pawn's helmet here.~
 leather~
 armor J AE
-BC BC ABC A A
+6 6 7 1 1
 10 50 1150 P
 #4237
 helmet white pawn~
@@ -559,7 +550,7 @@ a White Pawn's Helmet~
 You see a White Pawn's helmet here.~
 leather~
 armor K AE
-BC BC ABC A A
+6 6 7 1 1
 10 50 1150 P
 #4238
 leggings black pawn~
@@ -567,7 +558,7 @@ a pair of Black Pawn's Leggings~
 You see a pair of Black Pawn's leggings here.~
 leather~
 armor J AF
-BC BC BC A A
+6 6 6 1 1
 10 30 1350 P
 #4239
 leggings white pawn~
@@ -575,7 +566,7 @@ a pair of White Pawn's Leggings~
 You see a pair of White Pawn's leggings here.~
 leather~
 armor K AF
-BC BC BC A A
+6 6 6 1 1
 10 30 1350 P
 #4240
 boots black pawn~
@@ -583,7 +574,7 @@ a pair of Black Pawn's Boots~
 You see a pair of Black Pawn's boots here.~
 leather~
 armor J AG
-ABC BC ABC A A
+7 6 7 1 1
 10 130 1450 P
 #4241
 boots white pawn~
@@ -591,7 +582,7 @@ a pair of White Pawn's Boots~
 You see a pair of Black Pawn's boots here.~
 leather~
 armor K AG
-ABC BC ABC A A
+7 6 7 1 1
 10 130 1450 P
 #4242
 gloves black pawn~
@@ -599,7 +590,7 @@ a pair of Black Pawn's Gloves~
 You see a pair of Black Pawn's Gloves here.~
 leather~
 armor J AH
-BC BC AC A A
+6 6 5 1 1
 10 80 950 P
 #4243
 gloves white pawn~
@@ -607,7 +598,7 @@ a pair of White Pawn's Gloves~
 You see a pair of White Pawn's Gloves here.~
 leather~
 armor K AH
-BC BC AC A A
+6 6 5 1 1
 10 80 950 P
 #4244
 sleeves black pawn~
@@ -615,7 +606,7 @@ a pair of Black Pawn's Sleeves~
 You see a pair of Black Pawn's Sleeves here.~
 leather~
 armor J AI
-BC AC BC A A
+6 5 6 1 1
 10 90 1150 P
 #4245
 sleeves white pawn~
@@ -623,7 +614,7 @@ a pair of White Pawn's Sleeves~
 You see a pair of White Pawn's Sleeves here.~
 leather~
 armor K AI
-BC AC BC A A
+6 5 6 1 1
 10 90 1150 P
 #4246
 cape black pawn~
@@ -631,7 +622,7 @@ a Black Pawn's Cape~
 You see a Black Pawn's Cape here.~
 cloth~
 armor J AK
-ABC AC ABC A A
+7 5 7 1 1
 10 80 1380 P
 #4247
 cape white pawn~
@@ -639,7 +630,7 @@ a White Pawn's Cape~
 You see a White Pawn's Cape here.~
 cloth~
 armor K AK
-ABC AC ABC A A
+7 5 7 1 1
 10 80 1380 P
 #4248
 belt black pawn~
@@ -647,7 +638,7 @@ a Black Pawn's Belt~
 You see a Black Pawn's Belt here.~
 bronze~
 armor J AL
-C BC BC A A
+4 6 6 1 1
 10 70 990 P
 #4249
 belt white pawn~
@@ -655,7 +646,7 @@ a White Pawn's Belt~
 You see a White Pawn's Belt here.~
 bronze~
 armor K AL
-C BC BC A A
+4 6 6 1 1
 10 20 990 P
 #4250
 bracer black pawn~
@@ -663,7 +654,7 @@ a Black Pawn's Bracer~
 You see a Black Pawn's Bracer here.~
 bronze~
 armor J AM
-ABC AC AC A 0
+7 5 5 1 0
 10 60 1390 P
 #4251
 bracer white pawn~
@@ -671,7 +662,7 @@ a White Pawn's Bracer~
 You see a White Pawn's Bracer here.~
 bronze~
 armor K AM
-ABC AC AC A 0
+7 5 5 1 0
 10 60 1390 P
 #4260
 small chessboard~
@@ -679,7 +670,7 @@ the Magic Chessboard~
 You see small chessboard floating here.~
 wood~
 armor ABFJK AQ
-AE AE AE AF 0
+17 17 17 33 0
 51 60 55390 P
 F
 A 13 95 AT
@@ -689,7 +680,7 @@ a Black Knight's Shield ~
 You see a Black Knight's shield here.~
 steel~
 armor J AJ
-D AD AD B B
+8 9 9 2 2
 18 90 2210 P
 #4262
 shield white pawn~
@@ -697,7 +688,7 @@ a White Knight's Shield ~
 You see a White Knight's shield here.~
 steel~
 armor K AJ
-D AD AD B B
+8 9 9 2 2
 18 90 2210 P
 #4263
 cloak black pawn~
@@ -705,7 +696,7 @@ a Black Knight's Cloak~
 You see a Black Knight's cloak here.~
 cloth~
 armor J AC
-BC D ABC A A
+6 8 7 1 1
 18 70 2610 P
 #4264
 cloak white pawn~
@@ -713,7 +704,7 @@ a White Knight's Cloak~
 You see a White Knight's cloak here.~
 cloth~
 armor K AC
-BC D ABC A A
+6 8 7 1 1
 18 70 2610 P
 #4265
 helmet black pawn~
@@ -721,7 +712,7 @@ a Black Knight's Helmet~
 You see a Black Knight's helmet here.~
 leather~
 armor J AE
-ABC ABC D A A
+7 7 8 1 1
 18 70 1950 P
 #4266
 helmet white pawn~
@@ -729,7 +720,7 @@ a White Knight's Helmet~
 You see a White Knight's helmet here.~
 leather~
 armor K AE
-ABC ABC D A A
+7 7 8 1 1
 18 70 1950 P
 #4267
 leggings black pawn~
@@ -737,7 +728,7 @@ a pair of Black Knight's Leggings~
 You see a pair of Black Knight's leggings here.~
 leather~
 armor J AF
-ABC ABC ABC A A
+7 7 7 1 1
 18 80 1350 P
 #4268
 leggings white pawn~
@@ -745,7 +736,7 @@ a pair of White Knight's Leggings~
 You see a pair of White Knight's leggings here.~
 leather~
 armor K AF
-ABC ABC ABC A A
+7 7 7 1 1
 18 80 1350 P
 #4269
 boots black pawn~
@@ -753,7 +744,7 @@ a pair of Black Knight's Boots~
 You see a pair of Black Knight's boots here.~
 leather~
 armor J AG
-D ABC ABC A A
+8 7 7 1 1
 18 110 2850 P
 #4270
 boots white pawn~
@@ -761,7 +752,7 @@ a pair of White Knight's Boots~
 You see a pair of Black Knight's boots here.~
 leather~
 armor K AG
-D ABC ABC A A
+8 7 7 1 1
 18 110 2850 P
 #4271
 gloves black pawn~
@@ -769,7 +760,7 @@ a pair of Black Knight's Gloves~
 You see a pair of Black Knight's Gloves here.~
 leather~
 armor J AH
-BC ABC BC A A
+6 7 6 1 1
 18 80 2250 P
 #4272
 gloves white pawn~
@@ -777,7 +768,7 @@ a pair of White Knight's Gloves~
 You see a pair of White Knight's Gloves here.~
 leather~
 armor K AH
-BC ABC BC A A
+6 7 6 1 1
 18 80 2250 P
 #4273
 sleeves black pawn~
@@ -785,7 +776,7 @@ a pair of Black Knight's Sleeves~
 You see a pair of Black Knight's Sleeves here.~
 leather~
 armor J AI
-ABC BC ABC A A
+7 6 7 1 1
 18 100 2150 P
 #4274
 sleeves white pawn~
@@ -793,7 +784,7 @@ a pair of White Knight's Sleeves~
 You see a pair of White Knight's Sleeves here.~
 leather~
 armor K AI
-ABC BC ABC A A
+7 6 7 1 1
 18 100 2150 P
 #4275
 cape black knight~
@@ -801,7 +792,7 @@ a Black Knight's Cape~
 You see a Black Knight's Cape here.~
 cloth~
 armor J AK
-ABC ABC ABC A A
+7 7 7 1 1
 18 70 1380 P
 #4276
 cape white knight~
@@ -809,7 +800,7 @@ a White Knight's Cape~
 You see a White Knight's Cape here.~
 cloth~
 armor K AK
-ABC ABC ABC A A
+7 7 7 1 1
 18 70 1380 P
 #4277
 belt black pawn~
@@ -817,7 +808,7 @@ a Black Knight's Belt~
 You see a Black Knight's Belt here.~
 bronze~
 armor J AL
-BC BC BC A A
+6 6 6 1 1
 18 60 1990 P
 #4278
 belt white pawn~
@@ -825,7 +816,7 @@ a White Knight's Belt~
 You see a White Knight's Belt here.~
 bronze~
 armor K AL
-BC BC BC A A
+6 6 6 1 1
 18 60 1990 P
 #4279
 bracer black pawn~
@@ -833,7 +824,7 @@ a Black Knight's Bracer~
 You see a Black Knight's Bracer here.~
 bronze~
 armor J AM
-ABC ABC BC A 0
+7 7 6 1 0
 18 40 2390 P
 #4280
 bracer white pawn~
@@ -841,7 +832,7 @@ a White Knight's Bracer~
 You see a White Knight's Bracer here.~
 bronze~
 armor K AM
-ABC ABC BC A 0
+7 7 6 1 0
 18 40 2390 P
 #0
 
@@ -854,7 +845,7 @@ wooden gate is rusted open.
 chessboard opens up to the west.
      There is a small (Glowing) (Huming) tablet.
 ~
-0 C 1
+0 C city
 E
 small tablet~
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -885,7 +876,7 @@ A White Square~
 You are standing on a white marble square.  This is usually the home
 of the Black Queen's Rook.
 ~
-0 0 1
+0 0 city
 D1
 A black square lies to the east.
 ~
@@ -902,7 +893,7 @@ A Black Square~
 You are standing on a black marble square.  This is usually the home
 of the Black Queen's Knight.
 ~
-0 0 1
+0 0 city
 D1
 A white square lies to the east.
 ~
@@ -924,7 +915,7 @@ A White Square~
 You are standing on a white marble square.  This is usually the home
 of the Black Queen's Bishop.
 ~
-0 0 1
+0 0 city
 D1
 A black square lies to the east.
 ~
@@ -946,7 +937,7 @@ A Black Square~
 You are standing on a black marble square.  This is usually the home
 of the Black Queen.
 ~
-0 0 1
+0 0 city
 D1
 A white square lies to the east.
 ~
@@ -972,7 +963,7 @@ A White Square~
 You are standing on a white marble square.  This is usually the home
 of the Black King.
 ~
-0 0 1
+0 0 city
 D1
 A black square lies to the east.
 ~
@@ -994,7 +985,7 @@ A Black Square~
 You are standing on a black marble square.  This is usually the home
 of the Black King's Bishop.
 ~
-0 0 1
+0 0 city
 D1
 A white square lies to the east.
 ~
@@ -1016,7 +1007,7 @@ A White Square~
 You are standing on a white marble square.  This is usually the home
 of the Black King's Knight.
 ~
-0 0 1
+0 0 city
 D1
 A black square lies to the east.
 ~
@@ -1038,7 +1029,7 @@ A Black Square~
 You are standing on a black marble square.  This is usually the home
 of the Black King's Rook.
 ~
-0 0 1
+0 0 city
 D2
 A white square lies to the south.
 ~
@@ -1055,7 +1046,7 @@ A Black Square~
 You are standing on a black marble square.  This is usually the home
 of one of the Black Queen's Pawns.
 ~
-0 0 1
+0 0 city
 D0
 A white square lies to the north.
 ~
@@ -1077,7 +1068,7 @@ A White Square~
 You are standing on a white marble square.  This is usually the home
 of one of the Black Queen's Pawns.
 ~
-0 0 1
+0 0 city
 D0
 A black square lies to the north.
 ~
@@ -1104,7 +1095,7 @@ A Black Square~
 You are standing on a black marble square.  This is usually the home
 of one of the Black Queen's Pawns.
 ~
-0 0 1
+0 0 city
 D0
 A white square lies to the north.
 ~
@@ -1131,7 +1122,7 @@ A White Square~
 You are standing on a white marble square.  This is usually the home
 of one of the Black Queen's Pawns.
 ~
-0 0 1
+0 0 city
 D0
 A black square lies to the north.
 ~
@@ -1158,7 +1149,7 @@ A Black Square~
 You are standing on a black marble square.  This is usually the home
 of one of the Black King's Pawns.
 ~
-0 0 1
+0 0 city
 D0
 A white square lies to the north.
 ~
@@ -1185,7 +1176,7 @@ A White Square~
 You are standing on a white marble square.  This is usually the home
 of one of the Black King's Pawns.
 ~
-0 0 1
+0 0 city
 D0
 A black square lies to the north.
 ~
@@ -1212,7 +1203,7 @@ A Black Square~
 You are standing on a black marble square.  This is usually the home
 of one of the Black King's Pawns.
 ~
-0 0 1
+0 0 city
 D0
 A white square lies to the north.
 ~
@@ -1239,7 +1230,7 @@ A White Square~
 You are standing on a white marble square.  This is usually the home
 of one of the Black King's Pawns.
 ~
-0 0 1
+0 0 city
 D0
 A black square lies to the north.
 ~
@@ -1260,7 +1251,7 @@ S
 A White Square~
 You are standing on a white marble square.
 ~
-0 0 1
+0 0 city
 D0
 A black square lies to the north.
 ~
@@ -1281,7 +1272,7 @@ S
 A Black Square~
 You are standing on a black marble square.
 ~
-0 0 1
+0 0 city
 D0
 A white square lies to the north.
 ~
@@ -1307,7 +1298,7 @@ S
 A White Square~
 You are standing on a white marble square.
 ~
-0 0 1
+0 0 city
 D0
 A black square lies to the north.
 ~
@@ -1333,7 +1324,7 @@ S
 A Black Square~
 You are standing on a black marble square.
 ~
-0 0 1
+0 0 city
 D0
 A white square lies to the north.
 ~
@@ -1359,7 +1350,7 @@ S
 A White Square~
 You are standing on a white marble square.
 ~
-0 0 1
+0 0 city
 D0
 A black square lies to the north.
 ~
@@ -1385,7 +1376,7 @@ S
 A Black Square~
 You are standing on a black marble square.
 ~
-0 0 1
+0 0 city
 D0
 A white square lies to the north.
 ~
@@ -1411,7 +1402,7 @@ S
 A White Square~
 You are standing on a white marble square.
 ~
-0 0 1
+0 0 city
 D0
 A black square lies to the north.
 ~
@@ -1438,7 +1429,7 @@ A Black Square~
 You are standing on a black marble square.  You can see a rusty gate
 to the south.
 ~
-0 0 1
+0 0 city
 D0
 A white square lies to the north.
 ~
@@ -1459,7 +1450,7 @@ S
 A Black Square~
 You are standing on a black marble square.
 ~
-0 0 1
+0 0 city
 D0
 A white square lies to the north.
 ~
@@ -1480,7 +1471,7 @@ S
 A White Square~
 You are standing on a white marble square.
 ~
-0 0 1
+0 0 city
 D0
 A black square lies to the north.
 ~
@@ -1506,7 +1497,7 @@ S
 A Black Square~
 You are standing on a black marble square.
 ~
-0 0 1
+0 0 city
 D0
 A white square lies to the north.
 ~
@@ -1532,7 +1523,7 @@ S
 A White Square~
 You are standing on a white marble square.
 ~
-0 0 1
+0 0 city
 D0
 A black square lies to the north.
 ~
@@ -1558,7 +1549,7 @@ S
 A Black Square~
 You are standing on a black marble square.
 ~
-0 0 1
+0 0 city
 D0
 A white square lies to the north.
 ~
@@ -1584,7 +1575,7 @@ S
 A White Square~
 You are standing on a white marble square.
 ~
-0 0 1
+0 0 city
 D0
 A black square lies to the north.
 ~
@@ -1611,7 +1602,7 @@ A Black Square~
 You are standing on a black marble square.  There is a rusty gate
 a short distance to the east.
 ~
-0 0 1
+0 0 city
 D0
 A white square lies to the north.
 ~
@@ -1638,7 +1629,7 @@ A White Square~
 You are standing on a white marble square.  There is a large rusty
 gate to the east.
 ~
-0 0 1
+0 0 city
 D0
 A black square lies to the north.
 ~
@@ -1664,7 +1655,7 @@ S
 A White Square~
 You are standing on a white marble square.
 ~
-0 0 1
+0 0 city
 D0
 A black square lies to the north.
 ~
@@ -1685,7 +1676,7 @@ S
 A Black Square~
 You are standing on a black marble square.
 ~
-0 0 1
+0 0 city
 D0
 A white square lies to the north.
 ~
@@ -1711,7 +1702,7 @@ S
 A White Square~
 You are standing on a white marble square.
 ~
-0 0 1
+0 0 city
 D0
 A black square lies to the north.
 ~
@@ -1737,7 +1728,7 @@ S
 A Black Square~
 You are standing on a black marble square.
 ~
-0 0 1
+0 0 city
 D0
 A white square lies to the north.
 ~
@@ -1763,7 +1754,7 @@ S
 A White Square~
 You are standing on a white marble square.
 ~
-0 0 1
+0 0 city
 D0
 A black square lies to the north.
 ~
@@ -1789,7 +1780,7 @@ S
 A Black Square~
 You are standing on a black marble square.
 ~
-0 0 1
+0 0 city
 D0
 A white square lies to the north.
 ~
@@ -1815,7 +1806,7 @@ S
 A White Square~
 You are standing on a white marble square.
 ~
-0 0 1
+0 0 city
 D0
 A black square lies to the north.
 ~
@@ -1842,7 +1833,7 @@ A Black Square~
 You are standing on a black marble square.  There is a rusty gate
 to the north.
 ~
-0 0 1
+0 0 city
 D0
 A white square lies to the north.
 ~
@@ -1863,7 +1854,7 @@ S
 A Black Square~
 You are standing on a black marble square.
 ~
-0 0 1
+0 0 city
 D0
 A white square lies to the north.
 ~
@@ -1884,7 +1875,7 @@ S
 A White Square~
 You are standing on a white marble square.
 ~
-0 0 1
+0 0 city
 D0
 A black square lies to the north.
 ~
@@ -1910,7 +1901,7 @@ S
 A Black Square~
 You are standing on a black marble square.
 ~
-0 0 1
+0 0 city
 D0
 A white square lies to the north.
 ~
@@ -1936,7 +1927,7 @@ S
 A White Square~
 You are standing on a white marble square.
 ~
-0 0 1
+0 0 city
 D0
 A black square lies to the north.
 ~
@@ -1962,7 +1953,7 @@ S
 A Black Square~
 You are standing on a black marble square.
 ~
-0 0 1
+0 0 city
 D0
 A white square lies to the north.
 ~
@@ -1988,7 +1979,7 @@ S
 A White Square~
 You are standing on a white marble square.
 ~
-0 0 1
+0 0 city
 D0
 A black square lies to the north.
 ~
@@ -2014,7 +2005,7 @@ S
 A Black Square~
 You are standing on a black marble square.
 ~
-0 0 1
+0 0 city
 D0
 A white square lies to the north.
 ~
@@ -2040,7 +2031,7 @@ S
 A White Square~
 You are standing on a white marble square.
 ~
-0 0 1
+0 0 city
 D0
 A black square lies to the north.
 ~
@@ -2062,7 +2053,7 @@ A White Square~
 You are standing on a white marble square.  This is usually the home
 of one of the White Queen's Pawns.
 ~
-0 0 1
+0 0 city
 D0
 A black square lies to the north.
 ~
@@ -2084,7 +2075,7 @@ A Black Square~
 You are standing on a black marble square.  This is usually the home
 of one of the White Queen's Pawns.
 ~
-0 0 1
+0 0 city
 D0
 A white square lies to the north.
 ~
@@ -2111,7 +2102,7 @@ A White Square~
 You are standing on a white marble square.  This is usually the home
 of one of the White Queen's Pawns.
 ~
-0 0 1
+0 0 city
 D0
 A black square lies to the north.
 ~
@@ -2138,7 +2129,7 @@ A Black Square~
 You are standing on a black marble square.  This is usually the home
 of one of the White Queen's Pawns.
 ~
-0 0 1
+0 0 city
 D0
 A white square lies to the north.
 ~
@@ -2165,7 +2156,7 @@ A White Square~
 You are standing on a white marble square.  This is usually the home
 of one of the White King's Pawns.
 ~
-0 0 1
+0 0 city
 D0
 A black square lies to the north.
 ~
@@ -2192,7 +2183,7 @@ A Black Square~
 You are standing on a black marble square.  This is usually the home
 of one of the White King's Pawns.
 ~
-0 0 1
+0 0 city
 D0
 A white square lies to the north.
 ~
@@ -2219,7 +2210,7 @@ A White Square~
 You are standing on a white marble square.  This is usually the home
 of one of the White King's Pawns.
 ~
-0 0 1
+0 0 city
 D0
 A black square lies to the north.
 ~
@@ -2246,7 +2237,7 @@ A Black Square~
 You are standing on a black marble square.  This is usually the home
 of one of the White King's Pawns.
 ~
-0 0 1
+0 0 city
 D0
 A white square lies to the north.
 ~
@@ -2268,7 +2259,7 @@ A Black Square~
 You are standing on a black marble square.  This is usually the home
 of the White Queen's Rook.
 ~
-0 0 1
+0 0 city
 D0
 A white square lies to the north.
 ~
@@ -2285,7 +2276,7 @@ A White Square~
 You are standing on a white marble square.  This is usually the home
 of the White Queen's Knight.
 ~
-0 0 1
+0 0 city
 D0
 A black square lies to the north.
 ~
@@ -2307,7 +2298,7 @@ A Black Square~
 You are standing on a black marble square.  This is usually the home
 of the White Queen's Bishop.
 ~
-0 0 1
+0 0 city
 D0
 A white square lies to the north.
 ~
@@ -2329,7 +2320,7 @@ A White Square~
 You are standing on a white marble square.  This is usually the home
 of the White Queen.
 ~
-0 0 1
+0 0 city
 D0
 A black square lies to the north.
 ~
@@ -2355,7 +2346,7 @@ A Black Square~
 You are standing on a black marble square.  This is usually the home
 of the White King.
 ~
-0 0 1
+0 0 city
 D0
 A white square lies to the north.
 ~
@@ -2377,7 +2368,7 @@ A White Square~
 You are standing on a white marble square.  This is usually the home
 of the White King's Bishop.
 ~
-0 0 1
+0 0 city
 D0
 A black square lies to the north.
 ~
@@ -2399,7 +2390,7 @@ A Black Square~
 You are standing on a black marble square.  This is usually the home
 of the White King's Knight.
 ~
-0 0 1
+0 0 city
 D0
 A white square lies to the north.
 ~
@@ -2421,7 +2412,7 @@ A White Square~
 You are standing on a white marble square.  This is usually the home
 of the White King's Rook.
 ~
-0 0 1
+0 0 city
 D0
 A black square lies to the north.
 ~
@@ -2438,7 +2429,7 @@ The Black Treasury~
 You are standing in the treasury of the Black Court.  Hopefully no one
 has looted the Crown's treasure.
 ~
-0 ADJ 0
+0 ADJ inside
 D4
 A small staircase rises above you.
 ~
@@ -2450,7 +2441,7 @@ The White Treasury~
 You are standing in the treasury of the White Court.  Hopefully no one 
 has looted the Crown's treasure.
 ~
-0 ADJ 0
+0 ADJ inside
 D4
 A small staircase rises above you.
 ~

@@ -222,13 +222,12 @@ You see a huge flame which resembles the shape of a bat.  The creature
 hangs from the ceiling and bites at you.
 ~
 bat~
-ABCF J -900 0
+ABCF DJ -900 0
 12 0 2d10+150 6d9+100 1d10+3 none
 0 0 0 8
 ENR 0 0 0
 stand stand male 300
 0 0 medium unknown
-A det D
 #1516
 oldstyle guard hobgoblin~
 the hobgoblin guard~
@@ -425,7 +424,7 @@ a studded shield~
 A studded wooden shield lies here.~
 iron-wood~
 armor 0 AJ
-C C C A 0
+4 4 4 1 0
 5 100 750 P
 #1506
 potion bloody~
@@ -441,7 +440,7 @@ a bloody cloak~
 A bloody cloak lies in a corner.~
 cloth~
 armor G AC
-C C C 0 0
+4 4 4 0 0
 5 150 480 P
 #1508
 ring bat~
@@ -509,7 +508,7 @@ a pair of gnome boots~
 You notice a pair of Gnome Boots.~
 leather~
 armor 0 AG
-C C C 0 0
+4 4 4 0 0
 7 120 610 P
 A
 14 10
@@ -519,7 +518,7 @@ a pile of coins~
 A pile of coins.~
 silver~
 money 0 A
-CFG 0 0 0 0
+100 0 0 0 0
 0 10 0 P
 #1517
 coins~
@@ -527,7 +526,7 @@ a pile of coins~
 A pile of coins.~
 silver~
 money 0 A
-CEFGHI 0 0 0 0
+500 0 0 0 0
 0 10 0 P
 #1519
 shield stone~
@@ -535,7 +534,7 @@ a stone shield~
 A stone slab lies here.~
 stone iron~
 armor 0 AJ
-C C C B 0
+4 4 4 2 0
 16 350 3700 P
 A
 1 2
@@ -545,7 +544,7 @@ heavy banded mail~
 A large suit of heavy banded mail is here~
 iron~
 armor 0 AD
-BC BC BC 0 0
+6 6 6 0 0
 15 300 2100 P
 #1521
 club large two-handed~
@@ -591,7 +590,7 @@ Entrance to Gnome Village~
 You stand on a dusty path that leads north and east.  To the east you hear
 the sounds of a small village.
 ~
-0 C 2
+0 C field
 D0
 A dusty path heads towards the eastern road.
 ~
@@ -608,7 +607,7 @@ A Dusty Path~
 This is a path leading into the village.  It continues east and west and
 there is a small house to the north.
 ~
-0 0 1
+0 0 city
 D0
 You see a small house.
 ~
@@ -630,7 +629,7 @@ A Road in the Village~
 This road runs north and south through the center of the village.  There
 are a few people moving around, but not many.
 ~
-0 0 1
+0 0 city
 D0
 You see a road.
 ~
@@ -657,7 +656,7 @@ A Dusty Path~
 You are on a dusty path on the far side of the village.  Houses are to the
 north and south, while the path continues east.  There is a sign here.
 ~
-0 0 1
+0 0 city
 E
 sign~
 Warning:  The area to the east was written mostly by Vougon
@@ -689,7 +688,7 @@ A Road in the Village~
 This road runs north and south through the center of the village.  There
 are a few people moving around, but not many.
 ~
-0 0 1
+0 0 city
 D0
 You see a road.
 ~
@@ -716,7 +715,7 @@ A Road in the Village~
 This road runs north and south through the center of the village.  There
 are a few people moving around, but not many.
 ~
-0 0 1
+0 0 city
 D0
 You see a road.
 ~
@@ -733,7 +732,7 @@ A Road in the Village~
 This road runs north and south through the center of the village.  There
 are a few people moving around, but not many.
 ~
-0 0 1
+0 0 city
 D0
 You see a road.
 ~
@@ -755,7 +754,7 @@ A Road in the Village~
 This road runs north and south through the center of the village.  There
 are a few people moving around, but not many.
 ~
-0 0 1
+0 0 city
 D0
 You see a road.
 ~
@@ -782,7 +781,7 @@ A Small Gnome House~
 This is a small suburban house made from quality wood.  You can see the
 expert workmanship that went into making it, but it lacks creativity.
 ~
-0 D 0
+0 D inside
 D2
 You see a path.
 ~
@@ -794,7 +793,7 @@ A Small Gnome House~
 This is a small suburban house made from quality wood.  You can see the
 expert workmanship that went into making it, but it lacks creativity.
 ~
-0 D 0
+0 D inside
 D1
 You see a path.
 ~
@@ -806,7 +805,7 @@ A Small Gnome House~
 This is a small suburban house made from quality wood.  You can see the
 expert workmanship that went into making it, but it lacks creativity.
 ~
-0 D 0
+0 D inside
 D3
 You see a path.
 ~
@@ -818,7 +817,7 @@ A Small Gnome House~
 This is a small suburban house made from quality wood.  You can see the
 expert workmanship that went into making it, but it lacks creativity.
 ~
-0 D 0
+0 D inside
 D2
 You see a path.
 ~
@@ -830,7 +829,7 @@ A Small Gnome House~
 This is a small suburban house made from quality wood.  You can see the
 expert workmanship that went into making it, but it lacks creativity.
 ~
-0 D 0
+0 D inside
 D0
 You see a path.
 ~
@@ -842,7 +841,7 @@ A Gnome Shop~
 You are in one of the several shops of this fine town.  The wares look fine,
 but unfortunately the gnomes don't do business with outsiders.
 ~
-0 D 0
+0 D inside
 D1
 You see a road.
 ~
@@ -854,7 +853,7 @@ A Gnome Shop~
 You are in one of the several shops of this fine town.  The wares look fine,
 but unfortunately the gnomes don't do business with outsiders.
 ~
-0 D 0
+0 D inside
 D1
 You see a road.
 ~
@@ -866,7 +865,7 @@ A Gnome Shop~
 You are in one of the several shops of this fine town.  The wares look fine,
 but unfortunately the gnomes don't do business with outsiders.
 ~
-0 D 0
+0 D inside
 D3
 You see a road.
 ~
@@ -878,7 +877,7 @@ Path by a Stream~
 You are on a small path leading north and west, that is surrounded on the
 other two sides by a small stream.  The water looks mighty cold.
 ~
-0 C 2
+0 C field
 E
 stream~
 The stream is pretty small, but it looks too cold to swim.
@@ -905,7 +904,7 @@ You are on a small east-west path.  The path shows new grass, as if it
 has stopped being used sometime in the recent past.  A river is to the south,
 and a small hut is to the west.
 ~
-0 0 2
+0 0 field
 E
 hut~
 The hut looks well built, but it seems to have taken some damage.
@@ -936,7 +935,7 @@ The hut is a mess!  Blood has stained the grass walls into a dark rich
 crimson color.  Torn clothes and trash lie all around, and you think you
 see a skeleton in the corner.
 ~
-0 D 0
+0 D inside
 E
 skeleton~
 The skeleton still has a little flesh clinging to it and it is definitely
@@ -954,7 +953,7 @@ On the Stream~
 The stream is cold and frigid, yet it supports plenty of life beneath its
 surface.  The current trickles west and there is a field to the south.
 ~
-0 0 7
+0 0 noswim
 D0
 You see a small path.
 ~
@@ -976,7 +975,7 @@ On the Stream~
 The current here flows from the east, but a logjam blocks you from 
 continuing onward.
 ~
-0 0 7
+0 0 noswim
 D0
 You see a small path.
 ~
@@ -993,7 +992,7 @@ The Field of Mice's Dreams~
 This is a large green field of waist high grass.  You feel something
 scurry over your feet.  There is a cave to the east.
 ~
-0 0 2
+0 0 field
 D0
 You see a small stream.
 ~
@@ -1010,7 +1009,7 @@ The Dark Cave~
 The cave gleams as your light reflects off of it.  As you squint your eyes
 and try to look ahead, you think you see something move.
 ~
-0 A 3
+0 A forest
 D0
 ~
 ~
@@ -1026,7 +1025,7 @@ Darker Cave~
 The cave gets even darker as your terror grows stronger.  You fear for your
 life as something emerges out of the shadows.
 ~
-0 A 3
+0 A forest
 D2
 ~
 ~
@@ -1037,7 +1036,7 @@ A Dusty Path~
 You are on a well traveled path that leads in many directions.  To the north
 is a large house, and to the west is a fortress.
 ~
-0 C 1
+0 C city
 E
 fortress~
 The fortress is a large gnome stronghold to defend the city.
@@ -1063,7 +1062,7 @@ The Iron Gateway~
 You stand at the entrance to the gnome fortress.  The place seems to be
 well fortified.
 ~
-0 0 1
+0 0 city
 D1
 You see a small path.
 ~
@@ -1082,7 +1081,7 @@ haven't killed you.  As you glance around, you notice that the walls and
 floors are spotlessly cleaned.  The barracks are to the north and a
 storage room is to the south.
 ~
-0 D 0
+0 D inside
 D0
 You see the barracks.
 ~
@@ -1110,7 +1109,7 @@ You are now inside of the fortress; you must be lucky that the guards
 haven't killed you.  As you glance around, you notice that the walls and
 floors are spotlessly cleaned.  A mess hall is to the south.
 ~
-0 D 0
+0 D inside
 D1
 You see a long hallway.
 ~
@@ -1133,7 +1132,7 @@ You now stand in the sleeping quarters of the gnome guards.  Every bed is
 made perfectly, and not single article of clothing is on the floor.  There
 is a small storage room to the east.
 ~
-0 D 0
+0 D inside
 D1
 You see a small storage room.
 ~
@@ -1150,7 +1149,7 @@ A Small Storage Room~
 This is where the gnomes store all their spare clothing and armor.
 There is not much here, but you might come up with something.
 ~
-0 D 0
+0 D inside
 D3
 You see the barracks.
 ~
@@ -1162,7 +1161,7 @@ A Small Storage Room~
 This is where the gnomes store all their spare weapons.  A door leads off
 to the east.
 ~
-0 D 0
+0 D inside
 D0
 You see a long hallway.
 ~
@@ -1179,7 +1178,7 @@ A Small Storage Room~
 This is yet another room for storing gnome stuff.  Maps and battle plans
 are stored in neat stacks on the shelves.
 ~
-0 D 0
+0 D inside
 D3
 You see a small room.
 ~
@@ -1192,7 +1191,7 @@ You are in the room where the guards come to get their grub.  The benches
 and tables are neatly cleaned and straightened, while shiny plates line
 the walls.
 ~
-0 D 0
+0 D inside
 D0
 You see a long hallway.
 ~
@@ -1203,7 +1202,7 @@ S
 A Small Room~
 This is a small plain room.  Its only interesting feature is a ladder down.
 ~
-0 D 0
+0 D inside
 D1
 You see a long hallway.
 ~
@@ -1221,7 +1220,7 @@ You stand in a small room in an unused section of the fortress.  The whole
 room is coated with dust and cobwebs.  The ladder leads back up, and
 a rusty door is to the east.
 ~
-0 AD 1
+0 AD city
 D1
 You see a rusty door.
 ~
@@ -1239,7 +1238,7 @@ You find yourself in a very old section of the fortress.  You must be the
 first person to pass through here in years.  The hallway continues south
 and a door leads off to the east.
 ~
-0 AD 2
+0 AD field
 D1
 ~
 ~
@@ -1259,7 +1258,7 @@ Torture Chamber~
 This is a room that was once used to extract lies out of helpless victims.
 The machines look unused, but could still work.
 ~
-0 AD 2
+0 AD field
 E
 machine~
 The machine consists of a large rack with winches on each end.  You can 
@@ -1275,7 +1274,7 @@ Dark Hallway~
 The hall continues in a north-south direction.  The floor is coated with
 some kind of molded slime.  Doors lead east and west.
 ~
-0 AD 2
+0 AD field
 D0
 ~
 ~
@@ -1298,7 +1297,7 @@ Dark Hallway~
 The hall continues in a north-south direction.  The floor is coated with
 some kind of molded slime.  Doors lead east and west.
 ~
-0 AD 2
+0 AD field
 D0
 ~
 ~
@@ -1321,7 +1320,7 @@ Prison Cell~
 You are in a dark and nasty prison cell.  Bodies lying on the floor give off
 an unbearable stench.
 ~
-0 AD 2
+0 AD field
 D1
 ~
 ~
@@ -1332,7 +1331,7 @@ Prison Cell~
 You are in a dark and nasty prison cell.  Bodies lying on the floor give off
 an unbearable stench.
 ~
-0 AD 2
+0 AD field
 D3
 ~
 ~
@@ -1343,7 +1342,7 @@ Prison Cell~
 You are in a dark and nasty prison cell.  Bodies lying on the floor give off
 an unbearable stench.
 ~
-0 AD 2
+0 AD field
 D0
 ~
 ~
@@ -1354,7 +1353,7 @@ Prison Cell~
 You are in a dark and nasty prison cell.  Bodies lying on the floor give off
 an unbearable stench.
 ~
-0 AD 2
+0 AD field
 D3
 ~
 ~
@@ -1365,7 +1364,7 @@ End of the Dark Hallway~
 You have reached the end of the dark hallway and maybe the end of your puny
 life.  Something lumbers its way out of the shadows.
 ~
-0 AD 2
+0 AD field
 D1
 ~
 ~
@@ -1380,7 +1379,7 @@ S
 A Ladder~
 You have come into a vertical tunnel with a ladder.
 ~
-0 AD 3
+0 AD forest
 D1
 You see a decaying door.
 ~
@@ -1396,7 +1395,7 @@ Lair~
 You have entered a new lair in the fortress.  Anything could be lurking
 around the corner.
 ~
-0 AD 2
+0 AD field
 D2
 ~
 ~
@@ -1411,7 +1410,7 @@ A Damp Hallway~
 You are wandering in a dark, damp, twisting hallway.  The temperature
 seems to be greater here, as well as your fear.
 ~
-0 ADN 2
+0 ADN field
 D0
 ~
 ~
@@ -1430,7 +1429,7 @@ A Damp Hallway~
 You are wandering in a dark, damp, twisting hallway.  The temperature
 seems to be greater here, as well as your fear.
 ~
-0 ADN 2
+0 ADN field
 D2
 ~
 ~
@@ -1445,7 +1444,7 @@ A Damp Hallway~
 You are wandering in a dark, damp, twisting hallway.  The temperature
 seems to be greater here, as well as your fear.
 ~
-0 ADN 2
+0 ADN field
 D0
 ~
 ~
@@ -1460,7 +1459,7 @@ A Damp Hallway~
 You are wandering in a dark, damp, twisting hallway.  The temperature
 seems to be greater here, as well as your fear.
 ~
-0 ADN 2
+0 ADN field
 D1
 ~
 ~
@@ -1475,7 +1474,7 @@ A Damp Hallway~
 You are wandering in a dark, damp, twisting hallway.  The temperature
 seems to be greater here, as well as your fear.
 ~
-0 ADN 2
+0 ADN field
 D0
 ~
 ~
@@ -1490,7 +1489,7 @@ A Damp Hallway~
 You are wandering in a dark, damp, twisting hallway.  The temperature
 seems to be greater here, as well as your fear.
 ~
-0 ADN 2
+0 ADN field
 D0
 ~
 ~
@@ -1505,7 +1504,7 @@ A Damp Hallway~
 You are wandering in a dark, damp, twisting hallway.  The temperature
 seems to be greater here, as well as your fear.
 ~
-0 ADN 2
+0 ADN field
 D0
 ~
 ~
@@ -1524,7 +1523,7 @@ A Damp Hallway~
 You are wandering in a dark, damp, twisting hallway.  The temperature
 seems to be greater here, as well as your fear.
 ~
-0 ADN 2
+0 ADN field
 D0
 ~
 ~
@@ -1539,7 +1538,7 @@ The End of the Hallway~
 You make your way out of the hallway, just to find yourself in greater
 danger.  Before you looms the source of the great heat.
 ~
-0 ADN 2
+0 ADN field
 D1
 ~
 ~
@@ -1554,7 +1553,7 @@ The Altar~
 You finally reach the end of the maze.  There is a great altar here in the
 shape of a bat.  A passageway leads off to the west.
 ~
-0 ADN 2
+0 ADN field
 D3
 ~
 ~
@@ -1566,7 +1565,7 @@ You enter into a large and luxurious house.  The floor is coated with carpets
 and the walls are covered in paintings.  You feel privileged just for stepping
 inside.
 ~
-0 D 0
+0 D inside
 D2
 You see a path.
 ~
@@ -1578,7 +1577,7 @@ The Unused Path~
 You are now on a fairly unused path that leads east out of the village.  
 You wonder what could be out this way.
 ~
-0 C 1
+0 C city
 D1
 You see a path.
 ~
@@ -1595,7 +1594,7 @@ The Overgrown Path~
 As the path continues on, the grass grows higher.  You can't imagine
 what could possibly be out this way.
 ~
-0 0 2
+0 0 field
 D1
 You see a clearing.
 ~
@@ -1612,7 +1611,7 @@ The Clearing~
 Your progress is suddenly stopped by mountains on all sides.  The path leads
 back to the west, and there appears to be an old mine shaft to the north.
 ~
-0 0 2
+0 0 field
 D0
 You see a mine shaft.
 ~
@@ -1629,7 +1628,7 @@ Entrance to the Mine Shaft~
 As you enter the mine shaft, you get a sudden fear of the walls closing
 in on you.  You are surprised to notice that you don't need a light.
 ~
-0 D 2
+0 D field
 D1
 You see the shaft.
 ~
@@ -1646,7 +1645,7 @@ Mine Shaft~
 This mine shaft looks stable, at least in this area.  The wooden supports are
 thick and strong.  Torches line the walls.  Exits lead in all directions.
 ~
-0 D 2
+0 D field
 D0
 You see a small mine shaft.
 ~
@@ -1673,7 +1672,7 @@ Mine Shaft~
 This mine shaft looks stable, at least in this area.  The wooden supports are
 thick and strong.  Torches line the walls.  Exits lead in all directions.
 ~
-0 D 2
+0 D field
 D0
 You see a large room.
 ~
@@ -1701,7 +1700,7 @@ This mine shaft looks stable, at least in this area.  The wooden supports are
 thick and strong.  Torches line the walls.  Exits lead in all directions
 except north.
 ~
-0 D 2
+0 D field
 D1
 You see the walkway.
 ~
@@ -1724,7 +1723,7 @@ You are on a well built path in the middle of a mountain.  You sense something
 great up ahead, considering the hard work that must have gone into creating
 this passage.
 ~
-0 D 1
+0 D city
 D2
 You see the walkway.
 ~
@@ -1742,7 +1741,7 @@ You are on a well built path in the middle of a mountain.  You sense something
 great up ahead, considering the hard work that must have gone into creating
 this passage.
 ~
-0 D 1
+0 D city
 D0
 You see the walkway.
 ~
@@ -1760,7 +1759,7 @@ You have stepped into the Grand Hall of the hobgoblin kingdom; your luck
 must be running low by now.  Golden pillars span the hallway, and you
 notice a red carpet beneath your feet.
 ~
-0 D 0
+0 D inside
 D0
 You see the walkway.
 ~
@@ -1777,7 +1776,7 @@ The Throne Room~
 This is large bright room filled with Hobgoblins.  To the south there is
 a large golden throne against the wall.
 ~
-0 D 0
+0 D inside
 D0
 You see a large hall.
 ~
@@ -1789,7 +1788,7 @@ The Treasury~
 You are inside the hobgoblin's treasury.  Your eyes are almost blinded by the
 gold, silver and copper coins.
 ~
-0 D 0
+0 D inside
 D0
 You see a large room.
 ~
@@ -1801,7 +1800,7 @@ Guarded Room~
 You are inside a well guarded room.  The place is slightly better built than
 the mine shafts, and is lit by lanterns.
 ~
-0 D 1
+0 D city
 D0
 You see a large room.
 ~
@@ -1818,7 +1817,7 @@ Guarded Room~
 You are inside a well guarded room.  The place is slightly better built than
 the mine shafts, and is lit by lanterns.
 ~
-0 D 1
+0 D city
 D0
 You see a large room.
 ~
@@ -1835,7 +1834,7 @@ Hobgoblin Armory~
 The guards store their spare weapons and armor here.  There are rusty swords
 on rotting shelves, and armor hanging from hooks or laying on the floor.
 ~
-0 D 1
+0 D city
 D0
 You see the shaft.
 ~
@@ -1848,7 +1847,7 @@ You enter a part of the mine shaft where the torches have grown dim
 and are almost ready to go out.  From what you can see, there are plenty
 of cobwebs on the walls and rats at your feet.
 ~
-0 D 2
+0 D field
 D0
 You see the shaft.
 ~
@@ -1866,7 +1865,7 @@ The floor dips slightly as you walk into this dark and nasty place.  Your
 skin crawls as you look at the filth on the walls and see it move.  Most
 of the exits lead into jail cells.
 ~
-0 D 2
+0 D field
 D0
 You see the shaft.
 ~
@@ -1894,7 +1893,7 @@ You are in the deepest and darkest part of the mine shafts.  The light from
 the torches barely reaches to where you are.  Most directions from here
 lead to jail cells.
 ~
-0 D 2
+0 D field
 D0
 You see a dark and nasty room.
 ~
@@ -1921,7 +1920,7 @@ A Jail Cell~
 You are in a musty, dark jail cell.  Wet and dirty straw covers the floor.
 The walls glisten with slime.  You see something stir in the straw.
 ~
-0 D 2
+0 D field
 D3
 You see a dark and nasty room.
 ~
@@ -1933,7 +1932,7 @@ The Jail Cell~
 You are in a musty, dark jail cell.  Wet and dirty straw covers the floor.
 The walls glisten with slime.  You see something stir in the straw.
 ~
-0 D 2
+0 D field
 D3
 You see a dark and nasty room.
 ~
@@ -1945,7 +1944,7 @@ The Jail Cell~
 You are in a musty, dark jail cell.  Wet and dirty straw covers the floor.
 The walls glisten with slime.  You see something stir in the straw.
 ~
-0 D 2
+0 D field
 D0
 You see a dark and nasty room.
 ~
@@ -1957,7 +1956,7 @@ The Jail Cell~
 You are in a musty, dark jail cell.  Wet and dirty straw covers the floor.
 The walls glisten with slime.  You see something stir in the straw.
 ~
-0 D 2
+0 D field
 D1
 You see a dark and nasty room.
 ~
@@ -1969,7 +1968,7 @@ The Jail Cell~
 You are in a musty, dark jail cell.  Wet and dirty straw covers the floor.
 The walls glisten with slime.  You see something stir in the straw.
 ~
-0 D 2
+0 D field
 D1
 You see a dark and nasty room.
 ~
@@ -1981,7 +1980,7 @@ Small Mine Shaft~
 You are in a small extension of the mine shaft.  The dust on the floor is
 undisturbed by footprints.
 ~
-0 D 2
+0 D field
 D0
 You see a small mine shaft.
 ~
@@ -1999,7 +1998,7 @@ You are suddenly surrounded by a small army of hobgoblin guards.  The room
 itself is a mess with clothes and armor everywhere.  The beds are unmade and
 stained.
 ~
-0 D 2
+0 D field
 D0
 You see a large room.
 ~
@@ -2021,7 +2020,7 @@ Hobgoblin Barracks~
 Yech!  As you continue forward, the smell just keeps getting worse.
 What are you DOING here?
 ~
-0 D 2
+0 D field
 D2
 You see a large room~
 ~
@@ -2033,7 +2032,7 @@ You stand in the hobgoblin eating area.  There are a few rotting tables
 and many broken dishes scattered around the room.  You almost slip on a
 rotten piece of meat, but catch yourself just in time.
 ~
-0 D 2
+0 D field
 D0
 You see a small room.
 ~
@@ -2054,7 +2053,7 @@ S
 A Store Room~
 You stand in a small room filled with flour, grain, fruit, and bat droppings.
 ~
-0 D 1
+0 D city
 D2
 You see the mess hall.
 ~
@@ -2067,7 +2066,7 @@ This kitchen hasn't been cleaned since the creation of humans.  The trash and
 spoiled food laying on the floor reach up to your knees.  Off to the side a
 pot is boiling over.  A human hand floats in it.
 ~
-0 D 2
+0 D field
 D3
 You see the mess hall.
 ~
@@ -2079,7 +2078,7 @@ A Small Mine Shaft~
 You come to a place in the mine shaft where a tunnel leads down.  The
 small passage continues north and south.
 ~
-0 D 2
+0 D field
 D0
 You see an almost caved in area.
 ~
@@ -2102,7 +2101,7 @@ You are in a small section where the mine wall has collapsed to reveal a
 tiny one-room cave.  The area is barely lit, but you can make out something
 moving towards you.
 ~
-0 D 2
+0 D field
 D2
 You see a small mine shaft.
 ~
@@ -2113,7 +2112,7 @@ S
 A Hole~
 You are in a hole.
 ~
-0 D 3
+0 D forest
 D4
 You see a small mine shaft.
 ~

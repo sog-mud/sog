@@ -75,13 +75,12 @@ There is a mean looking gnoll here.
 The Gnoll seems annoyed at your presence.
 ~
 human~
-ACG J -1000 0
+ACG DFJ -1000 0
 30 0 6d12+853 15d9+100 4d6+8 none
 -9 -9 -9 6
 EFNU 0 0 0
 stand stand male 1250
 0 0 medium unknown
-A det DF
 #8306
 oldstyle beast~
 a huge hairy beast~
@@ -91,13 +90,12 @@ This huge beast stands about 20 feet in height and has huge green clawed
 appendages. 
 ~
 human~
-ACFG J -450 0
+ACFG DFJ -450 0
 21 0 4d10+360 10d9+100 4d4+5 none
 -5 -5 -5 7
 EFNU 0 0 0
 stand stand male 500
 0 0 medium unknown
-A det DF
 #8307
 oldstyle beast~
 a rather small beast~
@@ -166,13 +164,12 @@ Yech!  She manages to make even Smurfette look attractive.  That's ok,
 because she thinks you stink too, and she's about to do something about it.
 ~
 human~
-ACGS J -200 0
+ACGS DFJ -200 0
 9 0 2d7+96 4d9+100 1d7+2 none
 3 3 3 8
 BEFJNU 0 0 0
 stand stand female 50
 0 0 medium unknown
-A det DF
 #8313
 oldstyle slaad~
 a Death Slaad~
@@ -182,13 +179,12 @@ This dark apparition stands a meager 13 feet in height.  Even in the dim
 swamp light, the blade of his scythe gleams.
 ~
 human~
-ACG J -200 0
+ACG DFJ -200 0
 20 0 3d9+333 10d9+100 2d8+5 none
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand male 700
 0 0 medium unknown
-A det DF
 #8314
 oldstyle wolf~
 a marsh wolf~
@@ -227,13 +223,12 @@ This old orc has an array of bones stuck in his hair and strange symbols
 painted on his face and hands.
 ~
 human~
-ABCDFGQ 0 -100 0
+ABCDFGQ DF -100 0
 12 0 2d10+150 12d9+100 2d4+3 none
 0 0 0 7
 EIKU 0 0 0
 stand stand male 17
 0 0 medium unknown
-A det DF
 #8320
 oldstyle giant~
 a marsh giant~
@@ -242,13 +237,12 @@ A marsh giant stomps towards you.
 This huge monster of a man has green gnarly teeth and a BIG stick.
 ~
 giant~
-ABCDFG J -100 0
+ABCDFG DFJ -100 0
 15 0 3d9+208 7d9+100 2d6+3 none
 -2 -2 -2 7
 EFNR 0 0 0
 stand stand male 600
 0 0 medium unknown
-A det DF
 #8321
 oldstyle gargoyle~
 a gargoyle~
@@ -257,13 +251,12 @@ A large gargoyle lands next to you, baring his fangs at you.
 This creepy fellow looks like he could use you as a meal.
 ~
 human~
-ABCDFG J -100 0
+ABCDFG DFJ -100 0
 12 0 2d10+150 6d9+100 1d10+3 none
 0 0 0 8
 EFNU 0 0 0
 stand stand none 100
 0 0 medium unknown
-A det DF
 #0
 
 #OBJECTS
@@ -273,7 +266,7 @@ a long spear~
 A strange spear lies here.~
 oak~
 weapon J AN
-staff 1 12 stab F
+spear 1 12 stab F
 11 100 1330 P
 A
 2 1
@@ -285,7 +278,7 @@ a dark horned helmet~
 A wicked looking horned helmet lies here.~
 iron bone~
 armor J AE
-BC BC AC B 0
+6 6 5 2 0
 10 50 0 P
 A
 3 -3
@@ -300,7 +293,7 @@ a suit of chainmail~
 An old suit of chainmail lies here, corroded by the marsh.~
 iron~
 armor J AD
-AC D ABC 0 0
+5 8 7 0 0
 20 200 2700 P
 #8306
 scythe~
@@ -342,7 +335,7 @@ This section of the path is slowly being drowned by the nearby swamp to the
 south, which is creeping slowly inland.  Several caved-in buildings sprawl
 here, torn apart both by battle and the elements.
 ~
-0 0 2
+0 0 field
 E
 swamp~
 The swamp to the south even reaches as far as this point ... it makes the
@@ -366,7 +359,7 @@ skies above the murky marsh, leaving the path before you dark and sinister.
 You see some disturbances in the marsh, but after a few strangled screams,
 the sounds stop.
 ~
-0 0 5
+0 0 mountain
 D0
 ~
 ~
@@ -389,7 +382,7 @@ trees it is one.  Occasionally you see a whole humanoid form floating face down
 in the water, but mostly you only find pieces.  You hear a loud bellow in the
 distance.  And feel fear creep into your heart.
 ~
-0 A 5
+0 A mountain
 E
 pieces~
 You see severed limbs and spongy intestines.
@@ -416,7 +409,7 @@ On a hill.~
 You stand atop a hill on the northwestern side of the evil swamp. Dark
 clouds whip around you and the wind raises its voice and assails you.
 ~
-0 A 4
+0 A hills
 D0
 To the north lies a damp broken roadway.
 ~
@@ -441,7 +434,7 @@ beasts flap over you and send chilling glares your way.  You feel out
 of place, and feel that the occupants of this realm will soon 
 have you for a feast.
 ~
-0 A 5
+0 A mountain
 E
 beasts~
 You see a large creature, possibly a demon, flapping heavily above you.
@@ -462,7 +455,7 @@ An Oozing Bog~
 The ground here is soft and oozing.  You feel slimy water seeping into your
 boots.  Better stop and check for leeches when you get out of here.
 ~
-0 A 5
+0 A mountain
 E
 limb~
 The limb looks like it is attached to a trap door in the ground.
@@ -478,7 +471,7 @@ Swamp Thing's Lair~
 A horrible swamp thing resides here.  Mutilated corpses suffuse the air with
 the overwhelming stench of putrid flesh.
 ~
-0 A 6
+0 A swim
 E
 corpses~
 You notice a note on one of the corpses reading:  'Best ye forget the temple,
@@ -496,7 +489,7 @@ You stand by a large oozing pool of quick sand.  Luckily only a complete
 klutz could not avoid it.  Dancing lights fly about you and one seems to
 be taunting you towards the pool.
 ~
-0 A 6
+0 A swim
 E
 quicksand~
 It looks deadly to the foolish.
@@ -527,7 +520,7 @@ You stand beside a large dark pond.  The water boils not with heat, but with
 motion, as if it is alive.  A creaking beat pulses through the air, leaving
 you with a cold sweat and fear in your heart.
 ~
-0 A 6
+0 A swim
 E
 pond~
 It looks ALIVE ...
@@ -555,7 +548,7 @@ a huge patch of vegetation.  You sense an evil presence and notice
 a beast flying overhead to the south east, towards what looks to be a 
 huge fortress, half buried in the marsh.
 ~
-0 A 6
+0 A swim
 E
 vegetation~
 It looks sentient.
@@ -589,7 +582,7 @@ Cloud of Darkness.~
 As you travel through this cloud of darkness, a fear such as you have never
 known before assails you.
 ~
-0 A 6
+0 A swim
 D0
 A dark pool lies to the north.
 ~
@@ -606,7 +599,7 @@ Near Vegetation from Hell.~
 You stand near some of the strangest plant life you have ever seen, a mixture
 of tumescent vegetables, evil-smelling fruit trees, and malignant ferns.
 ~
-0 A 6
+0 A swim
 E
 plant plants~
 They look rather violent, and snap at you when you come near.
@@ -628,7 +621,7 @@ You are standing near a monolith which protrudes some 20 feet from the
 marsh into the air.  Its black obsidian surface shines darkly in the 
 strange, almost unearthly light that enters through the clouds above.
 ~
-0 A 5
+0 A mountain
 E
 monolith~
 This huge monolith resembles nothing you have ever seen before.
@@ -656,7 +649,7 @@ A murky bog surrounds you.  To the east a black monolith juts forth from the
 ground.  Far to the north lies a huge pool of quicksand.  Snarls can be heard
 echoing as if from a great distance.
 ~
-0 A 5
+0 A mountain
 E
 monolith~
 This is a huge obsidian stone block stuck in the marsh.
@@ -684,7 +677,7 @@ experience.  Many a creature bumps the bottom of your boat, and glares
 at you through unblinking eyes from the waters below.  The southern 
 portion of the lake looks calm and serene compared to this wild place.
 ~
-0 A 7
+0 A noswim
 D2
 The southern portion of the lake lies to the south.
 ~
@@ -702,7 +695,7 @@ You are floating on a calm section of blue crystal water.  You feel much more
 at ease then you were before in this area.  Then a wave of fear passes over
 you.  You are not alone.
 ~
-0 A 7
+0 A noswim
 E
 north~
 The way to the north seems to be impassable, due to the rough water and
@@ -724,7 +717,7 @@ Beach~
 You are on a sandy shore.  Marsh life creeps across the surface.  To the west
 lies an evil fortress.  You see figures walking along the battlements.
 ~
-0 A 5
+0 A mountain
 E
 fortress~
 It is hewn of black stone and heavily fortified.
@@ -746,7 +739,7 @@ You stand before the gates of a huge fortress.  The drawbridge is up, the
 gates closed, and the portcullis down.  This place looks very dangerous,
 and you decide not to continue onward.
 ~
-0 A 3
+0 A forest
 D1
 To the east is a marshy beach.
 ~

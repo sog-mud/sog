@@ -17,13 +17,12 @@ He looks freshly hatched and sprightly.  His young fangs are just
 growing in as of late.
 ~
 human~
-ACG 0 0 0
+ACG D 0 0
 5 0 2d6+60 2d9+100 1d6+1 none
 5 5 5 9
 EFNU 0 0 0
 stand stand female 5
 0 0 medium unknown
-A det D
 #6302
 oldstyle dragon Yevaud~
 Yevaud~
@@ -32,13 +31,12 @@ Yevaud the Usurper of Midgaard is here, grinning evilly at you.
 Old, scaly, but still with a lot of bite in him left.
 ~
 dragon~
-ABCG 0 -1000 0
+ABCG D -1000 0
 24 0 5d10+500 12d9+100 2d10+6 none
 -6 -6 -6 6
 EFNR 0 0 0
 stand stand male 500
 0 0 medium unknown
-A det D
 #6303
 oldstyle spider wolf~
 the Wolf Spider~
@@ -133,13 +131,12 @@ Demoniac in nature, but more mischievous.  He twiddles his thumbs
 and creates a magical treasure!
 ~
 human~
-ACEH BP 1000 0
+ACEH BDP 1000 0
 10 0 2d7+121 5d9+100 2d4+2 none
 1 1 1 8
 EFNU 0 0 0
 stand stand male 50
 0 0 medium unknown
-A det D
 #6310
 oldstyle spider bird~
 the Bird Spider~
@@ -163,13 +160,12 @@ A dishevelled veteran warrior in disguise is what he is, but he
 means well.
 ~
 human~
-ABC 0 -400 0
+ABC D -400 0
 7 0 2d6+85 3d9+100 1d8+1 none
 4 4 4 9
 EFNU 0 0 0
 stand stand male 37
 0 0 medium unknown
-A det D
 #6312
 oldstyle donjonkeeper~
 the Donjonkeeper~
@@ -178,13 +174,12 @@ The Donjonkeeper eyes you and wonders how pure your soul is.
 He delves deeper into you as you stare at him.
 ~
 human~
-ABC 0 1000 0
+ABC D 1000 0
 25 0 5d10+550 12d9+100 2d10+7 none
 -7 -7 -7 6
 EFNU 0 0 0
 stand stand male 300
 0 0 medium unknown
-A det D
 #6313
 oldstyle guardian~
 The guardian~
@@ -210,13 +205,12 @@ fangs of normal spiders, but then, as you realize, she does not need
 them.
 ~
 human~
-ABF B -1000 0
+ABF BD -1000 0
 26 0 5d10+600 13d9+100 3d7+7 none
 -7 -7 -7 6
 EFNU 0 0 0
 stand stand female 500
 0 0 medium unknown
-A det D
 #6315
 oldstyle ki-rin~
 the Ki-Rin~
@@ -226,13 +220,12 @@ She is the last bastion of good in this realm.  Her mission is to
 someday free the slaves of the Empress.
 ~
 human~
-ABC 0 1000 0
+ABC D 1000 0
 26 0 5d10+600 13d9+100 3d7+7 none
 -7 -7 -7 6
 EFNU 0 0 0
 stand stand female 750
 0 0 medium unknown
-A det D
 #6316
 oldstyle dragon wormkin young~
 the young dragon wormkin~
@@ -241,13 +234,12 @@ A wormkin with no teeth plays here.
 Rather small, you almost feel sad in killing it.
 ~
 dragon~
-AB 0 1000 0
+AB D 1000 0
 10 0 2d7+121 5d9+100 2d4+2 none
 1 1 1 8
 EFNR 0 0 0
 stand stand male 50
 0 0 medium unknown
-A det D
 #6317
 oldstyle dragon wormkin medium~
 the medium dragon wormkin~
@@ -256,13 +248,12 @@ A wormkin that has grown a bit stares at you inquisitively.
 A medium-sized dragon--seems it hasn't killed anything yet by itself.
 ~
 dragon~
-AB 0 100 0
+AB D 100 0
 13 0 2d10+170 6d9+100 2d5+3 none
 -1 -1 -1 8
 EFNR 0 0 0
 stand stand male 250
 0 0 medium unknown
-A det D
 #6318
 oldstyle spider poisonous~
 the huge, poisonous spider~
@@ -289,13 +280,12 @@ huge, hairy legs that would give it a tremendous speed on almost any surface
 if it wasn't so immensely fat.  Its large, bulbous eyes stare back at you.
 ~
 human~
-ABG J -1000 0
+ABG DJ -1000 0
 15 0 3d9+208 7d9+100 2d6+3 none
 -2 -2 -2 7
 EFNU 0 0 0
 stand stand female 0
 0 0 medium unknown
-A det D
 #0
 
 #OBJECTS
@@ -305,7 +295,7 @@ a pontiff's headdress~
 A white cone-shaped head ornament with religious symbols lies here.~
 cloth~
 armor FG AE
-BC BC BC AB 0
+6 6 6 3 0
 18 50 4600 P
 A
 17 -2
@@ -317,7 +307,7 @@ a black knight's visor~
 A black visor sits here.~
 iron~
 armor FG AE
-BC BC BC B 0
+6 6 6 2 0
 17 50 4600 P
 A
 5 2
@@ -329,7 +319,7 @@ a big pile of coins~
 A big pile of coins is lying here.~
 silver~
 money 0 A
-CEFGHI CE 0 0 0
+500 20 0 0 0
 0 0 0 P
 #6309
 potion blue~
@@ -352,7 +342,7 @@ You are balancing carefully on the giant sticky threads that holds the giant
 web in place.  To the south leads a strand to a cave-like structure made from
 many layers of a spider web.  Another silky strand continues to the north.
 ~
-0 AD 6
+0 AD swim
 E
 web~
 The immense spider web moves softly.
@@ -372,7 +362,7 @@ You are balancing carefully on the giant sticky threads that holds the giant
 web in place.  To the north leads a strand to a cave-like structure made from
 many layers of a spider web.
 ~
-0 AD 6
+0 AD swim
 E
 web~
 The immense spider web moves softly.
@@ -388,7 +378,7 @@ You are balancing carefully on the giant sticky threads that holds the giant
 web in place.  To the east leads a strand to a cave-like structure made from
 many layers of a spider web.
 ~
-0 AD 6
+0 AD swim
 E
 web~
 The immense spider web moves softly.
@@ -404,7 +394,7 @@ You are balancing carefully on the giant sticky threads that holds the giant
 web in place. A single silky strand lead to the south, while another leads
 off into the northern direction.
 ~
-0 AD 6
+0 AD swim
 E
 web~
 The immense spider web moves softly.
@@ -426,7 +416,7 @@ You begin to wonder about what lies ahead.  The air is damp here,
 and even the little light that shines through the canopy seems
 absorbed into the webbing.
 ~
-0 C 1
+0 C city
 D0
 ~
 ~
@@ -443,7 +433,7 @@ limbs are coated with cobwebs and seem unusually strong for tree
 branches.  Paths lead in four directions.  The eastward path goes
 down a bit.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -467,7 +457,7 @@ Drones scuttle about in this room.  The cells on the walls
 are honeycomb in shape and many of the maggots and wasps you see
 have fang-marks on there bodies.  You sense some order in their markings.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -478,7 +468,7 @@ Webby Passage~
 Another webby passage, all sticky and wet.  Tiny ballooning
 spiders fill the air.  It seems that these young ones are newborns.
 ~
-0 0 2
+0 0 field
 D2
 ~
 ~
@@ -490,7 +480,7 @@ You hear the sounds of crawling arachnids above.  The rhythms of
 the footsteps suggest a primitive order in their movement.  The light
 seems brighter upwards.
 ~
-0 0 2
+0 0 field
 D3
 ~
 ~
@@ -506,7 +496,7 @@ Spiders, spiders, everywhere!  It is almost ant-like in efficiency
 with one big difference.  The spiders here are carrying ant-corpses,
 as well as rats, wolves, and humans.
 ~
-0 0 2
+0 0 field
 D2
 ~
 ~
@@ -522,7 +512,7 @@ Spiders, spiders, everywhere!  It is almost ant-like in efficiency
 with one big difference.  The spiders here are carrying ant-corpses,
 as well as cats, wolves, and humans.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -538,7 +528,7 @@ Spiders, spiders, everywhere!  It is almost ant-like in efficiency
 with one big difference.  The spiders here are carrying ant-corpses,
 as well as cats, dogs, and humans.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -555,7 +545,7 @@ with cricket feelers.  The other is well-kept and suitable for smooth
 travelling.  The webbing that was prevalent in earlier rooms is almost
 non-existent now.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -575,7 +565,7 @@ You are on a "fuzzy" tree limb.  Interesting, since the branches
 seem to have "hairs" sprouting from its bark.  As you look
 closer you see millions of aphids covering each limb.
 ~
-0 0 2
+0 0 field
 D2
 ~
 ~
@@ -590,7 +580,7 @@ Tree Trunk~
 You feel that you can rest here safely.  There is evidence of
 webbing here, but it is of a finer quality.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -607,7 +597,7 @@ victims, as evidenced by the remains before you.  The area
 is cluttered with desiccated corpses, apparently bitten
 but unwebbed, and drained of their life juices.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -623,7 +613,7 @@ Very dark, as all lairs of spiders are.  Not much of furnishings
 save an exit.  The wolf spider keeps no corpses here, but rather
 throws them out at her leisure.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -635,7 +625,7 @@ Strange.  No webbing here.  In fact, no sounds whatsoever.
 The path continues northward, where you find that you may have to
 tightrope your way across a ravine.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -653,7 +643,7 @@ Below you can see a prismatic web with lots of animal bones caught in it:
 some bear and small deer bones in fact.  No human skeletons are visible
 (yet).
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -673,7 +663,7 @@ This is the rainbow web--each strand, each link, a hue of violently
 sharp colors and contrasts.  The resident here seems to have a command
 of light as well.
 ~
-0 0 2
+0 0 field
 D4
 ~
 ~
@@ -685,7 +675,7 @@ The trees here take on a different appearance--they are not trees
 anymore, but disjointed make-shift silken made shafts, sticky to the touch,
 and webby in texture.  This is another world it would appear.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -701,7 +691,7 @@ You have entered the slave pit.  A voice blares in the distance,
 "Get back to work, maggots!"  Rails upon rails of mined gold and silver
 clutter the trail beneath you.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -717,7 +707,7 @@ Another tether path just like the rest of them.  Surprisingly well
 -lit by the golden orbs that hang from the sides, you can see the paths
 become finer and finer in quality.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -731,7 +721,7 @@ S
 A Road Crossing~
 Another shifty little strand of webs, almost ethereal in nature.
 ~
-0 0 2
+0 0 field
 D3
 ~
 ~
@@ -748,7 +738,7 @@ it.  You are definitely not in the Midgaardian realms anymore.  Just
 where you are you can't tell.  It feels like you're moving through
 ether.  You can still get back down to more surer lands.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -764,7 +754,7 @@ You are at the entrance to ethereal web.  Flickering in and out,
 in and out, each strand reveals a different hue from black to green
 to blue.
 ~
-0 0 2
+0 0 field
 D2
 ~
 ~
@@ -782,7 +772,7 @@ and eaten later.  You sense that the maker of this place has
 an appetite for dragon meat, and uses this room as a breeding
 area.
 ~
-0 0 2
+0 0 field
 D2
 ~
 ~
@@ -795,7 +785,7 @@ flickers within the ether.  You see many flying creatures--
 insects, pegasi, and dragon wormkins--navigate the dangerous
 passages of the web.  Exits go in many directions.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -815,7 +805,7 @@ This part of the web intersects through the branches of some
 trees.  Various leaves and other debris that the many drones
 have not picked up yet lie here.
 ~
-0 0 2
+0 0 field
 D3
 ~
 ~
@@ -827,7 +817,7 @@ You can see all of Midgaard in this ethereal web.  Many
 of the larger dragons that do wish to fly seem to fly
 away from the sticky strands of the web.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -846,7 +836,7 @@ On A Cloud~
 Rather thick in consistency.  You realize this is not
 a typical cloud, but it might be the nest of an aerial creature.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -857,7 +847,7 @@ A Link in the Ethereal Web~
 This is another link in the ethereal web.  Various creatures
 seem to get caught (or hypnotized) by its sticky strands.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -872,7 +862,7 @@ The Tenuous Strand~
 Very windy here since it goes up into the sky somewhat.
 Still, it's safe enough to move around.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -891,7 +881,7 @@ The Elder Wormkin's Room~
 A more mature wormkin it seems resides here.  Various tomes of
 arcane lore clutter the area, along with shards of armor and weaponry.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -902,7 +892,7 @@ Another Tree Limb~
 Once again the web crosses another tree limb.  To the side you
 see the possible entrance to another creatures lair.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -922,7 +912,7 @@ This is a big game hunter among most spiders.  Crush jewels
 and other weapons suggest the inhabitant must have powerful jaws.
 Beware!
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -933,7 +923,7 @@ A Link in the Ethereal Web~
 This is another link in the ethereal web.  Various creatures
 seem to get caught (or hypnotized) by its sticky strands.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -951,7 +941,7 @@ S
 The Quiet Tree Top~
 Here is a quiet tree top.
 ~
-0 0 2
+0 0 field
 D0
 The Entrance to Yggdrasil.
 ~
@@ -972,7 +962,7 @@ RRRRRRRRRRROOOOOOOOOOOOOAAAAAAAAAAAAAARR!  You hear the roar
 of a powerful beast.  Dragon, you think.  You shiver in your boots
 as you tiptoe on this section of the web.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -987,7 +977,7 @@ The Ki-Rin Chamber~
 A wise ki-rin was entrapped here many years ago.  It is from her
 that the ruler of this realm steals his magical strength.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -999,7 +989,7 @@ This is another link in the ethereal web.  Various creatures
 seem to get caught (or hypnotized) by its sticky strands.  To
 the north you sense the heavy breathing of a fiery animal.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -1019,7 +1009,7 @@ Yevaud, the Usurper of Midgaard, resides here.  A voice cries
 out, "BEWARE, the Usurper of Midgaard lives here!  FLEE while you can!"
 But even Yevaud has his master...or so you deduce.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -1032,7 +1022,7 @@ seem to get caught (or hypnotized) by its sticky strands.  A single
 spider line lies to the north, while ghastly seemings are due
 southward.  The grim entrance of Arachnos' Lair is downward.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -1057,7 +1047,7 @@ a torch lit chamber where the souls of unavenged adventurers
 come and gnash their teeth.  The howls and screams of many echo
 through the hall ways.  You see one definite path ahead.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -1068,7 +1058,7 @@ The Guardian's Room~
 A chair sits here for a tireless guardian who ensures that no
 soul escapes.  The room is undecorated.
 ~
-0 0 2
+0 0 field
 E
 chair~
 An ordinary chair, well used, glued to the ground by spiderweb.
@@ -1089,7 +1079,7 @@ They search for those who killed them without warrant, and seek the
 free souls of living beings to inhabit and perhaps adventure once
 more.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -1106,7 +1096,7 @@ They search for those who killed them without warrant, and seek the
 free souls of living beings to inhabit and perhaps adventure once
 more.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -1124,7 +1114,7 @@ you hear.  The walls are thin and wispy.  The only light you receive
 is the shimmering from the strand of the ethereal web you used to get
 here.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -1141,7 +1131,7 @@ across the ether you seen a single shack up ahead with a light in
 the window.  You sense a great evil coming from the east and feel
 inclined to go back on the ethereal web and take your chances there.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -1156,7 +1146,7 @@ The Single Spider Line~
 A single spider line supports you once more.  The shack comes
 closer into view and you are even more inclined to go back now.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -1173,7 +1163,7 @@ east, if you dare enter it.  You get the sneaking feeling you should
 go back now.  The skies above you darken and roar with the laughter
 of thunder.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -1189,14 +1179,14 @@ Mahatma, that silly thief, is here, and he steals everything you
 have.  He says, 'Here, have a quick trip to the Temple of Midgaard.'
 He plunges a black dagger into your back ...
 ~
-0 C 0
+0 C inside
 S
 #6390
 The Entrance to the Arachnos' Lair~
 All strands inevitably lead here, the center of the web, the
 entrance to Arachnos' Lair.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -1214,7 +1204,7 @@ web, surprisingly unsticky.  The strand does not vibrate like the
 others.  A few ballooning spiders pass by, cackling "You're gonna
 die, you're gonna fry.  Good bye!"
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -1230,7 +1220,7 @@ Before you you see a large, web-like door.  Various designs
 of ancient runes and names of Midgaard heroes are etched into
 the webwork.  Perhaps lists of victims?  You can't tell.
 ~
-0 D 2
+0 D field
 D0
 ~
 door north~
@@ -1249,7 +1239,7 @@ Coffers upon coffers of gold, magical jewels and gems await.  Unfor-
 tunately Arachnos is a baggy spider too, and webs all her treasures
 to her beautiful silken body.
 ~
-0 0 2
+0 0 field
 D2
 ~
 door south~

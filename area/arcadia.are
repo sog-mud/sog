@@ -19,13 +19,12 @@ exemplefies what it is to be nobility.  He is the embodyment of the
 Seelie way, light, love, celebration, honor and wisdom.
 ~
 elf~
-ABT H 1000 0
+ABT CDEFH 1000 0
 86 0 50d20+16500 10d20+2000 13d10+56 bite
 -56 -53 -51 -26
 EFHIKN BLQ 0 N
 stand stand male 5000
 0 0 medium unknown
-A det CDEF
 #12001
 titania queen~
 Queen Titania~
@@ -37,13 +36,12 @@ sparkling of water off of a stream and her smile is the dazzling radiance
 of the sun.
 ~
 elf~
-ABQ HT 1000 0
+ABQ CDEHT 1000 0
 84 0 50d20+15500 10d20+2000 9d14+51 bite
 -53 -50 -52 -23
 FKN BLQ C N
 stand stand female 5000
 0 0 medium unknown
-A det CDE
 #12002
 puck~
 Puck~
@@ -59,7 +57,6 @@ AGHS BNPQTU 0 0
 BEFHIJKNY BLQ C NZ
 sit sit male 100
 0 0 medium unknown
-A det e
 #12003
 thomas~
 True Thomas~
@@ -69,13 +66,12 @@ Thomas is an old Fae but he retains the power of his position still.  His
 voice is clear and strong and his mind is much quicker than yours.
 ~
 elf~
-ABR A 850 0
+ABR ACDEFZ 850 0
 78 0 50d20+12500 10d20+2000 9d12+48 bite
 -40 -40 -42 -18
 BEFHIJKNY BLQ C N
 stand stand male 500
 0 0 medium unknown
-A det CDEFZ
 #12004
 king gwyn nudd~
 Gwyn ap Nudd~
@@ -88,13 +84,12 @@ a chill and yet you get a strange feeling of exhillaration.  Gwyn
 embodies not only the terror of death but the seductive beauty of night.
 ~
 elf~
-ABT 0 -1000 0
+ABT Z -1000 0
 86 0 50d20+16500 10d20+2000 13d10+56 slash
 -56 -53 -51 -26
 EFHIKN BLQ 0 N
 stand stand male 500
 0 0 medium unknown
-A det Z
 #12005
 morrigan queen~
 The Morrigan~
@@ -105,13 +100,12 @@ the Fae.  She is the most feared of all the creatures of the night, for
 while the Puck may be harmfull the Morrigan is deadly.
 ~
 unique~
-ACFGOT 0 -1000 0
+ACFGOT CDEFZ -1000 0
 84 0 50d20+15500 10d20+2000 9d14+51 pierce
 -53 -50 -52 -23
 ABDHNY BLQ 0 NSZ
 stand stand female 5050
 0 0 medium unknown
-A det CDEFZ
 #12006
 sidhe noble~
 a sidhe noble~
@@ -213,13 +207,12 @@ This knight is the epitome of chivalry.  The embodyment of honor,
 loyalty, courage and skill in battle.
 ~
 elf~
-AGT 0 1000 0
+AGT G 1000 0
 72 0 50d20+10250 10d20+2000 8d11+42 slash
 -43 -41 -39 -10
 CDEFIKLS 0 LQ M
 stand stand male 500
 0 0 medium unknown
-A det G
 #12013
 sidhe knight~
 a noble sidhe knight~
@@ -229,13 +222,12 @@ This knight is the epitome of chivalry.  The embodyment of honor,
 loyalty, courage and skill in battle.
 ~
 elf~
-AGT 0 1000 0
+AGT G 1000 0
 75 0 50d20+11000 10d20+2000 9d11+45 slash
 -43 -41 -39 -10
 CDEFIKLS N LQ M
 stand stand female 500
 0 0 medium unknown
-A det G
 #12014
 sidhe knight~
 a noble sidhe knight~
@@ -245,13 +237,12 @@ This knight is the epitome of chivalry.  The embodyment of power and
 skill in battle.
 ~
 elf~
-AGT 0 -1000 0
+AGT G -1000 0
 75 0 50d20+11000 10d20+2000 9d11+45 slash
 -43 -41 -39 -10
 CDEFIKLS M LQ N
 stand stand male 500
 0 0 medium unknown
-A det G
 #12015
 sidhe knight~
 a noble sidhe knight~
@@ -261,13 +252,12 @@ This knight is the epitome of chivalry.  The embodyment of power and
 skill in battle.
 ~
 elf~
-AGT 0 1000 0
+AGT G 1000 0
 75 0 50d20+11000 10d20+2000 9d11+45 slash
 -43 -41 -39 -10
 CDEFIKLS N LQ M
 stand stand female 500
 0 0 medium unknown
-A det G
 #12016
 sidhe knight~
 a noble sidhe knight~
@@ -277,13 +267,12 @@ This knight is the epitome of chivalry.  The embodyment of honor,
 loyalty, courage and skill in battle.
 ~
 elf~
-ABT 0 1000 0
+ABT G 1000 0
 75 0 50d20+11000 10d20+2000 9d11+45 slash
 -43 -41 -39 -10
 CDEFIKLS N LQ M
 stand stand male 500
 0 0 medium unknown
-A det G
 #12017
 sidhe knight~
 a noble sidhe knight~
@@ -293,13 +282,12 @@ This knight is the epitome of chivalry.  The embodyment of power and
 skill in battle.
 ~
 elf~
-ABT 0 -1000 0
+ABT G -1000 0
 75 0 50d20+11000 10d20+2000 9d11+45 slash
 -43 -41 -39 -10
 CDEFIKLS M LQ N
 stand stand male 500
 0 0 medium unknown
-A det G
 #12018
 sidhe knight~
 a noble sidhe knight~
@@ -309,13 +297,12 @@ This knight is the epitome of chivalry.  The embodyment of power and
 skill in battle. 
 ~
 elf~
-ABT 0 -1000 0
+ABT G -1000 0
 75 0 50d20+11000 10d20+2000 9d11+45 slash
 -43 -41 -39 -10
 CDEFIKLS M LQ N
 stand stand female 500
 0 0 medium unknown
-A det G
 #12019
 troll guard~
 a troll guard~
@@ -456,13 +443,12 @@ and a dark brown cap.  He holds in his hands what will be a finely
 wrought item when he is finished.
 ~
 dwarf~
-ABT 0 300 0
+ABT Z 300 0
 52 0 50d20+4750 10d20+2000 6d7+20 slash
 -34 -35 -34 -2
 C LQ C NZ
 sit sit male 320
 0 0 small unknown
-A det Z
 #12028
 boggan smith~
 a boggan smith~
@@ -472,13 +458,12 @@ This little smith is dressed in a dark leather apron  with bright red pants.
 He is working on a dark, rough-looking piece of armor.
 ~
 dwarf~
-ABT 0 300 0
+ABT Z 300 0
 52 0 50d20+4750 10d20+2000 6d7+20 slash
 -34 -35 -34 -2
 C LQ C NZ
 sit sit male 320
 0 0 small unknown
-A det Z
 #12029
 eshu adventurer~
 an adventurous eshu~
@@ -563,13 +548,12 @@ have seen. Even the Unseelie don't rival the natural repulsion you feel towards
 this creature.
 ~
 unique~
-AHS BJNPQU -20 0
+AHS BCDEFJNPQUZ -20 0
 36 0 10d20+1400 10d20+2000 3d10+11 pound
 -12 -12 -13 -1
 EFHJK M LQ NSZ
 stand stand female 500
 AHMV ABCDEFGHIJK small unknown
-A det CDEFZ
 #12035
 sluagh guardian~
 a sluagh guardian~
@@ -579,13 +563,12 @@ This dark fae is not willing to let you in on it's secrets, you had best
 leave now.
 ~
 unique~
-AHS BJNPQU -20 0
+AHS BCDEFJNPQUZ -20 0
 36 0 10d20+1400 10d20+2000 3d10+11 pierce
 -12 -12 -13 -1
 EFHJK M LQ NSZ
 stand stand female 500
 AHMV ABCDEFGHIJK small unknown
-A det CDEFZ
 #12036
 pixie~
 a pixie~
@@ -742,13 +725,12 @@ This hound is strangely quiet and well behaved, it's eyes contain a
 measure of intelligence rarely seen in a normal animal.
 ~
 unique~
-AITU P 0 0
+AITU DFPZ 0 0
 22 0 5d10+550 10d20+2000 2d10+7 claw
 -7 -7 -7 -1
 CDFLN 0 0 NYZ
 stand stand male 0
 BHMV ABCDEFGHIJKQV tiny unknown
-A det DFZ
 #12047
 bosidhe pet~
 A BoSidhe~
@@ -758,13 +740,12 @@ This large bull is pure white with red horns.  Its eyes hold an
 intelligence that is not common in one of it's species.
 ~
 unique~
-AITU P 0 0
+AITU DFPZ 0 0
 40 0 10d20+2000 10d20+2000 4d8+13 pierce
 -21 -20 -21 -2
 CDILN 0 0 YZ
 stand stand male 0
 BHMV ABCDEFGHIJKQV huge unknown
-A det DFZ
 #12048
 catsidhe pet~
 A CatSidhe~
@@ -774,13 +755,12 @@ This cat is all white with red ears.  In it's eyes you can see
 inteligence.
 ~
 cat~
-AIRU P 0 0
+AIRU DFP 0 0
 50 0 20d20+4250 10d20+2000 5d8+19 claw
 -24 -25 -23 -2
 BEJKNV 0 0 Z
 stand stand female 0
 0 0 medium unknown
-A det DFZ
 #12049
 bransidhe pet~
 A BranSidhe~
@@ -791,13 +771,12 @@ living and the dead, both Seelie and Unseelie.  It looks like a raven
 only its the size of a small child.
 ~
 unique~
-AIQU T 0 0
+AIQU DEFTZ 0 0
 70 0 50d20+9750 10d20+2000 8d10+40 claw
 -32 -32 -32 -3
 BEFHJKNX 0 F ENZ
 stand stand none 0
 AHMV ABCDEFGHIJKPU small unknown
-A det DEFZe
 #0
 
 #OBJECTS
@@ -807,7 +786,7 @@ An acorn hat~
 A small brown cap lies here.~
 wood~
 armor G AE
-AC BC AC AB 0
+5 6 5 3 0
 22 3 30 P
 #12001
 nectar~
@@ -823,7 +802,7 @@ A silver trident~
 A long, perfectly balanced silver trident.~
 silver~
 weapon AG AN
-staff 6 6 pierce 0
+spear 6 6 pierce 0
 28 30 800 P
 #12003
 opal bracelet~
@@ -831,7 +810,7 @@ an opal bracelet~
 A gleeming opal bracelet shines faintly from the floor.~
 silver~
 armor AG AM
-BD ABC AD 0 0
+10 7 9 0 0
 30 5 400 P
 A
 19 3
@@ -841,7 +820,7 @@ A light gossamer gown~
 This see through gossamer gown leaves little to the imagination.~
 cloth~
 armor AFG AD
-BD BD BD 0 0
+10 10 10 0 0
 30 1 600 P
 A
 14 50
@@ -863,7 +842,7 @@ A pair of grey boots~
 A pair boots made of some grey material you haven't seen before.~
 leather~
 armor G AG
-BD ABD D D 0
+10 11 8 8 0
 32 5 500 P
 A
 2 2
@@ -911,7 +890,7 @@ A red cap~
 This hat looks as if it were dyed with the blood of several animals.~
 cloth~
 armor EGJ AE
-CD CD ACD C 0
+12 12 13 4 0
 38 4 20 G
 A
 19 3
@@ -955,7 +934,7 @@ An unfinished helmet~
 This helmet looks to be of unparalleled craftsmanship, too bad it was never finished.~
 unknown~
 armor G AEO
-BCD BCD CD CD 0
+14 14 12 12 0
 51 15 800 G
 #12015
 unfinished boots~
@@ -964,7 +943,7 @@ These boots would be the best pair you had ever seen if their maker had
 ever finished them.~
 leather~
 armor G AGO
-BCD BCD CD BD 0
+14 14 12 10 0
 52 8 1000 G
 A
 5 4
@@ -984,7 +963,7 @@ A scorched leather apron~
 A thick leather apron marked by many burns lies here.~
 leather~
 armor 0 AK
-BCD BCD BCD D 0
+14 14 14 8 0
 51 20 100 A
 A
 13 30
@@ -1014,7 +993,7 @@ A jester's cap~
 A multi-colored cap with four parts, each ending in a large silver bell.~
 cloth~
 armor BGHI AE
-AE AE BE BD 0
+17 17 18 10 0
 59 6 800 P
 A
 17 -10
@@ -1249,7 +1228,7 @@ An ice shield~
 A large shield made of pure ice.~
 ice~
 armor G AJ
-ABCE ABCE BCE E 0
+23 23 22 16 0
 70 25 1200 P
 A
 17 -10
@@ -1273,7 +1252,7 @@ A noble's cape~
 A long well made cape of some rich purple cloth.~
 unknown~
 armor G AC
-BCE BCE BCE E 0
+22 22 22 16 0
 72 5 1200 P
 #12041
 noble sword~
@@ -1289,7 +1268,7 @@ A sidhe breastplate~
 A well made sidhe noble's breastplate with fine engraving.~
 unknown~
 armor G AD
-BCE BCE ACE AE 0
+22 22 21 17 0
 72 9 1200 P
 A
 4 2
@@ -1299,7 +1278,7 @@ A pair of sidhe armguards~
 A pair of bright silver armguards of fine craftsmanship.~
 unknown~
 armor G AI
-BCE ABCE ACE E 0
+22 23 21 16 0
 68 6 1100 P
 A
 1 1
@@ -1309,7 +1288,7 @@ A pair of sidhe greaves~
 A set of bright silver leg armor.~
 unknown~
 armor G AF
-ABCE ABCE ACE E 0
+23 23 21 16 0
 68 6 800 P
 A
 14 50
@@ -1319,7 +1298,7 @@ An engraved sidhe bracer~
 A light metal bracer of intricate design.~
 unknown~
 armor G AM
-BCE ACE ABCE E 0
+22 21 23 16 0
 68 3 960 P
 A
 19 5
@@ -1331,7 +1310,7 @@ A noble's circlet~
 This silver circlet is covered in sidhe designs and pale green gems.~
 unknown~
 armor G AE
-ABCE ABCE ABCE AE 0
+23 23 23 17 0
 73 3 980 P
 A
 3 3
@@ -1383,7 +1362,7 @@ A stag horned helmet~
 This dark helm has two silver antlers of seven tines on the top.~
 unknown~
 armor G AE
-CDE CDE CDE ABD 0
+28 28 28 11 0
 86 11 2800 P
 A
 18 6
@@ -1393,7 +1372,7 @@ A silver torc~
 The silver torc of the Unseelie King.~
 silver~
 armor G AC
-CDE CDE CDE BD 0
+28 28 28 10 0
 86 11 2900 P
 A
 4 3
@@ -1411,7 +1390,7 @@ A poet's robe~
 A heay blue poet's robe.~
 unknown~
 armor G AK
-ADE ADE ADE BE 0
+25 25 25 18 0
 78 7 2000 P
 A
 3 4
@@ -1421,7 +1400,7 @@ An embroidered gown~
 A finely embroidered court gown.~
 unknown~
 armor G AK
-CDE ACDE ACDE BCE 0
+28 29 29 22 0
 84 8 2000 P
 A
 12 100
@@ -1431,7 +1410,7 @@ A summer locket~
 A golden locket that contains the essence of summer.~
 unknown~
 armor G AC
-CDE CDE ACDE BCE 0
+28 28 29 22 0
 84 4 1750 P
 A
 12 50
@@ -1445,7 +1424,7 @@ A golden torc~
 The torc of Rulership of the Seelie Court.~
 gold~
 armor G AC
-CDE CDE CDE CE 0
+28 28 28 20 0
 86 7 2500 P
 A
 13 50
@@ -1459,7 +1438,7 @@ The cloak of shadows~
 A cloak made of shifting formless shadows.~
 unknown~
 armor CG AC
-ABDE CDE CDE ACE 0
+27 28 28 21 0
 84 2 3000 P
 A
 2 3
@@ -1561,7 +1540,7 @@ A crested shield~
 This shield bears the crest of one of the sidhe noble houses.~
 unknown~
 armor G AJ
-DE DE ADE AE 0
+24 24 25 17 0
 74 13 1200 P
 A
 17 -10
@@ -1576,7 +1555,7 @@ catch faint glimpses of what looks to be a large castle.  To the east and
 south is the hillside and to the west and north tangled brush prevents 
 any movement.
 ~
-0 0 2
+0 0 field
 D1
 Toward the hillside.
 ~
@@ -1595,7 +1574,7 @@ obscures the top but you can no longer recapture the glimpses of the
 building through the mist.  You can head south up the hill, west to the 
 field or east around the hill.  To the north brambles block all movement.
 ~
-0 0 4
+0 0 hills
 D1
 On the Hillside.
 ~
@@ -1619,7 +1598,7 @@ obscures the top but you can no longer recapture the glimpses of the
 building through the mist.  You can head south up the hill, east to the
 field or west around the hill.  To the north brambles block all movement.
 ~
-0 0 4
+0 0 hills
 D1
 In a Field.
 ~
@@ -1644,7 +1623,7 @@ catch faint glimpses of what looks to be a large castle.  To the west and
 south is the hillside and to the east and north tangled brush prevents
 any movement.
 ~
-0 0 2
+0 0 field
 D2
 Toward the hillside.
 ~
@@ -1663,7 +1642,7 @@ obscures the top but you can no longer recapture the glimpses of the
 building through the mist.  You can head east up the hill, north to the
 field or south around the hill.  To the west brambles block all movement.
 ~
-0 0 4
+0 0 hills
 D0
 In a Field.
 ~
@@ -1684,7 +1663,7 @@ S
 Further up the Hillside.~
 You are almost to the top of this hill.  Above you is the top of the 
 hill and in all other directions the hill extends.~
-0 0 4
+0 0 hills
 D0
 On the Hillside.
 ~
@@ -1716,7 +1695,7 @@ Further up the Hillside.~
 You are almost to the top of this hill.  Above you is the top of the
 hill and in all other directions the hill extends. You could't find a
 path to the up.~
-0 0 4
+0 0 hills
 D0
 On the Hillside.
 ~
@@ -1745,7 +1724,7 @@ obscures the top but you can no longer recapture the glimpses of the
 building through the mist.  You can head west up the hill, north to the
 field or south around the hill.  To the east brambles block all movement.
 ~
-0 0 4
+0 0 hills
 D0
 In a Field.
 ~
@@ -1769,7 +1748,7 @@ obscures the top but you can no longer recapture the glimpses of the
 building through the mist.  You can head east up the hill, south to the
 field or north around the hill.  To the west brambles block all movement.
 ~
-0 0 4
+0 0 hills
 D0
 On the Hillside.
 ~
@@ -1792,7 +1771,7 @@ You are almost to the top of this hill.  Above you is the top of the
 hill and in all other directions the hill extends.You could't find a
 path to the up.
 ~
-0 0 4
+0 0 hills
 D0
 On the Hillside.
 ~
@@ -1820,7 +1799,7 @@ You are almost to the top of this hill.  Above you is the top of the
 hill and in all other directions the hill extends.You could't find a
 path to the up.
 ~
-0 0 4
+0 0 hills
 D0
 On the Hillside.
 ~
@@ -1849,7 +1828,7 @@ obscures the top but you can no longer recapture the glimpses of the
 building through the mist.  You can head west up the hill, south to the
 field or north around the hill.  To the east brambles block all movement.
 ~
-0 0 4
+0 0 hills
 D0
 On the Hillside.
 ~
@@ -1869,7 +1848,7 @@ catch faint glimpses of what looks to be a large castle.  To the east and
 north is the hillside, to the south is more field and to the west tangled 
 brush prevents any movement.
 ~
-0 0 2
+0 0 field
 D0
 On a Hillside.
 ~
@@ -1893,7 +1872,7 @@ obscures the top but you can no longer recapture the glimpses of the
 building through the mist.  You can head north up the hill, west to the 
 field or east around the hill.
 ~
-0 0 4
+0 0 hills
 D0
 Further up the Hill.
 ~
@@ -1917,7 +1896,7 @@ obscures the top but you can no longer recapture the glimpses of the
 building through the mist.  You can head north up the hill, south or
 east to the field or west around the hill.
 ~
-0 0 4
+0 0 hills
 D0
 Further up the Hill.
 ~
@@ -1947,7 +1926,7 @@ catch faint glimpses of what looks to be a large castle.  To the west and
 north is the hillside, to the south is more field and to the east tangled 
 brush prevents any movement.
 ~
-0 0 2
+0 0 field
 D0
 On a Hillside.
 ~
@@ -1972,7 +1951,7 @@ catch faint glimpses of what looks to be a large castle.  To the east and
 north is more field and to the west and south tangled brush prevents any
 movement.
 ~
-0 0 2
+0 0 field
 D0
 In a Field.
 ~
@@ -1991,7 +1970,7 @@ continues and to the north you see a path of grass that is noticeably
 darker than the rest which circles around the hill.  To the south are
 more plentiful trail.
 ~
-0 VW 2
+0 VW field
 D0
 Along the Path
 ~
@@ -2021,7 +2000,7 @@ catch faint glimpses of what looks to be a large castle.  To the west and
 east is more field, to the north you can head up the hill and to the 
 south you see a path.
 ~
-0 0 2
+0 0 field
 D0
 On a Hillside.
 ~
@@ -2046,7 +2025,7 @@ catch faint glimpses of what looks to be a large castle.  To the west and
 north is more field and to the east and south tangled brush prevents any
 movement.
 ~
-0 0 2
+0 0 field
 D0
 In a Field.
 ~
@@ -2065,7 +2044,7 @@ combination of the light, the mist and your imagination because there is
 not castle here.  There is however a small standing stone with some worn 
 engravings on it.  The only exit is down.
 ~
-0 0 2
+0 0 field
 E
 standing stone engravings~
 The engravings on the stone are very worn but you can barely make out the 
@@ -2082,7 +2061,7 @@ Along the path~
 You are standing on the path of dark grass. The path continues to 
 the west and south but all other directions are hazy.
 ~
-0 VW 2
+0 VW field
 D2
 The Begining of the Path
 ~
@@ -2099,7 +2078,7 @@ Along the path~
 You are standing on the path of dark grass. The path continues to
 the north but all other directions are hazy.
 ~
-0 VW 2
+0 VW field
 D0
 Further along the Path
 ~
@@ -2116,7 +2095,7 @@ Along the path~
 You are standing on the path of dark grass. The path continues to
 the north but all other directions are hazy.
 ~
-0 VW 2
+0 VW field
 D0
 Further along the Path
 ~
@@ -2139,7 +2118,7 @@ You are standing on the path of dark grass. The path continues to
 the north but all other directions are hazy. To the east brambles 
 block all movement.
 ~
-0 VW 2
+0 VW field
 D0
 Further along the Path
 ~
@@ -2156,7 +2135,7 @@ Along the path~
 You are standing on the path of dark grass. The path continues to
 the north but all other directions are hazy.
 ~
-0 VW 2
+0 VW field
 D0
 Further along the Path
 ~
@@ -2178,7 +2157,7 @@ Along the path~
 You are standing on the path of dark grass. The path continues to
 the east but all other directions are hazy.
 ~
-0 VW 2
+0 VW field
 D1
 Further along the Path
 ~
@@ -2195,7 +2174,7 @@ Along the path~
 You are standing on the path of dark grass. The path continues to
 the east but all other directions are hazy.
 ~
-0 VW 2
+0 VW field
 D1
 Further along the Path
 ~
@@ -2217,7 +2196,7 @@ Along the path~
 You are standing on the path of dark grass. The path continues to
 the east but all other directions are hazy.
 ~
-0 VW 2
+0 VW field
 D1
 Further along the Path
 ~
@@ -2239,7 +2218,7 @@ Along the path~
 You are standing on the path of dark grass. The path continues to
 the south but all other directions are hazy.
 ~
-0 VW 2
+0 VW field
 D2
 Further along the Path
 ~
@@ -2257,7 +2236,7 @@ You are standing on the path of dark grass. The path continues to
 the south but all other directions are hazy. To the west brambles block 
 all movement.
 ~
-0 VW 2
+0 VW field
 D0
 Along the Path
 ~
@@ -2275,7 +2254,7 @@ You are standing on the path of dark grass. The path continues to
 the south but all other directions are hazy.  To the east brambles block 
 all movement.
 ~
-0 VW 2
+0 VW field
 D0
 Along the Path
 ~
@@ -2293,7 +2272,7 @@ You are standing on the path of dark grass. The path continues to
 the west but all other directions are hazy.  To the south brambles block 
 all movement.
 ~
-0 VW 2
+0 VW field
 D0
 Along the Path
 ~
@@ -2311,7 +2290,7 @@ You are standing on the path of dark grass. The path continues to
 the west but all other directions are hazy.  To the south brambles block 
 all movement.
 ~
-0 VW 2
+0 VW field
 D0
 Off the Path
 ~
@@ -2334,7 +2313,7 @@ You are standing on the path of dark grass. The path continues to
 the north but all other directions are hazy. To the west and south 
 brambles block all movement.
 ~
-0 VW 2
+0 VW field
 D0
 Further along the Path
 ~
@@ -2352,7 +2331,7 @@ You are standing on the path of dark grass. The path continues to
 the north but all other directions are hazy. To the east and west brambles
 block all movement.
 ~
-0 VW 2
+0 VW field
 D0
 Further along the Path
 ~
@@ -2370,7 +2349,7 @@ You are standing on the path of dark grass. The path continues to
 the east but all other directions are hazy. To the west brambles block all
 movement.
 ~
-0 VW 2
+0 VW field
 D0
 Off the Path
 ~
@@ -2393,7 +2372,7 @@ You are standing on the path of dark grass. The path continues to
 the south but all other directions are hazy. To the east and north 
 brambles block all movement.
 ~
-0 VW 2
+0 VW field
 D2
 Along the Path
 ~
@@ -2411,7 +2390,7 @@ You are standing on the path of dark grass. The path continues to
 the west but all other directions are hazy.  To the east and south 
 brambles block all movement.
 ~
-0 VW 2
+0 VW field
 D0
 Along the Path
 ~
@@ -2429,7 +2408,7 @@ You stand at the end of what you now know to be a faery trod.
 To the north stands the open gate to Arcadia.  From beyond the gates 
 strains of music and laughter catch your ear and draw you forward.
 ~
-0 VW 2
+0 VW field
 D0
 Arcadia
 ~
@@ -2448,7 +2427,7 @@ waters carress and soothe your aches.  The water seems so peaceful that
 you don't ever want to leave.  The lake extends to the north and east 
 while a rock face borders it to the west and south.
 ~
-0 0 7
+0 0 noswim
 D0
 The Deep end of the Lake
 ~
@@ -2467,7 +2446,7 @@ and inviting and you catch glimpses of what look like swimmers farther
 out in the lake to the west.  To the south a rock face blocks all 
 movement and to the north is more of the shore.
 ~
-0 0 6
+0 0 swim
 D0
 The Lake Shore
 ~
@@ -2491,7 +2470,7 @@ bark.  The forest floor is covered in flowers and soft mosses.  Sunlight
 filters softly through the canopy above lighting the world with a soft 
 difused glow.
 ~
-0 0 3
+0 0 forest
 D0
 An Enchanted Forest
 ~
@@ -2515,7 +2494,7 @@ bark.  The forest floor is covered in flowers and soft mosses.  Sunlight
 filters softly through the canopy above lighting the world with a soft
 difused glow.
 ~
-0 0 3
+0 0 forest
 D0
 An Enchanted Forest
 ~
@@ -2544,7 +2523,7 @@ bark.  The forest floor is covered in flowers and soft mosses.  Sunlight
 filters softly through the canopy above lighting the world with a soft
 difused glow.
 ~
-0 0 3
+0 0 forest
 D0
 An Enchanted Forest
 ~
@@ -2568,7 +2547,7 @@ bark.  The forest floor is covered in flowers and soft mosses.  Sunlight
 filters softly through the canopy above lighting the world with a soft
 difused glow.
 ~
-0 0 3
+0 0 forest
 D0
 An Enchanted Forest
 ~
@@ -2592,7 +2571,7 @@ bark.  The forest floor is covered in flowers and soft mosses.  Sunlight
 filters softly through the canopy above lighting the world with a soft
 difused glow.
 ~
-0 0 3
+0 0 forest
 D0
 An Enchanted Forest
 ~
@@ -2611,7 +2590,7 @@ bark.  The forest floor is covered in flowers and soft mosses.  Sunlight
 filters softly through the canopy above lighting the world with a soft
 difused glow.
 ~
-0 0 3
+0 0 forest
 D0
 An Enchanted Forest
 ~
@@ -2635,7 +2614,7 @@ bark.  The forest floor is covered in flowers and soft mosses.  Sunlight
 filters softly through the canopy above lighting the world with a soft
 difused glow.
 ~
-0 0 3
+0 0 forest
 D0
 An Enchanted Forest
 ~
@@ -2664,7 +2643,7 @@ bark.  The forest floor is covered in flowers and soft mosses.  Sunlight
 filters softly through the canopy above lighting the world with a soft
 difused glow.
 ~
-0 0 3
+0 0 forest
 D0
 An Enchanted Forest
 ~
@@ -2693,7 +2672,7 @@ bark.  The forest floor is covered in flowers and soft mosses.  Sunlight
 filters softly through the canopy above lighting the world with a soft
 difused glow.
 ~
-0 0 3
+0 0 forest
 D0
 An Enchanted Forest
 ~
@@ -2722,7 +2701,7 @@ bark.  The forest floor is covered in flowers and soft mosses.  Sunlight
 filters softly through the canopy above lighting the world with a soft
 difused glow.
 ~
-0 0 3
+0 0 forest
 D0
 An Enchanted Forest
 ~
@@ -2751,7 +2730,7 @@ and inviting and you catch glimpses of what look like swimmers farther
 out in the lake to the west.  To the south and to the north is more of the 
 shore and the Forest lies east..
 ~
-0 0 6
+0 0 swim
 D0
 The Lake Shore
 ~
@@ -2780,7 +2759,7 @@ waters carress and soothe your aches.  The water seems so peaceful that
 you don't ever want to leave.  The lake extends to the north, south and east
 while a rock face borders it to the west.
 ~
-0 0 7
+0 0 noswim
 D0
 The Lake Shore
 ~
@@ -2804,7 +2783,7 @@ and inviting and you catch glimpses of what look like swimmers farther
 out in the lake to the south.  To the west a rock face blocks all
 movement to the east is more of the shore and the Forest is north.
 ~
-0 0 6
+0 0 swim
 D0
 An Enchanted Forest
 ~
@@ -2828,7 +2807,7 @@ and inviting and you catch glimpses of what look like swimmers farther
 out in the lake. The lake extends to the south and west and the Forest is 
 to the north and east.
 ~
-0 0 6
+0 0 swim
 D0
 An Enchanted Forest
 ~
@@ -2857,7 +2836,7 @@ bark.  The forest floor is covered in flowers and soft mosses.  Sunlight
 filters softly through the canopy above lighting the world with a soft
 difused glow.
 ~
-0 0 3
+0 0 forest
 D0
 An Enchanted Forest
 ~
@@ -2886,7 +2865,7 @@ bark.  The forest floor is covered in flowers and soft mosses.  Sunlight
 filters softly through the canopy above lighting the world with a soft
 difused glow.
 ~
-0 0 3
+0 0 forest
 D0
 An Enchanted Forest
 ~
@@ -2915,7 +2894,7 @@ bark.  The forest floor is covered in flowers and soft mosses.  Sunlight
 filters softly through the canopy above lighting the world with a soft
 difused glow.
 ~
-0 0 3
+0 0 forest
 D0
 An Enchanted Forest
 ~
@@ -2944,7 +2923,7 @@ bark.  The forest floor is covered in flowers and soft mosses.  Sunlight
 filters softly through the canopy above lighting the world with a soft
 difused glow.
 ~
-0 0 3
+0 0 forest
 D0
 An Enchanted Forest
 ~
@@ -2973,7 +2952,7 @@ bark.  The forest floor is covered in flowers and soft mosses.  Sunlight
 filters softly through the canopy above lighting the world with a soft
 difused glow.
 ~
-0 0 3
+0 0 forest
 D0
 The Forest Edge
 ~
@@ -2998,7 +2977,7 @@ Further into the forest it seems as if the sky is the trees as the canopy
 above obscures all but fleeting glimpses of blue skies.  A meadow extends 
 to the north and the forest extends to the south and west.
 ~
-0 0 3
+0 0 forest
 D0
 The Flower Meadow
 ~
@@ -3023,7 +3002,7 @@ Further into the forest it seems as if the sky is the trees as the canopy
 above obscures all but fleeting glimpses of blue skies.  A meadow extends
 to the north and the forest extends in all other directions.
 ~
-0 0 3
+0 0 forest
 D0
 The Flower Meadow
 ~
@@ -3053,7 +3032,7 @@ Further into the forest it seems as if the sky is the trees as the canopy
 above obscures all but fleeting glimpses of blue skies.  A meadow extends
 to the north and the forest extends in all other directions.
 ~
-0 0 3
+0 0 forest
 D0
 The Flower Meadow
 ~
@@ -3083,7 +3062,7 @@ Further into the forest it seems as if the sky is the trees as the canopy
 above obscures all but fleeting glimpses of blue skies.  A meadow extends
 to the north and the forest extends in all other directions.
 ~
-0 0 3
+0 0 forest
 D0
 The Flower Meadow
 ~
@@ -3113,7 +3092,7 @@ Further into the forest it seems as if the sky is the trees as the canopy
 above obscures all but fleeting glimpses of blue skies.  A meadow extends
 to the north and the forest extends in all other directions.
 ~
-0 0 3
+0 0 forest
 D0
 The Flower Meadow
 ~
@@ -3143,7 +3122,7 @@ Further into the forest it seems as if the sky is the trees as the canopy
 above obscures all but fleeting glimpses of blue skies. The forest extends in
 all  directions.
 ~
-0 0 3
+0 0 forest
 D0
 The Flower Meadow
 ~
@@ -3172,7 +3151,7 @@ bark.  The forest floor is covered in flowers and soft mosses.  Sunlight
 filters softly through the canopy above lighting the world with a soft
 difused glow.
 ~
-0 0 3
+0 0 forest
 D0
 The Forest Edge
 ~
@@ -3197,7 +3176,7 @@ Further into the forest it seems as if the sky is the trees as the canopy
 above obscures all but fleeting glimpses of blue skies. The wall of an 
 Inn lies to the north and the forest extends in all other directions.
 ~
-0 0 3
+0 0 forest
 D1
 The Forest Edge
 ~
@@ -3218,7 +3197,7 @@ above obscures all but fleeting glimpses of blue skies.  A dirt road is
 to the north, a meadow to the east and the forest extends in all other 
 directions.
 ~
-0 0 3
+0 0 forest
 D0
 The Dirt Trod
 ~
@@ -3248,7 +3227,7 @@ swirl of colors as the flowers sway in the breeze doesn't help you
 concentrate.  To the north there is a dirt road and off to the north east 
 you see a hill with a glorious castle on top.
 ~
-0 0 2
+0 0 field
 D0
 The Dirt Trod
 ~
@@ -3278,7 +3257,7 @@ swirl of colors as the flowers sway in the breeze doesn't help you
 concentrate.  To the north there is a dirt road and to the north
 you see a hill with a glorious castle on top.
 ~
-0 0 2
+0 0 field
 D0
 Before the Castle Gates
 ~
@@ -3308,7 +3287,7 @@ swirl of colors as the flowers sway in the breeze doesn't help you
 concentrate.  Off to the north west you see a hill with a glorious castle 
 on top and the meadow extends northward. 
 ~
-0 0 2
+0 0 field
 D0
 The Flower Meadow
 ~
@@ -3338,7 +3317,7 @@ swirl of colors as the flowers sway in the breeze doesn't help you
 concentrate.  Off to the north west you see a hill with a glorious castle 
 on top. 
 ~
-0 0 2
+0 0 field
 D0
 The Flower Meadow
 ~
@@ -3368,7 +3347,7 @@ swirl of colors as the flowers sway in the breeze doesn't help you
 concentrate.  Off to the north west you see a hill with a glorious castle 
 on top. 
 ~
-0 0 2
+0 0 field
 D0
 The Flower Meadow
 ~
@@ -3392,7 +3371,7 @@ array of flowers.  The miasma of scents makes you slightly dizzy and the
 swirl of colors as the flowers sway in the breeze doesn't help you
 concentrate. Off to the west you see a hill with a glorious castle on top.
 ~
-0 0 2
+0 0 field
 D0
 The Flower Meadow
 ~
@@ -3416,7 +3395,7 @@ array of flowers.  The miasma of scents makes you slightly dizzy and the
 swirl of colors as the flowers sway in the breeze doesn't help you
 concentrate. Off to the west you see a hill with a glorious castle on top.
 ~
-0 0 2
+0 0 field
 D0
 The Flower Meadow
 ~
@@ -3445,7 +3424,7 @@ array of flowers.  The miasma of scents makes you slightly dizzy and the
 swirl of colors as the flowers sway in the breeze doesn't help you
 concentrate. Off to the west you see a hill with a glorious castle on top.
 ~
-0 0 2
+0 0 field
 D0
 The Flower Meadow
 ~
@@ -3475,7 +3454,7 @@ see a meadow that extends into a forest even farther south and to the
 north you glimpse far off mountain peaks. A dirt road extends to the west 
 toward what looks to be an inn.
 ~
-0 0 2
+0 0 field
 D0
 Inside the Gate
 ~
@@ -3503,7 +3482,7 @@ You are on a dirt road that cuts through a field of flowers from an
 inn and the Sidhe castle.  The field extends to the north and south while 
 the castle is east and the inn west.
 ~
-0 0 1
+0 0 city
 D0
 The Flower Field
 ~
@@ -3531,7 +3510,7 @@ You are on a dirt road that cuts through a field of flowers from an
 inn and the Sidhe castle.  The field extends to the north and south while
 the castle is east and the inn west.
 ~
-0 0 1
+0 0 city
 D0
 The Flower Field
 ~
@@ -3559,7 +3538,7 @@ This bustling inn is full of inhabitants.  There are several tables
 full of customers but you can't seem to find the proprieter.  The only 
 exit is back to the east.
 ~
-0 D 0
+0 D inside
 D1
 The Dirt Trod
 ~
@@ -3574,7 +3553,7 @@ swirl of colors as the flowers sway in the breeze doesn't help you
 concentrate. Off to the south east you see a hill with a glorious castle on 
 top and to the south is the wall of an inn.
 ~
-0 0 2
+0 0 field
 D0
 The Flower Meadow
 ~
@@ -3594,7 +3573,7 @@ swirl of colors as the flowers sway in the breeze doesn't help you
 concentrate. Off to the south east you see a hill with a glorious castle on 
 top. 
 ~
-0 0 2
+0 0 field
 D0
 The Flower Meadow
 ~
@@ -3624,7 +3603,7 @@ swirl of colors as the flowers sway in the breeze doesn't help you
 concentrate. Off to the south east you see a hill with a glorious castle on 
 top. 
 ~
-0 0 2
+0 0 field
 D0
 The Flower Meadow
 ~
@@ -3654,7 +3633,7 @@ swirl of colors as the flowers sway in the breeze doesn't help you
 concentrate. Off to the south west you see a hill with a glorious castle on 
 top. 
 ~
-0 0 2
+0 0 field
 D0
 The Flower Meadow
 ~
@@ -3684,7 +3663,7 @@ swirl of colors as the flowers sway in the breeze doesn't help you
 concentrate. Off to the south west you see a hill with a glorious castle on 
 top. 
 ~
-0 0 2
+0 0 field
 D0
 The Flower Meadow
 ~
@@ -3713,7 +3692,7 @@ array of flowers.  The miasma of scents makes you slightly dizzy and the
 swirl of colors as the flowers sway in the breeze doesn't help you
 concentrate. Off to the west you see a hill with a glorious castle on top.
 ~
-0 0 2
+0 0 field
 D0
 The Flower Meadow
 ~
@@ -3738,7 +3717,7 @@ swirl of colors as the flowers sway in the breeze doesn't help you
 concentrate. Off to the south west you see a hill with a glorious castle on 
 top. To the north mountains rise sharply out of the ground. 
 ~
-0 0 2
+0 0 field
 D2
 The Flower Meadow
 ~
@@ -3758,7 +3737,7 @@ swirl of colors as the flowers sway in the breeze doesn't help you
 concentrate. Off to the south west you see a hill with a glorious castle on
 top. To the north mountains rise sharply out of the ground.
 ~
-0 0 2
+0 0 field
 D1
 The Flower Meadow
 ~
@@ -3783,7 +3762,7 @@ swirl of colors as the flowers sway in the breeze doesn't help you
 concentrate. Off to the south west you see a hill with a glorious castle on
 top. To the north a steep path winds up the mountain.
 ~
-0 0 2
+0 0 field
 D0
 Path Up the Mountains
 ~
@@ -3813,7 +3792,7 @@ swirl of colors as the flowers sway in the breeze doesn't help you
 concentrate. Off to the south  you see a hill with a glorious castle on
 top. To the north a path leads up the mountain. 
 ~
-0 0 2
+0 0 field
 D0
 Path up the Mountains
 ~
@@ -3843,7 +3822,7 @@ swirl of colors as the flowers sway in the breeze doesn't help you
 concentrate. Off to the south east you see a hill with a glorious castle on
 top. To the north a steep path leads up the mountain.
 ~
-0 0 2
+0 0 field
 D0
 Path up the Mountains
 ~
@@ -3873,7 +3852,7 @@ swirl of colors as the flowers sway in the breeze doesn't help you
 concentrate. Off to the south west you see a hill with a glorious castle on
 top. To the north mountains rise sharply out of the ground.
 ~
-0 0 2
+0 0 field
 D1
 The Flower Meadow
 ~
@@ -3898,7 +3877,7 @@ swirl of colors as the flowers sway in the breeze doesn't help you
 concentrate. Off to the south east you see a hill with a glorious castle on
 top. To the north mountains rise sharply out of the ground.
 ~
-0 0 2
+0 0 field
 D1
 The Flower Meadow
 ~
@@ -3917,7 +3896,7 @@ rest.  The warm lights in the other parts of the caves are not found here
 and the place seems sort of slimy and eerie.  The only exit is back to 
 the east toward the lighter part of the cave.
 ~
-0 AD 5
+0 AD mountain
 D1
 The Lighter Part of the Caves.
 ~
@@ -3937,7 +3916,7 @@ this one is well lit and dry.  The air is much warmer here but amazingly
 free of smoke. You see a small dark space behind the forge to the west.  
 The only other exit is back into the main caves.
 ~
-0 D 0
+0 D inside
 D1
 The Workplace Before the Forge
 ~
@@ -3956,7 +3935,7 @@ metalworking tools.  The area is covered by a rock overhang and to the
 north it looks as if caves extend into the mountains.  From a cave chamber 
 to the west you hear the sounds of a forge.  The path to the meadow is south.
 ~
-0 D 0
+0 D inside
 D0
 The Boggan Caverns
 ~
@@ -3984,7 +3963,7 @@ You stand on a path that leads from the meadow into the mountains
 all around you.  To the north you see caves, from the west you hear 
 the sounds of metalworking and from the east you hear deep voices.
 ~
-0 D 0
+0 D inside
 D0
 The Boggan Caverns.
 ~
@@ -4012,7 +3991,7 @@ There is absolutely nothing of interest on this small rock shelf.
 To the north are some cave entrances, from the east you hear voices and 
 to the west you hear the sound of metal banging on metal.
 ~
-0 D 0
+0 D inside
 D0
 The Boggan Caverns.
 ~
@@ -4040,7 +4019,7 @@ This room is a workplace for some sort of craftsmen.  There are
 tools for leatherworking, and sweing strewn all over the room.  To the 
 east and north the cavern extends and to the west is a rock ledge.
 ~
-0 D 0
+0 D inside
 D0
 A Cluttered Room.
 ~
@@ -4063,7 +4042,7 @@ This room is filled with shelves and chests containing cloth and
 pins and patterns.  There are small boxes on several shelves that contain 
 several little metal tols you can't even identify.
 ~
-0 D 0
+0 D inside
 D3
 The Crafts Shoppe.
 ~
@@ -4075,7 +4054,7 @@ A Cluttered Chamber~
 This room is cluttered with various objects of little value.  It 
 looks as if it is a place kept by several absent minded bachelors.
 ~
-0 D 0
+0 D inside
 D2
 The Crafts Shoppe.
 ~
@@ -4096,7 +4075,7 @@ and warm and you get the feeling that if it weren't so dirty this
 cavern might actually be a nice place to live.  There is what looks to be 
 a bedroom to the north and some kind of hall to the east.
 ~
-0 D 0
+0 D inside
 D0
 A Small Bedroom.
 ~
@@ -4127,7 +4106,7 @@ various places around the room.  To the north is a bedroom, the south
 the path to the meadow, the east the kitchen and the trophy room is to 
 the west.
 ~
-0 D 0
+0 D inside
 D0
 A Small Bedroom.
 ~
@@ -4159,7 +4138,7 @@ interlocking spiral beadwork.  The treasured creations of some of the
 realm's finest craftsmen lay in these cases just beyond your grasp.  To 
 the north is a bedroom and to the south you hear sounds of metalworking.
 ~
-0 D 0
+0 D inside
 D0
 A Small Bedroom.
 ~
@@ -4183,7 +4162,7 @@ unmade and dirty clothes are strewn all about.  A deck of cards is
 scattered about the room and several layers of dust cover everything.  
 The inhabitant of this room must never sleep.
 ~
-0 D 0
+0 D inside
 D2
 The Trophy Room.
 ~
@@ -4197,7 +4176,7 @@ unmade and dirty clothes are strewn all about.  A deck of cards is
 scattered about the room and several layers of dust cover everything.
 The inhabitant of this room must never sleep.
 ~
-0 D 0
+0 D inside
 D2
 The Welcoming Hall.
 ~
@@ -4211,7 +4190,7 @@ all the items on the dressers are meticulously arranged in some
 indecipherable order.  Despite it's order the room is still rather dusty 
 and it seems as if no one has used it in a long time.
 ~
-0 D 0
+0 D inside
 D2
 The Kitchen.
 ~
@@ -4224,7 +4203,7 @@ This dark hole is slimy and wet.  There is a strange stench about
 the place and the air is still and cold.  The hole extends to the north 
 and the way out is up.
 ~
-0 AD 5
+0 AD mountain
 D0
 More Darkness and Slime.
 ~
@@ -4243,7 +4222,7 @@ increasingly covered in slime that seems to trickle down the walls and
 onto your skin.  There is a rough wooden door with blood traced in 
 strange designs on it to the west.
 ~
-0 AD 5
+0 AD mountain
 D2
 A Dark Abyss.
 ~
@@ -4262,7 +4241,7 @@ color of dried blood) on all of the walls.  There is a pile of rags in
 one corner and some papers with scrawled markings on them on the floor.  
 You get the feeling you shouldn't be here.
 ~
-0 AD 5
+0 AD mountain
 D1
 More Darkness and Slime.
 ~
@@ -4275,7 +4254,7 @@ You are at the top of the western guard tower.  You can look out
 upon the land from here and see a beautiful forest to the south, a 
 flowered meadow all around the castle and dark mountains to the north.
 ~
-0 D 0
+0 D inside
 D5
 In the Guard Tower.
 ~
@@ -4288,7 +4267,7 @@ You are inside one of the guard towers of this wondrous castle.  The
 room is well gloomy and rather unkempt.  There is a table in the room 
 where the guards obviously sit to play cards and drink.
 ~
-0 D 0
+0 D inside
 D4
 The Top of the Western Tower.
 ~
@@ -4306,7 +4285,7 @@ This room serves as a barracks for the guards of this majestic
 castle.  There are several large beds and a few tables.  The room is 
 gloomy, wet, and in a state of disorder.
 ~
-0 D 0
+0 D inside
 D1
 The Gates of the Fae Stronghold.
 ~
@@ -4327,7 +4306,7 @@ long hallway draped with many tapestries with swimming vivid colors and
 complex patterns. To the south you see a field of green grass out side 
 the gates.
 ~
-0 D 0
+0 D inside
 D0
 The Entryway.
 ~
@@ -4356,7 +4335,7 @@ wel disiplined ones because the room is in perfect order.  All the beds
 are made and the tables clear.  There is a stairway up into the tower and 
 a door to the west.
 ~
-0 D 0
+0 D inside
 D3
 The Gates of the Fae Stronghold.
 ~
@@ -4375,7 +4354,7 @@ this chamber a soft glow.  This room is used by the guards for recreation
 when they are off duty.  There are several dartboards on the walls with 
 knives stuck in them.  Also a new deck of cards sits on one of the tables.
 ~
-0 D 0
+0 D inside
 D4
 The Top of the Eastern Guard Tower.
 ~
@@ -4393,7 +4372,7 @@ You are at the top of the eastern guard tower.  You can look out
 upon the land from here and see a beautiful forest to the south, a
 flowered meadow all around the castle and dark mountains to the north.
 ~
-0 D 0
+0 D inside
 D5
 Inside the East Tower.
 ~
@@ -4407,7 +4386,7 @@ depicting beautiful nymphs, saytrs, sprites and Sidhe dancing in glades,
 ponds, caves and castles.  The castle hallway extends to the north and 
 back south to the gates.
 ~
-0 D 0
+0 D inside
 D0
 The Hall of Spring.
 ~
@@ -4429,7 +4408,7 @@ girl.  For a moment you long for the lost innocence of that youth and you
 yearn to enter the tapestry, but then you pull yourself away from it's 
 strange lure.  The hall continues north and south.
 ~
-0 D 0
+0 D inside
 D0
 The Hall of Summer.
 ~
@@ -4457,7 +4436,7 @@ tapestry you too would be forever young and beautiful, unchanging and
 untouchable.  The tapestry dims and you hear laughter in the distance.  
 The hall continues to the north and south.
 ~
-0 D 0
+0 D inside
 D0
 The Hall of Autumn.
 ~
@@ -4486,7 +4465,7 @@ companionship and find yourself reaching toward the tapestry.  You are
 shaken out of the trance by a raven's croak and you stand for a moment 
 confused.  The hall continues to the north and south.
 ~
-0 D 0
+0 D inside
 D0
 The Hall of Winter.
 ~
@@ -4521,7 +4500,7 @@ desire to seek it out by joining them in the tapestry. Then you hear a
 high pitched cackling and you shiver with the cold.  The Hall continues 
 to the north and south.
 ~
-0 D 0
+0 D inside
 D0
 An Intersection of Hallways.
 ~
@@ -4549,7 +4528,7 @@ This large chamber is well apointed with tapestries and paintings
 along the walls.  To the north is a large courtyard and to the east and 
 west are large chambers. From the south a chill wind blows in.
 ~
-0 D 0
+0 D inside
 D0
 The Courtyard.
 ~
@@ -4577,7 +4556,7 @@ This Chamber is dominated by the large fire pit in the center of the
 room. The walls are highly polished and reflect back the fire's light 
 intensifying it.  To the north and east is a hallway.
 ~
-0 D 0
+0 D inside
 D0
 A Hallway.
 ~
@@ -4596,7 +4575,7 @@ been plowed and planted.  The walls are bare and not much else of
 interest seems to be in this room.  To the north is a hallway and to the 
 west is the intersection.
 ~
-0 D 0
+0 D inside
 D0
 A Hallway.
 ~
@@ -4614,7 +4593,7 @@ You are at the base of a tall guard tower at the western end of the
 castle.  The room is bare and rather dusty.  To the east is a hallway 
 leading back to the main chambers and there is a stairway up into the tower.
 ~
-0 D 0
+0 D inside
 D1
 A Hallway.
 ~
@@ -4632,7 +4611,7 @@ This hallway extends east and west connecting the western guard
 tower with the main chambers.  It seems a little darker and less well 
 kept in this part of the castle.
 ~
-0 D 0
+0 D inside
 D1
 A Hallway.
 ~
@@ -4650,7 +4629,7 @@ This hallway connects the western tower with the main chambers of
 the castle.  To the north and south are some of the chambers. To the west 
 is the tower and to the east is a courtyard.
 ~
-0 D 0
+0 D inside
 D0
 The Chamber of Lughnasadh.
 ~
@@ -4678,7 +4657,7 @@ This castle's courtyard is a large open area with a large flower
 and herb garden.  Also several small trees provide shade for anyone 
 wanting to recline beside the fountain at the center.
 ~
-0 D 0
+0 D inside
 D0
 A Hallway.
 ~
@@ -4706,7 +4685,7 @@ This hallway connects the eastern tower to the main chambers of the
 castle.  To the north and south are two chambers and to the west is the 
 courtyard.  The east tower lies to the east.
 ~
-0 D 0
+0 D inside
 D0
 The Chamber of Samhain.
 ~
@@ -4733,7 +4712,7 @@ A Hallway~
 This Hallway connects the eastern tower to the main chambers of the 
 castle.  To the east is the tower base and to the west is another hallway.
 ~
-0 D 0
+0 D inside
 D1
 The Base of the Eastern Tower.
 ~
@@ -4752,7 +4731,7 @@ not ordinary soldiers.  The walls of the tower are bright and sparkiling
 golden.  To the west is a hallway leading to the main chambers of the 
 castle and there is a staircase going up the tower.
 ~
-0 D 0
+0 D inside
 D3
 A Hallway.
 ~
@@ -4772,7 +4751,7 @@ condition.  Unfortunately they are also locked into the racks so you
 cannot get one for yourself.  A staircase leads downward and up to the 
 top of the tower.
 ~
-0 D 0
+0 D inside
 D4
 The Top of the Eastern Guard Tower.
 ~
@@ -4791,7 +4770,7 @@ Unseelie court at the head of his hunting party, chasing a great stag
 through a dark forest.  There are also several hunting horns hanging on 
 the walls, along with the mounted heads of several animals.
 ~
-0 D 0
+0 D inside
 D2
 A Hallway.
 ~
@@ -4811,7 +4790,7 @@ the wall depicting various court scenes, many of which are dominated by a
 fiery King and a shining Queen.  To the south is a courtyard and to the 
 east and west are some large decorated chambers.
 ~
-0 D 0
+0 D inside
 D0
 The Court of the Fae.
 ~
@@ -4839,7 +4818,7 @@ This chamber holds several tapestries that depict times of harvest
 on the walls.  There are several sickle like objects on the walls and 
 there is, strangely out of place a bookcase along the northern wall.
 ~
-0 D 0
+0 D inside
 D1
 The Audience Chamber.
 ~
@@ -4859,7 +4838,7 @@ weapons because the weapons racks are empty of all but a few broken
 shafts, handles and shards of blades.  The staircase leads back down or 
 up to the top of the tower.
 ~
-0 D 0
+0 D inside
 D4
 The Top of the Western Guard Tower.
 ~
@@ -4879,7 +4858,7 @@ flowered meadow all around the castle and dark mountains to the north.  A
 large brass brazier filled with coals stands here giving off a good bit 
 of smoke.
 ~
-0 D 0
+0 D inside
 D5
 In the Guard Tower.
 ~
@@ -4894,7 +4873,7 @@ either services, conversations, dancing or games.  Rich purple draperies
 hang high above to the north and angle down towards the large golden 
 throne that sits farther to the north.
 ~
-0 D 0
+0 D inside
 D0
 The Throne of the Seelie Fae.
 ~
@@ -4914,7 +4893,7 @@ and a forest are to the south while dark mountains can be seen to the north.
 A large brass brazier burns brightly here, giving off a great amount of 
 light and heat.  The trapdoor leads back down into the tower.
 ~
-0 D 0
+0 D inside
 D5
 Inside the Eastern Tower.
 ~
@@ -4928,7 +4907,7 @@ attendants await their every whim and dancers and jesters perform with a
 skill unparralelled in any mortal court.  Thick purple draperies fall 
 from the ceiling and are gathered back behind the massive throne.
 ~
-0 D 0
+0 D inside
 D0
 Behind the Drapes.
 ~
@@ -4946,7 +4925,7 @@ You are standing in a small space hidden behind the large purple
 drapes.  You can stand here unobserved and still hear the goings on of 
 the court outside quite well.
 ~
-0 D 0
+0 D inside
 D2
 The Throne of the Seelie Fae.
 ~
@@ -4964,7 +4943,7 @@ This small bare room is home to one of the Fae who watches from
 behind the throne of the Seelie.  Nothing of interest is in this room 
 other than the rag bed and the small pool of slime in the corner.
 ~
-0 D 0
+0 D inside
 D4
 Behind the Royal Drapes.
 ~
@@ -4979,7 +4958,7 @@ the currently Seelie castle. There is a large dark throne cloaked in darkness
 here. You can't quite make out if it is occupied.  To the south is more 
 of the Dark court.
 ~
-0 D 0
+0 D inside
 D2
 The Hidden Court.
 ~
@@ -4999,7 +4978,7 @@ the currently Seelie castle. There is a large dark throne cloaked in darkness
 here. You can't quite make out if it is occupied.  To the north is more
 of the Dark court.
 ~
-0 D 0
+0 D inside
 D0
 The Hidden Court.
 ~
@@ -5017,7 +4996,7 @@ Your body is gripped by the freezing chill of ice and your mind is
 paralyzed by the all encompassing wisdom that only death can bring.  You 
 find yourself unable to even contemplate leaving this eternal winter.
 ~
-0 DLNTUVW 0
+0 DLNTUVW inside
 D0
 Eternal Winter.
 ~
@@ -5049,7 +5028,7 @@ Eternal Autumn~
 You find yourself growing more and more lethargic.  You seem so 
 comfortable that you really don't ever want to leave this place.
 ~
-0 DLNTUVW 0
+0 DLNTUVW inside
 D0
 Eternal Autumn.
 ~
@@ -5083,7 +5062,7 @@ into you and all you can do is sit and rejoice in the sounds and the
 light that pour into you.  You are unable to leave for you are part now 
 of the eternal summer.
 ~
-0 DLNTUVW 0
+0 DLNTUVW inside
 D0
 Eternal Summer.
 ~
@@ -5119,7 +5098,7 @@ are young and you don't ever want to grow old.  You can stay here and be
 young forever.
 
 ~
-0 DLNTUVW 0
+0 DLNTUVW inside
 D0
 Eternal Spring.
 ~
@@ -5151,7 +5130,7 @@ Hope~
 Just as you glimpsed eternity trapped in eternity your mortality has 
 let you grasp onto your hope and escape from your own actions.
 ~
-0 CD 0
+0 CD inside
 S
 #12156
 Behind the Hill~
@@ -5162,7 +5141,7 @@ stops playing.
 The boy says 'I will play a tune for you for the right price. What would
 you hear?'
 ~
-0 M 2
+0 M field
 D0
 The Flower Meadow
 ~
@@ -5189,7 +5168,7 @@ Under the Hill~
 You are Under the hill that the Fae stronghold stands upon.  There 
 are several wondrous creatures standing here studying you.
 ~
-0 M 2
+0 M field
 D0
 Behind the Hill.
 ~

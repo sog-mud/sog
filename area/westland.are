@@ -65,13 +65,12 @@ You see a deformed little bug that has giant teeth waiting to
 penetrate your skin.
 ~
 unique~
-ABT BJTVb -200 0
+ABT BGJTVb -200 0
 40 0 25d10+1850 10d10+3000 4d8+13 shbite
 -13 -13 -13 5
 BCEFKO EJL J KM
 stand stand male 300
 0 0 tiny unknown
-A det G
 #10005
 quad assassin~
 a quad assassin~
@@ -161,13 +160,12 @@ heart hounds since when they attack they lunge at your heart.
 Others say they can hear your heart beating.
 ~
 unique~
-AFGT UVb -1000 0
+AFGT UVZb -1000 0
 55 0 50d10+5500 10d10+3000 10d4+23 acbite
 -25 -25 -25 0
 BCDEFGHIKNO 0 0 0
 stand stand male 300
 0 0 huge unknown
-A det Z
 #10011
 speaker~
 a speaker~
@@ -180,13 +178,12 @@ look like an evil person. He speech seems to bore you and you
 want to get on your way.
 ~
 human~
-AFGT UVb 1000 0
+AFGT UVZb 1000 0
 60 0 50d10+6750 10d10+4000 8d6+28 smash
 -30 -30 -30 0
 BCDEFGHIKNO A 0 0
 stand stand male 300
 0 0 medium unknown
-A det Z
 #10012
 happy villager~
 a happy villager~
@@ -197,13 +194,12 @@ kiss. you beging to wonder if he is drunk or just plain out of
 his mind! 
 ~
 human~
-AFGT UVb 1000 0
+AFGT UVZb 1000 0
 60 0 50d10+6750 10d10+4000 8d6+28 smash
 -30 -30 -30 0
 BCDEFGHIKN A 0 0
 stand stand male 300
 0 0 medium unknown
-A det Z
 #10013
 healer~
 a healer~
@@ -215,13 +211,12 @@ down to the floor. Her head is held up high and she has a nice
 smile on her face.
 ~
 human~
-ABQ H 1000 0
+ABQ FH 1000 0
 106 0 1d1+29000 1d1+11039 4d50+80 slap
 -99 -99 -99 -40
 KN ABINS BPQR 0
 stand stand female 0
 0 0 medium unknown
-A det F
 #10014
 boundary warden~
 a boundary warden~
@@ -233,13 +228,12 @@ is clad with weapons and armor and looks prepared for battle. It
 is a good thing that he has a friendly character.
 ~
 human~
-AGT HJUVb 1000 0
+AGT DFHJUVb 1000 0
 70 0 50d10+9750 10d10+4000 8d10+40 acbite
 -40 -40 -40 -10
 BCDEFGHIJKN ABE BH C
 stand stand male 300
 0 0 large unknown
-A det DF
 #10015
 thief~
 a thief~
@@ -251,13 +245,12 @@ and boots and is barely noticable in the shadows of the
 buildings.
 ~
 human~
-ACT PQVd -902 0
+ACT CDGPQVd -902 0
 40 0 25d10+1850 10d10+3000 4d8+13 blast
 -13 -13 -13 5
 BCDEFGHIJKN 0 0 0
 stand stand male 300
 0 0 small unknown
-A det CDG
 #10016
 beggar~
 a beggar~
@@ -269,13 +262,12 @@ It is a shame that it will be soon winter and that he has no
 place to live. OH WELL, life goes on.
 ~
 human~
-ABCH Vb 100 0
+ABCH DVb 100 0
 46 0 25d10+3250 10d10+3000 6d6+10 blast
 -16 -16 -16 4
 BCDEFGHIJKN AB 0 0
 stand stand male 300
 0 0 medium unknown
-A det D
 #10017
 bone woman~
 The Bone Woman~
@@ -289,13 +281,12 @@ will not give it to you so I guess you're going to have to fight
 her for it!
 ~
 human~
-ABR JTV 1000 0
+ABR CDEFJTV 1000 0
 109 0 1d1+29999 1d1+9382 5d50+90 magic
 -93 -93 -90 -43
 CDEFIKN IP E JK
 stand stand female 11300
 0 0 medium unknown
-A det CDEF
 #10018
 gripper~
 A nasty gripper~
@@ -360,13 +351,12 @@ ounce of his body. He looks far tougher than any monster you have
 or will ever see.
 ~
 dragon~
-ABCGT H -1000 0
+ABCGT GH -1000 0
 119 0 50d10+29000 10d10+10203 20d15+100 wrath
 -77 -77 -70 -40
 BCEFIKN IP IJK JK
 stand stand female 300
 c L giant unknown
-A det G
 #10022
 shadow people~
 An evil shadow person~
@@ -376,13 +366,12 @@ You see a dark form that has no features. He is sent by Darken
 Rahl to stop you. Beware, his touch is poison. 
 ~
 human~
-ACGT J -1000 0
+ACGT GJ -1000 0
 110 0 50d10+28000 10d10+10203 20d15+95 wrath
 -77 -77 -70 -40
 CDFIKN IP 0 JK
 stand stand male 300
 0 0 medium unknown
-A det G
 #10023
 bar tender~
 The bar tender~
@@ -393,13 +382,12 @@ though, his shoes are on the wrong feet. He is wearing torn pants
 and looks to be quite poor, yet he runs this bar.
 ~
 human~
-ABCGTe J 1000 0
+ABCGTe GJ 1000 0
 50 0 25d10+4250 10d10+3000 5d8+19 wrath
 -20 -20 -20 0
 BCDEFIN IP 0 JK
 stand stand male 300
 0 0 medium unknown
-A det G
 #10024
 drunken villager~
 A drunken villager~
@@ -409,13 +397,12 @@ He is a short guy with ale stains on his shirt. He makes you want
 to vomit.
 ~
 human~
-ABCGT J 102 0
+ABCGT GJ 102 0
 50 0 25d10+4250 10d10+3000 5d8+19 wrath
 -20 -20 -20 0
 CDEFIKN IP 0 K
 stand stand male 300
 0 0 medium unknown
-A det G
 #10025
 dark thief~
 A little thief~
@@ -426,13 +413,12 @@ darkness of the night waiting to prance upon a poor soul like
 you.
 ~
 human~
-ACGT J -1000 0
+ACGT GJ -1000 0
 60 0 50d10+6750 10d10+4000 8d6+28 bite
 -30 -30 -30 0
 CDEFKN IP D 0
 stand stand male 300
 0 0 medium unknown
-A det G
 #10026
 snake~
 A yellow snake~
@@ -443,13 +429,12 @@ swims through the waters up to you. You better get away fast
 before he attacks you and your body is never be found again.
 ~
 unique~
-ABCGT J -1000 0
+ABCGT GJ -1000 0
 30 0 6d12+853 1d1+100 4d6+8 bite
 -9 -9 -9 2
 CDEFIKN IP 0 0
 stand stand male 300
 0 0 small unknown
-A det G
 #10027
 underworld beast~
 An underworld beast~
@@ -459,13 +444,12 @@ He has no features at all. Just a plain puff of smoke striking
 people dead as they walk by.
 ~
 unique~
-ACGT J -1000 0
+ACGT GJ -1000 0
 69 0 50d10+9500 10d10+1000 7d11+39 bite
 -40 -40 -40 -10
 CDEFIKN IP 0 0
 stand stand none 300
 0 0 large unknown
-A det G
 #10028
 cat dopey~
 A dopey little cat~
@@ -476,13 +460,12 @@ meal to eat, a place to sleep and a place to keep dry. You feel
 sorry for the little fellow but there isn't anything you can do.
 ~
 unique~
-ACGT J 1000 0
+ACGT GJ 1000 0
 11 0 1d1+130 1d1+100 1d10+2 bite
 1 1 1 9
 CDEFIKN IJP 0 0
 stand stand none 300
 0 0 small unknown
-A det G
 #10029
 mord sith~
 A Evil Mord-Sith~
@@ -493,13 +476,12 @@ about her neck that is gleaming in a white aura. This creature is
 very frightening. You better leave quick.
 ~
 human~
-ABCGT J -1000 0
+ABCGT GJ -1000 0
 120 0 50d10+28000 10d10+10203 20d15+95 wrath
 -77 -77 -70 -40
 CDEFIKN IP I M
 stand stand female 300
 0 0 large unknown
-A det G
 #10030
 devoter~
 A Devoter of Darken Rahl~
@@ -510,13 +492,12 @@ belive thatt Darken Rahl is good and not evil. Better stay away
 from this person also.
 ~
 human~
-ABCGT J -1000 0
+ABCGT GJ -1000 0
 110 0 50d10+28000 10d10+10203 20d15+95 wrath
 -77 -77 -70 -40
 BCDEFIKN IP 0 0
 stand stand male 300
 0 0 medium unknown
-A det G
 #10031
 darken rahl~
 The Evil Darken Rahl~
@@ -528,13 +509,12 @@ You'd best get it over with soon for he seems ready to take over
 the world.
 ~
 human~
-ABCGT HJ -1000 0
+ABCGT GHJ -1000 0
 125 0 50d10+28000 10d10+10203 20d15+95 wrath
 -77 -77 -70 -40
 BCDEFIJKNO LP N K
 stand stand male 300
 0 0 large unknown
-A det G
 #0
 
 #OBJECTS
@@ -567,7 +547,7 @@ A Beautiful necklace lies here on the ground.
 ~
 stone~
 armor AB AC
-BCDE BCDE BCDE CE 0
+30 30 30 20 0
 90 10 98504 P
 A
 13 55
@@ -587,7 +567,7 @@ Here are the teeth of the Gripper monster.
 ~
 stone~
 armor ABM AC
-BDE BDE ABDE E 0
+26 26 27 16 0
 80 10 100 P
 A
 19 6
@@ -609,7 +589,7 @@ A dark pair of boots lie here soaking up the sun.
 ~
 leather~
 armor BC AG
-CE CE CE BD 0
+20 20 20 10 0
 60 10 3000 P
 A
 13 -10
@@ -624,7 +604,7 @@ A pair of gloves have been left here, waiting to be picked up.
 ~
 unknown~
 armor BC AH
-CE CE CE AD 0
+20 20 20 9 0
 60 10 9684 P
 A
 24 -2
@@ -639,7 +619,7 @@ A pair of boots have been left here.
 ~
 unknown~
 armor BC AG
-ACE ABE ABE BD 0
+21 19 19 10 0
 60 10 9898 P
 A
 22 -3
@@ -654,7 +634,7 @@ A pair of sleeves have been left resting against a tree.
 ~
 unknown~
 armor BC AI
-ACE CE ABE BD 0
+21 20 19 10 0
 60 10 9898 P
 A
 13 20
@@ -669,7 +649,7 @@ A shield made from the finest metal has been left here.
 ~
 unknown~
 armor BC AJ
-CE ACE CE ABCD 0
+20 21 20 15 0
 60 10 9898 P
 A
 13 40
@@ -682,7 +662,7 @@ A tunic made from good leather has been left here.
 ~
 unknown~
 armor BC AK
-CE CE CE BD 0
+20 20 20 10 0
 60 10 9898 P
 A
 17 -21
@@ -693,7 +673,7 @@ A large helmet has been left by its owner...such a shame.
 ~
 unknown~
 armor BC AE
-CE CE CE BD 0
+20 20 20 10 0
 60 10 9898 P
 A
 23 -5
@@ -717,7 +697,7 @@ A pair of leggings have been left here.
 ~
 unknown~
 armor BC AF
-CE CE CE BD 0
+20 20 20 10 0
 60 10 9898 P
 A
 21 -1
@@ -730,7 +710,7 @@ A robe has been left in the shade of a tree here.
 ~
 cloth~
 armor BC AD
-ABCE ABCE BCE ABD 0
+23 23 22 11 0
 70 10 5060 P
 A
 13 25
@@ -744,7 +724,7 @@ field.
 ~
 unknown~
 armor BC AC
-ABCE BCE BCE E 0
+23 22 22 16 0
 70 10 8080 P
 A
 17 -8
@@ -859,7 +839,7 @@ There is a bracer in the mud here.
 ~
 unknown~
 armor ABC AM
-F F AF ADE 0
+32 32 33 25 0
 90 20 9000 P
 A
 19 7
@@ -998,7 +978,7 @@ not much room for the sun to enter into these sacred lands. The
 path continues to the north and, of course, where you came from,
 the south.
 ~
-0 0 3
+0 0 forest
 D0
 To the thick forest.
 ~
@@ -1020,7 +1000,7 @@ take a closer look. There are two exits here by the lake. One
 goes south to the path and the other goes north into the woods
 again.
 ~
-0 0 3
+0 0 forest
 D0
 The entrance to the woods.
 ~
@@ -1040,7 +1020,7 @@ the south if you wish to leave. There are fish jumping in the
 lake, people playing in the sand and picking flowers. This place
 sure is wonderful.
 ~
-0 0 3
+0 0 forest
 D0
 Path down the road.
 ~
@@ -1059,7 +1039,7 @@ road. The trees here are very tall and large. The sun is out
 shining upon you and you start to feel hot. The road continues
 north and south.
 ~
-0 0 3
+0 0 forest
 D0
 Turn in the road.
 ~
@@ -1080,7 +1060,7 @@ rabbit drinking from a small pond infront of you. You wonder
 where such a beeatiful creature came from. You could still go
 back south to the turn in the road. 
 ~
-0 0 3
+0 0 forest
 D2
 The road south.
 ~
@@ -1101,7 +1081,7 @@ overhead. You wonder where such wonderous trees came from. The
 path up the mountain looks like a nice and easy one to take. You
 could retrun to the east or go up the mountain.
 ~
-0 0 5
+0 0 mountain
 D1
 The path to the forest.
 ~
@@ -1122,7 +1102,7 @@ The path look quite clear and easy to pass. The rocks are warm in
 the suns' rays and is just gleaming with the heated mirage.  You
 may go north or down.
 ~
-0 0 5
+0 0 mountain
 D0
 The path along the cliff.
 ~
@@ -1145,7 +1125,7 @@ they are each worth morth then life itself. The mountaint air is
 freash and cooling and makes you feel like you want to sit down
 and rest. You may go down or south.
 ~
-0 0 5
+0 0 mountain
 D2
 The southern trail.
 ~
@@ -1168,7 +1148,7 @@ seen before. You see one plant you recconize, but it is from a
 book. This forest seems to be quite a sanctuary. The trail goes
 north to the outskirts of Hartland or up back to the mountain. 
 ~
-0 0 3
+0 0 forest
 D0
 The out-skirts of Hartland.
 ~
@@ -1192,7 +1172,7 @@ giving a speech about fire. The city looks like its full of happy
 people, all with wonderous jobs and families. The exits are north
 and south.
 ~
-0 0 3
+0 0 forest
 D0
 The town of Hartland.
 ~
@@ -1215,7 +1195,7 @@ could have so much power over all these people. There are little
 homes all around but seem un-welcoming. You can go north to the
 paths in the fields or south back to the woods.
 ~
-0 0 1
+0 0 city
 D0
 The fields out-side of town.
 ~
@@ -1237,7 +1217,7 @@ are few trees around and even fewer animals. The trail leads
 south to a swamp that steals your breath away with stench, and
 north back to the town you came from.
 ~
-0 0 2
+0 0 field
 D0
 The path to the swamp.
 ~
@@ -1261,7 +1241,7 @@ hunt. Just when you thought things could get no worse, you spot a
 quad of assassins out in the trail before you. Better be careful.
 The trail leads north and back to the city, south.
 ~
-0 0 3
+0 0 forest
 D0
 Closer to the Swamp.
 ~
@@ -1282,7 +1262,7 @@ and the ground begins to get muddy. The cries of the heart hounds
 are much closer now and you begin to panic. The trail continues
 to the east and south.
 ~
-0 0 3
+0 0 forest
 D1
 Path at the swamp.
 ~
@@ -1305,7 +1285,7 @@ deserted. The waters in the swamp are shallow enough to pass by
 foot. You better make diside fast, fight or get to the island.
 The exits are back east or west.
 ~
-0 0 3
+0 0 forest
 D1
 Over the waters.
 ~
@@ -1326,7 +1306,7 @@ you see them.  Snakes.  Little yellow deadly snakes.  All over the place.
 You start to run as fast as you can towards the island.  You could go east
 to the island or back west.  
 ~
-0 0 6
+0 0 swim
 D1
 On the island.
 ~
@@ -1347,7 +1327,7 @@ doesn't have any trees or plants.  Looking to the east you see the new path
 to SouthHaven.  You wonder when you should attempt to cross the waters
 again.  The exits are to the east, and to the west.  
 ~
-0 0 4
+0 0 hills
 D1
 Over the waters heading south.
 ~
@@ -1367,7 +1347,7 @@ hounds have returned back to their home, in the boundary.  The swamp gets
 shallower as you approach the land again and the sky goes clear.  The exits
 are east the shore or back west to the island.  
 ~
-0 0 6
+0 0 swim
 D1
 On The Shore.
 ~
@@ -1387,7 +1367,7 @@ south towards SouthHaven and you can hear the faint sounds of the
 city life. You continue your hike to SouthHaven. You may go back
 to the swamps (north) or continue south.
 ~
-0 0 3
+0 0 forest
 D1
 Trail through the woods.
 ~
@@ -1408,7 +1388,7 @@ South Haven isn't as bad as you thought. You can see the village
 up ahead. The exits are north to the shore or south to the
 village.
 ~
-0 0 3
+0 0 forest
 D1
 The entrance to the village.
 ~
@@ -1428,7 +1408,7 @@ are children everywhere and people at the stores. The village
 road continues on south and offers you a place to rest for a cup
 of ale. You may go north to the forest or south into the village.
 ~
-0 0 1
+0 0 city
 D1
 The Road in the Village.
 ~
@@ -1450,7 +1430,7 @@ to do. There is a fresh cool breeze floating through the city.
 The exits are north to the gates, east to the bar, or south to
 the path to the Narrows.
 ~
-0 0 1
+0 0 city
 D0
 Entrance to the bar.
 ~
@@ -1476,7 +1456,7 @@ number. The drunken men are big and strong but, are covered with
 ale stains on their shirts. The exit is back out to the west onto
 the road again.
 ~
-0 0 0
+0 0 inside
 D2
 Back to the road.
 ~
@@ -1496,7 +1476,7 @@ twenty or so yards ahead and will take no time to reach it. You
 spot the Narrows up ahead. The exits are north to the village or
 south to the Bone Woman.
 ~
-0 0 3
+0 0 forest
 D1
 The path to the Bone Womens.
 ~
@@ -1518,7 +1498,7 @@ Woman. The shack looks nice and cosy. It would be nice to stay and have
 a visit with the old Bone Woman. The exits are north to the
 forest, west to the bone Woman, and south to the Narrows.
 ~
-0 0 3
+0 0 forest
 D0
 The Bone Womans house.
 ~
@@ -1546,7 +1526,7 @@ a big smile on her face and offerse you to stay in her home for
 as long as you wish. The exit is back to the east, out on the
 trail.
 ~
-0 0 0
+0 0 inside
 D2
 Back to the road.
 ~
@@ -1561,7 +1541,7 @@ narrows. You should stay on guard and not fall asleep. The exits
 are west to continue into the narrows, or north to return to the
 bone woman for a cup of tea.
 ~
-0 0 10
+0 0 desert
 D1
 The path through the narrows.
 ~
@@ -1582,7 +1562,7 @@ narrows approaching. Apparently they are the most dangerous part
 of the whole narrows. The exits are west to the center or east to
 the entrance of the narrows.
 ~
-0 0 10
+0 0 desert
 D1
 The center of the Narrows.
 ~
@@ -1603,7 +1583,7 @@ him attack. The sky is getting dark and you still have a little
 ways to go. The exits are in an east-west direction, west being
 the way you want to go.
 ~
-0 0 10
+0 0 desert
 D1
 The path to the end of the Narrows.
 ~
@@ -1624,7 +1604,7 @@ air starts to cool down as the sun sets in the west. You try to
 hurry your way out of the narrows before dark. The exits are of
 course; east and west.
 ~
-0 0 10
+0 0 desert
 D1
 The end of the narrows.
 ~
@@ -1644,7 +1624,7 @@ is not going to let you pass. You must fend off this naughty
 beast and get to Darken Rahl. The exits are to the west and to
 the east.
 ~
-0 0 10
+0 0 desert
 D1
 The Azrith Plains.
 ~
@@ -1666,7 +1646,7 @@ You have to cross the Azrith Plains in order to get to Darken
 Rahl in his massive palace.
 The exits are north and east.
 ~
-0 0 2
+0 0 field
 D0
 The Azrith Plains.
 ~
@@ -1689,7 +1669,7 @@ and stop Darken Ralh then steel a drink and a bite to eat. The
 way back through the Narrows doesn't seem appealing. The exits
 are north and south.
 ~
-0 0 2
+0 0 field
 D0
 The Azrith Plains.
 ~
@@ -1710,7 +1690,7 @@ trail. Maybe she will listen to you and move out of the way.
 Maybe she will eat you up for breakfast... Hmmmmmm...Breakfast
 sure would be nice. The exits are north and south.
 ~
-0 0 2
+0 0 field
 D0
 To the BIG scary DRaGoN.
 ~
@@ -1732,7 +1712,7 @@ just turn around and go back to mommy for some cookies...mmmm
 cookies. STOP THINKING ABOUT FOOD! You must go on and kill Darken
 Rahl. The exits are North and South ass usual.
 ~
-0 0 2
+0 0 field
 D0
 The entrance to the Peoples Palace.
 ~
@@ -1753,7 +1733,7 @@ expected. The stairs are made from white marble and are spotless.
 The exits are north into the palace or south to the BIG scary
 DRaGoN.
 ~
-0 0 2
+0 0 field
 D0
 The Palace.
 ~
@@ -1774,7 +1754,7 @@ with these people. You decide not to stop and keep on going. The
 exits are to the north, south and to the east there is a room
 filled with devoters.
 ~
-0 0 0
+0 0 inside
 D0
 The longer hallway.
 ~
@@ -1800,7 +1780,7 @@ garden. You get shivers up your spine just at the sight of all
 these people devoted to Darken Rahl. The exits are north and back
 west.
 ~
-0 0 0
+0 0 inside
 D0
 To the Mord-Sith room.
 ~
@@ -1820,7 +1800,7 @@ red leather torturing them. The floors are covered in blood. The
 moment you enter this room you regret it. The Mord-Siths have
 spotted you and are heading in your direction. Better run FAST!
 ~
-0 0 0
+0 0 inside
 D2
 Back to the Devotion room.
 ~
@@ -1837,7 +1817,7 @@ surrounding this room...
 You have found Darken Rahl! The door opens automatically before
 you. You may enter or go back to the Mord-Siths.
 ~
-0 0 0
+0 0 inside
 D0
 The Garden of Life.
 ~
@@ -1869,7 +1849,7 @@ sorcerer's sand, ringed with torches that burn with fluid flames.
 
 The only exit is south.
 ~
-0 0 0
+0 0 inside
 D2
 ~
 ~

@@ -17,13 +17,12 @@ A cute little blue smurf with a white hat and white boots.  You have a sudden
 urge to crush him.
 ~
 human~
-AGHS 0 100 0
+AGHS DF 100 0
 1 0 2d4+2 0d9+100 1d2+0 none
 10 10 10 10
 BEFJNU 0 0 0
 stand stand male 1
 0 0 medium unknown
-A det DF
 #102
 oldstyle smurf~
 a smurf~
@@ -32,13 +31,12 @@ A smurf is here, picking berries.
 A small smurf is quietly picking berries.  He seems to hardly notice you.
 ~
 human~
-ABHS 0 100 0
+ABHS DF 100 0
 1 0 2d4+2 0d9+100 1d2+0 none
 10 10 10 10
 BEFJNU 0 0 0
 stand stand male 1
 0 0 medium unknown
-A det DF
 #103
 oldstyle brainy smurf~
 Brainy Smurf~
@@ -48,13 +46,12 @@ Brainy Smurf has on his usual glasses.  Brainy Smurf isn't liked much by the
 other smurfs.  They fear his knowledge.  Knowledge is power!
 ~
 human~
-AGHS 0 100 0
+AGHS DF 100 0
 3 0 2d7+21 1d9+100 1d5+0 none
 8 8 8 10
 BEFJNU 0 0 0
 stand stand male 1
 0 0 medium unknown
-A det DF
 #104
 oldstyle handy smurf~
 Handy Smurf~
@@ -64,13 +61,12 @@ Handy is always building something.  He never takes a break.  Why don't you
 give him a break, like all of his bones.
 ~
 human~
-AGHS 0 100 0
+AGHS DF 100 0
 3 0 2d7+21 1d9+100 1d5+0 none
 8 8 8 10
 BEFJNU 0 0 0
 stand stand male 1
 0 0 medium unknown
-A det DF
 #105
 oldstyle sleepy smurf~
 Sleepy Smurf~
@@ -80,13 +76,12 @@ Sleepy never gets enough sleep.  You would think he goes to college.  I wonder
 if he has ever stayed up a whole night without sleeping.
 ~
 human~
-AGHS 0 100 0
+AGHS DF 100 0
 3 0 2d7+21 1d9+100 1d5+0 none
 8 8 8 10
 BEFJNU 0 0 0
 stand stand male 1
 0 0 medium unknown
-A det DF
 #106
 oldstyle hefty smurf~
 Hefty Smurf~
@@ -96,13 +91,12 @@ Hefty is a total health nut.  He lifts weights, eats right, and exercises all
 the time.  Won't do him much good when he's DEAD.
 ~
 human~
-AGHS 0 100 0
+AGHS DF 100 0
 3 0 2d7+21 1d9+100 1d5+0 none
 8 8 8 10
 BEFJNU 0 0 0
 stand stand male 1
 0 0 medium unknown
-A det DF
 #107
 oldstyle grumpy smurf~
 Grumpy Smurf~
@@ -111,13 +105,12 @@ Grumpy Smurf is here, swearing.
 Grumpy has never been happy in his whole life.  So why don't you just end it?
 ~
 human~
-AGHS 0 100 0
+AGHS DF 100 0
 3 0 2d7+21 1d9+100 1d5+0 none
 8 8 8 10
 BEFJNU 0 0 0
 stand stand male 1
 0 0 medium unknown
-A det DF
 #108
 oldstyle jokey smurf~
 Jokey Smurf~
@@ -127,13 +120,12 @@ Jokey loves to give people presents.  Too bad the present explodes when opened.
 Oh well, to each his own.
 ~
 human~
-AGHS 0 100 0
+AGHS DF 100 0
 3 0 2d7+21 1d9+100 1d5+0 none
 8 8 8 10
 BEFJNU 0 0 0
 stand stand male 1
 0 0 medium unknown
-A det DF
 #109
 oldstyle smurfette~
 Smurfette~
@@ -143,13 +135,12 @@ Smurfette is the cutest little smurf you've ever seen.  If only she were your
 size.  I wonder how much she charges the other smurfs.
 ~
 human~
-AGHS 0 100 0
+AGHS DF 100 0
 3 0 2d7+21 1d9+100 1d5+0 none
 8 8 8 10
 BEFJNU 0 0 0
 stand stand female 1
 0 0 medium unknown
-A det DF
 #110
 oldstyle papa smurf~
 Papa Smurf~
@@ -225,7 +216,7 @@ a smurf hat~
 A smurf hat has been left here.~
 cloth~
 armor 0 AE
-AB AB AB 0 0
+3 3 3 0 0
 3 20 310 P
 #103
 axe small~
@@ -293,7 +284,7 @@ Dimly Lit Path~
 This path is made of crushed granite with curious blue streaks in it.
 The path continues north to a village, or south to the eastern road.
 ~
-0 0 3
+0 0 forest
 D0
 The path continues toward the village.
 ~
@@ -310,7 +301,7 @@ Dimly Lit Path~
 This section of the road is badly worn and frequently traversed.  There is
 faint singing to the north.  The path back to the road lies to the south.
 ~
-0 C 3
+0 C forest
 D0
 The path continues toward the village.
 ~
@@ -327,7 +318,7 @@ Dimly Lit Path~
 This section of the road is badly worn and frequently traversed.  Singing is
 getting stronger to the north.  The path back to the road lies to the south.
 ~
-0 0 3
+0 0 forest
 D0
 The entrance to smurf village.
 ~
@@ -346,7 +337,7 @@ village easily.  Little blue creatures with white hats and boots and little
 fluffy tails scamper about.  They sing continuously.  The singing is getting
 on your nerves and you have the urge to squash them.
 ~
-0 0 2
+0 0 field
 D0
 Smurfy Road
 ~
@@ -365,7 +356,7 @@ you?  These little blue smurfs?  The singing is growing intense.  Your ears
 are starting to ring.  Smurfy Road continues to the north, west, and east.
 There is still time to turn back and go south.
 ~
-0 0 1
+0 0 city
 D0
 Smurfy Road
 ~
@@ -393,7 +384,7 @@ You continue to travel down Smurfy Road.  Isn't it just smurfy?  Smurfy road
 continues its smurfy path to the smurfy north, smurfy west, and smurfy south.
 A smurfy home lies to the smurfy east.
 ~
-0 0 1
+0 0 city
 D0
 Smurfy Road
 ~
@@ -421,7 +412,7 @@ Oh boy, another smurfy road!  Smurfy Road goes north and south here.  There
 is a smurfy, mushroom home to the west.  A beautiful smurfberry patch is to
 the east.
 ~
-0 0 1
+0 0 city
 D0
 Smurfy Road
 ~
@@ -449,7 +440,7 @@ Smurfy Road continues to smurf here.  It smurfs to the south and smurfs to
 an end to the north.  A smurfberry patch is to the east.  A stone path lies
 to the west.
 ~
-0 0 1
+0 0 city
 D0
 Smurfy Road
 ~
@@ -477,7 +468,7 @@ A smurfy well lies here in the middle of Smurfy Road.  A fence separates
 the smurfs from harm to the north.  A berry patch is to the east.  Smurfy
 Road continues to to the south and west.
 ~
-0 0 1
+0 0 city
 E
 smurfy well~
 A small well is here.  Just the right size if you're a smurf.  But big
@@ -505,7 +496,7 @@ A corner of smurfy road is where you stand.  A smurfy fence blocks passage
 to the east or south.  A smurfy home is to the north.  Smurfy Road goes back
 to the west.
 ~
-0 0 1
+0 0 city
 D0
 Smurfy Home
 ~
@@ -522,7 +513,7 @@ Smurfy Road~
 Western corner of Smurfy Road.  You can continue to smurf down the road
 to the east and north.  You can also smurf into a smurfy home to the south.
 ~
-0 0 1
+0 0 city
 D0
 Smurfy Road
 ~
@@ -546,7 +537,7 @@ movie.  A smurfy home is to the west.  Papa Smurf's backyard is to the
 north but you can't go there.  Smurfy Road continues to the south and
 east.
 ~
-0 0 1
+0 0 city
 D1
 Smurfy Road
 ~
@@ -569,7 +560,7 @@ You are walking along a cute little stone path.  To the south lies Papa
 Smurf's house.  A Smurfy house is to the west.  Smurfy road is to the east.
 Everything is so peaceful here.  You could stay forever.
 ~
-0 0 1
+0 0 city
 D1
 Smurfy Road
 ~
@@ -591,7 +582,7 @@ Smurfy Road~
 Yet another part of Smurfy Road.  Hey if you go west its the last
 section of Smurfy Road.  You can go back to the smurfy well to the east.
 ~
-0 0 1
+0 0 city
 D1
 Smurfy Road
 ~
@@ -609,7 +600,7 @@ The last piece of Smurfy Road.  You can go back to Smurfy Road to the east.
 A nice, beautiful, smurfy, mushroom home is to the south.  In the distance to
 the north you can see Gargamel's Castle.
 ~
-0 0 1
+0 0 city
 D0
 Path to Gargamel's Castle
 ~
@@ -632,7 +623,7 @@ Delicious smurfberries grow here.  You could probably eat a year's worth of
 smurfberries in one sitting.  Smurfy Road is back to the west.  Another
 smurfberry patch is to the north.
 ~
-0 0 1
+0 0 city
 D0
 Smurfberry Patch
 ~
@@ -651,7 +642,7 @@ nostrils crazy.  It almost, ALMOST, makes you forget all the singing going
 on.  Smurfy Road is to the west, while smurfberry patches are to the north
 and south.
 ~
-0 0 1
+0 0 city
 D0
 Smurfberry Patch
 ~
@@ -674,7 +665,7 @@ The northernmost of the smurfberry patches grows here.  It looks just
 as scrumptious as all the rest.  Just take a few; they'll never know.  Smurfy
 Road is to the west.  A smurfberry patch is to the south.
 ~
-0 0 1
+0 0 city
 D2
 Smurfberry Patch
 ~
@@ -693,7 +684,7 @@ many smurfy books.  The print is so small you couldn't even read it
 with a magnifying glass.  I wonder if Brainy Smurf minds if you
 destroy his home?  Smurfy Road is back to the south.
 ~
-0 0 1
+0 0 city
 D2
 Smurfy Road
 ~
@@ -706,7 +697,7 @@ This home was well built.  Of course, until you rip it apart you big meany
 you.  Tools are all over the place.  Too small for you to use.  Smurfy Road is
 back to the west.
 ~
-0 0 1
+0 0 city
 D3
 Smurfy Road
 ~
@@ -719,7 +710,7 @@ Hefty is anything but wimpy.  So is his house.  It actually took you a
 couple of minutes to destroy his house.  Better watch out -- he might be
 a little mad at you.  Smurfy Road is back to the north.
 ~
-0 0 1
+0 0 city
 D0
 Smurfy Road
 ~
@@ -732,7 +723,7 @@ Be vewy vewy quiet.  Sleepy Smurf is probably sleeping.  You see so many
 beds you can't even tell if he is here.  Maybe you should quietly go back to
 Smurfy Road to the east.
 ~
-0 0 1
+0 0 city
 D1
 Smurfy Road
 ~
@@ -745,7 +736,7 @@ This is Grumpy Smurf's home.  He is pissed at you.  Of course, he is pissed
 at everyone.  So don't take it bad.  Maybe you'd better leave before he really
 gets mad.  Smurfy Road to the east is your only salvation.
 ~
-0 0 1
+0 0 city
 D1
 Smurfy Road
 ~
@@ -758,7 +749,7 @@ You pull the top of his house and it explodes in your face.  That Jokey
 Smurf, what a kidder.  You can hear his laughter as you wipe the ashes off
 your face.  You better get even.  Smurfy Road is to the north.
 ~
-0 0 1
+0 0 city
 D0
 Smurfy Road
 ~
@@ -772,7 +763,7 @@ home.  He takes pride in his work.  You could get to know him or just squash
 him.  If Papa Smurf is not here he is probably at Smurfette's putting the
 moves on her.  A stone path lies to the north.
 ~
-0 0 1
+0 0 city
 D0
 Stone Path
 ~
@@ -784,7 +775,7 @@ Path to Gargamel's Castle~
 You are walking along a path to Gargamel's Castle to the North.
 Smurfy Road lies to the south.
 ~
-0 0 1
+0 0 city
 D0
 Outside Gargamel's Castle
 ~
@@ -802,7 +793,7 @@ You are standing outside Gargamel's Castle.  You can hear him screaming at
 Azreal from inside.  You can also him cursing out those wretched smurfs.
 His Castle is to the north while Smurfy Road is to the south.
 ~
-0 0 1
+0 0 city
 D0
 Gargamel's Castle
 ~
@@ -819,7 +810,7 @@ Gargamel's Castle~
 This is Gargamel's Castle.  His big black kettle is in the middle of the room.
 Where else would he put it?  The place has only one room.
 ~
-0 0 1
+0 0 city
 D2
 Outside Gargamel's Castle
 ~
@@ -832,7 +823,7 @@ This house is conveniently next to Papa Smurfs.  Makes it easier for Papa
 Smurf to sneak over at night.  I hope he uses protection.  I would hate to
 have little smurfs running around.  The only exit is to the east.
 ~
-0 0 1
+0 0 city
 D1
 Smurfy Road
 ~

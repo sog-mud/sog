@@ -18,13 +18,12 @@ You see a slate grey vaguely humanoid shape, devoid of any true features.
 It stands before you with arms folded, seemingly uninterested in you.
 ~
 human~
-ABT HN 0 0
+ABT DFHN 0 0
 37 0 10d10+1500 18d9+100 3d10+12 none
 -12 -12 -12 5
 EFNU 0 0 0
 stand stand none 5000
 0 0 medium unknown
-A det DF
 #7701
 oldstyle nightmare~
 A pitch-black nightmare~
@@ -35,13 +34,12 @@ planes to torment mortals.  It vaguely resembles a horse, with a hide blacker
 than the darkest night, and hooves that burn with unholy fires.
 ~
 human~
-AD JT -950 0
+AD DJT -950 0
 18 0 3d9+283 9d9+100 2d7+4 none
 -3 -3 -3 7
 EFNU 0 0 0
 stand stand none 300
 0 0 medium unknown
-A det D
 #7702
 oldstyle night hag~
 An evil night hag~
@@ -52,13 +50,12 @@ purpose is to hunt down and slay mortals in order to obtain souls for her foul
 master to torment.
 ~
 human~
-ADFR J -1000 0
+ADFR DJ -1000 0
 24 0 5d10+450 24d9+100 4d4+5 none
 -6 -6 -6 2
 FU 0 0 0
 stand stand female 625
 0 0 medium unknown
-A det D
 #7703
 oldstyle stalker invisible~
 An invisible stalker~
@@ -99,13 +96,12 @@ normal man.  Like all githyanki, his teeth are fanged and his eyes hollow
 and sunken.
 ~
 human~
-ACS JP -500 0
+ACS DFJP -500 0
 11 0 2d7+121 5d9+100 2d4+2 none
 1 1 1 7
 BEFJNU 0 0 0
 stand stand male 50
 0 0 medium unknown
-A det DF
 #7706
 oldstyle githyanki warrior~
 A githyanki warrior~
@@ -219,13 +215,12 @@ and sunken.  As you turn to flee, you feel the impact of a fireball against
 your back.
 ~
 human~
-AFR J -500 0
+AFR DEJ -500 0
 20 0 3d9+308 20d9+100 3d4+4 none
 -4 -4 -4 3
 FU 0 0 0
 stand stand male 500
 0 0 medium unknown
-A det DE
 #7713
 oldstyle githyanki lich queen~
 The lich-queen~
@@ -237,13 +232,12 @@ unholy magic and the powers of this plane of existence.  The cold glare of her
 hollow eyes sends you into paroxysms of fright.
 ~
 human~
-ABF HJ -750 0
+ABF DEFHJ -750 0
 30 0 6d12+853 15d9+100 4d6+8 none
 -9 -9 -9 6
 EFNU 0 0 0
 stand stand female 5000
 0 0 medium unknown
-A det DEF
 #7714
 oldstyle lord gith~
 Lord Gith~
@@ -258,13 +252,12 @@ He gestures towards you.  You feel your heart tremble and your throat begin
 to tighten.  You are about to die.
 ~
 human~
-ABF BHJ -900 0
+ABF BDFHJ -900 0
 35 0 10d10+1300 17d9+100 4d7+11 none
 -11 -11 -11 5
 EFNU 0 0 0
 stand stand male 250
 0 0 medium unknown
-A det DF
 #7715
 oldstyle ghost~
 An insubstantial ghost~
@@ -325,13 +318,12 @@ in length with an even more massive wingspan.  He watches you, smoke drifting
 from his open mouth.
 ~
 dragon~
-ABR 0 -400 0
+ABR D -400 0
 28 0 5d10+650 28d9+100 2d10+7 none
 -8 -8 -8 1
 FR 0 0 0
 stand stand male 250
 0 0 medium unknown
-A det D
 #7719
 oldstyle fire furnace flame~
 A massive blast of fire~
@@ -613,7 +605,7 @@ a splint mail vest~
 An intricately fashioned splint mail vest lies here.~
 wood~
 armor 0 AD
-BC BC BC 0 0
+6 6 6 0 0
 15 450 2100 P
 E
 vest splint~
@@ -626,7 +618,7 @@ a splint mail skirt~
 An intricately fashioned splint mail skirt lies here.~
 wood~
 armor 0 AF
-ABC ABC ABC 0 0
+7 7 7 0 0
 20 200 1450 P
 E
 skirt splint~
@@ -639,7 +631,7 @@ a pair of splint mail sleeves~
 A pair of intricately fashioned splint mail sleeves lie here.~
 wood~
 armor 0 AI
-ABC ABC ABC 0 0
+7 7 7 0 0
 20 150 1450 P
 E
 sleeves splint~
@@ -652,7 +644,7 @@ a pair of ornately designed gauntlets~
 A pair of painstakingly designed ornate gauntlets lie here.~
 iron~
 armor 0 AH
-ABC ABC ABC 0 0
+7 7 7 0 0
 20 50 2700 P
 A
 19 1
@@ -671,7 +663,7 @@ a decaying vest made from cracked leather~
 A decaying hunk of cracked leather has been discarded here.~
 leather~
 armor 0 AD
-AD AD AD B 0
+9 9 9 2 0
 31 50 8500 P
 A
 20 -2
@@ -750,7 +742,7 @@ a rotting pouch~
 A small pouch rots away on the floor here.~
 none~
 money 0 A
-CFG 0 0 0 0
+100 0 0 0 0
 0 10 0 P
 E
 pouch rotting~
@@ -765,7 +757,7 @@ You are standing before a shimmering rainbow arching high up into the
 sky.  You feel somehow separated from the natural world, even though the
 temple spire is only a few meters below you.
 ~
-0 0 1
+0 0 city
 E
 rainbow~
 The rainbow softly glows with beams of light, in colours that defie
@@ -788,7 +780,7 @@ You are standing on the rainbow, surrounded by many beams of multicoloured
 light.  Through the bottom of the rainbow you can barely make out the Temple
 of Midgaard, which is now quite far away.
 ~
-0 0 5
+0 0 mountain
 E
 rainbow~
 The rainbow softly glows with beams of light, in colours that defie
@@ -811,7 +803,7 @@ You are standing on the rainbow, surrounded by many beams of multicoloured
 light.  Through the bottom of the rainbow you see the City of Midgaard and the
 land surrounding it.  It seems to be miles below you.
 ~
-0 0 5
+0 0 mountain
 E
 rainbow~
 The rainbow softly glows with beams of light, in colours that
@@ -833,7 +825,7 @@ On the Rainbow~
 You are standing on the rainbow, surrounded by many beams of multicoloured
 light.  The rainbow extends above and below you as far as you can see.
 ~
-0 0 5
+0 0 mountain
 E
 rainbow~
 The rainbow brightly glows with beams of light, in colours that defie any
@@ -857,7 +849,7 @@ You are nearing the end of the rainbow.  The beams of multicoloured
 light have begun to merge and solidify.  All around you you see glowing
 starlike motes of dust.  Ahead of you is a bridge.
 ~
-0 0 5
+0 0 mountain
 E
 bridge~
 The colors of the rainbow seem to converge into a glowing bridge that leads
@@ -892,7 +884,7 @@ colours have twisted and merged into a beautiful glowing bridge that leads
 toward a massive white gate to the north.  All around you is a soft, peaceful
 glow interrupted only by the passing of starlike dust motes before your eyes.
 ~
-0 0 1
+0 0 city
 E
 gate~
 The gate towers tens of feet above your heads.  Beyond it is a field of utter
@@ -931,7 +923,7 @@ Here the bridge ends before a massive, pearly-coloured gate beyond which
 you can see a field of blackness filled with silvery snake-like tendrils,
 stars, and occasional flashes of of light.
 ~
-0 0 1
+0 0 city
 E
 plaque~
 The plaque reads:
@@ -967,7 +959,7 @@ of silvery light and insubstantial shining motes of dust.  The weightlessness
 of this environment is very disorienting, although it is not too late to return
 through the gate to the south.
 ~
-0 C 2
+0 C field
 E
 gate~
 >From here the pearly-coloured gate seems very small and insubstantial.  Through
@@ -1012,7 +1004,7 @@ of silvery light and insubstantial shining motes of dust.  The weightlessness
 of this environment is very disorienting, and it is difficult to maintain your
 bearings and sense of direction.
 ~
-0 0 2
+0 0 field
 D0
 The astral field leads off into infinity.
 ~
@@ -1046,7 +1038,7 @@ of silvery light and insubstantial shining motes of dust.  The weightlessness
 of this environment is very disorienting, and it is difficult to maintain your
 bearings and sense of direction.
 ~
-0 0 2
+0 0 field
 D0
 The astral field leads off into infinity.
 ~
@@ -1080,7 +1072,7 @@ of silvery light and insubstantial shining motes of dust.  The weightlessness
 of this environment is very disorienting, and it is difficult to maintain your
 bearings and sense of direction.
 ~
-0 0 2
+0 0 field
 D0
 The astral field leads off into infinity.
 ~
@@ -1114,7 +1106,7 @@ of silvery light and insubstantial shining motes of dust.  The weightlessness
 of this environment is very disorienting, and it is difficult to maintain your
 bearings and sense of direction.
 ~
-0 0 2
+0 0 field
 D0
 The astral field leads off into infinity.
 ~
@@ -1148,7 +1140,7 @@ of silvery light and insubstantial shining motes of dust.  The weightlessness
 of this environment is very disorienting, and it is difficult to maintain your
 bearings and sense of direction.
 ~
-0 0 2
+0 0 field
 D0
 The astral field leads off into infinity.
 ~
@@ -1182,7 +1174,7 @@ of silvery light and insubstantial shining motes of dust.  The weightlessness
 of this environment is somewhat disorienting.
    All exits lead off into the astral field.
 ~
-0 0 2
+0 0 field
 D0
 The astral field leads off into infinity.
 ~
@@ -1221,7 +1213,7 @@ of silvery light and insubstantial shining motes of dust.  The weightlessness
 of this environment is somewhat disorienting.
    All exits lead off into the astral field.
 ~
-0 0 2
+0 0 field
 D0
 The astral field leads off into infinity.
 ~
@@ -1261,7 +1253,7 @@ of this environment is somewhat disorienting, though your instincts say you are
 close to home.
    All exits lead off into the astral field.
 ~
-0 0 2
+0 0 field
 D0
 The astral field leads off into infinity.
 ~
@@ -1301,7 +1293,7 @@ of this environment is somewhat disorienting, though your instincts say you are
 close to home.
    All exits lead off into the astral field.
 ~
-0 0 2
+0 0 field
 D0
 The astral field leads off into infinity.
 ~
@@ -1341,7 +1333,7 @@ of this environment is somewhat disorienting, though your instincts say you are
 close to home.
    All exits lead off into the astral field.
 ~
-0 0 2
+0 0 field
 D0
 The astral field leads off into infinity.
 ~
@@ -1381,7 +1373,7 @@ of this environment is highly disorienting.  Nearby you see a large silvery
 strand of light.
    Most exits lead off into the astral field.
 ~
-0 0 2
+0 0 field
 D0
 The astral field leads off into infinity.
 ~
@@ -1421,7 +1413,7 @@ of this environment is highly disorienting.  Nearby you see a large silvery
 strand of light.
    Most exits lead off into the astral field.
 ~
-0 0 2
+0 0 field
 D0
 The astral field leads off into infinity.
 ~
@@ -1461,7 +1453,7 @@ of this environment is highly disorienting.  Nearby you see a large silvery
 strand of light.
    Most exits lead off into the astral field.
 ~
-0 0 2
+0 0 field
 D0
 The astral field leads off into infinity.
 ~
@@ -1501,7 +1493,7 @@ of this environment is highly disorienting.  Nearby you see a large silvery
 strand of light.
    Most exits lead off into the astral field.
 ~
-0 0 2
+0 0 field
 D0
 The astral field leads off into infinity.
 ~
@@ -1541,7 +1533,7 @@ of this environment is highly disorienting.  Nearby you see a large silvery
 strand of light.
    Most exits lead off into the astral field.
 ~
-0 0 2
+0 0 field
 D0
 The astral field leads off into infinity.
 ~
@@ -1576,7 +1568,7 @@ of this environment is extremely disorienting.  Nearby you see a large silvery
 strand of light.
    Most exits lead off into the astral field.
 ~
-0 0 2
+0 0 field
 D0
 The astral field leads off into infinity.
 ~
@@ -1616,7 +1608,7 @@ of this environment is extremely disorienting.  Nearby you see a large silvery
 strand of light.
    Most exits lead off into the astral field.
 ~
-0 0 2
+0 0 field
 D0
 The astral field leads off into infinity.
 ~
@@ -1656,7 +1648,7 @@ of this environment is extremely disorienting.  Nearby you see a large silvery
 strand of light.
    Most exits lead off into the astral field.
 ~
-0 0 2
+0 0 field
 D0
 You see a tangible strand of silvery light.
 ~
@@ -1696,7 +1688,7 @@ of this environment is extremely disorienting.  Nearby you see a large silvery
 strand of light.
    Most exits lead off into the astral field.
 ~
-0 0 2
+0 0 field
 D0
 The astral field leads off into infinity.
 ~
@@ -1736,7 +1728,7 @@ of this environment is extremely disorienting.  Nearby you see a large silvery
 strand of light.
    Most exits lead off into the astral field.
 ~
-0 0 2
+0 0 field
 D0
 The astral field leads off into infinity.
 ~
@@ -1776,7 +1768,7 @@ of this environment is extremely disorienting, and you are having trouble
 keeping your sense of direction.
    All exits lead off into the astral field.
 ~
-0 0 2
+0 0 field
 D0
 The astral field leads off into infinity.
 ~
@@ -1816,7 +1808,7 @@ of this environment is extremely disorienting, and you are having trouble
 keeping your sense of direction.
    All exits lead off into the astral field.
 ~
-0 0 2
+0 0 field
 D0
 The astral field leads off into infinity.
 ~
@@ -1856,7 +1848,7 @@ of this environment is extremely disorienting, and you are having trouble
 keeping your sense of direction.
    All exits lead off into the astral field.
 ~
-0 0 2
+0 0 field
 D0
 The astral field leads off into the depths.
 ~
@@ -1896,7 +1888,7 @@ of this environment is extremely disorienting, and you are having trouble
 keeping your sense of direction.
    All exits lead off into the astral field.
 ~
-0 0 2
+0 0 field
 D0
 The astral field leads off into infinity.
 ~
@@ -1936,7 +1928,7 @@ of this environment is extremely disorienting, and you are having trouble
 keeping your sense of direction.
    All exits lead off into the astral field.
 ~
-0 0 2
+0 0 field
 D0
 The astral field leads off into the depths.
 ~
@@ -1976,7 +1968,7 @@ of this environment is incredibly disorienting, and you are having trouble
 keeping your senses straight.
    All exits lead off into the astral field.
 ~
-0 0 2
+0 0 field
 D0
 The astral field leads off into infinity.
 ~
@@ -2011,7 +2003,7 @@ of this environment is incredibly disorienting, and you are having trouble
 keeping your senses straight.
    All exits lead off into the astral field.
 ~
-0 0 2
+0 0 field
 D0
 The astral field leads off into infinity.
 ~
@@ -2046,7 +2038,7 @@ of this environment is incredibly disorienting, and you are having trouble
 keeping your senses straight.
    All exits lead off into the astral field.
 ~
-0 0 2
+0 0 field
 D0
 The astral field leads off into infinity.
 ~
@@ -2078,7 +2070,7 @@ Walking the Silvery Strand~
 You are standing atop a silvery strand of light that twists and turns
 through the astral field.
 ~
-0 0 2
+0 0 field
 D0
 The strand of light twists and turns out of sight.
 ~
@@ -2095,7 +2087,7 @@ Walking the Silvery Strand~
 You are standing atop a silvery strand of light that twists and turns
 through the astral field.
 ~
-0 0 2
+0 0 field
 D0
 You see the infinite expanse of the astral field.
 ~
@@ -2112,7 +2104,7 @@ Walking the Silvery Strand~
 You are standing atop a silvery strand of light that twists and turns
 through the astral field.
 ~
-0 0 2
+0 0 field
 D1
 The strand of light twists and turns out of sight.
 ~
@@ -2129,7 +2121,7 @@ Walking the Silvery Strand~
 You are standing atop a silvery strand of light that twists and turns
 through the astral field.
 ~
-0 0 2
+0 0 field
 D3
 The strand of light twists and turns out of sight.
 ~
@@ -2146,7 +2138,7 @@ Walking the Silvery Strand~
 You are standing atop a silvery strand of light that twists and turns
 through the astral field.
 ~
-0 0 2
+0 0 field
 D1
 The strand of light twists and turns out of sight.
 ~
@@ -2163,7 +2155,7 @@ Walking the Silvery Strand~
 You are standing atop a silvery strand of light that twists and turns
 through the astral field.
 ~
-0 0 2
+0 0 field
 D2
 You see the infinite expanse of the astral field.
 ~
@@ -2180,7 +2172,7 @@ Walking the Silvery Strand~
 You are standing atop a silvery strand of light that twists and turns
 through the astral field.
 ~
-0 0 2
+0 0 field
 D0
 The strand of light twists and turns out of sight.
 ~
@@ -2197,7 +2189,7 @@ Walking the Silvery Strand~
 You are standing atop a silvery strand of light that twists and turns
 through the astral field.
 ~
-0 0 2
+0 0 field
 D2
 The strand of light twists and turns out of sight.
 ~
@@ -2214,7 +2206,7 @@ Walking the Silvery Strand~
 You are standing atop a silvery strand of light that twists and turns
 through the astral field.
 ~
-0 0 2
+0 0 field
 D4
 You see the endless expanse of the astral field.
 ~
@@ -2234,7 +2226,7 @@ existence.  Some of the tendrils of light that line the astral field have been
 warped and twisted into portals to other worlds.
    Take care before you step through one -- you might never return.
 ~
-0 0 2
+0 0 field
 D0
 The astral field leads on into the depths.
 ~
@@ -2269,7 +2261,7 @@ existence.  Some of the tendrils of light that line the astral field have been
 warped and twisted into portals to other worlds.
    Take care before you step through one -- you might never return.
 ~
-0 0 2
+0 0 field
 D0
 The astral field leads on into infinity.
 ~
@@ -2304,7 +2296,7 @@ existence.  Some of the tendrils of light that line the astral field have been
 warped and twisted into portals to other worlds.
    Take care before you step through one -- you might never return.
 ~
-0 0 2
+0 0 field
 D0
 The astral field leads on into infinity.
 ~
@@ -2339,7 +2331,7 @@ existence.  Some of the tendrils of light that line the astral field have been
 warped and twisted into portals to other worlds.
    Take care before you step through one -- you might never return.
 ~
-0 0 2
+0 0 field
 D0
 The astral field leads on into infinity.
 ~
@@ -2374,7 +2366,7 @@ existence.  Some of the tendrils of light that line the astral field have been
 warped and twisted into portals to other worlds.
    Take care before you step through one -- you might never return.
 ~
-0 0 2
+0 0 field
 D0
 The astral field leads on into the depths.
 ~
@@ -2403,7 +2395,7 @@ Astral Plane.  It seems that you have found the lair of the Githyanki,
 the once-human followers of Lord Gith.  Ahead of you stands a steel door
 leading into the keep hewn from stone.
 ~
-0 C 0
+0 C inside
 E
 steel~
 The door is made from a set of rusting steel plates set deep into the stone.
@@ -2426,7 +2418,7 @@ and west.  Some small weapons hang on hooks on the walls, for use in defense
 of the keep.
    Doors stand in all directions save north.
 ~
-0 D 0
+0 D inside
 E
 door iron~
 The door is made from a set of iron plates set deep into the stone.
@@ -2458,7 +2450,7 @@ sun hangs in an orange sky above your head; you hear none of the sounds you
 would commonly associate with a normal city.
    The cobblestone road turns to the north, ending to the east at an iron door.
 ~
-0 0 1
+0 0 city
 E
 door iron~
 The door is made from a set of iron plates set deep into the stone.
@@ -2483,7 +2475,7 @@ would commonly associate with a normal city.
    The cobblestone road continues to the north and south.  Doors to the east
 and west lead into stone buildings.
 ~
-0 0 1
+0 0 city
 E
 door iron~
 The door is fashioned from many iron plates and set deep into the stone wall.
@@ -2520,7 +2512,7 @@ sun hangs in an orange sky above your head; you hear none of the sounds you
 would commonly associate with a normal city.
   The cobblestone road turns to the south and continues on to the east.
 ~
-0 0 1
+0 0 city
 D1
 The grey cobblestones continue.
 ~
@@ -2540,7 +2532,7 @@ would commonly associate with a normal city.
   The cobblestone road continues to the east and west.  To the north you see a
 massive building and a pair of large doors.
 ~
-0 0 1
+0 0 city
 E
 doors metal~
 The doors are formed from a silvery substance that feels very hard yet almost
@@ -2571,7 +2563,7 @@ would commonly associate with a normal city.
   The cobblestone road continues to the east and west.  A door to the south
 leads into a tall stone building.
 ~
-0 0 1
+0 0 city
 E
 door wooden~
 The door is thick, made from a knotted and twisted greyish wood.
@@ -2600,7 +2592,7 @@ would commonly associate with a normal city.
    The cobblestone road turns to the west and continues to the south.  A door
 to the north leads into a tall stone building.
 ~
-0 0 1
+0 0 city
 E
 door wooden~
 The door is thick, made from a knotted and twisted greyish wood.
@@ -2629,7 +2621,7 @@ would commonly associate with a normal city.
    The cobblestone road continues to the north and south.  To the east is a
 door in a large stone building.
 ~
-0 0 1
+0 0 city
 E
 door iron~
 The door is made from many hammered iron plates, set deep into the stone wall.
@@ -2657,7 +2649,7 @@ sun hangs in an orange sky above your head; you hear none of the sounds you
 would commonly associate with a normal city.
    The cobblestone road continues to the north and south.
 ~
-0 0 1
+0 0 city
 D0
 The grey cobblestones continue.
 ~
@@ -2677,7 +2669,7 @@ would commonly associate with a normal city.
    The cobblestone road turns to the north and continues on to the west.  To
 the east is a door in a large stone building.
 ~
-0 0 1
+0 0 city
 E
 door iron~
 The door is made from many hammered iron plates, set deep into the stone wall.
@@ -2706,7 +2698,7 @@ would commonly associate with a normal city.
    The cobblestone road goes on to the east, ending to the west at an iron door.
 A door to the north leads into a small stone building.
 ~
-0 0 1
+0 0 city
 E
 door iron~
 The door is made from a set of iron plates set deep into the stone.
@@ -2739,7 +2731,7 @@ living quarters for several githyanki gish.  The walls are heavy stone blocks,
 covered with panels of strangely knotted and twisted wood.  A couple of candles
 burn dimly in sconces here and there.
 ~
-0 D 0
+0 D inside
 E
 door wooden~
 The door is thick, made from a knotted and twisted greyish wood.
@@ -2757,7 +2749,7 @@ living quarters for several githyanki gish.  The walls are heavy stone blocks,
 covered with panels of strangely knotted and twisted wood.  A couple of candles
 burn dimly in sconces here and there.
 ~
-0 D 0
+0 D inside
 E
 door wooden~
 The door is thick, made from a knotted and twisted greyish wood.
@@ -2775,7 +2767,7 @@ windows.  The walls are heavy stone blocks that rise tens of feet above your
 head, covered with panels of strangely knotted and twisted wood.  On the floor
 are charcoal stencils of pentagrams and various other ominous sigils.
 ~
-0 D 0
+0 D inside
 E
 door wooden~
 The door is thick, made from a knotted and twisted greyish wood.
@@ -2794,7 +2786,7 @@ razor-sharp knives, daggers, and swords.
    Sounds of hammering and blasts of heat and strange smells come from the open
 doorway to the north.  An iron door stands to the west.
 ~
-0 D 0
+0 D inside
 E
 door iron~
 The door is made from many hammered iron plates, set deep into the stone wall.
@@ -2818,7 +2810,7 @@ by the githyanki.  A large trough of icy water stands to the west, used for
 quenching hot metal.
    Doorways stand to the north and south.  The furnace door lies to the east.
 ~
-0 D 0
+0 D inside
 E
 door furnace~
 The entire furnace is glowing white-hot to the touch.
@@ -2848,7 +2840,7 @@ suits of mail.
    Sounds of hammering and blasts of heat and strange smells come from the open
 doorway to the south.  An iron door stands to the west.
 ~
-0 D 0
+0 D inside
 E
 door iron~
 The door is made from many hammered iron plates, set deep into the stone wall.
@@ -2871,7 +2863,7 @@ on your forehead is instantly vaporized by the flames that surround you.  You
 begin to feel faint and dizzy from the heat...
 ... you'd better leave before you pass out and burn to a cinder!
 ~
-0 D 0
+0 D inside
 D0
 The flames blind you and obscure your vision.
 ~
@@ -2895,7 +2887,7 @@ for the keep.  The building is small because the githyanki do not make a habit
 of taking prisoners, and those that they do capture do not last long.
    The cellblock lies to the west and the grey stone road is to the east.
 ~
-0 D 0
+0 D inside
 E
 door iron~
 The door is fashioned from many iron plates and set deep into the stone wall.
@@ -2918,7 +2910,7 @@ dim corridor.  Some whips, manacles, and chains hang on the walls -- they seem
 to have been used recently.
    Cell doors stand to the north and south.  The guard station is to the east.
 ~
-0 D 0
+0 D inside
 E
 door cell~
 The cell door is wooden and about 4' high, with a slot in the bottom to pass
@@ -2945,7 +2937,7 @@ A cramped cell~
 You are in a tiny, cold, dank cell.
   The only exit is back through the door to the south.
 ~
-0 D 0
+0 D inside
 E
 door cell~
 The cell door is wooden and about 4' high, with a slot in the bottom to pass
@@ -2962,7 +2954,7 @@ A tiny cell~
 You are in a cold, dank, cramped cell.
    The only exit is back through the door to the north.
 ~
-0 D 0
+0 D inside
 E
 door cell~
 The cell door is wooden and about 4' high, with a slot in the bottom to pass
@@ -2981,7 +2973,7 @@ windows.  The walls are heavy stone blocks that rise tens of feet above your
 head, covered with panels of strangely knotted and twisted wood.  On the floor
 are charcoal stencils of pentagrams and various other ominous sigils.
 ~
-0 D 0
+0 D inside
 E
 door wooden~
 The door is thick, made from a knotted and twisted greyish wood.
@@ -3000,7 +2992,7 @@ silvery metal.
    The great hall continues to the north and ends in a pair of huge metal doors
 to the south.
 ~
-0 D 0
+0 D inside
 E
 doors metal~
 The doors are formed from a silvery substance that feels very hard yet almost
@@ -3034,7 +3026,7 @@ silvery metal.
    The great hall continues to the south.  An archway leads into a dimly lit
 room to the north.
 ~
-0 D 0
+0 D inside
 E
 arch archway door~
 The archway is shrouded in a strange black mist that obscures your vision.
@@ -3064,7 +3056,7 @@ Your eyes have trouble adjusting to the dim lighting.  All around you are
 columnar statues of githyanki turned towards the altar standing at the top
 of a series of steps.
 ~
-0 AD 0
+0 AD inside
 E
 arch archway door~
 The archway is shrouded in a strange black mist that obscures your vision.
@@ -3087,7 +3079,7 @@ huge altar use to pay tribute to Lord Gish, long-dead ruler of the githyanki.
 The altar is covered in blood and radiates unspeakable power that is absorbed
 by the horrible presence which stands before you.
 ~
-0 AD 0
+0 AD inside
 E
 hole holes~
 The holes have passed countless amounts of blood down below the altar.
@@ -3117,7 +3109,7 @@ You step through the tiny hole in the altar, and stand before a swirling
 field of blackness.  Through the field you can hear the howls of lost souls
 and long-dead beings.
 ~
-0 AD 1
+0 AD city
 E
 field gateway~
 The field pulses and feeds on the blood dripping from above.
@@ -3145,7 +3137,7 @@ It is pitch black...
   You are overwhelmed by the sensation of death and horrible pain as a shape
 begins to coalesce before you.
 ~
-0 AC 9
+0 AC air
 S
 #0
 

@@ -16,13 +16,12 @@ A Hollyphant is delivering a message here.
 It looks like a large, winged, furry elephant.  It emits an aura of goodness.
 ~
 dragon~
-AG 0 1000 2900
+AG D 1000 2900
 16 0 3d9+233 159d1+1 1d12+3 crush
 -2 -2 -2 5
 CDF 0 0 0
 stand stand either 2000
 0 0 medium unknown
-A det D
 #2901
 planetar~
 a planetar~
@@ -32,13 +31,12 @@ Humanoid in appearance, the planetar has wings and is
 hairless.  He is on a mission from his deity.
 ~
 human~
-ABG BH 900 2901
+ABG BCDH 900 2901
 30 0 6d12+778 299d1+1 5d4+7 punch
 -9 -9 -9 6
 CDFK 0 0 0
 stand stand either 4500
 0 0 medium unknown
-A det CD
 #2902
 shedu~
 a Shedu~
@@ -48,13 +46,12 @@ Half man, half beast.  The Shedu is out looking for evil anywhere it may be
 and it will hunt down until death is the result.
 ~
 human~
-AG 0 850 2902
+AG F 850 2902
 25 0 5d10+550 249d1+1 2d10+7 pierce
 -7 -7 -7 6
 CDFJ 0 0 0
 stand stand either 500
 0 0 medium unknown
-A det F
 #2903
 dretch demon~
 a dretch~
@@ -64,13 +61,12 @@ A pathetic, slobbering thing.  The dretch is constantly picked on by its more
 powerful, demon brothers.
 ~
 bear~
-ABGH 0 -800 2903
+ABGH DF -800 2903
 10 0 2d7+121 99d1+1 2d4+2 punch
 1 1 1 8
 CF 0 0 0
 stand stand either 800
 0 0 medium unknown
-A det DF
 #2904
 chasme fly demon~
 a chasme~
@@ -80,13 +76,12 @@ The chasme or fly demon is half-human and half-fly.  They dont like anyone,
 not even other demons.
 ~
 human~
-ACG 0 -900 2904
+ACG DF -900 2904
 20 0 3d9+308 199d1+1 3d4+4 pound
 -4 -4 -4 2
 CDEFIKN 0 0 C
 stand stand either 2000
 0 0 medium unknown
-A det DF
 #2905
 babau ebony~
 a babau~
@@ -112,13 +107,12 @@ The yagnodemon has one man-sized and one giant-sized arm. With the giant-sized
 arm it can wield huge weapons.  He is not in a good mood right now.
 ~
 human~
-ACG 0 -950 2906
+ACG DEF -950 2906
 25 0 5d10+500 249d1+1 4d4+6 smash
 -7 -7 -7 8
 DFJ 0 0 0
 stand stand either 2900
 0 0 medium unknown
-A det DEF
 #2907
 kostchtchie demon kost~
 Kostchtchie~
@@ -128,13 +122,12 @@ Kostchtchie a powerful demon lord is here.  Obviously derived from giant stock,
 he is very powerful.  And he does not like to be interrupted.
 ~
 human~
-ABEFG H -1000 2907
+ABEFG DFH -1000 2907
 40 0 15d10+1800 399d1+1 4d8+11 chill
 -13 -13 -13 4
 FI AB 0 0
 stand stand either 6900
 0 0 medium unknown
-A det DF
 #2908
 nabassu demon~
 a nabassu~
@@ -144,13 +137,12 @@ A tall, thin demon, the nabassu are very bat-like in appearance.
 He seems to have an intense interest in you.
 ~
 human~
-ACG 0 -950 2908
+ACG D -950 2908
 15 0 2d10+190 149d1+1 1d10+3 slap
 -1 -1 -1 2
 FI 0 0 D
 stand stand either 1120
 0 0 medium unknown
-A det D
 #2909
 dragon cloud~
 a cloud dragon~
@@ -160,13 +152,12 @@ This dragon is as large as a red dragon, but does not like to get involved
 in the struggle between good and evil.  It wants to be left alone.
 ~
 dragon~
-ABG H 0 2909
+ABG DFH 0 2909
 35 0 10d10+1100 349d1+1 4d7+9 bite
 -11 -11 -11 5
 FIKLN 0 0 0
 stand stand either 8000
 0 0 large unknown
-A det DF
 #2910
 solar~
 a solar~
@@ -176,13 +167,12 @@ A beautiful being, the solar is totally dedicated to the continuation
 of the good beings.
 ~
 human~
-ABG H 1000 2910
+ABG CDFH 1000 2910
 47 0 25d10+3500 469d1+1 8d4+16 slash
 -17 -17 -17 0
 FI 0 0 0
 stand stand either 8000
 0 0 medium unknown
-A det CDF
 #2911
 wemic~
 a wemic~
@@ -192,13 +182,12 @@ Part man, part lion, and part horse; the wemic is a creature
 not to be taken lightly.
 ~
 bear~
-AC 0 100 2911
+AC F 100 2911
 10 0 2d7+121 99d1+1 2d4+2 punch
 1 1 1 8
 ABC 0 0 0
 stand stand either 800
 0 0 medium unknown
-A det F
 #2912
 frost giant~
 a frost giant~
@@ -208,13 +197,12 @@ Large members of the giant family, the frost giants are ravenous collectors
 of treasure.  They dont like to share this treasure with anyone.
 ~
 giant~
-ABFG 0 -300 2912
+ABFG DF -300 2912
 25 0 5d10+550 249d1+1 2d10+7 grep
 -7 -7 -7 6
 FJKN AB 0 0
 stand stand male 3400
 0 0 large unknown
-A det DF
 #2913
 gorgimera~
 a gorgimera~
@@ -224,13 +212,12 @@ This three-headed monster is waiting to rip the head off of its latest victim
 to add to its collection.  Watch out for that breath attack.
 ~
 dragon~
-ABFG 0 -750 2913
+ABFG D -750 2913
 20 0 3d9+300 199d1+1 2d8+2 claw
 -4 -4 -4 7
 FIKN AB 0 0
 stand stand either 2500
 0 0 large unknown
-A det D
 #2914
 ratatosk~
 Ratatosk~
@@ -240,13 +227,12 @@ You see a giant squirrel carrying greetings and tidings from the various
 deities residing in these realms.  He does not want to be delayed in his task.
 ~
 human~
-ACG H 200 2914
+ACG CDFH 200 2914
 35 0 10d10+1300 349d1+1 4d7+11 punch
 -11 -11 -11 5
 CDEFJKN 0 0 0
 stand stand male 6700
 0 0 large unknown
-A det CDF
 #0
 
 #OBJECTS
@@ -304,7 +290,7 @@ a set of sleeves of crystal~
 Some sleeves made of crystal lie here.~
 quartz~
 armor AFK AI
-ACD ACD ACD B B
+13 13 13 2 2
 46 100 22500 G
 A
 19 3
@@ -340,7 +326,7 @@ a cast iron girth~
 A cast iron girth lies here.~
 iron~
 armor BG AL
-AD AD AD A AB
+9 9 9 1 3
 23 180 11230 G
 A
 3 -4
@@ -361,7 +347,7 @@ This is the entrance to Yggdrasil, the World Ash.  Through
 this tree are conduits to many other planes of existence.
      There is a small (Glowing) (Huming) tablet.
 ~
-0 0 3
+0 0 forest
 E
 small tablet~
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -392,7 +378,7 @@ The Trunk of Yggdrasil~
 You are traveling in Yggdrasil, the World Ash.  Who knows
 what other travelers you may encounter.
 ~
-0 0 3
+0 0 forest
 D4
 The trunk continues to go up here.
 ~
@@ -409,7 +395,7 @@ The Lower Trunk of Yggrasil~
 You are in the lower reaches of Yggdrasil.  The tree top cannot be seen.
 Lesser astral travelers can be seen moving about.
 ~
-0 0 3
+0 0 forest
 D0
 A limb branches off in this direction.
 ~
@@ -445,7 +431,7 @@ S
 A Lower Branch of Yggdrasil~
 You are on a limb on the lower level of Yggdrasil.
 ~
-0 0 3
+0 0 forest
 D2
 The main trunk is in this direction.
 ~
@@ -457,7 +443,7 @@ The Crest of Yggdrasil~
 You are on the top of the World Ash.  You can see in the distance many
 realms and dimensions.  This is definitely a crossroads to the gods.
 ~
-0 0 3
+0 0 forest
 D5
 The way down the trunk of Yggdrasil lies this way.
 ~
@@ -468,7 +454,7 @@ S
 A Lower Branch of Yggdrasil~
 You are on a limb on the lower level of Yggdrasil.
 ~
-0 0 3
+0 0 forest
 D1
 The main trunk is in this direction.
 ~
@@ -479,7 +465,7 @@ S
 A Lower Branch of Yggdrasil~
 You are on a limb on the lower level of Yggdrasil.
 ~
-0 0 3
+0 0 forest
 D3
 The main trunk is in this direction.
 ~
@@ -492,7 +478,7 @@ You are under the ground among the roots of Yggdrasil.  You
 sense a greater preponderance of evil in this area.  Your
 fellow travelers also tend to be of the evil persuasion.
 ~
-0 0 3
+0 0 forest
 D0
 The roots lead off in this direction.
 ~
@@ -529,7 +515,7 @@ The Roots of Yggdrasil~
 You are in the roots of the great tree.  Many odd creatures
 can be seen and felt wandering in the area.
 ~
-0 0 3
+0 0 forest
 D0
 The roots continue in this direction.
 ~
@@ -541,7 +527,7 @@ The Roots of Yggdrasil~
 You are in the roots of the great tree.  Many odd creatures
 can be seen and felt wandering in the area.
 ~
-0 0 3
+0 0 forest
 D3
 The roots continue in this direction.
 ~
@@ -553,7 +539,7 @@ The Roots of Yggdrasil~
 You are in the roots of the great tree.  Many odd creatures
 can be seen and felt wandering in the area.
 ~
-0 0 3
+0 0 forest
 D1
 The roots continue in this direction.
 ~
@@ -564,7 +550,7 @@ S
 A Lower Branch of Yggdrasil~
 You are on a limb on the lower level of Yggdrasil.
 ~
-0 0 3
+0 0 forest
 D0
 The main trunk is in this direction.
 ~
@@ -578,7 +564,7 @@ you can almost see the foul and evil realms of the followers
 of evil.  You can faintly hear the screams of their tortured
 victims.
 ~
-0 0 3
+0 0 forest
 D4
 You see the roots of the tree continue in this direction.
 ~
@@ -589,7 +575,7 @@ S
 A Middle Branch of Yggdrasil~
 You are on a limb on the middle level of Yggdrasil.
 ~
-0 0 3
+0 0 forest
 D1
 The main trunk is in this direction.
 ~
@@ -600,7 +586,7 @@ S
 A Middle Branch of Yggdrasil~
 You are on a limb on the middle level of Yggdrasil.
 ~
-0 0 3
+0 0 forest
 D2
 The main trunk is in this direction.
 ~
@@ -611,7 +597,7 @@ S
 A Middle Branch of Yggdrasil~
 You are on a limb on the middle level of Yggdrasil.
 ~
-0 0 3
+0 0 forest
 D3
 The main trunk is in this direction.
 ~
@@ -622,7 +608,7 @@ S
 A Middle Branch of Yggdrasil~
 You are on a limb on the middle level of Yggdrasil.
 ~
-0 0 3
+0 0 forest
 D0
 The main trunk is in this direction.
 ~
@@ -634,7 +620,7 @@ The Middle Trunk of Yggrasil~
 You are in the middle parts of Yggdrasil.  The tree top still cannot be seen.
 Many travelers are passing you in fulfillment of their quests.
 ~
-0 0 3
+0 0 forest
 D0
 A limb branches off in this direction.
 ~
@@ -671,7 +657,7 @@ The Upper Trunk of Yggrasil~
 You are in the topmost section of Yggdrasil.  The tree top is just above you.
 Great power can be sensed in this area. There is also goodness here.
 ~
-0 0 3
+0 0 forest
 D0
 A limb branches off in this direction.
 ~
@@ -707,7 +693,7 @@ S
 An Upper Branch of Yggdrasil~
 You are on a limb on the upper level of Yggdrasil.
 ~
-0 0 3
+0 0 forest
 D0
 The main trunk is in this direction.
 ~
@@ -718,7 +704,7 @@ S
 An Upper Branch of Yggdrasil~
 You are on a limb on the upper level of Yggdrasil.
 ~
-0 0 3
+0 0 forest
 D1
 The main trunk is in this direction.
 ~
@@ -729,7 +715,7 @@ S
 An Upper Branch of Yggdrasil~
 You are on a limb on the upper level of Yggdrasil.
 ~
-0 0 3
+0 0 forest
 D2
 The main trunk is in this direction.
 ~
@@ -740,7 +726,7 @@ S
 An Upper Branch of Yggdrasil~
 You are on a limb on the upper level of Yggdrasil.
 ~
-0 0 3
+0 0 forest
 D3
 The main trunk is in this direction.
 ~
@@ -752,7 +738,7 @@ The Roots of Yggdrasil~
 You are in the roots of the great tree.  Many odd creatures
 can be seen and felt wandering in the area.
 ~
-0 0 3
+0 0 forest
 D2
 The roots continue in this direction.
 ~

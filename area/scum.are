@@ -16,13 +16,12 @@ mummy~
 ~
 ~
 zombie~
-ABORTe HNOVa -1000 0
+ABORTe DFHNOVZae -1000 0
 91 100 1d1+25000 1d1+4000 1d1+200 bite
 -10 -10 -10 -10
 ACEFJKLNOQSU A 0 NSY
 stand stand male 0
 I 0 large unknown
-A det DFZe
 M grall 40000 100~
 #40001
 zombie~
@@ -32,13 +31,12 @@ zombie~
 ~
 ~
 zombie~
-ABORTe HNOVa -1000 0
+ABORTe CDFHNOVZae -1000 0
 91 100 1d1+25000 1d1+4000 1d1+200 bite
 -10 -10 -10 -10
 ACDEIJKLO A 0 0
 stand stand female 0
 I 0 large unknown
-A det CDFZe
 F aff d
 F imm BL
 F res I
@@ -51,13 +49,12 @@ healer~
 ~
 ~
 human~
-ABGae 0 1000 0
+ABGae ADFHYZe 1000 0
 100 0 0d0+0 0d0+0 0d0+0 none
 0 0 0 0
 0 0 0 0
 stand stand none 0
 0 0 medium unknown
-A det ADFHYZe
 F for AHMV
 F par ABCDEFGHIJK
 #40003
@@ -68,13 +65,12 @@ witch~
 ~
 @eng @rus ~
 human~
-ABGae J -1000 0
+ABGae ACDFGHJYZe -1000 0
 100 0 0d0+0 0d0+0 0d0+0 none
 0 0 0 0
 0 LQR MO NSY
 stand stand male 0
 0 0 medium unknown
-A det ACDFGHYZe
 #0
 
 #OBJECTS
@@ -105,7 +101,7 @@ CFG EIJKN HK CDFI CFG
 к твоей душе своими ледяными пальцами. Задумайся пока не поздно, может
 стоить бежать отсюда без оглядки и навсегда забыть сюда дорогу?{x
 ~
-0 AC 0
+0 AC inside
 D4
 ~
 ~
@@ -122,7 +118,7 @@ S
 по  всюду. Видимо  все они были на столько же глупы как ты, что пришли
 сюда. Ага! А вот и палачи! Сегодня явно неблагополучный для тебя день.{x
 ~
-0 A 0
+0 A inside
 D0
 ~
 ~
@@ -140,7 +136,7 @@ S
 недавнего пиршества. Из воздуха постоянно  появляются и исчезают странные
 существа имя которым может быть только одно - {RНЕЧИСТЬ!{x
 ~
-0 A 0
+0 A inside
 D2
 ~
 ~

@@ -163,13 +163,12 @@ A fat pig is rooting around for food.
 This fat pig is very hungry. He eats just about ANYTHING.
 ~
 pig~
-ACGH b 500 0
+ACGH Gb 500 0
 5 0 2d6+60 49d1+1 1d6+1 bite
 5 5 5 9
 BDEI 0 0 0
 stand stand either 35
 B V medium unknown
-A det G
 #14512
 dog~
 the dog~
@@ -179,13 +178,12 @@ The dog looks back at you.  After a few moments it sits up..
 puts a cigar in it's mouth, lights it, and asks, "So..what's up bub?"
 ~
 dog~
-AB 0 400 0
+AB F 400 0
 7 3 6d10+60 1d1+149 2d4+1 bite
 4 4 4 8
 CDL 0 C 0
 stand stand either 0
 0 0 medium unknown
-A det F
 #14513
 chicken~
 the chicken~
@@ -239,13 +237,12 @@ An Elven Man is here, looking for something.
 The Elven Man looks at you intently before continuing on his way.
 ~
 elf~
-ABR 0 500 0
+ABR DEFZ 500 0
 13 0 2d10+170 129d1+1 2d5+3 magic
 -1 -1 -1 8
 FG A 0 0
 stand stand male 513
 0 0 medium unknown
-A det DEFZ
 #14517
 woman elven~
 the Elven Woman~
@@ -254,13 +251,12 @@ A beautiful Elven Woman paces back and forth before you.
 Looking into her eyes causes you great fear.
 ~
 elf~
-ABR 0 500 0
+ABR DEFZ 500 0
 16 0 3d9+233 159d1+1 2d6+4 magic
 -2 -2 -2 7
 FG A 0 0
 stand stand female 300
 0 0 medium unknown
-A det DEFZ
 #14518
 woman dwarven~
 the Dwarven Woman~
@@ -269,13 +265,12 @@ The Dwarven Woman is smacking her fist in her hand.
 Stand back!  She's about to blow!!!
 ~
 unique~
-ABT 0 900 0
+ABT DF 900 0
 16 0 3d9+233 159d1+1 2d6+4 beating
 -2 -2 -2 7
 CDEIK A LQ R
 stand stand female 122
 AHMV ABCDEFGHIJ medium unknown
-A det DF
 #14519
 man dwarven~
 the Dwarven Man~
@@ -284,13 +279,12 @@ A large Dwarven Man walks by you.
 He looks back at you, then dismisses you as unimportant.
 ~
 unique~
-ABT 0 900 0
+ABT DF 900 0
 19 0 3d9+308 189d1+1 2d7+5 punch
 -4 -4 -4 7
 CDEIK A LQ R
 stand stand male 444
 AHMV ABCDEFGHIJ medium unknown
-A det DF
 #14520
 warrior goblin~
 the Goblin Warrior~
@@ -325,7 +319,7 @@ an Elven Necklace~
 An Elven Necklace has been dropped here.~
 steal~
 armor 0 AC
-ABC ABC ABC 0 B
+7 7 7 0 2
 19 50 4700 P
 A
 17 -10
@@ -470,7 +464,7 @@ an Island Helmet~
 An Island Helmet is lying here.~
 silver~
 armor AGK AE
-BC BC BC A C
+6 6 6 1 4
 15 5 1500 G
 A
 3 2
@@ -486,7 +480,7 @@ an Island Shield~
 An Island Shield has been dropped here.~
 steel~
 armor G AJ
-BC BC BC A AC
+6 6 6 1 5
 15 100 2000 G
 E
 shield island~
@@ -522,7 +516,7 @@ a Watcher's Black Cape~
 A Watcher's Black Cape has been dropped onto the floor.~
 cloth~
 armor GK AK
-BC D ABC A AB
+6 8 7 1 3
 20 200 4600 G
 A
 24 3
@@ -582,7 +576,7 @@ a straw hat~
 A straw hat has been dropped here.~
 bamboo~
 armor 0 AE
-BC BC BC 0 A
+6 6 6 0 1
 16 10 700 G
 #14528
 stone well~
@@ -655,7 +649,7 @@ a Goblin Spear~
 A Goblin Spear is lying on the floor.~
 wood~
 weapon AG AN
-staff 4 5 pierce D
+spear 4 5 pierce D
 12 50 1700 P
 #14536
 goblin loincloth~
@@ -663,7 +657,7 @@ a Goblin Loincloth~
 A Goblin Loincloth has been discarded here.~
 snakeskin~
 armor G AD
-ABC ABC ABC 0 B
+7 7 7 0 2
 12 20 2456 G
 A
 1 -1
@@ -685,7 +679,7 @@ a Dwarven Shield~
 A Dwarven Shield has been dropped here.~
 wood~
 armor AG AJ
-BC BC BC A AC
+6 6 6 1 5
 17 190 4500 G
 A
 5 4
@@ -700,7 +694,7 @@ landing...trees wave in the wind and birds of many colors fly
 high above the land beyond the beach.
      There is a small (Glowing) (Humming) tablet.
 ~
-0 C 7
+0 C noswim
 E
 small tablet~
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -734,7 +728,7 @@ The beach is quickly approaching and you had better take in
 your sail or you'll run aground.  From here you can see three
 huge mountaintops and a few trees next to two or three buildings.
 ~
-0 C 7
+0 C noswim
 D0
 ~
 ~
@@ -749,7 +743,7 @@ Rough waters at the beach~
 The water rushes toward the beach causing large waves and
 a riptide which threatens to pull your vessel towards the west.
 ~
-0 C 7
+0 C noswim
 D0
 ~
 ~
@@ -765,7 +759,7 @@ You are standing on a sandy beach complete with seashells,
 palm trees and sand crabs.  To the south you see a line of
 palm trees standing next to and before two huge mountains.
 ~
-0 0 10
+0 0 desert
 D0
 ~
 ~
@@ -782,7 +776,7 @@ biting flies have found their dinner by lunching on your exposed
 skin.  The palm trees wave gently in the wind..their brown husks
 scraping a lovely tune.
 ~
-0 0 10
+0 0 desert
 D1
 ~
 ~
@@ -799,7 +793,7 @@ look backwards you can see your anchored ship bobbing in the
 surf.  The path you are following begins to curve into the
 palms and toward the mountains.
 ~
-0 0 10
+0 0 desert
 D1
 ~
 ~
@@ -816,7 +810,7 @@ beach and the palm trees.  Past the palms, to your west, are
 the tops of several buildings.  Smoke spirals into the air
 and you can almost smell grilled fish.
 ~
-0 0 10
+0 0 desert
 D1
 ~
 ~
@@ -832,7 +826,7 @@ You are walking between the palm trees when you notice several
 large monkeys..weighing about 200 pounds each glancing down
 at you from their perches.  They appear to be sizing you up.
 ~
-0 0 10
+0 0 desert
 D0
 ~
 ~
@@ -849,7 +843,7 @@ monkey droppings.  To the south of you a huge mountain dominates
 the view.  The glare is terrific at the mountain's peak from the
 sun beating down upon the snow.
 ~
-0 0 10
+0 0 desert
 D0
 ~
 ~
@@ -865,7 +859,7 @@ The sandy trail leads west and east.  You are standing at the
 base of a huge mountain.  If you listen closely you can hear
 the crashing of the waves upon the beach to the north of you.
 ~
-0 C 10
+0 C desert
 D0
 ~
 ~
@@ -885,7 +879,7 @@ The trail you are following travels alongside a row of palms
 growing on the beach.  The palms provide shade and relief from
 the sun's warm rays.
 ~
-0 0 10
+0 0 desert
 D1
 ~
 ~
@@ -901,7 +895,7 @@ This trail has had recent traffic.  You can see indentions in
 the sand from someone's footsteps.  Two small running grooves
 indicates that the previous traveller had a small cart.
 ~
-0 0 10
+0 0 desert
 D1
 ~
 ~
@@ -917,7 +911,7 @@ The trail is coming to an end.  To the northwest you can see
 three or four buildings nestled within the palms of the beach.
 At least one of the buildings is a warehouse.
 ~
-0 C 10
+0 C desert
 D1
 ~
 ~
@@ -933,7 +927,7 @@ This trail is heavily travelled.  You can easily see signs of
 others who have made this trip before you.  The sand is a
 glistening white with brown smears from mountain dirt.
 ~
-0 0 10
+0 0 desert
 D1
 ~
 ~
@@ -949,7 +943,7 @@ Hundreds of palms block your sight of the ocean.  Their graceful
 height and delicate fronds make a wonderful screen to the sun's
 hot rays.
 ~
-0 0 10
+0 0 desert
 D1
 ~
 ~
@@ -966,7 +960,7 @@ enters the mountains.  Well maintained, the mountain trail is
 easy to follow and has obviously been smoothed to make your
 travel easier.
 ~
-0 0 10
+0 0 desert
 D3
 ~
 ~
@@ -982,7 +976,7 @@ The steep trail you are following cuts between a huge mountain
 to the west and two smaller mountains to the east.  A little
 further down the trail you can see a clearing of some kind.
 ~
-0 0 5
+0 0 mountain
 D4
 ~
 ~
@@ -998,7 +992,7 @@ Climbing high into the mountains you approach a clearing, encircled
 by bushes your avenues of retreat are limited.  Either go forward
 or back down the mountain.
 ~
-0 C 5
+0 C mountain
 D4
 ~
 ~
@@ -1014,7 +1008,7 @@ The trail has led you to a mountain clearing.  Circled by bushes
 and a few shrubs this grassy clearing shows several signs of
 recent travel by a great number of people.
 ~
-0 0 5
+0 0 mountain
 D1
 ~
 ~
@@ -1034,7 +1028,7 @@ The grassy mountain clearing is open to the sun and is full of
 the smells of a high mountain meadow.  A large swath of purple
 flowers carpets this side of the clearing.
 ~
-0 0 5
+0 0 mountain
 D0
 ~
 ~
@@ -1053,7 +1047,7 @@ Mountain meadow~
 The mountain meadow where you are standing has knee high grass,
 yellow flowers and is surrounded by the short shrubs of the area.
 ~
-0 0 5
+0 0 mountain
 D0
 ~
 ~
@@ -1069,7 +1063,7 @@ You are standing at the edge of a high mountain clearing.  You
 are completely surrounded by mountains, some of which are capped
 by white snow.
 ~
-0 0 5
+0 0 mountain
 D0
 ~
 ~
@@ -1085,7 +1079,7 @@ The mountain clearing is all about you.  You are standing in
 the middle of a mountain meadow surrounded by snow capped
 mountain peaks.  Flowers of every color brighten the area.
 ~
-0 0 5
+0 0 mountain
 D0
 ~
 ~
@@ -1109,7 +1103,7 @@ The mountain clearing is carpeted with flowers of every color.
 Some of the flowers are extremely rare, however, all of them
 are beautiful and would make a wonderful addition to any home.
 ~
-0 0 5
+0 0 mountain
 D1
 ~
 ~
@@ -1128,7 +1122,7 @@ Mountain clearing~
 The beautiful mountain clearing you are standing in is surrounded
 by extremely high mountains...some of which are covered with snow.
 ~
-0 0 5
+0 0 mountain
 D2
 ~
 ~
@@ -1143,7 +1137,7 @@ Opening to the sky~
 The mountain field you are standing in is open to the sky
 and is framed by tall mountains.
 ~
-0 0 5
+0 0 mountain
 D0
 ~
 ~
@@ -1163,7 +1157,7 @@ This trail leads from a mountain field to the bottom of a valley.
 The rich dirt of the trail is smooth and regular..signs that
 someone is maintaining the trail.
 ~
-0 0 5
+0 0 mountain
 D0
 ~
 ~
@@ -1180,7 +1174,7 @@ trail to the east climbs a short mountain and ends at a lookout.
 The trail going down to the valley floor appears to be the most
 travelled route.
 ~
-0 0 5
+0 0 mountain
 D0
 ~
 ~
@@ -1199,7 +1193,7 @@ Down trail~
 This trail is cutting between several mountains and is very steep.
 A few shrubs line the trail as well as some beautiful flowers.
 ~
-0 C 5
+0 C mountain
 D4
 ~
 ~
@@ -1215,7 +1209,7 @@ The trail is passing over exposed bedrock and is very slippery.
 Be careful or you could slide to the bottom and get some nasty
 trail burns.
 ~
-0 0 5
+0 0 mountain
 D4
 ~
 ~
@@ -1232,7 +1226,7 @@ and to the south of the village you see a garden, however, it's the
 river which attracts your attention.  You'll have to get a better
 view down the trail.
 ~
-0 0 5
+0 0 mountain
 D4
 ~
 ~
@@ -1248,7 +1242,7 @@ You are standing at the beginning of a long valley.  Snowy
 mountains surround this lush valley and low clouds help reduce
 the temperature to a chill.  To the west of you is a small village.
 ~
-0 0 5
+0 0 mountain
 D3
 ~
 ~
@@ -1263,7 +1257,7 @@ Small trail~
 This small trail travels into the mountains and the wilderness
 which surrounds it.  The rocky trail shows no signs of recent travel.
 ~
-0 0 5
+0 0 mountain
 D1
 ~
 ~
@@ -1279,7 +1273,7 @@ The wilderness is so disorganized.  Trails are rough and rocky,
 bushes with thorns crowd the trail and even the flowers are not
 as soft and lovely as the ones along the main trail.
 ~
-0 0 5
+0 0 mountain
 D1
 ~
 ~
@@ -1296,7 +1290,7 @@ noises and unseen movement has begun to work on your nerves.
 You are approaching the end of the trail...at the top of a snow
 capped mountain.
 ~
-0 0 5
+0 0 mountain
 D3
 ~
 ~
@@ -1316,7 +1310,7 @@ as well as the bridge crossing the river are completely surrounded
 by a ten or twelve foot high wall.  Two towers protect the valley
 entrance to the enclosure.
 ~
-0 0 5
+0 0 mountain
 D5
 ~
 ~
@@ -1330,7 +1324,7 @@ effective.  A large garden area borders the river bisecting
 the valley to the south.  Two huge towers on the other side of
 the river appear to be guarding a gate leading to the valley.
 ~
-0 C 2
+0 C field
 D1
 ~
 ~
@@ -1352,7 +1346,7 @@ in wilderness harmony.  The village is alive with movement,
 everyone going about their business while the farm animals do
 what comes natural.
 ~
-0 C 2
+0 C field
 D1
 ~
 ~
@@ -1370,7 +1364,7 @@ a Better Streets entry.  The stone buildings on each side of the
 street are warm and toasty..with smoke pouring from the smoke
 stacks and yellow light coming from the shuttered windows.
 ~
-0 0 1
+0 0 city
 D0
 This wooden door has a circle with a large
 letter M in the middle of it.~
@@ -1396,7 +1390,7 @@ hang on the walls and a small fire is burning in the fireplace.
 Yellow candles light the room.  The room does not have anything
 of value in it.
 ~
-0 DS 0
+0 DS inside
 D2
 The door is solid as a rock.  It has triple
 locks and should give you safety to the world.~
@@ -1408,7 +1402,7 @@ Gray Stone house~
 A loving hand has created this home.  Fine detail has been given
 to all wooden items and the furniture was made by a master.
 ~
-0 DS 0
+0 DS inside
 D0
 This wooden door has a circle with a large
 letter M in the middle of it.~
@@ -1421,7 +1415,7 @@ The stones you are walking on were gathered from local sites
 about the village.  Laid by Dwarves, the stones are almost
 seamless.  The air is very cool here between the houses.
 ~
-0 0 1
+0 0 city
 D1
 ~
 ~
@@ -1436,7 +1430,7 @@ Village street~
 To the west is the village well, while all about you the native
 stone buildings create a wonderful setting for this family life.
 ~
-0 0 1
+0 0 city
 D0
 ~
 door~
@@ -1461,7 +1455,7 @@ door and it has a tile roof.  A large picture window at the
 rear of the house reveals a stunning view of the large
 mountain to the north of you.
 ~
-0 DS 0
+0 DS inside
 D2
 ~
 door~
@@ -1473,7 +1467,7 @@ In an obvious effort to overshadow the brown house nearby,
 the owners of this home have applied an expensive dye to
 their home, turning it a brilliant green color.
 ~
-0 DS 0
+0 DS inside
 D0
 ~
 door~
@@ -1484,7 +1478,7 @@ Village well~
 The village well is covered by a small awning and has a very
 long rope to reach to the bottom of the well.
 ~
-0 0 1
+0 0 city
 D1
 ~
 ~
@@ -1501,7 +1495,7 @@ surround you and prevent you from travelling further in this
 direction.  Looking past the homes you see a twenty foot tall
 wall ringing the village proper.
 ~
-0 0 1
+0 0 city
 D0
 ~
 door~
@@ -1525,7 +1519,7 @@ Nothing special about this home except the fact that it's not
 special.  Even the fireplace is bare.  Where you might expect
 to see a display you see instead blank wall.
 ~
-0 DS 0
+0 DS inside
 D2
 ~
 door~
@@ -1536,7 +1530,7 @@ Last house~
 The last house of this village has a large porch and a huge fireplace.
 It appears to be large enough to hold several people at the same time.
 ~
-0 DS 0
+0 DS inside
 D1
 ~
 door~
@@ -1548,7 +1542,7 @@ You have entered a general store laden with wilderness supplies
 and everyday items necessary for survival.  If you look closely,
 you'll find a little of everything.
 ~
-0 DS 0
+0 DS inside
 D0
 ~
 door~
@@ -1560,7 +1554,7 @@ This ancient, overgrown road was made years before the village
 was constructed.  It's age is so great you can see where trees
 grew through it's center, were cut down and made into firewood.
 ~
-0 C 1
+0 C city
 D0
 ~
 ~
@@ -1577,7 +1571,7 @@ into a large garden patch.  To the south the road crosses
 a river with an ancient bridge.  Two towers can be seen on
 the other side...near the gated wall surrounding the village.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -1597,7 +1591,7 @@ The bridge is made of local material finely worked with artistic
 designs of flying creatures.  Gargoyles and flying lions decorate
 the entire bridge.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -1614,7 +1608,7 @@ water hits the side of the bridge and throws cold spray into your face.
 The wall encircling the village proper also encircles a long stretch of 
 the river.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -1630,7 +1624,7 @@ The bridge you are travelling on appears to have been constructed
 using the same material and methods used to build the ancient
 road you are travelling upon.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -1647,7 +1641,7 @@ southern direction.  Although the road is cracked and crumbling
 at the edges it still provides the best travelling surface you
 have ever seen.
 ~
-0 C 1
+0 C city
 D0
 ~
 ~
@@ -1666,7 +1660,7 @@ To your right and left short squat towers flank the road.  Small
 doors, low to the ground, provide entrance to the towers.  The
 tower construction is as ancient as the road.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -1691,7 +1685,7 @@ crouching along the rim of the tower..protecting the residents
 from danger.  Stooping down you can see into the tower and out
 the other side.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -1708,7 +1702,7 @@ The roof has caved in, allowing the fresh mountain air to
 penetrate into every secret corner.  The entrance is to the east.
 The west wall has a large gaping hole in it's center.
 ~
-0 DS 0
+0 DS inside
 D1
 ~
 ~
@@ -1725,7 +1719,7 @@ bones and broken furniture.  The huge hole in the west wall shows
 signs of fire.  The bricks scattered about the room appear to have
 been caused by a very large explosion.
 ~
-0 DS 0
+0 DS inside
 D1
 ~
 ~
@@ -1742,7 +1736,7 @@ Tower this tower has been whitewashed.  Painted every three feet
 are red stylized crosses.  Again, unlike the West Tower this
 tower does not have gargoyles about it's rim.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -1758,7 +1752,7 @@ A thin layer of dust covers the floor of this tower.  The markings
 in the dust indicate that someone, or something, has passed this
 way recently.  The room is mostly bare.
 ~
-0 DS 0
+0 DS inside
 D1
 ~
 ~
@@ -1775,7 +1769,7 @@ shows a mountain scene, with a river running through a valley
 and into a large cave mouth.  Several arrow slits provide access
 for both air and light.
 ~
-0 DS 0
+0 DS inside
 D1
 A very large tapestry covers a hole in the wall.~
 tapestry~
@@ -1792,7 +1786,7 @@ wall and it's southern gate.  The wall is approximately 12 feet
 tall.  The gate is made of metal and has large spears protruding
 from the top to stop "wild animals" from climbing the barrier.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -1808,7 +1802,7 @@ This huge metal gate appears to have been built much later than
 the ancient road it guards.  A close look at the door reveals
 a tiny, hand written sign attached to the gate.
 ~
-0 0 1
+0 0 city
 E
 sign~
 BEWARE.  This gate is to remain closed at all times.  The evil must be
@@ -1830,7 +1824,7 @@ blocked by a rough wall of ill placed boulders.  On each side of
 the road are sharpened stakes driven at an angle into the ground.
 The stakes are obviously meant to keep travellers on the road.
 ~
-0 0 1
+0 0 city
 D0
 This massive steel gate has sharpened spears along it's summit.~
 gate~
@@ -1845,7 +1839,7 @@ Ancient way~
 The ancient road you are on is buried under a huge pile of
 boulders placed strategically across the road to block travel.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -1861,7 +1855,7 @@ The boulders have been stacked to block travel on the ancient
 road.  Large stakes, sharpened and pointed toward the wall,
 keep travellers on the road.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -1881,7 +1875,7 @@ A small path travels along the roadblock to the west.  Skirting
 along sharpened stakes the path meanders amoungst and besides
 the huge boulders stacked precariously across the ancient road.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -1897,7 +1891,7 @@ The path comes to an abrupt halt.  The boulders curve inward,
 towards the city, and with the aid of the sharpened stakes all
 about you travel in this direction has been effectively cut off.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -1909,7 +1903,7 @@ This small path leads you away from the ancient road, along
 the boulders and into the sharpened stakes set to keep you on
 the road.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -1924,7 +1918,7 @@ End of path~
 The path has come to an end.  The high wall of boulders curves
 inward and effectively traps you against the sharpened stakes.
 ~
-0 0 2
+0 0 field
 D3
 ~
 ~
@@ -1937,7 +1931,7 @@ to the north of you appear to be both warehouses and living
 quarters.  The smell of drying fish is evident and a small fishing
 boat has been drydocked for repair.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -1953,7 +1947,7 @@ Land's End is a small fishing village with such a small population it doesn't
 appear on any maps.  Two large warehouses and two homes are the only standing
 buildings.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -1971,7 +1965,7 @@ warehouses where tradegoods are stored.  A few fishing nets
 hang from nearby trees and a drying rack produces that strong
 fish smell which spreads through the air.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -1995,7 +1989,7 @@ From here you can see the ocean and any incoming vessels.
 Two homes stand nearby as well as a rowboat and three fishing
 vessels drydocked for the season.  Perhaps the fishing is bad.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -2015,7 +2009,7 @@ This lovely wooden home stands so near the water that it's
 occupants have the most beautiful view you've ever seen.  Several
 crabs have made their home outside the seaward window.
 ~
-0 DS 0
+0 DS inside
 D3
 ~
 ~
@@ -2028,7 +2022,7 @@ of the sailors and merchants expected to use Ocean View as a
 port of call.  Unfortunately, no one seems to know exactly
 where Ocean View is.
 ~
-0 DS 0
+0 DS inside
 D3
 ~
 ~
@@ -2041,7 +2035,7 @@ ocean.  The echo of your steps bounces back to you very quickly.
 When the weather turns incliment the local fishermen drag their
 vessels into this warehouse for safety.
 ~
-0 DS 0
+0 DS inside
 D1
 ~
 ~
@@ -2053,7 +2047,7 @@ This small home has been built from the bones of whales and
 other small sea animals.  Barnacles would feel right at home
 here...if the home were under water of course.
 ~
-0 DS 0
+0 DS inside
 D1
 ~
 ~
@@ -2064,7 +2058,7 @@ Garden way~
 Garden way is simply a path leading through or near the vegatables
 planted by the villagers.  All about you are sprouting plants.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -2079,7 +2073,7 @@ Garden path~
 All about you are growing tiny little plants that will one day
 feed the population of the village.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -2093,7 +2087,7 @@ S
 Garden alley~
 The path has now led you through several rows of beans, squash, and melons.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -2110,7 +2104,7 @@ through the carrots you glance south into the river and see the
 remains of a wooden bridge washed ashore.  The bridge is flimsy
 and ill made and obviously was not meant to be permanent.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -2125,7 +2119,7 @@ Along the river~
 The rushing water to your south has been used to irrigate the garden. Several
 large clay containers are gathered along the river for this very purpose.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -2142,7 +2136,7 @@ discovered a child's toy.  The toy is a wooden doll, complete
 with dress and straw hair.  It is lying in the mud and appears
 to have been trampled.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -2159,7 +2153,7 @@ river as it passes through the fence.  A huge section of the
 12 foot high fence is missing above the river.  Perhaps a massive
 rain washed that section of the fence away?
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -2175,7 +2169,7 @@ The garden ends here at the village wall.  The crops have been
 trampled and there's nothing here but a large mud patch.  A large
 mud patch with scores of tracks.
 ~
-0 C 2
+0 C field
 E
 tracks track~
 The tracks you see are well defined and
@@ -2198,7 +2192,7 @@ the many marks in the ground were obviously made by booted
 soldiers while the unshod footprints appear to have been made
 by nonhuman feet.  The prints are elongated and end in talons.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -2213,7 +2207,7 @@ Path near fence~
 This tiny path goes to the fence then parallels it.  Following
 the path would take you near the river.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -2231,7 +2225,7 @@ Strips of cloth are embedded in the mud and stuck to bushes
 and the yellowing bones of two or three skeletons are scattered
 everywhere.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -2247,7 +2241,7 @@ The closer you get to the river the bushier it becomes.  Squeezing
 past some of the bushes along this path is a sticky situation.
 There are 1 inch thorns on some of them.  Be careful.
 ~
-0 0 2
+0 0 field
 D2
 ~
 ~
@@ -2264,7 +2258,7 @@ you discover several large holes dug under the fence.  If you
 were a little smaller you could have squeezed through those
 holes and gotten to the other side.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -2280,7 +2274,7 @@ The rushing water of the river drowns out nearly all sounds.
 You are alone with one of the forces of nature.  Looking across
 the river you can make out the vague outlines of village homes.
 ~
-0 0 2
+0 0 field
 D2
 ~
 ~
@@ -2298,7 +2292,7 @@ you see no signs of them now.  The river passes through the 12 foot
 tall fence to your west.  A large section of the fence is gone,
 allowing passage into the countryside.
 ~
-0 C 2
+0 C field
 D1
 ~
 ~
@@ -2309,7 +2303,7 @@ Outside the East Tower~
 You are standing along the east wall of the East Tower.  Tracks
 in the soft earth lead to the wall nearby and towards the river.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -2327,7 +2321,7 @@ however, no man sized creatures have passed this way for years.
 The river is rushing past you and flows through the large hole in
 the fence to your right.  Perhaps a large rain washed it away?
 ~
-0 C 2
+0 C field
 D0
 ~
 ~
@@ -2344,7 +2338,7 @@ the south of you are two short towers and of course the wall which
 surrounds the village.  To the east is a large hole in the fence.
 The river runs through that hole.
 ~
-0 C 7
+0 C noswim
 D1
 ~
 ~
@@ -2360,7 +2354,7 @@ You are passing through the hole in the wall which surrounds the
 village.  At first you thought that the river had created this
 hole but upon closer inspection it is obviously the work of man.
 ~
-0 C 7
+0 C noswim
 D3
 ~
 ~

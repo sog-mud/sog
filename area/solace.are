@@ -19,13 +19,12 @@ with pride on his chestplate. The gold crest of two coins seems to match
 the wealth of this town.
 ~
 human~
-ABT H 900 0
+ABT CDFH 900 0
 30 0 6d12+853 5d5+1000 4d6+8 slash
 -9 -9 -9 3
 CDEFIJKLTU 0 0 0
 stand stand male 1000
 0 0 medium unknown
-A det CDF
 #10202
 lieutenant commander~
 Lieutenant Commander~
@@ -38,13 +37,12 @@ to test his abilities go right ahead. He looks as if he is quite an easy
 fight.
 ~
 human~
-ABGT H 800 0
+ABGT CFH 800 0
 27 0 5d10+650 5d5+1000 5d4+7 pound
 -8 -8 -8 4
 CDEFIJKTU 0 0 0
 stand stand male 1000
 0 0 medium unknown
-A det CF
 #10203
 Sergeant Arms~
 Sergeant at Arms~
@@ -55,13 +53,12 @@ war. He is a middle age man with graying hair that pokes out from under
 his helmet. He is always waiting for a fight.
 ~
 human~
-ABGT H 400 0
+ABGT CH 400 0
 20 0 3d9+333 5d5+1000 2d8+5 slash
 -4 -4 -4 5
 EFIK 0 0 0
 stand stand male 1000
 0 0 medium unknown
-A det C
 #10204
 townguard guard~
 Townguard~
@@ -276,13 +273,12 @@ These are like the biggest and meanest men you've every seen.
 They look more like trolls or ogres than men.
 ~
 human~
-ABT H 800 0
+ABT CDFH 800 0
 16 0 3d9+233 5d5+1000 2d6+4 pound
 -2 -2 -2 6
 EIJKU 0 0 0
 stand stand male 1000
 0 0 medium unknown
-A det CDF
 #10219
 Jhen~
 Jhen the farmer~
@@ -596,13 +592,12 @@ there is a large bat here.
 ~
 ~
 bat~
-ABF 0 100 0
+ABF D 100 0
 5 0 2d6+60 5d5+100 1d6+1 charge
 5 5 5 9
 0 0 0 0
 stand stand none 1000
 0 0 medium unknown
-A det D
 #10241
 old lady~
 old lady~
@@ -796,7 +791,7 @@ the obsidian helmet~
 A black helmet is on the floor.~
 copper~
 armor GK AE
-AD AD AD 0 0
+9 9 9 0 0
 30 30 300 P
 A
 13 1
@@ -808,7 +803,7 @@ obsidian sleeves~
 A pair of black sleeves are on the floor.~
 copper~
 armor GK AI
-AD AD AD 0 0
+9 9 9 0 0
 30 40 300 P
 A
 5 1
@@ -820,7 +815,7 @@ obsidian leggings~
 Some black leggings are on the floor.~
 copper~
 armor GK AF
-AD AD AD 0 0
+9 9 9 0 0
 30 40 300 P
 A
 14 20
@@ -832,7 +827,7 @@ obsidian gauntlets~
 A pair of black gauntlets are on the floor.~
 copper~
 armor GK AH
-AD AD AD 0 0
+9 9 9 0 0
 30 40 300 P
 A
 18 3
@@ -844,7 +839,7 @@ obsidian boots~
 Some black boots are on the floor.~
 copper~
 armor GK AG
-AD AD AD 0 0
+9 9 9 0 0
 30 40 300 P
 A
 13 10
@@ -856,7 +851,7 @@ obsidian cloak~
 a black cloak lies on the floor.~
 copper~
 armor GK AC
-AD AD AD 0 0
+9 9 9 0 0
 30 40 300 P
 A
 22 -4
@@ -868,7 +863,7 @@ the obsidian girth~
 A black girth is on the floor.~
 copper~
 armor GK AL
-AD AD AD 0 0
+9 9 9 0 0
 30 40 300 P
 A
 1 1
@@ -880,7 +875,7 @@ the large obsidian shield~
 A large, black shield is on the floor.~
 copper~
 armor GK AJ
-AD AD AD 0 0
+9 9 9 0 0
 30 40 300 P
 A
 17 4
@@ -892,7 +887,7 @@ the amulet of Solace~
 A shiny black amulet with a gold symbol is here.~
 copper~
 armor GK AC
-ABC ABC ABC 0 0
+7 7 7 0 0
 20 40 200 P
 A
 17 3
@@ -938,7 +933,7 @@ an Solace signet ring~
 A shiny ring of obsidian is in the dirt.~
 copper~
 armor G AB
-ABC ABC ABC 0 0
+7 7 7 0 0
 20 1 200 P
 A
 24 -2
@@ -950,7 +945,7 @@ a obsidian bracer~
 You see a obsidian bracer here.~
 copper~
 armor 0 BM
-AD AD AD 0 0
+9 9 9 0 0
 30 9 300 P
 #10214
 weapons cabinet~
@@ -1000,7 +995,7 @@ the steel helmet~
 A steel helmet is on the floor.~
 copper~
 armor GK AE
-D D D 0 0
+8 8 8 0 0
 27 25 270 P
 A
 21 -2
@@ -1012,7 +1007,7 @@ steel sleeves~
 A pair of steel sleeves are on the floor.~
 copper~
 armor GK AI
-D D D 0 0
+8 8 8 0 0
 27 35 270 P
 A
 20 -2
@@ -1024,7 +1019,7 @@ steel leggings~
 Some steel leggings are on the floor.~
 copper~
 armor GK AF
-D D D 0 0
+8 8 8 0 0
 27 35 270 P
 A
 14 10
@@ -1036,7 +1031,7 @@ steel gauntlets~
 A pair of steel gauntlets are on the floor.~
 copper~
 armor GK AH
-D D D 0 0
+8 8 8 0 0
 27 35 270 P
 A
 18 1
@@ -1050,7 +1045,7 @@ steel boots~
 Some steel boots are on the floor.~
 copper~
 armor GK AG
-D D D 0 0
+8 8 8 0 0
 27 35 270 P
 A
 13 5
@@ -1062,7 +1057,7 @@ the lieutenant's cloak~
 a lieutenant's cloak lies on the floor.~
 copper~
 armor GK AC
-D D D 0 0
+8 8 8 0 0
 27 35 270 P
 A
 22 -2
@@ -1074,7 +1069,7 @@ the steel girth~
 A steel girth is on the floor.~
 copper~
 armor GK AL
-D D D 0 0
+8 8 8 0 0
 27 35 270 P
 A
 24 -1
@@ -1084,7 +1079,7 @@ the large steel shield~
 A large, steel shield is on the floor.~
 copper~
 armor GK AJ
-D D D 0 0
+8 8 8 0 0
 27 35 270 P
 A
 17 2
@@ -1096,7 +1091,7 @@ a steel bracer~
 You see a steel bracer here.~
 copper~
 armor 0 BM
-D D D 0 0
+8 8 8 0 0
 27 9 270 P
 A
 12 5
@@ -1136,7 +1131,7 @@ the red helmet~
 A red helmet is on the floor.~
 copper~
 armor GK AE
-ABC ABC ABC 0 0
+7 7 7 0 0
 20 20 200 P
 A
 21 -1
@@ -1146,7 +1141,7 @@ red scalemail sleeves~
 A pair of red scalemail sleeves are on the floor.~
 copper~
 armor GK AI
-ABC ABC ABC 0 0
+7 7 7 0 0
 20 30 200 P
 A
 20 -1
@@ -1156,7 +1151,7 @@ red scalemail leggings~
 Some red scalemail leggings are on the floor.~
 copper~
 armor GK AF
-ABC ABC ABC 0 0
+7 7 7 0 0
 20 30 200 P
 A
 14 5
@@ -1166,7 +1161,7 @@ red scalemail gauntlets~
 A pair of red scalemail gauntlets are on the floor.~
 copper~
 armor GK AH
-ABC ABC ABC 0 0
+7 7 7 0 0
 20 30 200 P
 A
 21 -1
@@ -1176,7 +1171,7 @@ red scalemail boots~
 Some red scalemail boots are on the floor.~
 copper~
 armor GK AG
-ABC ABC ABC 0 0
+7 7 7 0 0
 20 30 200 P
 A
 13 2
@@ -1188,7 +1183,7 @@ the red sergeant's cloak~
 a red sergeant's cloak lies on the floor.~
 copper~
 armor GK AC
-ABC ABC ABC 0 0
+7 7 7 0 0
 20 30 200 P
 A
 22 -1
@@ -1198,7 +1193,7 @@ the red scalemail girth~
 A red scalemail girth is on the floor.~
 copper~
 armor GK AL
-ABC ABC ABC 0 0
+7 7 7 0 0
 20 30 200 P
 #10233
 shield large red~
@@ -1206,7 +1201,7 @@ the large red shield~
 A large, red shield is on the floor.~
 copper~
 armor GK AJ
-ABC ABC ABC 0 0
+7 7 7 0 0
 20 30 200 P
 A
 17 1
@@ -1216,7 +1211,7 @@ a red bracer~
 You see a red bracer here.~
 copper~
 armor 0 BM
-ABC ABC ABC 0 0
+7 7 7 0 0
 20 9 200 P
 A
 12 1
@@ -1246,7 +1241,7 @@ black platemail~
 A suit of black platemail is sitting on the floor.~
 copper~
 armor G AD
-BC BC BC 0 0
+6 6 6 0 0
 15 10 150 P
 A
 24 -1
@@ -1290,7 +1285,7 @@ chamorro ringmail~
 A bunch of rings sewn together with taotamoa bark is on the ground.~
 copper~
 armor G AN
-AC AC AC 0 0
+5 5 5 0 0
 10 6 100 P
 A
 12 15
@@ -1378,7 +1373,7 @@ enchanted two-handed sword~
 A large two-handed sword with runes etched in it is on the floor.~
 copper~
 armor G AN
-BC BC BC 0 0
+6 6 6 0 0
 16 30 160 P
 A
 18 4
@@ -1484,7 +1479,7 @@ the charm of Solace~
 A shiny black charm with a gold symbol is here.~
 copper~
 armor 0 AC
-AC AC AC 0 0
+5 5 5 0 0
 10 15 100 P
 #10264
 ring solace~
@@ -1492,7 +1487,7 @@ the ring of Solace~
 A shiny black ring with a gold symbol is here.~
 copper~
 armor 0 AB
-AC AC AC 0 0
+5 5 5 0 0
 10 5 100 P
 #10265
 earrings solace~
@@ -1500,7 +1495,7 @@ the earrings of Solace~
 A pair of shiny black earrings with a gold symbols is here.~
 copper~
 armor 0 AE
-AC AC AC 0 0
+5 5 5 0 0
 10 4 100 P
 #10266
 frozen pizza crust~
@@ -1508,7 +1503,7 @@ a frozen pizza crust~
 A large, frozen pizza crust is on the ground melting.~
 copper~
 armor 0 AJ
-AC AC AC 0 0
+5 5 5 0 0
 10 15 100 P
 #10267
 frozen pumpkin~
@@ -1516,7 +1511,7 @@ a frozen pumpkin~
 A large, frozen pumpkin is on the ground melting.~
 copper~
 armor 0 AE
-AC AC AC 0 0
+5 5 5 0 0
 10 15 100 P
 #10268
 frozen side beef~
@@ -1524,7 +1519,7 @@ a frozen side of beef~
 A large, frozen side of beef is on the ground melting.~
 copper~
 armor 0 AD
-AC AC AC 0 0
+5 5 5 0 0
 10 23 100 P
 #10269
 frozen asparagus spear~
@@ -1532,7 +1527,7 @@ a frozen asparagus spear~
 A frozen asparagus spear is on the ground melting.~
 copper~
 weapon 0 AN
-staff 3 5 none 0
+spear 3 5 none 0
 10 15 100 P
 A
 18 1
@@ -1582,7 +1577,7 @@ scuba flippers~
 A pair of flippers are here.~
 copper~
 armor G AG
-AC AC AC 0 0
+5 5 5 0 0
 10 7 100 P
 A
 2 2
@@ -1592,7 +1587,7 @@ scuba snorkle~
 A scuba snorkle is on the ground.~
 copper~
 armor 0 AE
-AC AC AC 0 0
+5 5 5 0 0
 10 2 100 P
 #10278
 dive belt~
@@ -1600,7 +1595,7 @@ dive belt~
 A scuba dive belt is on the ground drying out.~
 copper~
 armor 0 AL
-AC AC AC 0 0
+5 5 5 0 0
 10 50 100 P
 #10279
 belt pouch~
@@ -1632,7 +1627,7 @@ travellers robe~
 A pile of cloth is on the ground here.~
 copper~
 armor 0 AK
-AC AC AC 0 0
+5 5 5 0 0
 14 15 140 P
 #10283
 travellers dagger~
@@ -1664,7 +1659,7 @@ a travellers vest~
 You see a travellers vest here.~
 copper~
 armor 0 AD
-AC AC AC 0 0
+5 5 5 0 0
 12 5 120 P
 #10287
 travellers cloak~
@@ -1672,7 +1667,7 @@ a travellers cloak~
 You see a travellers cloak here.~
 copper~
 armor 0 AC
-AC AC AC 0 0
+5 5 5 0 0
 12 5 120 P
 #10288
 travellers sword~
@@ -1688,7 +1683,7 @@ a travellers scalemail~
 You see a travellers scalemail here.~
 copper~
 armor 0 AD
-BC BC BC 0 0
+6 6 6 0 0
 16 5 160 P
 #10290
 travellers shield~
@@ -1696,7 +1691,7 @@ a travellers shield~
 You see a travellers shield here.~
 copper~
 armor 0 BJ
-BC BC BC 0 0
+6 6 6 0 0
 16 5 160 P
 #10291
 travellers hammer~
@@ -1720,7 +1715,7 @@ robe of the magi~
 A pile of cloth is on the ground. The cloth is covered with arcane symbols.~
 copper~
 armor G AK
-BC BC BC 0 0
+6 6 6 0 0
 19 10 190 P
 A
 12 50
@@ -1732,7 +1727,7 @@ crystal plate armor~
 A finely crafted suit of crystal plate armor is here.~
 copper~
 armor FG AD
-BC BC BC 0 0
+6 6 6 0 0
 18 60 180 P
 A
 1 1
@@ -1746,7 +1741,7 @@ Scythe of the Grim Reaper~
 A huge bloody scythe is here floating above the ground~
 copper~
 armor AGJ AN
-AB AB AB 0 0
+3 3 3 0 0
 0 50 0 P
 A
 18 80
@@ -1760,7 +1755,7 @@ crystal shield~
 A finely crafted crystal shield is here.~
 copper~
 armor FG AJ
-BC BC BC 0 0
+6 6 6 0 0
 18 20 180 P
 A
 13 10
@@ -1770,7 +1765,7 @@ crystal longsword~
 A finely crafted crystal longsword is here.~
 copper~
 armor FG AN
-BC BC BC A 0
+6 6 6 1 0
 18 15 180 P
 A
 13 10
@@ -1782,7 +1777,7 @@ a suit of obsidian plate armor~
 A suit of obsiadian plate armor is here on the ground.~
 copper~
 armor GK AD
-AD AD AD 0 0
+9 9 9 0 0
 30 40 300 P
 A
 13 20
@@ -1794,7 +1789,7 @@ a suit of steel plate armor~
 A suit of steel plate armor is here on the ground.~
 copper~
 armor GK AD
-D D D 0 0
+8 8 8 0 0
 27 37 270 P
 A
 13 15
@@ -1806,7 +1801,7 @@ a suit of red plate armor~
 A suit of red plate armor is here on the ground.~
 copper~
 armor GK AD
-ABC ABC ABC 0 0
+7 7 7 0 0
 20 33 200 P
 A
 13 10
@@ -1818,7 +1813,7 @@ enchanted bow~
 A bow with runes etched in it is on the floor.~
 copper~
 armor G AN
-BC BC BC 0 0
+6 6 6 0 0
 15 7 150 P
 A
 18 2
@@ -1840,7 +1835,7 @@ a lot of gold coins~
 A lot of gold is here.~
 copper~
 money 0 A
-CDH 0 0 0 0
+140 0 0 0 0
 14 0 140 P
 #10304
 fountain water~
@@ -1906,7 +1901,7 @@ There is a sign nailed to a nearby tree.
 There is a plaque embedded in the road.
 There is a Gate to the south.
 ~
-0 0 1
+0 0 city
 E
 sign~
 **WELCOME TO SOLACE**
@@ -1956,7 +1951,7 @@ Main Road~
 This is the main road in Solace. Down the street you can see various
 shops and houses.
 ~
-0 0 1
+0 0 city
 D0
 You see the main road of Solace.
 ~
@@ -1983,7 +1978,7 @@ Main Road~
 This is the main road in Solace. Down the street you can see various
 shops and houses.
 ~
-0 0 1
+0 0 city
 D0
 You see the main road of Solace.
 ~
@@ -2005,7 +2000,7 @@ Main Road~
 This is the main road in Solace. Down the street you can see various
 shops and houses.
 ~
-0 0 1
+0 0 city
 D0
 You see the main road of Solace.
 ~
@@ -2023,7 +2018,7 @@ Here there is an intersection at the main road.
 You see to the east and west, smaller houses and some more shops.
 To the road continues to the north.
 ~
-0 0 1
+0 0 city
 D0
 You see the main road of Solace.
 ~
@@ -2050,7 +2045,7 @@ East Gullen Way~
 This is the road called East Gullen Way. It is lined with small houses and
 shops.
 ~
-0 0 1
+0 0 city
 D1
 You see East Gullen Way.
 ~
@@ -2072,7 +2067,7 @@ East Gullen Way~
 This is the road called East Gullen Way. It is lined with small houses and
 shops.
 ~
-0 0 1
+0 0 city
 D1
 You see East Gullen Way.
 ~
@@ -2094,7 +2089,7 @@ East Gullen Way~
 This is the road called East Gullen Way. It is lined with small houses and
 shops.
 ~
-0 0 1
+0 0 city
 D1
 You see the Corner Of East Gullen and Ketra Road.
 ~
@@ -2113,7 +2108,7 @@ Everything is amazingly clean here.
 But this doesn't look like the wealthier part of town.
 This whole town seems to be one big trading post.
 ~
-0 0 1
+0 0 city
 D2
 You see Ketra Road.
 ~
@@ -2131,7 +2126,7 @@ It is one of the sidestreets of Solace. But even here there are shops.
 Most of it is run down houses and shacks.
 Even though this looks like the poorer part of town, it is amazingly clean.
 ~
-0 0 1
+0 0 city
 D0
 You see The corner of East Gullen and Ketra.
 ~
@@ -2149,7 +2144,7 @@ It is one of the sidestreets of Solace. But even here there are shops.
 Most of it is run down houses and shacks.
 Even though this looks like the poorer part of town, it is amazingly clean.
 ~
-0 0 1
+0 0 city
 D0
 You see Ketra Road.
 ~
@@ -2172,7 +2167,7 @@ It is one of the sidestreets of Solace. But even here there are shops.
 Most of it is run down houses and shacks.
 Even though this looks like the poorer part of town, it is amazingly clean.
 ~
-0 0 1
+0 0 city
 D0
 You see Ketra Road.
 ~
@@ -2196,7 +2191,7 @@ It is used as a watch station and coffee break area for the town guards.
 There are some stairs in the corner leading up to the watchtower.
 There is a sign above the stairway.
 ~
-0 D 1
+0 D city
 E
 sign~
 ** WARNING **
@@ -2228,7 +2223,7 @@ S
 Small Alleyway.~
 You are walking down a small alleyway along the north wall of the town.
 ~
-0 0 1
+0 0 city
 D1
 You see the Southeast Guardpost.
 ~
@@ -2244,7 +2239,7 @@ S
 Small Alleyway.~
 You are walking down a small alleyway along the north wall of the town.
 ~
-0 0 1
+0 0 city
 D0
 You see a poolhall.
 ~
@@ -2265,7 +2260,7 @@ S
 Small Alleyway.~
 You are walking down a small alleyway along the north wall of the town.
 ~
-0 0 1
+0 0 city
 D1
 You see a small alleyway.
 ~
@@ -2281,7 +2276,7 @@ S
 Small Alleyway.~
 You are walking down a small alleyway along the north wall of the town.
 ~
-0 0 1
+0 0 city
 D1
 You see the gateway to the town. 
 ~
@@ -2297,7 +2292,7 @@ S
 Small Alleyway.~
 You are walking down a small alleyway along the north wall of the town.
 ~
-0 0 1
+0 0 city
 D0
 You see an old boarded up building. 
 ~
@@ -2318,7 +2313,7 @@ S
 Small Alleyway.~
 You are walking down a small alleyway along the north wall of the town.
 ~
-0 0 1
+0 0 city
 D1
 You see a small alleyway. 
 ~
@@ -2337,7 +2332,7 @@ It is used as a watch station and coffee break area for the town guards.
 There are some stairs in the corner leading up to the watchtower.
 There is a sign above the stairway.
 ~
-0 D 1
+0 D city
 E
 sign~
 ** WARNING **
@@ -2371,7 +2366,7 @@ You are walking down Harvest Road.
 It is quiet and peacefull here. The smell of baked goods and other foods
 fill the air.
 ~
-0 0 1
+0 0 city
 D0
 You see Harvest Road. 
 ~
@@ -2394,7 +2389,7 @@ You are walking down Harvest Road.
 It is quiet and peacefull here. The smell of baked goods and other foods
 fill the air.
 ~
-0 0 1
+0 0 city
 D0
 You see Harvest Road. 
 ~
@@ -2417,7 +2412,7 @@ You are walking down Harvest Road.
 It is quiet and peacefull here. The smell of baked goods and other foods
 fill the air.
 ~
-0 0 1
+0 0 city
 D0
 You see the corner of West Gullen Way and Harvest Road. 
 ~
@@ -2435,7 +2430,7 @@ This is the corner of West Gullen and Harvest road.
 To the south you can smell baked goods and other food.
 To the east are various small shops and houses.
 ~
-0 0 1
+0 0 city
 D1
 You see West Gullen Way. 
 ~
@@ -2452,7 +2447,7 @@ West Gullen Way~
 This is the road called West Gullen Way. It is lined with small houses and
 shops.
 ~
-0 0 1
+0 0 city
 D1
 You see West Gullen Way.
 ~
@@ -2474,7 +2469,7 @@ West Gullen Way~
 This is the road called West Gullen Way. It is lined with small houses and
 shops.
 ~
-0 0 1
+0 0 city
 D1
 You see West Gullen Way.
 ~
@@ -2496,7 +2491,7 @@ West Gullen Way~
 This is the road called West Gullen Way. It is lined with small houses and
 shops.
 ~
-0 0 1
+0 0 city
 D1
 You see the intersection of West Gullen and the main road.
 ~
@@ -2518,7 +2513,7 @@ Main Road~
 This is the main road in Solace. Down the street you can see various
 shops and houses.
 ~
-0 0 1
+0 0 city
 D0
 You see the end of the main road.
 ~
@@ -2538,7 +2533,7 @@ To the west is the marketplace, where farmers go to sell thier harvests.
 Farther north you see a large building.
 To the East is the Townguard Administration Building.
 ~
-0 0 1
+0 0 city
 D0
 You see a cobblestone path. 
 ~
@@ -2567,7 +2562,7 @@ crops. The smell of vegetables and fruit fill the air. There are a couple
 other vendors selling trinkets and other items.
 There is a sign at the entrance to the market.
 ~
-0 0 1
+0 0 city
 E
 sign~
 **NOTICE**
@@ -2605,7 +2600,7 @@ This is the Marketplace of Solace. Where the farmers come to sell their
 crops. The smell of vegetables and fruit fill the air. There are a couple
 other vendors selling trinkets and other items.
 ~
-0 0 1
+0 0 city
 D0
 You see Lexie's Scuba Shop.
 ~
@@ -2633,7 +2628,7 @@ This is the Marketplace of Solace. Where the farmers come to sell their
 crops. The smell of vegetables and fruit fill the air. There are a couple
 other vendors selling trinkets and other items.
 ~
-0 0 1
+0 0 city
 D0
 You see Rashan's Rutabagas Restaurant.
 ~
@@ -2663,7 +2658,7 @@ other vendors selling trinkets and other items.
 These are the last stalls in the marketplace. Next to you stands the West wall
 of the town.
 ~
-0 0 1
+0 0 city
 D0
 You see Molin's Mulburry Extract Distillery.
 ~
@@ -2687,7 +2682,7 @@ cart stands here filled with all sorts of vegetables. All his vegtables are
 unusually large. What kind of plant food does he use anyway...?
 There is a small sign nailed to the cart.
 ~
-0 D 1
+0 D city
 E
 sign~
 The sign reads:
@@ -2711,7 +2706,7 @@ orchards in the mountains to Solace to sell her fruit. Everything seems
 to have an unusually small size. I wonder if she shrinks heads too...
 There is a small sign hanging above the fruit stand.
 ~
-0 D 1
+0 D city
 E
 sign~
 The sign reads:
@@ -2735,7 +2730,7 @@ here in the market. You wouldn't want to leave Solace without a souvenir
 would you?
 there is a sign behind the glass case.
 ~
-0 D 1
+0 D city
 E
 sign~
 The sign reads:
@@ -2760,7 +2755,7 @@ fact they are hard enough to stop an axe swing...go figure..
 And just how does she keep them from melting... 
 There is a small sign on the wall in the back of the shop.
 ~
-0 D 1
+0 D city
 E
 sign~
 The sign reads:
@@ -2784,7 +2779,7 @@ valley to quech the thirst of even the thirstiest traveller. What else it does
 is just rumor. That person recovered in a month anyway...
 There is a small sign on the wall.
 ~
-0 D 1
+0 D city
 E
 sign~
 The sign reads:
@@ -2809,7 +2804,7 @@ very very empty. I'm sure Rashan would be more than willing to sell
 you one. Business obviously has been very slow....
 There is a small sign hanging next to you.
 ~
-0 D 1
+0 D city
 E
 sign~
 The sign reads:
@@ -2837,7 +2832,7 @@ a scuba shop considering the sea is miles away. But I guess you could
 always go diving in the lake. But why?....
 There is a small sign here.
 ~
-0 D 1
+0 D city
 E
 sign~
 The sign reads:
@@ -2862,7 +2857,7 @@ What...you think he has nothing better to do than fill each container
 just to see how much it holds? Get a life....
 There is a small sign here.
 ~
-0 D 1
+0 D city
 E
 sign~
 The sign reads:
@@ -2886,7 +2881,7 @@ brewery. "You can never drink enough" is Matt's logo and offers plenty
 to drink.
 There is a small sign here.
 ~
-0 D 1
+0 D city
 E
 sign~
 The sign reads:
@@ -2908,7 +2903,7 @@ a House.~
 This is a small house off of West Gullen Way. It is not your house and you
 were not invited. Why are you here?
 ~
-0 D 1
+0 D city
 D0
 You see West Gullen Way.
 ~
@@ -2921,7 +2916,7 @@ This is a small house off of West Gullen Way. It is sparsely furnished and
 very tidy. a small fire burns warmly in the fireplace. The sweet smell of 
 flowers is present. Ahhh....what a nice home.
 ~
-0 D 1
+0 D city
 D0
 You see West Gullen Way.
 ~
@@ -2934,7 +2929,7 @@ This is the cookie shop of who else...Cookie. She's not in right now
 but there are many delicious cookies to munch on if you want to wait till
 she returns.
 ~
-0 D 1
+0 D city
 D1
 You see the Main road of Solace.
 ~
@@ -2952,7 +2947,7 @@ This is a small house off of the main street. It is well furnished and
 very tidy. a small fire burns warmly in the fireplace. The sweet smell of 
 flowers is present. Ahhh....what a nice home.
 ~
-0 D 1
+0 D city
 D1
 You see the Main road of Solace.
 ~
@@ -2965,7 +2960,7 @@ This used to be a very popular and busy gambling parlor. But the Captain
 of the Guard lost big here once and thereafter declared gambling illegal.
 It has been closed for many years. It is dusty and full of cobwebs.
 ~
-0 D 1
+0 D city
 D2
 You see a small alleyway.
 ~
@@ -2980,7 +2975,7 @@ in fine order on the McShelves, and seem to be of the finest McQuality. You
 remember seeing a place like this somewhere before. Maybe its a McChain?
 A small McSign is on the McCounter.
 ~
-0 D 1
+0 D city
 E
 sign~
 Free instructions provided by the store:
@@ -3001,7 +2996,7 @@ This is a small house off of the main street. It is well furnished and
 very tidy. a small fire burns warmly in the fireplace. The sweet smell of 
 flowers is present. Ahhh....what a nice home.
 ~
-0 D 1
+0 D city
 D3
 You see Harvest road.
 ~
@@ -3013,7 +3008,7 @@ Cookie's Relaxing Room.~
 This is where Cookie comes to unwind. She comes here sometimes to just
 munch on cookies and talk to her friends.
 ~
-0 D 1
+0 D city
 D1
 You see the front of the store.
 ~
@@ -3025,7 +3020,7 @@ a House.~
 This is a small house off of West Gullen Way. It is not your house and you
 were not invited. Why are you here?
 ~
-0 D 1
+0 D city
 D0
 You see East Gullen Way.
 ~
@@ -3037,7 +3032,7 @@ The Marilyn's Bird Factory.~
 This is Marilyn's Bird Factory. There are a wide variety of birds here.
 Buy a pet. Take it home. A loving companion to keep you company.
 ~
-0 DM 1
+0 DM city
 D0
 You see East Gullen Way.
 ~
@@ -3049,7 +3044,7 @@ Pet Storage~
 This is where Marilyn keeps her birds. It is important that this room be
 right after the bird factory.
 ~
-0 CD 1
+0 CD city
 S
 #10254
 Storage Building~
@@ -3058,7 +3053,7 @@ amounts of surplus equipment for the market and various vendors. Sales
 have been good lately and all surplus has been sold. It seems supply has
 yet to catch up to demand.
 ~
-0 D 1
+0 D city
 D1
 You see Ketra Road.
 ~
@@ -3074,7 +3069,7 @@ and shattered glasses. Tables and chairs are scattered all over the floor.
 There is a sign on the wall.
 There is a door to Ketra Road to the east.
 ~
-0 D 1
+0 D city
 E
 sign~
 Welcome to Jander's!
@@ -3105,7 +3100,7 @@ broken in half and lie in a heap on the floor.
 There is a sign on the door to Jander's office.
 A backdoor to the alley is to the south.
 ~
-0 D 1
+0 D city
 E
 sign~
 *Jander's Office*
@@ -3145,7 +3140,7 @@ everything. It looks as if nobody has tread here in years.
 The poolhall and bar are to the east.
 A door to the main road is to the west.
 ~
-0 D 1
+0 D city
 D1
 You see the poolhall.
 ~
@@ -3166,7 +3161,7 @@ ceiling. The air smells of brimstone and makes your lungs burn with
 every breath. 
 There is a sign floating in front of you.
 ~
-0 CD 1
+0 CD city
 E
 sign~
 Please sit and wait.
@@ -3187,7 +3182,7 @@ office was not likely to leave. Jander was rarely if ever seen. He mostly
 stayed in his office and did office stuff. He was never in a good mood.
 The office door is to the south.
 ~
-0 D 1
+0 D city
 D2
 You see the poolhall.
 ~
@@ -3203,7 +3198,7 @@ Well actually the Southwest watchtower is blocking some of your view.
 You are however not suppose to be up here. If the guards catch you up
 here you are likely to be in BIG trouble...
 ~
-0 D 1
+0 D city
 D5
 You see stairs leading down to the guardpost. 
 ~
@@ -3218,7 +3213,7 @@ There is a beautiful view of Crystalmir lake.
 You are however not suppose to be up here. If the guards catch you up
 here you are likely to be in BIG trouble...
 ~
-0 D 1
+0 D city
 D5
 You see stairs leading down to the guardpost. 
 ~
@@ -3230,7 +3225,7 @@ Dusty road.~
 This dusty road looks well traveled. To the East you see the Townguard
 Administration Building.
 ~
-0 0 1
+0 0 city
 D1
 You see the Townguard Administration Building. 
 ~
@@ -3248,7 +3243,7 @@ Before you stands the Townguard Administration Building. This is a large
 building with various statues and other artwork decorating the building.
 There is a door the east.
 ~
-0 0 1
+0 0 city
 D1
 You see entrance hall. 
 ~
@@ -3269,7 +3264,7 @@ of Solace lies embedded in the center of the floor.
 A pair of heavy double doors lies to the east.
 The entrance door is to the west.
 ~
-0 D 1
+0 D city
 D1
 You see a pair of heavy double doors. 
 ~
@@ -3292,7 +3287,7 @@ This corridor is also decorated with paintings and sculptures. Marble
 columns line the walls. Crystal chandeliers hang from the ceiling.
 A door to the Town Clerk's office is to the west.
 ~
-0 D 1
+0 D city
 D0
 You see the entrance hallway. 
 ~
@@ -3318,7 +3313,7 @@ behind the clerk's desk.
 The hallway is to the east.
 A heavy metal depository door is to the west.
 ~
-0 D 1
+0 D city
 D1
 You see a marble corridor. 
 ~
@@ -3337,7 +3332,7 @@ here by the clerk. The walls are made of white marble and have gold deposit
 boxes set into them.
 The safe door is to the east.
 ~
-0 D 1
+0 D city
 D1
 You see Town Clerks Office. 
 ~
@@ -3350,7 +3345,7 @@ This corridor is also decorated with paintings and sculptures. Marble
 columns line the walls. Crystal chandeliers hang from the ceiling.
 A pair of heavy double doors lie to the north.
 ~
-0 D 1
+0 D city
 D0
 You see a pair of heavy double doors. 
 ~
@@ -3373,7 +3368,7 @@ There is a very large water fountain here. Large marble lion heads spout
 water from their mouths and stone fish spit water from the base of the
 fountain.
 ~
-0 D 1
+0 D city
 D3
 You see marble corridor. 
 ~
@@ -3387,7 +3382,7 @@ stainglass skylight above. Large double doors close off each hallway.
 The doors are made of oak and encrusted with gold patterns.
 A pair of double doors are in each direction.
 ~
-0 D 1
+0 D city
 D0
 You see a pair of double doors. 
 ~
@@ -3415,7 +3410,7 @@ This is the end of a long and lavish hallway. exquisite paintings and
 statues line the walls. The ceilings are covered with colorful mosaics.
 A pair of double doors lie to the west.
 ~
-0 D 1
+0 D city
 D1
 You see a long hallway. 
 ~
@@ -3432,7 +3427,7 @@ Cobblestone Path~
 You are walking on a cobblestone path. It leads to a large building to the
 north.
 ~
-0 0 1
+0 0 city
 D0
 You see a large building ahead. 
 ~
@@ -3453,7 +3448,7 @@ But who knows how long you'll have to wait...
 The door to the Sergeant's office is to the north.
 The door to the hallway is on the east wall.
 ~
-0 D 1
+0 D city
 D0
 You see an Iron bound door. 
 ~
@@ -3473,7 +3468,7 @@ gold laden floors. This doesn't look like an admistration building,
 more like a palace.
 The Sergeant's waiting room is to the west.
 ~
-0 D 1
+0 D city
 D0
 You see a hallway. 
 ~
@@ -3498,7 +3493,7 @@ gold laden floors. This doesn't look like an admistration building,
 more like a palace.
 There is an oak door to the north.
 ~
-0 D 1
+0 D city
 D0
 You see an oak door. 
 ~
@@ -3523,7 +3518,7 @@ gold laden floors. This doesn't look like an admistration building,
 more like a palace.
 A pair of double doors are south of you.
 ~
-0 D 1
+0 D city
 D0
 You see a hallway. 
 ~
@@ -3547,7 +3542,7 @@ on and on. The marble floors are barren of any type of decorations.
 The walls are rough stone bound by large wooden beams. This is maybe
 the only hallway that doesn't have large amounts of gold and other artifacts.
 ~
-0 D 1
+0 D city
 D0
 You see a long hallway. 
 ~
@@ -3565,7 +3560,7 @@ You are standing in the West end of a very large room. It is where
 adventurers rest their weary feet if they don't have enough gold to
 pay for a private room. The room continues to the East.
 ~
-0 D 1
+0 D city
 D1
 You see more of a very large room. 
 ~
@@ -3579,7 +3574,7 @@ adventurers rest their weary feet if they don't have enough gold to
 pay for a private room. The room continues to the west.
 A door to the hallway is to the north.
 ~
-0 D 1
+0 D city
 D0
 You see a large hallway. 
 ~
@@ -3596,7 +3591,7 @@ West end of Bar.~
 You are standing of the west end of the bar. This is a darker corner where
 less seems to occur. Maybe a beer and a nap would be nice.
 ~
-0 D 1
+0 D city
 D1
 You see main bar. 
 ~
@@ -3611,7 +3606,7 @@ delights the crowd gathered about him. The delicate windows of stained
 glass behind the bar are being polished by Otik Sandath, the barkeeper.
 The carved door to the Inn is to the east.
 ~
-0 D 1
+0 D city
 D0
 You see north end of the bar. 
 ~
@@ -3639,7 +3634,7 @@ The Inn of the Last Home rests within the trunk of a huge vallenwood tree.
 Warm laughter tumbles from the inn. The worn steps wind around the heavy
 trunk up to the familiar, carved door.
 ~
-0 D 1
+0 D city
 D0
 You see trees
 ~
@@ -3663,7 +3658,7 @@ complaints. His office is richly decorated with ornamental weapons and
 pictures of war. A large desk sits in the middle of the room.
 You see an Iron bound door to the south.
 ~
-0 D 1
+0 D city
 D2
 You see an Iron bound door. 
 ~
@@ -3677,7 +3672,7 @@ Gem mosaics cover the walls, and intricate patterns are carved in the
 gold laden floors. This doesn't look like an admistration building,
 more like a palace.
 ~
-0 D 1
+0 D city
 D0
 You see a hallway. 
 ~
@@ -3695,7 +3690,7 @@ There are many barrels and chests of food in here. All of it looks spoiled.
 This is where the town guards hang out when not on duty.
 You see an oak door to the south.
 ~
-0 D 1
+0 D city
 D2
 You see an oak door. 
 ~
@@ -3709,7 +3704,7 @@ Gem mosaics cover the walls, and intricate patterns are carved in the
 gold laden floors. This doesn't look like an admistration building,
 more like a palace.
 ~
-0 D 1
+0 D city
 D0
 You see a hallway. 
 ~
@@ -3728,7 +3723,7 @@ on and on. The marble floors are barren of any type of decorations.
 The walls are rough stone bound by large wooden beams. This is maybe
 the only hallway that doesn't have large amounts of gold and other artifacts.
 ~
-0 D 1
+0 D city
 D0
 You see a long hallway. 
 ~
@@ -3744,7 +3739,7 @@ S
 Hallway~
 You are standing in an old vallenwood hallway.
 ~
-0 D 1
+0 D city
 D0
 You see a hallway. 
 ~
@@ -3762,7 +3757,7 @@ You are standing in an old vallenwood hallway. Laughter and the murmur
 of conversation comes from the south.
 The door to the common room lies to the south.
 ~
-0 D 1
+0 D city
 D1
 You see a hallway. 
 ~
@@ -3784,7 +3779,7 @@ Second Floor of the Inn.~
 You are at the top of a wooden staircase. Downstairs is the bar.
 To the west you can hear laughter and the low murmur of voices.
 ~
-0 D 1
+0 D city
 D3
 You see a hallway.
 ~
@@ -3804,7 +3799,7 @@ the few patrons present are lost in their own thoughts. No one
 smiles, nor does anyone seem interested in the arrival of a few
 more customers. 
 ~
-0 D 1
+0 D city
 D2
 You see main bar.
 ~
@@ -3820,7 +3815,7 @@ portrait of himself on the wall behind his desk.
 A pair of heavy metal doors with the emblem of the townguard
 is on the north wall.
 ~
-0 D 1
+0 D city
 D0
 You see a set of Heavy Metal Doors with the emblem of the townguard.
 ~
@@ -3839,7 +3834,7 @@ Gem mosaics cover the walls, and intricate patterns are carved in the
 gold laden floors. This doesn't look like an admistration building,
 more like a palace.
 ~
-0 D 1
+0 D city
 D0
 You see a hallway.
 ~
@@ -3858,7 +3853,7 @@ Gem mosaics cover the walls, and intricate patterns are carved in the
 gold laden floors. This doesn't look like an admistration building,
 more like a palace.
 ~
-0 D 1
+0 D city
 D1
 You see a reception area.
 ~
@@ -3883,7 +3878,7 @@ finger paintings. Various crayon drawings are framed behind the
 secretary 's desk.
 A glass door with the townguard emblem is to the north.
 ~
-0 D 1
+0 D city
 D0
 You see a glass door with the townguard emblem.
 ~
@@ -3902,7 +3897,7 @@ Gem mosaics cover the walls, and intricate patterns are carved in the
 gold laden floors. This doesn't look like an admistration building,
 more like a palace.
 ~
-0 D 1
+0 D city
 D0
 You see a hallway.
 ~
@@ -3921,7 +3916,7 @@ on and on. The marble floors are barren of any type of decorations.
 The walls are rough stone bound by large wooden beams. This is maybe
 the only hallway that doesn't have large amounts of gold and other artifacts.
 ~
-0 D 1
+0 D city
 D0
 You see a hallway.
 ~
@@ -3937,7 +3932,7 @@ S
 Hallway~
 You are standing in an old vallenwood hallway.
 ~
-0 D 1
+0 D city
 D0
 You see reading room.
 ~
@@ -3956,7 +3951,7 @@ of staying in the common room. It is well furnished with a large bed and
 other bedroom stuff.
 There is a door to the north.
 ~
-0 D 1
+0 D city
 D0
 You see a door.
 ~
@@ -3970,7 +3965,7 @@ of staying in the common room. It is well furnished with a large bed and
 other bedroom stuff.
 There is a door to the north.
 ~
-0 D 1
+0 D city
 D0
 You see a door.
 ~
@@ -3984,7 +3979,7 @@ of staying in the common room. It is well furnished with a large bed and
 other bedroom stuff.
 There is a door to the north.
 ~
-0 D 1
+0 D city
 D0
 You see a door.
 ~
@@ -4000,7 +3995,7 @@ There is a pair of glass double doors to the north.
 There is a pair of heavy metal doors with the emblem of the 
 townguard to the south.
 ~
-0 D 1
+0 D city
 D0
 You see Glass Double Doors.
 ~
@@ -4019,7 +4014,7 @@ Gem mosaics cover the walls, and intricate patterns are carved in the
 gold laden floors. This doesn't look like an admistration building,
 more like a palace.
 ~
-0 D 1
+0 D city
 D0
 You see a hallway.
 ~
@@ -4037,7 +4032,7 @@ There are many barrels and chests of food in here. All of it looks spoiled.
 This is where the town guards hang out when not on duty.
 There is an oak door to the north.
 ~
-0 D 1
+0 D city
 D0
 You see a oak door.
 ~
@@ -4052,7 +4047,7 @@ The furniture is more fitting to a 7 year old than that of a commander.
 Small plastic furniture and plastic flowers adorn the office.
 You see a glass door with the townguard emblem to the south.
 ~
-0 D 1
+0 D city
 D2
 You see a glass door.
 ~
@@ -4066,7 +4061,7 @@ Gem mosaics cover the walls, and intricate patterns are carved in the
 gold laden floors. This doesn't look like an admistration building,
 more like a palace.
 ~
-0 D 1
+0 D city
 D0
 You see a hallway.
 ~
@@ -4085,7 +4080,7 @@ on and on. The marble floors are barren of any type of decorations.
 The walls are rough stone bound by large wooden beams. This is maybe
 the only hallway that doesn't have large amounts of gold and other artifacts.
 ~
-0 D 1
+0 D city
 D0
 You see the end of a long hallway.
 ~
@@ -4104,7 +4099,7 @@ the afternoon sun shines through the large picture window. Many books
 line the walls. All look pretty boring and seem to be more for show than
 for reading.
 ~
-0 D 1
+0 D city
 D1
 You see a hallway.
 ~
@@ -4122,7 +4117,7 @@ You are standing in an old vallenwood hallway.
 This corridor is lined with the more expensive private rooms.
 There is a door to the south.
 ~
-0 D 1
+0 D city
 D1
 You see a hallway.
 ~
@@ -4145,7 +4140,7 @@ You are standing in an old vallenwood hallway.
 This corridor is lined with the more expensive private rooms.
 There is a door to the south.
 ~
-0 D 1
+0 D city
 D1
 You see a hallway.
 ~
@@ -4168,7 +4163,7 @@ You are standing in an old vallenwood hallway.
 This corridor is lined with the more expensive private rooms.
 There is a door to the south.
 ~
-0 D 1
+0 D city
 D2
 You see a door.
 ~
@@ -4189,7 +4184,7 @@ it. The title Sultan would be more appropriate than Captain of the Guard.
 You see an oak door to the east.
 There are a pair of glass double doors to the south.
 ~
-0 D 1
+0 D city
 D1
 You see a oak door.
 ~
@@ -4209,7 +4204,7 @@ gold laden floors. This doesn't look like an admistration building,
 more like a palace.
 The Captain of the Guard's waiting room is to the west.
 ~
-0 D 1
+0 D city
 D1
 You see a hallway.
 ~
@@ -4234,7 +4229,7 @@ gold laden floors. This doesn't look like an admistration building,
 more like a palace.
 There is an oak door to the south.
 ~
-0 D 1
+0 D city
 D1
 You see a hallway.
 ~
@@ -4258,7 +4253,7 @@ Gem mosaics cover the walls, and intricate patterns are carved in the
 gold laden floors. This doesn't look like an admistration building,
 more like a palace.
 ~
-0 D 1
+0 D city
 D1
 You see a hallway.
 ~
@@ -4277,7 +4272,7 @@ Gem mosaics cover the walls, and intricate patterns are carved in the
 gold laden floors. This doesn't look like an admistration building,
 more like a palace.
 ~
-0 D 1
+0 D city
 D1
 You see the end of a long hallway.
 ~
@@ -4299,7 +4294,7 @@ End of Long Hall~
 This is the end of a long and lavish hallway. exquisite paintings and
 statues line the walls. The ceilings are covered with colorful mosaics.
 ~
-0 D 1
+0 D city
 D2
 You see a hallway.
 ~

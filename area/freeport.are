@@ -601,7 +601,7 @@ A suit of scale mail is here.
 ~
 iron~
 armor G AD
-ABC ABC ABC 0 0
+7 7 7 0 0
 20 20 200 P
 #29210
 trident~
@@ -671,7 +671,7 @@ A suit of emerald armor is here.
 ~
 stone~
 armor G AD
-ACD ACD ACD BD 0
+13 13 13 10 0
 46 40 2000 P
 A
 17 -30
@@ -695,7 +695,7 @@ A set of elven chainmail sleeves is here.
 ~
 mithril~
 armor G AI
-AC AC AC AC 0
+5 5 5 5 0
 10 4 100 P
 #29219
 leggings elven chainmail~
@@ -704,7 +704,7 @@ A pair of elven chainmail leggings is here.
 ~
 mithril~
 armor GQ AF
-AC AC AC AC 0
+5 5 5 5 0
 10 5 100 P
 #29220
 wine red~
@@ -758,7 +758,7 @@ An emerald wristguard is here.
 ~
 stone~
 armor G AM
-CD CD CD BC 0
+12 12 12 6 0
 46 10 3500 P
 A
 17 -20
@@ -780,7 +780,7 @@ An emerald helm is here.
 ~
 stone~
 armor G AE
-CD CD CD BC 0
+12 12 12 6 0
 46 15 1800 P
 A
 17 -10
@@ -800,7 +800,7 @@ A cape with the emblem of Freeport is here.
 ~
 cloth~
 armor GI ACD
-CD CD CD BC 0
+12 12 12 6 0
 45 10 3200 P
 A
 18 2
@@ -819,7 +819,7 @@ A ring with the seal of Freeport is here.
 ~
 gold~
 armor G AB
-CD CD CD BC 0
+12 12 12 6 0
 45 1 1800 P
 A
 14 100
@@ -834,7 +834,7 @@ A very heavy purse is here.
 ~
 leather~
 money 0 A
-FIJ 0 0 0 0
+800 0 0 0 0
 47 100 470 P
 #29232
 boots bladed~
@@ -843,7 +843,7 @@ A pair of boots with a spring action blade lie here.
 ~
 leather~
 armor 0 AG
-AE AE AE AD 0
+17 17 17 9 0
 52 5 3900 P
 A
 19 5
@@ -856,7 +856,7 @@ A hole in reality lies here.
 ~
 unknown~
 armor G AC
-ACD ACD ACD ACD 0
+13 13 13 13 0
 52 3 5000 P
 A
 1 1
@@ -891,7 +891,7 @@ You have reached the point of Freeport isle, a place locals
 call Dusk's edge. There is an ivory statue of a dolphin entering the 
 water from a great leap is here.
 ~
-0 0 5
+0 0 mountain
 E
 statue~
 The statue shows the Dolphin as it is entering the water. The inscription 
@@ -914,7 +914,7 @@ You walk along the rock jetty of the isle of Freeport. The waves crash and
 spray a salt mist into the air. Gulls wheel in the sky above you, having 
 flown from their perches upon seeing you.
 ~
-0 0 4
+0 0 hills
 D2
 On the rock jetty~
 ~
@@ -930,7 +930,7 @@ You walk along the rock jetty of the isle of Freeport. The waves crash and
 spray a salt mist into the air. Gulls wheel in the sky above you, having 
 flown from their perches upon seeing you.
 ~
-0 0 4
+0 0 hills
 D0
 On the rock jetty~
 ~
@@ -946,7 +946,7 @@ You walk along the rock jetty of the isle of Freeport. The waves crash and
 spray a salt mist into the air. Gulls wheel in the sky above you, having 
 flown from their perches upon seeing you.
 ~
-0 0 4
+0 0 hills
 D0
 On the rock jetty~
 ~
@@ -966,7 +966,7 @@ You are on the stone paved wharf road. To your south is a rock jetty upon
 which the waves crash. Traffic from the warehouse to the west travels to
 the wharf via wharf road.
 ~
-0 0 1
+0 0 city
 D0
 On the rock jetty~
 ~
@@ -982,7 +982,7 @@ You are on the wharf of Freeport, where ships dock and load. The docks
 are busy today as any day, for the commerce of the seas knows no holiday.
 To the north of you the harbor of Freeport stretches.
 ~
-0 0 2
+0 0 field
 D1
 On the wharf~
 ~
@@ -1002,7 +1002,7 @@ You are on the stone paved wharf road. To your south is a rock jetty upon
 which the waves crash. Traffic from the warehouse to the west travels to
 the wharf via wharf road.
 ~
-0 0 1
+0 0 city
 D0
 On the wharf~
 ~
@@ -1022,7 +1022,7 @@ You are on the wharf of Freeport, where ships dock and load. The docks
 are busy today as any day, for the commerce of the seas knows no holiday.
 To the north of you the harbor of Freeport stretches.
 ~
-0 0 2
+0 0 field
 D1
 On the wharf~
 ~
@@ -1042,7 +1042,7 @@ You are on the stone paved wharf road. To your south is a rock jetty upon
 which the waves crash. Traffic from the warehouse to the west travels to
 the wharf via wharf road.
 ~
-0 0 1
+0 0 city
 D0
 On the wharf~
 ~
@@ -1066,7 +1066,7 @@ You walk along the rock jetty of the isle of Freeport. The waves crash
 and spray a salt mist into the air. Gulls wheel in the sky above you, 
 having flown from their perches upon seeing you.
 ~
-0 0 4
+0 0 hills
 D0
 Wharf road~
 ~
@@ -1082,7 +1082,7 @@ You are on the wharf of Freeport, where ships dock and load. The docks
 are busy today as any day, for the commerce of the seas knows no holiday.
 To the north of you the harbor of Freeport stretches.
 ~
-0 0 2
+0 0 field
 D1
 On the wharf~
 ~
@@ -1098,7 +1098,7 @@ You are on the wharf of Freeport, where ships dock and load. The docks
 are busy today as any day, for the commerce of the seas knows no holiday.
 To the north of you the harbor of Freeport stretches.
 ~
-0 0 2
+0 0 field
 D0
 On the wharf~
 ~
@@ -1122,7 +1122,7 @@ You are on the stone paved wharf road. To your south is a rock jetty upon
 which the waves crash. Traffic from the warehouse to the west travels to
 the wharf via wharf road.
 ~
-0 0 1
+0 0 city
 D0
 On the wharf~
 ~
@@ -1146,7 +1146,7 @@ You walk along the rock jetty of the isle of Freeport. The waves crash
 and spray a salt mist into the air. Gulls wheel in the sky above you, 
 having flown from their perches upon seeing you.
 ~
-0 0 4
+0 0 hills
 D0
 Wharf road~
 ~
@@ -1166,7 +1166,7 @@ You have climbed the rocks of widows cape, and can see the violent southern
 shoals which have claimed many a ship. A watchfire is kept burning here at 
 night to warn sailors.
 ~
-0 0 5
+0 0 mountain
 D0
 On the rock jetty~
 ~
@@ -1177,7 +1177,7 @@ On the Wharf~
 You are on the wharf of Freeport, where ships dock and load. The docks 
 are busy today as any day, for the commerce of the seas knows no holiday.
 ~
-0 0 2
+0 0 field
 D1
 On the wharf~
 ~
@@ -1193,7 +1193,7 @@ You are on the wharf of Freeport, where ships dock and load. The docks
 are busy today as any day, for the commerce of the seas knows no holiday.
 To the north of you the harbor of Freeport stretches.
 ~
-0 0 2
+0 0 field
 D0
 On the wharf~
 ~
@@ -1217,7 +1217,7 @@ You are on the stone paved wharf road. Here you see a ship being hauled up
 to dry dock for repairs. Traffic from the warehouse to the west travels to
 the wharf via wharf road.
 ~
-0 0 1
+0 0 city
 D0
 On the wharf~
 ~
@@ -1241,7 +1241,7 @@ You are on the stone paved wharf road. To your south is a rock jetty upon
 which the waves crash. Traffic from the warehouse to the west travels to
 the wharf via wharf road.
 ~
-0 0 1
+0 0 city
 D0
 Wharf road~
 ~
@@ -1261,7 +1261,7 @@ You are on the wharf of Freeport, where ships dock and load. The docks
 are busy today as any day, for the commerce of the seas knows no holiday.
 To the north of you the harbor of Freeport stretches.
 ~
-0 0 2
+0 0 field
 D1
 On the rock jetty~
 ~
@@ -1277,7 +1277,7 @@ You are on the stone paved wharf road. Traffic from the warehouse to the
 west travels to the wharf via wharf road. To your immediate east is the
 shipyards, where you can hear the sounds of construction.
 ~
-0 0 1
+0 0 city
 D0
 On the wharf~
 ~
@@ -1301,7 +1301,7 @@ You are on the stone paved wharf road. Traffic from the warehouse to the
 west travels to the wharf via wharf road. To your immediate east you see
 the road to the city of Freeport.
 ~
-0 0 1
+0 0 city
 D0
 Wharf road~
 ~
@@ -1325,7 +1325,7 @@ You are on the stone paved wharf road. Traffic from the warehouse to the west tr
 the wharf via wharf road. Immediately to the east you see the mercantile
 warehouse, where crates of goods are in temporary storage for shipping.
 ~
-0 0 1
+0 0 city
 D0
 Wharf road~
 ~
@@ -1352,7 +1352,7 @@ become. Down next to the jetty where flooding is likely, live the poorest
 families, in temporary shacks which are prone to flooding. A small road leads
 east into the village.
 ~
-0 C 4
+0 C hills
 D0
 Wharf road~
 ~
@@ -1372,7 +1372,7 @@ You walk along the rock jetty of the isle of Freeport. The waves crash and
 spray a salt mist into the air. Gulls wheel in the sky above you, having 
 flown from their perches upon seeing you.
 ~
-0 0 4
+0 0 hills
 D0
 On the Rock Jetty~
 ~
@@ -1388,7 +1388,7 @@ You walk along the rock jetty of the isle of Freeport. The waves crash and
 spray a salt mist into the air. Gulls wheel in the sky above you, having 
 flown from their perches upon seeing you.
 ~
-0 0 4
+0 0 hills
 D0
 On the rock jetty~
 ~
@@ -1415,7 +1415,7 @@ You get the sense that sailing as you know it is about to change. Many of
 the islanders are employed here, and ages range from the youthful 12 year
 old apprentice, to the grizzled old shipwrights.
 ~
-0 0 0
+0 0 inside
 D0
 On the rock jetty~
 ~
@@ -1441,7 +1441,7 @@ has walls, made of the local slate and a mortar joint. Roads stretch off
 north to the shipyards, east to Freeport village, south to the mercantile
 warehouse, and westward wharf road continues along the harbor.
 ~
-0 C 1
+0 C city
 D0
 The shipyards~
 ~
@@ -1472,7 +1472,7 @@ signals to his apprentices in a strange sign language of the merchants
 guild. You get caught up in the excitement of the warehouse, and lend a
 hand to two struggling boys.
 ~
-0 0 0
+0 0 inside
 D0
 The road to the city of Freeport~
 ~
@@ -1488,7 +1488,7 @@ You walk along the rock jetty of the isle of Freeport. The waves crash and
 spray a salt mist into the air. Gulls wheel in the sky above you, having 
 flown from their perches upon seeing you.
 ~
-0 0 4
+0 0 hills
 D2
 On the rock jetty~
 ~
@@ -1504,7 +1504,7 @@ You walk along the rock jetty of the isle of Freeport. The waves crash and
 spray a salt mist into the air. Gulls wheel in the sky above you, having 
 flown from their perches upon seeing you.
 ~
-0 0 4
+0 0 hills
 D0
 On the rock jetty~
 ~
@@ -1531,7 +1531,7 @@ become. Down next to the jetty where flooding is likely, live the poorest
 families, in temporary shacks which are prone to flooding. The road to the
 city of Freeport is to your west.
 ~
-0 C 4
+0 C hills
 D0
 On the rock jetty~
 ~
@@ -1551,7 +1551,7 @@ You walk along the rock jetty of the isle of Freeport. The waves crash and
 spray a salt mist into the air. Gulls wheel in the sky above you, having 
 flown from their perches upon seeing you.
 ~
-0 0 4
+0 0 hills
 D1
 On the rock jetty~
 ~
@@ -1567,7 +1567,7 @@ You walk along the rock jetty of the isle of Freeport. The waves crash and
 spray a salt mist into the air. Gulls wheel in the sky above you, having 
 flown from their perches upon seeing you.
 ~
-0 0 4
+0 0 hills
 D2
 On the rock jetty~
 ~
@@ -1583,7 +1583,7 @@ You walk along the rock jetty of the isle of Freeport. The waves crash and
 spray a salt mist into the air. Gulls wheel in the sky above you, having 
 flown from their perches upon seeing you.
 ~
-0 0 4
+0 0 hills
 D0
 On the rock jetty~
 ~
@@ -1599,7 +1599,7 @@ You have reached the easternmost point of Freeport isle, a place locals call
 Dawn's edge. There is an ivory statue of a dolphin leaping out of the water 
 here. To the east you see the corner of the world.
 ~
-0 0 5
+0 0 mountain
 E
 statue~
 The statue shows the Dolphin as it is rising out of the water. The 
@@ -1622,7 +1622,7 @@ You walk along the rock jetty of the isle of Freeport. The waves crash and
 spray a salt mist into the air. Gulls wheel in the sky above you, having 
 flown from their perches upon seeing you.
 ~
-0 0 4
+0 0 hills
 D2
 On the Rock Jetty~
 ~
@@ -1638,7 +1638,7 @@ You walk along the rock jetty of the isle of Freeport. The waves crash and
 spray a salt mist into the air. Gulls wheel in the sky above you, having 
 flown from their perches upon seeing you.
 ~
-0 0 4
+0 0 hills
 D0
 On the rock jetty~
 ~
@@ -1654,7 +1654,7 @@ You walk along the rock jetty of the isle of Freeport. The waves crash and
 spray a salt mist into the air. Gulls wheel in the sky above you, having 
 flown from their perches upon seeing you.
 ~
-0 0 4
+0 0 hills
 D2
 On the rock jetty~
 ~
@@ -1670,7 +1670,7 @@ You walk along the rock jetty of the isle of Freeport. The waves crash and
 spray a salt mist into the air. Gulls wheel in the sky above you, having 
 flown from their perches upon seeing you.
 ~
-0 0 4
+0 0 hills
 D1
 On the rock jetty~
 ~
@@ -1686,7 +1686,7 @@ You walk along the rock jetty of the isle of Freeport. The waves crash and
 spray a salt mist into the air. Gulls wheel in the sky above you, having 
 flown from their perches upon seeing you.
 ~
-0 0 4
+0 0 hills
 D0
 On the rock jetty~
 ~
@@ -1703,7 +1703,7 @@ long swells from the northeast crash with great force upon the island. You
 see why the island has been reinforced with a rock jetty- without it, it 
 would rapidly erode.
 ~
-0 0 5
+0 0 mountain
 D2
 On the rock jetty~
 ~
@@ -1718,7 +1718,7 @@ become. Down next to the jetty where flooding is likely, live the poorest
 families, in temporary shacks which are prone to flooding. To the north is 
 the mercantile warehouse.
 ~
-0 0 4
+0 0 hills
 D1
 Freeport village~
 ~
@@ -1735,7 +1735,7 @@ you and ask you to join them for tea. Children run along the main street
 playing sailors and pirates. There is a small church here at the point
 on the shore.
 ~
-0 0 4
+0 0 hills
 D0
 Freeport village~
 ~
@@ -1754,7 +1754,7 @@ become. Down next to the jetty where flooding is likely, live the poorest
 families, in temporary shacks which are prone to flooding. To the west is 
 the mercantile warehouse.
 ~
-0 0 4
+0 0 hills
 D0
 Freeport village~
 ~
@@ -1773,7 +1773,7 @@ and sail off with her cargo into the seas. Yes, you think you could get
 used to life here on Freeport. Commerce lane goes south through the city
 gates.
 ~
-0 C 1
+0 C city
 D2
 Commerce lane~
 gates bronze~
@@ -1791,7 +1791,7 @@ To your east is the Sunken Pirate, the local watering hole, and to the
 west is the Emporium, a store of exotic goods. Commerce street continues
 south.
 ~
-0 0 1
+0 0 city
 D0
 The gates of Freeport~
 ~
@@ -1819,7 +1819,7 @@ the packed tables to the delight of their naval and mercantile clientele.
 An unleavened spiced bread called Pilas is served hot and in generous portions
 in wicker baskets.
 ~
-0 D 0
+0 D inside
 D3
 Commerce Street~
 ~
@@ -1832,7 +1832,7 @@ several lands. Bolts of cloth, silver plates and utensils, lanterns
 candles, rugs, etc. dazzle you. Several store boys work the floor, helping
 their customers.
 ~
-0 D 0
+0 D inside
 D1
 Commerce Street~
 ~
@@ -1846,7 +1846,7 @@ To the east is the Bronze Scabbard, the shop of the armourer of Freeport.
 To the west is the Mystic Eye, a famed magic shop. Commerce street continues
 north and south.
 ~
-0 0 1
+0 0 city
 D0
 Commerce Street~
 ~
@@ -1872,7 +1872,7 @@ Captains guild and the shipyards, where most of the arms of Freeport
 are made. In their spare time the metalworkers make various trinkets
 for the local citizenry and tourists.
 ~
-0 D 0
+0 D inside
 D3
 Commerce Street~
 ~
@@ -1885,7 +1885,7 @@ Several lamps on display change from color to color, in addition to the
 everlasting variety. Scrolls and books are stored in a glass cabinet behind
 the counter.
 ~
-0 D 0
+0 D inside
 D1
 Commerce Street~
 ~
@@ -1901,7 +1901,7 @@ guild every hour. To the east, Naval street runs to the Captains guild at
 the end, and to the west Shippers Lane goes to the Merchants guild. Commerce
 street leads northwards out of the city.
 ~
-0 K 1
+0 K city
 D0
 Commerce Street~
 ~
@@ -1926,7 +1926,7 @@ each stone commemorating a naval engagement in the city's history. Cadets
 drill at the end of the street, marching up and down, over and over in
 tight formation. To the south is an inn called The Crew's Quarters.
 ~
-0 0 1
+0 0 city
 D1
 Naval Street~
 ~
@@ -1946,7 +1946,7 @@ You walk Shippers lane. Two story houses press closely to the to the
 street and people bustle back and forth. To the south is the bank of 
 Freeport.
 ~
-0 0 1
+0 0 city
 D1
 Town square~
 ~
@@ -1971,7 +1971,7 @@ participate in the meetings. The role of the mayor is as arbitrator, and
 he is freely elected by popular vote. White marble statues are displayed
 in alcoves about the hall.
 ~
-0 D 0
+0 D inside
 E
 statues~
 The statues are of past mayors of the city. As you examine them more
@@ -1997,7 +1997,7 @@ and dark stained oak, the walls are paneled, and the windows facing the
 street resemble portholes. This is a popular meeting place for the captains
 when they have foreign visitors.
 ~
-0 D 0
+0 D inside
 D0
 Naval Street~
 ~
@@ -2010,7 +2010,7 @@ continual stream of customers entering and depositing vast sums of money in
 the well guarded vault. The bank is faring well, as you can judge by
 the amount of gilding inside the building.
 ~
-0 CD 0
+0 CD inside
 D0
 ~
 ~
@@ -2022,7 +2022,7 @@ You walk Shippers lane. Two story houses press closely to the to the
 street and people bustle back and forth. To the north is the mercantile
 school, and to the south is the merchant's guild.
 ~
-0 0 1
+0 0 city
 D0
 The mercantile school~
 ~
@@ -2044,7 +2044,7 @@ record the latest buy and sell rates of commodities around the world upon
 the rolls of the school. This school is one of the main reasons for the
 economic dominance of Freeport of world trade.
 ~
-0 D 0
+0 D inside
 D2
 Shipper's Lane~
 ~
@@ -2064,7 +2064,7 @@ the guilds behalf in contractual negotiations in town meetings. It has been
 said that the council of 5 collectively owns one quarter of the world's 
 wealth.
 ~
-0 D 0
+0 D inside
 D0
 Shipper's Lane~
 ~
@@ -2079,7 +2079,7 @@ actual military vessels. The academy has a long tradition of turning out
 fine sailors. Most cadets eventually become captains of their own vessels
 and under contract to the Merchants guild.
 ~
-0 D 0
+0 D inside
 D2
 Naval Street~
 ~
@@ -2096,7 +2096,7 @@ the number of vessels the captain has. The richest men with the most ships
 fill the 9 seats of honor in the guild, and are called the Admirals. It has
 been said that they control one third of the world's shipping.
 ~
-0 D 0
+0 D inside
 D0
 Naval Street~
 ~
@@ -2109,7 +2109,7 @@ are wet and mossy. Far below you hear the sounds of men loading a ship.
 The old torch sconces on the wall have not been used in years. There is 
 a sign on the wall.
 ~
-0 AD 4
+0 AD hills
 E
 sign wall~
 {45 53} Lok  Hall of the 6th Pirate Lord
@@ -2129,7 +2129,7 @@ You follow a secret staircase south and downward underground. The stairs
 are wet and mossy. Far below you hear the sounds of men loading a ship.
 The old torch sconces on the wall have not been used in years.
 ~
-0 AD 4
+0 AD hills
 D0
 On a secret staircase~
 ~
@@ -2146,7 +2146,7 @@ room is a deep pool in which several triremes have been moored.
 Laughing sailors are unloading cargo from one of the ships. You quickly
 disguise yourself as one of the sailors.
 ~
-0 D 0
+0 D inside
 D0
 On a secret staircase~
 ~
@@ -2166,7 +2166,7 @@ You walk along the shore of an underground water cave in which several
 triremes have been moored, one of which is being unloaded. You sneak
 unnoticed behind several CRATES which have been recently off-loaded.
 ~
-0 D 0
+0 D inside
 E
 crates~
 These crates are marked with a destination of Solace. That's funny. What
@@ -2192,7 +2192,7 @@ triremes have been moored, one of which is being unloaded. You sneak
 unnoticed behind several CRATES which have been recently off-loaded. To
 the north of you is a guarded door.
 ~
-0 D 0
+0 D inside
 E
 crates~
 These crates are marked with a destination of Antharia. That's funny. What
@@ -2226,7 +2226,7 @@ a rich noble. Yes you have discovered the kingpin of the pirate lords,
 the man who has terrorized commerce for a decade. What will you do about 
 it?
 ~
-0 D 0
+0 D inside
 D2
 Through the door~
 door~
@@ -2238,7 +2238,7 @@ You walk along the shore of an underground water cave in which several
 triremes have been moored, one of which is being unloaded. You sneak
 unnoticed behind several CRATES which have been recently off-loaded.
 ~
-0 D 0
+0 D inside
 E
 crates~
 These crates are marked with a destination of the Shire. That's funny. What
@@ -2259,7 +2259,7 @@ You walk along the shore of an underground water cave in which several
 triremes have been moored, one of which is being unloaded. You sneak
 unnoticed behind several CRATES which have been recently off-loaded.
 ~
-0 D 0
+0 D inside
 E
 crates~
 These crates are marked with a destination of Camelot. That's funny. What
@@ -2286,7 +2286,7 @@ unnoticed behind several CRATES which have been recently off-loaded. To
 the south of you the waterway leaves the cavern through a tunnel which
 U's in a long curve.
 ~
-0 D 0
+0 D inside
 E
 crates~
 These crates are marked with a destination of Dunkeldorf. That's funny. What
@@ -2303,7 +2303,7 @@ You walk along the shore of an underground water cave in which several
 triremes have been moored, one of which is being unloaded. You sneak
 unnoticed behind several CRATES which have been recently off-loaded.
 ~
-0 D 0
+0 D inside
 E
 crates~
 These crates are marked with a destination of Malancandra. That's funny. What
@@ -2321,7 +2321,7 @@ You can dock in any cardinal direction except south, where the harbor
 turns into a dark tunnel which bends around to the west. There is a small
 buoy floating here.
 ~
-0 0 7
+0 0 noswim
 E
 buoy~
 {45 53} Lok   The hall of the 6th Pirate Lord
@@ -2347,7 +2347,7 @@ drill at the end of the street, marching up and down, over and over in
 tight formation. To the north is the Naval Academy, and to the south
 is the Captains guild.
 ~
-0 0 1
+0 0 city
 D0
 The naval academy~
 ~

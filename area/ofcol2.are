@@ -38,13 +38,12 @@ is the hardest metal she can find.  She is willing to defend Ofcol to her
 death.
 ~
 human~
-ABKQe HN 1000 0
+ABKQe DHN 1000 0
 73 0 10d10+12000 33d9+100 4d16+20 none
 -51 -51 -51 -23
 EIKU AB 0 0
 stand stand female 250
 0 0 medium unknown
-A det D
 #602
 derrick captain guard cityguard~
 Captain Derrick~
@@ -56,13 +55,12 @@ descendent of a surviving cityguard of old Thalos.  He believes that everything
 has to be hard won to be kept, and that laxity is for the weak.
 ~
 human~
-AGQ HN 1000 0
+AGQ DHN 1000 0
 27 0 5d10+650 27d9+100 2d10+7 none
 -8 -8 -8 4
 EIKU 0 0 0
 stand stand male 250
 0 0 medium unknown
-A det D
 #603
 jacklyn captain guard cityguard~
 Captain Jacklyn~
@@ -75,13 +73,12 @@ or her magic, no one has ever found out.  She isn't very strong physically, but
 she need not be.
 ~
 human~
-ABR N 1000 0
+ABR DN 1000 0
 27 0 5d10+600 27d9+100 2d10+6 none
 -7 -7 -7 2
 FU 0 0 0
 stand stand female 250
 0 0 medium unknown
-A det D
 #604
 jim blacksmith~
 Jim the Blacksmith~
@@ -725,7 +722,7 @@ a pitchfork~
 A pitchfork is on the floor.~
 iron~
 weapon 0 AN
-staff 3 3 stab 0
+spear 3 3 stab 0
 7 100 122 P
 #616
 vest~
@@ -733,7 +730,7 @@ a leather vest~
 A leather vest is on the floor.~
 leather~
 armor 0 AD
-A B B 0 0
+1 2 2 0 0
 0 100 270 P
 #617
 sleeves~
@@ -741,7 +738,7 @@ some leather sleeves~
 Some leather sleeves are on the floor.~
 leather~
 armor 0 AI
-A B B 0 0
+1 2 2 0 0
 0 50 136 P
 #618
 leggings~
@@ -749,7 +746,7 @@ some leather leggings~
 Some leather leggings are on the floor.~
 leather~
 armor 0 AF
-A B B 0 0
+1 2 2 0 0
 0 50 136 P
 #619
 boots~
@@ -757,7 +754,7 @@ some leather boots~
 Some leather boots are on the floor.~
 leather~
 armor 0 AG
-A B B 0 0
+1 2 2 0 0
 0 50 136 P
 #620
 signet ring~
@@ -779,7 +776,7 @@ brass plate~
 A pile of brass plates is against the wall here.~
 brass~
 armor G AD
-BC AC BC A 0
+6 5 6 1 0
 16 100 2400 P
 A
 13 10
@@ -791,7 +788,7 @@ a brass helm~
 A brass helm is against the wall here.~
 brass~
 armor G AE
-BC AC BC A 0
+6 5 6 1 0
 16 100 1280 P
 A
 13 5
@@ -803,7 +800,7 @@ brass leggings~
 A pile of brass plates is against the wall here.~
 brass~
 armor G AF
-BC AC BC A 0
+6 5 6 1 0
 16 100 1280 P
 A
 13 5
@@ -815,7 +812,7 @@ brass boots~
 Some brass boots are against the wall here.~
 brass~
 armor G AG
-BC AC BC A 0
+6 5 6 1 0
 16 100 1280 P
 A
 13 5
@@ -827,7 +824,7 @@ brass gauntlets~
 Some brass gauntlets are against the wall here.~
 brass~
 armor G AH
-BC AC BC A 0
+6 5 6 1 0
 16 100 1280 P
 A
 13 5
@@ -839,7 +836,7 @@ brass sleeves~
 A pile of brass plates is against the wall here.~
 brass~
 armor G AI
-BC AC BC A 0
+6 5 6 1 0
 16 100 1280 P
 A
 13 5
@@ -851,7 +848,7 @@ a brass shield~
 A big plate of brass is against the wall here.~
 brass~
 armor G AJ
-BC AC BC B 0
+6 5 6 2 0
 16 200 1850 P
 A
 13 5
@@ -863,7 +860,7 @@ a brass girth~
 A brass girth is against the wall here.~
 brass~
 armor G AL
-BC AC BC A 0
+6 5 6 1 0
 16 100 1280 P
 A
 13 5
@@ -875,7 +872,7 @@ a brass bracer~
 A brass bracer is against the wall here.~
 brass~
 armor G AM
-C AC BC A 0
+4 5 6 1 0
 12 100 1040 P
 A
 13 5
@@ -899,7 +896,7 @@ silver plate~
 A pile of silver plating and chain is on the floor.~
 silver~
 armor GK AD
-D D D B 0
+8 8 8 2 0
 25 200 5000 P
 A
 1 1
@@ -911,7 +908,7 @@ a silver helm~
 A shiny helm is on the floor.~
 silver~
 armor GK AE
-D D D B 0
+8 8 8 2 0
 25 200 2900 P
 A
 2 1
@@ -923,7 +920,7 @@ silver leggings~
 Some shiny leggings are on the floor.~
 silver~
 armor GK AF
-D D D B 0
+8 8 8 2 0
 25 200 2900 P
 A
 3 1
@@ -935,7 +932,7 @@ silver boots~
 Some shiny boots are on the floor.~
 silver~
 armor GK AG
-D D D B 0
+8 8 8 2 0
 25 200 2900 P
 A
 4 1
@@ -947,7 +944,7 @@ silver gauntlets~
 Some shiny gauntlets are on the floor.~
 silver~
 armor GK AH
-D D D B 0
+8 8 8 2 0
 25 200 2900 P
 A
 5 1
@@ -959,7 +956,7 @@ silver sleeves~
 Some shiny sleeves are on the floor.~
 silver~
 armor GK AI
-D D D B 0
+8 8 8 2 0
 25 200 2400 P
 A
 18 1
@@ -971,7 +968,7 @@ the silver shield~
 A shiny shield is on the floor.~
 silver~
 armor GK AJ
-D D D AB 0
+8 8 8 3 0
 25 240 4200 P
 A
 17 -3
@@ -983,7 +980,7 @@ the silver girth~
 A shiny girth is on the floor.~
 silver~
 armor GK AL
-D D D B 0
+8 8 8 2 0
 25 200 2400 P
 A
 19 1
@@ -995,7 +992,7 @@ platinum plate~
 A pile of silvery metal is on the floor.~
 platinum~
 armor GK AD
-ABE ABE ABE ACD 0
+19 19 19 13 0
 70 500 9200 P
 A
 5 2
@@ -1009,7 +1006,7 @@ the platinum helmet~
 A silvery helmet is on the floor.~
 platinum~
 armor GK AE
-ABE ABE ABE ACD 0
+19 19 19 13 0
 70 300 6300 P
 A
 4 2
@@ -1023,7 +1020,7 @@ platinum leggings~
 Some silvery leggings are on the floor.~
 platinum~
 armor GK AF
-AD AD AD AB 0
+9 9 9 3 0
 70 400 6300 P
 A
 2 2
@@ -1037,7 +1034,7 @@ platinum boots~
 Some silvery boots are on the floor.~
 platinum~
 armor GK AG
-ABE ABE ABE ACD 0
+19 19 19 13 0
 72 400 4100 P
 A
 14 250
@@ -1051,7 +1048,7 @@ platinum gauntlets~
 A pair of silvery gauntlets are on the floor.~
 platinum~
 armor GK AH
-ABE ABE ABE ACD 0
+19 19 19 13 0
 71 400 4300 P
 A
 18 5
@@ -1065,7 +1062,7 @@ platinum sleeves~
 A pair of silvery sleeves are on the floor.~
 platinum~
 armor GK AI
-ABE ABE ABE ACD 0
+19 19 19 13 0
 70 400 6300 P
 A
 1 2
@@ -1079,7 +1076,7 @@ the platinum spiked shield~
 A jagged, silvery shield is on the floor.~
 platinum~
 armor GK AJ
-ABE ABE ABE ABCD 0
+19 19 19 15 0
 71 400 6000 P
 A
 19 5
@@ -1091,7 +1088,7 @@ the platinum girth~
 A silvery girth is on the floor.~
 platinum~
 armor GK AL
-ABE ABE ABE ACD 0
+19 19 19 13 0
 71 400 4000 P
 A
 20 -10
@@ -1175,7 +1172,7 @@ a golden dragonscale torso~
 A golden dragonscale torso is on the floor!~
 gold~
 armor GK AD
-ABC ABC ABC AB 0
+7 7 7 3 0
 24 250 6200 P
 A
 18 2
@@ -1187,7 +1184,7 @@ a golden dragonhelm~
 A golden dragonhelm is on the floor!~
 gold~
 armor GK AE
-ABC ABC ABC AB 0
+7 7 7 3 0
 21 100 2800 P
 A
 18 1
@@ -1199,7 +1196,7 @@ golden dragonscale leggings~
 Some golden dragonscale leggings are on the floor!~
 gold~
 armor GK AF
-ABC ABC ABC AB 0
+7 7 7 3 0
 21 100 2800 P
 A
 18 1
@@ -1211,7 +1208,7 @@ golden dragonscale boots~
 Some golden dragonscale boots are on the floor!~
 gold~
 armor GK AG
-ABC ABC ABC AB 0
+7 7 7 3 0
 21 100 2800 P
 A
 18 1
@@ -1223,7 +1220,7 @@ golden dragonscale gauntlets~
 Some golden dragonscale gauntlets are on the floor!~
 gold~
 armor GK AH
-ABC ABC ABC AB 0
+7 7 7 3 0
 21 100 2800 P
 A
 18 1
@@ -1235,7 +1232,7 @@ golden dragonscale sleeves~
 Some golden dragonscale sleeves are on the floor!~
 gold~
 armor GK AI
-ABC ABC ABC AB 0
+7 7 7 3 0
 21 100 2800 P
 A
 18 1
@@ -1247,7 +1244,7 @@ a golden dragonscale shield~
 A golden dragonscale shield is on the floor!~
 gold~
 armor GK AJ
-ABC ABC ABC C 0
+7 7 7 4 0
 21 200 3700 P
 A
 18 1
@@ -1259,7 +1256,7 @@ a golden dragonscale girth~
 A golden dragonscale girth is on the floor!~
 gold~
 armor GK AL
-ABC ABC ABC AB 0
+7 7 7 3 0
 21 100 2800 P
 A
 18 1
@@ -1293,7 +1290,7 @@ a golden robe~
 A golden robe is on the floor.~
 cloth~
 armor GK AK
-BC BC AC B 0
+6 6 5 2 0
 17 100 3800 P
 A
 3 2
@@ -1375,7 +1372,7 @@ the bottles of it on the floor make your mouth water and your mind swirl.  You
 also see a very large still.  So THIS is why there are so many grain fields!
 The exit is to the east.
 ~
-0 DS 0
+0 DS inside
 D1
 You see the storage shed.
 ~
@@ -1388,7 +1385,7 @@ You are in the big intersection between Raff Way and Impy Way.  Crowds
 of people walk past you as they go on their daily tasks.  Raff Way continues
 east and west, and Impy Way runs north and south.
 ~
-0 S 1
+0 S city
 D0
 Impy Way continues north.
 ~
@@ -1415,7 +1412,7 @@ Impy Way~
 You are on Impy Way.  You can see a leather shop east and a blacksmith
 west.  To the north you see a big intersection, and Impy Way continues south.
 ~
-0 S 1
+0 S city
 D0
 You see the big intersection.
 ~
@@ -1443,7 +1440,7 @@ You are in a black and smelly room.  Pieces of metal are strewn all over
 the floor, and a wave of heat from a big furnace hits you.  An anvil sits on 
 one side of the room, and on the other side is a workbench.  The exit is east.
 ~
-0 DS 0
+0 DS inside
 D1
 You see Impy Way.
 ~
@@ -1457,7 +1454,7 @@ the floor.  The smell of burnt hide assaults your nose.  You can tell by the
 looks that the tanning is done VERY CLOSE to here!   A table is near the
 entrance.  The exit is west.
 ~
-0 DS 0
+0 DS inside
 D3
 You see Impy Way.
 ~
@@ -1470,7 +1467,7 @@ You are on Impy Way.  To the east is a meat store, and to the west is a
 pawn shop.  Impy Way continues north and south.  People are rushing around you
 to go to these stores.
 ~
-0 S 1
+0 S city
 D0
 Impy Way continues North.
 ~
@@ -1498,7 +1495,7 @@ You are in a little shop filled with a lot of knick knacks and semi-
 valuable goods.  There is a display case full of little treasures that you are
 sure that you or any other little kid would like to touch!  The exit is east.
 ~
-0 DS 0
+0 DS inside
 D1
 You see Impy Way.
 ~
@@ -1511,7 +1508,7 @@ You are in a meat store.  Hanging on hooks are meats of many kinds of
 animals.  In the background, you can hear the sound of blade against flesh.
 It smells like meat here (which is not a good smell).  The exit is west.
 ~
-0 DS 0
+0 DS inside
 D3
 You see Impy Way.
 ~
@@ -1524,7 +1521,7 @@ You are on Impy Way.  To the east is Farmer's Market, and to the west is
 Nyles' House of Ale.  Impy Way runs north and ends south of here.  You can hear
 the sound of housewives gossiping at the market.
 ~
-0 S 1
+0 S city
 D0
 Impy Way continues north.
 ~
@@ -1552,7 +1549,7 @@ This is a very busy bar, with everyone holding homemade bottles of
 ale.  You see even the more gentile persons here, laughing along with
 Nyles, who offers you a quart of ale too.
 ~
-0 DS 0
+0 DS inside
 D1
 You see Impy Way.
 ~
@@ -1565,7 +1562,7 @@ You see many carts filled with fruits and vegetables.  Many farmers are
 all trying to sell you their produce, each saying their's is better.  The exit
 is west.
 ~
-0 DS 0
+0 DS inside
 D3
 You see Impy Way.
 ~
@@ -1578,7 +1575,7 @@ You are at the end of Impy and of the city part of Ofcol.  To the east is
 a dirt road leading toward the farm animals.  West from here are fields.  Impy
 Way continues north.
 ~
-0 S 1
+0 S city
 D0
 Impy Way continues north.
 ~
@@ -1602,7 +1599,7 @@ taller than you are.  You remember that the end of Impy Way is east of here,
 and you think you see a building to the north.  The field continues south and 
 west.
 ~
-0 S 2
+0 S field
 D0
 You think you see a building north of here.
 ~
@@ -1630,7 +1627,7 @@ You are among fruit trees in a field.  You see many apple and orange
 trees.  You can make out the corn fields north and some vegetable patches west.
 The sight of the fruit makes your mouth water.
 ~
-0 S 2
+0 S field
 D0
 You see the corn fields.
 ~
@@ -1648,7 +1645,7 @@ You are among the vegetable fields.  You see many cabbage and lettuce
 patches, along with tomato bushes and potato plants.  To the east are some
 fruit trees, and north are some wheat fields.
 ~
-0 S 2
+0 S field
 D0
 You see the wheat fields.
 ~
@@ -1667,7 +1664,7 @@ cool shadow from the tall stalks and scarecrow lulls you to sleep and dream
 of a little girl and little dog from a faraway place.  To the east are the corn
 stalks, and south of you are the vegetable patches.
 ~
-0 S 2
+0 S field
 D1
 You see the corn fields.
 ~
@@ -1685,7 +1682,7 @@ You are in the storage shed.  Bales of wheat, corn and hay are piled
 against the wall, and some vegetables are in carts.  You see a small door
 to the west.  The main exit is south.
 ~
-0 DS 0
+0 DS inside
 D2
 You see the corn fields.
 ~
@@ -1703,7 +1700,7 @@ You are in the slaughterhouse, where all the animals are slaughtered so
 that they can be sold or their skins be tanned.  The scream of dying animals
 makes your stomach churn.  The exit is to the west.
 ~
-0 DS 0
+0 DS inside
 D3
 You see the dirt road.
 ~
@@ -1715,7 +1712,7 @@ Dirt Road~
 You are on a dirt road.  To the east is a barn, and you see a big chicken
 coop south of you.  The dirt road continues north and west.
 ~
-0 S 2
+0 S field
 D0
 You see the dirt road.
 ~
@@ -1742,7 +1739,7 @@ Chicken Coop~
 You are in the chicken coop.  The smell of chickens and chicken droppings
 makes you gasp.  The exit is north.
 ~
-0 DS 0
+0 DS inside
 D0
 You can sense the fresh air.
 ~
@@ -1754,7 +1751,7 @@ Barn~
 You are in a barn.  There are some cows here, munching on mounds of hay.
 Milk is milked and bottled here.  You see the exit west.
 ~
-0 DS 0
+0 DS inside
 D3
 You see the dirt road.
 ~
@@ -1766,7 +1763,7 @@ Dirt Road~
 You are on a dirt road.  To the north and south, you see some grass 
 fields.  There is a pigsty west, and the dirt road continues east.
 ~
-0 S 2
+0 S field
 D0
 You see some grass fields.
 ~
@@ -1793,7 +1790,7 @@ Grass Field~
 You are in a grass field.  Fences block the way north, east, and west.
 The dirt road is to the south.
 ~
-0 S 2
+0 S field
 D2
 You see the dirt road.
 ~
@@ -1805,7 +1802,7 @@ Grass Field~
 You are in a grass field.  Fences block the way south, east, and west.
 The dirt road is to the north.
 ~
-0 S 2
+0 S field
 D0
 You see the dirt road.
 ~
@@ -1817,7 +1814,7 @@ Pig Sty~
 For some reason, you are in a pig sty.  You wonder why you are standing in
 muck.  To realize your senses and notice the dirt road is to the east.
 ~
-0 S 2
+0 S field
 D1
 You see the dry dirt road.
 ~
@@ -1830,7 +1827,7 @@ You are on Impy Way.  East and west of you are big houses.  Impy Way
 continues north and reaches a big intersection south.  Children are running to
 from home to home.
 ~
-0 S 1
+0 S city
 D0
 Impy Way continues north.
 ~
@@ -1859,7 +1856,7 @@ than the average citizen, since there is more than one room to this house.  A
 door leads to the kitchen east, and a bedroom is upstairs.  The exit is to the
 west.
 ~
-0 DS 0
+0 DS inside
 D1
 You see the kitchen.
 ~
@@ -1881,7 +1878,7 @@ Bedroom~
 You are in the bedroom.  There isn't much of interest except for a bed and
 a closet.  The stairs lead back down.
 ~
-0 DS 0
+0 DS inside
 D5
 You see the main room of the house.
 ~
@@ -1893,7 +1890,7 @@ Kitchen~
 You are in a kitchen.  There isn't much of interest here.  The main room
 is west of here.
 ~
-0 DS 0
+0 DS inside
 D3
 You see the main room of the house.
 ~
@@ -1907,7 +1904,7 @@ than the average citizen, since there is more than one room to this house.  A
 door leads to the kitchen west, and a bedroom is upstairs.  The exit is to the
 east.
 ~
-0 DS 0
+0 DS inside
 D1
 You see Impy Way.
 ~
@@ -1929,7 +1926,7 @@ Bedroom~
 You are in the bedroom.  There isn't much of interest except for a bed and
 a closet.  The stairs lead back down.
 ~
-0 DS 0
+0 DS inside
 D5
 You see the main room of the house.
 ~
@@ -1941,7 +1938,7 @@ Kitchen~
 You are in a kitchen.  There isn't much of interest here.  The main room
 is east of here.
 ~
-0 DS 0
+0 DS inside
 D1
 You see the main room of the house.
 ~
@@ -1953,7 +1950,7 @@ Impy Way~
 You are on Impy Way.  Houses are to the east and west of here.  Impy Way
 continues north and south.  There are many people walking along the streets.
 ~
-0 S 1
+0 S city
 D0
 Impy Way continues north.
 ~
@@ -1980,7 +1977,7 @@ House~
 You are in a house.  The living room and kitchen are all bundled into
 this room.  There is a bedroom south of here.  The exit is west.
 ~
-0 DS 0
+0 DS inside
 D2
 You see the bedroom.
 ~
@@ -1997,7 +1994,7 @@ Bedroom~
 You are in a bedroom.  There isn't much of interest here except for a bed
 and a dresser.  The main room of the house is north of here.
 ~
-0 DS 0
+0 DS inside
 D0
 You see the main room of the house.
 ~
@@ -2009,7 +2006,7 @@ House~
 You are in a house.  The living room and kitchen are all bundled into
 this room.  There is a bedroom south of here.  The exit is east.
 ~
-0 DS 0
+0 DS inside
 D1
 You see Impy Way.
 ~
@@ -2026,7 +2023,7 @@ Bedroom~
 You are in a bedroom.  There isn't much of interest here except for a bed
 and a dresser.  The main room of the house is north of here.
 ~
-0 DS 0
+0 DS inside
 D0
 You see the main room of the house.
 ~
@@ -2039,7 +2036,7 @@ You are on Impy Way.  Houses are to the east and west of here.  Impy Way
 continues south.  To the north is a big intersection.  There are many people
 walking along the streets.
 ~
-0 S 1
+0 S city
 D0
 You see a big intersection.
 ~
@@ -2066,7 +2063,7 @@ House~
 You are in a house.  The living room and kitchen are all bundled into
 this room.  There is a bedroom south of here.  The exit is west.
 ~
-0 DS 0
+0 DS inside
 D2
 You see the bedroom.
 ~
@@ -2083,7 +2080,7 @@ Bedroom~
 You are in a bedroom.  There isn't much of interest here except for a bed
 and a dresser.  The main room of the house is north of here.
 ~
-0 DS 0
+0 DS inside
 D0
 You see the main room of the house.
 ~
@@ -2095,7 +2092,7 @@ House~
 You are in a house.  The living room and kitchen are all bundled into
 this room.  There is a bedroom south of here.  The exit is east.
 ~
-0 DS 0
+0 DS inside
 D1
 You see Impy Way.
 ~
@@ -2112,7 +2109,7 @@ Bedroom~
 You are in a bedroom.  There isn't much of interest here except for a bed
 and a dresser.  The main room of the house is north of here.
 ~
-0 DS 0
+0 DS inside
 D0
 You see the main room of the house.
 ~
@@ -2125,7 +2122,7 @@ You are on the intersection of Impy Way and Swiftest Way.  To the north of
 you is a big house.  Swiftest Way runs east and west, and Impy way continues
 south.  There are quite a few people on this intersection.
 ~
-0 S 1
+0 S city
 D0
 You see the big house.
 ~
@@ -2154,7 +2151,7 @@ than the average citizen, since there is more than one room to this house.  A
 door leads to the kitchen north, and a bedroom is upstairs.  The exit is to 
 the south.
 ~
-0 DS 0
+0 DS inside
 D0
 You see the kitchen.
 ~
@@ -2176,7 +2173,7 @@ Bedroom~
 You are in the bedroom.  There isn't much of interest except for a bed 
 and a closet.  The stairs lead back down.
 ~
-0 DS 0
+0 DS inside
 D5
 You see the main room of the house.
 ~
@@ -2188,7 +2185,7 @@ Kitchen~
 You are in a kitchen.  There isn't much of interest here.  The main room
 is east of here.
 ~
-0 DS 0
+0 DS inside
 D2
 You see the main room of the house.
 ~
@@ -2201,7 +2198,7 @@ You are on Swiftest Way, the commoner's residential area.  Small houses
 are north and south of you.  Swiftest Way continues east, and west is a big
 intersection.
 ~
-0 S 1
+0 S city
 D0
 You see a small house.
 ~
@@ -2228,7 +2225,7 @@ Swiftest Way~
 You are on Swiftest Way, the commoner's residential area.  Small houses
 are north and south of you.  Swiftest Way continues east and west.
 ~
-0 S 1
+0 S city
 D0
 You see a small house.
 ~
@@ -2255,7 +2252,7 @@ End of Swiftest Way~
 You are on Swiftest Way, the commoner's residential area.  Small houses
 are north, south, and east of you.  Swiftest Way continues west.
 ~
-0 S 1
+0 S city
 D0
 You see a small house.
 ~
@@ -2283,7 +2280,7 @@ You are on Swiftest Way, the commoner's residential area.  Small houses
 are north and south of you.  Swiftest Way continues west, and to the east you
 see a big intersection.
 ~
-0 S 1
+0 S city
 D0
 You see a small house.
 ~
@@ -2310,7 +2307,7 @@ Swiftest Way~
 You are on Swiftest Way, the commoner's residential area.  Small houses
 are north and south of you.  Swiftest Way continues east and west.
 ~
-0 S 1
+0 S city
 D0
 You see a small house.
 ~
@@ -2337,7 +2334,7 @@ The end of Swiftest Way~
 You are on Swiftest Way, the commoner's residential area.  Small houses
 are north, south, and west of you.  Swiftest Way continues east.
 ~
-0 S 1
+0 S city
 D0
 You see a small house.
 ~
@@ -2365,7 +2362,7 @@ You are in a small house, owned by a commoner of Ofcol.  There isn't much
 of value here to you, but you'd bet that the owner really cherishes the pile
 of stuff here.  The exit is to the south.
 ~
-0 DS 0
+0 DS inside
 D2
 You see Swiftest Way.
 ~
@@ -2378,7 +2375,7 @@ You are in a small house, owned by a commoner of Ofcol.  There isn't much
 of value here to you, but you'd bet that the owner really cherishes the pile
 of stuff here.  The exit is to the north.
 ~
-0 DS 0
+0 DS inside
 D0
 You see Swiftest Way.
 ~
@@ -2391,7 +2388,7 @@ You are in a small house, owned by a commoner of Ofcol.  There isn't much
 of value here to you, but you'd bet that the owner really cherishes the pile
 of stuff here.  The exit is to the south.
 ~
-0 DS 0
+0 DS inside
 D2
 You see Swiftest Way.
 ~
@@ -2404,7 +2401,7 @@ You are in a small house, owned by a commoner of Ofcol.  There isn't much
 of value here to you, but you'd bet that the owner really cherishes the pile
 of stuff here.  The exit is to the north.
 ~
-0 DS 0
+0 DS inside
 D0
 You see Swiftest Way.
 ~
@@ -2417,7 +2414,7 @@ You are in a small house, owned by a commoner of Ofcol.  There isn't much
 of value here to you, but you'd bet that the owner really cherishes the pile
 of stuff here.  The exit is to the south.
 ~
-0 DS 0
+0 DS inside
 D2
 You see the end of Swiftest Way.
 ~
@@ -2430,7 +2427,7 @@ You are in a small house, owned by a commoner of Ofcol.  There isn't much
 of value here to you, but you'd bet that the owner really cherishes the pile
 of stuff here.  The exit is to the west.
 ~
-0 DS 0
+0 DS inside
 D3
 You see the end of Swiftest Way.
 ~
@@ -2443,7 +2440,7 @@ You are in a small house, owned by a commoner of Ofcol.  There isn't much
 of value here to you, but you'd bet that the owner really cherishes the pile
 of stuff here.  The exit is to the north.
 ~
-0 DS 0
+0 DS inside
 D0
 You see the end of Swiftest Way.
 ~
@@ -2456,7 +2453,7 @@ You are in a small house, owned by a commoner of Ofcol.  There isn't much
 of value here to you, but you'd bet that the owner really cherishes the pile
 of stuff here.  The exit is to the south.
 ~
-0 DS 0
+0 DS inside
 D2
 You see Swiftest Way.
 ~
@@ -2469,7 +2466,7 @@ You are in a small house, owned by a commoner of Ofcol.  There isn't much
 of value here to you, but you'd bet that the owner really cherishes the pile
 of stuff here.  The exit is to the north.
 ~
-0 DS 0
+0 DS inside
 D0
 You see Swiftest Way.
 ~
@@ -2482,7 +2479,7 @@ You are in a small house, owned by a commoner of Ofcol.  There isn't much
 of value here to you, but you'd bet that the owner really cherishes the pile
 of stuff here.  The exit is to the south.
 ~
-0 DS 0
+0 DS inside
 D2
 You see Swiftest Way.
 ~
@@ -2495,7 +2492,7 @@ You are in a small house, owned by a commoner of Ofcol.  There isn't much
 of value here to you, but you'd bet that the owner really cherishes the pile
 of stuff here.  The exit is to the north.
 ~
-0 DS 0
+0 DS inside
 D0
 You see Swiftest Way.
 ~
@@ -2508,7 +2505,7 @@ You are in a small house, owned by a commoner of Ofcol.  There isn't much
 of value here to you, but you'd bet that the owner really cherishes the pile
 of stuff here.  The exit is to the south.
 ~
-0 DS 0
+0 DS inside
 D2
 You see the end of Swiftest Way.
 ~
@@ -2521,7 +2518,7 @@ You are in a small house, owned by a commoner of Ofcol.  There isn't much
 of value here to you, but you'd bet that the owner really cherishes the pile
 of stuff here.  The exit is to the north.
 ~
-0 DS 0
+0 DS inside
 D0
 You see the end of Swiftest Way.
 ~
@@ -2534,7 +2531,7 @@ You are in a small house, owned by a commoner of Ofcol.  There isn't much
 of value here to you, but you'd bet that the owner really cherishes the pile
 of stuff here.  The exit is to the east.
 ~
-0 DS 0
+0 DS inside
 D1
 You see the end of Swiftest Way.
 ~
@@ -2548,7 +2545,7 @@ the east, you see Raff Way continue toward the Golden Citadel.  There are
 beautiful flowers growing along the road here, making this more of a garden
 than a road.
 ~
-0 S 1
+0 S city
 D1
 Raff Way continues east.
 ~
@@ -2567,7 +2564,7 @@ the east, you see Raff Way continue toward the Golden Citadel.  There are
 beautiful flowers growing along the road here, making this more of a garden
 than a road.
 ~
-0 S 1
+0 S city
 D1
 You see the entrance of the Golden Citadel.
 ~
@@ -2585,7 +2582,7 @@ You are on a dirt road.  To the east is a large building with a bad smell
 emanating from it.  To the west is the end of Impy Way, and this road continues
 south.
 ~
-0 S 2
+0 S field
 D1
 You see the large building with the bad smell.
 ~
@@ -2609,7 +2606,7 @@ gold columns reach the twelve foot ceiling of this vast chamber.  Servants in
 golden livery wander this place, making even the raggiest messenger boy look
 richer than you are.  Exits lead to the anterooms in the cardinal directions.
 ~
-0 DKNS 0
+0 DKNS inside
 D0
 ~
 ~
@@ -2633,7 +2630,7 @@ You are in an anteroom to the Temple of Ofcol.  Gold tiles cover the
 floor, and servants in golden livery pass you by peaceably.  The temple is to
 the south, and to the north is a hallway.  A stairways leads up.
 ~
-0 DS 0
+0 DS inside
 D0
 ~
 ~
@@ -2653,7 +2650,7 @@ You are in an anteroom to the Temple of Ofcol.  Gold tiles cover the
 floor, and servants in golden livery pass you by peaceably.  The temple is to
 the east, and to the west is a hallway.  A stairways leads up.
 ~
-0 DS 0
+0 DS inside
 D1
 ~
 ~
@@ -2673,7 +2670,7 @@ You are in an anteroom to the Temple of Ofcol.  Gold tiles cover the
 floor, and servants in golden livery pass you by peaceably.  The temple is to
 the west, and to the east is a hallway.  A stairways leads up.
 ~
-0 DS 0
+0 DS inside
 D1
 ~
 ~
@@ -2693,7 +2690,7 @@ You are in an anteroom to the Temple of Ofcol.  Gold tiles cover the
 floor, and servants in golden livery pass you by peaceably.  The temple is to
 the north, and to the south is a hallway.  A stairways leads up.
 ~
-0 DS 0
+0 DS inside
 D0
 ~
 ~
@@ -2713,7 +2710,7 @@ You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
 and rich golden tapestries drape the walls.  Servants in golden livery pass you
 by peaceably.  Exits lead east and south.
 ~
-0 DS 0
+0 DS inside
 D1
 ~
 ~
@@ -2729,7 +2726,7 @@ You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
 and rich golden tapestries drape the walls.  Servants in golden livery pass you
 by peaceably.  Exits lead east, west, and south.
 ~
-0 DS 0
+0 DS inside
 D1
 ~
 ~
@@ -2749,7 +2746,7 @@ You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
 and rich golden tapestries drape the walls.  Servants in golden livery pass you
 by peaceably.  Exits lead west and south.
 ~
-0 DS 0
+0 DS inside
 D2
 ~
 ~
@@ -2765,7 +2762,7 @@ You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
 and rich golden tapestries drape the walls.  Servants in golden livery pass you
 by peaceably.  Exits lead north and south.
 ~
-0 DS 0
+0 DS inside
 D0
 ~
 ~
@@ -2781,7 +2778,7 @@ You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
 and rich golden tapestries drape the walls.  Servants in golden livery pass you
 by peaceably.  Exits lead north and south.
 ~
-0 DS 0
+0 DS inside
 D0
 ~
 ~
@@ -2798,7 +2795,7 @@ and rich golden tapestries drape the walls.  Servants in golden livery pass you
 by peaceably.  Exits lead to the cardinal directions, with the east leading
 toward the Temple of Ofcol, and west leading toward the City of Ofcol.
 ~
-0 DS 0
+0 DS inside
 D0
 ~
 ~
@@ -2822,7 +2819,7 @@ You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
 and rich golden tapestries drape the walls.  Servants in golden livery pass you
 by peaceably.  Exits lead west, north and south.
 ~
-0 DS 0
+0 DS inside
 D0
 ~
 ~
@@ -2842,7 +2839,7 @@ You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
 and rich golden tapestries drape the walls.  Servants in golden livery pass you
 by peaceably.  Exits lead north and south.
 ~
-0 DS 0
+0 DS inside
 D0
 ~
 ~
@@ -2858,7 +2855,7 @@ You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
 and rich golden tapestries drape the walls.  Servants in golden livery pass you
 by peaceably.  Exits lead north and south.
 ~
-0 DS 0
+0 DS inside
 D0
 ~
 ~
@@ -2874,7 +2871,7 @@ You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
 and rich golden tapestries drape the walls.  Servants in golden livery pass you
 by peaceably.  Exits lead north and east.
 ~
-0 DS 0
+0 DS inside
 D0
 ~
 ~
@@ -2890,7 +2887,7 @@ You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
 and rich golden tapestries drape the walls.  Servants in golden livery pass you
 by peaceably.  Exits lead east, west, and north.
 ~
-0 DS 0
+0 DS inside
 D0
 ~
 ~
@@ -2910,7 +2907,7 @@ You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
 and rich golden tapestries drape the walls.  Servants in golden livery pass you
 by peaceably.  Exits lead west and north.
 ~
-0 DS 0
+0 DS inside
 D0
 ~
 ~
@@ -2928,7 +2925,7 @@ with platinum cover the floor, walls and the ceiling.  The lights from numerous
 torches reflect from these shimmering planes, giving the illusion that you are
 standing in a gem.  Stairways lead up and down, and the hall leads south. 
 ~
-0 DS 0
+0 DS inside
 D2
 ~
 ~
@@ -2950,7 +2947,7 @@ with platinum cover the floor, walls and the ceiling.  The lights from numerous
 torches reflect from these shimmering planes, giving the illusion that you are
 standing in a gem.  Stairways lead up and down, and the hall leads east. 
 ~
-0 DS 0
+0 DS inside
 D1
 ~
 ~
@@ -2972,7 +2969,7 @@ are mounted on the walls of this meeting hall.  Surrounding a solid gold table
 are four sons of the Keeper of the Golden Citadel.  They smile at you and ask 
 you to join them in lunch.  Exits lead to the cardinal directions. 
 ~
-0 DS 0
+0 DS inside
 D0
 ~
 ~
@@ -2998,7 +2995,7 @@ with platinum cover the floor, walls and the ceiling.  The lights from numerous
 torches reflect from these shimmering planes, giving the illusion that you are
 standing in a gem.  Stairways lead up and down, and the hall leads west. 
 ~
-0 DS 0
+0 DS inside
 D3
 ~
 ~
@@ -3020,7 +3017,7 @@ with platinum cover the floor, walls and the ceiling.  The lights from numerous
 torches reflect from these shimmering planes, giving the illusion that you are
 standing in a gem.  Stairways lead up and down, and the hall leads north. 
 ~
-0 DS 0
+0 DS inside
 D0
 ~
 ~
@@ -3042,7 +3039,7 @@ gold, and gems of all types glitter from the walls, ceiling, even the floor.
 It is obvious that this room was not meant for you to intrude upon.  A stair-
 case leads back down, and a doorway leads south.
 ~
-0 DS 0
+0 DS inside
 D2
 ~
 ~
@@ -3061,7 +3058,7 @@ It is obvious that this room was not meant for you to intrude upon.  A stair-
 case leads back down, and a doorway leads east. There is a door at north
 wall.
 ~
-0 DS 0
+0 DS inside
 D1
 ~
 ~
@@ -3080,7 +3077,7 @@ center of this chamber, you see a great wealth of coins, and on top of that
 pile of coins, you see a golden dragon squinting at you.  Exits lead to the
 cardinal directions to the anterooms.
 ~
-0 DS 0
+0 DS inside
 D0
 ~
 ~
@@ -3110,7 +3107,7 @@ gold, and gems of all types glitter from the walls, ceiling, even the floor.
 It is obvious that this room was not meant for you to intrude upon.  A stair-
 case leads back down, and a doorway leads west.
 ~
-0 DS 0
+0 DS inside
 D3
 ~
 ~
@@ -3128,7 +3125,7 @@ gold, and gems of all types glitter from the walls, ceiling, even the floor.
 It is obvious that this room was not meant for you to intrude upon.  A stair-
 case leads back down, and a doorway leads north.
 ~
-0 DS 0
+0 DS inside
 D0
 ~
 ~
@@ -3144,7 +3141,7 @@ You are above the Dragon Chamber.  You curiously note that this shaft that
 connects the chamber to the sky is wide enough that even a dragon can fit
 through.  This shaft leads up and down.
 ~
-0 DS 0
+0 DS inside
 D4
 ~
 ~
@@ -3160,7 +3157,7 @@ You are in the shaft leading from the Dragon Chamber.  Below you lies the
 Dragon Chamber of the Golden Citadel.  Above you, you see the sky, but 
 currently, the way out is sealed by a layer of diamond that looks impenetrable.
 ~
-0 DS 0
+0 DS inside
 D5
 ~
 ~
@@ -3172,7 +3169,7 @@ You are inside the entrance to the Golden Citadel.  Rich golden tapestries
 line the walls, and golden tiles cover the floors.  The exit to this citadel is
 to the west, while the citadel itself is to the east.
 ~
-0 DS 0
+0 DS inside
 D1
 ~
 ~
@@ -3188,7 +3185,7 @@ You are outside the entrance to the Golden Citadel.  A great gate is to
 to the east, marking the entranceway into the citadel.  The road also leads
 back west to Raff Way.
 ~
-0 S 2
+0 S field
 D1
 ~
 ~

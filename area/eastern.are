@@ -89,13 +89,12 @@ Then adds to it, 'Prepare to die, have a nice day!'
 ~
 ~
 dragon~
-ABCF H 450 0
+ABCF DH 450 0
 28 45 6d12+1053 15d9+100 4d40+28 none
 -19 -19 -19 -10
 EFNR 0 0 0
 stand stand female 275
 0 0 medium unknown
-A det D
 #5006
 oldstyle nomad leader~
 The nomad leader~
@@ -162,13 +161,12 @@ The dracolich is now only bone with pieces of flesh hanging from it.
 Obviously it no longer fears death.
 ~
 human~
-ABF HJ -1000 0
+ABF DHJ -1000 0
 30 0 6d12+853 15d9+100 4d6+8 none
 -9 -9 -9 6
 EFNU 0 0 0
 stand stand none 3750
 0 0 medium unknown
-A det D
 #5011
 oldstyle drider drow~
 The drider~
@@ -177,13 +175,12 @@ The drider looks at you viciously while it draws its sword.
 This half-spider, half-drow creature is a formidable opponent.
 ~
 human~
-AFG J -1000 0
+AFG DJ -1000 0
 8 0 2d7+96 4d9+100 1d7+2 none
 3 3 3 9
 EFNU 0 0 0
 stand stand female 10
 0 0 medium unknown
-A det D
 #5012
 oldstyle duergar dwarf~
 The dark dwarf~
@@ -192,13 +189,12 @@ A duergar is here mining precious stones with his pick.
 The duergar could crush your head as easily as it does those rocks.
 ~
 human~
-AFG J -850 0
+AFG DJ -850 0
 5 0 2d6+60 2d9+100 1d6+1 none
 5 5 5 9
 EFNU 0 0 0
 stand stand male 8
 0 0 medium unknown
-A det D
 #5013
 oldstyle myconoid~
 the myconoid~
@@ -208,13 +204,12 @@ The myconoid looks something like a giant mushroom (and probably
 has the same effect).
 ~
 human~
-AGH J 850 0
+AGH DJ 850 0
 6 0 2d7+71 3d9+100 1d7+1 none
 4 4 4 9
 EFNU 0 0 0
 stand stand male 2
 0 0 medium unknown
-A det D
 #5014
 oldstyle myconoid shaman~
 The myconoid shaman~
@@ -223,13 +218,12 @@ A rather large myconoid stands here chanting in a strange tongue.
 The shaman shoots spores into the air.
 ~
 human~
-ABHQ HJ 850 0
+ABHQ DHJ 850 0
 8 0 2d7+96 8d9+100 1d7+2 none
 3 3 3 8
 EIKU 0 0 0
 stand stand male 75
 0 0 medium unknown
-A det D
 #5015
 oldstyle dustdigger~
 The dustdigger~
@@ -274,7 +268,7 @@ a glowing suit of banded mail~
 A glowing suit of banded mail lies on the ground.~
 wood-iron~
 armor AG AD
-ABC ABC ABC 0 0
+7 7 7 0 0
 23 0 7300 P
 A
 17 -4
@@ -390,7 +384,7 @@ a great pile of treasure~
 A great, gleaming pile of treasure lies at your feet.~
 silver~
 money 0 A
-ABDFHI CD 0 0 0
+427 12 0 0 0
 0 0 0 P
 #5016
 sabre~
@@ -552,7 +546,7 @@ A long tunnel~
 You encounter some rapids as you enter this tunnel cut out of
 the mountains by the river.
 ~
-0 AD 7
+0 AD noswim
 D1
 ~
 ~
@@ -566,7 +560,7 @@ S
 A long tunnel~
 The tunnel branches off north.
 ~
-0 AD 7
+0 AD noswim
 D0
 ~
 ~
@@ -584,7 +578,7 @@ S
 A long tunnel~
 The tunnel branches off south.
 ~
-0 AD 7
+0 AD noswim
 D1
 ~
 ~
@@ -602,7 +596,7 @@ S
 A long tunnel~
 The tunnel branches off to the south.
 ~
-0 AD 7
+0 AD noswim
 D1
 ~
 ~
@@ -623,7 +617,7 @@ water and lime from above. The tunnel continues to the east and the river
 leads back west. To the north is a roughly-hewn hallway. There is also
 a tunnel south.
 ~
-0 AD 7
+0 AD noswim
 D0
 ~
 ~
@@ -645,7 +639,7 @@ S
 A long narrow tunnel~
 The tunnel rises sharply to the east.
 ~
-0 AD 5
+0 AD mountain
 D1
 ~
 ~
@@ -660,7 +654,7 @@ A wide tunnel~
 The tunnel continues east and west. To the east the tunnel dives
 down into a bright light.
 ~
-0 AD 5
+0 AD mountain
 D1
 ~
 ~
@@ -675,7 +669,7 @@ Cave-in~
 You stand at the edge of a large pile of rubble created from the last
 rockslide.
 ~
-0 AD 5
+0 AD mountain
 D2
 ~
 ~
@@ -690,7 +684,7 @@ At the foot of the rubble~
 You are at the bottom of a large pile of rubble. A tunnel branches
 off to the north and east.
 ~
-0 AD 5
+0 AD mountain
 D0
 ~
 ~
@@ -709,7 +703,7 @@ Cave entrance~
 You stand in the middle of a large and beautiful cave. A path leads
 deeper into the darkness.
 ~
-0 AD 5
+0 AD mountain
 D2
 ~
 ~
@@ -724,7 +718,7 @@ Giant cave~
 This cavern overwhelms you. The walls and ceiling seem miles away.
 Bones of previous adventurers lie strewn on the cavern floor.
 ~
-0 AD 5
+0 AD mountain
 D4
 ~
 ~
@@ -734,7 +728,7 @@ S
 Narrow bend~
 The tunnel turns to the south and west.
 ~
-0 AD 5
+0 AD mountain
 D2
 ~
 ~
@@ -748,7 +742,7 @@ S
 Large cave~
 You are standing in a large cave. Many furs are spread out on the floor.
 ~
-0 AD 5
+0 AD mountain
 D0
 ~
 ~
@@ -762,7 +756,7 @@ S
 Damp hallway~
 The walls here are extremely damp, as well as the floor.
 ~
-0 AD 5
+0 AD mountain
 D1
 You hear drops of water.~
 ~
@@ -776,7 +770,7 @@ S
 Underground pool~
 You are wading in a knee deep pool of lime-water.
 ~
-0 AD 6
+0 AD swim
 D2
 ~
 ~
@@ -791,7 +785,7 @@ Damp hallway~
 The walls of the tunnel are extremely damp here. You hear the faint
 sound of running water to the south.
 ~
-0 AD 5
+0 AD mountain
 D0
 You hear drops of water.~
 ~
@@ -806,7 +800,7 @@ Narrow crawlway~
 This crawlway is just big enough for a human to crawl through or a
 halfling to walk through.
 ~
-0 AD 5
+0 AD mountain
 D0
 ~
 ~
@@ -825,7 +819,7 @@ Large cavern~
 You have entered a very large cavern. The rock formations would amaze
 almost any dwarf.
 ~
-0 AD 5
+0 AD mountain
 D0
 ~
 ~
@@ -840,7 +834,7 @@ Fungus patch~
 As you walk through the fungus patch, you are shot at by many millions of
 spores. You can hardly breathe.
 ~
-0 AD 5
+0 AD mountain
 D0
 ~
 ~
@@ -855,7 +849,7 @@ Fungus path~
 As you walk along the path, millions of spores are shot at you. You can
 hardly breathe.
 ~
-0 AD 5
+0 AD mountain
 D2
 A giant mushroom temple stands to the south.~
 ~
@@ -870,7 +864,7 @@ Fungus temple~
 You find yourself standing inside of a giant mushroom. The inside
 is decorated in the fashion of a temple.
 ~
-0 AD 5
+0 AD mountain
 D0
 ~
 ~
@@ -884,7 +878,7 @@ S
 Sloping passage~
 You follow a path sloping down from the fungus temple.
 ~
-0 AD 5
+0 AD mountain
 D3
 ~
 ~
@@ -898,7 +892,7 @@ S
 Sloping passage~
 You are on a path that gently slopes up from the underground pool.
 ~
-0 AD 5
+0 AD mountain
 D0
 You hear sounds of trickling water.~
 ~
@@ -913,7 +907,7 @@ The Sands of Sorrow~
 A vast desert stretches for miles, the sand constantly shifting around you.
 You feel lost.
 ~
-0 N 10
+0 N desert
 D0
 Sand as far as the eye can see.
 ~
@@ -940,7 +934,7 @@ The Sands of Sorrow~
 A vast desert stretches for miles, the sand constantly shifting around you.
 You feel lost.
 ~
-0 N 10
+0 N desert
 D0
 You see a nomad camp by an oasis.
 ~
@@ -967,7 +961,7 @@ The Sands of Sorrow~
 A vast desert stretches for miles, the sand constantly shifting around you.
 You feel lost.
 ~
-0 N 10
+0 N desert
 D0
 Sand as far as the eye can see.
 ~
@@ -994,7 +988,7 @@ The Sands of Sorrow~
 A vast desert stretches for miles, the sand constantly shifting around you.
 You feel lost.
 ~
-0 N 10
+0 N desert
 D0
 Sand as far as the eye can see.
 ~
@@ -1021,7 +1015,7 @@ The Sands of Sorrow~
 A vast desert stretches for miles, the sand constantly shifting around you.
 You feel lost.
 ~
-0 N 10
+0 N desert
 D0
 Sand as far as the eye can see.
 ~
@@ -1048,7 +1042,7 @@ The Sands of Sorrow~
 A vast desert stretches for miles, the sand constantly shifting around you.
 You feel lost.
 ~
-0 N 10
+0 N desert
 D0
 Sand as far as the eye can see.
 ~
@@ -1075,7 +1069,7 @@ The Sands of Sorrow~
 A vast desert stretches for miles, the sand constantly shifting around you.
 You feel lost.
 ~
-0 N 10
+0 N desert
 D0
 Sand as far as the eye can see.
 ~
@@ -1102,7 +1096,7 @@ The Sands of Sorrow~
 A vast desert stretches for miles, the sand constantly shifting around you.
 You feel lost.
 ~
-0 N 10
+0 N desert
 D0
 Sand as far as the eye can see.
 ~
@@ -1129,7 +1123,7 @@ The Sands of Sorrow~
 A vast desert stretches for miles, the sand constantly shifting around you.
 You feel lost.
 ~
-0 N 10
+0 N desert
 D0
 Sand as far as the eye can see.
 ~
@@ -1158,7 +1152,7 @@ and refresh themselves beside this beautiful oasis. Three tents and some
 camels make up the party. From within two of the tents you hear muffled
 voices, obviously surprised at your visit.
 ~
-0 0 2
+0 0 field
 D0
 You see ill-tempered camels.
 ~
@@ -1181,7 +1175,7 @@ This is a small and simple tent with few possessions in sight. Lying
 here and there are young-looking men and women, possibly slaves to the
 leader of this band.
 ~
-0 0 2
+0 0 field
 D1
 Waving in the heat over the sand you see a HUGE pyramid.
 ~
@@ -1199,7 +1193,7 @@ Here stand about ten camels, all hitched to some stakes plugged into
 the ground. To the east you see a small tent while to the north you see a
 larger, fancier tent.
 ~
-0 0 2
+0 0 field
 D0
 This tent seems to be the temporary abode of the nomad leader. You make a
 mental note to visit it before you leave.~
@@ -1221,7 +1215,7 @@ The warrior's tent.~
 This tent has a few furnishings, but mainly it holds the band's
 protectors. They all stare at you coldly as you enter.
 ~
-0 H 2
+0 H field
 D3
 Outside you see some peaceful camels.
 ~
@@ -1234,7 +1228,7 @@ This tent is as lavishly decorated on the inside as it is on the
 outside. A fancy carpet lies on the sand and numerous baskets line the
 walls.
 ~
-0 H 2
+0 H field
 D1
 ~
 ~
@@ -1251,7 +1245,7 @@ This is where the leader of this band of nomads resides. He is
 definitely rich as you inspect the tapestries, baskets, and a few
 paintings as well.
 ~
-0 H 2
+0 H field
 D3
 You see the entrance to this tent.
 ~
@@ -1264,7 +1258,7 @@ A vast desert stretches for miles, the sand constantly shifting around
 you.  But this patch of desert looks different...the sand glows.  You see a
 futuristic city to the south.
 ~
-0 CD 5
+0 CD mountain
 D2
 You see a futuristic city.
 ~
@@ -1282,7 +1276,7 @@ Being very careful not to lose your balance, you look around and
 find that this canyon is about a half a kilometer deep. To the west is
 a dark cave leading under the desert sands.
 ~
-0 0 5
+0 0 mountain
 D0
 Sand as far as the eye can see.
 ~
@@ -1300,7 +1294,7 @@ The air in here is MUCH cooler than outside. From the west you hear
 strange sounds, but can see nothing. The cave slopes down into the
 darkness.
 ~
-0 AD 5
+0 AD mountain
 D1
 Outside is lighter and very windy.~
 ~
@@ -1317,7 +1311,7 @@ haphazardly strewn about and the rotting carcasses, you would guess that
 this is a dragon's lair. As to what type, you can't really say. The cave
 narrows out into a tunnel to the west.
 ~
-0 ADH 5
+0 ADH mountain
 D1
 ~
 ~
@@ -1332,7 +1326,7 @@ A wide tunnel~
 This tunnel seems to go on forever into the darkness. You carefully
 feel your way along the walls.
 ~
-0 ACD 5
+0 ACD mountain
 D1
 ~
 door~
@@ -1347,7 +1341,7 @@ A narrower tunnel~
 The tunnel becomes very narrow and you fight to squeeze your way through.
 The floor seems to level off a little.
 ~
-0 AD 5
+0 AD mountain
 D1
 ~
 ~
@@ -1362,7 +1356,7 @@ A narrow crack~
 This part of the tunnel is the hardest to move through as the walls
 move in to meet you.
 ~
-0 AD 5
+0 AD mountain
 D0
 ~
 ~
@@ -1377,7 +1371,7 @@ A small cavern.~
 It is dark and damp and bats hang from the ceiling. A narrow crack is
 in the east wall. The floor now slopes upwards.
 ~
-0 AD 5
+0 AD mountain
 D0
 ~
 ~
@@ -1392,7 +1386,7 @@ A small shaft~
 From within this shaft you can see a narrow hole in the roof just
 large enough for one person. Back south is the cavern.
 ~
-0 AD 5
+0 AD mountain
 D2
 ~
 ~

@@ -18,13 +18,12 @@ white, blue and silver. He looks VERY strong, as he stands here, ready to
 help the innocent.
 ~
 human~
-AGKQe H 1000 0
+AGKQe DH 1000 0
 29 0 6d12+778 29d9+100 5d14+18 none
 -9 -9 -9 4
 EIKU AB 0 0
 stand stand male 0
 0 0 medium unknown
-A det D
 #7901
 paladin solamnia~
 Paladin of Solamnia~
@@ -34,13 +33,12 @@ After so many years fight against anti-paladins he has retired and
 responsible for the stone kassandra.
 ~
 human~
-AHSe P 1000 2402
+AHSe DEPZ 1000 2402
 91 40 10d30+21400 100d10+100 5d35+60 punch
 -41 -41 -41 0
 FHKN 0 0 D
 stand stand male 1499
 0 0 small unknown
-A det DEZ
 M give 7901 2438~
 M greet 7900 100~
 #0
@@ -52,7 +50,7 @@ a huge treasure~
 A huge treasure is lying here, looking very valuable.~
 silver gold~
 money 0 A
-CDEHIJKLMNOPQRSTUVWXYZabcdef 0 0 0 0
+-100 0 0 0 0
 0 0 0 P
 E
 treasure~
@@ -98,7 +96,7 @@ cloud you can hear the faint sounds of Midgaard. Right before you to the
 north lies the grand Mansion of Naris, the residence of the Greater God
 Redferne.
 ~
-0 CJ 0
+0 CJ inside
 D0
 You see a HUGE arched gate leading into this magnificent building.
 ~
@@ -127,7 +125,7 @@ north from here. To the south you can see a huge, and VERY heavy-
 looking iron-wrought door. It looks like this is the only exit from
 this magnificent old house. To the west you can see a large ashen door.
 ~
-0 CDJ 0
+0 CDJ inside
 E
 runes~
 These runes are utterly strange to you, but you are in luck today: Under
@@ -182,7 +180,7 @@ hanging down from the ceiling approximately 10 feet off the floor. To the
 east there is a great old ashen door. A large glass window is set in the
 west wall.
 ~
-0 CDJ 0
+0 CDJ inside
 E
 globe world map~
 You see a large world map stretch out on the enormous globe. It has towns
@@ -234,7 +232,7 @@ walls. A bunch of funny-looking items fill the center of the room. There are
 no furniture here what-so-ever. The only way out seems to be west, through
 the low steel door.
 ~
-0 CDJ 0
+0 CDJ inside
 S
 #7904
 The Northern end of the hall~
@@ -244,7 +242,7 @@ but this doesn't bother your sight at all. To the north lies the kitchen.
 To the south lies the Southern end of the hall. To the east there is a huge
 metal door. To the west there is a large aspenwood door.
 ~
-0 CDJ 0
+0 CDJ inside
 D0
 ~
 ~
@@ -276,7 +274,7 @@ decorated with paintings of smiling Kings and Queens. The most attractive
 picture is one of a Prince in shiny armour. By one of the walls there is an
 old arm-chair. The only exit is through the aspenwood door to the east.
 ~
-0 CDJ 0
+0 CDJ inside
 E
 chair arm-chair~
 This is truly a wonderful relic of the past. In it is a large cushion.
@@ -296,7 +294,7 @@ makes you feel the agony of HUNGER. The only visible exit is south to the
 Northern end of the hall. To the north there is a larder, and to the east
 stands a fridge.
 ~
-0 CDJ 0
+0 CDJ inside
 D0
 It's dark in there,  but the sounds from there are unmistakably from rats.
 ~
@@ -318,7 +316,7 @@ The Larder~
 You can see food all over. Among the heaps of food you notice HUGE rats
 scuttering around, nibbling pieces off the heaps here and there.
 ~
-0 CDJ 0
+0 CDJ inside
 D2
 ~
 door wooden larder exit~
@@ -328,7 +326,7 @@ S
 The Fridge~
 This place is LOADED with drink, water and booze.
 ~
-0 CDJ 0
+0 CDJ inside
 D3
 ~
 door exit fridge~
@@ -340,7 +338,7 @@ You can see up and down the stairway. It seems to take forever, either going
 up OR down. It's just a seemingly insurmountable climb, either way. Up is the 
 bedroom of Redferne, and Down leads to the Southern end of the hall.
 ~
-0 CDJ 0
+0 CDJ inside
 D4
 ~
 ~
@@ -354,7 +352,7 @@ S
 The Treasure room~
 This place is gloomy.  The only visible exit is west, through the oak door.
 ~
-0 CDJ 0
+0 CDJ inside
 D3
 You see a tall oak door.
 ~
@@ -370,7 +368,7 @@ room.  This stretches at least 300 square feet, so can you imagine the BED?
 A large staircase leads down to the hall.  A couple of doors open up to a
 broad balcony to the south. 
 ~
-0 CDJ 0
+0 CDJ inside
 D2
 The sun seems to shine out there, warmly and comforting.
 ~
@@ -387,7 +385,7 @@ You see a splendid view of the most of this world. The valleys stretch as far
 as the eye can see to the south. Down below you can see the entrance
 of this magnificent building. To the north are the doors to Redferne's Bedroom.
 ~
-0 CJ 0
+0 CJ inside
 D0
 You see the comfortable bedroom of Naris, the mansion of Redferne the Greater
 God.
@@ -402,7 +400,7 @@ the state the walls are in, this could very well be a large AGGRESSIVE animal.
 This makes you pretty insecure, this stating your feeling about the place, 
 quite mildly.
 ~
-0 D 0
+0 D inside
 D3
 This looks like the only exit from here.
 ~
@@ -416,7 +414,7 @@ seems to extend only to up and down. Unless you want to let go of the secure
 and seemingly unmoveable chain, then those are the directions you should take
 from here.
 ~
-0 C 5
+0 C mountain
 D4
 Up the way you see the chain disappearing into the clouds above.
 ~
@@ -435,7 +433,7 @@ and death will come and collect you quickly. The chain leads upwards and down.
 No way are you going to descend now ... you've only just begun your climb.
 Besides it could cost you your life.  Look down and you'll see why.
 ~
-0 C 5
+0 C mountain
 D4
 There seems to be only one way from here and that's up.
 ~
@@ -454,7 +452,7 @@ you can now see the Mansion of Naris, Residence of the Greater God Redferne.
 The chain beneath you seems to evaporate in the mustering clouds that
 surround you by now.
 ~
-0 C 5
+0 C mountain
 D4
 You see the sunny top of the clouds. Beyond these, the Mansion towers before
 your eyes. Beautiful!!

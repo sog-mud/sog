@@ -18,13 +18,12 @@ His lazy streak prevents him from doing any other job and besides the pay's
 good here.
 ~
 human~
-ABGe 0 0 0
+ABGe D 0 0
 20 0 3d9+333 199d1+1 2d8+5 punch
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand male 100
 0 0 medium unknown
-A det D
 #8201
 zoo keeper man~
 the zookeeper~
@@ -36,13 +35,12 @@ slicked backgraesy hair and a long curly moustache. From the good state of
 his clothes, you guess that he rarely goes near the animals here himself.
 ~
 human~
-AB 0 0 0
+AB F 0 0
 10 0 2d7+121 99d1+1 2d4+2 punch
 1 1 1 8
 E 0 0 0
 stand stand male 100
 0 0 medium unknown
-A det F
 #8202
 giant leech~
 a giant leech~
@@ -408,7 +406,7 @@ gate of the zoo of Midgaard. To the west you can see a small pond and a small
 path leads of to the east. To the south are two turnstiles. One leading into 
 the zoo and one leading back out.
 ~
-0 C 1
+0 C city
 E
 turnstiles turnstile~
 The turnstiles are study and can only be made to turn in one direction.
@@ -435,7 +433,7 @@ is there instead. You only assume that you must go that way to get back out.
 To the east is a brightly painted entrance to the Kiddies Zoo and to the south 
 is the Main Zoo.
 ~
-0 0 1
+0 0 city
 D1
 You can see a few huts and pens to the East.
 ~
@@ -462,7 +460,7 @@ Bottom of the Wishing Well~
 You are up to you neck is thick murky water. You can just make out 
 enough hand and foot holds to allow you to climb up back to the surface.
 ~
-0 A 6
+0 A swim
 D4
 You can see the sky.
 ~
@@ -474,7 +472,7 @@ A path in the zoo~
 You are standing on a small path in the zoo. To the west is a small 
 important looking building and to both the north and south the path continues.
 ~
-0 0 1
+0 0 city
 D0
 You can see a Well.
 ~
@@ -498,7 +496,7 @@ Why anyone one would want an 'I've been to Midgaard Zoo' Tee-shirt is beyond
 you. North leads through a turnstile to the out side world and east leads back 
 into the zoo. A sign sits on the shop counter. 
 ~
-0 D 0
+0 D inside
 E
 sign~
 +----------------------+
@@ -525,7 +523,7 @@ Zoo Keepers Office~
 You are standing in the office of the Zoo keeper. A large oak desk fills 
 the room litered with numerous small pieces of paper.
 ~
-0 D 0
+0 D inside
 E
 paper~
 You pick a piece of paper randomly and read it. It details the profits of the
@@ -541,7 +539,7 @@ Crossroads in the Zoo~
 You are standing in the middle of a crossroads. Paths lead off to the 
 north, east, south and west.
 ~
-0 0 1
+0 0 city
 D0
 You can see a small path.
 ~
@@ -568,7 +566,7 @@ A path between cages~
 You are standing in a path inside the famous midgaarrd zoo. To the north 
 and south there are cages. The path continues to the east and west.
 ~
-0 0 1
+0 0 city
 D0
 A gorilla stands in the cage pounding his chest at you, as if he was daring 
 you. Surely they can't be that clever?
@@ -597,7 +595,7 @@ A path between cages~
 You are standing in a path inside the famous midgaarrd zoo. To the west 
 and south there are cages. The path leads back north.
 ~
-0 0 1
+0 0 city
 D0
 You can see the crossroads.
 ~
@@ -621,7 +619,7 @@ You are standing in a path inside the famous midgaarrd zoo. To the north
 and south there are cages. Both of these cages are around pools of water. The 
 path leads back to the east.
 ~
-0 0 1
+0 0 city
 D0
 Numerous crocodiles can be seen through the bars in the cage door. 
 The crocodiles thrash about in the pools water.
@@ -645,7 +643,7 @@ The gorilla cage~
 You are standing in the zoo's gorilla cage. A buddle of stray lies under 
 a large uprooted tree here. The door out of the cage is to the south.
 ~
-0 0 1
+0 0 city
 D2
 You can see a small path past the cage door.
 ~
@@ -658,7 +656,7 @@ You are standing in the zoo's bear cage. A large chunk of meat lies half
 eaten in one corner of the cage. You wonder what it was before the bear got 
 hold of it. The door out of the cage is to the north.
 ~
-0 0 1
+0 0 city
 D0
 You can see a small path past the cage door.
 ~
@@ -670,7 +668,7 @@ A bend in the path~
 The path bends from the west to the south here. A door leading to a small 
 hut is to the east of here.
 ~
-0 0 1
+0 0 city
 D1
 The door is quite weak.
 ~
@@ -691,7 +689,7 @@ S
 The tiger cage~
 You are standing in the zoo's tiger cage. Long grass grows every where here. No wonder really you wouldn't come in here to cut it. Suddenly you realize you are in here. What have you done? Perhaps you should make a run for the door to the north.
 ~
-0 0 1
+0 0 city
 D0
 You can see a small path through the door.
 ~
@@ -703,7 +701,7 @@ The elephant cage~
 You are standing in the zoo's elephant cage. The ground here is hard and 
 dust. A door out of the cage is to the east.                
 ~
-0 0 1
+0 0 city
 D1
 You can see a samll path through the door.
 ~
@@ -715,7 +713,7 @@ The crocodile cage~
 You are standing in the zoo's crocodile cage. Most of the cage if taken up 
 with a large pool of water. A door out of the cage is to the south.
 ~
-0 0 6
+0 0 swim
 D2
 You can see a small path through the door.
 ~
@@ -727,7 +725,7 @@ The dolphins cage~
 You are in the zoo's dolphin cage. You are swimming in a pool of water. 
 A door out of the cage is to the north.
 ~
-0 0 6
+0 0 swim
 D0
 You can see a small path through the door.
 ~
@@ -739,7 +737,7 @@ A path between cages~
 You are standing in a path inside the famous midgaarrd zoo. To the east 
 and south there are cages. The path leads back north.
 ~
-0 0 1
+0 0 city
 D0
 You can see a small path through the door.
 ~
@@ -762,7 +760,7 @@ You are standing in a small hut. From looking around you gather it is used
 to store food for all the animal in the zoo. A door out of the hut is to the 
 west.
 ~
-0 D 0
+0 D inside
 D3
 The door is quite weak.
 ~
@@ -774,7 +772,7 @@ The baby dragon cage~
 You are standing in the zoo's baby dragon cage. The cage is totally empty 
 of all stuff. A door out of the cage is to the west.
 ~
-0 0 1
+0 0 city
 D3
 You can see a small path through the cage door.
 ~
@@ -786,7 +784,7 @@ the unicorn cage~
 You are standing in the zoo's unicorn cage. Inside the cage feels cold. 
 A door out of the cage is to the north.
 ~
-0 0 1
+0 0 city
 D0
 You can see a small path through the cage door.
 ~
@@ -798,7 +796,7 @@ Entrance to the Kiddies Zoo~
 You are standing in the entrance to the Kiddies Zoo in Midgaard. 
 To the west is the zoo's well and to the east there is a small path.
 ~
-0 0 1
+0 0 city
 D1
 You can see a small path.
 ~
@@ -816,7 +814,7 @@ You are standing on a small path in the Kiddies Zoo. To the north there is
 a enclosure containing goats, and to the south there is a pig pen. The path 
 continues to the east and the entrance is west.
 ~
-0 0 1
+0 0 city
 D0
 You can see a family of goats.
 ~
@@ -843,7 +841,7 @@ The goat enclosure~
 A large fallen tree is here so visitors can sit and play with the goats. 
 A small path is to the south.
 ~
-0 0 1
+0 0 city
 D2
 You can see a small path.
 ~
@@ -855,7 +853,7 @@ The pig pen~
 You are standing up to you ankles in mud mixed up with bits of straw. 
 A foul smell fills your nostrils. You can go back to the path to the north.
 ~
-0 0 1
+0 0 city
 D0
 You can see a small path.
 ~
@@ -868,7 +866,7 @@ You are standing on a small path in the Kiddies Zoo. To the north there is
 a large aviry and to the south there is a small stable. The path leads back 
 west.
 ~
-0 0 1
+0 0 city
 D0
 You can see birds flying in a large wood and mesh structure.
 ~
@@ -891,7 +889,7 @@ You are standing in a small stable. Straw lays all over the floor and
 various horse shoes and leather tack items have been nailed firmly to the 
 walls. There is a door out to the north.
 ~
-0 D 0
+0 D inside
 D0
 Through the stable door you can see a small path with a aviry in the distance.
 ~
@@ -903,7 +901,7 @@ In the Aviary~
 You are standing in a large aviary. The aviry continues to the north and 
 a door out is to the south.
 ~
-0 D 0
+0 D inside
 D0
 You can see the aviary continue.
 ~
@@ -920,7 +918,7 @@ In the Aviary~
 You are standing in a large aviary. The aviary continues to the West and 
 the South.
 ~
-0 D 2
+0 D field
 D2
 You can see the aviary continue.
 ~
@@ -936,7 +934,7 @@ S
 In the Aviary~
 You are standing at the end of the aviary. More aviary is to the east.
 ~
-0 D 0
+0 D inside
 D1
 You can see the aviary continue.
 ~

@@ -18,13 +18,12 @@ eyestalks atop the round body which can do anything from charm you
 to disintegrate you.  Beholders are not known for their personality.
 ~
 human~
-ABHKRe 0 -870 0
+ABHKRe D -870 0
 25 10 5d10+2500 25d9+100 4d4+16 none
 -16 -16 -16 -2
 F ABC 0 0
 stand stand none 1128
 0 0 medium unknown
-A det D
 #5201
 oldstyle lamia beast~
 The lamia~
@@ -145,7 +144,7 @@ a mithril vest~
 A vest made of mithril plates lies heaped on the floor.~
 mithril~
 armor GK AD
-D D D B 0
+8 8 8 2 0
 26 300 7600 P
 A
 1 2
@@ -157,7 +156,7 @@ a mithril helm~
 Here lies a large mithril helm.~
 mithril~
 armor GK AE
-D D D B 0
+8 8 8 2 0
 27 100 3400 P
 A
 18 2
@@ -167,7 +166,7 @@ a pair of mithril gauntlets~
 A pair of mithril gauntlets rests on the ground.~
 mithril~
 armor GK AH
-D D D B 0
+8 8 8 2 0
 25 100 2700 P
 A
 19 1
@@ -179,7 +178,7 @@ some mithril sleeves~
 A set of mithril sleeves lies on the ground.~
 mithril~
 armor GK AI
-D D D B 0
+8 8 8 2 0
 25 100 2700 P
 A
 19 1
@@ -191,7 +190,7 @@ a pair of mithril boots~
 A pair of mithril boots stands has been left here.~
 mithril~
 armor GK AG
-D D D B 0
+8 8 8 2 0
 25 60 3100 P
 A
 2 1
@@ -203,7 +202,7 @@ a set of mithril leggings~
 A set of mithril leggings lie here unattended.~
 mithril~
 armor GK AF
-D D D B 0
+8 8 8 2 0
 25 100 3100 P
 A
 2 1
@@ -215,7 +214,7 @@ a mithril girth~
 A large iron girth lies at your feet.~
 mithril~
 armor GK AL
-D D D B 0
+8 8 8 2 0
 26 60 5200 P
 A
 5 2
@@ -225,7 +224,7 @@ a battered iron breast plate~
 A battered iron breast plate lies here.~
 iron~
 armor 0 AD
-AC AC AC 0 0
+5 5 5 0 0
 4 450 9100 P
 A
 18 -6
@@ -235,7 +234,7 @@ a sturdy iron shield~
 A small, but sturdy, iron shield has been left here.~
 iron~
 armor GJ AJ
-ABC ABC ABC AB 0
+7 7 7 3 0
 24 100 4400 P
 A
 20 -2
@@ -339,7 +338,7 @@ a black silk robe~
 A black silk robe lies heaped in one corner.~
 silk~
 armor 0 AK
-A A A AC 0
+1 1 1 5 0
 5 60 410 P
 A
 12 10
@@ -349,7 +348,7 @@ a dark green cloak~
 A beautiful dark green cloak has been dropped by someone.~
 cloth~
 armor GJ AC
-ABC ABC ABC B 0
+7 7 7 2 0
 20 120 1600 P
 A
 13 5
@@ -540,7 +539,7 @@ steel gates have been forced open and have rusted in place. A hollow
 gust of wind blows by you into the deserted, and seemingly destroyed,
 city.
 ~
-0 C 1
+0 C city
 D1
 You see a trail out of this blasted place.
 ~
@@ -559,7 +558,7 @@ This was once a magnificent street, but now is in total ruin. The
 streets are barren and windswept and the silence is unending.  A dark alley
 leads north and south.  Howls and screams echo through the deserted city.
 ~
-0 0 1
+0 0 city
 D0
 It's a dark alley.
 ~
@@ -589,7 +588,7 @@ side is a collapsed house while on the other is the entrance to a large
 ruined mansion. Eerie sounds echo within the mansion. Near the center of
 town you see a large domed building, relatively intact.
 ~
-0 0 1
+0 0 city
 D0
 The remnants of a store lie this way.
 ~
@@ -617,7 +616,7 @@ the city. Flowers have withered away and the once lush trees are bare.
 Vines and ivy snake up the sides of the temple and entangle themselves
 around your feet. A sudden volley of howls pierces the air.
 ~
-0 0 1
+0 0 city
 D0
 The garden path continues around the building.
 ~
@@ -647,7 +646,7 @@ the city. Flowers have withered away and the once lush trees are bare.
 Vines and ivy snake up the sides of the temple and entangle themselves
 around your feet. A sudden volley of howls pierces the air.
 ~
-0 0 1
+0 0 city
 D0
 A side street leads off to the northern half of the city.
 ~
@@ -671,7 +670,7 @@ the city. Flowers have withered away and the once lush trees are bare.
 Vines and ivy snake up the sides of the temple and entangle themselves
 around your feet. A sudden volley of howls pierces the air.
 ~
-0 0 1
+0 0 city
 D1
 The garden path continues around the building.
 ~
@@ -691,7 +690,7 @@ the city. Flowers have withered away and the once lush trees are bare.
 Vines and ivy snake up the sides of the temple and entangle themselves
 around your feet. A sudden volley of howls pierces the air.
 ~
-0 0 1
+0 0 city
 D0
 The garden path continues around the building.
 ~
@@ -710,7 +709,7 @@ baskets, carts, and stands of all shapes and sizes. Abandoned, these
 little shops still contain some of their goods once sold to a demanding
 public.
 ~
-0 0 1
+0 0 city
 D0
 A small table has been toppled over, spilling fine jewelery and gems
 onto the ground.
@@ -733,7 +732,7 @@ The market place~
 You stand at the end of the market square. Stands and carts line
 each side, filled with remnants of fine foods and exquisite goods.
 ~
-0 0 1
+0 0 city
 D0
 Tattered carpets and ruined bales of silk sit idly by a run down stand.
 ~
@@ -756,7 +755,7 @@ A Side Street~
 This small side street leads east and west into back alleys while
 to the south you see the temple. The incessant howling tears at your mind.
 ~
-0 0 1
+0 0 city
 D1
 ~
 ~
@@ -777,7 +776,7 @@ clay and stone is all the view has to offer. Most of these homes are
 nothing but piles of rubble, but some look almost safe enough to venture
 into. The street continues north and south and buildings line the street.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -803,7 +802,7 @@ This small side street leads away from the garden path to the south.
 Around you stand large piles or rubble where the houses of commoners
 used to be. A lone howl makes you worry greatly about your safety here.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -832,7 +831,7 @@ biased; these important looking buildings have been almost totally
 destroyed. There is a hole in the wall of a very large structure to the
 east.
 ~
-0 0 1
+0 0 city
 D0
 A small garden path encircles the temple.
 ~
@@ -861,7 +860,7 @@ buildings. To the north is a dark, foreboding structure while to the
 east lies the entrance to a small tavern. The street continues north
 and south.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -889,7 +888,7 @@ A side street~
 You are at the end of a long street leading to the center of the city.
 A long dark alley runs east and west.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -912,7 +911,7 @@ Under a ruined watchtower~
 You stand at the base of a tall watchtower built to protect the city
 from invaders. From the looks of things, it did not do a good job.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -931,7 +930,7 @@ A back alley~
 This alley leads to the rear of what used to be a meat stand. You wince
 at the stench. South is one of the city watchtowers.
 ~
-0 0 1
+0 0 city
 D0
 You see the back-side of the market place meat stand.
 ~
@@ -954,7 +953,7 @@ in the background. Hanging on the hooks are very small scraps of meat
 and other game. This stand is relatively empty, and a sudden burst of
 howling and screaming makes you realize why this is so.
 ~
-0 0 1
+0 0 city
 D0
 The market place lies this way.
 ~
@@ -975,7 +974,7 @@ A back alley~
 A narrow alley leads east to a wider street and west to one of
 the city watchtowers.
 ~
-0 0 1
+0 0 city
 D1
 A small side street greets you.
 ~
@@ -995,7 +994,7 @@ the floor as if some massive battle had taken place here. Draped along
 the back wall is a tattered, jet-black banner with the symbol of the
 Darkside set upon it.
 ~
-0 D 1
+0 D city
 D1
 A small side street runs past the building.
 ~
@@ -1008,7 +1007,7 @@ A large cart sits here carrying rotted fruit and vegetables. Flys
 swarm all about what seems to be the last remaining bits of food left
 in the city.
 ~
-0 0 1
+0 0 city
 D0
 The market place is deserted.
 ~
@@ -1026,7 +1025,7 @@ In here you find tools and anvils used to make various weapons
 and items. The walls have been stripped clean and only a few incomplete
 pieces of armor and weaponry are left.
 ~
-0 D 1
+0 D city
 D1
 A small side street runs past the building.
 ~
@@ -1040,7 +1039,7 @@ robes and various articles of clothing are now just rags. You stare at
 the strange piles for a long time until a piercing howl makes you
 think these might be beds.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -1061,7 +1060,7 @@ A back alley~
 A narrow alley leads north to one of the city watchtowers while
 to the south there lies a market stand full of torn clothes and rugs.
 ~
-0 0 1
+0 0 city
 D0
 A tall watchtower stands a silent vigil over the city.
 ~
@@ -1077,7 +1076,7 @@ Under the watchtower~
 You stand under one of the city watchtowers built to protect
 the city from invaders. Obviously, it failed.
 ~
-0 0 1
+0 0 city
 D1
 ~
 ~
@@ -1098,7 +1097,7 @@ A table has been tipped over, spilling fine jewelery and gems
 across the market place. Most of these trinkets are battered and
 tarnished and few would have any value anymore.
 ~
-0 0 1
+0 0 city
 D2
 The market place is deserted.
 ~
@@ -1116,7 +1115,7 @@ This was once a very plain house with nothing more than a few chairs
 and a bed. A cold fireplace suggests that the city has been abandoned
 for quite a while. Almost nothing remains of this humble abode.
 ~
-0 D 1
+0 D city
 D1
 Outside is a small side street.
 ~
@@ -1129,7 +1128,7 @@ This small house has completely collapsed upon itself leaving piles
 of debris here and there. A few rafters still stand with thatched straw
 hanging down and a hot wind gusts through the hollow dwelling.
 ~
-0 0 1
+0 0 city
 D1
 A small side street runs past the house.
 ~
@@ -1141,7 +1140,7 @@ A back alley~
 A narrow alley leads east to one of the city watchtowers and west to
 a small side street.
 ~
-0 0 1
+0 0 city
 D1
 ~
 ~
@@ -1158,7 +1157,7 @@ but inside these cramped quarters you discover what used to be a shop
 filled with armor, weapons, and various other goods. A small sign flutters
 in the wind.
 ~
-0 D 1
+0 D city
 D0
 A small side street runs past the shop.
 ~
@@ -1174,7 +1173,7 @@ belongings lie under the rubble, but the people they once belonged to are
 not with them. Looking up you see that the entire second floor and roof
 has fallen in, leaving a gaping hole above.
 ~
-0 0 1
+0 0 city
 D3
 A small side street runs past the tavern.
 ~
@@ -1189,7 +1188,7 @@ and most of the valuable items have been taken, leaving worthless debris.
 A few chairs have survived, as well as a large curved desk. To the east
 is a vine-covered archway leading out into a private courtyard.
 ~
-0 D 1
+0 D city
 D0
 The long hallway leads back to the main reception area of the city hall.
 ~
@@ -1208,7 +1207,7 @@ A large gaping hole in the west wall allows you to see out to one of
 the city's side streets. Obviously no one will be seeing you through today.
 Hallways lead south and east.
 ~
-0 D 1
+0 D city
 D0
 Main street runs past the city hall.
 ~
@@ -1237,7 +1236,7 @@ but fancy, though. The only thing remaining intact here is a large
 glass cabinet. A long hallway leads west back to the reception area and
 an ivy-covered archway leads south into a private courtyard.
 ~
-0 D 1
+0 D city
 D2
 ~
 ~
@@ -1257,7 +1256,7 @@ courtyard still stands, though, defying any attempts to destroy its
 beauty. Above stands the remnants of one of the watchtowers. Archways
 north and west lead back into the city hall.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -1273,7 +1272,7 @@ This was once the barracks for Thalos' cityguards. Now just an empty
 shell, this small shack still stands guarding the entrance both to the
 city and to the city hall.
 ~
-0 0 1
+0 0 city
 D1
 The alley runs by this building.
 ~
@@ -1286,7 +1285,7 @@ All that's left of this house is a few scattered piles of rubble
 and a very large blast crater. Obviously someone or something important
 was once housed here. A shrieking howl chills your blood.
 ~
-0 0 1
+0 0 city
 D2
 Main street runs past this ruined home.
 ~
@@ -1302,7 +1301,7 @@ entrance into another building through yet another collapsed wall.
 Between the two buildings are a few blast craters and boulders. An old
 set of wooden steps leads up to a creaking second floor.
 ~
-0 D 1
+0 D city
 D1
 ~
 ~
@@ -1327,7 +1326,7 @@ find broken shelves and workbenches with various vials and pouches spilling
 contents all across the floor. This was possibly the magic shop of the
 city. The doorway to the east is blocked, making the only exit back west.
 ~
-0 D 1
+0 D city
 D3
 ~
 ~
@@ -1338,7 +1337,7 @@ A back alley~
 A narrow back alley goes south to main street and north towards
 a watchtower. A mass of howls catches you off guard.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -1355,7 +1354,7 @@ A narrow back alley leads north to one of the city watchtowers
 and south towards main street. To the west is a doorway to a small
 house blocked by debris.
 ~
-0 0 1
+0 0 city
 D0
 A tall watchtower stands a silent vigil over the city.
 ~
@@ -1371,7 +1370,7 @@ Under a watchtower~
 You stand under a tall watchtower. Narrow back alleys lead west and
 south and a very weak looking ladder leads up into the tower.
 ~
-0 0 1
+0 0 city
 D2
 ~
 ~
@@ -1396,7 +1395,7 @@ yields a dead body floating around in it, skin melted away from months
 of floating in there. The west wall has collapsed revealing another
 collapsed house.
 ~
-0 D 1
+0 D city
 D0
 ~
 ~
@@ -1414,7 +1413,7 @@ A narrow back alley leads west to a small side street and east to one
 of the city watchtowers. Great amounts of steam issue forth from the
 building to the south.
 ~
-0 0 1
+0 0 city
 D1
 A watchtower stands a silent vigil over the city.
 ~
@@ -1437,7 +1436,7 @@ Except for the massive hole in the east wall, everything else looks
 intact, including the windows. Great amounts of steam issue forth from
 the hole in the east wall.
 ~
-0 D 1
+0 D city
 D1
 ~
 ~
@@ -1455,7 +1454,7 @@ The old rotted floorboards suddenly give way and you fall down, impaling
 yourself on jagged boards below.
 You've fallen, and you can't get up!!!
 ~
-0 C 1
+0 C city
 S
 #5246
 The north-west watchtower~
@@ -1463,7 +1462,7 @@ You stand atop one of the city watchtowers. The view is magnificent
 from here and you can see all the way to the western mountains. No wonder
 this place stood for so long.
 ~
-0 0 1
+0 0 city
 D5
 The city lies below.
 ~
@@ -1477,7 +1476,7 @@ from here and you can see all the way to the western mountains. To the
 south the desert stretches to the horizon. No wonder this place stood
 for so long.
 ~
-0 0 1
+0 0 city
 D5
 The city lies below.
 ~
@@ -1491,7 +1490,7 @@ from here and you can see a great floating pyramid to the north-east.
 Desert sand stretches to the horizon. No wonder this place stood for so
 long.
 ~
-0 0 1
+0 0 city
 D5
 The city lies below.
 ~
@@ -1510,7 +1509,7 @@ strange tongue.
      Wind gusts through the four archways and howls and screams can be
 heard from all parts of the city.
 ~
-0 DH 1
+0 DH city
 D0
 A side street leads to the northern half of the city.
 ~
@@ -1527,7 +1526,7 @@ A back alley~
 A narrow alley leads east to a wider street and west to one of
 the city watchtowers.
 ~
-0 0 1
+0 0 city
 D1
 A tall watchtower stands a silent vigil over the city.
 ~
@@ -1544,7 +1543,7 @@ Under a ruined watchtower~
 You stand at the base of a tall watchtower built to protect the city
 from invaders. From the looks of things, it did not do a good job.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -1562,7 +1561,7 @@ S
 A back alley~
 A narrow alley leads south to one of the city watchtowers.
 ~
-0 0 1
+0 0 city
 D0
 The alley continues to the north.
 ~
@@ -1581,7 +1580,7 @@ from here and you can see all the way to the western mountains. To the
 south the desert stretches to the horizon. No wonder this place stood
 for so long.  There is a small plaque on the stones.
 ~
-0 0 1
+0 0 city
 E
 sign plaque~
 This extension to Thalos, along with the dwarf forest, is made by Hatchet for
@@ -1599,7 +1598,7 @@ A back alley~
 A narrow alley leads north to the main street, and south toward a tall
 watchtower.  A ruined building is to the west.
 ~
-0 0 1
+0 0 city
 D0
 You see main street.
 ~
@@ -1621,7 +1620,7 @@ The trail ends here, with short, dry stumps of trees all around you.
 To the west, you can see the ruins of a huge city.  Something about it gives
 you an uneasy feeling.  To the east is your way back to home and safety.
 ~
-0 0 2
+0 0 field
 D1
 You see the trail.
 ~
@@ -1639,7 +1638,7 @@ A side trail here leads from the dwarf forest.  It is definitely drier
 and hotter here.  The trail continues to the west, and to the east, you see
 the T-intersection.
 ~
-0 0 2
+0 0 field
 D1
 You see the intersection.
 ~
@@ -1656,7 +1655,7 @@ The dwarf forest~
 You see more stunted trees here.  A side trail leads west from here.
 To the east, you THINK you see a trail, but you can never be sure.
 ~
-0 0 3
+0 0 forest
 D0
 You see the trail lead back north.
 ~
@@ -1678,7 +1677,7 @@ The dwarf forest~
 You see more stunted trees here.  It looks almost as if this place was
 cursed by a god to be short and dry.  The trail leads north and south.
 ~
-0 0 3
+0 0 forest
 D0
 You see the trail continue north.
 ~
@@ -1695,7 +1694,7 @@ The dwarf forest~
 You see more stunted trees here.  It looks almost as if this place was
 cursed by a god to be short and dry.  The trail leads north and south.
 ~
-0 0 3
+0 0 forest
 D0
 You see the trail continue north.
 ~
@@ -1712,7 +1711,7 @@ The dwarf forest~
 You see many stunted trees here.  You don't see any leaves on these barren
 trees.  No grass grows on the ground.
 ~
-0 0 3
+0 0 forest
 D0
 You see the trail continue north.
 ~
@@ -1730,7 +1729,7 @@ You see more stunted trees here.  It looks almost as if this place was
 cursed by a god to be short and dry.  The trail leads east and west.  It looks
 dark toward the east.
 ~
-0 0 3
+0 0 forest
 D1
 You see a darker part of the forest.
 ~
@@ -1748,7 +1747,7 @@ You see a more dense foliage in these stunted trees.  The gloom caused
 by them is enhanced by a draft coming from all around.  The trail turns south
 from the west.
 ~
-0 A 3
+0 A forest
 D0
 ~
 ~
@@ -1770,7 +1769,7 @@ You see a more dense foliage in these stunted trees.  The gloom caused
 by them is enhanced by a draft coming from all around.  The trail turns east
 from the north.
 ~
-0 A 3
+0 A forest
 D0
 You see nothing in the gloom north of you.
 ~
@@ -1788,7 +1787,7 @@ You see a more dense foliage in these stunted trees.  The gloom caused
 by them is enhanced by a draft coming from all around.  The trail leads
 east and west.
 ~
-0 A 3
+0 A forest
 D1
 You see nothing in the gloom east of you.
 ~
@@ -1806,7 +1805,7 @@ You see a more dense foliage in these stunted trees.  The gloom caused
 by them is enhanced by a draft coming from all around.  The trail leads
 down into a valley and west.
 ~
-0 A 3
+0 A forest
 D3
 You see nothing in the gloom west of you.
 ~
@@ -1823,7 +1822,7 @@ A valley in the dark dwarf forest~
 You are in a valley in the dark dwarf forest.  Short black grass grows
 around you.  Trails lead in all directions.
 ~
-0 A 3
+0 A forest
 D0
 ~
 ~
@@ -1853,7 +1852,7 @@ You see a small cave.  Skeletons of many types of creatures litter the area.
 Obviously, no fox lives here!  The oppression makes you want to leave and
 vomit.
 ~
-0 A 3
+0 A forest
 E
 skeleton skeletons~
 Something is strange about these skeletons.  Upon further investigation, these
@@ -1876,7 +1875,7 @@ You are in a small ugly cave.  More skeletons lie around.  It is obvious
 that the owner doesn't want you here.  The exit north is still visible.
 Some writings are on this wall.
 ~
-0 A 3
+0 A forest
 E
 skeleton skeletons~
 Something is strange about these skeletons.  Upon further investigation, these
@@ -1904,7 +1903,7 @@ Down the path into a dead end~
 You are down the path.  There is no obvious exit in this place, exit the
 one back up north.  All around you, you see skeletons.
 ~
-0 A 3
+0 A forest
 E
 skeleton skeletons~
 Something is strange about these skeletons.  Upon further investigation, these
@@ -1927,7 +1926,7 @@ The Valley in the dark dwarf forest~
 You are in a valley in the forest.  To the north is a trail out of this
 dark valley.  South is more of this valley.
 ~
-0 A 3
+0 A forest
 D0
 You see a trail away from this gloomy valley.
 ~
@@ -1945,7 +1944,7 @@ You are in a dim trail in the dwarf forest.  Not much light passes through
 here.  To the south is a gloomy valley, while to the north the light grows
 brighter.
 ~
-0 A 3
+0 A forest
 D0
 You can actually see the trail north of you!
 ~
@@ -1963,7 +1962,7 @@ You are in a dim trail in the dwarf forest.  Not much light passes through
 here.  The trail runs north and south, and the light seems to come from the
 north.  To the east, you see a small path into darkness.
 ~
-0 0 3
+0 0 forest
 D0
 You see the dim trail lead north.
 ~
@@ -1986,7 +1985,7 @@ You are in a dim trail in the dwarf forest.  Not much light passes through
 here.  The trail runs north and south, and the light seems to come from the
 north.
 ~
-0 0 3
+0 0 forest
 D0
 You see the dim trail lead north.
 ~
@@ -2004,7 +2003,7 @@ You are in a dim trail in the dwarf forest.  Not much light passes through
 here.  The trail runs south and west.  The trail west looks much friendlier
 than the one leading south.
 ~
-0 0 3
+0 0 forest
 D2
 You see the dim trail lead south.
 ~
@@ -2022,7 +2021,7 @@ You are in a trail in the dwarf forest.  The trees are stunted and it
 looks dry around here.  The trail leads east and west.  It looks dimmer to
 the east.
 ~
-0 0 3
+0 0 forest
 D1
 The trail continues east to the dimmer parts of the forest.
 ~
@@ -2039,7 +2038,7 @@ A trail in the dwarf forest~
 You are in a trail in the dwarf forest.  The trees are stunted and it
 looks dry around here.  The trail leads east and west.
 ~
-0 0 3
+0 0 forest
 D1
 The trail continues east.
 ~
@@ -2056,7 +2055,7 @@ A trail in the dwarf forest~
 You are in a trail in the dwarf forest.  The trees are stunted and it
 looks dry around here.  The trail leads east and west.
 ~
-0 0 3
+0 0 forest
 D1
 The trail continues east.
 ~
@@ -2074,7 +2073,7 @@ You are in a bend in the trail in the forest.  The trees are stunted, but
 not so dry around here.  The trail leads east, and to the south, you see a
 waterfall.
 ~
-0 0 3
+0 0 forest
 D1
 The trail continues east.
 ~
@@ -2092,7 +2091,7 @@ You are in a dark bend in the forest.  To the west, you see the trail
 leading back to the dwarven forest, and to the south, you see a dark and
 dismal path.
 ~
-0 0 3
+0 0 forest
 D2
 You see the dark path.
 ~
@@ -2111,7 +2110,7 @@ falling down the mountain.  (You reach out and grab and no, it IS only water.)
 It looks so nice here, you feel like taking a nap.
 The trail leads north and west.
 ~
-0 0 4
+0 0 hills
 D0
 You see the trail leading north.
 ~

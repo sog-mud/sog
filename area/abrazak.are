@@ -35,13 +35,12 @@ devil~
 ~
 ~
 pig~
-AGRTe HVac -1000 0
+AGRTe CDEFGHVZac -1000 0
 150 1000 1d1+10000 1d1+10000 1d1+100 shbite
 -100 -100 -100 -100
 0 ABCEFGHIJKLMNOPQRTXYZ 0 0
 stand stand male 0
 0 0 small unknown
-A det CDEFGZ
 #0
 
 #OBJECTS
@@ -103,7 +102,7 @@ horn~
 {DHorns{x~
 unknown~
 armor 0 AEP
-DEKLMNOPQRSTUVWXYZabcdef DEKLMNOPQRSTUVWXYZabcdef DEKLMNOPQRSTUVWXYZabcdef DEKLMNOPQRSTUVWXYZabcdef 0
+-1000 -1000 -1000 -1000 0
 99 0 0 P
 #15012
 rose~
@@ -127,7 +126,7 @@ cheburator~
 ~
 unknown~
 armor HOTY B
-ABFG ABFG ABFG ABFG 0
+99 99 99 99 0
 7 1 900000 P
 A
 18 500
@@ -173,7 +172,7 @@ A
 @eng You are in Abrazak's office..  Hmmm...  It's very strange place.  
 @rus Ты попал в офис абразака..... Достаточно странное место... 
 ~
-0 C 3
+0 C forest
 D2
 ~
 ~
@@ -183,12 +182,12 @@ S
 @eng {DThe room of Death{x@rus {DКомната Смерти{x~
 @eng @rus  
 ~
-0 CNX 0
+0 CNX inside
 S
 #15100
 ~
 ~
-0 C 0
+0 C inside
 S
 #0
 

@@ -33,13 +33,12 @@ quite different from the next because they were, of course, once alive and
 human.
 ~
 human~
-ABF J -100 0
+ABF DFJ -100 0
 4 0 2d7+46 2d9+100 1d5+1 none
 6 6 6 9
 EFNU 0 0 0
 stand stand male 2
 0 0 medium unknown
-A det DF
 #3402
 oldstyle undead ghoul~
 The ghoul~
@@ -49,13 +48,12 @@ The ghoul no longer resembles the adventurer he once was.  Nonetheless
 he looks like he hasn't forgot his fighting skills.
 ~
 human~
-AF J -500 0
+AF DJ -500 0
 6 0 2d7+71 3d9+100 1d7+1 none
 4 4 4 9
 EFNU 0 0 0
 stand stand male 7
 0 0 medium unknown
-A det D
 #3403
 oldstyle undead wraith~
 The wraith~
@@ -66,13 +64,12 @@ black robe which hides all but the darkness of his face and the glimmer
 in his eyes.
 ~
 human~
-ABF BJ -750 0
+ABF BDFJ -750 0
 12 0 2d10+150 6d9+100 1d10+3 none
 0 0 0 8
 EFNU 0 0 0
 stand stand male 50
 0 0 medium unknown
-A det DF
 #3404
 oldstyle undead guardian vampire~
 The guardian vampire~
@@ -82,13 +79,12 @@ The guardian vampire looks quite EVIL.  Just by looking at him the hair on your
 arms raises. He looks mighty tough to be just a minor minion.
 ~
 human~
-ABF J -1000 0
+ABF DFJ -1000 0
 28 0 6d12+703 14d9+100 5d4+8 none
 -8 -8 -8 6
 EFNU 0 0 0
 stand stand male 750
 0 0 medium unknown
-A det DF
 #3405
 oldstyle priest~
 the priest~
@@ -99,13 +95,12 @@ Dressed in white, fine white hair, and a soft slightly wrinkled face ...
 this man has a sacred beauty.  You see a halo around his head.
 ~
 human~
-ABQ H 1000 0
+ABQ DFH 1000 0
 15 0 3d9+208 15d9+100 2d5+3 none
 -2 -2 -2 6
 EIKU 0 0 0
 stand stand male 20
 0 0 medium unknown
-A det DF
 #3406
 oldstyle Mi-Go Fungi~
 the Mi-Go~
@@ -154,13 +149,12 @@ and writhing, so it is hard to look at them.  They speak in great harsh
 voices.  A hunting horror is HUGE, normally around 40 feet long.
 ~
 human~
-AF J -1000 0
+AF DFJ -1000 0
 20 0 3d9+333 10d9+100 2d8+5 none
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand none 100
 0 0 medium unknown
-A det DF
 #3409
 oldstyle weeds~
 some cave weeds~
@@ -169,13 +163,12 @@ Some weeds are creeping across the floor.
 Just some unpleasant looking vine-like growths ...
 ~
 human~
-ACF JPQ 0 0
+ACF DJPQ 0 0
 6 0 2d7+71 3d9+100 1d7+1 none
 4 4 4 9
 EFNU 0 0 0
 stand stand none 4
 0 0 medium unknown
-A det D
 #3410
 oldstyle snapper joe~
 Snapper Joe~
@@ -186,13 +179,12 @@ bright red hair. Half his face is burnt off and he has a perpetual smile.
 He is called up from his service in hell in order to aid the Undying One.
 ~
 human~
-AB J -750 0
+AB DJ -750 0
 20 0 3d9+333 10d9+100 2d8+5 none
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand male 111
 0 0 medium unknown
-A det D
 #3411
 oldstyle X-ist eater~
 The X-ist flesh eater~
@@ -205,13 +197,12 @@ It has dog-like face except ... different.  Bright glowing eyes and a grimace
 lead you to believe that he knew that you were coming.
 ~
 human~
-ABF J -1000 0
+ABF DJ -1000 0
 17 0 3d9+258 8d9+100 3d4+4 none
 -3 -3 -3 7
 EFNU 0 0 0
 stand stand male 78
 0 0 medium unknown
-A det D
 #3412
 oldstyle spirit ghost king crotus~
 the spirit of King Crotus~
@@ -225,13 +216,12 @@ softly into the air:
     calls me but I am blocked from its quiet.
 ~
 human~
-ABR J 350 0
+ABR DFJ 350 0
 20 0 3d9+308 20d9+100 3d4+4 none
 -4 -4 -4 3
 FU 0 0 0
 stand stand male 2
 0 0 medium unknown
-A det DF
 #3413
 oldstyle rock slug~
 the rock slug~
@@ -339,7 +329,7 @@ disgusting pinkish plasma webbing~
 A pile of pink material is lying here~
 pinkplasma~
 armor JL AD
-AC AC AC C 0
+5 5 5 4 0
 10 100 1800 P
 E
 plasma webbing~
@@ -461,7 +451,7 @@ a mound of coins fit for a dead king~
 You see a mound of coins fit for a dead king here~
 silver~
 money 0 A
-EHI D 0 0 0
+400 8 0 0 0
 0 500 0 P
 #3419
 key~
@@ -579,7 +569,7 @@ a dark black cape~
 A dark black cape is lying here~
 leather~
 armor G AK
-AC AC AC 0 0
+5 5 5 0 0
 0 100 100 P
 A
 17 10
@@ -614,7 +604,7 @@ a worn and dented breast plate~
 A piece of armour is here.~
 iron~
 armor 0 AD
-BC BC BC 0 0
+6 6 6 0 0
 15 500 2100 P
 E
 breast dented plate worn~
@@ -640,7 +630,7 @@ Inside the Chapel~
 You are in a small, dark chapel.  The dark brown glass in the tiny windows
 do not let much light through.  A few rows of worn wooden benches stand here.
 ~
-0 0 1
+0 0 city
 E
 benches rows~
 The benches are not of the comfortable kind.
@@ -663,7 +653,7 @@ S
 Stairwell into Darkness~
 You sense even more danger coming from below but are urged onward ...
 ~
-0 AD 0
+0 AD inside
 D3
 ~
 door~
@@ -682,7 +672,7 @@ A bloodied corpse of an acolyte is lying here ...
 A bloodied corpse of an acolyte is lying here ...
 A bloodied corpse of an acolyte is lying here ...
 ~
-0 ACD 0
+0 ACD inside
 E
 corpse corpses~
 Mauled and torn apart ... throats were ripped out and guts spilled on the
@@ -694,7 +684,7 @@ S
 The Lower Chambers and Tombs of the Undead~
 The stench of death is heavy in these caverns.
 ~
-0 ADN 0
+0 ADN inside
 D1
 ~
 ~
@@ -708,7 +698,7 @@ S
 The Lower Chambers and Tombs of the Undead~
 The stench of death is heavy in these caverns.
 ~
-0 ADN 0
+0 ADN inside
 D0
 ~
 ~
@@ -720,7 +710,7 @@ You are at the west end of the Grand Hall of Kings.  There is a doorway to the
 south with something strange written above it.  Also on the floor are dried
 blood stains, but their color seems a little wrong.
 ~
-0 AD 0
+0 AD inside
 E
 door writing~
 Above the door is some strange writing!  It is worn with age, but it refers
@@ -748,7 +738,7 @@ and torn clothing is scattered about.  It wouldn't disturb you in the least
 except that it is all FRESH!  What ever used to pass as an altar here,
 lies overturned and smashed.  Doors lead to the south and to the north.
 ~
-0 AD 0
+0 AD inside
 D0
 ~
 north~
@@ -766,7 +756,7 @@ like the feeding grounds of beasts and monsters.  The overturned sarcophagus
 of the once powerful King Shohan lies here.  A door leads to the north and a
 doorway has been hewn to the east.
 ~
-0 AD 0
+0 AD inside
 E
 coffin sarcophagus~
 Now destroyed ... there is writing on it: 'All hail the new king; we serve
@@ -786,7 +776,7 @@ S
 The Lower Chambers and Tombs of the Undead~
 The stench of death is heavy in these caverns.
 ~
-0 ADN 0
+0 ADN inside
 D1
 ~
 ~
@@ -806,7 +796,7 @@ You can tell that this area wasn't a part of the original construction.
 The walls have been hewn by a mighty force look as though they were CLAWED.
 The passage slopes upward here and also continues to the north.
 ~
-0 ADN 0
+0 ADN inside
 E
 walls~
 Something BIG must have done this job!  There are traces of BLOOD in the
@@ -826,7 +816,7 @@ The Grand Hall of Kings~
 This is the western wing of the Grand Hall of Kings.  Your only exits are to
 the east and west in this gloomy hallway.
 ~
-0 AD 0
+0 AD inside
 D1
 ~
 ~
@@ -843,7 +833,7 @@ stands here and the walls show scenes from the life of Cristis the Kind,
 a ruler of the outlying regions west of Midgaard.  There is a stone staircase
 leading down.  The Ghost of Cristis the Kind stands here.
 ~
-0 AD 0
+0 AD inside
 E
 ghost cristis~
 His rest has been disturbed by evil creatures who have invaded his domain
@@ -878,7 +868,7 @@ S
 The Tomb of Cristis~
 Everything here has simply been destroyed.   Exits lead north and west.
 ~
-0 AD 0
+0 AD inside
 D0
 ~
 ~
@@ -896,7 +886,7 @@ S
 The Lower Chambers and Tombs of the Undead~
 The stench of death is heavy in these caverns.
 ~
-0 ADN 0
+0 ADN inside
 D1
 ~
 ~
@@ -915,7 +905,7 @@ covered in finely crafted tapestries. You can tell that these things must have
 been worth much but they have not lasted well throughout the ages.  Massive
 doors lead off to the south and a large stone staircase leads up.
 ~
-0 AD 0
+0 AD inside
 E
 letters graffiti~
 'Beware here all of man, because past here lies only death.'
@@ -965,7 +955,7 @@ there are many doors, each with the name of a king who has died and is
 entombed here.  The hallway is beautiful yet chilling.  Even though the area
 has been kept well by acolytes, there remains a stench of the undead.
 ~
-0 AD 0
+0 AD inside
 D0
 ~
 oak~
@@ -993,7 +983,7 @@ who saved the northern regions from being overrun by the goblin hordes of
 conquered as well.  Though Crotus was a goodly king, it was rumored that he
 turned to the dark ways in his dying years ... and died an evil man.
 ~
-0 AD 0
+0 AD inside
 D0
 ~
 door~
@@ -1008,7 +998,7 @@ The Tomb of Crotus~
 A sarcophagus lies in the middle of the room and seems undisturbed.
 A hole has been knocked into the east wall.
 ~
-0 AD 0
+0 AD inside
 D0
 ~
 ~
@@ -1022,7 +1012,7 @@ S
 The Lower Chambers and Tombs of the Undead~
 The stench of death is heavy in these caverns.
 ~
-0 ADN 0
+0 ADN inside
 D2
 ~
 ~
@@ -1036,7 +1026,7 @@ S
 The Lower Chambers and Tombs of the Undead~
 The stench of death is heavy in these caverns.
 ~
-0 ADN 0
+0 ADN inside
 D0
 ~
 ~
@@ -1051,7 +1041,7 @@ The Grand Hall of Kings~
 You are in the western part of the Grand Hall of Kings.  To the south is a
 door and to the east and west the hall continues.
 ~
-0 AD 0
+0 AD inside
 D1
 ~
 ~
@@ -1072,7 +1062,7 @@ else.  Warriors did love Mitnar, and all fighting men honored him.
 On the wall is depicted battle after battle after battle.
 A small opening has been shaped carefully to the east.
 ~
-0 AD 0
+0 AD inside
 D0
 ~
 door~
@@ -1093,7 +1083,7 @@ prisoners of war being put to the sword by Mitnar, and great heaps of gold
 and weapons under the feet of Mitnar.  Where his coffin was, there is now
 only a rectangular blemish on the floor of the dusty room.
 ~
-0 AD 0
+0 AD inside
 D0
 ~
 ~
@@ -1107,7 +1097,7 @@ S
 The Lower Chambers and Tombs of the Undead~
 The stench of death is heavy in these caverns.
 ~
-0 ADN 0
+0 ADN inside
 D1
 ~
 ~
@@ -1125,7 +1115,7 @@ S
 The Lower Chambers and Tombs of the Undead~
 The stench of death is heavy in these caverns.
 ~
-0 ADN 0
+0 ADN inside
 D0
 ~
 ~
@@ -1139,7 +1129,7 @@ S
 The Grand Hall of Kings~
 You are still walking through the gloomy hallway.
 ~
-0 AD 0
+0 AD inside
 D1
 ~
 ~
@@ -1155,7 +1145,7 @@ Little chunks of dried meat are spattered throughout this room.  The walls
 are covered in gore.  Almost as if they were painted ... ICK!  You can
 almost make out the design!
 ~
-0 AD 0
+0 AD inside
 D1
 ~
 ~
@@ -1170,7 +1160,7 @@ The Tomb of Frath~
 UGH!  The sarcophagus is opened up and the mummified body lies out in the
 open, ripped to pieces.  Gnawed pieces of flesh and bone are strewn here.
 ~
-0 AD 0
+0 AD inside
 D5
 ~
 ~
@@ -1180,7 +1170,7 @@ S
 The Lower Chambers and Tombs of the Undead~
 The stench of death is heavy in these caverns.
 ~
-0 ADN 0
+0 ADN inside
 D1
 ~
 ~
@@ -1198,7 +1188,7 @@ S
 The Lower Chambers and Tombs of the Undead~
 The stench of death is heavy in these caverns.
 ~
-0 ADN 0
+0 ADN inside
 D0
 ~
 ~
@@ -1217,7 +1207,7 @@ The Grand Hall of Kings~
 You are at the western end of the Grand Hall of Kings.  There is a
 door leading north and the hallway continues west.
 ~
-0 AD 0
+0 AD inside
 D0
 ~
 door~
@@ -1233,7 +1223,7 @@ This was once beautiful.  Now the huge tapestries have been torn down and the
 carpeting pulled up ... the paintings on the ceiling are unreadable and the
 altar is crumbled.
 ~
-0 AD 0
+0 AD inside
 D2
 ~
 ~
@@ -1249,7 +1239,7 @@ The smell coming off of the opened sarcophagus is nauseating.  The floor is
 slightly crumpled and walls are raked ... but the worst part is the mummy ...
 Jubal the Benevolent is missing his head!
 ~
-0 AD 0
+0 AD inside
 D0
 ~
 ~
@@ -1263,7 +1253,7 @@ S
 The Lower Chambers and Tombs of the Undead~
 The stench of death is heavy in these caverns.
 ~
-0 ADN 0
+0 ADN inside
 D1
 ~
 ~
@@ -1281,7 +1271,7 @@ S
 The Lower Chambers and Tombs of the Undead~
 The stench of death is heavy in these caverns.
 ~
-0 ADN 0
+0 ADN inside
 D0
 ~
 ~
@@ -1299,7 +1289,7 @@ S
 The Lower Chambers and Tombs of the Undead~
 The stench of death is heavy in these caverns.
 ~
-0 ADN 0
+0 ADN inside
 D1
 ~
 ~
@@ -1313,7 +1303,7 @@ S
 The Lower Chambers and Tombs of the Undead~
 The stench of death is heavy in these caverns.
 ~
-0 ADN 0
+0 ADN inside
 D0
 ~
 ~
@@ -1327,7 +1317,7 @@ S
 The Lower Chambers and Tombs of the Undead~
 The stench of death is heavy in these caverns.
 ~
-0 AD 0
+0 AD inside
 D0
 ~
 ~
@@ -1341,7 +1331,7 @@ S
 The Lower Chambers and Tombs of the Undead~
 The stench of death is heavy in these caverns.
 ~
-0 ADN 0
+0 ADN inside
 D2
 ~
 ~
@@ -1355,7 +1345,7 @@ S
 The Lower Chambers and Tombs of the Undead~
 The stench of death is heavy in these caverns.
 ~
-0 ADN 0
+0 ADN inside
 D0
 ~
 ~
@@ -1373,7 +1363,7 @@ S
 The Lower Chambers and Tombs of the Undead~
 The stench of death is heavy in these caverns.
 ~
-0 ADN 0
+0 ADN inside
 D0
 ~
 ~
@@ -1394,7 +1384,7 @@ drilled in the center of the floor.  There are extensive gruesome paintings
 of beasts and monsters terrorizing the countryside; vampires sucking the
 blood of beasts and humans alike.
 ~
-0 ADN 0
+0 ADN inside
 E
 painting paintings mural~
 There is a tiny painting of a vault in this mural ... and it seems to be a
@@ -1409,7 +1399,7 @@ S
 The Lower Chambers and Tombs of the Undead~
 The stench of death is heavy in these caverns.
 ~
-0 AD 0
+0 AD inside
 D1
 ~
 door~
@@ -1425,7 +1415,7 @@ You have entered the forbidden catacombs.  This cave system must have been
 built long ago.  The air is dank and smells of something dead ...  or maybe
 undead.  Enter here at your own risk ... something evil abides.
 ~
-0 AD 0
+0 AD inside
 D0
 Too dark to tell.
 ~
@@ -1455,7 +1445,7 @@ S
 The Catacombs~
 Stone walls, musty air ... the earth seems to moan softly.
 ~
-0 ADN 0
+0 ADN inside
 D1
 Too dark to tell.
 ~
@@ -1471,7 +1461,7 @@ S
 The Catacombs~
 Stone walls, musty air ... the earth seems to moan softly.
 ~
-0 ADN 0
+0 ADN inside
 D0
 Too dark to tell.
 ~
@@ -1487,7 +1477,7 @@ S
 The Catacombs~
 Stone walls, musty air ... the earth seems to moan softly.
 ~
-0 ADN 0
+0 ADN inside
 D0
 Too dark to tell.
 ~
@@ -1498,7 +1488,7 @@ S
 The Catacombs~
 Stone walls, musty air ... the earth seems to moan softly.
 ~
-0 ADN 0
+0 ADN inside
 D1
 Too dark to tell.
 ~
@@ -1509,7 +1499,7 @@ S
 The Catacombs~
 Stone walls, musty air ... the earth seems to moan softly.
 ~
-0 ADN 0
+0 ADN inside
 D2
 Too dark to tell.
 ~
@@ -1525,7 +1515,7 @@ S
 The Catacombs~
 Stone walls, musty air ... the earth seems to moan softly.
 ~
-0 ADN 0
+0 ADN inside
 D0
 Too dark to tell.
 ~
@@ -1541,7 +1531,7 @@ S
 The Catacombs~
 Stone walls, musty air ... the earth seems to moan softly.
 ~
-0 ADN 0
+0 ADN inside
 D2
 Too dark to tell.
 ~
@@ -1557,7 +1547,7 @@ S
 The Catacombs~
 Stone walls, musty air ... the earth seems to moan softly.
 ~
-0 ADN 0
+0 ADN inside
 D0
 ~
 ~
@@ -1577,7 +1567,7 @@ S
 The Catacombs~
 Stone walls, musty air ... the earth seems to moan softly.
 ~
-0 ADN 0
+0 ADN inside
 D1
 Too dark to tell.
 ~
@@ -1595,7 +1585,7 @@ Your mind whirls in the hideous madness of this place.  The stench
 is horrendous and dead bodies, sucked of life, lay all over.  One coffin
 lies in the center of the room ... waiting for YOU!
 ~
-0 AD 0
+0 AD inside
 D1
 Too dark to tell.
 ~
@@ -1611,7 +1601,7 @@ S
 The Catacombs~
 Stone walls, musty air ... the earth seems to moan softly.
 ~
-0 ADN 0
+0 ADN inside
 D1
 Too dark to tell.
 ~
@@ -1627,7 +1617,7 @@ S
 The Catacombs~
 Stone walls, musty air ... the earth seems to moan softly.
 ~
-0 ADN 0
+0 ADN inside
 D2
 Too dark to tell.
 ~
@@ -1643,7 +1633,7 @@ S
 The Catacombs~
 Stone walls, musty air ... the earth seems to moan softly.
 ~
-0 ADN 0
+0 ADN inside
 D0
 Too dark to tell.
 ~
@@ -1659,7 +1649,7 @@ S
 The Catacombs~
 Stone walls, musty air ... the earth seems to moan softly.
 ~
-0 ADN 0
+0 ADN inside
 D1
 There is a secret door here.~
 secret~
@@ -1683,7 +1673,7 @@ The walls faintly show ancient detailed etchings in gold and silver of
 ancient rituals ... not all of which seem pleasant.  The hallway continues
 north into the catacombs and further south as long as you can see.
 ~
-0 AD 0
+0 AD inside
 E
 etchings~
 Beautiful yet disturbing, they urge you to move onward.
@@ -1705,7 +1695,7 @@ Ancient etchings and writing in intricate gold and silver designs fill these
 walls.  You are tempted to linger and examine them closely.  Your light source
 flickers off the walls showing you exits north and south.
 ~
-0 AD 0
+0 AD inside
 E
 etchings~
 Beautiful yet disturbing, they urge you to move onward.
@@ -1727,7 +1717,7 @@ Ancient etchings and writing in intricate gold and silver designs fill these
 walls.  You are tempted to linger and examine them closely.  Your light source
 flickers off the walls showing you exits north and south.
 ~
-0 AD 0
+0 AD inside
 E
 etchings~
 Beautiful yet disturbing, they urge you to move onward.
@@ -1749,7 +1739,7 @@ Ancient etchings and writing in intricate gold and silver designs fill these
 walls.  You are tempted to linger and examine them closely.  Your light source
 flickers off the walls showing you exits north and south.
 ~
-0 AD 0
+0 AD inside
 E
 etchings~
 Beautiful yet disturbing, they urge you to move onward.
@@ -1771,7 +1761,7 @@ Ancient etchings and writing in intricate gold and silver designs fill these
 walls.  You are tempted to linger and examine them closely.  Your light source
 flickers off the walls showing you exits north.
 ~
-0 AD 0
+0 AD inside
 E
 etchings~
 Beautiful yet disturbing, they urge you to move onward.
@@ -1786,7 +1776,7 @@ S
 A Secret Passageway~
 A secret passage!  You wonder where it may lead!
 ~
-0 AD 0
+0 AD inside
 E
 east secret door~
 The door closed on you so softly that you didn't even notice!
@@ -1801,7 +1791,7 @@ S
 A Secret Passageway~
 A secret passage!  You wonder where it may lead!
 ~
-0 AD 0
+0 AD inside
 D0
 Too dark to tell.
 ~
@@ -1822,14 +1812,14 @@ your hair evaporates ...
 Welcome to HELL!
 But even in Hell we give you another chance.
 ~
-0 CD 0
+0 CD inside
 S
 #3475
 Inside the coffin~
 You are inside a coffin.  It seems rather cramped in here.  You can climb
 up out of the coffin, or you can wait for here the real occupant to join you.
 ~
-0 AD 0
+0 AD inside
 D4
 ~
 lid coffin~

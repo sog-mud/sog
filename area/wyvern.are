@@ -72,13 +72,12 @@ The gargoyle shaman is here, preparing to do battle.
 She says 'I can SEE you! I have been waiting ...'.
 ~
 human~
-ABCGQ 0 -900 0
+ABCGQ DF -900 0
 13 0 2d10+170 13d9+100 1d10+3 none
 -1 -1 -1 7
 EIKU 0 0 0
 stand stand female 150
 0 0 medium unknown
-A det DF
 #1606
 oldstyle carnivorous plant~
 a carnivorous plant~
@@ -115,13 +114,12 @@ A dark shadow moves about the room.
 The Shadow is vaguely humanoid. Two glowing pinpoints look at you.
 ~
 human~
-ACFG BJ -1000 0
+ACFG BDFJ -1000 0
 10 0 2d7+121 5d9+100 2d4+2 none
 1 1 1 8
 EFNU 0 0 0
 stand stand none 45
 0 0 medium unknown
-A det DF
 #1609
 oldstyle evil wight~
 an evil wight~
@@ -130,13 +128,12 @@ An evil wight lurks in the shadows!
 He glares at you savagely and charges!
 ~
 human~
-ABCFG J -1000 0
+ABCFG DFJ -1000 0
 12 0 2d10+150 6d9+100 1d10+3 none
 0 0 0 8
 EFNU 0 0 0
 stand stand male 110
 0 0 medium unknown
-A det DF
 #1610
 oldstyle burly minotaur~
 A burly minotaur~
@@ -145,13 +142,12 @@ A burly minotaur watches you solemnly.
 This powerful creature wonders whether to kill you or not ...
 ~
 human~
-ACG J -600 0
+ACG DJ -600 0
 14 0 2d10+190 7d9+100 1d12+3 none
 -1 -1 -1 8
 EFNU 0 0 0
 stand stand male 75
 0 0 medium unknown
-A det D
 #1612
 oldstyle savage minotaur~
 the savage minotaur~
@@ -160,13 +156,12 @@ A bloodthirsty minotaur slowly counts his loot
 He looks up at you and screams 'SO! Coming to steal my hoard!'
 ~
 human~
-ABCFG J -600 0
+ABCFG DJ -600 0
 15 0 3d9+208 7d9+100 2d6+3 none
 -2 -2 -2 7
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det D
 #1613
 oldstyle minotaur captain~
 the captain~
@@ -175,13 +170,12 @@ Sitting here in this room is the Minotaur Captain.
 He looks at you, and a sinister grin slowly spreads on his face ...
 ~
 human~
-ABCFG J -900 0
+ABCFG DJ -900 0
 17 0 3d9+258 8d9+100 3d4+4 none
 -3 -3 -3 7
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det D
 #1614
 oldstyle black pudding~
 the black pudding~
@@ -204,13 +198,12 @@ A lesser Golem stands guarding the entrance.
 The golem appears to be made of some kind of clay, enchanted to come to life!
 ~
 golem~
-ABG 0 0 0
+ABG D 0 0
 16 0 3d9+233 8d9+100 2d6+4 none
 -2 -2 -2 7
 EFNU 0 0 0
 stand stand none 0
 0 0 medium unknown
-A det D
 #1616
 oldstyle ancient wyvern~
 the ancient wyvern~
@@ -219,13 +212,12 @@ An enormous, ancient wyvern stares down at your tiny form...
 It thunders loudly 'I must protect my Master's wealth!'
 ~
 human~
-ACFG 0 -1000 0
+ACFG DF -1000 0
 18 0 3d9+283 9d9+100 2d7+4 none
 -3 -3 -3 7
 EFNU 0 0 0
 stand rest male 0
 0 0 medium unknown
-A det DF
 #1617
 oldstyle spectre~
 the spectre~
@@ -234,13 +226,12 @@ A spectre has begun to materialize in front of you!
 Terror fills your heart as you view this master of the undead.
 ~
 human~
-ACFG BHJ -1000 0
+ACFG BDHJ -1000 0
 19 0 3d9+308 9d9+100 2d7+5 none
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det D
 #1702
 oldstyle trapper~
 a trapper~
@@ -277,13 +268,12 @@ A grim ranger reclines at a table.
 The years of wanderings have left the ranger hardened and strong.
 ~
 human~
-ACG 0 200 0
+ACG D 200 0
 12 0 2d10+150 6d9+100 1d10+3 none
 0 0 0 8
 EFNU 0 0 0
 rest stand male 0
 0 0 medium unknown
-A det D
 #1707
 oldstyle ranger leader~
 a ranger leader~
@@ -292,13 +282,12 @@ A leader of the Rangers is watching you solemnly.
 This individual has quite a reputation at the local trading posts!
 ~
 human~
-ABC 0 300 0
+ABC D 300 0
 15 0 3d9+208 7d9+100 2d6+3 none
 -2 -2 -2 7
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det D
 #1708
 oldstyle ranger lord~
 the Lord of the Rangers~
@@ -306,13 +295,12 @@ The Lord of the Rangers catches your eye.
 ~
 ~
 human~
-ABC 0 400 0
+ABC D 400 0
 20 0 3d9+333 10d9+100 2d8+5 none
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det D
 #1710
 oldstyle male centaur~
 a centaur~
@@ -485,7 +473,7 @@ a black kite shield~
 There is a large black kite shield lying here.~
 onyx~
 armor AG AJ
-BC BC BC B 0
+6 6 6 2 0
 13 80 1530 P
 A
 20 1
@@ -495,7 +483,7 @@ a commander's helm~
 A commander's helm rests on a table here.~
 steel~
 armor AG AE
-ABC ABC ABC B 0
+7 7 7 2 0
 20 40 2300 P
 A
 4 1
@@ -508,7 +496,7 @@ a mithril bracer~
 A magical bracer made from mithril lies on the ground!~
 mithril~
 armor BG AM
-C BC BC B 0
+4 6 6 2 0
 12 20 1540 P
 A
 1 1
@@ -607,7 +595,7 @@ a fur cap~
 A fur cap lies here on the ground.~
 fur~
 armor 0 AE
-B B B 0 0
+2 2 2 0 0
 0 10 168 P
 #1712
 travelling boots~
@@ -615,7 +603,7 @@ a pair of travelling boots~
 A sturdy pair of travelling boots lies here.~
 fur~
 armor G AG
-AC AC AC 0 0
+5 5 5 0 0
 12 20 880 P
 A
 14 10
@@ -637,7 +625,7 @@ Rough East-West Path~
 You are on a very rough and overgrown path heading east-west over rugged
 terrain.  To the east the path passes between low hills.
 ~
-0 0 4
+0 0 hills
 D1
 The road heads into low hills this way.
 ~
@@ -655,7 +643,7 @@ Here the path passes between low hills. The going is very rough, but
 to the east the ground is smoother. In that direction a pair of tower
 looms above the hills.
 ~
-0 0 4
+0 0 hills
 D1
 You see a pair of tall towers in the distance.
 ~
@@ -673,7 +661,7 @@ You are on a path through an open area. East of here loom two tall towers,
 joined by a barbican and surrounded by a murky moat. West the path passes
 between low hills.
 ~
-0 0 2
+0 0 field
 D1
 Two fantastic towers surrounded by a moat rise before you.
 ~
@@ -692,7 +680,7 @@ over 50 feet high. You will need a boat to go east across the moat. A
 rugged path heads west, and another one heads north to a cluster of low 
 buildings.
 ~
-0 0 2
+0 0 field
 D0
 A worn path leads to a cluster of low buildings.
 ~
@@ -714,7 +702,7 @@ Path North of Moat~
 You walk on a faint path heading south toward the west side of the moat,
 and north to three small buildings.
 ~
-0 0 2
+0 0 field
 D0
 Several low buildings lie this way.
 ~
@@ -732,7 +720,7 @@ You are in the middle of a cluster of small buildings. There is a building
 to the north, east, and west.  A sign over the eastern building says
 'House of Pancakes'.
 ~
-0 0 1
+0 0 city
 D0
 There is an entrance to a building.
 ~
@@ -759,14 +747,14 @@ House of Pancakes~
 The moment you enter this room, the ceiling descends and crushes you
 into a pancake.  Don't you hate it when that happens?
 ~
-0 BC 0
+0 BC inside
 S
 #1608
 Old Store Room~
 You have entered what appears to be an old storeroom. Most of the items
 that were in here appear to have been ruined long ago.
 ~
-0 AD 0
+0 AD inside
 D1
 ~
 ~
@@ -777,7 +765,7 @@ Empty Room~
 This room appears to be completely empty. The only exit seems to be the
 way you came.  There are some scratches around the floor.
 ~
-0 AD 0
+0 AD inside
 D2
 ~
 ~
@@ -793,7 +781,7 @@ Minotaur's Room~
 You have entered a secret chamber under the empty room. In this room is
 the worn but cared-for gear and trappings of some large humanoid.
 ~
-0 ACD 0
+0 ACD inside
 D4
 ~
 ~
@@ -805,7 +793,7 @@ You are in the middle of the moat, on the west side of the tower.  There is a
 landing on both sides of the moat.  Deep throated 'ribbids' come from the
 water all around you.
 ~
-0 0 7
+0 0 noswim
 D0
 ~
 ~
@@ -829,7 +817,7 @@ You are in the middle of the moat, on the north side of the tower.  There is
 no place to land here.  Deep throated 'ribbids' come from the water all
 around you.
 ~
-0 0 7
+0 0 noswim
 D2
 ~
 ~
@@ -841,7 +829,7 @@ You are in the middle of the moat, on the south side of the tower.  There is
 no place to land here.  Deep throated 'ribbids' come from the water all
 around you.
 ~
-0 0 7
+0 0 noswim
 D0
 ~
 ~
@@ -853,7 +841,7 @@ You are on a foyer on the west side of the structure. The moat is west of
 here. There is also a large door eastward into the structure.  You notice that
 the walls are ornately decorated with very life-like stone gargoyles.
 ~
-0 AD 0
+0 AD inside
 D1
 ~
 ~
@@ -871,7 +859,7 @@ ornate balcony surrounds the lobby. To the east, below the balcony, is an
 opening. The door leading out is west.  You notice that the balcony is
 covered in highly ornate and life-like stone gargoyles.
 ~
-0 AD 0
+0 AD inside
 D1
 ~
 ~
@@ -887,7 +875,7 @@ You stand in the center of the Western tower's base. Torch brackets occupy
 the four corners of this huge room. Above each torch is a lifelike ornate
 stone gargoyle.  There are doors north and south, and passages east and west.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -910,7 +898,7 @@ The Musty Corridor~
 You are walking along a musty east-west corridor joining the two towers.
 There are room on each side of the corridor, and openings at each end.
 ~
-0 AD 0
+0 AD inside
 D0
 ~
 ~
@@ -934,7 +922,7 @@ You have entered what must once have been a kitchen. The rusting remains of
 various utensils lie on countertops. There is also an old wash basin and a
 pot-belly stove.  There is a door south, and a serving hatch east.
 ~
-0 AD 0
+0 AD inside
 D2
 ~
 ~
@@ -945,7 +933,7 @@ Conservatory~
 You are in the tower's private conservatory. However, through years of neglect,
 the plants have grown into a hideous jungle.  The only exit is north.
 ~
-0 AD 0
+0 AD inside
 D0
 ~
 ~
@@ -958,7 +946,7 @@ dominate the room. A horrible odor pervades the room, like some foul-smelling
 beast has been eating and shitting in here.  There is a serving hatch west and
 a door south.
 ~
-0 AD 0
+0 AD inside
 D2
 ~
 ~
@@ -969,7 +957,7 @@ Art Gallery~
 You are in the ruined remains of an art gallery. Everything appears to
 have been stolen long ago, however.  The only exit is north.
 ~
-0 AD 1
+0 AD city
 D0
 ~
 ~
@@ -983,7 +971,7 @@ gargoyle.  There are are open doors to the north and south, and passages east
 and west.  In addition, a spiral staircase leads up to the next level of this
 tower.
 ~
-0 D 1
+0 D city
 D0
 ~
 ~
@@ -1008,7 +996,7 @@ You are in what must once have been a common room for all residents of the
 tower. There is a huge fire pit with a chimney in the center, and the smashed
 remains of a great many table and chairs.  The exit is south.
 ~
-0 D 0
+0 D inside
 D2
 ~
 ~
@@ -1025,7 +1013,7 @@ You are in what once was the servant's quarters, as evidenced by the shabby
 belongings and decor. What little remains is rotting and of little value
 anyway.  The only exit is north.
 ~
-0 AD 0
+0 AD inside
 D0
 ~
 ~
@@ -1037,7 +1025,7 @@ You are in a large, murky cellar. An almost tangible air of horror pervades
 the room.  A thin layer of nitre covers the walls and ceiling.  Rotting
 furniture looms obliquely about the room.
 ~
-0 AD 1
+0 AD city
 D4
 ~
 ~
@@ -1048,7 +1036,7 @@ On the First Staircase~
 You are on a Spiral staircase connecting the first and second levels of
 the eastern tower. You can go up or down.
 ~
-0 AD 2
+0 AD field
 D4
 ~
 ~
@@ -1064,7 +1052,7 @@ You are in the center of the second level of the Eastern tower. This large
 room appears quite empty, except for the candle abras firmly fixed to the
 walls.  An opening leads westward, and a spiral staircase leads down.
 ~
-0 AD 1
+0 AD city
 D3
 ~
 ~
@@ -1081,7 +1069,7 @@ The rotted remains of a plush carpet covers the floor, while several moldy
 tapestries adorn the each side of the hall.  There are door north and south,
 and openings east and west.
 ~
-0 AD 0
+0 AD inside
 D0
 ~
 ~
@@ -1106,7 +1094,7 @@ Costly paintings and pieces of furniture are tastefully situated.  On the
 north wall is an altar to Knar, the ghastly patron of Gargoyles.  The only
 exit is south.
 ~
-0 D 0
+0 D inside
 D2
 ~
 ~
@@ -1117,7 +1105,7 @@ The Library~
 This room appears to have been a library.  Empty book shelves line each wall.
 The only exit is north.
 ~
-0 AD 0
+0 AD inside
 D0
 ~
 ~
@@ -1130,7 +1118,7 @@ staircase of 29 steps connects this level with the third.  There are doors
 to the east and west.  Except for a torch bracket in each corner, the 
 room is barren.
 ~
-0 D 1
+0 D city
 D1
 ~
 ~
@@ -1150,7 +1138,7 @@ On the Balcony~
 You are on the balcony overlooking the Grand lobby.  You have a fabulous
 view of the entire room.  The only exit is the way you came in.
 ~
-0 D 2
+0 D field
 D1
 ~
 ~
@@ -1161,7 +1149,7 @@ The Spiral Stairs~
 You are on a large spiral staircase of 29 steps, leading between the 
 second and third floors.  You can go up or down.
 ~
-0 D 2
+0 D field
 D4
 ~
 ~
@@ -1177,7 +1165,7 @@ You stand in the center of the western tower's third floor.  This large room
 glows mysteriously with a strange light all its own.  From a door to the east
 comes a strange inky blackness.  A spiral staircase leads down.
 ~
-0 D 1
+0 D city
 D1
 ~
 ~
@@ -1190,7 +1178,7 @@ S
 #1644
 It's too dark to see anything!~
 ~
-0 AD 3
+0 AD forest
 D0
 ~
 ~
@@ -1214,7 +1202,7 @@ In this room, which has somehow evaded the ravages of time, are neatly stored
 racks of common weapons.  They appear to be quite ordinary; however, a chest
 in one corner catches your eye.  The only exit is the way you came in.
 ~
-0 AD 0
+0 AD inside
 D2
 ~
 ~
@@ -1228,7 +1216,7 @@ flying snake-like reptiles with poisonous tails fight humans and dwarves.
 Various objects in the room give evidence that it is occupied by individuals
 of authority.  The only door is north.
 ~
-0 AD 0
+0 AD inside
 D0
 ~
 ~
@@ -1241,7 +1229,7 @@ glows with a mysterious light that has no source.  In the center of the room a
 ladder climbs up to a hatchway in the ceiling.  The hatchway is a strange
 looking keyhole.  There is also a door to the west.
 ~
-0 D 1
+0 D city
 D3
 ~
 ~
@@ -1259,7 +1247,7 @@ made in the roof by some enormous beast, letting the daylight (or moonlight)
 in.  There is a hatchway in the floor, and an opening to the west leading out
 onto a catwalk.
 ~
-0 0 1
+0 0 city
 D3
 There is a small opening this way.
 ~
@@ -1279,7 +1267,7 @@ wilderness.  At the east end of the catwalk is a small opening leading
 inside the eastern turret.  At the western end, a strange mirror-like portal
 leads into the western turret.
 ~
-0 0 3
+0 0 forest
 D1
 ~
 ~
@@ -1297,7 +1285,7 @@ Scattered about this room are a great many coins and valuable articles.
 Yet you can't get rid of a feeling of dread!  A mirror-like portal is in the
 western wall.
 ~
-0 AD 0
+0 AD inside
 D1
 ~
 ~
@@ -1316,7 +1304,7 @@ fabulous view of your surroundings, a murky city partially obscured by strange
 smoke that creeps along the ground instead of rising. The city stretches as far
 as the eye can see under the conditions.
 ~
-0 0 3
+0 0 forest
 D1
 ~
 ~
@@ -1331,7 +1319,7 @@ The Chamber~
 You are in a small carpeted chamber. The chamber is empty except for a single
 chair facing a mirror on the wall.
 ~
-0 0 0
+0 0 inside
 D1
 ~
 ~
@@ -1343,7 +1331,7 @@ You are on the old Eastern Road.  The crossroads to the east joins ANOTHER
 northern route to this road, which continues east.  South of the crossroads is
 an old building.  The area around here is lightly timbered.
 ~
-0 C 3
+0 C forest
 D1
 You see a cross roads and an old building.
 ~
@@ -1362,7 +1350,7 @@ older road continues east, and a simple trail heads north.  To the south,
 an old ram-shackle building is being used as a trading post for the
 surrounding wilderness. 
 ~
-0 0 3
+0 0 forest
 D0
 You see a trail leading north.
 ~
@@ -1389,7 +1377,7 @@ You are in a trading post just south of the crossroads, where rangers,
 trappers and hunters from the surrounding area come to buy, sell, and
 barter goods.
 ~
-0 D 0
+0 D inside
 D0
 The door opens out on the crossroads.
 ~
@@ -1402,7 +1390,7 @@ You are on a primitive north-south trail. South of here is a major cross-
 roads and an old building. To the north the trail continues toward a
 deep, dark forest.
 ~
-0 0 3
+0 0 forest
 D0
 The trail continues toward a deep, dark, forest.
 ~
@@ -1419,7 +1407,7 @@ Trail south of forest~
 You are on a primitive north-south trail.  Just north of here looms the
 entrance to a deep, dark forest. To the south the trail continues.
 ~
-0 0 3
+0 0 forest
 D0
 The trail enters a dark forest of thick oaks this way.
 ~
@@ -1437,7 +1425,7 @@ You are at the entrance to dark forest comprised mostly of huge black oak
 and towering firs.  A trail from the south continues north on into the
 woods at this point.
 ~
-0 0 3
+0 0 forest
 D0
 You see the trail continuing into the forest.
 ~
@@ -1456,7 +1444,7 @@ these trees are of enormous size.  Rustling and other low noises come
 from the forest on either side of the trail.  The trail continues on north
 and south.
 ~
-0 0 4
+0 0 hills
 D0
 You see the trail continue into thick, dark forest.
 ~
@@ -1473,7 +1461,7 @@ Junction in Dark Forest~
 You are in the midst of a deep dark forest of huge oak trees.  There is a
 junction of trails here, with paths leading south, west and east.
 ~
-0 0 4
+0 0 hills
 D1
 A path disappears into thick forest.
 ~
@@ -1496,7 +1484,7 @@ You are on an east-west path in the forest.  Here the forest is mostly
 towering firs, not quite as dense as the oak groves that can be seen eastward.
 Westward, the trail heads toward a small clearing.
 ~
-0 0 3
+0 0 forest
 D1
 A path disappears into thick forest.
 ~
@@ -1515,7 +1503,7 @@ about the edges of this clearing.  Beyond these on all sides are towering
 fir trees.  A path leads east out of the clearing. The clearing continues to
 the west.
 ~
-0 0 2
+0 0 field
 D0
 There is a hut here.
 ~
@@ -1543,7 +1531,7 @@ You are on the west side of the clearing in the center of the Centaur village.
 Huts surround the clearing on all sides, and beyond are towering firs.  The
 clearing continues to the east.  To the west is a very large hut.
 ~
-0 0 2
+0 0 field
 D0
 There is a hut here.
 ~
@@ -1570,7 +1558,7 @@ A Centaur's Hut~
 You are inside a smallish hut, the home of a family of Centaurs.  The hut
 is sparsely furnished, mostly the trappings of survival.
 ~
-0 D 0
+0 D inside
 D2
 The opening leads out onto the clearing.
 ~
@@ -1582,7 +1570,7 @@ A Centaur's Hut~
 You are inside a smallish hut, the home of a family of Centaurs.  The hut
 is sparsely furnished, mostly the trappings of survival.
 ~
-0 D 0
+0 D inside
 D0
 The opening leads out onto the clearing.
 ~
@@ -1594,7 +1582,7 @@ A Centaur's Hut~
 You are inside a smallish hut, the home of a family of Centaurs.  The hut
 is sparsely furnished, mostly the trappings of survival.
 ~
-0 D 0
+0 D inside
 D2
 The opening leads out onto the clearing.
 ~
@@ -1606,7 +1594,7 @@ A Centaur's Hut~
 You are inside a smallish hut, the home of a family of Centaurs.  The hut
 is sparsely furnished, mostly the trappings of survival.
 ~
-0 D 0
+0 D inside
 D0
 The opening leads out onto the clearing.
 ~
@@ -1619,7 +1607,7 @@ You are in the entry foyer of a large hut.  A curtain separates this section
 of the hut from the next section to the west.  To the east is an opening out
 onto the clearing.
 ~
-0 D 0
+0 D inside
 D1
 The opening leads out onto the clearing.
 ~
@@ -1637,7 +1625,7 @@ You are in the back of a large hut.  A curtain separates this section from
 the front of the hut to the east.  This room is finely decorated, if
 somewhat primitive.  The decor suggests someone of authority lives here.
 ~
-0 D 0
+0 D inside
 D1
 There is a curtain here separating this room from the front of the hut.
 ~
@@ -1650,7 +1638,7 @@ You are on an east-west path through extremely old growths of oak.  The path
 is fairly faint here.  Undergrowth closes in so closely that little can
 be seen in any direction.
 ~
-0 0 4
+0 0 hills
 D3
 The path continues west through thick forest.
 ~

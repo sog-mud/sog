@@ -62,13 +62,12 @@ The Prison Worker looks almost exactly like a janitor you have seen in
 Midgaard!
 ~
 human~
-ACG J 0 0
+ACG DFJ 0 0
 9 0 2d6+110 5d5+100 1d8+2 slash
 2 2 2 7
 FIJ 0 0 0
 stand stand male 100
 0 0 medium unknown
-A det DF
 #32004
 Cell Guard~
 the Cell Guard~
@@ -249,13 +248,12 @@ The Steam Monster is glittering although there is no light. It swirls about and
 about almost charming you in the process......
 ~
 unique~
-ABFG 0 0 0
+ABFG D 0 0
 30 0 6d12+853 5d5+1000 4d6+8 claw
 -9 -9 -9 3
 FKN 0 0 0
 stand stand none 100
 0 0 medium unknown
-A det D
 #32016
 Larry armsmaster~
 Larry the armsmaster~
@@ -372,13 +370,12 @@ A huge bronze Dragon is snoozing here with one eye open looking at you!
 Since you are a lesser being than Mnemoth you cannot comprehend what you see here.
 ~
 dragon~
-AG BHPU 1000 0
+AG BDFHPU 1000 0
 1 0 2d6+10 5d5+100 1d4+0 claw
 9 9 9 10
 F 0 0 0
 stand stand male 100
 0 0 huge unknown
-A det DF
 #32024
 Terry ~
 Terry the salesman~
@@ -425,7 +422,7 @@ A pack of smokes have been dropped here carelessly.
 ~
 unknown~
 armor BE AO
-AB AB AB 0 0
+3 3 3 0 0
 10 0 0 P
 A
 2 -2
@@ -498,7 +495,7 @@ An ivory robe lies here.
 ~
 leather~
 armor 0 AK
-B 0 0 0 0
+2 0 0 0 0
 1 5 0 P
 A
 4 1
@@ -520,7 +517,7 @@ A  hatchling cloak lies here.
 ~
 leather~
 armor 0 AC
-B 0 0 0 0
+2 0 0 0 0
 1 5 0 P
 #32011
 hatchling shirt~
@@ -529,7 +526,7 @@ A hatchling shirt lies here
 ~
 leather~
 armor 0 AD
-B 0 0 0 0
+2 0 0 0 0
 1 5 0 P
 #32012
 helmet~
@@ -538,7 +535,7 @@ A hatchling helmet rests here.
 ~
 steel~
 armor 0 AE
-B 0 0 0 0
+2 0 0 0 0
 1 5 0 P
 #32013
 hatchling leggings~
@@ -547,7 +544,7 @@ Some hatchling leggings lie here.
 ~
 steel~
 armor 0 AF
-B 0 0 0 0
+2 0 0 0 0
 1 5 0 P
 #32014
 hatchling boots~
@@ -556,7 +553,7 @@ A pair of hatchling boots lie here.
 ~
 leather~
 armor 0 AG
-B 0 0 0 0
+2 0 0 0 0
 1 5 0 P
 #32015
 hatchling gloves~
@@ -565,7 +562,7 @@ A pair of hatchling gloves lie here.
 ~
 leather~
 armor 0 AH
-B 0 0 0 0
+2 0 0 0 0
 1 5 0 P
 #32016
 hatchling sleeves~
@@ -574,7 +571,7 @@ Some hatchling sleeves lie here.
 ~
 steel~
 armor 0 AI
-B 0 0 0 0
+2 0 0 0 0
 1 10 0 P
 #32017
 shield hatchling~
@@ -583,7 +580,7 @@ A hatchling shield has been carelessly left here.
 ~
 steel~
 armor 0 AJ
-B 0 0 0 0
+2 0 0 0 0
 1 10 0 P
 #32018
 hatchling belt~
@@ -607,7 +604,7 @@ A hatchling bracer has been left here.
 ~
 leather~
 armor 0 AM
-B 0 0 0 0
+2 0 0 0 0
 1 5 0 P
 #32020
 lucky charm hatchling~
@@ -734,7 +731,7 @@ A wicked looking spiked wrist guard lies here.
 ~
 unknown~
 armor 0 AM
-CE ACE CE CE 0
+20 21 20 20 0
 60 10 100 P
 A
 13 50
@@ -753,7 +750,7 @@ A pair of strong leggings has been left here.
 ~
 titanium~
 armor 0 AF
-CDE BDE BDE E 0
+28 26 26 16 0
 60 15 100 P
 A
 17 -15
@@ -766,7 +763,7 @@ A set of strong sleeves has been dropped here.
 ~
 titanium~
 armor 0 AI
-ADE ADE BDE CE 0
+25 25 26 20 0
 60 5 100 P
 A
 1 3
@@ -777,7 +774,7 @@ A prison uniform lies here all starched up.
 ~
 leather~
 armor 0 AK
-BC BC ABC AC 0
+6 6 7 5 0
 20 5 10 P
 A
 2 3
@@ -788,7 +785,7 @@ A shield of titanium rests here.
 ~
 titanium~
 armor 0 AJ
-ACDE ACDE CDE CE 0
+29 29 28 20 0
 60 35 1000 P
 A
 19 10
@@ -812,7 +809,7 @@ A pitch black ring with sparkles of color lies on the ground here.
 ~
 unknown~
 armor ABFG AB
-BE BE ABE BD 0
+18 18 19 10 0
 30 5 1000 P
 A
 17 -30
@@ -825,7 +822,7 @@ A set of wrought iron manacles lay in the corner here.
 ~
 iron~
 armor M AM
-A A A 0 0
+1 1 1 0 0
 1 5 0 P
 A
 14 -200
@@ -847,7 +844,7 @@ A pile of gold coins are scattered about.
 ~
 gold~
 money 0 A
-CDEGHIK 0 0 0 0
+1500 0 0 0 0
 0 0 0 P
 #32040
 heels pink sequin~
@@ -856,7 +853,7 @@ A set aof fabulous looking heels lie here.
 ~
 unknown~
 armor 0 AG
-BDE BDE BDE E 0
+26 26 26 16 0
 80 5 1000 P
 A
 2 5
@@ -866,7 +863,7 @@ a pink cashmire scarf~
 A pink cashmire scarf has been left here, a definite plus for anyone's wardrobe.~
 cashmire~
 armor 0 AC
-CE CE CE BD 0
+20 20 20 10 0
 60 5 1000 P
 A
 17 -10
@@ -877,7 +874,7 @@ A busty bra lies here.
 ~
 unknown~
 armor M AD
-CD CD CD BD 0
+12 12 12 10 0
 36 10 10 P
 A
 9 -10
@@ -890,7 +887,7 @@ A workers coveralls lay here.
 ~
 unknown~
 armor BF AK
-ABCD ABCD ABCD AC 0
+15 15 15 5 0
 48 10 1100 P
 A
 1 3
@@ -903,7 +900,7 @@ A baseball hat with the tribe logo on it is here.
 ~
 unknown~
 armor 0 AE
-ABCD E E BD 0
+15 16 16 10 0
 48 2 10 P
 A
 14 200
@@ -916,7 +913,7 @@ A tool belt lies here.
 ~
 unknown~
 armor 0 AL
-E AE ABCD BD 0
+16 17 15 10 0
 50 5 50 P
 A
 5 3
@@ -927,7 +924,7 @@ A pile of golden netting is here.
 ~
 gold~
 armor 0 AE
-BDE ABDE BDE BE 0
+26 27 26 18 0
 80 45 3000 P
 A
 4 2
@@ -966,7 +963,7 @@ A gown of virginity has been forgotten here.
 ~
 unknown~
 armor 0 AK
-ABDE BDE ADE CE 0
+27 26 25 20 0
 80 5 0 P
 A
 4 1
@@ -988,7 +985,7 @@ A massive pile of dreadlocks rest here.
 ~
 iron~
 armor ABFKL AE
-BCDE BCDE BCDE CE 0
+30 30 30 20 0
 90 25 110 P
 A
 19 10
@@ -1103,7 +1100,7 @@ A fine ball point pen lies here.
 ~
 unknown~
 armor F AO
-E AE E AD 0
+16 17 16 9 0
 50 10 10 P
 A
 19 3
@@ -1160,7 +1157,7 @@ A hatchling cloak lies here.
 ~
 unknown~
 armor 0 AC
-B 0 0 0 0
+2 0 0 0 0
 1 5 0 P
 #32069
 hatchling bracer~
@@ -1169,7 +1166,7 @@ A hatchling bracer lies here.
 ~
 unknown~
 armor 0 AM
-B A 0 0 0
+2 1 0 0 0
 1 5 0 P
 #32070
 large desk~
@@ -1198,7 +1195,7 @@ You are standing in the shadow of a formiddable building. There are no
 windows only slits to let in light. In the distance you hear screams that
 send chills down your spine.
 ~
-0 C 1
+0 C city
 D0
 ~
 ~
@@ -1218,7 +1215,7 @@ The Prison of Midgaard~
 You are standing in front of a large prison. It looks as if what goes in  
 never comes out. A large rusty gate is to the north. A plaque is on the wall.
 ~
-0 0 1
+0 0 city
 E
 plaque large~
 Welcome to the Prison of Midgaard where our motto is "Work sets you free.".
@@ -1242,7 +1239,7 @@ A Bright Intersection~
 This appears to be a central intersection of sorts. You see light to the
 east  and west while to the north a dark hallway extends.
 ~
-0 0 0
+0 0 inside
 D0
 ~
 ~
@@ -1265,7 +1262,7 @@ A Dark Intersection~
 You are standing in a dark intersection. There appears to be cellblocks to
 the east and west of here. The hallway continues north and south.
 ~
-0 A 0
+0 A inside
 D0
 ~
 ~
@@ -1288,7 +1285,7 @@ A long hallway~
 You are standing in a long hallway. There is a misty smell to the east.
 The hallway continues north.
 ~
-0 0 0
+0 0 inside
 D0
 ~
 ~
@@ -1307,7 +1304,7 @@ A long hallway~
 You are standing in a long hallway. The hallway continues to the north and  
 south.
 ~
-0 0 0
+0 0 inside
 D0
 ~
 ~
@@ -1322,7 +1319,7 @@ A long hallway~
 You are standing in a long hallway. A pungent aroma is wafting in from the west 
 here. The hallway continues to the north and south.
 ~
-0 0 0
+0 0 inside
 D0
 ~
 ~
@@ -1341,7 +1338,7 @@ A long hallway~
 You are standing in a long hallway. The hallway continues to the north and  
 south.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -1356,7 +1353,7 @@ A long hallway~
 You are standing in a long hallway. The hallway continues to the north and
 south.  You can see a yard of sorts to the east and west.
 ~
-0 0 0
+0 0 inside
 D0
 ~
 ~
@@ -1384,7 +1381,7 @@ This is the last room some of the prisoners will ever see. There is a
 large block in the middle of the room which is used for seperating the
 head from the body. The stench is overwhelming here.
 ~
-0 0 0
+0 0 inside
 D2
 ~
 ~
@@ -1395,7 +1392,7 @@ The Cleric's Hold~
 You are in the secret room of the muslim cleric. there are all sorts of  
 religious artifacts on the walls here. This is a very peaceful room.
 ~
-0 0 0
+0 0 inside
 D5
 ~
 ~
@@ -1406,7 +1403,7 @@ A quiet hallway~
 You are standing in a quiet hallway. There is a large painting of the
 Mayor on the wall here.
 ~
-0 0 0
+0 0 inside
 E
 painting  mayor wall~
 The picture of the mayor has been eloquently doodled upon. Scrolled upon
@@ -1424,7 +1421,7 @@ S
 A quiet hallway~
 You are standing in a quiet hallway. There is a door to the south here.
 ~
-0 0 0
+0 0 inside
 D1
 ~
 ~
@@ -1444,7 +1441,7 @@ You are standing in the Weapons Room. This is where the guards store their
 equipment after their shift is over. There is an array of swords and axes  
 stacked on a shelf behind the counter.
 ~
-0 0 0
+0 0 inside
 D0
 ~
 ~
@@ -1454,7 +1451,7 @@ S
 A quiet hallway~
 You are standing in a quiet hallway. The hallway continues to the east and west.
 ~
-0 0 0
+0 0 inside
 D1
 ~
 ~
@@ -1469,7 +1466,7 @@ Reception area~
 You are standing in the main reception room. There is a lovely couch and a  
 drinking fountain here. The administration Hallway leads to the south.
 ~
-0 0 0
+0 0 inside
 D0
 ~
 ~
@@ -1492,7 +1489,7 @@ A broom closet~
 You are in a small broom closet. There are old rags and other odds and
 ends stacked on the shelves here.
 ~
-0 A 0
+0 A inside
 D2
 ~
 ~
@@ -1503,7 +1500,7 @@ Spiral staircase~
 You are standing in what appears to be a spiral stone staircase. You smell  
 the pungent odor of Cannibus burning here.
 ~
-0 0 0
+0 0 inside
 D1
 ~
 ~
@@ -1518,7 +1515,7 @@ Spiral staircase~
 You are in a spiral staircase made of stone. You hear people laughing above you,
  and the smell of cannibus is getting stronger.
 ~
-0 0 0
+0 0 inside
 D4
 ~
 ~
@@ -1533,7 +1530,7 @@ Smokey Tower~
 You can feel yourself getting very relaxed as you take deep breaths of the smoke
 in here.  Man.....aren't there ANY windows?
 ~
-0 0 0
+0 0 inside
 D5
 ~
 ~
@@ -1544,7 +1541,7 @@ The administration hallway~
 You are standing in an administration hallway. The hallway continues to
 the north and south.
 ~
-0 0 0
+0 0 inside
 D0
 ~
 ~
@@ -1559,7 +1556,7 @@ The administration hallway~
 You are standing in what appears to be a long corridor. The hallway continues to
 the north and south
 ~
-0 0 0
+0 0 inside
 D0
 ~
 ~
@@ -1574,7 +1571,7 @@ The administration hallway~
 You are standing in what appears to be a long corridor. The hallway continues to
 the north and south.
 ~
-0 0 0
+0 0 inside
 D0
 ~
 ~
@@ -1589,7 +1586,7 @@ The administration hallway~
 You are standing in what appears to be a long corridor. You hear the
 clicking of a typewriter to the south.
 ~
-0 0 0
+0 0 inside
 D0
 ~
 ~
@@ -1603,7 +1600,7 @@ S
 Warden's Office~
 You are in the receptionist's office.It smells like pot pourri in here.
 ~
-0 0 0
+0 0 inside
 D0
 ~
 ~
@@ -1619,7 +1616,7 @@ You are standing in the Wardens chamber. There are pictures of all the
 inmates  he has had executed on the walls. A large stack of pictures is on  
 the floor as well.
 ~
-0 0 0
+0 0 inside
 D1
 ~
 ~
@@ -1630,7 +1627,7 @@ A quiet hallway~
 You are standing in a quiet hallway. There is a large painting of Warden
 Brad on the wall here. The hallway continues to the east and west.
 ~
-0 0 0
+0 0 inside
 E
 painting warden brad wall~
 This man is a tyrant as evident by the portrait of him slaying and
@@ -1648,7 +1645,7 @@ S
 A quiet hallway~
 You are standing in a quiet hallway. There is a door to the south here.
 ~
-0 0 0
+0 0 inside
 D1
 ~
 ~
@@ -1668,7 +1665,7 @@ You are standing in the armory. This is where the guards come and check
 there  equipment when their shift is over. You see a stack of shields
 behind  the counter here.
 ~
-0 0 0
+0 0 inside
 D0
 ~
 ~
@@ -1679,7 +1676,7 @@ Triple junction~
 you are standing in a triple junction. A maintenance hallway extends to
 the  south and a dimly lit hallway to the east.
 ~
-0 0 0
+0 0 inside
 D1
 ~
 ~
@@ -1698,7 +1695,7 @@ Dimly lit hallway~
 You are standing in a dimly lit hallway.  It seems as though maintenance  
 ought to check on these lights in here.
 ~
-0 A 0
+0 A inside
 D0
 ~
 ~
@@ -1717,7 +1714,7 @@ A broom closet~
 You are standing in a small broom closet. There are absolutely no brooms
 here.  Go figure?!?
 ~
-0 0 0
+0 0 inside
 D2
 ~
 ~
@@ -1728,7 +1725,7 @@ Spiral staircase~
 You are standing in at the base of a staircase made of stone. You can
 smell tobacco wafting down from above.
 ~
-0 0 0
+0 0 inside
 D3
 ~
 ~
@@ -1743,7 +1740,7 @@ Spiral staircase~
 You are standing on a staircase made of stone. You can hear cursing and laughing
 from above.
 ~
-0 0 0
+0 0 inside
 D4
 ~
 ~
@@ -1759,7 +1756,7 @@ You are at the top of a spiral staircase. All around you are stacks and
 stacks of encyclopedias. It seems the only use they have had lately is
 being sit upon for the nightly poker game.
 ~
-0 0 0
+0 0 inside
 D5
 ~
 ~
@@ -1770,7 +1767,7 @@ A maintenance hallway~
 You are standing in a long maintenance hallway. You smell solvents and
 other manly stuff in the air.
 ~
-0 0 0
+0 0 inside
 D0
 ~
 ~
@@ -1785,7 +1782,7 @@ A maintenance hallway~
 You are standing in a maintenance hallway. You smell solvents and other
 manly stuff.
 ~
-0 0 0
+0 0 inside
 D0
 ~
 ~
@@ -1800,7 +1797,7 @@ A maintenance hallway~
 You are standing in a maintenance hallway. You smell solvents and other  
 manly stuff.
 ~
-0 0 0
+0 0 inside
 D0
 ~
 ~
@@ -1815,7 +1812,7 @@ A maintenance hallway~
 You are standing in a maintenance hallway. There is a door to the south.
 There is a sign on the wall here.
 ~
-0 0 0
+0 0 inside
 E
 sign wall~
 ****ATTENTION****
@@ -1837,7 +1834,7 @@ Prison maintenance~
 You are standing in room FULL of all sorts of maintenance items. There are cases
 and cases of Environmental Chemical Corporation aerosols here.
 ~
-0 0 0
+0 0 inside
 D0
 ~
 ~
@@ -1852,7 +1849,7 @@ The boiler room~
 You are in the boiler room. There is a tremendous steam boiler smack dab in the 
 middle of the room. You have an overwhelming sense of forboding here.
 ~
-0 0 0
+0 0 inside
 D3
 ~
 ~
@@ -1863,7 +1860,7 @@ Guard Room~
 You are in what appears to be a guard room. There is a huge locked door to  
 the west.
 ~
-0 0 0
+0 0 inside
 D1
 ~
 ~
@@ -1879,7 +1876,7 @@ This is the reason this prison is here, to keep these people from getting
 out. You start to wonder if you can ever get out yourself. There are cells
 to the north and south.
 ~
-0 AN 0
+0 AN inside
 D0
 ~
 ~
@@ -1903,7 +1900,7 @@ This is the reason the prison is here, to keep these people from getting
 out. You start to wonder if you will ever get out yourself. There are
 cells to the north and south.
 ~
-0 AN 0
+0 AN inside
 D0
 ~
 ~
@@ -1927,7 +1924,7 @@ This is the reason the prison is here, to keep the people from getting out. You
 start to wonder of you will ever get out yourself. There are cells to the north 
 and south. A small alcove leads to the west.
 ~
-0 AN 0
+0 AN inside
 D0
 ~
 ~
@@ -1949,7 +1946,7 @@ S
 An alcove~
 This room is absolutely barren.........
 ~
-0 AN 0
+0 AN inside
 D1
 ~
 ~
@@ -1960,7 +1957,7 @@ A cell~
 You are standing in a cell. There is a pile of straw on the floor and
 crude drawings on the wall.
 ~
-0 AN 0
+0 AN inside
 D2
 ~
 ~
@@ -1971,7 +1968,7 @@ A cell~
 You are standing in a cell. There ais a pile of straw on the floor and
 some crude drawings on the wall.
 ~
-0 AN 0
+0 AN inside
 D0
 ~
 ~
@@ -1982,7 +1979,7 @@ A cell~
 You are standing in a cell. There is a pile of straw on the floor and some crude
 drawings on the wall.
 ~
-0 AN 0
+0 AN inside
 D2
 ~
 ~
@@ -1993,7 +1990,7 @@ A cell~
 You are standing in a cell. There is a pile of straw on the floor and some crude
 drawings on the wall.
 ~
-0 AN 0
+0 AN inside
 D0
 ~
 ~
@@ -2004,7 +2001,7 @@ A cell~
 You are standing in a cell. There is a pile of straw on the floor and some crude
 drawings on the wall.
 ~
-0 AN 0
+0 AN inside
 D2
 ~
 ~
@@ -2015,7 +2012,7 @@ A cell~
 You are standing in a cell. there is a pile of straw on the floor and some crude
 drawings on the wall.
 ~
-0 AN 0
+0 AN inside
 D0
 ~
 ~
@@ -2026,7 +2023,7 @@ A Guard Room~
 You are in what appears to be a guardroom. there is a huge locked door to
 the east.
 ~
-0 A 0
+0 A inside
 D1
 ~
 ~
@@ -2042,7 +2039,7 @@ This is the reason the prison is here, to keep people from getting out.
 You start to wonder if you will ever get out yourself. there are cells to
 the north and south.
 ~
-0 AN 0
+0 AN inside
 D0
 ~
 ~
@@ -2066,7 +2063,7 @@ This is the reason the prison is here, to keep people from getting out.
 you start to wonder if you will ever get out yourself. There are cells to
 the north and south.
 ~
-0 AN 0
+0 AN inside
 D0
 ~
 ~
@@ -2090,7 +2087,7 @@ this is the reason the prison is here, to keep people from getting out.
 You start to wonder if you will ever get out yourself. there are cells to
 the north and south. A small alcove leads to the east.
 ~
-0 AN 0
+0 AN inside
 D0
 ~
 ~
@@ -2113,7 +2110,7 @@ An alcove~
 You are in a small alcove. It appears as if someone has been living here. Piles 
 of feces are in the corners and the smell of urine overpowers you.
 ~
-0 AN 0
+0 AN inside
 D3
 ~
 ~
@@ -2124,7 +2121,7 @@ A cell~
 You are standing in a cell. there is a pile of straw on the floor and
 crude drawings on the wall.
 ~
-0 AN 0
+0 AN inside
 D2
 ~
 ~
@@ -2135,7 +2132,7 @@ A cell~
 You are standing in a cell. there is a pile of straw on the floor and
 crude drawings on the wall.
 ~
-0 AN 0
+0 AN inside
 D0
 ~
 ~
@@ -2146,7 +2143,7 @@ A cell~
 You are standing in a cell. There is a pile of straw on the floor and
 crude drawings on the wall.
 ~
-0 AN 0
+0 AN inside
 D2
 ~
 ~
@@ -2157,7 +2154,7 @@ A cell~
 You are standing in a cell. There is a pile of straw on the floor and
 crude drawings on the wall.
 ~
-0 AN 0
+0 AN inside
 D0
 ~
 ~
@@ -2168,7 +2165,7 @@ A cell~
 You are standing in a cell. there is a pile of straw on the floor and
 crude drawings on the wall.
 ~
-0 AN 0
+0 AN inside
 D2
 ~
 ~
@@ -2179,7 +2176,7 @@ A cell~
 You are standing in a cell. there is a pile of straw on the floor and some crude
 drawings on the wall.
 ~
-0 AN 0
+0 AN inside
 D0
 ~
 ~
@@ -2191,7 +2188,7 @@ You are in the exercise yard. You can hear the hustle and bustle of
 Midgaard just over the wall. You also hear the muted tones of the
 prisoners whispers.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -2210,7 +2207,7 @@ Northeast Corner of the yard~
 You are standing in the northeast corner of the yard. There are
 Bloodstains on the wall here.
 ~
-0 0 2
+0 0 field
 D2
 ~
 ~
@@ -2225,7 +2222,7 @@ Eastern end of the yard~
 You are standing in the eastern end of the yard. Prisoners are in little groups 
 all around the yard.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -2244,7 +2241,7 @@ Eastern end of the yard~
 You are in the eastern end of the yard. There is a large wall right here to the 
 east. Prisoners are in little groups all over the yard here.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -2263,7 +2260,7 @@ Eastern end of the yard~
 You are standing in the eastern end of the yard. There is a huge wall right here
 to the east. there are groups of prisoners all over the yard.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -2281,7 +2278,7 @@ S
 Southeastern corner of the yard~
 You are standing in the southeastern corner of the yard.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -2296,7 +2293,7 @@ Southern end of the yard~
 You are standing in the southern end of the yard. Prisoners are standing
 in little groups all around the yard.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -2314,7 +2311,7 @@ S
 Middle of the yard~
 You are standing in the middle of the exercise yard.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -2336,7 +2333,7 @@ S
 Middle of the yard~
 You are standing in the middle of the exercise yard.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -2358,7 +2355,7 @@ S
 Middle of the yard~
 You are standing in the middle of the exercise yard.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -2382,7 +2379,7 @@ You are standing in the exercise yard. You can hear the hustle and bustle
 of Midgaard just over the wall. You also hear the muted tones of the  
 prisoners whispers.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -2402,7 +2399,7 @@ You are standing in the northwestern corner of the yard. There are groups
 of prisoners huddled all around the yard. It seems as though you are an  
 outsider here.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -2417,7 +2414,7 @@ Western end of the yard~
 You are standing along the western end of the wall. You can see groups of  
 prisoners huddled all over the yard.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -2436,7 +2433,7 @@ Western end of the yard~
 You are standing on the western end of the yard. You can see groups of prisoners
 huddled together all over the yard. To the south you can hear a commotion.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -2455,7 +2452,7 @@ Break in the western wall~
 You are standing on the western end of the yard. There appears to be a
 hole in the wall to the west.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -2478,7 +2475,7 @@ Southwestern corner of the wall.~
 You are standing in the southwest corner of the yard. This is where the beatings
 must take place as evident by the corpses hanging on the wall.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -2493,7 +2490,7 @@ Southern end of the yard~
 You are standing in the southern end of the yard. Prisoners are standing
 in little groups all around the yard.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -2512,7 +2509,7 @@ Middle of the yard~
 You are standing in the middle of the yard. You can see little groups of  
 prisoners all around the yard.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -2535,7 +2532,7 @@ Middle of the yard~
 You are standing in the middle of the yard. You can see little groups of  
 prisoners all around the yard.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -2558,7 +2555,7 @@ Middle of the yard~
 You are standing in the middle of the yard. You can see little groups of  
 prisoners all around the yard.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -2582,7 +2579,7 @@ You are standing inside a small hole dug into the wall. It looks as if this
 might be some kind of escape route. Better hope the person digging it is
 not around!
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -2593,7 +2590,7 @@ Deep dank hall~
 You are in a passage that leads to the showers. The walls are moist and
 slimy here. You can smell fear and decay......better leave now.
 ~
-0 A 0
+0 A inside
 D1
 ~
 ~
@@ -2609,7 +2606,7 @@ This is the most feared and hated place in the entire prison. That must be
 why all the prisoners look so dirty. The walls here are covered in slime
 and blood.
 ~
-0 0 0
+0 0 inside
 E
 rusty shower head~
 This is what WATER comes out of.........duhhhh.
@@ -2626,7 +2623,7 @@ This is the place where everyone comes to chow down. Looks like the
 specials today are roast rat and slime ball soup. The smell here is
 EXTREMELY offensive.
 ~
-0 0 0
+0 0 inside
 D0
 ~
 ~
@@ -2642,7 +2639,7 @@ This is where the finest chefs in all of Midgaard prepare the feasts daily
 for all the lovely prisoners. It seems as if the chefs, feasts and lovely  
 prisoners are long since gone.
 ~
-0 0 0
+0 0 inside
 D2
 ~
 ~
@@ -2651,7 +2648,7 @@ S
 #32088
 Flar's Gateway to Unknown~
 ~
-0 C 1
+0 C city
 S
 #32089
 Flar's Gateway to heaven~
@@ -2659,7 +2656,7 @@ You are standing in a huge Warehouse. This must be where Flar spends his
 days working. From here you can see a desk in the corner and a large sign
 on the wall.
 ~
-0 C 1
+0 C city
 S
 #0
 

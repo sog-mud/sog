@@ -21,13 +21,12 @@ visitors.  Even so, the guard stands motionless at his post, eyes fixed firmly
 on the empty space in front of him.
 ~
 human~
-ABGT 0 0 0
+ABGT DF 0 0
 23 0 5d10+450 5d5+1000 3d6+6 pound
 -6 -6 -6 4
 CDEFIJKU 0 0 0
 stand stand male 10
 0 0 medium unknown
-A det DF
 #19002
 pale withered knight~
 a withered knight~
@@ -39,13 +38,12 @@ hauberk he wears.  As he sees you, his gray, papery mouth opens, and his
 eyes widen in surprise.....
 ~
 human~
-ABCFG JQ 0 0
+ABCFG DFJQ 0 0
 45 0 25d10+3000 5d5+1000 8d4+16 slash
 -15 -15 -15 2
 CDEFIJK 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DF
 #19003
 king loranhir man~
 King Loranhir~
@@ -63,13 +61,12 @@ powerful spell, splitting the land in two--but leaving him unable to
 face his failure.
 ~
 human~
-ABGT JNU 0 0
+ABGT DFJNU 0 0
 49 0 50d10+4000 5d5+1000 4d10+18 pound
 -19 -19 -19 1
 CDEFIJKN 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DF
 #19004
 caerlin bard~
 Caerlin~
@@ -131,13 +128,12 @@ faintly as the light strikes it.  The horn itself is even more distinctive--
 it appears to be golden, and tipped with something that looks like a diamond.
 ~
 human~
-ABG HN 1000 0
+ABG DFHN 1000 0
 39 0 15d10+1700 5d5+1000 5d6+13 charge
 -13 -13 -13 3
 CDEFK 0 0 0
 stand stand none 0
 0 0 medium unknown
-A det DF
 #19008
 watchman~
 a watchman~
@@ -148,13 +144,12 @@ almost impossible to distinguish him from the mountain, since he stands
 completely still with the hood of his robe pulled far over his head.
 ~
 human~
-ABG N 0 0
+ABG DFN 0 0
 19 0 3d9+308 5d5+1000 2d7+5 slap
 -4 -4 -4 5
 CDEFIJ 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DF
 #19009
 watchman~
 a watchman~
@@ -164,13 +159,12 @@ The watchman's brown robe completely envelops him; only the faint glimmer of
 his eyes shines through the dark shadows inside the robe's hood.
 ~
 human~
-ABG J 0 0
+ABG DFJ 0 0
 19 0 3d9+308 5d5+1000 2d7+5 slap
 -4 -4 -4 5
 DEF 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DF
 #19010
 watchman~
 a watchman~
@@ -180,13 +174,12 @@ The watchman's brown robe completely envelops him; only the faint glimmer of
 his eyes shines through the dark shadows inside the robe's hood.
 ~
 human~
-ABG J 0 0
+ABG DFJ 0 0
 19 0 3d9+308 5d5+1000 2d7+5 slap
 -4 -4 -4 5
 DF 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DF
 #19011
 bear zbear~
 Bear-de-bear~
@@ -199,13 +192,12 @@ the rest of him is enveloped in a checkered guvuhveen bag and hood dat
 covers his tiny ears.
 ~
 bear~
-ABGH BNU 1000 0
+ABGH BDFNU 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 claw
 -21 -21 -21 -1
 CFIJK 0 0 0
 stand stand male 0
 0 0 large unknown
-A det DF
 #19012
 knight withered~
 a withered knight~
@@ -217,13 +209,12 @@ hauberk he wears.  As he sees you, his gray papery mouth opens, and his eyes
 widen in surprise....
 ~
 human~
-ABCFGT JQ 0 0
+ABCFGT DFJQ 0 0
 45 0 25d10+3000 5d5+1000 8d4+16 slash
 -15 -15 -15 2
 DEF 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DF
 #19013
 grey mare horse skeleton~
 the Grey Mare~
@@ -234,13 +225,12 @@ carefully; as it approaches, it lowers its head, pointing its bone horn
 directly at your chest.
 ~
 unique~
-AG IP -1000 0
+AG DFIP -1000 0
 45 0 25d10+3000 5d5+1000 8d4+16 magic
 -15 -15 -15 2
 CDFIJ 0 0 0
 stand stand none 0
 0 0 medium unknown
-A det DF
 #19014
 bride woman~
 the bride~
@@ -283,13 +273,12 @@ towards you, you catch a glimpse of his face: thin, well-worn laugh lines
 intersect with thick, brownish scars.
 ~
 human~
-AG N 1000 0
+AG DFN 1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 divine
 -11 -11 -11 3
 FIJK 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DF
 #19017
 orange lord~
 the Orange Lord~
@@ -302,13 +291,12 @@ over his hooded eyes, making it almost impossible to tell just where he's
 looking.
 ~
 human~
-AG JN 1000 0
+AG DFJN 1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 divine
 -11 -11 -11 3
 FIJK 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DF
 #19018
 yellow lord~
 the Yellow Lord~
@@ -320,13 +308,12 @@ her face has a certain beauty, it has an air of sternness as well, enhanced by
 the razor-sharp crystal sword at her side.
 ~
 human~
-AG JN 1000 0
+AG DFJN 1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 divine
 -11 -11 -11 3
 FIJK 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DF
 #19019
 green lord~
 the Green Lord~
@@ -338,13 +325,12 @@ Realm, constantly shifting his gaze as he enjoys the land's beauty and watches
 for possible threats.
 ~
 human~
-AG JN 1000 0
+AG DFJN 1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 divine
 -11 -11 -11 3
 FIJK 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DF
 #19020
 blue lord~
 the Blue Lord~
@@ -356,13 +342,12 @@ possibly in challenge--catching the light and the blue of his robe in the
 facets of his sword.
 ~
 human~
-AG JN 1000 0
+AG DFJN 1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 divine
 -11 -11 -11 3
 FIJK 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DF
 #19021
 violet lord~
 the Violet Lord~
@@ -374,13 +359,12 @@ in its folds.  At his side, his clear crystal sword looks almost dark as it
 absorbs and reflects the colors of his robe.
 ~
 human~
-AG JN 1000 0
+AG DFJN 1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 divine
 -11 -11 -11 3
 FIJK 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DF
 #19022
 gardner gardener lady~
 the gardener~
@@ -422,13 +406,12 @@ check.  The wizard giggles as you look at him, and holds up his "Wizard
 Finishing School" diploma.
 ~
 human~
-ABGe JN 1000 0
+ABGe DFGJN 1000 0
 39 0 15d10+1700 5d5+1000 5d6+13 magic
 -13 -13 -13 3
 F 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DFG
 #19025
 pool man~
 the pool player~
@@ -486,13 +469,12 @@ bows to you as you approach, and motions with his hands, inviting you to
 train with him.
 ~
 human~
-ABGJK HN 1000 0
+ABGJK DFHN 1000 0
 45 0 25d10+3000 5d5+1000 8d4+16 pound
 -15 -15 -15 2
 CDEFIJKN 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DF
 #19029
 proprietor shopkeeper man~
 the proprietor~
@@ -502,13 +484,12 @@ The proprietor is a thin, tired old man; the adventurers' business isn't doing
 so well right now, what with the land being completely closed off and all.
 ~
 human~
-ABGJKe N 1000 0
+ABGJKe DFN 1000 0
 45 0 25d10+3000 5d5+1000 8d4+16 pound
 -15 -15 -15 2
 FIJ 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DF
 #19030
 truxton librarian~
 Mrs. Truxton the Librarian~
@@ -520,13 +501,12 @@ with overdue books....her glare chills you to the bone.  Hope you returned
 your books on time.
 ~
 human~
-ABGe N 1000 0
+ABGe DFN 1000 0
 45 0 25d10+3000 5d5+1000 8d4+16 pound
 -15 -15 -15 2
 FIJ 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DF
 #19031
 father franklin~
 Father Franklin~
@@ -556,13 +536,12 @@ the Signs of the Dark on the sigil around his neck and on the hilt of his
 sword.
 ~
 human~
-AG JP -1000 0
+AG DFJP -1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 slash
 -11 -11 -11 3
 FIK 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DF
 #19033
 lord dark black~
 the Black Lord~
@@ -573,13 +552,12 @@ dark robes; his cold blue eyes transfix you as they slowly pass over your
 figure.
 ~
 human~
-AG JP -1000 0
+AG DFJP -1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 slash
 -11 -11 -11 3
 FIK 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DF
 #19034
 storn assassin~
 Storn the assassin~
@@ -591,13 +569,12 @@ cheeks and arms; you also see that many of those slashes have long healed,
 forming thick, hard scars.
 ~
 human~
-AGKe JPQ -1000 0
+AGKe DFJPQ -1000 0
 45 0 25d10+3000 5d5+1000 8d4+16 pound
 -15 -15 -15 2
 FIK 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DF
 #19035
 wizard standard evil~
 a standard issue wizard~
@@ -608,13 +585,12 @@ spectacles, check; evil grin, check; otherworldly air, check.  The wizard
 smirks as you look at him, and taps his "Wizard's Finishing School" diploma.
 ~
 human~
-ABGe J -1000 0
+ABGe DFJ -1000 0
 45 0 25d10+3000 5d5+1000 8d4+16 magic
 -15 -15 -15 2
 FI 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DF
 #19036
 gardener gardner lady~
 the gardener~
@@ -623,13 +599,12 @@ The gardener stands here, hacking away at the tangles of vines.
 The gardener grins evilly at you as she decapitates a dead rose bush.
 ~
 human~
-ACG J -1000 0
+ACG DFJ -1000 0
 25 0 5d10+550 5d5+1000 2d10+7 punch
 -7 -7 -7 4
 FI 0 0 0
 stand stand female 0
 0 0 medium unknown
-A det DF
 #19037
 kid boy child~
 the young boy~
@@ -686,13 +661,12 @@ You can't tell anything about whatever this might be...the mists are just too
 thick.
 ~
 unique~
-ABFG BINQ -1000 0
+ABFG BDFINQ -1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 magic
 -20 -20 -20 0
 F 0 0 0
 stand stand none 0
 0 0 medium unknown
-A det DF
 #19041
 mass red ants~
 the mass of red ants~
@@ -737,13 +711,12 @@ peers at you with red-rimmed eyes as you enter, and mumbles a request for your
 order.
 ~
 human~
-ABGe 0 -1000 0
+ABGe DF -1000 0
 40 0 15d10+1850 5d5+1000 4d8+13 pound
 -13 -13 -13 3
 FI 0 0 0
 stand stand female 0
 0 0 medium unknown
-A det DF
 #19044
 carvallo undertaker~
 Carvallo~
@@ -755,13 +728,12 @@ to get rid of rather quickly--or at least anything that no one else will touch
 likely turn it around for a handsome profit).
 ~
 human~
-ABCGe JP -1000 0
+ABCGe DFJP -1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 pound
 -11 -11 -11 3
 F 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DF
 #19045
 citizen man commoner~
 the young man~
@@ -806,13 +778,12 @@ eyes are filled with animal rage.
 Uh-oh.
 ~
 fox~
-ABFG JP -1000 0
+ABFG DFJP -1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 charge
 -11 -11 -11 3
 0 0 0 0
 stand stand none 0
 0 0 medium unknown
-A det DF
 #19048
 moose~
 the moose~
@@ -841,13 +812,12 @@ It's a big black bear....sharp claws, big teeth, the works.
 And it's coming right at you.
 ~
 bear~
-ABCFG IJP -1000 0
+ABCFG DFIJP -1000 0
 30 0 6d12+853 5d5+1000 4d6+8 claw
 -9 -9 -9 3
 CF 0 0 0
 stand stand none 0
 0 0 large unknown
-A det DF
 #19050
 waiter~
 the waiter~
@@ -858,13 +828,12 @@ through his greasy hair.  He picks up a plate of stew, suddenly sneezes
 on it, then tosses the plate back on the table.
 ~
 human~
-ABCGe JP -1000 0
+ABCGe DFJP -1000 0
 40 0 15d10+1850 5d5+1000 4d8+13 pound
 -13 -13 -13 3
 F 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DF
 #19051
 urchin boy~
 the young urchin~
@@ -876,13 +845,12 @@ some good.  He refuses to raise his head, or even lift his feet off the ground;
 he only extends his hand towards you, silently asking for money.
 ~
 human~
-ABCG PQ -1000 0
+ABCG DFPQ -1000 0
 20 0 3d9+333 5d5+1000 2d8+5 punch
 -4 -4 -4 5
 F 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DF
 #19052
 lady woman slut whore night~
 the lady of ill repute~
@@ -895,13 +863,12 @@ beckons you closer.
 What could she possibly want?
 ~
 human~
-ABCG 0 -1000 0
+ABCG DF -1000 0
 25 0 5d10+550 5d5+1000 2d10+7 slap
 -7 -7 -7 4
 F 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DF
 #19053
 pimp man master~
 the greasy man~
@@ -912,13 +879,12 @@ as if she was somehow bound to him.  Though he doesn't seem attracted to her,
 he still eyes her carefully, seeming to watch her every move.
 ~
 human~
-ABG 0 -1000 0
+ABG DF -1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 pound
 -11 -11 -11 3
 F 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DF
 #19054
 thief hidden~
 the wily little thief (hidden somewhere in the shadows)~
@@ -927,13 +893,12 @@ The shadows shift faintly.
 You see only a shifty black mass.
 ~
 human~
-ABG BJNPQ -1000 0
+ABG BDFJNPQ -1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 pierce
 -11 -11 -11 3
 FHJN 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DF
 #19055
 red master~
 the Red Master~
@@ -943,13 +908,12 @@ The Red Master's cloak completely covers his face and body; even his hands and
 feet are hidden somewhere inside its folds.
 ~
 human~
-ABG HJN 1000 0
+ABG DFHJN 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
 CDEFHK 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DF
 #19056
 amber master~
 the Amber Master~
@@ -959,13 +923,12 @@ The Amber Master's cloak completely covers his face and body; even his hands
 and feet are hidden somewhere inside its folds.
 ~
 human~
-ABG HJN 1000 0
+ABG DFHJN 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
 CDEFHK 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DF
 #19057
 green master~
 the Green Master~
@@ -975,13 +938,12 @@ The Green Master's cloak completely covers his face and body; even his hands
 and feet are hidden somewhere inside its folds.
 ~
 human~
-ABG HJN 1000 0
+ABG DFHJN 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
 CDEFHK 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DF
 #19058
 blue master~
 the Blue Master~
@@ -991,13 +953,12 @@ The Blue Master's cloak completely covers his face and body; even his hands
 and feet are hidden somewhere inside its folds.
 ~
 human~
-ABG HJN 1000 0
+ABG DFHJN 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
 CDEFHK 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DF
 #19059
 violet master~
 the Violet Master~
@@ -1007,13 +968,12 @@ The Violet Master's cloak completely covers his hands and face; even his hands
 and feet are hidden somewhere inside its folds.
 ~
 human~
-ABG HJN 1000 0
+ABG DFHJN 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
 CDEFHK 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DF
 #19060
 yellow master~
 the Yellow Master~
@@ -1023,13 +983,12 @@ The Yellow Master's cloak completely covers his face and body; even his hands
 and feet are hidden somewhere in its folds.
 ~
 human~
-ABG HJN 1000 0
+ABG DFHJN 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
 CDEFHK 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DF
 #19061
 light figure being lord master~
 the Master of Light~
@@ -1044,13 +1003,12 @@ and head--they contain no features at all, and only radiate a bright golden
 glow.
 ~
 human~
-ABG HJN 1000 0
+ABG DFHJN 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
 CDEFHK 0 0 0
 stand stand none 0
 0 0 medium unknown
-A det DF
 #19062
 phoenix bird~
 the Phoenix~
@@ -1062,13 +1020,12 @@ feathers intertwined with a few golden ones; its silvery beak glistens in the
 light, with faint sparkles shining on its razor-sharp edges.
 ~
 unique~
-ABCFG IN 0 0
+ABCFG DFIN 0 0
 50 0 50d10+4250 5d5+5000 5d8+19 pierce
 -20 -20 -20 0
 FH 0 0 0
 stand stand none 0
 0 0 medium unknown
-A det DF
 #19063
 mandeep beekeeper bee keeper~
 Mandeep the Beekeeper~
@@ -1095,13 +1052,12 @@ The White Master's cloak completely covers him; not even his hands and feet
 can be seen.
 ~
 human~
-ABFG J -1000 0
+ABFG DFJ -1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
 CDEFHK 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DF
 #19065
 white master~
 the White Master~
@@ -1111,13 +1067,12 @@ The White Master's cloak completely covers him; not even his face and hands
 can be seen.
 ~
 human~
-ABFG J -1000 0
+ABFG DFJ -1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
 CDEFHK 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DF
 #19066
 black master~
 the Black Master~
@@ -1127,13 +1082,12 @@ The Black Master's cloak completely covers his body; not even his face
 and hands are visible.
 ~
 human~
-ABFG J -1000 0
+ABFG DFJ -1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
 CDEFHK 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DF
 #19067
 black master~
 the Black Master~
@@ -1143,13 +1097,12 @@ The Black Master's cloak completely covers his body; not even his face
 and hands can be seen.
 ~
 human~
-ABFG J -1000 0
+ABFG DFJ -1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
 CDEFHK 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DF
 #19068
 jerry garcia~
 Jerry Garcia~
@@ -1159,13 +1112,12 @@ Jerry Garcia...famous musician, artist, demigod rock-and-roller of the '60's
 through the '90's....has returned from the dead to heal your wounds.
 ~
 human~
-ABG NU 0 0
+ABG DFNU 0 0
 90 0 50d10+18500 5d5+5000 17d9+60 magic
 -60 -60 -60 -27
 CDEFHK 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DF
 #19069
 mr teece~
 Mr. Teece~
@@ -1176,13 +1128,12 @@ to be immeasurably old.  He strums on his banjo as you approach, and invites
 you to have a seat and listen.
 ~
 human~
-ABG NU 1000 0
+ABG DFNU 1000 0
 40 0 15d10+1850 5d5+1000 4d8+13 pound
 -13 -13 -13 3
 CDEFHK 0 0 0
 stand stand male 0
 0 0 medium unknown
-A det DF
 #0
 
 #OBJECTS
@@ -1193,7 +1144,7 @@ A shield with a mirrored surface lies on the ground.
 ~
 glass~
 armor 0 AJ
-ABC ABC ABC 0 0
+7 7 7 0 0
 23 5 100 P
 A
 2 1
@@ -1208,7 +1159,7 @@ A metal plate is on the ground; your face is reflected in its surface.
 ~
 glass~
 armor 0 AD
-BC BC BC 0 0
+6 6 6 0 0
 23 10 100 P
 E
 mirror plate mirrored~
@@ -1230,7 +1181,7 @@ A chainmail cowl is here.
 ~
 steel~
 armor 0 AD
-BC BC BC 0 0
+6 6 6 0 0
 23 10 10 P
 #19005
 throne~
@@ -1247,7 +1198,7 @@ A thin grey robe is here.
 ~
 leather~
 armor 0 AD
-ABCD ABCD ABCD BD 0
+15 15 15 10 0
 49 5 500 P
 A
 2 3
@@ -1262,7 +1213,7 @@ A golden circlet lies here.
 ~
 gold~
 armor AFGM AE
-ABCD ABCD ABCD ABC 0
+15 15 15 7 0
 45 30 10000 P
 A
 4 2
@@ -1297,7 +1248,7 @@ This chainmail jerkin is worn and full of holes.
 ~
 leather~
 armor 0 AD
-ACD ACD ACD C 0
+13 13 13 4 0
 45 10 10 P
 #19010
 royal staff king~
@@ -1357,7 +1308,7 @@ An amulet with a silver rope chain lies here.
 ~
 silver~
 armor K AC
-ABD CD CD C 0
+11 12 12 4 0
 35 20 500 P
 A
 5 2
@@ -1414,7 +1365,7 @@ some coins~
 Some gold coins are scattered on the ground here.~
 gold~
 money 0 A
-DFGHIJ 0 0 0 0
+1000 0 0 0 0
 1 4 100 P
 #19021
 potion invis invisible~
@@ -1561,7 +1512,7 @@ An ermine blanket is here.
 ~
 unknown~
 armor 0 AD
-ACD CD CD AC 0
+13 12 12 5 0
 39 5 10 P
 #19035
 apple tree trees~
@@ -1621,7 +1572,7 @@ a brown robe~
 A brown robe is here.~
 leather~
 armor 0 AD
-AC AC AC 0 0
+5 5 5 0 0
 19 3 0 P
 #19041
 telescope~
@@ -1672,7 +1623,7 @@ a formal white jacket~
 A white jacket lies here.~
 unknown~
 armor 0 AK
-D D D 0 0
+8 8 8 0 0
 25 5 0 P
 #19045
 black tie~
@@ -1680,7 +1631,7 @@ a black bow tie~
 A black bow tie is here.~
 leather~
 armor 0 AC
-AC AC AC 0 0
+5 5 5 0 0
 25 5 0 P
 #19046
 shirt white~
@@ -1688,7 +1639,7 @@ a crisp white shirt~
 A heavily starched white shirt is here.~
 cloth~
 armor 0 AD
-AC AC AC 0 0
+5 5 5 0 0
 25 5 0 P
 #19047
 pants black~
@@ -1696,7 +1647,7 @@ a pair of black dress pants~
 A pair of black pants lies here.~
 cloth~
 armor 0 AF
-AC AC AC 0 0
+5 5 5 0 0
 25 5 0 P
 #19048
 cummerbund~
@@ -1704,7 +1655,7 @@ a cummerbund~
 A cummerbund lies here.~
 cloth~
 armor 0 AL
-BC BC BC 0 0
+6 6 6 0 0
 25 10 0 P
 A
 2 -1
@@ -1716,7 +1667,7 @@ a pair of black shoes~
 A pair of black shoes lies here.~
 leather~
 armor 0 AG
-BC BC BC 0 0
+6 6 6 0 0
 25 3 0 P
 A
 14 -25
@@ -1741,7 +1692,7 @@ a wedding dress~
 A wedding dress is here.~
 cloth~
 armor 0 AD
-AC AC AC 0 0
+5 5 5 0 0
 25 5 0 P
 A
 5 1
@@ -1758,7 +1709,7 @@ a pair of white shoes~
 A pair of white flats lie here.~
 cloth~
 armor 0 AG
-AC AC AC 0 0
+5 5 5 0 0
 25 10 0 P
 A
 14 15
@@ -1768,7 +1719,7 @@ a thin white veil~
 A transparent white veil lies here.~
 cloth~
 armor 0 AE
-AC AC AC 0 0
+5 5 5 0 0
 25 10 0 P
 A
 18 -3
@@ -1792,7 +1743,7 @@ a corsage~
 A corsage of beautiful flowers lies here.~
 cloth~
 armor 0 AO
-AC AC AC 0 0
+5 5 5 0 0
 25 10 0 P
 A
 13 20
@@ -1820,7 +1771,7 @@ a crimson robe~
 A crimson robe lies here.~
 cloth~
 armor 0 AK
-BD CD ABD AC 0
+10 12 11 5 0
 35 5 100 P
 A
 13 20
@@ -1830,7 +1781,7 @@ a burnt-orange robe~
 A burnt orange robe lies here.~
 cloth~
 armor 0 AK
-BD BD ABD AC 0
+10 10 11 5 0
 35 5 10 P
 A
 14 35
@@ -1840,7 +1791,7 @@ a yellow robe~
 A yellow robe lies here.~
 cloth~
 armor 0 AK
-ABD ABD BD C 0
+11 11 10 4 0
 35 5 10 P
 A
 18 5
@@ -1850,7 +1801,7 @@ a forest green robe~
 A forest green robe lies here.~
 cloth~
 armor 0 AK
-ABD ABD BD ABC 0
+11 11 10 7 0
 35 5 10 P
 A
 12 35
@@ -1860,7 +1811,7 @@ a sea-blue robe~
 A sea-blue robe lies here.~
 cloth~
 armor 0 AK
-CD ABD ABD D 0
+12 11 11 8 0
 35 5 10 P
 A
 19 5
@@ -1870,7 +1821,7 @@ a violet robe~
 A violet robe lies here.~
 cloth~
 armor 0 AK
-ABD ABD ABD BC 0
+11 11 11 6 0
 35 5 10 P
 A
 13 25
@@ -1902,7 +1853,7 @@ a white robe~
 A white robe lies here.~
 cloth~
 armor K AK
-ABD CD ABD BD 0
+11 12 11 10 0
 39 5 100 P
 #19067
 poultice detection~
@@ -1943,7 +1894,7 @@ A long wooden staff lies here.
 ~
 wood~
 weapon GH AN
-staff 5 9 crush D
+spear 5 9 crush D
 45 10 100 P
 A
 2 1
@@ -1955,7 +1906,7 @@ a black gi~
 A black karate uniform lies here.~
 cloth~
 armor 0 AD
-ABCD ABCD ABCD D 0
+15 15 15 8 0
 45 10 1000 P
 A
 2 4
@@ -1967,7 +1918,7 @@ a red master's belt~
 A red master's belt lies here.~
 silk~
 armor K AL
-ACD ACD CD BC 0
+13 13 12 6 0
 45 5 10 P
 A
 4 2
@@ -2026,7 +1977,7 @@ a wizard's peaked cap~
 A navy blue cap lies here, covered with stars and moons.~
 cloth~
 armor 0 AE
-ACD ACD ACD C 0
+13 13 13 4 0
 45 12 100 P
 A
 12 25
@@ -2036,7 +1987,7 @@ a wizard's cloak~
 A navy blue cloak lies here, covered with stars and moons.~
 cloth~
 armor 0 AK
-ACD ACD ACD AC 0
+13 13 13 5 0
 45 10 100 P
 #19082
 page hymn~
@@ -2074,7 +2025,7 @@ A rough wooden staff lies here.
 ~
 wood~
 weapon 0 AN
-staff 4 4 crush 0
+spear 4 4 crush 0
 19 10 0 P
 #19086
 leggings mirror mirrored~
@@ -2082,7 +2033,7 @@ a set of mirrored leggings~
 A set of mirrored leggings lies here.~
 steel~
 armor 0 AF
-ABC ABC ABC 0 0
+7 7 7 0 0
 23 5 0 P
 #19087
 shawl white~
@@ -2090,7 +2041,7 @@ a white shawl~
 A white shawl lies here.~
 cloth~
 armor 0 AK
-ACD ACD BCD BC 0
+13 13 14 6 0
 45 11 100 P
 #19088
 boots fishing~
@@ -2098,7 +2049,7 @@ fishing boots~
 A pair of fishing boots lies here.~
 leather~
 armor M AG
-ABC ABC ABC 0 0
+7 7 7 0 0
 25 5 0 P
 A
 2 -1
@@ -2109,7 +2060,7 @@ A fisherman's gaff lies here.
 ~
 steel~
 weapon G AN
-staff 5 6 pierce D
+spear 5 6 pierce D
 25 10 100 P
 #19090
 rain slicker~
@@ -2117,7 +2068,7 @@ a rain slicker~
 A rain slicker lies here.~
 cloth~
 armor 0 AD
-AC AC AC 0 0
+5 5 5 0 0
 25 10 0 P
 A
 14 -50
@@ -2159,7 +2110,7 @@ antlers~
 A set of antlers lies on the ground here.~
 cloth~
 armor 0 AE
-AD AD AD C 0
+9 9 9 4 0
 30 8 10 P
 A
 2 -1
@@ -2269,7 +2220,7 @@ rubber gloves~
 A pair of rubber gloves lies here.~
 rubber~
 armor J AH
-ABD BD BD AC 0
+11 10 10 5 0
 35 2 0 P
 #19105
 scabbard~
@@ -2298,7 +2249,7 @@ a set of red ribbons~
 Some red ribbons lie here.~
 silk~
 armor EHJM AC
-AD AD AD C 0
+9 9 9 4 0
 45 1 10 P
 A
 14 50
@@ -2430,7 +2381,7 @@ a tight leather bodice~
 A tight leather bodice sits here.~
 leather~
 armor JM AD
-BC BC BC 0 0
+6 6 6 0 0
 25 3 0 P
 A
 13 -25
@@ -2442,7 +2393,7 @@ a tight leather miniskirt~
 A tight leather miniskirt lies here.~
 leather~
 armor M AF
-AC AC AC 0 0
+5 5 5 0 0
 25 2 10 P
 A
 2 -2
@@ -2485,7 +2436,7 @@ a silver circlet~
 A silver circlet lies here.~
 silver~
 armor AK AE
-BD BD BD 0 0
+10 10 10 0 0
 50 15 0 P
 A
 12 50
@@ -2495,7 +2446,7 @@ a black robe~
 A black robe lies here.~
 cloth~
 armor J AK
-BC BC BC 0 0
+6 6 6 0 0
 35 5 0 P
 A
 1 2
@@ -2509,7 +2460,7 @@ a white robe~
 A white robe lies here.~
 cloth~
 armor J AK
-BC BC BC 0 0
+6 6 6 0 0
 35 5 0 P
 A
 3 1
@@ -2549,7 +2500,7 @@ a black cloak~
 A black cloak lies here.~
 cloth~
 armor F AK
-E E E ABC 0
+16 16 16 7 0
 50 5 0 P
 #19127
 blood red dagger~
@@ -2616,7 +2567,7 @@ a beekeeper's hat~
 A beekeeper's hat rests here.~
 cloth~
 armor 0 AE
-B 0 0 0 0
+2 0 0 0 0
 2 0 0 P
 A
 2 -1
@@ -2634,7 +2585,7 @@ a white cloak~
 A white cloak lies here.~
 cloth~
 armor J AD
-E AE E AD 0
+16 17 16 9 0
 50 5 0 P
 A
 12 50
@@ -2644,7 +2595,7 @@ a black cloak~
 A black cloak lies here.~
 cloth~
 armor 0 AD
-E AE AE BC 0
+16 17 17 6 0
 50 5 0 P
 A
 12 50
@@ -2949,7 +2900,7 @@ the Sunrise Shield~
 A beautiful jewelled shield lies here.~
 gold~
 armor GM AJ
-AC AC AC 0 0
+5 5 5 0 0
 10 0 0 P
 A
 2 1
@@ -3058,7 +3009,7 @@ a small silver pendant~
 A small silver pendant lies here.~
 silver~
 armor A AC
-C 0 0 0 0
+4 0 0 0 0
 1 0 0 P
 A
 13 5
@@ -3068,7 +3019,7 @@ a simple bronze band~
 A simple bronze band lies here.~
 bronze~
 armor A AB
-B 0 0 0 0
+2 0 0 0 0
 5 0 0 P
 A
 3 1
@@ -3080,7 +3031,7 @@ a thick brown robe~
 A thick brown robe lies here.~
 cloth~
 armor A AK
-B 0 0 0 0
+2 0 0 0 0
 5 0 0 P
 A
 5 1
@@ -3097,7 +3048,7 @@ curving behind a cluster of evergreens.  Beyond the trees, a mountain range
 stretches high into the air, with the tallest peak rising steeply enough to
 prevent anything from taking root.
 ~
-0 0 2
+0 0 field
 E
 plaque sign credit credits author~
 This area has been created by Merriman of the Glass Dragon for any semi-
@@ -3130,7 +3081,7 @@ climbing higher and higher until it intersects the largest mountain in the
 range, nestled between a smaller mountain to the right and a deep ridge to the
 left.
 ~
-0 0 4
+0 0 hills
 D1
 ~
 ~
@@ -3148,7 +3099,7 @@ difficult; the stiff wind seems to pull the air right out of your mouth.
 Fortunately, the end of the path lies just a moderate distance ahead; it
 appears to lead to a pair of doors set right into the mountain's face.
 ~
-0 0 4
+0 0 hills
 D0
 ~
 ~
@@ -3167,7 +3118,7 @@ The land far below you has given way to a rough sea that surrounds the base of
 the mountain, broken only by the distant base of this rocky path.  Another path
 stretches east and west from here; a small sign gives directions.
 ~
-0 0 5
+0 0 mountain
 E
 sign directions~
 To the North -- The Mirror Realm
@@ -3191,7 +3142,7 @@ light shines unbroken through the crack between them; like the woodwork
 that forms the frame, they have been intricately carved with many strange
 symbols and figures.
 ~
-0 0 5
+0 0 mountain
 E
 door doors figure figures symbol symbols~
 Each door has a large circular symbol at its center: the left door depicts a 
@@ -3221,7 +3172,7 @@ two features: the valley to the west is colorful, with a bright, sparkling
 tower set against the western rim; the valley to the east is grimmer, darker, 
 with a glittering black tower rising in front of the mountain's eastern rim.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -3239,7 +3190,7 @@ split in two by the base of this pathway, half on either side of the rock wall.
 The path continues to the north, passing by a guard post and heading towards
 a castle partially hidden behind a low rock wall.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -3255,7 +3206,7 @@ Two wooden guard stations lie to the east and west, suspended over the valley
 floor; though you can see a telescope in each watchtower, the shadows prevent
 you from being sure whether or not anyone is inside.
 ~
-0 C 2
+0 C field
 D0
 ~
 ~
@@ -3282,7 +3233,7 @@ empty, save for the telescope--there are no beer bottles, pictures, or even
 chairs here; the only thing on the floor is an open hatchway with a large black
 iron knob.
 ~
-0 D 0
+0 D inside
 D1
 ~
 ~
@@ -3300,7 +3251,7 @@ lets you look more closely.  The station is almost completely empty, save
 for the telescope and a large iron knob attached to a small, open hatch in the
 floor.
 ~
-0 D 0
+0 D inside
 D3
 ~
 ~
@@ -3317,7 +3268,7 @@ your own: it appears that its outer walls are plated with reflective steel.
 High rock walls still hide most of the outside of the castle; you can see only
 the entranceway and the castle's high towers.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -3336,7 +3287,7 @@ high and too dark to see the ceiling--but here tapestries hang on the walls,
 while a thick red rug covers the floor.  The tapestry behind you shows a boat
 cresting a deep blue wave; the others are too far away to see clearly.
 ~
-0 AD 0
+0 AD inside
 D0
 ~
 ~
@@ -3362,7 +3313,7 @@ covered with a simple tapestry: behind you hangs a blue tapestry with a
 smooth, flowing, almost foamy pattern, while a rich brown tapestry hangs 
 to your left, flecked with greens and reds.
 ~
-0 AD 0
+0 AD inside
 D0
 ~
 ~
@@ -3385,7 +3336,7 @@ crown has been hung from a small bush on the side of the crevice, and the king
 himself is lying down on the muddy ground, lowering the royal robes into the 
 pit so that the young beggar can hold on as the king pulls him to safety.
 ~
-0 AD 0
+0 AD inside
 D0
 ~
 ~
@@ -3413,7 +3364,7 @@ the center.  The tapestry on the northern wall doesn't follow this pattern,
 however; a recessed alcove fills the center of the wall, flanked by tapestries
 depicting a magnificent shining sword and a sparkling jewelled shield.
 ~
-0 AD 0
+0 AD inside
 E
 tapestry tapestries pattern walls wall patterns ~
 The tapestries on each wall combine to form a complete picture; the two blue
@@ -3450,7 +3401,7 @@ Though the knight's horse has fled, running off the right side of the tapestry,
 the knight still struggles on, hacking through burning bushes to reach the 
 frenzied unicorn in the center.
 ~
-0 AD 0
+0 AD inside
 D0
 ~
 ~
@@ -3472,7 +3423,7 @@ hilted sword with a tremendously fine edge.  An intricate series of warring
 figures fills the tapestry's border, apparently telling the history of some
 battle between good and evil--perhaps a battle over the sword itself.
 ~
-0 AD 0
+0 AD inside
 D1
 ~
 ~
@@ -3494,7 +3445,7 @@ however, it's too dark to see if anyone is sitting in it.
 
 Darkness lies in every other direction.
 ~
-0 AD 0
+0 AD inside
 D0
 ~
 ~
@@ -3523,7 +3474,7 @@ a sparkling jewelled shield.  From here, you can see that the shield is
 incredibly detailed: a complex pattern of encrusted jewels surrounds the edge,
 while an intricate design of converging lines forms a picture of a rising sun.
 ~
-0 AD 0
+0 AD inside
 D2
 ~
 ~
@@ -3545,7 +3496,7 @@ the left and right, while a different tapestry lies to the north, showing
 the king silhouetted against a stormy sky, calling upon the magical forces
 that split his land in two.
 ~
-0 AD 0
+0 AD inside
 D2
 ~
 ~
@@ -3559,7 +3510,7 @@ the mirrored ceiling.  It is too dark to see much of anything; the light
 from the entranceway shines faintly below you, but complete darkness
 lies both ahead of you and to your right.
 ~
-0 AD 9
+0 AD air
 D0
 ~
 ~
@@ -3577,7 +3528,7 @@ can see the tapestry more clearly from here; you are looking directly at
 the face of a king standing on the bow of his ship, leading his navy into
 battle.
 ~
-0 AD 9
+0 AD air
 E
 tapestry tapestries king boat~
 The king stands on the prow of his ship, with his long hair blowing in 
@@ -3607,7 +3558,7 @@ Above the Corner~
 The wall curves upward to meet the navy blue cloth that covers the ceiling; the
 blue and brown tapestries continue upwards.
 ~
-0 AD 9
+0 AD air
 D0
 ~
 ~
@@ -3628,7 +3579,7 @@ eyebrows are furrowed and he is straining to lean into the pit without
 falling in himself.  The child is hunched up on the bottom of the pit, and
 seems barely aware of the robe that the king is lowering down to him.
 ~
-0 AD 9
+0 AD air
 D0
 ~
 ~
@@ -3657,7 +3608,7 @@ you can see far enough away to see each wall somewhat clearly.  You can
 also see a shadowy object in the recessed area to the north; you can't
 see what it is from here, though.
 ~
-0 AD 9
+0 AD air
 D0
 ~
 ~
@@ -3687,7 +3638,7 @@ threat to the knight in blue than the fire itself.  The knight himself
 appears unfazed by the heat and flames; though he is knee-deep in burning
 brush, his face is set and determined.
 ~
-0 AD 9
+0 AD air
 D0
 ~
 ~
@@ -3717,7 +3668,7 @@ a rather unusual sigil on the hilt: the sign of good, a rainbow inside a
 flowering vine, is linked with the sign of evil, a lightning bolt inside
 a circle of bone.
 ~
-0 AD 9
+0 AD air
 D1
 ~
 ~
@@ -3739,7 +3690,7 @@ from seeing if it's occupied.  You can also see a tapestry in the distance
 to your north; it appears to show a picture of the king standing on a hill
 of some sort, with his arms raised up in the air.
 ~
-0 AD 9
+0 AD air
 D1
 ~
 ~
@@ -3765,7 +3716,7 @@ thin lines of powdered gemstones, including diamond and ruby; the picture
 of the sun itself is made up of cut diamonds, which reflect beams of
 light in every direction.
 ~
-0 AD 9
+0 AD air
 D2
 ~
 ~
@@ -3786,7 +3737,7 @@ you to approach the doors unhindered.  The doors themselves lack the carvings
 and ornate figurines of the doors set into the face on the mountain; here, 
 there are only a few words carved into the frame.
 ~
-0 0 2
+0 0 field
 E
 word words door doors~
 --THE CASTLE OF LORANHIR, KING OF THE REALM--
@@ -3808,7 +3759,7 @@ into dizzying infinity, and every move you make catches the corner of your eye.
 Even the guards standing here wear mirrored armor; they don't appear to be
 disoriented, however.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -3823,7 +3774,7 @@ Mirrors~
 The mirror hall surrounds and envelops you; you can see nothing but yourself
 in every direction.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -3846,7 +3797,7 @@ Mirrors~
 The mirror hall surrounds and envelops you; you can see nothing but yourself
 in every direction.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -3865,7 +3816,7 @@ Mirrors~
 The mirror hall surrounds and envelops you; you can see nothing but yourself
 in every direction.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -3884,7 +3835,7 @@ Mirrors~
 The mirror hall surrounds and envelops you; you can see nothing but yourself
 in every direction.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -3907,7 +3858,7 @@ Mirrors~
 The mirror hall surrounds and envelops you; you can see nothing but yourself
 in every direction.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -3930,7 +3881,7 @@ Mirrors~
 The mirror hall surrounds and envelops you; you can see nothing but yourself
 in every direction.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -3953,7 +3904,7 @@ Mirrors~
 The mirror hall surrounds and envelops you; you can see nothing but yourself
 in every direction.
 ~
-0 D 0
+0 D inside
 D1
 ~
 ~
@@ -3972,7 +3923,7 @@ Mirrors~
 The mirror hall surrounds and envelops you; you can see nothing but yourself
 in every direction.
 ~
-0 D 0
+0 D inside
 D1
 ~
 ~
@@ -3991,7 +3942,7 @@ Mirrors~
 The mirror hall surrounds and envelops you; you can see nothing but yourself
 in every direction.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -4017,7 +3968,7 @@ preventing you from seeing inside.  A strange, mirrored spiral staircase
 leads upwards into a tower; it looks rough and unworn, and the metal 
 joints lack the smooth ruts that you'd expect to see in a well-used stairway.
 ~
-0 DO 0
+0 DO inside
 D0
 ~
 ~
@@ -4037,7 +3988,7 @@ This small alcove is somewhat lighter than the rest of the hall its walls
 glow faintly with a golden light.  An overturned bowl of rancid food lies on 
 the ground below a hard wooden plank set into a recess in the wall.
 ~
-0 AD 0
+0 AD inside
 D1
 ~
 tapestry~
@@ -4049,7 +4000,7 @@ The alcove here is somewhat better lit than the rest of the hall; the walls
 here glow with a faint golden light.  There is a small shelf set into the
 side of the wall; a thin blanket covers half its rough surface.
 ~
-0 AD 0
+0 AD inside
 D3
 ~
 tapestry~
@@ -4063,7 +4014,7 @@ continues downwards to the ground below.  The faint light of a torch flickers
 upwards from the base of this tall, narrow chamber, allowing you to see
 a small handle attached to the hatchway above.
 ~
-0 D 0
+0 D inside
 D4
 ~
 hatch hatchway door handle~
@@ -4080,7 +4031,7 @@ as the chamber gently widens.  A torch bolted into the side of the chamber
 reveals the faint outline of a door set into the western wall, as well as a
 small figure carved into the rock above the doorway.
 ~
-0 CD 0
+0 CD inside
 E
 sign figure carving~
 You see a rainbow in a circle of ivy, the sign of the Light.~
@@ -4100,7 +4051,7 @@ from here, the gray stones only lead northward.  A dark forest lies to the
 south, made up of thick evergreens; every now and then, you catch a faint
 glimpse of some sort of animal.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -4121,7 +4072,7 @@ descends towards a small pond.  Small clusters of crocuses grow on the eastern
 side of the path, with their thin stems stretching to reach the sunlight 
 blocked by the towering mountain wall.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -4145,7 +4096,7 @@ encircles this entire valley; part of the ridge itself, its surface marked by
 an arching crack, stands right beside you, rising high enough to block your
 vision--and your path--to the east.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -4174,7 +4125,7 @@ a grove of trees.
 A small wooden house stands to the east; it appears to have been cut in half
 by the mountain wall.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -4199,7 +4150,7 @@ the flower gardens.  Plums and apples seem to be the most popular fruit here,
 not surprising given the cooler weather, but you can see some nectarine trees
 as well, rising up against the high northern mountain wall.
 ~
-0 0 2
+0 0 field
 D2
 ~
 ~
@@ -4216,7 +4167,7 @@ on either side of the path.  The rock wall lies to the north now, and still
 towers high over the trees; climbing out of this land will apparently not
 be an option.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -4233,7 +4184,7 @@ gently at the ripples you leave behind you.  The reeds to the north and west,
 growing at the edge of the pond, provide food for a few more fish; the center
 of the pond lies to the south, just below a white gazebo covered with vines.
 ~
-0 C 7
+0 C noswim
 D1
 ~
 ~
@@ -4254,7 +4205,7 @@ odd, white light: pale, glowing fish fill the water, and small, almost
 microscopic animals have stuck their glowing bodies like barnacles onto the
 gazebo's bottom.
 ~
-0 C 7
+0 C noswim
 D0
 ~
 ~
@@ -4279,7 +4230,7 @@ and heading westwards towards a small gazebo.  The gazebo itself is high
 enough to travel under; the bridge rises fairly high off the water--
 high enough to prevent you from leaving the pond by the eastern bank.
 ~
-0 C 7
+0 C noswim
 D0
 ~
 ~
@@ -4299,7 +4250,7 @@ The pond's clear water ripples gently as you pass across its surface; small
 waves wash against the shores to the east and south.  A wooden bridge
 crosses the pond to the north, leading to a round gazebo covered with vines.
 ~
-0 C 7
+0 C noswim
 D0
 ~
 ~
@@ -4320,7 +4271,7 @@ west, standing on stilts above the cool blue water. You can hear the pond
 just to the north; a thick tangle of reeds and trees blocks your path, however,
 so you'll have to find a different path if you want to go swimming....
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -4343,7 +4294,7 @@ just see a fishing pole hung on the inside wall.
 Thick woods lie to the south and east, while a small path lies to the west and
 the pond lies to the north.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -4373,7 +4324,7 @@ floating here, with some algae growing around them.  The row of buildings lies
 to the east of here, just beyond the gravel pathway; from here, however, you
 can't see what any of them might hold.
 ~
-0 C 7
+0 C noswim
 D0
 ~
 ~
@@ -4398,7 +4349,7 @@ hundreds of them swim around here, poking gently at everything that passes
 by.  A large, almost pure white goldfish seems to be the center of attention--
 smaller goldfish nip at it almost endlessly.
 ~
-0 C 7
+0 C noswim
 D1
 ~
 ~
@@ -4419,7 +4370,7 @@ gray gravel path.  Thick bracken blocks your passage to the south, but you can
 just hear the faint ripplings of water; another grove of trees lies to the
 east, while the path bends just west of here.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -4437,7 +4388,7 @@ air behind the buildings, sparkling from red on the lowest level to deep purple
 at the top; shadowy movements inside the tower indicate that its octagonal
 walls must be made of transparent glass.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -4454,7 +4405,7 @@ towards the pond to the east, and heads south towards an intersection.  Here,
 sunflowers grow on either side of the path, almost high enough to form an arch;
 they wave gently as the breeze blows through them.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -4476,7 +4427,7 @@ heads towards the buildings to the west.  Hardly any flowers grow here--the
 paths and the pond take up too much room--though you do see a few daffodils
 here and there.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -4504,7 +4455,7 @@ still get light most of the day.  Once again, the sparkling rainbow tower
 dominates the horizon to the west, seeming to reach almost as high as the
 mountain wall itself.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -4525,7 +4476,7 @@ back side of a row of wooden buildings lies to the west; since each is two
 stories tall, you can't see over them to the street that must lie on the other
 side.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -4545,7 +4496,7 @@ A small wooden footbridge rises over the pond here, heading towards a white
 gazebo covered with green vines.  Small goldfish float around in the water
 below, splashing at the surface as they hunt for food.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -4563,7 +4514,7 @@ event.  The water ripples gently below you, splashing against the bottom of
 the gazebo from time to time; fortunately, the wooden floorboards have been
 well made, and are close enough together to prevent you from getting wet.
 ~
-0 0 0
+0 0 inside
 D1
 ~
 ~
@@ -4586,7 +4537,7 @@ shopkeeper probably has their own private quarters above their store.
 The glittering tower stands just to the west, its entrance protected
 by a narrow moat; the garden lies to the east.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -4613,7 +4564,7 @@ out from the open doorway.  A small, dark, windowless shop lies to the east,
 with a simple sign over its doorway; a cloth covers the entrance, preventing
 you from seeing inside.
 ~
-0 0 1
+0 0 city
 E
 sign signs~
 The sign on the west says,                 The sign on the east says,
@@ -4645,7 +4596,7 @@ hidden," a sign says, "potions are too easy to pinch.")  Faint magical
 runes are painted on the ceiling, and are glowing faintly in the 
 darkness; the sign of the Light is painted on the floor.
 ~
-0 D 0
+0 D inside
 E
 runes~
 Don't bother.  You'd only rune your appetite. *rofl*~
@@ -4678,7 +4629,7 @@ are a few more people in there, it's still not all that crowded.
 
 A small wooden staircase leads upwards to the bedrooms.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -4701,7 +4652,7 @@ to your right, partially hidden behind a small fern; the kitchen door, blocked
 by a row of tables, flops open and shut constantly as the waiter rushes in 
 and out.
 ~
-0 D 0
+0 D inside
 E
 pictures posters~
 You see landscapes of the Plains of the North, the valley of the Mirror Realm,
@@ -4720,7 +4671,7 @@ and scrolls displaying different offensive and defensive techniques.  It is
 actually cooler inside the house than it was outside; the fountains in 
 each corner must help to cool the air.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -4732,7 +4683,7 @@ Two well-furnished shops lie to the east and west; the window of the westward
 shop is filled with books, while the window of the eastward shop contains
 daggers, canteens, and other adventuring equipment.
 ~
-0 0 1
+0 0 city
 E
 sign signs~
 The sign to the west says,                  The sign to the east says,
@@ -4766,7 +4717,7 @@ The well-stocked shelves have a number of items appropriate for adventurers;
 there is one whole section devoted to "Weapons and Armor," while other sections
 have titles like "Luggage" and "Rations".
 ~
-0 D 0
+0 D inside
 D3
 ~
 ~
@@ -4780,7 +4731,7 @@ you don't have a library card anyway, and Mrs. Truxton surely won't give one
 to a wandering soul like you.  A few books are on sale in the front, though, 
 including histories of Midgaard and the Mirror Realm.
 ~
-0 D 0
+0 D inside
 D1
 ~
 ~
@@ -4794,7 +4745,7 @@ The icons on the altar still shine brightly, though, and the church still
 shines with a bright, friendly light; someone still cares enough to keep 
 things mostly clean and neat.
 ~
-0 D 0
+0 D inside
 D2
 ~
 ~
@@ -4809,7 +4760,7 @@ green to blue and finally to a deep violet.  The moat below you sparkles,
 reflecting the tower's colors; it seems to be more a thing of beauty than a 
 form of defense.
 ~
-0 C 2
+0 C field
 D1
 ~
 ~
@@ -4826,7 +4777,7 @@ light throughout what appears to be a relatively small room.  The only exit,
 aside from the one leading out, is a spiral staircase leading upwards through
 a closed hatch in the ceiling.
 ~
-0 CD 2
+0 CD field
 D1
 ~
 ~
@@ -4846,7 +4797,7 @@ right, while a long velvet couch sits against the southern wall.  An
 intricately patterned Persian rug covers the floor, with a small 
 octagonal section cut out above the hatch that allowed you into this room.
 ~
-0 D 0
+0 D inside
 E
 sign light~
 You see the Sign of the Light, a rainbow surrounded in a circle of ivy.~
@@ -4868,7 +4819,7 @@ wooden throne stands against the north wall, just below the Sign of the Light;
 two snapdragons grow on its left and right, while sprigs of goldenrod grow 
 upwards just behind its head.
 ~
-0 C 0
+0 C inside
 E
 sign light~
 You see the Sign of the Light, a rainbow surrounded in a circle of ivy.~
@@ -4888,7 +4839,7 @@ seem to amplify the outside light, giving it the power of several suns.  The
 throne on the north wall seems to blaze with its own light; the sunflowers and
 forsythia branches that surround it seem dull in comparison.
 ~
-0 CD 0
+0 CD inside
 E
 sign light~
 You see the Sign of the Light, a rainbow surrounded in a circle of ivy.~
@@ -4909,7 +4860,7 @@ grow near the north wall; their drooping branches form a canopy for the carved
 wooden throne beneath them...and partially obscure the Sign of the Light on the
 wall.
 ~
-0 CD 0
+0 CD inside
 E
 sign light~
 You see the Sign of the Light, a rainbow surrounded in a circle of ivy.~
@@ -4931,7 +4882,7 @@ platform, just below the Sign of the Light on the north wall.  A few
 bluebells grow in planters around the room, matching the blue 
 speedwell of the throne as well as the blue marble below your feet.
 ~
-0 CD 0
+0 CD inside
 E
 sign light~
 You see the Sign of the Light, a rainbow inside a circle of ivy.~
@@ -4954,7 +4905,7 @@ swirling them gently around your face and hands.  Sprigs of lilac grow
 from behind the dark throne on the north wall, brushing gently against 
 the Sign of the Light.
 ~
-0 CD 0
+0 CD inside
 E
 sign light~
 You see the Sign of the Light, a rainbow surrounded by a circle of ivy.~
@@ -4977,7 +4928,7 @@ a smooth glass throne set underneath the northern part of the curving wall.
 Above the throne hangs the Sign of the Light; here, the unfiltered light allows
 it to sparkle with all its rainbow colors.
 ~
-0 CD 0
+0 CD inside
 E
 sign light~
 You see the Sign of the Light, a rainbow surrounded by a circle of ivy.~
@@ -4993,7 +4944,7 @@ this point have fallen to bits and rotted away.  Fortunately, the ground here
 is somewhat more stable than it was to the north--at least, you won't sink
 up to your hips if you try and stand on it.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -5015,7 +4966,7 @@ to the south.  To the east, the ground slopes slightly downwards, becoming even
 wetter as it descends into a muddy pond, while the mountain wall blocks your
 path to the west.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -5038,7 +4989,7 @@ surrounding them. There seems to be no color in this land, no color at all;
 the swamp mud is a deep black, while the sun and sky themselves seem 
 dull and gray.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -5066,7 +5017,7 @@ stinking puddles on the grey, rotten wood.
 To the west lies a small wooden house; the mountain wall appears to have torn
 it in two.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -5091,7 +5042,7 @@ wall, and curving around the murkier, more watery part of the swamp.  Strange
 plants grow in the muck here, with forked, grayish-green leaves and twisted
 brown stems.
 ~
-0 0 1
+0 0 city
 D1
 ~
 ~
@@ -5108,7 +5059,7 @@ as they search for solid soil.  The wooden pathway becomes even darker as it
 passes underneath these uneven rows of trees, finally becoming so dark that you
 need a light to find your way.
 ~
-0 A 1
+0 A city
 D1
 ~
 ~
@@ -5127,7 +5078,7 @@ reeds and grasses cover the surface, while a school of fish is rotting
 away in a thick cluster of bushes and cattails that hangs over the 
 northern end of the pond.
 ~
-0 C 7
+0 C noswim
 D1
 ~
 ~
@@ -5150,7 +5101,7 @@ looks rather rickety; you can see from here that several of the gazebo's
 boards have rotted away, leaving one whole side that has collapsed into 
 the mire below.
 ~
-0 C 7
+0 C noswim
 D0
 ~
 ~
@@ -5171,7 +5122,7 @@ the bottom of the swamp.  Rushes and cattails grow up out of the edge of the
 pond, keeping the wet soil there from sliding into the deeper parts
 of the pond.
 ~
-0 C 7
+0 C noswim
 D0
 ~
 ~
@@ -5192,7 +5143,7 @@ approaches the southern mountain wall.  Low tree branches, covered with ivy,
 block your vision into the forest, and block the light as well; it seems to be
 almost completely black beyond the treeline.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -5213,7 +5164,7 @@ the forest grows densely here beside the rock wall to the north, stretching
 high into the air as it tries to catch the few feeble rays of light that do 
 make it down through the gloom.
 ~
-0 A 1
+0 A city
 D1
 ~
 ~
@@ -5230,7 +5181,7 @@ to hold them in the steep, marshy ground.  A small gazebo stands to the south,
 seeming to have lost the struggle against the decay of the swamp; 
 several of its gray boards have fallen into the waters below.
 ~
-0 C 7
+0 C noswim
 D1
 ~
 ~
@@ -5254,7 +5205,7 @@ what might be human footsteps.  Small slugs appear to have helped the natural
 decay process; hundreds of them are stuck to the underside of the gazebo floor,
 and appear to be happily munching away.
 ~
-0 C 7
+0 C noswim
 D0
 ~
 ~
@@ -5276,7 +5227,7 @@ the pond, half over the swamp and half over the marshland; the supports on its
 left side have rotted away, leaving it tilted sharply to one side, and most
 likely preventing anyone from calling it their home.
 ~
-0 C 7
+0 C noswim
 D0
 ~
 ~
@@ -5302,7 +5253,7 @@ partially given way, making the hut lean sharply downwards.  More stable
 ground lies to the south--at least, it's stable enough to allow a dense, 
 dark grove of trees to grow high into the air.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -5332,7 +5283,7 @@ somewhat less here, probably because of the fresh air that spills over the
 mountain wall to the north and east; in any case, your stomach isn't churning
 quite as much now.....
 ~
-0 0 2
+0 0 field
 D2
 ~
 ~
@@ -5348,7 +5299,7 @@ The wooden path continues here between the murky swamp and the row of wooden
 buildings; to the south, it connects with an intersection, while to the north,
 it heads towards a darker area just before the northern mountain wall.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -5369,7 +5320,7 @@ the back of a row of wooden buildings, while the other leads over the water to
 the west, passing through a wooden gazebo, and continues eastwards between two
 of the buildings, heading towards a glittering black tower.
 ~
-0 C 2
+0 C field
 D0
 ~
 ~
@@ -5395,7 +5346,7 @@ the other side. There is a break in the row to the north, however, with a path
 leading between two of the buildings; also, the swamp lies to the west, while
 a dark forest rises in the distance to the south.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -5416,7 +5367,7 @@ on the ground.  A dark forest lies to the south, filled with thick trees and
 dangling branches that sweep along the ground...and keep you from seeing
 whatever may lie inside.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -5437,7 +5388,7 @@ begins just below the wooden floor of the watchtower and continues downwards
 towards the ground below.  A torch flickers faintly from below, shedding 
 enough light for you to see a small handle attached to the hatchway above.
 ~
-0 0 0
+0 0 inside
 D4
 ~
 ~
@@ -5454,7 +5405,7 @@ the chamber gently widens.  A torch bolted into the side of the chamber reveals
 a door set into the eastern wall, as well as a small figure carved into the
 rock above the doorway.
 ~
-0 CD 0
+0 CD inside
 E
 sign figure~
 The Sign of the Dark, a raven diving inside a circle of bone, is carved into
@@ -5477,7 +5428,7 @@ as a whole looks rather unsteady.  The glittering black tower to the east
 seems to be the only stable building in the entire realm, unaffected by the
 mire of the swamp to its west.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -5505,7 +5456,7 @@ The doorway to the south leads to a private home--or so it seems, since there's
 no sign out front--and is covered by a thin black cloth, probably in an attempt
 to keep out the smell.
 ~
-0 0 1
+0 0 city
 E
 sign signs~
 The sign to the west reads:                     The sign to the east reads:
@@ -5539,7 +5490,7 @@ table just behind the bar, barricaded in by the wreckage of a few old tables
 and chairs; it looks like a few of them may have caused those puddles just
 below you.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -5557,7 +5508,7 @@ field protecting the items from thieves.  Foul concoctions bubble evilly in the
 back corner of the room, and the runes etched on the ceiling give you faint 
 shivers; the sign of the Dark is painted on the floor.
 ~
-0 D 0
+0 D inside
 E
 rune runes sign~
 You can't understand them....but you find that every hair of your body is
@@ -5576,7 +5527,7 @@ with only the faintest hint of demonic-looking figures here and there.  The
 floor is liberally coated with vomit and scum, and many of the chairs look to
 have fallen victim to the same fight that took out most of the bar.
 ~
-0 D 0
+0 D inside
 D2
 ~
 ~
@@ -5588,7 +5539,7 @@ Only one small candle lights the inside of this house, and it hardly provides
 any illumination at all; dark shadows seem to swallow up every last ray of 
 light.
 ~
-0 AD 0
+0 AD inside
 D0
 ~
 ~
@@ -5600,7 +5551,7 @@ Two rickety shops lie to the east and west, each with sparsely stocked shelves;
 a few books lie on the windowsill to the east, while the window to the
 west is empty.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -5625,7 +5576,7 @@ long ago when the realm was split in two.  A few of the books still look
 readable, though most seem to have been burned or waterlogged as various
 scourges and battles swept through the town.
 ~
-0 D 0
+0 D inside
 D3
 ~
 ~
@@ -5640,7 +5591,7 @@ offers nothing more than rat droppings and dirt, as the villagers have taken
 everything else in their struggle to stay alive; the shelves, the counter, and
 even the staircase to the second floor have been torn apart.
 ~
-0 D 0
+0 D inside
 D1
 ~
 ~
@@ -5654,7 +5605,7 @@ papers, and bones sitting on shelves along the walls of the room.  An altar
 lies at the north of the room, scattered with partially charred bits and pieces
 of...something....
 ~
-0 AD 0
+0 AD inside
 D2
 ~
 ~
@@ -5669,7 +5620,7 @@ this land; you can also see faint shadows that move in the moat below you,
 along with a few sporadic streams of bubbles that rise up from the deep, 
 slimy waters.
 ~
-0 0 1
+0 0 city
 D1
 ~
 ~
@@ -5686,7 +5637,7 @@ much wetter and soggier part of the swamp.  A decrepit gazebo lies just to the
 east; several of its floorboards have fallen into the marsh below, and just 
 barely stick out above the water's surface.
 ~
-0 0 1
+0 0 city
 D1
 ~
 ~
@@ -5705,7 +5656,7 @@ at either end.  An ivy bush once intertwined itself through the gazebo's side
 posts and roof, but it has since died, leaving only twisted branches in its
 place.
 ~
-0 0 0
+0 0 inside
 D1
 ~
 ~
@@ -5720,7 +5671,7 @@ Entrance to the Dark Tower~
 Cold gray marble covers the walls and the floor, giving the entire room a dim, 
 dirty air.  Save for a staircase leading upwards, the room is entirely empty.
 ~
-0 D 1
+0 D city
 D3
 ~
 ~
@@ -5739,7 +5690,7 @@ the room becomes clearer, two more items come into focus: a small hatch in the
 ceiling just a few inches above your head, as well as the sign of the Dark,
 painted in dull black on the shiny black wall.
 ~
-0 AD 0
+0 AD inside
 D4
 ~
 ~
@@ -5757,7 +5708,7 @@ providing the only sign of comfort and life; the curving wall stands unbroken
 and unblemished save for the barely visible sign of the Dark, etched in dull
 white against the bright white background.
 ~
-0 D 0
+0 D inside
 D4
 ~
 ~
@@ -5776,7 +5727,7 @@ the room becomes clearer, two more items come into focus: a small hatch in the
 ceiling just a few inches above your head, as well as the sign of the Dark,
 painted in dull black on the shiny black wall.
 ~
-0 AD 0
+0 AD inside
 D4
 ~
 ~
@@ -5794,7 +5745,7 @@ providing the only sign of comfort and life; the curving wall stands unbroken
 and unblemished, save for the barely visible sign of the Dark, etched in dull
 white against the bright white background.
 ~
-0 AD 0
+0 AD inside
 D4
 ~
 ~
@@ -5810,7 +5761,7 @@ A thick grey fog swirls around you, blinding you entirely and swallowing up
 every ray of light in the room.  You can only vaguely see what might be the
 sign of the Dark, suspended somewhere in the distance.
 ~
-0 D 0
+0 D inside
 D5
 ~
 ~
@@ -5823,7 +5774,7 @@ hardly enough light to see, but certainly there's nothing in it except for you.
 You don't hear anything either, not even any rats.  What did you do to deserve
 this?
 ~
-0 ACDNO 1
+0 ACDNO city
 S
 #19129
 Merriman's Alcove~
@@ -5836,7 +5787,7 @@ as well as a small stereo system.  The smaller section of the room, though
 partially hidden by a deep blue tapestry, is partially in view; it holds 
 a small bed, a nightstand, and a dresser.
 ~
-0 CD 0
+0 CD inside
 E
 books bookcase bookcases~
 You skim the titles...
@@ -5862,7 +5813,7 @@ except for a thin sheet of cloth, and the door is rusting off its
 hinges.  The shelves are almost bare, except for a few rusty fishing 
 hooks and a fishing pole locked to the bottom shelf with a thick chain.
 ~
-0 D 0
+0 D inside
 D5
 ~
 ~
@@ -5875,7 +5826,7 @@ below.  A few fallen trees provide refuge for small animals; you see a
 fat badger sleeping in a hole underneath one log, while a small squirrel darts
 in and out of one hollow tree, probably hiding his nuts for winter.
 ~
-0 0 3
+0 0 forest
 D0
 ~
 ~
@@ -5892,7 +5843,7 @@ prevent you from seeing whether anyone is inside.  Dark forests lie in every
 other direction, with the thick pine branches again preventing you from seeing
 anyone or anything that might be nearby.
 ~
-0 0 3
+0 0 forest
 D0
 ~
 ~
@@ -5918,7 +5869,7 @@ leaving a small clearing.  The sun shines down through the hole in the forest
 canopy, allowing small trees and even some flowers to grow in the fertile
 soil.
 ~
-0 0 3
+0 0 forest
 D0
 ~
 ~
@@ -5943,7 +5894,7 @@ mountain face; thick brush grows along the base of the wall, but even its thin
 roots cannot find a foothold in the sheer rock.  The forest ends to the north
 as well, meeting up with a neat gravel pathway as it enters a clearing.
 ~
-0 0 3
+0 0 forest
 D0
 ~
 ~
@@ -5965,7 +5916,7 @@ branches make this area of the forest even darker, as they screen out almost
 all the light from above; you can't see if anything or anyone lives in the
 upper branches.
 ~
-0 0 3
+0 0 forest
 D0
 ~
 ~
@@ -5990,7 +5941,7 @@ branches brushing against the ground; several of its thin, green leaves have
 been swept downwards by the small trickle of water, and have been washed
 to the ground.
 ~
-0 0 3
+0 0 forest
 D0
 ~
 ~
@@ -6017,7 +5968,7 @@ to find space for roots.  The trees block out much of the light, but a thick
 cluster of African violets still manages to grow on a small rock near the
 foot of the mountain.
 ~
-0 0 3
+0 0 forest
 E
 violet violets rock~
 The violets cover the rock...which in turn appears to cover a small opening in
@@ -6046,7 +5997,7 @@ A thick tree branch passes through the whole left side of the house, leading
 out the southern window; the owner has flattened out part of it, and now 
 uses it as a table.
 ~
-0 D 0
+0 D inside
 E
 bee hive beehive bees~
 ~
@@ -6068,7 +6019,7 @@ ground hasn't stopped a dense cluster of trees from springing up here. Eerie
 sounds emerge from the gloom around you, sounds like the ooze and spluck of
 bubbling mud to the faint raspy breathing of some sort of animal.
 ~
-0 A 3
+0 A forest
 D0
 ~
 ~
@@ -6091,7 +6042,7 @@ every direction, keeping you from seeing more than a few feet ahead of you;
 the hanging plants are slightly thinner to the north, though, allowing just a
 little more light to shine through.
 ~
-0 A 3
+0 A forest
 D0
 ~
 ~
@@ -6116,7 +6067,7 @@ mouth full of teeth flash out of a clump of bracken or a fallen tree.  A cool
 breeze blows from the north, where a small, decrepit hut stands, screened 
 by the ivy and wisteria dangling from the low-hanging branches.
 ~
-0 A 3
+0 A forest
 D0
 ~
 ~
@@ -6142,7 +6093,7 @@ going any further.  You are just above the canopy of this small forest; the
 glittering obsidian structure towers above the treeline in the distance to the
 northeast.
 ~
-0 0 5
+0 0 mountain
 D5
 ~
 ~
@@ -6155,7 +6106,7 @@ brushing against the ground. Though the forest canopy is thinner here, it is
 still quite dark; the sun itself is not powerful enough to shine through the
 gloom that surrounds this land.
 ~
-0 A 3
+0 A forest
 D0
 ~
 ~
@@ -6172,7 +6123,7 @@ through the dense canopy of branches above you.  The canopy itself seems
 thicker here than elsewhere in the forest, allowing only a few rays of 
 light to reach the forest floor.
 ~
-0 A 3
+0 A forest
 D0
 ~
 ~
@@ -6194,7 +6145,7 @@ shaft of blue sky is just visible over the southern mountain wall, far
 beyond the boundaries of this dark realm; another stretch of blue lies to the
 west, beyond the mountain wall that separates this valley from the next.
 ~
-0 A 3
+0 A forest
 D0
 ~
 ~
@@ -6216,7 +6167,7 @@ however, has been able to make its home in the cracks and holes worn into
 the rock wall; it stretches high up along the rock wall, reaching almost to
 its top.
 ~
-0 A 3
+0 A forest
 D0
 ~
 ~
@@ -6233,7 +6184,7 @@ was one.  You're not supposed to be here....trust me.  I know.  I wrote this
 area :-).  Anyway, better recall or get someone to transfer you out of here,
 'cause this is just a room used by mobprogs.....
 ~
-0 CO 0
+0 CO inside
 S
 #19148
 The Fisherman's Hut~
@@ -6245,7 +6196,7 @@ an enormous hole in the western wall....
 mire sticks to your clothing, and gets in your mouth; it smells awful, and now
 so do you.
 ~
-0 0 0
+0 0 inside
 D0
 ~
 ~
@@ -6258,7 +6209,7 @@ reflective steps make it hard to judge where your foot should go.  A simple
 torch bolted on the wall casts a dim light around the staircase, allowing you
 to see the intersection below and the continuing staircase above you.
 ~
-0 AD 0
+0 AD inside
 D4
 ~
 ~
@@ -6274,7 +6225,7 @@ The staircase rises further into darkness here, though small sparklings
 from the wall indicate that mirrors still surround you.  A brighter room 
 appears to lie above you, while the staircase continues downwards below you.
 ~
-0 AD 0
+0 AD inside
 D4
 ~
 ~
@@ -6292,7 +6243,7 @@ narrow windows, giving the room a bright, almost cheerful air.  Bits of twigs
 and branches cover the floor, piled into a large nest in the center of the room
 by some sort of bird....
 ~
-0 D 0
+0 D inside
 D5
 ~
 ~
@@ -6306,7 +6257,7 @@ gazebo, enclosed by its wooden framework.  The wooden panel sits in the
 floorboard beneath you; a simple wooden knob is attached across from two
 shiny brass hinges.
 ~
-0 C 1
+0 C city
 D5
 ~
 ~
@@ -6319,7 +6270,7 @@ apparently the bees' true home is before you.  As a cool breeze blows towards
 you, the smell of delicious honey fills your nostrils, apparently coming from
 the hive before you....
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -6338,7 +6289,7 @@ bees buzz loudly but not ominously; many of them have been calmed by the
 smoke, and the rest seem to be content to ignore you and make the delicious
 honey whose sweet, sticky scent fills the air.
 ~
-0 C 1
+0 C city
 D2
 ~
 ~
@@ -6354,7 +6305,7 @@ from the ceiling, gently brushing your face and hands; as you look, you see
 that a new petal slowly unfurls from the place where the falling one used
 to lie.
 ~
-0 C 1
+0 C city
 D4
 ~
 ~
@@ -6367,7 +6318,7 @@ mountain wall has almost completely destroyed this room.  Falling rock has
 bashed a large hole in the wall to the west, allowing you to head outside;
 to the north, a doorway still provides access to another room.
 ~
-0 C 1
+0 C city
 D0
 ~
 ~
@@ -6386,7 +6337,7 @@ brick oven rests unaffected in a fissure in the mountain wall.
 A large fire burns in a fireplace in the north wall, kept in check
 by a thick iron grate.
 ~
-0 0 1
+0 0 city
 D0
 ~
 grate fire fireplace~
@@ -6410,7 +6361,7 @@ itself, keeping the flames at a safe distance.  The heat still envelops
 you, though, threatening to cook you with its intensity; the fire is
 to be far hotter and larger than it seemed from the outside.
 ~
-0 C 1
+0 C city
 D2
 ~
 ~
@@ -6424,7 +6375,7 @@ from all the black soot that covers the deep brown bricks.  Two steel
 oven doors lie at one end of the passage, while a single thick panel lies 
 at the other.
 ~
-0 0 1
+0 0 city
 D1
 ~
 panel~
@@ -6442,7 +6393,7 @@ seep in.  The back of a brick oven stove lies on the west wall, undamaged
 by the rise of the mountain wall; though it now stands cold with its panel
 shut, it probably once provided the heat for this small room.
 ~
-0 0 1
+0 0 city
 D1
 ~
 ~
@@ -6460,7 +6411,7 @@ than the rest: the pond floor slopes downwards into a deep indentation. The
 gazebo casts a faint white reflection on the water above you....and you can 
 see what appears to be some sort of cave lying just ahead.
 ~
-0 C 1
+0 C city
 D0
 ~
 ~
@@ -6480,7 +6431,7 @@ fresh, clean scent.  The waterfalls--as well as the water you came from--
 sparkle in the misty light that shines from a large altar in the center of
 the room.
 ~
-0 C 1
+0 C city
 D2
 ~
 ~
@@ -6494,7 +6445,7 @@ ground.  Crickets and beetles, hidden somewhere in the ivy, chirp loudly
 in the cool, moist air, and the head of a white dove just peeks out of a 
 nest of green branches.
 ~
-0 C 1
+0 C city
 D0
 ~
 branch tree~
@@ -6506,7 +6457,7 @@ A dark, wood-panelled hallway leads north past a series of doors: two
 lie to your left and right in this section of the hall, while three lie in
 the section up ahead.
 ~
-0 C 1
+0 C city
 D0
 ~
 ~
@@ -6531,7 +6482,7 @@ lies against one wall, covered with a plain green comforter; a table,
 two chairs, and an oil lamp sit in one corner; a chest of drawers stands
 near the bed.
 ~
-0 0 1
+0 0 city
 D1
 ~
 door~
@@ -6545,7 +6496,7 @@ instruments, from guitars to mandolins, rest in stands on the floor.  A few
 books of sheet music sit in a small bookshelf; most seem to have music and
 lyrics for various sorts of blues and jazz.
 ~
-0 0 1
+0 0 city
 D3
 ~
 door~
@@ -6557,7 +6508,7 @@ The wood-panelled hallway comes to an end here before an ornate doorway
 ornamented with brass and silver.  To the west lies a normal room, while
 the door to the east holds a plaque that reads "Honeymoon Suite."
 ~
-0 0 0
+0 0 inside
 D1
 ~
 door~
@@ -6578,7 +6529,7 @@ against one wall, covered with a plain green comforter; a table, two
 chairs, and an oil lamp sit in one corner; a chest of drawers stands near 
 the bed.
 ~
-0 0 0
+0 0 inside
 D1
 ~
 ~
@@ -6593,7 +6544,7 @@ well as a personal card of congratulations from the hotel manager; a key
 sits in the lock, allowing you to lock yourself in if you should want 
 some privacy...
 ~
-0 0 0
+0 0 inside
 D3
 ~
 ~
@@ -6609,7 +6560,7 @@ variety of colors, ranging from simple black to fluorescent green.
 Musky incense and other smells envelop you, and you drift into a sort of 
 psychedelic fugue....
 ~
-0 C 0
+0 C inside
 S
 #0
 

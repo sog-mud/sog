@@ -265,13 +265,12 @@ This fellow may not speak your language well, but the language he does know
 very well makes conversation suddenly become much simpler- MONEY.
 ~
 human~
-ACGHe N 0 0
+ACGHe DFN 0 0
 60 0 50d10+6750 5d5+5000 8d6+28 pound
 -30 -30 -30 -3
 FHIKN 0 0 0
 stand stand male 1000
 0 0 medium unknown
-A det DF
 #24117
 chieftain~
 the village chieftain~
@@ -285,13 +284,12 @@ well-muscled frame - she is still a very attractive woman, and the men of the
 village (and some women too) vie for her favours.
 ~
 human~
-AG HJN 1000 0
+AG CDHJN 1000 0
 60 0 50d10+6750 5d5+5000 8d6+28 pound
 -30 -30 -30 -3
 FIKN 0 0 0
 stand stand male 1000
 0 0 medium unknown
-A det CD
 #24118
 villager~
 a villager~
@@ -452,13 +450,12 @@ standing military or police force. However, the recent influx of foreigners
 and bandits has necessitated the introduction of a militia to keep the peace.
 ~
 human~
-ADG HN 1000 0
+ADG CHN 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
 EFIKN 0 0 0
 stand stand male 1000
 0 0 medium unknown
-A det C
 #24129
 militia member~
 a member of the village militia~
@@ -469,13 +466,12 @@ standing military or police force. However, the recent influx of foreigners
 and bandits has necessitated the introduction of a militia to keep the peace.
 ~
 human~
-ADG HN 1000 0
+ADG CHN 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
 CEFIKN 0 0 0
 stand stand male 1000
 0 0 medium unknown
-A det C
 #24130
 militia member~
 a member of the village militia~
@@ -486,13 +482,12 @@ standing military or police force. However, the recent influx of foreigners
 and bandits has necessitated the introduction of a militia to keep the peace.
 ~
 human~
-ABDG HN 1000 0
+ABDG CHN 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
 CEFIKN 0 0 0
 stand stand male 1000
 0 0 medium unknown
-A det C
 #24131
 minoan merc merc1~
 minoan mercenary~
@@ -501,13 +496,12 @@ A Minoan mercenary scowls menacingly at you.
 This Merc looks big and tough. Better be careful.
 ~
 human~
-AI J 0 0
+AI FJ 0 0
 15 0 3d9+208 5d5+100 2d6+3 pound
 -2 -2 -2 6
 CDFIJK 0 0 0
 stand stand female 1000
 0 0 medium unknown
-A det F
 #24132
 assyrian merc merc2~
 Assyrian mercenary~
@@ -516,13 +510,12 @@ An Assyrian Mercenary scowls menacingly at you.
 This Merc looks big and tough. Better be careful.
 ~
 human~
-AI J 0 0
+AI DJ 0 0
 20 0 3d9+333 5d5+1000 2d8+5 pound
 -4 -4 -4 5
 FIJKN 0 0 0
 stand stand male 1000
 0 0 medium unknown
-A det D
 #24133
 egyptian merc merc3~
 Egyptian mercenary~
@@ -573,13 +566,12 @@ A Mycenaean mercenary scowls menacingly at you.
 This Merc looks big and tough. Better be careful.
 ~
 human~
-AI JT 0 0
+AI DFJT 0 0
 40 0 15d10+1850 5d5+1000 4d8+13 slash
 -13 -13 -13 3
 FIKN 0 0 0
 stand stand male 1000
 0 0 medium unknown
-A det DF
 #0
 
 #OBJECTS
@@ -727,7 +719,7 @@ a pair of sandals~
 A pair of sandals lies here.~
 copper~
 armor 0 AG
-AC AC AC 0 0
+5 5 5 0 0
 10 15 100 P
 #24116
 belt~
@@ -735,7 +727,7 @@ a hide belt~
 A belt crafted of hide is curled up here.~
 copper~
 armor 0 AL
-AC AC AC 0 0
+5 5 5 0 0
 10 20 100 P
 #24117
 bronze helm~
@@ -743,7 +735,7 @@ a bronze helm~
 A bronze helm.~
 copper~
 armor 0 AE
-AC AC AC 0 0
+5 5 5 0 0
 10 5 100 P
 A
 17 -2
@@ -755,7 +747,7 @@ a rough fur cloak~
 A rough fur cloak is here.~
 copper~
 armor 0 AC
-AC AC AC 0 0
+5 5 5 0 0
 10 5 100 P
 A
 17 -5
@@ -824,7 +816,7 @@ The champion's wolf's head is here.
 ~
 copper~
 armor 0 AE
-ACE ACE ACE 0 0
+21 21 21 0 0
 93 75 930 P
 A
 13 250
@@ -867,7 +859,7 @@ a boiled leather jerkin~
 A boiled leather jerkin is lying here.~
 copper~
 armor 0 AD
-ACD ACD ACD 0 0
+13 13 13 0 0
 50 10 500 P
 A
 5 2
@@ -879,7 +871,7 @@ a rune-covered bone bracelet~
 A rune-covered bone bracelet is lying here.~
 copper~
 armor 0 AM
-ACD ACD ACD 0 0
+13 13 13 0 0
 50 5 500 P
 A
 2 1
@@ -891,7 +883,7 @@ a fur cloak~
 A fur cloak is lying here.~
 copper~
 armor 0 AC
-ACD ACD ACD 0 0
+13 13 13 0 0
 50 10 500 P
 A
 12 25
@@ -903,7 +895,7 @@ a boar tusk helm~
 A boar tusk helm lies here.~
 copper~
 armor 0 AE
-ACD ACD ACD 0 0
+13 13 13 0 0
 50 10 500 P
 A
 17 -10
@@ -914,7 +906,7 @@ An ox-hide shield lies here.
 ~
 copper~
 armor 0 AJ
-ACD ACD ACD 0 0
+13 13 13 0 0
 50 20 500 P
 A
 17 -20
@@ -969,7 +961,7 @@ Outside the Shaman's Hut~
 You are standing outside the wooden hut where the Shaman of the village
 resides. Paths stretch out to the east, south and west from here.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -995,7 +987,7 @@ toward you. In the center of this hut the shaman awaits, quietly meditating.
 A variety of furs, bones, charms and trinkets line the walls, doubtless
 serving as focii for the shaman's mystic powers.
 ~
-0 DK 0
+0 DK inside
 D2
 ~
 ~
@@ -1008,7 +1000,7 @@ about on the hard ground by a chill northern breeze that blows in from the
 icy mountains far to the north. You hope that you will be able to find
 a hot meal and a comfortable bed this evening.
 ~
-0 D 0
+0 D inside
 D1
 ~
 ~
@@ -1023,7 +1015,7 @@ A Path in the Village~
 You are walking along a path of packed earth that heads north toward the
 Shaman's hut.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -1040,7 +1032,7 @@ about on the hard ground by a chill northern breeze that blows in from the
 icy mountains far to the north. You hope that you will be able to find
 a hot meal and a comfortable bed this evening.
 ~
-0 D 0
+0 D inside
 D1
 ~
 ~
@@ -1057,7 +1049,7 @@ about on the hard ground by a chill northern breeze that blows in from the
 icy mountains far to the north. You hope that you will be able to find
 a hot meal and a comfortable bed this evening.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -1082,7 +1074,7 @@ about on the hard ground by a chill northern breeze that blows in from the
 icy mountains far to the north. You hope that you will be able to find
 a hot meal and a comfortable bed this evening.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -1107,7 +1099,7 @@ about on the hard ground by a chill northern breeze that blows in from the
 icy mountains far to the north. You hope that you will be able to find
 a hot meal and a comfortable bed this evening.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -1132,7 +1124,7 @@ about on the hard ground by a chill northern breeze that blows in from the
 icy mountains far to the north. You hope that you will be able to find
 a hot meal and a comfortable bed this evening.
 ~
-0 D 0
+0 D inside
 D1
 ~
 ~
@@ -1150,7 +1142,7 @@ icy mountains far to the north. You hope that you will be able to find
 a hot meal and a comfortable bed this evening. The village square outside
 the Shaman's hut lies a short way to the north of here.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -1167,7 +1159,7 @@ about on the hard ground by a chill northern breeze that blows in from the
 icy mountains far to the north. You hope that you will be able to find
 a hot meal and a comfortable bed this evening.
 ~
-0 D 0
+0 D inside
 D1
 ~
 ~
@@ -1184,7 +1176,7 @@ about on the hard ground by a chill northern breeze that blows in from the
 icy mountains far to the north. You hope that you will be able to find
 a hot meal and a comfortable bed this evening.
 ~
-0 D 0
+0 D inside
 D1
 ~
 ~
@@ -1203,7 +1195,7 @@ a hot meal and a comfortable bed this evening. Several children suddenly
 rush by, immersed in some strange activity, the rules of which are quite
 unfathomable to you.
 ~
-0 D 0
+0 D inside
 D1
 ~
 ~
@@ -1219,7 +1211,7 @@ You are approaching the western gates of the village, which are constantly
 patrolled by the militia. There is no-one else about here, as the 
 concentration of residences and shops is nearer to the center of the village.
 ~
-0 D 0
+0 D inside
 D1
 ~
 ~
@@ -1235,7 +1227,7 @@ You are approaching the eastern gates of the village, which are constantly
 patrolled by the militia. There is no-one else about here, as the 
 concentration of residences and shops is nearer to the center of the village.
 ~
-0 D 0
+0 D inside
 D1
 ~
 ~
@@ -1252,7 +1244,7 @@ stout wooden gates, set in the wooden barrier that surrounds the village.
 Members of the militia, on the lookout for bandits and wolves, grant you
 a cursory nod as they go about their duties.
 ~
-0 D 0
+0 D inside
 D1
 ~
 ~
@@ -1269,7 +1261,7 @@ stout wooden gates, set in the wooden barrier that surrounds the village.
 Members of the militia, on the lookout for bandits and wolves, grant you
 a cursory nod as they go about their duties.
 ~
-0 D 0
+0 D inside
 D1
 ~
 ~
@@ -1286,7 +1278,7 @@ stand open, but the militia are ready at a moment's notice to slam them shut
 and bar them with heavy wooden crossbeams bound with rare iron imported from
 the south.
 ~
-0 C 2
+0 C field
 D0
 ~
 ~
@@ -1307,7 +1299,7 @@ stand open, but the militia are ready at a moment's notice to slam them shut
 and bar them with heavy wooden crossbeams bound with rare iron imported from
 the south.
 ~
-0 C 2
+0 C field
 D0
 ~
 ~
@@ -1332,7 +1324,7 @@ by the steps of thousands of travellers over the many years. This path
 circles the wooden walls of the village, and from here you can see some of
 the larger structures within.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -1349,7 +1341,7 @@ by the steps of thousands of travellers over the many years. This path
 circles the wooden walls of the village, and from here you can see some of
 the larger structures within.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -1366,7 +1358,7 @@ by the steps of thousands of travellers over the many years. This path
 circles the wooden walls of the village, and from here you can see some of
 the larger structures within.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -1385,7 +1377,7 @@ the larger structures within.
 
 There is a path running up a hill here which you may ascend.
 ~
-0 C 2
+0 C field
 D1
 ~
 ~
@@ -1402,7 +1394,7 @@ by the steps of thousands of travellers over the many years. This path
 circles the wooden walls of the village, and from here you can see some of
 the larger structures within.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -1419,7 +1411,7 @@ by the steps of thousands of travellers over the many years. This path
 circles the wooden walls of the village, and from here you can see some of
 the larger structures within.
 ~
-0 0 2
+0 0 field
 D2
 ~
 ~
@@ -1436,7 +1428,7 @@ by the steps of thousands of travellers over the many years. This path
 circles the wooden walls of the village, and from here you can see some of
 the larger structures within.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -1453,7 +1445,7 @@ by the steps of thousands of travellers over the many years. This path
 circles the wooden walls of the village, and from here you can see some of
 the larger structures within.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -1470,7 +1462,7 @@ by the steps of thousands of travellers over the many years. This path
 circles the wooden walls of the village, and from here you can see some of
 the larger structures within.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -1487,7 +1479,7 @@ by the steps of thousands of travellers over the many years. This path
 circles the wooden walls of the village, and from here you can see some of
 the larger structures within.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -1504,7 +1496,7 @@ by the steps of thousands of travellers over the many years. This path
 circles the wooden walls of the village, and from here you can see some of
 the larger structures within.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -1521,7 +1513,7 @@ by the steps of thousands of travellers over the many years. This path
 circles the wooden walls of the village, and from here you can see some of
 the larger structures within.
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -1538,7 +1530,7 @@ by the steps of thousands of travellers over the many years. This path
 circles the wooden walls of the village, and from here you can see some of
 the larger structures within.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -1555,7 +1547,7 @@ by the steps of thousands of travellers over the many years. This path
 circles the wooden walls of the village, and from here you can see some of
 the larger structures within.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -1572,7 +1564,7 @@ with a thatched roof, and a sturdy oak door. Occasionally a villager enters
 or exits the hut, sparing you a curious glance as they do. A crude etching
 upon the doors of this hut marks it as the Horse Clan hut.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -1589,7 +1581,7 @@ from the east, while quiet conversation can be heard to the west. You feel
 slightly nervous about intruding upon this clan, but then again that's
 what your profession is all about, really. Intruding.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -1610,7 +1602,7 @@ sipping at their ales and chatting quietly with each other. As you enter
 they smile and bid you welcome, and ask you to stay and enjoy some good
 conversation for a while.
 ~
-0 D 0
+0 D inside
 D1
 ~
 ~
@@ -1622,7 +1614,7 @@ In here several teenagers of both sexes rush about preparing the evening
 meal under the watchful eye of a hefty cook, who helps them along with the
 occasional shout or cuff on the ear.
 ~
-0 D 0
+0 D inside
 D3
 ~
 ~
@@ -1637,7 +1629,7 @@ a hot meal and a comfortable bed this evening.
 
 The chieftain's lodge lies to the west of here.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -1658,7 +1650,7 @@ for a figure of such importance, but it should be remembered that she has
 it to herself, while most other villagers live with their clans in groups of
 up to thirty, residing in three room lodges.
 ~
-0 D 0
+0 D inside
 D1
 ~
 ~
@@ -1673,7 +1665,7 @@ a hot meal and a comfortable bed this evening.
 
 The flint-knepper practices his trade to the west of here.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -1697,7 +1689,7 @@ suit of rather battered-looking bronze plate. The flint-knepper has learnt
 skills far more advanced than his contemporaries, thanks to the many
 visitors this village attracts, and his forge shows evidence of this.
 ~
-0 D 0
+0 D inside
 D1
 ~
 ~
@@ -1710,7 +1702,7 @@ about on the hard ground by a chill northern breeze that blows in from the
 icy mountains far to the north. You hope that you will be able to find
 a hot meal and a comfortable bed this evening.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -1730,7 +1722,7 @@ This hut is used to store the goods of the many merchants that come to this
 village. It currently holds little of interest, being filled largely with
 bales of hay and coils of hemp rope.
 ~
-0 D 0
+0 D inside
 D3
 ~
 ~
@@ -1743,7 +1735,7 @@ about on the hard ground by a chill northern breeze that blows in from the
 icy mountains far to the north. You hope that you will be able to find
 a hot meal and a comfortable bed this evening.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -1763,7 +1755,7 @@ This hut has been loaned by the chieftain to a travelling arms specialist,
 who is currently doing a roaring trade with the locals, who are eager to
 acquire the rare metal weapons he has bought with him from the south.
 ~
-0 D 0
+0 D inside
 D3
 ~
 ~
@@ -1776,7 +1768,7 @@ about on the hard ground by a chill northern breeze that blows in from the
 icy mountains far to the north. You hope that you will be able to find
 a hot meal and a comfortable bed this evening.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -1800,7 +1792,7 @@ Here the foreign mercenaries who have come to the north looking for
 employment gather. You may take advantage of their services for a sizeable
 sum of gold should you wish to.
 ~
-0 DM 0
+0 DM inside
 D2
 ~
 ~
@@ -1813,7 +1805,7 @@ You shouldn't be here. Go Away. Or I'll Tell.
 Oh look- a garbled transmission from Outer Space-
 and a large fries.
 ~
-0 CD 0
+0 CD inside
 S
 #24148
 A Path in the Village~
@@ -1824,7 +1816,7 @@ a hot meal and a comfortable bed this evening.
 
 The witchdoctor's hut is to the north of here.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -1845,7 +1837,7 @@ of every type imaginable (and several unimaginable). Forcing your way through
 the clutter, you eventually find an assistant, a raven-haired witch doctor who 
 smiles sweetly and welcomes you to her hut.
 ~
-0 D 0
+0 D inside
 D2
 ~
 ~
@@ -1858,7 +1850,7 @@ about on the hard ground by a chill northern breeze that blows in from the
 icy mountains far to the north. You hope that you will be able to find
 a hot meal and a comfortable bed this evening.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -1881,7 +1873,7 @@ a hot meal and a comfortable bed this evening.
 
 The wise woman's hut is to the north.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -1901,7 +1893,7 @@ The Wise Woman of the village lives in this run-down old hut. People come
 to her to avail themselves of her remarkable ability to determine the nature
 of items of all types (there's no other reason to come here, really).
 ~
-0 CD 0
+0 CD inside
 D2
 ~
 ~
@@ -1916,7 +1908,7 @@ a hot meal and a comfortable bed this evening.
 
 The beastmaster's hut is to the north.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -1941,7 +1933,7 @@ sells them to the merchants from the south. It is a very profitable but
 extremely dangerous profession, as the many scars on his brawny body
 suggest.
 ~
-0 DM 0
+0 DM inside
 D2
 ~
 ~
@@ -1959,7 +1951,7 @@ You shouldn't be here. Go Away. Or I'll Tell.
 
 NOW!
 ~
-0 CD 0
+0 CD inside
 S
 #24156
 Outside a Village Clan Hut~
@@ -1968,7 +1960,7 @@ with a thatched roof, and a sturdy oak door. Occasionally a villager enters
 or exits the hut, sparing you a curious glance as they do. A crude etching
 upon the doors of this hut marks it as the Bear Clan hut.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -1985,7 +1977,7 @@ from the east, while quiet conversation can be heard to the west. You feel
 slightly nervous about intruding upon this clan, but then again that's
 what your profession is all about, really. Intruding.
 ~
-0 D 0
+0 D inside
 D1
 ~
 ~
@@ -2006,7 +1998,7 @@ sipping at their ales and chatting quietly with each other. As you enter
 they smile and bid you welcome, and ask you to stay and enjoy some good
 conversation for a while.
 ~
-0 D 0
+0 D inside
 D3
 ~
 ~
@@ -2018,7 +2010,7 @@ In here several teenagers of both sexes rush about preparing the evening
 meal under the watchful eye of a hefty cook, who helps them along with the
 occasional shout or cuff on the ear.
 ~
-0 D 0
+0 D inside
 D1
 ~
 ~
@@ -2031,7 +2023,7 @@ about on the hard ground by a chill northern breeze that blows in from the
 icy mountains far to the north. You hope that you will be able to find
 a hot meal and a comfortable bed this evening.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -2054,7 +2046,7 @@ a hot meal and a comfortable bed this evening.
 
 A trapper is selling his goods to the south.
 ~
-0 0 1
+0 0 city
 D1
 ~
 ~
@@ -2074,7 +2066,7 @@ A trapper has set up a business here, where he sells goods that he has
 fashioned or acquired during his expeditions into the wilds. His stock is
 usually rather low, as the villagers quickly buy up for the winter.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -2089,7 +2081,7 @@ a hot meal and a comfortable bed this evening.
 
 Food is in fact available to the south of here, though it isn't hot.
 ~
-0 0 1
+0 0 city
 D1
 ~
 ~
@@ -2109,7 +2101,7 @@ Some enterprising young women have set up a small shop here, where they
 sell off the surplus food that is not required to provision their Clans.
 You may purchase supplies for your travels here.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -2124,7 +2116,7 @@ a hot meal and a comfortable bed this evening.
 
 The brewer's hut is south of here.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -2148,7 +2140,7 @@ It is here that the village Brewer practices his holy trade. Should you
 wish to indulge, you may obtain alcohol from the Brewer, though a small
 donation is in order.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -2161,7 +2153,7 @@ about on the hard ground by a chill northern breeze that blows in from the
 icy mountains far to the north. You hope that you will be able to find
 a hot meal and a comfortable bed this evening.
 ~
-0 0 1
+0 0 city
 D1
 ~
 ~
@@ -2178,7 +2170,7 @@ about on the hard ground by a chill northern breeze that blows in from the
 icy mountains far to the north. You hope that you will be able to find
 a hot meal and a comfortable bed this evening.
 ~
-0 0 1
+0 0 city
 D1
 ~
 ~
@@ -2195,7 +2187,7 @@ about on the hard ground by a chill northern breeze that blows in from the
 icy mountains far to the north. You hope that you will be able to find
 a hot meal and a comfortable bed this evening.
 ~
-0 0 1
+0 0 city
 D1
 ~
 ~
@@ -2212,7 +2204,7 @@ with a thatched roof, and a sturdy oak door. Occasionally a villager enters
 or exits the hut, sparing you a curious glance as they do. A crude etching
 upon the doors of this hut marks it as the Eagle Clan hut.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -2229,7 +2221,7 @@ from the east, while quiet conversation can be heard to the west. You feel
 slightly nervous about intruding upon this clan, but then again that's
 what your profession is all about, really. Intruding.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -2250,7 +2242,7 @@ sipping at their ales and chatting quietly with each other. As you enter
 they smile and bid you welcome, and ask you to stay and enjoy some good
 conversation for a while.
 ~
-0 D 0
+0 D inside
 D1
 ~
 ~
@@ -2262,7 +2254,7 @@ In here several teenagers of both sexes rush about preparing the evening
 meal under the watchful eye of a hefty cook, who helps them along with the
 occasional shout or cuff on the ear.
 ~
-0 D 0
+0 D inside
 D3
 ~
 ~
@@ -2275,7 +2267,7 @@ about on the hard ground by a chill northern breeze that blows in from the
 icy mountains far to the north. You hope that you will be able to find
 a hot meal and a comfortable bed this evening.
 ~
-0 0 1
+0 0 city
 D1
 ~
 ~
@@ -2292,7 +2284,7 @@ about on the hard ground by a chill northern breeze that blows in from the
 icy mountains far to the north. You hope that you will be able to find
 a hot meal and a comfortable bed this evening.
 ~
-0 0 1
+0 0 city
 D1
 ~
 ~
@@ -2309,7 +2301,7 @@ about on the hard ground by a chill northern breeze that blows in from the
 icy mountains far to the north. You hope that you will be able to find
 a hot meal and a comfortable bed this evening.
 ~
-0 0 1
+0 0 city
 D2
 ~
 ~
@@ -2326,7 +2318,7 @@ with a thatched roof, and a sturdy oak door. Occasionally a villager enters
 or exits the hut, sparing you a curious glance as they do. A crude etching
 upon the doors of this hut marks it as the Wolf Clan hut.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -2343,7 +2335,7 @@ from the east, while quiet conversation can be heard to the west. You feel
 slightly nervous about intruding upon this clan, but then again that's
 what your profession is all about, really. Intruding.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -2363,7 +2355,7 @@ In here several teenagers of both sexes rush about preparing the evening
 meal under the watchful eye of a hefty cook, who helps them along with the
 occasional shout or cuff on the ear.
 ~
-0 D 0
+0 D inside
 D3
 ~
 ~
@@ -2376,7 +2368,7 @@ sipping at their ales and chatting quietly with each other. As you enter
 they smile and bid you welcome, and ask you to stay and enjoy some good
 conversation for a while.
 ~
-0 D 0
+0 D inside
 D1
 ~
 ~
@@ -2389,7 +2381,7 @@ with a thatched roof, and a sturdy oak door. Occasionally a villager enters
 or exits the hut, sparing you a curious glance as they do. A crude etching
 upon the doors of this hut marks it as the Boar Clan hut.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -2404,7 +2396,7 @@ The Common Hall~
 These rooms are used by locals and foreigners alike to relax, sing songs and
 enjoy each other's company. Feel free to stay as long as you wish.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -2423,7 +2415,7 @@ The Common Hall~
 These rooms are used by locals and foreigners alike to relax, sing songs and
 enjoy each other's company. Feel free to stay as long as you wish.
 ~
-0 D 0
+0 D inside
 D2
 ~
 ~
@@ -2434,7 +2426,7 @@ The Common Hall~
 These rooms are used by locals and foreigners alike to relax, sing songs and
 enjoy each other's company. Feel free to stay as long as you wish.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -2447,7 +2439,7 @@ from the east, while quiet conversation can be heard to the west. You feel
 slightly nervous about intruding upon this clan, but then again that's
 what your profession is all about, really. Intruding.
 ~
-0 D 0
+0 D inside
 D1
 ~
 ~
@@ -2468,7 +2460,7 @@ sipping at their ales and chatting quietly with each other. As you enter
 they smile and bid you welcome, and ask you to stay and enjoy some good
 conversation for a while.
 ~
-0 D 0
+0 D inside
 D1
 ~
 ~
@@ -2480,7 +2472,7 @@ In here several teenagers of both sexes rush about preparing the evening
 meal under the watchful eye of a hefty cook, who helps them along with the
 occasional shout or cuff on the ear.
 ~
-0 D 0
+0 D inside
 D3
 ~
 ~
@@ -2493,7 +2485,7 @@ about on the hard ground by a chill northern breeze that blows in from the
 icy mountains far to the north. You hope that you will be able to find
 a hot meal and a comfortable bed this evening.
 ~
-0 0 1
+0 0 city
 D1
 ~
 ~
@@ -2510,7 +2502,7 @@ about on the hard ground by a chill northern breeze that blows in from the
 icy mountains far to the north. You hope that you will be able to find
 a hot meal and a comfortable bed this evening.
 ~
-0 0 1
+0 0 city
 D1
 ~
 ~
@@ -2529,7 +2521,7 @@ a hot meal and a comfortable bed this evening.
 
 The Common Halls lie to the east.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -2550,7 +2542,7 @@ with a thatched roof, and a sturdy oak door. Occasionally a villager enters
 or exits the hut, sparing you a curious glance as they do. A crude etching
 upon the doors of this hut marks it as the Deer Clan hut.
 ~
-0 0 1
+0 0 city
 D0
 ~
 ~
@@ -2567,7 +2559,7 @@ from the east, while quiet conversation can be heard to the west. You feel
 slightly nervous about intruding upon this clan, but then again that's
 what your profession is all about, really. Intruding.
 ~
-0 D 0
+0 D inside
 D1
 ~
 ~
@@ -2588,7 +2580,7 @@ sipping at their ales and chatting quietly with each other. As you enter
 they smile and bid you welcome, and ask you to stay and enjoy some good
 conversation for a while.
 ~
-0 D 0
+0 D inside
 D1
 ~
 ~
@@ -2600,7 +2592,7 @@ In here several teenagers of both sexes rush about preparing the evening
 meal under the watchful eye of a hefty cook, who helps them along with the
 occasional shout or cuff on the ear.
 ~
-0 D 0
+0 D inside
 D3
 ~
 ~

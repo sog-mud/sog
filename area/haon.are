@@ -64,13 +64,12 @@ She is a graceful creature on long, slender legs, and with large, brown eyes
 looking back at you with an air of watchful interest.
 ~
 human~
-ABEGI 0 350 0
+ABEGI D 350 0
 2 0 2d7+21 1d9+100 1d5+0 none
 8 8 8 10
 EFNU 0 0 0
 stand stand female 0
 0 0 medium unknown
-A det D
 #6005
 oldstyle fox~
 the brown fox~
@@ -154,13 +153,12 @@ the nicks in the horns on its head.  It smells as disgusting as only dragons
 do.
 ~
 dragon~
-ABFG 0 -1000 0
+ABFG D -1000 0
 45 50 5d10+1550 12d9+400 2d40+20 none
 -27 -27 -27 -10
 EFNR 0 0 0
 stand stand none 2500
 0 0 medium unknown
-A det D
 #6115
 oldstyle shargugh brownie~
 Shargugh~
@@ -171,13 +169,12 @@ tangled brown beard.  He wears ragged brown and green clothing and looks as if
 he is having great fun.
 ~
 human~
-ACEH BJP 1000 0
+ACEH BDJP 1000 0
 10 0 2d7+121 5d9+100 2d4+2 none
 1 1 1 8
 EFNU 0 0 0
 stand stand male 50
 0 0 medium unknown
-A det D
 #6116
 oldstyle elder druid~
 the elder druid~
@@ -187,13 +184,12 @@ The druid looks quite old.  You would think him venerable, but you know
 he would be a tough foe.
 ~
 human~
-ABCFQ J 0 0
+ABCFQ DJ 0 0
 17 0 3d9+258 17d9+100 2d6+4 none
 -3 -3 -3 6
 EIKU 0 0 0
 stand stand male 250
 0 0 medium unknown
-A det D
 #6117
 guildmaster master~
 the guildmaster~
@@ -203,13 +199,12 @@ He is an old, but strong looking ranger.  Some leaves and dry branches
 still hang over his clothes from last camouflage.
 ~
 human~
-ABKRV 0 1000 0
+ABKRV DEFZ 1000 0
 66 0 1d1+24999 1d1+999 6d18+24 chop
 -90 -90 -90 -70
 FG ABD C 0
 stand stand male 0
 0 0 medium unknown
-A det DEFZ
 #0
 
 #OBJECTS
@@ -231,7 +226,7 @@ a chequered shirt~
 A chequered shirt lies here.~
 cloth~
 armor 0 AD
-AB AB AB 0 0
+3 3 3 0 0
 3 20 610 P
 E
 shirt~
@@ -243,7 +238,7 @@ a pair of leather boots~
 A pair of leather boots lies here.~
 leather~
 armor 0 AG
-AB AB AB 0 0
+3 3 3 0 0
 3 40 310 P
 E
 boots~
@@ -295,7 +290,7 @@ a heap of silver coins~
 Some silver coins lie piled up in a heap on the floor.~
 silver~
 money 0 A
-ADEG A 0 0 0
+89 1 0 0 0
 0 10 0 P
 E
 coins~
@@ -424,7 +419,7 @@ a large round shield~
 A large round shield has been left here.~
 wood~
 armor 0 AJ
-BC BC BC AB 0
+6 6 6 3 0
 15 150 1760 P
 E
 shield large~
@@ -436,7 +431,7 @@ an iron crown~
 An iron crown rests on the ground.~
 iron~
 armor G AE
-BC BC BC 0 0
+6 6 6 0 0
 15 100 1050 P
 E
 crown iron~
@@ -472,7 +467,7 @@ You are standing at the eastern edge of a big forest.  To the east is the West
 Gate of Midgaard and to the west is a narrow trail, leading in through the
 forest.  A dimly lit path leads north.
 ~
-0 C 2
+0 C field
 E
 tree trees~
 The trees are quite tall considering most of them appear to be quite young.
@@ -504,7 +499,7 @@ A trail through the light forest~
 You are on a trail leading through the forest.  To the east is the forest edge
 and to the west, the trail leads further into the forest.
 ~
-0 0 3
+0 0 forest
 E
 birds insects animals~
 Very cute little creatures, they seem to enjoy life.
@@ -535,7 +530,7 @@ You are on a narrow trail leading east and west through the forest.  To the
 west, the forest gradually becomes more dense.  A small forest path leads
 south.
 ~
-0 0 3
+0 0 forest
 E
 tree trees~
 The young, slender trees look beautiful, their fresh, green leaves moving
@@ -575,7 +570,7 @@ A trail through the dense forest~
 You are on a trail leading east and west through the dense forest.  To the
 east, the forest gradually seems to become lighter.
 ~
-0 0 3
+0 0 forest
 E
 tree trees~
 The dense crowns of the mature trees leave only a fraction of the sky to be
@@ -607,7 +602,7 @@ You are on a trail leading east and west through the dense forest.  To the
 west, the trees are so huge and their crowns so dense that forest remains in
 total darkness.  A small path leads south through the trees.
 ~
-0 0 3
+0 0 forest
 E
 tree trees~
 The crowns of the old trees almost cut out all light.
@@ -642,7 +637,7 @@ You are on a small path leading through the dense forest.  The crowns of the
 old trees leave the forest in an unreal twilight illumination.  The path
 continues north and south.
 ~
-0 0 3
+0 0 forest
 E
 tree trees~
 The trees are mostly old beeches and oaks.
@@ -668,7 +663,7 @@ You are on a small path leading through the dense forest.  The crowns of the
 old trees leave the forest in an unreal twilight illumination.  The path
 continues north and east.
 ~
-0 0 3
+0 0 forest
 E
 tree trees~
 The trees are mostly old beeches and oaks.
@@ -694,7 +689,7 @@ You are on a small path leading through the dense forest.  The crowns of the
 old trees leave the forest in an unreal twilight illumination.  The forest
 gradually lightens to the east.  Paths lead east, west and south.
 ~
-0 0 3
+0 0 forest
 E
 tree trees~
 The trees are mostly old beeches and oaks.
@@ -725,7 +720,7 @@ You are in a clearing in the forest.  Lots of fresh stumps of varying sizes
 protrude from the ground and heavy logs are stacked neatly in a big pile
 supported by stakes set into the ground.  Paths lead north, east and west.
 ~
-0 0 3
+0 0 forest
 E
 tree trees~
 The trees are mostly old beeches and oaks.
@@ -773,7 +768,7 @@ Outside a small cabin in the forest~
 You are outside a small cabin built entirely from heavy logs.  There is a
 wooden door to the north and small paths lead west and south through the trees.
 ~
-0 0 3
+0 0 forest
 E
 tree trees~
 The trees are fairly young, not much more than a hundred years or so.
@@ -809,7 +804,7 @@ You are inside a small one-room cabin made entirely from heavy logs.  It is
 very sparsely furnished, containing only most basic housekeeping equipment,
 such as a bed, a chair and a table.
 ~
-0 D 0
+0 D inside
 E
 table~
 A heavy table that doesn't even appear to rock.
@@ -833,7 +828,7 @@ A small path through the light forest~
 You are on a small path leading through the forest.  The trees are tall and
 slender.  Paths lead north and south.
 ~
-0 0 3
+0 0 forest
 E
 tree trees~
 The trees are fairly young, not much more than a hundred years or so.
@@ -859,7 +854,7 @@ You are on a small path leading through the dense forest.  The crowns of the
 old trees leave the forest floor in an unreal twilight illumination.  Paths
 lead north, east and south.
 ~
-0 0 3
+0 0 forest
 E
 tree trees~
 The trees are mostly old beeches and oaks.
@@ -890,7 +885,7 @@ You are on a small path leading through the dense forest.  The crowns of the
 old trees leave the forest in an unreal twilight illumination.  The path
 continues east and west.
 ~
-0 0 3
+0 0 forest
 E
 tree trees~
 The trees are mostly old beeches and oaks.
@@ -915,7 +910,7 @@ An intersection in the dense forest~
 You are on a small path leading through the dense forest.  The forest gradually
 lightens to the north.  Paths lead north, east and west.
 ~
-0 0 3
+0 0 forest
 E
 tree trees~
 The crowns of the old trees leave the forest in an unreal twilight
@@ -947,7 +942,7 @@ You are on a small path leading through the dense forest.  The crowns of the
 old trees leave the forest in an unreal twilight illumination.  The path
 continues south and west.
 ~
-0 0 3
+0 0 forest
 E
 tree trees~
 The trees are mostly old beeches and oaks.
@@ -973,7 +968,7 @@ You are on a small path leading through the dense forest.  The crowns of the
 old trees leave the forest in an unreal twilight illumination.  The path
 continues north and south.
 ~
-0 0 3
+0 0 forest
 E
 tree trees~
 The trees are mostly old beeches and oaks.
@@ -998,7 +993,7 @@ A small path in the dense forest~
 You are on a small path leading through the dense forest.  The forest seems to
 become lighter to the west.  The path continues north and west.
 ~
-0 0 3
+0 0 forest
 E
 tree trees~
 The crowns of the old trees leave the forest in an unreal twilight
@@ -1029,7 +1024,7 @@ An intersection in the light forest~
 You are on a small path leading through the forest.  A path leads north to a
 small field and other paths lead east and west into the dense forest.
 ~
-0 0 3
+0 0 forest
 E
 tree trees~
 The tall trees are young and slender, not much more than a hundred years or so.
@@ -1059,7 +1054,7 @@ A small path in the dense forest~
 You are on a small path leading through the dense forest.  The forest seems to
 become lighter to the east.  The path continues north and east.
 ~
-0 0 3
+0 0 forest
 E
 tree trees~
 The crowns of the old trees leave the forest in an unreal twilight
@@ -1086,7 +1081,7 @@ You are on a small path leading through the dense forest.  The crowns of the
 old trees leave the forest in an unreal twilight illumination.  The path
 continues south and west.
 ~
-0 0 3
+0 0 forest
 E
 tree trees~
 The trees are mostly old beeches and oaks.
@@ -1111,7 +1106,7 @@ A small path in the dense forest~
 You are on a small path leading through the dense forest.  To the west there is
 a cave entrance.  The path continues north and east.
 ~
-0 0 3
+0 0 forest
 E
 cave entrance~
 The irregular opening is eight feet wide and six feet tall.  An acrid smell
@@ -1148,7 +1143,7 @@ You are in a natural cave.  Various sorts of debris cover the stone floor,
 emitting a rather unpleasant smell that makes the air thick and hard to
 breathe.  The only obvious exit is east.
 ~
-0 AD 0
+0 AD inside
 E
 air smell~
 Kind of transparent, but quite noticeable nevertheless.
@@ -1174,7 +1169,7 @@ nearly reaches your waist, and the surrounding oaks and beeches form an almost
 wall-like thicket on all sides of the field.  A small path leads south through
 the trees.
 ~
-0 0 2
+0 0 field
 E
 tree trees thicket~
 The trees form a close thicket.
@@ -1199,7 +1194,7 @@ You are on a narrow trail winding its way between the enormous, grey trunks.
 The crowns of the trees must be very dense, as they leave the forest floor in
 utter darkness.  The trail leads east and west.
 ~
-0 AD 3
+0 AD forest
 E
 tree trees trunk trunks~
 These ancient trees must have been here for many, many years.  It is impossible
@@ -1227,7 +1222,7 @@ You are on a dusty trail winding its way east-west between huge, ancient trees
 whose grey trunks remind you of ancient pillars in a enormous, deserted hall.
 To the south, a frail path leads away from the trail.
 ~
-0 AD 3
+0 AD forest
 E
 tree trees trunk trunks~
 These ancient trees must have been here for many, many years.  It is impossible
@@ -1265,7 +1260,7 @@ You are on a dusty trail winding its way east-west between huge, ancient trees
 that stand close on all sides.  Not a sound is to be heard - everything is
 ominously quiet.
 ~
-0 AD 3
+0 AD forest
 E
 tree trees trunk trunks~
 These ancient trees must have been here for many, many years.  It is impossible
@@ -1298,7 +1293,7 @@ You are where the dusty trail bends, as to avoid conflict with a colossal
 trunk to the west.  Not a sound is to be heard - everything is ominously quiet.
 The trail leads east and south.
 ~
-0 AD 3
+0 AD forest
 E
 trees trunks~
 These ancient trees must have been here for many, many years.  It is impossible
@@ -1331,7 +1326,7 @@ You are on a narrow path leading through the deep, dark forest.  You feel as if
 the ancient trees observe you in watchful silence.  The path continues north
 and south.
 ~
-0 AD 3
+0 AD forest
 E
 path~
 The path seems all too frail.  One of the giant roots could probably crush it
@@ -1357,7 +1352,7 @@ A small path in the deep, dark forest~
 You are on a narrow path leading through the deep, dark forest.  Ancient grey
 trees loom all around you.  The path continues north and west.
 ~
-0 AD 3
+0 AD forest
 E
 path~
 The path seems all too frail.  One of the giant roots could probably crush it
@@ -1383,7 +1378,7 @@ A junction in the deep, dark forest~
 You are by a junction where three paths meet.  Ancient grey trees tower above
 you on all sides.  Paths lead east, south and west.
 ~
-0 AD 3
+0 AD forest
 E
 path paths~
 The path seems all too frail.  One of the giant roots could probably crush it
@@ -1414,7 +1409,7 @@ A small path in the deep, dark forest~
 You are on a narrow path leading through the deep, dark forest.  Ancient grey
 trees loom all around you.  The path continues north and east.
 ~
-0 AD 3
+0 AD forest
 E
 path~
 The path seems all too frail.  One of the giant roots could probably crush it
@@ -1441,7 +1436,7 @@ You are on a dusty trail winding its way between huge, ancient trees
 standing close on all sides.  The trail leads north and west and to the south,
 a frail path leads away from the trail.
 ~
-0 AD 3
+0 AD forest
 E
 tree trees trunk trunks~
 These ancient trees must have been here for many, many years.  It is impossible
@@ -1479,7 +1474,7 @@ You are on a dusty trail winding its way east-west between huge, ancient trees
 that stand close on all sides.  Not a sound is to be heard - everything is
 ominously quiet.
 ~
-0 AD 3
+0 AD forest
 E
 tree trees trunk trunks~
 These ancient trees must have been here for many, many years.  It is impossible
@@ -1507,7 +1502,7 @@ You are on a dusty trail winding its way between huge, ancient trees that stand
 close on all sides.  The trail leads east and south.  To the north, a narrow
 path leads away from the trail.
 ~
-0 AD 3
+0 AD forest
 E
 tree trees trunk trunks~
 Some of the trunks to the west are covered in a thin, almost transparent
@@ -1544,7 +1539,7 @@ A narrow trail through the deep, dark forest~
 You are on a dusty trail winding its way north-south between huge, ancient
 trees that loom ominously above you.
 ~
-0 AD 3
+0 AD forest
 E
 tree trees trunk trunks~
 These ancient trees must have been here for many, many years.  It is impossible
@@ -1572,7 +1567,7 @@ You are on a dusty trail winding its way between huge, ancient trees
 standing close on all sides.  The trail leads north and west and to the east,
 a frail path leads away from the trail.
 ~
-0 AD 3
+0 AD forest
 E
 tree trees trunk trunks~
 These ancient trees must have been here for many, many years.  It is impossible
@@ -1609,7 +1604,7 @@ A small path in the deep, dark forest~
 You are on a narrow path leading through the deep, dark forest.  Ancient grey
 trees loom in all directions.  The path continues south and west.
 ~
-0 AD 3
+0 AD forest
 E
 path~
 The path seems all too frail.  One of the giant roots could probably crush it
@@ -1635,7 +1630,7 @@ A junction in the deep, dark forest~
 You are by a junction where three paths meet.  Ancient grey trees tower above
 you on all sides.  Paths lead north, east and west.
 ~
-0 AD 3
+0 AD forest
 E
 path paths~
 The path seems all too frail.  One of the giant roots could probably crush it
@@ -1667,7 +1662,7 @@ You are on a narrow path leading through the deep, dark forest.  You feel as
 if the ancient trees observe you in watchful silence.  The path continues north
 and west.
 ~
-0 AD 3
+0 AD forest
 E
 path~
 The path seems all too frail.  One of the giant roots could probably crush it
@@ -1693,7 +1688,7 @@ A small path in the deep, dark forest~
 You are on a narrow path leading through the deep, dark forest.  Giant, grey
 trees loom ominously on all sides.  The path continues east and south.
 ~
-0 AD 3
+0 AD forest
 E
 path~
 The path seems all too frail.  One of the giant roots could probably crush it
@@ -1719,7 +1714,7 @@ A junction in the deep, dark forest~
 You are by a junction where three paths meet.  Ancient, grey trees seem to
 observe you silently you from all sides.  Paths lead north, east and west.
 ~
-0 AD 3
+0 AD forest
 E
 path paths~
 The path seems all too frail.  One of the giant roots could probably crush it
@@ -1750,7 +1745,7 @@ A small path in the deep, dark forest~
 You are on a narrow path leading through the deep, dark forest.  Ancient,
 grey trees loom everywhere.  The path continues south and west.
 ~
-0 AD 3
+0 AD forest
 E
 path~
 The path seems all too frail.  One of the giant roots could probably crush it
@@ -1776,7 +1771,7 @@ A small path in the deep, dark forest~
 You are on a narrow path leading through the deep, dark forest.  Huge, ancient
 trees are on all sides.  The path continues north and south.
 ~
-0 AD 3
+0 AD forest
 E
 path~
 The path seems all too frail.  One of the giant roots could probably crush it
@@ -1803,7 +1798,7 @@ You are on a narrow path leading through the deep, dark forest.  To the south a
 fast river is flowing westwards through the forest.  Ancient grey trees loom on
 both banks.  The path continues north and west.
 ~
-0 AD 3
+0 AD forest
 E
 path~
 The path seems all too frail.  One of the giant roots could probably crush it
@@ -1835,7 +1830,7 @@ You are on a narrow path leading through the deep, dark forest.  The ancient
 trees stand so close that the path disappears between the dusty roots.  To the
 south a dark river flows from east to west.  The only exit appears to be east.
 ~
-0 AD 3
+0 AD forest
 E
 path~
 The path seems all too frail.  One of the giant roots could probably crush it
@@ -1861,7 +1856,7 @@ A small path in the deep, dark forest~
 You are on a narrow path leading through the deep, dark forest.  Giant, grey
 trees loom ominously all around.  The path continues east and south.
 ~
-0 AD 3
+0 AD forest
 E
 path~
 The path seems all too frail.  One of the giant roots could probably crush it
@@ -1888,7 +1883,7 @@ You are by a junction where three paths meet.  Ancient, grey trees seem to
 observe you silently you from all around.  To the south a dark river flows from
 east to west through the forest.  Paths lead north, east and west. 
 ~
-0 AD 3
+0 AD forest
 E
 path paths~
 The path seems all too frail.  One of the giant roots could probably crush it
@@ -1930,7 +1925,7 @@ You are on a narrow path leading through the deep, dark forest.  The ancient
 trees stand so close that the path disappears between the dusty roots.  To the
 south a dark river flows from east to west.  The only exit appears to be west.
 ~
-0 AD 3
+0 AD forest
 E
 path~
 The path seems all too frail.  One of the giant roots could probably crush it
@@ -1962,7 +1957,7 @@ You are on a narrow path leading through the deep, dark forest.  Ancient grey
 trees loom everywhere.  To the south you smell marsh gas.  The path continues
 north and east.
 ~
-0 AD 3
+0 AD forest
 E
 path~
 The path seems all too frail.  One of the giant roots could probably crush it
@@ -1999,7 +1994,7 @@ You are on a dusty trail winding its way between huge, ancient trees standing
 close on all sides.  The trail leads north and west, and to the south a frail
 path leads away from the trail.
 ~
-0 AD 3
+0 AD forest
 E
 tree trees trunk trunks~
 These ancient trees must have been here for many, many years.  It is impossible
@@ -2036,7 +2031,7 @@ A narrow trail through the deep, dark forest~
 You are on a dusty trail winding its way between huge, ancient trees
 standing close on all sides.  The trail leads east and south.
 ~
-0 AD 3
+0 AD forest
 E
 tree trees trunk trunks~
 These ancient trees must have been here for many, many years.  It is impossible
@@ -2064,7 +2059,7 @@ You are on a dusty trail winding its way east-west between huge, ancient trees
 that stand close on all sides.  Not a sound is to be heard - everything is
 ominously quiet.
 ~
-0 AD 3
+0 AD forest
 E
 tree trees trunk trunks~
 These ancient trees must have been here for many, many years.  It is impossible
@@ -2092,7 +2087,7 @@ You are on a dusty trail winding its way east-west between huge, ancient trees
 that stand close on all sides.  Not a sound is to be heard - everything is
 ominously quiet.
 ~
-0 AD 3
+0 AD forest
 E
 tree trees trunk trunks~
 These ancient trees must have been here for many, many years.  It is impossible
@@ -2121,7 +2116,7 @@ wires suspended like ropes between the trees.  To the west the path seems to
 be completely covered in a giant web made from huge threads covered with glue.
 This place gives you the creeps.
 ~
-0 AD 3
+0 AD forest
 E
 substance wire wires rope ropes tree trees trunk trunks~
 The sticky substance is hanging like ropes between the ancient trees, crossing
@@ -2164,7 +2159,7 @@ The huge, poisonous spider stings you!  You are poisoned!
 >
 You've fallen, and you can't get up!!!!!
 ~
-0 CD 3
+0 CD forest
 S
 #6132
 Up in the tree~
@@ -2172,7 +2167,7 @@ You are hanging on the outside of a huge tree trunk covered in a sticky
 substance.  Directly to the west is an immense spider web suspended between
 numerous of the giant trees including the one you are hanging on.
 ~
-0 ACD 6
+0 ACD swim
 E
 web~
 The spider web stretches out to the west.  It looks as if it is possible to
@@ -2195,7 +2190,7 @@ You are balancing carefully on the giant sticky threads that holds the giant
 web in place.  To the east is a giant tree trunk and to the west is an entrance
 to a cave-like structure made from many layers of spider web.
 ~
-0 AD 6
+0 AD swim
 E
 cave structure~
 It covers a ground area corresponding to an irregular circle with a diameter of
@@ -2228,7 +2223,7 @@ countless layers of spider web.  Temperature and humidity is very high making
 it hard to breathe the foul air that lingers here.  The walls are covered with
 open cocoons.
 ~
-0 AD 6
+0 AD swim
 E
 cocoon cocoons~
 The cocoons are burst open as if something inside really wanted to get out.
@@ -2249,7 +2244,7 @@ A dusty trail in the deep, dark forest~
 You are on a dusty trail leading through the deep, dark forest.  Ancient grey
 trees loom all around you.  The trail continues north and east.
 ~
-0 AD 3
+0 AD forest
 E
 tree trees trunk trunks~
 The ancient grey giants seem to observe you silently.
@@ -2271,7 +2266,7 @@ You are on a dusty trail leading through the deep, dark forest.  Ancient,
 grey trees loom everywhere.  The trail continues south and west.  A broad
 irregular path leads eastwards away from the trail.
 ~
-0 AD 3
+0 AD forest
 E
 trail~
 The dark and dusty trail seems fragile compared to the massive trunks, and in
@@ -2308,7 +2303,7 @@ You are on a dusty trail leading through the deep, dark forest.  Ancient grey
 trees loom all around you.  You see a dark grove north of you.
 The other exits are east and south.
 ~
-0 AD 3
+0 AD forest
 E
 tree trees trunk trunks~
 The ancient grey giants seem to observe you silently.
@@ -2334,7 +2329,7 @@ You are at the end of a broad, irregular path.  To the north is a very large
 ominous-looking cave opening.  The trees here have many marks as if something
 with huge claws has been tearing at them in rage.
 ~
-0 AD 3
+0 AD forest
 E
 cave opening~
 The disgusting smell of a large reptile emanates from the cave opening.
@@ -2361,7 +2356,7 @@ You are in a big natural cave.  The floor is littered with bones of all sorts
 and the stench is so massive that you could cut it with a knife.  The only exit
 is to the south.
 ~
-0 AD 3
+0 AD forest
 E
 bone bones floor~
 Most of the bones on the floor appear to be of human origin.
@@ -2378,7 +2373,7 @@ You are on a narrow path leading through the deep, dark forest.  Ancient,
 grey trees loom everywhere.  The tree trunks here seem to be covered in some
 sticky substance.  The path continues south and west.
 ~
-0 AD 3
+0 AD forest
 E
 path~
 The path seems all too frail.  One of the giant roots could probably crush it
@@ -2410,7 +2405,7 @@ This trail looks much spookier than any other thats you have seen.  The usual
 animal claw marks and bites on the trees are getting far and few between. The
 trail continues north.
 ~
-0 AD 3
+0 AD forest
 D0
 the narrow trail continues north.
 ~
@@ -2428,7 +2423,7 @@ This area of the trail is also very peculiar.  You can see no signs of animal
 life what so ever.  The structure of the surrounding trees forces the path to
 make a sharp turn to the east.
 ~
-0 AD 3
+0 AD forest
 D1
 the trail bends east.
 ~
@@ -2446,7 +2441,7 @@ The trees here seem to form a circle around a HUGE tree that is in the center
 of them.  You notice a wooden door carved into the huge tree to the east.  The
 trail that you followed to get here seems to end at the base of the tree.
 ~
-0 AD 3
+0 AD forest
 D0
 A long dusty trail.
 ~
@@ -2468,7 +2463,7 @@ Inside the great tree.~
 You have stepped inside of this hollowed tree.  From here steps lead down into
 darkness or you can exit the tree by going west.
 ~
-0 AD 3
+0 AD forest
 D0
 A large Knothole in a tree.
 ~
@@ -2490,7 +2485,7 @@ The underground hallway.~
 This hallway is apparently one of the roots of the tree hollowed out.  The 
 hall leads south to a room where you hear strange noises or you can go up
 the steps. ~
-0 AD 3
+0 AD forest
 D0
 ~
 ~
@@ -2513,7 +2508,7 @@ to visit but you feel very uncomfortable about spending much time here.
 The wooden altar seems almost to glow as you enter the room.  The only exit is
 the way you came in.
 ~
-0 AD 3
+0 AD forest
 D0
 the hallway looks quite grand.
 ~
@@ -2532,7 +2527,7 @@ peaceful, you relax in the beauty of the forest.  Small Sprites and
 Fairies dance around a calm pool, offering you a cool drink.  You feel 
 at peace with yourself and the forest around you.
 ~
-0 SX 3
+0 SX forest
 D0
 You see an open clearing to north.
 ~

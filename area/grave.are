@@ -244,7 +244,7 @@ You are on a well-kept gravel road that leads north-south through the
 graveyard.  On both sides of the road grow dark evergreen trees.  An iron
 grate is to the north and narrow gravel paths lead east and west.
 ~
-0 0 2
+0 0 field
 D0
 Through the solid iron bars you see Elm Street. 
 ~
@@ -271,7 +271,7 @@ A Gravel Road in the Graveyard~
 You are on a well-kept gravel road that leads north-south through the
 graveyard.  On both sides of the road grow dark evergreen trees.
 ~
-0 0 2
+0 0 field
 D0
 The gravel road continues northwards.
 ~
@@ -288,7 +288,7 @@ A Gravel Road in the Graveyard~
 You are on a well-kept gravel road that leads north-south through the
 graveyard.  On both sides of the road grow dark evergreen trees.
 ~
-0 0 2
+0 0 field
 D0
 The gravel road continues northwards.
 ~
@@ -305,7 +305,7 @@ A Gravel Road in the Graveyard~
 You are on a well-kept gravel road that leads north-south through the
 graveyard.  On both sides of the road grow dark evergreen trees.
 ~
-0 0 2
+0 0 field
 D0
 The gravel road continues northwards.
 ~
@@ -327,7 +327,7 @@ In front of the Chapel~
 You are on an open space before a small chapel.  A gravel road leads north
 through the graveyard and the chapel entrance is to the south.
 ~
-0 0 2
+0 0 field
 D0
 The gravel road continues northwards.
 ~
@@ -354,7 +354,7 @@ A Gravel Path on the Graveyard~
 You are on a gravel path winding its way between dark evergreen trees on
 the graveyard.  An old tomb is here.
 ~
-0 0 2
+0 0 field
 E
 tomb stone~
 It is a large rectangular slab of dark grey stone that has been placed face
@@ -380,7 +380,7 @@ In a dusty Tomb~
 You are in a dark burial chamber beneath a large tomb stone.
 The only exit appears to be up.
 ~
-0 AD 1
+0 AD city
 D4
 ~
 tomb stone~
@@ -391,7 +391,7 @@ A Gravel Path on the Graveyard~
 You are on a gravel path winding its way between dark evergreen trees on
 the graveyard.  The path leads north and west.  An old tomb is here.
 ~
-0 0 2
+0 0 field
 E
 tomb stone~
 It is a large rectangular slab of dark grey stone that has been placed face
@@ -417,7 +417,7 @@ In a dusty Tomb~
 You are in a dark burial chamber beneath a large tomb stone.
 The only exit appears to be up.
 ~
-0 AD 1
+0 AD city
 D4
 ~
 tomb stone~
@@ -428,7 +428,7 @@ A Gravel Path on the Graveyard~
 You are on a gravel path winding its way between dark evergreen trees on
 the graveyard.  The path leads east and south.  An old tomb is here.
 ~
-0 0 2
+0 0 field
 E
 tomb stone~
 It is a large rectangular slab of dark grey stone that has been placed face
@@ -454,7 +454,7 @@ In a dusty Tomb~
 You are in a dark burial chamber beneath a large tomb stone.
 The only exit appears to be up.
 ~
-0 AD 1
+0 AD city
 D4
 ~
 tomb stone~
@@ -465,7 +465,7 @@ A Gravel Path on the Graveyard~
 You are on a gravel path winding its way between dark evergreen trees on
 the graveyard.  The path leads north and east.  A small shed is to the west.
 ~
-0 0 2
+0 0 field
 D0
 The gravel path continues northwards.
 ~
@@ -487,7 +487,7 @@ In a shed on the Graveyard~
 You are in a small shed that looks as if it is used to store all sorts of
 gardening equipment.  The only exit appears to be through a door to the east.
 ~
-0 D 1
+0 D city
 D1
 ~
 door~
@@ -498,7 +498,7 @@ A Gravel Path on the Graveyard~
 You are on a gravel path winding its way between dark evergreen trees on
 the graveyard.  The path leads south and west.  An old tomb is here.
 ~
-0 0 2
+0 0 field
 E
 tomb stone~
 It is a large rectangular slab of dark grey stone that has been placed face
@@ -524,7 +524,7 @@ In a dusty Tomb~
 You are in a dark burial chamber beneath a large tomb stone.
 The only exit appears to be up.
 ~
-0 AD 1
+0 AD city
 D4
 ~
 tomb stone~
@@ -535,7 +535,7 @@ A Gravel Path on the Graveyard~
 You are on a gravel path winding its way between dark evergreen trees on
 the graveyard.  The path leads north and south.  An old tomb is here.
 ~
-0 0 2
+0 0 field
 E
 tomb stone~
 It is a large rectangular slab of dark grey stone that has been placed face
@@ -561,7 +561,7 @@ In a dusty Tomb~
 You are in a dark burial chamber beneath a large tomb stone.
 The only exit appears to be up.
 ~
-0 AD 1
+0 AD city
 D4
 ~
 tomb stone~
@@ -572,7 +572,7 @@ A Gravel Path on the Graveyard~
 You are on a gravel path winding its way between dark evergreen trees on
 the graveyard.  The path leads north and east.  An old tomb is here.
 ~
-0 0 2
+0 0 field
 E
 tomb stone~
 It is a large rectangular slab of dark grey stone that has been placed face
@@ -598,7 +598,7 @@ In a dusty Tomb~
 You are in a dark burial chamber beneath a large tomb stone.
 The only exit appears to be up.
 ~
-0 AD 1
+0 AD city
 D4
 ~
 tomb stone~
@@ -609,7 +609,7 @@ A Gravel Path on the Graveyard~
 You are on a gravel path winding its way between dark evergreen trees on
 the graveyard.  The path leads north and west.  An old tomb is here.
 ~
-0 0 2
+0 0 field
 E
 tomb stone~
 It is a large rectangular slab of dark grey stone that has been placed face
@@ -635,7 +635,7 @@ In a dusty Tomb~
 You are in a dark burial chamber beneath a large tomb stone.
 The only exit appears to be up.
 ~
-0 AD 1
+0 AD city
 D4
 ~
 tomb stone~
@@ -646,7 +646,7 @@ A Gravel Path on the Graveyard~
 You are on a gravel path winding its way between dark evergreen trees on
 the graveyard.  The path leads north and south.  An old tomb is here.
 ~
-0 0 2
+0 0 field
 E
 tomb stone~
 It is a large rectangular slab of dark grey stone that has been placed face
@@ -672,7 +672,7 @@ In a dusty Tomb~
 You are in a dark burial chamber beneath a large tomb stone.
 The only exit appears to be up.
 ~
-0 AD 1
+0 AD city
 D4
 ~
 tomb stone~
@@ -683,7 +683,7 @@ A Gravel Path on the Graveyard~
 You are on a gravel path winding its way between dark evergreen trees on
 the graveyard.  The path leads east and south.  An old tomb is here.
 ~
-0 0 2
+0 0 field
 E
 tomb stone~
 It is a large rectangular slab of dark grey stone that has been placed face
@@ -709,7 +709,7 @@ In a dusty Tomb~
 You are in a dark burial chamber beneath a large tomb stone.
 The only exit appears to be up.
 ~
-0 AD 1
+0 AD city
 D4
 ~
 tomb stone~
@@ -720,7 +720,7 @@ A Gravel Path on the Graveyard~
 You are on a gravel path winding its way between dark evergreen trees on
 the graveyard.  The path leads north and west.  An old tomb is here.
 ~
-0 0 2
+0 0 field
 E
 tomb stone~
 It is a large rectangular slab of dark grey stone that has been placed face
@@ -746,7 +746,7 @@ In a dusty Tomb~
 You are in a dark burial chamber beneath a large tomb stone.
 The only exit appears to be up.
 ~
-0 AD 1
+0 AD city
 D4
 ~
 tomb stone~
@@ -757,7 +757,7 @@ A Gravel Path on the Graveyard~
 You are on a gravel path winding its way between dark evergreen trees on
 the graveyard.  The path leads south and west.  An old tomb is here.
 ~
-0 0 2
+0 0 field
 E
 tomb stone~
 It is a large rectangular slab of dark grey stone that has been placed face
@@ -783,7 +783,7 @@ In a dusty Tomb~
 You are in a dark burial chamber beneath a large tomb stone.
 The only exit appears to be up.
 ~
-0 AD 1
+0 AD city
 D4
 ~
 tomb stone~
@@ -794,7 +794,7 @@ A Gravel Path on the Graveyard~
 You are on a gravel path winding its way between dark evergreen trees on
 the graveyard.  The path leads north and east.  An old tomb is here.
 ~
-0 0 2
+0 0 field
 E
 tomb stone~
 It is a large rectangular slab of dark grey stone that has been placed face
@@ -820,7 +820,7 @@ In a dusty Tomb~
 You are in a dark burial chamber beneath a large tomb stone.
 The only exit appears to be up.
 ~
-0 AD 1
+0 AD city
 D4
 ~
 tomb stone~
@@ -831,7 +831,7 @@ A Gravel Path on the Graveyard~
 You are on a gravel path winding its way between dark evergreen trees on
 the graveyard.  The path leads south and west.  An old tomb is here.
 ~
-0 0 2
+0 0 field
 E
 tomb stone~
 It is a large rectangular slab of dark grey stone that has been placed face
@@ -857,7 +857,7 @@ In a dusty Tomb~
 You are in a dark burial chamber beneath a large tomb stone.
 The only exit appears to be up.
 ~
-0 AD 1
+0 AD city
 D4
 ~
 tomb stone~

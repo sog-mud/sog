@@ -915,7 +915,7 @@ a pretty blue frock~
 A pretty blue frock is lying on the ground here.~
 copper~
 armor 0 AD
-CD CD CD 0 0
+12 12 12 0 0
 45 5 450 P
 A
 2 3
@@ -933,7 +933,7 @@ a pair of black shoes~
 A pair of black shoes has been left here.~
 copper~
 armor 0 AG
-CD CD CD 0 0
+12 12 12 0 0
 45 2 450 P
 A
 14 75
@@ -943,7 +943,7 @@ a thimble~
 A thimble lies here.~
 copper~
 armor 0 AB
-CD CD CD 0 0
+12 12 12 0 0
 45 1 450 P
 A
 2 2
@@ -959,7 +959,7 @@ a tweed jacket~
 A tweed jacket has been left here.~
 copper~
 armor 0 AK
-ABD ABD ABD 0 0
+11 11 11 0 0
 40 3 400 P
 #21005
 waistcoat~
@@ -967,7 +967,7 @@ a red waistcoat~
 A red waistcoat is lying here.~
 copper~
 armor 0 AD
-ABD ABD ABD 0 0
+11 11 11 0 0
 40 2 400 P
 A
 5 3
@@ -979,7 +979,7 @@ a pocket watch~
 A pocket watch is hanging by its chain from a hook here.~
 copper~
 armor B AO
-ABD ABD ABD 0 0
+11 11 11 0 0
 40 1 400 P
 A
 3 2
@@ -997,7 +997,7 @@ a pair of tiny white kid-gloves~
 A pair of tiny white kid-gloves have been dropped here.~
 copper~
 armor 0 AH
-AD AD AD 0 0
+9 9 9 0 0
 33 2 330 P
 A
 2 2
@@ -1009,7 +1009,7 @@ a fan~
 A fan has been left here.~
 copper~
 armor 0 AJ
-AD AD AD 0 0
+9 9 9 0 0
 33 1 330 P
 A
 17 -24
@@ -1019,7 +1019,7 @@ a neck scarf~
 A woolen neck scarf is lying here.~
 copper~
 armor 0 AC
-ABD ABD ABD 0 0
+11 11 11 0 0
 40 2 400 P
 A
 13 30
@@ -1125,7 +1125,7 @@ a hookah~
 A hookah sits here.~
 copper~
 armor ABG AO
-ABD ABD ABD 0 0
+11 11 11 0 0
 40 3 400 P
 A
 12 25
@@ -1187,7 +1187,7 @@ a footman's livery~
 A footman's livery has been left here.~
 copper~
 armor 0 AD
-BD BD BD 0 0
+10 10 10 0 0
 37 7 370 P
 A
 5 3
@@ -1203,7 +1203,7 @@ a powdered wig~
 A powdered wig lies here.~
 copper~
 armor 0 AE
-BD BD BD 0 0
+10 10 10 0 0
 37 1 370 P
 A
 2 1
@@ -1265,7 +1265,7 @@ a green top hat~
 A green top hat with a tag reading "In this Style 10/6" sits here.~
 copper~
 armor M AE
-ABD ABD ABD 0 0
+11 11 11 0 0
 42 7 420 P
 A
 3 -2
@@ -1317,7 +1317,7 @@ a large polka dot bow tie~
 A large polka dot bow tie has been (purposefully?) left here.~
 copper~
 armor M AC
-ABD ABD ABD 0 0
+11 11 11 0 0
 42 1 420 P
 A
 2 2
@@ -1331,7 +1331,7 @@ a green frock coat~
 A green frock coat has been left here.~
 copper~
 armor 0 AK
-ABD ABD ABD 0 0
+11 11 11 0 0
 42 5 420 P
 #21042
 bits of straw~
@@ -1339,7 +1339,7 @@ some bits of straw~
 Some bits of straw have fallen out of someone's hair.~
 copper~
 armor 0 AE
-ABD ABD ABD 0 0
+11 11 11 0 0
 41 1 410 P
 A
 2 -3
@@ -1377,7 +1377,7 @@ a checked shirt~
 A garish checked shirt has been dropped here.~
 copper~
 armor 0 AD
-BD BD BD 0 0
+10 10 10 0 0
 37 3 370 P
 #21047
 brown breeches~
@@ -1385,7 +1385,7 @@ some brown breeches~
 Someone's dropped their breeches...~
 copper~
 armor 0 AF
-BD BD BD 0 0
+10 10 10 0 0
 37 4 370 P
 A
 2 3
@@ -1399,7 +1399,7 @@ a pair of black shoes~
 A pair of shiny black buckled shoes sits here.~
 copper~
 armor 0 AG
-BD BD BD 0 0
+10 10 10 0 0
 37 3 370 P
 #21049
 paint red can~
@@ -1469,7 +1469,7 @@ the King of Heart's crown~
 The King of Heart's crown lies here.~
 copper~
 armor AM AE
-ABD ABD ABD 0 0
+11 11 11 0 0
 41 15 410 P
 A
 19 6
@@ -1479,7 +1479,7 @@ the Queen of Heart's fan~
 The Queen of Hearts has dropped her heart-shaped fan.~
 copper~
 armor 0 AJ
-CD CD CD 0 0
+12 12 12 0 0
 45 7 450 P
 A
 24 -6
@@ -1533,7 +1533,7 @@ the executioner's hood~
 The executioner's hood has been left here.~
 copper~
 armor 0 AE
-ABD ABD ABD 0 0
+11 11 11 0 0
 44 1 440 P
 #21062
 slate~
@@ -1587,7 +1587,7 @@ muttering something about being late, and disappears down the hole! Oddly
 enough, it has a pocket watch, and you have never seen a rabbit with a 
 watch. You are inspired to investigate!
 ~
-0 C 2
+0 C field
 D0
 ~
 ~
@@ -1603,7 +1603,7 @@ you are standing above the hole now, where the rabbit just disappeared. It
 looks to be rather a tight fit for such a big person as yourself, but you
 sense something magical about it...
 ~
-0 0 2
+0 0 field
 D3
 ~
 ~
@@ -1616,7 +1616,7 @@ life! The walls are lined with shelves filled with jars of many different
 substances. And though you are falling without restraint, you do not feel
 that it will cause you any injury upon impact.
 ~
-0 DU 0
+0 DU inside
 D5
 ~
 ~
@@ -1630,7 +1630,7 @@ a long corridor lined with lamps and locked doors. You see the rabbit
 disappear around a corner and leap up to give chase, though you don't know
 why.
 ~
-0 D 0
+0 D inside
 D1
 ~
 ~
@@ -1646,7 +1646,7 @@ You try the handles of several of the doors, but they are all locked and
 look too strong to pick or bash down. The rabbit's tail can be seen
 disappearing around a corner just up ahead.
 ~
-0 D 0
+0 D inside
 D1
 ~
 ~
@@ -1663,7 +1663,7 @@ see the rabbit duck out a door to the east, but you are sure you saw him
 drop something on the way. You hear what sounds like water lapping against
 the edge of a pool to the far north.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -1679,7 +1679,7 @@ You have reached the door the rabbit bolted through. It is a small golden
 door, which is partially obscured by a curtain. To the north you see what
 looks like a pool of salty water.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -1701,7 +1701,7 @@ of which taste rather like someone's tears! Other creatures, similarly
 marooned float by, equally disconcerted by the sudden appearance of this
 phenomenon.
 ~
-0 D 7
+0 D noswim
 D0
 ~
 ~
@@ -1722,7 +1722,7 @@ of which taste rather like someone's tears! Other creatures, similarly
 marooned float by, equally disconcerted by the sudden appearance of this
 phenomenon.
 ~
-0 D 7
+0 D noswim
 D0
 ~
 ~
@@ -1739,7 +1739,7 @@ of which taste rather like someone's tears! Other creatures, similarly
 marooned float by, equally disconcerted by the sudden appearance of this
 phenomenon.
 ~
-0 D 7
+0 D noswim
 D1
 ~
 ~
@@ -1755,7 +1755,7 @@ You emerge from the pool onto solid ground, where several other animals are
 shivering and attempting to dry off. To the north you see a group of them
 running about madly, and your curiosity is aroused.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -1775,7 +1775,7 @@ Here several animals are engaging in a Caucus-Race in order to dry off. It
 seems to involve running about in a circle at random until you are dry,
 though determining a winner is rather difficult.
 ~
-0 D 0
+0 D inside
 D2
 ~
 ~
@@ -1787,7 +1787,7 @@ You are in a neat little garden, walking along a pebble path toward a small,
 well-kept house that sits at the edge of a dark wood. Birds fly over, gazing
 at you quizzically.
 ~
-0 0 3
+0 0 forest
 D1
 ~
 ~
@@ -1804,7 +1804,7 @@ you were following. Indeed, he stops to demand that you find his gloves and
 fan for him at once, and keeps calling you Mary Ann, before dashing off
 once more. How odd!
 ~
-0 0 2
+0 0 field
 D0
 The door has a plate that reads- W. RABBIT.
 ~
@@ -1827,7 +1827,7 @@ out into the garden.
 
 A set of stairs leads up to the second floor.
 ~
-0 D 0
+0 D inside
 D1
 ~
 ~
@@ -1852,7 +1852,7 @@ table covered in papers and pens. A herald's uniform has been neatly laid
 out on the table as well, as has a long brass trumpet and a brightly-colored
 hat.
 ~
-0 D 0
+0 D inside
 D1
 ~
 ~
@@ -1865,7 +1865,7 @@ several sets in fact- sitting on a a table near a strange looking glass. A
 fireplace can be seen on one wall, and you think you can hear voices coming
 from it.
 ~
-0 D 0
+0 D inside
 E
 fireplace~
 You peer up it and see a lizard being lowered down on a rope by two guinea
@@ -1887,7 +1887,7 @@ You manage to squeeze up the chimney, and emerge on the roof of the rabbit's
 house, confronting the source of the voices. Down below you see the rabbit
 screaming for the house to be burnt down. They are trying to kill you!
 ~
-0 0 1
+0 0 city
 D5
 ~
 chimney fireplace~
@@ -1899,7 +1899,7 @@ You emerge into a garden, near a cucumber patch. It looks as if someone has
 recently fallen into this patch, squashing a great deal of it. You hear the
 rabbit shouting something from outside.
 ~
-0 0 3
+0 0 forest
 D2
 ~
 ~
@@ -1917,7 +1917,7 @@ several animals are scurrying about, trying to see if you are still in the
 house. The rabbit has gone again, doubtless still attempting to make his
 appointment.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -1937,7 +1937,7 @@ The path is divided here by a huge mushroom, large enough for you and a few
 friends to sit on. It is currently home to someone else, though. The path
 continues around it to the east.
 ~
-0 0 3
+0 0 forest
 D1
 ~
 ~
@@ -1953,7 +1953,7 @@ You pass by a particularly tall tree to the north, from which you can hear
 someone shouting "Serpents! Serpents!" at the top of their lungs. The path
 continues into the wood to the east and west.
 ~
-0 0 3
+0 0 forest
 D1
 ~
 ~
@@ -1973,7 +1973,7 @@ You scale the rough-bark tree without too much difficulty, finding adequate
 purchase on its coarse surface, and plenty of hand and foot holds in the form
 of several broad branches.
 ~
-0 0 3
+0 0 forest
 D4
 ~
 ~
@@ -1990,7 +1990,7 @@ leaves and branches to peer out across a canopy of the same that stretches
 as far as you can see. The sun beats down upon your face, the heat warming
 and cleansing you. A bird's nest rests in the canopy near your head.
 ~
-0 0 3
+0 0 forest
 D5
 ~
 ~
@@ -2002,7 +2002,7 @@ You follow the path through the wood to a bend to the north. At this point
 you can see a house due east, though the path you are on doesn't run in
 that direction.
 ~
-0 0 3
+0 0 forest
 D0
 ~
 ~
@@ -2018,7 +2018,7 @@ The path bends again here, heading east once more, past the front door of
 the house you spied earlier. The wood is beginning to thin out here, allowing
 you to see a small field surrounding the house.
 ~
-0 0 3
+0 0 forest
 D1
 ~
 ~
@@ -2035,7 +2035,7 @@ can hear what sounds like a pig squealing and plates being smashed. Your
 nose twitches, twice, and you realize that it is being irritated by a
 strong odor of pepper, emanating from within.
 ~
-0 0 1
+0 0 city
 D1
 ~
 ~
@@ -2056,7 +2056,7 @@ smoke. Several people are moving about in here, most of them sneezing as you
 are due to the pepper that can be smelled everywhere. A grinning cat sits
 at the feet of the duchess, and its smirk unsettles you
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -2074,7 +2074,7 @@ S
 A Bedroom~
 This is the sleeping quarters of the cook. It is currently empty.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -2085,7 +2085,7 @@ A Bedroom~
 This elegant chamber serves as quarters for the Duchess and her porcine
 child.
 ~
-0 D 0
+0 D inside
 D3
 ~
 ~
@@ -2095,7 +2095,7 @@ S
 A Bend in the Path~
 The path bends away from the field, heading back north into the wood.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -2110,7 +2110,7 @@ Back in the Wood~
 The path bends again, heading east this time, toward a T-junction, at which
 point a large tree grows near the center of the T. You approach cautiously.
 ~
-0 0 3
+0 0 forest
 D1
 ~
 ~
@@ -2127,7 +2127,7 @@ floating in mid air above one of the branches! It resembles the grin that the
 cat in the Duchess' house was wearing, and you begin to suspect further
 chicanery.
 ~
-0 0 3
+0 0 forest
 D0
 In this direction lives the March Hare!
 ~
@@ -2147,7 +2147,7 @@ S
 Outside the March Hare's House~
 You are standing outside the March Hare's House. It appears to be deserted...
 ~
-0 0 3
+0 0 forest
 D0
 ~
 ~
@@ -2164,7 +2164,7 @@ furniture are scattered about, along with items of clothing and pieces of
 crockery. The air is musty, and you cough as you stir up dust in your
 progress.
 ~
-0 D 0
+0 D inside
 D1
 ~
 ~
@@ -2185,7 +2185,7 @@ furniture are scattered about, along with items of clothing and pieces of
 crockery. The air is musty, and you cough as you stir up dust in your
 progress.
 ~
-0 D 0
+0 D inside
 D1
 ~
 ~
@@ -2198,7 +2198,7 @@ furniture are scattered about, along with items of clothing and pieces of
 crockery. The air is musty, and you cough as you stir up dust in your
 progress.
 ~
-0 D 0
+0 D inside
 D3
 ~
 ~
@@ -2210,7 +2210,7 @@ You come across a strange sight. Three very peculiar individuals are
 gathered around a very long table, drinking tea from many tea sets scattered
 about. Every now and again they stand up, change places and sit down again.
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -2230,7 +2230,7 @@ This house is positively crammed with hats of every shape, shize and
 description. You manage to shove enough aside to enter, and see two rooms
 adjoining this one, both of them equally packed.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -2250,7 +2250,7 @@ This room, like the other two, is crammed with hats. If you didn't know
 better, you'd swear that a Hatter lived here, albeit a slightly deranged
 one...
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -2262,7 +2262,7 @@ This room, like the other two, is crammed with hats. If you didn't know
 better, you'd swear that a Hatter lived here, albeit a slightly deranged
 one...
 ~
-0 D 0
+0 D inside
 D3
 ~
 ~
@@ -2274,7 +2274,7 @@ You continue back into the wood, and soon reach a point where the path is
 blocked by a huge tree. However, there is a tiny door in the tree, through
 which you can proceed...
 ~
-0 0 3
+0 0 forest
 D3
 ~
 ~
@@ -2288,7 +2288,7 @@ is gone, as is the table with they key and little bottle. The golden door
 behind the curtain is still present, however, and this provides your only
 way onwards.
 ~
-0 D 0
+0 D inside
 D1
 ~
 curtain golden~
@@ -2301,7 +2301,7 @@ grow. One of these bushes, on closer inspection, shows patches of white,
 and it is then you notice the three playing cards frantically painting a
 white rose bush red...
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -2318,7 +2318,7 @@ You see dozens of playing cards running about, wielding squirming flamingoes,
 with which they are attempting to bash some poor hedgehogs under other
 playing cards bent double. How peculiar!
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -2343,7 +2343,7 @@ You see dozens of playing cards running about, wielding squirming flamingoes,
 with which they are attempting to bash some poor hedgehogs under other
 playing cards bent double. How peculiar!
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -2364,7 +2364,7 @@ You see dozens of playing cards running about, wielding squirming flamingoes,
 with which they are attempting to bash some poor hedgehogs under other
 playing cards bent double. How peculiar!
 ~
-0 0 2
+0 0 field
 D1
 ~
 ~
@@ -2381,7 +2381,7 @@ You see dozens of playing cards running about, wielding squirming flamingoes,
 with which they are attempting to bash some poor hedgehogs under other
 playing cards bent double. How peculiar!
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -2398,7 +2398,7 @@ You see dozens of playing cards running about, wielding squirming flamingoes,
 with which they are attempting to bash some poor hedgehogs under other
 playing cards bent double. How peculiar!
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -2419,7 +2419,7 @@ You see dozens of playing cards running about, wielding squirming flamingoes,
 with which they are attempting to bash some poor hedgehogs under other
 playing cards bent double. How peculiar!
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -2444,7 +2444,7 @@ You see dozens of playing cards running about, wielding squirming flamingoes,
 with which they are attempting to bash some poor hedgehogs under other
 playing cards bent double. How peculiar!
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -2471,7 +2471,7 @@ playing cards bent double. How peculiar!
 
 To the north there is a courthouse.
 ~
-0 0 2
+0 0 field
 D0
 ~
 courthouse~
@@ -2496,7 +2496,7 @@ You see dozens of playing cards running about, wielding squirming flamingoes,
 with which they are attempting to bash some poor hedgehogs under other
 playing cards bent double. How peculiar!
 ~
-0 0 2
+0 0 field
 D2
 ~
 ~
@@ -2513,7 +2513,7 @@ You see dozens of playing cards running about, wielding squirming flamingoes,
 with which they are attempting to bash some poor hedgehogs under other
 playing cards bent double. How peculiar!
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -2538,7 +2538,7 @@ You see dozens of playing cards running about, wielding squirming flamingoes,
 with which they are attempting to bash some poor hedgehogs under other
 playing cards bent double. How peculiar!
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -2559,7 +2559,7 @@ You see dozens of playing cards running about, wielding squirming flamingoes,
 with which they are attempting to bash some poor hedgehogs under other
 playing cards bent double. How peculiar!
 ~
-0 0 2
+0 0 field
 D0
 ~
 ~
@@ -2574,7 +2574,7 @@ On the Road to the Sea~
 You are heading away from the field toward a rocky shoreline. The smell of
 the sea is in the air, and a brisk northerly breeze invigorates you.
 ~
-0 0 4
+0 0 hills
 D1
 ~
 ~
@@ -2590,7 +2590,7 @@ You are standing on a windswept ledge far above a rocky coastline, against
 which the waves of some unknown ocean pound. Seagulls soar high above, heading
 to and from their rocky aeries.
 ~
-0 0 4
+0 0 hills
 D2
 ~
 ~
@@ -2606,7 +2606,7 @@ You are standing on a windswept ledge far above a rocky coastline, against
 which the waves of some unknown ocean pound. Seagulls soar high above, heading
 to and from their rocky aeries.
 ~
-0 0 4
+0 0 hills
 D0
 ~
 ~
@@ -2617,7 +2617,7 @@ Courthouse (Who Stole the Tarts?)~
 You have entered the courthouse, where people are beginning to settle down
 for the trial of the Knave of Hearts, who stole the Queen's tarts.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -2641,7 +2641,7 @@ Here stands the jury box, where the 12 jurors will judge the case. Like all
 things in Wonderland, the judicial process is a complex, erratic and usually
 futile process.
 ~
-0 D 0
+0 D inside
 D1
 ~
 ~
@@ -2653,7 +2653,7 @@ Here the accused or those giving evidence stand, to give their testimony. It
 is a rather pointless exercise, as their statements are either muddled,
 ignored or shouted down.
 ~
-0 D 0
+0 D inside
 D3
 ~
 ~
@@ -2664,7 +2664,7 @@ The Main Floor~
 Here the prosecuting and defense attorneys make their cases, before the
 throne where the judge (the King) sits.
 ~
-0 D 0
+0 D inside
 D2
 ~
 ~
@@ -2679,7 +2679,7 @@ The Throne~
 Here sits the King, where he judges the cases. He isn't here yet, as he hasn't
 finished pardoning the players the Queen condemned to death (all of them).
 ~
-0 D 0
+0 D inside
 D5
 ~
 ~

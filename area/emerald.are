@@ -21,13 +21,12 @@ is just slightly taller than 5 feet and has the eternally beautiful
 and youthful features of the faerie folk.
 ~
 unique~
-ABG JT 1000 0
+ABG DJT 1000 0
 24 6 2d10+500 1d1+99 5d5+5 punch
 -7 -7 -7 -7
 KU BJN B 0
 stand stand female 100
 AC 0 small unknown
-A det D
 #202
 Nymph~
 a nymph~
@@ -40,13 +39,12 @@ running water and you cannot be sure if it is her singing or a brook
 in the distance.  She calls out to you to join her in her dance.
 ~
 unique~
-ABG JT 1000 0
+ABG DJT 1000 0
 29 9 2d10+750 1d1+99 5d5+10 slap
 -10 -10 -10 -10
 FKU BJN B 0
 stand stand female 150
 AC 0 small unknown
-A det D
 #203
 Pixie~
 a pixie~
@@ -60,13 +58,12 @@ out. Not looking at them directly, he seems to be eyeing one of the
 brownies.
 ~
 unique~
-AG J 1000 0
+AG DJ 1000 0
 13 4 2d1+175 1d1+99 4d5+7 magic
 0 0 0 0
 FU BJN B 0
 stand stand female 80
 AC 0 medium unknown
-A det D
 #204
 Sprite~
 a sprite~
@@ -77,13 +74,12 @@ and equally playful.  He is dressed in a brown jerkin and you see that
 its pockets are filled with acorns and nuts.
 ~
 unique~
-AG JT 0 0
+AG DJT 0 0
 20 6 2d1+350 1d1+99 4d5+12 stab
 -5 -5 -5 -5
 FU BJN B 0
 stand stand male 80
 AC 0 small unknown
-A det D
 #205
 Brownie~
 a brownie~
@@ -97,13 +93,12 @@ pretty elvin features, and is dressed totally in brown. She wears
 no cap, her otherwise long hair tied in a pony-tail.
 ~
 unique~
-ABG J 1000 0
+ABG DJ 1000 0
 17 5 2d1+280 1d1+99 4d5+9 punch
 -4 -4 -4 -4
 FKU BJN B 0
 stand stand male 100
 AC 0 medium unknown
-A det D
 #206
 Ranger~
 a ranger~
@@ -117,13 +112,12 @@ while continues tending to a small deer which seems to have injured
 it's leg.
 ~
 unique~
-ABG J 1000 0
+ABG DJ 1000 0
 39 20 2d1+1700 1d1+99 6d6+35 punch
 -10 -10 -10 -10
 FKNU BJLN B 0
 stand stand male 100
 AC 0 medium unknown
-A det D
 #207
 Spriggan Iachimo~
 the Spriggan~
@@ -155,13 +149,12 @@ got 'kill me now' written all over it's forehead in every possible
 language known.
 ~
 unique~
-ABG J -1000 0
+ABG DJ -1000 0
 15 3 2d1+200 1d1+99 4d5+5 pierce
 5 5 5 5
 CDEFJKU AB B N
 stand stand none 50
 AB ABCDEF small unknown
-A det D
 #209
 Fiendish Donkey~
 a fiendish donkey~
@@ -173,13 +166,12 @@ banquet table.  This one looks set to give you a good kick if you won't
 let it continue eating its weeds.  It bares large yellowed teeth at you.
 ~
 unique~
-ABG J -950 0
+ABG DJ -950 0
 20 8 2d1+300 1d1+99 4d5+14 beating
 0 0 0 0
 CDEFJKU B B N
 stand stand none 50
 AB ABCDEF medium unknown
-A det D
 #210
 Devil's Huntsman~
 the Devil's Huntsman~
@@ -190,13 +182,12 @@ rotting cape about his body and draws his weapon slowly.  He has been
 preparing for the Great Hunt and in a low voice he intones your name.
 ~
 unique~
-ABFG J -1000 0
+ABFG DJ -1000 0
 35 15 2d1+1700 1d1+99 6d6+25 punch
 -8 -8 -8 -8
 CDEFJKU AB B N
 stand stand none 50
 AB ABCDEF large unknown
-A det D
 #211
 Pumpkin man~
 the pumpkin man~
@@ -208,13 +199,12 @@ It holds its boney hands out-stretched and seems to be asking you
 for a dance.  A tango perhaps, or a foxtrot.
 ~
 unique~
-ABFG J -1000 0
+ABFG DJ -1000 0
 25 10 2d1+600 1d1+99 5d5+14 scratch
 -3 -3 -3 -3
 CDEFJKU AB B N
 stand stand male 50
 AB ABCDEF medium unknown
-A det D
 #212
 Ranger Guildmaster Elesar~
 the Ancient Ranger Guildmaster~
@@ -246,13 +236,12 @@ physical fitness. He is intently carving some wooden sticks, probably
 arrows after he's finished with them.
 ~
 unique~
-ABGJ HJ 0 0
+ABGJ DFHJ 0 0
 58 30 2d1+6500 1d1+99 5d6+75 beating
 -12 -12 -12 -12
 FKW AB BCD 0
 stand stand male 100
 A ABCDEF medium unknown
-A det DF
 #214
 Ranger Bear~
 the ancient ranger bear~
@@ -261,13 +250,12 @@ A twelve foot bear stands here scratching his crotch.
 Smokey smiles affably at you as he beckons you over to buy his wares.
 ~
 unique~
-ABGe 0 750 0
+ABGe DF 750 0
 55 25 2d1+5000 1d1+99 5d6+50 claw
 -10 -10 -10 -10
 DKN L L H
 stand stand male 100
 A ABCDEF large unknown
-A det DF
 #215
 Grand Pooh-Ba~
 the Grand Pooh-Ba~
@@ -282,13 +270,12 @@ pixies and brownies. He is dressed in large and flowing green-brown
 robe, and seems rather busy with his duties.
 ~
 unique~
-ABG J 1000 0
+ABG DJ 1000 0
 30 20 2d1+850 1d1+99 5d6+30 smash
 3 3 3 3
 CFK BJLN B 0
 stand stand male 100
 AC 0 small unknown
-A det D
 #216
 Witch Aude~
 Aude~
@@ -299,13 +286,12 @@ the sparks from the fire. Aude looks at you with moistened lips and half
 closed eyes issuing an invitation you somehow cannot resist.
 ~
 unique~
-ABFG HJO -1000 0
+ABFG DFHJO -1000 0
 40 15 2d1+1500 1d1+99 5d6+35 wrath
 -5 -5 -5 -5
 FQ AB B HN
 stand stand female 30
 AB ABCDEF medium unknown
-A det DF
 #217
 Witch Gertrude~
 Gertrude~
@@ -317,13 +303,12 @@ her mottled cheeks and her gnarled skin testify to her long suffering and
 an intense adhorrence for all beauty and youth.
 ~
 unique~
-ABFG HJ -1000 0
+ABFG DFHJ -1000 0
 41 15 2d1+1600 1d1+99 5d6+40 divine
 -6 -6 -6 -6
 FKQ AB B HN
 stand stand female 30
 AB ABCDEF medium unknown
-A det DF
 #218
 Witch Hela~
 Hela~
@@ -334,13 +319,12 @@ Gertrude. Born in a half-living, half-dead state, she harnesses the power
 of the undeed to destroy you!
 ~
 unique~
-ABFG HJ -1000 0
+ABFG DFHJ -1000 0
 40 15 2d1+1450 1d1+99 5d6+40 magic
 -5 -5 -5 -5
 EFQ AB B HN
 stand stand female 30
 AB ABCDEF medium unknown
-A det DF
 #219
 Jim Young~
 Young Jim~
@@ -487,13 +471,12 @@ warrior monk, and he must be trying to regain spiritual peace and
 conscience with the Most High.
 ~
 unique~
-ABG HJN 1000 0
+ABG DHJN 1000 0
 39 15 2d1+1550 1d1+99 5d6+35 punch
 -6 -6 -6 -6
 EFHK B B QXYZ
 stand stand male 30
 A ABCDEF medium unknown
-A det D
 #227
 Sylph~
 a Sylph~
@@ -507,13 +490,12 @@ is mercy to be found in this evil place, she will fade away before
 the witches come to sacrifice her tonight. She looks at you pleadingly.
 ~
 unique~
-ABG IJKN 1000 0
+ABG DIJKN 1000 0
 15 10 2d1+80 1d1+99 4d5+0 stab
 2 2 2 2
 K AB B 0
 stand stand female 80
 AC 0 small unknown
-A det D
 #228
 Irin girl elfin maid elf-maid~
 Irin~
@@ -525,13 +507,12 @@ seems lost in her own world, her long black hair framing a face that
 is almost too beautiful to describe.
 ~
 unique~
-ABCGH HJN 1000 0
+ABCGH DHJN 1000 0
 50 15 2d1+3000 1d1+99 5d6+50 punch
 -7 -7 -7 -7
 EFK B B QXYZ
 stand stand female 30
 A ABCDEF medium unknown
-A det D
 #229
 cat~
 the marmalade cat~
@@ -543,13 +524,12 @@ tail from side to side.  A sudden crackle of orange electricity runs
 down the length of its body and disappears.
 ~
 unique~
-ABCGH J 0 0
+ABCGH DFJ 0 0
 40 10 2d1+3000 1d1+99 5d6+40 bite
 0 0 0 0
 DFJK AB B 0
 stand stand female 30
 A ABCDEF medium unknown
-A det DF
 #230
 Kortho Wordgiver~
 Kortho~
@@ -561,13 +541,12 @@ he seems abit tight-lipped at the moment.  You're probably going to
 have to beat it out of him.
 ~
 unique~
-ABCG JN 0 0
+ABCG DJN 0 0
 38 15 2d1+1450 1d1+99 5d6+25 suction
 -3 -3 -3 -3
 FK AB B 0
 stand stand male 30
 A ABCDEF medium unknown
-A det D
 #231
 Knight Sorrow~
 Sir Sorrow~
@@ -582,13 +561,12 @@ burdened with. The Sorrow of God, perhaps? Nobody really knows save
 the members of the order.
 ~
 unique~
-ABG HJ 1000 0
+ABG DHJ 1000 0
 37 12 2d1+1300 1d1+99 5d6+25 punch
 -2 -2 -2 -2
 EK 0 0 0
 stand stand male 30
 A ABCDEF medium unknown
-A det D
 #232
 priest YunFeiYang~
 Yun Fei Yang~
@@ -602,13 +580,12 @@ You draw back in ponder of this pointed-beard priest while his greyish-
 black apparel gives hint of his oriental origin.
 ~
 unique~
-ABG HJ 1000 0
+ABG DHJ 1000 0
 60 25 2d1+5500 1d1+99 10d5+65 frbite
 -11 -11 -11 -11
 DEFHK AB BHIJKLMNOP 0
 stand stand male 30
 A ABCDEF large unknown
-A det D
 #233
 Farmer Griff man~
 farmer~
@@ -635,13 +612,12 @@ fanged maw.  It snarls viciously and circles you slowly, seeming to
 consider you with an evil intelligence.
 ~
 unique~
-ABF J -1000 0
+ABF DJ -1000 0
 30 8 2d1+900 1d1+99 5d5+16 bite
 -5 -5 -5 -5
 BEFG AB B N
 stand stand none 15
 AB ABCDEF small unknown
-A det D
 #235
 boogum~
 the mountain boogum~
@@ -652,13 +628,12 @@ He looks like a dirty-furred dwarf with overly long hands and a mouth
 filled with sharp little teeth.
 ~
 unique~
-ABCFG J -1000 0
+ABCFG DFJ -1000 0
 12 5 2d1+180 1d1+99 4d5+12 chop
 2 2 2 2
 BCF AB B 0
 stand stand male 15
 A ABCDEF large unknown
-A det DF
 #236
 apparition priest~
 an Apparition~
@@ -688,13 +663,12 @@ you sharply and for a moment, you see upon her face the image of
 smiling demon.
 ~
 unique~
-ABG HJ -1000 0
+ABG DHJ -1000 0
 43 10 2d1+2150 1d1+99 5d6+45 punch
 -2 -2 -2 -2
 AFK AB B N
 stand stand female 1000
 AB ABCDEF medium unknown
-A det D
 #238
 imbessar king~
 Imbessar~
@@ -748,13 +722,12 @@ years, her long blond hair fall gently over her shoulders making
 her strikingly beautiful.
 ~
 unique~
-ABG J 1000 0
+ABG DJ 1000 0
 34 15 2d1+1200 1d1+99 6d6+25 punch
 -8 -8 -8 -8
 FKNU BJLN B 0
 stand stand female 100
 AC 0 medium unknown
-A det D
 #241
 Pixie~
 a pixie~
@@ -768,13 +741,12 @@ out. Not looking at them directly, he seems to be eyeing one of the
 brownies.
 ~
 unique~
-ABG J 1000 0
+ABG DJ 1000 0
 13 4 2d1+175 1d1+99 4d5+7 magic
 0 0 0 0
 FU BJN B 0
 stand stand female 80
 AC 0 small unknown
-A det D
 #242
 Pixie~
 a pixie~
@@ -788,13 +760,12 @@ out. Not looking at them directly, he seems to be eyeing one of the
 brownies.
 ~
 unique~
-ABG J 1000 0
+ABG DJ 1000 0
 13 4 2d1+175 1d1+99 4d5+7 magic
 0 0 0 0
 FU BJN B 0
 stand stand female 80
 AC 0 small unknown
-A det D
 #243
 Pixie~
 a pixie~
@@ -808,13 +779,12 @@ out. Not looking at them directly, he seems to be eyeing one of the
 brownies.
 ~
 unique~
-ABG J 1000 0
+ABG DJ 1000 0
 13 4 2d1+175 1d1+99 4d5+7 magic
 0 0 0 0
 FU BJN B 0
 stand stand female 80
 AC 0 small unknown
-A det D
 #244
 Pixie~
 a pixie~
@@ -828,13 +798,12 @@ out. Not looking at them directly, he seems to be eyeing one of the
 brownies.
 ~
 unique~
-ABG J 1000 0
+ABG DJ 1000 0
 13 4 2d1+175 1d1+99 4d5+7 magic
 0 0 0 0
 FU BJN B 0
 stand stand female 80
 AC 0 small unknown
-A det D
 #245
 Brownie~
 a brownie~
@@ -848,13 +817,12 @@ pretty elvin features, and is dressed totally in brown. She wears
 no cap, her otherwise long hair tied in a pony-tail.
 ~
 unique~
-ABG J 1000 0
+ABG DJ 1000 0
 17 5 2d1+280 1d1+99 4d5+9 punch
 -4 -4 -4 -4
 FKU BJN B 0
 stand stand male 100
 AC 0 small unknown
-A det D
 #246
 Brownie~
 a brownie~
@@ -868,13 +836,12 @@ pretty elvin features, and is dressed totally in brown. She wears
 no cap, her otherwise long hair tied in a pony-tail.
 ~
 unique~
-ABG J 1000 0
+ABG DJ 1000 0
 17 5 2d1+280 1d1+99 4d5+9 punch
 -4 -4 -4 -4
 FKU BJN B 0
 stand stand male 100
 AC 0 small unknown
-A det D
 #247
 Brownie~
 a brownie~
@@ -888,13 +855,12 @@ pretty elvin features, and is dressed totally in brown. She wears
 no cap, her otherwise long hair tied in a pony-tail.
 ~
 unique~
-ABG J 1000 0
+ABG DJ 1000 0
 17 5 2d1+280 1d1+99 4d5+9 punch
 -4 -4 -4 -4
 FKU BJN B 0
 stand stand male 100
 AC 0 small unknown
-A det D
 #248
 Brownie~
 a brownie~
@@ -908,13 +874,12 @@ pretty elvin features, and is dressed totally in brown. She wears
 no cap, her otherwise long hair tied in a pony-tail.
 ~
 unique~
-ABG J 1000 0
+ABG DJ 1000 0
 17 5 2d1+280 1d1+99 4d5+9 punch
 -4 -4 -4 -4
 FKU BJN B 0
 stand stand male 100
 AC 0 small unknown
-A det D
 #249
 Brownie~
 a brownie~
@@ -928,13 +893,12 @@ pretty elvin features, and is dressed totally in brown. She wears
 no cap, her otherwise long hair tied in a pony-tail.
 ~
 unique~
-ABG J 1000 0
+ABG DJ 1000 0
 17 5 2d1+280 1d1+99 4d5+9 punch
 -4 -4 -4 -4
 FKU BJN B 0
 stand stand male 100
 AC 0 small unknown
-A det D
 #250
 Sprite~
 a sprite~
@@ -945,13 +909,12 @@ and equally playful.  He is dressed in a brown jerkin and you see that
 its pockets are filled with acorns and nuts.
 ~
 unique~
-ABG JT 0 0
+ABG DJT 0 0
 20 6 2d1+350 1d1+99 4d5+12 stab
 -5 -5 -5 -5
 FU BJN B 0
 stand stand male 80
 AC 0 small unknown
-A det D
 #251
 Sprite~
 a sprite~
@@ -962,13 +925,12 @@ and equally playful.  He is dressed in a brown jerkin and you see that
 its pockets are filled with acorns and nuts.
 ~
 unique~
-ABG JT 0 0
+ABG DJT 0 0
 20 6 2d1+350 1d1+99 4d5+12 stab
 -5 -5 -5 -5
 FU BJN B 0
 stand stand male 80
 AC 0 small unknown
-A det D
 #252
 Sprite~
 a sprite~
@@ -979,13 +941,12 @@ and equally playful.  He is dressed in a brown jerkin and you see that
 its pockets are filled with acorns and nuts.
 ~
 unique~
-ABG JT 0 0
+ABG DJT 0 0
 20 6 2d1+350 1d1+99 4d5+12 stab
 -5 -5 -5 -5
 FU BJN B 0
 stand stand male 80
 AC 0 small unknown
-A det D
 #253
 Sprite~
 a sprite~
@@ -996,13 +957,12 @@ and equally playful.  He is dressed in a brown jerkin and you see that
 its pockets are filled with acorns and nuts.
 ~
 unique~
-ABG JT 0 0
+ABG DJT 0 0
 20 6 2d1+350 1d1+99 4d5+12 stab
 -5 -5 -5 -5
 FU BJN B 0
 stand stand male 80
 AC 0 small unknown
-A det D
 #254
 Dryad~
 a dryad~
@@ -1016,13 +976,12 @@ is just slightly taller than 5 feet and has the eternally beautiful
 and youthful features of the faerie folk.
 ~
 unique~
-ABG JT 1000 0
+ABG DJT 1000 0
 24 6 2d10+500 1d1+99 5d5+5 punch
 -7 -7 -7 -7
 KU BJN B 0
 stand stand female 100
 AC 0 small unknown
-A det D
 #255
 Dryad~
 a dryad~
@@ -1036,13 +995,12 @@ is just slightly taller than 5 feet and has the eternally beautiful
 and youthful features of the faerie folk.
 ~
 unique~
-ABG JT 1000 0
+ABG DJT 1000 0
 24 6 2d10+500 1d1+99 5d5+5 punch
 -7 -7 -7 -7
 KU BJN B 0
 stand stand female 100
 AC 0 small unknown
-A det D
 #256
 Dryad~
 a dryad~
@@ -1056,13 +1014,12 @@ is just slightly taller than 5 feet and has the eternally beautiful
 and youthful features of the faerie folk.
 ~
 unique~
-ABG JT 1000 0
+ABG DJT 1000 0
 24 6 2d10+500 1d1+99 5d5+5 punch
 -7 -7 -7 -7
 KU BJN B 0
 stand stand female 100
 AC 0 small unknown
-A det D
 #257
 Dryad~
 a dryad~
@@ -1076,13 +1033,12 @@ is just slightly taller than 5 feet and has the eternally beautiful
 and youthful features of the faerie folk.
 ~
 unique~
-ABG JT 1000 0
+ABG DJT 1000 0
 24 6 2d10+500 1d1+99 5d5+5 punch
 -7 -7 -7 -7
 KU BJN B 0
 stand stand female 100
 AC 0 small unknown
-A det D
 #258
 Nymph~
 a nymph~
@@ -1095,13 +1051,12 @@ running water and you cannot be sure if it is her singing or a brook
 in the distance.  She calls out to you to join her in her dance.
 ~
 unique~
-ABG JT 1000 0
+ABG DJT 1000 0
 29 9 2d10+750 1d1+99 5d5+10 slap
 -10 -10 -10 -10
 FKU BJN B 0
 stand stand female 150
 AC 0 small unknown
-A det D
 #259
 Nymph~
 a nymph~
@@ -1114,13 +1069,12 @@ running water and you cannot be sure if it is her singing or a brook
 in the distance.  She calls out to you to join her in her dance.
 ~
 unique~
-ABG JT 1000 0
+ABG DJT 1000 0
 29 9 2d10+750 1d1+99 5d5+10 slap
 -10 -10 -10 -10
 FKU BJN B 0
 stand stand female 150
 AC 0 small unknown
-A det D
 #260
 Nymph~
 a nymph~
@@ -1133,13 +1087,12 @@ running water and you cannot be sure if it is her singing or a brook
 in the distance.  She calls out to you to join her in her dance.
 ~
 unique~
-ABG JT 1000 0
+ABG DJT 1000 0
 29 9 2d10+750 1d1+99 5d5+10 slap
 -10 -10 -10 -10
 FKU BJN B 0
 stand stand female 150
 AC 0 small unknown
-A det D
 #261
 Nymph~
 a nymph~
@@ -1152,13 +1105,12 @@ running water and you cannot be sure if it is her singing or a brook
 in the distance.  She calls out to you to join her in her dance.
 ~
 unique~
-ABG JT 1000 0
+ABG DJT 1000 0
 29 9 2d10+750 1d1+99 5d5+10 slap
 -10 -10 -10 -10
 FKU BJN B 0
 stand stand female 150
 AC 0 small unknown
-A det D
 #262
 Ranger~
 a lady ranger~
@@ -1173,13 +1125,12 @@ years, her long blond hair fall gently over her shoulders making
 her strikingly beautiful.
 ~
 unique~
-ABG J 1000 0
+ABG DJ 1000 0
 34 15 2d1+1200 1d1+99 6d6+25 punch
 -8 -8 -8 -8
 FKNU BJLN B 0
 stand stand female 100
 AC 0 medium unknown
-A det D
 #263
 Ranger~
 a lady ranger~
@@ -1194,13 +1145,12 @@ years, her long blond hair fall gently over her shoulders making
 her strikingly beautiful.
 ~
 unique~
-ABG J 1000 0
+ABG DJ 1000 0
 34 15 2d1+1200 1d1+99 6d6+25 punch
 -8 -8 -8 -8
 FKNU BJLN B 0
 stand stand female 100
 AC 0 medium unknown
-A det D
 #264
 Ranger~
 a ranger~
@@ -1214,13 +1164,12 @@ while continues tending to a small deer which seems to have injured
 it's leg.
 ~
 unique~
-ABG J 1000 0
+ABG DJ 1000 0
 39 20 2d1+1700 1d1+99 6d6+35 punch
 -10 -10 -10 -10
 FKNU BJLN B 0
 stand stand male 100
 AC 0 medium unknown
-A det D
 #265
 Ranger~
 a ranger~
@@ -1234,13 +1183,12 @@ while continues tending to a small deer which seems to have injured
 it's leg.
 ~
 unique~
-ABG J 1000 0
+ABG DJ 1000 0
 39 20 2d1+1700 1d1+99 6d6+35 punch
 -10 -10 -10 -10
 FKNU BJLN B 0
 stand stand male 100
 AC 0 medium unknown
-A det D
 #266
 Ranger~
 a ranger~
@@ -1254,13 +1202,12 @@ while continues tending to a small deer which seems to have injured
 it's leg.
 ~
 unique~
-ABG J 1000 0
+ABG DJ 1000 0
 39 20 2d1+1700 1d1+99 6d6+35 punch
 -10 -10 -10 -10
 FKNU BJLN B 0
 stand stand male 100
 AC 0 medium unknown
-A det D
 #267
 Ranger~
 a ranger~
@@ -1274,13 +1221,12 @@ while continues tending to a small deer which seems to have injured
 it's leg.
 ~
 unique~
-ABG J 1000 0
+ABG DJ 1000 0
 39 20 2d1+1700 1d1+99 6d6+35 punch
 -10 -10 -10 -10
 FKNU BJLN B 0
 stand stand male 100
 AC 0 medium unknown
-A det D
 #268
 Gremlin~
 a gremlin~
@@ -1294,13 +1240,12 @@ got 'kill me now' written all over it's forehead in every possible
 language known.
 ~
 unique~
-ABG J -1000 0
+ABG DJ -1000 0
 15 3 2d1+200 1d1+99 4d5+5 pierce
 5 5 5 5
 CDEFJKU AB B N
 stand stand none 50
 AB ABCDEF small unknown
-A det D
 #269
 Gremlin~
 a gremlin~
@@ -1314,13 +1259,12 @@ got 'kill me now' written all over it's forehead in every possible
 language known.
 ~
 unique~
-ABG J -1000 0
+ABG DJ -1000 0
 15 3 2d1+200 1d1+99 4d5+5 pierce
 5 5 5 5
 CDEFJKU AB B N
 stand stand none 50
 AB ABCDEF small unknown
-A det D
 #270
 Gremlin~
 a gremlin~
@@ -1334,13 +1278,12 @@ got 'kill me now' written all over it's forehead in every possible
 language known.
 ~
 unique~
-ABG J -1000 0
+ABG DJ -1000 0
 15 3 2d1+200 1d1+99 4d5+5 pierce
 5 5 5 5
 CDEFJKU AB B N
 stand stand none 50
 AB ABCDEF small unknown
-A det D
 #271
 Gremlin~
 a gremlin~
@@ -1354,13 +1297,12 @@ got 'kill me now' written all over it's forehead in every possible
 language known.
 ~
 unique~
-ABG J -1000 0
+ABG DJ -1000 0
 15 3 2d1+200 1d1+99 4d5+5 pierce
 5 5 5 5
 CDEFJKU AB B N
 stand stand none 50
 AB ABCDEF small unknown
-A det D
 #272
 Pumpkin man~
 the pumpkin man~
@@ -1372,13 +1314,12 @@ It holds its boney hands out-stretched and seems to be asking you
 for a dance.  A tango perhaps, or a foxtrot.
 ~
 unique~
-ABFG J -1000 0
+ABFG DJ -1000 0
 25 10 2d1+600 1d1+99 5d5+15 scratch
 -3 -3 -3 -3
 CDEFJKU AB B N
 stand stand male 50
 AB ABCDEF medium unknown
-A det D
 #273
 Pumpkin man~
 the pumpkin man~
@@ -1390,13 +1331,12 @@ It holds its boney hands out-stretched and seems to be asking you
 for a dance.  A tango perhaps, or a foxtrot.
 ~
 unique~
-ABFG J -1000 0
+ABFG DJ -1000 0
 25 10 2d1+600 1d1+99 5d5+15 scratch
 -3 -3 -3 -3
 CDEFJKU AB B N
 stand stand male 50
 AB ABCDEF medium unknown
-A det D
 #274
 Pumpkin man~
 the pumpkin man~
@@ -1408,13 +1348,12 @@ It holds its boney hands out-stretched and seems to be asking you
 for a dance.  A tango perhaps, or a foxtrot.
 ~
 unique~
-ABFG J -1000 0
+ABFG DJ -1000 0
 25 10 2d1+600 1d1+99 5d5+15 scratch
 -3 -3 -3 -3
 CDEFJKU AB B N
 stand stand male 50
 AB ABCDEF medium unknown
-A det D
 #275
 Pumpkin man~
 the pumpkin man~
@@ -1426,13 +1365,12 @@ It holds its boney hands out-stretched and seems to be asking you
 for a dance.  A tango perhaps, or a foxtrot.
 ~
 unique~
-ABFG J -1000 0
+ABFG DJ -1000 0
 25 10 2d1+600 1d1+99 5d5+15 scratch
 -3 -3 -3 -3
 CDEFJKU AB B N
 stand stand male 50
 AB ABCDEF medium unknown
-A det D
 #276
 Fiendish Donkey~
 a fiendish donkey~
@@ -1444,13 +1382,12 @@ banquet table.  This one looks set to give you a good kick if you won't
 let it continue eating its weeds.  It bares large yellowed teeth at you.
 ~
 unique~
-ABG J -950 0
+ABG DJ -950 0
 20 8 2d1+390 1d1+99 4d5+15 beating
 0 0 0 0
 CDEFJKU B B N
 stand stand none 50
 AB ABCDEF medium unknown
-A det D
 #277
 Fiendish Donkey~
 a fiendish donkey~
@@ -1462,13 +1399,12 @@ banquet table.  This one looks set to give you a good kick if you won't
 let it continue eating its weeds.  It bares large yellowed teeth at you.
 ~
 unique~
-ABG J -950 0
+ABG DJ -950 0
 20 8 2d1+390 1d1+99 4d5+15 beating
 0 0 0 0
 CDEFJKU B B N
 stand stand none 50
 AB ABCDEF medium unknown
-A det D
 #278
 Fiendish Donkey~
 a fiendish donkey~
@@ -1480,13 +1416,12 @@ banquet table.  This one looks set to give you a good kick if you won't
 let it continue eating its weeds.  It bares large yellowed teeth at you.
 ~
 unique~
-ABG J -950 0
+ABG DJ -950 0
 20 8 2d1+390 1d1+99 4d5+15 beating
 0 0 0 0
 CDEFJKU B B N
 stand stand none 50
 AB ABCDEF medium unknown
-A det D
 #279
 Fiendish Donkey~
 a fiendish donkey~
@@ -1498,13 +1433,12 @@ banquet table.  This one looks set to give you a good kick if you won't
 let it continue eating its weeds.  It bares large yellowed teeth at you.
 ~
 unique~
-ABG J -950 0
+ABG DJ -950 0
 20 8 2d1+390 1d1+99 4d5+15 beating
 0 0 0 0
 CDEFJKU B B N
 stand stand none 50
 AB ABCDEF medium unknown
-A det D
 #280
 HellHound dog~
 a hellHound~
@@ -1515,13 +1449,12 @@ fanged maw.  It snarls viciously and circles you slowly, seeming to
 consider you with an evil intelligence.
 ~
 unique~
-ABFG J -1000 0
+ABFG DJ -1000 0
 30 8 2d1+900 1d1+99 5d5+16 bite
 -5 -5 -5 -5
 BEFG AB B N
 stand stand none 15
 AB ABCDEF small unknown
-A det D
 #281
 HellHound dog~
 a hellHound~
@@ -1532,13 +1465,12 @@ fanged maw.  It snarls viciously and circles you slowly, seeming to
 consider you with an evil intelligence.
 ~
 unique~
-ABFG J -1000 0
+ABFG DJ -1000 0
 30 8 2d1+900 1d1+99 5d5+16 bite
 -5 -5 -5 -5
 BEFG AB B N
 stand stand none 15
 AB ABCDEF small unknown
-A det D
 #282
 HellHound dog~
 a hellHound~
@@ -1549,13 +1481,12 @@ fanged maw.  It snarls viciously and circles you slowly, seeming to
 consider you with an evil intelligence.
 ~
 unique~
-ABFG J -1000 0
+ABFG DJ -1000 0
 30 8 2d1+900 1d1+99 5d5+16 bite
 -5 -5 -5 -5
 BEFG AB B N
 stand stand none 15
 AB ABCDEF small unknown
-A det D
 #283
 Devil's Huntsman~
 the Devil's Huntsman~
@@ -1566,13 +1497,12 @@ rotting cape about his body and draws his weapon slowly.  He has been
 preparing for the Great Hunt and in a low voice he intones your name.
 ~
 unique~
-ABFG J -1000 0
+ABFG DJ -1000 0
 35 15 2d1+1700 1d1+99 6d6+25 punch
 -8 -8 -8 -8
 CDEFJKU AB B N
 stand stand male 50
 AB ABCDEF large unknown
-A det D
 #284
 Devil's Huntsman~
 the Devil's Huntsman~
@@ -1583,13 +1513,12 @@ rotting cape about his body and draws his weapon slowly.  He has been
 preparing for the Great Hunt and in a low voice he intones your name.
 ~
 unique~
-ABFG J -1000 0
+ABFG DJ -1000 0
 35 15 2d1+1700 1d1+99 6d6+25 punch
 -8 -8 -8 -8
 CDEFJKU AB B N
 stand stand male 50
 AB ABCDEF large unknown
-A det D
 #285
 Devil's Huntsman~
 the Devil's Huntsman~
@@ -1600,13 +1529,12 @@ rotting cape about his body and draws his weapon slowly.  He has been
 preparing for the Great Hunt and in a low voice he intones your name.
 ~
 unique~
-ABFG J -1000 0
+ABFG DJ -1000 0
 35 15 2d1+1700 1d1+99 6d6+25 punch
 -8 -8 -8 -8
 CDEFJKU AB B N
 stand stand male 50
 AB ABCDEF large unknown
-A det D
 #286
 Devil's Huntsman~
 the Devil's Huntsman~
@@ -1617,13 +1545,12 @@ rotting cape about his body and draws his weapon slowly.  He has been
 preparing for the Great Hunt and in a low voice he intones your name.
 ~
 unique~
-ABFG J -1000 0
+ABFG DJ -1000 0
 35 15 2d1+1700 1d1+99 6d6+25 punch
 -8 -8 -8 -8
 CDEFJKU AB B N
 stand stand male 50
 AB ABCDEF large unknown
-A det D
 #287
 Nymph~
 a nymph~
@@ -1635,13 +1562,12 @@ water as her laughter rings gaily through the forest.  A tunic wrapped
 loosely in a braided cloak of forest green lies among the lilac bushes.
 ~
 unique~
-ABG JT 1000 0
+ABG DJT 1000 0
 27 10 2d10+650 1d1+99 5d5+0 slap
 -8 -8 -8 -8
 FKU BJN B 0
 stand stand female 150
 AC 0 small unknown
-A det D
 #288
 Ranger~
 a ranger~
@@ -1655,13 +1581,12 @@ while continues tending to a small deer which seems to have injured
 it's leg.
 ~
 unique~
-ABG J 1000 0
+ABG DJ 1000 0
 40 20 2d1+1700 1d1+99 6d6+35 punch
 -10 -10 -10 -10
 FKNU BJLN B 0
 stand stand male 100
 AC 0 medium unknown
-A det D
 #289
 Ranger~
 a ranger~
@@ -1675,13 +1600,12 @@ while continues tending to a small deer which seems to have injured
 it's leg.
 ~
 unique~
-ABG J 1000 0
+ABG DJ 1000 0
 40 20 2d1+1700 1d1+99 6d6+35 punch
 -10 -10 -10 -10
 FKNU BJLN B 0
 stand stand male 100
 AC 0 medium unknown
-A det D
 #290
 Ranger~
 a ranger~
@@ -1695,13 +1619,12 @@ while continues tending to a small deer which seems to have injured
 it's leg.
 ~
 unique~
-AG J 1000 0
+AG DJ 1000 0
 40 20 2d1+1700 1d1+99 6d6+35 punch
 -10 -10 -10 -10
 FKNU BJLN B 0
 stand stand male 100
 AC 0 medium unknown
-A det D
 #291
 Devil Lieutenant~
 the Devil Lieutenant~
@@ -1714,13 +1637,12 @@ in the sixth plane of Hell, he now watches over witchwood with his liege of
 huntsmen in service to Gertrude.
 ~
 unique~
-ABFG HJ -1000 0
+ABFG DFHJ -1000 0
 40 14 2d1+1600 1d1+99 8d6+30 magic
 -7 -7 -7 -7
 FKQ AB B HN
 stand stand female 30
 AB ABCDEF medium unknown
-A det DF
 #0
 
 #OBJECTS
@@ -1730,7 +1652,7 @@ an ancient Ranger Lord's Stetson~
 A large brown hat is trying to camoflage itself on the floor.~
 wood~
 armor AG AE
-CD ABD ABD BD 0
+12 11 11 10 0
 50 8 80000 P
 A
 18 2
@@ -1768,7 +1690,7 @@ a Graven Ikon of Saint Sebastian~
 Small and scarred, the wooden image of a Saint is resting here.~
 cloth~
 armor A AO
-AD AD AD 0 0
+9 9 9 0 0
 38 4 12000 G
 A
 24 -15
@@ -1890,7 +1812,7 @@ a lavender floral dress~
 A floral dress lies here, waiting to look pretty on somebody.~
 cloth~
 armor 0 AD
-ABC ABC ABC 0 0
+7 7 7 0 0
 20 5 500 G
 A
 2 1
@@ -1969,7 +1891,7 @@ a wooden cross~
 A small wooden cross lies here.~
 wood~
 armor GKL AC
-AD AD AD 0 0
+9 9 9 0 0
 35 2 5000 G
 A
 24 -5
@@ -1991,7 +1913,7 @@ a white surcoat~
 A white surcoat with an emblazoned red cross lies here.~
 leather~
 armor KL AK
-AD AD BD 0 0
+9 9 10 0 0
 35 5 5000 G
 A
 2 1
@@ -2010,7 +1932,7 @@ a battle-worn mailed shirt~
 A shirt of tough steel mail is lying here.~
 Steel~
 armor KL AD
-BC BC BC 0 0
+6 6 6 0 0
 36 9 4000 G
 A
 19 2
@@ -2028,7 +1950,7 @@ a pair of light steel leggings~
 A pair of firm looking steel leg armour lies on the ground.~
 steel~
 armor KL AF
-AC AC AC AC 0
+5 5 5 5 0
 35 6 5000 G
 A
 18 1
@@ -2049,7 +1971,7 @@ a pair of steel sollerets~
 A pair of strong steel boots rests here.~
 steel~
 armor KL AG
-BC BC BC BC B
+6 6 6 6 2
 35 8 5000 G
 A
 14 40
@@ -2197,7 +2119,7 @@ the Knight Melancholic's shield~
 A green and silver shield bears a bleeding heart device.~
 steel~
 armor BK AJ
-D D AD 0 0
+8 8 9 0 0
 35 8 10000 P
 A
 13 -10
@@ -2277,7 +2199,7 @@ the Bible~
 A small black bible lies here.~
 wood~
 armor GIKL AO
-ABC D ABC 0 0
+7 8 7 0 0
 20 3 100 G
 A
 12 -15
@@ -2603,7 +2525,7 @@ an apron~
 A blue, embroided apron lies folded on the ground.~
 cloth~
 armor 0 AD
-AB B AB 0 0
+3 2 3 0 0
 1 5 50 G
 E
 apron~
@@ -2635,7 +2557,7 @@ the skin of an elven princess~
 A wide cloak made from the skin of an elven princess.~
 energy~
 armor J AC
-AD D D 0 0
+9 8 8 0 0
 38 8 9000 G
 A
 6 -1
@@ -2677,7 +2599,7 @@ a gold scarab ring~
 A petrified beetle dipped in gold has been dead a long time.~
 gold~
 armor ACGJ AB
-AD AD AD AD AD
+9 9 9 9 9
 38 2 15000 G
 A
 12 15
@@ -2695,7 +2617,7 @@ a green serpent-tressed wig~
 A green serpent-tressed wig slithers about on the ground.~
 moss~
 armor CGJ AE
-AD AD AD 0 0
+9 9 9 0 0
 38 2 15500 G
 A
 3 2
@@ -2718,7 +2640,7 @@ the dead star circlet~
 A blackened circlet with a stone of dull white fire.~
 leather~
 armor EJ AE
-CD ABD ABD 0 0
+12 11 11 0 0
 50 8 25000 G
 A
 13 20
@@ -2739,7 +2661,7 @@ a beautiful gown of white samite~
 A white samite gown lies here like a symbol of beauty and purity.~
 bronze~
 armor G AD
-ABD ABD ABD 0 0
+11 11 11 0 0
 50 6 25000 G
 A
 12 20
@@ -2846,7 +2768,7 @@ a word~
 A word lies here on the floor.~
 energy~
 armor HM AO
-D D D 0 0
+8 8 8 0 0
 35 1 3000 G
 A
 13 35
@@ -2931,7 +2853,7 @@ Lancelot's Signet Ring~
 An ancient signet ring lies here tarnished and forgotten.~
 gold~
 armor KL AB
-ABC ABC ABC 0 0
+7 7 7 0 0
 18 1 1500 G
 A
 24 -3
@@ -3022,7 +2944,7 @@ a bone bracelet~
 A bracelet strung from pieces of bones lies uninvitingly here.~
 bone~
 armor CJQ AM
-C C C 0 0
+4 4 4 0 0
 40 5 5000 G
 A
 12 -5
@@ -3048,7 +2970,7 @@ up towards the broken, snow-covered heights of the mountain range.
 An old stone tablet with inscriptions stands beside a bush in the
 corner.
 ~
-0 A 5
+0 A mountain
 E
 stone tablet sign~
 You may obtain a free copy of Emerald Forest from any of the authors below.
@@ -3085,7 +3007,7 @@ leave them immediately.  The trail stretches through these haunted
 woods up the side of the mountain and down through the fog to the
 foothills of the range.
 ~
-0 A 5
+0 A mountain
 D4
 Move further up and you'll be near the summit.
 ~
@@ -3105,7 +3027,7 @@ a cold and gusty wind whips the falling snow harshly into your face.
 A pine forest covers the slopes of the mountain, while to your south
 you spot a narrow mountain pass.
 ~
-0 A 5
+0 A mountain
 D2
 Southward lies a Mountain Pass.
 ~
@@ -3124,7 +3046,7 @@ the south, while heading north towards a summit.  All around you, you
 see only the mountain rises and the wind-swept plateaus of these
 ancient highlands.
 ~
-0 A 5
+0 A mountain
 D0
 You see the summit of the mountain.
 ~
@@ -3148,7 +3070,7 @@ majestic oaks.  You can walk along a mountain creek which winds west,
 down the side of the mountain and into the forest, or follow the trail
 you are on and continue up the mountain pass.
 ~
-0 A 5
+0 A mountain
 D0
 You see a mountain pass.
 ~
@@ -3169,7 +3091,7 @@ small vale.  To the south there is a great forest of majestic oaks,
 while to your east a trail that seems little-used heads into the
 mountains.
 ~
-0 A 4
+0 A hills
 D1
 You see a mountain pass.
 ~
@@ -3195,7 +3117,7 @@ behind a tree before disappearing with a titter.  An old but sturdy
 signpost stands beside a crossing in the paths, which lead in every
 direction.
 ~
-0 A 3
+0 A forest
 E
 sign post signpost~
 The sign seems to provide directions etched in a spidery hand.
@@ -3237,7 +3159,7 @@ uncomfortable, you look south, where the forest seems to darken
 menacingly.  The east trail beckons you to the safety of the Emerald
 Forest.
 ~
-0 A 3
+0 A forest
 D1
 You can make out a Signpost of sort in that direction.
 ~
@@ -3257,7 +3179,7 @@ Looking down the road, you see a small village nestled beside a bend
 in the stream.  Tall heather blows in the wind and you see some cows
 grazing idly nearby.  The road east runs down into a wooded dell.
 ~
-0 A 2
+0 A field
 D0
 A village lies ahead.
 ~
@@ -3277,7 +3199,7 @@ appointed cottages painted in bright colors on either side of the road.
 You hear ringing laughter to the east, where a country path winds up a
 hillock.  The village square lies to the north.
 ~
-0 A 2
+0 A field
 D0
 You see a village square.
 ~
@@ -3304,7 +3226,7 @@ hedges provide the green with shadynooks and pivate arbors.  The
 hillock continues north, while the path west will take you back to the
 village.
 ~
-0 A 4
+0 A hills
 D0
 You see nothing special there.
 ~
@@ -3326,7 +3248,7 @@ countryside and note that from this vantage point, you can look over the
 entire village of Clover.  You espy a dirt track which leads west from
 the village and then turns north to a ruined abbey.
 ~
-0 A 2
+0 A field
 D2
 The Green Hillock is to the South.
 ~
@@ -3342,7 +3264,7 @@ tree lends its shade to two old men who are sharing a large tankard of
 cider.  You see a large farm to the north and a beaten dirt track to
 the west.
 ~
-0 A 2
+0 A field
 D0
 A farm lies ahead.
 ~
@@ -3366,7 +3288,7 @@ seems little travelled, and wildflowers grow abundantly by the side of
 the track.  Heading east, you will return to the village.  The dirt track
 continues north for some miles.
 ~
-0 A 2
+0 A field
 D0
 The old dirt track continues north.
 ~
@@ -3383,7 +3305,7 @@ An Old Dirt Track~
 Looking north, you see a ruined monastery at the end of the track, half-
 hidden by a copse of cypress trees.
 ~
-0 A 2
+0 A field
 D0
 You see a huge monastary ahead.
 ~
@@ -3404,7 +3326,7 @@ duck pond, while a big brown shaggy dog is chasing his pigs around the
 entire farm.  From inside a blue and yellow farmhouse you hear Princess
 Yaruga, the farmer's wife, shouting angrily in a foreign tongue.
 ~
-0 A 0
+0 A inside
 E
 sign~
 Buy   <item>  - Buy an Item.
@@ -3429,7 +3351,7 @@ groan at your approach, and you are aware of a slow hissing that seems
 to taunt you from the cover of darkness.  The forest stretches on for
 miles.
 ~
-0 A 3
+0 A forest
 D0
 More eerie woods!
 ~
@@ -3455,7 +3377,7 @@ groan at your approach, and you are aware of a slow hissing that seems
 to taunt you from the cover of darkness.  The forest stretches on for
 miles.
 ~
-0 A 3
+0 A forest
 D2
 More eerie woods!
 ~
@@ -3475,7 +3397,7 @@ is caked red and black and the blood and grime of centuries of evil.
 The torches that hang from the boles of the trees ringing the clearing
 throw a halflight on a deep hole in the altar.
 ~
-0 A 2
+0 A field
 D0
 More eerie woods!
 ~
@@ -3506,7 +3428,7 @@ groan at your approach, and you are aware of a slow hissing that seems
 to taunt you from the cover of darkness.  The forest stretches on for
 miles.
 ~
-0 A 3
+0 A forest
 D1
 More eerie woods!
 ~
@@ -3532,7 +3454,7 @@ groan at your approach, and you are aware of a slow hissing that seems
 to taunt you from the cover of darkness.  The forest stretches on for
 miles.
 ~
-0 A 3
+0 A forest
 D3
 More eerie woods!
 ~
@@ -3547,7 +3469,7 @@ your light cannot penetrate.  Tall reeds with thorny blades grow around
 a path that leads west into the mists.  The forest lies to your east and
 south.
 ~
-0 A 3
+0 A forest
 D0
 More eerie woods!
 ~
@@ -3578,7 +3500,7 @@ into a series of glyphs and runes, forming an archway across the entrance
 of a cavern to the east.  The voices stop suddenly, and you are once again
 all alone in the darkness.
 ~
-0 A 3
+0 A forest
 D1
 You make out 3 figures in the darkness ahead.
 ~
@@ -3598,7 +3520,7 @@ rift in the ground infernal flames belch forth.  The heat in the cavern
 is almost unbearable and you begin to feel yourself passing out from
 the oppressive stench of brimstone.
 ~
-0 A 0
+0 A inside
 E
 rift chasm~
 A low voice from the dark beckons you gravely into the flames. You feel
@@ -3619,7 +3541,7 @@ groan at your approach, and you are aware of a slow hissing that seems
 to taunt you from the cover of darkness.  The forest stretches on for
 miles.
 ~
-0 A 3
+0 A forest
 D0
 More eerie woods!
 ~
@@ -3645,7 +3567,7 @@ groan at your approach, and you are aware of a slow hissing that seems
 to taunt you from the cover of darkness.  The forest stretches on for
 miles.
 ~
-0 A 3
+0 A forest
 D0
 More eerie woods!
 ~
@@ -3671,7 +3593,7 @@ groan at your approach, and you are aware of a slow hissing that seems
 to taunt you from the cover of darkness.  The forest stretches on for
 miles.
 ~
-0 A 3
+0 A forest
 D0
 You see an altar ahead.
 ~
@@ -3702,7 +3624,7 @@ groan at your approach, and you are aware of a slow hissing that seems
 to taunt you from the cover of darkness.  To the south a fog rolls out
 onto a dead marsh.
 ~
-0 A 3
+0 A forest
 D0
 More eerie woods!
 ~
@@ -3733,7 +3655,7 @@ the trees look twisted and tortured into unnatural shapes.  The depths
 of the forest sends up a hopeless cry to usher you into the woods that
 ring the edge of Hell.
 ~
-0 A 3
+0 A forest
 D0
 More eerie woods!
 ~
@@ -3760,7 +3682,7 @@ the forest seems to lighten considerably, and you are about to leave
 in that direction when a tattered parchment, flapping weakly in the
 wind, falls at your feet.
 ~
-0 A 3
+0 A forest
 E
 parchment~
 (Parchment: It is yellowed and seems savagely ripped from a tome.
@@ -3807,7 +3729,7 @@ while shafts of sunlight turn the forest floor into a carpet of gold and
 green.  The woodland trails running through this area of the forest seem
 well-kept, yet untravelled.
 ~
-0 A 3
+0 A forest
 D0
 A sign post lies ahead.
 ~
@@ -3832,7 +3754,7 @@ while shafts of sunlight turn the forest floor into a carpet of gold and
 green.  The woodland trails running through this area of the forest seem
 well-kept, yet untravelled.
 ~
-0 A 3
+0 A forest
 D0
 A well-used trail through the forest lies to there.
 ~
@@ -3856,7 +3778,7 @@ the forest skirts the sheer mountain face.  Dew-covered hawthorn bushes
 flank the east trail, along which several rangers are walking.  It seems
 to be the woodkeepers' outpost.
 ~
-0 A 3
+0 A forest
 D1
 The Woodkeepers' Outpost is to the east.
 ~
@@ -3881,7 +3803,7 @@ while others are tending to injured woodland animals.  The Guildmaster's
 cabin lies to the north, while several smaller cabins lie to the south.
 A fair-sized lodge sits beneath a Redwood tree to your east.
 ~
-0 AWXYZ 3
+0 AWXYZ forest
 D0
 The Guildmaster's cabin lies to the north.
 ~
@@ -3911,7 +3833,7 @@ low branches across the roof of the cabin and any number of small forest
 animals race along the length of the porch.  Elesar of the Woods is here,
 instructing a young woodkeeper.
 ~
-0 DWXYZ 0
+0 DWXYZ inside
 D2
 The Wood-Keepers' Outpost is to the south.
 ~
@@ -3926,7 +3848,7 @@ are neatly stacked on shelves or stored in closets.  A parchment tacked
 on a wall lists the supplies which you may purchase from Smokey, the
 Ranger Bear who runs the supply store.
 ~
-0 DWXYZ 0
+0 DWXYZ inside
 E
 sign parchment~
 Buy   - Buy an Item. *brrrrrrr*
@@ -3950,7 +3872,7 @@ while shafts of sunlight turn the forest floor into a carpet of gold and
 green.  The woodland trails running through this area of the forest seem
 well-kept, yet untravelled.
 ~
-0 A 3
+0 A forest
 D0
 The Emerald Forest!
 ~
@@ -3982,7 +3904,7 @@ can be held captive by faerie food or a faerie's kiss and made to dance
 on and on for a period of seven years.  You hear a titter of laughter
 from the branches of a tree, but when you look up you see nothing.
 ~
-0 A 3
+0 A forest
 D1
 A great tree lies to the east.
 ~
@@ -4007,7 +3929,7 @@ an invisible barrier that keeps you about a hundred yards away.  You
 see movement and lights in and about the tree, but there seems to be
 no way you can get closer to it.
 ~
-0 A 3
+0 A forest
 D2
 A faerie hill lies to the south.
 ~
@@ -4029,7 +3951,7 @@ has long black hair and elfin features, a yew bow slung across her back.
 She seems oblivious to your presence and hums softly as she passes her
 hand through the waters.
 ~
-0 A 2
+0 A field
 D2
 A stream flows to the south.
 ~
@@ -4044,7 +3966,7 @@ lilac bushes and spy a group of nymphs frolicking in the stream.  It
 seems like a vision captured from some nature god's idyllic dream.  You
 hear the distant roar of a waterfall to your south.
 ~
-0 A 2
+0 A field
 D0
 A pool forms to the north.
 ~
@@ -4072,7 +3994,7 @@ silver oak trees stands a likeness of Altariel, the Lady of the Woods.
 At the base of the waterfall, a rock pool with crystal clear water has
 formed.
 ~
-0 A 2
+0 A field
 D0
 A stream flows to the north.
 ~
@@ -4088,7 +4010,7 @@ through the wood paths of the Emerald Forest.  The angry face of a
 faerie suddenly stares out at you from the window and interrupts your
 scrutiny with a string of curses.
 ~
-0 A 3
+0 A forest
 D0
 You see a great tree there.
 ~
@@ -4117,7 +4039,7 @@ creepers run along the footpaths here.  It would seem some mischievous
 pixie has drawn the vines across the path with the hope of tripping
 woodland travellers such as you.  You watch your step.
 ~
-0 A 3
+0 A forest
 D1
 A faerie hill lies to the east.
 ~
@@ -4142,7 +4064,7 @@ while shafts of sunlight turn the forest floor into a carpet of gold and
 green.  The woodland trails running through this area of the forest seem
 well-kept, yet untravelled.
 ~
-0 A 3
+0 A forest
 D0
 The Emerald Forest!
 ~
@@ -4167,7 +4089,7 @@ whose sanctuary the Emerald Forest is, transformed him into a poplar
 tree.  The poplar tree stands here beside the stump, its branches cut
 by the rangers of the forest whenever they are in need of wood.
 ~
-0 A 3
+0 A forest
 D0
 The Emerald Forest!
 ~
@@ -4187,7 +4109,7 @@ while shafts of sunlight turn the forest floor into a carpet of gold and
 green.  The woodland trails running through this area of the forest seem
 well-kept, yet untravelled.
 ~
-0 A 3
+0 A forest
 D0
 The Emerald Forest!
 ~
@@ -4215,7 +4137,7 @@ Greenbrier bushes that grow beside the path have shed their heart-shaped
 leaves on the road.  All is quiet here.  To the north, dark Elder trees
 loom out ominously.  The road continues south.
 ~
-0 A 2
+0 A field
 D0
 Dark Woods!
 ~
@@ -4240,7 +4162,7 @@ moonlight as souless pumpkin men.  The fetid marsh pools have been the
 graves of countless creatures, and the choking stench of death rises
 from them.
 ~
-0 A 3
+0 A forest
 D2
 More Dead Moors!
 ~
@@ -4260,7 +4182,7 @@ moonlight as soulless pumpkin men.  The fetid marsh pools have been the
 graves of countless creatures, and the choking stench of death rises
 from them.
 ~
-0 A 3
+0 A forest
 D0
 More Dead Moors!
 ~
@@ -4285,7 +4207,7 @@ moonlight as soulless pumpkin men.  The fetid marsh pools have been the
 graves of countless creatures, and the choking stench of death rises
 from them.
 ~
-0 A 3
+0 A forest
 D0
 More Dead Moors!
 ~
@@ -4315,7 +4237,7 @@ moonlight as soulless pumpkin men.  The fetid marsh pools have been the
 graves of countless creatures, and the choking stench of death rises
 from them.
 ~
-0 A 3
+0 A forest
 D0
 More Dead Moors!
 ~
@@ -4335,7 +4257,7 @@ weeds are dry at the edge of the mound and the grass that grows here is
 is lush and green.  A lone oak tree stands on the mound, like a beacon of
 goodness that repels the evil of the witches.
 ~
-0 A 4
+0 A hills
 D0
 More Dead Moors!
 ~
@@ -4354,7 +4276,7 @@ bushes that grow beside the path have shed many heart-shaped leaves on
 the road.  Two blue-breasted swallows swoop low in front of you, trilling
 out a morning song.  The road continues north and south.
 ~
-0 A 2
+0 A field
 D0
 A Forest Road.
 ~
@@ -4373,7 +4295,7 @@ bushes that grow beside the path have shed many heart-shaped leaves on
 the road.  Two blue-breasted swallows swoop low in front of you, trilling
 out a morning song.  The road continues north and south.
 ~
-0 A 2
+0 A field
 D0
 A Forest Road.
 ~
@@ -4394,7 +4316,7 @@ rosewood. Peering intently toward the source of the sound, you
 notice a faint outline of a bridge resting in the shade of the long
 leafy branches of the tall, flanking trees.
 ~
-0 A 2
+0 A field
 D0
 A Forest Road.
 ~
@@ -4422,7 +4344,7 @@ and rainbow trout weave their way amongst the rocks in the stream below.
 To the west the forest stretches on, while the sounds of laughter and
 play drift in softly from the south.
 ~
-0 A 2
+0 A field
 D1
 A shady bridge lies eastwards.
 ~
@@ -4444,7 +4366,7 @@ bridges, it spans across a fairly wide river flowing in a north-south
 direction. The height of the surrounding trees provide a pleasant
 shade from the noon-day sun.
 ~
-0 A 2
+0 A field
 D1
 A woodland trail continues eastwards.
 ~
@@ -4467,7 +4389,7 @@ mentioned the existence of construction of a bridge. As far as you
 know, the forest has resisted gently but firmly all attempts at
 colonisation or lumbering, which makes it quite a curiousity.
 ~
-0 A 3
+0 A forest
 D0
 The Emerald Forest!
 ~
@@ -4498,7 +4420,7 @@ whom chirp, sing or buzz their existence for all to know, while others
 remain silent, at least to your ears while the aroma of fresh woodland
 flowers fill the air.
 ~
-0 A 3
+0 A forest
 D0
 A woodland trail.
 ~
@@ -4521,7 +4443,7 @@ You are following a small woodland trail in the Emerald Forest.  Off in
 the distance to the east, you hear the sound of a roaring waterfall.
 The trail continues to the north and south.
 ~
-0 A 3
+0 A forest
 D0
 A faerie hill lies to the north.
 ~
@@ -4541,7 +4463,7 @@ woodland creatures.  You spot a brown squirrel darting away from the
 bole of a tree in an industrious search for more nuts and berries.
 The paths lead north, south and west.
 ~
-0 A 3
+0 A forest
 D0
 A three-way junction lies to the north.
 ~
@@ -4567,7 +4489,7 @@ The cheerful croaking of a tree-frog catches your eat, accompanied by
 the soprano trill of a swallow and an acapella team of bush insects.
 The trail allows travel to the east and west.
 ~
-0 A 3
+0 A forest
 D1
 More Emerald Forest!
 ~
@@ -4588,7 +4510,7 @@ which cannot be found.  A small green carpet lies in the middle of a
 clearing, leading you to believe you've happened across someone's
 quiet time area.
 ~
-0 A 0
+0 A inside
 D1
 More Emerald Forest!
 ~
@@ -4608,7 +4530,7 @@ and a few plush cushions are scattered on a rug in one corner.  On a
 shelf on the west wall are the complete works of Shakespeare, while
 another book lies half-read on the floor.
 ~
-0 AYZ 0
+0 AYZ inside
 D5
 ~
 secret~
@@ -4625,7 +4547,7 @@ possible) to align themselves, and the soft wood grass while not having
 the blunt heads of a kept garden seem to be growing neatly in line all
 by themselves. Strong magic is at work here.
 ~
-0 A 3
+0 A forest
 D0
 A dense path is northwards.
 ~
@@ -4646,7 +4568,7 @@ clearing. From where you stand you can see small movement and
 curious sound which you can't quite make out. The tree branches
 sway softly while you decide your next course.
 ~
-0 A 3
+0 A forest
 D0
 A woodland trail lies northwards.
 ~
@@ -4678,7 +4600,7 @@ are numbered off. A number is called, and the respective brownie
 or pixie has to run forward, grab the bag and return to the line
 without being touched. Looks like great fun.
 ~
-0 A 3
+0 A forest
 D1
 A ragged trail lies to the east.
 ~
@@ -4705,7 +4627,7 @@ variety of enchanting desserts, cream puffs and wonderful potions.
 The grand Pixie-Brownie Bonanza Festival seems up in force, and
 there are no signs of it ending in the near future...
 ~
-0 A 3
+0 A forest
 D1
 You see a bunch of pixies and brownies in a game.
 ~
@@ -4730,7 +4652,7 @@ and east, while the path to the south abruptly ends at the foot of a
 sheer cliff face, with a wall so smooth that it would be impossible
 to climb. A variety of bird song and animal sound fill the air.
 ~
-0 A 3
+0 A forest
 D0
 You see a trail ahead.
 ~
@@ -4756,7 +4678,7 @@ path instead of hacking through the notoriously resilient trees of the
 Emerald Forest. A tall tree with huge leafy branches branches stands
 here tempting you to take a break and rest in it's shade.
 ~
-0 A 3
+0 A forest
 D0
 A tall tree with huge leafy branches blocks your way.
 ~
@@ -4782,7 +4704,7 @@ wild abandon across the ground or in small cul-de-sacs formed at the
 roots of the oak trees.  You hear a rustle in the bushes, but staring
 intently without trying to look too obvious, you notice nothing.
 ~
-0 A 3
+0 A forest
 D1
 A Lovely trail lies there.
 ~
@@ -4804,7 +4726,7 @@ peace and safe, as though you just stepped into a fairy tale where
 the knights kill all the trolls, and nobody stays hungry. It's hard
 not to day dream, walking here.
 ~
-0 A 3
+0 A forest
 D0
 A Forest trail lies to the north.
 ~
@@ -4833,7 +4755,7 @@ on it. The strange thing is there are no paths leading from or to the
 area, which would puzzle even the most observant elf or ranger. Who
 would pick flowers for a lone grave and leave no evidence of passing?
 ~
-0 A 3
+0 A forest
 E
 tomb tombstone~
 Etched on the well-dusted tombstone are the following words...
@@ -4866,7 +4788,7 @@ of the tall oak and pine trees flanking the forest road. Flying
 squirrels leap from branch to branch, probably searching for a
 delicious cashew or two.
 ~
-0 A 3
+0 A forest
 D0
 A lovely hail lies north.
 ~
@@ -4895,7 +4817,7 @@ make it for the meeting. A pile of scrolls sit on a small table,
 probably pamphlets to be distributed to the arriving participants of
 the meeting.
 ~
-0 A 3
+0 A forest
 E
 map scroll scrolls pamphlets~
 *-*
@@ -4951,7 +4873,7 @@ leading up to the vines and abruptly stopping. Could they merely be
 tracks from an age past, now lost to the world and found only in time
 and memory?
 ~
-0 A 3
+0 A forest
 D0
 You see a grove in the forest.
 ~
@@ -4980,7 +4902,7 @@ should the speaker be in the middle of a circle. It's almost as though
 a little tribe of beavers just had a river-dam guild meeting and have
 left for lunch.
 ~
-0 A 3
+0 A forest
 D2
 You see thick green vines in the yonder.
 ~
@@ -4996,7 +4918,7 @@ log lies here, softing morning due and rain spray clinging to it's
 sparkling bark. No rotting scent seems to come from it as most
 logs would emit.
 ~
-0 A 3
+0 A forest
 D0
 You see nothing special there.
 ~
@@ -5017,7 +4939,7 @@ standards. A small mouse-deer runs across the trail, followed by
 a lazy looking lynx. To the north you can just make out a clearing
 through the trees, and there seems to be movement.
 ~
-0 A 3
+0 A forest
 D0
 You see nothing special there.
 ~
@@ -5047,7 +4969,7 @@ with the many games the pixies and brownies seem to be playing. A tug
 of war is currently in progress, with the heaving Brownies having
 a slight lead over the grunting Pixies.
 ~
-0 A 3
+0 A forest
 E
 sign~
 Buy   - Buy an Item.
@@ -5080,7 +5002,7 @@ Myrtle tree, under the shade of which some revellers have taken to
 rest.  A lone thrush sighs from a branch of the tree.  To the west
 a trail slopes gently down.
 ~
-0 A 3
+0 A forest
 D0
 The south-east end of the Bonanza is there.
 ~
@@ -5103,7 +5025,7 @@ and cookies. The dozens of eager eaters seem a bit impatient,
 apparently this year's Bonanza Chairman (or Grand Pooh-ba) hasn't
 opened the ceremony yet.
 ~
-0 A 3
+0 A forest
 D0
 You see a bunch of pixies and brownies in a game of Honey Bun.
 ~
@@ -5135,7 +5057,7 @@ as your eyes can see. The terrain belows seems mostly rock and stone
 and has spare vegetation. You can just make out a small path heading
 roughly to the east through a cluster of bushes and trees.
 ~
-0 A 3
+0 A forest
 D0
 You see a ragged trail.
 ~
@@ -5163,7 +5085,7 @@ chickens and ducks who cluck and quack away merrily. Carrots, cabbages
 and rice are grown in a medium sized plot of land to the north. There
 is a small rock pool to the east.
 ~
-0 A 2
+0 A field
 D1
 You see a rocky pool.
 ~
@@ -5190,7 +5112,7 @@ the pool is, but it must be very deep since you can't see the bottom. There
 is a small wooden bench here beckoning you to sit and rest for a while,
 and ponder things you've put aside, and think on matters you've forgotten.
 ~
-0 A 2
+0 A field
 D3
 You see a garden.
 ~
@@ -5208,7 +5130,7 @@ flowing black ink script sit on a desk. A small book catches your eye,
 it's title being "Zhuge Liang's Chinese-Theran Dictionary". Some of
 the scrolls here are written in a language you can understand.
 ~
-0 A 0
+0 A inside
 E
 book dictionary~
 As you flip open the dictionary, it falls open to a well-read page...
@@ -5255,7 +5177,7 @@ leaf-strewn courtyard and continue into a small chapel.  You notice for
 the first time that that area of the monastery seems to have been spared
 the dereliction that the rest of the monastery has fallen into.
 ~
-0 A 0
+0 A inside
 D2
 The old dirt track continues south.
 ~
@@ -5277,7 +5199,7 @@ of wooden benches. Probably cared for by questing paladins or clerics
 on a pilgrimage, you wonder if any of the faithful might be nearby. To
 the west wall you see a hole large enough for you to squeeze through.
 ~
-0 A 0
+0 A inside
 D1
 You see a huge monastary there.
 ~
@@ -5299,7 +5221,7 @@ combination of trees and the old stone walls of the monastery. There
 is a serenity and a sense of life and peace, hinting that it is often
 used by others as a place of worship or contemplation.
 ~
-0 A 2
+0 A field
 D1
 You see a chapel in the distance.
 ~
@@ -5314,7 +5236,7 @@ moonlight as soulless pumpkin men.  The fetid marsh pools have been the
 graves of countless creatures, and the choking stench of death rises
 from them.
 ~
-0 A 3
+0 A forest
 D0
 More Dead Moors!
 ~
@@ -5335,7 +5257,7 @@ while others are clawing their way to the surface of the mud.  A sudden
 wind blows the fog away, and you see a small lake through the tall reeds
 to the west.
 ~
-0 A 3
+0 A forest
 D0
 More eerie woods!
 ~
@@ -5359,7 +5281,7 @@ the north, while in every other direction the desolate marshes darken
 your spirits.  Small creatures are feeding on each other at your feet,
 while others are clawing their way to the surface of the mud.
 ~
-0 A 3
+0 A forest
 D0
 More eerie woods!
 ~
@@ -5390,7 +5312,7 @@ groan at your approach, and you are aware of a slow hissing that seems
 to taunt you from the cover of darkness.  To the south a fog rolls out
 onto a dead marsh.
 ~
-0 A 3
+0 A forest
 D0
 More eerie woods!
 ~
@@ -5414,7 +5336,7 @@ way beneath your feet.  The end of the jetty, which has long since
 collapsed, stands over a dark still lake.  You look over the deep black
 waters and see lights on the shore of an island hidden in the mists.
 ~
-0 A 2
+0 A field
 D1
 More eerie woods!
 ~
@@ -5428,7 +5350,7 @@ furnished.  There are four beds in the cabin, where the woodkeepers of
 the Forest may rest after their patrols.  There is a small chest by the
 foot of the bed.
 ~
-0 DWXYZ 0
+0 DWXYZ inside
 D0
 The Wood-Keepers' Outpost is to the north.
 ~
@@ -5445,7 +5367,7 @@ multilated bodies of mages and clerics.
 
 Someone with bad taste obviously lives here.
 ~
-0 AD 5
+0 AD mountain
 D3
 You see a huge boulder there.
 ~
@@ -5464,7 +5386,7 @@ and arranged blossom from various vases and clay pots. The whole cottage
 looks bright and cheerful even with nightfall. Obviously, someone with
 good tastes lives here!
 ~
-0 D 0
+0 D inside
 D1
 A Bedroom.
 ~
@@ -5483,7 +5405,7 @@ sharp contrast to the darkness around. You can barely make out a huge bed
 that lies in the northeast corner of this gloomy room. Several other portals
 seem to lead out of this room. You wonder where they may lead to...
 ~
-0 D 0
+0 D inside
 D3
 You see a lovely living room.
 ~

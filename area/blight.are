@@ -20,13 +20,12 @@ hooves and rams head that is.  It's all too human eyes burn with hatred upon
 spotting you, it picks it's teeth as it prepares to slaughter you.
 ~
 unique~
-ABCFGT J -1000 0
+ABCFGT DFJ -1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 bite
 -11 -11 -11 3
 CDEFIJNQR A 0 R
 stand stand male 1000
 AB ABCDEFGHIJK medium unknown
-A det DF
 #23002
 myrddraal fade halfman eyeless lurk fetch shadowman~
 The Myrddraal~
@@ -39,13 +38,12 @@ by the Dark One's taint.  It turns it's eyeless gaze upon you...  this may be
 your last battle...
 ~
 unique~
-ACFGST HJPQ -1000 0
+ACFGST DFHJPQ -1000 0
 40 0 15d10+1850 5d5+1000 4d8+13 pound
 -13 -13 -13 3
 BEFGHIQ ABL HIJK R
 stand stand male 1000
 AB ABCDEFGHIJK medium unknown
-A det DF
 #23003
 trolloc ko'bal~
 The trolloc~
@@ -58,13 +56,12 @@ wolf-like jowls that is.  It's all too human eyes burn with hatred upon
 spotting you, it picks it's teeth as it prepares to slaughter you.
 ~
 unique~
-ABCFGT Jb -1000 0
+ABCFGT DFJb -1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 bite
 -11 -11 -11 3
 CDEFIJNQR A 0 R
 stand stand male 1000
 AB ABCDEFGHIJK medium unknown
-A det DF
 #23004
 trolloc dhai'mon~
 The trolloc~
@@ -77,13 +74,12 @@ beak that is.  It's all too human eyes burn with hatred upon spotting you,
 it pecks at the last of it's meal as it prepares to slaughter you.
 ~
 unique~
-ABCFGT JTb -1000 0
+ABCFGT DFJTb -1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 bite
 -11 -11 -11 3
 CDEFQ A 0 R
 stand stand male 1000
 AB ABCDEFGHIJK medium unknown
-A det DF
 #23005
 flock raven ravens huge~
 The flock of ravens~
@@ -112,13 +108,12 @@ boar like snout and tusks that is.  It's all too human eyes burn with hatred
 as it charges to attack.
 ~
 unique~
-ABCFGT Jb -1000 0
+ABCFGT DFJb -1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 bite
 -11 -11 -11 3
 CDEFIJKNQR A 0 R
 stand stand male 1000
 AB ABCDEFGHIJK medium unknown
-A det DF
 #23007
 creature oily~
 The creature~
@@ -128,13 +123,12 @@ A grotesque black oily creature slides through the roiling black waters of the
 Lake.  It seems quite hostile.
 ~
 unique~
-ABCFGT J -1000 0
+ABCFGT DFJ -1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 claw
 -11 -11 -11 3
 CEFGMOQ ABD HI J
 stand stand none 1000
 AB ABCDEFGHIJKQ medium unknown
-A det DF
 #23008
 tree twisted~
 The twisted tree~
@@ -144,13 +138,12 @@ Much like the other trees of the blight, this tree is decayed, and black with
 disease.  Unlike the other trees, this one seems a little more lively.
 ~
 unique~
-ABCFGT J -1000 0
+ABCFGT DFJ -1000 0
 30 0 6d12+853 5d5+1000 4d6+8 charge
 -9 -9 -9 3
 CEFHKNQ ABF 0 H
 stand stand none 0
 AB 0 medium unknown
-A det DF
 #23009
 draghkar~
 The draghkar~
@@ -161,13 +154,12 @@ drawn to the creature, at the last moment you pull away, and pull out your
 weapons.
 ~
 unique~
-ABCFGRT 0 -1000 0
+ABCFGRT DF -1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
 AEFGHJKNQ AB K H
 stand stand none 10000
 AB ABCDEFGHIJK medium unknown
-A det DF
 #23010
 disfigured diseased flesh lump creature~
 The diseased creature~
@@ -178,13 +170,12 @@ energy.  The taint of evil has twisted the creature beyond recognition, you
 fell the emense hatred this creature feels for you, it rambles closer...
 ~
 unique~
-ACFGd JX -1000 0
+ACFGd DFJX -1000 0
 20 0 3d9+333 5d5+1000 2d8+5 charge
 -4 -4 -4 5
 CINQ AB 0 0
 stand stand none 1000
 AB ABCDEFGHIJKLMNOPQUVWXY medium unknown
-A det DF
 #23011
 warder gaidan~
 The warder~
@@ -196,13 +187,12 @@ know the man, but you do know he is deadly, and from the looks of him, not to
 be trifled with.
 ~
 human~
-AGTd BJNPQ 1000 0
+AGTd BDFJNPQZ 1000 0
 40 0 15d10+1850 5d5+1000 4d8+13 pound
 -13 -13 -13 3
 EFGHKLPS AB IJKMQ 0
 stand stand male 1000
 0 0 medium unknown
-A det DFZ
 #23012
 lord~
 The Lord of the tower~
@@ -214,13 +204,12 @@ behind to protect what he can of the lost kingdom.  You sense no great evil,
 or good, but a sense of purpose.
 ~
 unique~
-ABCFGOTVd HJNVb 0 0
+ABCFGOTVd DFHJNVZb 0 0
 60 5 50d10+10000 5d5+5000 8d6+28 wrath
 -40 -40 -40 -4
 ADEFGHKN ABLQ CD 0
 stand stand male 1000
 C ABCDEFGHIJK medium unknown
-A det DFZ
 #23013
 lord~
 The Lord of the tower~
@@ -232,13 +221,12 @@ behind to protect what he can of the lost kingdom.  You sense no great evil,
 or good, but a sense of purpose.
 ~
 unique~
-ABCFGOTVd HJNVb 0 0
+ABCFGOTVd DFHJNVZb 0 0
 60 5 50d10+10000 5d5+5000 8d6+28 wrath
 -40 -40 -40 -4
 ADEFGHKN ABLQ CD 0
 stand stand male 1000
 C ABCDEFGHIJK medium unknown
-A det DFZ
 #23014
 spirit soldier~
 The spirit~
@@ -251,13 +239,12 @@ they were, but then return to normal.  The spirit could not save these things
 in life.  It intends to try to do it in death.
 ~
 unique~
-ACFGOTd BJPUd 0 0
+ACFGOTd BDFJPUZd 0 0
 45 0 25d10+3000 5d5+1000 8d4+16 magic
 -15 -15 -15 2
 EFGHJKNU ALQ 0 NY
 stand stand none 0
 C ABCDEFGHIJK medium unknown
-A det DFZ
 #23015
 spirit~
 The spirit~
@@ -270,13 +257,12 @@ they were, but then return to normal.  The spirit could not save these things
 in life.  It intends to try to do it in death.
 ~
 unique~
-ACFGOTd BJNPUd 0 0
+ACFGOTd BDFJNPUZd 0 0
 45 0 25d10+3000 5d5+1000 8d4+16 magic
 -15 -15 -15 2
 EFGHJKNU ABLQ 0 NY
 stand stand none 1000
 C ABCDEFGHIJK medium unknown
-A det DFZ
 #23016
 tree twisted~
 The twisted tree~
@@ -286,13 +272,12 @@ Much like the other trees of the blight, this tree is decayed, and black with
 disease.  Unlike the other trees, this one seems a little more lively.
 ~
 unique~
-ABCFGT J -1000 0
+ABCFGT DFJ -1000 0
 30 0 6d12+853 5d5+1000 4d6+8 magic
 -9 -9 -9 3
 CEFHKNQ ABF 0 H
 stand stand none 1000
 AB 0 medium unknown
-A det DF
 #23017
 tree twisted~
 The twisted tree~
@@ -302,13 +287,12 @@ Much like the other trees of the blight, this tree is decayed, and black with
 disease.  Unlike the other trees, this one seems a little more lively.
 ~
 unique~
-ABCFGT J -1000 0
+ABCFGT DFJ -1000 0
 30 0 6d12+853 5d5+1000 4d6+8 magic
 -9 -9 -9 3
 CEFHKNQ ABF 0 H
 stand stand none 1000
 AB 0 medium unknown
-A det DF
 #23018
 tree twisted~
 The twisted tree~
@@ -318,13 +302,12 @@ Much like the other trees of the blight, this tree is decayed, and black with
 disease.  Unlike the other trees, this one seems a little more lively.
 ~
 unique~
-ABCFGT J -1000 0
+ABCFGT DFJ -1000 0
 30 0 6d12+853 5d5+1000 4d6+8 magic
 -9 -9 -9 3
 CEFHKNQ ABF 0 H
 stand stand none 1000
 AB 0 medium unknown
-A det DF
 #23019
 seanchan sul'dam woman~
 The Sul'Dam~
@@ -336,13 +319,12 @@ appears to be a military uniform almost, but she looks like no warrior you
 have ever seen.
 ~
 human~
-AGHT Jb 0 0
+AGHT DFJb 0 0
 40 0 15d10+1850 5d5+1000 4d8+13 shock
 -13 -13 -13 3
 EFHIKNU AB C 0
 stand stand female 1000
 0 0 medium unknown
-A det DF
 #23020
 metal metallic orb strange~
 The metallic orb~
@@ -354,13 +336,12 @@ You see no eyes on the creature, but feel it 'sees' you somehow.  This
 did not come from any land you have ever heard of.
 ~
 unique~
-AGT JTb 0 0
+AGT DFJTZb 0 0
 45 0 25d10+3000 5d5+1000 8d4+16 flame
 -15 -15 -15 2
 EFHKP AMQ 0 0
 stand stand none 1000
 E E medium unknown
-A det DFZ
 #23021
 fox tall thin~
 The fox-like humanoid~
@@ -373,13 +354,12 @@ smile, and his attire appearing to be made of something like human flesh,
 he seems like a pretty nice guy.
 ~
 unique~
-ACFGHS JPV 0 0
+ACFGHS DFJPV 0 0
 45 0 25d10+3000 5d5+1000 8d4+16 claw
 -15 -15 -15 2
 BEFHKNU ABKLQ 0 Z
 stand stand male 1000
 AB ABCDEFGHIJK medium unknown
-A det DF
 #23022
 grolm frog huge~
 The grolm~
@@ -390,13 +370,12 @@ skinned nightmare.  That is all you have time to think about until it is time
 to fight.
 ~
 unique~
-AT J 0 0
+AT DFJ 0 0
 45 0 25d10+3000 5d5+1000 8d4+16 punch
 -15 -15 -15 2
 CDEF AB 0 0
 stand stand none 1000
 AB ABCDEFGHIJK medium unknown
-A det DF
 #0
 
 #OBJECTS
@@ -482,7 +461,7 @@ an unmoving black cloak~
 A pile of black cloth lies on the ground, untouched by the wind.~
 unknown~
 armor CEGJL AK
-ACD ACD ACD BC 0
+13 13 13 6 0
 40 6 400 P
 A
 19 3
@@ -494,7 +473,7 @@ snake-like overlapping black plates~
 Several black plates lie on the ground.~
 unknown~
 armor DEGJL AD
-CD ACD ACD BC 0
+12 13 13 6 0
 40 18 400 P
 A
 17 -5
@@ -518,7 +497,7 @@ a cloak of shifting colors~
 A pile of cloth blends into it surroundings here.~
 unknown~
 armor GIK AK
-CD CD ACD BC 0
+12 12 13 6 0
 40 6 400 P
 A
 14 50
@@ -580,7 +559,7 @@ a small figurine~
 A small figurine sits on the ground humming with power.~
 unknown~
 armor BGI AO
-CE CE CE AD 0
+20 20 20 9 0
 60 3 600 P
 A
 24 -12
@@ -608,7 +587,7 @@ a helm stylized into a golden crane~
 A mallkerian battle helm lies here.~
 unknown~
 armor AGK AE
-CE CE CE BD 0
+20 20 20 10 0
 60 12 600 P
 A
 17 -10
@@ -622,7 +601,7 @@ a suit of Malkerian battle armor~
 A suit of highly pollished armor lies here.~
 unknown~
 armor AGK AD
-CE ACE CE AD 0
+20 21 20 9 0
 60 25 600 P
 A
 17 -10
@@ -650,7 +629,7 @@ a Lord's sceptre~
 A finely crafted sceptre lies on the ground.~
 unknown~
 armor AGK AO
-CE ABE ACE ABD 0
+20 19 21 11 0
 60 10 600 P
 A
 19 3
@@ -746,7 +725,7 @@ a plain dress pannelled with lightning bolts~
 A plain dress lies on the ground, strange symbols sewn into it's pannels.~
 unknown~
 armor GI AD
-CD ACD BCD ABC 0
+12 13 14 7 0
 40 7 400 P
 A
 13 50
@@ -786,7 +765,7 @@ a foxheaded medallion~
 A medallion lies at your feet.~
 unknown~
 armor GI AC
-ABCD ABCD ABCD ABC 0
+15 15 15 7 0
 45 6 450 P
 A
 24 -10
@@ -807,7 +786,7 @@ surrounds you on all sides as you realize youa re far from the Light.  To
 the north you can see what remains Malkeri, swallowed by The Blight, its
 Seven Towers broken by the hands of The Dark One.  
 ~
-0 0 2
+0 0 field
 D0
 The remains of the kingdom of Malkeri lie to the north.
 ~
@@ -838,7 +817,7 @@ the deadly skills of the Warders are sometimes not enough to keep them
 alive.  A little further to the north lie the Towers of Malkeri, surrounded
 by almost a hundred small lakes.  
 ~
-0 0 4
+0 0 hills
 D0
 The Seven towers lay a few miles ahead, rising like broken hills.
 ~
@@ -869,7 +848,7 @@ moving the shadowy water to small waves.  This far into the Blight live
 creatures that could easily kill a dozen heavily armed Bordermen, creatures
 created by the Dark One to watch over his land.  
 ~
-0 C 4
+0 C hills
 D0
 Directly to the north lay the Seven Towers, thier power broken.
 ~
@@ -903,7 +882,7 @@ trees and plants in this area are only barely holding on, decay taking them as
 quickly as they grow.  Waves roll along the Hundred Lakes, and hope is far
 away.
 ~
-0 0 4
+0 0 hills
 D0
 Over the hills to the north the Blight stretches on.
 ~
@@ -933,7 +912,7 @@ and shiver as you pass.  Your stomach curls at the stench of evil in everything
 here.  You wonder if the Dark One is truly bound far to the north in Shayol
 Ghul...
 ~
-0 0 4
+0 0 hills
 D0
 The Blight continues on to the north.
 ~
@@ -963,7 +942,7 @@ the area.  Trees still grow here, corrupted and twisted by the Shadow that lays
 heavily across this cursed land.  Decay and disease surrounds you on all sides
 as you realize you are far from the Light.
 ~
-0 0 2
+0 0 field
 D0
 The Blight continues on to the north.
 ~
@@ -993,7 +972,7 @@ daydreams compared to the evil that has seized this land.  Only fools and
 highly trained Warders enter this far into the Blight, and even the Warders
 deadly skills are sometimes not enought to keep them alive.
 ~
-0 0 4
+0 0 hills
 D0
 The Blight continues on to the north.
 ~
@@ -1021,7 +1000,7 @@ You are now miles into the Blight.  As you search the surrounding area you
 see the vegetation in this area is almost solid black now.  Suddenly you notice
 one of the trees is not only seeming to move, it _is_ moving - towards you!
 ~
-0 0 4
+0 0 hills
 D0
 To the north black waters stir with movement.
 ~
@@ -1049,7 +1028,7 @@ As you move through the thick oily waters of the lake you wonder what evil
 creatures live in this slime.  Movement stirs on all sides of you, and you come
 face to face with one of it's denizens...
 ~
-0 0 6
+0 0 swim
 E
 lake~
 The lake is obviously full of poisoned waters, you wonder if it is wise to be
@@ -1080,7 +1059,7 @@ and shiver as you pass.  Your stomach curls at the stench of evil in everything
 here.  You wonder if the Dark One is Truly Bound far to the north in Shayol
 Ghul...
 ~
-0 0 4
+0 0 hills
 D0
 The Blight continues on to the north.
 ~
@@ -1110,7 +1089,7 @@ the area.  Trees still grow here, corrupted and twisted by the Shadow that lays
 heavily across this cursed land.  Decay and disease surround you on all sides
 as you realize you are far from the Light.
 ~
-0 0 2
+0 0 field
 D0
 The Blight continues on to the north.
 ~
@@ -1140,7 +1119,7 @@ daydreams compared to the evil that has siezed this land.  Only fools and
 highly trained Warders enter this far into the Blight, and even the Warders
 deadly skills are sometimes not enough to keep them alive.
 ~
-0 0 4
+0 0 hills
 D0
 The Blight continues on to the north.
 ~
@@ -1170,7 +1149,7 @@ and shiver as you pass.  Your stomach curls at the stench of evil in everything
 here.  You wonder if the Dark One is truly bound far to the north in Sayol
 Ghul...
 ~
-0 0 4
+0 0 hills
 D0
 The Blight continues on to the north.
 ~
@@ -1200,7 +1179,7 @@ and shiver as you pass.  Your stomach curls at the stench of evil in everything
 here.  You wonder if the Dark One is truly bound far to the north in Shayol
 Ghul...
 ~
-0 0 4
+0 0 hills
 D0
 The Blight continues on to the north.
 ~
@@ -1230,7 +1209,7 @@ and shiver as you pass.  Your stomach curls at the stench of evil in everything
 here.  You wonder if the Dark One is truly bound far to the north in Shayol
 Ghul..
 ~
-0 0 4
+0 0 hills
 D0
 The Blight continues on to the north.
 ~
@@ -1259,7 +1238,7 @@ in the center of the camp.  They appear to be preparing to enjoy a Trolloc
 delicacy, your stomach wrenches as you realize what they are devouring.  They
 turn about sensing an intrusion of thier meal...
 ~
-0 0 2
+0 0 field
 D0
 The Blight continues on to the north.
 ~
@@ -1289,7 +1268,7 @@ daydreams compared to the evil that has seized this land.  Only fools and
 highly trained Warders enter this far into the Blight, and even the Warders
 deadly skills are sometimes not enough to keep them alive.
 ~
-0 0 4
+0 0 hills
 D0
 The Blight continues on to the north.
 ~
@@ -1319,7 +1298,7 @@ and shiver as you pass.  Your stomach curls at the stench of evil in everything
 here.  You wonder if the Dark One is truly bound far to the north in Shayol
 Ghul...
 ~
-0 0 4
+0 0 hills
 D0
 The Blight continues on to the north.
 ~
@@ -1349,7 +1328,7 @@ and shiver as you pass.  Your stomach curls at the stench of evil in everything
 here.  You wonder if the Dark One is truly bound far to the north in Shayol
 Ghul...
 ~
-0 0 4
+0 0 hills
 D0
 The Blight continues on to the north.
 ~
@@ -1379,7 +1358,7 @@ and shiver as you pass.  Your stomach curls at the stench of evil in everything
 here.  You wonder if the Dark One is truly bound far to the north in Shayol
 Ghul...
 ~
-0 0 4
+0 0 hills
 D0
 The Blight continues on to the north.
 ~
@@ -1409,7 +1388,7 @@ area.  Trees still grow here, corrupted and twisted by the Shadow that lays
 heavily across this cursed land.  Decay and disease surround ou on all sides as
 you realize you are far from the light.
 ~
-0 0 2
+0 0 field
 D0
 The Blight continues on to the north.
 ~
@@ -1439,7 +1418,7 @@ daydreams compared to the evil that has seized this land.  Only fools and
 highly trained Warders enter this far into the Blight, and even the Warders
 deadly skills are sometimes not enough to keep them alive.
 ~
-0 0 4
+0 0 hills
 D0
 The Blight continues on to the north.
 ~
@@ -1469,7 +1448,7 @@ and shiver as you pass.  Your stomach curls at the stench of evil in everything
 here.  You wonder if the Dark One is truly bound far to the north in Shayol
 Ghul...
 ~
-0 0 4
+0 0 hills
 D0
 The Blight continues on to the north.
 ~
@@ -1497,7 +1476,7 @@ You are now miles into the Blight.  As you search the surrounding area you
 see the vegetation in this area is almost solid black now.  Suddenly you notice
 one of the trees is not only seeming to move, it _is_ moving - towards you!
 ~
-0 0 4
+0 0 hills
 D0
 The Blight continues on to the north.
 ~
@@ -1527,7 +1506,7 @@ and shiver as you pass.  Your stomach curls at the stench of evil in everything
 here.  You wonder if the Dark One is truly bound far to the north in Shayol
 Ghul...
 ~
-0 0 4
+0 0 hills
 D0
 The Blight continues on to the north.
 ~
@@ -1557,7 +1536,7 @@ area.  Trees still grow here, corrupted and twisted by the Shadow that lays
 heavily across this cursed land.  Decay and disease surround you on all sides
 as you realize you are far from the Light.
 ~
-0 0 4
+0 0 hills
 D0
 The Blight continues on to the north.
 ~
@@ -1587,7 +1566,7 @@ daydreams compared to the evil that has seized this land.  Only fools and
 highly trained Warders enter this far into the Blight, and even the Warders
 deadly skills are sometimes not enough to keep them alive.
 ~
-0 0 4
+0 0 hills
 D0
 The Blight continues on to the north.
 ~
@@ -1616,7 +1595,7 @@ as you enter this stretch of the Blight.  You don't have time to wonder what
 the joke is before the first Trollocs appear from hiding, the animal like
 humanoids descend upon you...
 ~
-0 0 4
+0 0 hills
 D0
 The Blight continues on to the north.
 ~
@@ -1646,7 +1625,7 @@ and shiver as you pass.  Your stomach curls at the stench of evil in eveything
 here.  You wonder if the Dark One is truly bound far to the north  in Shayol
 Ghul...
 ~
-0 0 4
+0 0 hills
 D0
 The Blight continues on to the north.
 ~
@@ -1676,7 +1655,7 @@ and shiver as you pass.  Your stomach curls at the stench of evil in everything
 here.  You wonder if the Dark One is truly bound far to the north in Shayol
 Ghul...
 ~
-0 0 4
+0 0 hills
 D0
 The Blight continues on to the north.
 ~
@@ -1706,7 +1685,7 @@ area.  Tress still grow here, corrupted and twisted by the Shadow that lays
 heavily across this cursed land.  Decay and disease surround you on all sides
 as you realize you are far from the Light.
 ~
-0 0 2
+0 0 field
 D0
 The Blight continues on to the north.
 ~
@@ -1736,7 +1715,7 @@ daydreams compared to the evil that has seized this land.  Only fools and
 highly trained Warders enter this far into the Blight, and even the Warders
 deadly skills are sometimes not enough to keep them alive.
 ~
-0 0 4
+0 0 hills
 D0
 The Blight continues on to the north.
 ~
@@ -1766,7 +1745,7 @@ and shiver as you pass.  Your stomach curls at the stench of evil in everything
 here.  You wonder if the Dark One is truly bound far to the north in Shayol
 Ghul...
 ~
-0 0 4
+0 0 hills
 D0
 The Blight continues on to the north.
 ~
@@ -1796,7 +1775,7 @@ and shiver as you pass.  Your stomach curls at the stench of evil in everything
 here.  You wonder if the Dark One is truly bound far to the north in Shayol
 Ghul...
 ~
-0 0 4
+0 0 hills
 D0
 The Blight continues on to the north.
 ~
@@ -1827,7 +1806,7 @@ The sound of a thousand wings fill your ears as your realize in horror that the
 cloud is actually a huge flock of raven.  The Eyes of the Dark One descend upon
 you to rend your flesh and spirit.
 ~
-0 A 4
+0 A hills
 D0
 The Blight continues on to the north.
 ~
@@ -1857,7 +1836,7 @@ area.  Trees still grow here, corrupted amd twisted bt the Shadow that lays
 heavily across this land.  Decay and disease surround you on all sides as you
 realize you are far from the Light.
 ~
-0 0 2
+0 0 field
 D0
 As you look more closely to the north you see a small trail of smoke.
 ~
@@ -1886,7 +1865,7 @@ in the center of the camp.  They appear to be preparing to enjoy a Trolloc
 delicacy, you stomach wrenches as you realize what they are devouring.  They
 turn about sensing an intrusion of thier meal...
 ~
-0 0 4
+0 0 hills
 D0
 The Blight continues on to the north.
 ~
@@ -1916,7 +1895,7 @@ and shiver as you pass.  Your stomach curls at the stench of evil in everything
 here.  You wonder if the Dark One is truly bound far to the north in Shayol
 Ghul...
 ~
-0 0 4
+0 0 hills
 D0
 The Blight continues on to the north.
 ~
@@ -1946,7 +1925,7 @@ and shiver as you pass.  Your stomach curls at the stench of evil in everything
 here.  You wonder if the Dark One is truly bound far to the north in Shayol
 Ghul...
 ~
-0 0 4
+0 0 hills
 D0
 The Blight continues on to the north.
 ~
@@ -1976,7 +1955,7 @@ and shiver as you pass.  Your stomach curls at the stench of evil in everything
 here.  You wonder if the Dark One is truly bound far to the north in Shayol
 Ghul...
 ~
-0 0 4
+0 0 hills
 D0
 The Blight continues on to the north.
 ~
@@ -2006,7 +1985,7 @@ area.  Trees still grow here twisted and corrupted by the Shadow that lays
 heavily across this cursed land.  Decay and disease surround you on all sides
 as you realize you are far from the Light.
 ~
-0 0 2
+0 0 field
 D0
 The Blight continues on to the north.
 ~
@@ -2036,7 +2015,7 @@ daydreams compared to the evil that has siezed this land.  Only fools and
 highly trained Warders enter this far into the Blight, and even the Warders
 deadly skills are sometimes not enough to keep them alive.
 ~
-0 0 4
+0 0 hills
 D0
 The Blight continues on to the north.
 ~
@@ -2064,7 +2043,7 @@ You are now miles into the Blight.  As you search the surrounding area you
 see the vegetation in this area is almost solid black now.  Suddenly you notice
 one of the trees is not only seeming to move, it _is_ moving - towards you!
 ~
-0 0 4
+0 0 hills
 D0
 The Blight continues on to the north.
 ~
@@ -2094,7 +2073,7 @@ and shiver as you pass.  Your stomach curls at the stench of evil in everything
 here.  You wonder if the Dark One is truly bound far to the north in Shayol
 Ghul...
 ~
-0 0 4
+0 0 hills
 D0
 The Blight continues on to the north.
 ~
@@ -2124,7 +2103,7 @@ and shiver as you pass.  Your stomach curls at the stench of evil in everything
 here.  You wonder if the Dark One is truly bound far to the north in Shayol
 Ghul...
 ~
-0 0 4
+0 0 hills
 D0
 The Blight continues on to the north.
 ~
@@ -2154,7 +2133,7 @@ area.  Trees still grow here twisted and corrupted by the Shadow that lays
 heavily across this cursed land.  Decay and disease surround you on all sides
 as you realize you are far from the Light.
 ~
-0 0 2
+0 0 field
 D0
 The Blight continues on to the north.
 ~
@@ -2184,7 +2163,7 @@ daydreams compared to the evil that has siezed this land.  Only fools and
 highly trained Warders enter this far into the Blight, and even the Warders
 deadly skills are sometimes not enough to keep them alive.
 ~
-0 0 4
+0 0 hills
 D0
 The Blight continues on to the north.
 ~
@@ -2214,7 +2193,7 @@ and shiver as you pass.  Your stomach curls at the stench of evil in everything
 here.  You wonder if the Dark One is truly bound far to the north in Shayol
 Ghul...
 ~
-0 0 4
+0 0 hills
 D0
 The Blight continues on to the north.
 ~
@@ -2244,7 +2223,7 @@ and shiver as you pass.  Your stomach curls at the stench of evil in everything
 here.  You wonder if the Dark One is truly bound far to the north in Shayol
 Ghul...
 ~
-0 0 4
+0 0 hills
 D0
 The Blight continues on to the north.
 ~
@@ -2274,7 +2253,7 @@ and shiver as you pass.  Your stomach curls at the stench of evil in everything
 here.  You wonder if the Dark One is truly bound far to the north in Shayol
 Ghul...
 ~
-0 0 4
+0 0 hills
 D0
 The Blight continues on to the north.
 ~
@@ -2303,7 +2282,7 @@ in the center of the camp.  They appear to be preparing to enjoy a Trolloc
 delicacy, your stomach wrenches as you realize what they are devouring.  They
 turn about sensing an intrusion of thier meal...
 ~
-0 0 2
+0 0 field
 D0
 The Blight continues on to the north.
 ~
@@ -2333,7 +2312,7 @@ daydreams compared to the evil that has siezed this land.  Only fools and
 highly trained Warders enter this far into the Blight, and even the Warders
 deadly skills are sometimes not enough to keep them alive.
 ~
-0 0 4
+0 0 hills
 D0
 The Blight continues on to the north.
 ~
@@ -2364,7 +2343,7 @@ here.  A large stone outcrop overlooks this stretch of the Blight, when you
 crawl to the top to get a better view, you notice large paw prints mark it's
 surface.  Prints of Dark Hounds, you wonder who they are hunting...
 ~
-0 0 4
+0 0 hills
 D0
 The Blight continues on to the north.
 ~
@@ -2392,7 +2371,7 @@ You are now miles into the Blight.  As you search the surrounding area you
 see the vegetation in this area is almost solid black now.  Suddenly you notice
 one of the trees is not only seeming to move, it _is_ moving - towards you!
 ~
-0 0 4
+0 0 hills
 D0
 The Blight contimues on to the north.
 ~
@@ -2422,7 +2401,7 @@ and shiver as you pass.  Your stomach curls at the stench of evil in everything
 here.  You wonder if the Dark One is truly bound far to the north in Shayol
 Ghul...
 ~
-0 0 4
+0 0 hills
 D0
 The Blight continues on to the north.
 ~
@@ -2452,7 +2431,7 @@ area.  Trees still grow here twisted and corrupted by the Shadow that lays
 heavily across this cursed land.  Decay and disease surround you on all sides
 as you realize you are far from the Light.
 ~
-0 0 2
+0 0 field
 D0
 The Blight continues on to the north.
 ~
@@ -2482,7 +2461,7 @@ daydreams compared to the evil that has siezed this land.  Only fools and
 highly trained Warders enter this far into the Blight, and even the Warders
 deadly skills are sometimes not enough to keep them alive.
 ~
-0 0 4
+0 0 hills
 D0
 The Blight continues on to the north.
 ~
@@ -2512,7 +2491,7 @@ and shiver as you pass.  Your stomach curls at the stench of evil in everything
 here.  You wonder if the Dark One is truly bound far to the north in Shayol
 Ghul...
 ~
-0 0 4
+0 0 hills
 D0
 The Blight continues on to the north.
 ~
@@ -2542,7 +2521,7 @@ and shiver as you pass.  Your stomach curls at the stench of evil in everything
 here.  You wonder if the Dark One is truly bound far to the north in Shayol
 Ghul...
 ~
-0 0 4
+0 0 hills
 D0
 The Blight continues on to the north.
 ~
@@ -2572,7 +2551,7 @@ seems out of place.  Upon closer inspection you realize it is man made,
 appearantly the top of a tower, now buried deep in the earth.  What lost
 kingdom must this have belonged to?
 ~
-0 0 4
+0 0 hills
 D0
 The Blight continues on to the north.
 ~
@@ -2607,7 +2586,7 @@ deeper into the tower.  The Blight is outside to the west.  You doubt the
 Trolloc armies, and any creatures here since left anything in the tower, except
 the dead.
 ~
-0 D 0
+0 D inside
 D1
 A hallway lies to the east.
 ~
@@ -2626,7 +2605,7 @@ black streaks of dried blood line the walls.  A set of stairs can be seen off
 to the south leading up into the tower.  And, the hallway continues to the
 east.
 ~
-0 D 0
+0 D inside
 D1
 The hallway continues to the east.
 ~
@@ -2651,7 +2630,7 @@ died here trying to defend Malkeri, and many more died taking the tower.  To
 the north you see a wide set of stable doors, to the south you see a set what
 remains of another set of doors.  The hallway continues to the east and west.
 ~
-0 AD 0
+0 AD inside
 D0
 The stables lie to the north.
 ~
@@ -2680,7 +2659,7 @@ black streaks of dried blood line the walls.  A set of stairs can be seen off
 to the south leading down into the tower.  And, the hallway continues to the
 west.
 ~
-0 AD 0
+0 AD inside
 D2
 A set of stairs lies to the south.
 ~
@@ -2699,7 +2678,7 @@ through the oppressive darkness of the tower.  Here a stairway leads up into
 the tower.  The walls are still streaked with blood, and the occasional Trolloc
 symbols written in the blood of the dead.
 ~
-0 AD 0
+0 AD inside
 D0
 A hallway lies to the north.
 ~
@@ -2718,7 +2697,7 @@ through the oppressive darkness of the tower.  Here a stairway leads down into
 the tower.  The walls are still streaked with blood, and the occasional Trolloc
 symbols written in the blood of the dead.
 ~
-0 AD 0
+0 AD inside
 D0
 A hallway lies to the north.
 ~
@@ -2739,7 +2718,7 @@ time, all the stalls are empty, and whatever grain may have been stored here as
 feed has long since rotted away.  The only exit from this room is to the south,
 back into the hallway.
 ~
-0 AD 0
+0 AD inside
 D2
 A hallway lies to the south.
 ~
@@ -2755,7 +2734,7 @@ of humans and Trollocs alike litter the floor.  You notice with respect that
 the Malkeri must have killed three Trollocs for every man that died after a
 quick survey of the skeletons.
 ~
-0 AD 0
+0 AD inside
 D0
 A hallway lies to the north.
 ~
@@ -2778,7 +2757,7 @@ massive iron portcullis, still intact, and rusted completely shut, it's opening
 mechanism either destroyed by the defenders of the tower, or possibly it's
 attackers...
 ~
-0 AD 0
+0 AD inside
 D0
 A large yard lies to the north.
 ~
@@ -2803,7 +2782,7 @@ here for quick reinforcements.  No one must have been in this room when the
 tower fell, and it is one of the least destroyed rooms in the building.  A few
 beds and chests line the walls undisturbed.
 ~
-0 AD 0
+0 AD inside
 D1
 A small door lies to the east.
 ~
@@ -2818,7 +2797,7 @@ here for quick reinforcements.  No one must have been in this room when the
 tower fell, and it is one of the least destroyed rooms in the building.  A few
 beds and chests line the walls undisturbed.
 ~
-0 AD 0
+0 AD inside
 D3
 A small door lies to the west.
 ~
@@ -2832,7 +2811,7 @@ through the oppressive darkness of the tower.  Here a stairway leads down into
 the tower.  The walls are still streaked with blood, and the occasional Trolloc
 symbols written in the blood of the dead.
 ~
-0 AD 0
+0 AD inside
 D0
 A hallway lies to the north.
 ~
@@ -2851,7 +2830,7 @@ and black streaks of dried blood line the walls.  A set of stairs can be seen
 off to the south leading down into the tower.  And, the hallway continues to
 the east.
 ~
-0 AD 0
+0 AD inside
 D1
 The hallway continues to the east.
 ~
@@ -2871,7 +2850,7 @@ died here trying to defend Malkeri, and many more died taking the tower.  To
 the north is a wide archway leading into darkness, to the south is another
 darkened room, and the hallway continues to the east and west.
 ~
-0 AD 0
+0 AD inside
 D0
 A darkened room lies to the north.
 ~
@@ -2900,7 +2879,7 @@ and black streaks of dried blood line the walls.  A set of stairs can be seen
 off to the south leading up into the tower.  And, the hallway continues to the
 west.
 ~
-0 AD 0
+0 AD inside
 D2
 A set of stairs lies to the south.
 ~
@@ -2919,7 +2898,7 @@ through the oppressive darkness of the tower.  Here a stairway leads up into
 the tower.  The walls are still streaked with blood, and the occasional Trolloc
 symbols written in the blood of the dead.
 ~
-0 AD 0
+0 AD inside
 D0
 A hallway lies to the north.
 ~
@@ -2937,7 +2916,7 @@ This was kitchen for the people of this tower.  Splintered tables and
 broken and dented pots and pans lay about the room.  Off to the south is a
 hallway, while a door to the east leads into another room of the tower.
 ~
-0 AD 0
+0 AD inside
 D1
 A small door is here.
 ~
@@ -2957,7 +2936,7 @@ towers kitchens prepared food for it's inhabitants.  All the food has long
 since gone rotten in the larder, leaving nothing for the rats and other
 inhabitants of this once proud tower.
 ~
-0 AD 0
+0 AD inside
 D3
 The towers kitchens lie to the west.
 ~
@@ -2971,7 +2950,7 @@ the tables and chairs in the room are broken and scattered about the room, you
 have the feeling that the last meal in this room was it's usual patrons, eaten
 by the Trolloc armies that defeated the tower.
 ~
-0 AD 0
+0 AD inside
 D0
 A hallway lies to the north.
 ~
@@ -2985,7 +2964,7 @@ through the oppressive darkness of the tower.  Here a stairway leads down into
 the tower.  The walls are still streaked with blood, and the occasional Trolloc
 symbols written in the blood of the dead.
 ~
-0 AD 0
+0 AD inside
 D0
 A hallway lies to the north.
 ~
@@ -3004,7 +2983,7 @@ and black streaks of dried blood line the walls.  On the northern wall a door
 leads off into the tower.  A set of stairs can be seen off to the south leading
 down into the tower.  And, the hallway continues to the west.
 ~
-0 AD 0
+0 AD inside
 D0
 A door leads off into the tower.
 ~
@@ -3029,7 +3008,7 @@ died here trying to defend Malkeri, and many more died taking the tower.  To
 the south a door leads off into the darkness, and the hallway continues to the
 east and west.
 ~
-0 AD 0
+0 AD inside
 D1
 The hallway continues to the east.
 ~
@@ -3054,7 +3033,7 @@ died here trying to defend Malkeri, and many more died taking the tower.  To
 the north and south doorways lead off into the darkness, and the hallway
 continues to the east and west.
 ~
-0 AD 0
+0 AD inside
 D0
 A door leads off into the tower to the north.
 ~
@@ -3083,7 +3062,7 @@ and black streaks of dried blood line the walls.  A set of stairs can be seen
 off to the south leading up into the tower.  And, the hallway continues to the
 east.
 ~
-0 AD 0
+0 AD inside
 D1
 The hallway continues to the east.
 ~
@@ -3102,7 +3081,7 @@ through the oppressive darkness of the tower.  Here a stairway leads up into
 the tower.  The walls are still streaked with blood, and the occasional Trolloc
 symbols written in the blood of the dead.
 ~
-0 AD 0
+0 AD inside
 D0
 A hallway lies to the north.
 ~
@@ -3122,7 +3101,7 @@ and the occasional skeleton.  Looking more closely at a section of the northern
 wall you notice a small patch of writing that reads "Lies, lies - where is the
 power I was promised?"
 ~
-0 AD 0
+0 AD inside
 D2
 A hallway lies to the south.
 ~
@@ -3135,7 +3114,7 @@ This room used to house the servants of the tower, now only a rat or two
 lives in thier places.  The room is bare except for rotting pallets bare of any
 padding, and the skeletons of the long dead servants themselves.
 ~
-0 AD 0
+0 AD inside
 D2
 A hallway lies to the south.
 ~
@@ -3149,7 +3128,7 @@ thier quarters when the final assault took place.  You can see that the room
 held four men.  Bunks and lockers are in each corner of the room, disturbed,
 but not destroyed.
 ~
-0 AD 0
+0 AD inside
 D0
 A hallway lies to the north.
 ~
@@ -3162,7 +3141,7 @@ This room has been almost destroyed.  Nothing remains that has not been
 broken apart or totally destroyed.  The Trollocs seem to have been searching
 this room, although for what, or if they found it is a mystery...
 ~
-0 AD 0
+0 AD inside
 D0
 A hallway lies to the north.
 ~
@@ -3176,7 +3155,7 @@ through the oppressive darkness of the tower.  Here a stairway leads down into
 the tower.  The walls are still streaked with blood, and the occasional Trolloc
 symbols written in the blood of the dead.
 ~
-0 AD 0
+0 AD inside
 D0
 A hallway lies to the north.
 ~
@@ -3195,7 +3174,7 @@ black streaks of dried blood line the walls.  A set of stairs can be seen off
 to the south leading down into the tower.  And, the hallway continues to the
 east.
 ~
-0 AD 0
+0 AD inside
 D1
 The hallway continues to the east.
 ~
@@ -3216,7 +3195,7 @@ the north is a wide archway leading into darkness, to the south a large gilded
 door stands seemingly untouched by the towers fall, the hallway continues to
 the east and west.
 ~
-0 AD 0
+0 AD inside
 D0
 An archway leads into another part of the tower.
 ~
@@ -3245,7 +3224,7 @@ black streaks of dried blood line the walls.  A set of stairs can be seen off
 to the south leading up yo the roof of the tower.  While the hallway continues
 back to the west.
 ~
-0 AD 0
+0 AD inside
 D2
 A set of stairs can be seen to the south.
 ~
@@ -3264,7 +3243,7 @@ through the oppressive darkness of the tower.  Here a stairway leads up onto
 the battlements of the tower.  The walls are still streaked with blood, and the
 occasional Trolloc symbols written in the blood of the dead.
 ~
-0 AD 0
+0 AD inside
 D0
 A hallway lies to the north.
 ~
@@ -3285,7 +3264,7 @@ fanciful creatures and places once lined it's walls, now it walls are lined
 with dried blood and grey rags.  Once, this tower was one of the Seven Towers
 of Malkeri, now a ruin in the Blight.
 ~
-0 AD 0
+0 AD inside
 D2
 An archway leads into darkness to the south.
 ~
@@ -3301,7 +3280,7 @@ with life and anger at someone daring to enter this room.  The air becomes
 clearer, as does a shape forming beside the bed.  Malkerians were ever a
 stubborn lot.
 ~
-0 D 0
+0 D inside
 D0
 A great gilded door lies to the north.
 ~
@@ -3316,7 +3295,7 @@ the desolation of the Blight, the Land of the Shadow.  The battlements
 themselves are blackened as if by huge gouts of fire, your heart sinks with
 desperation and a sense of loss for the broken kingdom, and it's brave people.
 ~
-0 C 1
+0 C city
 D5
 Below you stairs lead down into the tower.
 ~
@@ -3330,7 +3309,7 @@ through the oppressive darkness of the tower.  Here a stairway leads up into
 the tower.  The walls are still streaked with blood, and the occasional Trolloc
 symbols written in the blood of the dead.
 ~
-0 AD 0
+0 AD inside
 D0
 A hallway lies to the north.
 ~
@@ -3350,7 +3329,7 @@ to the south leading up into the tower.  To the north you see a door adorned
 with two crossed swords, now covered in blood.  The hallway continues to the
 west.
 ~
-0 AD 0
+0 AD inside
 D0
 A door adorned with crossed swords, now fouled with blood is to the north.
 ~
@@ -3376,7 +3355,7 @@ shore of the Dead Sea.  It's black and lifeless waters are perfectly still like
 a huge mirror of pollished obsidian.  It's calm and lack of life chill you to
 the bone, surely one step into those evil waters would mean your death.
 ~
-0 0 5
+0 0 mountain
 D0
 The Blight continues on to the north.
 ~
@@ -3401,7 +3380,7 @@ world.  They are a good people, but allow no one and nothing from the Blight to
 pass into thier lands, patrols meet you every effort to move farther south,
 turning you back with suspicious eyes.
 ~
-0 0 2
+0 0 field
 D0
 The Blight stretches northward.
 ~
@@ -3421,7 +3400,7 @@ world.  They are a good people, but allow no one and nothing from the Blight to
 pass into thier lands, patrols meet you every effort to move farther south,
 turning you back with suspicious eyes.
 ~
-0 0 2
+0 0 field
 D0
 The Blight stretches northward.
 ~
@@ -3446,7 +3425,7 @@ world.  They are a good people, but allow no one and nothing from the Blight to
 pass into thier lands, patrols meet you every effort to move farther south,
 turning you back with suspicious eyes.
 ~
-0 0 2
+0 0 field
 D0
 The Blight stretches northward.
 ~
@@ -3471,7 +3450,7 @@ world.  They are a good people, but allow no one and nothing from the Blight to
 pass into thier lands, patrols meet you every effort to move farther south,
 turning you back with suspicious eyes.
 ~
-0 0 2
+0 0 field
 D0
 The Blight stretches northward.
 ~
@@ -3496,7 +3475,7 @@ world.  They are a good people, but allow no one and nothing from the Blight to
 pass into thier lands, patrols meet you every effort to move farther south,
 turning you back with suspicious eyes.
 ~
-0 0 2
+0 0 field
 D0
 The Blight stretches northward.
 ~
@@ -3521,7 +3500,7 @@ world.  They are a good people, but allow no one and nothing from the Blight to
 pass into thier lands, patrols meet you every effort to move farther south,
 turning you back with suspicious eyes.
 ~
-0 0 2
+0 0 field
 D0
 The Blight stretches northward.
 ~
@@ -3546,7 +3525,7 @@ world.  They are a good people, but allow no one and nothing from the Blight to
 pass into thier lands, patrols meet you every effort to move farther south,
 turning you back with suspicious eyes.
 ~
-0 0 2
+0 0 field
 D0
 The Blight stretches northward.
 ~
@@ -3571,7 +3550,7 @@ world.  They are a good people, but allow no one and nothing from the Blight to
 pass into thier lands, patrols meet you every effort to move farther south,
 turning you back with suspicious eyes.
 ~
-0 0 2
+0 0 field
 D0
 The Blight strecthes northward.
 ~
@@ -3596,7 +3575,7 @@ world.  They are a good people, but allow no one and nothing from the Blight to
 pass into thier lands, patrols meet you every effort to move farther south,
 turning you back with suspicious eyes.
 ~
-0 0 2
+0 0 field
 D0
 The Blight stretches northward.
 ~
@@ -3621,7 +3600,7 @@ world.  They are a good people, but allow no one and nothing from the Blight to
 pass into thier lands, patrols meet you every effort to move farther south,
 turning you back with suspicious eyes.
 ~
-0 0 2
+0 0 field
 D0
 The Blight stretches northward.
 ~
@@ -3646,7 +3625,7 @@ world.  They are a good people, but allow no one and nothing from the Blight to
 pass into thier lands, patrols meet you every effort to move farther south,
 turning you back with suspicious eyes.
 ~
-0 0 2
+0 0 field
 D0
 The Blight stretches northward.
 ~
@@ -3671,7 +3650,7 @@ world.  They are a good people, but allow no one and nothing from the Blight to
 pass into thier lands, patrols meet you every effort to move farther south,
 turning you back with suspicious eyes.
 ~
-0 0 2
+0 0 field
 D0
 The Blight stretches northward.
 ~
@@ -3696,7 +3675,7 @@ world.  They are a good people, but allow no one and nothing from the Blight to
 pass into thier lands, patrols meet you every effort to move farther south,
 turning you back with suspicious eyes.
 ~
-0 0 2
+0 0 field
 D0
 The Blight stretches northward.
 ~
@@ -3721,7 +3700,7 @@ world.  They are a good people, but allow no one and nothing from the Blight to
 pass into thier lands, patrols meet your every effort to move farther south,
 turning you back with suspicious eyes.
 ~
-0 0 2
+0 0 field
 D0
 The Blight stretches northward.
 ~
@@ -3746,7 +3725,7 @@ wards suroounding the glade.  Perhaps they were laid buy Lews Therin himself
 or one of the Hundred Companions.  Whoever did it, you are just happy to be
 here, safe from the horrors of the Blight.
 ~
-0 CN 2
+0 CN field
 D2
 The Blight stretches on to the south.
 ~
@@ -3761,7 +3740,7 @@ here trying to defend Malkeri, and many more died taking the tower.  To the
 south you see a sturdy set of doors leading off to another section of the
 tower,  while the hallway continues to the east and west.
 ~
-0 AD 0
+0 AD inside
 D1
 The hallway continues to the east.
 ~
@@ -3785,7 +3764,7 @@ black streaks of dried blood line the walls.  A set of stairs can be seen off
 to the south leading down into the tower.  A small door is set in the northern
 wall, and, the hallway continues to the east.
 ~
-0 AD 0
+0 AD inside
 D0
 A small door is set in the northern wall.
 ~
@@ -3809,7 +3788,7 @@ through the oppressive darkness of the tower.  Here a stairway leads down into
 the tower.  The walls are still streaked with blood, and the occasional Trolloc
 symbols written in the blood of the dead.
 ~
-0 AD 0
+0 AD inside
 D0
 A hallway lies to the north.
 ~
@@ -3829,7 +3808,7 @@ the lakes themselves.  A door leads back into the hallway to  the south, while
 to the west you see a small duct, possibly leading back outside to one of the
 lakes.
 ~
-0 AD 0
+0 AD inside
 D2
 A hallway lies to the south.
 ~
@@ -3849,7 +3828,7 @@ remains.  Through the blood and wreckage of this room, a slogan is painted all
 across the northern wall, 'May peace favor your sword.'  A dream for these long
 dead warriors.  One that never came to be...
 ~
-0 AD 0
+0 AD inside
 D2
 The Hallway is south from here.
 ~
@@ -3864,7 +3843,7 @@ Trolloc hordes that fell this mighty tower were very thorough in thier
 destruction.  All that is left is twisted metal and splintered wood among the
 rotting leather.
 ~
-0 AD 0
+0 AD inside
 D0
 A hallway lies to the north.
 ~
@@ -3878,7 +3857,7 @@ through the oppressive darkness of the tower.  Here a stairway leads up into
 the tower.  The walls are still streaked with blood, and the occasional Trolloc
 symbols written in the blood of the dead.
 ~
-0 AD 0
+0 AD inside
 D0
 A hallway lies to the north.
 ~
@@ -3898,7 +3877,7 @@ dried blood is the only decorations to be seen on it's walls.  A stout door
 isset into northern wall. To the south lies a set of stairs, while the hallway
 continues to the east.
 ~
-0 AD 0
+0 AD inside
 D0
 A stout door is set in the northern wall.
 ~
@@ -3922,7 +3901,7 @@ adorn the walls.  This was no a place of honor or celebration in the tower, and
 dried blood is the only decorations to be seen on it's walls.  A barred door is
 set in the southern wall, the hallway continues to the west.
 ~
-0 AD 0
+0 AD inside
 D2
 A stout door is set in the southern wall.
 ~
@@ -3941,7 +3920,7 @@ longer prisonners to watch, or guards to watch them however, and this room
 holds nothing but wreckage and dust.  A small door is set in the eastern wall,
 while the hallway lies to the south.
 ~
-0 AD 0
+0 AD inside
 D1
 A small door lies to the east.
 ~
@@ -3960,7 +3939,7 @@ not see any implements of torture in this room, you feel certain the towers
 guards had many questions answered here.  A small door leads into the guard
 room to the west.
 ~
-0 AD 0
+0 AD inside
 D3
 A small door is set into the western wall.
 ~
@@ -3976,7 +3955,7 @@ cells hold skeletons hanging from rotting ropes appearantly made from rotting
 bedding.  Surely the Shadowspawn that took the tower would have freed thier
 fellows.  Wouldn't they?
 ~
-0 AD 0
+0 AD inside
 D0
 A stout door is set in the northern wall.
 ~
@@ -3991,7 +3970,7 @@ deeper into the tower.  The Blight is outside to the east.  You doubt the
 Trolloc armies, and any creatures here since left anything in the tower, except
 the dead.
 ~
-0 D 0
+0 D inside
 D1
 The Blight lies outside to the east.
 ~
@@ -4010,7 +3989,7 @@ black streaks of dried blood line the walls.  A set of stairs can be seen off
 to the south leading down into the tower.  And, the hallway continues to the
 west.  To the east you see a great breach in the towers walls.
 ~
-0 AD 0
+0 AD inside
 D1
 There is a breach in the tower's wall to the east.
 ~
@@ -4034,7 +4013,7 @@ through the oppressive darkness of the tower.  Here a stairway leads down into
 the tower.  The walls are still streaked with blood, and the occasional Trolloc
 symbols written in the blood of the dead.
 ~
-0 AD 0
+0 AD inside
 D0
 A hallway lies to the north.
 ~
@@ -4054,7 +4033,7 @@ died here trying to defend Malkeri, and many more died taking the tower.  To
 the north you see a wide set of stable doors, to the south you see a set what
 remains of another set of doors.  The hallway continues to the east and west.
 ~
-0 AD 0
+0 AD inside
 D0
 The stables lie to the north.
 ~
@@ -4083,7 +4062,7 @@ black streaks of dried blood line the walls.  A set of stairs can be seen off
 to the south leading up into the tower.  And, the hallway continues to the
 east.
 ~
-0 AD 0
+0 AD inside
 D1
 The hallway continues to the east.
 ~
@@ -4102,7 +4081,7 @@ through the oppressive darkness of the tower.  Here a stairway leads up into
 the tower.  The walls are still streaked with blood, and the occasional Trolloc
 symbols written in the blood of the dead.
 ~
-0 AD 0
+0 AD inside
 D0
 A hallway lies to the north.
 ~
@@ -4123,7 +4102,7 @@ time, all the stalls are empty, and whatever grain may have been stored here as
 feed has long since rotted away.  The only exit from this room is to the south,
 back into the hallway.
 ~
-0 AD 0
+0 AD inside
 D2
 A hallway lies to the south.
 ~
@@ -4139,7 +4118,7 @@ of humans and Trollocs alike litter the floor.  You notice with respect that
 the Malkeri must have killed three Trollocs for every man that died after a
 quick survey of the skeletons.
 ~
-0 AD 0
+0 AD inside
 D0
 A hallway lies to the north.
 ~
@@ -4162,7 +4141,7 @@ massive iron portcullis, still intact, and rusted completely shut, it's opening
 mechanism either destroyed by the defenders of the tower, or possibly it's
 attackers...
 ~
-0 AD 0
+0 AD inside
 D0
 A large yard lies to the north.
 ~
@@ -4187,7 +4166,7 @@ here for quick reinforcements.  No one must have been in this room when the
 tower fell, and it is one of the least destroyed rooms in the building.  A few
 beds and chests line the walls undisturbed.
 ~
-0 AD 0
+0 AD inside
 D1
 A small door lies to the east.
 ~
@@ -4202,7 +4181,7 @@ here for quick reinforcements.  No one must have been in this room when the
 tower fell, and it is one of the least destroyed rooms in the building.  A few
 beds and chests line the walls undisturbed.
 ~
-0 AD 0
+0 AD inside
 D3
 A small door lies to the west.
 ~
@@ -4216,7 +4195,7 @@ through the oppressive darkness of the tower.  Here a stairway leads down into
 the tower.  The walls are still streaked with blood, and the occasional Trolloc
 symbols written in the blood of the dead.
 ~
-0 AD 0
+0 AD inside
 D0
 A hallway lies to the north.
 ~
@@ -4235,7 +4214,7 @@ and black streaks of dried blood line the walls.  A set of stairs can be seen
 off to the south leading down into the tower.  And, the hallway continues to
 the east.
 ~
-0 AD 0
+0 AD inside
 D1
 The hallway continues to the east.
 ~
@@ -4255,7 +4234,7 @@ died here trying to defend Malkeri, and many more died taking the tower.  To
 the north is a wide archway leading into darkness, to the south is another
 darkened room, and the hallway continues to the east and west.
 ~
-0 AD 0
+0 AD inside
 D0
 A darkened room lies to the north.
 ~
@@ -4284,7 +4263,7 @@ and black streaks of dried blood line the walls.  A set of stairs can be seen
 off to the south leading up into the tower.  And, the hallway continues to the
 west.
 ~
-0 AD 0
+0 AD inside
 D2
 A set of stairs lies to the south.
 ~
@@ -4303,7 +4282,7 @@ through the oppressive darkness of the tower.  Here a stairway leads up into
 the tower.  The walls are still streaked with blood, and the occasional Trolloc
 symbols written in the blood of the dead.
 ~
-0 AD 0
+0 AD inside
 D0
 A hallway lies to the north.
 ~
@@ -4321,7 +4300,7 @@ This was kitchen for the people of this tower.  Splintered tables and
 broken and dented pots and pans lay about the room.  Off to the south is a
 hallway, while a door to the east leads into another room of the tower.
 ~
-0 AD 0
+0 AD inside
 D1
 A small door lies to the east.
 ~
@@ -4341,7 +4320,7 @@ towers kitchens prepared food for it's inhabitants.  All the food has long
 since gone rotten in the larder, leaving nothing for the rats and other
 inhabitants of this once proud tower.
 ~
-0 AD 0
+0 AD inside
 D3
 The tower's kitchen lies to the west.
 ~
@@ -4355,7 +4334,7 @@ the tables and chairs in the room are broken and scattered about the room, you
 have the feeling that the last meal in this room was it's usual patrons, eaten
 by the Trolloc armies that defeated the tower.
 ~
-0 AD 0
+0 AD inside
 D0
 A hallway lies to the north.
 ~
@@ -4369,7 +4348,7 @@ through the oppressive darkness of the tower.  Here a stairway leads down into
 the tower.  The walls are still streaked with blood, and the occasional Trolloc
 symbols written in the blood of the dead.
 ~
-0 AD 0
+0 AD inside
 D0
 A hallway lies to the north.
 ~
@@ -4388,7 +4367,7 @@ and black streaks of dried blood line the walls.  On the northern wall a door
 leads off into the tower.  A set of stairs can be seen off to the south leading
 down into the tower.  And, the hallway continues to the west.
 ~
-0 AD 0
+0 AD inside
 D0
 A small door lies to the north.
 ~
@@ -4413,7 +4392,7 @@ died here trying to defend Malkeri, and many more died taking the tower.  To
 the south a door leads off into the darkness, and the hallway continues to the
 east and west.
 ~
-0 AD 0
+0 AD inside
 D1
 The hallway continues to the east.
 ~
@@ -4438,7 +4417,7 @@ died here trying to defend Malkeri, and many more died taking the tower.  To
 the north and south doorways lead off into the darkness, and the hallway
 continues to the east and west.
 ~
-0 AD 0
+0 AD inside
 D0
 A large door stands in the northern wall.
 ~
@@ -4467,7 +4446,7 @@ and black streaks of dried blood line the walls.  A set of stairs can be seen
 off to the south leading up into the tower.  And, the hallway continues to the
 east.
 ~
-0 AD 0
+0 AD inside
 D1
 The hallway continues to the east.
 ~
@@ -4486,7 +4465,7 @@ through the oppressive darkness of the tower.  Here a stairway leads up into
 the tower.  The walls are still streaked with blood, and the occasional Trolloc
 symbols written in the blood of the dead.
 ~
-0 AD 0
+0 AD inside
 D0
 A hallway lies to the north.
 ~
@@ -4506,7 +4485,7 @@ and the occasional skeleton.  Looking more closely at a section of the northern
 wall you notice a small patch of writing that reads "I should have taken the
 Dark One's offer, I could have power now instead of death."
 ~
-0 AD 0
+0 AD inside
 D2
 A large door lies to the south.
 ~
@@ -4519,7 +4498,7 @@ This room used to house the servants of the tower, now only a rat or two
 lives in thier places.  The room is bare except for rotting pallets bare of any
 padding, and the skeletons of the long dead servants themselves.
 ~
-0 AD 0
+0 AD inside
 D2
 A small door lies to the south.
 ~
@@ -4533,7 +4512,7 @@ thier quarters when the final assault took place.  You can see that the room
 held four men.  Bunks and lockers are in each corner of the room, disturbed,
 but not destroyed.
 ~
-0 AD 0
+0 AD inside
 D0
 A door lies to the north.
 ~
@@ -4546,7 +4525,7 @@ This room has been almost destroyed.  Nothing remains that has not been
 broken apart or totally destroyed.  The Trollocs seem to have been searching
 this room, although for what, or if they found it is a mystery...
 ~
-0 AD 0
+0 AD inside
 D0
 A small door lies to the north.
 ~
@@ -4560,7 +4539,7 @@ through the oppressive darkness of the tower.  Here a stairway leads down into
 the tower.  The walls are still streaked with blood, and the occasional Trolloc
 symbols written in the blood of the dead.
 ~
-0 AD 0
+0 AD inside
 D0
 A hallway lies to the north.
 ~
@@ -4579,7 +4558,7 @@ black streaks of dried blood line the walls.  A set of stairs can be seen off
 to the south leading down into the tower.  And, the hallway continues to the
 east.
 ~
-0 AD 0
+0 AD inside
 D1
 The hallway continues to the east.
 ~
@@ -4600,7 +4579,7 @@ the north is a wide archway leading into darkness, to the south a large gilded
 door stands seemingly untouched by the towers fall, the hallway continues to
 the east and west.
 ~
-0 AD 0
+0 AD inside
 D0
 An archway leads into another part of the tower.
 ~
@@ -4629,7 +4608,7 @@ black streaks of dried blood line the walls.  A set of stairs can be seen off
 to the south leading up yo the roof of the tower.  While the hallway continues
 back to the west.
 ~
-0 AD 0
+0 AD inside
 D2
 A set of stairs lies to the south.
 ~
@@ -4648,7 +4627,7 @@ through the oppressive darkness of the tower.  Here a stairway leads up onto
 the battlements of the tower.  The walls are still streaked with blood, and the
 occasional Trolloc symbols written in the blood of the dead.
 ~
-0 AD 0
+0 AD inside
 D0
 A hallway lies to the north.
 ~
@@ -4669,7 +4648,7 @@ fanciful creatures and places once lined it's walls, now it walls are lined
 with dried blood and grey rags.  Once, this tower was one of the Seven Towers
 of Malkeri, now a ruin in the Blight.
 ~
-0 AD 0
+0 AD inside
 D2
 A hallway lies to the south.
 ~
@@ -4685,7 +4664,7 @@ with life and anger at someone daring to enter this room.  The air becomes
 clearer, as does a shape forming beside the bed.  Malkerians were ever a
 stubborn lot.
 ~
-0 D 0
+0 D inside
 D0
 A large golden door is set in the northern wall.
 ~
@@ -4700,7 +4679,7 @@ the desolation of the Blight, the Land of the Shadow.  The battlements
 themselves are blackened as if by huge gouts of fire, your heart sinks with
 desperation and a sense of loss for the broken kingdom, and it's brave people.
 ~
-0 C 1
+0 C city
 D5
 A set of stairs leads down into the tower.
 ~
@@ -4714,7 +4693,7 @@ through the oppressive darkness of the tower.  Here a stairway leads up into
 the tower.  The walls are still streaked with blood, and the occasional Trolloc
 symbols written in the blood of the dead.
 ~
-0 AD 0
+0 AD inside
 D0
 A hallway lies to the north.
 ~
@@ -4734,7 +4713,7 @@ to the south leading up into the tower.  To the north you see a door adorned
 with two crossed swords, now covered in blood.  The hallway continues to the
 west.
 ~
-0 AD 0
+0 AD inside
 D0
 A set of doors adorned with crossed swords lies to the north.
 ~
@@ -4759,7 +4738,7 @@ here trying to defend Malkeri, and many more died taking the tower.  To the
 south you see a sturdy set of doors leading off to another section of the
 tower,  while the hallway continues to the east and west.
 ~
-0 AD 0
+0 AD inside
 D1
 The hallway continues to the east.
 ~
@@ -4783,7 +4762,7 @@ black streaks of dried blood line the walls.  A set of stairs can be seen off
 to the south leading down into the tower.  A small door is set in the northern
 wall, and, the hallway continues to the east.
 ~
-0 AD 0
+0 AD inside
 D0
 A small door lies to the north.
 ~
@@ -4807,7 +4786,7 @@ through the oppressive darkness of the tower.  Here a stairway leads down into
 the tower.  The walls are still streaked with blood, and the occasional Trolloc
 symbols written in the blood of the dead.
 ~
-0 AD 0
+0 AD inside
 D0
 A hallway lies to the north.
 ~
@@ -4827,7 +4806,7 @@ the lakes themselves.  A door leads back into the hallway to  the south, while
 to the west you see a small duct, possibly leading back outside to one of the
 lakes.
 ~
-0 AD 0
+0 AD inside
 D2
 A hallway lies to the south.
 ~
@@ -4847,7 +4826,7 @@ remains.  Through the blood and wreckage of this room, a slogan is painted all
 across the northern wall, 'May peace favor your sword.'  A dream for these long
 dead warriors.  One that never came to be...
 ~
-0 AD 0
+0 AD inside
 D2
 A hallway lies to the south.
 ~
@@ -4862,7 +4841,7 @@ Trolloc hordes that fell this mighty tower were very thorough in thier
 destruction.  All that is left is twisted metal and splintered wood among the
 rotting leather.
 ~
-0 AD 0
+0 AD inside
 D0
 A hallway lies to the north.
 ~
@@ -4876,7 +4855,7 @@ through the oppressive darkness of the tower.  Here a stairway leads up into
 the tower.  The walls are still streaked with blood, and the occasional Trolloc
 symbols written in the blood of the dead.
 ~
-0 AD 0
+0 AD inside
 D0
 A hallway lies to the north.
 ~
@@ -4896,7 +4875,7 @@ dried blood is the only decorations to be seen on it's walls.  A stout door
 isset into northern wall. To the south lies a set of stairs, while the hallway
 continues to the east.
 ~
-0 AD 0
+0 AD inside
 D0
 A stout door is set in the northern wall.
 ~
@@ -4920,7 +4899,7 @@ adorn the walls.  This was no a place of honor or celebration in the tower, and
 dried blood is the only decorations to be seen on it's walls.  A barred door is
 set in the southern wall, the hallway continues to the west.
 ~
-0 AD 0
+0 AD inside
 D2
 A stout door is set in the southern wall.
 ~
@@ -4939,7 +4918,7 @@ longer prisonners to watch, or guards to watch them however, and this room
 holds nothing but wreckage and dust.  A small door is set in the eastern wall,
 while the hallway lies to the south.
 ~
-0 AD 0
+0 AD inside
 D1
 A door lies to the east.
 ~
@@ -4958,7 +4937,7 @@ not see any implements of torture in this room, you feel certain the towers
 guards had many questions answered here.  A small door leads into the guard
 room to the west.
 ~
-0 AD 0
+0 AD inside
 D3
 A door lies to the west.
 ~
@@ -4974,7 +4953,7 @@ cells hold skeletons hanging from rotting ropes appearantly made from rotting
 bedding.  Surely the Shadowspawn that took the tower would have freed thier
 fellows.  Wouldn't they?
 ~
-0 AD 0
+0 AD inside
 D0
 A stout door is set in the northern wall.
 ~
@@ -4988,7 +4967,7 @@ the air is shimmering, and you feel disoriented.  You are not in a room, it's
 more like you are floating, existing, nothing more.  You feel your self
 slipping away, and know you must move from this area soon, or be lost forever.
 ~
-0 ADN 0
+0 ADN inside
 D0
 You cannot pierce the shimmering air.
 ~
@@ -5030,7 +5009,7 @@ grinning with canine maws.  They are too tall to be humans, and too thin.  You
 are glad that whatever force keeps you from moving on stops them from getting
 to you also.
 ~
-0 ADN 0
+0 ADN inside
 D2
 The air is still shimmering to the south.
 ~
@@ -5047,7 +5026,7 @@ you.  They seem to have no bones as they sway like willows in the wind.  They
 seem to be in rapture at your presence, smiling absently.  You are glad that
 whatever force keeps you from moving on stops them from getting to you also.
 ~
-0 ADN 0
+0 ADN inside
 D0
 The air is still shimmering to the north.
 ~
@@ -5064,7 +5043,7 @@ before, but you sense he is a man great power.  The kind who contols other men
 and women fates with uncommon ease, sitting before a glowing screen, working
 some strange plate before him.
 ~
-0 ADN 0
+0 ADN inside
 D1
 The air is still shimmering to the east.
 ~
@@ -5082,7 +5061,7 @@ talking back in the town you come from, people living and dying, being reborn,
 and dying again.  And the men in the room don't even notice!  You feel a great
 need to leave this place.
 ~
-0 ADN 0
+0 ADN inside
 D3
 The air still shimmers to the west.
 ~
@@ -5096,7 +5075,7 @@ strange clothes move about.  Some of them look at you for a moment and move on,
 others do not even notice you and move by the glass surrounding you without a
 care.  Other beings are in the glass yard with you...
 ~
-0 ADN 0
+0 ADN inside
 D0
 The Northern Yard
 ~
@@ -5131,7 +5110,7 @@ than steel.  The people outside sometimes look at you with a sense of wonder,
 sometimes disgust, and sometines not at all.  The other beings in the yard look
 as confused as you feel.
 ~
-0 ADN 0
+0 ADN inside
 D0
 The center of the yard is to the north.
 ~
@@ -5155,7 +5134,7 @@ surrounding the yard looks like glass, but when you test it's strength you find
 it to be harder than steel.  People milling around outside sometimes notice
 you, sometimes not.  The other beings in the yard look as confused as you feel.
 ~
-0 ADN 0
+0 ADN inside
 D0
 The eastern wall of the yard is to the north.
 ~
@@ -5175,7 +5154,7 @@ than steel.  The people outside sometimes look at you with a sense of wonder,
 sometimes disgust, and sometines not at all.  The other beings in the yard look
 as confused as you feel.
 ~
-0 ADN 0
+0 ADN inside
 D0
 The northeast corner of the yard is to the north.
 ~
@@ -5199,7 +5178,7 @@ surrounding the yard looks like glass, but when you test it's strength you find
 it to be harder than steel.  People milling around outside sometimes notice
 you, sometimes not.  The other beings in the yard look as confused as you feel.
 ~
-0 ADN 0
+0 ADN inside
 D2
 The east wall of the yard is to the south.
 ~
@@ -5219,7 +5198,7 @@ than steel.  The people outside sometimes look at you with a sense of wonder,
 sometimes disgust, and sometines not at all.  The other beings in the yard look
 as confused as you feel.
 ~
-0 ADN 0
+0 ADN inside
 D1
 The northeast corner of the yard is to the east.
 ~
@@ -5243,7 +5222,7 @@ surrounding the yard looks like glass, but when you test it's strength you find
 it to be harder than steel.  People milling around outside sometimes notice
 you, sometimes not.  The other beings in the yard look as confused as you feel.
 ~
-0 ADN 0
+0 ADN inside
 D1
 The north wall of the yard is to the east.
 ~
@@ -5263,7 +5242,7 @@ than steel.  The people outside sometimes look at you with a sense of wonder,
 sometimes disgust, and sometines not at all.  The other beings in the yard look
 as confused as you feel.
 ~
-0 ADN 0
+0 ADN inside
 D0
 The northwest corner of the yard is to the north.
 ~
@@ -5287,7 +5266,7 @@ surrounding the yard looks like glass, but when you test it's strength you find
 it to be harder than steel.  People milling around outside sometimes notice
 you, sometimes not.  The other beings in the yard look as confused as you feel.
 ~
-0 ADN 0
+0 ADN inside
 D0
 The west wall of the yard is to the north.
 ~
@@ -5307,7 +5286,7 @@ Legend has it that the mighty Aiel live on the other side of the Dragonwall,
 and you think maybe it's best that you cannot continue in that direction.  You
 still need to survive the Blight.
 ~
-0 0 5
+0 0 mountain
 D0
 The Blight continues on to the north.
 ~
@@ -5332,7 +5311,7 @@ Legend has it that the mighty Aiel live on the other side of the Dragonwall,
 and you think maybe it's best that you cannot continue in that direction.  You
 still need to survive the Blight.
 ~
-0 0 5
+0 0 mountain
 D0
 The Blight Continues on to the north.
 ~
@@ -5357,7 +5336,7 @@ Legend has it that the mighty Aiel live on the other side of the Dragonwall,
 and you think maybe it's best that you cannot continue in that direction.  You
 still need to survive the Blight.
 ~
-0 0 5
+0 0 mountain
 D0
 The Blight continues on to the north.
 ~
@@ -5382,7 +5361,7 @@ Legend has it that the mighty Aiel live on the other side of the Dragonwall,
 and you think maybe it's best that you cannot continue in that direction.  You
 still need to survive the Blight.
 ~
-0 0 5
+0 0 mountain
 D0
 The Blight continues on to the north.
 ~
@@ -5402,7 +5381,7 @@ Legend has it that the mighty Aiel live on the other side of the Dragonwall,
 and you think maybe it's best that you cannot continue in that direction.  You
 still need to survive the Blight.
 ~
-0 0 5
+0 0 mountain
 D0
 The Blight continues on to the north.
 ~
@@ -5429,7 +5408,7 @@ of Trollocs camped in the gap.  Going further to the north would be suicide.
 With the Dragonwall to the east, and the Mountains of Dhoom to the north, you
 must turn back.
 ~
-0 0 5
+0 0 mountain
 D2
 The Blight continues on to the south.
 ~
@@ -5448,7 +5427,7 @@ hundreds of miles from Shayol Ghul, you shiver at what the Blasted Lands to the
 north of the range must be like, fully in the embrace of Ba'alzamon.  You are
 not to disappointed to find no pass north into the range.
 ~
-0 0 5
+0 0 mountain
 D1
 The Blight continues on to the east.
 ~
@@ -5472,7 +5451,7 @@ hundreds of miles from Shayol Ghul, you shiver at what the Blasted Lands to the
 north of the range must be like, fully in the embrace of Ba'alzamon.  You are
 not to disappointed to find no pass north into the range.
 ~
-0 0 5
+0 0 mountain
 D1
 The Blight continues on to the east.
 ~
@@ -5496,7 +5475,7 @@ hundreds of miles from Shayol Ghul, you shiver at what the Blasted Lands to the
 north of the range must be like, fully in the embrace of Ba'alzamon.  You are
 not to disappointed to find no pass north into the range.
 ~
-0 0 5
+0 0 mountain
 D1
 The Blight continues on to the east.
 ~
@@ -5520,7 +5499,7 @@ hundreds of miles from Shayol Ghul, you shiver at what the Blasted Lands to the
 north of the range must be like, fully in the embrace of Ba'alzamon.  You are
 not to disappointed to find no pass north into the range.
 ~
-0 0 5
+0 0 mountain
 D1
 The Blight continues on to the east.
 ~
@@ -5544,7 +5523,7 @@ hundreds of miles from Shayol Ghul, you shiver at what the Blasted Lands to the
 north of the range must be like, fully in the embrace of Ba'alzamon.  You are
 not to disappointed to find no pass north into the range.
 ~
-0 0 5
+0 0 mountain
 D1
 The Blight continues on to the east.
 ~
@@ -5568,7 +5547,7 @@ hundreds of miles from Shayol Ghul, you shiver at what the Blasted Lands to the
 north of the range must be like, fully in the embrace of Ba'alzamon.  You are
 not to disappointed to find no pass north into the range.
 ~
-0 0 5
+0 0 mountain
 D1
 The Blight continues on to the east.
 ~
@@ -5592,7 +5571,7 @@ hundreds of miles from Shayol Ghul, you shiver at what the Blasted Lands to the
 north of the range must be like, fully in the embrace of Ba'alzamon.  You are
 not to disappointed to find no pass north into the range.
 ~
-0 0 5
+0 0 mountain
 D1
 The Blight continues on to the east.
 ~
@@ -5616,7 +5595,7 @@ hundreds of miles from Shayol Ghul, you shiver at what the Blasted Lands to the
 north of the range must be like, fully in the embrace of Ba'alzamon.  You are
 not to disappointed to find no pass north into the range.
 ~
-0 0 5
+0 0 mountain
 D0
 You just see mountains.
 ~
@@ -5645,7 +5624,7 @@ hundreds of miles from Shayol Ghul, you shiver at what the Blasted Lands to the
 north of the range must be like, fully in the embrace of Ba'alzamon.  You are
 not to disappointed to find no pass north into the range.
 ~
-0 0 5
+0 0 mountain
 D1
 The Blight continues on to the east.
 ~
@@ -5669,7 +5648,7 @@ hundreds of miles from Shayol Ghul, you shiver at what the Blasted Lands to the
 north of the range must be like, fully in the embrace of Ba'alzamon.  You are
 not to disappointed to find no pass north into the range.
 ~
-0 0 5
+0 0 mountain
 D1
 The Blight continues on to the east.
 ~
@@ -5693,7 +5672,7 @@ hundreds of miles from Shayol Ghul, you shiver at what the Blasted Lands to the
 north of the range must be like, fully in the embrace of Ba'alzamon.  You are
 not to disappointed to find no pass north into the range.
 ~
-0 0 5
+0 0 mountain
 D1
 The Blight continues on to the east.
 ~
@@ -5717,7 +5696,7 @@ hundreds of miles from Shayol Ghul, you shiver at what the Blasted Lands to the
 north of the range must be like, fully in the embrace of Ba'alzamon.  You are
 not to disappointed to find no pass north into the range.
 ~
-0 0 5
+0 0 mountain
 D1
 The Blight continues on to the east.
 ~
@@ -5745,7 +5724,7 @@ and lifeless waters are perfectly still like a huge mirror of pollished
 obsidian.  It's calm and lack of life chill you to the bone, surely one step
 into those evil waters would mean your death.
 ~
-0 0 5
+0 0 mountain
 D1
 The Blight continues on to the east.
 ~
@@ -5766,7 +5745,7 @@ shore of the Dead Sea.  It's black and lifeless waters are perfectly still like
 a huge mirror of pollished obsidian.  It's calm and lack of life chill you to
 the bone, surely one step into those evil waters would mean your death.
 ~
-0 0 5
+0 0 mountain
 D0
 The Blight continues on to the north.
 ~
@@ -5792,7 +5771,7 @@ shore of the Dead Sea.  It's black and lifeless waters are perfectly still like
 a huge mirror of pollished obsidian.  It's calm and lack of life chill you to
 the bone, surely one step into those evil waters would mean your death.
 ~
-0 0 5
+0 0 mountain
 D0
 The Blight continues on to the north.
 ~
@@ -5818,7 +5797,7 @@ shore of the Dead Sea.  It's black and lifeless waters are perfectly still like
 a huge mirror of pollished obsidian.  It's calm and lack of life chill you to
 the bone, surely one step into those evil waters would mean your death.
 ~
-0 0 5
+0 0 mountain
 D0
 The Blight continues on to the north.
 ~
@@ -5844,7 +5823,7 @@ shore of the Dead Sea.  It's black and lifeless waters are perfectly still like
 a huge mirror of pollished obsidian.  It's calm and lack of life chill you to
 the bone, surely one step into those evil waters would mean your death.
 ~
-0 0 5
+0 0 mountain
 D0
 The Blight continues on to the north.
 ~

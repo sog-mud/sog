@@ -191,7 +191,7 @@ the Bracer of the Night~
 A black bracer covered in ancient runes lies here.~
 admantite~
 armor BG AM
-BE BE AE D 0
+18 18 17 8 0
 54 5 1500 P
 A
 18 2
@@ -205,7 +205,7 @@ the Amulet of the Night~
 An old amulet lies here glowing in unnatural blue light.~
 silver~
 armor AG AC
-ACE ACE ACE BD 0
+21 21 21 10 0
 64 3 2000 P
 A
 14 25
@@ -233,7 +233,7 @@ a black dragon scale~
 A black dragon scale that's been torn from one of the beasts.~
 admantite~
 armor 0 AJ
-ACE BCE ACE BD 0
+21 22 21 10 0
 65 30 1200 P
 A
 18 3
@@ -271,7 +271,7 @@ sorceror's robes~
 Long black robes covered in moons and stars.~
 unknown~
 armor G AK
-DE DE DE ABD 0
+24 24 24 11 0
 72 10 3000 P
 A
 3 3
@@ -283,7 +283,7 @@ the Infinity Scroll~
 The old scroll rumored to have answers to all questions. (Unfortunately you just killed the last thing in existance that could read it.)~
 silver~
 armor ABG AO
-ABCE ABCE DE ABD 0
+23 23 24 11 0
 74 4 7500 P
 A
 18 2
@@ -337,7 +337,7 @@ a Thieve's Tunic~
 A black shirt with many pockets.~
 admantite~
 armor G AD
-ACD ACD CD AC 0
+13 13 12 5 0
 40 15 900 P
 A
 18 3
@@ -433,7 +433,7 @@ insignificant.  To the north a large mountain has sprouted from the ground
 to block all hopes of passage.  You may go back east to the path, or
 continue west under an archway.  (LOOK CROSS!!!) 
 ~
-0 0 0
+0 0 inside
 D1
 ~
 ~
@@ -451,7 +451,7 @@ thick entanglements; you find yourself getting scratched in the most
 annoying of places.  From the west comes the faint light of torches, and
 from the north you hear what can only be described as an unholy growl.  
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -474,7 +474,7 @@ are wondering what could possibly fill that saddle, you notice the tremendous
 form of a dracolich towering above you.  The only exit is south, under the
 archway.  
 ~
-0 D 0
+0 D inside
 D2
 ~
 ~
@@ -489,7 +489,7 @@ from battles long past.  Two exits lead from the room, one south and one
 west.  From where you stand it is impossible to see what type of rooms lie
 beyond.  
 ~
-0 D 0
+0 D inside
 D1
 ~
 ~
@@ -510,7 +510,7 @@ dust lines the table settings, stating that the hall is never used anymore.
 To the west is the entrance to the kitchen and to your north is the entrance
 hall.  
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -527,7 +527,7 @@ assaults your senses.  You break into a run towards the nearest exit, hoping
 for fresh air.  To the north are the stairs, east is the dining hall, and a
 large storage room lies open to the south.  
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -547,7 +547,7 @@ A flight of stairs winds away into the darkness above you.  A stronger
 sense of evil comes from up the steps.  You can go south to the kitchen,
 east to the entrance hall, or up into the unknown.  
 ~
-0 D 0
+0 D inside
 D1
 ~
 ~
@@ -568,7 +568,7 @@ of light entering the room from a doorway east.  This whole area seems
 unnaturally quiet scaring you more than any screams of death you have ever
 heard.  
 ~
-0 D 0
+0 D inside
 D1
 ~
 ~
@@ -588,7 +588,7 @@ You continue your way on the stairs.  Listening intently, you think you
 hear what sounds like the screams of damned and tortured souls to the south
 and east.  
 ~
-0 D 0
+0 D inside
 D1
 ~
 ~
@@ -611,7 +611,7 @@ The Top of the Stairs~
 You have reached the top of the stairs.  To the south and east are long
 hallways and the stairs lead back down into darkness.  
 ~
-0 D 0
+0 D inside
 D1
 ~
 ~
@@ -633,7 +633,7 @@ light for the owner of the tower.  A large desk sits near the western wall,
 while a closet has been carved into the wall to the south.  The only exit
 appears to be back into the library to the east.  
 ~
-0 D 0
+0 D inside
 D1
 ~
 ~
@@ -647,7 +647,7 @@ Various tables line the walls, providing study space for anyone doing
 research here.  The library continues to the north and a small archway leads
 west into a study.  
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -664,7 +664,7 @@ entire length of both the north and east walls.  The collection of books
 accumulated here is amazing.  To the south the library continues, while the
 stairs are back to the west.  
 ~
-0 D 0
+0 D inside
 D2
 ~
 ~
@@ -680,7 +680,7 @@ Various runes and pentagrams have been scrawled into the stone at your
 feet.  A large golden brazier blasts flames in the middle of the room.  The
 only exits are north, to the stairs, and east, to the torture chamber.  
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -698,7 +698,7 @@ feel a tinge of remorse for the poor men before your heart rises in anger,
 now the only thing that matters to you is to avenge their deaths.  The
 summoning rooms provide exit to the north and west.  
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -715,7 +715,7 @@ feet.  Towards the middle of the room, a large silver brazier spouts fire.
 The only exits are west, back to the stairs, and south, to the torture
 chamber.  
 ~
-0 D 0
+0 D inside
 D2
 ~
 ~
@@ -730,7 +730,7 @@ A Large Hall~
 You stand in a large, elaborately decorated hallway.  The stairs are back
 to the north and a large set of double doors are to the east.  
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -748,7 +748,7 @@ Ancient grimoires and scrolls catch your eye for a brief second, just long
 enough for Myzelak the Lich Lord to attack.  The only exits are through the
 doors to your north or west.  
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -763,7 +763,7 @@ A Large Hall~
 You stand in a large, elaborately decorated hallway.  The stairs are back
 to the west and a large set of doors block your way south.  
 ~
-0 D 0
+0 D inside
 D2
 ~
 ~
@@ -780,7 +780,7 @@ old door has been knocked off of its hinges to the south, revealing an
 ancient tunnel sloping down into the ground.  You can go back north to the
 kitchen or south into the dark tunnel.  
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -797,7 +797,7 @@ the floor disappears, leaving a large hole in the ground.  You can go north
 into the storage room, or down an old rope ladder into the blackness of the
 pit.  
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~
@@ -812,7 +812,7 @@ Under a Pit~
 You stand underneath the pit.  In this pitch black room the only thing
 that you can make out is a tunnel running in a south direction.  
 ~
-0 D 0
+0 D inside
 D2
 ~
 ~
@@ -828,7 +828,7 @@ You stand in an ancient and dark tunnel.  From the south light shines
 into the room.  You may go back north to the pit, or, south towards
 the light.  
 ~
-0 AD 0
+0 AD inside
 D0
 ~
 ~
@@ -846,7 +846,7 @@ magical glyphs and wards surround it, keeping this realm safe from any
 wandering spirits.  It is said that the only way for a mortal to enter the
 realms of hell is for them to make it through the maze of caverns below you.
 ~
-0 D 0
+0 D inside
 D0
 ~
 ~

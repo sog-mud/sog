@@ -118,13 +118,12 @@ eerie inner light.  The clear eyes seem timelessly wise, yet shadowed
 with a strange, innocent vacancy.
 ~
 horse~
-AG HJN 1000 0
+AG CDEFGHJN 1000 0
 70 2 100d10+9500 1d10+800 12d5+40 cleave
 -45 -45 -45 -45
 EIK LNS BGI M
 stand stand either 0
 CH H large unknown
-A det CDEFG
 #11607
 white statue dreamer~
 statue of the Dreamer~
@@ -154,13 +153,12 @@ a near blinding aurora.  Emblazoned in the center of the chest plate is a
 gleaming cross... white, of course.
 ~
 human~
-AGT N 900 0
+AGT CN 900 0
 65 3 65d10+9000 1d10+250 9d6+40 cleave
 -37 -38 -36 -27
 DEFIK N EG KMOP
 stand stand either 5000
 0 0 large unknown
-A det C
 #11609
 ivory statue lady justice~
 Lady Justice~
@@ -171,13 +169,12 @@ extends before her, holding a set of ivory scales.  The ivory seems to have
 chipped on one side, causing the scales to tilt slightly.
 ~
 unique~
-ABG 0 0 0
+ABG G 0 0
 68 0 70d10+9500 1d10+680 9d6+45 pound
 -37 -38 -38 -35
 EFK HILQ F B
 stand stand female 4000
 HJM ABCGHIJK medium unknown
-A det G
 #11610
 mad gardener gnome~
 Mad Gardener~
@@ -362,7 +359,6 @@ ABGT P 0 11621
 DKM INQ E H
 stand stand male 0
 0 0 large unknown
-A det Z
 #11622
 lonari white lady~
 Lonari~
@@ -373,13 +369,12 @@ blue eyes.  The pale blue irises seem almost white.. as if blind.  Yet the
 lady can clearly see.. though what she is looking at is not visible to you.
 ~
 elf~
-ABGQ HNT 1000 11621
+ABGQ DGHNT 1000 11621
 85 0 100d12+15000 1d10+2000 9d10+50 crush
 -50 -53 -55 -53
 EFGK BGKN EHJ M
 stand stand female 0
 0 0 medium unknown
-A det DG
 #11623
 myrl figure cynic~
 Myrl~
@@ -396,13 +391,12 @@ and
 "Myrl"
 ~
 drow~
-ACGR PQ -900 0
+ACGR DFPQ -900 0
 80 0 100d12+14000 1d10+1050 14d5+50 claw
 -50 -53 -52 -51
 EFHJ 0 CM E
 stand stand either 1000
 0 0 medium unknown
-A det DF
 #11624
 hellhawk hawk~
 the hellhawk~
@@ -412,13 +406,12 @@ Fiery green eyes glow against the dark avian face with a bottomless hunger
 that makes you shiver inside.
 ~
 unique~
-ABCFG JT 0 0
+ABCFG DFJT 0 0
 65 2 65d10+8000 1d10+650 9d6+30 peck
 -35 -33 -34 -20
 FH BH M I
 stand stand either 0
 AHW ACDEFK huge unknown
-A det DF
 #11625
 silent stalker figure~
 a silent stalker~
@@ -474,13 +467,12 @@ Fierce red eyes flash eerily from within the dark cowl.  One arm raises, and
 you notice that the fingers are clawed and bloody..
 ~
 human~
-ABCFGR JO -800 0
+ABCFGR DFGJO -800 0
 64 0 50d10+8000 1d10+2000 9d6+0 claw
 -30 -32 -31 -30
 FG M I HNY
 stand stand either 0
 0 0 medium unknown
-A det DFG
 #11629
 nightmare black horse darkness~
 the Nightmare~
@@ -492,13 +484,12 @@ vicinity of the beast, surrounding it with an aura of blackness, pierced
 only by the hellish red lights of its eyes.
 ~
 horse~
-AGQ HJN 1000 0
+AGQ CDEFGHJN 1000 0
 70 2 100d10+10000 1d10+800 12d5+40 cleave
 -45 -45 -45 -45
 DEGI KM CH NOP
 stand stand either 0
 CH H large unknown
-A det CDEFG
 #11630
 anti-bishop bishop woman~
 the Anti-Bishop~
@@ -510,13 +501,12 @@ part in a ghastly parody of a smile, twisting her face into something
 terribly evil and entirely inhuman.
 ~
 human~
-ABFG JO -800 0
+ABFG JOZ -800 0
 60 0 50d10+7500 1d10+700 8d6+24 claw
 -30 -31 -29 -28
 FGI EM B JNP
 stand stand female 8765
 0 0 medium unknown
-A det Z
 #11631
 wraith knight humanoid form~
 the Wraith Knight~
@@ -526,13 +516,12 @@ An aura of evil and death hangs about the dark wraith.  It turns its head,
 and the blood red eyes seem to bore into yours with an insatiable hunger..
 ~
 unique~
-ACGOT JOTU -400 0
+ACGOT JOTUZ -400 0
 65 3 65d10+8900 1d10+250 9d6+40 drain
 -37 -38 -36 -27
 DEFK I KM HNO
 stand stand either 4000
 DHIM 0 medium unknown
-A det Z
 #11632
 bloody sadist~
 the Bloody Sadist~
@@ -590,13 +579,12 @@ Powerful taloned hands grasp a sacrificial dagger still grimy with blood.
 The ghastly face turns towards you and licks its lips.
 ~
 human~
-ACFGQ JO -900 0
+ACFGQ JOZ -900 0
 65 0 50d10+8200 1d10+1300 9d6+20 wrath
 -35 -34 -35 -33
 DEFG ILQ M NSY
 stand stand either 6200
 0 0 medium unknown
-A det Z
 #11636
 nothingness square area~
 a patch of Nothingness~
@@ -635,13 +623,12 @@ Wary, intelligent eyes combine with honed muscles and reflexive grace to
 make this man a very dangerous enemy.
 ~
 human~
-AGT JV 0 0
+AGT CJV 0 0
 70 5 50d12+10200 1d10+400 10d6+45 cleave
 -41 -42 -41 -40
 ADEFIK 0 D P
 stand stand male 0
 0 0 large unknown
-A det C
 #11639
 vampire janitor white fangs~
 the vampire janitor~
@@ -651,13 +638,12 @@ It could almost be a part of the shadows, if it weren't for the telltale
 red eyes gleaming sadistically against the blackness.
 ~
 unique~
-AFG BJOT -700 0
+AFG BDFJOTZ -700 0
 70 0 100d10+10500 1d10+700 7d10+30 drain
 -40 -42 -41 -39
 FG B GJK NO
 stand stand either 5650
 CHI ABCDEFGHIJKU medium unknown
-A det DFZ
 #11640
 lost dreams~
 some lost dreams~
@@ -739,13 +725,12 @@ build.  The dark silver eyes, shadowed with pain, are strangely at odds with
 the cruel smile that seems to have permanently twisted the human lips.
 ~
 human~
-ABFGRT HJO -1000 11644
+ABFGRT CDHJO -1000 11644
 85 0 100d12+16500 1d10+1000 9d10+50 smash
 -50 -53 -55 -53
 EIK BEJM GIK N
 stand stand male 0
 0 0 medium unknown
-A det CD
 #11646
 shadow reality~
 a shadow of Reality~
@@ -811,13 +796,12 @@ A silent figure melts into the shadows.
 Wary green eyes glow like a cat's amidst the deep shadow. 
 ~
 elf~
-ACFGS QV 0 0
+ACFGS FQVZ 0 0
 82 1 100d12+15500 1d10+850 8d10+30 pierce
 -55 -54 -54 -54
 BEFHJ B MN HI
 stand stand female 5000
 0 0 medium unknown
-A det FZ
 #11651
 assassin~
 an assassin~
@@ -826,13 +810,12 @@ An assassin stalks in the shadows, looking for prey.
 The dark eyes seem to measure you, searching for weakness.
 ~
 elf~
-ACFGS Q 0 0
+ACFGS DFQZ 0 0
 51 0 50d10+4900 1d10+510 4d8+25 pierce
 -23 -23 -22 -21
 BEFJ 0 MN J
 stand stand either 4050
 0 0 medium unknown
-A det DFZ
 #11652
 night lynx cat form~
 the night lynx~
@@ -841,13 +824,12 @@ A huge, dark cat form prowls in the darkness.
 Slitted silver eyes glint menacingly.
 ~
 unique~
-ACGS JPQ 0 0
+ACGS DFJPQZ 0 0
 66 0 65d10+8800 1d10+660 9d6+35 claw
 -37 -38 -36 -35
 EFH HI M J
 stand stand either 0
 AGHV ACDEFJKQU large unknown
-A det DFZ
 #11653
 figment imagination dark shape~
 a figment of your imagination~
@@ -871,13 +853,12 @@ Beneath the glimmering ice blue eyes, a cruel beak pokes out of the shadow
 black feathers forming the avian face.
 ~
 unique~
-ABCG JT 0 0
+ABCG DFJTZ 0 0
 67 0 65d10+9000 1d10+670 9d6+40 claw
 -36 -37 -37 -35
 ADEFK EJ K F
 stand stand either 0
 ACHW ACDEFIJKPU huge unknown
-A det DFZ
 #11655
 owl hatchling~
 the owl hatchling~
@@ -887,13 +868,12 @@ Dark grey down covers a large owl shape and semiformed wings.  Long, cruel
 black talons betray a natural predator behind the seeming vulnerability.
 ~
 unique~
-ABCG J 0 0
+ABCG JZ 0 0
 60 0 50d10+7200 1d10+600 8d6+20 peck
 -28 -29 -28 -27
 EF 0 EJ B
 stand stand either 0
 ACHW ACDEFIJKPU large unknown
-A det Z
 #11656
 nightling gaunt shape~
 the nightling~
@@ -904,13 +884,12 @@ extend before the form.  You notice a piece of rotting flesh dangling
 from one claw.
 ~
 unique~
-ACFG BJTU 0 0
+ACFG BJTUZ 0 0
 67 0 65d10+9000 1d10+670 9d6+40 drain
 -36 -37 -37 -35
 DEFG 0 G HO
 stand stand none 3250
 CHIL ABDEFJKU medium unknown
-A det Z
 #11657
 sillouhette~
 a sillouhette~
@@ -933,13 +912,12 @@ A dark elf waits silently in the darkness.
 The slim form seems almost a part of the surrounding darkness.
 ~
 elf~
-ACGS QV 0 0
+ACGS QVZ 0 0
 72 1 100d12+11000 1d10+720 12d5+30 pierce
 -44 -44 -45 -43
 EFGJ 0 0 0
 stand stand either 2550
 0 0 medium unknown
-A det Z
 #11659
 shadowblade shadow blade sinister form~
 the shadowblade~
@@ -948,13 +926,12 @@ A lithe sinister form slips through the shadows.
 The figure seems to move constantly, eluding your focus.
 ~
 elf~
-ACGS Q 0 0
+ACGS QZ 0 0
 72 1 100d12+11000 1d10+720 12d5+27 pierce
 -45 -46 -44 -42
 EFGH 0 0 0
 stand stand either 4500
 0 0 medium unknown
-A det Z
 #11660
 grey ninja cloaked form~
 the grey ninja~
@@ -963,13 +940,12 @@ Wary green eyes glint menacingly from the hood of a grey cloaked form.
 The grey figure seems to blend in with its surroundings.
 ~
 elf~
-ABCGS Q 0 0
+ABCGS QZ 0 0
 80 2 100d12+14500 1d10+850 15d5+40 wrath
 -53 -52 -52 -51
 DEFGHJ 0 0 0
 stand stand either 6250
 0 0 medium unknown
-A det Z
 #11661
 black ninja figure~
 the black ninja~
@@ -979,13 +955,12 @@ Raven black hair frames a dark elven face and the slitted yellow eyes of a
 cat.
 ~
 elf~
-ABCGS Q 0 0
+ABCGS QZ 0 0
 78 1 100d12+13500 1d10+780 15d5+10 chill
 -49 -50 -50 -47
 EFGJ I 0 H
 stand stand female 5200
 0 0 medium unknown
-A det Z
 #11662
 white ninja figure~
 the white ninja ~
@@ -994,13 +969,12 @@ A figure clothed in white stands here.
 He seems to blur and shimmer like a living flame.
 ~
 elf~
-ABCGS B 0 0
+ABCGS BZ 0 0
 78 1 100d12+13500 1d10+780 15d5+10 flame
 -51 -50 -49 -48
 EFGJ H 0 I
 stand stand male 5200
 0 0 medium unknown
-A det Z
 #11663
 shadow serpent~
 the shadow serpent~
@@ -1010,13 +984,12 @@ Dark green scales gleam in the dim light.  A long forked tongue snakes
 out from between sharp white fangs as the serpent hisses warningly.
 ~
 snake~
-ABFG JP 0 0
+ABFG DFJPZ 0 0
 75 0 65d10+12000 1d10+750 10d6+25 shbite
 -45 -46 -47 -44
 EFM J 0 0
 stand stand either 3250
 0 0 large unknown
-A det DFZ
 #11664
 yllias silver eyes~
 Yllias~
@@ -1025,13 +998,12 @@ Slitted silver eyes glint from the shadows.
 The silver eyes gleam menacingly, like twin daggers in the darkness.
 ~
 elf~
-ABCFGS Q 0 11664
+ABCFGS DFQZ 0 11664
 85 2 100d12+17000 1d10+900 9d10+60 wrath
 -57 -57 -56 -55
 DEFK 0 MN IP
 stand stand female 6770
 0 0 medium unknown
-A det DFZ
 #11665
 reykas raven black wings~
 Reykas~
@@ -1041,13 +1013,12 @@ Peering into the shadows, you can barely make out the looming form of a
 dark hawk.
 ~
 unique~
-ABCFG JQT 0 11664
+ABCFG DFJQTZ 0 11664
 80 0 100d12+14500 1d10+820 9d10+20 claw
 -40 -39 -40 -38
 ACDEFG 0 MN P
 stand stand female 0
 ACHW ACDEFJKPU large unknown
-A det DFZ
 #11666
 menx jester~
 Menx~
@@ -1185,13 +1156,12 @@ A smelly mound of... stuff... squishes here.
 Gross..
 ~
 unique~
-ABCFGU JNO 0 0
+ABCFGU JNOZ 0 0
 65 0 65d10+8700 1d10+650 9d6+27 suction
 -35 -35 -36 -34
 ACD LQ 0 0
 stand stand none 0
 BHJ ABCDEFHIJKU large unknown
-A det Z
 #11676
 mole~
 the mole~
@@ -1201,13 +1171,12 @@ It's a furry brown mole.  Beady black eyes glance at you as sharp claws tunnel
 into the dirt at a tremendous pace.
 ~
 pig~
-ABCGH 0 0 0
+ABCGH Z 0 0
 75 0 100d12+12100 1d10+650 14d5+5 claw
 -45 -44 -44 -43
 CDJ 0 GO PR
 stand stand either 0
 0 0 large unknown
-A det Z
 #11677
 xyrist multicolored light colored~
 Xyrist~
@@ -1217,13 +1186,12 @@ The swirling light continuously forms and reforms.  At the moment, it
 resembles a giant rabbit.
 ~
 unique~
-ABCGR TUV 0 11677
+ABCGR TUVZ 0 11677
 86 0 100d12+16500 1d10+1000 9d10+60 magic
 -57 -57 -58 -56
 ACDEFG ST OP J
 stand stand male 6740
 ACHL ABCDEFGHIJK large unknown
-A det Z
 #11678
 fax parrot~
 Fax~
@@ -1247,13 +1215,12 @@ Summoned from the elemental plane of air, the servant is bound to
 follow its master's orders until it is killed or freed.
 ~
 human~
-ABIJ BTU 0 0
+ABIJ BDTU 0 0
 40 0 15d10+2550 1d10+400 4d8+13 chill
 -13 -13 -13 -10
 FG 0 0 0
 stand stand either 0
 0 0 medium unknown
-A det D
 #11680
 flying fist~
 a flying fist~
@@ -1292,13 +1259,12 @@ The huge silver cat form moves with a liquid grace that leaves the
 impression of a living bolt of pure lightning.
 ~
 cat~
-ABIJ P 0 0
+ABIJ DP 0 0
 55 0 50d10+6000 1d10+550 10d4+23 shbite
 -26 -25 -25 -23
 CD J 0 M
 stand stand either 0
 0 0 large unknown
-A det D
 #11683
 pegasus winged horse~
 a pegasus~
@@ -1308,13 +1274,12 @@ Powerful snow white wings sprout from the equinne shoulder blades.
 Intelligent sea blue eyes seem to follow your every move.
 ~
 pig~
-ABIJ T 500 0
+ABIJ DET 500 0
 60 0 50d10+6500 1d10+600 8d6+28 cleave
 -30 -30 -30 -30
 FIK 0 0 0
 stand stand either 0
 0 0 large unknown
-A det DE
 #11684
 firecat fire cat flaming~
 a firecat~
@@ -1357,13 +1322,12 @@ the ability to do quite a bit of very real damage to those who oppose
 its master..
 ~
 cat~
-ABIJ BPTU 0 0
+ABIJ BDFPTU 0 0
 70 0 100d10+9500 1d10+700 7d10+30 wrath
 -40 -41 -41 -40
 DE 0 C OP
 stand stand either 0
 0 0 large unknown
-A det DF
 #11687
 tenarezzii demon dark~
 a t'enarezzi'i demon~
@@ -1375,13 +1339,12 @@ arms and powerful legs.  A narrow enchanted collar encircles the thick
 neck, binding it to the will of its master.
 ~
 human~
-ABIJ 0 -500 0
+ABIJ E -500 0
 75 0 100d10+11250 1d10+750 7d10+35 slash
 -45 -45 -45 -45
 CDK 0 0 0
 stand stand either 0
 0 0 large unknown
-A det E
 #11688
 devouk demon winged~
 a devouk demon~
@@ -1392,13 +1355,12 @@ bat wings.  A thick tail protrudes from the demon's hindquarters, ending
 in a sharp, triangular tip.
 ~
 human~
-ABIJ T -700 0
+ABIJ ET -700 0
 80 0 100d12+13500 1d10+800 9d10+28 slash
 -50 -50 -50 -50
 CDEKM 0 0 0
 stand stand either 0
 0 0 large unknown
-A det E
 #11689
 chrezanni demon~
 a chre'zanni demon~
@@ -1409,13 +1371,12 @@ to absorb all light in the area.  Two muscular arms sprout from
 either side of the broad torso, ending in wickedly sharp black talons.
 ~
 human~
-ABIJ O -900 0
+ABIJ EO -900 0
 85 0 100d12+16250 1d10+800 9d10+33 claw
 -55 -55 -55 -55
 CDK 0 H N
 stand stand either 0
 0 0 huge unknown
-A det E
 #11690
 rabid hamster~
 a rabid hamster~
@@ -1470,13 +1431,12 @@ resembles a large rabbit.  Though small, it possesses an intelligence
 and training which make it an deadly fighter.
 ~
 rabbit~
-ABIJT BTU 0 0
+ABIJT BDFTUZ 0 0
 93 0 100d12+19000 1d10+1000 10d10+43 magic
 -75 -74 -74 -74
 CDEGK 0 C 0
 stand stand either 0
 0 0 small unknown
-A det DFZ
 #11694
 zkare blade~
 a Z'kare blade~
@@ -1503,13 +1463,12 @@ A classy nametag pinned to her lapel reads:
                "Sherayna"
 ~
 elf~
-ABGe 0 0 0
+ABGe DF 0 0
 93 0 100d12+19000 1d10+1000 10d10+43 wrath
 -50 -50 -50 -50
 EFK A 0 0
 stand stand female 10000
 0 0 medium unknown
-A det DF
 M greet 11600 100~
 #11696
 nyvri lady zeinia representative~
@@ -1522,13 +1481,12 @@ A silver pin on her lapel reads:
              "Nyvri"
 ~
 elf~
-ABGe 0 0 0
+ABGe DF 0 0
 90 0 100d12+18000 1d10+1000 10d10+43 magic
 -50 -50 -50 -50
 EFK A 0 0
 stand stand female 10000
 0 0 medium unknown
-A det DF
 #11697
 zdreni avenger figure~
 a Zdreni avenger~
@@ -1544,13 +1502,12 @@ of the clan.  Shimmering above the collarbone is the form of a stooping
 hawk over two crossed daggers.
 ~
 elf~
-ABCFGS Qa -500 11700
+ABCFGS DFQa -500 11700
 88 5 100d12+17250 1d10+3000 10d10+49 pierce
 -70 -70 -70 -69
 BDEFHJK 0 CD 0
 stand stand either 10000
 0 0 medium unknown
-A det DF
 #11698
 zdreni avenger assassin figure~
 the Zdreni avenger~
@@ -1566,13 +1523,12 @@ of the clan.  Shimmering above the collarbone is the form of a stooping
 hawk over two crossed daggers.
 ~
 elf~
-ABCFGRS Q 0 11700
+ABCFGRS DFQ 0 11700
 88 5 100d12+17700 1d10+6000 10d10+48 pierce
 -70 -70 -70 -69
 BEFJK 0 CD 0
 stand stand either 10000
 0 0 medium unknown
-A det DF
 #11699
 zdreni deathmaster assassin~
 the Zdreni deathmaster~
@@ -1585,13 +1541,12 @@ the power games of those below him.  The image of two crossed daggers
 shimmers above his collarbone.
 ~
 elf~
-ABCFGRS OQ -500 11700
+ABCFGRS DFOQ -500 11700
 85 2 100d12+15750 1d10+1500 9d10+33 wrath
 -57 -57 -58 -56
 BEFHJK 0 0 0
 stand stand male 10000
 0 0 medium unknown
-A det DF
 #11700
 zdreni shadowmaster assassin dark elven form~
 the Zdreni shadowmaster~
@@ -1601,13 +1556,12 @@ The figure moves with a powerful liquid grace, like a living shadow.
 Silent and deadly, the shadowmaster is a lethal enemy.
 ~
 elf~
-ABCFGS Q -500 11700
+ABCFGS DFQ -500 11700
 80 2 100d12+13500 1d10+1200 9d10+28 pierce
 -53 -53 -52 -51
 BEFJK 0 0 0
 stand stand female 8000
 0 0 medium unknown
-A det DF
 #11701
 zdreni blademaster assassin~
 the Zdreni blademaster~
@@ -1634,13 +1588,12 @@ in the magical arts.  The combination makes the magemaster an extremely
 versatile and effective assassin.
 ~
 elf~
-ACFGRS OQT -500 11700
+ACFGRS DOQT -500 11700
 75 1 100d10+11000 1d10+1500 7d10+34 pierce
 -49 -50 -49 -47
 BFGJ 0 0 0
 stand stand either 7500
 0 0 medium unknown
-A det D
 #11703
 zdreni stalker assassin figure~
 the Zdreni stalker~
@@ -1780,13 +1733,12 @@ Of the three magemaster, this is the one currently assigned to
 teach apprentices in the arts of killing magics.
 ~
 elf~
-ABCFGRS OQT -500 11700
+ABCFGRS DOQT -500 11700
 75 1 100d10+11000 1d10+1500 7d10+34 pierce
 -49 -50 -49 -47
 BFGJ 0 0 0
 stand stand either 7500
 0 0 medium unknown
-A det D
 #11712
 zdreni apprentice assassin~
 the Zdreni apprentice~
@@ -1880,13 +1832,12 @@ Of the three magemaster, this is the one currently assigned to
 teach apprentices in the arts of killing magics.
 ~
 elf~
-ABCFGRS OQT -500 11700
+ABCFGRS DOQT -500 11700
 75 1 100d10+11000 1d10+1500 7d10+34 pierce
 -49 -50 -49 -47
 BFGJ 0 0 0
 stand stand either 7500
 0 0 medium unknown
-A det D
 #11718
 zdreni venomblade assassin elf~
 the Zdreni venomblade~
@@ -2007,13 +1958,12 @@ of the clan.  Shimmering above the collarbone is the form of a stooping
 hawk over two crossed daggers.
 ~
 elf~
-ABCFGRS Qa -500 11700
+ABCFGRS DFQa -500 11700
 89 5 100d12+18500 1d10+3500 10d10+51 wrath
 -74 -74 -74 -74
 BDEFHJK 0 CD 0
 stand stand either 10000
 0 0 medium unknown
-A det DF
 #0
 
 #OBJECTS
@@ -2248,7 +2198,7 @@ a tassled jester's hat~
 A colorful pointed hat tipped with silver tassles lies here.~
 felt~
 armor 0 AE
-ABCE DE ABCE CE 0
+23 24 23 20 0
 75 40 2500 P
 A
 19 5
@@ -2264,7 +2214,7 @@ circlets of wonder~
 A pair of multicolored arm bands lie here.~
 etherealness~
 armor AF AI
-DE DE DE CE 0
+24 24 24 20 0
 75 20 3000 P
 A
 19 7
@@ -2316,7 +2266,7 @@ a moonbeam~
 A shaft of moonlight glimmers here.~
 light~
 armor AIK AL
-ABDE ABDE CDE ACE 0
+27 27 28 21 0
 85 0 4000 P
 A
 19 6
@@ -2332,7 +2282,7 @@ innocent dreams~
 Some innocent dreams hover here.~
 etherealness~
 armor AK AQ
-ABDE ABDE CDE CE 0
+27 27 28 20 0
 85 0 3500 P
 A
 19 6
@@ -2350,7 +2300,7 @@ a gleaming white cross~
 A white cross is here, glowing with an inner light.~
 ivory~
 armor AK AO
-CDE CDE CDE ACE 0
+28 28 28 21 0
 85 30 1500 P
 A
 19 5
@@ -2366,7 +2316,7 @@ a pair of white kid gloves~
 A pair of white kid gloves lie here.~
 soft leather~
 armor AK AH
-ABCE ABCE ACE ACE 0
+23 23 21 21 0
 85 30 3500 P
 A
 19 5
@@ -2382,7 +2332,7 @@ Mark of Gabrian~
 An insignia woven of white panther hair lies here.~
 hair~
 armor BIM AE
-ACE ACE CE CE P
+21 21 20 20 32768
 80 0 2000 P
 A
 19 3
@@ -2426,7 +2376,7 @@ a white grey breast plate~
 A breast plate of huge white-grey feathers lies here~
 feathers~
 armor 0 AD
-ACE BCE ACE ABE 0
+21 22 21 19 0
 65 150 5500 P
 A
 13 40
@@ -2440,7 +2390,7 @@ song of the nightingale~
 A beautiful song fills the air.~
 nothingness~
 armor BFHI AQ
-ABCD ABCD ABCD ABD 0
+15 15 15 11 0
 45 0 2200 P
 A
 19 4
@@ -2474,7 +2424,7 @@ glowing silvery hooves~
 A pair of silvery hooves glow with a soft inner light.~
 mithril~
 armor AK AG
-BCE ACE ABCE BE 0
+22 21 23 18 0
 66 50 5200 P
 A
 12 65
@@ -2502,7 +2452,7 @@ a pair of rose tinted shades~
 Some rose tinted shades lie here.~
 glass~
 armor 0 AC
-AE AE AE BCD 0
+17 17 17 14 0
 55 20 1000 P
 F
 A 0 0 A
@@ -2516,7 +2466,7 @@ a breastplate emblazoned with a white cross~
 A breastplate engraved with a gleaming white cross lies here.~
 mithril~
 armor AK AD
-CE CE ACE AE 0
+20 20 21 17 0
 60 350 5560 P
 A
 19 5
@@ -2528,7 +2478,7 @@ white legplates~
 A pair of gleaming white legplates lie here.~
 mithril~
 armor AK AF
-ACE ACE ACE AE 0
+21 21 21 17 0
 64 150 4500 P
 A
 19 4
@@ -2582,7 +2532,7 @@ A grass stained jumpsuit~
 A leather jumpsuit smeared with grass stains is here.~
 soft leather~
 armor 0 AD
-ABE BE ABE ABE 0
+19 18 19 19 0
 70 70 450 P
 A
 6 -1
@@ -2614,7 +2564,7 @@ flowing white priest's robes~
 Some flowing white robes lie in a pool.~
 cloth~
 armor A AK
-E E E E 0
+16 16 16 16 0
 57 70 200 P
 A
 12 55
@@ -2632,7 +2582,7 @@ blind devotion~
 Some devotion shimmers whitely here.~
 nothingness~
 armor AU AD
-AE BE AE E 0
+17 18 17 16 0
 60 0 0 P
 A
 12 60
@@ -2660,7 +2610,7 @@ a broken watch~
 A broken brass watch hangs suspended from a matching chain.~
 brass~
 armor B AL
-ABCD ABCD ABCD ACD 0
+15 15 15 13 0
 45 50 20 P
 A
 19 4
@@ -2674,7 +2624,7 @@ a fluffy white tail~
 A fluffy white rabbit tail lies here.~
 cotton~
 armor 0 AF
-ACD BCD ACD ACD 0
+13 14 13 13 0
 45 0 10 P
 A
 19 3
@@ -2696,7 +2646,7 @@ a weeping angel~
 A little white angel floats here, weeping silently.~
 etherealness~
 armor AFI AQ
-AE AE E BCD 0
+17 17 16 14 0
 51 10 0 P
 A
 19 4
@@ -2710,7 +2660,7 @@ shattered dreams~
 Some dreams lie here in pieces.~
 nothingness~
 armor B AQ
-ADE ADE ADE CE 0
+25 25 25 20 0
 80 0 0 P
 A
 19 6
@@ -2724,7 +2674,7 @@ ice mask~
 A mask of ice is here.~
 ice~
 armor A AE
-ADE BDE ADE CE 0
+25 26 25 20 0
 80 70 2450 P
 A
 19 5
@@ -2757,7 +2707,7 @@ a hellhawk feather~
 A gleaming black feather glints with fiery reddish highlights.~
 feathers~
 armor A AO
-ACE CE CE BE 0
+21 20 20 18 0
 65 10 5500 P
 A
 19 5
@@ -2771,7 +2721,7 @@ a bloody cowl~
 A bloody black cowl lies here.~
 wool~
 armor 0 AE
-ABE CE CE ABE 0
+19 20 20 19 0
 64 50 100 P
 A
 19 5
@@ -2803,7 +2753,7 @@ nightmare's breath~
 A dark cloud hovers menacingly.~
 air~
 armor BCFHJ AK
-CE CE CE BE 0
+20 20 20 18 0
 66 10 100 P
 A
 19 6
@@ -2817,7 +2767,7 @@ sacrificial robes~
 Some bloody robes are here.~
 linen~
 armor EJM AK
-ABE CE ABE ABE 0
+19 20 19 19 0
 60 50 2300 P
 A
 19 5
@@ -2843,7 +2793,7 @@ gauntlets of the night~
 A pair of pitch black gauntlets lie here, humming softly.~
 onyx~
 armor BJ AH
-CE CE CE ABCD 0
+20 20 20 15 0
 60 60 5400 P
 A
 19 6
@@ -2875,7 +2825,7 @@ some furry gloves~
 A pair of furry gloves lies here.~
 hair~
 armor 0 AH
-ACD ACD BCD ACD 0
+13 13 14 13 0
 45 10 1200 P
 A
 19 3
@@ -2889,7 +2839,7 @@ a blood spattered shield~
 An obsidian shield lies here, spattered with dried blood.~
 obsidian~
 armor A AJ
-ABE CE ABE BE 0
+19 20 19 18 0
 70 100 1050 P
 A
 19 7
@@ -2917,7 +2867,7 @@ a tattered cloak~
 A tattered black cloak lies here.~
 wool~
 armor 0 AC
-ABE ABE ABE ABE 0
+19 19 19 19 0
 70 50 10 P
 A
 19 5
@@ -2933,7 +2883,7 @@ Mark of Daemias~
 An insignia woven of shadow black panther hair lies here, humming.~
 hair~
 armor BCM AE
-ACE ACE CE ACE 0
+21 21 20 21 0
 80 0 9400 P
 A
 19 5
@@ -2981,7 +2931,7 @@ a circle of tears~
 A circle formed of tears lies here.~
 water~
 armor AFIJ AL
-ACE ACE ACE ACE 0
+21 21 21 21 0
 85 50 7500 P
 A
 19 6
@@ -2997,7 +2947,7 @@ ashes of the lost~
 Some ashes float here.~
 ash~
 armor AJM AQ
-CE CE CE CE 0
+20 20 20 20 0
 85 10 100 P
 A
 19 7
@@ -3015,7 +2965,7 @@ a broken bible~
 A bible lies here, broken along the spine.~
 soft leather~
 armor BJ AO
-CE CE CE CE 0
+20 20 20 20 0
 85 50 10 P
 A
 19 5
@@ -3031,7 +2981,7 @@ a bloodstained platter~
 A silver platter gleams dully beneath streaks of dried blood.~
 silver~
 armor A AJ
-CE ACE CE E 0
+20 21 20 16 0
 60 100 3200 P
 A
 19 5
@@ -3045,7 +2995,7 @@ razor claws~
 Some sharp claws gleam menacingly.~
 bone~
 armor ACF AH
-CE CE CE CE 0
+20 20 20 20 0
 82 50 4530 P
 A
 19 7
@@ -3059,7 +3009,7 @@ Mark of Ykres~
 A shadow black mark floats here.~
 shadow~
 armor BCF AC
-CE CE CE CE 0
+20 20 20 20 0
 82 0 8300 P
 A
 19 6
@@ -3075,7 +3025,7 @@ bracelet of night~
 A bracelet formed of darkness lies here.~
 shadow~
 armor BCF AM
-ABCD ABCD E BCD 0
+15 15 16 14 0
 55 20 3300 P
 A
 19 5
@@ -3115,7 +3065,7 @@ mask of deception~
 A grey mask lies here, seeming to shift and change continuously.~
 shadow~
 armor BCF AE
-DE DE DE CE 0
+24 24 24 20 0
 80 30 4240 P
 A
 19 5
@@ -3171,7 +3121,7 @@ a silhouette~
 Someone's silhouette has been left here~
 shadow~
 armor CF AK
-DE DE ADE ACE 0
+24 24 25 21 0
 87 0 0 P
 A
 19 7
@@ -3187,7 +3137,7 @@ silence~
 Some silence hides here.~
 nothingness~
 armor CF AF
-DE ABCE ABCE ACE 0
+24 23 23 21 0
 87 10 230 P
 A
 19 6
@@ -3203,7 +3153,7 @@ shadowhawk talons~
 Some sharp black talons lie here, gleaming wickedly.~
 bone~
 armor AC AG
-BDE BDE BDE CE 0
+26 26 26 20 0
 80 80 8430 P
 A
 19 6
@@ -3219,7 +3169,7 @@ bracers of energy~
 Bracers formed of multicolored energy lie here.~
 energy~
 armor AB AI
-CE CE CE CE 0
+20 20 20 20 0
 76 40 4300 P
 F
 A 0 0 V
@@ -3235,7 +3185,7 @@ whirling disc~
 A disc of energy whirls here.~
 energy~
 armor AB AJ
-CE CE ACE CE 0
+20 20 21 20 0
 81 50 3230 P
 A
 19 7
@@ -3249,7 +3199,7 @@ a brain cell~
 A lone brain cell floats here.~
 skin~
 armor B AE
-BE BE ABE BE 0
+18 18 19 18 0
 65 10 1 P
 A
 12 60
@@ -3261,7 +3211,7 @@ a pink pair of pig wings~
 Some pink pig wings flutter around.~
 feathers~
 armor B AI
-ABCD ABCD ABCD ABCD 0
+15 15 15 15 0
 59 60 2250 P
 A
 19 4
@@ -3275,7 +3225,7 @@ an effigy of a purple dinosaur~
 A stuffed purple dinosaur lies here, slightly chewed.~
 cloth~
 armor AB AO
-E ABCD E ABCD 0
+16 15 16 15 0
 60 50 0 P
 A
 19 4
@@ -3291,7 +3241,7 @@ a white lab coat~
 A white lab coat lies here.~
 linen~
 armor AB AK
-BE BE ABE BE 0
+18 18 19 18 0
 65 40 3400 P
 A
 4 4
@@ -3303,7 +3253,7 @@ a trendy suit~
 A trendy suit lies here, getting all dusty.~
 linen~
 armor 0 AD
-E ABCD E ABCD 0
+16 15 16 15 0
 60 90 7777 P
 A
 13 50
@@ -3319,7 +3269,7 @@ a shimmering circlet~
 A circlet of shimmering multicolored energy lies here.~
 energy~
 armor ABHM AB
-ACE ACE ACE ACE 0
+21 21 21 21 0
 86 10 7550 P
 A
 19 8
@@ -3333,7 +3283,7 @@ bracelet of delusions~
 A pretty multicolored bracelet lies here.~
 energy~
 armor ABM AM
-ACE ACE ACE ACE 0
+21 21 21 21 0
 86 30 1000 P
 A
 18 -9
@@ -3363,7 +3313,7 @@ energy mail~
 A suit of chainmail formed of pure energy shimmers here.~
 energy~
 armor AB AD
-ACE ACE ACE ACE 0
+21 21 21 21 0
 86 100 7650 P
 A
 19 7
@@ -3379,7 +3329,7 @@ some red feather leggings~
 A pair of leggings made from bright red parrot feathers lies here.~
 feathers~
 armor AB AF
-CE ACE CE CE 0
+20 21 20 20 0
 77 80 6500 P
 A
 19 6
@@ -3393,7 +3343,7 @@ a brilliant red tailfeather~
 A long red feather gleams brightly.~
 feathers~
 weapon A AN
-staff 10 10 pierce DG
+spear 10 10 pierce DG
 80 380 3450 P
 A
 19 5
@@ -3405,7 +3355,7 @@ musical bracers~
 A pair of black feather bracers lie here, humming melodically.~
 feathers~
 armor AB AI
-ACD ACD ACD ACD 0
+13 13 13 13 0
 43 20 2200 P
 A
 19 3
@@ -3433,7 +3383,7 @@ shadowy handprints~
 Some shadowy handprints mark the wall.~
 shadow~
 armor BCF AH
-E E E E 0
+16 16 16 16 0
 61 0 0 P
 A
 19 5
@@ -3563,7 +3513,7 @@ dark crimson armbands~
 A pair of dark crimson armbands gleam like circles of wet blood in the light.~
 adamantite~
 armor AI AI
-ADF DF DF ABCE 0
+41 40 40 23 0
 90 50 10000 P
 A
 20 -5
@@ -3590,7 +3540,7 @@ Oath of Vengeance~
 A band of adamantite set with a blood red ruby hums with promised vengeance.~
 adamantite~
 armor B AC
-DF DF DF DE 0
+40 40 40 24 0
 90 30 15000 P
 F
 R 0 0 CD
@@ -3666,7 +3616,7 @@ a suit of drow chainmail with a dark grey insignia~
 A suit of dark grey chainmail lies here.~
 adamantite~
 armor C AD
-BDE BDE BDE ABE 0
+26 26 26 19 0
 78 80 5000 P
 A
 19 7
@@ -3685,7 +3635,7 @@ a dark blue sash with a green insignia~
 The form of two crossed daggers is embroidered in green on a dark blue sash.~
 silk~
 armor C AL
-CE CE CE BE 0
+20 20 20 18 0
 73 40 4000 P
 A
 19 5
@@ -3697,7 +3647,7 @@ a dark blue sash with a purple insignia~
 The form of two crossed daggers is embroidered in purple on a dark blue sash.~
 silk~
 armor C AL
-ABE ABE CE CE 0
+19 19 20 20 0
 73 40 4000 P
 A
 19 5
@@ -3711,7 +3661,7 @@ a dark cloak embroidered with a smokey blue insignia~
 A dark cloak is embroidered with the smokey blue form of two crossed daggers.~
 leather~
 armor C AC
-ABE ABE ABE AE 0
+19 19 19 17 0
 68 50 3800 P
 A
 19 5
@@ -3727,7 +3677,7 @@ a pair of leather gloves with an indigo insignia~
 The indigo insignia of two crossed daggers shimmers above a pair of gloves.~
 leather~
 armor C AH
-AE BE AE E 0
+17 18 17 16 0
 63 20 3500 P
 A
 19 4
@@ -3743,7 +3693,7 @@ a pair of boots with a dark green insignia~
 A pair of supple boots bears the dark green insignia of two crossed daggers.~
 leather~
 armor C AG
-E E E BCD 0
+16 16 16 14 0
 58 40 3300 P
 A
 20 -2
@@ -3759,7 +3709,7 @@ leather leggings with a grey insignia~
 A pair of leggings bearing the grey insignia of two crossed daggers is here.~
 leather~
 armor C AF
-ABCD BCD BCD ABCD 0
+15 14 14 15 0
 53 30 3000 P
 A
 19 4
@@ -3777,7 +3727,7 @@ a bracer engraved with a tan insignia~
 A leather bracer bears the tan colored insignia of two crossed daggers.~
 leather~
 armor 0 AM
-BCD BCD BCD CD 0
+14 14 14 12 0
 48 20 2500 P
 A
 19 3
@@ -3840,7 +3790,7 @@ a suit of dark elven chainmail~
 A suit of finely crafted adamantite chain lies here, gleaming.~
 adamantite~
 armor C AD
-BCD ACD ACD BD 0
+14 13 13 10 0
 45 40 5500 P
 A
 19 3
@@ -3917,7 +3867,7 @@ Shiny white pebbles form a narrow path between tall hedges running north and
 south.  A large well is visible through a break in the hedges to the east.
 A brass plaque rests against the hedges at the edge of the path.
 ~
-0 0 1
+0 0 city
 E
 brass plaque~
 It reads:
@@ -3967,7 +3917,7 @@ The pebbles gleam brightly in the sunlight pouring in from a clearing in the
 hedges to the west.  The path opens north onto a lush garden and continues
 south into the hedges.
 ~
-0 0 1
+0 0 city
 D0
 The hedges part to reveal a colorful garden to the north.
 ~
@@ -3990,7 +3940,7 @@ Light seems to focus on this clearing as if attracted by some invisible magnet.
 Large bushes dot the ground, hacked into strange, somewhat recognizable forms
 reminiscient of a child's daydreams.
 ~
-0 0 1
+0 0 city
 D1
 A white pebbled path is visible to the east.
 ~
@@ -4004,7 +3954,7 @@ beauty.  Their mingled fragrance fills the air with a sweet, slightly tangy
 perfume.  A large white gazebo rises from the flower beds to the north.
 The dirt path you are on continues east and west around the gazebo.
 ~
-0 0 1
+0 0 city
 D1
 The dirt path winds east through the flower beds.
 ~
@@ -4029,7 +3979,7 @@ perfume.  A large white gazebo rises from the flower beds to the northwest.
 The dirt path you are on continues west and north around the gazebo.
 To the east, the path opens into a large clearing.
 ~
-0 0 1
+0 0 city
 D0
 The dirt path winds north around the gazebo.
 ~
@@ -4053,7 +4003,7 @@ beauty.  Their mingled fragrance fills the air with a sweet, slightly tangy
 perfume.  A large white gazebo rises from the flower beds to the west.
 The dirt path you are on continues north and south around the gazebo.
 ~
-0 0 1
+0 0 city
 D0
 The dirt path continues north around through the flower beds.
 ~
@@ -4072,7 +4022,7 @@ beauty.  Their mingled fragrance fills the air with a sweet, slightly tangy
 perfume.  A large white gazebo rises from the flower beds to the southwest.
 The dirt path you are on continues south and west around the gazebo.
 ~
-0 0 1
+0 0 city
 D2
 The dirt path continues south around the gazebo.
 ~
@@ -4097,7 +4047,7 @@ grotesque, especially since the hippo acting as the fountain appears to be
 barfing on the other..  Marble steps lead into the gazebo to the south.  
 The dirt path continues west and east around the gazebo.
 ~
-0 0 1
+0 0 city
 E
 white gazebo~
 Some vague forms are visible within the gazebo to the south.
@@ -4131,7 +4081,7 @@ beauty.  Their mingled fragrance fills the air with a sweet, slightly tangy
 perfume.  A large white gazebo rises from the flower beds to the southeast.
 The dirt path you are on continues east and south around the gazebo.
 ~
-0 0 1
+0 0 city
 D0
 Redwood steps lead up to a large platform to the north.
 ~
@@ -4160,7 +4110,7 @@ beauty.  Their mingled fragrance fills the air with a sweet, slightly tangy
 perfume.  A large white gazebo rises from the flower beds to the east.
 The dirt path you are on continues north and south around the gazebo.
 ~
-0 0 1
+0 0 city
 D0
 The dirt path continues north around the gazebo.
 ~
@@ -4179,7 +4129,7 @@ beauty.  Their mingled fragrance fills the air with a sweet, slightly tangy
 perfume.  A large white gazebo rises from the flower beds to the northeast.
 The dirt path you are on continues north and east around the gazebo.
 ~
-0 0 1
+0 0 city
 D0
 The dirt path continues north around the gazebo.
 ~
@@ -4198,7 +4148,7 @@ ashwood arcs overhead, marking the grey marble floor with strips of dark
 shadow.  A carved white altar rises out of the center of the floor.
 The ceiling of the gazebo is shrouded in a misty haze.
 ~
-0 D 0
+0 D inside
 D0
 To the north, marble steps open into a lush garden.
 ~
@@ -4217,7 +4167,7 @@ the hulking white.. thing (?) rising up from the center.  The grass surrounding
 the object is charred and seems to smolder as if newly burned.  The object
 itself is unburned.
 ~
-0 0 2
+0 0 field
 D3
 A dirt path winds around a white gazebo to the west.
 ~
@@ -4235,7 +4185,7 @@ The green of a lush garden is visible through the twisting lattice of bones
 forming the walls of this structure.  A ladder disappears into a hole in the
 center of the ground.
 ~
-0 D 0
+0 D inside
 E
 ladder~
 A bone ladder leads into the hole in the floor.
@@ -4258,7 +4208,7 @@ Hole~
 The center of the floor drops away into a churning multicolored void.
 Go down if you dare..
 ~
-0 AD 0
+0 AD inside
 E
 multicolored void~
 A mass of multiple color churns and spins below.  Your guts twist, and you
@@ -4281,7 +4231,7 @@ A narrow north-south tunnel has been carved from the packed clay here.  Light
 filters in through an opening in the ceiling.  The rhythmic dripping of water
 is audible to the north, where the tunnel widens into a large cave.
 ~
-0 AD 0
+0 AD inside
 D0
 A large cave is visible to the north.
 ~
@@ -4299,7 +4249,7 @@ Wet walls of packed clay frame a huge circular cave.  Water drips from crevices
 in the ceiling and walls, flowing in rivulets and small streams to form a 
 clear, flat pool in the center of the cavern.
 ~
-0 AD 0
+0 AD inside
 D2
 A narrow tunnel leads south.
 ~
@@ -4312,7 +4262,7 @@ A pentagonal redwood platform rises from the multicolored clusters of flowers
 and shrubbery.  An granite tome is mounted in the center of the pentagon.
 Two low marbles pedestals, grey and white, stand on either side of the tome.
 ~
-0 0 1
+0 0 city
 E
 white~
 A crack runs down the edge of the white pedestal.
@@ -4353,7 +4303,7 @@ Base of a Large Tree~
 The dirt path curves east and south here.  A huge oak tree looms to the
 northwest, its lower branches shading a large section of the path.  
 ~
-0 0 1
+0 0 city
 E
 oak tree branches~
 The huge oak rises skyward.  Its lower branches appear sturdy and climbable.
@@ -4380,7 +4330,7 @@ A ring of ash trees form a small, shaded grove here.  Glints of light filter
 through the overlapping branches to flicker in the shadows like fireflies.
 A narrow dirt path exits the grove to the north.
 ~
-0 0 2
+0 0 field
 D0
 A dirt path disappears north into a lush garden.
 ~
@@ -4393,7 +4343,7 @@ You stand on a low branch near the huge trunk of the oak tree.  The thick
 network of branches above makes it impossible to climb higher.  The base
 of an enormous birdfeeder is visible along the branch to the west.
 ~
-0 D 3
+0 D forest
 E
 birdfeeder~
 An opening in the near face looks large enough to enter.. though one might 
@@ -4417,7 +4367,7 @@ walls disapppear out of sight above.  Blue sky and oaken branches are visible
 through 3 huge doorways cut into the walls.  The floor is littered with
 tan and grey egg-shaped spheres.  Between the spheres are clusters of birdseed.
 ~
-0 D 0
+0 D inside
 E
 birdseed~
 Little piles of birdseed litter wooden floor.
@@ -4438,7 +4388,7 @@ Stone Well~
 You stand in a wide grassy clearing framed by high hedges.  To one side,
 a stone well rises from the turf.
 ~
-0 0 1
+0 0 city
 E
 stone well~
 Blocks of smooth grey stone have been fitted and mortared together to form
@@ -4462,7 +4412,7 @@ appears rough and unworn, as if the well has never been used.  A broken
 humanoid skeleton lies sprawled across the bottom of the well.  A dark wooden
 ladder ascends to the top of the well.
 ~
-0 0 1
+0 0 city
 E
 skeleton~
 It looks as though something (someone?) has fallen into the well.  The bones
@@ -4480,7 +4430,7 @@ Tendrils of cool mist creep across the pathway from the south, leaving the
 white pebbles of the path cool and shiny.  Tall hedges frame the path to the
 north.  The mist thickens to the south.
 ~
-0 0 1
+0 0 city
 D0
 The path disappears between tall hedges to the north.
 ~
@@ -4498,7 +4448,7 @@ You stand on the rocky shore of a lake which seems to be composed entirely of
 mist.  Dense white vapor from the lake overflows up and over the path to the
 north.  To the south, the shore dips into the lake.
 ~
-0 0 1
+0 0 city
 D0
 A white pebbled path leads north.
 ~
@@ -4517,7 +4467,7 @@ The lake bottom is dotted with large grey-white boulders and clumps of
 slippery grass.  To the north, the lakeshore ascends above the mist.  The 
 lake continues south.
 ~
-0 A 2
+0 A field
 E
 boulders stones~
 Large white-streaked grey boulders dot the lake floor.  An opening between
@@ -4552,7 +4502,7 @@ Patches of phosphorescent green blue moss dot the slick cave walls, glowing
 eerily in the mist.  A clump of large bushes to the east shields the cave
 from the rest of the lake.
 ~
-0 D 2
+0 D field
 E
 bushes~
 Large bushes shield the cave from the misty lake to the east.
@@ -4569,7 +4519,7 @@ The chill mist of the lake tingles damply against your skin.  Through the
 white haze, you can make out a path heading east and west between the large
 boulders littering the lake floor.  The lake floor continues north.
 ~
-0 A 2
+0 A field
 D0
 The lake floor continues north.
 ~
@@ -4591,7 +4541,7 @@ Misty Lake~
 The path along the lake floor leads west and south here.  To the south, the
 path opens onto a wide misty pool.
 ~
-0 A 2
+0 A field
 D2
 A misty pool is visible to the south.
 ~
@@ -4609,7 +4559,7 @@ The lake walls curve here to form a large misty pool.  A moss-covered marble
 pedestal rests in a depression in the center of the pool.  To the north, a
 path leads back into the lake.
 ~
-0 0 2
+0 0 field
 E
 marble pedestal depression~
 A round pedestal of white marble is set into a depression in the center of the
@@ -4632,7 +4582,7 @@ Misty Lake~
 A dark opening, partially obscured by a clump of green weeds, cuts into the 
 lake wall to the south.  The lake floor continues east.
 ~
-0 A 2
+0 A field
 D1
 The misty lake continues east.
 ~
@@ -4651,7 +4601,7 @@ mist seeps in from the opening to the north, leaving the rock walls slippery
 and cold.  The darkness seems to deepen to the west, where the tunnel widens
 into a cave.
 ~
-0 AD 0
+0 AD inside
 D0
 A lake of mist is visible through the opening to the north.
 ~
@@ -4669,7 +4619,7 @@ Dark granite walls form a large cavern here.  Darkness and shadows seem to
 deepen here, as if attracted by some unseen force.  Barely visible through
 the darkness, a tunnel exits the cave to the east.
 ~
-0 AD 0
+0 AD inside
 D1
 A dark, misty tunnel exits the cave to the east.
 ~
@@ -4686,7 +4636,7 @@ Chill air from the north causes the torches to gutter occassionally,
 picking out eerie shadows against the dark onyx walls.  A plain oaken door
 is set into the east wall.
 ~
-0 ADN 0
+0 ADN inside
 D0
 The onyx hallway continues north.
 ~
@@ -4709,7 +4659,7 @@ The smooth black walls are broken by streaks of blood, both new and old.
 Distant screams echo through the hallway.  To the south, the hall intersects
 a dark corridor.  A solid black door is set into the west wall.
 ~
-0 ADN 0
+0 ADN inside
 D0
 The hallway continues north.
 ~
@@ -4732,7 +4682,7 @@ Black marble walls frame a large circular room and a high stone ceiling
 supported by marble pillars.  Dull brownish patches dot the polished walls
 where spattered blood has dried.
 ~
-0 ADN 0
+0 ADN inside
 D1
 A black door is set into the east wall.
 ~
@@ -4745,7 +4695,7 @@ Walls of dark stone line a corridor running east and west here.  Shadows,
 almost invisible against the stone, flicker eerily in the dim torchlight.
 An onyx hallway intersects the corridor here and continues north.
 ~
-0 ADN 0
+0 ADN inside
 D0
 An onyx hallway leads north.
 ~
@@ -4767,7 +4717,7 @@ Dark corridor~
 The dark corridor runs east and south here.  A feeling of forboding permeates
 the air.  It seems like the walls are watching..
 ~
-0 ADN 0
+0 ADN inside
 D1
 The corridor continues east.
 ~
@@ -4784,7 +4734,7 @@ Dark corridor~
 The dark corridor runs north and south here.  Distant screams echo eerily
 against the stone walls.
 ~
-0 ADN 0
+0 ADN inside
 D0
 The corridor continues north.
 ~
@@ -4802,7 +4752,7 @@ The corridor branches north and east here.  A stone archway leads west into
 a large hall.  Huge, forbidding double doors loom over the corridor to the 
 south.
 ~
-0 ADN 0
+0 ADN inside
 D0
 The corridor continues north.
 ~
@@ -4829,7 +4779,7 @@ Dark corridor~
 The dark corridor runs west and east here.  To the north, black marble steps
 lead up to a pair of bloodstained bronze doors.
 ~
-0 ADN 0
+0 ADN inside
 D0
 Streaks of dried blood spatter the bronze doors to the north.
 ~
@@ -4852,7 +4802,7 @@ The corridor branches north and west here.  A humanoid skeleton has been
 entombed in the corridor ceiling.  The bones gleam whitely against the 
 dark stone, and the hollow eyesockets seem to glare accusingly at you.
 ~
-0 ADN 0
+0 ADN inside
 D0
 The corridor continues north.
 ~
@@ -4873,7 +4823,7 @@ S
 Dark corridor~
 The dark corridor runs north and south here.
 ~
-0 ADN 0
+0 ADN inside
 D0
 The corridor continues north.
 ~
@@ -4890,7 +4840,7 @@ Dark corridor~
 The dark corridor runs west and south here.  A narrow marble archway opens
 east into a large room.
 ~
-0 ADN 0
+0 ADN inside
 D1
 A twisting black figure is visible through the archway to the east.
 ~
@@ -4914,7 +4864,7 @@ an obsidian altar gleams dully with fresh blood.  Lit copper braziers
 mounted on either side of the altar fill the room with a cloying smoke.
 Behind the altar, a forbidding pit opens in the marble floor.
 ~
-0 ADN 0
+0 ADN inside
 D2
 A pair of bronze doors open south.
 ~
@@ -4934,7 +4884,7 @@ set into the four corners.  Rising from the center of the room is a huge
 demonic face, sculpted of grey-streaked black marble.  A marble archway
 opens west.
 ~
-0 AD 0
+0 AD inside
 D3
 A narrow marble archway opens west onto a dark corridor.
 ~
@@ -4948,7 +4898,7 @@ The shape of the slippery tongue seems to writhe even as you stand on it,
 preventing both exit from the mouth and movement farther into it.  A
 weighted rope, vaguely tonsil-shaped, ascends through an opening above.
 ~
-0 ADN 0
+0 ADN inside
 D4
 A rope leads up to an opening above.
 ~
@@ -4961,7 +4911,7 @@ You hang suspended on a heavy rope halfway up a narrow stone chute.
 The rope disappears into the center of what appears to be a churning
 multicolored void.  Who know where it may lead..
 ~
-0 ADN 0
+0 ADN inside
 D4
 The rope disappears into a multicolored void above.
 ~
@@ -4979,7 +4929,7 @@ You find yourself in a narrow stone passageway leading south.  The low
 ceiling forces all but the shortest to stoop in order to pass through.
 A skeleton is embedded in the rock below.
 ~
-0 ADN 0
+0 ADN inside
 D2
 The passage continues south.
 ~
@@ -4998,7 +4948,7 @@ of water run down the stalagtites clinging to the ceiling, collecting to
 form a large, round pool in the center of the cave.  A narrow passage
 exits the cave to the north.
 ~
-0 AD 0
+0 AD inside
 D0
 A passage leads north out of the cave.
 ~
@@ -5012,7 +4962,7 @@ the center of the star rests a large grey tome, apparently mounted to
 the floor of the room.  A pair of black steel doors are set into the
 north wall.
 ~
-0 ADN 0
+0 ADN inside
 E
 grey tome book~
 Splashes of blood dot the worn vellum pages.  A paragraph on the right hand
@@ -5040,7 +4990,7 @@ litter the table and floor, surrounded by sticky puddles of blood and other
 less recognizable fluids.  A trapdoor is set into the corner of the floor.
 Foul odors and smoke drift into the room from the doorway to the north.
 ~
-0 ADN 0
+0 ADN inside
 E
 rotting half-eaten carcasses~
 The carcasses appear to have been half-raw when eaten.  The remains of some
@@ -5076,7 +5026,7 @@ intestines.  A long spit in the center of the floor bears a the roasting
 form of a headless human body.  Shiny cleavers of varying lengths and sizes
 lie on the bloody chopping board, one still half embedded in a chunk of meat.
 ~
-0 ADN 0
+0 ADN inside
 D2
 A long black hall is visible through the doorway to the south.
 ~
@@ -5088,7 +5038,7 @@ Damp Stairwell~
 Slippery stone stairs wind down into the darkness.  Threads of light filter
 in from above, where a wide trapdoor is set into the ceiling.
 ~
-0 ADN 0
+0 ADN inside
 D4
 The stairwell ends at a trapdoor above.
 ~
@@ -5109,7 +5059,7 @@ their contents and keeping nosy adventurers out..  Then again, considering
 putrid odor permeating the cellar, you're not sure you really want to know
 anymore about the contents..
 ~
-0 ADN 0
+0 ADN inside
 D4
 A slimy stairwell leasd up into darkness.  A faint light is visible farther
 up.
@@ -5125,7 +5075,7 @@ if they haven't been used in a while.  However, footprints mark the grit
 of the floor, and a thin line of darkness picks out a square in the dusty
 ceiling.  An oaken door opens into the west wall.
 ~
-0 ADN 0
+0 ADN inside
 E
 utensils objects~
 Just some more blood-drenched mops and such..  All those sacrifices must
@@ -5147,7 +5097,7 @@ Narrow Crawlspace~
 Claw marks and blood scar the stone walls framing the narrow crawlspace.
 A trapdoor is set into one corner, nearly invisible in the shadows.
 ~
-0 ADN 0
+0 ADN inside
 D5
 A trapdoor opens into the floor.
 ~
@@ -5159,7 +5109,7 @@ Onyx Hallway~
 The dark onyx walls gleam eerily in the dim torchlight.  A chill breeze
 wafts in through the archway to the north.  The hallway continues south.
 ~
-0 ADN 0
+0 ADN inside
 D0
 A courtyard is visible through the archway to the north.
 ~
@@ -5178,7 +5128,7 @@ forbidding archway enters into a dark, sprawling building to the south.
 To the north, a narrow path winds away from the courtyard into a range of
 low, dark hills.
 ~
-0 AN 0
+0 AN inside
 D0
 The hills to the north seem somehow grey and dead.  A path disappears into 
 their midst.
@@ -5198,7 +5148,7 @@ You stand on a narrow dirt path winding between dark, rolling hills.  Icy
 winds howl across the hilltops, and dark shapes seem to flit among the
 scattered brush.  The path branches west and north here.
 ~
-0 AN 4
+0 AN hills
 E
 dark shapes~
 They seem to appear out of the corner of your vision, but when you turn to
@@ -5227,7 +5177,7 @@ the chilling winds.  Grey brush, leafless and dead-looking, ring the valley,
 casting eerie shadows along the grassy floor.  A path exits the valley to
 the east.
 ~
-0 AN 4
+0 AN hills
 D1
 A narrow path leads out of the valley to the east.
 ~
@@ -5240,7 +5190,7 @@ The icy winds batter at you like vengeful ghosts.  You can almost make out
 words in the howling gusts..  The path branches east and west here and
 continues south out of the hills.
 ~
-0 AN 4
+0 AN hills
 D0
 ~
 ~
@@ -5267,7 +5217,7 @@ The path winds north and west here, in a momentary shelter against the raging
 winds.  To the north, the brush thickens, casting eerie shadows across the
 path.
 ~
-0 AN 4
+0 AN hills
 D0
 The path continues north.
 ~
@@ -5286,7 +5236,7 @@ hills.  Silent shapes seem to flicker among the brush in your peripheral
 vision, but are never visible when you turn to look.  A narrow path leads
 south out of the clearing.
 ~
-0 AN 4
+0 AN hills
 D2
 A path exits the clearing to the south.
 ~
@@ -5298,7 +5248,7 @@ Dead end~
 The narrow path ends abruptly at a sheer rock face.  To the north, stunted
 grey shrubs grow from between huge, stacked boulders.
 ~
-0 AN 4
+0 AN hills
 E
 boulder boulders stone huge rock face shrubs~
 One of the boulders near the bottom appears to be slightly separate from the
@@ -5321,7 +5271,7 @@ Rocky Cave~
 You find yourself in a dark, rocky cave.  Dim light seeps in through an 
 opening to the south.  The cave darkens to the west.
 ~
-0 ADN 0
+0 ADN inside
 D2
 A boulder leans against an opening to the south.
 ~
@@ -5338,7 +5288,7 @@ Dark Cavern~
 Darkness envelopes the cavern, seeming to soak up even the dim light as
 if a vacuum..  A glimmer of light is visible to the east.
 ~
-0 AD 0
+0 AD inside
 D1
 A glimmer of light filters through an opening to the east.
 ~
@@ -5352,7 +5302,7 @@ Streaks of green energy lance intermittently through the tunnel walls,
 lighting the area with a pulsing green glow.  A white gazebo is
 visible through a misty gap in the tunnel floor.
 ~
-0 D 0
+0 D inside
 D1
 The tunnel opens into a large white room to the east.
 ~
@@ -5371,7 +5321,7 @@ white light.  Green energy streaks through the globe like lances of
 colored lightning.  A long silk carpet stretches from the mouth of the
 tunnel to the west to a tall white throne in the center of the globe.
 ~
-0 D 0
+0 D inside
 E
 silk carpet~
 Though floating without any visible supports, it appears to be quite sturdy.
@@ -5388,7 +5338,7 @@ You find yourself in a dark tunnel.  Shafts of dim light enter the through
 the tunnel mouth to the east, to be absorbed as soon as they touch the
 black walls.  A blood slicked metal ladder ascends to the temple above.
 ~
-0 AD 0
+0 AD inside
 D3
 Dim light is visible to the west.
 ~
@@ -5408,7 +5358,7 @@ and a forbidding black throne suspended upright at the opposite end.  The
 throne seems to glow with a light of its own, filling the area with a dim
 greyish glow.
 ~
-0 AD 0
+0 AD inside
 E
 blood red carpet~
 A silk carpet the color of blood runs from the base of the throne to the
@@ -5427,7 +5377,7 @@ clearing and bends north and east.  Two ancient trees, one black oak and one
 white, face each other to the east and west, casting long shadows across
 the earthen floor.
 ~
-0 A 3
+0 A forest
 D0
 A dirt path winds into the trees to the north.
 ~
@@ -5445,7 +5395,7 @@ You stand in a dark thicket encircled by tall pines.  The twisted pine
 boughs above resemble the waiting claws of some huge predator.  A narrow
 dirt path exits the thicket to the south.
 ~
-0 A 3
+0 A forest
 D2
 A dirt path winds into the shadows to the south.
 ~
@@ -5459,7 +5409,7 @@ fresh wood and pine needles.  The narrow path on which you stand runs
 west and south here.  One particularly large pine grows at the near the path
 to the north.
 ~
-0 A 3
+0 A forest
 E
 large pine tree~
 You notice a thin crack, barely visible against the rough tree bark,
@@ -5498,7 +5448,7 @@ a good sized shell are scattered across the bottom of the nest, intermixed
 with black-brown feathers and what pieces of what look like humanoid bones..
 The tree branches below appear sturdy and climbable.
 ~
-0 A 3
+0 A forest
 D5
 A narrow path is visible through the branches below.
 ~
@@ -5510,7 +5460,7 @@ Forest Path~
 The silent forms of tall pine trees frame the narrow dirt path.  The path
 branches north and east here.
 ~
-0 A 3
+0 A forest
 D0
 The path continues north.
 ~
@@ -5528,7 +5478,7 @@ The forest path dead ends here in a stand of tall pines.  Large boulders
 dot the earthen floor.  The huge, severed stump of what must have been
 an impressive oak tree rises from the pines to the south.
 ~
-0 A 3
+0 A forest
 E
 huge oak stump~
 Scratches and light footprints mark the earth around the stump.
@@ -5550,7 +5500,7 @@ You find yourself in a narrow earthen tunnel.  Thin shafts of light enter
 the tunnel through the opening above.  To the east, the tunnel opens into
 a dark chamber.
 ~
-0 AD 0
+0 AD inside
 D1
 A dark chamber is visible to the east.
 ~
@@ -5571,7 +5521,7 @@ the table stands a grey oak chair flanked by two chairs of white and black
 oak.  Plainer redwood chairs line the outer edge.  A narrow tunnel exits
 the chamber to the west.
 ~
-0 AD 0
+0 AD inside
 E
 white grey black chair~
 Three large chairs of white, grey, and black oak line are set along the
@@ -5601,7 +5551,7 @@ You find yourself in a large, dark cavern.  Bits of wood and gleaming
 white bones litter the earthen floor.  Leaves and vines are piled in one
 corner to form a large nest.
 ~
-0 AD 0
+0 AD inside
 E
 leaves vines nest~
 Glossy dark green scales glint from within the leaves and vines at the
@@ -5618,7 +5568,7 @@ Inside the Tree Base~
 You stand in the hollow base of a large pine tree.  A wooden platform is
 visible far above.
 ~
-0 AD 3
+0 AD forest
 E
 wooden platform~
 A wooden platform cuts across the space above.  An opening to one side of
@@ -5647,7 +5597,7 @@ the pine tree.  The wood of the tree, somehow fresh and very alive despite
 the hollow inside, fills the air with the sharp scent of pine.  An opening
 to one side of the platform allows descent to the earthen floor below.
 ~
-0 AD 9
+0 AD air
 D5
 The hollow base of the tree is visible far below.
 ~
@@ -5662,7 +5612,7 @@ of the road is a churning multicolored void.  A neat white outhouse rests
 off the side of the road to the east, and a ribbon of white light winds
 into the void to the north.  The brick road continues west to a crossroads.
 ~
-0 0 1
+0 0 city
 E
 white outhouse~
 A neat white outhouse stands to the east.
@@ -5696,7 +5646,7 @@ the void is enough to twist your guts inside out, which doesn't help
 your precarious balance at all...  but maybe if you don't look up you'll
 be okay.  You notice that you can see right through the path at your feet.
 ~
-0 0 1
+0 0 city
 D2
 A brick road is visible to the south.
 ~
@@ -5715,7 +5665,7 @@ a multicolored void.  What looks like a shimmering rip in the void hovers
 within reach overhead.  A ribbon of white light twists into the void to 
 the east.
 ~
-0 0 1
+0 0 city
 E
 rip~
 A rip in the fabric of the void shimmers overhead.
@@ -5744,7 +5694,7 @@ directions.  It would resemble a knot more than an intersection except
 that this is supposed to lead somewhere.  Then again..
 As you watch, the intersection seems to twist and change.
 ~
-0 0 1
+0 0 city
 D1
 Twisting red brick road.
 ~
@@ -5767,7 +5717,7 @@ Brilliant purple fences wall off rows of animal pens.  Aside from the
 barking cats and flying pigs, this could be a cosey little farm..
 A purple farmhouse is visible in the distance.
 ~
-0 0 1
+0 0 city
 D0
 A red brick road runs north.
 ~
@@ -5787,7 +5737,7 @@ You also notice the corner of a bed sticking out of the outhouse door..
 and judging from the odor of the house, people are living in the outhouse
 and using the farmhouse for um..  
 ~
-0 0 1
+0 0 city
 D3
 The farm continues west.
 ~
@@ -5798,7 +5748,7 @@ S
 Red Brick Road~
 The red brick road twists east and south here.
 ~
-0 0 1
+0 0 city
 D1
 A signpost is visible to the east.
 ~
@@ -5817,7 +5767,7 @@ times that it's amazing it ever goes anywhere.  As you watch, the intersection
 rearranges itself again, nearly taking your lunch with it.  The bricks at one
 edge of the road have been torn out, revealing a dark hole leading down.
 ~
-0 0 1
+0 0 city
 D0
 More brick road.
 ~
@@ -5843,7 +5793,7 @@ S
 Red Brick Road~
 The brick road twists east and south through the void.
 ~
-0 0 1
+0 0 city
 D1
 You see an intersection to the east.
 ~
@@ -5862,7 +5812,7 @@ with a checkered carpet.  The ground dips and rises, forming shallow hills
 and valleys across the clearing.  As you watch, the ground moves, and a hill
 forms beneath your feet.  
 ~
-0 0 2
+0 0 field
 D0
 A twisting red brick road leads north.
 ~
@@ -5880,7 +5830,7 @@ You stand at the east end of a wide clearing carpeted by alternating squares
 of yellow and blue flowers.  The ground occasionally shifts, forming
 the clearing into scattered hills and valleys.
 ~
-0 0 2
+0 0 field
 D1
 The clearing continues east.
 ~
@@ -5892,7 +5842,7 @@ Clinic~
 You stand in a little white office.  A window faces east onto the churning
 void outside.  A long leather couch dominates the center of the office.
 ~
-0 0 1
+0 0 city
 D0
 You see a twisting red brick road to the north.
 ~
@@ -5905,7 +5855,7 @@ You find yourself inside a narrow, white walled outhouse, wedged between
 the door and a really Big toilet.  Probably one of those times when you
 reeally don't want to look down..
 ~
-0 D 0
+0 D inside
 D3
 A red brick road leads west.
 ~
@@ -5923,7 +5873,7 @@ Oh yuck.. what are you doing inside the toilet?  The stench is awful, and
 what's worse.. claw marks on the walls indicate that something has made
 its home here.
 ~
-0 AD 0
+0 AD inside
 D4
 You see the toilet seat above.
 ~
@@ -5935,7 +5885,7 @@ Down a Mole Hole~
 Something has dug a narrow north-south tunnel here.  Light streams in
 through the opening above, drying the fresh dirt.
 ~
-0 D 0
+0 D inside
 D0
 The mole hole continues north.
 ~
@@ -5954,7 +5904,7 @@ Gaudy mauve curtains decorate the earthen walls, clashing with the loud
 chartreuse carpet.  A neon green throne and a short, thick perch dominate
 the center of the room.
 ~
-0 D 0
+0 D inside
 D2
 A tunnel exits the room to the south.
 ~
@@ -5972,7 +5922,7 @@ hangs across the north wall.  Near the center of the room stands
 a classic mahogany desk, bordered by a magical curtain.  Affixed
 to the front of the desk is an engraved silver sign.
 ~
-0 DKM 0
+0 DKM inside
 E
 desk silver sign~
 - Pets for the Amateur Adventurer -
@@ -6007,7 +5957,7 @@ S
 #11700
 Pet Storage (Zeinia)~
 ~
-0 C 0
+0 C inside
 S
 #11701
 Elite Pets Counter~
@@ -6016,7 +5966,7 @@ magical curtain hangs off to one side, next to the dark marble
 counter in the center of the room.  Affixed to the top of the counter
 is an ornate golden plaque.
 ~
-0 DKM 0
+0 DKM inside
 E
 marble counter golden plaque~
 -= Pets for the Experienced Adventurer =-
@@ -6037,7 +5987,7 @@ S
 #11702
 Pet Storage (Zeinia elite)~
 ~
-0 C 0
+0 C inside
 S
 #11703
 Shadowy Tunnel~
@@ -6045,7 +5995,7 @@ You stand in a narrow tunnel hewn of dark stone.  A dark ladder,
 almost invisible against the north wall, ascends to an opening
 in the ceiling above.  The tunnel continues east.
 ~
-0 AD 0
+0 AD inside
 D1
 The tunnel continues eastward.
 ~
@@ -6062,7 +6012,7 @@ Shadowy Tunnel~
 The tunnel bends south and west here.  Your footfalls seem unaturally
 loud in the silence.
 ~
-0 AD 0
+0 AD inside
 D2
 The tunnel darkens to the south.
 ~
@@ -6078,7 +6028,7 @@ S
 Dead End~
 The stone tunnel dead ends here.
 ~
-0 AD 0
+0 AD inside
 D0
 The tunnel continues northward.
 ~
@@ -6096,7 +6046,7 @@ Black stone arcs overhead to form a narrow hallway.  The stone seems
 unnaturally smooth, devoid of the pick and chisel marks which usually
 mar tunnels hewn in stone.  The hallway branches east and south here.
 ~
-0 AD 0
+0 AD inside
 D1
 The hallway continues east.
 ~
@@ -6118,7 +6068,7 @@ Dark Hallway~
 The dark stone walls gleam eerily in the faint light.  A narrow wooden
 doorway is set into the northern wall.
 ~
-0 AD 0
+0 AD inside
 D0
 A plain wooden door opens northward.
 ~
@@ -6137,7 +6087,7 @@ The sole furnishings are four narrow wooden bunks, a basin, and
 a small bookshelf and desk.  A single torch above the desk casts
 a faint flickering light across the room.
 ~
-0 D 0
+0 D inside
 E
 furnishings bunks basin bookshelf shelf desk~
 The furnishings are well plain, but well made.
@@ -6157,7 +6107,7 @@ Dark Hallway~
 Your footsteps echo eerily in the silent corridor.  A plain wooden
 door is set into the west wall, and the hallway continues east and north.
 ~
-0 AD 0
+0 AD inside
 D0
 The hallway continues north.
 ~
@@ -6183,7 +6133,7 @@ clothing and personal belongings.  Torches, spaced infrequently along
 the walls, light the room with a flickering glow.  A wooden door exits
 the chamber to the east.
 ~
-0 D 0
+0 D inside
 E
 torch torches~
 Plain wooden torches are affixed to the walls.
@@ -6211,7 +6161,7 @@ with plain wooden desks and bookcases and several chests and hooks for
 clothing and personal belongings.  Torches, spaced infrequently along
 the walls, light the room with a flickering glow.
 ~
-0 D 0
+0 D inside
 E
 torch torches~
 Plain wooden torches are affixed to the walls.
@@ -6233,7 +6183,7 @@ the hallway here, opposite a large oaken door set into the south
 wall.  The door itself is slightly charred around the edges and
 appears to have been recently replaced.
 ~
-0 AD 0
+0 AD inside
 D1
 The hallway continues east.
 ~
@@ -6259,7 +6209,7 @@ dulling the glassy black walls to a dark gleam.  Burn marks score
 both tables and the oaken door in the north wall.  A smaller
 door, also slightly charred, opens southward.
 ~
-0 D 0
+0 D inside
 E
 bookcase book case~
 The faint shimmer of a protective shield hangs above the bookcase.
@@ -6286,7 +6236,7 @@ Faint torchlight flickers over a plain stone room, furnished only
 by several charred wooden targets affixed to the walls.  A plain
 wood door leads north.
 ~
-0 D 0
+0 D inside
 E
 wooden targets~
 The targets, vaguely human shaped, are crisscrossed by burn marks.
@@ -6305,7 +6255,7 @@ racks of strange instruments, apparently experiments in progress.
 The center table bears pieces of armor and weaponry.  To the
 east, a tall bookcase stands against the wall.
 ~
-0 D 0
+0 D inside
 E
 armor weaponry~
 Pieces of leather and chain armor and lethal looking stilettos
@@ -6326,7 +6276,7 @@ Dark Hallway~
 The hallway leads east and west here.  Wooden doors are set into
 the walls to the north and south.
 ~
-0 AD 0
+0 AD inside
 D0
 An oak door opens northward.
 ~
@@ -6353,7 +6303,7 @@ Instruction Area~
 You stand in a large stone chamber.  An empty weapons rack hangs against
 the western wall.  Doors open east and south.
 ~
-0 AD 0
+0 AD inside
 E
 weapons rack~
 The rack is designed to hold a wide variety of weapons.  It appears to
@@ -6376,7 +6326,7 @@ Scuffed sand covers the floor this large chamber.  Several humanoid
 shaped cloth figures stand against the walls.  A plain wooden door
 is set into the western wall.
 ~
-0 AD 0
+0 AD inside
 E
 humanoid cloth figures~
 Slashes disfigure the cloth figures.  You notice that several rather
@@ -6398,7 +6348,7 @@ covered with beakers and fluid filled constructions of glass
 tubing and test tubes.  A narrow steel door is set into the
 southern wall, and a dark mahogany door opens northward.
 ~
-0 AD 0
+0 AD inside
 D0
 A dark mahogany door opens northward.
 ~
@@ -6416,7 +6366,7 @@ The putrid odor of unwashed and dying bodies permeates the room.
 Two rows of long, narrow tables line the center, some occupied
 by bodies.  A narrow steel door is set into the northern wall.
 ~
-0 AD 0
+0 AD inside
 E
 tables bodies~
 Bodies, mostly humanoid, are strapped to some of the tables.
@@ -6433,7 +6383,7 @@ S
 Dark Hallway~
 The hallway forks east, west, and south here.
 ~
-0 AD 0
+0 AD inside
 D0
 ~
 ~
@@ -6459,7 +6409,7 @@ Dark Hallway~
 The hallway stretches west and east, a dark tunnel of silent,
 glassy black stone.  An oak door is set into the north wall here.
 ~
-0 AD 0
+0 AD inside
 D0
 An oak door opens northward.  Carved above the doorknob is a
 depiction of a stiletto.
@@ -6483,7 +6433,7 @@ You stand at the southern end of a wide stone chamber.  Well made oak
 beds line the east and western walls, separated by matching desks
 and wardrobes.  An oak door is set into the south wall.
 ~
-0 AD 0
+0 AD inside
 E
 beds desks wardrobes~
 The furnishings are plain, but solid and well made.  Wood portions are
@@ -6506,7 +6456,7 @@ You stand at the northern end of a wide stone chamber.  Well made oak
 beds line the east and western walls, separated by matching desks
 and wardrobes.
 ~
-0 AD 0
+0 AD inside
 E
 beds desks wardrobes~
 The furnishings are plain, but solid and well made.  Wood portions are
@@ -6523,7 +6473,7 @@ Dark Hallway~
 Wooden doors are set into the black stone walls to the north, south,
 and east.  The hallway stretches westward.
 ~
-0 AD 0
+0 AD inside
 D0
 An oak door carved with the depiction of a shortsword is set into the
 north wall.  The black paint of the carving glistens wetly, like poison.
@@ -6554,7 +6504,7 @@ Dark curtains cover the walls, shrouding the chamber in deep shadows.
 The furnishings are simply adorned and well crafted.  An oak door
 exits the room to the south.
 ~
-0 AD 0
+0 AD inside
 E
 furnishings~
 The furnishings are finely crafted, if simply adorned.
@@ -6571,7 +6521,7 @@ Dark curtains cover the walls, shrouding the chamber in deep shadows.
 The furnishings are simply adorned and well crafted.  An ashwood door
 exits the room to the north.
 ~
-0 AD 0
+0 AD inside
 E
 furnishings~
 The furnishings are finely crafted, if simply adorned.
@@ -6588,7 +6538,7 @@ Dark curtains cover the walls, shrouding the chamber in deep shadows.
 The furnishings are simply adorned and well crafted.  A mahogany door
 exits the room to the west.
 ~
-0 AD 0
+0 AD inside
 E
 furnishings~
 The furnishings are finely crafted, if simply adorned.
@@ -6604,7 +6554,7 @@ Dark Hallway~
 The muffled noise of clanging metal is audible through the thick steel
 door to the east, echoing eerily down the quiet hallway.
 ~
-0 AD 0
+0 AD inside
 D0
 The hallway continues north.
 ~
@@ -6629,7 +6579,7 @@ of dark blue black metal lie stacked in bins against the walls.  A forge
 and several anvils are spaced about the remainder of the room.  To the
 west, a thick steel door exits the room.
 ~
-0 D 0
+0 D inside
 E
 rods plates metal bins~
 The shimmer of protective shields cover the bins.
@@ -6645,7 +6595,7 @@ Dark Hallway~
 A dark ashwood door is set into the black stone wall to the east.
 The hallway continues north and south into darkness.
 ~
-0 AD 0
+0 AD inside
 D0
 The hallway continues north.
 ~
@@ -6669,7 +6619,7 @@ Dark curtains cover the walls, shrouding the chamber in deep shadows.
 The furnishings are simply adorned and well crafted.  An ashwood door
 exits the room to the west.
 ~
-0 AD 0
+0 AD inside
 E
 furnishings~
 The furnishings are well crafted and bear a few simple decorations.
@@ -6685,7 +6635,7 @@ Dark Hallway~
 Door open east, west, and south.  The hallway continues northward
 into blackness.
 ~
-0 AD 0
+0 AD inside
 D0
 The hallway continues north.
 ~
@@ -6713,7 +6663,7 @@ You stand in a large, well furnished chamber carved of black stone.
 A woven black rug covers the floor, softening your footfalls to whispers.
 A dark mahogany door is set into the eastern wall.
 ~
-0 AD 0
+0 AD inside
 D1
 A dark mahogany door opens eastward.
 ~
@@ -6726,7 +6676,7 @@ You stand in a large, well furnished chamber carved of black stone.
 A woven black rug covers the floor, softening your footfalls to whispers.
 An ashwood door is set into the north wall.
 ~
-0 AD 0
+0 AD inside
 D0
 An ashwood door opens northward.
 ~
@@ -6739,7 +6689,7 @@ A dark grey carpet extends the length of the long east west corridor,
 muffling your footfalls and leaving and almost unnerving silence in
 their wake.  An oaken door is set into the western wall.
 ~
-0 AD 0
+0 AD inside
 E
 grey carpet~
 It appears to be made of some sort of dark woven wool.
@@ -6762,7 +6712,7 @@ the corridor terminates at a dark redwood door.  A black oak door
 is set into the south wall.  You notice an inscription above the
 handle of the eastern door.
 ~
-0 AD 0
+0 AD inside
 E
 redwood door inscription~
 A dark redwood door stands to the east, its varnished surface gleaming
@@ -6814,7 +6764,7 @@ Guarded Corridor~
 You stand in a narrow black stone corridor terminating in doorways
 at both ends.  A shiver of forboding crawls up your spine.
 ~
-0 AD 0
+0 AD inside
 D0
 A black oak door is set into the north wall.
 ~
@@ -6833,7 +6783,7 @@ light in the area.  A circular stone table rests in the center of the
 room, around which stand three chairs.  Double adamantite doors
 are set into the northern wall.
 ~
-0 AD 0
+0 AD inside
 E
 chairs~
 Three oaken chairs are spaced around the table.
@@ -6862,7 +6812,7 @@ table rests in the center of the room, ringed by five chairs covered
 with the same blood red fabric as the drapes.  A dark redwood door
 is set into the western wall.
 ~
-0 AD 0
+0 AD inside
 E
 chairs~
 The chairs are draped in dark crimson velvet.  Each bears the embroidered
