@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.62 1998-07-07 10:31:01 fjoe Exp $
+ * $Id: comm.c,v 1.63 1998-07-09 12:01:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2985,7 +2985,7 @@ void act_nprintf(CHAR_DATA *ch, const void *arg1,
 				int sexdep;
 			};
 
-			extern struct msg **ilang_table;
+			extern struct msg **msg_table;
 
 			enum {
 				DEP_NONE,
@@ -2996,12 +2996,12 @@ void act_nprintf(CHAR_DATA *ch, const void *arg1,
 			CHAR_DATA *victim;
 			struct msg *m;
 
-			m = ilang_table[to->i_lang] + msgid;
+			m = msg_table[to->lang] + msgid;
 			victim = ch;
 			if (m->sexdep == DEP_VICTIM)
 				victim = vch;
 			vsnprintf(buf, sizeof(buf),
-				  exact_msg(msgid, to->i_lang, victim->sex),
+				  exact_msg(msgid, to->lang, victim->sex),
 				  ap);
 		}
 		/*****************/

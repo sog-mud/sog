@@ -1,5 +1,5 @@
 /*
- * $Id: lookup.c,v 1.6 1998-07-06 07:32:55 fjoe Exp $
+ * $Id: lookup.c,v 1.7 1998-07-09 12:01:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -95,12 +95,12 @@ int lang_lookup (const char *name)
 
    if (LOWER(name[0]) == 'm' && 
      (!str_prefix(name,"mothertongue") || !str_prefix(name,"motherlanguage")))
-   return MAX_LANGUAGE;
+   return SLANG_MAX;
 
-   for (lang = 0; lang < MAX_LANGUAGE; lang++)
+   for (lang = 0; lang < SLANG_MAX; lang++)
    {
-	if (LOWER(name[0]) == LOWER(language_table[lang].name[0])
-	&&  !str_prefix(name,language_table[lang].name))
+	if (LOWER(name[0]) == LOWER(slang_table[lang].name[0])
+	&&  !str_prefix(name,slang_table[lang].name))
 	    return lang;
    }
    

@@ -2,16 +2,16 @@
 #define _RESOURCE_H_
 
 /*
- * $Id: resource.h,v 1.80 1998-06-24 02:42:23 efdi Exp $
+ * $Id: resource.h,v 1.81 1998-07-09 12:01:37 fjoe Exp $
  */
 
 #define msg(msgid, ch) vmsg(msgid, ch, ch)
 char* vmsg(int msgid, CHAR_DATA *ch, CHAR_DATA *victim);
-char* exact_msg(int msgid, int i_lang, int sex);
+char* exact_msg(int msgid, int lang, int sex);
 void msgdb_load();
 
-extern char** ilang_names;
-extern nilang;
+extern char** lang_table;
+extern nlang;
 
 enum {
 	NOTHING, 

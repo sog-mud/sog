@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.44 1998-07-08 09:57:14 fjoe Exp $
+ * $Id: merc.h,v 1.45 1998-07-09 12:01:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -497,7 +497,7 @@ enum class_names {
 #define LANG_GIANT	     5
 #define LANG_TROLLISH	     6
 #define LANG_CAT	     7
-#define MAX_LANGUAGE	     8
+#define SLANG_MAX	     8
 
 struct item_type
 {
@@ -557,7 +557,7 @@ struct pc_race_type  /* additional data for pc races */
 	int 	mana_bonus;		/* Initial mana bonus	*/
 	int 	prac_bonus;		/* Initial practice bonus */
 	int	align;			/* Alignment		*/
-	int	language;		/* language		*/
+	int	slang;			/* spoken language	*/
 };
 
 struct spec_type
@@ -1700,24 +1700,20 @@ enum {
 #define WIZ_SPAM		(T)
 
 /*
- * language staff
+ * spoken language stuff
  */
 
-struct language_type
+struct slang_type
 {
- char *name;
- int vnum;
+	char *name;
+	int vnum;
 };
 
 struct translation_type
 {
- char *common;
- char *language;
+	char *common;
+	char *slang;
 };
-
-/*
- * auction data
- */
 
 /*
  * Prototype for a mob.
@@ -1875,8 +1871,8 @@ struct	char_data
 	int 			endur;
 	bool			riding; /* mount data */
 	CHAR_DATA *		mount;
-	int			language;
-	int			i_lang; /* interface language */
+	int			slang;	/* spoken language */
+	int			lang; /* interface language */
 	CHAR_DATA *		hunter;	/* who quested to slay */
 };
 
@@ -2633,7 +2629,7 @@ extern	const	struct	wis_app_type	wis_app 	[26];
 extern	const	struct	dex_app_type	dex_app 	[26];
 extern	const	struct	con_app_type	con_app 	[26];
 
-extern	const	struct	language_type	language_table	   [MAX_LANGUAGE];
+extern	const	struct	slang_type	slang_table	   [SLANG_MAX];
 extern	const	struct	translation_type translation_table	[];
 extern	const	struct	cmd_type	cmd_table	[];
 extern	const	struct	class_type	class_table	[MAX_CLASS];

@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.33 1998-07-04 11:28:20 fjoe Exp $
+ * $Id: save.c,v 1.34 1998-07-09 12:01:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -302,8 +302,8 @@ fwrite_char(CHAR_DATA * ch, FILE * fp)
 			ch->pcdata->condition[3],
 			ch->pcdata->condition[4],
 			ch->pcdata->condition[5]);
-		/* write i_lang */
-		fprintf(fp, "I_Lang %d\n", ch->i_lang);
+		/* write lang */
+		fprintf(fp, "Lang %d\n", ch->lang);
 
 		/* write pc_killed */
 		fprintf(fp, "PC_Killed %d\n", ch->pcdata->pc_killed);
@@ -636,7 +636,7 @@ load_char_obj(DESCRIPTOR_DATA * d, char *name)
 	ch->pcdata->adr_stops_shown = 1;
 
 	ch->pcdata->pc_killed = 0;
-	ch->i_lang = 0;
+	ch->lang = 0;
 	ch->pcdata->questpoints = 0;
 	ch->pcdata->questgiver = 0;
 	ch->pcdata->questtime = 0;
@@ -1043,7 +1043,7 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 			KEY("InvisLevel", ch->invis_level, fread_number(fp));
 			KEY("Inco", ch->incog_level, fread_number(fp));
 			KEY("Invi", ch->invis_level, fread_number(fp));
-			KEY("I_Lang", ch->i_lang, fread_number(fp));
+			KEY("I_Lang", ch->lang, fread_number(fp));
 			break;
 
 		case 'L':
@@ -1055,6 +1055,7 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 			KEY("LogO", lastlogoff, fread_number(fp));
 			KEY("LongDescr", ch->long_descr, fread_string(fp));
 			KEY("LnD", ch->long_descr, fread_string(fp));
+			KEY("Lang", ch->lang, fread_number(fp));
 			break;
 
 		case 'N':

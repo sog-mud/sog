@@ -1,5 +1,5 @@
 /*
- * $Id: const.c,v 1.15 1998-07-05 16:30:55 fjoe Exp $
+ * $Id: const.c,v 1.16 1998-07-09 12:01:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -175,7 +175,7 @@ const struct translation_type translation_table[]=
         {"",            	"" } 
 };
 
-const   struct  language_type       language_table      [ MAX_LANGUAGE ] =
+const   struct  slang_type       slang_table      [ SLANG_MAX ] =
 {
         { "common",	LANG_COMMON	},
         { "human",	LANG_HUMAN	},

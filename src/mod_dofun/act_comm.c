@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.56 1998-07-05 16:30:54 fjoe Exp $
+ * $Id: act_comm.c,v 1.57 1998-07-09 12:01:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -166,32 +166,32 @@ void do_gossip(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_ilang(CHAR_DATA *ch, char *argument)
+void do_lang(CHAR_DATA *ch, char *argument)
 {
 	int i;
 
 	if(*argument == '\0') {
-		if (ch->i_lang >= nilang) {
+		if (ch->lang >= nlang) {
 			char_puts(msg(COMM_INTERFACE_LANGUAGE_UNDEFINED, ch),
 				  ch);
 			return;
 		}
 		char_printf(ch, msg(COMM_SHOW_LANGUAGE, ch),
-			    ilang_names[ch->i_lang]);
+			    lang_table[ch->lang]);
 		return;
 	}
 
-	for (i = 0; ilang_names[i] != NULL; i++)
-		if (!str_prefix(argument, ilang_names[i])) {
-			ch->i_lang = i;
+	for (i = 0; lang_table[i] != NULL; i++)
+		if (!str_prefix(argument, lang_table[i])) {
+			ch->lang = i;
 			char_printf(ch, msg(COMM_SHOW_LANGUAGE, ch),
-				    ilang_names[i]);
+				    lang_table[i]);
 			return;
 		}
 
 	char_puts(msg(COMM_LANGUAGE_USAGE_PRE, ch), ch);
-	for (i = 0; ilang_names[i] != NULL; i++)
-		char_printf(ch, "%s%s", i == 0 ? "" : " | ", ilang_names[i]);
+	for (i = 0; lang_table[i] != NULL; i++)
+		char_printf(ch, "%s%s", i == 0 ? "" : " | ", lang_table[i]);
 	char_puts(msg(COMM_LANGUAGE_USAGE_POST, ch), ch);
 }
 
@@ -1792,7 +1792,7 @@ char char_lang_lookup(char c)
 	
 	for(i=0; translation_table[i].common[0] != '\0'; i++)
 	if (translation_table[i].common[0] == c) 
-		return translation_table[i].language[0];
+		return translation_table[i].slang[0];
 	return c;
 }
 
@@ -1811,11 +1811,11 @@ char *translate(CHAR_DATA *ch, CHAR_DATA *victim, char *argument)
 	||  (ch == NULL) || (victim == NULL)
 	||  IS_NPC(ch) || IS_NPC(victim)
 	||  IS_IMMORTAL(ch) || IS_IMMORTAL(victim)
-	||  ch->language == LANG_COMMON
-	||  ch->language == pc_race_table[ORG_RACE(victim)].language) {
+	||  ch->slang == LANG_COMMON
+	||  ch->slang == pc_race_table[ORG_RACE(victim)].slang) {
 		if (IS_IMMORTAL(victim))
 			snprintf(trans, sizeof(trans), "{{%s} %s",
-				language_table[ch->language].name, argument);
+				slang_table[ch->slang].name, argument);
 		else
 			snprintf(trans, sizeof(trans), argument);
 		return trans;
@@ -1828,7 +1828,7 @@ char *translate(CHAR_DATA *ch, CHAR_DATA *victim, char *argument)
 	buf[i] = '\0';
 
 	snprintf(trans, sizeof(trans), "{{%s} %s",
-		 language_table[ch->language].name, buf);
+		 slang_table[ch->slang].name, buf);
 	return trans;
 }
 
@@ -1843,10 +1843,10 @@ void do_speak(CHAR_DATA *ch, char *argument)
 	argument = one_argument(argument,arg);
 	if (arg[0] == '\0') {
 		char_printf(ch, "You now speak %s.\n\r", 
-			language_table[ch->language].name);
+			slang_table[ch->slang].name);
 		send_to_char("You can speak :\n\r", ch);
 		char_printf(ch, "       common, %s\n\r",
-			language_table[pc_race_table[ORG_RACE(ch)].language].name);
+			slang_table[pc_race_table[ORG_RACE(ch)].slang].name);
 		return;
 	}
 
@@ -1858,11 +1858,11 @@ void do_speak(CHAR_DATA *ch, char *argument)
 		return;
 		}
 
-	if (language >= MAX_LANGUAGE)
-	ch->language = pc_race_table[ORG_RACE(ch)].language;
-	else ch->language = language;
+	if (language >= SLANG_MAX)
+	ch->slang = pc_race_table[ORG_RACE(ch)].slang;
+	else ch->slang = language;
 	
-	char_printf(ch,"Now you speak %s.\n\r",language_table[ch->language].name);
+	char_printf(ch,"Now you speak %s.\n\r",slang_table[ch->slang].name);
 }
 
 void do_noiac(CHAR_DATA *ch, char *arg)

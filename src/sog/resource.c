@@ -1,5 +1,5 @@
 /*
- * $Id: resource.c,v 1.21 1998-07-06 07:32:57 fjoe Exp $
+ * $Id: resource.c,v 1.22 1998-07-09 12:01:37 fjoe Exp $
  */
 
 #include <limits.h>
@@ -26,9 +26,9 @@ struct msg {
 };
 
 static int nmsgid;
-struct msg** ilang_table;
-char** ilang_names;
-int nilang;
+struct msg** msg_table;
+char** lang_table;
+int nlang;
 
 enum {
 	DEP_NONE,
@@ -40,14 +40,14 @@ enum {
 #define FIX_SEX(sex) ((sex) >= SEX_FEMALE  ? SEX_FEMALE : \
 		     (sex) <= SEX_NEUTRAL ?	SEX_NEUTRAL : \
 						SEX_MALE)
-char *exact_msg(int msgid, int i_lang, int sex)
+char *exact_msg(int msgid, int lang, int sex)
 {
 	struct msg *m;
 
-	if (msgid >= nmsgid || i_lang >= nilang)
+	if (msgid >= nmsgid || lang >= nlang)
 		return BLANK_STRING;
 
-	m = ilang_table[i_lang]+msgid;
+	m = msg_table[lang]+msgid;
 	if (m->sexdep)
 		return m->p[FIX_SEX(sex)];
 	else
@@ -58,10 +58,10 @@ char *vmsg(int msgid, CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	struct msg *m;
 
-	if (msgid >= nmsgid || ch->i_lang >= nilang)
+	if (msgid >= nmsgid || ch->lang >= nlang)
 		return BLANK_STRING;
 
-	m = ilang_table[ch->i_lang]+msgid;
+	m = msg_table[ch->lang]+msgid;
 	if (m->sexdep) {
 		if (m->sexdep == DEP_VICTIM)
 			ch = victim;
@@ -106,7 +106,7 @@ static char STR_END[] = "};\n";
 
 #define BUFSZ 1024
 
-static void lang_load(int langnum, char* fname);
+static void lang_load(int lang, char* fname);
 
 static void msgid_add(char* name, int msgid);
 static msgid_lookup(char* name);
@@ -183,15 +183,15 @@ void msgdb_load()
 		exit(EX_NOINPUT);
 	}
 
-	if (fscanf(f, "%d", &nilang) != 1 || nilang <= 0) {
+	if (fscanf(f, "%d", &nlang) != 1 || nlang <= 0) {
 		fprintf(stderr, "%s: syntax error\n", LANG_LST);
 		exit(EX_DATAERR);
 	}
-	ilang_table = alloc_perm(nilang * sizeof(*ilang_table));
-	ilang_names = alloc_perm((nilang+1) * sizeof(*ilang_names));
-	ilang_names[nilang] = NULL;
+	msg_table = alloc_perm(nlang * sizeof(*msg_table));
+	lang_table = alloc_perm((nlang+1) * sizeof(*lang_table));
+	lang_table[nlang] = NULL;
 
-	for (i = 0; i < nilang; i++) {
+	for (i = 0; i < nlang; i++) {
 		char buf2[BUFSZ];
 
 		if (fgets(buf, sizeof(buf), f) == NULL) {
@@ -204,7 +204,7 @@ void msgdb_load()
 			fprintf(stderr, "%s: syntax error\n", LANG_LST);
 			exit(EX_DATAERR);
 		}
-		ilang_names[i] = str_dup(buf);
+		lang_table[i] = str_dup(buf);
 		lang_load(i, buf2);
 	}
 
@@ -217,7 +217,7 @@ void msgdb_load()
 
 static
 void
-lang_load(int langnum, char* fname)
+lang_load(int lang, char* fname)
 {
 	int i;
 	int line = 0;
@@ -233,8 +233,8 @@ lang_load(int langnum, char* fname)
 		exit(EX_NOINPUT);
 	}
 
-	ilang_table[langnum] = alloc_perm(nmsgid * sizeof(**ilang_table));
-	memset(ilang_table[langnum], 0, nmsgid * sizeof(**ilang_table));
+	msg_table[lang] = alloc_perm(nmsgid * sizeof(**msg_table));
+	memset(msg_table[lang], 0, nmsgid * sizeof(**msg_table));
 
 	while (fgets(buf, sizeof(buf), f)) {
 		char* p;
@@ -270,7 +270,7 @@ lang_load(int langnum, char* fname)
 					fname, line, name);
 				exit(EX_DATAERR);
 			}
-			curr = ilang_table[langnum] + msgid;
+			curr = msg_table[lang] + msgid;
 
 			if (curr->p != NULL) {
 				fprintf(stderr, "%s:%d: '%s' redefined\n",
@@ -385,7 +385,7 @@ lang_load(int langnum, char* fname)
 
 	for (i = 0; i < nmsgid; i++) {
 		int undefined = 0;
-		struct msg *m = ilang_table[langnum] + i;
+		struct msg *m = msg_table[lang] + i;
 
 		if (m->sexdep) {
 			int j;

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.37 1998-07-05 16:30:56 fjoe Exp $
+ * $Id: interp.c,v 1.38 1998-07-09 12:01:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -132,8 +132,8 @@ const	struct	cmd_type	cmd_table	[] =
     { "unlock",         do_unlock,      POS_RESTING,     0,  LOG_NORMAL, 1,0},
     { "wield",		do_wear,	POS_RESTING,	 0,  LOG_NORMAL, 1,0},
     { "wizhelp",	do_wizhelp,	POS_DEAD,	IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "ilang",		do_ilang,	POS_DEAD,	0,   LOG_NORMAL, 1,0},
-    { "language",	do_ilang,	POS_DEAD,	0,   LOG_NORMAL, 1,0},
+    { "lang",		do_lang,	POS_DEAD,	0,   LOG_NORMAL, 1,0},
+    { "language",	do_lang,	POS_DEAD,	0,   LOG_NORMAL, 1,0},
 
     /*
      * Informational commands.

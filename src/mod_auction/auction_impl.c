@@ -1,5 +1,5 @@
 /*
- * $Id: auction_impl.c,v 1.4 1998-07-08 13:31:08 fjoe Exp $
+ * $Id: auction_impl.c,v 1.5 1998-07-09 12:01:35 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -221,11 +221,9 @@ void auction_update (void)
 	                	((auction.going == 1) ? "once" : "twice"),
 				auction.bet);
 	        else {
-	        	talk_auction("%s: going %s.",
+	        	talk_auction("%s: going %s, starting price %d.",
 				     auction.item->short_descr,
-	                	     ((auction.going == 1) ? "once" : "twice"));
-			talk_auction("starting price %d, "
-				     "no bets received yet.",
+	                	     ((auction.going == 1) ? "once" : "twice"),
 				     auction.starting);
 		}
 	        break;
@@ -373,16 +371,16 @@ void do_auction(CHAR_DATA *ch, char *argument)
 	        }
 
 		if (auction.bet > 0) {
-			if (newbet < (auction.bet + 1)) {
+			if (newbet < auction.bet + 1) {
 				char_puts("You must bid at least 1 gold "
 					  "over the current bet.\n\r", ch);
 	        		return;
 	        	}
 		}
 		else {
-			if (newbet < (auction.starting + 1)) {
-				char_puts("You must bid at least 1 gold "
-					  "over the starting price.\n\r", ch);
+			if (newbet < auction.starting) {
+				char_puts("You cannot bid less than the "
+					  "starting price.\n\r", ch);
 				return;
 			}
 		}
