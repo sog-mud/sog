@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.49 2004-02-11 16:11:55 fjoe Exp $
+ * $Id: sog.h,v 1.50 2004-02-11 22:25:27 sg Exp $
  */
 
 #ifndef _SOG_H_
@@ -98,6 +98,15 @@ DECLARE_FUN1(bool, check_blind,
 	     ARG(CHAR_DATA), ch)
 DECLARE_FUN1(bool, check_blind_nomessage,
 	     ARG(CHAR_DATA), ch)
+
+DECLARE_FUN1(bool, can_hear,
+	     ARG(CHAR_DATA), ch)
+
+DECLARE_FUN2(bool, can_speak,
+	     ARG(CHAR_DATA), ch, ARG(int), st)
+
+DECLARE_FUN1(bool, is_room_silent,
+	     ARG(ROOM_INDEX_DATA), room)
 
 DECLARE_FUN2(CHAR_DATA, nth_char,
 	     ARG(CHAR_DATA), ch, ARG(int), n)

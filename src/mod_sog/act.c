@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.102 2003-09-30 00:31:27 fjoe Exp $
+ * $Id: act.c,v 1.103 2004-02-11 22:25:30 sg Exp $
  */
 
 #include <stdio.h>
@@ -1176,8 +1176,7 @@ act_yell(CHAR_DATA *ch, const char *text, const void *arg, const char *format)
 		if (d->connected != CON_PLAYING
 		||  vch == ch
 		||  vch->in_room->area != ch->in_room->area
-		||  (IS_SET(vch->in_room->room_flags, ROOM_SILENT) &&
-		    !IS_IMMORTAL(vch)))
+		||  !can_hear(vch))
 			continue;
 
 		act_puts(format, ch, act_speech(ch, vch, text, arg), vch,
@@ -1194,8 +1193,7 @@ act_clan(CHAR_DATA *ch, const char *text, const void *arg)
 		if (vch == ch
 		||  !IS_CLAN(vch->clan, ch->clan)
 		||  IS_SET(vch->chan, CHAN_NOCLAN)
-		||  (IS_SET(vch->in_room->room_flags, ROOM_SILENT) &&
-		    !IS_IMMORTAL(vch)))
+		||  !can_hear(vch))
 			continue;
 
 		act_puts("[CLAN] $lu{$n}: {C$t{x", ch,
@@ -1291,12 +1289,6 @@ tell_char(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
 		return;
 	}
 
-	if (ch->shapeform != NULL
-	&&  IS_SET(ch->shapeform->index->flags, SHAPEFORM_NOSPEAK)) {
-		act("You can't speak in this form.", ch, NULL, NULL, TO_CHAR);
-		return;
-	}
-
 	if (IS_SET(ch->comm, COMM_NOTELL)) {
 		act_char("Your message didn't get through.", ch);
 		return;
@@ -1310,12 +1302,10 @@ tell_char(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
 
 	if (!IS_IMMORTAL(ch)
 	&&  !IS_IMMORTAL(victim)) {
-		if (IS_SET(ch->in_room->room_flags, ROOM_SILENT)) {
-			act_char("You are in silent room, you can't tell.", ch);
+		if (!can_speak(ch, ST_TELL))
 			return;
-		}
 
-		if (IS_SET(victim->in_room->room_flags, ROOM_SILENT)) {
+		if (is_room_silent(victim->in_room)) {
 			act_puts("$E is in silent room.", ch, 0, victim,
 				 TO_CHAR, POS_DEAD);
 			return;

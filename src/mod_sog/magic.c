@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic.c,v 1.41 2004-02-09 20:29:12 sg Exp $
+ * $Id: magic.c,v 1.42 2004-02-11 22:25:30 sg Exp $
  */
 
 #include <stdio.h>
@@ -1144,12 +1144,8 @@ casting_allowed(CHAR_DATA *ch, cpdata_t *cp)
 		return FALSE;
 	}
 
-	if (is_sn_affected(ch, "silence person")
-	||  IS_SET(ch->in_room->room_flags, ROOM_SILENT)
-	||  is_sn_affected_room(ch->in_room, "silence")) {
-		act_char("As you start to chant you notice that the words are hollow and useless so you stop chanting.", ch);
+	if (!can_speak(ch, ST_CAST))
 		return FALSE;
-	}
 
 	if (cp->sk->skill_type == ST_SPELL
 	&&  IS_VAMPIRE(ch)

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.410 2004-02-09 21:16:51 fjoe Exp $
+ * $Id: merc.h,v 1.411 2004-02-11 22:25:27 sg Exp $
  */
 
 /***************************************************************************
@@ -1320,6 +1320,20 @@ enum {
 	}
 
 #define IS_VAMPIRE(ch)	(get_skill(ch, "vampire"))
+
+enum {
+	ST_SAY,
+	ST_YELL,
+	ST_TELL,
+	ST_GTELL,
+	ST_SHOUT,
+	ST_GOSSIP,
+	ST_MUSIC,
+	ST_OOC,
+	ST_CLAN,
+	ST_ORDER,
+	ST_CAST
+};
 
 #define CHAN_NOCHANNELS		(A)
 #define CHAN_NOWIZ		(B)

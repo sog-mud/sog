@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.280 2003-10-10 16:14:21 fjoe Exp $
+ * $Id: act_comm.c,v 1.281 2004-02-11 22:25:28 sg Exp $
  */
 
 /***************************************************************************
@@ -269,18 +269,8 @@ DO_FUN(do_say, ch, argument)
 		return;
 	}
 
-	if (IS_SET(ch->in_room->room_flags, ROOM_SILENT)
-	&&  !IS_IMMORTAL(ch)) {
-		act_char("You are in silent room, you can't say anything.", ch);
+	if (!can_speak(ch, ST_SAY))
 		return;
-	}
-
-	if (ch->shapeform != NULL
-	&&  IS_SET(ch->shapeform->index->flags, SHAPEFORM_NOSPEAK)) {
-		act("You cannot say anything in this form.",
-		    ch, NULL, NULL, TO_CHAR);
-		return;
-	}
 
 	argument = garble(ch, argument);
 	act_say(ch, "$T", argument);
@@ -344,13 +334,6 @@ DO_FUN(do_gtell, ch, argument)
 	int i;
 	int flags;
 
-	if (IS_SET(ch->in_room->room_flags, ROOM_SILENT)
-	&&  !IS_IMMORTAL(ch)) {
-		act_char("You are in silent room, you can't tell your group"
-			 " anything.", ch);
-		return;
-	}
-
 	if (argument[0] == '\0') {
 		act_char("Tell your group what?", ch);
 		return;
@@ -361,6 +344,9 @@ DO_FUN(do_gtell, ch, argument)
 		return;
 	}
 
+	if (!can_speak(ch, ST_GTELL))
+		return;
+
 	argument = garble(ch, argument);
 	flags =
 	    TO_VICT | ACTQ_GROUP | ACT_TOBUF | (ACT_SPEECH(ch) & ~ACT_NODEAF);
@@ -369,16 +355,18 @@ DO_FUN(do_gtell, ch, argument)
 			break;
 
 		i++;
-		if (is_same_group(gch, ch) && !is_sn_affected(gch, "deafen")) {
+		if (is_same_group(gch, ch) && can_hear(gch)) {
 			act_puts("$n tells the group '{G$t{x'",
 				 ch, argument, gch, flags, POS_DEAD);
 		}
 	}
 
-	if (i > 1 && !is_sn_affected(ch, "deafen")) {
-		act_puts("You tell your group '{G$t{x'",
-			 ch, argument, NULL,
-			 TO_CHAR | ACTQ_GROUP | ACT_SPEECH(ch), POS_DEAD);
+	if (i > 1) {
+		if (can_hear(ch))
+			act_puts("You tell your group '{G$t{x'",
+				 ch, argument, NULL,
+				 TO_CHAR | ACTQ_GROUP | ACT_SPEECH(ch),
+				 POS_DEAD);
 	} else
 		act_char("Quit talking to yourself. You are all alone.", ch);
 }
@@ -542,12 +530,6 @@ DO_FUN(do_yell, ch, argument)
 	if (IS_NPC(ch) && IS_SET(ch->pMobIndex->act, ACT_IMMOBILE))
 		return;
 
-	if (IS_SET(ch->in_room->room_flags, ROOM_SILENT)
-	&&  !IS_IMMORTAL(ch)) {
-		act_char("You are in silent room, you can't yell.", ch);
-		return;
-	}
-
 	if (IS_SET(ch->chan, CHAN_NOCHANNELS)) {
 		 act_char("The gods have revoked your channel privileges.", ch);
 		 return;
@@ -558,11 +540,8 @@ DO_FUN(do_yell, ch, argument)
 		return;
 	}
 
-	if (ch->shapeform != NULL
-	&&  IS_SET(ch->shapeform->index->flags, SHAPEFORM_NOSPEAK)) {
-		act("You cannot yell in this form.", ch, NULL, NULL, TO_CHAR);
+	if (!can_speak(ch, ST_YELL))
 		return;
-	}
 
 	argument = garble(ch, argument);
 	act_puts("You yell '{M$t{x'",
@@ -586,22 +565,13 @@ DO_FUN(do_shout, ch, argument)
 		return;
 	}
 
-	if (IS_SET(ch->in_room->room_flags, ROOM_SILENT)
-	&&  !IS_IMMORTAL(ch)) {
-		act_char("You are in silent room, you can't shout.", ch);
-		return;
-	}
-
 	if (IS_SET(ch->chan, CHAN_NOCHANNELS)) {
 		 act_char("The gods have revoked your channel privileges.", ch);
 		 return;
 	}
 
-	if (ch->shapeform != NULL
-	&&  IS_SET(ch->shapeform->index->flags, SHAPEFORM_NOSPEAK)) {
-		act("You cannot shout in this form.", ch, NULL, NULL, TO_CHAR);
+	if (!can_speak(ch, ST_SHOUT))
 		return;
-	}
 
 	if (IS_SET(ch->chan, CHAN_NOSHOUT))
 		do_shout(ch, str_empty);
@@ -615,8 +585,7 @@ DO_FUN(do_shout, ch, argument)
 		if (d->connected == CON_PLAYING
 		&&  d->character != ch
 		&&  !IS_SET(d->character->chan, CHAN_NOSHOUT)
-		&&  (!IS_SET(d->character->in_room->room_flags, ROOM_SILENT) ||
-		     IS_IMMORTAL(d->character))) {
+		&&  can_hear(d->character)) {
 			act_puts("$n shouts '{Y$t{x'",
 			    ch, argument, d->character,
 			    TO_VICT | ACTQ_CHAN | ACT_NOTWIT | ACT_SPEECH(ch),
@@ -641,16 +610,13 @@ DO_FUN(do_music, ch, argument)
 		return;
 	}
 
-	if (IS_SET(ch->in_room->room_flags, ROOM_SILENT)
-	&&  !IS_IMMORTAL(ch)) {
-		act_char("You are in silent room, you can't music.", ch);
-		return;
-	}
-
 	if (IS_SET(ch->chan, CHAN_NOCHANNELS)) {
 		 act_char("The gods have revoked your channel privileges.", ch);
 		 return;
 	}
+
+	if (!can_speak(ch, ST_MUSIC))
+		return;
 
 	if (IS_SET(ch->chan, CHAN_NOMUSIC))
 		do_music(ch, str_empty);
@@ -664,8 +630,7 @@ DO_FUN(do_music, ch, argument)
 		if (d->connected == CON_PLAYING
 		&&  d->character != ch
 		&&  !IS_SET(d->character->chan, CHAN_NOMUSIC)
-		&&  (!IS_SET(d->character->in_room->room_flags, ROOM_SILENT) ||
-		     IS_IMMORTAL(d->character))) {
+		&&  can_hear(d->character)) {
 			act_puts("$n musics '{W$t{x'",
 				 ch, argument, d->character,
 				 TO_VICT | ACT_NOTWIT | ACT_SPEECH(ch),
@@ -686,11 +651,8 @@ DO_FUN(do_gossip, ch, argument)
 		 return;
 	}
 
-	if (ch->shapeform != NULL
-	&&  IS_SET(ch->shapeform->index->flags, SHAPEFORM_NOSPEAK)) {
-		act("You cannot gossip in this form.", ch, NULL, NULL, TO_CHAR);
+	if (!can_speak(ch, ST_GOSSIP))
 		return;
-	}
 
 	if (argument[0] == '\0') {
 		act_char("Gossip what?", ch);
@@ -739,12 +701,8 @@ DO_FUN(do_clan, ch, argument)
 		return;
 	}
 
-	if (IS_SET(ch->in_room->room_flags, ROOM_SILENT)
-	&&  !IS_IMMORTAL(ch)) {
-		act_char("You are in silent room, you can't tell to your "
-			 "clan anything.", ch);
+	if (!can_speak(ch, ST_CLAN))
 		return;
-	}
 
 	if (IS_SET(ch->chan, CHAN_NOCLAN))
 		do_clan(ch, str_empty);
@@ -945,7 +903,7 @@ DO_FUN(do_order, ch, argument)
 		return;
 	}
 
-	if (is_sn_affected(victim, "deafen")) {
+	if (!can_hear(victim)) {
 		act("$N doesn't hear you.", ch, NULL, victim, TO_CHAR);
 		return;
 	}
@@ -1157,7 +1115,7 @@ DO_FUN(do_split, ch, argument)
 		act_puts("Split how much?", ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		return;
 	}
-	
+
 	amount_silver = atoi(arg1);
 
 	if (is_number(arg2))
@@ -1180,7 +1138,7 @@ DO_FUN(do_split, ch, argument)
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		return;
 	}
-	
+
 	members = 0;
 	for (gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room) {
 		if (is_same_group(gch, ch) && !IS_AFFECTED(gch, AFF_CHARM))
@@ -1192,7 +1150,7 @@ DO_FUN(do_split, ch, argument)
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		return;
 	}
-		
+
 	share_silver = amount_silver / members;
 	extra_silver = amount_silver % members;
 

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.313 2004-02-09 20:29:11 sg Exp $
+ * $Id: spellfun.c,v 1.314 2004-02-11 22:25:29 sg Exp $
  */
 
 /***************************************************************************
@@ -8053,8 +8053,7 @@ SPELL_FUN(spell_silence, sn, level, ch, vo)
 {
 	AFFECT_DATA *paf;
 
-	if (IS_SET(ch->in_room->room_flags, ROOM_SILENT)
-	||  is_sn_affected_room(ch->in_room, sn)) {
+	if (is_room_silent(ch->in_room)) {
 		act_char("This room is already silent.", ch);
 		return;
 	}
