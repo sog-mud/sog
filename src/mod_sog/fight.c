@@ -1,11 +1,11 @@
 /*
- * $Id: fight.c,v 1.296 2001-06-25 16:51:18 fjoe Exp $
+ * $Id: fight.c,v 1.297 2001-06-26 17:29:47 fjoe Exp $
  */
 
 /***************************************************************************
  *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
- *	 Serdar BULUT {Chronos} 	bulut@rorqual.cc.metu.edu.tr	   *
+ *	 Serdar BULUT {Chronos}		bulut@rorqual.cc.metu.edu.tr	   *
  *	 Ibrahim Canpunar  {Asena}	canpunar@rorqual.cc.metu.edu.tr    *
  *	 Murat BICER  {KIO}		mbicer@rorqual.cc.metu.edu.tr	   *
  *	 D.Baris ACAR {Powerman}	dbacar@rorqual.cc.metu.edu.tr	   *
@@ -995,7 +995,8 @@ damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 		 * Most other attacks are returned.
 		 */
 
-		if (victim->position > POS_STUNNED) {
+		if (victim->position > POS_STUNNED
+		&&  ch->in_room == victim->in_room) {
 			if (victim->fighting == NULL) {
 				set_fighting(victim, ch);
 #if 0
@@ -1011,9 +1012,9 @@ damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 		}
 
 		if (victim->position > POS_STUNNED) {
-			if (ch->fighting == NULL)
+			if (ch->fighting == NULL
+			&&  ch->in_room == victim->in_room)
 				set_fighting(ch, victim);
-
 
 			/*
 			 * If victim is charmed, ch might attack
@@ -2191,15 +2192,15 @@ check_parry(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 
 	if (!IS_AWAKE(victim))
 		return FALSE;
-	
+
 	v_weapon = get_eq_char(victim, WEAR_WIELD);
 	if (!IS_NPC(victim) && v_weapon == NULL)
 		return FALSE;
 
 	chance = get_skill(victim, "parry") / 2;
-	
+
 	ch_weapon = get_eq_char(ch, loc);
-	
+
 	if (v_weapon) {
 		switch (INT(v_weapon->value[0])) {
 		case WEAPON_WHIP:
@@ -2256,7 +2257,7 @@ check_parry(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 	act("You parry $n's attack.", ch, NULL, victim, TO_VICT | ACT_VERBOSE);
 	act("$N parries your attack.", ch, NULL, victim, TO_CHAR | ACT_VERBOSE);
 
-	if (number_percent() < 8 
+	if (number_percent() < 8
 	&& make_eq_damage(ch, victim, loc, WEAR_WIELD))
 		return FALSE;
 

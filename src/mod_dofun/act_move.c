@@ -1,16 +1,16 @@
 /*
- * $Id: act_move.c,v 1.256 2001-06-25 16:51:13 fjoe Exp $
+ * $Id: act_move.c,v 1.257 2001-06-26 17:29:44 fjoe Exp $
  */
 
 /***************************************************************************
- *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *	
+ *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
- *	 Serdar BULUT {Chronos}		bulut@rorqual.cc.metu.edu.tr       *	
- *	 Ibrahim Canpunar  {Asena}	canpunar@rorqual.cc.metu.edu.tr    *	
+ *	 Serdar BULUT {Chronos}		bulut@rorqual.cc.metu.edu.tr       *
+ *	 Ibrahim Canpunar  {Asena}	canpunar@rorqual.cc.metu.edu.tr    *
  *	 Murat BICER  {KIO}		mbicer@rorqual.cc.metu.edu.tr	   *
- *	 D.Baris ACAR {Powerman}	dbacar@rorqual.cc.metu.edu.tr	   *	
+ *	 D.Baris ACAR {Powerman}	dbacar@rorqual.cc.metu.edu.tr	   *
  *     By using this code, you have agreed to follow the terms of the      *
- *     ANATOLIA license, in the file Anatolia/anatolia.licence             *	
+ *     ANATOLIA license, in the file Anatolia/anatolia.licence             *
  ***************************************************************************/
 
 /***************************************************************************
@@ -57,7 +57,7 @@ DECLARE_DO_FUN(do_yell		);
 /*
  * Local functions.
  */
-static int 	find_exit	(CHAR_DATA *ch, char *arg);
+static int	find_exit	(CHAR_DATA *ch, char *arg);
 static bool	has_key		(CHAR_DATA *ch, int key);
 static bool	has_key_ground	(CHAR_DATA *ch, int key);
 
@@ -3310,9 +3310,9 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 
 	vo_foreach(old_room, &iter_char_room, enter_cb, ch, portal, argument);
 
- 	if (mem_is(portal, MT_OBJ) && INT(portal->value[0]) == -1) {
+	if (mem_is(portal, MT_OBJ) && INT(portal->value[0]) == -1) {
 		act("$p fades out of existence.", ch, portal, NULL, TO_CHAR);
-		act("$p fades out of existence.", 
+		act("$p fades out of existence.",
 		    old_room->people, portal, NULL, TO_CHAR);
 		extract_obj(portal, 0);
 	}

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.376 2001-06-25 16:51:12 fjoe Exp $
+ * $Id: act_info.c,v 1.377 2001-06-26 17:29:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1303,7 +1303,8 @@ void do_equipment(CHAR_DATA *ch, const char *argument)
 	act_char("You are using:", ch);
 	found = FALSE;
 	for (i = 0; show_order[i] >= 0; i++) {
-		if ((obj = get_eq_char(ch, show_order[i])) == NULL)
+		if ((obj = get_eq_char(ch, show_order[i])) == NULL
+		&&  IS_SET(ch->comm, COMM_SHORT_EQ))
 			continue;
 
 		show_obj_to_char(ch, obj, show_order[i]);
@@ -4438,7 +4439,7 @@ static void show_char_to_char_0(const CHAR_DATA *victim, CHAR_DATA *ch)
 		else
 			msg = "$N {xis standing in $p.";
 		break;
-	
+
 	case POS_FIGHTING:
 		if (victim->fighting == NULL) {
 			arg = NULL;
@@ -4492,9 +4493,10 @@ static char* wear_loc_names[] =
 static void
 show_obj_to_char(CHAR_DATA *ch, const OBJ_DATA *obj, flag_t wear_loc)
 {
-	bool can_see = can_see_obj(ch, obj);
+	bool can_see = obj == NULL ? FALSE : can_see_obj(ch, obj);
 	act(wear_loc_names[wear_loc], ch,
-	    can_see ? format_obj_to_char(obj, ch, TRUE) : "something",
+	    can_see ? format_obj_to_char(obj, ch, TRUE) :
+	    obj == NULL ? "nothing" : "something",
 	    NULL, TO_CHAR | (can_see ? ACT_NOTRANS : 0));
 }
 

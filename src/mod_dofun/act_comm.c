@@ -1,16 +1,16 @@
 /*
- * $Id: act_comm.c,v 1.233 2001-06-25 16:51:12 fjoe Exp $
+ * $Id: act_comm.c,v 1.234 2001-06-26 17:29:42 fjoe Exp $
  */
 
 /***************************************************************************
- *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *	
+ *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
- *	 Serdar BULUT {Chronos}		bulut@rorqual.cc.metu.edu.tr       *	
- *	 Ibrahim Canpunar  {Asena}	canpunar@rorqual.cc.metu.edu.tr    *	
- *	 Murat BICER  {KIO}		mbicer@rorqual.cc.metu.edu.tr	   *	
- *	 D.Baris ACAR {Powerman}	dbacar@rorqual.cc.metu.edu.tr	   *	
+ *	 Serdar BULUT {Chronos}		bulut@rorqual.cc.metu.edu.tr       *
+ *	 Ibrahim Canpunar  {Asena}	canpunar@rorqual.cc.metu.edu.tr    *
+ *	 Murat BICER  {KIO}		mbicer@rorqual.cc.metu.edu.tr	   *
+ *	 D.Baris ACAR {Powerman}	dbacar@rorqual.cc.metu.edu.tr	   *
  *     By using this code, you have agreed to follow the terms of the      *
- *     ANATOLIA license, in the file Anatolia/anatolia.licence             *	
+ *     ANATOLIA license, in the file Anatolia/anatolia.licence             *
  ***************************************************************************/
 
 /***************************************************************************
@@ -2159,6 +2159,13 @@ toggle_t toggle_table[] =
 	  "create edit ashow stat", olc_flags,	OLC_MODE_RAW,	// notrans
 	  "Raw string mode on.",
 	  "Raw string mode off."
+	},
+
+	{ "short equipment",
+	  "short equipment mode",
+	  NULL, comm_flags,	COMM_SHORT_EQ,
+	  "You will no longer see empty equipment slots.",
+	  "You will now see empty equipment slots."
 	},
 
 	{ NULL }

@@ -1,16 +1,16 @@
 /*
- * $Id: act_wiz.c,v 1.273 2001-06-25 16:51:15 fjoe Exp $
+ * $Id: act_wiz.c,v 1.274 2001-06-26 17:29:45 fjoe Exp $
  */
 
 /***************************************************************************
- *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *	
+ *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
  *	 Serdar BULUT {Chronos}		bulut@rorqual.cc.metu.edu.tr       *
- *	 Ibrahim Canpunar  {Asena}	canpunar@rorqual.cc.metu.edu.tr    *	
- *	 Murat BICER  {KIO}		mbicer@rorqual.cc.metu.edu.tr	   *	
- *	 D.Baris ACAR {Powerman}	dbacar@rorqual.cc.metu.edu.tr	   *	
+ *	 Ibrahim Canpunar  {Asena}	canpunar@rorqual.cc.metu.edu.tr    *
+ *	 Murat BICER  {KIO}		mbicer@rorqual.cc.metu.edu.tr	   *
+ *	 D.Baris ACAR {Powerman}	dbacar@rorqual.cc.metu.edu.tr	   *
  *     By using this code, you have agreed to follow the terms of the      *
- *     ANATOLIA license, in the file Anatolia/anatolia.licence             *	
+ *     ANATOLIA license, in the file Anatolia/anatolia.licence             *
  ***************************************************************************/
 
 /***************************************************************************
@@ -880,7 +880,7 @@ void do_stat(CHAR_DATA *ch, const char *argument)
 		do_mstat(ch, string);
 		return;
 	}
-	 
+
 	if (!str_cmp(arg, "desc")) {
 		do_dstat(ch, string);
 		return;
@@ -898,7 +898,7 @@ void do_stat(CHAR_DATA *ch, const char *argument)
 	obj = get_obj_world(ch, argument);
 	if (obj != NULL) {
 		do_ostat(ch, argument);
-	 	return;
+		return;
 	}
 
 	victim = get_char_world(ch, argument);

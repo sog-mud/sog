@@ -1,16 +1,16 @@
 /*
- * $Id: recycle.c,v 1.112 2001-06-25 16:51:31 fjoe Exp $
+ * $Id: recycle.c,v 1.113 2001-06-26 17:29:50 fjoe Exp $
  */
 
 /***************************************************************************
  *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
  *	 Serdar BULUT {Chronos}		bulut@rorqual.cc.metu.edu.tr       *
- *	 Ibrahim Canpunar  {Asena}	canpunar@rorqual.cc.metu.edu.tr    *	
- *	 Murat BICER  {KIO}		mbicer@rorqual.cc.metu.edu.tr	   *	
- *	 D.Baris ACAR {Powerman}	dbacar@rorqual.cc.metu.edu.tr	   *	
+ *	 Ibrahim Canpunar  {Asena}	canpunar@rorqual.cc.metu.edu.tr    *
+ *	 Murat BICER  {KIO}		mbicer@rorqual.cc.metu.edu.tr	   *
+ *	 D.Baris ACAR {Powerman}	dbacar@rorqual.cc.metu.edu.tr	   *
  *     By using this code, you have agreed to follow the terms of the      *
- *     ANATOLIA license, in the file Anatolia/anatolia.licence             *	
+ *     ANATOLIA license, in the file Anatolia/anatolia.licence             *
  ***************************************************************************/
 
 /***************************************************************************
@@ -29,7 +29,7 @@
  *  benefitting.  We hope that you share your changes too.  What goes      *
  *  around, comes around.                                                  *
  ***************************************************************************/
- 
+
 /***************************************************************************
 *	ROM 2.4 is copyright 1993-1995 Russ Taylor			   *
 *	ROM has been brought to you by the ROM consortium		   *
@@ -104,7 +104,7 @@ void ed_fread(rfile_t *fp, ED_DATA **edp)
 
 void ed_fwrite(FILE *fp, ED_DATA *ed)
 {
-       	fprintf(fp, "E\n%s~\n", fix_string(ed->keyword));
+	fprintf(fp, "E\n%s~\n", fix_string(ed->keyword));
 	mlstr_fwrite(fp, NULL, &ed->description);
 }
 
@@ -148,7 +148,7 @@ void free_obj(OBJ_DATA *obj)
 
 	ed_free(obj->ed);
 	obj->ed = NULL;
-   
+
 	free_string(obj->label);
 	obj->label = str_empty;
 
@@ -520,9 +520,10 @@ void free_room_index(ROOM_INDEX_DATA *pRoom)
 	mlstr_destroy(&pRoom->name);
 	mlstr_destroy(&pRoom->description);
 
-	for (door = 0; door < MAX_DIR; door++)
-        	if (pRoom->exit[door])
+	for (door = 0; door < MAX_DIR; door++) {
+		if (pRoom->exit[door])
 			free_exit(pRoom->exit[door]);
+	}
 
 	ed_free(pRoom->ed);
 

@@ -1,16 +1,16 @@
 /*
- * $Id: tables.c,v 1.151 2001-06-25 16:51:31 fjoe Exp $
+ * $Id: tables.c,v 1.152 2001-06-26 17:29:50 fjoe Exp $
  */
 
 /***************************************************************************
- *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *	
+ *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
  *	 Serdar BULUT {Chronos}		bulut@rorqual.cc.metu.edu.tr       *
- *	 Ibrahim Canpunar  {Asena}	canpunar@rorqual.cc.metu.edu.tr    *	
- *	 Murat BICER  {KIO}		mbicer@rorqual.cc.metu.edu.tr	   *	
- *	 D.Baris ACAR {Powerman}	dbacar@rorqual.cc.metu.edu.tr	   *	
+ *	 Ibrahim Canpunar  {Asena}	canpunar@rorqual.cc.metu.edu.tr    *
+ *	 Murat BICER  {KIO}		mbicer@rorqual.cc.metu.edu.tr	   *
+ *	 D.Baris ACAR {Powerman}	dbacar@rorqual.cc.metu.edu.tr	   *
  *     By using this code, you have agreed to follow the terms of the      *
- *     ANATOLIA license, in the file Anatolia/anatolia.licence             *	
+ *     ANATOLIA license, in the file Anatolia/anatolia.licence             *
  ***************************************************************************/
 
 /***************************************************************************
@@ -73,14 +73,14 @@ flaginfo_t slang_table[] =
 };
 
 flaginfo_t size_table[] =
-{ 
+{
 	{ "",			TABLE_INTVAL,		FALSE	},
 
 	{ "tiny",		SIZE_TINY,		TRUE	},
-	{ "small", 		SIZE_SMALL,		TRUE	},
+	{ "small",		SIZE_SMALL,		TRUE	},
 	{ "medium",		SIZE_MEDIUM,		TRUE	},
 	{ "large",		SIZE_LARGE,		TRUE	},
-	{ "huge", 		SIZE_HUGE,		TRUE	},
+	{ "huge",		SIZE_HUGE,		TRUE	},
 	{ "giant",		SIZE_GIANT,		TRUE	},
 	{ "gargantuan",		SIZE_GARGANTUAN,	TRUE	},
 
@@ -237,7 +237,7 @@ flaginfo_t off_flags[] =
 	{ "tail",		OFF_TAIL,		TRUE	},
 	{ "trip",		OFF_TRIP,		TRUE	},
 	{ "crush",		OFF_CRUSH,		TRUE	},
-	{ "distance", 		OFF_DISTANCE,		TRUE	},
+	{ "distance",		OFF_DISTANCE,		TRUE	},
 	{ "deathblow",		OFF_DEATHBLOW,		TRUE	},
 	{ "spellbane",		OFF_SPELLBANE,		TRUE	},
 	{ "assist_all",		ASSIST_ALL,		TRUE	},
@@ -323,6 +323,7 @@ flaginfo_t comm_flags[] =
 	{ "noautoflee",		COMM_NOFLEE,		TRUE	},
 	{ "nonote",		COMM_NONOTE,		TRUE	},
 	{ "showrace",		COMM_SHOWRACE,		TRUE	},
+	{ "short_eq",		COMM_SHORT_EQ,		TRUE	},
 	{ "quiet_editor",	COMM_QUIET_EDITOR,	TRUE	},
 	{ "compact",		COMM_COMPACT,		TRUE	},
 	{ "brief",		COMM_BRIEF,		TRUE	},
@@ -917,7 +918,7 @@ flaginfo_t skill_groups[] =
 	{ "alteration",		GROUP_ALTERATION,	TRUE	},
 	{ "summoning",		GROUP_SUMMONING,	TRUE	},
 	{ "abjuration",		GROUP_ABJURATION,	TRUE	},
-	{ "charm", 		GROUP_CHARM,		TRUE	},
+	{ "charm",		GROUP_CHARM,		TRUE	},
 
 	{ NULL, 0, FALSE }
 };
@@ -988,7 +989,7 @@ flaginfo_t skill_flags[] =
 	{ "area_attack",	SKILL_AREA_ATTACK,	TRUE	},
 	{ "questionable",	SKILL_QUESTIONABLE,	TRUE	},
 	{ "form",		SKILL_FORM,		TRUE	},
-	{ "missile", 		SKILL_MISSILE,		TRUE	},
+	{ "missile",		SKILL_MISSILE,		TRUE	},
 	{ "shadow",		SKILL_SHADOW,		TRUE	},
 
 	{ NULL, 0, FALSE }
@@ -1027,7 +1028,7 @@ flaginfo_t race_flags[] =
 	{ NULL, 0, FALSE }
 };
 
-flaginfo_t shapeform_flags[] = 
+flaginfo_t shapeform_flags[] =
 {
 	{ "",			TABLE_BITVAL,		FALSE	},
 	{ "nospeak",		FORM_NOSPEAK,		TRUE	},
@@ -1295,19 +1296,19 @@ flaginfo_t resist_info_flags[] =
 {
 	{ "",			TABLE_INTVAL,		FALSE	},
 
-	{ "bashing",		DAM_BASH,		TRUE	},	
-	{ "piercing",		DAM_PIERCE,		TRUE	},	
-	{ "slashing",		DAM_SLASH,		TRUE	},	
-	{ "fire attacks",	DAM_FIRE,		TRUE	},	
-	{ "cold attacks",	DAM_COLD,		TRUE	},	
-	{ "lightning",		DAM_LIGHTNING,		TRUE	},	
-	{ "acid",		DAM_ACID,		TRUE	},	
-	{ "holy energy", 	DAM_HOLY,		TRUE	},	
-	{ "negative energy",	DAM_NEGATIVE,		TRUE	},	
-	{ "energy attacks",	DAM_ENERGY,		TRUE	},	
-	{ "mental attacks",	DAM_MENTAL,		TRUE	},	
-	{ "sound based attack",	DAM_SOUND,		TRUE	},	
-	{ "disease",		DAM_DISEASE,		TRUE	},	
+	{ "bashing",		DAM_BASH,		TRUE	},
+	{ "piercing",		DAM_PIERCE,		TRUE	},
+	{ "slashing",		DAM_SLASH,		TRUE	},
+	{ "fire attacks",	DAM_FIRE,		TRUE	},
+	{ "cold attacks",	DAM_COLD,		TRUE	},
+	{ "lightning",		DAM_LIGHTNING,		TRUE	},
+	{ "acid",		DAM_ACID,		TRUE	},
+	{ "holy energy",	DAM_HOLY,		TRUE	},
+	{ "negative energy",	DAM_NEGATIVE,		TRUE	},
+	{ "energy attacks",	DAM_ENERGY,		TRUE	},
+	{ "mental attacks",	DAM_MENTAL,		TRUE	},
+	{ "sound based attack",	DAM_SOUND,		TRUE	},
+	{ "disease",		DAM_DISEASE,		TRUE	},
 	{ "poison",		DAM_POISON,		TRUE	},
 	{ "charming spells",	DAM_CHARM,		TRUE	},
 	{ "harm spells",	DAM_HARM,		TRUE	},
@@ -1412,7 +1413,7 @@ flaginfo_t clan_status_table[] =
 
 flaginfo_t book_class[] =
 {
-	{ "", 			TABLE_INTVAL,			FALSE	},
+	{ "",			TABLE_INTVAL,			FALSE	},
 
 	{ "spellbook",		BOOK_SPELLS,			TRUE	},
 	{ "manual",		BOOK_MANUAL,			TRUE	},
@@ -1421,7 +1422,7 @@ flaginfo_t book_class[] =
 	{ NULL, 0, FALSE }
 };
 
-flaginfo_t fail_effects[] = 
+flaginfo_t fail_effects[] =
 {
 	{ "",			TABLE_INTVAL,			FALSE	},
 
@@ -1620,4 +1621,3 @@ const	struct	con_app_type	con_app		[26]		=
     { 23, 99 },
     { 24, 99 }    /* 25 */
 };
-

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_mpc.c,v 1.1 2001-06-25 16:51:20 fjoe Exp $
+ * $Id: init_mpc.c,v 1.2 2001-06-26 17:29:48 fjoe Exp $
  */
 
 #include <setjmp.h>
@@ -52,10 +52,13 @@ _module_unload(module_t *m)
 
 const char *mpc_dynafuns[] = {
 	"number_range",
+#if !defined(MPC)
+#else
 	"print",
 	"print2",
 	"prints",
 	"nonexistent",
+#endif
 	NULL
 };
 
