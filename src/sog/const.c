@@ -1,5 +1,5 @@
 /*
- * $Id: const.c,v 1.2 1998-04-14 08:54:28 fjoe Exp $
+ * $Id: const.c,v 1.3 1998-04-18 07:11:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -52,6 +52,7 @@
 #include "interp.h"
 
 char DEFAULT_PROMPT[] = "<%n: {M%h{xhp {C%m{xm {W%v{xmv Opp:%o> ";
+char EMPTY_STRING[] = "";
 
 /* language staff */
 const struct translation_type translation_table[]=

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.5 1998-04-17 11:27:02 efdi Exp $
+ * $Id: act_comm.c,v 1.6 1998-04-18 07:11:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -49,6 +49,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <stdarg.h>
 #include <time.h>
 #include "merc.h"
 #include "interp.h"
@@ -139,8 +140,6 @@ void do_delete( CHAR_DATA *ch, char *argument)
 
 void do_channels( CHAR_DATA *ch, char *argument)
 {
-    char buf[MAX_STRING_LENGTH];
-
     /* lists all channels and their status */
     send_to_char("   channel     status\n\r",ch);
     send_to_char("---------------------\n\r",ch);
@@ -178,10 +177,7 @@ void do_channels( CHAR_DATA *ch, char *argument)
     if (ch->lines != PAGELEN)
     {
 	if (ch->lines)
-	{
-	    sprintf(buf,"You display %d lines of scroll.\n\r",ch->lines+2);
-	    send_to_char(buf,ch);
- 	}
+	    char_printf(ch, "You display %d lines of scroll.\n\r", ch->lines+2);
 	else
 	    send_to_char("Scroll buffering is off.\n\r",ch);
     }
@@ -198,18 +194,16 @@ void do_channels( CHAR_DATA *ch, char *argument)
 
 }
 
-void garble(char *garbled,char *speech)
+void garble(char *garbled, char *speech)
 {
-  int i;
-
-  for (i = 0; speech[i] != (char) NULL; i++) {
-    if (speech[i] >= 'a' && speech[i] <= 'z')
-      garbled[i] = 'a' + number_range(0,25);
-    else if (speech[i] >= 'A' && speech[i] <= 'Z')
-      garbled[i] = 'A' + number_range(0,25);
-    else garbled[i] = speech[i];
-  }
-  garbled[i] = '\0';
+	static char not_garbled[] = "?!()[]{},.:;'\" ";
+	for (; *speech; speech++, garbled++) {
+		if (strchr(not_garbled, *speech))
+			*garbled = *speech;
+		else
+			*garbled = number_range(' ', 254);
+	}
+	*garbled = '\0';
 }
 
 
@@ -297,13 +291,14 @@ void do_immtalk( CHAR_DATA *ch, char *argument )
 
 
 
-void do_say( CHAR_DATA *ch, char *argument )
+void do_say(CHAR_DATA *ch, char *argument, ...)
 {
-  CHAR_DATA *room_char;
-  OBJ_DATA *char_obj;
-  CHAR_DATA *vch;
-  char buf[MAX_STRING_LENGTH];
-  char trans[MAX_STRING_LENGTH];
+	CHAR_DATA *room_char;
+	OBJ_DATA *char_obj;
+	CHAR_DATA *vch;
+	char buf[MAX_STRING_LENGTH];
+	char trans[MAX_STRING_LENGTH];
+	va_list ap;
 
 
     if ( argument[0] == '\0' )
@@ -316,14 +311,14 @@ void do_say( CHAR_DATA *ch, char *argument )
       return;
     }
 
+	va_start(ap, argument);
+	vsprintf(buf, argument, ap);
+	va_end(ap);
 
     if (is_affected(ch,gsn_garble))
-      garble(buf,argument);
-    else
-      strcpy(buf,argument);
+      garble(buf,buf);
 
-    for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room)
-    {
+    for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room) {
         if (!is_affected(vch, gsn_deafen)) {
 	  strcpy(trans, translate(ch, vch, buf));
           act_puts("{W$n{x says '{G$t{x'",
@@ -333,7 +328,6 @@ void do_say( CHAR_DATA *ch, char *argument )
 
    if (!is_affected(ch, gsn_deafen))
      act_puts( "You say '{G$T{x'", ch, NULL, buf, TO_CHAR,POS_RESTING);
-
 
   for (room_char = ch->in_room->people; room_char != NULL;
          room_char = room_char->next_in_room)
@@ -350,8 +344,7 @@ void do_say( CHAR_DATA *ch, char *argument )
     }
 
     for (char_obj = ch->in_room->contents; char_obj != NULL;
-       char_obj = char_obj->next_content)
-    {
+       char_obj = char_obj->next_content) {
       if (IS_SET(char_obj->progtypes,OPROG_SPEECH))
         (char_obj->pIndexData->oprogs->speech_prog) (char_obj,ch,buf);
     }
@@ -427,7 +420,7 @@ void do_tell_raw(CHAR_DATA *ch, char *msg, CHAR_DATA *victim)
         else
           strcpy(buf,msg);
         act("$N seems to have misplaced $S link...try again later.",
-            ch,NULL,victim,TO_CHAR);
+            ch, NULL, victim, TO_CHAR);
         sprintf(buf,"%s tells you '%s'\n\r",PERS(ch,victim),msg);
         buf[0] = UPPER(buf[0]);
         add_buf(victim->pcdata->buffer,buf);
@@ -508,11 +501,10 @@ void do_yell( CHAR_DATA *ch, char *argument )
 	&&   d->character != ch
 	&&   d->character->in_room != NULL
 	&&   d->character->in_room->area == ch->in_room->area 
-        &&   !is_affected(d->character, gsn_deafen))
-	{
-	    sprintf(trans,"%s",translate(ch,d->character,buf));
+        &&   !is_affected(d->character, gsn_deafen)) {
+	    strcpy(trans, translate(ch, d->character, buf));
             act_puts("$n yells '{M$t{x'",
-                      ch,trans,d->character,TO_VICT,POS_DEAD);
+                      ch, trans, d->character, TO_VICT, POS_DEAD);
 	}
     }
 
@@ -1266,7 +1258,6 @@ void die_follower( CHAR_DATA *ch )
 
 void do_order( CHAR_DATA *ch, char *argument )
 {
-    char buf[MAX_STRING_LENGTH];
     char arg[MAX_INPUT_LENGTH],arg2[MAX_INPUT_LENGTH];
     CHAR_DATA *victim;
     CHAR_DATA *och;
@@ -1335,9 +1326,9 @@ void do_order( CHAR_DATA *ch, char *argument )
 	    found = TRUE;
 	    if ( !proper_order( och, argument ) )
 		continue;
-	    sprintf( buf, "$n orders you to '%s', you do.", argument );
-	    act( buf, ch, NULL, och, TO_VICT );
-	    interpret( och, argument, TRUE );
+	    act_printf(ch, NULL, och, TO_VICT, POS_RESTING,
+	    	       "$n orders you to '%s', you do.", argument);
+	    interpret(och, argument, TRUE);
 	}
     }
 
@@ -1418,7 +1409,6 @@ bool proper_order( CHAR_DATA *ch, char *argument )
 
 void do_group( CHAR_DATA *ch, char *argument )
 {
-    char buf[MAX_STRING_LENGTH];
     char arg[MAX_INPUT_LENGTH];
     CHAR_DATA *victim;
 
@@ -1430,14 +1420,11 @@ void do_group( CHAR_DATA *ch, char *argument )
 	CHAR_DATA *leader;
 
 	leader = (ch->leader != NULL) ? ch->leader : ch;
-	sprintf( buf, "%s's group:\n\r", PERS(leader, ch) );
-	send_to_char( buf, ch );
+	char_printf(ch, "%s's group:\n\r", PERS(leader, ch));
 
-	for ( gch = char_list; gch != NULL; gch = gch->next )
-	{
+	for ( gch = char_list; gch != NULL; gch = gch->next ) {
 	    if ( is_same_group( gch, ch ) )
-	    {
-		  sprintf( buf,
+		  char_printf(ch,
 		  "[%2d %s] %-16s %d/%d hp %d/%d mana %d/%d mv   %5d xp\n\r",
 		    gch->level,
 		    IS_NPC(gch) ? "Mob" : class_table[gch->class].who_name,
@@ -1446,8 +1433,6 @@ void do_group( CHAR_DATA *ch, char *argument )
 		    gch->mana,  gch->max_mana,
 		    gch->move,  gch->max_move,
 		    gch->exp );
-		send_to_char( buf, ch );
-	    }
 	}
 	return;
     }
@@ -1648,42 +1633,28 @@ void do_split( CHAR_DATA *ch, char *argument )
     ch->gold 	+= share_gold + extra_gold;
 
     if (share_silver > 0)
-    {
-	sprintf(buf,
+	char_printf(ch,
 	    "You split %d silver coins. Your share is %d silver.\n\r",
  	    amount_silver,share_silver + extra_silver);
-	send_to_char(buf,ch);
-    }
 
     if (share_gold > 0)
-    {
-	sprintf(buf,
+	char_printf(ch,
 	    "You split %d gold coins. Your share is %d gold.\n\r",
 	     amount_gold,share_gold + extra_gold);
-	send_to_char(buf,ch);
-    }
 
     if (share_gold == 0)
-    {
 	sprintf(buf,"$n splits %d silver coins. Your share is %d silver.",
 		amount_silver,share_silver);
-    }
     else if (share_silver == 0)
-    {
 	sprintf(buf,"$n splits %d gold coins. Your share is %d gold.",
 		amount_gold,share_gold);
-    }
     else
-    {
 	sprintf(buf,
 "$n splits %d silver and %d gold coins, giving you %d silver and %d gold.\n\r",
 	 amount_silver,amount_gold,share_silver,share_gold);
-    }
 
-    for ( gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room )
-    {
-	if ( gch != ch && is_same_group(gch,ch) && !IS_AFFECTED(gch,AFF_CHARM))
-	{
+    for ( gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room ) {
+	if (gch != ch && is_same_group(gch,ch) && !IS_AFFECTED(gch,AFF_CHARM)) {
 	    act( buf, ch, NULL, gch, TO_VICT );
 	    gch->gold += share_gold;
 	    gch->silver += share_silver;
@@ -1785,8 +1756,7 @@ void do_cb( CHAR_DATA *ch, char *argument )
     char buf[MAX_STRING_LENGTH];
     char buf2[MAX_INPUT_LENGTH];
 
-    if ( !(ch->cabal) )
-      {
+    if ( !(ch->cabal) ) {
 	send_to_char("You are not in a Cabal.\n\r",ch);
 	return;
       }
@@ -1871,7 +1841,8 @@ char *translate(CHAR_DATA *ch, CHAR_DATA *victim, char *argument)
    {
     if (IS_IMMORTAL(victim))
 	sprintf(trans,"{{%s} %s",language_table[ch->language].name,argument);
-    else strcpy(trans,argument);
+    else
+	strcpy(trans, argument);
     return trans;
    }
 
@@ -1889,7 +1860,6 @@ char *translate(CHAR_DATA *ch, CHAR_DATA *victim, char *argument)
 
 void do_speak( CHAR_DATA *ch, char *argument )
 {
- char buf[MAX_STRING_LENGTH];
  char arg[MAX_INPUT_LENGTH];
  int language;
 
@@ -1898,13 +1868,11 @@ void do_speak( CHAR_DATA *ch, char *argument )
  argument = one_argument(argument,arg);
  if (arg[0] == '\0')
      {
-	sprintf(buf, "You now speak %s.\n\r", 
+	char_printf(ch, "You now speak %s.\n\r", 
 			language_table[ch->language].name);
-        send_to_char(buf, ch);
         send_to_char("You can speak :\n\r", ch);
-	sprintf(buf, "       common, %s\n\r",
+	char_printf(ch, "       common, %s\n\r",
 		language_table[pc_race_table[ORG_RACE(ch)].language].name);
-	send_to_char(buf,ch);
         return;
      }
 
@@ -1920,54 +1888,47 @@ void do_speak( CHAR_DATA *ch, char *argument )
   ch->language = pc_race_table[ORG_RACE(ch)].language;
  else ch->language = language;
  
- sprintf(buf,"Now you speak %s.\n\r",language_table[ch->language].name);
- send_to_char(buf,ch);
+ char_printf(ch,"Now you speak %s.\n\r",language_table[ch->language].name);
 }
 
 /* Thanx zihni@karmi.emu.edu.tr for the code of do_judge */
 void do_judge( CHAR_DATA *ch, char *argument )
 {
-  char buf[MAX_STRING_LENGTH];
   char arg[MAX_INPUT_LENGTH];
   CHAR_DATA *victim;
 
   one_argument( argument, arg );
 
- if ( ch->cabal != CABAL_RULER )
-    {
+ if ( ch->cabal != CABAL_RULER ) {
      send_to_char( "Huh?\n\r", ch );
      return;
     }
 
   if (!cabal_ok(ch,gsn_judge)) return;
 
-  if ( arg[0] == '\0' )
-    {
+  if ( arg[0] == '\0' ) {
      send_to_char( "Judge whom?\n\r", ch );
      return;
     }
 
   /* judge thru world */
-  if ( ( victim = get_char_world( ch, arg ) ) == NULL )
-    {
+  if ( ( victim = get_char_world( ch, arg ) ) == NULL ) {
       send_to_char( "They aren't here.\n\r", ch );
       return;
     }
 
 
-   if (IS_NPC(victim))
-    {
+   if (IS_NPC(victim)) {
       send_to_char("Not a mobile, of course.\n\r", ch );
       return;
     }
 
-   if (IS_IMMORTAL(victim) && !IS_IMMORTAL(ch))
-    {
+   if (IS_IMMORTAL(victim) && !IS_IMMORTAL(ch)) {
       send_to_char( "You do not have the power to judge Immortals.\n\r",ch);
         return;
     }
 
-    sprintf(buf,"%s's ethos is %s and aligment is %s.\n\r",
+    char_printf(ch,"%s's ethos is %s and aligment is %s.\n\r",
 	victim->name,
         victim->ethos == 1 ? "Lawful" :
         victim->ethos == 2 ? "Neutral" :
@@ -1975,6 +1936,5 @@ void do_judge( CHAR_DATA *ch, char *argument )
         IS_GOOD(victim) ? "Good" :
         IS_EVIL(victim) ? "Evil" : "Neutral" );
 
-    send_to_char(buf,ch);
     return;
 }

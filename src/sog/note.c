@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.2 1998-04-14 08:54:33 fjoe Exp $
+ * $Id: note.c,v 1.3 1998-04-18 07:11:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,11 +46,11 @@
 #include <sys/types.h>
 #include <sys/time.h>
 #endif
-#include <ctype.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include <time.h>
+#include <ctype.h>
 #include "merc.h"
 #include "recycle.h"
 #include "tables.h"

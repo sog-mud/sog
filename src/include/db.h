@@ -1,7 +1,7 @@
 #ifndef _DB_H_
 #define _DB_H_
 /*
- * $Id: db.h,v 1.2 1998-04-14 08:54:29 fjoe Exp $
+ * $Id: db.h,v 1.3 1998-04-18 07:11:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -88,6 +88,7 @@ long     number_mm      (void);
 int	dice		(int number, int size);
 int	interpolate	(int level, int value_00, int value_32);
 void	smash_tilde	(char *str);
+void	smash_percent	(char *str);
 bool	str_cmp		(const char *astr, const char *bstr);
 bool	str_prefix	(const char *astr, const char *bstr);
 bool	str_infix	(const char *astr, const char *bstr);

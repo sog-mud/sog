@@ -1,5 +1,5 @@
 /*
- * $Id: act_hera.c,v 1.3 1998-04-14 08:54:25 fjoe Exp $
+ * $Id: act_hera.c,v 1.4 1998-04-18 07:11:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,7 +47,7 @@
 ***************************************************************************/
 
 /*
- * $Id: act_hera.c,v 1.3 1998-04-14 08:54:25 fjoe Exp $
+ * $Id: act_hera.c,v 1.4 1998-04-18 07:11:51 fjoe Exp $
  */
 #if defined(macintosh)
 #include <types.h>
@@ -58,19 +58,12 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include <time.h>
 #include <ctype.h>
+#include <time.h>
 #include "merc.h"
 #include "db.h"
 #include "comm.h"
-
-/* command procedures needed */
-DECLARE_DO_FUN(do_look		);
-DECLARE_DO_FUN(do_stand		);
-DECLARE_DO_FUN(do_say		);
-DECLARE_DO_FUN(do_cast		);
-DECLARE_DO_FUN(do_enter		);
-DECLARE_DO_FUN(do_open		);
+#include "interp.h"
 
 /* random room generation procedure */
 ROOM_INDEX_DATA  *get_random_room(CHAR_DATA *ch)
@@ -108,7 +101,6 @@ void do_enter( CHAR_DATA *ch, char *argument)
         ROOM_INDEX_DATA *old_room;
 	OBJ_DATA *portal;
 	CHAR_DATA *fch, *fch_next, *mount;
-	char buf[MAX_STRING_LENGTH];
 
         old_room = ch->in_room;
 
@@ -162,16 +154,15 @@ void do_enter( CHAR_DATA *ch, char *argument)
             return;
         }
 
-        if (MOUNTED(ch)) sprintf(buf,"$n steps into $p, riding on %s.",
-					MOUNTED(ch)->short_descr );
-  	else sprintf(buf,"$n steps into $p." );
-	act(buf,ch,portal,NULL,TO_ROOM);
+	act_printf(ch, portal, NULL, TO_ROOM, POS_RESTING,
+		   MOUNTED(ch) ? "$n steps into $p, riding on %s." :
+				 "$n steps into $p",
+		   MOUNTED(ch)->short_descr);
 	
-	if (IS_SET(portal->value[2],GATE_NORMAL_EXIT))
-	    act("You enter $p.",ch,portal,NULL,TO_CHAR);
-	else
-	    act("You walk through $p and find yourself somewhere else...",
-	        ch,portal,NULL,TO_CHAR); 
+	act(IS_SET(portal->value[2], GATE_NORMAL_EXIT) ?
+	    "You enter $p." :
+	    "You walk through $p and find yourself somewhere else...",
+	    ch,portal,NULL,TO_CHAR); 
 
 	mount = MOUNTED(ch);
 	char_from_room(ch);
@@ -184,22 +175,16 @@ void do_enter( CHAR_DATA *ch, char *argument)
 	}
 
 	if (IS_SET(portal->value[2],GATE_NORMAL_EXIT))
-	 {
-	  if (mount)
-	    act("$n has arrived, riding $N",ch,portal,mount,TO_ROOM);
-	  else  act("$n has arrived.",ch,portal,NULL,TO_ROOM);
-	 }
+	    act(mount ? "$n has arrived, riding $N" : "$n has arrived.",
+		ch, portal, mount, TO_ROOM);
 	else
-	 {
-	  if (mount)
-	    act("$n has arrived through $p, riding $N.",ch,portal,mount,TO_ROOM);
-	  else  act("$n has arrived through $p.",ch,portal,NULL,TO_ROOM);
-	 }
+	    act(mount ? "$n has arrived through $p, riding $N." :
+	                "$n has arrived through $p.",
+		ch, portal, mount, TO_ROOM);
 
 	do_look(ch,"auto");
 
-        if (mount)
-	 {
+        if (mount) {
 	  char_from_room( mount );
 	  char_to_room( mount, location);
   	  ch->riding = TRUE;
@@ -207,8 +192,7 @@ void do_enter( CHAR_DATA *ch, char *argument)
 	 }
 
 	/* charges */
-	if (portal->value[0] > 0)
-	{
+	if (portal->value[0] > 0) {
 	    portal->value[0]--;
 	    if (portal->value[0] == 0)
 		portal->value[0] = -1;
@@ -218,8 +202,7 @@ void do_enter( CHAR_DATA *ch, char *argument)
 	if (old_room == location)
 	    return;
 
-    	for ( fch = old_room->people; fch != NULL; fch = fch_next )
-    	{
+    	for ( fch = old_room->people; fch != NULL; fch = fch_next ) {
             fch_next = fch->next_in_room;
 
             if (portal == NULL || portal->value[0] == -1) 
@@ -234,8 +217,7 @@ void do_enter( CHAR_DATA *ch, char *argument)
             {
  
                 if (IS_SET(ch->in_room->room_flags,ROOM_LAW)
-                &&  (IS_NPC(fch) && IS_SET(fch->act,ACT_AGGRESSIVE)))
-                {
+                &&  (IS_NPC(fch) && IS_SET(fch->act,ACT_AGGRESSIVE))) {
                     act("You can't bring $N into the city.",
                     	ch,NULL,fch,TO_CHAR);
                     act("You aren't allowed in the city.",
@@ -789,7 +771,6 @@ int find_path( int in_room_vnum, int out_room_vnum, CHAR_DATA *ch,
 
 void do_hunt( CHAR_DATA *ch, char *argument )
 {
-  char buf[MAX_STRING_LENGTH];
   char arg[MAX_STRING_LENGTH];
   CHAR_DATA *victim;
   int direction,i;
@@ -919,8 +900,8 @@ else {
    * Display the results of the search.
    */
   }
-  sprintf( buf, "$N is %s from here.", dir_name[direction] );
-  act( buf, ch, NULL, victim, TO_CHAR );  
+	act_printf(ch, NULL, victim, TO_CHAR, POS_RESTING,
+		   "$N is %s from here.", dir_name[direction]);
   return;
 }
 
@@ -1235,12 +1216,8 @@ void hunt_victim_old( CHAR_DATA *ch )
  ************************      repair.c       ******************************
  ***************************************************************************/
 
-
-void damage_to_obj(CHAR_DATA *ch,OBJ_DATA *wield, OBJ_DATA *worn, int damage);
-
 void damage_to_obj(CHAR_DATA *ch,OBJ_DATA *wield, OBJ_DATA *worn, int damage) 
 {
- char buf[MAX_STRING_LENGTH]; 
 
  if ( damage == 0) return;
  worn->condition -= damage;
@@ -1256,29 +1233,26 @@ void damage_to_obj(CHAR_DATA *ch,OBJ_DATA *wield, OBJ_DATA *worn, int damage)
 	return;
 	}
  
- if ( (IS_SET(wield->extra_flags,ITEM_ANTI_EVIL) 
-	&& IS_SET(wield->extra_flags,ITEM_ANTI_NEUTRAL) )
-     && (IS_SET(worn->extra_flags,ITEM_ANTI_EVIL) 
-	&& IS_SET(worn->extra_flags,ITEM_ANTI_NEUTRAL) ) )	
- {
-  sprintf(buf,"$p doesn't want to fight against $P.");
-  act_puts(buf,ch,wield,worn,TO_ROOM,POS_RESTING);
-  sprintf(buf,"$p removes itself from you!.");
-  act_puts(buf,ch,wield,worn,TO_CHAR,POS_RESTING);
-  sprintf(buf,"$p removes itself from $n.");
-  act_puts(buf,ch,wield,worn,TO_ROOM,POS_RESTING);
-  unequip_char( ch, wield );
-  return;
- }
+	if (IS_SET(wield->extra_flags,ITEM_ANTI_EVIL) 
+	&&  IS_SET(wield->extra_flags,ITEM_ANTI_NEUTRAL)
+	&&  IS_SET(worn->extra_flags,ITEM_ANTI_EVIL) 
+	&&  IS_SET(worn->extra_flags,ITEM_ANTI_NEUTRAL)) {
+		act_printf(ch, wield, worn, TO_ROOM, POS_RESTING,
+			   "$p doesn't want to fight against $P.");
+		act_printf(ch, wield, worn, TO_CHAR, POS_RESTING,
+			   "$p removes itself from you!.");
+		act_printf(ch, wield, worn, TO_ROOM, POS_RESTING,
+			   "$p removes itself from $n.");
+		unequip_char( ch, wield );
+		return;
+ 	}
 
- if (IS_SET(wield->extra_flags,ITEM_ANTI_EVIL) 
-	&& IS_SET(worn->extra_flags,ITEM_ANTI_EVIL))
- {
-  sprintf(buf,"The $p worries for the damage to $P.");
-  act_puts(buf,ch,wield,worn,TO_ROOM,POS_RESTING);
-  return;
- }
- return;
+	if (IS_SET(wield->extra_flags,ITEM_ANTI_EVIL) 
+	&&  IS_SET(worn->extra_flags,ITEM_ANTI_EVIL)) {
+		act_printf(ch, wield, worn, TO_ROOM, POS_RESTING,
+			   "The $p worries for the damage to $P.");
+		return;
+	}
 }
 
 
@@ -1444,10 +1418,8 @@ void do_repair(CHAR_DATA *ch, char *argument)
         return;
     }
 
-    if (obj->cost == 0)
-    {
-	sprintf(buf ,"%s is beyond repair.\n\r", obj->short_descr);
-	do_say(mob,buf);
+    if (obj->cost == 0) {
+	do_say(mob, "%s is beyond repair.\n\r", obj->short_descr);
    	return;
     }
 

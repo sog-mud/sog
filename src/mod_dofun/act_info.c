@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.8 1998-04-18 05:51:49 efdi Exp $
+ * $Id: act_info.c,v 1.9 1998-04-18 07:11:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -49,9 +49,9 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include <ctype.h>
 #include <time.h>
 #include <stdarg.h>
+#include <ctype.h>
 #include "merc.h"
 #include "db.h"
 #include "comm.h"
@@ -62,6 +62,7 @@
 #include "lookup.h"
 #include "resource.h"
 #include "act_info.h"
+#include "const.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(	do_exits	);
@@ -1806,35 +1807,352 @@ void do_help( CHAR_DATA *ch, char *argument )
 	return;
 }
 
+static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, char* output)
+{
+	char buf[MAX_STRING_LENGTH];
+	char const *class;
+	char* pk;
+	char* cabal;
+	char* act;
+	char* title;
+	char level[100];
+	int trusted;
+
+	/*
+	 * Figure out what to print for class.
+	 */
+	class = class_table[wch->class].who_name;
+	switch (wch->level) {
+	case MAX_LEVEL - 0: class = "IMP"; break;
+	case MAX_LEVEL - 1: class = "CRE"; break;
+	case MAX_LEVEL - 2: class = "SUP"; break;
+	case MAX_LEVEL - 3: class = "DEI"; break;
+	case MAX_LEVEL - 4: class = "GOD"; break;
+	case MAX_LEVEL - 5: class = "IMM"; break;
+	case MAX_LEVEL - 6: class = "DEM"; break;
+	case MAX_LEVEL - 7: class = "ANG"; break;
+	case MAX_LEVEL - 8: class = "AVA"; break;
+	}
+
+	if ((wch->cabal && ch->cabal ==  wch->cabal)
+	||  IS_IMMORTAL(ch) 
+	||  (IS_SET(wch->act, PLR_CANINDUCT) && wch->cabal == 1) 
+	||  wch->cabal == CABAL_HUNTER)
+		cabal = cabal_table[wch->cabal].short_name;
+	else
+		cabal = EMPTY_STRING;
+
+	if (!((ch==wch && ch->level<PK_MIN_LEVEL) || is_safe_nomessage(ch,wch)))
+		pk = "{R(PK){x ";
+	else
+		pk = EMPTY_STRING;
+
+	if(IS_SET(wch->act, PLR_WANTED))
+		act = "{R(WANTED){x";
+	else
+		act = EMPTY_STRING;
+
+	if (IS_NPC(wch))
+		title = "Believer of Chronos";
+	else 
+		title = wch->pcdata->title;
+
+	/*
+	 * Format it up.
+	 */
+	sprintf(level, "%2d", wch->level);
+	trusted = IS_TRUSTED(ch, LEVEL_IMMORTAL) || ch == wch ||
+		  wch->level >= LEVEL_HERO;
+	sprintf(buf, "[{C%s{x %s {Y%s{x] %s%s%s%s %s\n\r",
+		trusted ? level
+			: (get_curr_stat(wch, STAT_CHA) < 18) ? level : "  ",
+		RACE(wch) < MAX_PC_RACE ? pc_race_table[RACE(wch)].who_name 
+					: "     ",
+		class,
+		pk,
+		cabal,
+		act,
+		/* IS_IMMORTAL(wch) ? "Chronos" : */ wch->name,
+		title);
+	strcat(output, buf);
+}
+
+void do_who(CHAR_DATA *ch, char *argument)
+{
+	char buf[MAX_STRING_LENGTH];
+	char output[4 * MAX_STRING_LENGTH];
+	DESCRIPTOR_DATA *d;
+	int iClass;
+	int iRace;
+	int iLevelLower;
+	int iLevelUpper;
+	int nNumber;
+	int nMatch;
+	int vnum;
+	int count;
+	bool rgfClass[MAX_CLASS];
+	bool rgfRace[MAX_PC_RACE];
+	bool fClassRestrict;
+	bool fRaceRestrict;
+	bool fImmortalOnly;
+	bool fPKRestrict;
+	bool fRulerRestrict;
+	bool fChaosRestrict;
+	bool fShalafiRestrict;
+	bool fInvaderRestrict;
+	bool fBattleRestrict;
+	bool fKnightRestrict;
+	bool fLionsRestrict;
+	bool fTattoo;
+
+	/*
+	 * Set default arguments.
+	 */
+	iLevelLower    = 0;
+	iLevelUpper    = MAX_LEVEL;
+	fClassRestrict = FALSE;
+	fRaceRestrict = FALSE;
+	fPKRestrict = FALSE;
+	fImmortalOnly  = FALSE;
+	fBattleRestrict = FALSE;
+	fChaosRestrict = FALSE;
+	fRulerRestrict = FALSE;
+	fInvaderRestrict = FALSE;
+	fShalafiRestrict = FALSE;
+	fKnightRestrict = FALSE;
+	fLionsRestrict = FALSE;
+	vnum = 0;
+	fTattoo = FALSE;
+
+	for (iClass = 0; iClass < MAX_CLASS; iClass++)
+		rgfClass[iClass] = FALSE;
+	for (iRace = 0; iRace < MAX_PC_RACE; iRace++)
+		rgfRace[iRace] = FALSE;
+
+
+	/*
+	 * Parse arguments.
+	 */
+	nNumber = 0;
+	for ( ;; ) {
+		char arg[MAX_STRING_LENGTH];
+
+		argument = one_argument(argument, arg);
+		if (arg[0] == '\0')
+	    		break;
+
+		if (!str_cmp(arg,"pk")) {
+			fPKRestrict = TRUE;
+			break;
+		}
+
+		if (!str_cmp(arg,"ruler")) {
+			if (ch->cabal != CABAL_RULER && !IS_IMMORTAL(ch)) {
+				send_to_char("You are not in that cabal!\n\r",
+					     ch);
+				return;
+			}
+			else {
+				fRulerRestrict = TRUE;
+				break;
+			}
+		}
+
+		if (!str_cmp(arg,"shalafi")) {
+			if (ch->cabal != CABAL_SHALAFI && !IS_IMMORTAL(ch)) {
+				send_to_char("You are not in that cabal!\n\r",
+					     ch);
+				return;
+			}
+			else {
+				fShalafiRestrict = TRUE;
+				break;
+			}
+	  	}
+
+		if (!str_cmp(arg,"battle")) {
+			if (ch->cabal != CABAL_BATTLE && !IS_IMMORTAL(ch)) {
+				send_to_char("You are not in that cabal!\n\r",
+					     ch);
+				return;
+			}
+			else {
+				fBattleRestrict = TRUE;
+				return;
+			}
+		}
+
+		if (!str_cmp(arg,"invader")) {
+			if (ch->cabal != CABAL_INVADER && !IS_IMMORTAL(ch)) {
+				send_to_char("You are not in that cabal!\n\r",
+					     ch);
+				return;
+			}
+		}
+		else {
+			fInvaderRestrict = TRUE;
+			break;
+		}
+		if (!str_cmp(arg,"chaos")) {
+			if (ch->cabal != CABAL_CHAOS && !IS_IMMORTAL(ch)) {
+				send_to_char("You are not in that cabal!\n\r",
+					     ch);
+				return;
+			}
+			else {
+				fChaosRestrict = TRUE;
+				break;
+			}
+		}
+
+		if (!str_cmp(arg,"knight")) {
+			if (ch->cabal != CABAL_KNIGHT && !IS_IMMORTAL(ch)) {
+				send_to_char("You are not in that cabal!\n\r",
+					     ch);
+				return;
+			}
+			else {
+				fKnightRestrict = TRUE;
+				break;
+			}
+		}
+
+		if (!str_cmp(arg,"lions")) {
+			if (ch->cabal != CABAL_LIONS && !IS_IMMORTAL(ch)) {
+				send_to_char("You are not in that cabal!\n\r",
+					     ch);
+				return;
+			}
+			else {
+				fLionsRestrict = TRUE;
+				break;
+			}
+		}
+
+		if (!str_cmp(arg,"tattoo")) {
+			if (get_eq_char(ch,WEAR_TATTOO) == NULL) {
+				send_to_char("You haven't got a tattoo yet!\n\r",ch);
+				return;
+			}
+			else {
+				fTattoo = TRUE;
+				vnum = get_eq_char(ch,WEAR_TATTOO)->pIndexData->vnum;
+				break;
+		 	}
+		}
+
+		if (is_number(arg) && IS_IMMORTAL(ch)) {
+			switch (++nNumber) {
+			case 1: iLevelLower = atoi(arg); break;
+			case 2: iLevelUpper = atoi(arg); break; 
+			default:
+				send_to_char("This function of who is for "
+					     "immortals.\n\r",ch);
+				return;
+			}
+		}
+		else {
+			/*
+			 * Look for classes to turn on.
+			 */
+			if (arg[0] == 'i')
+				fImmortalOnly = TRUE;
+			else {
+				iClass = class_lookup(arg);
+				if (iClass == -1 || !IS_IMMORTAL(ch)) {
+					iRace = race_lookup(arg);
+
+					if (iRace == 0 || iRace >= MAX_PC_RACE) {
+						send_to_char("That's not a "
+							     "valid race.\n\r",
+							     ch);
+						return;
+					}
+					else {
+						fRaceRestrict = TRUE;
+						rgfRace[iRace] = TRUE;
+					}
+				}
+				else {
+					fClassRestrict = TRUE;
+					rgfClass[iClass] = TRUE;
+				}
+			}
+		}
+	}
+
+	/*
+	 * Now show matching chars.
+	 */
+	nMatch = 0;
+	output[0] = '\0';
+	for ( d = descriptor_list; d != NULL; d = d->next ) {
+		CHAR_DATA *wch;
+
+		/*
+		 * Check for match against restrictions.
+		 * Don't use trust as that exposes trusted mortals.
+		 */
+		if (d->connected != CON_PLAYING || !can_see(ch, d->character))
+	    		continue;
+
+		if (IS_VAMPIRE(d->character) && !IS_IMMORTAL(ch)
+		&&  ch != d->character)
+			continue;
+
+		wch = (d->original != NULL) ? d->original : d->character;
+		if (!can_see(ch, wch)) /* can't see switched wizi imms */
+			continue;
+
+		if (wch->level < iLevelLower || wch->level > iLevelUpper
+		||  (fImmortalOnly && wch->level < LEVEL_HERO)
+		||  (fClassRestrict && !rgfClass[wch->class])
+		||  (fRaceRestrict && !rgfRace[RACE(wch)])
+		||  (fPKRestrict && is_safe_nomessage(ch,wch))
+		||  (fTattoo && (vnum == get_eq_char(wch,WEAR_TATTOO)->pIndexData->vnum))
+		||  (fRulerRestrict && wch->cabal != CABAL_RULER )
+		||  (fChaosRestrict && wch->cabal != CABAL_CHAOS)
+		||  (fBattleRestrict && wch->cabal != CABAL_BATTLE)
+		||  (fInvaderRestrict && wch->cabal != CABAL_INVADER)
+		||  (fShalafiRestrict && wch->cabal != CABAL_SHALAFI)
+		||  (fKnightRestrict && wch->cabal != CABAL_KNIGHT)
+		||  (fLionsRestrict && wch->cabal != CABAL_LIONS))
+			continue;
+
+		nMatch++;
+		do_who_raw(ch, wch, output);
+	}
+
+	count = 0;
+	for (d = descriptor_list; d != NULL; d = d->next)
+		count += (d->connected == CON_PLAYING);
+
+	max_on = UMAX(count, max_on);
+	sprintf(buf, "\n\rPlayers found: %d. Most so far today: %d.\n\r",
+		nMatch, max_on);
+	strcat(output, buf);
+	page_to_char(output, ch);
+	return;
+}
+
 
 /* whois command */
 void do_whois (CHAR_DATA *ch, char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
-	char output[MAX_STRING_LENGTH];
-	char buf[MAX_STRING_LENGTH];
-	char titlebuf[MAX_STRING_LENGTH];
-	char level_buf[MAX_STRING_LENGTH];
-	char classbuf[MAX_STRING_LENGTH];
-	char pk_buf[100];
-	char act_buf[100];
+	char output[4*MAX_STRING_LENGTH];
 	DESCRIPTOR_DATA *d;
 	bool found = FALSE;
-	char cabalbuf[MAX_STRING_LENGTH];
 
-	one_argument(argument,arg);
-  
-	if (arg[0] == '\0')
-	{
+	one_argument(argument, arg);
+	if (arg[0] == '\0') {
 		send_to_char("You must provide a name.\n\r",ch);
 		return;
 	}
 
 	output[0] = '\0';
-
 	for (d = descriptor_list; d != NULL; d = d->next) {
 		CHAR_DATA *wch;
-		char const *class;
 
  		if (d->connected != CON_PLAYING || !can_see(ch,d->character))
 	    		continue;
@@ -1849,91 +2167,10 @@ void do_whois (CHAR_DATA *ch, char *argument)
  		if (!can_see(ch,wch))
 	    		continue;
 
-	if (!str_prefix(arg,wch->name))
-	{
-	    found = TRUE;
-	    
-	    /* work out the printing */
-		
-	    class = class_table[wch->class].who_name;
-	    switch(wch->level)
-	    {
-		case MAX_LEVEL - 0 : class = "IMP"; 	break;
-		case MAX_LEVEL - 1 : class = "CRE";	break;
-		case MAX_LEVEL - 2 : class = "SUP";	break;
-		case MAX_LEVEL - 3 : class = "DEI";	break;
-		case MAX_LEVEL - 4 : class = "GOD";	break;
-		case MAX_LEVEL - 5 : class = "IMM";	break;
-		case MAX_LEVEL - 6 : class = "DEM";	break;
-		case MAX_LEVEL - 7 : class = "ANG";	break;
-		case MAX_LEVEL - 8 : class = "AVA";	break;
-	    }
-
-	    /* for cabals 
-	    if ((wch->cabal && (ch->cabal == wch->cabal || 
-			       IS_TRUSTED(ch,LEVEL_IMMORTAL))) ||
-	                           wch->level >= LEVEL_HERO)
-	      sprintf(cabalbuf, "[%s] ",cabal_table[wch->cabal].short_name);
-	    else cabalbuf[0] = '\0';
-		*/
-	if (( wch->cabal && ch->cabal == wch->cabal) || IS_IMMORTAL(ch) 
-		|| ( IS_SET(wch->act , PLR_CANINDUCT) && wch->cabal == 1) 
-		|| wch->cabal == CABAL_HUNTER )
-	  sprintf(cabalbuf, "[{C%s{x] ",cabal_table[wch->cabal].short_name);
-	else cabalbuf[0] = '\0';
-	if (wch->cabal == 0) cabalbuf[0] = '\0';
-
-	pk_buf[0] = '\0';
-	if (!((ch==wch && ch->level<PK_MIN_LEVEL) || is_safe_nomessage(ch,wch)))
-		strcpy(pk_buf, "{r(PK){x ");
-
-	act_buf[0] = '\0';
-	if (IS_SET(wch->act, PLR_WANTED))
-		strcpy(act_buf, "{R%s{x");
-
-	if (IS_NPC(wch))
-		sprintf(titlebuf,"Believer of Chronos.");
-	else
-		strcpy(titlebuf, wch->pcdata->title);
-
-	/*
-	 * Format it up.
-	 */
-	sprintf(level_buf, "{C%2d{x", wch->level);
-	sprintf(classbuf,"{Y%s{x", class);
-
-	    /* a little formatting */
-
-	    if (IS_TRUSTED(ch,LEVEL_IMMORTAL) || ch==wch || 
-	                  wch->level >= LEVEL_HERO)
-
-	      sprintf(buf, "[%2d %s %s] %s%s%s%s%s\n\r",
-		      wch->level,
-		      RACE(wch) < MAX_PC_RACE ? 
-		        pc_race_table[RACE(wch)].who_name: "     ",
-		      classbuf,
-		      pk_buf,
-		      cabalbuf,    
-		      act_buf,
-		      wch->name, 
-		      titlebuf);
-	    
-
-		else
-	  sprintf( buf, "[%s %s    ] %s%s%s%s%s\n\r",
-		(get_curr_stat(wch, STAT_CHA) < 18 ) ? level_buf : "  ",
- 		      RACE(wch) < MAX_PC_RACE ? 
- 		        pc_race_table[RACE(wch)].who_name: "     ",
- 		      ( (ch==wch && ch->level < PK_MIN_LEVEL) || 
- 		        is_safe_nomessage(ch,wch) ) ? 
- 		       "" : "(PK) ",
- 		      cabalbuf,    
- 		      IS_SET(wch->act,PLR_WANTED) ? "{R(WANTED){x " : "",
- 		      wch->name, 
-		      titlebuf);
-
-	    strcat(output,buf);
-	}
+		if (!str_prefix(arg,wch->name)) {
+			found = TRUE;
+			do_who_raw(ch, wch, output);
+		}
 	}
 
 	if (!found) {
@@ -1941,7 +2178,7 @@ void do_whois (CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	page_to_char(output,ch);
+	page_to_char(output, ch);
 }
 
 
@@ -1971,7 +2208,7 @@ void do_count ( CHAR_DATA *ch, char *argument )
 
 void do_inventory( CHAR_DATA *ch, char *argument )
 {
-	send_to_char( msg(INFO_YOU_ARE_CARRYING, ch->i_lang), ch );
+	send_to_char( "You are carrying:\n\r", ch );
 	show_list_to_char( ch->carrying, ch, TRUE, TRUE );
 	return;
 }
@@ -4106,388 +4343,6 @@ void do_pracnew( CHAR_DATA *ch, char *argument )
 	    }
 	}
 	}
-	return;
-}
-
-
-/*
- * New 'who_col' command by chronos
- */
-void do_who( CHAR_DATA *ch, char *argument )
-{
-	char buf[MAX_STRING_LENGTH];
-	char buf2[MAX_STRING_LENGTH];
-	char cabalbuf[MAX_STRING_LENGTH];
-	char titlebuf[MAX_STRING_LENGTH];
-	char classbuf[100];
-	char output[4 * MAX_STRING_LENGTH];
-	char pk_buf[100];
-	char act_buf[100];
-	char level_buf[100];
-	DESCRIPTOR_DATA *d;
-	int iClass;
-	int iRace;
-	int iLevelLower;
-	int iLevelUpper;
-	int nNumber;
-	int nMatch;
-	int vnum;
-	int count;
-	bool rgfClass[MAX_CLASS];
-	bool rgfRace[MAX_PC_RACE];
-	bool fClassRestrict;
-	bool fRaceRestrict;
-	bool fImmortalOnly;
-	bool fPKRestrict;
-	bool fRulerRestrict;
-	bool fChaosRestrict;
-	bool fShalafiRestrict;
-	bool fInvaderRestrict;
-	bool fBattleRestrict;
-	bool fKnightRestrict;
-	bool fLionsRestrict;
-	bool fTattoo;
-
-	/*
-	 * Set default arguments.
-	 */
-	iLevelLower    = 0;
-	iLevelUpper    = MAX_LEVEL;
-	fClassRestrict = FALSE;
-	fRaceRestrict = FALSE;
-	fPKRestrict = FALSE;
-	fImmortalOnly  = FALSE;
-	fBattleRestrict = FALSE;
-	fChaosRestrict = FALSE;
-	fRulerRestrict = FALSE;
-	fInvaderRestrict = FALSE;
-	fShalafiRestrict = FALSE;
-	fKnightRestrict = FALSE;
-	fLionsRestrict = FALSE;
-	vnum = 0;
-	fTattoo = FALSE;
-	for ( iClass = 0; iClass < MAX_CLASS; iClass++ )
-	rgfClass[iClass] = FALSE;
-	for ( iRace = 0; iRace < MAX_PC_RACE; iRace++ )
-	rgfRace[iRace] = FALSE;
-
-
-	/*
-	 * Parse arguments.
-	 */
-	nNumber = 0;
-	for ( ;; )
-	{
-	char arg[MAX_STRING_LENGTH];
-
-	argument = one_argument( argument, arg );
-	if ( arg[0] == '\0' )
-	    break;
-
-	if (!str_cmp(arg,"pk"))
-	  {
-	    fPKRestrict = TRUE;
-	    break;
-	  }
-
-	if (!str_cmp(arg,"ruler"))
-	  {
-	    if (ch->cabal != CABAL_RULER && !IS_IMMORTAL(ch))
-	      {
-		send_to_char("You are not in that cabal!\n\r",ch);
-		return;
-	      }
-	    else
-	      {
-		fRulerRestrict = TRUE;
-		break;
-	      }
-	  }
-	if (!str_cmp(arg,"shalafi"))
-	  {
-	    if (ch->cabal != CABAL_SHALAFI && !IS_IMMORTAL(ch))
-	      {
-		send_to_char("You are not in that cabal!\n\r",ch);
-		return;
-	      }
-	    else
-	      {
-		fShalafiRestrict = TRUE;
-		break;
-	      }
-	  }
-	if (!str_cmp(arg,"battle"))
-	  {
-	    if (ch->cabal != CABAL_BATTLE && !IS_IMMORTAL(ch))
-	      {
-		send_to_char("You are not in that cabal!\n\r",ch);
-		return;
-	      }
-	    else
-	      {
-		fBattleRestrict = TRUE;
-		break;
-	      }
-	  }
-	if (!str_cmp(arg,"invader"))
-	  {
-	    if (ch->cabal != CABAL_INVADER && !IS_IMMORTAL(ch))
-	      {
-		send_to_char("You are not in that cabal!\n\r",ch);
-		return;
-	      }
-	    else
-	      {
-		fInvaderRestrict = TRUE;
-		break;
-	      }
-	  }
-	if (!str_cmp(arg,"chaos"))
-	  {
-	    if (ch->cabal != CABAL_CHAOS && !IS_IMMORTAL(ch))
-	      {
-		send_to_char("You are not in that cabal!\n\r",ch);
-		return;
-	      }
-	    else
-	      {
-		fChaosRestrict = TRUE;
-		break;
-	      }
-	  }
-	if (!str_cmp(arg,"knight"))
-	  {
-	    if (ch->cabal != CABAL_KNIGHT && !IS_IMMORTAL(ch))
-	      {
-		send_to_char("You are not in that cabal!\n\r",ch);
-		return;
-	      }
-	    else
-	      {
-		fKnightRestrict = TRUE;
-		break;
-	      }
-	  }
-	if (!str_cmp(arg,"lions"))
-	  {
-	    if (ch->cabal != CABAL_LIONS && !IS_IMMORTAL(ch))
-	      {
-		send_to_char("You are not in that cabal!\n\r",ch);
-		return;
-	      }
-	    else
-	      {
-		fLionsRestrict = TRUE;
-		break;
-	      }
-	  }
-	if (!str_cmp(arg,"tattoo"))
-	  {
-	    if (get_eq_char(ch,WEAR_TATTOO) == NULL)
-	      {
-		send_to_char("You haven't got a tattoo yetl!\n\r",ch);
-		return;
-	      }
-	    else
-	      {
-		fTattoo = TRUE;
-		vnum = get_eq_char(ch,WEAR_TATTOO)->pIndexData->vnum;
-		break;
-	      }
-	  }
-
-
-	if ( is_number( arg ) && IS_IMMORTAL(ch))
-	{
-	    switch ( ++nNumber )
-	    {
-	    case 1: iLevelLower = atoi( arg ); break;
-	    case 2: iLevelUpper = atoi( arg ); break; 
-	    default:
-		send_to_char( "This function of who is for immortals.\n\r",ch);
-		return;
-	    }
-	}
-	else
-	{
-
-	    /*
-	     * Look for classes to turn on.
-	     */
-	    if ( arg[0] == 'i' )
-	    {
-		fImmortalOnly = TRUE;
-	    }
-	    else
-	    {
-	      iClass = class_lookup(arg);
-	      if (iClass == -1 || !IS_IMMORTAL(ch))
-	      	{
-	          iRace = race_lookup(arg);
-
-	          if (iRace == 0 || iRace >= MAX_PC_RACE)
-		    {
-		      send_to_char("That's not a valid race.\n\r",ch);
-		      return;
-		    }
-	          else
-		    {
-			fRaceRestrict = TRUE;
-			rgfRace[iRace] = TRUE;
-		    }
-		}
-	      else
-		{
-		  fClassRestrict = TRUE;
-		  rgfClass[iClass] = TRUE;
-		}
-	    }
-	  }
-	  }
-
-	/*
-	 * Now show matching chars.
-	 */
-	nMatch = 0;
-	buf[0] = '\0';
-	output[0] = '\0';
-	act(" ", ch, NULL, NULL, TO_CHAR);
-	for ( d = descriptor_list; d != NULL; d = d->next )
-	{
-	CHAR_DATA *wch;
-	char const *class;
-
-	/*
-	 * Check for match against restrictions.
-	 * Don't use trust as that exposes trusted mortals.
-	 */
-	if ( d->connected != CON_PLAYING || !can_see( ch, d->character ) )
-	    continue;
-
-	if ( d->connected != CON_PLAYING || 
-(IS_VAMPIRE( d->character ) && !IS_IMMORTAL(ch) && (ch != d->character) ) )
-	    continue;
-
-	wch   = ( d->original != NULL ) ? d->original : d->character;
-	if (!can_see(ch, wch)) /* can't see switched wizi imms */
-	  continue;
-
-	if ( wch->level < iLevelLower
-	||   wch->level > iLevelUpper
-	|| ( fImmortalOnly  && wch->level < LEVEL_HERO )
-	|| ( fClassRestrict && !rgfClass[wch->class])
-	|| ( fRaceRestrict && !rgfRace[RACE(wch)])
-	    || ( fPKRestrict && is_safe_nomessage(ch,wch) )
-	|| ( fTattoo &&(vnum == get_eq_char(wch,WEAR_TATTOO)->pIndexData->vnum))
-	    || (fRulerRestrict && wch->cabal != CABAL_RULER )
-	    || (fChaosRestrict && wch->cabal != CABAL_CHAOS)
-	    || (fBattleRestrict && wch->cabal != CABAL_BATTLE)
-	    || (fInvaderRestrict && wch->cabal != CABAL_INVADER)
-	    || (fShalafiRestrict && wch->cabal != CABAL_SHALAFI)
-	    || (fKnightRestrict && wch->cabal != CABAL_KNIGHT)
-	    || (fLionsRestrict && wch->cabal != CABAL_LIONS))
-	    continue;
-
-	nMatch++;
-
-	/*
-	 * Figure out what to print for class.
-	 */
-	class = class_table[wch->class].who_name;
-	switch ( wch->level )
-	{
-	default: break;
-	        {
-	            case MAX_LEVEL - 0 : class = "IMP";     break;
-	            case MAX_LEVEL - 1 : class = "CRE";     break;
-	            case MAX_LEVEL - 2 : class = "SUP";     break;
-	            case MAX_LEVEL - 3 : class = "DEI";     break;
-	            case MAX_LEVEL - 4 : class = "GOD";     break;
-	            case MAX_LEVEL - 5 : class = "IMM";     break;
-	            case MAX_LEVEL - 6 : class = "DEM";     break;
-	            case MAX_LEVEL - 7 : class = "ANG";     break;
-	            case MAX_LEVEL - 8 : class = "AVA";     break;
-	        }
-	}
-
-	/* for cabals 
-	if ((wch->cabal && (wch->cabal == ch->cabal || 
-			   IS_TRUSTED(ch,LEVEL_IMMORTAL))) ||
-	                       wch->level >= LEVEL_HERO)
-	*/
-	cabalbuf[0] = '\0';
-	if ( (wch->cabal && ch->cabal ==  wch->cabal) || IS_IMMORTAL(ch) 
-		|| ( IS_SET(wch->act , PLR_CANINDUCT) && wch->cabal == 1) 
-		|| wch->cabal == CABAL_HUNTER ) {
-	  sprintf(cabalbuf, "[{C%s{x] ", cabal_table[wch->cabal].short_name);
-	}
-
-	pk_buf[0] = '\0';
-	if (!((ch==wch && ch->level<PK_MIN_LEVEL) || is_safe_nomessage(ch,wch)))
-	  strcpy(pk_buf,"{r(PK){x ");
-
-	act_buf[0] = '\0';
-	if(IS_SET(wch->act, PLR_WANTED))
-		strcpy(act_buf, "{R(WANTED){x");
-
-	if (IS_NPC(wch))
-		sprintf(titlebuf,"Believer of Chronos.");
-	else {
-		sprintf(titlebuf,"%s", wch->pcdata->title );
-		if (strlen(titlebuf) > 45 )
-		 {
-			free_string(wch->pcdata->title);
-			titlebuf[44] = '\0';
-			wch->pcdata->title = str_dup( titlebuf );
-			bug("Title length more than 45",0);
-		 }
-	     }
-	/*
-	 * Format it up.
-	 */
-
-	sprintf( level_buf, "{C%2d{x", wch->level);
-	sprintf(classbuf,"{Y%s{x",class);
-
-	if (IS_TRUSTED(ch,LEVEL_IMMORTAL) || ch==wch ||
-	               wch->level >= LEVEL_HERO)
-
-	  sprintf( buf, "[%2d %s %s] %s%s%s%s%s\n\r",
-	    wch->level,
-	    RACE(wch) < MAX_PC_RACE ? pc_race_table[RACE(wch)].who_name 
-				    : "     ",
-	    classbuf,
-	    pk_buf,
-	    cabalbuf,
-	    act_buf,
-	    /* IS_IMMORTAL(wch) ? "Chronos" : */ wch->name,
-	    titlebuf);
-
-	else
-/*	  sprintf( buf, "[%s %s %s] %s%s%s%s%s\n\r",	*/
-	  sprintf( buf, "[%s %s    ] %s%s%s%s%s\n\r",
-		(get_curr_stat(wch, STAT_CHA) < 18 ) ? level_buf : "  ",
-	    RACE(wch) < MAX_PC_RACE ? pc_race_table[RACE(wch)].who_name 
-				    : "     ",
-/*	    classbuf, 	*/
-	    pk_buf,
-	    cabalbuf,
-	    act_buf,
-	    wch->name,
-	    titlebuf); 
-
-	strcat(output,buf);
-	}
-
-	count = 0;
-	for ( d = descriptor_list; d != NULL; d = d->next )
-	    if ( d->connected == CON_PLAYING )    count++;
-
-	max_on = UMAX(count,max_on);
-	sprintf( buf2, "\n\rPlayers found: %d. Most so far today: %d.\n\r",
-		nMatch,max_on );
-	strcat(output,buf2);
-	page_to_char( output, ch );
 	return;
 }
 

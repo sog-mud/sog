@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.4 1998-04-14 11:36:16 efdi Exp $
+ * $Id: db.c,v 1.5 1998-04-18 07:11:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -43,9 +43,9 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include <ctype.h>
 #include <time.h>
 #include <stdarg.h>
+#include <ctype.h>
 #if defined(macintosh)
 #include <types.h>
 #else
@@ -3605,7 +3605,15 @@ void smash_tilde(char *str)
 		if (*str == '~') *str = '-';
 }
 
-
+void smash_percent(char* str)
+{
+	for (; *str; str++)
+		if (*str == '%')
+			if (*(str+1) == '%')
+				str++;
+			else
+				*str = '#';
+}
 
 /*
  * Compare strings, case insensitive.

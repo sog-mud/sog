@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.2 1998-04-14 08:54:30 fjoe Exp $
+ * $Id: handler.c,v 1.3 1998-04-18 07:11:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -45,7 +45,6 @@
 #else
 #include <sys/types.h>
 #endif
-#include <ctype.h>
 #include <stdio.h>
 #include <string.h>
 #include <time.h>

@@ -1,5 +1,5 @@
 /*
- * $Id: resource.c,v 1.7 1998-04-17 18:10:24 efdi Exp $
+ * $Id: resource.c,v 1.8 1998-04-18 07:11:56 fjoe Exp $
  */
 
 #include "resource.h"
@@ -12,12 +12,12 @@ char *msg(int resnum, int lang)
 {
 	switch( lang ) {
 		case LANG_ENG:
-			if( resnum >= sizeof( strings_engl ) )
+			if (resnum >= sizeof(strings_engl) / sizeof(char*))
 				return BLANK_STRING;
 			else
 				return strings_engl[ resnum ];
 		case LANG_RUS:
-			if( resnum >= sizeof( strings_rus ) )
+			if (resnum >= sizeof(strings_rus) / sizeof(char*))
 				return BLANK_STRING;
 			else
 				return strings_rus[ resnum ];

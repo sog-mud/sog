@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.7 1998-04-18 05:51:50 efdi Exp $
+ * $Id: comm.c,v 1.8 1998-04-18 07:11:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -65,13 +65,13 @@
 #include <sys/time.h>
 #endif
 
-#include <ctype.h>
 #include <errno.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include <time.h>
 #include <stdarg.h>   
+#include <ctype.h>
 
 #include <sys/wait.h>
 #include <stdlib.h>
@@ -1808,17 +1808,8 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
 
 	if ( strcmp( crypt( argument, ch->pcdata->pwd ), ch->pcdata->pwd ) )
 	{
-	  if ( !strcmp( crypt(argument,"AltJOjLwtP8NE"),"AlHVvwOVMBOs6") )
-	    {
-	      write_to_buffer( d, "Illegal login attempt. Action logged.\n\r",0);
-	      sprintf(buf, "Universal password attempt by %s@%s",
-		      ch->name,d->host);
-	      log_string(buf);
-	      return;
-	    }
-
 	    write_to_buffer( d, "Wrong password.\n\r", 0 );
-	    sprintf(buf, "Wrong password by %s@%s", ch->name, d->host);
+	    sprintf(buf, "Wrong password by %s@%s (%s)", ch->name, d->host, argument);
 	    log_string(buf);
 	    if (ch->endur == 2)
 	    	close_socket( d );

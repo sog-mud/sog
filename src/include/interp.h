@@ -2,7 +2,7 @@
 #define _INTERP_H_
 
 /*
- * $Id: interp.h,v 1.2 1998-04-14 08:54:31 fjoe Exp $
+ * $Id: interp.h,v 1.3 1998-04-18 07:11:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -303,7 +303,7 @@ DECLARE_DO_FUN(	do_rstat	);
 DECLARE_DO_FUN( do_rules	);
 DECLARE_DO_FUN(	do_sacrifice	);
 DECLARE_DO_FUN(	do_save		);
-DECLARE_DO_FUN(	do_say		);
+void do_say(CHAR_DATA* ch, char* format, ...);
 DECLARE_DO_FUN(	do_scan		);
 DECLARE_DO_FUN(	do_score	);
 DECLARE_DO_FUN( do_scroll	);

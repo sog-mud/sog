@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.5 1998-04-17 18:10:24 efdi Exp $
+ * $Id: interp.c,v 1.6 1998-04-18 07:11:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -45,11 +45,11 @@
 #else
 #include <sys/types.h>
 #endif
-#include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <ctype.h>
 #include "merc.h"
 #include "interp.h"
 #include "act_wiz.h"
@@ -684,13 +684,13 @@ void interpret( CHAR_DATA *ch, char *argument, bool is_order )
 	return;
     }
 
-    /*
-     * Dispatch the command.
-     */
-    (*cmd_table[cmd].do_fun) ( ch, argument );
+	/*
+	 * Dispatch the command.
+	 */
+	smash_percent(argument);
+	(*cmd_table[cmd].do_fun) ( ch, argument );
 
-    tail_chain( );
-    return;
+	tail_chain();
 }
 
 

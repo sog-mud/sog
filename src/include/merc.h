@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.4 1998-04-15 10:43:29 efdi Exp $
+ * $Id: merc.h,v 1.5 1998-04-18 07:11:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -173,7 +173,7 @@ typedef struct  auction_data            AUCTION_DATA;
 /*
  * Function types.
  */
-typedef	void DO_FUN	args( ( CHAR_DATA *ch, char *argument ) );
+typedef	void DO_FUN	(CHAR_DATA *ch, char *argument);
 typedef bool SPEC_FUN	args( ( CHAR_DATA *ch ) );
 typedef void SPELL_FUN	args( ( int sn, int level, CHAR_DATA *ch, void *vo,
 				int target ) );

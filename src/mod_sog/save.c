@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.4 1998-04-14 11:36:17 efdi Exp $
+ * $Id: save.c,v 1.5 1998-04-18 07:11:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -45,7 +45,6 @@
 #else
 #include <sys/types.h>
 #endif
-#include <ctype.h>
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
@@ -1227,13 +1226,6 @@ void fread_char( CHAR_DATA *ch, FILE *fp )
 	    if ( !str_cmp( word, "Title" )  || !str_cmp( word, "Titl"))
 	    {
 		ch->pcdata->title = fread_string( fp );
-    		if (ch->pcdata->title[0] != '.' && ch->pcdata->title[0] != ',' 
-		&&  ch->pcdata->title[0] != '!' && ch->pcdata->title[0] != '?')
-		{
-		    sprintf( buf, " %s", ch->pcdata->title );
-		    free_string( ch->pcdata->title );
-		    ch->pcdata->title = str_dup( buf );
-		}
 		fMatch = TRUE;
 		break;
 	    }
