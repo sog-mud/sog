@@ -2524,7 +2524,7 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng You can play again.@rus Ты $gn{вернулся} к полноценной жизни.~
 @eng You can quaff only potions.@rus Это не зелье.~
 @eng You can recite only scrolls.@rus Это не свиток.~
-@eng You can speak :@rus Ты можешь говорить на следующих наречиях:~
+@eng You can speak:@rus Ты можешь говорить на следующих языках:~
 @eng You can tell again.@rus Ты снова можешь пользоваться командой 'tell'.~
 @eng You can train:%s%s%s%s%s%s@rus Ты можешь тренировать:%s%s%s%s%s%s~
 @eng You can withdraw gold and silver coins only.@rus Ты можешь снять со счета золотые или серебряные монеты.~
