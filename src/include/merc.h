@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.350 2001-08-20 18:18:05 fjoe Exp $
+ * $Id: merc.h,v 1.351 2001-08-21 09:35:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -140,7 +140,7 @@ enum {
 #include <vo_iter.h>
 
 #define PFILE_VERSION	12
-#define AREA_VERSION	6
+#define AREA_VERSION	7
 
 /*
  * Game parameters.
@@ -956,7 +956,7 @@ struct spec_type
 #define APPLY_SAVING_BREATH	23
 #define APPLY_SAVING_SPELL	24
 #define APPLY_SIZE		26
-#define APPLY_LUCK		27
+#define APPLY_LUCK		29
 
 /*
  * Skillaffects flags
@@ -1034,21 +1034,19 @@ struct spec_type
  * Sector types.
  * Used in #ROOMS.
  */
-enum {
-	SECT_INSIDE,
-	SECT_CITY,
-	SECT_FIELD,
-	SECT_FOREST,
-	SECT_HILLS,
-	SECT_MOUNTAIN,
-	SECT_WATER_SWIM,
-	SECT_WATER_NOSWIM,
-	SECT_UNDERWATER,
-	SECT_AIR,
-	SECT_DESERT,
+#define SECT_INSIDE		0
+#define SECT_CITY		1
+#define SECT_FIELD		2
+#define SECT_FOREST		3
+#define SECT_HILLS		4
+#define SECT_MOUNTAIN		5
+#define SECT_WATER_SWIM		6
+#define SECT_WATER_NOSWIM	7
+#define SECT_UNDERWATER		8
+#define SECT_AIR		9
+#define SECT_DESERT		10
 
-	MAX_SECT = SECT_DESERT
-};
+#define MAX_SECT		11
 
 /*
  * Equpiment wear locations.
@@ -2060,12 +2058,15 @@ void		aff_free	(AFFECT_DATA *af);
 AFFECT_DATA *	aff_dup_list	(AFFECT_DATA *af, int level);
 void		aff_free_list	(AFFECT_DATA *af);
 
-AFFECT_DATA *	aff_fread	(rfile_t *fp, bool read_type);
+#define AFF_X_NOTYPE	(A)		/* do not r/w paf->type */
+#define AFF_X_NOLD	(B)		/* do not r/w paf->level/duration */
+
+AFFECT_DATA *	aff_fread	(rfile_t *fp, int r_flags);
 AFFECT_DATA *	aff_fread_v5	(rfile_t *fp);
 
-void		aff_fwrite	(AFFECT_DATA *paf, FILE *fp, bool write_type);
-void		aff_fwrite_list	(const char *pre, const char *pre2,
-				 AFFECT_DATA *paf, FILE *fp);
+void		aff_fwrite	(AFFECT_DATA *paf, FILE *fp, int w_flags);
+void		aff_fwrite_list	(const char *pre, const char *pre_notype,
+				 AFFECT_DATA *paf, FILE *fp, int w_flags);
 
 void		saff_init(saff_t *sa);
 void		saff_destroy(saff_t *sa);

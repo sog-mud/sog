@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.309 2001-08-20 16:47:41 fjoe Exp $
+ * $Id: handler.c,v 1.310 2001-08-21 09:35:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1703,7 +1703,7 @@ get_eq_char(CHAR_DATA *ch, int iWear)
 #define CAN_SWIM(ch)	(IS_IMMORTAL(ch) || number_percent() < get_skill(ch, "swimming"))
 #define CAN_FLY(ch)	(IS_IMMORTAL(ch) || IS_AFFECTED(ch, AFF_FLYING))
 
-static int movement_loss[MAX_SECT+1] =
+static int movement_loss[MAX_SECT] =
 {
 	1, 2, 2, 3, 4, 6, 4, 1, 12, 10, 6
 };
@@ -1971,8 +1971,8 @@ move_char(CHAR_DATA *ch, int door, flag_t flags)
 			}
 		}
 
-		move = (movement_loss[URANGE(0, in_room->sector_type, MAX_SECT)]
-		  + movement_loss[URANGE(0, to_room->sector_type, MAX_SECT)])/2;
+		move = (movement_loss[URANGE(0, in_room->sector_type, MAX_SECT-1)]
+		  + movement_loss[URANGE(0, to_room->sector_type, MAX_SECT-1)])/2;
 
 		if (IS_AFFECTED(ch, AFF_FLYING)
 		||  IS_AFFECTED(ch, AFF_HASTE))

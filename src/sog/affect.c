@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: affect.c,v 1.62 2001-08-20 18:18:13 fjoe Exp $
+ * $Id: affect.c,v 1.63 2001-08-21 09:35:21 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -170,10 +170,13 @@ where_lookup(flag_t where)
 }
 
 void
-aff_fwrite_list(const char *pre, const char *pre2, AFFECT_DATA *paf, FILE *fp)
+aff_fwrite_list(const char *pre, const char *pre_notype, AFFECT_DATA *paf,
+		FILE *fp, int w_flags)
 {
+	REMOVE_BIT(w_flags, AFF_X_NOTYPE);
+
 	for (; paf != NULL; paf = paf->next) {
-		bool use_pre2;
+		int wf_notype = 0;
 
 		/* skip empty affects */
 		if (IS_APPLY_AFFECT(paf)
@@ -186,17 +189,19 @@ aff_fwrite_list(const char *pre, const char *pre2, AFFECT_DATA *paf, FILE *fp)
 		if (IS_SKILL(paf->type, "doppelganger"))
 			continue;
 
-		use_pre2 = IS_NULLSTR(paf->type) && !IS_NULLSTR(pre2);
-		fprintf(fp, "%s ", use_pre2 ? pre2 : pre);
-		aff_fwrite(paf, fp, !use_pre2);
+		wf_notype = IS_NULLSTR(paf->type) && !IS_NULLSTR(pre_notype) ?
+		    AFF_X_NOTYPE : 0;
+		fprintf(fp, "%s ", wf_notype ? pre_notype : pre);
+		aff_fwrite(paf, fp, w_flags | wf_notype);
 	}
 }
 
 void
-aff_fwrite(AFFECT_DATA *paf, FILE *fp, bool write_type)
+aff_fwrite(AFFECT_DATA *paf, FILE *fp, int w_flags)
 {
-	if (write_type)
+	if (!IS_SET(w_flags, AFF_X_NOTYPE))
 		fprintf(fp, "'%s' ", paf->type);
+
 	fprintf(fp, "%s ", flag_string(affect_where_types, paf->where));
 
 	switch (paf->where) {
@@ -218,17 +223,19 @@ aff_fwrite(AFFECT_DATA *paf, FILE *fp, bool write_type)
 		break;
 	}
 
-	fprintf(fp, "%d %s %d %d\n",
-		paf->modifier, format_flags(paf->bitvector),
-		paf->level, paf->duration);
+	fprintf(fp, "%d %s",
+		paf->modifier, format_flags(paf->bitvector));
+	if (!IS_SET(w_flags, AFF_X_NOLD))
+		fprintf(fp, " %d %d", paf->level, paf->duration);
+	fprintf(fp, "\n");
 }
 
 AFFECT_DATA *
-aff_fread(rfile_t *fp, bool read_type)
+aff_fread(rfile_t *fp, int r_flags)
 {
 	AFFECT_DATA *paf = aff_new(TO_AFFECTS, str_empty);
 
-	if (read_type)
+	if (!IS_SET(r_flags, AFF_X_NOTYPE))
 		paf->type = fread_strkey(fp, &skills, "aff_fread"); // notrans
 
 	paf->where = fread_fword(affect_where_types, fp);
@@ -246,7 +253,7 @@ aff_fread(rfile_t *fp, bool read_type)
 		break;
 	case TO_FORM:
 		paf->location.s = fread_strkey(
-		    fp, &forms, "aff_fread");
+		    fp, &forms, "aff_fread");			// notrans
 		break;
 	case TO_RESISTS:
 	case TO_FORMRESIST:
@@ -256,10 +263,14 @@ aff_fread(rfile_t *fp, bool read_type)
 		INT(paf->location) = fread_fword(apply_flags, fp);
 		break;
 	}
+
 	paf->modifier = fread_number(fp);
 	paf->bitvector = fread_flags(fp);
-	paf->level = fread_number(fp);
-	paf->duration = fread_number(fp);
+
+	if (!IS_SET(r_flags, AFF_X_NOLD)) {
+		paf->level = fread_number(fp);
+		paf->duration = fread_number(fp);
+	}
 
 	return paf;
 }
@@ -283,7 +294,7 @@ aff_fread_v5(rfile_t *fp)
 	if (is_number(name))
 		paf->where = atoi(name);
 	else {
-		if (!strncmp(name, "to_", 3))
+		if (!strncmp(name, "to_", 3))			// notrans
 			name += 3;
 		paf->where = flag_svalue(affect_where_types, name);
 	}
@@ -304,7 +315,7 @@ aff_fread_v5(rfile_t *fp)
 		break;
 	case TO_FORM:
 		paf->location.s = fread_strkey(
-		    fp, &forms, "aff_fread");
+		    fp, &forms, "aff_fread");			// notrans
 		break;
 	case TO_RESISTS:
 	case TO_FORMRESIST:

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.98 2001-08-20 17:57:27 fjoe Exp $
+ * $Id: olc_area.c,v 1.99 2001-08-21 09:35:18 fjoe Exp $
  */
 
 #include "olc.h"
@@ -975,7 +975,7 @@ save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 		fprintf(fp, "r %s %d\n",
 			flag_string(dam_classes, i), pMobIndex->resists[i]);
 	}
-	aff_fwrite_list("a", "f", pMobIndex->affected, fp);
+	aff_fwrite_list("a", "f", pMobIndex->affected, fp, AFF_X_NOLD);
 }
 
 /*****************************************************************************
@@ -1038,7 +1038,7 @@ save_object(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
 	fprintf(fp, "%d %d %d %c\n",
 		pObjIndex->level, pObjIndex->weight, pObjIndex->cost, letter);
 
-	aff_fwrite_list("a", "f", pObjIndex->affected, fp);
+	aff_fwrite_list("a", "f", pObjIndex->affected, fp, AFF_X_NOLD);
 
 	for (pEd = pObjIndex->ed; pEd; pEd = pEd->next)
 		ed_fwrite(fp, pEd);

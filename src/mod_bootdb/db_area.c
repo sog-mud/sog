@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.122 2001-08-20 18:18:07 fjoe Exp $
+ * $Id: db_area.c,v 1.123 2001-08-21 09:35:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -552,7 +552,7 @@ DBLOAD_FUN(load_rooms)
 		pRoomIndex->room_flags	= fread_flags(fp);
 		pRoomIndex->sector_type	= fread_fword(sector_types, fp);
 		if (pRoomIndex->sector_type < 0
-		||  pRoomIndex->sector_type > MAX_SECT) {
+		||  pRoomIndex->sector_type >= MAX_SECT) {
 			log(LOG_ERROR, "load_rooms: vnum %d: invalid sector type",
 			    pRoomIndex->vnum);
 		}
@@ -1155,15 +1155,27 @@ DBLOAD_FUN(load_mobiles)
 						INT(paf->location) = APPLY_NONE;
 						paf->modifier = 0;
 					}
-				} else
-					paf = aff_fread(fp, TRUE);
+				} else {
+					paf = aff_fread(fp, AFF_X_NOLD);
+
+					if (area_current->ver == 6) {
+						fread_number(fp);
+						fread_number(fp);
+					}
+				}
 
 				paf->level = pMobIndex->level;
 				paf->duration = -1;
 				SLIST_ADD(AFFECT_DATA,
 				     pMobIndex->affected, paf);
 			} else if (letter == 'f') {
-				AFFECT_DATA *paf = aff_fread(fp, FALSE);
+				AFFECT_DATA *paf = aff_fread(
+				    fp, AFF_X_NOTYPE | AFF_X_NOLD);
+
+				if (area_current->ver == 6) {
+					fread_number(fp);
+					fread_number(fp);
+				}
 
 				paf->level = pMobIndex->level;
 				paf->duration = -1;
@@ -1352,7 +1364,7 @@ dump_affects(OBJ_INDEX_DATA *pObjIndex)
 
 	fprintf(fp, "#%d\n", pObjIndex->vnum);
 	for (paf = pObjIndex->affected; paf != NULL; paf = paf->next)
-		aff_fwrite(paf, fp, FALSE);
+		aff_fwrite(paf, fp, AFF_X_NOLD);
 	fprintf(fp, "\n");
 
 	fclose(fp);
@@ -1497,8 +1509,14 @@ DBLOAD_FUN(load_objects)
 						INT(paf->location) = APPLY_NONE;
 						paf->modifier = 0;
 					}
-				} else
-					paf = aff_fread(fp, TRUE);
+				} else {
+					paf = aff_fread(fp, AFF_X_NOLD);
+
+					if (area_current->ver == 6) {
+						fread_number(fp);
+						fread_number(fp);
+					}
+				}
 
 				paf->level = pObjIndex->level;
 				paf->duration = -1;
@@ -1507,7 +1525,12 @@ DBLOAD_FUN(load_objects)
 				break;
 
 			case 'f':
-				paf = aff_fread(fp, FALSE);
+				paf = aff_fread(fp, AFF_X_NOTYPE | AFF_X_NOLD);
+
+				if (area_current->ver == 6) {
+					fread_number(fp);
+					fread_number(fp);
+				}
 
 				paf->level = pObjIndex->level;
 				paf->duration = -1;
