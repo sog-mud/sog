@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.77 1998-10-26 08:38:23 fjoe Exp $
+ * $Id: update.c,v 1.78 1998-10-28 19:46:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -420,6 +420,10 @@ void gain_condition(CHAR_DATA *ch, int iCond, int value)
 	if (value == 0 || IS_NPC(ch) || ch->level >= LEVEL_IMMORTAL)
 		return;
 
+	if (get_skill(ch, gsn_vampire)
+	&&  (iCond == COND_THIRST || iCond == COND_FULL || iCond == COND_HUNGER))
+		return;
+
 	condition = ch->pcdata->condition[iCond];
 
 	ch->pcdata->condition[iCond] = URANGE(-6, condition + value, 96);
@@ -584,6 +588,7 @@ void mobile_update(void)
 			if (ch->hit < 1) {
 				ch->position = POS_DEAD;
 				handle_death(ch, ch);
+				continue;
 			}
 			bust_prompt = TRUE;
 		}
@@ -593,9 +598,10 @@ void mobile_update(void)
 		&&  ch->desc->showstr_point == NULL)
 			char_puts(str_empty, ch);
 
+/* that's all for PCs and charmed mobiles */
 		if (!IS_NPC(ch)
 		||  ch->in_room == NULL
-		||  IS_AFFECTED(ch,AFF_CHARM))
+		||  IS_AFFECTED(ch, AFF_CHARM))
 			continue;
 
 		if (IS_SET(ch->act,ACT_HUNTER) && ch->hunting)
@@ -617,31 +623,25 @@ void mobile_update(void)
 			ch->silver += ch->pIndexData->wealth * number_range(1,20)/50000;
 		}
 	 
-	/*
-	 * Check triggers only if mobile still in default position
-	 */
-	if ( ch->position == ch->pIndexData->default_pos )
-	{
-	    /* Delay */
-	    if ( HAS_TRIGGER( ch, TRIG_DELAY) 
-	    &&   ch->mprog_delay > 0 )
-	    {
-		if ( --ch->mprog_delay <= 0 )
-		{
-		    mp_percent_trigger( ch, NULL, NULL, NULL, TRIG_DELAY );
-		    continue;
-		}
-	    } 
-	    if ( HAS_TRIGGER( ch, TRIG_RANDOM) )
-	    {
-		if( mp_percent_trigger( ch, NULL, NULL, NULL, TRIG_RANDOM ) )
-		continue;
-	    }
-	}
+/* check triggers (only if mobile still in default position) */
 
-		/*
-		 *  Potion using and stuff for intelligent mobs
-		 */
+		if (ch->position == ch->pIndexData->default_pos) {
+			if (HAS_TRIGGER(ch, TRIG_DELAY)
+			&&  ch->mprog_delay > 0) {
+				if (--ch->mprog_delay <= 0) {
+					mp_percent_trigger(ch, NULL, NULL,
+							   NULL, TRIG_DELAY);
+					continue;
+				}
+			} 
+			if (HAS_TRIGGER(ch, TRIG_RANDOM)) {
+				if(mp_percent_trigger(ch, NULL, NULL,
+						      NULL, TRIG_RANDOM))
+					continue;
+			}
+		}
+
+/* Potion using and stuff for intelligent mobs */
 
 		if (ch->position == POS_STANDING
 		||  ch->position == POS_RESTING
@@ -718,63 +718,54 @@ void mobile_update(void)
 	}
 
 
-	/* That's all for sleeping / busy monster, and empty zones */
-	if (ch->position != POS_STANDING)
-	    continue;
+/* That's all for sleeping / busy monster, and empty zones */
+		if (ch->position != POS_STANDING)
+			continue;
 
-	    if (ch->position < POS_STANDING)
-	      continue;
+/* Scavenge */
+		if (IS_SET(ch->act, ACT_SCAVENGER)
+		&&  ch->in_room->contents != NULL
+		&&  number_bits(6) == 0) {
+			OBJ_DATA *obj;
+			OBJ_DATA *obj_best = NULL;
+			int max = 1;
 
-	/* Scavenge */
-	if (IS_SET(ch->act, ACT_SCAVENGER)
-	&&   ch->in_room->contents != NULL
-	&&   number_bits(6) == 0)
-	{
-	    OBJ_DATA *obj;
-	    OBJ_DATA *obj_best;
-	    int max;
+			for (obj = ch->in_room->contents; obj;
+			     obj = obj->next_content) {
+				if (CAN_WEAR(obj, ITEM_TAKE)
+				&&  can_loot(ch, obj)
+				&&  obj->cost > max) {
+					obj_best = obj;
+					max	 = obj->cost;
+				}
+			}
 
-	    max         = 1;
-	    obj_best    = 0;
-	    for (obj = ch->in_room->contents; obj; obj = obj->next_content)
-	    {
-		if (CAN_WEAR(obj, ITEM_TAKE) && can_loot(ch, obj)
-		     && obj->cost > max  && obj->cost > 0)
-		{
-		    obj_best    = obj;
-		    max         = obj->cost;
+			if (obj_best) {
+				obj_from_room(obj_best);
+				obj_to_char(obj_best, ch);
+				act("$n gets $p.", ch, obj_best, NULL, TO_ROOM);
+			}
 		}
-	    }
 
-	    if (obj_best)
-	    {
-		obj_from_room(obj_best);
-		obj_to_char(obj_best, ch);
-		act("$n gets $p.", ch, obj_best, NULL, TO_ROOM);
-	    }
-	}
-
-		/* Wander */
+/* Wander */
 		if (!IS_SET(ch->act, ACT_SENTINEL) 
 		&&  number_bits(3) == 0
 		&&  (door = number_bits(5)) <= 5
 		&&  !RIDDEN(ch)
 		&&  (pexit = ch->in_room->exit[door]) != NULL
-		&&   pexit->u1.to_room != NULL
-		&&   !IS_SET(pexit->exit_info, EX_CLOSED)
-		&&   !IS_SET(pexit->u1.to_room->room_flags, ROOM_NOMOB)
-		&&  (!IS_SET(ch->act, ACT_STAY_AREA)
-		||   pexit->u1.to_room->area == ch->in_room->area) 
-		&&  (!IS_SET(ch->act, ACT_AGGRESSIVE)
-		||   !IS_SET(pexit->u1.to_room->room_flags, ROOM_SAFE))
-		&&  (!IS_SET(ch->act, ACT_OUTDOORS)
-		||   !IS_SET(pexit->u1.to_room->room_flags, ROOM_INDOORS)) 
-		&&  (!IS_SET(ch->act, ACT_INDOORS)
-		||   IS_SET(pexit->u1.to_room->room_flags,ROOM_INDOORS)))
+		&&  pexit->u1.to_room != NULL
+		&&  !IS_SET(pexit->exit_info, EX_CLOSED)
+		&&  !IS_SET(pexit->u1.to_room->room_flags, ROOM_NOMOB)
+		&&  (!IS_SET(ch->act, ACT_STAY_AREA) ||
+		     pexit->u1.to_room->area == ch->in_room->area) 
+		&&  (!IS_SET(ch->act, ACT_AGGRESSIVE) ||
+		     !IS_SET(pexit->u1.to_room->room_flags, ROOM_SAFE))
+		&&  (!IS_SET(ch->act, ACT_OUTDOORS) ||
+		     !IS_SET(pexit->u1.to_room->room_flags, ROOM_INDOORS)) 
+		&&  (!IS_SET(ch->act, ACT_INDOORS) ||
+		     IS_SET(pexit->u1.to_room->room_flags,ROOM_INDOORS)))
 			move_char(ch, door, FALSE);
 	}
-
-	return;
 }
 
 int potion_cure_level(OBJ_DATA *potion)
@@ -1219,6 +1210,7 @@ void char_update(void)
 			if (ch->hit < 1) {
 				ch->position = POS_DEAD;
 				handle_death(ch, ch);
+				continue;
 			}
 		}
 

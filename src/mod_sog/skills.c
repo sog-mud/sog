@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.34 1998-10-26 08:38:23 fjoe Exp $
+ * $Id: skills.c,v 1.35 1998-10-28 19:46:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -374,7 +374,7 @@ void update_skills(CHAR_DATA *ch)
 		int sn = sn_lookup(pc_race_table[ch->pcdata->race].skills[i]);
 		if (sn < 0)
 			continue;
-		set_skill_raw(ch, sn, 100, TRUE);
+		set_skill_raw(ch, sn, 100, FALSE);
 	}
 
 /* add clan skills */
@@ -894,10 +894,11 @@ int skill_level(CHAR_DATA *ch, int sn)
 	if ((clan = clan_lookup(ch->clan))
 	&&  (clan_skill = clan_skill_lookup(clan, sn)))
 		slevel = UMIN(slevel, clan_skill->level);
-	if ((class_skill = class_skill_lookup(cl, sn)))
+	if ((class_skill = class_skill_lookup(cl, sn))) {
 		slevel = UMIN(slevel, class_skill->level);
-	if (skill_is_native(ch, sn))
-		slevel = UMIN(slevel, 1);
+		if (skill_is_native(ch, sn))
+			slevel = UMIN(slevel, 1);
+	}
 
 /* spell is not clan, class or race */
 	if (slevel == MAX_LEVEL+1) {

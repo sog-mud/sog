@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.48 1998-10-26 08:38:20 fjoe Exp $
+ * $Id: martial_art.c,v 1.49 1998-10-28 19:46:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -985,7 +985,7 @@ void do_disarm(CHAR_DATA *ch, const char *argument)
 	}
 
 	argument = one_argument(argument, arg);
-	if (!str_prefix(arg, "second"))
+	if (arg[0] && !str_prefix(arg, "second"))
 		loc = WEAR_SECOND_WIELD;
 
 	if ((vwield = get_eq_char(victim, loc)) == NULL) {

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.107 1998-10-26 08:38:21 fjoe Exp $
+ * $Id: merc.h,v 1.108 1998-10-28 19:46:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -374,29 +374,6 @@ struct kill_data
  *		     (Start of section ... start here)			   *
  *									   *
  ***************************************************************************/
-
-/* race table */
-#define RACE_NONE		(ee - 1)
-#define RACE_HUMAN		(A)
-#define RACE_ELF		(B)
-#define RACE_HALF_ELF		(C)
-#define RACE_DARK_ELF		(D)
-#define RACE_ROCKSEER		(E)	/* 5 */
-#define RACE_DWARF		(F)
-#define RACE_SVIRFNEBLI 	(G)
-#define RACE_DUERGAR		(H)
-#define RACE_ARIAL		(I)
-#define RACE_GNOME		(J)	/* 10 */
-#define RACE_STORM_GIANT	(K)
-#define RACE_CLOUD_GIANT	(L)
-#define RACE_FIRE_GIANT 	(M)
-#define RACE_FROST_GIANT	(N)
-#define RACE_FELAR		(O)	/* 15 */
-#define RACE_GITHYANKI		(P)
-#define RACE_SATYR		(Q)
-#define RACE_TROLL		(R)
-
-#define RACE_TOP		(T)
 
 /* general align */
 #define ALIGN_NONE		-1

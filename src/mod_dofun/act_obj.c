@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.86 1998-10-26 08:38:17 fjoe Exp $
+ * $Id: act_obj.c,v 1.87 1998-10-28 19:46:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2255,6 +2255,7 @@ void do_steal(CHAR_DATA * ch, const char *argument)
 		char_puts("You got one of them!\n\r", ch);
 		check_improve(ch, sn, TRUE, 1);
 	}
+	oprog_call(OPROG_GET, obj, ch, NULL);
 }
 
 /*

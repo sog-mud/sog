@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: const.h,v 1.10 1998-10-17 16:20:10 fjoe Exp $
+ * $Id: const.h,v 1.11 1998-10-28 19:46:01 fjoe Exp $
  */
 
 #ifndef _CONST_H_
@@ -152,7 +152,7 @@
 #define PULSE_MOBILE		(4 * PULSE_PER_SECOND)
 #define PULSE_WATER_FLOAT	(4 * PULSE_PER_SECOND)
 #define PULSE_MUSIC		(6 * PULSE_PER_SECOND)
-#define PULSE_TRACK		(6 * PULSE_PER_SECOND)
+#define PULSE_TRACK		(12 * PULSE_PER_SECOND)
 #define PULSE_TICK		(50 * PULSE_PER_SECOND) /* 36 saniye */
 
 /* room_affect_update (not room_update) */
