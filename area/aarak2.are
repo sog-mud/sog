@@ -709,7 +709,7 @@ a stuffed jaguar~
 A stuffed giant king jaguar appears to pace menacingly.~
 paper~
 furniture 0 0
-CEFGHI 0 0 0 0
+500 0 0 0 0
 500 0 0 P
 G none
 #5625
@@ -765,7 +765,7 @@ a strange bird painting~
 A strange bird painting hangs on the wall.~
 paper~
 furniture 0 0
-CEFGHI 0 0 0 0
+500 0 0 0 0
 50 0 0 P
 E
 painting~

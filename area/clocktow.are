@@ -1131,7 +1131,7 @@ cabinet конторка~
 @eng An ebony cabinet stands here.@rus Конторка (cabinet) из черного дерева стоит в углу.~
 ebony~
 furniture CRY 0
-B DFGHIJ DN BCDE BCDE
+2 1000 DN 30 30
 0 0 0 P
 G none
 #0

@@ -90,7 +90,7 @@ sofa silk~
 @eng A silk sofa is here, for enforcers sit and rest.@rus Обитый шелком диван (sofa) приглашает отдохнуть.~
 silk~
 furniture 0 0
-AB DFGHIJ BHKN BCEH BCEH
+3 1000 BHKN 150 150
 20 400 100000 P
 G none
 #95104

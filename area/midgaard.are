@@ -2253,7 +2253,7 @@ anvil наковальня~
 @eng An anvil stands in the middle of the room.@rus Наковальня (anvil) стоит в центре кузни.~
 unknown~
 furniture BRY 0
-A EIJKN A BCEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz 0
+1 10000 A -10 0
 0 0 0 P
 S 'smithing' 75 A
 G female
@@ -2413,7 +2413,7 @@ bench скамейка скамья~
 @eng A white-painted wooden bench is standing here.@rus Белая деревянная скамейка (bench) стоит здесь.~
 wood~
 furniture 0 0
-AB EGHIJK BEHK ADFG ADFG
+3 2000 BEHK 105 105
 0 0 0 G
 E
 bench~

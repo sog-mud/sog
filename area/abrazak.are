@@ -251,7 +251,7 @@ bed~
 @eng A bed is here.@rus Нары здесь.~
 unknown~
 furniture ABCEGIOY 0
-ABE ABCDEFGHIJKLMNOPQRSTUVWXYZabcde BEK DFGHIJ DFGHIJ
+19 2147483647 BEK 1000 1000
 0 0 0 P
 G none
 #15007
@@ -532,7 +532,7 @@ tron~
 {GМаленькая удобная кроватка для ведьмочки Faire стоит тут.{x~
 unknown~
 furniture RYa AP
-AC EIJKN HK CFG CFG
+5 10000 HK 100 100
 0 0 0 P
 G none
 #15031
@@ -660,7 +660,7 @@ ancient chair~
 The ancient chair is here.~
 unknown~
 furniture FGRTYa AP
-A FHJKPQ H BCEH BCEH
+1 100000 H 150 150
 0 0 0 P
 G none
 #15041
@@ -669,7 +669,7 @@ ancient chair~
 The ancient chair is here.~
 unknown~
 furniture FGRTYa AP
-A HJKMPTUX H CEFGHI CEFGHI
+1 10000000 H 500 500
 0 0 0 P
 G none
 #15042

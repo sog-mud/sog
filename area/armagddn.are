@@ -1135,7 +1135,7 @@ An emerald throne~
 An emerald throne surrounded by a rainbow is here.~
 unknown~
 furniture AGKLSW 0
-A EIJKN AEHK DGH DGH
+1 10000 AEHK 200 200
 92 500 18000 P
 E
 throne emerald rainbow~
@@ -1149,7 +1149,7 @@ Four and twenty thrones~
 Four and twenty thrones are here.~
 unknown~
 furniture AGKLSW 0
-DE GHIKLMO AEHK BCEH BCEH
+24 24000 AEHK 150 150
 75 50 45000 P
 E
 thrones four twenty~
