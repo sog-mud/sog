@@ -1,12 +1,12 @@
 /*
- * $Id: spec_class_warrior.mpc,v 1.5 2001-09-18 13:39:03 kostik Exp $
+ * $Id: spec_class_warrior.mpc,v 1.6 2001-09-25 12:35:01 kostik Exp $
  */
 
 int spc_count = spclass_count($n, "weapon", $rm, $add);
 act_char("Yo!", $n);
 if ((real_char_level($n) < 15 && spc_count > 1)
-||  (real_char_level($n) < 35 && spc_count > 2) {
-	act_char("You aren't expierenced enough to specialize in other type of weapon.");
+||  (real_char_level($n) < 35 && spc_count > 2)) {
+	act_char("You aren't expierenced enough to specialize in other type of weapon.", $n);
 	return 1;
 }
 
