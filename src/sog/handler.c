@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.29 2000-06-08 18:13:32 fjoe Exp $
+ * $Id: handler.c,v 1.182.2.30 2000-06-21 10:35:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1430,7 +1430,7 @@ void unequip_char(CHAR_DATA *ch, OBJ_DATA *obj)
 
 	if (wear_loc == WEAR_WIELD
 	&&  (obj = get_eq_char(ch, WEAR_SECOND_WIELD)) != NULL) {
-		act_puts("You wield your second weapon as your first!.",
+		act_puts("You wield your second weapon as your first!",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		act("$n wields $s second weapon as first!",
 		    ch, NULL, NULL, TO_ROOM);
