@@ -1,5 +1,5 @@
 /*
- * $Id: comm.h,v 1.16 1998-09-22 18:07:21 fjoe Exp $
+ * $Id: comm.h,v 1.17 1998-09-29 01:06:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -51,7 +51,6 @@ void	char_puts(const char *txt, CHAR_DATA *ch);
 #define char_nputs(msgid, ch) char_puts(msg(msgid, ch), ch)
 #define char_mlputs(m, ch) char_puts(mlstr_cval(m, ch), ch)
 void	char_printf(CHAR_DATA *ch, const char *format, ...);
-void	char_nprintf(CHAR_DATA *ch, int msgid, ...);
 
 void	send_to_char(const char *txt, CHAR_DATA *ch);
 void	page_to_char( const char *txt, CHAR_DATA *ch);

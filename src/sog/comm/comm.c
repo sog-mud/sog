@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.100 1998-09-24 14:07:57 fjoe Exp $
+ * $Id: comm.c,v 1.101 1998-09-29 01:06:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -89,6 +89,9 @@
 #include "comm/resolver.h"
 #include "olc/olc.h"
 #include "db/db.h"
+#include "db/word.h"
+
+#include "resource.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_help		);
@@ -148,8 +151,8 @@ void parse_colors(const char *i, CHAR_DATA *ch, char *o, size_t);
  */
 #if defined(MALLOC_DEBUG)
 #include <malloc.h>
-extern	int	malloc_debug	args((int ));
-extern	int	malloc_verify	args((void));
+extern	int	malloc_debug	(int );
+extern	int	malloc_verify	(void);
 #endif
 
 bool class_ok(CHAR_DATA *ch , int class);
@@ -193,7 +196,7 @@ char	echo_off_str	[] = { IAC, WILL, TELOPT_ECHO, '\0' };
 char	echo_on_str	[] = { IAC, WONT, TELOPT_ECHO, '\0' };
 char 	go_ahead_str	[] = { IAC, GA, '\0' };
 
-char *get_stat_alias		args((CHAR_DATA* ch, int which));
+char *get_stat_alias		(CHAR_DATA* ch, int which);
 
 /*
  * Global variables.
@@ -232,7 +235,6 @@ bool	process_output		(DESCRIPTOR_DATA *d, bool fPrompt);
 void	read_from_buffer	(DESCRIPTOR_DATA *d);
 void	stop_idling		(CHAR_DATA *ch);
 void    bust_a_prompt           (CHAR_DATA *ch);
-void	cleanup(int);
 int 	log_area_popularity(void);
 
 int main(int argc, char **argv)
@@ -283,42 +285,12 @@ int main(int argc, char **argv)
 	 */
 	
 	resolver_init();
-	signal(SIGHUP, cleanup);
-	signal(SIGINT, cleanup);
-	signal(SIGQUIT, cleanup);
-	signal(SIGILL, cleanup);
-	signal(SIGTRAP, cleanup);
-	signal(SIGABRT, cleanup);
-	signal(SIGEMT, cleanup);
-	signal(SIGFPE, cleanup);
-	signal(SIGBUS, cleanup);
-	signal(SIGSEGV, cleanup);
-	signal(SIGSYS, cleanup);
-	signal(SIGPIPE, cleanup);
-	signal(SIGALRM, cleanup);
-	signal(SIGTERM, cleanup);
-
 	control = init_socket(port);
-
-	fBootDb = TRUE;
-
-	load_lang();
-	load_msgdb();
 	boot_db();
-
-	fBootDb = FALSE;
-
-	convert_objects();           /* ROM OLC */
-	area_update();
-	load_notes();
-	load_bans();
-
 	log_printf("ready to rock on port %d.", port);
 	game_loop_unix(control);
 	close(control);
-
 	resolver_done();
-
 	log_area_popularity();
 
 	/*
@@ -327,7 +299,6 @@ int main(int argc, char **argv)
 	log("Normal termination of game.");
 	return 0;
 }
-
 
 /* stuff for recycling descriptors */
 DESCRIPTOR_DATA *descriptor_free;
@@ -2448,17 +2419,6 @@ void char_printf(CHAR_DATA *ch, const char *format, ...)
 	send_to_char(buf, ch);
 }
 
-void char_nprintf(CHAR_DATA *ch, int msgid, ...)
-{
-	char buf[MAX_STRING_LENGTH];
-	va_list ap;
-
-	va_start(ap, msgid);
-	vsnprintf(buf, sizeof(buf), msg(msgid, ch), ap);
-	va_end(ap);
-	send_to_char(buf, ch);
-}
-
 /*
  * Parse color symbols. len MUST BE > 1
  */
@@ -2569,6 +2529,14 @@ static char * const he_she  [] = { "it",  "he",  "she" };
 static char * const him_her [] = { "it",  "him", "her" };
 static char * const his_her [] = { "its", "his", "her" };
  
+struct tdata {
+	char	type;
+	int	arg;
+	char *	p;
+};
+
+#define TSTACK_SZ 4
+
 static
 void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 	     const void *arg1, const void *arg2, char *str, int flags)
@@ -2578,10 +2546,12 @@ void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 	OBJ_DATA *	obj2 = (OBJ_DATA*) arg2;
 	char 		buf	[MAX_STRING_LENGTH];
 	char 		tmp	[MAX_STRING_LENGTH];
-	char 		fname	[MAX_INPUT_LENGTH];
+
 	char *		point = buf;
 	char *		s = str;
-	const char *	i;
+
+	struct tdata	tstack[TSTACK_SZ];
+	int		sp = -1;
 
 /* twitlist handling */
 	if (IS_SET(flags, CHECK_TWIT)
@@ -2591,91 +2561,180 @@ void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 		return;
 
 	while(*s) {
-		if (*s != '$') {
-			*point++ = *s++;
-			continue;
-		}
-
-/* parse control chars */
-		s++;
-
-		if (!arg2 && *s >= 'A' && *s <= 'Z') {
-			log_printf("act_raw: '%s': missing arg2", str);
-			continue;
-		}
+		char		code;
+		char		subcode;
+		const char *	i;
 
 		switch (*s) {
-		default:  
-			i = " <@@@> ";
-			log_printf("act_raw: '%s': bad code '%c'", str, *s);
+		default:
+			*point++ = *s++;
 			break;
-	
-		case 't': 
-			i = IS_SET(flags, TRANSLATE_TEXT) ?
-				MSG(arg1, to->lang) : (char*) arg1;
-			break;
-	
-		case 'T': 
-			i = IS_SET(flags, TRANSLATE_TEXT) ?
-				MSG(arg2, to->lang) : (char*) arg2;
-			break;
-	
-		case 'n':
-			i = PERS(ch, to);
-			break;
-	
-		case 'N':
-			i = PERS(vch, to);
-			break;
-	
-		case 'e':
-			i = he_she[URANGE(0, ch->sex, SEX_MAX-1)];    
-			break;
-	
-		case 'E':
-			i = he_she[URANGE(0, vch->sex, SEX_MAX-1)];
-			break;
-	
-		case 'm':
-			i = him_her[URANGE(0, ch->sex, SEX_MAX-1)];
-			break;
-	
-		case 'M':
-			i = him_her[URANGE(0, vch->sex, SEX_MAX-1)];
-			break;
-	
-		case 's':
-			i = his_her[URANGE(0, ch->sex, SEX_MAX-1)];
-			break;
-	
-		case 'S':
-			i = his_her[URANGE(0, vch->sex, SEX_MAX-1)];
-			break;
-	
-		case 'p':
-			i = can_see_obj(to, obj1) ?
-				mlstr_cval(obj1->short_descr, to) : "something";
-			break;
-	
-		case 'P':
-			i = can_see_obj(to, obj2) ?
-				mlstr_cval(obj2->short_descr, to) : "something";
-			break;
-	
-		case 'd':
-			if (IS_NULLSTR(arg2))
-				i = "door";
-			else {
-				one_argument(arg2, fname);
-				i = fname;
+
+		case '}':
+			if (sp < 0) {
+				*point++ = *s++;
+				continue;
+			}
+
+			if (sp < TSTACK_SZ) {
+				const char *tr;
+
+				*point = '\0';
+
+				switch (tstack[sp].type) {
+				case 'g':
+					tr = word_gender(to->lang, tstack[sp].p,
+								tstack[sp].arg);
+					break;
+
+				default:
+					tr = word_case(to->lang, tstack[sp].p,
+								tstack[sp].arg);
+					break;
+				}
+
+				strnzcpy(tstack[sp].p, tr,
+					 sizeof(buf) - (tstack[sp].p - buf));
+				point = strchr(tstack[sp].p, '\0');
+			}
+
+			sp--;
+			s++;
+			continue;
+
+		case '{':
+			if (*(s+1) == '}') {
+				s++;
+				*point++ = *s++;
+				continue;
 			}
 			break;
-		}
-		s++;
+
+		case '$':
+			s++;
+
+			switch (code = *s++) {
+			default:  
+				i = " <@@@> ";
+				log_printf("act_raw: '%s': bad code $%c",
+					   str, code);
+				continue;
 	
-		if (i) {
-			while((*point++ = *i++));
-			point--;
+			case 't': 
+				i = IS_SET(flags, TRANSLATE_TEXT) ?
+					MSG(arg1, to->lang) : (char*) arg1;
+				break;
+	
+			case 'T': 
+				i = IS_SET(flags, TRANSLATE_TEXT) ?
+					MSG(arg2, to->lang) : (char*) arg2;
+				break;
+	
+			case 'n':
+				i = PERS(ch, to);
+				break;
+	
+			case 'N':
+				i = PERS(vch, to);
+				break;
+	
+			case 'e':
+				i = he_she[URANGE(0, ch->sex, SEX_MAX-1)];    
+				break;
+	
+			case 'E':
+				i = he_she[URANGE(0, vch->sex, SEX_MAX-1)];
+				break;
+	
+			case 'm':
+				i = him_her[URANGE(0, ch->sex, SEX_MAX-1)];
+				break;
+	
+			case 'M':
+				i = him_her[URANGE(0, vch->sex, SEX_MAX-1)];
+				break;
+	
+			case 's':
+				i = his_her[URANGE(0, ch->sex, SEX_MAX-1)];
+				break;
+	
+			case 'S':
+				i = his_her[URANGE(0, vch->sex, SEX_MAX-1)];
+				break;
+	
+			case 'p':
+				i = can_see_obj(to, obj1) ?
+					mlstr_cval(obj1->short_descr, to) :
+					"something";
+				break;
+	
+			case 'P':
+				i = can_see_obj(to, obj2) ?
+					mlstr_cval(obj2->short_descr, to) :
+					"something";
+				break;
+	
+			case 'd':
+				if (IS_NULLSTR(arg2))
+					i = "door";
+				else {
+					one_argument(arg2, tmp);
+					i = tmp;
+				}
+				break;
+
+			case 'g':
+			case 'c':
+				if (*(s+1) != '{') {
+					log_printf("act_raw: '%s': "
+						   "syntax error", str);
+					continue;
+				}
+
+				if (++sp >= TSTACK_SZ) {
+					log_printf("act_raw: '%s': "
+						   "tstack overflow", str);
+					continue;
+				}
+
+				tstack[sp].p = point;
+				tstack[sp].type = code;
+				subcode = *s++;
+				s++;
+
+				if (code == 'c') {
+					tstack[sp].arg = subcode - '0';
+					continue;
+				}
+
+				switch (subcode) {
+				case 'v':
+					tstack[sp].arg = vch->sex;
+					break;
+
+				case 'c':
+					tstack[sp].arg = ch->sex;
+					break;
+
+				case 't':
+					tstack[sp].arg = to->sex;
+					break;
+
+				default:
+					log_printf("act_raw: '%s': "
+						   "bad subcode '%c'",
+						   str, subcode);
+					sp--;
+					break;
+				}
+				continue;
+			}
+	
+			if (i) {
+				while ((*point++ = *i++));
+				point--;
+			}
+			break;
 		}
 	}
  
@@ -2954,13 +3013,6 @@ int log_area_popularity(void)
 	fclose(fp);
 
 	return 1;
-}
-
-void cleanup(int s)
-{
-	resolver_done();
-	signal(s, SIG_DFL);
-	raise(s);
 }
 
 char *get_stat_alias(CHAR_DATA *ch, int where)

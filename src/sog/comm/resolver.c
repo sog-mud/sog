@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: resolver.c,v 1.4 1998-09-21 02:27:42 fjoe Exp $
+ * $Id: resolver.c,v 1.5 1998-09-29 01:06:54 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -43,7 +43,8 @@
 FILE *	rfin;
 FILE *	rfout;
 
-void	resolver_loop(void);
+static void	cleanup(int);
+static void	resolver_loop(void);
 
 int	rpid;
 int	fildes[4];
@@ -64,6 +65,23 @@ void resolver_init(void)
 	if (rpid == 0)
 		resolver_loop();
 
+	signal(SIGHUP, cleanup);
+	signal(SIGINT, cleanup);
+	signal(SIGQUIT, cleanup);
+	signal(SIGILL, cleanup);
+	signal(SIGTRAP, cleanup);
+	signal(SIGABRT, cleanup);
+	signal(SIGEMT, cleanup);
+	signal(SIGFPE, cleanup);
+	signal(SIGBUS, cleanup);
+	signal(SIGSEGV, cleanup);
+	signal(SIGSYS, cleanup);
+	signal(SIGPIPE, cleanup);
+	signal(SIGALRM, cleanup);
+	signal(SIGTERM, cleanup);
+
+	close(fildes[1]);
+	close(fildes[2]);
 	rfin = fdopen(fildes[0], "r");
 	rfout = fdopen(fildes[3], "w");
 	if (rfin == NULL || rfout == NULL) {
@@ -83,7 +101,16 @@ void resolver_done(void)
 	wait(NULL);
 }
 
-void resolver_loop(void)
+/* local functions */
+
+static void cleanup(int s)
+{
+	resolver_done();
+	signal(s, SIG_DFL);
+	raise(s);
+}
+
+static void resolver_loop(void)
 {
 	FILE *fin;
 	FILE *fout;
