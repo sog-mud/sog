@@ -154,20 +154,20 @@ lately; and some random variation.
 0 COLOUR COLOR ANSI~
 Syntax: color              Toggles color mode on/off
 
-You may also talk in colour; the format is like this: the 'escape character'
-to specify a colour is the left handed brace '{{', following that you should
+You may also talk in color; the format is like this: the 'escape character'
+to specify a color is the left handed brace '{{', following that you should
 use one of the following numbers,
 
-         {x{{0     reset, returns to default
+         {x{{x     reset, returns to default
 
-         {r{{1     red     {m{{5     magenta
-         {g{{2     green   {c{{6     cyan
-         {y{{3     yellow  {w{{7     white
-         {b{{4     blue    {D{{8     grey{x
+         {r{{r     red     {m{{m     magenta
+         {g{{g     green   {c{{c     cyan
+         {y{{y     yellow  {w{{w     white
+         {b{{b     blue    {D{{D     grey{x
 
-For brighter colours, use the shifted numbers: {R!{G@{Y#{B${M%{C^{W&{x
-When using colour, it looks better if you finish the line with whatever
-color it would normally be in, such as a gossip, the colour is magenta, so:
+For brighter colors, use the shifted letters: {RR{GG{YY{BB{MM{CC{WW{x
+When using color, it looks better if you finish the line with whatever
+color it would normally be in, such as a gossip, the color is magenta, so:
                 {mLope gossips '{ghello,{r world{m'{x
         looks better than:
                 {mLope gossips '{ghello,{r world'{x
@@ -1574,7 +1574,7 @@ This spell renders the target character blind.
 ~
 Syntax: cast 'acid blast'     <victim>
 Syntax: cast 'burning hands'  <victim>
-Syntax: cast 'colour spray'   <victim>
+Syntax: cast 'color spray'   <victim>
 Syntax: cast 'fireball'       <victim>
 Syntax: cast 'lightning bolt' <victim>
 Syntax: cast 'magic missile'  <victim>
@@ -3279,7 +3279,7 @@ to the others, but their probabities is much lower.
 ~
 0 PHOBOS~
 
-	To victim : colour spray
+	To victim : color spray
 	To you	  : cure serious
 ~
 0 ODIN~
