@@ -1,5 +1,5 @@
 /*
- * $Id: const.c,v 1.12 1998-06-21 11:38:37 fjoe Exp $
+ * $Id: const.c,v 1.13 1998-06-27 21:37:00 efdi Exp $
  */
 
 /***************************************************************************
@@ -5029,7 +5029,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
     },
 
     {
-	"lance",	{ 33,33,33,33,33,33,33,33,33,33,33,33,33},
+	"lance",	{ 1,1,1,1,1,1,1,1,1,1,1,1,1},
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_null,	TAR_IGNORE,	POS_STANDING,
 	&gsn_lance,	SLOT(0),	0,	0,
@@ -6146,7 +6146,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
     },
 
     {
-        "guard",         {  22,22,22,22,22,22,22,22 ,22,22,22,22,22},
+        "guard",         {  1,1,1,1,1,1,1,1 ,1,1,1,1,1},
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,      TAR_IGNORE,       POS_STANDING,
         &gsn_guard,       SLOT(0),        0,       12,
@@ -6317,7 +6317,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
     },
 
     {
-        "golden aura",         {  10,10,10,10,10,10,10,10,10,10,10,10,10 },
+        "golden aura",         {  1,1,1,1,1,1,1,1,1,1,1,1,1 },
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_golden_aura,      TAR_IGNORE,   POS_STANDING,
         NULL,       SLOT(564),        25,       12,
@@ -6326,7 +6326,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
     },
 
     {
-        "dragonplate",         {  15,15,15,15,15,15,15,15 ,15,15,15,15,15},
+        "dragonplate",         {  1,1,1,1,1,1,1,1 ,1,1,1,1,1},
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_dragonplate,      TAR_IGNORE,   POS_STANDING,
         NULL,       SLOT(565),        60,       12,
@@ -6335,7 +6335,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
     },
 
     {
-        "squire",         {  25, 25, 25,25,25,25,25,25 ,25,25,25,25,25},
+        "squire",         {  1, 1, 1,1,1,1,1,1 ,1,1,1,1,1},
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_squire,      TAR_IGNORE,   POS_STANDING,
         &gsn_squire,       SLOT(566),        100,       12,
@@ -6344,7 +6344,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
     },
 
     {
-        "dragonsword",         {  25,25,25,25,25,25,25,25 ,25,25,25,25,25},
+        "dragonsword",         {  1,1,1,1,1,1,1,1 ,1,1,1,1,1},
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_dragonsword,      TAR_IGNORE,   POS_STANDING,
         &gsn_dragonsword,       SLOT(567),        70,       12,
@@ -6352,7 +6352,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
     },
 
     {
-        "holy armor",         {  10,10,10,10,10,10,10,10,10 ,10,10,10,10},
+        "holy armor",         {  1,1,1,1,1,1,1,1,1 ,1,1,1,1},
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_holy_armor,      TAR_CHAR_SELF,   POS_RESTING,
         &gsn_knight,       SLOT(569),        20,       12,
@@ -6397,7 +6397,7 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
     },
 
     {
-	"riding",		{   30, 30, 30, 30,30,30,30,30,30 ,30,30,30,30},
+	"riding",		{   1, 1, 1, 1,1,1,1,1,1 ,1,1,1,1},
 	{ 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
 	spell_null,		TAR_IGNORE,		POS_STANDING,
 	&gsn_riding,			SLOT(0),	0,	6,
