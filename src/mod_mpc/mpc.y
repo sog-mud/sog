@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.9 2001-06-22 16:57:29 fjoe Exp $
+ * $Id: mpc.y,v 1.10 2001-06-22 18:00:17 fjoe Exp $
  */
 
 /*
@@ -274,6 +274,7 @@ code3(prog_t *prog,
 %token L_SHL_EQ L_SHR_EQ
 
 %right '='
+%right '?'
 %left L_LOR
 %left L_LAND
 %left '|'
@@ -556,10 +557,14 @@ int_const: L_INT
 	}
 	| int_const L_LOR int_const	{ $$ = $1 || $3; }
 	| int_const L_LAND int_const	{ $$ = $1 && $3; }
+	| int_const '?' int_const ':' int_const %prec '?' {
+		$$ = $1 ? $3 : $5;
+	}
 	| '(' int_const ')'		{ $$ = $2; }
-	| '-' int_const		{ $$ = -$2; }
-	| L_NOT int_const	{ $$ = !$2; }
-	| '~' int_const		{ $$ = ~$2; }
+	| '-' int_const	%prec L_NOT	{ $$ = -$2; }
+	| '+' int_const %prec L_NOT	{ $$ = $2; }
+	| L_NOT int_const		{ $$ = !$2; }
+	| '~' int_const			{ $$ = ~$2; }
 	;
 
 expr:	L_IDENT assign expr %prec '=' {
@@ -749,7 +754,7 @@ expr:	L_IDENT assign expr %prec '=' {
 	| '~' expr {
 		INT_UOP("~", c_uop_compl, $2, $$);
 	}
-	| '(' expr ')'		{ $$ = $2; }
+	| '(' comma_expr ')'		{ $$ = $2; }
 	| '-' expr %prec L_NOT {
 		INT_UOP("-", c_uop_minus, $2, $$);
 	}
@@ -765,6 +770,7 @@ expr:	L_IDENT assign expr %prec '=' {
 	| L_DEC L_IDENT %prec L_NOT	/* note lower precedence here */ {
 		INCDEC_UOP("--", c_predec, $2, $$);
 	}
+	| '+' expr %prec L_NOT		{ $$ = $2; }
 	;
 
 comma_expr: expr	{ $$ = $1; }
@@ -787,9 +793,11 @@ assign:	'='		{ $$ = c_assign; }
 
 expr_list:	/* empty */	{ $$ = 0; }
 	| expr_list_ne		{ $$ = $1; }
+	;
 
 expr_list_ne: expr		{ argtype_push(prog, $1); $$ = 1; }
 	| expr_list_ne ',' expr	{ argtype_push(prog, $3); $$ = $1 + 1; }
+	;
 
 %%
 
