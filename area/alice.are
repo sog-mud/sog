@@ -47,8 +47,10 @@ r bash 33
 r pierce -50
 r cold 33
 r charm 33
+m mob_give mob_give_white_rabbit 21007~
 m mob_greet mob_greet_white_rabbit 100~
 m mob_exit mob_exit_white_rabbit all~
+m mob_tell mob_tell_white_rabbit ~
 #21002
 mouse~
 a mouse~
@@ -149,6 +151,7 @@ EFNU
 stand stand female 0
 0 0 medium unknown
 m mob_greet mob_greet_magpie 100~
+m mob_kill mob_kill_bamf_self 100~
 m mob_exit mob_exit_magpie all~
 #21008
 owl~
@@ -210,6 +213,7 @@ HMV B medium unknown
 m mob_death mob_death_lizard_bill 100~
 m mob_greet mob_greet_lizard_bill 100~
 m mob_kill mob_kill_lizard_bill 100~
+m mob_look mob_look_lizard_bill 100~
 #21012
 guinea pig~
 a guinea pig~
@@ -328,7 +332,7 @@ stand stand female 0
 0 0 medium unknown
 m mob_greet mob_greet_duchess 100~
 m mob_random mob_random_duchess 1~
-m mob_tell mob_random_duchess ~
+m mob_speech mob_random_duchess ~
 #21019
 pig baby~
 the Duchess' baby~
@@ -381,6 +385,7 @@ EFNU
 stand stand male 0
 0 0 medium unknown
 m mob_greet mob_greet_cheshire_cat 100~
+m mob_kill mob_kill_bamf_self 100~
 m mob_random mob_random_cheshire_cat 1~
 m mob_exit mob_exit_cheshire_cat all~
 m mob_look mob_look_cast_invis 100~
@@ -644,7 +649,9 @@ EFNU
 stand stand male 0
 0 0 medium unknown
 m mob_greet mob_greet_executioner 100~
+m mob_kill mob_kill_bamf 100~
 m mob_exit mob_exit_executioner all~
+m mob_look mob_look_executioner 100~
 m mob_tell mob_tell_executioner ~
 #21039
 mock turtle~
