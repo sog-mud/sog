@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.254 2001-09-17 18:42:21 fjoe Exp $
+ * $Id: act_comm.c,v 1.255 2001-09-30 20:38:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -764,7 +764,7 @@ DO_FUN(do_quit, ch, argument)
 
 	pc = PC(ch);
 	if (pc->pnote) {
-		act_puts("You have an unfinished $t in progress.",
+		act_puts("You have an unfinished $w in progress.",
 			 ch, flag_string(note_types, pc->pnote->type), NULL,
 			 TO_CHAR, POS_DEAD);
 		return;

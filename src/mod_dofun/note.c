@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.25 2001-08-20 16:47:28 fjoe Exp $
+ * $Id: note.c,v 1.26 2001-09-30 20:38:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -304,7 +304,7 @@ note_attach(CHAR_DATA *ch, int type)
 
 	if (pc->pnote) {
 		if (pc->pnote->type != type) {
-			act_puts("You have an unfinished $t in progress.",
+			act_puts("You have an unfinished $w in progress.",
 				 ch,
 				 flag_string(note_types, pc->pnote->type),
 				 NULL, TO_CHAR, POS_DEAD);

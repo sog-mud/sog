@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.202 2001-09-16 18:14:17 fjoe Exp $
+ * $Id: martial_art.c,v 1.203 2001-09-30 20:38:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4066,7 +4066,7 @@ DO_FUN(do_tail, ch, argument)
 		damage(ch, victim, 0, "tail", DAM_BASH, DAMF_SHOW);
 		act("You lost your position and fall down!",
 		    ch, NULL, victim, TO_CHAR);
-		act("$n lost $s position and fall down!",
+		act("$n lost $gn{his} position and fall down!",
 		    ch, NULL, victim, TO_NOTVICT);
 		act("You evade $n's tail, causing $m to fall down.",
 		    ch, NULL, victim, TO_VICT);
