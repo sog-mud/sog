@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.165.2.43 2002-10-31 11:01:48 tatyana Exp $
+ * $Id: act_obj.c,v 1.165.2.44 2002-11-06 13:48:09 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1236,8 +1236,11 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 			affect_join(ch, &af);
 		}
 
-		if (obj->pObjIndex->item_type == ITEM_FISH)
+		if (obj->pObjIndex->item_type == ITEM_FISH) {
 			fish_affect(ch, obj->pObjIndex->vnum);
+			ch->hit = (ch->hit + 10 > ch->max_hit ? ch->max_hit : ch->hit + 10);
+			ch->mana = (ch->mana + 10 > ch->max_mana ? ch->max_mana : ch->mana + 10);
+		}
 
 		if (IS_OBJ_STAT(obj, ITEM_MAGIC)) {
 			char_puts("Magical heat flows through your blood.\n", ch);

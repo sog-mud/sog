@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: gsn.c,v 1.32.2.20 2002-10-31 11:01:58 tatyana Exp $
+ * $Id: gsn.c,v 1.32.2.21 2002-11-06 13:48:13 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -57,6 +57,7 @@ int gsn_poison;
 int gsn_plague;
 int gsn_sleep;
 int gsn_demand;
+int gsn_request;
 int gsn_fly;
 int gsn_fourth_attack;
 int gsn_dual_backstab;
@@ -320,6 +321,7 @@ namedp_t gsn_table[] =
 	{ "gsn_plague",			&gsn_plague			},
 	{ "gsn_sleep",			&gsn_sleep			},
 	{ "gsn_demand",			&gsn_demand			},
+	{ "gsn_request",		&gsn_request			},
 	{ "gsn_fly",			&gsn_fly			},
 	{ "gsn_fourth_attack",		&gsn_fourth_attack		},
 	{ "gsn_dual_backstab",		&gsn_dual_backstab		},

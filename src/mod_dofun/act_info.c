@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.65 2002-10-30 18:07:55 tatyana Exp $
+ * $Id: act_info.c,v 1.271.2.66 2002-11-06 13:48:05 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1838,7 +1838,7 @@ void do_request(CHAR_DATA *ch, const char *argument)
 	AFFECT_DATA af;
 	int carry_w, carry_n;
 
-	if (is_affected(ch, gsn_reserved)) {
+	if (is_affected(ch, gsn_request)) {
 		char_puts("Wait for a while to request again.\n", ch);
 		return;
 	}
@@ -1945,7 +1945,7 @@ void do_request(CHAR_DATA *ch, const char *argument)
 	    TO_CHAR);
 	char_puts("and for the goodness you have seen in the world.\n",ch);
 
-	af.type = gsn_reserved;
+	af.type = gsn_request;
 	af.where = TO_AFFECTS;
 	af.level = ch->level;
 	af.duration = ch->level / 10;

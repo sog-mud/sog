@@ -23,7 +23,7 @@
 * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 * SUCH DAMAGE.
 *
-* $Id: gsn.h,v 1.30.2.19 2002-10-31 11:01:47 tatyana Exp $
+* $Id: gsn.h,v 1.30.2.20 2002-11-06 13:48:04 tatyana Exp $
 */
 
 #ifndef _GSN_H_
@@ -58,6 +58,7 @@ extern int gsn_poison;
 extern int gsn_plague;
 extern int gsn_sleep;
 extern int gsn_demand;
+extern int gsn_request;
 extern int gsn_fly;
 
 extern int gsn_fourth_attack;
