@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.156 2001-08-19 18:18:48 fjoe Exp $
+ * $Id: tables.c,v 1.157 2001-08-20 17:57:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -616,12 +616,12 @@ flaginfo_t apply_flags[] =
 	{ "",			TABLE_INTVAL,		FALSE	},
 
 	{ "none",		APPLY_NONE,		TRUE	},
-	{ "strength",		APPLY_STR,		TRUE	},
-	{ "dexterity",		APPLY_DEX,		TRUE	},
-	{ "intelligence",	APPLY_INT,		TRUE	},
-	{ "wisdom",		APPLY_WIS,		TRUE	},
-	{ "constitution",	APPLY_CON,		TRUE	},
-	{ "charisma",		APPLY_CHA,		TRUE	},
+	{ "str",		APPLY_STR,		TRUE	},
+	{ "dex",		APPLY_DEX,		TRUE	},
+	{ "int",		APPLY_INT,		TRUE	},
+	{ "wis",		APPLY_WIS,		TRUE	},
+	{ "con",		APPLY_CON,		TRUE	},
+	{ "cha",		APPLY_CHA,		TRUE	},
 	{ "sex",		APPLY_SEX,		TRUE	},
 	{ "level",		APPLY_LEVEL,		TRUE	},
 	{ "age",		APPLY_AGE,		TRUE	},
@@ -631,16 +631,16 @@ flaginfo_t apply_flags[] =
 	{ "hp",			APPLY_HIT,		TRUE	},
 	{ "move",		APPLY_MOVE,		TRUE	},
 	{ "gold",		APPLY_GOLD,		TRUE	},
-	{ "experience",		APPLY_EXP,		TRUE	},
+	{ "exp",		APPLY_EXP,		TRUE	},
 	{ "ac",			APPLY_AC,		TRUE	},
 	{ "hitroll",		APPLY_HITROLL,		TRUE	},
 	{ "damroll",		APPLY_DAMROLL,		TRUE	},
 	{ "saves",		APPLY_SAVES,		TRUE	},
-	{ "savingpara",		APPLY_SAVING_PARA,	TRUE	},
-	{ "savingrod",		APPLY_SAVING_ROD,	TRUE	},
-	{ "savingpetri",	APPLY_SAVING_PETRI,	TRUE	},
-	{ "savingbreath",	APPLY_SAVING_BREATH,	TRUE	},
-	{ "savingspell",	APPLY_SAVING_SPELL,	TRUE	},
+	{ "saving_para",	APPLY_SAVING_PARA,	TRUE	},
+	{ "saving_rod",		APPLY_SAVING_ROD,	TRUE	},
+	{ "saving_petri",	APPLY_SAVING_PETRI,	TRUE	},
+	{ "saving_breath",	APPLY_SAVING_BREATH,	TRUE	},
+	{ "saving_spell",	APPLY_SAVING_SPELL,	TRUE	},
 	{ "size",		APPLY_SIZE,		TRUE	},
 	{ "luck",		APPLY_LUCK,		TRUE	},
 
@@ -1374,16 +1374,16 @@ flaginfo_t affect_where_types[] =
 {
 	{ "",			TABLE_INTVAL,			FALSE	},
 
-	{ "to_affects",		TO_AFFECTS,			TRUE	},
-	{ "to_object",		TO_OBJECT,			FALSE	},
-	{ "to_weapon",		TO_WEAPON,			FALSE	},
-	{ "to_skills",		TO_SKILLS,			TRUE	},
-	{ "to_race",		TO_RACE,			FALSE	},
-	{ "to_detects",		TO_DETECTS,			TRUE	},
-	{ "to_invis",		TO_INVIS,			TRUE	},
-	{ "to_form",		TO_FORM,			FALSE	},
-	{ "to_formaffects",	TO_FORMAFFECTS,			FALSE	},
-	{ "to_resist",		TO_RESIST,			TRUE	},
+	{ "affects",		TO_AFFECTS,			TRUE	},
+	{ "object",		TO_OBJECT,			FALSE	},
+	{ "weapon",		TO_WEAPON,			FALSE	},
+	{ "skills",		TO_SKILLS,			TRUE	},
+	{ "race",		TO_RACE,			FALSE	},
+	{ "detects",		TO_DETECTS,			TRUE	},
+	{ "invis",		TO_INVIS,			TRUE	},
+	{ "form",		TO_FORM,			FALSE	},
+	{ "formaffects",	TO_FORMAFFECTS,			FALSE	},
+	{ "resist",		TO_RESIST,			TRUE	},
 
 	{ NULL, 0, FALSE }
 };

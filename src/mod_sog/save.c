@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.190 2001-08-20 17:06:21 fjoe Exp $
+ * $Id: save.c,v 1.191 2001-08-20 17:57:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -351,7 +351,7 @@ fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 			continue;
 
 		fprintf(fp, "Affc ");
-		aff_fwrite(paf, fp);
+		aff_fwrite(paf, fp, TRUE);
 	}
 
 	fprintf(fp, "End\n\n");
@@ -406,7 +406,7 @@ fwrite_pet(CHAR_DATA *pet, FILE *fp, int flags __attribute__((unused)))
 	fprintf(fp, "AC %d %d %d %d\n",
 		pet->armor[0], pet->armor[1], pet->armor[2], pet->armor[3]);
 
-	aff_fwrite_list("Affc", pet->affected, fp);
+	aff_fwrite_list("Affc", NULL, pet->affected, fp);
 	fprintf(fp, "End\n\n");
 }
 
@@ -491,7 +491,7 @@ fwrite_obj(CHAR_DATA *ch, OBJ_DATA *obj, FILE *fp, int iNest)
 		fwrite_objval(obj->item_type, obj->value, fp);
 	}
 
-	aff_fwrite_list("Affc", obj->affected, fp);
+	aff_fwrite_list("Affc", NULL, obj->affected, fp);
 
 	for (ed = obj->ed; ed != NULL; ed = ed->next) {
 		if (IS_NULLSTR(ed->keyword))
@@ -627,7 +627,7 @@ fread_char(CHAR_DATA *ch, rfile_t *fp, int flags)
 				break;
 			}
 			if (IS_TOKEN(fp, "Affc")) {
-				AFFECT_DATA *paf = aff_fread(fp);
+				AFFECT_DATA *paf = aff_fread(fp, TRUE);
 				affect_to_char(ch, paf);
 				aff_free(paf);
 				fMatch = TRUE;
@@ -928,7 +928,7 @@ fread_pet(CHAR_DATA *ch, rfile_t *fp, int flags)
 			}
 
 			if (IS_TOKEN(fp, "Affc")) {
-				AFFECT_DATA *paf = aff_fread(fp);
+				AFFECT_DATA *paf = aff_fread(fp, TRUE);
 				affect_to_char(pet, paf);
 				aff_free(paf);
 				fMatch = TRUE;
@@ -1072,7 +1072,7 @@ fread_obj(CHAR_DATA *ch, CHAR_DATA *obj_to, rfile_t *fp, int flags)
 
 		case 'A':
 			if (IS_TOKEN(fp, "Affc")) {
-				AFFECT_DATA *paf = aff_fread(fp);
+				AFFECT_DATA *paf = aff_fread(fp, TRUE);
 				SLIST_ADD(AFFECT_DATA, obj->affected, paf);
 				fMatch = TRUE;
 				break;

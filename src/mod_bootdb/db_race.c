@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_race.c,v 1.36 2001-08-05 16:36:29 fjoe Exp $
+ * $Id: db_race.c,v 1.37 2001-08-20 17:57:26 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -68,7 +68,7 @@ DBLOAD_FUN(load_race)
 			KEY("Aff", r.aff, fread_fstring(affect_flags, fp));
 			KEY("Act", r.act, fread_fstring(mob_act_flags, fp));
 			if (IS_TOKEN(fp, "Affc")) {
-				AFFECT_DATA *paf = aff_fread(fp);
+				AFFECT_DATA *paf = aff_fread(fp, TRUE);
 				SLIST_ADD(AFFECT_DATA, r.affected, paf);
 				fMatch = TRUE;
 				break;

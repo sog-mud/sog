@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.348 2001-08-14 16:06:46 fjoe Exp $
+ * $Id: merc.h,v 1.349 2001-08-20 17:57:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -140,7 +140,7 @@ enum {
 #include <vo_iter.h>
 
 #define PFILE_VERSION	12
-#define AREA_VERSION	5
+#define AREA_VERSION	6
 
 /*
  * Game parameters.
@@ -2060,10 +2060,12 @@ void		aff_free	(AFFECT_DATA *af);
 AFFECT_DATA *	aff_dup_list	(AFFECT_DATA *af, int level);
 void		aff_free_list	(AFFECT_DATA *af);
 
-AFFECT_DATA *	aff_fread	(rfile_t *fp);
+AFFECT_DATA *	aff_fread	(rfile_t *fp, bool read_type);
+AFFECT_DATA *	aff_fread_v5	(rfile_t *fp);
 
-void		aff_fwrite	(AFFECT_DATA *paf, FILE *fp);
-void		aff_fwrite_list	(const char *pre, AFFECT_DATA *paf, FILE *fp);
+void		aff_fwrite	(AFFECT_DATA *paf, FILE *fp, bool write_type);
+void		aff_fwrite_list	(const char *pre, const char *pre2,
+				 AFFECT_DATA *paf, FILE *fp);
 
 void		saff_init(saff_t *sa);
 void		saff_destroy(saff_t *sa);

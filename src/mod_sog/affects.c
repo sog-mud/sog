@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.62 2001-08-20 16:47:39 fjoe Exp $
+ * $Id: affects.c,v 1.63 2001-08-20 17:57:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -912,21 +912,21 @@ aff_dump_list(AFFECT_DATA *paf, BUFFER *output)
 		where_t *w = where_lookup(paf->where);
 
 		if (cnt == 0) {
-			buf_append(output, "Number Skill       Applies to Modifier Affects Bitvector\n");					// notrans
-			buf_append(output, "------ --------- ------------ -------- ------- --------------------------------\n");		// notrans
+			buf_append(output, "Number Skill     Affects Applies to Modifier Bitvector\n");					// notrans
+			buf_append(output, "------ --------- ------- ---------- -------- ----------------------------------\n");		// notrans
 		}
 		buf_printf(output, BUF_END,
-			   "[%4d] %9.9s %12.12s %8d %7.7s %s"	// notrans
+			   "[%4d] %9.9s %7.7s %10.10s %8d %s"	// notrans
 			   "\n",
 			   cnt,
 			   paf->type,
+			   flag_string(affect_where_types, paf->where),
 			   paf->where == TO_SKILLS ||
 			   paf->where == TO_FORM ||
 			   paf->where == TO_RACE ?
 				STR(paf->location) :
 				(w && w->loc_table) ? SFLAGS(w->loc_table, paf->location) : "none",
 			   paf->modifier,
-			   flag_string(affect_where_types, paf->where),
 			   (w && w->bit_table) ? flag_string(w->bit_table, paf->bitvector) : "none");
 		cnt++;
 	}

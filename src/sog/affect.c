@@ -23,10 +23,12 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: affect.c,v 1.60 2001-08-14 16:07:09 fjoe Exp $
+ * $Id: affect.c,v 1.61 2001-08-20 17:57:29 fjoe Exp $
  */
 
 #include <stdio.h>
+#include <stdlib.h>	/* atoi in w/a in aff_fread */
+#include <string.h>	/* strncmp in w/a in aff_fread */
 
 #include <merc.h>
 #include <rwfile.h>
@@ -46,8 +48,9 @@ aff_new(int where, const char *sn)
 	paf->level = 0;
 	paf->duration = 0;
 	switch (paf->where) {
-	case TO_RACE:
 	case TO_SKILLS:
+	case TO_RACE:
+	case TO_FORM:
 		paf->location.s = str_empty;
 		break;
 	default:
@@ -67,8 +70,9 @@ aff_dup(const AFFECT_DATA *paf)
 	naf->level	= paf->level;
 	naf->duration	= paf->duration;
 	switch (paf->where) {
-	case TO_RACE:
 	case TO_SKILLS:
+	case TO_RACE:
+	case TO_FORM:
 		naf->location.s = str_qdup(paf->location.s);
 		break;
 	default:
@@ -85,8 +89,9 @@ void
 aff_free(AFFECT_DATA *af)
 {
 	switch (af->where) {
-	case TO_RACE:
 	case TO_SKILLS:
+	case TO_RACE:
+	case TO_FORM:
 		free_string(af->location.s);
 		break;
 	}
@@ -165,33 +170,13 @@ where_lookup(flag_t where)
 }
 
 void
-aff_fwrite(AFFECT_DATA *paf, FILE *fp)
-{
-	switch (paf->where) {
-	case TO_SKILLS:
-	case TO_RACE:
-		fprintf(fp, "'%s' %s %d %d %d '%s' %s\n",
-			paf->type,
-			flag_string(affect_where_types, paf->where),
-			paf->level, paf->duration, paf->modifier,
-			STR(paf->location), format_flags(paf->bitvector));
-		break;
-	default:
-		fprintf(fp, "'%s' %s %d %d %d %d %s\n",
-			paf->type,
-			flag_string(affect_where_types, paf->where),
-			paf->level, paf->duration, paf->modifier,
-			INT(paf->location), format_flags(paf->bitvector));
-		break;
-	}
-}
-
-void
-aff_fwrite_list(const char *pre, AFFECT_DATA *paf, FILE *fp)
+aff_fwrite_list(const char *pre, const char *pre2, AFFECT_DATA *paf, FILE *fp)
 {
 	for (; paf != NULL; paf = paf->next) {
+		bool use_pre2;
+
 		/* skip empty affects */
-		if ((paf->where == TO_AFFECTS || paf->where == TO_INVIS || paf->where == TO_DETECTS)
+		if (IS_APPLY_AFFECT(paf)
 		&&  INT(paf->location) == APPLY_NONE
 		&&  !paf->modifier
 		&&  !paf->bitvector
@@ -201,18 +186,108 @@ aff_fwrite_list(const char *pre, AFFECT_DATA *paf, FILE *fp)
 		if (IS_SKILL(paf->type, "doppelganger"))
 			continue;
 
-		fprintf(fp, "%s ", pre);
-		aff_fwrite(paf, fp);
+		use_pre2 = IS_NULLSTR(paf->type) && !IS_NULLSTR(pre2);
+		fprintf(fp, "%s ", use_pre2 ? pre2 : pre);
+		aff_fwrite(paf, fp, !use_pre2);
 	}
 }
 
+void
+aff_fwrite(AFFECT_DATA *paf, FILE *fp, bool write_type)
+{
+	if (write_type)
+		fprintf(fp, "'%s' ", paf->type);
+	fprintf(fp, "%s ", flag_string(affect_where_types, paf->where));
+
+	switch (paf->where) {
+	case TO_SKILLS:
+	case TO_RACE:
+	case TO_FORM:
+		fprintf(fp, "'%s' ", STR(paf->location));
+		break;
+
+	case TO_RESIST:
+	case TO_FORMRESIST:
+		fprintf(fp, "%s ",
+			flag_string(dam_classes, INT(paf->location)));
+		break;
+
+	default:
+		fprintf(fp, "%s ",
+			flag_string(apply_flags, INT(paf->location)));
+		break;
+	}
+
+	fprintf(fp, "%d %s %d %d\n",
+		paf->modifier, format_flags(paf->bitvector),
+		paf->level, paf->duration);
+}
+
 AFFECT_DATA *
-aff_fread(rfile_t *fp)
+aff_fread(rfile_t *fp, bool read_type)
 {
 	AFFECT_DATA *paf = aff_new(TO_AFFECTS, str_empty);
 
-	paf->type = fread_strkey(fp, &skills, "aff_fread");	// notrans
+	if (read_type)
+		paf->type = fread_strkey(fp, &skills, "aff_fread"); // notrans
+
 	paf->where = fread_fword(affect_where_types, fp);
+	if (paf->where < 0)
+		paf->where = TO_AFFECTS;
+
+	switch (paf->where) {
+	case TO_SKILLS:
+		paf->location.s = fread_strkey(
+		    fp, &skills, "aff_fread");			// notrans
+		break;
+	case TO_RACE:
+		paf->location.s = fread_strkey(
+		    fp, &races, "aff_fread");			// notrans
+		break;
+	case TO_FORM:
+		paf->location.s = fread_strkey(
+		    fp, &forms, "aff_fread");
+		break;
+	case TO_RESIST:
+	case TO_FORMRESIST:
+		INT(paf->location) = fread_fword(dam_classes, fp);
+		break;
+	default:
+		INT(paf->location) = fread_fword(apply_flags, fp);
+		break;
+	}
+	paf->modifier = fread_number(fp);
+	paf->bitvector = fread_flags(fp);
+	paf->level = fread_number(fp);
+	paf->duration = fread_number(fp);
+
+	return paf;
+}
+
+AFFECT_DATA *
+aff_fread_v5(rfile_t *fp)
+{
+	const char *name;
+	AFFECT_DATA *paf = aff_new(TO_AFFECTS, str_empty);
+
+	paf->type = fread_strkey(fp, &skills, "aff_fread");	// notrans
+
+	/*
+	 * fixup for areas with 0 < ver <= 5
+	 * this w/a can be removed (replaced with fread_fword)
+	 * when there will be no areas with such version in translation
+	 */
+	fread_word(fp);
+	name = rfile_tok(fp);
+
+	if (is_number(name))
+		paf->where = atoi(name);
+	else {
+		if (!strncmp(name, "to_", 3))
+			name += 3;
+		paf->where = flag_svalue(affect_where_types, name);
+	}
+
 	if (paf->where < 0)
 		paf->where = TO_AFFECTS;
 	paf->level = fread_number(fp);
@@ -227,8 +302,16 @@ aff_fread(rfile_t *fp)
 		paf->location.s = fread_strkey(
 		    fp, &races, "aff_fread");			// notrans
 		break;
+	case TO_FORM:
+		paf->location.s = fread_strkey(
+		    fp, &forms, "aff_fread");
+		break;
+	case TO_RESIST:
+	case TO_FORMRESIST:
+		INT(paf->location) = fread_fword(dam_classes, fp);
+		break;
 	default:
-		INT(paf->location) = fread_number(fp);
+		INT(paf->location) = fread_fword(apply_flags, fp);
 		break;
 	}
 	paf->bitvector = fread_flags(fp);
