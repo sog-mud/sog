@@ -1053,6 +1053,10 @@ The Void~
 You are floating in nothing.
 ~
 0 CDKNX 1
+D4
+~
+~
+0 0 3001
 S
 #2
 Limbo~
@@ -1112,8 +1116,8 @@ O 32 wear_prog wear_prog_quest_weapon	* `the %s Dagger of %s'
 O 32 get_prog get_prog_quest_reward	* `the %s Dagger of %s'
 O 33 wear_prog wear_prog_quest_weapon	* `the %s Mace of %s'
 O 33 get_prog get_prog_quest_reward	* `the %s Mace of %s'
-O 35 wear_prog wear_prog_bracer         * conscience karmael
-O 35 remove_prog remove_prog_bracer     * conscience karmael
+O 35 wear_prog wear_prog_bracer	* `the cloud circle around Karmael named Conscience of Karamel'
+O 35 remove_prog remove_prog_bracer	* `the cloud circle around Karmael named Conscience of Karamel'
 O 51 fight_prog fight_prog_tattoo_apollon	* `lawful good tattoo of atum-ra'
 O 52 fight_prog fight_prog_tattoo_zeus	* `neutral good tattoo of zeus'
 O 53 fight_prog fight_prog_tattoo_siebele	* `true neutral tattoo of siebele'

@@ -3782,6 +3782,139 @@ An up-to-date list of liquid types can be obtained by typing
    value 3    unused
    value 4    unused
 ~
+0 TRANSLATE~
+
+Инструкция по переводу арий.
+ver 1.1
+by Askold
+25.07.98
+
+Внимание: сочетание '&' заменяет тильду.
+          тк муд не позволяет ее показывать.
+
+Если строка, описывающая что-то (long description,short description
+объекта) начинается с символа '@',  то она считается multi-language
+string.
+
+В общем виде формат выглядит так:
+<mtl_string> ::= <string> | <mtl_string> <string>.
+<string>     ::= '@'<lang> 'текст' | '&'.
+<lang>       ::= 'eng' | 'rus'.
+
+
+Переводятся следущие поля:
+-> для мобов: long description, look description, 
+   (третья и четвертая строки в описании)
+   *обязательно в третьей строке делать английскую сноску на имя моба
+   (см. первую строку на предмет ключевых слов)
+
+-> для объектов: object short, object long 
+   (вторая и третья строки)
+   *обязательно в третьей строке делать английскую сноску на имя
+   объекта (см.первую строку на предмет ключевых слов)
+
+-> для комнат: room name, room description, exit description 
+   (первая и вторая строки и то, что идет непосредственно за Dn
+   то, что видно, если делаешь look north/south/.../ etc.)
+   * !!!ВНИМАНИЕ!!!  В названии комнаты НЕ надо делать дублировать
+   англоязычное название, типа 'Рыночная Площадь (Market Square)',
+   муд это сделает автоматически.
+   *обязательно дублировать географические направления выходов
+    (типа. выход на юг(south))
+
+
+Примеры - как должно стать:
+(Обратите снимание, где можно ставить Enter в сроке, а где нет)
+
+#MOBILES
+#3700
+acolyte cleric&
+the acolyte of Zump&
+@eng An acolyte of Zump welcomes you to mud school.
+@rus Служитель (acolyte) Зуки приглашает тебя в МУД школу.
+&
+@eng He's big and bad.  Don't mess with him.
+@rus Он большой и вредный. Не доставляй ему неприятностей!
+Он произносит: танцы-шманцы-обжиманцы-фантики-бантики-лимпопо!
+К чему бы это????
+&
+human&
+<кут до хере>
+
+#OBJECTS
+#3700
+mace sub merc&
+@eng a sub issue mace@rus Картонная дубина&
+@eng You see a sub issue mace here.
+@rus Ты видишь картонную дубину (mace) здесь.
+&
+bronze&
+<кут до хере>
+
+#ROOMS
+#3700
+@eng Entrance to Mud School@rus Вход в МУД школу&
+@eng This is the entrance to the Merc Mud School.  Go north to go through mud
+school.  If you have been here before and want to go directly to the arena,
+go south.
+
+A sign warns 'You may not pass these doors once you have passed level 5.'
+
+P.S. Use '{Rlang rus{x' command, if you want {Rrussian language{x
+P.P.S. Use '{Bcolor{x' to enable {Bfull ANSI color support{x.
+@rus Это вход в МУД школу. Иди на север (north), чтоб пройти курс обучения
+в школе. Если ты там уже был и хочешь попасть на арену, то иди на юг (south).
+На востоке (east) ты видишь вход в музей.
+
+Над дверью ты видишь знак:
+{R'Ты не можешь войти в эти двери, если ты достиг 6 уровня.'{x
+&
+0 CD 0
+D0
+@eng You see the doorway into the Mud School Building.
+@rus Ты видишь проход ведущий в МУД школу.
+&
+&
+0 0 3757
+D1
+@eng You see the entrance to the museum.
+@rus Ты видишь вход в музей.
+&
+&
+0 -1 400
+D2
+@eng You see the one way door into the Arena of Mud School.
+@rus Ты видишь дверь в одну сторону на арену.
+&
+door&
+1 -1 3744
+D5
+@eng You see the Temple of Midgaard.
+@rus Ты видишь храм Мидгарда.
+&
+&
+0 0 3001
+S
+<кут до хере>
+
+
+Примечания:
+- Перевод должен быть логичный и в тему, то есть нельзя использовать
+  технократические слова и обороты.  Главное должен сохранятся смысл
+  переведенного.  Приколы и шутки допустимы, но как уже было сказано
+  не в ущерб смыслу.
+
+- Любые изменения параметров мобов/вещей/комнат ЗАПРЕЩЕНЫ.
+  Виноватые буду жестоко наказаны.  Это относится и к тому,  если Вы
+  найдете ошибку в арии (например,нет выхода куда-нить итп)-сообщите
+  богам об этом, но сами ничего не изменяйте.
+
+- Карты берутся на http://iclub.nsu.ru/cgi-bin/cvsweb/muddy/area
+  Брать надо самую последнюю версию (первую по списку гр.гря)
+
+fin
+
+~
 
 0 $~
 
