@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.111 1999-02-12 18:14:35 fjoe Exp $
+ * $Id: interp.c,v 1.112 1999-02-12 19:05:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -107,10 +107,10 @@ CMD_DATA cmd_table[] =
     { "goto",           do_goto,        POS_DEAD,       L8,  LOG_NORMAL, CMD_KEEP_HIDE },
     { "glist",          do_glist,       POS_DEAD,        0,  LOG_NEVER	},
     { "group",          do_group,       POS_SLEEPING,    0,  LOG_NORMAL, CMD_KEEP_HIDE },
-    { "hit",		do_kill,	POS_FIGHTING,	 0,  LOG_NORMAL, CMD_HIDDEN | CMD_NOORDER },
-    { "inventory",	do_inventory,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE },
+    { "hit",		do_kill,	POS_FIGHTING,	 0,  LOG_NORMAL, CMD_HIDDEN },
+    { "inventory",	do_inventory,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
     { "kill",		do_kill,	POS_FIGHTING,	 0,  LOG_NORMAL	},
-    { "look",		do_look,	POS_RESTING,	 0,  LOG_NORMAL, CMD_KEEP_HIDE },
+    { "look",		do_look,	POS_RESTING,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
     { "order",		do_order,	POS_RESTING,	 0,  LOG_NORMAL	},
     { "practice",       do_practice,	POS_SLEEPING,    0,  LOG_NORMAL, CMD_KEEP_HIDE },
     { "rest",		do_rest,	POS_SLEEPING,	 0,  LOG_NORMAL, CMD_KEEP_HIDE },
@@ -130,7 +130,7 @@ CMD_DATA cmd_table[] =
     /*
      * Informational commands.
      */
-    { "affects",	do_affects,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE },
+    { "affects",	do_affects,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
     { "afk",		do_afk,		POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE },
     { "areas",		do_areas,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE },
     { "balance",	do_balance,	POS_STANDING,	 0,  LOG_NORMAL	},
@@ -203,14 +203,15 @@ CMD_DATA cmd_table[] =
     { "warcry",         do_warcry,      POS_FIGHTING,    0,  LOG_NORMAL	},
     { "unread",		do_unread,	POS_SLEEPING,    0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
     { "yell",		do_yell,	POS_RESTING,	 0,  LOG_NORMAL, CMD_CHARMED_OK },
+
     { "wanted",		do_wanted,	POS_RESTING,	 0,  LOG_ALWAYS, CMD_NOORDER},
-    { "judge",		do_judge,	POS_RESTING,	 0,  LOG_NORMAL, CMD_NOORDER|CMD_CHARMED_OK},
+    { "judge",		do_judge,	POS_RESTING,	 0,  LOG_NORMAL, CMD_NOORDER | CMD_CHARMED_OK},
 
     /*
      * Configuration commands.
      */
     { "alia",		do_alia,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
-    { "alias",		do_alias,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "alias",		do_alias,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK | CMD_NOORDER },
     { "clear",		do_clear,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
     { "cls",		do_clear,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
     { "autolist",	do_autolist,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
@@ -223,7 +224,7 @@ CMD_DATA cmd_table[] =
     { "autosplit",	do_autosplit,	POS_DEAD,        0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
     { "description",	do_description,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
     { "delet",		do_delet,	POS_DEAD,	 0,  LOG_ALWAYS, CMD_KEEP_HIDE | CMD_CHARMED_OK | CMD_FROZEN_OK },
-    { "delete",		do_delete,	POS_STANDING,	 0,  LOG_ALWAYS, CMD_KEEP_HIDE | CMD_CHARMED_OK | CMD_NOORDER | CMD_FROZEN_OK },
+    { "delete",		do_delete,	POS_STANDING,	 0,  LOG_ALWAYS, CMD_KEEP_HIDE | CMD_CHARMED_OK | CMD_FROZEN_OK },
     { "identify",	do_identify,	POS_STANDING,	 0,  LOG_NORMAL	},
     { "nofollow",	do_nofollow,	POS_DEAD,        0,  LOG_NORMAL, CMD_KEEP_HIDE },
     { "nosummon",	do_nosummon,	POS_DEAD,        0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_NOORDER },
@@ -276,9 +277,6 @@ CMD_DATA cmd_table[] =
     { "where",		do_where,	POS_RESTING,	 0,  LOG_NORMAL, CMD_KEEP_HIDE },
     { "item",		do_item,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE|CMD_CHARMED_OK },
 
-    { "judge",		do_judge,	POS_RESTING,	0, LOG_NORMAL },
-    { "wanted",		do_wanted,	POS_STANDING,	0, LOG_ALWAYS, CMD_NOORDER },
-
     /*
      * Object manipulation commands.
      */
@@ -323,25 +321,25 @@ CMD_DATA cmd_table[] =
     /*
      * Combat commands.
      */
-    { "ambush",         do_ambush,      POS_STANDING,    0,  LOG_NORMAL, CMD_NOORDER	},
-    { "assassinate",    do_assassinate, POS_STANDING,    0,  LOG_NORMAL, CMD_NOORDER	},
+    { "ambush",         do_ambush,      POS_STANDING,    0,  LOG_NORMAL },
+    { "assassinate",    do_assassinate, POS_STANDING,    0,  LOG_NORMAL },
     { "backstab",	do_backstab,	POS_STANDING,	 0,  LOG_NORMAL	},
-    { "bash",		do_bash,	POS_FIGHTING,    0,  LOG_NORMAL, CMD_NOORDER	},
+    { "bash",		do_bash,	POS_FIGHTING,    0,  LOG_NORMAL },
     { "bashdoor",	do_bash_door,	POS_FIGHTING,    0,  LOG_NORMAL	},
     { "bs",		do_backstab,	POS_STANDING,	 0,  LOG_NORMAL, CMD_HIDDEN },
     { "bite",		do_vbite,	POS_STANDING,	 0,  LOG_NORMAL, CMD_HIDDEN },
     { "blindness",	do_blindness_dust,POS_FIGHTING,	 0,  LOG_ALWAYS	},
-    { "touch",		do_vtouch,	POS_STANDING,	 0,  LOG_NORMAL, CMD_HIDDEN | CMD_NOORDER	},
+    { "touch",		do_vtouch,	POS_STANDING,	 0,  LOG_NORMAL, CMD_HIDDEN },
     { "berserk",	do_berserk,	POS_FIGHTING,	 0,  LOG_NORMAL	},
     { "bloodthirst",	do_bloodthirst,	POS_FIGHTING,	 0,  LOG_NORMAL	},
-    { "blackjack",	do_blackjack,	POS_STANDING,	 0,  LOG_NORMAL, CMD_NOORDER	},
+    { "blackjack",	do_blackjack,	POS_STANDING,	 0,  LOG_NORMAL },
     { "caltrops",       do_caltrops,    POS_FIGHTING,    0,  LOG_NORMAL	},
     { "explode",	do_explode, 	POS_FIGHTING,    0,  LOG_NORMAL	},
     { "camouflage",     do_camouflage,  POS_STANDING,    0,  LOG_NORMAL	},
     { "circle",         do_circle,      POS_FIGHTING,    0,  LOG_NORMAL	},
-    { "cleave",         do_cleave,      POS_STANDING,    0,  LOG_NORMAL, CMD_NOORDER	},
+    { "cleave",         do_cleave,      POS_STANDING,    0,  LOG_NORMAL },
 
-    { "dirt",		do_dirt,	POS_FIGHTING,	 0,  LOG_NORMAL, CMD_NOORDER	},
+    { "dirt",		do_dirt,	POS_FIGHTING,	 0,  LOG_NORMAL },
     { "disarm",		do_disarm,	POS_FIGHTING,	 0,  LOG_NORMAL	},
     { "dishonor",	do_dishonor,	POS_FIGHTING,	 0,  LOG_NORMAL	},
     { "dismount",       do_dismount,    POS_STANDING,    0,  LOG_NORMAL	},
@@ -353,7 +351,7 @@ CMD_DATA cmd_table[] =
     { "make",           do_make,        POS_STANDING,    0,  LOG_NORMAL	},
     { "mount",          do_mount,       POS_STANDING,    0,  LOG_NORMAL	},
     { "murde",		do_murde,	POS_FIGHTING,	 0,  LOG_NORMAL, CMD_HIDDEN },
-    { "murder",		do_murder,	POS_FIGHTING,	 0,  LOG_ALWAYS, CMD_NOORDER	},
+    { "murder",		do_murder,	POS_FIGHTING,	 0,  LOG_ALWAYS },
     { "nerve",          do_nerve,       POS_FIGHTING,    0,  LOG_NORMAL	},
     { "poison",		do_poison_smoke,POS_FIGHTING,	 0,  LOG_ALWAYS	},
     { "rescue",		do_rescue,	POS_FIGHTING,	 0,  LOG_NORMAL	},
@@ -362,12 +360,12 @@ CMD_DATA cmd_table[] =
     { "thumbling",	do_thumbling,	POS_FIGHTING,	 0,  LOG_NORMAL, CMD_KEEP_HIDE },
     { "shield",		do_shield,	POS_FIGHTING,	 0,  LOG_NORMAL	},
     { "spellbane",      do_spellbane,   POS_FIGHTING,    0,  LOG_NORMAL	},
-    { "strangle",       do_strangle,    POS_STANDING,    0,  LOG_NORMAL, CMD_NOORDER	},
+    { "strangle",       do_strangle,    POS_STANDING,    0,  LOG_NORMAL },
     { "surrender",	do_surrender,	POS_FIGHTING,    0,  LOG_NORMAL	},
     { "tame",           do_tame,        POS_FIGHTING,    0,  LOG_NORMAL	},
     { "throw",          do_throw,       POS_FIGHTING,    0,  LOG_NORMAL	},
     { "tiger",		do_tiger,	POS_FIGHTING,	 0,  LOG_NORMAL	},
-    { "trip",		do_trip,	POS_FIGHTING,    0,  LOG_NORMAL, CMD_NOORDER	},
+    { "trip",		do_trip,	POS_FIGHTING,    0,  LOG_NORMAL },
     { "target",		do_target,	POS_FIGHTING,    0,  LOG_NORMAL	},
     { "vampire",	do_vampire,	POS_FIGHTING,    0,  LOG_NORMAL	},
     { "vanish",		do_vanish,	POS_FIGHTING,    0,  LOG_NORMAL	},

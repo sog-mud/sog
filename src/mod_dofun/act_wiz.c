@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.115 1999-02-12 18:14:34 fjoe Exp $
+ * $Id: act_wiz.c,v 1.116 1999-02-12 19:05:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4263,7 +4263,7 @@ void reboot_muddy(void)
 	log("Rebooting ANATOLIA.");
 	for (d = descriptor_list; d != NULL; d = d_next) {
 		d_next = d->next;
-		write_to_buffer(d,"Muddy is going down for rebooting NOW!",0);
+		write_to_buffer(d,"Muddy is going down for rebooting NOW!\n\r",0);
 		if (d->character)
 			save_char_obj(d->character, TRUE);
 		close_descriptor(d);
