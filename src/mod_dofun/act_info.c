@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.15 2000-04-20 03:38:07 avn Exp $
+ * $Id: act_info.c,v 1.271.2.16 2000-04-20 08:01:03 osya Exp $
  */
 
 /***************************************************************************
@@ -4085,6 +4085,9 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	const char *msg = str_empty;
 	const void *arg = NULL;
 	const void *arg3 = NULL;
+	race_t *r;
+        if ((r = race_lookup(victim->race)) == NULL)
+		r = race_lookup(rn_lookup("unique"));
 
 	if (is_affected(victim, gsn_doppelganger)
 	&&  (IS_NPC(ch) || !IS_SET(PC(ch)->plr_flags, PLR_HOLYLIGHT)))
@@ -4115,9 +4118,7 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 			char_puts("({cTranslucent{x) ", ch);
 		if (IS_AFFECTED(victim, AFF_FAERIE_FIRE)) 
 			char_puts("({MPink Aura{x) ", ch);
-		if (IS_NPC(victim)
-		&&  IS_SET(victim->pMobIndex->act, ACT_UNDEAD)
-		&&  IS_AFFECTED(ch, AFF_DETECT_UNDEAD))
+		if (IS_UNDEAD(victim, r) && IS_AFFECTED(ch, AFF_DETECT_UNDEAD))
 			char_puts("({DUndead{x) ", ch);
 		if (RIDDEN(victim))
 			char_puts("({GRidden{x) ", ch);
@@ -4137,9 +4138,11 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 			char_puts("({gCamf{x) ", ch);
 		if (IS_AFFECTED(victim, AFF_BLEND))
 			char_puts("({gBlending{x) ", ch);
+		if (IS_SET(ch->comm, COMM_SHOW_RACE))
+			act_puts("({c$T{x) ", ch, NULL, race_name(victim->race), TO_CHAR | ACT_NOLF, POS_DEAD);
 	}
 	else {
-		static char FLAGS[] = "{x[{y.{D.{m.{c.{M.{D.{G.{b.{R.{Y.{W.{y.{g.{g.{x] ";
+		static char FLAGS[] = "{x[{y.{D.{m.{c.{M.{D.{G.{b.{R.{Y.{W.{y.{g.{g.{x";
 		bool flags = FALSE;
 
 		FLAG_SET( 5, 'I', IS_AFFECTED(victim, AFF_INVIS));
@@ -4147,8 +4150,7 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		FLAG_SET(11, 'C', IS_AFFECTED(victim, AFF_CHARM));
 		FLAG_SET(14, 'T', IS_AFFECTED(victim, AFF_PASS_DOOR));
 		FLAG_SET(17, 'P', IS_AFFECTED(victim, AFF_FAERIE_FIRE));
-		FLAG_SET(20, 'U', IS_NPC(victim) &&
-				  IS_SET(victim->pMobIndex->act, ACT_UNDEAD) &&
+		FLAG_SET(20, 'U', IS_UNDEAD(victim, r) &&
 				  IS_AFFECTED(ch, AFF_DETECT_UNDEAD));
 		FLAG_SET(23, 'R', RIDDEN(victim));
 		FLAG_SET(26, 'I', IS_AFFECTED(victim, AFF_IMP_INVIS));
@@ -4168,8 +4170,13 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		FLAG_SET(41, 'C', IS_AFFECTED(victim, AFF_CAMOUFLAGE));
 		FLAG_SET(44, 'B', IS_AFFECTED(victim, AFF_BLEND));
 
-		if (flags)
+		if (flags && IS_SET(ch->comm, COMM_SHOW_RACE)) {
 			char_puts(FLAGS, ch);
+	                act_puts("{c$T{x] ", ch, NULL, race_name(victim->race), TO_CHAR | ACT_NOLF, POS_DEAD);
+		} else if (flags) {
+			char_puts(FLAGS, ch);
+			char_puts("] ", ch);
+		}
 	}
 
 	if (victim->invis_level >= LEVEL_HERO)
@@ -4177,7 +4184,6 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	if (victim->incog_level >= LEVEL_HERO)
 		char_puts("[{DIncog{x] ", ch);
 
-		act_puts("($T) ", ch, NULL, race_name(victim->race), TO_CHAR | ACT_NOLF, POS_DEAD);
 
 	if (IS_NPC(victim)
 	&&  victim->position == victim->pMobIndex->start_pos) {

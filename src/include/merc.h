@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.234.2.9 2000-04-17 13:56:12 fjoe Exp $
+ * $Id: merc.h,v 1.234.2.10 2000-04-20 08:01:00 osya Exp $
  */
 
 /***************************************************************************
@@ -1246,6 +1246,7 @@ enum {
 #define COMM_NOBUST		(ee)
 #define COMM_NOFLEE		(ff)
 #define COMM_NONOTE		(gg)
+#define COMM_SHOW_RACE		(hh)
 
 /* IAC replacement if COMM_NOIAC is set */
 /* COMM_NOIAC is useful to map 'Ñ' (IAC) to 'ñ' when using win1251 codepage */

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.187.2.9 2000-04-16 02:29:47 avn Exp $
+ * $Id: act_comm.c,v 1.187.2.10 2000-04-20 08:01:03 osya Exp $
  */
 
 /***************************************************************************
@@ -2028,13 +2028,13 @@ toggle_t toggle_table[] =
 	{ "notelnet",		"no telnet parser",
 	  comm_flags,	COMM_NOTELNET,
 	  "Telnet parser is OFF.",
-	  "Telnet parser is ON.",
+	  "Telnet parser is ON."
 	},
 
 	{ "noiac",		"no IACs in output",
 	  comm_flags,	COMM_NOIAC,
 	  "IACs will not be sent to you anymore.",
-	  "Text will be sent to you unmodified.",
+	  "Text will be sent to you unmodified."
 	},
 
 	{ "noverbose",		"no verbose messages",
@@ -2052,13 +2052,19 @@ toggle_t toggle_table[] =
 	{ "telnet GA",		"send IAC GA (goahead) after each prompt",
 	  comm_flags,	COMM_TELNET_GA,
 	  "IAC GA will be sent after each prompt.",
-	  "IAC GA will not be sent after prompts.",
+	  "IAC GA will not be sent after prompts."
 	},
 
 	{ "quiet edit",		"quiet mode in string editor",
 	  comm_flags,	COMM_QUIET_EDITOR,
 	  "$t set.",
 	  "$t removed."
+	},
+
+	{ "race",		"show mobiles and chars race in long desc",
+	  comm_flags,	COMM_SHOW_RACE,
+	  "You will now see race in long desc.",
+	  "You will no longer see race in long desc."
 	},
 
 	{ NULL }
