@@ -23,7 +23,7 @@
 * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 * SUCH DAMAGE.
 *
-* $Id: gsn.h,v 1.29 1999-09-28 14:56:33 osya Exp $
+* $Id: gsn.h,v 1.30 1999-09-29 21:19:50 osya Exp $
 */
 
 #ifndef _GSN_H_
@@ -211,6 +211,8 @@ extern int gsn_mastering_spell;
 extern int gsn_lich;
 extern int gsn_bone_dragon;
 extern int gsn_deathen;
+extern int gsn_death_ripple;
+extern int gsn_death_wave;
 
 /* new_gsns */
 
