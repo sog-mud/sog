@@ -1,5 +1,5 @@
 #
-# $Id: Makefile.inc,v 1.8 2000-06-05 12:06:14 fjoe Exp $
+# $Id: Makefile.inc,v 1.9 2000-06-06 08:39:53 fjoe Exp $
 #
 
 #
@@ -29,12 +29,25 @@ MOD_LDFLAGS=	-shared
 # SoG root
 INSTDIR=	../..
 
+#
+# do not add deps on system includes
+MKDEP_CPP_OPTS=	-MM
+MKDEPCMD=	MKDEP_CPP_OPTS=${MKDEP_CPP_OPTS} mkdep
+
 .if defined(MODULE)
 PROG=		${MODULE}.so.${ABI_VERSION}
 MODULE_ID!=	echo MOD_${MODULE} | tr '[a-z]' '[A-Z]'
 CFLAGS+=	${MOD_CFLAGS} -DMODULE=${MODULE_ID}
 LDFLAGS+=	${MOD_LDFLAGS}
+
 BINDIR=		${INSTDIR}/modules
+
+.if !make(depend)
+.if exists(_depend.c)
+SRCS+=		_depend.c
+.endif
+.endif
+
 .else
 BINDIR=		${INSTDIR}/bin
 .endif

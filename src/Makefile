@@ -1,10 +1,10 @@
 #
-# $Id: Makefile,v 1.72 2000-06-05 12:20:12 fjoe Exp $
+# $Id: Makefile,v 1.73 2000-06-06 08:39:53 fjoe Exp $
 #
 
 # sog should be the first!
 SUBDIR=		sog\
-		mod_core mod_cc_expr mod_dofun mod_events mod_effects\
+		mod_core mod_cc_fun mod_dofun mod_events mod_effects\
 		mod_fight mod_magic mod_olc mod_quest mod_update
 
 HFILES=		abi_version.h module_decl.h
@@ -15,7 +15,8 @@ cleandepend: _SUBDIRUSE
 	rm -f ${HFILES} module_decl.c
 
 abi_version.h: Makefile.inc
-	echo "#define" `grep ^ABI_VERSION Makefile.inc | sed s/=//` > abi_version.h
+	@echo Creating abi_version.h
+	@echo "#define" `grep ^ABI_VERSION Makefile.inc | sed s/=//` > abi_version.h
 
 module_decl.h: Makefile makedecl.pl
 	@${.CURDIR}/makedecl.pl ${SUBDIR}
@@ -27,7 +28,7 @@ SUBDIR+=	make-module-depend
 DEPENDS!=	echo ${SUBDIR} | sed 's^ ^/.depend ^g'
 
 module-depend: ${DEPENDS}
-	@echo ${DEPENDS}
+	@${.CURDIR}/makedep.pl ${SUBDIR}
 
 ctags:
 	ctags -dtw include/*.h sog/*.[ch] sog/*/*.[ch] mod_*/*.[ch]

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cc_expr.c,v 1.8 2000-04-16 09:21:53 fjoe Exp $
+ * $Id: cc_expr.c,v 1.9 2000-06-06 08:39:56 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -199,7 +199,7 @@ cc_vexpr_check(varr *v, const char *ecn, ...)
 	va_list ap;
 
 	if (ecl == NULL) {
-		log(LOG_INFO, "cc_exprset_ok: %s: unknown cc_expr class", ecn);
+		log(LOG_INFO, "cc_vexpr_check: %s: unknown cc_expr class", ecn);
 		return NULL;
 	}
 

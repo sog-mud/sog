@@ -3,15 +3,7 @@ use strict;
 require "makeutil.pl";
 
 my $module_decl = "module_decl";
-my @modules;		# siz^H^H^Horder does matter
-
-my $i = 0;
-for $_ (@ARGV) {
-	next if (/sog/);
-	next if (/make-module-depend/);
-
-	$modules[$i++] = mod_name($_);
-}
+my @modules = get_modules(@ARGV);	# siz^H^H^Horder does matter
 
 my $module_decl_h = $module_decl . ".h";
 my $h_id = "_" . uc($module_decl_h) . "_";
@@ -40,9 +32,9 @@ flaginfo_t module_names[] =
 
 __END__
 
-$i = 0;
+my $i = 0;
 for $_ (@modules) {
-	my $mod_id = "MOD_" . uc($modules[$i]);
+	my $mod_id = "MOD_" . uc($_->{module});
 	my $mod_num = $i + 1;
 
 	print HOUT << "__END__";
@@ -50,7 +42,7 @@ for $_ (@modules) {
 __END__
 
 	print COUT << "__END__";
-	{ "$modules[$i]",		$mod_id,		FALSE	},
+	{ "$_->{module}",		$mod_id,		FALSE	},
 __END__
 	$i++;
 }
