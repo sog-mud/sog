@@ -1,5 +1,5 @@
 /*
- * $Id: auction.c,v 1.40 1999-06-21 16:31:54 fjoe Exp $
+ * $Id: auction.c,v 1.41 1999-06-22 04:22:48 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -301,7 +301,7 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 			} else {
 				act_puts("Starting price for this item is "
 					 "$j gold.", ch,
-					 (const void*) auction.bet, NULL,
+					 (const void*) auction.starting, NULL,
 					 TO_CHAR, POS_DEAD);
 				act_puts("No bets on this item have been "
 					 "received", ch, NULL, NULL,
