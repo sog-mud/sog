@@ -17,6 +17,7 @@ StatMod 0 0 0 3 0 5
 Skill 'detect hide' 10 1 0
 Skill 'dagger' 1 1 20
 Skill 'mace' 1 1 0
+Skill 'staff' 1 1 0
 Skill 'shield block' 7 1 -15
 Skill 'spear' 1 1 0
 Skill 'sword' 1 1 0
