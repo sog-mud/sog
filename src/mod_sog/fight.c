@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.253 2000-01-17 09:31:41 fjoe Exp $
+ * $Id: fight.c,v 1.254 2000-01-17 11:17:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2611,7 +2611,7 @@ int xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels, int members)
 	} else if (pos_cha) {
 		if ((PC(gch)->has_killed % 200) == 199) {
 			char_printf(gch, "You have killed %d %s up to now.\n",
-				    pc->anti_killed,
+				    pc->has_killed,
 				    IS_GOOD(gch) ?	"anti-goods" :
 				    IS_EVIL(gch) ?	"anti-evils" :
 							"anti-neutrals");
