@@ -217,9 +217,6 @@ Get back to questor before your time runs out!
 @rus Ты не можешь это взять.
 ~
 @eng You rest in $p.@rus Ты садишься отдыхать в $p.~
-@eng  ]
-@rus  ]
-~
 @eng You do not have that item.
 @rus У тебя этого нет.
 ~
@@ -351,11 +348,7 @@ Get back to questor before your time runs out!
 @rus У тебя нет этого свитка.
 ~
 @eng You rest on $p.@rus Ты садишься отдыхать на $p.~
-~
 @eng $n slams into $d, and tries to break it!@rus $n с разбегу ударяется в $d!~
-@eng Bashing? What's that?
-@rus Bash? А это чего?
-~
 @eng $n asks $N for list of quest items.@rus $n просит у $N список квестовых вещей.~
 @eng $n wakes up and rests at $p.@rus $n просыпается и садится отдыхать около $p.~
 @eng evils@rus evils~
