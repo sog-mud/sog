@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.26 2000-01-06 10:18:37 kostik Exp $
+ * $Id: affects.c,v 1.27 2000-01-11 08:28:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1069,7 +1069,7 @@ aff_dump_list(AFFECT_DATA *paf, BUFFER *output)
 
 		if (cnt == 0) {
 			buf_add(output, "Number Skill          Affects Modifier Affects Bitvector\n");
-			buf_add(output, "------ --------- ------------ -------- ------- -----------------------------------------\n");
+			buf_add(output, "------ --------- ------------ -------- ------- --------------------------------\n");
 		}
 		buf_printf(output, "[%4d] %9.9s %12.12s %8d %7.7s %s"
 				   "\n",
