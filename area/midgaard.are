@@ -219,6 +219,7 @@ r mental 100
 r charm 100
 r weapon 33
 r magic 33
+m mob_greet mob_greet_questor 10~
 #3012
 healer лекарь~
 @eng the healer@rus ~~лекарь~~~
@@ -572,6 +573,7 @@ stand stand either 10
 0 0 medium unknown
 V 37000
 r magic -50
+m mob_random mob_random_janitor 1~
 #3062
 fido dog собака зверюга~
 @eng the beastly fido@rus ~~противная~~ ~~зверюга~~~
@@ -602,6 +604,7 @@ BJNQ
 stand stand male 18
 0 0 medium unknown
 r magic -50
+m mob_death mob_death_vagabond 100~
 #3064
 drunk пьяница~
 @eng the drunk@rus пьяница~
