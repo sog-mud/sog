@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.27 2000-01-04 19:27:57 fjoe Exp $
+# $Id: Makefile,v 1.28 2000-03-09 09:37:03 fjoe Exp $
 #
 
 MODULE_NAME = sog
@@ -34,3 +34,4 @@ cc_parse.o: cc_parse.y cc_lex.h ../include/typedef.h ../include/str.h\
 cc_lex.o: cc_lex.l cc_lex.h ../include/typedef.h ../include/str.h\
 	  ../include/varr.h ../include/cc_expr.h
 
+.PATH: ${.CURDIR} ${.CURDIR}/../compat
