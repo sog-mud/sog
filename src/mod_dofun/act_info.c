@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.53 2002-02-07 15:40:41 tatyana Exp $
+ * $Id: act_info.c,v 1.271.2.54 2002-07-14 18:33:27 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1737,6 +1737,7 @@ void do_scan(CHAR_DATA *ch, const char *argument)
 	EXIT_DATA *exit;	/* pExit */
 	int door;
 	int range;
+	int wait = 6;
 	int i;
 	CHAR_DATA *person;
 	int numpeople;
@@ -1779,9 +1780,11 @@ void do_scan(CHAR_DATA *ch, const char *argument)
 		door = 5;
 		break;
 	case '\0':
-		if (IS_IMMORTAL(ch))
+		if (IS_IMMORTAL(ch) || LEVEL(ch) <= 35) {
 			scan_all(ch);
-		else
+			if (!IS_IMMORTAL(ch))
+				WAIT_STATE(ch, wait);
+		} else
 			act("Scan which direction?", ch, NULL, NULL, TO_CHAR);
 		return;
 	default:

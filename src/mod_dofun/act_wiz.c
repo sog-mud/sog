@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.186.2.30 2002-01-15 20:34:07 fjoe Exp $
+ * $Id: act_wiz.c,v 1.186.2.31 2002-07-14 18:33:30 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1375,7 +1375,7 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 
 	if ((victim = get_char_world(ch, argument)) == NULL) {
 		if ((victim = char_load(argument, LOAD_F_NOCREATE)) == NULL) {
-			char_puts("They aren't here.\n", ch);
+			char_puts("No such player.\n", ch);
 			return;
 		}
 		loaded = TRUE;
