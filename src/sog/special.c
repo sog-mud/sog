@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.54 1999-09-11 12:50:02 fjoe Exp $
+ * $Id: special.c,v 1.54.2.1 2000-03-21 07:28:42 osya Exp $
  */
 
 /***************************************************************************
@@ -983,7 +983,7 @@ bool spec_guard(CHAR_DATA *ch)
 			}
 		}
 
-		if (IS_WANTED(victim))
+		if (IS_WANTED(victim) && can_see(ch, victim))
 			break;
 	
 		if (victim->fighting != NULL
@@ -1027,7 +1027,7 @@ bool spec_special_guard(CHAR_DATA *ch)
 	for (victim = ch->in_room->people; victim != NULL; victim = v_next) {
 		v_next = victim->next_in_room;
 		
-		if (IS_WANTED(victim))
+		if (IS_WANTED(victim) && can_see(ch, victim))
 			break;
 	}
 
