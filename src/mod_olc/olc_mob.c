@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.43.2.3 2000-04-18 08:52:32 fjoe Exp $
+ * $Id: olc_mob.c,v 1.43.2.4 2001-12-25 19:20:30 tatyana Exp $
  */
 
 #include "olc.h"
@@ -907,6 +907,9 @@ OLC_FUN(mobed_race)
 		ro = race_lookup(pMob->race);
 		pMob->race = race;
 		r = RACE(race);
+
+		pMob->dam_type = r->dam_type;
+
 		if (ro == NULL) {
 			pMob->act	  = r->act;
 			pMob->affected_by = r->aff;

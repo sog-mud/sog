@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.181.2.27 2001-12-10 19:28:17 tatyana Exp $
+ * $Id: spellfun.c,v 1.181.2.28 2001-12-25 19:20:25 tatyana Exp $
  */
 
 /***************************************************************************
@@ -2331,6 +2331,19 @@ void spell_fly(int sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
+	race_t *r;
+
+	if ((r = race_lookup(victim->race)) != NULL
+	&&  IS_SET(r->aff, AFF_FLYING)) {
+		if (victim == ch) {
+			char_puts("You have race ability to fly. "
+				  "Try `fly up'.\n", ch);
+		} else {
+			act("$N has race ability to fly and doesn't need "
+			    "your help.", ch, NULL, victim, TO_CHAR);
+		}
+		return;
+	}
 
 	if (IS_AFFECTED(victim, AFF_FLYING)
 	||  is_affected(victim, sn)) {

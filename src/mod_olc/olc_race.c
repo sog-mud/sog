@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.8.2.4 2001-12-12 19:18:02 fjoe Exp $
+ * $Id: olc_race.c,v 1.8.2.5 2001-12-25 19:20:31 tatyana Exp $
  */
 
 #include "olc.h"
@@ -48,6 +48,7 @@ DECLARE_OLC_FUN(raceed_vuln		);
 DECLARE_OLC_FUN(raceed_form		);
 DECLARE_OLC_FUN(raceed_parts		);
 DECLARE_OLC_FUN(raceed_flags		);
+DECLARE_OLC_FUN(raceed_damtype		);
 
 DECLARE_OLC_FUN(raceed_addpcdata	);
 DECLARE_OLC_FUN(raceed_delpcdata	);
@@ -97,6 +98,7 @@ olc_cmd_t olc_cmds_race[] =
        	{ "form",	raceed_form,		form_flags		},
 	{ "parts",	raceed_parts,		part_flags		},
 	{ "flags",	raceed_flags,		race_flags		},
+	{ "damtype",	raceed_damtype,					},
 
 	{ "addpcdata",	raceed_addpcdata,	validate_whoname	},
 	{ "delpcdata",	raceed_delpcdata				},
@@ -277,7 +279,9 @@ OLC_FUN(raceed_show)
 	if (race->race_flags)
 		buf_printf(output, "General flags: [%s]\n",
 			   flag_string(race_flags, race->race_flags));
-	if (!race->race_pcdata) {               
+	buf_printf(output, "Damage type:   [%s]\n",
+		   attack_table[race->dam_type].name);
+	if (!race->race_pcdata) {
 		buf_add(output, "=== No PC race defined ===\n");
 		page_to_char(buf_string(output), ch);
 		buf_free(output);
@@ -452,6 +456,43 @@ OLC_FUN(raceed_flags)
 	race_t *race;
 	EDIT_RACE(ch, race);
 	return olced_flag32(ch, argument, cmd, &race->race_flags);
+}
+
+OLC_FUN(raceed_damtype)
+{
+	char arg[MAX_INPUT_LENGTH];
+	int dt;
+	race_t *race;
+	EDIT_RACE(ch, race);
+
+	one_argument(argument, arg, sizeof(arg));
+	if (arg[0] == '\0') {
+		char_puts("Syntax: damtype <damage type>\n", ch);
+		char_puts("Syntax: damtype ?\n", ch);
+		return FALSE;
+	}
+
+	if (!str_cmp(arg, "?")) {
+		BUFFER *output = buf_new(-1);
+		show_attack_types(output);
+		page_to_char(buf_string(output), ch);
+		buf_free(output);
+		return FALSE;
+	}
+
+	if ((dt = attack_lookup(arg)) < 0) {
+		BUFFER *output = buf_new(-1);
+		char_printf(ch, "RaceEd: %s: unknown damtype.\n", arg);
+		char_printf(ch, "RaceEd: valid damage types:\n", arg);
+		show_attack_types(output);
+		page_to_char(buf_string(output), ch);
+		buf_free(output);
+		return FALSE;
+	}
+
+	race->dam_type = dt;
+	char_printf(ch, "RaceEd: %s: damage type set.\n", arg);
+	return TRUE;
 }
 
 OLC_FUN(raceed_addpcdata)
@@ -850,6 +891,10 @@ static void save_race(CHAR_DATA *ch, race_t *race)
 	fprintf(fp, "Name %s~\n", race->name);
 
 	REMOVE_BIT(race->race_flags, RACE_CHANGED);
+	if (race->dam_type != attack_lookup("punch")) {
+		fprintf(fp, "Damtype %s\n",
+			attack_table[race->dam_type].name);
+	}
 	if (race->act)
 		fprintf(fp, "Act %s~\n",
 			flag_string(act_flags, race->act));
@@ -877,6 +922,7 @@ static void save_race(CHAR_DATA *ch, race_t *race)
 	if (race->race_flags)
 		fprintf(fp, "Flags %s~\n",
 			flag_string(race_flags, race->race_flags));
+
 	fprintf(fp, "End\n\n");
 
 	if (!race->race_pcdata) {

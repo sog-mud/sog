@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.52 2001-12-22 08:34:19 fjoe Exp $
+ * $Id: fight.c,v 1.202.2.53 2001-12-25 19:20:32 tatyana Exp $
  */
 
 /***************************************************************************
@@ -206,7 +206,8 @@ void check_assist(CHAR_DATA *ch, CHAR_DATA *victim)
 		 */
 		if (IS_NPC(rch) && !IS_NPC(ch)
 		&&  IS_SET(rch->pMobIndex->off_flags, ASSIST_PLAYERS)
-		&&  rch->level + 6 > victim->level) {
+		&&  rch->level + 6 > victim->level
+		&&  can_see(rch, victim)) {
 			dofun("emote", rch, "screams and attacks!");
 			multi_hit(rch, victim, TYPE_UNDEFINED);
 			continue;
@@ -230,17 +231,18 @@ void check_assist(CHAR_DATA *ch, CHAR_DATA *victim)
 			continue;
 		}
 
-		/* that's all for !IS_NPC */
+		/* that's all for NPC */
 		if (!IS_NPC(rch))
 			continue;
 
-		if (IS_SET(rch->pMobIndex->off_flags, ASSIST_ALL)
-		||  (rch->race == ch->race &&
-		     IS_SET(rch->pMobIndex->off_flags, ASSIST_RACE))
-		||  (rch->pMobIndex == ch->pMobIndex &&
-		     IS_SET(rch->pMobIndex->off_flags, ASSIST_VNUM))
-		||  (IS_SET(rch->pMobIndex->off_flags, ASSIST_ALIGN) &&
-		     NALIGN(rch) == NALIGN(ch))) {
+		if ((IS_SET(rch->pMobIndex->off_flags, ASSIST_ALL)
+		||   (rch->race == ch->race &&
+		      IS_SET(rch->pMobIndex->off_flags, ASSIST_RACE))
+		||   (rch->pMobIndex == ch->pMobIndex &&
+		      IS_SET(rch->pMobIndex->off_flags, ASSIST_VNUM))
+		||   (IS_SET(rch->pMobIndex->off_flags, ASSIST_ALIGN) &&
+		      NALIGN(rch) == NALIGN(ch)))
+		&&  can_see(rch, victim)) {
 			CHAR_DATA *vch;
 			CHAR_DATA *target;
 			int number;
@@ -1718,9 +1720,14 @@ bool is_safe_nomessage(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (victim != ch
 	&&  !IS_NPC(ch)
 	&&  IS_SET(PC(ch)->plr_flags, PLR_GHOST)) {
+		race_t *r;
+
+		if ((r = race_lookup(ch->race)) == NULL
+		||  !IS_SET(r->aff, AFF_FLYING))
+			REMOVE_BIT(ch->affected_by, AFF_FLYING);
+
 		char_puts("You return to your normal form.\n", ch);
 		REMOVE_BIT(PC(ch)->plr_flags, PLR_GHOST);
-		REMOVE_BIT(ch->affected_by, AFF_FLYING);
 	}
 
 	return safe;
@@ -2309,7 +2316,6 @@ raw_kill(CHAR_DATA *ch, CHAR_DATA *victim)
 	OBJ_DATA *obj, *obj_next;
 	int i;
 	OBJ_DATA *tattoo, *clanmark, *corpse;
-
 
 	if (is_affected(victim, gsn_resurrection)) {
 		act_puts("Yess! Your Great Master resurrects you!",

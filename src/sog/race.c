@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.c,v 1.5.2.3 2001-11-21 07:46:38 avn Exp $
+ * $Id: race.c,v 1.5.2.4 2001-12-25 19:20:35 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -35,7 +35,9 @@ varr races = { sizeof(race_t), 8 };
 
 race_t *race_new(void)
 {
-	return varr_enew(&races);
+	race_t *r = varr_enew(&races);
+	r->dam_type = attack_lookup("punch");
+	return r;
 }
 
 pcrace_t *pcrace_new(void)
@@ -93,13 +95,13 @@ void race_setstats(CHAR_DATA *ch, int rn)
 	if (r->race_pcdata != NULL)
 		ch->size = r->race_pcdata->size;
 
-	ch->dam_type = attack_lookup("punch");
+	ch->dam_type	= r->dam_type;
 	ch->affected_by = r->aff;
-	ch->imm_flags = r->imm;
-	ch->res_flags = r->res;
-	ch->vuln_flags = r->vuln;
-	ch->form = r->form;
-	ch->parts = r->parts;
+	ch->imm_flags	= r->imm;
+	ch->res_flags	= r->res;
+	ch->vuln_flags	= r->vuln;
+	ch->form	= r->form;
+	ch->parts	= r->parts;
 }
 
 int rn_lookup(const char *name)

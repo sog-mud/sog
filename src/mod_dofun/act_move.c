@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.202.2.22 2001-12-10 12:08:27 cs Exp $
+ * $Id: act_move.c,v 1.202.2.23 2001-12-25 19:20:18 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1566,7 +1566,12 @@ void do_vampire(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (weather_info.sunlight == SUN_LIGHT 
+	if (IS_SET(PC(ch)->plr_flags, PLR_GHOST)) {
+		char_puts("You can't transform into vampire while you are ghost.\n", ch);
+		return;
+	}
+
+	if (weather_info.sunlight == SUN_LIGHT
 	||  weather_info.sunlight == SUN_RISE) {
 		char_puts("You should wait for the evening or night to transform to a vampire.\n", ch);
 		return;
@@ -1619,7 +1624,7 @@ void do_vampire(CHAR_DATA *ch, const char *argument)
 	af.modifier  = 0;
 	af.bitvector = AFF_SNEAK | AFF_FLYING | AFF_INFRARED | AFF_TURNED;
 	affect_to_char(ch, &af);
-	
+
 	free_string(PC(ch)->form_name);
 	PC(ch)->form_name = str_dup("an ugly creature");
 }
@@ -2137,13 +2142,13 @@ void do_fly(CHAR_DATA *ch, const char *argument)
 		}
 
 		if (is_bit_affected(ch, TO_AFFECTS, AFF_FLYING)
-		||  ((r = race_lookup(ch->race)) && (r->aff & AFF_FLYING))
+		||  ((r = race_lookup(ch->race)) != NULL &&
+		     IS_SET(r->aff, AFF_FLYING))
 		||  has_obj_affect(ch, AFF_FLYING)
-		|| (!IS_NPC(ch) && IS_SET(PC(ch)->plr_flags, PLR_GHOST))) {
+		||  (!IS_NPC(ch) && IS_SET(PC(ch)->plr_flags, PLR_GHOST))) {
 			SET_BIT(ch->affected_by, AFF_FLYING);
 			char_puts("You start to fly.\n", ch);
-		}
-		else {
+		} else {
 			char_puts("To fly find potion or wings.\n", ch); 
 			return;
 		}

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.169.2.20 2001-11-16 05:50:54 avn Exp $
+ * $Id: db.c,v 1.169.2.21 2001-12-25 19:20:39 tatyana Exp $
  */
 
 /***************************************************************************
@@ -402,7 +402,7 @@ void boot_db(void)
 	top_affected_room = NULL;
 		
 	/* reboot counter */
-	reboot_counter = 1440;	/* 24 hours */
+	reboot_counter = 4350;	/* 72 hours */
 
 	db_load_list(&db_langs, LANG_PATH, LANG_LIST);
 	db_load_file(&db_cmd, ETC_PATH, CMD_CONF);
@@ -978,12 +978,19 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex, int flags)
 	mob->material		= str_qdup(pMobIndex->material);
 
 	mob->dam_type		= pMobIndex->dam_type;
-	if (mob->dam_type == 0)
-		switch(number_range(1,3)) {
-		case (1): mob->dam_type = 3;        break;  /* slash */
-		case (2): mob->dam_type = 7;        break;  /* pound */
-		case (3): mob->dam_type = 11;       break;  /* pierce */
+	if (mob->dam_type == 0) {
+		switch (number_range(1, 3)) {
+		case 1:
+			mob->dam_type = attack_lookup("slash");
+			break;
+		case 2:
+			mob->dam_type = attack_lookup("pound");
+			break;
+		case 3:
+			mob->dam_type = attack_lookup("pierce");
+			break;
 		}
+	}
 
 	mob->sex		= pMobIndex->sex;
 	if (mob->sex == SEX_EITHER) { /* random sex */

@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.165.2.31 2001-12-11 14:53:40 tatyana Exp $
+ * $Id: act_obj.c,v 1.165.2.32 2001-12-25 19:20:20 tatyana Exp $
  */
 
 /***************************************************************************
@@ -3927,7 +3927,7 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 
 			/* return money to the seller */
 			if (auction.seller != NULL) {
-				auction.seller->gold +=
+				PC(auction.seller)->bank_g +=
 					(auction.starting * 20) / 100;
 				act_puts("Your money has been returned.",
 					 auction.seller, NULL, NULL,
@@ -4060,7 +4060,7 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 	case ITEM_FURNITURE:
 	case ITEM_FOOD:
 		tax = (auction.starting * 20) / 100;
-		if (ch->gold < tax) {
+		if (PC(ch)->bank_g < tax && ch->gold < tax) {
 			act_puts("You do not have enough gold to pay "
 				 "an auction fee of $j gold.",
 				 ch, (const void*) tax, NULL,
@@ -4072,11 +4072,15 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 			 "of $j gold.",
 			 ch, (const void*) tax, NULL,
 			 TO_CHAR, POS_DEAD);
-		ch->gold -= tax;
+
+		if (PC(ch)->bank_g < tax)
+			ch->gold -= tax;
+		else
+			PC(ch)->bank_g -= tax;
 
 		obj_from_char(obj);
 		auction.item = obj;
-		auction.bet = 0; 	/* obj->cost / 100 */
+		auction.bet = 0;	/* obj->cost / 100 */
 		auction.buyer = NULL;
 		auction.seller = ch;
 		auction.pulse = PULSE_AUCTION;

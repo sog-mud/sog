@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_race.c,v 1.9.2.1 1999-12-16 12:40:08 fjoe Exp $
+ * $Id: db_race.c,v 1.9.2.2 2001-12-25 19:20:39 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -66,6 +66,10 @@ DBLOAD_FUN(load_race)
 			    fread_fstring(affect_flags, fp));
 			KEY("Act", race->act,
 			    fread_fstring(act_flags, fp));
+			break;
+		case 'D':
+			KEY("Damtype", race->dam_type,
+			    attack_lookup(fread_word(fp)));
 			break;
 		case 'E':
 			if (!str_cmp(word, "End")) {

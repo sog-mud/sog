@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.39 2001-12-18 11:44:49 tatyana Exp $
+ * $Id: update.c,v 1.157.2.40 2001-12-25 19:20:35 tatyana Exp $
  */
 
 /***************************************************************************
@@ -629,10 +629,15 @@ void mobile_update(void)
 			&&  current_time - ch->last_death_time >=
 							GHOST_DELAY_TIME
 			&&  IS_SET(PC(ch)->plr_flags, PLR_GHOST)) {
+				race_t *r;
+
+				if ((r = race_lookup(ch->race)) == NULL
+				||  !IS_SET(r->aff, AFF_FLYING))
+					REMOVE_BIT(ch->affected_by, AFF_FLYING);
+
 				char_puts("You return to your normal form.\n",
 					  ch);
 				REMOVE_BIT(PC(ch)->plr_flags, PLR_GHOST);
-				REMOVE_BIT(ch->affected_by, AFF_FLYING);
 			}
 		} else {
 /* update npc timer */
@@ -1313,6 +1318,15 @@ void char_update(void)
 					act("You feel it is time to feed your dragon!",
 						ch->master, NULL, NULL, TO_CHAR);
 
+				if ((paf->type == gsn_charm_person ||
+				     paf->type == sn_lookup("attract other") ||
+				     paf->type == sn_lookup("control undead"))
+				&&  ch->master != NULL) {
+					ch->master = NULL;
+					ch->leader = NULL;
+					die_follower(ch);
+				}
+
 				if ((paf_next == NULL ||
 				     paf_next->type != paf->type ||
 				     paf_next->duration > 0)
@@ -1364,10 +1378,15 @@ void char_update(void)
 						af->modifier - ch->max_hit :
 						af->modifier * 2;
 			witch.bitvector = 0;
-	
+
 			affect_remove(ch, af);
 			affect_to_char(ch ,&witch);
-			ch->hit = UMIN(ch->hit, ch->max_hit);
+
+			if (IS_NPC(ch))
+				ch->hit = ch->max_hit;
+			else
+				ch->hit = UMIN(ch->hit, ch->max_hit);
+
 			if (ch->hit < 1) {
 				if (IS_IMMORTAL(ch))
 					ch->hit = 1;

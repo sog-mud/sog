@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.54.2.9 2001-12-01 15:01:27 tatyana Exp $
+ * $Id: special.c,v 1.54.2.10 2001-12-25 19:20:35 tatyana Exp $
  */
 
 /***************************************************************************
@@ -971,7 +971,9 @@ bool spec_guard(CHAR_DATA *ch)
 		if (IS_NPC(victim))
 			continue;
 
-		if (number_percent() < 2 && !IS_IMMORTAL(victim)) {
+		if (number_percent() < 2
+		&&  !IS_IMMORTAL(victim)
+		&&  can_see(ch, victim)) {
 			dofun("say", ch, "Do I know you?");
  			if (str_cmp(ch->in_room->area->name,
 				    hometown_name(PC(victim)->hometown)))
@@ -989,7 +991,8 @@ bool spec_guard(CHAR_DATA *ch)
 	
 		if (victim->fighting != NULL
 		&&  victim->fighting != ch
-		&&  victim->alignment < max_evil) {
+		&&  victim->alignment < max_evil
+		&&  can_see(ch, victim)) {
 			if (IS_EVIL(victim)) {
 				max_evil = -350; 
 				ech      = victim;

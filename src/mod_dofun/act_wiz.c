@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.186.2.28 2001-12-10 12:08:30 cs Exp $
+ * $Id: act_wiz.c,v 1.186.2.29 2001-12-25 19:20:22 tatyana Exp $
  */
 
 /***************************************************************************
@@ -3886,12 +3886,18 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!str_prefix(arg2, "noghost")) {
+		race_t *r;
+
 		if (IS_NPC(victim)) {
 			char_puts("Not on NPC's.\n", ch);
 			goto cleanup;
 		}
+
+		if ((r = race_lookup(ch->race)) == NULL
+		||  !IS_SET(r->aff, AFF_FLYING))
+			REMOVE_BIT(ch->affected_by, AFF_FLYING);
+
 		REMOVE_BIT(PC(victim)->plr_flags, PLR_GHOST);
-		REMOVE_BIT(victim->affected_by, AFF_FLYING);
 		char_puts("Ok.\n", ch);
 		altered = TRUE;
 		goto cleanup;

@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.200.2.20 2001-12-04 20:37:56 tatyana Exp $
+ * $Id: comm.c,v 1.200.2.21 2001-12-25 19:20:37 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1341,7 +1341,7 @@ void bust_a_prompt(DESCRIPTOR_DATA *d)
 	bool found;
 	const char *dir_name[] = {"N","E","S","W","U","D"};
 	int door;
- 
+
 	point = buf;
 	str = d->dvdata->prompt;
 	if (IS_NULLSTR(str))
@@ -1562,6 +1562,21 @@ void bust_a_prompt(DESCRIPTOR_DATA *d)
 			}
 			else
 				i = "";
+			break;
+		case 'q':
+			snprintf(buf2, sizeof(buf2), "%dqp",
+				 PC(ch)->questpoints);
+			i = buf2;
+			break;
+		case 'Q':
+			if (!IS_ON_QUEST(ch)) {
+				snprintf(buf2, sizeof(buf2), "%dtnq",
+					 -PC(ch)->questtime);
+			} else {
+				snprintf(buf2, sizeof(buf2), "%dleft",
+					 PC(ch)->questtime);
+			}
+			i = buf2;
 			break;
 		}
 		++str;
