@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.107 1999-03-10 17:23:31 fjoe Exp $
+ * $Id: save.c,v 1.108 1999-03-17 15:27:37 kostik Exp $
  */
 
 /***************************************************************************
@@ -205,6 +205,7 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, bool reboot)
 		fprintf(fp, "Silv %d\n", 0);
 	fprintf(fp, "Exp %d\n", ch->exp);
 	fprintf(fp, "ExpTL %d\n", ch->exp_tl);
+	fprintf(fp, "Drain_level %d\n", ch->drain_level);
 	if (ch->plr_flags)
 		fprintf(fp, "Act %s\n", format_flags(ch->plr_flags));
 	if (ch->affected_by)
@@ -838,6 +839,7 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 		case 'D':
 			KEY("Damroll", ch->damroll, fread_number(fp));
 			KEY("Dam", ch->damroll, fread_number(fp));
+			KEY("Drain_level", ch->drain_level, fread_number(fp));
 			MLSKEY("Desc", ch->description);
 			KEY("Dead", ch->pcdata->death, fread_number(fp));
 			break;

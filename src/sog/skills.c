@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.56 1999-02-23 22:06:47 fjoe Exp $
+ * $Id: skills.c,v 1.57 1999-03-17 15:27:38 kostik Exp $
  */
 
 /***************************************************************************
@@ -718,7 +718,7 @@ int get_skill(CHAR_DATA *ch, int sn)
 		AFFECT_DATA* paf;
 		for (paf = ch->affected; paf; paf=paf->next) {
 			if (paf->type == gsn_anathema 
-			  && paf->location == APPLY_CHA) {
+			  && paf->location == APPLY_LEVEL) {
 				skill = skill * 4 / (4-paf->modifier);
 			  }
 		}

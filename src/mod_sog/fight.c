@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.151 1999-03-16 10:30:32 fjoe Exp $
+ * $Id: fight.c,v 1.152 1999-03-17 15:27:34 kostik Exp $
  */
 
 /***************************************************************************
@@ -362,11 +362,11 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 
 		check_improve(ch, gsn_area_attack, TRUE, 6);
 
-		if (ch->level < 70)
+		if (LEVEL(ch) < 70)
 			max_count = 1;
-		else if (ch->level < 80)
+		else if (LEVEL(ch) < 80)
 			max_count = 2;
-		else if (ch->level < 90)
+		else if (LEVEL(ch) < 90)
 			max_count = 3;
 		else
 			max_count = 4;
@@ -681,7 +681,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 		thac0_32 = cl->thac0_32;
 	}
 
-	thac0  = interpolate(ch->level, thac0_00, thac0_32);
+	thac0  = interpolate(LEVEL(ch), thac0_00, thac0_32);
 
 	if (thac0 < 0)
 		thac0 = thac0/2;
@@ -784,19 +784,13 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 			}
 		}
 		else {
-#if 0
-			int d;
-#endif
-
 			dam = number_range(1 + 4 * sk / 100,
-					   2 * ch->level / 3 * sk / 100);
-#if 0
-/* we do not have 'master hand' skill */
+					   2 * LEVEL(ch) / 3 * sk / 100);
 			if ((sk2 = get_skill(ch, gsn_master_hand))
-			&&  (d = number_percent()) <= sk2) {
+			&& number_percent() <= sk2) {
 				check_improve(ch, gsn_master_hand, TRUE, 6);
 				dam += dam * 110 /100;
-				if (d < 20) {
+				if (number_percent() < sk2/5+LEVEL(ch)-LEVEL(victim)) {
 					SET_BIT(victim->affected_by,
 						AFF_WEAK_STUN);
 					act_puts("You hit $N with a stunning "
@@ -812,7 +806,6 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 						      TRUE, 6);
 				}
 			}
-#endif
 		}
 	}
 
@@ -896,16 +889,16 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 		check_improve(victim, gsn_counter, FALSE, 1);
 
 	if (dt == gsn_backstab && (IS_NPC(ch) || wield))
-		dam = ch->level / 10 * dam + ch->level;
+		dam = LEVEL(ch) / 10 * dam + LEVEL(ch);
 	else if (dt == gsn_dual_backstab && (IS_NPC(ch) || wield))
-		dam = ch->level / 14 * dam + ch->level;
+		dam = LEVEL(ch) / 14 * dam + LEVEL(ch);
 	else if (dt == gsn_circle)
-		dam = (ch->level/40 + 1) * dam + ch->level;
+		dam = (LEVEL(ch)/40 + 1) * dam + LEVEL(ch);
 	else if (dt == gsn_vampiric_bite && is_affected(ch, gsn_vampire))
-		dam = (ch->level/20 + 1) * dam + ch->level;
+		dam = (LEVEL(ch)/20 + 1) * dam + LEVEL(ch);
 	else if (dt == gsn_cleave && wield != NULL) {
 		if (number_percent() <
-				(URANGE(4, 5+ch->level-victim->level, 10)
+				(URANGE(4, 5+LEVEL(ch)-LEVEL(victim), 10)
 				+ (wield->value[0]==WEAPON_AXE) ? 2:0 +
 				(get_curr_stat(ch,STAT_STR)-21)/2)
 		&&  !counter && !IS_IMMORTAL(victim)) {
@@ -928,7 +921,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 
 	if (dt == gsn_assassinate) {
 		if (number_percent() <=
-				URANGE(10, 20+(ch->level-victim->level)*2, 50)
+				URANGE(10, 20+(LEVEL(ch) - LEVEL(victim))*2, 50)
 		&& !counter && !IS_IMMORTAL(victim)) {
 			act_puts("You {R+++ASSASSINATE+++{x $N!",
 				 ch, NULL, victim, TO_CHAR, POS_RESTING);
@@ -949,12 +942,12 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 		}
 	}
 	if (dt == gsn_charge)
-		dam *= ch->level/12;
+		dam *= LEVEL(ch)/12;
 
 	dam += GET_DAMROLL(ch) * UMIN(100, sk) / 100;
 
 	if (dt == gsn_ambush)
-		dam *= UMAX(3, ch->level/12);
+		dam *= UMAX(3, LEVEL(ch)/12);
 
 	if ((sk2 = get_skill(ch, gsn_deathblow)) > 1) {
 		if (number_percent() <  (sk2/8)) {
@@ -962,7 +955,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 			    ch, NULL, NULL, TO_CHAR);
 			act("$n delivers a blow of deadly force!",
 			    ch, NULL, NULL, TO_ROOM);
-			dam = ch->level*dam/20;
+			dam = LEVEL(ch)*dam/20;
 			check_improve(ch, gsn_deathblow, TRUE, 1);
 		}
 		else
@@ -1492,7 +1485,8 @@ bool is_safe_nomessage(CHAR_DATA *ch, CHAR_DATA *victim)
 
 	if (IS_NPC(ch)
 	&&  IS_AFFECTED(ch, AFF_CHARM)
-	&&  ch->master)
+	&&  ch->master
+	&&  ch->in_room == ch->master->in_room)
 		return is_safe_nomessage(ch->master, victim);
 	
 	if (IS_NPC(victim)
@@ -1576,7 +1570,7 @@ bool check_parry(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 	}
 
 
-	if (number_percent() >= chance + victim->level - ch->level)
+	if (number_percent() >= chance + LEVEL(victim) - LEVEL(ch))
 		return FALSE;
 
 	act("You parry $n's attack.", ch, NULL, victim, TO_VICT | ACT_VERBOSE);
@@ -1609,7 +1603,7 @@ bool check_parry(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 			chance -= 20;
 
 		/* level */
-		chance += (ch->level - victim->level) * 2;
+		chance += (LEVEL(ch) - LEVEL(victim)) * 2;
 
 		/* now the attack */
 		if (number_percent() < (chance / 20 )) {
@@ -1646,7 +1640,7 @@ bool check_blink(CHAR_DATA *ch, CHAR_DATA *victim)
 	else
 		chance	= get_skill(victim, gsn_blink) / 2;
 
-	if (number_percent() >= chance + victim->level - ch->level
+	if (number_percent() >= chance + LEVEL(victim) - LEVEL(ch)
 	||  number_percent() < 50
 	||  victim->mana < 10)
 		return FALSE;
@@ -1693,7 +1687,7 @@ bool check_block(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 		chance *= 1.2;
 
 
-	if (number_percent() >= chance + victim->level - ch->level)
+	if (number_percent() >= chance + LEVEL(victim) - LEVEL(ch))
 		return FALSE;
 
 	act("Your shield blocks $n's attack.",
@@ -1720,7 +1714,7 @@ bool check_hand_block(CHAR_DATA *ch, CHAR_DATA *victim)
 	|| (chance=get_skill(victim, gsn_hand_block)<=0)) 
 		return FALSE;
 
-	chance = URANGE(5, chance*2/5 + victim->level - ch->level, 55);
+	chance = URANGE(5, chance*2/5 + LEVEL(victim) - LEVEL(ch), 55);
 
 	if (number_percent() < chance) {
 		act("Your hand blocks $n's attack.", 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: gsn.c,v 1.15 1999-03-09 09:50:02 kostik Exp $
+ * $Id: gsn.c,v 1.16 1999-03-17 15:27:38 kostik Exp $
  */
 
 #include <stdio.h>
@@ -181,7 +181,7 @@ int gsn_power_word_stun;
 int gsn_grip;
 int gsn_concentrate;
 int gsn_mastering_sword;
-int gsn_mastering_pound;
+int gsn_master_hand;
 int gsn_fifth_attack;
 int gsn_area_attack;
 int gsn_reserved;
@@ -389,7 +389,7 @@ NAMEDP gsn_table[] =
 	{ "gsn_grip",			&gsn_grip			},
 	{ "gsn_concentrate",		&gsn_concentrate		},
 	{ "gsn_mastering_sword",	&gsn_mastering_sword		},
-	{ "gsn_mastering_pound",	&gsn_mastering_pound		},
+	{ "gsn_master_hand",		&gsn_master_hand		},
 	{ "gsn_fifth_attack",		&gsn_fifth_attack		},
 	{ "gsn_area_attack",		&gsn_area_attack		},
 	{ "gsn_reserved",		&gsn_reserved			},

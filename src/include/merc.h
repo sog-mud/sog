@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.169 1999-03-11 11:58:01 fjoe Exp $
+ * $Id: merc.h,v 1.170 1999-03-17 15:27:37 kostik Exp $
  */
 
 /***************************************************************************
@@ -1295,6 +1295,7 @@ struct char_data
 	time_t			logon;
 	int			timer;
 	int			wait;
+	int 			drain_level;
 	int			daze;
 	int			hit;
 	int 			max_hit;
@@ -1718,6 +1719,8 @@ struct mpcode
 #define IS_PK(ch, vt)		(!IS_NPC((ch)) & !IS_NPC((vt)))
 
 #define ORG_RACE(ch)		(IS_NPC(ch) ? ch->pIndexData->race : ch->pcdata->race)
+
+#define LEVEL(ch)		((ch)->level+(ch)->drain_level)
 
 #if defined(WIN32)
 void SET_ORG_RACE(CHAR_DATA *ch, int race);

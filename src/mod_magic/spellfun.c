@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.134 1999-03-10 17:23:28 fjoe Exp $
+ * $Id: spellfun.c,v 1.135 1999-03-17 15:27:35 kostik Exp $
  */
 
 /***************************************************************************
@@ -432,23 +432,24 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	}
 	else {
 		if (IS_SET(cl->flags, CLASS_MAGIC))
-			slevel = ch->level - UMAX(0, (ch->level / 20));
+			slevel = LEVEL(ch) - UMAX(0, (LEVEL(ch) / 20));
 		else
-			slevel = ch->level - UMAX(5, (ch->level / 10));
+			slevel = LEVEL(ch) - UMAX(5, (LEVEL(ch) / 10));
 
 		if ((chance = get_skill(ch, gsn_spell_craft))) {
 			if (number_percent() < chance) {
-				slevel = ch->level; 
+				slevel = LEVEL(ch); 
 				check_improve(ch, gsn_spell_craft, TRUE, 1);
 			}
 			else 
 				check_improve(ch, gsn_spell_craft, FALSE, 1);
 		}
 
+
 		if (IS_SET(spell->group, GROUP_MALADICTIONS)
 		&&  (chance = get_skill(ch, gsn_improved_maladiction))) {
 			if (number_percent() < chance) {
-				slevel = ch->level;
+				slevel = LEVEL(ch);
 				slevel += chance/20;
 				check_improve(ch, gsn_improved_maladiction,
 					      TRUE, 1);
@@ -461,7 +462,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		if (IS_SET(spell->group, GROUP_BENEDICTIONS)
 		&&  (chance = get_skill(ch, gsn_improved_benediction))) {
 			if (number_percent() < chance) {
-				slevel = ch->level;
+				slevel = LEVEL(ch);
 				slevel += chance/10;
 				check_improve(ch, gsn_improved_benediction,
 					      TRUE, 1);
@@ -484,7 +485,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 			AFFECT_DATA* paf;
 			for (paf = ch->affected; paf; paf = paf->next) 
 				if (paf->type == gsn_anathema
-				&& paf->location == APPLY_CHA)
+				&& paf->location == APPLY_LEVEL)
 					slevel += paf->modifier * 3;
 		}
 
@@ -1754,7 +1755,7 @@ void spell_anathema(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 
 	affect_to_char(victim, &af);
 
-	af.location	= APPLY_CHA;
+	af.location	= APPLY_LEVEL;
 	af.modifier	= -strength;
 
 	affect_to_char(victim, &af);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: gsn.h,v 1.14 1999-03-09 09:50:02 kostik Exp $
+ * $Id: gsn.h,v 1.15 1999-03-17 15:27:38 kostik Exp $
  */
 
 #ifndef _GSN_H_
@@ -183,6 +183,7 @@ extern int gsn_power_word_stun;
 extern int gsn_grip;
 extern int gsn_concentrate;
 extern int gsn_mastering_sword;
+extern int gsn_master_hand;
 extern int gsn_fifth_attack;
 extern int gsn_area_attack;
 extern int gsn_reserved;

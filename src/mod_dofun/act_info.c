@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.217 1999-03-16 10:30:28 fjoe Exp $
+ * $Id: act_info.c,v 1.218 1999-03-17 15:27:31 kostik Exp $
  */
 
 /***************************************************************************
@@ -2467,6 +2467,11 @@ void do_request(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	if (IS_SET(obj->extra_flags, ITEM_QUIT_DROP)) {
+		do_say(victim, "Sorry, I must keep it myself.");
+		return;
+	}
+
 	obj_from_char(obj);
 	obj_to_char(obj, ch);
 	act("$n requests $p from $N.", ch, obj, victim, TO_NOTVICT);
@@ -2793,8 +2798,9 @@ void do_score(CHAR_DATA *ch, const char *argument)
 	buf_add(output, "     {G|{C+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+{G|{x\n");
 
 	format_stat(buf2, sizeof(buf2), ch, STAT_STR);
-	buf_printf(output, "     {G| {RLevel: {x%-3d          {C| {RStr: {x%-11.11s {C| {RReligion  : {x%-10.10s {G|{x\n",
+	buf_printf(output, "     {G| {RLevel: {x%-3d (%+3d)    {C| {RStr: {x%-11.11s {C| {RReligion  : {x%-10.10s {G|{x\n",
 		   ch->level,
+		   ch->drain_level,
 		   buf2,
 		   religion_name(ch->religion));
 
@@ -2967,8 +2973,8 @@ DO_FUN(do_oscore)
 			     ch->name,
 		IS_NPC(ch) ? " The Believer of Chronos." : ch->pcdata->title);
 
-	buf_printf(output, "Level {c%d{x, {c%d{x years old (%d hours).\n",
-		ch->level, get_age(ch),
+	buf_printf(output, "Level {c%d(%+d){x, {c%d{x years old (%d hours).\n",
+		ch->level, ch->drain_level, get_age(ch),
 		(ch->played + (int) (current_time - ch->logon)) / 3600);
 
 	buf_printf(output,
@@ -3602,6 +3608,11 @@ void do_demand(CHAR_DATA *ch, const char *argument)
 	&&   (obj = get_obj_wear(victim, arg1)) == NULL)
 	||  IS_SET(obj->extra_flags, ITEM_INVENTORY)) {
 		do_say(victim, "Sorry, I don't have that.");
+		return;
+	}
+
+	if (IS_SET(obj->extra_flags, ITEM_QUIT_DROP)) {
+		do_say(victim, "Forgive me, my master, I can't give it to anyone.");
 		return;
 	}
 

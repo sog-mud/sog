@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.127 1999-03-10 17:23:27 fjoe Exp $
+ * $Id: handler.c,v 1.128 1999-03-17 15:27:34 kostik Exp $
  */
 
 /***************************************************************************
@@ -433,6 +433,7 @@ void reset_char(CHAR_DATA *ch)
 	ch->hitroll		= 0;
 	ch->damroll		= 0;
 	ch->saving_throw	= 0;
+	ch->drain_level		= 0;
 
 	/* now start adding back the effects */
 	for (loc = 0; loc < MAX_WEAR; loc++)
@@ -467,6 +468,7 @@ void reset_char(CHAR_DATA *ch)
 			case APPLY_HITROLL:	ch->hitroll		+= mod; break;
 			case APPLY_DAMROLL:	ch->damroll		+= mod; break;
 			case APPLY_SIZE:	ch->size		+= mod; break;
+			case APPLY_LEVEL:	ch->drain_level		+= mod; break;
 			case APPLY_SAVES:		ch->saving_throw += mod; break;
 			case APPLY_SAVING_ROD: 		ch->saving_throw += mod; break;
 			case APPLY_SAVING_PETRI:	ch->saving_throw += mod; break;
@@ -499,6 +501,7 @@ void reset_char(CHAR_DATA *ch)
 			case APPLY_HITROLL:     ch->hitroll             += mod; break;
 	            case APPLY_DAMROLL:     ch->damroll             += mod; break;
  		case APPLY_SIZE:	ch->size		+= mod; break;
+		case APPLY_LEVEL:	ch->drain_level		+= mod; break;
 	            case APPLY_SAVES:	ch->saving_throw	+= mod; break;
 	            case APPLY_SAVING_ROD:          ch->saving_throw += mod; break;
 	            case APPLY_SAVING_PETRI:        ch->saving_throw += mod; break;
@@ -532,6 +535,7 @@ void reset_char(CHAR_DATA *ch)
 	            case APPLY_HITROLL:     ch->hitroll             += mod; break;
 	            case APPLY_DAMROLL:     ch->damroll             += mod; break;
  		case APPLY_SIZE:	ch->size		+= mod; break;
+		case APPLY_LEVEL:	ch->drain_level		+= mod; break;
 	            case APPLY_SAVES:	ch->saving_throw	+= mod; break;
 	            case APPLY_SAVING_ROD:          ch->saving_throw += mod; break;
 	            case APPLY_SAVING_PETRI:        ch->saving_throw += mod; break;
@@ -834,7 +838,6 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 	switch (paf->location) {
 	case APPLY_NONE:
 	case APPLY_CLASS:
-	case APPLY_LEVEL:
 	case APPLY_HEIGHT:
 	case APPLY_WEIGHT:
 	case APPLY_GOLD:
@@ -856,6 +859,7 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 
 	case APPLY_HITROLL:	ch->hitroll		+= mod;	break;
 	case APPLY_DAMROLL:	ch->damroll		+= mod;	break;
+	case APPLY_LEVEL:	ch->drain_level		+= mod; break;
 
 	case APPLY_SIZE:	ch->size	+= mod;			break;
 	case APPLY_AGE:		ch->played	+= age_to_num(mod);	break;
@@ -3314,7 +3318,7 @@ bool saves_spell(int level, CHAR_DATA *victim, int dam_type)
 	CLASS_DATA *vcl;
 	int save;
 
-	save = 40 + (victim->level - level) * 4 - 
+	save = 40 + (victim->level + victim->drain_level - level) * 4 - 
 		(victim->saving_throw * 90) / UMAX(45, victim->level);
 
 	if (IS_AFFECTED(victim, AFF_BERSERK))

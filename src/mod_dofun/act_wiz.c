@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.133 1999-03-16 19:12:00 fjoe Exp $
+ * $Id: act_wiz.c,v 1.134 1999-03-17 15:27:32 kostik Exp $
  */
 
 /***************************************************************************
@@ -1347,8 +1347,9 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 	}
 
 	buf_printf(output,
-		"Lv: %d  Class: %s  Align: %s  Gold: %ld  Silver: %ld  Exp: %d\n",
-		victim->level,       
+		"Lv: %d + %d  Class: %s  Align: %s  Gold: %ld  Silver: %ld  Exp: %d\n",
+		victim->level,
+		victim->drain_level,
 		class_name(victim),
 		buf,
 		victim->gold, victim->silver, victim->exp);

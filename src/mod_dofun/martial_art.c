@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.73 1999-03-16 10:30:33 fjoe Exp $
+ * $Id: martial_art.c,v 1.74 1999-03-17 15:27:36 kostik Exp $
  */
 
 /***************************************************************************
@@ -169,7 +169,7 @@ void do_berserk(CHAR_DATA *ch, const char *argument)
 		ch->move /= 2;
 
 		/* heal a little damage */
-		ch->hit += ch->level * 2;
+		ch->hit += LEVEL(ch) * 2;
 		ch->hit = UMIN(ch->hit,ch->max_hit);
 
 		char_puts("Your pulse races as you are consumned by rage!\n",
@@ -182,7 +182,7 @@ void do_berserk(CHAR_DATA *ch, const char *argument)
 		af.type		= gsn_berserk;
 		af.level	= ch->level;
 		af.duration	= number_fuzzy(ch->level / 8);
-		af.modifier	= UMAX(1,ch->level/5);
+		af.modifier	= UMAX(1,LEVEL(ch)/5);
 		af.bitvector 	= AFF_BERSERK;
 
 		af.location	= APPLY_HITROLL;
@@ -191,7 +191,7 @@ void do_berserk(CHAR_DATA *ch, const char *argument)
 		af.location	= APPLY_DAMROLL;
 		affect_to_char(ch,&af);
 
-		af.modifier	= UMAX(10,10 * (ch->level/5));
+		af.modifier	= UMAX(10,10 * (LEVEL(ch)/5));
 		af.location	= APPLY_AC;
 		affect_to_char(ch,&af);
 	}
@@ -309,7 +309,7 @@ void do_bash(CHAR_DATA *ch, const char *argument)
 		chance -= 20;
 
 	/* level */
-	chance += (ch->level - victim->level) * 2;
+	chance += (LEVEL(ch) - LEVEL(victim)) * 2;
 
 	RESET_WAIT_STATE(ch);
 	fighting = (ch->fighting != NULL);
@@ -438,7 +438,7 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 		chance -= 25;
 
 	/* level */
-	chance += (ch->level - victim->level) * 2;
+	chance += (LEVEL(ch) - LEVEL(victim)) * 2;
 
 	if (chance % 5 == 0)
 		chance += 1;
@@ -585,7 +585,7 @@ void do_trip(CHAR_DATA *ch, const char *argument)
 		chance -= 20;
 
 	/* level */
-	chance += (ch->level - victim->level) * 2;
+	chance += (LEVEL(ch) - LEVEL(victim)) * 2;
 
 	RESET_WAIT_STATE(ch);
 	fighting = (ch->fighting != NULL);
@@ -957,7 +957,7 @@ void do_kick(CHAR_DATA *ch, const char *argument)
 
 	WAIT_STATE(ch, SKILL(gsn_kick)->beats);
 	if (IS_NPC(ch) || number_percent() < chance) {
-		kick_dam = number_range(1, ch->level);
+		kick_dam = number_range(1, LEVEL(ch));
 		if ((ch->class == CLASS_SAMURAI)
 		&& (get_eq_char(ch, WEAR_FEET) == NULL))
 			kick_dam *= 2;
@@ -1080,7 +1080,7 @@ void do_disarm(CHAR_DATA *ch, const char *argument)
 	chance -= 2 * get_curr_stat(victim,STAT_STR);
 
 	/* level */
-	chance += (ch->level - victim->level) * 2;
+	chance += (LEVEL(ch) - LEVEL(victim)) * 2;
  
 	/* and now the attack */
 	WAIT_STATE(ch, SKILL(gsn_disarm)->beats);
@@ -1246,7 +1246,7 @@ void do_tame(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (number_percent() < chance + 15 + 4*(ch->level - victim->level)) {
+	if (number_percent() < chance + 15 + 4*(LEVEL(ch) - LEVEL(victim))) {
 		SET_BIT(victim->affected_by, AFF_CALM);
 		char_puts("You calm down.\n", victim);
 		act("You calm $N down.", ch, NULL, victim, TO_CHAR);
@@ -1388,7 +1388,7 @@ void do_caltrops(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	damage(ch, victim, ch->level, gsn_caltrops, DAM_PIERCE, TRUE);
+	damage(ch, victim, LEVEL(ch), gsn_caltrops, DAM_PIERCE, TRUE);
 	if (JUST_KILLED(victim))
 		return;
 
@@ -1508,7 +1508,7 @@ void do_throw(CHAR_DATA *ch, const char *argument)
 		chance -= 20;
 
 	/* level */
-	chance += (ch->level - victim->level) * 2;
+	chance += (LEVEL(ch) - LEVEL(victim)) * 2;
 
 	if (number_percent() < chance) {
 		act("You throw $N to the ground with stunning force.",
@@ -1519,7 +1519,7 @@ void do_throw(CHAR_DATA *ch, const char *argument)
 		    ch, NULL, victim, TO_NOTVICT);
 		WAIT_STATE(victim,2 * PULSE_VIOLENCE);
 
-		damage(ch, victim,ch->level + get_curr_stat(ch, STAT_STR), 
+		damage(ch, victim, LEVEL(ch) + get_curr_stat(ch, STAT_STR), 
 		       gsn_throw, DAM_BASH, TRUE);
 		check_improve(ch, gsn_throw, TRUE, 1);
 	}
@@ -1743,8 +1743,8 @@ void do_bloodthirst(CHAR_DATA *ch, const char *argument)
 		af.where	= TO_AFFECTS;
 		af.type		= gsn_bloodthirst;
 		af.level	= ch->level;
-		af.duration	= 2 + ch->level / 18;
-		af.modifier	= 5 + ch->level / 4;
+		af.duration	= 2 + LEVEL(ch) / 18;
+		af.modifier	= 5 + LEVEL(ch) / 4;
 		af.bitvector 	= AFF_BLOODTHIRST;
 
 		af.location	= APPLY_HITROLL;
@@ -1753,7 +1753,7 @@ void do_bloodthirst(CHAR_DATA *ch, const char *argument)
 		af.location	= APPLY_DAMROLL;
 		affect_to_char(ch, &af);
 
-		af.modifier	= - UMIN(ch->level - 5,35);
+		af.modifier	= - UMIN(ch->level - 5, 35);
 		af.location	= APPLY_AC;
 		affect_to_char(ch, &af);
 	}
@@ -1788,7 +1788,7 @@ void do_spellbane(CHAR_DATA *ch, const char *argument)
 	af.level 	= ch->level;
 	af.duration	= -1;
 	af.location	= APPLY_SAVING_SPELL;
-	af.modifier	= -ch->level/4;
+	af.modifier	= -LEVEL(ch)/4;
 	af.bitvector	= 0;
 
 	affect_to_char(ch, &af);
@@ -2089,12 +2089,12 @@ void do_warcry(CHAR_DATA *ch, const char *argument)
 	af.level	 = ch->level;
 	af.duration  = 6+ch->level;
 	af.location  = APPLY_HITROLL;
-	af.modifier  = ch->level / 8;
+	af.modifier  = LEVEL(ch) / 8;
 	af.bitvector = 0;
 	affect_to_char(ch, &af);
 	
 	af.location  = APPLY_SAVING_SPELL;
-	af.modifier  = 0 - ch->level / 8;
+	af.modifier  = 0 - LEVEL(ch) / 8;
 	affect_to_char(ch, &af);
 	char_puts("You feel righteous as you yell out your warcry.\n", ch);
 }
@@ -2224,7 +2224,7 @@ void do_explode(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *victim = ch->fighting;
 	CHAR_DATA *vch, *vch_next;
 	int dam=0,hp_dam,dice_dam,mana;
-	int hpch,level= ch->level;
+	int hpch,level= LEVEL(ch);
 	char arg[MAX_INPUT_LENGTH];
 	int chance;
 
@@ -2410,7 +2410,7 @@ void do_tiger(CHAR_DATA *ch, const char *argument)
 		ch->mana -= mana;
 
 		/* heal a little damage */
-		ch->hit += ch->level * 2;
+		ch->hit += LEVEL(ch) * 2;
 		ch->hit = UMIN(ch->hit, ch->max_hit);
 
 		char_puts("10 tigers come for your call, as you call them!\n",
@@ -2423,7 +2423,7 @@ void do_tiger(CHAR_DATA *ch, const char *argument)
 		af.type		= gsn_tiger_power;
 		af.level	= ch->level;
 		af.duration	= number_fuzzy(ch->level / 8);
-		af.modifier	= UMAX(1,ch->level/5);
+		af.modifier	= UMAX(1, LEVEL(ch)/5);
 		af.bitvector 	= AFF_BERSERK;
 
 		af.location	= APPLY_HITROLL;
@@ -2432,7 +2432,7 @@ void do_tiger(CHAR_DATA *ch, const char *argument)
 		af.location	= APPLY_DAMROLL;
 		affect_to_char(ch,&af);
 
-		af.modifier	= UMAX(10,10 * (ch->level/5));
+		af.modifier	= UMAX(10,10 * (LEVEL(ch)/5));
 		af.location	= APPLY_AC;
 		affect_to_char(ch,&af);
 	}
@@ -2538,10 +2538,10 @@ int critical_strike(CHAR_DATA *ch, CHAR_DATA *victim, int dam)
 		return dam;
 	
 	diceroll = number_range(0, 100);
-	if (victim -> level > ch -> level)
-		diceroll += (victim->level - ch->level) * 2;
-	if (victim -> level < ch -> level)
-		diceroll -= (ch->level - victim->level);
+	if (LEVEL(victim) > LEVEL(ch))
+		diceroll += (LEVEL(victim) - LEVEL(ch)) * 2;
+	else
+		diceroll -= (LEVEL(ch) - LEVEL(victim));
  
 	if (diceroll <= chance /2)  {  
 		check_improve(ch, gsn_critical, TRUE, 2);
@@ -2659,7 +2659,7 @@ void do_shield(CHAR_DATA *ch, const char *argument)
 
 	/* level */
 /*	chance += (ch->level - victim->level) * 2; */
-	chance += ch->level - victim->level;
+	chance += LEVEL(ch) - LEVEL(victim);
 	chance += axe->level - shield->level;
  
 	/* and now the attack */
@@ -2740,7 +2740,7 @@ void do_weapon(CHAR_DATA *ch, const char *argument)
 	chance -= get_curr_stat(victim, STAT_STR) +
 				2 * get_curr_stat(victim, STAT_DEX);
 
-	chance += ch->level - victim->level;
+	chance += LEVEL(ch) - LEVEL(victim);
 	chance += axe->level - wield->level;
  
 	/* and now the attack */
@@ -2860,7 +2860,7 @@ void do_tail(CHAR_DATA *ch, const char *argument)
 		chance -= 30;
 
 	/* level */
-	chance += (ch->level - victim->level) * 2;
+	chance += (LEVEL(ch) - LEVEL(victim)) * 2;
 
 	RESET_WAIT_STATE(ch);
 
@@ -2956,7 +2956,7 @@ void do_concentrate(CHAR_DATA *ch, const char *argument)
 		af.type		= gsn_concentrate;
 		af.level	= ch->level;
 		af.duration	= number_fuzzy(ch->level / 8);
-		af.modifier	= UMAX(1,ch->level/8);
+		af.modifier	= UMAX(1, LEVEL(ch)/8);
 		af.bitvector 	= 0;
 
 		af.location	= APPLY_HITROLL;
@@ -3001,7 +3001,7 @@ void do_bandage(CHAR_DATA *ch, const char *argument)
 		    ch, NULL, NULL, TO_ROOM);
 		check_improve(ch, gsn_bandage, TRUE, 2);
 
-		heal = dice(4, 8) + ch->level / 2;
+		heal = dice(4, 8) + LEVEL(ch) / 2;
 		ch->hit = UMIN(ch->hit + heal, ch->max_hit);
 		update_pos(ch);
 		char_puts("You feel better!\n", ch);
@@ -3309,7 +3309,7 @@ void do_poison_smoke(CHAR_DATA *ch, const char *argument)
 		if (is_safe_spell(ch, vch, TRUE))
 			continue;
 
-		spell_poison(gsn_poison, ch->level, ch, vch, TARGET_CHAR);
+		spell_poison(gsn_poison, LEVEL(ch), ch, vch, TARGET_CHAR);
 		if (vch != ch)
 			multi_hit(vch, ch, TYPE_UNDEFINED);
 	}
@@ -3352,7 +3352,7 @@ void do_blindness_dust(CHAR_DATA *ch, const char *argument)
 		if (is_safe_spell(ch, vch, TRUE)) 
 			continue;
 
-		spell_blindness(gsn_blindness, ch->level, ch, vch, TARGET_CHAR);
+		spell_blindness(gsn_blindness, LEVEL(ch), ch, vch, TARGET_CHAR);
 		if (vch != ch)
 			multi_hit(vch, ch, TYPE_UNDEFINED);
 	}
