@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.41 2001-11-12 08:31:48 avn Exp $
+ * $Id: fight.c,v 1.202.2.42 2001-11-13 08:02:12 avn Exp $
  */
 
 /***************************************************************************
@@ -876,7 +876,8 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 		&&  IS_WEAPON_STAT(katana, WEAPON_KATANA)
 		&&  katana->ed != NULL) {
 			AFFECT_DATA *paf;
-			char nmbuf[MAX_STRING_LENGTH], *p;
+			char nmbuf[MAX_STRING_LENGTH];
+			const char *p;
 
 			snprintf(nmbuf, sizeof(nmbuf), "'%s'", ch->name);
 			if ((p = mlstr_mval(&katana->ed->description)) != NULL
