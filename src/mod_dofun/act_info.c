@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.306 1999-12-16 07:06:52 fjoe Exp $
+ * $Id: act_info.c,v 1.307 1999-12-16 07:18:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2999,14 +2999,14 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 	pc_sk->percent += int_app[get_curr_stat(ch, STAT_INT)].learn /
 							spec_sk.rating;
 	if (pc_sk->percent < spec_sk.adept) {
-		act("You practice $V.", ch, NULL, &sk->sk_name, TO_CHAR);
-		act("$n practices $V.", ch, NULL, &sk->sk_name, TO_ROOM);
+		act("You practice $v.", ch, &sk->sk_name, NULL, TO_CHAR);
+		act("$n practices $v.", ch, &sk->sk_name, NULL, TO_ROOM);
 	} else {
 		pc_sk->percent = spec_sk.adept;
-		act("You are now learned at $V.",
-		    ch, NULL, &sk->sk_name, TO_CHAR);
-		act("$n is now learned at $V.",
-		    ch, NULL, &sk->sk_name, TO_ROOM);
+		act("You are now learned at $v.",
+		    ch, &sk->sk_name, NULL, TO_CHAR);
+		act("$n is now learned at $v.",
+		    ch, &sk->sk_name, NULL, TO_ROOM);
 	}
 }
 
