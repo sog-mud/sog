@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.58 1998-06-21 22:40:13 efdi Exp $
+# $Id: english.lang,v 1.59 1998-06-22 14:56:08 efdi Exp $
 #
 
 NOTHING		"Nothing.\n\r"
@@ -222,7 +222,7 @@ N_WAKES_AND_SITS_IN 	"$n wakes and sits in $p."
 YOU_STOP_RESTING 	"You stop resting.\n\r"
 YOU_SIT_AT 		"You sit at $p"
 N_SITS_AT 		"$n sits at $p."
-YOU_SIT_ON 		"You sit on $p"
+YOU_SIT_ON 		"You sit on $p."
 N_SITS_ON 		"$n sits on $p."
 YOU_ARE_ALREADY_SITTING_DOWN "You are already sitting down.\n\r"
 YOU_SIT_DOWN 		"You sit down.\n\r"
@@ -818,3 +818,5 @@ SCROLL_TOO_COMPLEX	"This scroll is too complex for you to comprehend.\n\r"
 N_RECITES_P		"$n recites $p."
 YOU_RECITE_P		"You recite $p."
 MISPRONOUNCE_SYLLABLE	"You mispronounce a syllable.\n\r"
+NS_P_STRIKES_N		"$n's $p strikes $N!"
+P_STRIKES_N		"$p strikes $n!"
