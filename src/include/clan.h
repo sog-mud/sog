@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.h,v 1.18.2.1 1999-12-16 12:39:50 fjoe Exp $
+ * $Id: clan.h,v 1.18.2.2 2002-10-16 11:29:56 tatyana Exp $
  */
 
 #ifndef _CLAN_H_
@@ -95,4 +95,5 @@ struct clskill_t {
 void	clan_update_lists	(clan_t *clan, CHAR_DATA *victim, bool memb);
 void	clan_save		(clan_t *clan);
 
+#define IS_HUNTER(ch)			HAS_SKILL(ch, gsn_chameleon_poncho)
 #endif

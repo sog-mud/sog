@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.169.2.23 2002-09-01 16:57:05 tatyana Exp $
+ * $Id: db.c,v 1.169.2.24 2002-10-16 11:30:06 tatyana Exp $
  */
 
 /***************************************************************************
@@ -129,6 +129,7 @@ const char SYSTEM_CONF		[] = "system.conf";	/* system conf */
 const char LANG_CONF		[] = "lang.conf";	/* lang definitions */
 const char MSGDB_CONF		[] = "msgdb.conf";	/* msgdb */
 const char CMD_CONF		[] = "cmd.conf";
+const char BLACK_MARKET_CONF	[] = "black_market.conf";
 
 const char AREA_LIST		[] = "area.lst";	/* list of areas */
 const char CLAN_LIST		[] = "clan.lst";	/* list of clans */
@@ -418,6 +419,7 @@ void boot_db(void)
 	db_load_list(&db_clans, CLANS_PATH, CLAN_LIST);
 	db_load_list(&db_areas, AREA_PATH, AREA_LIST);
 	db_load_file(&db_hometowns, ETC_PATH, HOMETOWNS_CONF);
+	db_load_file(&db_black_market, ETC_PATH, BLACK_MARKET_CONF);
 
 	/*
 	 * load modules

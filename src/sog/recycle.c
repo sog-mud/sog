@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.64.2.8 2002-02-19 20:43:12 tatyana Exp $
+ * $Id: recycle.c,v 1.64.2.9 2002-10-16 11:30:03 tatyana Exp $
  */
 
 /***************************************************************************
@@ -46,8 +46,10 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+
 #include "merc.h"
 #include "db.h"
+#include "bm.h"
 
 /*
  * Globals
@@ -786,10 +788,10 @@ MPCODE *mpcode_lookup(int vnum)
 	MPCODE *mpcode;
 	for (mpcode = mpcode_list; mpcode; mpcode = mpcode->next)
 	    	if (mpcode->vnum == vnum)
-        		return mpcode;
+			return mpcode;
 	return NULL;
-}    
- 
+}
+
 void mpcode_free(MPCODE *mpcode)
 {
 	if (!mpcode)
@@ -799,4 +801,27 @@ void mpcode_free(MPCODE *mpcode)
 
 	top_mprog_index--;
 	free(mpcode);
+}
+
+bmitem_t *bmitem_list;
+
+bmitem_t *
+bmitem_new(void)
+{
+	bmitem_t *item;
+	item = calloc(1, sizeof(*item));
+	item->buyer = str_empty;
+	item->seller = str_empty;
+	item->bet = 100;
+	return item;
+}
+
+void
+bmitem_free(bmitem_t *item)
+{
+	if (!item)
+		return;
+	free_string(item->seller);
+	free_string(item->buyer);
+	free(item);
 }

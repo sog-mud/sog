@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.61 1999-06-28 09:04:18 fjoe Exp $
+ * $Id: note.c,v 1.61.2.1 2002-10-16 11:30:02 tatyana Exp $
  */
 
 /***************************************************************************
@@ -131,6 +131,56 @@ void load_notes(void)
 	load_thread(PENALTY_FILE, &penalty_list, NOTE_PENALTY, 0);
 	load_thread(NEWS_FILE, &news_list, NOTE_NEWS, 0);
 	load_thread(CHANGES_FILE, &changes_list,NOTE_CHANGES, 0);
+}
+
+void
+note_post(note_t *note)
+{
+	FILE *fp;
+	const char *name;
+	note_t **list;
+	note_t *last;
+
+	note->next	= NULL;
+	note->date	= str_dup(strtime(current_time));
+	note->date_stamp= current_time;
+
+	switch (note->type) {
+	default:
+		return;
+	case NOTE_NOTE:
+		name = NOTE_FILE;
+		list = &note_list;
+		break;
+	case NOTE_IDEA:
+		name = IDEA_FILE;
+		list = &idea_list;
+		break;
+	case NOTE_PENALTY:
+		name = PENALTY_FILE;
+		list = &penalty_list;
+		break;
+	case NOTE_NEWS:
+		 name = NEWS_FILE;
+		 list = &news_list;
+		 break;
+	case NOTE_CHANGES:
+		 name = CHANGES_FILE;
+		 list = &changes_list;
+		 break;
+	}
+
+	if (*list == NULL)
+		*list = note;
+	else {
+		for (last = *list; last->next; last = last->next);
+			last->next = note;
+	}
+
+	if ((fp = dfopen(NOTES_PATH, name, "a")) == NULL) 
+		return;
+	fwrite_note(fp, note);
+        fclose(fp);
 }
 
 void fwrite_note(FILE *fp, note_t *pnote)

@@ -1,5 +1,5 @@
 /*
- * $Id: note.h,v 1.1 1999-06-28 09:04:16 fjoe Exp $
+ * $Id: note.h,v 1.1.2.1 2002-10-16 11:29:58 tatyana Exp $
  */
 
 /***************************************************************************
@@ -67,6 +67,7 @@ void		free_note	(note_t *note);
 
 void		load_notes	(void);
 void		save_notes	(int);
+void		note_post	(note_t *note);
 
 void		fwrite_note	(FILE *fp, note_t *pnote);
 

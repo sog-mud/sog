@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.4.2.4 2002-08-30 07:41:22 tatyana Exp $
+ * $Id: note.c,v 1.4.2.5 2002-10-16 11:30:01 tatyana Exp $
  */
 
 /***************************************************************************
@@ -126,7 +126,6 @@ void do_changes(CHAR_DATA *ch,const char *argument)
 
 static void note_show(BUFFER *buf, note_t *pnote, int vnum);
 static const char *note_quote(note_t *pnote);
-static void append_note(note_t *pnote);
 static void update_read(CHAR_DATA *ch, note_t *pnote);
 static bool is_note_to(CHAR_DATA *ch, note_t *pnote);
 static bool note_attach(CHAR_DATA *ch, int type);
@@ -208,51 +207,6 @@ static const char *note_quote(note_t *pnote)
 	*q = '\0';
 
 	return str_dup(buf);
-}
-
-static void append_note(note_t *pnote)
-{
-	FILE *fp;
-	const char *name;
-	note_t **list;
-	note_t *last;
-
-	switch(pnote->type) {
-	default:
-		return;
-	case NOTE_NOTE:
-		name = NOTE_FILE;
-		list = &note_list;
-		break;
-	case NOTE_IDEA:
-		name = IDEA_FILE;
-		list = &idea_list;
-		break;
-	case NOTE_PENALTY:
-		name = PENALTY_FILE;
-		list = &penalty_list;
-		break;
-	case NOTE_NEWS:
-		 name = NEWS_FILE;
-		 list = &news_list;
-		 break;
-	case NOTE_CHANGES:
-		 name = CHANGES_FILE;
-		 list = &changes_list;
-		 break;
-	}
-
-	if (*list == NULL)
-		*list = pnote;
-	else {
-		for (last = *list; last->next; last = last->next);
-			last->next = pnote;
-	}
-
-	if ((fp = dfopen(NOTES_PATH, name, "a")) == NULL) 
-		return;
-	fwrite_note(fp, pnote);
-        fclose(fp);
 }
 
 static bool is_note_to(CHAR_DATA *ch, note_t *pnote)
@@ -897,11 +851,7 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 
 		char_puts("Posted.\n", ch);
 
-		pc->pnote->next	= NULL;
-		pc->pnote->date	= str_dup(strtime(current_time));
-		pc->pnote->date_stamp= current_time;
-
-		append_note(pc->pnote);
+		note_post(pc->pnote);
 
 		/* Show new note message */
 		for (d = descriptor_list; d; d = d->next) {

@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.126.2.14 2002-02-19 20:43:13 tatyana Exp $
+ * $Id: save.c,v 1.126.2.15 2002-10-16 11:30:03 tatyana Exp $
  */
 
 /***************************************************************************
@@ -54,6 +54,7 @@
 #include "merc.h"
 #include "quest.h"
 #include "db.h"
+#include "bm.h"
 
 /*
  * Array of containers read for proper re-nesting of objects.
@@ -1279,3 +1280,77 @@ void fwrite_affect(AFFECT_DATA *paf, FILE *fp)
 		paf->location, format_flags(paf->bitvector));
 }
 
+void save_black_market()
+{
+	FILE		*fp;
+	bmitem_t	*item;
+	ED_DATA		*ed;
+	AFFECT_DATA	*paf;
+
+	if ((fp = dfopen(ETC_PATH, BLACK_MARKET_CONF, "w")) == NULL)
+		return;
+
+	for (item = bmitem_list; item != NULL && item->obj != NULL; item = item->next) {
+		fprintf(fp, "#ITEM\n");
+		fprintf(fp, "Vnum %d\n", item->obj->pObjIndex->vnum);
+		fprintf(fp, "Cond %d\n", item->obj->condition);
+		mlstr_fwrite(fp, "Owner", &item->obj->owner);
+		if (item->obj->extra_flags != item->obj->pObjIndex->extra_flags)
+			fprintf(fp, "ExtF %s\n", format_flags(item->obj->extra_flags));
+		if (item->obj->level != item->obj->pObjIndex->level)
+			fprintf(fp, "Lev %d\n", item->obj->level);
+		fprintf(fp, "Cost %d\n", item->obj->cost);
+		if (item->obj->value[0] != item->obj->pObjIndex->value[0]
+		||  item->obj->value[1] != item->obj->pObjIndex->value[1]
+		||  item->obj->value[2] != item->obj->pObjIndex->value[2]
+	        ||  item->obj->value[3] != item->obj->pObjIndex->value[3]
+	        ||  item->obj->value[4] != item->obj->pObjIndex->value[4])
+			fprintf(fp, "Val %d %d %d %d %d\n",
+				item->obj->value[0], item->obj->value[1],
+				item->obj->value[2], item->obj->value[3],
+				item->obj->value[4]);
+
+		switch (item->obj->pObjIndex->item_type) {
+		case ITEM_POTION:
+		case ITEM_SCROLL:
+			if (item->obj->value[1] > 0) {
+				fprintf(fp, "Spell 1 '%s'\n",
+					skill_name(item->obj->value[1]));
+			}
+			if (item->obj->value[2] > 0) {
+				fprintf(fp, "Spell 2 '%s'\n",
+					skill_name(item->obj->value[2]));
+			}
+			if (item->obj->value[3] > 0) {
+				fprintf(fp, "Spell 3 '%s'\n",
+					skill_name(item->obj->value[3]));
+			}
+			break;
+
+		case ITEM_PILL:
+		case ITEM_STAFF:
+		case ITEM_WAND:
+			if (item->obj->value[3] > 0) {
+				fprintf(fp, "Spell 3 '%s'\n",
+					skill_name(item->obj->value[3]));
+			}
+			break;
+		}
+
+		for (paf = item->obj->affected; paf != NULL; paf = paf->next)
+			fwrite_affect(paf, fp);
+
+		for (ed = item->obj->ed; ed != NULL; ed = ed->next) {
+			if (IS_NULLSTR(ed->keyword))
+				continue;
+			fwrite_string(fp, "ExDe", ed->keyword);
+			mlstr_fwrite(fp, NULL, &ed->description);
+		}
+		fwrite_string(fp, "Seller", item->seller);
+		fwrite_string(fp, "Buyer", item->buyer);
+		fprintf(fp, "Bet %d\n", item->bet);
+		fprintf(fp, "End\n\n");
+	}
+	fprintf(fp, "#$\n");
+	fclose(fp);
+}

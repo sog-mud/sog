@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.234.2.32 2002-09-09 19:26:27 tatyana Exp $
+ * $Id: merc.h,v 1.234.2.33 2002-10-16 11:29:57 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1188,9 +1188,9 @@ enum {
 				 IS_SET(PC(ch)->plr_flags, PLR_HARA_KIRI))
 #define IS_CLAN_GUARD(ch)	(IS_NPC(ch) && \
 				 IS_SET(ch->pMobIndex->act, ACT_CLAN_GUARD))
-#define IS_OWNER(ch, obj) (!mlstr_cmp(&ch->short_descr, &obj->owner))
+#define IS_OWNER(ch, obj)	(!mlstr_cmp(&ch->short_descr, &obj->owner))
 
-#define IS_WANTED(ch)	(!IS_NPC(ch) && !IS_NULLSTR(PC(ch)->wanted_by))
+#define IS_WANTED(ch)		(!IS_NPC(ch) && !IS_NULLSTR(PC(ch)->wanted_by))
 #define SET_WANTED(ch, w_by)					\
 {								\
 	if (!IS_NPC(ch)) {					\
