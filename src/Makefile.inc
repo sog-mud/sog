@@ -1,5 +1,5 @@
 #
-# $Id: Makefile.inc,v 1.2.2.5 2003-09-08 17:15:19 fjoe Exp $
+# $Id: Makefile.inc,v 1.2.2.6 2003-09-19 13:46:05 fjoe Exp $
 #
 
 #
@@ -40,6 +40,10 @@ MOD_LDFLAGS=	-shared
 #
 # SoG root
 INSTDIR=	../..
+
+#
+# Doug Lea's malloc
+DLMALLOC_SRCS=	malloc-2.6.5.c
 
 .if !defined(MODULE)
 
