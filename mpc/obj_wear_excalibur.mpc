@@ -1,9 +1,9 @@
 /*
- * $Id: obj_wear_excalibur.mpc,v 1.4 2003-07-21 23:46:11 fjoe Exp $
+ * $Id: obj_wear_excalibur.mpc,v 1.5 2004-06-11 07:45:27 sg Exp $
  */
 
 act("$p begins to shine a bright white.", actor, obj, NULL, TO_ALL);
- 
+
 int level = actor->level;
 int dice_type;
 if (level <= 20)

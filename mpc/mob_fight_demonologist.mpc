@@ -1,14 +1,14 @@
 /*
- * $Id: mob_fight_demonologist.mpc,v 1.3 2003-07-21 23:46:10 fjoe Exp $
+ * $Id: mob_fight_demonologist.mpc,v 1.4 2004-06-11 07:45:27 sg Exp $
  */
- 
+
 if (number_bits(2) != 0)
         return 0;
- 
+
 Char victim = get_random_fighting(mob);
 if (victim == NULL)
         return 0;
- 
+
 int bonus = 3;
 string spell;
 string msg = "$n raises his hands and blood runes etched into the floor explode!";
@@ -49,7 +49,7 @@ if (mob->level >= 25) {
                break;
         }
 }
- 
+
 if (spell == "") {
 
         Char servant;
@@ -70,7 +70,7 @@ if (spell == "") {
         one_hit(servant, victim, NULL, WEAR_WIELD);
         return 0;
 }
- 
+
 act(msg, mob, NULL, NULL, TO_ROOM);
 spellfun(spell, NULL, mob->level + bonus, mob, victim);
 return 0;
