@@ -1,5 +1,5 @@
 /*
- * $Id: quest.c,v 1.8 1998-05-07 07:05:04 fjoe Exp $
+ * $Id: quest.c,v 1.9 1998-05-08 19:25:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -977,7 +977,7 @@ void quest_update(void)
 
 	    if (ch->pcdata->nextquest == 0)
 	    {
-		send_to_char("You may now quest again.\n\r",ch);
+		send_to_char("{*You may now quest again.\n\r",ch);
 		return;
 	    }
 	}

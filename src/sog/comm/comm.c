@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.21 1998-05-07 07:05:00 fjoe Exp $
+ * $Id: comm.c,v 1.22 1998-05-08 19:25:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3387,7 +3387,7 @@ char* color(char type, CHAR_DATA *ch)
         case '8':
 		return C_D_GREY;
         case '*':
-		return "\007";
+		return "\a";
 	case '{':
 		return "{";
 	}

@@ -1,5 +1,5 @@
 /*
- * $Id: act_hera.c,v 1.9 1998-05-08 18:00:49 fjoe Exp $
+ * $Id: act_hera.c,v 1.10 1998-05-08 19:25:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,7 +47,7 @@
 ***************************************************************************/
 
 /*
- * $Id: act_hera.c,v 1.9 1998-05-08 18:00:49 fjoe Exp $
+ * $Id: act_hera.c,v 1.10 1998-05-08 19:25:43 fjoe Exp $
  */
 #include <sys/types.h>
 #include <sys/time.h>
@@ -1219,11 +1219,11 @@ void damage_to_obj(CHAR_DATA *ch,OBJ_DATA *wield, OBJ_DATA *worn, int damage)
  	if ( damage == 0) return;
  		worn->condition -= damage;
 
-	act_puts("{gThe $p inflicts damage on $P.{x",
+	act_puts("{gThe $p inflicts damage on {r$P{g.{x",
 		ch,wield,worn,TO_ROOM,POS_RESTING);
 
 	if (worn->condition < 1) {
-		act_puts("{gThe {W$P{g breaks into pieces.{x",
+		act_puts("{gThe {r$P{g breaks into pieces.{x",
 			ch,wield,worn,TO_ROOM,POS_RESTING);
 		extract_obj(worn);
 		return;
