@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.81 1998-12-01 10:53:54 fjoe Exp $
+ * $Id: quest.c,v 1.82 1998-12-02 13:32:12 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -935,7 +935,7 @@ static bool buy_vampire(CHAR_DATA *ch, CHAR_DATA *questor)
 	act("$N gives secret of undead to $n.", ch, NULL, questor, TO_ROOM);
 	act_puts("$N gives you SECRET of undead.",
 		 ch, NULL, questor, TO_CHAR, POS_DEAD);
-	act("Lightning flashes in the sky.\n", ch, NULL, NULL, TO_ALL);
+	act("Lightning flashes in the sky.", ch, NULL, NULL, TO_ALL);
 	return TRUE;
 }
 

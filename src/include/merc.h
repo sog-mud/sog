@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.122 1998-12-01 10:53:54 fjoe Exp $
+ * $Id: merc.h,v 1.123 1998-12-02 13:32:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -55,6 +55,7 @@
 #include "const.h"
 #include "tables.h"
 #include "comm/comm.h"
+#include "comm/comm_act.h"
 #include "db/gsn.h"
 #include "db/spellfn.h"
 #include "db/msg.h"

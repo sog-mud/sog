@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.92 1998-12-01 10:53:56 fjoe Exp $
+ * $Id: update.c,v 1.93 1998-12-02 13:32:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -851,11 +851,36 @@ int i;
  */
 void weather_update(void)
 {
-	DESCRIPTOR_DATA *d;
+	CHAR_DATA *ch;
 	int diff;
-	if (++time_info.hour == 24) {
+	const char *msg_daytime = NULL;
+	const char *msg_weather = NULL;
+
+	switch (++time_info.hour) {
+	case  5:
+		weather_info.sunlight = SUN_LIGHT;
+		msg_daytime = "The day has begun.";
+		break;
+
+	case  6:
+		weather_info.sunlight = SUN_RISE;
+		msg_daytime = "The sun rises in the east.";
+		break;
+
+	case 19:
+		weather_info.sunlight = SUN_SET;
+		msg_daytime = "The sun slowly disappears in the west.";
+		break;
+
+	case 20:
+		weather_info.sunlight = SUN_DARK;
+		msg_daytime = "The night has begun.";
+		break;
+
+	case 24:
 		time_info.hour = 0;
 		time_info.day++;
+		break;
 	}
 
 	if (time_info.day >= 35) {
@@ -884,93 +909,64 @@ void weather_update(void)
 	weather_info.mmhg  = UMAX(weather_info.mmhg,  960);
 	weather_info.mmhg  = UMIN(weather_info.mmhg, 1040);
 
-	for (d = descriptor_list; d; d = d->next) {
-		BUFFER *output;
-		CHAR_DATA *ch = d->character;
-		char *p;
+	switch (weather_info.sky) {
+	default: 
+		bug("Weather_update: bad sky %d.", weather_info.sky);
+		weather_info.sky = SKY_CLOUDLESS;
+		break;
 
-		if (ch == NULL
-		||  d->connected != CON_PLAYING
-		||  !IS_OUTSIDE(d->character)
-		||  !IS_AWAKE(d->character))
+	case SKY_CLOUDLESS:
+		if (weather_info.mmhg < 990
+		||  (weather_info.mmhg < 1010 && number_bits(2) == 0)) {
+			msg_weather = "The sky is getting cloudy.";
+			weather_info.sky = SKY_CLOUDY;
+		}
+		break;
+
+	case SKY_CLOUDY:
+		if (weather_info.mmhg < 970
+		||  (weather_info.mmhg < 990 && number_bits(2) == 0)) {
+			msg_weather = "It starts to rain.";
+			weather_info.sky = SKY_RAINING;
+		}
+		else if (weather_info.mmhg > 1030 && number_bits(2) == 0) {
+			msg_weather = "The clouds disappear.";
+			weather_info.sky = SKY_CLOUDLESS;
+		}
+		break;
+
+	case SKY_RAINING:
+		if (weather_info.mmhg > 1030
+		||  (weather_info.mmhg > 1010 && number_bits(2) == 0)) {
+			msg_weather = "The rain stopped.";
+			weather_info.sky = SKY_CLOUDY;
+		}
+		else if (weather_info.mmhg < 970 && number_bits(2) == 0) {
+			msg_weather = "Lightning flashes in the sky.";
+			weather_info.sky = SKY_LIGHTNING;
+		}
+		break;
+
+	case SKY_LIGHTNING:
+		if (weather_info.mmhg > 1010
+		||  (weather_info.mmhg > 990 && number_bits(2) == 0)) {
+			msg_weather = "The lightning has stopped.";
+			weather_info.sky = SKY_RAINING;
+		}
+		break;
+	}
+
+	if (!msg_daytime && !msg_weather)
+		return;
+
+	for (ch = char_list; ch; ch = ch->next) {
+		if (IS_NPC(ch) && !HAS_TRIGGER(ch, TRIG_ACT))
+			continue;
+		if (!IS_OUTSIDE(ch) || !IS_AWAKE(ch))
 			continue;
 
-		output = buf_new(ch->lang);
-		switch (time_info.hour) {
-		case  5:
-			weather_info.sunlight = SUN_LIGHT;
-			buf_add(output, "The day has begun.\n");
-			break;
-
-		case  6:
-			weather_info.sunlight = SUN_RISE;
-			buf_add(output, "The sun rises in the east.\n");
-			break;
-
-		case 19:
-			weather_info.sunlight = SUN_SET;
-			buf_add(output, "The sun slowly disappears in the west.\n");
-			break;
-
-		case 20:
-			weather_info.sunlight = SUN_DARK;
-			buf_add(output, "The night has begun.\n");
-			break;
-		}
-
-		switch (weather_info.sky) {
-		default: 
-			bug("Weather_update: bad sky %d.", weather_info.sky);
-			weather_info.sky = SKY_CLOUDLESS;
-			break;
-
-		case SKY_CLOUDLESS:
-			if (weather_info.mmhg < 990
-			|| (weather_info.mmhg < 1010 && number_bits(2) == 0)) {
-				buf_add(output, "The sky is getting cloudy.\n");
-				weather_info.sky = SKY_CLOUDY;
-			}
-			break;
-
-		case SKY_CLOUDY:
-			if (weather_info.mmhg < 970
-			|| (weather_info.mmhg < 990 && number_bits(2) == 0)) {
-				buf_add(output, "It starts to rain.\n");
-				weather_info.sky = SKY_RAINING;
-			}
-
-			if (weather_info.mmhg > 1030 && number_bits(2) == 0) {
-				buf_add(output, "The clouds disappear.\n");
-				weather_info.sky = SKY_CLOUDLESS;
-			}
-			break;
-
-		case SKY_RAINING:
-			if (weather_info.mmhg < 970 && number_bits(2) == 0) {
-				buf_add(output, "Lightning flashes in the sky.\n");
-				weather_info.sky = SKY_LIGHTNING;
-			}
-
-			if (weather_info.mmhg > 1030
-			|| (weather_info.mmhg > 1010 && number_bits(2) == 0)) {
-				buf_add(output, "The rain stopped.\n");
-				weather_info.sky = SKY_CLOUDY;
-			}
-			break;
-
-		case SKY_LIGHTNING:
-			if (weather_info.mmhg > 1010
-			|| (weather_info.mmhg > 990 && number_bits(2) == 0)) {
-				buf_add(output, "The lightning has stopped.\n");
-				weather_info.sky = SKY_RAINING;
-			}
-			break;
-		}
-
-		p = buf_string(output);
-		if (!IS_NULLSTR(p))
-			send_to_char(p, d->character);
-		buf_free(output);
+		act(msg_daytime, ch, NULL, NULL, TO_CHAR);
+		act(msg_weather, ch, NULL, NULL, TO_CHAR);
 	}
 }
 
