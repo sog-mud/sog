@@ -1,5 +1,5 @@
 /*
- * $Id: act_quest.c,v 1.53 1998-07-27 08:45:40 efdi Exp $
+ * $Id: act_quest.c,v 1.54 1998-07-29 10:15:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -156,7 +156,7 @@ struct qitem_data qitem_table[] = {
 	   QUEST_VNUM_SWORD, NULL				},
 
 	{ "the Real Hero's Dagger",	1000, CLASS_NINJA,
-	   QUEST_VNUM_DAGGER, NULL				},
+	   QUEST_VNUM_SWORD, NULL				},
 
 	{ "the Real Hero's Sword",	1000, CLASS_RANGER,
 	   QUEST_VNUM_SWORD, NULL				},

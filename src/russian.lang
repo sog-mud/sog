@@ -1,5 +1,5 @@
 #
-# $Id: russian.lang,v 1.89 1998-07-27 08:45:40 efdi Exp $
+# $Id: russian.lang,v 1.90 1998-07-29 10:15:36 fjoe Exp $
 #
 
 NOTHING  		"Ничего.\n\r",	
@@ -1018,9 +1018,9 @@ TOO_FULL_TO_DRINK	"Твой желудок полон. Ты не можешь выпить ни капли.\n\r"
 N_DRINKS_T_FROM_P	"$n пьет $T из $p."
 YOU_DRINK_T_FROM_P	"Ты пьешь $T из $p."
 YOU_FEEL_DRUNK		"Ты пьянеешь.\n\r"
-YOUR_THIRST_QUENCHED  sexdep  "Ты утолило свю жажду.\n\r"
-			      "Ты утолил свю жажду.\n\r"
-			      "Ты утолила свю жажду.\n\r"
+YOUR_THIRST_QUENCHED  sexdep  "Ты утолило свою жажду.\n\r"
+			      "Ты утолил свою жажду.\n\r"
+			      "Ты утолила свою жажду.\n\r"
 UNWORTHY_CANT_HOLD	"В этот дурацкий контейнер не влезает $p."
 N_UTTERS_THE_WORDS	"$n бормочет, '%s'."
 CONFEDERACY_PRAYS	"$n произносит '{GДа чтоб я под землю провалился!{x'"

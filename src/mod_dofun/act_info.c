@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.105 1998-07-25 21:19:08 efdi Exp $
+ * $Id: act_info.c,v 1.106 1998-07-29 10:15:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1693,109 +1693,82 @@ void do_help(CHAR_DATA *ch, const char *argument)
 }
 
 
-static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, char* output)
+static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 {
-	char const *race;
-	char const *class;
-	char *pk;
-	char *wizi;
-	char clan[MAX_STRING_LENGTH]; 
-	char *afk;
-	char *act;
-	char name[MAX_STRING_LENGTH];
-	char *title;
-	char level[100];
-	int trusted;
+	bool trusted = IS_TRUSTED(ch, LEVEL_IMMORTAL) || ch == wch ||
+		       wch->level >= LEVEL_HERO ||
+		       get_curr_stat(wch, STAT_CHA) < 18;
 
-	/*
-	 * Figure out what to print for class.
-	 */
-	class = class_table[wch->class].who_name;
-	switch (wch->level) {
-		case MAX_LEVEL - 0: class = " IMP    "; break;
-		case MAX_LEVEL - 1: class = " CRE    "; break;
-		case MAX_LEVEL - 2: class = " SUP    "; break;
-		case MAX_LEVEL - 3: class = " DEI    "; break;
-		case MAX_LEVEL - 4: class = " GOD    "; break;
-		case MAX_LEVEL - 5: class = " IMM    "; break;
-		case MAX_LEVEL - 6: class = " DEM    "; break;
-		case MAX_LEVEL - 7: class = " ANG    "; break;
-		case MAX_LEVEL - 8: class = " AVA    "; break;
-	}
+	buf_add(output, "[");
+	if (trusted)
+		buf_printf(output, "{C%3d{x ", wch->level);
+	else
+		buf_add(output, "    ");
 
-	if (IS_IMMORTAL(wch))
-		race = "";
-	else if (RACE(wch) < MAX_PC_RACE)
-		race = pc_race_table[RACE(wch)].who_name;
-	else 
-		race = "     ";
-
-	*clan = '\0';
-	if (ch->clan != CLAN_NONE) {
-		snprintf(clan, MAX_STRING_LENGTH, "[{c%s{x] ",
-			 clan_table[ch->clan].short_name);
-		if (ch->clan != wch->clan) {
-			char *p = clan;
-			while(*p)
-				*p++ = ' ';
-			*(p-4) = '\0'; /* DIRTY patch for colors */
+	if (wch->level >= LEVEL_IMMORTAL) {
+		buf_add(output, "  {G");
+		switch (wch->level) {
+		case IMPLEMENTOR:	buf_add(output, "IMP"); break;
+		case CREATOR:		buf_add(output, "CRE"); break;
+		case SUPREME:		buf_add(output, "SUP"); break;
+		case DEITY:		buf_add(output, "DEI"); break;
+		case GOD:		buf_add(output, "GOD"); break;
+		case IMMORTAL:		buf_add(output, "IMM"); break;
+		case DEMI:		buf_add(output, "DEM"); break;
+		case ANGEL:		buf_add(output, "ANG"); break;
+		case AVATAR:		buf_add(output, "AVA"); break;
 		}
+		buf_add(output, "    ");
 	}
+	else {
+		if (RACE(wch) < MAX_PC_RACE)
+			buf_add(output, pc_race_table[RACE(wch)].who_name);
+		else 
+			buf_add(output, "     ");
+
+		buf_add(output, " {Y");
+		if (trusted)
+			buf_add(output, class_table[wch->class].who_name);
+		else
+			buf_add(output, "   ");
+	}
+
+	buf_add(output, "{x] ");
+
+	if (wch->clan != CLAN_NONE
+	&&  (wch->clan == ch->clan || ch->level >= LEVEL_IMMORTAL))
+		buf_printf(output, "[{c%s{x] ",
+			   clan_table[ch->clan].short_name);
 
 	if (IS_SET(wch->comm, COMM_AFK))
-		afk = "{c[AFK]{x ";
-	else
-		afk = EMPTY_STRING;
+		buf_add(output, "{c[AFK]{x ");
 
 	if (wch->invis_level >= LEVEL_HERO)
-		wizi = "[{WWizi{x] ";
-	else
-		wizi = EMPTY_STRING;
+		buf_add(output, "[{WWizi{x] ");
 
 	if (in_PK(ch, wch) && ch->level < LEVEL_IMMORTAL)
-		pk = "{r[{RPK{r]{x ";
-	else
-		pk = EMPTY_STRING;
+		buf_add(output, "{r[{RPK{r]{x ");
 
-	if(IS_SET(wch->act, PLR_WANTED))
-		act = "{R(WANTED){x";
-	else
-		act = EMPTY_STRING;
+	if (IS_SET(wch->act, PLR_WANTED))
+		buf_add(output, "{R(WANTED){x ");
 
-	if(IS_IMMORTAL(wch))
-		snprintf(name, MAX_STRING_LENGTH, "{W%s{x", wch->name);
+	if (IS_IMMORTAL(wch))
+		buf_printf(output, "{W%s{x", wch->name);
 	else
-		strnzcpy(name, wch->name, MAX_STRING_LENGTH);
+		buf_add(output, wch->name);
 
 	if (IS_NPC(wch))
-		title = " Believer of Chronos";
+		buf_add(output, " Believer of Chronos");
 	else
-		title = wch->pcdata->title;
+		buf_add(output, wch->pcdata->title);
 
-	/*
-	 * Format it up.
-	 */
-	snprintf(level, sizeof(level), "%3d", wch->level);
-	trusted = IS_TRUSTED(ch, LEVEL_IMMORTAL) || ch == wch ||
-		  wch->level >= LEVEL_HERO;
-	sprintf(strend(output), "[{C%s{x %s {Y%s{x] %s%s%s%s%s%s%s{x\n\r",
-		trusted ? level
-			: (get_curr_stat(wch, STAT_CHA) < 18) ? level : "   ",
-		race,
-		class,
-		clan,
-		afk,
-		wizi,
-		pk,
-		act,
-		name,
-		title);
+	buf_add(output, "{x\n\r");
 }
 
 
 void do_who(CHAR_DATA *ch, const char *argument)
 {
-	char output[4 * MAX_STRING_LENGTH];
+	BUFFER *output;
 	DESCRIPTOR_DATA *d;
 	int iClass;
 	int iRace;
@@ -1840,7 +1813,7 @@ void do_who(CHAR_DATA *ch, const char *argument)
 
 		argument = one_argument(argument, arg);
 		if (arg[0] == '\0')
-				break;
+			break;
 
 		if (!str_cmp(arg,"pk")) {
 			fPKRestrict = TRUE;
@@ -1901,7 +1874,7 @@ void do_who(CHAR_DATA *ch, const char *argument)
 	 * Now show matching chars.
 	 */
 	nMatch = 0;
-	output[0] = '\0';
+	output = buf_new(0);
 	for (d = descriptor_list; d != NULL; d = d->next) {
 		CHAR_DATA *wch;
 
@@ -1940,29 +1913,25 @@ void do_who(CHAR_DATA *ch, const char *argument)
 		count += (d->connected == CON_PLAYING);
 
 	max_on = UMAX(count, max_on);
-	sprintf(strend(output),
-		msg(PLAYERS_FOUND, ch),
-		nMatch, max_on);
-	page_to_char(output, ch);
-	return;
+	buf_printf(output, msg(PLAYERS_FOUND, ch), nMatch, max_on);
+	page_to_char(buf_string(output), ch);
+	buf_free(output);
 }
 
 
 /* whois command */
-void do_whois (CHAR_DATA *ch, const char *argument)
+void do_whois(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
-	char output[4*MAX_STRING_LENGTH];
+	BUFFER *output = NULL;
 	DESCRIPTOR_DATA *d;
-	bool found = FALSE;
 
 	one_argument(argument, arg);
 	if (arg[0] == '\0') {
-		send_to_char(msg(MUST_PROVIDE_NAME, ch), ch);
+		char_nputs(MUST_PROVIDE_NAME, ch);
 		return;
 	}
 
-	output[0] = '\0';
 	for (d = descriptor_list; d != NULL; d = d->next) {
 		CHAR_DATA *wch;
 
@@ -1970,27 +1939,29 @@ void do_whois (CHAR_DATA *ch, const char *argument)
 				continue;
 
 		if (d->connected != CON_PLAYING
-		    || (IS_VAMPIRE(d->character)
-		    && !IS_IMMORTAL(ch) && (ch != d->character)))
+		||  (IS_VAMPIRE(d->character)
+		     && !IS_IMMORTAL(ch) && (ch != d->character)))
 				continue;
 
 		wch = (d->original != NULL) ? d->original : d->character;
 
 		if (!can_see(ch,wch))
-				continue;
+			continue;
 
 		if (!str_prefix(arg,wch->name)) {
-			found = TRUE;
+			if (output == NULL)
+				output = buf_new(0);
 			do_who_raw(ch, wch, output);
 		}
 	}
 
-	if (!found) {
-		send_to_char(msg(NO_ONE_THAT_NAME, ch), ch);
+	if (output == NULL) {
+		char_nputs(NO_ONE_THAT_NAME, ch);
 		return;
 	}
 
-	page_to_char(output, ch);
+	page_to_char(buf_string(output), ch);
+	buf_free(output);
 }
 
 

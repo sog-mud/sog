@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.48 1998-07-25 15:02:41 fjoe Exp $
+ * $Id: update.c,v 1.49 1998-07-29 10:15:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1394,10 +1394,10 @@ void update_obj_affects(OBJ_DATA *obj)
 				paf->level--;
 
         	} else if (paf->duration == 0) {
-			if ((paf_next == NULL
-			     || paf_next->type != paf->type
-			     || paf_next->duration > 0)
-			&&  skill_table[paf->type].msg_obj) {
+			if ((paf_next == NULL || paf_next->type != paf->type ||
+			     paf_next->duration > 0)
+			&&  skill_table[paf->type].msg_obj
+			&&  paf->type > 0) {
 				if (obj->carried_by != NULL) {
 					rch = obj->carried_by;
 					act(skill_table[paf->type].msg_obj,
