@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.20 1998-10-21 05:01:25 fjoe Exp $
+ * $Id: olc_mob.c,v 1.21 1998-10-23 09:23:36 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -80,6 +80,7 @@ DECLARE_OLC_FUN(mobed_trigadd		);  /* ROM */
 DECLARE_OLC_FUN(mobed_trigdel		);  /* ROM */
 DECLARE_OLC_FUN(mobed_prac		); 
 DECLARE_OLC_FUN(mobed_clan		);
+DECLARE_OLC_FUN(mobed_clone		);
 
 OLC_CMD_DATA olc_cmds_mob[] =
 {
@@ -125,6 +126,7 @@ OLC_CMD_DATA olc_cmds_mob[] =
 	{ "clan",	mobed_clan				},
 	{ "trigadd",	mobed_trigadd				},
 	{ "trigdel",	mobed_trigdel				},
+	{ "clone",	mobed_clone				},
 
 	{ "commands",	show_commands				},
 	{ "version",	show_version				},
@@ -1088,6 +1090,75 @@ OLC_FUN(mobed_trigdel)
 	mptrig_fix(pMob);
 
 	char_puts("Trigger removed.\n\r", ch);
+	return TRUE;
+}
+
+OLC_FUN(mobed_clone)
+{
+	MOB_INDEX_DATA *pMob;
+	MOB_INDEX_DATA *pFrom;
+	char arg[MAX_INPUT_LENGTH];
+	int i;
+
+	one_argument(argument, arg);
+	if (!is_number(arg)) {
+		char_puts("Syntax: clone <vnum>\n\r", ch);
+		return FALSE;
+	}
+
+	i = atoi(arg);
+	if ((pFrom = get_mob_index(i)) == NULL) {
+		char_printf(ch, "MobEd: %d: Vnum does not exist.\n\r", i);
+		return FALSE;
+	}
+
+	EDIT_MOB(ch, pMob);
+	if (pMob == pFrom) 
+		return FALSE;
+
+	free_string(pMob->name);
+	pMob->name		= str_dup(pFrom->name);
+	free_string(pMob->material);
+	pMob->material		= str_dup(pFrom->material);
+	mlstr_free(pMob->short_descr);
+	pMob->short_descr	= mlstr_dup(pFrom->short_descr);
+	mlstr_free(pMob->long_descr);
+	pMob->long_descr	= mlstr_dup(pFrom->long_descr);
+	mlstr_free(pMob->description);
+	pMob->description	= mlstr_dup(pFrom->description);
+
+	pMob->spec_fun		= pFrom->spec_fun;
+	pMob->group		= pFrom->group;
+	pMob->act		= pFrom->act;
+	pMob->affected_by	= pFrom->affected_by;
+	pMob->alignment		= pFrom->alignment;
+	pMob->level		= pFrom->level;
+	pMob->hitroll		= pFrom->hitroll;
+	pMob->dam_type		= pFrom->dam_type;
+	pMob->off_flags		= pFrom->off_flags;
+	pMob->imm_flags		= pFrom->imm_flags;
+	pMob->res_flags		= pFrom->res_flags;
+	pMob->vuln_flags	= pFrom->vuln_flags;
+	pMob->start_pos		= pFrom->start_pos;
+	pMob->default_pos	= pFrom->default_pos;
+	pMob->sex		= pFrom->sex;
+	pMob->race		= pFrom->race;
+	pMob->wealth		= pFrom->wealth;
+	pMob->form		= pFrom->form;
+	pMob->parts		= pFrom->parts;
+	pMob->size		= pFrom->size;
+	pMob->practicer		= pFrom->practicer;
+	pMob->clan		= pFrom->clan;
+
+	for (i = 0; i < 3; i++)
+		pMob->hit[i]	= pFrom->hit[i];
+	for (i = 0; i < 3; i++)
+		pMob->mana[i]	= pFrom->mana[i];
+	for (i = 0; i < 3; i++)
+		pMob->damage[i]	= pFrom->damage[i];
+	for (i = 0; i < 4; i++)
+		pMob->ac[i]	= pFrom->ac[i];
+
 	return TRUE;
 }
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.32 1998-10-22 04:31:43 fjoe Exp $
+ * $Id: olc.c,v 1.33 1998-10-23 09:23:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -305,6 +305,10 @@ bool olced_exd(CHAR_DATA *ch, const char* argument, ED_DATA **ped)
 	char command[MAX_INPUT_LENGTH];
 	char keyword[MAX_INPUT_LENGTH];
 	char lang[MAX_INPUT_LENGTH];
+	OLCED_DATA *olced;
+
+	if ((olced = olced_lookup(ch->desc->editor)) == NULL)
+		return FALSE;
 
 	argument = one_argument(argument, command);
 	argument = one_argument(argument, keyword);
@@ -334,7 +338,7 @@ bool olced_exd(CHAR_DATA *ch, const char* argument, ED_DATA **ped)
 	if (!str_cmp(command, "edit")) {
 		ed = ed_lookup(keyword, *ped);
 		if (ed == NULL) {
-			char_puts("Extra description keyword not found.\n\r", ch);
+			char_printf(ch, "%s: Extra description keyword not found.\n\r", olced->name);
 			return FALSE;
 		}
 
@@ -355,7 +359,7 @@ bool olced_exd(CHAR_DATA *ch, const char* argument, ED_DATA **ped)
 		}
 
 		if (ed == NULL) {
-			char_puts("Extra description keyword not found.\n\r", ch);
+			char_printf(ch, "%s: Extra description keyword not found.\n\r", olced->name);
 			return FALSE;
 		}
 
@@ -370,11 +374,27 @@ bool olced_exd(CHAR_DATA *ch, const char* argument, ED_DATA **ped)
 		return TRUE;
 	}
 
+	if (!str_cmp(command, "show")) {
+		BUFFER *output;
+
+		ed = ed_lookup(keyword, *ped);
+		if (ed == NULL) {
+			char_printf(ch, "%s: Extra description keyword not found.\n\r", olced->name);
+			return FALSE;
+		}
+
+		output = buf_new(0);
+		buf_printf(output, "Keyword:     [%s]\n\r", ed->keyword);
+		mlstr_dump(output, "Description: ", ed->description);
+		page_to_char(buf_string(output), ch);
+		buf_free(output);
+		return FALSE;
+	}
 
 	if (!str_cmp(command, "format")) {
 		ed = ed_lookup(keyword, *ped);
 		if (ed == NULL) {
-			char_puts("REdit:  Extra description keyword not found.\n\r", ch);
+			char_printf(ch, "%s: Extra description keyword not found.\n\r", olced->name);
 			return FALSE;
 		}
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.20 1998-10-21 05:01:25 fjoe Exp $
+ * $Id: olc_area.c,v 1.21 1998-10-23 09:23:36 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -70,19 +70,19 @@ OLC_CMD_DATA olc_cmds_area[] =
 	{ "show",	areaed_show				},
 	{ "list",	areaed_list				},
 
-	{ "age",	areaed_age				},
-	{ "area",	areaed_flags,	area_flags		},
-	{ "builders",	areaed_builders				},
-	{ "resetmsg",	areaed_resetmsg				},
-	{ "filename",	areaed_file,	validate_filename	},
 	{ "name",	areaed_name				},
+	{ "filename",	areaed_file,	validate_filename	},
+	{ "area",	areaed_flags,	area_flags		},
+	{ "age",	areaed_age				},
 	{ "reset",	areaed_reset				},
 	{ "security",	areaed_security, validate_security	},
-	{ "minlevel",	areaed_minlevel				},
-	{ "maxlevel",	areaed_maxlevel				},
+	{ "builders",	areaed_builders				},
+	{ "resetmsg",	areaed_resetmsg				},
 	{ "minvnum",	areaed_minvnum,	validate_minvnum	},
 	{ "maxvnum",	areaed_maxvnum,	validate_maxvnum	},
 	{ "credits",	areaed_credits				},
+	{ "minlevel",	areaed_minlevel				},
+	{ "maxlevel",	areaed_maxlevel				},
 
 	{ "commands",	show_commands				},
 	{ "version",	show_version				},

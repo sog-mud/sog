@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.17 1998-10-22 04:38:42 fjoe Exp $
+ * $Id: olc_obj.c,v 1.18 1998-10-23 09:23:37 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -69,6 +69,7 @@ DECLARE_OLC_FUN(objed_material		);
 DECLARE_OLC_FUN(objed_level		);
 DECLARE_OLC_FUN(objed_condition		);
 DECLARE_OLC_FUN(objed_clan		);
+DECLARE_OLC_FUN(objed_clone		);
 
 DECLARE_VALIDATE_FUN(validate_condition);
 
@@ -105,6 +106,7 @@ OLC_CMD_DATA olc_cmds_obj[] =
 	{ "level",	objed_level					},
 	{ "condition",	objed_condition,	validate_condition	},
 	{ "clan",	objed_clan					},
+	{ "clone",	objed_clone					},
 
 	{ "version",	show_version					},
 	{ "commands",	show_commands					},
@@ -425,7 +427,7 @@ OLC_FUN(objed_addaffect)
 		}
 	}
 
-	pAf             = new_affect();
+	pAf             = aff_new();
 	pAf->location   = location;
 	pAf->modifier   = modifier;
 	pAf->where	= where;
@@ -488,7 +490,7 @@ OLC_FUN(objed_addapply)
 		return FALSE;
 	}
 
-	pAf             = new_affect();
+	pAf             = aff_new();
 	pAf->location   = location;
 	pAf->modifier   = atoi(mod);
 	pAf->where	= where;
@@ -544,7 +546,7 @@ OLC_FUN(objed_delaffect)
 	{
 		pAf = pObj->affected;
 		pObj->affected = pAf->next;
-		free_affect(pAf);
+		aff_free(pAf);
 	}
 	else		/* Affect to remove is not the first */
 	{
@@ -554,7 +556,7 @@ OLC_FUN(objed_delaffect)
 		if(pAf_next)		/* See if it's the next affect */
 		{
 			pAf->next = pAf_next->next;
-			free_affect(pAf_next);
+			aff_free(pAf_next);
 		}
 		else                                 /* Doesn't exist */
 		{
@@ -729,6 +731,82 @@ OLC_FUN(objed_clan)
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
 	return olced_clan(ch, argument, objed_clan, &pObj->clan);
+}
+
+OLC_FUN(objed_clone)
+{
+	OBJ_INDEX_DATA *pObj;
+	OBJ_INDEX_DATA *pFrom;
+	char arg[MAX_INPUT_LENGTH];
+	int i;
+	AFFECT_DATA *paf;
+	AFFECT_DATA *paf_next;
+	AFFECT_DATA **ppaf;
+	ED_DATA *ed;
+	ED_DATA *ed_next;
+	ED_DATA **ped;
+
+	one_argument(argument, arg);
+	if (!is_number(arg)) {
+		char_puts("Syntax: clone <vnum>\n\r", ch);
+		return FALSE;
+	}
+
+	i = atoi(arg);
+	if ((pFrom = get_obj_index(i)) == NULL) {
+		char_printf(ch, "ObjEd: %d: Vnum does not exist.\n\r", i);
+		return FALSE;
+	}
+
+	EDIT_OBJ(ch, pObj);
+	if (pObj == pFrom)
+		return FALSE;
+
+	free_string(pObj->name);
+	pObj->name		= str_dup(pFrom->name);
+	free_string(pObj->material);
+	pObj->material		= str_dup(pFrom->material);
+	mlstr_free(pObj->short_descr);
+	pObj->short_descr	= mlstr_dup(pFrom->short_descr);
+	mlstr_free(pObj->description);
+	pObj->description	= mlstr_dup(pFrom->description);
+
+	pObj->item_type		= pFrom->item_type;
+	pObj->extra_flags	= pFrom->extra_flags;
+	pObj->wear_flags	= pFrom->wear_flags;
+	pObj->level		= pFrom->level;
+	pObj->condition		= pFrom->condition;
+	pObj->weight		= pFrom->weight;
+	pObj->cost		= pFrom->cost;
+	pObj->limit		= pFrom->limit;
+	pObj->clan		= pFrom->clan;
+
+	for (i = 0; i < 5; i++)
+		pObj->value[i]	= pFrom->value[i];
+
+/* copy affects */
+	for (paf = pObj->affected; paf; paf = paf_next) {
+		paf_next = paf->next;
+		aff_free(paf);
+	}
+
+	ppaf = &pObj->affected;
+	for (paf = pFrom->affected; paf; paf = paf->next) {
+		*ppaf = aff_dup(paf);
+		ppaf = &(*ppaf)->next;
+	}
+
+/* copy extra descriptions */
+	for (ed = pObj->ed; ed; ed = ed_next) {
+		ed_next = ed->next;
+		ed_free(ed);
+	}
+
+	ped = &pObj->ed;
+	for (ed = pFrom->ed; ed; ed = ed->next) {
+		*ped = ed_dup(ed);
+		ped = &(*ped)->next;
+	}
 }
 
 void show_obj_values(BUFFER *output, OBJ_INDEX_DATA *obj)
