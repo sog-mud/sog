@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.3 2001-06-18 15:05:34 fjoe Exp $
+# $Id: Makefile,v 1.4 2001-06-18 17:11:52 fjoe Exp $
 #
 
 .undef MODULE
@@ -25,4 +25,4 @@ CFLAGS+=	-DMPC
 
 .endif
 
-YFLAGS+=	-p mp_
+YFLAGS+=	-p mpc_

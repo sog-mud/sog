@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_impl.h,v 1.2 2001-06-18 15:05:34 fjoe Exp $
+ * $Id: mpc_impl.h,v 1.3 2001-06-18 17:11:52 fjoe Exp $
  */
 
 #ifndef _MPC_CODE_H_
@@ -53,6 +53,7 @@ struct prog_t {
 	hash_t syms;		/**< (sym_t) symbols			*/
 	varr args;		/**< (int) argument type stack		*/
 
+	jmp_buf jmpbuf;		/**< jmp buf				*/
 	varr data;		/**< data stack				*/
 };
 typedef struct prog_t prog_t;

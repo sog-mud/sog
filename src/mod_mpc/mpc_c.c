@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_c.c,v 1.2 2001-06-18 15:05:35 fjoe Exp $
+ * $Id: mpc_c.c,v 1.3 2001-06-18 17:11:52 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -35,6 +35,7 @@
 #include <varr.h>
 #include <hash.h>
 #include <dynafun.h>
+#include <setjmp.h>
 
 #include "_mpc.h"
 
@@ -383,5 +384,8 @@ sym_get(prog_t *prog, symtype_t symtype)
 static void
 mpc_assert(prog_t *prog, const char *ctx, int e, const char *fmt, ...)
 {
-	// XXX longjmp
+	if (!e) {
+		// XXX log error message
+		longjmp(prog->jmpbuf, -1);
+	}
 }

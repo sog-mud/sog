@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.3 2001-06-18 15:05:35 fjoe Exp $
+ * $Id: mpc.y,v 1.4 2001-06-18 17:11:52 fjoe Exp $
  */
 
 /*
@@ -44,6 +44,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include <string.h>
+#include <setjmp.h>
 
 #if defined(MPC)
 #include <dlfcn.h>
@@ -75,13 +76,13 @@
 #endif
 
 #undef yylex
-#define yylex() mp_lex(prog)
+#define yylex() mpc_lex(prog)
 
 #undef yyerror
-#define yyerror(a) mp_error(prog, a)
+#define yyerror(a) mpc_error(prog, a)
 
-#define yysslim mp_sslim
-#define yystacksize mp_stacksize
+#define yysslim mpc_sslim
+#define yystacksize mpc_stacksize
 
 /*--------------------------------------------------------------------
  * argtype stack manipulation functions
@@ -541,10 +542,10 @@ expr_list_ne: expr		{ argtype_push(prog, $1); $$ = 1; }
 
 %%
 
-int	mp_parse(prog_t *prog);
+int	mpc_parse(prog_t *prog);
 
 int
-mp_error(prog_t *prog, const char *errmsg)
+mpc_error(prog_t *prog, const char *errmsg)
 {
 	compile_error(prog, "%s", errmsg);
 	return 1;
@@ -555,7 +556,7 @@ mp_error(prog_t *prog, const char *errmsg)
  */
 
 static int
-mp_getc(prog_t *prog)
+mpc_getc(prog_t *prog)
 {
 	if (prog->cp - prog->text >= prog->textlen)
 		return EOF;
@@ -564,33 +565,62 @@ mp_getc(prog_t *prog)
 }
 
 static void
-mp_ungetc(int ch, prog_t *prog)
+mpc_ungetc(int ch, prog_t *prog)
 {
 	if (prog->cp > prog->text)
 		prog->cp--;
 }
 
+static bool
+gobble(prog_t *prog, int ch)
+{
+	int c = mpc_getc(prog);
+	if (c == ch)
+		return TRUE;
+
+	mpc_ungetc(c, prog);
+	return FALSE;
+}
+
 static void
 skip_comment(prog_t *prog)
 {
-	/* XXX */
+	for (; ;) {
+		switch (mpc_getc(prog)) {
+		case EOF:
+			compile_error(prog, "unterminated comment");
+			return;
+			/* NOTREACHED */
+
+		case '\n':
+			prog->lineno++;
+			break;
+
+		case '*':
+			if (gobble(prog, '/'))
+				return;
+			break;
+		}
+	}
 }
 
 static void
 skip_line(prog_t *prog)
 {
-	/* XXX */
-}
+	for (; ;) {
+		int ch;
 
-static bool
-gobble(prog_t *prog, int ch)
-{
-	int c = mp_getc(prog);
-	if (c == ch)
-		return TRUE;
+		switch ((ch = mpc_getc(prog))) {
+		case EOF:
+			return;
+			/* NOTREACHED */
 
-	mp_ungetc(c, prog);
-	return FALSE;
+		case '\n':
+			mpc_ungetc(ch, prog);
+			return;
+			/* NOTREACHED */
+		}
+	}
 }
 
 #define TRY(c, rv)							\
@@ -670,7 +700,7 @@ type_lookup(const char *typename)
 }
 
 int
-mp_lex(prog_t *prog)
+mpc_lex(prog_t *prog)
 {
 	int ch;
 	static char yytext[MAX_IDENT_LEN];
@@ -681,7 +711,7 @@ mp_lex(prog_t *prog)
 		keyword_t *k;
 		type_t *t;
 
-		switch ((ch = mp_getc(prog))) {
+		switch ((ch = mpc_getc(prog))) {
 		case EOF:
 			return -1;
 			/* NOTREACHED */
@@ -815,13 +845,13 @@ mp_lex(prog_t *prog)
 			}
 
 			for (; ;) {
-				ch = mp_getc(prog);
+				ch = mpc_getc(prog);
 				if (is_hex ? !isxdigit(ch) : !isdigit(ch))
 					break;
 
 				STORE(ch);
 			}
-			mp_ungetc(ch, prog);
+			mpc_ungetc(ch, prog);
 			STORE('\0');
 
 			yylval.number = strtol(yytext, &yyp, 0);
@@ -841,13 +871,13 @@ mp_lex(prog_t *prog)
 
 			STORE(ch);
 			for (; ;) {
-				ch = mp_getc(prog);
+				ch = mpc_getc(prog);
 				if (!IS_IDENT_CH(ch) && !isnumber(ch))
 					break;
 
 				STORE(ch);
 			}
-			mp_ungetc(ch, prog);
+			mpc_ungetc(ch, prog);
 			STORE('\0');
 
 			if ((k = keyword_lookup(yytext)) != NULL)
@@ -998,7 +1028,7 @@ prog_compile(prog_t *prog)
 	hash_erase(&prog->syms);
 	varr_erase(&prog->args);
 
-	if (mp_parse(prog) < 0
+	if (mpc_parse(prog) < 0
 	||  !IS_NULLSTR(buf_string(prog->errbuf)))
 		return -1;
 
@@ -1008,13 +1038,17 @@ prog_compile(prog_t *prog)
 int
 prog_execute(prog_t *prog)
 {
+	int rv;
 	prog->ip = 0;
-	while (prog->ip < prog->code.nused) {
-		c_fun *c = (c_fun *) VARR_GET(&prog->code, prog->ip++);
-		(*c)(prog);
+
+	if ((rv = setjmp(prog->jmpbuf)) == 0) {
+		while (prog->ip < prog->code.nused) {
+			c_fun *c = (c_fun *) VARR_GET(&prog->code, prog->ip++);
+			(*c)(prog);
+		}
 	}
 
-	return 0;
+	return rv;
 }
 
 void
@@ -1047,12 +1081,10 @@ print2(int i, int j)
 }
 
 static dynafun_data_t mpc_dynafun_tab[] = {
-	{ "number_range",	MT_INT, 2,
-		{ MT_INT, MT_INT } },
-	{ "print",		MT_VOID, 1,
-		{ MT_INT } },
-	{ "print2",		MT_VOID, 2,
-		{ MT_INT, MT_INT } },
+	{ "number_range",	MT_INT, 2,	{ MT_INT, MT_INT }	},
+	{ "print",		MT_VOID, 1,	{ MT_INT }		},
+	{ "print2",		MT_VOID, 2,	{ MT_INT, MT_INT }	},
+	{ "nonexistent",	MT_VOID, 0				},
 	{ NULL }
 };
 
@@ -1060,6 +1092,7 @@ const char *mpc_dynafuns[] = {
 	"number_range",
 	"print",
 	"print2",
+	"nonexistent",
 	NULL
 };
 #endif

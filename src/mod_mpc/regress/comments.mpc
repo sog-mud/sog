@@ -1,0 +1,6 @@
+// $Id: comments.mpc,v 1.1 2001-06-18 17:11:53 fjoe Exp $
+/*
+ * comments
+ */ print(0);
+/* comments */ print(1) /*;
+*/;
