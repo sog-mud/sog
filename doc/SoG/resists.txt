@@ -1,5 +1,5 @@
 #
-# $Id: resists.txt,v 1.1 2001-08-17 17:46:58 fjoe Exp $
+# $Id: resists.txt,v 1.2 2001-09-23 17:51:57 fjoe Exp $
 #
 
 This document describes SoG resistances implementation.
@@ -27,7 +27,7 @@ Implementation requirements:
 	bit flags. The following DM's calculated based upon these attributes
 	were in effect:
 	- mob is 'immune' -- damage is totally reduced (by 100%)
-	- mob is 'resistant' -- damage is reduced by 50%
+	- mob is 'resistant' -- damage is reduced by 33%
 	- mob is 'vulnerable' -- damage is increased by 50%
 
 (2) correct behaviour when changing mob race
