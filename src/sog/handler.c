@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.33 2000-10-22 17:58:17 fjoe Exp $
+ * $Id: handler.c,v 1.182.2.34 2000-11-12 19:21:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4275,7 +4275,8 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 					ch, NULL, NULL, TO_CHAR, POS_DEAD);
 				return FALSE;
 			}
-			if (!IS_AFFECTED(ch, AFF_SWIM))	{
+			if (!IS_AFFECTED(ch, AFF_SWIM)
+			&&  !IS_IMMORTAL(ch))	{
 				act_puts("You can't swim.",
 					ch, NULL, NULL, TO_CHAR, POS_DEAD);
 				return FALSE;
