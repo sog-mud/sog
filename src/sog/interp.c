@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.136 1999-05-14 20:09:05 avn Exp $
+ * $Id: interp.c,v 1.137 1999-05-15 09:28:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -389,12 +389,9 @@ cmd_t cmd_table[] =
     { "violate",	do_violate,	POS_DEAD,	ML,  LOG_ALWAYS	},
     { "track",          do_track,       POS_STANDING,    0,  LOG_NORMAL	},
 
-    { "allow",		do_allow,	POS_DEAD,	L2,  LOG_ALWAYS	},
-    { "ban",		do_ban,		POS_DEAD,	L2,  LOG_ALWAYS	},
-    { "deny",		do_deny,	POS_DEAD,	L1,  LOG_ALWAYS	},
+    { "ban",		do_ban,		POS_DEAD,	L2,  LOG_NEVER	},
     { "disconnect",	do_disconnect,	POS_DEAD,	L3,  LOG_ALWAYS	},
     { "freeze",		do_freeze,	POS_DEAD,	L4,  LOG_ALWAYS	},
-    { "permban",	do_permban,	POS_DEAD,	L1,  LOG_ALWAYS	},
     { "protect",	do_protect,	POS_DEAD,	L1,  LOG_ALWAYS	},
     { "reboo",		do_reboo,	POS_DEAD,	L1,  LOG_NEVER, CMD_HIDDEN	},
     { "reboot",		do_reboot,	POS_DEAD,	L1,  LOG_ALWAYS	},

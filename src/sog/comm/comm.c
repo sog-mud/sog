@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.177 1999-05-12 18:54:49 avn Exp $
+ * $Id: comm.c,v 1.178 1999-05-15 09:28:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -132,10 +132,10 @@ void    gettimeofday    args( ( struct timeval *tp, void *tzp ) );
 /*  Definitions for the TELNET protocol. Copied from telnet.h */
 
 #define IAC		255	/* interpret as command: */
-#define DONT	254	/* you are not to use option */
+#define DONT		254	/* you are not to use option */
 #define DO		253	/* please, you use option */
-#define WONT	252	/* I won't use option */
-#define WILL	251	/* I will use option */
+#define WONT		252	/* I won't use option */
+#define WILL		251	/* I will use option */
 #define SB		250	/* interpret as subnegotiation */
 #define GA		249	/* you may reverse the line */
 #define EL		248	/* erase the current line */
@@ -143,12 +143,12 @@ void    gettimeofday    args( ( struct timeval *tp, void *tzp ) );
 #define AYT		246	/* are you there */
 #define AO		245	/* abort output--but let prog finish */
 #define IP		244	/* interrupt process--permanently */
-#define BREAK	243	/* break */
+#define BREAK		243	/* break */
 #define DM		242	/* data mark--for connect. cleaning */
 #define NOP		241	/* nop */
 #define SE		240	/* end sub negotiation */
-#define EOR		239 /* end of record (transparent mode) */
-#define SYNCH	242	/* for telfunc calls */
+#define EOR		239	/* end of record (transparent mode) */
+#define SYNCH		242	/* for telfunc calls */
 
 #define TELOPT_ECHO	1	/* echo */
 #endif
@@ -384,6 +384,7 @@ void free_descriptor(DESCRIPTOR_DATA *d)
 		return;
 
 	free_string(d->host);
+	free_string(d->ip);
 	free(d->outbuf);
 	d->next = descriptor_free;
 	descriptor_free = d;
@@ -1655,14 +1656,16 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		if (d->host == NULL) {
 			size = sizeof(sock);
 			if (getpeername(d->descriptor,
-					(struct sockaddr *) &sock, &size) < 0)
-				d->host = str_dup("(unknown)");
+					(struct sockaddr *) &sock, &size) < 0) {
+				d->ip = str_dup("(unknown)");
+				d->host = str_qdup(d->ip);
+			}
 			else {
+				d->ip = str_dup(inet_ntoa(sock.sin_addr));
 #if defined (WIN32)
-				printf("%s@%s\n", ch->name, inet_ntoa(sock.sin_addr));
+				printf("%s@%s\n", ch->name, d->ip);
 #else
-				fprintf(rfout, "%s@%s\n",
-					ch->name, inet_ntoa(sock.sin_addr));
+				fprintf(rfout, "%s@%s\n", ch->name, d->ip);
 #endif
 				d->connected = CON_RESOLV;
 /* wait until sock.sin_addr gets resolved */
@@ -1683,23 +1686,18 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	 * using automated 'autodialers' and leaving connections hanging.
 	 *
 	 * Furey: added suffix check by request of Nickel of HiddenWorlds.
+	 * fjoe: replaced suffix/prefix checks with fnmatch check
 	 */
-	if (check_ban(d->host,BAN_ALL)) {
-		write_to_buffer(d, "Your site has been banned from this mud.\n\r", 0);
-		close_descriptor(d);
+	if (check_ban(d, BCL_ALL)) 
 		return;
-	}
 
 	if (!IS_IMMORTAL(ch)) {
-		if (check_ban(d->host,BAN_PLAYER)) {
-			write_to_buffer(d,"Your site has been banned for players.\n\r",0);
-			close_descriptor(d);
+		if (check_ban(d, BCL_PLAYERS))
 			return;
-	        }
 
 #undef NO_PLAYING_TWICE
 #ifdef NO_PLAYING_TWICE
-		if(search_sockets(d)) {
+		if (search_sockets(d)) {
 			write_to_buffer(d, "Playing twice is restricted...\n\r", 0);
 			close_descriptor(d);
 			return;
@@ -1722,14 +1720,6 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	  }
 	   }
 	     
-	if (IS_SET(ch->plr_flags, PLR_DENY))
-	{
-	    log_printf("Denying access to %s@%s.", argument, d->host);
-	    write_to_buffer(d, "You are denied access.\n\r", 0);
-	    close_descriptor(d);
-	    return;
-	}
-
 		if (check_reconnect(d, argument, FALSE))
 			REMOVE_BIT(ch->plr_flags, PLR_NEW);
 		else if (wizlock && !IS_HERO(ch)) {
@@ -1753,11 +1743,8 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 				return;
 			}
 
-			if (check_ban(d->host, BAN_NEWBIES)) {
-				write_to_buffer(d, "New players are not allowed from your site.\n\r", 0);
-				close_descriptor(d);
+			if (check_ban(d, BCL_NEWBIES))
 				return;
-			}
  	    
  			do_help(ch, "NAME");
 			d->connected = CON_CONFIRM_NEW_NAME;

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.227 1999-05-14 11:10:57 mud Exp $
+ * $Id: act_info.c,v 1.228 1999-05-15 09:28:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1472,9 +1472,9 @@ void do_time(CHAR_DATA *ch, const char *argument)
 	if (!IS_IMMORTAL(ch))
 		return;
 
-	char_printf(ch, "\nSoG started up at %s\n"
+	char_printf(ch, "\nSoG started up at %s.\n"
 			"The system time is %s.\n"
-			"Reboot in %d minutes\n",
+			"Reboot in %d minutes.\n",
 			str_boot_time, strtime(time(NULL)),reboot_counter);
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.143 1999-05-14 20:09:05 avn Exp $
+ * $Id: act_wiz.c,v 1.144 1999-05-15 09:28:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -50,6 +50,7 @@
 #include <unistd.h>
 #endif
 #include <limits.h>
+#include <fnmatch.h>
 
 #include "merc.h"
 #include "interp.h"
@@ -513,42 +514,6 @@ void do_bamfout(CHAR_DATA *ch, const char *argument)
 		char_printf(ch, "Your poofout is now '%s'\n",
 			    ch->pcdata->bamfout);
 	}
-}
-
-void do_deny(CHAR_DATA *ch, const char *argument)
-{
-	char arg[MAX_INPUT_LENGTH];
-	CHAR_DATA *victim;
-
-	one_argument(argument, arg, sizeof(arg));
-	if (arg[0] == '\0') {
-		char_puts("Deny whom?\n", ch);
-		return;
-	}
-
-	if ((victim = get_char_world(ch, arg)) == NULL) {
-		char_puts("They aren't here.\n", ch);
-		return;
-	}
-
-	if (IS_NPC(victim)) {
-		char_puts("Not on NPC's.\n", ch);
-		return;
-	}
-
-	if (victim->level >= ch->level) {
-		char_puts("You failed.\n", ch);
-		return;
-	}
-
-	SET_BIT(victim->plr_flags, PLR_DENY);
-	char_puts("You are denied access!\n", victim);
-	wiznet("$N denies access to $i",
-		ch, victim, WIZ_PENALTIES, WIZ_SECURE, 0);
-	char_puts("Ok.\n", ch);
-	save_char_obj(victim, FALSE);
-	stop_fighting(victim, TRUE);
-	quit_char(victim, 0);
 }
 
 void do_disconnect(CHAR_DATA *ch, const char *argument)
@@ -3070,22 +3035,33 @@ void do_sockets(CHAR_DATA *ch, const char *argument)
 	for (d = descriptor_list; d; d = d->next) {
 		CHAR_DATA *vch = d->original ? d->original : d->character;
 
-		if (vch) {
-			if (!can_see(ch, vch)
-			||  (arg[0] && !is_name(arg, vch->name)))
-				continue;
-		}
-		else if (arg[0])
+		if (vch && !can_see(ch, vch))
 			continue;
 
+		switch (arg[0]) {
+		case '\0':
+			break;
+
+		case '@':
+			if (fnmatch(arg+1, d->host, FNM_CASEFOLD) != 0)
+				continue;
+			break;
+
+		default:
+			if (!vch || !is_name(arg, vch->name))
+				continue;
+			break;
+		}
+
 		count++;
-		buf_printf(output, "[%3d %2d] %s@%s",
+		buf_printf(output, "[%3d %2d] %s@%s (%s)",
 			   d->descriptor,
 			   d->connected,
 			   vch ? vch->name : "(none)",
-			   d->host);
+			   d->host,
+			   d->ip);
 		if (vch && vch->timer)
-			buf_printf(output, " (idle %d)", vch->timer);
+			buf_printf(output, " idle %d", vch->timer);
 		buf_add(output, "\n");
 	}
 

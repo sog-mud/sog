@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.59 1999-05-14 20:09:07 avn Exp $
+ * $Id: tables.c,v 1.60 1999-05-15 09:28:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -45,6 +45,7 @@
 #include <time.h>
 #include "merc.h"
 #include "db/lang.h"
+#include "comm/ban.h"
 
 /*
  * first element of each flag_t[] table describes type of values
@@ -139,7 +140,6 @@ flag_t plr_flags[] =
 	{ "nofollow",		PLR_NOFOLLOW,		FALSE	},
 	{ "permit",		PLR_PERMIT,		TRUE	},
 	{ "log",		PLR_LOG,		FALSE	},
-	{ "deny",		PLR_DENY,		FALSE	},
 	{ "freeze",		PLR_FREEZE,		FALSE	},
 	{ "wanted",		PLR_WANTED,		FALSE	},
 	{ "ghost",		PLR_GHOST,		FALSE	},
@@ -1157,7 +1157,7 @@ flag_t rulecl_flags[] =
 
 flag_t note_types[] =
 {
-	{ "",			TABLE_INTVAL,			},
+	{ "",			TABLE_INTVAL			},
 
 	{ "note",		NOTE_NOTE			},
 	{ "idea",		NOTE_IDEA			},
@@ -1170,9 +1170,30 @@ flag_t note_types[] =
 
 flag_t options_table[] =
 {
-	{ "",			TABLE_BITVAL,			},
+	{ "",			TABLE_BITVAL			},
 
 	{ "ascii_only_names",	OPT_ASCII_ONLY_NAMES		},
+
+	{ NULL }
+};
+
+flag_t ban_actions[] =
+{
+	{ "",			TABLE_INTVAL			},
+
+	{ "allow",		BA_ALLOW			},
+	{ "deny",		BA_DENY				},
+
+	{ NULL }
+};
+
+flag_t ban_classes[] =
+{
+	{ "",			TABLE_INTVAL			},
+
+	{ "all",		BCL_ALL				},
+	{ "players",		BCL_PLAYERS			},
+	{ "newbies",		BCL_NEWBIES			},
 
 	{ NULL }
 };

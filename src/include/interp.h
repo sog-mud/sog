@@ -1,5 +1,5 @@
 /*
- * $Id: interp.h,v 1.46 1999-05-14 20:09:06 avn Exp $
+ * $Id: interp.h,v 1.47 1999-05-15 09:28:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -59,7 +59,6 @@ DECLARE_DO_FUN(do_affects	);
 DECLARE_DO_FUN(do_affrooms	);
 DECLARE_DO_FUN(do_alia		);
 DECLARE_DO_FUN(do_alias		);
-DECLARE_DO_FUN(do_allow		);
 DECLARE_DO_FUN(do_ambush	);
 DECLARE_DO_FUN(do_areas		);
 DECLARE_DO_FUN(do_assassinate	);
@@ -119,7 +118,6 @@ DECLARE_DO_FUN(do_deaf		);
 DECLARE_DO_FUN(do_delet		);
 DECLARE_DO_FUN(do_delete	);
 DECLARE_DO_FUN(do_demand	);
-DECLARE_DO_FUN(do_deny		);
 DECLARE_DO_FUN(do_deposit	);
 DECLARE_DO_FUN(do_description	);
 DECLARE_DO_FUN(do_detect_hidden	);

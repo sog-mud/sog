@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.183 1999-05-14 20:09:06 avn Exp $
+ * $Id: merc.h,v 1.184 1999-05-15 09:28:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -214,6 +214,7 @@ struct descriptor_data
 	CHAR_DATA * 		character;
 	CHAR_DATA *	 	original;
 	const char *		host;
+	const char *		ip;
 	int			descriptor;
 	int			connected;
 	int 			wait_for_se;
@@ -1118,7 +1119,6 @@ enum {
 /* penalty flags */
 #define PLR_PERMIT		(U)
 #define PLR_LOG 		(W)
-#define PLR_DENY		(X)
 #define PLR_FREEZE		(Y)
 #define PLR_PUMPED		(Z)	/* adrenalin is gushing */
 #define PLR_PRACTICER		(aa)

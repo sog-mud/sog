@@ -1,5 +1,5 @@
 /*
- * $Id: ban.c,v 1.31 1999-04-15 10:28:19 fjoe Exp $
+ * $Id: ban.c,v 1.32 1999-05-15 09:28:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -49,7 +49,7 @@
 #include <unistd.h>
 #endif
 #include <stdio.h>
-#include <ctype.h>
+#include <fnmatch.h>
 
 #include "merc.h"
 #include "ban.h"
@@ -58,311 +58,263 @@
 ban_t*	new_ban	(void);
 void	free_ban(ban_t *ban);
 
+DECLARE_DO_FUN(do_help);
+
 struct ban_t
 {
-	ban_t*		next;
-	flag32_t	ban_flags;
-	int		level;
-	const char*	name;
+	int		ban_num;
+	flag32_t	ban_action;
+	flag32_t	ban_class;
+	const char *	ban_mask;
+	ban_t *		next;
 };
 
 ban_t *ban_list;
-ban_t *ban_free;
 
-ban_t *new_ban(void)
+const char *format_ban(ban_t *);
+void save_bans();
+
+void ban_add(CHAR_DATA *ch, const char *argument);
+void ban_delete(CHAR_DATA *ch, const char *argument);
+
+DO_FUN(do_ban)
 {
-    static ban_t ban_zero;
-    ban_t *ban;
+	char arg[MAX_INPUT_LENGTH];
 
-    if (ban_free == NULL)
-	ban = alloc_perm(sizeof(*ban));
-    else
-    {
-	ban = ban_free;
-	ban_free = ban_free->next;
-    }
+	argument = one_argument(argument, arg, sizeof(arg));
 
-    *ban = ban_zero;
-    ban->name = str_empty;
-    return ban;
-}
+	if (arg[0] == '\0') {
+		ban_t *pban;
 
-void free_ban(ban_t *ban)
-{
-    free_string(ban->name);
+		if (ban_list == NULL) {
+			char_puts("No ban rules defined.\n", ch);
+			return;
+  		}
 
-    ban->next = ban_free;
-    ban_free = ban;
-}
-
-void save_bans(void)
-{
-    ban_t *pban;
-    FILE *fp;
-    bool found = FALSE;
-
-    if ((fp = dfopen(ETC_PATH, BAN_FILE, "w")) == NULL)
+		char_puts("Ban rules:\n", ch);
+		for (pban = ban_list; pban; pban = pban->next)
+			char_printf(ch, "%s\n", format_ban(pban));
 		return;
-
-    for (pban = ban_list; pban != NULL; pban = pban->next)
-    {
-	if (IS_SET(pban->ban_flags,BAN_PERMANENT))
-	{
-	    found = TRUE;
-	    log_printf("%-20s %-2d %s\n", pban->name, pban->level,
-			format_flags(pban->ban_flags));
-	    fprintf(fp,"%-20s %-2d %s\n",pban->name,pban->level,
-		format_flags(pban->ban_flags));
 	}
-     }
 
-     fclose(fp);
+	if (!str_prefix(arg, "add"))
+		ban_add(ch, argument);
+	else if (!str_prefix(arg, "delete"))
+		ban_delete(ch, argument);
+	else
+		do_help(ch, "'WIZ BAN'");
+}
 
-     if (!found)
-	dunlink(ETC_PATH, BAN_FILE);
+const char *format_ban(ban_t *pban)
+{
+	static char buf[MAX_STRING_LENGTH];
+
+	snprintf(buf, sizeof(buf), "%9d %5s %7s %s",
+		 pban->ban_num,
+		 flag_string(ban_actions, pban->ban_action),
+		 flag_string(ban_classes, pban->ban_class),
+		 pban->ban_mask);
+	return buf;
+}
+
+/*
+ * ban_add must work properly if ch == NULL
+ */
+
+#define BAN_ERROR(ch, arg)			\
+{						\
+	if (ch)					\
+		do_help(ch, "'WIZ BAN'");	\
+	else					\
+		log_printf arg;			\
+}
+
+void ban_add(CHAR_DATA *ch, const char *argument)
+{
+	char arg[MAX_INPUT_LENGTH];
+
+	int ban_num;
+	int ban_action;
+	int ban_class; 
+
+	ban_t *b_prev;
+	ban_t *b;
+	ban_t *bnew;
+
+	/*
+	 * parse arguments in form "num action class mask"
+	 */
+	argument = one_argument(argument, arg, sizeof(arg));
+	if (!is_number(arg)) {
+		BAN_ERROR(ch, ("do_ban: 'num' argument must be an integer"));
+		return;
+	}
+	ban_num = atoi(arg);
+
+	argument = one_argument(argument, arg, sizeof(arg));
+	if ((ban_action = flag_value(ban_actions, arg)) < 0) {
+		BAN_ERROR(ch, ("do_ban: %s: unknown ban action", arg));
+		return;
+	}
+
+	argument = one_argument(argument, arg, sizeof(arg));
+	if ((ban_class = flag_value(ban_classes, arg)) < 0) {
+		BAN_ERROR(ch, ("do_ban: %s: unknown ban class", arg));
+		return;
+	}
+
+	one_argument(argument, arg, sizeof(arg));
+	if (arg[0] == '\0') {
+		BAN_ERROR(ch, ("do_ban: no ban mask specified"));
+		return;
+	}
+
+	b_prev = NULL;
+	for (b = ban_list; b; b_prev = b, b = b->next) {
+		if (b->ban_num == ban_num) {
+			if (ch)
+				char_printf(ch, "do_ban: rule %d already exists.\n", ban_num);
+			else
+				log_printf("do_ban: rule %d already exists.\n", ban_num);
+			return;
+		}
+		if (b->ban_num > ban_num)
+			break;
+	}
+
+	bnew = malloc(sizeof(ban_t));
+	bnew->ban_num = ban_num;
+	bnew->ban_action = ban_action;
+	bnew->ban_class = ban_class;
+	bnew->ban_mask = str_dup(arg);
+
+	if (!b_prev) {
+		bnew->next = ban_list;
+		ban_list = bnew;
+	} else {
+		bnew->next = b;
+		b_prev->next = bnew;
+	}
+
+	if (ch) {
+		char_printf(ch, "do_ban: rule added.\n");
+		log_printf("Log %s: ban add %s", ch->name, format_ban(bnew));
+		save_bans();
+	}
+}
+
+void ban_delete(CHAR_DATA *ch, const char *argument)
+{
+	char arg[MAX_INPUT_LENGTH];
+	int ban_num;
+
+	ban_t *prev;
+	ban_t *curr;
+
+	one_argument(argument, arg, sizeof(arg));
+	if (!is_number(arg)) {
+		do_help(ch, "'WIZ BAN'");
+		return;
+	}
+
+	ban_num = atoi(arg);
+	prev = NULL;
+	for (curr = ban_list; curr; prev = curr, curr = curr->next)
+		if (curr->ban_num == ban_num)
+			break;
+
+	if (!curr) {
+		char_printf(ch, "do_ban: rule %d not found.\n", ban_num);
+		return;
+	}
+
+	if (prev == NULL)
+		ban_list = ban_list->next;
+	else
+		prev->next = curr->next;
+
+	free_string(curr->ban_mask);
+	free(curr);
+
+	char_printf(ch, "do_ban: rule %d deleted.\n", ban_num);
+	log_printf("Log %s: ban delete %d", ch->name, ban_num);
+	save_bans();
 }
 
 void load_bans(void)
 {
-    FILE *fp;
-    ban_t *ban_last;
+	FILE *fp;
+	char buf[MAX_INPUT_LENGTH];
  
 	if (!dfexist(ETC_PATH, BAN_FILE))
 		return;
 
-    if ((fp = dfopen(ETC_PATH, BAN_FILE, "r")) == NULL)
-        return;
+	if ((fp = dfopen(ETC_PATH, BAN_FILE, "r")) == NULL)
+		return;
  
-    ban_last = NULL;
-    for (; ;)
-    {
-        ban_t *pban;
-        if (feof(fp))
-        {
-            fclose(fp);
-            return;
-        }
- 
-        pban = new_ban();
- 
-        pban->name = str_dup(fread_word(fp));
-	pban->level = fread_number(fp);
-	pban->ban_flags = fread_flags(fp);
-	fread_to_eol(fp);
+	while (fgets(buf, sizeof(buf), fp)) {
+		char arg[MAX_INPUT_LENGTH];
+		char *p;
+		const char *argument = buf;
 
-        if (ban_list == NULL)
-	    ban_list = pban;
-	else
-	    ban_last->next = pban;
-	ban_last = pban;
-    }
-}
+		if ((p = strchr(buf, '\n'))) 
+			*p = '\0';
 
-bool check_ban(const char *site, int type)
-{
-    ban_t *pban;
-    char host[MAX_STRING_LENGTH];
+		one_argument(argument, arg, sizeof(arg));
+		if (arg[0] == '\0')
+			continue;
 
-    strnzcpy(host, sizeof(host), capitalize(site));
-    host[0] = LOWER(host[0]);
-
-    for (pban = ban_list; pban != NULL; pban = pban->next) 
-    {
-	if(!IS_SET(pban->ban_flags,type))
-	    continue;
-
-	if (IS_SET(pban->ban_flags,BAN_PREFIX) 
-	&&  IS_SET(pban->ban_flags,BAN_SUFFIX)  
-	&&  strstr(pban->name,host) != NULL)
-	    return TRUE;
-
-	if (IS_SET(pban->ban_flags,BAN_PREFIX)
-	&&  !str_suffix(pban->name,host))
-	    return TRUE;
-
-	if (IS_SET(pban->ban_flags,BAN_SUFFIX)
-	&&  !str_prefix(pban->name,host))
-	    return TRUE;
-    }
-
-    return FALSE;
-}
-
-
-void ban_site(CHAR_DATA *ch, const char *argument, bool fPerm)
-{
-    char arg1[MAX_INPUT_LENGTH], arg2[MAX_INPUT_LENGTH];
-    char *name;
-    BUFFER *buffer;
-    ban_t *pban, *prev;
-    bool prefix = FALSE,suffix = FALSE;
-    int type;
-
-    argument = one_argument(argument, arg1, sizeof(arg1));
-    argument = one_argument(argument, arg2, sizeof(arg2));
-
-	if (arg1[0] == '\0') {
-		if (ban_list == NULL) {
-			char_puts("No sites banned at this time.\n",ch);
-			return;
-  		}
-
-		buffer = buf_new(-1);
-
-        	buf_add(buffer, "Banned sites  level  type     status\n");
-		for (pban = ban_list;pban != NULL;pban = pban->next) {
-			char buf2[MAX_STRING_LENGTH];
-
-			snprintf(buf2, sizeof(buf2), "%s%s%s",
-				IS_SET(pban->ban_flags,BAN_PREFIX) ? "*" : str_empty,
-				pban->name,
-				IS_SET(pban->ban_flags,BAN_SUFFIX) ? "*" : str_empty);
-
-			buf_printf(buffer,"%-12s    %-3d  %-7s  %s\n",
-				buf2, pban->level,
-				IS_SET(pban->ban_flags,BAN_NEWBIES) ?
-					"newbies" :
-				IS_SET(pban->ban_flags,BAN_PLAYER)  ?
-					"player" :
-				IS_SET(pban->ban_flags,BAN_PERMIT)  ?
-					"permit" :
-				IS_SET(pban->ban_flags,BAN_ALL)     ?
-					"all"	: str_empty,
-	    			IS_SET(pban->ban_flags,BAN_PERMANENT) ?
-					"perm" : "temp");
-		}
-
-        	page_to_char(buf_string(buffer), ch);
-		buf_free(buffer);
-        	return;
+		ban_add(NULL, buf);
 	}
 
-    /* find out what type of ban */
-    if (arg2[0] == '\0' || !str_prefix(arg2,"all"))
-	type = BAN_ALL;
-    else if (!str_prefix(arg2,"newbies"))
-	type = BAN_NEWBIES;
-    else if (!str_prefix(arg2,"player"))
-	type = BAN_PLAYER;
-    else if (!str_prefix(arg2,"permit"))
-	type = BAN_PERMIT;
-    else
-    {
-	char_puts("Acceptable ban types are all, newbies, player, and permit.\n",
-	    ch); 
-	return;
-    }
-
-    name = arg1;
-
-    if (name[0] == '*')
-    {
-	prefix = TRUE;
-	name++;
-    }
-
-    if (name[strlen(name) - 1] == '*')
-    {
-	suffix = TRUE;
-	name[strlen(name) - 1] = '\0';
-    }
-
-    if (strlen(name) == 0)
-    {
-	char_puts("You have to ban SOMETHING.\n",ch);
-	return;
-    }
-
-    prev = NULL;
-    for (pban = ban_list; pban != NULL; prev = pban, pban = pban->next)
-    {
-        if (!str_cmp(name,pban->name))
-        {
-	    if (pban->level > ch->level)
-	    {
-            	char_puts("That ban was set by a higher power.\n", ch);
-            	return;
-	    }
-	    else
-	    {
-		if (prev == NULL)
-		    ban_list = pban->next;
-		else
-		    prev->next = pban->next;
-		free_ban(pban);
-	    }
-        }
-    }
-
-    pban = new_ban();
-    pban->name = str_dup(name);
-    pban->level = ch->level;
-
-    /* set ban type */
-    pban->ban_flags = type;
-
-    if (prefix)
-	SET_BIT(pban->ban_flags,BAN_PREFIX);
-    if (suffix)
-	SET_BIT(pban->ban_flags,BAN_SUFFIX);
-    if (fPerm)
-	SET_BIT(pban->ban_flags,BAN_PERMANENT);
-
-    pban->next  = ban_list;
-    ban_list    = pban;
-    save_bans();
-    char_printf(ch, "%s has been banned.\n",pban->name);
-    return;
+	fclose(fp);
 }
 
-void do_ban(CHAR_DATA *ch, const char *argument)
+void save_bans(void)
 {
-    ban_site(ch,argument,FALSE);
-}
+	ban_t *pban;
+	FILE *fp;
 
-void do_permban(CHAR_DATA *ch, const char *argument)
-{
-    ban_site(ch,argument,TRUE);
-}
-
-void do_allow(CHAR_DATA *ch, const char *argument)                        
-{
-    char arg[MAX_INPUT_LENGTH];
-    ban_t *prev;
-    ban_t *curr;
-
-    one_argument(argument, arg, sizeof(arg));
-
-    if (arg[0] == '\0')
-    {
-        char_puts("Remove which site from the ban list?\n", ch);
-        return;
-    }
-
-    prev = NULL;
-    for (curr = ban_list; curr != NULL; prev = curr, curr = curr->next)
-    {
-        if (!str_cmp(arg, curr->name))
-        {
-	    if (curr->level > ch->level)
-	    {
-		char_puts(
-		   "You are not powerful enough to lift that ban.\n",ch);
+	if (!ban_list) {
+		dunlink(ETC_PATH, BAN_FILE);
 		return;
-	    }
-            if (prev == NULL)
-                ban_list   = ban_list->next;
-            else
-                prev->next = curr->next;
+	}
 
-            free_ban(curr);
-	    char_printf(ch,"Ban on %s lifted.\n",arg);
-	    save_bans();
-            return;
-        }
-    }
+	if ((fp = dfopen(ETC_PATH, BAN_FILE, "w")) == NULL)
+		return;
 
-    char_puts("Site is not banned.\n", ch);
-    return;
+	for (pban = ban_list; pban; pban = pban->next)
+		fprintf(fp,"%s\n", format_ban(pban));
+
+	fclose(fp);
 }
 
+int check_ban(DESCRIPTOR_DATA *d, int ban_class)
+{
+	ban_t *pban;
+	int ban_action = BA_ALLOW;
+
+	const char *m1 = str_printf("%s@%s", d->character->name, d->host);
+	const char *m2 = str_printf("%s@%s", d->character->name, d->ip);
+
+	for (pban = ban_list; pban; pban = pban->next) {
+		if (pban->ban_class != ban_class)
+			continue;
+
+		if (!fnmatch(pban->ban_mask, m1, FNM_CASEFOLD)
+		||  !fnmatch(pban->ban_mask, m2, FNM_CASEFOLD)) {
+			ban_action = pban->ban_action;
+			break;
+		}
+	}
+
+	free_string(m1);
+	free_string(m2);
+
+	if (ban_action == BA_DENY) {
+		write_to_buffer(d, "You are banned from this mud.\n\r", 0);
+		close_descriptor(d);
+	}
+
+	return ban_action;
+}

@@ -1,5 +1,5 @@
 /*
- * $Id: ban.h,v 1.3 1998-10-06 13:19:50 fjoe Exp $
+ * $Id: ban.h,v 1.4 1999-05-15 09:28:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -43,17 +43,19 @@
 #ifndef _BAN_H_
 #define _BAN_H_
 
-/*
- * Site ban structure.
- */
-#define BAN_SUFFIX		A
-#define BAN_PREFIX		B
-#define BAN_NEWBIES		C
-#define BAN_ALL 		D
-#define BAN_PERMIT		E
-#define BAN_PERMANENT		F
-#define BAN_PLAYER		G
+/* ban actions */
+enum {
+	BA_ALLOW,
+	BA_DENY
+};
 
-bool	check_ban	(const char *site, int type);
+/* ban classes */
+enum {
+	BCL_ALL,
+	BCL_PLAYERS,
+	BCL_NEWBIES
+};
+
+int	check_ban(DESCRIPTOR_DATA *d, int ban_class);
 
 #endif
