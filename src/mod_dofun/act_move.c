@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.209 1999-12-03 11:57:13 fjoe Exp $
+ * $Id: act_move.c,v 1.210 1999-12-06 14:07:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -478,7 +478,7 @@ void do_pick(CHAR_DATA *ch, const char *argument)
 	int door;
 	int chance;
 
-	if ((chance = get_skill(ch, "pick")) == 0) {
+	if ((chance = get_skill(ch, "pick lock")) == 0) {
 		char_puts("Huh?\n", ch);
 		return;
 	}
@@ -495,7 +495,7 @@ void do_pick(CHAR_DATA *ch, const char *argument)
 		  return;
 	}
 
-	WAIT_STATE(ch, skill_beats("pick"));
+	WAIT_STATE(ch, skill_beats("pick lock"));
 
 	/* look for guards */
 	for (gch = ch->in_room->people; gch; gch = gch->next_in_room) {
@@ -510,7 +510,7 @@ void do_pick(CHAR_DATA *ch, const char *argument)
 
 	if (!IS_NPC(ch) && number_percent() > chance) {
 		char_puts("You failed.\n", ch);
-		check_improve(ch, "pick", FALSE, 2);
+		check_improve(ch, "pick lock", FALSE, 2);
 		return;
 	}
 
@@ -540,7 +540,7 @@ void do_pick(CHAR_DATA *ch, const char *argument)
 		    REMOVE_BIT(INT(obj->value[1]),EX_LOCKED);
 		    act_puts("You pick the lock on $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
 		    act("$n picks the lock on $p.", ch, obj, NULL, TO_ROOM);
-		    check_improve(ch, "pick", TRUE, 2);
+		    check_improve(ch, "pick lock", TRUE, 2);
 		    return;
 		}
 
@@ -560,7 +560,7 @@ void do_pick(CHAR_DATA *ch, const char *argument)
 		REMOVE_BIT(INT(obj->value[1]), CONT_LOCKED);
 		act_puts("You pick the lock on $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
 		act("$n picks the lock on $p.", ch, obj, NULL, TO_ROOM);
-		check_improve(ch, "pick", TRUE, 2);
+		check_improve(ch, "pick lock", TRUE, 2);
 		return;
 	}
 
@@ -583,7 +583,7 @@ void do_pick(CHAR_DATA *ch, const char *argument)
 		REMOVE_BIT(pexit->exit_info, EX_LOCKED);
 		char_puts("*Click*\n", ch);
 		act("$n picks the $d.", ch, NULL, pexit->keyword, TO_ROOM);
-		check_improve(ch, "pick", TRUE, 2);
+		check_improve(ch, "pick lock", TRUE, 2);
 
 		/* pick the other side */
 		if ((to_room   = pexit->to_room.r           ) != NULL
