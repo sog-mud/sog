@@ -1,5 +1,5 @@
 #
-# $Id: mprogs.txt,v 1.9 2001-09-30 20:09:15 fjoe Exp $
+# $Id: mprogs.txt,v 1.10 2001-11-14 15:15:10 tatyana Exp $
 #
 
 MPC code style
@@ -96,6 +96,10 @@ obj obj_in_world()
 MPC functions:
 --------------
 
+acid_effect(char ch, int num, int dam)
+  вешает (пытается повесить) на чара ch acid effect
+  уровня num, наносится урон dam
+
 act(string msg, char ch, void arg1, void arg2, int act_flags)
   выводит сообщение msg
   act_flags: TO_CHAR    -- чару ch
@@ -155,8 +159,17 @@ cast_char(string sn, char ch, char victim)
 cast_obj(string sn, char ch, obj p)
   чаром ch на объект p накладывается заклинание/молитва sn
 
+int char_cha(char ch)
+  возвращает charisma чара ch
+
 string char_clan(char ch)
   возвращает clan чара ch
+
+int char_con(char ch)
+  возвращает телосложение чара ch
+
+int char_dex(char ch)
+  возвращает ловкость чара ch
 
 int char_ethos(char ch)
   возвращает ethos чара ch
@@ -174,8 +187,17 @@ string char_hometown(char ch)
   возвращает 'hometown' чара ch, для моба возвращает зону в которой он заресечен
   или (если родился не через reset) зону в которой находится в настоящий момент
 
+int char_int(char ch)
+  возвращает интеллект чара ch
+
 int char_level(char ch)
   возвращает уровень чара (с +lev)
+
+int char_luck(char ch)
+  возвращает удачу чара ch
+
+int char_mana(char ch)
+  возвращает количество mana чара ch
 
 int char_max_hit(char ch)
   возвращает максимальное количество hp чара ch
@@ -186,11 +208,11 @@ int char_max_mana(char ch)
 int char_max_moves(char ch)
   возвращает максимальное количество moves чара ch
 
-int char_mana(char ch)
-  возвращает количество mana чара ch
-
 int char_moves(char ch)
   возвращает количество moves чара ch
+
+bool char_name_is(char ch, string name);
+  является ли name именем для чара ch
 
 int char_position(char ch)
   позиция ch (POS_RESTING, POS_FIGHTING etc.)
@@ -213,8 +235,14 @@ int char_silver(char ch)
 int char_size(char ch)
   возвращает размер чара ch
 
+int char_str(char ch)
+  возвращает силу чара ch
+
 int char_vnum(char ch)
   возвращает vnum чара ch
+
+int char_wis(char ch)
+  возвращает мудрость чара ch
 
 bool close_door(char ch, string door)
   чар ch закрывает (пытается) дверь
@@ -246,12 +274,12 @@ dofun(string name, char ch, string arg)
 drop_obj(char ch, obj p)
   чаром ch бросается обьект p
 
+extract_obj(obj p, int flags)
+  уничтожает обьект p
+
 fire_effect(char ch, int num, int dam)
   вешает (пытается повесить) на чара fire_effect
   уровня num, наносится урон dam
-
-extract_obj(obj p, int flags)
-  уничтожает обьект p
 
 char get_char_area(char ch, string arg)
   чаром ch в арии, где он находится, ищется чар с именем arg
@@ -308,6 +336,9 @@ char get_random_fighting(char ch)
 room get_room_index(int vnum)
   возвращает комнату по ее внуму (NULL, если комнаты с таким внумом нет)
 
+get_skill(char ch, string skill_name)
+  имеется лм у чара указанное умение 
+
 bool give_obj(char ch, char victim, obj p)
   чаром ch чару victim дается объект p (пытается)
 
@@ -343,11 +374,11 @@ bool is_immortal(char ch)
 bool is_mount(char ch, char mob)
   служит ли mob верховым животным для чара ch
 
-bool is_npc(char ch)
-  является ли чар ch мобом (npc)
-
 bool is_neutral(char ch)
   имеет ли чар ch align neutral
+
+bool is_npc(char ch)
+  является ли чар ch мобом (npc)
 
 bool is_owner(char ch, obj p)
   является ли чар ch owner'ом обьекта p
@@ -491,6 +522,9 @@ set_char_silver(char ch, int num)
 set_obj_level(obj p, int level)
   ставит обьекту p уровень level
 
+set_obj_owner(obj p, char ch)
+  owner'ом объекта p делается чар ch
+
 set_obj_timer(obj p, int timer)
   устанавливает таймер на обьект p, длительностью timer
 
@@ -510,6 +544,9 @@ spellfun_call(string fn_sn, string sn, int level, char ch, void vo)
   зовется спеллфункция fn_sn уровня level на аргумент vo (char/obj)
   для чара ch, sn в подавляющем большинстве случаев NULL
 
+tell_char(char ch, char victim, string msg)
+  msg передается от чара ch чару victim посредством tell'а
+
 int time_hour(char ch)
   текущий час (по времени мира)
 
@@ -518,9 +555,6 @@ bool transfer_char(char ch, room r)
 
 bool transfer_group(char ch, room r)
   переносится группа чара ch в комнату r
-
-tell_char(char ch, char victim, string msg)
-  msg передается от чара ch чару victim посредством tell'а
 
 int umax(int i1, int i2)
   максимальное из чисел i1, i2
