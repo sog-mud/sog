@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.66.2.21 2003-02-28 14:12:55 tatyana Exp $
+ * $Id: obj_prog.c,v 1.66.2.22 2004-02-18 23:31:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -427,7 +427,7 @@ int speech_prog_excalibur(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	
 bool sac_prog_excalibur(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
-	if (NPC(ch))
+	if (IS_NPC(ch))
 		return TRUE;
 
 	act("The gods are infuriated!", ch, NULL, NULL, TO_CHAR);
