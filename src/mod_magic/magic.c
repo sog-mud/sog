@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic.c,v 1.7.2.1 1999-12-16 12:40:02 fjoe Exp $
+ * $Id: magic.c,v 1.7.2.2 2000-03-29 14:34:12 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -40,7 +40,9 @@ const char *target_name;
  */
 bool spellbane(CHAR_DATA *bch, CHAR_DATA *ch, int bane_chance, int bane_damage)
 {
-	if (IS_IMMORTAL(bch) || IS_IMMORTAL(ch)) bane_chance = 0;
+	if (IS_IMMORTAL(bch) || IS_IMMORTAL(ch))
+		return FALSE;
+
 	if (HAS_SKILL(bch, gsn_spellbane)
 	&&  number_percent() < bane_chance) {
 		if (ch == bch) {
@@ -50,8 +52,7 @@ bool spellbane(CHAR_DATA *bch, CHAR_DATA *ch, int bane_chance, int bane_damage)
 			    ch, NULL, NULL, TO_ROOM);
 			damage(ch, ch, bane_damage, gsn_spellbane,
 			       DAM_NEGATIVE, TRUE);
-		}
-	        else {
+		} else {
 			check_improve(bch, gsn_spellbane, TRUE, 8);
 			act_puts("$N deflects your spell!",
 				 ch, NULL, bch, TO_CHAR, POS_DEAD);
@@ -59,9 +60,10 @@ bool spellbane(CHAR_DATA *bch, CHAR_DATA *ch, int bane_chance, int bane_damage)
 			    ch, NULL, bch, TO_VICT);
 			act("$N deflects $n's spell!",
 			    ch, NULL, bch, TO_NOTVICT);
-			if (!is_safe(bch, ch))
+			if (!is_safe(bch, ch) && !is_safe(ch, bch)) {
 				damage(bch, ch, bane_damage, gsn_spellbane,
 				       DAM_NEGATIVE, TRUE);
+			}
 	        }
 	        return TRUE;
 	}
