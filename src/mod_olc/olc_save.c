@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.5 1998-07-06 07:32:57 fjoe Exp $
+ * $Id: olc_save.c,v 1.6 1998-07-09 16:05:47 fjoe Exp $
  */
 
 /**************************************************************************
@@ -409,6 +409,15 @@ void save_object(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
 	    fprintf(fp, "%s ",	fwrite_flag(pObjIndex->value[1], buf));
 	    fprintf(fp, "%s ",	fwrite_flag(pObjIndex->value[2], buf));
 	    fprintf(fp, "%d ",	pObjIndex->value[3]);
+	    fprintf(fp, "%s\n",	fwrite_flag(pObjIndex->value[4], buf));
+	    break;
+	case ITEM_LIGHT:
+	case ITEM_TATTOO:
+	case ITEM_TREASURE:
+	    fprintf(fp, "%s ",	fwrite_flag(pObjIndex->value[0], buf));
+	    fprintf(fp, "%s ",	fwrite_flag(pObjIndex->value[1], buf));
+	    fprintf(fp, "%d ",	pObjIndex->value[2]);
+	    fprintf(fp, "%s ",	fwrite_flag(pObjIndex->value[3], buf));
 	    fprintf(fp, "%s\n",	fwrite_flag(pObjIndex->value[4], buf));
 	    break;
     }
