@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.40 1998-06-20 20:53:26 fjoe Exp $
+ * $Id: fight.c,v 1.41 1998-06-21 11:38:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -62,6 +62,7 @@
 #include "update.h"
 #include "util.h"
 #include "log.h"
+#include "act_move.h"
 
 #define MAX_DAMAGE_MESSAGE 34
 

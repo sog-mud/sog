@@ -1,5 +1,5 @@
 /*
- * $Id: const.c,v 1.11 1998-06-20 20:53:25 fjoe Exp $
+ * $Id: const.c,v 1.12 1998-06-21 11:38:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1151,31 +1151,31 @@ const	struct	class_type	class_table	[MAX_CLASS]	=
 {
     {
        "Witch", "Wit",  STAT_INT,  OBJ_VNUM_SCHOOL_DAGGER,
-       { 3018, 9618, 0, 0, 0, 0 },  75,  18, 6,  60,  100, TRUE,
+       { 3018, 3019, 9618, 9617, 9648, 0 },  75,  18, 6,  60,  100, TRUE,
        200,{0,3,0,0,0,5},CR_ALL
     },
       
     {
 	"cleric", "Cle",  STAT_WIS,  OBJ_VNUM_SCHOOL_MACE,
-	{ 3003, 0, 0, 0, 0, 0},  75,  18, 2,  70, 80, TRUE,
+	{ 3003, 3002, 0 },  75,  18, 2,  70, 80, TRUE,
 	0,{0,0,3,0,0,5},CR_ALL
     },
 
     {
 	"thief", "Thi",  STAT_DEX,  OBJ_VNUM_SCHOOL_DAGGER,
-	{ 3028, 9639, 0, 0, 0, 0 },  75,  18,  -4, 100, 50, FALSE,
+	{ 3028, 3029, 9639, 9646, 0 },  75,  18,  -4, 100, 50, FALSE,
         0,{0,0,0,3,0,5},CR_ALL
     },
 
     {
 	"warrior", "War",  STAT_STR,  OBJ_VNUM_SCHOOL_SWORD,
-	{ 3022, 9633, 0, 0, 0, 0 },  75,  18,  -10, 100,50,FALSE,
+	{ 3022, 3023, 9633, 9634, 0 },  75,  18,  -10, 100,50,FALSE,
 	0,{3,0,0,0,1,5},CR_ALL
     },
 
     {
 	"paladin", "Pal",  STAT_STR,  OBJ_VNUM_SCHOOL_SWORD,
-	{ 3063, 0, 0, 0, 0, 0 },  75,  18,  -6,  80, 70, TRUE,
+	{ 3063, 3064, 0 },  75,  18,  -6,  80, 70, TRUE,
 	400,{2,0,1,0,2,5},CR_GOOD
     },
 
@@ -1199,25 +1199,25 @@ const	struct	class_type	class_table	[MAX_CLASS]	=
 
    {
     "warlock", "WrK",  STAT_INT,  OBJ_VNUM_SCHOOL_DAGGER,
-    { 3073, 9618, 0, 0, 0, 0 },  75,  18, 2,  60,  100, TRUE,
+    { 3073, 3074, 9618, 9617, 9648, 0 },  75,  18, 2,  60,  100, TRUE,
     300,{0,3,0,0,0,5},CR_ALL
     },
 
     {
      "samurai", "Sam",  STAT_STR,  OBJ_VNUM_SCHOOL_SWORD,
-     { 3075, 9633, 0, 0, 0, 0 },  75,  18,  -10,  100,60,FALSE,
+     { 3075, 3076, 9633, 9634, 0 },  75,  18,  -10,  100,60,FALSE,
      500,{2,1,1,1,1,5},CR_ALL
     },
 
    {
     "vampire", "Vam",  STAT_INT,  OBJ_VNUM_SCHOOL_DAGGER,
-    { 5395, 5396, 9618, 0, 0, 0 },  75,  18, -6,  80,  70, TRUE,
+    { 5395, 5396, 9618, 9617, 9648, 0 },  75,  18, -6,  80,  70, TRUE,
     300,{1,2,0,0,0,5},CR_EVIL
     },
       
    {
     "necromancer", "Nec",  STAT_INT,  OBJ_VNUM_SCHOOL_DAGGER,
-    { 5393, 5394, 9618, 0, 0, 0 },  75,  18, 6,  60,  100, TRUE,
+    { 5393, 5394, 9618, 9617, 9648, 0 },  75,  18, 6,  60,  100, TRUE,
     200,{0,2,1,0,0,5},CR_EVIL
    },
 

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.20 1998-06-20 21:26:35 fjoe Exp $
+ * $Id: handler.c,v 1.21 1998-06-21 11:38:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -53,6 +53,7 @@
 #include "hometown.h"
 #include "act_comm.h"
 #include "log.h"
+#include "act_move.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_return	);
@@ -2931,15 +2932,15 @@ bool room_is_private(ROOM_INDEX_DATA *pRoomIndex)
 bool can_see_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 {
 	if (IS_SET(pRoomIndex->room_flags, ROOM_IMP_ONLY) 
-	&&  get_trust(ch) < MAX_LEVEL)
+	&&  get_trust(ch) < IMPLEMENTOR)
 		return FALSE;
 
 	if (IS_SET(pRoomIndex->room_flags, ROOM_GODS_ONLY)
-	&&  !IS_IMMORTAL(ch))
+	&&  get_trust(ch) < GOD)
 		return FALSE;
 
 	if (IS_SET(pRoomIndex->room_flags, ROOM_HEROES_ONLY)
-	&&  !IS_IMMORTAL(ch))
+	&&  get_trust(ch) < HERO)
 		return FALSE;
 
 	if (IS_SET(pRoomIndex->room_flags,ROOM_NEWBIES_ONLY)
@@ -4354,3 +4355,24 @@ bool in_PK(CHAR_DATA *ch, CHAR_DATA *victim)
 	return TRUE;
 }
 
+
+bool can_gate_to(CHAR_DATA *ch, CHAR_DATA *victim)
+{
+	if (victim == ch
+	||  victim->in_room == NULL
+	||  !can_see_room(ch, victim->in_room)
+	||  IS_SET(ch->in_room->room_flags, ROOM_SAFE)
+	||  IS_SET(victim->in_room->room_flags, ROOM_SAFE)
+	||  room_is_private(victim->in_room)
+	||  IS_SET(ch->in_room->room_flags, ROOM_NOSUMMON)
+	||  IS_SET(victim->in_room->room_flags, ROOM_NOSUMMON)
+	||  (IS_SET(ch->in_room->room_flags, ROOM_NO_MOB) && IS_NPC(victim))
+	||  saves_spell(ch->level, victim, DAM_OTHER)
+	||  (!IS_NPC(victim) && IS_IMMORTAL(victim))
+	||  (IS_NPC(victim) && is_safe_nomessage(ch, victim) && IS_SET(victim->imm_flags, IMM_SUMMON))
+	||  (!IS_NPC(victim) && is_safe_nomessage(ch, victim) && IS_SET(victim->act, PLR_NOSUMMON))
+	||  (!IS_NPC(victim) && ch->in_room->area != victim->in_room->area)
+	||  guild_check(ch, victim->in_room) < 0)
+		return FALSE;
+	return TRUE;
+}

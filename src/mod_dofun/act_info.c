@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.77 1998-06-20 23:20:14 efdi Exp $
+ * $Id: act_info.c,v 1.78 1998-06-21 11:38:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1721,7 +1721,7 @@ static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, char* output)
 	else
 		wizi = EMPTY_STRING;
 
-	if (in_PK(ch, wch))
+	if (in_PK(ch, wch) && ch->level < LEVEL_IMMORTAL)
 		pk = "{r[{RPK{r]{x ";
 	else
 		pk = EMPTY_STRING;
@@ -1985,7 +1985,7 @@ void do_who(CHAR_DATA *ch, char *argument)
 		||  (fImmortalOnly && wch->level < LEVEL_HERO)
 		||  (fClassRestrict && !rgfClass[wch->class])
 		||  (fRaceRestrict && !rgfRace[RACE(wch)])
-		||  (fPKRestrict && is_safe_nomessage(ch,wch))
+		||  (fPKRestrict && !in_PK(ch, wch))
 		||  (fTattoo && (vnum == get_eq_char(wch,WEAR_TATTOO)->pIndexData->vnum))
 		||  (fRulerRestrict && wch->clan != CLAN_RULER)
 		||  (fChaosRestrict && wch->clan != CLAN_CHAOS)
@@ -2252,15 +2252,16 @@ void do_where(CHAR_DATA *ch, char *argument)
 			if (d->connected == CON_PLAYING
 			&& (victim = d->character) != NULL
 			&&   !IS_NPC(victim)
-			&& !(fPKonly && is_safe_nomessage(ch,victim))
+			&& !(fPKonly && in_PK(ch, victim))
 			&&   victim->in_room != NULL
 			&&   victim->in_room->area == ch->in_room->area
 			&&   can_see(ch, victim)) {
 				found = TRUE;
 				char_printf(ch, "%s%-28s %s\n\r",
-					    (in_PK(ch, victim)) ?
+					    (in_PK(ch, victim) &&
+					     ch->level < LEVEL_IMMORTAL) ?
 						"{r[{RPK{r]{x " : "     ",
-					    PERS(ch, victim),
+					    PERS(victim, ch),
 					    victim->in_room->name);
 			}
 		}

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.30 1998-06-20 20:53:26 fjoe Exp $
+ * $Id: interp.c,v 1.31 1998-06-21 11:38:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -201,6 +201,7 @@ const	struct	cmd_type	cmd_table	[] =
     { "gossip",		do_gossip,	POS_DEAD,	 3,  LOG_NORMAL, 1, CMD_GHOST },
     { ".",		do_gossip,	POS_DEAD,	 3,  LOG_NORMAL, 1, CMD_GHOST },
     { "motd",		do_motd,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
+    { "wake",		do_wake,	POS_SLEEPING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
     { "warcry",         do_warcry,      POS_FIGHTING,    0,  LOG_NORMAL, 1,0},
     { "unread",		do_unread,	POS_SLEEPING,    0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "yell",		do_yell,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
@@ -274,7 +275,6 @@ const	struct	cmd_type	cmd_table	[] =
     { "steal",		do_steal,	POS_STANDING,	 0,  LOG_NORMAL, 1,0 },
     { "train",		do_train,	POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
     { "visible",	do_visible,	POS_SLEEPING,	 0,  LOG_NORMAL, 1,0 },
-    { "wake",		do_wake,	POS_SLEEPING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
     { "wanted",         do_wanted,      POS_STANDING,    0,  LOG_ALWAYS, 1,0 },
     { "where",		do_where,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     /*

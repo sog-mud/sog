@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.14 1998-06-18 05:19:14 fjoe Exp $
+ * $Id: mob_prog.c,v 1.15 1998-06-21 11:38:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -56,6 +56,7 @@
 #include "quest.h"
 #include "util.h"
 #include "log.h"
+#include "act_move.h"
 
 DECLARE_DO_FUN(do_yell);
 DECLARE_DO_FUN(do_cb);

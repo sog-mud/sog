@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.53 1998-06-19 15:30:09 fjoe Exp $
+ * $Id: act_move.c,v 1.54 1998-06-21 11:38:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -54,6 +54,7 @@
 #include "update.h"
 #include "util.h"
 #include "log.h"
+#include "act_move.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_look		);
@@ -228,27 +229,21 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 
 	if (!IS_NPC(ch))
 	{
-		int iClass, iGuild;
 		int move;
+		int i;
 
-
-		for (iClass = 0; iClass < MAX_CLASS; iClass++)
-		    for (iGuild = 0;
-			 class_table[iClass].guild[iGuild]; iGuild++)	
-		    	if (to_room->vnum == class_table[iClass].guild[iGuild] 
-			     && !IS_IMMORTAL(ch))
-		    	{
-			    if (iClass != ch->class)  {
-			      send_to_char(msg(YOU_ARENT_ALLOWED_THERE, ch), ch);
-			      return;
-			    }
-		              if (ch->last_fight_time != -1 &&
-		                current_time - ch->last_fight_time < FIGHT_DELAY_TIME)
-		              {
-		                send_to_char(msg(YOU_FEEL_TOO_BLOODY, ch), ch);
-		                return;
-		              }
-		        }
+		if ((i = guild_check(ch, to_room)) > 0) {
+			if (ch->last_fight_time != -1 &&
+		            current_time - ch->last_fight_time <
+							FIGHT_DELAY_TIME) {
+				char_nputs(YOU_FEEL_TOO_BLOODY, ch);
+				return;
+			}
+		}
+		else if (i < 0) {
+			char_nputs(YOU_ARENT_ALLOWED_THERE, ch);
+			return;
+		}
 
 		if (in_room->sector_type == SECT_AIR
 		||   to_room->sector_type == SECT_AIR)
@@ -3831,3 +3826,30 @@ void do_throw_spear(CHAR_DATA *ch, char *argument)
 	check_improve(ch,gsn_spear,TRUE,1);
 }
 
+
+/*
+ * guild_check - == 0 - the room is not a guild
+ *		  > 0 - the room is guild and ch is allowed there
+ *		  < 0 - the room is guild and ch is not allowed there
+ */
+int guild_check(CHAR_DATA *ch, ROOM_INDEX_DATA *room)
+{
+	int class = CLASS_NONE;
+	int iClass, iGuild;
+
+	for (iClass = 0; iClass < MAX_CLASS; iClass++)
+		for (iGuild = 0; class_table[iClass].guild[iGuild]; iGuild++)	
+		    	if (room->vnum == class_table[iClass].guild[iGuild]) {
+				if (iClass == ch->class)
+					return 1;
+				class = iClass;
+			}
+
+	if (class == CLASS_NONE)
+		return 0;
+
+	if (IS_IMMORTAL(ch))
+		return 1;
+
+	return -1;
+}

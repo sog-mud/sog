@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.16 1998-06-20 20:53:26 fjoe Exp $
+ * $Id: spellfun2.c,v 1.17 1998-06-21 11:38:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -58,6 +58,7 @@
 #include "rating.h"
 #include "util.h"
 #include "log.h"
+#include "act_move.h"
 
 DECLARE_DO_FUN(do_scan2);
 /* command procedures needed */
@@ -1587,79 +1588,51 @@ void spell_tesseract(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	CHAR_DATA *wch_next;
 	bool gate_pet;
 
-	if((victim = get_char_world(ch,target_name))==NULL
-	|| victim == ch
-	|| victim->in_room == NULL
-	|| ch->in_room == NULL) {
-	send_to_char("You failed.\n\r",ch);
-	return;
-	}
-
-	
-	if (!can_see_room(ch,victim->in_room) 
-	  ||   (is_safe(ch,victim) && IS_SET(victim->act,PLR_NOSUMMON))
-	  ||   room_is_private(victim->in_room)
-	  ||   IS_SET(victim->in_room->room_flags, ROOM_NO_RECALL)
-	  ||   IS_SET(ch->in_room->room_flags, ROOM_NO_RECALL)
-	  ||   IS_SET(victim->in_room->room_flags, ROOM_NOSUMMON)
-	  ||   IS_SET(ch->in_room->room_flags, ROOM_NOSUMMON)
-	  ||   (!IS_NPC(victim) && victim->level >= LEVEL_HERO)  /* NOT trust */ 
-	  ||   (IS_NPC(victim) && IS_SET(victim->imm_flags,IMM_SUMMON))
-	  ||   (!IS_NPC(victim) && IS_SET(victim->act,PLR_NOSUMMON) 
-	    && is_safe_nomessage(ch,victim))
-	  ||   (saves_spell(level, victim, DAM_NONE)))
-	{
-	  send_to_char("You failed.\n\r", ch);
-	  return;
+	if ((victim = get_char_world(ch,target_name)) == NULL
+	||  !can_gate_to(ch, victim)) {
+		send_to_char("You failed.\n\r", ch);
+		return;
 	}
 	
 	if (ch->pet != NULL && ch->in_room == ch->pet->in_room)
-	gate_pet = TRUE;
+		gate_pet = TRUE;
 	else
-	gate_pet = FALSE;
+		gate_pet = FALSE;
 
-	for (wch = ch->in_room->people; wch != NULL; wch = wch_next)
-	{
-	  wch_next = wch->next_in_room;
-	  if (is_same_group(wch, ch) && wch != ch)
-	{
-	  act("$n utters some strange words and, with a sickening lurch, you feel time",ch, NULL, wch, TO_VICT);
-	  act("and space shift around you.", ch, NULL, wch, TO_VICT);
-	      if(victim->in_room == NULL) {
-		bug("Tesseract: victim room has become NULL!!!",0);
-	            return;
-	      }
-	  char_from_room(wch);
-	  char_to_room(wch,victim->in_room);
-	  act("$n arrives suddenly.",wch,NULL,NULL,TO_ROOM);
-	  if (wch->in_room == NULL)
-	     bug("Tesseract: other char sent to NULL room",0); 
-	  else
-	     do_look(wch,"auto");
-	} 
+	for (wch = ch->in_room->people; wch != NULL; wch = wch_next) {
+		wch_next = wch->next_in_room;
+		if (is_same_group(wch, ch)
+		&&  wch != ch
+		&&  can_gate_to(wch, victim)) {
+			act("$n utters some strange words and, "
+			    "with a sickening lurch, you feel time\n\r"
+			    "and space shift around you",
+				ch, NULL, wch, TO_VICT);
+			char_from_room(wch);
+			char_to_room(wch, victim->in_room);
+			act("$n arrives suddenly.", wch, NULL, NULL, TO_ROOM);
+			do_look(wch, "auto");
+		} 
 	}
  
-	act("With a sudden flash of light, $n and $s friends disappear!",ch,NULL,NULL,TO_ROOM);
-	send_to_char("As you utter the words, time and space seem to blur.  You feel as though\n\rspace and time are shifting all around you while you remain motionless.\n\r",ch);
+	act("With a sudden flash of light, $n and $s friends disappear!",
+		ch, NULL, NULL, TO_ROOM);
+	send_to_char("As you utter the words, time and space seem to blur.\n\r."
+		     "You feel as though space and time are shifting.\n\r"
+		     "all around you while you remain motionless.\n\r", ch);
 	char_from_room(ch);
-	char_to_room(ch,victim->in_room);
+	char_to_room(ch, victim->in_room);
 
-	act("$n arrives suddenly.",ch,NULL,NULL,TO_ROOM);
-	if (ch->in_room == NULL)
-	 bug("Tesseract: char sent to NULL room",0); 
-	else
-	 do_look(ch,"auto");
+	act("$n arrives suddenly.", ch, NULL, NULL, TO_ROOM);
+	do_look(ch,"auto");
 	
-	if (gate_pet)
-	{
-	  send_to_char("You feel time and space shift around you.\n\r",ch->pet);
-	  char_from_room(ch->pet);
-	  char_to_room(ch->pet,victim->in_room);
-	  act("$n arrives suddenly.",ch->pet,NULL,NULL,TO_ROOM);
-	  if (ch->pet->in_room == NULL)
-	     bug("Tesseract: pet sent to NULL room",0); 
-	  else
-	     do_look(ch->pet,"auto");
+	if (gate_pet) {
+		send_to_char("You feel time and space shift around you.\n\r",
+			ch->pet);
+		char_from_room(ch->pet);
+		char_to_room(ch->pet,victim->in_room);
+		act("$n arrives suddenly.", ch->pet, NULL, NULL, TO_ROOM);
+		do_look(ch->pet,"auto");
 	}
 }
 
@@ -2372,15 +2345,15 @@ void spell_disperse(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	!is_safe_nomessage(ch, vch)))) && vch != ch
 	  && !IS_SET(vch->imm_flags, IMM_SUMMON))
 	{
-	  for (; ;)
-		    {
-	      pRoomIndex = get_room_index(number_range(0, 65535));
-	      if (pRoomIndex != NULL)
-	        if (can_see_room(ch,pRoomIndex)
-	    	&&   !room_is_private(pRoomIndex) && 
-		  !IS_SET(pRoomIndex->room_flags, ROOM_NO_RECALL))
-	      break;
-	    }
+	  for (; ;) {
+	  	pRoomIndex = get_room_index(number_range(0, 65535));
+	  	if (pRoomIndex != NULL
+	        &&  can_see_room(ch, pRoomIndex)
+	    	&&  !room_is_private(pRoomIndex)
+		&&  !IS_SET(pRoomIndex->room_flags, ROOM_NO_RECALL)
+		&&  guild_check(vch, pRoomIndex) >= 0)
+	  		break;
+	  }
 
 	  send_to_char("The world spins around you!\n\r",vch);
 	  act("$n vanishes!", vch, NULL, NULL, TO_ROOM);

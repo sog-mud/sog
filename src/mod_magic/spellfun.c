@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.18 1998-06-20 20:53:26 fjoe Exp $
+ * $Id: spellfun.c,v 1.19 1998-06-21 11:38:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3272,48 +3272,35 @@ void spell_gate(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	CHAR_DATA *victim;
 	bool gate_pet;
 
-
 	if ((victim = get_char_world(ch, target_name)) == NULL
-	||   victim == ch
-	||   victim->in_room == NULL
-	||   !can_see_room(ch,victim->in_room)
-	||   IS_SET(victim->in_room->room_flags, ROOM_SAFE)
-	||   IS_SET(victim->in_room->room_flags, ROOM_PRIVATE)
-	||   IS_SET(victim->in_room->room_flags, ROOM_SOLITARY)
-	||   IS_SET(ch->in_room->room_flags, ROOM_NOSUMMON)
-	||   IS_SET(victim->in_room->room_flags, ROOM_NOSUMMON)
-	||   victim->level >= level + 3
-	||   saves_spell(level,victim,DAM_OTHER)
-/*    ||   (!IS_NPC(victim) && victim->level >= LEVEL_HERO)  * NOT trust */
-	||   (IS_NPC(victim) && is_safe_nomessage(ch, victim) && IS_SET(victim->imm_flags,IMM_SUMMON))
-	||   (!IS_NPC(victim) && is_safe_nomessage(ch, victim) && IS_SET(victim->act,PLR_NOSUMMON))
-	||   (!IS_NPC(victim) && ch->in_room->area != victim->in_room->area)
-	||   (IS_NPC(victim) && saves_spell(level, victim,DAM_OTHER)))
-	{
+	||  victim->level >= level + 3
+	||  !can_gate_to(ch, victim)) {
 		send_to_char("You failed.\n\r", ch);
 		return;
 	}
+
 	if (ch->pet != NULL && ch->in_room == ch->pet->in_room)
 		gate_pet = TRUE;
 	else
 		gate_pet = FALSE;
 
-	act("$n steps through a gate and vanishes.",ch,NULL,NULL,TO_ROOM);
-	send_to_char("You step through a gate and vanish.\n\r",ch);
+	act("$n steps through a gate and vanishes.", ch, NULL, NULL, TO_ROOM);
+	send_to_char("You step through a gate and vanish.\n\r", ch);
 	char_from_room(ch);
-	char_to_room(ch,victim->in_room);
+	char_to_room(ch, victim->in_room);
 
-	act("$n has arrived through a gate.",ch,NULL,NULL,TO_ROOM);
-	do_look(ch,"auto");
+	act("$n has arrived through a gate.", ch, NULL, NULL, TO_ROOM);
+	do_look(ch, "auto");
 
-	if (gate_pet)
-	{
-		act("$n steps through a gate and vanishes.",ch->pet,NULL,NULL,TO_ROOM);
-		send_to_char("You step through a gate and vanish.\n\r",ch->pet);
+	if (gate_pet) {
+		act("$n steps through a gate and vanishes.",
+			ch->pet, NULL, NULL, TO_ROOM);
+		char_puts("You step through a gate and vanish.\n\r", ch->pet);
 		char_from_room(ch->pet);
-		char_to_room(ch->pet,victim->in_room);
-		act("$n has arrived through a gate.",ch->pet,NULL,NULL,TO_ROOM);
-		do_look(ch->pet,"auto");
+		char_to_room(ch->pet, victim->in_room);
+		act("$n has arrived through a gate.",
+			ch->pet, NULL, NULL, TO_ROOM);
+		do_look(ch->pet, "auto");
 	}
 }
 
@@ -4770,49 +4757,36 @@ void spell_stone_skin(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 void spell_summon(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 {
 	CHAR_DATA *victim;
-	char buf[MAX_INPUT_LENGTH];
 
 	if ((victim = get_char_world(ch, target_name)) == NULL
-	||   victim == ch
-	||   victim->in_room == NULL
-	||   IS_SET(ch->in_room->room_flags, ROOM_SAFE)
-	||   IS_SET(victim->in_room->room_flags, ROOM_SAFE)
-	||   IS_SET(victim->in_room->room_flags, ROOM_PRIVATE)
-	||   IS_SET(victim->in_room->room_flags, ROOM_SOLITARY)
-	||   IS_SET(ch->in_room->room_flags, ROOM_NOSUMMON)
-	||   IS_SET(victim->in_room->room_flags, ROOM_NOSUMMON)
-	||   (IS_NPC(victim) && IS_SET(victim->act,ACT_AGGRESSIVE))
-	||   victim->level >= level + 3
-	||   (!IS_NPC(victim) && victim->level >= LEVEL_IMMORTAL)
-	||   victim->fighting != NULL
-	||   (IS_NPC(victim) && IS_SET(victim->imm_flags,IMM_SUMMON))
-	||	 (IS_NPC(victim) && victim->pIndexData->pShop != NULL)
-	||   (!IS_NPC(victim) && is_safe_nomessage(ch,victim) && IS_SET(victim->act,PLR_NOSUMMON))
-	||   (IS_NPC(victim) && saves_spell(level, victim,DAM_OTHER))
-	||   (ch->in_room->area != victim->in_room->area && !IS_NPC(victim))
-	||   (victim->in_room->exit[0] == NULL &&
-	      victim->in_room->exit[1] == NULL &&
-	      victim->in_room->exit[2] == NULL &&
-	      victim->in_room->exit[3] == NULL &&
-	      victim->in_room->exit[4] == NULL && victim->in_room->exit[5] == NULL))
-	{
+	||  victim->in_room == NULL
+	||  victim->level >= level + 3
+	||  (IS_NPC(victim) && IS_SET(victim->act, ACT_AGGRESSIVE))
+	||  victim->fighting != NULL
+	||  (IS_NPC(victim) && victim->pIndexData->pShop != NULL)
+	||  !can_gate_to(victim, ch) 
+	||  (victim->in_room->exit[0] == NULL &&
+	     victim->in_room->exit[1] == NULL &&
+	     victim->in_room->exit[2] == NULL &&
+	     victim->in_room->exit[3] == NULL &&
+	     victim->in_room->exit[4] == NULL &&
+	     victim->in_room->exit[5] == NULL)) {
 		send_to_char("You failed.\n\r", ch);
 		return;
 	}
 
-	if (IS_NPC(victim) && victim->in_mind == NULL)
-		{
-		 sprintf(buf,"%d",victim->in_room->vnum);
-		 victim->in_mind = str_dup(buf);
-		}
+	if (IS_NPC(victim) && victim->in_mind == NULL) {
+		char buf[MAX_INPUT_LENGTH];
+		sprintf(buf,"%d",victim->in_room->vnum);
+		victim->in_mind = str_dup(buf);
+	}
 
 	act("$n disappears suddenly.", victim, NULL, NULL, TO_ROOM);
 	char_from_room(victim);
 	char_to_room(victim, ch->in_room);
 	act("$n arrives suddenly.", victim, NULL, NULL, TO_ROOM);
-	act("$n has summoned you!", ch, NULL, victim,   TO_VICT);
+	act("$n has summoned you!", ch, NULL, victim, TO_VICT);
 	do_look(victim, "auto");
-	return;
 }
 
 
@@ -4956,13 +4930,11 @@ void spell_word_of_recall(int sn, int level, CHAR_DATA *ch,void *vo,int target)
 	act("$n appears in the room.",victim,NULL,NULL,TO_ROOM);
 	do_look(victim,"auto");
 
-	if (victim->pet != NULL)
-	  {
- 	char_from_room(victim->pet);
+	if (victim->pet != NULL) {
+ 		char_from_room(victim->pet);
 		char_to_room(victim->pet, location);
 		do_look(victim->pet, "auto");
-	  }
-
+	}
 }
 
 /*
@@ -5554,35 +5526,29 @@ void spell_hand_of_undead(int sn, int level, CHAR_DATA *ch, void *vo, int target
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int dam;
 
-	if (saves_spell(level, victim,DAM_NEGATIVE))
-	{
+	if (saves_spell(level, victim,DAM_NEGATIVE)) {
 		send_to_char("You feel a momentary chill.\n\r",victim);
 		return;
 	}
 
 	if ((IS_NPC(victim) && IS_SET(victim->act,ACT_UNDEAD)) 
-		|| IS_VAMPIRE(victim))
-		{
+	|| IS_VAMPIRE(victim)) {
 		 send_to_char("Your victim is unaffected by hand of undead.\n\r",ch);
 		 return;
-		}
-	if (victim->level <= 2)
-	{
-		dam		 = ch->hit + 1;
 	}
-	else
-	{
-	 dam = dice(level, 10);
-	 victim->mana	/= 2;
-	 victim->move	/= 2;
-	 ch->hit		+= dam / 2;
+	if (victim->level <= 2)
+		dam		 = ch->hit + 1;
+	else {
+		dam = dice(level, 10);
+		victim->mana	/= 2;
+		victim->move	/= 2;
+		ch->hit		+= dam / 2;
 	}
 
 	send_to_char("You feel your life slipping away!\n\r",victim);
 	act("$N is grasped by an incomprehensible hand of undead!",
 			ch,NULL,victim,TO_NOTVICT);
 	damage(ch, victim, dam, sn,DAM_NEGATIVE,TRUE);
-	return;
 }
 
 
@@ -5593,27 +5559,13 @@ void spell_astral_walk(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	bool gate_pet;
 	char buf[512];
 
-
 	if ((victim = get_char_world(ch, target_name)) == NULL
-	||   victim == ch
-	||   victim->in_room == NULL
-	||   !can_see_room(ch,victim->in_room)
-	||   IS_SET(victim->in_room->room_flags, ROOM_SAFE)
-	||   IS_SET(victim->in_room->room_flags, ROOM_PRIVATE)
-	||   IS_SET(victim->in_room->room_flags, ROOM_SOLITARY)
-	||   IS_SET(ch->in_room->room_flags, ROOM_NOSUMMON)
-	||   IS_SET(victim->in_room->room_flags, ROOM_NOSUMMON)
-	||   victim->level >= level + 3
-/*    ||   (!IS_NPC(victim) && victim->level >= LEVEL_HERO)  * NOT trust */
-	||   saves_spell(level,victim,DAM_OTHER)
-	||   (IS_NPC(victim) && is_safe_nomessage(ch, victim) && IS_SET(victim->imm_flags,IMM_SUMMON))
-	||   (!IS_NPC(victim) && is_safe_nomessage(ch, victim) && IS_SET(victim->act,PLR_NOSUMMON))
-	||   (!IS_NPC(victim) && ch->in_room->area != victim->in_room->area)
-	||   (IS_NPC(victim) && saves_spell(level, victim,DAM_OTHER)))
-	{
+	||  victim->level >= level + 3
+	||  !can_gate_to(ch, victim)) {
 		send_to_char("You failed.\n\r", ch);
 		return;
 	}
+
 	if (ch->pet != NULL && ch->in_room == ch->pet->in_room)
 		gate_pet = TRUE;
 	else
@@ -5628,8 +5580,7 @@ void spell_astral_walk(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	act("$n appears in a flash of light!",ch,NULL,NULL,TO_ROOM);
 	do_look(ch,"auto");
 
-	if (gate_pet)
-	{
+	if (gate_pet) {
 		act("$n disappears in a flash of light!",ch->pet,NULL,NULL,TO_ROOM);
 		send_to_char(buf,ch->pet);
 		char_from_room(ch->pet);
@@ -5647,23 +5598,9 @@ void spell_mist_walk(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 
 
 	if ((victim = get_char_world(ch, target_name)) == NULL
-	||   victim == ch
-	||   !IS_VAMPIRE(ch)
-	||   victim->in_room == NULL
-	||   !can_see_room(ch,victim->in_room)
-	||   IS_SET(victim->in_room->room_flags, ROOM_SAFE)
-	||   IS_SET(victim->in_room->room_flags, ROOM_PRIVATE)
-	||   IS_SET(victim->in_room->room_flags, ROOM_SOLITARY)
-	||   IS_SET(ch->in_room->room_flags, ROOM_NOSUMMON)
-	||   IS_SET(victim->in_room->room_flags, ROOM_NOSUMMON)
-	||   victim->level >= level - 5
-/*    ||   (!IS_NPC(victim) && victim->level >= LEVEL_HERO)  * NOT trust */
-	||   saves_spell(level,victim,DAM_OTHER)
-	||   (IS_NPC(victim) && is_safe_nomessage(ch, victim) && IS_SET(victim->imm_flags,IMM_SUMMON))
-	||   (!IS_NPC(victim) && is_safe_nomessage(ch, victim) && IS_SET(victim->act,PLR_NOSUMMON))
-	||   (!IS_NPC(victim) && ch->in_room->area != victim->in_room->area)
-	||   (IS_NPC(victim) && saves_spell(level, victim,DAM_OTHER)))
-	{
+	||  !IS_VAMPIRE(ch)
+	||  victim->level >= level - 5
+	||  !can_gate_to(ch, victim)) {
 		send_to_char("You failed.\n\r", ch);
 		return;
 	}
@@ -5685,29 +5622,14 @@ void spell_solar_flight(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	CHAR_DATA *victim;
 
 
-	if  (time_info.hour > 18 || time_info.hour < 8)
-		{
+	if  (time_info.hour > 18 || time_info.hour < 8) {
 		 send_to_char("You need sunlight for solar flight.\n\r",ch);
 		 return;
-		}
+	}
 
 	if ((victim = get_char_world(ch, target_name)) == NULL
-	||   victim == ch
-	||   victim->in_room == NULL
-	||   !can_see_room(ch,victim->in_room)
-	||   IS_SET(victim->in_room->room_flags, ROOM_SAFE)
-	||   IS_SET(victim->in_room->room_flags, ROOM_PRIVATE)
-	||   IS_SET(victim->in_room->room_flags, ROOM_SOLITARY)
-	||   IS_SET(ch->in_room->room_flags, ROOM_NOSUMMON)
-	||   IS_SET(victim->in_room->room_flags, ROOM_NOSUMMON)
-	||   victim->level >= level + 1
-/*    ||   (!IS_NPC(victim) && victim->level >= LEVEL_HERO)  * NOT trust */
-	||   saves_spell(level,victim,DAM_OTHER)
-	||   (IS_NPC(victim) && is_safe_nomessage(ch, victim) && IS_SET(victim->imm_flags,IMM_SUMMON))
-	||   (!IS_NPC(victim) && is_safe_nomessage(ch, victim) && IS_SET(victim->act,PLR_NOSUMMON))
-	||   (!IS_NPC(victim) && ch->in_room->area != victim->in_room->area)
-	||   (IS_NPC(victim) && saves_spell(level, victim,DAM_OTHER)))
-	{
+	||  victim->level >= level + 1
+	||  !can_gate_to(ch, victim)) {
 		send_to_char("You failed.\n\r", ch);
 		return;
 	}
@@ -5732,22 +5654,8 @@ void spell_helical_flow(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 
 
 	if ((victim = get_char_world(ch, target_name)) == NULL
-	||   victim == ch
-	||   victim->in_room == NULL
-	||   !can_see_room(ch,victim->in_room)
-	||   IS_SET(victim->in_room->room_flags, ROOM_SAFE)
-	||   IS_SET(victim->in_room->room_flags, ROOM_PRIVATE)
-	||   IS_SET(victim->in_room->room_flags, ROOM_SOLITARY)
-	||   IS_SET(ch->in_room->room_flags, ROOM_NOSUMMON)
-	||   IS_SET(victim->in_room->room_flags, ROOM_NOSUMMON)
-	||   victim->level >= level + 3
-/*    ||   (!IS_NPC(victim) && victim->level >= LEVEL_HERO)  * NOT trust */
-	||   saves_spell(level,victim,DAM_OTHER)
-	||   (IS_NPC(victim) && is_safe_nomessage(ch, victim) && IS_SET(victim->imm_flags,IMM_SUMMON))
-	||   (!IS_NPC(victim) && is_safe_nomessage(ch, victim) && IS_SET(victim->act,PLR_NOSUMMON))
-	||   (!IS_NPC(victim) && ch->in_room->area != victim->in_room->area)
-	||   (IS_NPC(victim) && saves_spell(level, victim,DAM_OTHER)))
-	{
+	||  victim->level >= level + 3
+	||  !can_gate_to(ch, victim)) {
 		send_to_char("You failed.\n\r", ch);
 		return;
 	}
@@ -5926,7 +5834,4 @@ void spell_take_revenge(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	  }
 	return;
 }
-
-
-
 

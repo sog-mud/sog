@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.33 1998-06-20 20:53:27 fjoe Exp $
+ * $Id: merc.h,v 1.34 1998-06-21 11:38:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1560,7 +1560,6 @@ struct	kill_data
 #define ROOM_BANK		(U)
 #define ROOM_NO_MAGIC		(W)
 #define ROOM_NOSUMMON		(X)
-#define ROOM_GUILD		(Y)
 #define ROOM_BATTLE_ARENA	(Z)
 #define ROOM_REGISTRY		(bb)
 
@@ -2858,10 +2857,6 @@ RID  *get_random_room	(CHAR_DATA *ch);
 /* hunt.c */
 void hunt_victim(CHAR_DATA *ch);
 
-/* act_move.c */
-void	move_char	(CHAR_DATA *ch, int door, bool follow);
-char *	find_way	(CHAR_DATA *ch, ROOM_INDEX_DATA *rstart, ROOM_INDEX_DATA *rend);
-
 /* ban.c */
 bool	check_ban	(char *site, int type);
 
@@ -3014,6 +3009,7 @@ CHAR_DATA*	find_char	(CHAR_DATA *ch, char *argument, int door, int range);
 CHAR_DATA*	get_char_spell	(CHAR_DATA *ch, char *argument, int *door, int range);
 void	path_to_track	(CHAR_DATA *ch, CHAR_DATA *victim, int door);
 bool	in_PK(CHAR_DATA *ch, CHAR_DATA *victim);
+bool	can_gate_to(CHAR_DATA *ch, CHAR_DATA *victim);
 
 /* interp.c */
 void	interpret	(CHAR_DATA *ch, char *argument, bool is_order);
