@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.200.2.36 2003-09-30 01:25:37 fjoe Exp $
+ * $Id: comm.c,v 1.200.2.37 2004-02-20 00:00:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -101,7 +101,11 @@
 #include "mccp.h"
 #include "imc.h"
 
-bool class_ok(CHAR_DATA *ch , int class);
+static void show_string_addq(DESCRIPTOR_DATA *d, const char *q, ...);
+
+static bool class_ok(CHAR_DATA *ch , int class);
+static int align_restrict(CHAR_DATA *ch, char response);
+static int ethos_check(CHAR_DATA *ch, char response);
 
 struct codepage {
 	char* name;
@@ -499,6 +503,8 @@ void free_descriptor(DESCRIPTOR_DATA *d)
 	if (!d)
 		return;
 
+	free_string(d->showstr_head);
+	free_string(d->showstr_question);
 	free_string(d->host);
 	free_string(d->ip);
 	outbuf_destroy(&d->out_buf);
@@ -1812,9 +1818,6 @@ int search_sockets(DESCRIPTOR_DATA *inp)
 	}
 	return 0;
 }
-  
-int align_restrict(CHAR_DATA *ch, char response);
-int ethos_check(CHAR_DATA *ch, char response);
 
 static void print_hometown(CHAR_DATA *ch)
 {
@@ -2045,9 +2048,9 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 			if (check_ban(d, BCL_NEWBIES))
 				return;
- 	    
- 			dofun("help", ch, "NAME");
-			char_puts("Do you accept? ", ch);
+
+			show_string_addq(ch->desc, "Do you accept? ");
+			dofun("help", ch, "NAME");
 			d->connected = CON_CONFIRM_NEW_NAME;
 			return;
 		}
@@ -2710,6 +2713,41 @@ void send_to_char(const char *txt, CHAR_DATA *ch)
 	write_to_buffer(ch->desc, buf, 0);
 }
 
+static void
+show_string_addq(DESCRIPTOR_DATA *d, const char *q, ...)
+{
+	va_list ap;
+	char buf[MAX_STRING_LENGTH];
+
+	va_start(ap, q);
+	vsnprintf(buf, sizeof(buf), q, ap);
+	va_end(ap);
+
+	if (IS_NULLSTR(d->showstr_question))
+		d->showstr_question = str_dup(buf);
+	else {
+		free_string(d->showstr_question);
+		d->showstr_question = str_printf(
+		    "%s\n%s", d->showstr_question, buf);
+	}
+}
+
+void
+show_string_end(DESCRIPTOR_DATA *d)
+{
+	if (d->showstr_head) {
+		free_string(d->showstr_head);
+		d->showstr_head = NULL;
+	}
+	d->showstr_point  = NULL;
+
+	if (!IS_NULLSTR(d->showstr_question)) {
+		write_to_buffer(d, d->showstr_question, 0);
+		free_string(d->showstr_question);
+		d->showstr_question = str_empty;
+	}
+}
+
 /*
  * Send a page to one char.
  */
@@ -2722,6 +2760,7 @@ void page_to_char(const char *txt, CHAR_DATA *ch)
 
 	if (d->dvdata->pagelen == 0) {
 		send_to_char(txt, ch);
+		show_string_end(ch->desc);
 		return;
 	}
 	
@@ -2740,11 +2779,7 @@ void show_string(struct descriptor_data *d, char *input)
 
 	one_argument(input, buf, sizeof(buf));
 	if (buf[0] != '\0') {
-		if (d->showstr_head) {
-			free_string(d->showstr_head);
-			d->showstr_head = NULL;
-		}
-		d->showstr_point  = NULL;
+		show_string_end(d);
 		return;
 	}
 
@@ -2769,13 +2804,8 @@ void show_string(struct descriptor_data *d, char *input)
 
 			for (chk = d->showstr_point; isspace(*chk); chk++)
 				;
-			if (!*chk) {
-				if (d->showstr_head) {
-					free_string(d->showstr_head);
-					d->showstr_head = NULL;
-				}
-				d->showstr_point  = NULL;
-			}
+			if (!*chk)
+				show_string_end(d);
 			return;
 		}
 	}
@@ -2801,7 +2831,8 @@ void log_area_popularity(void)
 	fclose(fp);
 }
 
-bool class_ok(CHAR_DATA *ch, int class)
+static bool
+class_ok(CHAR_DATA *ch, int class)
 {
 	race_t *r;
 	class_t *cl;
@@ -2818,12 +2849,14 @@ bool class_ok(CHAR_DATA *ch, int class)
 	return TRUE;
 }
 
+#define CHALIGN(a) (IS_SET(a, RA_GOOD) ? 1000 : IS_SET(a, RA_EVIL) ? -1000 : 0)
+
 /*
  * returns: 0 - the character should select (another) align
  *          1 - proceed to hometown picking
  */
-#define CHALIGN(a) (IS_SET(a, RA_GOOD) ? 1000 : IS_SET(a, RA_EVIL) ? -1000 : 0)
-int align_restrict(CHAR_DATA *ch, char resp)
+static int
+align_restrict(CHAR_DATA *ch, char resp)
 {
 	race_t *r;
 	class_t *cl;
@@ -2853,8 +2886,12 @@ int align_restrict(CHAR_DATA *ch, char resp)
 
 	switch (resp) {
 	case 'H': case 'h':
+		show_string_addq(ch->desc,
+		    "You can be of the following alignments: %s",
+		    flag_string(ralign_names, al));
+		show_string_addq(ch->desc, "Which alignment (G/N/E)? ");
 		dofun("help", ch, "ALIGNMENT");
-		break;
+		return 0;
 	case 'G': case 'g':
 		wal = RA_GOOD;
 		break;
@@ -2880,13 +2917,15 @@ int align_restrict(CHAR_DATA *ch, char resp)
 			act("This is not a valid alignment for you.",
 				ch, NULL, NULL, TO_CHAR);
 	}
+
 	act("You can be of the following alignments: $t",
 		ch, flag_string(ralign_names, al), NULL, TO_CHAR);
-	act("Which alignment (G/N/E)?", ch, NULL, NULL, TO_CHAR | ACT_NOLF);
+	act("Which alignment (G/N/E)? ", ch, NULL, NULL, TO_CHAR | ACT_NOLF);
 	return 0;
 }
 
-int ethos_check(CHAR_DATA *ch, char resp)
+static int
+ethos_check(CHAR_DATA *ch, char resp)
 {
 	class_t *cl;
 	race_t *r;
@@ -2917,8 +2956,11 @@ int ethos_check(CHAR_DATA *ch, char resp)
 
 	switch (resp) {
 	case 'H': case 'h':
+		show_string_addq(ch->desc, "You can have ethos of: %s",
+				 flag_string(ethos_table, eth));
+		show_string_addq(ch->desc, "Which ethos (L/N/C)? ");
 		dofun("help", ch, "ETHOS");
-		break;
+		return 0;
 	case 'L': case 'l':
 		weth = ETHOS_LAWFUL;
 		break;
@@ -2947,7 +2989,7 @@ int ethos_check(CHAR_DATA *ch, char resp)
 	}
 	act("You can have ethos of: $t",
 		ch, flag_string(ethos_table, eth), NULL, TO_CHAR);
-	act("Which ethos (L/N/C)?", ch, NULL, NULL, TO_CHAR | ACT_NOLF);
+	act("Which ethos (L/N/C)? ", ch, NULL, NULL, TO_CHAR | ACT_NOLF);
 	return 0;
 }
 
