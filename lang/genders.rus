@@ -2232,6 +2232,14 @@ Form 3 -ись~
 End
 
 #RULE
+Name мудр~
+BaseLen 4
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
 Name вступил~
 BaseLen 6
 Form 1 -ла~
@@ -2250,6 +2258,14 @@ End
 Name вернется~
 BaseLen 8
 Form 3 вернутся~
+End
+
+#RULE
+Name умен~
+BaseLen 2
+Form 1 -на~
+Form 2 -но~
+Form 3 -ны~
 End
 
 #RULE

@@ -1661,6 +1661,16 @@ Form 6 -у~
 End
 
 #RULE
+Name гномий~
+BaseLen 4
+Form 1 -ьего~
+Form 2 -ьему~
+Form 4 -ьим~
+Form 5 -ьем~
+Form 6 -ьего~
+End
+
+#RULE
 Name банкир~
 BaseLen 6
 Form 1 -а~
@@ -6358,6 +6368,17 @@ Form 6 -а~
 End
 
 #RULE
+Name эльфийское~
+BaseLen 8
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ое~
+Form 4 -им~
+Form 5 -ом~
+Form 6 -ое~
+End
+
+#RULE
 Name учебные~
 BaseLen 6
 Form 1 -х~
@@ -6875,6 +6896,17 @@ Form 3 -ую~
 Form 4 -ой~
 Form 5 -ой~
 Form 6 -ую~
+End
+
+#RULE
+Name троллийский~
+BaseLen 9
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ий~
+Form 4 -им~
+Form 5 -ом~
+Form 6 -ого~
 End
 
 #RULE
@@ -7687,6 +7719,15 @@ Form 3 -ой~
 Form 4 -ым~
 Form 5 -ом~
 Form 6 -ого~
+End
+
+#RULE
+Name наречие~
+BaseLen 6
+Form 1 -я~
+Form 2 -ю~
+Form 4 -ем~
+Form 5 -и~
 End
 
 #RULE
@@ -13862,6 +13903,17 @@ Form 3 -а~
 Form 4 -ом~
 Form 5 -е~
 Form 6 -а~
+End
+
+#RULE
+Name кошачий~
+BaseLen 5
+Form 1 -ьего~
+Form 2 -ьему~
+Form 3 -ий~
+Form 4 -ьим~
+Form 5 -ьем~
+Form 6 -ьего~
 End
 
 #RULE
