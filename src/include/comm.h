@@ -1,5 +1,5 @@
 /*
- * $Id: comm.h,v 1.32.2.1 2002-01-05 16:21:55 matrim Exp $
+ * $Id: comm.h,v 1.32.2.2 2002-11-28 20:31:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -50,7 +50,6 @@ void	show_string	(struct descriptor_data *d, char *input);
 void	close_descriptor(DESCRIPTOR_DATA *dclose, int save_flags);
 void	write_to_buffer	(DESCRIPTOR_DATA *d, const char *txt, size_t length);
 bool	write_to_descriptor	(DESCRIPTOR_DATA *d, const char *txt, size_t length);
-bool	write_to_descriptor_2	(int desc, const char *txt, size_t length);
 void	write_to_snoop	(DESCRIPTOR_DATA *d, const char *txt, size_t len);
 void	bust_a_prompt	(DESCRIPTOR_DATA *d);
 

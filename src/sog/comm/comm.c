@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.200.2.26 2002-11-23 21:14:44 fjoe Exp $
+ * $Id: comm.c,v 1.200.2.27 2002-11-28 20:31:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1737,45 +1737,34 @@ void write_to_snoop(DESCRIPTOR_DATA *d, const char *txt, size_t len)
  * If this gives errors on very long blocks (like 'ofind all'),
  *   try lowering the max block size.
  */
-bool write_to_descriptor_2(int desc, const char *txt, size_t length)
+bool write_to_descriptor(DESCRIPTOR_DATA *d, const char *txt, size_t length)
 {
 	uint iStart;
 	uint nWrite;
 	uint nBlock;
-	DESCRIPTOR_DATA *d;
+
+	if (d->out_compress)
+		return writeCompressed(d, txt, length);
 
 	if (!length)
 		length = strlen(txt);
 
-	for (d = descriptor_list; d; d = d->next) {
-		if (d->descriptor == desc) {
-			d->bytes_income += length;
-			d->bytes_sent += length;
-			break;
-		}
-	}
+	d->bytes_income += length;
+	d->bytes_sent += length;
 
 	for (iStart = 0; iStart < length; iStart += nWrite) {
 		nBlock = UMIN(length - iStart, 4096);
 #if !defined( WIN32 )
-		if ((nWrite = write(desc, txt + iStart, nBlock)) < 0) {
+		if ((nWrite = write(d->descriptor, txt + iStart, nBlock)) < 0) {
 #else
-		if ((nWrite = send(desc, txt + iStart, nBlock, 0)) < 0) {
+		if ((nWrite = send(d->descriptor, txt + iStart, nBlock, 0)) < 0) {
 #endif
 			log("write_to_descriptor: %s", strerror(errno));
 			return FALSE;
 		}
-	} 
-	return TRUE;
-}
+	}
 
-/* mccp: write_to_descriptor wrapper */
-bool write_to_descriptor(DESCRIPTOR_DATA *d, const char *txt, size_t length)
-{
-	if (d->out_compress)
-		return writeCompressed(d, txt, length);
-	else
-		return write_to_descriptor_2(d->descriptor, txt, length);
+	return TRUE;
 }
 
 int search_sockets(DESCRIPTOR_DATA *inp)
