@@ -2,7 +2,7 @@
 #define _OLC_H_
 
 /*
- * $Id: olc.h,v 1.14 1998-09-10 22:08:00 fjoe Exp $
+ * $Id: olc.h,v 1.15 1998-09-15 02:52:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -63,17 +63,19 @@ extern const char ED_MOB	[];
 extern const char ED_MPCODE	[];
 extern const char ED_HELP	[];
 extern const char ED_CLAN	[];
+extern const char ED_CLASS	[];
 
 /*
  * Interpreter Table Prototypes
  */
-extern OLC_CMD_DATA	aedit_table[];
-extern OLC_CMD_DATA	redit_table[];
-extern OLC_CMD_DATA	oedit_table[];
-extern OLC_CMD_DATA	medit_table[];
-extern OLC_CMD_DATA	mpedit_table[];
-extern OLC_CMD_DATA	hedit_table[];
-extern OLC_CMD_DATA	cedit_table[];
+extern OLC_CMD_DATA	olc_cmds_area[];
+extern OLC_CMD_DATA	olc_cmds_room[];
+extern OLC_CMD_DATA	olc_cmds_obj[];
+extern OLC_CMD_DATA	olc_cmds_mob[];
+extern OLC_CMD_DATA	olc_cmds_mpcode[];
+extern OLC_CMD_DATA	olc_cmds_help[];
+extern OLC_CMD_DATA	olc_cmds_clan[];
+extern OLC_CMD_DATA	olc_cmds_class[];
 
 /*
  * Editor Commands.
@@ -100,7 +102,7 @@ bool olced_mlstrnl	(CHAR_DATA *ch, const char *argument,
 			 OLC_FUN *olc_fun, mlstring**);
 bool olced_mlstr_text	(CHAR_DATA *ch, const char *argument,
 			 OLC_FUN *olc_fun, mlstring**);
-bool olced_ed		(CHAR_DATA *ch, const char* argument, ED_DATA**);
+bool olced_exd		(CHAR_DATA *ch, const char* argument, ED_DATA**);
 bool olced_flag		(CHAR_DATA *ch, const char* argument,
 			 OLC_FUN *olc_fun, flag_t*);
 bool olced_dice		(CHAR_DATA *ch, const char *argument,
@@ -109,6 +111,7 @@ bool olced_clan		(CHAR_DATA *ch, const char *argument,
 			 OLC_FUN *fun, int *clan);
 
 DECLARE_VALIDATE_FUN(validate_filename);
+DECLARE_VALIDATE_FUN(validate_room_vnum);
 
 bool	show_commands	(CHAR_DATA *ch, const char *argument);
 bool	show_version	(CHAR_DATA *ch, const char *argument);

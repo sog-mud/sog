@@ -1,5 +1,5 @@
 /*
- * $Id: olc.c,v 1.17 1998-09-10 23:05:55 fjoe Exp $
+ * $Id: olc.c,v 1.18 1998-09-15 02:52:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -58,15 +58,17 @@ const char ED_MOB[]	= "mobile";
 const char ED_MPCODE[]	= "mpcode";
 const char ED_HELP[]	= "help";
 const char ED_CLAN[]	= "clan";
+const char ED_CLASS[]	= "class";
 
 OLCED_DATA olced_table[] = {
-	{ ED_AREA,	"AEdit",	aedit_table	},
-	{ ED_ROOM,	"REdit",	redit_table	},
-	{ ED_OBJ,	"OEdit",	oedit_table	},
-	{ ED_MOB,	"MEdit",	medit_table	},
-	{ ED_MPCODE,	"MPEdit",	mpedit_table	},
-	{ ED_HELP,	"HEdit",	hedit_table	},
-	{ ED_CLAN,	"CEdit",	cedit_table	},
+	{ ED_AREA,	"AEdit",	olc_cmds_area	},
+	{ ED_ROOM,	"REdit",	olc_cmds_room	},
+	{ ED_OBJ,	"OEdit",	olc_cmds_obj	},
+	{ ED_MOB,	"MEdit",	olc_cmds_mob	},
+	{ ED_MPCODE,	"MPEdit",	olc_cmds_mpcode	},
+	{ ED_HELP,	"HEdit",	olc_cmds_help	},
+	{ ED_CLAN,	"CEdit",	olc_cmds_clan	},
+/*	{ ED_CLASS,	"ClEdit",	olc_cmds_class	}, */
 	{ NULL }
 };
 
@@ -253,7 +255,7 @@ bool olced_mlstr_text(CHAR_DATA *ch, const char *argument,
 	return TRUE;
 }
 
-bool olced_ed(CHAR_DATA *ch, const char* argument, ED_DATA **ped)
+bool olced_exd(CHAR_DATA *ch, const char* argument, ED_DATA **ped)
 {
 	ED_DATA *ed;
 	char command[MAX_INPUT_LENGTH];
@@ -265,7 +267,7 @@ bool olced_ed(CHAR_DATA *ch, const char* argument, ED_DATA **ped)
 	argument = one_argument(argument, lang);
 
 	if (command[0] == '\0' || keyword[0] == '\0') {
-		do_help(ch, "'OLC EXTRA DESCRIPTION'");
+		do_help(ch, "'OLC EXD'");
 		return FALSE;
 	}
 
@@ -277,7 +279,7 @@ bool olced_ed(CHAR_DATA *ch, const char* argument, ED_DATA **ped)
 
 		if (!mlstr_append(ch, &ed->description, lang)) {
 			ed_free(ed);
-			do_help(ch, "'OLC EXTRA DESCRIPTION'");
+			do_help(ch, "'OLC EXD'");
 			return FALSE;
 		}
 
@@ -293,7 +295,7 @@ bool olced_ed(CHAR_DATA *ch, const char* argument, ED_DATA **ped)
 		}
 
 		if (!mlstr_append(ch, &ed->description, lang)) {
-			do_help(ch, "'OLC EXTRA DESCRIPTION'");
+			do_help(ch, "'OLC EXD'");
 			return FALSE;
 		}
 		return TRUE;
@@ -337,7 +339,7 @@ bool olced_ed(CHAR_DATA *ch, const char* argument, ED_DATA **ped)
 		return TRUE;
 	}
 
-	do_help(ch, "'OLC EXTRA DESCRIPTION'");
+	do_help(ch, "'OLC EXD'");
 	return FALSE;
 }
 
@@ -495,9 +497,21 @@ bool olced_clan(CHAR_DATA *ch, const char *argument, OLC_FUN *fun, int *vnum)
 VALIDATE_FUN(validate_filename)
 {
 	if (strpbrk(arg, "/")) {
-		char_puts("AEdit: Invalid characters in file name.\n\r", ch);
+		char_puts("OLC: Invalid characters in file name.\n\r", ch);
 		return FALSE;
 	}
+	return TRUE;
+}
+
+VALIDATE_FUN(validate_room_vnum)
+{
+	int vnum = *(int*) arg;
+
+	if (vnum && get_room_index(vnum) == NULL) {
+		char_printf(ch, "OLC: %d: no such room.\n\r", vnum);
+		return FALSE;
+	}
+
 	return TRUE;
 }
 

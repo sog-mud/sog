@@ -1,5 +1,5 @@
 /*
- * $Id: olc_clan.c,v 1.3 1998-09-10 23:05:55 fjoe Exp $
+ * $Id: olc_clan.c,v 1.4 1998-09-15 02:52:14 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -22,15 +22,15 @@ DECLARE_OLC_FUN(cedit_recall		);
 DECLARE_OLC_FUN(cedit_msg_prays		);
 DECLARE_OLC_FUN(cedit_msg_vanishes	);
 DECLARE_OLC_FUN(cedit_flags		);
-DECLARE_OLC_FUN(cedit_skadd		);
-DECLARE_OLC_FUN(cedit_skdel		);
+DECLARE_OLC_FUN(cedit_skill		);
 
+DECLARE_OLC_FUN(cedit_skill_add		);
+DECLARE_OLC_FUN(cedit_skill_del		);
 DECLARE_VALIDATE_FUN(validate_name	);
-DECLARE_VALIDATE_FUN(validate_recall	);
 
 static bool touch_clan(CLAN_DATA *clan);
 
-OLC_CMD_DATA cedit_table[] =
+OLC_CMD_DATA olc_cmds_clan[] =
 {
 	{ "create",	cedit_create				},
 	{ "edit",	cedit_edit				},
@@ -39,12 +39,11 @@ OLC_CMD_DATA cedit_table[] =
 
 	{ "name",	cedit_name,	validate_name	 	},
 	{ "filename",	cedit_filename,	validate_filename	},
-	{ "recall",	cedit_recall,	validate_recall		},
+	{ "recall",	cedit_recall,	validate_room_vnum	},
 	{ "msgp",	cedit_msg_prays				},
 	{ "msgv",	cedit_msg_vanishes			},
 	{ "flags",	cedit_flags,	clan_flags		},
-	{ "skadd",	cedit_skadd				},
-	{ "skdel",	cedit_skdel				},
+	{ "skill",	cedit_skill				},
 
 	{ "commands",	show_commands				},
 	{ NULL }
@@ -54,25 +53,27 @@ OLC_FUN(cedit_create)
 {
 	int cn;
 	CLAN_DATA *clan;
+	char arg[MAX_STRING_LENGTH];
 
 	if (ch->pcdata->security < SECURITY_CLAN) {
 		char_puts("CEdit: Insufficient security for editing clans\n\r", ch);
 		return FALSE;
 	}
 
-	if (argument[0] == '\0') {
+	one_argument(argument, arg);
+	if (arg[0] == '\0') {
 		do_help(ch, "'OLC CREATE'");
 		return FALSE;
 	}
 
-	if ((cn = cn_lookup(argument)) >= 0) {
+	if ((cn = cn_lookup(arg)) >= 0) {
 		char_printf(ch, "CEdit: %s: already exists.\n\r",
 			    CLAN(cn)->name);
 		return FALSE;
 	}
 
 	clan			= varr_enew(clans);
-	clan->name		= str_dup(argument);
+	clan->name		= str_dup(arg);
 	clan->skills		= varr_new(sizeof(CLAN_SKILL), 8);
 	clan->file_name		= str_printf("clan%02d.clan", clans->nused-1);
 
@@ -86,13 +87,15 @@ OLC_FUN(cedit_create)
 OLC_FUN(cedit_edit)
 {
 	int cn;
+	char arg[MAX_STRING_LENGTH];
 
 	if (ch->pcdata->security < SECURITY_CLAN) {
 		char_puts("CEdit: Insufficient security.\n\r", ch);
 		return FALSE;
 	}
 
-	if ((cn = cn_lookup(argument)) < 0) {
+	one_argument(argument, arg);
+	if ((cn = cn_lookup(arg)) < 0) {
 		char_printf(ch, "CEdit: %s: No such clan.\n\r", argument);
 		return FALSE;
 	}
@@ -192,7 +195,21 @@ OLC_FUN(cedit_flags)
 	return olced_flag(ch, argument, cedit_flags, &clan->flags);
 }
 
-OLC_FUN(cedit_skadd)
+OLC_FUN(cedit_skill)
+{
+	char arg[MAX_STRING_LENGTH];
+
+	argument = one_argument(argument, arg);
+	if (!str_prefix(arg, "add")) 
+		return cedit_skill_add(ch, argument);
+	else if (!str_prefix(arg, "delete"))
+		return cedit_skill_del(ch, argument);
+
+	do_help(ch, "'OLC CLAN SKILL'");
+	return FALSE;
+}
+
+OLC_FUN(cedit_skill_add)
 {
 	int sn;
 	CLAN_SKILL *clan_skill;
@@ -205,7 +222,7 @@ OLC_FUN(cedit_skadd)
 		   one_argument(argument, arg2);
 
 	if (arg1[0] == '\0' || arg2[0] == '\0') {
-		do_help(ch, "'OLC CLAN SKADD'");
+		do_help(ch, "'OLC CLAN SKILL'");
 		return FALSE;
 	}
 
@@ -234,7 +251,7 @@ OLC_FUN(cedit_skadd)
 	return TRUE;
 }
 
-OLC_FUN(cedit_skdel)
+OLC_FUN(cedit_skill_del)
 {
 	char	arg[MAX_STRING_LENGTH];
 	CLAN_SKILL *clan_skill;
@@ -265,18 +282,6 @@ VALIDATE_FUN(validate_name)
 				    arg);
 			return FALSE;
 		}
-
-	return TRUE;
-}
-
-VALIDATE_FUN(validate_recall)
-{
-	int vnum = *(int*) arg;
-
-	if (vnum && get_room_index(vnum) == NULL) {
-		char_printf(ch, "CEdit: %d: no such room.\n\r", vnum);
-		return FALSE;
-	}
 
 	return TRUE;
 }

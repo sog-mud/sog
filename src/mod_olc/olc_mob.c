@@ -1,5 +1,5 @@
 /*
- * $Id: olc_mob.c,v 1.5 1998-09-10 22:08:01 fjoe Exp $
+ * $Id: olc_mob.c,v 1.6 1998-09-15 02:52:14 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -55,7 +55,7 @@ DECLARE_OLC_FUN(medit_trigdel		);  /* ROM */
 DECLARE_OLC_FUN(medit_prac		); 
 DECLARE_OLC_FUN(medit_clan		);
 
-OLC_CMD_DATA medit_table[] =
+OLC_CMD_DATA olc_cmds_mob[] =
 {
 /*	{ command	function		args		}, */
 	{ "create",	medit_create				},
@@ -115,9 +115,14 @@ OLC_FUN(medit_create)
 	int  iHash;
 	char arg[MAX_STRING_LENGTH];
 
+	argument = one_argument(argument, arg);
 	value = atoi(arg);
-	pArea = area_vnum_lookup(value);
+	if (!value) {
+		do_help(ch, "'OLC CREATE'");
+		return FALSE;
+	}
 
+	pArea = area_vnum_lookup(value);
 	if (!pArea) {
 		char_puts("MEdit: That vnum is not assigned an area.\n\r", ch);
 		return FALSE;
@@ -159,7 +164,7 @@ OLC_FUN(medit_edit)
 	char arg[MAX_STRING_LENGTH];
 
 	argument = one_argument(argument, arg);
-	value = atoi(argument);
+	value = atoi(arg);
 	if (!(pMob = get_mob_index(value))) {
 		char_puts("MEdit: Vnum does not exist.\n\r", ch);
 		return FALSE;

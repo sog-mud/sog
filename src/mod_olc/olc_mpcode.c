@@ -1,5 +1,5 @@
 /*
- * $Id: olc_mpcode.c,v 1.11 1998-09-10 22:08:01 fjoe Exp $
+ * $Id: olc_mpcode.c,v 1.12 1998-09-15 02:52:14 fjoe Exp $
  */
 
 /* The following code is based on ILAB OLC by Jason Dinkel */
@@ -13,6 +13,7 @@
 #include <time.h>
 #include "merc.h"
 #include "olc.h"
+#include "interp.h"
 
 #define EDIT_MPCODE(ch, mpcode)   (mpcode = (MPCODE*) ch->desc->pEdit)
 
@@ -25,7 +26,7 @@ DECLARE_OLC_FUN(mpedit_show		);
 DECLARE_OLC_FUN(mpedit_code		);
 DECLARE_OLC_FUN(mpedit_list		);
 
-OLC_CMD_DATA mpedit_table[] =
+OLC_CMD_DATA olc_cmds_mpcode[] =
 {
 /*	{ command	function	}, */
 
@@ -47,10 +48,16 @@ OLC_FUN(mpedit_create)
 	MPCODE *mpcode;
 	int value;
 	AREA_DATA *pArea;
+	char arg[MAX_STRING_LENGTH];
 
-	value = atoi(argument);
+	one_argument(argument, arg);
+	value = atoi(arg);
+	if (!value) {
+		do_help(ch, "'OLC CREATE'");
+		return FALSE;
+	}
+
 	pArea = area_vnum_lookup(value);
-
 	if (!pArea) {
 		char_puts("MPEdit: That vnum is not assigned an area.\n\r", ch);
 		return FALSE;
@@ -85,7 +92,7 @@ OLC_FUN(mpedit_edit)
 	char arg[MAX_STRING_LENGTH];
 
 	argument = one_argument(argument, arg);
-	value = atoi(argument);
+	value = atoi(arg);
 	mpcode = mpcode_lookup(value);
 
 	if (!mpcode) {

@@ -1,5 +1,5 @@
 /*
- * $Id: olc_room.c,v 1.5 1998-09-10 22:08:01 fjoe Exp $
+ * $Id: olc_room.c,v 1.6 1998-09-15 02:52:14 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -22,7 +22,7 @@ DECLARE_OLC_FUN(redit_show		);
 
 DECLARE_OLC_FUN(redit_name		);
 DECLARE_OLC_FUN(redit_desc		);
-DECLARE_OLC_FUN(redit_ed		);
+DECLARE_OLC_FUN(redit_exd		);
 DECLARE_OLC_FUN(redit_north		);
 DECLARE_OLC_FUN(redit_south		);
 DECLARE_OLC_FUN(redit_east		);
@@ -44,7 +44,7 @@ DECLARE_OLC_FUN(redit_room		);
 DECLARE_OLC_FUN(redit_sector		);
 DECLARE_OLC_FUN(redit_reset		);
 
-OLC_CMD_DATA redit_table[] =
+OLC_CMD_DATA olc_cmds_room[] =
 {
 /*	{ command	function			}, */
 
@@ -54,7 +54,7 @@ OLC_CMD_DATA redit_table[] =
 	{ "show",	redit_show			},
 
 	{ "desc",	redit_desc			},
-	{ "ed",		redit_ed			},
+	{ "exd",	redit_exd			},
 	{ "name",	redit_name			},
 	{ "heal",	redit_heal			},
 	{ "mana",	redit_mana			},
@@ -100,8 +100,12 @@ OLC_FUN(redit_create)
 	
 	one_argument(argument, arg);
 	value = atoi(arg);
-	pArea = area_vnum_lookup(value);
+	if (!value) {
+		do_help(ch, "'OLC CREATE'");
+		return FALSE;
+	}
 
+	pArea = area_vnum_lookup(value);
 	if (!pArea) {
 		send_to_char("REdit: Vnum is not assigned an area.\n\r", ch);
 		return FALSE;
@@ -326,11 +330,11 @@ OLC_FUN(redit_down)
 	return olced_exit(ch, argument, redit_down, DIR_DOWN);
 }
 
-OLC_FUN(redit_ed)
+OLC_FUN(redit_exd)
 {
 	ROOM_INDEX_DATA *pRoom;
 	EDIT_ROOM(ch, pRoom);
-	return olced_ed(ch, argument, &pRoom->ed);
+	return olced_exd(ch, argument, &pRoom->ed);
 }
 
 OLC_FUN(redit_name)

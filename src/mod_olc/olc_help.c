@@ -1,5 +1,5 @@
 /*
- * $Id: olc_help.c,v 1.9 1998-09-11 07:54:55 fjoe Exp $
+ * $Id: olc_help.c,v 1.10 1998-09-15 02:52:14 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -24,7 +24,7 @@ DECLARE_OLC_FUN(hedit_del		);
 
 DECLARE_VALIDATE_FUN(validate_keyword	);
 
-OLC_CMD_DATA hedit_table[] =
+OLC_CMD_DATA olc_cmds_help[] =
 {
 	{ "create",	hedit_create				},
 	{ "edit",	hedit_edit				},
@@ -44,18 +44,20 @@ OLC_FUN(hedit_create)
 {
 	HELP_DATA *pHelp;
 	AREA_DATA *pArea;
+	char arg[MAX_STRING_LENGTH];
 
 	if (ch->pcdata->security < SECURITY_HELP) {
 		char_puts("HEdit: Insufficient security.\n\r", ch);
 		return FALSE;
 	}
 
-	if (argument[0] == '\0') {
+	one_argument(argument, arg);
+	if (arg[0] == '\0') {
 		do_help(ch, "'OLC CREATE'");
 		return FALSE;
 	}
 
-	if ((pHelp = help_lookup(1, argument)) != NULL) {
+	if ((pHelp = help_lookup(1, arg)) != NULL) {
 		char_printf(ch,
 			    "HEdit: Help already exists in area %s (%s).\n\r",
 			    pHelp->area->name, pHelp->area->file_name);
@@ -74,7 +76,7 @@ OLC_FUN(hedit_create)
 
 	pHelp			= help_new();
 	pHelp->level		= 0;
-	pHelp->keyword		= str_dup(argument);
+	pHelp->keyword		= str_dup(arg);
 	pHelp->text		= NULL;
 	help_add(pArea, pHelp);
 

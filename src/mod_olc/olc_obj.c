@@ -1,5 +1,5 @@
 /*
- * $Id: olc_obj.c,v 1.5 1998-09-10 22:08:01 fjoe Exp $
+ * $Id: olc_obj.c,v 1.6 1998-09-15 02:52:14 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -33,7 +33,7 @@ DECLARE_OLC_FUN(oedit_value4		);
 DECLARE_OLC_FUN(oedit_weight		);
 DECLARE_OLC_FUN(oedit_limit		);
 DECLARE_OLC_FUN(oedit_cost		);
-DECLARE_OLC_FUN(oedit_ed		);
+DECLARE_OLC_FUN(oedit_exd		);
 
 DECLARE_OLC_FUN(oedit_extra		);
 DECLARE_OLC_FUN(oedit_wear		);
@@ -46,7 +46,7 @@ DECLARE_OLC_FUN(oedit_clan		);
 
 DECLARE_VALIDATE_FUN(validate_condition);
 
-OLC_CMD_DATA oedit_table[] =
+OLC_CMD_DATA olc_cmds_obj[] =
 {
 /*	{ command	function		arg			}, */
 
@@ -59,7 +59,7 @@ OLC_CMD_DATA oedit_table[] =
 	{ "addapply",	oedit_addapply					},
 	{ "cost",	oedit_cost					},
 	{ "delaffect",	oedit_delaffect					},
-	{ "ed",		oedit_ed					},
+	{ "exd",	oedit_exd					},
 	{ "long",	oedit_long					},
 	{ "name",	oedit_name					},
 	{ "short",	oedit_short					},
@@ -96,10 +96,16 @@ OLC_FUN(oedit_create)
 	AREA_DATA *pArea;
 	int  value;
 	int  iHash;
+	char arg[MAX_STRING_LENGTH];
 
-	value = atoi(argument);
+	one_argument(argument, arg);
+	value = atoi(arg);
+	if (!value) {
+		do_help(ch, "'OLC CREATE'");
+		return FALSE;
+	}
+
 	pArea = area_vnum_lookup(value);
-
 	if (!pArea) {
 		char_puts("OEdit: That vnum is not assigned an area.\n\r", ch);
 		return FALSE;
@@ -441,11 +447,11 @@ OLC_FUN(oedit_cost)
 	return olced_number(ch, argument, oedit_cost, &pObj->cost);
 }
 
-OLC_FUN(oedit_ed)
+OLC_FUN(oedit_exd)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
-	return olced_ed(ch, argument, &pObj->ed);
+	return olced_exd(ch, argument, &pObj->ed);
 }
 
 OLC_FUN(oedit_extra)

@@ -1,5 +1,5 @@
 /*
- * $Id: olc_area.c,v 1.6 1998-09-10 22:08:01 fjoe Exp $
+ * $Id: olc_area.c,v 1.7 1998-09-15 02:52:14 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -32,7 +32,7 @@ DECLARE_VALIDATE_FUN(validate_security	);
 DECLARE_VALIDATE_FUN(validate_minvnum	);
 DECLARE_VALIDATE_FUN(validate_maxvnum	);
 
-OLC_CMD_DATA aedit_table[] =
+OLC_CMD_DATA olc_cmds_area[] =
 {
 /*	{   command	function	arg			}, */
 
@@ -91,7 +91,6 @@ OLC_FUN(aedit_edit)
 	char arg[MAX_STRING_LENGTH];
 
 	argument = one_argument(argument, arg);
-
 	if (arg[0] == '\0')
 		pArea = ch->in_room->area;
 	else if (!is_number(arg) || (pArea = area_lookup(atoi(arg))) == NULL) {
