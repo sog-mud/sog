@@ -1,0 +1,22 @@
+/*
+ * $Id: mob_greet_fish_footman.mpc,v 1.1 2001-09-01 18:56:20 fjoe Exp $
+ */
+
+if (get_obj_carry($n, $N, "21029") != NULL)
+        return 0;
+ 
+obj o;
+if ((o = get_obj_carry($n, $n, "21029")) == NULL) {
+        o = create_obj(21029, 0);
+        obj_to_char(o, $n);
+}
+ 
+if (!give_obj($n, $N, o))
+        return 0;
+ 
+dofun("say", $n, "For the Duchess, an invitation from the Queen to play croquet.");
+ 
+char ch;
+if ((ch = get_char_room($n, "21017")) != NULL) {
+        dofun("say", ch, "For the Duchess, an invitation from the Queen to play croquet.");
+}

@@ -1,0 +1,6 @@
+/*
+ * $Id: mob_kill_court_officer.mpc,v 1.1 2001-09-01 18:56:20 fjoe Exp $
+ */
+
+cast_char("blindness", $n, $N);
+cast_char("web", $n, $N);

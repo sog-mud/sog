@@ -1,0 +1,6 @@
+/*
+ * $Id: mob_kill_queen_of_hearts.mpc,v 1.1 2001-09-01 18:56:21 fjoe Exp $
+ */
+
+dofun("yell", $n, "GUARDS! HELP!");
+cast_char("flamestrike", $n, $N);
