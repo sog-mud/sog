@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.68 1998-09-29 01:07:00 fjoe Exp $
+ * $Id: db.c,v 1.69 1998-10-01 06:39:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -232,7 +232,7 @@ void db_load_list(const char *path, const char *file,
 	FILE *fp;
 
 	if ((fp = dfopen(path, file, "r")) == NULL) {
-		perror(path);
+		perror(file);
 		exit(1);
 	}
 
@@ -2249,13 +2249,11 @@ void append_file(CHAR_DATA *ch, const char *file, const char *str)
 		return;
 
 	fclose(fpReserve);
-	if ((fp = dfopen(TMP_PATH, file, "a")) == NULL)
-	{
+	if ((fp = dfopen(TMP_PATH, file, "a")) == NULL) {
 		perror(file);
 		char_puts("Could not open the file!\n\r", ch);
 	}
-	else
-	{
+	else {
 		fprintf(fp, "[%5d] %s: %s\n",
 		    ch->in_room ? ch->in_room->vnum : 0, ch->name, str);
 		fclose(fp);

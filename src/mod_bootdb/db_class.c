@@ -23,10 +23,11 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_class.c,v 1.4 1998-09-19 10:39:07 fjoe Exp $
+ * $Id: db_class.c,v 1.5 1998-10-01 06:39:21 fjoe Exp $
  */
 
 #include <stdio.h>
+#include <string.h>
 
 #include "merc.h"
 #include "db/db.h"
@@ -55,10 +56,15 @@ DBINIT_FUN(init_class)
 
 DBLOAD_FUN(load_class)
 {
-	int i;
+	int	i;
+	char *	p;
 
 	class_curr = varr_enew(classes);
-	class_curr->file_name = str_dup(filename);
+	if ((p = strrchr(filename, '/')))
+		p++;
+	else
+		p = filename;
+	class_curr->file_name = str_dup(p);
 	class_curr->skills = varr_new(sizeof(CLASS_SKILL), 8);
 	class_curr->guild = varr_new(sizeof(int), 4);
 	class_curr->poses = varr_new(sizeof(POSE_DATA), 4);

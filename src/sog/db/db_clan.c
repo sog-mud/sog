@@ -23,11 +23,12 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_clan.c,v 1.4 1998-09-19 10:39:07 fjoe Exp $
+ * $Id: db_clan.c,v 1.5 1998-10-01 06:39:21 fjoe Exp $
  */
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "merc.h"
 #include "db/db.h"
@@ -47,11 +48,16 @@ void init_clans(void)
 
 DBLOAD_FUN(load_clan)
 {
-	CLAN_DATA *clan;
+	CLAN_DATA *	clan;
+	char *		p;
 
 	clan = varr_enew(clans);
 	clan->skills = varr_new(sizeof(CLAN_SKILL), 8);
-	clan->file_name = str_dup(filename);
+	if ((p = strrchr(filename, '/')))
+		p++;
+	else
+		p = filename;
+	clan->file_name = str_dup(p);
 
 	for (;;) {
 		char *word = feof(fp) ? "End" : fread_word(fp);

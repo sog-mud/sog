@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.6 1998-09-24 14:09:02 fjoe Exp $
+ * $Id: db_area.c,v 1.7 1998-10-01 06:39:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -41,6 +41,7 @@
 ***************************************************************************/
 
 #include <stdio.h>
+#include <string.h>
 
 #include "merc.h"
 #include "obj_prog.h"
@@ -158,14 +159,19 @@ DBLOAD_FUN(load_area)
  */
 DBLOAD_FUN(load_areadata)
 {
-	AREA_DATA *pArea;
-	char      *word;
-	bool      fMatch;
+	AREA_DATA *	pArea;
+	char *		word;
+	bool		fMatch;
+	char *		p;
 
 	pArea			= alloc_perm(sizeof(*pArea));
 	pArea->age		= 15;
 	pArea->nplayer		= 0;
-	pArea->file_name	= str_dup(filename);
+	if ((p = strrchr(filename, '/')))
+		p++;
+	else
+		p = filename;
+	pArea->file_name	= str_dup(p);
 	pArea->vnum		= top_area;
 	pArea->name		= str_dup("New Area");
 	pArea->builders		= str_dup(str_empty);
