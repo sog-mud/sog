@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.75 1998-10-14 18:10:18 fjoe Exp $
+ * $Id: update.c,v 1.76 1998-10-15 08:21:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1673,7 +1673,7 @@ void aggr_update(void)
 				||   !IS_AWAKE(vch))
 				&&  can_see(ch, vch)
 				/* do not attack vampires */
-				&&  !get_skill(ch, gsn_vampire)
+				&&  !get_skill(vch, gsn_vampire)
 				/* good vs good :( */
 				&&  !(IS_GOOD(ch) && IS_GOOD(vch))) {
 					if (number_range(0, count) == 0)

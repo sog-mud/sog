@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.86 1998-10-14 11:04:53 fjoe Exp $
+ * $Id: fight.c,v 1.87 1998-10-15 08:21:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2204,7 +2204,7 @@ void dam_message(CHAR_DATA *ch, CHAR_DATA *victim,int dam,int dt,bool immune ,in
 	const char *attack;
 	char punct;
 
-		 if (dam ==   0) { vs = "{cmiss{x"; vp = "{cmisses{x";}
+		 if (dam ==   0) { vs = "miss"; vp = "misses";}
 	else if (dam <=   4) { vs = "{cscratch{x";  vp = "{cscratches{x";}
 	else if (dam <=   8) { vs = "{cgraze{x";    vp = "{cgrazes{x";}
 	else if (dam <=  12) { vs = "{chit{x";      vp = "{chits{x";}

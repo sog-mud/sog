@@ -1,5 +1,5 @@
 /*
- * $Id: mem.c,v 1.19 1998-10-14 11:04:53 fjoe Exp $
+ * $Id: mem.c,v 1.20 1998-10-15 08:21:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -61,6 +61,7 @@ AREA_DATA *new_area(void)
 
 	pArea = calloc(1, sizeof(*pArea));
 	pArea->file_name	= str_printf("area%d.are", pArea->vnum);
+	pArea->builders		= str_empty;
 	pArea->name		= str_dup("New area");
 	pArea->empty		= TRUE;              /* ROM patch */
 	pArea->vnum		= top_area;
