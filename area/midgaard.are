@@ -46,6 +46,7 @@ stand stand male 500
 r charm 100
 r weapon 33
 r magic 33
+m mob_greet mob_greet_baker 100~
 #3002
 grocer бакалейщик~
 @eng the grocer@rus бакалейщик~
@@ -80,6 +81,7 @@ stand stand male 25000
 r charm 100
 r weapon 33
 r magic 33
+m mob_greet mob_greet_repair_equipment 1~
 #3004
 armourer armorer~
 the armourer~
@@ -97,6 +99,7 @@ stand stand male 25000
 r charm 100
 r weapon 33
 r magic 33
+m mob_greet mob_greet_armourer 100~
 #3005
 thief вор~
 @eng the thief@rus вор~
@@ -635,6 +638,9 @@ FJNU
 stand stand female 0
 0 0 medium unknown
 r magic -50
+m mob_bribe mob_bribe_beggar_nocoppers 1000~
+m mob_bribe mob_bribe_beggar_thank 1~
+m mob_greet mob_greet_beggar 100~
 #3066
 cat кот~
 @eng an alley cat@rus ~~уличный~~ ~~кот~~~
@@ -712,6 +718,7 @@ stand stand male 5000
 r charm 100
 r weapon 33
 r magic 33
+m mob_greet mob_greet_apothecary_shopkeeper 100~
 #3071
 cityguard guard стражник~
 @eng the cityguard@rus стражник~

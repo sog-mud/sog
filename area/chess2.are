@@ -26,6 +26,7 @@ CFJ 0 0 0 A -400 4200
 EG
 stand stand female 60
 B 0 medium unknown
+m mob_random mob_random_black_figure 20~
 #4201
 pawn white белая пешка~
 @eng the Pawn of the White Court@rus ~~Белая~~ ~~пешка~~~
@@ -60,6 +61,7 @@ FHJ 0 0 0 0 -600 0
 CEI
 stand stand female 480
 0 0 medium unknown
+m mob_random mob_random_black_figure 20~
 #4203
 rook castle белая ладья башня white~
 @eng the White Rook@rus ~~Белая~~ ~~Ладья~~~
@@ -92,6 +94,7 @@ HJ 0 0 0 0 -400 0
 EF
 stand stand male 266
 0 0 medium unknown
+m mob_random mob_random_black_figure 20~
 #4205
 knight белый рыцарь white~
 @eng the White Knight@rus ~~Белый~~ ~~Рыцарь~~~
@@ -124,6 +127,7 @@ HJ 0 0 0 0 -500 0
 CDEF
 stand stand male 540
 0 0 medium unknown
+m mob_random mob_random_black_figure 20~
 #4207
 bishop white priest белый епископ священник~
 @eng the White Bishop@rus ~~Белый~~ ~~Епископ~~~
@@ -156,6 +160,7 @@ BFHJ 0 J 0 AB -750 4210
 AFJK
 stand stand female 856
 0 0 medium unknown
+m mob_random mob_random_black_figure 20~
 #4209
 queen white белая королева~
 @eng the White Queen@rus ~~Белая~~ ~~Королева~~~
@@ -190,6 +195,7 @@ BHJ 0 JU 0 AB -999 0
 BCDEF
 stand stand male 984
 0 0 medium unknown
+m mob_random mob_random_black_figure 20~
 #4211
 king white белый король~
 @eng the White King@rus ~~Белый~~ ~~Король~~~

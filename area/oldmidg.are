@@ -558,6 +558,7 @@ stand stand male 25000
 r charm 100
 r weapon 33
 r magic 33
+m mob_greet mob_greet_repair_equipment 1~
 #5339
 armourer armorer~
 the armourer~
@@ -575,6 +576,7 @@ stand stand male 25000
 r charm 100
 r weapon 33
 r magic 33
+m mob_greet mob_greet_repair_equipment 1~
 #5340
 jeweller~
 the jeweller~
