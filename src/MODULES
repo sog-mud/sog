@@ -1,5 +1,5 @@
 #
-# $Id: MODULES,v 1.1 2000-06-02 16:40:37 fjoe Exp $
+# $Id: MODULES,v 1.2 2000-06-08 19:43:49 fjoe Exp $
 #
 
 Some notes on modules implementation:
@@ -28,3 +28,12 @@ CFILES=		foo.c bar.c
 
 .include <bsd.prog.mk>
 --- cut here ---
+
+Although dynafun_call/dynaproc_call functions do their best at
+checking arg types dynafuns (and dynaprocs) should ALWAYS check
+all their args and should NEVER make any expectations about them
+(e.g. they should not rely on/expect that some parameter `ch' will
+always be IS_NPC).
+
+Callers of dynafuns should ALWAYS expect (check) that return value
+can be 0 (NULL).

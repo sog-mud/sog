@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic.c,v 1.23 2000-06-07 08:55:41 fjoe Exp $
+ * $Id: magic.c,v 1.24 2000-06-08 19:43:56 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -35,7 +35,7 @@
 /*
  * Cast spells at targets using a magical object.
  */
-void *
+void
 obj_cast_spell(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	skill_t *spell;
@@ -49,13 +49,13 @@ obj_cast_spell(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	||  (spell->skill_type != ST_SPELL &&
 	     spell->skill_type != ST_PRAYER)
 	||  spell->fun == NULL)
-		return NULL;
+		return;
 
 	switch (spell->target) {
 	default:
 		log(LOG_BUG, "obj_cast_spell: %s: bad target %d",
 		    gmlstr_mval(&spell->sk_name), spell->target);
-		return NULL;
+		return;
 
 	case TAR_IGNORE:
 		vo = NULL;
@@ -69,7 +69,7 @@ obj_cast_spell(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		/* mem_is handles NULL vo properly (returns FALSE) */
 		if (!mem_is(vo, MT_CHAR)) {
 			char_puts("You can't do that.\n", ch);
-			return NULL;
+			return;
 		}
 
 		bch = vo;
@@ -84,7 +84,7 @@ obj_cast_spell(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		/* mem_is handles NULL vo properly (returns FALSE) */
 		if (!mem_is(vo, MT_CHAR)) {
 			char_puts("You can't do that.\n", ch);
-			return NULL;
+			return;
 		}
 		bch = vo;
 		bane_damage = 10*bch->level;
@@ -94,7 +94,7 @@ obj_cast_spell(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		/* mem_is handles NULL vo properly (returns FALSE) */
 		if (!mem_is(vo, MT_OBJ)) {
 			char_puts("You can't do that.\n", ch);
-			return NULL;
+			return;
 		}
 		bch = ch;
 		bane_damage = 3*bch->level;
@@ -106,7 +106,7 @@ obj_cast_spell(const char *sn, int level, CHAR_DATA *ch, void *vo)
 				vo = ch->fighting;
 			else {
 				char_puts("You can't do that.\n", ch);
-				return NULL;
+				return;
 			}
 		}
 
@@ -116,7 +116,7 @@ obj_cast_spell(const char *sn, int level, CHAR_DATA *ch, void *vo)
 			bane_damage = 3*bch->level;
 		} else if (!mem_is(vo, MT_OBJ)) {
 			char_puts("You can't do that.\n", ch);
-			return NULL;
+			return;
 		}
 		break;
 
@@ -130,7 +130,7 @@ obj_cast_spell(const char *sn, int level, CHAR_DATA *ch, void *vo)
 			bane_damage = 3*bch->level;
 		} else if (!mem_is(vo, MT_OBJ)) {
 			char_puts("You can't do that.\n", ch);
-			return NULL;
+			return;
 		}
 		break;
 	}
@@ -145,7 +145,7 @@ obj_cast_spell(const char *sn, int level, CHAR_DATA *ch, void *vo)
 			&&  !check_trust(ch, victim)) {
 				char_puts("They do not trust you enough "
 					  "for this spell.\n", ch);
-				return NULL;
+				return;
 			}
 			break;
 
@@ -159,7 +159,7 @@ obj_cast_spell(const char *sn, int level, CHAR_DATA *ch, void *vo)
 				if (is_safe(ch, victim)) {
 					char_puts("Something isn't right...\n",
 						  ch);
-					return NULL;
+					return;
 				}
 			}
 			break;
@@ -167,7 +167,7 @@ obj_cast_spell(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	}
 
 	if (bch && spellbane(bch, ch, bane_chance, bane_damage))
-		return NULL;
+		return;
 
 	target_name = str_empty;
 	spell->fun(sn, level, ch, vo);
@@ -182,8 +182,6 @@ obj_cast_spell(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		if (victim->fighting == NULL)
 			multi_hit(victim, ch, NULL);
 	}
-
-	return NULL;
 }
 
 /*
@@ -191,7 +189,7 @@ obj_cast_spell(const char *sn, int level, CHAR_DATA *ch, void *vo)
  *		    args (sn, level, ch, vo)
  *		    If `sn' is NULL it will be the same as `sn_fun'
  */
-void *
+void
 spellfun_call(const char *sn_fun, const char *sn, int level,
 	      CHAR_DATA *ch, void *vo)
 {
@@ -200,32 +198,30 @@ spellfun_call(const char *sn_fun, const char *sn, int level,
 	if ((sk = skill_lookup(sn_fun)) == NULL) {
 		log(LOG_BUG, "spellfun_call: %s (name): unknown or reserved spell",
 		    sn_fun);
-		return NULL;
+		return;
 	}
 
 	if (sn == NULL)
 		sn = sn_fun;
 	else if (skill_lookup(sn) == NULL) {
 		log(LOG_BUG, "spellfun_call: %s (sn): unknown or reserved spell", sn);
-		return NULL;
+		return;
 	}
 
 	if (sk->skill_type != ST_SPELL
 	&&  sk->skill_type != ST_PRAYER) {
 		log(LOG_BUG, "spellfun_call: %s: not a spell or prayer",
 		    gmlstr_mval(&sk->sk_name));
-		return NULL;
+		return;
 	}
 
 	if (sk->fun == NULL) {
 		log(LOG_BUG, "spellfun_call: %s: NULL skill function",
 		    gmlstr_mval(&sk->sk_name));
-		return NULL;
+		return;
 	}
 
 	sk->fun(sn, level, ch, vo);
-
-	return NULL;
 }
 
 /*

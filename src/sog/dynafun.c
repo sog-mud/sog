@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: dynafun.c,v 1.5 2000-06-08 18:09:23 fjoe Exp $
+ * $Id: dynafun.c,v 1.6 2000-06-08 19:43:59 fjoe Exp $
  */
 
 #include <stdlib.h>
@@ -41,7 +41,7 @@
 #include "module.h"
 
 /*
- * dynafun_call is highly arch-dependent
+ * dynafun_build_args is highly arch-dependent
  *
  * currently it works for FreeBSD/i386 and Linux/i386
  * if you wish to add support for other platforms look into
@@ -82,8 +82,11 @@
  *				.....
  */
 
-static void		dynafun_init(dynafun_data_t *d);
-static dynafun_data_t *	dynafun_cpy(dynafun_data_t *d1, const dynafun_data_t *d2);
+static void dynafun_init(dynafun_data_t *d);
+
+static dynafun_data_t *dynafun_cpy(dynafun_data_t *d1, const dynafun_data_t *d2);
+
+static dynafun_data_t *dynafun_build_args(const char *name, dynafun_args_t *args, int nargs, va_list ap);
 
 typedef void (*dynafun_cb)(dynafun_data_t *d, void *arg);
 static void dynafun_foreach(dynafun_data_t *, dynafun_cb cb, void *arg);
@@ -110,23 +113,105 @@ init_dynafuns(void)
 }
 
 void *
-dynafun_call(int rv_tag, cchar_t name, int nargs, ...)
+dynafun_call(int rv_tag, const char *name, int nargs, ...)
 {
 	dynafun_data_t *d;
 	dynafun_args_t args;
-	int i;
 	va_list ap;
-	va_list args_ap = args.p;
 
-	if ((d = (dynafun_data_t *) hash_lookup(&dynafuns, name)) == NULL) {
-		log(LOG_BUG, "dynafun_call: %s: not found", name);
+	va_start(ap, nargs);
+	d = dynafun_build_args(name, &args, nargs, ap);
+	va_end(ap);
+
+	if (d == NULL)
 		return NULL;
-	}
 
 	if (rv_tag != d->rv_tag) {
 		log(LOG_BUG, "dynafun_call: %s: rv type %d does not match "
 			     "requested rv type %d",
 		    d->name, d->rv_tag, rv_tag);
+		return NULL;
+	}
+
+	return d->fun(args);
+}
+
+void
+dynaproc_call(const char *name, int nargs, ...)
+{
+	dynafun_data_t *d;
+	dynafun_args_t args;
+	va_list ap;
+
+	va_start(ap, nargs);
+	d = dynafun_build_args(name, &args, nargs, ap);
+	va_end(ap);
+
+	if (d == NULL)
+		return;
+
+	d->fun(args);
+}
+
+void
+dynafun_tab_register(dynafun_data_t *dtab, module_t *m)
+{
+	dynafun_foreach(dtab, dynafun_register, m);
+}
+
+void
+dynafun_tab_unregister(dynafun_data_t *dtab)
+{
+	dynafun_foreach(dtab, dynafun_unregister, NULL);
+}
+
+/*--------------------------------------------------------------------
+ * static functions
+ */
+
+static void
+dynafun_init(dynafun_data_t *d)
+{
+	int i;
+
+	d->name = str_empty;
+	d->rv_tag = MT_VOID;
+	d->nargs = 0;
+	for (i = 0; i < DYNAFUN_NARGS; i++)
+		d->argtype[i] = MT_PVOID;
+	d->fun = NULL;
+}
+
+static dynafun_data_t *
+dynafun_cpy(dynafun_data_t *d1, const dynafun_data_t *d2)
+{
+	int i;
+
+	/*
+	 * do not use `str_qdup' here because *d2 can be (and is)
+	 * statically allocated
+	 */
+	free_string(d1->name);
+	d1->name = str_dup(d2->name);
+
+	d1->rv_tag = d2->rv_tag;
+	d1->nargs = d2->nargs;
+	for (i = 0; i < DYNAFUN_NARGS; i++)
+		d1->argtype[i] = d2->argtype[i];
+	d1->fun = d2->fun;
+
+	return d1;
+}
+
+static dynafun_data_t *
+dynafun_build_args(const char *name, dynafun_args_t *args, int nargs, va_list ap)
+{
+	dynafun_data_t *d;
+	int i;
+	va_list args_ap = args->p;
+
+	if ((d = (dynafun_data_t *) hash_lookup(&dynafuns, name)) == NULL) {
+		log(LOG_BUG, "dynafun_call: %s: not found", name);
 		return NULL;
 	}
 
@@ -140,12 +225,11 @@ dynafun_call(int rv_tag, cchar_t name, int nargs, ...)
 		return NULL;
 	}
 
-	va_start(ap, nargs);
 	for (i = 0; i < nargs; i++) {
 		void *arg;
 
 		switch (d->argtype[i]) {
-		case MT_VOID:
+		case MT_PVOID:
 			*(void **) args_ap = va_arg(ap, void *);
 			arg = va_arg(args_ap, void *);
 			continue;
@@ -180,7 +264,7 @@ dynafun_call(int rv_tag, cchar_t name, int nargs, ...)
 
 		default:
 			va_end(ap);
-			log(LOG_BUG, "dynafun_call: %s: %d: unknown type in arg list", d->name, d->argtype[i]);
+			log(LOG_BUG, "dynafun_call: %s: %d: invalid type in arg list", d->name, d->argtype[i]);
 			return NULL;
 		}
 
@@ -194,59 +278,8 @@ dynafun_call(int rv_tag, cchar_t name, int nargs, ...)
 		*(void **) args_ap = arg;
 		arg = va_arg(args_ap, void *);
 	}
-	va_end(ap);
 
-	return d->fun(args);
-}
-
-void
-dynafun_tab_register(dynafun_data_t *dtab, module_t *m)
-{
-	dynafun_foreach(dtab, dynafun_register, m);
-}
-
-void
-dynafun_tab_unregister(dynafun_data_t *dtab)
-{
-	dynafun_foreach(dtab, dynafun_unregister, NULL);
-}
-
-/*--------------------------------------------------------------------
- * static functions
- */
-
-static void
-dynafun_init(dynafun_data_t *d)
-{
-	int i;
-
-	d->name = str_empty;
-	d->rv_tag = MT_VOID;
-	d->nargs = 0;
-	for (i = 0; i < DYNAFUN_NARGS; i++)
-		d->argtype[i] = MT_VOID;
-	d->fun = NULL;
-}
-
-static dynafun_data_t *
-dynafun_cpy(dynafun_data_t *d1, const dynafun_data_t *d2)
-{
-	int i;
-
-	/*
-	 * do not use `str_qdup' here because *d2 can be (and is)
-	 * statically allocated
-	 */
-	free_string(d1->name);
-	d1->name = str_dup(d2->name);
-
-	d1->rv_tag = d2->rv_tag;
-	d1->nargs = d2->nargs;
-	for (i = 0; i < DYNAFUN_NARGS; i++)
-		d1->argtype[i] = d2->argtype[i];
-	d1->fun = d2->fun;
-
-	return d1;
+	return d;
 }
 
 static void

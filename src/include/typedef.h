@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.41 2000-05-24 21:13:02 fjoe Exp $
+ * $Id: typedef.h,v 1.42 2000-06-08 19:43:51 fjoe Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -40,7 +40,8 @@
 #endif
 
 typedef int bool;
-typedef const char * cchar_t;
+typedef const char *cchar_t;
+typedef void *pvoid_t;
 
 #if defined (WIN32)
 typedef unsigned int			uint;

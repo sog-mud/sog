@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic.h,v 1.2 2000-06-02 16:40:40 fjoe Exp $
+ * $Id: magic.h,v 1.3 2000-06-08 19:43:50 fjoe Exp $
  */
 
 #ifndef _MAGIC_H_
@@ -35,10 +35,11 @@
 
 __MODULE_START_DECL
 
-DECLARE_FUN4(void, obj_cast_spell,
-	     cchar_t, sn, int, level, CHAR_DATA, ch, void, vo)
-DECLARE_FUN5(void, spellfun_call,
-	     cchar_t, sn_fun, cchar_t, sn, int, level, CHAR_DATA, ch, void, vo)
+DECLARE_PROC4(obj_cast_spell,
+	      cchar_t, sn, int, level, CHAR_DATA, ch, pvoid_t, vo)
+DECLARE_PROC5(spellfun_call,
+	      cchar_t, sn_fun, cchar_t, sn, int, level,
+	      CHAR_DATA, ch, pvoid_t, vo)
 DECLARE_FUN3(bool, saves_spell,
 	     int, level, CHAR_DATA, victim, int, dam_class)
 DECLARE_FUN3(bool, check_dispel,

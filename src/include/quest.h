@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.h,v 1.13 2000-06-02 16:40:40 fjoe Exp $
+ * $Id: quest.h,v 1.14 2000-06-08 19:43:50 fjoe Exp $
  */
 
 #ifndef _QUEST_H_
@@ -40,26 +40,26 @@
 
 __MODULE_START_DECL
 
-DECLARE_FUN2(void, quest_handle_death,
+DECLARE_PROC2(quest_handle_death,
 	     CHAR_DATA, ch, CHAR_DATA, victim)
-DECLARE_FUN1(void, quest_cancel,
-	     CHAR_DATA, ch)
+DECLARE_PROC1(quest_cancel,
+	      CHAR_DATA, ch)
 
-DECLARE_FUN3(void, qtrouble_set,
-	     CHAR_DATA, ch, int, vnum, int, count)
-DECLARE_FUN2(void, qtrouble_dump,
-	     BUFFER, buf, CHAR_DATA, ch)
+DECLARE_PROC3(qtrouble_set,
+	      CHAR_DATA, ch, int, vnum, int, count)
+DECLARE_PROC2(qtrouble_dump,
+	      BUFFER, buf, CHAR_DATA, ch)
 
-DECLARE_FUN1(void, chquest_start,
-	     int, flags)
+DECLARE_PROC1(chquest_start,
+	      int, flags)
 
-DECLARE_FUN1(void, chquest_add,
-	     OBJ_INDEX_DATA, obj_index)
+DECLARE_PROC1(chquest_add,
+	      OBJ_INDEX_DATA, obj_index)
 DECLARE_FUN2(bool, chquest_delete,
 	     CHAR_DATA, ch, OBJ_INDEX_DATA, obj_index)
 
-DECLARE_FUN1(void, chquest_extract,
-	     OBJ_DATA, obj)
+DECLARE_PROC1(chquest_extract,
+	      OBJ_DATA, obj)
 DECLARE_FUN1(CHAR_DATA, chquest_carried_by,
 	     OBJ_DATA, obj)
 

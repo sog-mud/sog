@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: fight.h,v 1.27 2000-06-02 16:40:40 fjoe Exp $
+ * $Id: fight.h,v 1.28 2000-06-08 19:43:50 fjoe Exp $
  */
 
 #ifndef _FIGHT_H_
@@ -48,21 +48,21 @@
 
 __MODULE_START_DECL
 
-DECLARE_FUN4(void, one_hit,
-	     CHAR_DATA, ch, CHAR_DATA, victim, cchar_t, dt, bool, secondary)
-DECLARE_FUN2(void, handle_death,
-	     CHAR_DATA, ch, CHAR_DATA, victim)
-DECLARE_FUN3(void, multi_hit,
-	     CHAR_DATA, ch, CHAR_DATA, victim, cchar_t, dt)
+DECLARE_PROC4(one_hit,
+	      CHAR_DATA, ch, CHAR_DATA, victim, cchar_t, dt, bool, secondary)
+DECLARE_PROC2(handle_death,
+	      CHAR_DATA, ch, CHAR_DATA, victim)
+DECLARE_PROC3(multi_hit,
+	      CHAR_DATA, ch, CHAR_DATA, victim, cchar_t, dt)
 DECLARE_FUN6(bool, damage,
 	     CHAR_DATA, ch, CHAR_DATA, victim, int, dam,
 	     cchar_t, dt, int, class, int, dam_flags)
-DECLARE_FUN1(void, update_pos,
-	     CHAR_DATA, victim)
-DECLARE_FUN2(void, set_fighting,
-	     CHAR_DATA, ch, CHAR_DATA, victim)
-DECLARE_FUN2(void, stop_fighting,
-	     CHAR_DATA, ch, bool, fBoth)
+DECLARE_PROC1(update_pos,
+	      CHAR_DATA, victim)
+DECLARE_PROC2(set_fighting,
+	      CHAR_DATA, ch, CHAR_DATA, victim)
+DECLARE_PROC2(stop_fighting,
+	      CHAR_DATA, ch, bool, fBoth)
 DECLARE_FUN2(OBJ_DATA, raw_kill,
 	     CHAR_DATA, ch, CHAR_DATA, victim)
 DECLARE_FUN1(cchar_t, vs_dam_alias,

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: update.c,v 1.192 2000-06-07 08:55:49 fjoe Exp $
+ * $Id: update.c,v 1.193 2000-06-08 19:43:58 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -40,51 +40,28 @@ static void *uhandler_load_cb(void *p, va_list ap);
 static void *uhandler_unload_cb(void *p, va_list ap);
 static void *uhandler_tick_cb(void *p, va_list ap);
 
-void *
+void
 uhandler_load(const char *mod_name)
 {
 	module_t *m = mod_lookup(mod_name);
 	if (!m)
-		return NULL;
+		return;
 	hash_foreach(&uhandlers, uhandler_load_cb, m, m->mod_id);
-	return NULL;
 }
 
-void *
+void
 uhandler_unload(const char *mod_name)
 {
 	module_t *m = mod_lookup(mod_name);
 	if (!m)
-		return NULL;
+		return;
 	hash_foreach(&uhandlers, uhandler_unload_cb, m->mod_id);
-	return NULL;
 }
 
-void *
+void
 update_handler(void)
 {
 	hash_foreach(&uhandlers, uhandler_tick_cb);
-	return NULL;
-}
-
-void *
-update_one(const char *hdlr_name)
-{
-	uhandler_t *hdlr = uhandler_search(hdlr_name);
-	if (!hdlr)
-		return NULL;
-	uhandler_update(hdlr);
-	return hdlr;
-}
-
-void *
-update_reset(const char *hdlr_name)
-{
-	uhandler_t *hdlr = uhandler_lookup(hdlr_name);
-	if (!hdlr)
-		return NULL;
-	hdlr->cnt = hdlr->ticks;
-	return NULL;
 }
 
 int
@@ -102,19 +79,38 @@ get_pulse(const char *hdlr_name)
 }
 
 void *
+update_one(const char *hdlr_name)
+{
+	uhandler_t *hdlr = uhandler_search(hdlr_name);
+	if (!hdlr)
+		return NULL;
+	uhandler_update(hdlr);
+	return hdlr;
+}
+
+void
+update_reset(const char *hdlr_name)
+{
+	uhandler_t *hdlr = uhandler_lookup(hdlr_name);
+	if (!hdlr)
+		return;
+	hdlr->cnt = hdlr->ticks;
+}
+
+void
 gain_condition(CHAR_DATA *ch, int iCond, int value)
 {
 	int condition;
 	int damage_hunger;
 
 	if (value == 0 || IS_NPC(ch) || ch->level >= LEVEL_IMMORTAL)
-		return NULL;
+		return;
 
 	if (IS_VAMPIRE(ch)
 	&&  (iCond == COND_THIRST ||
 	     iCond == COND_FULL ||
 	     iCond == COND_HUNGER))
-		return NULL;
+		return;
 
 	condition = PC(ch)->condition[iCond];
 
@@ -167,7 +163,7 @@ gain_condition(CHAR_DATA *ch, int iCond, int value)
 			damage(ch, ch, damage_hunger, NULL,
 			       DAM_NONE, DAMF_SHOW | DAMF_HUNGER);
 			if (ch->position == POS_SLEEPING) 
-				return NULL; 
+				return; 
 			break;
 
 		case COND_THIRST:
@@ -179,7 +175,7 @@ gain_condition(CHAR_DATA *ch, int iCond, int value)
 			damage(ch, ch, damage_hunger, NULL,
 				DAM_NONE, DAMF_SHOW | DAMF_THIRST);
 			if (ch->position == POS_SLEEPING) 
-				return NULL; 
+				return; 
 			break;
 
 		case COND_BLOODLUST:
@@ -203,7 +199,7 @@ gain_condition(CHAR_DATA *ch, int iCond, int value)
 			damage(ch, ch, damage_hunger, NULL,
 				DAM_NONE, DAMF_SHOW | DAMF_THIRST);
 			if (ch->position == POS_SLEEPING) 
-				return NULL; 
+				return; 
 			break;
 
 		case COND_DESIRE:
@@ -214,8 +210,6 @@ gain_condition(CHAR_DATA *ch, int iCond, int value)
 			break;
 		}
 	}
-
-	return NULL;
 }
 
 /*--------------------------------------------------------------------

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.10 2000-06-07 08:55:47 fjoe Exp $
+ * $Id: quest.c,v 1.11 2000-06-08 19:43:57 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -32,14 +32,14 @@
 
 #include "_quest.h"
 
-void *
+void
 quest_handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	CHAR_DATA *hunter;
 
 	if (!IS_NPC(victim)) {
 		log(LOG_BUG, "quest_handle_death: victim is PC");
-		return NULL;
+		return;
 	}
 
 	if (IS_NPC(ch)
@@ -64,18 +64,16 @@ quest_handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 			PC(ch)->questtime = -number_range(5, 10);
 		}
 	}
-
-	return NULL;
 }
 
-void *
+void
 quest_cancel(CHAR_DATA *ch)
 {
 	CHAR_DATA *fch;
 
 	if (IS_NPC(ch)) {
 		log(LOG_BUG, "quest_cancel: called for NPC");
-		return NULL;
+		return;
 	}
 
 	/*
@@ -94,18 +92,16 @@ quest_cancel(CHAR_DATA *ch)
 	PC(ch)->questmob = 0;
 	PC(ch)->questobj = 0;
 	PC(ch)->qroom_vnum = 0;
-
-	return NULL;
 }
 
-void *
+void
 qtrouble_set(CHAR_DATA *ch, int vnum, int count)
 {
 	qtrouble_t *qt;
 
 	if (IS_NPC(ch)) {
 		log(LOG_BUG, "qtrouble_set: called for NPC");
-		return NULL;
+		return;
 	}
 
 	if ((qt = qtrouble_lookup(ch, vnum)) != NULL)
@@ -117,22 +113,18 @@ qtrouble_set(CHAR_DATA *ch, int vnum, int count)
 		qt->next = PC(ch)->qtrouble;
 		PC(ch)->qtrouble = qt;
 	}
-
-	return NULL;
 }
 
-void *
+void 
 qtrouble_dump(BUFFER *output, CHAR_DATA *victim)
 {
 	qtrouble_t *qt;
 
 	if (IS_NPC(victim)) {
 		log(LOG_BUG, "qtrouble_dump: called for NPC");
-		return NULL;
+		return;
 	}
 
 	for (qt = PC(victim)->qtrouble; qt; qt = qt->next)
 		buf_printf(output, "[%d]-[%d] ", qt->vnum, qt->count-1);
-
-	return NULL;
 }

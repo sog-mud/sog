@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: chquest.c,v 1.19 2000-06-02 16:41:01 fjoe Exp $
+ * $Id: chquest.c,v 1.20 2000-06-08 19:43:57 fjoe Exp $
  */
 
 /*
@@ -53,7 +53,7 @@
 /*
  * chquest_start -- create all objects and drop them randomly
  */
-void *
+void
 chquest_start(int flags)
 {
 	chquest_t *q;
@@ -65,17 +65,15 @@ chquest_start(int flags)
 
 		chquest_startq(q);
 	}
-
-	return NULL;
 }
 
-void *
+void
 chquest_add(OBJ_INDEX_DATA *obj_index)
 {
 	chquest_t *q;
 
 	if ((q = chquest_lookup(obj_index)) != NULL)
-		return NULL;
+		return;
 
 #if CHQUEST_DEBUG
 	log(LOG_INFO, "chquest_add: added '%s' (vnum %d)",
@@ -87,8 +85,6 @@ chquest_add(OBJ_INDEX_DATA *obj_index)
 	SET_STOPPED(q);
 	q->next = chquest_list;
 	chquest_list = q;
-
-	return NULL;
 }
 
 /*
@@ -134,13 +130,13 @@ bool chquest_delete(CHAR_DATA *ch, OBJ_INDEX_DATA *obj_index)
  * quest will be restarted automatically from chquest_update (mod_update) 
  * after random delay
  */
-void *
+void
 chquest_extract(OBJ_DATA *obj)
 {
 	chquest_t *q;
 
 	if ((q = chquest_lookup_obj(obj)) == NULL)
-		return NULL;
+		return;
 
 #if CHQUEST_DEBUG
 	log(LOG_INFO, "chquest_extract: finished quest for '%s' (vnum %d)",
@@ -148,7 +144,7 @@ chquest_extract(OBJ_DATA *obj)
 #endif
 	SET_WAITING(q, number_range(15, 20));
 
-	return NULL;
+	return;
 }
 
 CHAR_DATA *

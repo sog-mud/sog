@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: effects.h,v 1.3 2000-06-02 16:40:40 fjoe Exp $
+ * $Id: effects.h,v 1.4 2000-06-08 19:43:50 fjoe Exp $
  */
 
 #ifndef _EFFECTS_H_
@@ -35,20 +35,20 @@
 
 __MODULE_START_DECL
 
-DECLARE_FUN3(void, acid_effect,
-	     void, vo, int, level, int, dam)
-DECLARE_FUN3(void, cold_effect,
-	     void, vo, int, level, int, dam)
-DECLARE_FUN3(void, fire_effect,
-	     void, vo, int, level, int, dam)
-DECLARE_FUN3(void, poison_effect,
-	     void, vo, int, level, int, dam)
-DECLARE_FUN3(void, shock_effect,
-	     void, vo, int, level, int, dam)
-DECLARE_FUN3(void, sand_effect,
-	     void, vo, int, level, int, dam)
-DECLARE_FUN3(void, scream_effect,
-	     void, vo, int, level, int, dam)
+DECLARE_PROC3(acid_effect,
+	      pvoid_t, vo, int, level, int, dam)
+DECLARE_PROC3(cold_effect,
+	      pvoid_t, vo, int, level, int, dam)
+DECLARE_PROC3(fire_effect,
+	      pvoid_t, vo, int, level, int, dam)
+DECLARE_PROC3(poison_effect,
+	      pvoid_t, vo, int, level, int, dam)
+DECLARE_PROC3(shock_effect,
+	      pvoid_t, vo, int, level, int, dam)
+DECLARE_PROC3(sand_effect,
+	      pvoid_t, vo, int, level, int, dam)
+DECLARE_PROC3(scream_effect,
+	      pvoid_t, vo, int, level, int, dam)
 
 __MODULE_END_DECL
 
