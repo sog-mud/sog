@@ -31,6 +31,13 @@ Form 3 -ыми~
 End
 
 #RULE
+Name уверенным~
+BaseLen 7
+Form 1 -ой~
+Form 3 -ыми~
+End
+
+#RULE
 Name доверил~
 BaseLen 6
 Form 1 -ла~
@@ -286,6 +293,13 @@ Form 3 -ись~
 End
 
 #RULE
+Name выдохшимся~
+BaseLen 6
+Form 1 -ейся~
+Form 3 -имися~
+End
+
+#RULE
 Name вошел~
 BaseLen 3
 Form 1 -ла~
@@ -318,11 +332,35 @@ Form 3 -ли~
 End
 
 #RULE
+Name ступивший~
+BaseLen 7
+Form 1 -ая~
+Form 2 -ее~
+Form 3 -ие~
+End
+
+#RULE
 Name сам~
 BaseLen 3
 Form 1 -а~
 Form 2 -о~
 Form 3 -и~
+End
+
+#RULE
+Name окаменел~
+BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name уперся~
+BaseLen 4
+Form 1 -лась~
+Form 2 -лось~
+Form 3 -лись~
 End
 
 #RULE
@@ -342,6 +380,14 @@ Form 3 -ли~
 End
 
 #RULE
+Name самоуверен~
+BaseLen 10
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
 Name кипящий~
 BaseLen 5
 Form 1 -ая~
@@ -355,6 +401,14 @@ BaseLen 13
 Form 1 -а~
 Form 2 -о~
 Form 3 -ы~
+End
+
+#RULE
+Name убил~
+BaseLen 3
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
 End
 
 #RULE
@@ -486,6 +540,14 @@ Form 3 -ют~
 End
 
 #RULE
+Name испытывал~
+BaseLen 8
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
 Name встретил~
 BaseLen 7
 Form 1 -ла~
@@ -579,6 +641,14 @@ BaseLen 5
 Form 1 -ет~
 Form 2 -ет~
 Form 3 -ют~
+End
+
+#RULE
+Name несся~
+BaseLen 3
+Form 1 -лась~
+Form 2 -лось~
+Form 3 -лись~
 End
 
 #RULE
@@ -701,6 +771,14 @@ Form 3 -лись~
 End
 
 #RULE
+Name каков~
+BaseLen 5
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
 Name постарался~
 BaseLen 8
 Form 1 -ась~
@@ -714,6 +792,13 @@ BaseLen 4
 Form 1 -ла~
 Form 2 -ло~
 Form 3 -ли~
+End
+
+#RULE
+Name самому~
+BaseLen 3
+Form 1 -ой~
+Form 3 -им~
 End
 
 #RULE
@@ -860,6 +945,14 @@ Form 3 -ют~
 End
 
 #RULE
+Name вал~
+BaseLen 3
+Form 1 -а~
+Form 2 -о~
+Form 3 -и~
+End
+
+#RULE
 Name воспротивился~
 BaseLen 10
 Form 1 -лась~
@@ -919,6 +1012,14 @@ BaseLen 8
 Form 1 -а~
 Form 2 -о~
 Form 3 -ы~
+End
+
+#RULE
+Name предпочел~
+BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
 End
 
 #RULE
@@ -1040,6 +1141,14 @@ Form 3 -ны~
 End
 
 #RULE
+Name покинул~
+BaseLen 6
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
 Name падает~
 BaseLen 4
 Form 1 -ет~
@@ -1053,6 +1162,13 @@ BaseLen 7
 Form 1 -ла~
 Form 2 -ло~
 Form 3 -ли~
+End
+
+#RULE
+Name оторванным~
+BaseLen 8
+Form 1 -ой~
+Form 3 -ыми~
 End
 
 #RULE
@@ -1175,6 +1291,14 @@ Form 3 -ые~
 End
 
 #RULE
+Name собрал~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
 Name пожирает~
 BaseLen 6
 Form 1 -ет~
@@ -1218,6 +1342,13 @@ BaseLen 8
 Form 1 -ей~
 Form 2 -им~
 Form 3 -ими~
+End
+
+#RULE
+Name такому~
+BaseLen 3
+Form 1 -ой~
+Form 3 -им~
 End
 
 #RULE
@@ -1265,6 +1396,14 @@ BaseLen 8
 Form 1 -ла~
 Form 2 -ло~
 Form 3 -ли~
+End
+
+#RULE
+Name побеждал~
+BaseLen 8
+Form 1 -а~
+Form 2 -о~
+Form 3 -и~
 End
 
 #RULE
@@ -1386,6 +1525,13 @@ BaseLen 7
 Form 1 -лась~
 Form 2 -лось~
 Form 3 -лись~
+End
+
+#RULE
+Name путешественнику~
+BaseLen 13
+Form 1 -це~
+Form 3 -кам~
 End
 
 #RULE
@@ -1790,6 +1936,14 @@ Form 3 -ли~
 End
 
 #RULE
+Name согреваемый~
+BaseLen 9
+Form 1 -ая~
+Form 2 -ое~
+Form 3 -ые~
+End
+
+#RULE
 Name переместил~
 BaseLen 9
 Form 1 -ла~
@@ -1862,6 +2016,14 @@ Form 3 -ют~
 End
 
 #RULE
+Name вырос~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
 Name исчез~
 BaseLen 5
 Form 1 -ла~
@@ -1915,6 +2077,14 @@ BaseLen 6
 Form 1 -а~
 Form 2 -о~
 Form 3 -ы~
+End
+
+#RULE
+Name ждал~
+BaseLen 3
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
 End
 
 #RULE
@@ -2116,6 +2286,13 @@ BaseLen 3
 Form 1 -ла~
 Form 2 -ло~
 Form 3 -ли~
+End
+
+#RULE
+Name ким~
+BaseLen 1
+Form 1 -ой~
+Form 3 -ими~
 End
 
 #RULE

@@ -1,10 +1,10 @@
 #CLAN
 Name Shalafi~
+SkillSpec 'clan_shalafi'
 Item 95301
 Mark 95306
 Altar 95300
 Flags hidden~
-SkillSpec clan_shalafi
 End
 
 #$
