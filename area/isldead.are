@@ -1506,7 +1506,7 @@ key~
 the bone key~
 A small bone key lies here.~
 bone~
-trash APU CI AO
+key APU CI AO
 0 0 0 0 0
 3 5 0 P
 g none~
@@ -1557,7 +1557,7 @@ key APU CI AO
 g none~
 #22361
 chest~
-~
+chest~
 A huge wooden chest lies here.~
 wood~
 container Y B 0
@@ -1572,6 +1572,15 @@ unknown~
 container Y B 0
 1000 ABCD 22354 1000 0
 50 10000 0 P
+g none~
+#22363
+chest~
+chest~
+A huge wooden chest lies here.~
+wood~
+container Y B 0
+1000 ABCD 22355 1000 0
+45 0 0 P
 g none~
 #22399
 battleaxe dagger sword~
@@ -4584,8 +4593,9 @@ P 0 22347 1 22335 1	* a chest: the flail named "Thunderfist"
 P 0 22348 10 22335 1	* a chest: a pair of ebony boots
 M 0 22327 1 22391 1	* Itangast, the Fire Drake (The Gate before Treasure Keep)
 E 0 22351 0 17		*	the key of treasure keep: held in the hands
-O 0 22361 0 22392	*  (The North-West Coner of Treasure Keep)
+O 0 22361 0 22392	* chest (The North-West Coner of Treasure Keep)
 O 0 22362 0 22394	* chest (The North Wall of Treasure Keep)
+O 0 22363 0 22396	* chest (The North-East Corner of Treasure Keep)
 S
 
 #OLIMITS

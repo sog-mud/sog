@@ -21,6 +21,11 @@ BTe 0 H 0 ABL 0 0
 ACEFHKMR
 stand stand male 0
 0 0 huge unknown
+r bash 50
+r pierce 50
+r slash 50
+r cold 0
+r charm 100
 #22102
 gray lizard~
 gray lizard~
@@ -252,16 +257,21 @@ stand stand none 0
 #22119
 bodyguard~
 bodyguard~
-Strong man ready to die for the king.
+Strong lizard who ready to die for the king.
 ~
 ~
 lizard~
-T 0 0 0 AB 0 0
+BTe 0 H 0 AB 0 0
 60 0 50d10+8000 1d1+100 11d5+33 'punch'
 -30 -30 -30 -15
 R
 stand stand none 10000
 0 0 large unknown
+r bash 50
+r pierce 50
+r slash 50
+r cold 0
+r charm 100
 #22120
 shaman~
 shaman~

@@ -1960,9 +1960,9 @@ jewelry QY 0 AC
 0 0 0 0 0
 25 10 3000 P
 A
-13 10
+24 -6
 A
-20 -2
+13 10
 A
 5 2
 A
@@ -6013,7 +6013,7 @@ you sense someone else lurking there and staring back at you.
 нее, ты все больше утверждаешься в мысли, что кто-то живой
 прячется в ней и неотрывно наблюдает за тобой.
 ~
-0 A inside
+0 A underwater
 D1
 ~
 ~

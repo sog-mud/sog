@@ -401,6 +401,40 @@ r fire 33
 r cold -50
 r lightning 33
 r sound -50
+#22471
+giant cracken~
+Giant cracken~
+A giant cracken swimming here , attack itruders.
+~
+Its very strange being.It protected by large brown scales from attack.
+Its blood red eyes looks on you search you defensiveless place.
+Strange aura surrounds its - aura of pain and blood and doing a sound
+"SCRAMP" it atatck you.
+~
+fish~
+CF 0 HVa A AB 0 0
+30 15 2d20+3000 1d1+99 1d30+20 'shbite'
+-20 -20 -20 -20
+0
+stand stand none 0
+0 0 medium unknown
+F par AEJ
+r bash 30
+r pierce 40
+r slash 30
+r mental 30
+#22472
+human sergeant~
+~
+~
+~
+human~
+0 0 0 0 AB 0 0
+30 20 20d20+1900 1d2+99 1d10+15 'slash'
+-12 -12 -12 -12
+ADFHJK
+stand stand none 0
+0 0 medium unknown
 #22479
 ~
 ~
@@ -914,6 +948,15 @@ A
 18 -5
 A
 19 8
+g none~
+#22492
+jewelled dagger~
+Jewelled dagger~
+A long-bladed dagger with incrusted jewels lies here, waiting his master.~
+unknown~
+weapon A 0 AN
+dagger 8 5 'pierce' 0
+30 5 0 P
 g none~
 #0
 
@@ -3915,7 +3958,7 @@ D0
 Z 0 22537
 D1
 ~
-~
+trapdoor~
 ~
 ~
 Z 0 22560
@@ -3927,9 +3970,13 @@ D2
 Z 0 22558
 S
 #22560
+Inside of treasure keep~
+You stand before a treasure keep.Around you stands a lots of chest ,
+probably filled with gold, jewellery and other pretty things ...
+But you think that treasure must be protected buy somebody and 
+you don't did a mistake.
 ~
-~
-0 0 inside
+0 AX inside
 D3
 ~
 ~
@@ -4052,6 +4099,12 @@ D1
 ~
 ~
 Z 0 22564
+D5
+~
+~
+~
+~
+Z 0 22569
 S
 #22566
 In the dark deep tunnel~
@@ -4113,12 +4166,53 @@ D2
 ~
 Z 0 22567
 S
+#22569
+In the small underwater lake~
+You swimming in the cold water. A lots of fishs and other water creatures
+wildly dances in water around you.You think that it lake is very peaceful 
+place and swim deeper and deeper.Suddenly you see a small uderwater cave
+and decide to enter in this cave.You don't know that it was you last 
+mistake ...
+~
+0 AX underwater
+D0
+~
+~
+~
+~
+Z 0 22570
+D4
+~
+~
+~
+~
+Z 0 22565
+S
+#22570
+In the cracken lair~
+You appears in a small underwater cave.Its very strange and dangerrous place
+- around you are a lots of corpses and bones , such as a some giant creature
+have dinner here.You thank Gods for you can't sense smell under water and 
+look around.There are many corpses,bones and other remains and parts of
+clothes and skins surround you.But suddenly from dark corner appear a master
+of this lair - giant cracken and attack you , who dare to disturb it ,
+intrude in its home.
+~
+0 AX underwater
+D2
+~
+~
+~
+~
+Z 0 22569
+S
 #0
 
 #SPECIALS
 M 22464 spec_breath_gas	* Queen of Nagas
 M 22465 spec_cast_cleric	* Tellias
 M 22466 spec_cast_mage	* Mifner
+M 22471 spec_nasty	* Giant cracken
 S
 
 #RESETS

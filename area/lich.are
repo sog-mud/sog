@@ -9,54 +9,51 @@ End
 
 #MOBILES
 #29350
-Death Knight~
+Death Knight рыцарь смерти~
 @eng A Death Knight@rus ~~Рыцарь~~ Смерти~
 @eng An undead, skeletal knight guards this room.
 @rus Скелетоподобный воин (knight) охраняет это место.
 ~
 @eng Death Knights are a powerful enemy.  Turned undead by powerful
 necromancy, they were the most renown knights of their day.  
-@rus Рыцарь смерти - сильный противник. Могучая некромантия подарила когда-то
-ему бессмертие. Долгие годы оттачивания мастерства сделали его одним из
-лучших бойцов.
+@rus Рыцарь смерти - достойный противник. Когда-то прославленный рыцарь,
+он был убит и навечно порабощен с помощью черной магии.
 ~
 undead~
 FGO 0 c 0 0 -1000 0
 20 0 7d45+300 25d10+100 4d5+10 'magic'
 -2 -2 -2 4
 CDEIKU
-stand stand none 800
+stand stand male 800
 0 0 medium unknown
 r fire -50
 r cold 33
 r lightning 33
 r mental 100
 #29351
-torturer inquisitor ~
+inquisitor инквизитор~
 @eng The Inquisitor@rus ~~Инквизитор~~~
 @eng The Inquisitor is here preparing various torture devices.
-@rus Инквизитор (Inquisitor) здесь, готовит пытошый инструмент.
+@rus Инквизитор (Inquisitor) готовит пыточные приспособления здесь.
 ~
 @eng This evil creature looks like a zombie but acts much more sinister.  It
 uses its magical abilities to keep its victims alive while it's torturing
 them.  
-@rus 
-Это злобное существо - всего лишь мертвяк, но это придает ее пригото-
-влениям еще большую зловещесть.  Чувствуется, что оно приложет всю свою
-магическую силу для того, что бы ее жертва подольше пожила на пытошном
-столе.  
+@rus Он похож на зомби, но совсем не равнодушен к происходящему вокруг,
+как большая часть живых мертвецов. Он использует свою магическую
+силу, чтобы оттянуть смерть своих жертв и продлить их муки.
 ~
 zombie~
 BOQ 0 Jc 0 0 -1000 0
-30 0 10d61+616 30d10+100 5d6+15 'magic'
+35 10 5d60+750 30d10+100 5d6+15 'magic'
 -9 -9 -9 0
 CN
-stand stand none 800
+stand stand male 800
 0 0 medium unknown
 r fire 33
 r holy 33
 #29352
-demon minor~
+demon minor младший демон~
 @eng A Minor Demon@rus ~~Младший~~ ~~Демон~~~
 @eng A minor demon stands here surrounded in flames.
 @rus Младший Демон (demon) стоит тут, окруженный пламенем.
@@ -64,18 +61,17 @@ demon minor~
 @eng An aggresive looking demon stands here in the brazier's flames.  It
 appears to have been summoned and is quite angry about it.  The long claws
 and fangs it uses as weapons make you consider running as fast as posible.  
-@rus 
-Весьма воинственно настроенное сущеcтво стоит рядом с тобой и дышит
-пламенем.  Кто-то вызвал его сюда, вырвав из привычного мира, и демон зол на
-всех вокруг.  Свои длинные клыки и когти он привык использовать как оружие,
-и тебе нужно поспешить хоть что-то противопоставить им, что бы выжить.
+@rus Воинственно выглядящий демон стоит в пламени жаровни. Похоже,
+он очень недоволен тем, что вызван сюда из привычного ему мира.
+Вид длинных когтей и клыков, служащих ему оружием, заставляет
+тебя в спешке ретироваться.
 ~
 human~
 BT 0 T 0 0 -1000 0
-30 30 10d61+1600 45d10+100 5d8+19 'magic'
+30 30 10d30+1600 45d10+100 5d8+19 'magic'
 -9 -9 -9 0
 CDFHK
-stand stand male 800
+stand stand neutral 800
 C 0 medium unknown
 r fire 100
 r cold -50
@@ -84,7 +80,7 @@ r mental 33
 r disease 33
 r poison 33
 #29353
-demon major~
+demon major старший демон~
 @eng A Major Demon@rus ~~Старший~~ ~~Демон~~~
 @eng A Major Demon floats here in the flames.
 @rus Старший демон (demon) парит здесь, объятый пламенем.
@@ -93,19 +89,19 @@ demon major~
 tail, claws, fangs, he is everything you have pictured a demon would be. 
 His black scaled skin gleams in the firelight The burning flames in his eyes
 corrupt your soul.  Fear him mortal for you are about to die.  
-@rus 
-Огромный черный демон парит перед тобой в огне.  Его крылья, хвост, когти
-и клыки - все такое же как на картинке в Бестиарии, нарисованной по
-рассказам нескольких случайно выживших очевидцев.  Его черная, гладкая кожа
-переливается огненными бликами.  Обжигающее пламя его глаз искажает твою
-душу.  Смертельный ужас наполняет тебя предчувствием конца.  
+@rus Большой и весьма злобно выглядящий демон стоит перед тобой, объятый
+пламенем. Он обладает и крыльями, и когтями, и клыками - в общем,
+всем, что должен иметь демон в твоем представлении. Покрытая чешуей
+черная шкура поблескивает в свете пламени, а неземной огонь в его
+глазах заставляет тебя думать о таких вещах, в которых ты вряд ли
+захотел бы признаться. Дрожи, смертный - ибо смерть твоя близка!
 ~
 dragon~
 BOT 0 0 0 0 -1000 0
-45 45 10d150+1000 45d10+950 11d5+35 'magic'
+40 25 5d80+1500 45d10+950 11d5+20 'magic'
 -18 -18 -18 -4
 ACFKM
-stand stand none 800
+stand stand neutral 800
 Cc L large unknown
 r pierce 0
 r slash 33
@@ -120,27 +116,26 @@ r charm 0
 r harm -50
 r light -50
 #29354
-lich lord myzelak~
-@eng Myzelak the Lich Lord@rus ~~Мизелак~~~
+lich lord myzelak лич мизелак~
+@eng Myzelak the Lich Lord@rus ~~Лич~~ ~~Мизелак~~~
 @eng Myzelak the Lich Lord stands here by his throne.
-@rus Мизелак (Myzelak), Лорд-Лич стоит у трона.
+@rus Лич Мизелак (Myzelak) стоит подле своего трона.
 ~
 @eng Evil incarnate, Myzelak spent years of his life perfecting his magical
 abilities to grant him life after death.  The result of his work stands
 before you, a rotting representation of what the wizard used to be.  Myzelak
 now spends his time searching for ways to end all life in StormFront.  
-@rus 
-Воплощение зла, Мизелак потратил долгие годы на поиск секрета жизни после
-смерти.  Результат перед тобой, и только несколько трупных пятен портят
-картину.  А Мизелак нашел себе новое занятие - теперь он ищет пути к
-прекращению всякой жизни.  
+@rus Воплощение зла, Мизелак потратил многие годы, совершенствуя свои магические
+способности и пытаясь найти секрет жизни после смерти. Результат перед то-
+бой, лишь немного подгнивший. Меперь он коротает вечность в поисках способов
+расправиться с остальными живыми.
 ~
 lich~
 BOQR 0 J 0 H -1000 0
-55 55 15d300+2000 45d10+1950 9d11+45 'magic'
+50 30 15d300+2000 45d10+1950 8d10+35 'drain'
 -24 -24 -24 -7
 IJN
-stand stand none 800
+stand stand male 800
 0 0 medium unknown
 r fire 33
 r acid 33
@@ -152,76 +147,86 @@ r charm 33
 r harm 33
 r light 33
 #29355
-dracolich mount dragon~
+dracolich mount dragon драколич~
 @eng The Dracolich@rus ~~Драколич~~~
 @eng Myzelak's ancient dracolich mount.
-@rus Костяной дракон (dracolich) Мизелака возвышается над тобой.
+@rus Драколич (dracolich) Мизелака возвышается над тобой.
 ~
 @eng Myzelak's Dracolich mount towers above you.  Fiery red lights gleam in
 its hollow eye sockets as it growls at you.  The undead dragon is monstrous,
 perhaps you should run now, before you're dead.  ;> 
-@rus 
- Драколич Мизелака башней возвышается перед тобой.  Вдруг в темных
-провалах его глазниц вспыхнул багровый свет, он повернул к тебе свою
-огромную голову-череп и зарычал.  Он просто ужасен, приготовься, может быть 
-тебе придется снова драться, но недолго - до самой смерти...
+@rus Драколич, служащий Мизелаку транспортом, возвышается над тобой. Красные
+огни пылают в его пустых глазницах, сопровождаемые злобным рычанием. Он
+просто ужасен и лучше бы тебе поскорей уносить ноги.
 ~
 dracolich~
-BOT 0 0 0 0 -1000 0
-40 40 10d150+1500 45d10+1950 8d6+28 'magic'
+BO 0 0 0 0 -1000 0
+40 30 10d50+1600 20d10+1300 8d9+35 'claw'
 -15 -15 -15 -2
 CDFMO
-stand stand none 800
-c L giant unknown
+stand stand neutral 800
+c 0 giant unknown
+F par DEFGHIJKX
+r slash 33
 r fire 0
 r acid 33
 r holy -50
+r negative 100
+r disease 100
+r poison 100
 #29356
-elite death knight~
+elite death knight элитный рыцарь смерти~
 @eng An Elite Death Knight@rus ~~Элитный~~ ~~Рыцарь~~ Смерти~
 @eng An Elite Death Knight laughs an unholy cackle and attacks.
-@rus Элитный Рыцарь (knight) Смерти гнусно расхохотался и напал.
+@rus Элитный Рыцарь смерти (death knight) атакует тебя с громким хохотом.
 ~
 @eng A huge skeletal figure confronts you.  He wields an old longsword covered
 in runes and carries a large black shield that can only be a dragon's scale.
 He looks very much like the Death Knights you encountered earlier except he
 is much larger and appears to be more powerful as well.  
-@rus 
-Огромный скелет стоит перед тобой.  В лапах его старый меч, покрытый
-рунами и большой черный щит из...  Да!  - это кожа дракона.  Он выглядит
-намного сильней уже встречавшихся тебе воинов Смерти - огромная и невероятно
-сильная тварь.  
+@rus Огромный скелет стоит перед тобой. В руках он держит старый, покрытый
+рунами меч и большой черный щит, сделанный из чешуи дракона. Он похож
+на тех рыцарей, что ты видел прежде, если не считать того, что он нам-
+ного больше и сильнее.
 ~
-zombie~
-BFOT 0 0 0 0 -900 0
-50 50 10d169+1000 45d10+2950 8d10+40 'magic'
+undead~
+BFJOT 0 0 0 0 -1000 0
+40 50 10d80+1200 45d10+2950 8d10+40 'magic'
 -24 -24 -24 -7
-CDFIKO
-stand stand none 800
+0
+stand stand male 800
 0 0 large unknown
-r bash 0
-r pierce 0
-r slash 0
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 50
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r charm 100
+r harm 100
 #0
 
 #OBJECTS
 #29350
-black mace ~
-an old black mace~
-An old, black iron mace lies here undisturbed~
+mace black черная дубина~
+@eng an old black mace@rus ~~старая~~ ~~черная~~ ~~дубина~~~
+@eng An old, black iron mace lies here undisturbed@rus Старая черная дубина (mace) из железа лежит на земле.~
 iron~
 weapon B 0 AN
-mace 6 7 'pound' 0
-40 25 1000 P
-g none~
+mace 3 9 'pound' 0
+20 25 5000 P
+g @eng none@rus female~
 #29351
-glowing skull~
-a Flaming Skull~
-A human skull floats here, outlined in blue flames.~
-stone~
-light AG 0 AO
+glowing skull пылающий череп~
+@eng a Flaming Skull@rus ~~пылающий~~ ~~череп~~~
+@eng A human skull floats here, outlined in blue flames.@rus Объятый пламенем человеческий череп (skull) висит в воздухе.~
+bone~
+light AGY 0 AO
 0 0 999 0 0
-48 5 1000 P
+35 5 1000 P
 A
 5 -2
 A
@@ -235,49 +240,31 @@ A
 A
 3 2
 g none~
-#29352
-wand golden~
-a golden wand~
-A small golden wand lies amongst the treasure~
-gold~
-wand 0 0 AO
-50 10 10 'shield' 0
-50 3 500 P
-g none~
-#29353
-staff crystal~
-a crystal staff~
-A beautiful crystaline staff lies here amongst the treasure.~
-stone~
-staff G 0 AO
-70 5 5 'heal' 0
-60 10 800 P
-g none~
 #29354
-garnet ring~
-a Garnet Ring~
-A small garnet ring lies here amongst the treasure.~
+garnet ring кольцо гранат золотое~
+@eng a Garnet Ring@rus ~~кольцо~~ с гранатом~
+@eng A small garnet ring lies here amongst the treasure.@rus Золотое кольцо (ring) с гранатом блестит тут.~
 gold~
 treasure AG 0 AB
 0 0 0 0 0
-58 1 900 P
+45 1 900 P
 A
-19 3
+19 2
 A
-12 50
+12 30
 A
 3 2
 A
 18 2
-g none~
+g @eng none@rus neutral~
 #29355
-bracer night~
-the Bracer of the Night~
-A black bracer covered in ancient runes lies here.~
+bracer night браслет ночи~
+@eng the Bracer of the Night@rus ~~браслет~~ ночи~
+@eng A black bracer covered in ancient runes lies here.@rus Покрытый рунами черный браслет (bracer) лежит тут.~
 adamantite~
 armor BG 0 AM
-18 18 17 8 0
-54 5 1500 P
+10 10 10 8 0
+30 5 1500 P
 A
 18 2
 A
@@ -286,22 +273,22 @@ A
 5 1
 g none~
 #29356
-amulet night~
-the Amulet of the Night~
-An old amulet lies here glowing in unnatural blue light.~
+amulet night амулет ночи~
+@eng the Amulet of the Night@rus ~~амулет~~ ночи~
+@eng An old amulet lies here glowing in unnatural blue light.@rus Старый амулет (amulet) лежит здесь, излучая неестественный синий свет.~
 silver~
 armor AG 0 AC
-21 21 21 10 0
-64 3 2000 P
+11 11 11 9 0
+40 3 2000 P
 A
-14 25
+12 30
 A
-12 50
+14 15
 A
 3 1
 A
 4 1
-g none~
+g @eng none@rus male~
 #29357
 ancient longsword sword~
 an Ancient Longsword~
@@ -906,10 +893,14 @@ D3
 Z 0 29357
 S
 #29363
-A Summoning Room~
-Various runes and pentagrams have been scrawled into the stone at your
+@eng A Summoning Room@rus Комната для призывания~
+@eng Various runes and pentagrams have been scrawled into the stone at your
 feet.  A large golden brazier blasts flames in the middle of the room.  The
 only exits are north, to the stairs, and east, to the torture chamber.  
+@rus Пол здесь испещрен пентаграммами и причудливыми рунами. Жаровня
+из чистого золота стоит посредине комнаты, пыша пламенем во все
+стороны. Выход на лестницу находится на севере, а на востоке -
+комната пыток.
 ~
 0 D inside
 D0
@@ -926,12 +917,18 @@ D1
 Z 0 29364
 S
 #29364
-The Torture Chamber~
-Assorted torture devices clutter this room.  Against the eastern wall,
+@eng The Torture Chamber@rus Комната пыток~
+@eng Assorted torture devices clutter this room.  Against the eastern wall,
 three rotting bodies hang, each with its guts strewn across the floor.  You
 feel a tinge of remorse for the poor men before your heart rises in anger,
 now the only thing that matters to you is to avenge their deaths.  The
 summoning rooms provide exit to the north and west.  
+@rus Разнообразные пыточные приспособления в беспорядке разбросаны и
+расставлены вокруг. Три гниющих тела висят вдоль восточной стены,
+доставая до самого пола висящими из развороченных утроб кишками.
+Жалость к несчастным быстро уступает место гневу и желанию ото-
+мстить их убийце любой ценой. На севере и западе находятся комнаты
+для призывания существ из чуждых миров.
 ~
 0 D inside
 D0
@@ -948,11 +945,15 @@ D3
 Z 0 29363
 S
 #29365
-A Summoning Room~
-Various runes and pentagrams have been scrawled into the stone at your
+@eng A Summoning Room@rus Комната для призывания~
+@eng Various runes and pentagrams have been scrawled into the stone at your
 feet.  Towards the middle of the room, a large silver brazier spouts fire. 
 The only exits are west, back to the stairs, and south, to the torture
 chamber.  
+@rus Пол здесь испещрен пентаграммами и причудливыми рунами. Жаровня
+из чистого серебра стоит посредине комнаты, пыша пламенем во все
+стороны. Выход на лестницу находится на западе, а на юге - комната
+пыток.
 ~
 0 D inside
 D2
@@ -969,9 +970,12 @@ D3
 Z 0 29358
 S
 #29366
-A Large Hall~
-You stand in a large, elaborately decorated hallway.  The stairs are back
+@eng A Large Hall@rus Широкий коридор~
+@eng You stand in a large, elaborately decorated hallway.  The stairs are back
 to the north and a large set of double doors are to the east.  
+@rus Ты стоишь в широком, тщательно и со вкусом отделанном коридоре.
+Лестница, ведущая вниз, находится на севере, а большие двуствор-
+чатые двери ведут на восток.
 ~
 0 D inside
 D0
@@ -988,12 +992,18 @@ D1
 ABZ 0 29367
 S
 #29367
-The Lich's Throne Room~
-Entering this room, your eyes lock on a large bone throne and its
+@eng The Lich's Throne Room@rus Тронный зал лича~
+@eng Entering this room, your eyes lock on a large bone throne and its
 occupent sitting against the eastern wall.  The room is handsomely decorated.
 Ancient grimoires and scrolls catch your eye for a brief second, just long
 enough for Myzelak the Lich Lord to attack.  The only exits are through the
 doors to your north or west.  
+@rus Первое что ты видишь, войдя сюда - большой трон, сделанный
+из костей и существо, сидящее на нем. Потом ты замечаешь бо-
+гатое и небезвкусное убранство комнаты, и множество свитков
+и фолиантов, отвлекших тебя ровно настолько, чтобы Мизелак
+успел напасть. Ты можешь убежать через любую из дверей - на
+север либо на запад.
 ~
 0 D inside
 D0
@@ -1010,9 +1020,12 @@ D3
 ABZ 0 29366
 S
 #29368
-A Large Hall~
-You stand in a large, elaborately decorated hallway.  The stairs are back
+@eng A Large Hall@rus Широкий коридор~
+@eng You stand in a large, elaborately decorated hallway.  The stairs are back
 to the west and a large set of doors block your way south.  
+@rus Ты стоишь в широком, тщательно и со вкусом отделанном коридоре.
+Лестница, ведущая вниз, находится на севере, а большие двуствор-
+чатые двери ведут на восток.
 ~
 0 D inside
 D2
@@ -1029,11 +1042,13 @@ D3
 Z 0 29359
 S
 #29369
-A Storage Room~
-This room appears to be what is left of the kitchen's storage room.  An
+@eng A Storage Room@rus Кладовая~
+@eng This room appears to be what is left of the kitchen's storage room.  An
 old door has been knocked off of its hinges to the south, revealing an
 ancient tunnel sloping down into the ground.  You can go back north to the
 kitchen or south into the dark tunnel.  
+@rus Это то, что осталось от кладовой. Дверь, ведущая на юг, давно
+сорвана с петель и ты видишь там древний туннель, уходящий под землю.
 ~
 0 D inside
 D0
@@ -1050,11 +1065,15 @@ D2
 Z 0 29370
 S
 #29370
-Above a Pit~
-A large torch hangs against the wall glowing brightly.  In front of you
+@eng Above a Pit@rus Над колодцем~
+@eng A large torch hangs against the wall glowing brightly.  In front of you
 the floor disappears, leaving a large hole in the ground.  You can go north
 into the storage room, or down an old rope ladder into the blackness of the
 pit.  
+@rus Большой факел ярко горит, позволяя вовремя заметить дыру в
+полу, достаточно широкую, чтобы ты в нее легко провалился.
+Старая веревка, привязанная к чему-то в углу, ведет вниз, в
+темноту.
 ~
 0 D inside
 D0
@@ -1071,9 +1090,12 @@ D5
 Z 0 29371
 S
 #29371
-Under a Pit~
-You stand underneath the pit.  In this pitch black room the only thing
+@eng Under a Pit@rus На дне колодца~
+@eng You stand underneath the pit.  In this pitch black room the only thing
 that you can make out is a tunnel running in a south direction.  
+@rus Ты спустился по веревке и стоишь на твердой земле. Здесь очень
+темно и ты можешь разглядеть лишь то, что южной стены нет, а вместо
+нее взаль уходит какой-то тоннель.
 ~
 0 D inside
 D2
@@ -1090,10 +1112,11 @@ D4
 Z 0 29370
 S
 #29372
-A Darkened Tunnel~
-You stand in an ancient and dark tunnel.  From the south light shines
+@eng A Darkened Tunnel@rus Темный тоннель~
+@eng You stand in an ancient and dark tunnel.  From the south light shines
 into the room.  You may go back north to the pit, or, south towards
 the light.  
+@rus Темный и очень старый тоннель. Слабый свет виден дальше на юге.
 ~
 0 AD inside
 D0
@@ -1110,12 +1133,15 @@ D2
 Z 0 29373
 S
 #29373
-Before the Caverns~
-You have found it and it's just as the legends say.  This is the entrance
+@eng Before the Caverns@rus Перед пещерами~
+@eng You have found it and it's just as the legends say.  This is the entrance
 to the Caverns of the Damned.  A large pit lies hollowed into the ground,
 magical glyphs and wards surround it, keeping this realm safe from any
 wandering spirits.  It is said that the only way for a mortal to enter the
 realms of hell is for them to make it through the maze of caverns below you.
+@rus Ты нашел то, о чем говорят легенды - вход в Проклятые пещеры. Яма
+в земле перед тобой ведет еще ниже, окруженная охранными заклятиями,
+удерживающими духов по ту сторону. Говорят, эти пещеры ведут прямо в ад.
 ~
 0 D inside
 D0
@@ -1176,6 +1202,7 @@ E 0 29358 0 11		*	a black dragon scale: as a shield
 M 0 29354 1 29367 1	* Myzelak the Lich Lord (The Lich's Throne Room)
 E 0 29359 0 16		*	the Hell's Wraith: wielded
 E 0 29360 0 12		*	sorceror's robes: about the shoulders
+E 0 29354 0 1		*	a Garnet Ring: on the left finger
 M 0 29356 2 29368 1	* An Elite Death Knight (A Large Hall)
 E 0 29357 0 16		*	an Ancient Longsword: wielded
 E 0 29358 0 11		*	a black dragon scale: as a shield

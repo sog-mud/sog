@@ -1132,6 +1132,14 @@ Form 3 -и~
 End
 
 #RULE
+Name обезоруживает~
+BaseLen 11
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
 Name красный~
 BaseLen 5
 Form 1 -ая~
@@ -1225,6 +1233,14 @@ BaseLen 7
 Form 1 -лась~
 Form 2 -лось~
 Form 3 -лись~
+End
+
+#RULE
+Name вырывает~
+BaseLen 6
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
 End
 
 #RULE
